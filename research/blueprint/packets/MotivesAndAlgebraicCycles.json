@@ -675,8 +675,36 @@
     "module": "Mathlib/Algebra/Polynomial/Laurent.lean",
     "provides": "T(m+n)=T(m)*T(n), together with T(0)=1, verifies the inverse in the Laurent Tate model.",
     "checked": "Actual statement read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by Codex codex-5ebb6f, 30 September 2026."
+   },
+   {
+    "ref": "mathlib:CategoryTheory.Monad.monadicOfHasPreservesReflectsGSplitCoequalizers",
+    "module": "Mathlib/CategoryTheory/Monad/Monadicity.lean",
+    "provides": "Given a left adjoint and existence, preservation and reflection of G-split coequalizers, constructs MonadicRightAdjoint G. Read lines 252–330; no relative tensor comparison is included.",
+    "checked": "Statement read at Mathlib 082e2d3, 2026-09-30, FIX-RT-AREA-geomlanglands~2"
+   },
+   {
+    "ref": "mathlib:CategoryTheory.Ind",
+    "module": "Mathlib/CategoryTheory/Limits/Indization/Category.lean",
+    "provides": "Category of ind-objects as the full subcategory of presheaves consisting of filtered colimits of representables, with fully faithful Ind.yoneda. Read definition and surrounding statements; a monoidal/internal-comodule adapter is still required.",
+    "checked": "Statement read at Mathlib 082e2d3, 2026-09-30, FIX-RT-AREA-geomlanglands~2"
+   },
+   {
+    "ref": "mathlib:CategoryTheory.BimonObj",
+    "module": "Mathlib/CategoryTheory/Monoidal/Bimon_.lean",
+    "provides": "Bimonoid compatibility laws for a monoid and comonoid object in a braided monoidal category. The file lists Tannaka reconstruction as TODO; it does not construct H from F.",
+    "checked": "Statement read at Mathlib 082e2d3, 2026-09-30, FIX-RT-AREA-geomlanglands~2"
    }
-  ]
+  ],
+  "abstractReconstructionAudit": {
+   "by": "FIX-RT-AREA-geomlanglands~2",
+   "mathlibNearMisses": [
+    "RepresentationTheory/Tannaka.lean: TannakaDuality.equiv reconstructs a fixed finite group over an integral domain.",
+    "Algebra/Category/ModuleCat/Tannaka.lean: ringEquivEndForget₂ reconstructs a fixed ring from its module forgetful functor."
+   ],
+   "taucetiNearMiss": "GroupFunctor.lean pointsFunctorIsoTensorAutFunctor starts with a commutative Hopf algebra H over a field k; Reconstruction.lean reconstructs points of that H. Neither constructs a representing H for arbitrary neutral (C,ω).",
+   "coverage": "No MotivesAndAlgebraicCycles entry exists in the reviewed library-coverage.json at input bad86c8. Accepted PAPER-ZHU-17 route 11 explicitly records this and credits only the known-Hopf theorem.",
+   "upstream": "Read the synced upstream ReductiveGroups layers 1 and 6 as ownership contracts, not new declarations at the library pin; no upstream edits or review."
+  }
  },
  "sources": [
   {
@@ -835,12 +863,26 @@
    "edition": "Corrected TeXed version of the article in Hodge Cycles, Motives, and Shimura Varieties (Lecture Notes in Mathematics 900, 1982), numbering unchanged; posted by Milne, minor corrections 15 August 2012",
    "url": "https://www.jmilne.org/math/xnotes/tc.pdf",
    "sha256": "48f8af5249081217fc4a806414a764d9d69d66eff9092ddd8e2cf0ea078579e8",
-   "accessed": "2026-09-24",
+   "accessed": "2026-09-30",
    "readSections": [
     "Proposition 1.13 (page 12)",
     "Theorem 2.11 with the end of its proof, Lemma 2.13, Propositions 2.14 and 2.16, Example 2.15 (pages 20 to 24)",
     "Propositions 2.20 and 2.21 (pages 24 to 25)",
-    "Theorem 3.2 with its proof, Remarks 3.3 and 3.4 (pages 30 to 31)"
+    "Theorem 3.2 with its proof, Remarks 3.3 and 3.4 (pages 30 to 31)",
+    "Fresh fix read, 2026-09-30: Proposition 1.13 p.12; 2.11–2.23 and proof through p.27, including 2.12 representability and 2.22 characteristic-zero restriction."
+   ]
+  },
+  {
+   "id": "FS.2021.v4",
+   "title": "Geometrization of the local Langlands correspondence",
+   "authors": "Laurent Fargues and Peter Scholze",
+   "edition": "arXiv:2102.13459v4, 27 November 2024; selected pages, not the published Astérisque edition",
+   "url": "https://arxiv.org/pdf/2102.13459v4",
+   "sha256": "1f8040751d3424f59ae56651d990d7b2d5030e6b7cae58bc2fc683358dfc2027",
+   "accessed": "2026-09-30",
+   "readSections": [
+    "Proposition VI.10.2 and proof, pp.232–234",
+    "VI.11, pp.236–237; rational finite-type/connectedness/reductivity application"
    ]
   }
  ],
@@ -6436,6 +6478,7 @@
     "The fibre functor is f_T; another fibre functor gives another group, related to this one by the torsor of MC.6/tensor-iso-torsor."
    ],
    "proofSteps": [
+    "Import the abstract neutral reconstruction theorem from MC.6/neutral-tannaka-reconstruction for the specified fibre functor. This node owns only the diagram/Nori specialization; its MC.5 rigidity and period prerequisites do not belong to the abstract supplier.",
     "Identify C(T) with the finite dimensional comodules over A(T) and f_T with the forgetful functor (MC.5/diagram-category), so that the pinned category of finite comodules applies.",
     "Apply MC.6/rigid-bialgebra-is-hopf to obtain the antipode of A(T) from the rigidity of C(T).",
     "Apply the pinned Tannakian reconstruction for commutative Hopf algebras over a field, the natural isomorphism between the functor of points of A(T) and the tensor automorphism group functor of the forgetful functor on finite comodules; this is the representability statement, and it contains both directions of reconstruction.",
@@ -6457,7 +6500,8 @@
     "tauceti:TauCeti.Tannaka.tensorAutFunctor",
     "tauceti:TauCeti.Tannaka.pointsFunctorIsoTensorAutFunctor",
     "tauceti:TauCeti.FGPointRepresentationCat",
-    "tauceti:TauCeti.fgPointRepresentationCategoryEquivalence"
+    "tauceti:TauCeti.fgPointRepresentationCategoryEquivalence",
+    "MotivesAndAlgebraicCycles:MC.6/neutral-tannaka-reconstruction"
    ],
    "sources": [
     {
@@ -12486,6 +12530,7 @@
     "F runs through the finite subdiagrams of the diagram, ordered by inclusion."
    ],
    "proofSteps": [
+    "Import the general tensor-generator/finite-type recognition criterion from MC.6/tannaka-finiteness-recognition. Keep here the inverse system attached to finite diagram pieces and its motivic application.",
     "C_F is a rigid abelian tensor subcategory with tensor generator X_F ⊕ X_F^∨, so its Tannaka group is algebraic (Deligne and Milne, Proposition 2.20(b)) and embeds in GL of the fibre of the generator.",
     "For F ⊂ F′ the inclusion C_F → C_{F′} is fully faithful and closed under subquotients, so G_{F′} → G_F is faithfully flat (Proposition 2.21(a)).",
     "Every object of C(T) is a subquotient of a finite sum of objects attached to vertices (Proposition B.9), hence lies in some C_F; by Deligne and Milne's Proposition 2.14 the coordinate ring is the colimit of the coordinate rings of the C_F, so A(T) is the directed union of the A_F.",
@@ -12499,7 +12544,8 @@
    "prerequisites": [
     "MotivesAndAlgebraicCycles:MC.6/tensor-automorphism-group",
     "MotivesAndAlgebraicCycles:MC.5/diagram-category",
-    "MotivesAndAlgebraicCycles:MC.5/endomorphism-coalgebra"
+    "MotivesAndAlgebraicCycles:MC.5/endomorphism-coalgebra",
+    "MotivesAndAlgebraicCycles:MC.6/tannaka-finiteness-recognition"
    ],
    "sources": [
     {
@@ -12964,6 +13010,647 @@
      "statement": "For an elliptic curve over C the analogous map CH^1 ⊗ Q → H^2 is not injective, its degree-zero part E(C) ⊗ Q being nonzero and mapping to zero; the predicate is restricted to finite fields."
     }
    ]
+  },
+  {
+   "id": "MotivesAndAlgebraicCycles:MC.6/relative-finite-piece-reconstruction",
+   "parentStageId": "MotivesAndAlgebraicCycles:MC.6",
+   "realises": [
+    "MotivesAndAlgebraicCycles:MC.6"
+   ],
+   "title": "Relative finite-piece reconstruction",
+   "kind": "construction",
+   "statement": "Under the relative reconstruction data, L_i:A→C_i, V↦V⊗X_i, is left adjoint to F_i. Its monad is V↦V⊗A_i with A_i=F(X_i) an associative unital algebra object of A. The comparison gives C_i≃Mod_A(A_i)≃Comod_A(A_i∨), compatibly with F_i. Here modules and comodules have underlying objects in A, not arbitrary objects of Ind(A).",
+   "hypotheses": [
+    "A is a rigid symmetric monoidal category; C is symmetric monoidal with a tensor action of A.",
+    "F:C→A is symmetric monoidal, A-linear and conservative. As printed in FS VI.10.2, C admits and F reflects coequalizers of F-split parallel pairs.",
+    "C is a small filtered union of full subcategories C_i stable under those coequalizers and the A-action; F_i=F|C_i is represented by X_i∈C_i (in the A-linear sense, giving the adjunction below).",
+    "The pinned Beck theorem requires preservation of the split coequalizers as well. The implementation adapter records that obligation explicitly; until it is derived from the intended source convention, the executable sufficient-hypothesis version additionally assumes F_i preserves them. This is an interface gap, not a claim that the printed theorem has been disproved."
+   ],
+   "proofSteps": [
+    "Use rigidity of A and the representing property to identify Hom(V⊗X_i,Y) with Hom(V,F_iY), naturally in V,Y. The A-linearity of F identifies F_iL_i with tensor by F(X_i).",
+    "Transport the adjunction unit and multiplication to the algebra structure on A_i. Invoke the pinned ordinary Beck theorem only after providing its split-coequalizer preservation/reflection instances (the recorded adapter obligation). Do not plan Barr–Beck again.",
+    "Duality of the underlying A-object identifies the A_i action with an A_i∨ coaction; associativity/unit correspond to coassociativity/counit. Record comparison naturality on changing i."
+   ],
+   "acceptance": [
+    "For A=Vect_fd(k), C_i the finite left modules over a finite-dimensional k-algebra B and X_i=B, the construction recovers that module category and its dual coefficient coalgebra; fix the B-versus-B-opposite convention from the adjunction before identifying the algebra.",
+    "A faithful exact functor without a chosen/established representing object is not sufficient input to this construction.",
+    "For a finite-dimensional algebra B, transpose the regular action and verify the coalgebra counit identity on B∨; reversing the action convention changes the order and must be tracked."
+   ],
+   "prerequisites": [
+    "mathlib:CategoryTheory.Monad.monadicOfHasPreservesReflectsGSplitCoequalizers",
+    "mathlib:CategoryTheory.RigidCategory",
+    "mathlib:CategoryTheory.Equivalence"
+   ],
+   "sources": [
+    {
+     "sourceId": "FS.2021.v4",
+     "locator": "VI.10.2, pp.232–233, first proof paragraph",
+     "match": "The local adjunction, tensor monad and dual coalgebra are the finite-piece construction."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "addedBy": "FIX-RT-AREA-geomlanglands~2",
+   "tests": [
+    {
+     "name": "relativePiece_regular",
+     "kind": "computation",
+     "statement": "For A=Vect_fd(k), C_i the finite left modules over a finite-dimensional k-algebra B and X_i=B, the construction recovers that module category and its dual coefficient coalgebra; fix the B-versus-B-opposite convention from the adjunction before identifying the algebra."
+    },
+    {
+     "name": "relativePiece_needs_representer",
+     "kind": "non-example",
+     "statement": "A faithful exact functor without a chosen/established representing object is not sufficient input to this construction."
+    },
+    {
+     "name": "relativePiece_duality",
+     "kind": "compatibility",
+     "statement": "For a finite-dimensional algebra B, transpose the regular action and verify the coalgebra counit identity on B∨; reversing the action convention changes the order and must be tracked."
+    }
+   ],
+   "uses": [
+    {
+     "where": "GeometricSatakeAndFusion:GS4:integral-dual-group",
+     "how": "Import from the proposed early abstract MC.6 supplier under accepted PAPER-ZHU-17 routes 8 and 11; do not import the late motivic period chain."
+    }
+   ],
+   "ownership": "Abstract early supplier proposed under MC.6; no MC.5 prerequisite. Parent remains the installed MC.6 until the maintainer applies the split.",
+   "api": [
+    {
+     "name": "relativePieceLeftAdjoint",
+     "role": "data",
+     "statement": "The A-linear functor V↦V⊗X_i and L_i⊣F_i."
+    },
+    {
+     "name": "relativePieceMonad",
+     "role": "characterisation",
+     "statement": "F_iL_i is tensor by A_i=F(X_i), with the adjunction algebra structure."
+    },
+    {
+     "name": "relativePieceComparison",
+     "role": "compatibility",
+     "statement": "C_i≃Comod_A(A_i∨) over A; natural compatibility with the filtered inclusions."
+    }
+   ]
+  },
+  {
+   "id": "MotivesAndAlgebraicCycles:MC.6/relative-coalgebra-assembly",
+   "parentStageId": "MotivesAndAlgebraicCycles:MC.6",
+   "realises": [
+    "MotivesAndAlgebraicCycles:MC.6"
+   ],
+   "title": "Filtered reconstruction coalgebra",
+   "kind": "construction",
+   "statement": "For the relative finite-piece system, H=colim_i F(X_i)∨ in Ind(A) is a coalgebra. The coactions F(Y)→F(Y)⊗F(X_i)∨ for Y∈C_i are compatible, independent of a sufficiently large i, and induce C≃Comod_A(H). Comod_A(H) means H-comodules whose underlying object lies in A, viewed through A→Ind(A).",
+   "hypotheses": [
+    "A is a rigid symmetric monoidal category; C is symmetric monoidal with a tensor action of A.",
+    "F:C→A is symmetric monoidal, A-linear and conservative. As printed in FS VI.10.2, C admits and F reflects coequalizers of F-split parallel pairs.",
+    "C is a small filtered union of full subcategories C_i stable under those coequalizers and the A-action; F_i=F|C_i is represented by X_i∈C_i (in the A-linear sense, giving the adjunction below).",
+    "The pinned Beck theorem requires preservation of the split coequalizers as well. The implementation adapter records that obligation explicitly; until it is derived from the intended source convention, the executable sufficient-hypothesis version additionally assumes F_i preserves them. This is an interface gap, not a claim that the printed theorem has been disproved."
+   ],
+   "proofSteps": [
+    "For i≤j, restrict the representing functor and dualize the induced algebra map to obtain the coalgebra transition F(X_i)∨→F(X_j)∨.",
+    "Form the filtered colimit using the existing Ind category. Define Δ and ε on finite pieces and check independence on overlaps.",
+    "Transpose the counit F(Y)⊗X_i→Y to obtain the displayed coaction. Full faithfulness and essential surjectivity are checked after factoring the finite dualizable underlying data through a sufficiently large finite piece.",
+    "The monoidal Ind-extension and the internal-comodule category/finite-factorization adapter are implementation interfaces still to supply; bare Ind does not provide them automatically."
+   ],
+   "acceptance": [
+    "For a constant finite-piece system the colimit is the same coalgebra and the comparison is the finite-piece comparison.",
+    "For Y in C_i and C_j, the two coactions agree after passage to a common upper piece and to H.",
+    "For an H-comodule with underlying finite-dimensional vector space, its finitely many matrix coefficients and coassociativity relations lie in one sufficiently large piece."
+   ],
+   "prerequisites": [
+    "MotivesAndAlgebraicCycles:MC.6/relative-finite-piece-reconstruction",
+    "mathlib:CategoryTheory.Ind"
+   ],
+   "sources": [
+    {
+     "sourceId": "FS.2021.v4",
+     "locator": "VI.10.2, p.233, middle proof paragraphs",
+     "match": "Filtered coalgebra and the explicit coaction on F(Y)."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "addedBy": "FIX-RT-AREA-geomlanglands~2",
+   "tests": [
+    {
+     "name": "relativeCoalgebra_constant",
+     "kind": "degenerate",
+     "statement": "For a constant finite-piece system the colimit is the same coalgebra and the comparison is the finite-piece comparison."
+    },
+    {
+     "name": "relativeCoaction_overlap",
+     "kind": "compatibility",
+     "statement": "For Y in C_i and C_j, the two coactions agree after passage to a common upper piece and to H."
+    },
+    {
+     "name": "relativeCoalgebra_finite_coefficients",
+     "kind": "characterisation",
+     "statement": "For an H-comodule with underlying finite-dimensional vector space, its finitely many matrix coefficients and coassociativity relations lie in one sufficiently large piece."
+    }
+   ],
+   "uses": [
+    {
+     "where": "GeometricSatakeAndFusion:GS4:integral-dual-group",
+     "how": "Import from the proposed early abstract MC.6 supplier under accepted PAPER-ZHU-17 routes 8 and 11; do not import the late motivic period chain."
+    }
+   ],
+   "ownership": "Abstract early supplier proposed under MC.6; no MC.5 prerequisite. Parent remains the installed MC.6 until the maintainer applies the split.",
+   "api": [
+    {
+     "name": "relativeReconstructionCoalgebra",
+     "role": "data",
+     "statement": "H=colim_i F(X_i)∨ with Δ and ε."
+    },
+    {
+     "name": "relativeReconstructionCoaction",
+     "role": "data",
+     "statement": "For Y∈C, the compatible map F(Y)→F(Y)⊗H."
+    },
+    {
+     "name": "relativeCoalgebraComparison",
+     "role": "compatibility",
+     "statement": "C≃Comod_A(H) commuting with the forgetful functors to A."
+    }
+   ]
+  },
+  {
+   "id": "MotivesAndAlgebraicCycles:MC.6/relative-bialgebra-reconstruction",
+   "parentStageId": "MotivesAndAlgebraicCycles:MC.6",
+   "realises": [
+    "MotivesAndAlgebraicCycles:MC.6"
+   ],
+   "title": "Relative Tannaka reconstruction",
+   "kind": "construction",
+   "statement": "The relative reconstruction coalgebra H has a commutative unital multiplication compatible with Δ and ε; thus H is a bialgebra object in Ind(A), and C≃Comod_A(H) is a symmetric monoidal equivalence over A. No antipode is asserted without rigidity of C.",
+   "hypotheses": [
+    "A is a rigid symmetric monoidal category; C is symmetric monoidal with a tensor action of A.",
+    "F:C→A is symmetric monoidal, A-linear and conservative. As printed in FS VI.10.2, C admits and F reflects coequalizers of F-split parallel pairs.",
+    "C is a small filtered union of full subcategories C_i stable under those coequalizers and the A-action; F_i=F|C_i is represented by X_i∈C_i (in the A-linear sense, giving the adjunction below).",
+    "The pinned Beck theorem requires preservation of the split coequalizers as well. The implementation adapter records that obligation explicitly; until it is derived from the intended source convention, the executable sufficient-hypothesis version additionally assumes F_i preserves them. This is an interface gap, not a claim that the printed theorem has been disproved."
+   ],
+   "proofSteps": [
+    "For each i,j choose k containing X_i⊗X_j. Generation under A-tensors and F-split coequalizers then gives C_i⊗C_j⊂C_k.",
+    "The tensor product of the units 1→F(X_i),1→F(X_j) induces X_k→X_i⊗X_j. Dualizing and taking the filtered colimit gives H⊗H→H; the tensor unit gives 1→H.",
+    "Check independence of k and associativity, symmetry, and unit on a common finite piece. Check that multiplication and unit are coalgebra maps and that the comparison respects tensor products and symmetry.",
+    "Use the bialgebra conclusion in the proposition. The premature Hopf label in the proof is the already confirmed PAPER-FARGUES-SCHOLZE-21/E108; do not duplicate its errata record."
+   ],
+   "acceptance": [
+    "Finite-dimensional comodules of O(M_n), n≥1, reconstruct that commutative bialgebra. It has no antipode, since a singular matrix cannot have an inverse.",
+    "For C=A and F=id with representing unit, reconstruct the tensor unit bialgebra.",
+    "The reconstructed coaction on F(Y⊗Z) equals the product of the coactions on F(Y) and F(Z), including the tensor-unit coaction."
+   ],
+   "prerequisites": [
+    "MotivesAndAlgebraicCycles:MC.6/relative-coalgebra-assembly",
+    "mathlib:CategoryTheory.BimonObj"
+   ],
+   "sources": [
+    {
+     "sourceId": "FS.2021.v4",
+     "locator": "VI.10.2, pp.233–234",
+     "match": "Multiplication from tensor products of representing objects; only a bialgebra without source rigidity."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "addedBy": "FIX-RT-AREA-geomlanglands~2",
+   "tests": [
+    {
+     "name": "relativeBialgebra_matrix_monoid",
+     "kind": "non-example",
+     "statement": "Finite-dimensional comodules of O(M_n), n≥1, reconstruct that commutative bialgebra. It has no antipode, since a singular matrix cannot have an inverse."
+    },
+    {
+     "name": "relativeBialgebra_unit",
+     "kind": "degenerate",
+     "statement": "For C=A and F=id with representing unit, reconstruct the tensor unit bialgebra."
+    },
+    {
+     "name": "relativeBialgebra_tensor_coaction",
+     "kind": "compatibility",
+     "statement": "The reconstructed coaction on F(Y⊗Z) equals the product of the coactions on F(Y) and F(Z), including the tensor-unit coaction."
+    }
+   ],
+   "uses": [
+    {
+     "where": "GeometricSatakeAndFusion:GS4:integral-dual-group",
+     "how": "Import from the proposed early abstract MC.6 supplier under accepted PAPER-ZHU-17 routes 8 and 11; do not import the late motivic period chain."
+    }
+   ],
+   "ownership": "Abstract early supplier proposed under MC.6; no MC.5 prerequisite. Parent remains the installed MC.6 until the maintainer applies the split.",
+   "api": [
+    {
+     "name": "relativeReconstructionBialgebra",
+     "role": "data",
+     "statement": "H with multiplication, unit, comultiplication and counit; commutative multiplication."
+    },
+    {
+     "name": "relativeReconstruction_monoidal",
+     "role": "compatibility",
+     "statement": "The coalgebra comparison is symmetric monoidal over A."
+    },
+    {
+     "name": "relativeReconstruction_mul_piece",
+     "role": "characterisation",
+     "statement": "Multiplication on pieces is dual to X_k→X_i⊗X_j."
+    }
+   ]
+  },
+  {
+   "id": "MotivesAndAlgebraicCycles:MC.6/relative-rigid-antipode",
+   "parentStageId": "MotivesAndAlgebraicCycles:MC.6",
+   "realises": [
+    "MotivesAndAlgebraicCycles:MC.6"
+   ],
+   "title": "Rigidity and the reconstruction antipode",
+   "kind": "theorem",
+   "statement": "If C is also rigid in relative reconstruction, the bialgebra H has an antipode and the comparison identifies C with the rigid category of H-comodules in A. This is an internal relative statement, not the already pinned fixed-Hopf reconstruction theorem.",
+   "hypotheses": [
+    "A is a rigid symmetric monoidal category; C is symmetric monoidal with a tensor action of A.",
+    "F:C→A is symmetric monoidal, A-linear and conservative. As printed in FS VI.10.2, C admits and F reflects coequalizers of F-split parallel pairs.",
+    "C is a small filtered union of full subcategories C_i stable under those coequalizers and the A-action; F_i=F|C_i is represented by X_i∈C_i (in the A-linear sense, giving the adjunction below).",
+    "The pinned Beck theorem requires preservation of the split coequalizers as well. The implementation adapter records that obligation explicitly; until it is derived from the intended source convention, the executable sufficient-hypothesis version additionally assumes F_i preserves them. This is an interface gap, not a claim that the printed theorem has been disproved.",
+    "Every object of C is dualizable."
+   ],
+   "proofSteps": [
+    "On a representing piece use F(X_i)∨≅F(X_i∨); identify the corresponding coefficient pairing with Hom(X_i⊗X_i,1) as in FS.",
+    "Transpose the switch of the two factors to define inversion, and verify compatibility across pieces.",
+    "Evaluation and coevaluation identities give both convolution inverse identities. Transport duals across the monoidal comparison. PAPER-FARGUES-SCHOLZE-21/E46 corrects the proof’s A/H letter slip."
+   ],
+   "acceptance": [
+    "For the graded-vector-space fibre functor the Hopf algebra is k[t,t⁻¹], with S(t)=t⁻¹.",
+    "The matrix-monoid test cannot be passed as a rigid source: its noninvertible representations have no tensor duals."
+   ],
+   "prerequisites": [
+    "MotivesAndAlgebraicCycles:MC.6/relative-bialgebra-reconstruction"
+   ],
+   "sources": [
+    {
+     "sourceId": "FS.2021.v4",
+     "locator": "VI.10.2, p.234, final rigidity paragraph",
+     "match": "The additional rigidity hypothesis supplies inversion."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "addedBy": "FIX-RT-AREA-geomlanglands~2",
+   "tests": [
+    {
+     "name": "relativeAntipode_gm",
+     "kind": "computation",
+     "statement": "For the graded-vector-space fibre functor the Hopf algebra is k[t,t⁻¹], with S(t)=t⁻¹."
+    },
+    {
+     "name": "relativeAntipode_no_rigidity",
+     "kind": "non-example",
+     "statement": "The matrix-monoid test cannot be passed as a rigid source: its noninvertible representations have no tensor duals."
+    }
+   ],
+   "uses": [
+    {
+     "where": "GeometricSatakeAndFusion:GS4:integral-dual-group",
+     "how": "Import from the proposed early abstract MC.6 supplier under accepted PAPER-ZHU-17 routes 8 and 11; do not import the late motivic period chain."
+    }
+   ],
+   "ownership": "Abstract early supplier proposed under MC.6; no MC.5 prerequisite. Parent remains the installed MC.6 until the maintainer applies the split."
+  },
+  {
+   "id": "MotivesAndAlgebraicCycles:MC.6/neutral-finite-subcategory-representability",
+   "parentStageId": "MotivesAndAlgebraicCycles:MC.6",
+   "realises": [
+    "MotivesAndAlgebraicCycles:MC.6"
+   ],
+   "title": "Finite-subcategory representability",
+   "kind": "construction",
+   "statement": "For X∈C, let <X> be the full subcategory of subquotients of finite direct sums X^n. There is P_X∈<X> such that A_X=ω(P_X) is the subalgebra of End_k(ωX) preserving ωY⊂(ωX)^n for every subobject Y⊂X^n. The fibre functor gives <X>≃Mod_fd(A_X), with P_X corresponding to the regular left A_X-module; hence ω|<X> is represented by P_X. This is the additional neutral representability lemma, not a consequence of just setting A=Vect in the relative theorem.",
+   "hypotheses": [
+    "k is an arbitrary field; C is an essentially small k-linear abelian rigid symmetric monoidal category with End(1)=k.",
+    "ω:C→Vect_fd(k) is a chosen exact faithful k-linear symmetric monoidal functor. Neutrality, including the specified k-valued functor, is an assumption, not inferred from existence of a functor over an extension field."
+   ],
+   "proofSteps": [
+    "Exact faithfulness and finite-dimensional fibres imply finite length. In Hom(ωX,X), take the largest subobject preserving every Y⊂X^n; DM 2.12 identifies it also as the smallest subobject whose fibre contains id_ωX. This is P_X.",
+    "Lemma 2.13 identifies its fibre with the simultaneous stabilizer algebra A_X. Finite presentations and exactness construct the inverse M↦P_X⊗_{A_X}M via cokernels, proving the equivalence.",
+    "The regular module represents the underlying-vector-space functor. Direct sums X⊕Y give a filtered system of such full subcategories covering C. Tensor products are not assumed to remain in <X>."
+   ],
+   "acceptance": [
+    "In Vect_fd(k), X=k gives P_X=k and A_X=k; <X> is all finite-dimensional vector spaces.",
+    "In Rep_k(G_m), X the weight-one character has <X> consisting of weight-one sums, so X⊗X of weight two is absent.",
+    "For the regular representation of a constant cyclic group of order p over a field of characteristic p, the stabilizer algebra is the nonsemisimple group algebra; local representability does not assume semisimplicity."
+   ],
+   "prerequisites": [
+    "mathlib:CategoryTheory.Abelian",
+    "mathlib:CategoryTheory.Linear",
+    "mathlib:CategoryTheory.Functor.Faithful"
+   ],
+   "sources": [
+    {
+     "sourceId": "DM.TC",
+     "locator": "2.12 and Lemma 2.13, pp.21–22",
+     "match": "Construction of P_X, its stabilizer algebra, finite-module equivalence and the needed local representing object."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "addedBy": "FIX-RT-AREA-geomlanglands~2",
+   "tests": [
+    {
+     "name": "neutralRepresenter_vect",
+     "kind": "computation",
+     "statement": "In Vect_fd(k), X=k gives P_X=k and A_X=k; <X> is all finite-dimensional vector spaces."
+    },
+    {
+     "name": "neutralHull_not_tensor_closed",
+     "kind": "non-example",
+     "statement": "In Rep_k(G_m), X the weight-one character has <X> consisting of weight-one sums, so X⊗X of weight two is absent."
+    },
+    {
+     "name": "neutralRepresenter_nonsemisimple",
+     "kind": "non-example",
+     "statement": "For the regular representation of a constant cyclic group of order p over a field of characteristic p, the stabilizer algebra is the nonsemisimple group algebra; local representability does not assume semisimplicity."
+    }
+   ],
+   "uses": [
+    {
+     "where": "GeometricSatakeAndFusion:GS4:rational-reductivity",
+     "how": "Import from the proposed early abstract MC.6 supplier under accepted PAPER-ZHU-17 routes 8 and 11; do not import the late motivic period chain."
+    }
+   ],
+   "ownership": "Abstract early supplier proposed under MC.6; no MC.5 prerequisite. Parent remains the installed MC.6 until the maintainer applies the split.",
+   "api": [
+    {
+     "name": "neutralFiniteHull",
+     "role": "data",
+     "statement": "Full subcategory of subquotients of X^n, closed under finite sums, subobjects and quotients."
+    },
+    {
+     "name": "neutralStabilizerAlgebra",
+     "role": "data",
+     "statement": "A_X⊂End_k(ωX) preserving every ωY⊂(ωX)^n."
+    },
+    {
+     "name": "neutralFiniteRepresenter",
+     "role": "data",
+     "statement": "P_X with ωP_X=A_X and natural Hom(P_X,Y)≅ωY for Y∈<X>."
+    },
+    {
+     "name": "neutralFiniteHullEquivalence",
+     "role": "compatibility",
+     "statement": "<X>≃Mod_fd(A_X), taking P_X to the regular module and commuting with the fibre functor."
+    }
+   ]
+  },
+  {
+   "id": "MotivesAndAlgebraicCycles:MC.6/neutral-reconstruction-coalgebra",
+   "parentStageId": "MotivesAndAlgebraicCycles:MC.6",
+   "realises": [
+    "MotivesAndAlgebraicCycles:MC.6"
+   ],
+   "title": "Neutral reconstruction coalgebra",
+   "kind": "construction",
+   "statement": "For a neutral pair (C,ω), B=colim_<X> End(ω|<X>)∨ is a k-coalgebra, with a canonical equivalence C≃Comod_fd(B) over Vect_fd(k). The symmetric tensor structure of C induces on B a commutative unital bialgebra structure. For every commutative k-algebra R, tensor endomorphisms of ω⊗R identify naturally with k-algebra maps B→R.",
+   "hypotheses": [
+    "k is an arbitrary field; C is an essentially small k-linear abelian rigid symmetric monoidal category with End(1)=k.",
+    "ω:C→Vect_fd(k) is a chosen exact faithful k-linear symmetric monoidal functor. Neutrality, including the specified k-valued functor, is an assumption, not inferred from existence of a functor over an extension field."
+   ],
+   "proofSteps": [
+    "Apply the finite-subcategory equivalence, take duals of its finite-dimensional endomorphism algebras, and form the filtered colimit (DM 2.14).",
+    "The comparison sends every object to its canonical coaction, compatible with the fibre functor. Tensor product gives a functor Comod(B)×Comod(B)→Comod(B) over vector spaces and hence a coalgebra map B⊗B→B by DM 2.16; tensor coherence gives commutative multiplication and a unit.",
+    "DM 2.15 identifies natural endomorphisms of the scalar-extended fibre functor with linear maps B→R; the tensor and unit conditions become multiplicativity and unitality."
+   ],
+   "acceptance": [
+    "The identity fibre functor on finite-dimensional vector spaces gives B=k.",
+    "For k-algebras R→S, B→R→S corresponds to scalar extension of the same tensor endomorphism.",
+    "In characteristic zero, the odd line with Koszul symmetry cannot be sent by an ordinary symmetric fibre functor to its ungraded one-dimensional vector space; using the wrong symmetry invalidates reconstruction."
+   ],
+   "prerequisites": [
+    "MotivesAndAlgebraicCycles:MC.6/neutral-finite-subcategory-representability",
+    "mathlib:Bialgebra",
+    "tauceti:TauCeti.FGComoduleCat"
+   ],
+   "sources": [
+    {
+     "sourceId": "DM.TC",
+     "locator": "Propositions 2.14 and 2.16, Example 2.15, pp.22–24",
+     "match": "Neutral coalgebra assembly, induced bialgebra and representability of tensor endomorphisms."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "addedBy": "FIX-RT-AREA-geomlanglands~2",
+   "tests": [
+    {
+     "name": "neutralCoalgebra_vect",
+     "kind": "computation",
+     "statement": "The identity fibre functor on finite-dimensional vector spaces gives B=k."
+    },
+    {
+     "name": "neutralEnd_basechange",
+     "kind": "compatibility",
+     "statement": "For k-algebras R→S, B→R→S corresponds to scalar extension of the same tensor endomorphism."
+    },
+    {
+     "name": "neutralCoalgebra_symmetry",
+     "kind": "non-example",
+     "statement": "In characteristic zero, the odd line with Koszul symmetry cannot be sent by an ordinary symmetric fibre functor to its ungraded one-dimensional vector space; using the wrong symmetry invalidates reconstruction."
+    }
+   ],
+   "uses": [
+    {
+     "where": "GeometricSatakeAndFusion:GS4:rational-reductivity",
+     "how": "Import from the proposed early abstract MC.6 supplier under accepted PAPER-ZHU-17 routes 8 and 11; do not import the late motivic period chain."
+    }
+   ],
+   "ownership": "Abstract early supplier proposed under MC.6; no MC.5 prerequisite. Parent remains the installed MC.6 until the maintainer applies the split.",
+   "api": [
+    {
+     "name": "neutralReconstructionCoalgebra",
+     "role": "data",
+     "statement": "The filtered colimit B with its coalgebra structure and comparison functor."
+    },
+    {
+     "name": "neutralReconstructionBialgebra",
+     "role": "data",
+     "statement": "The commutative multiplication and unit induced by the specified tensor structure."
+    },
+    {
+     "name": "neutralTensorEndRepresentable",
+     "role": "characterisation",
+     "statement": "End^⊗(ω⊗R)≅Hom_k-alg(B,R), naturally in R."
+    }
+   ]
+  },
+  {
+   "id": "MotivesAndAlgebraicCycles:MC.6/neutral-tannaka-reconstruction",
+   "parentStageId": "MotivesAndAlgebraicCycles:MC.6",
+   "realises": [
+    "MotivesAndAlgebraicCycles:MC.6"
+   ],
+   "title": "Neutral Tannaka reconstruction",
+   "kind": "theorem",
+   "statement": "For a neutral pair (C,ω) over any field k, Aut^⊗(ω) is represented by an affine k-group scheme G=Spec(B), and the canonical functor C→Rep_fd(G) is a k-linear symmetric monoidal equivalence compatible with ω. Construct B from ω; do not assume an existing representing group or Hopf algebra as input.",
+   "hypotheses": [
+    "k is an arbitrary field; C is an essentially small k-linear abelian rigid symmetric monoidal category with End(1)=k.",
+    "ω:C→Vect_fd(k) is a chosen exact faithful k-linear symmetric monoidal functor. Neutrality, including the specified k-valued functor, is an assumption, not inferred from existence of a functor over an extension field."
+   ],
+   "proofSteps": [
+    "Use the neutral bialgebra and the natural representability of tensor endomorphisms, for all commutative k-algebras R.",
+    "Duals make every monoidal natural endomorphism invertible: use DM 1.13 on the rigid category of finite projective R-modules containing the scalar-extended fibres. Yoneda turns inverse/composition into the antipode and group law.",
+    "After constructing B, import the pinned known-Hopf functorial comparison and representation/comodule dictionary. That theorem is a consistency identification, not a substitute for the construction of B or the local representability lemma.",
+    "Recover the existing diagram case by its exact faithful rigid fibre functor. Nori rigidity is checked only in the late application."
+   ],
+   "acceptance": [
+    "Vect_fd(k) reconstructs the trivial group.",
+    "Finite-support Z-graded vector spaces with ordinary symmetry reconstruct G_m; the weight n line corresponds to t^n (DM 2.30).",
+    "A fibre functor available only over k′ does not supply a k-valued point or neutral k-reconstruction."
+   ],
+   "prerequisites": [
+    "MotivesAndAlgebraicCycles:MC.6/neutral-reconstruction-coalgebra",
+    "MotivesAndAlgebraicCycles:MC.6/rigid-bialgebra-is-hopf",
+    "tauceti:TauCeti.Tannaka.pointsFunctorIsoTensorAutFunctor"
+   ],
+   "sources": [
+    {
+     "sourceId": "DM.TC",
+     "locator": "Theorem 2.11, pp.20–24; Proposition 1.13, p.12",
+     "match": "Arbitrary neutral reconstruction; duality turns tensor endomorphisms into automorphisms."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "addedBy": "FIX-RT-AREA-geomlanglands~2",
+   "tests": [
+    {
+     "name": "neutralTannaka_vect",
+     "kind": "computation",
+     "statement": "Vect_fd(k) reconstructs the trivial group."
+    },
+    {
+     "name": "neutralTannaka_graded",
+     "kind": "computation",
+     "statement": "Finite-support Z-graded vector spaces with ordinary symmetry reconstruct G_m; the weight n line corresponds to t^n (DM 2.30)."
+    },
+    {
+     "name": "neutralTannaka_needs_neutrality",
+     "kind": "non-example",
+     "statement": "A fibre functor available only over k′ does not supply a k-valued point or neutral k-reconstruction."
+    }
+   ],
+   "uses": [
+    {
+     "where": "GeometricSatakeAndFusion:GS4:rational-reductivity",
+     "how": "Import from the proposed early abstract MC.6 supplier under accepted PAPER-ZHU-17 routes 8 and 11; do not import the late motivic period chain."
+    }
+   ],
+   "ownership": "Abstract early supplier proposed under MC.6; no MC.5 prerequisite. Parent remains the installed MC.6 until the maintainer applies the split."
+  },
+  {
+   "id": "MotivesAndAlgebraicCycles:MC.6/tannaka-finiteness-recognition",
+   "parentStageId": "MotivesAndAlgebraicCycles:MC.6",
+   "realises": [
+    "MotivesAndAlgebraicCycles:MC.6"
+   ],
+   "title": "Tannakian finiteness criteria",
+   "kind": "theorem",
+   "statement": "For the affine group G reconstructed from (C,ω): (a) G is finite over k iff some X has every Y∈C a subquotient of a finite sum X^n; (b) G is of finite type over k iff some X tensor-generates C, meaning every Y is a subquotient of P(X,X∨) for a polynomial P in two variables with nonnegative integer coefficients. Finite type and finite group are different assertions.",
+   "hypotheses": [
+    "k is an arbitrary field; C is an essentially small k-linear abelian rigid symmetric monoidal category with End(1)=k.",
+    "ω:C→Vect_fd(k) is a chosen exact faithful k-linear symmetric monoidal functor. Neutrality, including the specified k-valued functor, is an assumption, not inferred from existence of a functor over an extension field."
+   ],
+   "proofSteps": [
+    "Transfer along neutral reconstruction. For finite G the finite regular representation generates all representations by sums and subquotients; conversely this property forces the coefficient coalgebra into a finite-dimensional one.",
+    "For finite-type G import the upstream finite-dimensional closed-immersion representation (layer 1), and generate the coordinate Hopf algebra by its matrix coefficients and those of its dual.",
+    "Conversely a tensor generator gives a closed immersion into GL(ωX), since its coefficients and inverse determinant generate the coordinate algebra. Cite DM 2.20 for the categorical recognition theorem."
+   ],
+   "acceptance": [
+    "G_m is finite type and generated tensorially by its weight-one representation, but not finite: its infinitely many weights cannot all be subquotients of powers X^n for a fixed X.",
+    "A constant finite group has the finite regular representation as a subquotient-sum generator, even when its representations are not semisimple."
+   ],
+   "prerequisites": [
+    "MotivesAndAlgebraicCycles:MC.6/neutral-tannaka-reconstruction"
+   ],
+   "sources": [
+    {
+     "sourceId": "DM.TC",
+     "locator": "Proposition 2.20, pp.24–25",
+     "match": "Finite-group and algebraic-group criteria; keep the two generator notions separate."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "addedBy": "FIX-RT-AREA-geomlanglands~2",
+   "tests": [
+    {
+     "name": "tannakaFiniteType_gm",
+     "kind": "non-example",
+     "statement": "G_m is finite type and generated tensorially by its weight-one representation, but not finite: its infinitely many weights cannot all be subquotients of powers X^n for a fixed X."
+    },
+    {
+     "name": "tannakaFinite_constant",
+     "kind": "computation",
+     "statement": "A constant finite group has the finite regular representation as a subquotient-sum generator, even when its representations are not semisimple."
+    }
+   ],
+   "uses": [
+    {
+     "where": "GeometricSatakeAndFusion:GS4:rational-reductivity",
+     "how": "Import from the proposed early abstract MC.6 supplier under accepted PAPER-ZHU-17 routes 8 and 11; do not import the late motivic period chain."
+    }
+   ],
+   "ownership": "Abstract early supplier proposed under MC.6; no MC.5 prerequisite. Parent remains the installed MC.6 until the maintainer applies the split."
+  },
+  {
+   "id": "MotivesAndAlgebraicCycles:MC.6/tannaka-connectedness-recognition",
+   "parentStageId": "MotivesAndAlgebraicCycles:MC.6",
+   "realises": [
+    "MotivesAndAlgebraicCycles:MC.6"
+   ],
+   "title": "Tannakian connectedness criterion",
+   "kind": "theorem",
+   "statement": "In characteristic zero, the reconstructed affine group G is connected iff for every nontrivial representation X the subquotient-sum hull <X> is not stable under tensor products. Nontrivial means that G acts nontrivially, not merely that X≠0. Equivalently C has no nontrivial finite tensor subcategory. Apply only with the characteristic-zero hypothesis; finite connected group schemes in positive characteristic invalidate this unqualified extension.",
+   "hypotheses": [
+    "k is an arbitrary field; C is an essentially small k-linear abelian rigid symmetric monoidal category with End(1)=k.",
+    "ω:C→Vect_fd(k) is a chosen exact faithful k-linear symmetric monoidal functor. Neutrality, including the specified k-valued functor, is an assumption, not inferred from existence of a functor over an extension field.",
+    "char(k)=0."
+   ],
+   "proofSteps": [
+    "By DM 2.21(a), a full tensor subcategory closed under subobjects corresponds to a faithfully flat quotient of G.",
+    "DM 2.20(a) identifies the finite subquotient-sum generators with finite quotient groups. In characteristic zero all finite group schemes are étale; connectedness is equivalent to having no nontrivial finite quotient.",
+    "Use DM 2.22 to obtain the criterion. In the Satake application the weight growth A_μ,A_2μ,… rules out the prohibited finite hull; that geometric verification stays with GS4."
+   ],
+   "acceptance": [
+    "For G_m over characteristic zero a nonzero weight produces unbounded multiples under tensor powers, and the criterion detects connectedness.",
+    "Over characteristic p the nontrivial finite connected group α_p has a finite-dimensional regular generator; connected does not imply the characteristic-zero criterion."
+   ],
+   "prerequisites": [
+    "MotivesAndAlgebraicCycles:MC.6/neutral-finite-subcategory-representability",
+    "MotivesAndAlgebraicCycles:MC.6/tannaka-finiteness-recognition"
+   ],
+   "sources": [
+    {
+     "sourceId": "DM.TC",
+     "locator": "Proposition 2.21(a) and Corollary 2.22, p.25",
+     "match": "Tensor subcategory/quotient recognition and connectedness in characteristic zero."
+    },
+    {
+     "sourceId": "FS.2021.v4",
+     "locator": "VI.11, p.236",
+     "match": "The rational Satake application uses finite tensor generation, absence of finite tensor subcategories, then characteristic-zero reductivity."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "addedBy": "FIX-RT-AREA-geomlanglands~2",
+   "tests": [
+    {
+     "name": "tannakaConnected_gm",
+     "kind": "computation",
+     "statement": "For G_m over characteristic zero a nonzero weight produces unbounded multiples under tensor powers, and the criterion detects connectedness."
+    },
+    {
+     "name": "tannakaConnected_charp",
+     "kind": "non-example",
+     "statement": "Over characteristic p the nontrivial finite connected group α_p has a finite-dimensional regular generator; connected does not imply the characteristic-zero criterion."
+    }
+   ],
+   "uses": [
+    {
+     "where": "GeometricSatakeAndFusion:GS4:rational-reductivity",
+     "how": "Import from the proposed early abstract MC.6 supplier under accepted PAPER-ZHU-17 routes 8 and 11; do not import the late motivic period chain."
+    }
+   ],
+   "ownership": "Abstract early supplier proposed under MC.6; no MC.5 prerequisite. Parent remains the installed MC.6 until the maintainer applies the split."
   }
  ],
  "coverage": [
@@ -13018,13 +13705,13 @@
   {
    "stageId": "MotivesAndAlgebraicCycles:MC.6",
    "status": "partial",
-   "note": "Marked source_decomposed with nothing remaining, but the stage acceptance item on Artin and Tate subcategories is realised by no node, and the general tensor isomorphism torsors, the rigidity-to-Hopf step, the pro-algebraic reconstruction and the export of the complex point were missing; the last four are now nodes. FIX-RT-AREA-iwasawa-3~2 makes the existing Nori/Tate localization exports explicit and adds inverse, evaluation and rank-one model checks. Coverage remains partial with the original remaining work; these export contracts do not certify proof closure.",
+   "note": "Marked source_decomposed with nothing remaining, but the stage acceptance item on Artin and Tate subcategories is realised by no node, and the general tensor isomorphism torsors, the rigidity-to-Hopf step, the pro-algebraic reconstruction and the export of the complex point were missing; the last four are now nodes. FIX-RT-AREA-iwasawa-3~2 makes the existing Nori/Tate localization exports explicit and adds inverse, evaluation and rank-one model checks. Coverage remains partial with the original remaining work; these export contracts do not certify proof closure. FIX-RT-AREA-geomlanglands~2 adds nine abstract supplier nodes and reuses them in two late applications. DM.TC was already present and has been freshly read, so its stale missing-source bullet is removed. All other remaining work and the partial status stand.",
    "remaining": [
     "The Artin and Tate subcategories of Nori motives and their tensor automorphism groups, which the stage's acceptance asks for, are computed in no source read (gap).",
     "The universal property of Nori's diagram category, used by MC.6/fibre-functor-extension, rests on von Wangenheim's work, not obtained (gap).",
     "The quotient theorem of SGA 3 behind MC.6/affine-torsor-groups was not obtained (gap; not on the path to the period torsor).",
     "The comparison of relative de Rham and singular cohomology of pairs over Q as graded multiplicative representations is requested from ComplexComparisonPartII:C5, which owns the comparison and plans only the smooth and smooth proper cases.",
-    "Deligne and Milne's Tannakian Categories must be added to the packet's sources (source id DM.TC) for the nodes that cite it."
+    "Relative reconstruction implementation adapters (including the split-coequalizer preservation obligation) and installation of the early abstract stage split remain."
    ]
   },
   {
@@ -13215,6 +13902,16 @@
     "MotivesAndAlgebraicCycles:MC.7/smash-nilpotence"
    ],
    "detail": "The proof of Lemma 0FH9 asserts, with details omitted, that the norm along π : X^n → S^n(X) satisfies π^*Norm_π(L_1) = (L_1 ⊗ ... ⊗ L_n)^{⊗(n−1)!} (findings E46) and that S^n(X) → Pic^n_{X/k} is a projective space bundle for n ≥ 2g − 1 (finding E47). Both are standard, and the second is close to Picard Schemes of Curves, Lemma 44.6.7, which the proof points to; they must be proved, or supplied by SchemeAndStackFoundations:SF.3 (request extended), before the node is built."
+  },
+  {
+   "title": "Relative reconstruction implementation adapters and early-stage installation",
+   "neededBy": [
+    "MotivesAndAlgebraicCycles:MC.6/relative-finite-piece-reconstruction",
+    "MotivesAndAlgebraicCycles:MC.6/relative-coalgebra-assembly",
+    "MotivesAndAlgebraicCycles:MC.6/relative-bialgebra-reconstruction",
+    "MotivesAndAlgebraicCycles:MC.6/relative-rigid-antipode"
+   ],
+   "detail": "Supply the A-linear representability/action interface, monoidal extension to Ind(A), internal comodules with underlying objects in A, and filtered factorization used by FS VI.10.2. Mathlib has Ind and ordinary Beck, but this audit found no finished relative Tannaka comparison. Bridge the printed reflection convention to the preservation instance required by the pinned Beck theorem; until then use the explicitly strengthened sufficient-hypothesis version and do not claim closure. Apply the proposed early stage split before installing any GS stage import; the present packet makes no graph rewrite."
   }
  ],
  "requests": [
@@ -13403,6 +14100,21 @@
    "neededBy": [
     "MotivesAndAlgebraicCycles:MC.7/cycle-classes-are-hodge"
    ]
+  },
+  {
+   "supplier": "tauceti:TauCetiRoadmap/ReductiveGroups#layer-1-representations--comodules",
+   "need": "Import the finite-dimensional closed-immersion representation/coordinate-coefficient criterion and the representation-comodule dictionary for affine groups. The existing known-Hopf functor comparison is credited at the pin; general group reconstruction is not re-planned upstream.",
+   "neededBy": [
+    "MotivesAndAlgebraicCycles:MC.6/tannaka-finiteness-recognition",
+    "MotivesAndAlgebraicCycles:MC.6/neutral-tannaka-reconstruction"
+   ]
+  },
+  {
+   "supplier": "tauceti:TauCetiRoadmap/ReductiveGroups#layer-6-reductive-and-semisimple-groups",
+   "need": "Characteristic-zero reductivity iff finite-dimensional representations are semisimple, for smooth connected affine finite-type groups. GS4:rational-reductivity imports this directly after the new finite-type and connectedness criteria; smoothness in characteristic zero must be supplied by the upstream algebraic-group interface. DM 2.23 in full generality says pro-reductive for connected affine groups, not finite-type reductive. This packet neither duplicates that theorem nor treats positive characteristic as covered.",
+   "neededBy": [
+    "GeometricSatakeAndFusion:GS4:rational-reductivity"
+   ]
   }
  ],
  "restructure": [
@@ -13415,6 +14127,59 @@
    "kind": "split-layer",
    "title": "MC.7 should be divided into a statements sub-layer and a proved-cases register",
    "detail": "MC.7 is asked to do two different things: to give typed statements of open conjectures, which is mathematics this roadmap can own and which needs only a source that states them, and to maintain a register of proved special cases, each of which needs its own primary source and its own hypotheses on the base field, the characteristic, the codimension and the coefficient field. The two have different acceptance tests and different source routes, and mixing them is what makes the layer hard to close: this packet can state Conjecture C and Conjecture D from the sources read but can only report the known cases of Conjecture C on Jannsen's authority, because the three primary papers were not obtained. The proposal is to divide MC.7 into a sub-layer for the statements and the implications between them, and a sub-layer for the register of proved cases with one entry per case and its source. The atlas would then show the conjectures as planets of the first sub-layer, and the register would be a separate piece of work whose progress is visible."
+  },
+  {
+   "action": "split",
+   "roadmaps": [
+    "MotivesAndAlgebraicCycles",
+    "GeometricSatakeAndFusion"
+   ],
+   "detail": "Accepted PAPER-ZHU-17 routes 8 and 11 and confirmed RT-AREA-geomlanglands/17 require the common abstract theorem before Satake, independent of MC.5. Current MC.6 remains the installed parent until this proposal is applied. No new ReductiveGroups owner.",
+   "proposal": "Create MC.6:abstract (Abstract Tannaka reconstruction) with the nine new nodes and the existing MC.6/rigid-bialgebra-is-hopf; require only their library inputs and upstream ReductiveGroups layer 1. Retain the other MC.6 nodes in MC.6:periods, with their original motivic/MC.5 dependencies and imports of abstract reconstruction. GS4:integral-dual-group imports relative finite-piece/coalgebra/bialgebra/rigidity; GS4:rational-reductivity imports neutral representability/reconstruction and finite-type/connectedness. It imports ReductiveGroups layer 6 directly for reductivity. Do not add a whole late MC.6→GS4 edge.",
+   "nodes": {
+    "MC.6:abstract": [
+     "MotivesAndAlgebraicCycles:MC.6/relative-finite-piece-reconstruction",
+     "MotivesAndAlgebraicCycles:MC.6/relative-coalgebra-assembly",
+     "MotivesAndAlgebraicCycles:MC.6/relative-bialgebra-reconstruction",
+     "MotivesAndAlgebraicCycles:MC.6/relative-rigid-antipode",
+     "MotivesAndAlgebraicCycles:MC.6/neutral-finite-subcategory-representability",
+     "MotivesAndAlgebraicCycles:MC.6/neutral-reconstruction-coalgebra",
+     "MotivesAndAlgebraicCycles:MC.6/neutral-tannaka-reconstruction",
+     "MotivesAndAlgebraicCycles:MC.6/tannaka-finiteness-recognition",
+     "MotivesAndAlgebraicCycles:MC.6/tannaka-connectedness-recognition",
+     "MotivesAndAlgebraicCycles:MC.6/rigid-bialgebra-is-hopf"
+    ],
+    "MC.6:periods": [
+     "MotivesAndAlgebraicCycles:MC.6/torsor",
+     "MotivesAndAlgebraicCycles:MC.6/tensor-automorphism-group",
+     "MotivesAndAlgebraicCycles:MC.6/comparison-algebra",
+     "MotivesAndAlgebraicCycles:MC.6/period-space-of-a-diagram",
+     "MotivesAndAlgebraicCycles:MC.6/periods-equal-comparison-algebra",
+     "MotivesAndAlgebraicCycles:MC.6/formal-periods",
+     "MotivesAndAlgebraicCycles:MC.6/formal-periods-equal-comparison-algebra",
+     "MotivesAndAlgebraicCycles:MC.6/fibre-functor-extension",
+     "MotivesAndAlgebraicCycles:MC.6/iso-torsor",
+     "MotivesAndAlgebraicCycles:MC.6/period-torsor",
+     "MotivesAndAlgebraicCycles:MC.6/torsor-groups",
+     "MotivesAndAlgebraicCycles:MC.6/affine-torsor",
+     "MotivesAndAlgebraicCycles:MC.6/affine-torsor-groups",
+     "MotivesAndAlgebraicCycles:MC.6/very-good-pairs-generate-periods",
+     "MotivesAndAlgebraicCycles:MC.6/tensor-iso-scheme",
+     "MotivesAndAlgebraicCycles:MC.6/tensor-iso-torsor",
+     "MotivesAndAlgebraicCycles:MC.6/pro-algebraic-approximation",
+     "MotivesAndAlgebraicCycles:MC.6/period-point"
+    ]
+   },
+   "planets": {
+    "MC.6:abstract": [
+     "Relative Tannaka reconstruction",
+     "Neutral Tannaka reconstruction",
+     "Tannakian finiteness criteria",
+     "Tannakian connectedness criterion"
+    ],
+    "MC.6:periods": "Retain the six existing MC.6 planets."
+   },
+   "applicationStatus": "Proposal only: no campaign/data/stage edge edits are authorized. Independent fix review and maintainer installation required."
   }
  ],
  "sourceIssues": [
@@ -14444,6 +15209,20 @@
    "read": "2026-09-30",
    "sha256": "e55d85bf168c4eedb79949c37d648ea5c071af50d18a2c7ccc316d460e96c563",
    "readExtent": "Fixer read selected Definition 0.1/2.8, Theorem 1.6(3), Theorem 2.10 and evaluation passage, Definition B.18, Assumption B.20/Lemma B.21 and Proposition B.22 (pp.2,5,10-11,24-25); no fresh full-paper read or verification of inherited source issues."
+  },
+  {
+   "kind": "preprint",
+   "url": "https://arxiv.org/pdf/2102.13459v4",
+   "read": "2026-09-30",
+   "sha256": "1f8040751d3424f59ae56651d990d7b2d5030e6b7cae58bc2fc683358dfc2027",
+   "readExtent": "VI.10.2 pp.232–234 and VI.11 pp.236–237 only; published Astérisque 466 not read in this fix."
+  },
+  {
+   "kind": "author copy",
+   "url": "https://www.jmilne.org/math/xnotes/tc.pdf",
+   "read": "2026-09-30",
+   "sha256": "48f8af5249081217fc4a806414a764d9d69d66eff9092ddd8e2cf0ea078579e8",
+   "readExtent": "Corrected 15 August 2012 author text, pp.12 and 20–27; unchanged checksum from the existing source entry."
   }
  ],
  "review": {
@@ -15337,5 +16116,22 @@
    "RT-AREA-iwasawa-3/2-7": "Handoff to BP-KatoEulerSystems as the issue requires."
   },
   "scope": "Six existing nodes refined; no new nodes, stages or planet names, no generated/campaign/data edits. Independent REV-FIX pending; Lean signatures not compiled because no existing built checkout at the pins is available."
- }
+ },
+ "fixHistory": [
+  {
+   "job": "FIX-RT-AREA-geomlanglands~2",
+   "issue": 5160,
+   "worker": "Codex — codex-rtOQ9t",
+   "date": "2026-09-30",
+   "inputRevision": "bad86c8",
+   "finding": "RT-AREA-geomlanglands/17",
+   "scope": "Nine new abstract nodes; two existing applications import them. Other 30 enumerated findings have exact excluded-owner handoffs in the fixes report. No independent acceptance is asserted.",
+   "reviewRequired": "REV-FIX-RT-AREA-geomlanglands~2; preserve the separate pending iwasawa fix review and its history.",
+   "sourceIssueReuse": [
+    "PAPER-FARGUES-SCHOLZE-21/E46",
+    "PAPER-FARGUES-SCHOLZE-21/E108"
+   ],
+   "implementation": "Unchecked, not compiled; no existing built checkout at both pins."
+  }
+ ]
 }
