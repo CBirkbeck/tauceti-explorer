@@ -17645,3 +17645,221 @@ Twelve complete native lemmas check finite telescoping and triangular difference
 Exact controls check60 residue grids,3732 recurrence and3732 refinement identities,60 mass totals and72 ordinary moments independently derived from the existing rational smoothing series. They certify72 inverse moments, each repeated at higher level and precision, and30 quotient comparisons. They detect2688 wrong carries,163 wrong signs and25 precision losses, and retain six zero-denominator cases with nonzero numerators. Nine explicit small-modulus cell values are checked. Exact rational masses use the newly derived coefficient formula for the actual arithmetic smoothing measure. Every finite recurrence, mass and refinement is checked, including smoothing parameters larger than the modulus. Ordinary moments independently match the existing rational smoothing-series recurrence followed by iterated Mahler differentiation. Native inverse-power distance, residue-distance and measure approximation bounds certify unit inverse-moment sums modulo p^r at level m>=max(n,1,r). Each negative moment is recomputed at higher level and precision. For a nonzero smoothing denominator with valuation v, level and numerator precision increase to R+v before division; the resulting quotient is certified modulo p^R. Zero denominators are never divided, even when the numerator is nonzero. The calculation identifies actual arithmetic moment quotients, not a constructed scalar analytic L-function; the roadmap statements remain unchecked plans. The largest observed discrepancy is 0.
 
 The62-input capture at376f1bc9720f005266c60dfe3b2aa5b00c563ca0 has no input delta from the predecessor. Existing pinned artifacts and the verified332-node PMIA artifact are reused; the current369-node source, Coleman and LAD are not claimed to compile.
+
+
+## Concrete inverse-power arithmetic characters
+
+Partial continuation preserving all537 predecessor nodes whole. Seven L3 nodes construct inverse-power arithmetic characters from the existing inverse coordinate, give pointwise/natural values and a uniform norm bound, classify admissible natural parameters and specialize actual tame and smoothing moment comparisons. All16 findings, nine requests and13 gaps remain; zero closed stages.
+
+Whole published137–138,147,150–151 was freshly read. The complete existing positive arithmetic-character construction/API/tests, pointwise and norm nodes, inverse-coordinate construction/value nodes, tame-character negative-moment comparison, intrinsic smoothing negative-moment comparison and principal-unit admissibility node were read. Their exact suggested signatures and coefficient assumptions were checked. Native continuous-hom product/power/composition, character nonprincipality on units, level-one boundary, residue-unit criterion, p-adic natural-unit criterion and norm bounds were checked at the pin. The reviewed library audit and all62 captured inputs are unchanged. The existing L4 inverse-coordinate node has a concrete acyclic route through L2 and PMIA declarations; no stage-level L4 or Coleman backedge is introduced.
+
+### Inverse-power arithmetic characters
+
+`DirichletPadicLFunctions:L3/inverse-arithmetic-character` — `DirichletPadic.inversePowerArithmeticCharacter`
+
+Construct κ⁻_(n,χ,r):ContinuousMonoidHom U R by the native product and power specified above.
+
+**Hypotheses:** p is any prime, including2. Z=ℤ_p and U=Zˣ have the native topologies. For the constructor, R is a normed commutative Z-algebra with IsBoundedSMul Z R; no field, characteristic-zero or completeness assumption is needed. Let n,r≥0 and χ:DirichletCharacter R(p^n). Write cχ=primePowerCharacter p n χ and e=eisensteinInverseCharacter p, the already owned integral inverse-coordinate character. Define κ⁻_(n,χ,r) as primePowerArithmeticCharacter p n χ 0 times the r-th power of the composite of e with the continuous algebra map Z→R. These are native continuous monoid homomorphisms. Natural-value and norm statements take a normed coefficient field K with the same algebra and bounded action. The natural value is stated for an actual u:U with ↑u=(a:Z). Inversion happens in U or K; no division operation on Z is introduced. Admissible-parameter existence additionally takes CharZero K, CompleteSpace K and IsUltrametricDist K, matching the existing principal-unit theorem it reuses. Admissibility means IsUnit(κ⁻(u)−1) in K, not invertibility in Z or regularity in the measure ring. Moment comparisons use complete ultrametric K. The tame comparison further takes NontriviallyNormedField K, D>0 with NeZero D, η:DirichletCharacter K D, hD:IsUnit(D:K) and p∤D. Put I(x)=algebraMap Z K(PadicInt.inv x) with the existing PMIA continuity theorem. It equals the inverse unit value on units and0 off units.
+
+**Proof:**
+
+1. Bundle the existing continuous algebra map Z→R as a native ContinuousMonoidHom and compose it with the existing e. Multiply its r-th power by the existing arithmetic character at weight0. Native continuous-hom multiplication, power and composition supply continuity and both monoid axioms.
+2. The complete native twist constructor checks this assembly on precisely the native p-adic unit domain. It receives the two existing continuous homomorphisms as inputs and uses no replacement carrier or axiomatic multiplication structure.
+3. The pointwise and natural-value APIs are promoted below because later nodes need them. At r=0 the native power is1, so κ⁻ is exactly the existing weight-zero arithmetic character. At n=0 its finite-character factor is1, giving the inverse-coordinate power.
+4. At−1 the inverse unit is again−1, givingχ(−1)(−1)^r. In particular an odd finite character with odd inverse exponent has even total sign, including at p=2.
+5. For r>0 the inverse coordinate is evaluated on the actual unit. Units2 and5 have the same residue modulo3, but their exponent-one values for principalχ are1/2 and1/5. A construction using a fixed residue representative would fail this typed test.
+
+**Prerequisites:** `DirichletPadicLFunctions:L2/prime-power-arithmetic-character`, `DirichletPadicLFunctions:L4/eisenstein-inverse-character`, `mathlib:continuous_algebraMap`, `mathlib:ContinuousMonoidHom.comp`, `mathlib:ContinuousMonoidHom.mul_apply`, `mathlib:ContinuousMonoidHom.pow_apply`.
+
+**Uses:**
+
+- RJW equation(4-3): Supplies the exact continuous test for the inverse-weighted actual smoothing numerator.
+- RJW Definition5.18 and Remark5.19, and existing negative-moment nodes: Makes the finite-character times inverse-power test a concrete native continuous character, with moment index r+1.
+- Admissible specialization of the existing pseudomeasure: Provides actual arithmetic parameters and denominator values; the general compatible coefficient-field evaluator remains an explicit separate input.
+
+**API:**
+
+- `DirichletPadic.inversePowerArithmeticCharacter_def` (constructor): κ⁻=κ_(n,χ,0)·((algebraMap as a continuous monoid homomorphism).comp e)^r.
+- `DirichletPadic.inversePowerArithmeticCharacter_apply` (characterisation): κ⁻(u)=cχ(u)·algebraMap(↑u⁻¹)^r. Promoted to inverse-arithmetic-character-value.
+- `DirichletPadic.inversePowerArithmeticCharacter_nat` (compatibility): Over a normed coefficient field, ↑u=a implies κ⁻(u)=χ(a)(a⁻¹)^r. Promoted to inverse-arithmetic-character-natural-value.
+- `DirichletPadic.inversePowerArithmeticCharacter_zero_power` (simp): κ⁻_(n,χ,0)=primePowerArithmeticCharacter(p,n,χ,0).
+- `DirichletPadic.inversePowerArithmeticCharacter_zero_level` (simp): κ⁻_(0,χ,r)(u)=algebraMap(↑u⁻¹)^r.
+- `DirichletPadic.inversePowerArithmeticCharacter_neg_one` (data): κ⁻(−1)=χ(−1)(−1)^r.
+
+**Tests:**
+
+- `SuggestedInverseArithmeticTests.identity_value` (characterisation): Every κ⁻ sends the unit1 to1.
+- `SuggestedInverseArithmeticTests.zero_exponent_finite_character` (degenerate): At r=0, κ⁻ equals the existing arithmetic character at weight0.
+- `SuggestedInverseArithmeticTests.level_zero_inverse_coordinate` (compatibility): At n=0,r=1, κ⁻ is the coefficient image of the existing Eisenstein inverse-coordinate character.
+- `SuggestedInverseArithmeticTests.same_residue_different_values` (non-example): For p=3, principalχ modulo3 and r=1, the units represented by2 and5 have different values.
+- `SuggestedInverseArithmeticTests.dyadic_odd_sign` (computation): Forχ modulo4 withχ(3)=−1 and r=1, κ⁻(−1)=1.
+
+**Acceptance:** This is a specific integral-exponent family assembled from existing maps, not a generic character-space construction. The existing inverse-coordinate character remains the sole owner of that factor.
+
+**Source:** Equation(4-3) and Definition4.10, published138/PDF39; Definition5.18 and Remark5.19, published147/PDF48; equation(6-2) and the inverse-moment discussion, published150–151/PDF51–52. Complete published137–138,147,150–151 freshly read on30September2026. Worker construction of the specific finite character times an inverse integral power needed by the existing negative-moment comparisons. The exponent is r≥0 and the moment index is r+1. Reuses the already owned inverse-coordinate character. No generic weight space, character family, analytic L-value or general pseudomeasure evaluator is reconstructed. Retained source corrections, including E44–E49, remain in force.
+
+### The inverse-power character value
+
+`DirichletPadicLFunctions:L3/inverse-arithmetic-character-value` — `DirichletPadic.inversePowerArithmeticCharacter_apply`
+
+For every actual u∈U, κ⁻(u)=cχ(u)·algebraMap(↑u⁻¹)^r.
+
+**Hypotheses:** p is any prime, including2. Z=ℤ_p and U=Zˣ have the native topologies. For the constructor, R is a normed commutative Z-algebra with IsBoundedSMul Z R; no field, characteristic-zero or completeness assumption is needed. Let n,r≥0 and χ:DirichletCharacter R(p^n). Write cχ=primePowerCharacter p n χ and e=eisensteinInverseCharacter p, the already owned integral inverse-coordinate character. Define κ⁻_(n,χ,r) as primePowerArithmeticCharacter p n χ 0 times the r-th power of the composite of e with the continuous algebra map Z→R. These are native continuous monoid homomorphisms. Natural-value and norm statements take a normed coefficient field K with the same algebra and bounded action. The natural value is stated for an actual u:U with ↑u=(a:Z). Inversion happens in U or K; no division operation on Z is introduced. Admissible-parameter existence additionally takes CharZero K, CompleteSpace K and IsUltrametricDist K, matching the existing principal-unit theorem it reuses. Admissibility means IsUnit(κ⁻(u)−1) in K, not invertibility in Z or regularity in the measure ring. Moment comparisons use complete ultrametric K. The tame comparison further takes NontriviallyNormedField K, D>0 with NeZero D, η:DirichletCharacter K D, hD:IsUnit(D:K) and p∤D. Put I(x)=algebraMap Z K(PadicInt.inv x) with the existing PMIA continuity theorem. It equals the inverse unit value on units and0 off units.
+
+**Proof:**
+
+1. Apply native continuous-hom product, power and composition evaluation to the preceding construction.
+2. The promoted positive arithmetic-character pointwise formula at weight0 gives cχ(u). The already promoted Eisenstein inverse-character value gives e(u)=↑u⁻¹. Substitute these exact formulas; the complete native twist_apply proof checks the assembly.
+3. This identification holds over the full normed-ring coefficient generality. No inversion on the coefficient ring is required.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/inverse-arithmetic-character`, `DirichletPadicLFunctions:L2/arithmetic-character-pointwise-value`, `DirichletPadicLFunctions:L4/eisenstein-inverse-character-value`, `mathlib:ContinuousMonoidHom.mul_apply`, `mathlib:ContinuousMonoidHom.pow_apply`.
+
+**Tests:**
+
+
+
+**Acceptance:** Only group inversion on U occurs before applying the coefficient map.
+
+**Source:** Equation(4-3) and Definition4.10, published138/PDF39; Definition5.18 and Remark5.19, published147/PDF48; equation(6-2) and the inverse-moment discussion, published150–151/PDF51–52. Complete published137–138,147,150–151 freshly read on30September2026. Worker construction of the specific finite character times an inverse integral power needed by the existing negative-moment comparisons. The exponent is r≥0 and the moment index is r+1. Reuses the already owned inverse-coordinate character. No generic weight space, character family, analytic L-value or general pseudomeasure evaluator is reconstructed. Retained source corrections, including E44–E49, remain in force.
+
+### Inverse arithmetic characters at natural units
+
+`DirichletPadicLFunctions:L3/inverse-arithmetic-character-natural-value` — `DirichletPadic.inversePowerArithmeticCharacter_nat`
+
+For ↑u=(a:Z), κ⁻(u)=χ(a:ZMod(p^n))·((a:K)⁻¹)^r.
+
+**Hypotheses:** p is any prime, including2. Z=ℤ_p and U=Zˣ have the native topologies. For the constructor, R is a normed commutative Z-algebra with IsBoundedSMul Z R; no field, characteristic-zero or completeness assumption is needed. Let n,r≥0 and χ:DirichletCharacter R(p^n). Write cχ=primePowerCharacter p n χ and e=eisensteinInverseCharacter p, the already owned integral inverse-coordinate character. Define κ⁻_(n,χ,r) as primePowerArithmeticCharacter p n χ 0 times the r-th power of the composite of e with the continuous algebra map Z→R. These are native continuous monoid homomorphisms. Natural-value and norm statements take a normed coefficient field K with the same algebra and bounded action. The natural value is stated for an actual u:U with ↑u=(a:Z). Inversion happens in U or K; no division operation on Z is introduced. Admissible-parameter existence additionally takes CharZero K, CompleteSpace K and IsUltrametricDist K, matching the existing principal-unit theorem it reuses. Admissibility means IsUnit(κ⁻(u)−1) in K, not invertibility in Z or regularity in the measure ring. Moment comparisons use complete ultrametric K. The tame comparison further takes NontriviallyNormedField K, D>0 with NeZero D, η:DirichletCharacter K D, hD:IsUnit(D:K) and p∤D. Put I(x)=algebraMap Z K(PadicInt.inv x) with the existing PMIA continuity theorem. It equals the inverse unit value on units and0 off units.
+
+**Proof:**
+
+1. Use the preceding pointwise formula. The existing primePowerCharacter is composition with the native ring reduction to ZMod(p^n); preservation of natural casts gives cχ(a)=χ(a). This computation also covers n=0.
+2. Native map_units_inv identifies the image of the inverse unit with the inverse of its image. Substitute the supplied equality↑u=a and preservation of natural casts. The complete inverse_natural_value proof verifies this exact identity.
+3. At p=3,n=1, principalχ and r=2, the unit2 has value1/4. The typed test rejects the positive-power value4 and the shifted inverse-cube value1/8.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/inverse-arithmetic-character-value`, `DirichletPadicLFunctions:L2/prime-power-character`, `mathlib:PadicInt.toZModPow`, `mathlib:map_units_inv`.
+
+**Tests:**
+
+- `SuggestedInverseArithmeticTests.ternary_reciprocal_square` (computation): The principal character modulo3 at inverse exponent2 takes the actual ternary unit2 to1/4.
+
+**Acceptance:** The actual unit representative is explicit; coprimality is not silently used to manufacture a unit term.
+
+**Source:** Equation(4-3) and Definition4.10, published138/PDF39; Definition5.18 and Remark5.19, published147/PDF48; equation(6-2) and the inverse-moment discussion, published150–151/PDF51–52. Complete published137–138,147,150–151 freshly read on30September2026. Worker construction of the specific finite character times an inverse integral power needed by the existing negative-moment comparisons. The exponent is r≥0 and the moment index is r+1. Reuses the already owned inverse-coordinate character. No generic weight space, character family, analytic L-value or general pseudomeasure evaluator is reconstructed. Retained source corrections, including E44–E49, remain in force.
+
+### Uniform norm of inverse arithmetic characters
+
+`DirichletPadicLFunctions:L3/inverse-arithmetic-character-norm` — `DirichletPadic.inversePowerArithmeticCharacter_norm_le`
+
+For every n,r≥0 and u∈U, ‖κ⁻(u)‖≤1.
+
+**Hypotheses:** p is any prime, including2. Z=ℤ_p and U=Zˣ have the native topologies. For the constructor, R is a normed commutative Z-algebra with IsBoundedSMul Z R; no field, characteristic-zero or completeness assumption is needed. Let n,r≥0 and χ:DirichletCharacter R(p^n). Write cχ=primePowerCharacter p n χ and e=eisensteinInverseCharacter p, the already owned integral inverse-coordinate character. Define κ⁻_(n,χ,r) as primePowerArithmeticCharacter p n χ 0 times the r-th power of the composite of e with the continuous algebra map Z→R. These are native continuous monoid homomorphisms. Natural-value and norm statements take a normed coefficient field K with the same algebra and bounded action. The natural value is stated for an actual u:U with ↑u=(a:Z). Inversion happens in U or K; no division operation on Z is introduced. Admissible-parameter existence additionally takes CharZero K, CompleteSpace K and IsUltrametricDist K, matching the existing principal-unit theorem it reuses. Admissibility means IsUnit(κ⁻(u)−1) in K, not invertibility in Z or regularity in the measure ring. Moment comparisons use complete ultrametric K. The tame comparison further takes NontriviallyNormedField K, D>0 with NeZero D, η:DirichletCharacter K D, hD:IsUnit(D:K) and p∤D. Put I(x)=algebraMap Z K(PadicInt.inv x) with the existing PMIA continuity theorem. It equals the inverse unit value on units and0 off units.
+
+**Proof:**
+
+1. Use the promoted pointwise value. Native DirichletCharacter.norm_le_one bounds the finite-character factor.
+2. For z=↑u⁻¹, write algebraMap(z)=z•1. The bounded scalar action, native norm_smul_le and PadicInt.norm_le_one give norm at most1 for the inverse-coordinate image. This needs neither an isometric embedding nor characteristic zero.
+3. Use norm_mul, norm_pow and pow_le_one₀. The complete native norm_inverse_product lemma proves this bound for the actual native Dirichlet character and inverse p-adic unit.
+4. The exponent-zero case remains1 in the second factor. No decay in r or analyticity of an r-variable family is asserted.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/inverse-arithmetic-character-value`, `mathlib:DirichletCharacter.norm_le_one`, `mathlib:norm_smul_le`, `mathlib:PadicInt.norm_le_one`, `mathlib:pow_le_one₀`.
+
+**Tests:**
+
+- `SuggestedInverseArithmeticTests.uniform_inverse_norm` (compatibility): The same bound holds for every actual unit and every inverse exponent, including0.
+
+**Acceptance:** A uniform coefficient-field norm estimate, not a complex absolute-value comparison.
+
+**Source:** Equation(4-3) and Definition4.10, published138/PDF39; Definition5.18 and Remark5.19, published147/PDF48; equation(6-2) and the inverse-moment discussion, published150–151/PDF51–52. Complete published137–138,147,150–151 freshly read on30September2026. Worker construction of the specific finite character times an inverse integral power needed by the existing negative-moment comparisons. The exponent is r≥0 and the moment index is r+1. Reuses the already owned inverse-coordinate character. No generic weight space, character family, analytic L-value or general pseudomeasure evaluator is reconstructed. Retained source corrections, including E44–E49, remain in force.
+
+### Exactly when an inverse arithmetic character is admissible
+
+`DirichletPadicLFunctions:L3/inverse-arithmetic-character-admissible` — `DirichletPadic.inversePowerArithmeticCharacter_exists_admissible`
+
+There exist a>1 with p∤a and an actual u∈U with ↑u=a and IsUnit(κ⁻(u)−1) if and only if r≠0 or χ≠1.
+
+**Hypotheses:** p is any prime, including2. Z=ℤ_p and U=Zˣ have the native topologies. For the constructor, R is a normed commutative Z-algebra with IsBoundedSMul Z R; no field, characteristic-zero or completeness assumption is needed. Let n,r≥0 and χ:DirichletCharacter R(p^n). Write cχ=primePowerCharacter p n χ and e=eisensteinInverseCharacter p, the already owned integral inverse-coordinate character. Define κ⁻_(n,χ,r) as primePowerArithmeticCharacter p n χ 0 times the r-th power of the composite of e with the continuous algebra map Z→R. These are native continuous monoid homomorphisms. Natural-value and norm statements take a normed coefficient field K with the same algebra and bounded action. The natural value is stated for an actual u:U with ↑u=(a:Z). Inversion happens in U or K; no division operation on Z is introduced. Admissible-parameter existence additionally takes CharZero K, CompleteSpace K and IsUltrametricDist K, matching the existing principal-unit theorem it reuses. Admissibility means IsUnit(κ⁻(u)−1) in K, not invertibility in Z or regularity in the measure ring. Moment comparisons use complete ultrametric K. The tame comparison further takes NontriviallyNormedField K, D>0 with NeZero D, η:DirichletCharacter K D, hD:IsUnit(D:K) and p∤D. Put I(x)=algebraMap Z K(PadicInt.inv x) with the existing PMIA continuity theorem. It equals the inverse unit value on units and0 off units.
+
+**Proof:**
+
+1. For r>0 take a=1+p^(n+1). Its residue is1 at the finite-character level and p∤a. The existing negative-principal-unit-admissible theorem at k=r+1 makesχ(a)(a⁻¹)^r−1 a unit of K. Native PadicInt.isUnit_iff and norm_natCast_eq_one_iff supply the actual u. The new natural-value lemma transports the denominator.
+2. For r=0 andχ≠1, native DirichletCharacter.level_one rules out n=0. Thus q=p^n>1. Native MulChar.ne_one_iff supplies v∈(ZMod q)ˣ withχ(v)≠1.
+3. Choose a=v.val+q. Then a>1 and its residue isv. Native ZMod.isUnit_natCast_iff_not_dvd_pow gives p∤a. The complete finite_nonprincipal_witness proof checks this exact construction, and natural_padic_unit constructs the required actual p-adic unit from that coprimality.
+4. At exponent0 the displayed denominator isχ(a)−1. It is nonzero by construction, hence a unit of K. The complete first_weight_denominator check retains exactly this boundary.
+5. Conversely, if r=0 andχ=1, the finite character is1 on every unit residue, even though at positive level it is0 on ambient nonunits. The new pointwise formula givesκ⁻(u)=1 for every u, contradicting admissibility. No principal exponent-zero parameter is asserted.
+6. This includes p=2. At n=0,r=1 take a=3, with denominator1/3−1 inℚ₂. At p=3 andχ(2)=−1 with r=0, a=2 already gives denominator−2. No topological-generator argument is used.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/inverse-arithmetic-character-natural-value`, `DirichletPadicLFunctions:L3/inverse-arithmetic-character-value`, `DirichletPadicLFunctions:L3/negative-principal-unit-admissible`, `mathlib:MulChar.ne_one_iff`, `mathlib:DirichletCharacter.level_one`, `mathlib:ZMod.isUnit_natCast_iff_not_dvd_pow`, `mathlib:PadicInt.norm_natCast_eq_one_iff`, `mathlib:PadicInt.isUnit_iff`, `mathlib:isUnit_iff_ne_zero`.
+
+**Tests:**
+
+- `SuggestedInverseArithmeticTests.zero_exponent_principal_inadmissible` (non-example): For principalχ and r=0, κ⁻(u)−1 is never a unit of K.
+- `SuggestedInverseArithmeticTests.dyadic_principal_admissible` (computation): For p=2,n=0,r=1 there is a natural admissible parameter, witnessed by3.
+- `SuggestedInverseArithmeticTests.finite_ternary_admissible` (computation): Forχ modulo3 withχ(2)=−1 and r=0, the unit2 gives denominator−2.
+
+**Acceptance:** This classifies existence of a coefficient-field denominator. It constructs no general evaluator of the measure ring or its total quotient ring. The field and characteristic-zero assumptions in the forward existence construction remain explicit.
+
+**Source:** Equation(4-3) and Definition4.10, published138/PDF39; Definition5.18 and Remark5.19, published147/PDF48; equation(6-2) and the inverse-moment discussion, published150–151/PDF51–52. Complete published137–138,147,150–151 freshly read on30September2026. Worker construction of the specific finite character times an inverse integral power needed by the existing negative-moment comparisons. The exponent is r≥0 and the moment index is r+1. Reuses the already owned inverse-coordinate character. No generic weight space, character family, analytic L-value or general pseudomeasure evaluator is reconstructed. Retained source corrections, including E44–E49, remain in force.
+
+### Actual smoothing moments of inverse arithmetic characters
+
+`DirichletPadicLFunctions:L3/smoothed-inverse-arithmetic-value` — `DirichletPadic.extend_intrinsicSmoothedNumerator_inverse_arithmetic`
+
+For p∤a, extendIntegralUnitCoefficients(intrinsicSmoothedNumerator p a)(κ⁻.toContinuousMap)=twistedSmoothedMeasure p n χ a(I^(r+1)).
+
+**Hypotheses:** p is any prime, including2. Z=ℤ_p and U=Zˣ have the native topologies. For the constructor, R is a normed commutative Z-algebra with IsBoundedSMul Z R; no field, characteristic-zero or completeness assumption is needed. Let n,r≥0 and χ:DirichletCharacter R(p^n). Write cχ=primePowerCharacter p n χ and e=eisensteinInverseCharacter p, the already owned integral inverse-coordinate character. Define κ⁻_(n,χ,r) as primePowerArithmeticCharacter p n χ 0 times the r-th power of the composite of e with the continuous algebra map Z→R. These are native continuous monoid homomorphisms. Natural-value and norm statements take a normed coefficient field K with the same algebra and bounded action. The natural value is stated for an actual u:U with ↑u=(a:Z). Inversion happens in U or K; no division operation on Z is introduced. Admissible-parameter existence additionally takes CharZero K, CompleteSpace K and IsUltrametricDist K, matching the existing principal-unit theorem it reuses. Admissibility means IsUnit(κ⁻(u)−1) in K, not invertibility in Z or regularity in the measure ring. Moment comparisons use complete ultrametric K. The tame comparison further takes NontriviallyNormedField K, D>0 with NeZero D, η:DirichletCharacter K D, hD:IsUnit(D:K) and p∤D. Put I(x)=algebraMap Z K(PadicInt.inv x) with the existing PMIA continuity theorem. It equals the inverse unit value on units and0 off units.
+
+**Proof:**
+
+1. Take k=r+1 in the existing intrinsic-smoothed negative-moment comparison. Its inequality k≥1 is automatic and(k−1)=r.
+2. The promoted pointwise value of the concrete κ⁻ discharges the earlier supplied-character compatibility hypothesis. No new coefficient extension, weighting or unit-restriction construction is required.
+3. At r=0 the finite-character value of the intrinsic numerator is the first inverse moment. At level0 and principalχ this numerator evaluation is still valid, although every denominator vanishes. At a=1 the smoothing measure and numerator vanish.
+4. The existing smoothed residue-mass and approximation nodes now compute these concrete character values with the same numerator error p^(−m). If an admissible smoothing quotient is used, the existing denominator-loss bound must still be applied.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/inverse-arithmetic-character-value`, `DirichletPadicLFunctions:L3/smoothed-intrinsic-negative-moment`.
+
+**Tests:**
+
+- `SuggestedInverseArithmeticTests.first_smoothed_inverse_moment` (compatibility): At r=0, the concrete finite-character evaluation of the actual intrinsic numerator equals the first inverse moment.
+
+**Acceptance:** The generic coefficient-field pseudomeasure ring map remains an explicit input to the earlier evalAt comparison. Constructing its character does not construct that map.
+
+**Source:** Equation(4-3) and Definition4.10, published138/PDF39; Definition5.18 and Remark5.19, published147/PDF48; equation(6-2) and the inverse-moment discussion, published150–151/PDF51–52. Complete published137–138,147,150–151 freshly read on30September2026. Worker construction of the specific finite character times an inverse integral power needed by the existing negative-moment comparisons. The exponent is r≥0 and the moment index is r+1. Reuses the already owned inverse-coordinate character. No generic weight space, character family, analytic L-value or general pseudomeasure evaluator is reconstructed. Retained source corrections, including E44–E49, remain in force.
+
+### Actual tame moments of inverse arithmetic characters
+
+`DirichletPadicLFunctions:L3/tame-inverse-arithmetic-value` — `DirichletPadic.tameCharacterValue_inverse_arithmetic`
+
+tameCharacterValue η hD hpD κ⁻=unitRestriction p K(twistedTameMeasure n χ η hD hpD)(I^(r+1)).
+
+**Hypotheses:** p is any prime, including2. Z=ℤ_p and U=Zˣ have the native topologies. For the constructor, R is a normed commutative Z-algebra with IsBoundedSMul Z R; no field, characteristic-zero or completeness assumption is needed. Let n,r≥0 and χ:DirichletCharacter R(p^n). Write cχ=primePowerCharacter p n χ and e=eisensteinInverseCharacter p, the already owned integral inverse-coordinate character. Define κ⁻_(n,χ,r) as primePowerArithmeticCharacter p n χ 0 times the r-th power of the composite of e with the continuous algebra map Z→R. These are native continuous monoid homomorphisms. Natural-value and norm statements take a normed coefficient field K with the same algebra and bounded action. The natural value is stated for an actual u:U with ↑u=(a:Z). Inversion happens in U or K; no division operation on Z is introduced. Admissible-parameter existence additionally takes CharZero K, CompleteSpace K and IsUltrametricDist K, matching the existing principal-unit theorem it reuses. Admissibility means IsUnit(κ⁻(u)−1) in K, not invertibility in Z or regularity in the measure ring. Moment comparisons use complete ultrametric K. The tame comparison further takes NontriviallyNormedField K, D>0 with NeZero D, η:DirichletCharacter K D, hD:IsUnit(D:K) and p∤D. Put I(x)=algebraMap Z K(PadicInt.inv x) with the existing PMIA continuity theorem. It equals the inverse unit value on units and0 off units.
+
+**Proof:**
+
+1. Apply the existing tame-character negative-moment comparison at k=r+1. The concrete pointwise character formula supplies exactly its compatibility hypothesis.
+2. The exponent shift comes from the existing inverse-weighted tame zeta measure. The complete native inverse_weight_shift proof checks x(c x^r)=c x^(r+1); omitting this shift evaluates a different actual measure.
+3. At n=0 and r=1, the coefficient image of the existing inverse-coordinate character evaluates to the second inverse moment of the unit restriction of tameMeasure. At r=0 the test is the finite character and the moment is the first inverse moment.
+4. The already recorded branch convention and E49 remain unchanged: any analytic L-value comparison uses the finite factor(χη)ω^(−r) at s=r+1. The higher polylogarithm comparison is already owned by ColemanIntegration; it is not imported as a reverse stage dependency.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/inverse-arithmetic-character-value`, `DirichletPadicLFunctions:L3/tame-character-negative-moment`.
+
+**Tests:**
+
+- `SuggestedInverseArithmeticTests.second_tame_inverse_moment` (compatibility): At n=0,r=1, the concrete inverse-coordinate character value is the second inverse moment of the actual tame measure restricted to units.
+
+**Acceptance:** Neither an analytic character family nor an analytic scalar L-function is asserted. The equality is between the existing actual continuous-character value and actual measure evaluation.
+
+**Source:** Equation(4-3) and Definition4.10, published138/PDF39; Definition5.18 and Remark5.19, published147/PDF48; equation(6-2) and the inverse-moment discussion, published150–151/PDF51–52. Complete published137–138,147,150–151 freshly read on30September2026. Worker construction of the specific finite character times an inverse integral power needed by the existing negative-moment comparisons. The exponent is r≥0 and the moment index is r+1. Reuses the already owned inverse-coordinate character. No generic weight space, character family, analytic L-value or general pseudomeasure evaluator is reconstructed. Retained source corrections, including E44–E49, remain in force.
+
+**Remaining:** The inverse-power arithmetic characters and their actual moment comparisons are now concrete. Canonical general K-valued character evaluation remains the open PMIA L3 request. Analytic character families and scalar Mellin/L-function comparisons remain with PMIA L0a and LAD L3. The tame logarithm/trace/complement package awaits the owned typed analytic-distribution comparisons; pure-p smoothing primitives and pole/residue comparisons must reuse the existing Coleman nodes. Full source extraction, the other recorded gaps and the remaining Eisenstein comparisons stay open. Preserve E44–E49 and all earlier corrections.
+
+### Concrete inverse-power arithmetic characters validation
+
+All 537 predecessor nodes, 484 baseline records, 16 findings, requests and sourceVersions remain whole. This checkpoint adds 7 nodes, 11 named suggested declarations and 12 typed examples. The indexed blueprint, four-file intake, whitespace, preservation, API/test parity and versioned-source checks pass. The graph has 782 reachable nodes, 3728 edges and 658 native leaves and is acyclic. Its stage request leaves are PadicMeasuresIwasawaAlgebras:L1, PadicMeasuresIwasawaAlgebras:L3, PadicMeasuresIwasawaAlgebras:L3, LocallyAnalyticDistributions:L1, AdicSpacesPartII:F1, AdicSpacesPartII:R2, PadicDifferentialEquationsAndRigidCohomology:RD.0, PadicDifferentialEquationsAndRigidCohomology:RD.4, PadicHodgeTheory:P7:annulus-foundations. Each new route ends in existing declarations, including the exact existing inverse-coordinate node. No stage request leaf or reversed Coleman dependency is added.
+
+The full suggested module elaborates with zero errors and 1661 expected placeholder warnings. Source and artifact audits cover 3600 pinned Mathlib modules, 21 pinned Tau Ceti modules and the verified actual 332-node PMIA artifact. The current 369-node PMIA source preserves the compiled 332-node artifact's source in order; no new supplier declaration is called and no compilation against the current supplier revision is claimed. Source, olean and original compiler-log hashes were rechecked. Existing builds only were used.
+
+One complete native constructor and eleven complete lemmas check the continuous-hom product/power, pointwise and zero values, multiplicativity, inverse natural value, uniform norm, an explicit nonprincipal finite-character witness, its actual p-adic unit lift, inverse-power nonvanishing, first-weight denominator, inverse-weight shift and a same-residue counterexample. The probe elaborates against 2798 pinned Mathlib modules with zero errors, warnings or placeholders. General roadmap declarations remain unchecked.
+
+Exact rational character controls cover multiplicativity, parity, inverse exponents, p-adic norm bounds, explicit natural admissibility, the principal zero-exponent obstruction, same-residue counterexamples and the inverse-weight shift. Counts and negative controls are retained with the evidence. Exact Fraction arithmetic for principal and quadratic characters at p=2,3,5,7, conductor exponents0 through3 and inverse exponents0 through5. Natural lifts are multiplied before evaluating inverse powers. Valuations are computed on rational values. Wrong positive powers, omitted inverse weighting, and factorization through the finite residue level are tested separately. No analytic convergence or new numerical measure claim is inferred. The largest observed discrepancy is 0 in all exact asserted identities.
+
+The62-input capture at9ac114468f0f355bf2268f80865d56062d281e35 has no predecessor input changes. Existing pinned artifacts and the verified332-node PMIA artifact are reused; no compilation of the current369-node PMIA source or Coleman/LAD modules is claimed.

@@ -8823,3 +8823,139 @@ example (v s : ℚ_[3]) (h : ‖v-s‖≤(1/9 : ℝ)) :
     ‖v/(-3/4 : ℚ_[3])-s/(-3/4 : ℚ_[3])‖≤(1/3 : ℝ) := sorry
 end
 end SuggestedSmoothedResidueTests
+
+/-! Concrete inverse-power arithmetic characters. The inverse coordinate is the
+already owned Eisenstein character; generic character spaces are not rebuilt. -/
+namespace DirichletPadic
+noncomputable section
+open scoped AbstractMeasure
+open AbstractMeasure
+variable (p : ℕ) [Fact p.Prime]
+section Ring
+variable {R : Type*} [NormedCommRing R] [Algebra ℤ_[p] R] [IsBoundedSMul ℤ_[p] R]
+
+def inversePowerArithmeticCharacter (n : ℕ) (χ : DirichletCharacter R (p^n)) (r : ℕ) :
+    ContinuousMonoidHom (ℤ_[p])ˣ R := sorry
+
+lemma inversePowerArithmeticCharacter_def (n : ℕ) (χ : DirichletCharacter R (p^n)) (r : ℕ) :
+    inversePowerArithmeticCharacter p n χ r = primePowerArithmeticCharacter p n χ 0 *
+      ((⟨(algebraMap ℤ_[p] R).toMonoidHom, continuous_algebraMap ℤ_[p] R⟩ :
+        ContinuousMonoidHom ℤ_[p] R).comp (eisensteinInverseCharacter p))^r := sorry
+
+lemma inversePowerArithmeticCharacter_apply (n : ℕ) (χ : DirichletCharacter R (p^n))
+    (r : ℕ) (u : (ℤ_[p])ˣ) :
+    inversePowerArithmeticCharacter p n χ r u = primePowerCharacter p n χ (u : ℤ_[p]) *
+      (algebraMap ℤ_[p] R (↑u⁻¹ : ℤ_[p]))^r := sorry
+
+lemma inversePowerArithmeticCharacter_zero_power (n : ℕ) (χ : DirichletCharacter R (p^n)) :
+    inversePowerArithmeticCharacter p n χ 0 = primePowerArithmeticCharacter p n χ 0 := sorry
+
+lemma inversePowerArithmeticCharacter_zero_level (χ : DirichletCharacter R (p^0))
+    (r : ℕ) (u : (ℤ_[p])ˣ) :
+    inversePowerArithmeticCharacter p 0 χ r u = (algebraMap ℤ_[p] R (↑u⁻¹ : ℤ_[p]))^r := sorry
+
+lemma inversePowerArithmeticCharacter_neg_one (n : ℕ) (χ : DirichletCharacter R (p^n))
+    (r : ℕ) : inversePowerArithmeticCharacter p n χ r (-1) = χ (-1)*(-1 : R)^r := sorry
+end Ring
+
+section Field
+variable {K : Type*} [NormedField K] [Algebra ℤ_[p] K] [IsBoundedSMul ℤ_[p] K]
+
+lemma inversePowerArithmeticCharacter_nat (n : ℕ) (χ : DirichletCharacter K (p^n))
+    (r a : ℕ) (u : (ℤ_[p])ˣ) (hu : (u : ℤ_[p]) = (a : ℤ_[p])) :
+    inversePowerArithmeticCharacter p n χ r u = χ (a : ZMod (p^n))*((a : K)⁻¹)^r := sorry
+
+lemma inversePowerArithmeticCharacter_norm_le (n : ℕ) (χ : DirichletCharacter K (p^n))
+    (r : ℕ) (u : (ℤ_[p])ˣ) : ‖inversePowerArithmeticCharacter p n χ r u‖ ≤ 1 := sorry
+
+theorem inversePowerArithmeticCharacter_exists_admissible [CharZero K]
+    [CompleteSpace K] [IsUltrametricDist K] (n : ℕ) (χ : DirichletCharacter K (p^n)) (r : ℕ) :
+    (∃ a : ℕ, 1<a ∧ ¬p∣a ∧ ∃ u : (ℤ_[p])ˣ,
+      (u : ℤ_[p])=(a : ℤ_[p]) ∧ IsUnit (inversePowerArithmeticCharacter p n χ r u-1)) ↔
+      r≠0 ∨ χ≠1 := sorry
+
+variable [CompleteSpace K] [IsUltrametricDist K]
+local notation "I" => (ContinuousMap.mk (fun x : ℤ_[p] => algebraMap ℤ_[p] K (PadicInt.inv x))
+  (Continuous.comp (continuous_algebraMap ℤ_[p] K) PadicInt.continuous_inv) : C(ℤ_[p],K))
+
+theorem extend_intrinsicSmoothedNumerator_inverse_arithmetic
+    (n : ℕ) (χ : DirichletCharacter K (p^n)) (r a : ℕ) (ha : ¬p∣a) :
+    extendIntegralUnitCoefficients (R := K) (intrinsicSmoothedNumerator p a ha)
+      (inversePowerArithmeticCharacter p n χ r).toContinuousMap =
+      twistedSmoothedMeasure p n χ a ha (I^(r+1)) := sorry
+end Field
+
+section Tame
+variable {K : Type*} [NontriviallyNormedField K] [Algebra ℤ_[p] K] [IsBoundedSMul ℤ_[p] K]
+  [CompleteSpace K] [IsUltrametricDist K] {D : ℕ} [NeZero D]
+local notation "I" => (ContinuousMap.mk (fun x : ℤ_[p] => algebraMap ℤ_[p] K (PadicInt.inv x))
+  (Continuous.comp (continuous_algebraMap ℤ_[p] K) PadicInt.continuous_inv) : C(ℤ_[p],K))
+
+theorem tameCharacterValue_inverse_arithmetic (n : ℕ) (χ : DirichletCharacter K (p^n))
+    (r : ℕ) (η : DirichletCharacter K D) (hD : IsUnit (D : K)) (hpD : ¬p∣D) :
+    tameCharacterValue η hD hpD (inversePowerArithmeticCharacter p n χ r) =
+      AbstractMeasure.unitRestriction p K (twistedTameMeasure n χ η hD hpD) (I^(r+1)) := sorry
+end Tame
+end
+end DirichletPadic
+
+namespace SuggestedInverseArithmeticTests
+noncomputable section
+open DirichletPadic AbstractMeasure
+section General
+variable {p : ℕ} [Fact p.Prime] {K : Type*} [NormedField K]
+  [Algebra ℤ_[p] K] [IsBoundedSMul ℤ_[p] K]
+-- identity_value
+example (n : ℕ) (χ : DirichletCharacter K (p^n)) (r : ℕ) :
+    inversePowerArithmeticCharacter p n χ r 1=1 := sorry
+-- zero_exponent_finite_character
+example (n : ℕ) (χ : DirichletCharacter K (p^n)) :
+    inversePowerArithmeticCharacter p n χ 0=primePowerArithmeticCharacter p n χ 0 := sorry
+-- level_zero_inverse_coordinate
+example (u : (ℤ_[p])ˣ) :
+    inversePowerArithmeticCharacter p 0 (1 : DirichletCharacter K (p^0)) 1 u=
+      algebraMap ℤ_[p] K (eisensteinInverseCharacter p u) := sorry
+-- zero_exponent_principal_inadmissible
+example (n : ℕ) (u : (ℤ_[p])ˣ) :
+    ¬IsUnit (inversePowerArithmeticCharacter p n (1 : DirichletCharacter K (p^n)) 0 u-1) := sorry
+-- uniform_inverse_norm
+example (n : ℕ) (χ : DirichletCharacter K (p^n)) (r : ℕ) (u : (ℤ_[p])ˣ) :
+    ‖inversePowerArithmeticCharacter p n χ r u‖≤1 := sorry
+end General
+-- ternary_reciprocal_square
+example (u : (ℤ_[3])ˣ) (hu : (u : ℤ_[3])=2) :
+    inversePowerArithmeticCharacter 3 1 (1 : DirichletCharacter ℚ_[3] (3^1)) 2 u=1/4 := sorry
+-- same_residue_different_values
+example (u v : (ℤ_[3])ˣ) (hu : (u : ℤ_[3])=2) (hv : (v : ℤ_[3])=5) :
+    inversePowerArithmeticCharacter 3 1 (1 : DirichletCharacter ℚ_[3] (3^1)) 1 u ≠
+      inversePowerArithmeticCharacter 3 1 (1 : DirichletCharacter ℚ_[3] (3^1)) 1 v := sorry
+-- dyadic_odd_sign
+example (χ : DirichletCharacter ℚ_[2] (2^2)) (hχ : χ 3=-1) :
+    inversePowerArithmeticCharacter 2 2 χ 1 (-1)=1 := sorry
+-- dyadic_principal_admissible
+example : ∃ a : ℕ, 1<a ∧ ¬2∣a ∧ ∃ u : (ℤ_[2])ˣ,
+    (u : ℤ_[2])=(a : ℤ_[2]) ∧
+      IsUnit (inversePowerArithmeticCharacter 2 0 (1 : DirichletCharacter ℚ_[2] (2^0)) 1 u-1) := sorry
+-- finite_ternary_admissible
+example (χ : DirichletCharacter ℚ_[3] (3^1)) (hχ : χ 2=-1)
+    (u : (ℤ_[3])ˣ) (hu : (u : ℤ_[3])=2) :
+    inversePowerArithmeticCharacter 3 1 χ 0 u-1=-2 := sorry
+section Moments
+variable {p : ℕ} [Fact p.Prime] {K : Type*} [NontriviallyNormedField K]
+  [Algebra ℤ_[p] K] [IsBoundedSMul ℤ_[p] K] [CompleteSpace K] [IsUltrametricDist K]
+local notation "I" => (ContinuousMap.mk (fun x : ℤ_[p] => algebraMap ℤ_[p] K (PadicInt.inv x))
+  (Continuous.comp (continuous_algebraMap ℤ_[p] K) PadicInt.continuous_inv) : C(ℤ_[p],K))
+-- first_smoothed_inverse_moment
+example (n : ℕ) (χ : DirichletCharacter K (p^n)) (a : ℕ) (ha : ¬p∣a) :
+    extendIntegralUnitCoefficients (R := K) (intrinsicSmoothedNumerator p a ha)
+      (inversePowerArithmeticCharacter p n χ 0).toContinuousMap =
+      twistedSmoothedMeasure p n χ a ha I := sorry
+-- second_tame_inverse_moment
+example {D : ℕ} [NeZero D] (η : DirichletCharacter K D)
+    (hD : IsUnit (D : K)) (hpD : ¬p∣D) :
+    tameCharacterValue η hD hpD
+      (inversePowerArithmeticCharacter p 0 (1 : DirichletCharacter K (p^0)) 1) =
+      AbstractMeasure.unitRestriction p K (tameMeasure η hD hpD) (I^2) := sorry
+end Moments
+end
+end SuggestedInverseArithmeticTests
