@@ -33441,7 +33441,8 @@
     "REV-PAPER-SCHROER-23"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-SCHROER-23.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4057"
   },
   {
    "id": "RT-PAPER-DASGUPTA-KAKDE-23",
@@ -34096,8 +34097,9 @@
     "REV-PAPER-BROWNING-SAWIN-20"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-BROWNING-SAWIN-20.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4084"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4084",
+   "finishedAt": "2026-09-30T09:44:44Z"
   },
   {
    "id": "RT-PAPER-DEMARCO-KRIEGER-YE-20",
@@ -35090,7 +35092,8 @@
     "REV-PAPER-SCHIFFMANN-16"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-SCHIFFMANN-16.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4121"
   },
   {
    "id": "RT-PAPER-ELLENBERG-VENKATESH-WESTERLAND-16",
