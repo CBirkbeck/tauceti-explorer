@@ -36663,7 +36663,8 @@
     "REV-PAPER-KOYMANS-MILOVIC-21"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-KOYMANS-MILOVIC-21.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4185"
   },
   {
    "id": "RT-PAPER-BHATT-MATHEW-21",
@@ -37027,7 +37028,8 @@
     "REV-PAPER-HANSEN-26"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-HANSEN-26.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4528"
   },
   {
    "id": "REV-RT-PAPER-HANSEN-26",
