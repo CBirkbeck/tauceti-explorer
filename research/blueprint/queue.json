@@ -35339,8 +35339,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-GAN-ICHINO-18.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4987"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4987",
+   "finishedAt": "2026-09-30T18:39:19Z"
   },
   {
    "id": "RT-PAPER-ZHU-17",
@@ -35731,7 +35732,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-DUKE-IMAMOGLU-TOTH-16.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4990"
   },
   {
    "id": "RT-PAPER-KOENIGSMANN-16",
@@ -36988,7 +36990,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-XIE-YUAN-22.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4997"
   },
   {
    "id": "RT-PAPER-GHOSH-SARNAK-22",
