@@ -10,7 +10,7 @@
     "DirichletPadicLFunctions:L4"
   ],
   "status": "partial",
-  "summary": "Partial continuation preserving all595 predecessor nodes whole. Three L3 nodes compare the actual canonical principal mass with the owned logarithm series, give its finite truncation estimate and deduce the exact odd/dyadic norm. All16 findings and nine old requests remain whole. Two precise inherited analytic requests and gaps are added, giving eleven requests and fifteen gaps; zero stages are closed.",
+  "summary": "Partial continuation preserving all598 predecessor nodes whole. Four L3 nodes give continuity of the actual numerator under an explicitly supplied character family, local denominator admissibility, the conditional weighted limit1−p⁻¹ with no continuous extension, and the reciprocal coordinate factor. The canonical family and its derivative remain explicit hypotheses. All16 findings, eleven requests and fifteen gaps remain; zero closed stages.",
   "baseline": {
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
@@ -3675,6 +3675,41 @@
         "module": "Mathlib/Topology/Order/OrderClosed.lean",
         "provides": "A uniform real upper bound survives a limit along a nontrivial filter.",
         "checked": "Complete statement, ambient hypotheses and proof read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on30September2026; the generated additive forms were read through their native to_additive declarations and exercised in the complete probe. Matched to the unchanged declaration index."
+      },
+      {
+        "ref": "mathlib:AbstractMeasure.coe_toCLMEquiv",
+        "kind": "lemma",
+        "module": "Mathlib/NumberTheory/Padics/Measure/Basic.lean",
+        "provides": "The native measure and its associated continuous linear functional have the same evaluation.",
+        "checked": "Full pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 statement, ambient hypotheses and proof read on30September2026 and matched to the index. The measure functional, derivative slope, nonzero limit, chain rule and continuous-extension argument are exercised in the complete native probe."
+      },
+      {
+        "ref": "mathlib:slope_fun_def_field",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/AffineSpace/Slope.lean",
+        "provides": "Slope of a scalar field-valued function as the ordinary difference quotient.",
+        "checked": "Full pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 statement, ambient hypotheses and proof read on30September2026 and matched to the index. The measure functional, derivative slope, nonzero limit, chain rule and continuous-extension argument are exercised in the complete native probe."
+      },
+      {
+        "ref": "mathlib:Filter.Tendsto.eventually_ne",
+        "kind": "theorem",
+        "module": "Mathlib/Topology/Separation/Basic.lean",
+        "provides": "A map tending to a point distinct from a fixed point eventually avoids that fixed point.",
+        "checked": "Full pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 statement, ambient hypotheses and proof read on30September2026 and matched to the index. The measure functional, derivative slope, nonzero limit, chain rule and continuous-extension argument are exercised in the complete native probe."
+      },
+      {
+        "ref": "mathlib:Filter.Tendsto.div",
+        "kind": "theorem",
+        "module": "Mathlib/Topology/Algebra/GroupWithZero.lean",
+        "provides": "Quotients of convergent maps converge when the limiting denominator is nonzero.",
+        "checked": "Full pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 statement, ambient hypotheses and proof read on30September2026 and matched to the index. The measure functional, derivative slope, nonzero limit, chain rule and continuous-extension argument are exercised in the complete native probe."
+      },
+      {
+        "ref": "mathlib:HasDerivAt.pow",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/Calculus/Deriv/Pow.lean",
+        "provides": "The native scalar power rule, including the critical quadratic coordinate at0.",
+        "checked": "Full pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 statement, ambient hypotheses and proof read on30September2026 and matched to the index. The measure functional, derivative slope, nonzero limit, chain rule and continuous-extension argument are exercised in the complete native probe."
       }
     ]
   },
@@ -39048,6 +39083,260 @@
       "acceptance": [
         "The old finite-residue mass norm is reused whole. No analytic pole or value of the pseudomeasure at the trivial character follows from this norm alone."
       ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/principal-family-numerator-continuity",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Continuity of the supplied-family numerator",
+      "kind": "lemma",
+      "statement": "Nκ is continuous at1 and Nκ(1)=M.",
+      "hypotheses": [
+        "p is any prime, including2. Write Z=ℤ_p,Q=ℚ_p,U=Zˣ and retain IsBoundedSMul Z Q. Let a=p+1 with ha:p∤a, λ=intrinsicSmoothedNumerator p a ha and M=algebraMap Z Q(λ(1)).",
+        "The input κ:Q→ContinuousMonoidHom(U,Q) is an actual supplied family. Assume κ(1)=1. Where numerator limits are asserted, require continuity at1 of s↦κ(s).toContinuousMap as a map into the native C(U,Q) space. Merely assuming continuity of each separate character is not this hypothesis.",
+        "Let Nκ(s)=extendIntegralUnitCoefficients(λ)(κ(s).toContinuousMap), the actual scalar measure evaluation. Take an actual unit u with its value equal to a and put dκ(s)=κ(s)(u)−1. These are shorthand expressions, not new measure, family or evaluator constructors.",
+        "Write L for the native logarithm series sum ∑n (−1)^(n+1)p^n/n from the preceding principal-numerator comparison. The denominator hypothesis is HasDerivAt dκ (−L) 1. It is retained explicitly, and is not inferred from the existence of κ or its central value.",
+        "PMIA L0a owns the canonical scalar character family, universal character, components and generator changes; LAD L3 owns the scalar Mellin and weight-derivative comparisons. Both have no finer nodes for this input and remain not_read. These conditional arithmetic statements neither assert their existence nor re-plan their objects. The source’s all-unit topological generator is not silently replaced by p+1.",
+        "For a coordinate change φ:Q→Q, require φ(t₀)=1 and HasDerivAt φ c t₀ with c≠0. The residue coefficient transforms by1/c. The conclusions below are punctured limits and nonexistence of a continuous extension; analyticity/meromorphicity and exact pole order are not asserted."
+      ],
+      "proofSteps": [
+        "The actual extended measure is a native AbstractMeasure on U, hence a continuous linear functional on C(U,Q) through AbstractMeasure.toCLMEquiv. Compose its continuity with the explicit C(U,Q)-valued continuity hypothesis. Complete measure_family_continuity checks exactly this carrier and evaluation.",
+        "At s=1 the given equality κ(1)=1 identifies the continuous test with the constant-one function. Apply the existing integral-unit-extension-test-function interface at the integral constant1. Its coefficient map is the constant-one Q-valued function, so the value is the included integral mass M.",
+        "Complete measure_family_mass checks the central substitution. No multiplicativity of coefficient extension, generic Mellin family or pseudomeasure evaluation is assumed."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L1/intrinsic-numerator",
+        "PadicMeasuresIwasawaAlgebras:L2/integral-unit-extension-test-function",
+        "mathlib:AbstractMeasure.toCLMEquiv",
+        "mathlib:AbstractMeasure.coe_toCLMEquiv"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/PrincipalResidueLimit",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.intrinsicSmoothedNumerator_family_continuity"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Theorem7.1, equations7-1 through7-4 and Lemmas7.2–7.5, published154–158/PDF55–59; whole published153–158 freshly reread.",
+          "match": "Worker conditional comparison of the actual numerator evaluation with the source’s local quotient argument. The family, its C(U,Q_p)-continuity, principal central value and denominator derivative are explicit hypotheses. The canonical family, its derivative and the analytic branch are not constructed. Existing E7 and all previous qualifications remain."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedPrincipalResidueTests.dyadic_constant_family_mass",
+          "kind": "compatibility",
+          "statement": "At p=2 the actual extended numerator on1 equals the included integral mass."
+        },
+        {
+          "name": "SuggestedPrincipalResidueTests.dyadic_constant_family_continuity",
+          "kind": "degenerate",
+          "statement": "The numerator evaluation on the constant principal family is continuous."
+        },
+        {
+          "name": "SuggestedPrincipalResidueTests.central_family_mass",
+          "kind": "compatibility",
+          "statement": "For any supplied family with κ(1)=1, its central numerator is the actual included mass."
+        }
+      ],
+      "acceptance": [
+        "The continuity hypothesis is a statement about the whole family of continuous tests. The central value uses the actual coefficient-extension interface."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/principal-family-eventual-admissibility",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Admissible clearing factors near the principal character",
+      "kind": "lemma",
+      "statement": "Under κ(1)=1 and dκ′(1)=−L, dκ(s)≠0 eventually as s→1 with s≠1.",
+      "hypotheses": [
+        "p is any prime, including2. Write Z=ℤ_p,Q=ℚ_p,U=Zˣ and retain IsBoundedSMul Z Q. Let a=p+1 with ha:p∤a, λ=intrinsicSmoothedNumerator p a ha and M=algebraMap Z Q(λ(1)).",
+        "The input κ:Q→ContinuousMonoidHom(U,Q) is an actual supplied family. Assume κ(1)=1. Where numerator limits are asserted, require continuity at1 of s↦κ(s).toContinuousMap as a map into the native C(U,Q) space. Merely assuming continuity of each separate character is not this hypothesis.",
+        "Let Nκ(s)=extendIntegralUnitCoefficients(λ)(κ(s).toContinuousMap), the actual scalar measure evaluation. Take an actual unit u with its value equal to a and put dκ(s)=κ(s)(u)−1. These are shorthand expressions, not new measure, family or evaluator constructors.",
+        "Write L for the native logarithm series sum ∑n (−1)^(n+1)p^n/n from the preceding principal-numerator comparison. The denominator hypothesis is HasDerivAt dκ (−L) 1. It is retained explicitly, and is not inferred from the existence of κ or its central value.",
+        "PMIA L0a owns the canonical scalar character family, universal character, components and generator changes; LAD L3 owns the scalar Mellin and weight-derivative comparisons. Both have no finer nodes for this input and remain not_read. These conditional arithmetic statements neither assert their existence nor re-plan their objects. The source’s all-unit topological generator is not silently replaced by p+1.",
+        "For a coordinate change φ:Q→Q, require φ(t₀)=1 and HasDerivAt φ c t₀ with c≠0. The residue coefficient transforms by1/c. The conclusions below are punctured limits and nonexistence of a continuous extension; analyticity/meromorphicity and exact pole order are not asserted."
+      ],
+      "proofSteps": [
+        "The principal central value implies dκ(1)=0. The preceding exact logarithm norm theorem gives L≠0 for every prime, with the dyadic norm1/4 retained.",
+        "Use native hasDerivAt_iff_tendsto_slope over Q_p. With the zero central value, the slope is dκ(s)/(s−1) and converges to−L. Complete denominator_slope proves the reduction.",
+        "A function converging to a nonzero value is eventually nonzero by native Tendsto.eventually_ne. Nonzero dκ(s)/(s−1) forces dκ(s)≠0. Complete denominator_eventually_nonzero checks this without an inverse-function theorem or an ordered-real limit.",
+        "The constant principal family has zero denominator derivative, so it does not satisfy the required hypothesis. Eventual admissibility is not inferred from κ(1)=1 alone."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/principal-logarithmic-series-norm",
+        "mathlib:hasDerivAt_iff_tendsto_slope",
+        "mathlib:slope_fun_def_field",
+        "mathlib:Filter.Tendsto.eventually_ne"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/PrincipalResidueLimit",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.principalCharacterFamily_eventually_admissible"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Theorem7.1, equations7-1 through7-4 and Lemmas7.2–7.5, published154–158/PDF55–59; whole published153–158 freshly reread.",
+          "match": "Worker conditional comparison of the actual numerator evaluation with the source’s local quotient argument. The family, its C(U,Q_p)-continuity, principal central value and denominator derivative are explicit hypotheses. The canonical family, its derivative and the analytic branch are not constructed. Existing E7 and all previous qualifications remain."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedPrincipalResidueTests.principal_clearing_factor_zero",
+          "kind": "degenerate",
+          "statement": "The clearing factor vanishes at the principal centre."
+        },
+        {
+          "name": "SuggestedPrincipalResidueTests.constant_family_cannot_have_required_derivative",
+          "kind": "non-example",
+          "statement": "The identically zero clearing factor does not have derivative−L, since L≠0."
+        },
+        {
+          "name": "SuggestedPrincipalResidueTests.supplied_family_eventual_admissibility",
+          "kind": "compatibility",
+          "statement": "A supplied family satisfying the derivative hypothesis has nonzero clearing factor on a punctured neighbourhood."
+        }
+      ],
+      "acceptance": [
+        "The statement supplies only local admissibility for the explicit family; it constructs no character family or principal-character evaluator."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/principal-family-residue-limit",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The conditional principal residue limit",
+      "kind": "comparison",
+      "statement": "The punctured limit of (s−1)Nκ(s)/dκ(s) at1 is1−p⁻¹. No function agreeing with Nκ/dκ on a punctured neighbourhood has a continuous extension at1.",
+      "hypotheses": [
+        "p is any prime, including2. Write Z=ℤ_p,Q=ℚ_p,U=Zˣ and retain IsBoundedSMul Z Q. Let a=p+1 with ha:p∤a, λ=intrinsicSmoothedNumerator p a ha and M=algebraMap Z Q(λ(1)).",
+        "The input κ:Q→ContinuousMonoidHom(U,Q) is an actual supplied family. Assume κ(1)=1. Where numerator limits are asserted, require continuity at1 of s↦κ(s).toContinuousMap as a map into the native C(U,Q) space. Merely assuming continuity of each separate character is not this hypothesis.",
+        "Let Nκ(s)=extendIntegralUnitCoefficients(λ)(κ(s).toContinuousMap), the actual scalar measure evaluation. Take an actual unit u with its value equal to a and put dκ(s)=κ(s)(u)−1. These are shorthand expressions, not new measure, family or evaluator constructors.",
+        "Write L for the native logarithm series sum ∑n (−1)^(n+1)p^n/n from the preceding principal-numerator comparison. The denominator hypothesis is HasDerivAt dκ (−L) 1. It is retained explicitly, and is not inferred from the existence of κ or its central value.",
+        "PMIA L0a owns the canonical scalar character family, universal character, components and generator changes; LAD L3 owns the scalar Mellin and weight-derivative comparisons. Both have no finer nodes for this input and remain not_read. These conditional arithmetic statements neither assert their existence nor re-plan their objects. The source’s all-unit topological generator is not silently replaced by p+1.",
+        "For a coordinate change φ:Q→Q, require φ(t₀)=1 and HasDerivAt φ c t₀ with c≠0. The residue coefficient transforms by1/c. The conclusions below are punctured limits and nonexistence of a continuous extension; analyticity/meromorphicity and exact pole order are not asserted."
+      ],
+      "proofSteps": [
+        "Use principal-family-numerator-continuity for Nκ(s)→M. The denominator slope tends to−L≠0 by the derivative hypothesis and the preceding norm theorem.",
+        "Apply native Tendsto.div to the numerator and slope, obtaining Nκ(s)/(dκ(s)/(s−1))→M/(−L). The field identity rewrites this as (s−1)(Nκ(s)/dκ(s)), also respecting totalized zero division. Complete simple_ratio_limit checks this over any nontrivially normed field.",
+        "The preceding actual mass HasSum gives M=−(1−p⁻¹)L. Cancelling nonzero L gives M/(−L)=1−p⁻¹; complete arithmetic_residue verifies the two signs. The eventual nonzero clearing factor identifies the displayed ordinary ratio on the punctured domain.",
+        "Since p≠1 and p≠0, the limit1−p⁻¹ is nonzero. If a continuous G agreed with the ratio near the punctured centre, then (s−1)G(s) would converge to0. Uniqueness of limits along the nontrivial punctured filter contradicts the nonzero limit. Complete no_continuous_extension proves this for every possible assigned central value.",
+        "This conditional computation isolates the local arithmetic step of RJW7-3. Identifying the ratio with the actual ζ branch still needs the owned canonical family, its derivative, analytic regularity and the qualified pseudomeasure evaluation interface. No map on the whole total quotient is supplied here."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/principal-family-numerator-continuity",
+        "DirichletPadicLFunctions:L3/principal-family-eventual-admissibility",
+        "DirichletPadicLFunctions:L3/principal-numerator-logarithmic-series",
+        "mathlib:Filter.Tendsto.div",
+        "mathlib:tendsto_nhds_unique"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/PrincipalResidueLimit",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.intrinsicSmoothedNumerator_family_residue_limit"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Theorem7.1, equations7-1 through7-4 and Lemmas7.2–7.5, published154–158/PDF55–59; whole published153–158 freshly reread.",
+          "match": "Worker conditional comparison of the actual numerator evaluation with the source’s local quotient argument. The family, its C(U,Q_p)-continuity, principal central value and denominator derivative are explicit hypotheses. The canonical family, its derivative and the analytic branch are not constructed. Existing E7 and all previous qualifications remain."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedPrincipalResidueTests.regularized_ratio_nonzero_limit",
+          "kind": "non-example",
+          "statement": "The expected limit1−p⁻¹ is nonzero for every prime."
+        },
+        {
+          "name": "SuggestedPrincipalResidueTests.supplied_family_has_no_continuous_extension",
+          "kind": "non-example",
+          "statement": "Under the stated family hypotheses the totalized quotient itself is not continuous at1."
+        },
+        {
+          "name": "SuggestedPrincipalResidueTests.dyadic_weighted_limit",
+          "kind": "computation",
+          "statement": "At p=2 the supplied-family weighted limit is+1/2."
+        }
+      ],
+      "acceptance": [
+        "A nonzero weighted limit with only the stated regularity is not described as a proved meromorphic simple pole. The actual branch identification remains open."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/principal-family-residue-coordinate",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Reciprocal coordinate factor for the principal residue",
+      "kind": "comparison",
+      "statement": "For φ(t₀)=1 and φ′(t₀)=c≠0, the punctured limit of (t−t₀)Nκ(φ(t))/dκ(φ(t)) is(1−p⁻¹)/c.",
+      "hypotheses": [
+        "p is any prime, including2. Write Z=ℤ_p,Q=ℚ_p,U=Zˣ and retain IsBoundedSMul Z Q. Let a=p+1 with ha:p∤a, λ=intrinsicSmoothedNumerator p a ha and M=algebraMap Z Q(λ(1)).",
+        "The input κ:Q→ContinuousMonoidHom(U,Q) is an actual supplied family. Assume κ(1)=1. Where numerator limits are asserted, require continuity at1 of s↦κ(s).toContinuousMap as a map into the native C(U,Q) space. Merely assuming continuity of each separate character is not this hypothesis.",
+        "Let Nκ(s)=extendIntegralUnitCoefficients(λ)(κ(s).toContinuousMap), the actual scalar measure evaluation. Take an actual unit u with its value equal to a and put dκ(s)=κ(s)(u)−1. These are shorthand expressions, not new measure, family or evaluator constructors.",
+        "Write L for the native logarithm series sum ∑n (−1)^(n+1)p^n/n from the preceding principal-numerator comparison. The denominator hypothesis is HasDerivAt dκ (−L) 1. It is retained explicitly, and is not inferred from the existence of κ or its central value.",
+        "PMIA L0a owns the canonical scalar character family, universal character, components and generator changes; LAD L3 owns the scalar Mellin and weight-derivative comparisons. Both have no finer nodes for this input and remain not_read. These conditional arithmetic statements neither assert their existence nor re-plan their objects. The source’s all-unit topological generator is not silently replaced by p+1.",
+        "For a coordinate change φ:Q→Q, require φ(t₀)=1 and HasDerivAt φ c t₀ with c≠0. The residue coefficient transforms by1/c. The conclusions below are punctured limits and nonexistence of a continuous extension; analyticity/meromorphicity and exact pole order are not asserted."
+      ],
+      "proofSteps": [
+        "Compose the actual numerator with φ. Continuity follows from the preceding numerator theorem and differentiability of φ. Its central value remains M.",
+        "The native chain rule gives derivative(−L)c for the composed denominator. This is nonzero because L and c are nonzero; its central value is0.",
+        "Apply the same quotient-of-slopes argument at t₀. Complete coordinate_ratio_limit proves the limit M/((−L)c)=(M/(−L))/c, and arithmetic normalization gives the displayed coefficient. This avoids an unjustified composition through the punctured filter.",
+        "For s=1−t the factor is−1, so the coefficient changes sign. At p=2 with s=1+2t it is1/4. Multiplication by c instead of division gives the wrong result.",
+        "The critical map s=1+t² has derivative0 and is excluded. Its denominator can vanish to higher order, so a first-order coefficient transformation cannot be inferred. Complete critical_coordinate checks its zero derivative without constructing a new analytic coordinate theory."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/principal-family-residue-limit",
+        "mathlib:HasDerivAt.comp",
+        "mathlib:HasDerivAt.pow",
+        "mathlib:Filter.Tendsto.div"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/PrincipalResidueLimit",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.intrinsicSmoothedNumerator_family_residue_coordinate"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Theorem7.1, equations7-1 through7-4 and Lemmas7.2–7.5, published154–158/PDF55–59; whole published153–158 freshly reread.",
+          "match": "Worker conditional comparison of the actual numerator evaluation with the source’s local quotient argument. The family, its C(U,Q_p)-continuity, principal central value and denominator derivative are explicit hypotheses. The canonical family, its derivative and the analytic branch are not constructed. Existing E7 and all previous qualifications remain."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedPrincipalResidueTests.reversed_coordinate_changes_sign",
+          "kind": "compatibility",
+          "statement": "For s=1−t the weighted limit is−(1−p⁻¹)."
+        },
+        {
+          "name": "SuggestedPrincipalResidueTests.dyadic_double_coordinate_limit",
+          "kind": "computation",
+          "statement": "At p=2 and s=1+2t the weighted limit is1/4."
+        },
+        {
+          "name": "SuggestedPrincipalResidueTests.critical_coordinate_excluded",
+          "kind": "non-example",
+          "statement": "The map s=1+t² has derivative0 at0 and fails the nonzero-derivative hypothesis."
+        }
+      ],
+      "acceptance": [
+        "The new coordinate derivative appears in the denominator. No global coordinate isomorphism or branch construction is claimed."
+      ]
     }
   ],
   "requests": [
@@ -39158,7 +39447,7 @@
       "stageId": "DirichletPadicLFunctions:L3",
       "status": "partial",
       "remaining": [
-        "The canonical actual numerator now has a planned logarithmic HasSum comparison, an explicit finite truncation bound and exact odd/dyadic series norms. This depends on the existing Coleman negative-moment theorem with its full seven-leaf analytic graph. The additional PMIA L2 and LAD L1 interface requests remain open together with all nine old requests; fifteen gaps and eleven requests remain, with zero closed stages. The analytic character branch, its denominator derivative and the s-coordinate pole/residue comparison remain separate work, as do the tame distribution-to-L-value identification, generalized Eisenstein constants and complete source extraction. The full suggested file remains uncompiled pending a compatible existing native TwistedDivisorSum artifact.",
+        "The principal arithmetic quotient now has a conditional punctured limit1−p⁻¹, eventual admissibility, a continuous-extension obstruction and reciprocal coordinate change, for an explicitly supplied family with the required C(U,Q_p)-continuity and derivative. Constructing that family and proving its derivative remain with PMIA L0a and LAD L3; their current packets have no finer nodes for them. The analytic ζ branch, canonical evaluator comparison and meromorphic pole order remain open. The seven inherited mass-comparison stage leaves, all eleven requests and fifteen gaps remain; no stage closes. Generalized Eisenstein constants, tame distribution-to-L-value identification, full source extraction and availability of the missing pinned TwistedDivisorSum artifact remain separate work.",
         "The actual tame integral and analytic transfer from supplied C(U,K)-valued families remain supplied. Actual odd/dyadic principal-unit families belong to PMIA L0a and scalar Mellin theory to LAD L3; instantiate the corrected Teichmüller twist when those interfaces are supplied."
       ]
     },
@@ -39190,7 +39479,7 @@
     {
       "title": "L3 remaining source decomposition and interfaces",
       "neededBy": [],
-      "detail": "The canonical actual numerator now has a planned logarithmic HasSum comparison, an explicit finite truncation bound and exact odd/dyadic series norms. This depends on the existing Coleman negative-moment theorem with its full seven-leaf analytic graph. The additional PMIA L2 and LAD L1 interface requests remain open together with all nine old requests; fifteen gaps and eleven requests remain, with zero closed stages. The analytic character branch, its denominator derivative and the s-coordinate pole/residue comparison remain separate work, as do the tame distribution-to-L-value identification, generalized Eisenstein constants and complete source extraction. The full suggested file remains uncompiled pending a compatible existing native TwistedDivisorSum artifact. The actual tame integral and analytic transfer from supplied C(U,K)-valued families remain supplied. Actual odd/dyadic principal-unit families belong to PMIA L0a and scalar Mellin theory to LAD L3; instantiate the corrected Teichmüller twist when those interfaces are supplied."
+      "detail": "The principal arithmetic quotient now has a conditional punctured limit1−p⁻¹, eventual admissibility, a continuous-extension obstruction and reciprocal coordinate change, for an explicitly supplied family with the required C(U,Q_p)-continuity and derivative. Constructing that family and proving its derivative remain with PMIA L0a and LAD L3; their current packets have no finer nodes for them. The analytic ζ branch, canonical evaluator comparison and meromorphic pole order remain open. The seven inherited mass-comparison stage leaves, all eleven requests and fifteen gaps remain; no stage closes. Generalized Eisenstein constants, tame distribution-to-L-value identification, full source extraction and availability of the missing pinned TwistedDivisorSum artifact remain separate work. The actual tame integral and analytic transfer from supplied C(U,K)-valued families remain supplied. Actual odd/dyadic principal-unit families belong to PMIA L0a and scalar Mellin theory to LAD L3; instantiate the corrected Teichmüller twist when those interfaces are supplied."
     },
     {
       "title": "L4 completed-algebra, twisted localized constant coefficient and tame-family comparisons",
@@ -39554,36 +39843,36 @@
   "checks": {
     "blueprint": "Zero errors and warnings with the unmodified pinned index.",
     "intake": "Exactly four authorized deliverables; zero problems.",
-    "sourceIssues": "All16 source findings, sourceVersions and nine previous requests remain whole. Two inherited interface requests and gaps are added for the owned Coleman mass route. Existing E7 already records the source subtraction typo; no new source finding or independent verdict is added.",
+    "sourceIssues": "All16 source findings, sourceVersions and eleven requests remain whole; all fifteen gaps remain open. No new finding, supplier existence result, family construction or independent verdict is claimed.",
     "validation": {
-      "nodes": 598,
+      "nodes": 602,
       "kinds": {
         "definition": 1,
-        "lemma": 236,
+        "lemma": 238,
         "construction": 69,
         "theorem": 180,
-        "comparison": 112
+        "comparison": 114
       },
       "api": 517,
-      "packetTests": 963,
+      "packetTests": 975,
       "definitionConstructionTests": 295,
-      "typedExamples": 966,
+      "typedExamples": 978,
       "planets": 24,
-      "baseline": 523,
-      "preservedWholeNodes": 595,
-      "preservedBaseline": 517,
+      "baseline": 528,
+      "preservedWholeNodes": 598,
+      "preservedBaseline": 523,
       "preservedSourceIssues": 16,
       "newSourceIssues": 0,
-      "newNodes": 3,
-      "newNamedDeclarations": 3,
-      "newTypedTests": 10,
+      "newNodes": 4,
+      "newNamedDeclarations": 4,
+      "newTypedTests": 12,
       "requests": 11,
       "gaps": 15,
       "closedStages": 0,
-      "reachableNodes": 854,
-      "dependencyEdges": 4133,
+      "reachableNodes": 858,
+      "dependencyEdges": 4150,
       "acyclic": true,
-      "baselineLeaves": 702,
+      "baselineLeaves": 707,
       "stageRequestLeaves": [
         "AdicSpacesPartII:F1",
         "AdicSpacesPartII:R2",
@@ -39595,7 +39884,7 @@
         "PadicMeasuresIwasawaAlgebras:L2",
         "PadicMeasuresIwasawaAlgebras:L3"
       ],
-      "readerWords": 280487,
+      "readerWords": 283344,
       "scopedMutationCheck": true,
       "correctedPredecessorNodes": 0,
       "fullSuggestedCompiled": false,
@@ -39622,22 +39911,20 @@
         "TauCeti.NumberTheory.ArithmeticFunction.TwistedDivisorSum"
       ],
       "scratchCompleteDefinitions": 0,
-      "scratchCompleteLemmas": 11,
-      "scratchMathlibModules": 2797,
+      "scratchCompleteLemmas": 10,
+      "scratchMathlibModules": 2868,
       "scratchTauModules": 0,
       "scratchErrors": 0,
       "scratchWarnings": 0,
       "scratchPlaceholders": 0,
       "finiteControls": {
-        "primePrecisionPairs": 24,
-        "residueCells": 201725,
-        "logTerms": 168,
-        "massComparisons": 24,
-        "higherPrecisionComparisons": 24,
-        "wrongSignDetected": 22,
-        "missingEulerDetected": 23,
-        "incorrectOddPrimeNormAtTwo": 1,
-        "valuationBounds": 50000
+        "profiles": 192,
+        "sampledPoints": 960,
+        "exactRemainderIdentities": 960,
+        "reciprocalCoordinateChecks": 192,
+        "wrongCoordinateFactorDetected": 96,
+        "wrongDenominatorSignDetected": 4,
+        "dyadicScaledLimits": 1
       },
       "numericalControlsCertified": false,
       "newRoutesStageLeaves": [
@@ -39655,7 +39942,7 @@
       "compiled": false,
       "errors": null,
       "warnings": null,
-      "sha256": "997f3e89c280aff20f36775284e640f2f16a49098a6760d9deb4674abae10ba0",
+      "sha256": "41094b9ec7daf61b6a063d543c82f70ec617e3ddcd1b11274e288cd80f83f6ca",
       "missingNativeArtifacts": [
         "TauCeti.NumberTheory.ArithmeticFunction.TwistedDivisorSum"
       ],
@@ -39670,11 +39957,11 @@
         }
       },
       "nativeProbe": {
-        "completeLemmas": 11,
+        "completeLemmas": 10,
         "errors": 0,
         "warnings": 0,
         "placeholders": 0,
-        "sha256": "f383d5810bdec9354a3834d7e2bb4aebf1c2d0a6255f2c00aab060012e25543f"
+        "sha256": "17d5d364e266cfea1fd86dc9bde6ddc61798095d0c11ef00733cd44f210e7c48"
       },
       "sourceAndAvailableArtifactAudit": {
         "compiledSupplierNodes": 332,
@@ -39761,7 +40048,7 @@
       }
     },
     "publication": {
-      "base": "0f42a8255b486cf92bb88f880641f0287d373871",
+      "base": "5a85ea2ff2792d81f15cd4edc6d528c16bf12673",
       "unchangedInputs": 66,
       "unchangedOutputs": 4,
       "sameSessionFollowupAfterMerge": true,
@@ -45812,6 +46099,44 @@
         "valuationBounds": 50000
       },
       "numericalMethod": "Exact rational logarithm partial sums at N=2(r+1), compared modulo p^r with the independent finite inverse-moment residue-cell formula at depths r and r+1. The existing measure approximation bounds its error by p^(-r); the complete native tail estimate bounds the logarithmic mass approximation by p^(-r), conditional on the owned infinite mass comparison. Finite agreement tests the sign, Euler factor, ceiling convention and dyadic cancellation; it does not prove the Coleman comparison or an analytic pole theorem.",
+      "fullSuggestedCompiled": false
+    },
+    "principalResidueLimit": {
+      "agent": "Codex",
+      "session": "codex-7e92bd",
+      "issue": 713,
+      "claimComment": 5854790528,
+      "winningBot": 5854791937,
+      "previousPR": 4786,
+      "previousHead": "3964a5b3fca20ff4b4064368f5a81f776d187bf1",
+      "previousMerge": "07ad1a2f86eaf97317dde916b649ec126c252efe",
+      "preservedWholeNodes": 598,
+      "preservedBaseline": 523,
+      "preservedFindings": 16,
+      "newNodes": 4,
+      "reading": "Reread whole published153–158, including equations7-1 through7-3, the binomial denominator calculation and the final mass substitution. Read the whole PMIA L0a atlas stage and its not_read coverage, and LAD L3 coverage confirming ownership and missing canonical family/derivative decomposition. Read native AbstractMeasure definition and functional equivalence, derivative-as-slope theorem over nontrivially normed fields, eventual nonvanishing, division limits, chain rule, Hausdorff uniqueness and the scalar power rule. Existing Dirichlet/Coleman/PMIA library audits and the complete mass comparison were read in4786.",
+      "boundary": "The principal arithmetic quotient now has a conditional punctured limit1−p⁻¹, eventual admissibility, a continuous-extension obstruction and reciprocal coordinate change, for an explicitly supplied family with the required C(U,Q_p)-continuity and derivative. Constructing that family and proving its derivative remain with PMIA L0a and LAD L3; their current packets have no finer nodes for them. The analytic ζ branch, canonical evaluator comparison and meromorphic pole order remain open. The seven inherited mass-comparison stage leaves, all eleven requests and fifteen gaps remain; no stage closes. Generalized Eisenstein constants, tame distribution-to-L-value identification, full source extraction and availability of the missing pinned TwistedDivisorSum artifact remain separate work.",
+      "inputBase": "07ad1a2f86eaf97317dde916b649ec126c252efe",
+      "sourceBoundary": "All16 source findings, sourceVersions and eleven requests remain whole; all fifteen gaps remain open. No new finding, supplier existence result, family construction or independent verdict is claimed.",
+      "publication": {
+        "base": "5a85ea2ff2792d81f15cd4edc6d528c16bf12673",
+        "unchangedInputs": 66,
+        "unchangedOutputs": 4,
+        "sameSessionFollowupAfterMerge": true,
+        "lastClaimConfirmation": 5854791937,
+        "reviewIssue": 390,
+        "reviewUnclaimed": true
+      },
+      "finiteControls": {
+        "profiles": 192,
+        "sampledPoints": 960,
+        "exactRemainderIdentities": 960,
+        "reciprocalCoordinateChecks": 192,
+        "wrongCoordinateFactorDetected": 96,
+        "wrongDenominatorSignDetected": 4,
+        "dyadicScaledLimits": 1
+      },
+      "numericalMethod": "Exact rational polynomial numerator/denominator profiles with M=−(1−p^(-1))L, denominator derivative−L, and linear coordinate derivative c. These profiles test scalar normalization and the reciprocal coordinate factor; they are not asserted to arise from measures or continuous characters. At sampled t=p^m the regularized quotient error agrees with its exact rational remainder formula. Infinite limit and continuous-extension claims are checked separately by complete native proofs under their explicit hypotheses.",
       "fullSuggestedCompiled": false
     }
   },
