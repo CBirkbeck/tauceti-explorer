@@ -17863,3 +17863,110 @@ One complete native constructor and eleven complete lemmas check the continuous-
 Exact rational character controls cover multiplicativity, parity, inverse exponents, p-adic norm bounds, explicit natural admissibility, the principal zero-exponent obstruction, same-residue counterexamples and the inverse-weight shift. Counts and negative controls are retained with the evidence. Exact Fraction arithmetic for principal and quadratic characters at p=2,3,5,7, conductor exponents0 through3 and inverse exponents0 through5. Natural lifts are multiplied before evaluating inverse powers. Valuations are computed on rational values. Wrong positive powers, omitted inverse weighting, and factorization through the finite residue level are tested separately. No analytic convergence or new numerical measure claim is inferred. The largest observed discrepancy is 0 in all exact asserted identities.
 
 The62-input capture at9ac114468f0f355bf2268f80865d56062d281e35 has no predecessor input changes. Existing pinned artifacts and the verified332-node PMIA artifact are reused; no compilation of the current369-node PMIA source or Coleman/LAD modules is claimed.
+
+
+## The principal numerator and its subalgebra obstruction
+
+Partial continuation preserving all544 predecessor nodes whole. Three L3 nodes give the exact norm of the canonical first inverse moment, transfer it to the actual integral numerator mass, and exclude augmentation on every subalgebra containing the arithmetic pseudomeasure. All16 findings, nine requests and13 gaps remain; zero closed stages.
+
+Whole published129–130 was freshly read. Whole published137–138 reading is retained from4747. Whole actual residue-mass and approximation nodes/signatures, actual natural pseudomeasure numerator, first intrinsic-negative comparison, unit coefficient-extension test, numerator specification and one-add-prime unit supplier were read. Whole PMIA actual-mass-fraction-obstruction and own arithmetic-no-field-measure and Eisenstein no-field-measure nodes were reviewed to avoid replanning them. Native p-adic norms, ultrametric finite-sum bound and norm stability, prime/residue coprimality and Subalgebra algebra-map coercion were read at the pin. All62 captured inputs, including the reviewed library audit, are unchanged.
+
+### The nonzero first inverse moment of canonical smoothing
+
+`DirichletPadicLFunctions:L3/principal-first-inverse-moment-norm` — `DirichletPadic.twistedSmoothedMeasure_principal_first_norm`
+
+‖V‖=1 for p≠2, and ‖V‖=1/2 for p=2.
+
+**Hypotheses:** p is any prime, including2. Z=ℤ_p, K=ℚ_p and U=Zˣ use the native carriers and topologies, with the existing bounded Z-scalar action on K. Put a=p+1 and retain ha:p∤a when using the actual smoothing constructors. Let I∈C(Z,K) be x↦algebraMap Z K(PadicInt.inv x) with the existing PMIA continuity theorem. Put V=twistedSmoothedMeasure p 0 1 a ha(I), the actual first inverse moment of the level-zero principal twist. The native inverse is extended by0 on nonunits. Write N=intrinsicSmoothedNumerator p a ha∈D(U,Z). For the final obstruction put M=D(U,Z) with the supplied actual commutative multiplicative convolution, Q=FractionRing M, δ=diracHom and z=kubotaLeopoldtPseudomeasure p∈Iwasawa.pseudomeasures δ Q. Q is the total quotient, with no domain or field structure on M or Q assumed. The final theorem takes any native M-subalgebra A of Q containing the underlying element z. A proposed ring map f:A→K must satisfy f(algebraMap M A μ)=algebraMap Z K(μ(1)) for every actual integral measure μ. This is the exact coefficient-field total-mass compatibility, not a condition on only some test measures.
+
+**Proof:**
+
+1. First suppose p≠2 and use the existing residue-mass formula at m=1, q=p and a=p+1. The residue of a and its inverse are1, so the coefficient at r is p/2−r.val. The complete canonical_cell proof verifies this simplification in the coefficient field, retaining p≠0.
+2. The level-zero finite character is constant1. At residue0 the inverse test is0; for1≤r≤p−1 it is1/r in K, since r is a p-adic unit. Therefore the actual level-one approximation is S=(p/2)H−(p−1), where H=Σ_(r=1)^(p−1)1/r. The complete finite_inverse_pairing proof checks this finite-sum identity and its cardinal term.
+3. Every r in the displayed range is prime to p, so native Padic.norm_natCast_eq_one_iff gives‖1/r‖=1. The native ultrametric finite-sum bound gives‖H‖≤1. Since p≠2,‖2‖=1, hence‖(p/2)H‖≤p⁻¹. Native norm_natCast_p_sub_one gives‖−(p−1)‖=1.
+4. The existing actual inverse-moment approximation has‖V−S‖≤p⁻¹. The ultrametric inequality therefore gives‖V+(p−1)‖≤p⁻¹<1. Native norm_eq_of_norm_sub_lt_right yields‖V‖=1. Complete harmonic_norm, odd_half_prime_bound and odd_approximation_norm proofs check these exact native inequalities.
+5. For p=2 choose m=2. The actual a=3 masses on ZMod4 are[1,−1,0,1]. Only the unit residues1 and3 contribute, so S=−1+1/3=−2/3. The existing error is at most1/4, strictly below‖−2/3‖=1/2. The complete dyadic_approximation_norm proof gives‖V‖=1/2.
+6. At p=2 the coarser m=1 approximation is0 with error at most1/2. It cannot prove nonvanishing; the refinement is essential. At p=3 the canonical a=4 approximation is1/4, and at p=5,a=6 it is29/24. These have norm1, as required.
+7. The norm calculation does not evaluate V as a p-adic logarithm. The existing Coleman owner retains that comparison. The value is not set equal to its finite approximation.
+
+**Prerequisites:** `DirichletPadicLFunctions:L1/smoothed-residue-coefficients`, `DirichletPadicLFunctions:L3/smoothed-negative-residue-approximation`, `DirichletPadicLFunctions:L2/prime-power-character`, `PadicMeasuresIwasawaAlgebras:L2/padic-unit-inverse-identification`, `mathlib:Padic.norm_natCast_eq_one_iff`, `mathlib:Padic.norm_p`, `mathlib:Padic.norm_natCast_p_sub_one`, `mathlib:Padic.norm_eq_of_norm_sub_lt_right`, `mathlib:IsUltrametricDist.norm_prod_le_of_forall_le_of_nonneg`.
+
+**Tests:**
+
+- `SuggestedPrincipalNumeratorTests.dyadic_first_moment_norm` (computation): At p=2,a=3 the actual first inverse moment has norm1/2.
+- `SuggestedPrincipalNumeratorTests.ternary_first_moment_norm` (computation): At p=3,a=4 the actual first inverse moment has norm1.
+- `SuggestedPrincipalNumeratorTests.five_adic_first_moment_norm` (computation): At p=5,a=6 the actual first inverse moment has norm1.
+
+**Acceptance:** The all-prime result distinguishes nonzero from an integral unit: the dyadic value is nonzero but not a unit of Z₂. Strict approximation precision is retained.
+
+**Source:** Definition3.34, equation(3-11) and Remark3.35, published129–130/PDF30–31, freshly read completely; actual smoothing measure and inverse weighting in Definitions4.5 and4.10 and equation(4-3), published137–138/PDF38–39, read completely in the immediately preceding checkpoint. Worker consequence of the actual residue-mass formulas and quantitative inverse-moment approximation: a nonzero principal numerator obstructs augmentation on every subalgebra containing the arithmetic pseudomeasure. This strengthens the existing generic whole-fraction-ring obstruction in its specific arithmetic direction. It does not assert a logarithmic value, analytic pole order or analytic residue, and does not add a source finding.
+
+### The exact norm of the principal numerator mass
+
+`DirichletPadicLFunctions:L3/principal-intrinsic-numerator-mass` — `DirichletPadic.intrinsicSmoothedNumerator_canonical_mass_norm`
+
+‖N(1)‖=1 for p≠2, and ‖N(1)‖=1/2 for p=2, with the norm taken in Z.
+
+**Hypotheses:** p is any prime, including2. Z=ℤ_p, K=ℚ_p and U=Zˣ use the native carriers and topologies, with the existing bounded Z-scalar action on K. Put a=p+1 and retain ha:p∤a when using the actual smoothing constructors. Let I∈C(Z,K) be x↦algebraMap Z K(PadicInt.inv x) with the existing PMIA continuity theorem. Put V=twistedSmoothedMeasure p 0 1 a ha(I), the actual first inverse moment of the level-zero principal twist. The native inverse is extended by0 on nonunits. Write N=intrinsicSmoothedNumerator p a ha∈D(U,Z). For the final obstruction put M=D(U,Z) with the supplied actual commutative multiplicative convolution, Q=FractionRing M, δ=diracHom and z=kubotaLeopoldtPseudomeasure p∈Iwasawa.pseudomeasures δ Q. Q is the total quotient, with no domain or field structure on M or Q assumed. The final theorem takes any native M-subalgebra A of Q containing the underlying element z. A proposed ring map f:A→K must satisfy f(algebraMap M A μ)=algebraMap Z K(μ(1)) for every actual integral measure μ. This is the exact coefficient-field total-mass compatibility, not a condition on only some test measures.
+
+**Proof:**
+
+1. Apply the existing concrete smoothed-inverse-arithmetic comparison with n=0, principalχ and inverse exponent r=0. Its actual continuous character is1: the promoted pointwise formula has a level-one finite character and an exponent-zero inverse-coordinate factor.
+2. This gives extendIntegralUnitCoefficients(N)(1)=V. The promoted PMIA integral-unit test-function comparison at the constant integral test1 identifies its left side with algebraMap Z K(N(1)).
+3. The native p-adic integer inclusion preserves the norm, by PadicInt.norm_def. The complete integral_mass_norm proof checks this exact map and norm convention. Substitute the preceding first-moment norm.
+4. The resulting mass is nonzero for every prime. For odd p it is a unit in Z by PadicInt.isUnit_iff. For p=2 its norm is1/2, hence it is nonzero but not a unit. Neither conclusion makes an inadmissible character denominator invertible.
+5. This theorem uses a=p+1. At the identity smoothing parameter a=1 the actual numerator is zero, so its mass is0; the separate boundary test prevents accidental generalization to every parameter.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/principal-first-inverse-moment-norm`, `DirichletPadicLFunctions:L3/smoothed-inverse-arithmetic-value`, `DirichletPadicLFunctions:L3/inverse-arithmetic-character-value`, `PadicMeasuresIwasawaAlgebras:L2/integral-unit-extension-test-function`, `mathlib:PadicInt.norm_def`, `mathlib:PadicInt.isUnit_iff`.
+
+**Tests:**
+
+- `SuggestedPrincipalNumeratorTests.dyadic_mass_nonzero_nonunit` (non-example): The canonical dyadic numerator mass is nonzero but is not a unit of Z₂.
+- `SuggestedPrincipalNumeratorTests.ternary_mass_unit` (computation): The mass of the canonical ternary numerator is a unit of Z₃.
+- `SuggestedPrincipalNumeratorTests.identity_parameter_zero_mass` (degenerate): For the identity smoothing parameter, the actual intrinsic numerator mass is0.
+
+**Acceptance:** Coefficient extension and actual integral mass are compared before the nonvanishing conclusion. No evaluation of the pseudomeasure at the principal character is defined.
+
+**Source:** Definition3.34, equation(3-11) and Remark3.35, published129–130/PDF30–31, freshly read completely; actual smoothing measure and inverse weighting in Definitions4.5 and4.10 and equation(4-3), published137–138/PDF38–39, read completely in the immediately preceding checkpoint. Worker consequence of the actual residue-mass formulas and quantitative inverse-moment approximation: a nonzero principal numerator obstructs augmentation on every subalgebra containing the arithmetic pseudomeasure. This strengthens the existing generic whole-fraction-ring obstruction in its specific arithmetic direction. It does not assert a logarithmic value, analytic pole order or analytic residue, and does not add a source finding.
+
+### No augmentation on a subalgebra containing the arithmetic pseudomeasure
+
+`DirichletPadicLFunctions:L3/principal-pseudomeasure-subalgebra-obstruction` — `DirichletPadic.kubotaLeopoldtPseudomeasure_no_augmentation_subalgebra`
+
+For every A⊆Q containing z, there is no ring homomorphism f:A→K agreeing on all integral measures with their coefficient-extended total mass.
+
+**Hypotheses:** p is any prime, including2. Z=ℤ_p, K=ℚ_p and U=Zˣ use the native carriers and topologies, with the existing bounded Z-scalar action on K. Put a=p+1 and retain ha:p∤a when using the actual smoothing constructors. Let I∈C(Z,K) be x↦algebraMap Z K(PadicInt.inv x) with the existing PMIA continuity theorem. Put V=twistedSmoothedMeasure p 0 1 a ha(I), the actual first inverse moment of the level-zero principal twist. The native inverse is extended by0 on nonunits. Write N=intrinsicSmoothedNumerator p a ha∈D(U,Z). For the final obstruction put M=D(U,Z) with the supplied actual commutative multiplicative convolution, Q=FractionRing M, δ=diracHom and z=kubotaLeopoldtPseudomeasure p∈Iwasawa.pseudomeasures δ Q. Q is the total quotient, with no domain or field structure on M or Q assumed. The final theorem takes any native M-subalgebra A of Q containing the underlying element z. A proposed ring map f:A→K must satisfy f(algebraMap M A μ)=algebraMap Z K(μ(1)) for every actual integral measure μ. This is the exact coefficient-field total-mass compatibility, not a condition on only some test measures.
+
+**Proof:**
+
+1. Use the existing PMIA existence of an actual u∈U represented by p+1. The prime p does not divide p+1. The existing natural-pseudomeasure numerator comparison identifies n_u(z) with N.
+2. The actual PMIA numerator specification gives i(δ(u)−1)·z=i(N) in Q. Because z∈A and A is an M-subalgebra, this same relation holds inside A. Native Subalgebra.coe_algebraMap and subtype extensionality justify this step; no inverse or regularity of δ(u)−1 inside A is needed.
+3. Suppose f satisfies the stated compatibility on every μ∈M. Apply f to this relation. Total mass of δ(u) and of the convolution identity is1, so f(i_A(δ(u)−1))=0. The right side is algebraMap Z K(N(1)), which is nonzero by the preceding exact norm and the injective p-adic inclusion.
+4. Multiplicativity now equates0 with this nonzero numerator mass, a contradiction. The complete native subalgebra_obstruction proof checks the relation in the actual native Subalgebra and applies only the supplied ring maps.
+5. In particular take A=Algebra.adjoin M{z}. This rules out augmentation even on the subalgebra generated by the integral measures and this one arithmetic pseudomeasure, with no inverse of a clearing factor required. Taking A=top recovers an arithmetic instance of the existing PMIA whole-total-quotient obstruction.
+6. The generic whole-fraction-ring obstruction and its regular-element proof remain owned by PMIA. The new arithmetic input is the nonzero numerator for this specific z and its consequence for every containing subalgebra. This is an algebraic obstruction; it neither proves an analytic pole order nor computes an analytic residue.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/principal-intrinsic-numerator-mass`, `DirichletPadicLFunctions:L2/pseudomeasure-natural-numerator`, `PadicMeasuresIwasawaAlgebras:L3/cleared-numerator-spec`, `PadicMeasuresIwasawaAlgebras:L3/one-add-prime-unit`, `PadicMeasuresIwasawaAlgebras:L1/dirac-hom`, `mathlib:Subalgebra.coe_algebraMap`, `mathlib:AbstractMeasure.dirac_apply`, `mathlib:PadicInt.norm_def`.
+
+**Tests:**
+
+- `SuggestedPrincipalNumeratorTests.generated_subalgebra_obstruction` (characterisation): The obstruction already holds for the native M-subalgebra Algebra.adjoin M{z}.
+- `SuggestedPrincipalNumeratorTests.whole_subalgebra_obstruction` (compatibility): The top native M-subalgebra of Q admits no such coefficient-field total-mass extension.
+
+**Acceptance:** A can be smaller than every smoothing localization. Its exact inclusion of z is essential. No scalar analytic L-function or new generic localization obstruction is constructed.
+
+**Source:** Definition3.34, equation(3-11) and Remark3.35, published129–130/PDF30–31, freshly read completely; actual smoothing measure and inverse weighting in Definitions4.5 and4.10 and equation(4-3), published137–138/PDF38–39, read completely in the immediately preceding checkpoint. Worker consequence of the actual residue-mass formulas and quantitative inverse-moment approximation: a nonzero principal numerator obstructs augmentation on every subalgebra containing the arithmetic pseudomeasure. This strengthens the existing generic whole-fraction-ring obstruction in its specific arithmetic direction. It does not assert a logarithmic value, analytic pole order or analytic residue, and does not add a source finding.
+
+**Remaining:** The canonical principal numerator has a nonzero actual mass, and augmentation fails on every subalgebra containing the arithmetic pseudomeasure. Its exact logarithmic value, analytic pole order and residue are not established here; source smoothing primitives and their value comparisons remain with the existing Coleman owner and analytic comparison requests. Canonical general K-valued nontrivial-character evaluation remains the open PMIA L3 request. Analytic families and scalar Mellin/L-function comparisons remain with PMIA L0a and LAD L3. Full source extraction, the other recorded gaps and remaining Eisenstein comparisons remain open. Preserve all source corrections.
+
+### The principal numerator and its subalgebra obstruction validation
+
+All 544 predecessor nodes, 488 baseline records, 16 findings, requests and sourceVersions remain whole. This checkpoint adds 3 nodes, 3 named suggested declarations and 8 typed examples. The indexed blueprint, four-file intake, whitespace, preservation, API/test parity and versioned-source checks pass. The graph has 785 reachable nodes, 3751 edges and 660 native leaves and is acyclic. Its stage request leaves are PadicMeasuresIwasawaAlgebras:L1, PadicMeasuresIwasawaAlgebras:L3, PadicMeasuresIwasawaAlgebras:L3, LocallyAnalyticDistributions:L1, AdicSpacesPartII:F1, AdicSpacesPartII:R2, PadicDifferentialEquationsAndRigidCohomology:RD.0, PadicDifferentialEquationsAndRigidCohomology:RD.4, PadicHodgeTheory:P7:annulus-foundations. All three new routes end in existing declarations. The generic total-quotient obstruction is not replanned; the new specific arithmetic theorem applies inside any subalgebra containing z.
+
+The full suggested module elaborates with zero errors and 1672 expected placeholder warnings. Source and artifact audits cover 3600 pinned Mathlib modules, 21 pinned Tau Ceti modules and the verified actual 332-node PMIA artifact. The current 369-node PMIA source preserves the compiled 332-node artifact's source in order; no new supplier declaration is called and no compilation against the current supplier revision is claimed. Source, olean and original compiler-log hashes were rechecked. Existing builds only were used.
+
+Ten complete native lemmas check the canonical residue coefficient, finite inverse pairing, residue-inverse and harmonic norms, the odd-prime correction and norm transfer, the dyadic precision threshold, nonvanishing, the integral inclusion norm and the ring-map contradiction inside a native subalgebra. The probe elaborates against 2797 pinned Mathlib modules with zero errors, warnings or placeholders. General roadmap declarations remain unchecked.
+
+Exact actual residue sums at six primes check the canonical first inverse moments at successively finer levels. They verify the odd-prime harmonic formula, constant valuation at adequate precision, and higher-level agreement; the dyadic level1 zero is explicitly retained as insufficient. Exact Fraction sums of the actual smoothing residue formula at a=p+1, six primes and levels1 through3 or4. The earlier actual-measure error bound p^(−m) makes each marked norm inference rigorous at its strict threshold; only the dyadic level1 sum is deliberately insufficient. Values are finite approximations, never asserted to equal the limiting integral. No logarithm or analytic pole calculation is used. The largest observed discrepancy is 0 in exact asserted identities; consecutive residue approximations differ by valuation at least the coarser level.
+
+The62-input capture at8a26dc24bd7a4b04630290985fbf6044287ce3b9 has no predecessor input changes. Existing pinned artifacts and the verified332-node PMIA artifact are reused; no compilation of the current369-node PMIA source is claimed.

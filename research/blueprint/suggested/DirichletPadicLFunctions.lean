@@ -8959,3 +8959,89 @@ example {D : ℕ} [NeZero D] (η : DirichletCharacter K D)
 end Moments
 end
 end SuggestedInverseArithmeticTests
+
+/-! The actual principal numerator is nonzero, including at p=2. This gives an
+algebraic obstruction on every subalgebra containing the arithmetic pseudomeasure;
+it is not a statement of analytic pole order or residue. -/
+namespace DirichletPadic
+noncomputable section
+open scoped AbstractMeasure
+open AbstractMeasure
+variable (p : ℕ) [Fact p.Prime] [IsBoundedSMul ℤ_[p] ℚ_[p]]
+local notation "Z" => ℤ_[p]
+local notation "U" => Zˣ
+local notation "M" => D(U,Z)
+local notation "I" => (ContinuousMap.mk (fun x : Z => algebraMap Z ℚ_[p] (PadicInt.inv x))
+  (Continuous.comp (continuous_algebraMap Z ℚ_[p]) PadicInt.continuous_inv) : C(Z,ℚ_[p]))
+
+theorem twistedSmoothedMeasure_principal_first_norm (ha : ¬p∣p+1) :
+    ‖twistedSmoothedMeasure p 0 (1 : DirichletCharacter ℚ_[p] (p^0)) (p+1) ha I‖=
+      if p=2 then (1/2 : ℝ) else 1 := sorry
+
+theorem intrinsicSmoothedNumerator_canonical_mass_norm (ha : ¬p∣p+1) :
+    ‖intrinsicSmoothedNumerator p (p+1) ha 1‖=if p=2 then (1/2 : ℝ) else 1 := sorry
+
+local instance : TotallyDisconnectedSpace U :=
+  (PadicInt.unitsHomeomorphIsUnit p).isEmbedding.isTotallyDisconnected_range.mp
+    (isTotallyDisconnected_of_totallyDisconnectedSpace _)
+local instance : CommRing M :=
+  { (inferInstance : Ring M) with mul_comm := mul_comm_of_commMonoid }
+local notation "Q" => FractionRing M
+
+theorem kubotaLeopoldtPseudomeasure_no_augmentation_subalgebra
+    (A : Subalgebra M Q) (hz : (kubotaLeopoldtPseudomeasure p : Q)∈A) :
+    ¬∃ f : A →+* ℚ_[p], ∀ μ : M,
+      f (algebraMap M A μ)=algebraMap Z ℚ_[p] (μ 1) := sorry
+end
+end DirichletPadic
+
+namespace SuggestedPrincipalNumeratorTests
+noncomputable section
+open scoped AbstractMeasure
+open DirichletPadic AbstractMeasure
+local instance : Fact (Nat.Prime 5) := ⟨by decide⟩
+variable [IsBoundedSMul ℤ_[2] ℚ_[2]] [IsBoundedSMul ℤ_[3] ℚ_[3]] [IsBoundedSMul ℤ_[5] ℚ_[5]]
+-- dyadic_first_moment_norm
+example :
+    let i : C(ℤ_[2],ℚ_[2]) := ⟨fun x => algebraMap ℤ_[2] ℚ_[2] (PadicInt.inv x),
+      (continuous_algebraMap ℤ_[2] ℚ_[2]).comp PadicInt.continuous_inv⟩
+    ‖twistedSmoothedMeasure 2 0 (1 : DirichletCharacter ℚ_[2] (2^0)) 3 (by norm_num) i‖=
+      (1/2 : ℝ) := sorry
+-- ternary_first_moment_norm
+example :
+    let i : C(ℤ_[3],ℚ_[3]) := ⟨fun x => algebraMap ℤ_[3] ℚ_[3] (PadicInt.inv x),
+      (continuous_algebraMap ℤ_[3] ℚ_[3]).comp PadicInt.continuous_inv⟩
+    ‖twistedSmoothedMeasure 3 0 (1 : DirichletCharacter ℚ_[3] (3^0)) 4 (by norm_num) i‖=1 := sorry
+-- five_adic_first_moment_norm
+example :
+    let i : C(ℤ_[5],ℚ_[5]) := ⟨fun x => algebraMap ℤ_[5] ℚ_[5] (PadicInt.inv x),
+      (continuous_algebraMap ℤ_[5] ℚ_[5]).comp PadicInt.continuous_inv⟩
+    ‖twistedSmoothedMeasure 5 0 (1 : DirichletCharacter ℚ_[5] (5^0)) 6 (by norm_num) i‖=1 := sorry
+-- dyadic_mass_nonzero_nonunit
+example : intrinsicSmoothedNumerator 2 3 (by norm_num) 1≠0 ∧
+    ¬IsUnit (intrinsicSmoothedNumerator 2 3 (by norm_num) 1) := sorry
+-- ternary_mass_unit
+example : IsUnit (intrinsicSmoothedNumerator 3 4 (by norm_num) 1) := sorry
+-- identity_parameter_zero_mass
+example {p : ℕ} [Fact p.Prime] (ha : ¬p∣1) : intrinsicSmoothedNumerator p 1 ha 1=0 := sorry
+section Subalgebra
+variable (p : ℕ) [Fact p.Prime] [IsBoundedSMul ℤ_[p] ℚ_[p]]
+local notation "Z" => ℤ_[p]
+local notation "U" => Zˣ
+local notation "M" => D(U,Z)
+local instance : TotallyDisconnectedSpace U :=
+  (PadicInt.unitsHomeomorphIsUnit p).isEmbedding.isTotallyDisconnected_range.mp
+    (isTotallyDisconnected_of_totallyDisconnectedSpace _)
+local instance : CommRing M :=
+  { (inferInstance : Ring M) with mul_comm := mul_comm_of_commMonoid }
+local notation "Q" => FractionRing M
+-- generated_subalgebra_obstruction
+example :
+    let A : Subalgebra M Q := Algebra.adjoin M {(kubotaLeopoldtPseudomeasure p : Q)}
+    ¬∃ f : A →+* ℚ_[p], ∀ μ : M, f (algebraMap M A μ)=algebraMap Z ℚ_[p] (μ 1) := sorry
+-- whole_subalgebra_obstruction
+example : ¬∃ f : (⊤ : Subalgebra M Q) →+* ℚ_[p], ∀ μ : M,
+    f (algebraMap M (⊤ : Subalgebra M Q) μ)=algebraMap Z ℚ_[p] (μ 1) := sorry
+end Subalgebra
+end
+end SuggestedPrincipalNumeratorTests
