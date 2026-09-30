@@ -248,6 +248,48 @@
         "module": "TauCeti/AlgebraicGeometry/EllipticCurve/Affine/InvariantDifferential.lean",
         "provides": "ω = dx/(2y + a₁x + a₃) in Ω[K(E)/F] (its docstring notes that div ω = 0 is not proved).",
         "checked": "declaration and signature confirmed at TauCeti/AlgebraicGeometry/EllipticCurve/Affine/InvariantDifferential.lean:105 at the pinned commit (Mathlib 082e2d3, Tau Ceti f790474); its use in the citing nodes checked by the review"
+      },
+      {
+        "ref": "mathlib:AddChar.complexBasis",
+        "kind": "definition",
+        "module": "Mathlib/Analysis/Fourier/FiniteAbelian/PontryaginDuality.lean",
+        "provides": "Complex characters form a basis of functions on a finite abelian group; use its coefficient map, not a new character theory.",
+        "checked": "Statement and ambient hypotheses read at Mathlib/Analysis/Fourier/FiniteAbelian/PontryaginDuality.lean:125, Mathlib 082e2d3 / Tau Ceti f790474, by Codex codex-rtOQ9t for FIX-RT-AREA-combinatorics~2 on 2026-09-30. This is not an independent acceptance."
+      },
+      {
+        "ref": "mathlib:AddChar.sum_apply_eq_ite",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/Fourier/FiniteAbelian/PontryaginDuality.lean",
+        "provides": "Sum over complex additive characters equals card G at zero and zero elsewhere.",
+        "checked": "Statement and ambient hypotheses read at Mathlib/Analysis/Fourier/FiniteAbelian/PontryaginDuality.lean:188, Mathlib 082e2d3 / Tau Ceti f790474, by Codex codex-rtOQ9t for FIX-RT-AREA-combinatorics~2 on 2026-09-30. This is not an independent acceptance."
+      },
+      {
+        "ref": "mathlib:AddChar.wInner_cWeight_eq_boole",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/Fourier/FiniteAbelian/Orthogonality.lean",
+        "provides": "Characters are orthonormal for the normalized counting inner product.",
+        "checked": "Statement and ambient hypotheses read at Mathlib/Analysis/Fourier/FiniteAbelian/Orthogonality.lean:60, Mathlib 082e2d3 / Tau Ceti f790474, by Codex codex-rtOQ9t for FIX-RT-AREA-combinatorics~2 on 2026-09-30. This is not an independent acceptance."
+      },
+      {
+        "ref": "tauceti:CommGroup.sum_monoidHom_apply_eq_ite",
+        "kind": "theorem",
+        "module": "TauCeti/GroupTheory/FiniteAbelian/CharacterOrthogonality.lean",
+        "provides": "Column orthogonality for finite commutative G and characters G →* Mˣ, M a domain with enough roots of unity. Sum equals Nat.card G at identity and zero elsewhere.",
+        "checked": "Statement and ambient hypotheses read at TauCeti/GroupTheory/FiniteAbelian/CharacterOrthogonality.lean:104, Mathlib 082e2d3 / Tau Ceti f790474, by Codex codex-rtOQ9t for FIX-RT-AREA-combinatorics~2 on 2026-09-30. This is not an independent acceptance."
+      },
+      {
+        "ref": "tauceti:TauCeti.hasSum_norm_sq_peterWeylCoeff",
+        "kind": "theorem",
+        "module": "TauCeti/RepresentationTheory/Compact/PeterWeyl.lean",
+        "provides": "Peter–Weyl Parseval for an irreducible skeleton and L²(haarProb); the finite-abelian character coefficient comparison remains a separate obligation.",
+        "checked": "Statement and ambient hypotheses read at TauCeti/RepresentationTheory/Compact/PeterWeyl.lean:599, Mathlib 082e2d3 / Tau Ceti f790474, by Codex codex-rtOQ9t for FIX-RT-AREA-combinatorics~2 on 2026-09-30. This is not an independent acceptance."
+      },
+      {
+        "ref": "tauceti:TauCeti.haarProb_eq_smul_count",
+        "kind": "theorem",
+        "module": "TauCeti/RepresentationTheory/Compact/Finite.lean",
+        "provides": "For a finite discrete group with Borel measurable structure, haarProb G=(Nat.card G)⁻¹ • Measure.count.",
+        "checked": "Statement and ambient hypotheses read at TauCeti/RepresentationTheory/Compact/Finite.lean:212, Mathlib 082e2d3 / Tau Ceti f790474, by Codex codex-rtOQ9t for FIX-RT-AREA-combinatorics~2 on 2026-09-30. This is not an independent acceptance."
       }
     ]
   },
@@ -2419,23 +2461,30 @@
       ],
       "title": "The finite Fourier transform of Lecture 10",
       "kind": "definition",
-      "statement": "For C ≥ 1 and f : ℤ/C × ℤ/C → ℂ, f̂(k, ℓ) = C^{-2} Σ_{a,b=0}^{C−1} f(a, b)·e^{2πi(−ak+bℓ)/C} (Bloch (10.2.1), p. 76). Inversion: f(a, b) = Σ_{k,ℓ} f̂(k, ℓ)·e^{2πi(ak−bℓ)/C}; f is odd iff f̂ is odd. This Lecture-10 transform is normalised by 1/C², NOT by 1/C: the 1/C normalisation is that of Lecture 11 on O/CO (ER.5/fourier-transform-on-O-mod-C), and if f(m, n) = F(n + mτ) then f̂(k, ℓ) = C^{-1}·F̂(k + ℓτ).",
+      "statement": "For C ≥ 1 and f : ℤ/C × ℤ/C → ℂ, f̂(k, ℓ) = C^{-2} Σ_{a,b=0}^{C−1} f(a, b)·e^{2πi(−ak+bℓ)/C} (Bloch (10.2.1), p. 76). Inversion: f(a, b) = Σ_{k,ℓ} f̂(k, ℓ)·e^{2πi(ak−bℓ)/C}; f is odd iff f̂ is odd. This Lecture-10 transform is normalised by 1/C², NOT by 1/C: the 1/C normalisation is that of Lecture 11 on O/CO (ER.5/fourier-transform-on-O-mod-C), and if f(m, n) = F(n + mτ) then f̂(k, ℓ) = C^{-1}·F̂(k + ℓτ). This is the specialization of AdditiveCombinatorics:AC.0’s normalized character interface: χ_(k,ℓ)(a,b)=exp(2πi(ak−bℓ)/C), f̂(k,ℓ)=E_(a,b) f(a,b)·conj(χ_(k,ℓ)(a,b)). ER.4 identifies this dual and imports generic inversion and Parseval; it does not rebuild character theory.",
       "hypotheses": [
         "C ≥ 1; the transform is on the finite group (ℤ/C)² with the kernel as printed in (10.2.1)."
       ],
       "proofSteps": [
-        "Define the transform.",
-        "Prove inversion by orthogonality of the characters of (ℤ/C)².",
-        "Prove that oddness is preserved.",
-        "Prove the comparison with the Lecture-11 transform by the substitution (a, b) ↦ b + aτ."
+        "Define χ_(k,ℓ) using the pinned ZMod.stdAddChar at ak−bℓ. Prove its exponential formula and that (k,ℓ) ↦ χ_(k,ℓ) bijects (ℤ/C)² with AddChar ((ℤ/C)²) ℂ, using the existing character theory.",
+        "Import AC.0’s character-indexed coefficient/comparison interface, built on AddChar.complexBasis and orthogonality. Identify finiteFourier10 with its averaged coefficient and with complexBasis.repr f χ_(k,ℓ); its counting-normalized comparison is C⁻² times two successive ZMod.dft transforms, at indices (k,−ℓ).",
+        "Specialize AC.0 inversion and Parseval through that dual bijection. There is no new general finite-group inversion or Parseval proof here.",
+        "Prove oddness by x ↦ −x and the imported inversion; compute point masses and the C=1 boundary case.",
+        "Compare Lecture 11 by swapping only the input coordinates f(m,n)=F(n+mτ): finiteFourier10 f (k,ℓ)=C⁻¹ fourierO F (k,ℓ) in the basis (1,τ). Do not swap the output (k,ℓ). Keep E7’s corrected dual-first kernel."
       ],
       "acceptance": [
         "Inversion holds.",
         "The normalisation is 1/C².",
-        "The comparison with ER.5/fourier-transform-on-O-mod-C holds with the factor C^{-1}."
+        "The comparison with ER.5/fourier-transform-on-O-mod-C holds with the factor C^{-1}.",
+        "The AC.0 request exports the average convention, inversion and Parseval with explicit counting/unitary comparisons; no prerequisite on a whole upstream coding or modular-forms stage is introduced.",
+        "Σ_(k,ℓ) |f̂(k,ℓ)|² = C⁻² Σ_(a,b) |f(a,b)|²; the Lecture-11 unitary transform preserves the unnormalized sum of squares.",
+        "The character identification and both normalization comparisons are specialized to the C-torsion carrier; generic comparisons remain owned by AC.0."
       ],
       "prerequisites": [
-        "mathlib:AddMonoidAlgebra"
+        "AdditiveCombinatorics:AC.0",
+        "mathlib:AddChar.complexBasis",
+        "mathlib:AddChar.sum_apply_eq_ite",
+        "mathlib:ZMod.dft"
       ],
       "sources": [
         {
@@ -2471,6 +2520,36 @@
           "name": "finiteFourier10_eq_fourierO",
           "role": "compatibility",
           "statement": "If f(m, n) = F(n + mτ) then f̂(k, ℓ) = C^{-1}·fourierO F (k + ℓτ)."
+        },
+        {
+          "name": "torsionFourierCharacter",
+          "role": "data",
+          "statement": "χ_(k,ℓ)(a,b)=ZMod.stdAddChar(a·k−b·ℓ), a bundled AddChar on (ℤ/C)²."
+        },
+        {
+          "name": "torsionFourierCharacter_apply",
+          "role": "compatibility",
+          "statement": "χ_(k,ℓ)(a,b)=exp(2πi(ak−bℓ)/C), using residue representatives."
+        },
+        {
+          "name": "torsionFourierDuality",
+          "role": "data",
+          "statement": "The equivalence (ℤ/C)² ≃ AddChar ((ℤ/C)²) ℂ induced by torsionFourierCharacter."
+        },
+        {
+          "name": "finiteFourier10_eq_complexBasis_repr",
+          "role": "compatibility",
+          "statement": "finiteFourier10 C f kl = (AddChar.complexBasis ((ℤ/C)²)).repr f (torsionFourierCharacter C kl); specialize the AC.0 coefficient comparison."
+        },
+        {
+          "name": "finiteFourier10_eq_dft",
+          "role": "compatibility",
+          "statement": "finiteFourier10 C f (k,ℓ) = C⁻² · ZMod.dft (a ↦ ZMod.dft (b ↦ f(a,b)) (−ℓ)) k."
+        },
+        {
+          "name": "finiteFourier10_parseval",
+          "role": "relation",
+          "statement": "Σ_kl ‖finiteFourier10 C f kl‖² = C⁻² Σ_ab ‖f ab‖², imported from AC.0 through the dual bijection."
         }
       ],
       "uses": [
@@ -2503,6 +2582,21 @@
           "name": "finiteFourier10_not_one_over_C",
           "kind": "non-example",
           "statement": "With the normalisation 1/C in (10.2.1), the right side of Theorem 10.2.1 must be multiplied by C (iy²C⁴/π instead of iy²C³/π)."
+        },
+        {
+          "name": "finiteFourier10_C1",
+          "kind": "degenerate",
+          "statement": "For C=1, finiteFourier10 1 f (0,0)=f (0,0)."
+        },
+        {
+          "name": "finiteFourier10_parseval_single",
+          "kind": "computation",
+          "statement": "C=3, f=δ_(0,0): Σ_kl ‖finiteFourier10 3 f kl‖²=1/9. A unitary 1/C factor in Lecture 10 gives 1 instead and fails this test."
+        },
+        {
+          "name": "finiteFourier10_basis",
+          "kind": "compatibility",
+          "statement": "For every kl, finiteFourier10 C (torsionFourierCharacter C kl) kl = 1; the full transform is the point mass at kl."
         }
       ],
       "addedBy": "REV-EllipticRegulators"
@@ -2902,12 +2996,12 @@
       "proofSteps": [
         "Define the pairing and check bi-additivity and ⟨x, y⟩⟨y, x⟩ = 1.",
         "Prove ⟨xy, z⟩ = ⟨x, ȳz⟩ by expanding in the basis (1, τ) with τ² = −Aτ − B (Bloch's proof of Lemma 11.1.4).",
-        "Define the transform and prove inversion F(y) = C^{-1} Σ_x F̂(x)⟨x, y⟩^{-1}.",
+        "Define the unitary transform with the corrected dual-first pairing. Import inversion from AC.0 via the ER.4 coefficient/dual comparison and the factor C; similarly obtain Parseval for counting sums.",
         "Prove the comparison with ER.4/finite-fourier-transform."
       ],
       "acceptance": [
         "⟨xy, z⟩ = ⟨x, ȳz⟩.",
-        "The comparison F̂ = C·f̂₁₀ (arguments swapped) holds.",
+        "For f(m,n)=F(n+mτ), F̂(k+ℓτ)=C·f̂₁₀(k,ℓ). Only the input coordinates are swapped; the dual/output coordinates (k,ℓ) stay fixed.",
         "With the printed kernel of (11.1.1) the identity (11.1.2) fails by the factor −1 for odd F."
       ],
       "prerequisites": [
@@ -2958,6 +3052,11 @@
           "name": "fourierO_eq_finiteFourier10",
           "role": "compatibility",
           "statement": "For f(m, n) = F(n + mτ): finiteFourier10 f (k, ℓ) = C^{-1}·F̂(k + ℓτ)."
+        },
+        {
+          "name": "fourierO_parseval",
+          "role": "relation",
+          "statement": "Σ_x ‖fourierO C F x‖²=Σ_y ‖F y‖², obtained from AC.0 through the ER.4 comparison and the factor C."
         }
       ],
       "uses": [
@@ -2984,12 +3083,17 @@
         {
           "name": "fourierO_normalisation",
           "kind": "compatibility",
-          "statement": "fourierO F = C·(finiteFourier10 f) with the arguments swapped; it is not the 1/C² average."
+          "statement": "For f(m,n)=F(n+mτ), fourierO C F (k,ℓ)=C·finiteFourier10 C f (k,ℓ), with the SAME output index, using coordinates (a,b) ↦ a+bτ for F."
         },
         {
           "name": "fourierO_printed_kernel",
           "kind": "non-example",
           "statement": "With the kernel printed in (11.1.1), Σ_x F̂(x)R_q(S_{x/C}) = −(iy²C⁴/π) Σ' F(w)/(w²w̄) for the odd characters of ℚ(i) (C = 4), ℚ(√−3) (C = 6), ℚ(√−7) (C = 7)."
+        },
+        {
+          "name": "fourierO_output_index",
+          "kind": "non-example",
+          "statement": "C=3, F=δ_(1,0): fourierO F (0,1)=exp(2πi/3)/3, whereas fourierO F (1,0)=1/3. Swapping the output in the comparison with Lecture 10 is false."
         }
       ],
       "addedBy": "REV-EllipticRegulators"
@@ -5633,6 +5737,14 @@
         "EllipticRegulators:ER.6/the-regulator-on-the-integral-part",
         "EllipticRegulators:ER.7/the-pushforward-and-its-hypotheses"
       ]
+    },
+    {
+      "supplier": "AdditiveCombinatorics:AC.0",
+      "need": "RT-AREA-combinatorics/14: export the missing finite-abelian character coefficient/comparison interface once. For finite abelian G, A(f)(χ)=|G|⁻¹ Σ_x f(x) conj(χ(x)); normalized convolution uses |G|⁻¹. Export inversion f(x)=Σ_χ A(f)(χ)χ(x), Parseval |G|⁻¹Σ|f|²=Σ|A(f)|² and convolution-to-product. Compare A with AddChar.complexBasis.repr, counting coefficients |G|A, unitary coefficients sqrt(|G|)A, and pinned ZMod.dft. Reuse AddChar basis/orthogonality and CommGroup.sum_monoidHom_apply_eq_ite; the Peter–Weyl/Haar results are existing ingredients, with the character/coefficient identification still to supply. Compare upstream coding/modular-form specializations when available without making their entire stages prerequisites. ER.4 specializes G=(Z/C)², |G|=C², and ER.5 uses unitary scale C. Reviewed audit AUDIT-16 correctly says partly built; its missing Tau Ceti column-orthogonality citation is recorded in this packet baseline and the fix report, without editing the frozen audit.",
+      "neededBy": [
+        "EllipticRegulators:ER.4/finite-fourier-transform",
+        "EllipticRegulators:ER.5/fourier-transform-on-O-mod-C"
+      ]
     }
   ],
   "restructure": [
@@ -6630,5 +6742,17 @@
         "note": "Added from checker C's decomposition (Brunault.SiegelUnits.2016, Theorem 24, §5.1, p. 13): A second modular-unit example: conductors 14, 35 and 54."
       }
     ]
-  }
+  },
+  "fixHistory": [
+    {
+      "job": "FIX-RT-AREA-combinatorics~2",
+      "finding": "RT-AREA-combinatorics/14",
+      "agent": "Codex",
+      "session": "codex-rtOQ9t",
+      "date": "2026-09-30",
+      "status": "pending-independent-review",
+      "changes": "ER.4 imports the AC.0 generic coefficient/comparison interface and specializes its inversion/Parseval. Preserve the Lecture-10 average, Lecture-11 unitary scale and E7 corrected kernel. Correct the suggested file’s extra output-index swap; add comparison and discriminating tests. Historical review and source-issue verdicts are retained without claiming acceptance of this fix.",
+      "sourceCheck": "Re-read the supplied Bloch 2000 scan, SHA256 9715a312ec4ebb9535daa24f3308bb5b97152211d747d55bf9f6c06bb221bd60, printed pp.76,87,89,91 (PDF pp.88,99,101,103)."
+    }
+  ]
 }
