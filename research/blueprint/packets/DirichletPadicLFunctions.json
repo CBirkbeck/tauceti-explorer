@@ -10,7 +10,7 @@
     "DirichletPadicLFunctions:L4"
   ],
   "status": "partial",
-  "summary": "Seven L2 nodes identify the image of the character-field integer ring and show that six actual ambient tame integrals lie in the smaller field or integer-ring image when every test value does. All687 predecessor nodes remain whole; fourteen tests retain constants, zero and an explicit Dirac counterexample to an unrestricted range assertion.",
+  "summary": "Eight L2 nodes promote finite-character evaluation and the principal/quadratic field APIs, locate weighted wild values in their own field, and compare and locate actual intrinsic tame moments over the native joint character field and its integer ring. All694 predecessor nodes remain whole. Five new signatures and twelve tests cover weight0, level0, dyadic wild characters, proper field enlargement, principal/quadratic collapse and tame modulus1.",
   "baseline": {
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
@@ -4102,6 +4102,41 @@
         "module": "Mathlib/Topology/ContinuousMap/Defs.lean",
         "provides": "Pointwise equality of native continuous maps implies equality of the bundled maps.",
         "checked": "Whole declaration and ambient topological hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on30September2026; complete native subtype-lifting and range proofs exercise the exact statements."
+      },
+      {
+        "ref": "mathlib:MulChar.isQuadratic_iff_sq_eq_one",
+        "kind": "lemma",
+        "module": "Mathlib/NumberTheory/MulChar/Basic.lean",
+        "provides": "For a native multiplicative character into a nontrivial integral domain, quadratic values are equivalent to its square being the principal character.",
+        "checked": "Complete declaration and ambient hypotheses read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on30September2026; the fresh complete native joint-field proof probe exercises the required instances, maps and field-membership statements."
+      },
+      {
+        "ref": "mathlib:IntermediateField.finiteDimensional_sup",
+        "kind": "instance",
+        "module": "Mathlib/FieldTheory/IntermediateField/Adjoin/Basic.lean",
+        "provides": "The native supremum of two finite-dimensional intermediate fields is finite-dimensional.",
+        "checked": "Complete declaration and ambient hypotheses read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on30September2026; the fresh complete native joint-field proof probe exercises the required instances, maps and field-membership statements."
+      },
+      {
+        "ref": "mathlib:IntermediateField.inclusion",
+        "kind": "def",
+        "module": "Mathlib/FieldTheory/IntermediateField/Basic.lean",
+        "provides": "The native algebra homomorphism from a smaller intermediate field to a containing one.",
+        "checked": "Complete declaration and ambient hypotheses read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on30September2026; the fresh complete native joint-field proof probe exercises the required instances, maps and field-membership statements."
+      },
+      {
+        "ref": "mathlib:IntermediateField.coe_inclusion",
+        "kind": "theorem",
+        "module": "Mathlib/FieldTheory/IntermediateField/Basic.lean",
+        "provides": "The intermediate-field inclusion has exactly the original ambient subtype value.",
+        "checked": "Complete declaration and ambient hypotheses read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on30September2026; the fresh complete native joint-field proof probe exercises the required instances, maps and field-membership statements."
+      },
+      {
+        "ref": "mathlib:IntermediateField.algebraMap_mem",
+        "kind": "theorem",
+        "module": "Mathlib/FieldTheory/IntermediateField/Basic.lean",
+        "provides": "Every intermediate field contains the actual image of the base algebra map.",
+        "checked": "Complete declaration and ambient hypotheses read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on30September2026; the fresh complete native joint-field proof probe exercises the required instances, maps and field-membership statements."
       }
     ]
   },
@@ -45450,6 +45485,450 @@
       "acceptance": [
         "The witness is the existing smaller-field integral evaluated on a continuous lifted test. No replacement measure, integer ring or choice of scalar algebra is introduced."
       ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L2/prime-power-character-pointwise-value",
+      "parentStageId": "DirichletPadicLFunctions:L2",
+      "realises": [
+        "DirichletPadicLFunctions:L2"
+      ],
+      "title": "Pointwise evaluation of a lifted finite character",
+      "kind": "lemma",
+      "statement": "For every z∈ℤ_p, primePowerCharacter p n χ z=χ(PadicInt.toZModPow n z).",
+      "hypotheses": [
+        "p is prime, R is a normed commutative ring, n≥0 and χ:DirichletCharacter R(p^n). Neither an ℤ_p algebra on R nor a bounded scalar action is required for this evaluation identity."
+      ],
+      "proofSteps": [
+        "Promote the existing prime-power-character API entry to its own node without changing or duplicating its suggested declaration. The existing construction is the continuous map obtained by evaluating the native finite character after the native reduction ℤ_p→ZMod(p^n).",
+        "Unfold that defining function at the chosen z; native PadicInt.toZModPow is exactly the ring reduction used by the construction. The displayed evaluation is therefore its defining pointwise identity.",
+        "At n=0 this is reduction into the one-element ring, so the lifted character is constant1. At positive n it retains the original character zero extension on nonunits; no support assertion for positive n is imported into the modulus-one case."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L2/prime-power-character",
+        "mathlib:PadicInt.toZModPow"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/CharacterTwists",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.primePowerCharacter_apply"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Theorem5.7 and Remark5.8(2), published143/PDF44, and the complete coefficient-field/integer-ring discussion after equation(5-3), published144/PDF45; complete pages freshly read in the preceding descent continuation on30September2026.",
+          "match": "Worker-derived coefficient-field bookkeeping for moments involving both tame η and wild χ. Use the existing native supremum of their character fields and the earlier actual all-test comparisons. Weight-zero statements concern existing constructor integrals; they do not extend the source positive-weight special-value formula to weight zero."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [],
+      "acceptance": [
+        "The existing API and signature remain unchanged. This node provides the exact finer prerequisite needed to locate arithmetic-character values in their field."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L2/tame-character-field-quadratic",
+      "parentStageId": "DirichletPadicLFunctions:L2",
+      "realises": [
+        "DirichletPadicLFunctions:L2"
+      ],
+      "title": "The character field of a quadratic character",
+      "kind": "lemma",
+      "statement": "If η is quadratic, tameCharacterField p η=⊥.",
+      "hypotheses": [
+        "p is prime, K is a field with an actual Algebra ℚ_p K, D>0 and η:DirichletCharacter K D has native MulChar.IsQuadratic. No norm, topology, p∤D or nonprincipality hypothesis is needed."
+      ],
+      "proofSteps": [
+        "Promote the existing quadratic-field API without changing its suggested declaration. By native MulChar.IsQuadratic, every value is0,1 or−1.",
+        "Each of these three values belongs to the bottom intermediate field. Apply the already promoted character-field minimality criterion with E=⊥ to get Fη≤⊥, and combine with bot_le.",
+        "This is equality with the actual base-field image, not a numerical claim about a complex value field. The complete quadratic_field_bot proof retained in4883 checks the native alternatives and adjunction argument."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L2/tame-character-field-minimal",
+        "mathlib:MulChar.IsQuadratic"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/TameCoefficientFields",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.tameCharacterField_quadratic"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Theorem5.7 and Remark5.8(2), published143/PDF44, and the complete coefficient-field/integer-ring discussion after equation(5-3), published144/PDF45; complete pages freshly read in the preceding descent continuation on30September2026.",
+          "match": "Worker-derived coefficient-field bookkeeping for moments involving both tame η and wild χ. Use the existing native supremum of their character fields and the earlier actual all-test comparisons. Weight-zero statements concern existing constructor integrals; they do not extend the source positive-weight special-value formula to weight zero."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [],
+      "acceptance": [
+        "Includes the principal character and all residue characteristics, including p=2. No complex-to-p-adic embedding is chosen."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L2/tame-character-field-principal",
+      "parentStageId": "DirichletPadicLFunctions:L2",
+      "realises": [
+        "DirichletPadicLFunctions:L2"
+      ],
+      "title": "The character field of a principal character",
+      "kind": "lemma",
+      "statement": "tameCharacterField p (1:DirichletCharacter K D)=⊥.",
+      "hypotheses": [
+        "p is prime, K is a field with Algebra ℚ_p K and D>0. The character is the native multiplicative identity at that level, including its nonunit zero-extension convention."
+      ],
+      "proofSteps": [
+        "Promote the existing principal-field API without changing its suggested declaration. The native principal character satisfies1²=1; native MulChar.isQuadratic_iff_sq_eq_one shows that it is quadratic in the field target.",
+        "Apply the preceding quadratic-character-field node. The complete principal_field_bot proof retained in4883 verifies this exact reduction.",
+        "The result includes D=1 and every positive wild level. It concerns the coefficient field only and does not identify a principal tame constructor with the principal p-adic zeta pseudomeasure."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L2/tame-character-field-quadratic",
+        "mathlib:MulChar.isQuadratic_iff_sq_eq_one"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/TameCoefficientFields",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.tameCharacterField_principal"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Theorem5.7 and Remark5.8(2), published143/PDF44, and the complete coefficient-field/integer-ring discussion after equation(5-3), published144/PDF45; complete pages freshly read in the preceding descent continuation on30September2026.",
+          "match": "Worker-derived coefficient-field bookkeeping for moments involving both tame η and wild χ. Use the existing native supremum of their character fields and the earlier actual all-test comparisons. Weight-zero statements concern existing constructor integrals; they do not extend the source positive-weight special-value formula to weight zero."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [],
+      "acceptance": [
+        "The native zero values on nonunits are kept. The base-field image already contains them."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L2/arithmetic-character-values-in-character-field",
+      "parentStageId": "DirichletPadicLFunctions:L2",
+      "realises": [
+        "DirichletPadicLFunctions:L2"
+      ],
+      "title": "Arithmetic-character values in their character field",
+      "kind": "lemma",
+      "statement": "For every u∈ℤ_pˣ and w≥0, κχ,w(u) belongs to Fχ=tameCharacterField p χ.",
+      "hypotheses": [
+        "p is prime, K is a normed field with NormedAlgebra ℚ_p K, Algebra ℤ_p K, IsScalarTower ℤ_p ℚ_p K and IsBoundedSMul ℤ_p K. n≥0 and χ:DirichletCharacter K(p^n). No completeness, ultrametric property, primitivity or nonprincipality hypothesis is imposed."
+      ],
+      "proofSteps": [
+        "Use the existing arithmetic-character-pointwise-value node and the newly promoted prime-power-character-pointwise-value to write κχ,w(u)=χ(red_n u)·(algebraMap ℤ_p K u)^w.",
+        "By the defining native adjunction for Fχ, subset_adjoin applied to the range witness shows χ(red_n u)∈Fχ. This uses the actual character value, including the native modulus-one convention.",
+        "The compatible ℤ_p→ℚ_p→K tower identifies the scalar image with an element in the ℚ_p-algebra image. Native IntermediateField.algebraMap_mem puts it in Fχ. Closure under powers and multiplication proves the claim. The complete character_scalar_product_mem probe checks this exact argument for a native intermediate field containing the values.",
+        "At weight0 the factor is1, and at level0 the principal finite character has its field equal to the bottom intermediate field. The statement applies to dyadic wild levels as well; no odd-prime restriction or unjustified assumption that all wild values are in Fη is introduced."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L2/arithmetic-character-pointwise-value",
+        "DirichletPadicLFunctions:L2/prime-power-character-pointwise-value",
+        "DirichletPadicLFunctions:L2/tame-character-field",
+        "mathlib:IntermediateField.subset_adjoin",
+        "mathlib:IntermediateField.algebraMap_mem",
+        "mathlib:IsScalarTower.algebraMap_apply"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/TameCoefficientFields",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.primePowerArithmeticCharacter_mem_characterField"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Theorem5.7 and Remark5.8(2), published143/PDF44, and the complete coefficient-field/integer-ring discussion after equation(5-3), published144/PDF45; complete pages freshly read in the preceding descent continuation on30September2026.",
+          "match": "Worker-derived coefficient-field bookkeeping for moments involving both tame η and wild χ. Use the existing native supremum of their character fields and the earlier actual all-test comparisons. Weight-zero statements concern existing constructor integrals; they do not extend the source positive-weight special-value formula to weight zero."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedJointCharacterMomentTests.wild_weight_zero_value_in_its_field",
+          "kind": "degenerate",
+          "statement": "Every weight-zero wild arithmetic-character value belongs to the actual field generated by χ."
+        },
+        {
+          "name": "SuggestedJointCharacterMomentTests.zero_level_value_in_base_field",
+          "kind": "degenerate",
+          "statement": "The principal level-zero arithmetic test takes all values in the base-field image."
+        },
+        {
+          "name": "SuggestedJointCharacterMomentTests.dyadic_wild_value_in_its_field",
+          "kind": "computation",
+          "statement": "For p=2 and wild level16, every weighted unit-character value lies in its actual character field."
+        }
+      ],
+      "acceptance": [
+        "No complex embedding or assertion about a local cyclotomic degree is used. This controls the test values themselves, not merely the conductor of the character."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L2/intrinsic-tame-joint-character-comparison",
+      "parentStageId": "DirichletPadicLFunctions:L2",
+      "realises": [
+        "DirichletPadicLFunctions:L2"
+      ],
+      "title": "Tame arithmetic moments over the joint character field",
+      "kind": "comparison",
+      "statement": "For every w≥0, inclusion into K of ζ(ηJ) evaluated on κχJ,w equals the actual original ζ(η) evaluated on κχ,w.",
+      "hypotheses": [
+        "p is any prime, including2. K is a complete nontrivially normed ultrametric field with NormedAlgebra ℚ_p K, Algebra ℤ_p K, IsScalarTower ℤ_p ℚ_p K and IsBoundedSMul ℤ_p K. D>0 with NeZero D, p∤D, η:DirichletCharacter K D, n≥0 and χ:DirichletCharacter K(p^n). Neither character is required primitive or nonprincipal.",
+        "Fη=tameCharacterField p η and Fχ=tameCharacterField p χ are the actual native character fields. J=Fη⊔Fχ is their native intermediate-field supremum in K. Reuse it directly; no new field carrier or compositum wrapper is constructed.",
+        "Write ηJ for tameCharacterInField p η mapped by native IntermediateField.inclusion(le_sup_left).toRingHom, and χJ for tameCharacterInField p χ mapped by inclusion(le_sup_right).toRingHom. Both are native bundled characters; their inclusion in K recovers exactly η and χ. All field and integer maps below use these actual inherited structures.",
+        "w is any nonnegative integer. The arithmetic character is the existing κχ,w on ℤ_pˣ. Weight0 and n=0 are included as actual test/measure statements, with no additional analytic interpolation claim."
+      ],
+      "proofSteps": [
+        "Apply the existing tame-character-field-finite node to η and to χ; p^n>0 follows from p prime. Native IntermediateField.finiteDimensional_sup makes J finite over ℚ_p. Its normed ℚ_p action is native Subalgebra.toNormedAlgebra on J.toSubalgebra, and FiniteDimensional.complete makes J complete. The native nontrivially normed intermediate-field and subtype ultrametric instances supply their actual inherited structures.",
+        "Native IntermediateField.algebra' restricts the displayed ℤ_p algebra to J. IsScalarTower.of_algebraMap_eq applied to the subtype equality gives ℤ_p→J→K compatibility. Native IsBoundedSMul.of_norm_smul_le and the ambient norm_smul_le supply its bounded action. These are the complete generic native structural proofs freshly rechecked here, not an application of a theorem whose field parameter is restricted to Fη.",
+        "Map the already restricted characters over Fη and Fχ by native intermediate-field inclusions into J. Native coe_inclusion and the existing character-field recovery theorem show that inclusion into K recovers η and χ respectively. The complete included_character_recovers proof verifies the native bundled-character composition.",
+        "Use canonical D-unit certificates in J and K, deriving characteristic zero from the actual ℚ_p-algebra as in the preceding checkpoint. Native IntermediateField.continuousSMul makes the inclusion a permitted continuous field coefficient map. No further existence or compatibility hypothesis about J is left open.",
+        "Apply the existing general intrinsic-tame-zeta-field-comparison with coefficient fields J and K, character ηJ, and the continuous test κχJ,w. Use the general comparison here: the preceding smaller-field descent specialized to Fη alone does not cover a wild character outside Fη.",
+        "The mapped arithmetic test equals κχ,w pointwise by its promoted pointwise formula, the lifted-character evaluation formula, recovery of χ and the compatible ℤ_p tower. The field map preserves multiplication and natural powers. Native continuous-map extensionality identifies the whole test.",
+        "Substitute exact recovery of η and the test equality into the all-test comparison. Proof irrelevance handles the unit certificates. Principal or quadratic χ has Fχ=⊥, so the common field collapses to Fη; an actual wild value outside Fη prevents that collapse. A nonreal complex value alone is not evidence of this local nonmembership."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L2/tame-character-field-finite",
+        "DirichletPadicLFunctions:L2/tame-character-field-recovery",
+        "mathlib:IntermediateField.finiteDimensional_sup",
+        "mathlib:IntermediateField.inclusion",
+        "mathlib:IntermediateField.coe_inclusion",
+        "mathlib:IntermediateField.algebra'",
+        "mathlib:Subalgebra.toNormedAlgebra",
+        "mathlib:FiniteDimensional.complete",
+        "mathlib:IsScalarTower.of_algebraMap_eq",
+        "mathlib:IsBoundedSMul.of_norm_smul_le",
+        "mathlib:norm_smul_le",
+        "mathlib:IsUltrametricDist.subtype",
+        "mathlib:IntermediateField.continuousSMul",
+        "mathlib:Algebra.charZero_of_charZero",
+        "DirichletPadicLFunctions:L2/tame-character-field-principal",
+        "DirichletPadicLFunctions:L2/tame-character-field-quadratic",
+        "DirichletPadicLFunctions:L2/intrinsic-tame-zeta-field-comparison",
+        "DirichletPadicLFunctions:L2/arithmetic-character-values-in-character-field",
+        "DirichletPadicLFunctions:L2/arithmetic-character-pointwise-value",
+        "DirichletPadicLFunctions:L2/prime-power-character-pointwise-value",
+        "mathlib:ContinuousMap.ext"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/TameCoefficientFields",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.intrinsicTameZetaMeasure_characterSup_apply"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Theorem5.7 and Remark5.8(2), published143/PDF44, and the complete coefficient-field/integer-ring discussion after equation(5-3), published144/PDF45; complete pages freshly read in the preceding descent continuation on30September2026.",
+          "match": "Worker-derived coefficient-field bookkeeping for moments involving both tame η and wild χ. Use the existing native supremum of their character fields and the earlier actual all-test comparisons. Weight-zero statements concern existing constructor integrals; they do not extend the source positive-weight special-value formula to weight zero."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedJointCharacterMomentTests.principal_wild_field_adds_nothing",
+          "kind": "compatibility",
+          "statement": "If χ=1, the native joint field J equals Fη."
+        },
+        {
+          "name": "SuggestedJointCharacterMomentTests.quadratic_wild_field_adds_nothing",
+          "kind": "compatibility",
+          "statement": "If χ is quadratic, J equals Fη."
+        },
+        {
+          "name": "SuggestedJointCharacterMomentTests.wild_value_outside_tame_field_enlarges_it",
+          "kind": "non-example",
+          "statement": "If an actual value χ(a) is outside Fη, the joint field is strictly different from Fη."
+        },
+        {
+          "name": "SuggestedJointCharacterMomentTests.zero_weight_joint_comparison",
+          "kind": "degenerate",
+          "statement": "The same actual field comparison holds at weight0."
+        }
+      ],
+      "acceptance": [
+        "Both sides are actual intrinsic measure evaluations on the original arithmetic characters. There is no new measure-extension functor or compositum wrapper. The source positive-weight interpolation theorem is not invoked at weight0."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L2/intrinsic-integral-joint-character-comparison",
+      "parentStageId": "DirichletPadicLFunctions:L2",
+      "realises": [
+        "DirichletPadicLFunctions:L2"
+      ],
+      "title": "Integral arithmetic moments over the joint character field",
+      "kind": "comparison",
+      "statement": "For every w≥0, algebraMap OJ OK of the actual intrinsic integral ζ(ηJ) evaluated on the integral arithmetic character χJ,w equals the original intrinsic integral ζ(η) evaluated on χ,w.",
+      "hypotheses": [
+        "p is any prime, including2. K is a complete nontrivially normed ultrametric field with NormedAlgebra ℚ_p K, Algebra ℤ_p K, IsScalarTower ℤ_p ℚ_p K and IsBoundedSMul ℤ_p K. D>0 with NeZero D, p∤D, η:DirichletCharacter K D, n≥0 and χ:DirichletCharacter K(p^n). Neither character is required primitive or nonprincipal.",
+        "Fη=tameCharacterField p η and Fχ=tameCharacterField p χ are the actual native character fields. J=Fη⊔Fχ is their native intermediate-field supremum in K. Reuse it directly; no new field carrier or compositum wrapper is constructed.",
+        "Write ηJ for tameCharacterInField p η mapped by native IntermediateField.inclusion(le_sup_left).toRingHom, and χJ for tameCharacterInField p χ mapped by inclusion(le_sup_right).toRingHom. Both are native bundled characters; their inclusion in K recovers exactly η and χ. All field and integer maps below use these actual inherited structures.",
+        "w is any nonnegative integer. The arithmetic character is the existing κχ,w on ℤ_pˣ. Weight0 and n=0 are included as actual test/measure statements, with no additional analytic interpolation claim.",
+        "OJ and OK denote precisely the integer subrings of the native norm valuations on J and K. The norm on J is inherited; its HasExtension instance supplies the native algebraMap OJ OK. No separate ℤ_p algebra on either integer ring is chosen."
+      ],
+      "proofSteps": [
+        "Apply the existing tame-character-field-finite node to η and to χ; p^n>0 follows from p prime. Native IntermediateField.finiteDimensional_sup makes J finite over ℚ_p. Its normed ℚ_p action is native Subalgebra.toNormedAlgebra on J.toSubalgebra, and FiniteDimensional.complete makes J complete. The native nontrivially normed intermediate-field and subtype ultrametric instances supply their actual inherited structures.",
+        "Native IntermediateField.algebra' restricts the displayed ℤ_p algebra to J. IsScalarTower.of_algebraMap_eq applied to the subtype equality gives ℤ_p→J→K compatibility. Native IsBoundedSMul.of_norm_smul_le and the ambient norm_smul_le supply its bounded action. These are the complete generic native structural proofs freshly rechecked here, not an application of a theorem whose field parameter is restricted to Fη.",
+        "Map the already restricted characters over Fη and Fχ by native intermediate-field inclusions into J. Native coe_inclusion and the existing character-field recovery theorem show that inclusion into K recovers η and χ respectively. The complete included_character_recovers proof verifies the native bundled-character composition.",
+        "Use canonical D-unit certificates in J and K, deriving characteristic zero from the actual ℚ_p-algebra as in the preceding checkpoint. Native IntermediateField.continuousSMul makes the inclusion a permitted continuous field coefficient map. No further existence or compatibility hypothesis about J is left open.",
+        "Because J has its inherited norm, its native norm valuation is pointwise the comap of the K norm valuation. Supply this equality of order comparisons to native Valuation.HasExtension; its instAlgebraInteger provides precisely the native map OJ→OK.",
+        "Apply the existing intrinsic-integral-tame-field-comparison to ηJ and the actual integral arithmetic test over OJ. All its completeness, bounded-action, continuous coefficient-map, scalar-tower and valuation-extension hypotheses have now been supplied.",
+        "The already promoted integral-arithmetic-character-field-comparison identifies the entire transported integral test with the original χ,w test after character recovery. Native continuous-map extensionality upgrades its pointwise equality, and recovery of η gives the displayed identity in OK.",
+        "The freshly rechecked native structural proofs include the continuous integer inclusion and its exact field coefficient formula. No separate ℤ_p algebra on OJ is assumed, and no field equality is substituted for the asserted equality of integral values."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L2/tame-character-field-finite",
+        "DirichletPadicLFunctions:L2/tame-character-field-recovery",
+        "mathlib:IntermediateField.finiteDimensional_sup",
+        "mathlib:IntermediateField.inclusion",
+        "mathlib:IntermediateField.coe_inclusion",
+        "mathlib:IntermediateField.algebra'",
+        "mathlib:Subalgebra.toNormedAlgebra",
+        "mathlib:FiniteDimensional.complete",
+        "mathlib:IsScalarTower.of_algebraMap_eq",
+        "mathlib:IsBoundedSMul.of_norm_smul_le",
+        "mathlib:norm_smul_le",
+        "mathlib:IsUltrametricDist.subtype",
+        "mathlib:IntermediateField.continuousSMul",
+        "mathlib:Algebra.charZero_of_charZero",
+        "DirichletPadicLFunctions:L2/intrinsic-integral-tame-field-comparison",
+        "DirichletPadicLFunctions:L2/integral-arithmetic-character-field-comparison",
+        "mathlib:Valuation.HasExtension",
+        "mathlib:Valuation.HasExtension.instAlgebraInteger",
+        "mathlib:ContinuousMap.ext"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/TameCoefficientFields",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.intrinsicIntegralTameZetaMeasure_characterSup_apply"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Theorem5.7 and Remark5.8(2), published143/PDF44, and the complete coefficient-field/integer-ring discussion after equation(5-3), published144/PDF45; complete pages freshly read in the preceding descent continuation on30September2026.",
+          "match": "Worker-derived coefficient-field bookkeeping for moments involving both tame η and wild χ. Use the existing native supremum of their character fields and the earlier actual all-test comparisons. Weight-zero statements concern existing constructor integrals; they do not extend the source positive-weight special-value formula to weight zero."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedJointCharacterMomentTests.weight_zero_integral_joint_comparison",
+          "kind": "degenerate",
+          "statement": "The integral comparison holds for the actual weight-zero test."
+        }
+      ],
+      "acceptance": [
+        "This is equality in OK under its native integer-ring map. Wild values need not lie in Fη; including them in J is the essential extra input."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L2/intrinsic-tame-joint-character-range",
+      "parentStageId": "DirichletPadicLFunctions:L2",
+      "realises": [
+        "DirichletPadicLFunctions:L2"
+      ],
+      "title": "Joint-field values of tame arithmetic moments",
+      "kind": "theorem",
+      "statement": "For every w≥0, the actual intrinsic tame ζ(η) moment at κχ,w belongs to J=Fη⊔Fχ.",
+      "hypotheses": [
+        "p is any prime, including2. K is a complete nontrivially normed ultrametric field with NormedAlgebra ℚ_p K, Algebra ℤ_p K, IsScalarTower ℤ_p ℚ_p K and IsBoundedSMul ℤ_p K. D>0 with NeZero D, p∤D, η:DirichletCharacter K D, n≥0 and χ:DirichletCharacter K(p^n). Neither character is required primitive or nonprincipal.",
+        "Fη=tameCharacterField p η and Fχ=tameCharacterField p χ are the actual native character fields. J=Fη⊔Fχ is their native intermediate-field supremum in K. Reuse it directly; no new field carrier or compositum wrapper is constructed.",
+        "Write ηJ for tameCharacterInField p η mapped by native IntermediateField.inclusion(le_sup_left).toRingHom, and χJ for tameCharacterInField p χ mapped by inclusion(le_sup_right).toRingHom. Both are native bundled characters; their inclusion in K recovers exactly η and χ. All field and integer maps below use these actual inherited structures.",
+        "w is any nonnegative integer. The arithmetic character is the existing κχ,w on ℤ_pˣ. Weight0 and n=0 are included as actual test/measure statements, with no additional analytic interpolation claim."
+      ],
+      "proofSteps": [
+        "Use intrinsic-tame-joint-character-comparison to express the actual ambient moment as the inclusion of the corresponding J-valued measure evaluation.",
+        "That smaller evaluation is an element of the native intermediate field J. Its subtype membership property and the comparison equality prove the asserted field membership; no extra algebraicity or independent choice of a preimage is required.",
+        "If χ is principal or quadratic, the earlier principal/quadratic character-field identity gives Fχ=⊥, and the native supremum identity reduces the result to Fη. At D=1 the existing tame construction is zero, hence so are these moments, regardless of the wild character.",
+        "This locates the actual constructor moment for every nonnegative weight. A classical special-value identification still retains its own nonprincipal, primitivity and positive-weight hypotheses."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L2/intrinsic-tame-joint-character-comparison",
+        "DirichletPadicLFunctions:L2/tame-character-field-principal",
+        "DirichletPadicLFunctions:L2/tame-character-field-quadratic"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/TameCoefficientFields",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.intrinsicTameZetaMeasure_arithmetic_mem_characterSup"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Theorem5.7 and Remark5.8(2), published143/PDF44, and the complete coefficient-field/integer-ring discussion after equation(5-3), published144/PDF45; complete pages freshly read in the preceding descent continuation on30September2026.",
+          "match": "Worker-derived coefficient-field bookkeeping for moments involving both tame η and wild χ. Use the existing native supremum of their character fields and the earlier actual all-test comparisons. Weight-zero statements concern existing constructor integrals; they do not extend the source positive-weight special-value formula to weight zero."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedJointCharacterMomentTests.principal_wild_moment_in_tame_field",
+          "kind": "compatibility",
+          "statement": "A principal wild character gives every arithmetic moment in Fη."
+        },
+        {
+          "name": "SuggestedJointCharacterMomentTests.quadratic_wild_moment_in_tame_field",
+          "kind": "compatibility",
+          "statement": "A quadratic wild character also gives every arithmetic moment in Fη."
+        },
+        {
+          "name": "SuggestedJointCharacterMomentTests.modulus_one_joint_moment_is_zero",
+          "kind": "degenerate",
+          "statement": "At tame modulus1 all actual joint-character intrinsic moments are0."
+        }
+      ],
+      "acceptance": [
+        "The field is the explicit native joint field inside K. This does not assert a minimal field for each individual moment, a local degree formula, or an inclusion of every wild character in the tame field."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L2/intrinsic-integral-joint-character-range",
+      "parentStageId": "DirichletPadicLFunctions:L2",
+      "realises": [
+        "DirichletPadicLFunctions:L2"
+      ],
+      "title": "Joint-integer values of tame arithmetic moments",
+      "kind": "theorem",
+      "statement": "For every w≥0, the actual intrinsic integral tame ζ(η) moment at the integral χ,w test lies in Set.range(algebraMap OJ OK).",
+      "hypotheses": [
+        "p is any prime, including2. K is a complete nontrivially normed ultrametric field with NormedAlgebra ℚ_p K, Algebra ℤ_p K, IsScalarTower ℤ_p ℚ_p K and IsBoundedSMul ℤ_p K. D>0 with NeZero D, p∤D, η:DirichletCharacter K D, n≥0 and χ:DirichletCharacter K(p^n). Neither character is required primitive or nonprincipal.",
+        "Fη=tameCharacterField p η and Fχ=tameCharacterField p χ are the actual native character fields. J=Fη⊔Fχ is their native intermediate-field supremum in K. Reuse it directly; no new field carrier or compositum wrapper is constructed.",
+        "Write ηJ for tameCharacterInField p η mapped by native IntermediateField.inclusion(le_sup_left).toRingHom, and χJ for tameCharacterInField p χ mapped by inclusion(le_sup_right).toRingHom. Both are native bundled characters; their inclusion in K recovers exactly η and χ. All field and integer maps below use these actual inherited structures.",
+        "w is any nonnegative integer. The arithmetic character is the existing κχ,w on ℤ_pˣ. Weight0 and n=0 are included as actual test/measure statements, with no additional analytic interpolation claim.",
+        "OJ and OK denote precisely the integer subrings of the native norm valuations on J and K. The norm on J is inherited; its HasExtension instance supplies the native algebraMap OJ OK. No separate ℤ_p algebra on either integer ring is chosen."
+      ],
+      "proofSteps": [
+        "Take as the witness the actual intrinsic integral measure over J evaluated on its integral arithmetic test χJ,w. By construction this is an element of the native integer ring OJ.",
+        "The intrinsic-integral-joint-character-comparison states exactly that its native image in OK equals the original ambient integral. Insert this witness into the definition of Set.range.",
+        "At D=1 the existing integral tame constructor is zero; the zero element of OJ is a witness for every wild level and weight. Weight0 remains an integral measure statement and is not interpreted as an unproved logarithmic or analytic special value.",
+        "The result keeps the actual integer-ring image, rather than merely a field-valued algebraic representative. It is compatible with the prior norm-valuation inclusion and divisibility comparisons."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L2/intrinsic-integral-joint-character-comparison",
+        "mathlib:Valuation.HasExtension.instAlgebraInteger"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/TameCoefficientFields",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.intrinsicIntegralTameZetaMeasure_arithmetic_mem_characterSupIntegers"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Theorem5.7 and Remark5.8(2), published143/PDF44, and the complete coefficient-field/integer-ring discussion after equation(5-3), published144/PDF45; complete pages freshly read in the preceding descent continuation on30September2026.",
+          "match": "Worker-derived coefficient-field bookkeeping for moments involving both tame η and wild χ. Use the existing native supremum of their character fields and the earlier actual all-test comparisons. Weight-zero statements concern existing constructor integrals; they do not extend the source positive-weight special-value formula to weight zero."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedJointCharacterMomentTests.modulus_one_integral_joint_moment_is_zero",
+          "kind": "degenerate",
+          "statement": "At tame modulus1 all actual integral joint-character intrinsic moments are0."
+        }
+      ],
+      "acceptance": [
+        "The displayed witness is an actual smaller-field integral, not an existential coefficient with an unrelated valuation or scalar structure."
+      ]
     }
   ],
   "requests": [
@@ -45553,7 +46032,7 @@
       "stageId": "DirichletPadicLFunctions:L2",
       "status": "partial",
       "remaining": [
-        "Both all-test coefficient descent and its ambient-test range formulation are now explicit for the tame, zeta and intrinsic measures and their integral versions. A test involving an additional wild character still needs its values in the coefficient field; the next arithmetic step is to specify a common finite coefficient field containing both characters and transport their weighted moments, rather than silently assuming the tame field contains all wild values. Primitive Gauss nonvanishing, exact primitive-conductor comparisons, analytic branches, degree-zero/logarithmic values, full source extraction and the PMIA completed-algebra/coefficient-field pseudomeasure requests remain open."
+        "Actual field-valued and integral intrinsic moments for a tame character and an arbitrary p-power-level wild character now have explicit comparison and range statements over the native supremum of their two finite character fields. The wild test values are located in their own character field, with level0 and weight0 kept. Next complete exact primitive-conductor and imprimitive measure comparisons; primitive Gauss nonvanishing, analytic branches, degree-zero/logarithmic values, full source extraction and the PMIA completed-algebra/coefficient-field pseudomeasure requests remain open."
       ]
     },
     {
@@ -45587,7 +46066,7 @@
     {
       "title": "L2 remaining source decomposition and interfaces",
       "neededBy": [],
-      "detail": "Both all-test coefficient descent and its ambient-test range formulation are now explicit for the tame, zeta and intrinsic measures and their integral versions. A test involving an additional wild character still needs its values in the coefficient field; the next arithmetic step is to specify a common finite coefficient field containing both characters and transport their weighted moments, rather than silently assuming the tame field contains all wild values. Primitive Gauss nonvanishing, exact primitive-conductor comparisons, analytic branches, degree-zero/logarithmic values, full source extraction and the PMIA completed-algebra/coefficient-field pseudomeasure requests remain open."
+      "detail": "Actual field-valued and integral intrinsic moments for a tame character and an arbitrary p-power-level wild character now have explicit comparison and range statements over the native supremum of their two finite character fields. The wild test values are located in their own character field, with level0 and weight0 kept. Next complete exact primitive-conductor and imprimitive measure comparisons; primitive Gauss nonvanishing, analytic branches, degree-zero/logarithmic values, full source extraction and the PMIA completed-algebra/coefficient-field pseudomeasure requests remain open."
     },
     {
       "title": "L3 remaining source decomposition and interfaces",
@@ -45956,36 +46435,36 @@
   "checks": {
     "blueprint": "Zero errors and warnings with the unmodified pinned index.",
     "intake": "Exactly four authorized deliverables; zero problems.",
-    "sourceIssues": "All16 findings, three source records, sourceVersions, eleven requests and fifteen gaps remain whole. No new source mistake or independent verdict.",
+    "sourceIssues": "All16 findings, three source records, sourceVersions, eleven requests and fifteen gaps remain whole. No new source mistake or independent review verdict.",
     "validation": {
-      "nodes": 694,
+      "nodes": 702,
       "kinds": {
         "definition": 2,
-        "lemma": 265,
+        "lemma": 269,
         "construction": 72,
-        "theorem": 217,
-        "comparison": 138
+        "theorem": 219,
+        "comparison": 140
       },
       "api": 549,
-      "packetTests": 1180,
+      "packetTests": 1192,
       "definitionConstructionTests": 309,
-      "typedExamples": 1183,
+      "typedExamples": 1195,
       "planets": 24,
-      "baseline": 584,
-      "preservedWholeNodes": 687,
-      "preservedBaseline": 582,
+      "baseline": 589,
+      "preservedWholeNodes": 694,
+      "preservedBaseline": 584,
       "preservedSourceIssues": 16,
       "newSourceIssues": 0,
-      "newNodes": 7,
-      "newNamedDeclarations": 7,
-      "newTypedTests": 14,
+      "newNodes": 8,
+      "newNamedDeclarations": 5,
+      "newTypedTests": 12,
       "requests": 11,
       "gaps": 15,
       "closedStages": 0,
-      "reachableNodes": 950,
-      "dependencyEdges": 4756,
+      "reachableNodes": 958,
+      "dependencyEdges": 4813,
       "acyclic": true,
-      "baselineLeaves": 760,
+      "baselineLeaves": 765,
       "stageRequestLeaves": [
         "AdicSpacesPartII:F1",
         "AdicSpacesPartII:R2",
@@ -45997,7 +46476,7 @@
         "PadicMeasuresIwasawaAlgebras:L2",
         "PadicMeasuresIwasawaAlgebras:L3"
       ],
-      "readerWords": 344344,
+      "readerWords": 348555,
       "scopedMutationCheck": true,
       "correctedPredecessorNodes": 0,
       "fullSuggestedCompiled": false,
@@ -46024,36 +46503,34 @@
         "TauCeti.NumberTheory.ArithmeticFunction.TwistedDivisorSum"
       ],
       "scratchCompleteDefinitions": 0,
-      "scratchCompleteLemmas": 9,
-      "scratchMathlibModules": 2891,
+      "scratchCompleteLemmas": 15,
+      "scratchMathlibModules": 2889,
       "scratchTauModules": 0,
       "scratchErrors": 0,
       "scratchWarnings": 0,
       "scratchPlaceholders": 0,
       "finiteControls": {
-        "characterProfiles": 13,
-        "localProfiles": 32,
-        "fieldTests": 384,
-        "integralTests": 192,
-        "tameAtomicDescent": 384,
-        "zetaAtomicDescent": 384,
-        "intrinsicAtomicDescent": 384,
-        "integerAtomicDescent": 576,
-        "valuationRestrictions": 224,
-        "integerDivisibility": 1568,
-        "zeroDivisibility": 1568,
-        "scalarTower": 1120,
-        "boundedScalarAction": 1120,
-        "continuousTestLifts": 384,
-        "liftedPoints": 3072,
-        "uniqueCoordinateRecoveries": 3072,
-        "integerImageCriteria": 928,
-        "integerImageNonExamples": 422,
-        "fieldIntegralRanges": 1152,
-        "integerIntegralRanges": 576,
-        "wrongTestCoordinateFailures": 60,
-        "outsideFieldTestCounterexamples": 19,
-        "modulusOneZeroChecks": 108
+        "profiles": 71,
+        "dyadicProfiles": 36,
+        "tameWildCharacterProducts": 1942,
+        "finiteUnitExponents": 111,
+        "fieldDimensionOne": 31,
+        "fieldDimensionTwo": 32,
+        "fieldDimensionFour": 8,
+        "fieldProducts": 573,
+        "fieldInverses": 317,
+        "characterRecovery": 1082,
+        "weightedWildValuesInOwnField": 4890,
+        "jointMomentComparisons": 426,
+        "integerMomentWitnesses": 426,
+        "weightZeroComparisons": 71,
+        "levelZeroChecks": 78,
+        "modulusOneZeroChecks": 66,
+        "principalQuadraticCollapse": 45,
+        "properJointFieldExamples": 26,
+        "wrongTameOnlyRangeFailures": 131,
+        "wrongPrincipalWildFailures": 224,
+        "normValuationProducts": 200
       },
       "numericalControlsCertified": false,
       "newRoutesStageLeaves": []
@@ -46063,7 +46540,7 @@
       "compiled": false,
       "errors": null,
       "warnings": null,
-      "sha256": "ecf8a6028be1c4baf323c258088a3bb7e287261b62c9eaa0e030482354891e8c",
+      "sha256": "2155ab063c62740b3f564fa0ef3fd4e5e188fc2830bc58c94dd79aa4269d9923",
       "missingNativeArtifacts": [
         "TauCeti.NumberTheory.ArithmeticFunction.TwistedDivisorSum"
       ],
@@ -46078,11 +46555,11 @@
         }
       },
       "nativeProbe": {
-        "completeLemmas": 9,
+        "completeLemmas": 15,
         "errors": 0,
         "warnings": 0,
         "placeholders": 0,
-        "sha256": "e247eb6162a1b3d1b3d379b34864e63576df3c59472f5346bc115bb6515fd0e7"
+        "sha256": "3f91e6a28d0522dd9daa6213e400dbbd56cfff66e637d8fadd142284a42e2cb5"
       },
       "sourceAndAvailableArtifactAudit": {
         "compiledSupplierNodes": 332,
@@ -46169,7 +46646,7 @@
       }
     },
     "publication": {
-      "base": "3bfc4ea55d3e26ea61b01778f93766be4fe89bbe",
+      "base": "db426b5b6aa8c66c9bbb99006e3c77afbf0788c5",
       "unchangedInputs": 66,
       "unchangedOutputs": 4,
       "sameSessionFollowupAfterMerge": true,
@@ -53143,6 +53620,58 @@
         "modulusOneZeroChecks": 108
       },
       "numericalMethod": "Freshly rerun the predecessor finite structural controls and add unique pointwise test-lift, integer-image criterion and integral-range checks. Exact Fraction arithmetic in Q(i) and Q(omega), actual character-generated subfields with explicit bases and coefficient inclusion. Only inert or ramified local models are used: in the ramified prime use half the rational valuation of the quadratic norm, at inert primes use the minimum coefficient valuation. Finite atomic measures check all six comparison operations, including inverse weights zero on nonunits and restriction to unit atoms. These are structural test models, not evaluations of the arithmetic tame measures. Wrong field-basis coordinates and unrestricted ambient tests provide negative controls.",
+      "fullSuggestedCompiled": false
+    },
+    "jointCharacterMoments": {
+      "agent": "Codex",
+      "session": "codex-7e92bd",
+      "issue": 713,
+      "claimComment": 5854790528,
+      "winningBot": 5854791937,
+      "previousPR": 4905,
+      "previousHead": "c731fceb7e51290771dc494fd3de7bb6d2ad1d4b",
+      "previousMerge": "6b7b1d8e23032baa518ff5d4fe4ddfdba75959e8",
+      "preservedWholeNodes": 694,
+      "preservedBaseline": 584,
+      "preservedFindings": 16,
+      "newNodes": 8,
+      "reading": "Read the complete native finiteDimensional_sup, intermediate-field inclusion/coe_inclusion, algebraMap_mem and scalar-tower formula with their ambient hypotheses. Re-read native toZModPow and the exact existing primePowerCharacter and arithmetic-character pointwise APIs; promote the former before use. Reuse the reviewed L2 audit and exact general field/integer all-test comparisons. Search all packet/decomposition titles for joint-character-field plans; the native supremum is used directly and no general field construction is replanned. The complete RJW coefficient-field pages143–144 were freshly read earlier in this uninterrupted continuation; the all-weight constructor statements do not extend its positive-weight interpolation claim.",
+      "boundary": "Actual field-valued and integral intrinsic moments for a tame character and an arbitrary p-power-level wild character now have explicit comparison and range statements over the native supremum of their two finite character fields. The wild test values are located in their own character field, with level0 and weight0 kept. Next complete exact primitive-conductor and imprimitive measure comparisons; primitive Gauss nonvanishing, analytic branches, degree-zero/logarithmic values, full source extraction and the PMIA completed-algebra/coefficient-field pseudomeasure requests remain open.",
+      "inputBase": "49bd6af9b47786abbff6233f59440a6c4aa57c8e",
+      "sourceBoundary": "All16 findings, three source records, sourceVersions, eleven requests and fifteen gaps remain whole. No new source mistake or independent review verdict.",
+      "publication": {
+        "base": "db426b5b6aa8c66c9bbb99006e3c77afbf0788c5",
+        "unchangedInputs": 66,
+        "unchangedOutputs": 4,
+        "sameSessionFollowupAfterMerge": true,
+        "lastClaimConfirmation": 5854791937,
+        "reviewIssue": 390,
+        "reviewUnclaimed": true
+      },
+      "finiteControls": {
+        "profiles": 71,
+        "dyadicProfiles": 36,
+        "tameWildCharacterProducts": 1942,
+        "finiteUnitExponents": 111,
+        "fieldDimensionOne": 31,
+        "fieldDimensionTwo": 32,
+        "fieldDimensionFour": 8,
+        "fieldProducts": 573,
+        "fieldInverses": 317,
+        "characterRecovery": 1082,
+        "weightedWildValuesInOwnField": 4890,
+        "jointMomentComparisons": 426,
+        "integerMomentWitnesses": 426,
+        "weightZeroComparisons": 71,
+        "levelZeroChecks": 78,
+        "modulusOneZeroChecks": 66,
+        "principalQuadraticCollapse": 45,
+        "properJointFieldExamples": 26,
+        "wrongTameOnlyRangeFailures": 131,
+        "wrongPrincipalWildFailures": 224,
+        "normValuationProducts": 200
+      },
+      "numericalMethod": "Exact Fraction arithmetic in Q(i,omega) with i²=−1 and omega²+omega+1=0. Character tables use genuine tame/wild levels: at p=3, tame levels1,4,5 and wild1,9; at p=2, tame1,3,7 and wild1,16, with the noncyclic unit group modulo16 enumerated as ±3^j. Exact Gaussian elimination constructs the rational spans of the two value fields and their native-style compositum; closure products and inverses are checked. Dyadic/triadic norm models use the ramified quadratic norm to the inert quadratic base, with multiplicativity controls. The displayed dimensions are over Q, not asserted as local p-adic degrees. Finite atomic weighted moments verify coefficient transport and integer witnesses; they are not the actual arithmetic tame measures. Wrong principal-wild replacement and incorrectly restricting to the tame field give negative controls.",
       "fullSuggestedCompiled": false
     }
   },
