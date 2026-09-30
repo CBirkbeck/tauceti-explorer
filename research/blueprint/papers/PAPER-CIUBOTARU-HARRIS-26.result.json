@@ -70,7 +70,7 @@
       "id": "PAPER-CIUBOTARU-HARRIS-26/filtration-recognition",
       "kind": "theorem",
       "name": "Recognition from every representation",
-      "statement": "For two triples in a simple characteristic-zero Lie algebra, equality of dim Fil_i(V) for every finite-dimensional Lie representation V and every integer i implies conjugacy of the triples.",
+      "statement": "Let g∨ be a semisimple Lie algebra over an algebraically closed field of characteristic zero. If two sl2-triples satisfy dim Fil_i(V) = dim Fil'_i(V) for every finite-dimensional representation V of g∨ and every integer i, they are conjugate under the adjoint action of G∨.",
       "locator": "arXiv:2311.15300v1, Lemma 2.4; Appendix Lemma 10.9",
       "status": "missing",
       "note": "All representations, not just the standard or adjoint representation. Very-even orthogonal orbits require a half-spin separator. Certified 29 Sep 2026 for the exceptional types by a Bala–Carter enumeration (item exceptional-adjoint-separation): the adjoint graded dimensions alone separate all nilpotent orbits of G2, F4, E6, E7 and E8. The appendix's inference from E8 to its Levi subalgebras is not valid as stated (sourceIssues E6), but the conclusion holds."
@@ -79,12 +79,14 @@
       "id": "PAPER-CIUBOTARU-HARRIS-26/sl2-integral-spectrum",
       "kind": "theorem",
       "name": "Integral spectrum of a triple",
-      "statement": "For a finite-dimensional characteristic-zero sl2-module, h is diagonalizable with integer eigenvalues after classification and complete reducibility. Treat the zero triple separately.",
+      "statement": "For an sl2-triple (h, e, f) in a Lie algebra over a field of characteristic zero and a finite-dimensional module M, every eigenvalue of h on M is an integer; over an algebraically closed field of characteristic zero, M is the direct sum of the h-eigenspaces at the integers, so h acts diagonalizably. (The zero triple is item zero-triple-adapter.)",
       "locator": "arXiv:2311.15300v1, Sections 2.2 and 8.2",
-      "status": "planned",
-      "planned": [
-        "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-0-sl₂-representation-theory-the-engine"
-      ]
+      "status": "library",
+      "library": [
+        "tauceti:TauCeti.exists_int_of_hasEigenvalue",
+        "tauceti:TauCeti.isInternal_eigenspace_toEnd_intCast"
+      ],
+      "note": "Built in Tau Ceti at f790474 (TauCeti/Algebra/Lie/Sl2/Spectrum.lean:147, 305), the 'diagonalizability and the integer spectrum' bullet of LieHighestWeight Layer 0, which the extraction had cited as a plan."
     },
     {
       "id": "PAPER-CIUBOTARU-HARRIS-26/weil-number",
@@ -109,13 +111,13 @@
       "id": "PAPER-CIUBOTARU-HARRIS-26/pure-wd",
       "kind": "definition",
       "name": "Pure Weil-Deligne representation",
-      "statement": "For a Weil-Deligne pair (phi,N) with integral Frobenius weights, use the increasing weight filtration W. Purity of weight w requires N^i:gr_(w-i) -> gr_(w+i) to be isomorphisms in the paper convention, together with the Weil-Deligne relation.",
+      "statement": "With Frob_u a geometric Frobenius (so ϕ(Frob_u)Nϕ(Frob_u)^{−1} = q^{−1}N and N lowers Frobenius weights by 2), let W_aV be the sum of the generalized eigenspaces of ϕ(Frob_u) of weight ≤ a, a (ϕ, N)-stable filtration. A Weil–Deligne representation (ϕ, N) is pure of weight w if all Frobenius weights are integers and N^i : gr_{w+i}V → gr_{w−i}V is an isomorphism for every i ≥ 0.",
       "locator": "arXiv:2311.15300v1, Definition 2.6",
       "status": "planned",
       "planned": [
         "DeligneWeightsAndPurity:DWP.5"
       ],
-      "note": "Import the local monodromy and purity interface of DWP.5. A comparison of arithmetic/geometric Frobenius and the sign convention for N remains an application-specific obligation, not a duplicate carrier."
+      "note": "Import the local monodromy and purity interface of DWP.5. A comparison of arithmetic/geometric Frobenius and the sign convention for N remains an application-specific obligation, not a duplicate carrier. Definition 2.6 prints (iii) as N^i : gr_{w−i} → gr_{w+i}, which is inconsistent with (ii) (sourceIssues E9); this is the intended monodromy-weight purity."
     },
     {
       "id": "PAPER-CIUBOTARU-HARRIS-26/weight-filtration-owner",
@@ -153,7 +155,7 @@
       "id": "PAPER-CIUBOTARU-HARRIS-26/cuspidal-finiteness",
       "kind": "theorem",
       "name": "Finite-level cuspidal finiteness",
-      "statement": "For semisimple G over the global function field and compact level U, the E-valued cuspidal automorphic forms form a finite E-module when E is a noetherian Z[1/p]-algebra embedded in the chosen algebraically closed coefficient field.",
+      "statement": "For semisimple G over the global function field and compact level U, the E-valued cuspidal automorphic forms form a finite E-module, and every function in A0(G, U, E) is supported on a finite subset of X_U, independent of E, when E is a noetherian Z[1/p]-algebra embedded in the chosen algebraically closed coefficient field.",
       "locator": "arXiv:2311.15300v1, Proposition 3.1, finiteness assertion",
       "status": "missing"
     },
@@ -169,7 +171,7 @@
       "id": "PAPER-CIUBOTARU-HARRIS-26/hecke-algebraicity",
       "kind": "theorem",
       "name": "Algebraic cuspidal Hecke eigenvalues",
-      "statement": "The unramified Hecke eigenvalues on the finite-level cuspidal space are algebraic numbers; keep the finite-module and coefficient-model inputs explicit.",
+      "statement": "The unramified Hecke eigenvalues on the finite-level cuspidal space are algebraic numbers. For E large enough, H_S(G, U) ⊗ E acts semisimply on A0(G, U, E) with finitely many eigenspaces, G(A_K) preserves A0(G, Q), so every cuspidal π has a model over a number field and A0(G, Q̄) = ⊕ m(π)π (§3.1, pp. 8–9). Keep the finite-module and coefficient-model inputs explicit.",
       "locator": "arXiv:2311.15300v1, Lemma 3.2",
       "status": "missing"
     },
@@ -232,7 +234,7 @@
       "statement": "A discrete-series representation with geometric central character is geometric. For semisimple G the central-character condition is automatic in the source application.",
       "locator": "arXiv:2311.15300v1, Proposition 3.10, discrete-series assertion",
       "status": "missing",
-      "note": "Requires the actual local-parameter theorem; this is not ordinary smooth representation theory alone."
+      "note": "Requires the actual local-parameter theorem; this is not ordinary smooth representation theory alone. The proof ('point 5 follows from Theorem 4.2') goes through [GHS]'s Weil–Deligne purity of discrete series (item ghs-discrete-series-purity), not through the general step (2) of the §4.1 sketch."
     },
     {
       "id": "PAPER-CIUBOTARU-HARRIS-26/iota-tempered",
@@ -249,7 +251,7 @@
       "statement": "For the semisimple local groups in Section 4.1, discrete series admit number-field models and their conjugates remain discrete series. Do not generalize to arbitrary reductive groups with unrestricted transcendental unitary central character.",
       "locator": "arXiv:2311.15300v1, Theorem 4.2",
       "status": "missing",
-      "note": "The v1 text supplies a sketch and refers to a fuller proof elsewhere; proof-interior audit remains open."
+      "note": "Attributed to [GHS] (p. 11: 'the following theorem is proved in [GHS]'); v1 gives only a sketch, 'Complete proofs of the two theorems will appear elsewhere'. Step (1) of the sketch uses Beuzart-Plessis's appendix to [GHS] (every discrete series is a local component of a cuspidal automorphic representation); step (2) is the gap E10."
     },
     {
       "id": "PAPER-CIUBOTARU-HARRIS-26/galois-temperedness",
@@ -257,7 +259,8 @@
       "name": "Embedding independence in the cuspidal application",
       "statement": "For a number-field model of a cuspidal global representation as in Theorem 4.3, a local component that is tempered after one complex embedding is tempered after every complex embedding.",
       "locator": "arXiv:2311.15300v1, Theorem 4.3",
-      "status": "missing"
+      "status": "missing",
+      "note": "Only sketched in v1 ('The proof of Theorem 4.3 is similar'), through step (2) of the §4.1 sketch, which is the gap E10. The tempered case of Theorem 5.4 uses it (p. 15)."
     },
     {
       "id": "PAPER-CIUBOTARU-HARRIS-26/aubert-semisimple",
@@ -303,8 +306,8 @@
       "id": "PAPER-CIUBOTARU-HARRIS-26/finite-extension-lift",
       "kind": "construction",
       "name": "Lifting the dual-group parameter",
-      "statement": "In the nonadjoint C/D cases of Section 5, restrict the Galois parameter to a suitable finite extension to obtain the required central-isogeny lift and minuscule realizations. Construct the cover and track Frobenius powers and residue cardinalities.",
-      "locator": "arXiv:2311.15300v1, Proof of Theorem 5.4, nonadjoint reduction",
+      "statement": "For G not adjoint, restrict σ to Gal(K^sep/K′) for a finite extension K′ over which it lifts to ^L G^ad (p. 14 and footnote 6), and run the argument over the corresponding cover X′ with the test representation τ0. The paper states this for types C_n and D_n; non-adjoint groups of types A_{n−1} (n even), B_n and E_7 need it too (sourceIssues E12). Construct the cover and track Frobenius powers and residue cardinalities.",
+      "locator": "arXiv:2311.15300v1, Proof of Theorem 5.4, p. 14, and footnote 6",
       "status": "missing",
       "note": "This is parameter restriction, not an assumed cuspidal automorphic base-change theorem."
     },
@@ -312,15 +315,15 @@
       "id": "PAPER-CIUBOTARU-HARRIS-26/half-integral-test",
       "kind": "definition",
       "name": "Half-integrality in a representation",
-      "statement": "A real parameter nu is half-integral in V when <lambda,nu> belongs to (1/2)Z for every weight lambda of V. This is a condition on the real part, not algebraicity of the compact Satake factor.",
-      "locator": "arXiv:2311.15300v1, Definition 6.3",
+      "statement": "A real parameter ν is half-integral with respect to a finite-dimensional g∨-representation V when ⟨χ, ν⟩ ∈ ½Z for every weight χ of V; the Satake parameter s = s_c·s_ν is then called geometric with respect to V. This is a condition on the real part, not algebraicity of the compact Satake factor.",
+      "locator": "arXiv:2311.15300v1, Definition 6.3, p. 17",
       "status": "missing"
     },
     {
       "id": "PAPER-CIUBOTARU-HARRIS-26/generic-unitary-region",
       "kind": "definition",
       "name": "Generic spherical unitary region",
-      "statement": "For split quasi-simple adjoint G, let U0 consist of dominant real parameters whose spherical quotient is both generic and unitary. Keep Hermitian symmetry w0(nu)=-nu and reducibility walls separate.",
+      "statement": "For split quasi-simple adjoint G and real Satake parameters s_ν: C0 = {ν ∈ t∨_R : ⟨α∨, ν⟩ ≥ 0 for all simple α}; U0^g = {ν ∈ C0 : ⟨α∨, ν⟩ ≠ 1 for all α∨ ∈ Φ∨,+, and L(ν) is unitary}, the spherical generic unitary representations with real Satake parameter; C_{0,h} = {ν ∈ C0 : w0(ν) = −ν} ⊇ U0^g; and A0 = {ν ∈ C0 : ⟨γ∨, ν⟩ < 1} (γ∨ the highest coroot). The unitarity of L(s_c s_ν) with s_c non-central is not governed by U0^g (sourceIssues E11).",
       "locator": "arXiv:2311.15300v1, Section 6, equations (6.4)-(6.6)",
       "status": "missing"
     },
@@ -328,8 +331,8 @@
       "id": "PAPER-CIUBOTARU-HARRIS-26/integral-root-wall",
       "kind": "theorem",
       "name": "Exclusion at nonzero integral root values",
-      "statement": "For a parameter in the real generic spherical unitary region, no positive coroot pairing is a positive integer. A pair on the reducibility wall is not an interior generic unitary parameter.",
-      "locator": "arXiv:2311.15300v1, Proposition 6.10",
+      "statement": "If ν ∈ C0 and ⟨α∨, ν⟩ ∈ Z_{>0} for some positive coroot α∨, then ν ∉ U0^g (for real parameters; the proof uses that U0^g is a union of alcoves, Theorem 6.9).",
+      "locator": "arXiv:2311.15300v1, Proposition 6.10, p. 18",
       "status": "missing"
     },
     {
@@ -396,15 +399,16 @@
       "statement": "In the respective cases of Proposition 6.31 the displayed fundamental representation pairs with the extra candidate by 1/4, or by 3/4 for E7. For D-type both spin and standard tests are needed to eliminate all candidates.",
       "locator": "arXiv:2311.15300v1, Proposition 6.31",
       "status": "missing",
-      "note": "Source root numbering and global availability of these representations must be checked; no replacement by the adjoint test alone."
+      "note": "Source root numbering and global availability of these representations must be checked; no replacement by the adjoint test alone. The test representations τ0 of ^L G restricting to V(λ∨) (Theorem 5.4, table (i)–(v)) exist only after the reduction to adjoint G (E12)."
     },
     {
       "id": "PAPER-CIUBOTARU-HARRIS-26/generic-local-temperedness",
       "kind": "theorem",
       "name": "Local generic temperedness test",
-      "statement": "For split quasi-simple adjoint G and a generic unitary spherical representation, half-integrality of the real part in the adjoint and the specified additional fundamental representations forces the real part to vanish, hence gives temperedness.",
+      "statement": "For split quasi-simple adjoint G and a real Satake parameter s = s_ν (or s_c central): if L(s_ν) is generic and unitary, then ν is half-integral for the adjoint representation and the fundamental representations of Proposition 6.31 only if ν = 0, so L(s) is tempered.",
       "locator": "arXiv:2311.15300v1, Corollary 6.32(1)",
-      "status": "missing"
+      "status": "missing",
+      "note": "Corollary 6.32(1) is printed for every s = s_c s_ν, and then it is false: a generic unitary spherical representation of G2 with s_c the involution whose centralizer is of type A1 × Ã1 and ν = ½ω2 is a counterexample (sourceIssues E11). The proof of Theorem 5.4 needs a further argument at places where the compact part is not central."
     },
     {
       "id": "PAPER-CIUBOTARU-HARRIS-26/nonsplit-transfer",
@@ -418,9 +422,10 @@
       "id": "PAPER-CIUBOTARU-HARRIS-26/nonsplit-temperedness",
       "kind": "theorem",
       "name": "Nonsplit generic test with an exclusion",
-      "statement": "For an unramified nonsplit quasi-simple adjoint group other than the quasi-split odd-dimensional PSU group, a generic unitary spherical parameter half-integral in all algebraic representations of the dual semidirect group has zero real part.",
+      "statement": "For an unramified nonsplit quasi-simple adjoint group other than the quasi-split PSU(2n + 1), and a real Satake parameter s = s_ν (or s_c central): if L^G(s_ν) is generic and unitary and ν is half-integral for all finite-dimensional representations of G∨ ⋊ ⟨τ⟩, then ν = 0.",
       "locator": "arXiv:2311.15300v1, Corollary 7.5",
-      "status": "missing"
+      "status": "missing",
+      "note": "Corollary 7.5 is printed for s = s_c s_ν, and its proof passes from L^G(s) to L^G(ν) as in Corollary 6.32, so the same restriction applies (sourceIssues E11). The representations of G∨ ⋊ ⟨τ⟩ used are V ⊕ V^τ and the sum of the two half-spin representations."
     },
     {
       "id": "PAPER-CIUBOTARU-HARRIS-26/odd-unitary-obstruction",
@@ -437,7 +442,7 @@
       "statement": "Let K be a global function field, G connected absolutely simple over K, and pi cuspidal. Assume pi_v is unramified generic, G at v is unramified quasi-split but not the odd-dimensional quasi-split unitary form, and pi_u is tempered at some place u. Then pi_w is tempered at every place w where pi is unramified and G is unramified quasi-split. Use the coefficient interpretation of Section 4.",
       "locator": "arXiv:2311.15300v1, Introduction; Theorem 5.4",
       "status": "missing",
-      "note": "This is the author-v1 statement, not a verified transcription of the 2025 accepted revision."
+      "note": "This is the author-v1 statement, not a verified transcription of the 2025 accepted revision. The proof applies Corollary 6.32(1) to s_v(σ) with arbitrary compact part, where it fails (E11); it relies on Theorem 4.3, whose sketch has the gap E10; and its reduction to adjoint G is written only for types C and D (E12). The 'more generally' clause should allow any place u (E13)."
     },
     {
       "id": "PAPER-CIUBOTARU-HARRIS-26/generic-global-corollary",
@@ -467,7 +472,7 @@
       "id": "PAPER-CIUBOTARU-HARRIS-26/centralizer-reduction",
       "kind": "theorem",
       "name": "Complementary series from the triple centralizer",
-      "statement": "For O other than 4A1 in E8, if a unitary spherical parameter has real part h/2+nu relative to the reductive triple centralizer, then nu lies in the zero complementary series of the associated centralizer group.",
+      "statement": "For G quasi-simple and k-split (the standing hypothesis of §8) and O other than 4A1 in E8: if a unitary spherical parameter has real part h/2 + ν relative to the reductive centralizer of the triple, then ν lies in the zero complementary series of the associated centralizer group. Quoted from [Ba, BC1, Ci1, Ci2].",
       "locator": "arXiv:2311.15300v1, Theorem 8.3",
       "status": "missing"
     },
@@ -503,7 +508,7 @@
       "statement": "Under Theorem 8.5 geometricity and connected-center hypotheses, the exceptional orbits admitting additional real parameters are B3 and A1+tilde-A1 in F4; D5(a1)+A1 in E7; and D6, A6, A4+A2, A2+2A1 in E8. There are none in G2 or E6.",
       "locator": "arXiv:2311.15300v1, Theorem 8.5(3)-(5); Remark 8.7",
       "status": "missing",
-      "note": "Exact coweight vectors are recorded in the report. Their computation certificates and separate itemization remain completion work. The F4 B3 coordinate printed as ω₁+ω₂+½ω₃+½ω₄ must be ω₁+½ω₃+½ω₄ (sourceIssues E5, an error confirmed by review against Ciubotaru's F4 classification)."
+      "note": "Exact coweight vectors are recorded in the report. Their computation certificates and separate itemization remain completion work. The F4 B3 coordinate printed as ω₁+ω₂+½ω₃+½ω₄ must be ω₁+½ω₃+½ω₄ (sourceIssues E5, an error confirmed by review against Ciubotaru's F4 classification). The case analysis of Theorem 8.5(4) uses the list of exceptional nilpotent orbits with the types of their reductive centralizers ('see the tables in [Ca]'); it belongs with the nilpotent-orbit Part II."
     },
     {
       "id": "PAPER-CIUBOTARU-HARRIS-26/E8-extra-region",
@@ -554,13 +559,13 @@
       "statement": "In the discrete-spectrum setup of Theorem 1.11, assume an actual compatible global parametrization, a split place v with pi_v in CS(G,N), and a geometric local component at u in S. The source asserts that all split unramified components belong to CS(G,N), with the same central or extraneous real parameter class.",
       "locator": "arXiv:2311.15300v1, Theorem 1.11; Section 10.1",
       "status": "missing",
-      "note": "Review the step from real-part recognition to nilpotent-stratum recognition, as well as the nonadjoint parameter-lifting reduction. This checkpoint does not certify that proof step. Its hypothesis is Conjectures 9.1 and 9.5 (sourceIssues E1)."
+      "note": "Review the step from real-part recognition to nilpotent-stratum recognition, as well as the nonadjoint parameter-lifting reduction. This checkpoint does not certify that proof step. Its hypothesis is Conjectures 9.1 and 9.5 (sourceIssues E1). The step from Proposition 10.2 to 'the same complementary series' remains open: the stratum of s depends on its compact part, which Proposition 10.2 does not recover."
     },
     {
       "id": "PAPER-CIUBOTARU-HARRIS-26/weight-array",
       "kind": "construction",
       "name": "Boundary and generic weight array",
-      "statement": "For each representation tau, form the finite nonnegative array a(i,j) of Frobenius weight-j multiplicities in the boundary realization of the global weight-i graded piece. Row sums are n_v; column sums are n_u; purity gives a(i,i+j)=a(i,i-j).",
+      "statement": "For each representation τ, a(i, k) is the dimension of the weight-k generalized eigenspace of Frob_u in the fibre at the ramified place u of gr_i(L(π, τ)). Row sums are n_v, column sums are n_u, and the purity of the local monodromy filtration gives a(i, i + k) = a(i, i − k) (10.4).",
       "locator": "arXiv:2311.15300v1, Equations (10.4)-(10.6)",
       "status": "missing"
     },
@@ -678,7 +683,7 @@
       "id": "PAPER-CIUBOTARU-HARRIS-26/generic-reducibility",
       "kind": "theorem",
       "name": "Genericity and hermitian criteria for spherical representations",
-      "statement": "L(s) is generic iff X(s) is irreducible (Barbasch–Moy); for ν ∈ t∨_R, X(ν) = L(ν) iff ⟨α∨, ν⟩ ≠ 1 for all positive coroots α∨ (Casselman; [BC1, §3.1]); L(ν) admits a nonzero invariant hermitian form iff w₀(ν) = −ν, automatic for types B, C, G2, F4, E7, E8.",
+      "statement": "L(s) is generic iff X(s) is irreducible (Barbasch–Moy); for dominant ν ∈ C0, X(ν) = L(ν) iff ⟨α∨, ν⟩ ≠ 1 for all positive coroots α∨ (for general ν: ⟨α∨, ν⟩ ≠ ±1) (Casselman; [BC1, §3.1]); L(ν) admits a nonzero invariant hermitian form iff w₀(ν) = −ν, automatic when w0 = −1, i.e. for types B, C, D_{2m}, G2, F4, E7, E8 (the paper lists B, C, G2, F4, E7, E8).",
       "locator": "arXiv:2311.15300v1, §6, before and at (6.4)–(6.5), p. 17",
       "status": "missing",
       "note": "Cited inputs defining the generic unitary region."
@@ -743,14 +748,27 @@
       "locator": "arXiv:2311.15300v1, Appendix, Tables 2–4, pp. 35–37",
       "status": "missing",
       "note": "Certified 29 Sep 2026: all 91 printed rows (70 for E8, 16 for F4, 5 for G2) equal the computed gradings for the orbit with the printed label. Every i_max is right, the rows are pairwise distinct, and each row sums (with negative weights) to 248, 52 and 14. The entries are graded dimensions, not cumulative filtration dimensions (sourceIssues E4)."
+    },
+    {
+      "id": "PAPER-CIUBOTARU-HARRIS-26/ghs-discrete-series-purity",
+      "kind": "theorem",
+      "name": "Weil–Deligne purity of discrete series ([GHS]) and of tempered representations",
+      "statement": "For π_u in the discrete series of G(K_u), K_u a local function field, and every representation τ of ^L G, τ∘L^ss(π_u) (the Genestier–Lafforgue semisimple parameter) extends uniquely to a pure Weil–Deligne representation (L^ss(π_u), N_{π_u}) of weight 0 in the sense of Definition 2.6 ([GHS, Theorem 1.2]); more generally the same holds for tempered π_u.",
+      "locator": "arXiv:2311.15300v1, §4.2 after Proposition 4.5, p. 12; proof of Theorem 5.4, p. 14; Theorem 10.3",
+      "status": "missing",
+      "note": "The anchor of Theorem 5.4 and the hypothesis of Theorem 10.3. Proved in [GHS]; PAPER-GAN-HARRIS-SAWIN-ETAL-24's items 16 and 21 state it, on a route not yet accepted, so the design should import it from there once that owner is settled."
+    },
+    {
+      "id": "PAPER-CIUBOTARU-HARRIS-26/spherical-tempered-generic",
+      "kind": "theorem",
+      "name": "Spherical tempered representations are generic",
+      "statement": "A spherical tempered representation of an unramified quasi-split G(K_w) is generic ([Re93, Prop. 7.4]; for split adjoint G, s = s_0 is compact, the q-eigenspace of Ad(s) is 0, and π_w is the full spherical principal series).",
+      "locator": "arXiv:2311.15300v1, proof of Corollary 5.7, p. 15",
+      "status": "missing",
+      "note": "The whole content of Corollary 5.7 beyond Theorem 5.4."
     }
   ],
   "prerequisites": [
-    {
-      "citation": "W. T. Gan, M. Harris and W. Sawin, Local parameters of supercuspidal representations (with an appendix by R. Beuzart-Plessis)",
-      "link": "https://arxiv.org/abs/2109.07737",
-      "why": "Theorem 1.2: Weil–Deligne purity of the parameters of discrete series; the anchor at u in Theorems 5.4 and 10.3, and Theorem 4.2."
-    },
     {
       "citation": "D. Barbasch, The unitary spherical spectrum for split classical groups, J. Inst. Math. Jussieu 9 (2010), 265–356",
       "link": "doi:10.1017/s1474748009000231",
@@ -775,11 +793,6 @@
       "citation": "D. Barbasch and D. Ciubotaru, Unitary equivalences for reductive p-adic groups, Amer. J. Math. 135 (2013), 1633–1674",
       "link": "doi:10.1353/ajm.2013.0048",
       "why": "Nonsplit transfer (Theorem 7.4, Table 1)."
-    },
-    {
-      "citation": "V. Lafforgue, Chtoucas pour les groupes réductifs et paramétrisation de Langlands globale, J. Amer. Math. Soc. 31 (2018), 719–891",
-      "link": "doi:10.1090/jams/897",
-      "why": "Excursion decomposition (3.3) and Theorem 3.6."
     },
     {
       "citation": "C. Xue, Finiteness of cohomology groups of stacks of shtukas as modules over Hecke algebras, and applications, Épijournal Géom. Algébrique 4 (2020)",
@@ -817,7 +830,8 @@
       "why": "Proposition 1.2 and §3: the elliptic case of Expectation 5.9."
     },
     {
-      "citation": "D. Collingwood and W. McGovern, Nilpotent Orbits in Semisimple Lie Algebras, Van Nostrand Reinhold, 1993",
+      "citation": "D. Collingwood and W. McGovern, Nilpotent Orbits in Semisimple Lie Algebras, Van Nostrand Reinhold, 1993 (Routledge reprint, 2017)",
+      "link": "https://doi.org/10.1201/9780203745809",
       "why": "Jacobson–Morozov, Kostant, partitions and Bala–Carter (§2.1, Lemma 10.9)."
     }
   ],
@@ -827,7 +841,7 @@
       "parent": "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight",
       "roadmap": "LieHighestWeightPartIINilpotentOrbits",
       "title": "Representations of semisimple Lie algebras, highest weight theory, and the Weyl formulas, Part II: nilpotent orbits and weight patterns",
-      "area": "algebra",
+      "area": "representations",
       "items": [
         "PAPER-CIUBOTARU-HARRIS-26/zero-triple-adapter",
         "PAPER-CIUBOTARU-HARRIS-26/jacobson-morozov",
@@ -841,8 +855,8 @@
         "PAPER-CIUBOTARU-HARRIS-26/exceptional-adjoint-separation",
         "PAPER-CIUBOTARU-HARRIS-26/appendix-tables"
       ],
-      "reason": "The consulted upstream plan supplies representation and weight theory, not the listed nilpotent-orbit and recognition contracts. This is a provisional extension, subject to the remaining full library/atlas audit.",
-      "brief": "Import tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight (Representations of semisimple Lie algebras, highest weight theory, and the Weyl formulas), especially its sl2 classification, complete reducibility and character theory, and tauceti:TauCetiRoadmap/ReductiveGroups (Reductive groups) for the adjoint action. Build only the missing nilpotent-orbit, zero-triple and representation-indexed filtration interfaces. Prove Jacobson-Morozov and Kostant comparison, tensor-compatible filtrations and conjugacy recognition. Separate very-even orthogonal orbits using half-spin representations. Give finite root/weight certificates for exceptional computations, and distinguish cumulative filtrations from graded multiplicities. The endpoints are Lemma 2.4/10.9 and Proposition 10.2, not a second highest-weight theory. The exceptional adjoint gradings (Tables 2–4) are certified by a Bala–Carter enumeration, and that also covers E6 and E7 directly; a formal proof may reuse that finite certificate."
+      "reason": "The Tau Ceti roadmap LieHighestWeight supplies representation and weight theory, and its sl2 layer is built; nothing in the atlas owns nilpotent orbits, Jacobson–Morozov, Kostant conjugacy or the recognition of triples from filtrations. A Part II extends a Tau Ceti roadmap without re-planning it. The area is representations, as for the accepted LieHighestWeight Part IIs, and PAPER-MAO-WAN-ZHANG-26 proposes the same id, parent and title, so the two coalesce.",
+      "brief": "Import tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight (Representations of semisimple Lie algebras, highest weight theory, and the Weyl formulas), especially its sl2 classification, complete reducibility and integer spectrum (built in Tau Ceti: TauCeti/Algebra/Lie/Sl2) and its character theory, and tauceti:TauCetiRoadmap/ReductiveGroups (Reductive groups) for the adjoint action. Build only the missing nilpotent-orbit, zero-triple and representation-indexed filtration interfaces. Prove Jacobson-Morozov and Kostant comparison, tensor-compatible filtrations and conjugacy recognition. Separate very-even orthogonal orbits using half-spin representations. Give finite root/weight certificates for exceptional computations, and distinguish cumulative filtrations from graded multiplicities. The endpoints, not a second highest-weight theory, are: (Lemma 2.4/10.9) for two sl2-triples in a semisimple Lie algebra over an algebraically closed field of characteristic zero, equal dim Fil_i(V) for every finite-dimensional representation V and every i implies conjugacy under the adjoint group; and (Proposition 10.2) two geometric semisimple parameters with identical weight patterns in every algebraic representation have Weyl-conjugate real parts. The exceptional adjoint gradings (Tables 2–4) are certified by a Bala–Carter enumeration, and that also covers E6 and E7 directly; a formal proof may reuse that finite certificate."
     },
     {
       "route": "part-ii",
@@ -879,10 +893,11 @@
         "PAPER-CIUBOTARU-HARRIS-26/lemma-6-7",
         "PAPER-CIUBOTARU-HARRIS-26/lemma-6-8",
         "PAPER-CIUBOTARU-HARRIS-26/theorem-6-9",
-        "PAPER-CIUBOTARU-HARRIS-26/half-integral-reduction"
+        "PAPER-CIUBOTARU-HARRIS-26/half-integral-reduction",
+        "PAPER-CIUBOTARU-HARRIS-26/spherical-tempered-generic"
       ],
       "reason": "SR.0-4 already own the category, induction, temperedness and Satake. They do not contain the root-by-root unitary complementary-series classification extracted here.",
-      "brief": "Import SmoothRepresentationsOfLocalGroups (Smooth representations of local groups), SR.2 for induction and Jacquet functors, SR.3 for admissibility and temperedness, and SR.4 for the relative Satake dictionary. Import the existing root, spin and highest-weight representation suppliers rather than duplicating them. Construct Aubert-Zelevinsky and Kazhdan-Lusztig parameter comparisons, generic unitary regions, half-integral tests, centralizer reductions and the exceptional E8 region. Prove the split and nonsplit local temperedness tests with the odd-unitary exclusion. Finish the geometric complementary-series list with independently checkable exceptional coordinates and branching data; distinguish geometric Frobenius arithmetic from the real half-lattice condition. Include the genericity and hermitian criteria, Lemmas 6.7–6.8, Theorem 6.9 as the cited classification input, and the ε = 0 reduction (6.11)–(6.13)."
+      "brief": "Import SmoothRepresentationsOfLocalGroups (Smooth representations of local groups), SR.2 for induction and Jacquet functors, SR.3 for admissibility and temperedness, and SR.4 for the relative Satake dictionary. Import SmoothRepresentationsPartIIUnitaryDual (proposed from PAPER-GAN-SAVIN-23-B, accepted) for unitary and unitarizable representations and weak containment; LieHighestWeightPartIINilpotentOrbits for nilpotent orbits, Jacobson–Morozov and the triple centralizers; and ExcursionOperatorsAndSpectralAction ES5 and ES7:parabolic for semisimple local parameters and their compatibility with parabolic induction. Construct Aubert-Zelevinsky and Kazhdan-Lusztig parameter comparisons, generic unitary regions, half-integral tests, centralizer reductions and the exceptional E8 region. Prove the split and nonsplit local temperedness tests with the odd-unitary exclusion, for real Satake parameters: if L(s_ν) is generic and unitary and ν is half-integral for the adjoint and the fundamental representations of Proposition 6.31, then ν = 0 (Corollary 6.32(1)); likewise for the nonsplit groups other than the quasi-split PSU(2n + 1) with the representations of G∨ ⋊ ⟨τ⟩ (Corollary 7.5). As printed for arbitrary s = s_c s_ν these fail (PAPER-CIUBOTARU-HARRIS-26/E11, a G2 counterexample); the case of non-central s_c needs the Barbasch–Moy reduction to the centralizer of s_c. Finish Theorem 8.5, the list of extraneous real parts h/2 + … for Sp(2n), Spin(n) and the exceptional types (items extraneous-Sp, extraneous-Spin, extraneous-exceptional, with E5's corrected F4 point), and the geometric complementary-series list with independently checkable exceptional coordinates and branching data; distinguish geometric Frobenius arithmetic from the real half-lattice condition. Include the genericity and hermitian criteria, Lemmas 6.7–6.8, Theorem 6.9 as the cited classification input, and the ε = 0 reduction (6.11)–(6.13)."
     },
     {
       "route": "part-ii",
@@ -915,10 +930,11 @@
         "PAPER-CIUBOTARU-HARRIS-26/prop-3-10-4",
         "PAPER-CIUBOTARU-HARRIS-26/arthur-conjectures",
         "PAPER-CIUBOTARU-HARRIS-26/purity-stacks",
-        "PAPER-CIUBOTARU-HARRIS-26/xue-extension"
+        "PAPER-CIUBOTARU-HARRIS-26/xue-extension",
+        "PAPER-CIUBOTARU-HARRIS-26/ghs-discrete-series-purity"
       ],
       "reason": "GS.5-7 supply parameters and comparisons; the local-to-global weight restrictions and conditional nongeneric endpoints are additional mathematics, not a rebuild of shtukas.",
-      "brief": "Import FunctionFieldArithmetic (Global function fields, reciprocity and automorphic foundations), FA.6 for the existing cuspidal coefficient and finiteness theory. Import GlobalShtukasAndFunctionFieldLanglands (Global shtukas and Langlands over function fields), GS.5 for cusp parameters, GS.6 for GLn purity and GS.7 for semisimple local-global compatibility. Import DeligneWeightsAndPurity (Deligne weights, purity and the Weil bounds), DWP.0, DWP.5 and DWP.8, and SmoothRepresentationsOfLocalGroups (Smooth representations of local groups), SR.2-4. Use the proposed nilpotent-weight and unitary-spherical extensions as suppliers. Build the local geometricity anchor, constant-field twist removal, finite-extension parameter lifting and weight-pattern propagation. Prove Theorem 5.4 first. State the discrete-spectrum conclusions only with the actual parametrization hypotheses; construct the finite-array comparison and explicit exclusion tests before Theorem 10.3. Do not assume arbitrary automorphic base change or the Arthur conjectures. Include Proposition 3.10(1)–(4), Li-Huerta's comparison, Xue's extension to finite-codimension Hecke quotients, and the stack-purity alternative (Expectation 5.9, Sketch 5.10). Record Arthur's conjectures only as the conjectural target."
+      "brief": "Import FunctionFieldArithmetic (Global function fields, reciprocity and automorphic foundations), FA.6 for the existing cuspidal coefficient and finiteness theory. Import GlobalShtukasAndFunctionFieldLanglands (Global shtukas and Langlands over function fields), GS.5 for cusp parameters, GS.6 for GLn purity and GS.7 for semisimple local-global compatibility. Import DeligneWeightsAndPurity (Deligne weights, purity and the Weil bounds), DWP.0, DWP.5 and DWP.8, SmoothRepresentationsOfLocalGroups (Smooth representations of local groups), SR.2-4, and ExcursionOperatorsAndSpectralAction ES5 and ES7:parabolic for the semisimple local parameters that Li-Huerta compares with Genestier–Lafforgue. Use the proposed nilpotent-weight and unitary-spherical extensions as suppliers. Build the local geometricity anchor, constant-field twist removal, finite-extension parameter lifting and weight-pattern propagation. Prove Theorem 5.4 first: for K a global function field, G connected absolutely simple over K and π cuspidal, if π_v is generic at an unramified quasi-split place v (G(K_v) not the quasi-split odd unitary form) and π_u is discrete series (more generally tempered) at some place u, then π_w is tempered at every place w where π is unramified and G is unramified quasi-split. The v1 proof has three holes to fill: Corollary 6.32(1) for non-central compact parts (E11), the sketch of Theorem 4.3 (E10), and the reduction to adjoint G for types A, B and E7 (E12). Then Theorem 1.11 (under Conjectures 9.1 and 9.5, or a parametrization as in [Laf18]: with a split place v where π_v is in the complementary series of the nilpotent class of N and a geometric place u ∈ S, every split unramified π_w is in the same complementary series, with real part the central point or an extraneous point of Theorem 8.5) and Theorem 10.3 (if moreover π_u = AZ(σ) for a discrete series σ with Weil–Deligne parameter (ϕ_σ, N), the real parts are the central point, so no extraneous point occurs). State the discrete-spectrum conclusions only with the actual parametrization hypotheses; construct the finite-array comparison and explicit exclusion tests before Theorem 10.3. Do not assume arbitrary automorphic base change or the Arthur conjectures. Include Proposition 3.10(1)–(4), Li-Huerta's comparison, Xue's extension to finite-codimension Hecke quotients, and the stack-purity alternative (Expectation 5.9, Sketch 5.10). Record Arthur's conjectures only as the conjectural target."
     },
     {
       "route": "source",
@@ -1061,7 +1077,12 @@
       "searched": [
         "2026-09-29: arXiv:2311.15300 still lists only v1 (arXiv API); the Annals text (204 (2026) 545–601, revised 8 Oct 2025) remains inaccessible (annals-v204-n2-p03-p.pdf returns 404; the article page links no PDF), so these findings are scoped to v1.",
         "2026-09-29: Crossref (10.4007/annals.2026.204.2.3) has no update or relation; no erratum found. Not an exhaustive novelty claim."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked on the p. 35 image and by computation. Equal gradings on a Levi's adjoint representation say nothing about the other summands of e8, and even equal gradings on e8 give only E8-conjugacy: with E7 the Levi on Bourbaki nodes 1–7, the E7 orbits (A5)′ and (A5)″ both map to the E8 orbit A5, and so do the pairs (3A1)′/(3A1)″ and (A3+A1)′/(A3+A1)″. The conclusion holds: an exact Bala–Carter enumeration gives 21 and 45 orbits for E6 and E7, with pairwise distinct adjoint gradings, and all 91 rows of Tables 2–4 match. Gap, affects the proof.",
+        "by": "REV-PAPER-CIUBOTARU-HARRIS-26"
+      }
     },
     {
       "id": "PAPER-CIUBOTARU-HARRIS-26/E7",
@@ -1075,7 +1096,12 @@
       "searched": [
         "2026-09-29: arXiv:2311.15300 still lists only v1 (arXiv API); the Annals text (204 (2026) 545–601, revised 8 Oct 2025) remains inaccessible (annals-v204-n2-p03-p.pdf returns 404; the article page links no PDF), so these findings are scoped to v1.",
         "2026-09-29: Crossref (10.4007/annals.2026.204.2.3) has no update or relation; no erratum found. Not an exhaustive novelty claim."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked on the p. 3 image. v1 has no Theorem 1.1: the introduction states the main theorem unnumbered ('Theorem (Theorem 5.4, below)'), and the genericity statement is Corollary 5.7 (p. 15). Misprint, affects nothing.",
+        "by": "REV-PAPER-CIUBOTARU-HARRIS-26"
+      }
     },
     {
       "id": "PAPER-CIUBOTARU-HARRIS-26/E8",
@@ -1089,7 +1115,183 @@
       "searched": [
         "2026-09-29: arXiv:2311.15300 still lists only v1 (arXiv API); the Annals text (204 (2026) 545–601, revised 8 Oct 2025) remains inaccessible (annals-v204-n2-p03-p.pdf returns 404; the article page links no PDF), so these findings are scoped to v1.",
         "2026-09-29: Crossref (10.4007/annals.2026.204.2.3) has no update or relation; no erratum found. Not an exhaustive novelty claim."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked on the p. 18 image. The hermitian locus is C_{0,h} = {ν ∈ C0 : w0(ν) = −ν}, defined on p. 17 (itself printed with 'C0∨', a further trivial slip), and 'U0^g ⊂ C_{0,h}' is stated there; as printed Theorem 6.9 would drop hermitian symmetry, which fails for types A, D_odd and E6. Every use works in C_{0,h}. Misprint, affects nothing.",
+        "by": "REV-PAPER-CIUBOTARU-HARRIS-26"
+      }
+    },
+    {
+      "id": "PAPER-CIUBOTARU-HARRIS-26/E9",
+      "kind": "misprint",
+      "locator": "arXiv:2311.15300v1, Definition 2.6(ii)–(iii), p. 7",
+      "printed": "Part (ii) asserts that W_aV ⊂ V, consisting of ϕ(Frob_u)-eigenvectors whose eigenvalues have weight ≤ a, is stable under (ϕ, N). Part (iii) sets gr_aV = W_aV/W_{a−1}V and asserts, for every i, the isomorphism N^i : gr_{w−i}V → gr_{w+i}V.",
+      "correction": "With Frob_u a geometric Frobenius (N lowers Frobenius weights by 2, which is what makes W_a in (ii) N-stable), (iii) should read N^i : gr_{w+i}V → gr_{w−i}V, with W_aV the sum of the generalized eigenspaces of weight ≤ a.",
+      "reason": "The Weil–Deligne relation makes N shift Frobenius weights by 2, down for a geometric Frobenius and up for an arithmetic one. (ii) needs N to lower weights, while (iii) as printed needs N to raise them, so one of them fails as soon as N ≠ 0 (e.g. the special representation Sp(2)). The intended notion is the usual monodromy-weight purity, as the references to Deligne's theorem and to [GHS] show.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "arXiv 2311.15300, 30 September 2026: only v1 (26 November 2023)",
+        "The Annals article page https://annals.math.princeton.edu/2026/204-2/p03, 30 September 2026: revised 8 October 2025; no PDF is served, so the published text could not be compared"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Added by this review and checked on the page image at the locator; scoped to arXiv v1, since the Annals revision could not be read.",
+        "by": "REV-PAPER-CIUBOTARU-HARRIS-26"
+      }
+    },
+    {
+      "id": "PAPER-CIUBOTARU-HARRIS-26/E10",
+      "kind": "gap",
+      "locator": "arXiv:2311.15300v1, §4.1, sketch of the proofs of Theorems 4.2–4.3, step (2), p. 11; compare §1.1, p. 3",
+      "printed": "Step (2) takes a representation τ of ^L G and its associated local system L(Π, τ) on X. It invokes semisimplicity of G to assert that, at every place v of K, the action of Γ_v = Gal(K_v^sep/K_v) on L(Π, τ) gives geometric local monodromy.",
+      "correction": "For an arbitrary cuspidal Π this is not established: geometricity (Definition 2.5) needs an anchor such as a discrete-series place (then [GHS]) or a tempered place. Theorem 4.2 is covered by [GHS]; Theorem 4.3 ('The proof of Theorem 4.3 is similar') needs a separate argument or an anchored statement.",
+      "reason": "Semisimplicity of G makes det(τ∘σ) of finite order, but by Deligne and L. Lafforgue τ∘σ is only a sum of pieces χ ⊗ (pure of weight 0), with χ characters of the constant-field Galois group whose weights are not known to be integers. The paper says so itself on p. 3: 'The genericity hypothesis (1) … should imply that some τ∘σ is irreducible, but this is not known in general. Instead, hypothesis (2) in the statement of Theorem 5.4 provides the anchor that guarantees that only integer weights occur in τ∘σ.' If step (2) held for every cuspidal Π, that anchor would be superfluous. Theorem 4.3 is used in the tempered case of Theorem 5.4 (p. 15).",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "arXiv 2311.15300, 30 September 2026: only v1 (26 November 2023)",
+        "The Annals article page https://annals.math.princeton.edu/2026/204-2/p03, 30 September 2026: revised 8 October 2025; no PDF is served, so the published text could not be compared"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Added by this review and checked on the page image at the locator; scoped to arXiv v1, since the Annals revision could not be read.",
+        "by": "REV-PAPER-CIUBOTARU-HARRIS-26"
+      }
+    },
+    {
+      "id": "PAPER-CIUBOTARU-HARRIS-26/E11",
+      "kind": "error",
+      "locator": "arXiv:2311.15300v1, Corollary 6.32(1) and its proof, p. 25; used in the proof of Theorem 5.4 (p. 14), Remark 5.8 and Corollary 7.5 (p. 26)",
+      "printed": "Corollary 6.32 takes the Satake parameter s = s_c s_ν from (6.2) and its spherical G(k)-representation L(s), assuming genericity. Part (1) claims that, if L(s) is unitary, geometricity of s for the adjoint representation of G∨ and those fundamental G∨-representations specified in Proposition 6.31 is equivalent to ν = 0. The proof asserts ν ∈ U0^g under genericity and unitarity.",
+      "correction": "State (1) for real Satake parameters (s_c = 1, or s_c central in G∨), which is what U0^g covers ('spherical generic representations with real Satake parameter', p. 17). For non-central s_c the unitarity of L(s_c s_ν) is governed, by Barbasch–Moy's reduction, by the centralizer of s_c, and the conclusion can fail; Theorem 5.4 then needs a further argument at such places.",
+      "reason": "Counterexample for G2. Let s_c ∈ T∨ be the involution with α∨(s_c) = (−1)^a for α∨ = aα1∨ + bα2∨ (α1∨ the short simple coroot); its centralizer has roots ±α2∨ and ±(2α1∨ + α2∨), of type A1 × Ã1. Take ν = ½ω2, s = s_c s_ν. On the positive coroots (a, b) = (1,0), (0,1), (1,1), (2,1), (3,1), (3,2), α∨(s) = −1, q^{1/2}, −q^{1/2}, q^{1/2}, −q^{1/2}, −q, never q^{±1}, and W_s is trivial (Stab(ν) = {1, s_{α1}}, and s_{α1} moves s_c), so X(s) is irreducible by Kato's criterion and L(s) = X(s) is generic. w0 = −1 fixes s_c and negates ν, so X(s) is hermitian; along s_c s_{tν}, t ∈ [0, 1], the same computation shows irreducibility, and at t = 0 the representation is unitarily induced, so X(s) is unitary by the deformation argument of Lemma 6.7. But ν ≠ 0 is half-integral for the adjoint representation, hence for every representation of G2 (Lemma 6.30), and Proposition 6.31 lists none for G2, so (1) fails. The proof's step 'we must have ν ∈ U0^g' is what breaks: ⟨3α1∨ + 2α2∨, ν⟩ = 1, so L(s_ν) is not generic and ν ∉ U0^g. The eigenvalues of Ad(s) are Weil numbers of weights 0, ±1, ±2, so (5.6) does not exclude this s, and the proof of Theorem 5.4, which applies (1) to s_v(σ) with arbitrary compact part, does not cover it. Scoped to v1.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "arXiv 2311.15300, 30 September 2026: only v1 (26 November 2023)",
+        "The Annals article page https://annals.math.princeton.edu/2026/204-2/p03, 30 September 2026: revised 8 October 2025; no PDF is served, so the published text could not be compared"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Added by this review and checked on the page image at the locator; scoped to arXiv v1, since the Annals revision could not be read.",
+        "by": "REV-PAPER-CIUBOTARU-HARRIS-26"
+      }
+    },
+    {
+      "id": "PAPER-CIUBOTARU-HARRIS-26/E12",
+      "kind": "gap",
+      "locator": "arXiv:2311.15300v1, proof of Theorem 5.4, p. 13 ('If G is of type C_n or D_n, we assume to begin with that G is adjoint') and p. 14",
+      "printed": "The proof initially treats G as adjoint in types C_n or D_n, then says it reduces to that situation. It consequently chooses representations τ0 of ^L G, listing (i) G = PGL(n) with n even, (ii) G = SO(2n + 1), and (v) G = E7.",
+      "correction": "Make the reduction to adjoint G for every type where τ0 is needed: A_{n−1} with n even, B_n and E_7 as well as C_n and D_n, by the same lifting of σ to ^L G^ad over a finite extension (p. 14 and footnote 6).",
+      "reason": "Theorem 5.4 is for any connected absolutely simple G, but the table of test representations covers only adjoint groups, and the lifting is done only for types C and D. For G simply connected of type A_{n−1} (n even), B_n or E_7, G∨ is PGL(n), PSp(2n) or adjoint E7, whose representations have weights in the root lattice of G∨; by the argument of Lemma 6.30, a ν half-integral for the adjoint representation is then half-integral for all of them, so the candidates of Theorem 6.14 cannot be excluded by representations of ^L G without the lift. The paper's argument works verbatim.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "arXiv 2311.15300, 30 September 2026: only v1 (26 November 2023)",
+        "The Annals article page https://annals.math.princeton.edu/2026/204-2/p03, 30 September 2026: revised 8 October 2025; no PDF is served, so the published text could not be compared"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Added by this review and checked on the page image at the locator; scoped to arXiv v1, since the Annals revision could not be read.",
+        "by": "REV-PAPER-CIUBOTARU-HARRIS-26"
+      }
+    },
+    {
+      "id": "PAPER-CIUBOTARU-HARRIS-26/E13",
+      "kind": "misprint",
+      "locator": "arXiv:2311.15300v1, Theorem 5.4, p. 13",
+      "printed": "Theorem 5.4(2) requires a place u ∈ S with π_u in the discrete series. Its generalization assumes π_u tempered for the same w and u. It further asserts that v = u with π_v generic and tempered implies temperedness of π_w for every w ∉ S.",
+      "correction": "In the 'more generally' clause let u be any place of K, as in the introduction's statement (p. 2: 'There is a place u of K such that π_u is tempered'), so that u = v is allowed.",
+      "reason": "§3.1 (p. 9) defines S as the places where U_w is not hyperspecial, 'thus v ∉ S', so with u ∈ S the case v = u cannot occur. The tempered anchor argument (pp. 14–15) works at any place.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "arXiv 2311.15300, 30 September 2026: only v1 (26 November 2023)",
+        "The Annals article page https://annals.math.princeton.edu/2026/204-2/p03, 30 September 2026: revised 8 October 2025; no PDF is served, so the published text could not be compared"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Added by this review and checked on the page image at the locator; scoped to arXiv v1, since the Annals revision could not be read.",
+        "by": "REV-PAPER-CIUBOTARU-HARRIS-26"
+      }
+    },
+    {
+      "id": "PAPER-CIUBOTARU-HARRIS-26/E14",
+      "kind": "misprint",
+      "locator": "arXiv:2311.15300v1, §8.3, p. 30",
+      "printed": "The source places ν_i ∈ Z + ½ in the first case and deduces ν4 < 1 from ν1 + ν4 < 1, concluding ν4 = ½. In its second case it places ν_i ∈ Z + ¼.",
+      "correction": "'In the first case, ν_i ∈ ½Z_{≥0}' and 'In the second case, ν_i ∈ ¼ + ½Z'.",
+      "reason": "The two cases were just defined as 'all in ½Z_{≥0}' and 'all in ½Z + ¼'. The first can contain integers, and the argument still works; in the §8.3 coordinates adjoint half-integrality already forces every ν_i ∈ ½Z, so the second case is empty. The conclusion stands.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "arXiv 2311.15300, 30 September 2026: only v1 (26 November 2023)",
+        "The Annals article page https://annals.math.princeton.edu/2026/204-2/p03, 30 September 2026: revised 8 October 2025; no PDF is served, so the published text could not be compared"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Added by this review and checked on the page image at the locator; scoped to arXiv v1, since the Annals revision could not be read.",
+        "by": "REV-PAPER-CIUBOTARU-HARRIS-26"
+      }
+    },
+    {
+      "id": "PAPER-CIUBOTARU-HARRIS-26/E15",
+      "kind": "misprint",
+      "locator": "arXiv:2311.15300v1, §9.1, p. 31",
+      "printed": "The source applies the assertion to each irreducible π ⊂ A_disc(G, Q̄), identifying this condition with m(π) ≥ 0, and to every prime ℓ ≠ p.",
+      "correction": "'with m(π) > 0'",
+      "reason": "m(π) ≥ 0 holds for every π, so as printed the condition is vacuous; the intended restriction is that π occurs in the discrete spectrum.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "arXiv 2311.15300, 30 September 2026: only v1 (26 November 2023)",
+        "The Annals article page https://annals.math.princeton.edu/2026/204-2/p03, 30 September 2026: revised 8 October 2025; no PDF is served, so the published text could not be compared"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Added by this review and checked on the page image at the locator; scoped to arXiv v1, since the Annals revision could not be read.",
+        "by": "REV-PAPER-CIUBOTARU-HARRIS-26"
+      }
+    },
+    {
+      "id": "PAPER-CIUBOTARU-HARRIS-26/E16",
+      "kind": "misprint",
+      "locator": "arXiv:2311.15300v1, §9.1, the paragraph before Conjecture 9.5 and Conjecture 9.5(2), p. 31",
+      "printed": "The source defines Φ_disc(U) by the condition A_disc(G, U, Q̄_ℓ)_{λ(σ)} ≠ 0 on σ. It sets α_w(σ) = [σ(Frob_w)] when σ ∈ Φ(U) and w ∉ S(U). Part (2) again takes σ ∈ Φ(U) and asserts α_w(σ) = s_w(σ).",
+      "correction": "σ ∈ Φ_disc(U) (twice), and α_w(σ) = s_{w,ℓ}(σ), as in the cuspidal statement of §3 (p. 9).",
+      "reason": "Φ(U) is the cuspidal set of §3, and the discrete analogue was just defined as Φ_disc(U). α_w(σ) is a Q̄_ℓ-conjugacy class and s_w(σ) a Q̄-class, so the equality needs ι_ℓ, as in §3.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "arXiv 2311.15300, 30 September 2026: only v1 (26 November 2023)",
+        "The Annals article page https://annals.math.princeton.edu/2026/204-2/p03, 30 September 2026: revised 8 October 2025; no PDF is served, so the published text could not be compared"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Added by this review and checked on the page image at the locator; scoped to arXiv v1, since the Annals revision could not be read.",
+        "by": "REV-PAPER-CIUBOTARU-HARRIS-26"
+      }
+    },
+    {
+      "id": "PAPER-CIUBOTARU-HARRIS-26/E17",
+      "kind": "misprint",
+      "locator": "arXiv:2311.15300v1, Appendix, proof of Lemma 10.9, so(2n) paragraph, p. 35",
+      "printed": "The proof lists ±ε1 + ε2, ε2 − ε3, …, ε_{n−1} − ε_n as simple roots. Its coordinate assignments are ȟ_I = (a1, a2, …, an); ȟ_II = (−a1, a2, …, an). The entries are odd integers satisfying 0 < a1 ≤ a2 ≤ ⋯ ≤ an.",
+      "correction": "List the simple roots as ±ε1 + ε2, ε3 − ε2, …, εn − ε_{n−1} (so that dominant means |h1| ≤ h2 ≤ ⋯ ≤ hn), or keep them and order the a_i decreasingly.",
+      "reason": "With the printed simple roots a dominant h needs h2 ≥ h3 ≥ ⋯ ≥ hn, so the increasing (a1, …, an) is not dominant unless a2 = ⋯ = an (e.g. so(8), (4,4): (1,1,3,3) pairs to −2 with ε2 − ε3). The values i_I and i_II use only that a1 is the smallest a_j and are unaffected.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "arXiv 2311.15300, 30 September 2026: only v1 (26 November 2023)",
+        "The Annals article page https://annals.math.princeton.edu/2026/204-2/p03, 30 September 2026: revised 8 October 2025; no PDF is served, so the published text could not be compared"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Added by this review and checked on the page image at the locator; scoped to arXiv v1, since the Annals revision could not be read.",
+        "by": "REV-PAPER-CIUBOTARU-HARRIS-26"
+      }
     }
   ],
   "gaps": [
@@ -1097,7 +1299,7 @@
       "id": "published-version",
       "title": "Annals revision not collated",
       "status": "open",
-      "remaining": "The Annals text (revised 8 October 2025) is not accessible; collate the locators, E1–E8 and Theorem 8.5's coordinates when a copy is available. Everything here is against arXiv v1 (SHA-256 recorded).",
+      "remaining": "The Annals text (revised 8 October 2025) is not accessible; collate the locators, E1–E8 and Theorem 8.5's coordinates when a copy is available. Everything here is against arXiv v1 (SHA-256 recorded). Also collate E9–E17, added by REV-PAPER-CIUBOTARU-HARRIS-26, in particular E11 (Corollary 6.32(1)) and E10, E12 (the proof of Theorem 5.4), which the revision may already repair.",
       "items": [
         "PAPER-CIUBOTARU-HARRIS-26/extraneous-exceptional",
         "PAPER-CIUBOTARU-HARRIS-26/nongeneric-global-theorem",
@@ -1150,6 +1352,7 @@
     "issue": 1057,
     "date": "2026-09-29",
     "status": "complete",
-    "changes": "Added 17 items. Recorded E1–E5 (reviewed errata) and E6–E8 (new) as sourceIssues. Certified Tables 2–4 and the exceptional orbit separation. Replaced placeholder prerequisite links with verified ones. Converted coverageGaps into gaps with statuses; only published-version stays open."
+    "changes": "Added 17 items. Recorded E1–E5 (reviewed errata) and E6–E8 (new) as sourceIssues. Certified Tables 2–4 and the exceptional orbit separation. Replaced placeholder prerequisite links with verified ones. Converted coverageGaps into gaps with statuses; only published-version stays open.",
+    "review": "REV-PAPER-CIUBOTARU-HARRIS-26 (30 September 2026): accept, corrected in place. sl2-integral-spectrum is library (built in Tau Ceti); fourteen statements corrected, notes added to seven items, and two items added; route 1's area set to representations and the three Part II briefs state their final theorems and name their imports; E6–E8 reviewed and E9–E17 added; two prerequisites already in the atlas batch removed."
   }
 }
