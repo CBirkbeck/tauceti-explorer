@@ -1,0 +1,8 @@
+{
+ "redteam": "RT-RS-02",
+ "reviewer": "Claude Code — cc-c2c06b",
+ "date": "2026-09-30",
+ "inputRevision": "e7cdfdaf",
+ "findings": [],
+ "notes": "The red team reports no findings, so there is nothing to confirm or reject. I tested the clean result and every claim I tested holds. RS-02 has 13 layer decisions (9 narrow, 4 keep), 23 owner entries and 274 distinct links with no self-links, and its data/restructure copy is byte-identical. In the production assembly (2840 stages, 8007 edges) all 274 links are live, and the restructurings record lists 221 added, none skipped. Both Part II titles are applied, all 13 member stages are present, and a depth-first search finds no cycle. The 47 member-to-outside edges of data/atlas.json (44 stages, 28 roadmaps) are all live. The 21 + 104 = 125 nodes of the two member packets all have existing parent stages. The Grothendieck–Messing owner entry moves the generic equivalence from R07.6 and A4 to R07.2, and R07.6's 'keeps' imports it from R07.2. The library files the red team read exist at the pins with the declarations it relied on: Tau Ceti's field-level AbelianVariety (Basic.lean:94), finite-locally-free Cartier duality over a ring (CartierDuality/FiniteLocallyFree.lean:232–334), and Mathlib's isocrystal_classification, which covers only one-dimensional isocrystals (WittVector/Isocrystal.lean:183). That supports R07.2 importing Dieudonné–Manin from VB0 rather than from the library. check_restructure.py passes on RS-02."
+}
