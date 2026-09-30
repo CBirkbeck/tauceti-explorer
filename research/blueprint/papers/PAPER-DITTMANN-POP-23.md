@@ -4,14 +4,18 @@ Issue [#1099](https://github.com/CBirkbeck/tauceti-explorer/issues/1099). Status
 
 - **Provenance.** Completed by Claude Code, session cc-442dc5, on 23 September 2026. It continues the merged partial checkpoints of Codex sessions codex-a71f92, codex-c83e7a and codex-hjdg0j (latest [#1935](https://github.com/CBirkbeck/tauceti-explorer/pull/1935)), whose material follows below.
 - **The paper.** Philip Dittmann and Florian Pop, *Characterizing finitely generated fields by a single field axiom*, Annals of Mathematics 198 (2023), 1203–1227 (doi 10.4007/annals.2023.198.3.4; arXiv 2012.01307v2, the authors' final version).
-- **Items.** The result has **154 items: 29 library, 7 planned and 118 missing**.
+- **Items.** The result has **154 items: 29 library, 6 planned and 119 missing**.
   - The checkpoint's 152 item ids are kept; niceness-definability and function-field-fundamental-equality are new.
   - Seven routes own the missing items, each exactly once.
 - **Mistakes.** Seventeen are recorded under `sourceIssues`: E1–E4 and E6–E18. E5 was withdrawn earlier and is not reused.
 
+## Verified red-team corrections (Codex, codex-rtOQ9t, 30 September 2026)
+
+[The fix report](../redteam/RT-PAPER-DITTMANN-POP-23.fixes.md) applies both confirmed findings. Route 7 now sends the general height-one intersection theorem and its two associated-prime lemmas to DeformationAndDerivedPatchingAlgebra:R03.3. The intersection theorem is missing, since the new owner does not yet explicitly plan it; current counts are 29 library, 6 planned and 119 missing. AutomorphicCongruences:L4 imports this algebra for its application. The function-field equality remains planned in upstream AlgebraicCurves Layer 6, with the already proved, separability-free finite-chart identity credited below. All 154 item statements, the other item statuses and the seven route positions are preserved. Historical review verdicts below predate this ownership correction.
+
 ## Independent review (Codex, codex-7e92bd, 23 September 2026)
 
-**Accepted after corrections.** The current extraction has 154 items: 29 library, 7 planned and 118 missing, each missing item routed exactly once. All seven routes are accepted. See [the independent report](../reviews/REV-PAPER-DITTMANN-POP-23.md) for the item/status audit, exact fixes, source versions and checks.
+**Accepted after corrections at that review.** The extraction then had 154 items: 29 library, 7 planned and 118 missing, each missing item routed exactly once. All seven routes are accepted. See [the independent report](../reviews/REV-PAPER-DITTMANN-POP-23.md) for the item/status audit, exact fixes, source versions and checks.
 
 The function-field fundamental equality is imported from upstream AlgebraicCurves Layer 6. The niceness formula now has a characteristic-zero dyadic guard and an explicit derivative Hensel criterion which works in characteristic two. The odd-degree alteration has the precise ILO base-extension contract, and cohomology injectivity includes the purely inseparable part. Existing finite-generation, relative algebraic closure and prime-localization carriers are explicitly credited.
 
@@ -105,7 +109,7 @@ The already-credited [one-variable DVR theorem](https://github.com/TauCetiProjec
 
 The two dimension items already belong to LogicAndDefinabilityInNumberTheory:LD.1's source route. Their new proof inputs remain there, sharing existing valuation carriers. The full owner README was read; reviewed coverage has no dedicated LD.0/LD.1 entries, recorded as an audit absence. Relevant AlgebraicCurves Layer 0 and LocalFieldsRamification Layer 0 targets were checked at their actual scope. Cross-paper searches found valued-field consumers but no more precise general supplier. No new roadmap is proposed.
 
-Earlier ownership remains intact: finite normalization belongs to AlgebraicModuliForArithmeticGeometry:A0-extension; generic height-one intersection comes from the early algebraic part of AutomorphicCongruences:L4, without any automorphic dependency. Higher cohomology and wild coefficients stay with their higher-local-fields and de Rham–Witt owners. The total-inverse bridge, full-rank flags, union of balls and intersection of stabilizers retain their corrected contracts.
+Earlier ownership remains intact: finite normalization belongs to AlgebraicModuliForArithmeticGeometry:A0-extension; generic height-one intersection and its associated-prime lemmas come from DeformationAndDerivedPatchingAlgebra:R03.3. Higher cohomology and wild coefficients stay with their higher-local-fields and de Rham–Witt owners. The total-inverse bridge, full-rank flags, union of balls and intersection of stabilizers retain their corrected contracts.
 
 ## The seven routes
 
@@ -127,7 +131,7 @@ Items: resolution-f2, kato-coefficients, kato-cohomology, cohomology-restriction
 
 ### 3. AlgebraicModuliForArithmeticGeometry (source)
 
-A0-extension already owns finite normalization. For this consumer import the pinned separable and purely inseparable polynomial theorems, fixed-field splitting and transfer results; assemble the arithmetic polynomial case there. General excellent-scheme normalization is not a prerequisite of this narrower proof. Add the selected-family valuation-prolongation adapter in this owner. The height-one intersection theorem imports AutomorphicCongruences:L4; only normalization and selected-family integral-closure adapters remain here.
+A0-extension already owns finite normalization. For this consumer import the pinned separable and purely inseparable polynomial theorems, fixed-field splitting and transfer results; assemble the arithmetic polynomial case there. General excellent-scheme normalization is not a prerequisite of this narrower proof. Add the selected-family valuation-prolongation adapter in this owner. The height-one intersection theorem imports DeformationAndDerivedPatchingAlgebra:R03.3; only normalization and selected-family integral-closure adapters remain here.
 
 Stages: AlgebraicModuliForArithmeticGeometry:A0-extension.
 
@@ -137,7 +141,7 @@ Items: valuation-prolongation-integrality, finite-normalization-generic, root-co
 
 LD.0–LD.6 cover interpretation, valued-field elimination and motivic/local arithmetic, but no layer proves uniform definability of all geometric prime divisors of finitely generated fields or their single-sentence characterization.
 
-Design brief: Prove Dittmann–Pop Theorems 1.1–1.3 with exactly their hypotheses: for each fixed d>=3 obtain a ring formula whose fibers over every H_d field are precisely geometric prime-divisor rings or empty; prove every infinite finitely generated field parametrically bi-interpretable with Z; and give each finitely generated field one parameter-free ring sentence characterizing it among finitely generated fields. Only characteristic two in Kronecker dimension greater than three carries the stated resolution assumption. Develop nice/test presentations, auxiliary root fields, compact detecting valuations, the UNION-of-balls/intersection-of-stabilizers argument, singleton isolation, definable normalizations and full-rank arithmetic flags. Import Logic, definability, valued fields and motivic integration (LogicAndDefinabilityInNumberTheory), Higher local fields and higher class field theory (HigherLocalFieldsAndHigherClassFieldTheory), the proposed Quadratic forms and cohomological invariants, Part II (HigherPfisterForms), and finite normalization from Algebraic moduli and representability for arithmetic geometry (AlgebraicModuliForArithmeticGeometry). Import the general height-one intersection theorem from the early algebraic portion of Automorphic congruences and reverse main-conjecture divisibilities (AutomorphicCongruences:L4), without depending on its later automorphic conclusions. Reuse the pinned function-field place, approximation and prescribed-pole theorems; import regular curve models from Algebraic curves — function fields, divisors, and Riemann–Roch (tauceti:TauCetiRoadmap/AlgebraicCurves). Import Chebotarev's theorem (tauceti:TauCetiRoadmap/Chebotarev) and Function-field arithmetic (FunctionFieldArithmetic) for split places. Audit the remaining off-a-finite-place number-field approximation adapter without re-planning Global number fields (tauceti:TauCetiRoadmap/GlobalNumberFields). Finish the low-dimensional inputs, AKNS coding and the finite-language total-inverse bridge. Every definition requires its API and edge-case tests; no completed Lean proof is claimed by this brief.
+Design brief: Prove Dittmann–Pop Theorems 1.1–1.3 with exactly their hypotheses: for each fixed d>=3 obtain a ring formula whose fibers over every H_d field are precisely geometric prime-divisor rings or empty; prove every infinite finitely generated field parametrically bi-interpretable with Z; and give each finitely generated field one parameter-free ring sentence characterizing it among finitely generated fields. Only characteristic two in Kronecker dimension greater than three carries the stated resolution assumption. Develop nice/test presentations, auxiliary root fields, compact detecting valuations, the UNION-of-balls/intersection-of-stabilizers argument, singleton isolation, definable normalizations and full-rank arithmetic flags. Import Logic, definability, valued fields and motivic integration (LogicAndDefinabilityInNumberTheory), Higher local fields and higher class field theory (HigherLocalFieldsAndHigherClassFieldTheory), the proposed Quadratic forms and cohomological invariants, Part II (HigherPfisterForms), and finite normalization from Algebraic moduli and representability for arithmetic geometry (AlgebraicModuliForArithmeticGeometry). Import the general height-one intersection theorem for normal noetherian domains, with its associated-prime lemmas, from Commutative algebra for deformation theory and patching (DeformationAndDerivedPatchingAlgebra:R03.3). Reuse the pinned function-field place, approximation and prescribed-pole theorems; import regular curve models from Algebraic curves — function fields, divisors, and Riemann–Roch (tauceti:TauCetiRoadmap/AlgebraicCurves). Import Chebotarev's theorem (tauceti:TauCetiRoadmap/Chebotarev) and Function-field arithmetic (FunctionFieldArithmetic) for split places. Audit the remaining off-a-finite-place number-field approximation adapter without re-planning Global number fields (tauceti:TauCetiRoadmap/GlobalNumberFields). Finish the low-dimensional inputs, AKNS coding and the finite-language total-inverse bridge. Every definition requires its API and edge-case tests; no completed Lean proof is claimed by this brief.
 
 Items: hypothesis-hd, uniform-family, uniform-divisors, main-biinterpretability, main-single-sentence, finite-field-sentence, nice-form, nice-detection, nice-parity, global-nice-tail, separating-parameters, test-form, test-abundance, quadratic-parameters, detecting-nonnegative, detecting-domination, compact-detecting-valuation, coarsening-constant-trivial, refined-detection, relative-constant-field, anisotropy-set, stabilizer-ring, detecting-divisor-set, valuation-ball, ball-stabilizer, anisotropy-union, stabilizer-intersection, single-divisor, valuation-filter, small-dimension-inputs, dimension-definability, constant-definability, global-subfield-definability, relative-independence, normalization-ring, normalization-finite, geometric-normalization, normalization-intersection, arithmetic-flags, arithmetic-intersection, coefficient-detection, normalization-definable, normalization-uniform, field-ring-biinterpretation, domain-biinterpretability, qfa-theorem, inverse-language-bridge, global-approximation-input, etale-specialization-input, rumely-global-definitions, low-dimensional-biinterpretability.
 
@@ -157,11 +161,11 @@ Design brief: Extend Adic coefficients and comparison with schemes (AdicCoeffici
 
 Items: odd-degree-alteration.
 
-### 7. AutomorphicCongruences (source)
+### 7. DeformationAndDerivedPatchingAlgebra (source)
 
-The reviewed L4 audit explicitly identifies the general normal-noetherian height-one intersection/descent theorem. Supply its early pure commutative-algebra proof leaves once, using existing determinant, associated-prime and DVR APIs. DP imports this theorem before any automorphic application; it does not require a zeta morphism, L3, or the main-conjecture endpoint.
+R03.3 owns the general associated-prime and height-one commutative algebra and has no automorphic prerequisites. Supply the normal-noetherian height-one intersection theorem and its associated-prime lemmas once there, using the pinned associated-prime, localization and DVR APIs. AutomorphicCongruences:L4 imports this theorem for its zeta-element descent; it is a consumer, not the general theorem's owner. Dittmann–Pop imports the same theorem directly from R03.3.
 
-Stages: AutomorphicCongruences:L4.
+Stages: DeformationAndDerivedPatchingAlgebra:R03.3.
 
 Items: krull-intersection, principal-associated-height-one, associated-localization-detection.
 
@@ -171,7 +175,7 @@ Items: krull-intersection, principal-associated-height-one, associated-localizat
 - **DP23-G2** (deferred). Cossart–Piltant is a cited supplier, now listed under prerequisites. The resolution hypothesis is used exactly as (H_d) states it: assumed only in characteristic two with d > 3. *Checkpoint text:* Acquire Cossart–Piltant's 2009 threefold resolution and the precise low-dimensional use. Separate smooth proper models from the TWO-CLAUSE resolution hypothesis; do not impose the global assumption in characteristic two dimension three.
 - **DP23-G3** (closed). The false cd bound is recorded as E6 with its repair (nonreal-local-cd-bound). The remaining inputs (coefficient fields, cohomology of direct limits, EKM and Kato) are cited facts stated as items. *Checkpoint text:* The equicharacteristic-zero coefficient-field argument is now sourced and separated. Finish the exact nonreal local-field cd_2 bound and henselization/completion comparison, the transcendence-degree proof referred to by Milne, cohomology continuity and real-place descent; retain EKM subform/cancellation and Kato graded quadratic-Witt tasks. Kuhlmann–Novacoski decomposition-field and integral-closure localization foundations remain open. Do not restore the false cd(E′) bound in E6.
 - **DP23-G4** (closed). Rumely, Pop 2017 and Poonen are cited suppliers stated as items. The low-dimensional bi-interpretability is recorded as E18 with its argument (low-dimensional-biinterpretability). *Checkpoint text:* Read original Rumely/Pop/Poonen internal inputs and AKNS coding/one-dimensional proof leaves. Fully verify that the same definable-normalization construction supplies low-dimensional bi-interpretability, not just a single-sentence result.
-- **DP23-G5** (deferred). Implementation adapters and the number-field approximation are design and blueprint work for the routes. *Checkpoint text:* The residue-dimension criterion and arbitrary finite-extension e*f inequality now have direct mathematical proofs, including the mixed-characteristic Gauss subfield. The earlier selected-family integrality and height-one arguments remain supplied. Remaining: the exact number-field approximation off one finite place, normalization algebra/fraction-field towers, and typed Lean adapters for the new residue-basis/value-group constructions and the earlier extension, multiplicity, associated-prime and height-one arguments. General excellence is not inferred; the height-one theorem remains owned by AutomorphicCongruences:L4.
+- **DP23-G5** (deferred). Implementation adapters and the number-field approximation are design and blueprint work for the routes. *Checkpoint text:* The residue-dimension criterion and arbitrary finite-extension e*f inequality now have direct mathematical proofs, including the mixed-characteristic Gauss subfield. The earlier selected-family integrality and height-one arguments remain supplied. Remaining: the exact number-field approximation off one finite place, normalization algebra/fraction-field towers, and typed Lean adapters for the new residue-basis/value-group constructions and the earlier extension, multiplicity, associated-prime and height-one arguments. General excellence is not inferred; the height-one theorem remains owned by DeformationAndDerivedPatchingAlgebra:R03.3.
 - **DP23-G6** (closed). This continuation checked the full-rank flag correction (E3), the torus specialization (E4) and the inverse-language bridge (E7) against the TeX source and AKNS. *Checkpoint text:* Independent review of the explicit full-rank flag repair, torus specialization, and finite inverse-language bridge. Check any formula-level uniformity across finite residue-number-field interpretations.
 - **DP23-G7** (unavailable). The typeset Annals text is paywalled. arXiv v2 is the authors' final version; the locators follow it. *Checkpoint text:* Acquire the publisher-format DP paper and collate the structured source findings against v2. Preserve E1–E4 IDs shared with the separate errata file, without self-review. Complete the inherited Part II signature audit and remaining full-source proof tasks before marking complete. On 2026-09-23 the public Annals PDF guess again returned 404; the current article page and author lists expose the same 19-page final author copy. No publisher-format collation is claimed.
 
@@ -2085,13 +2089,13 @@ Library: mathlib:IsIntegralClosure.finite.
 
 ### krull-intersection — Normal noetherian domains are intersections of height-one localizations
 
-**theorem · planned**. Proposition 5.1; Stacks 031T(1)–(2), 0311; direct proof below
+**theorem · missing**. Proposition 5.1; Stacks 031T(1)–(2), 0311; direct proof below
 
 For a normal noetherian integral domain A with fraction field F, A equals the intersection inside F of A_p over height-one primes p. Those localizations are DVRs; for a field A the empty intersection is F=A.
 
-The reviewed AUDIT-23 target at L4 explicitly plans the general normal-noetherian height-one descent. Import its early commutative-algebra theorem, not the later automorphic conclusions. Removed from the A0-extension route to avoid duplicate ownership.
+The general normal-noetherian height-one intersection theorem and its associated-prime lemmas are owned by DeformationAndDerivedPatchingAlgebra:R03.3 through source route 7. The partial L4 library-audit target is the same general statement, which AutomorphicCongruences:L4 imports for zeta-element descent. R03.3 does not yet explicitly plan this theorem, so its status is missing, not planned.
 
-Planned: AutomorphicCongruences:L4.
+Source route: DeformationAndDerivedPatchingAlgebra:R03.3 (route 7).
 
 Prerequisites: PAPER-DITTMANN-POP-23/principal-associated-height-one, PAPER-DITTMANN-POP-23/associated-localization-detection, PAPER-DITTMANN-POP-23/normal-local-dvr.
 
@@ -2798,7 +2802,20 @@ Added by cc-442dc5 (E17). Missing; routed to FinitelyGeneratedFieldDefinability.
 
 ### function-field-fundamental-equality — Fundamental equality for function fields in one variable, without separability
 
-Added by cc-442dc5. Missing; routed to AlgebraicModuliForArithmeticGeometry:A0-extension, which owns separability-free finite normalization. Used for a purely inseparable extension in Lemma 3.6.
+**theorem · planned**. Lemma 3.6, proof, p. 10, citing Chevalley, Ch. IV, §1, Theorem 1
+
+Let K ⊇ K′ be function fields in one variable over a field k_0 with [K : K′] finite, and let w′ be a place of K′ trivial on k_0. Then Σ_{w|w′} e(w|w′) f(w|w′) = [K : K′], the sum running over the places w of K above w′. In particular, if w′ has a unique prolongation w (for instance if K|K′ is purely inseparable), then e(w|w′) f(w|w′) = [K : K′].
+
+Import AlgebraicCurves Layer 6, using its Layer 2 finite-normalization and place/prime dictionary. At Tau Ceti f790474, TauCeti.Place.sum_ramificationIdx_mul_relativeDegree_eq_finrank already proves the finite-chart identity without separability, for Dedekind models R and S with fraction-field and scalar-tower instances, Algebra.IsIntegral F F' and Module.Finite R S. TauCeti.Place.sum_ramificationIdx_mul_relativeDegree_le_finrank supplies the general finite-extension inequality; sum_ramificationIdx_mul_relativeDegree_eq_finrank_of_isSeparable is the separable global wrapper. The remaining input for the purely inseparable case is finite Dedekind models from finite-normalization-generic, followed by the chart application. Do not route a second proof to A0-extension.
+
+Library support: `tauceti:TauCeti.Place.sum_ramificationIdx_mul_relativeDegree_eq_finrank`, `tauceti:TauCeti.Place.sum_ramificationIdx_mul_relativeDegree_le_finrank`.
+
+Planned: tauceti:TauCetiRoadmap/AlgebraicCurves#layer-6-extensions-of-function-fields.
+
+Prerequisites: PAPER-DITTMANN-POP-23/finite-normalization-generic.
+
+1. Import the general fundamental identity from AlgebraicCurves Layer 6. Its proof uses Layer 2 affine normalization and the place/prime correspondence, including inseparable extensions.
+2. For Lemma 3.6, take R and S to be the integral closures of k_1(u)[u_d] in K_s and K. Import finite-normalization-generic with coefficient field k_1(u): both models are finite over the polynomial ring, hence S is finite over R, and both are Dedekind with the required fraction fields and scalar towers. Apply the existing TauCeti.Place.sum_ramificationIdx_mul_relativeDegree_eq_finrank to these models and the full fibre of places. Use the reciprocal chart k_1(u)[u_d⁻¹] for places at infinity. The identity and its place/prime ramification and residue-degree comparisons are already proved at the pin; only the finite-model application remains. Retain Module.Finite R S: this is not an identity for arbitrary non-Japanese DVRs.
 
 ## Validation (cc-442dc5)
 
