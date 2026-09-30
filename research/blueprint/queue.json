@@ -35940,8 +35940,9 @@
     "REV-PAPER-XIE-YUAN-22"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-XIE-YUAN-22.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4525"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4525",
+   "finishedAt": "2026-09-30T00:42:31Z"
   },
   {
    "id": "RT-PAPER-GHOSH-SARNAK-22",
