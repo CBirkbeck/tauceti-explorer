@@ -10,10 +10,11 @@
     "arxiv": "1901.09945v2",
     "url": "https://arxiv.org/abs/1901.09945v2",
     "readSections": [
-      "Entire arXiv v2 (3 December 2019, the latest and post-referee version), 49 pages: §§1–9 and references, read 2026-09-22 (PDF https://arxiv.org/pdf/1901.09945v2, SHA-256 8fc51ac36f9fc4b406c7bb44cdeccf31386e81e0a471176a69e80a1a0766bab8). The typeset Annals PDF was not accessible, so the published version was not collated."
+      "Entire arXiv v2 (3 December 2019, the latest and post-referee version), 49 pages: §§1–9 and references, read 2026-09-22 (PDF https://arxiv.org/pdf/1901.09945v2, SHA-256 8fc51ac36f9fc4b406c7bb44cdeccf31386e81e0a471176a69e80a1a0766bab8). The extraction initially could not access the typeset Annals PDF. The independent review subsequently collated the published version at every source issue and at items 4–9, 42, 52 and 53 (review receipt dated 2026-09-23).",
+      "FIX-RT-PAPER-DEMARCO-KRIEGER-YE-20, Codex codex-rtOQ9t, 2026-09-30: re-downloaded and verified both recorded hashes; targeted checks of published pp.951,955,962,965,990,995,997,999, with rendered pp.951,990,997, and v2 pp.2,41. No new whole-paper reading claimed."
     ]
   },
-  "summary": "Proves a uniform bound on common torsion images π(E_{t₁}^tors) ∩ π(E_{t₂}^tors) for two Legendre curves (Theorem 1.4), hence uniform Manin–Mumford at Weierstrass points for bielliptic genus-2 curves over ℂ (Theorem 1.1) and uniform Bogomolov for them over Q̄ (Theorem 1.9). The method bounds the Arakelov–Zhang pairing of the Lattès heights ĥ_{t₁}, ĥ_{t₂} from below, uniformly (Theorem 1.5) and linearly in the parameter height (Theorem 1.6). It uses nonarchimedean energy computations and archimedean estimates from degenerations in the hybrid space. It also bounds the pairing from above by quantitative equidistribution when the heights share many small points (Theorem 7.1). The atlas plans heights, Lattès canonical heights, Berkovich points, equidistribution, Manin–Mumford and Jacobians. It lacks Berkovich potential theory, the hybrid space, the Arakelov–Zhang pairing machinery and the uniform unlikely-intersection results. The independent review (REV-PAPER-DEMARCO-KRIEGER-YE-20) collated the published Annals version, which renumbers Theorems 1.4–1.9 as 1.5–1.10 and adds Propositions 8.3 and 9.2. It added four items and five further misprints or gaps (E9–E13), revised the corrections of E5 and E7, and confirmed that E7 is an error that needs its repair.",
+  "summary": "Proves a uniform bound on common torsion images π(E_{t₁}^tors) ∩ π(E_{t₂}^tors) for two Legendre curves (Theorem 1.4), hence uniform Manin–Mumford at Weierstrass points for bielliptic genus-2 curves over ℂ (Theorem 1.1) and uniform Bogomolov for them over Q̄ (Theorem 1.9). The method bounds the Arakelov–Zhang pairing of the Lattès heights ĥ_{t₁}, ĥ_{t₂} from below, uniformly (Theorem 1.5) and linearly in the parameter height (Theorem 1.6). It uses nonarchimedean energy computations and archimedean estimates from degenerations in the hybrid space. It also bounds the pairing from above by quantitative equidistribution when the heights share many small points (Theorem 7.1). The atlas plans heights, Lattès canonical heights, Berkovich points, equidistribution, Manin–Mumford and Jacobians. It lacks Berkovich potential theory, the hybrid space, the Arakelov–Zhang pairing machinery and the uniform unlikely-intersection results. The independent review (REV-PAPER-DEMARCO-KRIEGER-YE-20) collated the published Annals version, which renumbers Theorems 1.4–1.9 as 1.5–1.10 and adds Propositions 8.3 and 9.2. It added four items and five further misprints or gaps (E9–E13), revised the corrections of E5 and E7, and confirmed that E7 is an error that needs its repair. Confirmed red-team fixes add the existing absolute scalar-height construction as item 54, keep tuple and normalization adapters explicit, strengthen division-polynomial citations, record E14–E16, and add the distinct Favre–Rivera-Letelier 2010 prerequisite and structured source provenance. The earlier review’s absence/normalization assertions are superseded by these corrections.",
   "items": [
     {
       "id": "PAPER-DEMARCO-KRIEGER-YE-20/1",
@@ -44,9 +45,10 @@
       "locator": "(1.2), p.3; §2.1, p.6; (2.5), p.9, arXiv v2 (3 December 2019)",
       "status": "library",
       "library": [
-        "mathlib:WeierstrassCurve"
+        "mathlib:WeierstrassCurve",
+        "tauceti:WeierstrassCurve.addOrderOf_eq_two_iff_evalEval_ψ₂_eq_zero"
       ],
-      "note": "Mathlib `WeierstrassCurve` covers E_t as the Weierstrass curve with a₂ = −(1+t), a₄ = t (Mathlib/AlgebraicGeometry/EllipticCurve/Weierstrass.lean); no Legendre-specific API is needed."
+      "note": "Mathlib `WeierstrassCurve` covers E_t as the Weierstrass curve with a₂ = −(1+t), a₄ = t (Mathlib/AlgebraicGeometry/EllipticCurve/Weierstrass.lean); no Legendre-specific API is needed. The two-torsion characterization for nonsingular affine points is WeierstrassCurve.addOrderOf_eq_two_iff_evalEval_ψ₂_eq_zero (Tau Ceti DivisionPolynomial/ZSMul.lean:1128), specialized to ψ₂=2y in characteristic zero; infinity is treated separately. This lemma alone is not the degree-two branched-cover theorem or the Legendre j-invariant calculation: those require specialization of the curve/projection formulas."
     },
     {
       "id": "PAPER-DEMARCO-KRIEGER-YE-20/4",
@@ -105,11 +107,11 @@
     {
       "id": "PAPER-DEMARCO-KRIEGER-YE-20/10",
       "kind": "construction",
-      "name": "Logarithmic Weil height on ℙ¹(Q̄) and 𝔸²(Q̄)",
-      "statement": "h : ℙ¹(Q̄) → ℝ, and the naive height h(t₁, t₂) on 𝔸²(Q̄), with 2h(x) = Σ_v r_v |log|x|_v| for x ≠ 0, r_v = [K_v:ℚ_v]/[K:ℚ].",
-      "locator": "§2.1, p.6; §6, pp.33–35, arXiv v2 (3 December 2019)",
+      "name": "Absolute tuple-height comparison and the weighted scalar-height identity",
+      "statement": "The absolute naive height h(t₁,t₂)=h_abs([1:t₁:t₂]) on 𝔸²(ℚ̄), with its comparison to fixed-field projective heights; for x∈K×, 2h_abs(x)=Σ_v r_v |log|x|_v|, where r_v=[K_v:ℚ_v]/[K:ℚ].",
+      "locator": "§2.1, published p.955 (v2 p.6); §6, arXiv v2 pp.33–35; proof of Theorem 7.1, published p.990 (v2 p.41)",
       "status": "planned",
-      "note": "RP.0 plans normalized absolute heights. Mathlib's `Projectivization.logHeight` (Mathlib/NumberTheory/Height/Projectivization.lean:51) is the height relative to a field K with `Height.AdmissibleAbsValues` (for a number field the product over its places, not normalized by [K:ℚ]); the absolute height on ℙ¹(ℚ̄) used by the paper is not in the library. (Post-review correction by cc-442dc5, 23 September 2026; the review had accepted the library status.)",
+      "note": "Imports PAPER-DEMARCO-KRIEGER-YE-20/54 for the existing scalar absolute height. RP.0 owns comparison with imported normalized absolute heights, not reconstruction of that scalar definition. The fixed-field tuple/projective heights already exist; their normalized absolute comparison and the displayed weighted identity remain planned interfaces. Reuse ArithmeticDynamics:DY.4/standard-adelic-height-is-the-weil-height and its DiophantineApproximationAndTranscendence:DT.0/abs-mul-height-eq-rpow prerequisite. The printed p.990 identity omits r_v (E14).",
       "planned": [
         "HeightsRationalPointsAndObstructions:RP.0"
       ]
@@ -117,15 +119,15 @@
     {
       "id": "PAPER-DEMARCO-KRIEGER-YE-20/11",
       "kind": "construction",
-      "name": "Néron–Tate height on E_t",
-      "statement": "The canonical height ĥ_{E_t} on E_t(K), for K a number field, a quadratic form vanishing exactly on torsion.",
+      "name": "Néron–Tate height in fixed-field normalization",
+      "statement": "For an elliptic curve E_t/K with admissible absolute values, the fixed-field canonical height c_K(P)=½ lim_m h_K(x(2^mP))/4^m is quadratic; under a Northcott instance it vanishes exactly on torsion. Here h_K is the library’s fixed-field height.",
       "locator": "§2.1, p.6; §9.4, p.47, citing Silverman [Si], arXiv v2 (3 December 2019)",
       "status": "library",
       "library": [
         "tauceti:WeierstrassCurve.Affine.Point.canonicalHeight",
         "tauceti:WeierstrassCurve.Affine.Point.canonicalHeight_eq_zero_iff_isOfFinAddOrder"
       ],
-      "note": "Tau Ceti `WeierstrassCurve.Affine.Point.canonicalHeight` (TauCeti/AlgebraicGeometry/EllipticCurve/CanonicalHeight.lean:124), with `canonicalHeight_eq_zero_iff_isOfFinAddOrder` (line 338) under a Northcott instance, over fields with `Height.AdmissibleAbsValues`."
+      "note": "The library citations supply the fixed-field definition, quadraticity and torsion-zero-locus theorem with their ellipticity/Northcott hypotheses. They do not supply the normalized comparison as an implemented theorem. Tau Ceti canonicalHeight=½ lim h_K(x(2^mP))/4^m uses unnormalized h_K; thus c_K=[K:ℚ]·ĥ_{E_t}=([K:ℚ]/2)·ĥ_t∘π. Import the comparison from the accepted but implementation-unchecked ArithmeticDynamics:DY.6/lattes-map-canonical-height, which depends on DT.0/abs-mul-height-eq-rpow. Do not silently identify the fixed-field and absolute heights."
     },
     {
       "id": "PAPER-DEMARCO-KRIEGER-YE-20/12",
@@ -270,7 +272,7 @@
       "statement": "For v ∤ 2, f_t has good reduction iff |t(t − 1)|_v = 1; otherwise it has no potential good reduction and µ_{t,v} is the interval measure on [ζ_{0,1}, ζ_{0,|t|_v}] (|t|_v ≠ 1) or [ζ_{0,1}, ζ_{1,|1−t|_v}] (|1 − t|_v < 1), f_t acting on it by a tent map. The escape rate G_{F_t,v}(z,1) is given explicitly by (3.1) for |t(t − 1)|_v ≥ 1 (Proposition 3.3) and (3.3) for |t|_v < 1.",
       "locator": "Propositions 3.2–3.4 and proofs, pp.13–15, citing Favre–Rivera-Letelier [FRL2, §5.1], arXiv v2 (3 December 2019)",
       "status": "missing",
-      "note": "Routed to DY.6 as a source."
+      "note": "Routed to DY.6 as a source. Its tent-map/interval calculation uses Favre–Rivera-Letelier 2010 §5.1 ([FRL10] published, [FRL2] in v2), distinct from the 2006 quantitative equidistribution source; listed in prerequisites."
     },
     {
       "id": "PAPER-DEMARCO-KRIEGER-YE-20/27",
@@ -279,7 +281,7 @@
       "statement": "For v | 2, µ_{t,v} is the interval measure on [ζ_{0,|t/4|}, ζ_{0,|4|}] for |t|_v < |16|_v, on [ζ_{0,1/|4|}, ζ_{0,|4t|}] for |t|_v > 1/|16|_v and on [ζ_{1,|1−t|/|4|}, ζ_{1,|4|}] for |1 − t|_v < |16|_v; for |16|_v ≤ |t|_v ≤ 1/|16|_v with |1 − t|_v ≥ |16|_v, f_t has potential good reduction and µ_{t,v} is a point mass in H. The escape rate is given by (3.4) for |t|_v ≥ 1/|16|_v and by (3.5) for |t|_v ≤ |16|_v; the middle range of (3.5) should read |t/4|_v < |z|_v < |4|_v (misprint E12).",
       "locator": "Propositions 3.5–3.6 and proofs, pp.16–17, arXiv v2 (3 December 2019) (misprint E12)",
       "status": "missing",
-      "note": "The support point in the potentially good range is not computed in the paper. Its diameter is |Δ_t|_v^{1/6} = |2|_v^{2/3}|t(t − 1)|_v^{1/3} (a change of coordinates x = u²x′ + r to a good model has |u|¹² = |Δ_t|, and the resultant of f_t is Δ_t²), which is < 1 when |t(t − 1)|_v < |2|_v^{−2}; its centre can be taken to be any 3-torsion x-coordinate (sourceIssues E7). Routed to DY.6 as a source."
+      "note": "The support point in the potentially good range is not computed in the paper. Its diameter is |Δ_t|_v^{1/6} = |2|_v^{2/3}|t(t − 1)|_v^{1/3} (a change of coordinates x = u²x′ + r to a good model has |u|¹² = |Δ_t|, and the resultant of f_t is Δ_t²), which is < 1 when |t(t − 1)|_v < |2|_v^{−2}; its centre can be taken to be any 3-torsion x-coordinate (sourceIssues E7). Routed to DY.6 as a source. Its tent-map/interval calculation uses Favre–Rivera-Letelier 2010 §5.1 ([FRL10] published, [FRL2] in v2), distinct from the 2006 quantitative equidistribution source; listed in prerequisites. For /27 the paper adapts the computation to residue characteristic 2."
     },
     {
       "id": "PAPER-DEMARCO-KRIEGER-YE-20/28",
@@ -432,13 +434,18 @@
       "id": "PAPER-DEMARCO-KRIEGER-YE-20/44",
       "kind": "construction",
       "name": "Division polynomials over a polynomial base",
-      "statement": "The division polynomials of E_t have coefficients in ℚ[t], so the torsion images π(E_t[n]) are cut out by polynomials in (x, t).",
+      "statement": "Over ℚ[t], the Legendre family has division polynomials. For t≠0,1 and n≥1, the finite x-coordinates of its n-torsion are cut out by the univariate division-polynomial square ΨSq_n(x,t); the point at infinity is handled separately.",
       "locator": "§8.2, p.44, citing Silverman [Si, Ex. 3.7], arXiv v2 (3 December 2019)",
       "status": "library",
       "library": [
-        "mathlib:WeierstrassCurve.ψ"
+        "mathlib:WeierstrassCurve.ψ",
+        "mathlib:WeierstrassCurve.ΨSq",
+        "mathlib:WeierstrassCurve.Affine.CoordinateRing.mk_Ψ_sq",
+        "tauceti:WeierstrassCurve.evalEval_ψ_eq_zero_of_zsmul_eq_zero",
+        "tauceti:WeierstrassCurve.zsmul_eq_zero_of_evalEval_ψ_eq_zero",
+        "tauceti:WeierstrassCurve.zsmul_fromAffine_eq_zero_iff"
       ],
-      "note": "Mathlib `WeierstrassCurve.ψ` (Mathlib/AlgebraicGeometry/EllipticCurve/DivisionPolynomial/Basic.lean:401), defined over any commutative ring, so over ℚ[t]."
+      "note": "Mathlib DivisionPolynomial/Basic.lean defines ψ over any commutative ring and the univariate ΨSq, with Affine.CoordinateRing.mk_Ψ_sq relating ΨSq to the square of the bivariate polynomial on the curve. Tau Ceti DivisionPolynomial/ZSMul.lean:1071,1084 gives both vanishing/annihilation directions for a nonsingular affine point. zsmul_fromAffine_eq_zero_iff transports between Jacobian and affine point groups. These are the reusable inputs for specialization over ℚ[t]; no polynomial equation in affine x is asserted to include infinity. Require n≠0 to infer torsion: ψ₀ vanishes identically and 0·P=0 says nothing about finite order."
     },
     {
       "id": "PAPER-DEMARCO-KRIEGER-YE-20/45",
@@ -533,7 +540,20 @@
       "statement": "For every N > 0 there are a curve X ∈ L₂ defined over Q̄ and a Weierstrass point P ∈ X such that j_P(X) ∩ J(X)^tors contains a point of order ≥ N.",
       "locator": "Proposition 9.2 and proof, §9.5, p.997, and Remark 1.3, p.950, of the published version (Ann. Math. 191 (2020)); not in arXiv v2",
       "status": "missing",
-      "note": "Added by the review from the published version. From Proposition 8.3 and Proposition 9.1: a point of j_Q(X) over (x₀, x₀) maps under the isogeny Φ to a pair of torsion points of order ≥ N. Routed with Theorem 1.1 to the uniformity Part II."
+      "note": "Added by the earlier review from the published version. Apply Proposition 9.1 to choose w on j_Q(X) above the torsion pair from Proposition 8.3; finite isogeny kernel implies w is torsion, and its image has order dividing ord(w), hence ord(w)≥N. This repairs the omitted choice recorded as E16. Routed with Theorem 1.1 to the uniformity Part II."
+    },
+    {
+      "id": "PAPER-DEMARCO-KRIEGER-YE-20/54",
+      "kind": "construction",
+      "name": "Absolute logarithmic Weil height of an algebraic number",
+      "statement": "For an algebraic element x of a characteristic-zero field, H_abs(x) is the multiplicative height of the generator of ℚ(x), raised to 1/[ℚ(x):ℚ], and h_abs(x)=log H_abs(x). Use this scalar definition on ℙ¹(ℚ̄) with the convention h_abs(∞):=0.",
+      "locator": "§2.1, published p.955 (arXiv v2 p.6); Mathlib/NumberTheory/Height/NumberField.lean:137–147 at 082e2d3",
+      "status": "library",
+      "library": [
+        "mathlib:NumberField.absLogHeight₁",
+        "mathlib:NumberField.absMulHeight₁"
+      ],
+      "note": "NumberField.absMulHeight₁ and absLogHeight₁ are already defined for any characteristic-zero field, hence for algebraic elements of ℚ̄. This cites the scalar definition, not an implemented projective or field-extension comparison API. Reuse ArithmeticDynamics:DY.4/standard-adelic-height-is-the-weil-height and DiophantineApproximationAndTranscendence:DT.0/abs-mul-height-eq-rpow for the planned comparisons. Item /10 imports this construction."
     }
   ],
   "prerequisites": [
@@ -596,6 +616,11 @@
       "citation": "M. Raynaud, Courbes sur une variété abélienne et points de torsion, Invent. Math. 71 (1983), 207–233",
       "link": "https://doi.org/10.1007/BF01393342",
       "why": "Manin–Mumford (1.1) and finiteness in Conjecture 1.3."
+    },
+    {
+      "citation": "C. Favre, J. Rivera-Letelier, Théorie ergodique des fractions rationnelles sur un corps ultramétrique, Proc. Lond. Math. Soc. (3) 100 (2010), 116–154; doi:10.1112/plms/pdp022",
+      "link": "https://arxiv.org/abs/0709.0092",
+      "why": "§5.1 supplies total invariance of the interval and the degree-two tent map used in Proposition 3.2 (published p.962, item /26); Proposition 3.5 (p.965, item /27) adapts that calculation to residue characteristic 2. This is [FRL10] in the publication and [FRL2] in v2, not the distinct 2006 paper. No new decomposition of this cited result is attempted here."
     }
   ],
   "routes": [
@@ -935,6 +960,70 @@
         "reason": "Found by a helper agent of the review, which also checked the masses numerically; checked by the reviewer on the page image of p.29 against Lemma 4.1 (p.20).",
         "by": "REV-PAPER-DEMARCO-KRIEGER-YE-20"
       }
+    },
+    {
+      "id": "PAPER-DEMARCO-KRIEGER-YE-20/E14",
+      "kind": "misprint",
+      "locator": "Proof of Theorem 7.1, published p.990; also arXiv v2 p.41",
+      "printed": "2 h(x) = Σ_v |log |x|_v|",
+      "correction": "For x∈K×, 2h(x)=Σ_v r_v |log|x|_v| with r_v=[K_v:ℚ_v]/[K:ℚ].",
+      "reason": "The normalized product formula gives the identity with r_v. For K=ℚ(√2), x=2, the two real places have weights 1/2 and the unique place above 2 has weight 1. The weighted sum is 2log2; the unweighted sum is 3log2. The paper’s height normalization on p.955 and its subsequent weighted estimates give the intended formula.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "2026-09-30: Annals article/errata listing, https://annals.math.princeton.edu/2020/191-3/p05; no correction linked.",
+        "2026-09-30: Crossref record https://api.crossref.org/works/10.4007/annals.2020.191.3.5; no update-to or correction relation returned.",
+        "2026-09-30: https://arxiv.org/abs/1901.09945 version history and the v2 passages identified below; v1 not separately collated.",
+        "2026-09-30: author publication list https://people.math.harvard.edu/~demarco/ and targeted title/author erratum search; no correction found."
+      ]
+    },
+    {
+      "id": "PAPER-DEMARCO-KRIEGER-YE-20/E15",
+      "kind": "misprint",
+      "locator": "§1 after Conjecture 1.4, published p.951; also arXiv v2 p.2 after Conjecture 1.3",
+      "printed": "The source describes the lift as a singular curve C.",
+      "correction": "The fiber-product curve is possibly singular: it is singular precisely over common branch values of the two standard projections. For unequal branch sets with m common values, its normalization has genus 5−m≥2.",
+      "reason": "At a common simple branch value the local equation is u²=v², a node; with only one ramified map it is u²=v and smooth. Unequal branch sets can be disjoint, when the fiber product is smooth. Riemann–Hurwitz for the connected degree-four normalization gives 2g−2=−8+2(8−m). The genus lower bound and the three-common-values genus-two application remain valid.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "2026-09-30: Annals article/errata listing, https://annals.math.princeton.edu/2020/191-3/p05; no correction linked.",
+        "2026-09-30: Crossref record https://api.crossref.org/works/10.4007/annals.2020.191.3.5; no update-to or correction relation returned.",
+        "2026-09-30: https://arxiv.org/abs/1901.09945 version history and the v2 passages identified below; v1 not separately collated.",
+        "2026-09-30: author publication list https://people.math.harvard.edu/~demarco/ and targeted title/author erratum search; no correction found."
+      ]
+    },
+    {
+      "id": "PAPER-DEMARCO-KRIEGER-YE-20/E16",
+      "kind": "gap",
+      "locator": "Proof of Proposition 9.2, §9.5, published p.997; the proposition is absent from arXiv v2",
+      "printed": "The source chooses a lift w in J(X).",
+      "correction": "Use Proposition 9.1 to choose w∈j_Q(X) with Φ(w)=(P_{t₁},P_{t₂}). This pair lies in the fiber product Φ(j_Q(X)), and w is torsion of order at least N. Take P=Q.",
+      "reason": "An arbitrary lift in J(X) need not lie on j_Q(X), which the conclusion requires. If d annihilates the torsion pair and e annihilates the finite kernel of Φ, ed annihilates w; the order of its image divides the order of w, hence ord(w)≥N. This repairs the omitted membership choice without changing the proposition. No assertion of sixteen distinct preimages at branch values is needed.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "2026-09-30: Annals article/errata listing, https://annals.math.princeton.edu/2020/191-3/p05; no correction linked.",
+        "2026-09-30: Crossref record https://api.crossref.org/works/10.4007/annals.2020.191.3.5; no update-to or correction relation returned.",
+        "2026-09-30: https://arxiv.org/abs/1901.09945 version history and the v2 passages identified below; v1 not separately collated.",
+        "2026-09-30: author publication list https://people.math.harvard.edu/~demarco/ and targeted title/author erratum search; no correction found."
+      ]
+    }
+  ],
+  "sourceVersions": [
+    {
+      "kind": "published",
+      "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v191-n3-p05-s.pdf",
+      "read": "2026-09-23",
+      "sha256": "7a4bd817bc7cc561363c68c3941b449af55fbf4cb1b3481bd0d601e84b9307df",
+      "citation": "Ann. Math. 191 (2020), 949–1001, 53 pages. Reading date from REV-PAPER-DEMARCO-KRIEGER-YE-20; hash and selected passages rechecked on 2026-09-30."
+    },
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/1901.09945v2",
+      "read": "2026-09-22",
+      "sha256": "8fc51ac36f9fc4b406c7bb44cdeccf31386e81e0a471176a69e80a1a0766bab8",
+      "citation": "arXiv v2, 3 December 2019, 49 pages. Whole-paper reading date from the original extraction; hash and selected passages rechecked on 2026-09-30."
     }
   ]
 }

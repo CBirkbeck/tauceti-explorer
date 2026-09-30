@@ -76,12 +76,13 @@
       "id": "PAPER-DEMARCO-MAVRAKI-YE-26/7",
       "kind": "construction",
       "name": "Weil height on ℙ¹(Q̄)",
-      "statement": "The logarithmic Weil height h used to define ĥ_f.",
+      "statement": "The absolute logarithmic Weil height of an algebraic x∈ℚ̄ is NumberField.absLogHeight₁ x; use h(∞):=0 on ℙ¹(ℚ̄). This is the scalar height used to define ĥ_f.",
       "locator": "§2.4, p.6, Forum Math. Pi 14 (2026) e4",
-      "status": "planned",
-      "note": "RP.0 plans normalized absolute heights. Mathlib's `Projectivization.logHeight` (Mathlib/NumberTheory/Height/Projectivization.lean:51) is the height relative to a field K with `Height.AdmissibleAbsValues` (for a number field the product over its places, not normalized by [K:ℚ]); the absolute height on ℙ¹(ℚ̄) used by the paper is not in the library. (Post-review correction by cc-442dc5, 23 September 2026; the review had accepted the library status.)",
-      "planned": [
-        "HeightsRationalPointsAndObstructions:RP.0"
+      "status": "library",
+      "note": "Corrected by FIX-RT-PAPER-DEMARCO-KRIEGER-YE-20/1: Mathlib/NumberTheory/Height/NumberField.lean:137–147 at 082e2d3 already defines the absolute scalar height through ℚ(x), including x∈ℚ̄. The earlier assertion that no such height exists is false. This status cites the scalar construction with the infinity convention, not a completed projective-height comparison API. The latter imports ArithmeticDynamics:DY.4/standard-adelic-height-is-the-weil-height and DiophantineApproximationAndTranscendence:DT.0/abs-mul-height-eq-rpow; RP.0 consumes those comparisons. Do not reconstruct the scalar definition.",
+      "library": [
+        "mathlib:NumberField.absLogHeight₁",
+        "mathlib:NumberField.absMulHeight₁"
       ]
     },
     {
