@@ -1,0 +1,96 @@
+{
+  "redteam": "RT-PAPER-MOK-PILA-TSIMERMAN-19",
+  "agent": "Codex",
+  "session": "codex-a71f92",
+  "status": "complete",
+  "inputCommit": "ab2364e14dcaa1f60f27033ed9daff1432cc7776",
+  "scope": "Verification of all 13 red-team findings; no edits to the accepted extraction or the prior errata.",
+  "independence": {
+    "redteamAuthor": "Codex — codex-rtOQ9t",
+    "extractionAuthor": "Claude Code — cc-7b31c4",
+    "extractionReviewer": "Claude Code — cc-442dc5",
+    "excludedJobsPerformed": [],
+    "priorRelatedRole": "This session reviewed REV-ERRATA-PAPER-MOK-PILA-TSIMERMAN-19 on 2026-09-23. Findings 3, 4, 5 and 12 are checked here for propagation into another worker's extraction, not used to independently re-certify this session's prior errata verdicts."
+  },
+  "sourceVersions": [
+    {
+      "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v189-n3-p07-s.pdf",
+      "sha256": "1eab0797914752bdc91b4f46692f0a5716be2cc9e0d2dd96b478f1cdb762a0ab",
+      "scope": "Freshly read all 34 pages, numbered 945–978; page images 966, 971 and 974.",
+      "date": "2026-09-30"
+    },
+    {
+      "url": "https://arxiv.org/pdf/1711.02189v3",
+      "sha256": "b3de4f10ea6243fafcfc4a12adc939b1c8c6fab620afa00d2860d5313e1c0167",
+      "scope": "Freshly read all 29 pages; text-layer collation at each finding's locator.",
+      "date": "2026-09-30"
+    }
+  ],
+  "findings": [
+    {
+      "finding": "RT-PAPER-MOK-PILA-TSIMERMAN-19/1",
+      "verdict": "confirmed",
+      "reason": "Confirmed. Item 20 retains arXiv v3 §7.1 p.11's weight 2, whereas published §7.1 p.958 has weight 0. The displayed adjoint types (-1,1), (0,0), (1,-1) have total degree zero. I read TauCeti.Hodge.HodgeStructureOn and piece at f790474821cf4256814db967cb154e7af3d0c369, Structure.lean:62/156: the weight enters opposedness and bidegrees, so this is a type-changing correction. Use weight 0, record the version-specific correction already made in print, and retain the specialized adjoint construction as a ShimuraData D2/D3 import, not an already implemented theorem."
+    },
+    {
+      "finding": "RT-PAPER-MOK-PILA-TSIMERMAN-19/2",
+      "verdict": "confirmed",
+      "reason": "Confirmed as an underspecified construction and overbroad induced functoriality claim, not a refutation of jet Ax–Schanuel. Item 41 and published §9.2 p.966 / v3 §9.1 p.19 leave the zero orbit in the displayed quotient. For order/arity one on a curve, the fiber is A² with positive weights (1,1); only the punctured quotient is P¹. Define the punctured weighted quotient or justified relative weighted Proj, removing constant jet with s=0, and prove gluing. A constant morphism sends nonconstant boundary jets to the excluded origin, so the induced map is not everywhere defined. Automorphisms preserve the locus and suffice for the stated group action; arbitrary morphisms require a domain restriction or a separately proved extension. Weighted-projective notation may intend the puncturing implicitly, but the extraction must make it explicit."
+    },
+    {
+      "finding": "RT-PAPER-MOK-PILA-TSIMERMAN-19/3",
+      "verdict": "confirmed",
+      "reason": "Confirmed as failure to propagate accepted separate errata E7, not a new erratum or a re-review of that verdict. Item 32 repeats the reversed test in published §12.2 p.972 / v3 p.24. For p₁=(t,s), p₂=t, the joint rank is 2 and rank(p₂)=1 despite dependence; reversing the tuples passes the printed test despite the extra variable. Use rank(p₁,p₂)=rank(p₁), interpreted locally analytically at regular points, not necessarily rationally. Equal-rank applications are unaffected. Link research/blueprint/errata/PAPER-MOK-PILA-TSIMERMAN-19.json E7, not the unrelated embedded sourceIssue with the same number."
+    },
+    {
+      "finding": "RT-PAPER-MOK-PILA-TSIMERMAN-19/4",
+      "verdict": "confirmed",
+      "reason": "Confirmed as failure to propagate accepted separate errata E6. Item 43 and published §12.4 p.974 / v3 p.26 equate rank(z) with dim U using an invertible formal jet matrix. For unramified modular-curve q and independent parameters a,b with b≠0, the graph of input second jets (a,b,0) is (a,b,0;q(a),q′(a)b,q″(a)b²): dim U=2 and rank(z)=1, with open base image. Recover derivatives instead by R=(Dq)r and higher triangular chain rules, apply the differential input with rank(z)=dim z, and supply the remaining parameters via the generic-fiber inequality. This repair is conditional on a correct differential input; it neither proves that input globally nor refutes the separate direct §10 proof."
+    },
+    {
+      "finding": "RT-PAPER-MOK-PILA-TSIMERMAN-19/5",
+      "verdict": "confirmed",
+      "reason": "Confirmed as missing propagation of accepted separate errata E4/E5 into items 30–31/33 and the route. Published Lemma 11.1 p.969 / v3 p.22 counts strict finite stabilizer drops as dimension drops; the recorded PSp₄ third/fourth-jet example has stabilizers of orders 2 and 1, both dimension zero. This invalidates that proof step, not the existential finite-order lemma or its proposed bound. Published Theorem 11.3 p.971 / v3 pp.23–24 gives only zeroth-order restriction to u: w=2t, u=q(t), v=J_rq(id_r(t)) satisfies the stated conditions but differs in first derivative by a factor of two from a uniformizer at w. Import the existing errata, leave finite-order determination as an unresolved proof obligation, and add du=v₁dw or full jet compatibility with domain/lifting hypotheses. The local compatibility argument is not a complete global characterization proof."
+    },
+    {
+      "finding": "RT-PAPER-MOK-PILA-TSIMERMAN-19/6",
+      "verdict": "confirmed",
+      "reason": "Confirmed. Item 16 asserts exponential volume growth on the arithmetic quotient; the proof of published Lemma 4.3 p.955 / v3 p.9 needs growth across translates upstairs. For a finite-area torsion-free modular curve X, every quotient ball has area at most area(X), and a point cannot have positive exponential growth either. Replace the supplier contract by the precise positive-dimensional analytic-lift statement in the Hermitian domain, with metric and other hypotheses taken from the actual Hwang–To theorem; preserve the separate bound on a fundamental-domain piece. The present review did not acquire that primary proof and does not certify all proposed supplier hypotheses. Locating it is an explicit fix/design obligation, not permission to assert an unverified stronger theorem."
+    },
+    {
+      "finding": "RT-PAPER-MOK-PILA-TSIMERMAN-19/7",
+      "verdict": "confirmed",
+      "reason": "Confirmed. Item 22's general semisimple G contract lacks effectiveness, though published Proposition 7.2 p.959 / v3 p.12 claims freeness. In SL₂ the nonidentity central matrix −I acts identically on P¹ and every jet. Neatness of Γ does not make the entire complex group action faithful; the published Sp₂g example also has a central kernel. ShimuraVarieties V0/V1 already distinguish effective actions and deck quotients. Use the effective image, or state stabilizers as the action kernel and carry dim G−dim(kernel) into orbit dimensions. Removing a finite center preserves dimension; removing positive-dimensional inactive factors does not. Check the uniformization comparison and expected-dimension formula rather than silently changing the group."
+    },
+    {
+      "finding": "RT-PAPER-MOK-PILA-TSIMERMAN-19/8",
+      "verdict": "confirmed",
+      "reason": "Confirmed. Item 13's exported statement refers only to the unrestricted §3.1 setup; its note mentions induction without carrying the full contradiction context into the hypotheses. For W=Ω×X and U=D, the ambient Hilbert point is fixed, Γ₀=Γ and Θ=G°, not trivial. A point of D at torsion-free level supplies the opposing trivial-stabilizer example to an unconditional infinite-stabilizer claim. Published §4 pp.953–955 adds atypicality, noncontainment in a proper weakly special subvariety, induction hypotheses and a very-general replacement. Carry these into items 13–14 and their jet counterpart 29. The finding concerns unqualified extraction contracts, not the correctly contextualized lemmas or the main theorem."
+    },
+    {
+      "finding": "RT-PAPER-MOK-PILA-TSIMERMAN-19/9",
+      "verdict": "confirmed",
+      "reason": "Confirmed as published-version completion. Published Theorem 1.2 p.947 gives dim(Y^zar)+dim(q(Y)^zar)≥dim Y+dim Y^WS and needs a smallest weakly-special-envelope interface; neither appears among the 44 accepted items. The extraction accurately disclosed v3 as its source, so its old locators are not fabricated. Add this theorem/interface to the existing Part II route, coordinate the envelope with item 2's owner, and record both versions. V3 1.2/1.3/1.4 become published 1.3/1.4/1.5; v3 12.3/12.5 become published 12.1/12.2. Explicitly collate the full-restriction hypotheses in published Theorems 1.1 and 9.1 rather than overwriting the preprint statements silently."
+    },
+    {
+      "finding": "RT-PAPER-MOK-PILA-TSIMERMAN-19/10",
+      "verdict": "confirmed",
+      "reason": "Confirmed by the source bibliographies and the accepted prerequisite/reader records. Published §7.3 p.960 and reference [23] p.977 / v3 §7.3 pp.13–14 and [24] p.28 cite Mok's 1999 Contemp. Math. article, §2.3, DOI 10.1090/conm/222/03174, not the supplied 1989 book. The optional compactification sources are separate. Published references [34], [5], [7] give Scanlon 10.1016/j.aim.2018.03.008, Bertrand–Zudilin 10.1515/crll.2003.008 and Daw–Ren 10.1112/s0010437x1800725x, disagreeing with the extraction's strings. Correct the records and reader; this confirms their identities, not a fresh proof audit of the prerequisite papers."
+    },
+    {
+      "finding": "RT-PAPER-MOK-PILA-TSIMERMAN-19/11",
+      "verdict": "confirmed",
+      "reason": "Confirmed. Item 18 first abbreviates J_kX=J_k^{dim X}X and then nests the abbreviation, changing the source arity in J_aJ_bX; item 19 inherits the ambiguity. For X=A¹, a=b=1, fixed-arity J₁¹(J₁¹X) has dimension 4, while the nested abbreviation gives J₁²(A²) of dimension 6. Published §5.2 pp.956–957 retains the original arity. Write J_{a+b}^gX→J_a^g(J_b^gX), J_a^g id_b and J_a^gW with fixed g. Item 31 must say order m, arity k for V_m^k, not order k. Retain the published truncation powers a+b+1, a+1, b+1; the preprint display has an additional off-by-one slip, so document which version supplies the corrected rings."
+    },
+    {
+      "finding": "RT-PAPER-MOK-PILA-TSIMERMAN-19/12",
+      "verdict": "confirmed",
+      "reason": "Confirmed as finite-input clarification and propagation of accepted separate errata E3. Items 4–5 and the route retain finite C-basis terminology from published Theorem 1.3 p.948 / Corollary 9.3 p.965 and v3 pp.3/18. For a nonconstant modular function f, the powers 1,f,f²,… are C-linearly independent; no finite vector-space basis exists. Interpret the source charitably as finite field generators, but state that precise contract with domains of definition. Preserve the derivative-field transcendence-degree claims and distinguish the published proof's wrong coordinate field from the preprint's omitted derivatives. Link the separate errata E3, not embedded E3 (a tangent-space typo)."
+    },
+    {
+      "finding": "RT-PAPER-MOK-PILA-TSIMERMAN-19/13",
+      "verdict": "confirmed",
+      "reason": "Confirmed as two missing external supplier contracts, not a demand to decompose their full proofs. Item 23 states the resulting lower-order rigidity and names Theorems A/B without inventorying their hypotheses. Published §7.3 p.960 / v3 pp.13–14 explicitly needs: A, convex open U⊂Cⁿ, n≥2, a biholomorphism into Pⁿ preserving affine-line intersections, giving a projective-linear extension; B, irreducible compact Hermitian symmetric S of rank≥2, connected opens and a biholomorphism preserving the distinguished highest-weight projective tangent orbits, giving an Aut(S) extension. Add two externally sourced items and the tangent-orbit/VMRT interface to the existing Part II route, using the correct Mok/Ochiai records. PROTOCOL §16 does not require a fresh full proof audit of those prerequisite papers for this extraction fix."
+    }
+  ]
+}
