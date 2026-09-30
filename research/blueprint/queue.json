@@ -39226,7 +39226,8 @@
     "REV-PAPER-BHATT-MORROW-SCHOLZE-18"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-BHATT-MORROW-SCHOLZE-18.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4310"
   },
   {
    "id": "REV-RT-PAPER-BHATT-MORROW-SCHOLZE-18",
@@ -40076,8 +40077,9 @@
     "REV-PAPER-KHARE-WINTENBERGER-09-II"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-KHARE-WINTENBERGER-09-II.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4602"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4602",
+   "finishedAt": "2026-09-30T03:37:25Z"
   },
   {
    "id": "REV-RT-PAPER-KHARE-WINTENBERGER-09-II",
