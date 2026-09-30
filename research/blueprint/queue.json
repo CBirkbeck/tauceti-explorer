@@ -39172,7 +39172,8 @@
     "REV-PAPER-KISIN-PAPPAS-18"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-KISIN-PAPPAS-18.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4308"
   },
   {
    "id": "REV-RT-PAPER-KISIN-PAPPAS-18",
@@ -39602,8 +39603,9 @@
     "REV-PAPER-BETTS-STIX-25"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-BETTS-STIX-25.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4326"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4326",
+   "finishedAt": "2026-09-30T01:02:19Z"
   },
   {
    "id": "REV-RT-PAPER-BETTS-STIX-25",
