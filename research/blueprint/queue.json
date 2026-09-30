@@ -39573,7 +39573,8 @@
     "REV-PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4324"
   },
   {
    "id": "REV-RT-PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19",
@@ -39804,8 +39805,9 @@
     "REV-PAPER-NELSON-VENKATESH-21"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-NELSON-VENKATESH-21.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4334"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4334",
+   "finishedAt": "2026-09-30T02:49:20Z"
   },
   {
    "id": "REV-RT-PAPER-NELSON-VENKATESH-21",
