@@ -23476,12 +23476,12 @@
     "REV-RS-14"
    ],
    "prompt": "research/blueprint/prompts/BP-DirichletPadicLFunctions.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [
     "BP-LocallyAnalyticDistributions",
     "BP-PadicMeasuresIwasawaAlgebras"
    ],
-   "note": "released on GitHub issue #713"
+   "note": "claimed on GitHub issue #713"
   },
   {
    "id": "REV-DirichletPadicLFunctions",
@@ -40505,7 +40505,8 @@
     "REV-LINK-tauceti_TauCetiRoadmap_NumberFieldArithmetic"
    ],
    "prompt": "research/blueprint/prompts/RT-LINK-tauceti_TauCetiRoadmap_NumberFieldArithmetic.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4345"
   },
   {
    "id": "REV-RT-LINK-tauceti_TauCetiRoadmap_NumberFieldArithmetic",
@@ -40724,7 +40725,8 @@
     "REV-LINK-tauceti_TauCetiRoadmap_ArithmeticDirichletSeries"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-LINK-tauceti_TauCetiRoadmap_ArithmeticDirichletSeries.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4352"
   },
   {
    "id": "RT-LINK-tauceti_TauCetiRoadmap_ProfiniteProPGroups",
@@ -41476,8 +41478,9 @@
     "REV-LINK-tauceti_TauCetiRoadmap_StablePeriodicCurved"
    ],
    "prompt": "research/blueprint/prompts/RT-LINK-tauceti_TauCetiRoadmap_StablePeriodicCurved.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4378"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4378",
+   "finishedAt": "2026-09-30T12:40:23Z"
   },
   {
    "id": "REV-RT-LINK-tauceti_TauCetiRoadmap_StablePeriodicCurved",
@@ -46298,8 +46301,9 @@
     "REV-AUDIT-34"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-AUDIT-34.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4455"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4455",
+   "finishedAt": "2026-09-30T12:40:31Z"
   },
   {
    "id": "RT-AUDIT-39",
