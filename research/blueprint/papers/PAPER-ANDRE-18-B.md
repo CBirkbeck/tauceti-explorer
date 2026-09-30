@@ -5,15 +5,16 @@ Yves André, *Publications Mathématiques de l’IHÉS* 127 (2018), 71–93.
 [DOI](https://doi.org/10.1007/s10240-017-0097-9).
 The published 23-page version is authoritative; the shorter arXiv v1 has different numbering.
 
-Status: **complete extraction, accepted after independent in-place corrections by REV-PAPER-ANDRE-18-B**.
-The JSON is the declaration inventory: **191 items, 23 library, 9 planned, 159 missing**.
+Status: **complete extraction; FIX-RT-PAPER-ANDRE-18-B awaits independent fix review**.
+The earlier acceptance applies to the pre-fix extraction. The JSON now inventories
+**204 items: 23 library, 10 planned, 171 missing**.
 Missing means that the exact stated interface still needs implementation; proposed roadmaps and paper extractions are not pinned coverage. No Lean file has been compiled.
 
 ## Mathematical scope
 
 The principal conclusions are finite direct summands over Noetherian regular rings (0.1.1), balanced big Cohen–Macaulay algebras over Noetherian local rings (0.7.1), faithfully flat domination of finite covers of regular rings (0.7.2), and the restricted CM descent theorem 4.4.2. The last retains an injective pure local map, a regular target, mixed characteristic and separable residue-field extension. It is not unrestricted weak functoriality.
 
-The proof of the direct-summand theorem follows Hochster’s cited unramified reduction to A=W(k)[[T_1,…,T_n]], with k perfect. The normalized two-index tower adjoins cyclotomic, coordinate and discriminant roots. Theorem 2.5.2 proves almost faithful flatness by replacing T=g with tubular neighborhoods, applying sharp approximation, descending to Noetherian stages, proving generic-fibre flatness and special-fibre freeness, then passing through colimits, completions and almost adjoints. The companion’s Abhyankar theorem supplies the ramified almost finite étale input modulo p^m. Ext obstruction annihilation, the idempotent-annihilator lemma and compatible retractions turn this into an ordinary splitting.
+The proof of the direct-summand theorem follows Hochster’s cited unramified reduction to A=W(k)[[T_1,…,T_n]], with k perfect. That reduction now explicitly includes the equal-characteristic Frobenius and divided-trace inputs. The normalized two-index tower adjoins cyclotomic, coordinate and discriminant roots. Theorem 2.5.2 replaces T=g with tubular neighborhoods, applies sharp approximation and descends to Noetherian stages. The repaired flatness argument uses their torsion-free complete integral models and free special fibres; generic-fibre flatness follows by localization. Colimits, completions and almost adjoints finish the argument. The ramified Abhyankar comparison is an explicit missing adapter from the shared integral almost-purity theorem to the integral model, almost base and trace used here. Ext obstruction annihilation, the idempotent-annihilator lemma and compatible retractions then give an ordinary splitting.
 
 The complete argument has distinct almost bases: the valuation almost base in 2.5.2 and the ramified root-ideal base in 3.2.1. No finite-level integral flatness follows merely from finite-level purity. PerfectoidQuotients:Q3 supplies an existential extension, not an identification with this specified normalized tower.
 
@@ -23,17 +24,20 @@ For big CM existence, use full algebra modifications to construct algebras and b
 
 | Route | Kind | Owner | Missing items |
 |---|---|---|---|
-| 1 | new | `DirectSummandsAndBigCohenMacaulay` | 99 |
-| 2 | source | `PerfectoidSpaces` / `PerfectoidSpaces:P0` | 6 |
-| 3 | source | `PerfectoidSpaces` / `PerfectoidSpaces:P1`, `PerfectoidSpaces:P2` | 1 |
-| 4 | part-ii | `PerfectoidRamification` | 29 |
-| 5 | source | `DeformationAndDerivedPatchingAlgebra` / `DeformationAndDerivedPatchingAlgebra:R03.3` | 10 |
-| 6 | source | `AdicSpacesPartII` / `AdicSpacesPartII:R0` | 7 |
-| 7 | source | `DeformationAndDerivedPatchingAlgebra` / `DeformationAndDerivedPatchingAlgebra:R03.1` | 7 |
+| 1 | new | `DirectSummandsAndBigCohenMacaulay` | 111 |
+| 2 | part-ii | `PerfectoidRamification` | 43 |
+| 3 | source | `DeformationAndDerivedPatchingAlgebra` / `DeformationAndDerivedPatchingAlgebra:R03.3` | 10 |
+| 4 | source | `DeformationAndDerivedPatchingAlgebra` / `DeformationAndDerivedPatchingAlgebra:R03.1` | 7 |
 
-The new direct-summand direction owns ordinary purity, infinite algebra modifications and the application theorems. R03.1 supplies coefficient rings, Cohen presentations and completion adapters; R03.3 supplies finite CM/depth, parameters, normalization and Matlis/local cohomology. DD.1 supplies the single generic Koszul construction. Generic nonperfectoid Banach localization follows the companion’s AdicSpacesPartII:R0 owner and imports the existing upstream AdicSpaces foundations. The normalized Kummer/ramification adapters extend the *same* PerfectoidRamification Part II proposed by PAPER-ANDRE-18.
+The new direct-summand direction starts with ordinary and almost purity, big/balanced CM predicates for arbitrary modules, and splinters. André’s algebra predicates specialize those module definitions. Its later layers own infinite algebra modifications and applications. R03.1 supplies coefficient rings, Cohen presentations and completion adapters; R03.3 supplies finite CM/depth, parameters, normalization and Matlis/local cohomology. DD.1 supplies the single generic Koszul construction.
 
-Keep a stage-level dependency order: ordinary purity and generic commutative algebra → almost comparisons and generic Banach interfaces → perfectoid ramification → direct-summand/big-CM applications. A coarse roadmap cycle is not a justification for a declaration cycle. Every missing item occurs in exactly one route; its `reviewAudit` records the independent search family and candidate exclusions. The library and planned imports remain explicit dependencies.
+Uniform Banach and spectral norm comparisons are planned at the five named AdicSpacesPartII R0/R3 nodes. The six additional Weierstrass unit-ball contracts form the first layer of PerfectoidRamification. That Part II also owns the coordinate tower and six explicitly extracted companion root/tubular/Riemann inputs. PAPER-ANDRE-18 still has verdict `revise`; its IDs are reconciliation metadata, not accepted suppliers. P0 adjoints and P1/P2 foundations remain planned imports. P1’s stage covers compatible-root fields, but its current cyclotomic node only states the Q_p case: request `P1-WITT` specifies its generalization to Frac W(k) for arbitrary perfect k.
+
+Keep the order: early ordinary/almost purity and CM predicates → Weierstrass/root inputs → Kummer flatness/purity → integral almost purity (Bhatt–Scholze 10.9) → the explicit Abhyankar comparison → splitting/CM applications. Bhatt–Scholze 10.9 uses André’s flatness, so importing the entire later ramification layer into Kummer flatness would be circular. No undeclared future node IDs are used. Every missing item occurs in exactly one route; earlier ownership audits survive as `reviewAuditHistory`, and the current checks are under `baseline.fixAudit`.
+
+The shared CM owner also receives equal-characteristic balanced big-CM existence and the characteristic-p theorem for R⁺. This input is needed even inside the mixed-characteristic reduction: Z_p[[x,y]]/(px,py) has minimal primes (p) and (x,y), with quotient dimensions 2 and 1, so the only maximal-dimensional component has characteristic p. The sharper R⁺ theorem is shared with the characteristic-p branch of BHATT-ETAL-23/plus-completion-cm. Its characteristic-zero analogue is not asserted.
+
+The [fix report](../redteam/RT-PAPER-ANDRE-18-B.fixes.md) gives exact maintainer edits for the other paper’s three predicate routes, the characteristic-p branch, P1’s node, and historical review route numbers. Those files are outside this issue’s output list. The existing BHATT-18 new route already coalesces under the same owner key.
 
 ## Corrections that affect contracts
 
@@ -46,6 +50,8 @@ Keep a stage-level dependency order: ordinary purity and generic commutative alg
 - Pure completion is tested on every finite presented module over the completed base, by reduction modulo powers of the maximal ideal and Krull intersection. No assertion that such a module descends to R is needed.
 - In the product proof of 0.7.2 retain only components dominating the completed regular base. R=k[[x,y]], S=R×R/(x) shows why taking all components introduces a nonflat torsion factor.
 - The introductory §0.6 tower identity omits coordinate roots (E25); the body’s §§2.2–2.3 tower is the correct model.
+- Corollary 2.6.1 covers every j,k∈N∪{∞}, using directed unions. Its proof first establishes the (∞,∞) case, then uses faithful flatness, purity of composition and purity of a left factor. The stable item ID `kummer-finite-purity` now states the full result.
+- Theorem 2.5.2’s printed step (a) sketches a descent from affinoid polydiscs without the required nonfinite-module comparison. E26 records this as a proof gap that changes no statement. The replacement criterion is: over Noetherian A with regular ϖ, a ϖ-torsion-free, ϖ-adically complete module M is flat if M/ϖM is flat over A/ϖ. Flatness of the truncations and [Stacks 0912](https://stacks.math.columbia.edu/tag/0912) prove it. The pinned flatness of the completion of A itself does not supply this arbitrary-module criterion.
 
 ## The appendix boundary
 
@@ -61,12 +67,12 @@ The main direct-summand and big-CM existence theorems are retained. Their correc
 
 ## Source issues and extraction boundary
 
-Of 25 recorded findings, **20 are independently confirmed and five rejected**. Rejected: E13 (the footnote supplies the converse attributions), E14 (powers of λ supply the argument), E17 (both companion propositions give valid routes), E18 (the diagram already rules out bad sequences), and E23 (the printed prime was lost in transcription). Rejected allegations are preserved for audit with authoritative `review.verdict` fields; they must not become errata. E11 and E12 were already corrected between arXiv v1 and publication.
+Of 26 recorded findings, **20 retain their earlier independent confirmations, five remain rejected, and new E26 awaits review**. Rejected: E13 (the footnote supplies the converse attributions), E14 (powers of λ supply the argument), E17 (both companion propositions give valid routes), E18 (the diagram already rules out bad sequences), and E23 (the printed prime was lost in transcription). Rejected allegations are preserved for audit with authoritative `review.verdict` fields; they must not become errata. E11 and E12 were already corrected between arXiv v1 and publication.
 
-Every source issue has a personally checked reason in the JSON. The independent report contains the issue-by-issue disposition and proofs of the substantial counterexamples. Bibliographic checks use the primary DOI/author/publisher records. The search for explicit corrigenda was bounded and found none; it is not an exhaustive claim.
+The earlier independent report contains the disposition of E1–E25 and the substantial counterexamples. Their same-file review objects are preserved with original attribution. E26 has the fix author’s assessment and a fresh bounded correction search; it has no invented independent verdict. `sourceVersions` identifies the published version read for this fix.
 
-All 23 main-paper pages and all submitted items were read in review. Selected prerequisite passages were read, including the original Hochster 2002 §§3–5, the companion’s root and Riemann-extension passages, and Hochster’s local-cohomology notes. Earlier workers’ other source readings are attributed separately. Complete extraction of André’s uses does not claim that every cited prerequisite paper has been fully decomposed, or that a closed Lean blueprint has been elaborated.
+All 23 main-paper pages and the 191 original items were read in the earlier independent review. This fix reread all 23 published pages, checked images of pp.81,82,92, and read the affected companion passages, Bhatt et al. v3 §2.2, and Stacks 0912. The source reading log gives exact scopes and hashes. HH1992 publisher metadata and the theorem as quoted in Bhatt et al. were checked; neither HH1992 nor HH1995 was read in full here. Earlier workers’ readings remain attributed separately. Complete extraction does not claim that every prerequisite paper has been decomposed or that a closed Lean blueprint has been elaborated.
 
 ## Validation
 
-The extraction and review are checked with `scripts/check_paper.py`; the issue’s four deliverables are checked by the swarm intake validator. Independent structural checks cover unique ids, valid dependency targets, an acyclic item dependency graph, exactly one route for each missing item, definition/construction APIs and tests, source-issue review fields, and pinned source hashes. No Lean compilation was requested or performed.
+The extraction is checked with `scripts/check_paper.py`; the three assigned outputs plus the fix handoff are checked by the swarm intake validator. The fix report preserves reproducible checks of unique IDs, all dependency targets and acyclicity, one route per missing item, referenced packet nodes, definition/construction APIs/tests, and finite arithmetic regressions for the flatness and minimal-prime arguments. No suitable existing Lean build at both pins was found; no setup, cache download or compilation was performed.
