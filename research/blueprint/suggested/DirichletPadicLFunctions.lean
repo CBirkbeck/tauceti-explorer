@@ -9500,3 +9500,189 @@ example : Ideal.Quotient.mk (Ideal.span {(8 : O2)})
 end Dyadic
 end
 end SuggestedTwistedFiniteTests
+
+/-! Integral character-weighted positive q-expansions, with the native
+coefficientwise power-series topology. The zero constant is a truncation. -/
+namespace DirichletPadic
+noncomputable section
+open scoped AbstractMeasure BigOperators PowerSeries.WithPiTopology
+variable (p : ℕ) [Fact p.Prime]
+variable {K : Type*} [NormedField K] [IsUltrametricDist K] {D E : ℕ}
+local notation "U" => (ℤ_[p])ˣ
+local notation "O" => Valuation.integer (NormedField.valuation (K := K))
+local notation "iMap" => (ContinuousMap.mk Subtype.val continuous_subtype_val : C(O,K))
+
+def integralTwistedPositiveEisensteinSeries (ψ : DirichletCharacter K D)
+    (φ : DirichletCharacter K E) : AbstractMeasure U O (PowerSeries O) := sorry
+
+theorem integralTwistedPositiveEisensteinSeries_coeff (ψ : DirichletCharacter K D)
+    (φ : DirichletCharacter K E) (f : C(U,O)) (n : ℕ) :
+    PowerSeries.coeff n (integralTwistedPositiveEisensteinSeries p ψ φ f)=
+      if hn : 0<n then integralTwistedPositiveEisensteinMeasure p ψ φ ⟨n,hn⟩ f else 0 := sorry
+
+lemma integralTwistedPositiveEisensteinSeries_coeff_zero (ψ : DirichletCharacter K D)
+    (φ : DirichletCharacter K E) (f : C(U,O)) :
+    PowerSeries.coeff 0 (integralTwistedPositiveEisensteinSeries p ψ φ f)=0 := sorry
+
+lemma integralTwistedPositiveEisensteinSeries_coeff_pos (ψ : DirichletCharacter K D)
+    (φ : DirichletCharacter K E) (f : C(U,O)) (n : ℕ+) :
+    PowerSeries.coeff (n : ℕ) (integralTwistedPositiveEisensteinSeries p ψ φ f)=
+      integralTwistedPositiveEisensteinMeasure p ψ φ n f := sorry
+
+lemma integralTwistedPositiveEisensteinSeries_zero (ψ : DirichletCharacter K D)
+    (φ : DirichletCharacter K E) : integralTwistedPositiveEisensteinSeries p ψ φ 0=0 := sorry
+
+lemma integralTwistedPositiveEisensteinSeries_add (ψ : DirichletCharacter K D)
+    (φ : DirichletCharacter K E) (f g : C(U,O)) :
+    integralTwistedPositiveEisensteinSeries p ψ φ (f+g)=
+      integralTwistedPositiveEisensteinSeries p ψ φ f+
+        integralTwistedPositiveEisensteinSeries p ψ φ g := sorry
+
+lemma integralTwistedPositiveEisensteinSeries_smul (ψ : DirichletCharacter K D)
+    (φ : DirichletCharacter K E) (a : O) (f : C(U,O)) :
+    integralTwistedPositiveEisensteinSeries p ψ φ (a • f)=
+      a • integralTwistedPositiveEisensteinSeries p ψ φ f := sorry
+
+lemma integralTwistedPositiveEisensteinSeries_continuous (ψ : DirichletCharacter K D)
+    (φ : DirichletCharacter K E) :
+    Continuous (integralTwistedPositiveEisensteinSeries p ψ φ) := sorry
+
+lemma integralTwistedPositiveEisensteinSeries_unique (ψ : DirichletCharacter K D)
+    (φ : DirichletCharacter K E) (M : AbstractMeasure U O (PowerSeries O))
+    (h0 : ∀ f, PowerSeries.coeff 0 (M f)=0)
+    (hpos : ∀ f (n : ℕ+), PowerSeries.coeff (n : ℕ) (M f)=
+      integralTwistedPositiveEisensteinMeasure p ψ φ n f) :
+    M=integralTwistedPositiveEisensteinSeries p ψ φ := sorry
+
+lemma integralTwistedPositiveEisensteinSeries_coeff_norm_le (ψ : DirichletCharacter K D)
+    (φ : DirichletCharacter K E) (f : C(U,O)) (n : ℕ) :
+    ‖PowerSeries.coeff n (integralTwistedPositiveEisensteinSeries p ψ φ f)‖≤‖f‖ := sorry
+
+theorem coe_integralTwistedPositiveEisensteinSeries_apply (ψ : DirichletCharacter K D)
+    (φ : DirichletCharacter K E) (f : C(U,O)) :
+    PowerSeries.map (Valuation.integer (NormedField.valuation (K := K))).subtype
+      (integralTwistedPositiveEisensteinSeries p ψ φ f)=
+        PowerSeries.mk (fun n => if hn : 0<n then
+          twistedPositiveEisensteinMeasure p ψ φ ⟨n,hn⟩ ((iMap).comp f) else 0) := sorry
+
+theorem integralTwistedPositiveEisensteinSeries_test_congr (ψ : DirichletCharacter K D)
+    (φ : DirichletCharacter K E) (f g : C(U,O)) (b : O) (h : ∀ u : U, b∣g u-f u) :
+    PowerSeries.C b∣integralTwistedPositiveEisensteinSeries p ψ φ g-
+      integralTwistedPositiveEisensteinSeries p ψ φ f := sorry
+
+theorem integralTwistedPositiveEisensteinSeries_coeff_mul_p (ψ : DirichletCharacter K D)
+    (φ : DirichletCharacter K E) (f : C(U,O)) (n : ℕ) :
+    (PowerSeries.coeff (R := O) (p*n) (integralTwistedPositiveEisensteinSeries p ψ φ f) : K)=
+      ψ p*(PowerSeries.coeff (R := O) n (integralTwistedPositiveEisensteinSeries p ψ φ f) : K) := sorry
+
+variable [Algebra ℤ_[p] K] [IsBoundedSMul ℤ_[p] K]
+theorem integralTwistedPositiveEisensteinSeries_weight_congr
+    (ψ : DirichletCharacter K D) (φ : DirichletCharacter K E)
+    (r e e' : ℕ) (hr : 0<r) (he : Nat.ModEq (p^(r-1)*(p-1)) e e') :
+    PowerSeries.C ((p : O)^r)∣
+      integralTwistedPositiveEisensteinSeries p ψ φ
+        (integralPrimePowerArithmeticCharacter p 0 (1 : DirichletCharacter K (p^0)) e').toContinuousMap-
+      integralTwistedPositiveEisensteinSeries p ψ φ
+        (integralPrimePowerArithmeticCharacter p 0 (1 : DirichletCharacter K (p^0)) e).toContinuousMap := sorry
+
+theorem integralTwistedPositiveEisensteinSeries_finite_moment_mod
+    (ψ : DirichletCharacter K D) (φ : DirichletCharacter K E)
+    (r s e : ℕ) (h : s≤r) :
+    PowerSeries.map (Ideal.Quotient.mk (Ideal.span {(p : O)^s}))
+      (integralTwistedPositiveEisensteinSeries p ψ φ
+        (integralPrimePowerArithmeticCharacter p 0 (1 : DirichletCharacter K (p^0)) e).toContinuousMap)=
+      PowerSeries.mk (fun n => if hn : 0<n then
+        ∑ a : (ZMod (p^r))ˣ,
+          Ideal.Quotient.mk (Ideal.span {(p : O)^s})
+            ((integralTwistedEisensteinFinite p ψ φ ⟨n,hn⟩ r).coeff a)*
+          ((a : ZMod (p^r)).val : O ⧸ Ideal.span {(p : O)^s})^e else 0) := sorry
+end
+end DirichletPadic
+
+namespace SuggestedTwistedSeriesTests
+noncomputable section
+open scoped AbstractMeasure PowerSeries.WithPiTopology
+open DirichletPadic
+section General
+variable {p : ℕ} [Fact p.Prime] {K : Type*} [NormedField K]
+  [IsUltrametricDist K] {D E : ℕ}
+local notation "O" => Valuation.integer (NormedField.valuation (K := K))
+local notation "U" => (ℤ_[p])ˣ
+-- zero_test_series
+example (ψ : DirichletCharacter K D) (φ : DirichletCharacter K E) :
+    integralTwistedPositiveEisensteinSeries p ψ φ 0=0 := sorry
+-- positive_truncation_constant
+example (ψ : DirichletCharacter K D) (φ : DirichletCharacter K E) (f : C(U,O)) :
+    PowerSeries.constantCoeff (integralTwistedPositiveEisensteinSeries p ψ φ f)=0 := sorry
+-- first_series_coefficient
+example (ψ : DirichletCharacter K D) (φ : DirichletCharacter K E) (f : C(U,O)) :
+    PowerSeries.coeff 1 (integralTwistedPositiveEisensteinSeries p ψ φ f)=f 1 := sorry
+-- actual_positive_coefficient
+example (ψ : DirichletCharacter K D) (φ : DirichletCharacter K E)
+    (f : C(U,O)) (n : ℕ+) :
+    PowerSeries.coeff (n : ℕ) (integralTwistedPositiveEisensteinSeries p ψ φ f)=
+      integralTwistedPositiveEisensteinMeasure p ψ φ n f := sorry
+-- zero_ideal_series_equality
+example (ψ : DirichletCharacter K D) (φ : DirichletCharacter K E)
+    (f g : C(U,O)) (h : ∀ u : U, (0 : O)∣g u-f u) :
+    integralTwistedPositiveEisensteinSeries p ψ φ g=
+      integralTwistedPositiveEisensteinSeries p ψ φ f := sorry
+end General
+
+section LevelOne
+variable {p : ℕ} [Fact p.Prime]
+local notation "Op" => Valuation.integer (NormedField.valuation (K := ℚ_[p]))
+-- level_one_mass_series
+example :
+    PowerSeries.map (Valuation.integer (NormedField.valuation (K := ℚ_[p]))).subtype
+      (integralTwistedPositiveEisensteinSeries p
+        (1 : DirichletCharacter ℚ_[p] 1) (1 : DirichletCharacter ℚ_[p] 1) 1)=
+      PowerSeries.map PadicInt.Coe.ringHom
+        (positiveEisensteinSeries p (1 : C((ℤ_[p])ˣ,ℤ_[p]))) := sorry
+end LevelOne
+
+section Dyadic
+variable (χ : DirichletCharacter ℚ_[2] 3) (hχ : χ 2=-1)
+include hχ
+local notation "O2" => Valuation.integer (NormedField.valuation (K := ℚ_[2]))
+-- dyadic_series_prime_sign
+example : PowerSeries.coeff 2
+    (integralTwistedPositiveEisensteinSeries 2 χ (1 : DirichletCharacter ℚ_[2] 1) 1)=-1 := sorry
+-- dyadic_series_index_sign
+example (f : C((ℤ_[2])ˣ,O2)) : PowerSeries.coeff 10
+    (integralTwistedPositiveEisensteinSeries 2 χ (1 : DirichletCharacter ℚ_[2] 1) f)=
+      -PowerSeries.coeff 5
+        (integralTwistedPositiveEisensteinSeries 2 χ (1 : DirichletCharacter ℚ_[2] 1) f) := sorry
+variable [IsBoundedSMul ℤ_[2] ℚ_[2]]
+-- dyadic_series_fifth_moment
+example : PowerSeries.coeff 5
+    (integralTwistedPositiveEisensteinSeries 2 χ (1 : DirichletCharacter ℚ_[2] 1)
+      (integralPrimePowerArithmeticCharacter 2 0 (1 : DirichletCharacter ℚ_[2] (2^0)) 1).toContinuousMap)=4 := sorry
+-- dyadic_whole_series_congruence
+example : PowerSeries.C (8 : O2)∣
+    integralTwistedPositiveEisensteinSeries 2 χ (1 : DirichletCharacter ℚ_[2] 1)
+      (integralPrimePowerArithmeticCharacter 2 0 (1 : DirichletCharacter ℚ_[2] (2^0)) 5).toContinuousMap-
+    integralTwistedPositiveEisensteinSeries 2 χ (1 : DirichletCharacter ℚ_[2] 1)
+      (integralPrimePowerArithmeticCharacter 2 0 (1 : DirichletCharacter ℚ_[2] (2^0)) 1).toContinuousMap := sorry
+-- insufficient_group_level_in_series
+example : integralTwistedEisensteinFinite 2 χ (1 : DirichletCharacter ℚ_[2] 1) 5 2=0 ∧
+    PowerSeries.coeff 5 (PowerSeries.map (Ideal.Quotient.mk (Ideal.span {(8 : O2)}))
+      (integralTwistedPositiveEisensteinSeries 2 χ (1 : DirichletCharacter ℚ_[2] 1)
+        (integralPrimePowerArithmeticCharacter 2 0 (1 : DirichletCharacter ℚ_[2] (2^0)) 1).toContinuousMap))≠0 := sorry
+end Dyadic
+
+section OddCounterexample
+local instance : Fact (Nat.Prime 5) := ⟨by decide⟩
+variable [IsBoundedSMul ℤ_[5] ℚ_[5]]
+variable (χ : DirichletCharacter ℚ_[5] 3) (hχ : χ 2=-1)
+include hχ
+local notation "O5" => Valuation.integer (NormedField.valuation (K := ℚ_[5]))
+-- tame_only_whole_series_failure
+example : ¬PowerSeries.C (25 : O5)∣
+    integralTwistedPositiveEisensteinSeries 5 χ (1 : DirichletCharacter ℚ_[5] 1)
+      (integralPrimePowerArithmeticCharacter 5 0 (1 : DirichletCharacter ℚ_[5] (5^0)) 7).toContinuousMap-
+    integralTwistedPositiveEisensteinSeries 5 χ (1 : DirichletCharacter ℚ_[5] 1)
+      (integralPrimePowerArithmeticCharacter 5 0 (1 : DirichletCharacter ℚ_[5] (5^0)) 3).toContinuousMap := sorry
+end OddCounterexample
+end
+end SuggestedTwistedSeriesTests
