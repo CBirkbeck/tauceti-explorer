@@ -39639,7 +39639,8 @@
     "REV-PAPER-BETTS-STIX-25"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-BETTS-STIX-25.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4325"
   },
   {
    "id": "RT-PAPER-CESNAVICIUS-21",
@@ -39704,8 +39705,9 @@
     "REV-PAPER-LAND-MATHEW-MEIER-ETAL-24"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-LAND-MATHEW-MEIER-ETAL-24.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4330"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4330",
+   "finishedAt": "2026-09-30T02:06:24Z"
   },
   {
    "id": "REV-RT-PAPER-LAND-MATHEW-MEIER-ETAL-24",
@@ -39748,7 +39750,8 @@
     "REV-PAPER-ANDRE-18-B"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-ANDRE-18-B.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4332"
   },
   {
    "id": "REV-RT-PAPER-ANDRE-18-B",
@@ -39859,8 +39862,9 @@
     "REV-PAPER-NIKOLAUS-SCHOLZE-18"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-NIKOLAUS-SCHOLZE-18.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4335"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4335",
+   "finishedAt": "2026-09-30T02:06:29Z"
   },
   {
    "id": "RT-PAPER-KOYMANS-PAGANO",
