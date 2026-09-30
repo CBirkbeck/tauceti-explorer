@@ -10,6 +10,17 @@ The machine-readable extraction is [PAPER-BIJAKOWSKI-PILLONI-STROH-16.result.jso
 - 17 prerequisite entries;
 - 7 recorded mistakes: 5 misprints, 1 error and 1 gap.
 
+After the independent review (REV-PAPER-BIJAKOWSKI-PILLONI-STROH-16, research/blueprint/reviews/REV-PAPER-BIJAKOWSKI-PILLONI-STROH-16.md) the extraction has 43 items (1 library, 7 planned, 35 missing), five routes, 19 prerequisite entries and 14 recorded mistakes, all confirmed. The review corrected the extraction in place:
+- **Fargues's degree** (item 10) now goes to HodgeTateAndCanonicalSubgroups T0. The accepted extractions of Boxer–Pilloni (2026) and Boxer–Calegari–Gee–Pilloni (2021) already route the degree there, so R07.1 would have been a second owner.
+- **The frontier.** Items 34 and 36 (Lan's compactification and Köcher principle at C5) are restated for the normalization model. The identification with the moduli model X_Iw is item 35, now missing and in the Part II, since M4 plans normality only of the normalization. Serre–Tate (item 6) is stated as A4 plans it, and its stack form moved to item 7. Wedhorn's theorem (item 12) keeps only the good-level statement, and Remark 1.5.1's Iwahori-level clauses are item 43.
+- **Statuses.** Items 2, 5 and 8 gain M0 or C5. Item 4 is narrowed to what Mathlib states.
+- **Routes.** Route 1 gains R0. Lemma 1.1.4 (item 3) moves to PELModuli M0.
+- **Two items added:** 42 (the maximum modulus principle) and 43.
+- **Seven new mistakes (E8–E14),** including a gap in the continuation over half-open boxes (E12). E6's repair is amended to cover the zero-dimensional cases.
+- **Prerequisites.** Bijakowski (ANT 2016), a follow-up the paper does not cite, is removed. Abbes–Mokrane, Bosch and Stroh are added.
+
+Route numbers in the result file differ from the list below: 1 = AdicSpacesPartII, 2 = T0, 3 = PELModuli, 4 = C5, 5 = the Part II.
+
 ## Sources read
 
 - **The published version** is freely served by the Annals site. I read all 40 pages (pp. 975–1014), including every proof. Item locators are the journal's pages.
@@ -39,15 +50,15 @@ The machine-readable extraction is [PAPER-BIJAKOWSKI-PILLONI-STROH-16.result.jso
 
 **Library (1 item).** Morita equivalence for matrix algebras: `moritaEquivalenceMatrix`, `IsMoritaEquivalent.matrix`.
 
-**Planned (8 items).**
-- PEL data, the good-prime conditions, the smooth model, and the normality of the Iwahori model: PELModuli M0, M2, M4.
-- Serre–Tate: AbelianSchemesAndArithmeticModuli A4.
-- Automorphic bundles ω^κ and classical forms: AutomorphicBundles B2, B4.
+**Planned (7 items; corrected by the review).**
+- PEL data, the good-prime conditions and the smooth model: PELModuli M0 and M2, with its quasi-projectivity at ShimuraCompactifications C5. The normality of the moduli model X_Iw is not planned: M4 plans normality only of the normalization model, so item 35 is missing.
+- Serre–Tate for PEL abelian schemes: AbelianSchemesAndArithmeticModuli A4.
+- Automorphic bundles ω^κ and classical forms: AutomorphicBundles B2, B4, with the integral sheaf at C5.
 - Rigid GAGA: AdicSpacesPartII R1.
 
 ## Routes
 
-1. **Joined Part II `HigherHidaAndColemanTheory`** (24 missing). Parent: PadicFamilies. It keeps the title, parent and area proposed by PAPER-PILLONI-20 and joined by PAPER-BOXER-CALEGARI-GEE-PILLONI-21 and PAPER-BOXER-PILLONI-26.
+1. **Joined Part II `HigherHidaAndColemanTheory`** (25 missing after the review: item 3 moved to PELModuli, and items 35 and 43 joined). Parent: PadicFamilies. It keeps the title, parent and area proposed by PAPER-PILLONI-20 and joined by PAPER-BOXER-CALEGARI-GEE-PILLONI-21 and PAPER-BOXER-PILLONI-26.
    - **What this paper adds:** the degree-0 Coleman theory for PEL types (A) and (C):
      - Barsotti–Tate stacks with Iwahori level, and the degree map and ordinary tube;
      - overconvergent forms, and the U_i with their normalisation;
@@ -57,16 +68,17 @@ The machine-readable extraction is [PAPER-BIJAKOWSKI-PILLONI-STROH-16.result.jso
      - Coleman's modular-curve theorem and Theorem 5.3.1.
    - **Why this Part II:** small-slope classicality is Coleman theory for coherent cohomology in degree 0. PadicFamilies stops at modular curves and totally real fields in one degree, and OverconvergentAutomorphicForms builds coefficient sheaves, not classicality.
    - **For the design job:** the brief asks it to compare this with the joined briefs' higher Coleman theory for GSp_{2g}, rather than build two classicality theorems.
-2. **Source of AdicSpacesPartII [R2, R3]** (4 missing). General rigid geometry:
+2. **Source of AdicSpacesPartII [R0, R2, R3]** (5 missing; R0 and item 42 added by the review). General rigid geometry:
    - Kassaei–Bartenwerfer bounded sections;
    - finite étale images and strict neighbourhoods;
    - the finiteness criterion 4.1.8;
-   - the identity principle.
-3. **Source of FiniteFlatGroupsAndIntegralPadicHodgeTheory [R07.1]** (1 missing). Fargues's degree and its monotonicity.
-4. **Source of PELModuli [M2]** (1 missing). Wedhorn's ordinariness theorem.
-5. **Source of ShimuraCompactifications [C5]** (2 missing). Lan's Iwahori-level toroidal compactifications, and his Köcher principle modulo π^n.
+   - the identity principle;
+   - the maximum modulus principle (item 42).
+3. **Source of HodgeTateAndCanonicalSubgroups [T0]** (1 missing). Fargues's degree and its monotonicity. (Corrected by the review from R07.1: the accepted extractions of Boxer–Pilloni (2026, route 12) and Boxer–Calegari–Gee–Pilloni (2021, route 13) already own the degree at T0.)
+4. **Source of PELModuli [M0, M2]** (2 missing). Lemma 1.1.4 and Wedhorn's ordinariness theorem for the good-level model. (Corrected by the review: M0 and Lemma 1.1.4 added; the Iwahori-level clauses are item 43, in the Part II.)
+5. **Source of ShimuraCompactifications [C5]** (2 missing). Lan's toroidal compactifications of the Iwahori-level normalization model, and his Köcher principle modulo π^n. (Corrected by the review: stated for the normalization model, since the moduli model X_Iw is item 7, downstream of C5.)
 
-## Source issues (`sourceIssues` E1–E7)
+## Source issues (`sourceIssues` E1–E14)
 
 **E6 (gap, the proof of Theorem 5.3.1, p. 1011).**
 - When the symmetric space has dimension ≤ 1, the proof cites Coleman and Kassaei, who treat only the modular curve.
@@ -74,7 +86,7 @@ The machine-readable extraction is [PAPER-BIJAKOWSKI-PILLONI-STROH-16.result.jso
   - Shimura curves of indefinite quaternion algebras (type (C), n = 2);
   - unitary curves;
   - 0-dimensional cases.
-- **Repair:** compact curves follow from §4 and GAGA on the proper X_Iw. Non-compact unitary curves need the cusp analysis of Remark 5.3.2.
+- **Repair:** compact curves and the zero-dimensional cases (amended by the review) follow from §4 and GAGA on the proper X_Iw. Non-compact unitary curves need the cusp analysis of Remark 5.3.2.
 
 **E7 (error, affects nothing, §5.2, p. 1010).** "on suppose donc d > 1 ou a_1 > 1 si d = 1" misstates Hypothesis 1.4.2 in type (A).
 - U(1, 2) with d = 1 has a symmetric space of dimension 2 although a_1 = 1.
@@ -88,18 +100,30 @@ The machine-readable extraction is [PAPER-BIJAKOWSKI-PILLONI-STROH-16.result.jso
 - E4: Proposition 4.1.8 says U → Y is open and closed. What is needed is that U → X is.
 - E5: "a_1" should be α_1 in Proposition 4.5.8.
 
+**Added by the review (E8–E14).**
+- **E12 (gap, affects the proof).** §4.5 claims δ_i^{−1}([d_ia_i − 1 + β_0, d_ia_i]) ∩ W_0 is quasi-compact, so that f is bounded there. The proof of Proposition 4.5.8 applies §4.5 on boxes with half-open sides, where that set is not quasi-compact. The repair is routine: run §4.5 on closed sub-boxes and exhaust.
+- **Misprints (affect nothing):**
+  - E8: in the proof of Proposition 3.1.2, (G/L, π(H_•)) should be p_2^BT(G, H_•, L);
+  - E9: C^rig_{i,a_i} should be C_i^rig (p. 993);
+  - E10: the length in Theorem 4.4.1 is off by one;
+  - E11: U^bad_{i,j,k_1} should be U^bad_{i,k,k_1} (pp. 1005–1006);
+  - E13: index and cross-reference slips on pp. 1006 and 1008;
+  - E14: "[Lan16, rem. 13.12]" is Example 13.12 in the version cited.
+
 ## Prerequisites not yet covered
 
-Seventeen entries:
+Nineteen entries after the review:
 - Coleman (Invent. 1996), Kassaei (Duke 2006), Buzzard (JAMS 2003), Pilloni (Duke 2011);
 - Fargues (Crelle 2010);
 - Kottwitz (JAMS 1992);
 - Wedhorn (Ann. ÉNS 1999);
-- Lan: the monograph (2013), IMRN 2017, Forum Sigma 2016, MRL 2016;
+- Lan: the monograph (2013), IMRN 2017 (no. 11, 3237–3280), Forum Sigma 2016, MRL 2016;
 - He (Duke 2013), Görtz (Math. Ann. 2001; Adv. Math. 2003);
 - Bosch–Lütkebohmert (Math. Ann. 1993);
 - Kiehl (Invent. 1967);
-- Bijakowski (ANT 2016).
+- Abbes–Mokrane (Publ. IHÉS 2004), Bosch (PAMQ 2009), Stroh (Bull. SMF 2010), added by the review.
+
+Bijakowski (ANT 2016), a later generalisation that the paper does not cite, was removed by the review.
 
 Every DOI was checked against Crossref.
 
