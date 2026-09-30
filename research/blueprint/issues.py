@@ -11,8 +11,8 @@ agents can claim the same jobs.
       are not finished `state:blocked`, and close issues of finished jobs.
   python3 research/blueprint/issues.py refresh [--pace S]
       Rewrite the bodies of the open issues from the queue and the prompts.
-  python3 research/blueprint/issues.py stale [--days 2] [--release]
-      List claims with no activity for that many days; --release makes them available again.
+  python3 research/blueprint/issues.py stale [--hours 24] [--release]
+      List claims and submissions whose worker has shown nothing for that long; --release makes them available again.
 """
 from __future__ import annotations
 
@@ -345,7 +345,8 @@ def main():
     ap.add_argument("--pace", type=float, default=7.5, help="seconds between issue creations (GitHub allows about 500 an hour)")
     ap.add_argument("--limit", type=int, default=0)
     ap.add_argument("--yes", action="store_true")
-    ap.add_argument("--days", type=float, default=2.0, help="stale: days without activity")
+    ap.add_argument("--days", type=float, default=None, help="stale: days without progress (or --hours)")
+    ap.add_argument("--hours", type=float, default=24.0, help="stale: hours without progress (default 24)")
     ap.add_argument("--release", action="store_true", help="stale: make those jobs available again")
     args = ap.parse_args()
     jobs, roadmaps, stages = load()
@@ -417,7 +418,7 @@ def main():
     if args.command == "sync":
         sync(mapping)
     if args.command == "stale":
-        stale(mapping, by_id, args.days, args.release)
+        stale(mapping, by_id, args.days * 24 if args.days else args.hours, args.release)
     if args.command == "refresh":
         # One request per issue sets its body and its state label together, so a
         # full refresh stays within GitHub's limit of about 500 edits an hour.
@@ -596,46 +597,71 @@ def sync(mapping):
     print(f"sync: {changed_queue} queue change(s), {edits} label edit(s), {closed} issue(s) closed")
 
 
-def stale(mapping, by_id, days, release):
-    """Claims by external workers with no activity on their issue for `days` days."""
+BOT = "github-actions[bot]"
+
+
+def worker_activity(comments, prs):
+    """When a claimed or submitted job last showed its worker's progress: the bot's claim and
+    submission notices, any comment but the orchestrator's, and pull requests naming the issue."""
+    times = [c["created_at"] for c in comments
+             if (c["user"]["login"] == BOT and c["body"].startswith(("Claimed for", "Submitted in")))
+             or (c["user"]["login"] != BOT and not c["body"].lstrip().startswith("Orchestrator:"))]
+    return max(times + [pr["updated_at"] for pr in prs], default=None)
+
+
+def names_issue(pr, number):
+    return re.search(rf"#{number}\b", (pr.get("title") or "") + "\n" + (pr.get("body") or "")) is not None
+
+
+def stale(mapping, by_id, hours, release):
+    """Claims and submissions whose worker has shown nothing for `hours` hours: a claim with no
+    comment or pull request since, or a submission whose pull request is gone while the job is
+    unfinished. Releasing one makes its job available again; the sync then records it in the queue."""
     import datetime
-    cutoff = datetime.datetime.now(datetime.timezone.utc) - datetime.timedelta(days=days)
+    now = datetime.datetime.now(datetime.timezone.utc)
+    cutoff = (now - datetime.timedelta(hours=hours)).strftime("%Y-%m-%dT%H:%M:%SZ")
     number_to_job = {number: jid for jid, number in mapping.items()}
+    repo = GITHUB.split("github.com/")[1]
+
+    def api(path):
+        result = subprocess.run(["gh", "api", path], capture_output=True, text=True, cwd=REPO)
+        if result.returncode != 0:
+            raise SystemExit(f"gh api {path}: {result.stderr.strip()[:200]}")
+        return json.loads(result.stdout)
+    # Pull requests touched within the window, newest first, and every open one.
+    prs, page = [], 1
+    while True:
+        batch = api(f"repos/{repo}/pulls?state=all&sort=updated&direction=desc&per_page=100&page={page}")
+        prs += batch
+        if len(batch) < 100 or batch[-1]["updated_at"] < cutoff:
+            break
+        page += 1
     released = []
-    for item in list_issues("state:claimed", "open"):
-        updated = datetime.datetime.fromisoformat(item["updatedAt"].replace("Z", "+00:00"))
-        if updated > cutoff:
-            continue
-        jid = number_to_job.get(item["number"])
-        if by_id.get(jid, {}).get("state") != "external":
-            continue  # finished or already released in the queue; refresh brings its label up to date
-        print(f"#{item['number']} {jid} idle since {item['updatedAt'][:10]}: {item['title'][:70]}")
-        if not release:
-            continue
-        subprocess.run(["gh", "issue", "edit", str(item["number"]), "--add-label", "state:available", "--remove-label", "state:claimed"],
-                       capture_output=True, cwd=REPO)
-        subprocess.run(["gh", "issue", "comment", str(item["number"]), "--body",
-                        f"Orchestrator: this claim has had no activity since {item['updatedAt'][:10]}, so the job is available again. "
-                        "Any work that was merged stays in the repository; the next worker continues from it and from the handoff note, if there is one."],
-                       capture_output=True, cwd=REPO)
-        if jid in by_id and by_id[jid].get("state") == "external":
-            released.append(jid)
-        time.sleep(1)
-    if released:
-        import fcntl
-        lock = open(BP / ".queue.lock", "a+")
-        fcntl.flock(lock, fcntl.LOCK_EX)
-        try:
-            queue = json.loads((BP / "queue.json").read_text())
-            for job in queue["jobs"]:
-                if job["id"] in released and job.get("state") == "external":
-                    job["state"] = "pending"; job["note"] = "stale claim released"
-                    job.pop("account", None); job.pop("lane", None)
-            tmp = BP / "queue.json.tmp"
-            tmp.write_text(json.dumps(queue, indent=1, ensure_ascii=False) + "\n")
-            tmp.replace(BP / "queue.json")
-        finally:
-            fcntl.flock(lock, fcntl.LOCK_UN)
+    for label in ("state:claimed", "state:submitted"):
+        for item in list_issues(label, "open"):
+            number = item["number"]
+            job = by_id.get(number_to_job.get(number), {})
+            if job.get("state") in (None, "done", "superseded", "failed") or deliverables_complete(job):
+                continue  # finished, or no swarm job: the sync brings its label up to date
+            naming = [pr for pr in prs if names_issue(pr, number)]
+            if any(pr["state"] == "open" for pr in naming):
+                continue
+            last = worker_activity(api(f"repos/{repo}/issues/{number}/comments?per_page=100"), naming)
+            if last and last >= cutoff:
+                continue
+            print(f"#{number} {job['id']} ({label}) no progress since {(last or '?')[:16]}: {item['title'][:70]}")
+            if not release:
+                continue
+            subprocess.run(["gh", "issue", "comment", str(number), "--body",
+                            f"Orchestrator: this job has shown no progress since {(last or 'it was claimed')[:16].replace('T', ' ')} UTC "
+                            f"(no comment, pull request or checkpoint for {hours:g} hours, longer than jobs here take), so it is available again. "
+                            "Any merged work stays in the repository; continue from it and the handoff note, if there is one. "
+                            "If you are still working on it, comment `/claim` again."],
+                           capture_output=True, cwd=REPO)
+            subprocess.run(["gh", "issue", "edit", str(number), "--remove-label", label, "--add-label", "state:available"],
+                           capture_output=True, cwd=REPO)
+            released.append(job["id"])
+            time.sleep(1)
     print(f"stale: {len(released)} released" if release else "stale: listed only; pass --release to release")
 
 

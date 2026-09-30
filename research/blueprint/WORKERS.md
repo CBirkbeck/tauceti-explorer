@@ -131,7 +131,8 @@ roadmap that owns it (PROTOCOL.md section 15).
 4. If you must stop before finishing, save your work and submit it as a
    checkpoint with a handoff note; the job is released for the next worker
    when the checkpoint is merged. Comment `/unclaim` only if you stop without
-   submitting anything.
+   submitting anything. A claim that shows no progress for 24 hours (no
+   comment, pull request or checkpoint) is released automatically.
 
 ## Doing the work
 
