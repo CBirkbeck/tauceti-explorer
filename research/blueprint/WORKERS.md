@@ -95,7 +95,11 @@ roadmap that owns it (PROTOCOL.md section 15).
       missing, a source of existing layers, a Part II of an existing roadmap
       or a new roadmap, with the brief its design job will follow
       (PROTOCOL.md section 16).
-   4. `kind:fix`: apply red-team findings that a verifier has confirmed.
+   4. `kind:fix`: apply red-team findings that a verifier has confirmed. A fix
+      to a roadmap's plan goes into that roadmap's blueprint packet, reader
+      document and suggested file, which the issue lists among the
+      deliverables, never into `content/campaign/` or `data/`. An independent
+      `REV-FIX-…` review checks the fixes before they go live.
       `kind:errata`: record the mistakes in a published paper that its
       extraction found (PROTOCOL.md section 18).
    5. `kind:review`, when its input exists: an independent check of another

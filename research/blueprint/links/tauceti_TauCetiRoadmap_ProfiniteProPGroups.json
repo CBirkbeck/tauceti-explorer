@@ -721,9 +721,9 @@
         "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-0-discrete-modules-and-continuous-sections",
         "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-5-presentations-extensions-and-the-rank-interpretations"
       ],
-      "detail": "Both stages prove continuous sections of quotient maps of profinite groups. ProfiniteCohomology Layer 0 proves that for profinite G and closed K ≤ H ≤ G the projection G ⧸ K → G ⧸ H has a continuous section, normalized so that G ⧸ H → G sends 1 to 1 (Ribes–Zalesskii 2.2.2); transgression and Shapiro use it. ProfiniteProPGroups Layer 5 has its own milestone, 'continuous sections along a finite kernel': for finite normal N in a profinite E, E ↠ E/N has a continuous set-theoretic section sending 1 to 1. Layer 5 itself remarks that the closed-kernel case exists. With K = 1 and H = N (finite, hence closed) this is the normalized specialization of the Layer 0 theorem, so one statement is planned twice.",
+      "detail": "The two roadmap texts describe normalized continuous sections of profinite quotient maps, but the general theorem is already implemented at Tau Ceti f790474821cf4256814db967cb154e7af3d0c369. TauCeti.exists_continuous_section handles G → G ⧸ H for closed H; TauCeti.exists_continuous_section_of_le handles G ⧸ K → G ⧸ H for K ≤ H, normalized at the identity coset. ProfiniteProPGroups Layer 5's finite normal kernel N is closed in a profinite Hausdorff group, so its milestone is a specialization. Reviewed AUDIT-22 classifies this Layer 5 target as tauceti (the available theorem is more general). The overlap concerns reuse and any interface wrapper, not two proofs still to build.",
       "recommendation": "rescope",
-      "proposal": "Remove the finite-kernel section milestone from ProfiniteProPGroups Layer 5. 'Cocycles and extensions' then cites ProfiniteCohomology Layer 0's normalized continuous section of G → G ⧸ H at H = N; Layer 5 already imports ProfiniteCohomology Layers 1, 2, 3, 5 and 12. If the elementary finite-kernel proof is wanted (an open normal U with U ∩ N = 1, then coset translates of a local section), move it into ProfiniteCohomology Layer 0 as its proof of the finite-subgroup case. ProfiniteProPGroups then carries no second section theorem."
+      "proposal": "Preserve both upstream roadmap identities and import TauCeti.exists_continuous_section and TauCeti.exists_continuous_section_of_le from TauCeti/Topology/Algebra/Group/Profinite/Section.lean:226,253 at f790474821cf4256814db967cb154e7af3d0c369. ProfiniteProPGroups Layer 5's Cocycles and extensions cites the normalized section available through ProfiniteCohomology Layer 0 at H = N. If a finite-kernel wrapper is needed, specialize the existing theorem using closedness of finite N (or K = 1 in the between-quotients version); retain only genuine wrapper/comparison work. Follow reviewed AUDIT-22's tauceti classification. Do not move, reprove or create a task for the already formalized continuous-section theorem."
     },
     {
       "stages": [
@@ -770,9 +770,9 @@
         "PadicMeasuresIwasawaAlgebras:L3",
         "PadicMeasuresIwasawaAlgebras:L4"
       ],
-      "detail": "Both roadmaps develop the one-variable coordinate on ℤ_p[[Γ]] and division in ℤ_p[[T]]. ProfiniteProPGroups' Layer 9 prerequisites prove the power-series coordinate ℤ_p[[T]] ≅ completedGroupAlgebra p Γ for Γ ≅ ℤ_p, with T ↦ γ − 1 and change of generator T ↦ (1+T)^u − 1. They prove convergent evaluation ψ(c) for v_p(c) ≥ 1, and the division criterion (T − c) ∣ ψ ⟺ ψ(c) = 0 ('the special case of Weierstrass division that Labute uses'). They also prove the dyadic branch ℤ₂[[C₂ × ℤ₂]] ≅ ℤ₂[C₂][[T]], insisting that C₂ × ℤ₂ is not procyclic. PadicMeasuresIwasawaAlgebras develops the same mathematics in greater generality. L2's Mahler–Amice isomorphism M(ℤ_p, O) ≅ O[[T]] gives O[[ℤ_p]] ≅ O[[T]] with [1] ↦ 1 + T. L3 proves the procyclic augmentation-ideal theorem, change of generator and evaluation at characters, and treats ℤ₂ˣ as {±1} × (1 + 4ℤ₂), not as a procyclic group. L4 proves Weierstrass division and preparation for O[[T]].",
+      "detail": "Both roadmaps develop the one-variable coordinate on ℤ_p[[Γ]] and division in ℤ_p[[T]]. ProfiniteProPGroups' Layer 9 prerequisites prove the power-series coordinate ℤ_p[[T]] ≅ completedGroupAlgebra p Γ for Γ ≅ ℤ_p, with T ↦ γ − 1 and change of generator T ↦ (1+T)^u − 1. They prove convergent evaluation ψ(c) for v_p(c) ≥ 1, and the division criterion (T − c) ∣ ψ ⟺ ψ(c) = 0 ('the special case of Weierstrass division that Labute uses'). They also prove the dyadic branch ℤ₂[[C₂ × ℤ₂]] ≅ ℤ₂[C₂][[T]], insisting that C₂ × ℤ₂ is not procyclic. PadicMeasuresIwasawaAlgebras develops the same mathematics in greater generality. L2's Mahler–Amice isomorphism M(ℤ_p, O) ≅ O[[T]] gives O[[ℤ_p]] ≅ O[[T]] with [1] ↦ 1 + T. L3 proves the procyclic augmentation-ideal theorem, change of generator and evaluation at characters, and treats ℤ₂ˣ as {±1} × (1 + 4ℤ₂), not as a procyclic group. L4's text asks for Weierstrass division/preparation, but their algebraic existence and uniqueness are already in Mathlib at the pin; AUDIT-26 separates these from the absent continuity theorem.",
       "recommendation": "rescope",
-      "proposal": "Preserve the upstream ℤ_p coordinate, convergent evaluation and linear division theorem as the specialized inputs. PMIA proves its broader O-coefficient theorems and comparison maps at O=ℤ_p, rather than defining a second specialized carrier or reproving the named base result. Identify the Mahler–Amice coordinate, generator-change substitution and integral dyadic group-ring branch through these maps. Specify the topology using coefficient quotients together with group quotients; in the procyclic case it is the (p,T)-adic topology. Do not inherit the upstream text’s identification with the T-adic filtration or with projection kernels alone: p^n converges to zero in the compact topology but not T-adically, and the group-quotient polynomial is (1+T)^{p^n}−1, not T^n. General Weierstrass division gives a compatible specialization; it does not replace or duplicate the upstream elementary proof."
+      "proposal": "Preserve the upstream ℤ_p coordinate, convergent evaluation and linear division theorem as the specialized inputs. For the algebraic O-coefficient existence and uniqueness, PMIA L4 imports PowerSeries.exists_isWeierstrassDivision, PowerSeries.IsWeierstrassDivision.unique, PowerSeries.exists_isWeierstrassFactorization and PowerSeries.IsWeierstrassFactorization.unique from Mathlib/RingTheory/PowerSeries/WeierstrassPreparation.lean:504,594,813,855 at 082e2d37e8b0463410cdb532e111cd43d5a66174. Supply CommRing O, IsLocalRing O, IsAdicComplete (maximalIdeal O) O and the divisor's nonzero residue reduction. Concrete local-field integer rings and ℤ_p have the completion instance; an abstract complete-DVR input must provide it. Reviewed AUDIT-26 classifies the algebraic theorem as mathlib and continuity as absent. Remaining work is continuity of division, coefficient/coordinate comparisons at O=ℤ_p, and identifying the remainder on division by T − c with ψ(c) (the partial AUDIT-22 division criterion). Do not define a second specialized carrier or reprove the available general algebraic theorem. Identify the Mahler–Amice coordinate, generator-change substitution and integral dyadic group-ring branch through these maps. Specify the topology using coefficient quotients together with group quotients; in the procyclic case it is the (p,T)-adic topology. Do not inherit the upstream text’s identification with the T-adic filtration or with projection kernels alone: p^n converges to zero in the compact topology but not T-adically, and the group-quotient polynomial is (1+T)^{p^n}−1, not T^n. The imported general Weierstrass division gives a compatible specialization; it does not replace or duplicate the upstream elementary proof."
     },
     {
       "stages": [
@@ -1378,7 +1378,7 @@
     {
       "roadmapId": "PadicMeasuresIwasawaAlgebras",
       "result": "links",
-      "note": "I read the whole document, L0–L6. It calls itself 'Analytic and algebraic Part II of ProfiniteProPGroups' and imports the profinite-group and inverse-limit APIs: link Layer 0 → L1. Overlaps (rescope): its completed group rings, continuous-action universal property and compact exactness (L1, L5) against the Layer 9 prerequisites; and its Mahler–Amice coordinate, procyclic generator change, ℤ₂ˣ treatment and Weierstrass division (L2–L4) against the power-series coordinate, dyadic branch and division criterion of the Layer 9 prerequisites."
+      "note": "I read the whole document, L0–L6. It calls itself 'Analytic and algebraic Part II of ProfiniteProPGroups' and imports the profinite-group and inverse-limit APIs: link Layer 0 → L1. Overlaps (rescope): its completed group rings, continuous-action universal property and compact exactness (L1, L5) against the Layer 9 prerequisites; and its Mahler–Amice coordinate, procyclic generator change, ℤ₂ˣ treatment and Weierstrass division (L2–L4) against the power-series coordinate, dyadic branch and division criterion of the Layer 9 prerequisites. Fix at 2026-09-30: L4 imports Mathlib's algebraic Weierstrass existence/uniqueness under the explicit maximal-ideal IsAdicComplete hypothesis (reviewed AUDIT-26). Continuity, coefficient/coordinate comparisons and the remainder-evaluation identification remain separate; preserve the upstream specialized elementary proof and the (p,T)-adic caveat."
     },
     {
       "roadmapId": "PerfectoidQuotients",
@@ -1738,7 +1738,7 @@
     {
       "roadmapId": "tauceti:TauCetiRoadmap/ProfiniteCohomology",
       "result": "links",
-      "note": "I read the whole document and all 14 stages. It is the named cohomology supplier (PC-<layer> in this roadmap), and its export contract names ProfiniteProPGroups as a consumer. Links into this roadmap's Layers 5, 6, 7 and 10 come from its Layers 0, 1, 2, 3, 5, 7, 8, 10, 11 and 12. Several of this roadmap's PC-labels do not match the supplier layers: transgression is Layer 5 (labelled PC-6), and shapiroIso is Layer 10 (labelled PC-7). Links follow the supplier's layers. Three overlaps (rescope): continuous sections (Layer 0 against Layer 5); the closed-subgroup colimit that Layer 11 uses without stating it (against Layer 6); and trivialF2/f2Pairing against trivialFp/fpPairing (Layer 13 against Layer 5). No reverse link: the document says it depends on no other roadmap except InductionRestriction. Boundary gaps are recorded in the handoff note: the p-primary torsion refinement that Layer 10 assigns to this roadmap has no milestone here, and degreeCast is missing from the export table. Independent review adds Layer 10→PPG Layer 7: the three-term Euler sequence requires exactness beyond Layer 5’s endpoint."
+      "note": "I read the whole document and all 14 stages. It is the named cohomology supplier (PC-<layer> in this roadmap), and its export contract names ProfiniteProPGroups as a consumer. Links into this roadmap's Layers 5, 6, 7 and 10 come from its Layers 0, 1, 2, 3, 5, 7, 8, 10, 11 and 12. Several of this roadmap's PC-labels do not match the supplier layers: transgression is Layer 5 (labelled PC-6), and shapiroIso is Layer 10 (labelled PC-7). Links follow the supplier's layers. Three overlaps (rescope): continuous sections (Layer 0 against Layer 5); the closed-subgroup colimit that Layer 11 uses without stating it (against Layer 6); and trivialF2/f2Pairing against trivialFp/fpPairing (Layer 13 against Layer 5). No reverse link: the document says it depends on no other roadmap except InductionRestriction. Boundary gaps are recorded in the handoff note: the p-primary torsion refinement that Layer 10 assigns to this roadmap has no milestone here, and degreeCast is missing from the export table. Independent review adds Layer 10→PPG Layer 7: the three-term Euler sequence requires exactness beyond Layer 5’s endpoint. Fix at 2026-09-30: normalized sections are library imports TauCeti.exists_continuous_section and TauCeti.exists_continuous_section_of_le (Section.lean:226,253 at f790474; reviewed AUDIT-22), not proofs to relocate. Supplier notes PPG-R01 and PPG-R02 record the corrected chain-comparison and exact-profinite-completion contracts. No reverse dependency is added: the completion carrier is consumed directly from Mathlib, and the examples do not need PPG Layer 4's maximal-pro-p/Sylow outputs."
     },
     {
       "roadmapId": "tauceti:TauCetiRoadmap/QuadraticFormInvariants",
@@ -1887,5 +1887,60 @@
         "target": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-7-demushkin-groups-their-invariants-and-the-orientation"
       }
     ]
-  }
+  },
+  "requests": [
+    {
+      "id": "PPG-R01",
+      "owner": "tauceti:TauCetiRoadmap/ProfiniteCohomology",
+      "stages": [
+        "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees"
+      ],
+      "status": "supplier_document_correction",
+      "request": "Correct Layer 10's shapiroCochainIso contract: between the two canonical homogeneous-cochain complexes, use a named chain comparison proved a quasi-isomorphism (or a chain-homotopy equivalence), and define shapiroIso as the induced cohomology isomorphism, with compatibility in degrees 0, 1 and 2. A degreewise isomorphism cannot exist: G=C2, H=1 and A=F2 give degree-zero cardinalities 4 and 2. Preserve the all-degree Shapiro theorem, coinduced acyclicity and dimension shifting downstream of the corrected interface. This packet's consumers use shapiroIso, dimensionShiftIso and coindAcyclic, not a degreewise isomorphism; its PC10→PPG6 and PC10→PPG7 links/evidence remain unchanged. No PPG-local Shapiro theory is requested.",
+      "existingGap": {
+        "path": "research/blueprint/links/tauceti_TauCetiRoadmap_ProfiniteCohomology.json",
+        "locator": "gaps[0]",
+        "title": "Shapiro complex-level contract needs clarification",
+        "status": "partial, unreviewed supplier link packet; existing evidence, not an accepted implementation"
+      },
+      "evidence": [
+        {
+          "path": "content/tau-ceti/ProfiniteCohomology/README.md",
+          "locator": "Layer 10, All-degree Shapiro and dimension shifting",
+          "quote": "Construct a chain isomorphism\n  `shapiroCochainIso` between the two canonical homogeneous-cochain complexes"
+        }
+      ],
+      "provenance": {
+        "job": "FIX-RT-LINK-tauceti_TauCetiRoadmap_ProfiniteProPGroups",
+        "verifier": "research/blueprint/redteam/RT-LINK-tauceti_TauCetiRoadmap_ProfiniteProPGroups.review.json",
+        "agent": "Codex",
+        "session": "codex-J6LwjP",
+        "date": "2026-09-30",
+        "base": "aa27ea5bc3998947dacd413309e2ba302bffb0a2",
+        "finding": "RT-LINK-tauceti_TauCetiRoadmap_ProfiniteProPGroups/3"
+      }
+    },
+    {
+      "id": "PPG-R02",
+      "owner": "tauceti:TauCetiRoadmap/ProfiniteCohomology",
+      "status": "supplier_document_correction",
+      "request": "Correct §6's Hⁱ(Ẑ,−) example (assigned there to Layers 4,6,10,11): delete the arbitrary-procyclic-with-generator alternative. State the example for Ẑ, the existing Mathlib ProfiniteGrp.profiniteCompletion of the integer group, or for a group equipped with an explicit isomorphism to that object. Reuse ProfiniteGrp.ProfiniteCompletion.lift, lift_unique and homEquiv from Mathlib/Topology/Algebra/Category/ProfiniteGrp/Completion.lean at 082e2d37e8b0463410cdb532e111cd43d5a66174 for the universal property. C2 with its generator is procyclic but H²(C2,F2)=F2 for trivial action: two normalized cocycles, one normalized coboundary. Thus a generic procyclic input does not satisfy the displayed vanishing. This is a supplier-text correction only. Do not add PPG0/PPG4→PC example links, assign a new completion owner, or request a ring of profinite integers; those examples do not consume PPG Layer 4's maximal-pro-p or Sylow comparisons.",
+      "evidence": [
+        {
+          "path": "content/tau-ceti/ProfiniteCohomology/README.md",
+          "locator": "§6 examples, Hⁱ(Ẑ,−) and cd_p Ẑ=1, lines1731–1736",
+          "quote": "profinite completion of `ℤ`, or state the example over an arbitrary procyclic group with a\n  topological generator"
+        }
+      ],
+      "provenance": {
+        "job": "FIX-RT-LINK-tauceti_TauCetiRoadmap_ProfiniteProPGroups",
+        "verifier": "research/blueprint/redteam/RT-LINK-tauceti_TauCetiRoadmap_ProfiniteProPGroups.review.json",
+        "agent": "Codex",
+        "session": "codex-J6LwjP",
+        "date": "2026-09-30",
+        "base": "aa27ea5bc3998947dacd413309e2ba302bffb0a2",
+        "finding": "RT-LINK-tauceti_TauCetiRoadmap_ProfiniteProPGroups/4"
+      }
+    }
+  ]
 }

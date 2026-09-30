@@ -29,7 +29,7 @@ The paper builds, over a p-adic local field E, the geometric Langlands programme
 
 ## What the atlas already has
 
-The extraction has 834 items: 661 are `planned`, 2 are `library` and 171 are `missing`. The planned items sit in the campaign roadmaps built for this paper:
+After review the extraction has 847 items: 733 are `planned`, 2 are `library` and 112 are `missing` (834 as submitted: 661, 2, 171; see *Corrections made in review*). The planned items sit in the campaign roadmaps built for this paper:
 
 | Chapter | Owning roadmaps |
 |---|---|
@@ -45,6 +45,8 @@ Many stage descriptions cite FS section numbers directly.
 The two library items are Mathlib's Proj construction (its API `AlgebraicGeometry.Proj.awayι` and `AlgebraicGeometry.Proj.isSeparated`) and `exists_open_singleton_of_finite` (Lemma IV.1.24). Nothing else is in Mathlib or Tau Ceti at the pinned commits. Mathlib has condensed sets and modules and a provisional notion of solid module, but no diamonds, v-stacks, Bun_G or Fargues–Fontaine curve.
 
 ## Routes
+
+*After review there are twelve routes, all accepted; the list below is the extraction's original seven. See* Corrections made in review *below and* `research/blueprint/reviews/REV-PAPER-FARGUES-SCHOLZE-21.md`*.*
 
 All 171 missing items are proof ingredients or side results whose stage names only the headline. So they go as `source` routes to the roadmaps that own the surrounding mathematics, and the paper becomes those stages' source. As the maintainer's note asks, no Part II is proposed, because every gap lies inside an existing roadmap's direction.
 
@@ -82,6 +84,8 @@ All 171 missing items are proof ingredients or side results whose stage names on
 
 ## Mistakes (`sourceIssues`, arXiv v4)
 
+*The review confirmed all 70 and added 59 (E71–E129); see the review report.*
+
 Seventy-two candidates were each checked at 300 dpi by one of two independent readers. Seventy are recorded and two were rejected. None is a mathematical error in a main theorem. Items use the corrected statements.
 
 **Findings that bear on a statement.**
@@ -109,3 +113,27 @@ Seventy-two candidates were each checked at 300 dpi by one of two independent re
 - **Helm–Moss (2018).** The integral Bernstein centre for GL_n.
 
 Scholze's *Perfectoid spaces* and *Étale cohomology of diamonds*, the Berkeley lectures, Fargues–Fontaine, Kedlaya–Liu, Zhu, Bhatt–Scholze, Lafforgue, Hansen and Hansen–Kaletha–Weinstein are already in the batch list.
+
+## Corrections made in review
+
+The independent review REV-PAPER-FARGUES-SCHOLZE-21 (Claude Code, session `cc-48533a`, issue #4488) corrected this extraction in place. Its report is `research/blueprint/reviews/REV-PAPER-FARGUES-SCHOLZE-21.md`, and the verdicts are in `PAPER-FARGUES-SCHOLZE-21.review.json`. In brief:
+
+- **Statuses.** 74 items moved from missing to planned and 11 from planned to missing.
+  - **The rule applied.** The accepted decompositions plan much of FS node by node, and this extraction had checked only stage descriptions. Items planned only by draft packets that are not yet promoted (BunGAndNewtonStrata, the §VIII.2 part of LanglandsParameterStacks, ExcursionOperatorsAndSpectralAction) stay missing, with the draft node recorded in their notes.
+  - **Now missing:** the Chapter X conjectures credited to ML.5, Example V.3.4 and the Lubin–Tate formal group.
+- **Statements.** The main corrections:
+  - Div^d_𝒴 for Div^d_Y throughout §§VI.7–VI.8;
+  - bars restored on Ĕ and F̄_q;
+  - items updated to the corrected forms of E2, E30, E36–E38 and E44.
+- **Items added.** Thirteen.
+- **Routes.** There are now twelve, all accepted.
+  - The seven FS routes are corrected.
+  - Five routes are added: EnhancedDerivedSheaves (Neeman's lemma), DiamondEtaleCohomology C8 (Problem I.11.1), SmoothRepresentationsOfLocalGroups SR.0 (the smooth dual), the accepted StableCenter Part II of PAPER-HANSEN-26 (Haines' conjecture), and the accepted Part II LubinTateFormalModulesAndQuasiCanonicalLifts (the Lubin–Tate group).
+- **Mistakes.** E1–E70 are all confirmed; E57 and E69 are kept as the body occurrences of E3 and E4. E71–E129 are new. The main ones:
+  - a sign error in Lemmas IV.4.25–IV.4.26 (φ − π^{−d} for φ − π^{d});
+  - the false identification HH²(B/A) = Ext¹(L_{B/A}, B) in §VIII.2;
+  - failing steps in the proofs of Theorem II.2.6, Proposition II.3.1, Theorem VIII.5.15 and Proposition IX.6.3.
+- **Prerequisites.**
+  - Dat–Helm–Kurinczuk–Moss is removed, since the atlas already has it.
+  - Kottwitz is split into two entries.
+  - Added: Fargues (Simple connexité), Zhu 2020, Prasad–Yu 2002 and 2006, Richarz 2019, Viehmann 2021 and Breen 1978.

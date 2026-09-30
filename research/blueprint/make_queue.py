@@ -87,6 +87,7 @@ Stages in scope (write exactly these ids into the packet's `scope`, and one cove
 Output packet: {OUTPUT} (set "part": {PART}).
 If {OUTPUT} already exists from an earlier attempt, read it and continue: keep what is right, extend what is missing, and do not start over.
 {EXTRA}
+<<HANDED-FINDINGS>>
 """ + COMMON_INPUTS + "\n\n" + METHOD
 
 DESIGN_TEMPLATE = HEADER + """
@@ -97,6 +98,7 @@ Roadmap id: {ROADMAP}. Area: {GROUP} (an area of data/galaxies.json; record it a
 Step 1. Write the roadmap definition research/blueprint/roadmaps/{ROADMAP}.json (schema in PROTOCOL.md section 7). The layers must lead from the library baseline to the final theorem, in the order a formaliser would build them, with each layer's targets stated precisely in its description. Put in this roadmap everything that is specific to this proof, and take inputs that belong to existing roadmaps from those roadmaps (list them in `prerequisites`, and use their stage ids in `requires`). Search data/atlas.json for suppliers; read a supplier stage's description before relying on it.
 Step 2. Write the blueprint packet {OUTPUT} covering every stage of the new roadmap ("part": null), following the method below. The roadmap definition may be revised while you write the packet; keep both consistent.
 If either file already exists from an earlier attempt, continue from it.
+<<HANDED-FINDINGS>>
 """ + COMMON_INPUTS + "\n\n" + METHOD
 
 PAPER_TEMPLATE = HEADER + """
@@ -113,6 +115,7 @@ Write research/blueprint/papers/{PAPER}.result.json in the format of PROTOCOL.md
 5. List the prerequisite papers the atlas does not yet cover.
 5a. Record every mistake you find in the paper under `sourceIssues` (PROTOCOL.md section 18), including those noted earlier in this extraction's items, gaps and report: misprints, errors and gaps, each quoted at its locator with the correction and the reason, how far it reaches, and whether a published erratum or a later version already corrects it (say where you looked). Keep the list even if it is empty, which says you found none. Items use the corrected statements. A `sourceIssues` list in an older form is converted, keeping everything it says.
 6. Run `python3 scripts/check_paper.py research/blueprint/papers/{PAPER}.result.json` until it reports no errors. Set "status": "complete" only when the whole paper is extracted and every missing item is routed. Otherwise leave "partial" and write a handoff note, research/blueprint/handoff/{PAPER}.md.
+   An extraction does not decompose or prove the results the paper cites: each cited result is one item with its status and route, and proving missing items is the work of the roadmaps they are routed to (PROTOCOL.md section 16). Open proof closure, API outlines or supplier audits never keep an extraction partial. A handoff's resume list names only parts of the paper not yet extracted and items not yet routed.
 
 Worked examples of routing, by the maintainer (research/blueprint/papers/papers.json, "guides"):
 {GUIDES}
@@ -155,9 +158,25 @@ FIX_TEMPLATE = HEADER + """
 JOB: fix the confirmed red-team findings on {TARGET} (PROTOCOL.md section 17).
 The findings (research/blueprint/redteam/{RT}.result.json, verified in research/blueprint/redteam/{RT}.review.json):
 {FINDINGS}
-Apply each fix to the files it names: correct the statement, claim, owner, route or node; add missing mathematics where the finding says it belongs (a node or a `requests` entry in the owning packet, or a note for the maintainer in your report when it needs a new roadmap). New nodes follow PROTOCOL.md and research/blueprint/UPSTREAM_GUIDE.md like any other (statement, locator, prerequisites, API and unit tests). Keep every file valid under its checker (scripts/check_blueprint.py, check_links.py, check_restructure.py, check_paper.py). Write research/blueprint/redteam/{RT}.fixes.md: for each finding, what you changed, or why you did not.
-Edit only the files the findings name, the target's files, your report and your scratch directory.
-{ELSEWHERE}""" + CHECK_INPUTS
+{ROUND}Apply each fix to the files it names: correct the statement, claim, owner, route or node; add missing mathematics where the finding says it belongs (a node or a `requests` entry in the owning packet, or a note for the maintainer in your report when it needs a new roadmap). A fix to a roadmap's plan (its layers, their statements and hypotheses, sources, prerequisites, or the reuse of declarations the libraries already have) goes into that roadmap's blueprint packet, reader document and suggested file, never into content/campaign/ or data/: those are the atlas's reviewed base, and an accepted packet replaces the base decomposition of the layers it covers (PROTOCOL.md section 8). New nodes follow PROTOCOL.md and research/blueprint/UPSTREAM_GUIDE.md like any other (statement, locator, prerequisites, API and unit tests). Keep every file valid under its checker (scripts/check_blueprint.py, check_links.py, check_restructure.py, check_paper.py). Write {REPORT}: for each finding, what you changed, or why you did not.
+{PACKETS}{HANDED}Edit only this job's deliverables ({DELIVERABLES}), a handoff note research/blueprint/handoff/{JOB}.md if you stop early, and your scratch directory.
+{REVIEWED}{ELSEWHERE}""" + CHECK_INPUTS
+
+FIX_REVIEW_TEMPLATE = """You are an independent reviewer for the Tau Ceti Atlas blueprint programme. You did not write the fixes you review. You run unattended in a tmux session as job {JOB}. Work in {REPO}. Your scratch directory is {WORKERS}/{JOB} (create it). Save as you go.
+
+READ FIRST (binding): research/blueprint/PROTOCOL.md (sections 8 and 17) and research/expansion/PROTOCOL.md.
+
+REVIEW: the fixes {FIX} made for the confirmed red-team findings of {RT} (research/blueprint/redteam/{RT}.result.json, verified in research/blueprint/redteam/{RT}.review.json), described in {REPORT}.
+Files under review: {FILES}.
+Library baseline: {BASELINE} (BASELINE.json, TauCeti/, mathlib/Mathlib/, declarations.tsv). Reference library: {LIBRARY}/. Public sources may be fetched into your scratch directory with provenance, never into the repository.
+
+1. For each finding, read its claim, its verified evidence and the fix, and decide whether the files now carry the right correction: statements keep the source's hypotheses, baseline citations hold at the pinned commit, new nodes have locators, prerequisites, API and unit tests (PROTOCOL.md sections 3, 4 and 12), and nothing another roadmap owns is planned again (section 15). Correct in place what is clearly fixable, and record it.
+2. Run `python3 scripts/check_blueprint.py` on each packet, `python3 scripts/check_links.py` on each link map and `python3 scripts/check_restructure.py` on each proposal under review, and fix every error.
+3. In each file under review, replace the top-level "review" object with yours: {{"status": "accepted" | "needs_changes", "reviewer": "independent-review-{JOB}", "date": "<today>", "notes": "<what was checked and corrected, and which earlier review this one follows>"}}. Use "accepted" when every fix is right (or corrected by you) and the file passes its checker, and "needs_changes" when a fix is missing or wrong, saying exactly what remains. Only an accepted file goes live in the atlas.
+Write research/blueprint/reviews/{JOB}.md: for each finding, your verdict with a reason, and every correction you made.
+
+RULES: edit only the files under review, your report and scratch files. Do not run git. No private paths in the repository. Do not promote anything.
+Finish with a summary under 250 words."""
 
 ERRATA_TEMPLATE = HEADER + """
 JOB: record the mistakes in a published source that earlier work on it found (PROTOCOL.md section 18).
@@ -226,7 +245,7 @@ Check each item below, and correct it in place wherever the fix is clear. Record
 7. Library audit. Nothing that the reviewed audit (data/library-coverage.json) shows in the libraries is planned as a new node, and a duplicated layer is requested from its owner rather than planned again.
 8. For a new roadmap, also check that its layers are correctly ordered, that its suppliers are right, and that its scope is honest.
 9. Run `python3 scripts/check_blueprint.py` on each packet and fix every error.
-
+<<HANDED-FINDINGS-REVIEW>>
 Then add a top-level "review" object to each packet:
 {{"status": "accepted" | "needs_changes", "reviewer": "independent-review-{JOB}", "date": "<today>", "notes": "<what was checked and corrected>", "checked": [{{"nodeId": "...", "verdict": "verified|corrected|added|unverifiable", "note": "..."}}]}}
 Use "accepted" only when all of the following hold:
@@ -500,6 +519,56 @@ def finding_files(findings):
     paths = sorted({p for f in findings for p in FINDING_PATH.findall(f.get("where") or "")})
     editable = [p for p in paths if not file_problems(p, "{}")]
     return editable, [p for p in paths if p not in editable]
+
+
+# A finding names a layer as <roadmap>:<key>, and a roadmap by its files at these paths.
+LAYER_REF = re.compile(r"(?<![A-Za-z0-9_])([A-Z][A-Za-z0-9]*):([A-Za-z0-9][A-Za-z0-9.+_-]*(?::[A-Za-z0-9][A-Za-z0-9.+_-]*)?)")
+ROADMAP_FILE = re.compile(r"(?:content/campaign|data/decompositions|research/blueprint/(?:atlas/roadmaps|packets|readmes|suggested|roadmaps))/([A-Z][A-Za-z0-9]*)")
+# Files that go live only after an accepted review (scripts/promote.py).
+PROMOTABLE = re.compile(r"^research/blueprint/(?:packets/[^/]+\.json|links/[^/]+\.json|restructure/RS-[0-9]+\.result\.json)$")
+# A blueprint job's prompt shows at most this much of the findings it carries.
+HANDED_BUDGET = 12_000
+
+
+def finding_layers(finding, known):
+    """(roadmaps, layers) whose plan a finding is about, among the known roadmap ids: those its
+    location names as <roadmap>:<layer> or by the roadmap's files; failing that, any it names."""
+    where = finding.get("where") or ""
+    layers = {f"{r}:{k.rstrip('.')}" for r, k in LAYER_REF.findall(where) if r in known}
+    roadmaps = {layer.split(":")[0] for layer in layers} | {r for r in ROADMAP_FILE.findall(where) if r in known}
+    if not roadmaps:
+        roadmaps = {r for r in known if re.search(rf"(?<![A-Za-z0-9]){re.escape(r)}(?![A-Za-z0-9])", where)}
+    return roadmaps, layers
+
+
+def owning_parts(roadmap, layers, writers):
+    """The blueprint or design jobs, among a roadmap's writers, that own the layers a finding names:
+    those whose scope holds one of them, or all of them when the finding names none in any scope."""
+    named = {layer for layer in layers if layer.split(":")[0] == roadmap}
+    hits = [job for job in writers if named & set(job.get("scope") or [])]
+    return hits or list(writers)
+
+
+def handed_text(items):
+    """The findings a blueprint job carries, as its prompt lists them: in full if they fit, otherwise by location."""
+    head = ("Confirmed red-team findings about this roadmap (PROTOCOL.md section 17), handed to this job because its blueprint "
+            "was not written when they were verified. Get each of them right in the packet and the document, and say in the "
+            "handoff note how each is handled:\n")
+    full = "\n".join(f"- {f['id']} ({f['severity']}, {f['kind']}) at {f['where']}: {f['claim']} Fix: {f['fix']}" for _, f in items)
+    if len(full) <= HANDED_BUDGET:
+        return head + full + "\n"
+    listed = "\n".join(f"- {f['id']} ({f['severity']}) at {f['where']}" for _, f in items)
+    sources = ", ".join(sorted({f"research/blueprint/redteam/{rt}.result.json" for rt, _ in items}))
+    return head + listed + f"\nRead each finding's claim and fix in {sources}.\n"
+
+
+def review_of(path):
+    """The review object recorded in a file, or {}."""
+    try:
+        review = json.loads((REPO / path).read_text()).get("review")
+    except (OSError, ValueError, AttributeError):
+        return {}
+    return review if isinstance(review, dict) else {}
 
 
 def confirmed_findings(rt):
@@ -1060,6 +1129,85 @@ def main():
     except (OSError, ValueError):
         existing = []
     states = {j["id"]: j.get("state") for j in existing}
+    previous_outputs = {j["id"]: j.get("outputs", []) for j in existing}
+    # Who writes each roadmap's plan: its blueprint jobs (one per part) and, for a new roadmap, its design job.
+    writers = defaultdict(list)
+    for j in jobs:
+        if j["kind"] in ("blueprint", "design") and states.get(j["id"]) not in ("superseded", "failed"):
+            for rid in j.get("roadmapIds") or []:
+                writers[rid].append(j)
+    handed = defaultdict(list)
+
+    def route_to_blueprints(findings):
+        """For findings that name no file the swarm may edit: the files of the finished blueprints they
+        concern, which a fix edits, and the findings each unfinished blueprint job is handed instead."""
+        from intake import file_problems
+        known = set(writers)
+        files, carried = [], defaultdict(list)
+        for f in findings:
+            if any(not file_problems(path, "{}") for path in FINDING_PATH.findall(f.get("where") or "")):
+                continue
+            roadmaps, layers = finding_layers(f, known)
+            for rid in sorted(roadmaps):
+                for job in owning_parts(rid, layers, writers[rid]):
+                    if states.get(job["id"]) == "done" and all((REPO / o).exists() for o in job["outputs"]):
+                        files += [o for o in job["outputs"] if o not in files]
+                    elif f not in carried[job["id"]]:
+                        carried[job["id"]].append(f)
+        return files, carried
+
+    def fix_rounds(rt, target, name, roadmap_ids, order, fields, findings, outputs, blueprints, carried, elsewhere):
+        """The fix of a red team's confirmed findings, in rounds. A round whose files go live only after
+        review (scripts/promote.py) gets an independent review. Another round follows a finished one when
+        the fix could not edit a finished blueprint its findings concern (it predates that rule) or when
+        its review sent the fixes back."""
+        listed = findings_text(rt, findings)
+        current, report, why, after = "FIX-" + rt, f"research/blueprint/redteam/{rt}.fixes.md", "", []
+        if states.get(current) == "done" and current in previous_outputs:
+            current_outputs = list(previous_outputs[current])
+        else:
+            current_outputs = outputs + [b for b in blueprints if b not in outputs]
+        k = 1
+        while True:
+            editable_blueprints = [b for b in blueprints if b in current_outputs]
+            promotable = [o for o in current_outputs if PROMOTABLE.match(o)]
+            review = "REV-" + current
+            add({"id": current, "kind": "fix", "priority": 1, "order": order, "name": name, "target": target, "roadmapIds": roadmap_ids,
+                 "outputs": current_outputs, "after": after},
+                FIX_TEMPLATE.format(**fill, JOB=current, RT=rt, FILE=rt, TARGET=fields.get("TARGET", target), FINDINGS=listed, ROUND=why, REPORT=report,
+                                    PACKETS=(f"Finished blueprints these findings concern, which you may edit: {', '.join(editable_blueprints)}.\n"
+                                             if editable_blueprints else ""),
+                                    HANDED=("The blueprints of these roadmaps are not written yet, so their findings are handed to the jobs that will "
+                                            "write them, which carry them: " + "; ".join(f"{job_id} ({', '.join(f['id'] for f in items)})"
+                                                                                          for job_id, items in sorted(carried.items()))
+                                            + ". Do not write packets for them; say in your report which findings went where.\n" if carried else ""),
+                                    DELIVERABLES=", ".join(current_outputs),
+                                    REVIEWED=(f"An independent review, {review}, checks your fixes and records its verdict in {', '.join(promotable)}; "
+                                              "they go live in the atlas only when it accepts them.\n" if promotable else ""),
+                                    ELSEWHERE=(f"These files are outside the swarm's output paths, so a pull request may not change them: "
+                                               f"{', '.join(elsewhere)}. For a finding in one, say in your report exactly what change it needs, "
+                                               f"for the maintainer.\n" if elsewhere else "")))
+            if promotable:
+                add({"id": review, "kind": "review", "priority": 1, "order": order, "name": name, "roadmapIds": roadmap_ids,
+                     "outputs": [f"research/blueprint/reviews/{review}.md"] + promotable
+                                + [o for o in current_outputs if o.startswith("research/blueprint/suggested/")],
+                     "after": [current], "avoidAccountOf": current, "independentOf": [current]},
+                    FIX_REVIEW_TEMPLATE.format(**fill, JOB=review, FIX=current, RT=rt, REPORT=report, FILES=", ".join(promotable)))
+            missing = [b for b in blueprints if b not in current_outputs]
+            sent_back = bool(promotable) and states.get(review) == "done" and any(
+                review_of(path).get("reviewer") == f"independent-review-{review}" and review_of(path).get("status") == "needs_changes"
+                for path in promotable)
+            if states.get(current) != "done" or not (missing or sent_back):
+                break
+            k += 1
+            earlier_report, report = report, f"research/blueprint/redteam/{rt}.fixes-{k}.md"
+            why = (f"This is round {k} of the fix. The review of round {k - 1} sent it back: make the corrections research/blueprint/reviews/{review}.md asks for.\n"
+                   if sent_back else
+                   f"This is round {k} of the fix. Round {k - 1} ({earlier_report}) could not edit the finished blueprints listed below and described "
+                   "their changes for the maintainer instead: apply those changes now, and any confirmed finding it left undone.\n")
+            after = [review] if sent_back else [current]
+            current_outputs = [report] + [o for o in current_outputs if o != earlier_report] + missing
+            current = f"FIX-{rt}~{k}"
 
     def redteam(rt, target, kind, name, roadmap_ids, template, fields, independent, order):
         result, report = f"research/blueprint/redteam/{rt}.result.json", f"research/blueprint/redteam/{rt}.md"
@@ -1071,13 +1219,12 @@ def main():
         findings = confirmed_findings(rt)
         if findings:
             files, elsewhere = finding_files(findings)
-            listed = findings_text(rt, findings)
-            add({"id": "FIX-" + rt, "kind": "fix", "priority": 1, "order": order, "name": name, "target": target, "roadmapIds": roadmap_ids,
-                 "outputs": [f"research/blueprint/redteam/{rt}.fixes.md"] + [f for f in files if f not in fields.get("OUTPUTS", [])] + fields.get("OUTPUTS", []),
-                 "after": []}, FIX_TEMPLATE.format(**fill, JOB="FIX-" + rt, RT=rt, FILE=rt, TARGET=fields.get("TARGET", target), FINDINGS=listed,
-                                    ELSEWHERE=(f"These files are outside the swarm's output paths, so a pull request may not change them: "
-                                               f"{', '.join(elsewhere)}. For a finding in one, say in your report exactly what change it needs, "
-                                               f"for the maintainer.\n" if elsewhere else "")))
+            outputs = [f"research/blueprint/redteam/{rt}.fixes.md"] + [f for f in files if f not in fields.get("OUTPUTS", [])] + fields.get("OUTPUTS", [])
+            # An area's findings are about roadmaps' plans: they go to the roadmaps' blueprints.
+            blueprints, carried = route_to_blueprints(findings) if rt.startswith("RT-AREA-") else ([], {})
+            for job_id, items in carried.items():
+                handed[job_id] += [(rt, f) for f in items]
+            fix_rounds(rt, target, name, roadmap_ids, order, fields, findings, outputs, blueprints, carried, elsewhere)
 
     kind_word = {"audit": "library audit", "restructure": "restructuring proposal", "link": "link map", "paper": "paper extraction",
                  "design": "new roadmap", "blueprint": "blueprint"}
@@ -1094,11 +1241,14 @@ def main():
         latest_round[base] = max(latest_round[base], number)
     for number, job in enumerate(targets, 1):
         review = "REV-" + (job["id"][3:] if job["id"].startswith("BP-") else job["id"])
-        # Only accepted work is red-teamed, and only its latest round.
-        if states.get(job["id"]) != "done" or states.get(review) != "done" or not accepted_work(job):
+        # Only accepted work is red-teamed, and only its latest round. A red team already
+        # queued keeps its fixes and their reviews, even once a fix has reopened the
+        # work's review (a fixed file waits for REV-FIX before it goes live again).
+        started = "RT-" + job["id"] in states
+        if not started and (states.get(job["id"]) != "done" or states.get(review) != "done" or not accepted_work(job)):
             continue
         base, current = base_round(job["id"])
-        if current < latest_round[base]:
+        if current < latest_round[base] and not started:
             continue
         about = job.get("name") or next((roadmaps[r]["title"] for r in job.get("roadmapIds") or [] if r in roadmaps), None)
         name = f"{kind_word[job['kind']]} {job['id']}" + (f": {about}" if about else f" ({len(job.get('roadmapIds') or [])} roadmaps)")
@@ -1160,6 +1310,25 @@ def main():
         add({"id": "REV-" + errata, "kind": "review", "priority": 1, "order": 500 + number, "name": job.get("name", owner), "roadmapIds": [],
              "outputs": [f"research/blueprint/reviews/REV-{errata}.md"] + files, "after": [errata], "avoidAccountOf": errata},
             ERRATA_REVIEW_TEMPLATE.format(**fill, JOB="REV-" + errata, **fields))
+
+    # Findings about roadmaps whose blueprint is not written yet go to the jobs that will write it,
+    # and to their reviews (PROTOCOL.md section 17).
+    for job in jobs:
+        path = job.get("prompt")
+        text = prompts.get(path)
+        if not text:
+            continue
+        if "<<HANDED-FINDINGS>>" in text:
+            items = handed.get(job["id"], [])
+            text = text.replace("<<HANDED-FINDINGS>>\n", handed_text(items) if items else "")
+        if "<<HANDED-FINDINGS-REVIEW>>" in text:
+            items = next((handed[t] for t in job.get("after") or [] if handed.get(t)), [])
+            places = "; ".join(f"{f['id']} at {f['where']}" for _, f in items)
+            if len(places) > HANDED_BUDGET // 3:
+                places = ", ".join(f["id"] for _, f in items)
+            text = text.replace("<<HANDED-FINDINGS-REVIEW>>\n", "9a. The blueprint was handed confirmed red-team findings (PROTOCOL.md section 17): "
+                                f"{places}. Check that the packet and the document get each of them right.\n" if items else "")
+        prompts[path] = text
 
     queue_path = BP / "queue.json"
     import fcntl

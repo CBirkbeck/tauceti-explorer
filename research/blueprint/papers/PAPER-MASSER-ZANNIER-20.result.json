@@ -12,7 +12,7 @@
    "The published version, freely available from the Annals site (PDF SHA-256 8b76bfac88374180701992e242d88f5d38fbe0b0cdb39c6c40c3c3fbbb874b60, fetched 2026-09-29; no arXiv version exists): all 40 pages, §§1–5 with every proof and the references, read in full by Claude Code session cc-fb70e5; formulas checked on page images where the text layer was ambiguous (pp. 653, 656, 661, 666, 669)."
   ]
  },
- "summary": "Masser and Zannier prove, for every algebraic hypersurface H of A_g (g ≥ 2), that almost all points of A_g over number fields of degree at most 2^{16g⁴}, counted through a finite map to affine space, are Hodge (indeed Galois) generic and isogenous to nothing in H; with H the closure of the Jacobian locus this gives, for g ≥ 4, abelian varieties over Q̄ isogenous to no Jacobian, and a euclidean-dense set of them, answering Katz–Oort and Chai–Oort without CM. The elliptic analogue (Theorem 1.7) handles real algebraic curves in the j-plane. The proof plays an isogeny estimate against Pila's blocks counting on the Galois conjugates of the connecting isogeny, using endomorphism estimates to control the integer matrices, Ax–Lindemann for A_g with the Hodge-generic property to rule out algebraic blocks, Serre's Frattini form of Hilbert irreducibility for Galois genericity, and theta constants to bound the field degree. The atlas plans A_g, the Siegel datum, heights, o-minimal counting and Hilbert irreducibility; it lacks the transcendence estimates for abelian varieties (routed to the Part II of FaltingsFinitenessAndIsogenyTheorems proposed by PAPER-TSIMERMAN-18), the Hodge-generic and weakly-special geometry (a source of ShimuraData), Pila's blocks and Ax–Lindemann (a source of LD.6), Galois genericity (a source of R01.6), and the paper's own isogeny-in-A_g machinery (a new roadmap). Five misprints are recorded.",
+ "summary": "Masser and Zannier prove, for every algebraic hypersurface H of A_g (g ≥ 2), that almost all points of A_g over number fields of degree at most 2^{16g⁴}, counted through a finite map to affine space, are Hodge (indeed Galois) generic and isogenous to nothing in H; with H the closure of the Jacobian locus this gives, for g ≥ 4, abelian varieties over Q̄ isogenous to no Jacobian, and a euclidean-dense set of them, answering Katz–Oort and Chai–Oort without CM. The elliptic analogue (Theorem 1.7) handles real algebraic curves in the j-plane. The proof plays an isogeny estimate against Pila's blocks counting on the Galois conjugates of the connecting isogeny, using endomorphism estimates to control the integer matrices, Ax–Lindemann for A_g with the Hodge-generic property to rule out algebraic blocks, Serre's Frattini form of Hilbert irreducibility for Galois genericity, and theta constants to bound the field degree. The atlas plans A_g, the Siegel datum, heights, o-minimal counting and Hilbert irreducibility; it lacks the transcendence estimates for abelian varieties (routed to the Part II of FaltingsFinitenessAndIsogenyTheorems proposed by PAPER-TSIMERMAN-18), the Mumford–Tate definition of Hodge genericity (a source of ShimuraData D1), Pila's blocks, Ax–Lindemann and the weakly special geometry (a source of LD.6), the definition of Galois genericity (a source of R01.6), and the paper's own isogeny-in-A_g machinery (a new roadmap). Twelve mistakes are recorded after review, all confirmed: eleven misprints and one gap, in the sketch for the families j = n + in0 of §3.3 (E10). After review the items are 72 (56 missing, 13 planned, 3 library) in eight routes: the Galois-orbit bound for CM points joins the Part II \"Complex multiplication and explicit reciprocity, Part II: CM heights and Galois-orbit bounds\", the weakly special geometry is a source of LD.6, and Serre's, Deligne's, Cadoret's and Pink's Galois-image results join the new roadmap.",
  "items": [
   {
    "id": "PAPER-MASSER-ZANNIER-20/1",
@@ -56,11 +56,12 @@
    "id": "PAPER-MASSER-ZANNIER-20/4",
    "kind": "definition",
    "name": "Hodge generic principally polarized abelian variety",
-   "statement": "A in A_g(C) is Hodge generic if its Mumford–Tate group is GSp_{2g}, equivalently if A lies in no proper special subvariety of A_g. A Hodge generic A is simple with End(A) = Z; the non-Hodge-generic points lie in a countable union of proper subvarieties. An elliptic curve is Hodge generic if and only if it has no complex multiplication.",
+   "statement": "A in A_g(C) is Hodge generic if the Mumford–Tate group of the rational Hodge structure H¹(A, Q) is GSp_{2g}. A Hodge generic A is simple with End(A) = Z. An elliptic curve is Hodge generic if and only if it has no complex multiplication.",
    "locator": "§1.2, p. 637; after Theorem 1.7, p. 640",
    "status": "missing",
    "library": [],
-   "planned": []
+   "planned": [],
+   "note": "Review: the equivalence with lying in no proper special subvariety of A_g, and the countable-union statement, need A_g, which is downstream of ShimuraData D1 and D4; they moved to item 22, in route 1. No layer of the atlas mentions Mumford–Tate groups."
   },
   {
    "id": "PAPER-MASSER-ZANNIER-20/5",
@@ -80,7 +81,8 @@
    "locator": "§5.1, pp. 657–658 and 663",
    "status": "missing",
    "library": [],
-   "planned": []
+   "planned": [],
+   "note": "Review: moved from ArithmeticGaloisRepresentations R01.6 to route 7. Serre's open-image theorem rests on Faltings' semisimplicity and isogeny theorem (FaltingsFinitenessAndIsogenyTheorems R28.4), and R01.6 → R28.4 is an edge of the atlas; Deligne's lemma needs A_g (PELModuli M2, M5), which is not upstream of R01.6; Pink's implication uses Deligne's theorem that Hodge classes on abelian varieties are absolutely Hodge, which no layer plans."
   },
   {
    "id": "PAPER-MASSER-ZANNIER-20/7",
@@ -104,19 +106,21 @@
    "status": "planned",
    "library": [],
    "planned": [
-    "ShimuraData:D5"
+    "ShimuraData:D5",
+    "AbelianSchemesAndArithmeticModuli:A5"
    ],
-   "note": "ShimuraData D5 constructs all Siegel data."
+   "note": "ShimuraData D5 constructs all Siegel data, with X = H_g^± and its compact dual. AbelianSchemesAndArithmeticModuli A5 plans the Riemann bilinear relations, polarized complex tori and the Siegel universal analytic family with its monodromy, which give A_g(C) = Sp_2g(Z)\\H_g and the uniformisation J (review)."
   },
   {
    "id": "PAPER-MASSER-ZANNIER-20/9",
    "kind": "theorem",
    "name": "Estimates on the Siegel fundamental domain",
-   "statement": "There is δ = δ(g) ∈ (0, 1] such that every τ = x + iy in the Siegel fundamental domain F_g satisfies δ^{-1}y^{(0)} ≥ y ≥ δy^{(0)} and y^{(0)} ≥ δι (23), where y^{(0)} is the diagonal of y, with √3/2 ≤ y_1 ≤ ··· ≤ y_g (24) and |x_ij| ≤ 1/2; F_g is a definable set.",
+   "statement": "Siegel's fundamental domain F_g ⊂ H_g ([18, p. 194]) is the set of τ = x + iy with y Minkowski-reduced, |x_ij| ≤ 1/2 for all i, j, and |det(cτ + d)| ≥ 1 for every (a b; c d) ∈ Sp_2g(Z); every point of H_g is Sp_2g(Z)-equivalent to a point of F_g, and F_g is semialgebraic, hence definable. There is δ = δ(g) ∈ (0, 1] such that every τ ∈ F_g satisfies δ^{-1}y^{(0)} ≥ y ≥ δy^{(0)} and y^{(0)} ≥ δι (23), where y^{(0)} is the diagonal matrix with the diagonal entries y_1, …, y_g of y; moreover √3/2 ≤ y_1 ≤ ··· ≤ y_g (24) and |x_ij| ≤ 1/2 ([18, Cor. 2, p. 193; p. 192; Lemma 15, p. 195; (S.3), p. 194]).",
    "locator": "§4, p. 653 (Igusa [18, Cor. 2 p. 193, p. 192, Lemma 15 p. 195, (S.3) p. 194])",
    "status": "missing",
    "library": [],
-   "planned": []
+   "planned": [],
+   "note": "No layer plans Siegel's fundamental domain for Sp_2g(Z), Minkowski reduction or Igusa's estimates. AdelicAlgebraicGroups AA.3 plans general reduction theory (Siegel sets with height estimates, finitely many covering the arithmetic quotient), from which bounds of type (23) on a Siegel set of Sp_2g would also follow (review). MOK-PILA-TSIMERMAN-19's accepted item 38 (Siegel sets and fundamental domains) is planned in AA.3 and ShimuraVarieties V0; what is new here is the classical Minkowski-reduced domain with Igusa's estimates (23)–(24)."
   },
   {
    "id": "PAPER-MASSER-ZANNIER-20/10",
@@ -128,7 +132,8 @@
    "library": [
     "mathlib:UpperHalfPlane",
     "mathlib:ModularGroup.fd",
-    "mathlib:ModularGroup.exists_smul_mem_fd"
+    "mathlib:ModularGroup.exists_smul_mem_fd",
+    "mathlib:ModularGroup.three_le_four_mul_im_sq_of_mem_fd"
    ],
    "planned": []
   },
@@ -143,16 +148,17 @@
     "mathlib:WeierstrassCurve.j"
    ],
    "planned": [
-    "ModularCurvesPartII:R12.1"
+    "ModularCurvesPartII:R12.1",
+    "tauceti:TauCetiRoadmap/ModularForms#layer-0-diamond-operators-and-modular-forms-with-character-nebentypus"
    ],
-   "note": "Mathlib has the algebraic j-invariant; the analytic uniformisation τ ↦ E_τ is ModularCurvesPartII R12.1's."
+   "note": "Mathlib has the algebraic j-invariant WeierstrassCurve.j. ModularCurvesPartII R12.1 plans the uniformisation E ≅ C/Λ and the Weierstrass curve of a lattice; Tau Ceti ModularForms layer 0 plans the analytic j = E₄³/Δ with modular invariance and q-expansion. Neither states the identity j(τ) = j(C/(Zτ + Z)) connecting them (review)."
   },
   {
    "id": "PAPER-MASSER-ZANNIER-20/12",
    "kind": "definition",
    "name": "Modular polynomials Φ_m",
    "statement": "For m ≥ 1 the modular polynomial Φ_m ∈ Z[x, y] is monic in each variable, of degree ψ(m) = m∏_{p|m}(1 + 1/p) ≤ Σ_{d|m} d in each variable and irreducible, and Φ_m(j(E), j(E′)) = 0 if and only if there is a cyclic isogeny of degree m between E and E′. Isogenous elliptic curves admit a cyclic isogeny between them.",
-   "locator": "§3.1 (ii), (v), p. 645; Lemma 3.1, p. 646",
+   "locator": "§3.1 (ii), (v), p. 645; Lemma 3.1 and its proof, pp. 646–647",
    "status": "missing",
    "library": [],
    "planned": []
@@ -164,11 +170,14 @@
    "statement": "h denotes the absolute logarithmic Weil height of an algebraic number, and h(A) the logarithmic semistable Faltings height of an abelian variety over Q̄ (not always non-negative).",
    "locator": "§2, p. 644; §4, p. 656",
    "status": "planned",
-   "library": [],
+   "library": [
+    "mathlib:NumberField.absLogHeight₁"
+   ],
    "planned": [
     "DiophantineApproximationAndTranscendence:DT.0",
     "ArakelovGeometryAndAbelianHeights:R35.3"
-   ]
+   ],
+   "note": "Mathlib has the absolute logarithmic Weil height of an algebraic number, NumberField.absLogHeight₁, normalised through ℚ⟮x⟯ and so independent of the field; DiophantineApproximationAndTranscendence DT.0 plans Weil heights generally. The stable Faltings height is ArakelovGeometryAndAbelianHeights R35.3's, and it is the part still planned (review)."
   },
   {
    "id": "PAPER-MASSER-ZANNIER-20/14",
@@ -192,7 +201,7 @@
    "status": "missing",
    "library": [],
    "planned": [],
-   "note": "The Rosati involution itself is planned in AbelianSchemesAndArithmeticModuli A2; the analytic length and discriminant are not."
+   "note": "The Rosati involution itself is planned in AbelianSchemesAndArithmeticModuli A2; the analytic length and discriminant are not. The D(A) display on p. 655 repeats the slip of E1 and is recorded as E9; the statement here uses the rational Rosati trace form, as [27] does."
   },
   {
    "id": "PAPER-MASSER-ZANNIER-20/16",
@@ -257,19 +266,23 @@
    "name": "Ax–Lindemann for A_g (Pila–Tsimerman)",
    "statement": "If Γ is a semialgebraic curve contained in J^{-1}(H) for an algebraic subvariety H of A_g, then there is a weakly special subvariety K ⊂ H with Γ ⊂ J^{-1}(K) (Pila–Tsimerman [34, Th. 6.1]).",
    "locator": "§5.1, p. 663",
-   "status": "missing",
+   "status": "planned",
    "library": [],
-   "planned": []
+   "planned": [
+    "LogicAndDefinabilityInNumberTheory:LD.6"
+   ],
+   "note": "Review: planned in LD.6, which builds its applications from \"functional-transcendence theorems\" and lists Ax–Lindemann inputs in its source route. PAPER-TSIMERMAN-18's accepted review classes the same theorem (Pila–Tsimerman, Theorem 6.1) as planned there (its item hyperbolic-ax-lindemann)."
   },
   {
    "id": "PAPER-MASSER-ZANNIER-20/22",
    "kind": "definition",
    "name": "Weakly special subvarieties and their bi-algebraic characterisation",
-   "statement": "Weakly special subvarieties of A_g (in the sense of Pink and Ullmo–Yafaev); by Ullmo–Yafaev [45, Th. 1.2] they are exactly the bi-algebraic subvarieties (algebraic subvarieties whose preimage in H_g has algebraic components).",
-   "locator": "§5.1, p. 663",
+   "statement": "Weakly special subvarieties of A_g (in the sense of Pink and Ullmo–Yafaev); by Ullmo–Yafaev [45, Th. 1.2] they are exactly the bi-algebraic subvarieties (algebraic subvarieties whose preimage in H_g has algebraic components). A point of A_g(C) is Hodge generic (item 4) if and only if it lies in no proper special subvariety, and the points that are not Hodge generic lie in a countable union of proper special subvarieties (§1.2, p. 637).",
+   "locator": "§5.1, p. 663; §1.2, p. 637",
    "status": "missing",
    "library": [],
-   "planned": []
+   "planned": [],
+   "note": "Review: moved from ShimuraData D4, which is upstream of A_g (D4 → D5 → PELModuli M5), to LD.6. PAPER-TSIMERMAN-18's accepted review plans special and weakly special subvarieties in LD.6 (its item special-weakly-special); MOK-PILA-TSIMERMAN-19's accepted Part II of LogicAndDefinabilityInNumberTheory also claims weakly special subvarieties and bi-algebraicity, and one owner is to be chosen at design time."
   },
   {
    "id": "PAPER-MASSER-ZANNIER-20/23",
@@ -279,7 +292,8 @@
    "locator": "§5.1, p. 663",
    "status": "missing",
    "library": [],
-   "planned": []
+   "planned": [],
+   "note": "Review: moved from ShimuraData D4 to LD.6 with item 22."
   },
   {
    "id": "PAPER-MASSER-ZANNIER-20/24",
@@ -289,7 +303,8 @@
    "locator": "Proof of Lemma 5.1 (c), p. 658",
    "status": "missing",
    "library": [],
-   "planned": []
+   "planned": [],
+   "note": "Review: moved from ArithmeticGaloisRepresentations R01.6 to route 7. Serre's open-image theorem rests on Faltings' semisimplicity and isogeny theorem (FaltingsFinitenessAndIsogenyTheorems R28.4), and R01.6 → R28.4 is an edge of the atlas; Deligne's lemma needs A_g (PELModuli M2, M5), which is not upstream of R01.6; Pink's implication uses Deligne's theorem that Hodge classes on abelian varieties are absolutely Hodge, which no layer plans."
   },
   {
    "id": "PAPER-MASSER-ZANNIER-20/25",
@@ -299,7 +314,8 @@
    "locator": "Proof of Lemma 5.1, p. 659",
    "status": "missing",
    "library": [],
-   "planned": []
+   "planned": [],
+   "note": "AbelianSchemesAndArithmeticModuli A5 plans the Siegel universal analytic family and its monodromy, the topological input to Deligne's lemma; LefschetzPencilsAndVanishingCycles LPV.5 plans open symplectic monodromy only for Lefschetz pencils. The arithmetic statement over the function field is planned nowhere (review). Review: moved from ArithmeticGaloisRepresentations R01.6 to route 7. Serre's open-image theorem rests on Faltings' semisimplicity and isogeny theorem (FaltingsFinitenessAndIsogenyTheorems R28.4), and R01.6 → R28.4 is an edge of the atlas; Deligne's lemma needs A_g (PELModuli M2, M5), which is not upstream of R01.6; Pink's implication uses Deligne's theorem that Hodge classes on abelian varieties are absolutely Hodge, which no layer plans."
   },
   {
    "id": "PAPER-MASSER-ZANNIER-20/26",
@@ -315,12 +331,12 @@
    "id": "PAPER-MASSER-ZANNIER-20/27",
    "kind": "theorem",
    "name": "Hilbert irreducibility with Frattini and Cohen's count",
-   "statement": "Let G be a profinite group with open Frattini subgroup N; if a specialisation's decomposition group maps onto G/N it is all of G. For a Galois cover of a variety over a number field k, outside a thin set Ω ⊂ k^G the decomposition group equals the whole group (Serre [38, Prop. 2 p. 123, Prop. p. 128, Prop. (iv) p. 148]); a thin set of Q^G contains ≪ N^{G−1/2} log N integral points of height ≤ N (Cohen [9, p. 229]), and the exponent 1/2 cannot be improved in general.",
+   "statement": "Let G be a profinite group whose Frattini subgroup N, the intersection of its maximal open subgroups, is open; a closed subgroup H with H·N = G equals G. If G is an open subgroup of GSp_2g(Z_p), then N is open (Serre [38, Prop. (iv), p. 148; Example 1, p. 149]). For a finite Galois cover with group G/N of a variety over a number field k, there is a thin set Ω ⊂ k^G outside which the decomposition group of the specialisation is the whole group (Serre [38, Prop. 2, p. 123], with the assumption 'Ram' of p. 149), and Ω ∩ Q^G is thin in Q^G ([38, Prop., p. 128]). A thin subset of Q^G contains ≪ N^{G−1/2} log N integral points n with 1 ≤ n_i ≤ N (Cohen [9, p. 229]; [38, p. 177]), and the exponent 1/2 cannot be improved in general.",
    "locator": "Proof of Lemma 5.1, p. 659",
    "status": "missing",
    "library": [],
    "planned": [],
-   "note": "Hilbert irreducibility itself is planned in InverseGalois IG.2; the Frattini specialisation and Cohen's count are not."
+   "note": "Hilbert irreducibility for regular finite Galois covers over number fields is planned in InverseGaloisAndArithmeticFundamentalGroups IG.2. Tau Ceti ProfiniteProPGroups layer 3 plans the profinite Frattini subgroup and its non-generation property for pro-p groups only. The openness of the Frattini subgroup of an open subgroup of GSp_2g(Z_p), thin sets and Cohen's count are planned nowhere (review)."
   },
   {
    "id": "PAPER-MASSER-ZANNIER-20/28",
@@ -341,14 +357,15 @@
    "id": "PAPER-MASSER-ZANNIER-20/29",
    "kind": "definition",
    "name": "Frattini subgroup",
-   "statement": "The Frattini subgroup of a (profinite) group: the intersection of its maximal (open) subgroups; a subgroup H with H·Φ(G) = G equals G.",
+   "statement": "The Frattini subgroup Φ(G) of a group G is the intersection of its maximal subgroups; when the lattice of subgroups of G is coatomic (for instance G finite), a subgroup H with H ⊔ Φ(G) = G equals G.",
    "locator": "Proof of Lemma 5.1, p. 659",
    "status": "library",
    "library": [
-    "mathlib:frattini"
+    "mathlib:frattini",
+    "mathlib:frattini_nongenerating"
    ],
    "planned": [],
-   "note": "Mathlib defines the Frattini subgroup of a group; the profinite (open maximal subgroups) version and the generation property are part of the Hilbert-irreducibility item."
+   "note": "Mathlib's frattini is the abstract Frattini subgroup, which for a profinite group need not be the intersection of the maximal open subgroups. The profinite form used in the proof of Lemma 5.1 (p. 659), with the openness of the Frattini subgroup of an open subgroup of GSp_2g(Z_p), is part of item 27; Tau Ceti ProfiniteProPGroups layer 3 plans it for pro-p groups (review)."
   },
   {
    "id": "PAPER-MASSER-ZANNIER-20/30",
@@ -358,7 +375,8 @@
    "locator": "§2, Lemma 2.1, p. 643",
    "status": "missing",
    "library": [],
-   "planned": []
+   "planned": [],
+   "note": "The classical input, that an isogeny of degree m from C/(Zτ̃ + Z) to C/(Zτ + Z) is multiplication by some κ with [Zτ + Z : κ(Zτ̃ + Z)] = m, so that τ̃ = (aτ + b)/(cτ + d) with ad − bc = m, is the g = 1 case of the representations of item 15 and rests on the uniformisation by C/Λ that ModularCurvesPartII R12.1 plans (review)."
   },
   {
    "id": "PAPER-MASSER-ZANNIER-20/31",
@@ -374,7 +392,7 @@
    "id": "PAPER-MASSER-ZANNIER-20/32",
    "kind": "theorem",
    "name": "Counting finite subgroups of given order",
-   "statement": "The number of subgroups of (Q/Z)^{2g} of order m is at most m^{2g} (for g = 1, at most m²) (Lemma 6.1 of [26, p. 469]).",
+   "statement": "The number of subgroups of (Q/Z)^{2g} of order at most m is ≪_g m^{2g}, and at most m² when g = 1 (Lemma 6.1 of [26, p. 469], as used at the end of §2 and in the proof of Lemma 5.1(b)).",
    "locator": "End of §2, p. 644; proof of Lemma 5.1 (b), p. 658",
    "status": "missing",
    "library": [],
@@ -397,11 +415,9 @@
    "statement": "Given f ≠ 0 in C[y1, y2] there is c = c(f) such that for every m there is G_m ≠ 0 in C[x1, x2] of degree at most cψ(m)² with G_m(ξ1, ξ2) = 0 whenever Φ_m(ξ1, η1) = Φ_m(ξ2, η2) = f(η1, η2) = 0.",
    "locator": "§3.2, Lemma 3.1, pp. 646–647",
    "status": "missing",
-   "library": [
-    "mathlib:Polynomial.resultant"
-   ],
+   "library": [],
    "planned": [],
-   "note": "Proved by resultants; Mathlib's resultant is the tool, the lemma is missing."
+   "note": "Proved by iterated resultants. Mathlib has Polynomial.resultant (Mathlib/RingTheory/Polynomial/Resultant/Basic.lean), with resultant_eq_zero_iff over a field, which is the tool the proof uses; the lemma itself is missing, and it needs the modular polynomials of item 12 (irreducible, of degree ψ(m) in each variable)."
   },
   {
    "id": "PAPER-MASSER-ZANNIER-20/35",
@@ -421,7 +437,8 @@
    "locator": "§3.2, Lemma 3.3, p. 648",
    "status": "missing",
    "library": [],
-   "planned": []
+   "planned": [],
+   "note": "D̃ enters twice: as an upper bound for [K̃ : Q] here, and on p. 650 as a lower bound for the number of distinct conjugates σ(c) of c over Q(i) and the coefficients of f. So take D̃ = max{2, [K̃ : Q]} with K̃ = Q(c), the field of definition of E_c in the model (6)."
   },
   {
    "id": "PAPER-MASSER-ZANNIER-20/37",
@@ -437,7 +454,7 @@
    "id": "PAPER-MASSER-ZANNIER-20/38",
    "kind": "theorem",
    "name": "André's theorem on CM pairs",
-   "statement": "A plane algebraic curve contains only finitely many points (j1, j2) with both coordinates CM j-invariants unless it is modular (André [1]); effective versions by Kühne [21] and Bilu–Masser–Zannier [4].",
+   "statement": "André [1]: an irreducible algebraic curve in C² containing infinitely many points (j1, j2) whose coordinates are both singular moduli (CM j-invariants) is special, that is, a component of some Φ_N(X, Y) = 0 or a line X = j0 or Y = j0 with j0 singular. Effective versions are due to Kühne [21] and Bilu–Masser–Zannier [4]. The paper uses it only in the remark on p. 648, for curves f = 0 involving both variables, where the exception is f = Φm up to constants.",
    "locator": "§3.2, p. 648",
    "status": "planned",
    "library": [],
@@ -454,7 +471,8 @@
    "locator": "§3.3, p. 651",
    "status": "missing",
    "library": [],
-   "planned": []
+   "planned": [],
+   "note": "Sketched in the paper, which does not state the count for the family j = n + in0. The sketch shows that Gm(x + in0, x − in0) ≡ 0 forces ψ(m) ≤ d, then excludes at most deg Gm ≤ 2dψ(m)² values of n0 for one m. Since every m with ψ(m) ≤ d (hence m ≤ d) must be avoided at once, the argument as written gives some 1 ≤ n0 ≤ 2d⁴ + 1; the printed 2d³ + 1 needs a further argument (E10)."
   },
   {
    "id": "PAPER-MASSER-ZANNIER-20/40",
@@ -521,7 +539,7 @@
    "kind": "theorem",
    "name": "Isogeny estimates for abelian varieties (Masser–Wüstholz)",
    "statement": "If abelian varieties A, B over a number field of degree D are isogenous, there is an isogeny of degree bounded by a polynomial in D and h(A) with exponents depending on g ([26]); used for the isogeny-class counts of §5.3.",
-   "locator": "§5.3, p. 666",
+   "locator": "§5.3, pp. 666–667 (isogeny-class counts; thinning in the proof of Corollary 1.4); outlined in §1.3, p. 641, where it is cited as [25]",
    "status": "missing",
    "library": [],
    "planned": []
@@ -530,7 +548,7 @@
    "id": "PAPER-MASSER-ZANNIER-20/47",
    "kind": "theorem",
    "name": "Lemma 5.1: candidates avoiding small isogenies and Galois degeneracy",
-   "statement": "There is µ = µ(g) such that for integers M ≥ 1 and N ≥ 2 there are only ≪ N^{G−1}M^{2g} + N^{G−1}(log N)^µ + N^{G−1/2} log N elements n ∈ [1, N]^G such that some A_n in the projection of Ψ^{-1}(n) is (a) not defined over an extension of Q of degree at most D (1), (b) isogenous to some Ã in H via an isogeny to Ã of degree at most M, or (c) not p-Galois generic; for g odd or g = 2, 6 the last term can be omitted.",
+   "statement": "There is µ = µ(g) such that for integers M ≥ 1 and N ≥ 2 there are only ≪ N^{G−1}M^{2g} + N^{G−1}(log N)^µ + N^{G−1/2} log N elements n ∈ [1, N]^G such that some A_n in the projection of Ψ^{-1}(n) is (a) not defined over an extension of Q of degree at most D (1), (b) isogenous to some Ã in H via an isogeny to Ã of degree at most M, or (c) not p-Galois generic, for a fixed prime p (p = 2 will do); the implied constant depends only on Ã, Ψ, H. For g odd or g = 2, 6 the last term can be omitted.",
    "locator": "§5.1, Lemma 5.1, pp. 658–659",
    "status": "missing",
    "library": [],
@@ -540,7 +558,7 @@
    "id": "PAPER-MASSER-ZANNIER-20/48",
    "kind": "theorem",
    "name": "Lemma 5.2: isogeny degree and heights",
-   "statement": "If A = A_n is isogenous to some Ã in H, there is an isogeny f : A → Ã of degree m̃ ≪ max{D̃, log N}^{2gλ} (33), with D(A × Ã) ≪ max{D̃, log N + h(Ã)}^λ (34) and max{1, h(A), h(Ã)} ≪ log N + log m̃ (35), where D̃ ≥ 2 bounds the degree of a field of definition of Ã.",
+   "statement": "If A = A_n as in Lemma 5.1 is isogenous to some Ã in H, there is an isogeny f : A → Ã of degree m̃ ≪ max{D̃, log N}^{2gλ} (33), with D(A × Ã) ≪ max{D̃, log N + h(Ã)}^λ (34) and max{1, h(A), h(Ã)} ≪ log N + log m̃ (35), where D̃ ≥ 2 bounds the degree of a field of definition of Ã. Choosing M = [(log N)^ν] for a fixed ν > 2gλ in Lemma 5.1, any n outside its exceptional set (now ≪ N^{G−γ}(log N)^{2gν} elements) has M < m̃, hence (log N)^ν ≪ m̃ ≪ D̃^{2gλ} (36).",
    "locator": "§5.1, Lemma 5.2, p. 660",
    "status": "missing",
    "library": [],
@@ -551,10 +569,11 @@
    "kind": "theorem",
    "name": "Integral points on the isogeny correspondence lie in zero-dimensional blocks",
    "statement": "For τ ∈ H_g let W_τ = {X ∈ M_2(M_g(R)) : det(x_cτ + x_d) ≠ 0, (x_aτ + x_b)(x_cτ + x_d)^{-1} ∈ Z} with Z = F_g ∩ J^{-1}(H). The integral points ρ_σ attached to the Galois conjugates Ã^σ satisfy ‖ρ_σ‖ ≪ D̃^λ (45, assuming λ ≥ 4), and the blocks containing them have zero-dimensional image in Z because a positive-dimensional one would give a weakly special K ⊂ H through the Hodge generic Ã^σ; hence D̃ ≪ 1.",
-   "locator": "§5.1, (39)–(45) and pp. 662–663",
+   "locator": "§5.1, (38)–(45), pp. 661–663",
    "status": "missing",
    "library": [],
-   "planned": []
+   "planned": [],
+   "note": "The count \"the number of different π_τ(ρ_σ) = τ̃_σ is ≫ D̃\" (p. 663) needs D̃ comparable to the number of Galois conjugates of the moduli point of Ã, so D̃ is taken as the degree of a field of definition of bounded degree over the field of moduli (item 72; compare item 36) (review)."
   },
   {
    "id": "PAPER-MASSER-ZANNIER-20/50",
@@ -564,7 +583,8 @@
    "locator": "§5.2, pp. 663–665",
    "status": "missing",
    "library": [],
-   "planned": []
+   "planned": [],
+   "note": "Partly planned elsewhere (review). AutomorphicBundles B4 plans classical forms for Siegel data, with the analytic transformation law and the cocycle identity, and B5 plans Fourier expansions; ShimuraVarieties V2 records when Koecher's principle may be used. Only the order function ord and its superadditivity are missing; route 7 imports the rest."
   },
   {
    "id": "PAPER-MASSER-ZANNIER-20/51",
@@ -600,8 +620,8 @@
    "id": "PAPER-MASSER-ZANNIER-20/54",
    "kind": "definition",
    "name": "Theta constants of level Γ(e, 2e)",
-   "statement": "θ_{mm*}(τ) = Σ_{h∈Z^g} exp{πi(h + m)τ(h + m)^t + 2πi(h + m)m*^t}; for e even, Λ = Γ(e, 2e) is normal in Γ and the θ_{m0}(eτ)² (m ∈ e^{-1}Z^g/Z^g) are Λ-forms of weight 1; the variety V_e they parametrise is quasi-projective when 8 | e (Igusa [18, p. 415]).",
-   "locator": "§5.2, p. 665",
+   "statement": "θ_{mm*}(τ) = Σ_{h∈Z^g} exp{πi(h + m)τ(h + m)^t + 2πi(h + m)m*^t} for row vectors m, m* ∈ R^g. For an even integer e, Λ = Γ(e, 2e) is normal in Γ = Sp_{2g}(Z), and the θ_{m0}(eτ)² (m ∈ e^{-1}Z^g/Z^g) are Λ-forms of weight 1, whose Fourier expansions may be taken with d = e. The variety V_e parametrised by the θ_{m0}(eτ) is quasi-projective when 8 | e (Igusa [18, p. 415], with e also a square).",
+   "locator": "§5.2, pp. 665–666",
    "status": "missing",
    "library": [],
    "planned": []
@@ -610,7 +630,7 @@
    "id": "PAPER-MASSER-ZANNIER-20/55",
    "kind": "theorem",
    "name": "Lemma 5.5: a Siegel lemma for theta polynomials",
-   "statement": "Given C-linear combinations χ_1, …, χ_{G+2} of the θ_{m0}(eτ), real W ≥ 0 and integer D ≥ 0 with (D + 1)^{G+1} > (G + 1)!(4eW + 1)^G (48), there is a nonzero homogeneous P ∈ C[X_1, …, X_{G+2}] of degree D with ord(P(χ_1², …, χ_{G+2}²)) ≥ W unless that form vanishes.",
+   "statement": "Given C-linear combinations χ_1, …, χ_{G+2} of the θ_{m0}(eτ), a real W ≥ 0 and an integer D ≥ 0 with (D + 1)^{G+1} > (G + 1)!(4eW + 1)^G (48), there is a nonzero homogeneous P ∈ C[X_1, …, X_{G+2}] of degree D such that ϕ = P(χ_1², …, χ_{G+2}²), if nonzero, has ord(ϕ) > W: its coefficients a(M) vanish for every M with eM half-integral and tr(M) ≤ W, of which there are at most (4eW + 1)^G. The paper prints \"ord(ϕ) ≥ W\", which is too weak for the application with W = Nk; the proof gives the strict form (E11).",
    "locator": "§5.2, Lemma 5.5, pp. 665–666",
    "status": "missing",
    "library": [],
@@ -712,12 +732,10 @@
    "name": "Galois orbits of CM points are large (Tsimerman)",
    "statement": "The degree of the field of definition of a CM point of A_g grows as a positive power of the discriminant of its CM order (Pila–Tsimerman [34, Conj. 7.1], proved by Tsimerman [42], [44]).",
    "locator": "§5.4, p. 667",
-   "status": "planned",
+   "status": "missing",
    "library": [],
-   "planned": [
-    "LogicAndDefinabilityInNumberTheory:LD.6"
-   ],
-   "note": "LD.6 plans separate Galois-orbit bounds for André–Oort."
+   "planned": [],
+   "note": "Review: LD.6 builds its applications \"from separate Galois-orbit bounds\" and requires \"independent orbit … suppliers\", so it takes this bound as an input rather than planning it, and no other layer plans it. PAPER-TSIMERMAN-18, PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18 and PAPER-YUAN-ZHANG-18 route the CM Galois-orbit lower bounds, with the averaged Colmez formula their proof needs, to the accepted Part II \"Complex multiplication and explicit reciprocity, Part II: CM heights and Galois-orbit bounds\"; this item joins it (route 8). The paper cites [42] (g ≤ 6 unconditionally, all g under GRH) and [44]."
   },
   {
    "id": "PAPER-MASSER-ZANNIER-20/66",
@@ -727,11 +745,12 @@
    "locator": "§5.4, pp. 668–670",
    "status": "missing",
    "library": [],
-   "planned": []
+   "planned": [],
+   "note": "The Cholesky input is in Tau Ceti f790474: TauCeti.cholesky (LinearAlgebra/Matrix/Cholesky/Basic.lean), with TauCeti.continuous_cholesky and TauCeti.choleskyHomeomorph (Cholesky/Topology.lean). The construction uses only that the lower-triangular factor depends continuously on the matrix, not the Lipschitz form (50) (review)."
   },
   {
    "id": "PAPER-MASSER-ZANNIER-20/67",
-   "kind": "definition",
+   "kind": "theorem",
    "name": "Igusa's modular form and the Schottky relation for g = 4",
    "statement": "F_g(τ) = 2^g U_g(τ) − V_g(τ)² with U_g = Σ θ_{mm*}(τ)^{16}, V_g = Σ θ_{mm*}(τ)^8 over m, m* ∈ 2^{-1}Z^g/Z^g is a Γ-form of weight 8; it vanishes identically on A_g for g ≤ 3, and for g = 4 its zero locus is the closure of the Jacobian locus (Grushevsky [16, Th. 3.8]).",
    "locator": "§5.4, p. 670",
@@ -748,6 +767,52 @@
    "status": "missing",
    "library": [],
    "planned": []
+  },
+  {
+   "id": "PAPER-MASSER-ZANNIER-20/69",
+   "kind": "construction",
+   "name": "Quotients of abelian varieties by finite subgroups",
+   "statement": "For an abelian variety A over a field of characteristic 0 and a finite subgroup G ⊂ A, the quotient A/G is an abelian variety and A → A/G is an isogeny of degree #G. Every isogeny f : A → B identifies B with A/ker f, and deg f = #ker f.",
+   "locator": "§1.1, p. 636 (A/G principally polarized when #G is a g-th power); end of §2, p. 644 (\"E_j is isomorphic to E/G\"); proof of Lemma 5.1(b), p. 658 (\"isomorphic to A″/Γ\")",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "AbelianSchemesAndArithmeticModuli:A3"
+   ],
+   "note": "Added in review. AbelianSchemesAndArithmeticModuli A3 plans \"for a finite locally free subgroup, construct the fppf quotient abelian scheme and prove its universal property\". Tau Ceti f790474 has isogenies of abelian varieties but no quotient or degree."
+  },
+  {
+   "id": "PAPER-MASSER-ZANNIER-20/70",
+   "kind": "theorem",
+   "name": "Degree and Rosati length of endomorphisms",
+   "statement": "Let B be a principally polarized abelian variety of dimension n with Rosati length ℓ (item 15). (i) deg(v) = det ρ(v) is a homogeneous polynomial function of degree 2n on End(B), so deg(m_1v_1 + ··· + m_rv_r) = P(m_1, …, m_r) with P homogeneous of degree 2n. (ii) ℓ(uv) ≤ ℓ(u)ℓ(v) ([27, Lemma 2.2]). (iii) deg(v) ≤ ℓ(v)^{2n} ([27, Lemma 2.3]). For B = A × Ã, n = 2g, this gives (30) and (31).",
+   "locator": "Proof of Lemma 4.2, (30) and (31), p. 656 (\"It is well known that the degree …\"; [27, Lemmas 2.2 and 2.3, p. 644])",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Added in review. AbelianSchemesAndArithmeticModuli A2 plans Rosati involutions but not these trace-form inequalities, Tau Ceti f790474 has the endomorphism ring of an abelian variety but no degree function, and Mathlib has neither. (ii) is submultiplicativity of the norm defined by the positive Riemann form; (iii) is the inequality of arithmetic and geometric means on the eigenvalues of ρρ′."
+  },
+  {
+   "id": "PAPER-MASSER-ZANNIER-20/71",
+   "kind": "theorem",
+   "name": "Degree of a projective variety through generic linear projections",
+   "statement": "Let V ⊂ P^r_C be an irreducible projective variety of dimension G < r. For generic linear forms χ_1, …, χ_{G+2}, the projection V ⇢ P^{G+1} is birational onto a hypersurface of degree deg V, so if the image lies in the zero set of a nonzero homogeneous polynomial of degree δ, then deg V ≤ δ. A generically finite projection V ⇢ P^G has degree at most deg V.",
+   "locator": "§5.2, p. 666 (\"the degree of the Zariski closure of the variety V_e … is at most 2D\"; \"This makes it clear that D_Ψ ≤ 2^{16g⁴−1}\")",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Added in review. It turns the relation P(χ_1², …, χ_{G+2}²) = 0, of degree 2D in the χ_i, into deg V̄_16 ≤ 2D, and bounds D_Ψ by that degree. No layer plans projective degree under projections; AlgebraicModuliForArithmeticGeometry R09.1–R09.2 plan Hilbert polynomials, whose leading coefficient gives the degree."
+  },
+  {
+   "id": "PAPER-MASSER-ZANNIER-20/72",
+   "kind": "theorem",
+   "name": "A field of definition of bounded degree over the field of moduli",
+   "statement": "For a principally polarized abelian variety Ã over Q̄ with moduli point x ∈ A_g(Q̄) and field of moduli Q(x), there is a field of definition K̃ ⊇ Q(x) of Ã with [K̃ : Q(x)] ≤ c(g): lift x to the fine moduli space A_{g,3} of principally polarized abelian varieties with full level-3 structure and take the residue field of the lift.",
+   "locator": "§5.1, p. 663 (\"the number of different π_τ(ρ_σ) = τ̃_σ is ≫ D̃\"), with (33) on p. 660; likewise p. 650 for g = 1",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Added in review. (33) bounds m̃ by the degree D̃ of a field of definition, while the Pila count needs the number of Galois conjugates of the moduli point, which is the degree of the field of moduli; the paper passes between them without comment. PELModuli M2 and M5 own the Siegel moduli problem with level structure, which this imports."
   }
  ],
  "prerequisites": [
@@ -830,6 +895,20 @@
    "citation": "Y. André, Finitude des couples d'invariants modulaires singuliers sur une courbe algébrique plane non modulaire, J. reine angew. Math. 505 (1998), 203–208",
    "link": "10.1515/crll.1998.505.203",
    "why": "The CM remark in §3.2."
+  },
+  {
+   "citation": "P. Deligne, Théorie de Hodge. II, Publ. Math. IHÉS 40 (1971), 5–57",
+   "link": "http://www.numdam.org/item/PMIHES_1971__40__5_0/",
+   "why": "Lemma 4.4.16: open monodromy of the universal family over A_g (item 25)."
+  },
+  {
+   "citation": "R. Pink, A combination of the conjectures of Mordell–Lang and André–Oort, in Geometric Methods in Algebra and Number Theory, Progr. Math. 235 (2005), 251–282",
+   "link": "10.1007/0-8176-4417-2_11",
+   "why": "Galois and p-Galois generic abelian varieties and Galois generic implies Hodge generic, pp. 274–275 (items 5, 6)."
+  },
+  {
+   "citation": "J.-P. Serre, Œuvres. Collected Papers IV (1985–1998), Springer (2000)",
+   "why": "p. 35: open image for End = Z in dimensions g odd, 2, 6 (item 24)."
   }
  ],
  "routes": [
@@ -847,23 +926,21 @@
     "PAPER-MASSER-ZANNIER-20/17",
     "PAPER-MASSER-ZANNIER-20/19",
     "PAPER-MASSER-ZANNIER-20/38",
-    "PAPER-MASSER-ZANNIER-20/65"
+    "PAPER-MASSER-ZANNIER-20/22",
+    "PAPER-MASSER-ZANNIER-20/23"
    ],
-   "reason": "LD.6 owns o-minimal counting and Pila–Zannier-type applications with separate Galois-orbit and functional-transcendence inputs. The paper needs Pila's family version with blocks (the algebraic part of its definable sets is everything), Ax–Lindemann for j² and for A_g, and definability of the uniformisation; it is a worked application of exactly this layer's programme. The planned items are listed as those it serves."
+   "reason": "LD.6 owns o-minimal counting and Pila–Zannier-type applications with separate Galois-orbit and functional-transcendence inputs. The paper needs Pila's family version with blocks (the algebraic part of its definable sets is everything), Ax–Lindemann for j² and for A_g, and definability of the uniformisation; it is a worked application of exactly this layer's programme. The planned items are listed as those it serves. Review (REV-PAPER-MASSER-ZANNIER-20): PAPER-TSIMERMAN-18's accepted route 1 is the precedent; it plans hyperbolic Ax–Lindemann for A_g and special and weakly special subvarieties in LD.6, so item 21 is planned and items 22 and 23 join this route from the rejected ShimuraData route (a Part II of LogicAndDefinabilityInNumberTheory proposed by MOK-PILA-TSIMERMAN-19 also claims weakly special subvarieties; one owner is to be chosen at design time). Item 65 leaves for route 8. LD.6's inputs are LD.0, DT.0 and SF.0 only, so the uniformisation and Ax–Lindemann items need the links PELModuli:M5 → LD.6, ShimuraData:D5 → LD.6 and ModularCurvesPartII:R12.1 → LD.6; none closes a cycle."
   },
   {
    "route": "source",
    "roadmap": "ShimuraData",
    "stages": [
-    "ShimuraData:D1",
-    "ShimuraData:D4"
+    "ShimuraData:D1"
    ],
    "items": [
-    "PAPER-MASSER-ZANNIER-20/4",
-    "PAPER-MASSER-ZANNIER-20/22",
-    "PAPER-MASSER-ZANNIER-20/23"
+    "PAPER-MASSER-ZANNIER-20/4"
    ],
-   "reason": "ShimuraData D1 carries Hodge structures and D4 the distinguished classes (special points) of a Shimura datum. Hodge genericity (Mumford–Tate group GSp_2g), weakly special subvarieties with their bi-algebraic characterisation (Ullmo–Yafaev) and Gao's lemma continue those layers for the Siegel datum."
+   "reason": "ShimuraData D1 constructs the Deligne torus and Hodge structures; the Mumford–Tate group of the polarized rational Hodge structure H¹(A, Q), and with it the definition of a Hodge generic abelian variety, continues that layer. As corrected in review (REV-PAPER-MASSER-ZANNIER-20): weakly special subvarieties of A_g (items 22, 23) and the special-subvariety characterization of Hodge genericity are statements about A_g, which is downstream of D4 (D4 → D5 → PELModuli M5), so they moved to LD.6 (route 1); MOK-PILA-TSIMERMAN-19's review rejected the same D4 placement."
   },
   {
    "route": "source",
@@ -872,12 +949,9 @@
     "ArithmeticGaloisRepresentations:R01.6"
    ],
    "items": [
-    "PAPER-MASSER-ZANNIER-20/5",
-    "PAPER-MASSER-ZANNIER-20/6",
-    "PAPER-MASSER-ZANNIER-20/24",
-    "PAPER-MASSER-ZANNIER-20/25"
+    "PAPER-MASSER-ZANNIER-20/5"
    ],
-   "reason": "R01.6 owns Tate modules of abelian varieties. Galois and p-Galois genericity, Cadoret's and Pink's implications, Serre's open image for End = Z in dimensions g odd, 2, 6, and the open monodromy of the universal family (Deligne) are statements about the image of Galois on those Tate modules."
+   "reason": "R01.6 owns Tate modules of abelian varieties, and Galois and p-Galois genericity (item 5) are properties of the Galois image on them. As corrected in review (REV-PAPER-MASSER-ZANNIER-20), the theorems about that image moved to route 7: Serre's open image for End = Z (item 24) rests on Faltings' theorems in FaltingsFinitenessAndIsogenyTheorems R28.4, and R01.6 → R28.4 is an atlas edge, so placing it here would close a cycle; Deligne's open monodromy (item 25) needs A_g, which is not upstream of R01.6; and Cadoret's and Pink's implications (item 6) use the open-image machinery and absolute Hodge classes. R28.6 plans its isogeny results \"without requiring the full Serre open-image theorem\", so no existing layer downstream of R28.4 owns them."
   },
   {
    "route": "source",
@@ -888,7 +962,7 @@
    "items": [
     "PAPER-MASSER-ZANNIER-20/27"
    ],
-   "reason": "IG.2 proves Hilbert irreducibility over number fields and full-group specialisation. Serre's Frattini form for ℓ-adic images and Cohen's count of integral points in thin sets are the quantitative version the paper needs."
+   "reason": "IG.2 proves Hilbert irreducibility over number fields and full-group specialisation. Serre's Frattini form for ℓ-adic images and Cohen's count of integral points in thin sets are the quantitative version the paper needs. Review: Cohen's theorem is proved with the large sieve, which SieveMethodsAndPrimePatterns SV.2 plans; SV.2 and IG.2 are unrelated in the atlas, so the blueprint needs the link SV.2 → IG.2, which closes no cycle, or a self-contained proof."
   },
   {
    "route": "source",
@@ -899,7 +973,7 @@
    "items": [
     "PAPER-MASSER-ZANNIER-20/12"
    ],
-   "reason": "Modular curves is a Tau Ceti roadmap, so its continuation owns more on Y₀(N): the modular polynomial Φ_m is the integral plane model of Y₀(m) in the (j, j′)-plane, monic and of degree ψ(m), which fits the integral coarse spaces of R13.4."
+   "reason": "Modular curves is a Tau Ceti roadmap, so its continuation owns more on Y₀(N): the modular polynomial Φ_m is the integral plane model of Y₀(m) in the (j, j′)-plane, monic and of degree ψ(m), which fits the integral coarse spaces of R13.4. Review: PAPER-GROSS-ZAGIER-86 (not yet reviewed) sends Kronecker's congruence for the modular polynomial to ComplexMultiplicationAndExplicitReciprocity CM.3/CM.5; Φ_m itself should have one home, R13.4, which CM imports through the link R13.4 → CM.3 (no path exists either way, so no cycle)."
   },
   {
    "route": "part-ii",
@@ -912,10 +986,11 @@
     "PAPER-MASSER-ZANNIER-20/31",
     "PAPER-MASSER-ZANNIER-20/44",
     "PAPER-MASSER-ZANNIER-20/45",
-    "PAPER-MASSER-ZANNIER-20/46"
+    "PAPER-MASSER-ZANNIER-20/46",
+    "PAPER-MASSER-ZANNIER-20/70"
    ],
    "brief": "The same Part II that PAPER-TSIMERMAN-18 proposes under this id, for the Masser–Wüstholz factorization estimates; this paper adds the rest of the Masser–Wüstholz method to it. Final theorems: (1) the isogeny estimate (Masser–Wüstholz, Isogeny estimates for abelian varieties, and finiteness theorems, Ann. of Math. 137 (1993)): isogenous A, B over a number field of degree D admit an isogeny of degree bounded polynomially in D and h(A), exponents depending on g, with the elliptic case in the explicit form c D²(log D)²(1 + h(j))² of Gaudron–Rémond (Comment. Math. Helv. 89 (2014)); (2) the endomorphism estimate (Masser–Wüstholz, Math. Z. 215 (1994)): D(A) ≤ c max{D, h(A)}^λ for the discriminant of End(A) with respect to the Rosati form; (3) the lower bound for cusp forms at algebraic points (Masser–Wüstholz, Periods and minimal abelian subvarieties, Ann. of Math. 137 (1993), Lemmas 8.4 and 8.6). Cover the analytic and rational representations of endomorphisms, the Rosati length and discriminant, and the period theorem that drives (1) and (2). Import Faltings heights and their isogeny variation from ArakelovGeometryAndAbelianHeights (R35.3–R35.4), duals, quotients, Hom and the Rosati involution from AbelianSchemesAndArithmeticModuli (A2, A3, A6), successive minima from GeometryOfNumbersAndQuadraticArithmetic (GN.1), Weil heights and transcendence methods from DiophantineApproximationAndTranscendence (DT.0, DT.3), and the qualitative isogeny theorems from FaltingsFinitenessAndIsogenyTheorems (R28).",
-   "reason": "FaltingsFinitenessAndIsogenyTheorems owns the qualitative isogeny theorem (R28.2) but no layer bounds isogeny degrees or endomorphism discriminants. PAPER-TSIMERMAN-18 already proposes this Part II for the effective isogeny bound, so the endomorphism and period estimates, which share its transcendence method and its inputs, belong in the same roadmap rather than in a second one; they are imports of the paper's own roadmap, not part of it."
+   "reason": "FaltingsFinitenessAndIsogenyTheorems owns the qualitative isogeny theorem (R28.2) but no layer bounds isogeny degrees or endomorphism discriminants. PAPER-TSIMERMAN-18 already proposes this Part II for the effective isogeny bound, so the endomorphism and period estimates, which share its transcendence method and its inputs, belong in the same roadmap rather than in a second one; they are imports of the paper's own roadmap, not part of it. Review: the route coalesces exactly with PAPER-TSIMERMAN-18's accepted route 10 (same parent, id, title and area). RICHARD-YAFAEV-25's accepted route 1 sent \"Masser–Wüstholz refinements of the Tate conjecture\" to R28.4; the design should keep all Masser–Wüstholz estimates in this Part II. Item 70, the degree and Rosati-length inequalities behind Lemma 4.2, joins item 15 here."
   },
   {
    "route": "new",
@@ -958,10 +1033,27 @@
     "PAPER-MASSER-ZANNIER-20/64",
     "PAPER-MASSER-ZANNIER-20/66",
     "PAPER-MASSER-ZANNIER-20/67",
-    "PAPER-MASSER-ZANNIER-20/68"
+    "PAPER-MASSER-ZANNIER-20/68",
+    "PAPER-MASSER-ZANNIER-20/6",
+    "PAPER-MASSER-ZANNIER-20/24",
+    "PAPER-MASSER-ZANNIER-20/25",
+    "PAPER-MASSER-ZANNIER-20/71",
+    "PAPER-MASSER-ZANNIER-20/72"
    ],
-   "brief": "Plan Masser–Zannier, Abelian varieties isogenous to no Jacobian (Ann. of Math. 191 (2020), 635–674). Final theorems exactly as the paper states them: Theorem 1.1 (for any hypersurface H of A_g, g ≥ 2, a Hodge generic A over a field of degree at most 2^{16g⁴}, with points of order 16 rational there, isogenous to nothing in H), Corollary 1.2 (g ≥ 4: isogenous to no Jacobian), Theorem 1.3 (at most C N^{G−γ} of the n ∈ [1, N]^G fail, for γ < 1/2, any γ < 1 when g is odd or 2, 6; D(Ã, Ψ) = [F̃ : Q][F_Ψ : Q]D_Ψ), Corollary 1.4 (a euclidean-dense set of pairwise non-isogenous examples), Theorem 1.5 and Corollary 1.6 (conditional on unirationality, g ≤ 5), and Theorem 1.7 (elliptic curves E_{n1+in2} versus a real algebraic curve, at most C N(log N)^{10} exceptions). Cover: the Jacobian locus and its closure, Igusa's fundamental-domain estimates, the integer matrices of isogenies (Lemmas 2.1, 4.1, 4.2), heights of period matrices (Lemma 4.3), the counting lemmas 3.1–3.3 and 5.1–5.2, the Pila-blocks argument with the Hodge-generic versus weakly-special step, Siegel Λ-forms, Igusa's order bound, theta constants of level Γ(16, 32) and the degree bound 2^{16g⁴−1}, the isogeny-class and CM counts, the transcendental analytic curve and hypersurface meeting every isogeny class, and the genus-4 Igusa form with products. Import: A_g from PELModuli (M2, M5); the Siegel datum and special points from ShimuraData (D4, D5) with its Hodge-generic and weakly-special continuation; o-minimal counting, blocks and Ax–Lindemann from LogicAndDefinabilityInNumberTheory (LD.6); Galois genericity and open images from ArithmeticGaloisRepresentations (R01.6); Hilbert irreducibility with Cohen's count from InverseGaloisAndArithmeticFundamentalGroups (IG.2); modular polynomials from ModularCurvesPartII (R13.4); heights from ArakelovGeometryAndAbelianHeights (R35.3–R35.4); the isogeny and endomorphism estimates from FaltingsFinitenessAndIsogenyTheoremsPartII; Jacobians from the Tau Ceti JacobianChallenge.",
-   "reason": "Nothing in the atlas studies isogeny classes in A_g against the Jacobian locus or any hypersurface, and the paper's own machinery (integer matrices of isogenies, heights of period matrices, theta-constant degree bounds for the field of definition) has no existing direction; it builds on the suppliers named in the brief without re-planning them."
+   "brief": "Plan Masser–Zannier, Abelian varieties isogenous to no Jacobian (Ann. of Math. 191 (2020), 635–674). Final theorems exactly as the paper states them: Theorem 1.1 (for any hypersurface H of A_g, g ≥ 2, a Hodge generic A over a field of degree at most 2^{16g⁴}, isogenous to nothing in H; the remark after it adds that the construction also makes the points of order 16 rational there), Corollary 1.2 (g ≥ 4: isogenous to no Jacobian), Theorem 1.3 (at most C N^{G−γ} of the n ∈ [1, N]^G fail, for γ < 1/2, any γ < 1 when g is odd or 2, 6; D(Ã, Ψ) = [F̃ : Q][F_Ψ : Q]D_Ψ; further, there exist Ã, Ψ defined over Q with D(Ã, Ψ) = 2^{16g⁴}), Corollary 1.4 (a euclidean-dense set of pairwise non-isogenous examples), Theorem 1.5 and Corollary 1.6 (conditional on unirationality, g ≤ 5), and Theorem 1.7 (elliptic curves E_{n1+in2} versus a real algebraic curve, at most C N(log N)^{10} exceptions). Cover: the Jacobian locus and its closure, Igusa's fundamental-domain estimates, the integer matrices of isogenies (Lemmas 2.1, 4.1, 4.2), heights of period matrices (Lemma 4.3), the counting lemmas 3.1–3.3 and 5.1–5.2, the Pila-blocks argument with the Hodge-generic versus weakly-special step, Siegel Λ-forms, Igusa's order bound, theta constants of level Γ(16, 32) and the degree bound 2^{16g⁴−1}, the isogeny-class and CM counts, the transcendental analytic curve and hypersurface meeting every isogeny class, and the genus-4 Igusa form with products. Import: A_g from PELModuli (M2, M5); the Siegel datum and special points from ShimuraData (D4, D5), with the Mumford–Tate definition of Hodge genericity from D1; o-minimal counting, blocks, Ax–Lindemann and weakly special subvarieties from LogicAndDefinabilityInNumberTheory (LD.6); the definition of Galois genericity from ArithmeticGaloisRepresentations (R01.6); Hilbert irreducibility with Cohen's count from InverseGaloisAndArithmeticFundamentalGroups (IG.2); modular polynomials from ModularCurvesPartII (R13.4); heights from ArakelovGeometryAndAbelianHeights (R35.3–R35.4); the isogeny and endomorphism estimates from FaltingsFinitenessAndIsogenyTheoremsPartII; Jacobians from the Tau Ceti JacobianChallenge. Review (REV-PAPER-MASSER-ZANNIER-20): also cover the Galois-genericity inputs Serre's open image for End = Z in dimensions g odd, 2, 6, Deligne's open monodromy of the universal family and the implications of Cadoret and Pink (items 6, 24, 25), importing Faltings' semisimplicity and isogeny theorems from FaltingsFinitenessAndIsogenyTheorems (R28.4) and A_g with level structure from PELModuli (M2, M5); Deligne's absolute Hodge theorem, which Pink's implication uses, is planned nowhere and is a source-closure obligation. Import Siegel sets and fundamental sets from AdelicAlgebraicGroups (AA.3) and ShimuraVarieties (V0) for item 9, which adds only the Minkowski-reduced domain and Igusa's estimates; Siegel modular forms, their transformation law and Fourier expansions from AutomorphicBundles (B4, B5) and ShimuraVarieties (V2) for item 50, which adds only ord; the degree of a projective variety under projections (item 71) and the bounded field of definition over the field of moduli (item 72); and the CM Galois-orbit bound from the Part II \"Complex multiplication and explicit reciprocity, Part II: CM heights and Galois-orbit bounds\" (route 8).",
+   "reason": "Nothing in the atlas studies isogeny classes in A_g against the Jacobian locus or any hypersurface, and the paper's own machinery (integer matrices of isogenies, heights of period matrices, theta-constant degree bounds for the field of definition) has no existing direction; it builds on the suppliers named in the brief without re-planning them. Review: items 6, 24 and 25 joined from the rejected R01.6 route, and items 71 and 72, inputs of §5.2 and of the Pila count that no item stated, were added."
+  },
+  {
+   "route": "part-ii",
+   "parent": "ComplexMultiplicationAndExplicitReciprocity",
+   "roadmap": "ComplexMultiplicationAndExplicitReciprocityPartII",
+   "title": "Complex multiplication and explicit reciprocity, Part II: CM heights and Galois-orbit bounds",
+   "area": "arithmeticgeometry",
+   "items": [
+    "PAPER-MASSER-ZANNIER-20/65"
+   ],
+   "reason": "Added in review (REV-PAPER-MASSER-ZANNIER-20). LD.6 takes Galois-orbit bounds as separate inputs and plans none, and CM.0–CM.6 do not target quantitative orbit bounds. PAPER-TSIMERMAN-18, PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18 and PAPER-YUAN-ZHANG-18 route exactly this bound to this Part II, whose routes were accepted; the id, parent, title and area are theirs, so the item joins that design.",
+   "brief": "The same Part II that PAPER-TSIMERMAN-18 proposes under this id; this paper adds only a consumer. Final theorem used here (Pila–Tsimerman, Ax-Lindemann for A_g, Conjecture 7.1, proved by Tsimerman in Brauer–Siegel for arithmetic tori and lower bounds for Galois orbits of special points, JAMS 25 (2012), for g ≤ 6 unconditionally and for all g under GRH, and in The André–Oort conjecture for A_g, Ann. of Math. 187 (2018), via the averaged Colmez formula): there are constants c_g, δ_g > 0 such that every CM point x of A_g satisfies |Gal(Q̄/Q)·x| ≥ c_g |disc Z(End(A_x))|^{δ_g}. Masser–Zannier use it with Pila–Tsimerman Lemma 7.4 to show that points of bounded field degree include only boundedly many CM points (their §5.4). Build on ComplexMultiplicationAndExplicitReciprocity CM.0 and CM.2 and import as that design specifies; nothing here is new beyond the consumer."
   }
  ],
  "sourceIssues": [
@@ -978,7 +1070,12 @@
     "Crossref record of doi:10.4007/annals.2020.191.2.7: no update-to or relation entries, and no work declaring an update of it (filter updates:10.4007/annals.2020.191.2.7, 29 September 2026)",
     "the Annals of Mathematics article page https://annals.math.princeton.edu/2020/191-2/p07, fetched 2026-09-29: no erratum or correction listed",
     "web search 'Masser Zannier Abelian varieties isogenous to no Jacobian arXiv', 2026-09-29: no arXiv version and no revised version found"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Checked on the rendered p. 653: (22) prints ℓ(v)² = tr(κyκ̄^ty^{-1}) = tr(ρερ^tε^{-1}). The rational representation is κ ⊕ κ̄ over C, so the rational trace is twice the complex one: for g = 1, τ = i and v = [n], the complex expression is n² and the rational one 2n². The paper's later values ℓ(n) = √(2g)n (p. 655) and ℓ(v0) = √(2g) (p. 656) use the rational form, and Lemma 4.1's proof uses the complex one (25), whose constants absorb the factor. E9 records the same slip in the display defining D(A).",
+    "by": "REV-PAPER-MASSER-ZANNIER-20"
+   }
   },
   {
    "id": "PAPER-MASSER-ZANNIER-20/E2",
@@ -993,7 +1090,12 @@
     "Crossref record of doi:10.4007/annals.2020.191.2.7: no update-to or relation entries, and no work declaring an update of it (filter updates:10.4007/annals.2020.191.2.7, 29 September 2026)",
     "the Annals of Mathematics article page https://annals.math.princeton.edu/2020/191-2/p07, fetched 2026-09-29: no erratum or correction listed",
     "web search 'Masser Zannier Abelian varieties isogenous to no Jacobian arXiv', 2026-09-29: no arXiv version and no revised version found"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Checked on the rendered p. 656: (50) is the Cholesky bound ||w − w̃|| ≤ C||z − z̃|| of §5.4, and the v meant is the one of (27), v(α, 0) = (u(α), f(α)), v(0, α̃) = (f̃(α̃), ũ(α̃)), with u = ũ = 0.",
+    "by": "REV-PAPER-MASSER-ZANNIER-20"
+   }
   },
   {
    "id": "PAPER-MASSER-ZANNIER-20/E3",
@@ -1008,7 +1110,12 @@
     "Crossref record of doi:10.4007/annals.2020.191.2.7: no update-to or relation entries, and no work declaring an update of it (filter updates:10.4007/annals.2020.191.2.7, 29 September 2026)",
     "the Annals of Mathematics article page https://annals.math.princeton.edu/2020/191-2/p07, fetched 2026-09-29: no erratum or correction listed",
     "web search 'Masser Zannier Abelian varieties isogenous to no Jacobian arXiv', 2026-09-29: no arXiv version and no revised version found"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Checked on the rendered p. 661: (23) are the fundamental-domain inequalities of §4 (p. 653), while (42), τ̃_σ(c_στ_n + d_σ) = a_στ_n + b_σ, gives (41) once (40) holds.",
+    "by": "REV-PAPER-MASSER-ZANNIER-20"
+   }
   },
   {
    "id": "PAPER-MASSER-ZANNIER-20/E4",
@@ -1023,7 +1130,12 @@
     "Crossref record of doi:10.4007/annals.2020.191.2.7: no update-to or relation entries, and no work declaring an update of it (filter updates:10.4007/annals.2020.191.2.7, 29 September 2026)",
     "the Annals of Mathematics article page https://annals.math.princeton.edu/2020/191-2/p07, fetched 2026-09-29: no erratum or correction listed",
     "web search 'Masser Zannier Abelian varieties isogenous to no Jacobian arXiv', 2026-09-29: no arXiv version and no revised version found"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Checked on the rendered p. 669: after x̃1 and w̃1 are chosen by (55)–(56), the paper repeats the definition of τ̃0 from p. 668, and the next sentence moves τ1 near τ̃1.",
+    "by": "REV-PAPER-MASSER-ZANNIER-20"
+   }
   },
   {
    "id": "PAPER-MASSER-ZANNIER-20/E5",
@@ -1038,7 +1150,161 @@
     "Crossref record of doi:10.4007/annals.2020.191.2.7: no update-to or relation entries, and no work declaring an update of it (filter updates:10.4007/annals.2020.191.2.7, 29 September 2026)",
     "the Annals of Mathematics article page https://annals.math.princeton.edu/2020/191-2/p07, fetched 2026-09-29: no erratum or correction listed",
     "web search 'Masser Zannier Abelian varieties isogenous to no Jacobian arXiv', 2026-09-29: no arXiv version and no revised version found"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Checked on the rendered p. 666: the printed inequality has two opening parentheses and one closing. With W = ND, (48) requires (G + 1)!(4eND + 1)^G, which (G + 1)!(4eN(D + 1))^G dominates since 4eN ≥ 1, and the next clause, D ≤ (G + 1)!(4eN)^G, fits the corrected reading.",
+    "by": "REV-PAPER-MASSER-ZANNIER-20"
+   }
+  },
+  {
+   "id": "PAPER-MASSER-ZANNIER-20/E6",
+   "kind": "misprint",
+   "locator": "§1.3, p. 641 (published version)",
+   "printed": "Now “isogeny estimates” [25] provide an upper bound for m̃. … Here the “endomorphism estimates” [26], which were designed to control the totality of isogenies from A to Ã",
+   "correction": "“isogeny estimates” [26] … the “endomorphism estimates” [27]",
+   "reason": "In the reference list [25] is Masser–Wüstholz, Periods and minimal abelian subvarieties, [26] their Isogeny estimates for abelian varieties, and finiteness theorems, and [27] their Endomorphism estimates for abelian varieties. The body cites them that way: \"standard isogeny estimates from [26]\" (§5.3, p. 666), \"implicit in the arguments of [27, §6]\" (p. 655) and \"the main theorem of [27]\" (Lemma 4.4, p. 657).",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.4007/annals.2020.191.2.7: no update-to or relation entries, and no work declaring an update of it (filter updates:10.4007/annals.2020.191.2.7, 29 September 2026)",
+    "the Annals of Mathematics article page https://annals.math.princeton.edu/2020/191-2/p07, fetched 2026-09-29: no erratum or correction listed",
+    "web search 'Masser Zannier Abelian varieties isogenous to no Jacobian arXiv', 2026-09-29: no arXiv version and no revised version found"
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Checked on p. 641 against the reference list, pp. 672–673; found by three of this review's readers.",
+    "by": "REV-PAPER-MASSER-ZANNIER-20"
+   }
+  },
+  {
+   "id": "PAPER-MASSER-ZANNIER-20/E7",
+   "kind": "misprint",
+   "locator": "§5.1, the display after (42), p. 661 (published version)",
+   "printed": "( a_σ −b_σ ; −c_σ d_σ )( ι −τ_n ; o ι ) = ( a_σ τ̃_σ(c_στ_n + d_σ) ; −c_σ c_στ_n + d_σ )",
+   "correction": "The top right entry of the product is −τ̃_σ(c_στ_n + d_σ).",
+   "reason": "The top right entry is a_σ(−τ_n) + (−b_σ)ι = −(a_στ_n + b_σ), which is −τ̃_σ(c_στ_n + d_σ) by (42). The argument multiplies on the right by the column (0; p) with (c_στ_n + d_σ)p = 0, which kills the right-hand column whatever its sign, so ρ_σ(−τ_np; p) = 0 and det ρ_σ = 0 follow as stated.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.4007/annals.2020.191.2.7: no update-to or relation entries, and no work declaring an update of it (filter updates:10.4007/annals.2020.191.2.7, 29 September 2026)",
+    "the Annals of Mathematics article page https://annals.math.princeton.edu/2020/191-2/p07, fetched 2026-09-29: no erratum or correction listed",
+    "web search 'Masser Zannier Abelian varieties isogenous to no Jacobian arXiv', 2026-09-29: no arXiv version and no revised version found"
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Checked on the rendered p. 661.",
+    "by": "REV-PAPER-MASSER-ZANNIER-20"
+   }
+  },
+  {
+   "id": "PAPER-MASSER-ZANNIER-20/E8",
+   "kind": "misprint",
+   "locator": "§3.1 (v), p. 645 (published version)",
+   "printed": "As Σ_{m≤M} ψ(m) ≤ Σ_{d≤M} d ≤ M², we get ≪ (log N)⁴ possible values of n",
+   "correction": "Σ_{m≤M} ψ(m) ≤ Σ_{m≤M} Σ_{d|m} d = Σ_{d≤M} d⌊M/d⌋ ≤ M²",
+   "reason": "The middle inequality is false: for M = 3, ψ(1) + ψ(2) + ψ(3) = 1 + 3 + 4 = 8 > 6 = 1 + 2 + 3, and in general Σ_{m≤M} ψ(m) is asymptotic to (15/2π²)M², which exceeds Σ_{d≤M} d ~ M²/2. The display just above gives ψ(m) ≤ Σ_{d|m} d, whose sum over m ≤ M is Σ_{d≤M} d⌊M/d⌋ ≤ M², so the bound M² and the count ≪ (log N)⁴ stand.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.4007/annals.2020.191.2.7: no update-to or relation entries, and no work declaring an update of it (filter updates:10.4007/annals.2020.191.2.7, 29 September 2026)",
+    "the Annals of Mathematics article page https://annals.math.princeton.edu/2020/191-2/p07, fetched 2026-09-29: no erratum or correction listed",
+    "web search 'Masser Zannier Abelian varieties isogenous to no Jacobian arXiv', 2026-09-29: no arXiv version and no revised version found"
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Checked on the rendered p. 645.",
+    "by": "REV-PAPER-MASSER-ZANNIER-20"
+   }
+  },
+  {
+   "id": "PAPER-MASSER-ZANNIER-20/E9",
+   "kind": "misprint",
+   "locator": "§4, the display defining D(A), p. 655 (published version)",
+   "printed": "D(A) = det_{i,j} tr(κ_i y κ̄_j^t y^{-1}) = det_{i,j} tr(ρ_i ε ρ_j^t ε^{-1})",
+   "correction": "D(A) = det_{i,j} tr(ρ_i ε ρ_j^t ε^{-1}) = det_{i,j} 2 Re tr(κ_i y κ̄_j^t y^{-1}), the discriminant of End(A) for the Rosati trace form, as in [27, p. 642]",
+   "reason": "The slip of E1 recurs, and here it is more than a factor. Since ρ is κ ⊕ κ̄ over C, each rational Gram entry is 2 Re of the complex one, while the complex Gram matrix is only Hermitian. For E = C/(Z + Zi), τ = i and the basis 1, i of End(E) = Z[i], the complex Gram matrix is ((1, −i), (i, 1)), of determinant 0, and the rational one is diag(2, 2), of determinant 4, the discriminant of Z[i] for the trace form. The paper uses D(A) through [27] and (29), with the rational form.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.4007/annals.2020.191.2.7: no update-to or relation entries, and no work declaring an update of it (filter updates:10.4007/annals.2020.191.2.7, 29 September 2026)",
+    "the Annals of Mathematics article page https://annals.math.princeton.edu/2020/191-2/p07, fetched 2026-09-29: no erratum or correction listed",
+    "web search 'Masser Zannier Abelian varieties isogenous to no Jacobian arXiv', 2026-09-29: no arXiv version and no revised version found"
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Checked on the rendered p. 655; the Gram matrices are computed from (21) with κ(i) = i, ρ(i) = ε.",
+    "by": "REV-PAPER-MASSER-ZANNIER-20"
+   }
+  },
+  {
+   "id": "PAPER-MASSER-ZANNIER-20/E10",
+   "kind": "gap",
+   "locator": "§3.3, the sketch for the families j = n + in0, p. 651 (published version)",
+   "printed": "given f of degree at most d ≥ 1 in each variable, we can show that there is n0 with 0 ≤ n0 ≤ 2d³ + 1 such that j = n + in0 is permissible … And now n0 ≥ 1 can be chosen to avoid the above obstacle with n0 − 1 at most the total degree of Gm. By standard resultant estimates this is at most 2dψ(m)² ≤ 2d³.",
+   "correction": "The obstacle must be avoided for every m with ψ(m) ≤ d at once, so the sketch as written gives n0 − 1 ≤ Σ_{m: ψ(m) ≤ d} 2dψ(m)² ≤ 2d⁴ (there are at most d such m, as ψ(m) ≥ m), that is some 1 ≤ n0 ≤ 2d⁴ + 1. The bound 2d³ + 1 needs a further argument.",
+   "reason": "Permissibility needs Gm(n + in0, n − in0) ≢ 0 in n for every m ≤ M, as in the proof of Lemma 3.2. The sketch shows that the obstacle can occur only when ψ(m) ≤ d and, for one such m, excludes at most deg Gm ≤ 2dψ(m)² values of n0. For d ≥ 3 more than one m qualifies (m = 1, and m = 2 since ψ(2) = 3), and the excluded sets need not coincide: for d = 3 the union bound is 2·3·(1 + 9) = 60 > 54 = 2d³. The existence of some n0 bounded polynomially in d is unaffected; whether 2d³ + 1 itself holds is not settled here.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.4007/annals.2020.191.2.7: no update-to or relation entries, and no work declaring an update of it (filter updates:10.4007/annals.2020.191.2.7, 29 September 2026)",
+    "the Annals of Mathematics article page https://annals.math.princeton.edu/2020/191-2/p07, fetched 2026-09-29: no erratum or correction listed",
+    "web search 'Masser Zannier Abelian varieties isogenous to no Jacobian arXiv', 2026-09-29: no arXiv version and no revised version found"
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Checked on the rendered p. 651. The claim is a remark with a sketched proof, not a numbered result.",
+    "by": "REV-PAPER-MASSER-ZANNIER-20"
+   }
+  },
+  {
+   "id": "PAPER-MASSER-ZANNIER-20/E11",
+   "kind": "misprint",
+   "locator": "§5.2, Lemma 5.5 and the paragraph after its proof, pp. 665–666 (published version)",
+   "printed": "there is a non-zero polynomial P in C[X_1, …, X_{G+2}], homogeneous of degree D, with ord(ϕ) ≥ W for ϕ = P(χ_1², …, χ_{G+2}²) provided ϕ ≠ 0. … Thus if we choose W = W_0 = Nk with N = κ_g n/(4π) and k = D in Lemma 5.5, we must get ϕ = 0 by Lemma 5.4.",
+   "correction": "with ord(ϕ) > W, which the proof gives, since it imposes the vanishing of a(M) for every M with eM half-integral and tr(M) ≤ W",
+   "reason": "Lemma 5.4 gives ord(ϕ) ≤ κ_g nk/(4π) = W_0 for a nonzero Λ-form of weight k = D, so the printed conclusion ord(ϕ) ≥ W_0 does not force ϕ = 0 when equality holds. The proof counts \"the number of M with eM half-integral and tr(M) ≤ W\" as its conditions, so a nonzero ϕ has ord(ϕ) > W, and then ϕ = 0 follows as claimed.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.4007/annals.2020.191.2.7: no update-to or relation entries, and no work declaring an update of it (filter updates:10.4007/annals.2020.191.2.7, 29 September 2026)",
+    "the Annals of Mathematics article page https://annals.math.princeton.edu/2020/191-2/p07, fetched 2026-09-29: no erratum or correction listed",
+    "web search 'Masser Zannier Abelian varieties isogenous to no Jacobian arXiv', 2026-09-29: no arXiv version and no revised version found"
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Checked on the rendered pp. 665–666.",
+    "by": "REV-PAPER-MASSER-ZANNIER-20"
+   }
+  },
+  {
+   "id": "PAPER-MASSER-ZANNIER-20/E12",
+   "kind": "misprint",
+   "locator": "§1.1, p. 635 (published version)",
+   "printed": "In [8, p. 589] Chai and Oort raise following the question, which they attribute to Katz",
+   "correction": "Chai and Oort raise the following question",
+   "reason": "A word-order slip; the meaning is clear.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.4007/annals.2020.191.2.7: no update-to or relation entries, and no work declaring an update of it (filter updates:10.4007/annals.2020.191.2.7, 29 September 2026)",
+    "the Annals of Mathematics article page https://annals.math.princeton.edu/2020/191-2/p07, fetched 2026-09-29: no erratum or correction listed",
+    "web search 'Masser Zannier Abelian varieties isogenous to no Jacobian arXiv', 2026-09-29: no arXiv version and no revised version found"
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Checked on the rendered p. 635.",
+    "by": "REV-PAPER-MASSER-ZANNIER-20"
+   }
+  }
+ ],
+ "sourceVersions": [
+  {
+   "kind": "published",
+   "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v191-n2-p07-s.pdf",
+   "read": "2026-09-29",
+   "sha256": "8b76bfac88374180701992e242d88f5d38fbe0b0cdb39c6c40c3c3fbbb874b60",
+   "note": "The version of record, Annals of Mathematics 191 (2020), 635–674, freely available from the journal; no arXiv version exists. All locators refer to its printed pages."
   }
  ]
 }

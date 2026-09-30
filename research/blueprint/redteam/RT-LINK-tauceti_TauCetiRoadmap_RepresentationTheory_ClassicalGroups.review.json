@@ -1,0 +1,13 @@
+{
+  "redteam": "RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_ClassicalGroups",
+  "findings": [
+    {
+      "finding": "RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_ClassicalGroups/1",
+      "verdict": "confirmed",
+      "reason": "Confirmed at every point of its evidence. (i) overlaps[4] of the link map (addedBy the review) says 'The present contracts do not decide ownership, so this is an overlap proposal, not a new directed dependency'. Its two quotes are ClassicalGroups README lines 202–203 (tensorPowerRep n d, the d-fold diagonal action of stdRep) and SchurWeyl README line 348 (glAction d n g = PiTensorProduct.map (fun _ => g)). SchurWeyl's tensorSpace d n = ⨂ over Fin n of (Fin d → ℂ) has dimension d and degree n, so the two displays match with their parameters swapped. (ii) At Tau Ceti f790474: Representation.tensorPower (RepresentationTheory/Tensor/Power.lean:100, with tensorPower_apply :106 equal to PiTensorProduct.map of the factorwise action); TauCeti.tensorPowerRep k n d := (stdRep k n).tensorPower d (ClassicalGroups/TensorPower.lean:55), with tensorPowerFDRep :60 and the permutation commutations :67 and :74; reindexRepresentation and permTensorAction (Symmetric/TensorAction/Basic.lean:48, :107). Symmetric/TensorAction/GeneralLinear.lean imports TauCeti.RepresentationTheory.ClassicalGroups.TensorPower at line 8 and states the GL/S_d centralizer theorems (:67, :77 and following) with tensorPowerRep under [Field k] [Infinite k] [NeZero (d ! : k)], which ℂ satisfies. So the pinned Schur–Weyl implementation consumes the ClassicalGroups constructor, and ownership is settled by the library, not open. (iii) scripts.build.assemble at the current revision gives 2840 stages and 8007 edges. The edge ClassicalGroups Layer 1 → SchurWeyl Layer 8 is absent, and there is no path in either direction, so adding it cannot create a cycle. A scratch copy of the packet with the link added passes check_links.py with 0 errors and 0 warnings. The fix is right. One refinement: the pinned commuting-actions theorem commute_permTensorAction_tensorPowerRep also lives in ClassicalGroups/TensorPower.lean, and its docstring calls it 'the first Layer 2 target of the classical-groups roadmap'. The fixer should therefore consume it, as the fix's 'permutation-commutation results' says, rather than follow overlaps[4]'s older wording that keeps the commutation 'in SchurWeyl', and should not commission it again on either side. Medium severity is appropriate: this is a missing ownership edge with a limited effect."
+    }
+  ],
+  "reviewer": "Claude Code — cc-c2c06b",
+  "date": "2026-09-30",
+  "inputRevision": "2dc706f064c28bb40328e5f3533d86b60dd33ed7"
+}

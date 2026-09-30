@@ -1,0 +1,32 @@
+{
+  "redteam": "RT-LINK-tauceti_TauCetiRoadmap_AlgebraicCurves",
+  "findings": [
+    {
+      "finding": "RT-LINK-tauceti_TauCetiRoadmap_AlgebraicCurves/1",
+      "verdict": "confirmed",
+      "reason": "Confirmed, medium. The four AC-L28-AC-L31 source/target pairs occur only in AlgebraicCurves alreadyRecorded/review.removed and ModularCurves review.removed. Neither research map's links nor its promoted data/links copy contains them; scanning other link, packet, decomposition and accepted-restructure inputs finds no replacement. The in-memory production atlas at 2dc706f064c28bb40328e5f3533d86b60dd33ed7 has 2840 stages and8007 edges, none from AlgebraicCurves to ModularCurves; all four sources and MC10 exist but its requires lacks each source. ModularCurves README lines2178-2187 explicitly imports AC7 different/Hurwitz, AC8 lower ramification/Hilbert different, AC9 differential comparison and AC12 componentwise dictionary. All eight carried quotations match their raw stage descriptions. Source contracts were independently read with finite separability, constant-field, perfectness/separable-generation and smooth-proper/geometrically-connected restrictions. Restore these four links once in AlgebraicCurves with inferred confidence, preserving their ids and evidence but replacing the deduplication reason/recordedIn metadata with actual supplied contracts. Preserve componentwise scope and the separate relative chi-constancy/assembly obligation. Annotate superseded review provenance and refresh summary/coverage; leave ModularCurves links unchanged. A scratch-only50-link candidate passes check_links with zero errors/warnings; adding the four pairs yields 8011 production edges and remains acyclic. The original reviews' seven-second merge interval is verified from GitHub commits c9da9073 and12bb58b6. Normal independent review/promotion must make the repair live; do not edit generated data by hand."
+    },
+    {
+      "finding": "RT-LINK-tauceti_TauCetiRoadmap_AlgebraicCurves/2",
+      "verdict": "confirmed",
+      "reason": "Confirmed, low, with a historical correction. The current examined notes for InverseGaloisAndArithmeticFundamentalGroups and KTheoryLowDegrees say no AlgebraicCurves output. Accepted data/restructure/RS-29.result.json explicitly assigns finite function-field decomposition/inertia and lower ramification to AC8, includes it in IG.1 suppliedBy and records AC8->IG.1. Accepted RS-18 assigns the regular-projective curve/function-field dictionary to AC12 and records AC12->Z.5 plus the inherited AC12->Z.6 dependency. All three edges are live and populate the consumer requires, so this is a stale ledger, not a missing graph edge. Change the two examined results to links with precise notes citing these restructuring records; do not re-emit the three edges. Retain the narrower function-field/regular-projective scope and the residual general scheme/arithmetic and general regular-noetherian-curve targets. The finding reverses the promotion dates: GitHub file history and added-file diffs show RS-29 first added by 5fa556a0 at 2026-09-21T17:39:17Z, and RS-18 by 82fcae63 at 2026-09-23T20:22:24Z. Thus RS-29 predates the AlgebraicCurves link review at 2026-09-23T16:28:55Z; RS-18 follows it. Correct that chronology in any adopted explanation. The current stale-note defect and its fix remain valid."
+    }
+  ],
+  "status": "complete",
+  "worker": "Codex — codex-5ebb6f",
+  "date": "2026-09-30",
+  "inputRevision": "2dc706f064c28bb40328e5f3533d86b60dd33ed7",
+  "summary": "Both findings confirmed: restore four lost ModularCurves dependencies and correct two stale examined notes. Correct the swapped RS-18/RS-29 promotion chronology. No target-map or generated-atlas mutation is part of this verification.",
+  "provenance": {
+    "session": "codex-5ebb6f",
+    "inputHashes": {
+      "research/blueprint/redteam/RT-LINK-tauceti_TauCetiRoadmap_AlgebraicCurves.result.json": "ab965de4b7c9f87f599ed96dc02a8b008766b45e4cb03ed26fc8811910902c2c",
+      "research/blueprint/links/tauceti_TauCetiRoadmap_AlgebraicCurves.json": "9ca7bc21c683c2cf5732069f04ca4e06b54016dee418e663a090ae2a2bd327e5",
+      "research/blueprint/links/tauceti_TauCetiRoadmap_ModularCurves.json": "b91a81d869d9dcb193437f995876f3e7f8a1adf46cbc601feece9db0a84f8706",
+      "data/links/tauceti_TauCetiRoadmap_AlgebraicCurves.json": "9ca7bc21c683c2cf5732069f04ca4e06b54016dee418e663a090ae2a2bd327e5",
+      "data/links/tauceti_TauCetiRoadmap_ModularCurves.json": "b91a81d869d9dcb193437f995876f3e7f8a1adf46cbc601feece9db0a84f8706",
+      "data/restructure/RS-18.result.json": "e6b65ec21a95e4e48a11999f267aa4e6da58c4d1f425c906fb20ec0d39763660",
+      "data/restructure/RS-29.result.json": "9dd3dce0039f6f3893b9231716b0d3aa9ce260a06943bf19f20bd14614d927b0"
+    }
+  }
+}

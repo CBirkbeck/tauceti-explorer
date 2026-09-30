@@ -1,4 +1,639 @@
-# LLHLM23 — current handoff
+# LLHLM23: final handoff (complete)
+
+Claude Code, session `cc-c2c06b`, 30 September 2026, issue #1254.
+
+The extraction is **complete**, and there is nothing to resume. The whole paper is covered:
+all 245 numbered statements in the published PDF are named in item locators. All 652 missing
+items are routed exactly once. The census is in `validation.completionCensus` of the result.
+
+The "resume here" lists in the checkpoint notes below are **superseded**. They asked for proofs
+of cited inputs, which belong to the blueprint jobs of the roadmaps those items are routed to.
+The 11 gaps in the result keep that material as downstream obligations. They are not unfinished
+extraction.
+
+The next step is the independent review, `REV-PAPER-LE-LEHUNG-LEVIN-ETAL-23`. A later
+correction to this extraction should be a follow-up, not another decomposition checkpoint.
+
+---
+
+# LLHLM23 — current handoff: equal-characteristic Cohen normalization
+
+Codex — codex-a71f92; issue #1254; claim confirmation5911407669;
+30 September2026. Partial checkpoint:864 items
+(164 library,48 planned,652 missing),27 routes,126 unreviewed source findings,
+11 gaps and1,903 acyclic internal edges.
+This session is ineligible to review or red-team this extraction.
+
+## Completed here
+
+- L154–L161 import the actual pinned finite-type perfect-field smoothness,
+  native H1/formal-smoothness criterion and polynomial cotangent coordinates,
+  complete-ring lifting, minimal-prime parameter sets, linear topological
+  Nakayama, finite-free completion, integral dimension inequality and
+  finite-dimensional endomorphism theorem.
+- Z183–Z185 give the finite-support H1 union argument, arbitrary perfect-base
+  field formal smoothness and an equal-characteristic coefficient-field section.
+  No EssFiniteType assumption is made on the whole residue field.
+  Reuse the existing complete-ring lifting theorem; do not reconstruct its tower.
+- Z186–Z189 give parameters without regularity, power-cofinal completion,
+  coefficient-field finiteness of the quotient and finite parameter evaluation.
+  Use L158 directly; PadicMeasuresIwasawaAlgebras:L5 retains its general
+  compact/arithmetic module packaging.
+- Z190 proves injectivity through the kernel quotient before any dimension
+  equality for injective integral maps. Z191 proves fraction-field finiteness,
+  allowing inseparability. Z178 now imports this chain.
+- E125/E126 record current Stacks031X/031J notation slips; they await review.
+
+## Resume here
+
+1. The source-level032D Case I branch needed by Z178 is decomposed. The nine
+   adapters and their native-carrier transports remain unimplemented.
+   Do not restart by assuming the pinned perfect-field instance handles an
+   arbitrary residue field; use Z184 and L156.
+2. Continue the full finite-type07PH reduction and0381's extra transcendental-
+   field formulation. The mixed-characteristic032D branch remains distinct
+   and open; check which consumers actually need it before expanding it.
+3. Preserve all other analytic/homological, global, source, definition-API
+   and ownership gaps, E60/Z99's characteristic-zero repair, scalar
+   prime/Hodge boundaries and the Appendix B certificates.
+4. The field supplier lives at SF.0/SF.4, coefficient adapters at R03.1,
+   parameter/dimension adapters at R03.3. Only early atom-level imports are
+   intended; no new whole-roadmap dependency or route is introduced.
+
+All847 inherited item IDs/statuses/statements/locators, all124 prior
+source findings and all prior sourceData are preserved. Only Z178's outline,
+dependencies and note change among inherited item objects. Every missing
+item is routed once. Paper/intake/source-version, preservation/routing/DAG,
+3,302 exact finite diagnostics and whitespace checks passed.
+No Lean deliverable or compilation. No scratch file is needed to resume;
+all source URLs/hashes and arguments are in the result and report.
+
+---
+
+# LLHLM23 — current handoff: nonzero characteristic-p formal fibres
+
+Codex — codex-rtOQ9t; issue #1254; claim confirmation 5910921748;
+30 September 2026. **Partial checkpoint:** 847 items (156 library, 48 planned,
+643 missing), 27 routes, 124 unreviewed source findings and 11 gaps.
+This session is ineligible to review or red-team this extraction.
+
+## Completed here
+
+- L152 imports the actual Artinian nilradical-power quotient product and
+  nilpotence statements. L153 imports finite-product tensor algebra equivalence.
+- Z171–Z174 give the canonical nonreduced Artinian localization product,
+  fixed-index quotient diagrams, their compatible inverse limits and full
+  finite-algebra completion product07N9. L112's linear equivalence is upgraded
+  by its canonical multiplicative formula, not by assuming a new algebra API.
+- Z175–Z176 construct a finite order inside any finite fraction-field extension
+  and prove its complete-locality using the product theorem and the domain
+  hypothesis. An arbitrary finite algebra is not claimed local.
+- Z177 supplies the ambient generic COEFFICIENT fibre over a power-series
+  base. Extend the detecting derivation coefficientwise to B[x], then localize
+  and complete; x is retained. This does not substitute Z170's generic
+  polynomial fibre or assume the nonzero-prime result in a circle.
+- Z178 isolates equal-characteristic finite Cohen normalization. Its exact
+  theorem and outer proof are recorded, with deeper suppliers still open.
+  Z179 uses it and the product comparison for the general ambient ring.
+- Z180–Z182 identify the final x−f quotient and every finite scalar-extension
+  test. A factor for which r′ is not contained in q_i is zero; supported
+  factors use the linear-prime argument. Z79 now imports Z182.
+- E124 records the wrong base-change citation in07PM:15.38.8/07EG is intended,
+  whereas15.38.9/07EH is descent. The finding awaits independent review.
+
+## Resume here
+
+1. Continue **Z178/032D Case I**: coefficient-field existence032A; parameter
+   ideals; cofinal adic completeness; finite generation from the residue
+   quotient10.96.12; injectivity via dimension10.112.3. The outer032A/032D
+   proofs were freshly read; their deeper suppliers remain to decompose.
+2. Keep arbitrary residue fields. The pinned Mathlib instance
+   `Algebra.FormallySmooth.of_perfectField` requires `EssFiniteType`; do not
+   silently drop it. Its more general separating-transcendence-basis result
+   was also read but is not a proof for every residue field without that data.
+3. The mixed-characteristic032D branch, full finite-type reduction of07PH and
+   extra transcendental-field formulation of0381 remain open. This checkpoint
+   does not prove the general formal-smoothness/regularity equivalence07PM;
+   Z177 gives the narrower ambient proof actually used by07PU.
+4. Retain all other analytic/homological, definition-API, owner, global and
+   source gaps, E60/Z99's characteristic-zero repair, scalar prime/Hodge bounds
+   and Appendix B certificates. The fourteen additions are not global closure.
+
+Z171–Z176 refine R03.1; Z177–Z182 refine existing SF.0/SF.4. No new route.
+All 833 inherited item statements/statuses/locators, 123 earlier source
+findings and old sourceData are preserved. All 643 missing items are routed
+once; 1,875 internal edges are acyclic. Paper/intake, preservation, finite
+arithmetic examples and whitespace checks pass. No Lean deliverable or
+compilation. The report/result retain all required provenance and proof/API
+boundaries; no scratch file is needed to resume.
+
+---
+
+# LLHLM23 — current handoff: characteristic-p generic formal fibres
+
+Codex — codex-a71f92; issue #1254; claim confirmation 5910256576;
+30 September 2026. **Partial checkpoint:** 833 items (154 library, 48 planned,
+631 missing), 27 routes, 123 unreviewed source findings and 11 gaps.
+This session is ineligible to review or red-team this extraction.
+
+## Completed here
+
+- L147–L151 are exact pinned imports: coefficientwise polynomial derivation,
+  the Kähler universal property, a power of a finitely generated radical,
+  contraction of maximal ideals under integral maps, and separable polynomial
+  contraction. Existing finite completion L112 is reused.
+- Z152–Z160 supply p-basis APIs, finite coefficient subrings, the directed
+  intersection after finite field extension and a detecting derivation on a
+  finite order. The relative differentiation kernel is kK^p, not always K^p.
+- Z161–Z167 supply derivation localization, the inseparable hypersurface test,
+  Frobenius-bounded orders, the unique-prime completion comparison, the regular
+  power-series base and the purely inseparable generic-fibre induction.
+  Deliberately chosen orders avoid a new normality theorem. Rescale a root
+  z by b to put f=a/b into the integral equation (bz)^p=a b^(p−1).
+- Z168–Z170 prove every finite scalar-extension test by a coefficient-root
+  field square, existing finite-separable regularity and faithful-flat descent.
+  Z79 now imports Z170. This source-level generic-prime branch is no longer
+  wholly unread; no Lean implementation or recursive global closure is claimed.
+- E121–E123 record current Stacks proof/notation defects at07P2,07P4,07P5.
+  E122 requires a cofinal restriction before a direct sum, with the family
+  {F_p(t),F_p(t^p)} as a boundary example. All intended results survive.
+  These findings await independent review.
+
+Z164 stays at existing R03.1, Z166 at R03.3; the remaining new source items
+refine the existing SF.0/SF.4 direction. There is no new route or roadmap.
+
+## Resume here
+
+1. Continue the analytic-regularity-suppliers gap at **07PU**, the nonzero
+   polynomial-prime fibre in Z79. Audit the finite complete-local order in the
+   extended residue field and its locality, then the formal-smoothness inputs
+   Stacks15.38.2/15.38.4 and15.50.2. The final fibre is a quotient by x−f.
+2. **07N9:** Z164 supplies only the unique-prime specialization. Decompose the
+   full product over primes, Artinian finite quotients and the compatible
+   inverse-limit product map. The existing finite-product linear completion
+   equivalence is not by itself this algebra comparison.
+3. **032D:** separate coefficient-field/Cohen-ring existence, systems of
+   parameters, equivalent adic completeness, finite generation from the
+   residue quotient and injectivity from dimension. Preserve ownership.
+4. Z160 supplies exactly the finite-order case of07PH needed by07PR. Its
+   arbitrary finite-type reduction still imports Cohen normalization and
+   birational denominator rescaling. Z169 supplies finite field tests, not
+   the entire transcendental-field/smooth-model formulation of0381.
+5. Preserve E60/Z99's characteristic-zero repair, the scalar prime/Hodge bounds,
+   Appendix B certificates and the remaining global/source/API/owner gaps.
+
+All 809 previous item IDs/statuses/statements/locators, 120 previous findings
+and pre-existing sourceData are preserved. Every missing item is routed once;
+1,827 internal edges are acyclic. Paper/intake/source-version/preservation
+checks and 19,319 exact finite diagnostics pass; the diagnostics supplement,
+not replace, the proofs. No Lean deliverable or compilation. Source hashes and
+proof/API/test contracts are in the result and report; no scratch file is
+required to resume.
+
+---
+
+# LLHLM23 — current handoff: scalar bounds and smooth regularity
+
+Codex — codex-J6LwjP; issue #1254; 30 September 2026.
+**Partial checkpoint:** 809 items (149 library, 48 planned, 612 missing),
+27 routes, 120 unreviewed source findings and 11 gaps.
+This session is ineligible to review or red-team this extraction.
+
+## Completed here
+
+- B56 computes the printed scalar BM polynomial and corrected H/Q products
+  as powers of 24. B57 computes generic scalar weights for the explicitly
+  chosen local family `P_{λ,e}=1`. V17 gives the sufficient global polynomial
+  `24`, retains all global hypotheses and separates V09's all-prime local
+  result from the supplied odd-prime patching construction.
+- The restriction `p ∤ 2n` now appears in P13/B25/B26/B42's extracted
+  statements; the old wording is retained as `sourceStatement`. P12/B24
+  already retained it. The scalar downstream gap is resolved **at this
+  corrected scope**; no dyadic patching theorem or unrestricted interval
+  theorem is promised. Historical boundary text and all source findings
+  remain available. `sourceData.rankOneScopeResolution` inventories the
+  bounds, including the still-restricted entire height intervals.
+- L144 imports a standard-smooth neighbourhood; L145 imports Tau Ceti's
+  cotangent localization equivalence and scalar/representative formulas;
+  L146 imports the cotangent Nakayama criterion. These are exact pinned
+  matches, not proposed reconstructions.
+- Z148–Z151 refine Z102 through polynomial first-order coordinates,
+  independent cotangent classes, rational-point regularity and the flat
+  local map `S_q→(κ(q)⊗_k S)_m`. The argument does not require perfection
+  or equality of those local dimensions. Z149 stays beside Z103 at R03.3;
+  the other three use existing SF.0. No new route was introduced.
+
+## Resume here
+
+1. Continue the `analytic-regularity-suppliers` gap at **Z79**. The Z102
+   source-outline frontier has now been replaced by explicit imports and
+   adapters. Do not list it as wholly unread or silently call it compiled.
+2. For characteristic-p generic fibres, read Stacks **07PR** through its
+   deeper suppliers: 15.49.5 (a derivation detecting an element outside
+   the pth powers), 15.49.1 (extension through localization and completion),
+   15.49.4 (the purely inseparable regularity step), and 10.97.8 (finite
+   completion and the product over primes). Preserve the finite normal
+   power-series base and purely inseparable tower hypotheses.
+3. For the nonzero-prime branch **07PU**, audit the finite complete-local
+   order in the field extension, the product of completions, and the
+   formal-smoothness inputs 15.38.2/15.38.4 and 15.50.2. The final special
+   fibre is the quotient by `x−f`, not a mere localization.
+4. For **032D**, separate coefficient-field/Cohen-ring existence, a system
+   of parameters, equivalent adic completeness, finite generation from
+   the residue quotient, and injectivity from dimension. Check ownership
+   and the pinned libraries before assigning any new foundations.
+5. The four outer proofs 07PR/07PU/032D/07PV were freshly reread in this
+   session to establish this handoff. Their deeper suppliers were not
+   closed. Preserve E60/Z99's correction of the characteristic-zero fibre
+   sentence in 07PV. Continue the other listed API, library, ownership,
+   global and source gaps; this checkpoint is not a complete extraction.
+
+The current report and result record source locators, the published PDF
+hash, pinned declaration hashes, proof steps and boundary tests. All 799
+inherited IDs/statuses, all 120 findings and Appendix B data are preserved.
+All 612 missing items are routed once; 1,775 internal edges are acyclic.
+The paper/intake, preservation/routing/cycle and whitespace checks pass;
+800 exact scalar product/prime diagnostics pass. No Lean deliverable or
+compilation. No scratch file is required to resume.
+
+---
+
+# LLHLM23 — current handoff: scalar diagrams and weight implications
+
+Codex — codex-rtOQ9t; issue 1254; 30 September 2026.
+Partial checkpoint: 799 items, 27 routes, 120 unreviewed findings, 12 gaps.
+This session is ineligible to review or red-team the extraction.
+
+## Completed here
+
+- N83 computes the predicted and obvious scalar weights directly as the
+  same singleton; it stays with the existing modular-representations owner.
+- M51 computes C_σ^ζ as the reduced point t_ζ, its lift as G_m^J, and
+  the scalar fixed-point theorem with permissible polynomial 1. It retains
+  κ−ζ=(p−π)π⁻¹ν and the nilpotent ambient-Grassmannian warning.
+- G78 supplies the fixed-component Cartesian torsor square and closed
+  étale map, including central-lift compatibility by an explicit Laurent
+  gauge. It does not restore the false entire-height-interval hook.
+- G79 proves all three scalar weight/component implications at every
+  prime, including p=2, with no global patching premise. M51/G78/G79
+  stay with the existing monodromy-models extension.
+- Eleven consumers have explicit qualified scalar branches: G35–G37,
+  G56–G61, M33 and K38. Earlier statements/statuses/findings are preserved.
+
+## Resume here
+
+1. Inventory the remaining numerical bounds in local/global consumers.
+   Distinguish proved direct scalar cases from vacuous root-depth claims
+   and from actual polynomial exclusions. M51's fixed-point P=1 and
+   G28/G29's chart P=1 do not remove B27's global P₄ exclusions of p=2,3.
+2. Construct a rank-one dyadic patching functor satisfying every P12/B24
+   axiom, or retain p>2 for those global applications. Do not infer a
+   global patching construction from the all-prime local comparison.
+3. Continue the other eleven gaps, including recursive suppliers,
+   definition APIs and absent reviewed library audits. These four
+   adapters do not close all their imported suppliers recursively.
+4. Preserve E102 and the distinction between a single fixed type, its
+   dominance union and the full interval. Congruent central lifts have
+   isomorphic étale images via Laurent gauges, not identical lattices.
+
+The report/result contain exact source locators, hash, proofs and tests.
+The current bounded readings cover published PDF 37–38, 52–53, 84–85,
+91–98, 156–159, 161–162; pages 158 and 162 were inspected as images.
+All 605 missing items are routed once; 1,742 internal edges are acyclic.
+The 3,120-case exponent diagnostic, preservation, paper/intake and
+whitespace checks pass. No Lean deliverable or compilation. No scratch
+file is needed to resume.
+
+---
+
+# LLHLM23 — previous handoff: scalar lifting and Serre components
+
+Codex — codex-rtOQ9t; issue 1254; 30 September 2026.
+Partial checkpoint: 795 items, 27 routes, 120 unreviewed findings, 12 gaps.
+This session is ineligible to review or red-team the extraction.
+
+## Completed here
+
+- Z147 computes the cyclic quotient as G_m×BG_m, retaining the diagonal
+  stabilizer, nilpotents and base change; it is routed to existing SF.1.
+- K63 computes residual inertia ∏barω_j^{λ_j+μ_j}, with the embedding and
+  contravariant sign conventions, and realizes all unramified parameters.
+- G76 gives exact fixed-type lifts at every prime, including p=2, without
+  global patching. K63/G76 stay with L7.
+- G77 identifies the single Serre-labelled component and its smooth reduced
+  special fibre, retaining the dual original EG label. It stays with the
+  existing monodromy-models extension.
+- Scalar continuations of G31/G33/G53/G54/G34/G55 now have these explicit
+  suppliers. G28/G29 have direct fixed-chart comparisons with local P=1;
+  G30 has the scalar completed-local-ring/domain argument. Statements and
+  prior guards are unchanged. All four new adapters have proofs and tests.
+
+## Resume here
+
+1. Read G35/G58 and every arrow of the source diagram (7.17). Determine
+   which rank-one conclusions admit a diagram using the single fixed-type
+   closed immersion, rather than the false whole-height-interval hook.
+   Carry that precise replacement to G37/G60. Preserve E102 and the
+   distinction between the dominance union and a full height interval.
+2. Establish actual finite bounds in remaining local/global uses. The
+   scalar local P=1 argument is specific to the true/naive chart identity;
+   it does not remove B27's P₄ exclusions of p=2,3.
+3. Construct a rank-one dyadic patching functor satisfying every P12/B24
+   axiom, or retain p>2 for those global applications.
+4. Continue the other eleven gaps, including recursive suppliers,
+   definition APIs and absent reviewed library audits. The four adapters
+   do not give recursive closure of all their imported inputs.
+
+Exact source readings, hashes, proofs and diagnostics are in the result and
+report. WE19 Proposition 3.1.2 and Corollary 3.2.17 were read including
+proofs; K63 supplies the explicit scalar exponent/sign argument. Ordinary
+unramified characters are used only with finite-residue complete local
+coefficients. Never turn the indeterminate unit of a Laurent polynomial
+ring into an ordinary universal continuous character without a topology.
+
+All 601 missing items are routed exactly once; 1,702 internal edges are
+acyclic. Paper/intake, preservation and whitespace checks pass. No Lean
+file required or compiled. No scratch file is needed to resume.
+
+---
+
+# LLHLM23 — previous handoff: integral scalar fixed-Hodge comparison
+
+Codex — codex-rtOQ9t; issue1254; 30 September 2026.
+Partial checkpoint: 791 items, 27 routes, 120 unreviewed findings, 12 gaps.
+This session is ineligible to review or red-team the extraction.
+
+## Completed here
+
+- K62 proves finite-DVR lifting with exact λ and τ, including a direct
+  coefficient-projectivity argument and the contravariant sign conversion.
+- G72 combines K62/K61 with G15/G47 to identify the first projection.
+- Z146 supplies weight-zero crystalline ⇒ unramified for unramified K,
+  including nonsemisimple representations. Its owner is PadicHodgeTheory:R06.2.
+- G73 untwists by a fixed reference character, then uses total ramification
+  of K∞/K to prove finite-flat integral extension, including nilpotents and p=2.
+- G74 uses finite-flat approximation on smooth charts, then finite-type
+  Isom schemes, to establish full faithfulness on the formal coefficient
+  category. It does not posit an ordinary universal Galois character over
+  O[d,d⁻¹].
+- G75 identifies both projections and the integral scalar fixed-Hodge
+  Galois–Kisin comparison, using the existing general suppliers. The five
+  application adapters stay with L7. The six items have proof outlines and
+  three tests each; all earlier statements/statuses/findings are retained.
+
+## Resume here
+
+1. Use G75 with K59/G69–G71 to finish scalar lifting and the component labels
+   behind G31/G33/G53. Read each precise target before propagating the
+   equivalence. A single fixed Hodge tuple is crucial: preserve E102 and
+   the guards on all mixed-height maps and diagrams.
+2. Establish actual finite polynomial bounds in the remaining local/global
+   arguments. Preserve B27's P₄ exclusions of p=2,3. Empty scalar root depth
+   is not a prime bound.
+3. Supply the rank-one dyadic patching functor with every P12/B24 axiom,
+   or retain p>2. The integral local comparison alone does not construct it.
+4. Continue the other eleven gaps, including recursive suppliers and the
+   missing reviewed library audits. G75 is a derived adapter with named
+   inputs, not a claim that the entire paper has recursive proof closure.
+
+Exact source locators, hashes, coefficient scopes and the proof are in the
+result and report. Fresh original Kisin fetches failed with HTTP403. The
+existing R07.4 packet explicitly imports the E.4 repair; the current session
+read that packet, Conrad's survey and the accessible published supplier
+statements. It did not re-read the original Kisin papers. Bartlett's published
+Remark2.2.16(2) and Lemma4.1.2 were read at PDF17 and29–30. The latter's
+finite-flat approximation is essential to G74; do not replace it by an
+argument only on reduced field-valued points.
+
+All 597 missing items are routed once; the recorded graph is acyclic.
+Paper/intake validators and whitespace/preservation checks pass. No Lean
+deliverable or compilation. Earlier CAS diagnostics are historical evidence.
+No scratch file is needed to resume.
+
+---
+
+# LLHLM23 — previous handoff: scalar fixed-Hodge forgetful comparison
+
+Codex — codex-5ebb6f; issue 1254; 30 September 2026.
+Partial checkpoint: 785 items, 26 routes, 120 unreviewed findings, 12 gaps.
+This session is ineligible to review or red-team the extraction.
+
+## Completed here
+
+- K60 proves Laurent isomorphisms between the same scalar fixed-Hodge
+  charts are constant by p-divisibility recursion on every nonzero exponent.
+  The coefficient proof permits nilpotents and every p≥2.
+- K61 combines this full faithfulness with K21/K27/Z142 to prove the
+  fixed-Hodge ε_τ is a closed immersion. Its pullback
+  K^{λ,τ}→X^{λ,τ} is consequently a closed immersion.
+- K29 and G21/G28/G29/G33 record the fixed-Hodge alternative. Their
+  statements, interval guards, statuses and source findings are unchanged.
+  The two new items are routed to the existing L7 owner.
+
+## Resume here
+
+1. Prove finite-DVR essential surjectivity of K^{λ,τ}→X^{λ,τ} with
+   the exact type and Hodge tuple. Read Caraiani–Levin Proposition5.17
+   (published PDF31/printed209) and its Kisin lattice/projectivity and
+   period-comparison suppliers. Only the outer proof was read here.
+   G15/G47 then identify the first projection; K61 supplies its closed immersion.
+2. Separately prove the second-projection comparison with Y^{≤λ,τ},
+   including integral G_K extension and uniqueness for coefficient families.
+   G02's characteristic-zero extension and field-valued character
+   classification alone do not establish this integral equivalence.
+3. Specify complete local/finite residue coefficients and the topology if
+   using ordinary locally algebraic characters. A universal d over O[d,d⁻¹]
+   need not give a continuous ordinary unramified character. Explain the
+   formal-stack passage. Conrad AppendixB through B.4(i), printed32–36,
+   was read as a potential field-valued input, not a family theorem.
+4. After both projections, finish lifting and component labelling behind
+   G31/G33/G53 using K59/G69–G71. Preserve E102 and every interval guard.
+5. Continue finite polynomial bounds and n=1,p=2 patching from the prior
+   handoff. K60/K61 do not settle them.
+
+The other eleven gaps and earlier suppliers remain. The graph has 1,641
+internal edges and no cycles; all 591 missing items are routed once.
+All earlier statements/statuses and 120 findings are preserved. The actual
+Python paper/intake validators and whitespace check pass after restoring
+execution access. No Lean deliverable or compilation. Earlier diagnostics
+are historical evidence. Exact source reading/provenance is in the result;
+no retained scratch file is needed to resume.
+
+---
+
+# LLHLM23 — current handoff: scalar monodromy and fixed-Hodge charts
+
+Codex — codex-rtOQ9t; issue 1254; 29 September 2026.
+Partial checkpoint: 783 items, 26 routes, 120 unreviewed findings, 12 gaps.
+This session is ineligible to review or red-team this extraction.
+
+## Completed here
+
+- G69 gives an explicit scalar monodromy series, with a convergence proof in
+  every analytic coefficient chart. It works over the §7.1 O-flat coefficient
+  category, including nilpotents, with no height-dependent bound on p.
+- G70 proves the true monodromy ideal is zero on scalar monomial families.
+  It distinguishes actual zero ideals from equality of reduced loci, and
+  characteristic-zero extension from integral Galois comparison.
+- K59 computes the fixed-Hodge GL₁ local model as an O-section and its lifted
+  chart as a torus, with the cyclic constant torus action. It uses K55 and
+  retains K21/K22 as suppliers; the full torus Grassmannian on nonreduced
+  rings is not asserted to be discrete.
+- G71 identifies the true, truncated and naive monodromy conditions on those
+  Kisin charts: all three ideals are zero. Small primes require no factorial
+  inversion in this direct calculation.
+- G28/G29/G33 and the existing route brief record this progress. No owner,
+  source finding or previous item classification was changed.
+
+## Resume at the remaining boundary
+
+1. Supply the **integral rank-one fixed-Hodge Galois comparison**
+   X^{λ,τ}≅Y^{≤λ,τ}, for precisely defined coefficient families. A possible
+   route is local class field theory and locally algebraic characters:
+   classify fixed Hodge/type characters as a fixed character times an
+   unramified character, and compare the integral flat closures with K59.
+   Characteristic-zero points alone do not prove the required integral
+   statement. G69–G71 already handle the Kisin monodromy calculation.
+2. Use that comparison to finish scalar lifting, component equality and
+   component labelling behind G31/G33/G53. Preserve the separate height
+   interval issue: E102 still disproves the unrestricted hook in (7.17).
+   Do not remove G18's interval guard on the strength of G71.
+3. Determine bounds required by the remaining Galois/global arguments before
+   absorbing them into an existential polynomial B!·P. Retain B27's factors,
+   including P₄ and its exclusions of p=2,3. No new scalar analytic precision
+   threshold is needed for the specific charts proved here.
+4. Supply the n=1,p=2 patching functor with all P12/B24 axioms or retain p>2.
+   The scalar monodromy result does not supply this global construction.
+
+The other eleven gaps and the external suppliers below remain. Every
+non-library theorem has an outline, but this is not recursive proof closure.
+All four new adapters have three tests and explicit ownership. The internal
+graph is acyclic with 1,633 edges, and all 589 missing items are routed once.
+The paper, intake and whitespace checks pass; exact finite-series checks cover
+24 cyclic families through degree 35 over Q[ε]/(ε²). No Lean was compiled.
+The result records source hashes, exact selected reading and pinned searches.
+No retained scratch file is needed to resume.
+
+---
+
+# Previous handoff: rank-one downstream scope
+
+Codex — codex-rtOQ9t; issue 1254; 29 September 2026.
+Partial checkpoint: 779 items, 26 routes, 120 unreviewed findings, 12 gaps.
+This session is ineligible to review or red-team this extraction.
+
+## Completed here
+
+- Corrected P17's statement to require n≥2, agreeing with its existing proof.
+- Retained p ∤ 2n in B24's application of P12. E88 now records an actual
+  downstream proof gap, with B25/B26/B42 carrying the existence boundary.
+- Extended E102 to the final bounded-height hook in diagram (7.17), checked
+  on an enlarged published page image and in arXiv v2. Scalar Frobenius
+  matrices 1 and v^(p−1) give the explicit collision at h=p−1.
+- G35 now has conservative corrected scope n≥2; its original source statement
+  and rank-one target are retained. The fixed-Hodge component equality is
+  distinguished from the false unrestricted interval hook.
+- G17's comparison API now agrees with G18's prime guard. G28–G31,
+  G33–G35, G37, G53–G54 and G58–G61 have explicit rank-one proof boundaries.
+- G30 uses K58 for the scalar semisimplicity step. B27/V08 record why a
+  P₄ factor excludes p=2,3 even though scalar root depth is vacuous.
+- Both existing route briefs retain the new obligations; ownership is unchanged.
+
+## Exact continuation for this gap
+
+1. Prove the scalar fixed-Hodge/true-monodromy comparison in families,
+   separately from uniqueness over a whole height interval. Fix the convention
+   for h_λ when the root set is empty; do not silently infer a prime bound from
+   it. Start with G28's G11/U24 inputs and the gauge contraction K55.
+2. Supply the scalar lifting and shape comparison behind G31/G53, then finish
+   the component equality and labelling. A rank-one flag is unique, but that
+   does not make the interval hook injective.
+3. Determine actual finite prime/precision bounds for those proofs. Only then
+   absorb them into the existential polynomials by B!·P. Keep B27's existing
+   positive shifts and local-model factors. Its P_m factor must not be replaced
+   by a vacuous depth condition.
+4. Supply the n=1,p=2 patching functor with every P12/B24 axiom or retain p>2.
+   Do not confuse representation dimension n=1 with generic module rank one.
+
+The other eleven gaps and external suppliers listed below remain. This
+continuation does not reattribute the inherited full-paper reading, claim
+recursive closure, or certify any Lean implementation. The three file checks
+pass; the graph has 1,604 internal edges, no cycles, and one route per missing
+item. The source hashes and selected fresh-reading pages are in the result;
+no retained scratch file is required to resume.
+
+---
+
+# Previous handoff (cc-58621d, A-outline step)
+
+Claude Code — cc-58621d; issue 1254; 29 September 2026 (A-outline step).
+**Partial checkpoint, continuing the checkpoints below.** Census: 779 items, 26 routes, 120 findings
+(E119 and E120 are new), 12 gaps. No Lean deliverable or compilation. This session has edited the
+result file and is ineligible to review or red-team it.
+
+## Completed here
+
+- **The A queue is done.** The 56 Appendix A theorem items without an outline now carry
+  `proofSteps`, `prerequisites` and `proofProvenance`. They were read from Appendix A (PDF187–201) and
+  the sources it cites, with the recorded findings applied: Thorne, CHT, Bellaïche–Chenevier, BLGGT,
+  Labesse, Mœglin–Waldspurger and EGH. There are 32 new internal edges, and the graph stays acyclic
+  at 1,600 edges. Every theorem item outside the library-cited L list now has proof steps.
+- **E119.** A misprint in the published CHT, in the proof of Lemma 2.1.9: a direct-limit arrow where
+  the inverse limit is meant.
+- **E120.** §A.4 asserts that pr S(U₁(Q), W)_{m_Q} is free over O[Δ_Q]. The proof it follows,
+  Thorne's Theorem 6.8(ii), omits that pr S is a direct summand; A33 supplies the step.
+- **Records corrected:**
+  - E49–E51's page range for BLGGT l = p II, now 165–179;
+  - three more rank slips in E50;
+  - A81's locator, now §1.8.2.
+
+## Resume from here
+
+1. **The remaining gaps**, as listed in the Q03 step below.
+2. **External inputs.** The items import these theorems rather than prove them:
+   - B20, B31 and B32 (§8), and §7's imports: Kisin [48], [49]; Emerton–Gee [22]; [56, Proposition
+     3.1.2];
+   - Appendix A's imports:
+     - Thorne's Proposition 4.4 and §5;
+     - CHT's Proposition 3.4.4 and Corollary 2.3.5;
+     - Bellaïche–Chenevier's Theorem 1.2;
+     - BLGGT's Theorem 1.1 (l = p, II) and Theorem 2.1.1 (Annals 179);
+     - Labesse's Corollary 5.3, Mœglin–Waldspurger's main theorem and EGH's Theorem 7.2.1.
+3. Construction and definition items were not in the queues. Across the paper 78 constructions and 89
+   definitions have no steps, including 18 and 6 in Appendix A.
+
+---
+
+# Previous checkpoint (cc-58621d, G-outline step)
+
+Claude Code — cc-58621d; issue 1254; 29 September 2026 (G-outline step).
+**Partial checkpoint, continuing the checkpoints below.** Census: 779 items, 26 routes, 118 findings,
+12 gaps. No Lean deliverable or compilation. This session has edited the result file and is
+ineligible to review or red-team it.
+
+## Completed here
+
+- **The G queue is done.** The 39 §7 theorem items without an outline now carry `proofSteps`,
+  `prerequisites` and `proofProvenance`, read from the published PDF132–162 with the recorded §7
+  findings applied. There are 127 new internal edges, and the graph stays acyclic at 1,568 edges.
+- §7 was re-read in full; no new finding.
+- Two implicit steps are recorded in the steps:
+  - Theorem 7.3.2(2)'s polynomial condition on μ, which must absorb the choice of presentation
+    (Lemma 7.3.1);
+  - Remark 7.4.3(2)'s use of h ≥ n − 1.
+
+## Resume from here
+
+1. **The last no-outline queue:** the A (56) theorem items without `proofSteps` (Appendix A and its
+   global inputs: Thorne, CHT, Labesse and the base-change suppliers). The L items (138) are library
+   citations.
+2. **The remaining gaps**, as listed in the Q03 step below.
+3. **External inputs** noted in the B step (B20, B31, B32), plus §7's imports: Kisin [48], [49];
+   Emerton–Gee [22] Theorems 4.8.12 and 4.8.14 and Proposition 4.8.10; and [56, Proposition 3.1.2].
+
+---
+
+# Previous checkpoint (cc-58621d, B-outline step)
 
 Claude Code — cc-58621d; issue 1254; 29 September 2026 (B-outline step).
 **Partial checkpoint, continuing the checkpoints below.** Census: 779 items, 26 routes, 118 findings

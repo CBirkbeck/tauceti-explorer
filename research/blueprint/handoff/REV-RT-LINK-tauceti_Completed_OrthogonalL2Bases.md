@@ -1,0 +1,7 @@
+# Follow-up from the OrthogonalL2Bases red-team verification
+
+The assigned verification is complete for the submitted zero-finding result. Its empty verdict list is not an error-free certification: the review uncovered a new missing B1-to-StandardDistributions dependency. The verification report and JSON preserve the exact endpoints, public library sources, input hashes, production graph counts, correction and in-memory reproduction. No scratch file is needed.
+
+Maintainer follow-up: route the new observation into a red-team result and obtain independent verification before applying a fix. This session discovered the observation and must not verify its own new finding. The current review schema's finding-verdict list cannot create an automatic fix job for an observation absent from the submitted red-team result.
+
+At revision `ef17f2a542f0c65ff5b4cbde83b8db890a1b62e3`, the dependency exists only in an unreviewed StandardDistributions research packet, while the accepted focal packet lists it under non-promoted `alreadyRecorded`. The actual production assembler has no edge or transitive path. Recheck the graph before applying the correction in case the sibling has since been independently accepted and promoted. Otherwise restore the qualified edge to an accepted packet, correct the narrative, and obtain renewed independent review/promotion. Do not duplicate the existing moment theorem or remove its finite-measure and exponential-integrability hypotheses.

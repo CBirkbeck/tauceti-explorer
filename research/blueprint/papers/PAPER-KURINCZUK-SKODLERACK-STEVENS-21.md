@@ -31,7 +31,7 @@ The setting throughout:
 
 - F_o is a non-archimedean local field of odd residual characteristic p.
 - F/F_o is an extension of degree at most 2, with its involution.
-- (V,h) is an ε-hermitian space, G = U(V,h), and G° = G ∩ SL_F(V).
+- (V,h) is an ε-hermitian space and G = U(V,h). G° = G in the unitary and symplectic cases, and G° = G ∩ SL_F(V) = SO(V,h) in the orthogonal case (§1.6).
 - G° is a unitary, symplectic or special orthogonal group, and not SO(1,1).
 - Representations are on vector spaces over an algebraically closed field C of characteristic ≠ p.
 
@@ -132,3 +132,24 @@ The misprints are missing primes and minus subscripts, swapped letters and wrong
 10. Blondel–Henniart–Stevens, *Jordan blocks of cuspidal representations of symplectic groups* (Algebra Number Theory 2018), doi:10.2140/ant.2018.12.2327.
 
 Stevens's 2008 *Inventiones* paper and Bushnell–Henniart's 2017 *Annals* paper are already in `papers.json`. None of these papers was read for this job.
+
+## Corrections by the independent review (REV-PAPER-KURINCZUK-SKODLERACK-STEVENS-21)
+
+Claude Code, session `cc-fb70e5`, 29 September 2026. The full report is `research/blueprint/reviews/REV-PAPER-KURINCZUK-SKODLERACK-STEVENS-21.md`.
+
+- **Version of record read.**
+  - Invent. Math. 223 (2021) 597–723 is CC BY 4.0. The review read it from the University of East Anglia repository (eprint 76674; SHA-256 `4098a4a1…122e`), and `sourceVersions` records it.
+  - Print keeps the arXiv v3 numbering throughout, so the item locators still refer to v3. Printed page p is PDF page p − 596.
+- **G°.** The setting said G° = G ∩ SL_F(V), which is SU(V,h) for a unitary group. The paper's G° (§1.6) is G in the unitary and symplectic cases and SO(V,h) in the orthogonal case. The setting above, the route 1 brief and the standing preamble of 75 items are corrected.
+- **Corrected statements.** Items 308 (the §10.2 example, E48), 309 (Theorem 10.4, E32) and 376 (the counting formula, E36) now state the corrected results instead of the printed ones. Items 26, 94, 113, 160, 177, 244, 377 and 383 have smaller fixes.
+- **Mistakes.**
+  - All 37 findings are confirmed, and each locator now gives the printed page.
+  - Print corrects E1, E20, E21, E28, E32 and E35, and their `known` fields say so. Print moves the slip of E37 without fixing it.
+  - The `known` fields read "new: …", which the register files as corrected in print. They now read "new".
+  - E2, E4 and E28 overlapped E25 and E27, and each place is now recorded once.
+  - The review adds fourteen (E38–E51). Two of them, E40 and E44, are corrected in print. The substantive ones:
+    - **E48:** the example opening §10.2 is false for r ≥ 1, with a split SO(2,2) counterexample.
+    - **E40:** the self-dual †-construction gives a standard stratum only for even period.
+    - **E41, E42, E47:** gaps in the proofs of Proposition 5.19 (and Lemma 6.11), in §6.2 and in Theorem 9.16. Each is repaired by a normalisation the paper makes elsewhere, and the results stand.
+  - There are now 51 findings: 34 misprints, 11 gaps and 6 errors.
+- **Routes.** All four routes are accepted. The route 1 brief places the counting formula in §12.4 and carries the §10.2 correction.

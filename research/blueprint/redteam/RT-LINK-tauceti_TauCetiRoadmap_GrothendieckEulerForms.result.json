@@ -1,0 +1,161 @@
+{
+  "redteam": "RT-LINK-tauceti_TauCetiRoadmap_GrothendieckEulerForms",
+  "protocol": "redteam-v1",
+  "status": "complete",
+  "target": "LINK-tauceti_TauCetiRoadmap_GrothendieckEulerForms",
+  "summary": "One medium finding: three Quiver-to-Grothendieck/Euler prerequisites classified as already present exist only in an unreviewed partner packet and are absent, even transitively, from the assembled atlas. The other six hosted pairs and all fifteen primary links survive; no additional mathematical or library-claim finding established.",
+  "checked": [
+    "Independent of the original worker ChatGPT Pro — cgp-0d58f52c658d and reviewer Codex — codex-hjdg0j. Read the accepted packet and review, the whole 643-line owner document, all eight own stages and all 25 distinct external endpoints of links, overlaps and hosted pairs.",
+    "Checked the direction, both endpoint evidence and scope of all 15 primary links; all 44 active quotations satisfy the stage-or-roadmap rule (42 are literal stage substrings, two K.1 quotes are in the owner README). Both historical retired-overlap quotations also match. Checked five active overlaps, the retired overlap, and all three requests.",
+    "Compared all nine existingLinks to their actual partner packets, promoted data/links files, and the assembled atlas; tested direct edges, forward paths and reverse paths. Six hosted pairs are assembled; three Quiver pairs are absent with no forward/reverse path.",
+    "Read the reviewed library-coverage targets and scope notes for all eight owner layers. Freshly fetched and read relevant declaration statements and parameters in 14 TauCeti files at f790474821cf4256814db967cb154e7af3d0c369; see source manifest and report. No claim that an entire layer is built.",
+    "Searched all 2028 source-stage descriptions across 221 roadmaps (one retired): focused query returned 12 external candidates; broad query returned 266. Read candidate endpoint descriptions in full and additional SchemeKTheoryOperations S.2, ArithmeticKTheory N.1 and GeneralAlgebraicKTheory readiness checkpoints; lexical screen is not full reading of 266 stages.",
+    "Checked Cartan transpose and division-endomorphism conventions, the finite-support and projective-versus-general-resolution boundaries, the distinction between raw Verdier and idempotent-completed K0, and radical preservation. Reproduced C^T E=I for the 1→2 example and the isotropic-image counterexample to unconditional numerical functoriality.",
+    "Validated a scratch-only three-link repair using the link checker and actual assemble/merge_links functions: 2840 stages; 8007 to 8010 distinct edges; repeated merge remains 8010; no cycles. The 4501-edge raw/research/requires union already contains these edges and is acyclic, explaining why that union alone misses the promotion gap."
+  ],
+  "findings": [
+    {
+      "id": "RT-LINK-tauceti_TauCetiRoadmap_GrothendieckEulerForms/1",
+      "kind": "missing",
+      "severity": "medium",
+      "where": "research/blueprint/links/tauceti_TauCetiRoadmap_GrothendieckEulerForms.json: existingLinks[0:3], summary and review completeness claims",
+      "claim": "The accepted packet treats QuiverRepresentations Layers 2→GEF 4, 3→GEF 4 and 4→GEF 5 as covered, but none reaches the atlas. They occur only in the links array of the unreviewed QuiverRepresentations research packet; the accepted GEF packet keeps them only in existingLinks. At the audited base there is no promoted Quiver packet, no assembled direct edge, and no alternate dependency path for any of the three pairs.",
+      "evidence": "GEF Layer 4 says: \"Under the explicit finite, basic/split, and Krull--Schmidt\n  hypotheses supplied by the quiver roadmap, prove that indecomposable projective classes form a\n  basis of `K₀(proj A)` and simple classes form a basis of `G₀(mod A)`. Its Cartan comparison explicitly consumes the Quiver matrix, and GEF Layer 5 explicitly requires the finite-acyclic-quiver Ringel comparison. The three fully quoted contracts are supplied in proposedLinks. The Quiver packet has no accepted review and no data/links counterpart at 92e9f1a7b9727f6ad1f75232df3c184705b114a8. scripts/build.py:69–75 loads only data/links; scripts/decompositions.py:283 iterates only packet.links, ignoring existingLinks. Actual assembly yields 8007 distinct edges and all three pairs are absent even transitively; six other existingLinks are present.",
+      "fix": "Independently accept these three endpoint contracts in the GEF packet links array, using the literal evidence and baseline-aware reasons in proposedLinks; retain metadata only as provenance and explain that its former host was research-only. Recheck current promotion state first, since a later Quiver review could resolve the gap. Re-promote the corrected accepted GEF packet through normal intake. Do not promote the entire unreviewed Quiver packet or introduce reverse dependencies. Ordered-pair deduplication in merge_links makes eventual promotion of both packets safe."
+    }
+  ],
+  "proposedLinks": [
+    {
+      "source": "tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations#layer-2-the-krull-schmidt-theorem",
+      "target": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-4-finite-dimensional-algebras-and-the-cartan-map",
+      "reason": "Finite-length Krull-Schmidt existence and uniqueness provide the free commutative monoid of finite projective summands, hence the indecomposable-projective basis of split K0 in the finite-dimensional module setting. GEF owns group completion, small-model and exact-category comparisons; it cannot infer this basis merely from Jordan-Hölder. The simple basis is a separate finite-length theorem. Apply only to finite direct sums of nonzero indecomposables, not arbitrary exact categories.",
+      "confidence": "inferred",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations#layer-2-the-krull-schmidt-theorem",
+          "quote": "Two decompositions of a finite-dimensional module into\n  indecomposables have the same number of summands and a **bijection matching the summands up to\n  isomorphism**"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-4-finite-dimensional-algebras-and-the-cartan-map",
+          "quote": "Under the explicit finite, basic/split, and Krull--Schmidt\n  hypotheses supplied by the quiver roadmap, prove that indecomposable projective classes form a\n  basis of `K₀(proj A)` and simple classes form a basis of `G₀(mod A)`."
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations#layer-3-the-structure-of-a-finite-dimensional-algebra",
+      "target": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-4-finite-dimensional-algebras-and-the-cartan-map",
+      "reason": "Reuse the simple-indexed projective covers and composition multiplicities for finite-dimensional A to identify the matrix of the already existing categorical Cartan map. Quiver stores C_Q(i,j)=[P_i:S_j], while GEF stores C_G(i,j)=[P_j:S_i]; prove C_G=transpose(C_Q). Over a general field retain the factors dim_k End(S_i) when comparing to Hom dimensions. GEF owns the basis/matrix comparison, Quiver owns the algebraic matrix; do not reconstruct TauCeti.cartanMap.",
+      "confidence": "inferred",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations#layer-3-the-structure-of-a-finite-dimensional-algebra",
+          "quote": "primarily by the **Jordan-Hölder multiplicities** `Cᵢⱼ = [Pᵢ : Sⱼ]` of `Sⱼ` in the projective cover\n  `Pᵢ`"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-4-finite-dimensional-algebras-and-the-cartan-map",
+          "quote": "its `(i,j)` entry is\n  `[P_j:S_i]`.  Compare this with the quiver roadmap's Cartan matrix"
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations#layer-4-the-euler-form-dimension-vectors-and-reflection-functors",
+      "target": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-5-finite-support-euler-characteristics-and-ext-euler-descent",
+      "reason": "For a finite acyclic quiver and finite-dimensional representations over a field, consume the length-one projective resolution and Ringel Hom-minus-Ext1 identity to compare categorical Ext-Euler with the integer form on dimension vectors. GEF must identify its categorical Ext with the resolution cokernel and prove finite support. No reverse dependency on GEF is needed to construct quiver Ext1. The symmetric graph form is E+E^T, not the composition Cartan matrix.",
+      "confidence": "inferred",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations#layer-4-the-euler-form-dimension-vectors-and-reflection-functors",
+          "quote": "`eulerForm (dimVector M) (dimVector N) = dim_k Hom(M, N) − dim_k Ext¹(M, N)`"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-5-finite-support-euler-characteristics-and-ext-euler-descent",
+          "quote": "For a finite acyclic quiver, prove that the categorical Ext-Euler form\n  agrees with Tau Ceti's Ringel form on dimension vectors and with the landed projective evaluation."
+        }
+      ]
+    }
+  ],
+  "validation": {
+    "base": "92e9f1a7b9727f6ad1f75232df3c184705b114a8",
+    "world": {
+      "roadmaps": 221,
+      "stages": 2028,
+      "retiredRoadmaps": 1,
+      "externalEndpointsRead": 25
+    },
+    "assembled": {
+      "stages": 2840,
+      "edgesBefore": 8007,
+      "edgesAfter": 8010,
+      "repeatEdgeCount": 8010,
+      "acyclic": true
+    },
+    "combinedResearchAndRequires": {
+      "edges": 4501,
+      "acyclic": true,
+      "proposedAlreadyInResearchUnion": true
+    },
+    "proposedChecker": {
+      "errors": [],
+      "warnings": []
+    }
+  },
+  "pinnedSources": [
+    {
+      "file": "TauCeti/Algebra/Category/ModuleCat/CartanMap.lean",
+      "sha256": "097a23e20b21472b4a5cb6e76dde030669c539212f84e97d4092136ae678a18e"
+    },
+    {
+      "file": "TauCeti/Algebra/Homology/EulerCharacteristic/ExtEuler/Descent.lean",
+      "sha256": "1de8f9631d67a9930adbaf72ef73e2244f1858229d2cf4b4418eadfe9f059e21"
+    },
+    {
+      "file": "TauCeti/Algebra/Homology/EulerCharacteristic/FiniteDimensional.lean",
+      "sha256": "5d580f041b3df2f91269bd8a3dda2f0b79d4dab97512981c53090433476a1f53"
+    },
+    {
+      "file": "TauCeti/CategoryTheory/Exact/ExactStructure.lean",
+      "sha256": "0728f481c5f5d201addbc208636dfc795f0ec271dfc998cb0fb3cd27ef5dbd9b"
+    },
+    {
+      "file": "TauCeti/CategoryTheory/Exact/Injective.lean",
+      "sha256": "567323f579a0d524893de907f973f0ea69189d710b1eec5cb456caad6a0abef9"
+    },
+    {
+      "file": "TauCeti/CategoryTheory/Exact/Projective.lean",
+      "sha256": "c606787398810f33b1c28ba90d69e9ed3884393e0f6de327b567432e2785cb33"
+    },
+    {
+      "file": "TauCeti/CategoryTheory/GrothendieckGroup/Exact.lean",
+      "sha256": "c12593e7a8fe2a4e48a6e1d493f3ae87a90d066b28d2818139e8e90722cca5f5"
+    },
+    {
+      "file": "TauCeti/CategoryTheory/GrothendieckGroup/Laurent.lean",
+      "sha256": "2e1e047bca20d1187801a5d0a551858e3993cc2e8e29f7467880cf1db62c66d6"
+    },
+    {
+      "file": "TauCeti/CategoryTheory/GrothendieckGroup/ProjectiveResolution.lean",
+      "sha256": "7a9a6f3b59e7e6ce3779c4b1feaefcb6d8928897489d2e92c2bb7e8f2f1e8b78"
+    },
+    {
+      "file": "TauCeti/CategoryTheory/GrothendieckGroup/Split.lean",
+      "sha256": "44cde7491a9a659ff89e2a4256911391bf5cd0bd8bb16a8aa06b3c7334730988"
+    },
+    {
+      "file": "TauCeti/CategoryTheory/GrothendieckGroup/Triangulated.lean",
+      "sha256": "89ad9cdef952a42244bf100ecb4956b260e2d926067938b7dee1caa6ae31cac9"
+    },
+    {
+      "file": "TauCeti/LinearAlgebra/SesquilinearForm/NumericalQuotient/Functoriality.lean",
+      "sha256": "493d491c867505028ffb8c8b872419408f440ee70af5516ad89c71c938d602d0"
+    },
+    {
+      "file": "TauCeti/RepresentationTheory/RepresentationRing/Basic.lean",
+      "sha256": "5981c75ae629a4a20f615e75eecbb9d053ae1288f0c5a3598813e76a63bcdd5d"
+    },
+    {
+      "file": "TauCeti/RepresentationTheory/RepresentationRing/Injective.lean",
+      "sha256": "30c2fe4481cf93b931a0403c4a6ad5eb06f3915a1779fec4ba9baac25bd904af"
+    }
+  ],
+  "implementationStatus": "No Lean file changed or compiled; this is a link-map audit, not a formalization claim."
+}

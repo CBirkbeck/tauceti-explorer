@@ -10,6 +10,18 @@ The extraction now has:
 - 15 prerequisites;
 - 8 source issues.
 
+After the independent review (REV-PAPER-CIUBOTARU-HARRIS-26, research/blueprint/reviews/REV-PAPER-CIUBOTARU-HARRIS-26.md) the extraction has 83 items (2 library, 11 planned, 70 missing), the same four routes, 13 prerequisites and 17 source issues, all confirmed. The review read arXiv v1 (the Annals revision is still not served) and corrected the extraction in place:
+- **Library.** `sl2-integral-spectrum` is built in Tau Ceti (`TauCeti.exists_int_of_hasEigenvalue`, `TauCeti.isInternal_eigenspace_toEnd_intCast`), so it is library, not planned.
+- **Nine new source issues (E9–E17).** Three matter for the main theorem:
+  - **E11 (error).** Corollary 6.32(1) is false for Satake parameters with a non-central compact part; a generic unitary spherical representation of G2 with ν = ½ω2 is a counterexample. The proof of Theorem 5.4 applies it to arbitrary compact parts.
+  - **E10 (gap).** The sketch of Theorem 4.3 asserts geometric local monodromy "because G is semisimple", which the paper's own p. 3 says is not known.
+  - **E12 (gap).** The reduction to adjoint G is written only for types C and D; types A, B and E7 need it too.
+
+  The rest are misprints: E9 is the direction of N in Definition 2.6, and E13–E17 are small slips. E6–E8 are confirmed.
+- **Items.** Fourteen statements are corrected, for example restricting the local temperedness tests to real Satake parameters. Two items are added: [GHS]'s purity of discrete series, and "spherical tempered implies generic".
+- **Routes.** Route 1's area is set to `representations`, a galaxy id, so it coalesces with Mao–Wan–Zhang's proposal of the same Part II. The three Part II briefs now state their final theorems and name their imports: SmoothRepresentationsPartIIUnitaryDual, ES5 and ES7:parabolic.
+- **Prerequisites.** V. Lafforgue (2018) and Gan–Harris–Sawin are already in the atlas batch and are removed. Collingwood–McGovern gets a link.
+
 The earlier checkpoint's report follows below.
 
 ## What this continuation did

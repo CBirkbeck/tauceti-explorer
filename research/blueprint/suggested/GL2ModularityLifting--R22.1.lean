@@ -1,3 +1,4 @@
+import Mathlib.RingTheory.Henselian
 import Mathlib.RingTheory.LocalRing.Defs
 import Mathlib.LinearAlgebra.FreeModule.Basic
 import Mathlib.Algebra.MonoidAlgebra.Defs
@@ -26,7 +27,20 @@ Galois representations over Hecke algebras (AutomorphicGaloisRepresentations R19
 global deformation rings (GlobalGaloisDeformations R04.4–R04.6) are recorded in the comment
 block below, not elaborated.
 
-## Signatures (comment only)
+## Review status: incomplete typed interface
+
+Independent review REV-GL2ModularityLifting--R22.1 returns needs_changes.
+The sketches below are NOT Lean declarations: their supplier types do not yet exist here.
+They do not satisfy the packet/API/test bijection of PROTOCOL section 13. Do not replace
+missing mathematics by arbitrary propositions to make these sketches elaborate. The active
+pStar definition and arithmetic/matrix regressions below are only the explicitly checked fragment.
+
+The packet now separates residual alpha/beta, strong residual modularity and the three pBT
+lifting results, dyadic torsor/presentation/regularity/faithfulness, the four statement predicates,
+Hodge--Tate normalisation/weight recovery/oddness, and the corrected graded-piece bound.
+The new names still require the actual supplier types before their signatures can be written.
+
+## Type sketches (comment only; not an implementation)
 
 ```
 -- R22.1/minimal-level-data
@@ -61,6 +75,9 @@ def dyadicPatchedRing : PatchedRing  -- R′_∞ ↠ R_∞ with a free T-action 
 theorem dyadicDet_smul (λ : T) (x : Sp R′_∞) : d (λ • x) = λ ^ 2 * d x
 theorem dyadic_torsor : IsTorsor (T.torsion 2) (Sp R_∞) (Sp R^inv_∞)
 theorem dyadic_kernel_twoPowerTorsion : ∀ r ∈ RingHom.ker π, ∃ n, (2 : 𝒪) ^ n • r = 0
+-- The reverse containment uses 2-torsion-freeness of the Hecke algebra.
+-- At finite level the determinant-one quotient D''_m only surjects onto D_m;
+-- the kernel is contained in its mth maximal-ideal power. Equality is at the limit.
 -- R22.6/kisin-dyadic-bt-lifting, hypothesis-h
 theorem kisin_2adic (hns : ¬ IsSolvable (ρbar.image)) (hmod : IsModular ρbar)
     (hbt : ∀ v ∣ 2, PotBarsottiTate ρ v) (hdet : det ρ = cyclo * ψ) (hψ : TotallyEven ψ)
@@ -68,7 +85,7 @@ theorem kisin_2adic (hns : ¬ IsSolvable (ρbar.image)) (hmod : IsModular ρbar)
 theorem hypothesisH (ρ : GaloisRep ℚ 𝒪 2) (hodd : det ρ c = -1) (hns : ¬ IsSolvable (ρbar.image))
     (hmod : IsModular ρbar) (hwt : PotCrystalline ρ 2 ∧ HodgeTate ρ = {0, 1}) : IsModular ρ
 -- R32.1/lifting-statement-table (Dieulefait–Pacetti Theorems 1.4–1.7 as propositions)
-def pStar (p : ℕ) : ℤ := (-1) ^ ((p - 1) / 2) * p
+-- pStar is defined in the active, checked fragment below.
 def OddPrimeLifting (p : ℕ) : Prop :=
   ∀ (ρ : GaloisRep ℚ (AlgebraicClosure ℚ_[p]) 2) (k : ℕ), IsOdd ρ → FinitelyRamified ρ →
     AbsIrred (ρ.reduce.restrict ℚ⟮√(pStar p)⟯) → DeRhamWithWeights ρ p {0, k - 1} → 1 < k →
@@ -84,13 +101,15 @@ theorem absIrred_restrict_of_not_solvable (h : ¬ Group.IsSolvable ρbar.image) 
     ¬ Group.IsSolvable (ρbar.restrict K).image ∧ AbsIrred (ρbar.restrict K)
 -- R32.1/hodge-tate-and-oddness-normalisation
 theorem isOdd_of_reduce_isOdd (hp : 2 < p) (h : IsOdd ρ.reduce) : IsOdd ρ
-theorem isModularOfWeight_of_twist (hwt : DeRhamWithWeights ρ p {0, k - 1}) (g : Eigenform k') (χ : FiniteOrderTimesCyclo)
+theorem isModularOfWeight_of_twist (hwt : DeRhamWithWeights ρ p {0, k - 1}) (g : Eigenform k') (hk : 2 ≤ k) (hk' : 2 ≤ k') (χ : FiniteOrderTimesCyclo)
     (h : ρ ≅ g.rep ⊗ χ) : IsModularOfWeight ρ k
 -- R32.2/kisin-multiplicity-criterion (Kisin (2.2.10), (2.2.14), (2.2.16); Gee–Kisin Lemma B.5.1)
 theorem patched_faithful_iff (d : KisinPatchingDatum F D σ ψ) :
     Module.Faithful d.Rbar d.M ↔ e (d.Rbar ⧸ π) * 2 ^ d.R.card ≤ e (d.M ⧸ π) (d.Rbar ⧸ π)
-theorem patched_faithful_of_breuilMezard (d : KisinPatchingDatum F D σ ψ) (hBM : ∀ v ∣ p, BreuilMezard (d.local v)) :
-    Module.Faithful d.Rbar d.M
+-- No unconditional `patched_faithful_of_breuilMezard` is asserted here.
+-- Gee--Kisin B.5.2 gives the graded-piece LOWER BOUND, normalised by 2^(-|R|),
+-- only under its extra nonexceptional local hypothesis. Exceptional cases need
+-- the Hu--Tan/Tung support arguments and their separate global hypotheses.
 -- R32.2/kisin-fontaine-mazur-totally-split, odd-prime-de-rham-lifting, odd-prime-statement-over-q
 theorem kisin_fm (hp : 2 < p) (hF : TotallySplit F p) (habel : ∀ v ∣ p, SemistableOverAbelian ρ v)
     (hHT : ∀ v ∣ p, DistinctHT ρ v) (hmod : IsModular ρbar) (hirr : AbsIrred (ρbar.restrict F⟮ζ_p⟯))
@@ -102,7 +121,55 @@ theorem oddPrimeLifting (hp : Odd p) : OddPrimeLifting p
 ```
 -/
 
-namespace TauCeti.ModularityLifting.SuggestedTest
+namespace TauCeti.ModularityLifting
+
+/-- The signed prime, with natural subtraction/division in the exponent.
+Only its arithmetic value is defined here; the quadratic-field theorem is not asserted. -/
+def pStar (p : ℕ) : ℤ := (-1) ^ ((p - 1) / 2) * (p : ℤ)
+
+theorem pStar_eq (p : ℕ) : pStar p = (-1) ^ ((p - 1) / 2) * (p : ℤ) := rfl
+
+theorem pStar_natAbs (p : ℕ) : (pStar p).natAbs = p := by
+  simp [pStar, Int.natAbs_mul, Int.natAbs_pow]
+
+namespace SuggestedTest
+
+/-- Regression for the sign and the explicit boundary convention. -/
+example : pStar 3 = -3 := by norm_num [pStar] -- pStar_three
+example : pStar 2 = 2 := by norm_num [pStar] -- pStar_two_boundary
+example : pStar 5 = 5 := by norm_num [pStar] -- pStar_five
+example : pStar 7 = -7 := by norm_num [pStar] -- pStar_not_always_positive
+
+/-- The exact pinned simple-root input, not the predicate Polynomial.Splits. -/
+example {R : Type*} [CommRing R] (I : Ideal R) [HenselianRing R I]
+    (f : Polynomial R) (hf : f.Monic) (a₀ : R)
+    (hroot : f.eval a₀ ∈ I)
+    (hsimple : IsUnit (Ideal.Quotient.mk I (f.derivative.eval a₀))) :
+    ∃ a : R, f.IsRoot a ∧ a - a₀ ∈ I :=
+  HenselianRing.is_henselian f hf a₀ hroot hsimple
+
+/-- The completeness-to-Henselian instance is present even though the name index omits instances. -/
+example {R : Type*} [CommRing R] (I : Ideal R) [IsAdicComplete I R] :
+    HenselianRing R I := inferInstance
+
+/-- Derivative of the split quadratic at the selected root; distinctness is essential. -/
+example {R : Type*} [CommRing R] (a b : R) : 2 * a - (a + b) = a - b := by ring
+
+/-- A repeated root still exists; it is simple-root lifting that cannot be invoked. -/
+example : (1 : ZMod 5) ^ 2 - 2 * 1 + 1 = 0 ∧ (2 * 1 - 2 : ZMod 5) = 0 := by decide
+
+/-- Source issue E9: A W A⁻¹ = -W, since A² = 1.
+Thus the subgroup {I,-I,W,-W} is invariant under both generators A and W,
+although W is not in the original diagonal torus. This tests the faulty proof
+step, not a counterexample to the Galois irreducibility theorem. -/
+example :
+    (!![1, 0; 0, -1] : Matrix (Fin 2) (Fin 2) (ZMod 3)) *
+      !![0, 1; 1, 0] * !![1, 0; 0, -1] = -!![0, 1; 1, 0] := by decide
+
+example : (!![1, 0; 0, -1] : Matrix (Fin 2) (Fin 2) (ZMod 3)) ^ 2 = 1 := by decide
+example : (!![0, 1; 1, 0] : Matrix (Fin 2) (Fin 2) (ZMod 3)) ^ 2 = 1 := by decide
+example : (!![0, 1; 1, 0] : Matrix (Fin 2) (Fin 2) (ZMod 3)) 0 1 ≠ 0 := by decide
+
 
 /-- `R22.2/auxiliary-hecke-algebra`: the Hecke polynomial at `v ∈ Q` factors as `(X − A)(X − B)` with
 `A + B = T_v`, `AB = N(v)ψ(π_v)`; the factorisation identity itself. -/
@@ -119,7 +186,8 @@ series ring over the local ring (with `d ≤ h + j`). -/
 example (d h j : ℕ) (hd : d ≤ h + j) : 1 + d + (h + j - d) = 1 + h + j := by omega
 
 /-- `R22.5/solvable-base-change-reduction`: `ℚ(√6) ⊗ ℚ_3 = ℚ_3(√−3)` because `6/(−3) = −2`
-is a square modulo 3. -/
+is a nonzero square modulo 3 and the local simple-root lift applies. The example
+below only checks the residue calculation, not the tensor-product isomorphism. -/
 example : IsSquare (-2 : ZMod 3) := ⟨1, by decide⟩
 
 /-- `R22.6/dyadic-oddness`: `diag(1, −1)` has determinant `−1` (the lift is odd) but reduces to the
@@ -131,7 +199,7 @@ example : (!![1, 0; 0, -1] : Matrix (Fin 2) (Fin 2) ℤ).map (Int.cast : ℤ →
   ext i j
   fin_cases i <;> fin_cases j <;> decide
 
-/-- `R22.6/dyadic-patched-torsor` (Lemma 9.5): removing the `t` torus directions from
+/-- `R22.6/dyadic-power-series-isomorphism` (Lemma 9.5): removing the `t` torus directions from
 `dim R′_∞ = h + j + t + 1` leaves `h + j + 1`. -/
 example (h j t : ℕ) : h + j + t + 1 - t = h + j + 1 := by omega
 
@@ -144,11 +212,11 @@ even. -/
 example {R : Type*} [CommRing R] (ψc : R) (h : (-1) * ψc = -1) : ψc = 1 := by
   linear_combination -h
 
-/-- `R32.1/lifting-statement-table`: `p* = (−1)^((p−1)/2) p` is `−3` at `p = 3`, so
+/-- `R32.1/p-star`: `p* = (−1)^((p−1)/2) p` is `−3` at `p = 3`, so
 `ℚ(√p*) = ℚ(√−3) = ℚ(ζ₃)`. -/
 example : (-1 : ℤ) ^ ((3 - 1) / 2) * 3 = -3 := by norm_num
 
-/-- `R32.1/lifting-statement-table`: `p* ≡ 1 (mod 4)` for the odd primes `3, 5, 7, 11, 13`. -/
+/-- `R32.1/p-star`: `p* ≡ 1 (mod 4)` for the odd primes `3, 5, 7, 11, 13`. -/
 example : ∀ p ∈ ({3, 5, 7, 11, 13} : Finset ℕ), ((-1 : ℤ) ^ ((p - 1) / 2) * p) % 4 = 1 := by
   decide
 
@@ -196,4 +264,5 @@ example : (7 : ℕ) ≠ 2 * 3 - 3 ∧ (7 : ℕ) ≠ 2 * 3 - 1 := by decide
 /-- `R32.2/application-requirements`: `w > 2k ≥ 4` gives `w ≥ 5`, the range of Theorem 1.6. -/
 example (w k : ℕ) (hk : 2 ≤ k) (hw : 2 * k < w) : 5 ≤ w := by omega
 
-end TauCeti.ModularityLifting.SuggestedTest
+end SuggestedTest
+end TauCeti.ModularityLifting

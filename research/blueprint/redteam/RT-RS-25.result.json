@@ -1,0 +1,803 @@
+{
+  "redteam": "RT-RS-25",
+  "protocol": "redteam-v1",
+  "status": "complete",
+  "target": "RS-25",
+  "summary": "No actionable finding in the accepted RS-25 restructuring. Checked both member documents and all 13 stages, 14 family leads, 25 ownership records and 60 links, including the review's ModularCurves 0E correction. Three narrowed interfaces retain their non-imported targets and all recorded consumers; no RS-25 edge creates a cycle in the checked graph unions.",
+  "checked": [
+    "Read accepted RS-25 JSON/report, REV-RS-25 and family evidence at atlas commit 15a7adf64cd502872225d25c2db7b0d823cd887a. Independent of author cg-6b83f1 and reviewer cc-442dc5.",
+    "Compared the complete NeronModelsAndSemistableAbelianVarieties and SchemeAndStackFoundations documents and all 13 stages with all keep/narrow decisions; no moved, dropped, retired or upstream-mutated stage.",
+    "Read all 14 family evidence leads, not treating duplicate-audit wording as a verdict. Rejected the proposed identification of smooth Picard integration with semistable degeneration and of general abelian reduction with curve reduction.",
+    "Read supplier contracts: EllipticCurves 4 and the conductor subsection of 8; StableReduction 1,2,4,5,6,7,8,9; JacobianChallenge D/F; ModularCurves 0E; ArithmeticGaloisRepresentations R01.3/R01.6. Compared every ownership record with its named scope.",
+    "Read all 13 reviewed data/library-coverage.json member entries and directly checked AlgebraicGeometry.Scheme and Scheme.Hom at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 and NumericalType weightedIntersection/principalDivisors/Pic/Coker/picToCoker/picToCoker_injective at Tau Ceti f790474821cf4256814db967cb154e7af3d0c369. Other implementation-status statements remain attributed to the reviewed audit, not a new absence search.",
+    "Read Stacks 01NM, 0CCJ, 0C7H and 0CE7 on 2026-09-30; checked general relative-Proj scope, finite-locally-free descent-cover restrictions and weighted Picard comparison. Recomputed the rank-one Smith invariants for the report's weighted/unweighted two-component example.",
+    "Checked all 60 link pairs for endpoint resolution, uniqueness, non-self direction and source/consumer compatibility; inspected all nine external consumers of the narrowed SF stages and retained internal consumers.",
+    "Checked forwarding from every suppliedBy stage to its narrowed interface and every recorded direct consumer. SF.0 has six consumers, SF.1 four, SF.4 four; no missing pair.",
+    "Checked adjacent accepted ownership entries in RS-08/17/18/32. They agree on SF.5, R11.4, R11.3 and the distinction between finite-level H1/Jacobian comparison and general arithmetic Tate enhancements.",
+    "Ran target-to-source reachability for each proposed edge on native stageEdges plus requires plus RS-25 (3568 edges), plus all 25 accepted link maps (4174), plus all 27 applied restructuring proposals (7007): no return path in any mode.",
+    "Ran the actual restructure.apply_restructurings with other accepted proposals first: all 60 RS-25 links apply, no skipped link. Applied RS-25 alone: every previous stage ID and edge preserved. Ran check_restructure.check on the pinned target/family/atlas: no errors.",
+    "Re-fetched main through 1823c502a4d131083effaca47c7c9cb04915a8ad and compared the target, review, family, member/anchor documents, atlas, reviewed coverage and applied-restructure inputs with the audit base: unchanged."
+  ],
+  "findings": [],
+  "provenance": {
+    "agent": "Codex",
+    "session": "codex-a71f92",
+    "issue": 4416,
+    "date": "2026-09-30",
+    "atlasCommit": "15a7adf64cd502872225d25c2db7b0d823cd887a",
+    "targetBlob": "99442337c0c290d23cf89e9d27704036ba10a067",
+    "reviewBlob": "db019cc9cc27374398b19873fa4d7439aef4bb74",
+    "mathlibCommit": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+    "tauCetiCommit": "f790474821cf4256814db967cb154e7af3d0c369"
+  },
+  "stageChecks": [
+    {
+      "stage": "NeronModelsAndSemistableAbelianVarieties:R11.1",
+      "action": "keep",
+      "assessment": "Local excellent-DVR existence and Dedekind gluing, all-smooth-test mapping property, finite type, uniqueness/homomorphisms, differential lattices and allowed unramified base change remain. SF.4 only imports them."
+    },
+    {
+      "stage": "NeronModelsAndSemistableAbelianVarieties:R11.2",
+      "action": "keep",
+      "assessment": "General component/toric/abelian data and isogeny sequences remain. EC4 supplies equation filtration and algorithmic indices; identifying them with geometric components remains new work, including wild primes and rational versus geometric points."
+    },
+    {
+      "stage": "NeronModelsAndSemistableAbelianVarieties:R11.3",
+      "action": "keep",
+      "assessment": "General abelian semistability, inertia criterion, Raynaud extension and lattice/polarization-sensitive formal or analytic uniformisation remain. Neither SR7 curve reduction nor EC4 point-level Tate uniformisation replaces them."
+    },
+    {
+      "stage": "NeronModelsAndSemistableAbelianVarieties:R11.4",
+      "action": "keep",
+      "assessment": "Semistable Picard/generalized Jacobian, graph characters, monodromy and integral Neron-component comparisons remain. Smooth Jacobian D, SR1 nodal graphs and SR6 weighted numerical specialization are separate inputs, not identifications with the output."
+    },
+    {
+      "stage": "NeronModelsAndSemistableAbelianVarieties:R11.5",
+      "action": "keep",
+      "assessment": "General NOS, isogeny invariance, good/semistable comparisons and local factors with monodromy remain. EC4 supplies the three elliptic NOS scopes; R01.3 conductors, R01.6 Tate modules, R06.6 p-adic comparison and EC8 semistable conductor compatibility are imported."
+    },
+    {
+      "stage": "NeronModelsAndSemistableAbelianVarieties:R11.6",
+      "action": "keep",
+      "assessment": "Degeneracy-compatible character/monodromy exports, R25/R28 inputs and the R29 invariant dictionary remain. Existing equation invariants, differential lattices and regular-model geometry are compared, not redefined."
+    },
+    {
+      "stage": "SchemeAndStackFoundations:SF.0",
+      "action": "narrow",
+      "assessment": "Relative Spec and general relative Proj, affine/twist/base-change compatibility and named-arrow tests remain. SR2 owns only its finitely generated graded-algebra construction; library schemes, modules and gluing are reused."
+    },
+    {
+      "stage": "SchemeAndStackFoundations:SF.1",
+      "action": "narrow",
+      "assessment": "Retained effective object classes exclude both SR2 polarized etale descent and ModularCurves 0E classes. Quotients, diagonals, atlas independence and coarse/fine versus stack distinctions remain; no universal scheme effectivity or properness is inferred."
+    },
+    {
+      "stage": "SchemeAndStackFoundations:SF.2",
+      "action": "keep",
+      "assessment": "Sites, coefficients, localization, base change and compact support remain, with CPC and etale-duality integration rather than a new six-operations owner."
+    },
+    {
+      "stage": "SchemeAndStackFoundations:SF.3",
+      "action": "keep",
+      "assessment": "Smooth-curve divisors, Riemann-Roch, duality, genus, Picard/Jacobian and Abel-Jacobi integration remain, as do scalar extension and Tate/cohomology comparisons. Degenerate Picard/Neron theory is not substituted for the smooth input."
+    },
+    {
+      "stage": "SchemeAndStackFoundations:SF.4",
+      "action": "narrow",
+      "assessment": "Infinitesimal lifting, obstructions, formal geometry/algebraization and source-scoped birational results remain. R11.1/R11.3 and SR7/8/9 supply distinct model/reduction outputs with their own extension and genus hypotheses."
+    },
+    {
+      "stage": "SchemeAndStackFoundations:SF.5",
+      "action": "keep",
+      "assessment": "General Chow/Gysin/Chern, GRR, Hodge index, surface Riemann-Roch, adjunction and graph/diagonal route remain. SR4 arithmetic-surface intersection is an imported special case, not the whole theory."
+    },
+    {
+      "stage": "SchemeAndStackFoundations:SF.6",
+      "action": "keep",
+      "assessment": "Cohomology-comparison maps and cycle/trace/pairing compatibility remain coefficient-, topology- and completion-sensitive consumer interfaces, not additional definitions of the source theories."
+    }
+  ],
+  "ownershipChecks": [
+    {
+      "index": 1,
+      "target": "Neron models, their mapping property, local/Dedekind existence, uniqueness and invariant-differential lattices",
+      "owner": "NeronModelsAndSemistableAbelianVarieties:R11.1",
+      "assessment": "Local/general mapping-property model remains R11.1; no arbitrary ramified base-change or properness claim."
+    },
+    {
+      "index": 2,
+      "target": "Equation-level elliptic reduction filtration, Tate algorithm, ReductionSymbol and point-group index c_p",
+      "owner": "tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv",
+      "assessment": "EC4 explicitly owns equation filtration, Tate algorithm and point-index output, not Neron models."
+    },
+    {
+      "index": 3,
+      "target": "Comparison of Neron special-fibre component data with the elliptic filtration and algorithmic component outputs",
+      "owner": "NeronModelsAndSemistableAbelianVarieties:R11.2",
+      "assessment": "Additional geometric component identification remains R11.2, including rational/geometric distinctions."
+    },
+    {
+      "index": 4,
+      "target": "General abelian semistable reduction and inertia-monodromy criterion",
+      "owner": "NeronModelsAndSemistableAbelianVarieties:R11.3",
+      "assessment": "General abelian theorem is retained in R11.3; curve theorem is not a substitute."
+    },
+    {
+      "index": 5,
+      "target": "Point-level elliptic Tate uniformisation in the exact discrete and rank-one scopes of EC Layer 4",
+      "owner": "tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv",
+      "assessment": "EC4 point-level uniformisation is reused under its complete rank-one/discrete hypotheses, not promoted to a rigid quotient."
+    },
+    {
+      "index": 6,
+      "target": "General Raynaud extension and formal/analytic abelian uniformisation with polarization and lattice conditions",
+      "owner": "NeronModelsAndSemistableAbelianVarieties:R11.3",
+      "assessment": "R11.3 formal/analytic and polarization/lattice construction remains; accepted RS-32 agrees."
+    },
+    {
+      "index": 7,
+      "target": "Nodal reduction of curves after finite separable DVR extension, and the separately scoped curve-Jacobian criterion",
+      "owner": "tauceti:TauCetiRoadmap/StableReduction#layer-7-semistable-reduction",
+      "assessment": "SR7 finite-separable-extension curve reduction and later extra-hypothesis Jacobian comparison stay distinct."
+    },
+    {
+      "index": 8,
+      "target": "Canonical contraction and unpointed stable curve reduction with the stated genus hypotheses",
+      "owner": "tauceti:TauCetiRoadmap/StableReduction#layer-8-canonical-contraction-and-unpointed-stable-reduction",
+      "assessment": "SR8 unpointed genus-at-least-two stabilization remains separate from nodal reduction."
+    },
+    {
+      "index": 9,
+      "target": "Pointed stable curve reduction in the range 2g - 2 + n > 0",
+      "owner": "tauceti:TauCetiRoadmap/StableReduction#layer-9-marked-stabilization-and-stable-pointed-reduction",
+      "assessment": "SR9 retains the pointed stability inequality and its existence/uniqueness scope."
+    },
+    {
+      "index": 10,
+      "target": "Smooth proper relative Picard functor and Jacobian scheme",
+      "owner": "tauceti:TauCetiRoadmap/JacobianChallenge#layer-d-the-relative-picard-functor-and-the-jacobian-scheme",
+      "assessment": "Jacobian D smooth relative-Picard representability is imported, not confused with the semistable extension."
+    },
+    {
+      "index": 11,
+      "target": "Nodal dual graph with branch pairing, loops, multiple edges and component genera",
+      "owner": "tauceti:TauCetiRoadmap/StableReduction#layer-1-nodes-normalization-and-dual-graphs",
+      "assessment": "SR1 graph retains branches, loops, multiple edges and normalization genera."
+    },
+    {
+      "index": 12,
+      "target": "Numerical types, weighted Pic(T), and line-bundle specialization in the Artin-Winters curve-reduction argument",
+      "owner": "tauceti:TauCetiRoadmap/StableReduction#layer-6-numerical-types-and-picard-torsion",
+      "assessment": "SR6 weighted numerical Picard and model specialization are not geometric representability or raw matrix cokernel."
+    },
+    {
+      "index": 13,
+      "target": "Semistable Picard/generalised Jacobian and its toric, monodromy and integral Neron-component interpretation",
+      "owner": "NeronModelsAndSemistableAbelianVarieties:R11.4",
+      "assessment": "R11.4 owns the extra geometric and integral comparison; accepted RS-17 agrees."
+    },
+    {
+      "index": 14,
+      "target": "Elliptic Neron-Ogg-Shafarevich and its potential-good and conditional finite-level variants",
+      "owner": "tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv",
+      "assessment": "EC4 ordinary, potential-good and conditional finite-level NOS statements retain distinct hypotheses."
+    },
+    {
+      "index": 15,
+      "target": "General-abelian model/Galois comparison and the local Euler-factor comparison retaining monodromy",
+      "owner": "NeronModelsAndSemistableAbelianVarieties:R11.5",
+      "assessment": "R11.5 general abelian comparison retains monodromy in the Euler-factor interface."
+    },
+    {
+      "index": 16,
+      "target": "General Artin/Swan conductor and elliptic algorithmic-versus-ramification conductor comparison, including wild terms",
+      "owner": "ArithmeticGaloisRepresentations:R01.3",
+      "assessment": "R01.3 provides Artin/Swan and general elliptic comparison, including wild terms, beyond the algorithm alone."
+    },
+    {
+      "index": 17,
+      "target": "Semistable algorithmic-Artin conductor special case expressly reserved by EC Layer 8",
+      "owner": "tauceti:TauCetiRoadmap/EllipticCurves#layer-8-selected-ℚ-specific-database-adapters",
+      "assessment": "EC8 explicitly reserves the semistable algorithmic-Artin special case; it is not all wild conductors."
+    },
+    {
+      "index": 18,
+      "target": "Consumer assembly of elliptic equation/scheme invariant comparisons and degeneracy-compatible monodromy interfaces",
+      "owner": "NeronModelsAndSemistableAbelianVarieties:R11.6",
+      "assessment": "R11.6 assembles comparisons and consumer functoriality without reconstructing inputs."
+    },
+    {
+      "index": 19,
+      "target": "Relative Proj of finitely generated graded quasi-coherent algebras and the stated projective-morphism package",
+      "owner": "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity",
+      "assessment": "SR2 finite-generated relative-Proj and projective package is exactly the removed special case."
+    },
+    {
+      "index": 20,
+      "target": "General relative-Proj extension beyond the finite-generated anchor, canonically compatible on the common domain",
+      "owner": "SchemeAndStackFoundations:SF.0",
+      "assessment": "SF.0 general graded quasi-coherent relative-Proj target is retained with canonical compatibility."
+    },
+    {
+      "index": 21,
+      "target": "Effective etale descent of compatibly polarized schemes, morphisms, sections and polarization cocycles",
+      "owner": "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity",
+      "assessment": "SR2 supplies descent of polarized etale data, not arbitrary scheme descent."
+    },
+    {
+      "index": 22,
+      "target": "Effective faithfully flat descent with cocycle and uniqueness statements for affine schemes, finite locally free schemes and closed subschemes, sections and morphisms, polarized projective relative curves, group objects on a descended scheme, finite group actions and torsors, and the corresponding spreading-out",
+      "owner": "tauceti:TauCetiRoadmap/ModularCurves#0e-effective-descent-and-spreading-out",
+      "assessment": "ModularCurves 0E supplies the named faithfully-flat object classes and corresponding spreading out; reviewer correction is present."
+    },
+    {
+      "index": 23,
+      "target": "Effective fpqc/fppf descent beyond that polarized etale case and the ModularCurves 0E classes, with specified effective classes and algebraic-space/stack interfaces",
+      "owner": "SchemeAndStackFoundations:SF.1",
+      "assessment": "SF.1 retains only broader specified effective classes and space/stack interfaces, not the imported cases."
+    },
+    {
+      "index": 24,
+      "target": "Arithmetic-surface Cartier/Weil intersection theory and its projection formula in the scope of stable reduction",
+      "owner": "tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces",
+      "assessment": "SR4 supplies the scoped arithmetic-surface intersection special case."
+    },
+    {
+      "index": 25,
+      "target": "General Chow/Gysin/Chern and source-scoped Riemann-Roch/intersection programme beyond the arithmetic-surface case",
+      "owner": "SchemeAndStackFoundations:SF.5",
+      "assessment": "SF.5 retains the broader Chow/Gysin/Chern/GRR programme; accepted RS-08/17/18 agree."
+    }
+  ],
+  "linkChecks": [
+    {
+      "index": 1,
+      "source": "ArithmeticGaloisRepresentations:R01.3",
+      "target": "NeronModelsAndSemistableAbelianVarieties:R11.5",
+      "role": "named supplier or comparison input",
+      "endpointStatus": "resolved",
+      "cycleStatus": "no return path in all three checked unions"
+    },
+    {
+      "index": 2,
+      "source": "ArithmeticGaloisRepresentations:R01.3",
+      "target": "NeronModelsAndSemistableAbelianVarieties:R11.6",
+      "role": "named supplier or comparison input",
+      "endpointStatus": "resolved",
+      "cycleStatus": "no return path in all three checked unions"
+    },
+    {
+      "index": 3,
+      "source": "ArithmeticGaloisRepresentations:R01.6",
+      "target": "NeronModelsAndSemistableAbelianVarieties:R11.3",
+      "role": "named supplier or comparison input",
+      "endpointStatus": "resolved",
+      "cycleStatus": "no return path in all three checked unions"
+    },
+    {
+      "index": 4,
+      "source": "ArithmeticGaloisRepresentations:R01.6",
+      "target": "NeronModelsAndSemistableAbelianVarieties:R11.5",
+      "role": "named supplier or comparison input",
+      "endpointStatus": "resolved",
+      "cycleStatus": "no return path in all three checked unions"
+    },
+    {
+      "index": 5,
+      "source": "NeronModelsAndSemistableAbelianVarieties:R11.1",
+      "target": "DrinfeldModulesAndTModules:DM.3",
+      "role": "documented interface forwarding",
+      "endpointStatus": "resolved",
+      "cycleStatus": "no return path in all three checked unions"
+    },
+    {
+      "index": 6,
+      "source": "NeronModelsAndSemistableAbelianVarieties:R11.1",
+      "target": "GlobalShtukasAndFunctionFieldLanglands:GS.0",
+      "role": "documented interface forwarding",
+      "endpointStatus": "resolved",
+      "cycleStatus": "no return path in all three checked unions"
+    },
+    {
+      "index": 7,
+      "source": "NeronModelsAndSemistableAbelianVarieties:R11.1",
+      "target": "NeronModelsAndSemistableAbelianVarieties:R11.6",
+      "role": "named supplier or comparison input",
+      "endpointStatus": "resolved",
+      "cycleStatus": "no return path in all three checked unions"
+    },
+    {
+      "index": 8,
+      "source": "NeronModelsAndSemistableAbelianVarieties:R11.1",
+      "target": "SchemeAndStackFoundations:SF.4",
+      "role": "named supplier or comparison input",
+      "endpointStatus": "resolved",
+      "cycleStatus": "no return path in all three checked unions"
+    },
+    {
+      "index": 9,
+      "source": "NeronModelsAndSemistableAbelianVarieties:R11.1",
+      "target": "SchemeAndStackFoundations:SF.5",
+      "role": "documented interface forwarding",
+      "endpointStatus": "resolved",
+      "cycleStatus": "no return path in all three checked unions"
+    },
+    {
+      "index": 10,
+      "source": "NeronModelsAndSemistableAbelianVarieties:R11.1",
+      "target": "TropicalAndBerkovichArithmetic:TB.2",
+      "role": "documented interface forwarding",
+      "endpointStatus": "resolved",
+      "cycleStatus": "no return path in all three checked unions"
+    },
+    {
+      "index": 11,
+      "source": "NeronModelsAndSemistableAbelianVarieties:R11.2",
+      "target": "NeronModelsAndSemistableAbelianVarieties:R11.6",
+      "role": "named supplier or comparison input",
+      "endpointStatus": "resolved",
+      "cycleStatus": "no return path in all three checked unions"
+    },
+    {
+      "index": 12,
+      "source": "NeronModelsAndSemistableAbelianVarieties:R11.3",
+      "target": "DrinfeldModulesAndTModules:DM.3",
+      "role": "documented interface forwarding",
+      "endpointStatus": "resolved",
+      "cycleStatus": "no return path in all three checked unions"
+    },
+    {
+      "index": 13,
+      "source": "NeronModelsAndSemistableAbelianVarieties:R11.3",
+      "target": "GlobalShtukasAndFunctionFieldLanglands:GS.0",
+      "role": "documented interface forwarding",
+      "endpointStatus": "resolved",
+      "cycleStatus": "no return path in all three checked unions"
+    },
+    {
+      "index": 14,
+      "source": "NeronModelsAndSemistableAbelianVarieties:R11.3",
+      "target": "SchemeAndStackFoundations:SF.4",
+      "role": "named supplier or comparison input",
+      "endpointStatus": "resolved",
+      "cycleStatus": "no return path in all three checked unions"
+    },
+    {
+      "index": 15,
+      "source": "NeronModelsAndSemistableAbelianVarieties:R11.3",
+      "target": "SchemeAndStackFoundations:SF.5",
+      "role": "documented interface forwarding",
+      "endpointStatus": "resolved",
+      "cycleStatus": "no return path in all three checked unions"
+    },
+    {
+      "index": 16,
+      "source": "NeronModelsAndSemistableAbelianVarieties:R11.3",
+      "target": "TropicalAndBerkovichArithmetic:TB.2",
+      "role": "documented interface forwarding",
+      "endpointStatus": "resolved",
+      "cycleStatus": "no return path in all three checked unions"
+    },
+    {
+      "index": 17,
+      "source": "tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv",
+      "target": "NeronModelsAndSemistableAbelianVarieties:R11.2",
+      "role": "named supplier or comparison input",
+      "endpointStatus": "resolved",
+      "cycleStatus": "no return path in all three checked unions"
+    },
+    {
+      "index": 18,
+      "source": "tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv",
+      "target": "NeronModelsAndSemistableAbelianVarieties:R11.3",
+      "role": "named supplier or comparison input",
+      "endpointStatus": "resolved",
+      "cycleStatus": "no return path in all three checked unions"
+    },
+    {
+      "index": 19,
+      "source": "tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv",
+      "target": "NeronModelsAndSemistableAbelianVarieties:R11.5",
+      "role": "named supplier or comparison input",
+      "endpointStatus": "resolved",
+      "cycleStatus": "no return path in all three checked unions"
+    },
+    {
+      "index": 20,
+      "source": "tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv",
+      "target": "NeronModelsAndSemistableAbelianVarieties:R11.6",
+      "role": "named supplier or comparison input",
+      "endpointStatus": "resolved",
+      "cycleStatus": "no return path in all three checked unions"
+    },
+    {
+      "index": 21,
+      "source": "tauceti:TauCetiRoadmap/EllipticCurves#layer-8-selected-ℚ-specific-database-adapters",
+      "target": "NeronModelsAndSemistableAbelianVarieties:R11.5",
+      "role": "named supplier or comparison input",
+      "endpointStatus": "resolved",
+      "cycleStatus": "no return path in all three checked unions"
+    },
+    {
+      "index": 22,
+      "source": "tauceti:TauCetiRoadmap/EllipticCurves#layer-8-selected-ℚ-specific-database-adapters",
+      "target": "NeronModelsAndSemistableAbelianVarieties:R11.6",
+      "role": "named supplier or comparison input",
+      "endpointStatus": "resolved",
+      "cycleStatus": "no return path in all three checked unions"
+    },
+    {
+      "index": 23,
+      "source": "tauceti:TauCetiRoadmap/JacobianChallenge#layer-d-the-relative-picard-functor-and-the-jacobian-scheme",
+      "target": "NeronModelsAndSemistableAbelianVarieties:R11.4",
+      "role": "named supplier or comparison input",
+      "endpointStatus": "resolved",
+      "cycleStatus": "no return path in all three checked unions"
+    },
+    {
+      "index": 24,
+      "source": "tauceti:TauCetiRoadmap/JacobianChallenge#layer-d-the-relative-picard-functor-and-the-jacobian-scheme",
+      "target": "SchemeAndStackFoundations:SF.3",
+      "role": "named supplier or comparison input",
+      "endpointStatus": "resolved",
+      "cycleStatus": "no return path in all three checked unions"
+    },
+    {
+      "index": 25,
+      "source": "tauceti:TauCetiRoadmap/JacobianChallenge#layer-f-abeljacobi-and-the-universal-property",
+      "target": "SchemeAndStackFoundations:SF.3",
+      "role": "named supplier or comparison input",
+      "endpointStatus": "resolved",
+      "cycleStatus": "no return path in all three checked unions"
+    },
+    {
+      "index": 26,
+      "source": "tauceti:TauCetiRoadmap/StableReduction#layer-1-nodes-normalization-and-dual-graphs",
+      "target": "NeronModelsAndSemistableAbelianVarieties:R11.4",
+      "role": "named supplier or comparison input",
+      "endpointStatus": "resolved",
+      "cycleStatus": "no return path in all three checked unions"
+    },
+    {
+      "index": 27,
+      "source": "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity",
+      "target": "ArithmeticDynamics:DY.0",
+      "role": "documented interface forwarding",
+      "endpointStatus": "resolved",
+      "cycleStatus": "no return path in all three checked unions"
+    },
+    {
+      "index": 28,
+      "source": "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity",
+      "target": "DrinfeldModulesAndTModules:DM.3",
+      "role": "documented interface forwarding",
+      "endpointStatus": "resolved",
+      "cycleStatus": "no return path in all three checked unions"
+    },
+    {
+      "index": 29,
+      "source": "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity",
+      "target": "GlobalShtukasAndFunctionFieldLanglands:GS.0",
+      "role": "documented interface forwarding",
+      "endpointStatus": "resolved",
+      "cycleStatus": "no return path in all three checked unions"
+    },
+    {
+      "index": 30,
+      "source": "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity",
+      "target": "HigherLocalFieldsAndHigherClassFieldTheory:HL.5",
+      "role": "documented interface forwarding",
+      "endpointStatus": "resolved",
+      "cycleStatus": "no return path in all three checked unions"
+    },
+    {
+      "index": 31,
+      "source": "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity",
+      "target": "LogicAndDefinabilityInNumberTheory:LD.3",
+      "role": "documented interface forwarding",
+      "endpointStatus": "resolved",
+      "cycleStatus": "no return path in all three checked unions"
+    },
+    {
+      "index": 32,
+      "source": "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity",
+      "target": "LogicAndDefinabilityInNumberTheory:LD.6",
+      "role": "documented interface forwarding",
+      "endpointStatus": "resolved",
+      "cycleStatus": "no return path in all three checked unions"
+    },
+    {
+      "index": 33,
+      "source": "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity",
+      "target": "PadicDifferentialEquationsAndRigidCohomology:RD.3",
+      "role": "documented interface forwarding",
+      "endpointStatus": "resolved",
+      "cycleStatus": "no return path in all three checked unions"
+    },
+    {
+      "index": 34,
+      "source": "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity",
+      "target": "SchemeAndStackFoundations:SF.0",
+      "role": "named supplier or comparison input",
+      "endpointStatus": "resolved",
+      "cycleStatus": "no return path in all three checked unions"
+    },
+    {
+      "index": 35,
+      "source": "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity",
+      "target": "SchemeAndStackFoundations:SF.1",
+      "role": "documented interface forwarding",
+      "endpointStatus": "resolved",
+      "cycleStatus": "no return path in all three checked unions"
+    },
+    {
+      "index": 36,
+      "source": "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity",
+      "target": "SchemeAndStackFoundations:SF.2",
+      "role": "documented interface forwarding",
+      "endpointStatus": "resolved",
+      "cycleStatus": "no return path in all three checked unions"
+    },
+    {
+      "index": 37,
+      "source": "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity",
+      "target": "TropicalAndBerkovichArithmetic:TB.4",
+      "role": "documented interface forwarding",
+      "endpointStatus": "resolved",
+      "cycleStatus": "no return path in all three checked unions"
+    },
+    {
+      "index": 38,
+      "source": "tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces",
+      "target": "SchemeAndStackFoundations:SF.5",
+      "role": "named supplier or comparison input",
+      "endpointStatus": "resolved",
+      "cycleStatus": "no return path in all three checked unions"
+    },
+    {
+      "index": 39,
+      "source": "tauceti:TauCetiRoadmap/StableReduction#layer-5-regular-and-minimal-models",
+      "target": "NeronModelsAndSemistableAbelianVarieties:R11.6",
+      "role": "named supplier or comparison input",
+      "endpointStatus": "resolved",
+      "cycleStatus": "no return path in all three checked unions"
+    },
+    {
+      "index": 40,
+      "source": "tauceti:TauCetiRoadmap/StableReduction#layer-6-numerical-types-and-picard-torsion",
+      "target": "NeronModelsAndSemistableAbelianVarieties:R11.4",
+      "role": "named supplier or comparison input",
+      "endpointStatus": "resolved",
+      "cycleStatus": "no return path in all three checked unions"
+    },
+    {
+      "index": 41,
+      "source": "tauceti:TauCetiRoadmap/StableReduction#layer-7-semistable-reduction",
+      "target": "DrinfeldModulesAndTModules:DM.3",
+      "role": "documented interface forwarding",
+      "endpointStatus": "resolved",
+      "cycleStatus": "no return path in all three checked unions"
+    },
+    {
+      "index": 42,
+      "source": "tauceti:TauCetiRoadmap/StableReduction#layer-7-semistable-reduction",
+      "target": "GlobalShtukasAndFunctionFieldLanglands:GS.0",
+      "role": "documented interface forwarding",
+      "endpointStatus": "resolved",
+      "cycleStatus": "no return path in all three checked unions"
+    },
+    {
+      "index": 43,
+      "source": "tauceti:TauCetiRoadmap/StableReduction#layer-7-semistable-reduction",
+      "target": "SchemeAndStackFoundations:SF.4",
+      "role": "named supplier or comparison input",
+      "endpointStatus": "resolved",
+      "cycleStatus": "no return path in all three checked unions"
+    },
+    {
+      "index": 44,
+      "source": "tauceti:TauCetiRoadmap/StableReduction#layer-7-semistable-reduction",
+      "target": "SchemeAndStackFoundations:SF.5",
+      "role": "documented interface forwarding",
+      "endpointStatus": "resolved",
+      "cycleStatus": "no return path in all three checked unions"
+    },
+    {
+      "index": 45,
+      "source": "tauceti:TauCetiRoadmap/StableReduction#layer-7-semistable-reduction",
+      "target": "TropicalAndBerkovichArithmetic:TB.2",
+      "role": "documented interface forwarding",
+      "endpointStatus": "resolved",
+      "cycleStatus": "no return path in all three checked unions"
+    },
+    {
+      "index": 46,
+      "source": "tauceti:TauCetiRoadmap/StableReduction#layer-8-canonical-contraction-and-unpointed-stable-reduction",
+      "target": "DrinfeldModulesAndTModules:DM.3",
+      "role": "documented interface forwarding",
+      "endpointStatus": "resolved",
+      "cycleStatus": "no return path in all three checked unions"
+    },
+    {
+      "index": 47,
+      "source": "tauceti:TauCetiRoadmap/StableReduction#layer-8-canonical-contraction-and-unpointed-stable-reduction",
+      "target": "GlobalShtukasAndFunctionFieldLanglands:GS.0",
+      "role": "documented interface forwarding",
+      "endpointStatus": "resolved",
+      "cycleStatus": "no return path in all three checked unions"
+    },
+    {
+      "index": 48,
+      "source": "tauceti:TauCetiRoadmap/StableReduction#layer-8-canonical-contraction-and-unpointed-stable-reduction",
+      "target": "SchemeAndStackFoundations:SF.4",
+      "role": "named supplier or comparison input",
+      "endpointStatus": "resolved",
+      "cycleStatus": "no return path in all three checked unions"
+    },
+    {
+      "index": 49,
+      "source": "tauceti:TauCetiRoadmap/StableReduction#layer-8-canonical-contraction-and-unpointed-stable-reduction",
+      "target": "SchemeAndStackFoundations:SF.5",
+      "role": "documented interface forwarding",
+      "endpointStatus": "resolved",
+      "cycleStatus": "no return path in all three checked unions"
+    },
+    {
+      "index": 50,
+      "source": "tauceti:TauCetiRoadmap/StableReduction#layer-8-canonical-contraction-and-unpointed-stable-reduction",
+      "target": "TropicalAndBerkovichArithmetic:TB.2",
+      "role": "documented interface forwarding",
+      "endpointStatus": "resolved",
+      "cycleStatus": "no return path in all three checked unions"
+    },
+    {
+      "index": 51,
+      "source": "tauceti:TauCetiRoadmap/StableReduction#layer-9-marked-stabilization-and-stable-pointed-reduction",
+      "target": "DrinfeldModulesAndTModules:DM.3",
+      "role": "documented interface forwarding",
+      "endpointStatus": "resolved",
+      "cycleStatus": "no return path in all three checked unions"
+    },
+    {
+      "index": 52,
+      "source": "tauceti:TauCetiRoadmap/StableReduction#layer-9-marked-stabilization-and-stable-pointed-reduction",
+      "target": "GlobalShtukasAndFunctionFieldLanglands:GS.0",
+      "role": "documented interface forwarding",
+      "endpointStatus": "resolved",
+      "cycleStatus": "no return path in all three checked unions"
+    },
+    {
+      "index": 53,
+      "source": "tauceti:TauCetiRoadmap/StableReduction#layer-9-marked-stabilization-and-stable-pointed-reduction",
+      "target": "SchemeAndStackFoundations:SF.4",
+      "role": "named supplier or comparison input",
+      "endpointStatus": "resolved",
+      "cycleStatus": "no return path in all three checked unions"
+    },
+    {
+      "index": 54,
+      "source": "tauceti:TauCetiRoadmap/StableReduction#layer-9-marked-stabilization-and-stable-pointed-reduction",
+      "target": "SchemeAndStackFoundations:SF.5",
+      "role": "documented interface forwarding",
+      "endpointStatus": "resolved",
+      "cycleStatus": "no return path in all three checked unions"
+    },
+    {
+      "index": 55,
+      "source": "tauceti:TauCetiRoadmap/StableReduction#layer-9-marked-stabilization-and-stable-pointed-reduction",
+      "target": "TropicalAndBerkovichArithmetic:TB.2",
+      "role": "documented interface forwarding",
+      "endpointStatus": "resolved",
+      "cycleStatus": "no return path in all three checked unions"
+    },
+    {
+      "index": 56,
+      "source": "tauceti:TauCetiRoadmap/ModularCurves#0e-effective-descent-and-spreading-out",
+      "target": "SchemeAndStackFoundations:SF.1",
+      "role": "named supplier or comparison input",
+      "endpointStatus": "resolved",
+      "cycleStatus": "no return path in all three checked unions"
+    },
+    {
+      "index": 57,
+      "source": "tauceti:TauCetiRoadmap/ModularCurves#0e-effective-descent-and-spreading-out",
+      "target": "DrinfeldModulesAndTModules:DM.3",
+      "role": "documented interface forwarding",
+      "endpointStatus": "resolved",
+      "cycleStatus": "no return path in all three checked unions"
+    },
+    {
+      "index": 58,
+      "source": "tauceti:TauCetiRoadmap/ModularCurves#0e-effective-descent-and-spreading-out",
+      "target": "GlobalShtukasAndFunctionFieldLanglands:GS.0",
+      "role": "documented interface forwarding",
+      "endpointStatus": "resolved",
+      "cycleStatus": "no return path in all three checked unions"
+    },
+    {
+      "index": 59,
+      "source": "tauceti:TauCetiRoadmap/ModularCurves#0e-effective-descent-and-spreading-out",
+      "target": "LogicAndDefinabilityInNumberTheory:LD.3",
+      "role": "documented interface forwarding",
+      "endpointStatus": "resolved",
+      "cycleStatus": "no return path in all three checked unions"
+    },
+    {
+      "index": 60,
+      "source": "tauceti:TauCetiRoadmap/ModularCurves#0e-effective-descent-and-spreading-out",
+      "target": "SchemeAndStackFoundations:SF.2",
+      "role": "documented interface forwarding",
+      "endpointStatus": "resolved",
+      "cycleStatus": "no return path in all three checked unions"
+    }
+  ],
+  "forwardingChecks": [
+    {
+      "stage": "SchemeAndStackFoundations:SF.0",
+      "suppliers": [
+        "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity"
+      ],
+      "consumers": [
+        "ArithmeticDynamics:DY.0",
+        "HigherLocalFieldsAndHigherClassFieldTheory:HL.5",
+        "LogicAndDefinabilityInNumberTheory:LD.6",
+        "PadicDifferentialEquationsAndRigidCohomology:RD.3",
+        "SchemeAndStackFoundations:SF.1",
+        "TropicalAndBerkovichArithmetic:TB.4"
+      ],
+      "missing": []
+    },
+    {
+      "stage": "SchemeAndStackFoundations:SF.1",
+      "suppliers": [
+        "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity",
+        "tauceti:TauCetiRoadmap/ModularCurves#0e-effective-descent-and-spreading-out"
+      ],
+      "consumers": [
+        "DrinfeldModulesAndTModules:DM.3",
+        "GlobalShtukasAndFunctionFieldLanglands:GS.0",
+        "LogicAndDefinabilityInNumberTheory:LD.3",
+        "SchemeAndStackFoundations:SF.2"
+      ],
+      "missing": []
+    },
+    {
+      "stage": "SchemeAndStackFoundations:SF.4",
+      "suppliers": [
+        "NeronModelsAndSemistableAbelianVarieties:R11.1",
+        "NeronModelsAndSemistableAbelianVarieties:R11.3",
+        "tauceti:TauCetiRoadmap/StableReduction#layer-7-semistable-reduction",
+        "tauceti:TauCetiRoadmap/StableReduction#layer-8-canonical-contraction-and-unpointed-stable-reduction",
+        "tauceti:TauCetiRoadmap/StableReduction#layer-9-marked-stabilization-and-stable-pointed-reduction"
+      ],
+      "consumers": [
+        "DrinfeldModulesAndTModules:DM.3",
+        "GlobalShtukasAndFunctionFieldLanglands:GS.0",
+        "SchemeAndStackFoundations:SF.5",
+        "TropicalAndBerkovichArithmetic:TB.2"
+      ],
+      "missing": []
+    }
+  ],
+  "graphChecks": {
+    "native_requires_proposal": {
+      "edges": 3568,
+      "returnPaths": []
+    },
+    "accepted_links": {
+      "edges": 4174,
+      "returnPaths": []
+    },
+    "accepted_restructurings": {
+      "edges": 7007,
+      "returnPaths": []
+    }
+  },
+  "limitations": [
+    "This is a complete attack on this restructuring decision, not a complete blueprint or theorem-proof audit of every retained programme.",
+    "No exhaustive fresh proof transcription of BLR/Faltings-Chai, general monodromy, Raynaud algebraization or all retained scheme-foundation targets. Their proof leaves remain later blueprint work.",
+    "Graph result is that no RS-25 edge participates in a cycle in the stated unions, not a certificate that every unrelated atlas component or future theorem-level dependency is acyclic.",
+    "Coarse forwarding is retained as the documented access convention, not evidence that every downstream proof uses every supplier theorem.",
+    "No Lean deliverable, compilation, formalization claim or new declaration."
+  ]
+}

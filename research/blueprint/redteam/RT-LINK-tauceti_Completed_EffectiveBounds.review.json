@@ -1,0 +1,29 @@
+{
+  "redteam": "RT-LINK-tauceti_Completed_EffectiveBounds",
+  "findings": [],
+  "reviewer": "Claude Code — cc-c2c06b",
+  "date": "2026-09-30",
+  "inputRevision": "561b3632a57c7768d7a0c5ca95403ff068c3393a",
+  "inputs": {
+    "result": {"path": "research/blueprint/redteam/RT-LINK-tauceti_Completed_EffectiveBounds.result.json", "sha256": "077c470372116c408120b3cc1f58b9165af8c2fe93931f1243ab80b06b6d5969"},
+    "report": {"path": "research/blueprint/redteam/RT-LINK-tauceti_Completed_EffectiveBounds.md", "sha256": "032cfd012552fe7a47657f12a6a2ca359ae0899c5a3cbc86fa91b5061ef1e52e"},
+    "target": {"path": "research/blueprint/links/tauceti_Completed_EffectiveBounds.json", "sha256": "a1493c80585e5e41a95005979315013c4406ce3be31b57b9fd2fb8bc9c278805"}
+  },
+  "summary": "The red-team result has no findings, so there is no verdict to give. I tested its checked list instead of passing it through, and every claim I tested holds: the seven evidence quotations, the five pinned blob hashes, the statements and line numbers of the seven cited declarations, the ArithmeticStatistics ST.0 and ClassicalArithmeticCompletion CA.5 nodes and the ST.0 packet hash, the Q(sqrt 5) regulator, and the production graph (2840 stages, 8007 distinct stage edges, all three EffectiveBounds Layer 1 edges present and in their consumers' requires lists). Two further leads, QuadraticFormInvariants Layer 9 and HilbertModularVarietiesAndShimuraCurves H4, do not establish a missing link. No new observation is recorded.",
+  "checks": [
+    "Independence: this reviewer (Claude Code, session cc-c2c06b) did none of LINK-, REV-LINK- or RT-LINK-tauceti_Completed_EffectiveBounds.",
+    "Target unchanged: the link map's SHA-256 at 561b3632 equals the red team's recorded target hash and the file's hash at its recorded revision 9cabc408.",
+    "Quotations: six of the seven evidence quotes are literal substrings of their named stage descriptions in data/atlas.json; the seventh, '(shared with the effective-bounds roadmap).', is on line 26 of content/tau-ceti/Multiquadratic/README.md, as PROTOCOL.md section 10 permits.",
+    "Blob hashes of the five cited files at Tau Ceti f790474 and Mathlib 082e2d3 match the link map's baselineChecks.",
+    "Statements read at the pins: NumberField.units_sq_index_le (UnitSquares/Basic.lean:62); finite_and_ncard_le_of_subset_box_of_separated (Doubling.lean:186, positive radii, 0 < eps <= c, strict separation); ncard_inter_box_two_le_pow_mul_ncard_inter_box_one (Doubling.lean:343, finiteness at scale 2 assumed); ncard_setOf_finiteDimensional_abs_discr_le_le (HermiteCount/Basic.lean:172, with the generating step at :139); regulator_eq_one_of_rank_eq_zero and one_le_regulator_of_rank_eq_zero (Regulator.lean); Mathlib regulator (:266), regulator_pos (:286), regOfFamily (:142, zero off IsMaxRank), regOfFamily_div_regulator (:361, no full-rank hypothesis); NumberField.finite_of_discr_bdd (Discriminant/Basic.lean:496). Each says what the red team reports.",
+    "ST.0 node number-fields-ordered-by-discriminant: packet SHA-256 6be34952... as reported; the Tau Ceti count is cited in the statement and prerequisites, while the proof steps use only mathlib:NumberField.finite_of_discr_bdd. The packet is partial and unreviewed.",
+    "CA.5 node fundamental-units-from-regulator-bound assumes IsMaxRank u and R(u) < 2L with L <= R_K, and uses only Mathlib regulator declarations, as reported.",
+    "Regulator of Q(sqrt 5): log((1+sqrt 5)/2) = 0.4812118250596..., recomputed; it agrees with the LMFDB value the report quotes and is below 1.",
+    "Production graph: scripts.build.assemble(require_distances=False) at 561b3632 gives 2840 stages and 8007 distinct stage edges; EffectiveBounds Layer 1 -> Multiquadratic Layer 2 and -> NumberFieldArithmetic Layers 3 and 8 are present, each in the target's requires list.",
+    "check_links.py on the target: 0 errors, 0 warnings. Library audit (data/library-coverage.json, AUDIT-03): Layers 0-2 built, Layer 3 partly built with no positive-rank regulator lower bound, consistent with follow-up R1.",
+    "Extra lead 1, QuadraticFormInvariants Layer 9, whose prerequisites name TauCeti/NumberTheory/EffectiveBounds/TraceForm.lean: at f790474 that file 'declares no new results' and holds two examples over C/R; the reusable criterion and discriminant formula are in TauCeti.FieldTheory.Trace, which is not an EffectiveBounds layer output. No link is established.",
+    "Extra lead 2, HilbertModularVarietiesAndShimuraCurves H4 ('Prove the unit-square comparison'): the stage does not state which unit group or congruence subgroup it squares, so no exact match with the integral-unit bound exists; the link map's examined note is sound.",
+    "Packet-wide search: across research/blueprint/packets and data/blueprints, the only packet citing an EffectiveBounds declaration is the ST.0 node above.",
+    "check_redteam.py on this review: ok."
+  ]
+}

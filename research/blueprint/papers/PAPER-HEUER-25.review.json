@@ -1,0 +1,37 @@
+{
+ "paper": "PAPER-HEUER-25",
+ "verdict": "accept",
+ "routes": [
+  {
+   "route": 1,
+   "verdict": "accept",
+   "reason": "Accept as corrected. P8 owns Scholze's R^nν_*Ô = Ω̃^n and the primitive comparison with finiteness (PAPER-ZAVYALOV-25's accepted route 7 sends its items 58 and 116 there; PAPER-SCHOLZE-13 route 1 and PAPER-BHATT-MORROW-SCHOLZE-18 route 14 agree). As submitted, two clauses broke the frontier: item 6's lift-induced Hodge–Tate decomposition needs the B_dR^+/ξ²-lifts and item 7's duality needs the Higgs–Tate torsor, both built in route 4, which imports P8. Corrected in place: the decomposition is dropped from item 6 (it is item 43's V = O case, and CohomologyComparisons CP.3 plans the spectral-sequence comparison); item 7, the Faltings extension, is planned at P8:local-rational, whose node poincare-lemma-and-faltings-extension states it, and its duality clause moved to item 21; item 10's pro-étale base change joins as item 44 (P8 plans the analogous relative base change for gr^0 OB_dR). The cited Liu–Zhu precedent was a rejected route."
+  },
+  {
+   "route": 2,
+   "verdict": "accept",
+   "reason": "Accept. D2 builds the pro-étale and v-sites with v-descent, and Kedlaya–Liu's descent of vector bundles is the next statement of that layer; no stage plans it. The route is frontier-safe: R4 and the rigid pro-étale site are upstream of D2. Corrected in the reason: the v-site of X is taken as perfectoid spaces over X, since the diamond X^◇ belongs to D6, which requires D2."
+  },
+  {
+   "route": 3,
+   "verdict": "accept",
+   "reason": "Accept as corrected. R3 plans Kiehl-type finiteness, coherence and base change and R2 formal models. As submitted, item 10's pro-étale clause needed the pro-étale site, which is downstream of R3 (R3 → A1 → R4); it is now item 44 in route 1. Item 11 (Lemma 2.7) is stated on X_an with §2.3's standing hypotheses and sits in R3, using R2's finite formal models."
+  },
+  {
+   "route": 4,
+   "verdict": "accept",
+   "reason": "Accept as corrected. No layer plans the p-adic Simpson correspondence or its machinery (the multiplicative Hodge–Tate sequence, P_𝕏, rigidified Picard functors, the exponential of rigid groups, the local correspondence, the canonical Higgs field, the cohomological comparison), and no stage mentions Simpson; the Part II joins the other accepted PadicHodgeTheory Part II proposals in one design. Corrected in place: item 3 (Higgs bundles) moved to route 5, since PAPER-LIU-ZHU-17's accepted HodgeStructuresPartII owns twisted Higgs bundles including the p-adic Ω^1(−1) case; the reason no longer credits Liu–Zhu's functor to T6:comparison (that route was rejected, and T6:comparison plans logarithmic Riemann–Hilbert); the brief states Theorem 5.5 at sheaf level and Proposition 5.3 exactly, and names its imports by title; item 46 (continuous group cohomology on toric charts) is added."
+  },
+  {
+   "route": 5,
+   "verdict": "accept",
+   "reason": "Accept. Added in review for item 3: the parent, id, title and area are those of PAPER-LIU-ZHU-17's accepted route 14, which defines twisted integrable Higgs bundles and notes the p-adic Ω^1(−1) instance, so the item joins that design and route 4 imports it."
+  },
+  {
+   "route": 6,
+   "verdict": "accept",
+   "reason": "Accept. Added in review for item 12: DiamondEtaleCohomology C5 plans proper base change only for quasi-pro-étale maps or prime-to-p coefficients, while Heuer uses p-power coefficients (Bhatt–Hansen, Theorem 3.15). The parent, id, title and area are those of PAPER-ZAVYALOV-25's accepted route 1, the Part II for mod-p étale cohomology of rigid spaces, so the item joins that design."
+  }
+ ],
+ "notes": "Accept, after corrections made in place. The extraction read the published Inventiones text (open access); Springer served this review only a JavaScript challenge, so the review read arXiv 2307.01303v3 (21 January 2025, three days before acceptance) by statement number and records it in sourceVersions; the nine new findings are scoped to v3. All four recorded mistakes are confirmed, including the gap E4 in Lemma 5.7 for p ≥ 3 (recomputed: the coefficients of exp in the closed-disc Tate algebra have valuation s_p(n)/(p − 1), which does not tend to infinity). Nine misprints are added (E5–E13), among them two citation slips ([37, Thm. 3.20] for the lift-induced decomposition, [35, Thm. 5.2] for almost purity) and a sign slip in the proof of Proposition 4.13. Routes 1, 3 and 4 are corrected in place and two coalescing routes are added; all six are accepted. Item 7 and item 1 are re-planned (P8:local-rational), item 12 becomes missing, five items are added (44–48), the other corrections touch items 6, 10, 11, 17, 21, 29, 35, 37 and 42, and item 3 moves to route 5. The result has 48 items (40 missing, 7 planned, 1 library). Three prerequisites that the atlas already covers (Scholze 2012 and 2013, Liu–Zhu) are removed. Details in research/blueprint/reviews/REV-PAPER-HEUER-25.md."
+}

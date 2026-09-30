@@ -1,0 +1,15 @@
+{
+  "redteam": "RT-LINK-tauceti_TauCetiRoadmap_NumberFieldArithmetic",
+  "findings": [
+    {
+      "finding": "RT-LINK-tauceti_TauCetiRoadmap_NumberFieldArithmetic/1",
+      "verdict": "confirmed",
+      "reason": "Confirmed at ef592ec09e45a367015ca9716965e3910afe2d47. NFA section 1.5 explicitly supplies finite unramified-compositum closure, while R02.3 explicitly constructs G_{F,S}. Milne, Arithmetic Duality Theorems, I.4 p.48, identifies its maximal restricted-ramification extension; the same finite input is already recognized by the accepted NFA1 to IntegralIwasawaTheory:L1 link. The partial unreviewed ArithmeticGaloisDuality request is corroboration only. Neither the assembled graph nor the conservative union of all research link packets and declared stage requirements has a forward path for this supplier/consumer pair. Add the inferred NFA1 to R02.3 edge with two-sided quotations and correct examined. Keep conjugation/normal closure, the infinite union, Krull topology, the absolute-Galois quotient and cohomology with the consumer. At the pin, isUnramifiedAway_of_intermediateField proves finite-set tower descent, not compositum closure or the infinite construction; preserve that distinction and the potentially infinite-S scope of any broader consumer."
+    },
+    {
+      "finding": "RT-LINK-tauceti_TauCetiRoadmap_NumberFieldArithmetic/2",
+      "verdict": "confirmed",
+      "reason": "Confirmed. The accepted, integrated R28.1 Hermite-Minkowski import explicitly permits wild ramification in S, records the missing degree-and-S discriminant bound, and feeds the bounded-height descent node. I checked Faltings 1983 p.357 on the page image: Lemma 4 is an imported finiteness assertion used in the preceding descent argument, with no proof beyond the Hermite-Minkowski reference. NFA4.2 supplies the relative-discriminant tower formula and NFA6.4 supplies the global wild different bound, using NFA5.9-5.10 for completion and residue-degree-weighted assembly. Pinned TauCeti.relDiscr_tower is already proved with top fraction-field separability; pinned NumberField.finite_of_discr_bdd requires an absolute discriminant bound on subfields of a fixed characteristic-zero field. Add inferred NFA4 and NFA6 to R28.1 edges, identify the accepted child/gap in their reasons and correct examined. All three diagnostic additions validate and merge acyclically, adding exactly three graph edges. Keep the uniform bound, fixed-closure counting and final finiteness import unresolved until supplied and reviewed; do not turn the input links into a proof, use a tame-only bound, or replan the landed tower theorem. If a general owner supplies the completed theorem later, factor through that owner."
+    }
+  ]
+}

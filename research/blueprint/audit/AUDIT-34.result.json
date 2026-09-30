@@ -340,9 +340,16 @@
          "file": "Mathlib/CategoryTheory/Limits/HasLimits.lean",
          "line": 541,
          "fit": "related"
+        },
+        {
+         "name": "CategoryTheory.Functor.rightDerived",
+         "library": "mathlib",
+         "file": "Mathlib/CategoryTheory/Abelian/RightDerived.lean",
+         "line": 109,
+         "fit": "related"
         }
        ],
-       "note": "Generic derived-limit and finite-generation machinery exists in Mathlib, but none of it is instantiated for an ordinary automorphic tower; central characters of smooth representations are not defined."
+       "note": "Mathlib has the ordinary limit functor `lim` (under HasLimitsOfShape J C), the generic right-derived-functor framework `Functor.rightDerived` (an additive functor on an abelian category with enough injectives, from which R^n lim could be formed) and generic finite-generation groundwork. There is no derived tower-limit API, no lim¹ vanishing or Mittag-Leffler criterion for modules (Mittag-Leffler appears only for functors to Type, `IsMittagLeffler` in CategoryTheory/CofilteredSystem.lean:137), and none of the vanishing, control, duality or finite-generation bounds PA.2 asks for; nothing is instantiated for an ordinary automorphic tower. Central characters of smooth representations are not defined."
       },
       {
        "target": "Ordinary degree-shifting comparison preserving the Galois filtration and its characters",
@@ -561,7 +568,7 @@
          "fit": "related"
         }
        ],
-       "note": "grep -i compatiblesystem gives zero hits; no library defines a system (ρ_λ) with matching Frobenius characteristic polynomials. Restriction of a representation to a subgroup exists generically (`Representation.comp`, `Rep.res`) but there is no arithmetic object to restrict. Tau Ceti does define continuous Galois representations in one setting — `GaloisLatticeCat`, finite free Z-modules with an absolute-Galois action whose stabilisers are open, with dual, action-field and finite-quotient API — and Mathlib has the general `ContRepresentation`; neither carries a coefficient prime or Frobenius data, so neither gives a member of a compatible system."
+       "note": "grep -i compatiblesystem gives zero hits; no library defines a system (ρ_λ) with matching Frobenius characteristic polynomials. Restriction of a representation to a subgroup exists generically (`Representation.comp`, `Rep.res`) but there is no arithmetic object to restrict. Tau Ceti does define continuous Galois representations in one setting — `GaloisLatticeCat`, finite free Z-modules with an absolute-Galois action whose stabilisers are open, with dual, action-field and finite-quotient API — and Mathlib has the general `ContRepresentation`, which only makes each operator continuous and does not express continuity in the group variable; neither carries a coefficient prime or Frobenius data, so neither gives a member of a compatible system."
       },
       {
        "target": "Tensor products, duals, characters and symmetric powers of compatible systems",
@@ -1138,9 +1145,23 @@
          "file": "Mathlib/RepresentationTheory/Continuous/Basic.lean",
          "line": 54,
          "fit": "related"
+        },
+        {
+         "name": "Action.IsContinuous",
+         "library": "mathlib",
+         "file": "Mathlib/CategoryTheory/Action/Continuous.lean",
+         "line": 60,
+         "fit": "related"
+        },
+        {
+         "name": "ContAction",
+         "library": "mathlib",
+         "file": "Mathlib/CategoryTheory/Action/Continuous.lean",
+         "line": 74,
+         "fit": "related"
         }
        ],
-       "note": "Mathlib defines continuous representations (`ContRepresentation`), which is the right ambient notion; there is no Galois representation carried by a point of a deformation ring and so no reduction statement."
+       "note": "Mathlib's `ContRepresentation` (a monoid G acting on a topological additive group V through a monoid hom G →* V →L[R] V, with no topology on G) supplies continuous linear operators only: each ρ(g) is continuous, and its module docstring says the action of G on V is not assumed continuous. So it does not express the continuity R24.2 asks for, continuity of the Galois action in the group variable; `TopRep` carries a `ContRepresentation` and has the same limitation. The generic group-variable condition exists as `Action.IsContinuous` (ContinuousSMul G on the underlying space) and the full subcategory `ContAction`, under [TopologicalSpace G] and a concrete category V with HasForget₂ V TopCat; they carry no Galois or deformation data. There is no Galois representation carried by a point of a deformation ring, so neither its continuity condition nor its verification exists, and there is no reduction statement."
       },
       {
        "target": "Tracking integrality and the coefficient extension needed to realise the point",
@@ -1506,9 +1527,23 @@
          "file": "Mathlib/RingTheory/Perfectoid/BDeRham.lean",
          "line": 64,
          "fit": "related"
+        },
+        {
+         "name": "BDeRhamPlus",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Perfectoid/BDeRham.lean",
+         "line": 77,
+         "fit": "related"
+        },
+        {
+         "name": "BDeRham",
+         "library": "mathlib",
+         "file": "Mathlib/RingTheory/Perfectoid/BDeRham.lean",
+         "line": 90,
+         "fit": "related"
         }
        ],
-       "note": "Mathlib's BDeRham.lean builds only the first step towards B_dR (inverting p in the fontaine theta construction); de Rham representations, the functor D_dR and any lifting theorem for them are absent, as are Weil-Deligne representations."
+       "note": "Mathlib's RingTheory/Perfectoid/BDeRham.lean, for a commutative ring R, a prime p that is not a unit in R and R p-adically complete, defines Fontaine's θ with p inverted (`fontaineThetaInvertP`) and the period rings `BDeRhamPlus`, the completion of W(R♭)[1/p] at ker θ, and `BDeRham`, its localisation at the images of the single generators a with ker θ = (a) (so nothing is inverted when ker θ is not principal); both are the zero ring when p = 0 in R. The API is limited: θ is not extended to B_dR^+, and the DVR property and principality of ker θ are open TODOs. These are period-ring definitions only, not a comparison theorem or representation theory: de Rham representations, the functor D_dR and any lifting theorem for them are absent, as are Weil-Deligne representations."
       }
      ],
      "duplicates": [
@@ -1529,7 +1564,7 @@
    }
   },
   "SerreWeightAndLevelOptimisation": {
-   "summary": "The classical characteristic-zero half of the level-changing algebra is genuinely present in Tau Ceti and the roadmap does not say so: level-raising (degeneracy) maps V_d, the old and new subspaces, their complementarity `S_k(Γ₁(N)) = old ⊕ new` via the Petersson product, Miyake's Main Lemma, Atkin-Lehner operators, multiplicity one and strong multiplicity one are all proved without sorry, together with a full nebentypus/character-space theory and Mathlib's Dirichlet-character conductor and change-of-level API. What is missing is everything integral and everything residual: the Hecke modules are complex vector spaces of analytic cusp forms, so there are no integral Hecke modules, no congruence modules, no localisation at a residual eigensystem and no mod-p forms. Beyond that, no level-lowering theorem (Mazur's principle, Ribet, Diamond, Buzzard), no Serre weight recipe or Edixhoven weight theorem, and no Galois representation attached to a modular form exists in either library, so R20.2-R20.5 are untouched (Tau Ceti does have continuous integral representations of an absolute Galois group, `TauCeti.GaloisLatticeCat`, and Mathlib has `ContRepresentation`, but neither is attached to arithmetic data); R20.6 is an export and case-table layer.",
+   "summary": "The classical characteristic-zero half of the level-changing algebra is genuinely present in Tau Ceti and the roadmap does not say so: level-raising (degeneracy) maps V_d, the old and new subspaces, their complementarity `S_k(Γ₁(N)) = old ⊕ new` via the Petersson product, Miyake's Main Lemma, Atkin-Lehner operators, multiplicity one and strong multiplicity one are all proved without sorry, together with a full nebentypus/character-space theory and Mathlib's Dirichlet-character conductor and change-of-level API. What is missing is everything integral and everything residual: the Hecke modules are complex vector spaces of analytic cusp forms, so there are no integral Hecke modules, no congruence modules, no localisation at a residual eigensystem and no mod-p forms. Beyond that, no level-lowering theorem (Mazur's principle, Ribet, Diamond, Buzzard), no Serre weight recipe or Edixhoven weight theorem, and no Galois representation attached to a modular form exists in either library, so R20.2-R20.5 are untouched (Tau Ceti does have continuous integral representations of an absolute Galois group, `TauCeti.GaloisLatticeCat`, and Mathlib has `ContRepresentation`, whose operators are continuous but whose action is not assumed continuous in the group variable; neither is attached to arithmetic data); R20.6 is an export and case-table layer.",
    "layers": {
     "SerreWeightAndLevelOptimisation:R20.1": {
      "verdict": "not built",
@@ -1660,7 +1695,11 @@
       },
       {
        "layer": "AutomorphicCongruences:L0",
-       "note": "Congruence modules and Selmer classes: owns the congruence-module construction R20.1 also requests."
+       "note": "Congruence modules and Selmer classes: a consumer overlap, not an owner. L0 imports the general congruence ideals/modules from IntegralHeckeAndGaloisDeterminants and applies them to the chosen integral periods and the actual automorphic extension classes; R20.1 requests congruence modules of integral Hecke modules from the same general supplier."
+      },
+      {
+       "layer": "IntegralHeckeAndGaloisDeterminants:IHG.1",
+       "note": "General supplier of the congruence infrastructure R20.1 uses: IHG.1 develops reducibility ideals, extension modules and the lattice constructions used by congruence arguments. Its text does not name congruence modules explicitly, and its packet nodes so far cover Cayley-Hamilton algebras only; a finer owner node for congruence modules belongs to that roadmap's packet work."
       }
      ]
     },

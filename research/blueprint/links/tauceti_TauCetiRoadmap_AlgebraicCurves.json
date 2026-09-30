@@ -2,7 +2,7 @@
   "roadmapId": "tauceti:TauCetiRoadmap/AlgebraicCurves",
   "protocol": "links-v1",
   "status": "complete",
-  "summary": "Independent review: 46 links, including corrected LV.8 routing and one new local-expansion dependency; four duplicate modular-curve links retained in alreadyRecorded; one unsupported algebraization link removed. Eleven overlap decisions preserve upstream scopes and reuse built library APIs. Current screen covers all 216 other active roadmaps, with its reading/search depth recorded.",
+  "summary": "Confirmed-finding repair: 50 links, including the four restored componentwise AlgebraicCurves Layers 7/8/9/12 -> ModularCurves Layer 10 imports, now emitted exactly once here. The previous cross-map deduplication was invalid: neither map retained those edges. Inherited LV.8 routing, local-expansion dependency, unsupported-algebraization removal and all eleven overlap decisions remain. Reconciled the InverseGalois and KTheoryLowDegrees examined entries with accepted RS-29/RS-18 edges without re-emitting them. The inherited catalogue screen and original review are preserved as historical coverage; this revision awaits a new independent review before promotion.",
   "links": [
     {
       "source": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-0-function-fields-constant-fields-and-places",
@@ -883,6 +883,90 @@
           "quote": "Since `Q` is not a\n   critical value, `t − Q` is a uniformizer at `P`, so `z` has a Laurent expansion in\n   `t − Q`; normalize it so that the coefficient of `(t − Q)^{−m}` is `1` and the coefficient\n   of `(t − Q)^0` is `0`. **That determines `z` uniquely.**"
         }
       ]
+    },
+    {
+      "id": "AC-L28",
+      "source": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-7-the-different-and-the-hurwitz-genus-formula",
+      "target": "tauceti:TauCetiRoadmap/ModularCurves#layer-10-compactified-coarse-curves-over-ℤ1n-cusps-and-the-shimura-covering",
+      "reason": "Supply the different divisor and Hurwitz genus formula for finite separable function-field extensions, with the constant-field degree factors and residue-separability qualifications retained. ModularCurves Layer 10 consumes this package for the global different computation on its smooth proper fibre components, using the Layer 12 dictionary to obtain the Euler-characteristic formulation rather than assuming connectedness of the whole fibre.",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-7-the-different-and-the-hurwitz-genus-formula",
+          "quote": "**The Hurwitz genus formula** (Thm. 3.4.13 — no perfectness consumed)",
+          "sourcePath": "content/tau-ceti/AlgebraicCurves/README.md",
+          "locator": "lines 757-757"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ModularCurves#layer-10-compactified-coarse-curves-over-ℤ1n-cusps-and-the-shimura-covering",
+          "quote": "owns the different divisor, Dedekind's different theorem, and the Hurwitz genus formula\n   (its Layer 7)",
+          "sourcePath": "content/tau-ceti/ModularCurves/README.md",
+          "locator": "lines 2180-2181"
+        }
+      ],
+      "confidence": "inferred"
+    },
+    {
+      "id": "AC-L29",
+      "source": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-8-constant-field-extensions-galois-ramification-and-inseparability-",
+      "target": "tauceti:TauCetiRoadmap/ModularCurves#layer-10-compactified-coarse-curves-over-ℤ1n-cusps-and-the-shimura-covering",
+      "reason": "Supply decomposition/inertia, lower-numbering ramification groups and Hilbert different exponents at function-field places for the wild-break computation in ModularCurves Layer 10. Retain the residue-inseparability qualifications; this imports function-field lower numbering, not unrestricted upper numbering or finite-residue-field local theory for arbitrary completions.",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-8-constant-field-extensions-galois-ramification-and-inseparability-",
+          "quote": "**Hilbert's different formula `d(P′∣P) = ∑_{i≥0} (|G_i| − 1)`** (Thm. 3.8.7 — no\n  perfectness consumed)",
+          "sourcePath": "content/tau-ceti/AlgebraicCurves/README.md",
+          "locator": "lines 823-824"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ModularCurves#layer-10-compactified-coarse-curves-over-ℤ1n-cusps-and-the-shimura-covering",
+          "quote": "with **Hilbert's\n   different formula** `d(P′∣P) = Σ_{i≥0}(|G_i| − 1)` (its Layer 8, which also pins the\n   scope wall: lower numbering only)",
+          "sourcePath": "content/tau-ceti/ModularCurves/README.md",
+          "locator": "lines 2181-2183"
+        }
+      ],
+      "confidence": "inferred"
+    },
+    {
+      "id": "AC-L30",
+      "source": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-9-kähler-differentials-residues-and-the-comparison",
+      "target": "tauceti:TauCetiRoadmap/ModularCurves#layer-10-compactified-coarse-curves-over-ℤ1n-cusps-and-the-shimura-covering",
+      "reason": "Supply the Kahler-to-Weil differential comparison and its compatibility with divisors/different in the modular-curve covering computation. Layer 9 states the comparison under its perfect-constant-field hypothesis; the consuming fibre calculation must verify that hypothesis and the finite-separability hypotheses of the different package.",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-9-kähler-differentials-residues-and-the-comparison",
+          "quote": "**`μ : Δ_F ≅ Ω_F` (differentials\n  ≅ Weil differentials), `z dx ↦ z·δ(x)`**",
+          "sourcePath": "content/tau-ceti/AlgebraicCurves/README.md",
+          "locator": "lines 902-903"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ModularCurves#layer-10-compactified-coarse-curves-over-ℤ1n-cusps-and-the-shimura-covering",
+          "quote": "and the Kähler-differential comparison (its Layer 9)",
+          "sourcePath": "content/tau-ceti/ModularCurves/README.md",
+          "locator": "lines 2183-2183"
+        }
+      ],
+      "confidence": "inferred"
+    },
+    {
+      "id": "AC-L31",
+      "source": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-12-the-dictionary--function-fields--curves-and-the-comparison-contracts",
+      "target": "tauceti:TauCetiRoadmap/ModularCurves#layer-10-compactified-coarse-curves-over-ℤ1n-cusps-and-the-shimura-covering",
+      "reason": "Supply the regular-projective function-field/curve point-place and divisor dictionary, and the cohomological genus comparison under the separably generated, smooth proper geometrically connected hypotheses of Layer 12E. Apply the required comparison componentwise, verifying those hypotheses (and any constant-field/base-change step) before summing Euler characteristics of disconnected fibres. ModularCurves Layer 10 owns relative constancy of chi across fibres and the assembly across characteristics; AlgebraicCurves Layer 12 does not supply relative cohomology/base change.",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-12-the-dictionary--function-fields--curves-and-the-comparison-contracts",
+          "quote": "under 12A/12B's point–place dictionary, **Weil divisors on `X_F` ≅ `Divisor k F`**",
+          "sourcePath": "content/tau-ceti/AlgebraicCurves/README.md",
+          "locator": "lines 1152-1152"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ModularCurves#layer-10-compactified-coarse-curves-over-ℤ1n-cusps-and-the-shimura-covering",
+          "quote": "its Layer 12 dictionary carries those function-field statements to the smooth proper\n   fibres used here, one connected component at a time",
+          "sourcePath": "content/tau-ceti/ModularCurves/README.md",
+          "locator": "lines 2184-2185"
+        }
+      ],
+      "confidence": "inferred"
     }
   ],
   "overlaps": [
@@ -1466,8 +1550,8 @@
     },
     {
       "roadmapId": "InverseGaloisAndArithmeticFundamentalGroups",
-      "result": "none",
-      "note": "Read all stages. Étale π₁, Riemann existence (ComplexComparisonPartII) and Hurwitz spaces; three-point covers are consumed from BelyiMaps. No AlgebraicCurves output."
+      "result": "links",
+      "note": "Confirmed-finding reconciliation: accepted data/restructure/RS-29.result.json records AlgebraicCurves Layer 8 -> IG.1 for finite function-field decomposition/inertia and lower ramification, with residue-inseparability qualifications. This live edge is not re-emitted here. IG.1 retains the general scheme geometric/arithmetic sequence and smooth-proper specialization with their hypotheses; the function-field import does not supply those residual targets. BelyiMaps supplies the separate three-punctured-line/peripheral-inertia comparison."
     },
     {
       "roadmapId": "K2SymbolsBrauer",
@@ -1486,8 +1570,8 @@
     },
     {
       "roadmapId": "KTheoryLowDegrees",
-      "result": "none",
-      "note": "Screened. Z.5 covers K₀ and Pic of regular curves at scheme level; no AlgebraicCurves output."
+      "result": "links",
+      "note": "Confirmed-finding reconciliation: accepted data/restructure/RS-18.result.json records AlgebraicCurves Layer 12 -> Z.5 and -> Z.6. Those live edges are not re-emitted here. Reuse the regular-projective function-field/curve dictionary within its hypotheses; Z.5 retains the general connected regular noetherian curve rank-determinant/K0 theorem and any additional dictionary or resolution arguments needed for nonproper or arithmetic curves."
     },
     {
       "roadmapId": "KatoEulerSystems",
@@ -2090,76 +2174,7 @@
       "note": "Upstream Tau Ceti roadmap; read summary and stage titles and keyword-searched the document. Zigzag and preprojective algebras; no curves."
     }
   ],
-  "alreadyRecorded": [
-    {
-      "id": "AC-L28",
-      "source": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-7-the-different-and-the-hurwitz-genus-formula",
-      "target": "tauceti:TauCetiRoadmap/ModularCurves#layer-10-compactified-coarse-curves-over-ℤ1n-cusps-and-the-shimura-covering",
-      "recordedIn": "research/blueprint/links/tauceti_TauCetiRoadmap_ModularCurves.json",
-      "reason": "Valid componentwise Hurwitz input; deduplicate against the ModularCurves packet.",
-      "evidence": [
-        {
-          "stageId": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-7-the-different-and-the-hurwitz-genus-formula",
-          "quote": "**The Hurwitz genus formula** (Thm. 3.4.13 — no perfectness consumed)"
-        },
-        {
-          "stageId": "tauceti:TauCetiRoadmap/ModularCurves#layer-10-compactified-coarse-curves-over-ℤ1n-cusps-and-the-shimura-covering",
-          "quote": "owns the different divisor, Dedekind's different theorem, and the Hurwitz genus formula\n   (its Layer 7)"
-        }
-      ]
-    },
-    {
-      "id": "AC-L29",
-      "source": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-8-constant-field-extensions-galois-ramification-and-inseparability-",
-      "target": "tauceti:TauCetiRoadmap/ModularCurves#layer-10-compactified-coarse-curves-over-ℤ1n-cusps-and-the-shimura-covering",
-      "recordedIn": "research/blueprint/links/tauceti_TauCetiRoadmap_ModularCurves.json",
-      "reason": "Valid lower-group/Hilbert-different input; deduplicate against the ModularCurves packet.",
-      "evidence": [
-        {
-          "stageId": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-8-constant-field-extensions-galois-ramification-and-inseparability-",
-          "quote": "**Hilbert's different formula `d(P′∣P) = ∑_{i≥0} (|G_i| − 1)`** (Thm. 3.8.7 — no\n  perfectness consumed)"
-        },
-        {
-          "stageId": "tauceti:TauCetiRoadmap/ModularCurves#layer-10-compactified-coarse-curves-over-ℤ1n-cusps-and-the-shimura-covering",
-          "quote": "with **Hilbert's\n   different formula** `d(P′∣P) = Σ_{i≥0}(|G_i| − 1)` (its Layer 8, which also pins the\n   scope wall: lower numbering only)"
-        }
-      ]
-    },
-    {
-      "id": "AC-L30",
-      "source": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-9-kähler-differentials-residues-and-the-comparison",
-      "target": "tauceti:TauCetiRoadmap/ModularCurves#layer-10-compactified-coarse-curves-over-ℤ1n-cusps-and-the-shimura-covering",
-      "recordedIn": "research/blueprint/links/tauceti_TauCetiRoadmap_ModularCurves.json",
-      "reason": "Valid Kahler/Weil/different comparison input; deduplicate against the ModularCurves packet.",
-      "evidence": [
-        {
-          "stageId": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-9-kähler-differentials-residues-and-the-comparison",
-          "quote": "**`μ : Δ_F ≅ Ω_F` (differentials\n  ≅ Weil differentials), `z dx ↦ z·δ(x)`**"
-        },
-        {
-          "stageId": "tauceti:TauCetiRoadmap/ModularCurves#layer-10-compactified-coarse-curves-over-ℤ1n-cusps-and-the-shimura-covering",
-          "quote": "and the Kähler-differential comparison (its Layer 9)"
-        }
-      ]
-    },
-    {
-      "id": "AC-L31",
-      "source": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-12-the-dictionary--function-fields--curves-and-the-comparison-contracts",
-      "target": "tauceti:TauCetiRoadmap/ModularCurves#layer-10-compactified-coarse-curves-over-ℤ1n-cusps-and-the-shimura-covering",
-      "recordedIn": "research/blueprint/links/tauceti_TauCetiRoadmap_ModularCurves.json",
-      "reason": "Valid componentwise curve dictionary; deduplicate against the ModularCurves packet. Relative constancy of chi is not supplied.",
-      "evidence": [
-        {
-          "stageId": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-12-the-dictionary--function-fields--curves-and-the-comparison-contracts",
-          "quote": "under 12A/12B's point–place dictionary, **Weil divisors on `X_F` ≅ `Divisor k F`**"
-        },
-        {
-          "stageId": "tauceti:TauCetiRoadmap/ModularCurves#layer-10-compactified-coarse-curves-over-ℤ1n-cusps-and-the-shimura-covering",
-          "quote": "its Layer 12 dictionary carries those function-field statements to the smooth proper\n   fibres used here, one connected component at a time"
-        }
-      ]
-    }
-  ],
+  "alreadyRecorded": [],
   "coverage": {
     "method": "Inherited catalogue screen refreshed by current full-text stage/document searches; full endpoint review and seven own-stage completeness probes. Not a claim to have read every catalogue document in full.",
     "catalogueRoadmaps": 218,
@@ -2181,64 +2196,97 @@
     ],
     "retiredExcluded": [
       "FoundationsAndLibraryIntegration"
-    ]
+    ],
+    "fixRecheck": {
+      "job": "FIX-RT-LINK-tauceti_TauCetiRoadmap_AlgebraicCurves",
+      "date": "2026-09-30",
+      "scope": "Four source/consumer contracts and all eight inherited evidence quotations; two stale examined entries reconciled with accepted restructurings. The other catalogue counts above describe inherited coverage, not a fresh catalogue-wide screen."
+    }
   },
   "review": {
-    "status": "accepted",
-    "reviewer": "independent-review-REV-LINK-tauceti_TauCetiRoadmap_AlgebraicCurves",
-    "date": "2026-09-23",
-    "notes": "Reviewed all 50 original links and 11 overlaps against complete endpoint descriptions; corrected literal quotes and conservative confidence labels. Accepted the corrected packet, not unsupported claims in consumer roadmaps. Added Layer 9 Laurent expansions -> Belyi descent; rerouted genus to LV.8; removed stale algebraization and duplicate emissions. Reused pinned built APIs in overlap proposals and retained base-change/de Rham/cohomological gaps explicitly. No Lean compilation performed.",
-    "removed": [
-      {
-        "id": "AC-L28",
-        "source": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-7-the-different-and-the-hurwitz-genus-formula",
-        "target": "tauceti:TauCetiRoadmap/ModularCurves#layer-10-compactified-coarse-curves-over-ℤ1n-cusps-and-the-shimura-covering",
-        "reason": "Valid componentwise Hurwitz input; deduplicate against the ModularCurves packet."
-      },
-      {
-        "id": "AC-L29",
-        "source": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-8-constant-field-extensions-galois-ramification-and-inseparability-",
-        "target": "tauceti:TauCetiRoadmap/ModularCurves#layer-10-compactified-coarse-curves-over-ℤ1n-cusps-and-the-shimura-covering",
-        "reason": "Valid lower-group/Hilbert-different input; deduplicate against the ModularCurves packet."
-      },
-      {
-        "id": "AC-L30",
-        "source": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-9-kähler-differentials-residues-and-the-comparison",
-        "target": "tauceti:TauCetiRoadmap/ModularCurves#layer-10-compactified-coarse-curves-over-ℤ1n-cusps-and-the-shimura-covering",
-        "reason": "Valid Kahler/Weil/different comparison input; deduplicate against the ModularCurves packet."
-      },
-      {
-        "id": "AC-L31",
-        "source": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-12-the-dictionary--function-fields--curves-and-the-comparison-contracts",
-        "target": "tauceti:TauCetiRoadmap/ModularCurves#layer-10-compactified-coarse-curves-over-ℤ1n-cusps-and-the-shimura-covering",
-        "reason": "Valid componentwise curve dictionary; deduplicate against the ModularCurves packet. Relative constancy of chi is not supplied."
-      },
-      {
-        "id": "AC-L48-old",
-        "source": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-3-divisors-ld-riemanns-theorem-and-the-genus",
-        "target": "MordellLawrenceVenkatesh:LV.7",
-        "reason": "Stale endpoint; replaced by AC-L48 to current LV.8."
-      },
-      {
-        "id": "AC-L49",
-        "source": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-12-the-dictionary--function-fields--curves-and-the-comparison-contracts",
-        "target": "MordellLawrenceVenkatesh:LV.7",
-        "reason": "Remove: current LV.7 contains no cover algebraization construction. LV.8 assigns Riemann existence to IG.3, GAGA to ComplexComparisonPartII and normalization to SF.0; do not substitute the narrower Layer 12 dictionary."
+    "status": "pending",
+    "notes": "Confirmed red-team repair restores AC-L28–AC-L31 in this map. The ModularCurves map does not emit them, so the old deduplication notes are superseded. A new independent review of the corrected packet is required before promotion; the former acceptance is preserved under reviewHistory. Relative constancy of chi is still a ModularCurves obligation."
+  },
+  "reviewHistory": [
+    {
+      "scope": "Original 2026-09-23 acceptance before the confirmed cross-map deduplication defect was repaired. The four modular-curve removal reasons below are superseded by this fix.",
+      "review": {
+        "status": "accepted",
+        "reviewer": "independent-review-REV-LINK-tauceti_TauCetiRoadmap_AlgebraicCurves",
+        "date": "2026-09-23",
+        "notes": "Reviewed all 50 original links and 11 overlaps against complete endpoint descriptions; corrected literal quotes and conservative confidence labels. Accepted the corrected packet, not unsupported claims in consumer roadmaps. Added Layer 9 Laurent expansions -> Belyi descent; rerouted genus to LV.8; removed stale algebraization and duplicate emissions. Reused pinned built APIs in overlap proposals and retained base-change/de Rham/cohomological gaps explicitly. No Lean compilation performed.",
+        "removed": [
+          {
+            "id": "AC-L28",
+            "source": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-7-the-different-and-the-hurwitz-genus-formula",
+            "target": "tauceti:TauCetiRoadmap/ModularCurves#layer-10-compactified-coarse-curves-over-ℤ1n-cusps-and-the-shimura-covering",
+            "reason": "Valid componentwise Hurwitz input; deduplicate against the ModularCurves packet."
+          },
+          {
+            "id": "AC-L29",
+            "source": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-8-constant-field-extensions-galois-ramification-and-inseparability-",
+            "target": "tauceti:TauCetiRoadmap/ModularCurves#layer-10-compactified-coarse-curves-over-ℤ1n-cusps-and-the-shimura-covering",
+            "reason": "Valid lower-group/Hilbert-different input; deduplicate against the ModularCurves packet."
+          },
+          {
+            "id": "AC-L30",
+            "source": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-9-kähler-differentials-residues-and-the-comparison",
+            "target": "tauceti:TauCetiRoadmap/ModularCurves#layer-10-compactified-coarse-curves-over-ℤ1n-cusps-and-the-shimura-covering",
+            "reason": "Valid Kahler/Weil/different comparison input; deduplicate against the ModularCurves packet."
+          },
+          {
+            "id": "AC-L31",
+            "source": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-12-the-dictionary--function-fields--curves-and-the-comparison-contracts",
+            "target": "tauceti:TauCetiRoadmap/ModularCurves#layer-10-compactified-coarse-curves-over-ℤ1n-cusps-and-the-shimura-covering",
+            "reason": "Valid componentwise curve dictionary; deduplicate against the ModularCurves packet. Relative constancy of chi is not supplied."
+          },
+          {
+            "id": "AC-L48-old",
+            "source": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-3-divisors-ld-riemanns-theorem-and-the-genus",
+            "target": "MordellLawrenceVenkatesh:LV.7",
+            "reason": "Stale endpoint; replaced by AC-L48 to current LV.8."
+          },
+          {
+            "id": "AC-L49",
+            "source": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-12-the-dictionary--function-fields--curves-and-the-comparison-contracts",
+            "target": "MordellLawrenceVenkatesh:LV.7",
+            "reason": "Remove: current LV.7 contains no cover algebraization construction. LV.8 assigns Riemann existence to IG.3, GAGA to ComplexComparisonPartII and normalization to SF.0; do not substitute the narrower Layer 12 dictionary."
+          }
+        ],
+        "added": [
+          {
+            "id": "AC-L48",
+            "source": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-3-divisors-ld-riemanns-theorem-and-the-genus",
+            "target": "MordellLawrenceVenkatesh:LV.8",
+            "reason": "Current LV.8 explicitly imports AlgebraicCurves Layer 3 genus for the base curve and the Kodaira-Parshin relative-dimension formula. Layer 3 supplies the function-field genus; SF.3 and the geometric comparison suppliers provide its scheme/topological interpretation. This repairs the stale LV.7 endpoint; it does not attribute cover algebraization to Layer 12."
+          },
+          {
+            "id": "AC-L51",
+            "source": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-9-kähler-differentials-residues-and-the-comparison",
+            "target": "tauceti:TauCetiRoadmap/BelyiMaps#layer-10-belyis-theorem",
+            "reason": "Belyi 10.7 step 3 expands z in the uniformizer t-Q at a rational place over C and fixes its leading and constant Laurent coefficients to rigidify the generator. AlgebraicCurves Layer 9 supplies the completed local power/Laurent-series description, uniqueness of coefficients and change-of-uniformizer formulas. This is more than Layer 5 completion existence, and is separate from the Weil/Kahler comparison: characteristic zero and residue field C meet the source hypotheses. The Belyi successor must still prove that the normalized coefficients are respected by its semilinear action."
+          }
+        ]
       }
+    }
+  ],
+  "fixes": {
+    "jobId": "FIX-RT-LINK-tauceti_TauCetiRoadmap_AlgebraicCurves",
+    "issue": 5031,
+    "worker": "Codex — codex-5ebb6f",
+    "date": "2026-09-30",
+    "inputRevision": "aa27ea5bc3998947dacd413309e2ba302bffb0a2",
+    "inputSha256": "9ca7bc21c683c2cf5732069f04ca4e06b54016dee418e663a090ae2a2bd327e5",
+    "findings": [
+      "RT-LINK-tauceti_TauCetiRoadmap_AlgebraicCurves/1",
+      "RT-LINK-tauceti_TauCetiRoadmap_AlgebraicCurves/2"
     ],
-    "added": [
-      {
-        "id": "AC-L48",
-        "source": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-3-divisors-ld-riemanns-theorem-and-the-genus",
-        "target": "MordellLawrenceVenkatesh:LV.8",
-        "reason": "Current LV.8 explicitly imports AlgebraicCurves Layer 3 genus for the base curve and the Kodaira-Parshin relative-dimension formula. Layer 3 supplies the function-field genus; SF.3 and the geometric comparison suppliers provide its scheme/topological interpretation. This repairs the stale LV.7 endpoint; it does not attribute cover algebraization to Layer 12."
-      },
-      {
-        "id": "AC-L51",
-        "source": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-9-kähler-differentials-residues-and-the-comparison",
-        "target": "tauceti:TauCetiRoadmap/BelyiMaps#layer-10-belyis-theorem",
-        "reason": "Belyi 10.7 step 3 expands z in the uniformizer t-Q at a rational place over C and fixes its leading and constant Laurent coefficients to rigidify the generator. AlgebraicCurves Layer 9 supplies the completed local power/Laurent-series description, uniqueness of coefficients and change-of-uniformizer formulas. This is more than Layer 5 completion existence, and is separate from the Weil/Kahler comparison: characteristic zero and residue field C meet the source hypotheses. The Belyi successor must still prove that the normalized coefficients are respected by its semilinear action."
-      }
-    ]
+    "restoredLinks": [
+      "AC-L28",
+      "AC-L29",
+      "AC-L30",
+      "AC-L31"
+    ],
+    "promotion": "Await a new independent accepted review; generated data/links is not edited by this fix."
   }
 }

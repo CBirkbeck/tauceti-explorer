@@ -2,7 +2,7 @@
   "roadmapId": "tauceti:TauCetiRoadmap/RepresentationTheory/SchurWeyl",
   "protocol": "links-v1",
   "status": "complete",
-  "summary": "Original catalogue-wide screen retained and independently spot-checked across all ten SchurWeyl stages; the five subsequently added roadmaps were screened, giving 217 other roadmaps in the current 218-roadmap catalogue. All ten narrowly scoped links and seven ownership/interface overlaps are retained after full endpoint reading and literal-quote verification; overlap 5 now reuses the pinned semisimple image-bicommutant theorem rather than requesting its reconstruction. No additional exact supplier/consumer match was established. The recorded coefficient, image-algebra, convention and missing-target obligations remain open roadmap work, not certified theorems.",
+  "summary": "The original catalogue-wide screen and its historical 217-roadmap examined ledger are retained. The confirmed RT finding adds link 11, ClassicalGroups Layer 0 to the orthogonal half of SchurWeyl Layer 9, for the GL inclusion, restricted action and equivariant symmetric pairing. Overlap 4 now resolves the carrier warning using the actual pinned Matrix.orthogonalGroup definition and records the upstream correction for its maintainer. The previous ten links and other six overlaps are unchanged. The fixed map has eleven scoped links and seven overlaps; coefficient, image-algebra, symplectic-sign and missing-target obligations remain open roadmap work. This targeted fix is not a new catalogue-wide audit; the existing review object records the earlier ten-link review, and the new edge is supported by the confirmed red-team verification.",
   "links": [
     {
       "source": "tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction#layer-2-induced-characters-and-frobenius-reciprocity",
@@ -163,6 +163,22 @@
           "quote": "Use actual algebraic correspondences/projectors, proving the selected Schur functor, Tate twist, parity, cohomological degree and field of definition."
         }
       ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/RepresentationTheory/ClassicalGroups#layer-0-the-classical-groups-and-the-standard-representation",
+      "target": "tauceti:TauCetiRoadmap/RepresentationTheory/SchurWeyl#layer-9-schur-weyl-duality-for-the-orthogonal-and-symplectic-groups-the-brauer-algebra",
+      "confidence": "inferred",
+      "reason": "Import the restricted standard orthogonal action, GL inclusion and equivariant symmetric pairing from ClassicalGroups Layer0 into the orthogonal half of SchurWeyl Layer9. Reuse the pinned bilinear Matrix.orthogonalGroup carrier (trivial star), with its exact transpose membership theorem. This does not import Brauer algebra relations, the symplectic crossing-sign convention, centralizer surjectivity or highest-weight classification.",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/RepresentationTheory/ClassicalGroups#layer-0-the-classical-groups-and-the-standard-representation",
+          "quote": "State the invariance as an equivariance of the pairing; it is what\n  collapses `V` and `V*` and shortens the tensor decompositions."
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/RepresentationTheory/SchurWeyl#layer-9-schur-weyl-duality-for-the-orthogonal-and-symplectic-groups-the-brauer-algebra",
+          "quote": "`orthAction`,\n  the restriction of Layer 8's `glAction` along `O(V) ↪ GLₙ`"
+        }
+      ]
     }
   ],
   "overlaps": [
@@ -200,9 +216,9 @@
         "tauceti:TauCetiRoadmap/RepresentationTheory/SchurWeyl#layer-9-schur-weyl-duality-for-the-orthogonal-and-symplectic-groups-the-brauer-algebra",
         "tauceti:TauCetiRoadmap/RepresentationTheory/ClassicalGroups#layer-0-the-classical-groups-and-the-standard-representation"
       ],
-      "detail": "Both roadmaps need the complex orthogonal/symplectic standard action. ClassicalGroups names Matrix.orthogonalGroup, whereas SchurWeyl explicitly demands the complex symmetric-bilinear group and warns against the Hermitian/unitary interpretation. This is a source-level convention conflict, not a verified claim about the pinned library declaration.",
+      "detail": "ClassicalGroups Layer 0 supplies the orthogonal GL inclusion, restricted standard action and equivariant symmetric pairing consumed by SchurWeyl Layer 9. At Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, Matrix.orthogonalGroup is defined with the fixed trivial starRingOfComm, and Matrix.mem_orthogonalGroup_iff' identifies membership with Aᵀ * A = 1. It is therefore the standard complex bilinear orthogonal carrier. SchurWeyl's warning that this carrier uses complex conjugation is stale/incorrect; it does not justify a second orthogonal group. The separate symplectic generator-sign issue remains.",
       "recommendation": "rescope",
-      "proposal": "Choose one group of automorphisms preserving the specified nondegenerate complex bilinear form, its GL inclusion and invariant pairing. Prove any matrix-group comparison before reuse. Keep Brauer diagram actions and image-centralizer theorems in SchurWeyl, and classical highest-weight/branching consumers in ClassicalGroups. Repair the symplectic generator sign convention before asserting a Brauer-action interface."
+      "proposal": "Import the orthogonal GL inclusion, restricted standard representation and equivariant symmetric pairing from ClassicalGroups Layer 0 through link 11, reusing Matrix.orthogonalGroup for the standard form. A nonstandard nondegenerate form still needs an explicit coordinate/isometry comparison. The upstream maintainer should correct the conjugation warning and reconcile the proposed complexOrthogonalGroup name with this existing carrier. Keep Brauer diagram actions, invariant-theory surjectivity and image-centralizer proofs in SchurWeyl, and highest-weight/branching consumers in ClassicalGroups. Retain the symplectic crossing-sign and cap/cup convention repair; the orthogonal import does not certify a symplectic Brauer action."
     },
     {
       "stages": [

@@ -1,0 +1,30 @@
+{
+  "redteam": "RT-BP-EllipticCurveModularity",
+  "findings": [
+    {
+      "finding": "RT-BP-EllipticCurveModularity/1",
+      "verdict": "confirmed",
+      "reason": "Confirmed. The existing Tau Ceti ModularForms Layer 5 explicitly owns cross-level strong multiplicity one; its reviewed library audit distinguishes that target from the built fixed-space theorem. The packet adds its own construction of the same result, contrary to section 15. At Tau Ceti f790474, Newform.eq_of_forall_notMem_eigenvalue_eq fixes N, k and the character and assumes equality at all good indices outside a finite set, not merely at almost all good primes. Delete the duplicate node and import/request Layer 5's precise prime-agreement theorem in its consumers. Retain the level-11/22 acceptance case and the initial level M dividing N until exact-conductor is proved. Remove only the Layer 4 request fragment made redundant; its finiteness, newform and bad-factor uses remain."
+    },
+    {
+      "finding": "RT-BP-EllipticCurveModularity/2",
+      "verdict": "confirmed",
+      "reason": "Confirmed, with count and graph qualifications. Comparing every requests.supplier/neededBy pair with the consumer's prerequisites gives nine missing pairs across eight nodes. Removing finding 1's duplicate leaves eight pairs across seven nodes. The report enumerates all pairs. Every supplier reaches its consumer's parent stage in the assembled graph, but only eight of the nine pairs have a direct parent-stage edge: EllipticCurves Layer 4 reaches R29.1 through NeronModelsAndSemistableAbelianVarieties:R11.6. None of these facts supplies the missing explicit node prerequisite. Add the surviving supplier IDs and the Layer 5 dependency wherever its uniqueness theorem is used."
+    },
+    {
+      "finding": "RT-BP-EllipticCurveModularity/3",
+      "verdict": "confirmed",
+      "reason": "Confirmed. Cremona section 2.7 supplies one oldform copy for each divisor of N/M. At N=22, the level-11 form contributes two copies, S2(Gamma0(22)) has dimension two and its new part vanishes; the Jacobian Tate module has dimension four. The displayed multiplicity-free formula gives dimension two. Use a correctly stated constituent result or a decomposition indexed by Galois orbits with divisor multiplicities and restriction of scalars on coefficient-field completions. Request the Jacobian old/new decomposition from ModularCurvesPartII R14.5, using the ModularForms Layer 4 decomposition, and then R19.6 for each A_f Tate comparison. R19.6 currently supplies only the individual A_f comparison. Removing the wrong formula does not by itself verify the rest of the converse proof; semisimplicity alone is not irreducibility."
+    },
+    {
+      "finding": "RT-BP-EllipticCurveModularity/4",
+      "verdict": "confirmed",
+      "reason": "Confirmed. The three tests contain no non-membership assertion and their membership assertions are already forced by small primes or bad reduction. Exact curve arithmetic verifies the proposed examples. For 11a1, Delta=-11^5 and v11(j)=-5; at the good prime 3, a3=-1 makes the mod-7 Frobenius discriminant 3, a nonsquare, so there is no rational cyclic subgroup of order 7 and 7 is outside Sigma. For the displayed 26b1 equation, (1,0) has order seven, Delta=-2^7*13 and v2(j)=-7, giving 7 in Sigma. This latter test exercises both substantive clauses simultaneously, so it catches deleting both but does not separately test each. The report supplies an additional valuation-only example and records the limitation. Add named tests to the packet and suggested file; no full classification of all exceptional primes is needed for these assertions."
+    },
+    {
+      "finding": "RT-BP-EllipticCurveModularity/5",
+      "verdict": "confirmed",
+      "reason": "Confirmed, with a necessary correction to the proposed fix. A literal name comparison finds all twelve packet tests absent and the eight identified API names absent even from comments. The pinned Newform structure does exist and requires a nonzero natural level, integer weight and the inherited character data. Correct the header and use that actual carrier for stateable APIs; preserve every required hypothesis. In particular, a constructor newformOf E : Newform N 2 for arbitrary N is false, even if a comment says that N will eventually be the conductor. Retain a mathematically sufficient level condition and the initial M-divides-N/exact-conductor distinction. Name stateable tests exactly as in the packet, and record genuinely unstateable conductor/residual/Jacobian contracts precisely without pretending comments are elaborated signatures or using opaque Prop fields. No Lean compilation or complete library absence audit is claimed by this verification."
+    }
+  ]
+}
