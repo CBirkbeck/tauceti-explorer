@@ -4323,8 +4323,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-LE-LEHUNG-LEVIN-ETAL-23.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1254"
+   "state": "pending",
+   "note": "released on GitHub issue #1254"
   },
   {
    "id": "REV-PAPER-LE-LEHUNG-LEVIN-ETAL-23",
@@ -40772,7 +40772,8 @@
     "REV-LINK-tauceti_Completed_EffectiveBounds"
    ],
    "prompt": "research/blueprint/prompts/RT-LINK-tauceti_Completed_EffectiveBounds.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4357"
   },
   {
    "id": "REV-RT-LINK-tauceti_Completed_EffectiveBounds",
@@ -40870,8 +40871,9 @@
     "REV-LINK-tauceti_TauCetiRoadmap_AlgebraicCodingTheory"
    ],
    "prompt": "research/blueprint/prompts/RT-LINK-tauceti_TauCetiRoadmap_AlgebraicCodingTheory.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4361"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4361",
+   "finishedAt": "2026-09-30T11:22:36Z"
   },
   {
    "id": "REV-RT-LINK-tauceti_TauCetiRoadmap_AlgebraicCodingTheory",
@@ -41275,7 +41277,8 @@
     "REV-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SchurWeyl"
    ],
    "prompt": "research/blueprint/prompts/RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SchurWeyl.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4374"
   },
   {
    "id": "REV-RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SchurWeyl",
