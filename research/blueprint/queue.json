@@ -34618,7 +34618,8 @@
     "REV-PAPER-GAN-ICHINO-18"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-GAN-ICHINO-18.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4108"
   },
   {
    "id": "REV-RT-PAPER-GAN-ICHINO-18",
