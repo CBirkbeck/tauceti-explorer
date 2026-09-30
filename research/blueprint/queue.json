@@ -40589,7 +40589,8 @@
     "REV-LINK-tauceti_TauCetiRoadmap_LocalFieldsRamification"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-LINK-tauceti_TauCetiRoadmap_LocalFieldsRamification.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4346"
   },
   {
    "id": "RT-LINK-tauceti_TauCetiRoadmap_ClassFieldTheory",
@@ -40611,7 +40612,8 @@
     "REV-LINK-tauceti_TauCetiRoadmap_ClassFieldTheory"
    ],
    "prompt": "research/blueprint/prompts/RT-LINK-tauceti_TauCetiRoadmap_ClassFieldTheory.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4349"
   },
   {
    "id": "REV-RT-LINK-tauceti_TauCetiRoadmap_ClassFieldTheory",
@@ -41164,7 +41166,8 @@
     "REV-LINK-tauceti_TauCetiRoadmap_RepresentationTheory"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4367"
   },
   {
    "id": "RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_ClassicalGroups",
@@ -42507,8 +42510,9 @@
     "REV-RS-22"
    ],
    "prompt": "research/blueprint/prompts/RT-RS-22.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4412"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4412",
+   "finishedAt": "2026-09-30T13:26:35Z"
   },
   {
    "id": "REV-RT-RS-22",
@@ -42638,8 +42642,9 @@
     "REV-RS-25"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-RS-25.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4415"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4415",
+   "finishedAt": "2026-09-30T13:26:41Z"
   },
   {
    "id": "RT-RS-26",
