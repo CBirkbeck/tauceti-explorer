@@ -13,7 +13,7 @@
     "ClassicalArithmeticCompletion:CA.6",
     "ClassicalArithmeticCompletion:CA.7"
   ],
-  "summary": "Classical arithmetic, sequences, polynomials and reciprocity, continued from the first pass (#2837) under the accepted restructuring RS-03, with the maintainer-added sources Bennett–Siksek (items 72, 152, 81) and Martin (items 1–13) covered. The 316-node predecessor is extended to 329 nodes by Cobham’s theorem for multiplicatively independent automatic bases. The bounded-carry and all-word reversal lemmas supply the normalization step; close powers and integer-window gluing give one tail period. The equality case of Perron’s criterion remains covered by Prasolov’s proof. The boundary-exclusion lemma, symmetric Rouché root count, and shared integral-factor argument isolate its hypotheses. CA.0 stays closed: the pinned libraries contain the layer, and its one node, the existence half of the Chinese remainder theorem at non-coprime integer moduli, is the only missing statement. CA.1 plans the primitive quadratic character of a rational square class with its conductor and the bound v_2(N) ≤ 3, the Hilbert symbol of ℚ at every place read in Mathlib's residue symbols, the n-th power residue symbol at primes and ideals with its Frobenius comparison, the degree-n Hilbert symbol and product formula, and the power, cubic and Eisenstein reciprocity laws, importing the local and global Artin maps from Tau Ceti's ClassFieldTheory. CA.2 plans companion matrices in every rank, Evertse's closed form of complex linear recurrences (DT.2's request), Lucas sequences with strong divisibility, Euler numbers, the formal-to-analytic transfer, p-adic and real digit expansions, automatic sequences with Christol's theorem, and Farey sequences with the Stern–Brocot tree. CA.3 plans the Smith and Hermite normal forms as terminating algorithms with certificates, the rational canonical form, integer-valued polynomials with Pólya's theorem, and the irreducibility criteria of Capelli, Perron, Cohn and Eisenstein–Dumas. CA.4 plans the quartic descent T⁴ + V⁴ = 2U², the Markoff equation with its Vieta moves and tree, Legendre's three-square theorem, Jacobi's two- and four-square counts, the negative and generalised Pell equations with the continued-fraction decision procedure, Ramanujan–Nagell, Levi ben Gershon's theorem, numerical semigroups and Egyptian fractions. CA.5, which RS-03 keeps as a comparison layer, plans the certificates relating class-group relation matrices, regulator bounds, Hermite matrices of ideals, discriminants of sublattices and monogenic presentations to the intrinsic invariants. CA.6 plans Pisot and Salem numbers with their classification, Lehmer's number, and the lower bounds of Smyth, Dobrowolski and Schinzel–Zassenhaus (Dimitrov), citing DT.0 for heights and Mahler measure. CA.7 plans the ring of integers as a Galois module, normal integral bases, Noether's and the Hilbert–Speiser theorems, locally free class groups and Taylor's theorem. Remaining work is listed per layer; eight gaps and nineteen requests name what other owners must supply.",
+  "summary": "Classical arithmetic, sequences, polynomials and reciprocity, continued from the first pass (#2837) under the accepted restructuring RS-03, with the maintainer-added sources Bennett–Siksek (items 72, 152, 81) and Martin (items 1–13) covered. The 316-node predecessor is extended to 329 nodes by Cobham’s theorem for multiplicatively independent automatic bases. The bounded-carry and all-word reversal lemmas supply the normalization step; close powers and integer-window gluing give one tail period. The equality case of Perron’s criterion remains covered by Prasolov’s proof. The boundary-exclusion lemma, symmetric Rouché root count, and shared integral-factor argument isolate its hypotheses. CA.0 stays closed: the pinned libraries contain the layer, and its one node, the existence half of the Chinese remainder theorem at non-coprime integer moduli, is the only missing statement. CA.1 plans the primitive quadratic character of a rational square class with its conductor and the bound v_2(N) ≤ 3, the Hilbert symbol of ℚ at every place read in Mathlib's residue symbols, the n-th power residue symbol at primes and ideals with its Frobenius comparison, the degree-n Hilbert symbol and product formula, and the power, cubic and Eisenstein reciprocity laws, importing the local and global Artin maps from Tau Ceti's ClassFieldTheory. CA.2 plans companion matrices in every rank, Evertse's closed form of complex linear recurrences (DT.2's request), Lucas sequences with strong divisibility, Euler numbers, the formal-to-analytic transfer, p-adic and real digit expansions, automatic sequences with Christol's theorem, and Farey sequences with the Stern–Brocot tree. CA.3 plans the Smith and Hermite normal forms as terminating algorithms with certificates, the rational canonical form, integer-valued polynomials with Pólya's theorem, and the irreducibility criteria of Capelli, Perron, Cohn and Eisenstein–Dumas. CA.4 plans the quartic descent T⁴ + V⁴ = 2U², the Markoff equation with its Vieta moves and tree, Legendre's three-square theorem, Jacobi's two- and four-square counts, the negative and generalised Pell equations with the continued-fraction decision procedure, Ramanujan–Nagell, Levi ben Gershon's theorem, numerical semigroups and Egyptian fractions. CA.5, which RS-03 keeps as a comparison layer, plans the certificates relating class-group relation matrices, regulator bounds, Hermite matrices of ideals, discriminants of sublattices and monogenic presentations to the intrinsic invariants. CA.6 plans Pisot and Salem numbers with their classification, Lehmer's number, and the lower bounds of Smyth, Dobrowolski and Schinzel–Zassenhaus (Dimitrov), citing DT.0 for heights and Mahler measure. CA.7 plans the ring of integers as a Galois module, normal integral bases, Noether's and the Hilbert–Speiser theorems, locally free class groups and Taylor's theorem. Remaining work is listed per layer; eight gaps and nineteen requests name what other owners must supply. The Ghosh–Sarnak fix adds three declaration-sized comparisons/results and explicit source requests; CA.4 remains partial for the general level-k theory.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -5116,6 +5116,17 @@
       "sha256": "70d63131f70db4353e65ab620911bba84e3b0bbc00d5e563b53c5f58f4440ff1",
       "readSections": [
         "Entire preprint, physical/printed pp.1–3: definitions, Lemmas 5–7, Theorem 1 and its full proof, references. Read 27 September 2026. The bounded-carry proof supplies Lemma 5 directly rather than asserting that its cited books were read."
+      ]
+    },
+    {
+      "id": "ghosh-sarnak-2022-v3",
+      "title": "Integral points on Markoff type cubic surfaces",
+      "authors": "Amit Ghosh and Peter Sarnak",
+      "edition": "arXiv:1706.06712v3 (30 May 2022); findings scoped to this preprint",
+      "url": "https://arxiv.org/pdf/1706.06712v3",
+      "sha256": "e4ddc7a115ad4afd61f0063d0b931baf85792eee2267d1d5c232bece11d3163d",
+      "readSections": [
+        "Focused 2026-09-30 read: pp.3–5,7,9–10,12–14,18–20,22–24,34; earlier full-paper extraction separately attributed in PAPER-GHOSH-SARNAK-22."
       ]
     }
   ],
@@ -25414,6 +25425,126 @@
           "statement": "The sequence with value 7 at zero and n mod 2 at positive n is both 2-automatic and 3-automatic."
         }
       ]
+    },
+    {
+      "id": "ClassicalArithmeticCompletion:CA.4/markoff-coefficient-one-zero-orbits",
+      "parentStageId": "ClassicalArithmeticCompletion:CA.4",
+      "realises": [
+        "ClassicalArithmeticCompletion:CA.4"
+      ],
+      "title": "Two integer orbits on the coefficient-one zero fibre",
+      "kind": "comparison",
+      "statement": "Every integral coefficient-one solution of x₁²+x₂²+x₃²=x₁x₂x₃ has all coordinates divisible by 3. Dividing by 3 identifies these solutions with coefficient-three integer Markoff triples and intertwines the Vieta moves, permutations and double sign changes. The Γ-orbits on V₀(ℤ) are exactly {0} and the orbit of (3,3,3).",
+      "hypotheses": [
+        "Coordinates are integers. The coefficient-one Γ includes double sign changes; no assertion over ℤ/3ℤ."
+      ],
+      "proofSteps": [
+        "Modulo 3, if all coordinates are units, the sum of their squares is 0 but their product is nonzero, a contradiction. If one coordinate is 0, the other two squares must sum to 0 and hence both are 0. Thus every coordinate is divisible by 3.",
+        "Write x=3y and cancel 9 in ℤ: sum y_i²=3y₁y₂y₃. Conversely multiplication by 3 gives a solution. Direct calculation gives V_i(3y)=3R_i(y); permutations and double sign changes also commute with this map.",
+        "A nonzero integer solution has no zero coordinate, and its coordinate product is positive. Double sign changes make all coordinates positive. Apply markoff-root-generation to y, transport the word by the identity above, and obtain (3,3,3). The origin is fixed by every generator."
+      ],
+      "acceptance": [
+        "The mod-3 coefficient-one solution set is exactly {(0,0,0)}; this differs from the coefficient-three surface over 𝔽₃.",
+        "The integer examples (3,3,3),(3,3,6),(6,15,87) correspond to (1,1,1),(1,1,2),(2,5,29), and signed variants normalize by double sign changes.",
+        "The Δ minimum is a separate outstanding source item, PAPER-GHOSH-SARNAK-22/10."
+      ],
+      "prerequisites": [
+        "ClassicalArithmeticCompletion:CA.4/markoff-triples",
+        "ClassicalArithmeticCompletion:CA.4/markoff-vieta-involution",
+        "ClassicalArithmeticCompletion:CA.4/markoff-root-generation"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Diophantine/Markoff",
+        "namespace": "TauCeti.ClassicalArithmetic"
+      },
+      "sources": [
+        {
+          "sourceId": "ghosh-sarnak-2022-v3",
+          "locator": "§3.1, p.12; elementary comparison with existing coefficient-three nodes",
+          "match": "The recalled two-orbit result is imported via the existing root-generation theorem and an explicit integral rescaling; no new general carrier is defined."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ClassicalArithmeticCompletion:CA.4/markoff-positive-root-orbits",
+      "parentStageId": "ClassicalArithmeticCompletion:CA.4",
+      "realises": [
+        "ClassicalArithmeticCompletion:CA.4"
+      ],
+      "title": "Positive fundamental roots inject into large-coordinate orbits",
+      "kind": "lemma",
+      "statement": "For any integer k≥5, let F⁺_k={u∈ℤ³:3≤u₁≤u₂≤u₃, u₁²+u₂²+u₃²+u₁u₂u₃=k}. Sending u to the Γ-orbit of (−u₁,u₂,u₃) is injective. Every point in each image orbit has all |x_j|≥3, including when k is exceptional.",
+      "hypotheses": [
+        "Γ is generated by coefficient-one Vieta moves, coordinate permutations and double sign changes.",
+        "The carriers, orbit quotient and Δ identities are still requested from CA.4 under the Ghosh–Sarnak source contract."
+      ],
+      "proofSteps": [
+        "Work modulo permutations and double sign changes, with sorted absolute coordinates ≥3 and either a positive representative or a representative (−u₁,u₂,u₃). The Δ polynomial is invariant under these narrow equivalences.",
+        "Use (4.1): each bracket 2(k−5)+(x_j²−4)(x_l²−4) is strictly positive on this locus, without needing genericity of k. At a negative root all three moves strictly increase Δ and keep every absolute coordinate ≥3.",
+        "At a positive representative 3≤x₁≤x₂≤x₃, V₁ and V₂ increase Δ and replace their coordinate by at least 2x₃. The descent calculation of Lemma 2.1 gives x₁x₂−2x₃<0 for k≥5, so V₃ is the unique Δ-decreasing neighbour, provided it remains in the large-coordinate locus. For vertices reached upwards from a negative root, it is exactly their previous parent, hence it remains in that locus.",
+        "Induct on a word from a negative root: an increasing step stays large, and a decreasing step follows the already constructed parent. Distinct increasing branches cannot merge: a finite path between distinct negative roots, or a cycle, has a maximal-Δ vertex with two decreasing neighbours. Thus the whole orbit remains large and has one negative root."
+      ],
+      "acceptance": [
+        "For k=54 the root (−3,3,3) has neighbours with all coordinates of absolute value at least 3.",
+        "For k=5 the fundamental set is empty; this does not imply that V₅(ℤ) is empty.",
+        "No genericity assumption appears in the positive-bracket check."
+      ],
+      "prerequisites": [
+        "ClassicalArithmeticCompletion:CA.4"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Diophantine/Markoff",
+        "namespace": "TauCeti.ClassicalArithmetic"
+      },
+      "sources": [
+        {
+          "sourceId": "ghosh-sarnak-2022-v3",
+          "locator": "§4.1, (4.1), pp.13–14; extension of the printed generic-k argument",
+          "match": "The proof uses the printed Δ identities but checks the invariant large-coordinate component separately, so it applies to F⁺ roots even for exceptional k."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ClassicalArithmeticCompletion:CA.4/markoff-exceptional-class-number-lower-bound",
+      "parentStageId": "ClassicalArithmeticCompletion:CA.4",
+      "realises": [
+        "ClassicalArithmeticCompletion:CA.4"
+      ],
+      "title": "Exceptional class numbers exceed the positive fundamental count",
+      "kind": "theorem",
+      "statement": "For every exceptional integer k≥5, h_M(k)≥|F⁺_k(ℤ)|+1, where h_M(k) counts Γ-orbits in V_k(ℤ).",
+      "hypotheses": [
+        "Exceptional means an integral point exists with some absolute coordinate ≤2.",
+        "The finite orbit and fundamental-set carriers/cardinality are required by the open CA.4 source requests."
+      ],
+      "proofSteps": [
+        "Use markoff-positive-root-orbits to inject F⁺_k into the orbit set.",
+        "Choose an exceptional small-coordinate point. Its orbit cannot be in the image, since every orbit in the image consists entirely of points with all absolute coordinates ≥3.",
+        "Adjoin this orbit to the injection and compare finite cardinalities. Finiteness of h_M(k), k≠4, is a requested source theorem, not inferred from the false printed inequality."
+      ],
+      "acceptance": [
+        "k=5 has solution (0,1,2), whereas F⁺₅ is empty since the polynomial on u_j≥3 is at least 54.",
+        "At k=58 and k=100792 there are likewise exceptional solutions but F⁺ is empty.",
+        "The §7 averages of |F±| remain separate from orbit counts for exceptional k."
+      ],
+      "prerequisites": [
+        "ClassicalArithmeticCompletion:CA.4",
+        "ClassicalArithmeticCompletion:CA.4/markoff-positive-root-orbits"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Diophantine/Markoff",
+        "namespace": "TauCeti.ClassicalArithmetic"
+      },
+      "sources": [
+        {
+          "sourceId": "ghosh-sarnak-2022-v3",
+          "locator": "§1(d), p.5, corrected using §4.1, pp.13–14",
+          "match": "The quoted inequality is false; this node states the corrected direction and strict contribution. See source issue ClassicalArithmeticCompletion/E507."
+        }
+      ],
+      "implementationStatus": "unchecked"
     }
   ],
   "coverage": [
@@ -25450,8 +25581,8 @@
     },
     {
       "stageId": "ClassicalArithmeticCompletion:CA.4",
-      "status": "source_decomposed",
-      "note": "Built in the pinned libraries and cited as baseline: the Pell equation with fundamental solution and classification (Mathlib Pell), Fermat's two-square theorem and the characterisation of sums of two squares, Lagrange's four-square theorem, x⁴ + y⁴ = z² with FLT for n = 3, 4, the classification of Pythagorean triples, solvability of ax + by = n, and the Frobenius number of two coprime generators. Planned here, from public sources read in full: integer linear systems (Stein); the quartic descent T⁴ + V⁴ = 2U² of Bennett–Siksek through Fermat's right-triangle theorem (Conrad); the Markoff surface, Vieta moves, positive tree, reduction modulo p and the definition of strong approximation (Martin items 1–13, with Bourgain–Gamburd–Sarnak and Zhang for the proofs); Legendre's three-square theorem (Ankeny, with the outlined case supplied); Jacobi's two-square (Wuthrich) and four-square (Hirschhorn) theorems; the negative and generalised Pell equations with Chebyshev's bound and the continued-fraction decision procedure (Conrad); Ramanujan–Nagell (Banwait) and Levi ben Gershon's 2ᵃ − 3ᵇ = ±1; numerical semigroups with genus, Apéry sets, Selmer's and Sylvester's formulas and symmetry (Assi–García-Sánchez); Egyptian fractions with the greedy algorithm, existence for every positive rational and Sylvester's identity; and the routing interface (primitive zeros, rational projective points, local solubility, a Weierstrass comparison). Catalan–Mihăilescu is not elementary and has no owner; it is recorded as a gap."
+      "status": "partial",
+      "note": "Built in the pinned libraries and cited as baseline: the Pell equation with fundamental solution and classification (Mathlib Pell), Fermat's two-square theorem and the characterisation of sums of two squares, Lagrange's four-square theorem, x⁴ + y⁴ = z² with FLT for n = 3, 4, the classification of Pythagorean triples, solvability of ax + by = n, and the Frobenius number of two coprime generators. Planned here, from public sources read in full: integer linear systems (Stein); the quartic descent T⁴ + V⁴ = 2U² of Bennett–Siksek through Fermat's right-triangle theorem (Conrad); the Markoff surface, Vieta moves, positive tree, reduction modulo p and the definition of strong approximation (Martin items 1–13, with Bourgain–Gamburd–Sarnak and Zhang for the proofs); Legendre's three-square theorem (Ankeny, with the outlined case supplied); Jacobi's two-square (Wuthrich) and four-square (Hirschhorn) theorems; the negative and generalised Pell equations with Chebyshev's bound and the continued-fraction decision procedure (Conrad); Ramanujan–Nagell (Banwait) and Levi ben Gershon's 2ᵃ − 3ᵇ = ±1; numerical semigroups with genus, Apéry sets, Selmer's and Sylvester's formulas and symmetry (Assi–García-Sánchez); Egyptian fractions with the greedy algorithm, existence for every positive rational and Sylvester's identity; and the routing interface (primitive zeros, rational projective points, local solubility, a Weierstrass comparison). Catalan–Mihăilescu is not elementary and has no owner; it is recorded as a gap. Ghosh–Sarnak is not source-decomposed: the existing Markoff nodes cover the coefficient-three theory, while 25 explicit requests enumerate its general level-k work. Three comparison/lemma/theorem nodes now give integral k=0 reuse, root-orbit injection and the corrected exceptional class-number inequality. Their outstanding source inputs are explicit gaps. Gauss-sum normalization imports FF.1; general commutative-ring Fricke coalesces with the pending NonabelianLevelStructures proposal. These gaps block unconditional downstream use of the level-k theory."
     },
     {
       "stageId": "ClassicalArithmeticCompletion:CA.5",
@@ -25534,6 +25665,14 @@
         "ClassicalArithmeticCompletion:CA.7/locally-free-class-represented-by-rank-one"
       ],
       "detail": "Johnston (15) cites Reiner, Maximal Orders, Theorem 27.4 (not freely available). Voight Proposition 20.7.4 proves the rank-one statement for orders in simple algebras, by weak approximation and Krull–Schmidt; group algebras of nontrivial groups are not simple. The semisimple case needs the same argument componentwise together with the reduction from rank n to rank one, and its public source is missing."
+    },
+    {
+      "title": "Ghosh–Sarnak general level-k source decomposition",
+      "neededBy": [
+        "ClassicalArithmeticCompletion:CA.4/markoff-positive-root-orbits",
+        "ClassicalArithmeticCompletion:CA.4/markoff-exceptional-class-number-lower-bound"
+      ],
+      "detail": "The existing Martin/BGS coefficient-three nodes do not supply V_k, the signed Γ quotient, Δ, F±, class numbers/finiteness, generic/exceptional predicates, the local-solubility theorem or the Hasse-failure results. The 25 explicit CA.4 requests enumerate the still-missing extraction items; root-orbit and class-number nodes depend on that contract. Coalesce the carrier and descent with GMR/1,5. ArithmeticDynamics Part II imports are conditional until this work is decomposed. The pending NonabelianLevelStructures early trace prefix supplies the ring-valued Fricke identity; the explicit Corollary 6.3 point alternatively uses direct algebra. No fictional stage or closed source coverage is asserted."
     }
   ],
   "requests": [
@@ -25683,6 +25822,351 @@
       "need": "Ring K₀ for an arbitrary (noncommutative) ring Λ as TauCeti.SplitK0 of TauCeti.finiteProjectiveModules Λ, with: the class [P] of a finitely generated projective module; [P] = [Q] exactly when P ⊕ Λ^k ≅ Q ⊕ Λ^k for some k (stable equality criterion); scalar extension along a ring homomorphism Λ → Λ′, [P] ↦ [Λ′ ⊗_Λ P]; and restriction of scalars along a ring homomorphism Λ → Λ′ that makes Λ′ finitely generated and projective as a left Λ-module (as for ℤ[G] → 𝓞_K[G]).",
       "neededBy": [
         "ClassicalArithmeticCompletion:CA.7/locally-free-class-group"
+      ]
+    },
+    {
+      "supplier": "ClassicalArithmeticCompletion:CA.4",
+      "need": "PAPER-GHOSH-SARNAK-22/3 — The Markoff cubic M and its level surfaces V_k. M(x) = x₁² + x₂² + x₃² − x₁x₂x₃ and V_k = V_{k,M} : M(x) = k for k ∈ ℤ (1.4), (2.1). Changing the sign of one coordinate identifies V_k with x₁² + x₂² + x₃² + x₁x₂x₃ = k (9.6). V₀(ℤ) is {(0,0,0)} together with the triples 3·(Markoff triples); V₄ is the singular Cayley cubic. Source: §1, (1.4), p.3; §2, (2.1), p.9; (9.6), p.27, arXiv:1706.06712v3 (final version). The coefficient-one normalisation. PAPER-MARTIN-25 uses the coefficient-three equation x²+y²+z² = 3xyz; the two are related by x ↦ 3x at k = 0 only. Routed to ClassicalArithmeticCompletion CA.4 as a source. Shared CA.4 source contract: PAPER-GAMBURD-MAGEE-RONAN-19/1 has V_{n,a,k} and the Vieta moves; n=3,a=1 gives this cubic and these moves. Coalesce the carrier and descent machinery with GMR/5, retaining the level/sign-specific hypotheses and Γ’s permutation/double-sign extension. The coefficient-three integral theory is related by x=3y only at k=0; no reduction-mod-3 equivalence is claimed.",
+      "neededBy": [
+        "ClassicalArithmeticCompletion:CA.4",
+        "ClassicalArithmeticCompletion:CA.4/markoff-positive-root-orbits"
+      ],
+      "sourcePaper": "PAPER-GHOSH-SARNAK-22",
+      "sourceItems": [
+        "PAPER-GHOSH-SARNAK-22/3"
+      ],
+      "sourceLocator": "§1, (1.4), p.3; §2, (2.1), p.9; (9.6), p.27, arXiv:1706.06712v3 (final version)",
+      "scope": "Outstanding CA.4 source decomposition; consumers also include ArithmeticDynamics Part II when it imports the general level-k theory."
+    },
+    {
+      "supplier": "ClassicalArithmeticCompletion:CA.4",
+      "need": "PAPER-GHOSH-SARNAK-22/4 — The Markoff group Γ and narrow equivalence. Γ is the group of polynomial affine transformations of 𝔸³ generated by the Vieta involutions V₁(x) = (x₂x₃ − x₁, x₂, x₃), V₂(x) = (x₁, x₁x₃ − x₂, x₃), V₃(x) = (x₁, x₂, x₁x₂ − x₃), the permutations of the coordinates and the changes of sign of two coordinates. Γ preserves M, hence each V_k(ℤ). Narrow equivalence uses only permutations and double sign changes. Source: §1, p.3; §2, p.9; §4.1, p.13, arXiv:1706.06712v3 (final version) (misprint E4 in the formula for V₂). Routed to ClassicalArithmeticCompletion CA.4 as a source. Shared CA.4 source contract: PAPER-GAMBURD-MAGEE-RONAN-19/1 has V_{n,a,k} and the Vieta moves; n=3,a=1 gives this cubic and these moves. Coalesce the carrier and descent machinery with GMR/5, retaining the level/sign-specific hypotheses and Γ’s permutation/double-sign extension. The coefficient-three integral theory is related by x=3y only at k=0; no reduction-mod-3 equivalence is claimed.",
+      "neededBy": [
+        "ClassicalArithmeticCompletion:CA.4",
+        "ClassicalArithmeticCompletion:CA.4/markoff-positive-root-orbits"
+      ],
+      "sourcePaper": "PAPER-GHOSH-SARNAK-22",
+      "sourceItems": [
+        "PAPER-GHOSH-SARNAK-22/4"
+      ],
+      "sourceLocator": "§1, p.3; §2, p.9; §4.1, p.13, arXiv:1706.06712v3 (final version) (misprint E4 in the formula for V₂)",
+      "scope": "Outstanding CA.4 source decomposition; consumers also include ArithmeticDynamics Part II when it imports the general level-k theory."
+    },
+    {
+      "supplier": "ClassicalArithmeticCompletion:CA.4",
+      "need": "PAPER-GHOSH-SARNAK-22/5 — Class numbers h_M(k) and h^±_M(k). For k ≠ 4, h_M(k) is the finite number of Γ-orbits in V_k(ℤ), and is zero for an empty integral locus. For k ≥ 5 put h⁺_M(k) = |F⁺_k(ℤ)|; for k < 0 put h⁻_M(k) = |F⁻_k(ℤ)|. For generic k these agree with h_M(k). For exceptional k ≥ 5 the corrected inequality is h_M(k) ≥ h⁺_M(k) + 1: each F⁺ root gives a distinct orbit with all absolute coordinates at least 3, and a small-coordinate exceptional point supplies a disjoint orbit. Source: §1, pp.3–5, (d), arXiv:1706.06712v3 (final version). The printed reversed inequality is source issue E21. At k = 5, (0,1,2) is a solution but F⁺ is empty (its defining polynomial is at least 54). The mean-value quantities in §7 count F± directly and do not use this incorrect comparison. CA.4 supplies the definitions; the corrected comparison is explicitly planned in markoff-exceptional-class-number-lower-bound.",
+      "neededBy": [
+        "ClassicalArithmeticCompletion:CA.4",
+        "ClassicalArithmeticCompletion:CA.4/markoff-exceptional-class-number-lower-bound"
+      ],
+      "sourcePaper": "PAPER-GHOSH-SARNAK-22",
+      "sourceItems": [
+        "PAPER-GHOSH-SARNAK-22/5"
+      ],
+      "sourceLocator": "§1, pp.3–5, (d), arXiv:1706.06712v3 (final version)",
+      "scope": "Outstanding CA.4 source decomposition; consumers also include ArithmeticDynamics Part II when it imports the general level-k theory."
+    },
+    {
+      "supplier": "ClassicalArithmeticCompletion:CA.4",
+      "need": "PAPER-GHOSH-SARNAK-22/6 — Admissible, exceptional and generic k for M; Hasse failures. k is admissible for M iff k ≢ 3 (mod 4) and k ≢ ±3 (mod 9) (Proposition 6.1); there are 7K/12 + O(1) admissible 0 < k ≤ K. k is exceptional if V_k(ℤ) has a point with some |x_j| ∈ {0, 1, 2}; equivalently k = u² + v², 4(k − 1) = u² + 3v², or k − 4 = u² with u, v ∈ ℤ. The remaining admissible k are generic; every admissible k < 0 is generic. A Hasse failure is an admissible k with h_M(k) = 0; exceptional k are never Hasse failures. Source: §1, p.3; §4.1, pp.12–13, arXiv:1706.06712v3 (final version). The count of exceptional k is the Landau-type bound in the AN.5 item. Routed to ClassicalArithmeticCompletion CA.4 as a source.",
+      "neededBy": [
+        "ClassicalArithmeticCompletion:CA.4",
+        "ClassicalArithmeticCompletion:CA.4/markoff-exceptional-class-number-lower-bound"
+      ],
+      "sourcePaper": "PAPER-GHOSH-SARNAK-22",
+      "sourceItems": [
+        "PAPER-GHOSH-SARNAK-22/6"
+      ],
+      "sourceLocator": "§1, p.3; §4.1, pp.12–13, arXiv:1706.06712v3 (final version)",
+      "scope": "Outstanding CA.4 source decomposition; consumers also include ArithmeticDynamics Part II when it imports the general level-k theory."
+    },
+    {
+      "supplier": "ClassicalArithmeticCompletion:CA.4",
+      "need": "PAPER-GHOSH-SARNAK-22/7 — Lemma 2.1 (descent for k > 4) and the cases 1 ≤ k ≤ 3. If k > 4, every x ∈ V_k(ℤ) is Γ-equivalent to a point of the finite set S⁺(k) ∪ T(k), where S⁺(k) = {(−x₁, x₂, x₃) : 3 ≤ x₁ ≤ x₂ ≤ x₃, x₁² + x₂² + x₃² + x₁x₂x₃ = k} ∩ ℤ³ and T(k) is the finite set of solutions with a coordinate 0 or 1; otherwise it is narrowly equivalent to a point with 3 ≤ x₁x₂ − x₃ < x₂ ≤ x₃, x₁ ≥ 3, to which a Vieta move applies. V₃(ℤ) = ∅; V₂(ℤ) is the infinite Γ-orbit of (0, 1, 1); V₁(ℤ) is the finite orbit of (0, 0, 1). Source: §2, pp.9–10, Lemma 2.1, arXiv:1706.06712v3 (final version). Revisits the descent of Markoff [Mar80], Hurwitz [Hur07] and Mordell [Mor53] without the height |x₁|+|x₂|+|x₃|. Routed to ClassicalArithmeticCompletion CA.4 as a source. Shared CA.4 source contract: PAPER-GAMBURD-MAGEE-RONAN-19/1 has V_{n,a,k} and the Vieta moves; n=3,a=1 gives this cubic and these moves. Coalesce the carrier and descent machinery with GMR/5, retaining the level/sign-specific hypotheses and Γ’s permutation/double-sign extension. The coefficient-three integral theory is related by x=3y only at k=0; no reduction-mod-3 equivalence is claimed.",
+      "neededBy": [
+        "ClassicalArithmeticCompletion:CA.4",
+        "ClassicalArithmeticCompletion:CA.4/markoff-positive-root-orbits"
+      ],
+      "sourcePaper": "PAPER-GHOSH-SARNAK-22",
+      "sourceItems": [
+        "PAPER-GHOSH-SARNAK-22/7"
+      ],
+      "sourceLocator": "§2, pp.9–10, Lemma 2.1, arXiv:1706.06712v3 (final version)",
+      "scope": "Outstanding CA.4 source decomposition; consumers also include ArithmeticDynamics Part II when it imports the general level-k theory."
+    },
+    {
+      "supplier": "ClassicalArithmeticCompletion:CA.4",
+      "need": "PAPER-GHOSH-SARNAK-22/8 — Lemma 2.2 (descent for k < 0). For k < 0 every x ∈ V_k(ℤ) is Γ-equivalent to a point of S⁻(k) = {3 ≤ x₁ ≤ x₂ ≤ x₃ ≤ x₁x₂/2} ∩ V_k(ℤ) ⊆ U(k) = {3 ≤ x₁ ≤ x₂ ≤ √(|k| + 9), 3 ≤ x₃ ≤ 3(|k| + 9)/2}; points of V_k(ℤ) never have a coordinate in {0, ±1, ±2}; and for |k| large x₁ ≪ |k|^{1/3}, x₂ ≪ (|k|/x₁)^{1/2}, x₃ ≪ (|k|x₁)^{1/2}. Source: §2, p.10, Lemma 2.2, arXiv:1706.06712v3 (final version). Routed to ClassicalArithmeticCompletion CA.4 as a source. Shared CA.4 source contract: PAPER-GAMBURD-MAGEE-RONAN-19/1 has V_{n,a,k} and the Vieta moves; n=3,a=1 gives this cubic and these moves. Coalesce the carrier and descent machinery with GMR/5, retaining the level/sign-specific hypotheses and Γ’s permutation/double-sign extension. The coefficient-three integral theory is related by x=3y only at k=0; no reduction-mod-3 equivalence is claimed.",
+      "neededBy": [
+        "ClassicalArithmeticCompletion:CA.4"
+      ],
+      "sourcePaper": "PAPER-GHOSH-SARNAK-22",
+      "sourceItems": [
+        "PAPER-GHOSH-SARNAK-22/8"
+      ],
+      "sourceLocator": "§2, p.10, Lemma 2.2, arXiv:1706.06712v3 (final version)",
+      "scope": "Outstanding CA.4 source decomposition; consumers also include ArithmeticDynamics Part II when it imports the general level-k theory."
+    },
+    {
+      "supplier": "ClassicalArithmeticCompletion:CA.4",
+      "need": "PAPER-GHOSH-SARNAK-22/9 — The Δ-function from Bhargava cubes. For x ∈ ℤ³ the three Bhargava slicings of the cube with entries 1, x₁, x₂, x₃ ([Bha04]) give binary quadratic forms Q_i(u, v) = (x_jx_k − x_i)u² + (1 + x_i² − x_j² − x_k²)uv + (x_jx_k − x_i)v² with common discriminant Δ(x) = (1 + x₂² − x₁² − x₃²)² − 4(x₁x₃ − x₂)² = (1 + x₁ + x₂ + x₃)(1 + x₂ − x₁ − x₃)(1 + x₃ − x₁ − x₂)(1 + x₁ − x₂ − x₃) (3.1). Δ ≡ 0 or 1 (mod 4) as x₁² + x₂² + x₃² is odd or even; Δ is invariant under permutations and double sign changes; if 2 ≤ x₁ ≤ x₂ ≤ x₃ then Δ < 0 iff x₂ ≤ x₃ ≤ x₁ + x₂ − 2. Source: §3, (3.1) and (a)–(d), pp.11–12, arXiv:1706.06712v3 (final version). Only the polynomial Δ is used later; the cube is motivation. Routed to ClassicalArithmeticCompletion CA.4 as a source.",
+      "neededBy": [
+        "ClassicalArithmeticCompletion:CA.4",
+        "ClassicalArithmeticCompletion:CA.4/markoff-positive-root-orbits"
+      ],
+      "sourcePaper": "PAPER-GHOSH-SARNAK-22",
+      "sourceItems": [
+        "PAPER-GHOSH-SARNAK-22/9"
+      ],
+      "sourceLocator": "§3, (3.1) and (a)–(d), pp.11–12, arXiv:1706.06712v3 (final version)",
+      "scope": "Outstanding CA.4 source decomposition; consumers also include ArithmeticDynamics Part II when it imports the general level-k theory."
+    },
+    {
+      "supplier": "ClassicalArithmeticCompletion:CA.4",
+      "need": "PAPER-GHOSH-SARNAK-22/10 — The case k = 0: the Δ minimum (3.2). On V₀(ℤ), Δ(0,0,0) = 1 and Δ(3,3,3) = −80. One has Δ(x) < 0 exactly for the narrow-equivalence class of (3,3,3). Thus Δ has a unique minimizing narrow-equivalence class on each Γ-orbit. The two-orbit statement is separately item 64. Source: §3.1, (3.2), p.12, arXiv:1706.06712v3 (final version). The Δ polynomial and its minimum remain missing in CA.4. Item 64 reuses the coefficient-three Markoff root-generation theorem through integer rescaling, rather than re-proving it.",
+      "neededBy": [
+        "ClassicalArithmeticCompletion:CA.4"
+      ],
+      "sourcePaper": "PAPER-GHOSH-SARNAK-22",
+      "sourceItems": [
+        "PAPER-GHOSH-SARNAK-22/10"
+      ],
+      "sourceLocator": "§3.1, (3.2), p.12, arXiv:1706.06712v3 (final version)",
+      "scope": "Outstanding CA.4 source decomposition; consumers also include ArithmeticDynamics Part II when it imports the general level-k theory."
+    },
+    {
+      "supplier": "ClassicalArithmeticCompletion:CA.4",
+      "need": "PAPER-GHOSH-SARNAK-22/11 — The Δ-differences (4.1) and the orbit tree. On V_k, with Δ_i = Δ ∘ V_i: Δ₁(x) − Δ(x) = x₂x₃(x₂x₃ − 2x₁)[2(k − 5) + (x₂² − 4)(x₃² − 4)], and cyclically for Δ₂, Δ₃ (4.1). The brackets are positive for generic k ≥ 5 and for all k < 0 (using (x₁² − 4)(x₂² − 4) = (2x₃ − x₁x₂)² − 4(k − 4)). Hence in the Vieta graph modulo narrow equivalence a positive node (x₁, x₂, x₃), 3 ≤ x₁ ≤ x₂ ≤ x₃, has two neighbours with larger Δ and one with smaller Δ, and a negative node (−x₁, x₂, x₃) has three neighbours with larger Δ. For k < 0 a point has no Δ-smaller neighbour iff it lies in S⁻(k). Source: §4.1, (4.1) and Figure 6, pp.13–14; §4.2, p.14, arXiv:1706.06712v3 (final version). Routed to ClassicalArithmeticCompletion CA.4 as a source.",
+      "neededBy": [
+        "ClassicalArithmeticCompletion:CA.4",
+        "ClassicalArithmeticCompletion:CA.4/markoff-positive-root-orbits"
+      ],
+      "sourcePaper": "PAPER-GHOSH-SARNAK-22",
+      "sourceItems": [
+        "PAPER-GHOSH-SARNAK-22/11"
+      ],
+      "sourceLocator": "§4.1, (4.1) and Figure 6, pp.13–14; §4.2, p.14, arXiv:1706.06712v3 (final version)",
+      "scope": "Outstanding CA.4 source decomposition; consumers also include ArithmeticDynamics Part II when it imports the general level-k theory."
+    },
+    {
+      "supplier": "ClassicalArithmeticCompletion:CA.4",
+      "need": "PAPER-GHOSH-SARNAK-22/12 — Theorem 1.1 (fundamental sets). (i) Let k ≥ 5 be generic and F⁺_k = {u ∈ ℝ³ : 3 ≤ u₁ ≤ u₂ ≤ u₃, u₁² + u₂² + u₃² + u₁u₂u₃ = k}. The points of F⁺_k(ℤ) are pairwise Γ-inequivalent, and every x ∈ V_k(ℤ) is Γ-equivalent to a unique u′ = (−u₁, u₂, u₃) with u ∈ F⁺_k(ℤ). (ii) Let k < 0 be admissible and F⁻_k = {u ∈ ℝ³ : 3 ≤ u₁ ≤ u₂ ≤ u₃ ≤ u₁u₂/2, u₁² + u₂² + u₃² − u₁u₂u₃ = k}. The points of F⁻_k(ℤ) are pairwise Γ-inequivalent, and every x ∈ V_k(ℤ) is Γ-equivalent to a unique u ∈ F⁻_k(ℤ). In particular h_M(k) = |F^±_k(ℤ)| is finite and computable. Source: Theorem 1.1, pp.3–4; proof §4.1–4.2, pp.12–14, arXiv:1706.06712v3 (final version). Existence by Lemmas 2.1–2.2; uniqueness because Δ has a unique minimum on each component of the Vieta tree. Examples: h(3685) = 6, h(−3691) = 9 (re-computed in this extraction). Routed to ClassicalArithmeticCompletion CA.4 as a source.",
+      "neededBy": [
+        "ClassicalArithmeticCompletion:CA.4"
+      ],
+      "sourcePaper": "PAPER-GHOSH-SARNAK-22",
+      "sourceItems": [
+        "PAPER-GHOSH-SARNAK-22/12"
+      ],
+      "sourceLocator": "Theorem 1.1, pp.3–4; proof §4.1–4.2, pp.12–14, arXiv:1706.06712v3 (final version)",
+      "scope": "Outstanding CA.4 source decomposition; consumers also include ArithmeticDynamics Part II when it imports the general level-k theory."
+    },
+    {
+      "supplier": "ClassicalArithmeticCompletion:CA.4",
+      "need": "PAPER-GHOSH-SARNAK-22/13 — Proposition 4.1 (the Cayley cubic k = 4). V₄(ℤ) has infinitely many Γ-orbits, each containing exactly one point of the form (2, a, a) with a ≥ 0 (up to permutation and double sign change). The orbit of (2, 0, 0) ∼ (−2, 0, 0) has one element and that of (2, 1, 1) two, and Δ attains a unique minimum on each orbit (Δ(−2,0,0) = 9, Δ(−1,1,1) = −16, Δ(2,a,a) = 9 − 4a²). Source: §4.3, Proposition 4.1, pp.14–15, arXiv:1706.06712v3 (final version). Routed to ClassicalArithmeticCompletion CA.4 as a source.",
+      "neededBy": [
+        "ClassicalArithmeticCompletion:CA.4"
+      ],
+      "sourcePaper": "PAPER-GHOSH-SARNAK-22",
+      "sourceItems": [
+        "PAPER-GHOSH-SARNAK-22/13"
+      ],
+      "sourceLocator": "§4.3, Proposition 4.1, pp.14–15, arXiv:1706.06712v3 (final version)",
+      "scope": "Outstanding CA.4 source decomposition; consumers also include ArithmeticDynamics Part II when it imports the general level-k theory."
+    },
+    {
+      "supplier": "ClassicalArithmeticCompletion:CA.4",
+      "need": "PAPER-GHOSH-SARNAK-22/14 — Remark 4.2 (Δ-descent and the asymptotics of Δ). Δ-descent alone gives finiteness of the number of orbits: a positive node either descends to a negative node or starts an infinite strictly Δ-decreasing chain of positive nodes, impossible since Δ ≥ 0 on positive nodes; the at most finitely many negative nodes in S⁺(k) are pairwise inequivalent. As k → ∞, Lagrange multipliers give (without proof in the paper) min_{S⁺(k)} Δ ≥ k² + 18k^{3/2} + 88k + (621/4)k^{1/2} + O(1), max_{S⁻(k)} Δ ≤ k² − 18k^{3/2} + 88k − (45/4)k^{1/2} + O(1), min_{S⁻(k)} Δ ≥ −3k^{4/3} + O(k), so the first h(k) minima of Δ on V_k(ℤ) occur at the roots. Source: Remark 4.2, p.15, arXiv:1706.06712v3 (final version). The three asymptotic bounds are asserted without proof. Routed to ClassicalArithmeticCompletion CA.4 as a source.",
+      "neededBy": [
+        "ClassicalArithmeticCompletion:CA.4"
+      ],
+      "sourcePaper": "PAPER-GHOSH-SARNAK-22",
+      "sourceItems": [
+        "PAPER-GHOSH-SARNAK-22/14"
+      ],
+      "sourceLocator": "Remark 4.2, p.15, arXiv:1706.06712v3 (final version)",
+      "scope": "Outstanding CA.4 source decomposition; consumers also include ArithmeticDynamics Part II when it imports the general level-k theory."
+    },
+    {
+      "supplier": "ClassicalArithmeticCompletion:CA.4",
+      "need": "PAPER-GHOSH-SARNAK-22/15 — Consequences (a)–(c) of Theorem 1.1. (a) h_M(46) = 0, and 46 is the smallest positive Hasse failure. (b) h_M(−2) = 1, all solutions being equivalent to (3, 3, 4), and −4 is the largest negative Hasse failure. (c) h_M(k) ≪_ε |k|^{1/3+ε} as k → ±∞, because for fixed x₁ the fundamental set bounds the number of units acting on the indefinite binary quadratic form in (x₂, x₃). Source: §1, (a)–(c), p.4; §8, p.22 (k = 46), arXiv:1706.06712v3 (final version). (a) and (b) were re-verified in this extraction. Routed to ClassicalArithmeticCompletion CA.4 as a source.",
+      "neededBy": [
+        "ClassicalArithmeticCompletion:CA.4",
+        "ClassicalArithmeticCompletion:CA.4/markoff-exceptional-class-number-lower-bound"
+      ],
+      "sourcePaper": "PAPER-GHOSH-SARNAK-22",
+      "sourceItems": [
+        "PAPER-GHOSH-SARNAK-22/15"
+      ],
+      "sourceLocator": "§1, (a)–(c), p.4; §8, p.22 (k = 46), arXiv:1706.06712v3 (final version)",
+      "scope": "Outstanding CA.4 source decomposition; consumers also include ArithmeticDynamics Part II when it imports the general level-k theory."
+    },
+    {
+      "supplier": "ClassicalArithmeticCompletion:CA.4",
+      "need": "PAPER-GHOSH-SARNAK-22/16 — Lemma 5.1 (reduction of polynomial parametric solutions). For M*(x) = Σ α_jx_j + (β₁x₂x₃ + β₂x₁x₃ + β₃x₁x₂) + x₁² + x₂² + εx₃² − x₁x₂x₃ with ε = ±1 and α_j, β_j ∈ ℤ (5.1): if P_j ∈ ℤ[t] of positive degree satisfy M*(P₁, P₂, P₃) = k identically, then there are q ∈ ℤ and Q₁, Q₂ ∈ ℤ[t] of positive degree with M*(q, Q₁, Q₂) = k identically. Parametric solutions with two constant coordinates do not exist. Source: §5.1, Lemma 5.1 and proof, p.16, arXiv:1706.06712v3 (final version). Proof: degree descent by Vieta moves. Routed to ClassicalArithmeticCompletion CA.4 as a source.",
+      "neededBy": [
+        "ClassicalArithmeticCompletion:CA.4"
+      ],
+      "sourcePaper": "PAPER-GHOSH-SARNAK-22",
+      "sourceItems": [
+        "PAPER-GHOSH-SARNAK-22/16"
+      ],
+      "sourceLocator": "§5.1, Lemma 5.1 and proof, p.16, arXiv:1706.06712v3 (final version)",
+      "scope": "Outstanding CA.4 source decomposition; consumers also include ArithmeticDynamics Part II when it imports the general level-k theory."
+    },
+    {
+      "supplier": "ClassicalArithmeticCompletion:CA.4",
+      "need": "PAPER-GHOSH-SARNAK-22/17 — Parametric solutions on V_k and on x₁² + x₂² − x₃² − x₁x₂x₃ = k. (1) V_k contains a polynomial parametric integral family iff k − 4 = w² is a square, in which case (2, t, t + w) is one (so a line); in particular there is none for generic k. (2) The surface x₁² + x₂² − x₃² − x₁x₂x₃ = k has parametric families (of the type (Q₁, Q₂, q)) iff k + 4 = w², e.g. (t + w, t, 2), or k = 0, e.g. (Q, 0, ±Q). By Remark 5.2 this surface has no local obstructions, has the points (0, 2^α(k′ + 1)/2, 2^α(k′ − 1)/2) for k = 4^αk′ with k′ odd, infinitely many integral points when k′ ≠ 1 or α ≥ 3, and infinitely many Hasse failures (for example k = 94), by an argument like Proposition 8.1. Source: §5.1 (1)–(2) and Remark 5.2, pp.16–17, arXiv:1706.06712v3 (final version). The Hasse failures in Remark 5.2(iv) are asserted without proof. Routed to ClassicalArithmeticCompletion CA.4 as a source.",
+      "neededBy": [
+        "ClassicalArithmeticCompletion:CA.4"
+      ],
+      "sourcePaper": "PAPER-GHOSH-SARNAK-22",
+      "sourceItems": [
+        "PAPER-GHOSH-SARNAK-22/17"
+      ],
+      "sourceLocator": "§5.1 (1)–(2) and Remark 5.2, pp.16–17, arXiv:1706.06712v3 (final version)",
+      "scope": "Outstanding CA.4 source decomposition; consumers also include ArithmeticDynamics Part II when it imports the general level-k theory."
+    },
+    {
+      "supplier": "ClassicalArithmeticCompletion:CA.4",
+      "need": "PAPER-GHOSH-SARNAK-22/24 — Lemma 6.2 and Corollary 6.3 (explicit solutions modulo p^n, p ≥ 5). For every prime p ≥ 5, n ≥ 1 and t ∈ ℤ there are A, B ∈ SL₂(ℤ/p^nℤ) with tr(A)² + tr(B)² + tr(AB)² − tr(A)tr(B)tr(AB) ≡ t + 2: take B = diag(e, f) with ef ≡ 1 and (e − f, p) = 1, c with c(e − f)² ≡ 1, a = 1, b = 2 − t, d = 1 + bc. Hence M(x) ≡ k (mod p^n) has the solution x₁ ≡ 2 − (k − 4)c, x₂ ≡ e + f, x₃ ≡ e − f + fx₁. Source: Lemma 6.2, Corollary 6.3, p.19, arXiv:1706.06712v3 (final version). Routed to ClassicalArithmeticCompletion CA.4 as a source. Direct algebra alternative: choose e ∈ (ℤ/pⁿℤ)× with e−e⁻¹ a unit, put f=e⁻¹, c=(e−f)⁻², and (x₁,x₂,x₃)=(2−(k−4)c,e+f,e−f+fx₁). Substitution gives M(x)=k; e=2 works for p≥5. Checked for p=5,7,11,13, n=1,2,3, k=0,…,59 (720 cases).",
+      "neededBy": [
+        "ClassicalArithmeticCompletion:CA.4"
+      ],
+      "sourcePaper": "PAPER-GHOSH-SARNAK-22",
+      "sourceItems": [
+        "PAPER-GHOSH-SARNAK-22/24"
+      ],
+      "sourceLocator": "Lemma 6.2, Corollary 6.3, p.19, arXiv:1706.06712v3 (final version)",
+      "scope": "Outstanding CA.4 source decomposition; consumers also include ArithmeticDynamics Part II when it imports the general level-k theory."
+    },
+    {
+      "supplier": "ClassicalArithmeticCompletion:CA.4",
+      "need": "PAPER-GHOSH-SARNAK-22/25 — Lemma 6.4 (points of x₁² + x₂² + x₃² − αx₁x₂x₃ = β modulo p). For p ≥ 3 the number N_p of solutions modulo p is p² + p(−β/p) if p | α, and p² + 1 + p((α²β − 4)/p)(3 + (β/p)) otherwise. In particular N_p ≥ (p − 2)² − 3 > 0 for p ≥ 5, and N_p > 0 for p = 3 by inspection. Source: Lemma 6.4 and proof, pp.19–20, arXiv:1706.06712v3 (final version). CA.4 owns this point-count theorem. Import finite-field character conventions and comparison with S_p(1) from FiniteFieldsAndCharacterSums:FF.1; use the existing mathlib:gaussSum_sq, not a new CA.1 Gauss-sum theory. Prime-power and 2-adic sums in Appendix B still require ES.3 specializations, with FF.1 supplying the finite-field normalization. Earlier extraction checked all α,β modulo p≤13.",
+      "neededBy": [
+        "ClassicalArithmeticCompletion:CA.4"
+      ],
+      "sourcePaper": "PAPER-GHOSH-SARNAK-22",
+      "sourceItems": [
+        "PAPER-GHOSH-SARNAK-22/25"
+      ],
+      "sourceLocator": "Lemma 6.4 and proof, pp.19–20, arXiv:1706.06712v3 (final version)",
+      "scope": "Outstanding CA.4 source decomposition; consumers also include ArithmeticDynamics Part II when it imports the general level-k theory."
+    },
+    {
+      "supplier": "ClassicalArithmeticCompletion:CA.4",
+      "need": "PAPER-GHOSH-SARNAK-22/26 — Proposition 6.1 (local solubility of the Markoff equation). M(x) ≡ k (mod p^n) is soluble for all primes p and all n ≥ 1 unless k ≡ 3 (mod 4) or k ≡ ±3 (mod 9). Thus V_k(ℤ_p) ≠ ∅ for all p iff k ≢ 3 (mod 4) and k ≢ ±3 (mod 9). Source: Proposition 6.1; proof §6.1–6.3, pp.18–21, arXiv:1706.06712v3 (final version) (errors E2, E3 in the proof). For p ≥ 5 via Corollary 6.3 or Hensel lifting of a non-singular point. For p = 3 and p = 2 the proof needs the lifts supplied in E2. Routed to ClassicalArithmeticCompletion CA.4 as a source.",
+      "neededBy": [
+        "ClassicalArithmeticCompletion:CA.4"
+      ],
+      "sourcePaper": "PAPER-GHOSH-SARNAK-22",
+      "sourceItems": [
+        "PAPER-GHOSH-SARNAK-22/26"
+      ],
+      "sourceLocator": "Proposition 6.1; proof §6.1–6.3, pp.18–21, arXiv:1706.06712v3 (final version) (errors E2, E3 in the proof)",
+      "scope": "Outstanding CA.4 source decomposition; consumers also include ArithmeticDynamics Part II when it imports the general level-k theory."
+    },
+    {
+      "supplier": "ClassicalArithmeticCompletion:CA.4",
+      "need": "PAPER-GHOSH-SARNAK-22/35 — (8.1): failure of strong approximation modulo 4d. Let k = 4 + d, suppose n ↦ (4d/n) is a primitive Dirichlet character mod 4d, and let S_d = {n : (4d/n) ∈ {0, 1}} ⊂ ℤ/4dℤ. Then every x ∈ V_k(ℤ) satisfies x_j² − 4 ∈ S_d (mod 4d) for j = 1, 2, 3, because w² − 4d = (x₁² − 4)(x₂² − 4) with w = 2x₃ − x₁x₂ (8.2) forces (4d/q) ∈ {0, 1} for every prime q | x_j² − 4. By quadratic reciprocity these are congruence conditions on the x_j not implied by local solubility, so strong approximation fails for V_k(ℤ) modulo 4d. Source: §8, (8.1)–(8.2), pp.22–23, arXiv:1706.06712v3 (final version). Routed to ClassicalArithmeticCompletion CA.4 as a source.",
+      "neededBy": [
+        "ClassicalArithmeticCompletion:CA.4"
+      ],
+      "sourcePaper": "PAPER-GHOSH-SARNAK-22",
+      "sourceItems": [
+        "PAPER-GHOSH-SARNAK-22/35"
+      ],
+      "sourceLocator": "§8, (8.1)–(8.2), pp.22–23, arXiv:1706.06712v3 (final version)",
+      "scope": "Outstanding CA.4 source decomposition; consumers also include ArithmeticDynamics Part II when it imports the general level-k theory."
+    },
+    {
+      "supplier": "ClassicalArithmeticCompletion:CA.4",
+      "need": "PAPER-GHOSH-SARNAK-22/36 — Proposition 8.1 (families of Hasse failures). V_k(ℤ) = ∅ but V_k(ℤ_p) ≠ ∅ for all p in each case: (i) k = 4 − 2ν² < 0 with ν odd and all prime factors of ν ≡ 1 or 3 (mod 8); (ii) k = 4 + 2ν² > 4 with all prime factors of ν ≡ ±1 (mod 8) and ν ≡ 0, ±3, ±4 (mod 9); (iii) k = 4 + 2ℓ² with ℓ ≥ 13 prime, ℓ ≡ ±4 (mod 9) (smallest k = 342). Proof: some x_j is odd, so x_j² − 4 ≡ 5 (mod 8) has a prime factor q ≡ 5, 7 (resp. ±3) (mod 8), and (8.4) makes −2 (resp. 2) a square mod q. In case (iii) the fundamental set of Theorem 1.1 bounds an odd coordinate by √(k/3), which excludes q = ℓ; the non-exceptionality of k is checked separately. Source: Proposition 8.1 and proof, pp.23–24, arXiv:1706.06712v3 (final version) (misprint E7 in the proof). k = −14, −238, 342 were re-verified. [LM20] and [CTWX20] show that (i) and (ii) are explained by the integral Brauer–Manin obstruction but (iii) is not. Routed to ClassicalArithmeticCompletion CA.4 as a source. In case (ii), prime factors ≡ ±1 mod 8 exclude 3, hence the displayed ν residues 0,±3 mod 9 are redundant and ν ≡ ±4 mod 9 is equivalent under the other hypotheses. This is not a false theorem. For 1≤ν<50 the possible values are 23,31,41,49; the first k=1062 is admissible, generic and has empty F⁺.",
+      "neededBy": [
+        "ClassicalArithmeticCompletion:CA.4"
+      ],
+      "sourcePaper": "PAPER-GHOSH-SARNAK-22",
+      "sourceItems": [
+        "PAPER-GHOSH-SARNAK-22/36"
+      ],
+      "sourceLocator": "Proposition 8.1 and proof, pp.23–24, arXiv:1706.06712v3 (final version) (misprint E7 in the proof)",
+      "scope": "Outstanding CA.4 source decomposition; consumers also include ArithmeticDynamics Part II when it imports the general level-k theory."
+    },
+    {
+      "supplier": "ClassicalArithmeticCompletion:CA.4",
+      "need": "PAPER-GHOSH-SARNAK-22/37 — Proposition 8.2 (Hasse failures k = 4 + 12ν²). If ν² ≡ 25 (mod 32) and every prime factor of ν is ≡ ±1 (mod 12), then k = 4 + 12ν² is admissible and V_k(ℤ) = ∅. The smallest such ν is 11, with k = 1456. Source: Proposition 8.2 and proof, pp.24–25, arXiv:1706.06712v3 (final version) (misprint E8: the paper gives ν = 37, k = 16432). Proof: reciprocity for the prime factors of x_j² − 4 via (8.6) when the x_j are odd, a Vieta move when exactly one is even, and congruences modulo 8 and 16 when all are even. k = 1456 and 16432 were re-verified as Hasse failures. Routed to ClassicalArithmeticCompletion CA.4 as a source.",
+      "neededBy": [
+        "ClassicalArithmeticCompletion:CA.4"
+      ],
+      "sourcePaper": "PAPER-GHOSH-SARNAK-22",
+      "sourceItems": [
+        "PAPER-GHOSH-SARNAK-22/37"
+      ],
+      "sourceLocator": "Proposition 8.2 and proof, pp.24–25, arXiv:1706.06712v3 (final version) (misprint E8: the paper gives ν = 37, k = 16432)",
+      "scope": "Outstanding CA.4 source decomposition; consumers also include ArithmeticDynamics Part II when it imports the general level-k theory."
+    },
+    {
+      "supplier": "ClassicalArithmeticCompletion:CA.4",
+      "need": "PAPER-GHOSH-SARNAK-22/38 — Proposition 8.3 (Hasse failures k = 4 + 20ν²). If ν ≡ ±4 (mod 9) and every prime factor of ν is ≡ ±1 (mod 20), then k = 4 + 20ν² is admissible and V_k(ℤ) = ∅; the smallest such ν is 41, with k = 33624. Source: Proposition 8.3 and proof, p.25, arXiv:1706.06712v3 (final version) (gap E9, misprint E10 in the proof). Routed to ClassicalArithmeticCompletion CA.4 as a source.",
+      "neededBy": [
+        "ClassicalArithmeticCompletion:CA.4"
+      ],
+      "sourcePaper": "PAPER-GHOSH-SARNAK-22",
+      "sourceItems": [
+        "PAPER-GHOSH-SARNAK-22/38"
+      ],
+      "sourceLocator": "Proposition 8.3 and proof, p.25, arXiv:1706.06712v3 (final version) (gap E9, misprint E10 in the proof)",
+      "scope": "Outstanding CA.4 source decomposition; consumers also include ArithmeticDynamics Part II when it imports the general level-k theory."
+    },
+    {
+      "supplier": "ClassicalArithmeticCompletion:CA.4",
+      "need": "PAPER-GHOSH-SARNAK-22/39 — Theorem 1.2(i) (infinitely many Hasse failures). The number of Hasse failures with 0 < k ≤ K, and the number with −K ≤ k < 0, are each ≫ K^{1/2}(log K)^{−1/2}. So M is not perfect. Source: Theorem 1.2(i), p.5; proof §8, pp.22–25, arXiv:1706.06712v3 (final version) (gap E11: the paper writes \"at least √K(log K)^{−1/2}\"). From Proposition 8.1 and the count of integers whose prime factors lie in a set of primes of density 1/2. Routed to ClassicalArithmeticCompletion CA.4 as a source.",
+      "neededBy": [
+        "ClassicalArithmeticCompletion:CA.4"
+      ],
+      "sourcePaper": "PAPER-GHOSH-SARNAK-22",
+      "sourceItems": [
+        "PAPER-GHOSH-SARNAK-22/39"
+      ],
+      "sourceLocator": "Theorem 1.2(i), p.5; proof §8, pp.22–25, arXiv:1706.06712v3 (final version) (gap E11: the paper writes \"at least √K(log K)^{−1/2}\")",
+      "scope": "Outstanding CA.4 source decomposition; consumers also include ArithmeticDynamics Part II when it imports the general level-k theory."
+    },
+    {
+      "supplier": "ClassicalArithmeticCompletion:CA.4",
+      "need": "PAPER-GHOSH-SARNAK-22/61 — Enumeration of class numbers and Hasse failures (§10). Theorem 1.1 turns h_M(k) into a finite lattice-point search over F^±_k(ℤ), after an exceptionality test. The authors computed all Hasse failures 5 ≤ k ≤ 564,062,446 (23,298,277 of them), their distribution in residue classes modulo 3, 4 and 9 (Table 1), A_HF(K) at multiples of 100,800 (Tables 3–4), sample fundamental sets (Table 5) and the distribution of h(k) for generic k ≤ 10^7 (Table 6). The data fit log A_HF(K)/log 𝒜(K) ≈ f(K) = 0.887516 − 8.06653L^{−2} − 21.8923L^{−3} + 2.38097L^{−4} + 3.35656L^{−5}, L = log K (10.1), with 𝒜(K) = 7K/12. Source: §10, (10.1), Tables 1–6, Figures 7–15, pp.34–44, arXiv:1706.06712v3 (final version). A_HF(100,800) = 7,630 and A_HF(6,552,000) = 388,485 were reproduced in this extraction, as were the Table 5 rows for k = 329, 460, 494, 9260, 9304, 9380, 9454 and 9500. Routed to ClassicalArithmeticCompletion CA.4 as a source. Fresh fix regression at K=100800: 7105 exceptional k≥5 have F⁺_k empty (largest 100792); exclude them before counting the 7630 generic Hasse failures among 58800 admissible positive k. This is the Table 3 count; E22–E23 correct §10’s cross-references.",
+      "neededBy": [
+        "ClassicalArithmeticCompletion:CA.4"
+      ],
+      "sourcePaper": "PAPER-GHOSH-SARNAK-22",
+      "sourceItems": [
+        "PAPER-GHOSH-SARNAK-22/61"
+      ],
+      "sourceLocator": "§10, (10.1), Tables 1–6, Figures 7–15, pp.34–44, arXiv:1706.06712v3 (final version)",
+      "scope": "Outstanding CA.4 source decomposition; consumers also include ArithmeticDynamics Part II when it imports the general level-k theory."
+    },
+    {
+      "supplier": "ClassicalArithmeticCompletion:CA.4",
+      "need": "PAPER-GHOSH-SARNAK-22/62 — Conjecture 10.1 (size of the class numbers). Conjecture (not proved): For every ε > 0, h_M(k) ≪_ε |k|^ε. Source: Conjecture 10.1, p.41, arXiv:1706.06712v3 (final version). A conjecture; the best known bound is (c) of Theorem 1.1. Routed to ClassicalArithmeticCompletion CA.4 as a source. Kind changed from definition to theorem: the item is a conjectural statement, not a definition; the statement is marked as a conjecture. [review REV-PAPER-GHOSH-SARNAK-22]",
+      "neededBy": [
+        "ClassicalArithmeticCompletion:CA.4"
+      ],
+      "sourcePaper": "PAPER-GHOSH-SARNAK-22",
+      "sourceItems": [
+        "PAPER-GHOSH-SARNAK-22/62"
+      ],
+      "sourceLocator": "Conjecture 10.1, p.41, arXiv:1706.06712v3 (final version)",
+      "scope": "Outstanding CA.4 source decomposition; consumers also include ArithmeticDynamics Part II when it imports the general level-k theory."
+    },
+    {
+      "supplier": "FiniteFieldsAndCharacterSums:FF.1",
+      "need": "For Ghosh–Sarnak Lemma 6.4 and Appendix B, compare the paper’s S_p(a) to Mathlib gaussSum for the quadratic character of 𝔽_p and a primitive additive character, preserving χ(−1), the χ=1 cases and normalization. Use the existing gaussSum_sq with R a finite field and values in an integral domain. Prime-power/2-adic density work stays in ES.3; CA.1 supplies no new finite-field Gauss-sum theory.",
+      "neededBy": [
+        "ClassicalArithmeticCompletion:CA.4"
+      ],
+      "sourcePaper": "PAPER-GHOSH-SARNAK-22",
+      "sourceItems": [
+        "PAPER-GHOSH-SARNAK-22/25",
+        "PAPER-GHOSH-SARNAK-22/28"
       ]
     }
   ],
@@ -26432,6 +26916,22 @@
         "the author's Exeter staff page",
         "the remark in the source itself"
       ]
+    },
+    {
+      "id": "ClassicalArithmeticCompletion/E507",
+      "kind": "error",
+      "locator": "arXiv:1706.06712v3, §1(d), p.5",
+      "printed": "The source asserts h_M(k) ≤ h±_M(k) in the remaining cases.",
+      "correction": "For exceptional k≥5, h_M(k) ≥ h⁺_M(k)+1. For generic k, equality is unchanged.",
+      "reason": "At k=5, (0,1,2)∈V₅(ℤ), but F⁺₅ is empty since u₁²+u₂²+u₃²+u₁u₂u₃≥54 for u_j≥3. More generally §4.1’s Δ-difference argument gives an injective map from F⁺ roots to Γ-orbits, all of whose points have |x_j|≥3: upward moves stay in this locus and the unique downward move reverses the path to its negative root. Distinct negative roots cannot meet, since a connecting path’s maximal-Δ vertex would have two smaller neighbours. An exceptional small-coordinate orbit is disjoint and supplies the additional class. The §7 means count F± directly and the generic fundamental-domain and almost-all conclusions do not use the erroneous comparison.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Fresh comparison on 2026-09-30: arXiv:1706.06712v3 at the stated locator; only selected v1/v2 passages were checked. No blanket persistence across versions is claimed.",
+        "Bounded title/DOI erratum search and Springer/Crossmark metadata on 2026-09-30 found no explicit correction notice. Springer main text/PDF was not obtained; its HTML exposes appendices, but these findings are not asserted against the published article.",
+        "The same inequality was read in v1 p.5 and v2 p.3; this per-finding comparison does not assert that other issues persist."
+      ],
+      "source": "ghosh-sarnak-2022-v3"
     }
   ],
   "sourceVersions": [
@@ -26505,6 +27005,15 @@
       "read": "2026-09-27",
       "sha256": "70d63131f70db4353e65ab620911bba84e3b0bbc00d5e563b53c5f58f4440ff1",
       "readScope": "Entire three-page preprint, including proofs and references."
+    },
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/1706.06712v3",
+      "read": "2026-09-30",
+      "sha256": "e4ddc7a115ad4afd61f0063d0b931baf85792eee2267d1d5c232bece11d3163d",
+      "readBy": "Codex codex-J6LwjP",
+      "readScope": "Focused fix reading: pp.3–5,7,9–10,12–14,18–20,22–24,34; page images 5 and 13 inspected. No fresh whole-paper read or complete Appendix B re-audit.",
+      "sourceId": "ghosh-sarnak-2022-v3"
     }
   ],
   "continuationAudit": {
