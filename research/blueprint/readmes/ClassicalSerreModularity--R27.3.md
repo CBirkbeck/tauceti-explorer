@@ -1,13 +1,15 @@
 # Classical Serre modularity — part R27.3: the Khare–Wintenberger endpoint and the Dieulefait–Pacetti route — blueprint
 
-This part covers stages R27.3–R27.6 and R33.1–R33.4 of ClassicalSerreModularity. After the first checkpoint:
+**Fix revision, 30 September 2026 — Codex codex-5ebb6f, Refs #5142.** Independent REV-FIX is pending. The earlier acceptance is preserved in the packet’s reviewHistory; it is not acceptance of these edits. All existing implementation statuses remain unchecked. The current packet has 33 nodes, 16 open requests and five gaps. The missing early component and weight-one descent input are stated below; the atlas stage graph has not been edited.
+
+This part covers stages R27.3–R27.6 and R33.1–R33.4 of ClassicalSerreModularity. Current coverage follows the packet:
 
 | Stage | Coverage |
 |---|---|
 | R27.3 | `source_decomposed`: killing ramification, (W₁) and the (L_r) induction |
 | R27.4 | `source_decomposed`: raising levels, weight and level, Theorem 1.2 |
 | R27.5 | `source_decomposed`: Theorem 9.1 with Kisin's (H) |
-| R27.6 | `source_decomposed`: the strong form and its exports |
+| R27.6 | `partial`: the strong form and its exports; early Artin descent/lattice input remains a gap |
 | R33.1 | `source_decomposed`: target, modularity transfer, Paso 1 |
 | R33.2 | `source_decomposed`: the good-dihedral prime N, Lemma 2.1, Paso 3 |
 | R33.3 | `source_decomposed`: Lemma 2.3, Remark 6, Pasos 4–5 |
@@ -97,7 +99,7 @@ finite-flat weight-two export.
   mod-3 step with 2 and 3 exchanged.
 - **`dr-for-r-at-least-two`.** Reduce to ρ̄(I₂) not unipotent up to twist, then apply (H) to ρ₂.
 - **`hypothesis-H-and-theorem-9-1`** (carried id; planet "Theorem 9.1 (reduction to Hypothesis (H))"). (D_r) for all r,
-  then Theorem 3.4. (H) is used only at 2, where it is Kisin's theorem (GL2ModularityLifting R22.6/hypothesis-h).
+  then Theorem 3.4. (H) is used only at 2 and is imported from GL2ModularityLifting R22.6/hypothesis-h, including its Breuil–Kisin comparison. This layer does not reconstruct (H).
 
 ## Layer R27.6: the full classical statement
 
@@ -112,7 +114,7 @@ finite-flat weight-two export.
   level N(ρ̄) and trivial character. The steps are Serre's Proposition 4, the strong form, and Carayol's change of
   nebentypus (R20.4). This is what EllipticCurveModularity R29.2 consumes.
 - **`scope-of-the-final-statement-and-the-compatible-system-export`** (carried application). Theorem 10.1 on compatible
-  systems and Corollary 10.2.
+  systems: its regular-system conclusion remains here; the general irregular-system theorem is ML.1. The narrower Artin consequence Corollary 10.2(ii) is the explicit `odd-artin-weight-one-modularity` export below.
 
 ## Layer R33.1: qualitative target and first weight change (`…/DieulefaitPacetti`)
 
@@ -217,3 +219,36 @@ journal reference.
   Math. 169 (2009), 229–253.
 - L. V. Dieulefait and A. M. Pacetti, *A simplified proof of Serre's conjecture*, arXiv:2108.07577v2 (2022).
 - J.-P. Serre, *Sur les représentations modulaires de degré 2 de Gal(Q̄/Q)*, Duke Math. J. 54 (1987), 179–230.
+
+## The weight-one Artin export for ML.1
+Finding /8 requires an explicit ℚ Artin export. It is a separate node, while the general irregular-compatible-system endpoint remains with ML.1. The source’s weight-one descent is an exact gap. A whole ML.1 import back into R27.6 would cycle with the requested R27.6 → ML.1 direction and is not added.
+
+### Weight-one modularity of odd two-dimensional Artin representations
+`ClassicalSerreModularity:R27.6/odd-artin-weight-one-modularity` (theorem).
+KW I Corollary 10.2(ii): a continuous, odd, irreducible representation ρ : G_ℚ → GL₂(ℂ), with the usual topology and finite image (the Artin setting), is isomorphic to the Deligne–Serre representation of a normalized cuspidal newform of weight one. This is the ℚ export registered by ModularityAndLanglandsExtensions ML.1; the general irregular compatible-system theorem remains at ML.1.
+
+**Hypotheses.**
+- Oddness is det ρ(c) = −1, and irreducibility is over ℂ.
+- The Artin representation has finite image and hence finite ramification; its reductions at good coefficient primes satisfy the strong Serre theorem. The weight-one descent criterion is an exact open early supplier contract, not an import of the full later ML.1 endpoint.
+
+**Proof outline.**
+- Choose a number-field model and stable lattice of the finite-image Artin representation; for infinitely many coefficient primes use irreducible reductions with fixed conductor and the strong Serre theorem.
+- Apply the source-scoped Gross/Coleman–Voloch and Khare weight-one descent input cited in KW I Theorem 10.1(ii); the early proof contract and its fine owner are recorded as a gap. Do not deduce weight one merely from existence of a cohomological form.
+- Recover the characteristic-zero Artin representation using the fixed finite-image character and Deligne–Serre attachment from AutomorphicGaloisRepresentations R19.1.
+
+**Checks.**
+- Even Artin representations do not meet the oddness hypothesis.
+- Reducible sums of characters do not meet the cuspidal irreducibility hypothesis.
+- The weight-one conclusion requires the descent criterion, not the weight-at-least-two DP endpoint.
+
+**Imports.** `ClassicalSerreModularity:R27.6/full-classical-serre-theorem`, `AutomorphicGaloisRepresentations:R19.1`, `ArithmeticGaloisRepresentations:R01.3`.
+
+**Sources.** kw-serre-modularity-I, Corollary 10.2(ii) and discussion after Theorem 10.1, author PDF p. 21.
+
+## Early good-dihedral boundary and the Paso 2 application
+
+Lemma 8.2 now uses R01.3’s continuous, absolutely irreducible, odd residual representation and R01.4’s prime-field finite-subgroup classification. It does not use Serre weights, R15.6, or R27.1/dickson-and-the-dyadic-solvable-refinement. Keep the prime-field hypothesis 𝔽_p and p ≡ 1 modulo 4: coefficients merely in 𝔽̄_p do not give the source’s corrected rationality condition. The Chebotarev argument keeps the abelian intersection and complex-conjugation class explicit.
+
+The proposed R27.1:good-dihedral component is not a live stage. The node’s stable ID and current parent are retained. Its gap records the remaining maintainer work: move Definition 2.1 and Lemma 6.3 from the other CSM part; remove R26.6 → R27.1 and repoint the RS-06 prefix consumers. This packet cannot claim removal of the stage-level level-one ancestor. Good-dihedral-prime-insertion is the later application of the R24.3 prescribed lift; it remains separate from the early finite-image/Chebotarev package. The level-one input R26.6 → R27.3 for W₁ is retained.
+
+The stable dp-lift-existence-and-good-dihedral-insertion node is only Paso 2. R24.3 already appears among its prerequisites and remains the sole owner of the general lift-existence theorem. The new explicit Paso 1 prerequisite supplies the weight-two system. At a split coefficient prime q outside its ramification set, Fontaine–Laffaille gives residual weight 2; this selects the crystalline clause in DP Theorem 1.9(4). Residual weight q + 1 would select a Steinberg clause instead. Keep Lemma 1.15’s prime-field rationality, the N-congruences, the local inertial type and the correction that the decomposition-group image is infinite but projectively dihedral. No general cases (1)–(4) are reproved in this node.
