@@ -12,7 +12,8 @@
     "readSections": [
       "The whole published article (§§1–9, Appendices A–B and the references), 145 pp., from the author's copy at https://math.mit.edu/~zyun/Taylor_Expansion_published.pdf, SHA-256 b02ed5cbe5e6443a59360551cd41048ebb1e589d3c4cbe89f7fcbbbec50fc111, fetched and read 2026-09-22. Locators are journal pages (journal page = pdf page + 766).",
       "arXiv 1512.02683v3 (11 April 2017), SHA-256 76bb3576bc75dc1c5214597197e3d8ef62abc10784e2b2625657a0e7ea1821ff: the two versions carry the same 112 numbered statements, and every recorded misprint was compared with it.",
-      "Pages 902, 903, 887 and 905 were additionally read as rendered images, because a text layer flattens the superscripts on which items E1, E2 and E4 turn."
+      "Pages 902, 903, 887 and 905 were additionally read as rendered images, because a text layer flattens the superscripts on which items E1, E2 and E4 turn.",
+      "FIX-RT-PAPER-YUN-ZHANG-17, Codex codex-J6LwjP, 2026-09-30: targeted published proof/dependency audit of §§3–4, §§5.1/5.4/6.1–6.3, §7.4, §8 and Appendices A–B; page images 824,878,889 checked. Published and v3 hashes reproduce. New typo comparisons and the actual correction search are listed with E38–E39; no whole-paper reread is claimed."
     ]
   },
   "summary": "Yun and Zhang prove the first higher-derivative Gross–Zagier formula: every Taylor coefficient of an automorphic L-function, not only the first, is an intersection number. Let X be a smooth proper geometrically connected curve over F_q (p > 2), ν : X′ → X an étale double cover with X′ geometrically connected, G = PGL_2 and T = (Res_{F′/F}G_m)/G_m the associated nonsplit torus. For r even and an everywhere unramified cuspidal automorphic representation π of G(A), Theorem 1.2 reads\n\n  (|ω_X|/(2(log q)^r))·ℒ^{(r)}(π_{F′}, 1/2) = ([Sht^μ_T]_π, [Sht^μ_T]_π)_π,\n\nwhere ℒ(π_{F′}, s) = ε(π_{F′}, s)^{−1/2}L(π_{F′}, s)/L(π, Ad, 1) is self-dual under s ↦ 1−s, and [Sht^μ_T]_π is the π-component of the Heegner–Drinfeld cycle θ^μ_*[Sht^μ_T] — the class of the moduli of T-shtukas with r legs, a smooth proper Deligne–Mumford stack of dimension r, inside the moduli Sht′^r_G of PGL_2-shtukas with r legs on X′, of dimension 2r. For r = 0 it is Waldspurger's formula (Remark 1.3) and for r = 1 the Gross–Zagier formula; Theorem 1.6 is the same identity in ℓ-adic cohomology, Theorem 1.7 deduces that the intersection pairing is positive definite on the cuspidal part, and Theorem 1.8 is a Kronecker limit formula for the Eisenstein part, ⟨θ^μ_*[Sht^μ_T], θ^μ_*[Sht^μ_T]⟩ = 2^{r+1}(log q)^{−r}L^{(r)}(η, 0) (the paper prints 2^{r+2}; sourceIssues E9).\n\nThe proof compares two relative trace formulae and is global throughout — no local orbital integrals are matched (Remark 1.10).\n- **Analytic side (§§2–4).** The regularized distribution J(f, s) = ∫^{reg}_{[A]×[A]}K_f(h_1, h_2)|h_1h_2|^sη(h_2) is a Laurent polynomial in q^s (Propositions 2.1, 2.3); it has an orbital expansion over u = inv(γ) ∈ P¹(F) ∖ {1}, computed explicitly for f = 1_K (Proposition 2.4), and, after killing the Eisenstein part with the Eisenstein ideal (Theorem 4.3), a spectral expansion J(f, s) = (1/2)|ω_X|Σ_π ℒ(π_{F′}, s+1/2)λ_π(f) — Waldspurger's formula via Jacquet's relative trace formula (Proposition 4.5, Theorem 4.7).\n- **Geometric side (§§5–7).** The Hecke action on Sht^r_G is defined by cycles on the whole stack rather than by étale correspondences away from bad points (Proposition 5.10), so I_r(f) = ⟨θ^μ_*[Sht^μ_T], f ∗ θ^μ_*[Sht^μ_T]⟩ makes sense; it is rewritten, through the Octahedron Lemma, as a trace on a Hitchin-type moduli stack M_d (Theorems 6.5–6.6); and a finiteness analysis of the H-action on H^{2r}_c(Sht_G) makes the image of the Hecke algebra a finitely generated algebra of Krull dimension one, giving an orthogonal spectral decomposition (Theorems 7.14, 7.16).\n- **Comparison (§§3, 8–9).** Both sides become traces of Frobenius on direct images over the same base: Rf_{M,*}Q_ℓ ≅ ⊕_{i,j}K_i ⊠ K_j with the Hecke correspondence acting by (d−2j) (Propositions 8.2–8.3), and Rf_{N_d,*}L_d ≅ K_{d_{11}} ⊠ K_{d_{12}} as a middle extension (Proposition 8.5). This gives (log q)^{−r}J_r(u, h_D) = I_r(u, h_D) for every orbit and every divisor of large degree (Theorem 8.1), hence for all f ∈ H by a density argument (Theorem 9.2).\n\nAppendix A develops the intersection theory this needs on Deligne–Mumford stacks locally of finite type: Chow groups of proper cycles, a corrected filtration on K′_0 defined through finite flat presentations, the compatibility of refined Gysin maps with derived pullback (Proposition A.5), the **Octahedron Lemma** (Theorem A.10) allowing intersections to be taken in any order, and a Lefschetz trace formula for the intersection with the graph of Frobenius (Proposition A.12). Appendix B proves the **super-positivity** Λ^{(r)}(π, 1/2) ≥ 0 for self-dual cuspidal π of GL_n under the Riemann hypothesis — unconditional over function fields — which is what makes Theorem 1.7 unconditional. The independent review found the |ω_X| factor of Theorems 1.2 and 1.6 inverted in this extraction (corrected: it multiplies ℒ^{(r)}), confirmed E1–E7, rejected E8, and added E9–E37: Theorem 1.8 and Corollary 2.5 have 2^{r+2} for 2^{r+1} (E9), Theorem B.2 fails for n = 1 over function fields (E15), Proposition B.1's second part fails for polynomials (E16), Remark B.5 fails over function fields (E17), and a series of proof gaps and misprints. None affects Theorems 1.1–1.7.",
@@ -78,16 +79,16 @@
       "statement": "For f ∈ H one forms the kernel K_f(h_1, h_2) = Σ_{γ ∈ G(F)}f(h_1^{−1}γh_2) and, for (n_1, n_2) ∈ Z², the truncated integrals J_{n_1,n_2}(f, s) over the components of [A] × [A] of given degrees, weighted by |h_1h_2|^sη(h_2); the invariant of an orbit is inv(γ) ∈ P¹(F) ∖ {1}, giving the orbital pieces J_{n_1,n_2}(γ, f, s) and J(γ, f, s) = Σ_{(n_1,n_2)}J_{n_1,n_2}(γ, f, s), and J(u, f, s) for u = inv(γ).",
       "locator": "§§2.1–2.2, (2.1)–(2.9), pp. 781–785, published version",
       "status": "missing",
-      "note": "Routed to GrossZagierAndArithmeticHeights GZ.5 as a source."
+      "note": "Owned by the joint Yun–Zhang function-field analytic adapter in the proposed ShtukaSpecialCyclesAndHigherSiegelWeil tranche; GZ.5 is a comparison only."
     },
     {
       "id": "PAPER-YUN-ZHANG-17/8",
       "kind": "theorem",
       "name": "Propositions 2.1, 2.3 and Lemma 2.2 (finiteness and the definition of J(f, s))",
       "statement": "Proposition 2.1: J_{n_1,n_2}(f, s) vanishes when |n_1| + |n_2| is large, so J(f, s) := Σ_{(n_1,n_2) ∈ Z²}J_{n_1,n_2}(f, s) is defined and is a Laurent polynomial in q^s. Lemma 2.2: the sum (2.7), K_f = Σ_γ K_{f,γ} over γ ∈ A(F)\\G(F)/A(F), has finitely many nonzero terms, since for all but finitely many u ∈ P¹(F) ∖ {0, 1, ∞} the kernel vanishes identically on A(A) × A(A). Proposition 2.3: for every γ ∈ G(F) the integral J_{n_1,n_2}(γ, f, s) vanishes for |n_1| + |n_2| large, treated separately for regular semisimple and non-regular-semisimple orbits.",
-      "locator": "Propositions 2.1 and 2.3, Lemma 2.2, §§2.3–2.5, pp. 783–787, published version",
+      "locator": "Propositions 2.1 and 2.3, Lemma 2.2, §§2.3–2.5, pp. 783–786, published version",
       "status": "missing",
-      "note": "Routed to GrossZagierAndArithmeticHeights GZ.5 as a source. The finiteness for u ∈ {0, ∞} (§2.5) uses that η is nontrivial on F^×\\A^1, i.e. that X′ is geometrically connected."
+      "note": "Owned by the joint Yun–Zhang function-field analytic adapter in the proposed ShtukaSpecialCyclesAndHigherSiegelWeil tranche; GZ.5 is a comparison only. The finiteness for u ∈ {0, ∞} (§2.5) uses that η is nontrivial on F^×\\A^1, i.e. that X′ is geometrically connected."
     },
     {
       "id": "PAPER-YUN-ZHANG-17/9",
@@ -96,7 +97,7 @@
       "statement": "For f = 1_K: J(u, 1_K, s) = L(η, 2s) + L(η, −2s) for u = 0, J(u, 1_K, s) = 2L(η, 0) (a constant) for u = ∞, 1 for u ∈ k ∖ {0, 1}, and 0 otherwise. Hence J_r(1_K) = 4L(η, 0) + q − 2 = 4·#Jac_{X′}(k)/#Jac_X(k) + q − 2 for r = 0; 2^{r+1}(d/ds)^r|_{s=0}L(η, s) for r > 0 even; and 0 for r > 0 odd. The paper prints the u = 0 value also for u = ∞ (\"The case for u = ∞ is analogous\") and 2^{r+2} for r > 0 even; both are wrong (sourceIssues E9). The r = 0 value is right.",
       "locator": "Proposition 2.4 and Corollary 2.5, pp. 787–788, published version",
       "status": "missing",
-      "note": "Corollary 2.5 is the analytic input for the Kronecker limit formula, Theorem 1.8, and is used nowhere else. Routed to GrossZagierAndArithmeticHeights GZ.5 as a source."
+      "note": "Corollary 2.5 is the analytic input for the Kronecker limit formula, Theorem 1.8, and is used nowhere else. Owned by the joint Yun–Zhang function-field analytic adapter in the proposed ShtukaSpecialCyclesAndHigherSiegelWeil tranche; GZ.5 is a comparison only."
     },
     {
       "id": "PAPER-YUN-ZHANG-17/10",
@@ -114,7 +115,14 @@
       "statement": "For an effective divisor D on X of degree d and the Hecke function h_D: if u is not in the image of inv_D then J(γ, h_D, s) = 0 for every γ with inv(γ) = u; if u = inv_D(a) with a ∈ A_D(k) = Γ(X, O_X(D)) and u ∉ {0, 1, ∞}, then J(γ(u), h_D, s) = Σ_{d ∈ Σ_d}q^{(2d_{12}−d)s}Tr(Frob_a, (Rf_{N_d,*}L_d)_a). Proposition 3.2(3): for d ≥ 2g′ − 1 = 4g − 3 the same holds for u ∈ {0, ∞} (a = 1, a = 0). Corollary 3.3: consequently, for d ≥ 4g − 3 when u ∈ {0, ∞}, J_r(u, h_D) = (log q)^rΣ_{d ∈ Σ_d}(2d_{12} − d)^rTr(Frob_a, (Rf_{N_d,*}L_d)_a) when u = inv_D(a), and 0 otherwise.",
       "locator": "Proposition 3.2 and Corollary 3.3, pp. 793–797, published version",
       "status": "missing",
-      "note": "This is the analytic side turned into a sheaf-theoretic trace, in the style of the geometric proofs of fundamental lemmas (Ngô, Yun). Routed to the Part II ShtukaSpecialCyclesAndHigherSiegelWeil (parent GlobalShtukasAndFunctionFieldLanglands), the candidate proposed by PAPER-FENG-YUN-ZHANG-24, whose brief already names this paper as the theory to plan it with. The paper states Corollary 3.3 without the degree hypothesis for u ∈ {0, ∞}, where it fails for D = 0 (E11); Theorem 8.1 assumes large degree."
+      "note": "This is the analytic side turned into a sheaf-theoretic trace, in the style of the geometric proofs of fundamental lemmas (Ngô, Yun). Routed to the Part II ShtukaSpecialCyclesAndHigherSiegelWeil (parent GlobalShtukasAndFunctionFieldLanglands), the candidate proposed by PAPER-FENG-YUN-ZHANG-24, whose brief already names this paper as the theory to plan it with. The paper states Corollary 3.3 without the degree hypothesis for u ∈ {0, ∞}, where it fails for D = 0 (E11); Theorem 8.1 assumes large degree.",
+      "dependencies": [
+        "PAPER-YUN-ZHANG-17/48",
+        "PAPER-YUN-ZHANG-17/49",
+        "PAPER-YUN-ZHANG-17/50",
+        "PAPER-YUN-ZHANG-17/51",
+        "PAPER-YUN-ZHANG-17/66"
+      ]
     },
     {
       "id": "PAPER-YUN-ZHANG-17/12",
@@ -123,7 +131,7 @@
       "statement": "The Eisenstein ideal I_Eis ⊆ H is the kernel of the map a_Eis : H → Q[Pic_X(k)]^{ι_Pic} through which H acts on the Eisenstein spectrum (Definition 4.1). Lemma 4.2: for every x ∈ |X| the ring Q[Pic_X(k)]^{ι_Pic} is a finitely generated H_x-module, and a_Eis is surjective, so Spec(a_Eis) is a closed embedding.",
       "locator": "§4.1, Definition 4.1, Lemma 4.2, pp. 797–799, published version",
       "status": "missing",
-      "note": "Routed to GrossZagierAndArithmeticHeights GZ.5 as a source."
+      "note": "Owned by the joint Yun–Zhang function-field analytic adapter in the proposed ShtukaSpecialCyclesAndHigherSiegelWeil tranche; GZ.5 is a comparison only."
     },
     {
       "id": "PAPER-YUN-ZHANG-17/13",
@@ -132,7 +140,7 @@
       "statement": "Theorem 4.3: for f ∈ I_Eis the automorphic kernel decomposes as K_f = K_{f,cusp} + K_{f,sp} (the Eisenstein contribution is annihilated). Lemma 4.4: consequently J(f, s) = Σ_π J_π(f, s), the sum over everywhere unramified cuspidal automorphic representations of G(A).",
       "locator": "Theorem 4.3 and Lemma 4.4, pp. 800–803, published version",
       "status": "missing",
-      "note": "Routed to GrossZagierAndArithmeticHeights GZ.5 as a source."
+      "note": "Owned by the joint Yun–Zhang function-field analytic adapter in the proposed ShtukaSpecialCyclesAndHigherSiegelWeil tranche; GZ.5 is a comparison only."
     },
     {
       "id": "PAPER-YUN-ZHANG-17/14",
@@ -141,13 +149,19 @@
       "statement": "Proposition 4.5: for an everywhere unramified cuspidal π with Hecke character λ_π, J_π(f, s) = (1/2)|ω_X|ℒ(π_{F′}, s + 1/2)λ_π(f); the proof computes the product of the two toric periods P(φ, s)P_η(φ, s) against the Petersson norm, whence the adjoint L-value in the normalization of ℒ. Lemma 4.6 records the change of the local Whittaker/zeta normalization under a change of additive character. Theorem 4.7: for f ∈ I_Eis, J(f, s) = (1/2)|ω_X|Σ_π ℒ(π_{F′}, s + 1/2)λ_π(f), an identity in E[q^{−s}, q^s].",
       "locator": "Proposition 4.5, Lemma 4.6, Theorem 4.7, pp. 803–807, published version",
       "status": "missing",
-      "note": "Lemma 4.6 is ξ_{x,ψ_{x,c_x}}(χ_x, s) = χ_x^{−1}(c_x)|c_x|^{−2s+1/2}ξ_{x,ψ_x}(χ_x, s). This is Waldspurger's formula in the everywhere unramified function-field case, obtained from Jacquet's relative trace formula. Routed to GrossZagierAndArithmeticHeights GZ.5 as a source."
+      "note": "Lemma 4.6 is ξ_{x,ψ_{x,c_x}}(χ_x, s) = χ_x^{−1}(c_x)|c_x|^{−2s+1/2}ξ_{x,ψ_x}(χ_x, s). This is Waldspurger's formula in the everywhere unramified function-field case, obtained from Jacquet's relative trace formula. Owned by the joint Yun–Zhang function-field analytic adapter in the proposed ShtukaSpecialCyclesAndHigherSiegelWeil tranche; GZ.5 is a comparison only.",
+      "dependencies": [
+        "PAPER-YUN-ZHANG-17/46",
+        "PAPER-YUN-ZHANG-17/60",
+        "PAPER-YUN-ZHANG-17/64",
+        "PAPER-YUN-ZHANG-17/67"
+      ]
     },
     {
       "id": "PAPER-YUN-ZHANG-17/15",
       "kind": "construction",
       "name": "§5.1–5.2 (Hecke stacks, moduli of rank n shtukas and Sht^r_G)",
-      "statement": "For a sign vector μ ∈ {±}^r satisfying the balance condition, Hk^μ_n classifies chains of rank n bundles with elementary modifications of the prescribed types at the legs; Remark 5.2: (p_0, p_X) : Hk^μ_n → Bun_n × X^r is representable, proper and smooth of relative dimension r(n−1) with iterated P^{n−1}-bundle fibres. Definition 5.3 defines Sht^μ_n as the fibre product of Hk^μ_n with the graph of Frobenius. Theorem 5.4 (Drinfeld for r = 2, Varshavsky in general): Sht^μ_n is a Deligne–Mumford stack locally of finite type and π^μ_n : Sht^μ_n → X^r is separated and smooth of relative dimension r(n−1). Lemmas 5.5–5.6 give canonical isomorphisms Hk^μ_G ≅ Hk^{μ′}_G for different μ and the Cartesian description of Sht^μ_G, so that Sht^r_G is independent of μ; Corollary 5.7 transfers Theorem 5.4 to G = PGL_2.",
+      "statement": "For a sign vector μ ∈ {±}^r, Hk^μ_n classifies chains of rank n bundles with elementary modifications of the prescribed types at the legs; Remark 5.2: (p_0, p_X) : Hk^μ_n → Bun_n × X^r is representable, proper and smooth of relative dimension r(n−1) with iterated P^{n−1}-bundle fibres. With the balance condition Σ_i sgn(μ_i)=0 (hence r even), Definition 5.3 defines Sht^μ_n as the fibre product of Hk^μ_n with the graph of Frobenius. Theorem 5.4 (Drinfeld for r = 2, Varshavsky in general): Sht^μ_n is a Deligne–Mumford stack locally of finite type and π^μ_n : Sht^μ_n → X^r is separated and smooth of relative dimension r(n−1). Lemmas 5.5–5.6 give canonical isomorphisms Hk^μ_G ≅ Hk^{μ′}_G for different μ and the Cartesian description of Sht^μ_G, so that Sht^r_G is independent of μ; Corollary 5.7 transfers Theorem 5.4 to G = PGL_2.",
       "locator": "§§5.1–5.2, Definition 5.3, Remark 5.2, Theorem 5.4, Lemmas 5.5–5.6, Corollary 5.7, pp. 807–811, published version",
       "status": "planned",
       "planned": [
@@ -172,7 +186,10 @@
       "statement": "For the nonsplit torus T = (Res_{F′/F}G_m)/G_m, Sht^μ_T is the moduli of T-shtukas with legs on X′; Lemma 5.13: π^μ_T : Sht^μ_T → X′^r is a torsor under the finite groupoid Pic_{X′}(k)/Pic_X(k), hence finite étale, so Sht^μ_T is a smooth proper Deligne–Mumford stack of pure dimension r. The proper morphism θ^μ : Sht^μ_T → Sht′^r_G := Sht^r_G ×_{X^r}X′^r gives the Heegner–Drinfeld cycle θ^μ_*[Sht^μ_T] ∈ Ch_{c,r}(Sht′^r_G)_Q, and I_r(f) := ⟨θ^μ_*[Sht^μ_T], f ∗ θ^μ_*[Sht^μ_T]⟩_{Sht′^r_G}. Lemma 5.16: I_r(f) does not depend on the choice of μ.",
       "locator": "§§5.4–5.5, Lemma 5.13, Definitions 5.14–5.15, Lemma 5.16, pp. 816–820, published version",
       "status": "missing",
-      "note": "Routed to the Part II ShtukaSpecialCyclesAndHigherSiegelWeil (parent GlobalShtukasAndFunctionFieldLanglands), the candidate proposed by PAPER-FENG-YUN-ZHANG-24, whose brief already names this paper as the theory to plan it with. §1.3 calls θ^μ finite, but only properness (from the properness of Sht^μ_T) is proved and used."
+      "note": "Routed to the Part II ShtukaSpecialCyclesAndHigherSiegelWeil (parent GlobalShtukasAndFunctionFieldLanglands), the candidate proposed by PAPER-FENG-YUN-ZHANG-24, whose brief already names this paper as the theory to plan it with. §1.3 calls θ^μ finite, but only properness (from the properness of Sht^μ_T) is proved and used.",
+      "dependencies": [
+        "PAPER-YUN-ZHANG-17/52"
+      ]
     },
     {
       "id": "PAPER-YUN-ZHANG-17/18",
@@ -181,13 +198,17 @@
       "statement": "Proposition 6.1: the moduli stack M_d of (L, L′, α : L → L′, β : L → σ^*L′) with L, L′ line bundles on X′, deg L′ − deg L = d, α and β not both zero, modulo Pic_X (equivalently O_X-maps ν_*L → ν_*L′; M_d ≅ X̂′_d ×_{Pic^d_X} X̂′_d − Z′_d) is a proper Deligne–Mumford stack, smooth of pure dimension 2d − g + 1 for d ≥ 2g′ − 1, with a proper map f_M : M_d → A_d and ν̂_d : X̂′_d → X̂_d proper, fitting into a Cartesian diagram. Lemma 6.2: the Hecke stack Hk^μ_{M,d}, as a self-correspondence of M_d, is the r-fold composition of a single correspondence H. Lemma 6.3: over the open locus A♦_d the square (6.8) relating H♦ to the incidence scheme I′_d is Cartesian. Lemma 6.4 (for d ≥ 2g′ − 1, which the paper omits, E29): γ_0 : Hk^μ_{M♦,d} → M♦_d is finite surjective, so dim Hk^μ_{M♦,d} = dim M♦_d = 2d − g + 1, and the image of the complement in M_d × M_d has dimension at most d + 2g − 2.",
       "locator": "§§6.1–6.2, Proposition 6.1, Lemmas 6.2–6.4, pp. 821–827, published version",
       "status": "missing",
-      "note": "Routed to the Part II ShtukaSpecialCyclesAndHigherSiegelWeil (parent GlobalShtukasAndFunctionFieldLanglands), the candidate proposed by PAPER-FENG-YUN-ZHANG-24, whose brief already names this paper as the theory to plan it with."
+      "note": "Routed to the Part II ShtukaSpecialCyclesAndHigherSiegelWeil (parent GlobalShtukasAndFunctionFieldLanglands), the candidate proposed by PAPER-FENG-YUN-ZHANG-24, whose brief already names this paper as the theory to plan it with.",
+      "dependencies": [
+        "PAPER-YUN-ZHANG-17/50",
+        "PAPER-YUN-ZHANG-17/51"
+      ]
     },
     {
       "id": "PAPER-YUN-ZHANG-17/19",
       "kind": "theorem",
       "name": "Theorem 6.5 and Theorem 6.6 (the intersection number as a trace, and as a Gysin intersection)",
-      "statement": "Theorem 6.5: for an effective divisor D of degree d ≥ max{2g′ − 1, 2g}, I_r(h_D) = Σ_{a ∈ A_D(k)}Tr((f_{M,!}[H♦])^r_a ∘ Frob_a, (Rf_{M,!}Q_ℓ)_a). Theorem 6.6: there is a class ζ ∈ Ch_{2d−g+1}(Hk^μ_{M,d})_Q restricting to the fundamental cycle over Hk^μ_{M,d}|_{A♥_d ∩ A♦_d} with I_r(h_D) = ⟨ζ, Γ(Fr_{M_d})⟩_D, the local intersection number with the graph of Frobenius in the sense of §A.4.5. Lemma 6.7: for d ≥ 3g − 2, f_{M,!}cl(ζ♥) = (f_{M,!}[H♦])^r as endomorphisms of Rf_{M,!}Q_ℓ|_{A♥_d}, which turns Theorem 6.6 into Theorem 6.5. The orbital terms I_r(u, h_D) of (6.10)–(6.11), used in Theorem 8.1, are the contributions of the a ∈ A_D(k) with inv_D(a) = u.",
+      "statement": "Theorem 6.5: for an effective divisor D of degree d ≥ max{2g′ − 1, 2g}, I_r(h_D) = Σ_{a ∈ A_D(k)}Tr((f_{M,!}[H♦])^r_a ∘ Frob_a, (Rf_{M,!}Q_ℓ)_a). Theorem 6.6: there is a class ζ ∈ Ch_{2d−g+1}(Hk^μ_{M,d})_Q restricting to the fundamental cycle over Hk^μ_{M,d}|_{A♥_d ∩ A♦_d} with I_r(h_D) = ⟨ζ, Γ(Fr_{M_d})⟩_D, the local intersection number with the graph of Frobenius in the sense of §A.4.5. Lemma 6.7: for d ≥ 3g − 2 and ζ♥ ∈ Z_{2d−g+1}(Hk^μ_{M,d}|_{A♥_d})_Q whose restriction to Hk^μ_{M,d}|_{A♥_d∩A♦_d} is the fundamental cycle, f_{M,!}cl(ζ♥) = (f_{M,!}[H♦])^r as endomorphisms of Rf_{M,!}Q_ℓ|_{A♥_d}, which turns Theorem 6.6 into Theorem 6.5. The orbital terms I_r(u, h_D) of (6.10)–(6.11), used in Theorem 8.1, are the contributions of the a ∈ A_D(k) with inv_D(a) = u.",
       "locator": "Theorems 6.5–6.6, Lemma 6.7, pp. 828–831; proof of 6.6 in §6.3.6, pp. 839–840, published version",
       "status": "missing",
       "note": "This is the most technical part of the paper: the intersection of the Heegner–Drinfeld cycle with its Hecke translate is rewritten, through the Octahedron Lemma, as a Lefschetz-type trace on a Hitchin-like moduli stack. Routed to the Part II ShtukaSpecialCyclesAndHigherSiegelWeil (parent GlobalShtukasAndFunctionFieldLanglands), the candidate proposed by PAPER-FENG-YUN-ZHANG-24, whose brief already names this paper as the theory to plan it with."
@@ -199,7 +220,10 @@
       "statement": "Lemma 6.8: ←p, →p : H_d → Bun_G are representable and smooth of pure relative dimension 2d, so H_d is smooth of pure dimension 2d + 3g − 3, and M♥_d ↪ M_d is the open preimage of A♥_d. Lemma 6.9 identifies Hk^μ_{M♥,d} with the preimage of A♥_d. Lemma 6.10 computes the dimensions of Hk^{r,◦}_{G,d} and of the fibres of s : Hk^r_{G,d} → X_d × X^r, and (3) the codimension estimate used in Lemma 6.11(2). Lemma 6.11: for d ≥ max{2g′ − 1, 2g} the diagram (6.26) satisfies the conditions of §A.2.8, so the refined Gysin map (Π^μ × Π^μ)^! is defined and ζ♥ = (Π^μ × Π^μ)^![Hk′^r_{G,d}] restricts to the fundamental cycle. Lemma 6.12 decomposes Sht^r_{G,d} and Sht′^r_{G,d} over the k-points of X_d; Corollary 6.13 identifies Sht^μ_{M♥,d}; Lemma 6.14: the diagram (6.31) satisfies the conditions of §A.2.10 and (id, Fr_{H_d})^![Hk′^r_{G,d}] = [Sht′^r_{G,d}], using Lemma 5.9, which is proved separately in §6.4.4 from Lemma 6.15, the smoothness of H_{D,D} and V. Lafforgue's Lemme 2.13; Lemma 6.15 computes dim H′ = d + r through the affine Schubert variety Gr_{1^r,d}.",
       "locator": "§§6.3–6.4, Lemmas 6.8–6.15, Corollary 6.13, pp. 831–845, published version",
       "status": "missing",
-      "note": "Routed to the Part II ShtukaSpecialCyclesAndHigherSiegelWeil (parent GlobalShtukasAndFunctionFieldLanglands), the candidate proposed by PAPER-FENG-YUN-ZHANG-24, whose brief already names this paper as the theory to plan it with."
+      "note": "Routed to the Part II ShtukaSpecialCyclesAndHigherSiegelWeil (parent GlobalShtukasAndFunctionFieldLanglands), the candidate proposed by PAPER-FENG-YUN-ZHANG-24, whose brief already names this paper as the theory to plan it with.",
+      "dependencies": [
+        "PAPER-YUN-ZHANG-17/59"
+      ]
     },
     {
       "id": "PAPER-YUN-ZHANG-17/21",
@@ -217,7 +241,12 @@
       "statement": "Sht_G is exhausted by the open substacks Sht^{≤d}_G indexed by functions d ∈ D recording the instability of the chain. Lemma 7.4: for d ∈ D_+ the map p_d : Sht^d_B → Sht_G induces an isomorphism onto Sht^d_G. Lemma 7.5: if d(i) > 2g − 2 for all i, then q_d : Sht^d_B → Sht^d_H is smooth of relative dimension r/2 with fibres [G^{r/2}_a/Z]. Corollary 7.6: then the cone of Rπ^{<d}_{G,!}Q_ℓ → Rπ^{≤d}_{G,!}Q_ℓ is π^d_{H,!}Q_ℓ[−r](−r/2), a local system concentrated in degree r. Lemma 7.7 (Drinfeld, Varshavsky): p_{d,η} is finite and unramified on generic fibres, so the fundamental cycle of Sht^d_{B,η} defines the cohomological constant term γ_δ, and Lemma 7.8: γ_δ intertwines the H-action with the H_H-action through the Satake transform.",
       "locator": "§§7.2–7.3, Lemmas 7.4–7.5, 7.7–7.8, Corollary 7.6, pp. 850–860, published version",
       "status": "missing",
-      "note": "Routed to the Part II ShtukaSpecialCyclesAndHigherSiegelWeil (parent GlobalShtukasAndFunctionFieldLanglands), the candidate proposed by PAPER-FENG-YUN-ZHANG-24, whose brief already names this paper as the theory to plan it with."
+      "note": "Routed to the Part II ShtukaSpecialCyclesAndHigherSiegelWeil (parent GlobalShtukasAndFunctionFieldLanglands), the candidate proposed by PAPER-FENG-YUN-ZHANG-24, whose brief already names this paper as the theory to plan it with.",
+      "dependencies": [
+        "PAPER-YUN-ZHANG-17/53",
+        "PAPER-YUN-ZHANG-17/60",
+        "PAPER-YUN-ZHANG-17/61"
+      ]
     },
     {
       "id": "PAPER-YUN-ZHANG-17/23",
@@ -226,7 +255,10 @@
       "statement": "With V = H^{2r}_c(Sht_G ⊗_k k̄, Q_ℓ)(r) filtered by L_{≤i}V coming from the truncations τ_{≤i}: Lemma 7.9: each L_{≤i}V is H-stable; Lemma 7.10: Gr^L_iV is finite dimensional for i ≠ r; Lemma 7.11: I_Eis·(L_{≤r}V) is finite dimensional; Lemma 7.13: V is a finitely generated H_x ⊗ Q_ℓ-module for every x ∈ |X|, and the image H_ℓ of H ⊗ Q_ℓ in End_{Q_ℓ}(V) × Q_ℓ[Pic_X(k)]^{ι_Pic} (Definition 7.12) is a finitely generated Q_ℓ-algebra of Krull dimension one.",
       "locator": "§7.4, Lemmas 7.9–7.13, Definition 7.12, pp. 860–865, published version",
       "status": "missing",
-      "note": "The Eisenstein factor in Definition 7.12 is what makes Z_{Eis,Q_ℓ} ↪ Spec H_ℓ a closed embedding. In §1.7 (p. 777) the authors note that this method should apply to moduli of shtukas for more general groups, giving information on their cohomology. Routed to the Part II ShtukaSpecialCyclesAndHigherSiegelWeil (parent GlobalShtukasAndFunctionFieldLanglands), the candidate proposed by PAPER-FENG-YUN-ZHANG-24, whose brief already names this paper as the theory to plan it with."
+      "note": "The Eisenstein factor in Definition 7.12 is what makes Z_{Eis,Q_ℓ} ↪ Spec H_ℓ a closed embedding. In §1.7 (p. 777) the authors note that this method should apply to moduli of shtukas for more general groups, giving information on their cohomology. Routed to the Part II ShtukaSpecialCyclesAndHigherSiegelWeil (parent GlobalShtukasAndFunctionFieldLanglands), the candidate proposed by PAPER-FENG-YUN-ZHANG-24, whose brief already names this paper as the theory to plan it with.",
+      "dependencies": [
+        "PAPER-YUN-ZHANG-17/58"
+      ]
     },
     {
       "id": "PAPER-YUN-ZHANG-17/24",
@@ -235,7 +267,12 @@
       "statement": "Theorem 7.14: (Spec H_ℓ)^{red} = Z_{Eis,Q_ℓ} ⊔ Z^r_{0,ℓ} with Z^r_{0,ℓ} a finite set of closed points, giving the decomposition of V; for r = 0 this reads Spec H^{red}_{aut,Q_ℓ} = Z_{Eis,Q_ℓ} ⊔ Z^0_{0,ℓ}. Lemma 7.15: H_aut ≅ Q[Pic_X(k)]^{ι_Pic} × H_cusp, i.e. Spec H_aut = Z_Eis ⊔ Z_cusp, and Z^0_{0,ℓ} = Z_{cusp,Q_ℓ}. Theorem 7.16 is the same statement for V′ on Sht′^r_G, and Corollary 7.17: the decomposition is orthogonal for the cup product, and I_r(f) = ([Sht_T]_Eis, f ∗ [Sht_T]_Eis) + Σ_{m ∈ Z′^r_{0,ℓ}(Q̄_ℓ)}I_r(m, f) with I_r(m, f) = ([Sht_T]_m, f ∗ [Sht_T]_m). Theorems 7.14(2) and 7.16(4): the complementary parts V_0 and V′_0 are finite-dimensional.",
       "locator": "§7.4, Theorem 7.14 and Lemma 7.15, pp. 865–867; §7.5, Theorem 7.16 and Corollary 7.17, pp. 867–869, published version",
       "status": "missing",
-      "note": "Routed to the Part II ShtukaSpecialCyclesAndHigherSiegelWeil (parent GlobalShtukasAndFunctionFieldLanglands), the candidate proposed by PAPER-FENG-YUN-ZHANG-24, whose brief already names this paper as the theory to plan it with."
+      "note": "Routed to the Part II ShtukaSpecialCyclesAndHigherSiegelWeil (parent GlobalShtukasAndFunctionFieldLanglands), the candidate proposed by PAPER-FENG-YUN-ZHANG-24, whose brief already names this paper as the theory to plan it with.",
+      "dependencies": [
+        "PAPER-YUN-ZHANG-17/46",
+        "PAPER-YUN-ZHANG-17/63",
+        "PAPER-YUN-ZHANG-17/70"
+      ]
     },
     {
       "id": "PAPER-YUN-ZHANG-17/25",
@@ -259,10 +296,15 @@
       "id": "PAPER-YUN-ZHANG-17/27",
       "kind": "theorem",
       "name": "Proposition 8.5 and Corollary 8.6 (the direct image of f_{N_d} and the matching of the two complexes)",
-      "statement": "Proposition 8.5: for d ≥ 2g′ − 1 and d ∈ Σ_d, Rf_{N_d,*}L_d ≅ (K_{d_{11}} ⊠ K_{d_{12}})|_{A_d}, proved by showing that this complex is the middle extension from the open locus B = X_d ×_{Pic^d_X}X_d, using stalk-dimension bounds over the complement of B (from H^*(X_n, L_n) = ∧^nH^1(X, L)[−n], concentrated in one degree ≤ 2g − 2 < d − g + 1) and Verdier self-duality; the paper notes that f_{N_d} is not small. Corollary 8.6: therefore Rf_{M,*}Q_ℓ ≅ ⊕_{d ∈ Σ_d}Rf_{N_d,*}L_d, matching the (i, j)-grading with the (d_{11}, d_{12})-grading, which is Propositions 8.2 and 8.5 combined.",
+      "statement": "Proposition 8.5: for d ≥ 2g′ − 1 and d ∈ Σ_d, Rf_{N_d,*}L_d ≅ (K_{d_{11}} ⊠ K_{d_{12}})|_{A_d}, proved by showing that this complex is the middle extension from the open locus B = X_d ×_{Pic^d_X}X_d, using stalk-dimension bounds over the complement of B (from H^*(X_n, L_n) = ∧^nH^1(X, L)[−n], concentrated in one degree ≤ 2g − 2 < d − g + 1) and Verdier self-duality; the paper notes that d ≥ 2g′ − 1 does not imply smallness of f_{N_d}. Corollary 8.6: therefore Rf_{M,*}Q_ℓ ≅ ⊕_{d ∈ Σ_d}Rf_{N_d,*}L_d, matching the (i, j)-grading with the (d_{11}, d_{12})-grading, which is Propositions 8.2 and 8.5 combined.",
       "locator": "§8.2, Proposition 8.5, Corollary 8.6, pp. 872–873, published version",
       "status": "missing",
-      "note": "Routed to the Part II ShtukaSpecialCyclesAndHigherSiegelWeil (parent GlobalShtukasAndFunctionFieldLanglands), the candidate proposed by PAPER-FENG-YUN-ZHANG-24, whose brief already names this paper as the theory to plan it with."
+      "note": "Routed to the Part II ShtukaSpecialCyclesAndHigherSiegelWeil (parent GlobalShtukasAndFunctionFieldLanglands), the candidate proposed by PAPER-FENG-YUN-ZHANG-24, whose brief already names this paper as the theory to plan it with. The shared exterior-power input is /54 (= YZ19/165 at empty ramification), not an unproved consequence hidden in the stalk calculation.",
+      "dependencies": [
+        "PAPER-YUN-ZHANG-17/54",
+        "PAPER-YUN-ZHANG-17/55",
+        "PAPER-YUN-ZHANG-17/56"
+      ]
     },
     {
       "id": "PAPER-YUN-ZHANG-17/28",
@@ -280,7 +322,11 @@
       "statement": "Theorem 1.8 follows from Theorem 9.2 with f = 1_K and Corollary 2.5 (§9.1.1), so it inherits the corrected constant 2^{r+1} (E9). Theorem 1.6 follows by comparing the spectral decompositions: Σ_{m ∈ Z′^r_{0,ℓ}}([Sht_T]_m, h ∗ [Sht_T]_m) = Σ_{π ∈ Z_cusp}(log q)^{−r}J_r(π, h) for h in a suitable ideal (§9.2). Theorem 1.1 follows from Corollary 9.4 and Lemma 7.15 (§9.3.1), and Theorem 1.2 from Theorem 1.6 and the compatibility of the intersection pairing with the cup product under the cycle class map (§9.3.2).",
       "locator": "§§9.1–9.3, pp. 874–879, published version",
       "status": "missing",
-      "note": "Routed to the Part II ShtukaSpecialCyclesAndHigherSiegelWeil (parent GlobalShtukasAndFunctionFieldLanglands), the candidate proposed by PAPER-FENG-YUN-ZHANG-24, whose brief already names this paper as the theory to plan it with."
+      "note": "Routed to the Part II ShtukaSpecialCyclesAndHigherSiegelWeil (parent GlobalShtukasAndFunctionFieldLanglands), the candidate proposed by PAPER-FENG-YUN-ZHANG-24, whose brief already names this paper as the theory to plan it with.",
+      "dependencies": [
+        "PAPER-YUN-ZHANG-17/46",
+        "PAPER-YUN-ZHANG-17/70"
+      ]
     },
     {
       "id": "PAPER-YUN-ZHANG-17/30",
@@ -289,7 +335,11 @@
       "statement": "For a Deligne–Mumford stack X locally of finite type over k, Ch_{c,i}(X)_Q is the colimit of Ch_i(Y)_Q over closed substacks Y ⊆ X proper over k (§A.1.2); the degree map satisfies deg([x]) = [k_x : k]/|Aut(x)|_{k_x} (§A.1.3); for X smooth separated of pure dimension n the refined Gysin map along the diagonal gives the intersection product Ch_{c,i} × Ch_{c,j} → Ch_{c,i+j−n} and the pairing ⟨ , ⟩_X (A.1) (§A.1.4); the cycle class map cl_X : Ch_{c,j}(X)_Q → H^{2n−2j}_c(X ⊗_k k̄, Q_ℓ)(n−j) intertwines it with the cup product (§A.1.5); and cCh_n(X × X)_Q, the colimit over correspondences Z with proper first projection, is an associative Q-algebra acting on Ch_{c,i}(X)_Q (§A.1.6).",
       "locator": "§A.1, (A.1)–(A.2), pp. 880–882, published version",
       "status": "missing",
-      "note": "Routed to SchemeAndStackFoundations SF.5 as a source."
+      "note": "Routed to SchemeAndStackFoundations SF.5 as a source.",
+      "dependencies": [
+        "PAPER-YUN-ZHANG-17/44",
+        "PAPER-YUN-ZHANG-17/57"
+      ]
     },
     {
       "id": "PAPER-YUN-ZHANG-17/31",
@@ -331,10 +381,15 @@
       "id": "PAPER-YUN-ZHANG-17/35",
       "kind": "theorem",
       "name": "§A.4 (a Lefschetz trace formula for the intersection with the graph of Frobenius)",
-      "statement": "For a self-correspondence C of M over S with cohomological correspondences ζ : ←c^*F → →c^!F, the pushforward h_! and the trace map τ_C : Hom(←c^*F, →c^!F) → H^{BM}_0(Fix(C) ⊗_k k̄) are those of Varshavsky. Lemma A.11: for M smooth separated of pure dimension n and F = Q_ℓ, the refined Gysin map Δ^!_M : Ch_n(C)_Q → Ch_0(Fix(C))_Q is compatible with τ_C through the cycle class maps. Proposition A.12: if moreover k is finite, S is a scheme, f : M → S is proper and ←c is representable and proper, then for every ζ ∈ Ch_n(C)_Q and every s ∈ S(k), ⟨ζ, Γ(Fr_M)⟩_s = Tr((f_!cl_C(ζ))_s ∘ Frob_s, (f_!Q_ℓ)_s), where the left side is the degree of the s-component of (id, Fr_M)^!ζ.",
+      "statement": "For a self-correspondence C of M over S with cohomological correspondences ζ : ←c^*F → →c^!F, the pushforward h_! and the trace map τ_C : Hom(←c^*F, →c^!F) → H^{BM}_0(Fix(C) ⊗_k k̄) are those of Varshavsky. Lemma A.11: for C and M Deligne–Mumford stacks locally of finite type over k, with M smooth separated of pure dimension n and F = Q_ℓ, the refined Gysin map Δ^!_M : Ch_n(C)_Q → Ch_0(Fix(C))_Q is compatible with τ_C through the cycle class maps. Proposition A.12: if moreover k is finite, S is a scheme, f : M → S is proper and ←c is representable and proper, then for every ζ ∈ Ch_n(C)_Q and every s ∈ S(k), ⟨ζ, Γ(Fr_M)⟩_s = Tr((f_!cl_C(ζ))_s ∘ Frob_s, (f_!Q_ℓ)_s), where the left side is the degree of the s-component of (id, Fr_M)^!ζ.",
       "locator": "§A.4, Lemma A.11, Proposition A.12, pp. 895–901, published version",
       "status": "missing",
-      "note": "The proof uses the excess intersection formula and Varshavsky's theorem that a contracting correspondence has naive local terms. Routed to EtaleDualityAndPerverseSheaves EDC.8 as a source. The proof also uses Varshavsky's Prop. 1.2.5 (trace maps are compatible with proper pushforward of correspondences)."
+      "note": "The proof uses the excess intersection formula and Varshavsky's theorem that a contracting correspondence has naive local terms. Routed to the proposed EtaleDualityAndPerverseSheavesPartIIStacks (ST.5), coalescing with RT-AREA-etale/3 and YZ19/120; EDC.8 supplies the scheme formalism only. The proof also uses Varshavsky's Prop. 1.2.5 (trace maps are compatible with proper pushforward of correspondences).",
+      "dependencies": [
+        "PAPER-YUN-ZHANG-17/44",
+        "PAPER-YUN-ZHANG-17/56",
+        "PAPER-YUN-ZHANG-17/57"
+      ]
     },
     {
       "id": "PAPER-YUN-ZHANG-17/36",
@@ -343,16 +398,22 @@
       "statement": "After recalling the Weierstrass product, genus, order and Hadamard's theorem g(φ) ≤ ρ(φ) ≤ g(φ) + 1: Proposition B.1. Let φ be entire with (1) φ(−s) = ±φ(s), (2) φ(s) ∈ R_{>0} for real s ≫ 0, (3) ρ(φ) ≤ 1, and (4) all zeros on the imaginary axis. Then φ^{(r)}(0) ≥ 0 for all r ≥ 0, and if φ is not a polynomial (the paper says \"not a constant\", which is false: φ = 1 + s², E16), φ^{(r_0)}(0) ≠ 0 implies φ^{(r_0+2i)}(0) ≠ 0 for every i ≥ 0. The proof pairs the roots α ↔ −α = ᾱ and writes φ(s) = s^me^h∏_{i≥1}(1 + s²/(α_iᾱ_i)) with e^h > 0.",
       "locator": "§B.1, Proposition B.1, pp. 901–903, published version",
       "status": "missing",
-      "note": "The printed \"equivalent\" formula for the order divides by r instead of log r (E18); the superscripts (r) are misprinted (E1). Stark and Zagier obtained a similar result. Routed to AutomorphicLFunctionsAndLocalFactors AL.2 as a source."
+      "note": "The printed \"equivalent\" formula for the order divides by r instead of log r (E18); the superscripts (r) are misprinted (E1). Stark and Zagier obtained a similar result. Routed to AutomorphicLFunctionsAndLocalFactors AL.2 as a source.",
+      "dependencies": [
+        "PAPER-YUN-ZHANG-17/47"
+      ]
     },
     {
       "id": "PAPER-YUN-ZHANG-17/37",
       "kind": "theorem",
       "name": "Theorem B.2, Lemma B.3 and Remarks B.4–B.7 (super-positivity of automorphic L-functions)",
-      "statement": "For a nontrivial self-dual cuspidal automorphic representation π of GL_n(A) over a global field whose L-function L(π, s) is entire (the paper omits this; it fails for n = 1 over a function field, e.g. π = (−1)^{deg}, E15), with Λ(π, s) = N_π^{−(s−1/2)/2}L(π, s) and assuming the Riemann hypothesis for L(π, s) when F is a number field: (1) Λ^{(r)}(π, 1/2) ≥ 0 for all r ≥ 0; (2) if Λ is not constant, Λ^{(r_0)}(π, 1/2) ≠ 0 implies Λ^{(r_0+2i)}(π, 1/2) ≠ 0. Over a function field the hypothesis is a theorem (Deligne; Drinfeld and L. Lafforgue). Lemma B.3: if π_v is unitary and self-dual then L(π_v, s) has real coefficients, proved by showing L(π̄_v, s) = L(π̃_v, s) through the Godement–Jacquet local zeta integrals and complex conjugation of matrix coefficients. Remark B.4 gives an elementary function-field proof through the factorization λ(π, s) = (q^{s/2} − q^{−s/2})^a(q^{s/2} + q^{−s/2})^b∏_iA_i(s); Remark B.5's claim that s(s−1)Λ is super-positive for the trivial representation holds over number fields but not over function fields (E17). Remarks B.5–B.7 record the cases known unconditionally (the Riemann zeta function; Sarnak's positive definite L-functions; Goldfeld–Huang; Lapid–Rallis for central values; Gross–Zagier and Yuan–Zhang–Zhang for first derivatives).",
+      "statement": "For a nontrivial self-dual cuspidal automorphic representation π of GL_n(A) over a global field whose L-function L(π, s) is entire (the paper omits this; it fails for n = 1 over a function field, e.g. π = (−1)^{deg}, E15), with the completed normalized function of order at most one in s (verify this over number fields; over function fields use its exponential-polynomial expression), Λ(π, s) = N_π^{−(s−1/2)/2}L(π, s) and assuming the Riemann hypothesis for L(π, s) when F is a number field: (1) Λ^{(r)}(π, 1/2) ≥ 0 for all r ≥ 0; (2) if Λ is not constant, Λ^{(r_0)}(π, 1/2) ≠ 0 implies Λ^{(r_0+2i)}(π, 1/2) ≠ 0. Over a function field the hypothesis is a theorem (Deligne; Drinfeld and L. Lafforgue). Lemma B.3: if π_v is unitary and self-dual then L(π_v, s) has real coefficients, proved by showing L(π̄_v, s) = L(π̃_v, s) through the Godement–Jacquet local zeta integrals and complex conjugation of matrix coefficients. Remark B.4 gives an elementary function-field proof through the factorization λ(π, s) = (q^{s/2} − q^{−s/2})^a(q^{s/2} + q^{−s/2})^b∏_iA_i(s); Remark B.5's claim that s(s−1)Λ is super-positive for the trivial representation holds over number fields but not over function fields (E17). Remarks B.5–B.7 record the cases known unconditionally (the Riemann zeta function; Sarnak's positive definite L-functions; Goldfeld–Huang; Lapid–Rallis for central values; Gross–Zagier and Yuan–Zhang–Zhang for first derivatives).",
       "locator": "§B.2, Theorem B.2, Lemma B.3, Remarks B.4–B.7, pp. 903–906, published version",
       "status": "missing",
-      "note": "Theorem 1.7 only uses the GL_2 cuspidal L(π, s) and L(π ⊗ η, s), which are entire, so it is unaffected by E15. Theorem B.2 is what makes Theorem 1.7 (positivity of the intersection pairing) unconditional over function fields. Routed to AutomorphicLFunctionsAndLocalFactors AL.2 as a source."
+      "note": "Theorem 1.7 only uses the GL_2 cuspidal L(π, s) and L(π ⊗ η, s), which are entire, so it is unaffected by E15. Theorem B.2 is what makes Theorem 1.7 (positivity of the intersection pairing) unconditional over function fields. Routed to AutomorphicLFunctionsAndLocalFactors AL.2 as a source. For the number-field application verify that the completed normalized function is entire of order at most one. In the function-field case its exponential Laurent-polynomial expression has order at most one in s, with a separate constant case; a nonconstant periodic exponential polynomial cannot be a polynomial in s. This supplies B.1’s non-polynomial condition for strict same-parity positivity. The unconditional PGL_2/Q central-value proposal of RT-AREA-iwasawa-1/16 is an overlap reference only; no GZ.5 → AL.2 prerequisite is added.",
+      "dependencies": [
+        "PAPER-YUN-ZHANG-17/47"
+      ]
     },
     {
       "id": "PAPER-YUN-ZHANG-17/38",
@@ -371,49 +432,53 @@
       "kind": "construction",
       "name": "Perverse sheaves, middle extension, smallness and the decomposition theorem",
       "statement": "The middle perverse t-structure with intermediate extensions, the fact that the direct image of the constant sheaf under a small proper map is the middle extension from a dense open, Verdier self-duality up to twist for smooth sources, and the perverse continuation principle by which an isomorphism over a dense open extends.",
-      "locator": "§§8.1–8.2 (Propositions 8.2, 8.5) and §6.2, published version",
+      "locator": "§§8.1–8.2 (Propositions 8.2, 8.5) and §6.4.4 (the semismall application), published version",
       "status": "planned",
       "planned": [
         "EtaleDualityAndPerverseSheaves:EDC.5",
         "EtaleDualityAndPerverseSheaves:EDC.7"
       ],
-      "note": "EDC.5 plans the perverse t-structure and intermediate extension, EDC.7 purity and the decomposition theorem."
+      "note": "EDC.5 plans the perverse t-structure and intermediate extension, EDC.7 purity and the decomposition theorem. This planned claim is the scheme formalism. Its stack extension and precise boundedness/decomposition hypotheses are the separate missing stack input /56; do not infer a general decomposition theorem for Artin stacks."
     },
     {
       "id": "PAPER-YUN-ZHANG-17/40",
       "kind": "construction",
       "name": "Cohomological correspondences, trace maps and the Lefschetz–Verdier formalism",
-      "statement": "Cohomological correspondences c_2^*K → c_1^!K with their composition and pushforward, the trace class in the Borel–Moore homology of the fixed-point stack, and the theorem that a contracting correspondence contributes naive local terms.",
+      "statement": "For finite-type schemes over the base and coefficient hypotheses of EDC.8, cohomological correspondences c_2^*K → c_1^!K, their composition under properness/base-change hypotheses, proper pushforward and the trace class on the fixed-point scheme. Stack correspondences and the contracting-correspondence theorem needed here are separate missing inputs /35 and /56.",
       "locator": "§A.4.1–A.4.3, published version",
       "status": "planned",
       "planned": [
         "EtaleDualityAndPerverseSheaves:EDC.8"
       ],
-      "note": "EDC.8 plans cohomological correspondences, their composition and the trace class on the fixed-point scheme; §A.4 of this paper is the stacky Frobenius-graph refinement, routed as a source."
+      "note": "EDC.8 supplies scheme correspondences and trace classes. The DM-stack extension and the precise Varshavsky contracting-local-term hypotheses are assigned to the shared stacks Part II, not asserted by this planned scheme item."
     },
     {
       "id": "PAPER-YUN-ZHANG-17/41",
       "kind": "construction",
-      "name": "Chow groups of Artin stacks, refined Gysin maps and Riemann–Roch",
-      "statement": "Chow groups of algebraic stacks with proper pushforward and flat pullback, refined Gysin maps for regular local immersions and for morphisms with vector bundle normal cone stacks, the excess intersection formula, deformation to the normal cone, and the Riemann–Roch map τ_X relating K-theory and Chow groups.",
+      "name": "Scheme Chow groups, refined Gysin maps and Riemann–Roch",
+      "statement": "For schemes in the source-scoped finite-type hypotheses of SF.5: Chow groups and rational equivalence, proper pushforward, flat and lci pullback, refined Gysin maps, excess intersection, deformation to the normal cone, and rational Grothendieck–Riemann–Roch.",
       "locator": "§§A.1–A.2 (imported from Kresch, Fulton, Gillet, Vistoli), published version",
       "status": "planned",
       "planned": [
         "SchemeAndStackFoundations:SF.5"
       ],
-      "note": "SF.5 plans Chow groups, refined Gysin maps, intersection products and Grothendieck–Riemann–Roch; the extension to DM stacks with finite flat presentations, and the two new results of Appendix A, are routed as a source of that stage."
+      "note": "This planned item is restricted to schemes. Stack operations are missing input /44, coalescing at SF.5 with CANNING-LARSON-PAYNE-24/12 and existing Appendix A items 30–34. A source contribution does not make its new stack results already planned or implemented."
     },
     {
       "id": "PAPER-YUN-ZHANG-17/42",
       "kind": "construction",
       "name": "Everywhere unramified automorphic forms and the spherical Hecke algebra over a function field",
-      "statement": "The space A = C^∞_c(G(F)\\G(A)/K, Q) of everywhere unramified automorphic functions with its H-module structure, the decomposition into cuspidal, residual and Eisenstein parts, the coefficient field E_π = End_H(A_π) of an irreducible H-submodule, the Satake isomorphism and the Petersson inner product.",
+      "statement": "For G=PGL_2 over F=k(X), compact-level automorphic functions C_c(G(F)\\G(A)/K,Q) with their Hecke action, constant terms and cuspidal subspaces; finite-dimensionality of the cuspidal space at fixed level and central character (or after quotient by the split degree-center lattice in the general reductive setting); the spherical Hecke algebra and Satake isomorphism. The Eisenstein/kernel decomposition, multiplicity-one contracts and period normalizations are separate inputs /45, /46 and /64.",
       "locator": "§§1.2, 4.1–4.3, published version",
       "status": "planned",
       "planned": [
         "FunctionFieldArithmetic:FA.6"
       ],
-      "note": "FA.6 plans G(K)\\G(A_K), compact-level functions, cuspidal subspaces, Hecke correspondences and the unramified Satake dictionary over a function field."
+      "note": "FA.6 plans G(K)\\G(A_K), compact-level functions, cuspidal subspaces, Hecke correspondences and the unramified Satake dictionary over a function field. Reuse GS.0/cuspidal-automorphic-forms as the FA.6 consumer. Fixed-level cuspidal finiteness is already planned; strong multiplicity one does not prove multiplicity one inside this function space.",
+      "dependencies": [
+        "PAPER-YUN-ZHANG-17/61",
+        "PAPER-YUN-ZHANG-17/68"
+      ]
     },
     {
       "id": "PAPER-YUN-ZHANG-17/43",
@@ -428,7 +493,300 @@
         "GlobalShtukasAndFunctionFieldLanglands:GS.6",
         "DeligneWeightsAndPurity:DWP.7"
       ],
-      "note": "AL.2 plans the Godement–Jacquet standard factors and FA.5 the function-field zeta and Artin factors with the Weil theorem. The Riemann hypothesis for cuspidal L(π, s) over function fields, used by Theorem B.2, needs L. Lafforgue's GL_n correspondence (GS.6) and Deligne's weight theorem (DWP.7); these are added to the planned list."
+      "note": "AL.2 plans the Godement–Jacquet standard factors and FA.5 the function-field zeta and Artin factors with the Weil theorem. The Riemann hypothesis for cuspidal L(π, s) over function fields, used by Theorem B.2, needs L. Lafforgue's GL_n correspondence (GS.6) and Deligne's weight theorem (DWP.7); these are added to the planned list.",
+      "dependencies": [
+        "PAPER-YUN-ZHANG-17/69"
+      ]
+    },
+    {
+      "id": "PAPER-YUN-ZHANG-17/44",
+      "kind": "construction",
+      "name": "Source-scoped intersection theory on Artin and Deligne–Mumford stacks",
+      "statement": "For algebraic stacks locally of finite type over a field, use Kresch’s cycle groups in the classes for which the operations are defined. For finite-type DM stacks use rational cycles modulo rational equivalence; for locally finite-type DM stacks use proper-support cycles and colimits. Supply proper pushforward and flat pullback with their finiteness/relative-dimension assumptions, regular-local-immersion Gysin maps, excess intersection and DM deformation to the normal cone. For §A.2.10 retain: X′ DM, h (hence g) representable, the normal cone stack of f a vector bundle stack of constant virtual rank d, a smooth-surjective scheme presentation with a regular local immersion, dim Y′=n and dim X′=n−d; then construct the top-degree Gysin map Ch_n(Y′)_Q → Ch_{n−d}(X′)_Q. Retain finite flat presentations for the K′_0/Chow comparison in §A.2.3–8. Cycle classes and Gysin compatibility for smooth separated DM stacks, with ℓ invertible in k and rational ℓ-adic coefficients, are shared with the stacks sheaf owner.",
+      "locator": "§§A.1–A.2, pp.880–889; §A.4.3, pp.896–897; Kresch [13] p.489 and [14] end of p.529",
+      "status": "missing",
+      "note": "Coalesce with CANNING-LARSON-PAYNE-24/12 at the SF.5 source owner. Existing items 31–34 own the corrected K′_0 filtration, Proposition A.5 and Octahedron Lemma; this input does not duplicate them. Acquire Kresch’s operation-specific hypotheses in that blueprint; no unrestricted Gysin theory for arbitrary Artin stacks is claimed."
+    },
+    {
+      "id": "PAPER-YUN-ZHANG-17/45",
+      "kind": "construction",
+      "name": "Function-field Eisenstein series and automorphic-kernel spectral decomposition",
+      "statement": "For PGL_2 over k(X), the induced families ρ_{χ,u}, with φ(bg)=χ(b)|δ_B(b)|^{u+1/2}φ(g) and u-period 2πi/log q, identify through their restrictions to K. Define E(g,φ,u,χ) by meromorphic continuation of the convergent B(F)\\G(F) sum, then the Eisenstein kernel by (4.6)–(4.7), with the given contour, normalization and finite unramified character sum for spherical f. Prove K_f=K_{f,cusp}+K_{f,sp}+K_{f,Eis}, and that a_Eis(f)=0 kills the last term.",
+      "locator": "§4.2, pp.800–802, (4.3)–(4.9); Jacquet [12] §7.1(4), §8.4",
+      "status": "missing",
+      "note": "One shared function-field analytic adapter with YZ19/16 and the regularized distributions of both papers. Import FA.2/FA.6 and generic local representation theory; number-field AS.1–AS.4 do not supply this theorem."
+    },
+    {
+      "id": "PAPER-YUN-ZHANG-17/46",
+      "kind": "theorem",
+      "name": "Automorphic multiplicity one and spherical eigenline dimension",
+      "statement": "For a cuspidal automorphic representation π of PGL_2(A_F) over F=k(X), its multiplicity in the cuspidal automorphic representation is one; for everywhere unramified π the K-fixed vector space in each local factor is one-dimensional, and the corresponding global spherical eigenspace has dimension at most one. This ordinary multiplicity assertion is distinct from strong multiplicity one, which identifies π by almost-all unramified local components.",
+      "locator": "§1.2, §4.2–4.4, pp.800–807; §7.4.2, pp.866–867",
+      "status": "missing",
+      "note": "The strong-multiplicity-one contract is already YZ19/233 in this same analytic/cycle owner; import it once, including the extra-excluded-places scope. This item adds ordinary automorphic multiplicity one, not a second strong-multiplicity theorem. Source acquisition for the global uniqueness theorem remains blueprint work."
+    },
+    {
+      "id": "PAPER-YUN-ZHANG-17/47",
+      "kind": "theorem",
+      "name": "Canonical products and order-at-most-one Hadamard factorization",
+      "statement": "For a nonzero entire function φ of finite order, isolate the zero of multiplicity m at 0 and enumerate nonzero zeros α_i with multiplicity and no finite accumulation. With E_n(z)=(1−z)exp(z+⋯+z^n/n), choose a convergent canonical product, prove its locally uniform convergence and φ(s)=s^m exp(h(s))∏E_n(s/α_i), with polynomial h and genus g≤ρ≤g+1. In the order-at-most-one case needed here, prove Σ|α_i|^(−2)<∞ and deg h≤1, allowing finite/empty zero sets. Under φ(−s)=±φ(s), eventual positivity on the real line and imaginary-axis zeros, pair α with −α to obtain s^m c∏(1+s²/|α|²), c>0; justify differentiation/coefficients via compact convergence. Strict positivity of all later derivatives of the same parity additionally requires φ not polynomial.",
+      "locator": "Appendix B.1, pp.901–903, (B.1)–(B.3); Ahlfors [1] §5.3.2",
+      "status": "missing",
+      "note": "Coalesce with the accepted AnalyticNumberTheory AN.2 analytic proof decomposition gap and AN.2/classical-zero-free-region; AL.2 imports this single reusable complex-analytic supplier. Pinned mathlib:AnalyticOnNhd.circleAverage_log_norm_of_ne_zero is only a zero-free circle-average theorem, not this factorization. Tau Ceti’s calculus hadamardFactor is unrelated. Full canonical-product proof acquisition remains required."
+    },
+    {
+      "id": "PAPER-YUN-ZHANG-17/48",
+      "kind": "theorem",
+      "name": "Scheme sheaf–function dictionary and Frobenius trace",
+      "statement": "For a proper morphism f:N→A of finite-type schemes over F_q, a constructible Q_ℓ-complex with the requisite boundedness and ℓ≠p, and a∈A(F_q), the alternating stalk Frobenius trace of Rf_! equals the sum of the alternating traces over the F_q-points of its fibre. For the quadratic local systems L_d of §3.3 this turns η-weighted orbital sums into the trace in Proposition 3.2.",
+      "locator": "§3.3, pp.792,795–796",
+      "status": "planned",
+      "planned": [
+        "EtaleDualityAndPerverseSheaves:EDC.8"
+      ],
+      "note": "EDC.8 imports the existing upstream PR196 CohomologicalPointCounting TraceFormula Layers 0–4; it is the import boundary, not a second proof owner. The upstream identifier is UPSTREAM:CohomologicalPointCounting:TraceFormula:0-4, not a separately indexed atlas stage. The DM groupoid-weighted extension is /56 and YZ19/227."
+    },
+    {
+      "id": "PAPER-YUN-ZHANG-17/49",
+      "kind": "construction",
+      "name": "Quadratic Picard local system and Abel–Jacobi compatibility",
+      "statement": "For a smooth projective geometrically connected curve X/F_q of odd characteristic and a geometrically connected étale double cover ν:X′→X, L=(ν_*Q_ℓ)^{σ=−1} is a geometrically nontrivial rank-one local system. Construct the canonical H¹(X,Z/2Z)≅H¹(Pic_X^n,Z/2Z) comparison used to obtain L_n on every degree component, its pullback to the universal section stack, and AJ_n^*L_n as the descent of L^{⊠n} to Sym^nX.",
+      "locator": "§3.3.1, p.792",
+      "status": "missing",
+      "note": "Import GS.0/picard-and-the-gl1-case and FA.4. The exact comparison/Abel–Jacobi adapter is coalesced with RamifiedGeometricClassFieldTheory and YZ19/170, specializing to empty ramification; the general GS node alone does not state this exact isomorphism."
+    },
+    {
+      "id": "PAPER-YUN-ZHANG-17/50",
+      "kind": "construction",
+      "name": "Curve, symmetric-power and Picard foundations",
+      "statement": "For a smooth projective geometrically connected curve over k, compare divisors and line bundles, construct Pic^d and Sym^dX, and use Riemann–Roch/Serre duality with base change. Pic^d is a torsor; no rational base point is assumed. These provide the foundations for the universal section and norm constructions in /51.",
+      "locator": "§3.2, pp.789–792; §6.1, pp.821–824",
+      "status": "planned",
+      "planned": [
+        "SchemeAndStackFoundations:SF.3"
+      ],
+      "note": "Shared SF.3 input with YZ19/8; the exact norm/Prym and high-degree section-stack adapter remains missing /51."
+    },
+    {
+      "id": "PAPER-YUN-ZHANG-17/51",
+      "kind": "construction",
+      "name": "Universal section stacks, Abel–Jacobi smoothness and norm/Prym adapters",
+      "statement": "For the curves above, define X̂_d over the Picard stack by (L,s) with deg L=d and s∈H⁰(X,L). For d≥0 the nonzero-section open is Sym^dX. For d≥2g−1, X̂_d→Pic_X^d is a vector bundle of rank d−g+1 and its nonzero-section open is smooth of that relative dimension over the Picard stack (over the Picard scheme the projectivized relative dimension is d−g). For the étale double cover X′→X with p≠2 and g′=2g−1, construct the Picard norm, its Picard-stack exact sequence and Prym kernel, properness and smoothness of relative dimension g−1. Thus for d≥2g′−1 the hatted section stack on X′ is smooth over Pic_X^d of relative dimension d−g+1, giving both printed base-change smoothness assertions on p.824. Preserve the quotient/groupoid structure of the Prym.",
+      "locator": "Proposition 3.1(2), pp.791–792; Proposition 6.1 and proof, pp.823–824",
+      "status": "missing",
+      "note": "SF.3 owns this reusable curve/Picard adapter, with YZ19/8; it is not a new proof of Riemann–Roch. Distinguish the Picard stack from its coarse scheme in the dimension formulas. The valid p.824 statement is not an erratum."
+    },
+    {
+      "id": "PAPER-YUN-ZHANG-17/52",
+      "kind": "theorem",
+      "name": "Picard Lang isogeny and torus-shtuka torsor",
+      "statement": "For the Picard theory over F_q, the Lang map Fr−id (or id−Fr with the chosen convention) onto Pic⁰ has rational Picard points as kernel. Pull back along the balanced Abel–Jacobi map and quotient by Pic_X(k) as in (5.17) to obtain the Pic_{X′}(k)/Pic_X(k)-torsor π_T^μ over X′^r, with the groupoid and component conventions of the source.",
+      "locator": "Lemma 5.13 and proof, pp.817–818; Corollary 7.6",
+      "status": "planned",
+      "planned": [
+        "GlobalShtukasAndFunctionFieldLanglands:GS.0"
+      ],
+      "note": "Import GS.0/picard-and-the-gl1-case, including the rational-point kernel and degree constraints; do not plan a second Picard Lang theorem."
+    },
+    {
+      "id": "PAPER-YUN-ZHANG-17/53",
+      "kind": "theorem",
+      "name": "Finite-field group Lang descent used at a Hecke place",
+      "statement": "For a smooth connected algebraic group G/F_q, the Lang morphism g↦g^(−1)Fr(g) is surjective, with the finite G(F_q)-torsor structure in the corresponding convention. In the PGL_2 application, a bundle fibre at x equipped with Frobenius structure gives locally a trivialization torsor under G(k_x), yielding the morphism to B(G(k_x)) used to compare Hecke correspondences and constant terms.",
+      "locator": "Lemma 7.8 proof, pp.857–858",
+      "status": "missing",
+      "note": "Remaining group/Frobenius descent input of the joint cycle adapter, coordinated with the existing GS.0 Picard-Lang supplier /52. It does not create another Picard Lang isogeny. Its general group theorem and the exact relative descent statement must be sourced and proved before this application closes."
+    },
+    {
+      "id": "PAPER-YUN-ZHANG-17/54",
+      "kind": "theorem",
+      "name": "Exterior-power cohomology of the quadratic symmetric-power local system",
+      "statement": "For the geometrically nontrivial rank-one quadratic L on the smooth projective connected X and its symmetric-power descent L_n, H^i(Sym^nX_kbar,L_n)=0 for i≠n and H^n≅∧^nH¹(X_kbar,L), Frobenius-equivariantly. Hence it vanishes for n>2g−2. Derive this using H⁰=H²=0, Künneth and S_n-invariants with the Koszul sign.",
+      "locator": "Proposition 8.5 proof, p.873",
+      "status": "missing",
+      "note": "The unramified instance of YZ19/165 in RamifiedGeometricClassFieldTheory; one shared proof, with rational ℓ-adic coefficients so finite-group averaging is valid."
+    },
+    {
+      "id": "PAPER-YUN-ZHANG-17/55",
+      "kind": "theorem",
+      "name": "Scheme compact-support Künneth and proper base change",
+      "statement": "Use the upstream Rf_! Künneth, projection and proper-base-change formulas for finite-type schemes and bounded constructible coefficients with the hypotheses of the EDC.0 import interface. Apply to the scheme pieces of the symmetric-power and orbital-integral diagrams.",
+      "locator": "Propositions 8.2 and 8.5 proofs, pp.870,873",
+      "status": "planned",
+      "planned": [
+        "EtaleDualityAndPerverseSheaves:EDC.0"
+      ],
+      "note": "The diagrams involving Picard/Hecke stacks require the separate stack extension /56, not an unqualified use of this scheme theorem."
+    },
+    {
+      "id": "PAPER-YUN-ZHANG-17/56",
+      "kind": "construction",
+      "name": "Stack sheaf operations, Künneth and weighted Frobenius trace",
+      "statement": "Build the ℓ-adic operations needed on the Artin/DM stacks of §§3,5–8 with ℓ≠p, rational ℓ-adic coefficients, specified finite-type morphisms and constructible complexes. Retain the source’s bounded-above/below domains for general Artin stacks; D_c^b preservation requires a separate argument. Include stack base change/Künneth, smooth-descent perverse and intermediate-extension interfaces, DM cohomological correspondences and the precise contracting-local-term theorem. For a proper map N→A from a finite-type DM stack to a scheme, with a constructible Q_ℓ local system, prove the fibre trace is Σ_[z]Tr(Fr_z,L_z)/#Aut(z). Restrict any Artin-stack trace extension to its mixedness, stratifiability and convergence hypotheses.",
+      "locator": "§3.3; §§7.1,8.1–8.2; §A.4; YZ19/227",
+      "status": "missing",
+      "note": "One shared EtaleDualityAndPerverseSheavesPartIIStacks proposal, ST.0–ST.6 of RT-AREA-etale/3, not existing atlas stages. The particular DM decomposition/small-map result used in §8 is a source/closure obligation; no general Artin-stack decomposition theorem is asserted. Coalesce YZ19/227 here."
+    },
+    {
+      "id": "PAPER-YUN-ZHANG-17/57",
+      "kind": "construction",
+      "name": "Smooth-DM duality, trace and proper-cycle class compatibility",
+      "statement": "For a smooth separated DM stack X locally of finite type over k of pure dimension n, with ℓ invertible, assemble compact-support cohomology from finite-type open truncations and prove its compatibility with the support maps in use. Identify the dualizing complex with Q_ℓ(n)[2n] and construct the trace H_c^{2n}(X_kbar,Q_ℓ(n))→Q_ℓ, summing components. For proper cycles construct Ch_{c,j}(X)_Q→H_c^{2n−2j}(X_kbar,Q_ℓ(n−j)) compatibly with rational equivalence, proper pushforward and intersection/cup product. Top cohomology is not generally a single copy of Q_ℓ.",
+      "locator": "§7.1, pp.846–849; §A.1.5, p.881; §A.4.3, pp.896–897",
+      "status": "missing",
+      "note": "Generic stack duality/cycle compatibility belongs to the shared stacks Part II, importing SF.5’s stack cycle construction /44 and EDC.3’s scheme cycle map. Shtuka-specific exhaustion, colimit and Hecke-support control remain GS.3/cycle inputs. Preserve source correction E34."
+    },
+    {
+      "id": "PAPER-YUN-ZHANG-17/58",
+      "kind": "theorem",
+      "name": "Weight filtration and pure cohomology in Hecke finite generation",
+      "statement": "On the smooth proper scheme X^r/F_q, the pure weight-zero local systems C_n have H^{2r} pure of weight 2r and W_{≤2r}H^{2r+1}=0. Use the strict weight filtration in the long exact sequences for K_n→K_{n+1}→C_{n+1} to stabilize the bounded-weight term and prove the associated-graded surjections used for finite generation over H_x.",
+      "locator": "Lemma 7.13(1), p.864",
+      "status": "planned",
+      "planned": [
+        "DeligneWeightsAndPurity:DWP.7",
+        "DeligneWeightsAndPurity:DWP.8"
+      ],
+      "note": "Separate from item 43’s RH use; the shtuka truncation argument stays in item 23. Do not infer pure ordinary cohomology on arbitrary singular bases."
+    },
+    {
+      "id": "PAPER-YUN-ZHANG-17/59",
+      "kind": "theorem",
+      "name": "Smooth zero-dimensional stack of torsion sheaves on a curve",
+      "statement": "For a smooth projective curve X/k and d≥0, the stack Coh_0^d of torsion coherent sheaves of length d (in families, finite support and the required flatness over the base) is smooth of dimension zero. This is the geometry input to the representable smooth maps H_d→Bun_G in Lemma 6.8; it does not assert their proof is already formalized.",
+      "locator": "Lemma 6.8 proof, p.832, citing Laumon [18] (3.1)",
+      "status": "missing",
+      "note": "Expose at the shared stack-geometry source owner SF.1, consumed by the cycle adapter. Acquire Laumon’s exact family hypotheses and proof there; retain E31’s correction that the auxiliary parameter space is an open part of a vector bundle."
+    },
+    {
+      "id": "PAPER-YUN-ZHANG-17/60",
+      "kind": "construction",
+      "name": "Function-field self-dual measures and Poisson summation",
+      "statement": "For F=k(X), construct the adelic residue character from a nonzero rational differential, the self-dual local Haar measures and their change under scaling the character, the compact degree-zero idele quotient, and Poisson summation on A/F. Use these in regularization at the exceptional orbital parameters and in the period normalization.",
+      "locator": "§2.5, p.786, (2.13); Proposition 4.5, pp.804–806",
+      "status": "planned",
+      "planned": [
+        "FunctionFieldArithmetic:FA.2"
+      ],
+      "note": "Generic harmonic analysis stays at FA.2; the exact global/local normalization calculation is the missing adapter /64."
+    },
+    {
+      "id": "PAPER-YUN-ZHANG-17/61",
+      "kind": "construction",
+      "name": "Spherical Hecke basis and normalized Satake dictionary",
+      "statement": "For unramified PGL_2 over F=k(X), H_x=Q[h_x] with basis h_x^n denoting the source’s characteristic functions of the n-th double cosets, and the restricted tensor product has basis h_D indexed by effective divisors. Use the normalized Satake transform h_x↦t_x+q_x t_x^(−1). The Picard involution and Eisenstein quotient are separately constructed in item 12.",
+      "locator": "§3.1, p.788; §4.1, pp.797–798",
+      "status": "planned",
+      "planned": [
+        "FunctionFieldArithmetic:FA.6",
+        "GlobalShtukasAndFunctionFieldLanglands:GS.1"
+      ],
+      "note": "Reuse GS.1/unramified-hecke-algebra-and-satake-isomorphism; the symbols h_x^n here label double cosets, not unqualified powers of the generator."
+    },
+    {
+      "id": "PAPER-YUN-ZHANG-17/62",
+      "kind": "theorem",
+      "name": "Function-field class field theory and Chebotarev for Picard characters",
+      "statement": "Identify the relevant finite-order Picard/idele characters by reciprocity and Frobenius classes. Use function-field Chebotarev with its constant-field degree congruence restrictions to distinguish the characters in Lemma 4.2 and the support argument of Theorem 9.2.",
+      "locator": "Lemma 4.2(2), p.798; Theorem 9.2 proof, p.876",
+      "status": "planned",
+      "planned": [
+        "FunctionFieldArithmetic:FA.4",
+        "FunctionFieldArithmetic:FA.5"
+      ],
+      "note": "The exact cuspidal/Eisenstein disjointness argument is /70, not a consequence of a non-strict numerical Ramanujan bound."
+    },
+    {
+      "id": "PAPER-YUN-ZHANG-17/63",
+      "kind": "theorem",
+      "name": "Hecke-finite automorphic forms are cuspidal",
+      "statement": "For the empty-leg trivial-coefficient case of the GS.3 automorphic model at fixed level and with the central lattice quotient, the Hecke-finite subspace equals the cuspidal subspace. When applying the integral O_E-lattice formulation to the finite-dimensional Q-space A_0 of Lemma 7.15, establish the coefficient-extension/lattice or source support argument needed for that implication.",
+      "locator": "Lemma 7.15 proof, p.867, citing V. Lafforgue [15] Lemme 8.13",
+      "status": "planned",
+      "planned": [
+        "GlobalShtukasAndFunctionFieldLanglands:GS.3"
+      ],
+      "note": "Exact supplier node: GS.3/cuspidality-equals-hecke-finiteness, not just the definition of Hecke-finiteness. FA.6 already supplies cuspidal finiteness."
+    },
+    {
+      "id": "PAPER-YUN-ZHANG-17/64",
+      "kind": "theorem",
+      "name": "Function-field Whittaker periods and exact measure normalization",
+      "statement": "For everywhere unramified cuspidal PGL_2 π and the source’s Whittaker vector/characters, prove ⟨φ,φ⟩_Pet=2 L(π,Ad,1)∏θ_x^natural and P_χ(φ,s)=L(π⊗χ,s+1/2)∏λ_x^natural, including continuation from the s=0 reference. For unramified additive and twisting characters the normalized local values are θ_x^natural=ζ_x(2)^(−1) and λ_x^natural=1. Track character scaling, vol(O)=|ω_X|^(1/2), vol(K)=ζ_F(2)^(−1)|ω_X|^(3/2), and the switch to Tamagawa measures to obtain the exact factor |ω_X|/2 in Proposition 4.5.",
+      "locator": "Proposition 4.5 and Lemma 4.6, pp.803–806; W. Zhang [31], Propositions 3.1 and 3.3",
+      "status": "missing",
+      "note": "AL.3 supplies generic unfolding/local-factor inputs and FA.2 supplies self-dual measures; neither is credited as proving this full function-field adapter. Coalesce with YZ19/17, /23–26 in the joint analytic tranche."
+    },
+    {
+      "id": "PAPER-YUN-ZHANG-17/65",
+      "kind": "construction",
+      "name": "Function-field divisors and degree",
+      "statement": "For fields k,F with an algebra k F, a divisor is a finite integral combination of normalized places; its degree is the sum of multiplicities weighted by residue degrees.",
+      "locator": "Degree bookkeeping throughout §§1–4",
+      "status": "library",
+      "note": "Read at Tau Ceti f790474. This arithmetic carrier/result is not yet its scheme/Picard/shtuka comparison.",
+      "library": [
+        "tauceti:TauCeti.Divisor",
+        "tauceti:TauCeti.Divisor.degree"
+      ]
+    },
+    {
+      "id": "PAPER-YUN-ZHANG-17/66",
+      "kind": "theorem",
+      "name": "Finite-dimensional function-field Riemann–Roch space",
+      "statement": "For IsFunctionField k F and any divisor D, the arithmetic Riemann–Roch space L(D) is finite-dimensional over k. No finite-constant-field or exact-constants hypothesis is required for this theorem.",
+      "locator": "§3.3, A_D(k)=Γ(X,O_X(D)), pp.793–795",
+      "status": "library",
+      "note": "Read at Tau Ceti f790474. This arithmetic carrier/result is not yet its scheme/Picard/shtuka comparison. SF.3 supplies the comparison with the scheme section space.",
+      "library": [
+        "tauceti:TauCeti.finiteDimensional_riemannRochSpace"
+      ]
+    },
+    {
+      "id": "PAPER-YUN-ZHANG-17/67",
+      "kind": "theorem",
+      "name": "Degree of the canonical function-field divisor",
+      "statement": "For IsFunctionField k F with IsIntegrallyClosedIn k F (exact constants), a nonzero Weil differential in the specified differential space has divisor of degree 2 genus(k,F)−2.",
+      "locator": "§1.2; Proposition 4.5 proof, p.806",
+      "status": "library",
+      "note": "Read at Tau Ceti f790474. This arithmetic carrier/result is not yet its scheme/Picard/shtuka comparison. Compare the arithmetic differential with the curve differential before deriving |ω_X|=q^(2−2g).",
+      "library": [
+        "tauceti:TauCeti.degree_weilDifferentialDivisor"
+      ]
+    },
+    {
+      "id": "PAPER-YUN-ZHANG-17/68",
+      "kind": "theorem",
+      "name": "Finiteness of bounded effective function-field divisors",
+      "statement": "For IsFunctionField k F with k finite and n∈N, the set of effective divisors of degree at most n is finite.",
+      "locator": "§3.1, p.788; effective-divisor orbital sums",
+      "status": "library",
+      "note": "Read at Tau Ceti f790474. This arithmetic carrier/result is not yet its scheme/Picard/shtuka comparison.",
+      "library": [
+        "tauceti:TauCeti.Divisor.finite_setOf_isEffective_degree_le"
+      ]
+    },
+    {
+      "id": "PAPER-YUN-ZHANG-17/69",
+      "kind": "construction",
+      "name": "Arithmetic degree-zero divisor class number",
+      "statement": "For IsFunctionField k F define h_F as Nat.card of the kernel of the divisor-class degree map. For finite k this is finite and strictly positive. The cardinality is not by definition the rational-point count of a chosen Picard scheme.",
+      "locator": "§1.2, L(η,0) and Jacobian point counts; Corollary 2.5",
+      "status": "library",
+      "note": "Read at Tau Ceti f790474. This arithmetic carrier/result is not yet its scheme/Picard/shtuka comparison. SF.3/FA.1 own the comparison with #Jac_X(k); item 43 retains the zeta/character identity.",
+      "library": [
+        "tauceti:TauCeti.Divisor.classNumber",
+        "tauceti:TauCeti.Divisor.classNumber_pos"
+      ]
+    },
+    {
+      "id": "PAPER-YUN-ZHANG-17/70",
+      "kind": "theorem",
+      "name": "Cuspidal and Eisenstein Hecke eigensystems are disjoint",
+      "statement": "An everywhere unramified cuspidal PGL_2 automorphic Hecke eigensystem over k(X) does not factor through the Eisenstein Picard quotient a_Eis. Prove this using the irreducible rank-two GL_2 correspondence together with Chebotarev and semisimple character comparison, or a suitably sourced isobaric multiplicity-one theorem; an equality or non-strict bound on individual eigenvalues is insufficient.",
+      "locator": "Lemma 7.15(1) proof, p.867; §9.2, p.878; compare Lemma 4.2",
+      "status": "missing",
+      "note": "Formal dependency of items 24 and 29, coalesced with the analytic tranche and GS.6/FA.4–5 inputs. This is a standard input abbreviated by the paper, not a newly alleged error or proof gap. Ordinary multiplicity one /46 and YZ19/233 strong multiplicity one alone do not replace this disjointness argument."
     }
   ],
   "prerequisites": [
@@ -530,7 +888,7 @@
     {
       "citation": "A. Kresch, Canonical rational equivalence of intersections of divisors, Invent. Math. 136 (1999), no. 3, 483–496 [13]",
       "link": "https://doi.org/10.1007/s002220050317",
-      "why": "Canonical rational equivalences for intersections, used in the refined Gysin comparisons of §A.2."
+      "why": "Canonical rational equivalences for intersections, used in the refined Gysin comparisons of §A.2. Also the DM deformation-to-the-normal-cone construction on p.489, explicitly used in Lemma A.11 (published p.897), together with Fulton Theorem 19.2 and the stack cycle/sheaf compatibility obligations."
     },
     {
       "citation": "W. Fulton, Intersection Theory, 2nd ed., Ergeb. Math. Grenzgeb. 2, Springer, 1998 [6]",
@@ -602,8 +960,14 @@
         "PAPER-YUN-ZHANG-17/4",
         "PAPER-YUN-ZHANG-17/5",
         "PAPER-YUN-ZHANG-17/6",
+        "PAPER-YUN-ZHANG-17/7",
+        "PAPER-YUN-ZHANG-17/8",
+        "PAPER-YUN-ZHANG-17/9",
         "PAPER-YUN-ZHANG-17/10",
         "PAPER-YUN-ZHANG-17/11",
+        "PAPER-YUN-ZHANG-17/12",
+        "PAPER-YUN-ZHANG-17/13",
+        "PAPER-YUN-ZHANG-17/14",
         "PAPER-YUN-ZHANG-17/16",
         "PAPER-YUN-ZHANG-17/17",
         "PAPER-YUN-ZHANG-17/18",
@@ -617,31 +981,22 @@
         "PAPER-YUN-ZHANG-17/26",
         "PAPER-YUN-ZHANG-17/27",
         "PAPER-YUN-ZHANG-17/28",
-        "PAPER-YUN-ZHANG-17/29"
+        "PAPER-YUN-ZHANG-17/29",
+        "PAPER-YUN-ZHANG-17/45",
+        "PAPER-YUN-ZHANG-17/46",
+        "PAPER-YUN-ZHANG-17/53",
+        "PAPER-YUN-ZHANG-17/64",
+        "PAPER-YUN-ZHANG-17/70"
       ],
-      "brief": "This **joins the Part II proposed by PAPER-FENG-YUN-ZHANG-24**, whose brief already says to plan it together with “the Yun–Zhang PGL_2 theory it generalizes, whose Octahedron Lemma and Hecke-action computation it imports”. Yun–Zhang, Ann. of Math. 186 (2017), 767–911, is that theory and the first higher-derivative formula of the programme: for an everywhere unramified cuspidal π of PGL_2 over a function field, an étale double cover X′ → X and any even r, the r-th derivative of the normalized base-change L-function equals the self-intersection of the Heegner–Drinfeld cycle in the middle-dimensional Chow group of the moduli of PGL_2-shtukas with r legs (Theorems 1.2 and 1.6). r = 0 recovers Waldspurger's formula and r = 1 the Gross–Zagier formula over function fields.\n\nImport, never re-plan:\n- GS.0–GS.2 for Bun_G, the Hecke stacks and the multi-leg shtuka stacks Sht^μ_n, Sht^r_G with their Deligne–Mumford property and smoothness (Theorem 5.4 and Corollary 5.7 are the GL_n/PGL_2 case);\n- SchemeAndStackFoundations SF.5 for Chow groups of stacks, refined Gysin maps and intersection products, **including the two general results of Appendix A** (Proposition A.5 on refined Gysin maps versus Riemann–Roch, and the Octahedron Lemma A.10), which this same extraction routes there as a source: they are statements about intersection theory on Deligne–Mumford stacks, not about shtukas, and the Part II should import them rather than restate them;\n- EtaleDualityAndPerverseSheaves EDC.5 and EDC.7 for the perverse t-structure, middle extension, smallness and the decomposition theorem; EDC.8 for cohomological correspondences and trace classes, together with the Frobenius-graph trace formula of §A.4 (Lemma A.11 and Proposition A.12), also routed as a source of EDC.8 here;\n- FunctionFieldArithmetic FA.6 for everywhere unramified automorphic forms, the spherical Hecke algebra and the Satake isomorphism, and AutomorphicLFunctionsAndLocalFactors AL.2 with FA.5 for the standard and adjoint L-functions, and GlobalShtukasAndFunctionFieldLanglands GS.6 with DeligneWeightsAndPurity DWP.7 for the Riemann hypothesis over function fields;\n- GrossZagierAndArithmeticHeights GZ.5 for Waldspurger's period formula, whose relative-trace-formula proof in the everywhere unramified function-field case (§§2 and 4 here) is routed there as a source; this Part II needs only its conclusion, Theorem 4.7.\n\nConstruct, in the order the proof uses them:\n- the geometrization of the analytic orbital integrals: the moduli N_d with its local systems L_d and the identity J(γ, h_D, s) = Σ_d q^{(2d_{12}−d)s}Tr(Frob_a, (Rf_{N_d,*}L_d)_a) (§3);\n- the Hecke self-correspondences Sht^r_G(h_D) as cycle classes on Sht^r_G × Sht^r_G, the ring homomorphism H → cCh_{2r} and the self-adjointness of the action (§5.3), the torus shtukas Sht^μ_T, the Heegner–Drinfeld cycle θ^μ_*[Sht^μ_T] and I_r(f) with its independence of μ (§§5.4–5.5);\n- the Hitchin-type moduli M_d with f_M : M_d → A_d, the identification of I_r(h_D) with a trace of (f_{M,!}[H♦])^r ∘ Frob and with a local intersection number against the graph of Frobenius (Theorems 6.5–6.6), and the auxiliary stacks and dimension estimates that make the refined Gysin maps defined (§§6.3–6.4, including Lemma 5.9);\n- the cohomological spectral decomposition: the H-action on H^*_c(Sht_G), the stratification by instability with the cohomological constant term and the Satake intertwining (§§7.2–7.3), the finiteness theorems making H_ℓ a finitely generated algebra of Krull dimension one, and the resulting orthogonal decomposition of V and V′ (Theorems 7.14 and 7.16);\n- the comparison: Rf_{M,*}Q_ℓ ≅ ⊕_{i,j}K_i ⊠ K_j with f_{M,!}[H♦] acting by (d − 2j), Rf_{N_d,*}L_d ≅ (K_{d_{11}} ⊠ K_{d_{12}}) as a middle extension, and hence Theorem 8.1 for h_D of large degree, extended to all f ∈ H by the density Lemma 9.1 (Theorem 9.2).\n\nKeep the hypotheses visible: p > 2; X′ → X étale with X′ geometrically connected (so T is nonsplit and F′/F unramified everywhere); π everywhere unramified; r even for Theorems 1.2 and 1.8 (Remark 1.9 explains what odd r would need); and E_π totally real in Theorem 1.7.\n\nTests:\n- r = 0 must reproduce Waldspurger's formula (Remark 1.3) and r = 1 the Gross–Zagier formula;\n- f = 1_K must give the Kronecker limit formula 2^{r+1}(log q)^{−r}L^{(r)}(η, 0) (Corollary 2.5 and Theorem 1.8 as corrected by E9: the printed 2^{r+2} is wrong because the u = ∞ orbital integrals are constant in s), and 4L(η,0) + q − 2 for r = 0 (Remark 9.3);\n- I_r(f) must be independent of μ (Lemma 5.16), and both sides must vanish for odd r;\n- the intersection pairing must be positive definite on the cuspidal part (Theorem 1.7), which consumes the super-positivity of Appendix B, applied to L(π, s) and L(π ⊗ η, s) separately (E12); state Theorem B.2 for entire L(π, s) (E15), Proposition B.1's second part for non-polynomial φ (E16), and Remark B.5 only over number fields (E17).\n\nThen plan the sequel, Yun–Zhang II (Ann. of Math. 189 (2019), 393–526), which removes the unramifiedness restriction — it is a prerequisite of this file, not of the Feng–Yun–Zhang part.",
-      "reason": "The objects are the moduli of PGL_2-shtukas with r legs, a finite cycle on it coming from a nonsplit torus, and the Chow/cohomology groups of that stack with their Hecke action: this is the direction of GlobalShtukasAndFunctionFieldLanglands, which owns Bun_G, the Hecke stacks, the shtuka stacks and their cohomology (GS.0–GS.7) but plans no cycles on them, no Hitchin-type comparison and no higher Gross–Zagier formula. It is deliberately the same Part II as the one PAPER-FENG-YUN-ZHANG-24 proposed: that paper's generalization to U(n) imports this paper's Octahedron Lemma and Hecke-action computation, and its brief already names this theory as the one to plan with it, so a second roadmap would duplicate the cycle theory. It is not GrossZagierAndArithmeticHeights work: there is no height pairing and no Shimura variety here — the pairing is an intersection number of middle-dimensional cycles on a function-field moduli stack — although the r = 0 specialization, Waldspurger's formula, is routed to GZ.5 as a source, and GZ.5's number-field formula is what Remark 1.4 compares with."
-    },
-    {
-      "route": "source",
-      "roadmap": "GrossZagierAndArithmeticHeights",
-      "stages": [
-        "GrossZagierAndArithmeticHeights:GZ.5"
-      ],
-      "items": [
-        "PAPER-YUN-ZHANG-17/7",
-        "PAPER-YUN-ZHANG-17/8",
-        "PAPER-YUN-ZHANG-17/9",
-        "PAPER-YUN-ZHANG-17/12",
-        "PAPER-YUN-ZHANG-17/13",
-        "PAPER-YUN-ZHANG-17/14"
-      ],
-      "reason": "GZ.5 plans the Waldspurger period formula for GL_2/quaternionic toric data, and asks for “the actual pairing identity including adjoint L-value, zeta/eta factors and normalized local toric forms” — but by the coherent theta-kernel route, importing Weil representations from MetaplecticAutomorphicForms MP.0–6. This source supplies the other proof, Jacquet's relative trace formula, in the everywhere unramified function-field case, where it is elementary and complete: the regularized distribution J(f, s) = ∫^{reg}_{[A]×[A]}K_f(h_1,h_2)|h_1h_2|^sη(h_2) with the finiteness theorems (Propositions 2.1 and 2.3) that make it a Laurent polynomial in q^s, its orbital expansion indexed by inv(γ) ∈ P¹(F) ∖ {1} with the explicit unramified computation J(u, 1_K, s) = L(η, 2s) + L(η, −2s) (Proposition 2.4), the Eisenstein ideal and the vanishing of the Eisenstein contribution to the kernel (Definition 4.1, Theorem 4.3), and the spectral expansion J_π(f, s) = (1/2)|ω_X|ℒ(π_{F′}, s + 1/2)λ_π(f) (Proposition 4.5, Theorem 4.7), which is Waldspurger's formula with exactly the adjoint L-value normalization GZ.5 requires (ℒ(π_{F′}, s) = ε(π_{F′}, s)^{−1/2}L(π_{F′}, s)/L(π, Ad, 1)). It also fixes the Whittaker/additive-character normalization (Lemma 4.6) that the eta and measure factors depend on. The higher-derivative content of the paper is not routed here: it is geometric and belongs to the Part II above."
+      "brief": "This **joins the Part II proposed by PAPER-FENG-YUN-ZHANG-24**, whose brief already says to plan it together with “the Yun–Zhang PGL_2 theory it generalizes, whose Octahedron Lemma and Hecke-action computation it imports”. Yun–Zhang, Ann. of Math. 186 (2017), 767–911, is that theory and the first higher-derivative formula of the programme: for an everywhere unramified cuspidal π of PGL_2 over a function field, an étale double cover X′ → X and any even r, the r-th derivative of the normalized base-change L-function equals the self-intersection of the Heegner–Drinfeld cycle in the middle-dimensional Chow group of the moduli of PGL_2-shtukas with r legs (Theorems 1.2 and 1.6). r = 0 recovers the unramified function-field Waldspurger formula. The odd-leg Gross–Zagier branch requires the sequel’s ramified/parity hypotheses, and is not an r=1 specialization of this even-r theorem.\n\nImport, never re-plan:\n- GS.0–GS.2 for Bun_G, the Hecke stacks and the multi-leg shtuka stacks Sht^μ_n, Sht^r_G with their Deligne–Mumford property and smoothness (Theorem 5.4 and Corollary 5.7 are the GL_n/PGL_2 case);\n- SchemeAndStackFoundations SF.5’s existing scheme intersection theory plus the missing stack source contribution /44 for the precisely scoped stack Chow/Gysin operations, **including the two general results of Appendix A** (Proposition A.5 on refined Gysin maps versus Riemann–Roch, and the Octahedron Lemma A.10), which this same extraction routes there as a source: they are statements about intersection theory on Deligne–Mumford stacks, not about shtukas, and the Part II should import them rather than restate them;\n- EtaleDualityAndPerverseSheaves EDC.5 and EDC.7 for the perverse t-structure, middle extension, smallness and the decomposition theorem; EDC.8 for scheme cohomological correspondences and the upstream PR196 trace-formula import; the shared EtaleDualityAndPerverseSheavesPartIIStacks proposal for /35, /56 and /57 on stacks, including the exact §A.4 Frobenius-graph theorem;\n- FunctionFieldArithmetic FA.6 for everywhere unramified automorphic forms, the spherical Hecke algebra and the Satake isomorphism, and AutomorphicLFunctionsAndLocalFactors AL.2 with FA.5 for the standard and adjoint L-functions, and GlobalShtukasAndFunctionFieldLanglands GS.6 with DeligneWeightsAndPurity DWP.7 for the Riemann hypothesis over function fields;\n- FunctionFieldArithmetic FA.2 for self-dual measures and Poisson summation and FA.6 for automorphic/Hecke foundations. Theorem 4.7 is proved here, in the joint function-field analytic adapter /7–9, /12–14, /45–46, /64 and /70, coalescing YZ19’s ramified analytic branch. GZ.5 is a comparison link only. Retain J(0,1_K,s)=L(η,2s)+L(η,−2s) and J(∞,1_K,s)=2L(η,0), as E9 corrects.\n\nConstruct, in the order the proof uses them:\n- the geometrization of the analytic orbital integrals: the moduli N_d with its local systems L_d and the identity J(γ, h_D, s) = Σ_d q^{(2d_{12}−d)s}Tr(Frob_a, (Rf_{N_d,*}L_d)_a) (§3);\n- the Hecke self-correspondences Sht^r_G(h_D) as cycle classes on Sht^r_G × Sht^r_G, the ring homomorphism H → cCh_{2r} and the self-adjointness of the action (§5.3), the torus shtukas Sht^μ_T, the Heegner–Drinfeld cycle θ^μ_*[Sht^μ_T] and I_r(f) with its independence of μ (§§5.4–5.5);\n- the Hitchin-type moduli M_d with f_M : M_d → A_d, the identification of I_r(h_D) with a trace of (f_{M,!}[H♦])^r ∘ Frob and with a local intersection number against the graph of Frobenius (Theorems 6.5–6.6), and the auxiliary stacks and dimension estimates that make the refined Gysin maps defined (§§6.3–6.4, including Lemma 5.9);\n- the cohomological spectral decomposition: the H-action on H^*_c(Sht_G), the stratification by instability with the cohomological constant term and the Satake intertwining (§§7.2–7.3), the finiteness theorems making H_ℓ a finitely generated algebra of Krull dimension one, and the resulting orthogonal decomposition of V and V′ (Theorems 7.14 and 7.16);\n- the comparison: Rf_{M,*}Q_ℓ ≅ ⊕_{i,j}K_i ⊠ K_j with f_{M,!}[H♦] acting by (d − 2j), Rf_{N_d,*}L_d ≅ (K_{d_{11}} ⊠ K_{d_{12}}) as a middle extension, and hence Theorem 8.1 for h_D of large degree, extended to all f ∈ H by the density Lemma 9.1 (Theorem 9.2).\n\nKeep the hypotheses visible: p > 2; X′ → X étale with X′ geometrically connected (so T is nonsplit and F′/F unramified everywhere); π everywhere unramified; r even for Theorems 1.2 and 1.8 (Remark 1.9 explains what odd r would need); and E_π totally real in Theorem 1.7.\n\nTests:\n- r = 0 must reproduce the unramified function-field Waldspurger formula (Remark 1.3); use the sequel’s parity/level assumptions for an r=1 comparison;\n- f = 1_K must give the Kronecker limit formula 2^{r+1}(log q)^{−r}L^{(r)}(η, 0) (Corollary 2.5 and Theorem 1.8 as corrected by E9: the printed 2^{r+2} is wrong because the u = ∞ orbital integrals are constant in s), and 4L(η,0) + q − 2 for r = 0 (Remark 9.3);\n- I_r(f) must be independent of μ (Lemma 5.16), and both sides must vanish for odd r;\n- the intersection pairing must be positive definite on the cuspidal part (Theorem 1.7), which consumes the super-positivity of Appendix B, applied to L(π, s) and L(π ⊗ η, s) separately (E12); state Theorem B.2 for entire L(π, s) (E15), Proposition B.1's second part for non-polynomial φ (E16), and Remark B.5 only over number fields (E17).\n\nThen plan the sequel, Yun–Zhang II (Ann. of Math. 189 (2019), 393–526), which removes the unramifiedness restriction — it is a prerequisite of this file, not of the Feng–Yun–Zhang part.\n\nMandatory supplier map from the repair: /48 and /55 import scheme trace/Künneth through EDC.8/EDC.0 from upstream PR196; /49 and /54 import the shared RamifiedGeometricClassFieldTheory proofs (YZ19/170 and /165); /50 and /51 use SF.3 for curve/section/norm geometry; /52 imports the existing GS.0 Picard Lang theorem while /53 states the remaining group/Frobenius descent input; /56–57 use the shared stacks extension with all boundedness/support hypotheses. Item /58 imports DWP.7–8 for Lemma 7.13’s weight filtration, independently of RH. Item /59 imports Laumon’s smooth torsion-sheaf stack through SF.1. Items /60–63 expose FA.2 harmonic analysis, FA.6/GS.1 Satake, FA.4–5 reciprocity/Chebotarev and the exact GS.3/cuspidality-equals-hecke-finiteness supplier, with its coefficient/lattice adapter. Items /65–69 reuse pinned Tau Ceti arithmetic divisor/Riemann–Roch/class-number APIs; their comparisons with scheme sections, Jacobian points and period constants remain work of SF.3/FA.1 and this analytic adapter. Ordinary multiplicity one (/46), existing YZ19/233 strong multiplicity one and cuspidal/Eisenstein disjointness (/70) are distinct obligations.\n\nThe queue currently groups all GlobalShtukas Part IIs by parent. This id is provisional. Preserve the complete joint YZ17/YZ19/FYZ24 tranche in the merged design, or arrange an explicit coordinated split with its imports and consumers before closing any dependent proof. Do not defer this required tranche merely because another independent direction is listed first. Source acquisition and theorem-level proof closure are the subsequent blueprints’ obligations. Suggested later analytic adapter file: TauCeti/NumberTheory/FunctionField/ShtukaRelativeTrace.lean.",
+      "reason": "The mandatory joint YZ17/YZ19/FYZ24 special-cycle tranche extends GlobalShtukasAndFunctionFieldLanglands without rebuilding Bun_G, Hecke/shtuka stacks or generic foundations. It includes the function-field relative-trace analytic adapter needed for the geometric comparison. ShtukaSpecialCyclesAndHigherSiegelWeil is a shared proposal id, not an existing supplier or dedicated queue job: the current generator groups by parent. The merged design must retain this required tranche or a coordinated split must supply it before consumers close. GZ.5 remains only a number-field Waldspurger/Gross–Zagier comparison; it does not export Theorem 4.7 over k(X)."
     },
     {
       "route": "source",
       "roadmap": "SchemeAndStackFoundations",
       "stages": [
+        "SchemeAndStackFoundations:SF.1",
+        "SchemeAndStackFoundations:SF.3",
         "SchemeAndStackFoundations:SF.5"
       ],
       "items": [
@@ -649,20 +1004,26 @@
         "PAPER-YUN-ZHANG-17/31",
         "PAPER-YUN-ZHANG-17/32",
         "PAPER-YUN-ZHANG-17/33",
-        "PAPER-YUN-ZHANG-17/34"
+        "PAPER-YUN-ZHANG-17/34",
+        "PAPER-YUN-ZHANG-17/44",
+        "PAPER-YUN-ZHANG-17/51",
+        "PAPER-YUN-ZHANG-17/59"
       ],
-      "reason": "SF.5 constructs Chow groups, proper pushforward, flat/lci pullback, refined Gysin maps, intersection products and source-scoped Grothendieck–Riemann–Roch. Appendix A of this paper is general intersection theory, with no shtukas in it, and adds four things SF.5 does not plan: (i) Chow groups Ch_{c,i}(X)_Q of cycles proper over k on a Deligne–Mumford stack only locally of finite type, with the degree map weighted by 1/|Aut|, the resulting intersection pairing on a smooth separated stack of pure dimension n, and the algebra cCh_n(X × X)_Q of correspondences with proper first projection acting on it; (ii) the corrected filtration K′_0(X)_{Q,≤n} defined through finite flat presentations (the naive filtration is wrong for stacks — for BG it misses the augmentation ideal, and the filtration can be nonzero in negative degrees), with the map ψ_X to Chow groups; (iii) Proposition A.5, that derived pullback along a morphism factoring as a regular local immersion followed by a smooth morphism of relative Deligne–Mumford type shifts this filtration by the relative dimension and commutes with the refined Gysin map through ψ, with the proper-intersection variant Lemma A.8 and Corollary A.6 (ψ_X is a graded ring homomorphism); and (iv) the **Octahedron Lemma** (Theorem A.10), which says that in a 3×3 diagram of smooth stacks with all four intermediate fibre products of expected dimension, two different orders of refined Gysin intersection give the same cycle class — the general form of “combine terms and change the orders arbitrarily” that both this paper and PAPER-FENG-YUN-ZHANG-24 use. Its proof needs a derived (dg) description of the structure sheaf of the central stack, which SF.5 should record as a hypothesis on its import rather than re-derive. Kresch, Fulton, Vistoli and Gillet, the sources SF.5 already builds on, are the prerequisites."
+      "reason": "SF.5 constructs Chow groups, proper pushforward, flat/lci pullback, refined Gysin maps, intersection products and source-scoped Grothendieck–Riemann–Roch. Appendix A of this paper is general intersection theory, with no shtukas in it, and adds four things SF.5 does not plan: (i) Chow groups Ch_{c,i}(X)_Q of cycles proper over k on a Deligne–Mumford stack only locally of finite type, with the degree map weighted by 1/|Aut|, the resulting intersection pairing on a smooth separated stack of pure dimension n, and the algebra cCh_n(X × X)_Q of correspondences with proper first projection acting on it; (ii) the corrected filtration K′_0(X)_{Q,≤n} defined through finite flat presentations (the naive filtration is wrong for stacks — for BG it misses the augmentation ideal, and the filtration can be nonzero in negative degrees), with the map ψ_X to Chow groups; (iii) Proposition A.5, that derived pullback along a morphism factoring as a regular local immersion followed by a smooth morphism of relative Deligne–Mumford type shifts this filtration by the relative dimension and commutes with the refined Gysin map through ψ, with the proper-intersection variant Lemma A.8 and Corollary A.6 (ψ_X is a graded ring homomorphism); and (iv) the **Octahedron Lemma** (Theorem A.10), which says that in a 3×3 diagram of smooth stacks with all four intermediate fibre products of expected dimension, two different orders of refined Gysin intersection give the same cycle class — the general form of “combine terms and change the orders arbitrarily” that both this paper and PAPER-FENG-YUN-ZHANG-24 use. Its proof needs a derived (dg) description of the structure sheaf of the central stack, which SF.5 should record as a hypothesis on its import rather than re-derive. Kresch, Fulton, Vistoli and Gillet, the sources SF.5 already builds on, are the prerequisites. This source contribution additionally assigns /44 (the precise missing stack intersection operations, coalescing CANNING-LARSON-PAYNE-24/12) to SF.5, /51 (section-stack/norm/Prym adapters) to SF.3, and /59 (Laumon’s smooth length-d torsion-sheaf stack) to SF.1. These are new source obligations, not assertions of existing coverage. Generic ℓ-adic cycle compatibility imports the shared EDC stacks extension /57; the Chow operations remain here."
     },
     {
-      "route": "source",
-      "roadmap": "EtaleDualityAndPerverseSheaves",
-      "stages": [
-        "EtaleDualityAndPerverseSheaves:EDC.8"
-      ],
+      "route": "part-ii",
+      "parent": "EtaleDualityAndPerverseSheaves",
+      "roadmap": "EtaleDualityAndPerverseSheavesPartIIStacks",
+      "title": "Étale duality, cycle classes and perverse sheaves, Part II: Artin and Deligne–Mumford stacks",
+      "area": "etale",
       "items": [
-        "PAPER-YUN-ZHANG-17/35"
+        "PAPER-YUN-ZHANG-17/35",
+        "PAPER-YUN-ZHANG-17/56",
+        "PAPER-YUN-ZHANG-17/57"
       ],
-      "reason": "EDC.8 constructs cohomological correspondences c_2^*K → c_1^!K, their composition and the trace class on the fixed-point scheme, and states that ordinary Frobenius point counting stays with the trace formula stage. §A.4 supplies the case that a cycle-level theory needs and EDC.8 does not plan: for a self-correspondence C of a smooth separated stack M of pure dimension n over a base scheme S, with f proper and ←c representable and proper, the refined Gysin map Δ^!_M : Ch_n(C)_Q → Ch_0(Fix(C))_Q is compatible with Varshavsky's trace map τ_C through the cycle class maps (Lemma A.11), and the intersection number of a cycle with the graph of Frobenius computes a Frobenius trace on the stalk, ⟨ζ, Γ(Fr_M)⟩_s = Tr((f_!cl_C(ζ))_s ∘ Frob_s, (f_!Q_ℓ)_s) (Proposition A.12). This is the bridge from intersection numbers to trace formulas used in Theorems 6.5–6.6, and it is stated for Deligne–Mumford stacks, where the naive-local-term input is Varshavsky's contracting-correspondence theorem. Route it with the excess intersection formula of SF.5, which its proof consumes."
+      "reason": "EDC.8 supplies scheme correspondences, not the DM/Artin-stack operations required here. Coalesce with the existing RT-AREA-etale/3 stacks proposal and YZ19/120, /227; provisional ST.0–ST.6 are design keys, not atlas stages.",
+      "brief": "Extend Étale duality, cycle classes and perverse sheaves (EtaleDualityAndPerverseSheaves) by the single stacks proposal in RT-AREA-etale/3. Import EDC.0–8 scheme theory, SF.1 stack geometry, SF.5 source-scoped Chow/Gysin operations (/44), and EnhancedDerivedSheaves descent/adic foundations. Follow that proposal’s Laszlo–Olsson, Liu–Zheng and Sun source obligations, with each theorem’s base, finiteness, representability, stabilizers, coefficient and boundedness conditions stated separately. Construct /56’s stack Künneth, perverse/intermediate-extension, correspondence and groupoid-weighted trace interfaces; /57’s smooth-DM duality, proper-cycle class map, truncation compatibility and trace; and /35’s exact Lemma A.11/Proposition A.12 compatibility with refined Gysin. Retain k finite, S a scheme, M smooth separated DM of pure dimension n, f:M→S proper, C DM and its left projection representable proper for the numerical Frobenius-correspondence application. Do not infer preservation of D_c^b for arbitrary Artin stacks or a general stack decomposition theorem; source the exact DM small-map consequence separately. Upstream PR196 supplies the scheme trace formula. Shtuka-specific colimits, Hecke support and truncations remain GS.3/cycle work. Test the scheme diagonal, finite quotient stacks with groupoid weights, disconnected smooth DM stacks (trace sums components), and BG_m’s unbounded cohomology. Suggested later file: TauCeti/AlgebraicGeometry/Stacks/EtaleTrace.lean. These are missing proof obligations awaiting the coordinated design, not implemented stages."
     },
     {
       "route": "source",
@@ -674,7 +1035,31 @@
         "PAPER-YUN-ZHANG-17/36",
         "PAPER-YUN-ZHANG-17/37"
       ],
-      "reason": "AL.2 constructs the Godement–Jacquet standard L-factors from local zeta integrals of matrix coefficients, proves the local functional equation and the unramified calculation, and builds the global integral for cuspidal GL_n with its Euler factorization, continuation and functional equation. Appendix B adds two results about those very objects that no stage in the atlas plans — nothing anywhere plans positivity of central values or of higher derivatives. First, Lemma B.3: if π_v is unitary then L(π_v, s) has real coefficients, because complex conjugation carries the space of matrix coefficients C_{π_v} to C_{σπ_v} and the Euler factor is determined by the space of zeta integrals — a statement about the AL.2 construction itself, using Godement–Jacquet Theorems 3.3 and 8.7. Second, Theorem B.2: for a nontrivial self-dual cuspidal π of GL_n(A), and assuming the Riemann hypothesis for L(π, s) when F is a number field, every derivative of the normalized completed L-function is non-negative, Λ^{(r)}(π, 1/2) ≥ 0, and the nonvanishing of one derivative forces that of all later ones of the same parity — “super-positivity”. It rests on the elementary Proposition B.1 about entire functions of order ≤ 1 with a functional equation and zeros on the imaginary axis, which belongs with the Hadamard factorization AL.2's global theory already needs; the trivial representation is handled by passing to s(s−1)Λ(π, s) (Remark B.5). Over a function field the hypothesis is a theorem, which is what makes Theorem 1.7 unconditional. Remark B.4's elementary function-field proof, through the factorization of λ(π, s) into (q^{s/2} ± q^{−s/2})-factors and the A_i(s) with positive even coefficients, belongs with FunctionFieldArithmetic FA.5's polynomial zeta functions."
+      "reason": "AL.2 owns the Godement–Jacquet standard factors, including the exceptional n=1 pole. Add the corrected Appendix B application: Lemma B.3 requires both unitarity and self-duality for real local coefficients; Theorem B.2 assumes a nontrivial self-dual cuspidal π whose completed L(π,s) is entire, and RH over number fields (E15). Verify order at most one for the centered normalized entire function; over function fields use the exponential-polynomial expression and GS.6/DWP.7 RH. Proposition B.1 gives nonnegative derivatives, with strict propagation only for non-polynomial φ (E16); handle the constant exponential-polynomial case separately. Import the single Hadamard supplier assigned by item /47 to AN.2’s existing analytic debt, rather than asserting AL.2 already proves it. Remark B.5’s s(s−1)Λ pole-clearer is number-field-only; for the trivial function-field character use q^(s−1/2)(1−q^(−s))(1−q^(1−s))Λ(1,s) (E17). The elementary function-field factorization of Remark B.4 is a consumer adapter here, importing FA.5’s polynomial zeta/Artin theory; FA.5 is not a stage of this AL source route. The pending RT-AREA-iwasawa-1/16 GZ.5 proposal for unconditional PGL_2/Q quadratic-twist central-value nonnegativity is an overlap reference, not this all-derivatives theorem and not a GZ.5→AL.2 prerequisite (GZ.5 already imports AL.2)."
+    },
+    {
+      "route": "source",
+      "roadmap": "AnalyticNumberTheory",
+      "stages": [
+        "AnalyticNumberTheory:AN.2"
+      ],
+      "items": [
+        "PAPER-YUN-ZHANG-17/47"
+      ],
+      "reason": "Expose Appendix B.1’s reusable canonical-product/Hadamard input at the existing AN.2 analytic proof decomposition debt (AN.2/classical-zero-free-region), with AL.2 as consumer. Audit and prove one shared complex-analytic supplier, including zero summability, compact product convergence and order-at-most-one factorization; do not insert a second independent construction into AL.2. Jensen’s pinned circle-average theorem is a starting point only. This source contribution is missing work, not a closed AN.2 node."
+    },
+    {
+      "route": "part-ii",
+      "parent": "FunctionFieldArithmetic",
+      "roadmap": "RamifiedGeometricClassFieldTheory",
+      "title": "Global function fields, reciprocity and automorphic foundations, Part II: ramified geometric class field theory",
+      "area": "functionfields",
+      "items": [
+        "PAPER-YUN-ZHANG-17/49",
+        "PAPER-YUN-ZHANG-17/54"
+      ],
+      "reason": "The unramified quadratic Picard-local-system and exterior-power inputs are the empty-ramification instances of YZ19/170 and /165. Coalesce with their existing RamifiedGeometricClassFieldTheory proposal, not a second geometric class-field theory.",
+      "brief": "Add the unramified specialization required by Yun–Zhang17 to the RamifiedGeometricClassFieldTheory proposal of Yun–Zhang19. Import the existing GlobalShtukasAndFunctionFieldLanglands GS.0 Picard/GL1 Lang interface, FunctionFieldArithmetic FA.4 reciprocity, and SchemeAndStackFoundations SF.3 curve/Picard geometry. Construct the exact H¹ comparison and multiplicative rank-one local systems of /49; identify Abel–Jacobi pullback in all nonnegative degrees with YZ19/170. Reuse the single YZ19/165 symmetric-power cohomology theorem to obtain /54 when ramification is empty, retaining geometric nontriviality, rational ℓ-adic coefficients, Frobenius equivariance and Koszul signs. Import scheme Künneth from EDC.0 and stack sheaf operations from EtaleDualityAndPerverseSheavesPartIIStacks for root-Picard diagrams. Keep the ramified branch’s source hypotheses intact. Test degree zero, degrees above dim H¹, the trivial local system as an excluded example, and compatibility with the original étale quadratic cover. Suggested later file: TauCeti/AlgebraicGeometry/Curves/GeometricClassFieldTheory.lean. The design must prove these comparisons from the cited sources; this coalescing route does not assert a completed supplier."
     }
   ],
   "sourceIssues": [
@@ -844,7 +1229,7 @@
       "locator": "Proposition 2.4 (2.18), p. 787, and its proof, p. 788; Corollary 2.5, p. 788; Theorem 1.8, p. 775; §9.1.1, p. 876 (published version; also arXiv v3 unless stated)",
       "printed": "Equation (2.18) gives J(u, 1_K, s) = L(η, 2s) + L(η, −2s) for u ∈ {0, ∞}, with the proof treating u = ∞ as analogous. Corollary 2.5 states J_r(1_K) = … 2^{r+2}(d/ds)^r|_{s=0}L(η, s), r > 0 even. Theorem 1.8 asserts, for even r > 0, ⟨θ^μ_*[Sht^μ_T], θ^μ_*[Sht^μ_T]⟩_{Sht′^r_G} = (2^{r+2}/(log q)^r)L^{(r)}(η, 0).",
       "correction": "J(∞, 1_K, s) = 2L(η, 0), independent of s. Hence J_r(1_K) = 2^{r+1}L^{(r)}(η, 0) for r > 0 even, and Theorem 1.8 reads ⟨θ^μ_*[Sht^μ_T], θ^μ_*[Sht^μ_T]⟩ = (2^{r+1}/(log q)^r)L^{(r)}(η, 0). The r = 0 value 4L(η, 0) + q − 2 (Corollary 2.5, Remark 9.3) is unchanged.",
-      "reason": "On the u = ∞ orbits (a = 0 or d = 0 in γ) the conditions g_{ij}²/det g ∈ O for g = diag(x,1)^{−1}γ diag(y,1) force xy ∈ O^×, so |xy|^s = 1 on the support. For γ = [[0,1],[1,1]] or [[1,1],[1,0]] the sum is Σ_{E ≥ 0}η(E) = L(η, 0), and the orbit of w contributes 0 (η is nontrivial on its stabilizer). Structurally, γ ↦ γw swaps u = 0 and u = ∞ but turns the weight |h_1h_2|^s into |h_1||h_2|^{−s}, under which the n_± orbits give constants; the two cases are not analogous. The r = 0 case agrees: 2L(η, 0) + 2L(η, 0) + (q − 2). A worked example (y² = (x² − 2)(x⁴ + x + 1) over F_5, L(η, T) = 1 + 3T + 5T²) gives J_2(1_K)/(log q)² = 184, against 368 from the printed formula. Theorem 1.8 is (log q)^{−r}J_r(1_K) by Theorem 9.2 (§9.1.1), so it inherits the factor 2. Proposition 3.2(3), used by Theorem 8.1 at u = ∞, is still true. Also in arXiv v3.",
+      "reason": "On the u = ∞ orbits (a = 0 or d = 0 in γ) the conditions g_{ij}²/det g ∈ O for g = diag(x,1)^{−1}γ diag(y,1) force xy ∈ O^×, so |xy|^s = 1 on the support. For γ = [[0,1],[1,1]] or [[1,1],[1,0]] the sum is Σ_{E ≥ 0}η(E) = L(η, 0), and the orbit of w contributes 0 (η is nontrivial on its stabilizer). Structurally, γ ↦ γw swaps u = 0 and u = ∞ but turns the weight |h_1h_2|^s into |h_1|^s|h_2|^{−s}, under which the n_± orbits give constants; the two cases are not analogous. The r = 0 case agrees: 2L(η, 0) + 2L(η, 0) + (q − 2). A worked example (y² = (x² − 2)(x⁴ + x + 1) over F_5, L(η, T) = 1 + 3T + 5T²) gives J_2(1_K)/(log q)² = 184, against 368 from the printed formula. Theorem 1.8 is (log q)^{−r}J_r(1_K) by Theorem 9.2 (§9.1.1), so it inherits the factor 2. Proposition 3.2(3), used by Theorem 8.1 at u = ∞, is still true. Also in arXiv v3.",
       "affects": "a stated result",
       "known": "new",
       "searched": [
@@ -1259,10 +1644,10 @@
     {
       "id": "PAPER-YUN-ZHANG-17/E28",
       "kind": "misprint",
-      "locator": "pp. 820, 823, 824 (published version; also arXiv v3 unless stated)",
-      "printed": "p. 820: \"are proper cycle classes in Sht^r_G of complementary dimension\"; p. 823: \"Prym_{X′/X} := ker(Nm), which classifies a line bundle K on X′ together with a trivialization of Nm(L)\"; p. 824: \"Therefore, both … are smooth over X′_d of relative dimension d − g + 1\"",
-      "correction": "Sht′^r_G; Nm(K); smooth over X̂′_d.",
-      "reason": "The classes live in Ch_{c,r}(Sht′^r_G), as the same sentence says; the line bundle is K; and the base change of X′_d → Pic^d_X gives smoothness over X̂′_d. Also in arXiv v3.",
+      "locator": "pp.820 and 823 (published version; original review also compared arXiv v3)",
+      "printed": "On p. 820, the source calls the classes proper cycles in Sht^r_G with complementary dimensions. On p. 823, it defines Prym_{X′/X} := ker(Nm) as classifying a line bundle K on X′ equipped with a trivialization of Nm(L).",
+      "correction": "Sht′^r_G; Nm(K).",
+      "reason": "The classes live in Ch_{c,r}(Sht′^r_G), as the same sentence says; the line bundle is K. The old third accusation on p.824 is withdrawn: the hatted section stack is a vector bundle over Pic^d_{X′}, and its composite with the smooth norm is smooth of dimension d−g+1. Base change proves the printed smoothness over the unhatted X′_d. This is not a replacement source gap. The narrowed entry awaits independent fix review.",
       "affects": "nothing",
       "known": "new",
       "searched": [
@@ -1272,11 +1657,33 @@
         "Annals of Mathematics article page for 186-3 p02 and a Crossref search for an erratum (2026-09-23): none",
         "arXiv 1512.02683 abstract page: v1–v3 only; Yun–Zhang II (Ann. of Math. 189, 2019) contains no errata for this paper"
       ],
-      "review": {
-        "verdict": "confirmed",
-        "reason": "Found by a helper agent of this review and checked by the reviewer in the text of pp. 820–824.",
-        "by": "REV-PAPER-YUN-ZHANG-17"
-      }
+      "reviewHistory": [
+        {
+          "scope": "Original three-part finding before narrowing; the old verdict is preserved as history, not approval of the current two-part entry.",
+          "finding": {
+            "id": "PAPER-YUN-ZHANG-17/E28",
+            "kind": "misprint",
+            "locator": "pp. 820, 823, 824 (published version; also arXiv v3 unless stated)",
+            "printed": "p. 820: \"are proper cycle classes in Sht^r_G of complementary dimension\"; p. 823: \"Prym_{X′/X} := ker(Nm), which classifies a line bundle K on X′ together with a trivialization of Nm(L)\"; p. 824: \"Therefore, both … are smooth over X′_d of relative dimension d − g + 1\"",
+            "correction": "Sht′^r_G; Nm(K); smooth over X̂′_d.",
+            "reason": "The classes live in Ch_{c,r}(Sht′^r_G), as the same sentence says; the line bundle is K; and the base change of X′_d → Pic^d_X gives smoothness over X̂′_d. Also in arXiv v3.",
+            "affects": "nothing",
+            "known": "new",
+            "searched": [
+              "Ann. of Math. 186 (2017), no. 3, 767–911, DOI 10.4007/annals.2017.186.3.2: Crossref (checked 2026-09-22) records no correction notice, no update-to and no updated-by relation",
+              "arXiv 1512.02683v3 (the last arXiv version, 11 April 2017): each reading below was compared with it, and the version that differs is named",
+              "The sequel, Yun–Zhang, Ann. of Math. 189 (2019), 393–526, which reuses this notation: it lists no errata for this paper",
+              "Annals of Mathematics article page for 186-3 p02 and a Crossref search for an erratum (2026-09-23): none",
+              "arXiv 1512.02683 abstract page: v1–v3 only; Yun–Zhang II (Ann. of Math. 189, 2019) contains no errata for this paper"
+            ],
+            "review": {
+              "verdict": "confirmed",
+              "reason": "Found by a helper agent of this review and checked by the reviewer in the text of pp. 820–824.",
+              "by": "REV-PAPER-YUN-ZHANG-17"
+            }
+          }
+        }
+      ]
     },
     {
       "id": "PAPER-YUN-ZHANG-17/E29",
@@ -1475,6 +1882,66 @@
         "reason": "Found by a helper agent of this review and checked by the reviewer in the text of p. 868.",
         "by": "REV-PAPER-YUN-ZHANG-17"
       }
+    },
+    {
+      "id": "PAPER-YUN-ZHANG-17/E38",
+      "kind": "misprint",
+      "locator": "§9.2, published p.878; arXiv 1512.02683v3 PDF p.77",
+      "printed": "The source invokes Lemma 7.15(3).",
+      "correction": "By Lemma 7.15(2)",
+      "reason": "Published p.866 has only parts (1) and (2); part (2) is exactly Z^0_{0,ℓ}=Z_{cusp,Q_ℓ}, the identity being used. Fresh text comparison finds the same wrong reference in v3; published p.878 also checked as an image.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Annals article page https://annals.math.princeton.edu/2017/186-3/p02 and author research page https://math.mit.edu/~zyun/research.html, opened 2026-09-30: no correction linked for this article.",
+        "Crossref work metadata for DOI 10.4007/annals.2017.186.3.2, fetched 2026-09-30: relation empty and no update-to/updated-by fields.",
+        "arXiv abstract/history opened 2026-09-30: latest v3 dated 2017-04-11; targeted v3 PDF comparison recorded below. v1–v2 were not read in this fix.",
+        "Targeted web searches on 2026-09-30 for the paper title with erratum/correction, the author-copy filename with errata, and Yun Zhang \"7.15(3)\": no separate correction found."
+      ]
+    },
+    {
+      "id": "PAPER-YUN-ZHANG-17/E39",
+      "kind": "misprint",
+      "locator": "Published pp.821,828,862; v3 PDF p.43 for the two p.828 slips",
+      "printed": "The source repeats “the” before “action”, writes “According the discussion” and “According Theorem 6.5”, and says the conclusion establishes the proposition.",
+      "correction": "the action; According to the discussion; According to Theorem 6.5; which implies the lemma",
+      "reason": "The first duplicates an article (p.821, not 822); the next two omit the preposition; the last occurs inside the proof of Lemma 7.11. These do not change a mathematical statement. The two missing prepositions also occur on v3 p.43; this fix does not assert v3 contains the other two slips.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Annals article page https://annals.math.princeton.edu/2017/186-3/p02 and author research page https://math.mit.edu/~zyun/research.html, opened 2026-09-30: no correction linked for this article.",
+        "Crossref work metadata for DOI 10.4007/annals.2017.186.3.2, fetched 2026-09-30: relation empty and no update-to/updated-by fields.",
+        "arXiv abstract/history opened 2026-09-30: latest v3 dated 2017-04-11; targeted v3 PDF comparison recorded below. v1–v2 were not read in this fix.",
+        "Targeted web searches on 2026-09-30 for the paper title with erratum/correction, the author-copy filename with errata, and Yun Zhang \"7.15(3)\": no separate correction found."
+      ]
     }
-  ]
+  ],
+  "sourceVersions": [
+    {
+      "kind": "published",
+      "url": "https://math.mit.edu/~zyun/Taylor_Expansion_published.pdf",
+      "read": "2026-09-22",
+      "sha256": "b02ed5cbe5e6443a59360551cd41048ebb1e589d3c4cbe89f7fcbbbec50fc111",
+      "note": "Original full-publication reading by Claude Code cc-fb70e5, preserved from source.readSections; not a new Annals fetch on that date."
+    },
+    {
+      "kind": "published",
+      "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v186-n3-p02-p.pdf",
+      "read": "2026-09-30",
+      "sha256": "b02ed5cbe5e6443a59360551cd41048ebb1e589d3c4cbe89f7fcbbbec50fc111",
+      "note": "Codex codex-J6LwjP fresh download, byte-identical to the original author copy. Selective proof/dependency and typo audit, not a new full reading."
+    },
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/1512.02683v3",
+      "read": "2026-09-30",
+      "sha256": "76bb3576bc75dc1c5214597197e3d8ef62abc10784e2b2625657a0e7ea1821ff",
+      "note": "Fresh download and targeted §9.2 and typo comparison; original whole-paper comparison remains recorded separately in source.readSections. Versions v1–v2 were not freshly read."
+    }
+  ],
+  "repairReviewScope": {
+    "job": "FIX-RT-PAPER-YUN-ZHANG-17",
+    "date": "2026-09-30",
+    "note": "Routes and their numbering changed. The existing unassigned paper review records the earlier route set; do not treat its numeric approvals as approval of this repaired set. Independent fix review and maintainer reconciliation are required before the new routes feed accepted_routes. No self-approval is added."
+  }
 }
