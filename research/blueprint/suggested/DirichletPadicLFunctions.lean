@@ -16225,3 +16225,138 @@ example (w : ℚ_[2]) (hw : Tendsto (fun n => moritaShiftedMean 2 (1 : Dirichlet
 example (A : ℤ_[3] → ℚ_[3]) (w : ℚ_[3]) (hw : Tendsto (fun n => moritaShiftedMean 3 (1 : DirichletCharacter ℚ_[3] 1) n 0 A -
     moritaAngularMean 3 (1 : DirichletCharacter ℚ_[3] 1) n A) atTop (𝓝 w)) : w=0 := by sorry
 end DirichletPadic.SuggestedMoritaIntegerBoundaryTests
+
+/- Actual Taylor remainders, sampled quotient limits and the derivative boundary value. -/
+
+namespace DirichletPadic
+noncomputable section
+open Filter
+open scoped Topology
+open scoped Classical
+variable (p : ℕ) [Fact p.Prime]
+variable {K : Type*} [NormedField K]
+
+lemma moritaTaylorRemainder_identity (ι : ℤ_[p] →+* K) (A : ℤ_[p] → K) (D : ℕ → ℤ_[p] → K)
+    (x h : ℤ_[p]) (hD : D 0 x=A x)
+    (ht : HasSum (fun m => (ι h)^m*D m x) (A (x+h))) :
+    A (x+h)-A x-ι h*D 1 x = ∑' m, (ι h)^(m+2)*D (m+2) x := by sorry
+
+lemma moritaTaylorRemainder_norm [IsUltrametricDist K] (ι : ℤ_[p] →+* K)
+    (hι : ∀ x : ℤ_[p], ‖ι x‖=‖x‖) (A : ℤ_[p] → K) (D : ℕ → ℤ_[p] → K)
+    (x h : ℤ_[p]) (hD : D 0 x=A x) (B R : ℝ) (hB : 0≤B) (hR : 0<R) (hh : ‖h‖≤R)
+    (hv : ∀ m, ‖D m x‖≤B/R^m)
+    (ht : HasSum (fun m => (ι h)^m*D m x) (A (x+h))) :
+    ‖A (x+h)-A x-ι h*D 1 x‖ ≤ B*(‖h‖/R)^2 := by sorry
+
+lemma moritaAngularQuotient_error_norm [IsUltrametricDist K] [CharZero K] (ι : ℤ_[p] →+* K)
+    (hι : ∀ x : ℤ_[p], ‖ι x‖=‖x‖) (A : ℤ_[p] → K) (D : ℕ → ℤ_[p] → K)
+    (x : ℤ_[p]) (u : ℤ_[p]ˣ) (N : ℕ) (hN : 0<N) (hD : D 0 x=A x)
+    (B R : ℝ) (hB : 0≤B) (hR : 0<R) (hNR : ‖(N : ℤ_[p])‖≤R)
+    (hv : ∀ m, ‖D m x‖≤B/R^m)
+    (ht : HasSum (fun m => (ι ((u : ℤ_[p])*N))^m*D m x) (A (x+(u : ℤ_[p])*N))) :
+    ‖(N : K)⁻¹*(A (x+(u : ℤ_[p])*N)-A x)-ι (u : ℤ_[p])*D 1 x‖ ≤
+      (B/R^2)*‖(N : ℤ_[p])‖ := by sorry
+
+lemma moritaLevel_norm_le_radius (f n : ℕ) : ‖(moritaLevel p f n : ℤ_[p])‖≤‖(moritaModulus p : ℤ_[p])‖ := by sorry
+
+lemma moritaAngularQuotient_tendsto [IsUltrametricDist K] [CharZero K] (ι : ℤ_[p] →+* K)
+    (hι : ∀ x : ℤ_[p], ‖ι x‖=‖x‖) (A : ℤ_[p] → K) (D : ℕ → ℤ_[p] → K)
+    (x : ℤ_[p]) (u : ℤ_[p]ˣ) (f : ℕ) (hf : 0<f) (hD : D 0 x=A x)
+    (B R : ℝ) (hB : 0≤B) (hR : ‖(moritaModulus p : ℤ_[p])‖<R)
+    (hv : ∀ m, ‖D m x‖≤B/R^m)
+    (hT : ∀ h : ℤ_[p], ‖h‖<R → HasSum (fun m => (ι h)^m*D m x) (A (x+h))) :
+    Tendsto (fun n => (moritaLevel p f n : K)⁻¹*(A (x+(u : ℤ_[p])*moritaLevel p f n)-A x))
+      atTop (𝓝 (ι (u : ℤ_[p])*D 1 x)) := by sorry
+
+lemma moritaAngularSamples_quotient_tendsto [IsUltrametricDist K] [CharZero K]
+    (ι : ℤ_[p] →+* K) (hι : ∀ x : ℤ_[p], ‖ι x‖=‖x‖)
+    (A : ℤ_[p] → K) (D : ℕ → ℤ_[p] → K) (hD : D 0=A)
+    (f : ℕ) (hf : 0<f) (B R : ℝ) (hB : 0≤B) (hR : ‖(moritaModulus p : ℤ_[p])‖<R)
+    (hv : ∀ m x, ‖x-1‖≤‖(moritaModulus p : ℤ_[p])‖ → ‖D m x‖≤B/R^m)
+    (hT : ∀ x h : ℤ_[p], ‖x-1‖≤‖(moritaModulus p : ℤ_[p])‖ → ‖h‖<R →
+      HasSum (fun m => (ι h)^m*D m x) (A (x+h))) (a : ℕ) (ha : ¬p ∣ a) :
+    Tendsto (fun n => (moritaLevel p f n : K)⁻¹*(moritaAngularSamples p A (a+moritaLevel p f n)-moritaAngularSamples p A a))
+      atTop (𝓝 ((moritaTorsionCharacterMap p ι (a : ZMod (moritaModulus p)))⁻¹*moritaAngularSamples p (D 1) a)) := by sorry
+
+lemma moritaNaturalShift_norm (z : ℕ) (hz : moritaModulus p ∣ z) : ‖(z : ℤ_[p])‖≤‖(moritaModulus p : ℤ_[p])‖ := by sorry
+
+lemma moritaShiftedMean_derivative_boundary [IsUltrametricDist K] [CharZero K]
+    (ι : ℤ_[p] →+* K) (hι : ∀ x : ℤ_[p], ‖ι x‖=‖x‖)
+    {f : ℕ} (χ : DirichletCharacter K f) (hf : 0<f)
+    (A : ℤ_[p] → K) (D : ℕ → ℤ_[p] → K) (hD : D 0=A)
+    (B R : ℝ) (hB : 0≤B) (hR : ‖(moritaModulus p : ℤ_[p])‖<R)
+    (hv : ∀ m x, ‖x-1‖≤‖(moritaModulus p : ℤ_[p])‖ → ‖D m x‖≤B/R^m)
+    (hT : ∀ x h : ℤ_[p], ‖x-1‖≤‖(moritaModulus p : ℤ_[p])‖ → ‖h‖<R →
+      HasSum (fun m => (ι h)^m*D m x) (A (x+h)))
+    (z : ℕ) (hz : Nat.lcm f (moritaModulus p) ∣ z) (w : K)
+    (hw : Tendsto (fun n => moritaShiftedMean p χ n (z : ℤ_[p]) A-moritaAngularMean p χ n A) atTop (𝓝 w)) :
+    w = ∑ a ∈ Finset.range z, if p ∣ a then 0 else χ (a : ZMod f)*
+      ((moritaTorsionCharacterMap p ι (a : ZMod (moritaModulus p)))⁻¹*moritaAngularSamples p (D 1) a) := by sorry
+
+lemma moritaTranslatedDifference_integer [NormedAlgebra ℚ_[p] K] [IsUltrametricDist K] [CharZero K] [CompleteSpace K]
+    (ι : ℤ_[p] →+* K) (hι : ∀ x : ℤ_[p], ‖ι x‖=‖x‖)
+    {f : ℕ} (χ : DirichletCharacter K f) (hf : 0<f)
+    (A : ℤ_[p] → K) (D : ℕ → ℤ_[p] → K) (hD : D 0=A)
+    (B R : ℝ) (hB : 0≤B) (hR : ‖(moritaModulus p : ℤ_[p])‖<R)
+    (hval : ∀ m x, ‖x-1‖≤‖(moritaModulus p : ℤ_[p])‖ → ‖D m x‖≤B/R^m)
+    (hLip : ∀ m x y, ‖x-1‖≤‖(moritaModulus p : ℤ_[p])‖ → ‖y-1‖≤‖(moritaModulus p : ℤ_[p])‖ →
+      ‖D m x-D m y‖≤(B/R^m/‖(moritaModulus p : ℤ_[p])‖)*‖x-y‖)
+    (hT : ∀ x h : ℤ_[p], ‖x-1‖≤‖(moritaModulus p : ℤ_[p])‖ → ‖h‖<R →
+      HasSum (fun m => (ι h)^m*D m x) (A (x+h)))
+    (v : ℕ → K) (hv : ∀ m, Tendsto (fun n => moritaAngularMean p (moritaCharacterTwist p ι χ m) n (D m)) atTop (𝓝 (v m)))
+    (z : ℕ) (hz : Nat.lcm f (moritaModulus p) ∣ z) :
+    moritaTranslatedDifference p ι v (z : ℤ_[p]) =
+      ∑ a ∈ Finset.range z, if p ∣ a then 0 else χ (a : ZMod f)*
+        ((moritaTorsionCharacterMap p ι (a : ZMod (moritaModulus p)))⁻¹*moritaAngularSamples p (D 1) a) := by sorry
+
+end
+end DirichletPadic
+
+namespace DirichletPadic.SuggestedMoritaQuotientTests
+open Filter
+open scoped Topology
+-- remainder_square
+example : ((1+4 : ℚ_[2])^2-1-4*2) = 16 := by sorry
+-- remainder_cubic
+example : ((1+4 : ℚ_[2])^3-1-4*3) = 3*4^2+4^3 := by sorry
+-- remainder_norm_square
+example : ‖((1+4 : ℚ_[2])^2-1-4*2)‖ = (1/4 : ℝ)^2 := by sorry
+-- remainder_norm_cubic
+example : ‖((1+4 : ℚ_[2])^3-1-4*3)‖ ≤ (1/4 : ℝ)^2 := by sorry
+-- quotient_error_unit_negative
+example : ‖(4 : ℚ_[2])⁻¹*((-3-4)^2-(-3)^2)-(-1)*(2*(-3))‖ = 1/4 := by sorry
+-- quotient_error_affine
+example : (4 : ℚ_[2])⁻¹*((1+4)-1)-1 = 0 := by sorry
+-- level_norm_boundary
+example : ‖(moritaLevel 2 3 0 : ℤ_[2])‖ = ‖(moritaModulus 2 : ℤ_[2])‖ := by sorry
+-- level_norm_interior
+example : ‖(moritaLevel 2 8 0 : ℤ_[2])‖ < ‖(moritaModulus 2 : ℤ_[2])‖ := by sorry
+-- point_quotient_square
+example : Tendsto (fun n => (moritaLevel 2 1 n : ℚ_[2])⁻¹*((1+moritaLevel 2 1 n : ℚ_[2])^2-1)) atTop (𝓝 2) := by sorry
+-- point_quotient_cubic_negative
+example : Tendsto (fun n => (moritaLevel 3 1 n : ℚ_[3])⁻¹*((1-moritaLevel 3 1 n : ℚ_[3])^3-1)) atTop (𝓝 (-3)) := by sorry
+-- sample_quotient_linear
+example : Tendsto (fun n => (moritaLevel 2 1 n : ℚ_[2])⁻¹*
+    (moritaAngularSamples 2 (fun x => (x : ℚ_[2])) (3+moritaLevel 2 1 n)-moritaAngularSamples 2 (fun x => (x : ℚ_[2])) 3)) atTop (𝓝 (-1)) := by sorry
+-- sample_quotient_cubic
+example : Tendsto (fun n => (moritaLevel 2 1 n : ℚ_[2])⁻¹*
+    (moritaAngularSamples 2 (fun x => (x : ℚ_[2])^3) (3+moritaLevel 2 1 n)-moritaAngularSamples 2 (fun x => (x : ℚ_[2])^3) 3)) atTop (𝓝 (-27)) := by sorry
+-- shift_norm_boundary
+example : ‖(12 : ℤ_[2])‖ = 1/4 := by sorry
+-- shift_norm_interior
+example : ‖(24 : ℤ_[2])‖ = 1/8 := by sorry
+-- shift_norm_zero
+example : ‖(0 : ℤ_[3])‖ ≤ ‖(moritaModulus 3 : ℤ_[3])‖ := by sorry
+-- derivative_boundary_dyadic
+example (w : ℚ_[2]) (hw : Tendsto (fun n => moritaShiftedMean 2 (1 : DirichletCharacter ℚ_[2] 1) n 4 (fun x => (x : ℚ_[2])^2) -
+    moritaAngularMean 2 (1 : DirichletCharacter ℚ_[2] 1) n (fun x => (x : ℚ_[2])^2)) atTop (𝓝 w)) : w=8 := by sorry
+-- derivative_boundary_odd
+example (w : ℚ_[3]) (hw : Tendsto (fun n => moritaShiftedMean 3 (1 : DirichletCharacter ℚ_[3] 1) n 3 (fun x => (x : ℚ_[3])^2) -
+    moritaAngularMean 3 (1 : DirichletCharacter ℚ_[3] 1) n (fun x => (x : ℚ_[3])^2)) atTop (𝓝 w)) : w=6 := by sorry
+-- difference_integer_quadratic_dyadic
+example : moritaTranslatedDifference 2 PadicInt.Coe.ringHom (fun m => if m=0 then (-1/6 : ℚ_[2]) else if m=2 then 1/2 else 0) 4 = 8 := by sorry
+-- difference_integer_quadratic_odd
+example : moritaTranslatedDifference 3 PadicInt.Coe.ringHom (fun m => if m=0 then (-1/3 : ℚ_[3]) else if m=2 then 2/3 else 0) 3 = 6 := by sorry
+-- difference_integer_zero
+example (v : ℕ → ℚ_[2]) : moritaTranslatedDifference 2 PadicInt.Coe.ringHom v 0 = 0 := by sorry
+end DirichletPadic.SuggestedMoritaQuotientTests

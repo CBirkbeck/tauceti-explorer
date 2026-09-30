@@ -29457,3 +29457,257 @@ Exact rational controls pass1200 natural-sample,576 natural-mean,576 general wei
 Post-merge capture 02afbbd3b8b39106170820b394ceef20be24b50d changes only Polylogarithms. Read the complete semantic delta, including the whole changed hyperbolic-volume node and all coverage/gap/request/proposal/review fields; the large prior review is mechanically preserved verbatim in reviewHistory. The change separates layers7/8 metric and model inputs from the missing early ideal-boundary/oriented-tetrahedron geometry, retains Milnor/Lobachevsky ownership in P.2, and avoids a QT.5 cycle. Status becomes needs_changes because its reader is outside that review scope and remains unsynchronized. No Dirichlet route consumes this geometric node. The prior P.5/P.6 changes remain whole. Policies, native baseline, analytic suppliers, the source-issue registry and own16 findings are unchanged; no fresh independent source verdict is claimed.
 
 The separate partial signature file also compiled with zero errors and 2,888 expected placeholder warnings across 3,600 pinned source modules. It includes all 6 new named declarations and 14 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: f8fca2eae8b15b0b23d37ab971bb718954da4692a538f3ffb1eff60806c669c8.
+
+
+## Taylor quotient limits and the nonnegative integer derivative formula
+
+Nine L3 nodes derive the sampled quotient limit from an actual quadratic Taylor remainder bound and identify the existing difference function with the finite derivative boundary sum. All909 predecessor nodes,722 baseline records and16 findings remain whole.
+
+Retains the full Morita1975/KL1964 readings and Morita pp.259–260 for the derivative quotient and Theorem2. Reads native squeeze_zero and the full multiplicative-to-additive norm-convergence criterion; reuses the already read pinned tail-splitting and ultrametric sum generators.
+
+### The actual Taylor remainder starts at degree two
+
+`DirichletPadicLFunctions:L3/morita-taylor-quadratic-remainder` — `DirichletPadic.moritaTaylorRemainder_identity`
+
+From the actual Taylor HasSum and D_0(x)=A(x), obtain A(x+h)−A(x)−ι(h)D_1(x)=Σ_(m≥0)(ιh)^(m+2)D_(m+2)(x).
+
+**Hypotheses:** p is prime, q=4 at p=2 and q=p otherwise, r=‖q‖ and N_n=lcm(f,q)q^n. A and D_m are actual functions ℤ_p→K, with D_0=A. In the source application D_m=A^(m)/m! comes from the existing LAD analytic request. The coefficient homomorphism ι:ℤ_p→K preserves norms. K is a normed field, ultrametric for the norm estimates; characteristic zero and f>0 ensure that the natural averaging denominators in the quotient are nonzero. For the Taylor remainder assume an actual HasSum (m↦(ιh)^m D_m(x)) (A(x+h)), B≥0, R>0 and ‖D_m(x)‖≤B/R^m. The norm estimate uses ‖h‖≤R. For the source sequence use R>r and actual Taylor HasSum for increments of norm<R at every principal-disc center. The initial point quotient uses a genuine unit u∈ℤ_p× and increment uN_n. For angular samples take x=α(a), u=Ω(a)^(−1) and a a p-unit. The derivative coefficient is ι(Ω(a)^(−1))D_1(α(a)), with the inverse torsion sign retained. The final F_v identity additionally retains the preceding complete normalized ℚ_p-coefficient field, closed-disc derivative Lipschitz bounds and actual twisted coefficient-limit witnesses. Only nonnegative integer z divisible by lcm(f,q) is covered. The analytic carrier, derivative compatibility, negative oriented branch and logarithmic/Gamma comparison remain open.
+
+**Proof:**
+
+1. The supplied HasSum gives actual summability and identifies the sum with A(x+h).
+2. Split the convergent series after its first two terms using the native additive companion of Multipliable.prod_mul_tprod_nat_add.
+3. The finite prefix is D_0(x)+ι(h)D_1(x). Substitute D_0(x)=A(x) and subtract. The complete remainder_identity proof retains the shifted coefficient index m+2.
+
+**Prerequisites:** `mathlib:Multipliable.prod_mul_tprod_nat_add`.
+
+**Tests:**
+
+- `SuggestedMoritaQuotientTests.remainder_square` (computation): At p=2,x=1,h=4,A=x² the quadratic remainder is16.
+- `SuggestedMoritaQuotientTests.remainder_cubic` (computation): For A=x³ the same remainder is3·4²+4³, retaining all terms after the linear term.
+
+**Acceptance:** The input is a convergent Taylor identity, not an unproved formal series expansion.
+
+**Source:** Section2 p.259, normalized difference quotient in the finite boundary sum and its derivative limit; Theorem2 pp.259–260, nonnegative integer branch. The source passage from the normalized sampled difference to Ω(a)^(−1)A′(α(a)) is justified by an explicit quadratic Taylor remainder estimate. This supplies the missing quotient limit in the preceding finite boundary theorem and identifies the existing translated difference function at the stated nonnegative integers.
+
+### A quadratic ultrametric remainder bound
+
+`DirichletPadicLFunctions:L3/morita-taylor-quadratic-remainder-norm` — `DirichletPadic.moritaTaylorRemainder_norm`
+
+Under ‖D_m(x)‖≤B/R^m, B≥0, R>0 and ‖h‖≤R, the remainder norm is at most B(‖h‖/R)².
+
+**Hypotheses:** p is prime, q=4 at p=2 and q=p otherwise, r=‖q‖ and N_n=lcm(f,q)q^n. A and D_m are actual functions ℤ_p→K, with D_0=A. In the source application D_m=A^(m)/m! comes from the existing LAD analytic request. The coefficient homomorphism ι:ℤ_p→K preserves norms. K is a normed field, ultrametric for the norm estimates; characteristic zero and f>0 ensure that the natural averaging denominators in the quotient are nonzero. For the Taylor remainder assume an actual HasSum (m↦(ιh)^m D_m(x)) (A(x+h)), B≥0, R>0 and ‖D_m(x)‖≤B/R^m. The norm estimate uses ‖h‖≤R. For the source sequence use R>r and actual Taylor HasSum for increments of norm<R at every principal-disc center. The initial point quotient uses a genuine unit u∈ℤ_p× and increment uN_n. For angular samples take x=α(a), u=Ω(a)^(−1) and a a p-unit. The derivative coefficient is ι(Ω(a)^(−1))D_1(α(a)), with the inverse torsion sign retained. The final F_v identity additionally retains the preceding complete normalized ℚ_p-coefficient field, closed-disc derivative Lipschitz bounds and actual twisted coefficient-limit witnesses. Only nonnegative integer z divisible by lcm(f,q) is covered. The analytic carrier, derivative compatibility, negative oriented branch and logarithmic/Gamma comparison remain open.
+
+**Proof:**
+
+1. In the preceding actual tail, multiplicativity and norm preservation bound the m-th term by B(‖h‖/R)^(m+2).
+2. Because0≤‖h‖/R≤1, every term is bounded by B(‖h‖/R)².
+3. Apply the existing native ultrametric norm bound for a tsum. The complete remainder_norm proof needs no new completeness assumption because the actual HasSum was supplied.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/morita-taylor-quadratic-remainder`, `mathlib:IsUltrametricDist.norm_tprod_le_of_forall_le`.
+
+**Tests:**
+
+- `SuggestedMoritaQuotientTests.remainder_norm_square` (computation): The dyadic square remainder has norm1/16 at h=4.
+- `SuggestedMoritaQuotientTests.remainder_norm_cubic` (computation): The cubic remainder at h=4 also satisfies the1/16 bound.
+
+**Acceptance:** A bound on the full function alone does not replace the divided-derivative bounds.
+
+**Source:** Section2 p.259, normalized difference quotient in the finite boundary sum and its derivative limit; Theorem2 pp.259–260, nonnegative integer branch. The source passage from the normalized sampled difference to Ω(a)^(−1)A′(α(a)) is justified by an explicit quadratic Taylor remainder estimate. This supplies the missing quotient limit in the preceding finite boundary theorem and identifies the existing translated difference function at the stated nonnegative integers.
+
+### The normalized quotient error is at most linear in N
+
+`DirichletPadicLFunctions:L3/morita-angular-quotient-error` — `DirichletPadic.moritaAngularQuotient_error_norm`
+
+For a unit u, a positive natural N with ‖N‖≤R and the actual Taylor identity at h=uN, the norm of N^(−1)(A(x+uN)−A(x))−ι(u)D_1(x) is at most (B/R²)‖N‖.
+
+**Hypotheses:** p is prime, q=4 at p=2 and q=p otherwise, r=‖q‖ and N_n=lcm(f,q)q^n. A and D_m are actual functions ℤ_p→K, with D_0=A. In the source application D_m=A^(m)/m! comes from the existing LAD analytic request. The coefficient homomorphism ι:ℤ_p→K preserves norms. K is a normed field, ultrametric for the norm estimates; characteristic zero and f>0 ensure that the natural averaging denominators in the quotient are nonzero. For the Taylor remainder assume an actual HasSum (m↦(ιh)^m D_m(x)) (A(x+h)), B≥0, R>0 and ‖D_m(x)‖≤B/R^m. The norm estimate uses ‖h‖≤R. For the source sequence use R>r and actual Taylor HasSum for increments of norm<R at every principal-disc center. The initial point quotient uses a genuine unit u∈ℤ_p× and increment uN_n. For angular samples take x=α(a), u=Ω(a)^(−1) and a a p-unit. The derivative coefficient is ι(Ω(a)^(−1))D_1(α(a)), with the inverse torsion sign retained. The final F_v identity additionally retains the preceding complete normalized ℚ_p-coefficient field, closed-disc derivative Lipschitz bounds and actual twisted coefficient-limit witnesses. Only nonnegative integer z divisible by lcm(f,q) is covered. The analytic carrier, derivative compatibility, negative oriented branch and logarithmic/Gamma comparison remain open.
+
+**Proof:**
+
+1. The unit has norm one, so the Taylor increment uN has the same norm as N.
+2. Use ι(uN)=ι(u)N and N≠0 to rewrite the quotient error as N^(−1) times the quadratic remainder. Characteristic zero and N>0 justify the inverse cancellation.
+3. Norm preservation identifies the coefficient-field norm of N with its ℤ_p norm. Multiply the remainder bound by ‖N‖^(−1), cancel one power and obtain (B/R²)‖N‖.
+4. The complete quotient_error proof checks the exact field identity and the real norm cancellation.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/morita-taylor-quadratic-remainder-norm`, `mathlib:PadicInt.norm_units`.
+
+**Tests:**
+
+- `SuggestedMoritaQuotientTests.quotient_error_unit_negative` (computation): For p=2,x=−3,u=−1,N=4,A=x² the quotient error has norm1/4.
+- `SuggestedMoritaQuotientTests.quotient_error_affine` (degenerate): The affine Taylor quotient has zero error.
+
+**Acceptance:** The denominator is N, while the derivative is multiplied by u; dividing by uN would give a different normalization.
+
+**Source:** Section2 p.259, normalized difference quotient in the finite boundary sum and its derivative limit; Theorem2 pp.259–260, nonnegative integer branch. The source passage from the normalized sampled difference to Ω(a)^(−1)A′(α(a)) is justified by an explicit quadratic Taylor remainder estimate. This supplies the missing quotient limit in the preceding finite boundary theorem and identifies the existing translated difference function at the stated nonnegative integers.
+
+### Every averaging level lies in the closed shift radius
+
+`DirichletPadicLFunctions:L3/morita-level-inside-closed-radius` — `DirichletPadic.moritaLevel_norm_le_radius`
+
+For all original levels f and depths n, ‖N_n‖≤r.
+
+**Hypotheses:** p is prime, q=4 at p=2 and q=p otherwise, r=‖q‖ and N_n=lcm(f,q)q^n. A and D_m are actual functions ℤ_p→K, with D_0=A. In the source application D_m=A^(m)/m! comes from the existing LAD analytic request. The coefficient homomorphism ι:ℤ_p→K preserves norms. K is a normed field, ultrametric for the norm estimates; characteristic zero and f>0 ensure that the natural averaging denominators in the quotient are nonzero. For the Taylor remainder assume an actual HasSum (m↦(ιh)^m D_m(x)) (A(x+h)), B≥0, R>0 and ‖D_m(x)‖≤B/R^m. The norm estimate uses ‖h‖≤R. For the source sequence use R>r and actual Taylor HasSum for increments of norm<R at every principal-disc center. The initial point quotient uses a genuine unit u∈ℤ_p× and increment uN_n. For angular samples take x=α(a), u=Ω(a)^(−1) and a a p-unit. The derivative coefficient is ι(Ω(a)^(−1))D_1(α(a)), with the inverse torsion sign retained. The final F_v identity additionally retains the preceding complete normalized ℚ_p-coefficient field, closed-disc derivative Lipschitz bounds and actual twisted coefficient-limit witnesses. Only nonnegative integer z divisible by lcm(f,q) is covered. The analytic carrier, derivative compatibility, negative oriented branch and logarithmic/Gamma comparison remain open.
+
+**Proof:**
+
+1. The previous level estimate gives ‖N_n‖≤r^(n+1).
+2. Use0≤r<1 to bound r^n≤1, then multiply by r. The complete level_norm_le_radius proof covers n=0, where equality can hold.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/morita-level-norm-bound`, `DirichletPadicLFunctions:L3/morita-radius-contracting`.
+
+**Tests:**
+
+- `SuggestedMoritaQuotientTests.level_norm_boundary` (boundary): At p=2,f=3,n=0 the averaging level has norm exactly1/4.
+- `SuggestedMoritaQuotientTests.level_norm_interior` (computation): At p=2,f=8,n=0 the averaging level is already strictly inside the1/4 radius.
+
+**Acceptance:** The larger Taylor radius R>r therefore accommodates every depth, without discarding the initial term.
+
+**Source:** Section2 p.259, normalized difference quotient in the finite boundary sum and its derivative limit; Theorem2 pp.259–260, nonnegative integer branch. The source passage from the normalized sampled difference to Ω(a)^(−1)A′(α(a)) is justified by an explicit quadratic Taylor remainder estimate. This supplies the missing quotient limit in the preceding finite boundary theorem and identifies the existing translated difference function at the stated nonnegative integers.
+
+### The actual point quotient tends to the first Taylor coefficient
+
+`DirichletPadicLFunctions:L3/morita-angular-point-quotient-limit` — `DirichletPadic.moritaAngularQuotient_tendsto`
+
+For the unit u and actual Taylor data at x, N_n^(−1)(A(x+uN_n)−A(x)) tends to ι(u)D_1(x).
+
+**Hypotheses:** p is prime, q=4 at p=2 and q=p otherwise, r=‖q‖ and N_n=lcm(f,q)q^n. A and D_m are actual functions ℤ_p→K, with D_0=A. In the source application D_m=A^(m)/m! comes from the existing LAD analytic request. The coefficient homomorphism ι:ℤ_p→K preserves norms. K is a normed field, ultrametric for the norm estimates; characteristic zero and f>0 ensure that the natural averaging denominators in the quotient are nonzero. For the Taylor remainder assume an actual HasSum (m↦(ιh)^m D_m(x)) (A(x+h)), B≥0, R>0 and ‖D_m(x)‖≤B/R^m. The norm estimate uses ‖h‖≤R. For the source sequence use R>r and actual Taylor HasSum for increments of norm<R at every principal-disc center. The initial point quotient uses a genuine unit u∈ℤ_p× and increment uN_n. For angular samples take x=α(a), u=Ω(a)^(−1) and a a p-unit. The derivative coefficient is ι(Ω(a)^(−1))D_1(α(a)), with the inverse torsion sign retained. The final F_v identity additionally retains the preceding complete normalized ℚ_p-coefficient field, closed-disc derivative Lipschitz bounds and actual twisted coefficient-limit witnesses. Only nonnegative integer z divisible by lcm(f,q) is covered. The analytic carrier, derivative compatibility, negative oriented branch and logarithmic/Gamma comparison remain open.
+
+**Proof:**
+
+1. The preceding closed-radius estimate gives ‖uN_n‖=‖N_n‖≤r<R, so the supplied Taylor identity applies at every depth.
+2. The quotient error bound is (B/R²)‖N_n‖. The previous exact geometric level theorem shows this majorant tends to zero.
+3. Apply native squeeze_zero to the nonnegative error norm, then the additive limit criterion generated by tendsto_iff_norm_div_tendsto_zero. Its complete statement and ambient seminormed-commutative-group hypotheses were read.
+4. The complete quotient_limit proof derives the Tendsto witness; it no longer assumes a quotient limit as an input.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/morita-angular-quotient-error`, `DirichletPadicLFunctions:L3/morita-level-inside-closed-radius`, `DirichletPadicLFunctions:L3/morita-level-norm-tends-zero`, `mathlib:squeeze_zero`, `mathlib:tendsto_iff_norm_div_tendsto_zero`, `mathlib:Filter.Tendsto.const_mul`.
+
+**Tests:**
+
+- `SuggestedMoritaQuotientTests.point_quotient_square` (computation): At x=1,u=1,A=x² the dyadic quotient tends to2.
+- `SuggestedMoritaQuotientTests.point_quotient_cubic_negative` (computation): At x=1,u=−1,A=x³ the ternary quotient tends to−3.
+
+**Acceptance:** The unit factor and the sign of the first derivative survive the normalization.
+
+**Source:** Section2 p.259, normalized difference quotient in the finite boundary sum and its derivative limit; Theorem2 pp.259–260, nonnegative integer branch. The source passage from the normalized sampled difference to Ω(a)^(−1)A′(α(a)) is justified by an explicit quadratic Taylor remainder estimate. This supplies the missing quotient limit in the preceding finite boundary theorem and identifies the existing translated difference function at the stated nonnegative integers.
+
+### The actual angular sample quotient has the inverse-twisted derivative limit
+
+`DirichletPadicLFunctions:L3/morita-angular-sample-quotient-limit` — `DirichletPadic.moritaAngularSamples_quotient_tendsto`
+
+At every p-unit natural a, N_n^(−1)(S(A)(a+N_n)−S(A)(a)) tends to θ_ι(a)^(−1)S(D_1)(a).
+
+**Hypotheses:** p is prime, q=4 at p=2 and q=p otherwise, r=‖q‖ and N_n=lcm(f,q)q^n. A and D_m are actual functions ℤ_p→K, with D_0=A. In the source application D_m=A^(m)/m! comes from the existing LAD analytic request. The coefficient homomorphism ι:ℤ_p→K preserves norms. K is a normed field, ultrametric for the norm estimates; characteristic zero and f>0 ensure that the natural averaging denominators in the quotient are nonzero. For the Taylor remainder assume an actual HasSum (m↦(ιh)^m D_m(x)) (A(x+h)), B≥0, R>0 and ‖D_m(x)‖≤B/R^m. The norm estimate uses ‖h‖≤R. For the source sequence use R>r and actual Taylor HasSum for increments of norm<R at every principal-disc center. The initial point quotient uses a genuine unit u∈ℤ_p× and increment uN_n. For angular samples take x=α(a), u=Ω(a)^(−1) and a a p-unit. The derivative coefficient is ι(Ω(a)^(−1))D_1(α(a)), with the inverse torsion sign retained. The final F_v identity additionally retains the preceding complete normalized ℚ_p-coefficient field, closed-disc derivative Lipschitz bounds and actual twisted coefficient-limit witnesses. Only nonnegative integer z divisible by lcm(f,q) is covered. The analytic carrier, derivative compatibility, negative oriented branch and logarithmic/Gamma comparison remain open.
+
+**Proof:**
+
+1. Use the existing exact sample translation to identify the numerator with A(α(a)+Ω(a)^(−1)N_n)−A(α(a)).
+2. The principal angular norm bound verifies the center is in the disc. Apply the preceding point-quotient limit with u=Ω(a)^(−1), using the actual pointwise coefficient bounds and Taylor identity there.
+3. The existing native torsion-character evaluation and ring-homomorphism unit-inverse identity rewrite the target as θ_ι(a)^(−1)S(D_1)(a).
+4. The complete sample_quotient_limit proof checks the natural casts and actual unit witnesses.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/morita-angular-point-quotient-limit`, `DirichletPadicLFunctions:L3/morita-angular-samples-translation`, `DirichletPadicLFunctions:L3/morita-angular-norm`, `DirichletPadicLFunctions:L3/morita-torsion-character-map`.
+
+**Tests:**
+
+- `SuggestedMoritaQuotientTests.sample_quotient_linear` (computation): At p=2,a=3,A(u)=u the sample quotient tends to−1.
+- `SuggestedMoritaQuotientTests.sample_quotient_cubic` (computation): At p=2,a=3,A(u)=u³ it tends to−27.
+
+**Acceptance:** The inverse torsion factor is essential even when the derivative itself has no sign.
+
+**Source:** Section2 p.259, normalized difference quotient in the finite boundary sum and its derivative limit; Theorem2 pp.259–260, nonnegative integer branch. The source passage from the normalized sampled difference to Ω(a)^(−1)A′(α(a)) is justified by an explicit quadratic Taylor remainder estimate. This supplies the missing quotient limit in the preceding finite boundary theorem and identifies the existing translated difference function at the stated nonnegative integers.
+
+### A natural q-multiple lies in the closed shift disc
+
+`DirichletPadicLFunctions:L3/morita-natural-shift-disc` — `DirichletPadic.moritaNaturalShift_norm`
+
+If q divides the natural integer z, then ‖z‖≤r.
+
+**Hypotheses:** p is prime, q=4 at p=2 and q=p otherwise, r=‖q‖ and N_n=lcm(f,q)q^n. A and D_m are actual functions ℤ_p→K, with D_0=A. In the source application D_m=A^(m)/m! comes from the existing LAD analytic request. The coefficient homomorphism ι:ℤ_p→K preserves norms. K is a normed field, ultrametric for the norm estimates; characteristic zero and f>0 ensure that the natural averaging denominators in the quotient are nonzero. For the Taylor remainder assume an actual HasSum (m↦(ιh)^m D_m(x)) (A(x+h)), B≥0, R>0 and ‖D_m(x)‖≤B/R^m. The norm estimate uses ‖h‖≤R. For the source sequence use R>r and actual Taylor HasSum for increments of norm<R at every principal-disc center. The initial point quotient uses a genuine unit u∈ℤ_p× and increment uN_n. For angular samples take x=α(a), u=Ω(a)^(−1) and a a p-unit. The derivative coefficient is ι(Ω(a)^(−1))D_1(α(a)), with the inverse torsion sign retained. The final F_v identity additionally retains the preceding complete normalized ℚ_p-coefficient field, closed-disc derivative Lipschitz bounds and actual twisted coefficient-limit witnesses. Only nonnegative integer z divisible by lcm(f,q) is covered. The analytic carrier, derivative compatibility, negative oriented branch and logarithmic/Gamma comparison remain open.
+
+**Proof:**
+
+1. Write z=qk and use the natural-cast multiplication identity.
+2. The norm of the p-adic integer k is at most one; norm multiplicativity gives the result. The complete natural_shift_norm proof also covers z=0.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/morita-modulus`, `mathlib:PadicInt.norm_le_one`.
+
+**Tests:**
+
+- `SuggestedMoritaQuotientTests.shift_norm_boundary` (boundary): The dyadic q-multiple12 has norm1/4.
+- `SuggestedMoritaQuotientTests.shift_norm_interior` (computation): The dyadic q-multiple24 has norm1/8.
+- `SuggestedMoritaQuotientTests.shift_norm_zero` (degenerate): The zero shift lies in the ternary closed shift disc.
+
+**Acceptance:** This supplies the actual domain hypothesis when a nonnegative integer is inserted into F_v.
+
+**Source:** Section2 p.259, normalized difference quotient in the finite boundary sum and its derivative limit; Theorem2 pp.259–260, nonnegative integer branch. The source passage from the normalized sampled difference to Ω(a)^(−1)A′(α(a)) is justified by an explicit quadratic Taylor remainder estimate. This supplies the missing quotient limit in the preceding finite boundary theorem and identifies the existing translated difference function at the stated nonnegative integers.
+
+### The integer boundary value is the finite inverse-twisted derivative sum
+
+`DirichletPadicLFunctions:L3/morita-derivative-boundary-value` — `DirichletPadic.moritaShiftedMean_derivative_boundary`
+
+If z≥0 is divisible by b=lcm(f,q) and the actual mean-difference sequence tends to w, then w=Σ_(a<z,p∤a)χ(a)θ_ι(a)^(−1)S(D_1)(a), under the actual Taylor and coefficient bounds.
+
+**Hypotheses:** p is prime, q=4 at p=2 and q=p otherwise, r=‖q‖ and N_n=lcm(f,q)q^n. A and D_m are actual functions ℤ_p→K, with D_0=A. In the source application D_m=A^(m)/m! comes from the existing LAD analytic request. The coefficient homomorphism ι:ℤ_p→K preserves norms. K is a normed field, ultrametric for the norm estimates; characteristic zero and f>0 ensure that the natural averaging denominators in the quotient are nonzero. For the Taylor remainder assume an actual HasSum (m↦(ιh)^m D_m(x)) (A(x+h)), B≥0, R>0 and ‖D_m(x)‖≤B/R^m. The norm estimate uses ‖h‖≤R. For the source sequence use R>r and actual Taylor HasSum for increments of norm<R at every principal-disc center. The initial point quotient uses a genuine unit u∈ℤ_p× and increment uN_n. For angular samples take x=α(a), u=Ω(a)^(−1) and a a p-unit. The derivative coefficient is ι(Ω(a)^(−1))D_1(α(a)), with the inverse torsion sign retained. The final F_v identity additionally retains the preceding complete normalized ℚ_p-coefficient field, closed-disc derivative Lipschitz bounds and actual twisted coefficient-limit witnesses. Only nonnegative integer z divisible by lcm(f,q) is covered. The analytic carrier, derivative compatibility, negative oriented branch and logarithmic/Gamma comparison remain open.
+
+**Proof:**
+
+1. The preceding sample-quotient theorem derives every actual quotient limit needed by the finite boundary theorem.
+2. Insert those Tendsto witnesses into the previous uniqueness-based boundary-value comparison.
+3. The complete analytic_boundary_value proof yields the inverse-twisted derivative sum. The quotient-limit assumption of the previous checkpoint has been discharged from actual Taylor data.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/morita-angular-sample-quotient-limit`, `DirichletPadicLFunctions:L3/morita-shifted-mean-boundary-value`.
+
+**Tests:**
+
+- `SuggestedMoritaQuotientTests.derivative_boundary_dyadic` (computation): Any actual limit for A=u²,z=4 at p=2 equals8.
+- `SuggestedMoritaQuotientTests.derivative_boundary_odd` (computation): Any actual limit for A=u²,z=3 at p=3 equals6.
+
+**Acceptance:** w remains an actual mean limit; no formal limit symbol or final-value hypothesis is substituted for it.
+
+**Source:** Section2 p.259, normalized difference quotient in the finite boundary sum and its derivative limit; Theorem2 pp.259–260, nonnegative integer branch. The source passage from the normalized sampled difference to Ω(a)^(−1)A′(α(a)) is justified by an explicit quadratic Taylor remainder estimate. This supplies the missing quotient limit in the preceding finite boundary theorem and identifies the existing translated difference function at the stated nonnegative integers.
+
+### Morita’s nonnegative integer formula for the existing difference function
+
+`DirichletPadicLFunctions:L3/morita-translated-difference-integer` — `DirichletPadic.moritaTranslatedDifference_integer`
+
+For nonnegative integer z divisible by b and the retained source hypotheses, F_v(z)=Σ_(a<z,p∤a)χ(a)θ_ι(a)^(−1)S(D_1)(a).
+
+**Hypotheses:** p is prime, q=4 at p=2 and q=p otherwise, r=‖q‖ and N_n=lcm(f,q)q^n. A and D_m are actual functions ℤ_p→K, with D_0=A. In the source application D_m=A^(m)/m! comes from the existing LAD analytic request. The coefficient homomorphism ι:ℤ_p→K preserves norms. K is a normed field, ultrametric for the norm estimates; characteristic zero and f>0 ensure that the natural averaging denominators in the quotient are nonzero. For the Taylor remainder assume an actual HasSum (m↦(ιh)^m D_m(x)) (A(x+h)), B≥0, R>0 and ‖D_m(x)‖≤B/R^m. The norm estimate uses ‖h‖≤R. For the source sequence use R>r and actual Taylor HasSum for increments of norm<R at every principal-disc center. The initial point quotient uses a genuine unit u∈ℤ_p× and increment uN_n. For angular samples take x=α(a), u=Ω(a)^(−1) and a a p-unit. The derivative coefficient is ι(Ω(a)^(−1))D_1(α(a)), with the inverse torsion sign retained. The final F_v identity additionally retains the preceding complete normalized ℚ_p-coefficient field, closed-disc derivative Lipschitz bounds and actual twisted coefficient-limit witnesses. Only nonnegative integer z divisible by lcm(f,q) is covered. The analytic carrier, derivative compatibility, negative oriented branch and logarithmic/Gamma comparison remain open.
+
+**Proof:**
+
+1. Because q divides b and b divides z, the preceding natural-shift estimate puts z in the closed shift disc.
+2. The existing translated-difference limit theorem, using actual twisted coefficient limits and the larger-radius hypotheses, supplies the actual witness w=F_v(z).
+3. Apply the preceding derivative boundary-value comparison. The complete difference_integer_value proof connects the already defined function to the actual finite derivative sum.
+4. The existing LAD L0 requests still supply the source analytic carrier and true derivative/Taylor compatibility. The negative-integer orientation, logarithmic specialization and Gamma identification are not part of this statement.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/morita-derivative-boundary-value`, `DirichletPadicLFunctions:L3/morita-natural-shift-disc`, `DirichletPadicLFunctions:L3/morita-translated-difference-limit`.
+
+**Tests:**
+
+- `SuggestedMoritaQuotientTests.difference_integer_quadratic_dyadic` (computation): The exact dyadic quadratic coefficients v=(−1/6,0,1/2,0,…) give F_v(4)=8.
+- `SuggestedMoritaQuotientTests.difference_integer_quadratic_odd` (computation): The ternary quadratic coefficients v=(−1/3,0,2/3,0,…) give F_v(3)=6.
+- `SuggestedMoritaQuotientTests.difference_integer_zero` (degenerate): The zero shift gives the empty derivative boundary sum and F_v(0)=0.
+
+**Acceptance:** This proves the stated nonnegative source branch conditionally on the actual analytic inputs; it does not close L3.
+
+**Source:** Section2 p.259, normalized difference quotient in the finite boundary sum and its derivative limit; Theorem2 pp.259–260, nonnegative integer branch. The source passage from the normalized sampled difference to Ω(a)^(−1)A′(α(a)) is justified by an explicit quadratic Taylor remainder estimate. This supplies the missing quotient limit in the preceding finite boundary theorem and identifies the existing translated difference function at the stated nonnegative integers.
+
+**Remaining:** The actual Taylor remainder now gives the normalized quotient limit, and the existing difference function satisfies Morita’s finite inverse-twisted derivative formula at every nonnegative integer multiple of lcm(f,q), under the retained actual analytic inputs. The separate quotient-limit assumption is discharged. The owned analytic carrier, derivative compatibility and coefficient-limit inputs remain open; next supply the negative oriented branch and the logarithmic/Gamma comparison on pℤ_p at odd p and8ℤ₂. Analyticity is not inferred from continuity. Gross–Koblitz and Ferrero–Greenberg retain the recorded source-reading and normalization work. All17 gaps and13 requests remain open.
+
+### Taylor quotient limits and the nonnegative integer derivative formula validation
+
+All 909 predecessor nodes, 722 baseline records, 16 findings, requests and sourceVersions remain whole. This checkpoint adds 9 nodes, 9 named suggested declarations and 20 typed examples. The indexed blueprint, four-file intake, whitespace, preservation, API/test parity and versioned-source checks pass. The graph has 1178 reachable nodes, 5811 edges and 896 native leaves and is acyclic. Its stage request leaves are PadicMeasuresIwasawaAlgebras:L1, PadicMeasuresIwasawaAlgebras:L3, PadicMeasuresIwasawaAlgebras:L3, LocallyAnalyticDistributions:L1, AdicSpacesPartII:F1, AdicSpacesPartII:R2, PadicDifferentialEquationsAndRigidCohomology:RD.0, PadicDifferentialEquationsAndRigidCohomology:RD.4, PadicHodgeTheory:P7:annulus-foundations, PadicMeasuresIwasawaAlgebras:L2, LocallyAnalyticDistributions:L1, LocallyAnalyticDistributions:L0, LocallyAnalyticDistributions:L0. The first eight conditional Taylor/arithmetic nodes terminate in native declarations and prior exact nodes. The final existing-F_v application inherits only the established LAD L0 stage leaf through its actual analytic mean-limit input. Existing precise requests remain whole.
+
+**The full current suggested module was NOT COMPILED.** Its real native import requires TauCeti.NumberTheory.ArithmeticFunction.TwistedDivisorSum. No matching existing artifact was found; WORKERS.md prohibits building the native library. Current compiler exit code, error count and warning count are unavailable, not zero. The exact named signatures and native source were reviewed. PR4773 remains the last compiled full predecessor, with zero errors and1,803 expected placeholder warnings; that receipt does not validate this new module.
+
+The current source closure covers 3604 pinned Mathlib modules and 29 pinned Tau Ceti modules. Only 28 Tau module artifacts are available and hash-verified. The 140 available artifact files and the previously compiled332-node PMIA artifact are checked as partial dependencies. The current369-node supplier source preserves the older interface; no current-module compilation against either revision is claimed. Existing builds only were inspected; no setup, update, cache fetch or native build occurred.
+
+The complete composite probe preserves20 definitions and188 lemmas from PR5302 verbatim and proves9 additional lemmas. Its Taylor HasSum and actual derivative bounds produce the quotient Tendsto witnesses, which then feed the already proved finite boundary identity and existing F_v limit. The separate probe compiles against 2826 pinned Mathlib modules and 7 pinned Tau Ceti modules with zero errors, warnings or placeholders. The separate probe uses the explicit PMIA integer-ring equivalence and seven verified existing Teichmuller artifacts. No native module is rebuilt and no new analytic carrier is introduced. Full suggested file remains NOT COMPILED because its pinned TwistedDivisorSum artifact is unavailable. General roadmap declarations remain unchecked.
+
+Exact rational controls pass1620 remainder identities,1620 remainder bounds,1620 normalized quotient bounds,36 level bounds,1260 actual angular sample quotients,540 finite derivative boundary comparisons and10 quadratic coefficient formulas, with positive and negative unit increments. Exact rational controls for actual polynomials x^k, k0–4, their divided derivatives, p2/3, six original levels and three depths. Unit increments1,−1,5 and three principal-disc centers verify the quadratic remainder and normalized quotient bounds with B=R=1. Actual angular sample quotients and finite derivative boundary sums satisfy the same ultrametric error bound. Exact quadratic finite coefficient formulas independently explain v=(-1/6,0,1/2) at p2 and(-1/3,0,2/3) at p3; their finite support gives F(z)=(1−1/p)z². The largest observed discrepancy is 0 (all exact identities and inequalities).
+
+Post-merge capture 5f376c099bfc9f34533dca273bc8c902fd2a5cd0 preserves all72 captured inputs and the complete issue body. Policies, own16 source findings, the complete registry, analytic supplier packets, baseline and ownership links are unchanged from the predecessor capture. No fresh source finding or independent review verdict is claimed. Publication refresh reads the full ClassicalArithmeticCompletion/E507 registry change: the independent REV-FIX-RT-PAPER-GHOSH-SARNAK-22 review confirms the exceptional Markoff-orbit inequality correction, giving h_M(k)≥h⁺_M(k)+1 for exceptional k≥5. The review records the large-coordinate argument, k=5 counterexample and finite regressions, scoped to the cited preprint passages, without a published-text or blanket version claim. The register moves that unchanged finding into confirmed and adjusts counts. This records the external review verdict, not an independent source verification by this worker. Own findings, analytic suppliers, policies and proof sources are unchanged.
+
+The separate partial signature file also compiled with zero errors and 2,917 expected placeholder warnings across 3,600 pinned source modules. It includes all 9 new named declarations and 20 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: d3db181fd3187c373920c9b87f4db536cc318afdd884296403626cc32c245980.
