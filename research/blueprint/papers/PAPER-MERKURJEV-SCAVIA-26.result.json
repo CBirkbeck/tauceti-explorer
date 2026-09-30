@@ -99,9 +99,10 @@
       "status": "planned",
       "library": [],
       "planned": [
+        "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-5-presentations-extensions-and-the-rank-interpretations",
         "InverseGaloisAndArithmeticFundamentalGroups:IG.4"
       ],
-      "note": " API: Construct from a commuting lift; project to ρ̃; extensionality by the underlying homomorphism; pull back in K and in the extension. Tests: Split extension; trivial ρ; a lift with proper image is still weak, not a proper solution."
+      "note": "API: Construct from a commuting lift; project to ρ̃; extensionality by the underlying homomorphism; pull back in K and in the extension. Tests: Split extension; trivial ρ; a lift with proper image is still weak, not a proper solution. FIX-RT-PAPER-MERKURJEV-SCAVIA-26 (RT/1): Tau Ceti ProfiniteProPGroups Layer 5 plans FiniteEmbeddingProblem and FiniteEmbeddingProblem.IsSolution in exactly this weak form ('Everything below needs only the weak form'), so it is cited first, ahead of the proposed IG.4, as PAPER-HARPAZ-WITTENBERG-23/23 does. Layer 5's π is surjective: a weak solution for a non-surjective ρ is a FiniteEmbeddingProblem.IsSolution for ρ onto its image, after pulling the extension back to ρ(Γ_K); the solutions of the two problems are the same maps."
     },
     {
       "id": "PAPER-MERKURJEV-SCAVIA-26/4",
@@ -160,7 +161,7 @@
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "Use continuous factor sets: a continuous primitive produces a continuous lift; an abstract splitting alone does not establish this result."
+      "note": "Use continuous factor sets: a continuous primitive produces a continuous lift; an abstract splitting alone does not establish this result. FIX-RT-PAPER-MERKURJEV-SCAVIA-26 (RT/1): Tau Ceti ProfiniteProPGroups Layer 5 owns the continuous extension/H² dictionary and the splitting criterion (an extension splits continuously iff its class vanishes) for finite abelian p-primary coefficients, and in 5.2 the solvability of an embedding problem with elementary abelian kernel as the vanishing of the pulled-back class. Route 1 adds only (a) the generalization to an arbitrary finite abelian kernel A with arbitrary H-action, through the primary decomposition A = ⊕_ℓ A_ℓ (each A_ℓ is characteristic, G is the fibre product of the quotients G_ℓ over H, and H²(Γ_K, A) = ⊕_ℓ H²(Γ_K, A_ℓ), so ρ lifts iff every ρ*α_ℓ vanishes), and (b) the identification of the class of the fibre product Γ_K ×_H G with ρ*α, that is the naturality of the dictionary under pullback along ρ, by pulling a normalized factor set back along ρ through a set-theoretic section of G → H. It is not a second extension dictionary."
     },
     {
       "id": "PAPER-MERKURJEV-SCAVIA-26/9",
@@ -569,10 +570,18 @@
       "name": "Two connecting homomorphisms",
       "statement": "With e,n,H,L/K as in §3, ∂₁:(L×/μ_e)^H→H¹(H,μ_e) comes from 1→μ_e→L×→L×/μ_e→1, and ∂₂:H¹(H,μ_e)→H²(H,μ_n) from 1→μ_n→μ_ne→μ_e→1, the last map being nth power.",
       "locator": "(3.2)–(3.3) p.7",
-      "status": "missing",
-      "library": [],
+      "status": "library",
+      "library": [
+        "tauceti:TauCeti.ContCohomology.DiscreteShortExact",
+        "tauceti:TauCeti.ContCohomology.DiscreteShortExact.explicitDelta0",
+        "tauceti:TauCeti.ContCohomology.DiscreteShortExact.explicitDelta1",
+        "tauceti:TauCeti.ContCohomology.DiscreteShortExact.explicitDelta0_apply",
+        "tauceti:TauCeti.ContCohomology.DiscreteShortExact.explicitDelta1_apply",
+        "tauceti:TauCeti.ContCohomology.DiscreteShortExact.explicitLongExact_H1C",
+        "tauceti:TauCeti.ContCohomology.DiscreteShortExact.explicitLongExact_H2A"
+      ],
       "planned": [],
-      "note": " API: Explicit cocycles ∂₁(fμ_e)(h)=h(f)/f, naturality, exactness and ∂₂ as the pullback extension class. Tests: An invariant unit in K× has zero ∂₁; e=1; do not apply a trivial-action lemma to the first sequence’s L× term."
+      "note": "FIX-RT-PAPER-MERKURJEV-SCAVIA-26 (RT/2): library. (3.2) and (3.3) are instances of Tau Ceti's DiscreteShortExact (ContCohomology/ShortExact.lean:181) for the finite group H with the discrete topology: ∂₁ is explicitDelta0 (:538), whose explicitDelta0_apply (:550) gives the formula h(f)/f, and ∂₂ is explicitDelta1 (:766, explicitDelta1_apply :782). Exactness is built too: explicitLongExact_H0A … explicitLongExact_H2B (LongExact.lean:145–546). L×, μ_e, μ_n and μ_ne enter through Additive with the discrete topology; this is an adapter, not missing mathematics. Not in the library: the identity ∂₂(χ) = χ*(θ) with its sign, the class of (3.3) pulled back along χ (p.9); no declaration relates explicitDelta1 to extension classes, so that step is recorded as missing in /49's note."
     },
     {
       "id": "PAPER-MERKURJEV-SCAVIA-26/44",
@@ -638,7 +647,7 @@
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "Keep the minus sign. Reduce by coefficient naturality to A=μ_n, use the preceding character diagram and tg(id)=−[μ_ne]."
+      "note": "Keep the minus sign. Reduce by coefficient naturality to A=μ_n, use the preceding character diagram and tg(id)=−[μ_ne]. FIX-RT-PAPER-MERKURJEV-SCAVIA-26 (RT/2): a missing step moved here from /43: identify ∂₂(χ) = explicitDelta1(χ) with the pullback χ*(θ) of the extension class of (3.3) along χ (p.9), fixing the sign convention; no declaration at the pin relates explicitDelta1 to FactorSet extension classes."
     },
     {
       "id": "PAPER-MERKURJEV-SCAVIA-26/50",
@@ -649,7 +658,7 @@
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": " API: Additivity in both entries, projection formula, conjugation covariance and transitivity under subgroup enlargement. Tests: H′=H is cup product; H′=1 contributes zero in degree two; the Z action is trivial."
+      "note": "API: Additivity in both entries, projection formula, conjugation covariance and transitivity under subgroup enlargement. Tests: H′=H is cup product; H′=1 contributes zero in degree two; the Z action is trivial. FIX-RT-PAPER-MERKURJEV-SCAVIA-26 (RT/2): φ_H′ = explicitCor2 ∘ explicitCup02 on built carriers: Tau Ceti's ContCohomology.explicitCup02 (Cup/Product.lean:387) for the equivariant pairing A × Z → A, (a, n) ↦ n·a (equivariant since Z has trivial action), then explicitCor2 (Corestriction.lean:850); only the passage to the tensor product A^H′ ⊗ H²(H′, Z) is new."
     },
     {
       "id": "PAPER-MERKURJEV-SCAVIA-26/51",
@@ -671,7 +680,7 @@
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "Finite H is essential to commute the finite-rank bar cochains with arbitrary direct sums. Construct using a length-one free Z-resolution of X, the long exact sequence and the displayed kernel/cokernel identifications; this is additional finite-coefficient API beyond upstream’s listed targets."
+      "note": "Finite H is essential to commute the finite-rank bar cochains with arbitrary direct sums. Construct using a length-one free Z-resolution of X, the long exact sequence and the displayed kernel/cokernel identifications; this is additional finite-coefficient API beyond upstream’s listed targets. FIX-RT-PAPER-MERKURJEV-SCAVIA-26 (RT/4): moved from route 6 to a source route for ArithmeticGaloisDuality D7, the accepted single owner of finite-group coefficient comparisons (companion statement: PAPER-CALEGARI-DIMITROV-TANG-25/finite-group-homology-inputs). Route 6 imports it; /54 (Lemma 3.4) stays in route 6 as the consumer."
     },
     {
       "id": "PAPER-MERKURJEV-SCAVIA-26/53",
@@ -682,7 +691,7 @@
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "Need only this exactness consequence, not the stronger and false assertion that Tor₁ is an exact functor. Import general Tor/projective resolutions; prove the Z-specialized statement once."
+      "note": "Need only this exactness consequence, not the stronger and false assertion that Tor₁ is an exact functor. Import general Tor/projective resolutions; prove the Z-specialized statement once. FIX-RT-PAPER-MERKURJEV-SCAVIA-26 (RT/4): moved from route 6 to a source route for ArithmeticGaloisDuality D7, the accepted single owner of finite-group coefficient comparisons (companion statement: PAPER-CALEGARI-DIMITROV-TANG-25/finite-group-homology-inputs). Route 6 imports it; /54 (Lemma 3.4) stays in route 6 as the consumer."
     },
     {
       "id": "PAPER-MERKURJEV-SCAVIA-26/54",
@@ -836,7 +845,7 @@
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "Use H^i(H,Q)=0 for i>0. Each character has finite cyclic image of exponent dividing e(H)."
+      "note": "Use H^i(H,Q)=0 for i>0. Each character has finite cyclic image of exponent dividing e(H). FIX-RT-PAPER-MERKURJEV-SCAVIA-26 (RT/2): the connecting map is Tau Ceti's DiscreteShortExact.explicitDelta1 for 0 → Z → Q → Q/Z → 0, taken on discrete copies (Mathlib's Q carries its order topology, so use WithDiscreteTopology, Mathlib/Topology/Order.lean:588, or a local discrete instance) with trivial action. Only its bijectivity is missing, and only through /68: with H¹(H,Q) = H²(H,Q) = 0, explicitLongExact_H1C (LongExact.lean:434) and explicitLongExact_H2A (:491) give it."
     },
     {
       "id": "PAPER-MERKURJEV-SCAVIA-26/68",
@@ -871,7 +880,18 @@
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "The reverse inclusion uses generic γ, constants killed after algebraic-closure base change, the corrected invariant-generator lemma and Proposition 3.3. Keep the product e(A)e(H), not lcm or either exponent alone."
+      "note": "The reverse inclusion uses generic γ, constants killed after algebraic-closure base change, the corrected invariant-generator lemma and Proposition 3.3. Keep the product e(A)e(H), not lcm or either exponent alone. FIX-RT-PAPER-MERKURJEV-SCAVIA-26 (RT/5): the witness that e(A)e(H) cannot be replaced by lcm(e(A), e(H)) is item /134 (H = A = Z/2 over Q)."
+    },
+    {
+      "id": "PAPER-MERKURJEV-SCAVIA-26/134",
+      "kind": "theorem",
+      "name": "The roots-of-unity hypothesis of Theorem 1.3 is sharp",
+      "statement": "The conclusion of Theorem 1.3 can fail when F contains μ_(lcm(e(A),e(H))) but not μ_(e(A)e(H)). For H = A = Z/2 with trivial action and F = Q: H̄²(H,A) = H²(H,A) ≅ Z/2 is generated by the class α of 0 → Z/2 → Z/4 → Z/2 → 0, and α is not negligible over Q, because its pullback along the character ρ of Q(√−1) is (−1,−1) ≠ 0 in Br(Q) (equivalently, ρ does not lift to Z/4: complex conjugation would map to an element of order at most 2). So H²_neg,Q = 0 ≠ H̄², although Q contains μ_2 = μ_lcm. In general (Gherman–Merkurjev, Theorem 4.2(1)): for H = Z/p^a and A = Z/p^s with trivial action, a, s ≥ 1, and F = Q(μ_(p^(a+s−1))), H²_neg,F = pH*/p^sH* is strictly smaller than H̄² = H*/p^sH*, so μ_(e(A)e(H)/p) does not suffice.",
+      "locator": "§1.4, p.4, after Theorem 1.3 ('Their result implies that the assumption on roots of unity in Theorem 1.3 is sharp'); H̄² defined after (3.7), p.12; Gherman–Merkurjev 2022, Theorem 4.2 (called Theorem 4.1 in its introduction), Theorem 5.2 and Corollary 3.4",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Added by FIX-RT-PAPER-MERKURJEV-SCAVIA-26 (RT/5). Sharp does not mean necessary: for H = A = Z/3 and F = Q(ζ₉ + ζ₉⁻¹), F has no primitive cube root of unity, yet Theorem 1.3 over Q(ζ₉) and Gherman–Merkurjev Corollary 2.4 ([F(ζ₃):F] = 2 is prime to 3) give H²_neg,F = H² = H̄². In the Z/2 witness, H̄² is everything: H′ = 1 contributes nothing, and for H′ = H, 1 ∪ ∂χ is the reduction mod 2 of the generator ∂χ of H²(Z/2,Z), which is injective. Route 6's acceptance tests use this example beside /64."
     },
     {
       "id": "PAPER-MERKURJEV-SCAVIA-26/71",
@@ -926,7 +946,7 @@
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": " API: Reduction, lift of an invertible matrix, kernel identification, additive product law and conjugation formula; cohomology class functorial under block inclusions. Tests: (I+pX)(I+pY)=I+p(X+Y); a lift of a determinant nonzero modulo p is invertible; n=1."
+      "note": "API: Reduction, lift of an invertible matrix, kernel identification, additive product law and conjugation formula; cohomology class functorial under block inclusions. Tests: (I+pX)(I+pY)=I+p(X+Y); a lift of a determinant nonzero modulo p is invertible; n=1. FIX-RT-PAPER-MERKURJEV-SCAVIA-26 (RT/3): the reduction map is Mathlib's Matrix.GeneralLinearGroup.map (GeneralLinearGroup/Defs.lean:188) along ZMod.castHom : ZMod (p²) →+* ZMod p. What stays missing is the extension itself: the kernel X ↦ I + pX, its additive law, the conjugation action and the class."
     },
     {
       "id": "PAPER-MERKURJEV-SCAVIA-26/76",
@@ -937,7 +957,7 @@
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": " API: Use the same reduction/kernel construction restricted to upper-triangular matrices; compare to the GL extension by inclusion of groups and coefficients. Tests: Every diagonal entry remains a unit on lifting; kernel matrices must be upper triangular; the comparison square is a pushout after restriction."
+      "note": "API: Use the same reduction/kernel construction restricted to upper-triangular matrices; compare to the GL extension by inclusion of groups and coefficients. Tests: Every diagonal entry remains a unit on lifting; kernel matrices must be upper triangular; the comparison square is a pushout after restriction. FIX-RT-PAPER-MERKURJEV-SCAVIA-26 (RT/3): the Borel subgroup is TauCeti.upperTriangularGroup (UpperTriangular/Basic.lean:51), and reduction is TauCeti.UpperTriangularGroup.map (:79), built on Matrix.GeneralLinearGroup.map. The extension with kernel b_n(F_p) stays missing."
     },
     {
       "id": "PAPER-MERKURJEV-SCAVIA-26/77",
@@ -970,7 +990,7 @@
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "Use the finite GL/B/U order formula, cancelling the exact p-powers. Ordinary group order does not give a field-dependent lifting assertion by itself."
+      "note": "Use the finite GL/B/U order formula, cancelling the exact p-powers. Ordinary group order does not give a field-dependent lifting assertion by itself. FIX-RT-PAPER-MERKURJEV-SCAVIA-26 (RT/3): use Mathlib's Matrix.card_GL_field (GeneralLinearGroup/Card.lean:99), TauCeti.upperTriangularGroup and TauCeti.upperUnitriangularGroup (UpperUnitriangular/Basic.lean:107, with upperUnitriangularGroup_le_upperTriangularGroup); do not define B or U again. Still to be proved: |U_n(F_p)| = p^(n(n−1)/2), which is not at the pin (only GL2Borel.card_eq for n = 2); then |B_n| = |U_n|·(p−1)^n by TauCeti.UpperTriangularGroup.ker_diag (:187) and diag_surjective (:159), and [GL_n : B_n] = ∏_{k=1}^{n}(1 + p + … + p^(k−1)) ≡ 1 mod p."
     },
     {
       "id": "PAPER-MERKURJEV-SCAVIA-26/80",
@@ -1047,7 +1067,7 @@
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": " API: Coordinates (a,b,c), multiplication (a,b,c)(a′,b′,c′)=(a+a′,b+b′,c+c′+ab′), subgroup embeddings and conjugation by T; identify N,Z,S explicitly. Tests: |U|=p³, |N|=p², |Z|=|S|=p; [σ_12,σ_23]=σ_13 in the chosen commutator convention."
+      "note": "FIX-RT-PAPER-MERKURJEV-SCAVIA-26 (RT/3): U is TauCeti.upperUnitriangularGroup (Fin 3) (ZMod p) and T is TauCeti.diagonalTorus (ZMod p) 3 (Diagonal/Basic.lean:202), both subgroups of GL (Fin 3) (ZMod p), so T acts by conjugation inside GL. σ_ij is TauCeti.transvectionUnit hij 1 (Transvection.lean:138), and the test [σ_12, σ_23] = σ_13 is TauCeti.commutatorElement_transvectionUnit (:242). API: coordinates (a, b, c) on this existing carrier, with (a,b,c)(a′,b′,c′) = (a+a′, b+b′, c+c′+ab′); N, Z and S as subgroups; conjugation by T. The general U_(n+1)(F_p) transvections, centre and lower central series are planned by PAPER-HARPAZ-WITTENBERG-23 route 7 (items /14–/16) in DESIGN-ProfiniteCohomologyPartII and are imported; /86–/87 keep only the Heisenberg-specific subgroups N and S, the exponent-p and order-p² subgroup facts, and the T-normalization. Tests: |U| = p³, |N| = p², |Z| = |S| = p; [σ_12, σ_23] = σ_13 in the chosen commutator convention."
     },
     {
       "id": "PAPER-MERKURJEV-SCAVIA-26/87",
@@ -1058,7 +1078,7 @@
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "These elementary group-theoretic statements are explicit prerequisites of Mackey reduction. Split the structural assertions into individual lemmas in the design; do not export exponent p for p=2."
+      "note": "These elementary group-theoretic statements are explicit prerequisites of Mackey reduction. Split the structural assertions into individual lemmas in the design; do not export exponent p for p=2. FIX-RT-PAPER-MERKURJEV-SCAVIA-26 (RT/3): the centre and commutator subgroup of U come from the general U_(n+1)(F_p) API of PAPER-HARPAZ-WITTENBERG-23 route 7 (/14–/16), imported from Continuous cohomology of profinite groups, Part II (DESIGN-ProfiniteCohomologyPartII); this item keeps the Heisenberg-specific facts."
     },
     {
       "id": "PAPER-MERKURJEV-SCAVIA-26/88",
@@ -1185,7 +1205,7 @@
       "planned": [
         "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-6-change-of-groups"
       ],
-      "note": "Reuse the built conjugation and cup carriers; the missing cor/conjugation compatibilities belong to upstream change-of-groups."
+      "note": "Reuse the built conjugation and cup carriers; the missing cor/conjugation compatibilities belong to upstream change-of-groups. FIX-RT-PAPER-MERKURJEV-SCAVIA-26 (RT/2): the connecting-homomorphism part is built at the pin: DiscreteShortExact.explicitDelta0_naturality and explicitDelta1_naturality (DeltaNaturality.lean:186, :211) for compatible pairs, including inflation and conjugation; explicitDelta0_res and explicitDelta1_res (:266, :278); explicitCor_delta0 and explicitCor_delta1 (:354, :383), citing NSW (1.5.2). The p.11 corestriction compatibility of the Kummer-type map ι is the degree-0 case."
     },
     {
       "id": "PAPER-MERKURJEV-SCAVIA-26/99",
@@ -1207,7 +1227,7 @@
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": " API: Character multiplication/inverse, basis eigenvectors, tensor weights and trivial-character criterion; conjugation on H¹ is χ(t⁻¹ut). Tests: τ_ii=1; at p=3 inverse characters can coincide, so retain the centralizer restriction in the final weight computation."
+      "note": "API: Character multiplication/inverse, basis eigenvectors, tensor weights and trivial-character criterion; conjugation on H¹ is χ(t⁻¹ut). Tests: τ_ii=1; at p=3 inverse characters can coincide, so retain the centralizer restriction in the final weight computation. FIX-RT-PAPER-MERKURJEV-SCAVIA-26 (RT/3): T is TauCeti.diagonalTorus (ZMod p) 3, with coordinates t = (t₁, t₂, t₃) through TauCeti.diagonalTorusEquiv (Diagonal/Basic.lean:231)."
     },
     {
       "id": "PAPER-MERKURJEV-SCAVIA-26/101",
@@ -1460,7 +1480,7 @@
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "Needed for both ends of the length-one free resolution argument; do not assume finite generation of P."
+      "note": "Needed for both ends of the length-one free resolution argument; do not assume finite generation of P. FIX-RT-PAPER-MERKURJEV-SCAVIA-26 (RT/4): moved from route 6 to a source route for ArithmeticGaloisDuality D7, the accepted single owner of finite-group coefficient comparisons (companion statement: PAPER-CALEGARI-DIMITROV-TANG-25/finite-group-homology-inputs). Route 6 imports it; /54 (Lemma 3.4) stays in route 6 as the consumer."
     },
     {
       "id": "PAPER-MERKURJEV-SCAVIA-26/124",
@@ -1515,7 +1535,7 @@
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "For u∈K× choose γ^(mn)=u and β=γ^n. The character gγ/γ maps to gβ/β under nth power. Cohomology equality is equality of characters since constant coefficients have zero degree-one coboundaries. Continuity follows from finite separable root extensions. Import upstream full Kummer /18, not merely the pinned injective class map /19. Keep the primitive mn-root hypothesis; no claim of necessity."
+      "note": "For u∈K× choose γ^(mn)=u and β=γ^n. The character gγ/γ maps to gβ/β under nth power. Cohomology equality is equality of characters since constant coefficients have zero degree-one coboundaries. Continuity follows from finite separable root extensions. Import upstream full Kummer /18, not merely the pinned injective class map /19. Keep the primitive mn-root hypothesis; no claim of necessity. FIX-RT-PAPER-MERKURJEV-SCAVIA-26 (RT/5): the sharpness of Theorem 1.3's hypothesis, which is a different statement from necessity, is item /134."
     },
     {
       "id": "PAPER-MERKURJEV-SCAVIA-26/129",
@@ -1577,7 +1597,7 @@
     {
       "citation": "Gherman–Merkurjev, Negligible degree two cohomology of finite groups, J. Algebra 611 (2022), 82–93, Proposition 2.1 and Corollary 2.2",
       "link": "https://www.math.ucla.edu/~merkurev/papers/negligible3.pdf",
-      "why": "Generic detection, its versality proof and functoriality. Full 10-page author preprint read in continuation; its separate trivial-action classification is not extracted here. Original sources for versality and the étale-limit argument remain necessary."
+      "why": "Generic detection, its versality proof and functoriality. Full 10-page author preprint read in continuation; its trivial-action classification is needed too, for the sharpness of Theorem 1.3's hypothesis (/134): Theorem 4.2 (called Theorem 4.1 in its introduction), Theorem 5.2 and Corollary 3.4. Original sources for versality and the étale-limit argument remain necessary."
     },
     {
       "citation": "Chu–Kang, Rationality of p-group actions, J. Algebra 237 (2001), 673–690, Theorem 1.6",
@@ -1606,7 +1626,7 @@
         "PAPER-MERKURJEV-SCAVIA-26/3",
         "PAPER-MERKURJEV-SCAVIA-26/8"
       ],
-      "reason": "The existing layer owns weak/proper embedding problems. This paper supplies their abelian-kernel obstruction criterion, while its universal negligibility classification and nonliftable families require separate continuation layers."
+      "reason": "The existing layer owns weak/proper embedding problems. This paper supplies their abelian-kernel obstruction criterion, while its universal negligibility classification and nonliftable families require separate continuation layers. FIX-RT-PAPER-MERKURJEV-SCAVIA-26 (RT/1): import Profinite pro-p groups (tauceti:TauCetiRoadmap/ProfiniteProPGroups) Layer 5, which plans the weak finite embedding problem, the extension/H² dictionary, the splitting criterion and 5.2's elementary-abelian solvability criterion; this route adds only the arbitrary-finite-abelian-kernel generalization and the pullback naturality."
     },
     {
       "route": "source",
@@ -1681,7 +1701,6 @@
         "PAPER-MERKURJEV-SCAVIA-26/40",
         "PAPER-MERKURJEV-SCAVIA-26/41",
         "PAPER-MERKURJEV-SCAVIA-26/42",
-        "PAPER-MERKURJEV-SCAVIA-26/43",
         "PAPER-MERKURJEV-SCAVIA-26/44",
         "PAPER-MERKURJEV-SCAVIA-26/45",
         "PAPER-MERKURJEV-SCAVIA-26/46",
@@ -1690,8 +1709,6 @@
         "PAPER-MERKURJEV-SCAVIA-26/49",
         "PAPER-MERKURJEV-SCAVIA-26/50",
         "PAPER-MERKURJEV-SCAVIA-26/51",
-        "PAPER-MERKURJEV-SCAVIA-26/52",
-        "PAPER-MERKURJEV-SCAVIA-26/53",
         "PAPER-MERKURJEV-SCAVIA-26/54",
         "PAPER-MERKURJEV-SCAVIA-26/55",
         "PAPER-MERKURJEV-SCAVIA-26/56",
@@ -1712,16 +1729,16 @@
         "PAPER-MERKURJEV-SCAVIA-26/73",
         "PAPER-MERKURJEV-SCAVIA-26/74",
         "PAPER-MERKURJEV-SCAVIA-26/122",
-        "PAPER-MERKURJEV-SCAVIA-26/123",
         "PAPER-MERKURJEV-SCAVIA-26/124",
         "PAPER-MERKURJEV-SCAVIA-26/125",
         "PAPER-MERKURJEV-SCAVIA-26/126",
         "PAPER-MERKURJEV-SCAVIA-26/127",
         "PAPER-MERKURJEV-SCAVIA-26/128",
-        "PAPER-MERKURJEV-SCAVIA-26/64"
+        "PAPER-MERKURJEV-SCAVIA-26/64",
+        "PAPER-MERKURJEV-SCAVIA-26/134"
       ],
       "reason": "Negligibility over all extension fields, its generic criterion and its explicit finite-group description are beyond the upstream Layers 0–13. ArithmeticGaloisDuality already owns full Hochschild–Serre and compact/derived coefficients; this continuation imports that owner rather than rebuilding it.",
-      "brief": "Start with Continuous cohomology of profinite groups (tauceti:TauCetiRoadmap/ProfiniteCohomology) as the first prerequisite, retaining its exact carriers and upstream planned work. The final theorem is Merkurjev–Scavia Theorem 1.3: for finite H, finite H-module A and a field F containing a primitive e(A)e(H)-th root, H²_neg,F(H,A) equals the subgroup generated by cor_H′^H(a cup c) for all H′≤H, a∈A^H′, c∈H²(H′,Z). Also prove Corollary 4.2 with the action stabilizer H_a and Remark 4.3's generation from Kummer classes. Define negligibility with every K/F and continuous Γ_K→H quantified; it is not the kernel of evaluation at F alone. Prove the generic criterion using Gherman–Merkurjev Proposition 2.1, and extract its rational-variable injectivity, twisted-vector-space versality and étale-limit prerequisites. Import Galois algebras and weak embedding problems from Inverse Galois theory and arithmetic fundamental groups (InverseGaloisAndArithmeticFundamentalGroups, IG.0/IG.4), and quotient/étale foundations from Scheme, stack, cohomology and intersection foundations (SchemeAndStackFoundations, SF.1/SF.2).\nImport upstream Layers 5,6,9,10 for transgression, Mackey/transitivity, Hilbert 90/Kummer and rational-coefficient vanishing. Import Global Galois duality and compact coefficients (ArithmeticGaloisDuality, R02.2) for full Hochschild–Serre and its signed extension-class comparison. Reuse pinned degree-two corestriction and projection formulas; a name search must not turn the missing Kummer surjectivity into a library claim. Add the finite-group integral universal-coefficient exact sequence and its connecting-class corollary using the existing Tor/resolution carriers; coordinate its generic Tor monomorphism with other users such as Class field theory, rather than introducing a new Tor object. Construct A(−1), evaluation, ι, γ, β, the two root sequences and their anticommutative diagram. Then prove the divisor generation argument, constants killed after algebraic-closure base change, and both classification inclusions. Use the corrected Lemma 4.1 with nB=0, e(H)|e and μ_ne⊂F; never export its false unrestricted formulation. Affine-space divisors use polynomial factoriality, not projective-curve Picard arguments. The boundary characteristic-p statement must include the Artin–Schreier/dévissage proof of cd_p Γ_F≤1. Give every construction coefficient functoriality, representative formulas and tests for trivial group, zero module, n=1 and nontrivial H-action; test the missing-roots real sign example as a rejected generalization. No compact-coefficient or general spectral-sequence theory is rebuilt here.\nAdd /64 as the true negative test refuting omission of the roots hypotheses, not the false printed generalization. Supply the integral carry cocycle /126, its connecting-class normalization /127 and compatible Kummer-character lift /128 once for all consumers. For ζ_mn and ζ_m=ζ_mn^n the reduction map is the quotient on power classes. Kummer surjectivity remains an upstream import, not a new carrier."
+      "brief": "Start with Continuous cohomology of profinite groups (tauceti:TauCetiRoadmap/ProfiniteCohomology) as the first prerequisite, retaining its exact carriers and upstream planned work. The final theorem is Merkurjev–Scavia Theorem 1.3: for finite H, finite H-module A and a field F containing a primitive e(A)e(H)-th root, H²_neg,F(H,A) equals the subgroup generated by cor_H′^H(a cup c) for all H′≤H, a∈A^H′, c∈H²(H′,Z). Also prove Corollary 4.2 with the action stabilizer H_a and Remark 4.3's generation from Kummer classes. Define negligibility with every K/F and continuous Γ_K→H quantified; it is not the kernel of evaluation at F alone. Prove the generic criterion using Gherman–Merkurjev Proposition 2.1, and extract its rational-variable injectivity, twisted-vector-space versality and étale-limit prerequisites. Import weak finite embedding problems, the continuous extension/H² dictionary and the splitting criterion from Profinite pro-p groups (tauceti:TauCetiRoadmap/ProfiniteProPGroups) Layer 5, and Galois algebras and their arithmetic use from Inverse Galois theory and arithmetic fundamental groups (InverseGaloisAndArithmeticFundamentalGroups, IG.0/IG.4), and quotient/étale foundations from Scheme, stack, cohomology and intersection foundations (SchemeAndStackFoundations, SF.1/SF.2).\nImport upstream Layers 5,6,9,10 for transgression, Mackey/transitivity, Hilbert 90/Kummer and rational-coefficient vanishing. Import Global Galois duality and compact coefficients (ArithmeticGaloisDuality, R02.2) for full Hochschild–Serre and its signed extension-class comparison. Reuse pinned degree-two corestriction and projection formulas; a name search must not turn the missing Kummer surjectivity into a library claim. Import the finite-group universal-coefficient exact sequence, its free-coefficient case and the Tor₁ monomorphism from Global Galois duality and compact coefficients (ArithmeticGaloisDuality, D7), the accepted owner of finite-group coefficient comparisons, and prove here only the connecting-class corollary Lemma 3.4 (/54); do not introduce a new Tor object. Construct A(−1), evaluation, ι, γ, β, the two root sequences and their anticommutative diagram. Then prove the divisor generation argument, constants killed after algebraic-closure base change, and both classification inclusions. Use the corrected Lemma 4.1 with nB=0, e(H)|e and μ_ne⊂F; never export its false unrestricted formulation. Affine-space divisors use polynomial factoriality, not projective-curve Picard arguments. The boundary characteristic-p statement must include the Artin–Schreier/dévissage proof of cd_p Γ_F≤1. Give every construction coefficient functoriality, representative formulas and tests for trivial group, zero module, n=1 and nontrivial H-action; test the missing-roots real sign example as a rejected generalization. No compact-coefficient or general spectral-sequence theory is rebuilt here.\nAdd /64 as the true negative test refuting omission of the roots hypotheses, not the false printed generalization. Supply the integral carry cocycle /126, its connecting-class normalization /127 and compatible Kummer-character lift /128 once for all consumers. For ζ_mn and ζ_m=ζ_mn^n the reduction map is the quotient on power classes. Kummer surjectivity remains an upstream import, not a new carrier. Connecting maps (FIX-RT-PAPER-MERKURJEV-SCAVIA-26): import Tau Ceti's DiscreteShortExact with explicitDelta0/explicitDelta1, their _apply formulas, naturality, restriction and corestriction compatibilities, the eight explicitLongExact terms, explicitCup02 and explicitCor2; do not construct connecting maps. Coefficients such as Q, L×, μ_e enter on discrete copies (WithDiscreteTopology or Additive with the discrete topology). What remains is the identification of ∂₂ with a pulled-back extension class (/49). Add /134 as a second acceptance test beside /64: over Q with H = A = Z/2 (trivial action), H̄² ≅ Z/2 while H²_neg,Q = 0, so the roots-of-unity hypothesis of Theorem 1.3 is sharp (not necessary)."
     },
     {
       "route": "part-ii",
@@ -1781,7 +1798,20 @@
         "PAPER-MERKURJEV-SCAVIA-26/115"
       ],
       "reason": "IG.4 stops at embedding-problem language and selected solvable realizations. The paper adds universal obstruction calculations and a p-variable family of nonliftable residual representations. Number-field global/local deformation roadmaps do not cover these arbitrary-base-field generic witnesses.",
-      "brief": "Take Inverse Galois theory and arithmetic fundamental groups (InverseGaloisAndArithmeticFundamentalGroups) as first prerequisite, importing IG.0's Galois-algebra dictionary and IG.4's weak embedding problems. Import the proposed Continuous cohomology of profinite groups, Part II: negligible classes and abelian embedding obstructions (ProfiniteCohomologyPartIINegligibleClasses) for Theorem 1.3 and the generic criterion. The two final results are exact: (1) for every odd prime p, n≥3 and field F of characteristic different from p, the reduction extensions for GL_n and B_n modulo p² have non-negligible classes; (2) for every such odd p and field F containing a primitive pth root, K=F(x₁,…,x_p) admits a continuous Γ_K→GL_n(F_p) with no continuous lift to GL_n(Z/p²), for every n≥3. The same witness is upper triangular, disproving flag lifting even if F contains all roots of unity. Do not claim nonlifting for p=2, n≤2, or characteristic p.\nConstruct both reduction extensions with kernel X↦I+pX and adjoint action. Prove the Borel prime-to-p-index reduction and the pointwise block-projection lemma: the top-left block is multiplicative because the off-diagonal blocks are p-divisible; elements need not preserve the lifted summand. Prove the adjoint norm and no-order-p-lift lemma for p>3. For U₃(F_p), build N,Z,S and T, compute exponent and subgroup structure, then split Claim 5.4 into the p>3 central test and p=3 simultaneous-lift contradiction. Reuse the cohomology Mackey and projection formulas from Continuous cohomology of profinite groups (tauceti:TauCetiRoadmap/ProfiniteCohomology); the representation Mackey decomposition alone is insufficient. Decompose Claims 5.5–5.7 into character extension, three subgroup images, exact invariants, centralizer/weight calculations and the two norm cancellations. Use contragredient weight τ_31 for H²(Z,Z), and replace the ill-typed E_12 argument to φ_U with its relative norm. Include the p=3 extra ambient weight and exclude E_31 through the centralizer condition.\nConstruct the faithful p-dimensional shift/diagonal representation, read and cover Chu–Kang's Rationality of p-group actions Theorem 1.6 with its root-of-unity and exponent hypotheses, and prove F(V)^U is rational of transcendence degree p. Keep rationality distinct from stable rationality. Build the generic residual representation and prove nonlifting through its U-extension class, then use the pointwise block lemma to preserve the same field for every n. Acceptance includes explicit p=3 cyclic lifts but no simultaneous N lift, p>3 zero adjoint norms, the non-preserved-summand block example, and the distinction between weak lifts and proper realizations. Prove Remark 5.8(2) by /129–/132: its N-restriction is the sum E_12 cup δχ_12+E_13 cup δχ_13 of carry classes. The ambient cup-generator group is N, not U; there is no corestriction to U. Independently build continuous upper-triangular weak lifts from two compatible Kummer-character lifts supplied by the cohomological Part II. Record /133: restriction of negligible subgroups is not surjective in this example. Tests must distinguish nonsplitting over the finite group N from vanishing on every absolute-Galois pullback."
+      "brief": "Take Inverse Galois theory and arithmetic fundamental groups (InverseGaloisAndArithmeticFundamentalGroups) as first prerequisite, importing IG.0's Galois-algebra dictionary and IG.4's weak embedding problems, with the weak finite embedding problem and the extension/H² dictionary from Profinite pro-p groups (tauceti:TauCetiRoadmap/ProfiniteProPGroups) Layer 5. Import the proposed Continuous cohomology of profinite groups, Part II: negligible classes and abelian embedding obstructions (ProfiniteCohomologyPartIINegligibleClasses) for Theorem 1.3 and the generic criterion. The two final results are exact: (1) for every odd prime p, n≥3 and field F of characteristic different from p, the reduction extensions for GL_n and B_n modulo p² have non-negligible classes; (2) for every such odd p and field F containing a primitive pth root, K=F(x₁,…,x_p) admits a continuous Γ_K→GL_n(F_p) with no continuous lift to GL_n(Z/p²), for every n≥3. The same witness is upper triangular, disproving flag lifting even if F contains all roots of unity. Do not claim nonlifting for p=2, n≤2, or characteristic p.\nConstruct both reduction extensions with kernel X↦I+pX and adjoint action, on the built carriers: Mathlib's Matrix.GeneralLinearGroup.map along ZMod.castHom, TauCeti.upperTriangularGroup with TauCeti.UpperTriangularGroup.map, and Matrix.card_GL_field for the orders. Prove the Borel prime-to-p-index reduction and the pointwise block-projection lemma: the top-left block is multiplicative because the off-diagonal blocks are p-divisible; elements need not preserve the lifted summand. Prove the adjoint norm and no-order-p-lift lemma for p>3. For U₃(F_p) = TauCeti.upperUnitriangularGroup (Fin 3) (ZMod p), with T = TauCeti.diagonalTorus (ZMod p) 3 and σ_ij = TauCeti.transvectionUnit, define N and S as subgroups; import the general U_(n+1)(F_p) transvection, centre and lower-central-series API planned by PAPER-HARPAZ-WITTENBERG-23 route 7 (/14–/16) from Continuous cohomology of profinite groups, Part II (DESIGN-ProfiniteCohomologyPartII) rather than duplicating it; compute exponent and subgroup structure, then split Claim 5.4 into the p>3 central test and p=3 simultaneous-lift contradiction. Reuse the cohomology Mackey and projection formulas from Continuous cohomology of profinite groups (tauceti:TauCetiRoadmap/ProfiniteCohomology); the representation Mackey decomposition alone is insufficient. Decompose Claims 5.5–5.7 into character extension, three subgroup images, exact invariants, centralizer/weight calculations and the two norm cancellations. Use contragredient weight τ_31 for H²(Z,Z), and replace the ill-typed E_12 argument to φ_U with its relative norm. Include the p=3 extra ambient weight and exclude E_31 through the centralizer condition.\nConstruct the faithful p-dimensional shift/diagonal representation, read and cover Chu–Kang's Rationality of p-group actions Theorem 1.6 with its root-of-unity and exponent hypotheses, and prove F(V)^U is rational of transcendence degree p. Keep rationality distinct from stable rationality. Build the generic residual representation and prove nonlifting through its U-extension class, then use the pointwise block lemma to preserve the same field for every n. Acceptance includes explicit p=3 cyclic lifts but no simultaneous N lift, p>3 zero adjoint norms, the non-preserved-summand block example, and the distinction between weak lifts and proper realizations. Prove Remark 5.8(2) by /129–/132: its N-restriction is the sum E_12 cup δχ_12+E_13 cup δχ_13 of carry classes. The ambient cup-generator group is N, not U; there is no corestriction to U. Independently build continuous upper-triangular weak lifts from two compatible Kummer-character lifts supplied by the cohomological Part II. Record /133: restriction of negligible subgroups is not surjective in this example. Tests must distinguish nonsplitting over the finite group N from vanishing on every absolute-Galois pullback."
+    },
+    {
+      "route": "source",
+      "roadmap": "ArithmeticGaloisDuality",
+      "stages": [
+        "ArithmeticGaloisDuality:D7"
+      ],
+      "items": [
+        "PAPER-MERKURJEV-SCAVIA-26/52",
+        "PAPER-MERKURJEV-SCAVIA-26/53",
+        "PAPER-MERKURJEV-SCAVIA-26/123"
+      ],
+      "reason": "Added by FIX-RT-PAPER-MERKURJEV-SCAVIA-26 (RT-PAPER-MERKURJEV-SCAVIA-26/4). The universal coefficient theorem for the cohomology of a finite group with trivial coefficients already has an accepted owner: PAPER-CALEGARI-DIMITROV-TANG-25 route 7 sends its finite-group-homology-inputs to ArithmeticGaloisDuality D7, 'the sole generic owner of the extensions of upstream ProfiniteCohomology, including coefficient comparisons' (its review). This paper becomes a second source for that owner. D7 should plan once the universal coefficient theorem for complexes of free abelian groups and derive: (a) the homology tensor–Tor sequence for any group; (b) the cohomology Hom–Ext sequence for any group and any trivial A (PAPER-WOOD-19/131 needs an arbitrary group); (c) the cohomology tensor–Tor sequence from integral cohomology for finite G (a resolution by finitely generated free modules), with arbitrary trivial X, and H^i(G,P) = H^i(G,Z) ⊗ P for free P of any rank (/52, /123). It also fixes the Tor₁^Z interface (/53) on Mathlib's Tor carrier. No cycle: D7 requires R02.1, R02.2 and R02.4, and route 6 already imports R02.2."
     }
   ],
   "sourceIssues": [
@@ -1972,8 +2002,13 @@
       "id": "tor-api-design",
       "title": "Finite-group universal-coefficient and Tor interfaces",
       "status": "transferred",
-      "remaining": "Give the integral universal-coefficient and Tor-injectivity lemmas of Lemma 3.4 implementation interfaces on the existing homological carriers, coordinating with ClassFieldTheory; a design-phase task for the ProfiniteCohomology Part II.",
-      "items": []
+      "remaining": "Import the integral universal-coefficient and Tor-injectivity statements of Lemma 3.4 from ArithmeticGaloisDuality D7 (items /52, /53, /123, now on the D7 source route), the accepted owner through PAPER-CALEGARI-DIMITROV-TANG-25 route 7; the ProfiniteCohomology Part II keeps only /54. (FIX-RT-PAPER-MERKURJEV-SCAVIA-26: replaces the earlier instruction to coordinate with ClassFieldTheory.)",
+      "items": [
+        "PAPER-MERKURJEV-SCAVIA-26/52",
+        "PAPER-MERKURJEV-SCAVIA-26/53",
+        "PAPER-MERKURJEV-SCAVIA-26/123",
+        "PAPER-MERKURJEV-SCAVIA-26/54"
+      ]
     }
   ],
   "completion": {
