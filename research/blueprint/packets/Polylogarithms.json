@@ -1754,7 +1754,7 @@
    ],
    "title": "The cross-ratio cocycle and the volume of an ideal tetrahedron",
    "kind": "theorem",
-   "statement": "For distinct points z_1, ..., z_4 of the complex projective line, the boundary of hyperbolic 3-space, the ideal tetrahedron I(z_1, ..., z_4) has oriented volume vol I(z_1, ..., z_4) = D(r(z_1, ..., z_4)), with Goncharov's cross-ratio r(infinity, 0, 1, x) = x, oriented so that (infinity, 0, 1, z) with Im z > 0 has positive volume D(z). Equivalently it is -D(cr(z_1, ..., z_4)) with K3BlochGroups V.4's cr(0, infinity, 1, x) = x, and -D([z_1, ..., z_4]) with GR's cross-ratio (3). The five-term relation is additivity of volume: the two triangulations, into 2 and into 3 ideal tetrahedra, of the convex hull of five ideal points give sum_i (-1)^i I(z_1, ..., z_i-hat, ..., z_5) = 0 as chains. Hyperbolic 3-space and its volume are imported from the Tau Ceti roadmap GeometricTopology, layer 7, and the manifold-level comparison is ArithmeticQuantumTopology QT.5's.",
+   "statement": "For distinct points z_1, ..., z_4 of the complex projective line, the boundary of hyperbolic 3-space, the ideal tetrahedron I(z_1, ..., z_4) has oriented volume vol I(z_1, ..., z_4) = D(r(z_1, ..., z_4)), with Goncharov's cross-ratio r(infinity, 0, 1, x) = x, oriented so that (infinity, 0, 1, z) with Im z > 0 has positive volume D(z). Equivalently it is -D(cr(z_1, ..., z_4)) with K3BlochGroups V.4's cr(0, infinity, 1, x) = x, and -D([z_1, ..., z_4]) with GR's cross-ratio (3). The five-term relation is additivity of volume: the two triangulations, into 2 and into 3 ideal tetrahedra, of the convex hull of five ideal points give sum_i (-1)^i I(z_1, ..., z_i-hat, ..., z_5) = 0 as chains. Hyperbolic 3-space and its volume are imported from the Tau Ceti roadmap GeometricTopology, layer 7, and the manifold-level comparison is ArithmeticQuantumTopology QT.5's. P.2 is the sole owner of this ideal-tetrahedron identity, including the Milnor/Lobachevsky formula needed in its proof; QT.5 imports the result for its manifold-level volume sum.",
    "hypotheses": [
     "The four points are distinct points of the complex projective line.",
     "The volume is the Riemannian volume of hyperbolic 3-space of the GeometricTopology roadmap; Milnor's formula for the volume of an ideal tetrahedron through Lobachevsky's function is not in any source read and is recorded as a gap."
@@ -1763,7 +1763,7 @@
     "Import the cross-ratio from K3BlochGroups:V.4/cross-ratio and record the conversions r = 1/cr and [a, b, c, d] = 1 - 1/cr(a, b, c, d), so that D o r = -D o cr = -D o [ , , , ] (checked numerically).",
     "By invariance, reduce to (infinity, 0, 1, z) with Im z > 0; by Milnor's formula (gap) its volume is L(alpha) + L(beta) + L(gamma) over the angles of the triangle (0, 1, z), which is D(z) by P.2/lobachevsky-identity.",
     "Identify the five-term relation with the two triangulations, into 2 and into 3 ideal tetrahedra, of the convex hull of five ideal points.",
-    "Record the boundary of the ownership: hyperbolic 3-space and its volume belong to GeometricTopology layer 7, and the manifold-level comparison to ArithmeticQuantumTopology QT.5, which imports this identity."
+    "Import hyperbolic 3-space, its Riemannian volume and ideal-tetrahedron geometry from GeometricTopology layer 7. Prove the tetrahedron volume identity only in P.2, retaining the Milnor/Lobachevsky proof gap here. ArithmeticQuantumTopology QT.5 consumes this identity to compare its manifold Bloch class with the sum of tetrahedron volumes; it is not an input to P.2."
    ],
    "acceptance": [
     "The volume is positive for a positively oriented tetrahedron (P.1/bloch-wigner-positivity) and changes sign under an odd permutation of the vertices.",
@@ -5999,7 +5999,7 @@
     "Polylogarithms:P.2/bloch-wigner-cocycle",
     "Polylogarithms:P.2/lobachevsky-identity"
    ],
-   "detail": "Sections 4 and 5 of Goncharov 2004 construct the Grassmannian polylogarithms and prove Theorem 1.1 (the cocycle class is a nonzero rational multiple of the Borel class); Section 7 proves Lobachevsky's formula. P.2 cites Theorem 1.1 at n = 2 without its proof. NEXT SOURCE ACTION: read Sections 4, 5 and 7 when BorelRegulators R.3 to R.7 are planned."
+   "detail": "Sections 4 and 5 of Goncharov 2004 construct the Grassmannian polylogarithms and prove Theorem 1.1 (the cocycle class is a nonzero rational multiple of the Borel class); Section 7 treats the simplex-volume formula. P.2 cites Theorem 1.1 at n = 2 without its proof. NEXT SOURCE ACTION: coordinate Sections 4 and 5 with BorelRegulators R.3 to R.7, and read Section 7 for P.2's own tetrahedron-volume proof gap. The weight-two volume identity is not transferred to BorelRegulators."
   },
   {
    "title": "The exact scalar and sign of the weight-two Borel comparison",
@@ -6013,7 +6013,7 @@
    "neededBy": [
     "Polylogarithms:P.2/hyperbolic-volume"
    ],
-   "detail": "The volume of the ideal tetrahedron with dihedral angles alpha, beta, gamma is L(alpha) + L(beta) + L(gamma); no source read proves it (Goncharov Section 7 is unread), and hyperbolic volume is GeometricTopology layer 7's (requested)."
+   "detail": "The volume of an ideal tetrahedron is L(alpha) + L(beta) + L(gamma). P.2 owns this comparison and its missing proof; none of the sources read for the packet proves it (Goncharov Section 7 remains unread). GeometricTopology layer 7 supplies the ambient hyperbolic geometry and Riemannian volume, not this formula. QT.5 imports the completed P.2 identity when available and does not close this gap."
   },
   {
    "title": "A minimum principle for superharmonic functions",
@@ -6258,7 +6258,7 @@
   },
   {
    "supplier": "tauceti:TauCetiRoadmap/GeometricTopology#layer-7-riemannian-geometric-structures-and-volume",
-   "need": "Hyperbolic 3-space with its Riemannian volume, ideal tetrahedra, and Milnor's formula for the volume of an ideal tetrahedron through Lobachevsky's function.",
+   "need": "Hyperbolic 3-space with its curvature -1 Riemannian metric and volume, its ideal boundary and oriented ideal tetrahedra. P.2 owns the comparison of tetrahedron volume with the Lobachevsky function and Bloch-Wigner dilogarithm; that comparison is not requested from GeometricTopology.",
    "neededBy": [
     "Polylogarithms:P.2/hyperbolic-volume"
    ]

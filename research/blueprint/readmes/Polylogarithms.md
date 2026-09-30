@@ -494,39 +494,37 @@ and the sign are part of the statement.
 
 ### `hyperbolic-volume` — The cross-ratio cocycle and the volume of an ideal tetrahedron
 
-*comparison*
+*theorem*
 
-The Bloch-Wigner value at the cross-ratio of four points of the complex projective line is the
-volume of the ideal hyperbolic tetrahedron with those vertices, and the five-term relation is
-the additivity of volume under the subdivision of an ideal simplex. This is the geometric
-content of Bloch's identification of the regulator; the configuration and cross-ratio machinery
-is imported from K3BlochGroups V.4, which owns it, and the hyperbolic-manifold application is
-left to ArithmeticQuantumTopology QT.5, which owns that.
+For distinct points z_1, ..., z_4 of the complex projective line, the boundary of hyperbolic 3-space, the ideal tetrahedron I(z_1, ..., z_4) has oriented volume vol I(z_1, ..., z_4) = D(r(z_1, ..., z_4)), with Goncharov's cross-ratio r(infinity, 0, 1, x) = x, oriented so that (infinity, 0, 1, z) with Im z > 0 has positive volume D(z). Equivalently it is -D(cr(z_1, ..., z_4)) with K3BlochGroups V.4's cr(0, infinity, 1, x) = x, and -D([z_1, ..., z_4]) with GR's cross-ratio (3). The five-term relation is additivity of volume: the two triangulations, into 2 and into 3 ideal tetrahedra, of the convex hull of five ideal points give sum_i (-1)^i I(z_1, ..., z_i-hat, ..., z_5) = 0 as chains. Hyperbolic 3-space and its volume are imported from the Tau Ceti roadmap GeometricTopology, layer 7, and the manifold-level comparison is ArithmeticQuantumTopology QT.5's. P.2 is the sole owner of this ideal-tetrahedron identity, including the Milnor/Lobachevsky formula needed in its proof; QT.5 imports the result for its manifold-level volume sum.
 
-**Hypotheses.** The four points are distinct points of the complex projective line.
+**Hypotheses and remaining gap.**
+
+- The four points are distinct points of the complex projective line.
+- The volume is the Riemannian volume of hyperbolic 3-space of the GeometricTopology roadmap; Milnor's formula for the volume of an ideal tetrahedron through Lobachevsky's function is not in any source read and is recorded as a gap.
+
+P.2 owns the Milnor/Lobachevsky comparison needed below. Its proof remains a gap;
+the request to GeometricTopology supplies the ambient geometry and volume only.
+QT.5 owns the manifold Bloch invariant and its volume sum and imports this identity.
 
 **Construction and proof.**
 
-1. Import the configuration complex and the cross-ratio from K3BlochGroups V.4.
-1. State the volume formula for an ideal tetrahedron in terms of the Bloch-Wigner function of
-   the cross-ratio of its vertices, with the orientation convention fixed.
-1. Identify the five-term relation with the two subdivisions of an ideal four-simplex, which is
-   the geometric proof of the relation.
-1. Record the boundary of the ownership: the general Grassmannian and volume statements belong
-   to Goncharov's programme, cited here, and the manifold-level comparison belongs to
-   ArithmeticQuantumTopology QT.5.
+1. Import the cross-ratio from K3BlochGroups:V.4/cross-ratio and record the conversions r = 1/cr and [a, b, c, d] = 1 - 1/cr(a, b, c, d), so that D o r = -D o cr = -D o [ , , , ] (checked numerically).
+2. By invariance, reduce to (infinity, 0, 1, z) with Im z > 0; by Milnor's formula (gap) its volume is L(alpha) + L(beta) + L(gamma) over the angles of the triangle (0, 1, z), which is D(z) by P.2/lobachevsky-identity.
+3. Identify the five-term relation with the two triangulations, into 2 and into 3 ideal tetrahedra, of the convex hull of five ideal points.
+4. Import hyperbolic 3-space, its Riemannian volume and ideal-tetrahedron geometry from GeometricTopology layer 7. Prove the tetrahedron volume identity only in P.2, retaining the Milnor/Lobachevsky proof gap here. ArithmeticQuantumTopology QT.5 consumes this identity to compare its manifold Bloch class with the sum of tetrahedron volumes; it is not an input to P.2.
 
 **Acceptance.**
 
-- The volume is positive for a positively oriented tetrahedron and changes sign under an
-  orientation-reversing permutation of the vertices.
-- The regular ideal tetrahedron, with cross-ratio a primitive sixth root of unity, has the
-  maximal volume, whose value is the Bloch-Wigner value there.
-- The subdivision identity is the five-term relation, which is the acceptance test.
+- The volume is positive for a positively oriented tetrahedron (P.1/bloch-wigner-positivity) and changes sign under an odd permutation of the vertices.
+- The regular ideal tetrahedron, with cross-ratio a primitive sixth root of unity, has the maximal volume D(exp(i pi/3)) = 1.01494160640965...
+- The subdivision identity is the five-term relation.
 
-**Depends on.** **inside this roadmap** `bloch-wigner-five-term`; **other roadmaps** `K3BlochGroups:V.4`, `ArithmeticQuantumTopology:QT.5`.
+**Depends on.** `Polylogarithms:P.1/bloch-wigner-five-term`, `Polylogarithms:P.1/bloch-wigner-positivity`, `Polylogarithms:P.2/lobachevsky-identity`, `K3BlochGroups:V.4/cross-ratio`, `tauceti:TauCetiRoadmap/GeometricTopology#layer-7-riemannian-geometric-structures-and-volume`.
 
-**Source.** Gonch.Arakelov.2004, Abstract and introduction (PDF p. 1): “For n = 2 we recover Lobachevsky's formula expressing the volume of an ideal geodesic simplex in the hyperbolic space via the dilogarithm.” — The volume formula in the weight-two case, as the source states it.
+**Source.** Gonch.Arakelov.2004, abstract, introduction item 5 (PDF p. 7), and the
+cross-ratio convention in Section 6 (p. 53), as recorded in the packet. The abstract
+was rechecked on 2026-09-30; Section 7's proof was not read in this fix round.
 
 ### `certified-numerics` — Certified numerical evaluation of the Bloch-Wigner function
 
@@ -2161,14 +2159,23 @@ K3BlochGroups V.6, which refuses an element whose boundary has not been proved t
   Brumer theorem, imported by P.6 and not reproved.
 - `PadicHodgeRegulators:D.3` — The p-adic logarithm and the p-adic regulator machinery P.6's
   statement is phrased with.
-- `ArithmeticQuantumTopology:QT.5` — The comparison of the real regulator of the Bloch element
-  of a hyperbolic manifold with its volume. P.2 states the ideal-tetrahedron volume formula and
-  leaves the manifold-level comparison there.
+- `tauceti:TauCetiRoadmap/GeometricTopology#layer-7-riemannian-geometric-structures-and-volume` — Hyperbolic
+  3-space with curvature -1 Riemannian metric and volume, its ideal boundary and oriented
+  ideal tetrahedra. The Milnor/Lobachevsky comparison is P.2's own proof obligation.
 - `SpecialValuesBirchTate:B.8` — The statement infrastructure for higher regulator formulas with
   complex places, whose normalised covolume pattern P.4's determinant follows; the two should
   agree on the normalisation.
 
+**Export to ArithmeticQuantumTopology QT.5.** QT.5 imports
+`Polylogarithms:P.2/hyperbolic-volume` and P.1's Bloch-Wigner function and five-term
+identity for the manifold volume sum. QT.5 is a consumer, not a prerequisite of P.2.
+
 ## Gaps
+
+**Milnor's ideal-tetrahedron formula remains a P.2 gap.** The ambient hyperbolic
+geometry is requested from GeometricTopology layer 7. The proof that the volume is
+the sum of the three Lobachevsky values, and hence the Bloch-Wigner value, belongs
+to P.2 and has not been supplied by this ownership fix.
 
 **Zagier's and Goncharov's original papers were not obtained.** The definitions of the higher Bloch groups, the polylogarithmic complexes and the single-valued
 polylogarithms are read in Goncharov and Rudenko's paper, which states them in full and
@@ -2195,8 +2202,9 @@ its sources nonetheless: the statements that need the target are stated conditio
 n-logarithm to the planes in general position, relate it to the geometry of the symmetric space
 of the special linear group, recover Lobachevsky's volume formula in weight two and build the
 Borel regulator on the odd K-groups of the complex numbers; section 7 is the appendix on
-volumes of simplices that the construction rests on. None of it was read here, because it is
-BorelRegulators' material. The Chow polylogarithm node records the restriction that produces
+volumes of simplices that the construction rests on. Those sections remain unread. The general
+Grassmannian/Borel comparison is coordinated with BorelRegulators; the weight-two
+tetrahedron formula in section 7 remains P.2's proof obligation. The Chow polylogarithm node records the restriction that produces
 the Grassmannian function, so the interface is in place for whoever plans R.3 and R.7.
 
 **The comparison of Goncharov's regulator with Beilinson's is open in the source.** The stage text asks for the comparison with M's higher Chern character. The source constructs

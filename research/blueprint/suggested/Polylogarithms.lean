@@ -464,8 +464,12 @@ example {a b : ℂ} (ha0 : a ≠ 0) (ha1 : a ≠ 1) (hb0 : b ≠ 0) (hb1 : b ≠
 /-- Test `convention_sign`: with `r` replaced by `1/r` (V.4's `crossRatio`) the values change sign. -/
 example (z : ℂ) : blochWigner z⁻¹ = -blochWigner z := by sorry
 
--- P.2/hyperbolic-volume (Lobachevsky's volume formula): not stated; needs hyperbolic 3-space, ideal
--- tetrahedra and their volume (Tau Ceti GeometricTopology layer 7, requested) and Milnor's formula.
+-- P.2/hyperbolic-volume: P.2 is the sole owner of the ideal-tetrahedron identity vol I = D(r).
+-- GeometricTopology layer 7 supplies curvature -1 hyperbolic 3-space, its Riemannian volume,
+-- ideal boundary and oriented tetrahedra. Milnor's Lobachevsky-volume formula is P.2's own
+-- remaining proof gap, not an upstream request. The geometric theorem is therefore not stated.
+-- ArithmeticQuantumTopology QT.5 imports this identity for the manifold volume sum; it is
+-- not an input here. Keep r(infinity, 0, 1, z) = z, so D(r) = -D(V.4.crossRatio).
 
 /-- Lobachevsky's function `Л(θ) = -∫₀^θ log |2 sin t| dt`. -/
 def lobachevsky (θ : ℝ) : ℝ := -∫ t in (0 : ℝ)..θ, Real.log |2 * Real.sin t|

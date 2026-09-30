@@ -2214,10 +2214,20 @@ pinned libraries, and the presentation of `S` (HB.8's `ringS`) is left abstract;
 -- HB.9/symmetrisation-lies-in-the-ring: not stated; needs `H_{R[δ^{-1}]}` (GSWZ Corollary 1.11(a)).
 -- HB.10/symmetrisation-and-residue-formula: not stated; needs the residue collection of GSWZ Theorem 11.
 -- HB.10/descendant-elements-of-the-habiro-ring: not stated; needs descendant and `H_R` (GSWZ Theorem 12).
--- HB.10/knot-matrices-and-the-topological-boundary: an application recording data; its numerical checks
---   are in ArithmeticQuantumTopology QT.5's terms and are not stated here.
+-- HB.10/knot-matrices-and-the-topological-boundary records formal Nahm data and module membership.
+-- QT.5 supplies triangulations/gluing and owns the manifold-volume comparison. QT.6 owns the
+-- full Neumann-Zagier datum, knot-series identification and triangulation/choice invariance;
+-- QT.7 owns quantum modularity. Neither QT.6 nor QT.7 is a prerequisite of this formal node.
+-- A_4_1 = !![1, 1; 1, 1] kills (1,-1), so HB.4's positive-definite analytic theorem does not
+-- apply. The HB.8 formal route uses the non-degenerate Hessian at the chosen solution.
 -- HB.10/p-adic-computations-example: an application; its factorisation of `α³ - α² + 1` modulo 5 is not stated.
--- HB.10/export-interfaces-and-non-consequences: records exports and non-consequences; nothing is stated.
+-- HB.10/export-interfaces-and-non-consequences: no new theorem is asserted by this interface.
+-- QT.6 imports HB.4/euler-maclaurin-with-remainder, formal-gaussian-integration and
+-- radial-asymptotic-expansion (positive-definite analytic data, stated root-order/branch
+-- hypotheses), or HB.8/fgi-collection and identification-theorem (formal non-degenerate data),
+-- then HB.9/module-membership with its excluded primes and coefficient ring. QT.6 owns the
+-- Dimofte-Garoufalidis/state-integral comparison, contours, Faddeev function and 2-3 invariance.
+-- Habiro-module membership alone proves none of those topological/analytic assertions.
 
 end HabiroNahmSeries.HB910
 
