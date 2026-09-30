@@ -40613,8 +40613,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-KISIN-PAPPAS-18.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5011"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #5011",
+   "finishedAt": "2026-09-30T20:42:41Z"
   },
   {
    "id": "RT-PAPER-BHATT-MORROW-SCHOLZE-18",
@@ -40678,8 +40679,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-BHATT-MORROW-SCHOLZE-18.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5012"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #5012",
+   "finishedAt": "2026-09-30T20:42:44Z"
   },
   {
    "id": "RT-PAPER-ESNAULT-GROECHENIG-20",
@@ -40809,8 +40811,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-BOCKLE-HARRIS-KHARE-ETAL-19.md",
-   "state": "pending",
-   "note": "released on GitHub issue #5014"
+   "state": "external",
+   "note": "claimed on GitHub issue #5014"
   },
   {
    "id": "RT-PAPER-LAWRENCE-VENKATESH-20",
@@ -50879,7 +50881,8 @@
     "FIX-RT-AREA-langlands-1"
    ],
    "prompt": "research/blueprint/prompts/FIX-RT-AREA-langlands-1~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #5140"
   },
   {
    "id": "REV-FIX-RT-AREA-langlands-1~2",
@@ -51599,7 +51602,8 @@
     "FIX-RT-AREA-padic-2"
    ],
    "prompt": "research/blueprint/prompts/FIX-RT-AREA-padic-2~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #5152"
   },
   {
    "id": "REV-FIX-RT-AREA-padic-2~2",
