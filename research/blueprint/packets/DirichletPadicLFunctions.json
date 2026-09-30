@@ -10,7 +10,7 @@
     "DirichletPadicLFunctions:L4"
   ],
   "status": "partial",
-  "summary": "Partial continuation preserving all564 predecessor nodes whole. Eight L4 nodes assemble the actual integral character-weighted positive series and give coefficient inclusion, whole ideal and weight congruences, left-character index scaling and finite-coordinate reduction of moment series. The existing integral coefficient bound API is promoted for its new consumer. All16 findings, nine requests and13 gaps remain; zero closed stages.",
+  "summary": "Partial continuation preserving all572 predecessor nodes whole. Seven L4 nodes specialize actual integral weighted coefficients and positive series at finite-character arithmetic tests; one L2 node promotes the existing natural-input character API. All16 findings, nine requests and13 gaps remain; zero closed stages.",
   "baseline": {
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
@@ -3507,6 +3507,13 @@
         "module": "Mathlib/RingTheory/PowerSeries/Basic.lean",
         "provides": "The native coefficient projection commutes with the coefficient-module scalar action, so actual measure linearity lifts to the whole series.",
         "checked": "Full native statement, ambient semiring and module hypotheses read at pinned Mathlib082e2d3 on30September2026; unchanged declaration index282951. No native build."
+      },
+      {
+        "ref": "mathlib:DirichletCharacter.mul",
+        "kind": "def",
+        "module": "Mathlib/NumberTheory/DirichletCharacter/Basic.lean",
+        "provides": "The existing product of characters of different levels, at the lcm level using native changeLevel on each factor.",
+        "checked": "Whole native definition and surrounding changeLevel/unit/zero-extension statements read at pinned Mathlib082e2d3 on30September2026; unchanged declaration index243951. Complete native pointwise proof checks both units and nonunits. No native library build."
       }
     ]
   },
@@ -37326,6 +37333,452 @@
       "acceptance": [
         "This is a promoted existing API with the exact previous Lean signature. The bound is on scalar evaluations and the compact-domain sup norm, never a norm on the weak measure carrier."
       ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L4/integral-twisted-coefficient-character-twist",
+      "parentStageId": "DirichletPadicLFunctions:L4",
+      "realises": [
+        "DirichletPadicLFunctions:L4"
+      ],
+      "title": "Finite-character twisting of integral coefficients",
+      "kind": "theorem",
+      "statement": "A^O_(ψ,φ,n)(κ^O_(t,χ,0)·f)=A^O_(ψ,φ.mul χ,n)(f) for every actual integral continuous test f.",
+      "hypotheses": [
+        "p is any prime, including2. K is a normed ultrametric field with Algebra ℤ_p K and IsBoundedSMul ℤ_p K. O is the native norm-valuation integer subring and U=(ℤ_p)ˣ. No completeness or ℤ_p-algebra structure on O is assumed.",
+        "Fix ψ:DirichletCharacter K D, φ:DirichletCharacter K E, t≥0 and χ:DirichletCharacter K(p^t). All use their native zero extension. Primitivity, nontriviality and tame-level coprimality are not required for these finite arithmetic statements. In the intended tame application p∤DE.",
+        "The actual integral coefficient measures A^O_(ψ,φ,n), their continuous positive-series measure E^+_(ψ,φ), and the existing integral arithmetic characters κ^O_(t,χ,e) are reused. The new statements do not define those objects again.",
+        "The right product is exactly native φ.mul χ:DirichletCharacter K(lcm(E,p^t)), formed by native changeLevel and multiplication. On natural d its value is φ(d)χ(d), including zeros at nonunits. It is not replaced by its primitive inducing character, whose zero extension can differ.",
+        "An arithmetic exponent e≥0 corresponds to classical weight e+1, without asserting classical modularity at any weight. The whole series has its existing zero constant as a positive truncation.",
+        "Finite-coordinate reduction first incorporates χ into the actual weighted coefficient measure and then projects to group level r. Coefficient precision s satisfies s≤r. This ordering permits r<t. It does not assert that a fixed coarse untwisted coordinate determines the character twist."
+      ],
+      "proofSteps": [
+        "Evaluate both actual integral measures by their existing finite weighted divisor formula. At each retained divisor d, the promoted natural-input arithmetic-character formula and its integral coefficient inclusion identify κ^O_(t,χ,0)(u(d)) after inclusion as χ(d).",
+        "Native DirichletCharacter.mul already forms the product at lcm(E,p^t). Prove its natural-input product formula by considering whether d is coprime to both levels. In the unit case use the native changeLevel_eq_cast_of_dvd on the actual unit represented by d and native cast_natCast. If either coprimality fails, native map_nonunit makes both the product character and the corresponding factor zero. The complete native_character_product proof checks all cases, including level0.",
+        "The integral scalar multiplying f(u(d)) has included value ψ(n/d)φ(d)χ(d), equal to the included scalar for the right-product pair. Subtype injectivity gives equality inside O; reassociate the finite products and sums. The complete actual_atomic_test_twist proof verifies multiplication of the test against actual native Dirac sums.",
+        "The new finite character multiplies the divisor-side φ, because it is evaluated at u(d), not at the complementary divisor n/d. The existing left character ψ and its p-index scaling factor remain unchanged.",
+        "At n=1 the formula evaluates to f(1). At p=2 with χ modulo4, the only retained divisor of2 is1, so the q² coefficient survives. A mistaken left-character twist would instead see χ(2)=0."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L4/integral-twisted-positive-eisenstein-evaluation",
+        "DirichletPadicLFunctions:L2/integral-arithmetic-character-coefficient",
+        "DirichletPadicLFunctions:L2/arithmetic-character-natural-value",
+        "mathlib:DirichletCharacter.mul",
+        "mathlib:DirichletCharacter.changeLevel_eq_cast_of_dvd",
+        "mathlib:MulChar.map_nonunit",
+        "mathlib:MulChar.mul_apply"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/WildEisensteinMoments",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.integralTwistedPositiveEisensteinMeasure_character_twist"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Whole published143–146/PDF44–47 freshly read: end of Theorem5.1, Theorem5.7 and Remark5.8, full tame proof including Lemmas5.9–5.12 and equations5-5/5-6, Definition5.13. Whole published159–161/PDF60–62, Theorem8.2 and Remark8.3, read in predecessor4764.",
+          "match": "Worker specialization of the existing integral weighted positive coefficients at the already constructed arithmetic character χ(x)x^e. Twisting finite divisor atoms changes the right character using native DirichletCharacter.mul. This direct finite argument does not use the invalid geometric expansion in Lemma5.10, does not assert a new generic twist functor, and does not identify a primitive conductor with an arbitrary modulus. No generalized constant term or classical modularity is attributed to these source passages."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedWildEisensteinTests.coefficient_twist_identity_atom",
+          "kind": "computation",
+          "statement": "At the first positive coefficient, the character-weighted test evaluates to f(1)."
+        }
+      ],
+      "acceptance": [
+        "The character product is the existing native product, with its exact level and zero extension. No new generic measure-twist operator or primitive-product convention is introduced."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L4/integral-twisted-coefficient-arithmetic-moment",
+      "parentStageId": "DirichletPadicLFunctions:L4",
+      "realises": [
+        "DirichletPadicLFunctions:L4"
+      ],
+      "title": "Arithmetic moments with a finite character",
+      "kind": "theorem",
+      "statement": "The included value A^O_(ψ,φ,n)(κ^O_(t,χ,e)) is Σ_(d|n,p∤d)ψ(n/d)φ(d)χ(d)d^e in K.",
+      "hypotheses": [
+        "p is any prime, including2. K is a normed ultrametric field with Algebra ℤ_p K and IsBoundedSMul ℤ_p K. O is the native norm-valuation integer subring and U=(ℤ_p)ˣ. No completeness or ℤ_p-algebra structure on O is assumed.",
+        "Fix ψ:DirichletCharacter K D, φ:DirichletCharacter K E, t≥0 and χ:DirichletCharacter K(p^t). All use their native zero extension. Primitivity, nontriviality and tame-level coprimality are not required for these finite arithmetic statements. In the intended tame application p∤DE.",
+        "The actual integral coefficient measures A^O_(ψ,φ,n), their continuous positive-series measure E^+_(ψ,φ), and the existing integral arithmetic characters κ^O_(t,χ,e) are reused. The new statements do not define those objects again.",
+        "The right product is exactly native φ.mul χ:DirichletCharacter K(lcm(E,p^t)), formed by native changeLevel and multiplication. On natural d its value is φ(d)χ(d), including zeros at nonunits. It is not replaced by its primitive inducing character, whose zero extension can differ.",
+        "An arithmetic exponent e≥0 corresponds to classical weight e+1, without asserting classical modularity at any weight. The whole series has its existing zero constant as a positive truncation.",
+        "Finite-coordinate reduction first incorporates χ into the actual weighted coefficient measure and then projects to group level r. Coefficient precision s satisfies s≤r. This ordering permits r<t. It does not assert that a fixed coarse untwisted coordinate determines the character twist."
+      ],
+      "proofSteps": [
+        "Use the actual integral coefficient inclusion, then the existing K-valued finite divisor evaluation on the included arithmetic test. The integral character inclusion and promoted natural-input formula give χ(d)d^e at the actual unit u(d).",
+        "Reassociate the three character values and the natural power. The arithmetic exponent is e, hence k−1 in a weight-k application. No assumption of primitivity or positive e is needed for the finite identity.",
+        "Native weighted_right_character checks that each such summand also equals ψ(n/d)(φ.mul χ)(d)d^e using the actual native product. This supplies the integral specialization comparison below by injectivity of the coefficient inclusion.",
+        "At n=1 every factor is1. The principal character modulo p^t is1 on retained divisors, so its moment agrees with the existing principal level-zero moment even when t>0. The native dyadic_right_prime_survives and dyadic_right_third_moment proofs compute the precise small divisor sums.",
+        "For p=2, base pair(1,1) and χ modulo4 with χ(3)=−1, the exponent-one q³ coefficient is1−3=−2. Putting χ in the left position gives−1+3=2; the typed tests retain this distinction."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L4/integral-twisted-positive-eisenstein-coefficient",
+        "DirichletPadicLFunctions:L4/twisted-positive-eisenstein-evaluation",
+        "DirichletPadicLFunctions:L4/integral-twisted-coefficient-character-twist",
+        "DirichletPadicLFunctions:L2/integral-arithmetic-character-coefficient",
+        "DirichletPadicLFunctions:L2/arithmetic-character-natural-value"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/WildEisensteinMoments",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.integralTwistedPositiveEisensteinMeasure_arithmetic_moment"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Whole published143–146/PDF44–47 freshly read: end of Theorem5.1, Theorem5.7 and Remark5.8, full tame proof including Lemmas5.9–5.12 and equations5-5/5-6, Definition5.13. Whole published159–161/PDF60–62, Theorem8.2 and Remark8.3, read in predecessor4764.",
+          "match": "Worker specialization of the existing integral weighted positive coefficients at the already constructed arithmetic character χ(x)x^e. Twisting finite divisor atoms changes the right character using native DirichletCharacter.mul. This direct finite argument does not use the invalid geometric expansion in Lemma5.10, does not assert a new generic twist functor, and does not identify a primitive conductor with an arbitrary modulus. No generalized constant term or classical modularity is attributed to these source passages."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedWildEisensteinTests.first_arithmetic_coefficient",
+          "kind": "computation",
+          "statement": "Every finite character and exponent give1 at the first positive coefficient."
+        },
+        {
+          "name": "SuggestedWildEisensteinTests.principal_character_preserves_moment",
+          "kind": "compatibility",
+          "statement": "The principal character at any p-power level gives the old principal level-zero coefficient moment."
+        },
+        {
+          "name": "SuggestedWildEisensteinTests.wild_right_third_moment",
+          "kind": "computation",
+          "statement": "For p=2 and the quadratic character modulo4 inserted in the test, the q³ exponent-one coefficient is−2."
+        },
+        {
+          "name": "SuggestedWildEisensteinTests.wrong_left_third_moment",
+          "kind": "non-example",
+          "statement": "For the same χ placed on the left, the principal exponent-one coefficient at n=3 is+2."
+        }
+      ],
+      "acceptance": [
+        "The identity is in the actual field after the native coefficient inclusion. Integral comparisons below use subtype injectivity, not field divisibility."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L4/integral-twisted-series-character-twist",
+      "parentStageId": "DirichletPadicLFunctions:L4",
+      "realises": [
+        "DirichletPadicLFunctions:L4"
+      ],
+      "title": "Finite-character twisting of the whole positive series",
+      "kind": "comparison",
+      "statement": "E^+_(ψ,φ)(κ^O_(t,χ,0)·f)=E^+_(ψ,φ.mul χ)(f) in PowerSeries O for every continuous integral test f.",
+      "hypotheses": [
+        "p is any prime, including2. K is a normed ultrametric field with Algebra ℤ_p K and IsBoundedSMul ℤ_p K. O is the native norm-valuation integer subring and U=(ℤ_p)ˣ. No completeness or ℤ_p-algebra structure on O is assumed.",
+        "Fix ψ:DirichletCharacter K D, φ:DirichletCharacter K E, t≥0 and χ:DirichletCharacter K(p^t). All use their native zero extension. Primitivity, nontriviality and tame-level coprimality are not required for these finite arithmetic statements. In the intended tame application p∤DE.",
+        "The actual integral coefficient measures A^O_(ψ,φ,n), their continuous positive-series measure E^+_(ψ,φ), and the existing integral arithmetic characters κ^O_(t,χ,e) are reused. The new statements do not define those objects again.",
+        "The right product is exactly native φ.mul χ:DirichletCharacter K(lcm(E,p^t)), formed by native changeLevel and multiplication. On natural d its value is φ(d)χ(d), including zeros at nonunits. It is not replaced by its primitive inducing character, whose zero extension can differ.",
+        "An arithmetic exponent e≥0 corresponds to classical weight e+1, without asserting classical modularity at any weight. The whole series has its existing zero constant as a positive truncation.",
+        "Finite-coordinate reduction first incorporates χ into the actual weighted coefficient measure and then projects to group level r. Coefficient precision s satisfies s≤r. This ordering permits r<t. It does not assert that a fixed coarse untwisted coordinate determines the character twist."
+      ],
+      "proofSteps": [
+        "Apply native PowerSeries.ext to the two actual series. At each positive index use the promoted series coefficient formula and the preceding actual coefficient character-twist theorem.",
+        "Both constant coefficients are zero. No infinite summation or convergence argument is needed: native formal-series extensionality identifies the entire objects.",
+        "The complete coefficientwise_twist proof checks assembly of coefficient equality. The equality is inside O[[q]], with the original native topology and actual measures on each side.",
+        "The typed actual_series_character_specialization test extracts any positive coefficient of this whole equality and identifies it with the actual right-product coefficient measure, preventing replacement by a surrogate scalar sequence."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L4/integral-twisted-positive-series-coeff",
+        "DirichletPadicLFunctions:L4/integral-twisted-coefficient-character-twist",
+        "mathlib:PowerSeries.ext"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/WildEisensteinMoments",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.integralTwistedPositiveEisensteinSeries_character_twist"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Whole published143–146/PDF44–47 freshly read: end of Theorem5.1, Theorem5.7 and Remark5.8, full tame proof including Lemmas5.9–5.12 and equations5-5/5-6, Definition5.13. Whole published159–161/PDF60–62, Theorem8.2 and Remark8.3, read in predecessor4764.",
+          "match": "Worker specialization of the existing integral weighted positive coefficients at the already constructed arithmetic character χ(x)x^e. Twisting finite divisor atoms changes the right character using native DirichletCharacter.mul. This direct finite argument does not use the invalid geometric expansion in Lemma5.10, does not assert a new generic twist functor, and does not identify a primitive conductor with an arbitrary modulus. No generalized constant term or classical modularity is attributed to these source passages."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedWildEisensteinTests.actual_series_character_specialization",
+          "kind": "compatibility",
+          "statement": "Every positive coefficient of the character-weighted whole series equals the actual right-product coefficient evaluation."
+        }
+      ],
+      "acceptance": [
+        "The left character stays unchanged. This is an identity of existing specific integral series, not a new shared twist construction."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L4/integral-twisted-series-arithmetic-twist",
+      "parentStageId": "DirichletPadicLFunctions:L4",
+      "realises": [
+        "DirichletPadicLFunctions:L4"
+      ],
+      "title": "Integral arithmetic specialization as a right-character product",
+      "kind": "comparison",
+      "statement": "E^+_(ψ,φ)(κ^O_(t,χ,e))=E^+_(ψ,φ.mul χ)(κ^O_(0,1,e)) in O[[q]].",
+      "hypotheses": [
+        "p is any prime, including2. K is a normed ultrametric field with Algebra ℤ_p K and IsBoundedSMul ℤ_p K. O is the native norm-valuation integer subring and U=(ℤ_p)ˣ. No completeness or ℤ_p-algebra structure on O is assumed.",
+        "Fix ψ:DirichletCharacter K D, φ:DirichletCharacter K E, t≥0 and χ:DirichletCharacter K(p^t). All use their native zero extension. Primitivity, nontriviality and tame-level coprimality are not required for these finite arithmetic statements. In the intended tame application p∤DE.",
+        "The actual integral coefficient measures A^O_(ψ,φ,n), their continuous positive-series measure E^+_(ψ,φ), and the existing integral arithmetic characters κ^O_(t,χ,e) are reused. The new statements do not define those objects again.",
+        "The right product is exactly native φ.mul χ:DirichletCharacter K(lcm(E,p^t)), formed by native changeLevel and multiplication. On natural d its value is φ(d)χ(d), including zeros at nonunits. It is not replaced by its primitive inducing character, whose zero extension can differ.",
+        "An arithmetic exponent e≥0 corresponds to classical weight e+1, without asserting classical modularity at any weight. The whole series has its existing zero constant as a positive truncation.",
+        "Finite-coordinate reduction first incorporates χ into the actual weighted coefficient measure and then projects to group level r. Coefficient precision s satisfies s≤r. This ordering permits r<t. It does not assert that a fixed coarse untwisted coordinate determines the character twist."
+      ],
+      "proofSteps": [
+        "At each positive coefficient, include both values into K. The preceding general arithmetic-moment formula gives ψ(n/d)φ(d)χ(d)d^e on the left, and the existing principal arithmetic-moment theorem gives ψ(n/d)(φ.mul χ)(d)d^e on the right.",
+        "The complete native_character_product and weighted_right_character proofs identify each summand. Injectivity of O↪K brings the equality back to O. The zero coefficient is zero on both sides; apply native PowerSeries.ext.",
+        "Equivalently the arithmetic test is the product of its finite-order part and the principal arithmetic power. The coefficient argument above uses only already available character formulas, without adding an assumed character-factorization field.",
+        "For a principal finite character of arbitrary p-power level, its values are1 on all retained divisors, so the whole specialized series is unchanged. This is true even though its native zero extension at p differs from that of the level-one character."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L4/integral-twisted-coefficient-arithmetic-moment",
+        "DirichletPadicLFunctions:L4/integral-twisted-positive-eisenstein-moment",
+        "DirichletPadicLFunctions:L4/integral-twisted-positive-series-coeff",
+        "mathlib:DirichletCharacter.mul",
+        "mathlib:PowerSeries.ext"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/WildEisensteinMoments",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.integralTwistedPositiveEisensteinSeries_arithmetic_twist"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Whole published143–146/PDF44–47 freshly read: end of Theorem5.1, Theorem5.7 and Remark5.8, full tame proof including Lemmas5.9–5.12 and equations5-5/5-6, Definition5.13. Whole published159–161/PDF60–62, Theorem8.2 and Remark8.3, read in predecessor4764.",
+          "match": "Worker specialization of the existing integral weighted positive coefficients at the already constructed arithmetic character χ(x)x^e. Twisting finite divisor atoms changes the right character using native DirichletCharacter.mul. This direct finite argument does not use the invalid geometric expansion in Lemma5.10, does not assert a new generic twist functor, and does not identify a primitive conductor with an arbitrary modulus. No generalized constant term or classical modularity is attributed to these source passages."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedWildEisensteinTests.principal_character_preserves_series",
+          "kind": "compatibility",
+          "statement": "The whole arithmetic series for a principal finite character at any p-power level equals its principal level-zero counterpart."
+        },
+        {
+          "name": "SuggestedWildEisensteinTests.wild_prime_coefficient_survives",
+          "kind": "non-example",
+          "statement": "For p=2 and χ modulo4, the q² arithmetic coefficient of the base pair(1,1) is1 for every natural exponent, although χ(2)=0."
+        }
+      ],
+      "acceptance": [
+        "Keep the actual integral equality and the product character at its lcm level. This does not replace its zero extension by that of a primitive inducing character."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L4/integral-twisted-series-arithmetic-moment",
+      "parentStageId": "DirichletPadicLFunctions:L4",
+      "realises": [
+        "DirichletPadicLFunctions:L4"
+      ],
+      "title": "The finite-character positive q-expansion",
+      "kind": "theorem",
+      "statement": "After O↪K, E^+_(ψ,φ)(κ^O_(t,χ,e)) is native mk with coefficient Σ_(d|n,p∤d)ψ(n/d)φ(d)χ(d)d^e for n>0, and zero constant.",
+      "hypotheses": [
+        "p is any prime, including2. K is a normed ultrametric field with Algebra ℤ_p K and IsBoundedSMul ℤ_p K. O is the native norm-valuation integer subring and U=(ℤ_p)ˣ. No completeness or ℤ_p-algebra structure on O is assumed.",
+        "Fix ψ:DirichletCharacter K D, φ:DirichletCharacter K E, t≥0 and χ:DirichletCharacter K(p^t). All use their native zero extension. Primitivity, nontriviality and tame-level coprimality are not required for these finite arithmetic statements. In the intended tame application p∤DE.",
+        "The actual integral coefficient measures A^O_(ψ,φ,n), their continuous positive-series measure E^+_(ψ,φ), and the existing integral arithmetic characters κ^O_(t,χ,e) are reused. The new statements do not define those objects again.",
+        "The right product is exactly native φ.mul χ:DirichletCharacter K(lcm(E,p^t)), formed by native changeLevel and multiplication. On natural d its value is φ(d)χ(d), including zeros at nonunits. It is not replaced by its primitive inducing character, whose zero extension can differ.",
+        "An arithmetic exponent e≥0 corresponds to classical weight e+1, without asserting classical modularity at any weight. The whole series has its existing zero constant as a positive truncation.",
+        "Finite-coordinate reduction first incorporates χ into the actual weighted coefficient measure and then projects to group level r. Coefficient precision s satisfies s≤r. This ordering permits r<t. It does not assert that a fixed coarse untwisted coordinate determines the character twist."
+      ],
+      "proofSteps": [
+        "Use native coeff_map and the promoted actual series coefficient formula. At every positive index the arithmetic coefficient moment theorem supplies the exact finite sum.",
+        "The zero index maps to zero under the native integer-subring ring homomorphism. Native PowerSeries.ext then identifies the whole mapped series with the displayed native mk.",
+        "The complete mapped_moment_series proof checks this assembly through an arbitrary coefficient ring homomorphism. This assertion concerns formal coefficients only; no q-adic analytic convergence, primitive-character Eisenstein-form existence or exceptional-weight comparison is inferred."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L4/integral-twisted-coefficient-arithmetic-moment",
+        "DirichletPadicLFunctions:L4/integral-twisted-positive-series-coeff",
+        "mathlib:PowerSeries.map",
+        "mathlib:PowerSeries.coeff_map",
+        "mathlib:PowerSeries.mk",
+        "mathlib:PowerSeries.coeff_mk",
+        "mathlib:PowerSeries.ext"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/WildEisensteinMoments",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.integralTwistedPositiveEisensteinSeries_arithmetic_moment"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Whole published143–146/PDF44–47 freshly read: end of Theorem5.1, Theorem5.7 and Remark5.8, full tame proof including Lemmas5.9–5.12 and equations5-5/5-6, Definition5.13. Whole published159–161/PDF60–62, Theorem8.2 and Remark8.3, read in predecessor4764.",
+          "match": "Worker specialization of the existing integral weighted positive coefficients at the already constructed arithmetic character χ(x)x^e. Twisting finite divisor atoms changes the right character using native DirichletCharacter.mul. This direct finite argument does not use the invalid geometric expansion in Lemma5.10, does not assert a new generic twist functor, and does not identify a primitive conductor with an arbitrary modulus. No generalized constant term or classical modularity is attributed to these source passages."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedWildEisensteinTests.character_series_constant_zero",
+          "kind": "degenerate",
+          "statement": "Every finite-character arithmetic specialization has zero constant coefficient as a positive truncation."
+        }
+      ],
+      "acceptance": [
+        "The character ordering and exponent are displayed explicitly. The character-pair constant coefficient remains a separate unresolved task."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L4/integral-twisted-series-character-weight-congruence",
+      "parentStageId": "DirichletPadicLFunctions:L4",
+      "realises": [
+        "DirichletPadicLFunctions:L4"
+      ],
+      "title": "Weight congruences on a fixed finite-character component",
+      "kind": "theorem",
+      "statement": "For fixed χ, r≥1 and e≡e′ modulo p^(r−1)(p−1), C((p:O)^r) divides E^+_(ψ,φ)(κ^O_(t,χ,e′))−E^+_(ψ,φ)(κ^O_(t,χ,e)).",
+      "hypotheses": [
+        "p is any prime, including2. K is a normed ultrametric field with Algebra ℤ_p K and IsBoundedSMul ℤ_p K. O is the native norm-valuation integer subring and U=(ℤ_p)ˣ. No completeness or ℤ_p-algebra structure on O is assumed.",
+        "Fix ψ:DirichletCharacter K D, φ:DirichletCharacter K E, t≥0 and χ:DirichletCharacter K(p^t). All use their native zero extension. Primitivity, nontriviality and tame-level coprimality are not required for these finite arithmetic statements. In the intended tame application p∤DE.",
+        "The actual integral coefficient measures A^O_(ψ,φ,n), their continuous positive-series measure E^+_(ψ,φ), and the existing integral arithmetic characters κ^O_(t,χ,e) are reused. The new statements do not define those objects again.",
+        "The right product is exactly native φ.mul χ:DirichletCharacter K(lcm(E,p^t)), formed by native changeLevel and multiplication. On natural d its value is φ(d)χ(d), including zeros at nonunits. It is not replaced by its primitive inducing character, whose zero extension can differ.",
+        "An arithmetic exponent e≥0 corresponds to classical weight e+1, without asserting classical modularity at any weight. The whole series has its existing zero constant as a positive truncation.",
+        "Finite-coordinate reduction first incorporates χ into the actual weighted coefficient measure and then projects to group level r. Coefficient precision s satisfies s≤r. This ordering permits r<t. It does not assert that a fixed coarse untwisted coordinate determines the character twist."
+      ],
+      "proofSteps": [
+        "Use the integral arithmetic specialization comparison for both exponents. This rewrites the two whole series to the same pair(ψ,φ.mul χ) and principal arithmetic tests.",
+        "Apply the existing whole-series integral weight-congruence theorem to this pair. It already includes arbitrary finite right characters and keeps the full prime-power totient modulus. No t≤r condition enters this argument.",
+        "As a coefficient check, χ(d) is one more integral bounded scalar multiplying the same difference d^e′−d^e. The complete native weighted_divisibility proof shows that arbitrary integral weights preserve the finite divisibility witnesses.",
+        "For the dyadic quadratic character modulo4 and base pair(1,1), exponents1 and5 give whole-series C(8)-divisibility. The q³ difference is−240. The fixed character must be the same in both specializations; varying the finite character is not covered by this theorem."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L4/integral-twisted-series-arithmetic-twist",
+        "DirichletPadicLFunctions:L4/integral-twisted-positive-series-weight-congruence"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/WildEisensteinMoments",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.integralTwistedPositiveEisensteinSeries_character_weight_congr"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Whole published143–146/PDF44–47 freshly read: end of Theorem5.1, Theorem5.7 and Remark5.8, full tame proof including Lemmas5.9–5.12 and equations5-5/5-6, Definition5.13. Whole published159–161/PDF60–62, Theorem8.2 and Remark8.3, read in predecessor4764.",
+          "match": "Worker specialization of the existing integral weighted positive coefficients at the already constructed arithmetic character χ(x)x^e. Twisting finite divisor atoms changes the right character using native DirichletCharacter.mul. This direct finite argument does not use the invalid geometric expansion in Lemma5.10, does not assert a new generic twist functor, and does not identify a primitive conductor with an arbitrary modulus. No generalized constant term or classical modularity is attributed to these source passages."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedWildEisensteinTests.wild_whole_weight_congruence",
+          "kind": "computation",
+          "statement": "For p=2, χ modulo4 and the base pair(1,1), C(8) divides the whole exponent5 minus exponent1 series."
+        }
+      ],
+      "acceptance": [
+        "The precision is divisibility in O[[q]], not the vacuous field divisibility of a scalar. No conductor-only or tame-only exponent criterion replaces the full modulus."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L4/integral-twisted-series-character-finite-moments",
+      "parentStageId": "DirichletPadicLFunctions:L4",
+      "realises": [
+        "DirichletPadicLFunctions:L4"
+      ],
+      "title": "Finite coordinates after inserting the character",
+      "kind": "comparison",
+      "statement": "For s≤r, the reduction of E^+_(ψ,φ)(κ^O_(t,χ,e)) is the series of finite representative-power pairings of E_(ψ,φ.mul χ,n;r), with zero constant.",
+      "hypotheses": [
+        "p is any prime, including2. K is a normed ultrametric field with Algebra ℤ_p K and IsBoundedSMul ℤ_p K. O is the native norm-valuation integer subring and U=(ℤ_p)ˣ. No completeness or ℤ_p-algebra structure on O is assumed.",
+        "Fix ψ:DirichletCharacter K D, φ:DirichletCharacter K E, t≥0 and χ:DirichletCharacter K(p^t). All use their native zero extension. Primitivity, nontriviality and tame-level coprimality are not required for these finite arithmetic statements. In the intended tame application p∤DE.",
+        "The actual integral coefficient measures A^O_(ψ,φ,n), their continuous positive-series measure E^+_(ψ,φ), and the existing integral arithmetic characters κ^O_(t,χ,e) are reused. The new statements do not define those objects again.",
+        "The right product is exactly native φ.mul χ:DirichletCharacter K(lcm(E,p^t)), formed by native changeLevel and multiplication. On natural d its value is φ(d)χ(d), including zeros at nonunits. It is not replaced by its primitive inducing character, whose zero extension can differ.",
+        "An arithmetic exponent e≥0 corresponds to classical weight e+1, without asserting classical modularity at any weight. The whole series has its existing zero constant as a positive truncation.",
+        "Finite-coordinate reduction first incorporates χ into the actual weighted coefficient measure and then projects to group level r. Coefficient precision s satisfies s≤r. This ordering permits r<t. It does not assert that a fixed coarse untwisted coordinate determines the character twist."
+      ],
+      "proofSteps": [
+        "First use the integral arithmetic specialization equality to insert χ into the right character of the actual integral measure. Then use the existing whole-series finite-coordinate moment theorem for the pair(ψ,φ.mul χ).",
+        "The right-hand finite coordinates are the actual projection of this already weighted coefficient measure. The character values are scalar coefficients before residues collide. Thus the remaining residue-power approximation has the same precision p^r as before, independent of t.",
+        "Only s≤r is required. In particular r<t is allowed when the character is applied before projection. This does not evaluate χ on representatives of a coarser untwisted coordinate, and it does not assert that χ factors through that smaller group.",
+        "For p=2, χ modulo4, n=3 and r=1, the right-product finite coordinate is[1]−[3]=0 because1 and3 coincide modulo2. The actual exponent-one moment is−2, so the zero coordinate correctly computes it modulo2. The complete native dyadic_coarse_after_twist proof verifies the actual group-algebra cancellation.",
+        "The untwisted coordinate at the same index and group level is2[1], not zero. Multiplying it afterward by χ(1)=1 would retain2 and miss the signed cancellation. The typed untwisted_coarse_coordinate_loses_character test records this concrete distinction. Finite controls include r<t and a failure of this incorrect order of operations."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L4/integral-twisted-series-arithmetic-twist",
+        "DirichletPadicLFunctions:L4/integral-twisted-positive-series-finite-moments",
+        "DirichletPadicLFunctions:L4/integral-twisted-eisenstein-finite-divisors"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/WildEisensteinMoments",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.integralTwistedPositiveEisensteinSeries_character_finite_moment_mod"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Whole published143–146/PDF44–47 freshly read: end of Theorem5.1, Theorem5.7 and Remark5.8, full tame proof including Lemmas5.9–5.12 and equations5-5/5-6, Definition5.13. Whole published159–161/PDF60–62, Theorem8.2 and Remark8.3, read in predecessor4764.",
+          "match": "Worker specialization of the existing integral weighted positive coefficients at the already constructed arithmetic character χ(x)x^e. Twisting finite divisor atoms changes the right character using native DirichletCharacter.mul. This direct finite argument does not use the invalid geometric expansion in Lemma5.10, does not assert a new generic twist functor, and does not identify a primitive conductor with an arbitrary modulus. No generalized constant term or classical modularity is attributed to these source passages."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedWildEisensteinTests.character_inserted_before_coarse_projection",
+          "kind": "computation",
+          "statement": "At p=2,n=3 with the quadratic right product modulo4, the group-level1 coordinate is zero."
+        },
+        {
+          "name": "SuggestedWildEisensteinTests.coarse_after_twist_moment_precision",
+          "kind": "computation",
+          "statement": "The actual exponent-one moment−2 is zero modulo2, even though the character level2 exceeds the group level1."
+        },
+        {
+          "name": "SuggestedWildEisensteinTests.untwisted_coarse_coordinate_loses_character",
+          "kind": "non-example",
+          "statement": "At this index and group level the untwisted finite coordinate differs from the coordinate projected after inserting χ."
+        }
+      ],
+      "acceptance": [
+        "The order of operations is part of the statement. Neither a generic completed-algebra equivalence nor a finite quotient character at insufficient resolution is asserted."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L2/arithmetic-character-natural-value",
+      "parentStageId": "DirichletPadicLFunctions:L2",
+      "realises": [
+        "DirichletPadicLFunctions:L2"
+      ],
+      "title": "Arithmetic characters on natural-cast units",
+      "kind": "lemma",
+      "statement": "If u∈(ℤ_p)ˣ has underlying value(a:ℤ_p), then κ_(t,χ,e)(u)=χ(a)(a:R)^e.",
+      "hypotheses": [
+        "p is prime. R is a normed commutative ℤ_p-algebra with bounded scalar action; χ:DirichletCharacter R(p^t), t,e,a≥0, u∈(ℤ_p)ˣ and (u:ℤ_p)=(a:ℤ_p). No ultrametric field, completeness, primitivity or positive-exponent hypothesis is required."
+      ],
+      "proofSteps": [
+        "Promote the exact existing primePowerArithmeticCharacter_nat API because the new Eisenstein moment and test-twist nodes use it as a prerequisite. Its existing suggested signature remains whole and is not redefined.",
+        "Apply the existing pointwise arithmetic-character formula. The finite-character lift on the actual natural cast is χ(a), and the coefficient algebra map preserves natural casts. Multiplication and the natural power give the displayed value.",
+        "The hypothesis refers to an actual unit with value a in ℤ_p. No nonunit is inserted into the unit-domain measure, and no residue representative replaces the arithmetic power. This is the precise interface used at retained divisors."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L2/prime-power-arithmetic-character",
+        "DirichletPadicLFunctions:L2/arithmetic-character-pointwise-value"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/ArithmeticCharacters",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.primePowerArithmeticCharacter_nat"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Whole published143–146/PDF44–47 freshly read: end of Theorem5.1, Theorem5.7 and Remark5.8, full tame proof including Lemmas5.9–5.12 and equations5-5/5-6, Definition5.13. Whole published159–161/PDF60–62, Theorem8.2 and Remark8.3, read in predecessor4764.",
+          "match": "Worker specialization of the existing integral weighted positive coefficients at the already constructed arithmetic character χ(x)x^e. Twisting finite divisor atoms changes the right character using native DirichletCharacter.mul. This direct finite argument does not use the invalid geometric expansion in Lemma5.10, does not assert a new generic twist functor, and does not identify a primitive conductor with an arbitrary modulus. No generalized constant term or classical modularity is attributed to these source passages."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [],
+      "acceptance": [
+        "Retain the existing general coefficient-ring signature, including t=0 and e=0."
+      ]
     }
   ],
   "requests": [
@@ -37430,7 +37883,7 @@
       "stageId": "DirichletPadicLFunctions:L4",
       "status": "partial",
       "remaining": [
-        "The integral character-weighted coefficients now assemble into an actual continuous positive-series measure, with coefficient inclusion, whole ideal and weight congruences, left-character index scaling and finite-coordinate reduction of whole moment series. The native twisted-divisor/Euler-deletion comparison and shared primitive-character modular-form specialization still require treatment. The character-pair constant coefficient, denominator qualifications and scalar/analytic specializations remain open. Generic completed-algebra and weight-space geometry stay with their existing owners and requests. All source corrections, analytic pole/residue questions and full source extraction remain open.",
+        "Finite-character arithmetic tests now specialize the actual weighted integral coefficients and whole positive series, with the character inserted into the native right product, fixed-character weight congruences and finite reduction after twisting. The native twisted-divisor/Euler-deletion comparison and shared primitive-character modular-form specialization still require treatment. The character-pair constant coefficient, denominator qualifications and scalar/analytic specializations remain open. Generic completed-algebra and weight-space geometry stay with their existing owners and requests. All source corrections, analytic pole/residue questions and full source extraction remain open.",
         "The positive part now has a native continuous power-series-valued measure, uniform coefficient bounds, test and weight congruences, and whole-series comparison with the actual p-stabilized modular form after removing its constant coefficient. Assemble the full family with the actual localized A₀ coefficient, prove constant-term congruences with denominator qualifications, and decompose the tame-character extension. Geometric affinoid realization and Hida–Coleman control belong to PadicFamilies; retain the weight shift recorded in E9."
       ]
     }
@@ -37461,7 +37914,7 @@
       "neededBy": [
         "DirichletPadicLFunctions:L4/positive-eisenstein-completed-coordinates"
       ],
-      "detail": "The integral character-weighted coefficients now assemble into an actual continuous positive-series measure, with coefficient inclusion, whole ideal and weight congruences, left-character index scaling and finite-coordinate reduction of whole moment series. The native twisted-divisor/Euler-deletion comparison and shared primitive-character modular-form specialization still require treatment. The character-pair constant coefficient, denominator qualifications and scalar/analytic specializations remain open. Generic completed-algebra and weight-space geometry stay with their existing owners and requests. All source corrections, analytic pole/residue questions and full source extraction remain open. The positive part now has a native continuous power-series-valued measure, uniform coefficient bounds, test and weight congruences, and whole-series comparison with the actual p-stabilized modular form after removing its constant coefficient. Assemble the full family with the actual localized A₀ coefficient, prove constant-term congruences with denominator qualifications, and decompose the tame-character extension. Geometric affinoid realization and Hida–Coleman control belong to PadicFamilies; retain the weight shift recorded in E9."
+      "detail": "Finite-character arithmetic tests now specialize the actual weighted integral coefficients and whole positive series, with the character inserted into the native right product, fixed-character weight congruences and finite reduction after twisting. The native twisted-divisor/Euler-deletion comparison and shared primitive-character modular-form specialization still require treatment. The character-pair constant coefficient, denominator qualifications and scalar/analytic specializations remain open. Generic completed-algebra and weight-space geometry stay with their existing owners and requests. All source corrections, analytic pole/residue questions and full source extraction remain open. The positive part now has a native continuous power-series-valued measure, uniform coefficient bounds, test and weight congruences, and whole-series comparison with the actual p-stabilized modular form after removing its constant coefficient. Assemble the full family with the actual localized A₀ coefficient, prove constant-term congruences with denominator qualifications, and decompose the tame-character extension. Geometric affinoid realization and Hida–Coleman control belong to PadicFamilies; retain the weight shift recorded in E9."
     },
     {
       "title": "Canonical coefficient-field character evaluation of actual pseudomeasures",
@@ -37804,36 +38257,36 @@
   "checks": {
     "blueprint": "Zero errors and warnings with the unmodified pinned index.",
     "intake": "Exactly four authorized deliverables; zero problems.",
-    "sourceIssues": "All16 source findings, sourceVersions, nine requests and13 gaps remain. No source finding, request or independent verdict is added.",
+    "sourceIssues": "All16 source findings, sourceVersions, nine requests and13 gaps remain. No source finding, request or independent verdict is added. The known invalid geometric expansion in Lemma5.10 is not used.",
     "validation": {
-      "nodes": 572,
+      "nodes": 580,
       "kinds": {
         "definition": 1,
-        "lemma": 233,
+        "lemma": 234,
         "construction": 69,
-        "theorem": 171,
-        "comparison": 98
+        "theorem": 175,
+        "comparison": 101
       },
       "api": 517,
-      "packetTests": 907,
+      "packetTests": 920,
       "definitionConstructionTests": 295,
-      "typedExamples": 910,
+      "typedExamples": 923,
       "planets": 24,
-      "baseline": 499,
-      "preservedWholeNodes": 564,
-      "preservedBaseline": 498,
+      "baseline": 500,
+      "preservedWholeNodes": 572,
+      "preservedBaseline": 499,
       "preservedSourceIssues": 16,
       "newSourceIssues": 0,
       "newNodes": 8,
-      "newNamedDeclarations": 15,
-      "newTypedTests": 12,
+      "newNamedDeclarations": 7,
+      "newTypedTests": 13,
       "requests": 9,
       "gaps": 13,
       "closedStages": 0,
-      "reachableNodes": 814,
-      "dependencyEdges": 3904,
+      "reachableNodes": 822,
+      "dependencyEdges": 3938,
       "acyclic": true,
-      "baselineLeaves": 672,
+      "baselineLeaves": 673,
       "stageRequestLeaves": [
         "AdicSpacesPartII:F1",
         "AdicSpacesPartII:R2",
@@ -37844,11 +38297,11 @@
         "PadicMeasuresIwasawaAlgebras:L1",
         "PadicMeasuresIwasawaAlgebras:L3"
       ],
-      "readerWords": 263611,
+      "readerWords": 268273,
       "scopedMutationCheck": true,
       "correctedPredecessorNodes": 0,
       "compilerErrors": 0,
-      "compilerWarnings": 1764,
+      "compilerWarnings": 1784,
       "allWarningsPlaceholders": true,
       "supplierNodes": 332,
       "currentSupplierNodes": 369,
@@ -37857,22 +38310,22 @@
       "pinnedMathlibModules": 3600,
       "pinnedTauCetiModules": 21,
       "actualSupplierModules": 1,
-      "scratchCompleteDefinitions": 1,
+      "scratchCompleteDefinitions": 0,
       "scratchCompleteLemmas": 11,
-      "scratchMathlibModules": 2807,
+      "scratchMathlibModules": 2808,
       "scratchErrors": 0,
       "scratchWarnings": 0,
       "scratchPlaceholders": 0,
       "finiteControls": {
-        "positiveSeriesTruncations": 320,
-        "leftCharacterIndexCoefficients": 20800,
-        "wholeTruncationWeightCoefficients": 83200,
-        "wholeTruncationWeightCongruences": 1280,
-        "wholeTruncationFiniteReductions": 4800,
-        "finiteReducedCoefficients": 312000,
-        "testIdealCoefficientWitnesses": 24960,
-        "wholeTruncationTestIdeals": 384,
-        "levelOneMassCoefficients": 260
+        "nativeLevelProductInputs": 47628,
+        "polynomialTestCovarianceCoefficients": 47628,
+        "wholeTruncationSpecializations": 4860,
+        "arithmeticMomentCoefficients": 238140,
+        "fixedCharacterWeightCoefficients": 714420,
+        "wholeTruncationWeightCongruences": 14580,
+        "wholeTruncationFiniteReductions": 48600,
+        "finiteReducedCoefficients": 2381400,
+        "reductionsBelowCharacterLevel": 14220
       },
       "numericalControlsCertified": false,
       "newRoutesStageLeaves": []
@@ -37880,14 +38333,14 @@
     "lean": {
       "status": "compiled with only expected placeholder warnings",
       "errors": 0,
-      "warnings": 1764,
-      "sha256": "3a6c2d757324a9f1e095a519ef32ea94e1c4eb95958996ede4b6014c62c8c9f5",
+      "warnings": 1784,
+      "sha256": "133f4dc68625216f8e6c227cec383829fc942483fd188f3a7cacf714780ccfa9",
       "nativeProbe": {
         "completeLemmas": 11,
         "errors": 0,
         "warnings": 0,
         "placeholders": 0,
-        "sha256": "0c0b119954861bd7c0388f37071bf757b07e7180e5140ecf2b25b2d40fe91a68"
+        "sha256": "d145cf515b146fc1b283ffa5b9811921250d3076c81550ceaa7f3ccfeb77af17"
       },
       "artifactReuse": {
         "compiledSupplierNodes": 332,
@@ -37956,16 +38409,16 @@
         "nativeArtifactFileCount": 105,
         "predecessorAgainstCurrentSupplier": {
           "exitCode": 0,
-          "sourceSha256": "d1545fc413979976c9fcc625253c954d27d6a65432e19c55b0d976ee82d1b138",
+          "sourceSha256": "3a6c2d757324a9f1e095a519ef32ea94e1c4eb95958996ede4b6014c62c8c9f5",
           "modules": 3572,
-          "warnings": 1737,
+          "warnings": 1764,
           "errors": 0
         },
         "scope": "The actual332-node PMIA artifact compiled at PR3303 is reused. The current369-node PMIA source preserves all its lines in order, and all332 old packet nodes are unchanged; added residue restrictions and L4 declarations are not called. No compilation against the369-node source is claimed. The full new Dirichlet file uses that exact332-node artifact with21 pinned Tau modules,105 native artifact files and the audited pinned Mathlib closure. Existing native artifacts and original zero-warning logs are verified; no Lake setup, update, cache fetch or native library build occurs."
       }
     },
     "publication": {
-      "base": "debb44ceab944dd4320885ab8ba4fcf2a501fd0b",
+      "base": "f8608e6bf29537ef8735f45fa624ab83c1618118",
       "unchangedInputs": 63,
       "unchangedOutputs": 4,
       "sameSessionFollowupAfterMerge": true,
@@ -43814,6 +44267,45 @@
         "levelOneMassCoefficients": 260
       },
       "numericalMethod": "Exact integer and modular arithmetic on q-indices0–64, primes2,3,5,7, every ordered pair of the level1 and quadratic level3/4/5 characters, exponents0–4, group levels0–4 and all coefficient precisions s≤r. Weight shifts use the full prime-power totient. Whole-truncation assertions include each coefficient; these are finite controls, not infinite-series proofs."
+    },
+    "wildEisensteinMoments": {
+      "agent": "Codex",
+      "session": "codex-7e92bd",
+      "issue": 713,
+      "claimComment": 5854790528,
+      "winningBot": 5854791937,
+      "previousPR": 4764,
+      "previousHead": "146307e078defa589cfce2adbb5f6f8271c8e671",
+      "previousMerge": "7e77e73eba62d4363f3085a9a7434e21958d6cf5",
+      "preservedWholeNodes": 572,
+      "preservedBaseline": 499,
+      "preservedFindings": 16,
+      "newNodes": 8,
+      "reading": "Whole published RJW143–146 freshly read, including the finite-character test and integral coefficient discussion, and159–161 in predecessor4764. Whole existing L2 arithmetic-character and integral-character constructor/API/test nodes, coefficient inclusion and pointwise-value nodes were read, with their exact suggested signatures. The existing integral coefficient, whole-series and finite-coordinate interfaces are used directly. Native character product, changeLevel, unit and nonunit evaluation and residue cast statements were read at the pins. All63 captured inputs are unchanged.",
+      "boundary": "Finite-character arithmetic tests now specialize the actual weighted integral coefficients and whole positive series, with the character inserted into the native right product, fixed-character weight congruences and finite reduction after twisting. The native twisted-divisor/Euler-deletion comparison and shared primitive-character modular-form specialization still require treatment. The character-pair constant coefficient, denominator qualifications and scalar/analytic specializations remain open. Generic completed-algebra and weight-space geometry stay with their existing owners and requests. All source corrections, analytic pole/residue questions and full source extraction remain open.",
+      "inputBase": "246b5eaec3f6e1fc91e3719d14cc30ead571588d",
+      "sourceBoundary": "All16 source findings, sourceVersions, nine requests and13 gaps remain. No source finding, request or independent verdict is added. The known invalid geometric expansion in Lemma5.10 is not used.",
+      "publication": {
+        "base": "f8608e6bf29537ef8735f45fa624ab83c1618118",
+        "unchangedInputs": 63,
+        "unchangedOutputs": 4,
+        "sameSessionFollowupAfterMerge": true,
+        "lastClaimConfirmation": 5854791937,
+        "reviewIssue": 390,
+        "reviewUnclaimed": true
+      },
+      "finiteControls": {
+        "nativeLevelProductInputs": 47628,
+        "polynomialTestCovarianceCoefficients": 47628,
+        "wholeTruncationSpecializations": 4860,
+        "arithmeticMomentCoefficients": 238140,
+        "fixedCharacterWeightCoefficients": 714420,
+        "wholeTruncationWeightCongruences": 14580,
+        "wholeTruncationFiniteReductions": 48600,
+        "finiteReducedCoefficients": 2381400,
+        "reductionsBelowCharacterLevel": 14220
+      },
+      "numericalMethod": "Exact integer and modular arithmetic for q-indices0–48, primes2/3/5/7, all ordered base-level pairs from0/1/3/4/5/7, principal and inflated quadratic p-power characters through level exponent3, arithmetic exponents0–4, group levels0–3 and every s≤r. Native lcm-level zero extensions are compared on all natural inputs. Separate tests change character position and reverse the projection/twisting order."
     }
   },
   "requestResolutions": [
