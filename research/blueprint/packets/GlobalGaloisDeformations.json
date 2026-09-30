@@ -13,7 +13,7 @@
   "GlobalGaloisDeformations:R04.6"
  ],
  "status": "partial",
- "summary": "Blueprint for global Galois deformation rings, within the RS-08 boundaries (accepted). Checkpoints 1–2 plan the retained parts of R04.1 and R04.2: the lifting (framed) functor, module deformations and their identification with lifts up to strict conjugation, strict versus full conjugacy, restriction to subgroups and the invariance of framed local restrictions, fixed-determinant variants, change of coefficients, the separate determinant (pseudorepresentation) deformation functor with its comparison, and tangent spaces (R04.1); Mazur's condition Φ_p and its verification for G_{F,S} and G_K, the universal lifting ring and continuous universal lift, the universal deformation ring for Schur residual representations, the framed-unframed comparison with n² − 1 variables, Carayol's theorem, fixed-determinant rings with the change-of-determinant decomposition for p ∤ n, and change of residue field (R04.2). Coefficient categories and Schlessinger's criterion are imported from DeformationAndDerivedPatchingAlgebra R03.1/R03.2, global finiteness from ArithmeticGaloisDuality R02.3, determinants from IntegralHeckeAndGaloisDeterminants IHG.0. Checkpoint 2 adds R04.3: local deformation problems and their ideals, global deformation data with T-framings and representability, the map from local rings, the relative tangent space as an adjoint Selmer group, the presentation R^loc[[x₁..x_g]]/J with r(J) bounded by the dual Selmer group, and the dimension lower bound (Gee §3.16–3.24, KW II §4.1). Checkpoint 3 adds R04.4 (12 nodes): restriction to a finite extension with its finiteness and a finite non-flat example, closed immersions from enlarging S, twisting isomorphisms and change of determinant, KW II's diagonalizable groups, free-action quotients and truncated actions, the twisting action with its dyadic freeness and stabilisers, the rings with determinant fixed only on S and the determinant torsor, and inertia-rigid deformation rings (KW II §§2.4–2.7, 4.1, 5.1–5.2, 9, 10.1; Gee 3.25–3.26; BLGGT 1.2.3). It also records how KW II Corollary 4.7 uses the R04.3 dimension bound, and records the published numbering of KW II from the authors' final version. Checkpoint 4 adds R04.5 (8 nodes): Taylor–Wiles data, the distinct residual image hypotheses, local cohomology at Taylor–Wiles places, existence of Taylor–Wiles primes for odd p (KW II Lemma 5.3, Gee Proposition 5.10) with generator counts, and the separate dyadic construction (KW II §5.5: linear disjointness and Lemma 5.10), with the inertia action at the auxiliary primes (KW II Proposition 5.11). Checkpoint 5 adds R04.6 (6 nodes): the KW II §9 deformation data with the p = 2 real places, the trace subring and universal representation, factorisation of representations satisfying the local conditions, the Taylor–Wiles system of deformation rings with its specialisations, the patching numerology (p > 2 and p = 2), and the finite-level dyadic patching data. Checkpoint 7 plans G8 (4 nodes: ACC+'s variable-determinant problems, representability and framing, the presentation over local rings, and the comparison with fixed determinant) and G7 (7 nodes: CHT08's polarized problems, their representability, tangent/obstruction and presentations, and ACC+'s rank-n Taylor–Wiles places, primes for enormous image and presentation).",
+ "summary": "Blueprint for global Galois deformation rings, within the RS-08 boundaries (accepted). Checkpoints 1–2 plan the retained parts of R04.1 and R04.2: the lifting (framed) functor, module deformations and their identification with lifts up to strict conjugation, strict versus full conjugacy, restriction to subgroups and the invariance of framed local restrictions, fixed-determinant variants, change of coefficients, the separate determinant (pseudorepresentation) deformation functor with its comparison, and tangent spaces (R04.1); Mazur's condition Φ_p and its verification for G_{F,S} and G_K, the universal lifting ring and continuous universal lift, the universal deformation ring for Schur residual representations, the framed-unframed comparison with n² − 1 variables, Carayol's theorem, fixed-determinant rings with the change-of-determinant decomposition for p ∤ n, and change of residue field (R04.2). Coefficient categories and Schlessinger's criterion are imported from DeformationAndDerivedPatchingAlgebra R03.1/R03.2, global finiteness from ArithmeticGaloisDuality R02.3, determinants from IntegralHeckeAndGaloisDeterminants IHG.0. Checkpoint 2 adds R04.3: local deformation problems and their ideals, global deformation data with T-framings and representability, the map from local rings, the relative tangent space as an adjoint Selmer group, the presentation R^loc[[x₁..x_g]]/J with r(J) bounded by the dual Selmer group, and the dimension lower bound (Gee §3.16–3.24, KW II §4.1). Checkpoint 3 adds R04.4 (12 nodes): restriction to a finite extension with its finiteness and a finite non-flat example, closed immersions from enlarging S, twisting isomorphisms and change of determinant, KW II's diagonalizable groups, free-action quotients and truncated actions, the twisting action with its dyadic freeness and stabilisers, the rings with determinant fixed only on S and the determinant torsor, and inertia-rigid deformation rings (KW II §§2.4–2.7, 4.1, 5.1–5.2, 9, 10.1; Gee 3.25–3.26; BLGGT 1.2.3). It also records how KW II Corollary 4.7 uses the R04.3 dimension bound, and records the published numbering of KW II from the authors' final version. Checkpoint 4 adds R04.5 (8 nodes): Taylor–Wiles data, the distinct residual image hypotheses, local cohomology at Taylor–Wiles places, existence of Taylor–Wiles primes for odd p (KW II Lemma 5.3, Gee Proposition 5.10) with generator counts, and the separate dyadic construction (KW II §5.5: linear disjointness and Lemma 5.10), with the inertia action at the auxiliary primes (KW II Proposition 5.11). Checkpoint 5 adds R04.6 (6 nodes): the KW II §9 deformation data with the p = 2 real places, the trace subring and universal representation, factorisation of representations satisfying the local conditions, the Taylor–Wiles system of deformation rings with its specialisations, the patching numerology (p > 2 and p = 2), and the finite-level dyadic patching data. Checkpoint 7 plans G8 (4 nodes: ACC+'s variable-determinant problems, representability and framing, the presentation over local rings, and the comparison with fixed determinant) and G7 (7 nodes: CHT08's polarized problems, their representability, tangent/obstruction and presentations, and ACC+'s rank-n Taylor–Wiles places, primes for enormous image and presentation). FIX-RT-AREA-langlands-1~2 adds one shared R04.5 selection lemma (66 nodes total), reuses it in G7 and the odd-p branch, and records explicit G7/G8 contracts for PA.3/PA.4. Historical independent review remains historical; these amendments require REV-FIX-RT-AREA-langlands-1~2.",
  "baseline": {
   "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
   "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -216,7 +216,7 @@
    "id": "ACC-2018",
    "title": "Potential automorphy over CM fields",
    "authors": "Patrick B. Allen, Frank Calegari, Ana Caraiani, Toby Gee, David Helm, Bao V. Le Hung, James Newton, Peter Scholze, Richard Taylor and Jack A. Thorne",
-   "edition": "arXiv:1812.09999v2 (16 June 2022), 218 pages; published in Ann. of Math. 197 (2023). The arXiv v2 was read; printed page = PDF page. Its §6.2 numbering (Definition 6.2.28, Proposition 6.2.32) is also that of arXiv v1; the stage text cites these as Definition 6.2.29 and Proposition 6.2.33, presumably the published numbering, which was not read.",
+   "edition": "arXiv:1812.09999v2 (16 June 2022), 218 pages; published in Ann. of Math. 197 (2023). The arXiv v2 was read; printed page = PDF page. Its §6.2 numbering (Definition 6.2.28, Proposition 6.2.32) is also that of arXiv v1; the stage text cites these as Definition 6.2.29 and Proposition 6.2.33, the published numbering, not read at that historical checkpoint. The separate ACC-PUBLISHED-2023 record documents the later selective verification.",
    "url": "https://arxiv.org/pdf/1812.09999v2",
    "sha256": "7c882c4dc7208e08a0b1f4b3ce6e5c5234c9815f139a4c3a372898378a24d08c",
    "read": "2026-09-28",
@@ -240,6 +240,31 @@
     "§2.1 (the group G_n, Lemmas 2.1.1–2.1.5, Definition 2.1.6), pp. 7–11",
     "§2.2 (Definitions 2.2.1–2.2.2, 2.2.4, 2.2.7, 2.2.10, Lemmas 2.2.3, 2.2.5, 2.2.8, 2.2.11, 2.2.14, Proposition 2.2.9, Corollaries 2.2.12–2.2.13), pp. 16–25",
     "§2.3 (the Galois set-up, Lemmas 2.3.1–2.3.4, Corollaries 2.3.5–2.3.6), pp. 25–33"
+   ]
+  },
+  {
+   "id": "ACC-PUBLISHED-2023",
+   "title": "Potential automorphy over CM fields",
+   "authors": "Patrick B. Allen, Frank Calegari, Ana Caraiani, Toby Gee, David Helm, Bao V. Le Hung, James Newton, Peter Scholze, Richard Taylor and Jack A. Thorne",
+   "edition": "Annals of Mathematics 197 (2023), 897–1113, author-hosted published PDF, 217 pages. Printed page = physical PDF page + 896. Selective repair reading, not a new full extraction.",
+   "url": "https://www.math.uchicago.edu/~fcale/papers/Ramanujan.pdf",
+   "sha256": "c5429e4f384384045dbb48502d71547bb21699783c0f77cce27b24e742467f02",
+   "read": "2026-09-30",
+   "readSections": [
+    "§6.2 standing assumptions and Definition 6.2.2, Theorem 6.2.3, Lemma 6.2.4: PDF pp. 135–137; §6.2.18 diamond map and §6.2.22–Proposition 6.2.25: pp. 143–145; Definition 6.2.29, Lemmas 6.2.30 and 6.2.32, Proposition 6.2.33 and proofs: pp. 148–151."
+   ],
+   "numberingComparison": "Historical ACC-2018 records the arXiv-v2 reading honestly. Its Definition 6.2.28, Lemmas 6.2.29/6.2.31 and Propositions 6.2.24/6.2.32 correspond to published Definition 6.2.29, Lemmas 6.2.30/6.2.32 and Propositions 6.2.25/6.2.33. Earlier citations retain their version-qualified locators."
+  },
+  {
+   "id": "CG-PUBLISHED-2018",
+   "title": "Modularity lifting beyond the Taylor–Wiles method",
+   "authors": "Frank Calegari and David Geraghty",
+   "edition": "Inventiones Mathematicae 211 (2018), 297–433; author-hosted published PDF, 137 pages. Selective comparison of the fixed-determinant variant only.",
+   "url": "https://www.math.uchicago.edu/~fcale/papers/CG.pdf",
+   "sha256": "c0ba8de04d5ee92fe1a967f9487df6cb49295590dfd03762a9150a92838225c5",
+   "read": "2026-09-30",
+   "readSections": [
+    "§§8.5–8.6: framing, Selmer groups, Propositions 8.4–8.5 and proof, physical PDF pp. 113–115. The earlier setup and cited CHT Proposition 2.5.9 are not newly extracted here."
    ]
   }
  ],
@@ -3219,6 +3244,56 @@
    "implementationStatus": "unchecked"
   },
   {
+   "id": "GlobalGaloisDeformations:R04.5/chebotarev-selmer-selection",
+   "parentStageId": "GlobalGaloisDeformations:R04.5",
+   "realises": [
+    "GlobalGaloisDeformations:R04.5"
+   ],
+   "title": "Shared Chebotarev selection for Selmer detection",
+   "kind": "lemma",
+   "statement": "Let F be a number field, k a finite field, H a finite-dimensional k-space of continuous global cohomology classes, and loc_v : H → H_v the specified linear localization maps at admissible unramified finite places. Assume that every nonzero x in H has a detecting Frobenius conjugacy class in a finite Galois extension of F: every place in that class outside a finite exceptional set is admissible and has loc_v(x) ≠ 0. Assume also a nonempty admissible Frobenius class for padding, including when H = 0. For every finite avoidance set B and integer q ≥ dim_k H, one can choose exactly q distinct admissible places outside B with joint localization H → ∏ H_v injective. The places can all have degree one over Q. Congruence and eigenvalue constraints are preserved when encoded in the finite quotient and its conjugacy-invariant admissibility condition. This is a conditional arithmetic selection lemma, not a residual-image theorem or a new density theorem.",
+   "hypotheses": [
+    "The detecting class, finite quotient and exceptional set may depend on x and on the prescribed level N. Continuity into finite coefficient modules provides finite quotients of the relevant cocycles; the application must prove the detection property is invariant under conjugacy and change of cocycle representative.",
+    "The localization maps and their relation to the augmented dual Selmer kernel are supplied by ArithmeticGaloisDuality R02.6 (and D8 in the arbitrary-rank application). No vanishing is assumed merely from a residual-image label.",
+    "Splitting in F(ζ_{p^N}) and ordered residual eigenvalues require compatible finite-quotient data. Excluding ramified places of any auxiliary field is part of B; degree one alone does not imply unramified splitting in that field.",
+    "The Chebotarev dependency is the explicit open request naming this node in neededBy, following the packet’s existing upstream-request representation. It is a planned theorem, never a pinned library declaration."
+   ],
+   "proofSteps": [
+    "Apply the imported Chebotarev Layer 10 theorem to each specified nonempty conjugacy class. Its positive Dirichlet density survives deleting any finite exceptional or avoidance set; this uses the upstream Frobenius-prime-set carrier, not a redefinition of arithmetic Frobenius.",
+    "For a number field F, primes of residue degree at least two over Q have a bounded prime sum as s tends to 1 from above: over each rational prime there are at most [F:Q] primes, and their contributions are bounded by [F:Q] times the sum of rational-prime norms to the power −2s. They therefore have Dirichlet density zero. Removing them leaves the positive-density detecting class infinite. This elementary degree-one refinement is part of this application, not an assertion that Layer 10 already exports it.",
+    "Start with the kernel H. If it is nonzero, choose a nonzero x in the current kernel and a detecting prime outside all previous choices and B. Intersecting with ker loc_v strictly lowers its finite dimension. Iterate at most dim_k H times. The cohomological supplier identifies the final kernel with the augmented dual Selmer group in each application.",
+    "Use the admissible padding class to enlarge the chosen set to exactly q, excluding B and all previous primes at every step. Additional localization conditions preserve injectivity. For H = 0 and q = 0 return the empty set; q > 0 still requires the padding hypothesis."
+   ],
+   "acceptance": [
+    "A two-dimensional H with coordinate detecting maps needs two independent detections: detecting only the first coordinate leaves a nonzero kernel. Repeating one prime cannot satisfy the cardinality assertion.",
+    "H = 0 admits the empty set for q = 0; an empty admissible set cannot supply q > 0. This tests the non-vacuous padding hypothesis.",
+    "Adding finitely many forbidden places, including places over the discriminant of F₀/Q, preserves the construction. Degree-one primes above rational primes ramified in F₀ must still be excluded. For F₀ = Q(i), the place over 2 has residue degree one but 2 ramifies; this is the excluded case.",
+    "The ordinary and enormous-image applications verify different detecting-element hypotheses. This lemma cannot turn adequacy into either big or enormous image."
+   ],
+   "uses": [
+    {
+     "where": "R04.5/odd-taylor-wiles-primes and G7/enormous-taylor-wiles-primes",
+     "how": "Share the Chebotarev, finite avoidance, dimension-decrease and exact-cardinality steps; retain source-specific residual-image arguments in their respective applications."
+    }
+   ],
+   "prerequisites": [
+    "ArithmeticGaloisDuality:R02.6"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/GaloisDeformation/TaylorWiles",
+    "namespace": "TauCeti.GaloisDeformation"
+   },
+   "sources": [
+    {
+     "sourceId": "ACC-PUBLISHED-2023",
+     "locator": "Lemma 6.2.32, proof, printed pp. 1045–1046 (physical PDF pp. 149–150)",
+     "excerpt": "So by induction, it suﬃces to show",
+     "match": "Factors the conditional induction and positive-density selection out of the proof. The elementary degree-one estimate and finite avoidance are supplied explicitly above."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
    "id": "GlobalGaloisDeformations:R04.5/odd-taylor-wiles-primes",
    "parentStageId": "GlobalGaloisDeformations:R04.5",
    "realises": [
@@ -3236,8 +3311,8 @@
     "It suffices, for each nonzero [φ] ∈ H¹(G_{F,S}, ad⁰(1)), to find infinitely many v ∉ S with N(v) ≡ 1 mod p^N, ρ̄(Frob_v) with distinct eigenvalues, and φ nonzero at v; then pass to a subset of size r preserving injectivity of H¹ → ⊕_{v∈Q} H¹(G_{k(v)}, ad⁰(1)).",
     "Let E = F^{ker ad ρ̄}(ζ_{p^N}). Then H¹(Gal(E/F), ad⁰(1)) = 0 (R02.6; Gee's proof splits E/F^{ker ad ρ̄} into its p-part Γ₁ and prime-to-p part Γ₂ and uses inflation–restriction). So φ|_{G_E} is a nonzero Gal(E/F)-equivariant homomorphism.",
     "Choose σ₀ ∈ Gal(E/F) fixing ζ_{p^N} with ρ̄(σ₀) of distinct eigenvalues. Let Ẽ/E be cut out by the classes. Either a lift σ̃₀ works, or φ(σ₁σ̃₀) = φ(σ₁) + φ(σ̃₀) for σ₁ ∈ Gal(Ẽ/E) and the span of φ(Gal(Ẽ/E)) is all of ad⁰ρ̄(1), by irreducibility, so some σ₁ gives π_{σ₀} ∘ φ(σ₁σ̃₀) ∘ i_{σ₀} ≠ 0 (taylor-wiles-local-cohomology).",
-    "Chebotarev gives infinitely many v with Frob_v = σ₁σ̃₀ in Gal(Ẽ/F).",
-    "#Q_N is bounded by the dimension of the dual Selmer group, which is independent of N; enlarge Q_N to exactly r places if needed (Gee's r ≥ 1 + [F : ℚ] − #T)."
+    "Apply R04.5/chebotarev-selmer-selection to these detecting Frobenius conjugacy classes and the local evaluation maps. This imports the positive-density and finite-avoidance step once; equality to a chosen Frobenius element is interpreted up to conjugacy.",
+    "Use the same shared lemma to keep the cardinality independent of N and pad to exactly r using admissible primes; the separate KW/Gee bounds on r are verified by the cited cohomology and presentation calculation."
    ],
    "acceptance": [
     "r = 0 when the dual Selmer group already vanishes, and then Q_N = ∅ works for all N.",
@@ -3248,7 +3323,8 @@
     "GlobalGaloisDeformations:R04.5/taylor-wiles-datum",
     "GlobalGaloisDeformations:R04.5/taylor-wiles-local-cohomology",
     "GlobalGaloisDeformations:R04.5/image-hypotheses",
-    "ArithmeticGaloisDuality:R02.6"
+    "ArithmeticGaloisDuality:R02.6",
+    "GlobalGaloisDeformations:R04.5/chebotarev-selmer-selection"
    ],
    "library": {
     "module": "TauCeti/NumberTheory/GaloisDeformation/TaylorWiles",
@@ -4474,26 +4550,31 @@
    ],
    "title": "Taylor–Wiles primes for enormous image",
    "kind": "theorem",
-   "statement": "Let T ⊆ S, F CM with maximal totally real subfield F⁺, ζ_p ∉ F, and ρ̄(G_{F(ζ_p)}) enormous. Let q ≥ h¹_{𝒮^⊥,T}(ad ρ̄(1)). For every N ≥ 1 there is a Taylor–Wiles datum (Q_N, (α_{v,i})) with #Q_N = q, q_v ≡ 1 mod p^N and v of degree one over ℚ for each v ∈ Q_N, and h¹_{𝒮_{Q_N}^⊥,T}(ad ρ̄(1)) = 0.",
+   "statement": "Let T ⊆ S, F CM with maximal totally real subfield F⁺, ζ_p ∉ F, and ρ̄(G_{F(ζ_p)}) enormous. Let q ≥ h¹_{𝒮^⊥,T}(ad ρ̄(1)). For every N ≥ 1 there is a Taylor–Wiles datum (Q_N, (α_{v,i})) with #Q_N = q, q_v ≡ 1 mod p^N and v of degree one over ℚ for each v ∈ Q_N, and h¹_{𝒮_{Q_N}^⊥,T}(ad ρ̄(1)) = 0. Here k contains all eigenvalues of ρ̄(G_F), and the choices may avoid any additional finite set of places.",
    "hypotheses": [
     "F is a number field, 𝒪 the ring of integers of a finite extension E/ℚ_p containing the images of all embeddings of F, with residue field k, and ρ̄ : G_F → GL_n(k) is continuous and absolutely irreducible, with p ∤ 2n (ACC+'s standing hypotheses).",
     "Enormous (ACC+ Definition 6.2.28 in arXiv v2): H absolutely irreducible with no nontrivial p-power quotient, H⁰(H, ad⁰) = H¹(H, ad⁰) = 0, and every simple k[H]-submodule W ⊆ ad⁰ has W^h ≠ 0 for some regular semisimple h ∈ H; independent of k (Lemma 6.2.29). The definition and its invariance are requested from ArithmeticGaloisRepresentations G7, which owns residual-image conditions.",
-    "p ∤ n is used for the decomposition ad ρ̄ = k ⊕ ad⁰ρ̄. The Chebotarev density theorem is the Tau Ceti request already recorded in this packet."
+    "p ∤ n is used for ad ρ̄ = k ⊕ ad⁰ρ̄. The shared Chebotarev, finite-avoidance, degree-one and exact-cardinality steps are imported from R04.5/chebotarev-selmer-selection; G7 verifies the enormous-image detecting-element hypotheses and the arbitrary-rank dual Selmer interpretation.",
+    "Use ACC+ §6.2.28–Lemma 6.2.32 in the published version (Definition 6.2.28 and Lemma 6.2.31 in arXiv v2). S contains places above p and residual ramification, T ⊆ S, N ≥ 1, and the coefficient field contains all eigenvalues of ρ̄(G_F)."
    ],
    "proofSteps": [
-    "Induction on q: it suffices, for each nonzero class κ ∈ H¹_{𝒮^⊥,T}(ad ρ̄(1)), to find infinitely many places v of degree one, split in F(ζ_{p^N}), with ρ̄(Frob_v) regular semisimple with k-rational eigenvalues and κ|G_{F_v} ≠ 0; by Chebotarev this reduces to finding σ ∈ G_{F(ζ_{p^N})} with ρ̄(σ) regular semisimple and p_σκ(σ) ≠ 0.",
+    "For each nonzero class κ in H¹_{𝒮⊥,T}(ad ρ̄(1)), verify the detecting-element input to R04.5/chebotarev-selmer-selection: σ in G_{F(ζ_{p^N})}, ρ̄(σ) regular semisimple with k-rational eigenvalues, and p_σ κ(σ) ≠ 0. Use the direct sum ad = k ⊕ ad⁰; a nonzero component gives a nonzero projection of the full class without cancellation between these summands.",
     "ad⁰ part: since H = ρ̄(G_{F(ζ_p)}) has no p-power quotient, H = ρ̄(G_{F(ζ_{p^N})}); H⁰(H, ad⁰) = H¹(H, ad⁰) = 0 make restriction to Gal(F_S/L(ζ_{p^N})) injective, and the regular-semisimple condition gives σ₀; adjust by τ ∈ G_{L(ζ_{p^N})} if needed.",
-    "Scalar part: κ ∈ H¹(F_S/F, k(1)) is a Kummer class; as ζ_p ∉ F the Kummer extension is non-abelian over F, hence nontrivial over F(ζ_{p^N}) and disjoint from the field cut out by ρ̄."
+    "Scalar part: κ ∈ H¹(F_S/F, k(1)) is a Kummer class; as ζ_p ∉ F the Kummer extension is non-abelian over F, hence nontrivial over F(ζ_{p^N}) and disjoint from the field cut out by ρ̄.",
+    "Pass to a finite quotient carrying ρ̄, the cyclotomic character and the cocycle. The nonzero projected evaluation is unchanged under cocycle coboundaries and conjugacy, hence gives the required detecting Frobenius class. A regular-semisimple element in the same cyclotomic kernel supplies the admissible padding class. Apply the R04.5 lemma with the forbidden set S and any extra finite set. D8 identifies the localization kernel with the dual Selmer group of 𝒮_Q. Thus #Q = q and the augmented dual Selmer group vanishes without a second prime-selection proof."
    ],
    "acceptance": [
     "n = 2 and p ≥ 7: a subgroup of GL₂(k) containing SL₂(𝔽_p) is enormous (SL₂(𝔽_p) is perfect, H⁰ and H¹ of ad⁰ vanish, and diag(a, a^{−1}) with a² ≠ 1 fixes the diagonal of ad⁰), so these primes exist. For p = 5, H¹(SL₂(𝔽₅), ad⁰) ≠ 0.",
     "If ζ_p ∈ F the scalar part fails: Kummer classes can become trivial on G_{F(ζ_{p^N})}, and no such Q_N need exist.",
-    "If p | n no subgroup is enormous (the scalars lie in ad⁰), so the lemma is vacuous."
+    "If p | n no subgroup is enormous (the scalars lie in ad⁰), so the lemma is vacuous.",
+    "Changing coefficient field to contain residual eigenvalues uses ArithmeticGaloisRepresentations G7 and the coefficient-change interface; it does not silently strengthen a theorem stated over a smaller k."
    ],
    "prerequisites": [
     "GlobalGaloisDeformations:G7/taylor-wiles-local-diamond",
     "GlobalGaloisDeformations:G8/variable-determinant-presentation",
-    "ArithmeticGaloisRepresentations:G7"
+    "ArithmeticGaloisRepresentations:G7",
+    "GlobalGaloisDeformations:R04.5/chebotarev-selmer-selection",
+    "ArithmeticGaloisDuality:D8"
    ],
    "library": {
     "module": "TauCeti/NumberTheory/GaloisDeformation/VariableDeterminant",
@@ -4505,6 +4586,12 @@
      "locator": "Definition 6.2.28, Lemma 6.2.29 and Lemma 6.2.31 with its proof, pp. 148–151",
      "excerpt": "Assume that F is CM with maximal to- tally real subﬁeld F +, that ζp /∈F, and that ρ(GF (ζp)) is enormous.",
      "match": "Lemma 6.2.31."
+    },
+    {
+     "sourceId": "ACC-PUBLISHED-2023",
+     "locator": "§6.2.28, Definition 6.2.29, Lemmas 6.2.30 and 6.2.32; printed pp. 1044–1046, PDF pp. 148–150",
+     "excerpt": "ζp /∈F",
+     "match": "Published enormous-image hypothesis and proof; the historical arXiv-v2 citation above is retained with its own numbering."
     }
    ],
    "implementationStatus": "unchecked"
@@ -4520,18 +4607,21 @@
    "statement": "Take T = S and q ≥ h¹_{𝒮^⊥,T}(ad ρ̄(1)). Assume F = F⁺F₀ with F⁺ totally real and F₀ imaginary quadratic, ζ_p ∉ F, and ρ̄(G_{F(ζ_p)}) enormous. Then for every N ≥ 1 there is a Taylor–Wiles datum (Q_N, (α_{v,i})) with #Q_N = q, q_v ≡ 1 mod p^N and the rational prime below each v ∈ Q_N split in F₀, and a local Λ-algebra surjection R^{T,loc}_𝒮⟦X₁, …, X_g⟧ ↠ R^T_{𝒮_{Q_N}} with g = qn − n²[F⁺ : ℚ]. The auxiliary group Δ_{Q_N} = ∏_{v∈Q_N} k(v)^×(p)^n is a product of qn cyclic p-groups, each of order at least p^N; this is what complex patching receives.",
    "hypotheses": [
     "F is a number field, 𝒪 the ring of integers of a finite extension E/ℚ_p containing the images of all embeddings of F, with residue field k, and ρ̄ : G_F → GL_n(k) is continuous and absolutely irreducible, with p ∤ 2n (ACC+'s standing hypotheses).",
-    "This is ACC+ Proposition 6.2.32 in arXiv v2 (the stage text cites it as Proposition 6.2.33). The residual hypothesis is enormous image, not adequacy.",
+    "ACC+ Proposition 6.2.33 in the published version, verified here at printed p. 1047; Proposition 6.2.32 in arXiv v2. The residual hypothesis is enormous image, not adequacy. k contains all eigenvalues of ρ̄(G_F). T = S contains all p-adic and residual ramification places, and q is at least the stated dual Selmer dimension.",
     "It is stated for G8's variable-determinant problem; RS-08 places it in G7 together with the Taylor–Wiles lemma."
    ],
    "proofSteps": [
-    "Places of degree one over ℚ lie over primes split in F₀, so enormous-taylor-wiles-primes provides Q_N, and variable-determinant-presentation applies to 𝒮_{Q_N} with T = S.",
+    "Apply enormous-taylor-wiles-primes using the shared R04.5 selector, additionally excluding places over rational primes ramified in F₀. A degree-one place over an unramified rational prime forces that prime to split in the quadratic F₀. Apply G8/variable-determinant-presentation, published Proposition 6.2.25, to 𝒮_Q with T = S.",
     "g = −h⁰(F_S/F, ad ρ̄(1)) − n²[F⁺ : ℚ] + Σ_{v∈Q_N}(dim L_v − h⁰(F_v, ad ρ̄)): F has [F⁺ : ℚ] complex places, each with h⁰ = n², and h¹_{𝒮_{Q_N}^⊥,T} = 0.",
     "h⁰(F_S/F, ad ρ̄(1)) = 0 by enormousness and ζ_p ∉ F; for v ∈ Q_N, L_v = H¹(F_v, ad ρ̄) and dim L_v − h⁰(F_v, ad ρ̄) = h⁰(F_v, ad ρ̄(1)) = n (local duality, the Euler characteristic, q_v ≡ 1 mod p and distinct eigenvalues)."
    ],
    "acceptance": [
     "n = 2, F⁺ = ℚ, F = F₀ imaginary quadratic: g = 2q − 4.",
     "With q = h¹_{𝒮^⊥,T}(ad ρ̄(1)) exactly, the number of variables is determined by the dual Selmer group; a larger q only adds variables and auxiliary primes.",
-    "If F does not contain an imaginary quadratic F₀ in the way stated, the split-in-F₀ condition cannot be imposed, and ACC+'s local-global compatibility arguments need it."
+    "If F does not contain an imaginary quadratic F₀ in the way stated, the split-in-F₀ condition cannot be imposed, and ACC+'s local-global compatibility arguments need it.",
+    "The count is a nonnegative integer proved by its identification with a relative tangent dimension, before it is used to index variables. Natural-number subtraction must not silently truncate a negative expression.",
+    "CG Proposition 8.5 instead assumes big image, fixes the determinant and selects a one-dimensional generalized Frobenius eigenspace. Its variable count is q + |T| − 1 − [F:Q]n(n−1)/2 − l₀. Neither that count nor its local diamond convention may replace the qn and g above.",
+    "PA.4 must receive both the Λ[Δ_Q]-action and the augmentation quotient R^T_{𝒮_Q}/𝔞_Q ≅ R^T_𝒮. The ring presentation does not construct arithmetic complexes or establish their uniform boundedness."
    ],
    "prerequisites": [
     "GlobalGaloisDeformations:G7/enormous-taylor-wiles-primes",
@@ -4548,11 +4638,23 @@
      "locator": "Proposition 6.2.32 and its proof, p. 151",
      "excerpt": "There is a local Λ-algebra surjection RT,loc S JX1, . . . , XgK →RT SQN , with g = qn −n2[F + : Q].",
      "match": "Proposition 6.2.32 (arXiv v2 numbering)."
+    },
+    {
+     "sourceId": "ACC-PUBLISHED-2023",
+     "locator": "Proposition 6.2.33 and proof, printed p. 1047 (PDF p. 151); preceding diamond/augmentation data, printed p. 1045 (PDF p. 149)",
+     "excerpt": "g = qn −n2[F + : Q]",
+     "match": "Published presentation count, with the rank-n diamond and augmentation interface from the preceding Taylor–Wiles datum."
     }
    ],
    "implementationStatus": "unchecked",
    "planet": {
     "name": "Taylor–Wiles primes for enormous image"
+   },
+   "variantComparison": {
+    "sourceId": "CG-PUBLISHED-2018",
+    "locator": "Proposition 8.5 and proof, physical PDF pp. 114–115",
+    "status": "comparison only; not a second fully decomposed theorem",
+    "requirement": "If PA uses the fixed-determinant CG branch, request its source-qualified detection and local-condition variant from the shared R04.5/G7 owners. Its full §8 setup and CHT Proposition 2.5.9 proof must be supplied before use. No adequacy substitution."
    }
   }
  ],
@@ -4688,14 +4790,13 @@
   },
   {
    "supplier": "tauceti:TauCetiRoadmap/Chebotarev#layer-10-dirichlet-density-chebotarev",
-   "need": "The Chebotarev density theorem (in Dirichlet density form) for finite Galois extensions of number fields unramified outside a finite set, to realise a prescribed element of Gal(Ẽ/F) as Frob_v for infinitely many v.",
+   "need": "Chebotarev Layer 10: positive Dirichlet density of every nonempty Frobenius conjugacy class in a finite Galois extension of number fields, infinitude, and invariance under finite changes. R04.5 factors the number-field cohomological applications through this interface; no density theorem is replanned.",
    "neededBy": [
-    "GlobalGaloisDeformations:R04.5/odd-taylor-wiles-primes",
-    "GlobalGaloisDeformations:R04.5/dyadic-taylor-wiles-primes",
-    "GlobalGaloisDeformations:G7/enormous-taylor-wiles-primes"
+    "GlobalGaloisDeformations:R04.5/chebotarev-selmer-selection",
+    "GlobalGaloisDeformations:R04.5/dyadic-taylor-wiles-primes"
    ],
    "status": "open",
-   "note": "Tau Ceti Chebotarev Layer 10 (Dirichlet-density Chebotarev); the natural-density form of Layer 14 is not needed."
+   "note": "Finding /21: G7 now imports R04.5 selection. The elementary degree-one refinement is proved in the shared R04.5 application. The separate dyadic construction keeps its own source-qualified hypotheses."
   },
   {
    "supplier": "ArithmeticGaloisRepresentations:R01.4",
@@ -4738,10 +4839,11 @@
   },
   {
    "supplier": "ArithmeticGaloisDuality:D8",
-   "need": "The Selmer complex C•_{𝒮,T}(ad ρ̄) with local conditions and framings, its comparison with deformation tangent spaces, and the dual Selmer dimension count h²_{𝒮,T} = h¹_{𝒮^⊥,T}(ad ρ̄(1)), h³_{𝒮,T} = h⁰(ad ρ̄(1)) in all ranks, including the trace-kernel exceptions when p divides n.",
+   "need": "The Selmer complex C•_{𝒮,T}(ad ρ̄) with local conditions and framings, its comparison with deformation tangent spaces, and the dual Selmer dimension count h²_{𝒮,T} = h¹_{𝒮^⊥,T}(ad ρ̄(1)), h³_{𝒮,T} = h⁰(ad ρ̄(1)) in all ranks, including the trace-kernel exceptions when p divides n. Export the kernel description for adding unrestricted Taylor–Wiles local conditions: the new dual Selmer group is the kernel of the old group’s localization at Q.",
    "neededBy": [
     "GlobalGaloisDeformations:G8/variable-determinant-presentation",
-    "GlobalGaloisDeformations:G7/polarized-tangent-obstruction"
+    "GlobalGaloisDeformations:G7/polarized-tangent-obstruction",
+    "GlobalGaloisDeformations:G7/enormous-taylor-wiles-primes"
    ],
    "status": "open",
    "note": "The D8 stage text asks for exactly this."
@@ -4783,7 +4885,7 @@
    "stageId": "GlobalGaloisDeformations:R04.5",
    "status": "source_decomposed",
    "remaining": [],
-   "notes": "RS-08 keeps for R04.5: actual Chebotarev auxiliary-prime existence with prescribed congruences, eigenlines and image hypotheses, instantiating R02.6's conditional dual-Selmer calculation (never the reverse). All planned (8 nodes): Taylor–Wiles data, the three image hypotheses kept distinct, local cohomology at Taylor–Wiles places, existence for p > 2 in KW II's and Gee's forms with the uniform bound, generator counts, the dyadic linear-disjointness lemmas and KW II Lemma 5.10 for p = 2, and the inertia action with the Δ_Q-module structure. Adequacy and enormous image are left to G7/G8. Chebotarev is requested from Tau Ceti; Dickson and H¹(SL_2(𝔽_{2^r}), Ad) = 0 from ArithmeticGaloisRepresentations R01.4."
+   "notes": "RS-08 keeps for R04.5: actual Chebotarev auxiliary-prime existence with prescribed congruences, eigenlines and image hypotheses, instantiating R02.6's conditional dual-Selmer calculation (never the reverse). All planned (9 nodes): Taylor–Wiles data, the three image hypotheses kept distinct, local cohomology at Taylor–Wiles places, existence for p > 2 in KW II's and Gee's forms with the uniform bound, generator counts, the dyadic linear-disjointness lemmas and KW II Lemma 5.10 for p = 2, and the inertia action with the Δ_Q-module structure. Adequacy and enormous image are left to G7/G8. Chebotarev is requested from Tau Ceti; Dickson and H¹(SL_2(𝔽_{2^r}), Ad) = 0 from ArithmeticGaloisRepresentations R01.4. Round-2 fix adds a source-derived conditional Chebotarev/Selmer selector shared by the odd-p and enormous-image applications. The latter retains its image verification in G7; the upstream density theorem and R02.6 conditional cohomology remain imports."
   },
   {
    "stageId": "GlobalGaloisDeformations:R04.6",
@@ -4795,7 +4897,7 @@
    "stageId": "GlobalGaloisDeformations:G7",
    "status": "source_decomposed",
    "remaining": [],
-   "notes": "Planned in 7 nodes, within RS-08's keeps: CHT08's polarized problems (𝒢_n, pairing dictionary Lemma 2.1.1, fixed multiplier, Schur condition), representability with n²|T| framing variables, tangent and obstruction spaces with the Euler characteristic and the failure of the scalar/trace-zero splitting when p | n, presentations separating R^{□_T}_𝒮 from its p-torsion-free and reduced generic-fibre quotients, and ACC+'s rank-n Taylor–Wiles places, primes for enormous image (Lemma 6.2.31) and the presentation of Proposition 6.2.32 (arXiv v2; 6.2.33 in the stage text) for G8's problem. Enormous image and polarizations are requested from ArithmeticGaloisRepresentations G7; duality and dual Selmer counts from ArithmeticGaloisDuality D7/D8."
+   "notes": "Planned in 7 nodes, within RS-08's keeps: CHT08's polarized problems (𝒢_n, pairing dictionary Lemma 2.1.1, fixed multiplier, Schur condition), representability with n²|T| framing variables, tangent and obstruction spaces with the Euler characteristic and the failure of the scalar/trace-zero splitting when p | n, presentations separating R^{□_T}_𝒮 from its p-torsion-free and reduced generic-fibre quotients, and ACC+'s rank-n Taylor–Wiles places, primes for enormous image (Lemma 6.2.31) and the presentation of Proposition 6.2.32 (arXiv v2; 6.2.33 in the stage text) for G8's problem. Enormous image and polarizations are requested from ArithmeticGaloisRepresentations G7; duality and dual Selmer counts from ArithmeticGaloisDuality D7/D8. Round-2 fix imports the shared R04.5 selector, adds the published numbering and eigenvalue-field hypothesis, and exposes the variable-determinant diamond/presentation and PA.3/PA.4 consumer contracts. The CG big-image fixed-determinant variant is separately qualified, not claimed source-decomposed."
   },
   {
    "stageId": "GlobalGaloisDeformations:G8",
@@ -5200,5 +5302,40 @@
     "note": "Excerpts matched against the source text (pages agree with the locators); statement, hypotheses and proof steps read against the prerequisites; API and tests checked for definitions and constructions."
    }
   ]
+ },
+ "consumerContracts": [
+  {
+   "consumer": "PotentialAutomorphyInfrastructure:PA.4",
+   "finding": "RT-AREA-langlands-1/21",
+   "status": "producer specified; consumer implementation handed to BP-PotentialAutomorphyInfrastructure",
+   "imports": [
+    "GlobalGaloisDeformations:G7/enormous-taylor-wiles-presentation",
+    "GlobalGaloisDeformations:G7/taylor-wiles-local-diamond",
+    "GlobalGaloisDeformations:G8/variable-determinant-problem"
+   ],
+   "contract": "For the ACC+ branch import Q_N, ordered distinct k-rational eigenvalues, #Q_N = q, q_v ≡ 1 mod p^N, split rational primes in F₀, Λ[Δ_Q]-action, qn cyclic factors of order ≥ p^N, g = qn − n²[F⁺:Q] and the augmentation quotient. Retain all enormous-image, field, coefficient, framing and determinant assumptions. Do not independently select the Taylor–Wiles sets.",
+   "consumerObligations": "PA retains K₁(Q) ⊆ K₀(Q) ⊆ K, the finite-level arithmetic complexes and Hecke actions, compatibility with these global rings, uniform nilpotence/amplitude bounds, and specialization required by ultrapatching. Its separate neatness places v₀,v₀′ are not Taylor–Wiles places. P7/P9 remain the abstract algebra owners."
+  },
+  {
+   "consumer": "PotentialAutomorphyInfrastructure:PA.3",
+   "finding": "RT-AREA-langlands-1/22",
+   "status": "producer specified; consumer implementation handed to BP-PotentialAutomorphyInfrastructure",
+   "imports": [
+    "GlobalGaloisDeformations:G8/variable-determinant-problem",
+    "GlobalGaloisDeformations:G8/variable-determinant-representability",
+    "GlobalGaloisDeformations:G8/variable-determinant-presentation",
+    "GlobalGaloisDeformations:G7/taylor-wiles-local-diamond",
+    "GlobalGaloisDeformations:G7/polarized-presentation"
+   ],
+   "contract": "Import the actual global problems, representing rings, universal restriction maps, T-framings and augmented-ring specialization for the selected branch. Use G8 for ACC+’s nonpolarized variable-determinant problems; use G7’s polarized problem only when its pairing, fixed multiplier and sign hypotheses are present. Recompute fixed-determinant/polarized dimensions instead of borrowing ACC+ g.",
+   "consumerObligations": "PA.3 also imports the matching L7/L8 and R08.2 local conditions, proves the two systems and their mod-coefficient comparison meet P9’s hypotheses, and constructs their geometric R-to-Hecke maps. The abstract P9 support theorem does not supply those arithmetic objects. No automatic L7 → P9 edge is requested."
+  }
+ ],
+ "fixAmendment": {
+  "job": "FIX-RT-AREA-langlands-1~2",
+  "agent": "Codex — codex-J6LwjP",
+  "date": "2026-09-30",
+  "status": "awaiting independent review",
+  "reviewScope": "The unchanged review object records the 2026-09-28 review of the 65-node predecessor. It does not certify this added node, changed proof dependencies or consumer contracts. REV-FIX-RT-AREA-langlands-1~2 must review them before promotion."
  }
 }
