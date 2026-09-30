@@ -155,3 +155,35 @@ The review, by Claude Code (session cc-39fac3), accepted the extraction and its 
 - **Source issues:** E1 is confirmed, and E2–E7 are new:
   - misprints: the Poisson-summation integrals of Proposition 4.9 run over M_2(A); the Petersson pairing runs over GL_2(F)\GL_2(A); 𝟙_{GL_2(O_v)} in the proof of Claim 4.3; Warning 3.25's wording; "mdules";
   - a gap in Claim A.6: Appendix A never defines the global counit.
+
+## Fixes (FIX-RT-PAPER-DOR-23, 30 September 2026)
+
+Claude Code, session `cc-c2c06b`, issue #5001. This fix applies the six medium findings of `RT-PAPER-DOR-23`, with the
+qualifications of its verifier (Codex, codex-J6LwjP). The full record is
+`research/blueprint/redteam/RT-PAPER-DOR-23.fixes.md`. Where the sections above disagree with this one, this one is
+current.
+
+- **/1, E8.** Remark 3.47 (p. 33) asks for h with hKh^{−1} ∩ U = ker θ. That condition is almost never satisfiable:
+  ker θ is not compact once [F : Q_p] ≥ 2 or char F > 0, so it fails at every place of a function field.
+  - The paper's own h = diag(1, −π^ν) gives the conductor lattice u(π^{−ν}O), which is what the remark means. This is
+    recorded as E8.
+  - Items 027 and 050 and the correction of E7 now use the lattice.
+  - E7 keeps the matching, counit and restricted-product checks as open obligations.
+- **/2.** The Kirillov model (item 003) goes to GL2AutomorphicRepresentationsAndTransfer R16.2 (route 2), beside
+  Dospinescu–Le Bras's supercuspidal case. It stays missing until R16.2 states it for all local fields of characteristic
+  ≠ 2.
+- **/3.** The paper calls three facts about the spherical generator E clear.
+  - E is projective and compact on each component (item 060, SR.2).
+  - The twisted spherical Hecke algebras are the centres of their blocks (item 061), and different twists lie in
+    different blocks, so Z_sph ≅ Hom̲(E, E) (item 062). These two join SmoothRepresentationsPartIIParahoricCenters
+    (route 3).
+- **/4.** Item 053 keeps only what SR.3 plans. The centre as invariant distributions, with the agreement of its left and
+  right actions and its transpose invariance (Bernstein–Zelevinsky 1976, §7.3), is item 063, requested from SR.3.
+- **/5.** The Weil representation in odd positive characteristic (item 059) and the metaplectic theta invariance
+  (item 006) go to a new Part II, MetaplecticAutomorphicFormsPartIIFunctionFields (route 5). The ordinary Poisson
+  summation is item 064, planned at FA.2. Weil 1964 is added to the prerequisites.
+- **/6.** The algebraic relative tensor product (item 056) is library: Mathlib's Rep.coinvariantsTensor, with the g ↦
+  g^{−T} conversion. The smooth statements and smooth Tor are item 065, requested from SmoothRepresentationsOfLocalGroups
+  (route 4).
+- **Result:** 65 items (2 library, 8 planned, 55 missing). Five routes, with 47, 1, 2, 3 and 2 items. 10 prerequisites
+  and 8 source issues.
