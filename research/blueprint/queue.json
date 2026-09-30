@@ -33961,8 +33961,8 @@
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-BROWNING-LEBOUDEC-SAWIN-23.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #4977",
-   "finishedAt": "2026-09-30T16:34:21Z"
+   "finishedAt": "2026-09-30T16:34:21Z",
+   "note": "deliverables arrived from an external worker on issue #4977"
   },
   {
    "id": "REV-FIX-RT-PAPER-BROWNING-LEBOUDEC-SAWIN-23",
@@ -34456,8 +34456,8 @@
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-BURUNGALE-KOBAYASHI-OTA-21.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #4979",
-   "finishedAt": "2026-09-30T16:28:01Z"
+   "finishedAt": "2026-09-30T16:28:01Z",
+   "note": "deliverables arrived from an external worker on issue #4979"
   },
   {
    "id": "RT-PAPER-BENNETT-SIKSEK-20",
@@ -35781,8 +35781,8 @@
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-KOENIGSMANN-16.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #4991",
-   "finishedAt": "2026-09-30T16:28:05Z"
+   "finishedAt": "2026-09-30T16:28:05Z",
+   "note": "deliverables arrived from an external worker on issue #4991"
   },
   {
    "id": "RT-PAPER-TREUMANN-VENKATESH-16",
@@ -36082,8 +36082,8 @@
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-KALETHA-16.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #4995",
-   "finishedAt": "2026-09-30T16:51:08Z"
+   "finishedAt": "2026-09-30T16:51:08Z",
+   "note": "deliverables arrived from an external worker on issue #4995"
   },
   {
    "id": "RT-PAPER-HOWE-KLEVDAL-26",
@@ -37900,8 +37900,8 @@
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-WOOD-19.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #5137",
-   "finishedAt": "2026-09-30T16:36:34Z"
+   "finishedAt": "2026-09-30T16:36:34Z",
+   "note": "deliverables arrived from an external worker on issue #5137"
   },
   {
    "id": "RT-PAPER-LIPNOWSKI-TSIMERMAN-18",
@@ -39329,8 +39329,8 @@
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-MERKURJEV-SCAVIA-26.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #5004",
-   "finishedAt": "2026-09-30T16:38:30Z"
+   "finishedAt": "2026-09-30T16:38:30Z",
+   "note": "deliverables arrived from an external worker on issue #5004"
   },
   {
    "id": "RT-PAPER-SCHOLZE-26",
@@ -41999,8 +41999,8 @@
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-KHARE-WINTENBERGER-09-I.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #5027",
-   "finishedAt": "2026-09-30T16:34:26Z"
+   "finishedAt": "2026-09-30T16:34:26Z",
+   "note": "deliverables arrived from an external worker on issue #5027"
   },
   {
    "id": "REV-FIX-RT-PAPER-KHARE-WINTENBERGER-09-I",
@@ -42086,8 +42086,8 @@
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-KHARE-WINTENBERGER-09-II.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #5028",
-   "finishedAt": "2026-09-30T16:44:44Z"
+   "finishedAt": "2026-09-30T16:44:44Z",
+   "note": "deliverables arrived from an external worker on issue #5028"
   },
   {
    "id": "RT-PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01",
@@ -42636,50 +42636,6 @@
    "note": "deliverables arrived from an external worker on issue #4339"
   },
   {
-   "id": "FIX-RT-LINK-tauceti_TauCetiRoadmap_ModularCurves",
-   "kind": "fix",
-   "priority": 1,
-   "order": 598,
-   "name": "link map LINK-tauceti_TauCetiRoadmap_ModularCurves: Modular curves, following Katz–Mazur",
-   "target": "LINK-tauceti_TauCetiRoadmap_ModularCurves",
-   "roadmapIds": [
-    "tauceti:TauCetiRoadmap/ModularCurves"
-   ],
-   "outputs": [
-    "research/blueprint/redteam/RT-LINK-tauceti_TauCetiRoadmap_ModularCurves.fixes.md",
-    "research/blueprint/links/tauceti_TauCetiRoadmap_ModularCurves.json"
-   ],
-   "after": [],
-   "prompt": "research/blueprint/prompts/FIX-RT-LINK-tauceti_TauCetiRoadmap_ModularCurves.md",
-   "state": "done",
-   "note": "deliverables arrived from an external worker on issue #5030",
-   "finishedAt": "2026-09-30T16:28:09Z"
-  },
-  {
-   "id": "REV-FIX-RT-LINK-tauceti_TauCetiRoadmap_ModularCurves",
-   "kind": "review",
-   "priority": 1,
-   "order": 598,
-   "name": "link map LINK-tauceti_TauCetiRoadmap_ModularCurves: Modular curves, following Katz–Mazur",
-   "roadmapIds": [
-    "tauceti:TauCetiRoadmap/ModularCurves"
-   ],
-   "outputs": [
-    "research/blueprint/reviews/REV-FIX-RT-LINK-tauceti_TauCetiRoadmap_ModularCurves.md",
-    "research/blueprint/links/tauceti_TauCetiRoadmap_ModularCurves.json"
-   ],
-   "after": [
-    "FIX-RT-LINK-tauceti_TauCetiRoadmap_ModularCurves"
-   ],
-   "avoidAccountOf": "FIX-RT-LINK-tauceti_TauCetiRoadmap_ModularCurves",
-   "independentOf": [
-    "FIX-RT-LINK-tauceti_TauCetiRoadmap_ModularCurves"
-   ],
-   "prompt": "research/blueprint/prompts/REV-FIX-RT-LINK-tauceti_TauCetiRoadmap_ModularCurves.md",
-   "state": "superseded",
-   "note": "Not planned: every finding this fix answers concerns links between Tau Ceti roadmaps, or Tau Ceti's own declarations, which are Tau Ceti's to plan and review, not the atlas's (maintainer, 30 September 2026)."
-  },
-  {
    "id": "RT-LINK-tauceti_TauCetiRoadmap_EllipticCurves",
    "kind": "redteam",
    "priority": 2,
@@ -42876,52 +42832,6 @@
    "note": "deliverables arrived from an external worker on issue #4341"
   },
   {
-   "id": "FIX-RT-LINK-tauceti_TauCetiRoadmap_AlgebraicCurves",
-   "kind": "fix",
-   "priority": 1,
-   "order": 602,
-   "name": "link map LINK-tauceti_TauCetiRoadmap_AlgebraicCurves: Algebraic curves — function fields, divisors, and Riemann–Roch",
-   "target": "LINK-tauceti_TauCetiRoadmap_AlgebraicCurves",
-   "roadmapIds": [
-    "tauceti:TauCetiRoadmap/AlgebraicCurves"
-   ],
-   "outputs": [
-    "research/blueprint/redteam/RT-LINK-tauceti_TauCetiRoadmap_AlgebraicCurves.fixes.md",
-    "research/blueprint/links/tauceti_TauCetiRoadmap_ModularCurves.json",
-    "research/blueprint/links/tauceti_TauCetiRoadmap_AlgebraicCurves.json"
-   ],
-   "after": [],
-   "prompt": "research/blueprint/prompts/FIX-RT-LINK-tauceti_TauCetiRoadmap_AlgebraicCurves.md",
-   "state": "done",
-   "finishedAt": "2026-09-30T16:16:19Z",
-   "note": "deliverables arrived from an external worker on issue #5031"
-  },
-  {
-   "id": "REV-FIX-RT-LINK-tauceti_TauCetiRoadmap_AlgebraicCurves",
-   "kind": "review",
-   "priority": 1,
-   "order": 602,
-   "name": "link map LINK-tauceti_TauCetiRoadmap_AlgebraicCurves: Algebraic curves — function fields, divisors, and Riemann–Roch",
-   "roadmapIds": [
-    "tauceti:TauCetiRoadmap/AlgebraicCurves"
-   ],
-   "outputs": [
-    "research/blueprint/reviews/REV-FIX-RT-LINK-tauceti_TauCetiRoadmap_AlgebraicCurves.md",
-    "research/blueprint/links/tauceti_TauCetiRoadmap_ModularCurves.json",
-    "research/blueprint/links/tauceti_TauCetiRoadmap_AlgebraicCurves.json"
-   ],
-   "after": [
-    "FIX-RT-LINK-tauceti_TauCetiRoadmap_AlgebraicCurves"
-   ],
-   "avoidAccountOf": "FIX-RT-LINK-tauceti_TauCetiRoadmap_AlgebraicCurves",
-   "independentOf": [
-    "FIX-RT-LINK-tauceti_TauCetiRoadmap_AlgebraicCurves"
-   ],
-   "prompt": "research/blueprint/prompts/REV-FIX-RT-LINK-tauceti_TauCetiRoadmap_AlgebraicCurves.md",
-   "state": "superseded",
-   "note": "Not planned: every finding this fix answers concerns links between Tau Ceti roadmaps, or Tau Ceti's own declarations, which are Tau Ceti's to plan and review, not the atlas's (maintainer, 30 September 2026)."
-  },
-  {
    "id": "RT-LINK-tauceti_TauCetiRoadmap_NumberFieldArithmetic",
    "kind": "redteam",
    "priority": 2,
@@ -42989,8 +42899,8 @@
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-LINK-tauceti_TauCetiRoadmap_NumberFieldArithmetic.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #5032",
-   "finishedAt": "2026-09-30T16:28:15Z"
+   "finishedAt": "2026-09-30T16:28:15Z",
+   "note": "deliverables arrived from an external worker on issue #5032"
   },
   {
    "id": "REV-FIX-RT-LINK-tauceti_TauCetiRoadmap_NumberFieldArithmetic",
@@ -43314,50 +43224,6 @@
    "note": "deliverables arrived from an external worker on issue #4354"
   },
   {
-   "id": "FIX-RT-LINK-tauceti_TauCetiRoadmap_ProfiniteProPGroups",
-   "kind": "fix",
-   "priority": 1,
-   "order": 612,
-   "name": "link map LINK-tauceti_TauCetiRoadmap_ProfiniteProPGroups: Profinite and pro-p groups",
-   "target": "LINK-tauceti_TauCetiRoadmap_ProfiniteProPGroups",
-   "roadmapIds": [
-    "tauceti:TauCetiRoadmap/ProfiniteProPGroups"
-   ],
-   "outputs": [
-    "research/blueprint/redteam/RT-LINK-tauceti_TauCetiRoadmap_ProfiniteProPGroups.fixes.md",
-    "research/blueprint/links/tauceti_TauCetiRoadmap_ProfiniteProPGroups.json"
-   ],
-   "after": [],
-   "prompt": "research/blueprint/prompts/FIX-RT-LINK-tauceti_TauCetiRoadmap_ProfiniteProPGroups.md",
-   "state": "done",
-   "finishedAt": "2026-09-30T16:04:13Z",
-   "note": "deliverables arrived from an external worker on issue #5034"
-  },
-  {
-   "id": "REV-FIX-RT-LINK-tauceti_TauCetiRoadmap_ProfiniteProPGroups",
-   "kind": "review",
-   "priority": 1,
-   "order": 612,
-   "name": "link map LINK-tauceti_TauCetiRoadmap_ProfiniteProPGroups: Profinite and pro-p groups",
-   "roadmapIds": [
-    "tauceti:TauCetiRoadmap/ProfiniteProPGroups"
-   ],
-   "outputs": [
-    "research/blueprint/reviews/REV-FIX-RT-LINK-tauceti_TauCetiRoadmap_ProfiniteProPGroups.md",
-    "research/blueprint/links/tauceti_TauCetiRoadmap_ProfiniteProPGroups.json"
-   ],
-   "after": [
-    "FIX-RT-LINK-tauceti_TauCetiRoadmap_ProfiniteProPGroups"
-   ],
-   "avoidAccountOf": "FIX-RT-LINK-tauceti_TauCetiRoadmap_ProfiniteProPGroups",
-   "independentOf": [
-    "FIX-RT-LINK-tauceti_TauCetiRoadmap_ProfiniteProPGroups"
-   ],
-   "prompt": "research/blueprint/prompts/REV-FIX-RT-LINK-tauceti_TauCetiRoadmap_ProfiniteProPGroups.md",
-   "state": "superseded",
-   "note": "Not planned: every finding this fix answers concerns links between Tau Ceti roadmaps, or Tau Ceti's own declarations, which are Tau Ceti's to plan and review, not the atlas's (maintainer, 30 September 2026)."
-  },
-  {
    "id": "RT-LINK-tauceti_Completed_EffectiveBounds",
    "kind": "redteam",
    "priority": 2,
@@ -43605,50 +43471,6 @@
    "note": "deliverables arrived from an external worker on issue #4362"
   },
   {
-   "id": "FIX-RT-LINK-tauceti_TauCetiRoadmap_GrothendieckEulerForms",
-   "kind": "fix",
-   "priority": 1,
-   "order": 634,
-   "name": "link map LINK-tauceti_TauCetiRoadmap_GrothendieckEulerForms: Grothendieck groups, Cartan maps, and Euler forms",
-   "target": "LINK-tauceti_TauCetiRoadmap_GrothendieckEulerForms",
-   "roadmapIds": [
-    "tauceti:TauCetiRoadmap/GrothendieckEulerForms"
-   ],
-   "outputs": [
-    "research/blueprint/redteam/RT-LINK-tauceti_TauCetiRoadmap_GrothendieckEulerForms.fixes.md",
-    "research/blueprint/links/tauceti_TauCetiRoadmap_GrothendieckEulerForms.json"
-   ],
-   "after": [],
-   "prompt": "research/blueprint/prompts/FIX-RT-LINK-tauceti_TauCetiRoadmap_GrothendieckEulerForms.md",
-   "state": "done",
-   "finishedAt": "2026-09-30T15:51:02Z",
-   "note": "deliverables arrived from an external worker on issue #5036"
-  },
-  {
-   "id": "REV-FIX-RT-LINK-tauceti_TauCetiRoadmap_GrothendieckEulerForms",
-   "kind": "review",
-   "priority": 1,
-   "order": 634,
-   "name": "link map LINK-tauceti_TauCetiRoadmap_GrothendieckEulerForms: Grothendieck groups, Cartan maps, and Euler forms",
-   "roadmapIds": [
-    "tauceti:TauCetiRoadmap/GrothendieckEulerForms"
-   ],
-   "outputs": [
-    "research/blueprint/reviews/REV-FIX-RT-LINK-tauceti_TauCetiRoadmap_GrothendieckEulerForms.md",
-    "research/blueprint/links/tauceti_TauCetiRoadmap_GrothendieckEulerForms.json"
-   ],
-   "after": [
-    "FIX-RT-LINK-tauceti_TauCetiRoadmap_GrothendieckEulerForms"
-   ],
-   "avoidAccountOf": "FIX-RT-LINK-tauceti_TauCetiRoadmap_GrothendieckEulerForms",
-   "independentOf": [
-    "FIX-RT-LINK-tauceti_TauCetiRoadmap_GrothendieckEulerForms"
-   ],
-   "prompt": "research/blueprint/prompts/REV-FIX-RT-LINK-tauceti_TauCetiRoadmap_GrothendieckEulerForms.md",
-   "state": "superseded",
-   "note": "Not planned: every finding this fix answers concerns links between Tau Ceti roadmaps, or Tau Ceti's own declarations, which are Tau Ceti's to plan and review, not the atlas's (maintainer, 30 September 2026)."
-  },
-  {
    "id": "RT-LINK-tauceti_TauCetiRoadmap_Multiquadratic",
    "kind": "redteam",
    "priority": 2,
@@ -43700,50 +43522,6 @@
    "note": "deliverables arrived from an external worker on issue #1744"
   },
   {
-   "id": "FIX-RT-LINK-tauceti_TauCetiRoadmap_Multiquadratic",
-   "kind": "fix",
-   "priority": 1,
-   "order": 637,
-   "name": "link map LINK-tauceti_TauCetiRoadmap_Multiquadratic: Multiquadratic fields and genus theory",
-   "target": "LINK-tauceti_TauCetiRoadmap_Multiquadratic",
-   "roadmapIds": [
-    "tauceti:TauCetiRoadmap/Multiquadratic"
-   ],
-   "outputs": [
-    "research/blueprint/redteam/RT-LINK-tauceti_TauCetiRoadmap_Multiquadratic.fixes.md",
-    "research/blueprint/links/tauceti_TauCetiRoadmap_Multiquadratic.json"
-   ],
-   "after": [],
-   "prompt": "research/blueprint/prompts/FIX-RT-LINK-tauceti_TauCetiRoadmap_Multiquadratic.md",
-   "state": "done",
-   "finishedAt": "2026-09-29T13:12:24Z",
-   "note": "deliverables arrived from an external worker on issue #3993"
-  },
-  {
-   "id": "REV-FIX-RT-LINK-tauceti_TauCetiRoadmap_Multiquadratic",
-   "kind": "review",
-   "priority": 1,
-   "order": 637,
-   "name": "link map LINK-tauceti_TauCetiRoadmap_Multiquadratic: Multiquadratic fields and genus theory",
-   "roadmapIds": [
-    "tauceti:TauCetiRoadmap/Multiquadratic"
-   ],
-   "outputs": [
-    "research/blueprint/reviews/REV-FIX-RT-LINK-tauceti_TauCetiRoadmap_Multiquadratic.md",
-    "research/blueprint/links/tauceti_TauCetiRoadmap_Multiquadratic.json"
-   ],
-   "after": [
-    "FIX-RT-LINK-tauceti_TauCetiRoadmap_Multiquadratic"
-   ],
-   "avoidAccountOf": "FIX-RT-LINK-tauceti_TauCetiRoadmap_Multiquadratic",
-   "independentOf": [
-    "FIX-RT-LINK-tauceti_TauCetiRoadmap_Multiquadratic"
-   ],
-   "prompt": "research/blueprint/prompts/REV-FIX-RT-LINK-tauceti_TauCetiRoadmap_Multiquadratic.md",
-   "state": "superseded",
-   "note": "Not planned: every finding this fix answers concerns links between Tau Ceti roadmaps, or Tau Ceti's own declarations, which are Tau Ceti's to plan and review, not the atlas's (maintainer, 30 September 2026)."
-  },
-  {
    "id": "RT-LINK-tauceti_TauCetiRoadmap_OneParameterSemigroups",
    "kind": "redteam",
    "priority": 2,
@@ -43793,50 +43571,6 @@
    "state": "done",
    "finishedAt": "2026-09-30T12:03:03Z",
    "note": "deliverables arrived from an external worker on issue #4365"
-  },
-  {
-   "id": "FIX-RT-LINK-tauceti_TauCetiRoadmap_OneParameterSemigroups",
-   "kind": "fix",
-   "priority": 1,
-   "order": 638,
-   "name": "link map LINK-tauceti_TauCetiRoadmap_OneParameterSemigroups: One-parameter semigroups, completely monotone and positive-definite functions, and Bochner-type representations",
-   "target": "LINK-tauceti_TauCetiRoadmap_OneParameterSemigroups",
-   "roadmapIds": [
-    "tauceti:TauCetiRoadmap/OneParameterSemigroups"
-   ],
-   "outputs": [
-    "research/blueprint/redteam/RT-LINK-tauceti_TauCetiRoadmap_OneParameterSemigroups.fixes.md",
-    "research/blueprint/links/tauceti_TauCetiRoadmap_OneParameterSemigroups.json"
-   ],
-   "after": [],
-   "prompt": "research/blueprint/prompts/FIX-RT-LINK-tauceti_TauCetiRoadmap_OneParameterSemigroups.md",
-   "state": "done",
-   "finishedAt": "2026-09-30T15:57:55Z",
-   "note": "deliverables arrived from an external worker on issue #5037"
-  },
-  {
-   "id": "REV-FIX-RT-LINK-tauceti_TauCetiRoadmap_OneParameterSemigroups",
-   "kind": "review",
-   "priority": 1,
-   "order": 638,
-   "name": "link map LINK-tauceti_TauCetiRoadmap_OneParameterSemigroups: One-parameter semigroups, completely monotone and positive-definite functions, and Bochner-type representations",
-   "roadmapIds": [
-    "tauceti:TauCetiRoadmap/OneParameterSemigroups"
-   ],
-   "outputs": [
-    "research/blueprint/reviews/REV-FIX-RT-LINK-tauceti_TauCetiRoadmap_OneParameterSemigroups.md",
-    "research/blueprint/links/tauceti_TauCetiRoadmap_OneParameterSemigroups.json"
-   ],
-   "after": [
-    "FIX-RT-LINK-tauceti_TauCetiRoadmap_OneParameterSemigroups"
-   ],
-   "avoidAccountOf": "FIX-RT-LINK-tauceti_TauCetiRoadmap_OneParameterSemigroups",
-   "independentOf": [
-    "FIX-RT-LINK-tauceti_TauCetiRoadmap_OneParameterSemigroups"
-   ],
-   "prompt": "research/blueprint/prompts/REV-FIX-RT-LINK-tauceti_TauCetiRoadmap_OneParameterSemigroups.md",
-   "state": "superseded",
-   "note": "Not planned: every finding this fix answers concerns links between Tau Ceti roadmaps, or Tau Ceti's own declarations, which are Tau Ceti's to plan and review, not the atlas's (maintainer, 30 September 2026)."
   },
   {
    "id": "RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory",
@@ -43939,50 +43673,6 @@
    "state": "done",
    "finishedAt": "2026-09-30T12:29:44Z",
    "note": "deliverables arrived from an external worker on issue #4369"
-  },
-  {
-   "id": "FIX-RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_ClassicalGroups",
-   "kind": "fix",
-   "priority": 1,
-   "order": 644,
-   "name": "link map LINK-tauceti_TauCetiRoadmap_RepresentationTheory_ClassicalGroups: Finite-dimensional representations of the classical groups",
-   "target": "LINK-tauceti_TauCetiRoadmap_RepresentationTheory_ClassicalGroups",
-   "roadmapIds": [
-    "tauceti:TauCetiRoadmap/RepresentationTheory/ClassicalGroups"
-   ],
-   "outputs": [
-    "research/blueprint/redteam/RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_ClassicalGroups.fixes.md",
-    "research/blueprint/links/tauceti_TauCetiRoadmap_RepresentationTheory_ClassicalGroups.json"
-   ],
-   "after": [],
-   "prompt": "research/blueprint/prompts/FIX-RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_ClassicalGroups.md",
-   "state": "done",
-   "finishedAt": "2026-09-30T16:16:27Z",
-   "note": "deliverables arrived from an external worker on issue #5038"
-  },
-  {
-   "id": "REV-FIX-RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_ClassicalGroups",
-   "kind": "review",
-   "priority": 1,
-   "order": 644,
-   "name": "link map LINK-tauceti_TauCetiRoadmap_RepresentationTheory_ClassicalGroups: Finite-dimensional representations of the classical groups",
-   "roadmapIds": [
-    "tauceti:TauCetiRoadmap/RepresentationTheory/ClassicalGroups"
-   ],
-   "outputs": [
-    "research/blueprint/reviews/REV-FIX-RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_ClassicalGroups.md",
-    "research/blueprint/links/tauceti_TauCetiRoadmap_RepresentationTheory_ClassicalGroups.json"
-   ],
-   "after": [
-    "FIX-RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_ClassicalGroups"
-   ],
-   "avoidAccountOf": "FIX-RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_ClassicalGroups",
-   "independentOf": [
-    "FIX-RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_ClassicalGroups"
-   ],
-   "prompt": "research/blueprint/prompts/REV-FIX-RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_ClassicalGroups.md",
-   "state": "superseded",
-   "note": "Not planned: every finding this fix answers concerns links between Tau Ceti roadmaps, or Tau Ceti's own declarations, which are Tau Ceti's to plan and review, not the atlas's (maintainer, 30 September 2026)."
   },
   {
    "id": "RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_LieGroups",
@@ -44138,50 +43828,6 @@
    "note": "deliverables arrived from an external worker on issue #4373"
   },
   {
-   "id": "FIX-RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SchurWeyl",
-   "kind": "fix",
-   "priority": 1,
-   "order": 651,
-   "name": "link map LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SchurWeyl: Representations of the symmetric group, Specht modules, and Schur-Weyl duality",
-   "target": "LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SchurWeyl",
-   "roadmapIds": [
-    "tauceti:TauCetiRoadmap/RepresentationTheory/SchurWeyl"
-   ],
-   "outputs": [
-    "research/blueprint/redteam/RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SchurWeyl.fixes.md",
-    "research/blueprint/links/tauceti_TauCetiRoadmap_RepresentationTheory_SchurWeyl.json"
-   ],
-   "after": [],
-   "prompt": "research/blueprint/prompts/FIX-RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SchurWeyl.md",
-   "state": "done",
-   "finishedAt": "2026-09-30T15:58:00Z",
-   "note": "deliverables arrived from an external worker on issue #5039"
-  },
-  {
-   "id": "REV-FIX-RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SchurWeyl",
-   "kind": "review",
-   "priority": 1,
-   "order": 651,
-   "name": "link map LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SchurWeyl: Representations of the symmetric group, Specht modules, and Schur-Weyl duality",
-   "roadmapIds": [
-    "tauceti:TauCetiRoadmap/RepresentationTheory/SchurWeyl"
-   ],
-   "outputs": [
-    "research/blueprint/reviews/REV-FIX-RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SchurWeyl.md",
-    "research/blueprint/links/tauceti_TauCetiRoadmap_RepresentationTheory_SchurWeyl.json"
-   ],
-   "after": [
-    "FIX-RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SchurWeyl"
-   ],
-   "avoidAccountOf": "FIX-RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SchurWeyl",
-   "independentOf": [
-    "FIX-RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SchurWeyl"
-   ],
-   "prompt": "research/blueprint/prompts/REV-FIX-RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SchurWeyl.md",
-   "state": "superseded",
-   "note": "Not planned: every finding this fix answers concerns links between Tau Ceti roadmaps, or Tau Ceti's own declarations, which are Tau Ceti's to plan and review, not the atlas's (maintainer, 30 September 2026)."
-  },
-  {
    "id": "RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SemisimpleAlgebras",
    "kind": "redteam",
    "priority": 2,
@@ -44231,51 +43877,6 @@
    "state": "done",
    "finishedAt": "2026-09-30T11:05:37Z",
    "note": "deliverables arrived from an external worker on issue #4375"
-  },
-  {
-   "id": "FIX-RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SemisimpleAlgebras",
-   "kind": "fix",
-   "priority": 1,
-   "order": 652,
-   "name": "link map LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SemisimpleAlgebras: Semisimple algebras, Artin-Wedderburn, and the structure of their modules",
-   "target": "LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SemisimpleAlgebras",
-   "roadmapIds": [
-    "tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras"
-   ],
-   "outputs": [
-    "research/blueprint/redteam/RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SemisimpleAlgebras.fixes.md",
-    "research/blueprint/reviews/REV-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SemisimpleAlgebras.md",
-    "research/blueprint/links/tauceti_TauCetiRoadmap_RepresentationTheory_SemisimpleAlgebras.json"
-   ],
-   "after": [],
-   "prompt": "research/blueprint/prompts/FIX-RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SemisimpleAlgebras.md",
-   "state": "done",
-   "finishedAt": "2026-09-30T16:09:47Z",
-   "note": "deliverables arrived from an external worker on issue #5040"
-  },
-  {
-   "id": "REV-FIX-RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SemisimpleAlgebras",
-   "kind": "review",
-   "priority": 1,
-   "order": 652,
-   "name": "link map LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SemisimpleAlgebras: Semisimple algebras, Artin-Wedderburn, and the structure of their modules",
-   "roadmapIds": [
-    "tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras"
-   ],
-   "outputs": [
-    "research/blueprint/reviews/REV-FIX-RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SemisimpleAlgebras.md",
-    "research/blueprint/links/tauceti_TauCetiRoadmap_RepresentationTheory_SemisimpleAlgebras.json"
-   ],
-   "after": [
-    "FIX-RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SemisimpleAlgebras"
-   ],
-   "avoidAccountOf": "FIX-RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SemisimpleAlgebras",
-   "independentOf": [
-    "FIX-RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SemisimpleAlgebras"
-   ],
-   "prompt": "research/blueprint/prompts/REV-FIX-RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SemisimpleAlgebras.md",
-   "state": "superseded",
-   "note": "Not planned: every finding this fix answers concerns links between Tau Ceti roadmaps, or Tau Ceti's own declarations, which are Tau Ceti's to plan and review, not the atlas's (maintainer, 30 September 2026)."
   },
   {
    "id": "RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SpinRepresentations",
@@ -44380,50 +43981,6 @@
    "note": "deliverables arrived from an external worker on issue #4377"
   },
   {
-   "id": "FIX-RT-LINK-tauceti_TauCetiRoadmap_StablePeriodicCurved",
-   "kind": "fix",
-   "priority": 1,
-   "order": 654,
-   "name": "link map LINK-tauceti_TauCetiRoadmap_StablePeriodicCurved: Stable, periodic, and curved homological algebra",
-   "target": "LINK-tauceti_TauCetiRoadmap_StablePeriodicCurved",
-   "roadmapIds": [
-    "tauceti:TauCetiRoadmap/StablePeriodicCurved"
-   ],
-   "outputs": [
-    "research/blueprint/redteam/RT-LINK-tauceti_TauCetiRoadmap_StablePeriodicCurved.fixes.md",
-    "research/blueprint/links/tauceti_TauCetiRoadmap_StablePeriodicCurved.json"
-   ],
-   "after": [],
-   "prompt": "research/blueprint/prompts/FIX-RT-LINK-tauceti_TauCetiRoadmap_StablePeriodicCurved.md",
-   "state": "done",
-   "finishedAt": "2026-09-30T16:04:18Z",
-   "note": "deliverables arrived from an external worker on issue #5041"
-  },
-  {
-   "id": "REV-FIX-RT-LINK-tauceti_TauCetiRoadmap_StablePeriodicCurved",
-   "kind": "review",
-   "priority": 1,
-   "order": 654,
-   "name": "link map LINK-tauceti_TauCetiRoadmap_StablePeriodicCurved: Stable, periodic, and curved homological algebra",
-   "roadmapIds": [
-    "tauceti:TauCetiRoadmap/StablePeriodicCurved"
-   ],
-   "outputs": [
-    "research/blueprint/reviews/REV-FIX-RT-LINK-tauceti_TauCetiRoadmap_StablePeriodicCurved.md",
-    "research/blueprint/links/tauceti_TauCetiRoadmap_StablePeriodicCurved.json"
-   ],
-   "after": [
-    "FIX-RT-LINK-tauceti_TauCetiRoadmap_StablePeriodicCurved"
-   ],
-   "avoidAccountOf": "FIX-RT-LINK-tauceti_TauCetiRoadmap_StablePeriodicCurved",
-   "independentOf": [
-    "FIX-RT-LINK-tauceti_TauCetiRoadmap_StablePeriodicCurved"
-   ],
-   "prompt": "research/blueprint/prompts/REV-FIX-RT-LINK-tauceti_TauCetiRoadmap_StablePeriodicCurved.md",
-   "state": "superseded",
-   "note": "Not planned: every finding this fix answers concerns links between Tau Ceti roadmaps, or Tau Ceti's own declarations, which are Tau Ceti's to plan and review, not the atlas's (maintainer, 30 September 2026)."
-  },
-  {
    "id": "RT-LINK-tauceti_TauCetiRoadmap_ZigzagPreprojective",
    "kind": "redteam",
    "priority": 2,
@@ -44473,50 +44030,6 @@
    "state": "done",
    "finishedAt": "2026-09-30T12:53:20Z",
    "note": "deliverables arrived from an external worker on issue #4379"
-  },
-  {
-   "id": "FIX-RT-LINK-tauceti_TauCetiRoadmap_ZigzagPreprojective",
-   "kind": "fix",
-   "priority": 1,
-   "order": 657,
-   "name": "link map LINK-tauceti_TauCetiRoadmap_ZigzagPreprojective: Zigzag, preprojective, and Ginzburg algebras",
-   "target": "LINK-tauceti_TauCetiRoadmap_ZigzagPreprojective",
-   "roadmapIds": [
-    "tauceti:TauCetiRoadmap/ZigzagPreprojective"
-   ],
-   "outputs": [
-    "research/blueprint/redteam/RT-LINK-tauceti_TauCetiRoadmap_ZigzagPreprojective.fixes.md",
-    "research/blueprint/links/tauceti_TauCetiRoadmap_ZigzagPreprojective.json"
-   ],
-   "after": [],
-   "prompt": "research/blueprint/prompts/FIX-RT-LINK-tauceti_TauCetiRoadmap_ZigzagPreprojective.md",
-   "state": "done",
-   "finishedAt": "2026-09-30T15:58:03Z",
-   "note": "deliverables arrived from an external worker on issue #5042"
-  },
-  {
-   "id": "REV-FIX-RT-LINK-tauceti_TauCetiRoadmap_ZigzagPreprojective",
-   "kind": "review",
-   "priority": 1,
-   "order": 657,
-   "name": "link map LINK-tauceti_TauCetiRoadmap_ZigzagPreprojective: Zigzag, preprojective, and Ginzburg algebras",
-   "roadmapIds": [
-    "tauceti:TauCetiRoadmap/ZigzagPreprojective"
-   ],
-   "outputs": [
-    "research/blueprint/reviews/REV-FIX-RT-LINK-tauceti_TauCetiRoadmap_ZigzagPreprojective.md",
-    "research/blueprint/links/tauceti_TauCetiRoadmap_ZigzagPreprojective.json"
-   ],
-   "after": [
-    "FIX-RT-LINK-tauceti_TauCetiRoadmap_ZigzagPreprojective"
-   ],
-   "avoidAccountOf": "FIX-RT-LINK-tauceti_TauCetiRoadmap_ZigzagPreprojective",
-   "independentOf": [
-    "FIX-RT-LINK-tauceti_TauCetiRoadmap_ZigzagPreprojective"
-   ],
-   "prompt": "research/blueprint/prompts/REV-FIX-RT-LINK-tauceti_TauCetiRoadmap_ZigzagPreprojective.md",
-   "state": "superseded",
-   "note": "Not planned: every finding this fix answers concerns links between Tau Ceti roadmaps, or Tau Ceti's own declarations, which are Tau Ceti's to plan and review, not the atlas's (maintainer, 30 September 2026)."
   },
   {
    "id": "RT-BP-K3BlochGroups",
@@ -44942,8 +44455,8 @@
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-RS-06.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #5044",
-   "finishedAt": "2026-09-30T16:41:45Z"
+   "finishedAt": "2026-09-30T16:41:45Z",
+   "note": "deliverables arrived from an external worker on issue #5044"
   },
   {
    "id": "REV-FIX-RT-RS-06",
@@ -52865,26 +52378,6 @@
    "note": "deliverables arrived from an external worker on issue #1528"
   },
   {
-   "id": "FIX-RT-AREA-grouptheory",
-   "kind": "fix",
-   "priority": 1,
-   "order": 491,
-   "name": "area: Group theory",
-   "target": "area:grouptheory",
-   "roadmapIds": [
-    "tauceti:TauCetiRoadmap/CFSGStatement",
-    "tauceti:TauCetiRoadmap/ProfiniteProPGroups"
-   ],
-   "outputs": [
-    "research/blueprint/redteam/RT-AREA-grouptheory.fixes.md"
-   ],
-   "after": [],
-   "prompt": "research/blueprint/prompts/FIX-RT-AREA-grouptheory.md",
-   "state": "done",
-   "finishedAt": "2026-09-29T13:37:15Z",
-   "note": "deliverables arrived from an external worker on issue #3982"
-  },
-  {
    "id": "RT-AREA-representations-1",
    "kind": "redteam",
    "priority": 2,
@@ -52939,31 +52432,6 @@
    "state": "done",
    "finishedAt": "2026-09-24T01:30:49Z",
    "note": "deliverables arrived from an external worker on issue #1530"
-  },
-  {
-   "id": "FIX-RT-AREA-representations-1",
-   "kind": "fix",
-   "priority": 1,
-   "order": 501,
-   "name": "area: Representation theory, part 1 of 3",
-   "target": "area:representations:1",
-   "roadmapIds": [
-    "ReductiveGroupsPartII",
-    "SmoothRepresentationsOfLocalGroups",
-    "tauceti:TauCetiRoadmap/ReductiveGroups",
-    "tauceti:TauCetiRoadmap/RepresentationTheory",
-    "tauceti:TauCetiRoadmap/RepresentationTheory/ClassicalGroups",
-    "tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems"
-   ],
-   "outputs": [
-    "research/blueprint/redteam/RT-AREA-representations-1.fixes.md",
-    "research/blueprint/papers/PAPER-KISIN-ZHOU-25.result.json"
-   ],
-   "after": [],
-   "prompt": "research/blueprint/prompts/FIX-RT-AREA-representations-1.md",
-   "state": "done",
-   "finishedAt": "2026-09-29T18:16:59Z",
-   "note": "deliverables arrived from an external worker on issue #3983"
   },
   {
    "id": "RT-AREA-representations-2",
@@ -53076,29 +52544,6 @@
    "note": "deliverables arrived from an external worker on issue #1534"
   },
   {
-   "id": "FIX-RT-AREA-representations-3",
-   "kind": "fix",
-   "priority": 1,
-   "order": 503,
-   "name": "area: Representation theory, part 3 of 3",
-   "target": "area:representations:3",
-   "roadmapIds": [
-    "tauceti:TauCetiRoadmap/RepresentationTheory/CompactGroups",
-    "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups",
-    "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight",
-    "tauceti:TauCetiRoadmap/RepresentationTheory/SpinRepresentations",
-    "tauceti:TauCetiRoadmap/ZigzagPreprojective"
-   ],
-   "outputs": [
-    "research/blueprint/redteam/RT-AREA-representations-3.fixes.md"
-   ],
-   "after": [],
-   "prompt": "research/blueprint/prompts/FIX-RT-AREA-representations-3.md",
-   "state": "done",
-   "finishedAt": "2026-09-29T14:42:34Z",
-   "note": "deliverables arrived from an external worker on issue #3984"
-  },
-  {
    "id": "RT-AREA-homological",
    "kind": "redteam",
    "priority": 2,
@@ -53206,30 +52651,6 @@
    "note": "deliverables arrived from an external worker on issue #1538"
   },
   {
-   "id": "FIX-RT-AREA-analysis",
-   "kind": "fix",
-   "priority": 1,
-   "order": 531,
-   "name": "area: Complex and functional analysis (Analysis)",
-   "target": "area:analysis",
-   "roadmapIds": [
-    "tauceti:Completed/ContourIntegration",
-    "tauceti:Completed/OrthogonalL2Bases",
-    "tauceti:TauCetiRoadmap/ConformalMapping",
-    "tauceti:TauCetiRoadmap/FuchsianOrbifolds",
-    "tauceti:TauCetiRoadmap/OneParameterSemigroups",
-    "tauceti:TauCetiRoadmap/OptimalTransport"
-   ],
-   "outputs": [
-    "research/blueprint/redteam/RT-AREA-analysis.fixes.md"
-   ],
-   "after": [],
-   "prompt": "research/blueprint/prompts/FIX-RT-AREA-analysis.md",
-   "state": "done",
-   "finishedAt": "2026-09-29T17:54:21Z",
-   "note": "deliverables arrived from an external worker on issue #3985"
-  },
-  {
    "id": "RT-AREA-pde",
    "kind": "redteam",
    "priority": 2,
@@ -53274,25 +52695,6 @@
    "state": "done",
    "finishedAt": "2026-09-24T02:11:18Z",
    "note": "deliverables arrived from an external worker on issue #1540"
-  },
-  {
-   "id": "FIX-RT-AREA-pde",
-   "kind": "fix",
-   "priority": 1,
-   "order": 541,
-   "name": "area: Partial differential equations (Analysis)",
-   "target": "area:pde",
-   "roadmapIds": [
-    "tauceti:TauCetiRoadmap/PDE"
-   ],
-   "outputs": [
-    "research/blueprint/redteam/RT-AREA-pde.fixes.md"
-   ],
-   "after": [],
-   "prompt": "research/blueprint/prompts/FIX-RT-AREA-pde.md",
-   "state": "done",
-   "finishedAt": "2026-09-29T18:49:17Z",
-   "note": "deliverables arrived from an external worker on issue #3986"
   },
   {
    "id": "RT-AREA-probability",
@@ -53341,26 +52743,6 @@
    "state": "done",
    "finishedAt": "2026-09-24T01:19:08Z",
    "note": "deliverables arrived from an external worker on issue #1542"
-  },
-  {
-   "id": "FIX-RT-AREA-probability",
-   "kind": "fix",
-   "priority": 1,
-   "order": 551,
-   "name": "area: Probability",
-   "target": "area:probability",
-   "roadmapIds": [
-    "tauceti:TauCetiRoadmap/Exchangeability",
-    "tauceti:TauCetiRoadmap/StandardDistributions"
-   ],
-   "outputs": [
-    "research/blueprint/redteam/RT-AREA-probability.fixes.md"
-   ],
-   "after": [],
-   "prompt": "research/blueprint/prompts/FIX-RT-AREA-probability.md",
-   "state": "done",
-   "finishedAt": "2026-09-30T08:48:50Z",
-   "note": "deliverables arrived from an external worker on issue #3987"
   },
   {
    "id": "RT-AREA-combinatorics",
@@ -53699,25 +53081,6 @@
    "state": "done",
    "finishedAt": "2026-09-24T02:47:36Z",
    "note": "deliverables arrived from an external worker on issue #1548"
-  },
-  {
-   "id": "FIX-RT-AREA-diffgeom",
-   "kind": "fix",
-   "priority": 1,
-   "order": 581,
-   "name": "area: Differential geometry",
-   "target": "area:diffgeom",
-   "roadmapIds": [
-    "tauceti:TauCetiRoadmap/HopfRinow"
-   ],
-   "outputs": [
-    "research/blueprint/redteam/RT-AREA-diffgeom.fixes.md"
-   ],
-   "after": [],
-   "prompt": "research/blueprint/prompts/FIX-RT-AREA-diffgeom.md",
-   "state": "done",
-   "finishedAt": "2026-09-29T18:10:39Z",
-   "note": "deliverables arrived from an external worker on issue #3992"
   },
   {
    "id": "ERRATA-PAPER-BURUNGALE-TIAN-26",
@@ -55473,6 +54836,643 @@
    "state": "done",
    "finishedAt": "2026-09-23T14:56:49Z",
    "note": "deliverables arrived from an external worker on issue #1883"
+  },
+  {
+   "id": "FIX-RT-LINK-tauceti_TauCetiRoadmap_ModularCurves",
+   "kind": "fix",
+   "priority": 1,
+   "order": 598,
+   "name": "link map LINK-tauceti_TauCetiRoadmap_ModularCurves: Modular curves, following Katz–Mazur",
+   "target": "LINK-tauceti_TauCetiRoadmap_ModularCurves",
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/ModularCurves"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-LINK-tauceti_TauCetiRoadmap_ModularCurves.fixes.md",
+    "research/blueprint/links/tauceti_TauCetiRoadmap_ModularCurves.json"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/FIX-RT-LINK-tauceti_TauCetiRoadmap_ModularCurves.md",
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #5030",
+   "finishedAt": "2026-09-30T16:28:09Z"
+  },
+  {
+   "id": "REV-FIX-RT-LINK-tauceti_TauCetiRoadmap_ModularCurves",
+   "kind": "review",
+   "priority": 1,
+   "order": 598,
+   "name": "link map LINK-tauceti_TauCetiRoadmap_ModularCurves: Modular curves, following Katz–Mazur",
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/ModularCurves"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-FIX-RT-LINK-tauceti_TauCetiRoadmap_ModularCurves.md",
+    "research/blueprint/links/tauceti_TauCetiRoadmap_ModularCurves.json"
+   ],
+   "after": [
+    "FIX-RT-LINK-tauceti_TauCetiRoadmap_ModularCurves"
+   ],
+   "avoidAccountOf": "FIX-RT-LINK-tauceti_TauCetiRoadmap_ModularCurves",
+   "independentOf": [
+    "FIX-RT-LINK-tauceti_TauCetiRoadmap_ModularCurves"
+   ],
+   "prompt": "research/blueprint/prompts/REV-FIX-RT-LINK-tauceti_TauCetiRoadmap_ModularCurves.md",
+   "state": "superseded",
+   "note": "Not planned: every finding this fix answers concerns links between Tau Ceti roadmaps, or Tau Ceti's own declarations, which are Tau Ceti's to plan and review, not the atlas's (maintainer, 30 September 2026)."
+  },
+  {
+   "id": "FIX-RT-LINK-tauceti_TauCetiRoadmap_AlgebraicCurves",
+   "kind": "fix",
+   "priority": 1,
+   "order": 602,
+   "name": "link map LINK-tauceti_TauCetiRoadmap_AlgebraicCurves: Algebraic curves — function fields, divisors, and Riemann–Roch",
+   "target": "LINK-tauceti_TauCetiRoadmap_AlgebraicCurves",
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/AlgebraicCurves"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-LINK-tauceti_TauCetiRoadmap_AlgebraicCurves.fixes.md",
+    "research/blueprint/links/tauceti_TauCetiRoadmap_ModularCurves.json",
+    "research/blueprint/links/tauceti_TauCetiRoadmap_AlgebraicCurves.json"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/FIX-RT-LINK-tauceti_TauCetiRoadmap_AlgebraicCurves.md",
+   "state": "done",
+   "finishedAt": "2026-09-30T16:16:19Z",
+   "note": "deliverables arrived from an external worker on issue #5031"
+  },
+  {
+   "id": "REV-FIX-RT-LINK-tauceti_TauCetiRoadmap_AlgebraicCurves",
+   "kind": "review",
+   "priority": 1,
+   "order": 602,
+   "name": "link map LINK-tauceti_TauCetiRoadmap_AlgebraicCurves: Algebraic curves — function fields, divisors, and Riemann–Roch",
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/AlgebraicCurves"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-FIX-RT-LINK-tauceti_TauCetiRoadmap_AlgebraicCurves.md",
+    "research/blueprint/links/tauceti_TauCetiRoadmap_ModularCurves.json",
+    "research/blueprint/links/tauceti_TauCetiRoadmap_AlgebraicCurves.json"
+   ],
+   "after": [
+    "FIX-RT-LINK-tauceti_TauCetiRoadmap_AlgebraicCurves"
+   ],
+   "avoidAccountOf": "FIX-RT-LINK-tauceti_TauCetiRoadmap_AlgebraicCurves",
+   "independentOf": [
+    "FIX-RT-LINK-tauceti_TauCetiRoadmap_AlgebraicCurves"
+   ],
+   "prompt": "research/blueprint/prompts/REV-FIX-RT-LINK-tauceti_TauCetiRoadmap_AlgebraicCurves.md",
+   "state": "superseded",
+   "note": "Not planned: every finding this fix answers concerns links between Tau Ceti roadmaps, or Tau Ceti's own declarations, which are Tau Ceti's to plan and review, not the atlas's (maintainer, 30 September 2026)."
+  },
+  {
+   "id": "FIX-RT-LINK-tauceti_TauCetiRoadmap_ProfiniteProPGroups",
+   "kind": "fix",
+   "priority": 1,
+   "order": 612,
+   "name": "link map LINK-tauceti_TauCetiRoadmap_ProfiniteProPGroups: Profinite and pro-p groups",
+   "target": "LINK-tauceti_TauCetiRoadmap_ProfiniteProPGroups",
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/ProfiniteProPGroups"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-LINK-tauceti_TauCetiRoadmap_ProfiniteProPGroups.fixes.md",
+    "research/blueprint/links/tauceti_TauCetiRoadmap_ProfiniteProPGroups.json"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/FIX-RT-LINK-tauceti_TauCetiRoadmap_ProfiniteProPGroups.md",
+   "state": "done",
+   "finishedAt": "2026-09-30T16:04:13Z",
+   "note": "deliverables arrived from an external worker on issue #5034"
+  },
+  {
+   "id": "REV-FIX-RT-LINK-tauceti_TauCetiRoadmap_ProfiniteProPGroups",
+   "kind": "review",
+   "priority": 1,
+   "order": 612,
+   "name": "link map LINK-tauceti_TauCetiRoadmap_ProfiniteProPGroups: Profinite and pro-p groups",
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/ProfiniteProPGroups"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-FIX-RT-LINK-tauceti_TauCetiRoadmap_ProfiniteProPGroups.md",
+    "research/blueprint/links/tauceti_TauCetiRoadmap_ProfiniteProPGroups.json"
+   ],
+   "after": [
+    "FIX-RT-LINK-tauceti_TauCetiRoadmap_ProfiniteProPGroups"
+   ],
+   "avoidAccountOf": "FIX-RT-LINK-tauceti_TauCetiRoadmap_ProfiniteProPGroups",
+   "independentOf": [
+    "FIX-RT-LINK-tauceti_TauCetiRoadmap_ProfiniteProPGroups"
+   ],
+   "prompt": "research/blueprint/prompts/REV-FIX-RT-LINK-tauceti_TauCetiRoadmap_ProfiniteProPGroups.md",
+   "state": "superseded",
+   "note": "Not planned: every finding this fix answers concerns links between Tau Ceti roadmaps, or Tau Ceti's own declarations, which are Tau Ceti's to plan and review, not the atlas's (maintainer, 30 September 2026)."
+  },
+  {
+   "id": "FIX-RT-LINK-tauceti_TauCetiRoadmap_GrothendieckEulerForms",
+   "kind": "fix",
+   "priority": 1,
+   "order": 634,
+   "name": "link map LINK-tauceti_TauCetiRoadmap_GrothendieckEulerForms: Grothendieck groups, Cartan maps, and Euler forms",
+   "target": "LINK-tauceti_TauCetiRoadmap_GrothendieckEulerForms",
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/GrothendieckEulerForms"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-LINK-tauceti_TauCetiRoadmap_GrothendieckEulerForms.fixes.md",
+    "research/blueprint/links/tauceti_TauCetiRoadmap_GrothendieckEulerForms.json"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/FIX-RT-LINK-tauceti_TauCetiRoadmap_GrothendieckEulerForms.md",
+   "state": "done",
+   "finishedAt": "2026-09-30T15:51:02Z",
+   "note": "deliverables arrived from an external worker on issue #5036"
+  },
+  {
+   "id": "REV-FIX-RT-LINK-tauceti_TauCetiRoadmap_GrothendieckEulerForms",
+   "kind": "review",
+   "priority": 1,
+   "order": 634,
+   "name": "link map LINK-tauceti_TauCetiRoadmap_GrothendieckEulerForms: Grothendieck groups, Cartan maps, and Euler forms",
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/GrothendieckEulerForms"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-FIX-RT-LINK-tauceti_TauCetiRoadmap_GrothendieckEulerForms.md",
+    "research/blueprint/links/tauceti_TauCetiRoadmap_GrothendieckEulerForms.json"
+   ],
+   "after": [
+    "FIX-RT-LINK-tauceti_TauCetiRoadmap_GrothendieckEulerForms"
+   ],
+   "avoidAccountOf": "FIX-RT-LINK-tauceti_TauCetiRoadmap_GrothendieckEulerForms",
+   "independentOf": [
+    "FIX-RT-LINK-tauceti_TauCetiRoadmap_GrothendieckEulerForms"
+   ],
+   "prompt": "research/blueprint/prompts/REV-FIX-RT-LINK-tauceti_TauCetiRoadmap_GrothendieckEulerForms.md",
+   "state": "superseded",
+   "note": "Not planned: every finding this fix answers concerns links between Tau Ceti roadmaps, or Tau Ceti's own declarations, which are Tau Ceti's to plan and review, not the atlas's (maintainer, 30 September 2026)."
+  },
+  {
+   "id": "FIX-RT-LINK-tauceti_TauCetiRoadmap_Multiquadratic",
+   "kind": "fix",
+   "priority": 1,
+   "order": 637,
+   "name": "link map LINK-tauceti_TauCetiRoadmap_Multiquadratic: Multiquadratic fields and genus theory",
+   "target": "LINK-tauceti_TauCetiRoadmap_Multiquadratic",
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/Multiquadratic"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-LINK-tauceti_TauCetiRoadmap_Multiquadratic.fixes.md",
+    "research/blueprint/links/tauceti_TauCetiRoadmap_Multiquadratic.json"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/FIX-RT-LINK-tauceti_TauCetiRoadmap_Multiquadratic.md",
+   "state": "done",
+   "finishedAt": "2026-09-29T13:12:24Z",
+   "note": "deliverables arrived from an external worker on issue #3993"
+  },
+  {
+   "id": "REV-FIX-RT-LINK-tauceti_TauCetiRoadmap_Multiquadratic",
+   "kind": "review",
+   "priority": 1,
+   "order": 637,
+   "name": "link map LINK-tauceti_TauCetiRoadmap_Multiquadratic: Multiquadratic fields and genus theory",
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/Multiquadratic"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-FIX-RT-LINK-tauceti_TauCetiRoadmap_Multiquadratic.md",
+    "research/blueprint/links/tauceti_TauCetiRoadmap_Multiquadratic.json"
+   ],
+   "after": [
+    "FIX-RT-LINK-tauceti_TauCetiRoadmap_Multiquadratic"
+   ],
+   "avoidAccountOf": "FIX-RT-LINK-tauceti_TauCetiRoadmap_Multiquadratic",
+   "independentOf": [
+    "FIX-RT-LINK-tauceti_TauCetiRoadmap_Multiquadratic"
+   ],
+   "prompt": "research/blueprint/prompts/REV-FIX-RT-LINK-tauceti_TauCetiRoadmap_Multiquadratic.md",
+   "state": "superseded",
+   "note": "Not planned: every finding this fix answers concerns links between Tau Ceti roadmaps, or Tau Ceti's own declarations, which are Tau Ceti's to plan and review, not the atlas's (maintainer, 30 September 2026)."
+  },
+  {
+   "id": "FIX-RT-LINK-tauceti_TauCetiRoadmap_OneParameterSemigroups",
+   "kind": "fix",
+   "priority": 1,
+   "order": 638,
+   "name": "link map LINK-tauceti_TauCetiRoadmap_OneParameterSemigroups: One-parameter semigroups, completely monotone and positive-definite functions, and Bochner-type representations",
+   "target": "LINK-tauceti_TauCetiRoadmap_OneParameterSemigroups",
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/OneParameterSemigroups"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-LINK-tauceti_TauCetiRoadmap_OneParameterSemigroups.fixes.md",
+    "research/blueprint/links/tauceti_TauCetiRoadmap_OneParameterSemigroups.json"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/FIX-RT-LINK-tauceti_TauCetiRoadmap_OneParameterSemigroups.md",
+   "state": "done",
+   "finishedAt": "2026-09-30T15:57:55Z",
+   "note": "deliverables arrived from an external worker on issue #5037"
+  },
+  {
+   "id": "REV-FIX-RT-LINK-tauceti_TauCetiRoadmap_OneParameterSemigroups",
+   "kind": "review",
+   "priority": 1,
+   "order": 638,
+   "name": "link map LINK-tauceti_TauCetiRoadmap_OneParameterSemigroups: One-parameter semigroups, completely monotone and positive-definite functions, and Bochner-type representations",
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/OneParameterSemigroups"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-FIX-RT-LINK-tauceti_TauCetiRoadmap_OneParameterSemigroups.md",
+    "research/blueprint/links/tauceti_TauCetiRoadmap_OneParameterSemigroups.json"
+   ],
+   "after": [
+    "FIX-RT-LINK-tauceti_TauCetiRoadmap_OneParameterSemigroups"
+   ],
+   "avoidAccountOf": "FIX-RT-LINK-tauceti_TauCetiRoadmap_OneParameterSemigroups",
+   "independentOf": [
+    "FIX-RT-LINK-tauceti_TauCetiRoadmap_OneParameterSemigroups"
+   ],
+   "prompt": "research/blueprint/prompts/REV-FIX-RT-LINK-tauceti_TauCetiRoadmap_OneParameterSemigroups.md",
+   "state": "superseded",
+   "note": "Not planned: every finding this fix answers concerns links between Tau Ceti roadmaps, or Tau Ceti's own declarations, which are Tau Ceti's to plan and review, not the atlas's (maintainer, 30 September 2026)."
+  },
+  {
+   "id": "FIX-RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_ClassicalGroups",
+   "kind": "fix",
+   "priority": 1,
+   "order": 644,
+   "name": "link map LINK-tauceti_TauCetiRoadmap_RepresentationTheory_ClassicalGroups: Finite-dimensional representations of the classical groups",
+   "target": "LINK-tauceti_TauCetiRoadmap_RepresentationTheory_ClassicalGroups",
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/RepresentationTheory/ClassicalGroups"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_ClassicalGroups.fixes.md",
+    "research/blueprint/links/tauceti_TauCetiRoadmap_RepresentationTheory_ClassicalGroups.json"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/FIX-RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_ClassicalGroups.md",
+   "state": "done",
+   "finishedAt": "2026-09-30T16:16:27Z",
+   "note": "deliverables arrived from an external worker on issue #5038"
+  },
+  {
+   "id": "REV-FIX-RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_ClassicalGroups",
+   "kind": "review",
+   "priority": 1,
+   "order": 644,
+   "name": "link map LINK-tauceti_TauCetiRoadmap_RepresentationTheory_ClassicalGroups: Finite-dimensional representations of the classical groups",
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/RepresentationTheory/ClassicalGroups"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-FIX-RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_ClassicalGroups.md",
+    "research/blueprint/links/tauceti_TauCetiRoadmap_RepresentationTheory_ClassicalGroups.json"
+   ],
+   "after": [
+    "FIX-RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_ClassicalGroups"
+   ],
+   "avoidAccountOf": "FIX-RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_ClassicalGroups",
+   "independentOf": [
+    "FIX-RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_ClassicalGroups"
+   ],
+   "prompt": "research/blueprint/prompts/REV-FIX-RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_ClassicalGroups.md",
+   "state": "superseded",
+   "note": "Not planned: every finding this fix answers concerns links between Tau Ceti roadmaps, or Tau Ceti's own declarations, which are Tau Ceti's to plan and review, not the atlas's (maintainer, 30 September 2026)."
+  },
+  {
+   "id": "FIX-RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SchurWeyl",
+   "kind": "fix",
+   "priority": 1,
+   "order": 651,
+   "name": "link map LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SchurWeyl: Representations of the symmetric group, Specht modules, and Schur-Weyl duality",
+   "target": "LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SchurWeyl",
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/RepresentationTheory/SchurWeyl"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SchurWeyl.fixes.md",
+    "research/blueprint/links/tauceti_TauCetiRoadmap_RepresentationTheory_SchurWeyl.json"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/FIX-RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SchurWeyl.md",
+   "state": "done",
+   "finishedAt": "2026-09-30T15:58:00Z",
+   "note": "deliverables arrived from an external worker on issue #5039"
+  },
+  {
+   "id": "REV-FIX-RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SchurWeyl",
+   "kind": "review",
+   "priority": 1,
+   "order": 651,
+   "name": "link map LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SchurWeyl: Representations of the symmetric group, Specht modules, and Schur-Weyl duality",
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/RepresentationTheory/SchurWeyl"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-FIX-RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SchurWeyl.md",
+    "research/blueprint/links/tauceti_TauCetiRoadmap_RepresentationTheory_SchurWeyl.json"
+   ],
+   "after": [
+    "FIX-RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SchurWeyl"
+   ],
+   "avoidAccountOf": "FIX-RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SchurWeyl",
+   "independentOf": [
+    "FIX-RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SchurWeyl"
+   ],
+   "prompt": "research/blueprint/prompts/REV-FIX-RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SchurWeyl.md",
+   "state": "superseded",
+   "note": "Not planned: every finding this fix answers concerns links between Tau Ceti roadmaps, or Tau Ceti's own declarations, which are Tau Ceti's to plan and review, not the atlas's (maintainer, 30 September 2026)."
+  },
+  {
+   "id": "FIX-RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SemisimpleAlgebras",
+   "kind": "fix",
+   "priority": 1,
+   "order": 652,
+   "name": "link map LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SemisimpleAlgebras: Semisimple algebras, Artin-Wedderburn, and the structure of their modules",
+   "target": "LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SemisimpleAlgebras",
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SemisimpleAlgebras.fixes.md",
+    "research/blueprint/reviews/REV-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SemisimpleAlgebras.md",
+    "research/blueprint/links/tauceti_TauCetiRoadmap_RepresentationTheory_SemisimpleAlgebras.json"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/FIX-RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SemisimpleAlgebras.md",
+   "state": "done",
+   "finishedAt": "2026-09-30T16:09:47Z",
+   "note": "deliverables arrived from an external worker on issue #5040"
+  },
+  {
+   "id": "REV-FIX-RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SemisimpleAlgebras",
+   "kind": "review",
+   "priority": 1,
+   "order": 652,
+   "name": "link map LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SemisimpleAlgebras: Semisimple algebras, Artin-Wedderburn, and the structure of their modules",
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-FIX-RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SemisimpleAlgebras.md",
+    "research/blueprint/links/tauceti_TauCetiRoadmap_RepresentationTheory_SemisimpleAlgebras.json"
+   ],
+   "after": [
+    "FIX-RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SemisimpleAlgebras"
+   ],
+   "avoidAccountOf": "FIX-RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SemisimpleAlgebras",
+   "independentOf": [
+    "FIX-RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SemisimpleAlgebras"
+   ],
+   "prompt": "research/blueprint/prompts/REV-FIX-RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SemisimpleAlgebras.md",
+   "state": "superseded",
+   "note": "Not planned: every finding this fix answers concerns links between Tau Ceti roadmaps, or Tau Ceti's own declarations, which are Tau Ceti's to plan and review, not the atlas's (maintainer, 30 September 2026)."
+  },
+  {
+   "id": "FIX-RT-LINK-tauceti_TauCetiRoadmap_StablePeriodicCurved",
+   "kind": "fix",
+   "priority": 1,
+   "order": 654,
+   "name": "link map LINK-tauceti_TauCetiRoadmap_StablePeriodicCurved: Stable, periodic, and curved homological algebra",
+   "target": "LINK-tauceti_TauCetiRoadmap_StablePeriodicCurved",
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/StablePeriodicCurved"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-LINK-tauceti_TauCetiRoadmap_StablePeriodicCurved.fixes.md",
+    "research/blueprint/links/tauceti_TauCetiRoadmap_StablePeriodicCurved.json"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/FIX-RT-LINK-tauceti_TauCetiRoadmap_StablePeriodicCurved.md",
+   "state": "done",
+   "finishedAt": "2026-09-30T16:04:18Z",
+   "note": "deliverables arrived from an external worker on issue #5041"
+  },
+  {
+   "id": "REV-FIX-RT-LINK-tauceti_TauCetiRoadmap_StablePeriodicCurved",
+   "kind": "review",
+   "priority": 1,
+   "order": 654,
+   "name": "link map LINK-tauceti_TauCetiRoadmap_StablePeriodicCurved: Stable, periodic, and curved homological algebra",
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/StablePeriodicCurved"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-FIX-RT-LINK-tauceti_TauCetiRoadmap_StablePeriodicCurved.md",
+    "research/blueprint/links/tauceti_TauCetiRoadmap_StablePeriodicCurved.json"
+   ],
+   "after": [
+    "FIX-RT-LINK-tauceti_TauCetiRoadmap_StablePeriodicCurved"
+   ],
+   "avoidAccountOf": "FIX-RT-LINK-tauceti_TauCetiRoadmap_StablePeriodicCurved",
+   "independentOf": [
+    "FIX-RT-LINK-tauceti_TauCetiRoadmap_StablePeriodicCurved"
+   ],
+   "prompt": "research/blueprint/prompts/REV-FIX-RT-LINK-tauceti_TauCetiRoadmap_StablePeriodicCurved.md",
+   "state": "superseded",
+   "note": "Not planned: every finding this fix answers concerns links between Tau Ceti roadmaps, or Tau Ceti's own declarations, which are Tau Ceti's to plan and review, not the atlas's (maintainer, 30 September 2026)."
+  },
+  {
+   "id": "FIX-RT-LINK-tauceti_TauCetiRoadmap_ZigzagPreprojective",
+   "kind": "fix",
+   "priority": 1,
+   "order": 657,
+   "name": "link map LINK-tauceti_TauCetiRoadmap_ZigzagPreprojective: Zigzag, preprojective, and Ginzburg algebras",
+   "target": "LINK-tauceti_TauCetiRoadmap_ZigzagPreprojective",
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/ZigzagPreprojective"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-LINK-tauceti_TauCetiRoadmap_ZigzagPreprojective.fixes.md",
+    "research/blueprint/links/tauceti_TauCetiRoadmap_ZigzagPreprojective.json"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/FIX-RT-LINK-tauceti_TauCetiRoadmap_ZigzagPreprojective.md",
+   "state": "done",
+   "finishedAt": "2026-09-30T15:58:03Z",
+   "note": "deliverables arrived from an external worker on issue #5042"
+  },
+  {
+   "id": "REV-FIX-RT-LINK-tauceti_TauCetiRoadmap_ZigzagPreprojective",
+   "kind": "review",
+   "priority": 1,
+   "order": 657,
+   "name": "link map LINK-tauceti_TauCetiRoadmap_ZigzagPreprojective: Zigzag, preprojective, and Ginzburg algebras",
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/ZigzagPreprojective"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-FIX-RT-LINK-tauceti_TauCetiRoadmap_ZigzagPreprojective.md",
+    "research/blueprint/links/tauceti_TauCetiRoadmap_ZigzagPreprojective.json"
+   ],
+   "after": [
+    "FIX-RT-LINK-tauceti_TauCetiRoadmap_ZigzagPreprojective"
+   ],
+   "avoidAccountOf": "FIX-RT-LINK-tauceti_TauCetiRoadmap_ZigzagPreprojective",
+   "independentOf": [
+    "FIX-RT-LINK-tauceti_TauCetiRoadmap_ZigzagPreprojective"
+   ],
+   "prompt": "research/blueprint/prompts/REV-FIX-RT-LINK-tauceti_TauCetiRoadmap_ZigzagPreprojective.md",
+   "state": "superseded",
+   "note": "Not planned: every finding this fix answers concerns links between Tau Ceti roadmaps, or Tau Ceti's own declarations, which are Tau Ceti's to plan and review, not the atlas's (maintainer, 30 September 2026)."
+  },
+  {
+   "id": "FIX-RT-AREA-grouptheory",
+   "kind": "fix",
+   "priority": 1,
+   "order": 491,
+   "name": "area: Group theory",
+   "target": "area:grouptheory",
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/CFSGStatement",
+    "tauceti:TauCetiRoadmap/ProfiniteProPGroups"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-AREA-grouptheory.fixes.md"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/FIX-RT-AREA-grouptheory.md",
+   "state": "done",
+   "finishedAt": "2026-09-29T13:37:15Z",
+   "note": "deliverables arrived from an external worker on issue #3982"
+  },
+  {
+   "id": "FIX-RT-AREA-representations-1",
+   "kind": "fix",
+   "priority": 1,
+   "order": 501,
+   "name": "area: Representation theory, part 1 of 3",
+   "target": "area:representations:1",
+   "roadmapIds": [
+    "ReductiveGroupsPartII",
+    "SmoothRepresentationsOfLocalGroups",
+    "tauceti:TauCetiRoadmap/ReductiveGroups",
+    "tauceti:TauCetiRoadmap/RepresentationTheory",
+    "tauceti:TauCetiRoadmap/RepresentationTheory/ClassicalGroups",
+    "tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-AREA-representations-1.fixes.md",
+    "research/blueprint/papers/PAPER-KISIN-ZHOU-25.result.json"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/FIX-RT-AREA-representations-1.md",
+   "state": "done",
+   "finishedAt": "2026-09-29T18:16:59Z",
+   "note": "deliverables arrived from an external worker on issue #3983"
+  },
+  {
+   "id": "FIX-RT-AREA-representations-3",
+   "kind": "fix",
+   "priority": 1,
+   "order": 503,
+   "name": "area: Representation theory, part 3 of 3",
+   "target": "area:representations:3",
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/RepresentationTheory/CompactGroups",
+    "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups",
+    "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight",
+    "tauceti:TauCetiRoadmap/RepresentationTheory/SpinRepresentations",
+    "tauceti:TauCetiRoadmap/ZigzagPreprojective"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-AREA-representations-3.fixes.md"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/FIX-RT-AREA-representations-3.md",
+   "state": "done",
+   "finishedAt": "2026-09-29T14:42:34Z",
+   "note": "deliverables arrived from an external worker on issue #3984"
+  },
+  {
+   "id": "FIX-RT-AREA-analysis",
+   "kind": "fix",
+   "priority": 1,
+   "order": 531,
+   "name": "area: Complex and functional analysis (Analysis)",
+   "target": "area:analysis",
+   "roadmapIds": [
+    "tauceti:Completed/ContourIntegration",
+    "tauceti:Completed/OrthogonalL2Bases",
+    "tauceti:TauCetiRoadmap/ConformalMapping",
+    "tauceti:TauCetiRoadmap/FuchsianOrbifolds",
+    "tauceti:TauCetiRoadmap/OneParameterSemigroups",
+    "tauceti:TauCetiRoadmap/OptimalTransport"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-AREA-analysis.fixes.md"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/FIX-RT-AREA-analysis.md",
+   "state": "done",
+   "finishedAt": "2026-09-29T17:54:21Z",
+   "note": "deliverables arrived from an external worker on issue #3985"
+  },
+  {
+   "id": "FIX-RT-AREA-pde",
+   "kind": "fix",
+   "priority": 1,
+   "order": 541,
+   "name": "area: Partial differential equations (Analysis)",
+   "target": "area:pde",
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/PDE"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-AREA-pde.fixes.md"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/FIX-RT-AREA-pde.md",
+   "state": "done",
+   "finishedAt": "2026-09-29T18:49:17Z",
+   "note": "deliverables arrived from an external worker on issue #3986"
+  },
+  {
+   "id": "FIX-RT-AREA-probability",
+   "kind": "fix",
+   "priority": 1,
+   "order": 551,
+   "name": "area: Probability",
+   "target": "area:probability",
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/Exchangeability",
+    "tauceti:TauCetiRoadmap/StandardDistributions"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-AREA-probability.fixes.md"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/FIX-RT-AREA-probability.md",
+   "state": "done",
+   "finishedAt": "2026-09-30T08:48:50Z",
+   "note": "deliverables arrived from an external worker on issue #3987"
+  },
+  {
+   "id": "FIX-RT-AREA-diffgeom",
+   "kind": "fix",
+   "priority": 1,
+   "order": 581,
+   "name": "area: Differential geometry",
+   "target": "area:diffgeom",
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/HopfRinow"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-AREA-diffgeom.fixes.md"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/FIX-RT-AREA-diffgeom.md",
+   "state": "done",
+   "finishedAt": "2026-09-29T18:10:39Z",
+   "note": "deliverables arrived from an external worker on issue #3992"
   },
   {
    "id": "DESIGN-CMAllPrimeMainConjectures",
