@@ -213,3 +213,37 @@ The review, by Claude Code (session cc-39fac3), accepted the extraction and all 
   - further errors and misprints.
 
   None affects the Markoff results.
+
+## Fixes (FIX-RT-PAPER-CHEN-24, 30 September 2026)
+
+Claude Code, session `cc-c2c06b`, issue #4972. This fix applies all ten confirmed findings of
+`RT-PAPER-CHEN-24`, following the verifier's corrections. The full record is
+`research/blueprint/redteam/RT-PAPER-CHEN-24.fixes.md`.
+
+- **Items: 123 became 130** (5 library, 14 planned, 111 missing).
+  - New items 124–126 and 128: Nielsen's generators of Aut(F₂); Out(F₂) and its orientation-preserving
+    subgroups; the once-punctured torus identification π₁^top(M(1)^an) ≅ Γ_E ≅ Out⁺(F₂); and Riemann
+    existence for Deligne–Mumford stacks. With Nielsen's theorem (item 123), they form a new route 7 to
+    MappingClassGroupsAndCanonicalRepresentations, the roadmap PAPER-LANDESMAN-LITT-24 proposes.
+  - New item 127: the general Hurwitz stack of G-covers of (g,n)-curves. It moves to IG.5 on route 3,
+    together with items 21, 23 and 33.
+  - New item 129: π₁ invariance under extension of algebraically closed fields of characteristic 0
+    (IG.0/IG.1).
+  - New item 130: the level-one compactified coarse curve P¹_j, on a new route 8 to R13.2.
+  - Items 107 and 112 were split, and item 2's suppliers corrected.
+- **Finiteness corrected.** Items 16 and 97 now claim finiteness of j-invariants, not of K-isomorphism
+  classes (new E39).
+- **Two new misprints.**
+  - E40 is a preprint misprint already corrected in print.
+  - E41 is still in print (p. 390).
+- **Library and briefs.**
+  - The fibre-functor citation and two file paths are corrected.
+  - The briefs of routes 2 and 6 now use the merged design id ArithmeticDynamicsPartII and record what
+    CA.4 still lacks.
+  - Five prerequisites are added.
+- **What was read.**
+  - `sourceVersions` records arXiv v2, which the extraction read in full.
+  - The author-hosted published text was compared only at selected passages. That comparison is
+    recorded in `publishedCollation` and in per-issue `publishedText` fields, not as a published reading,
+    so the uncollated findings stay on the collation worklist.
+  - E3 and E37 are now marked as corrected in the version of record.
