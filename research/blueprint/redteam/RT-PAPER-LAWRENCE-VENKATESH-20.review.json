@@ -1,0 +1,65 @@
+{
+ "redteam": "RT-PAPER-LAWRENCE-VENKATESH-20",
+ "findings": [
+  {
+   "finding": "RT-PAPER-LAWRENCE-VENKATESH-20/1",
+   "verdict": "confirmed",
+   "reason": "Confirmed, and high is right: route 1's brief would import general period maps that nothing builds. The six §3 items are stated, as in the paper (pp. 15–19; §9.2, p. 52; §10.1, p. 55), for H^q of any smooth proper family over any smooth base. LV.2–LV.4 plan the Gauss–Manin bundle, transport, monodromy group, period maps, Lemmas 3.1/3.3 and Proposition 3.4 only for H¹ of abelian-by-finite families ('Setting P'), and Proposition 3.4 only over curves. No item defines the period domain H or its compact dual H*. Corrections. 'All their packet nodes' overstates: the formal horizontal-section, convergence, residue-disk, Lemma 3.2 and Strassmann nodes are general. 'Nothing plans H' also overstates. ComplexComparisonPartII C5 plans the complex Gauss–Manin compatibility, AlgebraicModuliForArithmeticGeometry R09.1 plans flag schemes (the algebraic H of §3.4), and Tau Ceti HodgeStructures L3 plans period-domain points. The general crystalline comparison is CP.2 with R06.2, not R06.5, which is restricted to abelian varieties and Shimura-type families. Adjusted fix. Split each item: the abelian H¹ case stays planned at LV.2–LV.4, and the general case becomes missing. Route the general case by a source route to LV.2–LV.4 rather than to the Part II. The accepted PAPER-BETTS-STIX-25 route 4 already sends the general v-adic transport and the analytified flag variety to LV.3, so the Part II would be a second owner. LV.2–LV.4 are upstream of the Part II, and route 1's brief imports from them. H is planned at R09.1, and H* becomes a new missing definition item. Routing the general case to the Part II instead would need Betts–Stix's LV.3 items to move too, which is for the maintainer."
+  },
+  {
+   "finding": "RT-PAPER-LAWRENCE-VENKATESH-20/2",
+   "verdict": "confirmed",
+   "reason": "Confirmed, and high is right. Theorem 9.1, on which Corollary 9.2, Lemma 9.3, Theorem 10.1 and Proposition 10.2 rest, is planned at LD.6. But LD.6 takes Ax–Schanuel theorems as 'independent … functional-transcendence' inputs that an application 'must provide', and the item's own note concedes this. The accepted Part II of PAPER-MOK-PILA-TSIMERMAN-19 route 1 (LogicAndDefinabilityPartII) covers only Shimura varieties. The quotations on pp. 2 and 52 match. Correction: the red team misses PAPER-LAWRENCE-SAWIN-25 route 3 (accepted), which sends that paper's /44, the codimension corollary of Bakker–Tsimerman, to LD.6 as missing. If Theorem 9.1 goes to the LD Part II alone, that corollary would sit at LD.6, upstream of the theorem it needs. Adjusted fix: in this extraction, as proposed. Mark /bakker-tsimerman missing on a part-ii route keyed like MPT-19 route 1, so that it joins the pending DESIGN-LogicAndDefinabilityInNumberTheoryPartII, and point route 1's brief at that Part II. If the design has landed, route to its layers instead. For the maintainer: Lawrence–Sawin /44 and /76 must follow Theorem 9.1 to the same owner. The HodgeStructures Part II, which plans period maps, would also be an acceptable owner, but the Shimura and VHS Ax–Schanuel theorems should have one."
+  },
+  {
+   "finding": "RT-PAPER-LAWRENCE-VENKATESH-20/3",
+   "verdict": "confirmed",
+   "reason": "Confirmed, for four of the six items. The roadmap errata (confirmed on 23 September, before this extraction of 29 September) correct statements this file still copies. §18 ('Items and nodes use the corrected statements') covers these items too. (a) /lemma-2-8 is false. For K = ℚ and η = χ_cyc^{±1}, η²(p) = 1 while Norm(p)^w = p^{±2}, under either normalisation. E3 restricts the identity to O_{K_v}^×. (c) /lemmas-8-2-8-3 is false for a curve bounding a disk (E13, E14). (b) /lemma-2-12 is vacuous for i = j (E22). (f) /lemma-6-3 is vacuous, since W = 0 forces A = ∅ (E10); E25 adds the similitude. Corrections. /lemma-2-3 is true for any finite S: E2 corrects the paper's standing S in its applications, not the lemma. /prop-5-3 is also true: E7's review narrows it to a proof-scope gap and keeps the full statement, and 'no place of S above p' is the paper's standing notation, which E7 says is not needed. The review's gap sentence is true of the LV packet nodes, which already use the corrected forms (e.g. LV.1/pure-character-friendly), but not of this file's items. Adjusted fix: restate the four defective items; give /lemma-2-3 and /prop-5-3 notes citing E2 and E7; cite the erratum in each note; and extend the gap's list to /lemma-2-3, /lemma-2-8, /lemmas-8-2-8-3 and /lemma-2-6 (E27, E28)."
+  },
+  {
+   "finding": "RT-PAPER-LAWRENCE-VENKATESH-20/4",
+   "verdict": "confirmed",
+   "reason": "Confirmed. PAPER-BETTS-STIX-25 route 2 (accepted) sends the GSp form of Lemma 2.6 and GSp-irreducibility to LV.1, while this extraction sends Lemma 2.6 for reductive G, G-irreducibility and G-semisimplification to the Part II. Route 1's brief also presents Lemma 2.6 as importable, although confirmed E28 says its printed proof fails (p. 11, Richardson step). LV.1 is the right owner: Betts–Stix's GSp lemma sits there, upstream of the Part II, so it could not import from the Part II. Adjustments. Move /lemma-2-6 and /g-semisimplification to route 2, which is already a source route to LV.1, and restate /lemma-2-6 with E27's domain. Cite PAPER-LAWRENCE-SAWIN-25/41 (its Lemma 5.49) as a corrected argument beside E28's centralizer repair, and add Richardson (1967) to the prerequisites. The Part II may keep Lawrence–Sawin's disconnected-group form only as an extension of LV.1's statement, not as a second finiteness lemma. The finding's 'where' names PAPER-BETTS-STIX-25.result.json, so the fix job may add the cross-reference to Betts–Stix /12–/13 itself. Lawrence–Sawin /37, /41 and /70 are a note for the maintainer."
+  },
+  {
+   "finding": "RT-PAPER-LAWRENCE-VENKATESH-20/5",
+   "verdict": "confirmed",
+   "reason": "Confirmed. Chebotarev, purity and Fontaine–Laffaille are load-bearing for Theorem 10.1, and none of the imported theorems has an item of its own; five are only mentioned inside other items' proof sketches. §16 asks for items. The prerequisites omit Faltings 1989, Katz–Oda 1968 and Richardson 1967, none of which is in papers.json. The quotations match. Adjustments. (9) The trace formula is planned: WeilConjectures:WC.2/lefschetz-trace-formula-proper-smooth-via-duality (data/decompositions) states it for proper smooth varieties. (10) Krull's intersection theorem is in the library, as Ideal.iInf_pow_eq_bot_of_isDomain (Mathlib/RingTheory/Filtration.lean:463), in the form used on p. 55. (6) R07.3 plans Fontaine–Laffaille but not the comparison of the two fibre functors (p. 61); MotivesAndAlgebraicCycles MC.6 is a candidate owner, or it is noted as unplanned. (3) Néron–Ogg–Shafarevich (R11.5) covers abelian varieties only; the hypersurface families need smooth proper base change, whose owner should be named. The rest stands as proposed."
+  },
+  {
+   "finding": "RT-PAPER-LAWRENCE-VENKATESH-20/6",
+   "verdict": "confirmed",
+   "reason": "Confirmed. (a) NumberField.finite_of_discr_bdd (Mathlib 082e2d3, Discriminant/Basic.lean:496) is Hermite's theorem over ℚ for bounded discriminant. The relative 'unramified outside S' form the item states is the node R28.1/hermite-minkowski-finiteness-of-extensions-unramified-outside-S, which the LV packet imports. (b) Module.Grassmannian is a functor of points on a single Grassmannian. §3.4's H is a flag variety, and §6's H_v a Weil restriction of a Lagrangian Grassmannian. Corrections. Even the single Grassmannian is only a functor at the pin, since representability is a TODO, so a 'library' status for 'the ambient variety' is too strong. The side bound v_p(disc) ≤ n − 1 + n·v_p(n) holds for a local extension of degree n, not in general for a global one, which does not affect the finding. Adjusted fix: (a) as proposed. (b) Split: the functor of points is library; the Grassmannian and flag schemes are planned at AlgebraicModuliForArithmeticGeometry R09.1; LGr is planned at LV.3. The locator becomes Gr(V_v, d) (E26)."
+  },
+  {
+   "finding": "RT-PAPER-LAWRENCE-VENKATESH-20/7",
+   "verdict": "confirmed",
+   "reason": "Confirmed. DT.2 owns the S-unit statement, and RP.4 (with the R28.5 node) owns Mordell's; LV.11's own acceptance line says 'the final statement is the one stated by HeightsRationalPointsAndObstructions RP.4'. The fix stands: cite those owners, with notes that LV.6 and LV.11 give independent proofs."
+  },
+  {
+   "finding": "RT-PAPER-LAWRENCE-VENKATESH-20/8",
+   "verdict": "confirmed",
+   "reason": "Confirmed. LanglandsParameterStacks LP2:semisimple-characters/semisimple-parameters-and-closed-orbits plans Serre's notion for L-parameters. Correction: the overlap runs both ways. LP2 treats non-connected groups over an algebraically closed field, and LV connected G over K with K-parabolics, so neither contains the other. The general form is Bate–Martin–Röhrle's, which PAPER-LAWRENCE-SAWIN-25/37 already brings into the same Part II. The fix stands as a cross-reference to LP2 and LS-25/37. Whether one owner sits upstream of both roadmaps is for the maintainer."
+  },
+  {
+   "finding": "RT-PAPER-LAWRENCE-VENKATESH-20/9",
+   "verdict": "confirmed",
+   "reason": "Confirmed. LPV.5 plans open symplectic monodromy for Lefschetz pencils with odd-dimensional fibres. The monodromy of the universal family contains that of a pencil, so with the Betti–ℓ-adic comparison it gives the symplectic case. LPV.5 leaves out the orthogonal case, which nothing else plans. The fix stands."
+  },
+  {
+   "finding": "RT-PAPER-LAWRENCE-VENKATESH-20/10",
+   "verdict": "confirmed",
+   "reason": "Confirmed. (a) is substantive: 'Zariski dense in the identity component' fails for the orthogonal case of Proposition 10.2's own family, whose Picard–Lefschetz reflections have determinant −1. That is why (10.1) asks only that the closure contain the identity component. (c)–(g) are as filed. Corrections. The finiteness addendum is stated in Theorem 10.1 itself (p. 56), conditionally, so a note citing footnote 8 suffices rather than a reclassification. (b) follows the abstract's wording, so it is imprecise rather than unfaithful, but the split into Proposition 10.2 and its corollary is right. The rest of the fix stands."
+  },
+  {
+   "finding": "RT-PAPER-LAWRENCE-VENKATESH-20/11",
+   "verdict": "confirmed",
+   "reason": "Confirmed. All seven are in arXiv v3 and the published text, and neither E1–E3 nor the roadmap's E1–E28 record them. (i) Inducing from a ramified L_u/K_v gives a non-crystalline representation, so Lemma 2.9 does not apply as used; the de Rham version repairs it, and the LV packet nodes already state both lemmas that way. (ii) Z(φ) ⊆ Z(φ^ss), so the hypothesis does not bound z. Lemma 10.4's (10.16) supplies the semisimple bound, so Theorem 10.1 stands. (iii) ℓ = 2 is included, and every odd q is ≡ 1 mod 2. (iv) The factor is ℓ^d. (v) It should read cocharacter. (vii) It should read alternating square. Adjustments. (vi) should be 'gap, the proof', to match the roadmap's E7 on the same p = 2 residue-disk issue. Its repairs are 2 ∈ S or Dwork's trick, and its published locator is pp. 964–965. (iii) and (v) are silently corrected in /theorem-5-4 and /lemmas-2-4-2-5, which the new entries should say. The rest of the fix stands."
+  },
+  {
+   "finding": "RT-PAPER-LAWRENCE-VENKATESH-20/12",
+   "verdict": "confirmed",
+   "reason": "Confirmed. Lemma 2.2 is general representation theory. R01.1 plans 'restriction, induction, duals, twists', and the LV packet already asks R01.1 for semisimplicity under restriction to open normal subgroups. The fix stands: make route 2 (or a new source route) send it to R01.1, and have LV.1 import it."
+  }
+ ]
+}
