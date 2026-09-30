@@ -34135,8 +34135,9 @@
     "REV-PAPER-DEMARCO-KRIEGER-YE-20"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-DEMARCO-KRIEGER-YE-20.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4087"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4087",
+   "finishedAt": "2026-09-30T14:10:17Z"
   },
   {
    "id": "REV-RT-PAPER-DEMARCO-KRIEGER-YE-20",
@@ -34582,7 +34583,8 @@
     "REV-PAPER-DASGUPTA-KAKDE-VENTULLO-18"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-DASGUPTA-KAKDE-VENTULLO-18.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4106"
   },
   {
    "id": "REV-RT-PAPER-DASGUPTA-KAKDE-VENTULLO-18",
@@ -42358,7 +42360,8 @@
     "REV-RS-16"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-RS-16.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4403"
   },
   {
    "id": "RT-RS-17",
@@ -42383,8 +42386,9 @@
     "REV-RS-17"
    ],
    "prompt": "research/blueprint/prompts/RT-RS-17.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4406"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4406",
+   "finishedAt": "2026-09-30T14:10:24Z"
   },
   {
    "id": "REV-RT-RS-17",
