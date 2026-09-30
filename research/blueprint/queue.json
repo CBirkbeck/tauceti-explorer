@@ -32823,7 +32823,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/KEYDEF-algebraicgeometry.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #5271"
   },
   {
    "id": "REV-KEYDEF-algebraicgeometry",
@@ -40886,8 +40887,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-BOCKLE-HARRIS-KHARE-ETAL-19.md",
-   "state": "pending",
-   "note": "released on GitHub issue #5014"
+   "state": "external",
+   "note": "claimed on GitHub issue #5014"
   },
   {
    "id": "RT-PAPER-LAWRENCE-VENKATESH-20",
@@ -45903,7 +45904,8 @@
     "FIX-RT-RS-28"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-RS-28.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #5188"
   },
   {
    "id": "RT-RS-29",
@@ -52434,8 +52436,9 @@
     "FIX-RT-AREA-geomlanglands"
    ],
    "prompt": "research/blueprint/prompts/FIX-RT-AREA-geomlanglands~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5160"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #5160",
+   "finishedAt": "2026-09-30T21:28:37Z"
   },
   {
    "id": "REV-FIX-RT-AREA-geomlanglands~2",
