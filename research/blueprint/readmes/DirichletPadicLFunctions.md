@@ -25544,3 +25544,351 @@ Exact finite controls check65017admissible congruences121203odd-prime distance c
 At main55fb17aa only the shared errata registry and its register changed:26records. Whole new records and changed mathematical fields were read. Bergstrom–Faber–PayneE7 adds boundary orientation local systems. Gamburd–Magee–RonanE1–18 collate published locators, preserve historical preprint errors, correct the surviving summation/transfer bounds and add the row3 derivative typo; all await review. TemkinE1 corrects the source base-characteristic hypothesis while remaining confirmed; E5–10 add projectivity/exact-boundary and separable-distillation obligations, the minimal-polynomial repair, separatedness direction and two local wording fixes, awaiting review. No consumed Gamma supplier contract or own finding changed; no independent verdict or fresh reading of these unrelated papers is claimed. Publication refresh read all seven newly routed registry records, all awaiting review: KhayutinE35–40 correct dyadic quadratic-order norm cases, the k0 factor in a congruence count, the rescaled sieve exponent, the compact-element tree-index factor, the adelic norm quotient and a false compactness claim; PanE4 changes the relevant truncated deRham coefficient ring from t^k to t^(k+1). These are external source records, not Gamma supplier changes or independent verdicts. All70other captured inputs, all16Dirichlet findings and the four predecessor outputs remain unchanged. Second publication refresh read all three new Gao–Habegger records, awaiting review: E28 requires a torus automorphism rather than endomorphism; E29 supplies monodromy equivariance in the fixed-part Hom intersection; E30 corrects the Ax algebraic-group theorem reference. These do not supply a Gamma prerequisite. All other inputs and own findings are unchanged; no independent verdict or paper rereading is claimed.
 
 The separate partial signature file also compiled with zero errors and2,398 expected placeholder warnings across3,582 pinned source modules. It includes all12new named declarations and19tests, and retains the documented4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 6da4965eb67e78855450779a7b9feec5d66e7f487e30e209f49c252495726a0c.
+
+
+## The dyadic sign and principal-unit coordinate
+
+Eleven L3 nodes reuse the native conductor-four character and PMIA reduction to supply the dyadic sign, angular coordinate, principal-unit norm bound, continuity, unique factors and the exact translation identity used by Morita’s averaging proof. All780predecessor nodes and657baseline records remain whole.
+
+Morita1975 was already read completely; published257–258/PDF3–4 were freshly viewed for the dyadic sign, angular coordinate and translation identity. Kubota–Leopoldt1964 published328–339 was read completely from the official GDZ page scans, with per-page acquisition hashes retained; its proof of convergence was analyzed in the worklist, but no averaging node is claimed here. The reviewed AUDIT-24 L3 row and complete consumed PMIA unit-reduction/continuity records were reread. The full native Tau Ceti Teichmüller file was read to distinguish the existing odd-prime lift; no import of it is needed for this dyadic checkpoint. Nativeχ₄, integer units, homomorphism division and continuous group division declarations were read at the pin. Searches of native declarations and blueprint nodes found no existing dyadic coordinate adapter; LAD’s generic character-space components remain its own scope.
+
+### The conductor-four sign on dyadic units
+
+`DirichletPadicLFunctions:L3/dyadic-omega` — `DirichletPadic.dyadicOmega`
+
+Define ω₂:U→U as the native monoid homomorphism obtained by reducing a unit modulo4, applying native χ₄ with values inℤ, and casting its resulting integer unit intoℤ₂. Its scalar value is χ₄(red₂(u)) under integer casting.
+
+**Hypotheses:** Throughout p=2, U=ℤ_2ˣ with its native unit topology, and red₂ is PMIA’s already planned unit reduction modulo2²=4. It is a monoid homomorphism with discrete finite target. Write e:ℤˣ→U for native Units.map of the integer casting homomorphism. No new sign group, principal-unit carrier, analytic space or integral character idempotent is introduced. Principal units use the native subgroup ker(red₂), equivalently scalar units congruent to1 modulo4. The dyadic sign is the conductor-four character, not the residue-field Teichmüller lift atp=2, whose residue-unit group is trivial. Odd-prime Teichmüller lifts already exist in Tau Ceti; their coordinate comparison is a separate obligation.
+
+**Proof:**
+
+1. Use the existing PMIA unit-reduction constructor atp=2,n=2. Apply native Units.map to the composite of ZMod.χ₄.toMonoidHom and the integer casting homomorphism, and compose withred₂. The complete omega definition in the native probe checks this exact construction, withred unfolded to the already specified native Units.map.
+2. The native character is multiplicative and sends1to1; its values on units are units automatically under Units.map. No separate proof of invertibility or newly defined χ₄ is required.
+3. The scalar projection is definitional after the supplier reduction projection. The homomorphism laws give one, multiplication and inverse compatibility. Direct evaluation givesω₂(−1)=−1.
+4. Restrict native χ₄ to units, landing inℤˣ. Native Int.units_eq_one_or identifies its value with1or−1; the promoted range lemma below makes the order-two consequence explicit. The API on embedded integer signs follows by the same two-case calculation.
+
+**Prerequisites:** `PadicMeasuresIwasawaAlgebras:L1/unit-reduction`, `mathlib:Units.map`, `mathlib:ZMod.χ₄`, `mathlib:Int.units_eq_one_or`.
+
+**Uses:**
+
+- Morita1975 Section2, p257: Supplies the dyadic finite-order character used in the angular coordinate and all character twists in the averaging argument.
+- Morita1975 Section2, p258: Makes the sign constant under translations by4ℤ₂, fixing the coefficient in the Taylor expansion.
+- DirichletPadicLFunctions:L3 integral dyadic component target: Separates the conductor-four sign from principal units without dividing an integral group algebra by2. Generic analytic character components remain with LAD:L3.
+
+**API:**
+
+- `DirichletPadic.dyadicOmega_def` (constructor): The native Units.map composite described above.
+- `DirichletPadic.dyadicOmega_coe` (projection): The scalar value is the integer cast ofχ₄ evaluated on the scalar residue modulo4.
+- `DirichletPadic.dyadicOmega_one` (simp): ω₂(1)=1.
+- `DirichletPadic.dyadicOmega_mul` (structure): ω₂(uv)=ω₂(u)ω₂(v).
+- `DirichletPadic.dyadicOmega_neg_one` (simp): ω₂(−1)=−1.
+- `DirichletPadic.dyadicOmega_on_sign` (compatibility): ω₂(e(s))=e(s) for each native integer units.
+- `DirichletPadic.dyadicOmega_sq` (relation): ω₂(u)²=1; the character twists therefore have at most two values.
+- `DirichletPadic.dyadicOmega_reduction` (compatibility): red₂(ω₂(u))=red₂(u); promoted below.
+- `DirichletPadic.dyadicOmega_sign` (characterisation): ω₂(u) is1or−1; promoted below.
+- `DirichletPadic.continuous_dyadicOmega` (structure): ω₂ is continuous for native unit topologies; promoted below.
+
+**Tests:**
+
+- `SuggestedDyadicAngularTests.omega_identity` (degenerate): ω₂(1)=1.
+- `SuggestedDyadicAngularTests.omega_three` (computation): For a unit of scalar value3, ω₂(u)=−1.
+- `SuggestedDyadicAngularTests.omega_native_character` (compatibility): The scalar value agrees exactly with native χ₄ after the native ring reduction.
+- `SuggestedDyadicAngularTests.omega_not_mod_two` (non-example): 1 and−1 have the same reduction modulo2 but opposite ω₂ values; ω₂ cannot be replaced by a character of the residue-field units.
+
+**Acceptance:** Do not extend the unit-valued map to allℤ₂ by declaring χ₄(0) a unit. The domain remainsU.
+
+**Source:** Section2, published257–258/PDF3–4: conductor-four character, x=ω(x)⟨x⟩ and the translated Taylor argument. Both complete pages freshly reread; complete paper255–266 already read. The source defines the dyadic sign by its congruence to x modulo4 and its angular factor by x=ω(x)⟨x⟩. These are declaration-sized native-unit adapters for that definition and its immediate translation identity. The source analytic space, Taylor expansion and averaging limit are separate inputs, not consequences of these algebraic maps.
+
+### The sign has the same residue modulo four
+
+`DirichletPadicLFunctions:L3/dyadic-omega-reduction` — `DirichletPadic.dyadicOmega_reduction`
+
+For every u∈U, red₂(ω₂(u))=red₂(u).
+
+**Hypotheses:** Throughout p=2, U=ℤ_2ˣ with its native unit topology, and red₂ is PMIA’s already planned unit reduction modulo2²=4. It is a monoid homomorphism with discrete finite target. Write e:ℤˣ→U for native Units.map of the integer casting homomorphism. No new sign group, principal-unit carrier, analytic space or integral character idempotent is introduced. Principal units use the native subgroup ker(red₂), equivalently scalar units congruent to1 modulo4. The dyadic sign is the conductor-four character, not the residue-field Teichmüller lift atp=2, whose residue-unit group is trivial. Odd-prime Teichmüller lifts already exist in Tau Ceti; their coordinate comparison is a separate obligation.
+
+**Proof:**
+
+1. Project to the native residue ring by Units.ext, then use the constructor projection and the ring homomorphism’s integer-cast law.
+2. The remaining finite identity is χ₄(v)≡v modulo4 for every v∈(ℤ/4ℤ)ˣ. Check its two values1and3: the character values are1and−1, respectively.
+3. The complete omega_reduction probe verifies the finite identity by kernel-checked decision and transports it through native reduction. The identity is not asserted for nonunits, sinceχ₄(2)=0 differs from2 modulo4.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/dyadic-omega`, `mathlib:ZMod.χ₄`.
+
+**Tests:**
+
+- `SuggestedDyadicAngularTests.omega_reduction_negative` (computation): Atu=−1 the sign reduces to3modulo4, matching the original unit.
+
+**Acceptance:** Residue precision is exactly4; the proof cannot be replaced by reduction modulo2.
+
+**Source:** Section2, published257–258/PDF3–4: conductor-four character, x=ω(x)⟨x⟩ and the translated Taylor argument. Both complete pages freshly reread; complete paper255–266 already read. The source defines the dyadic sign by its congruence to x modulo4 and its angular factor by x=ω(x)⟨x⟩. These are declaration-sized native-unit adapters for that definition and its immediate translation identity. The source analytic space, Taylor expansion and averaging limit are separate inputs, not consequences of these algebraic maps.
+
+### The two values of the dyadic character
+
+`DirichletPadicLFunctions:L3/dyadic-omega-sign` — `DirichletPadic.dyadicOmega_sign`
+
+For every u∈U, ω₂(u)=1 orω₂(u)=−1.
+
+**Hypotheses:** Throughout p=2, U=ℤ_2ˣ with its native unit topology, and red₂ is PMIA’s already planned unit reduction modulo2²=4. It is a monoid homomorphism with discrete finite target. Write e:ℤˣ→U for native Units.map of the integer casting homomorphism. No new sign group, principal-unit carrier, analytic space or integral character idempotent is introduced. Principal units use the native subgroup ker(red₂), equivalently scalar units congruent to1 modulo4. The dyadic sign is the conductor-four character, not the residue-field Teichmüller lift atp=2, whose residue-unit group is trivial. Odd-prime Teichmüller lifts already exist in Tau Ceti; their coordinate comparison is a separate obligation.
+
+**Proof:**
+
+1. Before integer casting, Units.map of nativeχ₄ mapsred₂(u) intoℤˣ.
+2. Apply native Int.units_eq_one_or there and map the resulting equality intoℤ₂ˣ. Native units equality and ring casting preserve the signs. The complete omega_sign probe checks both branches.
+3. Squaring either value gives1. Evaluation at−1 shows that the sign is nontrivial; the relevant order is2, whereasp−1=1 atp=2.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/dyadic-omega`, `mathlib:Int.units_eq_one_or`.
+
+**Tests:**
+
+- `SuggestedDyadicAngularTests.omega_two_signs` (computation): The values at1and−1 realize both signs.
+- `SuggestedDyadicAngularTests.omega_order_two` (characterisation): The square of every sign value is1.
+
+**Acceptance:** This finite order will bound the family of character twists in the dyadic averaging proof.
+
+**Source:** Section2, published257–258/PDF3–4: conductor-four character, x=ω(x)⟨x⟩ and the translated Taylor argument. Both complete pages freshly reread; complete paper255–266 already read. The source defines the dyadic sign by its congruence to x modulo4 and its angular factor by x=ω(x)⟨x⟩. These are declaration-sized native-unit adapters for that definition and its immediate translation identity. The source analytic space, Taylor expansion and averaging limit are separate inputs, not consequences of these algebraic maps.
+
+### Continuity of the dyadic sign
+
+`DirichletPadicLFunctions:L3/dyadic-omega-continuity` — `DirichletPadic.continuous_dyadicOmega`
+
+The homomorphism ω₂:U→U is continuous.
+
+**Hypotheses:** Throughout p=2, U=ℤ_2ˣ with its native unit topology, and red₂ is PMIA’s already planned unit reduction modulo2²=4. It is a monoid homomorphism with discrete finite target. Write e:ℤˣ→U for native Units.map of the integer casting homomorphism. No new sign group, principal-unit carrier, analytic space or integral character idempotent is introduced. Principal units use the native subgroup ker(red₂), equivalently scalar units congruent to1 modulo4. The dyadic sign is the conductor-four character, not the residue-field Teichmüller lift atp=2, whose residue-unit group is trivial. Odd-prime Teichmüller lifts already exist in Tau Ceti; their coordinate comparison is a separate obligation.
+
+**Proof:**
+
+1. Use the supplier’s continuity ofred₂ on native integral units.
+2. The remaining map has the finite discrete domain(ℤ/4ℤ)ˣ, so native continuous_of_discreteTopology applies. Compose the two continuous functions.
+3. The complete omega_continuous probe takes continuity of native reduction as an explicit supplied hypothesis. It proves the composition and does not silently reprove or claim a new implementation of the PMIA supplier.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/dyadic-omega`, `PadicMeasuresIwasawaAlgebras:L1/unit-reduction-continuity`, `mathlib:continuous_of_discreteTopology`.
+
+**Tests:**
+
+- `SuggestedDyadicAngularTests.omega_continuous_native` (compatibility): Its scalar projection into nativeℤ₂ is continuous.
+
+**Acceptance:** No analytic assertion about the locally constant character follows merely from this continuity statement.
+
+**Source:** Section2, published257–258/PDF3–4: conductor-four character, x=ω(x)⟨x⟩ and the translated Taylor argument. Both complete pages freshly reread; complete paper255–266 already read. The source defines the dyadic sign by its congruence to x modulo4 and its angular factor by x=ω(x)⟨x⟩. These are declaration-sized native-unit adapters for that definition and its immediate translation identity. The source analytic space, Taylor expansion and averaging limit are separate inputs, not consequences of these algebraic maps.
+
+### The dyadic principal-unit coordinate
+
+`DirichletPadicLFunctions:L3/dyadic-angular` — `DirichletPadic.dyadicAngular`
+
+Define ⟨u⟩₂=u/ω₂(u) as a native monoid homomorphism U→U, using the pointwise quotient of homomorphisms to the native commutative unit group.
+
+**Hypotheses:** Throughout p=2, U=ℤ_2ˣ with its native unit topology, and red₂ is PMIA’s already planned unit reduction modulo2²=4. It is a monoid homomorphism with discrete finite target. Write e:ℤˣ→U for native Units.map of the integer casting homomorphism. No new sign group, principal-unit carrier, analytic space or integral character idempotent is introduced. Principal units use the native subgroup ker(red₂), equivalently scalar units congruent to1 modulo4. The dyadic sign is the conductor-four character, not the residue-field Teichmüller lift atp=2, whose residue-unit group is trivial. Odd-prime Teichmüller lifts already exist in Tau Ceti; their coordinate comparison is a separate obligation.
+
+**Proof:**
+
+1. Use native homomorphism division: the identity homomorphism divided byω₂. Its application law is exactly the displayed unit quotient, and native homomorphism laws give one, products and inverses.
+2. The factorizationω₂(u)⟨u⟩₂=u is commutative-group cancellation. At a unit already reducing to1modulo4, the defining character value is1, so the angular coordinate fixes that unit.
+3. For an embedded integer sign,ω₂ fixes the sign, hence the quotient is1. Multiplicativity then gives⟨−u⟩₂=⟨u⟩₂. The complete native probe verifies the fixed-point, factorization and sign identities.
+4. Its membership in the existing principal subgroup, its norm bound and continuity are promoted below. The codomain U is retained for a simple native quotient API; the range theorem supplies restriction toker(red₂) without creating a second principal-unit carrier.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/dyadic-omega`, `mathlib:MonoidHom.div_apply`.
+
+**Uses:**
+
+- Morita1975 Section2, p257: Provides the integral points of the closed analytic disc centered at1 with radius1/4 in the dyadic averages.
+- Morita1975 Section2, p258: Expresses angular translations using the inverse sign coefficient.
+- L3 unit-coordinate comparisons: Provides a canonical retraction onto the existing reduction kernel; no integral idempotent decomposition is used.
+
+**API:**
+
+- `DirichletPadic.dyadicAngular_def` (constructor): The pointwise quotient of the identity homomorphism andω₂.
+- `DirichletPadic.dyadicAngular_apply` (projection): ⟨u⟩₂=u/ω₂(u) in native units.
+- `DirichletPadic.dyadicAngular_one` (simp): ⟨1⟩₂=1.
+- `DirichletPadic.dyadicAngular_mul` (structure): ⟨uv⟩₂=⟨u⟩₂⟨v⟩₂.
+- `DirichletPadic.dyadicAngular_inv` (structure): ⟨u⁻¹⟩₂=⟨u⟩₂⁻¹.
+- `DirichletPadic.dyadicAngular_fixed` (characterisation): Ifred₂(u)=1 then⟨u⟩₂=u.
+- `DirichletPadic.dyadicAngular_factorization` (relation): ω₂(u)⟨u⟩₂=u.
+- `DirichletPadic.dyadicAngular_neg` (simp): ⟨−u⟩₂=⟨u⟩₂.
+- `DirichletPadic.dyadicAngular_reduction` (characterisation): red₂(⟨u⟩₂)=1; promoted below.
+- `DirichletPadic.dyadicAngular_norm` (compatibility): The scalar distance to1is at most1/4; promoted below.
+- `DirichletPadic.continuous_dyadicAngular` (structure): The native unit-valued coordinate is continuous; promoted below.
+- `DirichletPadic.dyadicAngular_unique` (universal-property): Any sign times a principal unit givingu has these same two factors; promoted below.
+- `DirichletPadic.dyadicAngular_translate` (relation): For v=u+4z in scalar coordinates, ⟨v⟩₂=⟨u⟩₂+ω₂(u)⁻¹4z; promoted below.
+
+**Tests:**
+
+- `SuggestedDyadicAngularTests.angular_identity` (degenerate): ⟨1⟩₂=1.
+- `SuggestedDyadicAngularTests.angular_three` (computation): For scalar value3, the angular scalar is−3.
+- `SuggestedDyadicAngularTests.angular_native_division` (compatibility): The coordinate is precisely division in nativeℤ₂ˣ.
+- `SuggestedDyadicAngularTests.angular_not_identity` (non-example): ⟨−1⟩₂=1 is different from−1.
+- `SuggestedDyadicAngularTests.angular_forgets_sign` (characterisation): The angular coordinate is unchanged by negation.
+
+**Acceptance:** The map is not the identity on all odd units:3 must become−3 to lie in1+4ℤ₂.
+
+**Source:** Section2, published257–258/PDF3–4: conductor-four character, x=ω(x)⟨x⟩ and the translated Taylor argument. Both complete pages freshly reread; complete paper255–266 already read. The source defines the dyadic sign by its congruence to x modulo4 and its angular factor by x=ω(x)⟨x⟩. These are declaration-sized native-unit adapters for that definition and its immediate translation identity. The source analytic space, Taylor expansion and averaging limit are separate inputs, not consequences of these algebraic maps.
+
+### The angular coordinate lies in the principal subgroup
+
+`DirichletPadicLFunctions:L3/dyadic-angular-reduction` — `DirichletPadic.dyadicAngular_reduction`
+
+For every u∈U, red₂(⟨u⟩₂)=1; hence⟨u⟩₂ lies in the existing subgroupker(red₂).
+
+**Hypotheses:** Throughout p=2, U=ℤ_2ˣ with its native unit topology, and red₂ is PMIA’s already planned unit reduction modulo2²=4. It is a monoid homomorphism with discrete finite target. Write e:ℤˣ→U for native Units.map of the integer casting homomorphism. No new sign group, principal-unit carrier, analytic space or integral character idempotent is introduced. Principal units use the native subgroup ker(red₂), equivalently scalar units congruent to1 modulo4. The dyadic sign is the conductor-four character, not the residue-field Teichmüller lift atp=2, whose residue-unit group is trivial. Odd-prime Teichmüller lifts already exist in Tau Ceti; their coordinate comparison is a separate obligation.
+
+**Proof:**
+
+1. Apply the native reduction homomorphism to the defining unit quotient.
+2. Use the preceding sign-reduction lemma to replace the denominator’s reduction byred₂(u), then cancel in the finite unit group.
+3. Native subgroup-kernel membership is exactly this equality. Together with the constructor’s fixed-point calculation, this makes the coordinate a retraction onto that subgroup. The complete angular_reduction probe proves the equality.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/dyadic-angular`, `DirichletPadicLFunctions:L3/dyadic-omega-reduction`.
+
+**Tests:**
+
+- `SuggestedDyadicAngularTests.angular_kernel` (compatibility): The native angular unit belongs to the native reduction kernel.
+- `SuggestedDyadicAngularTests.angular_retraction` (characterisation): Applying the angular map twice is the same as applying it once.
+
+**Acceptance:** The principal subgroup is1+4ℤ₂, not the entire group1+2ℤ₂=ℤ₂ˣ.
+
+**Source:** Section2, published257–258/PDF3–4: conductor-four character, x=ω(x)⟨x⟩ and the translated Taylor argument. Both complete pages freshly reread; complete paper255–266 already read. The source defines the dyadic sign by its congruence to x modulo4 and its angular factor by x=ω(x)⟨x⟩. These are declaration-sized native-unit adapters for that definition and its immediate translation identity. The source analytic space, Taylor expansion and averaging limit are separate inputs, not consequences of these algebraic maps.
+
+### The principal coordinate lies in the radius-one-quarter disc
+
+`DirichletPadicLFunctions:L3/dyadic-angular-norm` — `DirichletPadic.dyadicAngular_norm`
+
+For every u∈U, ‖⟨u⟩₂−1‖≤2^(−2)=1/4 after scalar projection intoℤ₂.
+
+**Hypotheses:** Throughout p=2, U=ℤ_2ˣ with its native unit topology, and red₂ is PMIA’s already planned unit reduction modulo2²=4. It is a monoid homomorphism with discrete finite target. Write e:ℤˣ→U for native Units.map of the integer casting homomorphism. No new sign group, principal-unit carrier, analytic space or integral character idempotent is introduced. Principal units use the native subgroup ker(red₂), equivalently scalar units congruent to1 modulo4. The dyadic sign is the conductor-four character, not the residue-field Teichmüller lift atp=2, whose residue-unit group is trivial. Odd-prime Teichmüller lifts already exist in Tau Ceti; their coordinate comparison is a separate obligation.
+
+**Proof:**
+
+1. Project the preceding reduction equality to the residue ring. Subtract1and use the ring reduction’s additivity to place⟨u⟩₂−1in its kernel.
+2. Use native PadicInt.ker_toZModPow and norm_le_pow_iff_mem_span_pow atp=2,n=2. Their equivalence gives exactly the displayed norm bound.
+3. The complete angular_norm probe checks these native kernel and norm interfaces. For scalaru=3, the angular scalar is−3and the difference from1is−4, so the bound is attained.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/dyadic-angular-reduction`, `mathlib:PadicInt.ker_toZModPow`, `mathlib:PadicInt.norm_le_pow_iff_mem_span_pow`.
+
+**Tests:**
+
+- `SuggestedDyadicAngularTests.angular_disc_bound` (compatibility): The bound is1/4in the native normalized norm.
+- `SuggestedDyadicAngularTests.angular_three_sharp` (computation): For scalaru=3 the distance to1is exactly1/4.
+
+**Acceptance:** This gives the input domain for the analytic Gauss norm; it does not prove any Taylor-series convergence.
+
+**Source:** Section2, published257–258/PDF3–4: conductor-four character, x=ω(x)⟨x⟩ and the translated Taylor argument. Both complete pages freshly reread; complete paper255–266 already read. The source defines the dyadic sign by its congruence to x modulo4 and its angular factor by x=ω(x)⟨x⟩. These are declaration-sized native-unit adapters for that definition and its immediate translation identity. The source analytic space, Taylor expansion and averaging limit are separate inputs, not consequences of these algebraic maps.
+
+### Continuity of the dyadic principal coordinate
+
+`DirichletPadicLFunctions:L3/dyadic-angular-continuity` — `DirichletPadic.continuous_dyadicAngular`
+
+The map⟨·⟩₂:U→U is continuous.
+
+**Hypotheses:** Throughout p=2, U=ℤ_2ˣ with its native unit topology, and red₂ is PMIA’s already planned unit reduction modulo2²=4. It is a monoid homomorphism with discrete finite target. Write e:ℤˣ→U for native Units.map of the integer casting homomorphism. No new sign group, principal-unit carrier, analytic space or integral character idempotent is introduced. Principal units use the native subgroup ker(red₂), equivalently scalar units congruent to1 modulo4. The dyadic sign is the conductor-four character, not the residue-field Teichmüller lift atp=2, whose residue-unit group is trivial. Odd-prime Teichmüller lifts already exist in Tau Ceti; their coordinate comparison is a separate obligation.
+
+**Proof:**
+
+1. The native units of a topological ring form a topological group. Apply native Continuous.div′ to the identity map and the preceding continuous sign.
+2. Unfold the native pointwise quotient defining the angular homomorphism. The complete angular_continuous probe checks this group-valued division interface.
+3. This is division in the unit group, so no extra scalar nonzero hypothesis or convention for the inverse of a nonunit is introduced.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/dyadic-angular`, `DirichletPadicLFunctions:L3/dyadic-omega-continuity`, `mathlib:Continuous.div'`.
+
+**Tests:**
+
+- `SuggestedDyadicAngularTests.angular_continuous_native` (compatibility): The scalar projection of the coordinate intoℤ₂ is continuous.
+
+**Acceptance:** The standard unit topology is used throughout, including the inverse coordinate.
+
+**Source:** Section2, published257–258/PDF3–4: conductor-four character, x=ω(x)⟨x⟩ and the translated Taylor argument. Both complete pages freshly reread; complete paper255–266 already read. The source defines the dyadic sign by its congruence to x modulo4 and its angular factor by x=ω(x)⟨x⟩. These are declaration-sized native-unit adapters for that definition and its immediate translation identity. The source analytic space, Taylor expansion and averaging limit are separate inputs, not consequences of these algebraic maps.
+
+### Uniqueness of the sign and principal factors
+
+`DirichletPadicLFunctions:L3/dyadic-angular-unique` — `DirichletPadic.dyadicAngular_unique`
+
+If s∈ℤˣ, v∈U, red₂(v)=1 ande(s)v=u, thene(s)=ω₂(u) andv=⟨u⟩₂. Together with the defining factorization and range statements, this identifies the sign and principal factors canonically.
+
+**Hypotheses:** Throughout p=2, U=ℤ_2ˣ with its native unit topology, and red₂ is PMIA’s already planned unit reduction modulo2²=4. It is a monoid homomorphism with discrete finite target. Write e:ℤˣ→U for native Units.map of the integer casting homomorphism. No new sign group, principal-unit carrier, analytic space or integral character idempotent is introduced. Principal units use the native subgroup ker(red₂), equivalently scalar units congruent to1 modulo4. The dyadic sign is the conductor-four character, not the residue-field Teichmüller lift atp=2, whose residue-unit group is trivial. Odd-prime Teichmüller lifts already exist in Tau Ceti; their coordinate comparison is a separate obligation.
+
+**Proof:**
+
+1. Native Int.units_eq_one_or splits the integer sign into1and−1. The constructor calculation givesω₂(e(s))=e(s) in either case.
+2. Sincev reduces to1, unfolding the sign constructor givesω₂(v)=1. Applyω₂to the hypothesized product and use multiplicativity to identify its first factor.
+3. The angular quotient of an embedded sign is1, and unfolding the coordinate atv givesv becauseω₂(v)=1. Applying the angular homomorphism to the same product identifies the second factor.
+4. Existence of such factors follows becauseω₂(u) is the image of the integer unit obtained by applying Units.map ofχ₄to red₂(u), while the angular reduction and defining cancellation give the principal factor and product. The complete unique_factors probe proves the simultaneous uniqueness conclusion from the displayed hypotheses.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/dyadic-angular`, `DirichletPadicLFunctions:L3/dyadic-angular-reduction`, `mathlib:Int.units_eq_one_or`.
+
+**Tests:**
+
+- `SuggestedDyadicAngularTests.unique_negative_factor` (computation): For any principal unitv, the factors of−vare−1andv.
+- `SuggestedDyadicAngularTests.angular_factorization_native` (compatibility): The canonical factors multiply to the original native unit.
+
+**Acceptance:** This specifies the two factors; it does not assert that integral sign idempotents exist or claim construction of a character-space equivalence.
+
+**Source:** Section2, published257–258/PDF3–4: conductor-four character, x=ω(x)⟨x⟩ and the translated Taylor argument. Both complete pages freshly reread; complete paper255–266 already read. The source defines the dyadic sign by its congruence to x modulo4 and its angular factor by x=ω(x)⟨x⟩. These are declaration-sized native-unit adapters for that definition and its immediate translation identity. The source analytic space, Taylor expansion and averaging limit are separate inputs, not consequences of these algebraic maps.
+
+### The sign is constant under shifts by four
+
+`DirichletPadicLFunctions:L3/dyadic-omega-translation` — `DirichletPadic.dyadicOmega_translate`
+
+For u,v∈U andz∈ℤ₂ with scalarv=u+4z, ω₂(v)=ω₂(u).
+
+**Hypotheses:** Throughout p=2, U=ℤ_2ˣ with its native unit topology, and red₂ is PMIA’s already planned unit reduction modulo2²=4. It is a monoid homomorphism with discrete finite target. Write e:ℤˣ→U for native Units.map of the integer casting homomorphism. No new sign group, principal-unit carrier, analytic space or integral character idempotent is introduced. Principal units use the native subgroup ker(red₂), equivalently scalar units congruent to1 modulo4. The dyadic sign is the conductor-four character, not the residue-field Teichmüller lift atp=2, whose residue-unit group is trivial. Odd-prime Teichmüller lifts already exist in Tau Ceti; their coordinate comparison is a separate obligation.
+
+**Proof:**
+
+1. Reduce the scalar equality modulo4. The term4z vanishes under native ring reduction, so Units.ext givesred₂(v)=red₂(u).
+2. The sign constructor depends only onred₂. Apply its defining finite map to that equality. The complete omega_translate probe proves the native reduction and transport.
+3. The shift hypothesis is exact and is essential: scalar1and3differ by2but have opposite signs. The theorem takes native unitsuandv, retaining their unit witnesses rather than casting an arbitrary scalar into the unit group.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/dyadic-omega`, `PadicMeasuresIwasawaAlgebras:L1/unit-reduction`.
+
+**Tests:**
+
+- `SuggestedDyadicAngularTests.translate_zero` (degenerate): A zero shift leaves the sign unchanged.
+- `SuggestedDyadicAngularTests.translate_four` (computation): The signs of scalar3and7are equal.
+- `SuggestedDyadicAngularTests.translate_two_fails` (non-example): The signs of scalar1and3are different despite their congruence modulo2.
+
+**Acceptance:** This is the dyadic specialization of the sign invariance required before Morita’s Taylor expansion.
+
+**Source:** Section2, published257–258/PDF3–4: conductor-four character, x=ω(x)⟨x⟩ and the translated Taylor argument. Both complete pages freshly reread; complete paper255–266 already read. The source defines the dyadic sign by its congruence to x modulo4 and its angular factor by x=ω(x)⟨x⟩. These are declaration-sized native-unit adapters for that definition and its immediate translation identity. The source analytic space, Taylor expansion and averaging limit are separate inputs, not consequences of these algebraic maps.
+
+### The dyadic angular translation identity
+
+`DirichletPadicLFunctions:L3/dyadic-angular-translation` — `DirichletPadic.dyadicAngular_translate`
+
+For u,v∈U andz∈ℤ₂ with scalarv=u+4z, the scalar identity⟨v⟩₂=⟨u⟩₂+ω₂(u)⁻¹·4z holds.
+
+**Hypotheses:** Throughout p=2, U=ℤ_2ˣ with its native unit topology, and red₂ is PMIA’s already planned unit reduction modulo2²=4. It is a monoid homomorphism with discrete finite target. Write e:ℤˣ→U for native Units.map of the integer casting homomorphism. No new sign group, principal-unit carrier, analytic space or integral character idempotent is introduced. Principal units use the native subgroup ker(red₂), equivalently scalar units congruent to1 modulo4. The dyadic sign is the conductor-four character, not the residue-field Teichmüller lift atp=2, whose residue-unit group is trivial. Odd-prime Teichmüller lifts already exist in Tau Ceti; their coordinate comparison is a separate obligation.
+
+**Proof:**
+
+1. Rewrite the two angular coordinates as native unit division and project them toℤ₂, retaining the scalar projection of the unit inverse.
+2. Use the preceding sign-translation lemma to identifyω₂(v)withω₂(u), substitute the given scalar equality, and distribute multiplication by the common inverse.
+3. The complete angular_translate probe checks this ring calculation. The coefficient is the inverse sign ofu, so a negative-sign unit changes its angular coordinate by−4z, not+4z.
+4. This supplies the exact input identity for Morita’s translated analytic function. Taylor expansion, bounds on derivatives and passage through the averaging limit are separate analytic obligations.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/dyadic-angular`, `DirichletPadicLFunctions:L3/dyadic-omega-translation`.
+
+**Tests:**
+
+- `SuggestedDyadicAngularTests.angular_translate_negative_sign` (computation): From scalar3to7, the angular scalar changes from−3to−7, a change of−4.
+- `SuggestedDyadicAngularTests.angular_translate_positive_sign` (computation): From scalar1to5, the angular scalar changes by+4.
+
+**Acceptance:** The sign coefficient is retained even though its inverse equals itself. No differentiation or convergence is claimed.
+
+**Source:** Section2, published257–258/PDF3–4: conductor-four character, x=ω(x)⟨x⟩ and the translated Taylor argument. Both complete pages freshly reread; complete paper255–266 already read. The source defines the dyadic sign by its congruence to x modulo4 and its angular factor by x=ω(x)⟨x⟩. These are declaration-sized native-unit adapters for that definition and its immediate translation identity. The source analytic space, Taylor expansion and averaging limit are separate inputs, not consequences of these algebraic maps.
+
+**Remaining:** The all-prime continuous Morita Gamma estimates now have the dyadic conductor-four sign and principal-unit coordinate, its norm domain and exact translation identity. The analytic averaging proof remains open. Kubota–Leopoldt1964 has now been read completely: decompose its finite character means, uniform operator bounds, finite twist family and Cauchy estimate, importing LAD analytic/Taylor carriers and Coleman logarithm/exponential input without rebuilding them. Identify the odd-prime angular coordinate from the existing native Tau Ceti Teichmüller lift. Morita’s analytic seed usespℤ_p at oddp and8ℤ₂atp=2, not one analytic function on the entire closed unit disc. Gross–Koblitz still requires complete proof reading, fixed additive character and compatibleπ, positive fractional parts and the negative Gauss convention; its dyadic use needs a separate source. Ferrero–Greenberg still requires proof reading andχ(p)=1, log_p(p)=0, character shift and derivative coordinate, with nonvanishing separate. The new RJW assignments, analytic/distribution/special-value comparisons, fifteen gaps and eleven requests remain open.
+
+### The dyadic sign and principal-unit coordinate validation
+
+All 780 predecessor nodes, 657 baseline records, 16 findings, requests and sourceVersions remain whole. This checkpoint adds 11 nodes, 26 named suggested declarations and 25 typed examples. The indexed blueprint, four-file intake, whitespace, preservation, API/test parity and versioned-source checks pass. The graph has 1049 reachable nodes, 5381 edges and 834 native leaves and is acyclic. Its stage request leaves are PadicMeasuresIwasawaAlgebras:L1, PadicMeasuresIwasawaAlgebras:L3, PadicMeasuresIwasawaAlgebras:L3, LocallyAnalyticDistributions:L1, AdicSpacesPartII:F1, AdicSpacesPartII:R2, PadicDifferentialEquationsAndRigidCohomology:RD.0, PadicDifferentialEquationsAndRigidCohomology:RD.4, PadicHodgeTheory:P7:annulus-foundations, PadicMeasuresIwasawaAlgebras:L2, LocallyAnalyticDistributions:L1. The new routes end in native declarations and exact PMIA supplier nodes, with no new stage-request leaf. Generic analytic character spaces and logarithms remain with LAD and Coleman.
+
+**The full current suggested module was NOT COMPILED.** Its real native import requires TauCeti.NumberTheory.ArithmeticFunction.TwistedDivisorSum. No matching existing artifact was found; WORKERS.md prohibits building the native library. Current compiler exit code, error count and warning count are unavailable, not zero. The exact named signatures and native source were reviewed. PR4773 remains the last compiled full predecessor, with zero errors and1,803 expected placeholder warnings; that receipt does not validate this new module.
+
+The current source closure covers 3603 pinned Mathlib modules and 22 pinned Tau Ceti modules. Only 21 Tau module artifacts are available and hash-verified. The105 available artifact files and the previously compiled332-node PMIA artifact are checked as partial dependencies. The current369-node supplier source preserves the older interface; no current-module compilation against either revision is claimed. Existing builds only were inspected; no setup, update, cache fetch or native build occurred.
+
+Two complete native definitions, one abbreviation for the already specified reduction and seventeen complete lemmas check the conductor-four character pullback, its range and reduction, sign values, angular retraction/factorization/uniqueness, the radius1/4 bound and both translation identities. Only continuity of reduction is an explicit supplier hypothesis; the probe proves the algebraic and norm statements with no roadmap theorem assumptions. The separate probe compiles against 2800 pinned Mathlib modules and 0 pinned Tau Ceti modules with zero errors, warnings or placeholders. The separate Mathlib-only probe does not import, replace or compile the missing native Tau module. General roadmap declarations remain unchecked.
+
+Exact controls check258sign values258principal values66,564multiplicative pairs8,514translations258unique factorizations and258failures of replacing modulus4by2. Exact integer arithmetic on all258odd integers from−257through257; all66,564pairs, shifts4z for−16≤z≤16, and both candidate signs. Modulo4 residue tests and algebraic identities are checked exactly. These finite samples supplement the general native probe and do not certify analytic convergence. The largest observed discrepancy is 0.
+
+The72captured inputs at7f9bbc92 are unchanged from the merged5233 checkpoint, including supplier packets and versioned source-review records. No new source finding is asserted. The possible dyadic qualification in KL1964 Satz3 remains an unverified scratch question, unused by these nodes; it requires exact formula/conductor review and a correction search before any sourceIssue is justified. Publication refresh at25f6c78f reviewed25changed registry records and the sole changed Polylogarithms node plus its two gap descriptions and one supplier request. BCGP E137/E140 strengthen avoidance/determinant wording; E160–163 record product nilpotence, finite ramification, non-Eisenstein localization and open-ideal patching repairs, awaiting review. DIT E1–14 switch to the paper-review records and refine operator, phase, spectral normalization, area, coding, Euler-factor, absolute-discriminant, sine/Bessel, Frobenius-uniqueness and projection-order corrections; confirmed status is the registry’s existing verdict, not ours. TV E54 corrects cyclotomic ideal-character inversion, and XY E16–19 repair Néron-model, descent, independence and normalization steps, awaiting review. Polylogarithms keeps tetrahedron volume ownership inP.2 and its proof gap open; no consumed Dirichlet input changes. The registry changes and ownership edits do not affect this dyadic coordinate. Own source findings and all other72-input capture entries remain unchanged; no independent source verification is claimed.
+
+The separate partial signature file also compiled with zero errors and2,447 expected placeholder warnings across3,582 pinned source modules. It includes all26new named declarations and25tests, and retains the documented4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 1e94d34372c77d1a27977a4b9f51b658062ec13ce8f8e15933954ae2624f4d45.
