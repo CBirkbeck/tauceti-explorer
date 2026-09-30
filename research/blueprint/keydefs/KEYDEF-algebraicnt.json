@@ -1,0 +1,1576 @@
+{
+  "job": "KEYDEF-algebraicnt",
+  "protocol": "keydef-v1",
+  "area": "algebraicnt",
+  "status": "complete",
+  "baseline": {
+    "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+    "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174"
+  },
+  "definitions": [
+    {
+      "id": "algebraicnt/hermitian-lattices",
+      "name": "Hermitian lattices and integral duality",
+      "short": "Hermitian lattices and integral duality",
+      "define": "For a quadratic extension E/F with involution, let O be its ring of integers (globally Dedekind, or locally a DVR). A hermitian lattice is a finite projective O-module M spanning a nondegenerate E-hermitian space (V,h), with h linear in the first argument, conjugate-linear in the second, with integrality the additional predicate h(M,M) contained in O. Define its dual M^vee={x in V | h(x,M) subset O}, isometries, unimodularity, localization, norm ideal, and the elementary-divisor/type data when local. State each vertex convention explicitly: the cited papers use opposite inclusions after rescaling h or the lattice. Do not require global freeness; do not silently include skew-hermitian or line-bundle-valued forms. Allow fractional lattices before imposing integrality. For type, record the coefficient ring: an O_E-length-one quotient in the unramified quadratic case has O_F-length two; Feng-Yun-Zhang distinguish these two conventions.",
+      "library": {
+        "has": [
+          "mathlib:Submodule.IsLattice",
+          "mathlib:LinearMap.isSymm_iff_isHermitian_toMatrix",
+          "tauceti:TauCeti.IntegralLattice"
+        ],
+        "missing": "Mathlib has full finitely generated submodules and matrix/sesquilinear hermitian identities. TauCeti.IntegralLattice is a full Z-lattice in a rational symmetric bilinear space. Neither supplies projective hermitian lattices over O_E, their hermitian dual, local elementary divisors or compatible global localization. Reuse those carriers, rather than copying the rational symmetric construction."
+      },
+      "papers": [
+        {
+          "paper": "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22",
+          "items": [
+            "PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/95"
+          ]
+        },
+        {
+          "paper": "PAPER-EISCHEN-HARRIS-LI-ETAL-20",
+          "items": [
+            "PAPER-EISCHEN-HARRIS-LI-ETAL-20/standard-basis-involution-I"
+          ]
+        },
+        {
+          "paper": "PAPER-FENG-YUN-ZHANG-24",
+          "items": [
+            "PAPER-FENG-YUN-ZHANG-24/4"
+          ]
+        },
+        {
+          "paper": "PAPER-HE-LI-SHI-ETAL-23",
+          "items": [
+            "PAPER-HE-LI-SHI-ETAL-23/13",
+            "PAPER-HE-LI-SHI-ETAL-23/17"
+          ]
+        },
+        {
+          "paper": "PAPER-LI-LIU-22",
+          "items": [
+            "PAPER-LI-LIU-22/19"
+          ]
+        },
+        {
+          "paper": "PAPER-LI-ZHANG-22-B",
+          "items": [
+            "PAPER-LI-ZHANG-22-B/1",
+            "PAPER-LI-ZHANG-22-B/14"
+          ]
+        },
+        {
+          "paper": "PAPER-LIPNOWSKI-TSIMERMAN-18",
+          "items": [
+            "PAPER-LIPNOWSKI-TSIMERMAN-18/hermitian-lattice",
+            "PAPER-LIPNOWSKI-TSIMERMAN-18/hermitian-dual",
+            "PAPER-LIPNOWSKI-TSIMERMAN-18/norm-ideal"
+          ]
+        },
+        {
+          "paper": "PAPER-LIU-ETAL-22",
+          "items": [
+            "PAPER-LIU-ETAL-22/def-lambda-n-v",
+            "PAPER-LIU-ETAL-22/def-b-2-setup",
+            "PAPER-LIU-ETAL-22/def-nonsplit-special-maximal"
+          ]
+        },
+        {
+          "paper": "PAPER-ZHANG-21",
+          "items": [
+            "PAPER-ZHANG-21/35"
+          ]
+        }
+      ],
+      "owners": [
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.2"
+      ],
+      "dependsOn": [],
+      "size": "L",
+      "api": [
+        {
+          "kind": "example",
+          "statement": "For an unramified quadratic local extension and M=O_E with h(x,y)=x conjugate(y), the dual equals M, the elementary-divisor tuple is (0), and the type is 0."
+        },
+        {
+          "kind": "example",
+          "statement": "With the same O_E and h(x,y)=pi x conjugate(y), where pi is a uniformizer of F, M^vee=pi^(-1)M; the tuple is (1), the O_E-type is 1 and the O_F-type is 2, and # (M^vee/M)=q^2 for #k_F=q."
+        },
+        {
+          "kind": "counterexample",
+          "statement": "Over O=Z[sqrt(-5)], I=(2,1+sqrt(-5)) is nonprincipal: a generator would have norm 2, but a^2+5b^2=2 has no integral solution. Since I conjugate(I)=(2), the pairing h(x,y)=x conjugate(y)/2 makes I an integral self-dual projective hermitian lattice. A free-only global definition loses this example."
+        },
+        {
+          "kind": "theorem",
+          "statement": "For a full integral lattice in a nondegenerate hermitian space over a Dedekind ring, taking the hermitian dual twice recovers the lattice, and formation of the dual commutes with localization at every nonzero prime."
+        },
+        {
+          "kind": "theorem",
+          "statement": "An isometry of hermitian spaces carries the lattice dual to the dual of its image and preserves the local elementary divisors and unimodularity."
+        },
+        {
+          "kind": "compatibility",
+          "statement": "Mathlib sesquilinear forms in the cited isSymm theorem are conjugate-linear in the first variable; represent our convention by h(x,y)=B(y,x), and prove the matrix and dual conversion rather than dropping the involution."
+        }
+      ]
+    },
+    {
+      "id": "algebraicnt/sequential-derived-limits",
+      "name": "Sequential derived inverse limits",
+      "short": "Sequential derived inverse limits",
+      "define": "For a strict countable tower of cochain R-module complexes with maps f_n:K_(n+1)->K_n, form Delta=1-shift on the degreewise product and Rlim K=Cone(Delta)[-1]. Descend this functor to the derived category of towers; for modules, exact products identify it with the right derived inverse limit. Export the corresponding homotopy-limit construction in an enhanced category with countable products for the sheaf and animated-ring consumers. In a bare triangulated category a triangle only specifies an object up to nonunique isomorphism, not a chosen functor. Sheaf products must be derived when not exact; derived adic completion itself remains with its existing owner.",
+      "library": {
+        "has": [
+          "mathlib:CategoryTheory.Limits.limit",
+          "mathlib:CochainComplex.mappingCone",
+          "mathlib:CategoryTheory.Functor.IsMittagLeffler",
+          "mathlib:CategoryTheory.Pretriangulated"
+        ],
+        "missing": "Ordinary limits, mapping cones, the Mittag-Leffler predicate and triangulated structure exist separately. Missing are the product-difference tower functor, its localization, comparison with right derived lim, Milnor sequence and enhanced sheaf interface. A nonfunctorial choice of triangulated cone is insufficient."
+      },
+      "papers": [
+        {
+          "paper": "PAPER-BHATT-18",
+          "items": [
+            "PAPER-BHATT-18/tower-roos"
+          ]
+        },
+        {
+          "paper": "PAPER-BHATT-SCHOLZE-22",
+          "items": [
+            "PAPER-BHATT-SCHOLZE-22/85"
+          ]
+        },
+        {
+          "paper": "PAPER-BOXER-PILLONI-26",
+          "items": [
+            "PAPER-BOXER-PILLONI-26/twists-and-derived-limit"
+          ]
+        },
+        {
+          "paper": "PAPER-CESNAVICIUS-SCHOLZE-24",
+          "items": [
+            "PAPER-CESNAVICIUS-SCHOLZE-24/106"
+          ]
+        },
+        {
+          "paper": "PAPER-DISEGNI-LIU-24",
+          "items": [
+            "PAPER-DISEGNI-LIU-24/43"
+          ]
+        },
+        {
+          "paper": "PAPER-KALETHA-16",
+          "items": [
+            "PAPER-KALETHA-16/P19"
+          ]
+        },
+        {
+          "paper": "PAPER-KINGS-SPRANG-25",
+          "items": [
+            "PAPER-KINGS-SPRANG-25/028"
+          ]
+        },
+        {
+          "paper": "PAPER-ZAVYALOV-25",
+          "items": [
+            "PAPER-ZAVYALOV-25/31"
+          ]
+        }
+      ],
+      "owners": [
+        "ArithmeticGaloisDuality:D7",
+        "ArithmeticGaloisDuality:R02.1",
+        "CompletedCohomologyPartII:CC.2"
+      ],
+      "dependsOn": [],
+      "size": "XL",
+      "api": [
+        {
+          "kind": "example",
+          "statement": "For the constant tower A with identity transitions, placed in degree zero, Rlim is A[0]; H^0=A and all other cohomology groups vanish."
+        },
+        {
+          "kind": "example",
+          "statement": "For A_n=Z/p^n and reduction transitions, H^0(Rlim A_n)=Z_p and H^1=0. For a tower with all transition maps zero, both groups vanish."
+        },
+        {
+          "kind": "counterexample",
+          "statement": "For the tower Z with every transition multiplication by 2, lim is 0 but lim^1 is Z_2/Z and is nonzero. Thus ordinary lim in degree zero gives the wrong Rlim."
+        },
+        {
+          "kind": "theorem",
+          "statement": "For a tower of module complexes and every integer j, there is a natural exact sequence 0 -> lim^1 H^(j-1)(K_n) -> H^j(Rlim K_n) -> lim H^j(K_n) -> 0, with no unconditional deletion of the left term."
+        },
+        {
+          "kind": "theorem",
+          "statement": "A Mittag-Leffler tower of modules concentrated in degree zero has lim^1=0; strict tower maps induce maps on the product-difference cones preserving identities and composition."
+        },
+        {
+          "kind": "compatibility",
+          "statement": "The enhanced homotopy limit yields the displayed distinguished triangle after passing to the homotopy category. Kings-Sprang Appendix B only needs the triangle and its Hom exact sequence; it does not license selecting cone fillers as a functor."
+        }
+      ]
+    },
+    {
+      "id": "algebraicnt/local-representation-densities",
+      "name": "Local representation densities",
+      "short": "Local representation densities",
+      "define": "For integral quadratic or hermitian lattices L and M over a local integer ring, construct Rep(M,L), whose S-points are S-linear maps from L_S to M_S preserving the form. The first displayed argument is the target. Define finite-level and primitive counts and the limit with a recorded normalization datum. In the unramified hermitian case with base residue field of size q, ranks n=rank L and m=rank M, divide by q^(N n(2m-n)); for odd-residue orthogonal forms use q^(N n(2m-n-1)/2). Ramified, fractional and dyadic models retain their source-specific denominator and congruence level, not an assumed unramified formula. Prove existence only under the appropriate source hypotheses.",
+      "library": {
+        "has": [
+          "mathlib:QuadraticMap.Isometry",
+          "mathlib:Submodule.IsLattice",
+          "mathlib:LinearMap.isSymm_iff_isHermitian_toMatrix"
+        ],
+        "missing": "Form-preserving linear maps and lattice carriers exist, but neither the integral representation functor, primitive reduction locus, finite congruence counts, normalized limits nor their stabilization API was found. A field isometry alone cannot encode integral congruence or primitive counts."
+      },
+      "papers": [
+        {
+          "paper": "PAPER-FENG-YUN-ZHANG-24",
+          "items": [
+            "PAPER-FENG-YUN-ZHANG-24/4"
+          ]
+        },
+        {
+          "paper": "PAPER-HE-LI-SHI-ETAL-23",
+          "items": [
+            "PAPER-HE-LI-SHI-ETAL-23/22"
+          ]
+        },
+        {
+          "paper": "PAPER-LI-LIU-22",
+          "items": [
+            "PAPER-LI-LIU-22/38"
+          ]
+        },
+        {
+          "paper": "PAPER-LI-ZHANG-22",
+          "items": [
+            "PAPER-LI-ZHANG-22/5"
+          ]
+        },
+        {
+          "paper": "PAPER-LI-ZHANG-22-B",
+          "items": [
+            "PAPER-LI-ZHANG-22-B/3"
+          ]
+        },
+        {
+          "paper": "PAPER-MAULIK-SHANKAR-TANG-22",
+          "items": [
+            "PAPER-MAULIK-SHANKAR-TANG-22/68"
+          ]
+        },
+        {
+          "paper": "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22",
+          "items": [
+            "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/39"
+          ]
+        }
+      ],
+      "owners": [
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.3"
+      ],
+      "dependsOn": [
+        "algebraicnt/hermitian-lattices",
+        "algebraicnt/local-quadratic-lattices"
+      ],
+      "size": "XL",
+      "api": [
+        {
+          "kind": "example",
+          "statement": "For a self-dual rank-one unramified hermitian lattice with base residue field F_q, its self-representation density is 1+q^(-1); at q=3 this equals 4/3."
+        },
+        {
+          "kind": "example",
+          "statement": "For the quadratic line x^2 over Z_p with p odd, self-representations satisfy x^2=1. There are exactly two solutions modulo p^N for every N>=1, so its zero-dimensional density is 2."
+        },
+        {
+          "kind": "counterexample",
+          "statement": "The preceding odd-prime value cannot be reused at p=2: x^2=1 modulo 2^N has four solutions for N>=3, giving density 4 in this count normalization."
+        },
+        {
+          "kind": "counterexample",
+          "statement": "For L=(Z_p,p^2 x^2) and M=(Z_p,x^2), p odd, multiplication by p preserves the forms over Q_p and is integral but its reduction modulo p is zero. Hence all-representation and primitive-representation functors differ."
+        },
+        {
+          "kind": "theorem",
+          "statement": "Isometries of the source and target induce bijections of the finite representation sets, preserve primitive maps, and therefore preserve every density for which the specified limit exists."
+        },
+        {
+          "kind": "compatibility",
+          "statement": "For unramified hermitian ranks n<=m, the dimension exponent is n(2m-n) over the base residue field, not over the quadratic residue field. Ramified He-Li-Shi counts must keep their level shift and denominator from Definition 5.1 before comparing to Li-Liu Definition 2.14."
+        }
+      ]
+    },
+    {
+      "id": "algebraicnt/successive-minima",
+      "name": "Successive minima",
+      "short": "Successive minima",
+      "define": "For a discrete full Z-lattice Lambda in its finite-dimensional real span E and a centrally symmetric compact convex body K containing zero in its interior, define lambda_i as the infimum of positive r for which Lambda intersect rK spans a subspace of dimension at least i, for 1<=i<=dim E. Include the Euclidean unit-ball specialization, attainment, change of norm, rank-zero convention and determinant comparison. Keep the intrinsic span when Lambda lies in a larger ambient space.",
+      "library": {
+        "has": [
+          "mathlib:IsZLattice",
+          "mathlib:ZLattice.covolume",
+          "mathlib:ZLattice.covolume_eq_measure_fundamentalDomain"
+        ],
+        "missing": "Discreteness, full span and Haar-normalized covolume are present. The successive-minimum sequence, attained independent vectors and its convex-body/Minkowski API were not found. Reuse the existing Z-lattice carrier and intrinsic covolume."
+      },
+      "papers": [
+        {
+          "paper": "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20",
+          "items": [
+            "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/successive-minima"
+          ]
+        },
+        {
+          "paper": "PAPER-BHARGAVA-SHANKAR-WANG-25",
+          "items": [
+            "PAPER-BHARGAVA-SHANKAR-WANG-25/48"
+          ]
+        },
+        {
+          "paper": "PAPER-BROWNING-LEBOUDEC-SAWIN-23",
+          "items": [
+            "PAPER-BROWNING-LEBOUDEC-SAWIN-23/minima",
+            "PAPER-BROWNING-LEBOUDEC-SAWIN-23/dyadic-lattices"
+          ]
+        },
+        {
+          "paper": "PAPER-MAULIK-SHANKAR-TANG-22",
+          "items": [
+            "PAPER-MAULIK-SHANKAR-TANG-22/74"
+          ]
+        },
+        {
+          "paper": "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22",
+          "items": [
+            "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/77"
+          ]
+        }
+      ],
+      "owners": [
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.1"
+      ],
+      "dependsOn": [],
+      "size": "L",
+      "api": [
+        {
+          "kind": "example",
+          "statement": "For the Euclidean lattice 2Z e_1 direct-sum 3Z e_2, the ordered successive minima are (2,3), and its intrinsic covolume is 6."
+        },
+        {
+          "kind": "example",
+          "statement": "For Z^r with the standard Euclidean norm every minimum is 1. For rank zero the minimum sequence is empty and its product is 1."
+        },
+        {
+          "kind": "counterexample",
+          "statement": "The subgroup Q inside R has full real span but is not discrete; its putative first minimum is 0 and is not attained by a nonzero vector. Full span alone is insufficient."
+        },
+        {
+          "kind": "theorem",
+          "statement": "For a full lattice and the stated body, 0<lambda_1<=...<=lambda_r and there are independent lattice vectors attaining the successive spanning thresholds."
+        },
+        {
+          "kind": "theorem",
+          "statement": "With Lebesgue measure normalized by the same Euclidean structure as covolume, Minkowski second theorem states (2^r/r!) covol(Lambda) <= vol(K) product_i lambda_i <= 2^r covol(Lambda)."
+        },
+        {
+          "kind": "compatibility",
+          "statement": "For a positive real scalar a, scaling the lattice by a scales each minimum by a and the intrinsic rank-r covolume by a^r; an ambient isometric embedding changes neither."
+        }
+      ]
+    },
+    {
+      "id": "algebraicnt/local-quadratic-lattices",
+      "name": "Quadratic lattices over local integer rings",
+      "short": "Quadratic lattices over local integer rings",
+      "define": "For a local field F and its integer DVR O, define full finite free integral quadratic lattices (L,q) in a nondegenerate quadratic space, their form-preserving maps, integral bilinear dual, Jordan constituents and maximal/vertex conditions. Retain q and its polar form b_q(x,y)=q(x+y)-q(x)-q(y). When 2 is a unit, a source's symmetric form B with q(x)=B(x,x) has b_q=2B, and either dual convention is explicitly identified. At residue characteristic 2 these are different data and rank-two Jordan blocks are necessary; do not infer integral classification from classification over F.",
+      "library": {
+        "has": [
+          "mathlib:Submodule.IsLattice",
+          "mathlib:QuadraticMap.Isometry",
+          "tauceti:TauCeti.IntegralLattice"
+        ],
+        "missing": "The rational Z-lattice and quadratic-map carriers exist. Missing are their O_F-integral version with convention-aware dual, local elementary divisors, dyadic Jordan decomposition and maximal-lattice API. Upstream quadratic-space invariants over fields remain imports, not new definitions."
+      },
+      "papers": [
+        {
+          "paper": "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18",
+          "items": [
+            "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/good-prime"
+          ]
+        },
+        {
+          "paper": "PAPER-LI-ZHANG-22",
+          "items": [
+            "PAPER-LI-ZHANG-22/3"
+          ]
+        },
+        {
+          "paper": "PAPER-MAULIK-SHANKAR-TANG-22",
+          "items": [
+            "PAPER-MAULIK-SHANKAR-TANG-22/41"
+          ]
+        },
+        {
+          "paper": "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22",
+          "items": [
+            "PAPER-SHANKAR-SHANKAR-TANG-ETAL-22/40"
+          ]
+        }
+      ],
+      "owners": [
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.2"
+      ],
+      "dependsOn": [
+        "tauceti:TauCetiRoadmap/QuadraticFormInvariants#layer-6-forms-over-a-nonarchimedean-local-field"
+      ],
+      "size": "L",
+      "api": [
+        {
+          "kind": "example",
+          "statement": "For odd residue characteristic and L=O with B(x,y)=pi xy, the B-dual is pi^(-1)O, its quotient by L is O/pi O, and the elementary-divisor tuple is (1)."
+        },
+        {
+          "kind": "example",
+          "statement": "For q(x,y)=xy on Z_2^2, the polar Gram matrix is [[0,1],[1,0]], so the polar dual equals the original lattice and its discriminant module is zero."
+        },
+        {
+          "kind": "counterexample",
+          "statement": "The preceding unimodular Z_2 lattice has b_q(v,v) even for every vector. Thus it has no orthogonal basis with unit diagonal entries, although its Gram determinant is a unit; diagonal rank-one Jordan blocks do not cover the dyadic case."
+        },
+        {
+          "kind": "theorem",
+          "statement": "For a full lattice and a nondegenerate integral symmetric bilinear form over O, taking the bilinear dual twice returns the lattice; an isometry transports the dual and its finite discriminant module."
+        },
+        {
+          "kind": "theorem",
+          "statement": "When 2 is a unit, integral symmetric bilinear lattices admit an orthogonal Jordan decomposition, and the ordered elementary-divisor valuations of the dual quotient are independent of the chosen adapted basis."
+        },
+        {
+          "kind": "compatibility",
+          "statement": "For q(x)=B(x,x), b_q=2B. If 2 is a unit then the B-dual and polar dual coincide; this equality must not be asserted over Z_2."
+        }
+      ]
+    },
+    {
+      "id": "algebraicnt/local-siegel-series",
+      "name": "Normalized local Siegel series",
+      "short": "Normalized local Siegel series",
+      "define": "Attach to an integral hermitian lattice a polynomial interpolating normalized representation densities after adding standard split summands to the target. Record the extension, reference lattice, rank, sign, interpolation variable and normalization as data. For Li-Zhang's unramified self-dual reference convention Den((-q)^(-k),L) is the density ratio in Definition 3.2.1 and the central derivative is -dDen/dX at X=1. Treat the ramified Li-Liu and He-Li-Shi variables and derivative factors separately, including relative series Den_Lambda; prove conversion identities only with their hypotheses.",
+      "library": {
+        "has": [
+          "mathlib:LinearMap.isSymm_iff_isHermitian_toMatrix",
+          "mathlib:Submodule.IsLattice"
+        ],
+        "missing": "The polynomial and form primitives are available, but the density interpolation theorem, normalized Siegel polynomial, valuation parity, functional equation and central-derivative conventions are missing. This entry is the interpolating object, not the raw limiting count."
+      },
+      "papers": [
+        {
+          "paper": "PAPER-FENG-YUN-ZHANG-24",
+          "items": [
+            "PAPER-FENG-YUN-ZHANG-24/4"
+          ]
+        },
+        {
+          "paper": "PAPER-HE-LI-SHI-ETAL-23",
+          "items": [
+            "PAPER-HE-LI-SHI-ETAL-23/22"
+          ]
+        },
+        {
+          "paper": "PAPER-LI-LIU-22",
+          "items": [
+            "PAPER-LI-LIU-22/40"
+          ]
+        },
+        {
+          "paper": "PAPER-LI-ZHANG-22-B",
+          "items": [
+            "PAPER-LI-ZHANG-22-B/4",
+            "PAPER-LI-ZHANG-22-B/19"
+          ]
+        }
+      ],
+      "owners": [
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.3"
+      ],
+      "dependsOn": [
+        "algebraicnt/local-representation-densities"
+      ],
+      "size": "L",
+      "api": [
+        {
+          "kind": "example",
+          "statement": "For a self-dual lattice in the unramified normalization, Den(X,L)=1; its value at 1 is 1 and its central derivative is 0."
+        },
+        {
+          "kind": "example",
+          "statement": "For the rank-one unramified integral lattice of valuation 1, Den(X,L)=1-X, Den(1,L)=0, and -Den prime(1,L)=1."
+        },
+        {
+          "kind": "example",
+          "statement": "For rank one and valuation 3, Den(X,L)=1-X+X^2-X^3 and the central derivative is 2. These values use the unramified variable X=(-q)^(-k)."
+        },
+        {
+          "kind": "counterexample",
+          "statement": "At q=3 a self-dual hermitian line has raw self-density 4/3 but normalized Siegel polynomial 1. Identifying the polynomial value with the unnormalized density fails even in rank one."
+        },
+        {
+          "kind": "theorem",
+          "statement": "In Li-Zhang unramified normalization, Den(X,L)=(-X)^val(L) Den(1/X,L); odd valuation implies Den(1,L)=0, and adding a unimodular orthogonal summand preserves the polynomial."
+        },
+        {
+          "kind": "compatibility",
+          "statement": "The ramified He-Li-Shi central derivative uses -2 times the derivative in its q^(-2k) variable. A comparison with a convention using -d/dX must include this factor and the reference-density denominator."
+        }
+      ]
+    },
+    {
+      "id": "algebraicnt/kato-tate-coefficients",
+      "name": "Kato torsion Tate coefficient complexes",
+      "short": "Kato torsion Tate coefficient complexes",
+      "define": "For a field K, integer j>=0 and positive torsion modulus n, define the etale coefficient complex Z/n(j). For n invertible in K it is mu_n tensor-power j in degree zero; for n=p^r in characteristic p use W_r Omega^j_log[-j], with cohomological shift, and assemble coprime factors. Define H^i(K,Z/n(j)) as hypercohomology, its transition maps, products and restriction/corestriction. In particular the notation H^q_n(K) means H^q(K,Z/n(q-1)). The logarithmic de Rham-Witt complex is an imported crystalline prerequisite, not a second construction here.",
+      "library": {
+        "has": [
+          "tauceti:TauCeti.KummerCoeff",
+          "mathlib:WittVector",
+          "mathlib:HomologicalComplex"
+        ],
+        "missing": "The discrete roots-of-unity Kummer coefficient and ordinary Witt vectors exist; WittVector does not include differential forms or the logarithmic de Rham-Witt sheaf. Missing are the shifted wild coefficient complex, its prime-to-characteristic comparison, assembly and Kato cohomology interfaces."
+      },
+      "papers": [
+        {
+          "paper": "PAPER-BRIGHT-NEWTON-23",
+          "items": [
+            "PAPER-BRIGHT-NEWTON-23/17"
+          ]
+        },
+        {
+          "paper": "PAPER-DITTMANN-POP-23",
+          "items": [
+            "PAPER-DITTMANN-POP-23/kato-coefficients",
+            "PAPER-DITTMANN-POP-23/kato-cohomology",
+            "PAPER-DITTMANN-POP-23/cohomology-restriction"
+          ]
+        },
+        {
+          "paper": "PAPER-JANNSEN-16",
+          "items": [
+            "PAPER-JANNSEN-16/1"
+          ]
+        }
+      ],
+      "owners": [
+        "HigherLocalFieldsAndHigherClassFieldTheory:HL.2"
+      ],
+      "dependsOn": [
+        "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-9-the-galois-interface-hilbert-90-and-kummer-theory"
+      ],
+      "size": "XL",
+      "api": [
+        {
+          "kind": "example",
+          "statement": "For K=F_p and j=0, H^1(K,Z/p(0)) is Z/p, with the degree-one class given by the Artin-Schreier extension and arithmetic Frobenius generator."
+        },
+        {
+          "kind": "example",
+          "statement": "For K=F_p(t), H^1(K,Z/p(1)) is K^times/(K^times)^p; the class of t is nonzero since its t-adic valuation is 1."
+        },
+        {
+          "kind": "counterexample",
+          "statement": "In characteristic p the discrete group mu_p(K^sep) is trivial. Replacing Z/p(1) by that group in degree zero would make the preceding nonzero class of t vanish."
+        },
+        {
+          "kind": "theorem",
+          "statement": "For n invertible in K, compare the coefficient complex to the ordinary Kummer Tate twist, compatibly with restriction, corestriction and cup products in Galois cohomology."
+        },
+        {
+          "kind": "theorem",
+          "statement": "For every field K and positive n, the Kummer comparison in this extended convention gives H^2(K,Z/n(1)) isomorphic to Br(K)[n], including the characteristic-p part."
+        },
+        {
+          "kind": "compatibility",
+          "statement": "For the wild complex W_r Omega^j_log[-j], H^i equals H^(i-j) of the logarithmic sheaf. Hence Dittmann-Pop H^(i+1)(K,Z/2(i)) has logarithmic-sheaf cohomological degree one, not degree 2i+1."
+        }
+      ]
+    },
+    {
+      "id": "algebraicnt/adelic-zero-cycle-complex",
+      "name": "Modified adelic zero-cycle complex",
+      "short": "Modified adelic zero-cycle complex",
+      "define": "For a smooth proper geometrically integral variety X over a number field k, form the product of CH_0(X_v) at finite places and coker(Norm:CH_0(X_bar(k_v))->CH_0(X_v)) at archimedean places. Complete abelian groups by A^hat=lim_n A/nA with divisibility transition maps, without assuming A/nA finite. Construct the diagonal map from CH_0(X)^hat and the sum of local Brauer evaluations into Hom(Br(X),Q/Z), proving it is a complex. Its middle exactness is property (E), a conjecture in general; the definition does not include exactness as an axiom.",
+      "library": {
+        "has": [
+          "mathlib:CategoryTheory.Limits.limit",
+          "tauceti:TauCeti.BrauerGroup.baseChange"
+        ],
+        "missing": "Ordinary inverse limits and field Brauer base change exist. Scheme Chow groups modulo rational equivalence, norm-corrected archimedean factors, their completed adelic pairing and the complex are not supplied by field Brauer groups or adelic points. The proposed ZeroCycles Part II has no actual stages yet."
+      },
+      "papers": [
+        {
+          "paper": "PAPER-HARPAZ-WITTENBERG-16",
+          "items": [
+            "PAPER-HARPAZ-WITTENBERG-16/4",
+            "PAPER-HARPAZ-WITTENBERG-16/6"
+          ]
+        },
+        {
+          "paper": "PAPER-HARPAZ-WITTENBERG-20",
+          "items": [
+            "PAPER-HARPAZ-WITTENBERG-20/24",
+            "PAPER-HARPAZ-WITTENBERG-20/26",
+            "PAPER-HARPAZ-WITTENBERG-20/27",
+            "PAPER-HARPAZ-WITTENBERG-20/113",
+            "PAPER-HARPAZ-WITTENBERG-20/120"
+          ]
+        }
+      ],
+      "owners": [],
+      "dependsOn": [],
+      "size": "XL",
+      "api": [
+        {
+          "kind": "example",
+          "statement": "For X=P^1 over a complex local field, CH_0(X)=Z and the archimedean norm map is the identity, so the modified local factor is 0."
+        },
+        {
+          "kind": "example",
+          "statement": "For X=P^1 over R, CH_0(X)=Z and the norm from C multiplies degree by 2, so the modified local factor is Z/2. At a finite place the unmodified factor is Z."
+        },
+        {
+          "kind": "counterexample",
+          "statement": "Using the unmodified CH_0(P^1_C)=Z at a complex place would introduce a nonzero factor where the Brauer-Manin zero-cycle complex requires 0; the norm quotient cannot be omitted."
+        },
+        {
+          "kind": "theorem",
+          "statement": "Evaluation of a Brauer class on a zero-cycle is invariant under rational equivalence; for a global zero-cycle the sum of local invariant evaluations is zero by reciprocity, so the two displayed maps compose to zero."
+        },
+        {
+          "kind": "theorem",
+          "statement": "For a proper morphism of smooth proper varieties, zero-cycle pushforward and Brauer pullback satisfy the projection formula, compatibly with the real-place norm quotient and completion."
+        },
+        {
+          "kind": "compatibility",
+          "statement": "For a fixed Brauer class of order n, evaluation factors through local cycles modulo n and has finite support outside a suitable integral model. This defines the pairing on the completed adelic group without assuming each Chow quotient finite."
+        }
+      ]
+    },
+    {
+      "id": "algebraicnt/binary-genus-characters",
+      "name": "Generalized genus characters of binary quadratic forms",
+      "short": "Generalized genus characters of binary quadratic forms",
+      "define": "For a fundamental discriminant Delta and integral binary quadratic forms Q=[a,b,c] of discriminant D with Delta dividing D and D/Delta a discriminant, define the generalized character chi_Delta(Q) in {0,+1,-1}. It is zero when gcd(a,b,c,Delta)>1; otherwise evaluate the Kronecker symbol (Delta/n) at an integer n prime to Delta represented by Q and prove independence. Include the local Hilbert-symbol test functions of Bruinier-Ehlen-Yang with their support on the stated dual lattice. Forms may be imprimitive away from Delta. Ordinary ideal-class genus characters are an upstream input, not the object being replanned.",
+      "library": {
+        "has": [
+          "tauceti:TauCeti.Multiquadratic.genusCharFun"
+        ],
+        "missing": "Tau Ceti has products of prime-discriminant characters and quadratic ideal-class genus theory. Missing is the zero-extended function on arbitrary-discriminant, possibly imprimitive binary forms and its local dual-lattice/Hilbert-symbol realization, including dyadic support and conjugation rules."
+      },
+      "papers": [
+        {
+          "paper": "PAPER-BRUINIER-EHLEN-YANG-21",
+          "items": [
+            "PAPER-BRUINIER-EHLEN-YANG-21/11"
+          ]
+        },
+        {
+          "paper": "PAPER-DUKE-IMAMOGLU-TOTH-16",
+          "items": [
+            "PAPER-DUKE-IMAMOGLU-TOTH-16/101"
+          ]
+        }
+      ],
+      "owners": [
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.2"
+      ],
+      "dependsOn": [
+        "tauceti:TauCetiRoadmap/Multiquadratic#layer-3-the-genus-field-and-the-2-rank-theorem-the-summit",
+        "tauceti:TauCetiRoadmap/QuadraticFormInvariants#6c-the-hilbert-symbol-and-the-local-hasse-invariant"
+      ],
+      "size": "L",
+      "api": [
+        {
+          "kind": "example",
+          "statement": "For Delta=5, Q=[1,0,-5] has discriminant 20 and represents 1, so chi_5(Q)=1."
+        },
+        {
+          "kind": "example",
+          "statement": "For Delta=5, Q=[2,2,-2] also has discriminant 20; it represents 2, and chi_5(Q)=(5/2)=-1, although its content is 2."
+        },
+        {
+          "kind": "counterexample",
+          "statement": "Q=[5,0,-10] has discriminant 200=5 times 40, but gcd(5,0,-10,5)=5, so chi_5(Q)=0. A character restricted to units or to values plus/minus one misses this supported-zero case."
+        },
+        {
+          "kind": "counterexample",
+          "statement": "Requiring Q to be primitive would exclude [2,2,-2] and incorrectly discard its nonzero character; primitivity is required only at primes dividing Delta."
+        },
+        {
+          "kind": "theorem",
+          "statement": "Under the discriminant and coprimality conditions, the Kronecker value is independent of the represented integer and is invariant under proper integral equivalence of binary forms."
+        },
+        {
+          "kind": "compatibility",
+          "statement": "For the local realization on the dual lattice, conjugation by g in GL_2(Z_p) changes chi_(Delta,p) by the Hilbert symbol (det(g),Delta)_p, as in Bruinier-Ehlen-Yang Lemma 7.3; invariance without this factor is not the asserted formula."
+        }
+      ]
+    },
+    {
+      "id": "algebraicnt/classical-grothendieck-witt",
+      "name": "Classical Grothendieck–Witt and symplectic K-theory",
+      "short": "Classical Grothendieck–Witt and symplectic K-theory",
+      "define": "For a ring with involution and a specified duality, form the symmetric monoidal groupoid of nondegenerate forms on finite projective modules and take its E_infinity group completion to obtain the connective classical Grothendieck-Witt space/spectrum. Keep symmetric, quadratic and even/alternating sign conventions as separate inputs. Symplectic K-theory of Z is the group completion of perfect alternating forms on finite free Z-modules. Retain higher homotopy groups, finite-coefficient spectra, hyperbolic and forgetful maps; it is neither ordinary K_0 nor the Witt quotient.",
+      "library": {
+        "has": [
+          "tauceti:TauCeti.ExactK0",
+          "mathlib:LinearMap.BilinForm.IsAlt"
+        ],
+        "missing": "Ordinary exact-category K_0 and the alternating bilinear predicate exist. The forms groupoid with duality, E_infinity group completion, higher classical GW/KSp spectrum and its hyperbolic/forgetful comparison are absent. Ordinary conflation relations do not construct the required spectrum."
+      },
+      "papers": [
+        {
+          "paper": "PAPER-CALMES-ETAL-26",
+          "items": [
+            "PAPER-CALMES-ETAL-26/2",
+            "PAPER-CALMES-ETAL-26/111"
+          ]
+        },
+        {
+          "paper": "PAPER-FENG-GALATIUS-VENKATESH-22",
+          "items": [
+            "PAPER-FENG-GALATIUS-VENKATESH-22/8",
+            "PAPER-FENG-GALATIUS-VENKATESH-22/52"
+          ]
+        }
+      ],
+      "owners": [
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.6"
+      ],
+      "dependsOn": [],
+      "size": "XL",
+      "api": [
+        {
+          "kind": "example",
+          "statement": "KSp_0(Z) is Z, measured by half the underlying rank; the standard alternating plane [[0,1],[-1,0]] represents 1 and forgets to 2 in K_0(Z)."
+        },
+        {
+          "kind": "example",
+          "statement": "GW^s_0(R) is Z direct-sum Z with coordinates the positive and negative indices; the hyperbolic plane is (1,1), while its image in the Witt group W(R)=Z is zero."
+        },
+        {
+          "kind": "counterexample",
+          "statement": "Over F_2, the rank-one form b(x,y)=xy satisfies b(x,y)=-b(y,x) but b(1,1)=1. It is skew-symmetric and nondegenerate but not alternating, so must not define an object of the symplectic forms groupoid."
+        },
+        {
+          "kind": "theorem",
+          "statement": "Orthogonal direct sum induces addition after group completion, and the forgetful map to algebraic K-theory takes the class of a nondegenerate form to its underlying projective module."
+        },
+        {
+          "kind": "theorem",
+          "statement": "On K_0, the composite of the hyperbolic map with the forgetful map sends [P] to [P]+[P^dual]; it equals twice [P] only when the dual has the same K_0 class."
+        },
+        {
+          "kind": "compatibility",
+          "statement": "The symplectic groupoid model over Z agrees with the Feng-Galatius-Venkatesh Gamma-space model, including its higher homotopy groups. Calmes et al. identify the shifted [2] theory with negative-even, hence alternating, forms; in characteristic two it is not merely negative-symmetric forms."
+        }
+      ]
+    },
+    {
+      "id": "algebraicnt/continuous-etale-cohomology",
+      "name": "Continuous étale cohomology of adic sheaves",
+      "short": "Continuous étale cohomology of adic sheaves",
+      "define": "For a scheme X and an inverse system F_n of etale Z/ell^n-sheaves, define continuous cohomology by the right derived functor of lim_n Gamma(X,F_n) on the category of systems, equivalently the derived-limit/global-sections comparison under its verified hypotheses. Keep derived inverse limits of sheaves distinct from termwise products of sheaves. Include bounded-below systems, equivariant sheaves and the rational realization C_L=(Rlim C_n) tensor L of Disegni-Liu §A.2. Ordinary finite-coefficient etale cohomology is an imported prerequisite, and rational comparisons require the admissibility conditions stated there.",
+      "library": {
+        "has": [
+          "mathlib:continuousCohomology",
+          "mathlib:CategoryTheory.Limits.limit",
+          "mathlib:HomologicalComplex"
+        ],
+        "missing": "The cited continuousCohomology is continuous group cohomology of a TopRep, not etale cohomology of an inverse system of sheaves. Missing are the system category, derived global sections/inverse-limit comparison, equivariant adic realization and Milnor/continuous Hochschild-Serre interfaces."
+      },
+      "papers": [
+        {
+          "paper": "PAPER-DISEGNI-LIU-24",
+          "items": [
+            "PAPER-DISEGNI-LIU-24/43"
+          ]
+        },
+        {
+          "paper": "PAPER-LIU-ETAL-22",
+          "items": [
+            "PAPER-LIU-ETAL-22/conv-coefficient-ring"
+          ]
+        }
+      ],
+      "owners": [
+        "ArithmeticGaloisDuality:D7"
+      ],
+      "dependsOn": [
+        "algebraicnt/sequential-derived-limits",
+        "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees"
+      ],
+      "size": "XL",
+      "api": [
+        {
+          "kind": "example",
+          "statement": "For X=Spec of an algebraically closed field of characteristic different from ell and the constant system Z/ell^n, H^0_cont(X,Z_ell)=Z_ell and H^i_cont=0 for i>0."
+        },
+        {
+          "kind": "example",
+          "statement": "For X=Spec(F_q), ell not dividing q and constant coefficients Z_ell, H^0_cont and H^1_cont are Z_ell, and the higher cohomology groups vanish."
+        },
+        {
+          "kind": "example",
+          "statement": "For X=Spec(F_7) and the Tate twist Z_3(1), arithmetic Frobenius acts by 7; H^0_cont=0 and H^1_cont=Z_3/(7-1)=Z/3."
+        },
+        {
+          "kind": "counterexample",
+          "statement": "If Z_ell is given the discrete topology with trivial action, every continuous homomorphism from the profinite group hat(Z) to Z_ell is zero. This gives H^1=0, unlike continuous adic cohomology H^1(F_q,Z_ell)=Z_ell."
+        },
+        {
+          "kind": "theorem",
+          "statement": "For a countable system in the continuous-cohomology comparison, 0 -> lim^1 H^(i-1)(X,F_n) -> H^i_cont(X,F_n) -> lim H^i(X,F_n) -> 0 is exact; a Mittag-Leffler hypothesis suffices to remove the left term."
+        },
+        {
+          "kind": "compatibility",
+          "statement": "Under Disegni-Liu Definition A.3, finite-level cohomology is discrete and each lim^1 has finite exponent; after rationalizing, obtain H^q(X,C_L)=(lim H^q(X,C_n)) tensor L and the continuous equivariant spectral sequence of Lemma A.4. Do not assert this without admissibility."
+        }
+      ]
+    },
+    {
+      "id": "algebraicnt/kato-complexes",
+      "name": "Kato complexes",
+      "short": "Kato complexes",
+      "define": "For a finite-type scheme X with a dimension function and integers r,s>=0, define the homological Kato complex C^{r,s}(X,Z/n): its degree a term is the direct sum over points of dimension a of H^(r+a)(kappa(x),Z/n(s+a)). A differential is the sum of residue maps on the normalization of each codimension-one specialization followed by residue-field corestriction. Construct finite support and prove d squared zero through the coniveau E_1 complex. First implement n invertible on X; wild coefficients require the precise p-dimension and geometric hypotheses of Jannsen §4 or Dittmann-Pop §2, not unrestricted residue maps.",
+      "library": {
+        "has": [
+          "mathlib:HomologicalComplex",
+          "tauceti:TauCeti.KummerCoeff"
+        ],
+        "missing": "Complexes and tame coefficients exist. Missing are the dimension-indexed direct sums, normalization-branch residues with corestriction, finite support, d squared zero, and proper/open functoriality. Merely listing valuation residue homomorphisms does not supply a Kato complex."
+      },
+      "papers": [
+        {
+          "paper": "PAPER-DITTMANN-POP-23",
+          "items": [
+            "PAPER-DITTMANN-POP-23/cohomology-residue",
+            "PAPER-DITTMANN-POP-23/kato-complex"
+          ]
+        },
+        {
+          "paper": "PAPER-JANNSEN-16",
+          "items": [
+            "PAPER-JANNSEN-16/8"
+          ]
+        }
+      ],
+      "owners": [
+        "HigherLocalFieldsAndHigherClassFieldTheory:HL.6"
+      ],
+      "dependsOn": [
+        "algebraicnt/kato-tate-coefficients"
+      ],
+      "size": "XL",
+      "api": [
+        {
+          "kind": "example",
+          "statement": "For X=Spec(F_q), n prime to q, C^{1,0}(X,Z/n) has only its degree-zero term H^1(F_q,Z/n)=Z/n, so its differential is zero."
+        },
+        {
+          "kind": "example",
+          "statement": "For X=P^1 over F_q and n prime to q, in C^{0,0} the Kummer class of t in degree one has residues 1 at t=0, -1 at infinity, and 0 at every other closed point."
+        },
+        {
+          "kind": "counterexample",
+          "statement": "Dropping the infinity term in the preceding projective-line example gives total degree 1 instead of 0 modulo n (take n>1). Thus a residue formula on an affine chart cannot be substituted into proper reciprocity."
+        },
+        {
+          "kind": "theorem",
+          "statement": "For torsion invertible on X in the coniveau construction, the sum of specialization residues has finite support and the composite of two successive differentials is zero."
+        },
+        {
+          "kind": "theorem",
+          "statement": "Proper pushforward, defined using residue-field corestriction and the dimension convention, commutes with the differential; restriction to an open subscheme gives the compatible localization complex."
+        },
+        {
+          "kind": "compatibility",
+          "statement": "For a d-dimensional regular scheme in Dittmann-Pop notation, the top term of C^{1,0} is H^(d+1)(k(X),Z/n(d)). This checks dimension indexing; substituting codimension without reversing degrees gives the wrong group."
+        }
+      ]
+    },
+    {
+      "id": "algebraicnt/minkowski-reduced-bases",
+      "name": "Minkowski-reduced bases",
+      "short": "Minkowski-reduced bases",
+      "define": "For a positive definite Euclidean lattice, a Minkowski-reduced ordered Z-basis is selected by minimizing the norm of b_i among vectors that extend the already chosen prefix to an integral basis. Formalize the primitive-prefix/extendibility condition, ties, isometry transport, and a finite verification certificate appropriate to the rank. Distinguish this exact reduction from a merely short independent family, LLL reduction, and the relaxed 3/2-short basis starting with 1 in the class-group-torsion paper.",
+      "library": {
+        "has": [
+          "mathlib:IsZLattice",
+          "mathlib:ZLattice.covolume"
+        ],
+        "missing": "Z-lattices and covolume are available, but the successive shortest extendible-basis predicate with existence and finite rank-dependent verification is absent. Independent real vectors and a small determinant estimate are insufficient to construct a Z-basis."
+      },
+      "papers": [
+        {
+          "paper": "PAPER-BHARGAVA-SHANKAR-WANG-22",
+          "items": [
+            "PAPER-BHARGAVA-SHANKAR-WANG-22/73"
+          ]
+        },
+        {
+          "paper": "PAPER-BHARGAVA-SHANKAR-WANG-25",
+          "items": [
+            "PAPER-BHARGAVA-SHANKAR-WANG-25/70",
+            "PAPER-BHARGAVA-SHANKAR-WANG-25/71"
+          ]
+        }
+      ],
+      "owners": [
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.3"
+      ],
+      "dependsOn": [
+        "algebraicnt/successive-minima"
+      ],
+      "size": "L",
+      "api": [
+        {
+          "kind": "example",
+          "statement": "In 2Z e_1 direct-sum 3Z e_2 with the Euclidean norm, the ordered basis (2e_1,3e_2) is Minkowski-reduced and has squared lengths (4,9)."
+        },
+        {
+          "kind": "example",
+          "statement": "For Z^2, both (e_1,e_2) and (e_2,e_1) are reduced bases, with ordered squared lengths (1,1); ties prevent unconditional uniqueness."
+        },
+        {
+          "kind": "counterexample",
+          "statement": "The basis (e_1,e_1+e_2) of Euclidean Z^2 is not Minkowski-reduced, since e_2 completes the same prefix and has norm 1 rather than sqrt(2)."
+        },
+        {
+          "kind": "counterexample",
+          "statement": "The single vector (2,0) in Z^2 is linearly independent but cannot extend to an integral basis: every determinant containing it is even. A real independence test cannot replace primitive-prefix extendibility."
+        },
+        {
+          "kind": "theorem",
+          "statement": "Every positive definite Euclidean lattice admits a Minkowski-reduced basis, by attainment of the shortest norm in each nonempty set of vectors extending a primitive prefix."
+        },
+        {
+          "kind": "compatibility",
+          "statement": "An isometry carrying one lattice onto another carries its reduced ordered bases onto reduced ordered bases, preserving every squared length and the integral extendibility condition."
+        }
+      ]
+    },
+    {
+      "id": "algebraicnt/outer-galois-stabilizers",
+      "name": "Geometric stabilizers with outer Galois action",
+      "short": "Geometric stabilizers with outer Galois action",
+      "define": "For a homogeneous space X under an algebraic group G over a characteristic-zero field k, choose a geometric point x with finite stabilizer H. Construct the extension 1->H->G_x->Gamma_k->1 where G_x consists of pairs (g,sigma) with g sigma(x)=x, and its continuous outer action Gamma_k->Out(H). Identify changes of geometric basepoint up to inner automorphism. Define outer-stable normal filtrations with cyclic quotients (outer supersolvability), the induced honest action on H^ab, and descent of these data. Do not replace this with an arbitrarily chosen honest action on H.",
+      "library": {
+        "has": [
+          "mathlib:MulAut.conj",
+          "mathlib:Abelianization.of"
+        ],
+        "missing": "Inner conjugation and abelianization exist. The finite geometric-stabilizer extension, continuous outer action, basepoint transport and outer-stable cyclic filtration API were not found. The proposed HomogeneousMassey Part II has no actual owner stages yet."
+      },
+      "papers": [
+        {
+          "paper": "PAPER-HARPAZ-WITTENBERG-20",
+          "items": [
+            "PAPER-HARPAZ-WITTENBERG-20/8",
+            "PAPER-HARPAZ-WITTENBERG-20/9",
+            "PAPER-HARPAZ-WITTENBERG-20/99"
+          ]
+        },
+        {
+          "paper": "PAPER-HARPAZ-WITTENBERG-23",
+          "items": [
+            "PAPER-HARPAZ-WITTENBERG-23/33",
+            "PAPER-HARPAZ-WITTENBERG-23/34",
+            "PAPER-HARPAZ-WITTENBERG-23/43",
+            "PAPER-HARPAZ-WITTENBERG-23/54"
+          ]
+        }
+      ],
+      "owners": [],
+      "dependsOn": [],
+      "size": "XL",
+      "api": [
+        {
+          "kind": "example",
+          "statement": "For the trivial Galois action on H=C_2, the filtration 1 subset C_2 has a cyclic quotient and witnesses outer supersolvability; H^ab with its induced action is the same constant C_2."
+        },
+        {
+          "kind": "example",
+          "statement": "For SL_2 acting transitively on PGL_2 over a characteristic-zero field, the stabilizer of the identity is the central subgroup {plus/minus 1}; the induced outer Galois action is trivial."
+        },
+        {
+          "kind": "counterexample",
+          "statement": "Let H=C_2 direct-sum C_2 and let a cyclic group of order 3 permute its three nonzero elements. H is abstractly supersolvable, but has no invariant subgroup of order 2, so this outer action has no stable cyclic-quotient filtration."
+        },
+        {
+          "kind": "theorem",
+          "statement": "Conjugation in the extension defines an outer action independent of the lift of sigma. Inner automorphisms act trivially on H^ab, so it induces an honest continuous Galois action on H^ab."
+        },
+        {
+          "kind": "theorem",
+          "statement": "If x prime=r x, basepoint transport carries (g,sigma) to (r g sigma(r)^(-1),sigma), identifies the two extension kernels, and preserves outer supersolvability."
+        },
+        {
+          "kind": "compatibility",
+          "statement": "A rational basepoint supplies the natural semidirect description using its k-defined stabilizer. Without a chosen splitting, the canonical datum is the extension and outer action, not a canonical homomorphism Gamma_k->Aut(H)."
+        }
+      ]
+    }
+  ],
+  "elsewhere": [
+    {
+      "name": "Selmer local conditions, dual Selmer groups and their mapping fibres",
+      "items": [
+        "PAPER-ALLEN-ETAL-23/207",
+        "PAPER-ALLEN-ETAL-23/208",
+        "PAPER-ALLEN-ETAL-23/209",
+        "PAPER-CALEGARI-GERAGHTY-18/selmer-group-H1-Q",
+        "PAPER-CALEGARI-GERAGHTY-18/selmer-dual-selmer-HQ1",
+        "PAPER-CALEGARI-GERAGHTY-18/gl1-selmer-groups",
+        "PAPER-CALEGARI-GERAGHTY-18/selmer-group-LQ-T",
+        "PAPER-CALEGARI-GERAGHTY-18/dual-selmer-group-LQperp-T",
+        "PAPER-CALEGARI-GERAGHTY-20/selmer-group-H1-Q-ad0",
+        "PAPER-VENKATESH-19/47"
+      ],
+      "owner": "SelmerIwasawaCohomology:L2"
+    },
+    {
+      "name": "The finite local condition at the coefficient prime",
+      "items": [
+        "PAPER-CALEGARI-GERAGHTY-18/Hf1-local-condition"
+      ],
+      "owner": "SelmerIwasawaCohomology:L4"
+    },
+    {
+      "name": "Continuous group-cohomology carrier and explicit low-degree cocycles",
+      "items": [
+        "PAPER-CADORET-HUI-TAMAGAWA-17/101",
+        "PAPER-CADORET-HUI-TAMAGAWA-17/147",
+        "PAPER-CADORET-HUI-TAMAGAWA-17/150",
+        "PAPER-HARPAZ-WITTENBERG-23/141",
+        "PAPER-KALETHA-16/P24",
+        "PAPER-HARPAZ-WITTENBERG-23/9",
+        "PAPER-HARPAZ-WITTENBERG-23/82",
+        "PAPER-HARPAZ-WITTENBERG-23/110"
+      ],
+      "owner": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-2-the-explicit-low-degree-complex-and-its-functoriality"
+    },
+    {
+      "name": "Cup products on the canonical continuous cohomology carrier",
+      "items": [
+        "PAPER-KALETHA-16/D14",
+        "PAPER-VENKATESH-19/61"
+      ],
+      "owner": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-12-the-graded-cup-product-in-all-degrees"
+    },
+    {
+      "name": "Continuous cohomology limit/descent comparisons on the existing carrier",
+      "items": [
+        "PAPER-BURUNGALE-KOBAYASHI-OTA-21/continuous-cohomology"
+      ],
+      "owner": "ArithmeticGaloisDuality:R02.1"
+    },
+    {
+      "name": "Discrete Kummer twists, restriction, and cup-corestriction specializations",
+      "items": [
+        "PAPER-KOYMANS-PAGANO/81",
+        "PAPER-KHAYUTIN-19/116",
+        "PAPER-MERKURJEV-SCAVIA-26/38",
+        "PAPER-MERKURJEV-SCAVIA-26/40",
+        "PAPER-MERKURJEV-SCAVIA-26/50",
+        "PAPER-MERKURJEV-SCAVIA-26/73"
+      ],
+      "owner": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-9-the-galois-interface-hilbert-90-and-kummer-theory"
+    },
+    {
+      "name": "Euclidean lattice carriers, intrinsic covolume and elementary lattice constructions",
+      "items": [
+        "PAPER-COUVEIGNES-20/relation-lattice",
+        "PAPER-COUVEIGNES-20/dual-image",
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/kernel",
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/congruence",
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/lattice",
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/covolume",
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/projection-quotient",
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/primitive-lattice",
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/orthogonal-lattice",
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/dual",
+        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/minor-gcd"
+      ],
+      "owner": "GeometryOfNumbersAndQuadraticArithmetic:GN.0"
+    },
+    {
+      "name": "Existing integral symmetric lattice carrier and discriminant-module embedding data",
+      "items": [
+        "PAPER-CHARLES-16/36",
+        "PAPER-CHARLES-16/nikulin-embedding-data",
+        "PAPER-CHENEVIER-TAIBI-20/even-unimodular-classes"
+      ],
+      "owner": "tauceti:Completed/IntegralLattices#layer-2-duality-and-the-finite-discriminant-group"
+    },
+    {
+      "name": "Siegel theta series as a specialization of the common theta kernel",
+      "items": [
+        "PAPER-CHENEVIER-TAIBI-20/siegel-theta-series"
+      ],
+      "owner": "MetaplecticAutomorphicForms:MP.5"
+    },
+    {
+      "name": "Tori and groups of multiplicative type, with permutation character modules",
+      "items": [
+        "PAPER-KHAYUTIN-19/47",
+        "PAPER-HARPAZ-WITTENBERG-20/6"
+      ],
+      "owner": "tauceti:TauCetiRoadmap/ReductiveGroups#layer-4-jordan-decomposition-diagonalizable-groups-tori"
+    },
+    {
+      "name": "Multiplicative-type torsors, their types and universal-torsor descent",
+      "items": [
+        "PAPER-HARPAZ-WITTENBERG-20/53",
+        "PAPER-HARPAZ-WITTENBERG-20/54",
+        "PAPER-HARPAZ-WITTENBERG-20/56",
+        "PAPER-HARPAZ-WITTENBERG-20/83"
+      ],
+      "owner": "HeightsRationalPointsAndObstructions:RP.3"
+    }
+  ],
+  "reserve": [
+    {
+      "name": "Completion A^hat = lim_n A/nA and induced completed valuations",
+      "items": [
+        "PAPER-BRESCIANI-24/18",
+        "PAPER-BRESCIANI-24/49"
+      ],
+      "reason": "Criterion 2: the ordinary completion and induced map are direct uses of the existing inverse-limit and quotient constructions. The same completion occurs in HW16/4 and HW20/26 (cited in the zero-cycle entry), so it does not fail the two-paper test. A/nA need not be finite; this is not automatically a profinite topological group. Derived inverse limits are a separate nontrivial entry."
+    },
+    {
+      "name": "Admissible Gamma-groups and random-group measures",
+      "items": [
+        "PAPER-LIU-WOOD-ZUREICKBROWN-24/1",
+        "PAPER-LIU-WOOD-ZUREICKBROWN-24/8",
+        "PAPER-LIU-WOOD-ZUREICKBROWN-24/11",
+        "PAPER-LIU-WOOD-ZUREICKBROWN-24/15",
+        "PAPER-LIU-WOOD-ZUREICKBROWN-24/17",
+        "PAPER-LIU-WOOD-ZUREICKBROWN-24/21"
+      ],
+      "reason": "Criterion 3: the full-catalogue searches found these admissibility, Property E, free admissible group and probability-measure constructions only in Liu-Wood-Zureick-Brown. They deserve the proposed RandomGammaGroups Part II but have no second catalogue-paper instance for this survey."
+    },
+    {
+      "name": "Random-polynomial discrepancy and partition-law package",
+      "items": [
+        "PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23/1",
+        "PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23/2",
+        "PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23/4",
+        "PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23/5",
+        "PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23/6",
+        "PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23/7",
+        "PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23/9",
+        "PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23/10",
+        "PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23/11",
+        "PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23/12",
+        "PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23/16",
+        "PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23/77",
+        "PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23/78",
+        "PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23/79",
+        "PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23/80",
+        "PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23/90",
+        "PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23/124",
+        "PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23/126"
+      ],
+      "reason": "Criteria 1 and 3: these particular discrepancy functions, induced laws, Fourier thresholds and divisor-count specializations belong to Bary-Soroker-Koukoulopoulos-Kozma alone; many are technical quantities in one proof. General product laws, reductions and Fourier transforms are imported primitives, not new objects here."
+    },
+    {
+      "name": "Raw cocycles, expansion maps and their compatible coordinates",
+      "items": [
+        "PAPER-KOYMANS-PAGANO/44",
+        "PAPER-KOYMANS-PAGANO/45",
+        "PAPER-KOYMANS-PAGANO/49",
+        "PAPER-KOYMANS-PAGANO/51",
+        "PAPER-KOYMANS-PAGANO/55",
+        "PAPER-KOYMANS-PAGANO/58",
+        "PAPER-KOYMANS-PAGANO/65",
+        "PAPER-KOYMANS-PAGANO/116",
+        "PAPER-KOYMANS-PAGANO/126",
+        "PAPER-KOYMANS-PAGANO/253"
+      ],
+      "reason": "Criterion 3: these precise Koymans-Pagano definitions have no second definition/construction instance in the whole catalogue. Ordinary continuous cocycles and semidirect products already have generic owners; their expansion-map coherence is substantial but still a one-paper near miss."
+    },
+    {
+      "name": "Higher Artin pairings and Redei matrices",
+      "items": [
+        "PAPER-KOYMANS-PAGANO/68",
+        "PAPER-KOYMANS-PAGANO/70",
+        "PAPER-KOYMANS-PAGANO/71",
+        "PAPER-KOYMANS-PAGANO/72",
+        "PAPER-KOYMANS-PAGANO/73",
+        "PAPER-KOYMANS-PAGANO/75",
+        "PAPER-KOYMANS-PAGANO/209",
+        "PAPER-KOYMANS-PAGANO/225",
+        "PAPER-KOYMANS-PAGANO/226",
+        "PAPER-KOYMANS-PAGANO/235"
+      ],
+      "reason": "Criterion 3: only Koymans-Pagano supplies these higher Artin-pairing/Redei-matrix constructions in this catalogue. They are not the generalized binary-form genus character retained above; ordinary quadratic genus theory remains upstream Multiquadratic."
+    },
+    {
+      "name": "Profitable triples and additive systems",
+      "items": [
+        "PAPER-KOYMANS-PAGANO/97",
+        "PAPER-KOYMANS-PAGANO/98",
+        "PAPER-KOYMANS-PAGANO/100",
+        "PAPER-KOYMANS-PAGANO/106",
+        "PAPER-KOYMANS-PAGANO/117",
+        "PAPER-KOYMANS-PAGANO/118",
+        "PAPER-KOYMANS-PAGANO/141",
+        "PAPER-KOYMANS-PAGANO/142",
+        "PAPER-KOYMANS-PAGANO/143",
+        "PAPER-KOYMANS-PAGANO/152",
+        "PAPER-KOYMANS-PAGANO/156",
+        "PAPER-KOYMANS-PAGANO/158",
+        "PAPER-KOYMANS-PAGANO/160",
+        "PAPER-KOYMANS-PAGANO/162"
+      ],
+      "reason": "Criteria 1 and 3: the named compatibility packages organize the Koymans-Pagano proof, and no independent catalogue paper gives an instance. Keeping them in reserve does not assert that their future blueprint APIs are routine."
+    },
+    {
+      "name": "Period and splitting-degree index of Brauer classes",
+      "items": [
+        "PAPER-BENOIST-19/06"
+      ],
+      "reason": "Criterion 2: the invariants are the order of an existing Brauer-group element and the gcd of finite splitting degrees. The period-index bounds are substantial theorems, not another missing carrier. The cited extraction is the only input instance; this exclusion does not claim those bounds are formalized."
+    },
+    {
+      "name": "Relaxed reduced integral bases and balanced torsion-ideal bodies",
+      "items": [
+        "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/balanced-body",
+        "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/reduced-integral-basis",
+        "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/torsion-square-norm-injection",
+        "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/signed-norm-curve-map",
+        "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/cubic-norm-family",
+        "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/resolvent-f2-modules",
+        "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/trace-metric-normalization",
+        "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/quadratic-coinvariant-extension",
+        "PAPER-COUVEIGNES-20/half-small-integers",
+        "PAPER-COUVEIGNES-20/independent-short-relations"
+      ],
+      "reason": "Criteria 1 and 3: these source-specific bases, metric normalizations and injections are auxiliary constructions in the class-group-torsion/compact-model arguments. In particular the basis starting with 1 and a 3/2-shortness allowance is not the exact Minkowski-reduced-basis entry. The common successive-minima object is counted separately."
+    },
+    {
+      "name": "Cubic etale resolvent of a quartic field",
+      "items": [
+        "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/cubic-resolvent"
+      ],
+      "reason": "Criterion 3: the searched catalogue has only this definition/construction of the cubic etale resolvent. General finite etale algebras and permutation representations are existing imports; keep the resolvent as a single-paper near miss rather than inflate the minima entry."
+    },
+    {
+      "name": "Gonality over the stated constant field",
+      "items": [
+        "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/gonality"
+      ],
+      "reason": "Criterion 2: the numerical invariant is the minimum positive degree of a finite map to P1, using the imported curve/finite-morphism and function-field-degree interfaces. Other catalogue instances are Bakker-Tsimerman/06 and Canning-Larson-Payne/47, so it is not excluded for lack of papers. Completion/normalization, map parameter spaces and Brill-Noether theorems need their geometric owners; this survey does not repackage them as a new number-field construction."
+    },
+    {
+      "name": "Integral GSpin and Spin group-scheme exact sequences",
+      "items": [
+        "PAPER-CHENEVIER-TAIBI-20/gspin-spin-sequences"
+      ],
+      "reason": "Criterion 3 for this exact integral group-scheme package: the other catalogue GSpin instances use the rational group or Shimura datum, not these over-ring kernel and discriminant conventions. Field quadratic-space invariants remain upstream; this is a near miss for an integral extension, not a claim that general Spin objects are absent."
+    },
+    {
+      "name": "Minus continued fractions and reduced real quadratic irrationals",
+      "items": [
+        "PAPER-DUKE-IMAMOGLU-TOTH-16/7",
+        "PAPER-DUKE-IMAMOGLU-TOTH-16/8"
+      ],
+      "reason": "Criterion 3: these conventions and their reduction-cycle constructions occur in Duke-Imamoglu-Toth alone among the matching catalogue definitions. They must not be conflated with Euclidean Minkowski-reduced bases."
+    },
+    {
+      "name": "Oriented ideal-form correspondence and geodesic/CM realizations",
+      "items": [
+        "PAPER-DUKE-IMAMOGLU-TOTH-16/11",
+        "PAPER-DUKE-IMAMOGLU-TOTH-16/12",
+        "PAPER-DUKE-IMAMOGLU-TOTH-16/24",
+        "PAPER-DUKE-IMAMOGLU-TOTH-16/52",
+        "PAPER-DUKE-IMAMOGLU-TOTH-16/69"
+      ],
+      "reason": "Criteria 1 and 3: the full oriented arithmetic-to-geodesic realization is this paper-specific package; the binary-form carrier and ideal class primitives themselves are existing mathematics. Its generalized genus character has a second source and is retained as a separate entry."
+    },
+    {
+      "name": "Horizontal quadratic lattices",
+      "items": [
+        "PAPER-LI-ZHANG-22/12"
+      ],
+      "reason": "Criterion 3: the specific horizontal-lattice condition and decomposition of Li-Zhang are not the general local lattice carrier. Other papers use horizontal cycles with different definitions, so a name match alone is not a second instance."
+    },
+    {
+      "name": "Hermitian genus and weighted genus mass",
+      "items": [
+        "PAPER-LIPNOWSKI-TSIMERMAN-18/hermitian-genus",
+        "PAPER-LIPNOWSKI-TSIMERMAN-18/hermitian-mass"
+      ],
+      "reason": "Criterion 3 for the precise global projective hermitian genus/mass package: the matching definition/construction items are Lipnowski-Tsimerman only. Quadratic mass theorems and local hermitian representation densities are related but different notions, and are not counted as further instances."
+    },
+    {
+      "name": "Adelic toral packets, joinings and cross-correlation geometry",
+      "items": [
+        "PAPER-KHAYUTIN-19/9",
+        "PAPER-KHAYUTIN-19/16",
+        "PAPER-KHAYUTIN-19/22",
+        "PAPER-KHAYUTIN-19/25",
+        "PAPER-KHAYUTIN-19/43",
+        "PAPER-KHAYUTIN-19/44",
+        "PAPER-KHAYUTIN-19/51",
+        "PAPER-KHAYUTIN-19/57",
+        "PAPER-KHAYUTIN-19/58",
+        "PAPER-KHAYUTIN-19/59",
+        "PAPER-KHAYUTIN-19/61",
+        "PAPER-KHAYUTIN-19/64",
+        "PAPER-KHAYUTIN-19/69",
+        "PAPER-KHAYUTIN-19/93",
+        "PAPER-KHAYUTIN-19/115",
+        "PAPER-KHAYUTIN-19/118",
+        "PAPER-KHAYUTIN-19/121"
+      ],
+      "reason": "Criteria 1 and 3: the full-catalogue comparison found the displayed packet/joining/double-quotient and relative orbital-integral setup only in Khayutin. Generic Haar measure, GIT quotients and orbital integration keep their existing owners; these source-specific combinations do not give a shared new definition."
+    },
+    {
+      "name": "Outer exponent and Bogomolov/cyclic-triviality refinements",
+      "items": [
+        "PAPER-HARPAZ-WITTENBERG-23/42",
+        "PAPER-HARPAZ-WITTENBERG-23/44",
+        "PAPER-HARPAZ-WITTENBERG-23/50",
+        "PAPER-HARPAZ-WITTENBERG-23/59"
+      ],
+      "reason": "Criterion 3: these refinements occur in Harpaz-Wittenberg 2023 only among the matching definitions. The outer Galois stabilizer and supersolvability object does recur in HW20 and is retained, but these additional invariants are not needed to inflate that entry."
+    },
+    {
+      "name": "Brauer evaluation filtration on p-adic discs",
+      "items": [
+        "PAPER-BRIGHT-NEWTON-23/1",
+        "PAPER-BRIGHT-NEWTON-23/58"
+      ],
+      "reason": "Criterion 3: Bright-Newton is the only catalogue source for this precise evaluation filtration and its blown-up log-pole residue package. Kato coefficient complexes recur independently and are included; Swan filtrations are not automatically this evaluation filtration."
+    },
+    {
+      "name": "Enhanced Picard and Brauer groups of a curve",
+      "items": [
+        "PAPER-HARPAZ-WITTENBERG-16/16"
+      ],
+      "reason": "Criterion 3: Pic_plus and Br_plus with the specified bad-fibre data are introduced only in HW16 among the matching catalogue items; ordinary Picard/Brauer groups or adelic CH0 do not supply a second instance."
+    },
+    {
+      "name": "Almost abelian extensions and the auxiliary norm variety",
+      "items": [
+        "PAPER-HARPAZ-WITTENBERG-16/71",
+        "PAPER-HARPAZ-WITTENBERG-16/76"
+      ],
+      "reason": "Criteria 1 and 3: these exact definitions are single-paper objects in HW16. Related HW20 norm-base-change and approximation constructions are not asserted to be the same named W-variety without a matching definition."
+    },
+    {
+      "name": "Characteristic-two quadratic Pfister forms and their symbols",
+      "items": [
+        "PAPER-DITTMANN-POP-23/pfister-two",
+        "PAPER-DITTMANN-POP-23/pfister-invariant"
+      ],
+      "reason": "Criterion 3 in this characteristic-two quadratic convention: Dittmann-Pop is the sole matching catalogue definition/construction. Upstream QuadraticFormInvariants explicitly assumes characteristic different from two; its bilinear Pfister theory cannot be cited as already covering this variant."
+    },
+    {
+      "name": "Logarithmic potential, capacity and measure-polynomial constructions",
+      "items": [
+        "PAPER-SMITH-24/8",
+        "PAPER-SMITH-24/9",
+        "PAPER-SMITH-24/11",
+        "PAPER-SMITH-24/13",
+        "PAPER-SMITH-24/18",
+        "PAPER-SMITH-24/30",
+        "PAPER-SMITH-24/33",
+        "PAPER-SMITH-24/36",
+        "PAPER-SMITH-24/37",
+        "PAPER-SMITH-24/38",
+        "PAPER-SMITH-24/40",
+        "PAPER-SMITH-24/46",
+        "PAPER-SMITH-24/55"
+      ],
+      "reason": "Criterion 3: full-catalogue searches found the logarithmic potential/energy/capacity package and these approximation/sweetening constructions only in Smith24. The analytic carrier is substantial, but multiplicity of uses within one paper is not a second paper."
+    },
+    {
+      "name": "Negligible cohomology and universal embedding-problem solvability",
+      "items": [
+        "PAPER-MERKURJEV-SCAVIA-26/4",
+        "PAPER-MERKURJEV-SCAVIA-26/5",
+        "PAPER-MERKURJEV-SCAVIA-26/11",
+        "PAPER-MERKURJEV-SCAVIA-26/42",
+        "PAPER-MERKURJEV-SCAVIA-26/45",
+        "PAPER-MERKURJEV-SCAVIA-26/47",
+        "PAPER-MERKURJEV-SCAVIA-26/48",
+        "PAPER-MERKURJEV-SCAVIA-26/51",
+        "PAPER-MERKURJEV-SCAVIA-26/58"
+      ],
+      "reason": "Criterion 3: Merkurjev-Scavia is the only catalogue definition/construction source for negligible classes and this generic-extension machinery. Existing Kummer and cup-corestriction operations are listed elsewhere; these particular images and universal kernels are not the same as arbitrary cohomology."
+    },
+    {
+      "name": "u-invariant and C_i-field predicates",
+      "items": [
+        "PAPER-BENOIST-19/14",
+        "PAPER-BENOIST-19/25"
+      ],
+      "reason": "Criterion 2: these are respectively a supremum of dimensions of anisotropic quadratic forms and a degree/variables quantified solvability predicate. Their deep bounds and conjectures do not turn the predicates into a new carrier. The real-function-field theorem programme remains necessary."
+    }
+  ],
+  "routine": [
+    "PAPER-ALLEN-ETAL-23/328",
+    "PAPER-CADORET-HUI-TAMAGAWA-17/09",
+    "PAPER-CADORET-HUI-TAMAGAWA-17/100",
+    "PAPER-DISEGNI-22/75",
+    "PAPER-HARPAZ-WITTENBERG-20/21",
+    "PAPER-HARPAZ-WITTENBERG-23/120",
+    "PAPER-HARPAZ-WITTENBERG-23/140",
+    "PAPER-HARPAZ-WITTENBERG-23/150",
+    "PAPER-LIU-ZHU-17/A02",
+    "PAPER-NEWTON-THORNE-26/small-degree-quadratic-field",
+    "PAPER-KOYMANS-PAGANO/7",
+    "PAPER-KOYMANS-PAGANO/16",
+    "PAPER-KOYMANS-PAGANO/17",
+    "PAPER-KOYMANS-PAGANO/18",
+    "PAPER-KOYMANS-PAGANO/23",
+    "PAPER-KOYMANS-PAGANO/24",
+    "PAPER-KOYMANS-PAGANO/27",
+    "PAPER-KOYMANS-PAGANO/31",
+    "PAPER-KOYMANS-PAGANO/35",
+    "PAPER-KOYMANS-PAGANO/37",
+    "PAPER-KOYMANS-PAGANO/40",
+    "PAPER-KOYMANS-PAGANO/47",
+    "PAPER-KOYMANS-PAGANO/79",
+    "PAPER-KOYMANS-PAGANO/89",
+    "PAPER-KOYMANS-PAGANO/125",
+    "PAPER-KOYMANS-PAGANO/172",
+    "PAPER-KOYMANS-PAGANO/173",
+    "PAPER-KOYMANS-PAGANO/174",
+    "PAPER-KOYMANS-PAGANO/178",
+    "PAPER-KOYMANS-PAGANO/179",
+    "PAPER-KOYMANS-PAGANO/180",
+    "PAPER-KOYMANS-PAGANO/183",
+    "PAPER-KOYMANS-PAGANO/190",
+    "PAPER-KOYMANS-PAGANO/192",
+    "PAPER-KOYMANS-PAGANO/193",
+    "PAPER-KOYMANS-PAGANO/196",
+    "PAPER-KOYMANS-PAGANO/197",
+    "PAPER-KOYMANS-PAGANO/198",
+    "PAPER-KOYMANS-PAGANO/199",
+    "PAPER-KOYMANS-PAGANO/203",
+    "PAPER-KOYMANS-PAGANO/208",
+    "PAPER-KOYMANS-PAGANO/211",
+    "PAPER-KOYMANS-PAGANO/212",
+    "PAPER-KOYMANS-PAGANO/216",
+    "PAPER-KOYMANS-PAGANO/221",
+    "PAPER-KOYMANS-PAGANO/222",
+    "PAPER-KOYMANS-PAGANO/223",
+    "PAPER-KOYMANS-PAGANO/236",
+    "PAPER-KOYMANS-PAGANO/237",
+    "PAPER-KOYMANS-PAGANO/239",
+    "PAPER-KOYMANS-PAGANO/242",
+    "PAPER-KOYMANS-PAGANO/243",
+    "PAPER-KOYMANS-PAGANO/244",
+    "PAPER-KOYMANS-PAGANO/247",
+    "PAPER-KOYMANS-PAGANO/255",
+    "PAPER-KOYMANS-PAGANO/262",
+    "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/multiplication-matrix",
+    "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/norm-polynomial",
+    "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/feedback-constants",
+    "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/etale-class-group",
+    "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/discriminant-negligible",
+    "PAPER-COUVEIGNES-20/measure-normalization",
+    "PAPER-COUVEIGNES-20/parameterized-generators",
+    "PAPER-COUVEIGNES-20/jacobian-open",
+    "PAPER-COUVEIGNES-20/central-binomial-choice",
+    "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/hv-packing-function",
+    "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/even-divisor-sections",
+    "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/half-divisor-map",
+    "PAPER-BHARGAVA-SHANKAR-WANG-25/40",
+    "PAPER-BROWNING-LEBOUDEC-SAWIN-23/cone",
+    "PAPER-BROWNING-LEBOUDEC-SAWIN-23/I-volume",
+    "PAPER-BROWNING-LEBOUDEC-SAWIN-23/J-volume",
+    "PAPER-BROWNING-LEBOUDEC-SAWIN-23/weighted-lattice",
+    "PAPER-CHENEVIER-TAIBI-20/regular-quadratic-forms",
+    "PAPER-DUKE-IMAMOGLU-TOTH-16/6",
+    "PAPER-KHAYUTIN-19/95",
+    "PAPER-LIPNOWSKI-TSIMERMAN-18/local-order",
+    "PAPER-LIPNOWSKI-TSIMERMAN-18/flag-fiber",
+    "PAPER-LIPNOWSKI-TSIMERMAN-18/punctual-hilbert-count",
+    "PAPER-LIPNOWSKI-TSIMERMAN-18/model-ring",
+    "PAPER-LIPNOWSKI-TSIMERMAN-18/model-orbit-count",
+    "PAPER-LIPNOWSKI-TSIMERMAN-18/unit-norm-label",
+    "PAPER-LIPNOWSKI-TSIMERMAN-18/unitary-group",
+    "PAPER-ZHANG-21/1",
+    "PAPER-KHAYUTIN-19/7",
+    "PAPER-KHAYUTIN-19/26",
+    "PAPER-KHAYUTIN-19/33",
+    "PAPER-KHAYUTIN-19/41",
+    "PAPER-KHAYUTIN-19/48",
+    "PAPER-KHAYUTIN-19/53",
+    "PAPER-KHAYUTIN-19/91",
+    "PAPER-KHAYUTIN-19/112",
+    "PAPER-HARPAZ-WITTENBERG-20/65",
+    "PAPER-HARPAZ-WITTENBERG-20/66",
+    "PAPER-HARPAZ-WITTENBERG-20/71",
+    "PAPER-HARPAZ-WITTENBERG-20/76",
+    "PAPER-HARPAZ-WITTENBERG-20/97",
+    "PAPER-HARPAZ-WITTENBERG-20/133",
+    "PAPER-HARPAZ-WITTENBERG-20/145",
+    "PAPER-HARPAZ-WITTENBERG-23/25",
+    "PAPER-HARPAZ-WITTENBERG-23/26",
+    "PAPER-HARPAZ-WITTENBERG-23/39",
+    "PAPER-HARPAZ-WITTENBERG-23/56",
+    "PAPER-HARPAZ-WITTENBERG-23/93",
+    "PAPER-HARPAZ-WITTENBERG-23/147",
+    "PAPER-HARPAZ-WITTENBERG-16/7",
+    "PAPER-HARPAZ-WITTENBERG-16/36",
+    "PAPER-HARPAZ-WITTENBERG-20/11",
+    "PAPER-HARPAZ-WITTENBERG-20/90",
+    "PAPER-HARPAZ-WITTENBERG-20/107",
+    "PAPER-HARPAZ-WITTENBERG-20/108",
+    "PAPER-HARPAZ-WITTENBERG-20/119",
+    "PAPER-HARPAZ-WITTENBERG-20/134",
+    "PAPER-HARPAZ-WITTENBERG-20/149",
+    "PAPER-DITTMANN-POP-23/resolution-f2",
+    "PAPER-DITTMANN-POP-23/constant-place-fields",
+    "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-monomial-system",
+    "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-scaled-derivative-norm",
+    "PAPER-BHARGAVA-SHANKAR-TANIGUCHI-ETAL-20/bp-standard-monomials",
+    "PAPER-HARPAZ-WITTENBERG-23/14",
+    "PAPER-HARPAZ-WITTENBERG-23/16",
+    "PAPER-HARPAZ-WITTENBERG-23/63",
+    "PAPER-HARPAZ-WITTENBERG-23/66",
+    "PAPER-HARPAZ-WITTENBERG-23/69",
+    "PAPER-HARPAZ-WITTENBERG-23/78",
+    "PAPER-HARPAZ-WITTENBERG-23/84",
+    "PAPER-HARPAZ-WITTENBERG-23/86",
+    "PAPER-HARPAZ-WITTENBERG-23/87",
+    "PAPER-HARPAZ-WITTENBERG-23/88",
+    "PAPER-HARPAZ-WITTENBERG-23/99",
+    "PAPER-HARPAZ-WITTENBERG-23/104",
+    "PAPER-HARPAZ-WITTENBERG-23/105",
+    "PAPER-HARPAZ-WITTENBERG-23/106",
+    "PAPER-HARPAZ-WITTENBERG-23/107",
+    "PAPER-HARPAZ-WITTENBERG-23/108",
+    "PAPER-HARPAZ-WITTENBERG-23/109",
+    "PAPER-HARPAZ-WITTENBERG-23/116",
+    "PAPER-HARPAZ-WITTENBERG-23/125",
+    "PAPER-HARPAZ-WITTENBERG-23/127",
+    "PAPER-HARPAZ-WITTENBERG-23/131",
+    "PAPER-HARPAZ-WITTENBERG-23/134",
+    "PAPER-HARPAZ-WITTENBERG-23/144",
+    "PAPER-HARPAZ-WITTENBERG-23/146",
+    "PAPER-MERKURJEV-SCAVIA-26/126",
+    "PAPER-BENOIST-19/95",
+    "PAPER-BENOIST-19/186",
+    "PAPER-BENOIST-19/187"
+  ]
+}
