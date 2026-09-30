@@ -14379,3 +14379,152 @@ example (n m : ℕ) (h : Nat.ModEq 32 n m) :
 example (p n m : ℕ) [Fact p.Prime] (h : Nat.ModEq (p^3) n m) :
     ‖((moritaNatGamma p n - moritaNatGamma p m : ℤ) : ℤ_[p])‖ ≤ 1 := by sorry
 end SuggestedMoritaNatTests
+
+/-! Continuous Morita Gamma, built from the preceding finite congruences.
+No Gross–Koblitz or Ferrero–Greenberg formula is asserted here. -/
+namespace DirichletPadic
+
+def moritaGammaApprox (p : ℕ) [Fact p.Prime] (n : ℕ) (x : ℤ_[p]) : ℕ := by sorry
+lemma moritaGammaApprox_def (p : ℕ) [Fact p.Prime] (n : ℕ) (x : ℤ_[p]) :
+    moritaGammaApprox p n x = (PadicInt.toZModPow (n+3) x).val := by sorry
+lemma moritaGammaApprox_zero (p : ℕ) [Fact p.Prime] (n : ℕ) :
+    moritaGammaApprox p n 0 = 0 := by sorry
+lemma moritaGammaApprox_nat (p : ℕ) [Fact p.Prime] (n k : ℕ) :
+    Nat.ModEq (p^(n+3)) (moritaGammaApprox p n (k : ℤ_[p])) k := by sorry
+lemma moritaGammaApprox_compat (p : ℕ) [Fact p.Prime] (i j : ℕ)
+    (h : i ≤ j) (x : ℤ_[p]) :
+    Nat.ModEq (p^(i+3)) (moritaGammaApprox p i x) (moritaGammaApprox p j x) := by sorry
+lemma moritaGammaApprox_step (p : ℕ) [Fact p.Prime] (x : ℤ_[p]) (n : ℕ) :
+    (p : ℤ)^n ∣ moritaNatGamma p (moritaGammaApprox p (n+1) x) -
+      moritaNatGamma p (moritaGammaApprox p n x) := by sorry
+
+def moritaGammaValue (p : ℕ) [Fact p.Prime] (x : ℤ_[p]) : ℤ_[p] := by sorry
+lemma moritaGammaValue_def (p : ℕ) [Fact p.Prime] (x : ℤ_[p]) :
+    moritaGammaValue p x = PadicInt.ofIntSeq
+      (fun n => moritaNatGamma p (moritaGammaApprox p n x))
+      (PadicInt.isCauSeq_padicNorm_of_pow_dvd_sub _ p (moritaGammaApprox_step p x)) := by sorry
+lemma moritaGammaValue_reduction (p : ℕ) [Fact p.Prime] (x : ℤ_[p]) (n : ℕ) :
+    PadicInt.toZModPow n (moritaGammaValue p x) =
+      (moritaNatGamma p (moritaGammaApprox p n x) : ZMod (p^n)) := by sorry
+lemma moritaGammaValue_nat (p : ℕ) [Fact p.Prime] (n : ℕ) :
+    moritaGammaValue p (n : ℤ_[p]) = (moritaNatGamma p n : ℤ_[p]) := by sorry
+lemma moritaGammaValue_residue (p : ℕ) [Fact p.Prime] (n : ℕ) (x y : ℤ_[p])
+    (h : PadicInt.toZModPow (n+3) x = PadicInt.toZModPow (n+3) y) :
+    PadicInt.toZModPow n (moritaGammaValue p x) =
+      PadicInt.toZModPow n (moritaGammaValue p y) := by sorry
+lemma moritaGammaValue_continuous (p : ℕ) [Fact p.Prime] :
+    Continuous (moritaGammaValue p) := by sorry
+lemma moritaGammaValue_norm (p : ℕ) [Fact p.Prime] (x : ℤ_[p]) :
+    ‖moritaGammaValue p x‖ = 1 := by sorry
+lemma moritaGammaValue_isUnit (p : ℕ) [Fact p.Prime] (x : ℤ_[p]) :
+    IsUnit (moritaGammaValue p x) := by sorry
+
+def moritaGamma (p : ℕ) [Fact p.Prime] : C(ℤ_[p], (ℤ_[p])ˣ) := by sorry
+lemma moritaGamma_def (p : ℕ) [Fact p.Prime] :
+    moritaGamma p = ContinuousMap.unitsOfForallIsUnit
+      (f := ⟨moritaGammaValue p, moritaGammaValue_continuous p⟩)
+      (moritaGammaValue_isUnit p) := by sorry
+lemma moritaGamma_val (p : ℕ) [Fact p.Prime] (x : ℤ_[p]) :
+    ((moritaGamma p x : (ℤ_[p])ˣ) : ℤ_[p]) = moritaGammaValue p x := by sorry
+lemma moritaGamma_nat (p : ℕ) [Fact p.Prime] (n : ℕ) :
+    ((moritaGamma p (n : ℤ_[p]) : (ℤ_[p])ˣ) : ℤ_[p]) =
+      (moritaNatGamma p n : ℤ_[p]) := by sorry
+lemma moritaGamma_zero (p : ℕ) [Fact p.Prime] : moritaGamma p 0 = 1 := by sorry
+lemma moritaGamma_one (p : ℕ) [Fact p.Prime] :
+    ((moritaGamma p 1 : (ℤ_[p])ˣ) : ℤ_[p]) = -1 := by sorry
+lemma moritaGamma_unique (p : ℕ) [Fact p.Prime] (f : C(ℤ_[p], (ℤ_[p])ˣ))
+    (h : ∀ n : ℕ, ((f (n : ℤ_[p]) : (ℤ_[p])ˣ) : ℤ_[p]) =
+      (moritaNatGamma p n : ℤ_[p])) : f = moritaGamma p := by sorry
+open scoped Classical in
+lemma moritaGamma_add_one (p : ℕ) [Fact p.Prime] (x : ℤ_[p]) :
+    ((moritaGamma p (x+1) : (ℤ_[p])ˣ) : ℤ_[p]) =
+      -(if IsUnit x then x else 1) * (moritaGamma p x : ℤ_[p]) := by sorry
+lemma moritaGamma_add_one_unit (p : ℕ) [Fact p.Prime] (x : ℤ_[p]) (hx : IsUnit x) :
+    ((moritaGamma p (x+1) : (ℤ_[p])ˣ) : ℤ_[p]) =
+      -x * (moritaGamma p x : ℤ_[p]) := by sorry
+lemma moritaGamma_add_one_nonunit (p : ℕ) [Fact p.Prime] (x : ℤ_[p]) (hx : ¬IsUnit x) :
+    ((moritaGamma p (x+1) : (ℤ_[p])ˣ) : ℤ_[p]) =
+      -(moritaGamma p x : ℤ_[p]) := by sorry
+end DirichletPadic
+
+namespace SuggestedMoritaContinuousTests
+open DirichletPadic
+-- approx_zero
+example (p : ℕ) [Fact p.Prime] (n : ℕ) : moritaGammaApprox p n 0 = 0 := by sorry
+-- approx_buffer
+example : moritaGammaApprox 3 0 (10 : ℤ_[3]) = 10 := by sorry
+-- approx_wrap
+example : moritaGammaApprox 3 0 (27 : ℤ_[3]) = 0 := by sorry
+-- step_zero_precision
+example (p : ℕ) [Fact p.Prime] (x : ℤ_[p]) : (p : ℤ)^0 ∣
+    moritaNatGamma p (moritaGammaApprox p 1 x) -
+    moritaNatGamma p (moritaGammaApprox p 0 x) := by sorry
+-- step_dyadic
+example (x : ℤ_[2]) : (2 : ℤ)^2 ∣
+    moritaNatGamma 2 (moritaGammaApprox 2 3 x) -
+    moritaNatGamma 2 (moritaGammaApprox 2 2 x) := by sorry
+-- raw_zero
+example (p : ℕ) [Fact p.Prime] : moritaGammaValue p 0 = 1 := by sorry
+-- raw_first
+example (p : ℕ) [Fact p.Prime] : moritaGammaValue p 1 = -1 := by sorry
+-- raw_modulus_four_failure
+example : PadicInt.toZModPow 2 (moritaGammaValue 2 1) ≠
+    PadicInt.toZModPow 2 (moritaGammaValue 2 5) := by sorry
+-- reduction_degree_zero
+example (p : ℕ) [Fact p.Prime] (x : ℤ_[p]) :
+    PadicInt.toZModPow 0 (moritaGammaValue p x) = 0 := by sorry
+-- reduction_dyadic
+example (x : ℤ_[2]) : PadicInt.toZModPow 2 (moritaGammaValue 2 x) =
+    (moritaNatGamma 2 (moritaGammaApprox 2 2 x) : ZMod (2^2)) := by sorry
+-- natural_deleted_factor
+example : moritaGammaValue 3 (4 : ℤ_[3]) = 2 := by sorry
+-- natural_signed_value
+example : moritaGammaValue 3 (5 : ℤ_[3]) = -8 := by sorry
+-- residue_dyadic_buffer
+example (x y : ℤ_[2]) (h : PadicInt.toZModPow 5 x = PadicInt.toZModPow 5 y) :
+    PadicInt.toZModPow 2 (moritaGammaValue 2 x) =
+      PadicInt.toZModPow 2 (moritaGammaValue 2 y) := by sorry
+-- residue_zero_fiber
+example (p : ℕ) [Fact p.Prime] (n : ℕ) (x : ℤ_[p])
+    (h : PadicInt.toZModPow (n+3) x = 0) :
+    PadicInt.toZModPow n (moritaGammaValue p x) = 1 := by sorry
+-- continuous_dyadic
+example : Continuous (moritaGammaValue 2) := by sorry
+-- not_one_lipschitz
+example : ‖moritaGammaValue 2 1 - moritaGammaValue 2 5‖ > ‖(1 : ℤ_[2]) - 5‖ := by sorry
+-- norm_unit
+example (p : ℕ) [Fact p.Prime] (x : ℤ_[p]) : IsUnit (moritaGammaValue p x) := by sorry
+-- norm_nonunit_argument
+example : ‖moritaGammaValue 2 (2 : ℤ_[2])‖ = 1 := by sorry
+-- gamma_zero
+example (p : ℕ) [Fact p.Prime] : moritaGamma p 0 = 1 := by sorry
+-- gamma_one
+example (p : ℕ) [Fact p.Prime] : (moritaGamma p 1 : ℤ_[p]) = -1 := by sorry
+-- gamma_native_unit
+example (p : ℕ) [Fact p.Prime] (x : ℤ_[p]) : IsUnit (moritaGamma p x : ℤ_[p]) := by sorry
+-- gamma_not_additive
+example : (moritaGamma 3 (1+1) : ℤ_[3]) ≠
+    (moritaGamma 3 1 : ℤ_[3]) + (moritaGamma 3 1 : ℤ_[3]) := by sorry
+-- gamma_value_at_nonunit
+example : (moritaGamma 3 (3 : ℤ_[3]) : ℤ_[3]) = moritaGammaValue 3 3 := by sorry
+-- gamma_inverse_identity
+example (p : ℕ) [Fact p.Prime] (x : ℤ_[p]) :
+    (moritaGamma p x : ℤ_[p]) * ((moritaGamma p x)⁻¹ : (ℤ_[p])ˣ) = 1 := by sorry
+-- gamma_nat_dyadic
+example : (moritaGamma 2 (5 : ℤ_[2]) : ℤ_[2]) = -3 := by sorry
+-- gamma_nat_odd
+example : (moritaGamma 3 (4 : ℤ_[3]) : ℤ_[3]) = 2 := by sorry
+-- uniqueness_natural_values
+example (p : ℕ) [Fact p.Prime] (f : C(ℤ_[p], (ℤ_[p])ˣ))
+    (h : ∀ n : ℕ, (f n : ℤ_[p]) = (moritaNatGamma p n : ℤ_[p])) :
+    f = moritaGamma p := by sorry
+-- uniqueness_value_at_zero
+example (p : ℕ) [Fact p.Prime] (f : C(ℤ_[p], (ℤ_[p])ˣ))
+    (h : ∀ n : ℕ, (f n : ℤ_[p]) = (moritaNatGamma p n : ℤ_[p])) : f 0 = 1 := by sorry
+-- functional_unit_branch
+example (p : ℕ) [Fact p.Prime] (x : ℤ_[p]) (h : IsUnit x) :
+    (moritaGamma p (x+1) : ℤ_[p]) = -x * (moritaGamma p x : ℤ_[p]) := by sorry
+-- functional_nonunit_branch
+example (p : ℕ) [Fact p.Prime] (x : ℤ_[p]) (h : ¬IsUnit x) :
+    (moritaGamma p (x+1) : ℤ_[p]) = -(moritaGamma p x : ℤ_[p]) := by sorry
+end SuggestedMoritaContinuousTests
