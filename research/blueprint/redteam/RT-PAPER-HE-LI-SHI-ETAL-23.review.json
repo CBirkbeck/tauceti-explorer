@@ -1,0 +1,14 @@
+{
+  "redteam": "RT-PAPER-HE-LI-SHI-ETAL-23",
+  "agent": "Codex",
+  "session": "codex-rtOQ9t",
+  "date": "2026-09-30",
+  "inputCommit": "8044fa308f414e3f39b58636beee6f046b27ebb7",
+  "findings": [
+    {
+      "finding": "RT-PAPER-HE-LI-SHI-ETAL-23/1",
+      "verdict": "confirmed",
+      "reason": "Confirmed as a medium source-collation defect, with two material corrections to scope and fix. I read the cited code and records and reproduced published_exists=False, provenance='preprint', missing sourceVersions, and exactly E1,E2,E7,E9,E14,E23,E24 for this extraction. The publisher's public article page independently confirms Invent. Math.234(2023),721–817, DOI10.1007/s00222-023-01209-1. The author PDF and arXiv v2 were fetched and match both recorded hashes; no published mathematical text was collated. The current worklist has70 papers/350 stated-result entries and omits this paper. Updating its catalog link to its DOI in memory exposes all seven entries. Scope correction: the eight named records contain53 entries, but Koymans–Pagano's record and its author's current publication page say 'To Appear in Acta Mathematica'; its catalog citation also lacks the year required by the regex. Thus only seven published papers/51 entries are established as this journal-recognition false negative. An in-memory expansion for Inventiones/Acta/Mathematica adds exactly those seven (77 papers/401 entries overall), leaving Koymans–Pagano excluded. Do not invent a publication date or force a not-yet-established version of record into this queue. Fix correction: the proposed kind='published', read='2026-09-22', citation='not read' entry is unsafe. provenance() treats any declared published kind as a completed published reading, regardless of that disclaimer; reproduced in memory, it hides the target again even after the DOI correction. Add only the actual author-copy and preprint readings to sourceVersions, with their true historical dates/hashes; record the unsuccessful publisher access as a note without a published-reading entry. Preserve scope to the author/preprint text until actual collation. Correct the catalog citation/link and request the scoped tooling repair through the authorized fix job/maintainer, with regressions for full journal names, genuine arXiv-only/to-appear records, and unread publisher attempts. I verified this finding's provenance/tool behavior, not the mathematical truth of all30 underlying source issues. Only the two review deliverables are changed."
+    }
+  ]
+}
