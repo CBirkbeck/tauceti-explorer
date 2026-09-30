@@ -10,7 +10,7 @@
     "DirichletPadicLFunctions:L4"
   ],
   "status": "partial",
-  "summary": "Partial continuation preserving all500 predecessor nodes whole. Six L3 nodes check the trace domain, supply coprime character reindexing, compare the actual root average with the powered constant, identify its complement with the reciprocal Euler value, and give the corresponding averaged HasSum. All16 findings and four previous requests remain; five inherited Coleman requests and gaps are recorded explicitly, giving nine requests and13 gaps with zero closed stages.",
+  "summary": "Partial continuation preserving all506 predecessor nodes whole. Six L3 nodes construct the actual disc trace, verify its shifted and powered domains, give its Frobenius-coordinate eigenrelation and establish the corresponding coefficient HasSum. All16 findings, nine requests and13 gaps remain; zero stages are closed.",
   "baseline": {
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
@@ -32948,6 +32948,380 @@
       "acceptance": [
         "No exchange of two infinite sums or unidentified formal substitution is used. The existing HasSum supplies all convergence required by the conditional consumer."
       ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/cyclotomic-logarithmic-disc-trace",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The finite logarithmic trace at a general point",
+      "kind": "construction",
+      "statement": "Define Tr_(p,ξ)V(t)=(p:K)⁻¹Σ_(j<p)V(ξ^j(1+t)−1). This is an actual finite expression in the preceding point values.",
+      "hypotheses": [
+        "K is a characteristic-zero field, D is positive with NeZero D, η:DirichletCharacter K D, ε∈K and hε:IsPrimitiveRoot ε D. V(t) is the preceding actual cyclotomicLogValue and F is the preceding actual tameLogPrimitive with its constant. Put σ_j(t)=ξ^j(1+t)−1 and τ_p(t)=(1+t)^p−1; these abbreviate explicit expressions, not new generic maps or analytic objects.",
+        "The finite disc-trace constructor permits every natural p, ξ∈K, supplied function ℓ:K→K and t∈K, using the original Gauss factor and totalized field inverse. The finite eigenrelation requires p>0, ξ primitive of order p, p coprime to D, D>1, the exact domain hdom:∀u∈(ZMod D)ˣ,(ε^u.val(1+t))^p≠1, and the owned law htrace:∀z,z^p≠1→Σ_(j<p)ℓ(ξ^jz−1)=ℓ(z^p−1).",
+        "Geometric statements use a normed ultrametric field and‖t‖<1. The shifted-point theorem additionally has p prime, ξ primitive of order p and‖(p:K)‖<1. The Frobenius-coordinate bound holds for every natural p. The automatic unit-domain theorem additionally has D>1, p coprime to D and‖(D:K)‖=1.",
+        "The HasSum theorem combines these tame prime hypotheses and htrace with hlocal:∀x,u,x≠0→‖u‖<1→HasSum(n↦coeff n(log K)u^n)(ℓ(x(1+u))−ℓ(x)). No primitivity or nonprincipality of η or nonzero Gauss hypothesis is needed. All prior Coleman request leaves remain open. LAD’s distribution and Amice carriers currently appear only in comments in its suggested file; no surrogate carrier is introduced here."
+      ],
+      "proofSteps": [
+        "Use the existing V and a Finset.range p sum, with exactly the same scalar1/p and primitive-root indexing as the preceding root average.",
+        "At p=0 the range is empty, so the trace is0. At p=1 its only shifted point is1·(1+t)−1=t and its scalar is1, so the trace is V(t). These two boundaries hold independently of ξ.",
+        "At t=0 the constructor is exactly the preceding cyclotomicLogAverage. The zero supplied function gives0 at every t. These four tests fix the empty range, singleton, normalization convention and point specialization.",
+        "The source’s full trace display motivates evaluating at all t. The geometry and series nodes below establish where these point values are actual convergent evaluations, and the promoted eigenrelation identifies their finite arithmetic transform.",
+        "The expression is not defined as a locally analytic distribution or a φψ operator. That comparison remains a separate owner interface, rather than a new distribution construction in this consumer."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/cyclotomic-logarithmic-point-value",
+        "DirichletPadicLFunctions:L3/cyclotomic-logarithmic-root-average"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/LogarithmicPrimitive",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.cyclotomicLogDiscTrace"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Proof of Theorem6.1(ii), the full T-dependent root-trace display before evaluation at0, published153/PDF54; local primitive expansion in Lemma6.4, published151/PDF52. Whole published151–153 read earlier in this continuous continuation.",
+          "match": "Worker extension of the already imported finite trace comparison to every point of the open unit disc. The source displays the T-dependent trace, whose actual finite expression and convergent evaluation are now specified. The generic weight-one distribution theorem remains with Coleman, with all inherited gaps retained. This does not construct LAD operators or identify an L-value."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedLogarithmicDiscTraceTests.empty_disc_trace",
+          "kind": "degenerate",
+          "statement": "At p=0 the disc trace is0."
+        },
+        {
+          "name": "SuggestedLogarithmicDiscTraceTests.singleton_disc_trace",
+          "kind": "computation",
+          "statement": "At p=1 the disc trace is exactly V(t)."
+        },
+        {
+          "name": "SuggestedLogarithmicDiscTraceTests.disc_trace_at_origin",
+          "kind": "compatibility",
+          "statement": "At t=0 the disc trace is the previous actual root average."
+        },
+        {
+          "name": "SuggestedLogarithmicDiscTraceTests.zero_function_disc_trace",
+          "kind": "computation",
+          "statement": "The zero supplied function gives trace0 at every point."
+        }
+      ],
+      "acceptance": [
+        "The definition’s degenerate cases are separate from the prime tame analytic application."
+      ],
+      "api": [
+        {
+          "name": "DirichletPadic.cyclotomicLogDiscTrace_def",
+          "role": "constructor",
+          "statement": "The displayed normalized finite sum of actual V values."
+        },
+        {
+          "name": "DirichletPadic.cyclotomicLogDiscTrace_zero",
+          "role": "simp",
+          "statement": "The empty p=0 trace is0."
+        },
+        {
+          "name": "DirichletPadic.cyclotomicLogDiscTrace_one",
+          "role": "simp",
+          "statement": "The singleton p=1 trace is V(t)."
+        },
+        {
+          "name": "DirichletPadic.cyclotomicLogDiscTrace_at_zero",
+          "role": "compatibility",
+          "statement": "At t=0 this equals cyclotomicLogAverage."
+        },
+        {
+          "name": "DirichletPadic.cyclotomicLogDiscTrace_zero_log",
+          "role": "simp",
+          "statement": "The zero supplied function gives0."
+        },
+        {
+          "name": "DirichletPadic.cyclotomicLogDiscTrace_eq_frobenius",
+          "role": "compatibility",
+          "statement": "Under the supplied trace and explicit unit-domain laws, TrV(t)=(η(p)/p)V(τ_p(t)); promoted below."
+        },
+        {
+          "name": "DirichletPadic.cyclotomicLogDiscTrace_hasSum",
+          "role": "compatibility",
+          "statement": "The actual averaged coefficient series has this trace value under the tame local-law hypotheses; promoted below."
+        }
+      ],
+      "uses": [
+        {
+          "where": "RJW proof of Theorem6.1(ii), published153",
+          "how": "The full T-dependent trace is displayed before specialization to T=0."
+        },
+        {
+          "where": "Preceding root-average checkpoint",
+          "how": "The at_zero API identifies this constructor with that exact finite average."
+        },
+        {
+          "where": "Future LAD operator comparison",
+          "how": "The existing operator’s analytic value must be compared with this finite expression, once the owner’s typed objects are available."
+        }
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/logarithmic-disc-trace-shifted-domain",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "All shifted trace points remain in the open disc",
+      "kind": "lemma",
+      "statement": "If p is prime, ξ is primitive of order p,‖(p:K)‖<1 and‖t‖<1, then‖ξ^j(1+t)−1‖<1 for every natural j.",
+      "hypotheses": [
+        "K is a characteristic-zero field, D is positive with NeZero D, η:DirichletCharacter K D, ε∈K and hε:IsPrimitiveRoot ε D. V(t) is the preceding actual cyclotomicLogValue and F is the preceding actual tameLogPrimitive with its constant. Put σ_j(t)=ξ^j(1+t)−1 and τ_p(t)=(1+t)^p−1; these abbreviate explicit expressions, not new generic maps or analytic objects.",
+        "The finite disc-trace constructor permits every natural p, ξ∈K, supplied function ℓ:K→K and t∈K, using the original Gauss factor and totalized field inverse. The finite eigenrelation requires p>0, ξ primitive of order p, p coprime to D, D>1, the exact domain hdom:∀u∈(ZMod D)ˣ,(ε^u.val(1+t))^p≠1, and the owned law htrace:∀z,z^p≠1→Σ_(j<p)ℓ(ξ^jz−1)=ℓ(z^p−1).",
+        "Geometric statements use a normed ultrametric field and‖t‖<1. The shifted-point theorem additionally has p prime, ξ primitive of order p and‖(p:K)‖<1. The Frobenius-coordinate bound holds for every natural p. The automatic unit-domain theorem additionally has D>1, p coprime to D and‖(D:K)‖=1.",
+        "The HasSum theorem combines these tame prime hypotheses and htrace with hlocal:∀x,u,x≠0→‖u‖<1→HasSum(n↦coeff n(log K)u^n)(ℓ(x(1+u))−ℓ(x)). No primitivity or nonprincipality of η or nonzero Gauss hypothesis is needed. All prior Coleman request leaves remain open. LAD’s distribution and Amice carriers currently appear only in comments in its suggested file; no surrogate carrier is introduced here."
+      ],
+      "proofSteps": [
+        "The preceding cyclotomicLogAverage_root_in_disc gives‖ξ^j−1‖<1, including j=0 and p=2. Finite order gives‖ξ^j‖=1.",
+        "Expand ξ^j(1+t)−1=(ξ^j−1)+ξ^jt. Its norm is at most max(‖ξ^j−1‖,‖ξ^jt‖) by the native ultrametric inequality.",
+        "Since‖ξ^jt‖=‖t‖<1, both entries of the maximum are strictly below1. The complete native translated-root-disc lemma checks this estimate.",
+        "Thus the actual primitive’s local series can be evaluated at every summand point. No assertion about globally translating a formal power series is substituted for this pointwise domain check."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/logarithmic-average-root-domain",
+        "mathlib:IsOfFinOrder.norm_eq_one",
+        "mathlib:IsUltrametricDist.isNonarchimedean_norm"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/LogarithmicPrimitive",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.cyclotomicLogDiscTrace_point_in_disc"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Proof of Theorem6.1(ii), the full T-dependent root-trace display before evaluation at0, published153/PDF54; local primitive expansion in Lemma6.4, published151/PDF52. Whole published151–153 read earlier in this continuous continuation.",
+          "match": "Worker extension of the already imported finite trace comparison to every point of the open unit disc. The source displays the T-dependent trace, whose actual finite expression and convergent evaluation are now specified. The generic weight-one distribution theorem remains with Coleman, with all inherited gaps retained. This does not construct LAD operators or identify an L-value."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedLogarithmicDiscTraceTests.dyadic_translated_point",
+          "kind": "computation",
+          "statement": "When‖2‖<1, the p=2 shift of t=2 by ξ=−1 is−4 and remains inside the disc."
+        }
+      ],
+      "acceptance": [
+        "The domain is verified for every natural exponent, not only a chosen list of distinct roots."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/logarithmic-frobenius-disc-bound",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The Frobenius coordinate does not enlarge the radius",
+      "kind": "lemma",
+      "statement": "For every natural p and‖t‖<1,‖(1+t)^p−1‖≤‖t‖.",
+      "hypotheses": [
+        "K is a characteristic-zero field, D is positive with NeZero D, η:DirichletCharacter K D, ε∈K and hε:IsPrimitiveRoot ε D. V(t) is the preceding actual cyclotomicLogValue and F is the preceding actual tameLogPrimitive with its constant. Put σ_j(t)=ξ^j(1+t)−1 and τ_p(t)=(1+t)^p−1; these abbreviate explicit expressions, not new generic maps or analytic objects.",
+        "The finite disc-trace constructor permits every natural p, ξ∈K, supplied function ℓ:K→K and t∈K, using the original Gauss factor and totalized field inverse. The finite eigenrelation requires p>0, ξ primitive of order p, p coprime to D, D>1, the exact domain hdom:∀u∈(ZMod D)ˣ,(ε^u.val(1+t))^p≠1, and the owned law htrace:∀z,z^p≠1→Σ_(j<p)ℓ(ξ^jz−1)=ℓ(z^p−1).",
+        "Geometric statements use a normed ultrametric field and‖t‖<1. The shifted-point theorem additionally has p prime, ξ primitive of order p and‖(p:K)‖<1. The Frobenius-coordinate bound holds for every natural p. The automatic unit-domain theorem additionally has D>1, p coprime to D and‖(D:K)‖=1.",
+        "The HasSum theorem combines these tame prime hypotheses and htrace with hlocal:∀x,u,x≠0→‖u‖<1→HasSum(n↦coeff n(log K)u^n)(ℓ(x(1+u))−ℓ(x)). No primitivity or nonprincipality of η or nonzero Gauss hypothesis is needed. All prior Coleman request leaves remain open. LAD’s distribution and Amice carriers currently appear only in comments in its suggested file; no surrogate carrier is introduced here."
+      ],
+      "proofSteps": [
+        "Native ultrametric unequal-norm comparison gives‖1+t‖=1. The complete native one-add-norm lemma checks this exact equality.",
+        "Use the already checked elementary power-difference induction: for‖z‖≤1,‖z^n−1‖≤‖z−1‖. Its induction step is z^(n+1)−1=z(z^n−1)+(z−1), followed by the ultrametric maximum bound.",
+        "Apply this inequality to z=1+t and n=p, then simplify z−1=t. The resulting coordinate τ_p(t) lies strictly inside the disc.",
+        "The statement needs neither primality nor a bound on‖p‖. At p=0 it gives the zero image; at p=1 it is equality. It only controls the concrete coordinate used by the trace, not a newly planned analytic Frobenius object."
+      ],
+      "prerequisites": [
+        "mathlib:IsUltrametricDist.norm_mul_eq_max_of_norm_ne_norm",
+        "mathlib:IsUltrametricDist.isNonarchimedean_norm"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/LogarithmicPrimitive",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.cyclotomicLogFrobenius_norm"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Proof of Theorem6.1(ii), the full T-dependent root-trace display before evaluation at0, published153/PDF54; local primitive expansion in Lemma6.4, published151/PDF52. Whole published151–153 read earlier in this continuous continuation.",
+          "match": "Worker extension of the already imported finite trace comparison to every point of the open unit disc. The source displays the T-dependent trace, whose actual finite expression and convergent evaluation are now specified. The generic weight-one distribution theorem remains with Coleman, with all inherited gaps retained. This does not construct LAD operators or identify an L-value."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedLogarithmicDiscTraceTests.dyadic_frobenius_fixed_point_image",
+          "kind": "computation",
+          "statement": "For p=2 and t=−2, the Frobenius-coordinate image is0 and satisfies the radius bound."
+        }
+      ],
+      "acceptance": [
+        "The native proof reuses the complete power-difference argument from the root-domain checkpoint."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/logarithmic-disc-trace-unit-domain",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The trace has no excluded unit argument throughout the disc",
+      "kind": "lemma",
+      "statement": "If D>1, p is coprime to D,‖(D:K)‖=1 and‖t‖<1, then(ε^u.val(1+t))^p≠1 for every unit residue u.",
+      "hypotheses": [
+        "K is a characteristic-zero field, D is positive with NeZero D, η:DirichletCharacter K D, ε∈K and hε:IsPrimitiveRoot ε D. V(t) is the preceding actual cyclotomicLogValue and F is the preceding actual tameLogPrimitive with its constant. Put σ_j(t)=ξ^j(1+t)−1 and τ_p(t)=(1+t)^p−1; these abbreviate explicit expressions, not new generic maps or analytic objects.",
+        "The finite disc-trace constructor permits every natural p, ξ∈K, supplied function ℓ:K→K and t∈K, using the original Gauss factor and totalized field inverse. The finite eigenrelation requires p>0, ξ primitive of order p, p coprime to D, D>1, the exact domain hdom:∀u∈(ZMod D)ˣ,(ε^u.val(1+t))^p≠1, and the owned law htrace:∀z,z^p≠1→Σ_(j<p)ℓ(ξ^jz−1)=ℓ(z^p−1).",
+        "Geometric statements use a normed ultrametric field and‖t‖<1. The shifted-point theorem additionally has p prime, ξ primitive of order p and‖(p:K)‖<1. The Frobenius-coordinate bound holds for every natural p. The automatic unit-domain theorem additionally has D>1, p coprime to D and‖(D:K)‖=1.",
+        "The HasSum theorem combines these tame prime hypotheses and htrace with hlocal:∀x,u,x≠0→‖u‖<1→HasSum(n↦coeff n(log K)u^n)(ℓ(x(1+u))−ℓ(x)). No primitivity or nonprincipality of η or nonzero Gauss hypothesis is needed. All prior Coleman request leaves remain open. LAD’s distribution and Amice carriers currently appear only in comments in its suggested file; no surrogate carrier is introduced here."
+      ],
+      "proofSteps": [
+        "The primitive root ε^p still has order D by native coprime powering. The preceding coordinate bound places τ=(1+t)^p−1 inside the open disc.",
+        "Apply the existing actual tame shifted-logarithm argument norm theorem at root ε^p, unit u and point τ. It gives norm1 for(ε^p)^u.val(1+τ)−1.",
+        "Rewrite1+τ=(1+t)^p and commute the natural exponents. The displayed argument is exactly(ε^u.val(1+t))^p−1, so its norm is1 and it cannot be0.",
+        "The complete native powered-argument-domain lemma checks the norm argument and product power. The arithmetic root distance from1 is supplied by the preceding concrete tame theorem, not assumed from finite order alone.",
+        "This supplies the exact hdom needed by the finite trace theorem for every t in the tame disc. It retains‖D‖=1 and does not extend through pure-p-power poles."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/logarithmic-frobenius-disc-bound",
+        "DirichletPadicLFunctions:L3/tame-shifted-logarithm-argument-norm",
+        "mathlib:IsPrimitiveRoot.pow_of_coprime"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/LogarithmicPrimitive",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.cyclotomicLogDiscTrace_unit_domain"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Proof of Theorem6.1(ii), the full T-dependent root-trace display before evaluation at0, published153/PDF54; local primitive expansion in Lemma6.4, published151/PDF52. Whole published151–153 read earlier in this continuous continuation.",
+          "match": "Worker extension of the already imported finite trace comparison to every point of the open unit disc. The source displays the T-dependent trace, whose actual finite expression and convergent evaluation are now specified. The generic weight-one distribution theorem remains with Coleman, with all inherited gaps retained. This does not construct LAD operators or identify an L-value."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedLogarithmicDiscTraceTests.tame_dyadic_powered_argument",
+          "kind": "computation",
+          "statement": "Under the tame dyadic hypotheses, no unit-root argument at t=2 has square1."
+        }
+      ],
+      "acceptance": [
+        "No logarithm multiplication law or distribution law is invoked before the excluded locus has been checked."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/cyclotomic-logarithmic-disc-trace-frobenius",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The finite trace evaluates at the Frobenius coordinate",
+      "kind": "theorem",
+      "statement": "Under p>0, ξ primitive of order p, p coprime to D, D>1, hdom and the exact supplied htrace, Tr_(p,ξ)V(t)=(η(p)/p)V((1+t)^p−1).",
+      "hypotheses": [
+        "K is a characteristic-zero field, D is positive with NeZero D, η:DirichletCharacter K D, ε∈K and hε:IsPrimitiveRoot ε D. V(t) is the preceding actual cyclotomicLogValue and F is the preceding actual tameLogPrimitive with its constant. Put σ_j(t)=ξ^j(1+t)−1 and τ_p(t)=(1+t)^p−1; these abbreviate explicit expressions, not new generic maps or analytic objects.",
+        "The finite disc-trace constructor permits every natural p, ξ∈K, supplied function ℓ:K→K and t∈K, using the original Gauss factor and totalized field inverse. The finite eigenrelation requires p>0, ξ primitive of order p, p coprime to D, D>1, the exact domain hdom:∀u∈(ZMod D)ˣ,(ε^u.val(1+t))^p≠1, and the owned law htrace:∀z,z^p≠1→Σ_(j<p)ℓ(ξ^jz−1)=ℓ(z^p−1).",
+        "Geometric statements use a normed ultrametric field and‖t‖<1. The shifted-point theorem additionally has p prime, ξ primitive of order p and‖(p:K)‖<1. The Frobenius-coordinate bound holds for every natural p. The automatic unit-domain theorem additionally has D>1, p coprime to D and‖(D:K)‖=1.",
+        "The HasSum theorem combines these tame prime hypotheses and htrace with hlocal:∀x,u,x≠0→‖u‖<1→HasSum(n↦coeff n(log K)u^n)(ℓ(x(1+u))−ℓ(x)). No primitivity or nonprincipality of η or nonzero Gauss hypothesis is needed. All prior Coleman request leaves remain open. LAD’s distribution and Amice carriers currently appear only in comments in its suggested file; no surrogate carrier is introduced here."
+      ],
+      "proofSteps": [
+        "Unfold the disc trace and V, and exchange the two finite sums. Nonunit residues have weight0. For every remaining unit residue, hdom permits applying the existing Coleman weight-one trace law at z=ε^u.val(1+t).",
+        "The inner sum becomes ℓ((ε^u.val(1+t))^p−1)=ℓ(ε^(p·u.val)(1+t)^p−1). The complete native shifted-trace lemma checks the affine rearrangement and normalization.",
+        "Apply the preceding coprime powered-constant factor to the supplied function f(x)=ℓ((x+1)(1+t)^p−1). Its theorem holds for every function f, so no new logarithm or branch law for f is assumed.",
+        "After expanding the actual finite constants, this changes the powered ε exponent to the original ε exponent and contributes η(p). The resulting sum, with the same−G⁻¹, is exactly V((1+t)^p−1). The outer1/p gives the displayed scalar.",
+        "This is a finite equality at any point satisfying hdom; it does not require a norm. In the analytic application the preceding unit-domain theorem supplies hdom. All six existing stage leaves of the imported Coleman trace remain in the graph.",
+        "The Frobenius-coordinate argument is essential. At p=2,t=2 the shifted points are2 and−4, while the right-hand value is V(8), not V(2). Exact controls detect replacing that argument or dropping1/p."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/cyclotomic-logarithmic-disc-trace",
+        "DirichletPadicLFunctions:L3/cyclotomic-powered-logarithmic-coprime-factor",
+        "DirichletPadicLFunctions:L3/cyclotomic-logarithmic-trace-powered-constant",
+        "mathlib:MulChar.map_nonunit",
+        "mathlib:Fintype.prod_bijective"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/LogarithmicPrimitive",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.cyclotomicLogDiscTrace_eq_frobenius"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Proof of Theorem6.1(ii), the full T-dependent root-trace display before evaluation at0, published153/PDF54; local primitive expansion in Lemma6.4, published151/PDF52. Whole published151–153 read earlier in this continuous continuation.",
+          "match": "Worker extension of the already imported finite trace comparison to every point of the open unit disc. The source displays the T-dependent trace, whose actual finite expression and convergent evaluation are now specified. The generic weight-one distribution theorem remains with Coleman, with all inherited gaps retained. This does not construct LAD operators or identify an L-value."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedLogarithmicDiscTraceTests.dyadic_trace_uses_frobenius_point",
+          "kind": "computation",
+          "statement": "With the exact supplied domain and trace laws, the p=2 disc trace at2 is(η(2)/2)V(8)."
+        }
+      ],
+      "acceptance": [
+        "The generic weight-one theorem is imported through the preceding trace node. No generic distribution relation, Frobenius operator or substitute distribution carrier is replanned."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/cyclotomic-logarithmic-disc-trace-series",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The coefficient trace converges to the Frobenius value",
+      "kind": "theorem",
+      "statement": "Under the tame prime norm, htrace and hlocal hypotheses, for‖t‖<1, HasSum(n↦coeff n(F)·((p:K)⁻¹Σ_(j<p)(ξ^j(1+t)−1)^n))((η(p)/p)V((1+t)^p−1)).",
+      "hypotheses": [
+        "K is a characteristic-zero field, D is positive with NeZero D, η:DirichletCharacter K D, ε∈K and hε:IsPrimitiveRoot ε D. V(t) is the preceding actual cyclotomicLogValue and F is the preceding actual tameLogPrimitive with its constant. Put σ_j(t)=ξ^j(1+t)−1 and τ_p(t)=(1+t)^p−1; these abbreviate explicit expressions, not new generic maps or analytic objects.",
+        "The finite disc-trace constructor permits every natural p, ξ∈K, supplied function ℓ:K→K and t∈K, using the original Gauss factor and totalized field inverse. The finite eigenrelation requires p>0, ξ primitive of order p, p coprime to D, D>1, the exact domain hdom:∀u∈(ZMod D)ˣ,(ε^u.val(1+t))^p≠1, and the owned law htrace:∀z,z^p≠1→Σ_(j<p)ℓ(ξ^jz−1)=ℓ(z^p−1).",
+        "Geometric statements use a normed ultrametric field and‖t‖<1. The shifted-point theorem additionally has p prime, ξ primitive of order p and‖(p:K)‖<1. The Frobenius-coordinate bound holds for every natural p. The automatic unit-domain theorem additionally has D>1, p coprime to D and‖(D:K)‖=1.",
+        "The HasSum theorem combines these tame prime hypotheses and htrace with hlocal:∀x,u,x≠0→‖u‖<1→HasSum(n↦coeff n(log K)u^n)(ℓ(x(1+u))−ℓ(x)). No primitivity or nonprincipality of η or nonzero Gauss hypothesis is needed. All prior Coleman request leaves remain open. LAD’s distribution and Amice carriers currently appear only in comments in its suggested file; no surrogate carrier is introduced here."
+      ],
+      "proofSteps": [
+        "Every shifted point σ_j(t) lies in the convergence disc by the shifted-domain theorem. Apply the existing tameLogPrimitive_hasSum to each of these points, obtaining the actual V(σ_j(t)) as the sum.",
+        "Combine this finite family of HasSum statements and multiply by(p:K)⁻¹. The complete native finite-average-HasSum lemma pulls out the common coefficient and gives exactly the displayed sequence, with target TrV(t).",
+        "The new tame unit-domain theorem supplies hdom. Apply the finite disc-trace eigenrelation to rewrite the target as(η(p)/p)V(τ_p(t)). The coordinate bound also places that right-hand evaluation inside the disc.",
+        "At t=0 this recovers the preceding averaged coefficient trace theorem. At p=2,t=2 the multiplier is(1/2)(2^n+(−4)^n) and the target is(η(2)/2)V(8), including the n=0 term.",
+        "This is a convergent pointwise coefficient trace. It does not assert a formal power-series substitution identity or supply LAD’s φψ object. The local law supplies convergence; no additional completeness assumption is inserted into the conditional consumer."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/cyclotomic-logarithmic-disc-trace-frobenius",
+        "DirichletPadicLFunctions:L3/logarithmic-disc-trace-shifted-domain",
+        "DirichletPadicLFunctions:L3/logarithmic-disc-trace-unit-domain",
+        "DirichletPadicLFunctions:L3/tame-logarithmic-series-point-evaluation",
+        "mathlib:hasProd_prod",
+        "mathlib:HasSum.mul_left"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/LogarithmicPrimitive",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.cyclotomicLogDiscTrace_hasSum"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Proof of Theorem6.1(ii), the full T-dependent root-trace display before evaluation at0, published153/PDF54; local primitive expansion in Lemma6.4, published151/PDF52. Whole published151–153 read earlier in this continuous continuation.",
+          "match": "Worker extension of the already imported finite trace comparison to every point of the open unit disc. The source displays the T-dependent trace, whose actual finite expression and convergent evaluation are now specified. The generic weight-one distribution theorem remains with Coleman, with all inherited gaps retained. This does not construct LAD operators or identify an L-value."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedLogarithmicDiscTraceTests.dyadic_series_trace_at_two",
+          "kind": "compatibility",
+          "statement": "The actual coefficient sequence coeff n(F)·(2^n+(−4)^n)/2 sums to(η(2)/2)V(8) under the tame dyadic laws."
+        }
+      ],
+      "acceptance": [
+        "Only a finite family of convergent series is combined. No two infinite sums are interchanged."
+      ]
     }
   ],
   "requests": [
@@ -33044,7 +33418,7 @@
       "stageId": "DirichletPadicLFunctions:L3",
       "status": "partial",
       "remaining": [
-        "The actual root average now equals p⁻¹c^[p], and the complementary value agrees with the existing Euler candidate and(1−η(p)/p)c₀ in the tame domain, conditional on the owned Coleman trace law. The averaged actual coefficient series has target(η(p)/p)c₀. Next compare with the actual LAD restriction/φψ operator and complete the distribution-to-L-value argument. LAD distribution-operations has a coarse PMIA L0 leaf which must be accounted for. The imported generic Coleman distribution node retains five additional open analytic supplier requests; the existing exact discAnalytic/R+ comparison also remains open. The smoothed pure-p-power route, positive-weight comparisons, pole/residue analysis and complete source extraction remain open. Preserve E44–E48; no stage is closed by these finite comparisons.",
+        "The finite trace now satisfies TrV(t)=(η(p)/p)V((1+t)^p−1) throughout the tame open disc, with all shifted and powered unit arguments checked and a matching convergent coefficient HasSum. Next compare this pointwise finite expression with the actual LAD restriction/φψ operator when its typed distribution and Amice interfaces are supplied. Those carriers appear only in comments in the current LAD suggested file; do not introduce replacements in Dirichlet. LAD operations also retains a coarse PMIA L0 leaf. The nine existing requests and13 gaps, including the exact discAnalytic/R+ comparison and five generic Coleman analytic requests, remain. The smoothed pure-p-power route, distribution-to-L-value identification, positive-weight comparisons, pole/residue analysis and complete source extraction remain open. Preserve E44–E48 and do not infer a formal substitution equality from the pointwise identity.",
         "The actual tame integral and analytic transfer from supplied C(U,K)-valued families remain supplied. Actual odd/dyadic principal-unit families belong to PMIA L0a and scalar Mellin theory to LAD L3; instantiate the corrected Teichmüller twist when those interfaces are supplied."
       ]
     },
@@ -33076,7 +33450,7 @@
     {
       "title": "L3 remaining source decomposition and interfaces",
       "neededBy": [],
-      "detail": "The actual root average now equals p⁻¹c^[p], and the complementary value agrees with the existing Euler candidate and(1−η(p)/p)c₀ in the tame domain, conditional on the owned Coleman trace law. The averaged actual coefficient series has target(η(p)/p)c₀. Next compare with the actual LAD restriction/φψ operator and complete the distribution-to-L-value argument. LAD distribution-operations has a coarse PMIA L0 leaf which must be accounted for. The imported generic Coleman distribution node retains five additional open analytic supplier requests; the existing exact discAnalytic/R+ comparison also remains open. The smoothed pure-p-power route, positive-weight comparisons, pole/residue analysis and complete source extraction remain open. Preserve E44–E48; no stage is closed by these finite comparisons. The actual tame integral and analytic transfer from supplied C(U,K)-valued families remain supplied. Actual odd/dyadic principal-unit families belong to PMIA L0a and scalar Mellin theory to LAD L3; instantiate the corrected Teichmüller twist when those interfaces are supplied."
+      "detail": "The finite trace now satisfies TrV(t)=(η(p)/p)V((1+t)^p−1) throughout the tame open disc, with all shifted and powered unit arguments checked and a matching convergent coefficient HasSum. Next compare this pointwise finite expression with the actual LAD restriction/φψ operator when its typed distribution and Amice interfaces are supplied. Those carriers appear only in comments in the current LAD suggested file; do not introduce replacements in Dirichlet. LAD operations also retains a coarse PMIA L0 leaf. The nine existing requests and13 gaps, including the exact discAnalytic/R+ comparison and five generic Coleman analytic requests, remain. The smoothed pure-p-power route, distribution-to-L-value identification, positive-weight comparisons, pole/residue analysis and complete source extraction remain open. Preserve E44–E48 and do not infer a formal substitution equality from the pointwise identity. The actual tame integral and analytic transfer from supplied C(U,K)-valued families remain supplied. Actual odd/dyadic principal-unit families belong to PMIA L0a and scalar Mellin theory to LAD L3; instantiate the corrected Teichmüller twist when those interfaces are supplied."
     },
     {
       "title": "L4 completed-algebra, twisted localized constant coefficient and tame-family comparisons",
@@ -33426,34 +33800,34 @@
   "checks": {
     "blueprint": "Zero errors and warnings with the unmodified pinned index.",
     "intake": "Exactly four authorized deliverables; zero problems.",
-    "sourceIssues": "All16 source findings, sourceVersions and all four previous supplier requests remain whole. Five inherited analytic requests and matching gaps are added for the exact imported Coleman distribution node. Confirmed external E44–E48 remain; no new source finding or independent verdict is added.",
+    "sourceIssues": "All16 source findings, sourceVersions and all nine previous supplier requests remain whole. All13 gaps and confirmed external E44–E48 are retained. No new source finding, request or independent verdict is added.",
     "validation": {
-      "nodes": 506,
+      "nodes": 512,
       "kinds": {
         "definition": 1,
-        "lemma": 216,
-        "construction": 62,
-        "theorem": 143,
+        "lemma": 219,
+        "construction": 63,
+        "theorem": 145,
         "comparison": 84
       },
-      "api": 454,
-      "packetTests": 795,
-      "definitionConstructionTests": 262,
-      "typedExamples": 798,
+      "api": 461,
+      "packetTests": 804,
+      "definitionConstructionTests": 266,
+      "typedExamples": 807,
       "planets": 24,
       "baseline": 475,
-      "preservedWholeNodes": 500,
-      "preservedBaseline": 473,
+      "preservedWholeNodes": 506,
+      "preservedBaseline": 475,
       "preservedSourceIssues": 16,
       "newSourceIssues": 0,
       "newNodes": 6,
-      "newNamedDeclarations": 6,
-      "newTypedTests": 6,
+      "newNamedDeclarations": 11,
+      "newTypedTests": 9,
       "requests": 9,
       "gaps": 13,
       "closedStages": 0,
-      "reachableNodes": 742,
-      "dependencyEdges": 3537,
+      "reachableNodes": 748,
+      "dependencyEdges": 3558,
       "acyclic": true,
       "baselineLeaves": 646,
       "stageRequestLeaves": [
@@ -33466,11 +33840,11 @@
         "PadicMeasuresIwasawaAlgebras:L1",
         "PadicMeasuresIwasawaAlgebras:L3"
       ],
-      "readerWords": 221467,
+      "readerWords": 225169,
       "scopedMutationCheck": true,
       "correctedPredecessorNodes": 0,
       "compilerErrors": 0,
-      "compilerWarnings": 1552,
+      "compilerWarnings": 1572,
       "allWarningsPlaceholders": true,
       "supplierNodes": 332,
       "currentSupplierNodes": 369,
@@ -33481,21 +33855,20 @@
       "actualSupplierModules": 1,
       "scratchCompleteDefinitions": 0,
       "scratchCompleteLemmas": 9,
-      "scratchMathlibModules": 2794,
+      "scratchMathlibModules": 2796,
       "scratchErrors": 0,
       "scratchWarnings": 0,
       "scratchPlaceholders": 0,
       "finiteControls": {
         "characterPrimeCases": 5,
-        "rootEvaluations": 28,
-        "localLogExpansions": 75,
-        "traceComparisons": 5,
-        "poweredCharacterComparisons": 5,
-        "complementEulerComparisons": 5,
-        "higherPrecisionRootComparisons": 28,
-        "wrongNormalizationCounterexamples": 2,
-        "wrongSignCounterexamples": 2,
-        "wrongGaussCounterexamples": 1
+        "discTraceComparisons": 20,
+        "rootEvaluations": 112,
+        "localLogExpansions": 344,
+        "coefficientEvaluationComparisons": 132,
+        "higherPrecisionPointComparisons": 132,
+        "zeroPointPredecessorComparisons": 5,
+        "wrongReciprocalCounterexamples": 17,
+        "wrongFrobeniusArgumentCounterexamples": 15
       },
       "numericalControlsCertified": true,
       "newRoutesStageLeaves": [
@@ -33510,14 +33883,14 @@
     "lean": {
       "status": "compiled with only expected placeholder warnings",
       "errors": 0,
-      "warnings": 1552,
-      "sha256": "787d892c3ba2ff2b5bf1671eb5c6ad08a6689a35fc45a342a3e34b434be7919f",
+      "warnings": 1572,
+      "sha256": "f2c89348be99bee3d231c40c01685b86810aa1448d7277a54c70cc9964272bf3",
       "nativeProbe": {
         "completeLemmas": 9,
         "errors": 0,
         "warnings": 0,
         "placeholders": 0,
-        "sha256": "9bbf6cfe789c047eb9687a5288c42e9840e376522a44f13bfd55ca5d775c07cc"
+        "sha256": "d080f14c604cd6b5e23d2826249393452e8aa6077f29ff1feea18b609ad736ac"
       },
       "artifactReuse": {
         "compiledSupplierNodes": 332,
@@ -33586,16 +33959,16 @@
         "nativeArtifactFileCount": 105,
         "predecessorAgainstCurrentSupplier": {
           "exitCode": 0,
-          "sourceSha256": "28eb25fbb7a77bd84f47f1d45f7b47349b97d4eb88189436edf7cc0dd30b7e13",
+          "sourceSha256": "787d892c3ba2ff2b5bf1671eb5c6ad08a6689a35fc45a342a3e34b434be7919f",
           "modules": 3572,
-          "warnings": 1540,
+          "warnings": 1552,
           "errors": 0
         },
         "scope": "The actual332-node PMIA artifact compiled at PR3303 is reused. The current369-node PMIA source preserves all its lines in order, and all332 old packet nodes are unchanged; added residue restrictions and L4 declarations are not called. No compilation against the369-node source is claimed. The full new Dirichlet file uses that exact332-node artifact with21 pinned Tau modules,105 native artifact files and the audited pinned Mathlib closure. Existing native artifacts and original zero-warning logs are verified; no Lake setup, update, cache fetch or native library build occurs."
       }
     },
     "publication": {
-      "base": "7734982c499f4722f83bc333bd7ff7ad7e685150",
+      "base": "2ce91a9ce2823c7b1ab8e9613b4aa5c1a34a687e",
       "unchangedInputs": 62,
       "unchangedOutputs": 4,
       "sameSessionFollowupAfterMerge": true,
@@ -38956,6 +39329,45 @@
         "wrongGaussCounterexamples": 1
       },
       "numericalMethod": "Exact modular logarithms in Q₂(μ₃) and ramified Q_p(μ_p) extensions for p=3,5,7,11. Input precision p^20 and rigorous tail bounds from4719 certify output p^8 plus the averaging digit; repeat independently three digits higher. Principal-unit valuation>=1/e and v_p(n)<=n/(2e) for n>=p² bound the omitted tail, with guard digits and p-part division verified. The actual finite root average equals1/p times the directly computed powered constant, and that constant equals eta(p) times the original constant with the same Gauss denominator. The complementary value equals the reciprocal Euler expression. Odd, even, dyadic and principal-imprimitive tame cases are included. Controls detect omitting1/p, changing the subtraction sign and dropping the original Gauss denominator. No general distribution theorem, LAD restriction or L-value identity is proved by these finite controls."
+    },
+    "logarithmicDiscTrace": {
+      "agent": "Codex",
+      "session": "codex-7e92bd",
+      "issue": 713,
+      "claimComment": 5854790528,
+      "winningBot": 5854791937,
+      "previousPR": 4726,
+      "previousHead": "da09927a8713222cb2ef3b386e3c709f3f8822fb",
+      "previousMerge": "b9fcaa3f4453b02626dae14b54c0562c401461c4",
+      "preservedWholeNodes": 506,
+      "preservedBaseline": 475,
+      "preservedFindings": 16,
+      "newNodes": 6,
+      "reading": "Reread the whole complete native average probe from4715 and the exact prior point-evaluation, trace and inversion arguments. The whole LAD distribution-operations node and the complete L0–L2 suggested comment block were read: its Dist, LA and Amice carriers are not Lean declarations, so no actual LAD import or compilation is claimed. Whole published151–153 and the imported Coleman weight-one/distribution reading remain in use. The new steps apply that already recorded owner interface to the actual finite Dirichlet expression.",
+      "boundary": "The finite trace now satisfies TrV(t)=(η(p)/p)V((1+t)^p−1) throughout the tame open disc, with all shifted and powered unit arguments checked and a matching convergent coefficient HasSum. Next compare this pointwise finite expression with the actual LAD restriction/φψ operator when its typed distribution and Amice interfaces are supplied. Those carriers appear only in comments in the current LAD suggested file; do not introduce replacements in Dirichlet. LAD operations also retains a coarse PMIA L0 leaf. The nine existing requests and13 gaps, including the exact discAnalytic/R+ comparison and five generic Coleman analytic requests, remain. The smoothed pure-p-power route, distribution-to-L-value identification, positive-weight comparisons, pole/residue analysis and complete source extraction remain open. Preserve E44–E48 and do not infer a formal substitution equality from the pointwise identity.",
+      "inputBase": "c3fcc4721d1550342ce2eb4393a07dfad5fd1445",
+      "sourceBoundary": "All16 source findings, sourceVersions and all nine previous supplier requests remain whole. All13 gaps and confirmed external E44–E48 are retained. No new source finding, request or independent verdict is added.",
+      "publication": {
+        "base": "2ce91a9ce2823c7b1ab8e9613b4aa5c1a34a687e",
+        "unchangedInputs": 62,
+        "unchangedOutputs": 4,
+        "sameSessionFollowupAfterMerge": true,
+        "lastClaimConfirmation": 5854791937,
+        "reviewIssue": 390,
+        "reviewUnclaimed": true
+      },
+      "finiteControls": {
+        "characterPrimeCases": 5,
+        "discTraceComparisons": 20,
+        "rootEvaluations": 112,
+        "localLogExpansions": 344,
+        "coefficientEvaluationComparisons": 132,
+        "higherPrecisionPointComparisons": 132,
+        "zeroPointPredecessorComparisons": 5,
+        "wrongReciprocalCounterexamples": 17,
+        "wrongFrobeniusArgumentCounterexamples": 15
+      },
+      "numericalMethod": "Exact modular logarithms in Q₂(μ₃) and ramified Q_p(μ_p) for p=3,5,7,11. Input precision p^20, output p^8 plus one averaging digit, and an independent three-digit increase use the certified tail bound from4726: principal-unit valuation>=1/e and v_p(n)<=n/(2e) for n>=p², with guarded p-part division. Four open-disc inputs per case include0,p,p² and a non-root extension-field input (2*zeta3 in the dyadic case). Direct finite logarithms at every shifted root point and at tau=(1+t)^p-1 agree with local coefficient evaluations. Their normalized average equals eta(p)/p times V(tau). The t=0 values match the preceding retained controls. Controls detect omission of1/p and replacement of the Frobenius-coordinate argument by t; the latter is checked after multiplying by p, without assuming V(t)/p integral. No LAD operator or analytic L-value identity is inferred."
     }
   },
   "requestResolutions": [

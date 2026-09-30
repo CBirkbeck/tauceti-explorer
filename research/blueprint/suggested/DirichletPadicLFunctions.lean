@@ -8123,3 +8123,127 @@ example {K : Type*} [NormedField K] [IsUltrametricDist K] [CharZero K]
       ((η (2 : ZMod D)/(2 : K))*cyclotomicLogConstant η ε hε ℓ) := sorry
 end SuggestedLogarithmicTraceTests
 end
+
+/-! The actual logarithmic trace at general points. This is a finite expression
+and its convergent coefficient evaluation, with the owned Coleman trace law.
+The LAD distribution and operator objects are not defined in this consumer. -/
+noncomputable section
+namespace DirichletPadic
+open scoped BigOperators
+open PowerSeries
+section Field
+variable {K : Type*} [Field K] [CharZero K] {D : ℕ} [NeZero D]
+
+def cyclotomicLogDiscTrace (p : ℕ) (ξ : K) (η : DirichletCharacter K D)
+    (ε : K) (hε : IsPrimitiveRoot ε D) (ℓ : K → K) (t : K) : K := sorry
+lemma cyclotomicLogDiscTrace_def (p : ℕ) (ξ : K) (η : DirichletCharacter K D)
+    (ε : K) (hε : IsPrimitiveRoot ε D) (ℓ : K → K) (t : K) :
+    cyclotomicLogDiscTrace p ξ η ε hε ℓ t=
+      (p : K)⁻¹*∑ j ∈ Finset.range p, cyclotomicLogValue η ε hε ℓ (ξ^j*(1+t)-1) := sorry
+lemma cyclotomicLogDiscTrace_zero (ξ : K) (η : DirichletCharacter K D)
+    (ε : K) (hε : IsPrimitiveRoot ε D) (ℓ : K → K) (t : K) :
+    cyclotomicLogDiscTrace 0 ξ η ε hε ℓ t=0 := sorry
+lemma cyclotomicLogDiscTrace_one (ξ : K) (η : DirichletCharacter K D)
+    (ε : K) (hε : IsPrimitiveRoot ε D) (ℓ : K → K) (t : K) :
+    cyclotomicLogDiscTrace 1 ξ η ε hε ℓ t=cyclotomicLogValue η ε hε ℓ t := sorry
+lemma cyclotomicLogDiscTrace_at_zero (p : ℕ) (ξ : K) (η : DirichletCharacter K D)
+    (ε : K) (hε : IsPrimitiveRoot ε D) (ℓ : K → K) :
+    cyclotomicLogDiscTrace p ξ η ε hε ℓ 0=cyclotomicLogAverage p ξ η ε hε ℓ := sorry
+lemma cyclotomicLogDiscTrace_zero_log (p : ℕ) (ξ : K) (η : DirichletCharacter K D)
+    (ε : K) (hε : IsPrimitiveRoot ε D) (t : K) :
+    cyclotomicLogDiscTrace p ξ η ε hε (fun _ => 0) t=0 := sorry
+
+theorem cyclotomicLogDiscTrace_eq_frobenius (p : ℕ) (hp : 0<p) (ξ : K)
+    (hξ : IsPrimitiveRoot ξ p) (hpD : p.Coprime D) (η : DirichletCharacter K D)
+    (hD : 1<D) (ε : K) (hε : IsPrimitiveRoot ε D) (ℓ : K → K) (t : K)
+    (hdom : ∀ u : (ZMod D)ˣ, (ε^(u : ZMod D).val*(1+t))^p≠1)
+    (htrace : ∀ z : K, z^p≠1 →
+      (∑ j ∈ Finset.range p, ℓ (ξ^j*z-1))=ℓ (z^p-1)) :
+    cyclotomicLogDiscTrace p ξ η ε hε ℓ t=
+      (η (p : ZMod D)/(p : K))*cyclotomicLogValue η ε hε ℓ ((1+t)^p-1) := sorry
+end Field
+
+section Normed
+variable {K : Type*} [NormedField K] [IsUltrametricDist K] [CharZero K]
+variable {D : ℕ} [NeZero D]
+
+lemma cyclotomicLogDiscTrace_point_in_disc (p : ℕ) (hp : p.Prime) (ξ : K)
+    (hξ : IsPrimitiveRoot ξ p) (hpK : ‖(p : K)‖<1) (t : K) (ht : ‖t‖<1)
+    (j : ℕ) : ‖ξ^j*(1+t)-1‖<1 := sorry
+
+lemma cyclotomicLogFrobenius_norm (p : ℕ) (t : K) (ht : ‖t‖<1) :
+    ‖(1+t)^p-1‖≤‖t‖ := sorry
+
+lemma cyclotomicLogDiscTrace_unit_domain (p : ℕ) (hpD : p.Coprime D)
+    (hD : 1<D) (ε : K) (hε : IsPrimitiveRoot ε D) (hDK : ‖(D : K)‖=1)
+    (t : K) (ht : ‖t‖<1) (u : (ZMod D)ˣ) :
+    (ε^(u : ZMod D).val*(1+t))^p≠1 := sorry
+
+theorem cyclotomicLogDiscTrace_hasSum (p : ℕ) (hp : p.Prime) (ξ : K)
+    (hξ : IsPrimitiveRoot ξ p) (hpK : ‖(p : K)‖<1) (hpD : p.Coprime D)
+    (η : DirichletCharacter K D) (hD : 1<D) (ε : K) (hε : IsPrimitiveRoot ε D)
+    (hDK : ‖(D : K)‖=1) (ℓ : K → K)
+    (htrace : ∀ z : K, z^p≠1 →
+      (∑ j ∈ Finset.range p, ℓ (ξ^j*z-1))=ℓ (z^p-1))
+    (hlocal : ∀ x u : K, x≠0 → ‖u‖<1 →
+      HasSum (fun n : ℕ => coeff n (log K)*u^n) (ℓ (x*(1+u))-ℓ x))
+    (t : K) (ht : ‖t‖<1) :
+    HasSum (fun n : ℕ => coeff n (tameLogPrimitive η ε hε ℓ)*
+      ((p : K)⁻¹*∑ j ∈ Finset.range p, (ξ^j*(1+t)-1)^n))
+      ((η (p : ZMod D)/(p : K))*cyclotomicLogValue η ε hε ℓ ((1+t)^p-1)) := sorry
+end Normed
+end DirichletPadic
+
+namespace SuggestedLogarithmicDiscTraceTests
+open scoped BigOperators
+open DirichletPadic PowerSeries
+section Field
+variable {K : Type*} [Field K] [CharZero K] {D : ℕ} [NeZero D]
+-- empty_disc_trace
+example (ξ : K) (η : DirichletCharacter K D) (ε : K) (hε : IsPrimitiveRoot ε D)
+    (ℓ : K → K) (t : K) : cyclotomicLogDiscTrace 0 ξ η ε hε ℓ t=0 := sorry
+-- singleton_disc_trace
+example (ξ : K) (η : DirichletCharacter K D) (ε : K) (hε : IsPrimitiveRoot ε D)
+    (ℓ : K → K) (t : K) :
+    cyclotomicLogDiscTrace 1 ξ η ε hε ℓ t=cyclotomicLogValue η ε hε ℓ t := sorry
+-- disc_trace_at_origin
+example (p : ℕ) (ξ : K) (η : DirichletCharacter K D) (ε : K)
+    (hε : IsPrimitiveRoot ε D) (ℓ : K → K) :
+    cyclotomicLogDiscTrace p ξ η ε hε ℓ 0=cyclotomicLogAverage p ξ η ε hε ℓ := sorry
+-- zero_function_disc_trace
+example (p : ℕ) (ξ : K) (η : DirichletCharacter K D) (ε : K)
+    (hε : IsPrimitiveRoot ε D) (t : K) :
+    cyclotomicLogDiscTrace p ξ η ε hε (fun _ => 0) t=0 := sorry
+-- dyadic_trace_uses_frobenius_point
+example (η : DirichletCharacter K D) (hD : 1<D) (hpD : Nat.Coprime 2 D)
+    (ε : K) (hε : IsPrimitiveRoot ε D) (hξ : IsPrimitiveRoot (-1 : K) 2)
+    (ℓ : K → K) (hdom : ∀ u : (ZMod D)ˣ, (ε^(u : ZMod D).val*3)^2≠1)
+    (htrace : ∀ z : K, z^2≠1 →
+      (∑ j ∈ Finset.range 2, ℓ ((-1 : K)^j*z-1))=ℓ (z^2-1)) :
+    cyclotomicLogDiscTrace 2 (-1) η ε hε ℓ 2=
+      (η (2 : ZMod D)/(2 : K))*cyclotomicLogValue η ε hε ℓ 8 := sorry
+end Field
+section Normed
+variable {K : Type*} [NormedField K] [IsUltrametricDist K] [CharZero K]
+-- dyadic_translated_point
+example (h2 : ‖(2 : K)‖<1) : ‖(-1 : K)*(1+2)-1‖<1 := sorry
+-- dyadic_frobenius_fixed_point_image
+example (h2 : ‖(2 : K)‖<1) : ‖(1+(-2 : K))^2-1‖≤‖(2 : K)‖ := sorry
+-- tame_dyadic_powered_argument
+example {D : ℕ} [NeZero D] (hD : 1<D) (hpD : Nat.Coprime 2 D)
+    (ε : K) (hε : IsPrimitiveRoot ε D) (hDK : ‖(D : K)‖=1)
+    (h2 : ‖(2 : K)‖<1) (u : (ZMod D)ˣ) : (ε^(u : ZMod D).val*3)^2≠1 := sorry
+-- dyadic_series_trace_at_two
+example {D : ℕ} [NeZero D] (η : DirichletCharacter K D) (hD : 1<D)
+    (hpD : Nat.Coprime 2 D) (ε : K) (hε : IsPrimitiveRoot ε D)
+    (hDK : ‖(D : K)‖=1) (h2 : ‖(2 : K)‖<1) (ℓ : K → K)
+    (htrace : ∀ z : K, z^2≠1 →
+      (∑ j ∈ Finset.range 2, ℓ ((-1 : K)^j*z-1))=ℓ (z^2-1))
+    (hlocal : ∀ x u : K, x≠0 → ‖u‖<1 →
+      HasSum (fun n : ℕ => coeff n (log K)*u^n) (ℓ (x*(1+u))-ℓ x)) :
+    HasSum (fun n : ℕ => coeff n (tameLogPrimitive η ε hε ℓ)*
+      ((2 : K)⁻¹*((2 : K)^n+(-4 : K)^n)))
+      ((η (2 : ZMod D)/(2 : K))*cyclotomicLogValue η ε hε ℓ 8) := sorry
+end Normed
+end SuggestedLogarithmicDiscTraceTests
+end
