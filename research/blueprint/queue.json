@@ -4323,8 +4323,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-LE-LEHUNG-LEVIN-ETAL-23.md",
-   "state": "pending",
-   "note": "released on GitHub issue #1254"
+   "state": "external",
+   "note": "claimed on GitHub issue #1254"
   },
   {
    "id": "REV-PAPER-LE-LEHUNG-LEVIN-ETAL-23",
@@ -37707,8 +37707,9 @@
     "REV-PAPER-CHANG-CHEN-MISHIBA-23"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-CHANG-CHEN-MISHIBA-23.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4233"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4233",
+   "finishedAt": "2026-09-30T11:31:13Z"
   },
   {
    "id": "RT-PAPER-BOCKLE-IYENGAR-PASKUNAS-23",
