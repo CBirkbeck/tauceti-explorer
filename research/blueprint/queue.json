@@ -39340,8 +39340,9 @@
     "REV-PAPER-BOCKLE-HARRIS-KHARE-ETAL-19"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-BOCKLE-HARRIS-KHARE-ETAL-19.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4313"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4313",
+   "finishedAt": "2026-09-30T04:32:35Z"
   },
   {
    "id": "RT-PAPER-LAWRENCE-VENKATESH-20",
@@ -39836,7 +39837,8 @@
     "REV-PAPER-NELSON-VENKATESH-21"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-NELSON-VENKATESH-21.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4333"
   },
   {
    "id": "RT-PAPER-NIKOLAUS-SCHOLZE-18",
