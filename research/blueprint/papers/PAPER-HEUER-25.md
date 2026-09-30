@@ -10,6 +10,17 @@ The machine-readable extraction is [PAPER-HEUER-25.result.json](PAPER-HEUER-25.r
 - 18 prerequisite entries;
 - 4 recorded mistakes: 3 misprints and 1 gap.
 
+After the independent review (REV-PAPER-HEUER-25, research/blueprint/reviews/REV-PAPER-HEUER-25.md) the extraction has 48 items (1 library, 7 planned, 40 missing), six routes and 13 recorded mistakes, all confirmed. The review read arXiv 2307.01303v3, because Springer served it a JavaScript challenge instead of the PDF. It corrected the extraction in place:
+- **Routes 1 and 3** had clauses needing layers built after them. The lift-induced Hodge–Tate decomposition is item 43's V = O case. The Faltings extension (item 7) is planned at P8:local-rational, and its duality with L_𝕏 moved to item 21. The pro-étale base change of item 10 is now item 44, in route 1.
+- **Two new routes.**
+  - Higgs bundles (item 3) join PAPER-LIU-ZHU-17's accepted HodgeStructuresPartII.
+  - Proper base change with p-power coefficients (item 12), which C5 does not plan, joins PAPER-ZAVYALOV-25's mod-p Part II of ClassicalAdicEtaleCohomology.
+- **Five items added (44–48).**
+- **Nine new misprints (E5–E13)**, scoped to arXiv v3.
+- **Prerequisites.** Three entries that the atlas already covers are removed.
+
+Route numbers in the result file differ from the list below: 1 = P8, 2 = D2, 3 = R2/R3, 4 = the PadicHodgeTheory Part II, 5 = HodgeStructuresPartII, 6 = the mod-p Part II.
+
 ## Sources read
 
 - **The published version**, open access under CC BY 4.0, read in full: 52 pages (pp. 261–312). Item locators are the journal's pages.
@@ -51,7 +62,7 @@ The machine-readable extraction is [PAPER-HEUER-25.result.json](PAPER-HEUER-25.r
 - Proper base change: DiamondEtaleCohomology C5.
 - Exactness of finite pushforward: ClassicalAdicEtaleCohomology H0.
 
-**Missing everywhere.** Higgs bundles in p-adic geometry, and any p-adic Simpson correspondence. PAPER-LIU-ZHU-17 routes the one exception, Liu–Zhu's arithmetic functor for Q_p-local systems, to HodgeTateAndCanonicalSubgroups T6:comparison.
+**Missing everywhere.** Any p-adic Simpson correspondence. (Corrected by the review. Twisted Higgs bundles, including the p-adic Ω^1(−1) case, belong to the accepted HodgeStructuresPartII of PAPER-LIU-ZHU-17. T6:comparison plans logarithmic Riemann–Hilbert, and PAPER-LIU-ZHU-17's route to it was rejected.)
 
 ## Routes
 
@@ -65,7 +76,7 @@ The machine-readable extraction is [PAPER-HEUER-25.result.json](PAPER-HEUER-25.r
      5. the local correspondence and the canonical Higgs field;
      6. the equivalence and the cohomological comparison.
    - **For the design job:** the brief asks it to compare with Liu–Zhu's arithmetic functor rather than rebuild it.
-2. **Source of PadicHodgeTheory [P8]** (2 missing). Scholze's Rν_*Ô = Ω̃^n, the primitive comparison, finiteness and the Hodge–Tate decomposition, and the Faltings extension. This matches how PAPER-LIU-ZHU-17 routes the Faltings extension.
+2. **Source of PadicHodgeTheory [P8]** (2 missing). Scholze's Rν_*Ô = Ω̃^n, the primitive comparison, finiteness and the Hodge–Tate decomposition, and the Faltings extension. (Corrected by the review. The Faltings extension is planned at P8:local-rational and the Hodge–Tate decomposition at CP.3. The precedents are PAPER-ZAVYALOV-25's route 7 and PAPER-SCHOLZE-13's route 1. PAPER-LIU-ZHU-17's route for the Faltings extension was rejected.)
 3. **Source of DiamondsAndVStacks [D2]** (1 missing). Kedlaya–Liu: vector bundles agree on the pro-étale and v-sites.
 4. **Source of AdicSpacesPartII [R2, R3]** (2 missing). Finite formal models of coherent algebras (Lemma 2.7), and rigid and pro-étale cohomology and base change for proper spaces.
 
