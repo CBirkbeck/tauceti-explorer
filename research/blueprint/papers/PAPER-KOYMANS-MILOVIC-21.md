@@ -51,7 +51,7 @@ Let K/ℚ be Galois of degree n: either totally real with every totally positive
 2. **Source of ArithmeticStatistics ST.2 and ST.3** (5 items): Bhargava's geometric sieve (ST.2, uniform conditions at infinitely many primes); and for ST.3, 2^k-ranks and governing fields, the 8-rank field, the 16-rank criterion and Theorem 3.
 3. **Source of ClassicalArithmeticCompletion CA.1** (2 items): quadratic reciprocity in number fields with Hilbert-symbol factors (Lemma 2.1), and norm compatibility of residue symbols.
 4. **Source of GeometryOfNumbersAndQuadraticArithmetic GN.4** (1 item): Widmer's lattice-point count for sets with Lipschitz boundary, with the error in successive minima.
-5. **Source of AnalyticNumberTheory AN.6** (2 items): Conjecture C_n and its arithmetic-progression form (Corollary 2.2), for AN.6's register of conjectural inputs.
+5. **Source of ExponentialSumsAndCircleMethod ES.0** (2 items): Conjecture C_n is the named conjectural extension of Burgess's short-character-sum bound, and Corollary 2.2 is its conditional arithmetic-progression consequence, with the E2 correction retained. ES.0 already owns this direction through completion and the Graham–Ringrose smooth-modulus estimates; Burgess with r = 6 gives the unconditional case C_3, δ = 1/48 (FIMR Corollary 9.1), while the other bounds remain explicit hypotheses in SV.5's type I estimate and Theorems 1–2 and ST.3's Theorem 3. RS-07 dropped AN.6, so there is no separate conjecture-register stage. Route 5 stays in position 5 for the existing review's positional route matching; the verified fix supersedes its old AN.6 rationale.
 
 ## Source issues (`sourceIssues` E1–E8)
 
