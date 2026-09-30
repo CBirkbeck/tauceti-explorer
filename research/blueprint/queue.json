@@ -33948,8 +33948,9 @@
     "REV-PAPER-BURUNGALE-KOBAYASHI-OTA-21"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-BURUNGALE-KOBAYASHI-OTA-21.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1730"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1730",
+   "finishedAt": "2026-09-30T04:43:22Z"
   },
   {
    "id": "RT-PAPER-BENNETT-SIKSEK-20",
@@ -39604,7 +39605,8 @@
     "REV-PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4323"
   },
   {
    "id": "RT-PAPER-BETTS-STIX-25",
