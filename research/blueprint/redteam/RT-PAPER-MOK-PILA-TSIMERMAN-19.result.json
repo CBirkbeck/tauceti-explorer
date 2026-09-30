@@ -1,0 +1,165 @@
+{
+  "redteam": "RT-PAPER-MOK-PILA-TSIMERMAN-19",
+  "protocol": "redteam-v1",
+  "status": "complete",
+  "target": "PAPER-MOK-PILA-TSIMERMAN-19",
+  "agent": "Codex",
+  "session": "codex-rtOQ9t",
+  "inputCommit": "faffc6a92c8c4ef17d3db83f3284bb9b10c23230",
+  "summary": "Full reread of the 34-page published article and 29-page arXiv v3 against all 44 accepted items, 3 routes, reader, extraction review and separate accepted errata. Thirteen findings: eight high and five medium. Several are failures to propagate already confirmed errata, explicitly identified as such; others concern Hodge weight, compactification, effective actions, volume growth, omitted published content, jet typing and prerequisites. All 36 missing items are routed exactly once; no new ownership duplication found.",
+  "sourceVersions": [
+    {
+      "kind": "published",
+      "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v189-n3-p07-s.pdf",
+      "citation": "Annals of Mathematics 189 (2019), 945–978",
+      "read": "2026-09-30",
+      "sha256": "1eab0797914752bdc91b4f46692f0a5716be2cc9e0d2dd96b478f1cdb762a0ab",
+      "scope": "All 34 pages; page images 947, 958, 959, 966, 972, 974."
+    },
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/1711.02189v3",
+      "citation": "arXiv:1711.02189v3, 20 September 2018",
+      "read": "2026-09-30",
+      "sha256": "b3de4f10ea6243fafcfc4a12adc939b1c8c6fab620afa00d2860d5313e1c0167",
+      "scope": "All 29 pages; hash matches accepted extraction."
+    }
+  ],
+  "libraryPins": {
+    "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+    "tauceti": "f790474821cf4256814db967cb154e7af3d0c369"
+  },
+  "checked": [
+    "Independence: accepted extraction Claude Code cc-7b31c4; extraction review Claude Code cc-442dc5. This session did neither. The separate Codex errata review is used as prior evidence, not re-reviewed or edited.",
+    "Every item 1–44, all 13 prerequisite records, the accepted reader and extraction review, all 11 embedded sourceIssues and all 9 separate errata with their accepted review. Distinguish duplicate E-numbers by file path.",
+    "Published §§1–12, proofs, examples, footnotes and bibliography; complete preprint collation. Public publisher text available; Oxford landing page returned 403 but did not block the audit.",
+    "Dimension forms of atypicality; weakly special product example; Hilbert-family descent, induction contexts, monodromy and volume/counting inputs; full-restriction hypotheses of the published theorems.",
+    "Jet arity/order, tangent surjectivity, Schwarzian normalization and connection law, effective-action kernel, compactification zero locus and functoriality, orbit/closure arguments, differential ranks and chain-rule recovery.",
+    "108 exact rational first/second chain-rule recovery cases, central SL2 action checks and positive-weight monomial checks; analytic counterexamples and quotient arguments explained in the report. These are diagnostics, not formal proofs.",
+    "Fresh atlas assembled at inputCommit; read all 13 named planned-layer descriptions and reviewed library-coverage entries where present (LD.0/LD.6 have none). Eight planned items remain specialized plans, not claims of complete formalization.",
+    "Accepted routes: 33 Part II + 2 LD.6 + 1 ComplexComparisonPartII = 36 missing items, each exactly once, with no extras. Read current Tsimerman-18 weakly-special records and BKT20 o-minimal/Chow records; existing single-owner coordination respected.",
+    "Pinned source searches and actual statements: Mathlib Differential/DifferentialAlgebra/ContainConstants, Set.Definable, differentialFiniteDimensional; TauCeti.Hodge.HodgeStructureOn and piece; C1HolderJet read to exclude an unrelated use of jet. No Ax–Schanuel, Schwarzian, Hwang–To or algebraic jet scheme implementation found by these searches.",
+    "Correction checks on 2026-09-30: Annals article page, arXiv history (latest v3), Crossref (no update-to and empty relation), Mok/Tsimerman publication pages and targeted erratum/rank searches. Known internal errata explicitly credited; absence of another correction is only a bounded-search result.",
+    "No prerequisite paper is represented as fully re-proved. In particular the Hwang–To supplier proof and replacement global differential-characterization proofs remain source/blueprint obligations. No Lean build or language server used."
+  ],
+  "findings": [
+    {
+      "id": "RT-PAPER-MOK-PILA-TSIMERMAN-19/1",
+      "kind": "error",
+      "severity": "high",
+      "where": "research/blueprint/papers/PAPER-MOK-PILA-TSIMERMAN-19.result.json: items 20; Part II brief's adjoint-Hodge import",
+      "claim": "The accepted item assigns weight 2 to the adjoint Hodge structure, retaining a preprint error corrected in print.",
+      "evidence": "Published §7.1, p.958, explicitly says “weight 0”; arXiv v3 §7.1, p.11, instead has weight 2. Both passages were read and the published page image inspected. Adjoint types (-1,1), (0,0), (1,-1) all have sum zero. At Tau Ceti f790474, TauCeti/Geometry/Hodge/Structure.lean:62 defines HodgeStructureOn W ω n with opposedness F(p) complementary to conjugate F(n+1-p); its piece at line 156 has bidegree (p,n-p). Thus changing the weight changes the mathematical type, not just its label.",
+      "fix": "Use weight 0 in item 20 and its consumer contracts. Add a version-scoped sourceIssue for the preprint mistake, marking the published §7.1 as the known correction. Retain the existing general Hodge API and import the specialized adjoint construction from ShimuraData D2/D3."
+    },
+    {
+      "id": "RT-PAPER-MOK-PILA-TSIMERMAN-19/2",
+      "kind": "error",
+      "severity": "high",
+      "where": "research/blueprint/papers/PAPER-MOK-PILA-TSIMERMAN-19.result.json: items 41; Part II jet compactification",
+      "claim": "The all-orbits quotient retains the zero orbit and is not a weighted projective compactification. Unrestricted functoriality also fails after the necessary removal.",
+      "evidence": "Published §9.2, p.966, and v3 §9.1, p.19, print (Hom(D^r_k,Y) × A¹)/G_m and call it a “functorial compactification”. In the fiber over a point of a smooth curve with k=r=1, this is A²_(a,s)/G_m with weights (1,1). The origin is an extra orbit, in the closure of every nonzero orbit. The full orbit space is not the projective line; the affine invariant quotient is a point, and the stack quotient has a G_m stabilizer at the origin. Removing the origin gives P¹. A constant morphism Y→Z maps every boundary point (nonconstant jet,s=0) to the excluded origin, so it does not induce a morphism between the repaired quotients.",
+      "fix": "Remove precisely the locus (constant jet, s=0) before the weighted quotient, or define the compactification by the corresponding relative weighted Proj. Retain the s≠0 chart identifying the original jet space. State which morphisms preserve this open locus (in particular the automorphisms needed here), and use a rational/partially defined map for arbitrary morphisms unless extension is separately proved. Record the source omission, with both versions; do not silently transcribe the quotient."
+    },
+    {
+      "id": "RT-PAPER-MOK-PILA-TSIMERMAN-19/3",
+      "kind": "error",
+      "severity": "high",
+      "where": "research/blueprint/papers/PAPER-MOK-PILA-TSIMERMAN-19.result.json: items 32, functional dependence",
+      "claim": "Item 32 still exports the reversed functional-dependence test, despite the independently confirmed correction in the separate errata file.",
+      "evidence": "Published §12.2, p.972 / v3 p.24 prints rank(p₁,p₂)=rank(p₂). In K=C(t,s) with the two partial derivations, p₁=(t,s), p₂=t is a projection, but the two sides are 2 and 1. Conversely p₁=t, p₂=(t,s) passes the printed test even though s does not depend on t. This is already research/blueprint/errata/PAPER-MOK-PILA-TSIMERMAN-19.json E7, confirmed by REV-ERRATA-PAPER-MOK-PILA-TSIMERMAN-19; it has not reached the accepted item.",
+      "fix": "Replace the right-hand side by rank(p₁). Describe local analytic dependence at regular points, not necessarily rational dependence. Link the existing errata E7 instead of creating a duplicate sourceIssue. Retain the equal-rank hypotheses in the applications, where the two tests coincide."
+    },
+    {
+      "id": "RT-PAPER-MOK-PILA-TSIMERMAN-19/4",
+      "kind": "error",
+      "severity": "high",
+      "where": "research/blueprint/papers/PAPER-MOK-PILA-TSIMERMAN-19.result.json: items 43, differential-to-jet deduction",
+      "claim": "Item 43 still equates rank(z) with dim U. Nondegeneracy of each formal jet does not imply that the moving base has that rank.",
+      "evidence": "Published §12.4, p.974 / v3 p.26 contains rank(z)=dim U. Let q be the unramified uniformization of a modular curve. With two independent local parameters (a,b), b≠0, choose input second jet (z,r,s)=(a,b,0). Its graph under J₂q has coordinates (a,b,0;q(a),q′(a)b,q″(a)b²). The locus U has dimension 2 and open base projection, while rank(z)=1. Errata file E6 and its accepted review already give this counterexample and a repair, but item 43 repeats the false equality.",
+      "fix": "Apply differential Ax–Schanuel with rank(z)=dim(z). Recover derivatives by R=(Dq)r, hence Dq=Rr⁻¹, and recursively subtract lower-order terms and invert the induced symmetric-tensor action of r. Use the generic-fiber dimension inequality to supply dim U−dim(z). Reference existing errata E6; do not infer a local inverse of z from an invertible formal matrix."
+    },
+    {
+      "id": "RT-PAPER-MOK-PILA-TSIMERMAN-19/5",
+      "kind": "error",
+      "severity": "high",
+      "where": "research/blueprint/papers/PAPER-MOK-PILA-TSIMERMAN-19.result.json: items 30–31 and 33; Part II differential-system characterization",
+      "claim": "The accepted characterization package does not carry the confirmed Lemma 11.1 proof gap, and item 31 still states Theorem 11.3 with only zeroth-order compatibility.",
+      "evidence": "Published Lemma 11.1, p.969, uses a dimension drop for every strict jet-stabilizer inclusion. Separate errata E4 gives an actual PSp₄ compact-dual counterexample: the third/fourth jet stabilizers of X(t)=tI+t³diag(1,0)+t⁴[[0,1],[1,0]] have orders 2 and 1, both dimension zero. Independently, in Theorem 11.3, p.971 / v3 pp.23–24, take w(t)=2t, u(t)=q(t), v(t)=J_rq(id_r(t)), r≥3, on a small unramified modular-curve disk. The pair lies in the jet orbit, v follows the identity foliation leaf, and its value is u. A constant g with q(g(2t))=q(t) would locally give q∘g(z)=q(z/2), whose derivative at 2t is q′(t)/2 rather than the q′(t) recorded by v. This is confirmed errata E5, not a new source discovery.",
+      "fix": "Import the existing errata E4/E5 into the item notes and Part II design obligations. Leave the finite-order determination proof as an explicit unresolved prerequisite until a valid replacement is supplied; the counterexample does not refute its existential conclusion. Add du=v₁∘dw (or full chain-rule compatibility) to the uniformized-locus characterization, retaining domain/lifting hypotheses. Do not advertise the known local compatibility repair as a complete global proof."
+    },
+    {
+      "id": "RT-PAPER-MOK-PILA-TSIMERMAN-19/6",
+      "kind": "error",
+      "severity": "high",
+      "where": "research/blueprint/papers/PAPER-MOK-PILA-TSIMERMAN-19.result.json: items 16 and 14's volume-growth note",
+      "claim": "The volume-growth statement is placed on the arithmetic quotient, where it is false, and omits positive dimension.",
+      "evidence": "Published Lemma 4.3 proof, p.955 / v3 p.9, invokes Hwang–To growth “exponentially with R” to count translates of a fundamental domain. Item 16 changes this into volume growth of a subvariety of the quotient. Take the subvariety to be a finite-area torsion-free modular curve X itself. Every metric ball in X has area at most area(X), so there can be no lower bound c exp(αR) for c,α>0. A point also has bounded zero-dimensional volume. The intended counting argument measures a positive-dimensional analytic lift upstairs, where the hyperbolic ball grows across translates.",
+      "fix": "State the supplier for positive-dimensional closed complex analytic subvarieties in the Hermitian symmetric domain with the required invariant metric, center, multiplicity and constants; locate the exact Hwang–To theorem before blueprint decomposition. Apply it to the projected lift of U in Ω, not to an algebraic subvariety of Γ\\Ω or the ill-typed expression γW∩X. Preserve the separate uniform bound on each fundamental-domain piece. The primary Hwang–To proof was not acquired in this audit; do not claim that it was."
+    },
+    {
+      "id": "RT-PAPER-MOK-PILA-TSIMERMAN-19/7",
+      "kind": "error",
+      "severity": "high",
+      "where": "research/blueprint/papers/PAPER-MOK-PILA-TSIMERMAN-19.result.json: items 22, 28 and Part II freeness/orbit arguments",
+      "claim": "The freeness assertion needs an effective group; the extraction's general semisimple G allows a nontrivial kernel.",
+      "evidence": "Published Proposition 7.2, p.959 / v3 p.12, says G(C) “acts freely”. For G=SL₂ and Ω=H, the central matrix −I acts as z↦(-z)/(-1)=z on P¹, and hence fixes every jet of every order. It is not the identity in SL₂. The published introduction even gives G=Sp₂g on p.948. Passing to a torsion-free arithmetic subgroup Γ does not remove the kernel of the full complex algebraic group action. The accepted ShimuraVarieties V0/V1 contracts explicitly distinguish effective actions and deck groups.",
+      "fix": "State the jet rigidity and freeness for the effective image of G in Aut(Ω̂), typically the appropriate adjoint group with inactive factors removed. Alternatively state the stabilizer as the action kernel and carry its dimension through orbit calculations. Explain why replacing the group preserves the particular Shimura uniformization and expected-dimension terms. Add this hypothesis to item 22 and consumers rather than relying on the separate neat-level condition on Γ."
+    },
+    {
+      "id": "RT-PAPER-MOK-PILA-TSIMERMAN-19/8",
+      "kind": "error",
+      "severity": "high",
+      "where": "research/blueprint/papers/PAPER-MOK-PILA-TSIMERMAN-19.result.json: items 13–14 and 29, stabilizer lemmas",
+      "claim": "The extraction presents contradiction-argument lemmas as assertions in the unrestricted Hilbert-family setting, dropping essential assumptions.",
+      "evidence": "Published §3.1, p.952 / v3 p.6, imposes no dimension assumption; published Lemma 4.2 proof, p.954, instead ends by “contradicting the hypothesis”. In item 13's stated §3.1 setting, choose W=Ω×X and U=D. Its projective closure is the whole Ω̂×X̂, whose full-dimensional Hilbert point has no deformation as a closed subscheme of that same ambient space; Γ₀=Γ and Θ=G°, not the identity for a positive-dimensional example. Conversely a point W={(z,q(z))} at torsion-free level satisfies §3.1 but has trivial stabilizer, contradicting item 14 if read in that same setting.",
+      "fix": "Package these as steps under the counterexample hypotheses: atypicality, projection not in a proper weakly special subvariety, the indicated induction hypotheses, and the very-general replacement used in Lemma 4.2. Carry the analogous context into the jet version. Avoid exporting both finite and infinite stabilizer conclusions as unconditional theorems about arbitrary Hilbert families."
+    },
+    {
+      "id": "RT-PAPER-MOK-PILA-TSIMERMAN-19/9",
+      "kind": "missing",
+      "severity": "medium",
+      "where": "research/blueprint/papers/PAPER-MOK-PILA-TSIMERMAN-19.result.json: items source metadata, items and Part II route",
+      "claim": "The inventory omits the published two-sorted theorem and the weakly-special closure interface it uses.",
+      "evidence": "Published Theorem 1.2, p.947, is the “2-sorted version”: dim(Y^zar)+dim(q(Y)^zar)≥dim Y+dim Y^WS, for irreducible analytic Y and its smallest weakly special envelope Y^WS. It is not the modular-derivative theorem numbered 1.2 in v3. None of the 44 items states this inequality or the smallest-envelope operation. The published footnote identifies this form as the input to Zilber–Pink.",
+      "fix": "Add the two-sorted inequality and its smallest weakly-special-envelope interface to the existing LogicAndDefinabilityPartII route, reusing item 2. Update sourceVersions and give both theorem-number systems: v3 1.2/1.3/1.4 correspond to published 1.3/1.4/1.5; v3 12.3/12.5 correspond to published 12.1/12.2. Collate the full-restriction hypotheses added to published Theorems 1.1 and 9.1 rather than silently changing old locators. The accepted preprint scope was disclosed; this is a concrete published-version completion, not an accusation that those preprint locators were fabricated."
+    },
+    {
+      "id": "RT-PAPER-MOK-PILA-TSIMERMAN-19/10",
+      "kind": "error",
+      "severity": "medium",
+      "where": "research/blueprint/papers/PAPER-MOK-PILA-TSIMERMAN-19.result.json: items prerequisites: Mok, Scanlon, Bertrand–Zudilin, Daw–Ren; reader document",
+      "claim": "The prerequisite list sends workers to the wrong Mok publication and gives three incorrect DOI strings.",
+      "evidence": "V3 §7.3 pp.13–14 cites [24], whose bibliography on p.28 identifies Mok's 1999 Contemp. Math. article, not the 1989 book supplied by the extraction. Published §7.3 p.960 cites the same article as [23], with §(2.3); the bibliography on p.977 gives DOI 10.1090/conm/222/03174. Published references [34], [5], [7] give respectively 10.1016/j.aim.2018.03.008, 10.1515/crll.2003.008, and 10.1112/s0010437x1800725x. The extraction instead has endings .029, .005 and 1800765X. The alternative compactification paragraph cites separate Mok and Mok–Zhong works, not that book.",
+      "fix": "Replace the Mok prerequisite with the actual 1999 article and its §2.3 locator; distinguish the optional compactification sources. Correct the three DOI links to the published bibliography values. Revise the reader's repeated book attribution, without claiming to have audited those prerequisite proofs."
+    },
+    {
+      "id": "RT-PAPER-MOK-PILA-TSIMERMAN-19/11",
+      "kind": "error",
+      "severity": "medium",
+      "where": "research/blueprint/papers/PAPER-MOK-PILA-TSIMERMAN-19.result.json: items 18–19 and 31, jet arity/order",
+      "claim": "The jet maps erase the distinction between source arity, jet order and target dimension.",
+      "evidence": "Published §5.2 pp.956–957 explicitly uses J_a^{dim X}J_bX, retaining the original source arity. Item 18 defines J_kX=J_k^{dim X}X but then uses J_aJ_bX, and item 19 uses J_a id_b and J_aW without the fixed arity. For X=A¹ and a=b=1, J₁¹(J₁¹X) has dimension 4, whereas J₁(J₁X)=J₁²(A²) under the stated abbreviation has dimension 6. Item 31 calls the condition a k-jet condition although V_m^k lies in jets of order m with k independent variables (§11, published pp.969–970).",
+      "fix": "Write π_{a,b}:J_{a+b}^gX→J_a^g(J_b^gX) with g fixed, and use J_a^g throughout the differentiation identity. In item 31 replace k-jet by order-m, arity-k jet and explicitly apply J_m^k(w,u) to the identity section. Keep the truncated rings at powers a+b+1, a+1 and b+1 as in print."
+    },
+    {
+      "id": "RT-PAPER-MOK-PILA-TSIMERMAN-19/12",
+      "kind": "error",
+      "severity": "medium",
+      "where": "research/blueprint/papers/PAPER-MOK-PILA-TSIMERMAN-19.result.json: items 4–5; finite basis terminology in reader and route",
+      "claim": "The extracted finite C-basis of modular functions is impossible for a positive-dimensional function field, leaving the promised input vacuous.",
+      "evidence": "Published Theorem 1.3 p.948 and Corollary 9.3 p.965 / v3 Theorem 1.2 p.3 use finite basis terminology. A nonconstant modular function f is transcendental over C, so 1,f,f²,… are linearly independent over C; the modular function field has no finite vector-space basis. The separate errata E3 already confirms that field generators are intended, but items 4–5 and the route still say C-basis.",
+      "fix": "Use a finite tuple generating the modular function field over C, with its necessary domain-of-definition conditions, throughout items 4–5, reader and route. Link existing errata E3, preserving the valid derivative-field transcendence-degree claims and its version-specific correction."
+    },
+    {
+      "id": "RT-PAPER-MOK-PILA-TSIMERMAN-19/13",
+      "kind": "missing",
+      "severity": "medium",
+      "where": "research/blueprint/papers/PAPER-MOK-PILA-TSIMERMAN-19.result.json: item 23 and prerequisites",
+      "claim": "Theorem A and Theorem B are named as suppliers, but neither has a separately inventoried statement with its hypotheses.",
+      "evidence": "Published §7.3, p.960 / v3 pp.13–14, states Theorem A and Theorem B before using them to derive the lower-order Schwarzian rigidity. The former assumes n≥2, a convex open U⊂Cⁿ and a biholomorphism to an open subset of Pⁿ carrying nonempty affine-line intersections into affine lines, and concludes extension to PGL(n+1,C). The latter assumes an irreducible compact Hermitian symmetric manifold S of rank at least 2, connected open U,V and a biholomorphism whose projectivized differential carries the distinguished highest-weight tangent orbit W_x to W_f(x), and concludes extension to Aut(S). Item 23 states the resulting Theorems 7.4/7.5 but its note and prerequisite names omit these supplier contracts.",
+      "fix": "Add two separate external-theorem items with the displayed hypotheses and conclusions, including the highest-weight tangent-orbit/VMRT interface needed to state Theorem B. Route them through the existing Part II, cite the actual Mok article and Ochiai source, and make item 23 consume them. Do not require acquisition or decomposition of their full proofs to complete this extraction; PROTOCOL §16 leaves proof closure to the blueprint."
+    }
+  ],
+  "upstreamNotes": []
+}
