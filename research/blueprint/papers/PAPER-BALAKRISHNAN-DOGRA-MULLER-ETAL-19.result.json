@@ -19,21 +19,18 @@
       "Sequel: BDMTV 2023 (arXiv 2101.01862v4, SHA-256 738f0ec0cd588e20a569bc029fe2bb9611abc5d16fee7d36f9e966357c25f61d) §§3.2, 3.5.2, 4.1–4.2."
     ]
   },
-  "summary": "The paper determines X_s(13)(Q): six CM points and one cusp. This completes the split Cartan case of Serre's uniformity question (the primes are {2, 3, 5, 7}) and, via Baran's isomorphism, gives |X_ns(13)(Q)| = 7 and a new proof of the class number one theorem. Its method extends explicit quadratic Chabauty to non-hyperelliptic curves with r = g and ρ > 1. It builds quadratic Chabauty pairs from Nekovář's p-adic height of the twisted mixed extension A_Z(b,x) attached to a nice correspondence Z. It computes the local height at p through the Hodge filtration (Hadian's universal property) and the Frobenius structure (a universal property of unipotent isocrystals) of a universal connection. It then runs the algorithm at p = 17 with Tate classes from T_7 and T_11. As the maintainer routed it, the paper is a source of existing layers: its theory goes to NC.5 with the Tannakian and comparison machinery to NC.2, the algorithm and the X_s(13) computation to ED.6, and the semi-stable models of X_s(ℓ) to ModularCurvesPartII R13.5. The atlas lacks Nekovář's p-adic heights, universal unipotent objects, Hadian's and Chiarellotto–Le Stum's theorems, and models of X_0(ℓ²) at ℓ. Complete (cc-442dc5): every numbered statement is an item, and every missing item is routed exactly once. Eight findings are recorded; the only one reaching a stated result is Lemma 4.7, which the authors retracted in 2023 and do not use. Not formalised.",
+  "summary": "The paper determines X_s(13)(Q): six CM points and one cusp, completes the split-Cartan uniformity classification (primes 2,3,5,7), and transfers the result to X_ns(13) through Baran’s isomorphism. It gives explicit quadratic Chabauty for non-hyperelliptic curves with r=g and ρ>1, computing Hodge/Frobenius structures of AZ at p=17. Complete extraction, not formalisation: 97 stable/new items, 1 library, 21 planned, 75 missing, each missing item routed exactly once. NC.5 owns the application, NC.2 the universal objects and path-transport bridge, ED.6 the certified examples and small-prime existence. Six general height foundations join the pending SelmerComplexesAndPadicHeights Part II design, without planned coverage claims. R13.4a receives compactified general-H moduli and the square-level quotient isomorphism; R13.5 retains bad fibres. GZ.8 receives the rank lower bound and missing modular-factor assembly, importing conditional HE.7; RD.7 receives the general Tuitman algorithm with the 2020 erratum. CN.4 supplies validated analytic evaluation for ED.6. Thirteen source findings are recorded: E1–E8 retain their recorded independent confirmation, E9–E13 await review. Only E5 reaches a stated result; the retracted unused Lemma 4.7 is not relied on. All nine verified red-team findings are addressed, subject to independent fix review.",
   "items": [
     {
       "id": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/1",
       "kind": "definition",
       "name": "Split and non-split Cartan modular curves",
-      "statement": "For a prime ℓ, X_s(ℓ) := X(ℓ)/C_s(ℓ)^+, where C_s(ℓ)^+ is the normaliser of a split Cartan subgroup of GL_2(F_ℓ); it is well defined up to Q-isomorphism because all such subgroups are conjugate. X_ns(ℓ) is defined in the same way from the normaliser of a non-split Cartan subgroup. A non-cuspidal rational point of X_s(ℓ) comes from an elliptic curve E/Q whose mod-ℓ image lies in a conjugate of C_s(ℓ)^+.",
+      "statement": "For a prime ℓ, X_s(ℓ) := X(ℓ)/C_s(ℓ)^+, where C_s(ℓ)^+ is the normaliser of a split Cartan subgroup of GL_2(F_ℓ); it is well defined up to Q-isomorphism because all such subgroups are conjugate. X_ns(ℓ) is defined in the same way from the normaliser of a non-split Cartan subgroup. A non-cuspidal rational point of X_s(ℓ) comes from an elliptic curve E/Q whose mod-ℓ image lies in a conjugate of C_s(ℓ)^+. For the rational-point criterion restrict to non-cuspidal points with j ≠ 0,1728; the excluded j-values are CM. Since −I belongs to the normaliser, no twisting hypothesis is needed.",
       "locator": "Published §1.1, p.887 (arXiv v1 §1.1, p.2)",
-      "status": "planned",
+      "status": "missing",
       "library": [],
-      "planned": [
-        "tauceti:TauCetiRoadmap/ModularCurves#layer-9-γ_h-quotients-quotient-regularity-and-coarse-moduli",
-        "tauceti:TauCetiRoadmap/ModularCurves#layer-10-compactified-coarse-curves-over-ℤ1n-cusps-and-the-shimura-covering"
-      ],
-      "note": "Tau Ceti ModularCurves layer 9 plans the coarse quotients X_H for subgroups H of GL_2(Z/N) and layer 10 their compactifications with cusps; X_s(ℓ) and X_ns(ℓ) are instances."
+      "planned": [],
+      "note": "The upstream Layer 9D provides affine coarse quotients. Layer 10 quantifies over diamond quotients of Γ₁(N), N ≥ 5 prime, and does not cover compactified arbitrary H ≤ GL₂(F_ℓ) or ℓ = 2,3. R13.4a must extend its algebraic moduli contract to compactified X_H over Z[1/ℓ], with −I ∈ H and surjective determinant, including Cartan normalisers. This is a source handoff, not planned coverage by those layers."
     },
     {
       "id": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/2",
@@ -87,7 +84,7 @@
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "Theorem 1.1 plus the cited Bilu–Parent–Rebolledo theorem (ℓ > 7, ℓ ≠ 13) and ℓ = 11 inside it."
+      "note": "Theorem 1.1 plus the cited Bilu–Parent–Rebolledo theorem (ℓ > 7, ℓ ≠ 13) and ℓ = 11 inside it. The missing /96 supplies the separate ℓ=2,3,5,7 existence half, via R13.4a moduli inputs, the genus-zero calculations and a rational cusp."
     },
     {
       "id": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/7",
@@ -302,7 +299,7 @@
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "No p-adic height exists in either library or in any atlas layer (GZ.9 is the BDP/Brooks setting); NC.5 needs it."
+      "note": "Missing general pairing; join the pending SelmerComplexesAndPadicHeights design (PAPER-DISEGNI-LIU-24 route 2). Its stages do not yet exist. NC.5 is a consumer."
     },
     {
       "id": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/25",
@@ -312,7 +309,8 @@
       "locator": "Published Definition 3.1, p.902",
       "status": "missing",
       "library": [],
-      "planned": []
+      "planned": [],
+      "note": "Shared height foundation: pending SelmerComplexesAndPadicHeights Part II; NC.5 consumes it."
     },
     {
       "id": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/26",
@@ -322,7 +320,8 @@
       "locator": "Published §3.1, pp.902–903",
       "status": "missing",
       "library": [],
-      "planned": []
+      "planned": [],
+      "note": "Shared height foundation: pending SelmerComplexesAndPadicHeights Part II; NC.5 consumes it."
     },
     {
       "id": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/27",
@@ -332,7 +331,8 @@
       "locator": "Published §3.2, p.903",
       "status": "missing",
       "library": [],
-      "planned": []
+      "planned": [],
+      "note": "Shared height foundation: pending SelmerComplexesAndPadicHeights Part II; NC.5 consumes it."
     },
     {
       "id": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/28",
@@ -366,7 +366,8 @@
       "locator": "Published Definition 3.4, Remark 3.5, (13)–(14), pp.904–905",
       "status": "missing",
       "library": [],
-      "planned": []
+      "planned": [],
+      "note": "Shared height foundation: pending SelmerComplexesAndPadicHeights Part II; NC.5 consumes it."
     },
     {
       "id": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/31",
@@ -376,7 +377,8 @@
       "locator": "Published §3.3, (15), p.905",
       "status": "missing",
       "library": [],
-      "planned": []
+      "planned": [],
+      "note": "Shared height foundation: pending SelmerComplexesAndPadicHeights Part II; NC.5 consumes it."
     },
     {
       "id": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/32",
@@ -651,15 +653,15 @@
     {
       "id": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/58",
       "kind": "construction",
-      "name": "Iterated integrals and the transport τ_{b,x}",
-      "statement": "For x_1, x_2 in one residue disk, I(x_1,x_2) := 1 + Σ_w ∫_{x_1}^{x_2} w(ω_0,…,ω_{2g+d−2}) w in ⊕_{i≤n} V_dR(Y)^{⊗i}, the sum over words in T_0,…,T_{2g+d−2} of length ≤ n (40; see E1 for the index). In the trivialisation (39), τ_{b,x}(v) = I(x_0,x)·v·I(b,b_0) (41). By Besser [Bes02], with Coleman integrals in (40) the same formula is the unique unipotent Frobenius-equivariant isomorphism A_n^dR(b_0,x_0) → A_n^dR(b,x) for any b, b_0, x, x_0 ∈ Y(Q_p).",
-      "locator": "Published §5.2.1, (39)–(41), pp.920–921 (arXiv v1 §5.1, Lemma 5.3, (20)–(21))",
+      "name": "Local iterated-integral word expansion (40)",
+      "statement": "For x_1, x_2 in one residue disk, I(x_1,x_2) := 1 + Σ_w ∫_{x_1}^{x_2} w(ω_0,…,ω_{2g+d−2}) w in ⊕_{i≤n} V_dR(Y)^{⊗i}, the sum over words in T_0,…,T_{2g+d−2} of length ≤ n (40; see E1 for the index).",
+      "locator": "Published §5.2.1, (40), p.921 (arXiv v1 §5.1, (20))",
       "status": "planned",
       "library": [],
       "planned": [
         "ColemanIntegration:L1"
       ],
-      "note": "Iterated Coleman integration in Besser's Tannakian form is ColemanIntegration L1's scope; this paper is a source for the transport formula."
+      "note": "ColemanIntegration:L1/word-algebra-local-expansion plans this same-residue-disc word expansion, with the corrected index in E1. It does not by itself supply the identification with a de Rham path torsor or global Frobenius transport; see /93."
     },
     {
       "id": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/59",
@@ -680,7 +682,7 @@
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "Checked by cc-442dc5: the three nonzero off-diagonal blocks of Λ_φG + dG = GΛ give exactly the three equations. The constant in g is fixed by exactness of the right side of dh."
+      "note": "Checked by cc-442dc5: the three nonzero off-diagonal blocks of Λ_φG + dG = GΛ give exactly the three equations. The constant in g is fixed by exactness of the right side of dh. Import the general certified Tuitman provider /95 from RD.7; ED.6 owns the example-specific matrices, reductions and certificates."
     },
     {
       "id": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/61",
@@ -752,21 +754,23 @@
       "id": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/67",
       "kind": "definition",
       "name": "Unipotent Tannakian categories and the universal objects A_n(C, ω)",
-      "statement": "A neutral Tannakian category C over K with fibre functor ω is unipotent if π_1(C,ω) is pro-unipotent, equivalently if every object admits a nonzero morphism from 1 (Definition A.1). A(C,ω) is the pro-universal enveloping algebra with augmentation ideal I, A_n(C,ω) := A(C,ω)/I^{n+1}, lim A_n(C,ω)* ≅ O(π_1(C,ω)), and A_n(C,ω) is the object of C with ω(A_n(C,ω)) = A_n(C,ω).",
+      "statement": "A neutral Tannakian category C over K with fibre functor ω is unipotent if π_1(C,ω) is pro-unipotent, equivalently if every nonzero object admits a nonzero morphism from 1 (Definition A.1). A(C,ω) is the pro-universal enveloping algebra with augmentation ideal I, A_n(C,ω) := A(C,ω)/I^{n+1}, lim A_n(C,ω)* ≅ O(π_1(C,ω)), and A_n(C,ω) is the object of C with ω(A_n(C,ω)) = A_n(C,ω).",
       "locator": "Published §A.1, Definition A.1, pp.934–935",
       "status": "missing",
       "library": [],
-      "planned": []
+      "planned": [],
+      "note": "Definition A.1 omits “nonzero” in both published and arXiv texts; E10 records the correction."
     },
     {
       "id": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/68",
       "kind": "definition",
       "name": "Universal pointed objects",
-      "statement": "A pointed object is (V, v) with v ∈ ω(V); V is n-unipotent if it has a filtration V = V_0 ⊃ ⋯ ⊃ V_n with each quotient zero or a sum of trivial objects. (E, e) is a universal pointed n-unipotent object if it maps to every pointed n-unipotent (V, v) (Definition A.2); a universal pointed pro-object is a compatible system of these. Such objects are unique up to unique isomorphism.",
+      "statement": "A pointed object is (V, v) with v ∈ ω(V); V is n-unipotent if it has a filtration V = V_0 ⊃ ⋯ ⊃ V_n with each quotient zero or a sum of trivial objects. (E, e) is a universal pointed n-unipotent object if for every pointed n-unipotent (V, v) there exists a unique morphism (E,e) → (V,v) respecting the filtration and sending e to v (Definition A.2); a universal pointed pro-object is a compatible system of these. Such objects are unique up to unique isomorphism.",
       "locator": "Published Definition A.2, p.935",
       "status": "missing",
       "library": [],
-      "planned": []
+      "planned": [],
+      "note": "Use the corrected existence-and-uniqueness property E9, as required by Theorem 4.2, Lemma 5.2 and Lemma A.4; mere existence does not imply unique isomorphism."
     },
     {
       "id": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/69",
@@ -792,11 +796,12 @@
       "id": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/71",
       "kind": "theorem",
       "name": "X_0^+(ℓ²) ≃ X_s(ℓ)",
-      "statement": "Conjugation by [[ℓ,0],[0,1]] gives a Q-isomorphism X_0^+(ℓ²) ≃ X_s(ℓ), where X_0^+(ℓ²) = X_0(ℓ²)/w_{ℓ²}.",
+      "statement": "For a prime ℓ, the algebraic moduli correspondence identifying the split-Cartan curve with X₀(ℓ²) identifies the normaliser involution with w_{ℓ²}, and descends to a Q-isomorphism X₀(ℓ²)/w_{ℓ²} ≃ X_s(ℓ).",
       "locator": "Published §6, p.926",
       "status": "missing",
       "library": [],
-      "planned": []
+      "planned": [],
+      "note": "R13.4a owns the Γ₀(ℓ²) moduli object (import refined general-level R13.2), the algebraic Atkin–Lehner extension, quotient and moduli isomorphism. The paper describes conjugation by diag(ℓ,1) on the upper half-plane; that analytic compatibility belongs to downstream R13.4b and is not an input to constructing the algebraic quotient."
     },
     {
       "id": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/72",
@@ -849,7 +854,8 @@
       "locator": "Published Corollary 6.7, Remark 6.8, p.929 (arXiv v1 Corollary 6.8)",
       "status": "missing",
       "library": [],
-      "planned": []
+      "planned": [],
+      "note": "E12 separates the two inputs: Theorem 6.6 and contraction give the 13-adic claim; Baran’s FIRST plane-quartic model (published p.930, good reduction away from 13) supplies the other primes, including 2. The second monic model is bad at 2 and 13; the tame quotient argument in Theorem 6.6 is not valid at 2."
     },
     {
       "id": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/77",
@@ -877,16 +883,13 @@
     {
       "id": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/79",
       "kind": "theorem",
-      "name": "Analytic rank one gives rank g (Gross–Zagier, Kolyvagin–Logachev)",
-      "statement": "If ord_{s=1} L(f,s) = 1, then rk A_f(Q) = dim A_f [GZ86, KL89].",
+      "name": "Gross–Zagier lower bound for an analytic-rank-one modular factor",
+      "statement": "Let f be a weight-two newform with trivial nebentypus and A_f its modular abelian variety of dimension m. If every conjugate f^σ has a simple zero at s = 1, the Gross–Zagier Heegner-point argument gives rk A_f(Q) ≥ m.",
       "locator": "Published proof of Proposition 6.2, p.927",
-      "status": "planned",
+      "status": "missing",
       "library": [],
-      "planned": [
-        "HeegnerPointEulerSystems:HE.7",
-        "GrossZagierAndArithmeticHeights:GZ.8"
-      ],
-      "note": "HE.7 includes the Kolyvagin–Logachev extension to the admissible RM quotients of J_0(N). The same theorem gives finiteness of Sha(A_f), relevant to E8."
+      "planned": [],
+      "note": "Source extension of GZ.8, joining the lower-bound input PAPER-GROSS-ZAGIER-86/304. The height formula, choice of admissible imaginary quadratic K, nonzero height and non-torsion descent must be assembled in the modular A_f setting. GZ.8’s general outline does not already cover this contract; /94 supplies only a conditional upper bound, and /97 records the whole analytic-rank-one assembly. BSD.3 covers elliptic curves only."
     },
     {
       "id": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/80",
@@ -926,7 +929,7 @@
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "Proof: J ∼ A_f; ord_{s=1} L(f,s) > 0 from the Fricke eigenvalue and an exact computation of c_{A_f}L(f,1)/Ω_{A_f} [AS05]; L'(f,1) > 0.6 for every embedding Q(α) ↪ C, numerically with error < 10^{-100}. Remark 6.3: a descent proof [BPS16] is conditional on GRH."
+      "note": "Proof: J ∼ A_f; ord_{s=1} L(f,s) > 0 from the Fricke eigenvalue and an exact computation of c_{A_f}L(f,1)/Ω_{A_f} [AS05]; L'(f,1) > 0.6 for every embedding Q(α) ↪ C, numerically with error < 10^{-100}. Remark 6.3: a descent proof [BPS16] is conditional on GRH. The rank proof now depends separately on missing /79 and /97 and conditional planned /94. ComputationalNumberTheory CN.4 supplies validated L-value/derivative intervals; ED.6 must certify this particular bound for every embedding. ED.0 supplies exact arithmetic, not analytic error bounds. The AS05 rational-ratio input is already cited here, and the BT17 integral input in /92 is retained without duplication."
     },
     {
       "id": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/83",
@@ -951,7 +954,8 @@
       "planned": [
         "ModularCurvesPartII:R14.1",
         "AnabelianGeometryAndNonabelianChabauty:NC.5"
-      ]
+      ],
+      "note": "Import the general certified Tuitman provider /95 from RD.7; ED.6 owns the example-specific matrices, reductions and certificates."
     },
     {
       "id": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/85",
@@ -983,7 +987,8 @@
       "locator": "Published §6.4, p.931",
       "status": "missing",
       "library": [],
-      "planned": []
+      "planned": [],
+      "note": "Import the general certified Tuitman provider /95 from RD.7; ED.6 owns the example-specific matrices, reductions and certificates."
     },
     {
       "id": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/88",
@@ -1038,13 +1043,70 @@
       "status": "missing",
       "library": [],
       "planned": []
+    },
+    {
+      "id": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/93",
+      "kind": "theorem",
+      "name": "Tannakian path transport and Besser’s global Frobenius path",
+      "statement": "For the unipotent de Rham/isocrystal categories of a good-reduction pair used in BDMTV, and b,b₀,x,x₀ ∈ Y(Q_p), the universal-connection identification and trivialisation (39) identify path transport with τ_{b,x}(v) = I(x₀,x)·v·I(b,b₀) (41). Locally the coefficients are /58; globally use Coleman iterated integrals. Besser’s canonical Frobenius-fixed path between two fibre functors is unique, composes, and is compatible with these integrals. Thus (41) identifies the corresponding universal path objects through a unipotent Frobenius-equivariant isomorphism.",
+      "locator": "Published §5.2.1, (39),(41), p.921; Lemma 4.3 p.910; Theorem 5.3 pp.919–920; Besser, arXiv:math/0011269, Theorem 3.1 and Corollaries 3.2–3.3, pp.7–9",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Missing bridge at NC.2. Import ColemanIntegration L1/word-algebra-local-expansion, L1/word-algebra-frobenius and L1/coleman-realization rather than reconstruct integration. The global bridge is used across residue discs in Lemma 5.7 (49) and §6.6. The tiny Teichmüller-point transports in §5.3.2 need only the local formula, not this global theorem."
+    },
+    {
+      "id": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/94",
+      "kind": "theorem",
+      "name": "Conditional Kolyvagin–Logachev bound for the admissible RM modular quotient",
+      "statement": "In the specified admissible RM quotient A_f of J₀(N), of dimension m, with the imaginary quadratic field K, Hecke/local conditions and Heegner point y_K required by HE.7, if y_K is non-torsion then rk A_f(K) = m and Sha(A_f/K) is finite. Consequently rk A_f(Q) ≤ m by restriction of Mordell–Weil points.",
+      "locator": "Published proof of Proposition 6.2, p.927, invoking [KL89]; HE.7’s admissible RM modular-quotient contract",
+      "status": "planned",
+      "library": [],
+      "planned": [
+        "HeegnerPointEulerSystems:HE.7"
+      ],
+      "note": "This is the conditional HE.7 contract, not an arbitrary abelian-variety theorem and not an analytic-rank-one → non-torsion construction. The latter remains /97."
+    },
+    {
+      "id": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/95",
+      "kind": "construction",
+      "name": "Certified Tuitman Frobenius reduction algorithm",
+      "statement": "Let X/F_q be a smooth projective curve of genus g, q=p^n, equipped with a finite separable x:X→P¹, a plane equation Q monic in y and a good lift to Z_q. Require Tuitman II Assumption 1: compatible integral bases W⁰,W∞ for the finite and infinite charts in characteristic zero and modulo p, separated branch divisor (the discriminant of r is a unit), and unit discriminants of the REDUCED parts of the boundary algebras R⁰/(r) and R∞/(1/x), as corrected in June 2020. The overconvergent Frobenius lift has Φ(x)=x^p; finite and infinite cohomological reductions compute a projective H¹ basis, its Frobenius matrix F and exact primitives f with Φ*ω=Fω+df. The q-Frobenius is the semilinear n-fold product. With δ the integral-lattice loss of II §4, B=max_{1≤i≤g}(floor(log_p binom(4g,i)+ni/2)+1)+δ suffices to reconstruct the integral reverse characteristic polynomial. Choose working precision N so that m−max(f₁(m),f₂)≥B for every m≥N, with f₁,f₂ as in Definition 4.8; Proposition 4.9 then certifies reconstruction. Denominator losses are tracked; integrality of the chosen BDMTV basis at p=17 is not a general input condition.",
+      "locator": "Published §5.3.2, p.922; Remark 6.1, p.926; §6.4, pp.930–931 ([Tui16],[Tui17]); Tuitman I arXiv:1402.6758v2, II arXiv:1412.7217v2 Assumption 1, Theorem 2.6, Propositions 4.2,4.7,4.9; author’s June 2020 erratum",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Missing source extension of RD.7; its current Kedlaya hyperelliptic certification node does not cover this general curve algorithm. Import RD.0 frobenius-lift-on-dagger-algebra and RD.4 mw-comparison-for-affine-curves. ED.4 and ED.6 consume certified integration/Frobenius data. This is one cited algorithm item; its complete proof decomposition belongs to the RD.7 blueprint. The positive-genus reconstruction formula is the case used here."
+    },
+    {
+      "id": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/96",
+      "kind": "theorem",
+      "name": "Small-prime existence half of the split-Cartan classification",
+      "statement": "For ℓ∈{2,3,5,7}, X_s(ℓ)≃X₀⁺(ℓ²) is a genus-zero curve with a rational cusp, hence isomorphic to P¹_Q. There are infinitely many rational points outside the finite sets of cusps and CM points, and their j-values yield non-CM elliptic curves over Q with mod-ℓ image in a split-Cartan normaliser.",
+      "locator": "Published §1.1, pp.887–888, existence input to Theorem 1.2; the elementary genus/rational-cusp argument made explicit by RT finding 7 and its verifier",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Import corrected /1 and algebraic /71 from R13.4a. X₀(4),X₀(9),X₀(25) have genus 0; X₀(49) has genus 1 and w₄₉ has four fixed points, giving quotient genus 0 by Riemann–Hurwitz. The rational cusps 0,∞ are swapped by w_{ℓ²}; their image is rational. These genus/fixed-point calculations must be proved in the ED.6 blueprint, not imported from /75 (only ℓ≡1 mod12). For j≠0,1728 and −I∈C_s(ℓ)⁺ no twist is needed. Finiteness of Q-rational CM j-values is a separate standard input. This is a derived proof route, not an argument explicitly written out in BDMTV."
+    },
+    {
+      "id": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/97",
+      "kind": "theorem",
+      "name": "Analytic-rank-one assembly for a modular abelian factor",
+      "statement": "For the modular A_f setting of /79, simple zeros for all f^σ give rk A_f(Q) = dim A_f and the Kolyvagin–Logachev finiteness conclusion for Sha, after choosing an admissible Heegner field, producing the non-torsion Heegner point through Gross–Zagier, applying the conditional theorem /94 and carrying out rank and Sha descent to Q.",
+      "locator": "Published proof of Proposition 6.2, p.927; the GZ86/KL89 input previously bundled in /79",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Missing shared assembly, not covered by elliptic-only RankZeroOneBSD:BSD.3. Request GZ.8 ownership of the modular-factor extension; maintainer to coordinate RankZeroOneBSD and PAPER-SKINNER-20/2 and retain all admissibility/local hypotheses. Do not infer these hypotheses or the point’s non-torsion from HE.7 alone."
     }
   ],
   "coverage": {
     "counts": {
-      "library": 1,
-      "planned": 22,
-      "missing": 69
+      "missing": 75,
+      "planned": 21,
+      "library": 1
     }
   },
   "prerequisites": [
@@ -1101,7 +1163,7 @@
     {
       "citation": "J. Tuitman, Counting points on curves using a map to P¹, Math. Comp. 85 (2016); II, Finite Fields Appl. 45 (2017)",
       "link": "https://doi.org/10.1090/mcom/2996",
-      "why": "Frobenius lifts and the reduction algorithm behind (45); part II: https://doi.org/10.1016/j.ffa.2016.12.008."
+      "why": "Frobenius lifts and the reduction algorithm behind (45); part II: https://doi.org/10.1016/j.ffa.2016.12.008. General supplier /95 → RD.7. Assumption 1 is corrected by the June 2020 author erratum https://jtuitman.github.io/erratum.pdf (reduced boundary algebras, not their unreduced discriminants)."
     },
     {
       "citation": "J. S. Balakrishnan and J. Tuitman, Explicit Coleman integration for curves, Math. Comp. 89 (2020)",
@@ -1156,19 +1218,13 @@
       "stages": [
         "AnabelianGeometryAndNonabelianChabauty:NC.5"
       ],
-      "reason": "The maintainer routed this paper to NC.5 (quadratic Chabauty and height equations). These items are its theory. They cover quadratic Chabauty pairs and the determinant criterion, nice correspondences and the quotient U_Z, Nekovář's p-adic heights with their local decomposition (bad-place terms, Lemma 3.2), the local height at p through mixed extensions of filtered φ-modules, the twisted mixed extension A_Z(b,x), Lemma 3.7 and Corollary 3.8, and the D_cris comparison for A_Z. NC.5 plans the depth-two quotient, the height equations, the Néron–Severi and bad-place terms and the rank criterion; nothing in the atlas constructs a p-adic height (GZ.9 is the BDP setting). The planned Theorem 2.3, U_Z, Kim–Tamagawa and nice-correspondence items are listed too, as the paper is a good source for them.",
+      "reason": "NC.5 owns the quadratic Chabauty application: pairs and the determinant criterion, nice correspondences and U_Z, the AZ twisting construction, the specialised height formula (17), Lemma 3.2, Lemma 3.7 and Corollary 3.8, splitting/character independence and the D_cris comparison for AZ. Import the general height pairing, both mixed-extension categories and the local heights from the pending shared SelmerComplexesAndPadicHeights Part II; that supplier must not depend on NC.5. The four planned application items remain listed as source material. No height foundation is claimed implemented or covered by a stage of the pending design.",
       "items": [
         "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/11",
         "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/12",
         "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/13",
         "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/22",
-        "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/24",
-        "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/25",
-        "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/26",
-        "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/27",
         "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/28",
-        "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/30",
-        "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/31",
         "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/32",
         "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/33",
         "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/35",
@@ -1191,7 +1247,7 @@
       "stages": [
         "AnabelianGeometryAndNonabelianChabauty:NC.2"
       ],
-      "reason": "NC.2 constructs the unipotent étale and de Rham fundamental groups through their Tannakian categories, with path torsors carrying filtration and Frobenius and the comparison maps. This route adds its explicit machinery. It covers the universal pointed n-unipotent objects and their path torsors (Appendix A), Kim's universal connection on an affine curve (Theorem 4.2, Lemma 4.3, Corollary 4.4), Hadian's characterisation of the Hodge filtration (Theorem 4.5), and unipotent isocrystals with their Frobenius structure (Lemma 5.2). It also covers the non-abelian Berthelot–Ogus comparison (Chiarellotto–Le Stum) and the Frobenius operators on de Rham path torsors via Besser's transport. These belong to the same roadmap as NC.5 and are its inputs, so this is not a re-route. Tau Ceti's Tannaka reconstruction for affine group schemes is the library starting point (library audit for NC.2).",
+      "reason": "NC.2 constructs the unipotent étale and de Rham fundamental groups through their Tannakian categories, with path torsors carrying filtration and Frobenius and the comparison maps. This route adds its explicit machinery. It covers the universal pointed n-unipotent objects and their path torsors (Appendix A), Kim's universal connection on an affine curve (Theorem 4.2, Lemma 4.3, Corollary 4.4), Hadian's characterisation of the Hodge filtration (Theorem 4.5), and unipotent isocrystals with their Frobenius structure (Lemma 5.2). It also covers the non-abelian Berthelot–Ogus comparison (Chiarellotto–Le Stum) and the Frobenius operators on de Rham path torsors via Besser's transport. These belong to the same roadmap as NC.5 and are its inputs, so this is not a re-route. Tau Ceti's Tannaka reconstruction for affine group schemes is the library starting point (library audit for NC.2). Split /58 (planned local (40)) from /93 (missing (41) identification and global Besser Frobenius bridge), importing L1 integration. Appendix definitions are corrected by E9–E10.",
       "items": [
         "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/40",
         "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/41",
@@ -1208,7 +1264,8 @@
         "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/69",
         "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/70",
         "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/63",
-        "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/58"
+        "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/58",
+        "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/93"
       ]
     },
     {
@@ -1217,7 +1274,7 @@
       "stages": [
         "EffectiveDiophantineMethods:ED.6"
       ],
-      "reason": "The maintainer routed the algorithm and the X_s(13) computation to ED.6 (explicit higher methods and reproducible examples). This route covers the explicit connection and gauge transformations, the Hodge filtration algorithm (Lemma 4.10, Theorem 4.11), the Frobenius structure (45) and splittings, Lemmas 5.5 and 5.7, and the precision estimate. It also covers the whole worked example: model, rational points, Tate classes from T_7 and T_11, Hodge data, Frobenius lifts, the matrices T_i, the three chart computations, the rank (Proposition 6.2), and Theorems 1.1, 1.2 and Corollary 1.3 with their cited inputs (Bilu–Parent–Rebolledo, Chen, Baran). ED.6 requires certified termination and comparison with global points; the Magma code [BDM+] is public.",
+      "reason": "The maintainer routed the algorithm and the X_s(13) computation to ED.6 (explicit higher methods and reproducible examples). This route covers the explicit connection and gauge transformations, the Hodge filtration algorithm (Lemma 4.10, Theorem 4.11), the Frobenius structure (45) and splittings, Lemmas 5.5 and 5.7, and the precision estimate. It also covers the whole worked example: model, rational points, Tate classes from T_7 and T_11, Hodge data, Frobenius lifts, the matrices T_i, the three chart computations, the rank (Proposition 6.2), and Theorems 1.1, 1.2 and Corollary 1.3 with their cited inputs (Bilu–Parent–Rebolledo, Chen, Baran). ED.6 requires certified termination and comparison with global points; the Magma code [BDM+] is public. General Tuitman Frobenius data is imported from RD.7 (/95), rank theory from GZ.8 (/79,/97) and conditional HE.7 (/94), and certified analytic evaluation from CN.4. The separate small-prime existence theorem /96 supplies the positive half of Theorem 1.2. ED.6 certifies the example, not these general suppliers.",
       "items": [
         "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/2",
         "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/3",
@@ -1246,7 +1303,8 @@
         "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/89",
         "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/90",
         "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/91",
-        "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/92"
+        "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/92",
+        "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/96"
       ]
     },
     {
@@ -1255,14 +1313,65 @@
       "stages": [
         "ModularCurvesPartII:R13.5"
       ],
-      "reason": "Potentially good reduction of X_s(13) is a statement about bad fibres of modular curves. R13.5 (bad fibres and regular/semistable models) owns the local models, supersingular intersections, Igusa components and base extensions, with its cases listed explicitly. These items add the cases X_0(ℓ²) over Q_ℓ^nr(ϖ) (Edixhoven) and the quotient by w_{ℓ²}, which gives X_s(ℓ) for ℓ ≡ 1 mod 12. They also add the genus formula and Corollary 6.7, which NC.5 consumes to make the local heights away from p vanish. Nothing else in the atlas computes models of X_0(ℓ²) at ℓ.",
+      "reason": "R13.5 owns bad fibres and regular/semistable models, using the X₀(ℓ²)/w_{ℓ²} ≃ X_s(ℓ) algebraic identification from R13.4a. These five items supply Edixhoven’s local models over Q_ℓ^nr(ϖ), Igusa components, intersections, quotient semistability, genus and Corollary 6.7. For good reduction away from 13 use the first Baran model on p.930, including at 2; Theorem 6.6 supplies the 13-adic part only. NC.5 consumes the resulting vanishing of local heights away from p.",
       "items": [
-        "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/71",
         "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/72",
         "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/73",
         "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/74",
         "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/75",
         "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/76"
+      ]
+    },
+    {
+      "route": "part-ii",
+      "parent": "SelmerIwasawaCohomology",
+      "roadmap": "SelmerComplexesAndPadicHeights",
+      "title": "Selmer groups, continuous integral cohomology, and Iwasawa cohomology, Part II: p-adic height pairings and bi-extensions of cycles",
+      "area": "iwasawa",
+      "items": [
+        "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/24",
+        "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/25",
+        "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/26",
+        "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/27",
+        "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/30",
+        "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/31"
+      ],
+      "reason": "These are general Selmer-theoretic height foundations, used by both the Disegni–Liu cycle heights and quadratic Chabauty. Reuse the identity of PAPER-DISEGNI-LIU-24 route 2 and join its pending design (#3430). The proposal exists but has no atlas stages, so all six items remain missing. NC.5 consumes this supplier; generic mixed-extension categories cannot be left in NC.5.",
+      "brief": "Extend the existing SelmerIwasawaCohomology Part II design, rather than create a second height owner. Keep the Disegni–Liu Appendices A–B programme for cycle bi-extensions, Panchishkin splittings, local indices and crystalline bi-extensions, including its Hecke-localisation and n < p hypotheses. Add the general Nekovář §2.1.2 construction with a specified continuous idèle class character χ and a chosen Hodge splitting s. BDMTV §3.1–3.3 supplies the curve specialisation V = H¹_et(X_Qbar,Q_p)* (Nekovář §5.3), without assuming ordinarity or a Panchishkin splitting. Construct the filtered Galois mixed-extension category, crystalline local condition and its two extension classes; the filtered φ-module mixed-extension category and D_cris compatibility; the local index away from p with the required invariant-vanishing/weight-monodromy inputs; the local height at p using the chosen Hodge and unique Frobenius splittings; and the global bilinear pairing with its sum of local terms. Retain the H¹_f domain: do not identify it with Mordell–Weil points without the required Sha hypothesis (BDMTV E8). Import SelmerIwasawaCohomology local conditions, complexes and finite Bloch–Kato cohomology; ArithmeticGaloisDuality duality; PadicHodgeTheory R06.1–R06.2 and the existing comparison suppliers for period rings, D_dR and D_cris. Carry over the shared proposal’s cycle-cohomology imports for its cycle branch. Do not import NC.5: its AZ twisting and specialised height formula are downstream applications. Test arbitrary Hodge splittings on a curve, the global local-sum identity, unramified vanishing away from p, and compatibility with the Panchishkin choice in the original Disegni–Liu branch. No new stage identifier is invented here."
+    },
+    {
+      "route": "source",
+      "roadmap": "ModularCurvesPartII",
+      "stages": [
+        "ModularCurvesPartII:R13.4a"
+      ],
+      "reason": "Extend the algebraic R13.4a moduli/degeneracy/Atkin–Lehner interface to compactified general-H X_H over Z[1/ℓ], H ≤ GL₂(F_ℓ), −I ∈ H, det(H) = F_ℓ×, including split/non-split Cartan normalisers. Import upstream affine quotient data and refined R13.2 general-level Γ₀(ℓ²), then construct the w_{ℓ²} extension, quotient and algebraic isomorphism to X_s(ℓ). Prove the non-cuspidal j ≠ 0,1728 rational-point criterion, with no twist. R13.4b supplies the later complex uniformisation compatibility; R13.5 consumes the isomorphism for models. Maintainer handoff: the pending EllipticCurveModularityImaginaryQuadratic design (PAPER-CARAIANI-NEWTON-23 route 2) should import this Cartan supplier. No upstream roadmap is edited.",
+      "items": [
+        "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/1",
+        "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/71"
+      ]
+    },
+    {
+      "route": "source",
+      "roadmap": "GrossZagierAndArithmeticHeights",
+      "stages": [
+        "GrossZagierAndArithmeticHeights:GZ.8"
+      ],
+      "reason": "GZ.8 owns the analytic-rank-one lower bound and its modular A_f extension, joining PAPER-GROSS-ZAGIER-86/304. Construct the admissible Heegner-field/non-torsion argument and import conditional HE.7, then prove rank and Sha descent. The higher-dimensional assembly remains missing; elliptic BSD.3 is not sufficient. Maintainer should coordinate the extension with RankZeroOneBSD and PAPER-SKINNER-20/2. ED.6 consumes the result after CN.4 has certified the conjugate L-value/derivative input.",
+      "items": [
+        "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/79",
+        "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/97"
+      ]
+    },
+    {
+      "route": "source",
+      "roadmap": "PadicDifferentialEquationsAndRigidCohomology",
+      "stages": [
+        "PadicDifferentialEquationsAndRigidCohomology:RD.7"
+      ],
+      "reason": "RD.7 owns the general Tuitman certified Frobenius/point-counting algorithm, extending its Kedlaya hyperelliptic certification node. Import RD.0 dagger Frobenius and RD.4 Monsky–Washnitzer comparison, construct the good-lift and basis/reduction/precision contracts with the June 2020 Assumption 1 correction, and export data to ED.4/ED.6. Remark 6.1’s p=17 basis-integrality shortcut is not the general contract.",
+      "items": [
+        "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/95"
       ]
     }
   ],
@@ -1278,7 +1387,12 @@
       "known": "new",
       "searched": [
         "Searched by cc-442dc5 on 23 September 2026: the Annals article page https://annals.math.princeton.edu/2019/189-3/p06 (received 7 July 2018, revised 20 December 2018, published online 14 May 2019; no erratum linked); Crossref, which registers no update for 10.4007/annals.2019.189.3.6; arXiv 1711.05846, whose only version is v1 (15 November 2017); the KU Leuven Lirias copy (byte-identical to arXiv v1); the Groningen repository copy (blocked by a Cloudflare challenge); the authors' code repositories github.com/jtuitman/Cartan13 and github.com/steffenmueller/QCMod; and the sequel BDMTV 2023 (Compositio Math. 159, arXiv 2101.01862v4)."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "by": "REV-PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19",
+        "reason": "Restored the independent review recorded on 2026-09-23 by Claude Code cc-7b31c4: “The eight sourceIssues are all confirmed at their locators in the published text”. The review corrected E3’s quotation and added E5’s version note in place; those corrected fields are preserved. See the original paper.review.json notes and research/blueprint/reviews/REV-PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19.md. This restoration is not a new independent verdict on the present fix."
+      }
     },
     {
       "id": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/E2",
@@ -1292,7 +1406,12 @@
       "searched": [
         "Searched by cc-442dc5 on 23 September 2026: the Annals article page https://annals.math.princeton.edu/2019/189-3/p06 (received 7 July 2018, revised 20 December 2018, published online 14 May 2019; no erratum linked); Crossref, which registers no update for 10.4007/annals.2019.189.3.6; arXiv 1711.05846, whose only version is v1 (15 November 2017); the KU Leuven Lirias copy (byte-identical to arXiv v1); the Groningen repository copy (blocked by a Cloudflare challenge); the authors' code repositories github.com/jtuitman/Cartan13 and github.com/steffenmueller/QCMod; and the sequel BDMTV 2023 (Compositio Math. 159, arXiv 2101.01862v4).",
         "arXiv v1 prints a different, also inconsistent, formula here ((19) and step (i), p.22). BDMTV 2023 §4.1 repeats 'dΩ_x^T Z Ω_x − η' with dΩ_x = ω."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "by": "REV-PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19",
+        "reason": "Restored the independent review recorded on 2026-09-23 by Claude Code cc-7b31c4: “The eight sourceIssues are all confirmed at their locators in the published text”. The review corrected E3’s quotation and added E5’s version note in place; those corrected fields are preserved. See the original paper.review.json notes and research/blueprint/reviews/REV-PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19.md. This restoration is not a new independent verdict on the present fix."
+      }
     },
     {
       "id": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/E3",
@@ -1306,7 +1425,12 @@
       "searched": [
         "Searched by cc-442dc5 on 23 September 2026: the Annals article page https://annals.math.princeton.edu/2019/189-3/p06 (received 7 July 2018, revised 20 December 2018, published online 14 May 2019; no erratum linked); Crossref, which registers no update for 10.4007/annals.2019.189.3.6; arXiv 1711.05846, whose only version is v1 (15 November 2017); the KU Leuven Lirias copy (byte-identical to arXiv v1); the Groningen repository copy (blocked by a Cloudflare challenge); the authors' code repositories github.com/jtuitman/Cartan13 and github.com/steffenmueller/QCMod; and the sequel BDMTV 2023 (Compositio Math. 159, arXiv 2101.01862v4).",
         "The conclusion stands: the published computations used code with the orientation of (41)."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "by": "REV-PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19",
+        "reason": "Restored the independent review recorded on 2026-09-23 by Claude Code cc-7b31c4: “The eight sourceIssues are all confirmed at their locators in the published text”. The review corrected E3’s quotation and added E5’s version note in place; those corrected fields are preserved. See the original paper.review.json notes and research/blueprint/reviews/REV-PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19.md. This restoration is not a new independent verdict on the present fix."
+      }
     },
     {
       "id": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/E4",
@@ -1320,7 +1444,12 @@
       "searched": [
         "Searched by cc-442dc5 on 23 September 2026: the Annals article page https://annals.math.princeton.edu/2019/189-3/p06 (received 7 July 2018, revised 20 December 2018, published online 14 May 2019; no erratum linked); Crossref, which registers no update for 10.4007/annals.2019.189.3.6; arXiv 1711.05846, whose only version is v1 (15 November 2017); the KU Leuven Lirias copy (byte-identical to arXiv v1); the Groningen repository copy (blocked by a Cloudflare challenge); the authors' code repositories github.com/jtuitman/Cartan13 and github.com/steffenmueller/QCMod; and the sequel BDMTV 2023 (Compositio Math. 159, arXiv 2101.01862v4).",
         "In arXiv v1 the corresponding Lemma 4.7 claimed a unique β ∈ K^{2g}, which fails whenever some ω_i is holomorphic (β + e_i is another solution). The published text fixes this with N and b_Fil ∈ Q^g, which requires this hypothesis."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "by": "REV-PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19",
+        "reason": "Restored the independent review recorded on 2026-09-23 by Claude Code cc-7b31c4: “The eight sourceIssues are all confirmed at their locators in the published text”. The review corrected E3’s quotation and added E5’s version note in place; those corrected fields are preserved. See the original paper.review.json notes and research/blueprint/reviews/REV-PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19.md. This restoration is not a new independent verdict on the present fix."
+      }
     },
     {
       "id": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/E5",
@@ -1335,7 +1464,12 @@
         "Searched by cc-442dc5 on 23 September 2026: the Annals article page https://annals.math.princeton.edu/2019/189-3/p06 (received 7 July 2018, revised 20 December 2018, published online 14 May 2019; no erratum linked); Crossref, which registers no update for 10.4007/annals.2019.189.3.6; arXiv 1711.05846, whose only version is v1 (15 November 2017); the KU Leuven Lirias copy (byte-identical to arXiv v1); the Groningen repository copy (blocked by a Cloudflare challenge); the authors' code repositories github.com/jtuitman/Cartan13 and github.com/steffenmueller/QCMod; and the sequel BDMTV 2023 (Compositio Math. 159, arXiv 2101.01862v4).",
         "The lemma is not used in the paper ('Though we will not need it in the sequel'); §6 takes Z_1, Z_2 from the Hecke operators T_7 and T_11.",
         "Checked in the LaTeX e-print of arXiv v1 by cc-7b31c4 (Cartan.tex, line 1363): there the lemma concludes 'there exists a nice element of Pic(X × X) ⊗ Q_p mapping to Z'. The published Lemma 4.7 drops the ⊗ Q_p, so the last sentence of the correction is about the published text only."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "by": "REV-PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19",
+        "reason": "Restored the independent review recorded on 2026-09-23 by Claude Code cc-7b31c4: “The eight sourceIssues are all confirmed at their locators in the published text”. The review corrected E3’s quotation and added E5’s version note in place; those corrected fields are preserved. See the original paper.review.json notes and research/blueprint/reviews/REV-PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19.md. This restoration is not a new independent verdict on the present fix."
+      }
     },
     {
       "id": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/E6",
@@ -1348,7 +1482,12 @@
       "known": "new",
       "searched": [
         "Searched by cc-442dc5 on 23 September 2026: the Annals article page https://annals.math.princeton.edu/2019/189-3/p06 (received 7 July 2018, revised 20 December 2018, published online 14 May 2019; no erratum linked); Crossref, which registers no update for 10.4007/annals.2019.189.3.6; arXiv 1711.05846, whose only version is v1 (15 November 2017); the KU Leuven Lirias copy (byte-identical to arXiv v1); the Groningen repository copy (blocked by a Cloudflare challenge); the authors' code repositories github.com/jtuitman/Cartan13 and github.com/steffenmueller/QCMod; and the sequel BDMTV 2023 (Compositio Math. 159, arXiv 2101.01862v4)."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "by": "REV-PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19",
+        "reason": "Restored the independent review recorded on 2026-09-23 by Claude Code cc-7b31c4: “The eight sourceIssues are all confirmed at their locators in the published text”. The review corrected E3’s quotation and added E5’s version note in place; those corrected fields are preserved. See the original paper.review.json notes and research/blueprint/reviews/REV-PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19.md. This restoration is not a new independent verdict on the present fix."
+      }
     },
     {
       "id": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/E7",
@@ -1361,7 +1500,12 @@
       "known": "new",
       "searched": [
         "Searched by cc-442dc5 on 23 September 2026: the Annals article page https://annals.math.princeton.edu/2019/189-3/p06 (received 7 July 2018, revised 20 December 2018, published online 14 May 2019; no erratum linked); Crossref, which registers no update for 10.4007/annals.2019.189.3.6; arXiv 1711.05846, whose only version is v1 (15 November 2017); the KU Leuven Lirias copy (byte-identical to arXiv v1); the Groningen repository copy (blocked by a Cloudflare challenge); the authors' code repositories github.com/jtuitman/Cartan13 and github.com/steffenmueller/QCMod; and the sequel BDMTV 2023 (Compositio Math. 159, arXiv 2101.01862v4)."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "by": "REV-PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19",
+        "reason": "Restored the independent review recorded on 2026-09-23 by Claude Code cc-7b31c4: “The eight sourceIssues are all confirmed at their locators in the published text”. The review corrected E3’s quotation and added E5’s version note in place; those corrected fields are preserved. See the original paper.review.json notes and research/blueprint/reviews/REV-PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19.md. This restoration is not a new independent verdict on the present fix."
+      }
     },
     {
       "id": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/E8",
@@ -1374,6 +1518,81 @@
       "known": "new",
       "searched": [
         "Searched by cc-442dc5 on 23 September 2026: the Annals article page https://annals.math.princeton.edu/2019/189-3/p06 (received 7 July 2018, revised 20 December 2018, published online 14 May 2019; no erratum linked); Crossref, which registers no update for 10.4007/annals.2019.189.3.6; arXiv 1711.05846, whose only version is v1 (15 November 2017); the KU Leuven Lirias copy (byte-identical to arXiv v1); the Groningen repository copy (blocked by a Cloudflare challenge); the authors' code repositories github.com/jtuitman/Cartan13 and github.com/steffenmueller/QCMod; and the sequel BDMTV 2023 (Compositio Math. 159, arXiv 2101.01862v4)."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "by": "REV-PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19",
+        "reason": "Restored the independent review recorded on 2026-09-23 by Claude Code cc-7b31c4: “The eight sourceIssues are all confirmed at their locators in the published text”. The review corrected E3’s quotation and added E5’s version note in place; those corrected fields are preserved. See the original paper.review.json notes and research/blueprint/reviews/REV-PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19.md. This restoration is not a new independent verdict on the present fix."
+      }
+    },
+    {
+      "id": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/E9",
+      "kind": "misprint",
+      "locator": "Published Definition A.2 p.935; arXiv v1 p.34",
+      "printed": "The source asserts existence of a morphism between pointed n-unipotent objects.",
+      "correction": "Require a unique such morphism respecting the filtration and pointed vector.",
+      "reason": "Existence alone also holds for A_n⊕1 pointed by (1,0), using projection and the universal map from A_n; take E₀=A_n⊕1 and E_i=I^i A_n for i≥1. Its fibre has larger dimension. Already at n=0, both (a,b)↦a and (a,b)↦a+b send (1,0) to 1. The intended uniqueness is explicit in Theorem 4.2 p.910, Lemma 5.2 p.919 and the proof of Lemma A.4 p.936. It changes no result when inserted.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Codex codex-5ebb6f, 2026-09-30: freshly retrieved the published Annals PDF and arXiv 1711.05846v1; hashes match the original extraction. Read the affected Appendix A, Corollary 6.7 and bibliography passages. The arXiv submission history lists only v1; the Annals article page links no erratum. This is a targeted fix rereading, not a new full-paper reading.",
+        "For bibliographic findings, read Crossref metadata for the printed Nekovář DOI and the correct chapter DOI. BL04 is corrected in arXiv v1. No public correction of the published Appendix definitions or Corollary 6.7 proof gap was located in these version/article-page checks. The original E1–E8 search record is preserved."
+      ]
+    },
+    {
+      "id": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/E10",
+      "kind": "misprint",
+      "locator": "Published Definition A.1 p.934; arXiv v1 p.34",
+      "printed": "The source asserts that each V ∈ C receives a nonzero morphism 1 → V.",
+      "correction": "Quantify over every nonzero object V.",
+      "reason": "The zero object has only the zero morphism from 1. The usual invariant-vector criterion for unipotence quantifies over nonzero representations; the definition as printed fails even for the trivial Tannakian category. Item /67 is corrected.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Codex codex-5ebb6f, 2026-09-30: freshly retrieved the published Annals PDF and arXiv 1711.05846v1; hashes match the original extraction. Read the affected Appendix A, Corollary 6.7 and bibliography passages. The arXiv submission history lists only v1; the Annals article page links no erratum. This is a targeted fix rereading, not a new full-paper reading.",
+        "For bibliographic findings, read Crossref metadata for the printed Nekovář DOI and the correct chapter DOI. BL04 is corrected in arXiv v1. No public correction of the published Appendix definitions or Corollary 6.7 proof gap was located in these version/article-page checks. The original E1–E8 search record is preserved."
+      ]
+    },
+    {
+      "id": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/E11",
+      "kind": "misprint",
+      "locator": "Published bibliography [Nek93], p.943; arXiv v1 p.40 has no DOI",
+      "printed": "10.1007/s10107-005-0696-y",
+      "correction": "10.1007/978-1-4757-4271-8_8",
+      "reason": "Fresh Crossref metadata identifies the printed DOI as van der Laan–Talman–Yang, Solving discrete zero point problems (2006), and the replacement as Nekovář, On p-adic height pairings (1993). The extraction’s prerequisite already has the correct DOI. This is published-only.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Codex codex-5ebb6f, 2026-09-30: freshly retrieved the published Annals PDF and arXiv 1711.05846v1; hashes match the original extraction. Read the affected Appendix A, Corollary 6.7 and bibliography passages. The arXiv submission history lists only v1; the Annals article page links no erratum. This is a targeted fix rereading, not a new full-paper reading.",
+        "For bibliographic findings, read Crossref metadata for the printed Nekovář DOI and the correct chapter DOI. BL04 is corrected in arXiv v1. No public correction of the published Appendix definitions or Corollary 6.7 proof gap was located in these version/article-page checks. The original E1–E8 search record is preserved."
+      ]
+    },
+    {
+      "id": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/E12",
+      "kind": "gap",
+      "locator": "Published proof of Corollary 6.7 p.929; repair in first model p.930",
+      "printed": "The source invokes Theorem 6.6 to establish the result.",
+      "correction": "Use Theorem 6.6 for the 13-adic claim and the first Baran model on p.930 for good reduction away from 13, including 2.",
+      "reason": "Theorem 6.6 concerns a model over Q_ℓ^nr(ϖ) at the level prime only. It cannot prove good reduction at all other primes. The first plane quartic on p.930 is stated to have good reduction away from 13; the second monic model is bad at 2 and 13. The tame quotient proof requires the involution order invertible and cannot replace the first model at 2. Item /76 now names the existing repair, so the stated corollary is retained.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Codex codex-5ebb6f, 2026-09-30: freshly retrieved the published Annals PDF and arXiv 1711.05846v1; hashes match the original extraction. Read the affected Appendix A, Corollary 6.7 and bibliography passages. The arXiv submission history lists only v1; the Annals article page links no erratum. This is a targeted fix rereading, not a new full-paper reading.",
+        "For bibliographic findings, read Crossref metadata for the printed Nekovář DOI and the correct chapter DOI. BL04 is corrected in arXiv v1. No public correction of the published Appendix definitions or Corollary 6.7 proof gap was located in these version/article-page checks. The original E1–E8 search record is preserved."
+      ]
+    },
+    {
+      "id": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/E13",
+      "kind": "misprint",
+      "locator": "Published bibliography [BL04], p.940; arXiv v1 p.39",
+      "printed": "The source gives the title as Complex Abelian Barieties.",
+      "correction": "Complex Abelian Varieties",
+      "reason": "The published title has Barieties. The arXiv bibliography spells varieties correctly; this separate bibliographic slip affects no mathematical item.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Codex codex-5ebb6f, 2026-09-30: freshly retrieved the published Annals PDF and arXiv 1711.05846v1; hashes match the original extraction. Read the affected Appendix A, Corollary 6.7 and bibliography passages. The arXiv submission history lists only v1; the Annals article page links no erratum. This is a targeted fix rereading, not a new full-paper reading.",
+        "For bibliographic findings, read Crossref metadata for the printed Nekovář DOI and the correct chapter DOI. BL04 is corrected in arXiv v1. No public correction of the published Appendix definitions or Corollary 6.7 proof gap was located in these version/article-page checks. The original E1–E8 search record is preserved."
       ]
     }
   ],
@@ -1388,13 +1607,138 @@
       "id": "G-numerics",
       "detail": "Proposition 6.2 rests on a numerical bound L'(f,1) > 0.6 with stated error < 10^{-100}.",
       "status": "recorded",
-      "resolution": "ED.6 with ED.0's certified numerics must supply an error-controlled proof; Remark 6.3's descent alternative is conditional on GRH."
+      "resolution": "ComputationalNumberTheory:CN.4 supplies validated L-value/derivative evaluation and analytic error propagation. EffectiveDiophantineMethods:ED.6 must certify the reported bound for every embedding, importing this supplier (the existing CN.4 → ED.2 → ED.6 path is available). ED.0 supplies exact arithmetic only. The higher-dimensional analytic-rank assembly /97 is separately missing; Remark 6.3’s descent alternative is conditional on GRH."
     },
     {
       "id": "G-inputs",
       "detail": "The cited theorems (Kim, Hadian, Olsson, Chiarellotto–Le Stum, Kim–Tamagawa, Nekovář, Besser, Edixhoven, Raynaud, Bilu–Parent–Rebolledo, Baran, Chen, Gross–Zagier, Kolyvagin–Logachev, Shimura, Ribet) were read here only as stated in the paper.",
       "status": "deferred",
       "resolution": "Listed under prerequisites for later batches."
+    }
+  ],
+  "sourceVersions": [
+    {
+      "kind": "published",
+      "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v189-n3-p06-s.pdf",
+      "read": "2026-09-23",
+      "sha256": "e1aa5f9662b4875404e25e45dd808e2b73223d562191018242ef357a13dff1f8",
+      "readBy": "Claude Code cc-442dc5",
+      "scope": "Historical full-paper reading recorded in source.version; original independent review cc-7b31c4 reproduced the hash. Fresh retrieval on 2026-09-30 by Codex codex-5ebb6f reproduced the same hash; current targeted reading is separate below."
+    },
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/1711.05846v1",
+      "read": "2026-09-23",
+      "sha256": "77c57b0307c8915959a771c15bc89c6c46ae4c2d3b344c81ce898cfa9b90c917",
+      "readBy": "Claude Code cc-442dc5",
+      "scope": "Historical whole arXiv-v1 reading in source.version. Hash freshly reproduced on 2026-09-30 by Codex codex-5ebb6f; no fresh whole reading claimed."
+    }
+  ],
+  "fixSourceChecks": {
+    "date": "2026-09-30",
+    "by": "Codex codex-5ebb6f",
+    "scope": "Targeted fix reading only: published pp.887–888,901–905,910 (Theorem 4.2), 919 (Lemma 5.2),921,925–927,929–930,934–936,940,943; arXiv pp.34,39–40. Tuitman I introduction/setup; II Assumption 1, Theorem 2.6 and precision statements 4.2,4.7,4.9 (page images 14–15 checked), plus the complete one-page June 2020 erratum. Besser Theorem 3.1/Corollaries 3.2–3.3 and the proof of Corollary 3.2. Not a full reading of Tuitman/Besser or a rerun of BDMTV’s Magma computations.",
+    "sources": [
+      {
+        "name": "bdmtv-published.pdf",
+        "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v189-n3-p06-s.pdf",
+        "retrieved": "2026-09-30T17:30:03.644089+00:00",
+        "finalUrl": "https://annals.math.princeton.edu/wp-content/uploads/annals-v189-n3-p06-s.pdf",
+        "bytes": 629135,
+        "contentType": "application/pdf",
+        "sha256": "e1aa5f9662b4875404e25e45dd808e2b73223d562191018242ef357a13dff1f8"
+      },
+      {
+        "name": "bdmtv-v1.pdf",
+        "url": "https://arxiv.org/pdf/1711.05846v1",
+        "retrieved": "2026-09-30T17:30:03.644439+00:00",
+        "finalUrl": "https://arxiv.org/pdf/1711.05846v1",
+        "bytes": 652782,
+        "contentType": "application/pdf",
+        "sha256": "77c57b0307c8915959a771c15bc89c6c46ae4c2d3b344c81ce898cfa9b90c917"
+      },
+      {
+        "name": "tuitman-I.pdf",
+        "url": "https://arxiv.org/pdf/1402.6758",
+        "retrieved": "2026-09-30T17:30:03.644650+00:00",
+        "finalUrl": "https://arxiv.org/pdf/1402.6758",
+        "bytes": 296211,
+        "contentType": "application/pdf",
+        "sha256": "8b033e59abf52aad28342ba1794ab055ada244f0c83001253941c0bf10209167"
+      },
+      {
+        "name": "tuitman-II.pdf",
+        "url": "https://arxiv.org/pdf/1412.7217",
+        "retrieved": "2026-09-30T17:30:03.644876+00:00",
+        "finalUrl": "https://arxiv.org/pdf/1412.7217",
+        "bytes": 277519,
+        "contentType": "application/pdf",
+        "sha256": "6e0f37d14ab1a46fb606bfe065ba04a95a50813cfbc495cc76f512f4fffed911"
+      },
+      {
+        "name": "besser.pdf",
+        "url": "https://arxiv.org/pdf/math/0011269",
+        "retrieved": "2026-09-30T17:30:03.645112+00:00",
+        "finalUrl": "https://arxiv.org/pdf/math/0011269",
+        "bytes": 288816,
+        "contentType": "application/pdf",
+        "sha256": "35d1b109d891dea711d2b557c1e81f826d6da73498ee82c7732185283702e2b7"
+      },
+      {
+        "name": "tuitman-home.html",
+        "url": "https://jtuitman.github.io/",
+        "retrieved": "2026-09-30T17:30:03.645337+00:00",
+        "finalUrl": "https://jtuitman.github.io/",
+        "bytes": 9122,
+        "contentType": "text/html; charset=utf-8",
+        "sha256": "17cf55fd6f239ffd6b08002bd885861465abd6155590786cf5d25207dd78f758"
+      },
+      {
+        "name": "tuitman-erratum.pdf",
+        "url": "https://jtuitman.github.io/erratum.pdf",
+        "retrieved": "2026-09-30T17:32:36.049404+00:00",
+        "finalUrl": "https://jtuitman.github.io/erratum.pdf",
+        "bytes": 92303,
+        "contentType": "application/pdf",
+        "sha256": "0c883f5ef047fa2c3720bfb2e9a0bfa6acfd45d386ec600706954fde632d6647"
+      }
+    ],
+    "metadataChecks": [
+      {
+        "url": "https://arxiv.org/abs/1711.05846",
+        "sha256": "f50910b134da5435daa5eb4c1b6d1fc28a0579b498a99a4709fcd739a9e218b9"
+      },
+      {
+        "url": "https://annals.math.princeton.edu/2019/189-3/p06",
+        "sha256": "c895d7153b9a0087921ff5aed11ff10b7f32fb2056ac209733a82a4f0e6c3564"
+      },
+      {
+        "url": "https://api.crossref.org/works/10.1007/s10107-005-0696-y",
+        "sha256": "5888a408e0ae9e6dc7c3bc523c1f880f95565ce12a0698d19d318815c27b12cc"
+      },
+      {
+        "url": "https://api.crossref.org/works/10.1007/978-1-4757-4271-8_8",
+        "sha256": "9e5438232a19acfa91c28bd437cf4ebbcd1c8f40aad1a9a2977b1f7655c176b1"
+      }
+    ]
+  },
+  "fixHistory": [
+    {
+      "issue": 5018,
+      "job": "FIX-RT-PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19",
+      "date": "2026-09-30",
+      "by": "Codex codex-5ebb6f",
+      "base": "e306457",
+      "report": "research/blueprint/redteam/RT-PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19.fixes.md",
+      "independentReview": "pending",
+      "originalItems": 92,
+      "newItems": [
+        "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/93",
+        "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/94",
+        "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/95",
+        "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/96",
+        "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/97"
+      ]
     }
   ]
 }
