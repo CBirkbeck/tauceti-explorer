@@ -5,8 +5,9 @@ Issue [#1330](https://github.com/CBirkbeck/tauceti-explorer/issues/1330). Status
 - **Provenance.** Completed by Claude Code, session cc-442dc5, on 23 September 2026. It continues the merged checkpoints (Codex and Claude Code), whose report follows below as history.
 - **The paper.** M. M. Wood, with an appendix by P. M. Wood, *Nonabelian Cohen–Lenstra moments*, Duke Math. J. 168 (2019), 377–427.
   - The published article from NSF PAR was re-fetched; its SHA-256 (154e700c…) matches the checkpoint.
-- **Items.** The result has **344 items: 13 library, 13 planned and 318 missing**. Every missing item is routed exactly once, and every numbered statement is an item. This was checked against the Duke small-caps headings.
-- **Mistakes.** Ten are recorded under `sourceIssues`.
+- **Items.** After FIX-RT-PAPER-WOOD-19 (#5137), the result has **345 items: 13 library, 13 planned and 319 missing**, with every missing item routed exactly once. The earlier completion checked the numbered paper statements against the Duke small-caps headings; the added /345 is the explicit Seguin moduli supplier. The earlier continuation and review records below retain their historical counts.
+- **Mistakes.** Ten are recorded under `sourceIssues`; this fix leaves them unchanged. The new `sourceVersions` list normalizes the historical published/preprint/companion-copy evidence.
+- **Confirmed red-team fixes.** Codex, session `codex-rtOQ9t`, 30 September 2026, restored /298’s characteristic domain, added /345 for /315–319, and corrected pagination/pin reporting. See [the fixes report](../redteam/RT-PAPER-WOOD-19.fixes.md) for the source scope and handoff to blueprint #1013.
 
 ## This continuation (cc-442dc5)
 
@@ -321,11 +322,11 @@ This is an exact criterion and a finite stable-range algorithm, **not** a proof 
 
 #### Bounded-core follow-up, with a scope barrier
 
-Items /315–/319 extract Seguin's product-one component monoid and bounded-core action. For ψ(F)=Σg ord(g), a product-one component x factors into blocks (g repeated ord(g) times) and a core y of degree ≤ψ(F), with the same monodromy subgroup. Nested-monodromy gluing is Galois-equivariant. Thus the full action is determined by the bounded-core permutation action and the cyclotomic character modulo exp(F). For involution-only tuples, every removed block is (g,g) and is Q-defined, leaving only the bounded-core action.
+Items /315–/319 extract Seguin's product-one component monoid and bounded-core action. Their geometric supplier is now explicit as /345 at IG.5: marked, possibly disconnected covers for every finite F over Q, unramified and marked at infinity, with identity monodromy at listed punctures allowed. Its components are all product-one braid orbits, with exact monodromy subgroups and continuous Galois action. Wood's narrower centerless involution-generated scheme /77 remains unchanged and is not this supplier. For ψ(F)=Σg ord(g), a product-one component x factors into blocks (g repeated ord(g) times) and a core y of degree ≤ψ(F), with the same monodromy subgroup. Nested-monodromy gluing is Galois-equivariant. Thus the full action is determined by the bounded-core permutation action and the cyclotomic character modulo exp(F). For involution-only tuples, every removed block is (g,g) and is Q-defined, leaving only the bounded-core action.
 
 This yields one finite Galois quotient controlling **all degrees of the characteristic-zero product-one problem**. It does not say that the quotient is trivial or cyclotomic. Applying it to finite-field profiles requires the integral moduli/specialization comparison and the actual small-component action. Seguin's marking is unramified at infinity; appending Wood's imaginary boundary involution and forgetting that it is distinguished would change the braid quotient. That comparison is deliberately not asserted.
 
-The original Cau equivariance theorem is an explicit unread prerequisite. Proposition 6.2 was read as a possible finite-certification lead, not imported with its unread §4/Seg24 dependencies silently assumed.
+The original Cau equivariance theorem is an explicit unread prerequisite. Item /345 also records Emsalem Théorème 3 and Kanev’s two construction papers as cited through Seguin §2.2.6; their original proofs have not been read in the fix. The unfinished IG.5 blueprint (#1013) imports IG.3/IG.1 and R09.4 foundations and must close that construction. Proposition 6.2 was read as a possible finite-certification lead, not imported with its unread §4/Seg24 dependencies silently assumed.
 
 #### Source-issue ledger and definition tests
 
@@ -559,10 +560,10 @@ Both have H₂(G′,c) = C₂.
 The extraction now separates three things:
 
 - **/99:** the printed statement, a proposition kept only as the target of the refutation /144 and never used as a hypothesis.
-- **/298:** the corrected conjecture, with u a **generator** of μ_L. This is the analogue of u_q ∈ Ẑ(1)^× in Theorem 4.8.
+- **/298:** the corrected conjecture, with u a **generator** of μ_L. This is the analogue of u_q ∈ Ẑ(1)^× in Theorem 4.8. It explicitly imports /34’s characteristic domain: char(Q)=0 or char(Q) does not divide |G′|, equivalently gcd(q,|G′|)=1 for Q=F_q(t). Tameness does not imply that restriction. F3(t),S3 fails this input test; F5(t),S3 passes it without establishing any conjectured limit.
 - **/299:** the justification. μ_L is cyclic and |μ_Q| divides |μ_L|, so evaluation at a generator identifies Hom(μ_L, H₂(G′,c)[|μ_Q|]) with H₂(G′,c)[|μ_Q|]. Changing the generator permutes the strata by h ↦ h^λ, so the corrected conjecture does not depend on the choice.
 
-All three go to ArithmeticStatistics ST.3 with the other conjectures (/29–/31); /144 stays with IG.4. The correction is also recorded in `research/blueprint/errata/PAPER-WOOD-19.json` (E7). It is the extraction's correction, not Wood's statement.
+All three go to ArithmeticStatistics ST.3 with the other conjectures (/29–/31), retaining /298’s characteristic and generator conditions and conjectural status; /144 stays with IG.4. The correction is also recorded in `research/blueprint/errata/PAPER-WOOD-19.json` (E7). It is the extraction's correction, not Wood's statement.
 
 **/143 remains mathematically open, now routed as an unproved proposition.** The original component argument gives a liminf. The present continuation analyzes all stable fibers and identifies eventual constancy of the whole normalized component profile as the exact remaining condition. Boundary components need their full Galois action; it has not been proved to be only cyclotomic. Neither ordinary-limit existence for every bad type nor a genuine counterexample is established. See the new /300–/319 analysis and source issue E1.
 
@@ -794,7 +795,7 @@ The independent review, by Claude Code (session `cc-7b31c4`, issue #1331), **acc
 extraction and all ten routes, and needed no correction. The full record is
 [REV-PAPER-WOOD-19.md](../reviews/REV-PAPER-WOOD-19.md).
 
-The recorded hash of the NSF PAR copy reproduces byte for byte; printed pages 378–428 run over PDF
+The recorded hash of the NSF PAR copy reproduces byte for byte; printed pages 377–427 run over PDF
 pages 1–51. Wood's companion note, which `E9` and `E10` are about, was fetched independently from the
 author's page (`lifting.pdf`, 13 pages, `9628210e…`) and read at both locators. 344 items with all
 318 missing ones routed exactly once; all eight source stage ids and all 13 planned ids resolve; both
@@ -817,8 +818,21 @@ survive text extraction from the companion note, so for the presence of the misp
 mathematics, which it verified — it relies on the recorded reading. And it notes, without changing
 the field, that `E7` makes Conjecture 5.1 false as printed, so `affects: nothing` is generous.
 
-Two points for whoever next touches the file, neither a condition of the review: no `libraryPins` are
-recorded, so there is no commit against which the 31 library declarations were checked; and several
-`printed` fields are pointers (`a subgroup`, `tame quotient`, `q^n`, `φ·ψ`) rather than the printed
+The missing `libraryPins` key does not imply missing pin records: `parityContinuation.pins` records
+Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti
+`f790474821cf4256814db967cb154e7af3d0c369`. This metadata correction does not establish which
+revision the earlier reviewer inspected or re-audit its 31 declaration checks. The review also notes
+that several `printed` fields are pointers (`a subgroup`, `tame quotient`, `q^n`, `φ·ψ`) rather than the printed
 text PROTOCOL §18 asks for, which makes those entries impossible to check without returning to the
 page.
+
+
+## Fix verification and source history (30 September 2026)
+
+The current fix changes /298 and /315–319 and adds /345; all other item objects, including /77, are unchanged. There are now 19 items in the IG.5 route, with its exact moduli import stated in the reason. No roadmap or blueprint base document was edited. The existing IG.5 packet is partial, has no review, and records IG.5 as `not_read`; the new construction contract, API, prerequisites and planned tests are handed to its existing blueprint issue #1013.
+
+The characteristic test uses the good admissible S3 inside C3 wreath C2 generated by the anti-diagonal C3 and the swap. The coprimality condition excludes characteristic 3 and admits characteristic 5 at the input level. The moduli tests retain empty tuples, the identity puncture, a group with nontrivial center, and proper C2 power blocks in S3. Distinct conjugate subgroups are not collapsed by an extra conjugacy quotient. Arbitrary concatenation is still not claimed Galois-equivariant.
+
+`sourceVersions` distinguishes the historical published read (23 September), the preprint record's targeted reread (22 September, full reread 21 September), and the companion author-copy proof reread (22 September, retrieved 21 September). The author copy is another paper, used for E9/E10, not a collated journal version of Wood (2019). `previousSourceRecord`, including its failed NSF/Euclid attempts, is preserved. The fresh 30 September read is separately scoped in `source.readSections` and the fixes report: published p.388 and pp.410–411, pagination, and Seguin pp.4–9,23,25. The erroneous page range and inference from absent `libraryPins` above are corrected here; the separate historical review file is unchanged.
+
+The paper checker, embedded source-version check, three-file intake validation, route/scope assertions and finite boundary diagnostics passed. No Lean file was changed or compiled. None of these checks closes the original-source proofs or the remaining G1/G2 gaps.
