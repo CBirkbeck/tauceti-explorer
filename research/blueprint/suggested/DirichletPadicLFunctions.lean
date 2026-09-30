@@ -13522,3 +13522,192 @@ example (η : DirichletCharacter K M) (hη : η ≠ 1) (hMN : M ∣ N)
     (hM : IsUnit (M : K)) (hN : IsUnit (N : K)) (hpM : ¬p ∣ M) (hpN : ¬p ∣ N) (hs : N.primeFactors = M.primeFactors) :
     intrinsicIntegralTameZetaMeasure (η.changeLevel hMN) hN hpN = intrinsicIntegralTameZetaMeasure η hM hpM := sorry
 end SuggestedTameLevelIntegralTests
+
+/-! Primitive-conductor transports. Complete proofs below use the earlier
+planned comparison statements; arithmetic constructors remain unchecked. -/
+namespace DirichletPadic
+section TamePrimitiveIntegral
+variable {p N : ℕ} [Fact p.Prime] [NeZero N]
+  {K : Type*} [NontriviallyNormedField K] [IsUltrametricDist K] [CompleteSpace K]
+  [Algebra ℤ_[p] K] [IsBoundedSMul ℤ_[p] K]
+variable (η : DirichletCharacter K N)
+local instance : NeZero η.conductor := ⟨η.conductor_ne_zero⟩
+local notation "O" => Valuation.integer (NormedField.valuation (K := K))
+local notation "S" => N.primeFactors \ η.conductor.primeFactors
+
+theorem intrinsicTameZetaMeasure_primitiveCharacter (hη : η ≠ 1)
+    (hN : IsUnit (N : K)) (hpN : ¬p ∣ N)
+    (hF : IsUnit (η.conductor : K)) (hpF : ¬p ∣ η.conductor)
+    (u : ℕ → (ℤ_[p])ˣ) (hu : ∀ q ∈ S, (u q : ℤ_[p]) = (q : ℤ_[p])) :
+    intrinsicTameZetaMeasure η hN hpN =
+      ∑ t ∈ (S).powerset, ((-1 : K)^t.card * (η.primitiveCharacter ((∏ q ∈ t, q : ℕ) : ZMod η.conductor) / ((∏ q ∈ t, q : ℕ) : K))) • AbstractMeasure.map
+        (⟨fun x : (ℤ_[p])ˣ => (∏ q ∈ t, u q)*x, by fun_prop⟩ : C((ℤ_[p])ˣ,(ℤ_[p])ˣ)) (intrinsicTameZetaMeasure η.primitiveCharacter hF hpF) := by
+  have hη₀ : η.primitiveCharacter ≠ 1 := by
+    intro h
+    apply hη
+    rw [← η.changeLevel_primitiveCharacter, h, map_one]
+  have h := intrinsicTameZetaMeasure_changeLevel η.primitiveCharacter hη₀ η.conductor_dvd_level
+    hF hN hpF hpN u hu
+  simpa only [η.changeLevel_primitiveCharacter] using h
+
+theorem integralTameMeasure_primitiveCharacter (hη : η ≠ 1)
+    (hN : IsUnit (N : K)) (hpN : ¬p ∣ N)
+    (hF : IsUnit (η.conductor : K)) (hpF : ¬p ∣ η.conductor)
+    (a : ZMod η.conductor → O) (ha : ∀ x, (a x : K) = η.primitiveCharacter x) :
+    integralTameMeasure η hN hpN =
+      ∑ t ∈ (S).powerset, ((-1 : O)^t.card * a ((∏ q ∈ t, q : ℕ) : ZMod η.conductor)) • AbstractMeasure.map
+        (⟨fun x : ℤ_[p] => ((∏ q ∈ t, q : ℕ) : ℤ_[p])*x, by fun_prop⟩ : C(ℤ_[p],ℤ_[p])) (integralTameMeasure η.primitiveCharacter hF hpF) := by
+  have hη₀ : η.primitiveCharacter ≠ 1 := by
+    intro h
+    apply hη
+    rw [← η.changeLevel_primitiveCharacter, h, map_one]
+  have h := integralTameMeasure_changeLevel η.primitiveCharacter hη₀ η.conductor_dvd_level
+    hF hN hpF hpN a ha
+  simpa only [η.changeLevel_primitiveCharacter] using h
+
+theorem integralTameZetaMeasure_primitiveCharacter (hη : η ≠ 1)
+    (hN : IsUnit (N : K)) (hpN : ¬p ∣ N)
+    (hF : IsUnit (η.conductor : K)) (hpF : ¬p ∣ η.conductor)
+    (c : Finset ℕ → O)
+    (hc : ∀ t ∈ (S).powerset, (c t : K) =
+      η.primitiveCharacter ((∏ q ∈ t, q : ℕ) : ZMod η.conductor) / ((∏ q ∈ t, q : ℕ) : K)) :
+    integralTameZetaMeasure η hN hpN =
+      ∑ t ∈ (S).powerset, ((-1 : O)^t.card * c t) • AbstractMeasure.map
+        (⟨fun x : ℤ_[p] => ((∏ q ∈ t, q : ℕ) : ℤ_[p])*x, by fun_prop⟩ : C(ℤ_[p],ℤ_[p])) (integralTameZetaMeasure η.primitiveCharacter hF hpF) := by
+  have hη₀ : η.primitiveCharacter ≠ 1 := by
+    intro h
+    apply hη
+    rw [← η.changeLevel_primitiveCharacter, h, map_one]
+  have h := integralTameZetaMeasure_changeLevel η.primitiveCharacter hη₀ η.conductor_dvd_level
+    hF hN hpF hpN c hc
+  simpa only [η.changeLevel_primitiveCharacter] using h
+
+theorem intrinsicIntegralTameZetaMeasure_primitiveCharacter (hη : η ≠ 1)
+    (hN : IsUnit (N : K)) (hpN : ¬p ∣ N)
+    (hF : IsUnit (η.conductor : K)) (hpF : ¬p ∣ η.conductor)
+    (c : Finset ℕ → O)
+    (hc : ∀ t ∈ (S).powerset, (c t : K) =
+      η.primitiveCharacter ((∏ q ∈ t, q : ℕ) : ZMod η.conductor) / ((∏ q ∈ t, q : ℕ) : K))
+    (u : ℕ → (ℤ_[p])ˣ) (hu : ∀ q ∈ S, (u q : ℤ_[p]) = (q : ℤ_[p])) :
+    intrinsicIntegralTameZetaMeasure η hN hpN =
+      ∑ t ∈ (S).powerset, ((-1 : O)^t.card * c t) • AbstractMeasure.map
+        (⟨fun x : (ℤ_[p])ˣ => (∏ q ∈ t, u q)*x, by fun_prop⟩ : C((ℤ_[p])ˣ,(ℤ_[p])ˣ)) (intrinsicIntegralTameZetaMeasure η.primitiveCharacter hF hpF) := by
+  have hη₀ : η.primitiveCharacter ≠ 1 := by
+    intro h
+    apply hη
+    rw [← η.changeLevel_primitiveCharacter, h, map_one]
+  have h := intrinsicIntegralTameZetaMeasure_changeLevel η.primitiveCharacter hη₀ η.conductor_dvd_level
+    hF hN hpF hpN c hc u hu
+  simpa only [η.changeLevel_primitiveCharacter] using h
+end TamePrimitiveIntegral
+end DirichletPadic
+
+namespace SuggestedTamePrimitiveIntegralTests
+open DirichletPadic
+variable {p N : ℕ} [Fact p.Prime] [NeZero N]
+  {K : Type*} [NontriviallyNormedField K] [IsUltrametricDist K] [CompleteSpace K]
+  [Algebra ℤ_[p] K] [IsBoundedSMul ℤ_[p] K]
+variable (η : DirichletCharacter K N)
+local instance : NeZero η.conductor := ⟨η.conductor_ne_zero⟩
+local notation "O" => Valuation.integer (NormedField.valuation (K := K))
+local notation "S" => N.primeFactors \ η.conductor.primeFactors
+
+-- intrinsic_field_primitive_all_tests
+example (hη : η ≠ 1)
+    (hN : IsUnit (N : K)) (hpN : ¬p ∣ N)
+    (hF : IsUnit (η.conductor : K)) (hpF : ¬p ∣ η.conductor)
+    (u : ℕ → (ℤ_[p])ˣ) (hu : ∀ q ∈ S, (u q : ℤ_[p]) = (q : ℤ_[p])) (f : C((ℤ_[p])ˣ,K)) :
+    intrinsicTameZetaMeasure η hN hpN f =
+      ∑ t ∈ (S).powerset, ((-1 : K)^t.card * (η.primitiveCharacter ((∏ q ∈ t, q : ℕ) : ZMod η.conductor) / ((∏ q ∈ t, q : ℕ) : K))) * intrinsicTameZetaMeasure η.primitiveCharacter hF hpF (f.comp (⟨fun x : (ℤ_[p])ˣ => (∏ q ∈ t, u q)*x, by fun_prop⟩ : C((ℤ_[p])ˣ,(ℤ_[p])ˣ))) := sorry
+-- intrinsic_field_primitive_mass
+example (hη : η ≠ 1)
+    (hN : IsUnit (N : K)) (hpN : ¬p ∣ N)
+    (hF : IsUnit (η.conductor : K)) (hpF : ¬p ∣ η.conductor)
+    (u : ℕ → (ℤ_[p])ˣ) (hu : ∀ q ∈ S, (u q : ℤ_[p]) = (q : ℤ_[p])) :
+    intrinsicTameZetaMeasure η hN hpN 1 =
+      (∑ t ∈ (S).powerset, ((-1 : K)^t.card * (η.primitiveCharacter ((∏ q ∈ t, q : ℕ) : ZMod η.conductor) / ((∏ q ∈ t, q : ℕ) : K)))) * intrinsicTameZetaMeasure η.primitiveCharacter hF hpF 1 := sorry
+-- intrinsic_field_primitive_same_support
+example (hη : η ≠ 1) (hN : IsUnit (N : K)) (hpN : ¬p ∣ N)
+    (hF : IsUnit (η.conductor : K)) (hpF : ¬p ∣ η.conductor)
+    (hs : N.primeFactors = η.conductor.primeFactors) :
+    intrinsicTameZetaMeasure η hN hpN = intrinsicTameZetaMeasure η.primitiveCharacter hF hpF := sorry
+-- integral_measure_primitive_all_tests
+example (hη : η ≠ 1)
+    (hN : IsUnit (N : K)) (hpN : ¬p ∣ N)
+    (hF : IsUnit (η.conductor : K)) (hpF : ¬p ∣ η.conductor)
+    (a : ZMod η.conductor → O) (ha : ∀ x, (a x : K) = η.primitiveCharacter x) (f : C(ℤ_[p],O)) :
+    integralTameMeasure η hN hpN f =
+      ∑ t ∈ (S).powerset, ((-1 : O)^t.card * a ((∏ q ∈ t, q : ℕ) : ZMod η.conductor)) * integralTameMeasure η.primitiveCharacter hF hpF (f.comp (⟨fun x : ℤ_[p] => ((∏ q ∈ t, q : ℕ) : ℤ_[p])*x, by fun_prop⟩ : C(ℤ_[p],ℤ_[p]))) := sorry
+-- integral_measure_primitive_mass
+example (hη : η ≠ 1)
+    (hN : IsUnit (N : K)) (hpN : ¬p ∣ N)
+    (hF : IsUnit (η.conductor : K)) (hpF : ¬p ∣ η.conductor)
+    (a : ZMod η.conductor → O) (ha : ∀ x, (a x : K) = η.primitiveCharacter x) :
+    integralTameMeasure η hN hpN 1 =
+      (∑ t ∈ (S).powerset, ((-1 : O)^t.card * a ((∏ q ∈ t, q : ℕ) : ZMod η.conductor))) * integralTameMeasure η.primitiveCharacter hF hpF 1 := sorry
+-- integral_measure_primitive_same_support
+example (hη : η ≠ 1) (hN : IsUnit (N : K)) (hpN : ¬p ∣ N)
+    (hF : IsUnit (η.conductor : K)) (hpF : ¬p ∣ η.conductor)
+    (hs : N.primeFactors = η.conductor.primeFactors) :
+    integralTameMeasure η hN hpN = integralTameMeasure η.primitiveCharacter hF hpF := sorry
+-- integral_zeta_primitive_all_tests
+example (hη : η ≠ 1)
+    (hN : IsUnit (N : K)) (hpN : ¬p ∣ N)
+    (hF : IsUnit (η.conductor : K)) (hpF : ¬p ∣ η.conductor)
+    (c : Finset ℕ → O)
+    (hc : ∀ t ∈ (S).powerset, (c t : K) =
+      η.primitiveCharacter ((∏ q ∈ t, q : ℕ) : ZMod η.conductor) / ((∏ q ∈ t, q : ℕ) : K)) (f : C(ℤ_[p],O)) :
+    integralTameZetaMeasure η hN hpN f =
+      ∑ t ∈ (S).powerset, ((-1 : O)^t.card * c t) * integralTameZetaMeasure η.primitiveCharacter hF hpF (f.comp (⟨fun x : ℤ_[p] => ((∏ q ∈ t, q : ℕ) : ℤ_[p])*x, by fun_prop⟩ : C(ℤ_[p],ℤ_[p]))) := sorry
+-- integral_zeta_primitive_mass
+example (hη : η ≠ 1)
+    (hN : IsUnit (N : K)) (hpN : ¬p ∣ N)
+    (hF : IsUnit (η.conductor : K)) (hpF : ¬p ∣ η.conductor)
+    (c : Finset ℕ → O)
+    (hc : ∀ t ∈ (S).powerset, (c t : K) =
+      η.primitiveCharacter ((∏ q ∈ t, q : ℕ) : ZMod η.conductor) / ((∏ q ∈ t, q : ℕ) : K)) :
+    integralTameZetaMeasure η hN hpN 1 =
+      (∑ t ∈ (S).powerset, ((-1 : O)^t.card * c t)) * integralTameZetaMeasure η.primitiveCharacter hF hpF 1 := sorry
+-- integral_zeta_primitive_same_support
+example (hη : η ≠ 1) (hN : IsUnit (N : K)) (hpN : ¬p ∣ N)
+    (hF : IsUnit (η.conductor : K)) (hpF : ¬p ∣ η.conductor)
+    (hs : N.primeFactors = η.conductor.primeFactors) :
+    integralTameZetaMeasure η hN hpN = integralTameZetaMeasure η.primitiveCharacter hF hpF := sorry
+-- intrinsic_integral_primitive_all_tests
+example (hη : η ≠ 1)
+    (hN : IsUnit (N : K)) (hpN : ¬p ∣ N)
+    (hF : IsUnit (η.conductor : K)) (hpF : ¬p ∣ η.conductor)
+    (c : Finset ℕ → O)
+    (hc : ∀ t ∈ (S).powerset, (c t : K) =
+      η.primitiveCharacter ((∏ q ∈ t, q : ℕ) : ZMod η.conductor) / ((∏ q ∈ t, q : ℕ) : K))
+    (u : ℕ → (ℤ_[p])ˣ) (hu : ∀ q ∈ S, (u q : ℤ_[p]) = (q : ℤ_[p])) (f : C((ℤ_[p])ˣ,O)) :
+    intrinsicIntegralTameZetaMeasure η hN hpN f =
+      ∑ t ∈ (S).powerset, ((-1 : O)^t.card * c t) * intrinsicIntegralTameZetaMeasure η.primitiveCharacter hF hpF (f.comp (⟨fun x : (ℤ_[p])ˣ => (∏ q ∈ t, u q)*x, by fun_prop⟩ : C((ℤ_[p])ˣ,(ℤ_[p])ˣ))) := sorry
+-- intrinsic_integral_primitive_mass
+example (hη : η ≠ 1)
+    (hN : IsUnit (N : K)) (hpN : ¬p ∣ N)
+    (hF : IsUnit (η.conductor : K)) (hpF : ¬p ∣ η.conductor)
+    (c : Finset ℕ → O)
+    (hc : ∀ t ∈ (S).powerset, (c t : K) =
+      η.primitiveCharacter ((∏ q ∈ t, q : ℕ) : ZMod η.conductor) / ((∏ q ∈ t, q : ℕ) : K))
+    (u : ℕ → (ℤ_[p])ˣ) (hu : ∀ q ∈ S, (u q : ℤ_[p]) = (q : ℤ_[p])) :
+    intrinsicIntegralTameZetaMeasure η hN hpN 1 =
+      (∑ t ∈ (S).powerset, ((-1 : O)^t.card * c t)) * intrinsicIntegralTameZetaMeasure η.primitiveCharacter hF hpF 1 := sorry
+-- intrinsic_integral_primitive_same_support
+example (hη : η ≠ 1) (hN : IsUnit (N : K)) (hpN : ¬p ∣ N)
+    (hF : IsUnit (η.conductor : K)) (hpF : ¬p ∣ η.conductor)
+    (hs : N.primeFactors = η.conductor.primeFactors) :
+    intrinsicIntegralTameZetaMeasure η hN hpN = intrinsicIntegralTameZetaMeasure η.primitiveCharacter hF hpF := sorry
+-- primitive_constructor_certificates
+example (hη : η ≠ 1) (hN : IsUnit (N : K)) (hpN : ¬p ∣ N) :
+    η.conductor ≠ 0 ∧ IsUnit (η.conductor : K) ∧ ¬p ∣ η.conductor ∧ η.primitiveCharacter ≠ 1 := sorry
+-- primitive_bad_prime_values
+example (q : ℕ) (hq : q.Prime) (hqN : q ∣ N) (hqF : ¬q ∣ η.conductor) :
+    η (q : ZMod N) = 0 ∧ η.primitiveCharacter (q : ZMod η.conductor) ≠ 0 := sorry
+-- primitive_coefficient_families
+example (hpN : ¬p ∣ N) :
+    ∃ a : ZMod η.conductor → O, ∃ c : Finset ℕ → O,
+    (∀ x, (a x : K) = η.primitiveCharacter x) ∧
+    (∀ t ∈ (S).powerset, (c t : K) = η.primitiveCharacter ((∏ q ∈ t, q : ℕ) : ZMod η.conductor) /
+      ((∏ q ∈ t, q : ℕ) : K)) := sorry
+end SuggestedTamePrimitiveIntegralTests
