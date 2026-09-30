@@ -15,6 +15,10 @@ modules only. Where the roadmap builds on a pinned Tau Ceti declaration
 `TopPair.singularHomology`), the docstring names it, the declaration here has a real signature
 and a `sorry` body, and the statements about it are made through Mathlib notions.
 
+FIX-RT-AREA-iwasawa-3~2 (Codex codex-5ebb6f, 30 September 2026): the added Tate inverse,
+localized-comparison and regression signatures have not been compiled. The preceding
+compilation account belongs to the independent review of the input file.
+
 Objects another roadmap owns appear as parameters of a structure or as `variable`s,
 never as invented definitions; each carries a docstring naming its owner:
 
@@ -7964,6 +7968,30 @@ variable (Hs : PairHomology) (dR : PeriodData Hs)
 /-- The localisation map `P⁺ ⟶ P`. -/
 def ofEff : eff Hs dR →+* FormalPeriods Hs dR := algebraMap _ _
 
+/-- MC.6/formal-periods: explicit `L⁻¹` in `P`, reusing pinned Away localization. -/
+def tateInverse : FormalPeriods Hs dR :=
+  IsLocalization.Away.invSelf (twoPiI Hs dR)
+
+/-- The imported localization identity on the Tate symbol. -/
+theorem tate_mul_inverse : ofEff Hs dR (twoPiI Hs dR) * tateInverse Hs dR = 1 := sorry
+
+/-- The identity in the other order, since `P` is commutative. -/
+theorem tate_inverse_mul : tateInverse Hs dR * ofEff Hs dR (twoPiI Hs dR) = 1 := sorry
+
+/-- MC.6/formal-periods-equal-comparison-algebra: specialize the pinned
+`IsLocalization.algEquivOfAlgEquiv` to the effective comparison, localizing both sides at
+corresponding Tate classes. In the application `A` is `A^eff_{1,2}` from the good-pair diagram.
+This signature applies an existing library API; it plans no new general localization theorem. -/
+def localizeComparison {A : Type*} [CommRing A] [Algebra ℚ A]
+    (e : eff Hs dR ≃ₐ[ℚ] A) :
+    FormalPeriods Hs dR ≃ₐ[ℚ] Localization.Away (e (twoPiI Hs dR)) := sorry
+
+/-- The localized comparison commutes with the effective comparison and canonical maps. -/
+theorem localizeComparison_ofEff {A : Type*} [CommRing A] [Algebra ℚ A]
+    (e : eff Hs dR ≃ₐ[ℚ] A) (x : eff Hs dR) :
+    localizeComparison Hs dR e (ofEff Hs dR x) =
+      algebraMap A (Localization.Away (e (twoPiI Hs dR))) (e x) := sorry
+
 /-- The generator is linear in `ω` and in `γ`. -/
 theorem gen_add_left (v : Vertex) (ω ω' : dR.HdR v.X v.Y v.i) (γ γ' : Hs.H v.X v.Y v.i) :
     gen Hs dR v (ω + ω') γ = gen Hs dR v ω γ + gen Hs dR v ω' γ ∧
@@ -8018,6 +8046,23 @@ example (Hs : PairDiagram.PairHomology) (dR : PairDiagram.PeriodData Hs) (a b : 
     FormalPeriods.gen Hs dR a ω γ * FormalPeriods.gen Hs dR b ω' γ' =
       FormalPeriods.gen Hs dR (PairDiagram.vertexProduct a b) (dR.wedge a b ω ω')
         (dR.cross a b γ γ') := sorry
+
+/-- Unit test `FormalPeriods.tate_inverse_test`: both inverse identities in the localized
+formal-period algebra. -/
+example (Hs : PairDiagram.PairHomology) (dR : PairDiagram.PeriodData Hs) :
+    FormalPeriods.ofEff Hs dR (FormalPeriods.twoPiI Hs dR) * FormalPeriods.tateInverse Hs dR = 1 ∧
+      FormalPeriods.tateInverse Hs dR * FormalPeriods.ofEff Hs dR (FormalPeriods.twoPiI Hs dR) = 1 :=
+  sorry
+
+/-- Unit test `FormalPeriods.effective_tate_nonunit`: the coordinate of the effective Tate
+model `ℚ[t]` is not a unit. It lacks the inverse required by the prescribed `𝔾_m` coordinate.
+This is a ring model check, not a computation of all Nori Tate motives. -/
+example : ¬ IsUnit (Polynomial.X : Polynomial ℚ) := sorry
+
+/-- Unit test `FormalPeriods.tate_laurent_model`: the localized Tate model `ℚ[t,t⁻¹]` has the
+required inverse. Reuses pinned LaurentPolynomial.T_add. -/
+example : (LaurentPolynomial.T 1 : LaurentPolynomial ℚ) * LaurentPolynomial.T (-1) = 1 ∧
+    (LaurentPolynomial.T (-1) : LaurentPolynomial ℚ) * LaurentPolynomial.T 1 = 1 := sorry
 
 /-! ### Formal periods as a comparison algebra, and the period torsor -/
 
@@ -8155,6 +8200,24 @@ example (Hs : PairDiagram.PairHomology) (dR : PairDiagram.PeriodData Hs)
     (periodPoint.formal Hs dR (FormalPeriods.ofEff Hs dR (FormalPeriods.twoPiI Hs dR))).im ≠ 0 ∧
       ¬ ∃ r : ℚ, periodPoint.formal Hs dR
         (FormalPeriods.ofEff Hs dR (FormalPeriods.twoPiI Hs dR)) = r := sorry
+
+/-- The value of the supplier Tate inverse, conditional on the integration normalization
+owned by PeriodsAndSpecialValues:PS.2. The evaluation already has domain `P`, not `P_eff`. -/
+theorem periodPoint_tate_inverse
+    (hint : periodPoint.formal Hs dR (FormalPeriods.ofEff Hs dR (FormalPeriods.twoPiI Hs dR)) =
+      (2 * Real.pi : ℂ) * Complex.I) :
+    periodPoint.formal Hs dR (FormalPeriods.tateInverse Hs dR) =
+      ((2 * Real.pi : ℂ) * Complex.I)⁻¹ := sorry
+
+/-- Unit test `periodPoint_tate_inverse_test`: evaluation of the inverse and the product,
+without asserting injectivity of evaluation. -/
+example
+    (hint : periodPoint.formal Hs dR (FormalPeriods.ofEff Hs dR (FormalPeriods.twoPiI Hs dR)) =
+      (2 * Real.pi : ℂ) * Complex.I) :
+    periodPoint.formal Hs dR (FormalPeriods.tateInverse Hs dR) =
+        ((2 * Real.pi : ℂ) * Complex.I)⁻¹ ∧
+      periodPoint.formal Hs dR (FormalPeriods.ofEff Hs dR (FormalPeriods.twoPiI Hs dR)) *
+        periodPoint.formal Hs dR (FormalPeriods.tateInverse Hs dR) = 1 := sorry
 
 /-- Unit test `periodPoint_heap_test`: the heap operation applied to `(φ, φ, φ)` returns `φ`. -/
 example (Hs : PairDiagram.PairHomology) (dR : PairDiagram.PeriodData Hs)
