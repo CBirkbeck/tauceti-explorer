@@ -23653,12 +23653,12 @@
     "REV-RS-14"
    ],
    "prompt": "research/blueprint/prompts/BP-DirichletPadicLFunctions.md",
-   "state": "external",
+   "state": "pending",
    "suppliers": [
     "BP-LocallyAnalyticDistributions",
     "BP-PadicMeasuresIwasawaAlgebras"
    ],
-   "note": "claimed on GitHub issue #713"
+   "note": "released on GitHub issue #713"
   },
   {
    "id": "REV-DirichletPadicLFunctions",
@@ -40809,8 +40809,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-BOCKLE-HARRIS-KHARE-ETAL-19.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5014"
+   "state": "pending",
+   "note": "released on GitHub issue #5014"
   },
   {
    "id": "RT-PAPER-LAWRENCE-VENKATESH-20",
