@@ -1172,7 +1172,7 @@
       "define": "For a discrete group Γ acting on a ringed space or site, construct the abelian category of sheaves with compatible pullback linearizations, and derive Γ-invariant global sections. Include equivariant Ext and invariant closed supports. A sheaf automorphism on a fixed base is insufficient when the group moves the base; continuous profinite actions are a separate extension.",
       "library": {
         "has": [
-          "mathlib:CategoryTheory.Action",
+          "mathlib:Action",
           "mathlib:groupCohomology",
           "mathlib:DerivedCategory",
           "mathlib:CategoryTheory.Sheaf.H"
@@ -1775,7 +1775,7 @@
       "define": "For a characteristic-zero Galois extension k′/k define a topological extension of Gal(k′/k) by H(k′), with H a linear algebraic group and its point kernel discrete. Require algebraic semilinear conjugation and a continuous splitting over an open Galois subgroup that gives algebraic descent and a semidirect-product chart. Define morphisms continuous over Galois and algebraic on kernels, their conjugator schemes, and compatible projective systems for proalgebraic kernels. Do not replace stagewise conjugacy of pro-morphisms by an unproved single global conjugator.",
       "library": {
         "has": [
-          "mathlib:CategoryTheory.Action",
+          "mathlib:Action",
           "mathlib:CategoryTheory.Pseudofunctor.IsStack"
         ],
         "missing": "Generic actions and stacks do not provide the algebraic-kernel/topological-extension compatibility, descent charts, conjugator scheme or pro-gerb comparison. Kisin’s finite algebraic-kernel gerbs and the Kottwitz protorus gerbe in HKW22 instantiate the finite-stage/projective-system construction. BG1 plans B(G) invariants but not this Galois-gerb carrier; no accepted stage explicitly owns it."
