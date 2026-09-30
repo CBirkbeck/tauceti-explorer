@@ -53052,8 +53052,9 @@
     "FIX-RT-AREA-topology"
    ],
    "prompt": "research/blueprint/prompts/FIX-RT-AREA-topology~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5166"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #5166",
+   "finishedAt": "2026-09-30T18:47:42Z"
   },
   {
    "id": "REV-FIX-RT-AREA-topology~2",
