@@ -23476,12 +23476,12 @@
     "REV-RS-14"
    ],
    "prompt": "research/blueprint/prompts/BP-DirichletPadicLFunctions.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [
     "BP-LocallyAnalyticDistributions",
     "BP-PadicMeasuresIwasawaAlgebras"
    ],
-   "note": "released on GitHub issue #713"
+   "note": "claimed on GitHub issue #713"
   },
   {
    "id": "REV-DirichletPadicLFunctions",
@@ -40842,8 +40842,9 @@
     "REV-LINK-tauceti_Completed_OrthogonalL2Bases"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-LINK-tauceti_Completed_OrthogonalL2Bases.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4358"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4358",
+   "finishedAt": "2026-09-30T11:11:39Z"
   },
   {
    "id": "RT-LINK-tauceti_TauCetiRoadmap_AlgebraicCodingTheory",
@@ -40865,7 +40866,8 @@
     "REV-LINK-tauceti_TauCetiRoadmap_AlgebraicCodingTheory"
    ],
    "prompt": "research/blueprint/prompts/RT-LINK-tauceti_TauCetiRoadmap_AlgebraicCodingTheory.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4361"
   },
   {
    "id": "REV-RT-LINK-tauceti_TauCetiRoadmap_AlgebraicCodingTheory",
