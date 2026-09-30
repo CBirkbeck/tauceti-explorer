@@ -16136,3 +16136,92 @@ example (z : ℤ_[2]) : Tendsto (fun n => moritaShiftedMean 2 (1 : DirichletChar
 example (z : ℤ_[3]) : Tendsto (fun n => moritaShiftedMean 3 (1 : DirichletCharacter ℚ_[3] 1) n z (fun x => (x : ℚ_[3])) -
     moritaAngularMean 3 (1 : DirichletCharacter ℚ_[3] 1) n (fun x => (x : ℚ_[3]))) atTop (𝓝 0) := by sorry
 end DirichletPadic.SuggestedMoritaShiftContinuityTests
+
+/- Nonnegative integer shifts and the exact finite boundary identity. -/
+
+namespace DirichletPadic
+noncomputable section
+open Filter
+open scoped Topology
+open scoped Classical
+variable (p : ℕ) [Fact p.Prime]
+variable {K : Type*} [NormedField K] {f : ℕ}
+
+lemma moritaShiftedSamples_nat (A : ℤ_[p] → K) (z : ℕ) (hz : moritaModulus p ∣ z) :
+    moritaShiftedSamples p (z : ℤ_[p]) A = fun a => moritaAngularSamples p A (a+z) := by sorry
+
+lemma moritaShiftedMean_nat (χ : DirichletCharacter K f) (n : ℕ) (A : ℤ_[p] → K)
+    (z : ℕ) (hz : moritaModulus p ∣ z) :
+    moritaShiftedMean p χ n (z : ℤ_[p]) A = moritaFiniteMean p χ n (fun a => moritaAngularSamples p A (a+z)) := by sorry
+
+omit [Fact p.Prime] in
+lemma moritaFiniteMean_integer_boundary (χ : DirichletCharacter K f) (n : ℕ) (F : ℕ → K)
+    (z : ℕ) (hz : Nat.lcm f (moritaModulus p) ∣ z) :
+    moritaFiniteMean p χ n (fun a => F (a+z))-moritaFiniteMean p χ n F =
+      (moritaLevel p f n : K)⁻¹ * ∑ a ∈ Finset.range z,
+        if p ∣ a then 0 else χ (a : ZMod f)*(F (a+moritaLevel p f n)-F a) := by sorry
+
+lemma moritaShiftedMean_integer_boundary (χ : DirichletCharacter K f) (n : ℕ) (A : ℤ_[p] → K)
+    (z : ℕ) (hz : Nat.lcm f (moritaModulus p) ∣ z) :
+    moritaShiftedMean p χ n (z : ℤ_[p]) A-moritaAngularMean p χ n A =
+      ∑ a ∈ Finset.range z, if p ∣ a then 0 else χ (a : ZMod f)*
+        ((moritaLevel p f n : K)⁻¹*(moritaAngularSamples p A (a+moritaLevel p f n)-moritaAngularSamples p A a)) := by sorry
+
+lemma moritaShiftedMean_boundary_limit (χ : DirichletCharacter K f) (A : ℤ_[p] → K)
+    (z : ℕ) (hz : Nat.lcm f (moritaModulus p) ∣ z) (d : ℕ → K)
+    (hd : ∀ a < z, ¬p ∣ a → Tendsto (fun n => (moritaLevel p f n : K)⁻¹*
+      (moritaAngularSamples p A (a+moritaLevel p f n)-moritaAngularSamples p A a)) atTop (𝓝 (d a))) :
+    Tendsto (fun n => moritaShiftedMean p χ n (z : ℤ_[p]) A-moritaAngularMean p χ n A)
+      atTop (𝓝 (∑ a ∈ Finset.range z, if p ∣ a then 0 else χ (a : ZMod f)*d a)) := by sorry
+
+lemma moritaShiftedMean_boundary_value (χ : DirichletCharacter K f) (A : ℤ_[p] → K)
+    (z : ℕ) (hz : Nat.lcm f (moritaModulus p) ∣ z) (d : ℕ → K)
+    (hd : ∀ a < z, ¬p ∣ a → Tendsto (fun n => (moritaLevel p f n : K)⁻¹*
+      (moritaAngularSamples p A (a+moritaLevel p f n)-moritaAngularSamples p A a)) atTop (𝓝 (d a)))
+    (w : K) (hw : Tendsto (fun n => moritaShiftedMean p χ n (z : ℤ_[p]) A-moritaAngularMean p χ n A) atTop (𝓝 w)) :
+    w = ∑ a ∈ Finset.range z, if p ∣ a then 0 else χ (a : ZMod f)*d a := by sorry
+
+end
+end DirichletPadic
+
+namespace DirichletPadic.SuggestedMoritaIntegerBoundaryTests
+open Filter
+open scoped Topology
+-- natural_sample_dyadic
+example : moritaShiftedSamples 2 4 (fun x => (x : ℚ_[2])) 3 = moritaAngularSamples 2 (fun x => (x : ℚ_[2])) 7 := by sorry
+-- natural_sample_nonunit
+example : moritaShiftedSamples 2 4 (fun _ => (7 : ℚ_[2])) 2 = 0 := by sorry
+-- natural_sample_bad_shift
+example : moritaShiftedSamples 2 2 (fun x => (x : ℚ_[2])) 1 ≠ moritaAngularSamples 2 (fun x => (x : ℚ_[2])) 3 := by sorry
+-- natural_mean_dyadic
+example : moritaShiftedMean 2 (1 : DirichletCharacter ℚ_[2] 1) 0 4 (fun x => (x : ℚ_[2])^2) = 37/2 := by sorry
+-- natural_mean_odd
+example : moritaShiftedMean 3 (1 : DirichletCharacter ℚ_[3] 1) 0 3 (fun x => (x : ℚ_[3])^2) = 41/3 := by sorry
+-- finite_boundary_quadratic
+example : moritaFiniteMean 2 (1 : DirichletCharacter ℚ_[2] 1) 0 (fun a => (a+4 : ℚ_[2])^2) -
+    moritaFiniteMean 2 (1 : DirichletCharacter ℚ_[2] 1) 0 (fun a => (a : ℚ_[2])^2) = 16 := by sorry
+-- finite_boundary_zero_shift
+example (F : ℕ → ℚ_[2]) : moritaFiniteMean 2 (1 : DirichletCharacter ℚ_[2] 3) 0 (fun a => F (a+0)) -
+    moritaFiniteMean 2 (1 : DirichletCharacter ℚ_[2] 3) 0 F = 0 := by sorry
+-- finite_boundary_missing_character_period
+example : moritaFiniteMean 2 (1 : DirichletCharacter ℚ_[2] 3) 0 (fun a => (a+4 : ℚ_[2])) -
+    moritaFiniteMean 2 (1 : DirichletCharacter ℚ_[2] 3) 0 (fun a => (a : ℚ_[2])) = 4/3 ∧ (4/3 : ℚ_[2])≠1 := by sorry
+-- shifted_boundary_dyadic
+example : moritaShiftedMean 2 (1 : DirichletCharacter ℚ_[2] 1) 0 4 (fun x => (x : ℚ_[2])^2) -
+    moritaAngularMean 2 (1 : DirichletCharacter ℚ_[2] 1) 0 (fun x => (x : ℚ_[2])^2) = 16 := by sorry
+-- shifted_boundary_odd
+example : moritaShiftedMean 3 (1 : DirichletCharacter ℚ_[3] 1) 0 3 (fun x => (x : ℚ_[3])^2) -
+    moritaAngularMean 3 (1 : DirichletCharacter ℚ_[3] 1) 0 (fun x => (x : ℚ_[3])^2) = 12 := by sorry
+-- boundary_limit_quadratic_dyadic
+example : Tendsto (fun n => moritaShiftedMean 2 (1 : DirichletCharacter ℚ_[2] 1) n 4 (fun x => (x : ℚ_[2])^2) -
+    moritaAngularMean 2 (1 : DirichletCharacter ℚ_[2] 1) n (fun x => (x : ℚ_[2])^2)) atTop (𝓝 8) := by sorry
+-- boundary_limit_quadratic_odd
+example : Tendsto (fun n => moritaShiftedMean 3 (1 : DirichletCharacter ℚ_[3] 1) n 3 (fun x => (x : ℚ_[3])^2) -
+    moritaAngularMean 3 (1 : DirichletCharacter ℚ_[3] 1) n (fun x => (x : ℚ_[3])^2)) atTop (𝓝 6) := by sorry
+-- boundary_value_constant
+example (w : ℚ_[2]) (hw : Tendsto (fun n => moritaShiftedMean 2 (1 : DirichletCharacter ℚ_[2] 1) n 4 (fun _ => 1) -
+    moritaAngularMean 2 (1 : DirichletCharacter ℚ_[2] 1) n (fun _ => 1)) atTop (𝓝 w)) : w=0 := by sorry
+-- boundary_value_zero_shift
+example (A : ℤ_[3] → ℚ_[3]) (w : ℚ_[3]) (hw : Tendsto (fun n => moritaShiftedMean 3 (1 : DirichletCharacter ℚ_[3] 1) n 0 A -
+    moritaAngularMean 3 (1 : DirichletCharacter ℚ_[3] 1) n A) atTop (𝓝 w)) : w=0 := by sorry
+end DirichletPadic.SuggestedMoritaIntegerBoundaryTests
