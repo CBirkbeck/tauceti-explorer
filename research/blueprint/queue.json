@@ -9413,8 +9413,8 @@
    ],
    "avoidAccountOf": "PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24",
    "prompt": "research/blueprint/prompts/REV-PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4516"
+   "state": "pending",
+   "note": "released on GitHub issue #4516"
   },
   {
    "id": "PAPER-SCHOLZE-17",
@@ -19215,8 +19215,8 @@
    ],
    "avoidAccountOf": "RS-04",
    "prompt": "research/blueprint/prompts/REV-RS-04.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #807"
+   "state": "pending",
+   "note": "released on GitHub issue #807"
   },
   {
    "id": "RS-05",
@@ -21196,11 +21196,11 @@
     "REV-RS-25"
    ],
    "prompt": "research/blueprint/prompts/BP-SchemeAndStackFoundations.md",
-   "state": "external",
+   "state": "pending",
    "suppliers": [
     "BP-FoundationsAndLibraryIntegration"
    ],
-   "note": "claimed on GitHub issue #642"
+   "note": "released on GitHub issue #642"
   },
   {
    "id": "REV-SchemeAndStackFoundations",
@@ -21740,9 +21740,9 @@
     "REV-RS-06"
    ],
    "prompt": "research/blueprint/prompts/BP-ArakelovGeometryAndAbelianHeights.md",
-   "state": "external",
+   "state": "pending",
    "suppliers": [],
-   "note": "claimed on GitHub issue #674"
+   "note": "released on GitHub issue #674"
   },
   {
    "id": "REV-ArakelovGeometryAndAbelianHeights",
@@ -21839,9 +21839,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-ArithmeticGaloisRepresentations.md",
-   "state": "external",
+   "state": "pending",
    "suppliers": [],
-   "note": "claimed on GitHub issue #676"
+   "note": "released on GitHub issue #676"
   },
   {
    "id": "REV-ArithmeticGaloisRepresentations",
@@ -22675,9 +22675,9 @@
     "REV-RS-05"
    ],
    "prompt": "research/blueprint/prompts/BP-ClassicalAdicEtaleCohomology--H4.md",
-   "state": "external",
+   "state": "pending",
    "suppliers": [],
-   "note": "claimed on GitHub issue #693"
+   "note": "released on GitHub issue #693"
   },
   {
    "id": "REV-ClassicalAdicEtaleCohomology--H4",
@@ -25229,11 +25229,11 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-GrossZagierAndArithmeticHeights--GZ.8.md",
-   "state": "external",
+   "state": "pending",
    "suppliers": [
     "BP-PadicMeasuresIwasawaAlgebras"
    ],
-   "note": "claimed on GitHub issue #745"
+   "note": "released on GitHub issue #745"
   },
   {
    "id": "REV-GrossZagierAndArithmeticHeights--GZ.8",
@@ -27416,9 +27416,9 @@
     "REV-RS-26"
    ],
    "prompt": "research/blueprint/prompts/BP-PadicLocalLanglandsForGL2Qp.md",
-   "state": "external",
+   "state": "pending",
    "suppliers": [],
-   "note": "claimed on GitHub issue #970"
+   "note": "released on GitHub issue #970"
   },
   {
    "id": "REV-PadicLocalLanglandsForGL2Qp",
@@ -27915,9 +27915,9 @@
     "REV-RS-30"
    ],
    "prompt": "research/blueprint/prompts/BP-RankZeroOneBSD--BSD.0.md",
-   "state": "external",
+   "state": "pending",
    "suppliers": [],
-   "note": "claimed on GitHub issue #980"
+   "note": "released on GitHub issue #980"
   },
   {
    "id": "REV-RankZeroOneBSD--BSD.0",
@@ -27962,9 +27962,9 @@
     "REV-RS-30"
    ],
    "prompt": "research/blueprint/prompts/BP-RankZeroOneBSD--BSD.7.md",
-   "state": "external",
+   "state": "pending",
    "suppliers": [],
-   "note": "claimed on GitHub issue #981"
+   "note": "released on GitHub issue #981"
   },
   {
    "id": "REV-RankZeroOneBSD--BSD.7",
@@ -28152,9 +28152,9 @@
     "REV-RS-20~3"
    ],
    "prompt": "research/blueprint/prompts/BP-RelativeFarguesFontaine--RF0.md",
-   "state": "external",
+   "state": "pending",
    "suppliers": [],
-   "note": "claimed on GitHub issue #985"
+   "note": "released on GitHub issue #985"
   },
   {
    "id": "REV-RelativeFarguesFontaine--RF0",
@@ -30785,7 +30785,7 @@
     "REV-RS-13"
    ],
    "prompt": "research/blueprint/prompts/BP-PeriodsAndSpecialValues--PS.8.md",
-   "state": "external",
+   "state": "pending",
    "suppliers": [
     "BP-AnalyticNumberTheory--AN.0",
     "BP-AnalyticNumberTheory--AN.8",
@@ -30807,7 +30807,7 @@
     "BP-RankZeroOneBSD--BSD.0",
     "BP-RankZeroOneBSD--BSD.7"
    ],
-   "note": "claimed on GitHub issue #1035"
+   "note": "released on GitHub issue #1035"
   },
   {
    "id": "REV-PeriodsAndSpecialValues--PS.8",
@@ -34689,8 +34689,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-DEMARCO-KRIEGER-YE-20.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4981"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4981",
+   "finishedAt": "2026-09-30T16:04:08Z"
   },
   {
    "id": "RT-PAPER-COUVEIGNES-20",
@@ -42923,7 +42924,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-LINK-tauceti_TauCetiRoadmap_Chebotarev.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #5033"
   },
   {
    "id": "RT-LINK-tauceti_TauCetiRoadmap_ArithmeticDirichletSeries",
@@ -43043,8 +43045,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-LINK-tauceti_TauCetiRoadmap_ProfiniteProPGroups.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5034"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #5034",
+   "finishedAt": "2026-09-30T16:04:13Z"
   },
   {
    "id": "RT-LINK-tauceti_Completed_EffectiveBounds",
@@ -43793,7 +43796,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SemisimpleAlgebras.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #5040"
   },
   {
    "id": "RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SpinRepresentations",
@@ -43913,8 +43917,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-LINK-tauceti_TauCetiRoadmap_StablePeriodicCurved.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5041"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #5041",
+   "finishedAt": "2026-09-30T16:04:18Z"
   },
   {
    "id": "RT-LINK-tauceti_TauCetiRoadmap_ZigzagPreprojective",
@@ -51784,8 +51789,8 @@
    "after": [],
    "independentOf": [],
    "prompt": "research/blueprint/prompts/RT-AREA-homological.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1537"
+   "state": "pending",
+   "note": "released on GitHub issue #1537"
   },
   {
    "id": "REV-RT-AREA-homological",
