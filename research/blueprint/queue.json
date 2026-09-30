@@ -36664,8 +36664,9 @@
     "REV-PAPER-KOYMANS-MILOVIC-21"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-KOYMANS-MILOVIC-21.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4185"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4185",
+   "finishedAt": "2026-09-30T14:54:19Z"
   },
   {
    "id": "RT-PAPER-BHATT-MATHEW-21",
@@ -36857,7 +36858,8 @@
     "REV-PAPER-WOOD-19"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-WOOD-19.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4196"
   },
   {
    "id": "REV-RT-PAPER-WOOD-19",
@@ -37204,7 +37206,8 @@
     "REV-PAPER-LEMKEOLIVER-WANG-WOOD-25"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-LEMKEOLIVER-WANG-WOOD-25.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4210"
   },
   {
    "id": "REV-RT-PAPER-LEMKEOLIVER-WANG-WOOD-25",
@@ -41980,8 +41983,9 @@
     "REV-RS-06"
    ],
    "prompt": "research/blueprint/prompts/RT-RS-06.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4395"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4395",
+   "finishedAt": "2026-09-30T14:54:25Z"
   },
   {
    "id": "REV-RT-RS-06",
