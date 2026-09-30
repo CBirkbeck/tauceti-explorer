@@ -39396,7 +39396,8 @@
     "REV-PAPER-LAWRENCE-VENKATESH-20"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-LAWRENCE-VENKATESH-20.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4531"
   },
   {
    "id": "RT-PAPER-BOXER-CALEGARI-GEE-PILLONI-21",
@@ -47891,8 +47892,9 @@
     "RT-AREA-padic-3"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-AREA-padic-3.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1514"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1514",
+   "finishedAt": "2026-09-30T05:36:28Z"
   },
   {
    "id": "FIX-RT-AREA-padic-3",
