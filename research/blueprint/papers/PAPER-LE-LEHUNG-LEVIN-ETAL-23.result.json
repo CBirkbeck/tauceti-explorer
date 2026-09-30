@@ -1497,6 +1497,11 @@
         "date": "2026-09-30",
         "main": "Fresh published LLHLM PDF78–81; characteristic-p generic-fibre supplier statements and proofs at the stable Stacks tags listed in sourceVersions. Full-paper reading and earlier CAS diagnostics are inherited, not rerun.",
         "result": "L147–L151 and Z152–Z170 decompose the finite-order and generic-prime branch at the finite-extension convention. E121–E123 are new unreviewed Stacks-source findings, not defects newly asserted in LLHLM. Nonzero-prime/Cohen branches remain open."
+      },
+      {
+        "by": "Codex — codex-rtOQ9t",
+        "date": "2026-09-30",
+        "scope": "Stacks07N9,00JB,0394,07PU,032D CaseI and032A outer proof; formal-smoothness comparator pages07EB/07EC/07ED/07EG/07EH/07NJ/07PL/07PM/07NQ/07NR/07NS read to check the alternative ambient proof and E124. This is not recursive closure of their deeper suppliers. The published LLHLM PDF was re-fetched and its recorded hash matched; no fresh whole-paper reading is claimed here."
       }
     ],
     "smoothLocusContinuation": {
@@ -1519,7 +1524,7 @@
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369"
   },
-  "summary": "Partial extraction of LLHLM23: universal and differential local models, tame Breuil–Kisin moduli, monodromy comparisons, generic Breuil–Mézard cycles, Serre-weight applications and arbitrary-level patching. The 833 items comprise 154 library, 48 planned and 631 missing items; every missing item is assigned once among 27 existing-owner routes. There are 123 unreviewed source findings and 11 explicit gaps. All non-library theorem items have source-level outlines, but the graph is not recursively closed. The scalar fixed-Hodge comparison now includes residual characters, lifting, component labels, a fixed-component Cartesian diagram with central-lift compatibility and the equality of predicted/obvious weights with component membership at every prime. The full height-interval hook remains false. B56/B57/V17 now give explicit scalar sufficient polynomial bounds (powers of 24), chosen-family genericity and the all-prime local versus odd-prime patching distinction. The scalar downstream gap is closed for the corrected scope retaining p>2 in the supplied global construction; no dyadic extension is asserted. External source suppliers, definition APIs and library/owner audits remain obligations. No formal implementation or independent acceptance is asserted. The Z102 smooth-over-field regularity supplier is now explicit through L144–L146 and Z148–Z151, reusing standard-smooth neighbourhoods and cotangent localization; its characteristic-p generic formal-fibre successor is refined below and all other listed gaps remain open. The characteristic-p generic formal-fibre successor is now source-decomposed through L147–L151 and Z152–Z170, including all finite scalar-extension tests. Its07PU nonzero-prime and032D Cohen-structure successors remain open. E121–E123 record three Stacks proof/notation defects without changing the intended conclusions.",
+  "summary": "Partial extraction of LLHLM23: universal and differential local models, tame Breuil–Kisin moduli, monodromy comparisons, generic Breuil–Mézard cycles, Serre-weight applications and arbitrary-level patching. The 833 items comprise 154 library, 48 planned and 631 missing items; every missing item is assigned once among 27 existing-owner routes. There are 123 unreviewed source findings and 11 explicit gaps. All non-library theorem items have source-level outlines, but the graph is not recursively closed. The scalar fixed-Hodge comparison now includes residual characters, lifting, component labels, a fixed-component Cartesian diagram with central-lift compatibility and the equality of predicted/obvious weights with component membership at every prime. The full height-interval hook remains false. B56/B57/V17 now give explicit scalar sufficient polynomial bounds (powers of 24), chosen-family genericity and the all-prime local versus odd-prime patching distinction. The scalar downstream gap is closed for the corrected scope retaining p>2 in the supplied global construction; no dyadic extension is asserted. External source suppliers, definition APIs and library/owner audits remain obligations. No formal implementation or independent acceptance is asserted. The Z102 smooth-over-field regularity supplier is now explicit through L144–L146 and Z148–Z151, reusing standard-smooth neighbourhoods and cotangent localization; its characteristic-p generic formal-fibre successor is refined below and all other listed gaps remain open. The characteristic-p generic formal-fibre successor is now source-decomposed through L147–L151 and Z152–Z170, including all finite scalar-extension tests. Its07PU nonzero-prime and032D Cohen-structure successors remain open. E121–E123 record three Stacks proof/notation defects without changing the intended conclusions. Continuation30September2026(codex-rtOQ9t): full finite-completion products and the nonzero characteristic-p polynomial-prime branch are decomposed through Z171–Z182; Cohen normalization remains an explicit shared frontier.",
   "items": [
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N01",
@@ -24824,14 +24829,19 @@
       "prerequisites": [
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z76",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z99",
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z170"
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z170",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z182"
       ],
       "implementationStatus": "unchecked",
       "proofSteps": [
         "The definition is local: R is a G-ring exactly when every R_p is, because the condition quantifies over primes and localisation of a G-ring at a prime is again one. That is what lets the finite type statement be proved one prime of S at a time.",
-        "Reduce through localizations, quotients and polynomial extensions as in the source. After finite complete-local normalization, L116 supplies polynomial regularity and Z96 completion regularity. In characteristic zero use the corrected two-case fibre proof Z99: a nonzero prime needs the quotient by a separable polynomial and the derivation criterion. For the characteristic-p generic-prime fibre, use Z170, whose inner suppliers are now Z152–Z169 and the existing library/completion/regularity items. The nonzero-prime branch07PU and Cohen-structure032D reduction remain open source/declaration frontiers."
+        "Reduce through localizations, quotients and polynomial extensions as in the source. After finite complete-local normalization, L116 supplies polynomial regularity and Z96 completion regularity. In characteristic zero use the corrected two-case fibre proof Z99: a nonzero prime needs the quotient by a separable polynomial and the derivation criterion. For the characteristic-p generic-prime fibre, use Z170, whose inner suppliers are now Z152–Z169 and the existing library/completion/regularity items. The nonzero-prime branch07PU now uses Z182, with the full product-over-primes comparison Z174 and an explicit coefficientwise-derivation proof of ambient regularity. Z178 isolates the equal-characteristic finite Cohen normalization input; its coefficient-field, parameter, adic-finiteness and dimension suppliers remain open, as does the mixed-characteristic branch of032D."
       ],
-      "note": "The outer finite-type stability proof has now been freshly read. Its characteristic-zero fibre sentence needs the correction E60/Z99. The characteristic-p generic and nonzero-prime branches 07PR/07PU and Cohen-structure reduction 032D were inspected, but their deeper suppliers have not all been audited; keep that frontier open. Continuation codex-a71f92 (30 September2026): the earlier description of the whole07PR branch as unaudited is superseded by Z152–Z170. The finite-order case of07PH is proved directly; specially chosen Frobenius-bounded orders avoid a separate normality theorem. Z168–Z170 establish all finite field tests, without claiming0381's additional transcendental-field proof. Keep07PU, the full product-over-primes comparison07N9, the general finite-type reduction of07PH and Cohen032D open."
+      "note": "The outer finite-type stability proof has now been freshly read. Its characteristic-zero fibre sentence needs the correction E60/Z99. The characteristic-p generic and nonzero-prime branches 07PR/07PU and Cohen-structure reduction 032D were inspected, but their deeper suppliers have not all been audited; keep that frontier open. Continuation codex-a71f92 (30 September2026): the earlier description of the whole07PR branch as unaudited is superseded by Z152–Z170. The finite-order case of07PH is proved directly; specially chosen Frobenius-bounded orders avoid a separate normality theorem. Z168–Z170 establish all finite field tests, without claiming0381's additional transcendental-field proof. Keep07PU, the full product-over-primes comparison07N9, the general finite-type reduction of07PH and Cohen032D open. Continuation codex-rtOQ9t (30 September 2026): Z171–Z182 supersede the old wholly-open07N9/07PU frontier. The nonzero-prime proof retains all completion factors and kills only unsupported factors after scalar extension. Z177 proves the needed ambient generic coefficient regularity directly with the existing derivation APIs; it does not claim the general07PM equivalence. Z178 and the deeper Cohen/adic/dimension input remain explicit open suppliers.",
+      "historicalProofSteps": [
+        "The definition is local: R is a G-ring exactly when every R_p is, because the condition quantifies over primes and localisation of a G-ring at a prime is again one. That is what lets the finite type statement be proved one prime of S at a time.",
+        "Reduce through localizations, quotients and polynomial extensions as in the source. After finite complete-local normalization, L116 supplies polynomial regularity and Z96 completion regularity. In characteristic zero use the corrected two-case fibre proof Z99: a nonzero prime needs the quotient by a separable polynomial and the derivation criterion. For the characteristic-p generic-prime fibre, use Z170, whose inner suppliers are now Z152–Z169 and the existing library/completion/regularity items. The nonzero-prime branch07PU and Cohen-structure032D reduction remain open source/declaration frontiers."
+      ]
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L102",
@@ -29537,7 +29547,7 @@
         "This is only the single-prime specialization. The full product-over-primes statement of 07N9, needed by 07PU, remains a separate frontier; no localization–inverse-limit commutation for arbitrary modules is claimed."
       ],
       "implementationStatus": "unchecked",
-      "note": "Codex — codex-a71f92, 30 September 2026; source-level continuation, not independent review or Lean implementation.",
+      "note": "Codex — codex-a71f92, 30 September 2026; source-level continuation, not independent review or Lean implementation. The formerly open full product-over-primes comparison is now Z174 (codex-rtOQ9t continuation); the earlier single-prime proof is preserved.",
       "unitTests": [
         {
           "name": "Z164.identity",
@@ -29801,6 +29811,449 @@
       ],
       "implementationStatus": "unchecked",
       "note": "Codex — codex-a71f92, 30 September 2026; source-level continuation, not independent review or Lean implementation."
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L152",
+      "kind": "theorem",
+      "name": "Artinian nilradical powers and the finite local-factor quotient",
+      "statement": "For a commutative Artinian ring R the nilradical is nilpotent. For every n there is a canonical R-algebra equivalence R/(nilradical R)^n ≃ ∏_{m∈MaxSpec R} R/m^n, with component maps induced by quotient maps. MaxSpec R is finite. Nilpotents are retained when n>1.",
+      "locator": "Mathlib/RingTheory/Artinian/Ring.lean:58–65 and Artinian/Module.lean:625–630 at 082e2d37e8b0463410cdb532e111cd43d5a66174; finite indexing already imported in L63.",
+      "status": "library",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L63"
+      ],
+      "implementationStatus": "unchecked",
+      "note": "Codex — codex-rtOQ9t, 30 September 2026; source-level continuation, not independent review or Lean implementation.",
+      "library": [
+        "mathlib:IsArtinianRing.isNilpotent_nilradical",
+        "mathlib:IsArtinianRing.quotNilradicalPowEquivPi"
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L153",
+      "kind": "theorem",
+      "name": "Tensor products of algebras commute with finite products",
+      "statement": "For a finite index type I and the commutative scalar tower R→S→A, with R-algebras B_i, the canonical map A⊗_R(∏_i B_i)→∏_i(A⊗_R B_i) is an S-algebra equivalence. On a pure tensor a⊗b its ith component is a⊗b_i. The pinned declaration also allows noncommutative semiring A and B_i with central scalar structures.",
+      "locator": "Mathlib/RingTheory/TensorProduct/Pi.lean:25–60 at 082e2d37e8b0463410cdb532e111cd43d5a66174.",
+      "status": "library",
+      "prerequisites": [],
+      "implementationStatus": "unchecked",
+      "note": "Codex — codex-rtOQ9t, 30 September 2026; source-level continuation, not independent review or Lean implementation.",
+      "library": [
+        "mathlib:Algebra.TensorProduct.piRight",
+        "mathlib:Algebra.TensorProduct.piRight_tmul"
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z171",
+      "kind": "theorem",
+      "name": "Canonical localization product of an Artinian ring",
+      "statement": "For a commutative Artinian ring T, the map T→∏_{m∈MaxSpec T} T_m given by the localization maps is a T-algebra equivalence. This includes the zero ring and nonreduced rings; no coefficient field or choice of nilpotence exponent is part of the resulting map.",
+      "locator": "Stacks 00JB, Lemma 10.53.6, product assertion; proof refined using pinned L152 and localization universal properties, read 30 September 2026.",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L152",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L63"
+      ],
+      "implementationStatus": "unchecked",
+      "note": "Codex — codex-rtOQ9t, 30 September 2026; source-level continuation, not independent review or Lean implementation.",
+      "proofSteps": [
+        "Choose N≥1 with (nilradical T)^N=0 and use L152 to write T as the product of T/m^N. Each quotient is local: a prime containing m^N equals m, so elements outside m become units.",
+        "In this finite product, localization at m kills the other idempotent factors and retains T/m^N. The retained factor has every denominator outside m invertible; the universal property identifies it with T_m. Composing these identifications with L152 gives the displayed canonical map.",
+        "Its components are the original localization maps, so the algebra equivalence and all comparison squares are independent of N. The empty product for T=0 is the zero ring. Do not replace T by its reduction."
+      ],
+      "unitTests": [
+        {
+          "name": "Z171.nilpotents",
+          "kind": "boundary",
+          "statement": "For T=k[ε]/(ε²), the sole factor is T itself, not k."
+        },
+        {
+          "name": "Z171.two_factors",
+          "kind": "base-case",
+          "statement": "For T=k×k, the two localization projections recover both factors."
+        }
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z172",
+      "kind": "theorem",
+      "name": "Finite algebra quotients with a fixed set of local factors",
+      "statement": "Let (R,m) be Noetherian local and S a finite commutative R-algebra. The primes q_1,…,q_t of S above m are finitely many maximal ideals. For each n≥1, S/m^nS is Artinian and the canonical map S/m^nS→∏_i S_{q_i}/m^nS_{q_i} is an R-algebra equivalence. These maps commute with every reduction from exponent n to a smaller positive exponent.",
+      "locator": "Stacks 07N9 proof, using 00JB; fixed-index and transition compatibility made explicit, read 30 September 2026.",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L62",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L63",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L92",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L150",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z171"
+      ],
+      "implementationStatus": "unchecked",
+      "note": "Codex — codex-rtOQ9t, 30 September 2026; source-level continuation, not independent review or Lean implementation.",
+      "proofSteps": [
+        "R/m^n is Noetherian with only the prime m/m^n, hence is Artinian by L92. S/m^nS is finite over it, hence Artinian by L62. Its primes correspond to primes of S containing mS; integrality and L150 identify these with exactly the fixed q_i above m.",
+        "Apply Z171 to S/m^nS and identify its q_i-localization with S_{q_i}/m^nS_{q_i}, using the quotient and localization universal properties. Every component sends s mod m^nS to its localized class.",
+        "The component formulas prove commutativity of all exponent-reduction squares; the index set does not change with n. A finite algebra can have no primes above m, for example S=0; the empty product case is included."
+      ],
+      "unitTests": [
+        {
+          "name": "Z172.nonreduced",
+          "kind": "boundary",
+          "statement": "For S=R[ε]/(ε²), the nilpotent class is retained at every quotient level."
+        },
+        {
+          "name": "Z172.index",
+          "kind": "compatibility",
+          "statement": "For S=R×R, all positive levels have the same two factors and reduction is coordinatewise."
+        }
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z173",
+      "kind": "theorem",
+      "name": "Compatible finite products in inverse-limit completion rings",
+      "statement": "Suppose inverse systems of commutative R-algebras T_n and U_{i,n}, indexed by n≥1 and a fixed finite set I, have R-algebra equivalences T_n≃∏_i U_{i,n} commuting with all transitions. Then the coordinatewise map lim_n T_n→∏_i lim_n U_{i,n} is an R-algebra equivalence. It commutes with every finite projection and with maps of such diagrams.",
+      "locator": "The inverse-limit step in Stacks 07N9, expanded directly; this is an algebra comparison, not merely the existing finite-product completion linear equivalence.",
+      "status": "missing",
+      "prerequisites": [],
+      "implementationStatus": "unchecked",
+      "note": "Codex — codex-rtOQ9t, 30 September 2026; source-level continuation, not independent review or Lean implementation.",
+      "proofSteps": [
+        "Send a compatible tuple (t_n) to the tuples of its ith components. Compatibility follows from the commuting transition squares.",
+        "For a tuple of compatible component systems, use the inverse equivalence at each n to define t_n. The transition identity and injectivity of the finite-level equivalence prove that these t_n are compatible.",
+        "The maps are inverse by checking all coordinates. Addition, multiplication, scalars and one are coordinatewise. Projection and diagram naturality follow by the same check. This argument does not interchange localization with an arbitrary inverse limit."
+      ],
+      "unitTests": [
+        {
+          "name": "Z173.projection",
+          "kind": "compatibility",
+          "statement": "At level n and factor i, either route is the ith component of the given finite-level equivalence."
+        },
+        {
+          "name": "Z173.empty",
+          "kind": "boundary",
+          "statement": "For an empty factor set all T_n and both resulting limit rings are zero."
+        }
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z174",
+      "kind": "theorem",
+      "name": "Completion of a finite algebra as a product over primes",
+      "statement": "Let R be Noetherian, S a finite commutative R-algebra and p∈Spec R. Write q_i for all primes of S above p. There is a canonical algebra equivalence completion(R_p)⊗_R S ≃ ∏_i completion(S_{q_i}), where all local rings are completed at their maximal ideals. It respects the maps from R and S and the compatible quotient projections after cofinal reindexing.",
+      "locator": "Stacks 07N9, Lemma 10.97.8; 0394 for equivalent adic topologies; statements and proofs read 30 September 2026.",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L112",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L149",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L150",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z172",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z173"
+      ],
+      "implementationStatus": "unchecked",
+      "note": "Codex — codex-rtOQ9t, 30 September 2026; source-level continuation, not independent review or Lean implementation.",
+      "proofSteps": [
+        "Localize R at p and S at R minus p. This preserves finiteness; the maximal ideals of the localized S are the q_i, by integrality. Apply Z172 at every positive exponent.",
+        "Z173 identifies the p-adic completion of S_{R minus p} with the product of the p-adic completions of S_{q_i}. In each factor the radical of pS_{q_i} is q_iS_{q_i}. L149 gives (q_iS_{q_i})^N⊂pS_{q_i}, while the reverse inclusion holds at exponent one. Thus the two ideal-power filtrations are cofinal and their inverse limits agree as algebras.",
+        "Apply L112 to the finite R_p-module S_{R minus p}. Its canonical linear equivalence is multiplicative and unital: evaluate products and one in every finite quotient, or on pure tensors. Upgrade it to an algebra equivalence and compose with the preceding comparisons and tensor-localization associativity.",
+        "The source maps determine every comparison; no ordering of q_i or Artinian nilpotence exponent is exported. This is the full product statement extending Z164, not a claim that arbitrary localization commutes with completion."
+      ],
+      "unitTests": [
+        {
+          "name": "Z174.identity",
+          "kind": "base-case",
+          "statement": "For S=R this is the canonical local completion."
+        },
+        {
+          "name": "Z174.split",
+          "kind": "boundary",
+          "statement": "For S=R×R both copies of completion(R_p) occur."
+        },
+        {
+          "name": "Z174.killed",
+          "kind": "boundary",
+          "statement": "If S_{R minus p}=0, both sides are zero."
+        }
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z175",
+      "kind": "theorem",
+      "name": "An integral finite order inside a finite field extension",
+      "statement": "Let A be a domain with fraction field K and L/K a finite field extension. There is a finite A-subalgebra B⊂L with Frac(B)=L. No normality, separability or completeness hypothesis is needed.",
+      "locator": "The finite-order choice in Stacks 07PU, expanded by denominator clearing; compare the purely inseparable refinement Z165.",
+      "status": "missing",
+      "prerequisites": [],
+      "implementationStatus": "unchecked",
+      "note": "Codex — codex-rtOQ9t, 30 September 2026; source-level continuation, not independent review or Lean implementation.",
+      "proofSteps": [
+        "Choose a finite K-basis α_i of L. Clear coefficients in a monic algebraic equation for each α_i: if d clears its coefficients, β_i=dα_i satisfies a monic equation over A, since the ith scaled coefficient gains d^i. Choose d nonzero.",
+        "Let B=A[β_i]. Monomials whose exponent in each β_i is below the degree of its monic equation span B over A, so B is finite. Its fraction field contains K and α_i=β_i/d, so it is L; B is a domain as a subring of L."
+      ],
+      "unitTests": [
+        {
+          "name": "Z175.trivial",
+          "kind": "base-case",
+          "statement": "For L=K one may take B=A."
+        },
+        {
+          "name": "Z175.denominator",
+          "kind": "boundary",
+          "statement": "Over A=Z, a generator 1/2 of K=Q is not integral; scaling it to 1 permits the order A."
+        }
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z176",
+      "kind": "theorem",
+      "name": "Finite domain orders over a complete local base are complete local",
+      "statement": "Let (A,m) be a Noetherian complete local ring and B a nonzero finite A-algebra which is a domain. Then B has a unique maximal ideal n, contracts n to m, and is Noetherian and n-adically complete. This does not assert that every finite algebra over A is local.",
+      "locator": "The complete-local finite-order step used in Stacks 07PU, derived from the full comparison 07N9.",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z174",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L150",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L149",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L22",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L09"
+      ],
+      "implementationStatus": "unchecked",
+      "note": "Codex — codex-rtOQ9t, 30 September 2026; source-level continuation, not independent review or Lean implementation.",
+      "proofSteps": [
+        "By finiteness B is Noetherian, and maximal ideals contract to m by L150. Z174 at m and completeness of A give B≃∏_q completion(B_q). Each factor is nonzero: its quotient by the completed maximal ideal is the nonzero residue field.",
+        "A product with two nonzero factors has nontrivial complementary idempotents and cannot be a domain. Hence there is exactly one factor, so B is local with maximal ideal n. The same isomorphism identifies B with its n-adic completion.",
+        "Equivalently mB and n have the same radical and cofinal powers by L149. State n-adic completeness, rather than assuming that the finite-module m-adic topology is literally the maximal-ideal filtration."
+      ],
+      "unitTests": [
+        {
+          "name": "Z176.split_not_local",
+          "kind": "non-example",
+          "statement": "A×A is finite and complete but has two maximal ideals; the domain hypothesis excludes it."
+        },
+        {
+          "name": "Z176.field",
+          "kind": "base-case",
+          "statement": "For A a field, a finite domain algebra is a finite field extension and is complete for its zero maximal ideal."
+        }
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z177",
+      "kind": "theorem",
+      "name": "Regular generic coefficient fibres of completed polynomial local rings",
+      "statement": "Let k have characteristic p>0, A0=k[[X_1,…,X_d]] with d finite, K0=Frac(A0), q∈Spec A0[x], and C=completion(A0[x]_q). For every finite field extension L/K0 the ring C⊗_{A0}L is regular Noetherian. Only nonzero coefficient elements are inverted; the polynomial variable x is not inverted wholesale.",
+      "locator": "Derived specialization of the derivation argument in Stacks 07PR and 07PM, used for the ambient ring in 07PU. This is an explicit alternative to importing the whole formal-smoothness/regularity equivalence 07PM.",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z166",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z96",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z100",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z101",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z160",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z161",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z97",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z162",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z163",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z164",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z165",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z169",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L147"
+      ],
+      "implementationStatus": "unchecked",
+      "note": "Codex — codex-rtOQ9t, 30 September 2026; source-level continuation, not independent review or Lean implementation.",
+      "proofSteps": [
+        "Z166 and Z96 make C regular local Noetherian; the Z100/Z101 localization argument already used in Z166 makes it a regular ring. Its coefficient localization C⊗_{A0}K0 is therefore regular. Induct on the degree of a finite purely inseparable coefficient extension M/K0.",
+        "For a degree-p next step M(z)/M, choose a finite Frobenius-bounded A0-order B⊂M using Z165. Rescale z by a nonzero b∈B so that g=(bz)^p=b^p z^p lies in B. It remains outside M^p. The coefficientwise Frobenius bound also holds for B[x] over A0[x]. Z163 and Z164 give C⊗_{A0}B ≃ completion(B[x]_{q′}) for the unique q′ over q.",
+        "Z160 gives an absolute derivation D:B→B with D(g)≠0. Extend D coefficientwise to B[x] by L147, then to B[x]_{q′} by Z161 and its completion by Z97. The extension need not kill k or preserve q′. Localizing at B minus zero gives a derivation of C⊗_{A0}M that sends g to the unit D(g)∈M×.",
+        "By the induction hypothesis C⊗_{A0}M is regular. Z162 makes its quotient polynomial extension by T^p−g regular; this is C⊗_{A0}M(z). Thus all purely inseparable tests hold. Apply Z169 to the Noetherian K0-algebra C⊗_{A0}K0 for every finite L/K0.",
+        "This proof never invokes geometric regularity of a nonzero polynomial-prime fibre. The variable is retained through the coefficientwise derivation, avoiding a circular appeal to Z182 or an unjustified identification with Z170."
+      ],
+      "unitTests": [
+        {
+          "name": "Z177.retained_variable",
+          "kind": "boundary",
+          "statement": "For A0=k and q=(x), the base ring is k[[x]], not its fraction field."
+        },
+        {
+          "name": "Z177.imperfect",
+          "kind": "example",
+          "statement": "The proof allows k=F_p(t) and infinite p-degree; the detecting derivation is absolute, not required to be k-linear."
+        },
+        {
+          "name": "Z177.power",
+          "kind": "compatibility",
+          "statement": "For h∈M and nonzero b∈B, adjoining z with z^p=h is unchanged as a field extension by replacing z with bz and h with b^p h."
+        }
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z178",
+      "kind": "theorem",
+      "name": "Finite power-series normalization in equal characteristic",
+      "statement": "Let A be a Noetherian complete local domain of characteristic p>0 with residue field k and dimension d. There exist a coefficient-field section k→A and a local injective finite map A0=k[[X_1,…,X_d]]→A inducing the given residue-field isomorphism. In particular Frac(A)/Frac(A0) is finite. This is the equal-characteristic part of finite Cohen normalization; no separability of the fraction-field extension is asserted.",
+      "locator": "Stacks 032D, Lemma 10.160.11, Case I; coefficient-ring existence is 032A, Theorem 10.160.8. Outer proofs read 30 September 2026; the deeper coefficient-field and dimension suppliers remain explicit open boundaries.",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z26",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z27"
+      ],
+      "implementationStatus": "unchecked",
+      "note": "Explicit shared input of Z179 and Z79. Its deeper Cohen/parameter/adic-finiteness/dimension suppliers remain open; this continuation does not claim recursive closure or implementation.",
+      "proofSteps": [
+        "Import coefficient-ring existence from 032A. In characteristic p its image is a field mapping isomorphically to k. This is an unresolved source/declaration supplier in the existing analytic-regularity-suppliers gap, not an application of the finitely generated field extension instance in Mathlib Smooth/Field.",
+        "Choose d parameters generating an m-primary ideal I. Cofinality of I and m powers gives I-adic completeness. Evaluation defines k[[X_1,…,X_d]]→A. The residue quotient A/I is finite-dimensional over k; the complete-module finite-generation argument of 10.96.12 gives finiteness over A0.",
+        "The kernel is prime. A nonzero prime in the d-dimensional power-series domain has quotient dimension at most d−1, whereas finite integral maps preserve dimension. Since dim A=d, the kernel is zero. Record the parameter-existence, complete finite-generation and dimension-injectivity suppliers for further declaration-level decomposition; naming this theorem does not close them."
+      ],
+      "unitTests": [
+        {
+          "name": "Z178.field",
+          "kind": "base-case",
+          "statement": "For d=0, A is its coefficient field and A0=k."
+        },
+        {
+          "name": "Z178.inseparable",
+          "kind": "boundary",
+          "statement": "The statement does not impose separability on the finite extension of fraction fields."
+        },
+        {
+          "name": "Z178.singular",
+          "kind": "example",
+          "statement": "For k[[t²,t³]], the map k[[X]]→A, X↦t², is finite and injective although A is singular."
+        }
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z179",
+      "kind": "theorem",
+      "name": "Regular ambient coefficient fibres over a complete local domain",
+      "statement": "Let A be a Noetherian complete local domain of characteristic p>0, K=Frac(A), and q⊂A[x] a maximal ideal above m_A. Then completion(A[x]_q)⊗_A K is a regular Noetherian K-algebra. This ring is the ambient ring before quotienting by the linear equation in Z180.",
+      "locator": "The ambient-regularity input of Stacks 07PU, proved by a finite-normalization and coefficientwise-derivation specialization of the source argument; dependence on 032D remains explicit.",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z178",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z177",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z174",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L153"
+      ],
+      "implementationStatus": "unchecked",
+      "note": "Codex — codex-rtOQ9t, 30 September 2026; source-level continuation, not independent review or Lean implementation.",
+      "proofSteps": [
+        "Choose A0⊂A from Z178 and put K0=Frac(A0). The contraction q0⊂A0[x] is maximal above m_A0 by integrality. Z174 gives completion(A0[x]_{q0})⊗_{A0}A ≃ ∏_i completion(A[x]_{q_i}), for every prime q_i above q0, including the specified q.",
+        "Tensor this algebra identity over A with K and use L153 and associativity. The left side becomes completion(A0[x]_{q0})⊗_{A0}K, regular by Z177 since K/K0 is finite.",
+        "Each factor on the right is regular: a direct factor of a finite product is a localization at its component idempotent, so all its local rings are local rings of the regular product. Noetherianity passes to the factors. In particular take the factor indexed by q.",
+        "The comparison uses all primes above q0; finite normalization alone does not say there is a unique prime of A[x] over q0. No general 07PM formal-smoothness equivalence is claimed by this argument."
+      ],
+      "unitTests": [
+        {
+          "name": "Z179.singular_base",
+          "kind": "boundary",
+          "statement": "Regularity is asserted after tensoring with K; completion(A[x]_q) itself need not be regular when A is singular."
+        },
+        {
+          "name": "Z179.all_factors",
+          "kind": "compatibility",
+          "statement": "If several q_i occur, each factor is kept until the regularity conclusion is projected to the chosen q."
+        }
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z180",
+      "kind": "theorem",
+      "name": "A linear polynomial-prime fibre is a regular hypersurface quotient",
+      "statement": "Let A be a Noetherian complete local domain of characteristic p>0, K=Frac(A), q⊂A[x] maximal above m_A, and r⊂q a nonzero prime contracting to zero in A. If the natural map K→κ(r) is an isomorphism, then completion(A[x]_q)⊗_{A[x]}κ(r) is regular. For the image f∈K of x it is canonically (completion(A[x]_q)⊗_A K)/(x−f).",
+      "locator": "Stacks 07PU, final paragraph, with the ambient regularity supplied by Z179 and the quotient comparison stated explicitly.",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z179",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z161",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z97",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z98"
+      ],
+      "implementationStatus": "unchecked",
+      "note": "Codex — codex-rtOQ9t, 30 September 2026; source-level continuation, not independent review or Lean implementation.",
+      "proofSteps": [
+        "After inverting A minus zero, r becomes the maximal ideal (x−f) in K[x], since its residue field is K and x maps to f. Tensor associativity and the quotient universal property give the displayed fibre algebra isomorphism.",
+        "The coefficient-killing derivation d/dx on A[x] extends to its q-localization, its completion and the coefficient localization, by Z161 and Z97. It remains zero on K, so D(x−f)=1.",
+        "The ambient ring is regular by Z179. Apply Z98 to the element x−f. This is a hypersurface quotient, not a localization of the ambient ring. Zero quotient rings are included by the empty-prime definition of regularity."
+      ],
+      "unitTests": [
+        {
+          "name": "Z180.linear_point",
+          "kind": "base-case",
+          "statement": "For A=k and q=r=(x−a), the fibre is k."
+        },
+        {
+          "name": "Z180.derivative",
+          "kind": "compatibility",
+          "statement": "For any f∈K, D(x−f)=1 because the derivation kills every coefficient and its fractions."
+        }
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z181",
+      "kind": "theorem",
+      "name": "Finite-order scalar extension of a polynomial-prime fibre",
+      "statement": "Under the A,K,q,r hypotheses of Z180, without requiring K=κ(r), let L/κ(r) be finite. Choose a finite complete local A-order B⊂L with Frac(B)=L and let r′=ker(B[x]→L), using the image of x from κ(r). Then completion(A[x]_q)⊗_{A[x]}L ≃ ∏_{q_i|q}(completion(B[x]_{q_i})⊗_{B[x]}κ(r′)), with κ(r′)=L. A factor is zero if r′ is not contained in q_i; all other factors are linear-prime fibres over B.",
+      "locator": "Stacks 07PU, first reduction and product display; the zero-factor branch and canonical residue-field map are made explicit.",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z175",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z176",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z174",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L153"
+      ],
+      "implementationStatus": "unchecked",
+      "note": "Codex — codex-rtOQ9t, 30 September 2026; source-level continuation, not independent review or Lean implementation.",
+      "proofSteps": [
+        "Because r is nonzero over zero, localization gives a nonzero prime of K[x], so κ(r)/K is finite. Thus L/K is finite. Z175 and Z176 provide B. The evaluation map B[x]→L has prime kernel r′, contracts to zero in B, and its image has fraction field L because it contains B. Hence κ(r′)=L naturally.",
+        "Use tensor associativity to insert B[x], apply Z174 to the finite A[x]-algebra B[x] at q, and distribute the finite product after tensoring with L using L153. All q_i lie over m_B: their contraction to B lies over m_A and is maximal by finiteness of B over A, and B has a unique maximal ideal.",
+        "If r′ is not contained in q_i, take h∈r′ outside q_i. In the factor h is invertible on the completed local side and zero on the residue-field side, so the tensor ring is zero. If r′⊂q_i, its localization in Frac(B)[x]=L[x] is (x−f), where f is the chosen image of x in L. Thus the nonzero supported factors have exactly the input of Z180 with base B.",
+        "Every isomorphism respects the given maps from A[x] and L. Do not identify q_i across different field extensions or assert that all q_i contain r′."
+      ],
+      "unitTests": [
+        {
+          "name": "Z181.support",
+          "kind": "boundary",
+          "statement": "A factor with h∈r′ outside q_i vanishes since 1=h⁻¹h becomes zero."
+        },
+        {
+          "name": "Z181.residue",
+          "kind": "compatibility",
+          "statement": "The image B[x]/r′ may be smaller than L, but its fraction field is L because Frac(B)=L."
+        }
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z182",
+      "kind": "theorem",
+      "name": "Geometric regularity of nonzero polynomial-prime formal fibres",
+      "statement": "Let A be a Noetherian complete local domain of characteristic p>0, q⊂A[x] maximal above m_A, and 0≠r⊂q prime with r∩A=0. Then completion(A[x]_q)⊗_{A[x]}κ(r) is geometrically regular over κ(r): every finite field extension L/κ(r) gives a regular scalar extension. The assertion has no perfectness or separability hypothesis on the residue fields.",
+      "locator": "Stacks 07PU, Lemma 15.51.9; proof assembled with Z171–Z181. The alternate ambient-ring proof is identified, and its shared Cohen normalization input remains an open recursive supplier.",
+      "status": "missing",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z181",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z180"
+      ],
+      "implementationStatus": "unchecked",
+      "note": "Codex — codex-rtOQ9t, 30 September 2026; source-level continuation, not independent review or Lean implementation.",
+      "proofSteps": [
+        "For any finite L/κ(r), Z181 expresses the extended fibre as a finite product. Unsupported factors are zero. Each supported factor is regular by Z180 applied to the complete local domain B with Frac(B)=κ(r′)=L.",
+        "A finite product of regular Noetherian rings is regular Noetherian: its primes and local rings come from one factor. This includes the empty product and zero factors. Thus every finite field test holds, including L=κ(r).",
+        "The field choices, finite orders and product decompositions are proof devices; the output concerns the canonical original fibre. The branch is now explicitly reduced to Z178 and existing derivation/completion suppliers, not an implicit assertion that all Cohen structure or Lean assembly obligations have been completed."
+      ],
+      "unitTests": [
+        {
+          "name": "Z182.r_zero_excluded",
+          "kind": "boundary",
+          "statement": "The r=0 generic-polynomial fibre belongs to the separate Z170 branch; the finite κ(r)/K argument here does not apply to it."
+        },
+        {
+          "name": "Z182.inseparable",
+          "kind": "boundary",
+          "statement": "Finite L/κ(r) may be purely inseparable or mixed; every such extension is allowed in the order construction."
+        }
+      ]
     }
   ],
   "prerequisites": [
@@ -30242,7 +30695,13 @@
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z167",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z168",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z169",
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z170"
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z170",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z177",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z178",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z179",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z180",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z181",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z182"
       ],
       "reason": "Reuse the general deformation/birational, descent and cycle owners for Artinian point criteria, normalization, contraction, generic spreading, Elkik approximation and generic-point-length cycles. The source is a set of precise additional obligations, not a claim that the broad roadmap has already decomposed their proofs. Z45–Z47 supply algebraic connectedness with a rational section without unnecessary normality; Z57–Z59/Z61–Z62 isolate the G-ring/regularity inputs consumed by AdicSpacesPartII. These are source-level additions to the existing owner, with deeper supplier gaps retained. Z67 and Z69–Z74 supply the descending ideal filtration and local Hilbert–Samuel comparisons. Import the shared graded Hilbert–Serre and homogeneous-rank suppliers Z68/Z75 from R09.1, reusing pinned length, Artin–Rees and rational Hilbert-series results. Z147 supplies the cyclic torus quotient as G_m×BG_m using the existing fppf quotient/descent owner; it retains stabilizers. Z148/Z150/Z151 refine the existing Z102 smooth-over-field regularity obligation using rational polynomial coordinates and a residue-field point. Import L144/L145/L146 and R03.3 Z149/Z103; do not reconstruct standard-smooth, cotangent or regular-local carriers. Z152–Z163/Z165/Z167–Z170 refine the existing Z79 characteristic-p generic formal-fibre supplier: p-basis coordinates, finite coefficient subfields, detecting derivations, Frobenius-bounded orders and the finite field-extension tests. Reuse the existing Kähler, polynomial derivation and finite-completion carriers. The field p-basis interface is shared with the differential-form consumers in the K-theory packets; no second carrier is assigned there.",
       "stages": [
@@ -30298,7 +30757,13 @@
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z139",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z149",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z164",
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z166"
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z166",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z171",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z172",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z173",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z174",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z175",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z176"
       ],
       "reason": "Complete local coefficient tensors, depth, support and patching algebra are shared infrastructure. U43 now imports the separately extracted original KWII theorem and its domain-only complete-DVR adapter; the affinoid completed product has its own AdicSpacesPartII route. Z15–Z24 refine the R03.1 coefficient-tensor argument. Keep its regular complete-local coordinate lemmas in the early foundational part; do not make this construction depend on later arithmetic patching. Z23 and Z28 import the existing upstream ModularCurves §4D local completion/dimension atom. Only general adic Noetherianity, finite-variable coefficient calculations and coefficient-preserving coordinate adapters are additional R03.1 obligations. Their algebraic dependency graph precedes the arithmetic and modular applications; no whole-roadmap cycle is introduced. Homological continuation: Z112–Z118,Z123–Z127 supply source refinements for R03.3, importing L120–L127, its existing depth/CM/regular-local plan and the P7 minimal-complex plan. Z122 imports only the finite Koszul precursor of DD.1, not its derived-completion output. No new roadmap is proposed. Z149 is the independent-cotangent-class interface to the already assigned Z103 parameter quotient, not a second regular-local theory. Z164 belongs to the existing R03.1 finite-completion comparison direction; Z166 assembles the existing power-series and R03.3 homological regularity suppliers. They are imported by the SF.0/SF.4 generic formal-fibre branch, not duplicated there.",
       "stages": [
@@ -32662,6 +33127,20 @@
         "30 September 2026: targeted searches for the stable tag and correction; no correction of this defect found. No claim that every unpublished discussion was searched.",
         "Tag07P5 comments#4292/#4458 and its1 September2019 history entry correct a related d→n in the statement and an A→A^p intersection typo. The present proof still contains the two unbound d indices. The17 July2025 family correction and25 May2026 double-word correction were also inspected; the corrected finite-J family is retained."
       ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/E124",
+      "kind": "misprint",
+      "locator": "The Stacks Project, current HTML tag07PM (Proposition15.50.2), last proof paragraph, citation of15.38.9; read30 September2026, SHA-256 df003ab783dedde2d0ebd8a78d544eda8a5631f8c773ab85bf75a8b94ed75575.",
+      "printed": "by Lemma 15.38.9",
+      "correction": "For formal smoothness of A′→B⊗_A A′ use the base-change lemma15.38.8 (tag07EG), not the descent lemma15.38.9 (tag07EH).",
+      "reason": "The linked07EH goes from formal smoothness after scalar extension back to the original map and requires a split-module hypothesis. The needed direction is arbitrary base change, precisely07EG. Both statements and proofs were read. The intended result is unaffected; the narrower ambient proof Z177 does not import the entire07PM equivalence.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "30 September2026: current official07PM statement/proof/comments and complete displayed history. The latest proof entry is23 January2022; the displayed correction concerns field-extension notation, not this citation.",
+        "30 September2026: current07EG and07EH statements and proofs; targeted web searches for07PM with15.38.9 and the corresponding Stacks source-label/base-change terms. No published correction of this citation was found; no exhaustive claim about unpublished discussions."
+      ]
     }
   ],
   "gaps": [
@@ -33186,9 +33665,10 @@
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z164",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z166",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z167",
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z170"
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z170",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z178"
       ],
-      "detail": "Finish exact source/declaration closure for closed affinoid ideals and presentation topology, regular-map descent and completion Noetherianity, finite-type G-ring stability including characteristic-p formal fibers, flat local dimension formula, smooth-over-field regularity, and Hilbert–Samuel polynomial existence/dimension comparison (including the finite-length exact-sequence degree estimate). Z63–Z66 now expose the associated-graded construction, homogeneous-relation growth bound and regular-local proof; 00NO,00KQ,00K3 and00IP were freshly read. Their Hilbert–Samuel supplier chain still requires atom/declaration closure. Outer source proofs of Stacks 0AH2,031E,00NP and the finite-type stability reduction were read; their deeper cited suppliers are not all audited. Identify all algebraic/analytic carrier maps without asserting localization commutes with arbitrary inverse limits. Generalized-radius or trivially valued analytic categories are outside Z08–Z14’s current strict, nontrivially valued scope. Hilbert–Samuel continuation codex-7e92bd: Z67–Z75 and L87–L99 now replace the unnamed polynomial-existence, finite-colength, exact-sequence-degree and dimension-comparison premises. Z64 includes a complete prime-chain/parameter induction with degree-zero and zero-module boundaries, and Z66 is a specialization of Z67. The generic graded supplier belongs to existing R09.1. This closes that source-proof branch, not the remaining regular-map/G-ring/flat-local-dimension or affinoid-topology branches and not Lean elaboration. Continuation codex-c83e7a: Z80–Z91 and pinned L102–L114 now supply the closed-ideal, quotient/presentation topology, finite-jet continuity and finite-level integral/generic completed-tensor comparisons. Z77 is corrected to the already pinned L12 height theorem; Z25 supplies completion Noetherianity. Z92–Z103 distinguish local-ring descent, regular-map descent and identical-completion comparison, and Z57 uses the right map theorem. Remaining explicit frontier: full depth/syzygy/projective-dimension suppliers of Z100/Z101, standard-smooth/cotangent dimension adapters of Z102, finite-separable regularity base change in Z99, and characteristic-p formal fibres/Cohen structure in Z79. These are not closed merely by naming the outer propositions. Ownership reconciliation: Z96 imports the same upstream ModularCurves §4D atom as Z23/Z28; Z100/Z101 import the existing R03.3 depth/projective-dimension node. Z103/Z104 are parameter-system refinements for R03.3. L119 already proves projective dimension of a regular-sequence quotient. Do not reconstruct the projective-dimension or regular-sequence carriers. Homological continuation codex-c83e7a: Z106–Z128 and L120–L127 now split the Z100/Z101 depth, syzygy, transfinite and residue-field bounds. Source statements and full cited proofs were read at 38 individual Stacks tags, plus the CM section. Pinned Rees and SES projective-dimension results are imported, not replanned. Further refinement: L128 imports regular-list permutation, L129 arbitrary direct-sum projectivity, and L130 quotient support. Z113 is already library via free_quotSMulTop_iff_free. Z129/Z130 supply the support cut and finite-length kernel. Z117 now records the elementwise exact-union argument, and Z127 gives the rank-preserving shifted induction rather than an unproved arbitrary base-change identity. Remaining homological declaration/assembly leaves: identify the generic finite Koszul construction and its module/category comparison at the shared owner; map the principal-cut parameter-chain argument and finite-length scalar restriction to exact declarations; assemble the necessary determinantal criterion with basis-independent fixed-size minor ideals. The source-level arguments are written out, but these Lean-facing assembly obligations are not silently classed as library results. These are precise obligations, not a claim of recursive homological closure. After them, continue finite-separable base change in Z99, standard-smooth/cotangent dimension in Z102, characteristic-p07PR/07PU and Cohen structure032D in Z79. Continuation codex-hjdg0j (24 September2026): the immediate homological assembly frontier is refined. Z129 is an exact pinned library match; Z130 now uses the already imported surjective-scalar length equality L89 and finite-length criterion L137. L133–L135 identify the module/category projectivity, exactness and homology interfaces. Z122/Z131–Z133 give the shared finite Koszul construction and its proof/transport contracts, owned by the finite precursor of DD.1. Z134–Z139 supply basis-independent fixed-size minor ideals, arbitrary base change, rank control and the split/faithful-family steps used in Z127. Z140–Z141 supply the finite-separable and characteristic-zero regularity step of Z99. These are explicit source-level plans and library imports, not Lean elaboration. Resume with Z102 standard-smooth/cotangent dimensions, then the characteristic-p07PR/07PU and Cohen-structure032D branches of Z79; the general0381 criterion still imports its cited field/smoothness suppliers. Continuation codex-J6LwjP (30 September2026): Z102 is now assembled through the rational residue-field point. L144 imports the standard-smooth neighbourhood; L145 imports the existing Tau Ceti cotangent localization equivalence; L146 imports cotangent Nakayama. Z148–Z151 expose first-order polynomial coordinates, the independent-parameter quotient (at existing R03.3), rational-point regularity and the exact flat local map. The proof uses no perfect-field assumption or false equality of the original/geometric local dimensions. The former Z102 source-outline frontier is superseded, while these explicit adapters remain unimplemented. Next source frontier: characteristic-p07PR/07PU and Cohen-structure032D in Z79, retaining the general0381 cited suppliers and other topology/regular-map obligations. Continuation codex-a71f92 (30 September2026): the characteristic-p generic-prime branch07PR now has a source-level decomposition through Z152–Z170 and exact imports L147–L151. It includes p-basis APIs, finite-free coefficient subrings, the corrected cofinal intersection argument E122, finite-order derivation detection, localization/completion extensions, a unique-prime completion comparison, explicit Frobenius-bounded finite orders, and every finite scalar-extension test. Existing Z97, Z98, Z96, L112 and the homological Z100/Z101 package are reused. No separate normality proof is required for the deliberately chosen orders. Remaining immediate frontier:07PU's nonzero-prime fibre and finite complete-local order; full product-over-primes07N9; formal-smoothness15.38.2/15.38.4 and15.50.2; Cohen032D's coefficient rings, parameter ideals, adic finiteness and dimension-injectivity. The general finite-type version of07PH and0381's additional finitely generated transcendental-field equivalence have not been decomposed here. All inherited homological/topological declaration adapters remain unimplemented; this is not recursive closure."
+      "detail": "Finish exact source/declaration closure for closed affinoid ideals and presentation topology, regular-map descent and completion Noetherianity, finite-type G-ring stability including characteristic-p formal fibers, flat local dimension formula, smooth-over-field regularity, and Hilbert–Samuel polynomial existence/dimension comparison (including the finite-length exact-sequence degree estimate). Z63–Z66 now expose the associated-graded construction, homogeneous-relation growth bound and regular-local proof; 00NO,00KQ,00K3 and00IP were freshly read. Their Hilbert–Samuel supplier chain still requires atom/declaration closure. Outer source proofs of Stacks 0AH2,031E,00NP and the finite-type stability reduction were read; their deeper cited suppliers are not all audited. Identify all algebraic/analytic carrier maps without asserting localization commutes with arbitrary inverse limits. Generalized-radius or trivially valued analytic categories are outside Z08–Z14’s current strict, nontrivially valued scope. Hilbert–Samuel continuation codex-7e92bd: Z67–Z75 and L87–L99 now replace the unnamed polynomial-existence, finite-colength, exact-sequence-degree and dimension-comparison premises. Z64 includes a complete prime-chain/parameter induction with degree-zero and zero-module boundaries, and Z66 is a specialization of Z67. The generic graded supplier belongs to existing R09.1. This closes that source-proof branch, not the remaining regular-map/G-ring/flat-local-dimension or affinoid-topology branches and not Lean elaboration. Continuation codex-c83e7a: Z80–Z91 and pinned L102–L114 now supply the closed-ideal, quotient/presentation topology, finite-jet continuity and finite-level integral/generic completed-tensor comparisons. Z77 is corrected to the already pinned L12 height theorem; Z25 supplies completion Noetherianity. Z92–Z103 distinguish local-ring descent, regular-map descent and identical-completion comparison, and Z57 uses the right map theorem. Remaining explicit frontier: full depth/syzygy/projective-dimension suppliers of Z100/Z101, standard-smooth/cotangent dimension adapters of Z102, finite-separable regularity base change in Z99, and characteristic-p formal fibres/Cohen structure in Z79. These are not closed merely by naming the outer propositions. Ownership reconciliation: Z96 imports the same upstream ModularCurves §4D atom as Z23/Z28; Z100/Z101 import the existing R03.3 depth/projective-dimension node. Z103/Z104 are parameter-system refinements for R03.3. L119 already proves projective dimension of a regular-sequence quotient. Do not reconstruct the projective-dimension or regular-sequence carriers. Homological continuation codex-c83e7a: Z106–Z128 and L120–L127 now split the Z100/Z101 depth, syzygy, transfinite and residue-field bounds. Source statements and full cited proofs were read at 38 individual Stacks tags, plus the CM section. Pinned Rees and SES projective-dimension results are imported, not replanned. Further refinement: L128 imports regular-list permutation, L129 arbitrary direct-sum projectivity, and L130 quotient support. Z113 is already library via free_quotSMulTop_iff_free. Z129/Z130 supply the support cut and finite-length kernel. Z117 now records the elementwise exact-union argument, and Z127 gives the rank-preserving shifted induction rather than an unproved arbitrary base-change identity. Remaining homological declaration/assembly leaves: identify the generic finite Koszul construction and its module/category comparison at the shared owner; map the principal-cut parameter-chain argument and finite-length scalar restriction to exact declarations; assemble the necessary determinantal criterion with basis-independent fixed-size minor ideals. The source-level arguments are written out, but these Lean-facing assembly obligations are not silently classed as library results. These are precise obligations, not a claim of recursive homological closure. After them, continue finite-separable base change in Z99, standard-smooth/cotangent dimension in Z102, characteristic-p07PR/07PU and Cohen structure032D in Z79. Continuation codex-hjdg0j (24 September2026): the immediate homological assembly frontier is refined. Z129 is an exact pinned library match; Z130 now uses the already imported surjective-scalar length equality L89 and finite-length criterion L137. L133–L135 identify the module/category projectivity, exactness and homology interfaces. Z122/Z131–Z133 give the shared finite Koszul construction and its proof/transport contracts, owned by the finite precursor of DD.1. Z134–Z139 supply basis-independent fixed-size minor ideals, arbitrary base change, rank control and the split/faithful-family steps used in Z127. Z140–Z141 supply the finite-separable and characteristic-zero regularity step of Z99. These are explicit source-level plans and library imports, not Lean elaboration. Resume with Z102 standard-smooth/cotangent dimensions, then the characteristic-p07PR/07PU and Cohen-structure032D branches of Z79; the general0381 criterion still imports its cited field/smoothness suppliers. Continuation codex-J6LwjP (30 September2026): Z102 is now assembled through the rational residue-field point. L144 imports the standard-smooth neighbourhood; L145 imports the existing Tau Ceti cotangent localization equivalence; L146 imports cotangent Nakayama. Z148–Z151 expose first-order polynomial coordinates, the independent-parameter quotient (at existing R03.3), rational-point regularity and the exact flat local map. The proof uses no perfect-field assumption or false equality of the original/geometric local dimensions. The former Z102 source-outline frontier is superseded, while these explicit adapters remain unimplemented. Next source frontier: characteristic-p07PR/07PU and Cohen-structure032D in Z79, retaining the general0381 cited suppliers and other topology/regular-map obligations. Continuation codex-a71f92 (30 September2026): the characteristic-p generic-prime branch07PR now has a source-level decomposition through Z152–Z170 and exact imports L147–L151. It includes p-basis APIs, finite-free coefficient subrings, the corrected cofinal intersection argument E122, finite-order derivation detection, localization/completion extensions, a unique-prime completion comparison, explicit Frobenius-bounded finite orders, and every finite scalar-extension test. Existing Z97, Z98, Z96, L112 and the homological Z100/Z101 package are reused. No separate normality proof is required for the deliberately chosen orders. Remaining immediate frontier:07PU's nonzero-prime fibre and finite complete-local order; full product-over-primes07N9; formal-smoothness15.38.2/15.38.4 and15.50.2; Cohen032D's coefficient rings, parameter ideals, adic finiteness and dimension-injectivity. The general finite-type version of07PH and0381's additional finitely generated transcendental-field equivalence have not been decomposed here. All inherited homological/topological declaration adapters remain unimplemented; this is not recursive closure. Continuation codex-rtOQ9t (30 September2026): Z171–Z176 decompose full07N9 and the finite complete-local order. Z177–Z182 give the nonzero-prime07PU proof, with all finite field tests and the x−f quotient. The ambient regularity proof extends an absolute detecting derivation coefficientwise to B[x], then localizes and completes; it retains x and does not invoke the generic-polynomial fibre Z170 in a circle. The older assertion that the whole07PU/07N9 branch is unread is superseded. Immediate remaining shared frontier: Z178/032D Case I coefficient-field existence032A (outer proof now read), parameter ideals, adic finite generation10.96.12 and dimension-injectivity10.112.3; mixed-characteristic032D and the arbitrary-field Cohen/formal-smoothness suppliers are not closed. In particular Mathlib FormallySmooth.of_perfectField requires EssFiniteType and cannot provide arbitrary residue fields by itself. This does not close the other inherited homological, topology or declaration-assembly obligations."
     },
     {
       "id": "auxiliary-projector-global-input",
@@ -34099,6 +34579,31 @@
         "E123: separate n formal and m polynomial variables."
       ],
       "preserved": "All809 earlier item IDs, statuses, statements and locators; all120 earlier source findings and all pre-existing sourceData preserved. Only Z79's outline/note and prerequisite list are refined."
+    },
+    "nonzeroCharPFibreContinuation": {
+      "by": "Codex — codex-rtOQ9t",
+      "date": "2026-09-30",
+      "base": "2bfd3bd212d63c63913b56a55a32d68f8d5da2ed",
+      "newItems": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L152",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L153",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z171",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z172",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z173",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z174",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z175",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z176",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z177",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z178",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z179",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z180",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z181",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z182"
+      ],
+      "scope": "Full finite completion product and finite complete-local orders; explicit nonzero polynomial-prime fibre reduction, with a coefficientwise-derivation ambient proof. Z178 isolates the still-open equal-characteristic Cohen normalization suppliers.",
+      "proofBoundary": "All finite field tests are proved subject to the named Cohen normalization input and existing supplier plans. General07PM equivalence, arbitrary residue-field formal smoothness, mixed-characteristic Cohen structure and Lean implementation are not claimed.",
+      "sourceIssue": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/E124",
+      "preserved": "All833 inherited item IDs/statuses/statements/locators,123 earlier findings and pre-existing sourceData preserved. Z79 prerequisite/proof/note and Z164 note are refined; all11 inherited gaps retained."
     }
   },
   "libraryAudit": {
@@ -36965,6 +37470,44 @@
       "searchScope": "Searched pinned Mathlib FieldTheory/RingTheory and TauCeti for genuine p-basis/p-independence and derivation-localization names, then read Derivation/MapCoeffs, Kaehler/Basic, Polynomial/Module/Basic, AdicCompletion/AsTensorProduct and Functoriality, Finiteness/Ideal, Ideal/GoingUp, IntegralClosure/Algebra/Basic, PurelyInseparable/Basic and PerfectClosure, Polynomial/SeparableDegree, and RegularLocalRing/Defs. Coefficientwise derivations and Kähler universal maps are imports; no exact p-basis or localization-derivation wrapper was found in this bounded search. Finite completion tensor equivalence is already L112, so not added again.",
       "ownership": "Existing Z79 source route retained. Z164 uses R03.1; Z166 uses R03.3. Packet search found field p-bases in KTheoryFiniteLocalFields and the M.5d BGK frontier as proof inputs, but no general p-basis carrier node to duplicate. ArithmeticQuantumTopology's P-basis is unrelated. Shared field interface is exported from the existing general formal-fibre supplier owner; no new roadmap.",
       "nearMisses": "AdicCompletion.piEquivOfFintype is a finite-product linear equivalence, not the product-over-primes algebra comparison07N9. Derivation.mapCoeffs lands in PolynomialModule; its existing self equivalence is explicit in L147. The full localized finite-completion product remains open."
+    },
+    "codexRtOQ9tNonzeroCharP": {
+      "date": "2026-09-30",
+      "mathlibPin": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "taucetiPin": "f790474821cf4256814db967cb154e7af3d0c369",
+      "imports": [
+        {
+          "item": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L152",
+          "read": [
+            "IsArtinianRing.isNilpotent_nilradical",
+            "IsArtinianRing.quotNilradicalPowEquivPi"
+          ],
+          "files": [
+            "Mathlib/RingTheory/Artinian/Ring.lean:58–65",
+            "Mathlib/RingTheory/Artinian/Module.lean:625–630"
+          ]
+        },
+        {
+          "item": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/L153",
+          "read": [
+            "Algebra.TensorProduct.piRight",
+            "Algebra.TensorProduct.piRight_tmul"
+          ],
+          "files": [
+            "Mathlib/RingTheory/TensorProduct/Pi.lean:25–60"
+          ]
+        }
+      ],
+      "otherStatementsRead": [
+        "AdicCompletion.ofTensorProductEquivOfFiniteNoetherian (existingL112)",
+        "AdicCompletion.piEquivOfFintype: a finite-product LINEAR equivalence, not the whole07N9 algebra comparison",
+        "IsArtinianRing.localization_surjective and localization_artinian",
+        "Algebra.FormallySmooth.exists_adicCompletionEvalOneₐ_comp_eq and exists_mkₐ_comp_eq_of_isAdicComplete: lifting from an algebraically formally smooth source, not a general adic formal-smoothness predicate",
+        "Algebra.FormallySmooth.of_perfectField: includes Algebra.EssFiniteType K L; the arbitrary coefficient field is not covered by dropping this hypothesis"
+      ],
+      "reviewed": "Read the canonical SF.0/SF.4 and R03.1/R03.3 descriptions and relevant reviewed AUDIT-01/AUDIT-17 target/status notes; no underlying carrier is replanned. Existing regularity-under-completion remains the upstream ModularCurves §4D import carried by Z96.",
+      "discovery": "Fresh structured screen of atlas extracts, new roadmap definitions, packets and decompositions for07N9/07PU/07PM, adic formal smoothness and local-completion products gave41 records. Closely read KTheoryFiniteLocalFields L.7 transfer/semilocal nodes and AdicSpacesPartII R2 smooth lifting: the former imports the number-field semilocal specialization from NumberFieldArithmetic5, while the latter concerns tf-presentation formal schemes over a valuation base. Neither supplies the general Noetherian finite-algebra07N9 contract. Generic completion adapters remain R03.1; geometric regularity/Cohen supplier refinements remain the existing SF.0/SF.4 route.",
+      "searchScope": "Pinned-tree searches for Artinian/localization products, semilocal completions and coefficient-field/Cohen-structure names, followed by the actual candidate statements. No blanket absence claim beyond these interfaces."
     }
   },
   "validation": {
@@ -38561,6 +39104,19 @@
       "preservation": "All809 old item IDs/statuses/statements/locators and all120 old source findings are preserved. Old sourceData keys, including Appendix B certificates and scalar bounds, are unchanged. Only Z79's outline/note/prerequisites are edited among old item objects.",
       "checks": "Actual Python paper and intake validators plus source-version checks, full preservation/routing/DAG assertions and finite Frobenius-coordinate diagnostics are run before submission. The report records their results. Diagnostic examples are not formal proofs.",
       "lean": "No Lean deliverable required or compiled; no library build, Lake project or language server created."
+    },
+    "codexRtOQ9tNonzeroCharP": {
+      "status": "partial",
+      "source": "All named outer statements/proofs read; Cohen/parameter/adic-finiteness/dimension supplier boundaries remain explicit. Source hashes recorded.",
+      "checks": [
+        "check_paper.py",
+        "intake check-files on the three deliverables",
+        "inherited-item/source-issue preservation",
+        "missing-item single routing and internal dependency acyclicity",
+        "finite CRT/projection and Frobenius arithmetic examples (20,075 assertions), supplementary to the written arguments",
+        "git diff --check"
+      ],
+      "lean": "No Lean deliverable or compilation; no Lake project/cache/library build or language server."
     }
   },
   "definitionApiGroups": [
@@ -39279,6 +39835,104 @@
       "citation": "The Stacks Project, official live HTML tag 07PV, statement and proof read; contributed text is GFDL-licensed.",
       "read": "2026-09-30",
       "sha256": "b980390f9bfe5646e361bcc34d44a17b763cd8f7679cf5746c37af3f68b0b04c"
+    },
+    {
+      "kind": "published",
+      "url": "https://stacks.math.columbia.edu/tag/07NJ",
+      "citation": "The Stacks Project, official live HTML; named statement and main proof read in the codex-rtOQ9t07PU continuation; contributed text is GFDL-licensed.",
+      "read": "2026-09-30",
+      "sha256": "ac1f5d4d4d87aca15aa7dddf81f5d58fe152b1a71629aeae261267cff5d0613f"
+    },
+    {
+      "kind": "published",
+      "url": "https://stacks.math.columbia.edu/tag/07NR",
+      "citation": "The Stacks Project, official live HTML; named statement and main proof read in the codex-rtOQ9t07PU continuation; contributed text is GFDL-licensed.",
+      "read": "2026-09-30",
+      "sha256": "301916add12dc0e7fce094cc54095b7a41d63aad62de467e8de448e794025838"
+    },
+    {
+      "kind": "published",
+      "url": "https://stacks.math.columbia.edu/tag/07NS",
+      "citation": "The Stacks Project, official live HTML; named statement and main proof read in the codex-rtOQ9t07PU continuation; contributed text is GFDL-licensed.",
+      "read": "2026-09-30",
+      "sha256": "14fa3ab39d88e4cd8d2b131064a4963f7087b449aca3e3a31efb4e4279392bc5"
+    },
+    {
+      "kind": "published",
+      "url": "https://stacks.math.columbia.edu/tag/07ED",
+      "citation": "The Stacks Project, official live HTML; named statement and main proof read in the codex-rtOQ9t07PU continuation; contributed text is GFDL-licensed.",
+      "read": "2026-09-30",
+      "sha256": "fdfcbfcd176610acc83bd26fb44e5ac85aa0ad9922d8213580a245da6b650571"
+    },
+    {
+      "kind": "published",
+      "url": "https://stacks.math.columbia.edu/tag/07EC",
+      "citation": "The Stacks Project, official live HTML; named statement and main proof read in the codex-rtOQ9t07PU continuation; contributed text is GFDL-licensed.",
+      "read": "2026-09-30",
+      "sha256": "21ea402b04df1beeb073d9504150d86431615ea19ac8c356405f97ddc5b5f88b"
+    },
+    {
+      "kind": "published",
+      "url": "https://stacks.math.columbia.edu/tag/07EG",
+      "citation": "The Stacks Project, official live HTML; named statement and main proof read in the codex-rtOQ9t07PU continuation; contributed text is GFDL-licensed.",
+      "read": "2026-09-30",
+      "sha256": "20cca7afe361c100b0291fa5f2dd3d3d5b522664cd1ffbb1b171a56666078cb5"
+    },
+    {
+      "kind": "published",
+      "url": "https://stacks.math.columbia.edu/tag/07EH",
+      "citation": "The Stacks Project, official live HTML; named statement and main proof read in the codex-rtOQ9t07PU continuation; contributed text is GFDL-licensed.",
+      "read": "2026-09-30",
+      "sha256": "d9e7c2ed6b1200380a69ed365d8f2774e56f998a9a86707c2e7945c42bfdc95e"
+    },
+    {
+      "kind": "published",
+      "url": "https://stacks.math.columbia.edu/tag/07PM",
+      "citation": "The Stacks Project, official live HTML; named statement and main proof read in the codex-rtOQ9t07PU continuation; contributed text is GFDL-licensed.",
+      "read": "2026-09-30",
+      "sha256": "df003ab783dedde2d0ebd8a78d544eda8a5631f8c773ab85bf75a8b94ed75575"
+    },
+    {
+      "kind": "published",
+      "url": "https://stacks.math.columbia.edu/tag/07EB",
+      "citation": "The Stacks Project, official live HTML; named statement and main proof read in the codex-rtOQ9t07PU continuation; contributed text is GFDL-licensed.",
+      "read": "2026-09-30",
+      "sha256": "0e476645a51284fa991d7f7df55e012a22a9e8838092fe5f172dfe6bf9d40bb0"
+    },
+    {
+      "kind": "published",
+      "url": "https://stacks.math.columbia.edu/tag/07PF",
+      "citation": "The Stacks Project, official live HTML; named statement and main proof read in the codex-rtOQ9t07PU continuation; contributed text is GFDL-licensed.",
+      "read": "2026-09-30",
+      "sha256": "0651722d80eeb7c9dd2c7e7bba6af39903fc0e01518940083af4db62cd1b94f3"
+    },
+    {
+      "kind": "published",
+      "url": "https://stacks.math.columbia.edu/tag/07NQ",
+      "citation": "The Stacks Project, official live HTML; named statement and main proof read in the codex-rtOQ9t07PU continuation; contributed text is GFDL-licensed.",
+      "read": "2026-09-30",
+      "sha256": "b359347e113538e414906e2c53185b99519680d403cf048c13eceed0ecefc831"
+    },
+    {
+      "kind": "published",
+      "url": "https://stacks.math.columbia.edu/tag/00JB",
+      "citation": "The Stacks Project, official live HTML; named statement and main proof read in the codex-rtOQ9t07PU continuation; contributed text is GFDL-licensed.",
+      "read": "2026-09-30",
+      "sha256": "f4b83e3adcdefe49e30ba67d72f42ded199732e5e591af88463bf37001667b0f"
+    },
+    {
+      "kind": "published",
+      "url": "https://stacks.math.columbia.edu/tag/032A",
+      "citation": "The Stacks Project, official live HTML; named statement and main proof read in the codex-rtOQ9t07PU continuation; contributed text is GFDL-licensed.",
+      "read": "2026-09-30",
+      "sha256": "64908f97f4f655771b34e21058ea92a979cc8971c2a57da3dbcafb7d7eaddc2a"
+    },
+    {
+      "kind": "published",
+      "url": "https://stacks.math.columbia.edu/tag/07PL",
+      "citation": "The Stacks Project, official live HTML; named statement and main proof read in the codex-rtOQ9t07PU continuation; contributed text is GFDL-licensed.",
+      "read": "2026-09-30",
+      "sha256": "17a1729fa1e9b4d6b3c24cad780c4dca7a7a1a0d78165d8979b327b9bef382df"
     }
   ]
 }
