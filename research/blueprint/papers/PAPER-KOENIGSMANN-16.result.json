@@ -15,16 +15,17 @@
   "version": "Published article, Ann. of Math. 183 (2016) 73–93 (21 pages), read completely; arXiv:1011.3424v2 collated where noted. Locators are journal pages.",
   "readSections": [
    "2026-09-29: the published article, all 21 pages (§§1–4 and references), read completely; arXiv:1011.3424v2 (sha256 6f10efdd…) collated at the finding locators.",
-   "Poonen, arXiv:math/0703907v1, §4 read to identify the formula that Step 1 simplifies."
+   "Poonen, arXiv:math/0703907v1, §4 read to identify the formula that Step 1 simplifies.",
+   "2026-09-30, FIX-RT-PAPER-KOENIGSMANN-16 (Codex, codex-rtOQ9t): targeted reread of published pp. 73, 78, 88, 90–92; page images checked for the two new misprints on pp. 90–91; arXiv v2 pp. 20–21 collated. Supplemental CTVG v1 Theorem 4.3 and MRS v3 Definition 2.2, Proposition 2.3(1), Lemmas 4.1–4.5 checked; hashes and exact scope in the fixes report. This is not a fresh full-paper read."
   ]
  },
- "summary": "Koenigsmann proves that Z is definable in Q by a universal first-order formula (Theorem 1), so Q \\ Z is diophantine and Th_∀∃(Q) is undecidable, and gives an ∀∃-definition with one universal quantifier. The proof refines Poonen's quaternion-trace sets T_{a,b} = ∩_{p∈Δ_{a,b}} Z_(p), uses quadratic reciprocity to single out each Z_(p) by rings R^{[k]}_p, R^{[1]}_{p,q} chosen by the class of p mod 8, defines the Jacobson radicals of these semilocal rings existentially, and turns existential definitions of J(R) into universal definitions of R. It also shows that non-squares and non-norms from quadratic fields are diophantine by elementary means, and records closure properties of models of Th(Q). Tau Ceti already has weak approximation, and the atlas plans the other arithmetic inputs (Hilbert symbols, reciprocity, quaternion splitting, Hasse–Minkowski) and MRDP; the definability results themselves, with §4's consequences of Theorem 1, are routed to LogicAndDefinabilityInNumberTheory LD.4, and the general preservation criterion of §4 to LD.0.",
+ "summary": "Koenigsmann proves that Z is definable in Q by a universal first-order formula (Theorem 1), so Q \\ Z is diophantine and Th_∀∃(Q) is undecidable, and gives an ∀∃-definition with one universal quantifier. The proof refines Poonen's quaternion-trace sets T_{a,b} = ∩_{p∈Δ_{a,b}} Z_(p), uses quadratic reciprocity to single out each Z_(p) by rings R^{[k]}_p, R^{[1]}_{p,q} chosen by the class of p mod 8, defines the Jacobson radicals of these semilocal rings existentially, and turns existential definitions of J(R) into universal definitions of R. It also shows that non-squares and non-norms from quadratic fields are diophantine by elementary means, and records closure properties of models of Th(Q). Tau Ceti already has weak approximation, and the atlas plans the other arithmetic inputs (Hilbert symbols, reciprocity, quaternion splitting, Hasse–Minkowski) and MRDP; the definability results themselves, with §4's consequences of Theorem 1, are routed to LogicAndDefinabilityInNumberTheory LD.4, and the general preservation criterion of §4 to LD.0. Confirmed red-team fixes add the model-completeness foundations at LD.0, itemize the external non-n-th-power theorem and local square input, and give ring-general Diophantine foundations and transfer a single owner at LD.4 shared with the ABS extraction.",
  "items": [
   {
    "id": "PAPER-KOENIGSMANN-16/1",
    "kind": "definition",
    "name": "First-order ring language and definable subsets of Q",
-   "statement": "L_ring = {+, ·; 0, 1}; a subset of Qⁿ is (first-order) definable if it is the solution set of an L_ring-formula with parameters; it is diophantine (existentially definable) if the formula is ∃x̄ f = 0 for a polynomial f with integer coefficients, and universally definable if the formula has the shape ∀x̄ g ≠ 0.",
+   "statement": "Mathlib provides the first-order ring language L_ring = {+, ·; 0, 1}, formulas, definable sets with a specified parameter set, and the syntactic classes of existential and universal bounded formulas. Applied to Q, these are the logical carriers used by the paper; identification with polynomial Diophantine definitions is a separate arithmetic interface.",
    "locator": "§1, p. 73; Theorem 1",
    "status": "library",
    "library": [
@@ -33,7 +34,7 @@
     "mathlib:FirstOrder.Language.BoundedFormula.IsExistential",
     "mathlib:FirstOrder.Language.BoundedFormula.IsUniversal"
    ],
-   "note": "Mathlib has the ring language, definable sets and existential/universal bounded formulas; the arithmetic special cases (diophantine subsets of Q, the ∀∃-quantifier classes) are LD.0/LD.4 interfaces over them."
+   "note": "Library status covers only the listed logical carriers. Use item 46 for the single ring-general finite-polynomial-system definition and item 42 for the Q-specific equivalence with existential ring formulas (including clearing rational denominators). No second Q-only Diophantine-set carrier is planned. LD.0 supplies logical syntax; LD.4 owns the polynomial interface."
   },
   {
    "id": "PAPER-KOENIGSMANN-16/2",
@@ -93,9 +94,11 @@
     "mathlib:Localization.AtPrime",
     "mathlib:Ideal.jacobson",
     "mathlib:QuaternionAlgebra",
-    "mathlib:padicValRat"
+    "mathlib:padicValRat",
+    "tauceti:QuaternionAlgebra.normForm",
+    "tauceti:QuaternionAlgebra.equivalent_normForm_weightedSumSquares"
    ],
-   "note": "Mathlib's QuaternionAlgebra R a b c has i² = a + b·i and j² = c, so Koenigsmann's H_{a,b} is QuaternionAlgebra ℚ a 0 b (notation ℍ[ℚ, a, b]). Z_(p) is the localisation of Z at the prime ideal (p), a subring of Q only after the IsLocalization identification."
+   "note": "Mathlib's QuaternionAlgebra R a b c has i² = a + b·i and j² = c, so Koenigsmann's H_{a,b} is QuaternionAlgebra ℚ a 0 b (notation ℍ[ℚ, a, b]). Z_(p) is the localisation of Z at the prime ideal (p), a subring of Q only after the IsLocalization identification. Tau Ceti already packages the reduced norm and its diagonalization as QuaternionAlgebra.normForm and QuaternionAlgebra.equivalent_normForm_weightedSumSquares; reuse them for item 16."
   },
   {
    "id": "PAPER-KOENIGSMANN-16/7",
@@ -108,7 +111,8 @@
     "tauceti:TauCetiRoadmap/QuadraticFormInvariants#layer-2-quaternion-algebras-and-the-four-fold-splitting-criterion",
     "tauceti:TauCetiRoadmap/QuadraticFormInvariants#6c-the-hilbert-symbol-and-the-local-hasse-invariant",
     "tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-6-representation-and-isometry"
-   ]
+   ],
+   "note": "The reviewed AUDIT-05 marks QuadraticFormInvariants Layer 2 partly built: the quaternion norm form and several explicit split cases exist, while the general four-fold splitting criterion and split-or-division dichotomy remain planned. This item does not claim those conclusions from the norm-form API alone."
   },
   {
    "id": "PAPER-KOENIGSMANN-16/8",
@@ -119,9 +123,10 @@
    "status": "planned",
    "planned": [
     "tauceti:TauCetiRoadmap/QuadraticFormInvariants#6c-the-hilbert-symbol-and-the-local-hasse-invariant",
-    "ClassicalArithmeticCompletion:CA.1"
+    "ClassicalArithmeticCompletion:CA.1",
+    "tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-4-global-square-norm-and-approximation-lemmas"
    ],
-   "note": "Tau Ceti's QuadraticFormInvariants 6C plans exactly these statements: the closed formula in odd residue characteristic (item 9, Serre III Thm 1 at ℚ_p), the closed formula over ℚ_2 (item 10) and the 8×8 table over ℚ_2 (item 12). CA.1 only records residue symbols at 2 and ∞."
+   "note": "QuadraticFormInvariants 6C supplies the finite-place formulas (odd residue characteristic, the Q_2 formula and its 8-by-8 square-class table). The p = infinity clause is owned by GlobalQuadraticForms Layer 4.4, which proves the real and complex symbol computations separately because 6C carries nonarchimedean hypotheses. CA.1 records residue-symbol interfaces only."
   },
   {
    "id": "PAPER-KOENIGSMANN-16/9",
@@ -192,7 +197,8 @@
    "name": "Corollary 3 and 3′: Th_∀∃(Q) is undecidable",
    "statement": "The set of true ∀∃-sentences of Q in L_ring is undecidable; equivalently no algorithm decides, for a Q-morphism π: V → W of affine varieties, whether V(Q) → W(Q) is surjective.",
    "locator": "§1, Corollaries 3 and 3′, p. 74",
-   "status": "missing"
+   "status": "missing",
+   "note": "Use the Diophantine syntax and substitution framework of items 46 and 42 and LD.0; this unconditional universal-existential transfer must retain its own quantifier-prefix proof using the universal definition of Z. It does not assume the still-open existential definition in item 48. Item 49 owns the general existential transfer when a Diophantine subring is actually given."
   },
   {
    "id": "PAPER-KOENIGSMANN-16/16",
@@ -200,7 +206,8 @@
    "name": "Quaternion trace sets S_{a,b}, T_{a,b} and Δ_{a,b}",
    "statement": "For a, b ∈ Q^×: Δ_{a,b} ⊆ P ∪ {∞} is the set of places where H_{a,b} ⊗ Q_p ≇ M₂(Q_p); S_{a,b} = {2x₁ | ∃x₂, x₃, x₄: x₁² − ax₂² − bx₃² + abx₄² = 1} (traces of norm-one elements); T_{a,b} = S_{a,b} + S_{a,b}; S_{a,b}(Q_p), T_{a,b}(Q_p) likewise over Q_p (T differs from Poonen's by omitting {0, …, 2309}).",
    "locator": "§2, Definition 4, p. 75",
-   "status": "missing"
+   "status": "missing",
+   "note": "Reuse item 6: S_{a,b} = {2 * x.re : x in QuaternionAlgebra Q a 0 b, QuaternionAlgebra.normForm a 0 b x = 1}. The pinned normForm, normForm_apply_coordinates and equivalent_normForm_weightedSumSquares give exactly the displayed norm equation. The sets S, T, their local versions and their arithmetic properties remain missing; the underlying norm form is built."
   },
   {
    "id": "PAPER-KOENIGSMANN-16/17",
@@ -395,7 +402,7 @@
    "statement": "For models Q* ⊆ Q** of Th(Q) with rings of integers Z*, Z**: (a) Z** ∩ Q* ⊆ Z*; (b) Z** ∩ Q* is integrally closed in Q*; (c) (Q**)ⁿ ∩ Q* = (Q*)ⁿ for all n (via [CTVG14]); (d) if Z is diophantine in Q then Z** ∩ Q* = Z* and Q* is algebraically closed in Q**.",
    "locator": "§4, Proposition 23 and proof, pp. 91–92",
    "status": "missing",
-   "note": "Part (a) is the universal formula of Theorem 1 pulled back along Q* ⊆ Q** (compare Mathlib's FirstOrder.Language.BoundedFormula.IsUniversal.realize_embedding); (c) needs Colliot-Thélène–Van Geel; (d) needs MRDP (item 2). It is routed with Theorem 1 at LD.4 for that reason."
+   "note": "Part (a) is the universal formula of Theorem 1 pulled back along Q* ⊆ Q** (compare Mathlib's FirstOrder.Language.BoundedFormula.IsUniversal.realize_embedding); (c) consumes the Colliot-Thélène–Van Geel theorem explicitly itemized as item 45; (d) needs MRDP (item 2). It is routed with Theorem 1 at LD.4 for that reason."
   },
   {
    "id": "PAPER-KOENIGSMANN-16/41",
@@ -403,16 +410,164 @@
    "name": "Remark 24: Th(Q) is not model complete",
    "statement": "There are models Q* ⊆ Q** of Th(Q) with Q* not existentially closed in Q**, because not every definable subset of Q is diophantine (an undecidable r.e. set has a definable, non-diophantine complement).",
    "locator": "§4, Remark 24, p. 92",
-   "status": "missing"
+   "status": "missing",
+   "note": "Uses the definitions and model-completeness criterion in items 43–44 (LD.0), the Q-specific existential/Diophantine equivalence and recursive enumerability in item 42, and MRDP/item 2. LD.0 → LD.4 is the existing dependency direction; this consequence remains in LD.4."
   },
   {
    "id": "PAPER-KOENIGSMANN-16/42",
    "kind": "theorem",
-   "name": "Closure properties of diophantine subsets of Q",
-   "statement": "Diophantine subsets of Qⁿ are closed under finite intersections (f = 0 ∧ g = 0 ⟺ f² + g² = 0), finite unions (fg = 0), projections and polynomial preimages, and the sets {x ≠ 0} (∃y xy = 1) and {x ≥ 0} (a sum of four rational squares, item 5) are diophantine; hence every existential L_ring-formula over Q defines a diophantine set. Every diophantine subset of Qⁿ is recursively enumerable.",
+   "name": "Diophantine closure operations over rings, with domain and Q specializations",
+   "statement": "For a commutative ring R with 1, use item 46: subsets of R^n defined by finite polynomial systems with existential witnesses are closed under finite intersections, coordinate projection and polynomial preimage. If R is a Diophantine unital subring of S, every Diophantine subset of R^n is Diophantine in S^n by constraining both free coordinates and all witnesses to R; thus such definitions compose. Over an integral domain, finite unions are Diophantine (use a selector e with e(e-1)=0, e f_i=0 and (1-e) g_j=0). Over Q, a finite conjunction reduces to a single equation by a sum of squares; over a field, nonzero is Diophantine via xy=1; over Q, nonnegative is Diophantine via four squares. These Q clauses make every existential ring formula over Q Diophantine. Over a computable ring with an effective enumeration, decidable equality and computable ring operations and coefficients, each such Diophantine set is recursively enumerable.",
    "locator": "used throughout: Step 1 formula p. 79, Remark 8(b), Definition 12, Corollary 15(a), Propositions 16(c), 21, Remark 24",
    "status": "missing",
-   "note": "Added by REV-PAPER-KOENIGSMANN-16: the paper uses these facts without statement in every 'is diophantine' claim (for instance 'p > 0' in Corollary 15(a)), and Remark 24 uses that diophantine sets are recursively enumerable."
+   "note": "The general ring operations are the common LD.4 owner for PAPER-ALPOGE-BHARGAVA-SHNIDMAN-26/46 and /47; its /1 uses the carrier in item 46 and /3 uses the transfer in item 49. The revised Part II imports all four foundations. The arbitrary-ring generalization is an explicit elementary extension of the paper’s Q argument, also supplying MRS Lemmas 4.3 and 4.5; it is not asserted to be printed in Koenigsmann. Finite unions are deliberately restricted to integral domains: in R = F_2 × F_2 every existential conjunction of polynomial equations factors componentwise, whereas {0_R,1_R} does not. Thus the union of the two Diophantine singleton sets need not be Diophantine over a general ring under the finite-system definition. The single-equation sum-of-squares reduction is only asserted over Q (or formally real fields), not all fields."
+  },
+  {
+   "id": "PAPER-KOENIGSMANN-16/43",
+   "kind": "definition",
+   "name": "Existentially closed substructures and model-complete theories",
+   "statement": "For an L-substructure M of N, M is existentially closed in N if each existential L-formula with parameters from M that holds in N already holds in M. A first-order L-theory T is model complete if every embedding between models of T is elementary. The equivalence with all such inclusions being existentially closed is the theorem in item 44, not part of the definition.",
+   "locator": "Section 4, p. 92, paragraph before Remark 24",
+   "status": "missing",
+   "note": "Build on Mathlib FirstOrder.Language.ElementaryEmbedding and FirstOrder.Language.BoundedFormula.IsExistential at 082e2d3. These bases do not define model completeness or existential closedness. This is LD.0 work, consumed by item 41.",
+   "api": [
+    {
+     "name": "FirstOrder.Language.IsExistentiallyClosed",
+     "role": "constructor",
+     "statement": "Predicate on a specified structure embedding, with parameters pulled along that embedding."
+    },
+    {
+     "name": "FirstOrder.Language.Theory.IsModelComplete",
+     "role": "constructor",
+     "statement": "Every embedding between models of T preserves and reflects every formula."
+    },
+    {
+     "name": "FirstOrder.Language.IsExistentiallyClosed.of_elementaryEmbedding",
+     "role": "compatibility",
+     "statement": "An elementary embedding reflects existential formulas, hence is existentially closed."
+    }
+   ],
+   "unitTests": [
+    {
+     "name": "existentiallyClosed_identity",
+     "kind": "example",
+     "statement": "The identity embedding is existentially closed."
+    },
+    {
+     "name": "real_complex_not_existentiallyClosed",
+     "kind": "negative",
+     "statement": "The ring embedding ℝ into ℂ is not existentially closed: X^2+1 has a root in ℂ and none in ℝ. This tests the embedding predicate, not two models of a common theory."
+    }
+   ]
+  },
+  {
+   "id": "PAPER-KOENIGSMANN-16/44",
+   "kind": "theorem",
+   "name": "Model completeness, existential closedness and existential normal forms",
+   "statement": "For a first-order theory T, the following are equivalent: every embedding between models of T is elementary; every model of T is existentially closed in every model of T extending it; every formula is equivalent modulo T to an existential formula. In particular a definable subset of a model of a model-complete T, with a fixed finite parameter tuple, has an existential definition using that tuple.",
+   "locator": "Section 4, p. 92, paragraph before Remark 24 and its proof; general preservation input on p. 91 ([PD11, Lemma 3.1.6])",
+   "status": "missing",
+   "note": "Missing general model-theoretic theorem, routed to LD.0 with items 39 and 43. The easy upward preservation direction has Mathlib FirstOrder.Language.BoundedFormula.IsExistential.realize_embedding; compactness/preservation and the model-completeness criterion still require a blueprint proof. Do not confuse this with Mathlib model_completeTheory, which merely says a structure models its own complete theory.",
+   "dependsOn": [
+    "PAPER-KOENIGSMANN-16/43"
+   ]
+  },
+  {
+   "id": "PAPER-KOENIGSMANN-16/45",
+   "kind": "theorem",
+   "name": "Colliot-Thélène–Van Geel: non-n-th powers are Diophantine",
+   "statement": "For every number field K and integer n >= 1, the set {x in K : there is no y in K with y^n=x} is Diophantine in K. For n > 1 this is equivalently K^× minus the n-th powers in K^×; 0 is an n-th power. For n=1 the set is empty.",
+   "locator": "Section 3, p. 90; proof of Proposition 23(c), pp. 91–92 ([CTVG14]); independently checked arXiv:1401.0915v1, Theorem 4.3, pp. 16–17",
+   "status": "missing",
+   "note": "External theorem input for item 40(c), not a consequence of the elementary n=2 proof. LD.4 takes Colliot-Thélène–Van Geel as an additional source and closes its proof and Brauer–Manin dependencies in its blueprint, importing their owners. Per PROTOCOL section 16, this cited result is one extraction item; its proof is not re-extracted here."
+  },
+  {
+   "id": "PAPER-KOENIGSMANN-16/46",
+   "kind": "definition",
+   "name": "Diophantine subsets of finite powers of a commutative ring",
+   "statement": "For a commutative ring R with 1 and n >= 0, a subset D of R^n is Diophantine if there are finitely many witness variables and finitely many polynomials f_i over R such that x belongs to D exactly when some witness tuple y in R satisfies f_i(x,y)=0 for every i. Coefficients and parameter sets are explicit. This finite-system notion is separate from arbitrary existential ring formulas and from reduction to one equation.",
+   "locator": "General carrier needed for item 42 and PAPER-ALPOGE-BHARGAVA-SHNIDMAN-26/1; Mazur–Rubin–Shlapentokh arXiv:2208.09963v3, Definition 2.2, p. 5; Koenigsmann Section 1, p. 73, Q specialization",
+   "status": "missing",
+   "note": "Owned once by LD.4, with logical syntax imported from LD.0. Mathlib Dioph is over natural-number tuples, not this ring-general carrier. Reuse the exact carrier in the ABS Part II; its existing /1 API is a consumer specification, not a second definition. The broad ring statement is stated as a common generalization, not attributed verbatim to Koenigsmann.",
+   "api": [
+    {
+     "name": "DiophantineSet.exists_iff",
+     "role": "characterisation",
+     "statement": "Membership iff the chosen finite system has a witness tuple."
+    },
+    {
+     "name": "DiophantineSet.polynomial_zeroSet",
+     "role": "constructor",
+     "statement": "A finite polynomial zero locus is Diophantine with no extra witnesses."
+    },
+    {
+     "name": "DiophantineSet.map_ringEquiv",
+     "role": "functoriality",
+     "statement": "A ring equivalence transports coefficients, witnesses and the defined subset; transport along identities and composites agrees."
+    },
+    {
+     "name": "DiophantineSet.intersection",
+     "role": "compatibility",
+     "statement": "Concatenate finite systems and disjoint witness tuples; the theorem is item 42."
+    }
+   ],
+   "unitTests": [
+    {
+     "name": "diophantine_units",
+     "kind": "example",
+     "statement": "The unit subset is given by xy=1; over Z this excludes 2, so it is not the nonzero subset."
+    },
+    {
+     "name": "diophantine_zero_arity",
+     "kind": "edge",
+     "statement": "At n=0 a system records solvability as a subset of the singleton R^0. An empty system defines the whole singleton."
+    },
+    {
+     "name": "diophantine_product_union_failure",
+     "kind": "negative",
+     "statement": "In F_2 × F_2, {0_R} and {1_R} are Diophantine, but their union is not definable by an existential finite polynomial system: such solution projections factor as products."
+    }
+   ]
+  },
+  {
+   "id": "PAPER-KOENIGSMANN-16/47",
+   "kind": "theorem",
+   "name": "Local square criterion over Q_p",
+   "statement": "For an odd prime p and u in Z_p^×, u is a square in Q_p iff its reduction in F_p^× is a square; in particular 1+pZ_p consists of squares in Q_p^×. Also 1+8Z_2 consists of squares in Q_2^×.",
+   "locator": "Section 2, p. 78 (dyadic table); Section 3, proofs of Lemma 20(b) and Proposition 21(b), pp. 87–88",
+   "status": "planned",
+   "planned": [
+    "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-1-units-the-filtration-and-the-multiplicative-group"
+   ],
+   "note": "LocalFieldsRamification Layer 1 owns the local power and sharp dyadic-square interfaces; QuadraticFormInvariants 6A consumes them. Mathlib hensels_lemma is a base, not the complete stated square criterion: for X^2-u the residual-root case has unit derivative when p is odd, while u in 1+8Z_2 gives |1-u|_2 < |2|_2^2 at 1. The sharp dyadic theorem is absent at the pin; no library status is claimed for the combined item."
+  },
+  {
+   "id": "PAPER-KOENIGSMANN-16/48",
+   "kind": "theorem",
+   "name": "Conditional existential undecidability of Q from a Diophantine Z",
+   "statement": "If Z is Diophantine in Q, then the existential ring theory of Q is undecidable, and Hilbert’s tenth problem over Q has a negative answer. Relativize every integer variable to the fixed Diophantine definition of Z and apply MRDP.",
+   "locator": "Section 1, p. 73",
+   "status": "missing",
+   "note": "The Q instance of the shared transfer in item 49, using item 42 to identify finite systems with the usual existential/single-equation formulation. The hypothesis that Z is Diophantine in Q is not claimed proved.",
+   "dependsOn": [
+    "PAPER-KOENIGSMANN-16/2",
+    "PAPER-KOENIGSMANN-16/42",
+    "PAPER-KOENIGSMANN-16/49"
+   ]
+  },
+  {
+   "id": "PAPER-KOENIGSMANN-16/49",
+   "kind": "theorem",
+   "name": "Transfer of undecidability along a Diophantine integer subring",
+   "statement": "Let R be a commutative ring with an injective unital map Z → R and a fixed finite polynomial system over R defining its image. Then solvability of finite polynomial systems over R is undecidable, with inputs given by finite expressions in the integer coefficients and the finitely many constants of that definition (or any effective coefficient presentation containing them). Replace each integer variable by an R-variable constrained by the defining system to reduce integer polynomial solvability to R-system solvability. A reduction from systems to one equation requires a separate hypothesis/theorem.",
+   "locator": "Koenigsmann Section 1, p. 73 (Q case); Mazur–Rubin–Shlapentokh arXiv:2208.09963v3, Proposition 2.3(1) and proof, p. 5 (general ring form)",
+   "status": "missing",
+   "note": "LD.4 is the single owner, shared with PAPER-ALPOGE-BHARGAVA-SHNIDMAN-26/3. The latter Part II imports this interpretation theorem, item 46 and item 42; it supplies its separate number-ring and single-equation adapters. This theorem does not presume an effective presentation of every abstract ring.",
+   "dependsOn": [
+    "PAPER-KOENIGSMANN-16/2",
+    "PAPER-KOENIGSMANN-16/46",
+    "PAPER-KOENIGSMANN-16/42"
+   ]
   }
  ],
  "prerequisites": [
@@ -489,9 +644,13 @@
     "PAPER-KOENIGSMANN-16/38",
     "PAPER-KOENIGSMANN-16/40",
     "PAPER-KOENIGSMANN-16/41",
-    "PAPER-KOENIGSMANN-16/42"
+    "PAPER-KOENIGSMANN-16/42",
+    "PAPER-KOENIGSMANN-16/45",
+    "PAPER-KOENIGSMANN-16/46",
+    "PAPER-KOENIGSMANN-16/48",
+    "PAPER-KOENIGSMANN-16/49"
    ],
-   "reason": "LD.4 is the atlas's layer for Diophantine definability and undecidability, and its specification asks that other-field variants be recorded individually rather than copied from the integers. Koenigsmann's universal definition of Z in Q (with Robinson's and Poonen's ∀∃-definitions as predecessors), the diophantine sets it produces (Q \\ Z, non-squares, non-norms), and the undecidability of Th_∀∃(Q) are exactly such a variant. Its inputs are already planned or built: explicit Hilbert symbols, Hilbert reciprocity, quaternion splitting and local Hilbert symbols in Tau Ceti's QuadraticFormInvariants (layer 2 and 6C), Hasse–Minkowski and local–global norms in Tau Ceti's GlobalQuadraticForms (layers 4 and 6), weak approximation in Tau Ceti itself (TauCeti.GlobalNumberFields.weakApproximation_denseRange), and MRDP in LD.4 itself. The paper-specific material — the quaternion trace sets S_{a,b}, T_{a,b} with Poonen's local lemmas, the R-rings, the existential Jacobson radicals and the existential-to-universal step — is elementary and belongs with its only consumer, so a separate roadmap is not warranted. The §4 results that use Theorem 1 or MRDP — Proposition 23 (whose (a) is Theorem 1 read in models and whose (d) uses MRDP) and Remark 24 (r.e. sets) — are routed here too, since LD.4 already requires LD.0; routing them to LD.0 would make LD.0 depend on LD.4. (Moved from route 2 by REV-PAPER-KOENIGSMANN-16.)"
+   "reason": "LD.4 is the atlas's layer for Diophantine definability and undecidability, and its specification asks that other-field variants be recorded individually rather than copied from the integers. Koenigsmann's universal definition of Z in Q (with Robinson's and Poonen's ∀∃-definitions as predecessors), the diophantine sets it produces (Q \\ Z, non-squares, non-norms), and the undecidability of Th_∀∃(Q) are exactly such a variant. Its inputs are already planned or built: explicit Hilbert symbols, Hilbert reciprocity, quaternion splitting and local Hilbert symbols in Tau Ceti's QuadraticFormInvariants (layer 2 and 6C), Hasse–Minkowski and local–global norms in Tau Ceti's GlobalQuadraticForms (layers 4 and 6), weak approximation in Tau Ceti itself (TauCeti.GlobalNumberFields.weakApproximation_denseRange), and MRDP in LD.4 itself. The paper-specific material — the quaternion trace sets S_{a,b}, T_{a,b} with Poonen's local lemmas, the R-rings, the existential Jacobson radicals and the existential-to-universal step — is elementary and belongs with its only consumer, so a separate roadmap is not warranted. The §4 results that use Theorem 1 or MRDP — Proposition 23 (whose (a) is Theorem 1 read in models and whose (d) uses MRDP) and Remark 24 (r.e. sets) — are routed here too, since LD.4 already requires LD.0; routing them to LD.0 would make LD.0 depend on LD.4. (Moved from route 2 by REV-PAPER-KOENIGSMANN-16.) Explicit mandatory supplier imports for the LD.4 blueprint are tauceti:TauCetiRoadmap/QuadraticFormInvariants#layer-2-quaternion-algebras-and-the-four-fold-splitting-criterion, tauceti:TauCetiRoadmap/QuadraticFormInvariants#6c-the-hilbert-symbol-and-the-local-hasse-invariant, tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-4-global-square-norm-and-approximation-lemmas, tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-6-representation-and-isometry. The first two supply items 7–9 at their stated scopes; the global layers supply items 8–10, including the archimedean symbol and local-global adapters. Item 11 reuses tauceti:TauCeti.GlobalNumberFields.weakApproximation_denseRange directly. These are import requirements recorded in this route, not existing stage edges: the fixes report requests the four links from the maintainer because link files are outside this issue’s deliverables. Item 47 also imports tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-1-units-the-filtration-and-the-multiplicative-group for local square criteria. LD.4 owns the general ring Diophantine carrier (46), closure/composition API (42) and interpretation transfer (49), which the ABS Part II consumes rather than rebuilds. The external non-n-th-power theorem (45) is a separate deep input and needs its own source proof in the LD.4 blueprint."
   },
   {
    "route": "source",
@@ -500,9 +659,11 @@
     "LogicAndDefinabilityInNumberTheory:LD.0"
    ],
    "items": [
-    "PAPER-KOENIGSMANN-16/39"
+    "PAPER-KOENIGSMANN-16/39",
+    "PAPER-KOENIGSMANN-16/43",
+    "PAPER-KOENIGSMANN-16/44"
    ],
-   "reason": "Section 4 opens with the general preservation criterion: a definable set is existentially definable modulo a complete theory iff it is preserved upward along inclusions of models ([PD11, Lemma 3.1.6]), specialized to Z in Q. That is model theory of elementary extensions and substructures, which LD.0 (languages, structures, definable sets, elementary extensions) owns, with Mathlib's ElementaryEmbedding, ElementarySubstructure and IsExistential.realize_embedding as its library base. Proposition 23 and Remark 24 depend on Theorem 1 and MRDP and are routed with them to LD.4 (moved by REV-PAPER-KOENIGSMANN-16)."
+   "reason": "Section 4 opens with the general preservation criterion: a definable set is existentially definable modulo a complete theory iff it is preserved upward along inclusions of models ([PD11, Lemma 3.1.6]), specialized to Z in Q. That is model theory of elementary extensions and substructures, which LD.0 (languages, structures, definable sets, elementary extensions) owns, with Mathlib's ElementaryEmbedding, ElementarySubstructure and IsExistential.realize_embedding as its library base. Proposition 23 and Remark 24 depend on Theorem 1 and MRDP and are routed with them to LD.4 (moved by REV-PAPER-KOENIGSMANN-16). Items 43–44 add existentially closed embeddings, model-complete theories and the existential normal-form criterion; item 41 imports these through the existing LD.0 → LD.4 edge."
   }
  ],
  "sourceIssues": [
@@ -638,6 +799,36 @@
     "reason": "Found and checked by this review on the page images of pp. 76 and 90.",
     "by": "REV-PAPER-KOENIGSMANN-16"
    }
+  },
+  {
+   "id": "PAPER-KOENIGSMANN-16/E8",
+   "kind": "misprint",
+   "locator": "Proof of Proposition 21(e), forward direction, published p. 90; arXiv v2 p. 20",
+   "printed": "The source concludes R_p^{[k]} = Z_l.",
+   "correction": "Then R_p^{[k]} = Z_(l)",
+   "reason": "R_p^{[k]} is a subring of Q. Proposition 10(b) gives the localization Z_(l) when p=l is a prime congruent to k modulo 8, not the l-adic integer ring Z_l.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "2026-09-30: Annals article page https://annals.math.princeton.edu/2016/183-1/p02 lists no correction; https://arxiv.org/abs/1011.3424 lists v2 (13 November 2013) as the latest version.",
+    "2026-09-30: author publication page https://www.maths.ox.ac.uk/people/jochen.koenigsmann and title/author erratum/corrigendum web search revealed no correction.",
+    "2026-09-30: downloaded published PDF and arXiv:1011.3424v2; both contain this misprint. Already identified in RT-PAPER-KOENIGSMANN-16/8 and independently confirmed in its verification; no later published correction located."
+   ]
+  },
+  {
+   "id": "PAPER-KOENIGSMANN-16/E9",
+   "kind": "misprint",
+   "locator": "Proof of Corollary 22, published p. 91; arXiv v2 p. 21",
+   "printed": "The source requires p ∈ k + Z_(2), together with p ∉ Φ_k.",
+   "correction": "(p ∈ k + 8Z_(2) and p ∉ Φ_k)",
+   "reason": "The cited Proposition 21(c) concerns the congruence modulo 8Z_(2). The same sentence assumes p ∈ Q²·(k+8Z_(2)); under that assumption a 2-adic unit p is already congruent to k modulo 8, so the omitted factor does not change the claimed equivalence or the result.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "2026-09-30: Annals article page https://annals.math.princeton.edu/2016/183-1/p02 lists no correction; https://arxiv.org/abs/1011.3424 lists v2 (13 November 2013) as the latest version.",
+    "2026-09-30: author publication page https://www.maths.ox.ac.uk/people/jochen.koenigsmann and title/author erratum/corrigendum web search revealed no correction.",
+    "2026-09-30: downloaded published PDF and arXiv:1011.3424v2; both contain this misprint. Already identified in RT-PAPER-KOENIGSMANN-16/8 and independently confirmed in its verification; no later published correction located."
+   ]
   }
  ],
  "sourceVersions": [
