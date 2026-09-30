@@ -367,8 +367,8 @@
   "mappedStageStatuses": 350,
   "libraryAuditStatuses": 58,
   "bibliographicSources": 46,
-  "roadmapEdges": 1713,
-  "stageEdges": 8298,
+  "roadmapEdges": 1714,
+  "stageEdges": 8301,
   "reviewedLinkPackets": 25,
   "promotedBlueprints": [
     {
@@ -493,8 +493,8 @@
     }
   ],
   "sourceDocuments": 296,
-  "htmlBytes": 30261120,
-  "htmlSha256": "d8b1577246087e86f50b407feee28c38c1f4757075e13c1a02ae16c86a9773d6",
+  "htmlBytes": 30266723,
+  "htmlSha256": "33aa44f48916b5c3633d27c5c5e674a0da32cb42113beb883b6f75ec63d3b0e1",
   "networkDependencies": 0,
   "localProgressOverridesIncluded": false,
   "assets": {
@@ -632,7 +632,7 @@
     "data/links/tauceti_TauCetiRoadmap_Chebotarev.json": "f9089ad78bff8c1f3820c4bc24e18ea07cb4daf0ca12ec3e799b4255d443de14",
     "data/links/tauceti_TauCetiRoadmap_ClassFieldTheory.json": "e732ef18670fa399c08d1ac38d25de93daa9b87e1d0eb4d7a083a7c8d3f689db",
     "data/links/tauceti_TauCetiRoadmap_EllipticCurves.json": "b674679a2cb220121617e8d4dcb192c4a1b14557ce1d32c61be2ccf4da73f438",
-    "data/links/tauceti_TauCetiRoadmap_GrothendieckEulerForms.json": "aba604fdc3648ca75b6b90c3393a858df8ef584e362295304ae999beb6ce28ed",
+    "data/links/tauceti_TauCetiRoadmap_GrothendieckEulerForms.json": "d4886e72af1e327e4b7b2879d98bf43e9057f3fb00ca855909628efde951b481",
     "data/links/tauceti_TauCetiRoadmap_LocalFieldsRamification.json": "976784eb1ffbbb0942a42d54330a0f366d9533aac4d13290b9517a561e4d8c9d",
     "data/links/tauceti_TauCetiRoadmap_ModularCurves.json": "b91a81d869d9dcb193437f995876f3e7f8a1adf46cbc601feece9db0a84f8706",
     "data/links/tauceti_TauCetiRoadmap_Multiquadratic.json": "8cfa86728c5293ae69df72f5504bd18c192d3e0a4aa09b8334e26f9a36683445",

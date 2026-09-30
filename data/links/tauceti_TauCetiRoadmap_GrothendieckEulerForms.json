@@ -3,7 +3,7 @@
   "protocol": "links-v1",
   "status": "complete",
   "implementationStatus": "unchecked",
-  "summary": "Independent review retains fifteen outgoing dependency links and five active overlaps, and verifies all nine incident pairs hosted in other packets. The retired FoundationsAndLibraryIntegration overlap is archived. Corrected baseline reuse for the general-ring Cartan map, relative projective/injective foundations and representation ring; the general resolving-subcategory theorem remains a planned extension of the existing projective case. Coverage is 217 active roadmaps and 2007 stage records. Acceptance is of these scoped source contracts, not all source assertions or implementation completion.",
+  "summary": "The original independent review retained fifteen outgoing dependency links and five active overlaps. The confirmed red-team fix adds three incoming QuiverRepresentations prerequisites, for eighteen links total: six other hosted pairs are promoted through StablePeriodicCurved/Zigzag, while the three Quiver pairs were research-only and are now carried here. The retired FoundationsAndLibraryIntegration overlap remains archived. Preserve pinned-library reuse for the general-ring Cartan map, relative projective/injective foundations and representation ring. The original coverage screen (217 active roadmaps, 2007 stage records) is historical; this fix checks the three added endpoint contracts and current promotion state, not a new full screen. The general resolving-subcategory theorem remains a planned extension of the existing projective case. Source contracts do not certify implementation completion.",
   "links": [
     {
       "source": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-0-intrinsic-exact-structures-and-conflation-exact-functors",
@@ -252,6 +252,54 @@
           "quote": "Construct exact categories with duality, symmetric/alternating forms, Grothendieck-Witt and Witt groups, higher hermitian K spaces, localization and source-scoped periodicity."
         }
       ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations#layer-2-the-krull-schmidt-theorem",
+      "target": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-4-finite-dimensional-algebras-and-the-cartan-map",
+      "reason": "Finite-length Krull-Schmidt existence and uniqueness provide the free commutative monoid of finite projective summands, hence the indecomposable-projective basis of split K0 in the finite-dimensional module setting. GEF owns group completion, small-model and exact-category comparisons; it cannot infer this basis merely from Jordan-Hölder. The simple basis is a separate finite-length theorem. Apply only to finite direct sums of nonzero indecomposables, not arbitrary exact categories.",
+      "confidence": "inferred",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations#layer-2-the-krull-schmidt-theorem",
+          "quote": "Two decompositions of a finite-dimensional module into\n  indecomposables have the same number of summands and a **bijection matching the summands up to\n  isomorphism**"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-4-finite-dimensional-algebras-and-the-cartan-map",
+          "quote": "Under the explicit finite, basic/split, and Krull--Schmidt\n  hypotheses supplied by the quiver roadmap, prove that indecomposable projective classes form a\n  basis of `K₀(proj A)` and simple classes form a basis of `G₀(mod A)`."
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations#layer-3-the-structure-of-a-finite-dimensional-algebra",
+      "target": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-4-finite-dimensional-algebras-and-the-cartan-map",
+      "reason": "Reuse the simple-indexed projective covers and composition multiplicities for finite-dimensional A to identify the matrix of the already existing categorical Cartan map. Quiver stores C_Q(i,j)=[P_i:S_j], while GEF stores C_G(i,j)=[P_j:S_i]; prove C_G=transpose(C_Q). Over a general field retain the factors dim_k End(S_i) when comparing to Hom dimensions. GEF owns the basis/matrix comparison, Quiver owns the algebraic matrix; do not reconstruct TauCeti.cartanMap.",
+      "confidence": "inferred",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations#layer-3-the-structure-of-a-finite-dimensional-algebra",
+          "quote": "primarily by the **Jordan-Hölder multiplicities** `Cᵢⱼ = [Pᵢ : Sⱼ]` of `Sⱼ` in the projective cover\n  `Pᵢ`"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-4-finite-dimensional-algebras-and-the-cartan-map",
+          "quote": "its `(i,j)` entry is\n  `[P_j:S_i]`.  Compare this with the quiver roadmap's Cartan matrix"
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations#layer-4-the-euler-form-dimension-vectors-and-reflection-functors",
+      "target": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-5-finite-support-euler-characteristics-and-ext-euler-descent",
+      "reason": "For a finite acyclic quiver and finite-dimensional representations over a field, consume the length-one projective resolution and Ringel Hom-minus-Ext1 identity to compare categorical Ext-Euler with the integer form on dimension vectors. GEF must identify its categorical Ext with the resolution cokernel and prove finite support. No reverse dependency on GEF is needed to construct quiver Ext1. The symmetric graph form is E+E^T, not the composition Cartan matrix. Ungraded only; the path-length-graded bigraded comparison and its q = 1 specialization remain GEF Layers 5–6 work.",
+      "confidence": "inferred",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations#layer-4-the-euler-form-dimension-vectors-and-reflection-functors",
+          "quote": "`eulerForm (dimVector M) (dimVector N) = dim_k Hom(M, N) − dim_k Ext¹(M, N)`"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-5-finite-support-euler-characteristics-and-ext-euler-descent",
+          "quote": "For a finite acyclic quiver, prove that the categorical Ext-Euler form\n  agrees with Tau Ceti's Ringel form on dimension vectors and with the landed projective evaluation."
+        }
+      ]
     }
   ],
   "overlaps": [
@@ -391,19 +439,22 @@
       "source": "tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations#layer-2-the-krull-schmidt-theorem",
       "target": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-4-finite-dimensional-algebras-and-the-cartan-map",
       "recordedIn": "research/blueprint/links/tauceti_TauCetiRoadmap_RepresentationTheory_QuiverRepresentations.json",
-      "state": "present-at-review"
+      "state": "research-only-at-review; now-carried-in-this-packet-links",
+      "note": "The recordedIn host is a partial, unreviewed research packet with no promoted data/links counterpart at the fix base. This pair is now included in this packet's links, using the confirmed red-team contract; this entry retains provenance only."
     },
     {
       "source": "tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations#layer-3-the-structure-of-a-finite-dimensional-algebra",
       "target": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-4-finite-dimensional-algebras-and-the-cartan-map",
       "recordedIn": "research/blueprint/links/tauceti_TauCetiRoadmap_RepresentationTheory_QuiverRepresentations.json",
-      "state": "present-at-review"
+      "state": "research-only-at-review; now-carried-in-this-packet-links",
+      "note": "The recordedIn host is a partial, unreviewed research packet with no promoted data/links counterpart at the fix base. This pair is now included in this packet's links, using the confirmed red-team contract; this entry retains provenance only."
     },
     {
       "source": "tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations#layer-4-the-euler-form-dimension-vectors-and-reflection-functors",
       "target": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-5-finite-support-euler-characteristics-and-ext-euler-descent",
       "recordedIn": "research/blueprint/links/tauceti_TauCetiRoadmap_RepresentationTheory_QuiverRepresentations.json",
-      "state": "present-at-review"
+      "state": "research-only-at-review; now-carried-in-this-packet-links",
+      "note": "The recordedIn host is a partial, unreviewed research packet with no promoted data/links counterpart at the fix base. This pair is now included in this packet's links, using the confirmed red-team contract; this entry retains provenance only."
     },
     {
       "source": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-0-intrinsic-exact-structures-and-conflation-exact-functors",
@@ -510,7 +561,7 @@
   "reviewFollowUp": [
     "Align source prose with the pinned general Cartan and relative-object APIs. Retain the explicit radical-preservation hypotheses.",
     "The general resolving-subcategory extension, graded resolutions, numerical Koszul converse and application-specific comparisons are not certified as implemented by this review.",
-    "All nine existingLinks pairs were checked in current partner packets. Other packets are not independently accepted wholesale by that presence check."
+    "The original nine-pair presence check did not establish atlas coverage: six SPC/Zigzag pairs are promoted, while three Quiver pairs existed only in an unreviewed partial research packet. FIX-RT-LINK-tauceti_TauCetiRoadmap_GrothendieckEulerForms now carries those three in this packet's links with the independently confirmed reasons. The historical existingLinks entries are provenance. The revised packet needs normal independent acceptance/promotion; no other packet is accepted wholesale."
   ],
   "validation": {
     "command": "python3 scripts/check_links.py research/blueprint/links/tauceti_TauCetiRoadmap_GrothendieckEulerForms.json",
@@ -1415,7 +1466,7 @@
     "status": "accepted",
     "reviewer": "independent-review-REV-LINK-tauceti_TauCetiRoadmap_GrothendieckEulerForms",
     "date": "2026-09-23",
-    "notes": "Reviewed every endpoint in full and all six original overlaps. Retain fifteen links, downgrade three unilateral documentary references to inferred, archive one overlap with a retired roadmap, and correct stale baseline construction/scope claims. Eight own stages considered in completeness; no additional unrepresented directed pair justified. Existing nine partner pairs are present. See the report for hypotheses, mathematical checks and limits.",
+    "notes": "Historical independent review of the fifteen outgoing links and six original overlaps: three unilateral documentary references were downgraded to inferred, one retired-roadmap overlap archived, and stale baseline construction/scope claims corrected. Its claim that all nine partner pairs were covered is corrected by the independently confirmed red-team finding: six are promoted through SPC/Zigzag, three Quiver pairs were research-only. The fix adds those three contracts to links; see redteamFix for provenance and the fixes report for validation. The original review status/date are retained as history and do not represent a newly performed review of this revision.",
     "removed": [
       {
         "stages": [
@@ -1448,6 +1499,28 @@
     "graphEdgesAfter": 4446,
     "requiresEdges": 3746,
     "acyclic": true,
-    "lean": "No file changed or compiled."
+    "lean": "No file changed or compiled.",
+    "scope": "Historical original review measurements. existingPairsVerified counts presence in partner research packets, not promotion: only six of those nine pairs reached the atlas. Current three-link repair validation is recorded in redteamFix and the fixes report."
+  },
+  "redteamFix": {
+    "job": "FIX-RT-LINK-tauceti_TauCetiRoadmap_GrothendieckEulerForms",
+    "finding": "RT-LINK-tauceti_TauCetiRoadmap_GrothendieckEulerForms/1",
+    "verification": "research/blueprint/redteam/RT-LINK-tauceti_TauCetiRoadmap_GrothendieckEulerForms.review.json",
+    "agent": "Codex",
+    "session": "codex-J6LwjP",
+    "date": "2026-09-30",
+    "base": "182ee99ce9221908991b1df82141a96a671c7296",
+    "scope": "Append exactly the three confirmed proposedLinks, adding the verifier's ungraded boundary to Quiver 4 → GEF 5. Correct coverage/provenance prose. Original fifteen links, overlaps, requests and six promoted hosted entries are unchanged. Promotion remains the normal reviewed intake operation.",
+    "validation": {
+      "stages": 2840,
+      "edgesBefore": 8249,
+      "edgesAfter": 8252,
+      "repeatEdges": 8252,
+      "researchUnionEdges": 8360,
+      "literalNewQuotes": 6,
+      "acyclic": true,
+      "original15LinksUnchanged": true,
+      "cartanTransposeExample": "passed"
+    }
   }
 }
