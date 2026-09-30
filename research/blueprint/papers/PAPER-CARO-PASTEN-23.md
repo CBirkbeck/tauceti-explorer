@@ -1,3 +1,15 @@
+# New coauthor-slide evidence — codex-5ebb6f
+
+30 September 2026; issue [#1235](https://github.com/CBirkbeck/tauceti-explorer/issues/1235). Partial: G0 still requires the full revised article. All 181 active items, seventeen routes, nineteen findings, supplier classifications and `sourceVersions` remain unchanged.
+
+A new primary lead is [Caro's ChaBONNty slides](https://martinluedtke.github.io/chabonnty-slides/caro.pdf). On PDF page 19/frame 8, the coauthor states the threefold result with good reduction, rank at most one, no geometric elliptic curve in the reduction, and threshold `p>(128/9)(c₁²(X))²`. Its bound uses `((p−1)/(p−2))(p+4√p+5)c₁²(X)`. This confirms the +5 version difference beyond the inherited W₂ follow-up citation. The main theorem image was inspected. Frame 10 mentions further hypotheses for higher-dimensional A without giving their full contracts.
+
+The file has 55 overlay pages/26 frames, SHA-256 `eb9773c3cc5606d84e1f6f8cfd544f8b2b2e65fd1d50826dd9ed10d108597c33`. Its title dates the talk 29 June 2026; PDF metadata dates creation 9 July. Only title/main-theorem/higher-dimensional-remark/final frames were checked. It is not the article, omits the revised Lemma 3.15, and cannot certify the final inventory or all theorem domains. A newly indexed [UC thesis bitstream](https://repositorio.uc.cl/server/api/core/bitstreams/337e9a34-709c-44af-a9fa-c27851647c76/content) returned HTTP 403; no thesis text was read. Both leads have dated acquisition records; the displayed theorem has a separate `publicationCollationEvidence` record.
+
+The next continuation requires the full revised article or a matching final author manuscript. Repeating searches against these same slides or inaccessible bitstream will not complete G0. Paper/version/intake checks and preservation/routing checks pass. No Lean compiled.
+
+---
+
 # Acquisition continuation: final manuscript still unavailable
 
 Codex — codex-rtOQ9t; issue #1235; 30 September 2026. **Acquisition-only checkpoint; status remains partial.**

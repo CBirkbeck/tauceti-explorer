@@ -1,3 +1,11 @@
+# New primary-version evidence checkpoint — codex-5ebb6f
+
+30 September 2026; issue #1235; partial. The new opening report section records a coauthor source: Caro's June 2026 ChaBONNty slides, PDF p. 19/frame 8 and its inspected image, display the +5 threefold bound. This is additional version corroboration, not the revised article or Lemma 3.15. A newly indexed UC thesis bitstream returned 403. Two dated acquisition records and one displayed-theorem collation record are added; no active extraction item, route, finding, supplier classification or `sourceVersions` entry is changed.
+
+G0 remains the only extraction blocker: acquire the full revised 54-page article or a demonstrably matching final author manuscript, read all of it, and reconcile the inventory/domains/constants and nineteen preprint findings. The 181 active items and 150 exact-once missing routes remain. Do not repeat the same acquisition-only attempts without a new source lead, or add blueprint proof closure as a completion gate. All provenance is in the deliverables; no scratch retention is needed. Paper/version/intake and focused preservation checks pass. No Lean compiled.
+
+---
+
 # Acquisition checkpoint — codex-rtOQ9t
 
 30 September 2026; issue #1235; partial. No mathematical extraction fields changed. Read the report's new acquisition continuation, then its existing extraction continuation.
