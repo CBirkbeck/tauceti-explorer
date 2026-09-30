@@ -23474,12 +23474,12 @@
     "REV-RS-14"
    ],
    "prompt": "research/blueprint/prompts/BP-DirichletPadicLFunctions.md",
-   "state": "external",
+   "state": "pending",
    "suppliers": [
     "BP-LocallyAnalyticDistributions",
     "BP-PadicMeasuresIwasawaAlgebras"
    ],
-   "note": "claimed on GitHub issue #713"
+   "note": "released on GitHub issue #713"
   },
   {
    "id": "REV-DirichletPadicLFunctions",
@@ -33303,7 +33303,8 @@
     "REV-PAPER-SMITH-24"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-SMITH-24.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4051"
   },
   {
    "id": "RT-PAPER-FU-24",
@@ -33409,7 +33410,8 @@
     "REV-PAPER-SCHROER-23"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-SCHROER-23.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4058"
   },
   {
    "id": "REV-RT-PAPER-SCHROER-23",
@@ -39078,8 +39080,9 @@
     "REV-PAPER-BENOIST-19"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-BENOIST-19.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4301"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4301",
+   "finishedAt": "2026-09-30T06:57:41Z"
   },
   {
    "id": "RT-PAPER-BREUIL-HELLMANN-SCHRAEN-19",
@@ -39312,8 +39315,9 @@
     "REV-PAPER-ESNAULT-GROECHENIG-20"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-ESNAULT-GROECHENIG-20.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4311"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4311",
+   "finishedAt": "2026-09-30T06:57:44Z"
   },
   {
    "id": "RT-PAPER-BOCKLE-HARRIS-KHARE-ETAL-19",
