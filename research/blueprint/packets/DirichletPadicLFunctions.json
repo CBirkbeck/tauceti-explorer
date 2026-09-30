@@ -10,7 +10,7 @@
     "DirichletPadicLFunctions:L4"
   ],
   "status": "partial",
-  "summary": "Seventeen L3 nodes transport the existing native Teichmüller lift to concrete p-adic integer units, supply the odd-prime angular coordinate and its norm/translation API, and prove its identification with Morita’s p-power limit with exact precision. All791predecessor nodes and661baseline records remain whole.",
+  "summary": "Eleven L3 nodes plan the finite character means used in the KL/Morita analytic argument, from the dyadic modulus and conductor denominator through block reindexing, exact successive differences, norm control and constant mass. All 808 predecessor nodes, 684 baseline records and 16 source findings remain whole.",
   "baseline": {
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
@@ -4802,6 +4802,48 @@
         "module": "TauCeti/NumberTheory/LocalField/Teichmuller.lean",
         "provides": "The native Teichmüller value is killed byq−1, withq the natural cardinality of the residue field.",
         "checked": "Complete declaration and ambient hypotheses read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 or TauCetif790474821cf4256814db967cb154e7af3d0c369 on30September2026. The complete OddAngularProbe checks actual native Tau Ceti lift, residue transport, torsion uniqueness, normalized norm and Frobenius limit. Its integer-ring equivalence and exponent-one reduction continuity are explicit PMIA inputs; the suggested file supplies their existing declarations."
+      },
+      {
+        "ref": "mathlib:Finset.mul_sum",
+        "kind": "lemma",
+        "module": "Mathlib/Algebra/BigOperators/Ring/Finset.lean",
+        "provides": "A scalar product distributes over a finite sum in a semiring.",
+        "checked": "Complete statement and ambient hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 30 September 2026. The complete CharacterMeanProbe checks native arithmetic, character casts, bundled linearity, normalization, block identities, endpoint comparison, exact constant mass and ultrametric estimate. Native core natural lcm and divisibility statements were also read in the matching Lean toolchain."
+      },
+      {
+        "ref": "mathlib:Finset.sum_mul",
+        "kind": "lemma",
+        "module": "Mathlib/Algebra/BigOperators/Ring/Finset.lean",
+        "provides": "A finite sum multiplied by a scalar is the finite sum of the scalar products.",
+        "checked": "Complete statement and ambient hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 30 September 2026. The complete CharacterMeanProbe checks native arithmetic, character casts, bundled linearity, normalization, block identities, endpoint comparison, exact constant mass and ultrametric estimate. Native core natural lcm and divisibility statements were also read in the matching Lean toolchain."
+      },
+      {
+        "ref": "mathlib:LinearMap",
+        "kind": "structure",
+        "module": "Mathlib/Algebra/Module/LinearMap/Defs.lean",
+        "provides": "The existing bundled linear map between native modules; the arithmetic mean uses the sequence module and coefficient field.",
+        "checked": "Complete statement and ambient hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 30 September 2026. The complete CharacterMeanProbe checks native arithmetic, character casts, bundled linearity, normalization, block identities, endpoint comparison, exact constant mass and ultrametric estimate. Native core natural lcm and divisibility statements were also read in the matching Lean toolchain."
+      },
+      {
+        "ref": "mathlib:Nat.dvd_lcm_of_dvd_left",
+        "kind": "theorem",
+        "module": "Mathlib/Data/Nat/GCD/Basic.lean",
+        "provides": "If a divides b then a divides Nat.lcm b c; use reflexive divisibility for the conductor factor.",
+        "checked": "Complete statement and ambient hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 30 September 2026. The complete CharacterMeanProbe checks native arithmetic, character casts, bundled linearity, normalization, block identities, endpoint comparison, exact constant mass and ultrametric estimate. Native core natural lcm and divisibility statements were also read in the matching Lean toolchain."
+      },
+      {
+        "ref": "mathlib:Nat.dvd_lcm_of_dvd_right",
+        "kind": "theorem",
+        "module": "Mathlib/Data/Nat/GCD/Basic.lean",
+        "provides": "If a divides b then a divides Nat.lcm c b; use reflexive divisibility for the principal-disc modulus.",
+        "checked": "Complete statement and ambient hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 30 September 2026. The complete CharacterMeanProbe checks native arithmetic, character casts, bundled linearity, normalization, block identities, endpoint comparison, exact constant mass and ultrametric estimate. Native core natural lcm and divisibility statements were also read in the matching Lean toolchain."
+      },
+      {
+        "ref": "mathlib:ZMod.natCast_eq_zero_iff",
+        "kind": "theorem",
+        "module": "Mathlib/Data/ZMod/Basic.lean",
+        "provides": "The natural scalar a vanishes in ZMod b exactly when b divides a.",
+        "checked": "Complete statement and ambient hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 30 September 2026. The complete CharacterMeanProbe checks native arithmetic, character casts, bundled linearity, normalization, block identities, endpoint comparison, exact constant mass and ultrametric estimate. Native core natural lcm and divisibility statements were also read in the matching Lean toolchain."
       }
     ]
   },
@@ -4878,6 +4920,92 @@
       "readSections": [
         "Section1, published255–256/PDF1–2, complete page images; definitions, Lemma1, Theorem1 and recurrence",
         "Published257/PDF3, beginning ofSection2 only; Sections2–3 proofs are not yet read"
+      ]
+    },
+    {
+      "id": "KubotaLeopoldt-1964",
+      "title": "Eine p-adische Theorie der Zetawerte. I",
+      "authors": "T. Kubota and H. W. Leopoldt",
+      "edition": "Journal für die reine und angewandte Mathematik 214/215 (1964), pp.328–339",
+      "url": "https://gdz.sub.uni-goettingen.de/id/PPN243919689_0214_0215",
+      "doi": "10.1515/crll.1964.214-215.328",
+      "accessed": "2026-09-30T18:38:03.858433+00:00",
+      "readSections": [
+        "Complete published pp.328–339 from the official GDZ page images; Section 2 pp.331–332 reread for finite means and the block identity."
+      ],
+      "pageImages": [
+        {
+          "page": 328,
+          "url": "https://gdz.sub.uni-goettingen.de/content/PPN243919689_0214_0215/1000/0/00000334.jpg",
+          "sha256": "28b413d6145ed08fb9f36c8b02abcc0ce23ae2c0f88cd44161bcd9891033373f",
+          "bytes": 283344
+        },
+        {
+          "page": 329,
+          "url": "https://gdz.sub.uni-goettingen.de/content/PPN243919689_0214_0215/1000/0/00000335.jpg",
+          "sha256": "e7ede6ac649afd5d3b0f4aa4f8325dc6d255fe5463a0259320652b42e39c0414",
+          "bytes": 302048
+        },
+        {
+          "page": 330,
+          "url": "https://gdz.sub.uni-goettingen.de/content/PPN243919689_0214_0215/1000/0/00000336.jpg",
+          "sha256": "6b8dcad5bf3f7e0899b63888cab5ce86ef37299ff0f6a06dabe68d2a7c5ef902",
+          "bytes": 224469
+        },
+        {
+          "page": 331,
+          "url": "https://gdz.sub.uni-goettingen.de/content/PPN243919689_0214_0215/1000/0/00000337.jpg",
+          "sha256": "5e60c227d533ae21dd48629a307c5b03c1484a04a955e1cf760c8838083af3d9",
+          "bytes": 260444
+        },
+        {
+          "page": 332,
+          "url": "https://gdz.sub.uni-goettingen.de/content/PPN243919689_0214_0215/1000/0/00000338.jpg",
+          "sha256": "13323e7b6e30f78478ada700e1616d2693cee6c4413ad4dea49054bde6ed8f37",
+          "bytes": 218891
+        },
+        {
+          "page": 333,
+          "url": "https://gdz.sub.uni-goettingen.de/content/PPN243919689_0214_0215/1000/0/00000339.jpg",
+          "sha256": "3e645c3324cae35bf6368d10ad325c1b4206bd5bcc6adb695f279ab32c470e71",
+          "bytes": 238222
+        },
+        {
+          "page": 334,
+          "url": "https://gdz.sub.uni-goettingen.de/content/PPN243919689_0214_0215/1000/0/00000340.jpg",
+          "sha256": "0252ad297fedf5fe876863b4a28a86f30a9faed4c97f445f33412521006ea6ac",
+          "bytes": 216050
+        },
+        {
+          "page": 335,
+          "url": "https://gdz.sub.uni-goettingen.de/content/PPN243919689_0214_0215/1000/0/00000341.jpg",
+          "sha256": "41521a6a72f721d0f02eebec40500f368905bdce9ed9b90a38362764f4b52076",
+          "bytes": 218106
+        },
+        {
+          "page": 336,
+          "url": "https://gdz.sub.uni-goettingen.de/content/PPN243919689_0214_0215/1000/0/00000342.jpg",
+          "sha256": "a70716bc707a2f8273213893c5d441e220d8c91f1b50389de102a55a9c612c78",
+          "bytes": 260312
+        },
+        {
+          "page": 337,
+          "url": "https://gdz.sub.uni-goettingen.de/content/PPN243919689_0214_0215/1000/0/00000343.jpg",
+          "sha256": "c3c6a0078cd0838b6419bdd86e2825b0fc3f1b43bf58365e37d130183f846b35",
+          "bytes": 248059
+        },
+        {
+          "page": 338,
+          "url": "https://gdz.sub.uni-goettingen.de/content/PPN243919689_0214_0215/1000/0/00000344.jpg",
+          "sha256": "54c8db54c15f50536091f4a684c4291f3837a0126224df0b10a8f8b4a85f4c20",
+          "bytes": 237934
+        },
+        {
+          "page": 339,
+          "url": "https://gdz.sub.uni-goettingen.de/content/PPN243919689_0214_0215/1000/0/00000345.jpg",
+          "sha256": "2e6d0a320b1a12bd058e8d09ba3d8e17512df2c2fdf5bd9de9a40607be96a180",
+          "bytes": 211792
+        }
       ]
     }
   ],
@@ -54480,6 +54608,762 @@
       "acceptance": [
         "This closes the limit normalization comparison. It does not prove analyticity ofGamma or convergence of the character-weighted means."
       ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/morita-modulus",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The modulus of the principal analytic disc",
+      "kind": "construction",
+      "statement": "Define the natural number q(p)=4 for p=2 and q(p)=p otherwise. This is the exact modulus used by KL and Morita, matching the two already planned angular coordinates.",
+      "hypotheses": [
+        "p is prime, q=4 if p=2 and q=p otherwise. The positive natural number f is the level of the native Dirichlet character χ, extended by zero away from units modulo f. Set N_n=lcm(f,q)q^n.",
+        "K is a field and F is a natural-number sequence with values in K. Each statement involving denominator cancellation assumes characteristic zero explicitly. Source applications use a primitive χ of conductor f in a p-adic extension; the finite algebra also works for imprimitive characters at their specified positive level.",
+        "The source analytic function enters later by evaluating F(a)=A(⟨a⟩) when p does not divide a, using the preceding odd-prime or conductor-four angular coordinate. There is no value of A at a nonunit to supply. These finite constructions impose no analytic topology on the sequence space."
+      ],
+      "proofSteps": [
+        "Use a decidable case split on p=2 in the native natural numbers.",
+        "The dyadic branch evaluates to 4; the other branch to p. Positivity follows from primality, and p divides q in either branch.",
+        "This names the source arithmetic parameter only. It defines no residue ring, principal subgroup or analytic disc; those carriers and coordinate maps already exist."
+      ],
+      "prerequisites": [],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/FiniteMean",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.moritaModulus"
+      },
+      "sources": [
+        {
+          "sourceId": "KubotaLeopoldt-1964",
+          "locator": "Section 2, published pp.331–332: equation (0), finite norm bound, block expansion and equation (5); constant function in Section 3, pp.334–335. Complete published pp.328–339 read; pp.331–332 freshly reread.",
+          "excerpt": "Konstruktion der χ-Mittel",
+          "match": "These nodes isolate the finite arithmetic in the source means. The source analytic input is sampled as F(a)=A(⟨a⟩) on p-units. Values elsewhere are immaterial. No analytic carrier or limiting functional is reconstructed here."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedMoritaFiniteMeanTests.modulus_dyadic",
+          "kind": "computation",
+          "statement": "q(2)=4."
+        },
+        {
+          "name": "SuggestedMoritaFiniteMeanTests.modulus_odd",
+          "kind": "computation",
+          "statement": "q(3)=3."
+        },
+        {
+          "name": "SuggestedMoritaFiniteMeanTests.modulus_not_two",
+          "kind": "non-example",
+          "statement": "q(2) is not 2."
+        }
+      ],
+      "acceptance": [
+        "The dyadic conductor is four, including at the first averaging level."
+      ],
+      "uses": [
+        {
+          "where": "KL Section 2 equation (0)",
+          "how": "Determines the starting modulus and the number of blocks between successive levels."
+        },
+        {
+          "where": "Morita Section 2, pp.257–258",
+          "how": "Matches the principal-coordinate radius and allowable translations."
+        },
+        {
+          "where": "Subsequent Taylor estimates",
+          "how": "Specifies the q-power derivative normalization; generic analytic estimates remain with LAD."
+        }
+      ],
+      "api": [
+        {
+          "name": "DirichletPadic.moritaModulus_two",
+          "role": "simp",
+          "statement": "q(2)=4."
+        },
+        {
+          "name": "DirichletPadic.moritaModulus_odd",
+          "role": "simp",
+          "statement": "If p≠2, q(p)=p."
+        },
+        {
+          "name": "DirichletPadic.moritaModulus_pos",
+          "role": "relation",
+          "statement": "For prime p, q(p)>0."
+        },
+        {
+          "name": "DirichletPadic.moritaModulus_prime_dvd",
+          "role": "relation",
+          "statement": "p divides q(p)."
+        }
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/morita-mean-level",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The exact character-mean denominator",
+      "kind": "construction",
+      "statement": "Define N_n=lcm(f,q(p))q(p)^n in the native natural numbers. In particular N_0=lcm(f,q), N_(n+1)=qN_n, and f, q and p divide every N_n.",
+      "hypotheses": [
+        "p is prime, q=4 if p=2 and q=p otherwise. The positive natural number f is the level of the native Dirichlet character χ, extended by zero away from units modulo f. Set N_n=lcm(f,q)q^n.",
+        "K is a field and F is a natural-number sequence with values in K. Each statement involving denominator cancellation assumes characteristic zero explicitly. Source applications use a primitive χ of conductor f in a p-adic extension; the finite algebra also works for imprimitive characters at their specified positive level.",
+        "The source analytic function enters later by evaluating F(a)=A(⟨a⟩) when p does not divide a, using the preceding odd-prime or conductor-four angular coordinate. There is no value of A at a nonunit to supply. These finite constructions impose no analytic topology on the sequence space."
+      ],
+      "proofSteps": [
+        "Multiply the native least common multiple of f and q by q^n. Natural powers and products require no new carrier.",
+        "At n=0 the power is one. The successor identity follows by the native power recursion and associativity.",
+        "The two native least-common-multiple divisibility facts, followed by multiplication and transitivity, give f∣N_n, q∣N_n and p∣N_n. The pinned Nat.dvd_lcm_of_dvd_left/right declarations supply the first two with the reflexive divisibility input.",
+        "For f>0 and prime p, both lcm factors and the power are positive, by the native core lcm positivity statement and elementary natural arithmetic. The complete level_pos probe verifies these hypotheses."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/morita-modulus",
+        "mathlib:Nat.dvd_lcm_of_dvd_left",
+        "mathlib:Nat.dvd_lcm_of_dvd_right"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/FiniteMean",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.moritaLevel"
+      },
+      "sources": [
+        {
+          "sourceId": "KubotaLeopoldt-1964",
+          "locator": "Section 2, published pp.331–332: equation (0), finite norm bound, block expansion and equation (5); constant function in Section 3, pp.334–335. Complete published pp.328–339 read; pp.331–332 freshly reread.",
+          "excerpt": "Konstruktion der χ-Mittel",
+          "match": "These nodes isolate the finite arithmetic in the source means. The source analytic input is sampled as F(a)=A(⟨a⟩) on p-units. Values elsewhere are immaterial. No analytic carrier or limiting functional is reconstructed here."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedMoritaFiniteMeanTests.level_initial",
+          "kind": "degenerate",
+          "statement": "N_0=3 for p=3,f=1."
+        },
+        {
+          "name": "SuggestedMoritaFiniteMeanTests.level_dyadic_conductor",
+          "kind": "computation",
+          "statement": "N_0=12 for p=2,f=3."
+        },
+        {
+          "name": "SuggestedMoritaFiniteMeanTests.level_dyadic_step",
+          "kind": "computation",
+          "statement": "N_1=48 for p=2,f=3."
+        },
+        {
+          "name": "SuggestedMoritaFiniteMeanTests.level_overlap",
+          "kind": "computation",
+          "statement": "N_0=8 for p=2,f=8."
+        },
+        {
+          "name": "SuggestedMoritaFiniteMeanTests.level_not_product",
+          "kind": "non-example",
+          "statement": "For p=2,f=8 the denominator is not the product 32."
+        }
+      ],
+      "acceptance": [
+        "Use lcm, not the product fq; retain its conductor factor even when f is prime to p."
+      ],
+      "uses": [
+        {
+          "where": "Finite mean normalization",
+          "how": "Supplies the full denominator, not the number of surviving unit summands."
+        },
+        {
+          "where": "Block reindexing",
+          "how": "Makes both the character and the p-unit restriction invariant under each block shift."
+        },
+        {
+          "where": "KL finite norm estimate",
+          "how": "Determines the inverse-denominator norm before uniform analytic estimates are available."
+        }
+      ],
+      "api": [
+        {
+          "name": "DirichletPadic.moritaLevel_zero",
+          "role": "simp",
+          "statement": "N_0=lcm(f,q)."
+        },
+        {
+          "name": "DirichletPadic.moritaLevel_succ",
+          "role": "relation",
+          "statement": "N_(n+1)=qN_n."
+        },
+        {
+          "name": "DirichletPadic.moritaLevel_pos",
+          "role": "relation",
+          "statement": "If f>0 and p is prime, N_n>0."
+        },
+        {
+          "name": "DirichletPadic.moritaLevel_conductor_dvd",
+          "role": "relation",
+          "statement": "f divides N_n."
+        },
+        {
+          "name": "DirichletPadic.moritaLevel_modulus_dvd",
+          "role": "relation",
+          "statement": "q divides N_n."
+        },
+        {
+          "name": "DirichletPadic.moritaLevel_prime_dvd",
+          "role": "relation",
+          "statement": "p divides N_n."
+        }
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/morita-finite-mean",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Finite character means on sampled values",
+      "kind": "construction",
+      "statement": "Construct the native K-linear map M^n_χ:(ℕ→K)→K with M^n_χ(F)=N_n⁻¹ ∑_(0≤a<N_n, p∤a) χ(a mod f)F(a). The inverse is taken in K. The source analytic mean is this map applied to its angular samples.",
+      "hypotheses": [
+        "p is prime, q=4 if p=2 and q=p otherwise. The positive natural number f is the level of the native Dirichlet character χ, extended by zero away from units modulo f. Set N_n=lcm(f,q)q^n.",
+        "K is a field and F is a natural-number sequence with values in K. Each statement involving denominator cancellation assumes characteristic zero explicitly. Source applications use a primitive χ of conductor f in a p-adic extension; the finite algebra also works for imprimitive characters at their specified positive level.",
+        "The source analytic function enters later by evaluating F(a)=A(⟨a⟩) when p does not divide a, using the preceding odd-prime or conductor-four angular coordinate. There is no value of A at a nonunit to supply. These finite constructions impose no analytic topology on the sequence space."
+      ],
+      "proofSteps": [
+        "Use the native sequence module and native LinearMap. Its value is the finite sum with an explicit zero branch whenever p divides a, multiplied by N_n⁻¹.",
+        "Pointwise addition and scalar multiplication distribute through each weighted summand and then through the finite sum. Native Finset.mul_sum and sum_mul provide the scalar distribution. No completeness or analytic property is required.",
+        "Zero, addition and scalar multiplication follow from the bundled linear map. If two sequences agree at all surviving indices, their finite means agree term by term, so their arbitrary values on nonunits do not matter.",
+        "The complete mean construction, mean_apply and mean_congr probe verify the actual native formula and support. Its interval, normalization, block, norm and constant-function formulas are separately promoted below."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/morita-mean-level",
+        "mathlib:DirichletCharacter",
+        "mathlib:LinearMap",
+        "mathlib:Finset.mul_sum",
+        "mathlib:Finset.sum_mul"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/FiniteMean",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.moritaFiniteMean"
+      },
+      "sources": [
+        {
+          "sourceId": "KubotaLeopoldt-1964",
+          "locator": "Section 2, published pp.331–332: equation (0), finite norm bound, block expansion and equation (5); constant function in Section 3, pp.334–335. Complete published pp.328–339 read; pp.331–332 freshly reread.",
+          "excerpt": "Konstruktion der χ-Mittel",
+          "match": "These nodes isolate the finite arithmetic in the source means. The source analytic input is sampled as F(a)=A(⟨a⟩) on p-units. Values elsewhere are immaterial. No analytic carrier or limiting functional is reconstructed here."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedMoritaFiniteMeanTests.mean_zero",
+          "kind": "degenerate",
+          "statement": "The mean of the zero sequence is zero."
+        },
+        {
+          "name": "SuggestedMoritaFiniteMeanTests.mean_dyadic_constant",
+          "kind": "computation",
+          "statement": "For p=2,f=1,n=0 the constant-one mean is 1/2."
+        },
+        {
+          "name": "SuggestedMoritaFiniteMeanTests.mean_three_constant",
+          "kind": "computation",
+          "statement": "For p=3,f=1,n=0 it is 2/3."
+        },
+        {
+          "name": "SuggestedMoritaFiniteMeanTests.mean_dyadic_linear",
+          "kind": "computation",
+          "statement": "For p=2,f=1,n=0 and F(a)=a it is 1."
+        },
+        {
+          "name": "SuggestedMoritaFiniteMeanTests.mean_not_probability",
+          "kind": "non-example",
+          "statement": "The dyadic constant-one mean is not 1."
+        },
+        {
+          "name": "SuggestedMoritaFiniteMeanTests.mean_nonunits_ignored",
+          "kind": "characterisation",
+          "statement": "At p=2,f=1,n=0, equality of F and G at 1 and 3 suffices for equality of means."
+        }
+      ],
+      "acceptance": [
+        "This is a finite arithmetic functional on samples, without a bounded-measure or limiting-distribution assertion."
+      ],
+      "uses": [
+        {
+          "where": "KL Section 2 equation (0), Morita Section 2",
+          "how": "Provides the exact finite arithmetic operator on the analytic angular samples."
+        },
+        {
+          "where": "KL block and Taylor argument",
+          "how": "Separates finite reindexing from analytic expansion and norm convergence."
+        },
+        {
+          "where": "Constant function and interpolation normalization",
+          "how": "Retains the p-depletion factor 1−1/p."
+        }
+      ],
+      "api": [
+        {
+          "name": "DirichletPadic.moritaFiniteMean_apply",
+          "role": "projection",
+          "statement": "The defining normalized finite sum."
+        },
+        {
+          "name": "DirichletPadic.moritaFiniteMean_zero",
+          "role": "simp",
+          "statement": "M(0)=0."
+        },
+        {
+          "name": "DirichletPadic.moritaFiniteMean_add",
+          "role": "structure",
+          "statement": "M(F+G)=M(F)+M(G)."
+        },
+        {
+          "name": "DirichletPadic.moritaFiniteMean_smul",
+          "role": "structure",
+          "statement": "M(cF)=cM(F)."
+        },
+        {
+          "name": "DirichletPadic.moritaFiniteMean_congr",
+          "role": "characterisation",
+          "statement": "Agreement on the surviving finite support gives equal means."
+        },
+        {
+          "name": "DirichletPadic.moritaFiniteMean_normalization",
+          "role": "relation",
+          "statement": "Multiplication by N_n recovers the finite sum under characteristic zero and positive f; promoted below."
+        },
+        {
+          "name": "DirichletPadic.moritaFiniteMean_source_interval",
+          "role": "compatibility",
+          "statement": "The same formula uses 1≤a≤N_n; promoted below."
+        },
+        {
+          "name": "DirichletPadic.moritaFiniteMean_blocks",
+          "role": "relation",
+          "statement": "The next mean is the average of the q translated means; promoted below."
+        },
+        {
+          "name": "DirichletPadic.moritaFiniteMean_difference",
+          "role": "relation",
+          "statement": "The successive difference is the average of translated differences; promoted below."
+        },
+        {
+          "name": "DirichletPadic.moritaFiniteMean_norm",
+          "role": "compatibility",
+          "statement": "The finite norm bound retains the inverse-denominator norm; promoted below."
+        },
+        {
+          "name": "DirichletPadic.moritaFiniteMean_trivial_constant",
+          "role": "simp",
+          "statement": "For the conductor-one character and F=1 the value is 1−1/p; promoted below."
+        }
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/morita-mean-normalization",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Clearing the finite-mean denominator",
+      "kind": "lemma",
+      "statement": "Assume K has characteristic zero and f>0. Then N_n M^n_χ(F)=∑_(0≤a<N_n,p∤a) χ(a)F(a).",
+      "hypotheses": [
+        "p is prime, q=4 if p=2 and q=p otherwise. The positive natural number f is the level of the native Dirichlet character χ, extended by zero away from units modulo f. Set N_n=lcm(f,q)q^n.",
+        "K is a field and F is a natural-number sequence with values in K. Each statement involving denominator cancellation assumes characteristic zero explicitly. Source applications use a primitive χ of conductor f in a p-adic extension; the finite algebra also works for imprimitive characters at their specified positive level.",
+        "The source analytic function enters later by evaluating F(a)=A(⟨a⟩) when p does not divide a, using the preceding odd-prime or conductor-four angular coordinate. There is no value of A at a nonunit to supply. These finite constructions impose no analytic topology on the sequence space."
+      ],
+      "proofSteps": [
+        "The preceding level positivity gives N_n≠0 in ℕ. The injective characteristic-zero natural cast makes N_n nonzero in K.",
+        "Unfold the finite mean and cancel N_n against its inverse. The complete mean_normalization probe checks exactly these side conditions."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/morita-finite-mean",
+        "DirichletPadicLFunctions:L3/morita-mean-level"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/FiniteMean",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.moritaFiniteMean_normalization"
+      },
+      "sources": [
+        {
+          "sourceId": "KubotaLeopoldt-1964",
+          "locator": "Section 2, published pp.331–332: equation (0), finite norm bound, block expansion and equation (5); constant function in Section 3, pp.334–335. Complete published pp.328–339 read; pp.331–332 freshly reread.",
+          "excerpt": "Konstruktion der χ-Mittel",
+          "match": "These nodes isolate the finite arithmetic in the source means. The source analytic input is sampled as F(a)=A(⟨a⟩) on p-units. Values elsewhere are immaterial. No analytic carrier or limiting functional is reconstructed here."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedMoritaFiniteMeanTests.mean_scaled_linear",
+          "kind": "computation",
+          "statement": "At p=2,f=1,n=0 and F(a)=a, four times the mean is four."
+        }
+      ],
+      "acceptance": [
+        "This cancellation is not asserted over a field in which the denominator vanishes."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/morita-mean-source-interval",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The source interval for the finite mean",
+      "kind": "comparison",
+      "statement": "For every sampled sequence F, the finite mean equals N_n⁻¹ ∑_(1≤a≤N_n,p∤a) χ(a)F(a).",
+      "hypotheses": [
+        "p is prime, q=4 if p=2 and q=p otherwise. The positive natural number f is the level of the native Dirichlet character χ, extended by zero away from units modulo f. Set N_n=lcm(f,q)q^n.",
+        "K is a field and F is a natural-number sequence with values in K. Each statement involving denominator cancellation assumes characteristic zero explicitly. Source applications use a primitive χ of conductor f in a p-adic extension; the finite algebra also works for imprimitive characters at their specified positive level.",
+        "The source analytic function enters later by evaluating F(a)=A(⟨a⟩) when p does not divide a, using the preceding odd-prime or conductor-four angular coordinate. There is no value of A at a nonunit to supply. These finite constructions impose no analytic topology on the sequence space."
+      ],
+      "proofSteps": [
+        "The summands at 0 and N_n are both zero because p divides both endpoints. This does not require any periodicity or continuity of F.",
+        "Expand the two successor range sums: their common interior sums differ only by those zero endpoints. Reindex the shifted range by a↦a+1 to obtain the closed interval from 1 to N_n.",
+        "The complete mean_source_interval probe proves the finite bijection and endpoint cancellation, so the suggested range convention agrees exactly with KL/Morita equation (0)."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/morita-finite-mean",
+        "DirichletPadicLFunctions:L3/morita-mean-level"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/FiniteMean",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.moritaFiniteMean_source_interval"
+      },
+      "sources": [
+        {
+          "sourceId": "KubotaLeopoldt-1964",
+          "locator": "Section 2, published pp.331–332: equation (0), finite norm bound, block expansion and equation (5); constant function in Section 3, pp.334–335. Complete published pp.328–339 read; pp.331–332 freshly reread.",
+          "excerpt": "Konstruktion der χ-Mittel",
+          "match": "These nodes isolate the finite arithmetic in the source means. The source analytic input is sampled as F(a)=A(⟨a⟩) on p-units. Values elsewhere are immaterial. No analytic carrier or limiting functional is reconstructed here."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedMoritaFiniteMeanTests.mean_endpoint_linear",
+          "kind": "compatibility",
+          "statement": "At p=2,f=1,n=0 the value is (F(1)+F(3))/4."
+        }
+      ],
+      "acceptance": [
+        "Neither F(0)=F(N_n) nor any extension of the angular coordinate to nonunits is required."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/morita-mean-character-period",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The character is unchanged across averaging blocks",
+      "kind": "lemma",
+      "statement": "For natural a,z, χ(a+N_nz mod f)=χ(a mod f).",
+      "hypotheses": [
+        "p is prime, q=4 if p=2 and q=p otherwise. The positive natural number f is the level of the native Dirichlet character χ, extended by zero away from units modulo f. Set N_n=lcm(f,q)q^n.",
+        "K is a field and F is a natural-number sequence with values in K. Each statement involving denominator cancellation assumes characteristic zero explicitly. Source applications use a primitive χ of conductor f in a p-adic extension; the finite algebra also works for imprimitive characters at their specified positive level.",
+        "The source analytic function enters later by evaluating F(a)=A(⟨a⟩) when p does not divide a, using the preceding odd-prime or conductor-four angular coordinate. There is no value of A at a nonunit to supply. These finite constructions impose no analytic topology on the sequence space."
+      ],
+      "proofSteps": [
+        "Because f divides N_n, the native residue of N_n in ZMod f is zero, by ZMod.natCast_eq_zero_iff.",
+        "Reduce the sum a+N_nz using ring-homomorphism laws. Its residue is that of a. Apply the same native character to the two equal residues.",
+        "The complete weight_translate probe checks the actual residue cast. No periodicity of the sampled analytic function is claimed."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/morita-mean-level",
+        "mathlib:DirichletCharacter",
+        "mathlib:ZMod.natCast_eq_zero_iff"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/FiniteMean",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.moritaMean_character_period"
+      },
+      "sources": [
+        {
+          "sourceId": "KubotaLeopoldt-1964",
+          "locator": "Section 2, published pp.331–332: equation (0), finite norm bound, block expansion and equation (5); constant function in Section 3, pp.334–335. Complete published pp.328–339 read; pp.331–332 freshly reread.",
+          "excerpt": "Konstruktion der χ-Mittel",
+          "match": "These nodes isolate the finite arithmetic in the source means. The source analytic input is sampled as F(a)=A(⟨a⟩) on p-units. Values elsewhere are immaterial. No analytic carrier or limiting functional is reconstructed here."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedMoritaFiniteMeanTests.character_period_twelve",
+          "kind": "compatibility",
+          "statement": "At p=3,f=4 the level-zero shift is 12z and every character value is unchanged."
+        },
+        {
+          "name": "SuggestedMoritaFiniteMeanTests.character_period_missing_conductor",
+          "kind": "non-example",
+          "statement": "Modulo 4, the residues of 1 and 1+3 differ; a shift merely by p need not preserve a conductor-four character."
+        }
+      ],
+      "acceptance": [
+        "The full conductor multiple, not only the principal-disc modulus, is essential."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/morita-mean-support-period",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The unit restriction is unchanged across blocks",
+      "kind": "lemma",
+      "statement": "For natural a,z, p divides a+N_nz if and only if p divides a.",
+      "hypotheses": [
+        "p is prime, q=4 if p=2 and q=p otherwise. The positive natural number f is the level of the native Dirichlet character χ, extended by zero away from units modulo f. Set N_n=lcm(f,q)q^n.",
+        "K is a field and F is a natural-number sequence with values in K. Each statement involving denominator cancellation assumes characteristic zero explicitly. Source applications use a primitive χ of conductor f in a p-adic extension; the finite algebra also works for imprimitive characters at their specified positive level.",
+        "The source analytic function enters later by evaluating F(a)=A(⟨a⟩) when p does not divide a, using the preceding odd-prime or conductor-four angular coordinate. There is no value of A at a nonunit to supply. These finite constructions impose no analytic topology on the sequence space."
+      ],
+      "proofSteps": [
+        "The level is divisible by p, so N_nz is divisible by p.",
+        "Apply the elementary natural divisibility equivalence for adding a known multiple. The complete support_translate probe checks both directions without assuming a is a unit."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/morita-mean-level"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/FiniteMean",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.moritaMean_support_period"
+      },
+      "sources": [
+        {
+          "sourceId": "KubotaLeopoldt-1964",
+          "locator": "Section 2, published pp.331–332: equation (0), finite norm bound, block expansion and equation (5); constant function in Section 3, pp.334–335. Complete published pp.328–339 read; pp.331–332 freshly reread.",
+          "excerpt": "Konstruktion der χ-Mittel",
+          "match": "These nodes isolate the finite arithmetic in the source means. The source analytic input is sampled as F(a)=A(⟨a⟩) on p-units. Values elsewhere are immaterial. No analytic carrier or limiting functional is reconstructed here."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedMoritaFiniteMeanTests.support_period_three",
+          "kind": "compatibility",
+          "statement": "Divisibility by 3 is unchanged by adding 12z."
+        }
+      ],
+      "acceptance": [
+        "The same identity transports the complementary p-unit support, including its excluded endpoints."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/morita-mean-blocks",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Reindexing the next finite mean into q blocks",
+      "kind": "theorem",
+      "statement": "For every sampled sequence F, M^(n+1)_χ(F)=q⁻¹ ∑_(0≤z<q) M^n_χ(a↦F(a+N_nz)).",
+      "hypotheses": [
+        "p is prime, q=4 if p=2 and q=p otherwise. The positive natural number f is the level of the native Dirichlet character χ, extended by zero away from units modulo f. Set N_n=lcm(f,q)q^n.",
+        "K is a field and F is a natural-number sequence with values in K. Each statement involving denominator cancellation assumes characteristic zero explicitly. Source applications use a primitive χ of conductor f in a p-adic extension; the finite algebra also works for imprimitive characters at their specified positive level.",
+        "The source analytic function enters later by evaluating F(a)=A(⟨a⟩) when p does not divide a, using the preceding odd-prime or conductor-four angular coordinate. There is no value of A at a nonunit to supply. These finite constructions impose no analytic topology on the sequence space."
+      ],
+      "proofSteps": [
+        "Use N_(n+1)=qN_n. Partition 0≤b<qN_n by b=a+N_nz with 0≤a<N_n and 0≤z<q. The complete sum_blocks helper proves the finite sum identity by induction on the number of blocks, using successive interval concatenation.",
+        "In each block, the support-period lemma replaces p∤(a+N_nz) by p∤a and the character-period lemma replaces χ(a+N_nz) by χ(a). The test sequence remains shifted; it is not periodic.",
+        "Split the inverse of the product qN_n in the field and distribute the scalar N_n⁻¹ through the finite outer sum. This gives the stated mean of translated sequences.",
+        "The complete mean_blocks probe proves the formula even before nonzero-denominator cancellation. The source application then substitutes F(a)=A(⟨a⟩); the earlier angular translation formulas supply the later Taylor increments."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/morita-finite-mean",
+        "DirichletPadicLFunctions:L3/morita-mean-level",
+        "DirichletPadicLFunctions:L3/morita-mean-character-period",
+        "DirichletPadicLFunctions:L3/morita-mean-support-period",
+        "mathlib:Finset.mul_sum"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/FiniteMean",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.moritaFiniteMean_blocks"
+      },
+      "sources": [
+        {
+          "sourceId": "KubotaLeopoldt-1964",
+          "locator": "Section 2, published pp.331–332: equation (0), finite norm bound, block expansion and equation (5); constant function in Section 3, pp.334–335. Complete published pp.328–339 read; pp.331–332 freshly reread.",
+          "excerpt": "Konstruktion der χ-Mittel",
+          "match": "These nodes isolate the finite arithmetic in the source means. The source analytic input is sampled as F(a)=A(⟨a⟩) on p-units. Values elsewhere are immaterial. No analytic carrier or limiting functional is reconstructed here."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedMoritaFiniteMeanTests.mean_block_dyadic",
+          "kind": "compatibility",
+          "statement": "At p=2,f=1, level one is one quarter of the sum of the four level-zero translated means with shifts 4z."
+        }
+      ],
+      "acceptance": [
+        "The dyadic outer sum has four blocks. No infinite series or limit is interchanged with it."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/morita-mean-difference",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The exact successive-mean difference",
+      "kind": "lemma",
+      "statement": "In characteristic zero, M^(n+1)_χ(F)−M^n_χ(F)=q⁻¹ ∑_(0≤z<q) M^n_χ(a↦F(a+N_nz)−F(a)).",
+      "hypotheses": [
+        "p is prime, q=4 if p=2 and q=p otherwise. The positive natural number f is the level of the native Dirichlet character χ, extended by zero away from units modulo f. Set N_n=lcm(f,q)q^n.",
+        "K is a field and F is a natural-number sequence with values in K. Each statement involving denominator cancellation assumes characteristic zero explicitly. Source applications use a primitive χ of conductor f in a p-adic extension; the finite algebra also works for imprimitive characters at their specified positive level.",
+        "The source analytic function enters later by evaluating F(a)=A(⟨a⟩) when p does not divide a, using the preceding odd-prime or conductor-four angular coordinate. There is no value of A at a nonunit to supply. These finite constructions impose no analytic topology on the sequence space."
+      ],
+      "proofSteps": [
+        "Apply the preceding block decomposition.",
+        "Use linearity of the finite mean on each translated difference and distribute the finite sum over subtraction.",
+        "There are exactly q copies of M^n_χ(F). Since q>0 and K has characteristic zero, q⁻¹q=1. Cancel this scalar to obtain the desired difference.",
+        "The complete mean_difference probe checks the formula. KL equation (5) is the same identity with its full next-level denominator cleared; the analytic Taylor bound enters only after this finite identity."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/morita-mean-blocks",
+        "DirichletPadicLFunctions:L3/morita-finite-mean",
+        "DirichletPadicLFunctions:L3/morita-modulus"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/FiniteMean",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.moritaFiniteMean_difference"
+      },
+      "sources": [
+        {
+          "sourceId": "KubotaLeopoldt-1964",
+          "locator": "Section 2, published pp.331–332: equation (0), finite norm bound, block expansion and equation (5); constant function in Section 3, pp.334–335. Complete published pp.328–339 read; pp.331–332 freshly reread.",
+          "excerpt": "Konstruktion der χ-Mittel",
+          "match": "These nodes isolate the finite arithmetic in the source means. The source analytic input is sampled as F(a)=A(⟨a⟩) on p-units. Values elsewhere are immaterial. No analytic carrier or limiting functional is reconstructed here."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedMoritaFiniteMeanTests.mean_difference_dyadic_linear",
+          "kind": "computation",
+          "statement": "For p=2,f=1 and F(a)=a, the first difference is 4−1=3."
+        }
+      ],
+      "acceptance": [
+        "This is an identity, not a convergence estimate; q⁻¹ may have norm greater than one."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/morita-mean-trivial-constant",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The p-depleted mass of the trivial character",
+      "kind": "lemma",
+      "statement": "For K of characteristic zero, the conductor-one trivial character and F=1 satisfy M^n_1(1)=1−1/p at every n.",
+      "hypotheses": [
+        "p is prime, q=4 if p=2 and q=p otherwise. The positive natural number f is the level of the native Dirichlet character χ, extended by zero away from units modulo f. Set N_n=lcm(f,q)q^n.",
+        "K is a field and F is a natural-number sequence with values in K. Each statement involving denominator cancellation assumes characteristic zero explicitly. Source applications use a primitive χ of conductor f in a p-adic extension; the finite algebra also works for imprimitive characters at their specified positive level.",
+        "The source analytic function enters later by evaluating F(a)=A(⟨a⟩) when p does not divide a, using the preceding odd-prime or conductor-four angular coordinate. There is no value of A at a nonunit to supply. These finite constructions impose no analytic topology on the sequence space."
+      ],
+      "proofSteps": [
+        "Every value of the conductor-one character is one because ZMod 1 is a singleton and a native character preserves one.",
+        "Write N_n=pk using p-divisibility of the level. Split the range into k blocks of length p. In each block, exactly one residue is divisible by p, leaving p−1 surviving summands.",
+        "The complete prime_block helper proves this count using the successor range and the fact that no positive integer below p is divisible by p. The complete mean_trivial_constant probe combines the k blocks.",
+        "The finite sum is k(p−1). Level positivity and characteristic zero make p and k nonzero in K; cancel them against N_n=pk to obtain 1−1/p."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/morita-finite-mean",
+        "DirichletPadicLFunctions:L3/morita-mean-level"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/FiniteMean",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.moritaFiniteMean_trivial_constant"
+      },
+      "sources": [
+        {
+          "sourceId": "KubotaLeopoldt-1964",
+          "locator": "Section 2, published pp.331–332: equation (0), finite norm bound, block expansion and equation (5); constant function in Section 3, pp.334–335. Complete published pp.328–339 read; pp.331–332 freshly reread.",
+          "excerpt": "Konstruktion der χ-Mittel",
+          "match": "These nodes isolate the finite arithmetic in the source means. The source analytic input is sampled as F(a)=A(⟨a⟩) on p-units. Values elsewhere are immaterial. No analytic carrier or limiting functional is reconstructed here."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedMoritaFiniteMeanTests.mean_constant_all_levels",
+          "kind": "compatibility",
+          "statement": "For p=2 every level has constant-one mean 1/2."
+        }
+      ],
+      "acceptance": [
+        "The mass remains p-depleted. Dividing by the number of units would incorrectly change it to one."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/morita-mean-finite-norm",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The finite norm estimate before analytic cancellation",
+      "kind": "theorem",
+      "statement": "Let K be a normed field with an ultrametric norm. If B≥0 and ‖F(a)‖≤B at every surviving a<N_n, then ‖M^n_χ(F)‖≤‖N_n⁻¹‖B.",
+      "hypotheses": [
+        "p is prime, q=4 if p=2 and q=p otherwise. The positive natural number f is the level of the native Dirichlet character χ, extended by zero away from units modulo f. Set N_n=lcm(f,q)q^n.",
+        "K is a field and F is a natural-number sequence with values in K. Each statement involving denominator cancellation assumes characteristic zero explicitly. Source applications use a primitive χ of conductor f in a p-adic extension; the finite algebra also works for imprimitive characters at their specified positive level.",
+        "The source analytic function enters later by evaluating F(a)=A(⟨a⟩) when p does not divide a, using the preceding odd-prime or conductor-four angular coordinate. There is no value of A at a nonunit to supply. These finite constructions impose no analytic topology on the sequence space."
+      ],
+      "proofSteps": [
+        "The native DirichletCharacter.norm_le_one theorem bounds each character value by one. The multiplicative norm bounds each surviving weighted summand by B, and each excluded summand is zero.",
+        "The existing ultrametric norm property bounds a finite sum by any common nonnegative bound for its summands. The complete mean_norm probe applies its indexed isNonarchimedean_norm form by finite-set induction.",
+        "Multiply by the norm of the inverse denominator. This is precisely the elementary finite-level bound preceding KL Satz 1, before the analytic block argument yields a constant independent of n.",
+        "For p=2 and the constant-one sequence, the actual mean has p-adic norm 2. Thus even a bound of one on the samples does not give a bound of one on the finite mean."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/morita-finite-mean",
+        "mathlib:DirichletCharacter.norm_le_one",
+        "mathlib:IsUltrametricDist.isNonarchimedean_norm"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/FiniteMean",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.moritaFiniteMean_norm"
+      },
+      "sources": [
+        {
+          "sourceId": "KubotaLeopoldt-1964",
+          "locator": "Section 2, published pp.331–332: equation (0), finite norm bound, block expansion and equation (5); constant function in Section 3, pp.334–335. Complete published pp.328–339 read; pp.331–332 freshly reread.",
+          "excerpt": "Konstruktion der χ-Mittel",
+          "match": "These nodes isolate the finite arithmetic in the source means. The source analytic input is sampled as F(a)=A(⟨a⟩) on p-units. Values elsewhere are immaterial. No analytic carrier or limiting functional is reconstructed here."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedMoritaFiniteMeanTests.mean_norm_dyadic",
+          "kind": "compatibility",
+          "statement": "At p=2,f=1,n=0, unit-bounded samples give mean norm at most 4."
+        },
+        {
+          "name": "SuggestedMoritaFiniteMeanTests.mean_norm_not_uniform_unit_bound",
+          "kind": "non-example",
+          "statement": "For the dyadic constant-one sample, the mean has norm 2, exceeding the sample bound 1."
+        }
+      ],
+      "acceptance": [
+        "No uniform-in-n bound, continuous-function measure or analytic limiting functional is inferred from this finite estimate."
+      ]
     }
   ],
   "requests": [
@@ -54590,7 +55474,7 @@
       "stageId": "DirichletPadicLFunctions:L3",
       "status": "partial",
       "remaining": [
-        "The continuous Morita Gamma foundation now has both arithmetic angular coordinates and their exact source normalization: conductor-four sign atp=2, and transported native Teichmüller lift with the p-power limit comparison at oddp. Both principal-unit norm bounds and translation identities are planned. The KL/Morita analytic averaging proof remains open: decompose finite character means, uniform operator bounds, finite twist family and Cauchy estimate; import LAD analytic/Taylor carriers and Coleman logarithm/exponential input and identify the actual Gamma on the source small disc. This disc ispℤ_p at oddp and8ℤ₂atp=2, not the full closed unit disc. Gross–Koblitz still requires complete proof reading, fixed additive character/compatibleπ, positive fractional parts and the negative Gauss convention, with a separate source for its dyadic use. Ferrero–Greenberg still requires proof reading andχ(p)=1, log_p(p)=0, character shift and derivative coordinate, with nonvanishing separate. New RJW assignments, analytic/distribution/special-value comparisons, fifteen gaps and eleven requests remain open.",
+        "The finite KL/Morita character means now have their exact denominator, source interval, block identities, elementary norm bound and p-depleted constant mass. The next step applies them to actual angular samples and imports the LAD analytic/Taylor carrier and derivative bounds. The uniform operator bound, finite twist family, Cauchy estimate and limit are still open. The Gamma analyticity identification must use the source small disc pℤ_p at odd p and 8ℤ₂ at p=2, with Coleman logarithm/exponential input. Gross–Koblitz and Ferrero–Greenberg still need complete proof reading and their previously recorded normalization/ownership checks. All fifteen gaps and eleven requests remain open.",
         "The actual tame integral and analytic transfer from supplied C(U,K)-valued families remain supplied. Actual odd/dyadic principal-unit families belong to PMIA L0a and scalar Mellin theory to LAD L3; instantiate the corrected Teichmüller twist when those interfaces are supplied."
       ]
     },
@@ -54622,7 +55506,7 @@
     {
       "title": "L3 remaining source decomposition and interfaces",
       "neededBy": [],
-      "detail": "The continuous Morita Gamma foundation now has both arithmetic angular coordinates and their exact source normalization: conductor-four sign atp=2, and transported native Teichmüller lift with the p-power limit comparison at oddp. Both principal-unit norm bounds and translation identities are planned. The KL/Morita analytic averaging proof remains open: decompose finite character means, uniform operator bounds, finite twist family and Cauchy estimate; import LAD analytic/Taylor carriers and Coleman logarithm/exponential input and identify the actual Gamma on the source small disc. This disc ispℤ_p at oddp and8ℤ₂atp=2, not the full closed unit disc. Gross–Koblitz still requires complete proof reading, fixed additive character/compatibleπ, positive fractional parts and the negative Gauss convention, with a separate source for its dyadic use. Ferrero–Greenberg still requires proof reading andχ(p)=1, log_p(p)=0, character shift and derivative coordinate, with nonvanishing separate. New RJW assignments, analytic/distribution/special-value comparisons, fifteen gaps and eleven requests remain open. The actual tame integral and analytic transfer from supplied C(U,K)-valued families remain supplied. Actual odd/dyadic principal-unit families belong to PMIA L0a and scalar Mellin theory to LAD L3; instantiate the corrected Teichmüller twist when those interfaces are supplied."
+      "detail": "The finite KL/Morita character means now have their exact denominator, source interval, block identities, elementary norm bound and p-depleted constant mass. The next step applies them to actual angular samples and imports the LAD analytic/Taylor carrier and derivative bounds. The uniform operator bound, finite twist family, Cauchy estimate and limit are still open. The Gamma analyticity identification must use the source small disc pℤ_p at odd p and 8ℤ₂ at p=2, with Coleman logarithm/exponential input. Gross–Koblitz and Ferrero–Greenberg still need complete proof reading and their previously recorded normalization/ownership checks. All fifteen gaps and eleven requests remain open. The actual tame integral and analytic transfer from supplied C(U,K)-valued families remain supplied. Actual odd/dyadic principal-unit families belong to PMIA L0a and scalar Mellin theory to LAD L3; instantiate the corrected Teichmüller twist when those interfaces are supplied."
     },
     {
       "title": "L4 completed-algebra, twisted localized constant coefficient and tame-family comparisons",
@@ -54986,36 +55870,36 @@
   "checks": {
     "blueprint": "Zero errors and warnings with the unmodified pinned index.",
     "intake": "Exactly four authorized deliverables; zero problems.",
-    "sourceIssues": "All16source findings, sources and sourceVersions remain whole. No new source issue or independent review verdict. Source normalization is verified through the explicit native Frobenius limit.",
+    "sourceIssues": "All 16 predecessor source findings and sourceVersions remain whole. No new source issue or independent review verdict is asserted. The KL source is added for its finite-mean construction; the separate unverified dyadic interpolation question is not used.",
     "validation": {
-      "nodes": 808,
+      "nodes": 819,
       "kinds": {
         "definition": 2,
-        "lemma": 318,
-        "construction": 83,
-        "theorem": 236,
-        "comparison": 169
+        "lemma": 323,
+        "construction": 86,
+        "theorem": 238,
+        "comparison": 170
       },
-      "api": 647,
-      "packetTests": 1468,
-      "definitionConstructionTests": 352,
-      "typedExamples": 1471,
+      "api": 668,
+      "packetTests": 1492,
+      "definitionConstructionTests": 366,
+      "typedExamples": 1495,
       "planets": 24,
-      "baseline": 684,
-      "preservedWholeNodes": 791,
-      "preservedBaseline": 661,
+      "baseline": 690,
+      "preservedWholeNodes": 808,
+      "preservedBaseline": 684,
       "preservedSourceIssues": 16,
       "newSourceIssues": 0,
-      "newNodes": 17,
-      "newNamedDeclarations": 35,
-      "newTypedTests": 35,
+      "newNodes": 11,
+      "newNamedDeclarations": 26,
+      "newTypedTests": 24,
       "requests": 11,
       "gaps": 15,
       "closedStages": 0,
-      "reachableNodes": 1067,
-      "dependencyEdges": 5457,
+      "reachableNodes": 1078,
+      "dependencyEdges": 5486,
       "acyclic": true,
-      "baselineLeaves": 858,
+      "baselineLeaves": 864,
       "stageRequestLeaves": [
         "AdicSpacesPartII:F1",
         "AdicSpacesPartII:R2",
@@ -55027,7 +55911,7 @@
         "PadicMeasuresIwasawaAlgebras:L2",
         "PadicMeasuresIwasawaAlgebras:L3"
       ],
-      "readerWords": 408154,
+      "readerWords": 413096,
       "scopedMutationCheck": true,
       "correctedPredecessorNodes": 0,
       "fullSuggestedCompiled": false,
@@ -55054,29 +55938,31 @@
         "TauCeti.NumberTheory.ArithmeticFunction.TwistedDivisorSum"
       ],
       "scratchCompleteDefinitions": 3,
-      "scratchCompleteLemmas": 24,
-      "scratchMathlibModules": 2823,
-      "scratchTauModules": 7,
+      "scratchCompleteLemmas": 22,
+      "scratchMathlibModules": 2799,
+      "scratchTauModules": 0,
       "scratchErrors": 0,
       "scratchWarnings": 0,
       "scratchPlaceholders": 0,
       "finiteControls": {
-        "liftValues": 1208,
-        "multiplication": 75952,
-        "principalValues": 1208,
-        "translations": 13288,
-        "frobeniusPrecision": 1812,
-        "uniqueResidueLifts": 92
+        "levels": 60,
+        "endpoint": 360,
+        "normalization": 360,
+        "blocks": 360,
+        "differences": 360,
+        "linearity": 360,
+        "constantMass": 12,
+        "normBounds": 360
       },
       "numericalControlsCertified": false,
       "newRoutesStageLeaves": [],
       "partialSignatures": {
         "exitCode": 0,
-        "sourceSha256": "8450a619e9852118cbf73ca3ab17499e95456efa8a4d3d07f91dc31eeb86d8c4",
+        "sourceSha256": "91d0f1c899a11a319aff7c1a0e85d01678446020bad0ccb9396afc1d7fd5703b",
         "modules": 3600,
-        "warnings": 2514,
+        "warnings": 2562,
         "errors": 0,
-        "scope": "The separate partial signature file also compiled with zero errors and2,514 expected placeholder warnings across3,600 pinned source modules. It includes all 35 new named declarations and 35 tests, and retains the documented4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 8450a619e9852118cbf73ca3ab17499e95456efa8a4d3d07f91dc31eeb86d8c4.",
+        "scope": "The separate partial signature file also compiled with zero errors and 2,562 expected placeholder warnings across 3,600 pinned source modules. It includes all 26 new named declarations and 24 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 91d0f1c899a11a319aff7c1a0e85d01678446020bad0ccb9396afc1d7fd5703b.",
         "fullSuggestedFile": false,
         "documentedOmissionsRetained": true
       }
@@ -55086,7 +55972,7 @@
       "compiled": false,
       "errors": null,
       "warnings": null,
-      "sha256": "f70fff314742ac4bb1a404062706e7da998b13f4d0c5e03a29c301d6f7b9ef93",
+      "sha256": "f8d3dcc2738d1733f69dfc3f3b3a7f21b434eb1c99fe16ecc9eafb19c2fe01ec",
       "missingNativeArtifacts": [
         "TauCeti.NumberTheory.ArithmeticFunction.TwistedDivisorSum"
       ],
@@ -55101,11 +55987,11 @@
         }
       },
       "nativeProbe": {
-        "completeLemmas": 24,
+        "completeLemmas": 22,
         "errors": 0,
         "warnings": 0,
         "placeholders": 0,
-        "sha256": "681e59172f1215f8275f608d854a8c0db404b0658284d0aeb94f570fed235cb1"
+        "sha256": "7305e92516c7c77ece08c57aa96b730320ff8058f2628dfe493ac5e7117d3fb9"
       },
       "sourceAndAvailableArtifactAudit": {
         "compiledSupplierNodes": 332,
@@ -55243,17 +56129,17 @@
       },
       "partialSignatures": {
         "exitCode": 0,
-        "sourceSha256": "8450a619e9852118cbf73ca3ab17499e95456efa8a4d3d07f91dc31eeb86d8c4",
+        "sourceSha256": "91d0f1c899a11a319aff7c1a0e85d01678446020bad0ccb9396afc1d7fd5703b",
         "modules": 3600,
-        "warnings": 2514,
+        "warnings": 2562,
         "errors": 0,
-        "scope": "The separate partial signature file also compiled with zero errors and2,514 expected placeholder warnings across3,600 pinned source modules. It includes all 35 new named declarations and 35 tests, and retains the documented4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 8450a619e9852118cbf73ca3ab17499e95456efa8a4d3d07f91dc31eeb86d8c4.",
+        "scope": "The separate partial signature file also compiled with zero errors and 2,562 expected placeholder warnings across 3,600 pinned source modules. It includes all 26 new named declarations and 24 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 91d0f1c899a11a319aff7c1a0e85d01678446020bad0ccb9396afc1d7fd5703b.",
         "fullSuggestedFile": false,
         "documentedOmissionsRetained": true
       }
     },
     "publication": {
-      "base": "fca632122ad0efe576ba210336e2758739afedf8",
+      "base": "b4b15bfedee45fe8ac37314b08778eec9858068a",
       "unchangedInputs": 72,
       "unchangedOutputs": 4,
       "sameSessionFollowupAfterMerge": true,
@@ -63260,6 +64146,56 @@
         "warnings": 2514,
         "errors": 0,
         "scope": "The separate partial signature file also compiled with zero errors and2,514 expected placeholder warnings across3,600 pinned source modules. It includes all 35 new named declarations and 35 tests, and retains the documented4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 8450a619e9852118cbf73ca3ab17499e95456efa8a4d3d07f91dc31eeb86d8c4.",
+        "fullSuggestedFile": false,
+        "documentedOmissionsRetained": true
+      }
+    },
+    "moritaFiniteMeans": {
+      "agent": "Codex",
+      "session": "codex-7e92bd",
+      "issue": 713,
+      "claimComment": 5854790528,
+      "winningBot": 5854791937,
+      "previousPR": 5246,
+      "previousHead": "3dd5c2c59d2431aca2c410cb22451cb283d485b7",
+      "previousMerge": "a9b43e2b1e4f3a1b19d819de44aa48e3ab86c255",
+      "preservedWholeNodes": 808,
+      "preservedBaseline": 684,
+      "preservedFindings": 16,
+      "newNodes": 11,
+      "reading": "The complete KL1964 pp.328–339 and Morita1975 pp.255–266 readings are retained. KL Section 2 pp.331–332 was freshly reread for equation (0), the finite norm inequality and the block identity (5); its constant-function normalization occurs in Section 3. The new KL source record retains official GDZ image URLs and per-page hashes. The native source statements for character bounds, the ultrametric norm, residue casts, finite scalar distribution, bundled linear maps and natural lcm arithmetic were read. This checkpoint plans finite arithmetic only; the LAD closed-disc analytic-function node and the earlier coordinate nodes remain the future analytic suppliers.",
+      "boundary": "The finite KL/Morita character means now have their exact denominator, source interval, block identities, elementary norm bound and p-depleted constant mass. The next step applies them to actual angular samples and imports the LAD analytic/Taylor carrier and derivative bounds. The uniform operator bound, finite twist family, Cauchy estimate and limit are still open. The Gamma analyticity identification must use the source small disc pℤ_p at odd p and 8ℤ₂ at p=2, with Coleman logarithm/exponential input. Gross–Koblitz and Ferrero–Greenberg still need complete proof reading and their previously recorded normalization/ownership checks. All fifteen gaps and eleven requests remain open.",
+      "inputBase": "b4b15bfedee45fe8ac37314b08778eec9858068a",
+      "sourceBoundary": "All 16 predecessor source findings and sourceVersions remain whole. No new source issue or independent review verdict is asserted. The KL source is added for its finite-mean construction; the separate unverified dyadic interpolation question is not used.",
+      "sourceRefresh": "Publication refresh at b4b15bfe reads six changed registry records. Chang–Chen–Mishiba E5–8 correct the coefficient-field dimension convention and three source/type locators. Dor E7 retains the unproved global counit and restricted-product compatibility obligations; E8 replaces the full additive-character kernel by its conductor lattice, since the former need not be compact. All new findings await review; this records their existing registry content, not an independent verification. Registry metadata, all Dirichlet findings and every consumed supplier input are unchanged.",
+      "publication": {
+        "base": "b4b15bfedee45fe8ac37314b08778eec9858068a",
+        "unchangedInputs": 72,
+        "unchangedOutputs": 4,
+        "sameSessionFollowupAfterMerge": true,
+        "lastClaimConfirmation": 5854791937,
+        "reviewIssue": 390,
+        "reviewUnclaimed": true
+      },
+      "finiteControls": {
+        "levels": 60,
+        "endpoint": 360,
+        "normalization": 360,
+        "blocks": 360,
+        "differences": 360,
+        "linearity": 360,
+        "constantMass": 12,
+        "normBounds": 360
+      },
+      "numericalMethod": "Exact rational finite sums and exact p-adic valuations of rational values; no floating-point approximation or assertion of an analytic limit.",
+      "fullSuggestedCompiled": false,
+      "partialSignatures": {
+        "exitCode": 0,
+        "sourceSha256": "91d0f1c899a11a319aff7c1a0e85d01678446020bad0ccb9396afc1d7fd5703b",
+        "modules": 3600,
+        "warnings": 2562,
+        "errors": 0,
+        "scope": "The separate partial signature file also compiled with zero errors and 2,562 expected placeholder warnings across 3,600 pinned source modules. It includes all 26 new named declarations and 24 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 91d0f1c899a11a319aff7c1a0e85d01678446020bad0ccb9396afc1d7fd5703b.",
         "fullSuggestedFile": false,
         "documentedOmissionsRetained": true
       }
