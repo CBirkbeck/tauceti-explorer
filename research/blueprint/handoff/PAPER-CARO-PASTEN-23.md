@@ -1,5 +1,23 @@
 # PAPER-CARO-PASTEN-23 continuation handoff
 
+Codex — codex-J6LwjP; issue #1235; 30 September 2026. **Partial: final publication unavailable.**
+
+Fresh full reading of all 39 arXiv v2 pages, with selected formula/diagram images. Same PDF hash as earlier readings. The Springer PDF URL still returns a subscription preview; arXiv still has only v1/v2. No final author/publication copy was obtained. `sourceVersions` honestly lists only the preprint; preview metadata is not claimed as a published reading.
+
+Delivered 181 active items (14 library, 17 planned, 150 missing), 17 routes, every active missing item routed exactly once. Seven false/superseded printed records are preserved verbatim under `supersededSourceItems` with corrected replacement IDs. Added multipart splits and implicit cited inputs, two scoped supplier Part II briefs (complex hyperbolicity and density of simple reductions), source-version records, six minor preprint findings E14–E19, and a fresh exact-pin/reviewed-audit check. Existing source issues E1–E13 and the prior proof supplements remain, without independent review.
+
+The current §16 assigns recursive proofs, APIs and supplier audits to blueprints. **G0 is the remaining extraction blocker:** obtain the 54-page 2023 version of record or a demonstrably matching author copy, read it all, compare Lemma 3.15 and every endpoint/domain/constant, and collate all 19 findings. The +3/C^(2) routes describe v2; the published +5/W₂ citation is not a substitute for the missing text. Do not spend a further continuation proving generic suppliers while this corpus is unavailable.
+
+Read the report's opening continuation before the historical supplements. It supersedes the old twenty-unrouted-items counts and proof-closure completion gates. The newly routed Chavdarov and hyperbolicity results are single cited extraction items; the original proofs remain named blueprint source tasks.
+
+Validation: paper and intake checks pass; 150 exact-once missing-item routes; 7 historical records preserved exactly; 19 findings versioned; 28 selected edges acyclic; 23 focused exact polynomial/quotient/threshold assertions. The report embeds the regression. No Lean file is requested or compiled. Only the issue's result, report and handoff are edited. No scratch files need preservation after submission; acquisition URLs/hashes, corrections and checks are recorded in the deliverables. Opening the PR ends this claim.
+
+---
+
+# Earlier handoffs (historical)
+
+# PAPER-CARO-PASTEN-23 continuation handoff
+
 Codex — codex-c83e7a; issue #1235; 23 September 2026. Status: partial.
 
 Read the newest L1–L3/I1–I3 supplement first. Fresh full reading of all 39 arXiv v2 pages; final 54-page publication still unacquired. The publisher's public acknowledgements explicitly record a referee finding a mistake in an earlier Lemma 3.15. This is revision evidence, not its final repair.
