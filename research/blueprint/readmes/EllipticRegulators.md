@@ -712,7 +712,7 @@ half.
 
 Coverage: **source_decomposed**.
 
-Four nodes. The diamond convolution with the sign convention fixed once and the change the opposite convention forces recorded; the divisor formula computing the regulator of a symbol as the complex function evaluated on that convolution, with independence of the permitted lifts under the degree-zero and product-one conditions; the regulator of the corrected classes built from rational torsion, with the constant-symbol corrections contributing zero, the finite Fourier transform in the normalisation the stage text fixes and the invertibility hypothesis kept explicit; and the trace formula, which the stage text makes a precondition for extending anything by transfer, with the source's compatibility with finite morphisms as its geometric half.
+Seven packet nodes (including the lift formula, the Fourier specialization below and Theorem 10.2.1). The diamond convolution with the sign convention fixed once and the change the opposite convention forces recorded; the divisor formula computing the regulator of a symbol as the complex function evaluated on that convolution, with independence of the permitted lifts under the degree-zero and product-one conditions; the regulator of the corrected classes built from rational torsion, with the constant-symbol corrections contributing zero, the finite Fourier transform in the normalisation the stage text fixes and the invertibility hypothesis kept explicit; and the trace formula, which the stage text makes a precondition for extending anything by transfer, with the source's compatibility with finite morphisms as its geometric half.
 
 ### The diamond convolution of two divisors
 
@@ -817,13 +817,13 @@ Applying the divisor formula to the corrected classes that the companion roadmap
 
 - The torsion points are rational over the field of definition; the non-rational case is handled by transfer in the last node of this layer.
 - The classes are the corrected ones, so their tame residues vanish and the divisor formula applies.
-- The finite Fourier transform is normalised as the stage text fixes it, with a single factor of the order rather than its square.
+- Lecture 10 uses 1/C² on the C²-element torsion group. The later Lecture-11 transform uses 1/C; the comparison below retains both factors.
 
 **Proof outline.**
 
 1. Apply the divisor formula to the corrected classes and write the resulting combination.
 2. Prove that the constant-symbol corrections contribute zero, so that the value depends only on the torsion data.
-3. Introduce the finite Fourier transform on the torsion subgroup with the stated normalisation.
+3. Specialize AC.0’s Fourier interface to the torsion subgroup with the Lecture-10 average 1/C², as in the node below.
 4. Prove the odd-function identities that make the transform collapse the combination.
 5. Record the hypothesis that the order of the torsion is invertible where the geometric argument needs it, which the stage text asks be kept explicit.
 6. Record the resulting formula, which is the input to the CM computation.
@@ -832,7 +832,7 @@ Applying the divisor formula to the corrected classes that the companion roadmap
 
 - The constant-symbol corrections contribute zero to the regulator.
 - The regulator is a finite combination of values of the dilogarithm at torsion points.
-- The Fourier normalisation is a single factor of the order, not its square.
+- The Lecture-10 average is 1/C², and its comparison with the Lecture-11 unitary transform has factor 1/C.
 - The invertibility hypothesis on the order is explicit and is used.
 
 **Prerequisites.** `EllipticRegulators:ER.4/the-divisor-formula`, `EllipticKTheory:E.7`, `EllipticRegulators:ER.3/the-elliptic-dilogarithm`
@@ -877,6 +877,96 @@ A class constructed over a finite extension is brought down by the transfer of t
 
   > Enfin, dans la section 1.4, nous étudions le comportement de la fonction R_X vis-à-vis des morphismes finis. ... En revanche, la propriété différentielle (1.69) et le comportement vis-à-vis des morphismes finis (1.118) n'avaient à notre connaissance pas encore été écrits.
 
+### The finite Fourier transform of Lecture 10
+
+`EllipticRegulators:ER.4/finite-fourier-transform` · *definition*
+
+For C ≥ 1 and f : ℤ/C × ℤ/C → ℂ, f̂(k, ℓ) = C^{-2} Σ_{a,b=0}^{C−1} f(a, b)·e^{2πi(−ak+bℓ)/C} (Bloch (10.2.1), p. 76). Inversion: f(a, b) = Σ_{k,ℓ} f̂(k, ℓ)·e^{2πi(ak−bℓ)/C}; f is odd iff f̂ is odd. This Lecture-10 transform is normalised by 1/C², NOT by 1/C: the 1/C normalisation is that of Lecture 11 on O/CO (ER.5/fourier-transform-on-O-mod-C), and if f(m, n) = F(n + mτ) then f̂(k, ℓ) = C^{-1}·F̂(k + ℓτ). This is the specialization of AdditiveCombinatorics:AC.0’s normalized character interface: χ_(k,ℓ)(a,b)=exp(2πi(ak−bℓ)/C), f̂(k,ℓ)=E_(a,b) f(a,b)·conj(χ_(k,ℓ)(a,b)). ER.4 identifies this dual and imports generic inversion and Parseval; it does not rebuild character theory.
+
+**Hypotheses.**
+
+- C ≥ 1; the transform is on the finite group (ℤ/C)² with the kernel as printed in (10.2.1).
+
+**Proof outline and supplier boundary.**
+
+1. Define χ_(k,ℓ) using the pinned ZMod.stdAddChar at ak−bℓ. Prove its exponential formula and that (k,ℓ) ↦ χ_(k,ℓ) bijects (ℤ/C)² with AddChar ((ℤ/C)²) ℂ, using the existing character theory.
+2. Import AC.0’s character-indexed coefficient/comparison interface, built on AddChar.complexBasis and orthogonality. Identify finiteFourier10 with its averaged coefficient and with complexBasis.repr f χ_(k,ℓ); its counting-normalized comparison is C⁻² times two successive ZMod.dft transforms, at indices (k,−ℓ).
+3. Specialize AC.0 inversion and Parseval through that dual bijection. There is no new general finite-group inversion or Parseval proof here.
+4. Prove oddness by x ↦ −x and the imported inversion; compute point masses and the C=1 boundary case.
+5. Compare Lecture 11 by swapping only the input coordinates f(m,n)=F(n+mτ): finiteFourier10 f (k,ℓ)=C⁻¹ fourierO F (k,ℓ) in the basis (1,τ). Do not swap the output (k,ℓ). Keep E7’s corrected dual-first kernel.
+
+**Acceptance.**
+
+- Inversion holds.
+- The normalisation is 1/C².
+- The comparison with ER.5/fourier-transform-on-O-mod-C holds with the factor C^{-1}.
+- The AC.0 request exports the average convention, inversion and Parseval with explicit counting/unitary comparisons; no prerequisite on a whole upstream coding or modular-forms stage is introduced.
+- Σ_(k,ℓ) |f̂(k,ℓ)|² = C⁻² Σ_(a,b) |f(a,b)|²; the Lecture-11 unitary transform preserves the unnormalized sum of squares.
+- The character identification and both normalization comparisons are specialized to the C-torsion carrier; generic comparisons remain owned by AC.0.
+
+**Prerequisites.** `AdditiveCombinatorics:AC.0`, `mathlib:AddChar.complexBasis`, `mathlib:AddChar.sum_apply_eq_ite`, `mathlib:ZMod.dft`
+
+**API.**
+
+- `finiteFourier10` — f̂(k, ℓ) = C^{-2} Σ f(a, b) e^{2πi(−ak+bℓ)/C}.
+- `finiteFourier10_inversion` — f(a, b) = Σ_{k,ℓ} f̂(k, ℓ) e^{2πi(ak−bℓ)/C}.
+- `finiteFourier10_odd` — f odd ⇔ f̂ odd.
+- `finiteFourier10_single` — The transform of δ_{(a,b)} is (k, ℓ) ↦ C^{-2} e^{2πi(−ak+bℓ)/C}.
+- `finiteFourier10_eq_fourierO` — If f(m, n) = F(n + mτ) then f̂(k, ℓ) = C^{-1}·fourierO F (k + ℓτ).
+- `torsionFourierCharacter` — χ_(k,ℓ)(a,b)=ZMod.stdAddChar(a·k−b·ℓ), a bundled AddChar on (ℤ/C)².
+- `torsionFourierCharacter_apply` — χ_(k,ℓ)(a,b)=exp(2πi(ak−bℓ)/C), using residue representatives.
+- `torsionFourierDuality` — The equivalence (ℤ/C)² ≃ AddChar ((ℤ/C)²) ℂ induced by torsionFourierCharacter.
+- `finiteFourier10_eq_complexBasis_repr` — finiteFourier10 C f kl = (AddChar.complexBasis ((ℤ/C)²)).repr f (torsionFourierCharacter C kl); specialize the AC.0 coefficient comparison.
+- `finiteFourier10_eq_dft` — finiteFourier10 C f (k,ℓ) = C⁻² · ZMod.dft (a ↦ ZMod.dft (b ↦ f(a,b)) (−ℓ)) k.
+- `finiteFourier10_parseval` — Σ_kl ‖finiteFourier10 C f kl‖² = C⁻² Σ_ab ‖f ab‖², imported from AC.0 through the dual bijection.
+
+**Unit tests.**
+
+- `finiteFourier10_C3` (computation) — C = 3, f = δ_{(1,0)} − δ_{(2,0)}: f̂(1, ℓ) = −i√3/9 and f̂(0, ℓ) = 0 for every ℓ.
+- `finiteFourier10_zero` (degenerate) — The transform of 0 is 0; for C = 1 the transform is the identity.
+- `finiteFourier10_inv` (characterisation) — Inversion recovers f for every f : (ℤ/C)² → ℂ.
+- `finiteFourier10_not_one_over_C` (non-example) — With the normalisation 1/C in (10.2.1), the right side of Theorem 10.2.1 must be multiplied by C (iy²C⁴/π instead of iy²C³/π).
+- `finiteFourier10_C1` (degenerate) — For C=1, finiteFourier10 1 f (0,0)=f (0,0).
+- `finiteFourier10_parseval_single` (computation) — C=3, f=δ_(0,0): Σ_kl ‖finiteFourier10 3 f kl‖²=1/9. A unitary 1/C factor in Lecture 10 gives 1 instead and fails this test.
+- `finiteFourier10_basis` (compatibility) — For every kl, finiteFourier10 C (torsionFourierCharacter C kl) kl = 1; the full transform is the point mass at kl.
+
+**Source locators.**
+
+- Bloch.CRM11: Lecture 10, §10.2, (10.2.1), printed p. 76 (PDF p. 88).
+
+**Ownership and pinned reuse (FIX-RT-AREA-combinatorics~2).**
+
+AC.0 owns the general convention A(f)(χ)=E_x f(x)conj(χ(x)), normalized convolution,
+inversion, Parseval and the coefficient comparisons. Its request in this packet
+requires counting coefficients |G|A and unitary coefficients √|G|A. The local
+definitions above retain Bloch's explicit formulas for regulator computations;
+their inversion and Parseval APIs are specialization lemmas of the shared interface.
+Neither an AC.0 transform nor its general proofs are defined again here.
+
+The reviewed AUDIT-16 calls AC.0 partly built. At Mathlib 082e2d3,
+`AddChar.complexBasis`, `AddChar.sum_apply_eq_ite` and
+`AddChar.wInner_cWeight_eq_boole` supply the basis and orthogonality;
+`ZMod.dft` supplies cyclic counting-measure inversion. At Tau Ceti f790474,
+`CommGroup.sum_monoidHom_apply_eq_ite` supplies column orthogonality (finite
+commutative group, domain with enough roots of unity). The packet baseline now
+records that missing audit citation. `TauCeti.hasSum_norm_sq_peterWeylCoeff`
+and `TauCeti.haarProb_eq_smul_count` supply Haar-normalized Parseval ingredients;
+identifying their coefficients with additive characters is still an AC.0
+comparison obligation. The normalized character inner product also provides a
+direct finite-basis route. No new blanket coding, modular-forms or compact-groups
+stage prerequisite is imposed. Comparisons to the upstream specializations remain
+AC.0's interfaces when those specializations are available.
+
+This fix re-read Bloch's supplied 2000 scan at printed pp. 76, 87, 89, 91
+(PDF pp. 88, 99, 101, 103), SHA256
+`9715a312ec4ebb9535daa24f3308bb5b97152211d747d55bf9f6c06bb221bd60`.
+The printed Lecture-11 display and its dual-first use in the proof of Lemma
+11.1.7 differ as already recorded in E7. This fix preserves that correction.
+The suggested file's previous extra swap of the output index is a separate
+prototype error: only the input coordinates change. The C=3 point-mass test
+below distinguishes the two formulas. The new prototype has not been compiled;
+the earlier review's successful compilation applies to its earlier version.
+
 ## ER.5 — The complete CM example of Bloch
 
 CM by the **full** ring of integers of an imaginary quadratic field of class
@@ -895,7 +985,7 @@ larger class number.
 
 Coverage: **source_decomposed**.
 
-Four nodes. The CM setup with the maximal-order and class-number-one hypotheses, the Hecke character and Deuring's comparison including the local factors at the bad primes, with the non-example that extra endomorphisms do not give the comparison; the class, as a specified finite combination with the Fourier normalisation the stage text fixes and with its descent proved rather than asserted; the L-value theorem itself, stated as an equality with an EXPLICIT scalar, with the proof strategy the stage text prescribes and with an explicit record that the monograph's scan carries no text layer here, so the scalar is taken from the roadmap's own transcription; and the non-vanishing with the three things that are not claimed — spanning, non-maximal orders, larger class number.
+Eight packet nodes, including the Fourier comparison below and the Lecture-11 auxiliary identities added by review. The CM setup includes the maximal-order and class-number-one hypotheses, the Hecke character and Deuring's comparison including local factors at bad primes; the class is a specified finite combination with the Lecture-11 normalization and proved descent; the L-value theorem has an explicit scalar; and the non-vanishing claim is distinct from spanning, non-maximal orders and larger class number. The Fourier formulas below were re-read in the supplied scan for this fix; source access and verification for the other nodes remain as recorded in the packet and its prior review.
 
 ### The CM curve, its Hecke character and the comparison of L-functions
 
@@ -954,6 +1044,55 @@ The example is an elliptic curve over the rationals with complex multiplication 
 
   > Dans le cas où E est à multiplication complexe, Bloch a montré comment exprimer L(E, 2) comme combinaison linéaire de valeurs de D_E. La généralisation de cet énoncé à toute courbe elliptique est connue sous le nom de conjecture de Zagier pour L(E, 2).
 
+### The pairing on O/CO and the finite Fourier transform of Lecture 11
+
+`EllipticRegulators:ER.5/fourier-transform-on-O-mod-C` · *definition*
+
+Let O = ℤ + ℤτ be an order in an imaginary quadratic field and C ≥ 1. The pairing ⟨·,·⟩ : O/CO × O/CO → ℂ^× is ⟨a + bτ, k + ℓτ⟩ = e^{2πi(−aℓ+bk)/C} (Bloch p. 89); it is bi-additive, ⟨x, y⟩⟨y, x⟩ = 1, and ⟨xy, z⟩ = ⟨x, ȳz⟩ (Lemma 11.1.4). For F : O/CO → ℂ put F̂(x) := C^{-1} Σ_{y ∈ O/CO} F(y)·⟨x, y⟩, i.e. F̂(k + ℓτ) = C^{-1} Σ_{a,b} F(a + bτ)·e^{2πi(aℓ − bk)/C}. This is the transform used in the proof of Lemma 11.1.7 (p. 91) and the one for which (11.1.2) holds; Bloch's display (11.1.1) prints the kernel e^{2πi(−aℓ+bk)/C}, i.e. ⟨y, x⟩ = ⟨x, y⟩^{-1}, which for an odd F gives −F̂ (source issue EllipticRegulators/E7). The normalisation is 1/C; if f(m, n) = F(n + mτ) then Lecture 10's f̂(k, ℓ) = C^{-1}·F̂(k + ℓτ).
+
+**Hypotheses.**
+
+- O = ℤ + ℤτ with τ² + Aτ + B = 0, A, B ∈ ℤ (Lemma 11.1.4 uses this form).
+- The kernel is ⟨x, y⟩ with the dual argument x first.
+
+**Proof outline and supplier boundary.**
+
+1. Define the pairing and check bi-additivity and ⟨x, y⟩⟨y, x⟩ = 1.
+2. Prove ⟨xy, z⟩ = ⟨x, ȳz⟩ by expanding in the basis (1, τ) with τ² = −Aτ − B (Bloch's proof of Lemma 11.1.4).
+3. Define the unitary transform with the corrected dual-first pairing. Import inversion from AC.0 via the ER.4 coefficient/dual comparison and the factor C; similarly obtain Parseval for counting sums.
+4. Prove the comparison with ER.4/finite-fourier-transform.
+
+**Acceptance.**
+
+- ⟨xy, z⟩ = ⟨x, ȳz⟩.
+- For f(m,n)=F(n+mτ), F̂(k+ℓτ)=C·f̂₁₀(k,ℓ). Only the input coordinates are swapped; the dual/output coordinates (k,ℓ) stay fixed.
+- With the printed kernel of (11.1.1) the identity (11.1.2) fails by the factor −1 for odd F.
+
+**Prerequisites.** `EllipticRegulators:ER.4/finite-fourier-transform`
+
+**API.**
+
+- `pairingO` — ⟨a + bτ, k + ℓτ⟩ = e^{2πi(−aℓ+bk)/C}.
+- `pairingO_swap` — ⟨x, y⟩·⟨y, x⟩ = 1.
+- `pairingO_mul_left` — ⟨xy, z⟩ = ⟨x, ȳz⟩ (Lemma 11.1.4).
+- `fourierO` — F̂(x) = C^{-1} Σ_y F(y)⟨x, y⟩.
+- `fourierO_inversion` — F(y) = C^{-1} Σ_x F̂(x)⟨x, y⟩^{-1}.
+- `fourierO_eq_finiteFourier10` — For f(m, n) = F(n + mτ): finiteFourier10 f (k, ℓ) = C^{-1}·F̂(k + ℓτ).
+- `fourierO_parseval` — Σ_x ‖fourierO C F x‖²=Σ_y ‖F y‖², obtained from AC.0 through the ER.4 comparison and the factor C.
+
+**Unit tests.**
+
+- `pairingO_lemma_11_1_4` (characterisation) — For O = ℤ[i], C = 4: ⟨xy, z⟩ = ⟨x, ȳz⟩ for all x, y, z ∈ O/4O.
+- `fourierO_chi_Qi` (computation) — κ = ℚ(i), C = 4, χ the unit congruent mod 2 + 2i (extended by 0): χ̂ is supported on {1+i, 1+3i, 3+i, 3+3i} with χ̂(1+i) = 1 + i; with the printed kernel of (11.1.1) one gets −1 − i.
+- `fourierO_normalisation` (compatibility) — For f(m,n)=F(n+mτ), fourierO C F (k,ℓ)=C·finiteFourier10 C f (k,ℓ), with the SAME output index, using coordinates (a,b) ↦ a+bτ for F.
+- `fourierO_printed_kernel` (non-example) — With the kernel printed in (11.1.1), Σ_x F̂(x)R_q(S_{x/C}) = −(iy²C⁴/π) Σ' F(w)/(w²w̄) for the odd characters of ℚ(i) (C = 4), ℚ(√−3) (C = 6), ℚ(√−7) (C = 7).
+- `fourierO_output_index` (non-example) — C=3, F=δ_(1,0): fourierO F (0,1)=exp(2πi/3)/3, whereas fourierO F (1,0)=1/3. Swapping the output in the comparison with Lecture 10 is false.
+
+**Source locators.**
+
+- Bloch.CRM11: Lecture 11, (11.1.1), printed p. 87 (PDF p. 99).
+- Bloch.CRM11: Lecture 11, before Lemma 11.1.4, printed p. 89 (PDF p. 101).
+
 ### The rational class U and its descent
 
 `EllipticRegulators:ER.5/the-class-U` · *construction*
@@ -963,7 +1102,7 @@ The class the theorem evaluates is a specific finite combination of the correcte
 **Hypotheses.**
 
 - The torsion level is the integer of the previous node, factored as the conductor element times its complement.
-- The finite Fourier transform is normalised with a single factor of the level and with the kernel the stage text fixes; it is not the ordinary average with the square of the level.
+- The finite Fourier transform is normalised with a single factor of the level and with the corrected dual-first kernel ⟨x,y⟩ recorded in source issue E7; it is not the ordinary average with the square of the level.
 - The descent is to the curve over the rationals and uses the invariance of the combination under the relevant Galois action.
 
 **Proof outline.**
@@ -971,7 +1110,7 @@ The class the theorem evaluates is a specific finite combination of the correcte
 1. Record the indexing set and the weights, with the character extended as the source does.
 2. Define the combination of the corrected classes.
 3. Prove the invariance of the combination under the Galois action and deduce the descent, using the transfer and the trace formula of ER.4.
-4. Record the normalisation of the finite Fourier transform explicitly, with the stage text's kernel.
+4. Use the Lecture-11 unitary scale 1/C and the corrected dual-first kernel ⟨x,y⟩, as specified in the Fourier comparison node and source issue E7.
 5. Record that the class lies in the rationalised group and that no integral statement is made about it here; ER.6 is where integrality is discussed.
 
 **Acceptance.**

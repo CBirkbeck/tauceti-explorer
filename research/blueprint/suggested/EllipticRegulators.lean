@@ -8,8 +8,10 @@ BP-EllipticRegulators, revised by the independent review REV-EllipticRegulators:
 partial prototype, implementationStatus = unchecked.
 Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174;
 Tau Ceti f790474821cf4256814db967cb154e7af3d0c369.
-Synced with the reviewed packet (75 nodes) and elaborated with the Lean toolchain of
-Mathlib 082e2d3 against its prebuilt library: `sorry` is the only warning. The file
+The preceding REV-EllipticRegulators version (75 nodes) was elaborated against
+Mathlib 082e2d3 with `sorry` as its only warning. The Fourier changes for
+FIX-RT-AREA-combinatorics~2 have NOT been compiled: no existing build at that pin
+was found. They require independent review. The file
 imports only Mathlib; the Tau Ceti declarations the packet cites are named in comments.
 
 Objects that another roadmap owns are not re-planned: the complex uniformisation is
@@ -45,6 +47,7 @@ import Mathlib.NumberTheory.LSeries.DirichletContinuation
 import Mathlib.NumberTheory.ModularForms.DedekindEta
 import Mathlib.NumberTheory.ModularForms.CongruenceSubgroups
 import Mathlib.Analysis.Fourier.ZMod
+import Mathlib.Analysis.Fourier.FiniteAbelian.PontryaginDuality
 import Mathlib.Analysis.SpecialFunctions.Complex.CircleAddChar
 
 noncomputable section
@@ -268,7 +271,31 @@ theorem ellipticRDiv_blochClass (τ : UpperHalfPlane) (C : ℕ) (hC : 0 < C) (k 
     ellipticRDiv D τ (diamond (blochRhoDiv τ C) (torsionFunctionDiv C (((k : ℂ) + l * τ) / C))) =
       (C : ℂ) ^ 3 * ellipticRτ D τ (((k : ℂ) + l * τ) / C) := by sorry
 
-/-- ER.4/finite-fourier-transform: Bloch (10.2.1), normalised by `1/C²`. -/
+/- ER.4 imports the generic coefficient, inversion, Parseval and normalization-comparison
+interface from AdditiveCombinatorics:AC.0. That missing interface must be built on the pinned
+AddChar basis/orthogonality, not redefined here. The following declarations specify only
+the C-torsion identification and its comparisons. The `complexBasis.repr` target is already
+available at the pin; AC.0 owns its general averaged-coefficient formula. -/
+
+/-- API `torsionFourierCharacter`: χ_(k,ℓ)(a,b) = exp(2πi(ak−bℓ)/C). -/
+noncomputable def torsionFourierCharacter (C : ℕ) [NeZero C]
+    (kl : ZMod C × ZMod C) : AddChar (ZMod C × ZMod C) ℂ where
+  toFun ab := ZMod.stdAddChar (ab.1 * kl.1 - ab.2 * kl.2)
+  map_zero_eq_one' := by sorry
+  map_add_eq_mul' := by sorry
+
+theorem torsionFourierCharacter_apply (C : ℕ) [NeZero C]
+    (kl ab : ZMod C × ZMod C) :
+    torsionFourierCharacter C kl ab = Complex.exp (2 * Real.pi * Complex.I *
+      ((((ab.1.val * kl.1.val : ℕ) : ℤ) - ((ab.2.val * kl.2.val : ℕ) : ℤ) : ℤ) : ℂ) / C) := by
+  sorry
+
+/-- API `torsionFourierDuality`: identify the C-torsion dual using the existing characters. -/
+noncomputable def torsionFourierDuality (C : ℕ) [NeZero C] :
+    (ZMod C × ZMod C) ≃ AddChar (ZMod C × ZMod C) ℂ :=
+  Equiv.ofBijective (torsionFourierCharacter C) (by sorry)
+
+/-- ER.4/finite-fourier-transform: Bloch (10.2.1), the AC.0 average `1/C²` on C² points. -/
 noncomputable def finiteFourier10 (C : ℕ) [NeZero C] (f : ZMod C × ZMod C → ℂ)
     (kl : ZMod C × ZMod C) : ℂ :=
   ((C : ℂ) ^ 2)⁻¹ * ∑ ab : ZMod C × ZMod C, f ab *
@@ -285,7 +312,26 @@ theorem bloch_theorem_10_2_1 (τ : UpperHalfPlane) (C : ℕ) [NeZero C]
           (((mn.1.1 : ℂ) * τ + mn.1.2) ^ 2 * ((mn.1.1 : ℂ) * (starRingEnd ℂ) τ + mn.1.2)) := by
   sorry
 
-/-- API `finiteFourier10_inversion`. -/
+/-- API `finiteFourier10_eq_complexBasis_repr`: specialize AC.0's coefficient comparison. -/
+theorem finiteFourier10_eq_complexBasis_repr (C : ℕ) [NeZero C]
+    (f : ZMod C × ZMod C → ℂ) (kl : ZMod C × ZMod C) :
+    finiteFourier10 C f kl =
+      (AddChar.complexBasis (ZMod C × ZMod C)).repr f (torsionFourierCharacter C kl) := by
+  sorry
+
+/-- API `finiteFourier10_eq_dft`: the second DFT index is negated. -/
+theorem finiteFourier10_eq_dft (C : ℕ) [NeZero C]
+    (f : ZMod C × ZMod C → ℂ) (kl : ZMod C × ZMod C) :
+    finiteFourier10 C f kl = ((C : ℂ)^2)⁻¹ *
+      ZMod.dft (fun a => ZMod.dft (fun b => f (a, b)) (-kl.2)) kl.1 := by
+  sorry
+
+/-- API `finiteFourier10_parseval`: specialize AC.0 Parseval through torsionFourierDuality. -/
+theorem finiteFourier10_parseval (C : ℕ) [NeZero C] (f : ZMod C × ZMod C → ℂ) :
+    ∑ kl, ‖finiteFourier10 C f kl‖ ^ 2 = ((C : ℝ)^2)⁻¹ * ∑ ab, ‖f ab‖ ^ 2 := by
+  sorry
+
+/-- API `finiteFourier10_inversion`: specialize AC.0 inversion; no new generic proof. -/
 theorem finiteFourier10_inversion (C : ℕ) [NeZero C] (f : ZMod C × ZMod C → ℂ) (ab : ZMod C × ZMod C) :
     f ab = ∑ kl : ZMod C × ZMod C, finiteFourier10 C f kl *
       Complex.exp (2 * Real.pi * Complex.I *
@@ -313,6 +359,20 @@ example : finiteFourier10 3 (fun x => if x = (1, 0) then 1 else if x = (2, 0) th
 example (C : ℕ) [NeZero C] : finiteFourier10 C 0 = 0 := by
   sorry
 
+/-- Test `finiteFourier10_C1` (degenerate). -/
+example (f : ZMod 1 × ZMod 1 → ℂ) : finiteFourier10 1 f (0, 0) = f (0, 0) := by
+  sorry
+
+/-- Test `finiteFourier10_parseval_single` (computation): a unitary normalization fails. -/
+example : ∑ kl : ZMod 3 × ZMod 3,
+    ‖finiteFourier10 3 (fun ab => if ab = (0, 0) then 1 else 0) kl‖ ^ 2 = (1 / 9 : ℝ) := by
+  sorry
+
+/-- Test `finiteFourier10_basis` (compatibility): the character transforms to its point mass. -/
+example (C : ℕ) [NeZero C] (kl uv : ZMod C × ZMod C) :
+    finiteFourier10 C (torsionFourierCharacter C kl) uv = if uv = kl then 1 else 0 := by
+  sorry
+
 /-- Test `finiteFourier10_inv` (characterisation): inversion recovers `f`. -/
 example (C : ℕ) [NeZero C] (f : ZMod C × ZMod C → ℂ) :
     (fun ab : ZMod C × ZMod C => ∑ kl : ZMod C × ZMod C, finiteFourier10 C f kl *
@@ -334,7 +394,7 @@ noncomputable def pairingO (C : ℕ) [NeZero C] (x y : ZMod C × ZMod C) : ℂ :
     ((-((x.1.val * y.2.val : ℕ) : ℤ) + ((x.2.val * y.1.val : ℕ) : ℤ) : ℤ) : ℂ) / C)
 
 /-- ER.5/fourier-transform-on-O-mod-C: `F̂(x) = C⁻¹ Σ_y F(y) ⟨x, y⟩` (the kernel of the proof of
-Lemma 11.1.7; the kernel printed in (11.1.1) is `⟨y, x⟩`, source issue E1). -/
+Lemma 11.1.7; the kernel printed in (11.1.1) is `⟨y, x⟩`, source issue E7). -/
 noncomputable def fourierO (C : ℕ) [NeZero C] (F : ZMod C × ZMod C → ℂ) (x : ZMod C × ZMod C) : ℂ :=
   (C : ℂ)⁻¹ * ∑ y, F y * pairingO C x y
 
@@ -342,20 +402,31 @@ noncomputable def fourierO (C : ℕ) [NeZero C] (F : ZMod C × ZMod C → ℂ) (
 theorem pairingO_swap (C : ℕ) [NeZero C] (x y : ZMod C × ZMod C) : pairingO C x y * pairingO C y x = 1 := by
   sorry
 
-/-- API `fourierO_inversion`. -/
+/-- API `fourierO_inversion`: import AC.0 inversion via the ER.4 scale comparison. -/
 theorem fourierO_inversion (C : ℕ) [NeZero C] (F : ZMod C × ZMod C → ℂ) (y : ZMod C × ZMod C) :
     F y = (C : ℂ)⁻¹ * ∑ x, fourierO C F x * (pairingO C x y)⁻¹ := by
   sorry
 
 /-- API `fourierO_eq_finiteFourier10`: in the coordinates `(m, n) ↦ n + mτ`. -/
 theorem fourierO_eq_finiteFourier10 (C : ℕ) [NeZero C] (F : ZMod C × ZMod C → ℂ) (kl : ZMod C × ZMod C) :
-    finiteFourier10 C (fun mn => F (mn.2, mn.1)) kl = (C : ℂ)⁻¹ * fourierO C F (kl.2, kl.1) := by
+    finiteFourier10 C (fun mn => F (mn.2, mn.1)) kl = (C : ℂ)⁻¹ * fourierO C F kl := by
   sorry
 
 /-- Test `fourierO_normalisation` (compatibility): `fourierO` is `C` times Lecture 10's transform with the
-arguments swapped, not the `1/C²` average. -/
+input coordinates swapped and the output index unchanged. -/
 example (C : ℕ) [NeZero C] (F : ZMod C × ZMod C → ℂ) (x : ZMod C × ZMod C) :
-    fourierO C F x = (C : ℂ) * finiteFourier10 C (fun mn => F (mn.2, mn.1)) (x.2, x.1) := by
+    fourierO C F x = (C : ℂ) * finiteFourier10 C (fun mn => F (mn.2, mn.1)) x := by
+  sorry
+
+/-- API `fourierO_parseval`: the unitary transform preserves the counting norm. -/
+theorem fourierO_parseval (C : ℕ) [NeZero C] (F : ZMod C × ZMod C → ℂ) :
+    ∑ x, ‖fourierO C F x‖ ^ 2 = ∑ y, ‖F y‖ ^ 2 := by
+  sorry
+
+/-- Test `fourierO_output_index` (non-example): swapping the dual index is false. -/
+example : fourierO 3 (fun y => if y = (1, 0) then 1 else 0) (0, 1) =
+      Complex.exp (2 * Real.pi * Complex.I / 3) / 3 ∧
+    fourierO 3 (fun y => if y = (1, 0) then 1 else 0) (1, 0) = (1 / 3 : ℂ) := by
   sorry
 
 -- pairingO_mul_left: not stated (Lemma 11.1.4); needs the multiplication of O/CO in the coordinates
