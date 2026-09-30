@@ -1,0 +1,62 @@
+{
+  "redteam": "RT-BP-K2SymbolsBrauer--T.3",
+  "protocol": "redteam-v1",
+  "status": "complete",
+  "target": "BP-K2SymbolsBrauer--T.3",
+  "summary": "Five new findings in the accepted partial packet: three high (false relative Dennis–Stein quotient, m=1 global reciprocity, and a zero-input real-conic test), one medium (the arbitrary base-change proof still imports only finite-extension ramification), and one low (two stale inverse-residue comparisons). Existing review corrections and recorded source gaps are not reported again.",
+  "checked": [
+    "All 58 node statements, hypotheses, proof outlines and prerequisites, 119 API items, 69 planned tests and 14 planet assignments of the accepted partial T.3 packet; all seven scope/coverage records, nine gaps, 24 requests, seven restructuring notes and eleven existing sourceIssues. Read its independent review and checked the suggested Lean definitions/signatures, including the complete T.3–T.7 sections.",
+    "K-book author-hosted draft of 29 August 2013 downloaded and read 2026-09-30; SHA-256 a04f53c9393b20672fab2a6818279b2f9996dbc7cf74735789ed13804b058845 matches the review. Source checks include III.5.7/5.7.1, III.5.10–5.11.1, Ex.5.13–5.14, III.6.1–6.5 and 6.9–6.10, III.7.3–7.6 and Ex.7.1–7.10, IV.1.11, V.6.1.2/6.6.1/6.6.4/6.12.1 and V.11.9–11.10; PDF pages 235 and 237 visually inspected for the relative relations and differential detector. This is the public draft, not a new check of the published edition or archived errata.",
+    "All 69 baseline declaration entries were opened at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 or Tau Ceti f790474821cf4256814db967cb154e7af3d0c369 and their statements/carriers compared with the claimed supply. Separately read rootsOfUnity_one, the μ₁ subsingleton instance, and the HasEnoughRootsOfUnity M 1 instance. Read the reviewed layer audit for T.3–T.7.",
+    "Owner/dependency checks against the campaign roadmap, the companion T.1 packet, GeneralAlgebraicKTheory K.3/K.5/K.7, KTheoryLowDegrees U.4/U.5, ArithmeticKTheory N.2/N.6/N.8, MotivicEtaleKTheory M.1/M.3, KTheoryFiniteLocalFields L.3, AlgebraicCurves 12, ClassFieldTheory 5/6/10/14, and QuadraticFormInvariants 6C; supplier routes checked in the assembled atlas augmented by accepted research restructuring/link edges and requires. No cycle involving a target-packet node was found in the 1,664-node accepted-packet/companion dependency graph. Consumer notes to N.6/N.8 were not treated as reverse prerequisites.",
+    "Independent exact-arithmetic test of the relative D3 over an 81-element ring, with all source-permitted relations checked and a nonzero differential image for the extra relation; direct logical reductions for the m=1 reciprocity and zero-input real-conic counterexamples. Rechecked the corrected residue normalization, uniformizer dependence, transfer sign, certificate upper/lower bounds and twist change-of-root formulas.",
+    "Target packet checker passed with 58 nodes/119 APIs/69 tests/69 baseline declarations and no errors; its baseline-index check was form-only, supplemented by direct pinned-source reads. check_redteam.check(result, full_job_id) returns no errors, and intake check-files passes for the two deliverables. The CLI incorrectly truncates T.3 to T via path.name.split(\".\")[0] and emits six identifier errors; this tooling defect is documented for the maintainer without changing identifiers or editing out-of-scope tooling. No Lean build or language server was started; no fresh elaboration claim is made."
+  ],
+  "findings": [
+    {
+      "id": "RT-BP-K2SymbolsBrauer--T.3/1",
+      "kind": "error",
+      "severity": "high",
+      "where": "research/blueprint/suggested/K2SymbolsBrauer--T.3.lean:2374–2376 (TauCeti.K2.relDSRel); :2388–2400 (relDennisSteinGroup.toRelK2 and relative_presentation); packet node K2SymbolsBrauer:T.6/relative-presentation",
+      "claim": "The relative Dennis–Stein quotient imposes D3 whenever its three pairs are admissible generators. This is strictly stronger than requiring r ∈ I or s ∈ I or t ∈ I, and the extra relations need not hold in K₂(R,I). Consequently the asserted map to relative K₂ does not descend with the specified generator images.",
+      "evidence": "Weibel, K-book, author-hosted 29 August 2013 draft, III.5.11.1(b), PDF p.235 (printed p.227), permits D3 “whenever r, s, or t is in I”. Take R=F₃[x,y]/(x²,y²), z=xy and I=(z)⊆Jac(R), I²=0. For r=x, s=y, t=x+y, none lies in I but rs=st=tr=z, so the Lean quotient kills ⟨x,z⟩−⟨z,x+y⟩−⟨z,y⟩. Exercise III.5.14(a), PDF p.237, supplies K₂(R,I)→I⊗R Ω¹_(R/I)/Z with ⟨u,a⟩↦u⊗dā for u∈I. The target is F₃·(z⊗dx)⊕F₃·(z⊗dy); the displayed element maps to (1,1)≠0. The packet’s own relative_square_zero_kaehler, Lean :2451–2463, prescribes this same detector. Exhaustive exact arithmetic on all 81 elements annihilates all 477 D1, 20,385 D2 and 56,889 source-allowed D3 relations; 12,960 of the 13,824 additional D3 triples have nonzero image. The report contains a standalone reproducer.",
+      "fix": "Add the explicit hypothesis r ∈ I ∨ s ∈ I ∨ t ∈ I to the D3 generator of relDSRel, retaining or deriving the pair-admissibility proofs. Recheck the quotient descent and relative_presentation with the source’s exact relative relations. Add the square-zero counterexample as a non-example distinguishing relative D3 from absolute D3; synchronize the packet API/tests with the corrected Lean definition."
+    },
+    {
+      "id": "RT-BP-K2SymbolsBrauer--T.3/2",
+      "kind": "error",
+      "severity": "high",
+      "where": "research/blueprint/packets/K2SymbolsBrauer--T.3.json:4552 (K2SymbolsBrauer:T.7/global-reciprocity); research/blueprint/suggested/K2SymbolsBrauer--T.3.lean:2798–2814",
+      "claim": "The global reciprocity theorem admits m=1 but inserts the quadratic sign at every real place independently of m. For F=Q, m=1, a=b=−1, every finite factor equals 1 while the real factor equals −1, so the claimed product equals −1 rather than 1. The prose inclusion {±1}⊆μ_m(F) also fails at m=1.",
+      "evidence": "At Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, Mathlib/RingTheory/RootsOfUnity/Basic.lean:78 states rootsOfUnity_one (M) : rootsOfUnity 1 M = ⊥, and :111 provides Subsingleton (rootsOfUnity 1 M). EnoughRootsOfUnity.lean:113 provides HasEnoughRootsOfUnity M 1 for every commutative monoid. Thus the theorem’s NeZero/roots hypotheses allow Q and all its completions at m=1; hm is that 1 is a unit. Its c has values in rootsOfUnity 1 Q and is constantly 1. The real symbol is −1 by K-book III.6.2.1, PDF p.240, and the packet’s realSignSymbol_symbol and signSymbolAt_rat (Lean :1935–1938 and :1980–1983). Q has one real place. No unresolved choice of the local reciprocity normalization affects a symbol valued in μ₁.",
+      "fix": "Define the real local factor to be 1 for m=1 and the quadratic sign for m=2; under the primitive-root hypothesis there are no real places for m>2. Update the packet, theorem and global comparison proof together. Add Q, m=1, a=b=−1 as the trivial-symbol test and retain the m=2 real/dyadic cancellation test. Alternatively explicitly restrict this theorem to 2≤m and separately state the trivial m=1 law."
+    },
+    {
+      "id": "RT-BP-K2SymbolsBrauer--T.3/3",
+      "kind": "error",
+      "severity": "high",
+      "where": "research/blueprint/suggested/K2SymbolsBrauer--T.3.lean:2673–2675, test TauCeti.NormResidueSymbol.hilbertSymbol_real; conicSymbol definition :2597–2598",
+      "claim": "The real Hilbert-symbol compatibility test is false because it quantifies over arbitrary real numbers instead of nonzero inputs. At r=s=0 the conic equation is impossible, so conicSymbol R 0 0=−1, while r<0 ∧ s<0 is false.",
+      "evidence": "The Lean definition is if ∃ x y : F, r*x^2+s*y^2=1 then 1 else −1. Specializing it at r=s=0 gives the impossible equation 0=1. The source’s Steinberg-symbol domain is F××F× (K-book III.6.2, PDF p.240); its real sign example III.6.2.1 has that domain. The same file correctly uses r s : Rˣ in hilbertK2_real (:2634–2638), but drops it in the compatibility test. This does not depend on any sorry-defined K₂ operation.",
+      "fix": "Give the compatibility test arguments r s : Rˣ, or add explicit r≠0 and s≠0 hypotheses, and align the packet test’s domain. If conicSymbol remains defined on every field element, add a zero-input non-example so that its extension outside the Hilbert-symbol domain cannot be mistaken for the strict-negative criterion."
+    },
+    {
+      "id": "RT-BP-K2SymbolsBrauer--T.3/4",
+      "kind": "missing",
+      "severity": "medium",
+      "where": "research/blueprint/packets/K2SymbolsBrauer--T.3.json:2546 (T.4/transfer-base-change proof step 2) and :1635 (T.3/higher-ramification-formula hypothesis); research/blueprint/suggested/K2SymbolsBrauer--T.3.lean:938 and :1497–1511",
+      "claim": "The base-change proof is promised for an arbitrary extension F′/F, but its residue comparison invokes higher-ramification-formula, which is restricted to finite extensions in both the packet and Lean. This does not supply the step for F′(t)/F(t) when F′/F is infinite. The same arbitrary-extension scope is needed for the completion argument already identified by sourceIssue E10.",
+      "evidence": "T.4/transfer-base-change explicitly allows arbitrary F′/F and its step 2 cites T.3/higher-ramification-formula. The latter assumes E finite over F and higher_ramification_formula carries [FiniteDimensional F E]. For F′=F(u) with u transcendental, F′(t)/F(t) is not finite; finite-dimensionality therefore cannot be instantiated. K-book Ex.III.7.7–7.9, PDF pp.265–266, are the relevant source steps; E10 already enlarges the consumer beyond Ex.7.7’s finite-extension statement, but leaves the supplier finite. The supplier’s written proof only uses uniformizers, the relation ord_w|F=e·ord_v, and symbols of units, so the needed generalization is concrete and local.",
+      "fix": "Generalize higher-ramification-formula to any field embedding with normalized surjective discrete valuations satisfying ord_w|F=e·ord_v and e>0, removing FiniteDimensional from its signature and packet hypotheses. Prove it directly by the existing unit/uniformizer calculation; keep the finite-extension version as a corollary if useful. Update the base-change proof and add an infinite constant-extension or completion compatibility test. Do not re-restrict base change to finite F′/F, since E10’s completion use needs the larger scope."
+    },
+    {
+      "id": "RT-BP-K2SymbolsBrauer--T.3/5",
+      "kind": "error",
+      "severity": "low",
+      "where": "research/blueprint/packets/K2SymbolsBrauer--T.3.json:2399 (T.4/projective-line-reciprocity proof step 3) and :2454 (T.4/weil-reciprocity-symbol-form proof step 2)",
+      "claim": "Both proof steps still describe the packet’s degree-two Milnor residue as the inverse of its tame symbol, contradicting the corrected normalization used elsewhere. The resulting product-one theorem is unchanged by inversion, so the defect is in the explanatory comparison rather than the reciprocity result.",
+      "evidence": "T.3/higher-milnor-residues now explicitly identifies the degree-two residue with tameSymbolHom, and Lean milnorResidue_two (:852–855) states that equality with no inversion. On Q at 5, both send {2,5} to 2 in F₅×; its inverse is 3. The cited source’s opposite normalization is kept separately in milnorResidue_kbook. The two proof steps conflate these two conventions.",
+      "fix": "Replace both inverse comparisons by equality with the roadmap tame symbol. Keep inversion only in sentences explicitly discussing the K-book normalization, and retain the Q-at-5 test distinguishing 2 from 3."
+    }
+  ]
+}
