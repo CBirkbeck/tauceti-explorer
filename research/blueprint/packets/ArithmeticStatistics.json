@@ -2501,11 +2501,12 @@
       "title": "Higher Rédei reciprocity and integral points on conics",
       "authors": "Peter Koymans, Carlo Pagano",
       "edition": "arXiv 2005.14157v2 (14 May 2024)",
-      "url": "https://arxiv.org/pdf/2005.14157",
+      "url": "https://arxiv.org/pdf/2005.14157v2",
       "sha256": "0846df8149196dc7f778d92ed04fae453293fbb99ad38e534bda8bbc2f167528",
       "readSections": [
         "§6, p. 30 (definition and explicit formula of P(m, n, j))",
-        "Appendix A.1 pp. 47–48 (identity (A.2) and its proof); fetched 2026-09-24"
+        "Appendix A.1 pp. 47–48 (identity (A.2) and its proof); fetched 2026-09-24",
+        "Independent fix review 2026-09-30: Appendix A.1 pp.47-48 including the p.48 image; hash unchanged. The proof of (A.2) needs the correction recorded as ArithmeticStatistics/E675."
       ]
     },
     {
@@ -19739,15 +19740,21 @@
         "m ∈ ℕ"
       ],
       "proofSteps": [
-        "Probability space: pairs (T, U), T a uniform surjection F_2^{m+1} ↠ F_2^m and U a uniform bilinear pairing F_2^{m+1} × F_2^m → F_2; fix x ≠ 0 in F_2^{m+1}.",
-        "P(x ∈ ker T) = 1/(2^{m+1} − 1): ker T is a uniform line.",
-        "Let A_{n,x} be the event 'x ∈ leftker U and dim leftker U = n + 1'; P(A_{n,x}) = P(m, m, n)/2^m (x ∈ leftker U has probability 2^{−m}, and then U on a complement is a uniform m × m matrix).",
-        "Conditionally on A_{n,x} and T(leftker U) = V (dim V = n), T restricted to leftker U is a uniform surjection onto V, so P(x ∈ ker T | A_{n,x}) = 1/(2^{n+1} − 1); summing gives the identity (the events A_{n,x} for n = 0…m cover the conditioning needed in KP's (A.7))."
+        "Replace the invalid independent-(T,U) conditioning in the source (ArithmeticStatistics/E675) by a normalized kernel-weight argument. Let V=F_2^(m+1), W=F_2^m, and U range uniformly over all linear maps V -> W (equivalently pairings V x W^dual -> F_2). Rank-nullity makes K_U=ker U nonzero, including m=0.",
+        "For nonzero x in V put w_x(U)=1/(#K_U-1) if x is in K_U, and zero otherwise. For each U, summing w_x(U) over all nonzero x gives exactly 1. Average this finite identity over U.",
+        "If g is an automorphism of V, U -> U composed with g^(-1) permutes the set of maps and carries K_U to g(K_U), preserving its cardinality. Any nonzero x,y can be extended to bases and carried to one another by such a g. Therefore E_U[w_x(U)] is constant in nonzero x; its value is 1/(2^(m+1)-1). This is the law obtained by sampling U uniformly and then a nonzero vector of its kernel uniformly, not by sampling pairs (U,x) uniformly.",
+        "For a fixed nonzero x, choose a basis beginning with x. The event U(x)=0 has probability 2^(-m). Conditional on it, U factors through V/<x> and the remaining m by m block is uniformly random. If that block has kernel dimension n, then dim K_U=n+1; hence P(x in K_U and dim K_U=n+1)=2^(-m) P(m,m,n).",
+        "Partition the weighted sum defining E_U[w_x(U)] by n=0,...,m. On the corresponding event the weight is 1/(2^(n+1)-1). Substituting the preceding event counts proves the displayed identity for every m>=0.",
+        "Check m=0 separately as a degenerate normalization test: there is one map F_2 -> 0 and its kernel has one nonzero vector, so both sides are 1."
       ],
       "acceptance": [
         "m = 1: (1/2 + 1/6)/2 = 1/3.",
         "m = 2: (6/16 + (1/3)(9/16) + (1/7)(1/16))/4 = 1/7.",
-        "Verified exactly for m ≤ 11 in this blueprint's preparation."
+        "Verified exactly for m ≤ 11 in this blueprint's preparation.",
+        "m=0: both sides equal 1; the kernel weight denominator is #ker U - 1=1, not zero.",
+        "m=3: P(3,3,n)=(168,294,49,1)/512, and the weighted sum is 1/15.",
+        "Counterexample to the old proof: for m=1, independent uniform T:F_2^2 onto F_2 and U:F_2^2 -> F_2 give P(x in ker T)=1/3 but sum_n P(x in ker T | A_(n,x)) P(A_(n,x))=1/6, since the union of A_(n,x) is only U(x)=0.",
+        "The repaired probability uses a uniform U followed by a uniform nonzero kernel vector; uniform sampling of all pairs (U,x in ker U minus {0}) is a different measure."
       ],
       "prerequisites": [
         "ArithmeticStatistics:ST.5/matrix-kernel-law-over-a-finite-field",
@@ -19762,14 +19769,38 @@
         {
           "sourceId": "koymans-redei-2024",
           "locator": "arXiv 2005.14157v2, Appendix A.1, pp. 47–48",
-          "match": "The proof of (A.2)."
+          "match": "The statement (A.2) is correct. The displayed independent-pair conditioning proof on p.48 is not: see ArithmeticStatistics/E675. The proofSteps give a finite kernel-weight repair, independently checked in this review; they are not attributed verbatim to the source."
         }
       ],
       "library": {
         "module": "TauCeti/NumberTheory/ArithmeticStatistics/RandomMatrix/FiniteField",
         "namespace": "ArithmeticStatistics"
       },
-      "implementationStatus": "unchecked"
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "koymansPaganoRankIdentity",
+          "role": "compatibility",
+          "statement": "For m>=0, sum over n=0,...,m of P_F2(m,m,n)/(2^m (2^(n+1)-1)) equals 1/(2^(m+1)-1)."
+        }
+      ],
+      "tests": [
+        {
+          "name": "koymansPaganoRankIdentity.zero",
+          "kind": "degenerate",
+          "statement": "At m=0 the only matrix is empty, P(0,0,0)=1 and the identity reads 1=1."
+        },
+        {
+          "name": "koymansPaganoRankIdentity.three",
+          "kind": "computation",
+          "statement": "The kernel counts for 3 by 3 matrices over F_2 are 168,294,49,1; the normalized weighted sum is 1/15."
+        },
+        {
+          "name": "koymansPaganoRankIdentity.reject_independent_conditioning",
+          "kind": "non-example",
+          "statement": "At m=1, independent T and U give the printed A.7 left side 1/3 and right side 1/6. The repaired weighted-kernel proof must not use that equality."
+        }
+      ]
     },
     {
       "id": "ArithmeticStatistics:ST.5/cohen-martinet-predicted-surjection-moment",
@@ -31004,6 +31035,23 @@
         "Invent. Math. 237 (2024) Publisher Correction pp.117–120 (restyles references only, per the extraction)",
         "the finding of the paper extraction PAPER-LIU-WOOD-ZUREICKBROWN-24"
       ]
+    },
+    {
+      "id": "ArithmeticStatistics/E675",
+      "source": "koymans-redei-2024",
+      "kind": "gap",
+      "locator": "arXiv:2005.14157v2, Appendix A.1, p.48, (A.7) and the following conditional-probability calculation; page image checked 2026-09-30",
+      "printed": "The source places the uniform measure on the probability space consisting of pairs (T, U).",
+      "correction": "Keep the identity (A.2), but replace the independent-pair argument by averaging w_x(U)=1_{x in ker U}/(#ker U-1) over uniform U:F_2^(m+1)->F_2^m, for nonzero x. GL_(m+1)-invariance and sum_x w_x(U)=1 give the average 1/(2^(m+1)-1). Conditioning U(x)=0 produces a uniform m by m block and yields the sum in (A.2).",
+      "reason": "In the printed product space T and U are independent. The events A_(i,x) cover only U(x)=0, of probability 2^(-m), not the whole space or the event x in ker T. Thus the right side of (A.7), computed from its stated conditional probabilities, equals P(x in ker T) times 2^(-m). At m=1 it is 1/6, while the left side is 1/3. Moreover T(ker U) may have dimension i+1 as well as i; the subsequent sum omits that possibility. The replacement finite-sum proof establishes the same identity; exhaustive rational checks for m=0,1,2,3 agree.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "2026-09-30: https://arxiv.org/abs/2005.14157 lists v2 (14 May 2024) as latest and notes partial supersession by arXiv:2201.13424; no later correction listed.",
+        "2026-09-30: https://webspace.science.uu.nl/~koyma001/publications.html lists Higher Redei reciprocity as superseded by On Stevenhagen; no Appendix A correction linked.",
+        "2026-09-30: https://sites.google.com/view/carlopagano/home-page/publications and web searches for the paper title with Appendix A / A.7 / erratum / correction found no correction.",
+        "2026-09-30: arXiv:2201.13424v1 p.76 cites (A.2) without repeating its proof; this is not a published-version collation."
+      ]
     }
   ],
   "restructure": [
@@ -31036,8 +31084,18 @@
   ],
   "review": {
     "status": "accepted",
-    "reviewer": "independent-review-REV-FIX-RT-PAPER-BROWNING-LEBOUDEC-SAWIN-23",
+    "reviewer": "independent-review-REV-FIX-RT-PAPER-KOYMANS-PAGANO",
     "date": "2026-09-30",
-    "notes": "Codex — codex-J6LwjP reviewed the fix by Claude Code cc-c2c06b, which this reviewer did not write. This follows REV-RT-PAPER-BROWNING-LEBOUDEC-SAWIN-23 and its qualified /1–/3 decisions; the packet had no prior top-level review object. Scope: the fix’s ST.5 shared-carrier/GN.0 request and ST.2 route-4 remaining-work entry, with read-only checks of the extraction’s provenance and routing. Read BLS arXiv v1 pp.1–4,11–12,50,53 and PV author PDF pp.1–3; checked the corresponding pinned polynomial declarations and existing ST.2/FF.2/GN.0 supplier contracts. Corrected in place: explicit GN.0 dependencies and the all-zero-minors extension for dependent pairs; exact Fano range, summable local-density defects for infinite-product positivity, smooth-point witnesses and primitive/sign/boundary proof obligations in the ST.2 remaining entry. All 415 nodes remain unchecked and the packet remains partial with 47 gaps; acceptance of these scoped fixes does not certify all other source extractions or close their proofs. Low findings /4–/6 were outside the fix scope. Stock blueprint checker with the pinned index passes with no errors or warnings. The report records reproducible finite-residue and provenance checks. No Lean file was assigned or compiled."
-  }
+    "notes": "Codex — codex-J6LwjP independently reviewed Claude Code cc-f805bf’s fix for confirmed medium findings /1-/5, following REV-RT-PAPER-KOYMANS-PAGANO. This replaces the top-level review by independent-review-REV-FIX-RT-PAPER-BROWNING-LEBOUDEC-SAWIN-23; its scoped BLS corrections are retained, and this is not a re-review of this reviewer’s own BLS work. Checked /4’s single-owner matrix definition and the consumed identity; replaced the invalid source-derived conditioning proof by a normalized kernel-weight proof, added boundary tests, and recorded source gap E675 with fresh preprint provenance. Other extraction changes were checked read-only, including qualified library/planned status, Jutila/Smith attribution and route-7 separation. The extraction’s historical route-review verdicts remain untouched. Low findings /6-/13 were not part of the fix. Acceptance is for these scoped fixes and clear corrections, not proof closure of the partial packet. The report records source hashes, finite checks and all limitations; no Lean file was assigned or compiled."
+  },
+  "sourceVersions": [
+    {
+      "source": "koymans-redei-2024",
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/2005.14157v2",
+      "citation": "Koymans-Pagano, Higher Redei reciprocity and integral points on conics, arXiv v2, selected Appendix A.1 only",
+      "read": "2026-09-30",
+      "sha256": "0846df8149196dc7f778d92ed04fae453293fbb99ad38e534bda8bbc2f167528"
+    }
+  ]
 }
