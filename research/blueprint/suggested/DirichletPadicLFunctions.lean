@@ -10280,3 +10280,76 @@ example (Q : PowerSeries ℚ) (hQ : Q.coeff 0=(-7/240 : ℚ)) :
     Q≠Q-PowerSeries.C (Q.coeff 0) := sorry
 end
 end SuggestedClassicalTwistedTests
+
+/-! Canonical principal mass and its logarithm series. The general logarithmic
+moment and local logarithm belong to ColemanIntegration. These signatures only
+compare the actual arithmetic numerator and give its finite precision controls.
+No Coleman suggested-module import is made, since it already imports this file.
+No analytic branch, pole order or residue is asserted here. -/
+namespace DirichletPadic
+noncomputable section
+open scoped BigOperators
+variable (p : ℕ) [Fact p.Prime] [IsBoundedSMul ℤ_[p] ℚ_[p]]
+
+theorem intrinsicSmoothedNumerator_canonical_logarithmic_series (ha : ¬p∣p+1) :
+    HasSum (fun n : ℕ => ((-1 : ℚ_[p])^(n+1)/(n : ℚ_[p]))*(p : ℚ_[p])^n)
+      (-(p : ℚ_[p])/((p : ℚ_[p])-1)*
+        algebraMap ℤ_[p] ℚ_[p] (intrinsicSmoothedNumerator p (p+1) ha 1)) := sorry
+
+theorem intrinsicSmoothedNumerator_canonical_logarithmic_error
+    (ha : ¬p∣p+1) (N : ℕ) (hN : 1≤N) :
+    ‖algebraMap ℤ_[p] ℚ_[p] (intrinsicSmoothedNumerator p (p+1) ha 1)+
+      (1-(p : ℚ_[p])⁻¹)*(∑ n∈Finset.range N,
+        ((-1 : ℚ_[p])^(n+1)/(n : ℚ_[p]))*(p : ℚ_[p])^n)‖ ≤
+      (p : ℝ)*(p : ℝ)^(-(((N+1)/2 : ℕ) : ℤ)) := sorry
+
+theorem intrinsicSmoothedNumerator_canonical_logarithmic_norm (ha : ¬p∣p+1) :
+    ‖∑' n : ℕ, ((-1 : ℚ_[p])^(n+1)/(n : ℚ_[p]))*(p : ℚ_[p])^n‖=
+      (if p=2 then (1/4 : ℝ) else (p : ℝ)⁻¹) ∧
+    (∑' n : ℕ, ((-1 : ℚ_[p])^(n+1)/(n : ℚ_[p]))*(p : ℚ_[p])^n)≠0 := sorry
+end
+end DirichletPadic
+
+namespace SuggestedPrincipalLogarithmicTests
+noncomputable section
+open DirichletPadic
+open scoped BigOperators
+section Dyadic
+variable [IsBoundedSMul ℤ_[2] ℚ_[2]]
+-- dyadic_mass_series_sign
+example : HasSum (fun n : ℕ => ((-1 : ℚ_[2])^(n+1)/(n : ℚ_[2]))*(2 : ℚ_[2])^n)
+    (-2*algebraMap ℤ_[2] ℚ_[2] (intrinsicSmoothedNumerator 2 3 (by norm_num) 1)) := sorry
+-- dyadic_positive_sign_fails
+example : (∑' n : ℕ, ((-1 : ℚ_[2])^(n+1)/(n : ℚ_[2]))*(2 : ℚ_[2])^n)≠
+    2*algebraMap ℤ_[2] ℚ_[2] (intrinsicSmoothedNumerator 2 3 (by norm_num) 1) := sorry
+-- dyadic_zero_early_sum
+example : (∑ n∈Finset.range 3, ((-1 : ℚ_[2])^(n+1)/(n : ℚ_[2]))*(2 : ℚ_[2])^n)=0 := sorry
+-- dyadic_five_term_mass_error
+example : ‖algebraMap ℤ_[2] ℚ_[2] (intrinsicSmoothedNumerator 2 3 (by norm_num) 1)-2/3‖≤
+    (1/4 : ℝ) := sorry
+-- dyadic_log_norm
+example : ‖∑' n : ℕ, ((-1 : ℚ_[2])^(n+1)/(n : ℚ_[2]))*(2 : ℚ_[2])^n‖=(1/4 : ℝ) := sorry
+end Dyadic
+section Ternary
+variable [IsBoundedSMul ℤ_[3] ℚ_[3]]
+-- ternary_mass_series_factor
+example : HasSum (fun n : ℕ => ((-1 : ℚ_[3])^(n+1)/(n : ℚ_[3]))*(3 : ℚ_[3])^n)
+    ((-3/2 : ℚ_[3])*algebraMap ℤ_[3] ℚ_[3] (intrinsicSmoothedNumerator 3 4 (by norm_num) 1)) := sorry
+-- ternary_log_norm
+example : ‖∑' n : ℕ, ((-1 : ℚ_[3])^(n+1)/(n : ℚ_[3]))*(3 : ℚ_[3])^n‖=(1/3 : ℝ) := sorry
+end Ternary
+section AllPrimes
+variable {p : ℕ} [Fact p.Prime] [IsBoundedSMul ℤ_[p] ℚ_[p]]
+-- precision_cutoff_twice_successor
+example (ha : ¬p∣p+1) (r : ℕ) :
+    ‖algebraMap ℤ_[p] ℚ_[p] (intrinsicSmoothedNumerator p (p+1) ha 1)+
+      (1-(p : ℚ_[p])⁻¹)*(∑ n∈Finset.range (2*(r+1)),
+        ((-1 : ℚ_[p])^(n+1)/(n : ℚ_[p]))*(p : ℚ_[p])^n)‖≤
+      (p : ℝ)^(-(r : ℤ)) := sorry
+-- totalized_zero_term
+example : ((-1 : ℚ_[p])^(0+1)/(0 : ℚ_[p]))*(p : ℚ_[p])^0=0 := sorry
+-- logarithm_sum_nonzero
+example : (∑' n : ℕ, ((-1 : ℚ_[p])^(n+1)/(n : ℚ_[p]))*(p : ℚ_[p])^n)≠0 := sorry
+end AllPrimes
+end
+end SuggestedPrincipalLogarithmicTests

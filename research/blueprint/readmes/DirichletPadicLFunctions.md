@@ -19485,3 +19485,118 @@ Nine complete native lemmas check weighted and retained divisor sums under ring 
 Exact Gaussian-rational coefficient-vector controls check both identity and conjugate coefficient embeddings, retained divisor coefficients, q^p expansion, positive truncation and the supplied full constant. Nonreal values and nonintegral constants are retained. Exact unbounded rational arithmetic in Gaussian-rational pairs. Identity and conjugation are distinct coefficient embeddings. Finite vectors are evaluated directly and compared with the Euler-transformed and constant-split expressions. They are algebraic controls only, not certified modular forms or an infinite-series proof. The largest observed discrepancy is 0.
 
 The64-input capture at 94e99d9637c8ff3fb856d9932c3ddf6d4dbd586a has an empty predecessor delta; the existing ModularForms owner atlas file is newly captured. The predecessor Lean body is preserved whole. The full suggested module remains uncompiled because the same required pinned TwistedDivisorSum artifact is missing. The separate probe uses actual existing modular-form artifacts, with no native build.
+
+
+## The principal numerator and its logarithmic mass
+
+Partial continuation preserving all595 predecessor nodes whole. Three L3 nodes compare the actual canonical principal mass with the owned logarithm series, give its finite truncation estimate and deduce the exact odd/dyadic norm. All16 findings and nine old requests remain whole. Two precise inherited analytic requests and gaps are added, giving eleven requests and fifteen gaps; zero stages are closed.
+
+Read all published153–158, including the full proof of Lemma7.5 and the branch assumptions around Theorem7.1. Read the complete pinned native LogOneAdd.Basic module and its invalid-for-Q_p ContinuousSMul hypothesis on radius results. Read the whole Coleman negative-moment, smoothed-polylog, local logarithm convergence, rotated-smoothed-Amice and distribution-primitive nodes, the relevant Iwasawa restriction interface, and both supplier atlas stages. The reviewed Dirichlet L0–L4, Coleman L0 and PMIA L2 library audits were reread. Native valuation, power bounds, generated additive tail/convergence and closed-limit bounds were read and used in complete proofs.
+
+### Logarithm series of the actual principal numerator
+
+`DirichletPadicLFunctions:L3/principal-numerator-logarithmic-series` — `DirichletPadic.intrinsicSmoothedNumerator_canonical_logarithmic_series`
+
+HasSum(n↦t_n, −p/(p−1)·M). Equivalently the actual numerator mass is M=−(1−p⁻¹)·L.
+
+**Hypotheses:** p is any prime, including2; Z=ℤ_p and Q=ℚ_p carry their native structures. Retain IsBoundedSMul Z Q for the actual coefficient-extension interface. The canonical smoothing parameter is a=p+1 with ha:p∤a. Write M=algebraMap Z Q(intrinsicSmoothedNumerator p (p+1) ha 1). This is the included scalar mass of the existing actual intrinsic numerator, not a value of the pseudomeasure at the principal character. Write t_n=(-1)^(n+1)p^n/n in Q, L=∑'n,t_n and L_N=∑_{n<N}t_n. These are shorthand expressions using native sums, not new logarithm or power-series constructors. The totalized n=0 term is0. The imported Coleman theorem supplies the actual first inverse moment and its logarithmic value; its bounded coefficient-extension, locally analytic distribution and analytic framework dependencies remain open. Its local logarithm agrees with the existing series on |u|<1. No invalid ContinuousSMul ℚ≥0 Q instance is assumed. The canonical parameter p+1 need not generate all of Z_p×, and there is no such single generator at p=2. These mass and precision statements do not establish a character-space branch, analytic pole order or residue.
+
+**Proof:**
+
+1. At level0 with the principal character and inverse exponent0, the preserved smoothed-inverse-arithmetic comparison gives the first inverse moment of the actual smoothed measure. Its character is1 on the unit group. The existing integral-unit-extension test theorem identifies that evaluation with the included mass M.
+2. Apply ColemanIntegration:L3/negative-moments-of-smoothed-measure with K=Q_p,w=1,k=1,b=p+1. Its actual Dirichlet smoothing measure is the same one used above. The existing smoothed-polylog-combination gives Φ_b^(1)(1)=−log_p(b), hence M=−(1−p⁻¹)log_p(p+1). All seven stage leaves of this supplied route are retained; the two relevant inherited interfaces are requested explicitly.
+3. The Iwasawa logarithm restricts to the local log(1+u) series; at u=p, native norm_p gives |p|<1. Import the existing ultrametric log-one-add-convergence result, using the native logOneAdd_eq_tsum identity only for its definition. This gives HasSum(t_n,log_p(p+1)) in Q_p. If an owner implementation computes in C_p, use the canonical isometric inclusion and its injectivity to reflect the equality in Q_p; the series already converges in complete Q_p.
+4. Because p and p−1 are nonzero in Q_p, the equality of the actual mass rearranges to L=−p/(p−1)M. Complete native mass_series_target verifies this cancellation. The sign is negative, and no zero character denominator is inverted.
+5. The source’s topological-generator assumptions concern its later branch construction. The imported moment theorem only needs b>1 and p∤b, both valid here, including at p=2. No general logarithmic moment theorem is re-planned in this packet.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/smoothed-inverse-arithmetic-value`, `DirichletPadicLFunctions:L3/inverse-arithmetic-character-value`, `DirichletPadicLFunctions:L3/principal-intrinsic-numerator-mass`, `PadicMeasuresIwasawaAlgebras:L2/integral-unit-extension-test-function`, `ColemanIntegration:L3/negative-moments-of-smoothed-measure`, `ColemanIntegration:L3/smoothed-polylog-combination`, `ColemanIntegration:L0/log-one-add-convergence`, `ColemanIntegration:L0/iwasawa-logarithm`, `mathlib:Padic.norm_p`, `tauceti:NormedSpace.logOneAdd_eq_tsum`.
+
+**Tests:**
+
+- `SuggestedPrincipalLogarithmicTests.dyadic_mass_series_sign` (compatibility): At p=2 the series has sum−2M, retaining the negative sign.
+- `SuggestedPrincipalLogarithmicTests.ternary_mass_series_factor` (compatibility): At p=3 the series has sum−(3/2)M.
+- `SuggestedPrincipalLogarithmicTests.dyadic_positive_sign_fails` (non-example): At p=2 the series sum is not+2M; the actual mass is nonzero by the preserved norm theorem.
+
+**Acceptance:** The theorem states a concrete HasSum for the actual numerator. The owner’s general logarithm and moment formula remain imported, and their open graph is visible.
+
+**Source:** Section7, Theorem7.1, Lemmas7.2–7.5 and equations7-1 through7-8, published153–158/PDF54–59, read completely for this checkpoint. Worker comparison of the actual intrinsic Dirichlet numerator with the existing Coleman negative-moment theorem at w=1,k=1,a=p+1. The general logarithm and smoothed polylogarithm remain owned by ColemanIntegration. The finite tail estimate and norm consequences are worker deductions; no pole theorem is claimed. Existing E7 records the printed subtraction typo and is preserved whole.
+
+### Certified truncation of the principal numerator mass
+
+`DirichletPadicLFunctions:L3/principal-numerator-logarithmic-truncation` — `DirichletPadic.intrinsicSmoothedNumerator_canonical_logarithmic_error`
+
+For N≥1, ‖M+(1−p⁻¹)L_N‖≤p·p^(−⌈N/2⌉), with ⌈N/2⌉=(N+1)/2 in natural-number division. Thus N=2(r+1) gives error at most p^(−r).
+
+**Hypotheses:** p is any prime, including2; Z=ℤ_p and Q=ℚ_p carry their native structures. Retain IsBoundedSMul Z Q for the actual coefficient-extension interface. The canonical smoothing parameter is a=p+1 with ha:p∤a. Write M=algebraMap Z Q(intrinsicSmoothedNumerator p (p+1) ha 1). This is the included scalar mass of the existing actual intrinsic numerator, not a value of the pseudomeasure at the principal character. Write t_n=(-1)^(n+1)p^n/n in Q, L=∑'n,t_n and L_N=∑_{n<N}t_n. These are shorthand expressions using native sums, not new logarithm or power-series constructors. The totalized n=0 term is0. The imported Coleman theorem supplies the actual first inverse moment and its logarithmic value; its bounded coefficient-extension, locally analytic distribution and analytic framework dependencies remain open. Its local logarithm agrees with the existing series on |u|<1. No invalid ContinuousSMul ℚ≥0 Q instance is assumed. The canonical parameter p+1 need not generate all of Z_p×, and there is no such single generator at p=2. These mass and precision statements do not establish a character-space branch, analytic pole order or residue.
+
+**Proof:**
+
+1. For n>0 put v=v_p(n). The native divisor p^v∣n implies p^v≤n. An elementary induction gives2v≤2^v≤p^v, so v≤floor(n/2). Complete twice_le_pow and valuation_half_bound verify this for every prime, including2.
+2. Native norm_eq_zpow_neg_valuation and valuation_natCast give ‖t_n‖=p^(v_p(n)−n). Consequently n≥N≥1 gives ‖t_n‖≤p^(−⌈N/2⌉). Complete logarithmic_term_norm and logarithmic_term_bound verify the casts, nonzero denominator and integer exponents. The n=0 term is treated separately as0.
+3. Use the actual HasSum from the previous comparison. The additive versions generated from native hasProd_nat_add_iff' and HasProd.tendsto_prod_nat express the tail after N and convergence of its finite sums. The ultrametric finite-sum bound and le_of_tendsto' keep the same maximum bound in the limit. Complete ultrametric_tail proves this without replacing it by an archimedean sum of norms.
+4. The exact factor norm is ‖1−p⁻¹‖=p, because ‖p−1‖=1 and ‖p‖=p⁻¹. Complete euler_norm and mass_tail_bound multiply the tail bound by this required loss of one p-adic digit. Complete precision_cutoff verifies the stated N=2(r+1) cutoff.
+5. At p=2, L_3=2−2=0 but L_5=−4/3. The N=5 estimate is therefore ‖M−2/3‖≤1/4. Early cancellation is compatible with nonzero infinite mass. Exact rational and modular controls compare the logarithm approximation with the independently derived measure-cell formula at two depths; they do not prove the infinite owner comparison.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/principal-numerator-logarithmic-series`, `mathlib:pow_padicValNat_dvd`, `mathlib:Padic.norm_eq_zpow_neg_valuation`, `mathlib:Padic.valuation_natCast`, `mathlib:zpow_le_zpow_right₀`, `mathlib:hasProd_nat_add_iff'`, `mathlib:HasProd.tendsto_prod_nat`, `mathlib:IsUltrametricDist.norm_prod_le_of_forall_le_of_nonneg`, `mathlib:le_of_tendsto'`, `mathlib:Padic.norm_natCast_p_sub_one`, `mathlib:Padic.norm_p`.
+
+**Tests:**
+
+- `SuggestedPrincipalLogarithmicTests.dyadic_zero_early_sum` (degenerate): At p=2 the partial sum L_3 is0.
+- `SuggestedPrincipalLogarithmicTests.dyadic_five_term_mass_error` (computation): At p=2 the actual included mass satisfies ‖M−2/3‖≤1/4.
+- `SuggestedPrincipalLogarithmicTests.precision_cutoff_twice_successor` (compatibility): For every r≥0, truncation before N=2(r+1) approximates the actual mass with error at most p^(−r).
+- `SuggestedPrincipalLogarithmicTests.totalized_zero_term` (degenerate): The n=0 term of the displayed series is0 under native totalized division.
+
+**Acceptance:** Every bound uses the actual finite partial sum and the actual numerator; the Euler-factor digit loss and ceiling convention are explicit. Finite exact controls are not infinite-series proofs.
+
+**Source:** Section7, Theorem7.1, Lemmas7.2–7.5 and equations7-1 through7-8, published153–158/PDF54–59, read completely for this checkpoint. Worker comparison of the actual intrinsic Dirichlet numerator with the existing Coleman negative-moment theorem at w=1,k=1,a=p+1. The general logarithm and smoothed polylogarithm remain owned by ColemanIntegration. The finite tail estimate and norm consequences are worker deductions; no pole theorem is claimed. Existing E7 records the printed subtraction typo and is preserved whole.
+
+### Exact norm of the canonical logarithmic mass series
+
+`DirichletPadicLFunctions:L3/principal-logarithmic-series-norm` — `DirichletPadic.intrinsicSmoothedNumerator_canonical_logarithmic_norm`
+
+The series sum L has norm1/4 at p=2 and1/p at every odd prime, and L≠0.
+
+**Hypotheses:** p is any prime, including2; Z=ℤ_p and Q=ℚ_p carry their native structures. Retain IsBoundedSMul Z Q for the actual coefficient-extension interface. The canonical smoothing parameter is a=p+1 with ha:p∤a. Write M=algebraMap Z Q(intrinsicSmoothedNumerator p (p+1) ha 1). This is the included scalar mass of the existing actual intrinsic numerator, not a value of the pseudomeasure at the principal character. Write t_n=(-1)^(n+1)p^n/n in Q, L=∑'n,t_n and L_N=∑_{n<N}t_n. These are shorthand expressions using native sums, not new logarithm or power-series constructors. The totalized n=0 term is0. The imported Coleman theorem supplies the actual first inverse moment and its logarithmic value; its bounded coefficient-extension, locally analytic distribution and analytic framework dependencies remain open. Its local logarithm agrees with the existing series on |u|<1. No invalid ContinuousSMul ℚ≥0 Q instance is assumed. The canonical parameter p+1 need not generate all of Z_p×, and there is no such single generator at p=2. These mass and precision statements do not establish a character-space branch, analytic pole order or residue.
+
+**Proof:**
+
+1. The previous HasSum identifies its native tsum with−p/(p−1) times the actual mass. Equivalently M=−(1−p⁻¹)L. No additional choice of logarithm branch is needed.
+2. The preserved canonical-mass norm theorem gives norm1 at odd primes and1/2 at p=2 in Z_p. Native PadicInt.norm_def identifies the norm after inclusion in Q_p. The exact Euler norm gives ‖M‖=p‖L‖.
+3. Divide the real norm identity by positivep. Complete log_norm_from_mass gives1/p for oddp and1/4 forp2. In either case the resulting real norm is positive, hence L is nonzero.
+4. This is a norm and nonvanishing consequence for the local logarithm series. It supplies neither a meromorphic branch nor a derivative of a character denominator, both still required for the analytic residue in RJW Theorem7.1.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/principal-numerator-logarithmic-series`, `DirichletPadicLFunctions:L3/principal-numerator-logarithmic-truncation`, `DirichletPadicLFunctions:L3/principal-intrinsic-numerator-mass`, `mathlib:PadicInt.norm_def`, `mathlib:Padic.norm_natCast_p_sub_one`, `mathlib:Padic.norm_p`.
+
+**Tests:**
+
+- `SuggestedPrincipalLogarithmicTests.dyadic_log_norm` (computation): At p=2 the infinite series has norm1/4, not1/2.
+- `SuggestedPrincipalLogarithmicTests.ternary_log_norm` (computation): At p=3 the infinite series has norm1/3.
+- `SuggestedPrincipalLogarithmicTests.logarithm_sum_nonzero` (non-example): For every prime the infinite series is nonzero, even though the first two nonzero dyadic terms cancel.
+
+**Acceptance:** The old finite-residue mass norm is reused whole. No analytic pole or value of the pseudomeasure at the trivial character follows from this norm alone.
+
+**Source:** Section7, Theorem7.1, Lemmas7.2–7.5 and equations7-1 through7-8, published153–158/PDF54–59, read completely for this checkpoint. Worker comparison of the actual intrinsic Dirichlet numerator with the existing Coleman negative-moment theorem at w=1,k=1,a=p+1. The general logarithm and smoothed polylogarithm remain owned by ColemanIntegration. The finite tail estimate and norm consequences are worker deductions; no pole theorem is claimed. Existing E7 records the printed subtraction typo and is preserved whole.
+
+**Supplier request — PadicMeasuresIwasawaAlgebras:L2:** Inherited through ColemanIntegration:L3/negative-moments-of-smoothed-measure, smoothed-polylog-combination, rotated-smoothed-amice and unit-moment-via-distribution-primitive. Supply the precise bounded O_K coefficient-extension/rotation comparison for the actual Dirichlet smoothing measure: for finite K/Q_p and |w−1|<1, A_(w^x μ_b)(T) is the analytic evaluation of F_b at w(1+T)−1, including w=1 and the regularized centre; the bounded measure embeds compatibly into the locally analytic distribution used by the primitive theorem. Include the native Z_p specialization, scalar extension/descent for the finite root trace and compatibility with unit restriction and coefficient evaluation. The consumer specializes w=1,k=1,b=p+1; it does not discard the general supplier route or re-plan its operators. Existing fine PMIA integral-unit coefficient/test interfaces are reused, but they do not alone supply this exact analytic rotation and primitive comparison.
+
+**Consumers:** `DirichletPadicLFunctions:L3/principal-numerator-logarithmic-series`.
+
+**Supplier request — LocallyAnalyticDistributions:L1:** Additional inherited need of ColemanIntegration:L3/unit-moment-via-distribution-primitive: export the owned typed Amice/distribution comparison and its bounded-measure inclusion, multiplication-by-x identity, and restriction-to-units formula so that a primitive Ftilde with (1+T)Ftilde'=A_μ yields ∫_(Z_p×)x^(−1)dμ=Ftilde(0)−p^(−1)∑_(ξ^p=1)Ftilde(ξ−1). Justify convergence and scalar extension for every root, including the dyadic root, and use the actual smoothed measure. This is the existing generic primitive and distribution-operations ownership, not a new Dirichlet carrier. It is distinct from the preserved discAnalytic/equivRPlus request; the current LAD suggested file lacks a usable typed interface for these owned operators.
+
+**Consumers:** `DirichletPadicLFunctions:L3/principal-numerator-logarithmic-series`.
+
+**Remaining:** The canonical actual numerator now has a planned logarithmic HasSum comparison, an explicit finite truncation bound and exact odd/dyadic series norms. This depends on the existing Coleman negative-moment theorem with its full seven-leaf analytic graph. The additional PMIA L2 and LAD L1 interface requests remain open together with all nine old requests; fifteen gaps and eleven requests remain, with zero closed stages. The analytic character branch, its denominator derivative and the s-coordinate pole/residue comparison remain separate work, as do the tame distribution-to-L-value identification, generalized Eisenstein constants and complete source extraction. The full suggested file remains uncompiled pending a compatible existing native TwistedDivisorSum artifact.
+
+### The principal numerator and its logarithmic mass validation
+
+All 595 predecessor nodes, 517 baseline records, 16 findings, requests and sourceVersions remain whole. This checkpoint adds 3 nodes, 3 named suggested declarations and 10 typed examples. The indexed blueprint, four-file intake, whitespace, preservation, API/test parity and versioned-source checks pass. The graph has 854 reachable nodes, 4133 edges and 702 native leaves and is acyclic. Its stage request leaves are PadicMeasuresIwasawaAlgebras:L1, PadicMeasuresIwasawaAlgebras:L3, PadicMeasuresIwasawaAlgebras:L3, LocallyAnalyticDistributions:L1, AdicSpacesPartII:F1, AdicSpacesPartII:R2, PadicDifferentialEquationsAndRigidCohomology:RD.0, PadicDifferentialEquationsAndRigidCohomology:RD.4, PadicHodgeTheory:P7:annulus-foundations, PadicMeasuresIwasawaAlgebras:L2, LocallyAnalyticDistributions:L1. Each new route retains all seven analytic stage leaves of the existing Coleman negative-moment theorem. No cycle is introduced: the supplier’s return edges enter the preserved Dirichlet L1 smoothing nodes only. Two precise inherited requests record the additional bounded-measure/primitive interfaces; all prior requests are preserved.
+
+**The full current suggested module was NOT COMPILED.** Its real native import requires TauCeti.NumberTheory.ArithmeticFunction.TwistedDivisorSum. No matching existing artifact was found; WORKERS.md prohibits building the native library. Current compiler exit code, error count and warning count are unavailable, not zero. The exact named signatures and native source were reviewed. PR4773 remains the last compiled full predecessor, with zero errors and1,803 expected placeholder warnings; that receipt does not validate this new module.
+
+The current source closure covers 3601 pinned Mathlib modules and 22 pinned Tau Ceti modules. Only 21 Tau module artifacts are available and hash-verified. The105 available artifact files and the previously compiled332-node PMIA artifact are checked as partial dependencies. The current369-node supplier source preserves the older interface; no current-module compilation against either revision is claimed. Existing builds only were inspected; no setup, update, cache fetch or native build occurred.
+
+Eleven complete Mathlib lemmas prove the valuation half-bound, exact logarithmic term norm and uniform tail estimate, Euler-factor norm, signed scalar cancellation, actual finite truncation error from a supplied HasSum, dyadic early cancellation, norm transfer from the canonical mass, and the precision cutoff. The separate probe compiles against 2797 pinned Mathlib modules and 0 pinned Tau Ceti modules with zero errors, warnings or placeholders. The separate Mathlib-only probe does not import, replace or compile the missing native Tau module. General roadmap declarations remain unchecked.
+
+Exact controls compare24 prime/precision pairs at primes2,3,5,7,11, using201725 residue cells and168 rational logarithm terms; all24 deeper-residue comparisons agree. They detect22 wrong-sign cases and23 missing-Euler cases, and check50000 valuation inequalities. The dyadic log norm is1/4. Exact rational logarithm partial sums at N=2(r+1), compared modulo p^r with the independent finite inverse-moment residue-cell formula at depths r and r+1. The existing measure approximation bounds its error by p^(-r); the complete native tail estimate bounds the logarithmic mass approximation by p^(-r), conditional on the owned infinite mass comparison. Finite agreement tests the sign, Euler factor, ceiling convention and dyadic cancellation; it does not prove the Coleman comparison or an analytic pole theorem. The largest observed discrepancy is 0 modulo each stated p^r; no floating-point arithmetic.
+
+The66-input capture adds both supplier atlas stage files and was refreshed after only the global source-issue registry and errata register changed; all16 Dirichlet global records remain unchanged. The four predecessor outputs are exact. The current source closure and available artifacts are checked separately from the complete Mathlib probe; the full suggested module remains uncompiled. A separate signature-only check of the exact last compiled4773 body plus this checkpoint’s three statements and ten examples elaborates with zero errors and1816 expected placeholder warnings. It omits the later4777/4780 additions, uses no native substitute, and does not validate the current full suggested module.
