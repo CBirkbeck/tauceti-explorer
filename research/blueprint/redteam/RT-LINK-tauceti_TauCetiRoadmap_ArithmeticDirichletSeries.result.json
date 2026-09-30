@@ -1,0 +1,22 @@
+{
+  "redteam": "RT-LINK-tauceti_TauCetiRoadmap_ArithmeticDirichletSeries",
+  "protocol": "redteam-v1",
+  "status": "complete",
+  "target": "LINK-tauceti_TauCetiRoadmap_ArithmeticDirichletSeries",
+  "worker": "Codex",
+  "sessionId": "codex-J6LwjP",
+  "date": "2026-09-30",
+  "summary": "No additional evidenced defect found in the accepted link map. Checked all 25 links and 54 literal quotations, seven overlap decisions, all eleven supplier stages, every distinct external endpoint, the eight requests as amended by independent review, selected declarations at both pins, and current catalogue/packet candidates for omissions. The existing requests remain material limitations; this result does not certify their resolution or the downstream analytic proofs.",
+  "checked": [
+    "Independent of original worker cgp-a70a276fbaff and reviewer codex-hjdg0j. Read the accepted link packet, its original handoff, the complete independent-review report and requestReview corrections at explorer revision 155bf2c19ef277a7ec4361ae5b4e51911cf44211.",
+    "Read the full ArithmeticDirichletSeries README and all eleven layers 0-10; checked all 25 reasons against both endpoints, including all 24 distinct external endpoint descriptions and the owner-document passages used as evidence. All 54 quotation strings occur literally in the physical endpoint README files.",
+    "Attacked coefficient type, complete versus coprime multiplicativity, finite norm fibres, prime-power filters, actual convergence abscissae, cancellation assumptions, boundary continuity on the whole line, finite Euler factors, finite-set errors and zero-density normalization. The report gives the disposition of each link.",
+    "Checked all seven overlaps and requests R1-R8 with their accepted review corrections. In particular, did not repeat the original handoff's superseded request to construct powered-Frobenius coefficients and tail estimates already present at the pin.",
+    "Read the reviewed library-coverage entries for all eleven ArithmeticDirichletSeries layers. Fresh statement reads at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 cover NumberField.Set density definitions and NumberField.Ideal.tendsto_norm_le_div_atTop₀; at Tau Ceti f790474821cf4256814db967cb154e7af3d0c369 they cover ideal linear bounds and exact absolute abscissa, the separate explicit quadratic bound, ideal convolution and normCoeff_convolution, ideal Moebius inversion, and the powered-Frobenius coefficient/summatory/tail declarations. Seven source files, with precise scopes and immutable URLs in the report; no whole-library absence claim.",
+    "Searched titles, descriptions and README texts of the current 221-roadmap catalogue and 2028 base/research stages using carrier names and Dirichlet-series, Euler-product, counting, summation, positivity and density terminology; triaged all 33 roadmap hits. Read additional plausible endpoint descriptions and examined the relevant blueprint supplier requests. Distinguished indirect dependencies, wrong-carrier matches and partial unreviewed proposals from new supported links.",
+    "Checked the sibling Chebotarev map's existing ArithmeticDirichletSeries Layer 5 -> Chebotarev Layer 10 edge, the accepted EllipticRegulators request already covered through Layer 3, the partial automorphic requests already covered by four links, and the newer partial AN.4 boundary-related nodes. Wright's higher-pole counting gap and function-field power-series targets do not match the simple-pole number-field interface automatically.",
+    "Ran check_links: 25 links, seven overlaps, 218 historical examined records, zero errors and warnings. Read-only build.assemble(require_distances=False) succeeds with 2840 stages and 8007 edges; all 25 target links are present. Adding declared requires and all 36 research link packets yields 8118 distinct edges and no reverse path for any target link.",
+    "Ran check_redteam on this result, swarm intake check-files on the two deliverables, and git diff --check. No Lean source changed; no Lean compilation or source-proof audit is claimed. Existing R2-R8 endpoint obligations and the exact external boundary supplier remain outside this link-map completion."
+  ],
+  "findings": []
+}
