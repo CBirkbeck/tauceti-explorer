@@ -1,0 +1,77 @@
+{
+  "redteam": "RT-PAPER-KALETHA-16",
+  "findings": [
+    {
+      "finding": "RT-PAPER-KALETHA-16/1",
+      "verdict": "confirmed",
+      "reason": "Recomputed the item-to-route dependency projection: ET.0 has two direct dependencies on route 7, and ET.1 has seven. The Part II in turn imports ET.0/ET.1 and explicitly names the parent as its first prerequisite. Published pp.600–601 define (5.1) using the rigid invariant and Corollary5.4 pairing; pp.608 and626 likewise identify the rigid convention and global product. These are extensions of ordinary transfer, not parent-stage inputs. Move D33,T51,T52,D36,G05,G09 and D34 to route 7; remove R01 from ordinary P12; rewrite both backwards export sentences and the suggested-file ownership. In an in-memory repair, no ET.0/ET.1 item depends on route 7 and all157 item vertices are processed by a topological sort. This is a proposed roadmap ownership cycle, not a claim that the production atlas already contains a graph cycle. Keep ordinary D32 and P12 in the parent, and add the independent P18 source contract to ET.1 as finding5 requests."
+    },
+    {
+      "finding": "RT-PAPER-KALETHA-16/2",
+      "verdict": "confirmed",
+      "reason": "Read HKW22 items008–010 and route1 against Kaletha D05,D06,T13,T44,D27,D35,C01,C02. They request the same rigid cohomology, pairing, centralizer covers and conjectural refined LLC. HKW's conditional import sentence remains pending although the Kaletha route has been accepted; the Kaletha brief supplies no reciprocal consumer instruction. Coordinate both proposals with EndoscopicTransferRigidInnerFormsPartII as the common supplier and HKW's Part II as consumer. Correct the proposed status change: an accepted paper-route candidate is not yet an atlas stage, so do not mark whole HKW items planned merely by citing route7 item IDs. Preserve missing status with a coordinated owner/brief or a maintainer handoff until real supplier stages exist. HKW010 also includes an inverse-limit universal-cover interface; retain its application adapters or explicitly extend the common supplier to cover them before transferring the whole item. Keep the real H1_ab correction and the p-adic refined LLC's conjectural status; HKW's p-adic H1 formulation is not itself refuted by the real correction."
+    },
+    {
+      "finding": "RT-PAPER-KALETHA-16/3",
+      "verdict": "confirmed",
+      "reason": "The extraction mentions Kot86 as a supplier and in T29's proof outline but has no item stating its comparison theorem. Read Kaletha pp.576,587–588,598,612 and the original Kot86 Theorem1.2, printed p.368, in the public scan. Add the ordinary Kottwitz map at ET.0 and restore T44's Z=1 compatibility and T31's p-adic group-structure compatibility. Refine the contract to the source: functoriality is for normal homomorphisms; the maximal-torus square commutes with Tate–Nakayama; the map is bijective for p-adic F. Over R, state its neutral kernel as the image of H1(R,Gsc) and its image as the annihilator of the dual-center norm, with the corresponding twisted-fibre/abelianized formulation. Do not claim ordinary H1(R,G) is generally an abelian group or that its Kottwitz map is bijective. Expose this input to T14,T29,T31,T44,T54 rather than treating a bibliography entry as a supplied theorem."
+    },
+    {
+      "finding": "RT-PAPER-KALETHA-16/4",
+      "verdict": "confirmed",
+      "reason": "Published p.587 explicitly uses the degree-zero Tate lattice to degree-two torus isomorphism and injective inflation as the fourth vertical map in Theorem4.8. Corollary3.7, p.575, explicitly uses anisotropic-torus H2 vanishing. P12 states only the degree-minus-one/H1 comparison; T12,T27,T28 have no degree-two supplier, and GAP04 merely defers it. Add a declaration-sized ordinary torus degree-two contract at ET.0, importing ClassFieldTheory layers0 and3's generic Tate–Nakayama theorem, and connect all three consumers. Include Hilbert90 over the splitting field to justify injective inflation, and derive anisotropic vanishing. The all-degree formula uses Tate groups on both sides; retain the inverse fundamental-class sign on p.587. ClassFieldTheory layer3 explicitly requires scaled inflation in towers, so compatibility must state that scaling rather than unscaled commutativity. No second generic class-formation or cohomology implementation belongs in the rigid Part II."
+    },
+    {
+      "finding": "RT-PAPER-KALETHA-16/5",
+      "verdict": "confirmed",
+      "reason": "Read the complete AF.1 and ET.1 stage descriptions and P18. AF.1 plans admissible (g,K)-modules and globalizations; its infinitesimal characters are not Harish–Chandra distribution characters. ET.1 explicitly constructs the real character/Paley–Wiener arguments from AF.1. Published p.594 uses invariant distributions represented by locally integrable functions, exactly the additional P18 interface. Move P18's source request to ET.1, retain P16 at AF.1, and remove the false character-foundation attribution from route5. Make the shared character foundation general enough for P18's real reductive groups; ET.1's present explicit pseudocoefficient and transfer applications are unitary. Moving this foundation does not credit ET.1 with the full real packet classification, which remains in the Part II."
+    },
+    {
+      "finding": "RT-PAPER-KALETHA-16/6",
+      "verdict": "confirmed",
+      "reason": "The published p.576 argument proves the neutral rigid kernel is trivial and then proves injectivity of the ordinary H1(G) map, without explaining arbitrary rigid fibres. Its following real example shows why neutral-kernel triviality alone is insufficient. Record a published-proof gap and explicitly twist through every fibre; for p-adic inner forms use Kneser and the inner-invariant abelianization/center-complex comparison, or a separately stated later duality argument. T14 already mentions all simply connected inner twists in proofSteps, but its prerequisite list omits P13 and the Kottwitz comparison needed to connect that vanishing to the fibres. Correct the red-team source comparison: arXiv v5 does NOT have the same proof. Its Corollary3.8, PDF p.15, already uses Kneser and explicitly invokes twisting to treat all fibres. Thus do not label the repair simply new; cite that earlier version and distinguish its argument from the published replacement. The author's errata section3 has no Corollary3.8 entry. The theorem is not refuted."
+    },
+    {
+      "finding": "RT-PAPER-KALETHA-16/7",
+      "verdict": "confirmed",
+      "reason": "Rendered and read the published p.586, compared the corresponding arXiv v5 display, and read errata section3 PDF p.7. The published penultimate display already ends with n_k*lambdabar and uses alpha_k(sigma); v5 still has delta_e, while the errata's quotation uses alpha_k(x). E04's printed field copies the errata version and its review reason wrongly applies the symbol replacement to the published page, contradicting E04's own preserved version note. Replace printed with the published last display, where phi's domain extension remains necessary, and correct the independent review's explanation. Preserve the author's quotient-torus extension as the substantive known repair, while stating that the penultimate delta_e replacement was already incorporated in the version of record. Do not attribute either older formula to the Annals text."
+    },
+    {
+      "finding": "RT-PAPER-KALETHA-16/8",
+      "verdict": "confirmed",
+      "reason": "Read Lemma5.7, pp.610–612, and its cardinality use in Proposition5.9, p.621. The source identifies the annihilator characters precisely with relevant rigid K-groups, whereas T54 states only annihilator implies relevance. Restore the equivalence and the assertion that the annihilator characters are realized by such K-groups. Retain the definition that relevance for a K-group means relevance for some inner form in that group, and use the corrected H1_ab pairing. Over R this does not say every rigid twist in the K-group is individually relevant. The omitted direction is used to identify the entire image in Proposition5.9, so it is a real statement omission."
+    },
+    {
+      "finding": "RT-PAPER-KALETHA-16/9",
+      "verdict": "confirmed",
+      "reason": "Read Lemma3.3, p.574, the full ProfiniteCohomology layer5 contract and ArithmeticGaloisDuality:R02.2. The required five-term sequence, continuous-section transgression and independence are explicitly assigned to upstream layer5; R02.2 instead extends that owner to the full spectral sequence. Move P04's low-degree supplier to tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-5-exact-sequences and preserve T07's negative-transgression convention. Keep the profinite group, closed normal subgroup and discrete abelian coefficient hypotheses; the nonabelian rigid pointed-set exactness is a separate contract. Read the actual pinned explicitInfl1_injective and explicitInfRes_exact statements: they already credit the shorter degree-one part, without proving that the full five-term transgression is built."
+    },
+    {
+      "finding": "RT-PAPER-KALETHA-16/10",
+      "verdict": "confirmed",
+      "reason": "Read the named declarations and standing hypotheses at Tau Ceti f790474: explicitShapiro0 (:120), bijective_explicitShapiroMap1 (:339), explicitShapiro1 (:372) in ContCohomology/Shapiro.lean; explicitFiniteQuotientColimit0 (:224) and1 (:493) in FiniteQuotient/Colimit.lean; explicitCor1 (:457) in Corestriction.lean. They prove substantial parts of P02, whose library list is empty. Split out library contracts for discrete continuous modules, retaining compactness, total disconnectedness and subgroup closedness in degree-one Shapiro, profiniteness in the degree-one finite-quotient colimit, and open finite-index subgroups for corestriction. The paper's finite-extension Galois subgroups meet these hypotheses. Separately plan the Shapiro/corestriction/coefficient-power compatibility identifying the norm transition on p.572, and the remaining higher-degree comparisons at their upstream owners. Correct the blanket phrase 'anything in degree2': explicitCor2 (:850), also read with its open finite-index hypotheses, is already built. This finding does not establish absence of every degree-two operation."
+    },
+    {
+      "finding": "RT-PAPER-KALETHA-16/11",
+      "verdict": "confirmed",
+      "reason": "Published pp.593–594 and614 explicitly use Kot82 Corollary2.2 for quasi-split rational representatives and admissible embeddings; p.608 uses the sign e(Gprime), and p.624 uses its Levi equality. The extraction has bibliography entries but no corresponding definition/theorem items. Add ordinary rational-representative and embedding-existence contracts at ET.0, and a single ordinary sign/Levi-compatibility supplier, preferably ET.1's sign conventions, consumed by the rigid and HKW routes. Refine the proposed embedding fix: p.594 explicitly says an arbitrary torus class may fail to embed rationally in an inner form. The all-inner-form statement on p.614 concerns the particular discrete-parameter admissible torus and cites Shelstad Lemma2.8; retain those hypotheses and its separate supplier. HKW031 and119 add sign identities beyond merely defining e(G), so reconcile the common foundation without deleting their additional results. This verification establishes the missing source interfaces from Kaletha's uses; it does not claim a full independent extraction of Kot82 or Kot83."
+    },
+    {
+      "finding": "RT-PAPER-KALETHA-16/12",
+      "verdict": "confirmed",
+      "reason": "Independently evaluate (3.2), p.570, on a constant diagonal element: its exponent is [E_k:E_j]*(n_k/n_j). The square exponent printed on p.572 follows from the nonarchimedean degree-matched choice on p.571, but not from E_k=E_j=C. For instance n_j=2,n_k=4 sends i to minus1 under the actual square-power coefficient map and to plus1 under the printed fourth power. This is a coefficient-map discrepancy, not a counterexample to the cohomology theorem. Over R, complex conjugation inverts mu_n, its norm is1, and H2(C2,mu_n) is represented by the fixed elements plus/minus1 for even n. Choosing an even ratio kills both classes. Record the exponent misprint with this separate real argument and update T02's proof. The same square sentence occurs in v5; the author's errata section3 contains no Theorem3.1 entry. Preserve the theorem and explain the cofinal even-index choice rather than assuming every small j has even n_j."
+    },
+    {
+      "finding": "RT-PAPER-KALETHA-16/13",
+      "verdict": "confirmed",
+      "reason": "The result lacks top-level sourceVersions while E05 and E07 affect stated results. Calling check_errata.versions_checked on this extraction and its sourceIssues reproduces the required-provenance error. Independently fetched all four cited PDFs; their hashes match source.provenance and the red-team evidence. Add structured published, preprint and author-copy entries with the recorded historical reading dates and scopes, preserving provenance rather than inventing dates. The extraction already records accessed2026-09-22 for all four; its reviewer separately records the published/errata fetch on2026-09-23. This verifier's reading is2026-09-30 and covers the relevant passages, not another complete paper read. The errata has14 physical pages; the old review's free-text15-page note is inaccurate. Retain the published74-page mapping and the preprint58/author-copy62 counts when consolidating the structured records."
+    }
+  ],
+  "worker": {
+    "agent": "Codex",
+    "session": "codex-5ebb6f",
+    "job": "REV-RT-PAPER-KALETHA-16",
+    "date": "2026-09-30",
+    "independent": "Did none of PAPER-KALETHA-16, REV-PAPER-KALETHA-16 or RT-PAPER-KALETHA-16."
+  }
+}
