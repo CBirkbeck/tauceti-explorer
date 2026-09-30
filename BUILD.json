@@ -360,8 +360,8 @@
   "mappedStageStatuses": 350,
   "libraryAuditStatuses": 58,
   "bibliographicSources": 46,
-  "roadmapEdges": 1724,
-  "stageEdges": 8347,
+  "roadmapEdges": 1726,
+  "stageEdges": 8350,
   "reviewedLinkPackets": 25,
   "promotedBlueprints": [
     {
@@ -492,8 +492,8 @@
     }
   ],
   "sourceDocuments": 296,
-  "htmlBytes": 30297078,
-  "htmlSha256": "bd3f6cf5c171dbdcebf308390ed4d0ecb1f287c24aa1f5d0782c84c302b1d939",
+  "htmlBytes": 30304017,
+  "htmlSha256": "3ac05cc02ebb4a26aa8d3fbc74e439939c07f8ea14735ba9de9fe4953ea71075",
   "networkDependencies": 0,
   "localProgressOverridesIncluded": false,
   "assets": {
@@ -632,12 +632,12 @@
     "data/links/tauceti_TauCetiRoadmap_ArithmeticDirichletSeries.json": "b9aebaab48508ccf646ab6cb80981d9427350530c1f59a1bc7266a8e45e380c4",
     "data/links/tauceti_TauCetiRoadmap_Chebotarev.json": "f9089ad78bff8c1f3820c4bc24e18ea07cb4daf0ca12ec3e799b4255d443de14",
     "data/links/tauceti_TauCetiRoadmap_ClassFieldTheory.json": "e732ef18670fa399c08d1ac38d25de93daa9b87e1d0eb4d7a083a7c8d3f689db",
-    "data/links/tauceti_TauCetiRoadmap_EllipticCurves.json": "b674679a2cb220121617e8d4dcb192c4a1b14557ce1d32c61be2ccf4da73f438",
+    "data/links/tauceti_TauCetiRoadmap_EllipticCurves.json": "2ae144cdedb20a3f6bf6b5b248111c8044d666139573af9772012c3275a7c9cc",
     "data/links/tauceti_TauCetiRoadmap_GrothendieckEulerForms.json": "d4886e72af1e327e4b7b2879d98bf43e9057f3fb00ca855909628efde951b481",
     "data/links/tauceti_TauCetiRoadmap_LocalFieldsRamification.json": "976784eb1ffbbb0942a42d54330a0f366d9533aac4d13290b9517a561e4d8c9d",
     "data/links/tauceti_TauCetiRoadmap_ModularCurves.json": "11d8d5795bf47cde850feba53d250e8b8c09c418022cb5c58218d1c461e86a7c",
     "data/links/tauceti_TauCetiRoadmap_Multiquadratic.json": "8cfa86728c5293ae69df72f5504bd18c192d3e0a4aa09b8334e26f9a36683445",
-    "data/links/tauceti_TauCetiRoadmap_NumberFieldArithmetic.json": "28eda9a75a209959ed2575f52d6da5c8ceaecf4396477ff19dd82fb5fde18647",
+    "data/links/tauceti_TauCetiRoadmap_NumberFieldArithmetic.json": "c80f798705168c36347cd76fd5ee5f263eac49754c693eb1b726b230ecdf7469",
     "data/links/tauceti_TauCetiRoadmap_OneParameterSemigroups.json": "d948a78f97a63bdc35786f237e0ecf76d3b25645d5622bb27b23ac7f537e69dd",
     "data/links/tauceti_TauCetiRoadmap_ProfiniteProPGroups.json": "5257102d6493feb70a585e0ad03eb44acafa986e12e2e21db4c7c81d4e56f1ba",
     "data/links/tauceti_TauCetiRoadmap_RepresentationTheory.json": "25465cbe6da416772ffe36bd3acebeb50aad1a9f6095a73080b5f84dd62c16f9",
