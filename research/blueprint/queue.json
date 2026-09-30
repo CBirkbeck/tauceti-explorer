@@ -23653,12 +23653,12 @@
     "REV-RS-14"
    ],
    "prompt": "research/blueprint/prompts/BP-DirichletPadicLFunctions.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [
     "BP-LocallyAnalyticDistributions",
     "BP-PadicMeasuresIwasawaAlgebras"
    ],
-   "note": "released on GitHub issue #713"
+   "note": "claimed on GitHub issue #713"
   },
   {
    "id": "REV-DirichletPadicLFunctions",
@@ -41186,7 +41186,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-BETTS-STIX-25.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #5019"
   },
   {
    "id": "RT-PAPER-BHATT-18",
@@ -41361,8 +41362,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-LAND-MATHEW-MEIER-ETAL-24.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5022"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #5022",
+   "finishedAt": "2026-09-30T17:58:14Z"
   },
   {
    "id": "RT-PAPER-ANDRE-18-B",
