@@ -1,3 +1,116 @@
+# LLHLM23 continuation: scalar lifting and Serre components
+
+Codex — codex-rtOQ9t; issue 1254; 30 September 2026. Partial checkpoint:
+795 items, 27 routes, 120 unreviewed findings and 12 gaps. Four derived
+adapters carry the integral fixed-Hodge comparison through residual
+characters, exact-type lifts and component labels. The local scalar chart
+comparison has a direct proof at every prime. Recursive suppliers, mixed
+height diagrams, other finite bounds and dyadic global patching remain open.
+Earlier statements, classifications, source findings and gaps are preserved.
+
+## The quotient and its automorphisms
+
+Z147 computes the constant cyclic action on scalar chart parameters:
+(t·d)_j=t_j d_j/t_{j−1}. The invariant u=∏d_j gives the slice
+(u,1,…,1); take t_0=1 and t_j=(d_1···d_j)⁻¹. An arrow between two
+slice points forces the products equal and every t_j equal. Consequently
+[D/T]≅G_m×BG_m over any base, using the existing SF.1 quotient/descent
+infrastructure. Fppf stackification retains nontrivial line bundles.
+The formulas commute with base change and formal completion.
+
+The diagonal G_m is essential: the special fibre has stack dimension zero,
+although its coarse parameter has dimension one. This calculation is valid
+on nonreduced coefficient rings; it does not treat the whole torus affine
+Grassmannian as a discrete reduced space. Z147 belongs to the existing
+SchemeAndStackFoundations route, with its specific cyclic action hypothesis.
+
+## Residual characters and lifts
+
+K63 fixes τ=τ(1,μ), λ=(k_j), and κ=λ+μ. Scalar descent changes the
+residual partial Frobenius matrices to d_j v^{κ_j}. In the paper's embedding
+convention, iterating gives exponent A=Σ_r p^r κ_{−r} modulo p^f−1.
+The fixed-vector equation has exponent −A; the dual in V_K* reverses that
+sign. The inertia is therefore ∏_j barω_{K,σ_j}^{μ_j+k_j}. This agrees
+with the cyclotomic character having Hodge–Tate weight +1. Changing κ by
+(p−π)ν leaves the exponent unchanged modulo p^f−1.
+
+The descent calculation was checked against [Weight elimination in Serre-type
+conjectures](https://math.rice.edu/~bl70/WEpaper.pdf), Proposition 3.1.2
+and Corollary 3.2.17, including their proofs and rendered PDF pages 19,
+20 and 28. K63 spells out the scalar Kummer exponent calculation; the
+fields-of-norms equivalence and tame compatibility remain K35/K36 inputs.
+The calculation requires no bounded-height prime inequality.
+
+A finite-field-valued rank-one character has trivial wild inertia. At fixed
+tame inertia its remaining parameter is an arbitrary unramified twist,
+realized by the product of the d_j. The text deliberately leaves the choice
+of arithmetic versus geometric Frobenius value to the source convention.
+It does not assert an ordinary universal character over a Laurent polynomial
+ring.
+
+G76 lifts every such residual character by Teichmüller lifts of the d_j,
+then applies K59 and G75. This gives the exact type (λ,τ), including at
+p=2. Conversely the residual chart forces the stated inertia. The scalar
+admissible set consists only of t^λ because its coroot lattice is zero.
+This replaces the scalar lifting steps in G31/G53 that previously depended
+on global patching with p>2. K63/G76 remain with the L7 owner.
+
+## Component labels and local rings
+
+In rank one η=0, the Weyl module is the character λ, and the torus type
+reduces to F(μ). Thus JH(W(λ)⊗barσ(τ)) consists of F(λ+μ), with
+multiplicity one. G77 combines the quotient calculation with G32's existing
+component theorem and formula (7.15) in [LLHLM23](https://math.rice.edu/~bl70/LocModels.pdf),
+PDF 156. The unique-flag condition is automatic. K63/G76 identify the
+geometric points with the dense locus for C_σ, and G13 gives the closed
+immersion. Reduced closure, checked on smooth atlases, identifies the
+special fibre with C_σ. The label is LLHLM's C_σ=X_EG,1,red^{σ∨}; the
+dual must not be lost. G77 stays in the existing monodromy-models extension.
+
+The scalar dominance union has only λ, so it equals the fixed-type stack
+before reduction. This gives explicit scalar branches of G33/G34/G54/G55.
+G71 makes the true and naive ideals zero in the chosen gauge coordinates;
+G75 supplies the Galois comparison. The G28/G29 local comparison therefore
+needs no precision estimate and allows the constant polynomial P=1 in this
+scalar case. This does not change any higher-rank or global polynomial.
+
+At a finite residual point the quotient slice has completed local ring
+O′[[u−u_0]] and stabilizer G_m. Framing removes the latter; smooth versal
+coordinates add power-series variables, preserving the domain property
+used in G30. The ordinary character description is restricted to complete
+local coefficients with finite residue field. Its unramified value extends
+continuously through finite unit groups of Artin quotients. The formal-stack
+comparison covers the wider coefficient category.
+
+## Boundaries, source scope and checks
+
+The height-interval counterexample E102 survives: at p=2 the λ=0 and λ=1
+charts can have the same residual component without becoming the same
+integral type. G35/G58 and their consumers G37/G60 need the precise
+fixed-component replacement for the mixed-height diagram. Other finite
+bounds and B27's P₄ exclusions of p=2,3 remain. No dyadic global patching
+functor has been constructed.
+
+The published source was downloaded afresh at 10:06 UTC; its SHA-256 is
+`e56478796d15c938b864447d4b48d928ee749b95644df15e1e9055bdf9a142dd`.
+Current bounded readings were PDF 25–29, 38, 45–46, 103–104, 121–122,
+152 and 155–159. The supplier PDF hash is
+`dbf6f1d12f7ea47e2f4185e5d4e17b4ee3dfbd789022ee9168da2a265fec5a15`;
+PDF 18–22 and 28 were read. The inherited whole-paper reading keeps its
+original attribution. Reviewed SF.1 coverage, the L7 packet and adjoining
+owner stages were checked; no new library implementation is claimed.
+
+All four additions have proofs and three tests each. Finite diagnostics
+passed 1,797,852 action/product cases, all corresponding tuple
+normalizations, and 3,120 central-lattice exponent cases. The universal
+arguments, rather than the finite enumeration, support the claims.
+All 601 missing items are routed once. The internal graph has 1,702 edges
+and is acyclic. Paper and intake validators, old-record preservation and
+whitespace checks pass. No Lean deliverable was required or compiled.
+This is a partial extraction, not an independent review or formal proof.
+
+---
+
 # LLHLM23 continuation: integral scalar fixed-Hodge comparison
 
 Codex — codex-rtOQ9t; issue 1254; 30 September 2026. Partial checkpoint:
