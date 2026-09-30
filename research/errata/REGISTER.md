@@ -4,7 +4,7 @@ The atlas's workers read papers and books line by line to extract and plan their
 
 Collected by `scripts/errata.py` from the paper extractions and blueprint packets (research/blueprint/PROTOCOL.md, section 18); the data is in `data/source-issues.json`.
 
-6648 new mistakes confirmed · 1612 awaiting review · 1164 already corrected in print · 93 rejected on review · 20 extractions and packets not yet checked.
+6648 new mistakes confirmed · 1612 awaiting review · 1165 already corrected in print · 93 rejected on review · 20 extractions and packets not yet checked.
 
 ## New mistakes, confirmed
 
@@ -17388,6 +17388,7 @@ The cause is a leftover from HAL v3, where w and w' played swapped roles (𝔏^{
 - Khare and Wintenberger, "Serre's modularity conjecture (II)", Inventiones mathematicae 178 (2009), 505–586 (`PAPER-KHARE-WINTENBERGER-09-II`), References, [15], p. 95 of the author copy proofs.pdf (Invent. Math. 178 (2009) not compared): corrected in new: no published correction found and not recorded in the atlas.
 - Khare and Wintenberger, "Serre's modularity conjecture (II)", Inventiones mathematicae 178 (2009), 505–586 (`PAPER-KHARE-WINTENBERGER-09-II`), References, [53], p. 97 of the author copy proofs.pdf (Invent. Math. 178 (2009) not compared): corrected in new: no published correction found; already recorded in the atlas as AutomorphicGaloisRepresentations/E2.
 - Khare and Wintenberger, "Serre's modularity conjecture (II)", Inventiones mathematicae 178 (2009), 505–586 (`PAPER-KHARE-WINTENBERGER-09-II`), References, [33], p. 96 of the author copy proofs.pdf (Invent. Math. 178 (2009) not compared): corrected in new: no published correction found; already recorded in the atlas as PotentialModularityAndCompatibleSystems/E1.
+- Khare and Wintenberger, "Serre's modularity conjecture (II)", Inventiones mathematicae 178 (2009), 505–586 (`PAPER-KHARE-WINTENBERGER-09-II`), §3.2.4, p. 24 of the author copy proofs.pdf (Invent. Math. 178 (2009) not compared): corrected in new: no published correction found and not recorded in the atlas.
 - Khare and Wintenberger, "Serre's modularity conjecture (II)", Inventiones mathematicae 178 (2009), 505–586 (`PAPER-KHARE-WINTENBERGER-09-II`), §2.8, proof of Proposition 2.12, p. 17 of the author copy proofs.pdf (Invent. Math. 178 (2009) not compared): corrected in new: no published correction found and not recorded in the atlas.
 - Khare and Wintenberger, "Serre's modularity conjecture (II)", Inventiones mathematicae 178 (2009), 505–586 (`PAPER-KHARE-WINTENBERGER-09-II`), §3, Remarks after Theorem 3.1, p. 19 of the author copy proofs.pdf (Invent. Math. 178 (2009) not compared): corrected in new: no published correction found and not recorded in the atlas.
 - Khare and Wintenberger, "Serre's modularity conjecture (II)", Inventiones mathematicae 178 (2009), 505–586 (`PAPER-KHARE-WINTENBERGER-09-II`), §3.1, proof of Proposition 3.3, p. 21 of the author copy proofs.pdf (Invent. Math. 178 (2009) not compared): corrected in new: no published correction found and not recorded in the atlas.
