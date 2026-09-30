@@ -5,9 +5,9 @@ Peter Scholze, *Berkovich motives*, [Journal of the American Mathematical Societ
 Extraction by Claude Code, session `cc-39fac3`, 23 September 2026 (issue #1410). Status: **complete**. Every missing item is routed once.
 
 The machine-readable extraction is [PAPER-SCHOLZE-26.result.json](PAPER-SCHOLZE-26.result.json). It has:
-- 55 items: 5 planned, 50 missing;
-- 6 routes: five sources of existing layers and one coalesced Part II;
-- 12 prerequisite entries;
+- 64 items: 5 planned, 59 missing (after FIX-RT-PAPER-SCHOLZE-26; 55 items, 5 planned and 50 missing before);
+- 9 routes: six sources of existing layers and three Part II routes (see the closing section);
+- 12 prerequisite entries (two removed and two added by the fix);
 - 3 recorded misprints.
 
 ## Sources read
@@ -38,27 +38,27 @@ The machine-readable extraction is [PAPER-SCHOLZE-26.result.json](PAPER-SCHOLZE-
 
 ## What the atlas already has
 
-**The pending Part II.** The Binda–Kato–Vezzani extraction proposed `MotivesRigidAnalyticPartII` (rigid analytic and logarithmic motives) as a Part II of MotivesAndAlgebraicCycles. It plans Ayoub's RigDA, the motivic Fontaine–Wintenberger equivalence, generation by good-reduction motives, and motivic nearby cycles and monodromy. This paper constructs the same objects differently and reproves those endpoints in its own setting.
+**No rigid-analytic motives.** The Binda–Kato–Vezzani extraction proposed `MotivesRigidAnalyticPartII` (rigid analytic and logarithmic motives, Ayoub's RigDA), but its review rejected that route (verdict revise), so nothing in the atlas plans rigid-analytic motives. Ayoub's RigDA, Vezzani's tilting and Binda–Gallauer–Vezzani's nearby cycles are prior work in the literature (corrected by FIX-RT-PAPER-SCHOLZE-26, RT-PAPER-SCHOLZE-26/1).
 
 **Planned (5 items).**
 - The Berkovich spectrum (TropicalAndBerkovichArithmetic TB.0).
 - The Berkovich disc and its point types (TB.1).
 - Adams operations (SchemeKTheoryOperations S.6).
 - Quillen's rational K-theory of finite fields (KTheoryFiniteLocalFields L.1).
-- Voevodsky's étale motives (MotivesAndAlgebraicCycles MC.4, MotivicEtaleKTheory M.5a).
+- Voevodsky's étale motives were listed here, but MC.4 and M.5a plan only the Nisnevich, with-transfers version; the fix routes item 49 to route 1 (RT-PAPER-SCHOLZE-26/3). de Jong's alterations are planned at AdicCoefficientsAndComparisons L5 (item 61, added by the fix).
 
 **Library.** Mathlib has Gelfand–Mazur for normed ℝ-algebras (`NormedAlgebra.Real.nonempty_algEquiv_or`). This covers the core of Theorem 2.12, but not the Ostrowski step from |2| > 1.
 
 **Not in the atlas.**
 - The arc-topology on Banach rings. The proposed ArcTopologyAndDescent covers schemes only.
 - Finitary sheaves, D^eff_mot and D_mot.
-- Six functors outside diamonds and étale sheaves.
+- The six-functor formalism on arc-stacks. Its abstract machinery is planned by the proposed AnalyticStacks AS.0–AS.1 (RT-PAPER-SCHOLZE-26/2).
 - Efimov's K-theory of dualizable categories.
 
 ## Routes
 
-1. **Coalesced with `MotivesRigidAnalyticPartII`** (42 missing). This is the pending Part II of MotivesAndAlgebraicCycles proposed by Binda–Kato–Vezzani; its id, title, parent, area and brief are kept.
-   - **What it gains:** a Berkovich branch covering:
+1. **A Part II of MotivesAndAlgebraicCycles, `MotivesRigidAnalyticPartII`** (45 missing after the fix). It stands alone: the Binda–Kato–Vezzani route it once coalesced with was rejected (RT-PAPER-SCHOLZE-26/1).
+   - **What it covers:** Berkovich motives:
      - the arc-topology and finitary sheaves (§§3–4);
      - effective motives, Ḡ_m and ℤ(1) (§5);
      - transfers, torsion and tilting (§6);
@@ -68,7 +68,8 @@ The machine-readable extraction is [PAPER-SCHOLZE-26.result.json](PAPER-SCHOLZE-
      - rigidity and mixed Tate motives (§10);
      - D_mot(k) and nearby cycles (§11);
      - the v-stack comparison (§12).
-   - **A new target:** the brief asks for a separate comparison with Ayoub's RigDA, which the paper does not prove.
+   - **Also:** the étale-motive target DM_ét(k, ℤ) of Proposition 1.13 (item 49) and the inputs of Lemma 6.4 (items 62, 63).
+   - **A gap, not a target:** the comparison with Ayoub's RigDA, which the paper does not prove and no roadmap plans.
 2. **Source of TropicalAndBerkovichArithmetic [TB.0, TB.1]** (4 missing, 2 planned).
    - **Missing:**
      - Scholze's general seminormed and Banach rings and their colimits;
@@ -77,9 +78,12 @@ The machine-readable extraction is [PAPER-SCHOLZE-26.result.json](PAPER-SCHOLZE-
      - M of pushouts and filtered colimits.
    - **Planned:** the Berkovich spectrum and the disc.
 3. **Source of GeneralAlgebraicKTheory [K.5]** (1 item): Suslin's excision for Tor-unital rings.
-4. **Source of SchemeKTheoryOperations [S.3, S.5]** (1 item): Thomason–Trobaugh, cdh and pro-cdh descent, and 𝔸¹-invariance over valuation rings.
+4. **Source of SchemeKTheoryOperations [S.3]** (1 item): Thomason–Trobaugh. The other K-theory inputs were split off by the fix to routes 7 and 8 (RT-PAPER-SCHOLZE-26/4).
 5. **Source of RefinedTraceMethods [RT.5]** (1 item): Efimov's K-theory of dualizable categories.
-6. **Source of EnhancedDerivedSheaves [E5:presentability]** (1 item): compactly assembled, dualizable and rigid categories, Robalo's inversion and symmetric monoidal Verdier quotients.
+6. **Source of EnhancedDerivedSheaves [E5:presentability, E5:abstract]** (2 items after the fix): a request for dualizable, compactly assembled and rigid categories without compact generation (item 60), and for Robalo's inversion, Verdier quotients, Barr–Beck–Lurie and descendable algebras (item 47) (RT-PAPER-SCHOLZE-26/5).
+7. **Part II of GeneralAlgebraicKTheory, joining Land–Mathew–Meier–Tamme** (1 item): cdh descent for KH.
+8. **Part II of SchemeKTheoryOperations** (3 items): pro-cdh descent, 𝔸¹-invariance over valuation rings, Gabber–Suslin rigidity.
+9. **Source of EnhancedDerivedSheaves [E2]** (1 item): Postnikov completeness of replete hypercomplete ∞-topoi.
 
 ## Source issues (`sourceIssues` E1–E3, all misprints)
 
@@ -89,8 +93,7 @@ The machine-readable extraction is [PAPER-SCHOLZE-26.result.json](PAPER-SCHOLZE-
 
 ## Prerequisites not yet covered
 
-Twelve entries:
-- Scholze's *Six-Functor Formalisms* with Heyer–Mann;
+Twelve entries after the fix, which removed Scholze's *Six-Functor Formalisms* with Heyer–Mann (planned by AnalyticStacks AS.0) and Bhatt–Mathew (extracted, with the accepted ArcTopologyAndDescent route) and added van der Put 1980 and Mondal–Reinecke 2025 (RT-PAPER-SCHOLZE-26/2, /6):
 - *Étale cohomology of diamonds*;
 - Ayoub–Gallauer–Vezzani;
 - Vezzani 2017 and 2019;
@@ -101,7 +104,8 @@ Twelve entries:
 - Aoki;
 - Suslin;
 - Cisinski with Kerz–Strunk–Tamme;
-- Bhatt–Mathew (already extracted as PAPER-BHATT-MATHEW-21).
+- van der Put;
+- Mondal–Reinecke.
 
 ## Checks
 
@@ -131,3 +135,41 @@ pp.36–37, where the ambient is `A¹_C` and no Banach ring `A` is in scope; and
 that `∏^Ban K(x)` is totally disconnected for any Banach ring, which fails for a discrete `A`
 because Definition 3.10(i) requires analytic — repaired, as recorded, by the paper's own Example
 3.4.
+
+## Fixes (FIX-RT-PAPER-SCHOLZE-26, 30 September 2026)
+
+Claude Code, session `cc-c2c06b`, issue #5005. This fix applies the high finding and six medium findings of
+`RT-PAPER-SCHOLZE-26`, with the qualifications of its verifier (Codex, codex-J6LwjP). The full record is
+`research/blueprint/redteam/RT-PAPER-SCHOLZE-26.fixes.md`. The sections above were corrected where they described the
+coalescence, the routes and the prerequisites; the rest is as the extraction and review left it.
+
+- **Route 1 stands alone (/1).** The Binda–Kato–Vezzani route it said it coalesced with was rejected, so the queue
+  gave the design job (#3463) only this route.
+  - The brief now plans Berkovich motives on their own, with Theorems 1.7, 1.9, 1.12, 1.14 and Proposition 1.13
+    stated in full.
+  - It says that BKV's proposal, once resubmitted, should coalesce into this roadmap.
+  - It records the comparison with Ayoub's RigDA as a gap.
+  - The title drops "and logarithmic".
+  - The notes of items 17, 27, 44, 50 and 52 cite RigDA, Vezzani's tilting and BGV as prior literature, not as planned
+    layers.
+- **Six functors (/2).** Items 42 and 14 name the proposed AnalyticStacks AS.0 and AS.1 as suppliers; the arc-stack
+  application stays missing. The Six-Functor Formalisms/Heyer–Mann and Bhatt–Mathew prerequisite entries are removed.
+  The scheme arc-site is not identified with the Banach-ring one.
+- **Étale motives (/3).** Item 49 is missing and owned by route 1. MC.4 and M.5a plan only the Nisnevich,
+  with-transfers version.
+- **K-theory (/4).** Item 37 keeps Thomason–Trobaugh (S.3), and the other inputs are split off:
+  - cdh descent for KH (56) joins Land–Mathew–Meier–Tamme's GeneralAlgebraicKTheory Part II (route 7);
+  - pro-cdh descent (57), 𝔸¹-invariance over valuation rings (58) and Gabber–Suslin rigidity (59) go to a new
+    SchemeKTheoryOperations Part II (route 8).
+
+  The cdh and pro-cdh arguments are alternatives, not both required.
+- **Categories (/5).** Item 60 is the dualizable, compactly assembled and rigid theory without compact generation.
+  Route 6 requests it and the rest of item 47 from E5, whose text assumes compact generation.
+- **Cited inputs (/6).** Four items are added:
+  - de Jong's alterations (61), planned at L5;
+  - van der Put's compactification after shrinking (62);
+  - the marked-point generalised Jacobian (63);
+  - Mondal–Reinecke's Postnikov completeness (64), requested from E2 (route 9).
+- **Proposition 5.17 (/7).** The characteristic-polynomial isomorphism in item 22 is for G_m, not Ḡ_m. Ḡ_m
+  appears only after ball-localisation.
+- **Result:** 64 items (5 planned, 59 missing), 9 routes, 12 prerequisites and 3 source issues.
