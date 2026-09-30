@@ -12192,3 +12192,93 @@ example (η : DirichletCharacter ℚ_[2] 3) (hη : η 2=-1)
       ((mahler 2 : C(ℤ_[2],ℤ_[2])) • (1 : C(ℤ_[2],L))) = -1/9 := sorry
 end
 end SuggestedTameFieldComparisonTests
+
+/-! ## Tame zeta values under continuous coefficient-field extension
+The existing inverse-weight and intrinsic-restriction formulas are reused once.
+The comparison maps both character values and every continuous test. -/
+namespace DirichletPadic
+noncomputable section
+open scoped AbstractMeasure
+variable {p : ℕ} [Fact p.Prime] {K L : Type*}
+  [NontriviallyNormedField K] [NontriviallyNormedField L]
+  [Algebra ℤ_[p] K] [Algebra ℤ_[p] L]
+  [IsBoundedSMul ℤ_[p] K] [IsBoundedSMul ℤ_[p] L]
+  [IsUltrametricDist K] [IsUltrametricDist L]
+  [CompleteSpace K] [CompleteSpace L]
+  [Algebra K L] [ContinuousSMul K L] [IsScalarTower ℤ_[p] K L]
+  {D : ℕ} [NeZero D]
+local notation "U" => (ℤ_[p])ˣ
+local notation "iMap" => (ContinuousMap.mk (algebraMap K L) (continuous_algebraMap K L) : C(K,L))
+
+theorem algebraMap_tameZetaMeasure_apply (η : DirichletCharacter K D)
+    (hDK : IsUnit (D : K)) (hDL : IsUnit (D : L)) (hpD : ¬p∣D)
+    (f : C(ℤ_[p],K)) :
+    algebraMap K L (tameZetaMeasure η hDK hpD f) =
+      tameZetaMeasure (η.ringHomComp (algebraMap K L)) hDL hpD ((iMap).comp f) := sorry
+
+theorem algebraMap_intrinsicTameZetaMeasure_apply (η : DirichletCharacter K D)
+    (hDK : IsUnit (D : K)) (hDL : IsUnit (D : L)) (hpD : ¬p∣D)
+    (f : C(U,K)) :
+    algebraMap K L (intrinsicTameZetaMeasure η hDK hpD f) =
+      intrinsicTameZetaMeasure (η.ringHomComp (algebraMap K L)) hDL hpD
+        ((iMap).comp f) := sorry
+
+namespace SuggestedTameZetaFieldComparisonTests
+-- ambient_mass_transport
+example (η : DirichletCharacter K D)
+    (hDK : IsUnit (D : K)) (hDL : IsUnit (D : L)) (hpD : ¬p∣D) :
+    algebraMap K L (tameZetaMeasure η hDK hpD 1) =
+      tameZetaMeasure (η.ringHomComp (algebraMap K L)) hDL hpD 1 := sorry
+-- positive_moment_transport
+example (η : DirichletCharacter K D)
+    (hDK : IsUnit (D : K)) (hDL : IsUnit (D : L)) (hpD : ¬p∣D) (k : ℕ) :
+    algebraMap K L (tameZetaMeasure η hDK hpD
+      (⟨fun x : ℤ_[p] => (algebraMap ℤ_[p] K x)^(k+1), by fun_prop⟩ : C(ℤ_[p],K))) =
+      tameZetaMeasure (η.ringHomComp (algebraMap K L)) hDL hpD
+        (⟨fun x : ℤ_[p] => (algebraMap ℤ_[p] L x)^(k+1), by fun_prop⟩ : C(ℤ_[p],L)) := sorry
+-- ambient_modulus_one_zero
+example (η : DirichletCharacter K 1)
+    (hDK : IsUnit ((1 : ℕ) : K)) (hDL : IsUnit ((1 : ℕ) : L)) (hpD : ¬p∣1)
+    (f : C(ℤ_[p],K)) :
+    algebraMap K L (tameZetaMeasure η hDK hpD f)=0 ∧
+      tameZetaMeasure (η.ringHomComp (algebraMap K L)) hDL hpD ((iMap).comp f)=0 := sorry
+-- inverse_stays_zero_on_nonunits
+example (x : ℤ_[p]) (hx : ¬IsUnit x) :
+    algebraMap K L (algebraMap ℤ_[p] K (PadicInt.inv x))=0 ∧
+      algebraMap ℤ_[p] L (PadicInt.inv x)=0 := sorry
+-- intrinsic_mass_transport
+example (η : DirichletCharacter K D)
+    (hDK : IsUnit (D : K)) (hDL : IsUnit (D : L)) (hpD : ¬p∣D) :
+    algebraMap K L (intrinsicTameZetaMeasure η hDK hpD 1) =
+      intrinsicTameZetaMeasure (η.ringHomComp (algebraMap K L)) hDL hpD 1 := sorry
+-- intrinsic_arithmetic_character_transport
+example (η : DirichletCharacter K D)
+    (hDK : IsUnit (D : K)) (hDL : IsUnit (D : L)) (hpD : ¬p∣D)
+    (n w : ℕ) (χ : DirichletCharacter K (p^n)) :
+    algebraMap K L (intrinsicTameZetaMeasure η hDK hpD
+      (primePowerArithmeticCharacter p n χ w).toContinuousMap) =
+      intrinsicTameZetaMeasure (η.ringHomComp (algebraMap K L)) hDL hpD
+        (primePowerArithmeticCharacter p n (χ.ringHomComp (algebraMap K L)) w).toContinuousMap := sorry
+-- intrinsic_modulus_one_zero
+example (η : DirichletCharacter K 1)
+    (hDK : IsUnit ((1 : ℕ) : K)) (hDL : IsUnit ((1 : ℕ) : L)) (hpD : ¬p∣1)
+    (f : C(U,K)) :
+    algebraMap K L (intrinsicTameZetaMeasure η hDK hpD f)=0 ∧
+      intrinsicTameZetaMeasure (η.ringHomComp (algebraMap K L)) hDL hpD ((iMap).comp f)=0 := sorry
+end SuggestedTameZetaFieldComparisonTests
+end
+end DirichletPadic
+
+namespace SuggestedTameZetaFieldComparisonTests
+open DirichletPadic
+noncomputable section
+variable {L : Type*} [NontriviallyNormedField L] [IsUltrametricDist L] [CompleteSpace L]
+  [Algebra ℤ_[2] L] [IsBoundedSMul ℤ_[2] L] [IsBoundedSMul ℤ_[2] ℚ_[2]]
+  [Algebra ℚ_[2] L] [ContinuousSMul ℚ_[2] L] [IsScalarTower ℤ_[2] ℚ_[2] L]
+-- dyadic_intrinsic_first_moment_in_extension
+example (η : DirichletCharacter ℚ_[2] 3) (hη : η 2=-1)
+    (hD : IsUnit (3 : L)) (hpD : ¬2∣3) :
+    intrinsicTameZetaMeasure (η.ringHomComp (algebraMap ℚ_[2] L)) hD hpD
+      (primePowerArithmeticCharacter 2 0 (1 : DirichletCharacter L (2^0)) 1).toContinuousMap = 2/3 := sorry
+end
+end SuggestedTameZetaFieldComparisonTests
