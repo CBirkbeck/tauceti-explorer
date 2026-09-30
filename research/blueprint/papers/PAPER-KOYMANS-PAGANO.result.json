@@ -15,7 +15,7 @@
       "Cited inputs were not read; items resting on Smith [Smith] (arXiv 1702.02325) and [Smith8] (arXiv 1607.07860), Koymans–Pagano [KP1]–[KP4], Fouvry–Klüners [FK1]–[FK4], Friedlander–Iwaniec–Mazur–Rubin [FIMR], Koymans–Milovic [KM], Chan–Koymans–Milovic–Pagano [CKMP], Heath-Brown [HB], Rédei [Redei], [Redei8], Rédei–Reichardt [RR], Stevenhagen [Stevenhagen], [StevenhagenRedei], Gerth [Gerth], Heilbronn [Heilbronn], Iwaniec–Kowalski [IK], Montgomery–Vaughan [MoVa], MacWilliams [Williams] and Cohen–Lenstra [CL] state them as the paper uses them."
     ]
   },
-  "summary": "Koymans and Pagano prove Stevenhagen's conjecture (Theorem 1.1): among squarefree d with 0 < d < X all of whose odd prime factors are ≡ 1 mod 4 (the family 𝒟 in which x² − dy² = −1 is locally soluble), the proportion for which the negative Pell equation is soluble tends to 1 − α, α = ∏_{j odd}(1 − 2^{−j}) ≈ 0.41942. Solubility means that (√d) is trivial in the narrow class group, which is decided by the Artin pairings on the 2-power torsion of the narrow class group of ℚ(√d). The proof adapts Smith's method for 2^∞-class groups. It sets up raw cocycles, expansion maps and higher Artin pairings (§2), and proves a higher Rédei reciprocity law generalizing quadratic and Rédei reciprocity (§3). Because the first Artin pairing is symmetric on 𝒟 and the relevant cubes are one dimension short, it builds new reflection principles through 'profitable triples', including one for the self-pairing whose right-hand side is a trivial spin symbol (§§4–5). With Smith's additive-system and Ramsey combinatorics (§6), effective Chebotarev with exceptional-zero control, and Heath-Brown's large sieve for Legendre symbols in boxes (§7), this yields the equidistribution of every higher pairing, and a Markov-chain and second-moment argument (§8) gives the limit. Nothing in the atlas plans Smith's method, so most of the paper is a proposed Part II of ArithmeticStatistics; the analytic, classical and statistical inputs are sources of existing layers. The Acta volume and year are not yet established.",
+  "summary": "Koymans and Pagano prove Stevenhagen's conjecture (Theorem 1.1): among squarefree d with 0 < d < X all of whose odd prime factors are ≡ 1 mod 4 (the family 𝒟 in which x² − dy² = −1 is locally soluble), the proportion for which the negative Pell equation is soluble tends to 1 − α, α = ∏_{j odd}(1 − 2^{−j}) ≈ 0.41942. Solubility means that (√d) is trivial in the narrow class group, which is decided by the Artin pairings on the 2-power torsion of the narrow class group of ℚ(√d). The proof adapts Smith's method for 2^∞-class groups. It sets up raw cocycles, expansion maps and higher Artin pairings (§2), and proves a higher Rédei reciprocity law generalizing quadratic and Rédei reciprocity (§3). Because the first Artin pairing is symmetric on 𝒟 and the relevant cubes are one dimension short, it builds new reflection principles through 'profitable triples', including one for the self-pairing whose right-hand side is a trivial spin symbol (§§4–5). With Smith's additive-system and Ramsey combinatorics (§6), effective Chebotarev with exceptional-zero control, and Smith's bilinear Legendre-symbol estimate (Smith, Prop. 6.6, from Jutila's mean-value lemma for real character sums) in boxes (§7), this yields the equidistribution of every higher pairing, and a Markov-chain and second-moment argument (§8) gives the limit. Nothing in the atlas plans Smith's method, so most of the paper is a proposed Part II of ArithmeticStatistics; the analytic, classical and statistical inputs are sources of existing layers. The Acta volume and year are not yet established.",
   "items": [
     {
       "id": "PAPER-KOYMANS-PAGANO/1",
@@ -60,7 +60,7 @@
       "statement": "Let d > 1 be squarefree. Then d ∈ 𝒟⁻ if and only if the 2-Sylow subgroup of the ordinary class group of ℚ(√d) coincides with the 2-Sylow subgroup of the narrow class group, i.e. the natural surjection Cl⁺(ℚ(√d))[2^∞] → Cl(ℚ(√d))[2^∞] is an isomorphism.",
       "locator": "§1, running text, p. 2, citing [18, Lemma 1] (arXiv v1)",
       "status": "missing",
-      "note": "Tau Ceti at f790474 has NumberField.NarrowClassGroup.toClassGroup_injective_iff_exists_norm_eq_neg_one (for 0 < d, Cl⁺(K) → Cl(K) is injective iff some unit of 𝒪_K has norm −1). The missing steps are two. First, a unit of 𝒪_K of norm −1 gives an integral solution; for d ≡ 5 mod 8 use ε³ ∈ ℤ[√d]. Second, the 2-Sylow form follows because the kernel of Cl⁺ → Cl has order at most 2. Route: a source of ClassicalArithmeticCompletion CA.4 (Pell equations)."
+      "note": "Items 5, 9 and 12 need the 𝒪_K/ℤ[√d] passage for all squarefree d > 1, and CA.5's node negative-pell-iff-unit-of-norm-minus-one covers only d ≢ 1 (mod 4); the cases d ≡ 1 (mod 8) (units already in ℤ[√d]) and d ≡ 5 (mod 8) (cube of a half-integral unit) are to be added there, and the ClassicalArithmeticCompletion packet now plans them in ClassicalArithmeticCompletion:CA.5/negative-pell-iff-unit-of-norm-minus-one-for-d-one-mod-four (RT-PAPER-KOYMANS-PAGANO/5). Tau Ceti f790474 has the built half: tauceti:NumberField.NarrowClassGroup.toClassGroup_injective_iff_exists_norm_eq_neg_one (for 0 < d, Cl⁺(K) → Cl(K) is injective iff some unit of 𝒪_K has norm −1) and tauceti:NumberField.exists_norm_eq_neg_one_of_sq_sub_mul_sq_eq_neg_one (an integral solution of x² − dy² = −1 gives a unit of norm −1), so only the converse, from a unit of 𝒪_K of norm −1 to an integral solution, is missing. The 2-Sylow form then follows because the kernel of Cl⁺ → Cl has order at most 2, which is tauceti:NumberField.card_ker_toClassGroup_le_two (TauCeti/NumberTheory/NumberField/Quadratic/Conjugation/NarrowClassGroup.lean:172). Route: a source of ClassicalArithmeticCompletion CA.5 (route 7)."
     },
     {
       "id": "PAPER-KOYMANS-PAGANO/6",
@@ -96,7 +96,7 @@
       "statement": "For squarefree d > 1 with K = ℚ(√d) and Gal(K/ℚ) = ⟨σ⟩: d ∈ 𝒟⁻ if and only if the ℤ[Gal(K/ℚ)]-module 𝒪_K^× is isomorphic to ℤ ⊕ ℤ/2ℤ with σ(1, 0) = (−1, 1) and σ(0, 1) = (0, 1). Here (1, 0) is a fundamental unit ε, (0, 1) is −1, and σ(ε) = N(ε)ε^{−1}.",
       "locator": "§1, running text after Theorem 1.1, p. 3 (arXiv v1)",
       "status": "missing",
-      "note": "A remark, not used later. The alternative module has σ(1, 0) = (−1, 0), the case N(ε) = +1. It needs the same passage from 𝒪_K to ℤ[√d] as item 5. Route: a source of ClassicalArithmeticCompletion CA.4 (Pell equations)."
+      "note": "A remark, not used later. The alternative module has σ(1, 0) = (−1, 0), the case N(ε) = +1. It needs the same passage from 𝒪_K to ℤ[√d] as item 5. Items 5, 9 and 12 need the 𝒪_K/ℤ[√d] passage for all squarefree d > 1, and CA.5's node negative-pell-iff-unit-of-norm-minus-one covers only d ≢ 1 (mod 4); the cases d ≡ 1 (mod 8) (units already in ℤ[√d]) and d ≡ 5 (mod 8) (cube of a half-integral unit) are to be added there, and the ClassicalArithmeticCompletion packet now plans them in ClassicalArithmeticCompletion:CA.5/negative-pell-iff-unit-of-norm-minus-one-for-d-one-mod-four (RT-PAPER-KOYMANS-PAGANO/5). Tau Ceti f790474 has the built half: tauceti:NumberField.NarrowClassGroup.toClassGroup_injective_iff_exists_norm_eq_neg_one (for 0 < d, Cl⁺(K) → Cl(K) is injective iff some unit of 𝒪_K has norm −1) and tauceti:NumberField.exists_norm_eq_neg_one_of_sq_sub_mul_sq_eq_neg_one (an integral solution of x² − dy² = −1 gives a unit of norm −1), so only the converse, from a unit of 𝒪_K of norm −1 to an integral solution, is missing. Route: a source of ClassicalArithmeticCompletion CA.5 (route 7)."
     },
     {
       "id": "PAPER-KOYMANS-PAGANO/10",
@@ -123,7 +123,7 @@
       "statement": "For squarefree d > 1 (in the paper d ∈ 𝒟): d ∈ 𝒟⁻ if and only if the ideal (√d) = Up_{ℚ(√d)/ℚ}(d) is trivial in the narrow class group Cl(ℚ(√d)).",
       "locator": "§1, running text after (1.3), p. 4 (arXiv v1)",
       "status": "missing",
-      "note": "This is why the Artin pairing against the class of (√d) must be computed, which (1.3) does not cover. Tau Ceti f790474 proves the 𝒪_K-unit form inside toClassGroup_injective_iff_exists_norm_eq_neg_one: the narrow class of (θ) is trivial iff a unit has norm −1. The ℤ[√d] passage is the same as item 5. Route: a source of ClassicalArithmeticCompletion CA.4 (Pell equations)."
+      "note": "This is why the Artin pairing against the class of (√d) must be computed, which (1.3) does not cover. Tau Ceti f790474 proves the 𝒪_K-unit form inside toClassGroup_injective_iff_exists_norm_eq_neg_one: the narrow class of (θ) is trivial iff a unit has norm −1. The ℤ[√d] passage is the same as item 5. Items 5, 9 and 12 need the 𝒪_K/ℤ[√d] passage for all squarefree d > 1, and CA.5's node negative-pell-iff-unit-of-norm-minus-one covers only d ≢ 1 (mod 4); the cases d ≡ 1 (mod 8) (units already in ℤ[√d]) and d ≡ 5 (mod 8) (cube of a half-integral unit) are to be added there, and the ClassicalArithmeticCompletion packet now plans them in ClassicalArithmeticCompletion:CA.5/negative-pell-iff-unit-of-norm-minus-one-for-d-one-mod-four (RT-PAPER-KOYMANS-PAGANO/5). Tau Ceti f790474 has the built half: tauceti:NumberField.NarrowClassGroup.toClassGroup_injective_iff_exists_norm_eq_neg_one (for 0 < d, Cl⁺(K) → Cl(K) is injective iff some unit of 𝒪_K has norm −1) and tauceti:NumberField.exists_norm_eq_neg_one_of_sq_sub_mul_sq_eq_neg_one (an integral solution of x² − dy² = −1 gives a unit of norm −1), so only the converse, from a unit of 𝒪_K of norm −1 to an integral solution, is missing. Route: a source of ClassicalArithmeticCompletion CA.5 (route 7)."
     },
     {
       "id": "PAPER-KOYMANS-PAGANO/13",
@@ -214,7 +214,7 @@
       "planned": [
         "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-9-the-galois-interface-hilbert-90-and-kummer-theory"
       ],
-      "note": "ProfiniteCohomology Layer 9 plans the Kummer isomorphism 'kummerIso : Kˣ ⧸ (Kˣ)ⁿ ≅ H¹(G_K, μₙ)'. With n = 2 and μ₂ ≅ 𝔽₂, χ_γ is the image of γ."
+      "note": "The Kummer map is built in Tau Ceti f790474: tauceti:TauCeti.kummerMap (TauCeti/FieldTheory/GaloisCohomology/Kummer.lean:187), K^× → H¹(G_K, μ_n), with tauceti:TauCeti.kummerMap_eq_kummerCocycleClass (:215), the class of the cocycle g ↦ gα/α for an n-th root α of γ; and tauceti:TauCeti.ContCohomology.H1EquivOfSmulEqSelf (TauCeti/RepresentationTheory/Homological/ContCohomology/LowDegree.lean:840) identifies H¹ with trivial action with continuous homomorphisms. At n = 2 the action on μ₂ is trivial, so the class of γ is a continuous character G_K → μ₂. The Kummer isomorphism 'kummerIso : Kˣ ⧸ (Kˣ)ⁿ ≅ H¹(G_K, μₙ)', which Layer 9 still plans, is not needed to define χ_γ. The item stays planned (RT-PAPER-KOYMANS-PAGANO/1) because the 𝔽₂-valued χ_γ needs μ₂ ≅ 𝔽₂, which the reviewed audit rates unbuilt: ProfiniteCohomology Layer 9, 'The mod-2 specialization …', partial; QuadraticFormInvariants 7a, 'The μ₂ coefficient identification …', absent. QuadraticFormInvariants 7a (tauceti:TauCetiRoadmap/QuadraticFormInvariants#layer-7-the-brauer-group-in-galois-cohomology) owns that adapter."
     },
     {
       "id": "PAPER-KOYMANS-PAGANO/22",
@@ -283,13 +283,20 @@
       "id": "PAPER-KOYMANS-PAGANO/28",
       "kind": "definition",
       "name": "The maximal pro-2 quotient 𝒢_ℚ^{pro-2}",
-      "statement": "ℚ^{pro-2} is the union of all finite Galois subextensions of ℚ^sep/ℚ of 2-power degree. 𝒢_ℚ^{pro-2} := Gal(ℚ^{pro-2}/ℚ), and π_{pro-2} : G_ℚ → 𝒢_ℚ^{pro-2} is the natural projection.",
+      "statement": "𝒢_ℚ^{pro-2} := G_ℚ ⧸ proPKernel 2 G_ℚ, where proPKernel 2 G_ℚ is the intersection of the open normal subgroups of G_ℚ whose quotient is a 2-group, and π_{pro-2} : G_ℚ → 𝒢_ℚ^{pro-2} is the quotient map. (The paper's field-theoretic definition, 𝒢_ℚ^{pro-2} := Gal(ℚ^{pro-2}/ℚ) with ℚ^{pro-2} the union of the finite Galois subextensions of ℚ^sep/ℚ of 2-power degree, is the same group; see the note.)",
       "locator": "§2, p. 7 (arXiv v1)",
-      "status": "planned",
-      "planned": [
-        "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-3-pro-p-groups-the-maximal-pro-p-quotient-frattini-theory-generation"
+      "status": "library",
+      "library": [
+        "tauceti:TauCeti.proPKernel",
+        "tauceti:TauCeti.maximalProPQuotient",
+        "tauceti:TauCeti.proPKernel_le",
+        "tauceti:TauCeti.isClosed_proPKernel",
+        "tauceti:TauCeti.isProP_maximalProPQuotient",
+        "tauceti:TauCeti.maximalProPQuotient.lift",
+        "tauceti:TauCeti.maximalProPQuotient.lift_unique",
+        "mathlib:InfiniteGalois.normalAutEquivQuotient"
       ],
-      "note": "ProfiniteProPGroups Layer 3 plans 'maximalProPQuotient p G := G ⧸ proPKernel p G … LocalGaloisGroups applies this universal quotient to an absolute Galois group'. The paper's Galois-theoretic description is that quotient for p = 2."
+      "note": "Stated in the library's form (RT-PAPER-KOYMANS-PAGANO/1). Tau Ceti f790474, TauCeti/Topology/Algebra/Group/Profinite/MaximalProP.lean: proPKernel (:82), maximalProPQuotient (:90), 'G ⧸ proPKernel p G', isClosed_proPKernel (:129), proPKernel_le (:124), isProP_maximalProPQuotient (:285), and the universal property maximalProPQuotient.lift and lift_unique (:328, :352). ProfiniteProPGroups Layer 3 is built. The paper's form (p. 7): proPKernel 2 G_ℚ is closed and normal, so Mathlib's InfiniteGalois.normalAutEquivQuotient (Mathlib/FieldTheory/Galois/Infinite.lean:228) gives G_ℚ ⧸ proPKernel 2 G_ℚ ≃* Gal(F/ℚ) for its fixed field F, and F = ℚ^{pro-2}, because the open normal subgroups with 2-group quotient are the fixing subgroups of the finite Galois subextensions of 2-power degree. The paper uses the group only through the factorization of G_ℚ → Gal(L/ℚ) for 2-power Galois L (proof of Proposition 2.3), which is proPKernel_le."
     },
     {
       "id": "PAPER-KOYMANS-PAGANO/29",
@@ -363,11 +370,16 @@
       "name": "Cocy(G_ℚ, N(χ)), N(x) and the coboundaries d_x",
       "statement": "Cocy(G_ℚ, N(χ)) is the group of continuous 1-cocycles G_ℚ → N(χ). For squarefree x, N(x) := N(χ_x). All these groups lie in the common ambient group Map_cont(G_ℚ, N) of continuous 1-cochains. For a continuous cochain ψ : G_ℚ → N, a squarefree x and σ, τ ∈ G_ℚ, d_x(ψ)(σ, τ) := −ψ(στ) + (−1)^{χ_x(σ)}ψ(τ) + ψ(σ). Then ψ ∈ Cocy(G_ℚ, N(χ_x)) iff d_x(ψ) ≡ 0.",
       "locator": "§2.1, p. 9 (arXiv v1)",
-      "status": "planned",
-      "planned": [
-        "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-2-the-explicit-low-degree-complex-and-its-functoriality"
+      "status": "library",
+      "library": [
+        "tauceti:TauCeti.ContCohomology.C1",
+        "tauceti:TauCeti.ContCohomology.Z1",
+        "tauceti:TauCeti.ContCohomology.d1",
+        "tauceti:TauCeti.ContCohomology.d1_apply",
+        "tauceti:TauCeti.ContCohomology.mem_Z1_iff",
+        "tauceti:TauCeti.ContCohomology.d1_apply_eq_zero_iff"
       ],
-      "note": "ProfiniteCohomology Layer 2 plans the explicit complex: 'C1, C2, Z1, Z2 … `Z¹` vanishes at `1`'. The paper's key device is to vary the twist χ_x while keeping one ambient cochain group, as in Proposition 2.9."
+      "note": "Tau Ceti f790474, TauCeti/RepresentationTheory/Homological/ContCohomology/LowDegree.lean: C1 (:127), the continuous 1-cochains; d1 (:228) with d1_apply (:245), 'd1 G M f (g, h) = g • f h - f (g * h) + f g'; Z1 (:485), 'C1 G M ⊓ (d1 G M).ker'; mem_Z1_iff (:501) and d1_apply_eq_zero_iff (:261). For M = N(χ_x), on which σ acts by (−1)^{χ_x(σ)}, d1_apply is the paper's d_x term by term, and 'ψ ∈ Cocy(G_ℚ, N(χ_x)) iff d_x(ψ) ≡ 0' is mem_Z1_iff with d1_apply_eq_zero_iff. The ambient group Map_cont(G_ℚ, N) is C1 of the underlying functions, which does not depend on the twist. ProfiniteCohomology Layer 2 is built (the reviewed audit rates it partly built, with C1, C2, Z1, Z2, B1, B2, H0, H1 and H2 present). The twisted module N(χ) is item 35 (missing, route 1). The paper's key device is to vary the twist χ_x while keeping one ambient cochain group, as in Proposition 2.9. (Library since RT-PAPER-KOYMANS-PAGANO/1.)"
     },
     {
       "id": "PAPER-KOYMANS-PAGANO/37",
@@ -510,11 +522,14 @@
       "name": "Coboundary operator d on 𝔽₂-valued cochains",
       "statement": "For φ ∈ Map(G_ℚ^k, 𝔽₂), dφ ∈ Map(G_ℚ^{k+1}, 𝔽₂) is (dφ)(g_1, …, g_{k+1}) = φ(g_2, …, g_{k+1}) + φ(g_1, …, g_k) + ∑_{i=1}^{k} φ(g_1, …, g_{i−1}, g_i g_{i+1}, g_{i+2}, …, g_{k+1}).",
       "locator": "§2.2, p. 14 (arXiv v1)",
-      "status": "planned",
-      "planned": [
-        "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-2-the-explicit-low-degree-complex-and-its-functoriality"
+      "status": "library",
+      "library": [
+        "mathlib:inhomogeneousCochains.d",
+        "mathlib:Rep.trivial",
+        "tauceti:TauCeti.ContCohomology.d1",
+        "tauceti:TauCeti.ContCohomology.d2"
       ],
-      "note": "ProfiniteCohomology Layer 2 plans the explicit differentials with 'd ∘ d = 0 (`B1_le_Z1`, `B2_le_Z2`)' in low degree; over 𝔽₂ the signs disappear."
+      "note": "Mathlib 082e2d3, Mathlib/RepresentationTheory/Homological/GroupCohomology/Basic.lean:86: inhomogeneousCochains.d A n sends f to (g₀, …, g_n) ↦ ρ(g₀)f(g₁, …, g_n) + Σ_{j=0}^{n} (−1)^{j+1} f(Fin.contractNth j (· * ·) g), whose last term (j = n) is f(g₀, …, g_{n−1}). For A = Rep.trivial (ZMod 2) G_ℚ (ZMod 2) the action is trivial and the signs disappear, so it is the paper's d in every degree, on all maps G_ℚ^k → 𝔽₂ as on p. 14. The paper applies d to 1-cochains ((2.3), p. 15; the proof of Lemma 6.7, p. 56) and to 2-cochains (the proof of Proposition 2.16, p. 18: '(dψ)(σ, τ, µ) = φ₁(σ)·dφ₂(τ, µ) + dφ₁(σ, τ)·φ₂(µ)'; the 2-cocycles of §5, p. 40). Tau Ceti's continuous d1 and d2 (TauCeti/RepresentationTheory/Homological/ContCohomology/LowDegree.lean:228, :235; ProfiniteCohomology Layer 2, built) are the same maps in degrees 1 and 2. (Library since RT-PAPER-KOYMANS-PAGANO/1.)"
     },
     {
       "id": "PAPER-KOYMANS-PAGANO/53",
@@ -801,7 +816,7 @@
         "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-6-change-of-groups",
         "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-9-the-galois-interface-hilbert-90-and-kummer-theory"
       ],
-      "note": "This is the transfer formula with transversal {1, σ}. ProfiniteCohomology Layer 6 plans 'Corestriction in degrees 0, 1, 2. The three formulas of §3, for a variable transversal'. Layer 9 plans the norm/corestriction link 'corestriction H¹(G_L, μₙ) → H¹(G_K, μₙ) corresponds to the norm N_{L/K}' (kummerIso_norm)."
+      "note": "This is the transfer formula with transversal {1, σ}. ProfiniteCohomology Layer 6 ('Corestriction in degrees 0, 1, 2 … for a variable transversal') is built in Tau Ceti f790474, but no declaration states the index-2 criterion (3.1)–(3.2), so the item stays planned (RT-PAPER-KOYMANS-PAGANO/1). The ingredients: tauceti:TauCeti.ContCohomology.cochainsCor1 (ContCohomology/Corestriction.lean:253) with tauceti:TauCeti.ContCohomology.cochainsCor1_apply_of_smul_eq_self (:266), the trivial-action form (cor¹_t f)(γ) = Σ_u f(ℓ_u(γ)); tauceti:TauCeti.ContCohomology.explicitCor1Transversal (:429) with explicitCor1Transversal_mk (:436); tauceti:TauCeti.ContCohomology.explicitCor1_eq_transversal (:461), independence of the transversal; tauceti:TauCeti.lWord (GroupTheory/TransversalWord.lean:59), ℓ_u(γ) = t(u)⁻¹·γ·t(γ⁻¹u); and tauceti:TauCeti.ContCohomology.H1EquivOfSmulEqSelf (ContCohomology/LowDegree.lean:840), H¹ with trivial action as continuous homomorphisms. The computation: with 𝔽₂ coefficients, U = G_1 of index 2 in G_2 and the transversal t(U) = 1, t(σU) = σ for σ ∈ G_2 − G_1, the words are ℓ_U(σ) = σ², ℓ_{σU}(σ) = 1, ℓ_U(τ) = τ and ℓ_{σU}(τ) = σ⁻¹τσ for τ ∈ U. So cor(χ)(σ) = χ(σ²) and cor(χ)(τ) = χ(τ) + χ(σ⁻¹τσ), which is (3.1)–(3.2), because χ(σ⁻¹τσ) = χ(στσ⁻¹) for a character of U and σ² ∈ U. Layer 9 plans the norm/corestriction link 'corestriction H¹(G_L, μₙ) → H¹(G_K, μₙ) corresponds to the norm N_{L/K}' (kummerIso_norm)."
     },
     {
       "id": "PAPER-KOYMANS-PAGANO/84",
@@ -1777,11 +1792,11 @@
     {
       "id": "PAPER-KOYMANS-PAGANO/189",
       "kind": "theorem",
-      "name": "Bilinear Legendre-symbol estimate from the large sieve (Smith, Prop. 6.6), and (7.11)",
+      "name": "Bilinear Legendre-symbol estimate (Smith, Prop. 6.6, from Jutila's mean-value lemma), and (7.11)",
       "statement": "For every ε > 0 and all sets of odd primes X₁ ⊆ (s₁, t₁] and X_i ⊆ (s_i, t_i] with t₁ < s_i: Σ_{x₁∈X₁} |Σ_{x_i∈X_i} (x₁/x_i)| ≪_ε t_i · t₁^{3/4+ε}. Under hypotheses (ii) and (iii) of Proposition 7.6 (with i ≤ k), this gives (7.11): Σ_{x₁∈X₁} |Σ_{x_i∈X_i} (x₁/x_i)| ≪_ε |X₁| · |X_i| / t₁^{1/4 − c₂c₄ − ε}.",
       "locator": "§7.2, proof of Proposition 7.6, (7.11), p. 63 (arXiv v1)",
       "status": "missing",
-      "note": "Cited as 'the large sieve', see [Smith, Prop. 6.6]. SieveMethodsAndPrimePatterns:SV.2 plans 'additive and multiplicative large-sieve inequalities … bilinear decompositions'. The classical multiplicative large sieve plus Cauchy–Schwarz gives the bound only when t_i ≥ t₁^{3/2}. For t₁ < t_i < t₁^{3/2} one needs Heath-Brown's large sieve for quadratic characters, and no stage plans it; the only 'Heath-Brown' hit in the atlas is his prime identity in ES.4. The bound is used again, in iterated form, in §8.4 ('We will now repeatedly apply the large sieve'). Route: a source of SieveMethodsAndPrimePatterns SV.2 (large sieve and bilinear sums)."
+      "note": "Cited as 'the large sieve', see [Smith, Prop. 6.6]. SieveMethodsAndPrimePatterns:SV.2 plans 'additive and multiplicative large-sieve inequalities … bilinear decompositions'. The classical multiplicative large sieve plus Cauchy–Schwarz gives the bound only when t_i ≥ t₁^{3/2}. Smith derives it from Jutila, Acta Arith. 27 (1975), Lemma 3, Σ_{x₁∈X₁}(Σ_{x₂∈X₂} c(x₂)(x₁/x₂))² ≪ t₁|X₂| + t₁^{1/2}t₂² log⁶t₂, by Cauchy–Schwarz and quadratic reciprocity on the four residue classes mod 4. The whole range t₁ < t_i comes from taking x_i as the outer variable, after reciprocity: the bound is t_i t₁^{1/2} + t_i^{3/4} t₁ log³t₁ ≪_ε t_i t₁^{3/4+ε}. (With x₁ outer a factor log³t_i remains, and Proposition 7.6(ii) allows t_i up to e^{t₁^{c₂}}.) SV.2 is to plan Jutila's lemma and Smith's Proposition 6.6. The paper does not cite Heath-Brown's large sieve for real characters (Acta Arith. 72 (1995)), which is a different and deeper theorem, and this item should not coalesce with PAPER-SKOROBOGATOV-SOFOS-23's Heath-Brown item at SV.2 (RT-PAPER-KOYMANS-PAGANO/3). The bound is used again, in iterated form, in §8.4 ('We will now repeatedly apply the large sieve'). Route: a source of SieveMethodsAndPrimePatterns SV.2 (large sieve and bilinear sums)."
     },
     {
       "id": "PAPER-KOYMANS-PAGANO/190",
@@ -1978,11 +1993,11 @@
     {
       "id": "PAPER-KOYMANS-PAGANO/211",
       "kind": "definition",
-      "name": "D_{k,n}, D_{k,n}(N) and P(m, n, j)",
-      "statement": "For k ≥ 2 and n ≥ 0, D_{k,n} := {d ∈ 𝒟 : rk_{2^k} Cl(ℚ(√d)) = n and (√d) ∈ 2^{k−1} Cl(ℚ(√d))}, with Cl the narrow class group and rk_{2^k} A = dim_{𝔽₂} 2^{k−1}A[2^k]. D_{k,n}(N) := {d ∈ D_{k,n} : d < N}. P(m, n, j) is the probability that a uniformly random m × n matrix over 𝔽₂ has right kernel of dimension j.",
+      "name": "D_{k,n} and D_{k,n}(N)",
+      "statement": "For k ≥ 2 and n ≥ 0, D_{k,n} := {d ∈ 𝒟 : rk_{2^k} Cl(ℚ(√d)) = n and (√d) ∈ 2^{k−1} Cl(ℚ(√d))}, with Cl the narrow class group and rk_{2^k} A = dim_{𝔽₂} 2^{k−1}A[2^k]. D_{k,n}(N) := {d ∈ D_{k,n} : d < N}.",
       "locator": "§8 (introduction), p. 75 (arXiv v1)",
       "status": "missing",
-      "note": "For k = 2 the condition (√d) ∈ 2Cl holds for every d ∈ 𝒟, since R lies in the kernel of the Rédei matrix, so this agrees with the D_{2,n} of §7. rk_{2^k} is not defined in the source. Route: the proposed Part II of ArithmeticStatistics (Smith's method and the 2-primary class groups of real quadratic fields)."
+      "note": "For k = 2 the condition (√d) ∈ 2Cl holds for every d ∈ 𝒟, since R lies in the kernel of the Rédei matrix, so this agrees with the D_{2,n} of §7. rk_{2^k} is not defined in the source. P(m, n, j), defined in the same paragraph, is item 265 (route 3, ArithmeticStatistics ST.5), split off by RT-PAPER-KOYMANS-PAGANO/4. Route: the proposed Part II of ArithmeticStatistics (Smith's method and the 2-primary class groups of real quadratic fields)."
     },
     {
       "id": "PAPER-KOYMANS-PAGANO/212",
@@ -2130,7 +2145,7 @@
         "tauceti:TauCetiRoadmap/Multiquadratic#layer-3-the-genus-field-and-the-2-rank-theorem-the-summit",
         "tauceti:TauCetiRoadmap/Multiquadratic#layer-2-the-2-elementary-quotient-of-the-class-group"
       ],
-      "note": "Used without proof ('Genus theory gives natural surjections'). Tau Ceti Multiquadratic Layer 3 plans the genus field with 'Gal(K_gen/K) ≅ Cl(K)/Cl(K)²' and warns that 'The 2-rank formula = t − 1 … is a theorem about the narrow class group'; that is the surjection onto Cl^∨[2] = (Cl/Cl²)^∨. Layer 2 plans 'the ambiguous-class-number formula', the input for the ramified-prime surjection onto Cl[2]."
+      "note": "Used without proof ('Genus theory gives natural surjections', p. 80), with Cl the narrow class group. Multiquadratic Layers 2–3 are built in Tau Ceti f790474 (the reviewed audit rates Layer 2 built 'in the narrow class group, for either signature', and Layer 3 built, the 2-rank formula for the narrow class group of either signature), but neither surjection is stated in the paper's form, so the item stays planned at those layers (RT-PAPER-KOYMANS-PAGANO/2). Built: tauceti:NumberField.NarrowClassGroup.mem_closure_of_sq_eq_one (TauCeti/NumberTheory/NumberField/Quadratic/Conjugation/Ambiguous/Narrow.lean:268), Cl⁺(K)[2] is generated by the narrow classes of the ramified primes, with no hypothesis on the signature; tauceti:NumberField.NarrowClassGroup.mk0_sq_eq_one_of_map_ringOfIntegersQuadraticConj_eq_self (:203), the class of an ambiguous ideal is 2-torsion; tauceti:TauCeti.Multiquadratic.genusCharFunElementaryTwoQuotientFamilyLinearMap_injective (TauCeti/NumberTheory/Multiquadratic/Quadratic/GenusCharacter/PrincipalGenus.lean:112), for a prime-discriminant factorization of the discriminant the singleton genus characters are injective on Cl⁺/Cl⁺² ('Equivalently, the #s genus characters span the full dual of Cl⁺(K)/Cl⁺(K)²'); tauceti:TauCeti.Multiquadratic.mem_range_genusCharFunElementaryTwoQuotientFamilyLinearMap_iff (:79), whose image is the sum-zero hyperplane; tauceti:TauCeti.Multiquadratic.narrowTwoRank_eq_ncard_ramifiedPrimes_sub_one (Multiquadratic/Quadratic/TwoRank.lean:243); and the Artin bridge tauceti:TauCeti.Multiquadratic.autCandidateGenusFieldEquivNarrowElementaryTwoQuotient_artinHomAway (Multiquadratic/CandidateGenusField/Relative/Artin.lean:345). The glue that remains: (i) [Up(p_i)]² = 1 in Cl⁺, since Up(p_i) is ambiguous; (ii) the step from generation to the surjection 𝔽₂^r → Cl⁺[2], since Up(∏p_i^{e_i}) is the product of the ramified primes above the p_i; (iii) duality: the surjection onto Cl^∨[2] = (Cl/Cl²)^∨ is the transpose of the injective family map; (iv) the identification of the paper's Galois characters χ_{p_i} with the library's ideal-theoretic genus characters, through the Artin bridge; (v) the indexing: for x ∈ 𝒟 the ramified primes are exactly the p_i, and the prime discriminants are the p_i (p_i ≡ 1 mod 4) and 8 when 2 | x, with χ₈ = χ₂."
     },
     {
       "id": "PAPER-KOYMANS-PAGANO/228",
@@ -2471,6 +2486,15 @@
       "locator": "§8.4, proof of Theorem 8.13, (8.46)–(8.49), pp. 105–107 (arXiv v1)",
       "status": "missing",
       "note": "Checked: ε < a^{−1} holds in the non-trivial range (log log log log N)^{c/(m²6^m)} ≥ 2, and log M_box ≥ A_Comb 6^{m+1} log ε^{−1} holds since 1/(5(m+1)) ≥ 600/(10^{10} m). Proposition 6.6 bounds |F^{−1}(0)| − |C^acc|/2, so (8.49) should carry a factor 2; this is harmless. Route: the proposed Part II of ArithmeticStatistics (Smith's method and the 2-primary class groups of real quadratic fields)."
+    },
+    {
+      "id": "PAPER-KOYMANS-PAGANO/265",
+      "kind": "definition",
+      "name": "P(m, n, j): the kernel law of uniformly random m × n matrices over 𝔽₂",
+      "statement": "For m, n, j ≥ 0, P(m, n, j) is the probability that an m × n matrix, chosen uniformly at random with coefficients in 𝔽₂, has right kernel (in 𝔽₂^n) of dimension j.",
+      "locator": "§8, p. 75 (arXiv v1)",
+      "status": "missing",
+      "note": "Split from item 211 (RT-PAPER-KOYMANS-PAGANO/4). The source: 'We write P(m, n, j) for the probability that a m × n matrix, chosen uniformly at random with coefficients in F2, has right kernel of rank j.' The ArithmeticStatistics packet (merged, review open) plans it as ArithmeticStatistics:ST.5/matrix-kernel-law-over-a-finite-field, which quotes this definition and records that the Part II imports it. It gives the transition weights of Theorem 8.1's Markov chain, and the identity (A.2) (item 218) is stated with P(m, m, n). Route: a source of ArithmeticStatistics (ST.5 random-matrix distributions)."
     }
   ],
   "prerequisites": [
@@ -2510,9 +2534,9 @@
       "why": "Spin symbols, which the reflection principle for the self-pairing (§5.2) meets and shows to be trivial."
     },
     {
-      "citation": "D. R. Heath-Brown, A mean value estimate for real character sums, Acta Arith. 72 (1995), 235–275",
-      "link": "https://doi.org/10.4064/aa-72-3-235-275",
-      "why": "The large sieve for quadratic characters behind the bilinear Legendre-symbol estimates of §7."
+      "citation": "M. Jutila, On mean values of Dirichlet polynomials with real characters, Acta Arith. 27 (1975), 191–198",
+      "link": "https://doi.org/10.4064/aa-27-1-191-198",
+      "why": "Lemma 3 is the input of Smith's Proposition 6.6, which gives (7.11) and (8.46)."
     },
     {
       "citation": "P. Stevenhagen, The number of real quadratic fields having units of negative norm, Experiment. Math. 2 (1993), 121–136",
@@ -2763,7 +2787,7 @@
         "PAPER-KOYMANS-PAGANO/263",
         "PAPER-KOYMANS-PAGANO/264"
       ],
-      "brief": "Starts where Arithmetic statistics, counting fields and Selmer distributions (ArithmeticStatistics) stops. ST.3 plans selected class-group distribution theorems and, through PAPER-KOYMANS-MILOVIC-21, governing fields and 2^k-ranks; nothing in the atlas plans Smith's method for the distribution of 2^∞-class groups. This Part II builds it and proves Stevenhagen's conjecture, following Koymans–Pagano, 'On Stevenhagen's conjecture' (arXiv 2201.13424v1; to appear in Acta Mathematica).\n\nFinal theorem, as the paper states it. Let 𝒟 be the set of squarefree integers d > 0 such that every prime p | d satisfies p ≡ 1, 2 mod 4, 𝒟⁻ the set of squarefree d for which x² − dy² = −1 is soluble in integers, and 𝒟(X), 𝒟⁻(X) the elements with d < X. Theorem 1.1: lim_{X→∞} |𝒟⁻(X)|/|𝒟(X)| = 1 − α, α = ∏_{j odd}(1 − 2^{−j}) ≈ 0.41942. (The paper notes that the same method gives the distribution of 2Cl(ℚ(√d))[2^∞] on 𝒟 and an effective error term, without proving them.)\n\nLayers. (1) Algebraic foundations (§2): raw cocycles for multiquadratic extensions, expansion maps and their existence criteria (§§2.1–2.2), and the higher Artin pairings Art_{k,ℚ(√d)} on the 2-power torsion of the narrow class group (§2.3). (2) Higher Rédei reciprocity (§3, Theorem 3.2), whose first case is Rédei's reciprocity law. (3) Reflection principles (§§4–5): profitable triples, the reflection principles for the place ∞ and for the self-pairing (the trivial spin symbol, via Massey symbols and Hilbert reciprocity), and the standard reflection principles on product spaces one dimension smaller than Smith's. (4) Combinatorics (§6): additive systems, the Ramsey lemma for product sets in dense subsets, and the Galois groups of the governing fields. (5) Equidistribution of the first Artin pairing (§7): prime-divisor statistics on 𝒟, preboxes and Legendre symbols, boxes, with the effective Chebotarev theorem and Heath-Brown's large sieve. (6) The endgame (§8): boxes, genericity, the second-moment computation and the Markov-chain limit P_Sym for symmetric matrices over 𝔽₂. Tests: the first case of Theorem 3.2 against Rédei's reciprocity law; the 4-rank distribution on 𝒟 proved by Fouvry–Klüners.\n\nImport, never re-plan: ArithmeticStatistics ST.0 (families), ST.3 (class-group distributions, governing fields, 2^k-ranks) and ST.5 (random-matrix models); ClassicalArithmeticCompletion CA.1 (quadratic reciprocity, Hilbert symbols) and CA.4 (Pell equations); AnalyticNumberTheory AN.2, AN.4 and AN.5 (exceptional zeros, effective Chebotarev, Selberg–Delange); SieveMethodsAndPrimePatterns SV.2 (large sieve; Heath-Brown's quadratic large sieve routed there); ProbabilisticAndMetricNumberTheory PM.1; InverseGaloisAndArithmeticFundamentalGroups IG.4 (embedding problems for 2-groups); ArithmeticGaloisDuality R02.* (Galois cohomology); the Tau Ceti roadmaps ClassFieldTheory, Chebotarev, GlobalNumberFields, Multiquadratic (genus theory), ProfiniteCohomology, ProfiniteProPGroups and QuadraticFormInvariants. Prerequisite papers: Smith, '2^∞-Selmer groups, 2^∞-class groups, and Goldfeld's conjecture' (arXiv 1702.02325) and 'Governing fields and statistics for 4-Selmer groups and 8-class groups' (arXiv 1607.07860); Koymans–Pagano, 'Higher genus theory' (IMRN) and 'Higher Rédei reciprocity and integral points on conics' (arXiv 2005.14157); Fouvry–Klüners, 'On the negative Pell equation' (Ann. of Math. 2010); Friedlander–Iwaniec–Mazur–Rubin, 'The spin of prime ideals' (Invent. Math. 2013); Heath-Brown's quadratic large sieve (Acta Arith. 1995).",
+      "brief": "Starts where Arithmetic statistics, counting fields and Selmer distributions (ArithmeticStatistics) stops. ST.3 plans selected class-group distribution theorems and, through PAPER-KOYMANS-MILOVIC-21, governing fields and 2^k-ranks; nothing in the atlas plans Smith's method for the distribution of 2^∞-class groups. This Part II builds it and proves Stevenhagen's conjecture, following Koymans–Pagano, 'On Stevenhagen's conjecture' (arXiv 2201.13424v1; to appear in Acta Mathematica).\n\nFinal theorem, as the paper states it. Let 𝒟 be the set of squarefree integers d > 0 such that every prime p | d satisfies p ≡ 1, 2 mod 4, 𝒟⁻ the set of squarefree d for which x² − dy² = −1 is soluble in integers, and 𝒟(X), 𝒟⁻(X) the elements with d < X. Theorem 1.1: lim_{X→∞} |𝒟⁻(X)|/|𝒟(X)| = 1 − α, α = ∏_{j odd}(1 − 2^{−j}) ≈ 0.41942. (The paper notes that the same method gives the distribution of 2Cl(ℚ(√d))[2^∞] on 𝒟 and an effective error term, without proving them.)\n\nLayers. (1) Algebraic foundations (§2): raw cocycles for multiquadratic extensions, expansion maps and their existence criteria (§§2.1–2.2), and the higher Artin pairings Art_{k,ℚ(√d)} on the 2-power torsion of the narrow class group (§2.3). (2) Higher Rédei reciprocity (§3, Theorem 3.2), whose first case is Rédei's reciprocity law. (3) Reflection principles (§§4–5): profitable triples, the reflection principles for the place ∞ and for the self-pairing (the trivial spin symbol, via Massey symbols and Hilbert reciprocity), and the standard reflection principles on product spaces one dimension smaller than Smith's. (4) Combinatorics (§6): additive systems, the Ramsey lemma for product sets in dense subsets, and the Galois groups of the governing fields. (5) Equidistribution of the first Artin pairing (§7): prime-divisor statistics on 𝒟, preboxes and Legendre symbols, boxes, with the effective Chebotarev theorem and Jutila's mean-value lemma for real character sums (via Smith, Prop. 6.6). (6) The endgame (§8): boxes, genericity, the second-moment computation and the Markov-chain limit P_Sym for symmetric matrices over 𝔽₂. Tests: the first case of Theorem 3.2 against Rédei's reciprocity law; the 4-rank distribution on 𝒟 proved by Fouvry–Klüners.\n\nImport, never re-plan: ArithmeticStatistics ST.0 (families), ST.3 (class-group distributions, governing fields, 2^k-ranks) and ST.5 (random-matrix models; ST.5 owns P(m, n, j), P_Sym and the identity (A.2); the Part II imports them); ClassicalArithmeticCompletion CA.1 (quadratic reciprocity, Hilbert symbols), CA.4 (Pell equations) and CA.5 (the passage between units of 𝒪_K and of ℤ[√d] for the negative Pell equation); AnalyticNumberTheory AN.2, AN.4 and AN.5 (exceptional zeros, effective Chebotarev, Selberg–Delange); SieveMethodsAndPrimePatterns SV.2 (large sieve; Jutila's mean-value lemma for real character sums (via Smith, Prop. 6.6) routed there); ProbabilisticAndMetricNumberTheory PM.1; InverseGaloisAndArithmeticFundamentalGroups IG.4 (embedding problems for 2-groups); ArithmeticGaloisDuality R02.* (Galois cohomology); the Tau Ceti roadmaps ClassFieldTheory, Chebotarev, GlobalNumberFields, Multiquadratic (genus theory), ProfiniteCohomology, ProfiniteProPGroups and QuadraticFormInvariants. Of these, Tau Ceti f790474 already builds ProfiniteCohomology Layers 2 and 6 (continuous cochains, Z¹ and d¹, d²; corestriction for a variable transversal), the Kummer map of Layer 9, ProfiniteProPGroups Layer 3 (proPKernel and the maximal pro-p quotient) and Multiquadratic Layers 2–3 (genus theory for the narrow class group); the Part II uses those declarations directly. Prerequisite papers: Smith, '2^∞-Selmer groups, 2^∞-class groups, and Goldfeld's conjecture' (arXiv 1702.02325) and 'Governing fields and statistics for 4-Selmer groups and 8-class groups' (arXiv 1607.07860); Koymans–Pagano, 'Higher genus theory' (IMRN) and 'Higher Rédei reciprocity and integral points on conics' (arXiv 2005.14157); Fouvry–Klüners, 'On the negative Pell equation' (Ann. of Math. 2010); Friedlander–Iwaniec–Mazur–Rubin, 'The spin of prime ideals' (Invent. Math. 2013); Jutila, 'On mean values of Dirichlet polynomials with real characters' (Acta Arith. 27, 1975), whose Lemma 3 gives Smith's Proposition 6.6.",
       "reason": "ArithmeticStatistics owns class-group distributions, and ST.3 already carries governing fields and 2^k-ranks, but no stage plans the method this proof rests on. A search of every stage for Rédei, governing fields, reflection principles, additive systems, raw cocycles, expansion maps and Artin pairings finds nothing relevant. Smith's method is a coherent body of new layers in ArithmeticStatistics' direction (algebraic foundations, reciprocity, reflection principles, combinatorics, equidistribution and the endgame), about two hundred items, so it is a Part II rather than a source of ST.3, which the Part II imports."
     },
     {
@@ -2775,12 +2799,9 @@
       "items": [
         "PAPER-KOYMANS-PAGANO/2",
         "PAPER-KOYMANS-PAGANO/3",
-        "PAPER-KOYMANS-PAGANO/4",
-        "PAPER-KOYMANS-PAGANO/5",
-        "PAPER-KOYMANS-PAGANO/9",
-        "PAPER-KOYMANS-PAGANO/12"
+        "PAPER-KOYMANS-PAGANO/4"
       ],
-      "reason": "CA.4 plans Pell equations, 'classified through units with positivity conventions'. The negative Pell equation belongs there: the set 𝒟⁻, rational solubility through Hasse–Minkowski, Dirichlet's theorem that primes p ≡ 1 mod 4 are in 𝒟⁻, and the reformulations through the narrow class group ((√d) narrowly trivial; the 2-parts of the narrow and ordinary class groups agree) and the Galois-module structure of the units."
+      "reason": "CA.4 plans Pell equations, 'classified through units with positivity conventions'. The negative Pell equation belongs there: the set 𝒟⁻, rational solubility through Hasse–Minkowski, and Dirichlet's theorem that primes p ≡ 1 mod 4 are in 𝒟⁻ (items 2–4). The reformulations through the narrow class group ((√d) narrowly trivial; the 2-parts of the narrow and ordinary class groups agree) and the Galois-module structure of the units (items 5, 9 and 12) need the passage between units of 𝒪_K and of ℤ[√d], which CA.5 owns; they moved to route 7 (RT-PAPER-KOYMANS-PAGANO/5)."
     },
     {
       "route": "source",
@@ -2795,9 +2816,10 @@
         "PAPER-KOYMANS-PAGANO/6",
         "PAPER-KOYMANS-PAGANO/205",
         "PAPER-KOYMANS-PAGANO/207",
-        "PAPER-KOYMANS-PAGANO/218"
+        "PAPER-KOYMANS-PAGANO/218",
+        "PAPER-KOYMANS-PAGANO/265"
       ],
-      "reason": "ST.0 plans arithmetic families with local conditions, and 𝒟 is one. ST.3 plans class-group distribution theorems, and the prior bounds towards Stevenhagen's conjecture (Fouvry–Klüners, CKMP, the authors' KP3) and the sets D_{2,n} belong there. ST.5 plans random-matrix distributions: MacWilliams' count of symmetric matrices over 𝔽₂, the limit P_Sym and the KP3 rank identity."
+      "reason": "ST.0 plans arithmetic families with local conditions, and 𝒟 is one. ST.3 plans class-group distribution theorems, and the prior bounds towards Stevenhagen's conjecture (Fouvry–Klüners, CKMP, the authors' KP3) and the sets D_{2,n} belong there. ST.5 plans random-matrix distributions: the kernel law P(m, n, j) of uniformly random matrices over 𝔽₂ (ArithmeticStatistics:ST.5/matrix-kernel-law-over-a-finite-field; item 265, split from item 211 by RT-PAPER-KOYMANS-PAGANO/4, so that it has one owner), MacWilliams' count of symmetric matrices over 𝔽₂, the limit P_Sym and the KP3 rank identity."
     },
     {
       "route": "source",
@@ -2829,7 +2851,7 @@
       "items": [
         "PAPER-KOYMANS-PAGANO/189"
       ],
-      "reason": "SV.2 plans the multiplicative large sieve and bilinear sums. The bilinear Legendre-symbol estimate the paper uses (Smith, Prop. 6.6) comes from Heath-Brown's large sieve for quadratic characters, a sharper member of that family that SV.2 does not yet name."
+      "reason": "SV.2 plans the multiplicative large sieve and bilinear sums. The bilinear Legendre-symbol estimate the paper uses (Smith, Prop. 6.6) comes from Jutila's mean-value lemma for real character sums (Acta Arith. 27 (1975), Lemma 3), a member of that family that SV.2 does not yet name. SV.2 is to plan Jutila's lemma and Smith's Proposition 6.6, not Heath-Brown's quadratic large sieve, which the paper does not use (RT-PAPER-KOYMANS-PAGANO/3)."
     },
     {
       "route": "source",
@@ -2841,6 +2863,19 @@
         "PAPER-KOYMANS-PAGANO/175"
       ],
       "reason": "PM.1 plans Turán–Kubilius and Erdős–Kac. Theorem 7.2(a), that few d ∈ 𝒟(N) have ω(d) far from ½ log log N, is their restriction to 𝒟."
+    },
+    {
+      "route": "source",
+      "roadmap": "ClassicalArithmeticCompletion",
+      "stages": [
+        "ClassicalArithmeticCompletion:CA.5"
+      ],
+      "items": [
+        "PAPER-KOYMANS-PAGANO/5",
+        "PAPER-KOYMANS-PAGANO/9",
+        "PAPER-KOYMANS-PAGANO/12"
+      ],
+      "reason": "Items 5, 9 and 12 (the narrow-class-group criteria for negative Pell and the Galois-module structure of the units) need the 𝒪_K/ℤ[√d] passage for all squarefree d > 1, and CA.5 ('Number-field arithmetic handoff … unit and class groups') owns it, not CA.4, whose nodes work in ℤ√d only. CA.5's node negative-pell-iff-unit-of-norm-minus-one covers only d ≢ 1 (mod 4), which leaves out every odd d ∈ 𝒟; the cases d ≡ 1 (mod 8) (units already in ℤ[√d]) and d ≡ 5 (mod 8) (cube of a half-integral unit) are to be added there, and the ClassicalArithmeticCompletion packet now plans them in CA.5/negative-pell-iff-unit-of-norm-minus-one-for-d-one-mod-four. Tau Ceti f790474 has the built half, NumberField.NarrowClassGroup.toClassGroup_injective_iff_exists_norm_eq_neg_one and NumberField.exists_norm_eq_neg_one_of_sq_sub_mul_sq_eq_neg_one. CA.4 → CA.5 is an atlas edge. The verifier of RT-PAPER-KOYMANS-PAGANO/5 prescribed adding CA.5 to route 2; since route verdicts are matched by position, the three items moved to this new last route instead, and it has no review verdict yet: it is not applied until the next review of this extraction accepts it."
     }
   ],
   "sourceIssues": [

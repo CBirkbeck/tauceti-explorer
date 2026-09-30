@@ -7,8 +7,8 @@ Extraction by Claude Code, session `cc-39fac3`, 23 September 2026 (issue #2194).
 Reviewed by Claude Code, session `cc-d67081`, 23 September 2026 (issue #2195, job `REV-PAPER-KOYMANS-PAGANO`): **accepted**, all six routes accepted, all 51 recorded mistakes confirmed at their locators. Four corrections were amended in place (E12, E13, E17, E18); no item, status or route changed. See [REV-PAPER-KOYMANS-PAGANO.md](../reviews/REV-PAPER-KOYMANS-PAGANO.md).
 
 The machine-readable extraction is [PAPER-KOYMANS-PAGANO.result.json](PAPER-KOYMANS-PAGANO.result.json). It has:
-- 264 items: 6 library, 17 planned, 241 missing;
-- 6 routes: one Part II and five sources of existing layers;
+- 265 items: 9 library, 14 planned, 242 missing;
+- 7 routes: one Part II and six sources of existing layers;
 - 12 prerequisite entries;
 - 51 recorded mistakes (38 misprints, 7 gaps, 6 errors).
 
@@ -43,21 +43,30 @@ The `venue` field therefore says "to appear (accepted; not yet assigned to a vol
   - one for the self-pairing, whose right-hand side is a spin symbol shown to be trivial through Massey symbols and Hilbert reciprocity;
   - the standard ones.
 - **§6:** Smith's combinatorics (additive systems, a Ramsey lemma) and the Galois groups of the governing fields.
-- **§7:** equidistribution of the first Artin pairing in boxes. It uses prime-divisor statistics on 𝒟, effective Chebotarev with control of exceptional zeros, and Heath-Brown's large sieve for Legendre symbols.
+- **§7:** equidistribution of the first Artin pairing in boxes. It uses prime-divisor statistics on 𝒟, effective Chebotarev with control of exceptional zeros, and Smith's bilinear Legendre-symbol estimate (Smith, Prop. 6.6), which rests on Jutila's mean-value lemma for real character sums.
 - **§8:** the endgame: genericity, a second-moment computation, and the Markov chain whose limit P_Sym on symmetric matrices over 𝔽₂ produces 1 − α.
 
 ## What the atlas already has
 
-**Library (6).**
+**Library (9).**
 - Mathlib: `Field.absoluteGaloisGroup`, `Squarefree` and `legendreSym.quadratic_reciprocity_one_mod_four`.
 - Mathlib's sub-Gaussian (Hoeffding) and variance (Chebyshev) bounds.
 - Tau Ceti: `NumberField.NarrowClassGroup`.
+- Added after the red team (RT-PAPER-KOYMANS-PAGANO/1):
+  - the cochains and coboundaries d_x (item 36): Tau Ceti's `ContCohomology.C1`, `Z1`, `d1` and `mem_Z1_iff`;
+  - the coboundary d on 𝔽₂-valued cochains in every degree (item 52): Mathlib's `inhomogeneousCochains.d` for the trivial representation, with Tau Ceti's `d1` and `d2`;
+  - the maximal pro-2 quotient (item 28), stated as G_ℚ ⧸ `proPKernel 2 G_ℚ`, with the paper's field-theoretic form in the note.
 
-**Planned (17).** These are standard inputs:
-- places, ramification and maximal pro-2 quotients: GlobalNumberFields, LocalFieldsRamification and ProfiniteProPGroups;
-- cochains, Kummer theory and H²: ProfiniteCohomology;
-- the Hasse principle and Hilbert reciprocity for H²(G_K, 𝔽₂): ClassFieldTheory Layers 10 and 14, and QuadraticFormInvariants Layers 6–7;
-- genus theory: Multiquadratic Layers 2–3.
+**Planned (14).** These are standard inputs:
+- places and ramification: GlobalNumberFields and LocalFieldsRamification;
+- the quadratic characters χ_γ (item 21) and the index-2 corestriction criterion (3.1)–(3.2) (item 83): ProfiniteCohomology Layers 9 and 6;
+- the Hasse principle and Hilbert reciprocity for H²(G_K, 𝔽₂), and H²(Ẑ, 𝔽₂) = 0: ClassFieldTheory Layers 10 and 14, QuadraticFormInvariants Layers 6–7 and ProfiniteCohomology Layer 11;
+- the fields ℚ(A) and genus theory (items 25 and 227): Multiquadratic Layers 0 and 2–3.
+
+**Built in Tau Ceti.** ProfiniteCohomology Layers 2 and 6, the Kummer map of Layer 9, ProfiniteProPGroups Layer 3 and Multiquadratic Layers 2–3 are built at f790474. Items 21, 83 and 227 stay planned only because a short adapter is not yet a declaration. Their notes cite what is built and name what remains:
+- item 21: μ₂ ≅ 𝔽₂, owned by QuadraticFormInvariants 7a;
+- item 83: the evaluation of the transversal words at index 2;
+- item 227: the genus-theory glue.
 
 **Nothing in the atlas plans Smith's method.** A search of every stage description finds nothing relevant for Rédei, governing fields, reflection principles, additive systems, raw cocycles, expansion maps or Artin pairings. PAPER-KOYMANS-MILOVIC-21 routed governing fields and 2^k-ranks to ArithmeticStatistics ST.3, but only as statements.
 
@@ -76,21 +85,29 @@ The `venue` field therefore says "to appear (accepted; not yet assigned to a vol
      - Rédei's 4-rank formula and the lemma identifying cocycles with homomorphisms to a semidirect product, because their natural Tau Ceti homes (Multiquadratic, ProfiniteCohomology) cannot be re-planned;
      - the Ramsey lemma for product sets.
    - **Why a Part II:** ArithmeticStatistics owns class-group distributions, but no stage plans this method, which is about two hundred items in its direction.
-2. **Source of ClassicalArithmeticCompletion [CA.4]** (6 missing). CA.4 plans Pell equations. The negative-Pell basics go here:
+2. **Source of ClassicalArithmeticCompletion [CA.4]** (3 missing). CA.4 plans Pell equations. The negative-Pell basics go here:
    - rational solubility (Hasse–Minkowski);
    - Dirichlet's theorem for primes ≡ 1 mod 4;
-   - the narrow-class-group criterion;
-   - the Galois-module form of the unit group.
-3. **Source of ArithmeticStatistics [ST.0, ST.3, ST.5]** (5 missing):
+   - the set 𝒟⁻.
+
+   The narrow-class-group criteria and the Galois-module form of the unit group moved to route 7.
+3. **Source of ArithmeticStatistics [ST.0, ST.3, ST.5]** (6 missing):
    - the family 𝒟, to ST.0;
    - the prior bounds towards the conjecture and the sets D_{2,n}, to ST.3;
-   - MacWilliams' count of symmetric matrices over 𝔽₂, the limit P_Sym and the KP3 rank identity, to ST.5.
+   - to ST.5: the kernel law P(m, n, j) (item 265, split from item 211), MacWilliams' count of symmetric matrices over 𝔽₂, the limit P_Sym and the KP3 rank identity. ST.5 owns P(m, n, j) as ArithmeticStatistics:ST.5/matrix-kernel-law-over-a-finite-field, and the Part II imports it.
 4. **Source of AnalyticNumberTheory [AN.2, AN.4, AN.5]** (9 missing):
    - to AN.2: the prime number theorem for quadratic characters uniform in the conductor; Landau's repulsion of exceptional zeros and the effective bound for them;
    - to AN.4: effective Chebotarev with an exceptional-zero term; Heilbronn's theorem;
    - to AN.5: the asymptotic for |𝒟(X)| and Sathe–Selberg bounds on 𝒟.
-5. **Source of SieveMethodsAndPrimePatterns [SV.2]** (1 missing): the bilinear Legendre-symbol estimate from Heath-Brown's quadratic large sieve.
+5. **Source of SieveMethodsAndPrimePatterns [SV.2]** (1 missing): the bilinear Legendre-symbol estimate of Smith's Proposition 6.6. It rests on Jutila's mean-value lemma for real character sums (Acta Arith. 27 (1975), Lemma 3), which SV.2 is to plan. It does not rest on Heath-Brown's quadratic large sieve, which the paper does not cite.
 6. **Source of ProbabilisticAndMetricNumberTheory [PM.1]** (1 missing): the Erdős–Kac-type bound for ω(d) on 𝒟.
+7. **Source of ClassicalArithmeticCompletion [CA.5]** (3 missing), added by the fix of RT-PAPER-KOYMANS-PAGANO/5.
+   - It takes the narrow-class-group criteria for negative Pell (items 5 and 12) and the Galois-module form of the unit group (item 9).
+   - All three need the passage between units of 𝒪_K and of ℤ[√d] for every squarefree d > 1, which CA.5 owns.
+   - CA.5's node for d ≢ 1 (mod 4) left out every odd d ∈ 𝒟. The ClassicalArithmeticCompletion packet now has a node for d ≡ 1 (mod 4): units lie in ℤ[√d] when d ≡ 1 (mod 8), and their cubes do when d ≡ 5 (mod 8).
+   - This route has no review verdict yet, so it is not applied until the next review accepts it.
+
+The Part II's brief also imports CA.5.
 
 ## Source issues (`sourceIssues` E1–E51)
 
@@ -126,12 +143,12 @@ The `venue` field therefore says "to appear (accepted; not yet assigned to a vol
 
 ## Prerequisites not yet covered
 
-Twelve entries:
+Twelve entries (Jutila replaced Heath-Brown after the red team):
 - Smith's two papers on 2^∞-Selmer groups and governing fields (arXiv);
 - Koymans–Pagano's "Higher genus theory" (IMRN 2022), "Higher Rédei reciprocity" (arXiv) and cyclic-fields paper (JEMS 2022);
 - Fouvry–Klüners (Ann. of Math. 2010);
 - Friedlander–Iwaniec–Mazur–Rubin (Invent. Math. 2013, with its 2015 erratum);
-- Heath-Brown's quadratic large sieve (Acta Arith. 1995);
+- Jutila's mean-value lemma for real character sums (Acta Arith. 27, 1975), the input of Smith's Proposition 6.6;
 - Stevenhagen (Exp. Math. 1993; Math. Proc. Cambridge 2022);
 - Chan–Koymans–Milovic–Pagano (arXiv);
 - Gerth (Invent. Math. 1984).
@@ -143,3 +160,14 @@ Every DOI was checked against Crossref.
 - `python3 scripts/check_paper.py research/blueprint/papers/PAPER-KOYMANS-PAGANO.result.json` reports no errors.
 - `python3 research/blueprint/intake.py check-files` reports no problems.
 - Every planned and route stage id exists in `data/atlas.json`. The Part II parent is an atlas roadmap, its title begins with the parent's title, and its area `algebraicnt` is a galaxy id.
+
+## Fixes after the red team
+
+RT-PAPER-KOYMANS-PAGANO found five medium and eight low mistakes, and its verification confirmed all thirteen. FIX-RT-PAPER-KOYMANS-PAGANO applied the five medium findings (/1–/5), as the verifier adjusted them. See [RT-PAPER-KOYMANS-PAGANO.fixes.md](../redteam/RT-PAPER-KOYMANS-PAGANO.fixes.md).
+- **/1:** items 28, 36 and 52 are now library. Items 21 and 83 stay planned, and their notes cite the built declarations.
+- **/2:** item 227 stays planned, and its note cites the built genus theory and lists the remaining glue. Item 5 cites `NumberField.card_ker_toClassGroup_le_two`.
+- **/3:** Jutila's lemma, through Smith's Proposition 6.6, replaces Heath-Brown's large sieve in item 189, the summary, route 1's brief, route 5, the prerequisites and this report.
+- **/4:** P(m, n, j) is split from item 211 into item 265 on route 3. Its owner is ST.5.
+- **/5:** items 5, 9 and 12 move to the new route 7 (CA.5), and the ClassicalArithmeticCompletion packet has the missing d ≡ 1 (mod 4) node.
+
+The eight low findings (/6–/13) are recorded in the fixes report and are not applied here. They include the E12 strike (/6).
