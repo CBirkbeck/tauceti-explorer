@@ -576,6 +576,11 @@ The extraction follows these rules:
 - Every definition, construction and key theorem the paper uses or proves on
   the way to its main results is an item, and so is each main result. Coverage
   is complete (section 0). Split multi-part results.
+- A result the paper cites from elsewhere is one item, with its status and
+  route. The extraction does not decompose or prove it. Proving missing items
+  and closing their prerequisites (section 3) is the work of the blueprint of
+  the roadmap each item is routed to. Open proof closure, API outlines or
+  supplier audits never keep an extraction `partial`.
 - An item is `library` when Mathlib or Tau Ceti has it at the pinned commits
   (cite the declarations, read at the pinned commit), `planned` when a layer of
   the atlas plans it (name the layer: `data/atlas.json`, or a new roadmap in
