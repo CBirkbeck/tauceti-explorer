@@ -112,6 +112,27 @@ def load():
     return queue["jobs"], {r["id"]: r for r in atlas["roadmaps"]}, {s["id"]: s for s in atlas["stages"]}
 
 
+# GitHub refuses an issue body over 65,536 characters.
+ISSUE_LIMIT = 65_000
+SHORTENED = ("\n\n[Some long list entries are shortened to fit a GitHub issue. A paper route's full brief is in "
+             "research/blueprint/papers/<paper>.result.json, and a red-team finding's full text in "
+             "research/blueprint/redteam/<red team>.result.json.]")
+
+
+def fit_instructions(text, room):
+    """The instructions in at most `room` characters: the longest list entries, such as the briefs of
+    paper routes and red-team findings, are shortened first, since each is also in a committed file."""
+    if len(text) <= room:
+        return text
+    lines = text.split("\n")
+    for width in (2000, 1200, 800, 500, 300, 200):
+        lines = [line if len(line) <= width or not line.startswith("- ") else line[:width].rstrip() + " … (shortened)" for line in lines]
+        shortened = "\n".join(lines)
+        if len(shortened) + len(SHORTENED) <= room:
+            return shortened + SHORTENED
+    return shortened[:max(0, room - len(SHORTENED))] + SHORTENED
+
+
 def body(job, jobs, roadmaps, stages):
     lines = [f"**Job** `{job['id']}` · {KIND_TITLE.get(job['kind'], job['kind'])} · priority {job.get('priority')}", ""]
     rids = job.get("roadmapIds") or []
@@ -175,6 +196,7 @@ def body(job, jobs, roadmaps, stages):
     if job["kind"] == "fix":
         lines += ["", "### What this issue delivers",
                   "- **Every confirmed finding fixed** in the files it names, each file still valid under its checker (PROTOCOL.md section 17).",
+                  "- **Plan fixes in the roadmap's blueprint:** a fix to a roadmap's plan goes into the finished blueprint files listed as deliverables, never into `content/campaign/` or `data/`. Findings about roadmaps whose blueprint is not written yet are handed to the jobs that will write them.",
                   "- **Missing mathematics put where it belongs:** a node or a `requests` entry in the owning packet, or a note for the maintainer when it needs a new roadmap.",
                   "- **A fixes report:** for each finding, what changed, or why not."]
     if job["kind"] in ("blueprint", "design"):
@@ -206,9 +228,12 @@ def body(job, jobs, roadmaps, stages):
         lines += ["This job relies on files that only the maintainer's local workers have (`local-only`).", ""]
     elif job["kind"] == "classify":
         lines += ["This job needs the zbMATH Open API, which browser sessions cannot reach, so it is done by the local workers (`local-only`).", ""]
+    footer = "<sub>Generated from the blueprint queue; local swarm workers claim the same jobs through the `state:` labels.</sub>"
     if public:
-        lines += ["<details><summary>Full instructions (as given to the local workers, with local paths replaced)</summary>", "", "````text", public.strip(), "````", "", "</details>", ""]
-    lines += ["<sub>Generated from the blueprint queue; local swarm workers claim the same jobs through the `state:` labels.</sub>"]
+        wrapper = ["<details><summary>Full instructions (as given to the local workers, with local paths replaced)</summary>", "", "````text"]
+        room = ISSUE_LIMIT - len("\n".join(lines + wrapper + ["````", "", "</details>", "", footer])) - 2
+        lines += wrapper + [fit_instructions(public.strip(), room), "````", "", "</details>", ""]
+    lines += [footer]
     return "\n".join(lines)
 
 
@@ -458,14 +483,15 @@ def deliverables_complete(job, root=REPO):
             return (set(job.get("roadmapIds") or []) <= covered
                     and not any(entry.get("assessmentStatus") == "partial" for entry in result))
         if job["kind"] == "review":
-            # A blueprint or design review finishes when it records its verdict in the
-            # packet's review object, naming itself; a checkpoint writes only its report.
-            if any(target.startswith(("BP-", "DESIGN-")) for target in job.get("after") or []):
-                packet_path = next((path for path in paths if path.parent.name == "packets"), None)
-                if packet_path is not None:
-                    review = json.loads(packet_path.read_text()).get("review") or {}
-                    return (review.get("reviewer") == f"independent-review-{job['id']}"
-                            and review.get("status") in ("accepted", "needs_changes", "rejected"))
+            # A blueprint, design or fix review finishes when it records its verdict in the
+            # review object of every file it reviews, naming itself; a checkpoint writes only its report.
+            if any(target.startswith(("BP-", "DESIGN-", "FIX-")) for target in job.get("after") or []):
+                reviewed = [path for path in paths if path.parent.name in ("packets", "links")
+                            or (path.parent.name == "restructure" and path.name.endswith(".result.json"))]
+                if reviewed:
+                    reviews = [json.loads(path.read_text()).get("review") or {} for path in reviewed]
+                    return all(review.get("reviewer") == f"independent-review-{job['id']}"
+                               and review.get("status") in ("accepted", "needs_changes", "rejected") for review in reviews)
             # A red-team verification finishes when every finding has a verdict.
             verdicts = next((path for path in paths if path.parent.name == "redteam" and path.name.endswith(".review.json")), None)
             if verdicts is not None:
