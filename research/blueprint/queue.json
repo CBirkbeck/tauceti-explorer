@@ -37731,7 +37731,8 @@
     "REV-PAPER-CESNAVICIUS-19"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-CESNAVICIUS-19.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4194"
   },
   {
    "id": "REV-RT-PAPER-CESNAVICIUS-19",
@@ -37799,8 +37800,9 @@
     "REV-PAPER-WOOD-19"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-WOOD-19.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4195"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4195",
+   "finishedAt": "2026-09-30T15:34:50Z"
   },
   {
    "id": "RT-PAPER-LIPNOWSKI-TSIMERMAN-18",
@@ -38902,7 +38904,8 @@
     "REV-PAPER-ATOBE-KONDO-YASUDA-22"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-ATOBE-KONDO-YASUDA-22.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4244"
   },
   {
    "id": "REV-RT-PAPER-ATOBE-KONDO-YASUDA-22",
@@ -46623,8 +46626,9 @@
     "REV-K2SymbolsBrauer--T.3"
    ],
    "prompt": "research/blueprint/prompts/RT-BP-K2SymbolsBrauer--T.3.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4452"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4452",
+   "finishedAt": "2026-09-30T15:34:54Z"
   },
   {
    "id": "REV-RT-BP-K2SymbolsBrauer--T.3",
