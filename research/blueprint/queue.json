@@ -40544,7 +40544,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-BHATT-MORROW-SCHOLZE-19.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #5010"
   },
   {
    "id": "RT-PAPER-KISIN-PAPPAS-18",
@@ -40608,7 +40609,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-KISIN-PAPPAS-18.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #5011"
   },
   {
    "id": "RT-PAPER-BHATT-MORROW-SCHOLZE-18",
@@ -40802,8 +40804,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-BOCKLE-HARRIS-KHARE-ETAL-19.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5014"
+   "state": "pending",
+   "note": "released on GitHub issue #5014"
   },
   {
    "id": "RT-PAPER-LAWRENCE-VENKATESH-20",
