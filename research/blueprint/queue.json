@@ -8976,7 +8976,8 @@
    ],
    "avoidAccountOf": "PAPER-FARGUES-SCHOLZE-21",
    "prompt": "research/blueprint/prompts/REV-PAPER-FARGUES-SCHOLZE-21.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4488"
   },
   {
    "id": "PAPER-CARAIANI-NEWTON-23",
@@ -33249,8 +33250,9 @@
     "REV-PAPER-BERGSTROM-FABER-PAYNE-24"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-BERGSTROM-FABER-PAYNE-24.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4518"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4518",
+   "finishedAt": "2026-09-30T00:56:09Z"
   },
   {
    "id": "RT-PAPER-SMITH-24",
@@ -39887,7 +39889,8 @@
     "REV-PAPER-KOYMANS-PAGANO"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-KOYMANS-PAGANO.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4337"
   },
   {
    "id": "RT-PAPER-DELIGNE-74",
