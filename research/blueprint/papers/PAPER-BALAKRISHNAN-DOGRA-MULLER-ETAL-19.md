@@ -2,16 +2,16 @@
 
 Issue [#2173](https://github.com/CBirkbeck/tauceti-explorer/issues/2173). Status: **complete**. Implementation and proof closure are not claimed.
 
-- **Provenance.** Written by Claude Code, session cc-442dc5, on 23 September 2026.
+- **Provenance.** Extraction by Claude Code cc-442dc5 on 23 September 2026; scoped red-team fix by Codex codex-5ebb6f on 30 September 2026, issue [#5018](https://github.com/CBirkbeck/tauceti-explorer/issues/5018).
 - **The paper.** J. S. Balakrishnan, N. Dogra, J. S. Müller, J. Tuitman and J. Vonk, *Explicit Chabauty–Kim for the split Cartan modular curve of level 13*, Ann. of Math. 189 (2019), 885–944, DOI 10.4007/annals.2019.189.3.6.
-- **Items.** The result has **92 items: 1 library, 22 planned and 69 missing**. Every numbered statement is an item, and every missing item is routed exactly once.
-- **Mistakes.** Eight findings are recorded under `sourceIssues`. Only one reaches a stated result: Lemma 4.7, which the authors retracted in 2023 and which the paper never uses.
+- **Items.** The result has **97 items: 1 library, 21 planned and 75 missing**. Every numbered statement is an item, and every missing item is routed exactly once.
+- **Mistakes.** Thirteen findings are recorded under `sourceIssues`. E1–E8 retain the original independent review’s confirmation; new E9–E13 await independent review. Only one reaches a stated result: Lemma 4.7, which the authors retracted in 2023 and which the paper never uses.
 
 ## The version read
 
-- **The published text.** The Annals site serves the full published PDF openly (60 pages, SHA-256 `e1aa5f96…`). It was read in full and is the version the locators follow.
+- **The published text.** The Annals site serves the full published PDF openly (60 pages, SHA-256 `e1aa5f96…`). It was read in full by cc-442dc5 and is the version the locators follow.
 - **arXiv v1.** 1711.05846v1 (15 November 2017) is the only arXiv version (41 pages, SHA-256 `77c57b03…`).
-  - It was read in full first, with the formula pages checked on page images.
+  - It was read in full first by cc-442dc5, with the formula pages checked on page images.
   - It is the submitted version: the KU Leuven repository copy is byte-identical to it.
 - **The two versions differ.** The paper was revised after submission (received 7 July 2018, revised 20 December 2018).
   - §§4–6 and the appendix are renumbered; for example, arXiv Lemma 4.5 is published Lemma 4.7.
@@ -52,57 +52,77 @@ Issue [#2173](https://github.com/CBirkbeck/tauceti-explorer/issues/2173). Status
 
 ## What the atlas has
 
-**The owners.**
-- **AnabelianGeometryAndNonabelianChabauty.** It owns the Chabauty–Kim tower:
-  - NC.2 plans the unipotent fundamental groups with their realisations and comparisons;
-  - NC.3 plans the Selmer varieties and NC.4 the Chabauty–Kim loci;
-  - NC.5 plans quadratic Chabauty and height equations, with the Néron–Severi and bad-place terms and the rank criterion.
-- **EffectiveDiophantineMethods ED.6.** It consumes NC.5 and owns certified worked examples.
-- **ColemanIntegration L1.** It plans Coleman functions and Besser's Tannakian iterated integrals.
-- **Other layers.**
-  - PadicHodgeRegulators L1 plans the Bloch–Kato maps, PadicHodgeTheory R06.2 filtered φ-modules and D_cris, and PadicDifferentialEquationsAndRigidCohomology RD.3 overconvergent isocrystals with Frobenius.
-  - ModularCurvesPartII plans Hecke correspondences (R14.1), A_f (R14.5) and bad-fibre models (R13.5).
-  - HeegnerPointEulerSystems HE.7 plans Kolyvagin–Logachev.
-  - Tau Ceti's ModularForms plans L(f, s) and its Fricke sign.
+NC.2 constructs universal unipotent objects and the path-torsor bridge; NC.5 consumes shared
+height foundations for quadratic Chabauty. ED.6 owns the certified X_s(13) example. ColemanIntegration
+L1 plans the local word expansion (40), but the identification (41) and global Frobenius path need
+NC.2 work. HE.7 plans only the conditional admissible-RM Kolyvagin–Logachev theorem; the
+Gross–Zagier lower bound and analytic-rank-one modular-factor assembly remain missing.
 
-**What is missing.**
-- **Nothing constructs a p-adic height.** The library audit for NC.5 and ED.6 finds none, and GZ.9 is the BDP setting.
-- **None of these appear anywhere:** Nekovář's local heights, mixed extensions of filtered φ-modules, universal pointed unipotent objects, Hadian's and Chiarellotto–Le Stum's theorems, and semi-stable models of X_0(ℓ²).
-- **The one library item.** Tau Ceti has the normalised Fricke involution on cusp forms, with its ±1 eigenspace splitting.
+The pending SelmerComplexesAndPadicHeights Part II proposal already owns the general pairing;
+it has no atlas stages yet. Join that design and extend its Panchishkin branch to BDMTV’s arbitrary
+chosen Hodge splitting. Compactified general-H Cartan curves need an R13.4a source extension:
+upstream Layer 9D covers affine quotients and Layer 10 covers prime-level diamond quotients only.
+R13.5 retains the bad-fibre models. RD.7’s Kedlaya node needs the general Tuitman extension.
+CN.4 supplies validated L-value evaluation and ED.6 certifies the example’s rank bound; ED.0
+supplies exact arithmetic. The existing one library item, normalised Fricke, is retained.
 
 ## Routes
 
-The maintainer routed the paper as a source of NC.5 and ED.6, not a new roadmap. The routes below follow that and add two companion layers:
-- **NC.2**, in the same roadmap, for the Tannakian and comparison machinery that NC.5 consumes;
-- **ModularCurvesPartII R13.5**, for the semi-stable models of X_s(ℓ), which make the local heights away from p vanish.
-
 ### Route 1: source of AnabelianGeometryAndNonabelianChabauty:NC.5
 
-The maintainer routed this paper to NC.5 (quadratic Chabauty and height equations). These items are its theory. They cover quadratic Chabauty pairs and the determinant criterion, nice correspondences and the quotient U_Z, Nekovář's p-adic heights with their local decomposition (bad-place terms, Lemma 3.2), the local height at p through mixed extensions of filtered φ-modules, the twisted mixed extension A_Z(b,x), Lemma 3.7 and Corollary 3.8, and the D_cris comparison for A_Z. NC.5 plans the depth-two quotient, the height equations, the Néron–Severi and bad-place terms and the rank criterion; nothing in the atlas constructs a p-adic height (GZ.9 is the BDP setting). The planned Theorem 2.3, U_Z, Kim–Tamagawa and nice-correspondence items are listed too, as the paper is a good source for them.
+NC.5 owns the quadratic Chabauty application: pairs and the determinant criterion, nice correspondences and U_Z, the AZ twisting construction, the specialised height formula (17), Lemma 3.2, Lemma 3.7 and Corollary 3.8, splitting/character independence and the D_cris comparison for AZ. Import the general height pairing, both mixed-extension categories and the local heights from the pending shared SelmerComplexesAndPadicHeights Part II; that supplier must not depend on NC.5. The four planned application items remain listed as source material. No height foundation is claimed implemented or covered by a stage of the pending design.
 
-**Missing items taken (21).** Quadratic Chabauty pair (/11); Lemma 1.5: the determinant criterion (/12); Equivariant heights reduce the number of points (/13); Lemma 2.4 (/22); Nekovář's p-adic height pairing (/24); Definition 3.1: mixed extensions (/25); Local decomposition of the height (/26); The local height away from p (/27); Lemma 3.2 (/28); Mixed extensions of filtered φ-modules (/30); The local height at p (/31); The height formula (17) (/32); A_Z(b), twisting and the pair (θ, Υ) (/33); Lemma 3.7 (/35); Corollary 3.8 (/36); Independence of the splitting and the character (/37); Chow–Heegner points (Remarks 3.11, 5.6) (/38); Admissible Tate classes Z (/46); Lemma 4.7 (corrected) (/47); The filtered connection A_Z (/48); Lemma 5.4: comparison for A_Z (/62).
+**Missing items (15).** Quadratic Chabauty pair (/11); Lemma 1.5: the determinant criterion (/12); Equivariant heights reduce the number of points (/13); Lemma 2.4 (/22); Lemma 3.2 (/28); The height formula (17) (/32); A_Z(b), twisting and the pair (θ, Υ) (/33); Lemma 3.7 (/35); Corollary 3.8 (/36); Independence of the splitting and the character (/37); Chow–Heegner points (Remarks 3.11, 5.6) (/38); Admissible Tate classes Z (/46); Lemma 4.7 (corrected) (/47); The filtered connection A_Z (/48); Lemma 5.4: comparison for A_Z (/62).
 
-**Planned items the paper is a good source for (4).** Theorem 2.3 (Balakrishnan–Dogra) (/20); Symmetric and nice correspondences (/21); The depth-two quotient U_Z (/23); Theorem 3.6 (Kim–Tamagawa) (/34).
+**Planned source items (4).** Theorem 2.3 (Balakrishnan–Dogra) (/20); Symmetric and nice correspondences (/21); The depth-two quotient U_Z (/23); Theorem 3.6 (Kim–Tamagawa) (/34).
 
 ### Route 2: source of AnabelianGeometryAndNonabelianChabauty:NC.2
 
-NC.2 constructs the unipotent étale and de Rham fundamental groups through their Tannakian categories, with path torsors carrying filtration and Frobenius and the comparison maps. This route adds its explicit machinery. It covers the universal pointed n-unipotent objects and their path torsors (Appendix A), Kim's universal connection on an affine curve (Theorem 4.2, Lemma 4.3, Corollary 4.4), Hadian's characterisation of the Hodge filtration (Theorem 4.5), and unipotent isocrystals with their Frobenius structure (Lemma 5.2). It also covers the non-abelian Berthelot–Ogus comparison (Chiarellotto–Le Stum) and the Frobenius operators on de Rham path torsors via Besser's transport. These belong to the same roadmap as NC.5 and are its inputs, so this is not a re-route. Tau Ceti's Tannaka reconstruction for affine group schemes is the library starting point (library audit for NC.2).
+NC.2 constructs the unipotent étale and de Rham fundamental groups through their Tannakian categories, with path torsors carrying filtration and Frobenius and the comparison maps. This route adds its explicit machinery. It covers the universal pointed n-unipotent objects and their path torsors (Appendix A), Kim's universal connection on an affine curve (Theorem 4.2, Lemma 4.3, Corollary 4.4), Hadian's characterisation of the Hodge filtration (Theorem 4.5), and unipotent isocrystals with their Frobenius structure (Lemma 5.2). It also covers the non-abelian Berthelot–Ogus comparison (Chiarellotto–Le Stum) and the Frobenius operators on de Rham path torsors via Besser's transport. These belong to the same roadmap as NC.5 and are its inputs, so this is not a re-route. Tau Ceti's Tannaka reconstruction for affine group schemes is the library starting point (library audit for NC.2). Split /58 (planned local (40)) from /93 (missing (41) identification and global Besser Frobenius bridge), importing L1 integration. Appendix definitions are corrected by E9–E10.
 
-**Missing items taken (14).** The universal unipotent connection on Y (/40); Theorem 4.2 (Kim): universality (/41); Lemma 4.3: the trivialisation respects composition (/42); Corollary 4.4 (/43); Filtered connections (/44); Theorem 4.5 (Hadian) (/45); Unipotent isocrystals and the Frobenius structure (/54); Lemma 5.2 (/55); Theorem 5.3 (Chiarellotto–Le Stum) (/56); Frobenius operators on de Rham path torsors (/57); Unipotent Tannakian categories and the universal objects A_n(C, ω) (/67); Universal pointed objects (/68); Lemma A.3 (/69); Path torsors of the universal objects (Lemma A.4) (/70).
+**Missing items (15).** The universal unipotent connection on Y (/40); Theorem 4.2 (Kim): universality (/41); Lemma 4.3: the trivialisation respects composition (/42); Corollary 4.4 (/43); Filtered connections (/44); Theorem 4.5 (Hadian) (/45); Unipotent isocrystals and the Frobenius structure (/54); Lemma 5.2 (/55); Theorem 5.3 (Chiarellotto–Le Stum) (/56); Frobenius operators on de Rham path torsors (/57); Unipotent Tannakian categories and the universal objects A_n(C, ω) (/67); Universal pointed objects (/68); Lemma A.3 (/69); Path torsors of the universal objects (Lemma A.4) (/70); Tannakian path transport and Besser’s global Frobenius path (/93).
 
-**Planned items the paper is a good source for (2).** Olsson's non-abelian comparison (/63); Iterated integrals and the transport τ_{b,x} (/58).
+**Planned source items (2).** Olsson's non-abelian comparison (/63); Local iterated-integral word expansion (40) (/58).
 
 ### Route 3: source of EffectiveDiophantineMethods:ED.6
 
-The maintainer routed the algorithm and the X_s(13) computation to ED.6 (explicit higher methods and reproducible examples). This route covers the explicit connection and gauge transformations, the Hodge filtration algorithm (Lemma 4.10, Theorem 4.11), the Frobenius structure (45) and splittings, Lemmas 5.5 and 5.7, and the precision estimate. It also covers the whole worked example: model, rational points, Tate classes from T_7 and T_11, Hodge data, Frobenius lifts, the matrices T_i, the three chart computations, the rank (Proposition 6.2), and Theorems 1.1, 1.2 and Corollary 1.3 with their cited inputs (Bilu–Parent–Rebolledo, Chen, Baran). ED.6 requires certified termination and comparison with global points; the Magma code [BDM+] is public.
+The maintainer routed the algorithm and the X_s(13) computation to ED.6 (explicit higher methods and reproducible examples). This route covers the explicit connection and gauge transformations, the Hodge filtration algorithm (Lemma 4.10, Theorem 4.11), the Frobenius structure (45) and splittings, Lemmas 5.5 and 5.7, and the precision estimate. It also covers the whole worked example: model, rational points, Tate classes from T_7 and T_11, Hodge data, Frobenius lifts, the matrices T_i, the three chart computations, the rank (Proposition 6.2), and Theorems 1.1, 1.2 and Corollary 1.3 with their cited inputs (Bilu–Parent–Rebolledo, Chen, Baran). ED.6 requires certified termination and comparison with global points; the Magma code [BDM+] is public. General Tuitman Frobenius data is imported from RD.7 (/95), rank theory from GZ.8 (/79,/97) and conditional HE.7 (/94), and certified analytic evaluation from CN.4. The separate small-prime existence theorem /96 supplies the positive half of Theorem 1.2. ED.6 certifies the example, not these general suppliers.
 
-**Missing items taken (28).** Bilu–Parent–Rebolledo (cited) (/2); Chen's isogeny decomposition (cited) (/3); Baran's isomorphism (cited) (/4); Theorem 1.1 (/5); Theorem 1.2 (/6); Corollary 1.3 (/7); Remark 1.4: class number one (/8); Set-up for the explicit computation (/39); The connection of A_Z on Y (/49); Gauge transformations at the points of D (/50); Lemma 4.10: uniqueness of η (/51); Theorem 4.11: the Hodge filtration of A_Z (/52); Algorithm for the Hodge filtration (/53); The Frobenius operator on A_Z(b,x) (/59); The Frobenius structure (45) (/60); The Frobenius-equivariant splitting (/61); Lemma 5.5: the local height at p (/64); Changing the base point (Lemma 5.7) (/65); End(J) and the Picard number of J_s(13) (/77); Proposition 6.2 (/82); The model of X_s(13) and its seven rational points (/85); The first chart: basis, Tate classes and Hodge data (/86); Frobenius lifts and the functions θ_{Z_i} (/87); Equivariant heights and the matrices T_i (/88); Precision and Newton polygons (/89); Rational points on ]U_1[ (/90); Rational points on ]U_2[ (/91); The residue disk of P0 (/92).
+**Missing items (29).** Bilu–Parent–Rebolledo (cited) (/2); Chen's isogeny decomposition (cited) (/3); Baran's isomorphism (cited) (/4); Theorem 1.1 (/5); Theorem 1.2 (/6); Corollary 1.3 (/7); Remark 1.4: class number one (/8); Set-up for the explicit computation (/39); The connection of A_Z on Y (/49); Gauge transformations at the points of D (/50); Lemma 4.10: uniqueness of η (/51); Theorem 4.11: the Hodge filtration of A_Z (/52); Algorithm for the Hodge filtration (/53); The Frobenius operator on A_Z(b,x) (/59); The Frobenius structure (45) (/60); The Frobenius-equivariant splitting (/61); Lemma 5.5: the local height at p (/64); Changing the base point (Lemma 5.7) (/65); End(J) and the Picard number of J_s(13) (/77); Proposition 6.2 (/82); The model of X_s(13) and its seven rational points (/85); The first chart: basis, Tate classes and Hodge data (/86); Frobenius lifts and the functions θ_{Z_i} (/87); Equivariant heights and the matrices T_i (/88); Precision and Newton polygons (/89); Rational points on ]U_1[ (/90); Rational points on ]U_2[ (/91); The residue disk of P0 (/92); Small-prime existence half of the split-Cartan classification (/96).
 
 ### Route 4: source of ModularCurvesPartII:R13.5
 
-Potentially good reduction of X_s(13) is a statement about bad fibres of modular curves. R13.5 (bad fibres and regular/semistable models) owns the local models, supersingular intersections, Igusa components and base extensions, with its cases listed explicitly. These items add the cases X_0(ℓ²) over Q_ℓ^nr(ϖ) (Edixhoven) and the quotient by w_{ℓ²}, which gives X_s(ℓ) for ℓ ≡ 1 mod 12. They also add the genus formula and Corollary 6.7, which NC.5 consumes to make the local heights away from p vanish. Nothing else in the atlas computes models of X_0(ℓ²) at ℓ.
+R13.5 owns bad fibres and regular/semistable models, using the X₀(ℓ²)/w_{ℓ²} ≃ X_s(ℓ) algebraic identification from R13.4a. These five items supply Edixhoven’s local models over Q_ℓ^nr(ϖ), Igusa components, intersections, quotient semistability, genus and Corollary 6.7. For good reduction away from 13 use the first Baran model on p.930, including at 2; Theorem 6.6 supplies the 13-adic part only. NC.5 consumes the resulting vanishing of local heights away from p.
 
-**Missing items taken (6).** X_0^+(ℓ²) ≃ X_s(ℓ) (/71); Models, semi-stability and the Igusa curve (/72); Theorem 6.5 (Edixhoven) (/73); Theorem 6.6 (/74); Genus of X_s(ℓ) (/75); Corollary 6.7 (/76).
+**Missing items (5).** Models, semi-stability and the Igusa curve (/72); Theorem 6.5 (Edixhoven) (/73); Theorem 6.6 (/74); Genus of X_s(ℓ) (/75); Corollary 6.7 (/76).
+
+### Route 5: part-ii of SelmerComplexesAndPadicHeights (pending shared Part II)
+
+These are general Selmer-theoretic height foundations, used by both the Disegni–Liu cycle heights and quadratic Chabauty. Reuse the identity of PAPER-DISEGNI-LIU-24 route 2 and join its pending design (#3430). The proposal exists but has no atlas stages, so all six items remain missing. NC.5 consumes this supplier; generic mixed-extension categories cannot be left in NC.5.
+
+**Missing items (6).** Nekovář's p-adic height pairing (/24); Definition 3.1: mixed extensions (/25); Local decomposition of the height (/26); The local height away from p (/27); Mixed extensions of filtered φ-modules (/30); The local height at p (/31).
+
+Extend the existing SelmerIwasawaCohomology Part II design, rather than create a second height owner. Keep the Disegni–Liu Appendices A–B programme for cycle bi-extensions, Panchishkin splittings, local indices and crystalline bi-extensions, including its Hecke-localisation and n < p hypotheses. Add the general Nekovář §2.1.2 construction with a specified continuous idèle class character χ and a chosen Hodge splitting s. BDMTV §3.1–3.3 supplies the curve specialisation V = H¹_et(X_Qbar,Q_p)* (Nekovář §5.3), without assuming ordinarity or a Panchishkin splitting. Construct the filtered Galois mixed-extension category, crystalline local condition and its two extension classes; the filtered φ-module mixed-extension category and D_cris compatibility; the local index away from p with the required invariant-vanishing/weight-monodromy inputs; the local height at p using the chosen Hodge and unique Frobenius splittings; and the global bilinear pairing with its sum of local terms. Retain the H¹_f domain: do not identify it with Mordell–Weil points without the required Sha hypothesis (BDMTV E8). Import SelmerIwasawaCohomology local conditions, complexes and finite Bloch–Kato cohomology; ArithmeticGaloisDuality duality; PadicHodgeTheory R06.1–R06.2 and the existing comparison suppliers for period rings, D_dR and D_cris. Carry over the shared proposal’s cycle-cohomology imports for its cycle branch. Do not import NC.5: its AZ twisting and specialised height formula are downstream applications. Test arbitrary Hodge splittings on a curve, the global local-sum identity, unramified vanishing away from p, and compatibility with the Panchishkin choice in the original Disegni–Liu branch. No new stage identifier is invented here.
+
+### Route 6: source of ModularCurvesPartII:R13.4a
+
+Extend the algebraic R13.4a moduli/degeneracy/Atkin–Lehner interface to compactified general-H X_H over Z[1/ℓ], H ≤ GL₂(F_ℓ), −I ∈ H, det(H) = F_ℓ×, including split/non-split Cartan normalisers. Import upstream affine quotient data and refined R13.2 general-level Γ₀(ℓ²), then construct the w_{ℓ²} extension, quotient and algebraic isomorphism to X_s(ℓ). Prove the non-cuspidal j ≠ 0,1728 rational-point criterion, with no twist. R13.4b supplies the later complex uniformisation compatibility; R13.5 consumes the isomorphism for models. Maintainer handoff: the pending EllipticCurveModularityImaginaryQuadratic design (PAPER-CARAIANI-NEWTON-23 route 2) should import this Cartan supplier. No upstream roadmap is edited.
+
+**Missing items (2).** Split and non-split Cartan modular curves (/1); X_0^+(ℓ²) ≃ X_s(ℓ) (/71).
+
+### Route 7: source of GrossZagierAndArithmeticHeights:GZ.8
+
+GZ.8 owns the analytic-rank-one lower bound and its modular A_f extension, joining PAPER-GROSS-ZAGIER-86/304. Construct the admissible Heegner-field/non-torsion argument and import conditional HE.7, then prove rank and Sha descent. The higher-dimensional assembly remains missing; elliptic BSD.3 is not sufficient. Maintainer should coordinate the extension with RankZeroOneBSD and PAPER-SKINNER-20/2. ED.6 consumes the result after CN.4 has certified the conjugate L-value/derivative input.
+
+**Missing items (2).** Gross–Zagier lower bound for an analytic-rank-one modular factor (/79); Analytic-rank-one assembly for a modular abelian factor (/97).
+
+### Route 8: source of PadicDifferentialEquationsAndRigidCohomology:RD.7
+
+RD.7 owns the general Tuitman certified Frobenius/point-counting algorithm, extending its Kedlaya hyperelliptic certification node. Import RD.0 dagger Frobenius and RD.4 Monsky–Washnitzer comparison, construct the good-lift and basis/reduction/precision contracts with the June 2020 Assumption 1 correction, and export data to ED.4/ED.6. Remark 6.1’s p=17 basis-integrality shortcut is not the general contract.
+
+**Missing items (1).** Certified Tuitman Frobenius reduction algorithm (/95).
+
+Planned /94 is the conditional HE.7 import, not a missing route or an analytic-rank theorem.
 
 ## Prerequisite papers the atlas does not cover
 
@@ -116,7 +136,7 @@ Potentially good reduction of X_s(13) is a statement about bad fibres of modular
 - B. Chiarellotto and B. Le Stum, F-isocristaux unipotents, Compositio Math. 116 (1999), 81–110 (https://doi.org/10.1023/A:1000602824628). Theorem 5.3 and the Frobenius action on π_1^rig.
 - M. Kim and A. Tamagawa, The ℓ-component of the unipotent Albanese map, Math. Ann. 340 (2008), 223–235 (https://doi.org/10.1007/s00208-007-0151-x). Theorem 3.6.
 - A. Besser, Coleman integration using the Tannakian formalism, Math. Ann. 322 (2002), 19–48 (https://doi.org/10.1007/s002080100263). The Frobenius-equivariant transport (41).
-- J. Tuitman, Counting points on curves using a map to P¹, Math. Comp. 85 (2016); II, Finite Fields Appl. 45 (2017) (https://doi.org/10.1090/mcom/2996). Frobenius lifts and the reduction algorithm behind (45); part II: https://doi.org/10.1016/j.ffa.2016.12.008.
+- J. Tuitman, Counting points on curves using a map to P¹, Math. Comp. 85 (2016); II, Finite Fields Appl. 45 (2017) (https://doi.org/10.1090/mcom/2996). Frobenius lifts and the reduction algorithm behind (45); part II: https://doi.org/10.1016/j.ffa.2016.12.008. General algorithm /95 is a source extension of RD.7; apply the June 2020 [author erratum](https://jtuitman.github.io/erratum.pdf) to Assumption 1.
 - J. S. Balakrishnan and J. Tuitman, Explicit Coleman integration for curves, Math. Comp. 89 (2020) (https://doi.org/10.1090/mcom/3542). Coleman integrals to the disk of P0 (§6.6).
 - B. Edixhoven, Minimal resolution and stable reduction of X_0(N), Ann. Inst. Fourier 40 (1990), 31–67; and thesis, Utrecht 1989 (https://doi.org/10.5802/aif.1202). Theorem 6.5.
 - M. Raynaud, p-groupes et réduction semi-stable des courbes, Grothendieck Festschrift III (1990), 179–197 (https://doi.org/10.1007/978-0-8176-4576-2_7). Semi-stability of the quotient model (proof of Theorem 6.6).
@@ -129,7 +149,7 @@ Potentially good reduction of X_s(13) is a statement about bad fibres of modular
 
 ## Mistakes found (`sourceIssues`)
 
-Every finding is in the published text; arXiv v1 differences are listed above. Where each was searched for an existing correction is recorded in the result.
+The original E1–E8 findings are retained in the published text; arXiv v1 differences are listed above. Where each was searched for an existing correction is recorded in the result.
 
 - **E1** (misprint; affects nothing), Published (40), p.921; arXiv v1 §5.1, p.24 (both displays of C_n).
   - *Printed:* I(x_1, x_2) = 1 + Σ_w ∫_{x_1}^{x_2} w(ω_0, …, ω_{2g+2d−2})
@@ -167,10 +187,10 @@ Every finding is in the published text; arXiv v1 differences are listed above. W
 ## Gaps
 
 - **G-computations** (deferred). The Magma computations of §6 were not re-run: the Tate classes, η, β_Fil, γ_Fil, Frobenius structures and the zero tables. ED.6 must certify them. The code [BDM+] (github.com/jtuitman/Cartan13) and its successor QCMod are public. This extraction checked by direct computation the model, the seven points, smoothness mod 17, #X(F_17) = 20 and the covering of residue disks by U_1, U_2 and (1:1:1).
-- **G-numerics** (recorded). Proposition 6.2 rests on a numerical bound L'(f,1) > 0.6 with stated error < 10^{-100}. ED.6 with ED.0's certified numerics must supply an error-controlled proof; Remark 6.3's descent alternative is conditional on GRH.
-- **G-inputs** (deferred). The cited theorems (Kim, Hadian, Olsson, Chiarellotto–Le Stum, Kim–Tamagawa, Nekovář, Besser, Edixhoven, Raynaud, Bilu–Parent–Rebolledo, Baran, Chen, Gross–Zagier, Kolyvagin–Logachev, Shimura, Ribet) were read here only as stated in the paper. Listed under prerequisites for later batches.
+- **G-numerics** (recorded). Proposition 6.2 rests on a numerical bound L'(f,1) > 0.6 with stated error < 10^{-100}. ComputationalNumberTheory CN.4 supplies validated L-value evaluation; ED.6 certifies the bound for every embedding. ED.0 supplies exact arithmetic; Remark 6.3's descent alternative is conditional on GRH.
+- **G-inputs** (deferred). The original extraction read the cited theorems (Kim, Hadian, Olsson, Chiarellotto–Le Stum, Kim–Tamagawa, Nekovář, Besser, Edixhoven, Raynaud, Bilu–Parent–Rebolledo, Baran, Chen, Gross–Zagier, Kolyvagin–Logachev, Shimura, Ribet) only as stated in the paper. The targeted Tuitman/Besser readings for this fix are recorded below. Listed under prerequisites for later batches.
 
-## Validation
+## Original extraction and review validation
 
 - `python3 scripts/check_paper.py research/blueprint/papers/PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19.result.json`: ok.
 - `python3 research/blueprint/intake.py check-files research/blueprint/papers/PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19.result.json research/blueprint/papers/PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19.md`: ok.
@@ -186,7 +206,7 @@ Every finding is in the published text; arXiv v1 differences are listed above. W
 
 | Item | Kind | Name | Locator | Status | Layers or declarations |
 |---|---|---|---|---|---|
-| /1 | definition | Split and non-split Cartan modular curves | Published §1.1, p.887 (arXiv v1 §1.1, p.2) | planned | tauceti:TauCetiRoadmap/ModularCurves#…, tauceti:TauCetiRoadmap/ModularCurves#… |
+| /1 | definition | Split and non-split Cartan modular curves | Published §1.1, p.887 (arXiv v1 §1.1, p.2) | missing | routed: ModularCurvesPartII:R13.4a |
 | /2 | theorem | Bilu–Parent–Rebolledo (cited) | Published §1.1, p.887 | missing | routed: EffectiveDiophantineMethods:ED.6 |
 | /3 | theorem | Chen's isogeny decomposition (cited) | Published §1.1, p.887 (arXiv v1 attributes it to Momose [Mom86]) | missing | routed: EffectiveDiophantineMethods:ED.6 |
 | /4 | theorem | Baran's isomorphism (cited) | Published §1.1, (1), p.888 | missing | routed: EffectiveDiophantineMethods:ED.6 |
@@ -209,14 +229,14 @@ Every finding is in the published text; arXiv v1 differences are listed above. W
 | /21 | definition | Symmetric and nice correspondences | Published §2.3, p.900 | planned | AnabelianGeometryAndNonabelianChabauty:NC.5 |
 | /22 | theorem | Lemma 2.4 | Published Lemma 2.4, p.900 | missing | routed: AnabelianGeometryAndNonabelianChabauty:NC.5 |
 | /23 | construction | The depth-two quotient U_Z | Published §2.3, Remark 2.5, pp.900–901 | planned | AnabelianGeometryAndNonabelianChabauty:NC.5 |
-| /24 | definition | Nekovář's p-adic height pairing | Published §3.1, (11), p.901 | missing | routed: AnabelianGeometryAndNonabelianChabauty:NC.5 |
-| /25 | definition | Definition 3.1: mixed extensions | Published Definition 3.1, p.902 | missing | routed: AnabelianGeometryAndNonabelianChabauty:NC.5 |
-| /26 | theorem | Local decomposition of the height | Published §3.1, pp.902–903 | missing | routed: AnabelianGeometryAndNonabelianChabauty:NC.5 |
-| /27 | construction | The local height away from p | Published §3.2, p.903 | missing | routed: AnabelianGeometryAndNonabelianChabauty:NC.5 |
+| /24 | definition | Nekovář's p-adic height pairing | Published §3.1, (11), p.901 | missing | routed: SelmerComplexesAndPadicHeights (pending Part II) |
+| /25 | definition | Definition 3.1: mixed extensions | Published Definition 3.1, p.902 | missing | routed: SelmerComplexesAndPadicHeights (pending Part II) |
+| /26 | theorem | Local decomposition of the height | Published §3.1, pp.902–903 | missing | routed: SelmerComplexesAndPadicHeights (pending Part II) |
+| /27 | construction | The local height away from p | Published §3.2, p.903 | missing | routed: SelmerComplexesAndPadicHeights (pending Part II) |
 | /28 | theorem | Lemma 3.2 | Published Lemma 3.2, p.903 | missing | routed: AnabelianGeometryAndNonabelianChabauty:NC.5 |
 | /29 | definition | Filtered φ-modules and their extensions | Published Definition 3.3, (12), p.904 | planned | PadicHodgeTheory:R06.2 |
-| /30 | definition | Mixed extensions of filtered φ-modules | Published Definition 3.4, Remark 3.5, (13)–(14), pp.904–905 | missing | routed: AnabelianGeometryAndNonabelianChabauty:NC.5 |
-| /31 | construction | The local height at p | Published §3.3, (15), p.905 | missing | routed: AnabelianGeometryAndNonabelianChabauty:NC.5 |
+| /30 | definition | Mixed extensions of filtered φ-modules | Published Definition 3.4, Remark 3.5, (13)–(14), pp.904–905 | missing | routed: SelmerComplexesAndPadicHeights (pending Part II) |
+| /31 | construction | The local height at p | Published §3.3, (15), p.905 | missing | routed: SelmerComplexesAndPadicHeights (pending Part II) |
 | /32 | theorem | The height formula (17) | Published (16)–(17), pp.905–906 | missing | routed: AnabelianGeometryAndNonabelianChabauty:NC.5 |
 | /33 | construction | A_Z(b), twisting and the pair (θ, Υ) | Published §3.4, (18)–(19), pp.906–907 | missing | routed: AnabelianGeometryAndNonabelianChabauty:NC.5 |
 | /34 | theorem | Theorem 3.6 (Kim–Tamagawa) | Published Theorem 3.6, p.907 | planned | AnabelianGeometryAndNonabelianChabauty:NC.5 |
@@ -243,7 +263,7 @@ Every finding is in the published text; arXiv v1 differences are listed above. W
 | /55 | theorem | Lemma 5.2 | Published Lemma 5.2, (38), p.919 | missing | routed: AnabelianGeometryAndNonabelianChabauty:NC.2 |
 | /56 | theorem | Theorem 5.3 (Chiarellotto–Le Stum) | Published Theorem 5.3, p.920 (arXiv v1 Theorem A.7) | missing | routed: AnabelianGeometryAndNonabelianChabauty:NC.2 |
 | /57 | construction | Frobenius operators on de Rham path torsors | Published §5.2, (42), pp.920–921 | missing | routed: AnabelianGeometryAndNonabelianChabauty:NC.2 |
-| /58 | construction | Iterated integrals and the transport τ_{b,x} | Published §5.2.1, (39)–(41), pp.920–921 (arXiv v1 §5.1, Lemma 5.3, (20)–(21)) | planned | ColemanIntegration:L1 |
+| /58 | construction | Local iterated-integral word expansion (40) | Published §5.2.1, (40), p.921 (arXiv v1 §5.1, (20)) | planned | ColemanIntegration:L1 |
 | /59 | construction | The Frobenius operator on A_Z(b,x) | Published §5.3, §5.3.1, (43)–(44), pp.921–922 | missing | routed: EffectiveDiophantineMethods:ED.6 |
 | /60 | theorem | The Frobenius structure (45) | Published §5.3.2, (45), pp.922–923 | missing | routed: EffectiveDiophantineMethods:ED.6 |
 | /61 | theorem | The Frobenius-equivariant splitting | Published §5.3.2, p.923 | missing | routed: EffectiveDiophantineMethods:ED.6 |
@@ -256,7 +276,7 @@ Every finding is in the published text; arXiv v1 differences are listed above. W
 | /68 | definition | Universal pointed objects | Published Definition A.2, p.935 | missing | routed: AnabelianGeometryAndNonabelianChabauty:NC.2 |
 | /69 | theorem | Lemma A.3 | Published Lemma A.3, p.935 | missing | routed: AnabelianGeometryAndNonabelianChabauty:NC.2 |
 | /70 | construction | Path torsors of the universal objects (Lemma A.4) | Published §A.1.2, Lemma A.4, pp.936–937 | missing | routed: AnabelianGeometryAndNonabelianChabauty:NC.2 |
-| /71 | theorem | X_0^+(ℓ²) ≃ X_s(ℓ) | Published §6, p.926 | missing | routed: ModularCurvesPartII:R13.5 |
+| /71 | theorem | X_0^+(ℓ²) ≃ X_s(ℓ) | Published §6, p.926 | missing | routed: ModularCurvesPartII:R13.4a |
 | /72 | definition | Models, semi-stability and the Igusa curve | Published §6.2, pp.927–928 | missing | routed: ModularCurvesPartII:R13.5 |
 | /73 | theorem | Theorem 6.5 (Edixhoven) | Published Theorem 6.5, p.928 (arXiv v1 Theorem 6.6) | missing | routed: ModularCurvesPartII:R13.5 |
 | /74 | theorem | Theorem 6.6 | Published Theorem 6.6, pp.928–929 (arXiv v1 Theorem 6.7) | missing | routed: ModularCurvesPartII:R13.5 |
@@ -264,8 +284,8 @@ Every finding is in the published text; arXiv v1 differences are listed above. W
 | /76 | theorem | Corollary 6.7 | Published Corollary 6.7, Remark 6.8, p.929 (arXiv v1 Corollary 6.8) | missing | routed: ModularCurvesPartII:R13.5 |
 | /77 | theorem | End(J) and the Picard number of J_s(13) | Published §6.1, pp.926–927 | missing | routed: EffectiveDiophantineMethods:ED.6 |
 | /78 | definition | The modular quotient A_f | Published proof of Proposition 6.2, p.927 | planned | ModularCurvesPartII:R14.5 |
-| /79 | theorem | Analytic rank one gives rank g (Gross–Zagier, Kolyvagin–Logachev) | Published proof of Proposition 6.2, p.927 | planned | HeegnerPointEulerSystems:HE.7, GrossZagierAndArithmeticHeights:GZ.8 |
-| /80 | definition | L(f,s) and the Fricke sign | Published proof of Proposition 6.2, p.927 | planned | tauceti:TauCetiRoadmap/ModularForms#…, tauceti:TauCetiRoadmap/ModularForms#… |
+| /79 | theorem | Gross–Zagier lower bound for an analytic-rank-one modular factor | Published proof of Proposition 6.2, p.927 | missing | routed: GrossZagierAndArithmeticHeights:GZ.8 |
+| /80 | definition | L(f,s) and the Fricke sign | Published proof of Proposition 6.2, p.927 | planned | tauceti:TauCetiRoadmap/ModularForms#layer-7-l-functions, tauceti:TauCetiRoadmap/ModularForms#layer-6-atkinlehner-and-fricke-operators |
 | /81 | definition | The Fricke involution on S_2(Γ_0(N)) | Published proof of Proposition 6.2, p.927 (W_169) | library | tauceti:TauCeti.normalizedFrickeOperatorCusp, tauceti:TauCeti.normalizedFrickeOperatorCusp_involutive, tauceti:TauCeti.isCompl_eigenspace_normalizedFrickeOperatorCusp, tauceti:TauCeti.frickeOperatorCusp_mem_cuspFormCharSpace |
 | /82 | theorem | Proposition 6.2 | Published Proposition 6.2, p.927 (arXiv v1 Proposition 6.3) | missing | routed: EffectiveDiophantineMethods:ED.6 |
 | /83 | theorem | Eichler–Shimura on H^1_dR | Published §6.4, (50), p.930 | planned | AutomorphicGaloisRepresentations:R19.1 |
@@ -278,3 +298,22 @@ Every finding is in the published text; arXiv v1 differences are listed above. W
 | /90 | theorem | Rational points on ]U_1[ | Published §6.4.1, Remark 6.9, p.933 | missing | routed: EffectiveDiophantineMethods:ED.6 |
 | /91 | theorem | Rational points on ]U_2[ | Published §6.5, p.933 | missing | routed: EffectiveDiophantineMethods:ED.6 |
 | /92 | theorem | The residue disk of P0 | Published §6.6, p.934 | missing | routed: EffectiveDiophantineMethods:ED.6 |
+| /93 | theorem | Tannakian path transport and Besser’s global Frobenius path | Published §5.2.1, (39),(41), p.921; Lemma 4.3 p.910; Theorem 5.3 pp.919–920; Besser, arXiv:math/0011269, Theorem 3.1 and Corollaries 3.2–3.3, pp.7–9 | missing | routed: AnabelianGeometryAndNonabelianChabauty:NC.2 |
+| /94 | theorem | Conditional Kolyvagin–Logachev bound for the admissible RM modular quotient | Published proof of Proposition 6.2, p.927, invoking [KL89]; HE.7’s admissible RM modular-quotient contract | planned | HeegnerPointEulerSystems:HE.7 |
+| /95 | construction | Certified Tuitman Frobenius reduction algorithm | Published §5.3.2, p.922; Remark 6.1, p.926; §6.4, pp.930–931 ([Tui16],[Tui17]); Tuitman I arXiv:1402.6758v2, II arXiv:1412.7217v2 Assumption 1, Theorem 2.6, Propositions 4.2,4.7,4.9; author’s June 2020 erratum | missing | routed: PadicDifferentialEquationsAndRigidCohomology:RD.7 |
+| /96 | theorem | Small-prime existence half of the split-Cartan classification | Published §1.1, pp.887–888, existence input to Theorem 1.2; the elementary genus/rational-cusp argument made explicit by RT finding 7 and its verifier | missing | routed: EffectiveDiophantineMethods:ED.6 |
+| /97 | theorem | Analytic-rank-one assembly for a modular abelian factor | Published proof of Proposition 6.2, p.927; the GZ86/KL89 input previously bundled in /79 | missing | routed: GrossZagierAndArithmeticHeights:GZ.8 |
+
+## Red-team fix additions (30 September 2026)
+
+All nine confirmed findings and their verifier qualifications are addressed in the [fix report](../redteam/RT-PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19.fixes.md). The original 92 item IDs are preserved; /93–/97 separate the missing transport bridge, conditional rank upper bound, general Tuitman algorithm, small-prime existence and modular-factor rank/Sha assembly. Complete extraction does not claim proof closure.
+
+- **E9** (misprint; affects nothing), Published Definition A.2 p.935; arXiv v1 p.34. Require a unique such morphism respecting the filtration and pointed vector. Existence alone also holds for A_n⊕1 pointed by (1,0), using projection and the universal map from A_n; take E₀=A_n⊕1 and E_i=I^i A_n for i≥1. Its fibre has larger dimension. Already at n=0, both (a,b)↦a and (a,b)↦a+b send (1,0) to 1. The intended uniqueness is explicit in Theorem 4.2 p.910, Lemma 5.2 p.919 and the proof of Lemma A.4 p.936. It changes no result when inserted. Independent review pending.
+- **E10** (misprint; affects nothing), Published Definition A.1 p.934; arXiv v1 p.34. Quantify over every nonzero object V. The zero object has only the zero morphism from 1. The usual invariant-vector criterion for unipotence quantifies over nonzero representations; the definition as printed fails even for the trivial Tannakian category. Item /67 is corrected. Independent review pending.
+- **E11** (misprint; affects nothing), Published bibliography [Nek93], p.943; arXiv v1 p.40 has no DOI. 10.1007/978-1-4757-4271-8_8 Fresh Crossref metadata identifies the printed DOI as van der Laan–Talman–Yang, Solving discrete zero point problems (2006), and the replacement as Nekovář, On p-adic height pairings (1993). The extraction’s prerequisite already has the correct DOI. This is published-only. Independent review pending.
+- **E12** (gap; affects nothing), Published proof of Corollary 6.7 p.929; repair in first model p.930. Use Theorem 6.6 for the 13-adic claim and the first Baran model on p.930 for good reduction away from 13, including 2. Theorem 6.6 concerns a model over Q_ℓ^nr(ϖ) at the level prime only. It cannot prove good reduction at all other primes. The first plane quartic on p.930 is stated to have good reduction away from 13; the second monic model is bad at 2 and 13. The tame quotient proof requires the involution order invertible and cannot replace the first model at 2. Item /76 now names the existing repair, so the stated corollary is retained. Independent review pending.
+- **E13** (misprint; affects nothing), Published bibliography [BL04], p.940; arXiv v1 p.39. Complex Abelian Varieties The published title has Barieties. The arXiv bibliography spells varieties correctly; this separate bibliographic slip affects no mathematical item. Independent review pending.
+
+E11 is the wrong Nekovář DOI; E13 separately records the BL04 title typo. E9 requires unique morphisms; E10 excludes the zero object; E12 cites the first Baran model for good reduction away from 13. Recorded E1–E8 reviews are restored from the original independent review, without giving this fix or the new findings an independent verdict.
+
+Fresh primary-source retrieval reproduced both original PDF hashes. Current reading was limited to affected passages, Tuitman’s algorithm/precision statements and June 2020 erratum, Besser’s Frobenius-path statements, and the version/bibliography metadata. Historical full readings remain attributed to cc-442dc5. The Tuitman erratum replaces the boundary-discriminant condition by that for the reduced parts of the boundary algebras. The Magma computations were not rerun. No Lean compiled.
