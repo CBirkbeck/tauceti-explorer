@@ -40476,7 +40476,8 @@
     "REV-LINK-tauceti_TauCetiRoadmap_AlgebraicCurves"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-LINK-tauceti_TauCetiRoadmap_AlgebraicCurves.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4341"
   },
   {
    "id": "RT-LINK-tauceti_TauCetiRoadmap_NumberFieldArithmetic",
@@ -41210,8 +41211,9 @@
     "REV-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_LieGroups"
    ],
    "prompt": "research/blueprint/prompts/RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_LieGroups.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4372"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4372",
+   "finishedAt": "2026-09-30T12:22:30Z"
   },
   {
    "id": "REV-RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_LieGroups",
