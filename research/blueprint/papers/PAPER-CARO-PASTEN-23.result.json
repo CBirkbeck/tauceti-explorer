@@ -192,6 +192,105 @@
         "date": "2026-09-30T16:10:30.574566+00:00",
         "sha256": "7bc04a52ea6c6c067487415cedc9ee2b85b7de4bf1188e29317718365f9e7b39",
         "bytes": 24960
+      },
+      {
+        "url": "https://www.mat.uc.cl/~hector.pasten/papers.html",
+        "error": "<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1081)>",
+        "name": "pasten-author",
+        "date": "2026-09-30T16:38:15.858365+00:00",
+        "agent": "Codex",
+        "session": "codex-rtOQ9t",
+        "read": "TLS verification failed; no body was read in this request."
+      },
+      {
+        "url": "https://api.openalex.org/works/https://doi.org/10.1007/s00222-023-01217-1",
+        "finalUrl": "https://api.openalex.org/works/https://doi.org/10.1007/s00222-023-01217-1",
+        "contentType": "application/json",
+        "bytes": 14147,
+        "sha256": "1a08a97e3319379922903cf68eb9c47af7207f7dbfe9c2502fbd3fb545eebca1",
+        "open_access": {
+          "is_oa": false,
+          "oa_status": "closed",
+          "oa_url": null,
+          "any_repository_has_fulltext": false
+        },
+        "name": "openalex",
+        "date": "2026-09-30T16:38:15.858814+00:00",
+        "agent": "Codex",
+        "session": "codex-rtOQ9t",
+        "read": "Discovery metadata only: the sole indexed location is the non-OA publisher, with no PDF or repository full text. This does not establish that no author copy exists."
+      },
+      {
+        "url": "https://api.semanticscholar.org/graph/v1/paper/DOI:10.1007/s00222-023-01217-1?fields=title,openAccessPdf,externalIds",
+        "finalUrl": "https://api.semanticscholar.org/graph/v1/paper/DOI:10.1007/s00222-023-01217-1?fields=title,openAccessPdf,externalIds",
+        "contentType": "application/json",
+        "bytes": 278,
+        "sha256": "9c9b45c5bee906b9f73509b2f080b599ccf933c3fa74bdbbe16d4a7a0b41f704",
+        "name": "semantic-scholar",
+        "date": "2026-09-30T16:38:15.859058+00:00",
+        "agent": "Codex",
+        "session": "codex-rtOQ9t",
+        "read": "Discovery metadata only: empty openAccessPdf URL, CLOSED status; links the known arXiv identifier. No final text supplied."
+      },
+      {
+        "url": "https://link.springer.com/content/pdf/10.1007/s00222-023-01217-1.pdf",
+        "finalUrl": "https://link.springer.com/article/10.1007/s00222-023-01217-1?error=cookies_not_supported&code=4ad4499d-53c3-4608-b986-a430104dd3df",
+        "contentType": "text/html; charset=utf-8",
+        "bytes": 355809,
+        "sha256": "dc8dcb3bfef5699cd5ad51e0ddf999216d097d86712fb4a32cf5652bfa97e610",
+        "isPdf": false,
+        "name": "publisher",
+        "date": "2026-09-30T16:38:15.859387+00:00",
+        "agent": "Codex",
+        "session": "codex-rtOQ9t",
+        "read": "Returned the subscription-preview HTML, not a PDF."
+      },
+      {
+        "url": "https://www.mat.uc.cl/~hector.pasten/papers.html",
+        "certificateVerification": false,
+        "finalUrl": "https://www.mat.uc.cl/~hector.pasten/papers.html",
+        "contentType": "text/html",
+        "bytes": 14453,
+        "sha256": "8336eaf4e5a3cd767a914a3725f8eab39e878b4f1ff3c57a7baf5db724788b4f",
+        "name": "pasten-author-tls-retry",
+        "date": "2026-09-30T16:38:56.352886+00:00",
+        "agent": "Codex",
+        "session": "codex-rtOQ9t",
+        "read": "Public author bibliography retrieved with TLS certificate verification disabled after the certificate-chain failure. Its Chabauty–Coleman entry links only https://arxiv.org/abs/2102.01055. No final author manuscript linked from that entry."
+      },
+      {
+        "url": "https://sites.google.com/view/jerson-caro/research",
+        "finalUrl": "https://sites.google.com/view/jerson-caro/research",
+        "contentType": "text/html; charset=utf-8",
+        "bytes": 148684,
+        "sha256": "c051b5f4e684fe23de0f87379c67cc4702fe002db8f37e18c8dc661750b83da3",
+        "name": "caro-author",
+        "date": "2026-09-30T16:38:56.353039+00:00",
+        "agent": "Codex",
+        "session": "codex-rtOQ9t",
+        "read": "Public research page retrieved and its outgoing anchors inspected; no article download link found in the returned page."
+      },
+      {
+        "url": "https://repositorio.uc.cl/server/api/discover/search/objects?query=A%20Chabauty%20Coleman%20bound%20for%20surfaces",
+        "error": "HTTP Error 403: Forbidden",
+        "name": "uc-repository",
+        "date": "2026-09-30T16:38:56.353291+00:00",
+        "agent": "Codex",
+        "session": "codex-rtOQ9t",
+        "read": "Public repository discovery request returned HTTP 403; no repository search result or manuscript was read."
+      },
+      {
+        "url": "https://link.springer.com/content/pdf/10.1007/s00222-023-01217-1.pdf",
+        "finalUrl": "https://link.springer.com/article/10.1007/s00222-023-01217-1",
+        "contentType": "text/html; charset=utf-8",
+        "bytes": 355574,
+        "sha256": "c0a350628c2c26db20c72cf1d1de48eadcf8b1d8249199ba25de90f718108939",
+        "isPdf": false,
+        "name": "publisher-cookiejar",
+        "date": "2026-09-30T16:38:56.353485+00:00",
+        "agent": "Codex",
+        "session": "codex-rtOQ9t",
+        "read": "Retried with an actual HTTP cookie jar. Redirect completed without cookies_not_supported, but the response explicitly identifies itself as a subscription preview and offers purchase. It is still HTML, not the final paper."
       }
     ],
     "priorAtlasCommit": "d964b2642d4743641acce02cde0dab1b7019e443"
@@ -3500,6 +3599,12 @@
       "session": "codex-J6LwjP",
       "date": "2026-09-30",
       "work": "Fresh full v2 reading; publication acquisition retried and G0 isolated as the corpus blocker under current §16. Routed every active missing item; moved seven false/superseded printed records to explicit history with replacement IDs; split multipart results and added previously implicit cited inputs. Added two supplier Part II briefs, sourceVersions, six minor source findings and a fresh reviewed-audit/pinned-declaration check. No new proof-closure requirement or independent review claimed."
+    },
+    {
+      "agent": "Codex",
+      "session": "codex-rtOQ9t",
+      "date": "2026-09-30",
+      "work": "Acquisition-only checkpoint: directly retrieved Pasten’s author bibliography after the TLS-chain failure, checked Caro’s returned page, queried OpenAlex and Semantic Scholar, attempted UC repository discovery, and retried Springer with cookies. No matching final manuscript obtained. All extraction items, routes, source issues, sourceVersions and partial status preserved; no fresh full-paper reading or mathematical review claimed."
     }
   ],
   "sourceIssues": [

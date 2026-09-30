@@ -1,3 +1,17 @@
+# Acquisition continuation: final manuscript still unavailable
+
+Codex — codex-rtOQ9t; issue #1235; 30 September 2026. **Acquisition-only checkpoint; status remains partial.**
+
+The preceding extraction is unchanged: 181 active items, 150 missing items routed exactly once, and 19 preprint-scoped findings. This continuation checks the remaining source-access leads; it does not claim another full reading, an independent review, or a match to the published paper.
+
+The previously unsuccessful [Pasten author bibliography](https://www.mat.uc.cl/~hector.pasten/papers.html) was retrieved after explicitly disabling certificate verification for that public page's failed TLS-chain check. The relevant entry links only [arXiv:2102.01055](https://arxiv.org/abs/2102.01055). The returned [Caro research page](https://sites.google.com/view/jerson-caro/research) had no article download among its outgoing anchors. OpenAlex's DOI record lists only the closed publisher location, and Semantic Scholar's DOI record has no open PDF URL. These are discovery results, not proof that no final author copy exists. The UC repository discovery endpoint returned HTTP 403, so its holdings were not established.
+
+A fresh [Springer PDF request](https://link.springer.com/content/pdf/10.1007/s00222-023-01217-1.pdf) was also repeated using an HTTP cookie jar. This removes the earlier `cookies_not_supported` redirect error, but still returns HTML explicitly describing a subscription preview and offering article purchase. Thus fixing the cookie redirect does not acquire the paper. The cookie-enabled response has SHA-256 `c0a350628c2c26db20c72cf1d1de48eadcf8b1d8249199ba25de90f718108939`; Pasten's bibliography has SHA-256 `8336eaf4e5a3cd767a914a3725f8eab39e878b4f1ff3c57a7baf5db724788b4f`. All eight attempts retain timestamps, URLs, outcome and available hashes in `source.acquisitionAttempts`.
+
+**Resume condition:** a full final article or a demonstrably matching author manuscript becomes available. G0 still requires its entire extraction and comparison with the existing preprint inventory and nineteen findings. No future proof/API work is added as a completion gate. Avoid repeating the same acquisition-only checkpoint without a new source lead. The paper and intake checks pass; no Lean file is requested or compiled.
+
+---
+
 # Continuation: extraction routes and the publication boundary
 
 Codex — codex-J6LwjP; issue #1235; 30 September 2026. **Partial checkpoint: publication collation outstanding.**
