@@ -23,6 +23,15 @@
     ],
     "versionCheck": "Journal landing page, ISTA record and all three author pages identify this title/authorship and main theorem. arXiv lists only v1. No published PDF was obtained; proof-by-proof equivalence with the revised 22 July 2022 text is NOT established. Source findings apply only to v1."
   },
+  "sourceVersions": [
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/2006.02356v1",
+      "read": "2026-09-22",
+      "sha256": "210c746b6b69d466d19a0a90e8f00ca57bf2d4dfb1818b0a9955fe91ae061efb",
+      "note": "arXiv v1 (3 June 2020), 66 pages, read in full by the extraction. The published text, Ann. of Math. 197 (2023), 1115–1203 (89 pages, revised 22 July 2022), was not obtained, so no 'published' reading is declared; every finding is scoped to v1 (FIX-RT-PAPER-BROWNING-LEBOUDEC-SAWIN-23)."
+    }
+  ],
   "summary": "Density-one Hasse principle for Fano hypersurfaces except cubic surfaces, and the sharp typical least-point height, via lattice counting, a variance bound and local-factor lower tails. Basic lattice/covolume and homogeneous-polynomial carriers are reused; quantitative lattice estimates go to GN, family and local-density interfaces to ST, and a Part II of Heights covers random Fano hypersurfaces. Complete (cc-442dc5) on arXiv v1: every proof was checked, the checkpoint's thirteen findings were confirmed and six more recorded. The published text is unavailable (G1). Not formalised.",
   "conventions": {
     "parameters": "Unless an item gives different hypotheses, d,n are integers, 2≤d≤n; N=N(d,n)=binomial(n+d,d); all vector norms are Euclidean. V(A) is the projective coefficient family from family; local means at every place including infinity. Every asymptotic statement is for sufficiently large positive A/B and fixed d,n; implied constants depend on d,n unless explicitly stated otherwise.",
@@ -153,8 +162,8 @@
       "name": "Unweighted monomial evaluation vector",
       "statement": "For integers d,n≥1, nu_{d,n}:R^{n+1}→R^N lists every degree-d monomial once in lexicographic order, with no multinomial square-root weights. For a coefficient vector a, f_a(x)=<a,nu(x)>.",
       "locator": "arXiv v1, Def.2.1 p.4; Def.3.10 p.12",
-      "status": "missing",
-      "owner": "RP",
+      "status": "planned",
+      "owner": "ST5",
       "api": [
         "eval_pairing",
         "scale_degree",
@@ -165,7 +174,10 @@
         "d=2,n=1 gives (x0²,x0*x1,x1²)",
         "||nu(1,1)||²=3, not 4"
       ],
-      "note": "Statement and locator refer to the 2020 preprint; publication reconciliation remains open."
+      "note": "Statement and locator refer to the 2020 preprint; publication reconciliation remains open. FIX-RT-PAPER-BROWNING-LEBOUDEC-SAWIN-23 (RT/2): planned in the ArithmeticStatistics blueprint (BP-ArithmeticStatistics, 24 September 2026), node ArithmeticStatistics:ST.5/coefficient-vector-form, which takes this paper's §5 as a source through route 5. Removed from route 7, whose Part II imports it. These are plans in a partial packet, not formalised results.",
+      "planned": [
+        "ArithmeticStatistics:ST.5"
+      ]
     },
     {
       "id": "PAPER-BROWNING-LEBOUDEC-SAWIN-23/xi",
@@ -696,7 +708,7 @@
         "G(e0,e0+q*e1)=q",
         "dependence is outside this definition"
       ],
-      "note": "Paper-specialized statement; no declaration for the quantitative assertion was found at the pins."
+      "note": "Paper-specialized statement; no declaration for the quantitative assertion was found at the pins. FIX-RT-PAPER-BROWNING-LEBOUDEC-SAWIN-23 (RT/2): GN.0 is the proposed single owner of the general maximal-minor gcd and its saturation API. The ArithmeticStatistics blueprint's two-vector G(u, w) (ST.5/coefficient-vector-form) is its k = 2 case; the blueprint now requests it from GN.0 instead of defining a second one, and no GN.0 node exists yet."
     },
     {
       "id": "PAPER-BROWNING-LEBOUDEC-SAWIN-23/intersection-det",
@@ -772,9 +784,12 @@
       "name": "Veronese preserves the two-column gcd",
       "statement": "For d,n≥1 and independent primitive x,y∈Z^{n+1}, G(nu_{d,n}(x),nu_{d,n}(y))=G(x,y).",
       "locator": "arXiv v1, Lemma 3.11 p.12",
-      "status": "missing",
-      "owner": "RP",
-      "note": "Paper-specialized statement; no declaration for the quantitative assertion was found at the pins."
+      "status": "planned",
+      "owner": "ST5",
+      "note": "Paper-specialized statement; no declaration for the quantitative assertion was found at the pins. FIX-RT-PAPER-BROWNING-LEBOUDEC-SAWIN-23 (RT/2): planned in the ArithmeticStatistics blueprint (BP-ArithmeticStatistics, 24 September 2026), node ArithmeticStatistics:ST.5/veronese-minor-valuation, which takes this paper's §5 as a source through route 5. Removed from route 7, whose Part II imports it. These are plans in a partial packet, not formalised results. The node proves Lemma 3.11 prime power by prime power (capped valuations of the minors), which gives G(ν(x), ν(y)) = G(x, y).",
+      "planned": [
+        "ArithmeticStatistics:ST.5"
+      ]
     },
     {
       "id": "PAPER-BROWNING-LEBOUDEC-SAWIN-23/dr-single",
@@ -1497,8 +1512,8 @@
       "name": "Finite-modulus local density",
       "statement": "For a∈Z^N and Q≥1, sigma(a;Q)=Q^{−n}*#{b∈R_{n+1}(Q):f_a(b)=0 mod Q}. It depends only on a mod Q.",
       "locator": "arXiv v1, §5.1 p.50 (5.3)",
-      "status": "missing",
-      "owner": "RP",
+      "status": "planned",
+      "owner": "ST5",
       "api": [
         "sigma_nonneg",
         "sigma_congruence_invariant",
@@ -1508,7 +1523,10 @@
       "unitTests": [
         "normalization Q^n, not Q^{n+1}"
       ],
-      "note": "Named-source result/explicit proof construction. This item is not a claim of formalisation or completed prerequisite closure."
+      "note": "Named-source result/explicit proof construction. This item is not a claim of formalisation or completed prerequisite closure. FIX-RT-PAPER-BROWNING-LEBOUDEC-SAWIN-23 (RT/2): planned in the ArithmeticStatistics blueprint (BP-ArithmeticStatistics, 24 September 2026), node ArithmeticStatistics:ST.5/local-density-of-a-form-modulo-q, which takes this paper's §5 as a source through route 5. Removed from route 7, whose Part II imports it. These are plans in a partial packet, not formalised results. The node also carries the CRT multiplicativity (5.11).",
+      "planned": [
+        "ArithmeticStatistics:ST.5"
+      ]
     },
     {
       "id": "PAPER-BROWNING-LEBOUDEC-SAWIN-23/local-factors",
@@ -1845,7 +1863,7 @@
       "locator": "arXiv v1, §1 p.2 (1.2), input [18] Exemple 4",
       "status": "missing",
       "owner": "ST2",
-      "note": "Reported input, not independently source-closed."
+      "note": "Reported input, not independently source-closed. FIX-RT-PAPER-BROWNING-LEBOUDEC-SAWIN-23 (RT/3): treat the conic case separately. Serre's upper bound for coefficient boxes transfers to the Euclidean ordering by the containment B_6(A) ⊂ [−A, A]^6 together with comparable total counts (#V_{2,2}(A) ≍ A^6 in both shapes), so the local density is 0 for the Euclidean ordering too. Owner: ArithmeticStatistics ST.2 (route 4)."
     },
     {
       "id": "PAPER-BROWNING-LEBOUDEC-SAWIN-23/least-lower",
@@ -2017,7 +2035,7 @@
       "locator": "arXiv v1, §1 p.2 (1.3), as used; repair E19",
       "status": "missing",
       "owner": "ST2",
-      "note": "The paper cites Poonen–Voloch Theorem 3.6, which is for sup-norm boxes over all coefficient vectors. The same sieve over Euclidean balls, with PV Remark 2.1(2) for primitivity, gives this form (E19)."
+      "note": "Proof route (FIX-RT-PAPER-BROWNING-LEBOUDEC-SAWIN-23, RT/3), since no source proves the Euclidean form (E19): (i) Real factor: c_∞^{ball} is the normalised Lebesgue measure of the closed cone of real-soluble forms inside the Euclidean unit ball, not the box factor; the boundary of the real-soluble cone is null (reuse the discriminant-nullity input of null-singular, whose n ≥ 3 range must be extended or bypassed for the cases used). (ii) Finite places: for p large and f mod p absolutely irreducible, a uniform bound on the singular locus and the Lang–Weil estimate, uniform in the form (FiniteFieldsAndCharacterSums FF.2, uniform-lang-weil-estimate, which is planned there with upstream proof gaps that remain obligations), give a smooth F_p-point, and Hensel's lemma lifts it to a Q_p-point. (iii) The forms that are reducible over F̄_p form, outside finitely many primes, a closed subscheme of the coefficient space of codimension ≥ 2 when (d, n) ≠ (2, 2), by Poonen–Voloch's inequality (binom(n+r, n) − 1) + (binom(n+d−r, n) − 1) ≤ binom(n+d, n) − 1 − 2 for 0 < r < d, spread out over Z. (iv) ArithmeticStatistics:ST.2/quantitative-ekedahl-geometric-sieve on the Euclidean coefficient ball gives the uniform tail, O(1/(M log M) + 1/A) for codimension two, and with the equidistribution of congruence conditions and the nullity of the finite-place and real boundaries, the limit c_∞^{ball} ∏_p c_p, which is positive since each factor is. (v) Möbius inversion gives the restriction to primitive vectors, and the ± quotient is normalised as in the paper (PV Remark 2.1(2)). Owner: ArithmeticStatistics ST.2 (route 4); the blueprint's ST.2 coverage records this as remaining work with these suppliers."
     }
   ],
   "routes": [
@@ -2097,7 +2115,7 @@
         "PAPER-BROWNING-LEBOUDEC-SAWIN-23/conic-density",
         "PAPER-BROWNING-LEBOUDEC-SAWIN-23/pv-density-ball"
       ],
-      "reason": "The local-density product and its tail/shape transfer belong to the existing infinite-local-condition uniformity owner."
+      "reason": "The local-density product and its tail/shape transfer belong to the existing infinite-local-condition uniformity owner. FIX-RT-PAPER-BROWNING-LEBOUDEC-SAWIN-23 (RT/3): the ArithmeticStatistics blueprint (24 September 2026) has no ST.2 node for these three items; its ST.2 coverage now lists them as remaining, with the suppliers of pv-density-ball's proof route (the quantitative Ekedahl sieve ST.2/quantitative-ekedahl-geometric-sieve, uniform Lang–Weil at FF.2, Hensel lifting, the codimension-two reducible locus and the real-boundary nullity)."
     },
     {
       "route": "source",
@@ -2135,7 +2153,6 @@
       "items": [
         "PAPER-BROWNING-LEBOUDEC-SAWIN-23/height",
         "PAPER-BROWNING-LEBOUDEC-SAWIN-23/count",
-        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/veronese",
         "PAPER-BROWNING-LEBOUDEC-SAWIN-23/xi",
         "PAPER-BROWNING-LEBOUDEC-SAWIN-23/incidence",
         "PAPER-BROWNING-LEBOUDEC-SAWIN-23/alpha",
@@ -2152,7 +2169,6 @@
         "PAPER-BROWNING-LEBOUDEC-SAWIN-23/rare-small",
         "PAPER-BROWNING-LEBOUDEC-SAWIN-23/quantitative",
         "PAPER-BROWNING-LEBOUDEC-SAWIN-23/coefficient-map",
-        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/veronese-gcd",
         "PAPER-BROWNING-LEBOUDEC-SAWIN-23/dr-single",
         "PAPER-BROWNING-LEBOUDEC-SAWIN-23/dr-pair",
         "PAPER-BROWNING-LEBOUDEC-SAWIN-23/pair-lattice",
@@ -2189,7 +2205,6 @@
         "PAPER-BROWNING-LEBOUDEC-SAWIN-23/mixed-moment",
         "PAPER-BROWNING-LEBOUDEC-SAWIN-23/local-moment",
         "PAPER-BROWNING-LEBOUDEC-SAWIN-23/tau",
-        "PAPER-BROWNING-LEBOUDEC-SAWIN-23/sigma",
         "PAPER-BROWNING-LEBOUDEC-SAWIN-23/local-factors",
         "PAPER-BROWNING-LEBOUDEC-SAWIN-23/factor-comparison",
         "PAPER-BROWNING-LEBOUDEC-SAWIN-23/p-tail",
@@ -2209,7 +2224,7 @@
         "PAPER-BROWNING-LEBOUDEC-SAWIN-23/grid-zero-bound"
       ],
       "reason": "RP.0–RP.6 plan height/obstruction foundations, not density-one Hasse principles or the sharp typical least-point bound. This extends their direction. The separate SS23 random-fibration proposal uses prime-polynomial specialization, not these hypersurface incidence lattices; share ST/GN inputs but do not merge proof ownership by title alone.",
-      "brief": "Using the reconciled published Browning–Le Boudec–Sawin source, prove for integers d≥2,n≥d,(d,n)≠(3,3) that rho(A)→rho^loc, and for every positive psi with psi(u)/u→∞ that #{V∈V(A):M(V)≤psi(||a_V||)}/#V(A)→rho^loc. Keep Euclidean coefficient height, primitive ± representatives and anticanonical point height ||x||^(n+1−d) exactly. Derive the O((log A)^(-1/(48n))) exceptional density and Cor.1.2 positivity excluding only conics; the cubic-surface positivity input is separate and does not prove density one. Cover unweighted Veronese coordinates, exact/congruence incidence, minimal containing-lattice determinants, one- and two-point successive-minimum estimates, every quartic-threefold lemma, all three off-diagonal moments with their diagonal terms, the variance and tail reductions, finite-modulus p-adic factors and real gradient strata. Import Geometry of numbers, quadratic forms and homogeneous arithmetic (GeometryOfNumbersAndQuadraticArithmetic), GN.0/GN.1/GN.4; Arithmetic statistics, counting fields and Selmer distributions (ArithmeticStatistics), ST.0/ST.2/ST.5; Heights, rational points and obstructions (HeightsRationalPointsAndObstructions), RP.0/RP.2; and Global quadratic forms over number fields (tauceti:TauCetiRoadmap/GlobalQuadraticForms), Layer 5, rather than re-planning their carriers or Hasse–Minkowski. Read and close the listed original sources before scheduling proof execution. Resolve G1–G10, including the Euclidean local-density transfer and the thirteen preprint findings. Supply APIs and unit tests for every definition, exact coefficient/sign normalizations, an acyclic theorem dependency graph, suggested Lean files and upstream-density planets. Do not promote heuristics, infinite singular-factor convergence, cubic-surface density one, or incomplete source repairs to proved facts. Import the Broberg–Salberger uniform count on absolutely irreducible quartic threefolds and prove the ordered-box grid-zero bound (the repair of E5) for the quartic-threefold branch. Use the Euclidean-ball local-solubility density (pv-density-ball, ArithmeticStatistics:ST.2), not Poonen–Voloch's box version.",
+      "brief": "Using the reconciled published Browning–Le Boudec–Sawin source, prove for integers d≥2,n≥d,(d,n)≠(3,3) that rho(A)→rho^loc, and for every positive psi with psi(u)/u→∞ that #{V∈V(A):M(V)≤psi(||a_V||)}/#V(A)→rho^loc. Keep Euclidean coefficient height, primitive ± representatives and anticanonical point height ||x||^(n+1−d) exactly. Derive the O((log A)^(-1/(48n))) exceptional density and Cor.1.2 positivity excluding only conics; the cubic-surface positivity input is separate and does not prove density one. Cover exact/congruence incidence, minimal containing-lattice determinants, one- and two-point successive-minimum estimates, every quartic-threefold lemma, all three off-diagonal moments with their diagonal terms, the variance and tail reductions, the p-adic factors built on σ and real gradient strata. Import Geometry of numbers, quadratic forms and homogeneous arithmetic (GeometryOfNumbersAndQuadraticArithmetic), GN.0/GN.1/GN.4; Arithmetic statistics, counting fields and Selmer distributions (ArithmeticStatistics), ST.0/ST.2/ST.5; Heights, rational points and obstructions (HeightsRationalPointsAndObstructions), RP.0/RP.2; and Global quadratic forms over number fields (tauceti:TauCetiRoadmap/GlobalQuadraticForms), Layer 5, rather than re-planning their carriers or Hasse–Minkowski. Read and close the listed original sources before scheduling proof execution. Resolve G1–G10, including the Euclidean local-density transfer and the thirteen preprint findings. Supply APIs and unit tests for every definition, exact coefficient/sign normalizations, an acyclic theorem dependency graph, suggested Lean files and upstream-density planets. Do not promote heuristics, infinite singular-factor convergence, cubic-surface density one, or incomplete source repairs to proved facts. Import the Broberg–Salberger uniform count on absolutely irreducible quartic threefolds and prove the ordered-box grid-zero bound (the repair of E5) for the quartic-threefold branch. Use the Euclidean-ball local-solubility density (pv-density-ball, ArithmeticStatistics:ST.2), not Poonen–Voloch's box version. Shared carriers (FIX-RT-PAPER-BROWNING-LEBOUDEC-SAWIN-23): import σ(a;Q) with its multiplicativity (ArithmeticStatistics:ST.5/local-density-of-a-form-modulo-q), the coefficient-vector form f_a with the unweighted Veronese vector ν_{d,n} (ST.5/coefficient-vector-form) and Lemma 3.11 (ST.5/veronese-minor-valuation) from ArithmeticStatistics ST.5, and build on top of them S_V(B) = σ(a_V;W(B)) and the real factor. This restriction applies to these shared carriers only; the other results of this route, including the consumer-specific primitive-image and norm lemmas of the Veronese map, stay here. The general maximal-minor gcd G(c_1, …, c_k) is planned once, in GeometryOfNumbersAndQuadraticArithmetic GN.0 (item minor-gcd); ST.5's two-vector G(u, w) is its k = 2 case, requested from GN.0.",
       "suggestedLeanFile": "TauCeti/NumberTheory/RandomFano/HassePrinciple.lean"
     },
     {
