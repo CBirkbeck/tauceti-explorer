@@ -24841,3 +24841,455 @@ One complete native finite definition and twelve complete lemmas check both recu
 Exact finite controls cover36prime-power profiles22322residue squares1073natural values68406translated blocks68354admissible congruence pairs68406unit checks and24673buffered congruences. The unsigned formula fails533controls; the excluded modulo4 congruence fails52controls. Exact integer and finite-residue arithmetic; exhaustive self-inverse residues and translated blocks at all sampled prime powers. These finite checks do not prove the general congruence, continuity or any analytic formula. The largest observed discrepancy is 0.
 
 The capture changes only the source registry and generated errata register. Twenty-one Nelson–Venkatesh records were read in full: E1 strengthens the anisotropic binary self-twist obstruction to an actual counterexample and retains the subconvex upper bound; E3 adds the missing negative unitary interval; E15 corrects the ambient group; E16–33 correct operator topology, derivative scaling, semiclassical normalization, Taylor signs, localization, support/error terms, inclusion direction, conductor growth, elliptic control, quotient fibers, omitted basis elements, cutoffs, parametrix recursions, half-dimension, orbit-measure notation, Cauchy–Schwarz, and the Zhang citation. Every record remains awaiting review. These records provide no prerequisite for the Morita construction. Published-source checks in those records belong to their authors; this worker read the registry records and does not claim a fresh reading of Nelson–Venkatesh. The full suggested module remains NOT COMPILED because the pinned TwistedDivisorSum artifact is unavailable. The separate partial signature file keeps its exact predecessor omissions. The exact5214partialprefix plus twelve new signatures and eighteen tests compiles with zero errors and2314expected placeholder warnings against3582pinned modules; SHA256:acf32d8abda979b7908d2baf62fd06f003a7ad47e39ea05361e8c16998523857. It retains the documented4777–4791omissions and is not the full module. Publication refresh: twenty-five Ghosh–Sarnak-related registry records were read, with twenty earlier records now confirmed and E21–24 plus ClassicalArithmeticCompletion/E507 still awaiting review. They concern Markoff counts, corrected Hensel points, Vieta/orbit calculations, congruence restrictions, local densities, exceptional-orbit comparison and references. The confirmed local-density formula retains the χ(−1) factor for every prime congruent to3 modulo4. These records supply no Morita prerequisite; their reported source checks are attributed to their authors, not a fresh published-paper reading here. All70other captured files, the16Dirichlet findings and allfour predecessor outputs are unchanged.
+
+
+## Continuous unit-valued Morita Gamma
+
+Fifteen L3 nodes construct Morita Gamma as a native continuous map ℤ_p→ℤ_pˣ for every prime, from the existing signed natural congruences. They specify canonical approximants, the Cauchy step, exact reductions, natural values, continuity, norm1, the unit lift, uniqueness and both functional equations. All757predecessor nodes and639baseline records remain whole.
+
+Morita1975§1 published255–256/PDF1–2 was read completely as images in this uninterrupted continuation, including Theorem1 and its following recurrence. The present construction supplies the native completion details of that proof. Gross–Koblitz published569–571/PDF2–4 were read for the signed convention and odd-prime scope; its proof and Morita§2–3 remain unread. The reviewed AUDIT-24 L3 audit and both Gamma-related consumer nodes read before this checkpoint are unchanged. Full statements and ambient hypotheses of all fourteen added native declarations were read; the native unit-lift API was found and reused instead of planning a generic construction.
+
+### Canonical approximants for Morita Gamma
+
+`DirichletPadicLFunctions:L3/morita-gamma-approximants` — `DirichletPadic.moritaGammaApprox`
+
+Define a_n(x) as the native least residue of x modulo p^(n+3), regarded as a natural integer.
+
+**Hypotheses:** p is any prime, including2. G_p(n) is the already planned signed finite integer product moritaNatGamma. For x∈ℤ_p put a_n(x)=val(toZModPow(n+3)(x)), a natural integer. Its image is congruent to x modulo p^(n+3). Write f_x(n)=G_p(a_n(x)). The step-divisibility theorem supplies the exact native Cauchy certificate. V_p(x) is PadicInt.ofIntSeq applied to f_x, and Γ_p is its lift as a native continuous map ℤ_p→ℤ_pˣ. Native reductions, norm and unit group are used throughout. This is Morita’s continuous Gamma function, not the classical complex Gamma function, not a ring homomorphism and not a globally analytic function on the closed p-adic unit disc. No logarithm branch or Gauss-sum normalization is part of the construction.
+
+**Proof:**
+
+1. Compose the existing PadicInt.toZModPow ring homomorphism at exponent n+3 with native ZMod.val. The modulus is positive because p is prime; no choice of representatives or new quotient ring is introduced.
+2. The three-digit precision buffer ensures every congruence exponent used in the construction is at least3, avoiding the dyadic exponent2 failure. This is a sufficient uniform modulus, not a sharp estimate.
+3. The approximation of0 is0. Atp=3,n=0 the modulus is27, so10 remains10 and27 becomes0. These tests distinguish the actual n+3 convention from a tempting unbuffered representative.
+
+**Prerequisites:** `mathlib:PadicInt.toZModPow`, `mathlib:ZMod.val`.
+
+**Uses:**
+
+- Morita Theorem1, continuous extension: Provides a canonical sequence of natural arguments approaching each p-adic integer.
+- The exact Gamma reduction API: Makes each finite residue of Gamma computable from one finite natural product.
+
+**API:**
+
+- `DirichletPadic.moritaGammaApprox_def` (constructor): The exact native residue formula.
+- `DirichletPadic.moritaGammaApprox_zero` (simp): The representative of0 is0.
+- `DirichletPadic.moritaGammaApprox_nat` (compatibility): For natural k, a_n(k)≡k modulo p^(n+3); promoted below.
+- `DirichletPadic.moritaGammaApprox_compat` (compatibility): For i≤j, a_i(x)≡a_j(x) modulo p^(i+3); promoted below.
+
+**Tests:**
+
+- `SuggestedMoritaContinuousTests.approx_zero` (degenerate): a_n(0)=0.
+- `SuggestedMoritaContinuousTests.approx_buffer` (computation): Atp=3,n=0, a_0(10)=10.
+- `SuggestedMoritaContinuousTests.approx_wrap` (non-example): Atp=3,n=0, a_0(27)=0.
+
+**Acceptance:** The definition returns a natural representative, not a p-adic approximation object with a new carrier.
+
+**Source:** Section1, published255–256/PDF1–2, Theorem1 and the recurrence immediately after it. Both complete page images read on30September2026; the preceding checkpoint decomposes the finite congruence proof. The source extends the signed values(−1)^nΓ_p(n), where its finite Γ_p is unsigned. These nodes give an explicit native Cauchy construction, its unit-valued lift, continuity/uniqueness and both functional branches. The residue precision n+3 is a worker-chosen sufficient buffer avoiding the source’s p=2,exponent2 exception. No analyticity or Gauss-sum identity is inferred.
+
+### Gamma approximants at natural arguments
+
+`DirichletPadicLFunctions:L3/morita-gamma-approximants-natural` — `DirichletPadic.moritaGammaApprox_nat`
+
+For every natural k, a_n(k)≡k modulo p^(n+3).
+
+**Hypotheses:** p is any prime, including2. G_p(n) is the already planned signed finite integer product moritaNatGamma. For x∈ℤ_p put a_n(x)=val(toZModPow(n+3)(x)), a natural integer. Its image is congruent to x modulo p^(n+3). Write f_x(n)=G_p(a_n(x)). The step-divisibility theorem supplies the exact native Cauchy certificate. V_p(x) is PadicInt.ofIntSeq applied to f_x, and Γ_p is its lift as a native continuous map ℤ_p→ℤ_pˣ. Native reductions, norm and unit group are used throughout. This is Morita’s continuous Gamma function, not the classical complex Gamma function, not a ring homomorphism and not a globally analytic function on the closed p-adic unit disc. No logarithm branch or Gauss-sum normalization is part of the construction.
+
+**Proof:**
+
+1. Unfold the representative and reduce its natural cast back to the same ZMod ring. Native natCast_val identifies that cast with the native ZMod cast.
+2. The reduction ring homomorphism preserves natural casts. Native natCast_eq_natCast_iff turns the resulting equality into the exact Nat.ModEq statement. The complete residue_nat probe checks these coercions.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/morita-gamma-approximants`, `mathlib:ZMod.natCast_val`, `mathlib:ZMod.natCast_eq_natCast_iff`.
+
+**Tests:**
+
+
+
+**Acceptance:** The statement includes k greater than the modulus; it asserts congruence, not equality of natural representatives.
+
+**Source:** Section1, published255–256/PDF1–2, Theorem1 and the recurrence immediately after it. Both complete page images read on30September2026; the preceding checkpoint decomposes the finite congruence proof. The source extends the signed values(−1)^nΓ_p(n), where its finite Γ_p is unsigned. These nodes give an explicit native Cauchy construction, its unit-valued lift, continuity/uniqueness and both functional branches. The residue precision n+3 is a worker-chosen sufficient buffer avoiding the source’s p=2,exponent2 exception. No analyticity or Gauss-sum identity is inferred.
+
+### Compatibility of the Gamma approximants
+
+`DirichletPadicLFunctions:L3/morita-gamma-approximants-compatible` — `DirichletPadic.moritaGammaApprox_compat`
+
+If i≤j, then a_i(x)≡a_j(x) modulo p^(i+3).
+
+**Hypotheses:** p is any prime, including2. G_p(n) is the already planned signed finite integer product moritaNatGamma. For x∈ℤ_p put a_n(x)=val(toZModPow(n+3)(x)), a natural integer. Its image is congruent to x modulo p^(n+3). Write f_x(n)=G_p(a_n(x)). The step-divisibility theorem supplies the exact native Cauchy certificate. V_p(x) is PadicInt.ofIntSeq applied to f_x, and Γ_p is its lift as a native continuous map ℤ_p→ℤ_pˣ. Native reductions, norm and unit group are used throughout. This is Morita’s continuous Gamma function, not the classical complex Gamma function, not a ring homomorphism and not a globally analytic function on the closed p-adic unit disc. No logarithm branch or Gauss-sum normalization is part of the construction.
+
+**Proof:**
+
+1. The native cast_toZModPow theorem identifies reduction of x at exponent j+3 followed by reduction to i+3 with the direct reduction at i+3.
+2. Native natCast_val and cast_id identify the casts of the chosen natural representatives with those reductions. Convert equality to Nat.ModEq. This is exactly the complete residue_compat probe.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/morita-gamma-approximants`, `mathlib:PadicInt.cast_toZModPow`, `mathlib:ZMod.natCast_val`, `mathlib:ZMod.natCast_eq_natCast_iff`.
+
+**Tests:**
+
+
+
+**Acceptance:** Compatibility uses i≤j explicitly, and includes i=j.
+
+**Source:** Section1, published255–256/PDF1–2, Theorem1 and the recurrence immediately after it. Both complete page images read on30September2026; the preceding checkpoint decomposes the finite congruence proof. The source extends the signed values(−1)^nΓ_p(n), where its finite Γ_p is unsigned. These nodes give an explicit native Cauchy construction, its unit-valued lift, continuity/uniqueness and both functional branches. The residue precision n+3 is a worker-chosen sufficient buffer avoiding the source’s p=2,exponent2 exception. No analyticity or Gauss-sum identity is inferred.
+
+### The integer Cauchy step for Gamma
+
+`DirichletPadicLFunctions:L3/morita-gamma-cauchy-step` — `DirichletPadic.moritaGammaApprox_step`
+
+For every x and n≥0, p^n divides the integer f_x(n+1)−f_x(n).
+
+**Hypotheses:** p is any prime, including2. G_p(n) is the already planned signed finite integer product moritaNatGamma. For x∈ℤ_p put a_n(x)=val(toZModPow(n+3)(x)), a natural integer. Its image is congruent to x modulo p^(n+3). Write f_x(n)=G_p(a_n(x)). The step-divisibility theorem supplies the exact native Cauchy certificate. V_p(x) is PadicInt.ofIntSeq applied to f_x, and Γ_p is its lift as a native continuous map ℤ_p→ℤ_pˣ. Native reductions, norm and unit group are used throughout. This is Morita’s continuous Gamma function, not the classical complex Gamma function, not a ring homomorphism and not a globally analytic function on the closed p-adic unit disc. No logarithm branch or Gauss-sum normalization is part of the construction.
+
+**Proof:**
+
+1. Apply the preceding compatibility theorem with i=n,j=n+1. Its natural arguments agree modulo p^(n+3).
+2. Apply the existing morita-natural-congruence theorem at exponent n+3. This exponent is positive and different from2 at every prime. The resulting Gamma values agree in ZMod(p^(n+3)).
+3. Native intCast_eq_intCast_iff_dvd_sub gives divisibility of f_x(n+1)−f_x(n) byp^(n+3). Weaken along p^n dividing p^(n+3). The complete step probe proves this for an arbitrary sequence of natural values satisfying precisely the imported congruence.
+4. The native isCauSeq_padicNorm_of_pow_dvd_sub theorem now supplies a rational p-adic Cauchy certificate for the integer sequence. A separate generic Cauchy-completion theory is not planned.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/morita-gamma-approximants-compatible`, `DirichletPadicLFunctions:L3/morita-natural-congruence`, `mathlib:ZMod.intCast_eq_intCast_iff_dvd_sub`, `mathlib:PadicInt.isCauSeq_padicNorm_of_pow_dvd_sub`.
+
+**Tests:**
+
+- `SuggestedMoritaContinuousTests.step_zero_precision` (degenerate): The n=0 step is divisible by1.
+- `SuggestedMoritaContinuousTests.step_dyadic` (compatibility): Atp=2,n=2 the difference of the third and second approximant values is divisible by4.
+
+**Acceptance:** The predecessor finite congruence is an explicit input, not a result proved again by the completion probe.
+
+**Source:** Section1, published255–256/PDF1–2, Theorem1 and the recurrence immediately after it. Both complete page images read on30September2026; the preceding checkpoint decomposes the finite congruence proof. The source extends the signed values(−1)^nΓ_p(n), where its finite Γ_p is unsigned. These nodes give an explicit native Cauchy construction, its unit-valued lift, continuity/uniqueness and both functional branches. The residue precision n+3 is a worker-chosen sufficient buffer avoiding the source’s p=2,exponent2 exception. No analyticity or Gauss-sum identity is inferred.
+
+### The p-adic value of Morita Gamma
+
+`DirichletPadicLFunctions:L3/morita-gamma-value` — `DirichletPadic.moritaGammaValue`
+
+Define V_p(x)=PadicInt.ofIntSeq(f_x), using the Cauchy certificate supplied by the preceding integer-step theorem.
+
+**Hypotheses:** p is any prime, including2. G_p(n) is the already planned signed finite integer product moritaNatGamma. For x∈ℤ_p put a_n(x)=val(toZModPow(n+3)(x)), a natural integer. Its image is congruent to x modulo p^(n+3). Write f_x(n)=G_p(a_n(x)). The step-divisibility theorem supplies the exact native Cauchy certificate. V_p(x) is PadicInt.ofIntSeq applied to f_x, and Γ_p is its lift as a native continuous map ℤ_p→ℤ_pˣ. Native reductions, norm and unit group are used throughout. This is Morita’s continuous Gamma function, not the classical complex Gamma function, not a ring homomorphism and not a globally analytic function on the closed p-adic unit disc. No logarithm branch or Gauss-sum normalization is part of the construction.
+
+**Proof:**
+
+1. Use the existing native sequence f_x(n)=G_p(a_n(x)) and the exact native Cauchy certificate. PadicInt.ofIntSeq returns an element of the existing complete ring ℤ_p.
+2. The construction depends only on x andp; all proof arguments are certificates of the displayed sequence, not extra choices of values. The following reduction theorem identifies every residue and therefore determines the result uniquely.
+3. Do not use PadicInt.lift: that API assembles compatible ring homomorphisms. Morita Gamma is not additive or multiplicative. The appropriate existing interface is completion of a Cauchy integer sequence.
+4. The natural-value and continuity API items are promoted below. They will supply the intrinsic continuous characterization, which makes the arbitrary sufficient precision buffer irrelevant to the resulting function.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/morita-gamma-approximants`, `DirichletPadicLFunctions:L3/morita-gamma-cauchy-step`, `DirichletPadicLFunctions:L3/morita-natural-values`, `mathlib:PadicInt.ofIntSeq`, `mathlib:PadicInt.isCauSeq_padicNorm_of_pow_dvd_sub`.
+
+**Uses:**
+
+- Morita Theorem1: Implements the continuous extension using existing p-adic completion.
+- The Gamma unit-valued constructor: Supplies a continuous scalar function whose norm is1 everywhere.
+- Finite precision Gamma evaluation: Its nth reduction is an explicit finite natural product.
+
+**API:**
+
+- `DirichletPadic.moritaGammaValue_def` (constructor): The exact PadicInt.ofIntSeq expression.
+- `DirichletPadic.moritaGammaValue_reduction` (data): Modulo p^n it equals G_p(a_n(x)); promoted below.
+- `DirichletPadic.moritaGammaValue_nat` (simp): V_p(n)=G_p(n) for every natural n; promoted below.
+- `DirichletPadic.moritaGammaValue_residue` (compatibility): Equal inputs modulo p^(n+3) give equal values modulo p^n; promoted below.
+- `DirichletPadic.moritaGammaValue_continuous` (structure): The scalar function is continuous; promoted below.
+- `DirichletPadic.moritaGammaValue_norm` (structure): Every scalar value has norm1; promoted below.
+- `DirichletPadic.moritaGammaValue_isUnit` (structure): Every value is a native ℤ_p unit, by norm1.
+
+**Tests:**
+
+- `SuggestedMoritaContinuousTests.raw_zero` (degenerate): V_p(0)=1.
+- `SuggestedMoritaContinuousTests.raw_first` (computation): V_p(1)=−1.
+- `SuggestedMoritaContinuousTests.raw_modulus_four_failure` (non-example): V_2(1) and V_2(5) have different reductions modulo4.
+
+**Acceptance:** This constructs a value in native ℤ_p; the unit-valued continuous map is a separate native lift below.
+
+**Source:** Section1, published255–256/PDF1–2, Theorem1 and the recurrence immediately after it. Both complete page images read on30September2026; the preceding checkpoint decomposes the finite congruence proof. The source extends the signed values(−1)^nΓ_p(n), where its finite Γ_p is unsigned. These nodes give an explicit native Cauchy construction, its unit-valued lift, continuity/uniqueness and both functional branches. The residue precision n+3 is a worker-chosen sufficient buffer avoiding the source’s p=2,exponent2 exception. No analyticity or Gauss-sum identity is inferred.
+
+### Finite reductions of the Gamma value
+
+`DirichletPadicLFunctions:L3/morita-gamma-value-reduction` — `DirichletPadic.moritaGammaValue_reduction`
+
+For every n≥0, toZModPow(n)(V_p(x)) is the reduction of G_p(a_n(x)) modulo p^n.
+
+**Hypotheses:** p is any prime, including2. G_p(n) is the already planned signed finite integer product moritaNatGamma. For x∈ℤ_p put a_n(x)=val(toZModPow(n+3)(x)), a natural integer. Its image is congruent to x modulo p^(n+3). Write f_x(n)=G_p(a_n(x)). The step-divisibility theorem supplies the exact native Cauchy certificate. V_p(x) is PadicInt.ofIntSeq applied to f_x, and Γ_p is its lift as a native continuous map ℤ_p→ℤ_pˣ. Native reductions, norm and unit group are used throughout. This is Morita’s continuous Gamma function, not the classical complex Gamma function, not a ring homomorphism and not a globally analytic function on the closed p-adic unit disc. No logarithm branch or Gauss-sum normalization is part of the construction.
+
+**Proof:**
+
+1. Unfold the preceding native Cauchy construction. The integer step certificate has exactly the hypothesis expected by toZModPow_ofIntSeq_of_pow_dvd_sub.
+2. Apply that baseline theorem to f_x. It identifies the limit’s nth reduction with its nth sequence term; no additional convergence estimate or new inverse-limit object is used.
+3. At n=0 the target is ZMod1 and both sides are0. At positive n the displayed residue is the basis of every comparison that follows. The complete reduction probe uses the exact native theorem.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/morita-gamma-value`, `DirichletPadicLFunctions:L3/morita-gamma-cauchy-step`, `mathlib:PadicInt.toZModPow_ofIntSeq_of_pow_dvd_sub`.
+
+**Tests:**
+
+- `SuggestedMoritaContinuousTests.reduction_degree_zero` (degenerate): The reduction at exponent0 is0 in ZMod1.
+- `SuggestedMoritaContinuousTests.reduction_dyadic` (compatibility): Modulo4, V_2(x) is the finite product evaluated at the representative of x modulo32.
+
+**Acceptance:** The input representative uses n+3 even though the output reduction uses n.
+
+**Source:** Section1, published255–256/PDF1–2, Theorem1 and the recurrence immediately after it. Both complete page images read on30September2026; the preceding checkpoint decomposes the finite congruence proof. The source extends the signed values(−1)^nΓ_p(n), where its finite Γ_p is unsigned. These nodes give an explicit native Cauchy construction, its unit-valued lift, continuity/uniqueness and both functional branches. The residue precision n+3 is a worker-chosen sufficient buffer avoiding the source’s p=2,exponent2 exception. No analyticity or Gauss-sum identity is inferred.
+
+### Gamma extends its signed natural values
+
+`DirichletPadicLFunctions:L3/morita-gamma-value-natural` — `DirichletPadic.moritaGammaValue_nat`
+
+For every natural k, V_p(k)=G_p(k) in ℤ_p.
+
+**Hypotheses:** p is any prime, including2. G_p(n) is the already planned signed finite integer product moritaNatGamma. For x∈ℤ_p put a_n(x)=val(toZModPow(n+3)(x)), a natural integer. Its image is congruent to x modulo p^(n+3). Write f_x(n)=G_p(a_n(x)). The step-divisibility theorem supplies the exact native Cauchy certificate. V_p(x) is PadicInt.ofIntSeq applied to f_x, and Γ_p is its lift as a native continuous map ℤ_p→ℤ_pˣ. Native reductions, norm and unit group are used throughout. This is Morita’s continuous Gamma function, not the classical complex Gamma function, not a ring homomorphism and not a globally analytic function on the closed p-adic unit disc. No logarithm branch or Gauss-sum normalization is part of the construction.
+
+**Proof:**
+
+1. Use native ext_of_toZModPow; it suffices to compare reductions at every exponent n.
+2. The preceding reduction node gives the reduction of G_p(a_n(k)). The approximant-natural node says a_n(k)≡k modulo p^(n+3). Apply the existing finite Gamma congruence at that exponent.
+3. Apply the native castHom from ZMod(p^(n+3)) to ZMod(p^n), using p^n dividing p^(n+3). Ring-hom preservation of integer casts gives equality with the reduction of G_p(k).
+4. This proves the claim at all natural k, including0. The complete natural probe checks both the large-to-small reduction and the exact native extensionality interface.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/morita-gamma-value-reduction`, `DirichletPadicLFunctions:L3/morita-gamma-approximants-natural`, `DirichletPadicLFunctions:L3/morita-natural-congruence`, `mathlib:PadicInt.ext_of_toZModPow`, `mathlib:ZMod.castHom`.
+
+**Tests:**
+
+- `SuggestedMoritaContinuousTests.natural_deleted_factor` (computation): V_3(4)=2.
+- `SuggestedMoritaContinuousTests.natural_signed_value` (computation): V_3(5)=−8.
+
+**Acceptance:** The sign and deleted multiples ofp survive completion unchanged.
+
+**Source:** Section1, published255–256/PDF1–2, Theorem1 and the recurrence immediately after it. Both complete page images read on30September2026; the preceding checkpoint decomposes the finite congruence proof. The source extends the signed values(−1)^nΓ_p(n), where its finite Γ_p is unsigned. These nodes give an explicit native Cauchy construction, its unit-valued lift, continuity/uniqueness and both functional branches. The residue precision n+3 is a worker-chosen sufficient buffer avoiding the source’s p=2,exponent2 exception. No analyticity or Gauss-sum identity is inferred.
+
+### A finite modulus for the Gamma value
+
+`DirichletPadicLFunctions:L3/morita-gamma-value-residue` — `DirichletPadic.moritaGammaValue_residue`
+
+If x and y have the same reduction modulo p^(n+3), then V_p(x) and V_p(y) have the same reduction modulo p^n.
+
+**Hypotheses:** p is any prime, including2. G_p(n) is the already planned signed finite integer product moritaNatGamma. For x∈ℤ_p put a_n(x)=val(toZModPow(n+3)(x)), a natural integer. Its image is congruent to x modulo p^(n+3). Write f_x(n)=G_p(a_n(x)). The step-divisibility theorem supplies the exact native Cauchy certificate. V_p(x) is PadicInt.ofIntSeq applied to f_x, and Γ_p is its lift as a native continuous map ℤ_p→ℤ_pˣ. Native reductions, norm and unit group are used throughout. This is Morita’s continuous Gamma function, not the classical complex Gamma function, not a ring homomorphism and not a globally analytic function on the closed p-adic unit disc. No logarithm branch or Gauss-sum normalization is part of the construction.
+
+**Proof:**
+
+1. Equality of the input reductions makes their chosen least natural representatives a_n(x) and a_n(y) exactly equal, not merely congruent.
+2. Apply the Gamma reduction node to both values. The two right-hand finite products are then identical. This is the complete residue_local probe.
+3. The assertion includes n=0 andp=2. In the zero input residue class the output reduction equals the reduction of V_p(0)=1.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/morita-gamma-approximants`, `DirichletPadicLFunctions:L3/morita-gamma-value-reduction`.
+
+**Tests:**
+
+- `SuggestedMoritaContinuousTests.residue_dyadic_buffer` (compatibility): Equal arguments modulo32 give equal Gamma values modulo4.
+- `SuggestedMoritaContinuousTests.residue_zero_fiber` (computation): An argument reducing to0 modulo p^(n+3) has Gamma value1 modulo p^n.
+
+**Acceptance:** A same-exponent all-prime congruence is not substituted for the explicit buffer.
+
+**Source:** Section1, published255–256/PDF1–2, Theorem1 and the recurrence immediately after it. Both complete page images read on30September2026; the preceding checkpoint decomposes the finite congruence proof. The source extends the signed values(−1)^nΓ_p(n), where its finite Γ_p is unsigned. These nodes give an explicit native Cauchy construction, its unit-valued lift, continuity/uniqueness and both functional branches. The residue precision n+3 is a worker-chosen sufficient buffer avoiding the source’s p=2,exponent2 exception. No analyticity or Gauss-sum identity is inferred.
+
+### Continuity of the Gamma value
+
+`DirichletPadicLFunctions:L3/morita-gamma-value-continuous` — `DirichletPadic.moritaGammaValue_continuous`
+
+V_p:ℤ_p→ℤ_p is continuous for every primep.
+
+**Hypotheses:** p is any prime, including2. G_p(n) is the already planned signed finite integer product moritaNatGamma. For x∈ℤ_p put a_n(x)=val(toZModPow(n+3)(x)), a natural integer. Its image is congruent to x modulo p^(n+3). Write f_x(n)=G_p(a_n(x)). The step-divisibility theorem supplies the exact native Cauchy certificate. V_p(x) is PadicInt.ofIntSeq applied to f_x, and Γ_p is its lift as a native continuous map ℤ_p→ℤ_pˣ. Native reductions, norm and unit group are used throughout. This is Morita’s continuous Gamma function, not the classical complex Gamma function, not a ring homomorphism and not a globally analytic function on the closed p-adic unit disc. No logarithm branch or Gauss-sum normalization is part of the construction.
+
+**Proof:**
+
+1. For native p-adic integers u,v, use ker_toZModPow and norm_le_pow_iff_mem_span_pow to identify equality of reductions modulo p^n with the inequality ‖u−v‖≤p^(−n). This is a routine application of two existing native APIs, checked by the reduce_eq_iff probe.
+2. Given ε>0, native exists_pow_neg_lt supplies n withp^(−n)<ε. Choose δ=p^(−(n+3)), which is positive.
+3. If ‖x−y‖<δ, the input reductions agree at exponent n+3. The previous residue node makes the output reductions agree at exponent n, so ‖V_p(x)−V_p(y)‖≤p^(−n)<ε.
+4. Apply native Metric.continuous_iff. The complete continuity probe verifies this exact epsilon-delta argument. Atp=2 the values at1 and5 disprove a1-Lipschitz strengthening.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/morita-gamma-value-residue`, `mathlib:PadicInt.ker_toZModPow`, `mathlib:PadicInt.norm_le_pow_iff_mem_span_pow`, `mathlib:PadicInt.exists_pow_neg_lt`, `mathlib:Metric.continuous_iff`.
+
+**Tests:**
+
+- `SuggestedMoritaContinuousTests.continuous_dyadic` (compatibility): V_2 is continuous.
+- `SuggestedMoritaContinuousTests.not_one_lipschitz` (non-example): The distance between V_2(1) and V_2(5) is greater than the distance between1 and5 inℤ_2.
+
+**Acceptance:** Continuity does not assert analyticity or a sharp Lipschitz constant.
+
+**Source:** Section1, published255–256/PDF1–2, Theorem1 and the recurrence immediately after it. Both complete page images read on30September2026; the preceding checkpoint decomposes the finite congruence proof. The source extends the signed values(−1)^nΓ_p(n), where its finite Γ_p is unsigned. These nodes give an explicit native Cauchy construction, its unit-valued lift, continuity/uniqueness and both functional branches. The residue precision n+3 is a worker-chosen sufficient buffer avoiding the source’s p=2,exponent2 exception. No analyticity or Gauss-sum identity is inferred.
+
+### The Gamma value has norm one
+
+`DirichletPadicLFunctions:L3/morita-gamma-value-unit-norm` — `DirichletPadic.moritaGammaValue_norm`
+
+For every x∈ℤ_p, ‖V_p(x)‖=1.
+
+**Hypotheses:** p is any prime, including2. G_p(n) is the already planned signed finite integer product moritaNatGamma. For x∈ℤ_p put a_n(x)=val(toZModPow(n+3)(x)), a natural integer. Its image is congruent to x modulo p^(n+3). Write f_x(n)=G_p(a_n(x)). The step-divisibility theorem supplies the exact native Cauchy certificate. V_p(x) is PadicInt.ofIntSeq applied to f_x, and Γ_p is its lift as a native continuous map ℤ_p→ℤ_pˣ. Native reductions, norm and unit group are used throughout. This is Morita’s continuous Gamma function, not the classical complex Gamma function, not a ring homomorphism and not a globally analytic function on the closed p-adic unit disc. No logarithm branch or Gauss-sum normalization is part of the construction.
+
+**Proof:**
+
+1. The set of x with‖V_p(x)‖=1 is closed, by continuity of V_p and of the norm.
+2. At every natural argument the Gamma-value-natural node identifies V_p with G_p, whose norm is1 by the predecessor morita-natural-unit-norm node.
+3. Apply native denseRange_natCast and DenseRange.induction_on to this closed property. The complete norm_one probe checks the entire argument.
+4. Native PadicInt.isUnit_iff gives the API unit certificate at each x. Merely knowing norm at most1 would not suffice to construct the following unit-valued map.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/morita-gamma-value-natural`, `DirichletPadicLFunctions:L3/morita-gamma-value-continuous`, `DirichletPadicLFunctions:L3/morita-natural-unit-norm`, `mathlib:PadicInt.denseRange_natCast`, `mathlib:DenseRange.induction_on`, `mathlib:PadicInt.isUnit_iff`.
+
+**Tests:**
+
+- `SuggestedMoritaContinuousTests.norm_unit` (characterisation): Every V_p(x) is a native unit.
+- `SuggestedMoritaContinuousTests.norm_nonunit_argument` (computation): V_2(2) has norm1 although its argument is not a unit.
+
+**Acceptance:** The unit property concerns the output for every input, including0 andpℤ_p.
+
+**Source:** Section1, published255–256/PDF1–2, Theorem1 and the recurrence immediately after it. Both complete page images read on30September2026; the preceding checkpoint decomposes the finite congruence proof. The source extends the signed values(−1)^nΓ_p(n), where its finite Γ_p is unsigned. These nodes give an explicit native Cauchy construction, its unit-valued lift, continuity/uniqueness and both functional branches. The residue precision n+3 is a worker-chosen sufficient buffer avoiding the source’s p=2,exponent2 exception. No analyticity or Gauss-sum identity is inferred.
+
+### Morita’s continuous p-adic Gamma function
+
+`DirichletPadicLFunctions:L3/morita-gamma` — `DirichletPadic.moritaGamma`
+
+Define Γ_p as the native continuous map ℤ_p→ℤ_pˣ obtained by lifting the continuous function V_p through ContinuousMap.unitsOfForallIsUnit.
+
+**Hypotheses:** p is any prime, including2. G_p(n) is the already planned signed finite integer product moritaNatGamma. For x∈ℤ_p put a_n(x)=val(toZModPow(n+3)(x)), a natural integer. Its image is congruent to x modulo p^(n+3). Write f_x(n)=G_p(a_n(x)). The step-divisibility theorem supplies the exact native Cauchy certificate. V_p(x) is PadicInt.ofIntSeq applied to f_x, and Γ_p is its lift as a native continuous map ℤ_p→ℤ_pˣ. Native reductions, norm and unit group are used throughout. This is Morita’s continuous Gamma function, not the classical complex Gamma function, not a ring homomorphism and not a globally analytic function on the closed p-adic unit disc. No logarithm branch or Gauss-sum normalization is part of the construction.
+
+**Proof:**
+
+1. Bundle V_p with its proved continuity as an element of C(ℤ_p,ℤ_p). The preceding norm-one theorem and native unit criterion certify each value is a unit.
+2. Apply native ContinuousMap.unitsOfForallIsUnit. Its hypotheses are a complete normed coefficient ring, already satisfied by native ℤ_p. This supplies continuity into the actual topological unit group, including inverse coordinates.
+3. No independent unit topology or generic lifting construction is planned. The complete unitMap definition and unitMap_value lemma check the native constructor and its scalar projection.
+4. The API below specifies the natural values, normalization, uniqueness and both functional equations. Those used as prerequisites are promoted to nodes; the branch simplifications are direct API corollaries of the combined recurrence.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/morita-gamma-value-continuous`, `DirichletPadicLFunctions:L3/morita-gamma-value-unit-norm`, `mathlib:ContinuousMap.unitsOfForallIsUnit`, `mathlib:PadicInt.isUnit_iff`.
+
+**Uses:**
+
+- Gross–Koblitz1979 equation1.6 and Theorem1.7: Supplies the exact continuous signed Gamma convention. Its odd-prime Gauss-sum theorem and proof remain open.
+- The routed Ferrero–Greenberg formula: Supplies unit-valued Gamma arguments for log_pΓ_p(a/N) when p does not divideN; the analytic derivative formula remains open.
+- EulerSystemsCyclotomicMainConjecture:L4/greither-gauss-sum-vectors: Supplies Gamma atp=2; this does not supply the still-missing dyadic Gross–Koblitz/Ferrero–Greenberg proof.
+
+**API:**
+
+- `DirichletPadic.moritaGamma_def` (constructor): The exact native continuous unit lift.
+- `DirichletPadic.moritaGamma_val` (projection): The scalar projection isV_p; promoted below.
+- `DirichletPadic.moritaGamma_nat` (simp): The scalar value at every natural n isG_p(n); promoted below.
+- `DirichletPadic.moritaGamma_zero` (simp): Γ_p(0)=1.
+- `DirichletPadic.moritaGamma_one` (simp): The scalar valueΓ_p(1)=−1.
+- `DirichletPadic.moritaGamma_unique` (universal-property): It is the unique continuous unit-valued map with these natural values; promoted below.
+- `DirichletPadic.moritaGamma_add_one` (relation): The combined unit/nonunit recurrence; promoted below.
+- `DirichletPadic.moritaGamma_add_one_unit` (relation): If x is a unit, Γ_p(x+1)=−xΓ_p(x) after scalar projection.
+- `DirichletPadic.moritaGamma_add_one_nonunit` (relation): If x is not a unit, Γ_p(x+1)=−Γ_p(x) after scalar projection.
+
+**Tests:**
+
+- `SuggestedMoritaContinuousTests.gamma_zero` (degenerate): Γ_p(0)=1 as a unit.
+- `SuggestedMoritaContinuousTests.gamma_one` (computation): The scalar value of Γ_p(1) is−1.
+- `SuggestedMoritaContinuousTests.gamma_native_unit` (compatibility): The scalar projection of Γ_p(x) is a unit in nativeℤ_p.
+- `SuggestedMoritaContinuousTests.gamma_not_additive` (non-example): Atp=3, Γ_3(2) differs fromΓ_3(1)+Γ_3(1) after scalar projection.
+
+**Acceptance:** The codomain is the native unit group; no ring-homomorphism or logarithm structure is asserted.
+
+**Source:** Section1, published255–256/PDF1–2, Theorem1 and the recurrence immediately after it. Both complete page images read on30September2026; the preceding checkpoint decomposes the finite congruence proof. The source extends the signed values(−1)^nΓ_p(n), where its finite Γ_p is unsigned. These nodes give an explicit native Cauchy construction, its unit-valued lift, continuity/uniqueness and both functional branches. The residue precision n+3 is a worker-chosen sufficient buffer avoiding the source’s p=2,exponent2 exception. No analyticity or Gauss-sum identity is inferred.
+
+### The scalar projection of Morita Gamma
+
+`DirichletPadicLFunctions:L3/morita-gamma-value-projection` — `DirichletPadic.moritaGamma_val`
+
+The scalar projection of Γ_p(x) equalsV_p(x).
+
+**Hypotheses:** p is any prime, including2. G_p(n) is the already planned signed finite integer product moritaNatGamma. For x∈ℤ_p put a_n(x)=val(toZModPow(n+3)(x)), a natural integer. Its image is congruent to x modulo p^(n+3). Write f_x(n)=G_p(a_n(x)). The step-divisibility theorem supplies the exact native Cauchy certificate. V_p(x) is PadicInt.ofIntSeq applied to f_x, and Γ_p is its lift as a native continuous map ℤ_p→ℤ_pˣ. Native reductions, norm and unit group are used throughout. This is Morita’s continuous Gamma function, not the classical complex Gamma function, not a ring homomorphism and not a globally analytic function on the closed p-adic unit disc. No logarithm branch or Gauss-sum normalization is part of the construction.
+
+**Proof:**
+
+1. Unfold the native continuous-unit lift. Its value at x is the unit supplied by the pointwise IsUnit certificate.
+2. Native IsUnit.unit_spec identifies the scalar projection with the original scalar function. The complete unitMap_value probe verifies this reduction.
+3. All natural-value and recurrence comparisons below are identities inℤ_p after this projection, preventing an untyped multiplication of an arbitrary x with a unit.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/morita-gamma`, `mathlib:IsUnit.unit_spec`.
+
+**Tests:**
+
+- `SuggestedMoritaContinuousTests.gamma_value_at_nonunit` (compatibility): The projection identity holds at the nonunit argument3 inℤ_3.
+- `SuggestedMoritaContinuousTests.gamma_inverse_identity` (compatibility): The scalar value multiplied by the scalar value of its native unit inverse is1.
+
+**Acceptance:** Inverses are native unit inverses, never division by a possibly zero value.
+
+**Source:** Section1, published255–256/PDF1–2, Theorem1 and the recurrence immediately after it. Both complete page images read on30September2026; the preceding checkpoint decomposes the finite congruence proof. The source extends the signed values(−1)^nΓ_p(n), where its finite Γ_p is unsigned. These nodes give an explicit native Cauchy construction, its unit-valued lift, continuity/uniqueness and both functional branches. The residue precision n+3 is a worker-chosen sufficient buffer avoiding the source’s p=2,exponent2 exception. No analyticity or Gauss-sum identity is inferred.
+
+### The natural values of continuous Morita Gamma
+
+`DirichletPadicLFunctions:L3/morita-gamma-natural-values` — `DirichletPadic.moritaGamma_nat`
+
+For every natural n, the scalar value of Γ_p(n) isG_p(n).
+
+**Hypotheses:** p is any prime, including2. G_p(n) is the already planned signed finite integer product moritaNatGamma. For x∈ℤ_p put a_n(x)=val(toZModPow(n+3)(x)), a natural integer. Its image is congruent to x modulo p^(n+3). Write f_x(n)=G_p(a_n(x)). The step-divisibility theorem supplies the exact native Cauchy certificate. V_p(x) is PadicInt.ofIntSeq applied to f_x, and Γ_p is its lift as a native continuous map ℤ_p→ℤ_pˣ. Native reductions, norm and unit group are used throughout. This is Morita’s continuous Gamma function, not the classical complex Gamma function, not a ring homomorphism and not a globally analytic function on the closed p-adic unit disc. No logarithm branch or Gauss-sum normalization is part of the construction.
+
+**Proof:**
+
+1. Compose the scalar-projection node with the already proved natural-value identity forV_p.
+2. At n=0 this gives scalar value1, and native unit extensionality gives Γ_p(0)=1. At n=1 it gives−1. These are API corollaries, not additional normalization hypotheses.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/morita-gamma-value-projection`, `DirichletPadicLFunctions:L3/morita-gamma-value-natural`, `DirichletPadicLFunctions:L3/morita-natural-values`.
+
+**Tests:**
+
+- `SuggestedMoritaContinuousTests.gamma_nat_dyadic` (computation): The scalar valueΓ_2(5)=−3.
+- `SuggestedMoritaContinuousTests.gamma_nat_odd` (computation): The scalar valueΓ_3(4)=2.
+
+**Acceptance:** The all-prime convention agrees with the positive-natural convention read in Gross–Koblitz.
+
+**Source:** Section1, published255–256/PDF1–2, Theorem1 and the recurrence immediately after it. Both complete page images read on30September2026; the preceding checkpoint decomposes the finite congruence proof. The source extends the signed values(−1)^nΓ_p(n), where its finite Γ_p is unsigned. These nodes give an explicit native Cauchy construction, its unit-valued lift, continuity/uniqueness and both functional branches. The residue precision n+3 is a worker-chosen sufficient buffer avoiding the source’s p=2,exponent2 exception. No analyticity or Gauss-sum identity is inferred.
+
+### Uniqueness of continuous Morita Gamma
+
+`DirichletPadicLFunctions:L3/morita-gamma-unique` — `DirichletPadic.moritaGamma_unique`
+
+A continuous map f:ℤ_p→ℤ_pˣ whose scalar value at every natural n isG_p(n) equalsΓ_p.
+
+**Hypotheses:** p is any prime, including2. G_p(n) is the already planned signed finite integer product moritaNatGamma. For x∈ℤ_p put a_n(x)=val(toZModPow(n+3)(x)), a natural integer. Its image is congruent to x modulo p^(n+3). Write f_x(n)=G_p(a_n(x)). The step-divisibility theorem supplies the exact native Cauchy certificate. V_p(x) is PadicInt.ofIntSeq applied to f_x, and Γ_p is its lift as a native continuous map ℤ_p→ℤ_pˣ. Native reductions, norm and unit group are used throughout. This is Morita’s continuous Gamma function, not the classical complex Gamma function, not a ring homomorphism and not a globally analytic function on the closed p-adic unit disc. No logarithm branch or Gauss-sum normalization is part of the construction.
+
+**Proof:**
+
+1. Compose f andΓ_p with native Units.continuous_val. Their scalar functions are continuous and agree on the dense natural image by the hypothesis and the preceding Gamma natural-value node.
+2. Native DenseRange.equalizer and PadicInt.denseRange_natCast identify the scalar functions on allℤ_p. Native unit extensionality identifies the unit-valued functions and continuous-map extensionality finishes.
+3. The complete unique probe proves the scalar uniqueness statement against the explicit V_p construction. Projection and native unit extensionality supply exactly the stated unit-valued form.
+4. Thus any continuous construction with the same natural values, including one using another valid approximation sequence, gives the sameΓ_p. No analyticity assumption is needed.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/morita-gamma-natural-values`, `mathlib:Units.continuous_val`, `mathlib:PadicInt.denseRange_natCast`, `mathlib:DenseRange.equalizer`.
+
+**Tests:**
+
+- `SuggestedMoritaContinuousTests.uniqueness_natural_values` (characterisation): Every continuous unit-valued map satisfying all the prescribed natural values isΓ_p.
+- `SuggestedMoritaContinuousTests.uniqueness_value_at_zero` (degenerate): Such a map necessarily takes0 to1.
+
+**Acceptance:** Equality is in the native continuous-map type, not just agreement on positive integers.
+
+**Source:** Section1, published255–256/PDF1–2, Theorem1 and the recurrence immediately after it. Both complete page images read on30September2026; the preceding checkpoint decomposes the finite congruence proof. The source extends the signed values(−1)^nΓ_p(n), where its finite Γ_p is unsigned. These nodes give an explicit native Cauchy construction, its unit-valued lift, continuity/uniqueness and both functional branches. The residue precision n+3 is a worker-chosen sufficient buffer avoiding the source’s p=2,exponent2 exception. No analyticity or Gauss-sum identity is inferred.
+
+### The two functional equations of Morita Gamma
+
+`DirichletPadicLFunctions:L3/morita-gamma-functional-equation` — `DirichletPadic.moritaGamma_add_one`
+
+After scalar projection, Γ_p(x+1)=−c(x)Γ_p(x), where c(x)=x on the units and c(x)=1 on the nonunits.
+
+**Hypotheses:** p is any prime, including2. G_p(n) is the already planned signed finite integer product moritaNatGamma. For x∈ℤ_p put a_n(x)=val(toZModPow(n+3)(x)), a natural integer. Its image is congruent to x modulo p^(n+3). Write f_x(n)=G_p(a_n(x)). The step-divisibility theorem supplies the exact native Cauchy certificate. V_p(x) is PadicInt.ofIntSeq applied to f_x, and Γ_p is its lift as a native continuous map ℤ_p→ℤ_pˣ. Native reductions, norm and unit group are used throughout. This is Morita’s continuous Gamma function, not the classical complex Gamma function, not a ring homomorphism and not a globally analytic function on the closed p-adic unit disc. No logarithm branch or Gauss-sum normalization is part of the construction.
+
+**Proof:**
+
+1. The unit locus inℤ_p is closed because it is exactly the norm-one locus. It is open by native Units.isOpen; native completeness supplies the required summable-geometric-series instance. Hence the locus is clopen and its frontier is empty.
+2. Native Continuous.if makes c continuous from the continuous identity and constant1 functions, since there is no frontier compatibility condition to check. Thus V_p(x+1) and−c(x)V_p(x) are continuous.
+3. At natural n, native PadicInt.isUnit_iff, norm_natCast_eq_one_iff and the prime coprimality criterion identify IsUnit(n) with p not dividingn. The predecessor morita-natural-recurrence and Gamma-value-natural node identify the two continuous functions on all natural arguments.
+4. Apply native DenseRange.equalizer to obtain the identity onℤ_p. The complete recurrence probe verifies the clopen argument, continuous equality, casts and both natural branches.
+5. Use the scalar-projection node forΓ_p. If x is a unit the factor isx; otherwise it is1. Native not_isUnit_iff and norm_lt_one_iff_dvd identify the nonunit branch with x∈pℤ_p, as in Morita’s source. This includes x=0 andp=2.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/morita-gamma-value-projection`, `DirichletPadicLFunctions:L3/morita-gamma-value-natural`, `DirichletPadicLFunctions:L3/morita-gamma-value-continuous`, `DirichletPadicLFunctions:L3/morita-natural-recurrence`, `mathlib:Units.isOpen`, `mathlib:PadicInt.isUnit_iff`, `mathlib:PadicInt.norm_natCast_eq_one_iff`, `mathlib:Nat.Prime.coprime_iff_not_dvd`, `mathlib:PadicInt.not_isUnit_iff`, `mathlib:PadicInt.norm_lt_one_iff_dvd`, `mathlib:isClopen_iff_frontier_eq_empty`, `mathlib:Continuous.if`, `mathlib:PadicInt.denseRange_natCast`, `mathlib:DenseRange.equalizer`.
+
+**Tests:**
+
+- `SuggestedMoritaContinuousTests.functional_unit_branch` (compatibility): At a unit argument the multiplier is−x.
+- `SuggestedMoritaContinuousTests.functional_nonunit_branch` (compatibility): At a nonunit argument the multiplier is−1.
+
+**Acceptance:** The two branches are proved simultaneously by one continuous identity, exactly as the source’s remark; no analytic continuation across the whole disc is claimed.
+
+**Source:** Section1, published255–256/PDF1–2, Theorem1 and the recurrence immediately after it. Both complete page images read on30September2026; the preceding checkpoint decomposes the finite congruence proof. The source extends the signed values(−1)^nΓ_p(n), where its finite Γ_p is unsigned. These nodes give an explicit native Cauchy construction, its unit-valued lift, continuity/uniqueness and both functional branches. The residue precision n+3 is a worker-chosen sufficient buffer avoiding the source’s p=2,exponent2 exception. No analyticity or Gauss-sum identity is inferred.
+
+**Remaining:** RT-AREA-iwasawa-2/1 now has an explicit all-prime Morita Gamma foundation: the predecessor finite congruences and these fifteen nodes give its continuous unit-valued construction, natural values, uniqueness and both functional equations. The finding remains open for Gross–Koblitz and the analytic input: read Morita§2–3 and the original Gross–Koblitz proof, then decompose local analyticity, the fixed additive character, compatibleπ, positive fractional parts, finite-field degree and negative Gauss convention. The original Gross–Koblitz statement is odd-prime; EulerSystems L4 still needs a separate dyadic source proof. RT-AREA-iwasawa-2/2 remains open: read Ferrero–Greenberg’s proof, retainχ(p)=1, log_p(p)=0, the character shift and derivative coordinate, and separate the derivative formula from nonvanishing. No analytic derivative formula is proved by the continuous Gamma construction. The newly assigned RJW targets, finite conductor iteration, analytic/distribution/special-value comparisons, branch and pole results, fifteen gaps and eleven requests remain as recorded in the predecessor.
+
+### Continuous unit-valued Morita Gamma validation
+
+All 757 predecessor nodes, 639 baseline records, 16 findings, requests and sourceVersions remain whole. This checkpoint adds 15 nodes, 24 named suggested declarations and 30 typed examples. The indexed blueprint, four-file intake, whitespace, preservation, API/test parity and versioned-source checks pass. The graph has 1030 reachable nodes, 5324 edges and 826 native leaves and is acyclic. Its stage request leaves are PadicMeasuresIwasawaAlgebras:L1, PadicMeasuresIwasawaAlgebras:L3, PadicMeasuresIwasawaAlgebras:L3, LocallyAnalyticDistributions:L1, AdicSpacesPartII:F1, AdicSpacesPartII:R2, PadicDifferentialEquationsAndRigidCohomology:RD.0, PadicDifferentialEquationsAndRigidCohomology:RD.4, PadicHodgeTheory:P7:annulus-foundations, PadicMeasuresIwasawaAlgebras:L2, LocallyAnalyticDistributions:L1. Every new route follows the predecessor finite Gamma nodes or native declarations, with no additional stage-request leaf. Native completion, quotient rings, unit groups and continuous lifting are imported rather than re-planned.
+
+**The full current suggested module was NOT COMPILED.** Its real native import requires TauCeti.NumberTheory.ArithmeticFunction.TwistedDivisorSum. No matching existing artifact was found; WORKERS.md prohibits building the native library. Current compiler exit code, error count and warning count are unavailable, not zero. The exact named signatures and native source were reviewed. PR4773 remains the last compiled full predecessor, with zero errors and1,803 expected placeholder warnings; that receipt does not validate this new module.
+
+The current source closure covers 3603 pinned Mathlib modules and 22 pinned Tau Ceti modules. Only 21 Tau module artifacts are available and hash-verified. The105 available artifact files and the previously compiled332-node PMIA artifact are checked as partial dependencies. The current369-node supplier source preserves the older interface; no current-module compilation against either revision is claimed. Existing builds only were inspected; no setup, update, cache fetch or native build occurred.
+
+Three complete native definitions and twelve complete lemmas check canonical representatives, compatibility, step divisibility, PadicInt.ofIntSeq and its reductions, natural-value recovery, finite modulus, continuity, norm1, ContinuousMap.unitsOfForallIsUnit, scalar projection, uniqueness and the combined recurrence. The finite congruence, natural unit norm and natural recurrence are explicit hypotheses in this probe, supplied by the predecessor nodes; no proof of those predecessor planned theorems is claimed here. The separate probe compiles against 2801 pinned Mathlib modules and 0 pinned Tau Ceti modules with zero errors, warnings or placeholders. The separate Mathlib-only probe does not import, replace or compile the missing native Tau module. General roadmap declarations remain unchecked.
+
+Exact finite controls check2025rational arguments at12precision profiles forp=2,3,5,7, including2025successive-reduction identities1470unit and555nonunit functional branches2025unit outputs960natural-value checks and48wraparound cases. An unsigned alternative fails885controls. The dyadic values at1 and5 explicitly disprove1-Lipschitz continuity. Exact modular evaluation of signed natural Gamma products at canonical p-adic representatives of sampled rational arguments with denominators prime to p. Checks compare successive precisions, both functional branches, native unit residues, natural values and wraparound; these finite calculations do not prove continuity or analytic identities. The largest observed discrepancy is 0.
+
+The only captured-input delta is the generated source registry and errata register: Land–Mathew–Meier et al. E2 has its independent review reset to awaiting review. Its orbit-category notation correction is mathematically unchanged, and the whole current record was read. It supplies no Morita input. The70other captured inputs,16Dirichlet findings and allfour predecessor outputs are unchanged. No fresh reading of that external paper or independent verdict is claimed. The full suggested module remains NOT COMPILED because the pinned TwistedDivisorSum artifact is unavailable. The separate partial signature file preserves all documented predecessor omissions. The exact5219partialprefix plus24declarations and30tests compiles with zero errors and2368expected placeholder warnings against3582pinned modules; SHA256:f105865b2622fc85ea4db213d9693023a50ed6579c1ec0a491c0f3693a61ad3e. This is not the full module and retains the documented4777–4791omissions. Publication refresh: nineteen registry records were read. Balakrishnan et al. E1–8 restore the earlier independent confirmation without a new verdict; E9–13 add uniqueness/nonzero-object qualifications, bibliographic corrections and the good-reduction proof repair, awaiting review. Betts–Stix E1 now requires split rather than merely reduced coefficient algebra; E7 records the precise filtration direction and tensor-quotient flatness input, and E8 corrects the Shimizu theorem/definition citations. The two K-theory records correct relative S-construction roles and add author-reported saturation to cofinality, awaiting review. K3BlochGroups E2 only updates the supplying node id. These external records supply no Gamma prerequisite. Their reported source readings remain attributed to their authors; this worker read the records and claims no new independent verdict. All70other captured inputs,16Dirichlet findings and four predecessor outputs are unchanged.
