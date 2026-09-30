@@ -12,7 +12,7 @@
     "version": "arXiv v2, 15 February 2024, 25-page PDF, and the published text, Ann. of Math. 200 (2024), no. 1, 123–152, both read in full. Locators give the published pagination; arXiv v2 has the same numbering.",
     "accessed": "2026-09-21",
     "sha256": "d71e9d3f8d3a1217743c3ba72c9a9630981f054ecefd943ff4edb4879b842614",
-    "archiveStatus": "arXiv v2 PDF archived, SHA-256 d71e9d3f…842614, checked 2026-09-21. The published version was retrieved from https://par.nsf.gov/servlets/purl/10625156 (NSF Public Access Repository), SHA-256 a6a158565c556286deac651198771ab241c9c5c15021b783bfdcd5f3afa7fd80, 31 pages; review REV-PAPER-FU-24 re-fetched it on 23 September 2026 and confirmed that hash. Earlier passes recorded the retrieval as having timed out; the timeouts were transient and this field is corrected accordingly.",
+    "archiveStatus": "arXiv v2 PDF archived, SHA-256 d71e9d3f…842614, checked 2026-09-21. The published version was retrieved from https://par.nsf.gov/servlets/purl/10625156 (NSF Public Access Repository), SHA-256 a6a158565c556286deac651198771ab241c9c5c15021b783bfdcd5f3afa7fd80, 30 pages (journal pp. 123–152; page count re-checked with pdfinfo by FIX-RT-PAPER-FU-24 on 2026-09-30, correcting an earlier '31'); review REV-PAPER-FU-24 re-fetched it on 23 September 2026 and confirmed that hash. Earlier passes recorded the retrieval as having timed out; the timeouts were transient and this field is corrected accordingly.",
     "readSections": [
       "Sections 1-7 in full via the v2 HTML text, including proofs and references",
       "PDF text comparison and accessible page images; some diagram/page screenshot requests failed and no full visual collation is claimed",
@@ -42,6 +42,22 @@
     },
     "publishedSha256": "a6a158565c556286deac651198771ab241c9c5c15021b783bfdcd5f3afa7fd80"
   },
+  "sourceVersions": [
+    {
+      "kind": "published",
+      "url": "https://par.nsf.gov/servlets/purl/10625156",
+      "read": "2026-09-23",
+      "sha256": "a6a158565c556286deac651198771ab241c9c5c15021b783bfdcd5f3afa7fd80",
+      "note": "The Annals typeset article (header 'Annals of Mathematics 200 (2024), 123–152'), author-deposited in the NSF Public Access Repository; 30 pages. Read in full by cc-442dc5 on 2026-09-23; hash and page count re-checked by FIX-RT-PAPER-FU-24 on 2026-09-30."
+    },
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/2201.11190v2",
+      "read": "2026-09-21",
+      "sha256": "d71e9d3f8d3a1217743c3ba72c9a9630981f054ecefd943ff4edb4879b842614",
+      "note": "arXiv v2 (15 February 2024), 25 pages, read in full on 2026-09-21."
+    }
+  ],
   "summary": "Fu proves a degree-one saving bound dim S_k(K_f) ≪ (min k_i)^{-1}∆(k) for cohomological cusp forms on SL₂ over a number field that is not totally real, hence dim ≍ k for Bianchi forms. The method passes completed homology through Ardakov–Wadsley's microlocalization. It shows that nonzero Iwasawa elements stay nonzero at every integral central character (Theorem 1.5), and it bounds the PBW growth of cyclic torsion modules. Complete (cc-442dc5): the published text was read and collated, every numbered statement is an item, every missing item is routed, and seven findings are recorded in §18 form. Theorem 5.7 is false as printed for non-integral characters (E7), and its proof at large radii has a gap (E5); the main theorems rest on Ardakov–Wadsley instead. Not formalised.",
   "agent": "Codex",
   "session": "codex-c83e7a",
@@ -228,8 +244,25 @@
         "PAPER-FU-24/global-local-weight-dictionary",
         "PAPER-FU-24/cuspidal-support-dictionary",
         "PAPER-FU-24/higher-homology-bound",
-        "PAPER-FU-24/fg-torsion-weight-bound"
+        "PAPER-FU-24/fg-torsion-weight-bound",
+        "PAPER-FU-24/homology-cohomology-dimension"
       ]
+    },
+    {
+      "id": "PAPER-FU-24/homology-cohomology-dimension",
+      "kind": "theorem",
+      "name": "Same-degree comparison of homology and cohomology dimensions",
+      "statement": "For a finite-dimensional local system V over a field on Y(K_f), with a finite chain model, dim H^q(Y, V) = dim H_q(Y, V^∨): the cochains with V are the dual of the chains with V^∨ (universal coefficients over a field). For the algebraic coefficient systems V_k, V_k^∨ ≅ V_k, so dim H^{r1+r2}(Y(K_f), V_k) = dim H_{r1+r2}(Y(K_f), V_k). The comparison is in the same degree, so no degree-reversing Poincaré duality is involved; Poincaré duality would pair H^q with Borel–Moore homology in degree d − q.",
+      "locator": "Fu v2 and published §7, last paragraph (p. 150): 'we apply the Poincaré duality and Eichler–Shimura isomorphism (2)'",
+      "status": "planned",
+      "planned": [
+        "ArithmeticLocallySymmetricSpaces:ALS.1"
+      ],
+      "dependsOn": [
+        "PAPER-FU-24/compact-algebraic-irreducibility",
+        "PAPER-FU-24/cohomological-coefficients"
+      ],
+      "note": "Added by FIX-RT-PAPER-FU-24 (RT-PAPER-FU-24/7): the planning bridge from the homological bound of the spectral sequence to the cohomological multiplicity of Theorem 1.2. ALS.1 plans finite chain models and the universal-coefficient spectral sequence; this is its specialization over a field. The self-duality of V_k comes from compact-algebraic-irreducibility. Fu's 'Poincaré duality' should be read as universal coefficients. This is a missing planning step, not a counterexample to Theorem 1.2, and is not recorded as a source issue."
     },
     {
       "id": "PAPER-FU-24/parallel-bound",
@@ -285,6 +318,7 @@
       "locator": "Fu v2, sections 1 and 4, equations (4), (12)-(14)",
       "status": "planned",
       "planned": [
+        "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-9-prerequisites-two-owned-inputs",
         "PadicMeasuresIwasawaAlgebras:L1"
       ],
       "api": [
@@ -327,7 +361,8 @@
           "where": "PAPER-FU-24/finite-group-ring-coefficients",
           "how": "Commute finite integral coefficient extension with the completed group-ring inverse system."
         }
-      ]
+      ],
+      "note": "FIX-RT-PAPER-FU-24 (RT-PAPER-FU-24/9): Z_p[[G]], with its topology, projections, Dirac elements and functoriality, is the planned Tau Ceti carrier completedGroupAlgebra of ProfiniteProPGroups Layer 9. PadicMeasuresIwasawaAlgebras L1 supplies the O- and adic-coefficient versions compatible with it, as its packet requires ('no second carrier'); Q_p[[G]] = Q_p ⊗ Z_p[[G]] with bounded denominators. Neither is an implemented declaration at the pins."
     },
     {
       "id": "PAPER-FU-24/completed-homology",
@@ -442,12 +477,13 @@
       "id": "PAPER-FU-24/skew-rank",
       "kind": "definition",
       "name": "Rank over the classical Ore division ring",
-      "statement": "For a two-sided noetherian domain A, construct its classical Ore division ring Q(A) and define rank_A M=dim_{Q(A)}(Q(A) tensor_A M) for a finitely generated left A-module. State Ore localization and flatness hypotheses explicitly when using the same definition for another ring.",
+      "statement": "For a two-sided noetherian domain A, with its classical division ring Q(A) from noetherian-domain-ore, define rank_A M = dim_{Q(A)}(Q(A) ⊗_A M) for a finitely generated left A-module M. Still to be supplied: the right-handed Ore localization via the opposite ring and its identification with the left one, two-sided flatness of Q(A) over A, compatibility with noncommutative tensor products, and the rank API (additivity on short exact sequences, rank of free and torsion modules). State Ore localization and flatness hypotheses explicitly when using the same definition for another ring.",
       "locator": "Fu v2, Definition 2.1 and Theorem 1.4",
       "status": "missing",
-      "note": "Reuse Mathlib OreLocalization and its division-ring instance under OreSet, read at the pin. The noetherian-domain Ore theorem, localization exactness/rank comparison and this specialized rank API are not claimed to follow from the mere carrier.",
+      "note": "FIX-RT-PAPER-FU-24 (RT-PAPER-FU-24/4): split. The noetherian-domain Ore theorem and the division ring are library (item noetherian-domain-ore). This item keeps the right-handed adapter, two-sided flatness (no Flat declaration exists in the pinned OreLocalization directory), tensor compatibility and the rank API, which stay missing on route 1. It does not claim that an arbitrary multiplicative set is Ore.",
       "dependsOn": [
-        "PAPER-FU-24/ore-localization-carrier"
+        "PAPER-FU-24/ore-localization-carrier",
+        "PAPER-FU-24/noetherian-domain-ore"
       ],
       "api": [
         {
@@ -490,6 +526,21 @@
           "how": "Choose a rank-many free submodule with torsion quotient via Ore localization."
         }
       ]
+    },
+    {
+      "id": "PAPER-FU-24/noetherian-domain-ore",
+      "kind": "theorem",
+      "name": "The classical division ring of fractions of a left-noetherian domain",
+      "statement": "A nontrivial left-noetherian ring satisfies the strong rank condition; for a domain with the strong rank condition the nonzero elements R⁰ form a left Ore set; and then the Ore localization R[R⁰⁻¹] is a division ring. So every nontrivial left-noetherian domain has its classical left division ring of fractions, the Q(A) of Definition 2.1 for left modules.",
+      "locator": "Fu v2 and published, Definition 2.1 (p. 128)",
+      "status": "library",
+      "library": [
+        "mathlib:IsNoetherianRing.strongRankCondition",
+        "mathlib:nonempty_oreSet_of_strongRankCondition",
+        "mathlib:OreLocalization.inv",
+        "mathlib:OreLocalization.mul_inv_cancel"
+      ],
+      "note": "Added by FIX-RT-PAPER-FU-24 (RT-PAPER-FU-24/4), split from skew-rank. Read at Mathlib 082e2d3: IsNoetherianRing.strongRankCondition (a named instance, LinearAlgebra/InvariantBasisNumber.lean:249), nonempty_oreSet_of_strongRankCondition (LinearAlgebra/Dimension/Localization.lean:298), and the anonymous DivisionRing instance on R[R⁰⁻¹] (RingTheory/OreLocalization/Ring.lean:210) built from OreLocalization.inv and OreLocalization.mul_inv_cancel (RingTheory/OreLocalization/NonZeroDivisors.lean:48, :74). Instances are not all indexed in declarations.tsv. The right-noetherian version follows by applying the same statements to the opposite ring; the identification of the opposite localization is part of skew-rank."
     },
     {
       "id": "PAPER-FU-24/multiaffine-bound",
@@ -549,7 +600,8 @@
       "status": "missing",
       "dependsOn": [
         "PAPER-FU-24/rank-upper-coinvariants",
-        "PAPER-FU-24/rank-lower-coinvariants"
+        "PAPER-FU-24/rank-lower-coinvariants",
+        "PAPER-FU-24/iwasawa-group-homology"
       ]
     },
     {
@@ -561,7 +613,8 @@
       "status": "missing",
       "dependsOn": [
         "PAPER-FU-24/homological-shifting",
-        "PAPER-FU-24/iwasawa-finite-global-dimension"
+        "PAPER-FU-24/iwasawa-finite-global-dimension",
+        "PAPER-FU-24/iwasawa-group-homology"
       ]
     },
     {
@@ -784,13 +837,14 @@
     {
       "id": "PAPER-FU-24/field-pbw",
       "kind": "theorem",
-      "name": "Field PBW and triangular decomposition",
-      "statement": "For a finite-dimensional Lie algebra over a field, the ordered products of a fixed ordered basis form the PBW basis, with the specified monomial formula; the associated graded is its symmetric algebra. Apply the split characteristic-zero triangular decomposition to sl_2^m.",
+      "name": "Field PBW",
+      "statement": "For a finite-dimensional Lie algebra over a field, the ordered products of a fixed ordered basis form the PBW basis, with the specified monomial formula; the associated graded is its symmetric algebra. The triangular decomposition that Fu applies over Q_p to split sl_2^m is item split-field-harish-chandra.",
       "locator": "Fu v2, section 3; section 5 Harish-Chandra and Verma arguments",
       "status": "planned",
       "planned": [
         "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-3-enveloping-algebra-verma-modules-and-lλ"
-      ]
+      ],
+      "note": "FIX-RT-PAPER-FU-24 (RT-PAPER-FU-24/8): split. Generic PBW over a field is planned in LieHighestWeight Layer 3 in this generality; the root-dependent triangular decomposition there is stated over an algebraically closed field of characteristic 0, so its use over Q_p for split g moved to split-field-harish-chandra (route 1)."
     },
     {
       "id": "PAPER-FU-24/integral-sl2-pbw",
@@ -803,7 +857,8 @@
         "PAPER-FU-24/pbw-filtration",
         "PAPER-FU-24/field-pbw",
         "PAPER-FU-24/free-lie-pbw"
-      ]
+      ],
+      "note": "Library prefix (FIX-RT-PAPER-FU-24, RT-PAPER-FU-24/5): spanning by ordered monomials is Tau Ceti's span_orderedPBWMonomials_eq_pbwFiltration, and Sym → gr surjectivity is pbwAssociatedGradedMap_surjective. Still missing: linear independence (from free-lie-pbw), the tensor-factor decomposition for sl_2^m and the multidegree filtration F_d."
     },
     {
       "id": "PAPER-FU-24/sl2-casimir-operator",
@@ -920,7 +975,8 @@
           "where": "PAPER-FU-24/central-quotients",
           "how": "Generate the actual central ideal by Delta_i-lambda_i."
         }
-      ]
+      ],
+      "note": "Library input (FIX-RT-PAPER-FU-24, RT-PAPER-FU-24/5): Tau Ceti has the central trace-form Casimir of U(gl_n) over any commutative ring, tauceti:TauCeti.glCasimir and tauceti:TauCeti.glCasimir_mem_center (GeneralLinear/Casimir.lean:81, :136). For n = 2 and 2 invertible, Δ = ½h² + ef + fe = Ω − ½z² with z = E11 + E22. Transporting centrality to U(sl_2) still needs a compatible U(sl_2) → U(gl_2) map and the identification U(gl_2) = U(sl_2) ⊗ R[z] (or a split Lie retraction), which stay missing, as do algebraic independence of the Δ_i and the identification with the imported Casimir operator."
     },
     {
       "id": "PAPER-FU-24/central-quotients",
@@ -1148,7 +1204,8 @@
       "dependsOn": [
         "PAPER-FU-24/central-quotients",
         "PAPER-FU-24/integral-sl2-pbw"
-      ]
+      ],
+      "note": "Library prefix (FIX-RT-PAPER-FU-24, RT-PAPER-FU-24/5): spanning of U_λ^0 by the monomials with c_i ∈ {0,1} reduces to Tau Ceti's span_orderedPBWMonomials_eq_pbwFiltration plus the reduction of h_i² by Δ_i − λ_i. Independence in the central quotient stays missing."
     },
     {
       "id": "PAPER-FU-24/central-filtered-rank",
@@ -1385,9 +1442,25 @@
       "id": "PAPER-FU-24/uniform-group-coordinates",
       "kind": "theorem",
       "name": "Ordered coordinates on an odd-prime uniform group",
-      "statement": "For p odd and a uniform pro-p group G of dimension d, each ordered minimal generating set g_1,...,g_d gives a homeomorphism Z_p^d -> G by (x_i) -> product g_i^{x_i}. Prove G is a locally Q_p-analytic group and identify the power-subgroup coordinates.",
+      "statement": "For p odd and a uniform pro-p group G of dimension d, each ordered minimal generating set g_1,...,g_d gives a homeomorphism Z_p^d -> G by (x_i) -> product g_i^{x_i} (DDMS Theorem 4.9). Identify the coordinates of the power subgroups G^{p^n}. The locally analytic structure is item uniform-analytic-structure.",
       "locator": "Fu v2, section 4 before equations (10)-(12); DDMS Theorems 4.30 and 8.18",
-      "status": "missing"
+      "status": "missing",
+      "dependsOn": [
+        "PAPER-FU-24/uniform-pro-p-group"
+      ],
+      "note": "FIX-RT-PAPER-FU-24 (RT-PAPER-FU-24/2): moved from route 2 to route 5 as a source addition to NE.0, which owns uniform groups (NE.0/uniform-pro-p-group, the planned item uniform-pro-p-group) but does not yet state the coordinate homeomorphism. The analytic clause moved to uniform-analytic-structure, which stays on route 2."
+    },
+    {
+      "id": "PAPER-FU-24/uniform-pro-p-group",
+      "kind": "definition",
+      "name": "Uniform pro-p groups and their dimension",
+      "statement": "For p odd, a pro-p group G is powerful if G/G^p is abelian, and uniform if it is powerful, finitely generated and |G : P_2(G)| = |P_i(G) : P_{i+1}(G)| for all i ≥ 1, with P_i the lower p-series. Its dimension d is given by |G : P_2(G)| = p^d and is the minimal number of topological generators.",
+      "locator": "Fu v2 and published §4, 'Let G be a uniform pro-p group of dimension d' (p. 136); DDMS Definition 4.1",
+      "status": "planned",
+      "planned": [
+        "NoncommutativeAndEquivariantIwasawa:NE.0"
+      ],
+      "note": "Added by FIX-RT-PAPER-FU-24 (RT-PAPER-FU-24/2) as the planned prefix of the uniform-group items: the NE packet node NoncommutativeAndEquivariantIwasawa:NE.0/uniform-pro-p-group states exactly this definition. It does not supply the ordered coordinates, the p-valuation or the analytic structure, which items uniform-group-coordinates, uniform-valuation and uniform-analytic-structure keep as missing."
     },
     {
       "id": "PAPER-FU-24/lazard-lie-algebra",
@@ -1502,7 +1575,21 @@
           "where": "PAPER-FU-24/microlocal-ore-set",
           "how": "Specify the filtration whose homogeneous p-symbol defines the denominator set."
         }
-      ]
+      ],
+      "note": "FIX-RT-PAPER-FU-24 (RT-PAPER-FU-24/2): moved from route 2 to route 5 as a source addition to NE.0 (Lazard III 2.1.2; Ardakov–Wadsley 2013, Lemma 10.2). The NE packet does not yet state the p-valuation."
+    },
+    {
+      "id": "PAPER-FU-24/uniform-analytic-structure",
+      "kind": "theorem",
+      "name": "The locally analytic structure of a uniform group",
+      "statement": "For p odd and uniform G of dimension d, the ordered coordinate homeomorphism Z_p^d → G of uniform-group-coordinates is a chart of a locally Q_p-analytic group structure on G (group operations analytic in these coordinates), compatible with the Lazard Lie lattice L_G and independent of the ordered generating set up to analytic change of charts.",
+      "locator": "Fu v2 and published §4, before equations (10)–(12), p. 136; DDMS Theorem 8.18",
+      "status": "missing",
+      "dependsOn": [
+        "PAPER-FU-24/uniform-group-coordinates",
+        "PAPER-FU-24/lazard-lie-algebra"
+      ],
+      "note": "Split from uniform-group-coordinates by FIX-RT-PAPER-FU-24 (RT-PAPER-FU-24/2): the analytic comparison stays with the analytic owner (route 2), while the group-theoretic coordinates go to NE.0 (route 5)."
     },
     {
       "id": "PAPER-FU-24/iwasawa-series",
@@ -1513,8 +1600,10 @@
       "status": "missing",
       "dependsOn": [
         "PAPER-FU-24/iwasawa-algebra",
-        "PAPER-FU-24/uniform-group-coordinates"
-      ]
+        "PAPER-FU-24/uniform-group-coordinates",
+        "PAPER-FU-24/uniform-pro-p-group"
+      ],
+      "note": "FIX-RT-PAPER-FU-24 (RT-PAPER-FU-24/2): moved from route 2 to route 5 as a source addition to NE.0. The planned prefix is NE.0/uniform-graded-polynomial: the F_p-coefficient series for Ω(G) and the integral associated graded ring of Λ(G). Still requested from NE.0: the unique ordered series with coefficients in R = Z_p or O (DDMS Theorem 7.20), the convolution compatibility and the bounded-denominator rationalization."
     },
     {
       "id": "PAPER-FU-24/locally-analytic-functions",
@@ -1619,7 +1708,8 @@
           "where": "PAPER-FU-24/distribution-radius-completion",
           "how": "Complete the ordered distribution series in the radius norm."
         }
-      ]
+      ],
+      "note": "Single owner (FIX-RT-PAPER-FU-24): planned once here, in NoncommutativeAnalyticDistributions. Also used by PAPER-DOSPINESCU-LEBRAS-17/89–/90 and PAPER-DING-25/3.1-distribution, which are to import it from here into LocallyAnalyticRepresentationsOfLocalGroups (a proposal whose design job is pending)."
     },
     {
       "id": "PAPER-FU-24/distribution-radius-completion",
@@ -1628,7 +1718,7 @@
       "statement": "For 1/p<=r<1 use norm_r(sum c_alpha b^alpha)=sup |c_alpha| r^{|alpha|}. The norm completion D_r has |c_alpha|r^{|alpha|}->0 as |alpha|->infinity. Distinguish it from the larger bounded-coefficient space D_<r; at all radii simultaneously the bounded and vanishing descriptions agree.",
       "locator": "Fu v2, equations (15)-(16); compare ST03 section 4, printed pp.18-19",
       "status": "missing",
-      "note": "Source issue S2: equation (16) omits the vanishing condition required by the preceding norm-completion definition.",
+      "note": "Source issue S2: equation (16) omits the vanishing condition required by the preceding norm-completion definition. Single owner (FIX-RT-PAPER-FU-24): planned once here, in NoncommutativeAnalyticDistributions. Also used by PAPER-DOSPINESCU-LEBRAS-17/89–/90 and PAPER-DING-25/3.1-distribution, which are to import it from here into LocallyAnalyticRepresentationsOfLocalGroups (a proposal whose design job is pending).",
       "dependsOn": [
         "PAPER-FU-24/distribution-convolution",
         "PAPER-FU-24/iwasawa-series",
@@ -1685,7 +1775,8 @@
       "status": "missing",
       "dependsOn": [
         "PAPER-FU-24/distribution-radius-completion"
-      ]
+      ],
+      "note": "Single owner (FIX-RT-PAPER-FU-24): planned once here, in NoncommutativeAnalyticDistributions. Also used by PAPER-DOSPINESCU-LEBRAS-17/89–/90 and PAPER-DING-25/3.1-distribution, which are to import it from here into LocallyAnalyticRepresentationsOfLocalGroups (a proposal whose design job is pending)."
     },
     {
       "id": "PAPER-FU-24/faithful-flat-distributions",
@@ -1696,7 +1787,8 @@
       "status": "missing",
       "dependsOn": [
         "PAPER-FU-24/frechet-stein"
-      ]
+      ],
+      "note": "Single owner (FIX-RT-PAPER-FU-24): planned once here, in NoncommutativeAnalyticDistributions. Also used by PAPER-DOSPINESCU-LEBRAS-17/89–/90 and PAPER-DING-25/3.1-distribution, which are to import it from here into LocallyAnalyticRepresentationsOfLocalGroups (a proposal whose design job is pending)."
     },
     {
       "id": "PAPER-FU-24/microlocal-ore-set",
@@ -1938,7 +2030,21 @@
           "where": "PAPER-FU-24/central-scalar-descent",
           "how": "Relate integral highest weights over a finite extension to the required Casimir eigenvalues."
         }
-      ]
+      ],
+      "note": "FIX-RT-PAPER-FU-24 (RT-PAPER-FU-24/8): Layer 7 plans the Harish-Chandra projection and central characters over an algebraically closed field of characteristic 0. Fu needs them for split g over Q_p; that descent is item split-field-harish-chandra (route 1, missing), which this item's use over Q_p requires. The planned status covers the closed-field construction only."
+    },
+    {
+      "id": "PAPER-FU-24/split-field-harish-chandra",
+      "kind": "theorem",
+      "name": "Triangular decomposition and Harish-Chandra projection for a split Lie algebra over a characteristic-zero field",
+      "statement": "Let K be a field of characteristic 0 and g a split semisimple (or split reductive, with its toral factor) Lie algebra over K with a chosen split Cartan subalgebra t and Borel subalgebra b = t ⊕ n. State the triangular decomposition U(g) = U(n⁻) ⊗ U(t) ⊗ U(n) over K, the Harish-Chandra projection HC : Z(g) → U(t) with Fu's ρ-shift convention, and the central characters dχ ∘ HC. Prove that all of these are defined over K and base-change to the algebraic closure K̄ compatibly with the Lie-highest-weight theory there, so that the K-statements (injectivity of HC, the image, the central characters) descend from K̄, with the root and Borel choices fixed and the descent hypotheses stated.",
+      "locator": "Fu v2 and published §5 opening (pp. 140–141), 'connected split reductive Q_p-group G with Borel pair (B, T)'; the Harish-Chandra and Verma arguments of §5",
+      "status": "missing",
+      "dependsOn": [
+        "PAPER-FU-24/field-pbw",
+        "PAPER-FU-24/harish-chandra-character"
+      ],
+      "note": "Added by FIX-RT-PAPER-FU-24 (RT-PAPER-FU-24/8). The LieHighestWeight conventions put representation theory over an algebraically closed field of characteristic 0 and call split, non-closed versions 'a named generalization stated as such'. Layers 3 and 7 plan the closed case, not Fu's Q_p contract. A faithful-flatness slogan does not prove compatibility of the centre and the projection, so the maps are stated here. For g = sl_2^m the explicit central polynomial algebra K[Δ_1, …, Δ_m] (integral-central-generators) is an alternative adapter. The Tau Ceti roadmap is not re-planned; this is a target of the Part II on route 1."
     },
     {
       "id": "PAPER-FU-24/central-analytic-eigenspace",
@@ -2002,7 +2108,8 @@
       "dependsOn": [
         "PAPER-FU-24/central-analytic-eigenspace",
         "PAPER-FU-24/frechet-stein"
-      ]
+      ],
+      "note": "Single owner (FIX-RT-PAPER-FU-24): planned once here, in NoncommutativeAnalyticDistributions. Also used by PAPER-DOSPINESCU-LEBRAS-17/89–/90 and PAPER-DING-25/3.1-distribution, which are to import it from here into LocallyAnalyticRepresentationsOfLocalGroups (a proposal whose design job is pending)."
     },
     {
       "id": "PAPER-FU-24/analytic-principal-series",
@@ -2167,7 +2274,7 @@
         }
       ],
       "apiStatus": "Proposed planning contracts and unexecuted tests; library refs identify existing interfaces, not these proposed alias names.",
-      "note": "For the normalized sl2 generators e_i,f_i,h_i, Frommer's basis theorem identifies this closure at r_n with B_(p^n). The generic weighted completion and its central division are owned by PadicEnvelopingAlgebras; this analytic comparison consumes them, so no dependency returns from the algebraic owner to its analytic consumer.",
+      "note": "For the normalized sl2 generators e_i,f_i,h_i, Frommer's basis theorem identifies this closure at r_n with B_(p^n). The generic weighted completion and its central division are owned by PadicEnvelopingAlgebras; this analytic comparison consumes them, so no dependency returns from the algebraic owner to its analytic consumer. Single owner (FIX-RT-PAPER-FU-24): planned once here, in NoncommutativeAnalyticDistributions. Also used by PAPER-DOSPINESCU-LEBRAS-17/89–/90 and PAPER-DING-25/3.1-distribution, which are to import it from here into LocallyAnalyticRepresentationsOfLocalGroups (a proposal whose design job is pending).",
       "uses": [
         {
           "where": "PAPER-FU-24/crossed-product-radius",
@@ -2184,7 +2291,8 @@
       "status": "missing",
       "dependsOn": [
         "PAPER-FU-24/radius-enveloping-closure"
-      ]
+      ],
+      "note": "Single owner (FIX-RT-PAPER-FU-24): planned once here, in NoncommutativeAnalyticDistributions. Also used by PAPER-DOSPINESCU-LEBRAS-17/89–/90 and PAPER-DING-25/3.1-distribution, which are to import it from here into LocallyAnalyticRepresentationsOfLocalGroups (a proposal whose design job is pending)."
     },
     {
       "id": "PAPER-FU-24/logarithm-basis-estimate",
@@ -2196,7 +2304,8 @@
       "dependsOn": [
         "PAPER-FU-24/radius-enveloping-closure",
         "PAPER-FU-24/uniform-valuation"
-      ]
+      ],
+      "note": "Single owner (FIX-RT-PAPER-FU-24): planned once here, in NoncommutativeAnalyticDistributions. Also used by PAPER-DOSPINESCU-LEBRAS-17/89–/90 and PAPER-DING-25/3.1-distribution, which are to import it from here into LocallyAnalyticRepresentationsOfLocalGroups (a proposal whose design job is pending). Consistent with PAPER-DOSPINESCU-LEBRAS-17/E11: the Frommer constant is c_h = h − 1, that is ‖X_j‖_{r_n} = p^{n−1}."
     },
     {
       "id": "PAPER-FU-24/analytic-coset-banach-spaces",
@@ -2497,7 +2606,7 @@
       "statement": "For compact p-adic analytic G and finite K/Q_p, use continuous duality between admissible unitary K-Banach representations and the corresponding finitely generated rational Iwasawa modules with their canonical topologies. Identify finite-dimensional continuous Hom and coinvariant duals on the correct sides.",
       "locator": "Fu v2 §6; Schneider–Teitelbaum math/0005066v1, Lemma3.4 and Theorem3.5, pp.14–15.",
       "status": "missing",
-      "note": "Primary statements and proofs read. K is a finite extension of Q_p; G is compact p-adic analytic. Finite generation over K[[G]] corresponds to admissibility via a compact integral dual lattice and topological Nakayama, not via abstract vector-space duality."
+      "note": "Primary statements and proofs read. K is a finite extension of Q_p; G is compact p-adic analytic. Finite generation over K[[G]] corresponds to admissibility via a compact integral dual lattice and topological Nakayama, not via abstract vector-space duality. FIX-RT-PAPER-FU-24 (RT-PAPER-FU-24/14): FIX-RT-AREA-automorphic-1 /17 proposes a sub-stage PadicMeasuresIwasawaAlgebras:L1:banach-representations for exactly ST02a Lemma 3.4 and Theorem 3.5, consumed by CC.2, CC.5 and R30.2. That proposal is not applied and has no atlas stage, so this item stays missing here. If it is adopted, the recommended single owner is that early PMIA sub-stage: this item then becomes planned there and route 2 imports it. Keep Banach/Schikhof duality distinct from the locally analytic strong duality and coadmissible modules of central-strong-dual, and keep the compact-group hypotheses."
     },
     {
       "id": "PAPER-FU-24/algebraic-functions",
@@ -2572,7 +2681,8 @@
       "status": "missing",
       "dependsOn": [
         "PAPER-FU-24/banach-iwasawa-duality",
-        "PAPER-FU-24/compact-algebraic-irreducibility"
+        "PAPER-FU-24/compact-algebraic-irreducibility",
+        "PAPER-FU-24/iwasawa-group-homology"
       ]
     },
     {
@@ -2671,7 +2781,8 @@
       "locator": "Fu v2, section 6 proof of Theorem 1.4",
       "status": "missing",
       "dependsOn": [
-        "PAPER-FU-24/iwasawa-algebra"
+        "PAPER-FU-24/iwasawa-algebra",
+        "PAPER-FU-24/iwasawa-group-homology"
       ]
     },
     {
@@ -2684,17 +2795,46 @@
       "dependsOn": [
         "PAPER-FU-24/rank-main-term",
         "PAPER-FU-24/free-approximation",
-        "PAPER-FU-24/acyclic-regular-coefficients"
+        "PAPER-FU-24/acyclic-regular-coefficients",
+        "PAPER-FU-24/iwasawa-group-homology"
       ]
     },
     {
       "id": "PAPER-FU-24/iwasawa-finite-global-dimension",
       "kind": "theorem",
       "name": "Auslander regularity and finite global dimension",
-      "statement": "For a compact p-adic analytic group G with no p-torsion, Z_p[[G]] is Auslander regular and Q_p[[G]]=Z_p[[G]][1/p] is Auslander regular of global dimension cd_p(G). In Fu's odd-prime uniform SL2-product case cd_p(G)=dim(G)=3m. Any more general coefficient-ring version requires its separate finite-extension comparison; do not conflate canonical dimension with commutative Krull dimension.",
+      "statement": "For a compact p-adic analytic group G with no p-torsion (integral global dimension d + 1 is the planned item iwasawa-integral-global-dimension), Z_p[[G]] is Auslander regular and Q_p[[G]]=Z_p[[G]][1/p] is Auslander regular of global dimension cd_p(G). In Fu's odd-prime uniform SL2-product case cd_p(G)=dim(G)=3m. Any more general coefficient-ring version requires its separate finite-extension comparison; do not conflate canonical dimension with commutative Krull dimension.",
       "locator": "Fu v2 §1 before Theorem1.4; Venjakob math/0106269v1, §1.2 and Theorems3.26,3.29, pp.18–19 (printed arXiv pages).",
       "status": "missing",
-      "note": "NE.0 names the Lazard/Venjakob homological programme but does not spell out this complete theorem. Route it as an explicit source addition to NE.0, rather than mark it already proved or create another Iwasawa carrier."
+      "note": "NE.0 names the Lazard/Venjakob homological programme but does not spell out this complete theorem. Route it as an explicit source addition to NE.0, rather than mark it already proved or create another Iwasawa carrier. FIX-RT-PAPER-FU-24 (RT-PAPER-FU-24/2): split. The integral global dimension d + 1 is planned at NE.0 (NE.0/iwasawa-finite-global-dimension; item iwasawa-integral-global-dimension). This item keeps, as missing on route 5, what NE.0 does not state: Auslander regularity (Venjakob Theorem 3.26; the node NE.0/auslander-regular-grade requested by FIX-RT-AREA-automorphic-1 /3) and gl.dim K[[G]] = d after inverting p (Venjakob Theorem 3.29).",
+      "dependsOn": [
+        "PAPER-FU-24/iwasawa-integral-global-dimension"
+      ]
+    },
+    {
+      "id": "PAPER-FU-24/iwasawa-group-homology",
+      "kind": "construction",
+      "name": "Homology of finitely generated Iwasawa modules and their algebraic twists",
+      "statement": "For a compact p-adic analytic group G, a finite extension K/Q_p with integers O, and a finitely generated K[[G]]-module M, put H_i(G, M) = Tor_i^{K[[G]]}(K, M), with K a right module through the augmentation; fix the left/right conventions. For a finite-dimensional continuous representation W, first make M_0 ⊗_O W_0 a module over O[[G]] through the diagonal action g ↦ g ⊗ g, for a compact O[[G]]-lattice M_0 and a G-stable lattice W_0, extended to O[[G]] by continuity; prove it finitely generated when M_0 is; then invert p, with bounded denominators, to get the K[[G]]-module M ⊗_K W. Prove functoriality and the long exact sequence for short exact sequences of modules. Compare H_i(G, M_0 ⊗ W_0) with the continuous homology of the compact module as a limit over finite quotients, stating the derived-limit or exactness hypotheses the comparison needs.",
+      "locator": "Fu v2 and published, Theorem 1.4 (p. 126), §6 (pp. 147–150) and (38) (p. 150)",
+      "status": "missing",
+      "dependsOn": [
+        "PAPER-FU-24/iwasawa-algebra",
+        "PAPER-FU-24/iwasawa-integral-global-dimension"
+      ],
+      "note": "Added by FIX-RT-PAPER-FU-24 (RT-PAPER-FU-24/6). Fu uses H_i(G, M ⊗ W_k) throughout Theorem 1.4 and (38) without defining it. Mathlib at 082e2d3 has discrete group homology (groupHomology, Rep.Tor, groupHomologyIsoTor, RepresentationTheory/Homological/GroupHomology/Basic.lean:230, :99, :250), which concerns a discrete Rep k G, not the completed K[[G]] contract, so it is imported only as general homological machinery. A naive inverse limit of finite-quotient homology is not automatically this Tor. Routed to NE.0 (route 5), which owns the homological Iwasawa theory, and whose NE.2 already uses H_i(H, M) = Tor_i^{Λ(G)}(Λ(Γ), M) without a definition node."
+    },
+    {
+      "id": "PAPER-FU-24/iwasawa-integral-global-dimension",
+      "kind": "theorem",
+      "name": "Finite global dimension d + 1 of the integral Iwasawa algebra",
+      "statement": "If the compact p-adic analytic group G of dimension d has no element of order p, then Λ(G) = Z_p[[G]] and O[[G]], O the integers of a finite extension of Q_p, have finite global dimension d + 1 on either side; every finitely generated module has a finite resolution by finitely generated projectives. Both rings are left and right noetherian.",
+      "locator": "Fu v2 and published §1, before Theorem 1.4; Venjakob math/0106269v1 §1.2; the NE packet nodes NE.0/iwasawa-finite-global-dimension and NE.0/iwasawa-noetherian",
+      "status": "planned",
+      "planned": [
+        "NoncommutativeAndEquivariantIwasawa:NE.0"
+      ],
+      "note": "Added by FIX-RT-PAPER-FU-24 (RT-PAPER-FU-24/2): the integral half of Fu's finite-global-dimension input, which the NE packet already plans. Auslander regularity and the rational global dimension d of K[[G]] stay missing in iwasawa-finite-global-dimension (route 5)."
     },
     {
       "id": "PAPER-FU-24/canonical-dimension-zero",
@@ -2795,12 +2935,31 @@
       "id": "PAPER-FU-24/completed-descent-spectral-sequence",
       "kind": "theorem",
       "name": "Finite-level homology from completed homology",
-      "statement": "For the actual arithmetic tower and algebraic coefficient W_k, construct the convergent first-quadrant spectral sequence H_i(G,Htilde_j(K^p) tensor W_k) => H_{i+j}(Y(K_f),W_k), with finite cohomological bounds and the precise continuous-chain topology.",
+      "statement": "For the actual arithmetic tower, the finite completed chain model of CC.4, with derived finite-level coinvariants recovering the finite-level complex, and the descent spectral sequences of CC.6 relating completed (co)homology to the finite levels Y(GK^p), with finite cohomological bounds and the continuous-chain topology. The homological form with algebraic coefficients that Fu's (38) uses is item homological-descent-comparison.",
       "locator": "Fu arXiv v2 HTML, (38); Marshall 2012 section 5.2, (34)",
       "status": "planned",
       "planned": [
+        "CompletedCohomologyPartII:CC.4",
         "CompletedCohomologyPartII:CC.6"
-      ]
+      ],
+      "dependsOn": [
+        "PAPER-FU-24/iwasawa-group-homology"
+      ],
+      "note": "FIX-RT-PAPER-FU-24 (RT-PAPER-FU-24/10): split. CC.4 and CC.6 plan the chain model and the descent sequences (CC.6's integrated node states the cohomological form, and full CC.6 requests the classical algebraic-coefficient comparison). The homological hyper-Tor form with a twist by W_k, rationally, is homological-descent-comparison (route 4, missing)."
+    },
+    {
+      "id": "PAPER-FU-24/homological-descent-comparison",
+      "kind": "theorem",
+      "name": "Homological descent from completed homology with algebraic coefficients",
+      "statement": "For a finite-dimensional algebraic representation W of G with a G-stable lattice W_0, C_•(Y(GK^p), W_0) ≃ C̃_•(K^p) ⊗^L_{Z_p[[G]]} W_0 as complexes of Z_p-modules, with C̃_•(K^p) the completed chain complex of CC.4; after inverting p this gives the convergent first-quadrant spectral sequence E²_{i,j} = H_i(G, H̃_j(K^p) ⊗ W) ⇒ H_{i+j}(Y(GK^p), W) of Fu's (38), with H_i as in iwasawa-group-homology.",
+      "locator": "Fu v2 and published §7, (38), p. 150; Emerton 2006; Calegari–Emerton 2009; Marshall 2012, (34)–(36), pp. 1647–1648",
+      "status": "missing",
+      "dependsOn": [
+        "PAPER-FU-24/completed-descent-spectral-sequence",
+        "PAPER-FU-24/iwasawa-group-homology",
+        "PAPER-FU-24/completed-homology"
+      ],
+      "note": "Added by FIX-RT-PAPER-FU-24 (RT-PAPER-FU-24/10), as a source request to CompletedCohomologyPartII CC.6 (route 4). The stable integral lattice and the rationalization are explicit; no private completed-homology theory is built here, and the completed-tensor comparison is not assumed."
     },
     {
       "id": "PAPER-FU-24/spectral-dimension-bound",
@@ -2832,7 +2991,7 @@
       "statement": "Construct the cuspidal cohomology subspace and its injection into ordinary cohomology, and the map from compactly supported cohomology to ordinary cohomology. For the indicated nontrivial cohomological coefficients prove the Eichler-Shimura dimension formula for the cuspidal/interior part. Handle the trivial coefficient system separately, and use a boundary long exact sequence rather than identifying the full compact-support group with its image.",
       "locator": "Fu v2, equation (2), Corollary 1.3; Marshall 2012 section 2, equation (4)",
       "status": "missing",
-      "note": "S1: Marshall defines H_c as a subspace of ordinary cohomology, not compact-support cohomology itself. The original Fu wording is preserved in sourceIssues."
+      "note": "S1: Marshall defines H_c as a subspace of ordinary cohomology, not compact-support cohomology itself. The original Fu wording is preserved in sourceIssues. Suppliers (FIX-RT-PAPER-FU-24, RT-PAPER-FU-24/3): the boundary sequence and strata from ALS.2 and ALS.4, Poincaré–Lefschetz duality from ALS.5:finite-level-duality. The Eichler–Shimura–Harder comparison is requested from ALS.5 by FIX-RT-AREA-iwasawa-1 /34 for GL_2 only and is not yet applied; this item keeps Fu's SL_2 count at his weight normalisation until a supplier contract covers SL_2."
     },
     {
       "id": "PAPER-FU-24/bianchi-boundary-estimate",
@@ -2841,7 +3000,7 @@
       "statement": "At a fixed neat Bianchi level the Borel-Serre boundary is a finite union of two-tori. For E_n=Sym^n tensor conjugate Sym^n, compute invariant vectors and the unipotent cochain complex at each cusp to bound every boundary cohomology dimension independently of n. Use the long exact sequence and Poincare-Lefschetz duality to compare the degree-one and degree-two compact-support, ordinary and cuspidal growth.",
       "locator": "Fu v2, Corollary 1.3 (missing support bridge); FGT section 1, equations (1.2)-(1.4); Marshall section 2",
       "status": "missing",
-      "note": "This is an additional explicit bridge required by the compact-support reading, not an identity quoted from Fu.",
+      "note": "This is an additional explicit bridge required by the compact-support reading, not an identity quoted from Fu. Suppliers (FIX-RT-PAPER-FU-24, RT-PAPER-FU-24/3): as the proof steps say, the boundary sequence and cusp tori come from ALS.2 and ALS.4, and Poincaré–Lefschetz duality from ALS.5:finite-level-duality. Only the cusp-torus Koszul computation (1,2,1) and the 3c bound are this item's own.",
       "dependsOn": [
         "PAPER-FU-24/cuspidal-support-dictionary"
       ],
@@ -2874,7 +3033,7 @@
       "id": "PAPER-FU-24/ore-localization-carrier",
       "kind": "construction",
       "name": "Existing Ore ring and module localization",
-      "statement": "For a ring A and multiplicative submonoid S equipped with OreSet, use the existing ring A[S^-1], localized modules, numerator ring map and universalHom. For a nontrivial domain and S the nonzero elements, with OreSet proved, its localization is a division ring. This item supplies no theorem that an arbitrary multiplicative set is Ore.",
+      "statement": "For a ring A and multiplicative submonoid S equipped with OreSet, use the existing ring A[S^-1], localized modules, numerator ring map and universalHom. For a nontrivial domain and S the nonzero elements, with OreSet proved, its localization is a division ring. This item supplies no theorem that an arbitrary multiplicative set is Ore; for a left-noetherian domain and S = R⁰ the Ore property is library (IsNoetherianRing.strongRankCondition, nonempty_oreSet_of_strongRankCondition; item noetherian-domain-ore).",
       "locator": "Fu v2, Definition 2.1 and section 4 equation (17)",
       "status": "library",
       "library": [
@@ -3400,7 +3559,8 @@
         "Use a general-ring PBW proof under the free-basis hypothesis, retaining the ordered-monomial generator equations.",
         "Specialize to sl2 over Z_p or O_K and to the free k[t]-Lie algebra t(h/ph)[t] in AW13.",
         "The field-only PBW roadmap theorem does not alone discharge this commutative-ring result."
-      ]
+      ],
+      "note": "Library prefix (FIX-RT-PAPER-FU-24, RT-PAPER-FU-24/5): Tau Ceti f790474 has the spanning half over any commutative ring, tauceti:TauCeti.UniversalEnvelopingAlgebra.span_orderedPBWMonomials_eq_pbwFiltration (PBW/Ordered.lean:118), and the surjectivity of Sym_R(L) → gr U_R(L), tauceti:TauCeti.UniversalEnvelopingAlgebra.pbwAssociatedGradedMap_surjective (PBW/Homogeneous.lean:144). What stays missing is the linear independence of the ordered monomials, that is the injectivity of Sym_R(L) → gr U_R(L), for a free L with an ordered basis."
     },
     {
       "id": "PAPER-FU-24/unramified-graded-iwasawa",
@@ -3690,9 +3850,10 @@
         "PAPER-FU-24/finite-pbw-coefficients",
         "PAPER-FU-24/weighted-central-closedness",
         "PAPER-FU-24/weighted-central-radius-injection",
-        "PAPER-FU-24/weighted-central-domain"
+        "PAPER-FU-24/weighted-central-domain",
+        "PAPER-FU-24/split-field-harish-chandra"
       ],
-      "brief": "Build the integral and p-adically completed enveloping-algebra theory used by Fu, starting with finite free split sl_2 lattices at odd p and extending only in the stated Ardakov-Wadsley source generality. Import the field PBW, highest-weight, central-character and Casimir theory from LieHighestWeight (tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight), including the existing Tau Ceti filtration and Casimir declarations; import Mathlib filtered-ring and Ore-localization carriers. Construct integral central reductions, their explicit PBW normal forms, saturated-ideal completion, image lattices in Sym^k, and the separated graded-domain arguments. Prove Fu Lemmas 2.2-2.3, 3.1-3.3 and Proposition 3.4 in declaration-sized parts. The growth endpoint is: a cyclic completed-enveloping module with a generic annihilator has Hom multiplicity in W_k bounded by a multiaffine polynomial of degree at most m-1, uniformly for k in N^m. Include the infinite low-coordinate strips, a nongeneric equal-Casimir counterexample, and the distinction between the integral image lattice and all integral matrices. Construct the affinoid Verma module and central-annihilator theorem in AW14 4.6 with its integral-weight, n>=0 and very-good-prime hypotheses. Distribution algebras and Iwasawa faithfulness belong to NoncommutativeAnalyticDistributions, not this algebraic core. Every definition gets a usable API and at least three tests; no extra characteristic-two theorem is inferred by notation. Reuse the pinned standard integral lattice, enveloping action and Kostant action. Add weighted PBW completions B_rho and bounded central division on the algebraic side; the analytic owner proves their identification with U_r, so this algebraic core has no reverse dependency on analytic distributions. The explicit multiaffine majorant is 2 sum_i alpha_i product_{j!=i}(k_j+1). Prove bounded central projection, exact ideal kernel, attained quotient norm, and injective coefficient-preserving change of all real weights rho>=1. Import the unweighted central domain to deduce weighted domains without an unsupported all-real noetherianity claim. Supply finite PBW coefficient extension as a topological isomorphism, not an arbitrary-basis isometry.",
+      "brief": "Build the integral and p-adically completed enveloping-algebra theory used by Fu, starting with finite free split sl_2 lattices at odd p and extending only in the stated Ardakov-Wadsley source generality. Import the field PBW, highest-weight, central-character and Casimir theory from LieHighestWeight (tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight), including the existing Tau Ceti filtration and Casimir declarations; import Mathlib filtered-ring and Ore-localization carriers. Construct integral central reductions, their explicit PBW normal forms, saturated-ideal completion, image lattices in Sym^k, and the separated graded-domain arguments. Prove Fu Lemmas 2.2-2.3, 3.1-3.3 and Proposition 3.4 in declaration-sized parts. The growth endpoint is: a cyclic completed-enveloping module with a generic annihilator has Hom multiplicity in W_k bounded by a multiaffine polynomial of degree at most m-1, uniformly for k in N^m. Include the infinite low-coordinate strips, a nongeneric equal-Casimir counterexample, and the distinction between the integral image lattice and all integral matrices. Construct the affinoid Verma module and central-annihilator theorem in AW14 4.6 with its integral-weight, n>=0 and very-good-prime hypotheses. Distribution algebras and Iwasawa faithfulness belong to NoncommutativeAnalyticDistributions, not this algebraic core. Every definition gets a usable API and at least three tests; no extra characteristic-two theorem is inferred by notation. Reuse the pinned standard integral lattice, enveloping action and Kostant action. Add weighted PBW completions B_rho and bounded central division on the algebraic side; the analytic owner proves their identification with U_r, so this algebraic core has no reverse dependency on analytic distributions. The explicit multiaffine majorant is 2 sum_i alpha_i product_{j!=i}(k_j+1). Prove bounded central projection, exact ideal kernel, attained quotient norm, and injective coefficient-preserving change of all real weights rho>=1. Import the unweighted central domain to deduce weighted domains without an unsupported all-real noetherianity claim. Supply finite PBW coefficient extension as a topological isomorphism, not an arbitrary-basis isometry. Import from Tau Ceti the ordered-monomial spanning theorem span_orderedPBWMonomials_eq_pbwFiltration, the surjectivity pbwAssociatedGradedMap_surjective, and the central gl_n Casimir glCasimir with glCasimir_mem_center; what remains is independence, the sl_2/gl_2 adapter and the central-quotient normal forms (FIX-RT-PAPER-FU-24).",
       "reason": "The existing highest-weight roadmap owns the ordinary field theory, not these integral completions and uniform central-parameter bounds. This is a Part II, not a re-plan of the upstream roadmap."
     },
     {
@@ -3703,11 +3864,8 @@
       "area": "representations",
       "items": [
         "PAPER-FU-24/all-integral-central-injectivity",
-        "PAPER-FU-24/uniform-group-coordinates",
         "PAPER-FU-24/lazard-lie-algebra",
         "PAPER-FU-24/matrix-lie-comparison",
-        "PAPER-FU-24/uniform-valuation",
-        "PAPER-FU-24/iwasawa-series",
         "PAPER-FU-24/distribution-convolution",
         "PAPER-FU-24/distribution-radius-completion",
         "PAPER-FU-24/frechet-stein",
@@ -3750,9 +3908,10 @@
         "PAPER-FU-24/microlocal-symbol-comparison",
         "PAPER-FU-24/finite-coefficient-microlocal-map",
         "PAPER-FU-24/small-radius-log-exp",
-        "PAPER-FU-24/small-radius-central-domain"
+        "PAPER-FU-24/small-radius-central-domain",
+        "PAPER-FU-24/uniform-analytic-structure"
       ],
-      "brief": "Extend LocallyAnalyticDistributions (LocallyAnalyticDistributions), importing its actual analytic Banach spaces, LF topology and strong duals. Import bounded measures and the completed group ring from p-adic measures, completed group algebras, and characteristic ideals (PadicMeasuresIwasawaAlgebras L0-L1), profinite foundations from ProfiniteProPGroups, and noetherian/grade inputs from NoncommutativeAndEquivariantIwasawa NE.0. Construct odd-prime uniform-group coordinates, Lazard Lie lattices, noncommutative convolution, weighted-c0 radius completions, Frechet-Stein and faithful-flatness theorems of Schneider-Teitelbaum. Construct the source-qualified Ore microlocalization and Lazard comparison with PadicEnvelopingAlgebras. Prove finite-dimensional/isotypic quotient recovery, the finite crossed-product radius description, central strong duality and cofinal-limit comparison, and the separated topological PBW theorem needed in Fu section 5. The endpoint is injectivity Q_p[[G]] -> Uhat_lambda for the product of m first-congruence SL_2(Z_p) groups and every lambda in Z_p^m. Keep the direct analytically induced-character proof and the all-integral AW14 Verma route distinct; the latter requires finite coefficient extension and faithful descent. Do not identify bounded coefficients with a norm completion, or use the unramified Ore set over a ramified DVR. Include Banach-Iwasawa duality and algebraic matrix-coefficient comparisons without duplicating field highest-weight theory. Require naturality, handedness, norm and quotient APIs and tests on the trivial representation, a ramified coefficient ring, and an integral parameter not induced over Q_p. This does not build Colmez or the geometric locally analytic-vectors theorem. Import the weighted PBW completion and bounded-division theorem, then identify U_(r_n) with B_(p^n). Prove the finite crossed-product Ext comparison before grade invariance. Record that large nonintegral central parameters can give the zero ring, and do not export Fu5.7 as a nonzero-domain theorem without a parameter qualification. Use the exact unramified AW13 coefficient hypotheses, then consume the finite completed-group-ring comparison from PadicMeasuresIwasawaAlgebras:L1 and finite PBW extension from PadicEnvelopingAlgebras. Prove the small-real-radius log/exp isometry and central domain for p^(-1)<=r<p^(-1/(p-1)). Keep the larger-radius ideal-contraction theorem as an explicit unresolved gate; neither density nor a nonzero domain associated graded implies separatedness of the actual quotient.",
+      "brief": "Extend LocallyAnalyticDistributions (LocallyAnalyticDistributions), importing its actual analytic Banach spaces, LF topology and strong duals. Import bounded measures and the completed group ring from p-adic measures, completed group algebras, and characteristic ideals (PadicMeasuresIwasawaAlgebras L0-L1), profinite foundations and the completed group algebra completedGroupAlgebra (Layer 9, a planned carrier) from ProfiniteProPGroups, and from NoncommutativeAndEquivariantIwasawa NE.0 the uniform pro-p groups, noetherianity, integral global dimension and grade, together with the ordered coordinates, the p-valuation and the ordered series of R[[G]], which route 5 of this extraction requests from NE.0. Construct the Lazard Lie lattice L_G, the locally analytic structure of a uniform group (DDMS 8.18), noncommutative convolution, weighted-c0 radius completions, Frechet-Stein and faithful-flatness theorems of Schneider-Teitelbaum. Construct the source-qualified Ore microlocalization and Lazard comparison with PadicEnvelopingAlgebras. Prove finite-dimensional/isotypic quotient recovery, the finite crossed-product radius description, central strong duality and cofinal-limit comparison, and the separated topological PBW theorem needed in Fu section 5. The endpoint is injectivity Q_p[[G]] -> Uhat_lambda for the product of m first-congruence SL_2(Z_p) groups and every lambda in Z_p^m. Keep the direct analytically induced-character proof and the all-integral AW14 Verma route distinct; the latter requires finite coefficient extension and faithful descent. Do not identify bounded coefficients with a norm completion, or use the unramified Ore set over a ramified DVR. Include Banach-Iwasawa duality and algebraic matrix-coefficient comparisons without duplicating field highest-weight theory. Require naturality, handedness, norm and quotient APIs and tests on the trivial representation, a ramified coefficient ring, and an integral parameter not induced over Q_p. This does not build Colmez or the geometric locally analytic-vectors theorem. Import the weighted PBW completion and bounded-division theorem, then identify U_(r_n) with B_(p^n). Prove the finite crossed-product Ext comparison before grade invariance. Record that large nonintegral central parameters can give the zero ring, and do not export Fu5.7 as a nonzero-domain theorem without a parameter qualification. Use the exact unramified AW13 coefficient hypotheses, then consume the finite completed-group-ring comparison from PadicMeasuresIwasawaAlgebras:L1 and finite PBW extension from PadicEnvelopingAlgebras. Prove the small-real-radius log/exp isometry and central domain for p^(-1)<=r<p^(-1/(p-1)). Keep the larger-radius ideal-contraction theorem as an explicit unresolved gate; neither density nor a nonzero domain associated graded implies separatedness of the actual quotient. Ownership (FIX-RT-PAPER-FU-24, from RT-PAPER-FU-24/1): this roadmap supplies, once, the distribution algebra D(G,K), its Banach steps D_r, the Fréchet–Stein property and the coadmissible-module foundations (ST03 §3), and Frommer's description of D_r over the closure U_r(g). The proposed new roadmap LocallyAnalyticRepresentationsOfLocalGroups imports them and keeps its representation-category applications (PAPER-DOSPINESCU-LEBRAS-17 route 3, items 89–90; PAPER-DING-25 route 1, item 3.1-distribution; PAPER-BOXER-CALEGARI-GEE-PILLONI-25 route 34, which already imports D(G) from here, as its route 18 says). Both roadmaps are proposals with pending design jobs; this is a supplier/consumer agreement, not an existing stage. Keep Frommer's normalisation ‖log g_j‖_{r_n} = p^{n−1} and the separate weighted-PBW supplier PadicEnvelopingAlgebras, so that no dependency runs from the algebraic core back to this analytic roadmap. Banach–Iwasawa duality (ST02a Lemma 3.4, Theorem 3.5) is also proposed for PadicMeasuresIwasawaAlgebras:L1:banach-representations by FIX-RT-AREA-automorphic-1 /17; if that sub-stage is adopted, import it from there instead of constructing it here.",
       "reason": "The existing locally analytic roadmap has function spaces and abelian transforms but no general noncommutative radius/crossed-product/microlocal theory. The same new foundation is reusable beyond Fu and must not be hidden in a Bianchi-only proof."
     },
     {
@@ -3788,7 +3947,7 @@
         "PAPER-FU-24/rank-upper-coinvariants",
         "PAPER-FU-24/rank-lower-coinvariants"
       ],
-      "brief": "Build on Arithmetic locally symmetric spaces and their cohomology (ArithmeticLocallySymmetricSpaces) and Completed cohomology, homology and arithmetic towers - Part II (CompletedCohomologyPartII). Import their actual quotients, algebraic local systems, finite chain models, completed homology, torsion theorem in the no-discrete-series case, and finite-level descent spectral sequence. Import NoncommutativeAnalyticDistributions and PadicEnvelopingAlgebras rather than reconstruct their rings. First prove Fu Theorem 1.4: for any finitely generated Q_p[[G]]-module M of rank a, G a product of m first-congruence SL_2 groups at odd p, the difference between dim H_0(G,M tensor W_k) and a product_i(k_i+1), and every positive-degree homology dimension, are bounded by one multiaffine polynomial of degree <=m-1, for all k in N^m. Split the upper and lower rank estimates before dimension shifting. Then for fixed level over a number field F with r_2>0 prove dim S_kappa <= C Delta(kappa)/min_v kappa_v, with even entries >=2, Delta=product_real kappa times product_complex kappa^2, and parallel bound O(kappa^([F:Q]-1)). Prove the Bianchi O(kappa) specialization; derive two-sided linear growth only with the FGT base-change lower-bound level hypotheses. Distinguish cuspidal, interior, ordinary and compact-support cohomology and prove the bounded-boundary bridge for the latter interpretation in degrees one and two. Include change of level, finite coefficient-field comparison, nontrivial versus trivial coefficients, and boundary normalization. No epsilon loss, leading constant, arbitrary-level lower bound or totally-real saving is asserted without a separate theorem.",
+      "brief": "Build on Arithmetic locally symmetric spaces and their cohomology (ArithmeticLocallySymmetricSpaces) and Completed cohomology, homology and arithmetic towers - Part II (CompletedCohomologyPartII). Import their actual quotients, algebraic local systems, finite chain models, completed homology, torsion theorem in the no-discrete-series case, and finite-level descent spectral sequence. Import NoncommutativeAnalyticDistributions and PadicEnvelopingAlgebras rather than reconstruct their rings. First prove Fu Theorem 1.4: for any finitely generated Q_p[[G]]-module M of rank a, G a product of m first-congruence SL_2 groups at odd p, the difference between dim H_0(G,M tensor W_k) and a product_i(k_i+1), and every positive-degree homology dimension, are bounded by one multiaffine polynomial of degree <=m-1, for all k in N^m. Split the upper and lower rank estimates before dimension shifting. Then for fixed level over a number field F with r_2>0 prove dim S_kappa <= C Delta(kappa)/min_v kappa_v, with even entries >=2, Delta=product_real kappa times product_complex kappa^2, and parallel bound O(kappa^([F:Q]-1)). Prove the Bianchi O(kappa) specialization; derive two-sided linear growth only with the FGT base-change lower-bound level hypotheses. Distinguish cuspidal, interior, ordinary and compact-support cohomology and prove the bounded-boundary bridge for the latter interpretation in degrees one and two. Include change of level, finite coefficient-field comparison, nontrivial versus trivial coefficients, and boundary normalization. No epsilon loss, leading constant, arbitrary-level lower bound or totally-real saving is asserted without a separate theorem. Suppliers (FIX-RT-PAPER-FU-24, from RT-PAPER-FU-24/3): import the Borel–Serre compactification and its boundary strata (ALS.2), the support triangle RΓ_c → RΓ → RΓ_∂ and the unipotent Hochschild–Serre spectral sequence (ALS.4), and Poincaré–Lefschetz duality (ALS.5:finite-level-duality). Place this topological duality before any automorphic comparison, to avoid a cycle. The Eichler–Shimura–Harder comparison of cusp forms with cuspidal cohomology in degree r1+r2 has no adopted supplier. FIX-RT-AREA-iwasawa-1 /34 requests it from ALS.5 (with AutomorphicSpectralTheory AS.5) for GL_2 over F; that request is not yet applied and should be widened to SL_2 over F, with PAPER-FU-24/cuspidal-support-dictionary as a consumer. Until a supplier contract is adopted, this Part II keeps the comparison. Beyond these imports it proves only: the SL_2/F dimension count 2^{r1} dim S_κ at Fu's weight convention, for nontrivial coefficients, with the trivial coefficient system treated separately; the Bianchi cusp-torus Koszul computation with boundary dimensions (1,2,1); and the resulting bound |dim H^i_c − dim H^i| ≤ 3c for i = 1, 2 and c cusps. Keep Marshall's convention distinct: his H_c is the interior subspace of ordinary cohomology (Marshall 2012, p. 1632, (4)), not compactly supported cohomology.",
       "reason": "Completed homology and the arithmetic quotients are already owned; the sharp weight-aspect estimates, rank-error calculus and their Bianchi application are genuinely new layers in this direction."
     },
     {
@@ -3805,9 +3964,10 @@
         "PAPER-FU-24/completed-homology",
         "PAPER-FU-24/completed-homology-finite-generation",
         "PAPER-FU-24/completed-homology-torsion",
-        "PAPER-FU-24/completed-descent-spectral-sequence"
+        "PAPER-FU-24/completed-descent-spectral-sequence",
+        "PAPER-FU-24/homological-descent-comparison"
       ],
-      "reason": "Attach Fu section 7 and its explicitly inspected Calegari-Emerton/Marshall inputs to the existing completed-homology contracts. The integrated CC decomposition already records the torsion theorem and spectral sequence. Its survey proof gaps do not justify a duplicate construction."
+      "reason": "Attach Fu section 7 and its explicitly inspected Calegari-Emerton/Marshall inputs to the existing completed-homology contracts. The integrated CC decomposition already records the torsion theorem and spectral sequence. Its survey proof gaps do not justify a duplicate construction. FIX-RT-PAPER-FU-24 (RT-PAPER-FU-24/10): Fu's (38) needs the homological hyper-Tor form of the finite-level descent with algebraic coefficients, which CC.6 states only cohomologically; this route now requests it from CC.6 (item homological-descent-comparison), on top of CC.4's completed chain model."
     },
     {
       "route": "source",
@@ -3816,9 +3976,13 @@
         "NoncommutativeAndEquivariantIwasawa:NE.0"
       ],
       "items": [
-        "PAPER-FU-24/iwasawa-finite-global-dimension"
+        "PAPER-FU-24/iwasawa-finite-global-dimension",
+        "PAPER-FU-24/uniform-group-coordinates",
+        "PAPER-FU-24/uniform-valuation",
+        "PAPER-FU-24/iwasawa-series",
+        "PAPER-FU-24/iwasawa-group-homology"
       ],
-      "reason": "Make the finite-global-dimension/Auslander-regular theorem required by Fu an explicit source addition within the existing Lazard-Venjakob homological layer, retaining absence of p-torsion. The canonical Ore set of NE.1 is not the microlocal set or all-nonzero localization."
+      "reason": "Make the finite-global-dimension/Auslander-regular theorem required by Fu an explicit source addition within the existing Lazard-Venjakob homological layer, retaining absence of p-torsion. The canonical Ore set of NE.1 is not the microlocal set or all-nonzero localization. FIX-RT-PAPER-FU-24 (RT-PAPER-FU-24/2, /6): NE.0 is the owner of the group-theoretic and Iwasawa-algebra foundations, and route 2 of the owner of the Lazard Lie lattice and the analytic structure. The NE packet already plans uniform groups, the mod-p series and graded ring, noetherianity and integral global dimension d + 1 (items uniform-pro-p-group and iwasawa-integral-global-dimension, planned). This route requests what the packet does not state: the ordered coordinate homeomorphism (DDMS 4.9), the p-valuation (Lazard III 2.1.2), the ordered series with Z_p- or O-coefficients and its rationalization (DDMS 7.20), Auslander regularity and the rational global dimension (Venjakob 3.26, 3.29), and the homology of finitely generated Iwasawa modules with its diagonal algebraic twists (item iwasawa-group-homology). The NE packet's gap 'Lazard's theory of p-adic analytic groups has no owner' should name NE.0 for the group side and NoncommutativeAnalyticDistributions for L_G and the analytic structure (note for the maintainer)."
     },
     {
       "route": "source",
@@ -3840,7 +4004,7 @@
       "printed": "The source gives dim_C H_c^{r1+r2}(Y(K_f), W_k) = 2^{r1} dim_C S_k(K_f). Via the Eichler–Shimura isomorphism (2), it identifies this space with compactly supported cohomology in degree one, with local-system coefficients W_k.",
       "correction": "Read cuspidal (interior) cohomology, as in [Mar12, (4)]. Compactly supported cohomology differs from it by boundary terms, bounded here by 3·(number of cusps) in degrees 1 and 2, so Theorem 1.2 (an upper bound through ordinary cohomology) and Corollary 1.3 still hold.",
       "reason": "Marshall defines H_c as cuspidal cohomology inside ordinary cohomology, whereas Fu describes it as compactly supported. Marshall also states the displayed dimension identity for nontrivial coefficient systems. Use the cuspidal injection for the upper bound. For the full compact-support interpretation retain an explicit boundary long-exact-sequence calculation and Poincare-Lefschetz comparison, treating the trivial coefficient separately. The two-sided Bianchi result uses the specified base-change lower-bound level class. The continuation gives a cusp-torus Koszul argument with dimensions(1,2,1) and resulting |dim H_c^i−dim H^i|<=3c for i=1,2 and c cusps; its geometric and chain-comparison imports remain explicit. (Converted by cc-442dc5 from the checkpoint's finding S1; its text is kept in previousForm.)",
-      "affects": "nothing",
+      "affects": "the proof",
       "known": "new",
       "searched": [
         "Crossref record of DOI 10.4007/annals.2024.200.1.3, checked 23 September 2026 by cc-442dc5: no update relation.",
@@ -3868,7 +4032,23 @@
         "verdict": "confirmed",
         "reason": "Confirmed at published p. 125. Equation (2) is printed as dim_C H_c^{r₁+r₂}(Y(K_f), W_k) = 2^{r₁} dim_C S_k(K_f), and the following sentence says the space of cusp forms 'corresponds to the first compactly supported cohomology … by the Eichler–Shimura isomorphism (2)'. Eichler–Shimura identifies cusp forms with cuspidal (interior) cohomology; H_c carries boundary contributions as well, so the identification as printed is with the wrong group. The extraction is right that nothing downstream moves, since the boundary terms are bounded by a constant times the number of cusps, which the paper's degree-one saving absorbs. No later version or erratum corrects it: arXiv 2201.11190 stops at v2 and Crossref's record of doi:10.4007/annals.2024.200.1.3 carries no update-to, updated-by or relation entry (checked 23 September 2026). The review checked the finding against the published Annals text itself, not only arXiv v2.",
         "by": "REV-PAPER-FU-24"
-      }
+      },
+      "errataRecord": {
+        "file": "research/blueprint/errata/PAPER-FU-24.json (supersededRecords)",
+        "writer": "ERRATA-PAPER-FU-24, Claude Code cc-fb70e5",
+        "scope": "arXiv 2201.11190v2 (SHA-256 d71e9d3f…2614) only; the published text was not collated in that file",
+        "locator": "Equation (2) and the paragraph after it, p.2, and Corollary 1.3, p.3; compared with Marshall 2012, §2.1, equation (4), in arXiv 2201.11190v2 (15 February 2024, SHA-256 d71e9d3f…2614), the version the extraction read; the published Annals text (200 (2024), 123–152) was not collated",
+        "kind": "gap",
+        "affects": "the proof",
+        "review": {
+          "verdict": "confirmed",
+          "reason": "Checked at p.2 of arXiv 2201.11190v2 (SHA-256 d71e9d3f…2614, the version named) against Marshall, Ann. of Math. 175 (2012), §2.1 (the Annals PDF linked by the extraction). Marshall defines H^i_c(Y, W_d) as 'the subspace of classes whose restriction to some neighbourhood of the cusps is trivial', which is cuspidal/interior cohomology inside H^i, and states (4) for dim W_d > 1. Fu calls this 'the first compactly supported cohomology'. For the upper bound in Theorem 1.2, §7 only needs the cuspidal part inside ordinary cohomology, so that bound stands. Corollary 1.3 for genuinely compactly supported H^n_c needs the boundary comparison the correction describes. Its bound is right: each cusp torus has H^j dimensions (1,2,1) for these coefficient systems, so |dim H^n_c − dim H^n| ⩽ 3c for n = 1, 2.",
+          "by": "REV-ERRATA-PAPER-FU-24"
+        },
+        "reviewProvenance": "The verdict above is by REV-ERRATA-PAPER-FU-24, whose reviewer cc-442dc5 did not do ERRATA-PAPER-FU-24 but had completed the extraction PAPER-FU-24 (#2102), including its own E1–E7. The independent verdicts on this record are REV-PAPER-FU-24's (cc-d67081), in `review`."
+      },
+      "reconciled": "FIX-RT-PAPER-FU-24 (30 September 2026, RT-PAPER-FU-24/11): this is the one active record of this mistake. The errata file's record, preprint-scoped, is kept as history in errataRecord and in that file's supersededRecords. E1 has two components. Equation (2), read as an identity for the full compactly supported cohomology, is false as printed, so the kind stays 'error' (the errata file had 'gap'); the literal error must not be lost. The proof of Corollary 1.3 for H_c rests on the missing bridge from the compactly supported to the interior groups (|dim H^i_c − dim H^i| ≤ 3c in degrees 1 and 2), so the reach is 'the proof' (the extraction had 'nothing'). Theorem 1.2, an upper bound through ordinary cohomology, and the corrected Corollary 1.3 stand.",
+      "previousAffects": "nothing"
     },
     {
       "id": "PAPER-FU-24/E2",
@@ -3903,7 +4083,22 @@
         "verdict": "confirmed",
         "reason": "Confirmed at published p. 138. Equation (16) prints D_r(G,K) = {Σ λ_α b^α : sup_α |λ_α| r^{|α|} < ∞}, while the line above defines D_r(G,K) as the completion of D(G,K) for ‖·‖_r. A non-archimedean completion with respect to a sup-norm on an orthogonal basis is the space of series whose terms tend to zero, not the bounded ones — the difference between c₀ and ℓ^∞ — so the displayed set is strictly larger than the object being defined. No later version or erratum corrects it: arXiv 2201.11190 stops at v2 and Crossref's record of doi:10.4007/annals.2024.200.1.3 carries no update-to, updated-by or relation entry (checked 23 September 2026). The review checked the finding against the published Annals text itself, not only arXiv v2.",
         "by": "REV-PAPER-FU-24"
-      }
+      },
+      "errataRecord": {
+        "file": "research/blueprint/errata/PAPER-FU-24.json (supersededRecords)",
+        "writer": "ERRATA-PAPER-FU-24, Claude Code cc-fb70e5",
+        "scope": "arXiv 2201.11190v2 (SHA-256 d71e9d3f…2614) only; the published text was not collated in that file",
+        "locator": "§4, equation (16), p.13, in arXiv 2201.11190v2 (15 February 2024, SHA-256 d71e9d3f…2614), the version the extraction read; the published Annals text (200 (2024), 123–152) was not collated",
+        "kind": "error",
+        "affects": "nothing",
+        "review": {
+          "verdict": "confirmed",
+          "reason": "Checked at p.13: every element of D(G,K) satisfies |λ_α| r'^{|α|} bounded for all r' < 1, hence |λ_α| r^{|α|} → 0 for fixed r. So the completion for ‖·‖_r is the space where |λ_α| r^{|α|} → 0 (the closure of the polynomials), not the larger space with sup < ∞ printed in (16). The example of the correction (r = p^{−1/p}, λ_{pj} = p^{−j}) is a bounded non-null sequence. D(G,K) = lim D_r(G,K) is the same either way, and Theorem 4.2 [ST03] is about the completion, so nothing downstream changes.",
+          "by": "REV-ERRATA-PAPER-FU-24"
+        },
+        "reviewProvenance": "The verdict above is by REV-ERRATA-PAPER-FU-24, whose reviewer cc-442dc5 did not do ERRATA-PAPER-FU-24 but had completed the extraction PAPER-FU-24 (#2102), including its own E1–E7. The independent verdicts on this record are REV-PAPER-FU-24's (cc-d67081), in `review`."
+      },
+      "reconciled": "FIX-RT-PAPER-FU-24 (30 September 2026, RT-PAPER-FU-24/11): this is the one active record of this mistake. The errata file's record, preprint-scoped, is kept as history in errataRecord and in that file's supersededRecords. E2 stays a misprint (the errata file had 'error'): the line above (16) defines D_r as the norm completion, so the intended space is clear from the context and only the displayed description omits the vanishing condition (§18: a slip whose intended meaning is clear)."
     },
     {
       "id": "PAPER-FU-24/E3",
@@ -3940,7 +4135,22 @@
         "verdict": "confirmed",
         "reason": "Confirmed at published p. 147. Remark 5.8's second bullet prints 'The infinitesimal character λ is induced if and only if the valuation λ₀ is at least 2', and the justification it gives — 'since for any continuous character χ : T ≃ 1+pZ_p → 1+pZ_p, dχ(p²h₂) ∈ p²Z_p' — proves only that an induced character has v(λ₀) ≥ 2. The converse needs a square root to exist, which is the extraction's point; I verified its p = 3 instance to the extent that 2λ(Δ)+1 = 3 is not a square in Z_3, so that λ is not induced although its valuation is admissible. I did not re-derive the paper's normalisation of λ₀ against λ(Δ), so the exact form of the corrected criterion rests on the extraction. No later version or erratum corrects it: arXiv 2201.11190 stops at v2 and Crossref's record of doi:10.4007/annals.2024.200.1.3 carries no update-to, updated-by or relation entry (checked 23 September 2026). The review checked the finding against the published Annals text itself, not only arXiv v2.",
         "by": "REV-PAPER-FU-24"
-      }
+      },
+      "errataRecord": {
+        "file": "research/blueprint/errata/PAPER-FU-24.json (supersededRecords)",
+        "writer": "ERRATA-PAPER-FU-24, Claude Code cc-fb70e5",
+        "scope": "arXiv 2201.11190v2 (SHA-256 d71e9d3f…2614) only; the published text was not collated in that file",
+        "locator": "Remark 5.8, p.21, and the relation between Theorem 1.5 (p.4) and Theorem 5.1 (p.19), in arXiv 2201.11190v2 (15 February 2024, SHA-256 d71e9d3f…2614), the version the extraction read; the published Annals text (200 (2024), 123–152) was not collated",
+        "kind": "error",
+        "affects": "the proof",
+        "review": {
+          "verdict": "confirmed",
+          "reason": "Checked at pp.15–16 and 21: in §5, λ is induced if λ = dχ∘HC. With Δ = ½h² − h + 2ef = ½h² + h + 2fe, HC(Δ) = ½h² + h, so an induced λ has λ(Δ) = a(a+2)/2 with a = dχ(h) ∈ Z_p. For p = 3 and λ(Δ) = 1 this needs (a+1)² = 3, impossible in Q_3. So an integral λ need not be induced, and Remark 5.8's 'if and only if' proves only 'induced ⇒ v(λ_0) ⩾ 2'. Theorem 5.1 is stated and proved for induced λ, while Theorem 1.5 claims every λ ∈ Z_p^r. The remaining cases need [AW14], which the paper mentions on p.4, or the extension argument the correction gives.",
+          "by": "REV-ERRATA-PAPER-FU-24"
+        },
+        "reviewProvenance": "The verdict above is by REV-ERRATA-PAPER-FU-24, whose reviewer cc-442dc5 did not do ERRATA-PAPER-FU-24 but had completed the extraction PAPER-FU-24 (#2102), including its own E1–E7. The independent verdicts on this record are REV-PAPER-FU-24's (cc-d67081), in `review`."
+      },
+      "reconciled": "FIX-RT-PAPER-FU-24 (30 September 2026, RT-PAPER-FU-24/11): this is the one active record of this mistake. The errata file's record, preprint-scoped, is kept as history in errataRecord and in that file's supersededRecords."
     },
     {
       "id": "PAPER-FU-24/E4",
@@ -3975,7 +4185,22 @@
         "verdict": "confirmed",
         "reason": "Confirmed, and the argument is short enough to check outright. Equation (17) at published p. 138 sets S₀ := ⋃_{a≥0} (p^a + m^{a+1}) ⊆ R[[G]] with R the ring of integers of a finite extension K/Q_p. If K is ramified then p ∈ m², so for every a ≥ 1 we have p^a ∈ m^{2a} ⊆ m^{a+1}, whence −p^a ∈ m^{a+1} and 0 = p^a + (−p^a) ∈ p^a + m^{a+1} ⊆ S₀. A multiplicative set containing 0 localises to the zero ring, so the microlocalisation defined from S₀ is trivial for ramified R. Taking R = Z_p or unramified, as [AW13, §10] does, and base-changing to K is the right reading. No later version or erratum corrects it: arXiv 2201.11190 stops at v2 and Crossref's record of doi:10.4007/annals.2024.200.1.3 carries no update-to, updated-by or relation entry (checked 23 September 2026). The review checked the finding against the published Annals text itself, not only arXiv v2.",
         "by": "REV-PAPER-FU-24"
-      }
+      },
+      "errataRecord": {
+        "file": "research/blueprint/errata/PAPER-FU-24.json (supersededRecords)",
+        "writer": "ERRATA-PAPER-FU-24, Claude Code cc-fb70e5",
+        "scope": "arXiv 2201.11190v2 (SHA-256 d71e9d3f…2614) only; the published text was not collated in that file",
+        "locator": "§4, equation (17), p.14; compared with Ardakov–Wadsley 2013, §§10.3–10.4, in arXiv 2201.11190v2 (15 February 2024, SHA-256 d71e9d3f…2614), the version the extraction read; the published Annals text (200 (2024), 123–152) was not collated",
+        "kind": "error",
+        "affects": "the proof",
+        "review": {
+          "verdict": "confirmed",
+          "reason": "Checked at p.14 and against Ardakov–Wadsley, Ann. of Math. 178 (2013), arXiv 1102.2606, §10.1: 'We now specialize further and assume that the uniformizer π of our complete discrete valuation ring R is the prime number p.' Fu allows R = O_K for an arbitrary finite K/Q_p. If K/Q_p is ramified, p ∈ π²R ⊂ m², so p + m² contains 0 and S_0 is not an Ore set of non-zero-divisors. Working over R = Z_p (the case of the main theorem, where K = Q_p in §5) or using the uniformizer π repairs this.",
+          "by": "REV-ERRATA-PAPER-FU-24"
+        },
+        "reviewProvenance": "The verdict above is by REV-ERRATA-PAPER-FU-24, whose reviewer cc-442dc5 did not do ERRATA-PAPER-FU-24 but had completed the extraction PAPER-FU-24 (#2102), including its own E1–E7. The independent verdicts on this record are REV-PAPER-FU-24's (cc-d67081), in `review`."
+      },
+      "reconciled": "FIX-RT-PAPER-FU-24 (30 September 2026, RT-PAPER-FU-24/11): this is the one active record of this mistake. The errata file's record, preprint-scoped, is kept as history in errataRecord and in that file's supersededRecords."
     },
     {
       "id": "PAPER-FU-24/E5",
@@ -4024,7 +4249,22 @@
         "verdict": "confirmed",
         "reason": "Located at published pp. 145–146 and 147. The proof passes from the associated graded ring gr_{r′} D_r^λ ≃ gr_{r′} D_r / gr_{r′}(p²Δ + λ₀) being a domain to D_r^λ being one, which needs the filtration induced on the quotient to be separated — i.e. D_r ∩ D_{r′}(p²Δ + λ₀) = D_r(p²Δ + λ₀) — and that step is not made. I verified that the proof as printed contains no such argument; I did not establish whether the separatedness in fact holds, so the extraction's classification as a gap rather than an error is the right one and I have not strengthened it. No later version or erratum corrects it: arXiv 2201.11190 stops at v2 and Crossref's record of doi:10.4007/annals.2024.200.1.3 carries no update-to, updated-by or relation entry (checked 23 September 2026). The review checked the finding against the published Annals text itself, not only arXiv v2.",
         "by": "REV-PAPER-FU-24"
-      }
+      },
+      "errataRecord": {
+        "file": "research/blueprint/errata/PAPER-FU-24.json (supersededRecords)",
+        "writer": "ERRATA-PAPER-FU-24, Claude Code cc-fb70e5",
+        "scope": "arXiv 2201.11190v2 (SHA-256 d71e9d3f…2614) only; the published text was not collated in that file",
+        "locator": "Theorem 5.7 and its proof, p.20; last paragraph of the proof of Theorem 5.1, p.21, in arXiv 2201.11190v2 (15 February 2024, SHA-256 d71e9d3f…2614), the version the extraction read; the published Annals text (200 (2024), 123–152) was not collated",
+        "kind": "gap",
+        "affects": "the proof",
+        "review": {
+          "verdict": "confirmed",
+          "reason": "Checked at pp.5–6, 20 and 21: Lemma 2.2 identifies gr(A/Aa) with gr(A)/gr(a), but deducing that D^λ_r(G,Q_p) is a domain from its graded ring needs every nonzero element of the quotient to have a principal symbol, i.e. a separated quotient filtration. The proof does not argue this. It follows from closedness of the ideal generated by p²Δ + λ_0 in the Noetherian Banach algebra D_r(G,Q_p) [ST03], but the step is missing. The proof of Theorem 5.1 also leaves the topological PBW description of U^λ_r(g) to the reader. A gap with a standard repair.",
+          "by": "REV-ERRATA-PAPER-FU-24"
+        },
+        "reviewProvenance": "The verdict above is by REV-ERRATA-PAPER-FU-24, whose reviewer cc-442dc5 did not do ERRATA-PAPER-FU-24 but had completed the extraction PAPER-FU-24 (#2102), including its own E1–E7. The independent verdicts on this record are REV-PAPER-FU-24's (cc-d67081), in `review`."
+      },
+      "reconciled": "FIX-RT-PAPER-FU-24 (30 September 2026, RT-PAPER-FU-24/11): this is the one active record of this mistake. The errata file's record, preprint-scoped, is kept as history in errataRecord and in that file's supersededRecords. E5 keeps the reach 'a stated result' (the errata file had 'the proof'): Theorem 5.7 stays unproved at the radii r = p^{−1/p^n} that Theorem 5.1 uses. It is an unproved separated-quotient step, not an established counterexample; the separately cited Ardakov–Wadsley 2014 route is unaffected."
     },
     {
       "id": "PAPER-FU-24/E6",
@@ -4059,7 +4299,22 @@
         "verdict": "confirmed",
         "reason": "Confirmed at published p. 125. Theorem 1.2(3) prints dim_C S_k(K_f) ≤_{K_f} (min_{1≤i≤r} k_i)^{−1} O(Δ(k)) and Corollary 1.3 prints dim_C H_c^n(Y(K_f), W_k) ∼_{K_f} k. Both are notation slips rather than mathematical errors: the index i ranges over the archimedean places, r₁ + r₂ of them, and ∼_{K_f} is two-sided boundedness by positive constants depending on K_f, neither of which the paper states. No later version or erratum corrects it: arXiv 2201.11190 stops at v2 and Crossref's record of doi:10.4007/annals.2024.200.1.3 carries no update-to, updated-by or relation entry (checked 23 September 2026). The review checked the finding against the published Annals text itself, not only arXiv v2.",
         "by": "REV-PAPER-FU-24"
-      }
+      },
+      "errataRecord": {
+        "file": "research/blueprint/errata/PAPER-FU-24.json (supersededRecords)",
+        "writer": "ERRATA-PAPER-FU-24, Claude Code cc-fb70e5",
+        "scope": "arXiv 2201.11190v2 (SHA-256 d71e9d3f…2614) only; the published text was not collated in that file",
+        "locator": "Theorem 1.2 and Corollary 1.3, pp.2–3 (with the notation on p.1), in arXiv 2201.11190v2 (15 February 2024, SHA-256 d71e9d3f…2614), the version the extraction read; the published Annals text (200 (2024), 123–152) was not collated",
+        "kind": "misprint",
+        "affects": "nothing",
+        "review": {
+          "verdict": "confirmed",
+          "reason": "Checked at pp.1–3: k = (k_1,…,k_{r1+r2}) is indexed by places in §1, yet Theorem 1.2 takes min over 1 ⩽ i ⩽ r = r1 + 2r2. The paper switches to indexing by embeddings in §7 (k ∈ N^r, each complex place repeated), where the minimum is the same number, so this is a mixing of conventions with a clear meaning. In Corollary 1.3, ∼_{K_f} is used for two-sided bounds up to constants, as the correction says; with Conjecture 1.1 and the base-change lower bound of [FGT10], that is what is proved.",
+          "by": "REV-ERRATA-PAPER-FU-24"
+        },
+        "reviewProvenance": "The verdict above is by REV-ERRATA-PAPER-FU-24, whose reviewer cc-442dc5 did not do ERRATA-PAPER-FU-24 but had completed the extraction PAPER-FU-24 (#2102), including its own E1–E7. The independent verdicts on this record are REV-PAPER-FU-24's (cc-d67081), in `review`."
+      },
+      "reconciled": "FIX-RT-PAPER-FU-24 (30 September 2026, RT-PAPER-FU-24/11): this is the one active record of this mistake. The errata file's record, preprint-scoped, is kept as history in errataRecord and in that file's supersededRecords."
     },
     {
       "id": "PAPER-FU-24/E7",
@@ -4094,7 +4349,80 @@
         "verdict": "confirmed",
         "reason": "Confirmed at published p. 145: 'Theorem 5.7. Let p be an odd prime. If 1/p < r < 1, then D_r^λ(G, Q_p) is an integral domain', with λ an arbitrary infinitesimal character. The extraction's counterexample turns on λ of small valuation making Δ − λ a unit, so that D_r^λ is the zero ring, which is not an integral domain; the hypothesis v_p(λ₀) ≥ 2 — satisfied in the only case the paper uses — excludes it. I verified the statement as printed and that no such hypothesis appears in it or in the proof; I did not recompute the norm ‖Δ‖_r, so the numerical instance rests on the extraction. No later version or erratum corrects it: arXiv 2201.11190 stops at v2 and Crossref's record of doi:10.4007/annals.2024.200.1.3 carries no update-to, updated-by or relation entry (checked 23 September 2026). The review checked the finding against the published Annals text itself, not only arXiv v2.",
         "by": "REV-PAPER-FU-24"
-      }
+      },
+      "errataRecord": {
+        "file": "research/blueprint/errata/PAPER-FU-24.json (supersededRecords)",
+        "writer": "ERRATA-PAPER-FU-24, Claude Code cc-fb70e5",
+        "scope": "arXiv 2201.11190v2 (SHA-256 d71e9d3f…2614) only; the published text was not collated in that file",
+        "locator": "Theorem 5.7 and its proof, p.20, in arXiv 2201.11190v2 (15 February 2024, SHA-256 d71e9d3f…2614), the version the extraction read; the published Annals text (200 (2024), 123–152) was not collated",
+        "kind": "error",
+        "affects": "a stated result",
+        "review": {
+          "verdict": "confirmed",
+          "reason": "Checked at pp.16–17 and 20: in §5, λ : Z(g) → Q_p is an arbitrary infinitesimal character (defined on p.17), so λ_0 ∈ Q_p. The proof of Theorem 5.7 itself shows that when v(λ_0) ⩽ 1 the symbol gr(p²Δ + λ_0) = gr(λ_0) is a unit and D^λ_r(G,Q_p) = 0, which is not an integral domain. So Theorem 5.7 as stated is false for those λ. It holds for v(λ_0) ⩾ 2, which covers the induced λ used in Theorem 5.1.",
+          "by": "REV-ERRATA-PAPER-FU-24"
+        },
+        "reviewProvenance": "The verdict above is by REV-ERRATA-PAPER-FU-24, whose reviewer cc-442dc5 did not do ERRATA-PAPER-FU-24 but had completed the extraction PAPER-FU-24 (#2102), including its own E1–E7. The independent verdicts on this record are REV-PAPER-FU-24's (cc-d67081), in `review`."
+      },
+      "reconciled": "FIX-RT-PAPER-FU-24 (30 September 2026, RT-PAPER-FU-24/11): this is the one active record of this mistake. The errata file's record, preprint-scoped, is kept as history in errataRecord and in that file's supersededRecords."
+    },
+    {
+      "id": "PAPER-FU-24/E8",
+      "kind": "gap",
+      "locator": "Theorem 4.2, p. 138, in the published version, Ann. of Math. 200 (2024), 123–152 (NSF PAR copy, SHA-256 a6a15856…, read at the locator on 30 September 2026 by FIX-RT-PAPER-FU-24); arXiv v2, p. 14; with Schneider–Teitelbaum 2003, Theorem 4.5 and Remark 4.6",
+      "printed": "Theorem 4.2 claims that D_r(G, K), for 1/p ≤ r < 1, is a noetherian Banach integral domain whose norm ‖ ‖_r is multiplicative.",
+      "correction": "D_r(G, K) has multiplicative norm, and so no zero divisors, for every real 1/p < r < 1 (ST03 Theorem 4.5(i)), and at r = 1/p by ST03 Remark 4.6. It is noetherian for r ∈ p^Q with 1/p < r < 1 (ST03 Theorem 4.5(ii)) and at r = 1/p. Noetherianity at real radii outside p^Q is not proved in the cited source.",
+      "reason": "The theorem cites 'the main result of [ST03, §4]'. ST03 Theorem 4.5 proves noetherianity only for r ∈ p^Q; the domain property at every interior real radius follows from the multiplicative norm of Theorem 4.5(i). Nothing downstream needs more: Theorem 5.7 uses only the graded ring of ST03 Theorem 4.5(i), and Theorem 5.1 uses the rational radii r = p^{−1/p^n}. The printed statement is therefore unproved as stated at irrational log_p r, although no counterexample is known.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "Crossref record of DOI 10.4007/annals.2024.200.1.3, checked 30 September 2026: no update or correction relation.",
+        "arXiv 2201.11190: v1 (26 January 2022) and v2 (15 February 2024), the latest; the passage is in v2 at the locator (REV-RT-PAPER-FU-24).",
+        "The published text (NSF PAR, https://par.nsf.gov/servlets/purl/10625156, SHA-256 a6a15856…), read at the locator on 30 September 2026: the passage is unchanged."
+      ],
+      "items": [
+        "PAPER-FU-24/frechet-stein"
+      ],
+      "origin": "Recorded by FIX-RT-PAPER-FU-24 from RT-PAPER-FU-24/15, as confirmed and corrected by REV-RT-PAPER-FU-24 (the domain property holds at all interior real radii; only noetherianity is unresolved)."
+    },
+    {
+      "id": "PAPER-FU-24/E9",
+      "kind": "gap",
+      "locator": "Proof of Theorem 3.2, pp. 135–136 (statement p. 132), in the published version, Ann. of Math. 200 (2024), 123–152 (NSF PAR copy, SHA-256 a6a15856…, read at the locator on 30 September 2026 by FIX-RT-PAPER-FU-24); arXiv v2, pp. 10–11",
+      "printed": "The source asserts F_{k−α}(Û◦_k/p^{n_δ}) · δ ⊂ F_k(Û◦_k/p^{n_δ}) whenever k ≥ α.",
+      "correction": "For k with some k_i < α_i, H^0(k) ≤ dim W_k = D_k = ∏_j (k_j + 1) ≤ α_i ∏_{j≠i} (k_j + 1), since k_i + 1 ≤ α_i. The multiaffine polynomial 2 Σ_i α_i ∏_{j≠i} (k_j + 1), of degree at most r − 1, dominates this and the large-coordinate bound, so the stated bound holds for all k ∈ N^r.",
+      "reason": "Theorem 3.2 quantifies over all k ∈ N^r, but the proof treats only k ≥ α coordinatewise. The weights with some k_i < α_i form infinitely many strips, not a finite exceptional set, and the proof does not return to them. The repair is elementary, so the stated theorem is unaffected; the proof as written is incomplete.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "Crossref record of DOI 10.4007/annals.2024.200.1.3, checked 30 September 2026: no update or correction relation.",
+        "arXiv 2201.11190: v1 (26 January 2022) and v2 (15 February 2024), the latest; the passage is in v2 at the locator (REV-RT-PAPER-FU-24).",
+        "The published text (NSF PAR, https://par.nsf.gov/servlets/purl/10625156, SHA-256 a6a15856…), read at the locator on 30 September 2026: the passage is unchanged."
+      ],
+      "items": [
+        "PAPER-FU-24/small-coordinate-strips",
+        "PAPER-FU-24/explicit-multiaffine-majorant"
+      ],
+      "origin": "Recorded by FIX-RT-PAPER-FU-24 from RT-PAPER-FU-24/16, confirmed by REV-RT-PAPER-FU-24, with the reach classified as the verifier asked."
+    },
+    {
+      "id": "PAPER-FU-24/E10",
+      "kind": "gap",
+      "locator": "§7, p. 150, with Theorem 1.2, p. 125, in the published version, Ann. of Math. 200 (2024), 123–152 (NSF PAR copy, SHA-256 a6a15856…, read at the locator on 30 September 2026 by FIX-RT-PAPER-FU-24); arXiv v2, pp. 2 and 23–24",
+      "printed": "Theorem 1.2 covers every fixed K_f; §7 gives (38) … ⇒ H_{i+j}(Y(K_f), W_k) with K_f = GK^p.",
+      "correction": "For arbitrary K_f choose an odd prime p that splits completely in F and lies outside the finite set of primes where K_f is not maximal, so that G ⊂ K_{f,p}; put K′_f = G·K^p ⊂ K_f. Pullback injects S_k(K_f) into S_k(K′_f), so the bound at K′_f gives the bound at K_f with a level-dependent constant. If topology is used, pass to a neat level or handle finite stabilizers with characteristic-zero invariants.",
+      "reason": "Theorem 1.2 is stated for any fixed K_f, but §7 applies the spectral sequence only at levels K_f = GK^p and never passes from an arbitrary K_f to such a level. The step is standard and the theorem is unaffected; the proof as written omits it.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "Crossref record of DOI 10.4007/annals.2024.200.1.3, checked 30 September 2026: no update or correction relation.",
+        "arXiv 2201.11190: v1 (26 January 2022) and v2 (15 February 2024), the latest; the passage is in v2 at the locator (REV-RT-PAPER-FU-24).",
+        "The published text (NSF PAR, https://par.nsf.gov/servlets/purl/10625156, SHA-256 a6a15856…), read at the locator on 30 September 2026: the passage is unchanged."
+      ],
+      "items": [
+        "PAPER-FU-24/split-auxiliary-prime"
+      ],
+      "origin": "Recorded by FIX-RT-PAPER-FU-24 from RT-PAPER-FU-24/17, confirmed by REV-RT-PAPER-FU-24."
     }
   ],
   "coverage": {
@@ -4223,6 +4551,13 @@
       "sha256": "e8a60a25f246692b048789235fb8efaf6d44ae65fdbb7cc738c8caeae67efcd5",
       "accessed": "2026-09-22",
       "read": "ArXivv1 pp.16–22: ordered-series coordinates; weighted-c0 and larger bounded spaces; Proposition4.2, Lemmas4.3/4.4, HYP, Theorem4.5, Remark4.6 and Proposition4.7. Exact real-radius versus rational-radius hypotheses checked."
+    },
+    {
+      "id": "Fu-published-NSF-PAR",
+      "url": "https://par.nsf.gov/servlets/purl/10625156",
+      "sha256": "a6a158565c556286deac651198771ab241c9c5c15021b783bfdcd5f3afa7fd80",
+      "accessed": "2026-09-23",
+      "read": "entire PDF (cc-442dc5, 2026-09-23), the published Annals text, 30 pages; hash re-checked 2026-09-30 (FIX-RT-PAPER-FU-24)"
     }
   ],
   "validation": {

@@ -816,3 +816,36 @@ An independent review by Claude Code, session cc-d67081, for issue
   three stale fields. The earlier timeouts were transient.
 
 Full report: `research/blueprint/reviews/REV-PAPER-FU-24.md`.
+
+## Fixes (FIX-RT-PAPER-FU-24, 30 September 2026)
+
+Claude Code, session `cc-c2c06b`, issue #4975. This fix applies all 17 confirmed findings of
+`RT-PAPER-FU-24`, following the verifier's corrections where they narrow a fix. The full record is
+`research/blueprint/redteam/RT-PAPER-FU-24.fixes.md`.
+
+- **Items: 137 became 145** (13 library, 14 planned, 118 missing).
+  - **Library:** noetherian-domain-ore (Mathlib's strong rank condition and Ore theorem).
+  - **Planned at NE.0:** uniform-pro-p-group and iwasawa-integral-global-dimension.
+  - **Planned at ALS.1:** homology-cohomology-dimension.
+  - **Missing:** uniform-analytic-structure (route 2), iwasawa-group-homology (route 5),
+    split-field-harish-chandra (route 1) and homological-descent-comparison (route 4).
+- **Split.** skew-rank, iwasawa-finite-global-dimension, field-pbw and
+  completed-descent-spectral-sequence now keep only what no library or layer supplies.
+- **Moved.** uniform-group-coordinates, uniform-valuation and iwasawa-series left route 2 for route 5, as
+  source additions to NE.0.
+- **Ownership stated in the briefs.**
+  - Route 2 supplies D(G), the Fréchet–Stein theory and Frommer's description once, to
+    LocallyAnalyticRepresentationsOfLocalGroups.
+  - Route 3 imports the Borel–Serre boundary, the support triangle and Poincaré–Lefschetz duality from
+    ALS.2, ALS.4 and ALS.5.
+  - Route 1 imports Tau Ceti's PBW spanning theorem and the gl_n Casimir.
+  - iwasawa-algebra also cites the Tau Ceti carrier of ProfiniteProPGroups Layer 9.
+- **Source issues.**
+  - E1–E7 are the single active records.
+  - The errata file's preprint-scoped records and their verdicts are attached as `errataRecord` and kept
+    as history in the errata file, which is marked superseded.
+  - E1's reach is now "the proof".
+  - E8–E10 are new. I checked each one in the published text (NSF PAR copy, hash matching) on
+    30 September 2026, and all three survive in print.
+- **What was read.** `sourceVersions` records the published text (30 pages, journal pp. 123–152) and
+  arXiv v2, and archiveStatus's "31 pages" is corrected.
