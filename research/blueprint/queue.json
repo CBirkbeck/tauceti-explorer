@@ -39310,7 +39310,8 @@
     "REV-PAPER-ESNAULT-GROECHENIG-20"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-ESNAULT-GROECHENIG-20.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4311"
   },
   {
    "id": "RT-PAPER-BOCKLE-HARRIS-KHARE-ETAL-19",
@@ -40185,8 +40186,9 @@
     "REV-PAPER-SCHOLZE-12"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-SCHOLZE-12.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4603"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4603",
+   "finishedAt": "2026-09-30T06:42:17Z"
   },
   {
    "id": "RT-LINK-tauceti_TauCetiRoadmap_ModularCurves",
