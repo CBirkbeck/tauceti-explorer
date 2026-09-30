@@ -23477,12 +23477,12 @@
     "REV-RS-14"
    ],
    "prompt": "research/blueprint/prompts/BP-DirichletPadicLFunctions.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [
     "BP-LocallyAnalyticDistributions",
     "BP-PadicMeasuresIwasawaAlgebras"
    ],
-   "note": "released on GitHub issue #713"
+   "note": "claimed on GitHub issue #713"
   },
   {
    "id": "REV-DirichletPadicLFunctions",
@@ -34645,8 +34645,9 @@
     "REV-PAPER-GAN-ICHINO-18"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-GAN-ICHINO-18.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4107"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4107",
+   "finishedAt": "2026-09-30T13:34:15Z"
   },
   {
    "id": "RT-PAPER-ZHU-17",
@@ -38227,7 +38228,8 @@
     "REV-PAPER-SCHOLZE-26"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-SCHOLZE-26.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4256"
   },
   {
    "id": "REV-RT-PAPER-SCHOLZE-26",
@@ -41843,7 +41845,8 @@
     "REV-RS-03"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-RS-03.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4390"
   },
   {
    "id": "RT-RS-05",
@@ -43332,7 +43335,8 @@
     "REV-ClassicalSerreModularity--R33.5"
    ],
    "prompt": "research/blueprint/prompts/RT-BP-ClassicalSerreModularity--R33.5.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4433"
   },
   {
    "id": "REV-RT-BP-ClassicalSerreModularity--R33.5",
