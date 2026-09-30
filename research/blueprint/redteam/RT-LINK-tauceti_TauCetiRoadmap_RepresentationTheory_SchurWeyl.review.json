@@ -1,0 +1,17 @@
+{
+  "redteam": "RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SchurWeyl",
+  "findings": [
+    {
+      "finding": "RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SchurWeyl/1",
+      "verdict": "confirmed",
+      "reason": "Independently read both full endpoint descriptions, overlap 4, the accepted review and the actual pinned Mathlib declarations. ClassicalGroups Layer 0 explicitly exports the orthogonal GL inclusion, restricted standard representation and equivariant symmetric pairing consumed by SchurWeyl Layer 9. At Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, UnitaryGroup.lean fixes starRingOfComm locally before defining orthogonalGroup; the definition takes CommRing R, not an ambient StarRing R parameter. mem_orthogonalGroup_iff' therefore specializes over C to A-transpose times A equals one. Read starRingOfComm itself: it is the trivial star structure. This resolves the standard bilinear orthogonal carrier warning, but not arbitrary-form coordinate comparisons or Brauer action proofs. Both proposed evidence quotes match the stages. No sibling link records the pair, and the production graph has no forward or reverse path. In-memory merge adds exactly one edge (8007 to 8008), populates the target requires, passes cycle validation and stays at 8008 on repetition. Confirm the medium omission and the proposed inferred link, scoped to the orthogonal inclusion/action/pairing. Update overlap 4 with the pinned carrier and a maintainer correction note for the stale upstream warning. Preserve the separate symplectic sign issue and all invariant-theory, tensor-action and centralizer obligations; do not add a replacement orthogonal-group root or rewrite the upstream roadmap as part of the link fix."
+    }
+  ],
+  "provenance": {
+    "reviewer": "Codex",
+    "session": "codex-rtOQ9t",
+    "date": "2026-09-30",
+    "resultSha256": "4f3970133bfb064695f7820352ae80bb6f42b3a17c416435425d3169cdce1a4b",
+    "targetSha256": "d86b01675ad9213460ea78a0c02f29da4586d8775d3ba302e8a6922a1adee5f5"
+  }
+}
