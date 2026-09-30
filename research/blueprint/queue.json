@@ -4323,8 +4323,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-LE-LEHUNG-LEVIN-ETAL-23.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1254"
+   "state": "pending",
+   "note": "released on GitHub issue #1254"
   },
   {
    "id": "REV-PAPER-LE-LEHUNG-LEVIN-ETAL-23",
@@ -35147,7 +35147,8 @@
     "REV-PAPER-ELLENBERG-VENKATESH-WESTERLAND-16"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-ELLENBERG-VENKATESH-WESTERLAND-16.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4123"
   },
   {
    "id": "RT-PAPER-KALETHA-16",
