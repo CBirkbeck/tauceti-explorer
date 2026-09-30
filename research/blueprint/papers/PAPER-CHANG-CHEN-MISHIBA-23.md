@@ -1,23 +1,15 @@
-# PAPER-CHANG-CHEN-MISHIBA-23 — On Thakur's basis conjecture for multiple zeta values in positive characteristic
+# PAPER-CHANG-CHEN-MISHIBA-23 — Thakur’s basis and its analytic inputs
 
-Claude Code — session `cc-7b31c4`; issue #1380; read on 22 September 2026.
+Original extraction: Claude Code `cc-7b31c4`, issue #1380, 22 September 2026.
+Original independent review: Claude Code `cc-fb70e5`, issue #1381, 23 September 2026.
+Verified red-team fixes: Codex `codex-rtOQ9t`, issue #5002, 30 September 2026.
 
-Chieh-Yu Chang, Yen-Tsung Chen and Yoshinori Mishiba, *On Thakur's basis conjecture for multiple zeta values in
-positive characteristic*, Forum of Mathematics, Pi **11** (2023), `doi:10.1017/fmp.2023.26` (open access). Read in
-the authors' public version, [arXiv:2205.09929v2](https://arxiv.org/abs/2205.09929v2) (11 July 2022) — in its
-**LaTeX source** (`Basis_Submit_v2.tex`, source archive sha256 `6336dfc5…`), since `pdftotext` was unavailable
-here — together with the published text on Cambridge Core, which was used to check the three source issues below.
+Chieh-Yu Chang, Yen-Tsung Chen and Yoshinori Mishiba, *On Thakur’s basis conjecture for multiple zeta values in positive characteristic*, Forum of Mathematics, Pi **11** (2023), e26, [doi:10.1017/fmp.2023.26](https://doi.org/10.1017/fmp.2023.26). The [v2 preprint](https://arxiv.org/abs/2205.09929v2), dated 11 July 2022, and the published PDF each have **32 pages**. The preprint numbers statements by subsection; the published article numbers them by section. The earlier complete reading is retained as attributed history. This fix read the affected statements and proofs in §§1.2–1.4, §5 and Appendix A, and checked the analytic and operator formulas against the TeX. It does not claim a fresh exhaustive collation.
 
-**On numbering.** The preprint numbers statements by subsection (Theorem 1.2.4) and the published version by
-section (Theorem 1.5). The numbered statements correspond one to one and in the same order — 43 of them, the
-published version adding one remark at the end of Section 5 — so every locator in the extraction gives the
-preprint number with the published number in parentheses.
-
-The paper has been extracted into **51 items**. One is in the pinned libraries, three are planned by existing
-layers, and the remaining 47 are routed exactly once: **45 to a Part II** of *Drinfeld modules, t-motives and
-characteristic-p special values*, and **2** as a source for that roadmap's stage DM.8.
+The extraction now has **72 items: 1 library, 7 planned and 64 missing**. Every missing item is routed exactly once. The four routes contain 58 Part II items, 5 DM.8 source items, 4 DM.2 source items and 2 DM.6 source items; source routes also include planned items. The original two route positions are preserved. Routes 3–4 and the revised scope require independent fix review.
 
 ## What the paper proves
+
 
 Let `A = F_q[θ]`, `k = F_q(θ)`, `k_∞ = F_q((1/θ))` and `A_+` the monic polynomials — the function-field analogue
 of the positive integers. Thakur's multiple zeta value at an index `s = (s_1, …, s_r)` is
@@ -54,110 +46,85 @@ non-zero by a theorem of Thakur. Write `Z_w` for the `k`-span of the MZVs of wei
   relation to be trivial, so `{Li_s(1) : s ∈ IND_w}` is a basis, and `|IND_w| = |I^T_w|` (Proposition 2.1.1)
   transports the conclusion to Thakur's basis.
 
-## What the atlas already has
 
-* **The roadmap `DrinfeldModulesAndTModules`** ("Drinfeld modules, t-motives and characteristic-p special
-  values") plans exactly the objects this paper is built on, and stops at depth one: DM.0 the Ore ring and
-  Drinfeld modules with the Carlitz module as the rank-one example; DM.2 analytic uniformisation, the Carlitz
-  exponential and the period; DM.4 Anderson `t`-modules and effective `t`-motives with the `τ`-action and rigid
-  analytic triviality; DM.6 Goss and Taelman `L`-values, which must recover the explicit Carlitz zeta value; DM.8
-  the Tannakian category of rigid analytically trivial motives, the Frobenius-difference Galois group and the
-  algebraic independence of Carlitz logarithms after Papanikolas.
-* **The classical analogue** is planned at `PeriodsAndSpecialValues:PS.9` — real multiple zeta values with
-  shuffle, stuffle, regularisation and the mixed-Tate category, including "selected motivic basis/spanning"
-  results, which is where Zagier's and Hoffman's conjectures belong. Three items of the extraction are `planned`
-  against these layers (the classical conjectures; the Carlitz zeta values; and the field `C_∞`, which DM.2 and
-  FA.0 presuppose).
-* **One library item.** Mathlib has polynomial rings over a finite field, rational functions and Laurent series
-  with monic polynomials (`Polynomial`, `RatFunc`, `LaurentSeries`, `Polynomial.Monic`), which is `A`, `k`, `k_∞`
-  and `A_+`. It has nothing about Carlitz theory.
-* **Nothing else.** Searches of every stage description return no hit for "multiple zeta" outside PS.9 and
-  AnalyticNumberTheory, and none at all for polylogarithms in characteristic `p`, `q`-shuffle relations, the ABP
-  criterion or Thakur's basis.
+Published Remark 5.4 adds the `k̄`-linear version of the relation theorem, using Chang’s existing descent theorem; item 42 now records it. Corollary 1.8 is recorded with the corrected **k-span and dim_k**. Its proof uses the graded k-algebra specialization to v-adic values, whose kernel contains `ζ_A(q−1)`. Multiplication by this nonzero infinite-adic value embeds `Z_(w−(q−1))` into `Z_w`, giving the dimension drop. Set `Z_0=k` and negative weight spaces to zero. Extending a finite k-spanning family gives the corresponding bound for a k̄-span with **dim_k̄**.
 
-## The routes
+## Existing libraries and supplier ownership
 
-### 1. Part II of *Drinfeld modules, t-motives and characteristic-p special values* — 45 items
+At Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174`, `RatFunc.inftyValuation`, `RatFunc.inftyValued` and `RatFunc.CompletionAtInfty` already give the infinity valuation and completed valued field. Item 1 reuses them. The remaining analytic adapter, item 71 at DM.2, must install the normalized real norm and identify the Laurent variable with **u=1/θ**, not θ. `LaurentSeries` by itself is not that comparison.
 
-`DrinfeldModulesAndTModulesPartII`, "…, Part II: multiple zeta values and Thakur's basis", area `functionfields`.
+`PowerSeries.IsRestricted`, `PowerSeries.isRestricted_iff'` and `PowerSeries.IsRestricted.subring` already provide the radius-one restricted-series carrier over a normed ultrametric ring. Item 30 remains missing as a whole: the C_∞ normed field, Gauss norm and completeness, twisting/fixed fields, analytic convergence/evaluation and the ABP ring E’s finite-coefficient-field condition remain to be supplied. The declarations were read at the pin. The reviewed DM.0/2/4/6/8 and FA.0 audits were checked, and targeted declaration searches found no Carlitz/Thakur/ABP implementation in either pinned Lean tree.
 
-The parent roadmap goes exactly this way and stops before the higher-depth theory: it plans the Carlitz module,
-its period, `t`-motives and Carlitz logarithms, and DM.6 plans the depth-one zeta values. Thakur's multiple zeta
-values, Carlitz multiple polylogarithms, the `q`-shuffle algebra on indices with its two realisations, the
-rewriting calculus that produces Thakur's basis and the description of all linear relations, and the Frobenius
-systems that prove linear independence, are new layers in that direction — a Part II by PROTOCOL section 15, not a
-new roadmap. The brief lists the imports (DM.0, DM.2, DM.4, DM.6, DM.8, FA.0, and PS.9 for orientation on the
-classical side) and flags two inputs the paper uses without proof that deserve their own layers: the
-Anderson–Thakur interpolation formula with the Anderson–Thakur polynomials, and the period interpretation of CMPL
-values that produces the matrices entering the ABP criterion.
+The completed algebraic closure C_∞ has **one owner, DM.2**. FA.0 provides function-field foundations, not C_∞. Item 4 now covers only the Carlitz module and its exponential/period at DM.0/DM.2. The depth-one zeta definition is item 52, requested at DM.6 and shared with the singleton case of item 3. The exact needed evaluation, item 64, is
+`ζ_A(q−1)=−(θ^q−θ)^−1 π̃^(q−1)≠0`.
+Taelman’s `L(C/A,1)` target did not supply this general-q formula as stated. Reuse `PAPER-IM-KIM-LE-ETAL-24/carlitz-zeta-q-minus-1`; do not create a second proof owner. Part II item 65 combines it with the graded q-shuffle product to put `π̃^w` in `Z_w` when `q−1` divides w. The full Bernoulli–Carlitz formula is unnecessary here.
 
-### 2. Source for `DrinfeldModulesAndTModules` DM.8 — 2 items
+## Routes and the analytic interface
 
-DM.8 plans Papanikolas's Tannakian difference-Galois theory, the analytic trivialisation matrix and the
-specialisation criterion. That theory is built on two things the layer does not state: the standard twisting
-setting (the `n`-fold Frobenius twist on `C_∞((t))`, the Tate algebra, the ABP ring `E` of entire functions with
-algebraic coefficients, and the fixed rings `F_q[t]` and `F_q(t)`), and the **Anderson–Brownawell–Papanikolas
-criterion** itself. Both belong inside DM.8 and this paper is a good source for them; the Part II then imports
-them. Routing the general machinery to the parent layer and the multiple-zeta-value theory to the Part II keeps
-the two apart, as PROTOCOL section 15 asks.
+**Route 1 — Part II, 58 items.** `DrinfeldModulesAndTModulesPartII` joins the accepted Ngo Dac and Im–Kim–Le–Ngo Dac–Pham extractions. It owns the higher-depth CMPL/MZV theory and the explicit rewriting calculus. Its general algebraic and analytic suppliers remain in the parent roadmap; PS.9 supplies only orientation about classical real MZVs. The design brief contains the final theorems, all new items and precise supplier requests. Open parent proof work does not prevent this extraction or the design from proceeding with requests.
 
-## Prerequisites the atlas does not cover
+The newly explicit analytic sequence is: deformed denominator polynomials (54), the `Q_i=1` CMPL series (55), entire convergence (56), Frobenius-orbit specialization (57), arbitrary-prefix matrices (62), the extended entire ABP vector (63), and normalized lifting (51). The last-entry exponent in the recurrence is retained. The matrices work for every nonempty `M⊂I_w`, not only the later set `IND°_w`. The zero-weight case is separate. Section 5 actually constructs these matrices; the introductory remark omits the dual t-motive interpretation, not this construction.
 
-Twelve entries are listed. The ones that matter most: **Anderson–Brownawell–Papanikolas** (arXiv:math/0207168) for
-the criterion; **Anderson–Thakur** for the Carlitz polylogarithms, their interpolation formula and the period
-interpretation of MZVs; **Chang** (arXiv:1207.4736) for Carlitz multiple polylogarithms, the descent of
-`k̄`-linear relations to `k`, and the period interpretation used in step (II-1); **Thakur**'s book and papers for
-the values themselves, their non-vanishing, the `q`-shuffle relations and the basis conjecture; **Ngo Dac**
-(arXiv:2007.11060) for the generating theorem; **Chang–Papanikolas–Yu** (arXiv:1601.01927) for the Frobenius
-systems and the simultaneously Eulerian phenomenon; **H.-J. Chen** for the product formula defining the
-`q`-shuffle; **Papanikolas** (arXiv:math/0506078) for the difference-Galois framework DM.8 plans; **Todd** for the
-dimension conjecture and the conjecture on relations; and **Im–Kim–Le–Ngo Dac–Pham** (arXiv:2205.07165) for the
-simultaneous and independent treatment of alternating MZVs, which the roadmap will want alongside this one.
+Ngo Dac’s `L-series` contains Anderson–Thakur polynomial factors and specializes to `Γ_sζ_A(s)/π̃^wt`. CCM’s all-ones CMPL series is a **Q_i=1 specialization of the general construction**, not an equality with that Ω–H series. The joint design should share the generic series and supply this adapter. Item 72 explicitly requests Chang’s CMPL descent theorem, including its nonzero-value, finite-family and distinct-positive-weight hypotheses. The MZV-only instance does not cover every CMPL prefix used in the proof.
 
-## Mistakes in the source
+**Route 2 — DM.8, 5 items.** Items 30–31 and 59–61 give the analytic setting, ABP, `Frac(T)^σ=F_q(t)`, uniqueness of fundamental matrices and the rational common-denominator theorem. The latter retains both hypotheses `det Φ_i=c_i(t−θ)^m_i`, with `c_i≠0`, `m_i≥0`. Reuse Ngo Dac’s `constant-denominator` and `trivialization-uniqueness`. CPY’s printed polynomial domain for a rational matrix is already recorded in Ngo Dac E10; this fix imports its corrected rational reading.
 
-Three misprints, recorded under `sourceIssues`; each was compared with the published text on Cambridge Core.
+**Route 3 — DM.2, 4 items.** Items 2, 53, 58 and 71 supply C_∞, Ω and period normalization, the period-power field criterion, and the norm/Laurent comparison. Reuse Ngo Dac’s `omega`, `period-power` and `C-infinity`. DM.2 exports the analytic properties of Ω; DM.8 interprets them in its T/E structures, so the Ω definition does not depend back on difference-Galois theory.
 
-* **E1** (Section 2.2, the definition of the power sums, before Definition 2.2.2): `S^ζ_d(s)` is defined as
-  `Σ_{a ∈ A_{+,d}} 1/a^{d}`, where the exponent must be `s` — otherwise the symbol would not depend on `s`, and
-  Remark 2.2.12, which states Carlitz's identity `1/L_d^s = Σ_{a ∈ A_{+,d}} 1/a^s`, would not match. **Still
-  present in the published version.**
-* **E2** (Section 2.3, the definition of `Δ^{[j]}_{s,n}` in Chen's formula): the condition is printed
-  "(q − 1) | k", where `k` is the function field; it must be `(q − 1) | j`. With the corrected reading Remark
-  2.3.4 (`Δ^{[j]}_{s,n} = 0` for all `j` when `s + n ≤ q`) is exactly right: the only admissible `j` is `q − 1`
-  with `s + n = q`, and the two binomial terms then cancel. **Corrected in the published version**, which prints
-  `(q − 1) | j`.
-* **E3** (Remark 1.2.5, the displayed upper bound): "dim_{w} Z_w ≤ d'_w" should be `dim_k Z_w ≤ d'_w`; the paper
-  writes `dim_k` everywhere else, and `dim_w` is not defined. **Still present in the published version.**
+CCM uses `π̃=+1/Ω(θ)`. The current DM.8 request follows Papanikolas with `π_P=−1/Ω(θ)`. For the same Ω these differ by `c=−1∈F_q^×`; another choice of root can give another such scalar. Eulerian lines `k·π̃^w` agree, but exact normalized weight-w values change by `c^(−w)`. The q−1 evaluation is invariant. The normalization must be transported explicitly.
 
-No erratum exists: arXiv 2205.09929 has versions v1 and v2 only, and the Cambridge Core article carries none.
+**Route 4 — DM.6, 2 items.** Items 52 and 64 provide the depth-one sum and the exact evaluation above. The supplier does not depend on the higher-depth MZV construction; the consumer proves the singleton/CMPL comparison and the graded-product adapter.
 
-## Independent review (`REV-PAPER-CHANG-CHEN-MISHIBA-23`, issue #1381)
+**Live delivery status.** On 30 September 2026 both [#1008](https://github.com/CBirkbeck/tauceti-explorer/issues/1008) and [#1009](https://github.com/CBirkbeck/tauceti-explorer/issues/1009) already contain seven added-source entries: Ngo Dac at DM.0/2/4/6/8, Im et al. item 27 at DM.8, and CCM items 30–31 at DM.8. This resolves the red team’s historical missing-delivery observation. The current DM.0 and DM.8 packets remain partial; DM.8 has nine nodes and three substantial gaps. Source delivery is not completed analytic coverage. After independent review, propagate this repair’s expanded/new source routes through normal queue generation and fulfill the concrete requests in the owning blueprints. No live issue, packet, queue or campaign file is edited by this fix.
 
-Claude Code, session `cc-fb70e5`, 23 September 2026. **Verdict: accept**, both routes accepted, all three
-findings confirmed, **one finding added**. The full review is in
-[`reviews/REV-PAPER-CHANG-CHEN-MISHIBA-23.md`](../reviews/REV-PAPER-CHANG-CHEN-MISHIBA-23.md).
+## Appendix definitions and tests
 
-The recorded e-print hash matches byte for byte, and recording no hash for the Cambridge PDF is right:
-Cambridge Core watermarks each download, so no such hash is reproducible. The numbering needed care —
-every statement environment hangs on the `equation` counter with `\numberwithin{equation}{subsection}`, so
-numbered displays consume numbers too. A display-aware simulation gives **43 numbered statements** and
-reproduces the extraction's numbers exactly, including the appendix's A.1.1–A.3.8 once `\appendix` is
-handled. **Coverage is complete.** The dual numbering the extraction carries (preprint by subsection,
-published by section) was checked in the published text for Theorem 1.5, Remark 1.6, Proposition A.1,
-Theorem A.5 and Theorem A.7; carrying both numbers in every locator is what makes the file checkable
-against either version. The `library` item's four declarations exist at pinned Mathlib `082e2d3`, and all
-cited layers exist. The Part II reproduces its parent's title verbatim and is a joined proposal with
-`PAPER-NGODAC-21` and `PAPER-IM-KIM-LE-ETAL-24`.
+Item 45 now distinguishes all-weight binary relations `P^•` from `P^•_w=P^•∩(H_w⊕H_w)`. Items 66–68 give the actual formulas for B, C and BC, including the correction terms, positive-weight domain, nonempty s and m=0 identity. Items 69–70 define Init and all three components of U, with both empty/nonempty-tail branches. Item 46 states preservation; item 48 uses the definitions to prove progress only off Thakur’s index set. Every new definition/construction has an API, recorded uses and at least three planned tests. The exact formulas and tests are in the JSON, rather than replaced by composition names.
 
-All three findings are confirmed verbatim and each is settled by the paper against itself: `S^ζ_d(s)`
-defined with exponent `d` beside `S^{Li}_d(s)` with exponent `s`; the condition `(q−1) | k` where `k` is
-the function field and the divisibility belongs on the index `j`; and `dim_w Z_w` where every other
-statement writes `dim_k`.
+## Corrected bibliography
 
-**One finding added (E4).** An audit of all **89** `<word>~\ref{…}` citations against the target
-environment found two mismatches. The one that survives into the version of record is E4 — the appendix
-proof says "It follows by **Theorem A.4**" of a statement printed "**Proposition A.4**", which §1.3 cites
-correctly. The other is preprint-only (§1.3's "See Theorem …" for Proposition 2.3.5, reworded to
-"stated as Proposition 2.7" in the published version), so it is recorded in the review rather than as a
-finding. No duplicate labels, no undefined references.
+The JSON has fourteen prerequisite records; the two already registered sibling papers are marked for reuse rather than another paper job. Corrections checked against arXiv, publisher pages, the paper’s bibliography and publisher-deposited Crossref metadata:
+
+| Input | Correct identifier or attribution |
+|---|---|
+| Chang, CMPLs and descent | [arXiv:1207.2326](https://arxiv.org/abs/1207.2326) |
+| Ngo Dac, Annals 194 (2021) | [10.4007/annals.2021.194.1.6](https://doi.org/10.4007/annals.2021.194.1.6), public [HAL copy](https://hal.science/hal-03298790) |
+| Chang–Papanikolas–Yu | [arXiv:1411.0124](https://arxiv.org/abs/1411.0124) |
+| Huei-Jeng Chen | [10.1016/j.jnt.2014.09.016](https://doi.org/10.1016/j.jnt.2014.09.016) |
+| Chang–Mishiba, *On a conjecture of Furusho over function fields* | [arXiv:1710.10849](https://arxiv.org/abs/1710.10849), Invent. Math. 223 (2021), 49–102 |
+| Lara Rodríguez–Thakur | [arXiv:1312.4928](https://arxiv.org/abs/1312.4928), pp.787–801 (retain the correct pagination) |
+| George Todd | [10.1016/j.jnt.2017.09.028](https://doi.org/10.1016/j.jnt.2017.09.028) |
+| Thakur 2017 | *Multizeta values for function fields: a survey* |
+| Thakur’s basic binary relation | [IMRN 2009, 10.1093/imrn/rnp018](https://doi.org/10.1093/imrn/rnp018), Theorem 5 |
+| Carlitz evaluation | [Duke Math. J. 1 (1935), 137–168](https://doi.org/10.1215/S0012-7094-35-00114-4); exact needed formula read in Im et al. v2 p.42 |
+
+## Source issues and reading provenance
+
+E1–E4 retain their earlier independent review. E2 was corrected in print. E5–E7 implement the verified omissions; E8 is an additional unreviewed misprint encountered while checking the requested appendix definitions. No independent review is authored by this fixer.
+
+| ID | Correction |
+|---|---|
+| E1 | Power-sum exponent d→s; survives in print. |
+| E2 | Chen coefficient condition `(q−1) divides k`→`divides j`; fixed in print. |
+| E3 | `dim_w`→`dim_k`; survives in print. |
+| E4 | Appendix “Theorem A.4”→“Proposition A.4”; survives in print. |
+| E5 | Corollary 1.8: use k-span with dim_k, and “spanned”; affects a stated result in both versions. |
+| E6 | §1.3 p.5 “Theorem 2.7”→“Proposition 2.7”; also present in v2 §1.3 p.4. |
+| E7 | §1.4 product-formula section 2.1→2.3. |
+| E8 | Proposition A.4 proof: `BC_s` with weight `w+wt(s)`→`BC_q^m` with weight `w+mq`. The neighboring wrong C-weight in v2 is already corrected in print. |
+
+The 23 September review accepted both original routes and E1–E4. Two assertions in its prose are corrected here: the published §1.3 reference **does still say Theorem**, even though §1.4 separately says Proposition; and a watermarked publisher PDF **can and should be hashed** to identify the exact bytes read. The separate review document is outside this issue’s authorized files, so it is preserved as history, with the correction recorded here and alongside E4.
+
+Structured `sourceVersions` records the following fresh artifacts, separately from the original 22 September reading:
+
+| Artifact | SHA-256 |
+|---|---|
+| Published 32-page PDF | `d5c1745d107af2718a3bc96a28c689b7481c7d3cfd94f404dde207d5e1c630bf` |
+| v2 32-page PDF | `05e1f6d6b1ef37068f73709928a9dcc7a0e50874aced170f0c92e07f0cd7413b` |
+| v2 gzip source, `Basis_Submit_v2.tex` | `6336dfc57c140182129afb6c13cddeb5cccc9dd7bf8d27b429a7d7d5e80c52de` |
+
+The source gzip hash matches the original extraction; it is not the PDF hash. The January 2023 published revision adds Remark 5.4 and explicitly states the period-power containment in the proof of Theorem 5.2. Targeted arXiv version, Cambridge article, title/correction and Crossref checks on 30 September found no linked correction; this is a bounded search. Supplemental source reads and hashes are in `additionalSources`.
+
+## Validation
+
+The paper/schema, source-issue provenance and scoped intake checks pass. All 64 missing items have one route; the explicit item graph is acyclic and planned suppliers exist. Symbolic finite checks covered 16 arbitrary-prefix cases at weights 1–5 (twist equation, two determinants and the extended ABP vector), 35 period-normalization cases, and two formula regressions. These checks do not establish analytic convergence or replace the supplier proofs. No Lean file was changed or compiled; no matching existing pinned build was available.
