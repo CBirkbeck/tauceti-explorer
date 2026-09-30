@@ -2,7 +2,7 @@
   "roadmapId": "tauceti:TauCetiRoadmap/ModularCurves",
   "protocol": "links-v1",
   "status": "complete",
-  "summary": "Reviewed links for all 58 Modular Curves stages against the active catalogue: exact relative-scheme contracts, prime-level diamond compactification boundary and upstream ownership preserved. Existing pinned equation-level results are library imports; duplicated Algebraic Curves pairs remain in their owner packet. Current Legendre and affine Weil-restriction/Hodge–Tate consumers added. Rescope recommendations are proposals, not edits to upstream roadmaps.",
+  "summary": "Reviewed links for all 58 Modular Curves stages against the active catalogue: exact relative-scheme contracts, prime-level diamond compactification boundary and upstream ownership preserved. Existing pinned equation-level results are library imports; duplicated Algebraic Curves pairs remain in their owner packet. Current Legendre and affine Weil-restriction/Hodge–Tate consumers added. Rescope recommendations are proposals, not edits to upstream roadmaps. The confirmed red-team fix (FIX-RT-LINK-tauceti_TauCetiRoadmap_ModularCurves) restores Elliptic Curves Layer 1 → 2A and Elliptic Curves Layer 1 → Layer 10 as explicit ownership links: the pinned results remain library imports (libraryReuse), and each link keeps the scheme-level and exceptional work in Modular Curves.",
   "links": [
     {
       "source": "tauceti:TauCetiRoadmap/JacobianChallenge#layer-a-line-bundles-divisors-picard-group-degree",
@@ -755,6 +755,40 @@
         }
       ],
       "addedBy": "REV-LINK-tauceti_TauCetiRoadmap_ModularCurves"
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/EllipticCurves#layer-1-isogenies-the-dual-the-invariant-differential-and-formal-groups-aec-ii2-iii46-iv",
+      "target": "tauceti:TauCetiRoadmap/ModularCurves#2a-group-homomorphisms-multiplication-maps-and-their-degree",
+      "reason": "Elliptic Curves Layer 1 owns multiplication by n as an equation-level isogeny and its degree theorem deg [n] = n² (AEC III.6.2). Modular Curves 2A consumes that equation-level theorem, including its division-polynomial and inseparable cases, for the degree of the scheme morphism [N], and names the Elliptic Curves roadmap's Layer 1 as its owner. Ownership and reuse record (red-team finding RT-LINK-tauceti_TauCetiRoadmap_ModularCurves/1, independently confirmed): the prerequisite holds whatever the implementation state. The result already exists at Tau Ceti f790474 as TauCeti.Isogeny.degree_mulByIntIsogenyOfNeZero (TauCeti/AlgebraicGeometry/EllipticCurve/Isogeny/MulByInt/Degree.lean): over a field, for an elliptic Weierstrass curve and an integer n ≠ 0, the degree is n.natAbs^2, with no invertibility hypothesis on n. Import it now (see libraryReuse); 2A does not wait for the rest of EC Layer 1. MC 2A still owns the scheme/function-field bridge that transports the theorem to the scheme [N], relative finite local freeness (flatness) and the rank of E[N]; the library theorem does not discharge them.",
+      "confidence": "explicit",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/EllipticCurves#layer-1-isogenies-the-dual-the-invariant-differential-and-formal-groups-aec-ii2-iii46-iv",
+          "quote": "base-change compatibility, and **`deg [n] = n²`** (AEC III.6.2)"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ModularCurves#2a-group-homomorphisms-multiplication-maps-and-their-degree",
+          "quote": "consume the equation-level theorem `deg [N] = N²` from\nthe Elliptic Curves roadmap, including its division-polynomial and inseparable cases."
+        }
+      ],
+      "origin": "restored-from-libraryReuse-by-FIX-RT-LINK-tauceti_TauCetiRoadmap_ModularCurves"
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/EllipticCurves#layer-1-isogenies-the-dual-the-invariant-differential-and-formal-groups-aec-ii2-iii46-iv",
+      "target": "tauceti:TauCetiRoadmap/ModularCurves#layer-10-compactified-coarse-curves-over-ℤ1n-cusps-and-the-shimura-covering",
+      "reason": "Elliptic Curves Layer 1 builds the automorphism group Aut(E, O). Modular Curves Layer 10 names the elliptic-curves roadmap's Aut(E) carrier as a dependency of its automorphism, action and normaliser computations. Ownership and reuse record (red-team finding RT-LINK-tauceti_TauCetiRoadmap_ModularCurves/1, independently confirmed): the prerequisite holds whatever the implementation state. At Tau Ceti f790474 (TauCeti/AlgebraicGeometry/EllipticCurve/Aut.lean) the carrier exists as WeierstrassCurve.autGroup, the stabiliser of the curve under VariableChange over any commutative ring, and WeierstrassCurve.autGroupMulEquiv identifies it with Multiplicative (ZMod 2) for an elliptic curve over an integral domain (in particular a field) with j ≠ 0 and j ≠ 1728. Layer 10 imports these now through its scheme/equation comparison and does not wait for an endomorphism-ring presentation (see libraryReuse). The link does not assert that EC Layer 1's identification of the units of End(E) with this stabiliser is proved, and the generic-j theorem does not supply the exceptional groups. MC Layer 10 still owns the characteristic-2 and characteristic-3 automorphism groups, their actions on cyclic subgroup schemes, the normalisers and the orbit computations.",
+      "confidence": "explicit",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/EllipticCurves#layer-1-isogenies-the-dual-the-invariant-differential-and-formal-groups-aec-ii2-iii46-iv",
+          "quote": "**`Aut (E, O)` is built here too**, as the units of the endomorphism ring over the field at\n  hand"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ModularCurves#layer-10-compactified-coarse-curves-over-ℤ1n-cusps-and-the-shimura-covering",
+          "quote": "the elliptic-curves\nroadmap's `Aut(E)` carrier — the characteristic-`2`/`3` classification"
+        }
+      ],
+      "origin": "restored-from-libraryReuse-by-FIX-RT-LINK-tauceti_TauCetiRoadmap_ModularCurves"
     }
   ],
   "overlaps": [
@@ -1309,7 +1343,7 @@
     {
       "roadmapId": "tauceti:TauCetiRoadmap/EllipticCurves",
       "result": "links",
-      "note": "Header, conventions, Mathlib inventories and Layers 0–5 read in full; Layers 6–8, ordering and provenance read in targeted passages. Explicit links: Layer 1 (deg [n] = n², Aut(E,O)) and Layer 2 (Weil pairing). Overlaps: supersingular and F/V (L1/L3 vs 7E, keep), formal group (L1 vs 7C), Tate q-series (L4 vs Layer 10). Layer 8 assigns modular degree and Manin constant to 'a modular-curves roadmap'; Modular Curves does not own them."
+      "note": "Header, conventions, Mathlib inventories and Layers 0–5 read in full; Layers 6–8, ordering and provenance read in targeted passages. Explicit links: Layer 1 (deg [n] = n², Aut(E,O)) and Layer 2 (Weil pairing). Overlaps: supersingular and F/V (L1/L3 vs 7E, keep), formal group (L1 vs 7C), Tate q-series (L4 vs Layer 10). Layer 8 assigns modular degree and Manin constant to 'a modular-curves roadmap'; Modular Curves does not own them. The Layer 1 links to 2A and Layer 10, replaced by libraryReuse in review, are carried in links again (FIX-RT-LINK-tauceti_TauCetiRoadmap_ModularCurves), as ownership records with the pinned imports."
     },
     {
       "roadmapId": "tauceti:TauCetiRoadmap/JacobianChallenge",
@@ -2407,7 +2441,9 @@
           "stageId": "tauceti:TauCetiRoadmap/ModularCurves#2a-group-homomorphisms-multiplication-maps-and-their-degree",
           "quote": "consume the equation-level theorem `deg [N] = N²` from\nthe Elliptic Curves roadmap, including its division-polynomial and inseparable cases."
         }
-      ]
+      ],
+      "state": "implementation note; pair restored to links",
+      "stateNote": "The review replaced this pair by library reuse, which left it out of the atlas (red-team finding RT-LINK-tauceti_TauCetiRoadmap_ModularCurves/1, independently confirmed). FIX-RT-LINK-tauceti_TauCetiRoadmap_ModularCurves restores it to links with this evidence and scope; this entry remains the implementation note for the pinned import."
     },
     {
       "originalLink": 10,
@@ -2429,7 +2465,9 @@
           "stageId": "tauceti:TauCetiRoadmap/ModularCurves#layer-10-compactified-coarse-curves-over-ℤ1n-cusps-and-the-shimura-covering",
           "quote": "the elliptic-curves\nroadmap's `Aut(E)` carrier — the characteristic-`2`/`3` classification"
         }
-      ]
+      ],
+      "state": "implementation note; pair restored to links",
+      "stateNote": "The review replaced this pair by library reuse, which left it out of the atlas (red-team finding RT-LINK-tauceti_TauCetiRoadmap_ModularCurves/1, independently confirmed). FIX-RT-LINK-tauceti_TauCetiRoadmap_ModularCurves restores it to links with this evidence and scope; this entry remains the implementation note for the pinned import."
     }
   ],
   "completenessSpotChecks": [
@@ -2478,7 +2516,7 @@
     "status": "accepted",
     "reviewer": "independent-review-REV-LINK-tauceti_TauCetiRoadmap_ModularCurves",
     "date": "2026-09-23",
-    "notes": "Independently reviewed all 46 original links and 19 overlaps, all 58 focal stages and reviewed AUDIT-12. Corrected 34 whitespace-normalized quotations, repaired one stale endpoint, deduplicated four AC pairs and replaced two already-built supplier edges by pinned library reuse. Added three missing directed contracts plus the retargeted Legendre edge and one overlap; refreshed all 217 active roadmap entries. 36 retained explicit labels lowered conservatively: reciprocal naming is not established by both texts. Upstream ownership, affine/general-base duality, generalized smooth-base restriction and formal/analytic Tate scope corrected. See report for validation and limits.",
+    "notes": "Independently reviewed all 46 original links and 19 overlaps, all 58 focal stages and reviewed AUDIT-12. Corrected 34 whitespace-normalized quotations, repaired one stale endpoint, deduplicated four AC pairs and replaced two already-built supplier edges by pinned library reuse. Red-team correction: removing those two edges left Elliptic Curves Layer 1 joined to neither consumer in the atlas (finding RT-LINK-tauceti_TauCetiRoadmap_ModularCurves/1, independently confirmed); a built result is still a prerequisite. The fix restores both to links as explicit ownership links with the libraryReuse evidence and scope; the two removed entries below are history. This review's status and date are historical and do not represent a review of the revised packet, which needs renewed independent acceptance before promotion. Added three missing directed contracts plus the retargeted Legendre edge and one overlap; refreshed all 217 active roadmap entries. 36 retained explicit labels lowered conservatively: reciprocal naming is not established by both texts. Upstream ownership, affine/general-base duality, generalized smooth-base restriction and formal/analytic Tate scope corrected. See report for validation and limits.",
     "removed": [
       {
         "source": "tauceti:TauCetiRoadmap/EllipticCurves#layer-1-isogenies-the-dual-the-invariant-differential-and-formal-groups-aec-ii2-iii46-iv",
@@ -2544,5 +2582,27 @@
     "mathlibPin": "082e2d3",
     "tauCetiPin": "f790474",
     "note": "Original author/provenance retained as history. Library source verification was performed by this review; the original no-verification statement does not describe this review."
+  },
+  "redteamFix": {
+    "job": "FIX-RT-LINK-tauceti_TauCetiRoadmap_ModularCurves",
+    "finding": "RT-LINK-tauceti_TauCetiRoadmap_ModularCurves/1",
+    "verification": "research/blueprint/redteam/RT-LINK-tauceti_TauCetiRoadmap_ModularCurves.review.json",
+    "agent": "Claude Code",
+    "session": "cc-f805bf",
+    "date": "2026-09-30",
+    "base": "76be6c69ad4983a46291121e301564ded720d44b",
+    "scope": "Restore exactly the two confirmed links Elliptic Curves Layer 1 -> Modular Curves 2A and Elliptic Curves Layer 1 -> Modular Curves Layer 10 as explicit, with libraryReuse's raw two-sided quotations and the verifier-endorsed scope (pinned imports now; scheme/function-field bridge, flatness and rank of E[N] kept by 2A; characteristic-2/3 groups, actions and normalisers kept by Layer 10; no claim that the units-of-End/stabiliser comparison is proved); keep libraryReuse as the implementation note; correct the summary, the Elliptic Curves examined note and the review narrative. The 43 original links, 20 overlaps (finding /2, low, is out of this job's scope), deduplicatedLinks, completenessSpotChecks, provenance, reviewProvenance and other examined entries are unchanged; review status, date, removed and added are historical. The promoted data/links copy is not edited; promotion is the normal reviewed intake operation.",
+    "validation": {
+      "stages": 2840,
+      "edgesBefore": 8254,
+      "edgesAfter": 8256,
+      "repeatEdges": 8256,
+      "requiresFilled": true,
+      "researchUnionEdges": 8363,
+      "acyclic": true,
+      "literalQuotesRechecked": 4,
+      "original43LinksUnchanged": true,
+      "checkLinks": "0 errors, 0 warnings"
+    }
   }
 }
