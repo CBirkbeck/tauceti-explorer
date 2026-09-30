@@ -58,13 +58,16 @@
       "id": "PAPER-BURUNGALE-KOBAYASHI-OTA-21/adic-elliptic-points",
       "kind": "definition",
       "name": "Adic points of an elliptic formal group",
-      "statement": "For W over a complete separated uniformly topologized commutative ring with linear topology, and an ideal I defining its adic topology, FormalGroupPoint W I consists of parameters in I and is an additive commutative group under the evaluated formal law.",
-      "locator": "§5.0.1 and §5.0.3",
+      "statement": "For W over a complete separated uniformly topologized commutative ring with linear topology, and an ideal I defining its adic topology, FormalGroupPoint W I consists of parameters in I and is an additive commutative group under the evaluated formal law. For a Dedekind domain A, a height-one prime u and C over the completed integers O_u with elliptic generic fibre, t ↦ (t/w(t), −1/w(t)) is an unconditional injective additive map Ê(𝔪_u) → E(K_u) whose image is the kernel of reduction, {O} ∪ {P : 1 < Valued.v(x(P))}, that is x(P) not integral (Silverman IV.1, VII.2.2).",
+      "locator": "§5.0.1, (5.1), p.958; §5.0.2, Definition 5.4 and Theorem 5.5, p.959",
       "status": "library",
-      "note": "No claim that formalPointHom is unconditional: its source has an additional auxiliary-point hypothesis. Generic Lubin–Tate adic points and the elliptic comparison remain separate.",
+      "note": "FIX-RT-PAPER-BURUNGALE-KOBAYASHI-OTA-21 (RT/4): Tau Ceti f790474 has the unconditional map for adic completions of a Dedekind domain: WeierstrassCurve.formalPointHomAdicCompletion (EllipticCurve/FormalGroup/Point/AdicCompletion.lean:264), formalPointHomAdicCompletion_injective (:283) and range_formalPointHomAdicCompletion (Point/Range.lean:158), the kernel of reduction. The generic formalPointHom still carries an auxiliary-point hypothesis, but the adic case is discharged. Generic Lubin–Tate adic points and the elliptic comparison remain separate.",
       "library": [
         "tauceti:WeierstrassCurve.FormalGroupPoint",
-        "tauceti:WeierstrassCurve.FormalGroupPoint.instAddCommGroup"
+        "tauceti:WeierstrassCurve.FormalGroupPoint.instAddCommGroup",
+        "tauceti:WeierstrassCurve.formalPointHomAdicCompletion",
+        "tauceti:WeierstrassCurve.formalPointHomAdicCompletion_injective",
+        "tauceti:WeierstrassCurve.range_formalPointHomAdicCompletion"
       ]
     },
     {
@@ -334,7 +337,7 @@
       "statement": "For the canonical φ and the auxiliary K with 2 split, the global root number W(φ)=+1.",
       "locator": "Proof of Theorem 3.4, p.953",
       "status": "missing",
-      "note": "This specialized root-number theorem is not the ordinary Katz/Hsieh branch."
+      "note": "This specialized root-number theorem is not the ordinary Katz/Hsieh branch. FIX-RT-PAPER-BURUNGALE-KOBAYASHI-OTA-21 (RT/6): Hecke L-functions, their functional equation and root numbers are the planned items hecke-lfunction and hecke-root-number (AutomorphicLFunctionsAndLocalFactors AL.1, GlobalNumberFields Layer 9)."
     },
     {
       "id": "PAPER-BURUNGALE-KOBAYASHI-OTA-21/auxiliary-l",
@@ -355,13 +358,39 @@
       "note": "The comparison under scaling ω and Ω is required; this is not an unspecified canonical unit."
     },
     {
+      "id": "PAPER-BURUNGALE-KOBAYASHI-OTA-21/hecke-root-number",
+      "kind": "theorem",
+      "name": "Functional equation and root number of a Hecke L-function",
+      "statement": "L(ψ,s) continues analytically and satisfies a functional equation under s ↔ 2 − s with global root number W(ψ) = ∏_v ε_v. If ψ(ā) = \\overline{ψ(a)}, then W(ψ) ∈ {±1}, and W(ψ) = −1 forces L(ψ,1) = 0.",
+      "locator": "p.951; p.953 (Proposition 3.3(3)); p.961",
+      "status": "planned",
+      "note": "Added by FIX-RT-PAPER-BURUNGALE-KOBAYASHI-OTA-21 (RT/6), unrouted. canonical-sign, twisted-root-sign and xi-signed presuppose it.",
+      "planned": [
+        "AutomorphicLFunctionsAndLocalFactors:AL.1"
+      ]
+    },
+    {
+      "id": "PAPER-BURUNGALE-KOBAYASHI-OTA-21/hecke-lfunction",
+      "kind": "definition",
+      "name": "Hecke L-functions of an imaginary quadratic field",
+      "statement": "For an algebraic Hecke character ψ of K and a nonzero integral ideal g, L_g(ψ,s) := Σ_{(c,g)=1} ψ(c)N(c)^{−s}, and the primitive L(ψ,s) with its Euler factors at the removed primes.",
+      "locator": "§3.0.2, p.952",
+      "status": "planned",
+      "note": "Added by FIX-RT-PAPER-BURUNGALE-KOBAYASHI-OTA-21 (RT/6), unrouted. GlobalNumberFields Layer 9 plans the Hecke-character carrier (unbuilt), AL.1 the global functional equation, and AnalyticNumberTheory AN.4 the ideal-series comparison (as RS-07 places it). Accepted extractions plan Hecke L-functions at AL.1 too (PAPER-TSIMERMAN-18/cm-hecke-entire, PAPER-YUAN-ZHANG-18/quadratic-L).",
+      "planned": [
+        "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-9-hecke-and-ray-class-characters",
+        "AutomorphicLFunctionsAndLocalFactors:AL.1",
+        "AnalyticNumberTheory:AN.4"
+      ]
+    },
+    {
       "id": "PAPER-BURUNGALE-KOBAYASHI-OTA-21/elliptic-zeta-class",
       "kind": "construction",
       "name": "Integral elliptic-unit zeta class",
       "statement": "For the CM character, coefficient lattice and ideal g divisible by f as in §3, construct the normalized compatible classes z_g in lim_n H¹(K(gp^n),T^(-1)(1)) from Kato's elliptic units, with γ=per_φ(ω)/Ω and the integral normalization used in (3.4).",
       "locator": "§3.0.2, pp.951–952; Kato 2004 §§15.5–15.9",
       "status": "missing",
-      "note": "General elliptic-unit construction is shared with the pending CMAllPrimeMainConjectures direction from PAPER-BURUNGALE-TIAN-26; do not create an independent second construction. This route owns the specific normalized realization and comparison needed here. Neither KatoEulerSystems:L2's modular Siegel-unit classes nor an unreviewed proposed route is counted as an existing supplier."
+      "note": "The general elliptic-unit construction belongs to CMAllPrimeMainConjectures (PAPER-BURUNGALE-TIAN-26 route 7, accepted; design pending); do not create an independent second construction. This route owns the specific normalized realization and comparison needed here. Neither KatoEulerSystems:L2's modular Siegel-unit classes nor an unreviewed proposed route is counted as an existing supplier."
     },
     {
       "id": "PAPER-BURUNGALE-KOBAYASHI-OTA-21/elliptic-reciprocity",
@@ -428,16 +457,16 @@
       "statement": "For ν ∈ X_l and a nontrivial anticyclotomic character χ of conductor p^(n+1): since ν is anticyclotomic, (φ̄ν)(pO_K) = −p (Rubin 1987, Lemma 3.1); f·l^m is stable under complex conjugation and χ has odd order, so χ(f·l^m) = 1; hence W(φ̄νχ) = (−1)^(n+1) W(φ̄ν) = (−1)^(n+1) W(φ̄) = (−1)^(n+1) W(φ), using W(φ̄ν) = W(φ̄) (Greenberg, p.247, as recalled on p.951) and W(φ̄) = W(φ), under §3's self-duality and conductor hypotheses.",
       "locator": "Proof of Proposition 3.3(3), p.953",
       "status": "missing",
-      "note": "Use conjugation-invariance of f l^m and odd order of χ to prove χ(f l^m)=1; do not apply this nontrivial-character formula at conductor 1 without its own check. Reviewer correction: the inputs φ̄ν(pO_K) = −p, W(φ̄ν) = W(φ̄) and W(φ̄) = W(φ), which link this formula to Proposition 3.3(3), are now in the statement."
+      "note": "Use conjugation-invariance of f l^m and odd order of χ to prove χ(f l^m)=1; do not apply this nontrivial-character formula at conductor 1 without its own check. Reviewer correction: the inputs φ̄ν(pO_K) = −p, W(φ̄ν) = W(φ̄) and W(φ̄) = W(φ), which link this formula to Proposition 3.3(3), are now in the statement. FIX-RT-PAPER-BURUNGALE-KOBAYASHI-OTA-21 (RT/6): Hecke L-functions, their functional equation and root numbers are the planned items hecke-lfunction and hecke-root-number (AutomorphicLFunctionsAndLocalFactors AL.1, GlobalNumberFields Layer 9)."
     },
     {
       "id": "PAPER-BURUNGALE-KOBAYASHI-OTA-21/xi-signed",
       "kind": "theorem",
       "name": "Sign of the projected auxiliary unit",
-      "statement": "If ε=W(φ), the anticyclotomic projection of ξ_ν belongs to V_∞*,ε⊗R, because the L-values at opposite-parity characters vanish by the functional equation.",
+      "statement": "If ε=W(φ), the anticyclotomic projection of ξ_ν belongs to V_∞*,ε⊗R, because the L-values at opposite-parity characters vanish by the functional equation. When W(φ) = −1 this includes the trivial character (conductor 1, in Ξ⁺), killed by (3.6) at χ = 1 and W(φ̄ν) = W(φ) (p.951), which the printed proof does not say.",
       "locator": "Proposition 3.3(3), p.953",
       "status": "missing",
-      "note": ""
+      "note": "FIX-RT-PAPER-BURUNGALE-KOBAYASHI-OTA-21 (RT/6): Hecke L-functions, their functional equation and root numbers are the planned items hecke-lfunction and hecke-root-number (AutomorphicLFunctionsAndLocalFactors AL.1, GlobalNumberFields Layer 9)."
     },
     {
       "id": "PAPER-BURUNGALE-KOBAYASHI-OTA-21/finis-units",
@@ -467,10 +496,19 @@
       "note": "F denotes points in the maximal ideals of the relevant valuation rings; do not confuse all algebraic-closure field elements with formal-group points."
     },
     {
+      "id": "PAPER-BURUNGALE-KOBAYASHI-OTA-21/formal-kummer-duality",
+      "kind": "theorem",
+      "name": "Local duality for Lubin–Tate Kummer images",
+      "statement": "For L = Θ_n or Ψ_n and m ≥ 1, identify the Cartier dual of F[π^m], with its twist, with the torsion of the dual formal group. Under the local Tate pairing, the Kummer images of F(L)/π^m and of the dual group are exact annihilators, compatibly with corestriction and the formal trace. Hence lim→ H¹(Θ_n, F(Φ̄))[π^(n+1)] is dual to a norm limit of formal points.",
+      "locator": "§4, p.954 ('Since lim← F(Θ_n) = {0} … by the Tate duality'), following Rubin 1987, §5",
+      "status": "missing",
+      "note": "Added by FIX-RT-PAPER-BURUNGALE-KOBAYASHI-OTA-21 (RT/5). No stage or packet states a Kummer-image annihilator theorem for formal or p-divisible groups: ClassFieldTheory Layer 5 plans the pairing for finite modules, and ArithmeticGaloisDuality R02.1 (narrowed by RS-08) only coefficient limits. formal-norm-vanishing and formal-points-units-dual use it. The general statement for a formal O-module over O_L and its Cartier dual could instead go to route 2, keeping only this tower specialisation here."
+    },
+    {
       "id": "PAPER-BURUNGALE-KOBAYASHI-OTA-21/formal-norm-vanishing",
       "kind": "theorem",
       "name": "Hazewinkel's vanishing in the Lubin–Tate tower",
-      "statement": "For BKO's tower and height-two formal group, lim_norm F(Θ_n)=0. Local Tate duality then gives the vanishing of the direct-limit H¹ torsion term in (4.1), and likewise at Ψ_n.",
+      "statement": "For BKO's tower and height-two formal group, lim_norm F(Θ_n)=0. Local Tate duality, in the form of formal-kummer-duality, then gives the vanishing of the direct-limit H¹ torsion term in (4.1), and likewise at Ψ_n.",
       "locator": "§4, p.954, citing Hazewinkel 1977",
       "status": "missing",
       "note": "Only the specialization stated and used here is extracted; the general Hazewinkel norm theorem is a prerequisite source, not silently read or proved."
@@ -482,7 +520,7 @@
       "statement": "The Kummer map, vanishing and local reciprocity identify F(Θ_∞)⊗_OΦ/O with H¹(Θ_∞,F[p∞]) and then Hom_O(U_∞,F[p∞]). After twisting, obtain the nondegenerate Galois-compatible pairing with U_∞* into Φ/O, with compact/discrete topologies.",
       "locator": "§4, p.954",
       "status": "missing",
-      "note": "Import general perfect local Tate duality; prove the actual identifications and topological perfectness needed for Nakayama, not just an abstract nondegenerate pairing."
+      "note": "Import general perfect local Tate duality; prove the actual identifications and topological perfectness needed for Nakayama, not just an abstract nondegenerate pairing. FIX-RT-PAPER-BURUNGALE-KOBAYASHI-OTA-21 (RT/5): the Kummer-image annihilator statement it needs is item formal-kummer-duality."
     },
     {
       "id": "PAPER-BURUNGALE-KOBAYASHI-OTA-21/anticyclotomic-kummer",
@@ -609,10 +647,19 @@
       "id": "PAPER-BURUNGALE-KOBAYASHI-OTA-21/honda-lift",
       "kind": "theorem",
       "name": "Honda type of a scalar-Frobenius lift",
-      "statement": "For A/F_(p²) as in Lemma 5.1 and an elliptic lift A/O, the associated formal group has Honda type ±X²+p and is Lubin–Tate of parameter ∓p, with corresponding signs.",
+      "statement": "For Ā/F_(p²) with a_(p²)(Ā) = ±2p and any elliptic lift A/O, the formal group Â has Honda type ∓X²+p and is Lubin–Tate with parameter ±p; in particular a_(p²) = −2p gives parameter −p, as used for Ê ≅ F in §5.0.1 and for the CM curve in §3. The printed signs are reversed (PAPER-BURUNGALE-KOBAYASHI-OTA-21/E9 in research/blueprint/errata/PAPER-BURUNGALE-KOBAYASHI-OTA-21.json).",
       "locator": "Lemma 5.1(ii), p.956",
       "status": "missing",
-      "note": "Keep the paper's unramified O base; this is not a statement for arbitrary ramified lifts. Import Dieudonné Frobenius from R07.2."
+      "note": "Keep the paper's unramified O base; this is not a statement for arbitrary ramified lifts. Import Dieudonné Frobenius from R07.2. FIX-RT-PAPER-BURUNGALE-KOBAYASHI-OTA-21 (RT/1): the statement now follows the confirmed erratum E9, which reverses the printed pairing of signs. The Lubin–Tate conclusion has a direct proof without Honda types: [±p]_Â reduces to X ↦ X^q and has linear term ±p. Route 2's tests include a_(p²) = −2p ↦ parameter −p."
+    },
+    {
+      "id": "PAPER-BURUNGALE-KOBAYASHI-OTA-21/lt-lift-identification",
+      "kind": "theorem",
+      "name": "Elliptic lifts of a scalar-Frobenius reduction are Lubin–Tate",
+      "statement": "For any elliptic lift A/O of an Ā/F_(p²) with a_(p²)(Ā) = −2p, Â ≅ F over O, carrying the invariant differential of F to a chosen one of A; hence Â[p^∞] ≅ F[π^∞] with π = −p.",
+      "locator": "§5.0.1, p.955; p.953; pp.961–962",
+      "status": "missing",
+      "note": "Added by FIX-RT-PAPER-BURUNGALE-KOBAYASHI-OTA-21 (RT/7): the general identification that both elliptic-lt-comparison (a_p = 0 over Q) and the CM curve of rubin-cm-lubin-tate apply. It follows from honda-lift (parameter −p) and lt-module. Stated in route 2 so that route 2 depends on neither route 3 nor route 4."
     },
     {
       "id": "PAPER-BURUNGALE-KOBAYASHI-OTA-21/ramification-count",
@@ -630,7 +677,7 @@
       "statement": "Write p−1=12m+4δ+6ε with δ,ε∈{0,1}. There are m+δ+ε geometric supersingular j-invariants. Over F_(p²), the number N(t) of isomorphism classes of supersingular elliptic curves with trace t is (p+6−4(−3/p)−3(−1/p))/12 for each t=±2p, 1−(−3/p) for each t=±p, and 1−(−1/p) for t=0.",
       "locator": "Proof of Lemma 5.2, p.957, Schoof Theorem 4.6",
       "status": "missing",
-      "note": "Count forms/twists over F_(p²), not just geometric j-invariants. This specialized counting input is required for optimal points."
+      "note": "Count forms/twists over F_(p²), not just geometric j-invariants. This specialized counting input is required for optimal points. FIX-RT-PAPER-BURUNGALE-KOBAYASHI-OTA-21 (RT/13): moved from route 3 to a Part II of Tau Ceti Elliptic curves (route 7), the owner of general facts about elliptic curves over finite fields; route 3 imports it and keeps Lemma 5.2's own counts. The formula (p + 6 − 4(−3/p) − 3(−1/p))/12 = m + δ + ε checks in all four classes of p mod 12."
     },
     {
       "id": "PAPER-BURUNGALE-KOBAYASHI-OTA-21/generic-supersingular-count",
@@ -666,7 +713,7 @@
       "statement": "Choose an unramified supersingular P, compose π with multiplication by #E(F_(p²)) (a p-unit) to send P to 0, add a fine Γ₁(M) level with p-unit deck order, and lift to P′. The completed map at P′ and 0 is an isomorphism; a chosen Q∈Ehat(m)\\pEhat(m) lifts to an O-point representing A with Lubin–Tate formal group. Its image P is the required formal CM point.",
       "locator": "§5.0.1, pp.957–958, (5.1)",
       "status": "missing",
-      "note": "For j=0 choose N=27 when p≡2 mod3; for j=1728 choose N=32. Prove this fine-level choice and unramifiedness; formal CM does not imply global CM."
+      "note": "For j=0 choose N=27 when p≡2 mod3; for j=1728 choose N=32. Prove this fine-level choice and unramifiedness; formal CM does not imply global CM. FIX-RT-PAPER-BURUNGALE-KOBAYASHI-OTA-21 (RT/4): the map Ê(𝔪) → E is Tau Ceti's WeierstrassCurve.formalPointHomAdicCompletion (injective, image the kernel of reduction), stated for adic completions of a Dedekind domain. Φ is the completion of O_K at the inert prime pO_K, and Ψ′_s the completion of the ring class field of conductor p^s at its unique prime above p; route 3 proves this presentation, since global-local-tower sits downstream on route 5."
     },
     {
       "id": "PAPER-BURUNGALE-KOBAYASHI-OTA-21/formal-module-deformation",
@@ -690,28 +737,28 @@
       "id": "PAPER-BURUNGALE-KOBAYASHI-OTA-21/quasicanonical-lift",
       "kind": "definition",
       "name": "Quasi-canonical lift of conductor p^s",
-      "statement": "For t an O-basis of T and s≥1, put T_s=p^(−s)Z_p t+T and let A_s be the lattice quotient. Its formal endomorphism ring is Z_p+p^sO. The s=0 object is the original canonical formal CM lift A.",
+      "statement": "For a finite extension F_0/Q_p with uniformizer ϖ and residue field of size q, and F/F_0 quadratic (unramified or ramified), let the canonical lift be the height-2 formal O_(F_0)-module with CM by O_F. For s ≥ 1 the quasi-canonical lift of level s is the lattice quotient with formal endomorphism ring O_(F_0) + ϖ^s O_F (Gross 1986). BKO's case is F_0 = Q_p and F = Φ unramified: for t an O-basis of T put T_s = p^(−s)Z_p t + T and let A_s be the lattice quotient, with End = Z_p + p^sO; the s = 0 object is the canonical formal CM lift A.",
       "locator": "§5.0.2, p.958; Gross p.325; Yu §4",
       "status": "missing",
-      "note": "Define the marked lift and comparison under changing t, not just a curve possessing an abstract ring isomorphism."
+      "note": "Define the marked lift and comparison under changing t, not just a curve possessing an abstract ring isomorphism. FIX-RT-PAPER-BURUNGALE-KOBAYASHI-OTA-21 (RT/12): stated for finite F_0/Q_p and both quadratic types, because other extractions need them: UnitaryKudlaRapoportCycles (PAPER-LI-ZHANG-22-B/59, unramified; PAPER-HE-LI-SHI-ETAL-23/18, ramified; PAPER-LI-LIU-22/27) and GrossZagierAndArithmeticHeights GZ.7 (PAPER-GROSS-ZAGIER-86/324). This roadmap is the single owner they should import."
     },
     {
       "id": "PAPER-BURUNGALE-KOBAYASHI-OTA-21/quasicanonical-field",
       "kind": "theorem",
       "name": "Field of definition of the quasi-canonical lift",
-      "statement": "For s≥1, the minimal local ring-class field Ψ′_s has Gal(Ψ′_s/Φ)≃(O/p^sO)×/(Z/p^sZ)× and degree p^(s−1)(p+1). The non-algebraically-closed residue-field case is needed.",
+      "statement": "For s ≥ 1 the quasi-canonical lift of level s is defined over the ring class field extension of F with Galois group O_F^×/(O_(F_0) + ϖ^s O_F)^×, of degree [O_F^× : (O_(F_0) + ϖ^s O_F)^×], that is q^(s−1)(q+1) for F/F_0 unramified and q^s for F/F_0 ramified (Gross Proposition 5.3; Yu for a non-algebraically-closed residue field). In BKO's case the minimal local ring-class field Ψ′_s has Gal(Ψ′_s/Φ) ≃ (O/p^sO)^×/(Z/p^sZ)^× and degree p^(s−1)(p+1).",
       "locator": "§5.0.2, pp.958–959; Gross Proposition 5.3; Yu Theorem 1",
       "status": "missing",
-      "note": "The degree formula is not asserted at s=0."
+      "note": "The degree formula is not asserted at s=0. FIX-RT-PAPER-BURUNGALE-KOBAYASHI-OTA-21 (RT/12): generalized to finite F_0/Q_p and both quadratic types for the consumers named in quasicanonical-lift."
     },
     {
       "id": "PAPER-BURUNGALE-KOBAYASHI-OTA-21/ringclass-local-tower",
       "kind": "theorem",
       "name": "Local ring-class tower and its tame trace",
-      "statement": "Gal(Ψ′_∞/Φ)≃Z_p×Z/(p+1)Z, with torsion subgroup Δ′ of order p+1. Its pro-p subfield is Ψ_∞, and Ψ_s is the Δ′-fixed field at Ψ′_(s+1).",
+      "statement": "Gal(Ψ′_∞/F) ≃ O_F^×/O_(F_0)^×, the limit of the ring class groups of the quasi-canonical tower. In BKO's case (F_0 = Q_p, F = Φ unramified, p odd), Gal(Ψ′_∞/Φ) ≃ Z_p × Z/(p+1)Z, with torsion subgroup Δ′ of order p+1; its pro-p subfield is Ψ_∞, and Ψ_s is the Δ′-fixed field at Ψ′_(s+1).",
       "locator": "§5.0.2, pp.958–959",
       "status": "missing",
-      "note": "Compare this field identification to the earlier fixed-field definition, not merely the abstract Galois group. Reviewer: the trace relation needs the field facts Ψ′_s ∩ Ψ_s = Ψ_(s−1) and Ψ′_s·Ψ_s = Ψ′_(s+1), which give Tr_(Ψ′_(s+1)/Ψ_s) x_s = y_(s−1)."
+      "note": "Compare this field identification to the earlier fixed-field definition, not merely the abstract Galois group. Reviewer: the trace relation needs the field facts Ψ′_s ∩ Ψ_s = Ψ_(s−1) and Ψ′_s·Ψ_s = Ψ′_(s+1), which give Tr_(Ψ′_(s+1)/Ψ_s) x_s = y_(s−1). FIX-RT-PAPER-BURUNGALE-KOBAYASHI-OTA-21 (RT/12): the general Galois group is stated for the other consumers; BKO's trace relations use the unramified case."
     },
     {
       "id": "PAPER-BURUNGALE-KOBAYASHI-OTA-21/modular-quasicanonical-points",
@@ -720,7 +767,7 @@
       "statement": "Transport the prime-to-p level structure of A along A→A_s to get z_s∈X₀(N)(O_(Ψ′_s)), and put x_s=π(z_s); identify its reduction and formal-group parameter.",
       "locator": "§5.0.2, p.959",
       "status": "missing",
-      "note": ""
+      "note": "FIX-RT-PAPER-BURUNGALE-KOBAYASHI-OTA-21 (RT/4): the map Ê(𝔪) → E is Tau Ceti's WeierstrassCurve.formalPointHomAdicCompletion (injective, image the kernel of reduction), stated for adic completions of a Dedekind domain. Φ is the completion of O_K at the inert prime pO_K, and Ψ′_s the completion of the ring class field of conductor p^s at its unique prime above p; route 3 proves this presentation, since global-local-tower sits downstream on route 5."
     },
     {
       "id": "PAPER-BURUNGALE-KOBAYASHI-OTA-21/optimal-point-system",
@@ -729,7 +776,7 @@
       "statement": "Define y_s=∑_(σ∈Δ′)σx_(s+1)∈Ehat(m_(Ψ_s)) and y=(p+1)Q∈Ehat(m). All sums are in the elliptic formal group.",
       "locator": "Definition 5.4, p.959",
       "status": "missing",
-      "note": ""
+      "note": "FIX-RT-PAPER-BURUNGALE-KOBAYASHI-OTA-21 (RT/4): the map Ê(𝔪) → E is Tau Ceti's WeierstrassCurve.formalPointHomAdicCompletion (injective, image the kernel of reduction), stated for adic completions of a Dedekind domain. Φ is the completion of O_K at the inert prime pO_K, and Ψ′_s the completion of the ring class field of conductor p^s at its unique prime above p; route 3 proves this presentation, since global-local-tower sits downstream on route 5."
     },
     {
       "id": "PAPER-BURUNGALE-KOBAYASHI-OTA-21/optimal-point-primitive",
@@ -806,20 +853,20 @@
     {
       "id": "PAPER-BURUNGALE-KOBAYASHI-OTA-21/primitive-elliptic-unit",
       "kind": "construction",
-      "name": "Primitive CM elliptic-unit specialization",
-      "statement": "Under §6 hypotheses (imaginary quadratic K, p≥5 inert, p∤h_K, Gross Q-curve E/H with maximal CM and good reduction above p, period Ω), construct ξ(E,Ω)∈U_∞* with δ(ξ)=L(barφ,1)/Ω and δ_χ(ξ)=L(barφχ,1)/Ω for nontrivial finite χ. Prove its anticyclotomic projection lies in V_∞*,ε, ε=W(φ).",
-      "locator": "§6.0.1, p.961",
+      "name": "The primitive elliptic unit ξ(E,Ω) = ξ_ν at trivial ν",
+      "statement": "Under §6 hypotheses (imaginary quadratic K, p ≥ 5 inert, p ∤ h_K, Gross Q-curve E/H with maximal CM and good reduction above p, period Ω), put ξ(E,Ω) := ξ_ν at ν = 1 (xi-nu), an element of U_∞* ⊗_O R [printed 'U_∞*', p.961]. Its formulas δ(ξ) = L(φ̄,1)/Ω and δ_χ(ξ) = L(φ̄χ,1)/Ω for nontrivial finite χ follow from xi-trivial-value and xi-character-value at ν = 1, since L_f(φ̄,1) = L(φ̄,1) (f is the conductor of φ̄) and L_(pf)(φ̄χ,1) = L(φ̄χ,1) for χ ≠ 1 (a nontrivial character of the Z_p²-extension is ramified at p, as p ∤ h_K). Its anticyclotomic projection lies in V_∞*,ε ⊗ R, ε = W(φ), by xi-signed, including the trivial character when W(φ) = −1.",
+      "locator": "§6 preamble and §6.0.1, p.961; Proposition 3.3, p.953",
       "status": "missing",
-      "note": "This is the primitive normalization, distinct from Proposition 3.3's imprimitive auxiliary ν. Share the elliptic-unit construction with the pending CMAllPrimeMainConjectures direction, and prove removal of Euler factors here. Reviewer: the paper states on p.961 that it corrects \"a minor sign error in [33, Th. 3.2]\"; keep that correction."
+      "note": "FIX-RT-PAPER-BURUNGALE-KOBAYASHI-OTA-21 (RT/8, /10, /11): restated as a corollary of route 3's ξ_ν at ν = 1 (p.951: 'the case where ν is trivial corresponds to the elliptic unit ξ_E'), with R-coefficients, and moved from route 4 to route 5 with the rest of the late Rubin-function branch. The paper states on p.961 that it corrects 'a minor sign error in [33, Th. 3.2]'; keep that correction. The printed 'U_∞*' and 'L_p ∈ Λ' on p.961 are an unrecorded misprint (R ⊋ O is allowed when h_K > 1); see the fixes report for the errata note. The elliptic-unit construction itself belongs to CMAllPrimeMainConjectures (PAPER-BURUNGALE-TIAN-26 route 7, accepted)."
     },
     {
       "id": "PAPER-BURUNGALE-KOBAYASHI-OTA-21/rubin-lfunction",
       "kind": "definition",
       "name": "Rubin's anticyclotomic p-adic L-function",
-      "statement": "For a Λ-generator v_ε of V_∞*,ε write ξ(E,Ω)=L_p(φ,Ω,v_ε)·v_ε. This defines L_p∈Λ, and C_∞=Λξ is a free rank-one submodule. Changing v_ε by a Λ-unit changes L_p by its inverse; the principal ideal is unaffected.",
+      "statement": "For a Λ_R-generator v_ε of V_∞*,ε ⊗_O R write ξ(E,Ω) = L_p(φ,Ω,v_ε)·(v_ε ⊗ 1) in V_∞*,ε ⊗_O R. This defines L_p ∈ Λ_R = R⟦G⁻⟧ [printed 'L_p ∈ Λ', p.961], and C_∞ = Λ_R ξ is a free rank-one submodule. Changing v_ε by a Λ_R-unit changes L_p by its inverse; the principal ideal is unaffected. R = O when the p-adic avatar of φ is O-valued, for example when h_K = 1.",
       "locator": "§6.0.1, p.961",
       "status": "missing",
-      "note": "Prove nonzero ξ using the cited elliptic-unit input and nonvanishing; freeness of C_∞ is not formal for a potentially zero ξ."
+      "note": "Prove nonzero ξ using the cited elliptic-unit input and nonvanishing; freeness of C_∞ is not formal for a potentially zero ξ. FIX-RT-PAPER-BURUNGALE-KOBAYASHI-OTA-21 (RT/8, /11): over Λ_R, since ξ(E,Ω) lies in U_∞* ⊗_O R and an O-integral L_p need not exist; moved from route 4 to route 5."
     },
     {
       "id": "PAPER-BURUNGALE-KOBAYASHI-OTA-21/rubin-interpolation",
@@ -828,7 +875,7 @@
       "statement": "For nontrivial χ∈Ξ^ε, L_p(χ)=L(barφ barχ,1)/(Ω·δ_(χ^(-1))(v_ε)). The denominator is nonzero by Corollary 2.2. Hence nonvanishing of L_p(χ) is equivalent to nonvanishing of this complex L-value.",
       "locator": "§6.0.1, p.961",
       "status": "missing",
-      "note": "The conjugations and inverse χ were verified from the printed page. Do not substitute ordinary Katz interpolation or extend this displayed nontrivial-character formula to χ=1 without checking the separate δ identity."
+      "note": "The conjugations and inverse χ were verified from the printed page. Do not substitute ordinary Katz interpolation or extend this displayed nontrivial-character formula to χ=1 without checking the separate δ identity. FIX-RT-PAPER-BURUNGALE-KOBAYASHI-OTA-21 (RT/11): moved from route 4 to route 5 with the late Rubin-function branch; L_p ∈ Λ_R (RT/8)."
     },
     {
       "id": "PAPER-BURUNGALE-KOBAYASHI-OTA-21/global-local-tower",
@@ -846,7 +893,7 @@
       "statement": "Let R be the integer ring of a finite extension of Φ containing the p-adic avatar of φ, let T be its free rank-one R-lattice and put W=T⊗_OΦ/O. At the chosen inert prime, W≃F[π∞]⊗_OR as a local Galois module.",
       "locator": "§6.0.2, pp.961–962",
       "status": "missing",
-      "note": "Use Λ_R=R[[G−]] for the extended module and L_p's scalar extension. A restriction-of-scalars characteristic ideal would instead require a norm; prove the source's coefficient dictionary."
+      "note": "Use Λ_R=R[[G−]] throughout; L_p is an element of Λ_R, not the scalar extension of an O-integral function (FIX-RT-PAPER-BURUNGALE-KOBAYASHI-OTA-21, RT/8). A restriction-of-scalars characteristic ideal would instead require a norm; prove the source's coefficient dictionary."
     },
     {
       "id": "PAPER-BURUNGALE-KOBAYASHI-OTA-21/finite-signed-points",
@@ -888,10 +935,37 @@
       "id": "PAPER-BURUNGALE-KOBAYASHI-OTA-21/ah-hypothesis-translation",
       "kind": "theorem",
       "name": "Agboola–Howard comparison at prime-to-p class number",
-      "statement": "For §6's Gross Q-curve over H and p∤h_K, prove the analogues of Agboola–Howard (4.2) and Theorem 4.3 used by BKO, with conductor-parity signs translated from their order-parity signs, the selected rank-one CM component, periods, primitive Euler factors and coefficient extension.",
+      "statement": "For §6's Gross Q-curve over H and p ∤ h_K, extend ah-local-dictionary, ah-conditional-equality and ah-elliptic-unit-generator from Agboola–Howard's E/Q setting (which forces h_K = 1) to BKO's: the selected rank-one CM component, periods, primitive Euler factors and the coefficient ring R.",
       "locator": "Proof of Theorem 6.1, p.962",
       "status": "missing",
-      "note": "Agboola–Howard's E/Q hypothesis implies h_K=1 in their maximal-CM setting; BKO states this generalization needs a similar argument. The blueprint must supply that argument, not treat AH's published theorem as already general."
+      "note": "Agboola–Howard's E/Q hypothesis implies h_K=1 in their maximal-CM setting; BKO states this generalization needs a similar argument. The blueprint must supply that argument, not treat AH's published theorem as already general. FIX-RT-PAPER-BURUNGALE-KOBAYASHI-OTA-21 (RT/9): narrowed to the p ∤ h_K extension of the three itemised Agboola–Howard steps."
+    },
+    {
+      "id": "PAPER-BURUNGALE-KOBAYASHI-OTA-21/ah-elliptic-unit-generator",
+      "kind": "theorem",
+      "name": "Agboola–Howard Theorem 4.3: the elliptic units generate",
+      "statement": "loc_p(C) ⊆ H¹_ε is nonzero and char_(Λ_R)(H¹_ε/loc_p C) = char_(Λ_R)(V_∞*,ε ⊗ R/C_∞) = (L_p(φ,Ω,v_ε)), comparing Agboola–Howard's twisted elliptic units with ξ(E,Ω) and tracking the involution δ_χ ↔ δ_(χ^(-1)) on duals.",
+      "locator": "Agboola–Howard II, Theorem 4.3 and the paragraph after it; BKO p.961",
+      "status": "missing",
+      "note": "Added by FIX-RT-PAPER-BURUNGALE-KOBAYASHI-OTA-21 (RT/9). Theorem 4.3's interpolation set, 'χ of order p^n, n > 0, (−1)^(n+1) = W(ψ)', is the nontrivial χ ∈ Ξ^ε in BKO's labels, matching p.961. State the involution and the change of period from Ω_E to Ω explicitly, and work over Λ_R throughout."
+    },
+    {
+      "id": "PAPER-BURUNGALE-KOBAYASHI-OTA-21/ah-conditional-equality",
+      "kind": "theorem",
+      "name": "Agboola–Howard (4.2): the characteristic ideal under Conjecture 3.5",
+      "statement": "If H¹ = H¹_+ ⊕ H¹_− (Conjecture 3.5, here Theorem 5.8 via ah-local-dictionary), then S_ε = S_rel and char_(Λ_R)(X^(−ε)) = char_(Λ_R)(H¹_ε/C).",
+      "locator": "Agboola–Howard II, Theorem 4.2, (4.2) and its proof, p.6",
+      "status": "missing",
+      "note": "Added by FIX-RT-PAPER-BURUNGALE-KOBAYASHI-OTA-21 (RT/9). Its inputs are AH (3.3), Theorem 3.6, Proposition 3.3(i)–(ii) and Conjecture 3.5, not Theorem 4.1."
+    },
+    {
+      "id": "PAPER-BURUNGALE-KOBAYASHI-OTA-21/ah-local-dictionary",
+      "kind": "theorem",
+      "name": "Agboola–Howard's local modules as BKO's (AH (3.2), Proposition 3.4)",
+      "statement": "With T′ = Hom(W, μ_(p^∞)), H¹ = lim_n H¹(K_(n,p), T′) and H¹_± the limit of the local-Tate orthogonal complements of H¹_±(K_(n,p), W), the identification W ≅ F[π^∞] ⊗ R and the §4 Kummer pairing give Λ_R-isomorphisms H¹ ≅ V_∞* ⊗ R and H¹_± ≅ V_∞*,± ⊗ R with the same signs. Hence BKO's Theorem 5.8 is Agboola–Howard's Conjecture 3.5.",
+      "locator": "Agboola–Howard II, (3.2), proof of Proposition 3.4 and Conjecture 3.5; BKO, proof of Theorem 6.1, p.962",
+      "status": "missing",
+      "note": "Added by FIX-RT-PAPER-BURUNGALE-KOBAYASHI-OTA-21 (RT/9). Derive the dictionary as Agboola–Howard do, identifying Rubin's V_∞ and V^± with H¹ and H¹_± ⊗ Hom(O_p, T), then compose with BKO's U_∞* normalisation. The labels of local conditions, Selmer groups and ε carry over unchanged (Ξ^±(BKO) = Ξ^∓(AH) only for character sets)."
     },
     {
       "id": "PAPER-BURUNGALE-KOBAYASHI-OTA-21/opposite-selmer-torsion",
@@ -906,10 +980,10 @@
       "id": "PAPER-BURUNGALE-KOBAYASHI-OTA-21/signed-main-conjecture",
       "kind": "theorem",
       "name": "Integral inert-anticyclotomic CM main conjecture",
-      "statement": "Under §6's hypotheses, char_(Λ_R)(X_∞^(−ε))=(L_p(φ,Ω,v_ε)) after the explicitly identified coefficient extension from Λ to Λ_R. For the O-realization this is char_Λ X_∞^(−ε)=(L_p).",
+      "statement": "Under §6's hypotheses, char_(Λ_R)(X_∞^(−ε)) = (L_p(φ,Ω,v_ε)) as ideals of Λ_R = R⟦G⁻⟧; R = O when the avatar of φ is O-valued, for example when h_K = 1.",
       "locator": "Theorem 6.1, p.962",
       "status": "missing",
-      "note": "Retain p≥5, good inert reduction, maximal CM/Gross Shimura condition and p∤h_K. This is neither the rational cyclotomic CM theorem of Burungale–Tian nor an all-prime/ramified theorem."
+      "note": "Retain p≥5, good inert reduction, maximal CM/Gross Shimura condition and p∤h_K. This is neither the rational cyclotomic CM theorem of Burungale–Tian nor an all-prime/ramified theorem. FIX-RT-PAPER-BURUNGALE-KOBAYASHI-OTA-21 (RT/8): an equality of Λ_R-ideals, not the coefficient extension of an O-integral L_p, which need not exist."
     },
     {
       "id": "PAPER-BURUNGALE-KOBAYASHI-OTA-21/rubin-two-variable-input",
@@ -918,7 +992,16 @@
       "statement": "In Agboola–Howard's E/Q maximal-CM good inert p setting, let S_rel=lim_corestr Sel_rel(D_n,T), X_str the contragredient dual of the strict W-Selmer group, and C the Λ-module generated by the twisted elliptic-unit system. Then char_Λ X_str=char_Λ(S_rel/C). Their proof deduces this from Rubin's two-variable main conjecture. For BKO's larger p∤h_K setting, the separate hypothesis-translation item must establish this same input.",
       "locator": "§1, p.945; Theorem 6.1 proof, p.962; Agboola–Howard Proposition 3.3(i),(ii) and Theorem 4.2",
       "status": "missing",
-      "note": "This records the required interface rather than claiming the full Rubin 1991 theorem was read. Its exact proof/hypothesis decomposition is a prerequisite-paper task, shared with CMAllPrimeMainConjectures if that proposed owner is accepted. A theorem only after inverting p cannot supply this integral statement."
+      "note": "This records the required interface rather than claiming the full Rubin 1991 theorem was read. Its exact proof/hypothesis decomposition is a prerequisite-paper task. A theorem only after inverting p cannot supply this integral statement. FIX-RT-PAPER-BURUNGALE-KOBAYASHI-OTA-21 (RT/2): CMAllPrimeMainConjectures is an accepted proposal (PAPER-BURUNGALE-TIAN-26 route 7). The integral inert-prime input Agboola–Howard use is item rubin-two-variable-main-conjecture, which route 6 of this extraction adds to that design; this item imports it."
+    },
+    {
+      "id": "PAPER-BURUNGALE-KOBAYASHI-OTA-21/rubin-two-variable-main-conjecture",
+      "kind": "theorem",
+      "name": "Rubin's two-variable main conjecture in units form at an inert prime",
+      "statement": "Rubin 1991, Theorem 4.1(ii): for K imaginary quadratic, a prime p ∤ #O_K^× (in particular p ≥ 5 inert in K), F/K finite abelian and K_∞ the Z_p²-extension of K, char(X_∞^χ) = char(U_∞^χ/C̄_∞^χ) for the χ-parts, as an equality of ideals of O⟦Gal(K_∞F/K)⟧^χ. The equality is integral, not after inverting p.",
+      "locator": "Used via Agboola–Howard II, Proposition 3.3(ii) and its proof (arXiv math/0401124v2, p.5); BKO, proof of Theorem 6.1, p.962",
+      "status": "missing",
+      "note": "Added by FIX-RT-PAPER-BURUNGALE-KOBAYASHI-OTA-21 (RT/2), on a new part-ii route that joins PAPER-BURUNGALE-TIAN-26 route 7 (CMAllPrimeMainConjectures, same id, title and area). That roadmap's integral layer names Rubin 1991 only for p split, in its Coleman-map/Katz form; Agboola–Howard need Theorem 4.1(ii) in units form at an inert p. On χ-parts it follows from the layer's (i) through 0 → Ē_∞/C̄_∞ → U_∞/C̄_∞ → X_∞ → A_∞ → 0. Rubin 1991 is already a prerequisite."
     },
     {
       "id": "PAPER-BURUNGALE-KOBAYASHI-OTA-21/strict-selmer-comparison",
@@ -995,10 +1078,10 @@
       "id": "PAPER-BURUNGALE-KOBAYASHI-OTA-21/local-tate-duality",
       "kind": "theorem",
       "name": "Local Tate duality",
-      "statement": "Perfect local invariant/Tate pairings for the finite local Galois modules and their compatible compact/discrete limits, under the hypotheses of the local duality theorem, identify the formal Kummer cokernel with the dual norm limit.",
+      "statement": "Perfect local invariant/Tate pairings for finite local Galois modules, and their compatible compact/discrete limits, under the hypotheses of the local duality theorem.",
       "locator": "§4, p.954",
       "status": "planned",
-      "note": "ClassFieldTheory Layer 5 owns the finite local perfect pairing; ArithmeticGaloisDuality R02.1 supplies compact/discrete limit comparisons. Do not reassign local duality to the downstream global Poitou–Tate theorem.",
+      "note": "ClassFieldTheory Layer 5 owns the finite local perfect pairing; ArithmeticGaloisDuality R02.1 supplies compact/discrete limit comparisons. Do not reassign local duality to the downstream global Poitou–Tate theorem. FIX-RT-PAPER-BURUNGALE-KOBAYASHI-OTA-21 (RT/5): cut back. The identification of the formal Kummer cokernel with the dual norm limit is not planned by either stage; it is the missing item formal-kummer-duality (route 3).",
       "planned": [
         "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-5-local-coefficients-the-brauer-group-the-local-invariant-and-duality",
         "ArithmeticGaloisDuality:R02.1"
@@ -1091,10 +1174,10 @@
       "id": "PAPER-BURUNGALE-KOBAYASHI-OTA-21/rubin-cm-lubin-tate",
       "kind": "theorem",
       "name": "The CM formal group is Lubin–Tate with parameter −p",
-      "statement": "For φ and E as in §3 and §6, φ(pO_K) = −p, and (φ̄ν)(pO_K) = −p for anticyclotomic ν (Rubin 1987, Lemma 3.1). Hence the formal group Ê over O is Lubin–Tate with parameter −p and can be identified with F so that the invariant differentials correspond to ω; in particular W ≅ F[π^∞] ⊗ R.",
+      "statement": "For φ and E as in §3 and §6: φ(pO_K) = −p, and (φ̄ν)(pO_K) = −p for anticyclotomic ν (Rubin 1987, Lemma 3.1), so the reduction at each prime of H above p has a_(p²) = −2p. Applying lt-lift-identification (route 2) to E and ω: the formal group Ê over O is Lubin–Tate with parameter −p and is identified with F so that the invariant differentials correspond to ω; in particular W ≅ F[π^∞] ⊗ R.",
       "locator": "p.953 (\"we identify F with the formal group Ê ...\"); pp.961–962",
       "status": "missing",
-      "note": "Added by the independent review (REV-PAPER-BURUNGALE-KOBAYASHI-OTA-21). Used for the identification underlying (3.4)–(3.6) and for W ≅ F[π^∞] ⊗ R in §6; the existing elliptic-lt-comparison item covers only §5's curve over Q with a_p = 0."
+      "note": "Added by the independent review (REV-PAPER-BURUNGALE-KOBAYASHI-OTA-21). Used for the identification underlying (3.4)–(3.6) and for W ≅ F[π^∞] ⊗ R in §6; the existing elliptic-lt-comparison item covers only §5's curve over Q with a_p = 0. FIX-RT-PAPER-BURUNGALE-KOBAYASHI-OTA-21 (RT/7): this item keeps only the CM input and the application; the Lubin–Tate identification itself is lt-lift-identification, imported from LubinTateFormalModulesAndQuasiCanonicalLifts."
     },
     {
       "id": "PAPER-BURUNGALE-KOBAYASHI-OTA-21/wiles-dual-exponential",
@@ -1166,7 +1249,7 @@
       "why": "BKO §3 and §4 use the Lubin–Tate explicit reciprocity law and its trace normalization. The exact BKO formula is extracted; the cited proof is not independently read and must not be replaced by a cyclotomic big-logarithm theorem."
     },
     {
-      "citation": "Agboola–Howard, Anticyclotomic Iwasawa theory of CM elliptic curves. II, MRL 12 (2005), 611–621",
+      "citation": "Agboola–Howard, Anticyclotomic Iwasawa theory of CM elliptic curves. II, Math. Res. Lett. 12 (2005), 611–622",
       "link": "https://arxiv.org/abs/math/0401124",
       "why": "Read the mathematical text through Theorem 5.4 in v2, including Proposition 3.3, (3.3), (4.2), Theorem 4.3 and control proofs. BKO's p∤h_K extension and its opposite conductor-parity convention are separate proof obligations; E/Q in AH has class number one."
     },
@@ -1214,6 +1297,16 @@
       "citation": "Yang, On CM abelian varieties over imaginary quadratic fields, Math. Ann. 329 (2004), 87–117",
       "link": "https://doi.org/10.1007/s00208-004-0511-8",
       "why": "BKO proof of Theorem 3.4 cites (5.0) as an alternative canonical-character root-number source. The Gross Q-curve and sign comparison must be supplied by the CM/analytic boundary, without an ordinary-CM assumption."
+    },
+    {
+      "citation": "A. Agboola and B. Howard, Anticyclotomic Iwasawa theory of CM elliptic curves, Ann. Inst. Fourier 56 (2006), 1001–1048",
+      "link": "https://doi.org/10.5802/aif.2206",
+      "why": "Agboola–Howard II prove Proposition 3.3 (S_rel torsion-free of rank one; the characteristic-ideal equality) as AH I's Lemma 1.1.9 and Proposition 2.4.16 (their numbering in arXiv math/0302319v4), transferred to an inert p. Route 5's relaxed-ranks and rubin-two-variable-input rest on it."
+    },
+    {
+      "citation": "R. Pollack and K. Rubin, The main conjecture for CM elliptic curves at supersingular primes, Ann. of Math. 159 (2004), 447–464",
+      "link": "https://doi.org/10.4007/annals.2004.159.447",
+      "why": "Cited by Agboola–Howard II for Coates–Wiles reciprocity in their Proposition 3.1. Optional here: BKO's analogue comes from Rubin 1987, Corollary 3.3, already a prerequisite."
     }
   ],
   "routes": [
@@ -1251,10 +1344,11 @@
         "PAPER-BURUNGALE-KOBAYASHI-OTA-21/lattice-isogeny",
         "PAPER-BURUNGALE-KOBAYASHI-OTA-21/quasicanonical-lift",
         "PAPER-BURUNGALE-KOBAYASHI-OTA-21/quasicanonical-field",
-        "PAPER-BURUNGALE-KOBAYASHI-OTA-21/ringclass-local-tower"
+        "PAPER-BURUNGALE-KOBAYASHI-OTA-21/ringclass-local-tower",
+        "PAPER-BURUNGALE-KOBAYASHI-OTA-21/lt-lift-identification"
       ],
-      "reason": "R07.2 covers Dieudonné classification and nilpotent deformation, but not the Lubin–Tate reciprocity tower, formal-module universal deformation, Honda comparison or quasi-canonical ring-class fields. ClassFieldTheory explicitly excludes the Lubin–Tate construction. A shared foundational extension avoids private copies in local units, ET.6a and VB3. [Reviewer, REV-PAPER-BURUNGALE-KOBAYASHI-OTA-21: area corrected from \"cohomology\", which is not a galaxy id of data/galaxies.json, to \"padic\" (p-adic Hodge theory and p-adic geometry), the galaxy of its parent's direction.]",
-      "brief": "First prerequisite: Finite flat group schemes and integral p-adic Hodge theory (FiniteFlatGroupsAndIntegralPadicHodgeTheory). Start beyond R07.1/R07.2, using their actual p-divisible groups, Tate modules and Dieudonné Frobenius. Reuse Mathlib FormalGroup and Tau Ceti's elliptic formal law/adic points; add the formal O-action, logarithm, torsion, coordinate change and complete local-field point APIs. Prove the Lubin–Tate existence and character isomorphism, comparing it with Class field theory (tauceti:TauCetiRoadmap/ClassFieldTheory) Layers 5–8, never constructing a rival Artin map. State these foundations for finite extensions of Q_p as required by the existing consumers, and universal formal-module deformations at finite height as in Yu §2. Import upstream Modular curves (tauceti:TauCetiRoadmap/ModularCurves) 0B/0C/2B/7D–7F; prove compatibility with their elliptic special cases rather than reconstructing them. Endoscopic transfer (EndoscopicTransferAndUnitaryTraceComparison:ET.6a) owns the later two-tower/cohomological realization; Vector bundles and isocrystals (VectorBundlesAndIsocrystals:VB3:positive-basic-examples) owns the diamond universal-cover calculation. Supply their common formal-module foundation without importing those consumers or their classification theorems.\n\nFor BKO specialize to p≥5, unramified quadratic Φ/Q_p and π=−p. Construct Δ, κ, ω, the G± splitting, Θ_n and Ψ_n; prove all fixed-field and generator comparisons. Prove Lemma 5.1(ii)'s Honda-type assertion over the unramified O base and the comparison Ehat≃F for a_p(E)=0. Construct lattice isogenies, marked quasi-canonical lifts with End=Z_p+p^sO, and their minimal fields Ψ′_s, for s≥1, of degree p^(s−1)(p+1), retaining Yu's nonclosed-residue-field case. Prove Gal(Ψ′_∞/Φ)=Z_p×Z/(p+1), identify the tame-fixed subfield with Ψ_∞, and export trace-compatible maps. These are proof tasks, not data fields declaring the desired properties.\n\nFor every construction give extensionality, functoriality, base change, coordinate/basis independence and at least three tests. Required tests include height n=1 (zero deformation parameters), s=1 giving degree p+1, s=0 treated separately, and a ramified-base non-example for the unramified Honda shortcut. Read Lubin–Tate, Honda, Gross and Yu completely to decompose the remaining foundational proofs; BKO itself does not prove a general higher-height tower theorem. Import the elliptic formal logarithm and exponential of Elliptic curves (tauceti:TauCetiRoadmap/EllipticCurves) Layer 1 and the height-2 statement of Modular curves (tauceti:TauCetiRoadmap/ModularCurves) 7E for the comparison of an a_p=0 elliptic formal group with the Lubin–Tate group of parameter −p. [Amended by REV-PAPER-BURUNGALE-KOBAYASHI-OTA-21.]"
+      "reason": "R07.2 covers Dieudonné classification and nilpotent deformation, but not the Lubin–Tate reciprocity tower, formal-module universal deformation, Honda comparison or quasi-canonical ring-class fields. ClassFieldTheory explicitly excludes the Lubin–Tate construction. A shared foundational extension avoids private copies in local units, ET.6a and VB3. [Reviewer, REV-PAPER-BURUNGALE-KOBAYASHI-OTA-21: area corrected from \"cohomology\", which is not a galaxy id of data/galaxies.json, to \"padic\" (p-adic Hodge theory and p-adic geometry), the galaxy of its parent's direction.] FIX-RT-PAPER-BURUNGALE-KOBAYASHI-OTA-21 (RT/3): PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18 route 8 joins the same Part II. Since 28 September 2026 the queue groups both proposals in one design job, #3355 (Finite flat group schemes and integral p-adic Hodge theory, Part II), which quotes each; the design worker reads both extractions. The older per-route design issue #1687 (with review #1728) carries this paper's brief only and is superseded by #3355.",
+      "brief": "First prerequisite: Finite flat group schemes and integral p-adic Hodge theory (FiniteFlatGroupsAndIntegralPadicHodgeTheory). Start beyond R07.1/R07.2, using their actual p-divisible groups, Tate modules and Dieudonné Frobenius. Reuse Mathlib FormalGroup and Tau Ceti's elliptic formal law/adic points (WeierstrassCurve.FormalGroupPoint, and for adic completions of a Dedekind domain the unconditional injective map WeierstrassCurve.formalPointHomAdicCompletion with range_formalPointHomAdicCompletion, the kernel of reduction); add the formal O-action, logarithm, torsion, coordinate change and complete local-field point APIs. Prove the Lubin–Tate existence and character isomorphism, comparing it with Class field theory (tauceti:TauCetiRoadmap/ClassFieldTheory) Layers 5–8, never constructing a rival Artin map. State these foundations for finite extensions of Q_p as required by the existing consumers, and universal formal-module deformations at finite height as in Yu §2. Import upstream Modular curves (tauceti:TauCetiRoadmap/ModularCurves) 0B/0C/2B/7D–7F; prove compatibility with their elliptic special cases rather than reconstructing them. Endoscopic transfer (EndoscopicTransferAndUnitaryTraceComparison:ET.6a) owns the later two-tower/cohomological realization; Vector bundles and isocrystals (VectorBundlesAndIsocrystals:VB3:positive-basic-examples) owns the diamond universal-cover calculation. Supply their common formal-module foundation without importing those consumers or their classification theorems.\n\nFor BKO specialize to p≥5, unramified quadratic Φ/Q_p and π=−p. Construct Δ, κ, ω, the G± splitting, Θ_n and Ψ_n; prove all fixed-field and generator comparisons. Prove Lemma 5.1(ii)'s Honda-type assertion over the unramified O base and the comparison Ehat≃F for a_p(E)=0. Construct lattice isogenies and marked quasi-canonical lifts for a finite F_0/Q_p and F/F_0 quadratic, unramified or ramified: height-2 formal O_(F_0)-modules with CM by O_F, quasi-canonical lifts with End = O_(F_0) + ϖ^s O_F over the ring class field extension of degree [O_F^× : (O_(F_0) + ϖ^s O_F)^×] (Gross 1986 Proposition 5.3; Yu for a non-algebraically-closed residue field). BKO is the case F_0 = Q_p, F = Φ, with End = Z_p + p^sO and minimal fields Ψ′_s of degree p^(s−1)(p+1) for s ≥ 1. Consumers besides BKO: UnitaryKudlaRapoportCycles (PAPER-LI-ZHANG-22-B, PAPER-HE-LI-SHI-ETAL-23, PAPER-LI-LIU-22) and GrossZagierAndArithmeticHeights GZ.7 (PAPER-GROSS-ZAGIER-86); they import these lifts rather than building them. Prove Gal(Ψ′_∞/Φ)=Z_p×Z/(p+1), identify the tame-fixed subfield with Ψ_∞, and export trace-compatible maps. These are proof tasks, not data fields declaring the desired properties.\n\nFor every construction give extensionality, functoriality, base change, coordinate/basis independence and at least three tests. Required tests include height n=1 (zero deformation parameters), s=1 giving degree p+1, s=0 treated separately, and a ramified-base non-example for the unramified Honda shortcut. Read Lubin–Tate, Honda, Gross and Yu completely to decompose the remaining foundational proofs; BKO itself does not prove a general higher-height tower theorem. Import the elliptic formal logarithm and exponential of Elliptic curves (tauceti:TauCetiRoadmap/EllipticCurves) Layer 1 and the height-2 statement of Modular curves (tauceti:TauCetiRoadmap/ModularCurves) 7E for the comparison of an a_p=0 elliptic formal group with the Lubin–Tate group of parameter −p. [Amended by REV-PAPER-BURUNGALE-KOBAYASHI-OTA-21.]"
     },
     {
       "route": "part-ii",
@@ -1265,7 +1359,9 @@
       "prerequisites": [
         "ColemanPowerSeries",
         "LubinTateFormalModulesAndQuasiCanonicalLifts",
-        "PadicMeasuresIwasawaAlgebras"
+        "PadicMeasuresIwasawaAlgebras",
+        "NonordinaryCMSpecialValues",
+        "EllipticCurvesPartIISupersingularFiniteFields"
       ],
       "items": [
         "PAPER-BURUNGALE-KOBAYASHI-OTA-21/conductor-parity",
@@ -1305,7 +1401,6 @@
         "PAPER-BURUNGALE-KOBAYASHI-OTA-21/manin-separability",
         "PAPER-BURUNGALE-KOBAYASHI-OTA-21/scalar-frobenius",
         "PAPER-BURUNGALE-KOBAYASHI-OTA-21/ramification-count",
-        "PAPER-BURUNGALE-KOBAYASHI-OTA-21/supersingular-mass",
         "PAPER-BURUNGALE-KOBAYASHI-OTA-21/generic-supersingular-count",
         "PAPER-BURUNGALE-KOBAYASHI-OTA-21/exceptional-supersingular-count",
         "PAPER-BURUNGALE-KOBAYASHI-OTA-21/primitive-formal-cm-point",
@@ -1324,21 +1419,23 @@
         "PAPER-BURUNGALE-KOBAYASHI-OTA-21/delta-trivial-relation",
         "PAPER-BURUNGALE-KOBAYASHI-OTA-21/wiles-dual-exponential",
         "PAPER-BURUNGALE-KOBAYASHI-OTA-21/delta-chi-nonzero",
-        "PAPER-BURUNGALE-KOBAYASHI-OTA-21/rubin-small-primes"
+        "PAPER-BURUNGALE-KOBAYASHI-OTA-21/rubin-small-primes",
+        "PAPER-BURUNGALE-KOBAYASHI-OTA-21/formal-kummer-duality"
       ],
       "reason": "The parent is explicitly cyclotomic. BKO needs the two-variable Lubin–Tate unit module, a twisted anticyclotomic quotient, opposite-parity derivative kernels, formal CM local points and an integral direct-sum theorem, none of which the cyclotomic Coleman or signed Wach-map stages state.",
-      "brief": "First prerequisite: Coleman power series, local units, and cyclotomic-unit quotients (ColemanPowerSeries). Compare the parent's cyclotomic Coleman construction where applicable, but begin new layers for the Lubin–Tate tower. Import the proposed LubinTateFormalModulesAndQuasiCanonicalLifts foundation and Measures and Iwasawa algebras (PadicMeasuresIwasawaAlgebras L1/L4/L5). Keep p≥5, Φ/Q_p unramified quadratic and π=−p throughout BKO's theorem. Construct Ũ_∞, its ω-part U_∞, prove Λ₂-rank two, form V_∞ at σ=κ(σ) and its inverse Tate twist V_∞*. Use an actual π-adic Tate generator in the Coleman evaluation theorem: the (−1)^n correction relative to Rubin 1987 is essential. Define δ, δ_n and δ_χ with the exact denominators; prove basis independence, level independence, inverse-character covariance and descent. Define V_∞*,± by killing opposite conductor parity, with the trivial character in Ξ+.\n\nUse Class field theory (tauceti:TauCetiRoadmap/ClassFieldTheory) Layer 5 and Arithmetic Galois duality (ArithmeticGaloisDuality R02.1) for duality and limits. Prove the formal Kummer comparison, the Hazewinkel vanishing application, Wiles's trace formula and the annihilator theorem. Define λ_χ and A±, which kill same parity; prove the divisible-point sum and rank bounds. Import the early CM zeta-class/reciprocity/Finis results from the proposed NonordinaryCMSpecialValues; apply the explicit localization and projections of §3 to construct ξ_ν and obtain Theorem 3.4's ξ* with δ(ξ*) an O-unit. This early input must not depend on Rubin's final p-adic L-function.\n\nFor the other half, import Elliptic-curve modularity (EllipticCurveModularity R29.5–R29.6), Modular curves (tauceti:TauCetiRoadmap/ModularCurves) and Modular curves, Part II (ModularCurvesPartII R14.5). Prove the auxiliary a_p=0 existence, optimal parametrization/Manin-unit comparison, scalar-Frobenius and supersingular mass calculations, Lemma 5.2's three separate bounds, fine-level lifting including N=27/32, and primitive formal CM point. Do not substitute global Heegner points. Import quasi-canonical lifts, then construct z_s,x_s,y_s and prove Theorem 5.5: y is p-primitive, y_0=0, Tr y_1=−y and Tr_(s+1/s)y_(s+1)=−y_(s−1) for s≥1. Prove Corollary 5.6, the quotient/kernel freeness and Nakayama generation. Endpoint: Theorem 2.1=5.8, V_∞*=V_∞*,+⊕V_∞*,− integrally, followed by Corollary 2.2's nonzero derivatives for every correct-parity character. Export finite-level signed points without redefining them in the Selmer consumer.\n\nDefinition APIs/tests must distinguish same versus opposite parity, conductor versus order, p from π, trivial character, generator changes, and the initial trace boundary. Read Rubin 1987, Hazewinkel and Wiles's reciprocity proof before marking the eventual blueprint closed. Neither p=3 nor ramified primes, full noncyclotomic (phi,Gamma)-theory or a purely local optimal-point construction are endpoints here."
+      "brief": "First prerequisite: Coleman power series, local units, and cyclotomic-unit quotients (ColemanPowerSeries). Compare the parent's cyclotomic Coleman construction where applicable, but begin new layers for the Lubin–Tate tower. Import the proposed LubinTateFormalModulesAndQuasiCanonicalLifts foundation and Measures and Iwasawa algebras (PadicMeasuresIwasawaAlgebras L1/L4/L5). Keep p≥5, Φ/Q_p unramified quadratic and π=−p throughout BKO's theorem. Construct Ũ_∞, its ω-part U_∞, prove Λ₂-rank two, form V_∞ at σ=κ(σ) and its inverse Tate twist V_∞*. Use an actual π-adic Tate generator in the Coleman evaluation theorem: the (−1)^n correction relative to Rubin 1987 is essential. Define δ, δ_n and δ_χ with the exact denominators; prove basis independence, level independence, inverse-character covariance and descent. Define V_∞*,± by killing opposite conductor parity, with the trivial character in Ξ+.\n\nUse Class field theory (tauceti:TauCetiRoadmap/ClassFieldTheory) Layer 5 and Arithmetic Galois duality (ArithmeticGaloisDuality R02.1) for duality and limits. Prove the formal Kummer comparison, the Hazewinkel vanishing application, Wiles's trace formula and the annihilator theorem. Define λ_χ and A±, which kill same parity; prove the divisible-point sum and rank bounds. Import the early CM zeta-class/reciprocity/Finis results from the proposed NonordinaryCMSpecialValues; apply the explicit localization and projections of §3 to construct ξ_ν and obtain Theorem 3.4's ξ* with δ(ξ*) an O-unit. This early input must not depend on Rubin's final p-adic L-function.\n\nFor the other half, import Elliptic-curve modularity (EllipticCurveModularity R29.5–R29.6), Modular curves (tauceti:TauCetiRoadmap/ModularCurves) and Modular curves, Part II (ModularCurvesPartII R14.5). Prove the auxiliary a_p=0 existence, optimal parametrization/Manin-unit comparison, scalar-Frobenius, and Lemma 5.2's counts from the supersingular mass and twist counts imported from Elliptic curves, Part II: supersingular curves over finite fields (EllipticCurvesPartIISupersingularFiniteFields, item supersingular-mass), Lemma 5.2's three separate bounds, fine-level lifting including N=27/32, and primitive formal CM point. Do not substitute global Heegner points. Import quasi-canonical lifts, then construct z_s,x_s,y_s and prove Theorem 5.5: y is p-primitive, y_0=0, Tr y_1=−y and Tr_(s+1/s)y_(s+1)=−y_(s−1) for s≥1. Prove Corollary 5.6, the quotient/kernel freeness and Nakayama generation. Endpoint: Theorem 2.1=5.8, V_∞*=V_∞*,+⊕V_∞*,− integrally, followed by Corollary 2.2's nonzero derivatives for every correct-parity character. Export finite-level signed points without redefining them in the Selmer consumer.\n\nDefinition APIs/tests must distinguish same versus opposite parity, conductor versus order, p from π, trivial character, generator changes, and the initial trace boundary. Read Rubin 1987, Hazewinkel and Wiles's reciprocity proof before marking the eventual blueprint closed. Neither p=3 nor ramified primes, full noncyclotomic (phi,Gamma)-theory or a purely local optimal-point construction are endpoints here. Formal points (FIX-RT-PAPER-BURUNGALE-KOBAYASHI-OTA-21): Q ∈ Ê(𝔪) in (5.1) and x_s = π(z_s) ∈ Ê(𝔪_(Ψ′_s)) use Tau Ceti's WeierstrassCurve.formalPointHomAdicCompletion, which is stated for adic completions of a Dedekind domain. Present Φ as the completion of O_K at pO_K and Ψ′_s as the completion of the ring class field of conductor p^s at its prime above p, and prove that presentation here (the global-local tower item is downstream, on route 5); do not rebuild the map. Import the functional equation and root numbers of Hecke L-functions from Automorphic L-functions and local factors (AutomorphicLFunctionsAndLocalFactors AL.1) for xi-signed (items hecke-lfunction, hecke-root-number)."
     },
     {
       "route": "part-ii",
       "parent": "AutomorphicPadicLFunctions",
       "roadmap": "NonordinaryCMSpecialValues",
-      "title": "Ray-class distributions and general automorphic constructions, Part II: nonordinary CM special values and Rubin interpolation",
+      "title": "Ray-class distributions and general automorphic constructions, Part II: nonordinary CM special values",
       "area": "iwasawa",
       "prerequisites": [
         "AutomorphicPadicLFunctions",
         "ComplexMultiplicationAndExplicitReciprocity",
-        "PadicHodgeRegulators"
+        "PadicHodgeRegulators",
+        "LubinTateFormalModulesAndQuasiCanonicalLifts"
       ],
       "items": [
         "PAPER-BURUNGALE-KOBAYASHI-OTA-21/canonical-sign",
@@ -1349,14 +1446,11 @@
         "PAPER-BURUNGALE-KOBAYASHI-OTA-21/torsion-ringclass-disjoint",
         "PAPER-BURUNGALE-KOBAYASHI-OTA-21/twisted-root-sign",
         "PAPER-BURUNGALE-KOBAYASHI-OTA-21/finis-units",
-        "PAPER-BURUNGALE-KOBAYASHI-OTA-21/primitive-elliptic-unit",
-        "PAPER-BURUNGALE-KOBAYASHI-OTA-21/rubin-lfunction",
-        "PAPER-BURUNGALE-KOBAYASHI-OTA-21/rubin-interpolation",
         "PAPER-BURUNGALE-KOBAYASHI-OTA-21/cm-central-nonvanishing",
         "PAPER-BURUNGALE-KOBAYASHI-OTA-21/rubin-cm-lubin-tate"
       ],
-      "reason": "L3's Katz construction and L3h's Hsieh branch require a p-ordinary CM type. Finis's unit theorem at the inert valuation prime and Rubin's local-unit-coordinate p-adic L-function are not those ordinary constructions. Separate early CM special values from the late function so the dependency graph remains acyclic.",
-      "brief": "First prerequisite: Ray-class distributions and general automorphic constructions (AutomorphicPadicLFunctions). Import its Hecke-character/period interfaces but not an ordinary-CM hypothesis at an inert prime. Complex multiplication and explicit reciprocity (ComplexMultiplicationAndExplicitReciprocity CM.4) owns the canonical Hecke character and Gross Q-curve realization; Global number fields (tauceti:TauCetiRoadmap/GlobalNumberFields) and Class field theory (tauceti:TauCetiRoadmap/ClassFieldTheory) own Hecke carriers and ray-class fields. Import Bloch–Kato maps from p-adic Hodge regulators (PadicHodgeRegulators L1) and continuous tower cohomology from SelmerIwasawaCohomology L0/L3.\n\nCreate an EARLY branch independent of Rubin's decomposition. It proves the canonical root number +1 for the auxiliary K with 2 split, existence of l satisfying (3.3), period normalization, integral elliptic-unit zeta classes, Kato Proposition 15.9 in BKO's conjugated-character/dual/Tate convention, disjointness and local splitting for the ξ_ν projection, and the root-number parity formula for nontrivial χ. Prove Finis Theorem 1.1(2)'s specialization (3.9), with the prime-name switch explicit: Finis's tower p is BKO's split l, while Finis's valuation ℓ is BKO's inert p. Verify μ and b vanish using canonical conductor and good reduction, compare the critical-point/infinity-type conventions, and prove the removed l-factor equals 1 (the conductor of φ̄ν is f·l^m). The result is Ω^(-1)L_f(barφν,1)∈W× for all but finitely many ν. Do not use Hsieh's ordinary μ theorem in its place.\n\nA LATE branch imports AnticyclotomicLocalUnits' completed decomposition and Corollary 2.2. Construct the primitive ξ(E,Ω), C_∞ and L_p by ξ=L_p v_ε, not by assuming interpolating values determine an integral function. Its exact endpoint for nontrivial χ∈Ξ^ε is L_p(χ)=L(barφ barχ,1)/(Ω δ_(χ^(-1))(v_ε)). Prove nonzero denominator, nonzero ξ, period/basis-change laws, coefficient extension and primitive/imprimitive comparison. The trivial character is handled separately through δ, not by silently extending the displayed interpolation range. No ordinary Katz carrier, BDP outside-range formula or full p-adic BSD is asserted.\n\nThere must be ONE general elliptic-unit foundation. PAPER-BURUNGALE-TIAN-26 proposes CMAllPrimeMainConjectures for it, but that direction is pending independent review/design and is not an existing stage. Coordinate before integration: use its accepted early elliptic-unit construction if available, otherwise record a precise shared-supplier request, never duplicate it privately. This route owns BKO's normalized analytic applications. In the stage graph early special values feed the local optimal-unit proof; only the late Rubin-function layer imports the local decomposition. Do not impose a circular dependency between the two complete roadmaps. Each definition gets API, three tests and eventual suggested Lean signatures; include conjugation, inverse-character, Euler-factor and coefficient-extension regression tests."
+      "reason": "L3's Katz construction and L3h's Hsieh branch require a p-ordinary CM type. Finis's unit theorem at the inert valuation prime and Rubin's local-unit-coordinate p-adic L-function are not those ordinary constructions. Early CM special values stay here; the late Rubin p-adic L-function moved to route 5 (FIX-RT-PAPER-BURUNGALE-KOBAYASHI-OTA-21, RT/11), so the graph 4 → 3 → 5 and 4 → 5 is acyclic.",
+      "brief": "First prerequisite: Ray-class distributions and general automorphic constructions (AutomorphicPadicLFunctions). Import its Hecke-character/period interfaces but not an ordinary-CM hypothesis at an inert prime. Complex multiplication and explicit reciprocity (ComplexMultiplicationAndExplicitReciprocity CM.4) owns the canonical Hecke character and Gross Q-curve realization; Global number fields (tauceti:TauCetiRoadmap/GlobalNumberFields) and Class field theory (tauceti:TauCetiRoadmap/ClassFieldTheory) own Hecke carriers and ray-class fields. Import Bloch–Kato maps from p-adic Hodge regulators (PadicHodgeRegulators L1) and continuous tower cohomology from SelmerIwasawaCohomology L0/L3.\n\nThis roadmap is independent of Rubin's decomposition. It proves the canonical root number +1 for the auxiliary K with 2 split, existence of l satisfying (3.3), period normalization, integral elliptic-unit zeta classes, Kato Proposition 15.9 in BKO's conjugated-character/dual/Tate convention, disjointness and local splitting for the ξ_ν projection, and the root-number parity formula for nontrivial χ. Prove Finis Theorem 1.1(2)'s specialization (3.9), with the prime-name switch explicit: Finis's tower p is BKO's split l, while Finis's valuation ℓ is BKO's inert p. Verify μ and b vanish using canonical conductor and good reduction, compare the critical-point/infinity-type conventions, and prove the removed l-factor equals 1 (the conductor of φ̄ν is f·l^m). The result is Ω^(-1)L_f(barφν,1)∈W× for all but finitely many ν. Do not use Hsieh's ordinary μ theorem in its place.\n\nThere must be ONE general elliptic-unit foundation. PAPER-BURUNGALE-TIAN-26's accepted route 7 proposes CMAllPrimeMainConjectures for it (design pending): import its elliptic-unit layer and never duplicate it privately. This route owns BKO's normalized analytic applications that feed the local optimal-unit proof of AnticyclotomicLocalUnits. Rubin's p-adic L-function, which imports that local decomposition, is planned in InertAnticyclotomicCMMainConjecture (route 5), so the graph NonordinaryCMSpecialValues → AnticyclotomicLocalUnits → InertAnticyclotomicCMMainConjecture is acyclic (FIX-RT-PAPER-BURUNGALE-KOBAYASHI-OTA-21). Each definition gets API, three tests and eventual suggested Lean signatures; include conjugation, inverse-character and Euler-factor regression tests. Import from Finite flat group schemes and integral p-adic Hodge theory, Part II: Lubin–Tate formal modules and quasi-canonical lifts (LubinTateFormalModulesAndQuasiCanonicalLifts) the Lubin–Tate group F and the identification of an elliptic lift with a_(p²) = −2p with F (lt-lift-identification); rubin-cm-lubin-tate applies it to the CM curve (FIX-RT-PAPER-BURUNGALE-KOBAYASHI-OTA-21). Hecke carriers are Global number fields (tauceti:TauCetiRoadmap/GlobalNumberFields) Layer 9; Hecke L-functions, their functional equation and root numbers are Automorphic L-functions and local factors (AutomorphicLFunctionsAndLocalFactors AL.1), for canonical-sign and twisted-root-sign."
     },
     {
       "route": "part-ii",
@@ -1388,10 +1482,43 @@
         "PAPER-BURUNGALE-KOBAYASHI-OTA-21/bsd-opposite-parity",
         "PAPER-BURUNGALE-KOBAYASHI-OTA-21/relaxed-ranks",
         "PAPER-BURUNGALE-KOBAYASHI-OTA-21/relaxed-strict-char",
-        "PAPER-BURUNGALE-KOBAYASHI-OTA-21/global-signed-exact"
+        "PAPER-BURUNGALE-KOBAYASHI-OTA-21/global-signed-exact",
+        "PAPER-BURUNGALE-KOBAYASHI-OTA-21/primitive-elliptic-unit",
+        "PAPER-BURUNGALE-KOBAYASHI-OTA-21/rubin-lfunction",
+        "PAPER-BURUNGALE-KOBAYASHI-OTA-21/rubin-interpolation",
+        "PAPER-BURUNGALE-KOBAYASHI-OTA-21/ah-local-dictionary",
+        "PAPER-BURUNGALE-KOBAYASHI-OTA-21/ah-conditional-equality",
+        "PAPER-BURUNGALE-KOBAYASHI-OTA-21/ah-elliptic-unit-generator"
       ],
       "reason": "The parent L6 re-exports ordinary Heegner/BDP, JSW and Eisenstein branches, not this integral Gross-Q-curve CM theorem over the inert anticyclotomic tower. The rational cyclotomic CM equality proposed for Burungale–Tian is also a different target.",
-      "brief": "First prerequisite: Main conjectures for modular forms and their families (ModularIwasawaMainConjectures). Final endpoint is BKO Theorem 6.1: for p≥5 inert in imaginary quadratic K with p∤h_K and a maximal-CM Gross Q-curve E/H as in §3/§6, with good reduction above p and ε=W(φ), the opposite-sign dual X_∞^(−ε) is finitely generated torsion and its integral characteristic ideal is generated by Rubin's L_p. Carry the coefficient extension explicitly: W=T⊗_OΦ/O has rank-one coefficient ring R, so use Λ_R and the scalar extension of L_p; do not identify a restriction-of-scalars characteristic ideal with the same element instead of its norm.\n\nImport the actual local formal groups and signed points from AnticyclotomicLocalUnits and L_p from NonordinaryCMSpecialValues. Import the upstream general Selmer/Kummer carrier from Elliptic curves (tauceti:TauCetiRoadmap/EllipticCurves Layer 7), the compact/discrete extensions and control formalism from Selmer groups, continuous integral cohomology, and Iwasawa cohomology (SelmerIwasawaCohomology L0–L3), global duality from ArithmeticGaloisDuality R02.4 and characteristic ideals from PadicMeasuresIwasawaAlgebras L4/L5. Here prove the global/local tower comparison, local W-identification, independence of the signed Kummer image, Arnold's rational away-p vanishing and the specific signed global-to-local kernel. Keep contragredient action and same-parity point convention explicit.\n\nRead Agboola–Howard II through its proofs. Reconstruct the elliptic-unit module C, relaxed/strict modules, Proposition 3.3's ranks and characteristic equality, Theorem 4.1 and the duality exact sequence, and then (4.2)/Theorem 4.3 using Rubin's now-proved decomposition. Prove BKO's extension from AH's E/Q, class-number-one hypotheses to Gross Q-curves with p∤h_K; it is not a free application of AH's printed theorem. The general elliptic-unit/two-variable main-conjecture supplier is imported from CMAllPrimeMainConjectures' integral layer, with the EXACT integral formulation checked against Rubin 1991; a p-inverted cyclotomic equality is insufficient. Keep the source-access/proof requests open until this is done.\n\nFor Theorem 6.2 additionally assume E is defined over K. Prove strict characteristic containment, strict control with CM local codimension one, and correct-parity signed control. Obtain rank_CM E(K_n)^χ≤dim_CM Sel(K_n,V_pE)^χ≤ord_χ L_p for χ∈Ξ^ε, and the bound ord_χ L_p+1 for χ∈Ξ^(−ε). Specify a finite level through which χ factors and prove the conductor-to-layer dictionary. Dimensions are of the rank-one CM coefficient component, not full Q_p-dimensions. Include tests for the trivial character, both parity cases, coefficient extension, involution and finite control errors. This is not equality in p-adic BSD, a BDP formula, the announced epsilon conjecture, or an extension to p=3 or ramified primes."
+      "brief": "First prerequisite: Main conjectures for modular forms and their families (ModularIwasawaMainConjectures). Final endpoint is BKO Theorem 6.1: for p≥5 inert in imaginary quadratic K with p∤h_K and a maximal-CM Gross Q-curve E/H as in §3/§6, with good reduction above p and ε=W(φ), the opposite-sign dual X_∞^(−ε) is finitely generated torsion and its integral characteristic ideal is generated by Rubin's L_p. Work over Λ_R throughout: W=T⊗_OΦ/O has rank-one coefficient ring R, ξ(E,Ω) ∈ U_∞* ⊗_O R and L_p ∈ Λ_R (R = O when the avatar of φ is O-valued, e.g. h_K = 1); no O-integral L_p is assumed, and a restriction-of-scalars characteristic ideal is not identified with the same element instead of its norm.\n\nImport the actual local formal groups, signed points, the decomposition V_∞* = V_∞*,+ ⊕ V_∞*,− and Corollary 2.2 from AnticyclotomicLocalUnits, and ξ_ν, its values and signs (xi-nu, xi-trivial-value, xi-character-value, xi-signed) from it as well; import the CM special values, root numbers and elliptic-unit classes from NonordinaryCMSpecialValues. Import the upstream general Selmer/Kummer carrier from Elliptic curves (tauceti:TauCetiRoadmap/EllipticCurves Layer 7), the compact/discrete extensions and control formalism from Selmer groups, continuous integral cohomology, and Iwasawa cohomology (SelmerIwasawaCohomology L0–L3), global duality from ArithmeticGaloisDuality R02.4 and characteristic ideals from PadicMeasuresIwasawaAlgebras L4/L5. Here prove the global/local tower comparison, local W-identification, independence of the signed Kummer image, Arnold's rational away-p vanishing and the specific signed global-to-local kernel. Keep contragredient action and same-parity point convention explicit.\n\nRead Agboola–Howard II through its proofs. Reconstruct the elliptic-unit module C, relaxed/strict modules, Proposition 3.3's ranks and characteristic equality, Theorem 4.1 and the duality exact sequence, and then (4.2)/Theorem 4.3 using Rubin's now-proved decomposition, itemised as ah-local-dictionary, ah-conditional-equality and ah-elliptic-unit-generator. Prove BKO's extension from AH's E/Q, class-number-one hypotheses to Gross Q-curves with p∤h_K; it is not a free application of AH's printed theorem. The general elliptic-unit supplier and the integral two-variable main conjecture are imported from CMAllPrimeMainConjectures (PAPER-BURUNGALE-TIAN-26 route 7, accepted): specifically the integral inert-prime units form, Rubin 1991 Theorem 4.1(ii), which route 6 of this extraction adds to that design as item rubin-two-variable-main-conjecture; a p-inverted cyclotomic equality is insufficient. Keep the source-access/proof requests open until this is done.\n\nFor Theorem 6.2 additionally assume E is defined over K. Prove strict characteristic containment, strict control with CM local codimension one, and correct-parity signed control. Obtain rank_CM E(K_n)^χ≤dim_CM Sel(K_n,V_pE)^χ≤ord_χ L_p for χ∈Ξ^ε, and the bound ord_χ L_p+1 for χ∈Ξ^(−ε). Specify a finite level through which χ factors and prove the conductor-to-layer dictionary. Dimensions are of the rank-one CM coefficient component, not full Q_p-dimensions. Include tests for the trivial character, both parity cases, coefficient extension, involution and finite control errors. This is not equality in p-adic BSD, a BDP formula, the announced epsilon conjecture, or an extension to p=3 or ramified primes.\n\nRubin's p-adic L-function (moved here from NonordinaryCMSpecialValues by FIX-RT-PAPER-BURUNGALE-KOBAYASHI-OTA-21): construct the primitive ξ(E,Ω) as ξ_ν at ν = 1 (primitive-elliptic-unit), C_∞ and L_p ∈ Λ_R by ξ = L_p v_ε (rubin-lfunction), not by assuming interpolating values determine an integral function. Its exact endpoint for nontrivial χ ∈ Ξ^ε is L_p(χ) = L(φ̄ χ̄,1)/(Ω δ_(χ^(-1))(v_ε)) (rubin-interpolation). Prove nonzero denominator, nonzero ξ, period/basis-change laws and the primitive/imprimitive comparison through the Euler-factor identities. The trivial character is handled separately through δ. No ordinary Katz carrier, BDP outside-range formula or full p-adic BSD is asserted."
+    },
+    {
+      "route": "part-ii",
+      "parent": "ModularIwasawaMainConjectures",
+      "roadmap": "CMAllPrimeMainConjectures",
+      "title": "Main conjectures for modular forms and their families, Part II: all-prime CM zeta-element main conjectures",
+      "area": "iwasawa",
+      "items": [
+        "PAPER-BURUNGALE-KOBAYASHI-OTA-21/rubin-two-variable-main-conjecture"
+      ],
+      "prerequisites": [
+        "ModularIwasawaMainConjectures"
+      ],
+      "brief": "Addendum from Burungale–Kobayashi–Ota, Rubin's conjecture on local units in the anticyclotomic tower at inert primes (Ann. of Math. 194 (2021)), to the integral layer of the CMAllPrimeMainConjectures design proposed by PAPER-BURUNGALE-TIAN-26 route 7. For p inert in K, with Rubin's hypotheses as that layer fixes them for Theorem 4.1(i), state and prove Rubin 1991, Theorem 4.1(ii) in its units form: char(X_∞^χ) = char(U_∞^χ/C̄_∞^χ) as ideals of O⟦Gal(K_∞F/K)⟧^χ, integrally, for the Z_p²-extension K_∞. On χ-parts it follows from the layer's (i) through the exact sequence 0 → Ē_∞/C̄_∞ → U_∞/C̄_∞ → X_∞ → A_∞ → 0. Its consumer is InertAnticyclotomicCMMainConjecture (PAPER-BURUNGALE-KOBAYASHI-OTA-21 route 5, item rubin-two-variable-input, via Agboola–Howard II Proposition 3.3(ii)). It may not depend on anything downstream of that consumer, so the frontier stays acyclic. A statement only after inverting p does not suffice.",
+      "reason": "Added by FIX-RT-PAPER-BURUNGALE-KOBAYASHI-OTA-21 (RT-PAPER-BURUNGALE-KOBAYASHI-OTA-21/2). The integral inert-prime units form of Rubin's two-variable main conjecture is needed for Theorem 6.1 and has no owner: the Burungale–Tian fix (#4477) gave CMAllPrimeMainConjectures an integral layer that lists rubin-two-variable-input as a consumer but names Rubin 1991 (ii) only for p split. Joining that design with the same id, title and area is the single-owner fix; routing it to route 5 instead would duplicate the layer route 5 imports."
+    },
+    {
+      "route": "part-ii",
+      "parent": "tauceti:TauCetiRoadmap/EllipticCurves",
+      "roadmap": "EllipticCurvesPartIISupersingularFiniteFields",
+      "title": "Elliptic curves, Part II: supersingular curves over finite fields",
+      "area": "arithmeticgeometry",
+      "items": [
+        "PAPER-BURUNGALE-KOBAYASHI-OTA-21/supersingular-mass"
+      ],
+      "brief": "Extend Elliptic curves (tauceti:TauCetiRoadmap/EllipticCurves), whose Layer 3 stops at the ordinary/supersingular dichotomy, by the arithmetic of supersingular curves over finite fields used by Burungale–Kobayashi–Ota (Ann. of Math. 194 (2021), proof of Lemma 5.2). Final theorems: Deuring's theorem that every supersingular j-invariant lies in F_(p²); the count of geometric supersingular j-invariants, [p/12] + ε_p = m + δ + ε for p − 1 = 12m + 4δ + 6ε (Silverman AEC V.4.1, Eichler–Deuring); Aut(E) and the twists of a supersingular curve over F_(p²); and Schoof's Theorem 4.6, the number N(t) of F_(p²)-isomorphism classes with trace t: (p + 6 − 4(−3/p) − 3(−1/p))/12 for t = ±2p, 1 − (−3/p) for t = ±p and 1 − (−1/p) for t = 0. Count isomorphism classes over F_(p²), not just geometric j-invariants; test the formula in all four classes of p mod 12. This joins the open grouped design job for Elliptic curves, Part II (#3398). Deuring's classification of endomorphism rings (PAPER-GROSS-ZAGIER-86/128) belongs next to this material.",
+      "reason": "Added by FIX-RT-PAPER-BURUNGALE-KOBAYASHI-OTA-21 (RT-PAPER-BURUNGALE-KOBAYASHI-OTA-21/13). The Eichler–Deuring count and Schoof's count of F_(p²)-classes are general theorems about elliptic curves over finite fields; route 3, a Coleman-power-series Part II, is the wrong owner under PROTOCOL §15. No stage plans them, and PAPER-LIPNOWSKI-TSIMERMAN-18's finite-fields Part II works over prime fields and excludes this case."
     }
   ]
 }
