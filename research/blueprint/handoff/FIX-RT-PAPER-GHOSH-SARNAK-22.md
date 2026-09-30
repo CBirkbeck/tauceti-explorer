@@ -1,0 +1,9 @@
+# FIX-RT-PAPER-GHOSH-SARNAK-22 handoff
+
+Codex `codex-J6LwjP`, 2026-09-30; Refs #4999. All nine verifier-confirmed findings applied in the four assigned deliverables. See `research/blueprint/redteam/RT-PAPER-GHOSH-SARNAK-22.fixes.md` for per-finding reasoning, precise source scopes/hashes, maintainer follow-ups and a self-contained arithmetic reproduction script.
+
+The extraction has 64 items (4 library, 2 planned, 58 missing), six routes and 24 source issues. Original item ids and E1–E20 independent verdicts remain intact; E21–E24 await review. The CA packet is explicitly partial, with 333 nodes, 45 requests and nine gaps. New CA.4 nodes are `markoff-coefficient-one-zero-orbits`, `markoff-positive-root-orbits`, `markoff-exceptional-class-number-lower-bound`. Its remaining general level-k work is enumerated by 25 source-item requests. Gauss-sum comparison imports FF.1; the general Fricke identity coalesces with Chen's pending NonabelianLevelStructures route.
+
+Paper, indexed blueprint, source-issue/version, intake, file-scope, routing and graph checks pass. Fresh finite arithmetic regressions passed. No Lean compilation was run; no suggested file is assigned and no pinned build was available. Main published text was not obtained; all findings are scoped to the specified arXiv versions. No fresh full-paper reading is claimed.
+
+Resume with independent REV-FIX review. Maintainer follow-up is the coalesced live-issue source refresh (#1025/#1040/#1030/#1021/#1022), historical annotations in the old independent review and CA reader/suggested-file synchronization by its owner. The pending parent design is #3367, not the superseded standalone Markoff design. No upstream work or generated queue was edited. Source scratch is removed after the PR is opened; everything needed to review or reproduce the fix is in the report and JSON.
