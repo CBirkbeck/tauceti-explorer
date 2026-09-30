@@ -10,7 +10,7 @@
     "DirichletPadicLFunctions:L4"
   ],
   "status": "partial",
-  "summary": "Partial continuation preserving all625 predecessor nodes whole. Five L4 nodes construct the integral normalized tame series when two is a unit, identify its field coefficient image, bound every coefficient and prove full test and weight congruences without loss of precision. Every odd prime supplies the unit certificate.",
+  "summary": "Partial continuation preserving all630 predecessor nodes whole. One L2 lemma and three L4 theorems give an actual residue-shift identity, an explicit unit-constant test, the exact criterion for scalar multiples to admit an integral measure lift, and the dyadic obstruction for every nonprincipal tame character.",
   "baseline": {
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
@@ -3787,6 +3787,48 @@
         "module": "Mathlib/Algebra/Group/Units/Defs.lean",
         "provides": "For a unit certificate h:IsUnit a, a times the coerced inverse of h.unit equals one.",
         "checked": "Whole pinned statement, ambient hypotheses and proof read on30September2026 at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174; unchanged declaration index checked. The complete native normalization probe uses this exact interface."
+      },
+      {
+        "ref": "mathlib:Finset.prod_range_succ",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/BigOperators/Group/Finset/Basic.lean",
+        "provides": "Splits off the last factor in a finite range product over a commutative monoid; its native to_additive declaration is sum_range_succ. Applying the indexed statement to Multiplicative(F,+) gives the same additive identity.",
+        "checked": "Whole pinned statement, ambient hypotheses and proof read on30September2026 at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174; unchanged declaration index matched. Generated additive interfaces were checked by the complete native probe; references retain their actual indexed source declarations."
+      },
+      {
+        "ref": "mathlib:Finset.prod_range_succ'",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/BigOperators/Group/Finset/Basic.lean",
+        "provides": "Splits off the first factor in a finite range product. The native generated sum_range_succ' form supplies the second finite-sum decomposition, equivalently through Multiplicative(F,+).",
+        "checked": "Whole pinned statement, ambient hypotheses and proof read on30September2026 at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174; unchanged declaration index matched. Generated additive interfaces were checked by the complete native probe; references retain their actual indexed source declarations."
+      },
+      {
+        "ref": "mathlib:Units.mulLeft",
+        "kind": "def",
+        "module": "Mathlib/Algebra/Group/Units/Equiv.lean",
+        "provides": "The native permutation of a monoid induced by left multiplication by a unit.",
+        "checked": "Whole pinned statement, ambient hypotheses and proof read on30September2026 at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174; unchanged declaration index matched. Generated additive interfaces were checked by the complete native probe; references retain their actual indexed source declarations."
+      },
+      {
+        "ref": "mathlib:Equiv.mulLeft",
+        "kind": "def",
+        "module": "Mathlib/Algebra/Group/Units/Equiv.lean",
+        "provides": "The native left-translation permutation in a group, with generated additive declaration Equiv.addLeft for an additive group.",
+        "checked": "Whole pinned statement, ambient hypotheses and proof read on30September2026 at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174; unchanged declaration index matched. Generated additive interfaces were checked by the complete native probe; references retain their actual indexed source declarations."
+      },
+      {
+        "ref": "mathlib:ZMod.val_natCast_of_lt",
+        "kind": "lemma",
+        "module": "Mathlib/Data/ZMod/Basic.lean",
+        "provides": "A natural representative below the modulus is exactly the canonical value of its residue.",
+        "checked": "Whole pinned statement, ambient hypotheses and proof read on30September2026 at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174; unchanged declaration index matched. Generated additive interfaces were checked by the complete native probe; references retain their actual indexed source declarations."
+      },
+      {
+        "ref": "mathlib:PadicInt.norm_p",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/Padics/PadicIntegers.lean",
+        "provides": "The norm of p in ℤ_p is p⁻¹; at p=2 it gives the scalar bound used for every bounded coefficient algebra.",
+        "checked": "Whole pinned statement, ambient hypotheses and proof read on30September2026 at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174; unchanged declaration index matched. Generated additive interfaces were checked by the complete native probe; references retain their actual indexed source declarations."
       }
     ]
   },
@@ -41970,6 +42012,268 @@
       "acceptance": [
         "The p-power modulus is unchanged after normalization, with every coefficient covered. Classical ownership and all existing analytic requests remain explicit."
       ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L2/tame-residue-cyclic-shift",
+      "parentStageId": "DirichletPadicLFunctions:L2",
+      "realises": [
+        "DirichletPadicLFunctions:L2"
+      ],
+      "title": "A cyclic shift of the actual tame residue masses",
+      "kind": "lemma",
+      "statement": "For n≥0 and a,b∈ZMod(p^n) with b.val≡a.val+p^n modulo D, finiteProjection(red_n)(μ_η)(b)−finiteProjection(red_n)(μ_η)(a)=−η(a.val).",
+      "hypotheses": [
+        "p is prime. K is a complete nontrivially normed ultrametric field of characteristic zero, with Algebra ℤ_p K and IsBoundedSMul ℤ_p K. D>0, η:DirichletCharacter K D is nonprincipal, hD:IsUnit(D:K) and p∤D.",
+        "U=(ℤ_p)ˣ, O=Valuation.integer(NormedField.valuation(K)), ι:O↪K and the actual μ_η=tameMeasure(η,hD,hpD) are reused. Gη is integralDoubledTameEisensteinSeries. All formal series use the native coefficientwise topology.",
+        "The finite shift compares canonical representatives modulo D: b.val≡a.val+p^n modD, for a,b∈ZMod(p^n). It is not the operation of adding p^n inside ZMod(p^n), which is the identity.",
+        "For the unit-residue witness take n≥1 and 2D≤p^n. Such a level exists. Indicators are the existing native discrete continuous maps Function.update(0,a,1) composed with unit reduction; no new generic indicator constructor is defined.",
+        "The scalar criterion concerns an actual O-linear continuous formal-series-valued measure on every O-valued continuous test. No arbitrary K-valued test extension, character-density assertion, classical modular form or analytic family is introduced. Nonprincipal η is essential; the tame level-one constructor has zero constant and is a separate case."
+      ],
+      "proofSteps": [
+        "Set q=p^n and apply the existing exact finite-residue formula at a and b. Since η is evaluated modulo D, the assumed congruence replaces b.val by a.val+q inside its weighted finite sum. The canonical representatives in the original formula remain unchanged; only the character arguments are reduced modulo D.",
+        "The scalar q is a unit in ZMod D by primality, p∤D and native ZMod.isUnit_iff_coprime. Multiplication by this unit followed by addition of a.val permutes ZMod D. Native MulChar.sum_eq_zero_of_ne_one therefore gives Σ_jη(a.val+qj)=0. Complete tame_step_unit and character_progression_sum verify these exact statements.",
+        "For f(j)=η(a.val+qj), one has f(D)=f(0). Compare the sums over ranges D and D+1 first for f, then for j↦f(j)j. Splitting off the last or the first term gives Σ_(j<D)f(j+1)=0 and Σ_(j<D)f(j+1)(j+1)=Σ_(j<D)f(j)j+D f(0). Subtract the first equality to obtain Σf(j+1)j−Σf(j)j=D f(0). Complete weighted_shift proves this finite identity over every commutative ring.",
+        "Transfer finite ZMod sums to range sums using the native Fin/range equivalence and canonical-value bounds. Complete sum_zmod_range, weighted_zmod_range and weighted_character_shift verify the transfer and cyclic identity. The indexed product splitting/equivalence declarations carry native generated additive versions, used by the probe; equivalently apply their commutative-monoid statements to Multiplicative(F,+). No absent declaration is invented or added to the index.",
+        "Multiplication by −hD.unit⁻¹ cancels D and yields −η(a.val). Complete residue_shift verifies the field algebra. The existing characteristic-zero assumption is retained from the actual residue formula, rather than inferred from a bounded coefficient action.",
+        "Adding q to a within ZMod q returns a, so its mass difference is zero. The hypothesis instead compares two canonical representatives modulo the independent tame modulus D; the negative control keeps this distinction explicit."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L2/tame-residue-coefficients",
+        "mathlib:MulChar.sum_eq_zero_of_ne_one",
+        "mathlib:ZMod.isUnit_iff_coprime",
+        "mathlib:Nat.Prime.coprime_iff_not_dvd",
+        "mathlib:Units.mulLeft",
+        "mathlib:Equiv.mulLeft",
+        "mathlib:Finset.prod_range_succ",
+        "mathlib:Finset.prod_range_succ'",
+        "mathlib:Fin.prod_univ_eq_prod_range",
+        "mathlib:ZMod.val_natCast_of_lt"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/TameScalarIntegrality",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.tameMeasure_residue_shift"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Restriction and zero extension in §3.5.3, published127–129/PDF28–30; Lemmas5.10–5.12 and Definition5.13, published145–146/PDF46–47; Definition8.1, Theorem8.2 and Remark8.3, published159–161/PDF60–62. Whole passages read in the preceding constant-residue and doubled tame-series checkpoints; retained source corrections apply.",
+          "excerpt": "extension by 0",
+          "match": "Worker consequences of the existing actual finite-residue formula and integral doubled tame series. The two-unit-residue witness, exact scalar criterion and general dyadic obstruction are derived here, not quoted as source theorems. The proof uses finite cyclic sums, avoiding the previously recorded invalid geometric expansion. No new source erratum, independent review or classical modularity assertion is made."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedTameScalarTests.dyadic_residue_shift",
+          "kind": "computation",
+          "statement": "At p=2,D=3,n=3 the masses of residues3 and1 differ by−1."
+        },
+        {
+          "name": "SuggestedTameScalarTests.triadic_residue_shift",
+          "kind": "computation",
+          "statement": "At p=3,D=4,n=2 the masses of residues2 and1 differ by−1."
+        },
+        {
+          "name": "SuggestedTameScalarTests.adding_quotient_is_not_shift",
+          "kind": "non-example",
+          "statement": "Adding the quotient modulus inside ZMod(p^n) gives zero mass difference, not the claimed cyclic shift."
+        }
+      ],
+      "acceptance": [
+        "The equality is for finite projections of the actual measure. The tame congruence of canonical representatives is explicit, with no carry or index ambiguity."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L4/integral-tame-unit-constant-witness",
+      "parentStageId": "DirichletPadicLFunctions:L4",
+      "realises": [
+        "DirichletPadicLFunctions:L4"
+      ],
+      "title": "A unit constant detected by two residue tests",
+      "kind": "theorem",
+      "statement": "For n≥1 and 2D≤p^n there is a unit b∈ZMod(p^n) such that, for the actual unit-residue indicators e_b and e_1, ι(coeff₀Gη(e_b−e_1))=−1.",
+      "hypotheses": [
+        "p is prime. K is a complete nontrivially normed ultrametric field of characteristic zero, with Algebra ℤ_p K and IsBoundedSMul ℤ_p K. D>0, η:DirichletCharacter K D is nonprincipal, hD:IsUnit(D:K) and p∤D.",
+        "U=(ℤ_p)ˣ, O=Valuation.integer(NormedField.valuation(K)), ι:O↪K and the actual μ_η=tameMeasure(η,hD,hpD) are reused. Gη is integralDoubledTameEisensteinSeries. All formal series use the native coefficientwise topology.",
+        "The finite shift compares canonical representatives modulo D: b.val≡a.val+p^n modD, for a,b∈ZMod(p^n). It is not the operation of adding p^n inside ZMod(p^n), which is the identity.",
+        "For the unit-residue witness take n≥1 and 2D≤p^n. Such a level exists. Indicators are the existing native discrete continuous maps Function.update(0,a,1) composed with unit reduction; no new generic indicator constructor is defined.",
+        "The scalar criterion concerns an actual O-linear continuous formal-series-valued measure on every O-valued continuous test. No arbitrary K-valued test extension, character-density assertion, classical modular form or analytic family is introduced. Nonprincipal η is essential; the tame level-one constructor has zero constant and is a separate case."
+      ],
+      "proofSteps": [
+        "Put q=p^n and b0=(1+q) modD. If p does not divide b0 choose b=b0; otherwise choose b=b0+D. Since p∤D, the second choice is not divisible by p. In both cases b<2D≤q and b≡1+q modD. Complete unit_representative proves this construction without restricting p to2.",
+        "The natural b gives a native element of ZMod q whose canonical value is exactly b. Native unit/coprimality criteria and complete unit_residue make it a unit. Since n≥1 and p is prime, q>1, so the canonical representative of1 is1 and it too is a unit.",
+        "The preceding actual residue-shift theorem with a=1 gives the ambient mass difference −η(1)=−1. For these two unit residues at a positive quotient level, the existing integral-tame-constant-residue comparison identifies each ambient mass with the included doubled constant of its unit indicator.",
+        "The inherited linearity of the actual Gη identifies the difference with the constant on e_b−e_1. Both tests are continuous O-valued native finite indicators. Their difference is a legitimate test even if no scalar extension to all K-valued tests is available.",
+        "For an existential test independent of the quotient level, native pow_unbounded_of_one_lt supplies n with2D<p^n; D>0 ensures n≥1. Complete large_residue_level verifies this selection. The modulus-five dyadic example uses n=4,b=7 and gives exactly−1, without Gauss sums or character primitivity."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L2/tame-residue-cyclic-shift",
+        "DirichletPadicLFunctions:L4/integral-tame-constant-residue",
+        "DirichletPadicLFunctions:L4/integral-doubled-tame-eisenstein-series",
+        "mathlib:ContinuousMap.equivFnOfDiscrete",
+        "mathlib:ZMod.val_natCast_of_lt",
+        "mathlib:ZMod.isUnit_iff_coprime",
+        "mathlib:Nat.Prime.coprime_iff_not_dvd",
+        "mathlib:pow_unbounded_of_one_lt"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/TameScalarIntegrality",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.integralDoubledTameEisensteinSeries_unit_constant_witness"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Restriction and zero extension in §3.5.3, published127–129/PDF28–30; Lemmas5.10–5.12 and Definition5.13, published145–146/PDF46–47; Definition8.1, Theorem8.2 and Remark8.3, published159–161/PDF60–62. Whole passages read in the preceding constant-residue and doubled tame-series checkpoints; retained source corrections apply.",
+          "excerpt": "extension by 0",
+          "match": "Worker consequences of the existing actual finite-residue formula and integral doubled tame series. The two-unit-residue witness, exact scalar criterion and general dyadic obstruction are derived here, not quoted as source theorems. The proof uses finite cyclic sums, avoiding the previously recorded invalid geometric expansion. No new source erratum, independent review or classical modularity assertion is made."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedTameScalarTests.actual_test_witness",
+          "kind": "compatibility",
+          "statement": "For every eligible nonprincipal tame family there exists an actual integral continuous test whose included doubled constant is−1."
+        },
+        {
+          "name": "SuggestedTameScalarTests.modulus_five_unit_witness",
+          "kind": "computation",
+          "statement": "At p=2,D=5,n=4, the difference of indicators at residues7 and1 has doubled constant−1."
+        }
+      ],
+      "acceptance": [
+        "The witness is explicit at every sufficiently large finite quotient and is a test on the actual unit group. Nonprincipal η, positive level and the size bound remain stated."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L4/tame-full-series-scalar-integrality",
+      "parentStageId": "DirichletPadicLFunctions:L4",
+      "realises": [
+        "DirichletPadicLFunctions:L4"
+      ],
+      "title": "The exact scalar integrality criterion",
+      "kind": "theorem",
+      "statement": "For every s∈K, there exists M:AbstractMeasure U O (PowerSeries O) with map_ι(M(f))=s•map_ι(Gη(f)) for every f∈C(U,O) if and only if ‖s‖≤1.",
+      "hypotheses": [
+        "p is prime. K is a complete nontrivially normed ultrametric field of characteristic zero, with Algebra ℤ_p K and IsBoundedSMul ℤ_p K. D>0, η:DirichletCharacter K D is nonprincipal, hD:IsUnit(D:K) and p∤D.",
+        "U=(ℤ_p)ˣ, O=Valuation.integer(NormedField.valuation(K)), ι:O↪K and the actual μ_η=tameMeasure(η,hD,hpD) are reused. Gη is integralDoubledTameEisensteinSeries. All formal series use the native coefficientwise topology.",
+        "The finite shift compares canonical representatives modulo D: b.val≡a.val+p^n modD, for a,b∈ZMod(p^n). It is not the operation of adding p^n inside ZMod(p^n), which is the identity.",
+        "For the unit-residue witness take n≥1 and 2D≤p^n. Such a level exists. Indicators are the existing native discrete continuous maps Function.update(0,a,1) composed with unit reduction; no new generic indicator constructor is defined.",
+        "The scalar criterion concerns an actual O-linear continuous formal-series-valued measure on every O-valued continuous test. No arbitrary K-valued test extension, character-density assertion, classical modular form or analytic family is introduced. Nonprincipal η is essential; the tame level-one constructor has zero constant and is a separate case."
+      ],
+      "proofSteps": [
+        "If ‖s‖≤1, the defining norm valuation gives the actual subtype element sO∈O. Let M=sO•Gη using the native scalar action on measures. Extract coefficients after PowerSeries.map; multiplicativity of the subtype hom gives the required all-test equality. Complete scalar_integral_lift constructs precisely this native measure and proves the comparison.",
+        "Conversely use the preceding explicit residue-difference test f0 with included doubled constant−1. Extract coefficient zero from a proposed all-test equality. The image of the integral coefficient of M(f0) is then−s.",
+        "Every coefficient of M(f0) belongs to the actual norm-valuation integer ring, hence has image of norm at most one. Since ‖−s‖=‖s‖, this gives the necessary bound. Complete scalar_lift_necessity checks this argument against the actual measure and PowerSeries.map interfaces.",
+        "Necessity needs only the single integral series value at f0, so the result is not a consequence of a vacuous divisibility assertion over K. Sufficiency genuinely supplies an O-linear continuous measure on all integral tests. The scalar can be zero; no inverse of s is used.",
+        "Nonprincipal η is essential. At tame level one the promoted intrinsic integral tame measure is zero, so Gη has zero constant and is twice the existing positive integral series. In characteristic zero that positive series provides a half-normalized integral lift, including the dyadic case where the scalar1/2 is not integral. This boundary does not identify the zero tame constructor with the principal zeta family."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L4/integral-tame-unit-constant-witness",
+        "DirichletPadicLFunctions:L4/integral-doubled-tame-eisenstein-series",
+        "DirichletPadicLFunctions:L4/integral-doubled-tame-eisenstein-coeff",
+        "DirichletPadicLFunctions:L2/intrinsic-integral-tame-one-level",
+        "DirichletPadicLFunctions:L4/integral-twisted-positive-series-coeff",
+        "mathlib:AbstractMeasure.toCLMEquiv",
+        "mathlib:PowerSeries.coeff_map",
+        "mathlib:PowerSeries.coeff_smul",
+        "mathlib:Valuation.mem_integer_iff",
+        "mathlib:NormedField.valuation_apply"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/TameScalarIntegrality",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.integralDoubledTameEisensteinSeries_scalar_lift_iff"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Restriction and zero extension in §3.5.3, published127–129/PDF28–30; Lemmas5.10–5.12 and Definition5.13, published145–146/PDF46–47; Definition8.1, Theorem8.2 and Remark8.3, published159–161/PDF60–62. Whole passages read in the preceding constant-residue and doubled tame-series checkpoints; retained source corrections apply.",
+          "excerpt": "extension by 0",
+          "match": "Worker consequences of the existing actual finite-residue formula and integral doubled tame series. The two-unit-residue witness, exact scalar criterion and general dyadic obstruction are derived here, not quoted as source theorems. The proof uses finite cyclic sums, avoiding the previously recorded invalid geometric expansion. No new source erratum, independent review or classical modularity assertion is made."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedTameScalarTests.scalar_zero",
+          "kind": "degenerate",
+          "statement": "The zero scalar has the actual zero measure as an integral lift."
+        },
+        {
+          "name": "SuggestedTameScalarTests.scalar_negative_one",
+          "kind": "computation",
+          "statement": "The scalar−1 has an actual integral measure lift."
+        },
+        {
+          "name": "SuggestedTameScalarTests.principal_one_level_exception",
+          "kind": "non-example",
+          "statement": "At tame modulus one the positive integral series gives a half-normalized lift; therefore the nonprincipal hypothesis cannot be dropped."
+        }
+      ],
+      "acceptance": [
+        "The quantifier is over actual native integral measures and all actual integral tests. Both directions are proved with native coefficient inclusion; no generic extension functor is assumed."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L4/dyadic-nonprincipal-tame-no-normalization",
+      "parentStageId": "DirichletPadicLFunctions:L4",
+      "realises": [
+        "DirichletPadicLFunctions:L4"
+      ],
+      "title": "The dyadic obstruction for every nonprincipal tame character",
+      "kind": "theorem",
+      "statement": "For p=2 and every eligible nonprincipal η of odd tame modulus, no M:AbstractMeasure U O (PowerSeries O) has map_ι(M(f))=(2:K)⁻¹•map_ι(Gη(f)) for every integral continuous test f.",
+      "hypotheses": [
+        "p is prime. K is a complete nontrivially normed ultrametric field of characteristic zero, with Algebra ℤ_p K and IsBoundedSMul ℤ_p K. D>0, η:DirichletCharacter K D is nonprincipal, hD:IsUnit(D:K) and p∤D.",
+        "U=(ℤ_p)ˣ, O=Valuation.integer(NormedField.valuation(K)), ι:O↪K and the actual μ_η=tameMeasure(η,hD,hpD) are reused. Gη is integralDoubledTameEisensteinSeries. All formal series use the native coefficientwise topology.",
+        "The finite shift compares canonical representatives modulo D: b.val≡a.val+p^n modD, for a,b∈ZMod(p^n). It is not the operation of adding p^n inside ZMod(p^n), which is the identity.",
+        "For the unit-residue witness take n≥1 and 2D≤p^n. Such a level exists. Indicators are the existing native discrete continuous maps Function.update(0,a,1) composed with unit reduction; no new generic indicator constructor is defined.",
+        "The scalar criterion concerns an actual O-linear continuous formal-series-valued measure on every O-valued continuous test. No arbitrary K-valued test extension, character-density assertion, classical modular form or analytic family is introduced. Nonprincipal η is essential; the tame level-one constructor has zero constant and is a separate case."
+      ],
+      "proofSteps": [
+        "The bounded ℤ₂ scalar action gives ‖2:K‖=‖(2:ℤ₂)•1‖≤‖2:ℤ₂‖=1/2. Complete dyadic_two_norm checks the exact native algebra map, numeral casts and p-adic scalar norm.",
+        "Characteristic zero ensures2≠0. Multiplicativity and the inverse norm identity give ‖(2:K)⁻¹‖≥2>1; complete dyadic_half_norm proves the inequality. An isometric coefficient embedding is not assumed, so equality with2 is not claimed for general K.",
+        "Apply the exact scalar integrality criterion with s=(2:K)⁻¹. Its necessary norm bound is impossible. Equivalently the explicit residue-difference test has normalized constant−1/2 outside O, ruling out even an arbitrary integral series value there.",
+        "The argument uses only nonprincipality, not primitivity. It applies to the quadratic character modulo5 and to the explicit character obtained by raising the nontrivial character modulo3 to modulus9. The old quadratic-modulo3 obstruction is retained whole as a concrete earlier special case.",
+        "The theorem does not cover principal η; the tame level-one half has an integral lift as tested above. At odd primes the prior two-unit construction supplies the normalized integral measure, consistent with the scalar criterion."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L4/tame-full-series-scalar-integrality",
+        "mathlib:norm_smul_le",
+        "mathlib:PadicInt.norm_p"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/TameScalarIntegrality",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.integralDoubledTameEisensteinSeries_dyadic_no_normalization"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Restriction and zero extension in §3.5.3, published127–129/PDF28–30; Lemmas5.10–5.12 and Definition5.13, published145–146/PDF46–47; Definition8.1, Theorem8.2 and Remark8.3, published159–161/PDF60–62. Whole passages read in the preceding constant-residue and doubled tame-series checkpoints; retained source corrections apply.",
+          "excerpt": "extension by 0",
+          "match": "Worker consequences of the existing actual finite-residue formula and integral doubled tame series. The two-unit-residue witness, exact scalar criterion and general dyadic obstruction are derived here, not quoted as source theorems. The proof uses finite cyclic sums, avoiding the previously recorded invalid geometric expansion. No new source erratum, independent review or classical modularity assertion is made."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedTameScalarTests.modulus_five_no_normalization",
+          "kind": "non-example",
+          "statement": "The quadratic tame character modulo5 also has no all-test integral half at p=2."
+        },
+        {
+          "name": "SuggestedTameScalarTests.imprimitive_nine_no_normalization",
+          "kind": "non-example",
+          "statement": "The explicit changeLevel lift from modulus3 to9 has the same obstruction; primitivity is unnecessary."
+        }
+      ],
+      "acceptance": [
+        "All nonprincipal tame characters are covered over the stated characteristic-zero coefficient fields. The proof only needs a norm lower bound for1/2 and retains the principal exception."
+      ]
     }
   ],
   "requests": [
@@ -42088,7 +42392,7 @@
       "stageId": "DirichletPadicLFunctions:L4",
       "status": "partial",
       "remaining": [
-        "The normalized tame full series now has an actual integral measure when two is a unit, including every odd prime, with its coefficient image, norm bound and congruences at unchanged precision. A necessary-and-sufficient all-test scalar-denominator criterion and the special dyadic tame cases remain open, along with general character-pair constants, classical character Eisenstein existence/normalization and analytic weight-space comparisons. The principal tame level-one zero-constant construction remains separate from localized principal theory. Eleven requests, fifteen gaps and zero closed stages remain, as does the missing pinned TwistedDivisorSum artifact.",
+        "For every nonprincipal tame character, a concrete difference of two unit-residue tests now detects exact scalar integrality of the full doubled family. The all-test half-normalization obstruction is proved for every such character at p=2, including imprimitive ones; odd-prime normalization was supplied previously. Principal tame characters beyond the level-one boundary, general character-pair constants, classical character Eisenstein existence/normalization and analytic weight-space comparisons remain open. The localized principal zeta theory stays separate. Eleven requests, fifteen gaps and zero closed stages remain; the missing pinned TwistedDivisorSum artifact still prevents full-module compilation.",
         "The positive part now has a native continuous power-series-valued measure, uniform coefficient bounds, test and weight congruences, and whole-series comparison with the actual p-stabilized modular form after removing its constant coefficient. Assemble the full family with the actual localized A₀ coefficient, prove constant-term congruences with denominator qualifications, and decompose the tame-character extension. Geometric affinoid realization and Hida–Coleman control belong to PadicFamilies; retain the weight shift recorded in E9."
       ]
     }
@@ -42119,7 +42423,7 @@
       "neededBy": [
         "DirichletPadicLFunctions:L4/positive-eisenstein-completed-coordinates"
       ],
-      "detail": "The normalized tame full series now has an actual integral measure when two is a unit, including every odd prime, with its coefficient image, norm bound and congruences at unchanged precision. A necessary-and-sufficient all-test scalar-denominator criterion and the special dyadic tame cases remain open, along with general character-pair constants, classical character Eisenstein existence/normalization and analytic weight-space comparisons. The principal tame level-one zero-constant construction remains separate from localized principal theory. Eleven requests, fifteen gaps and zero closed stages remain, as does the missing pinned TwistedDivisorSum artifact. The positive part now has a native continuous power-series-valued measure, uniform coefficient bounds, test and weight congruences, and whole-series comparison with the actual p-stabilized modular form after removing its constant coefficient. Assemble the full family with the actual localized A₀ coefficient, prove constant-term congruences with denominator qualifications, and decompose the tame-character extension. Geometric affinoid realization and Hida–Coleman control belong to PadicFamilies; retain the weight shift recorded in E9."
+      "detail": "For every nonprincipal tame character, a concrete difference of two unit-residue tests now detects exact scalar integrality of the full doubled family. The all-test half-normalization obstruction is proved for every such character at p=2, including imprimitive ones; odd-prime normalization was supplied previously. Principal tame characters beyond the level-one boundary, general character-pair constants, classical character Eisenstein existence/normalization and analytic weight-space comparisons remain open. The localized principal zeta theory stays separate. Eleven requests, fifteen gaps and zero closed stages remain; the missing pinned TwistedDivisorSum artifact still prevents full-module compilation. The positive part now has a native continuous power-series-valued measure, uniform coefficient bounds, test and weight congruences, and whole-series comparison with the actual p-stabilized modular form after removing its constant coefficient. Assemble the full family with the actual localized A₀ coefficient, prove constant-term congruences with denominator qualifications, and decompose the tame-character extension. Geometric affinoid realization and Hida–Coleman control belong to PadicFamilies; retain the weight shift recorded in E9."
     },
     {
       "title": "Canonical coefficient-field character evaluation of actual pseudomeasures",
@@ -42476,36 +42780,36 @@
   "checks": {
     "blueprint": "Zero errors and warnings with the unmodified pinned index.",
     "intake": "Exactly four authorized deliverables; zero problems.",
-    "sourceIssues": "All16 findings, sourceVersions and eleven requests remain whole. All fifteen gaps remain open; no new source erratum or independent verdict.",
+    "sourceIssues": "All16 findings, sourceVersions and eleven requests remain whole; all fifteen gaps remain open. The new obstruction is a worker consequence, not a source erratum or independent verdict.",
     "validation": {
-      "nodes": 630,
+      "nodes": 634,
       "kinds": {
         "definition": 1,
-        "lemma": 245,
+        "lemma": 246,
         "construction": 71,
-        "theorem": 192,
+        "theorem": 195,
         "comparison": 121
       },
       "api": 538,
-      "packetTests": 1050,
+      "packetTests": 1060,
       "definitionConstructionTests": 303,
-      "typedExamples": 1053,
+      "typedExamples": 1063,
       "planets": 24,
-      "baseline": 539,
-      "preservedWholeNodes": 625,
-      "preservedBaseline": 536,
+      "baseline": 545,
+      "preservedWholeNodes": 630,
+      "preservedBaseline": 539,
       "preservedSourceIssues": 16,
       "newSourceIssues": 0,
-      "newNodes": 5,
-      "newNamedDeclarations": 15,
-      "newTypedTests": 14,
+      "newNodes": 4,
+      "newNamedDeclarations": 4,
+      "newTypedTests": 10,
       "requests": 11,
       "gaps": 15,
       "closedStages": 0,
-      "reachableNodes": 886,
-      "dependencyEdges": 4357,
+      "reachableNodes": 890,
+      "dependencyEdges": 4388,
       "acyclic": true,
-      "baselineLeaves": 717,
+      "baselineLeaves": 723,
       "stageRequestLeaves": [
         "AdicSpacesPartII:F1",
         "AdicSpacesPartII:R2",
@@ -42517,7 +42821,7 @@
         "PadicMeasuresIwasawaAlgebras:L2",
         "PadicMeasuresIwasawaAlgebras:L3"
       ],
-      "readerWords": 303830,
+      "readerWords": 306865,
       "scopedMutationCheck": true,
       "correctedPredecessorNodes": 0,
       "fullSuggestedCompiled": false,
@@ -42543,24 +42847,26 @@
       "missingPinnedTauArtifacts": [
         "TauCeti.NumberTheory.ArithmeticFunction.TwistedDivisorSum"
       ],
-      "scratchCompleteDefinitions": 1,
-      "scratchCompleteLemmas": 10,
-      "scratchMathlibModules": 2816,
+      "scratchCompleteDefinitions": 0,
+      "scratchCompleteLemmas": 14,
+      "scratchMathlibModules": 2817,
       "scratchTauModules": 0,
       "scratchErrors": 0,
       "scratchWarnings": 0,
       "scratchPlaceholders": 0,
       "finiteControls": {
-        "integralHalfResidues": 1326,
-        "halfUnitQuotients": 24,
-        "normalizedTestConstants": 189,
-        "normalizedTestPositiveCoefficients": 6048,
-        "normalizedWeightConstants": 33,
-        "normalizedWeightPositiveCoefficients": 1056,
-        "finiteLevelAbovePrecision": 33,
-        "triadicConstantChecks": 2,
-        "raisedLevelConstantChecks": 2,
-        "dyadicObstructionChecks": 3
+        "primeCharacterPairs": 53,
+        "cyclicShiftIdentities": 36346,
+        "unitWitnesses": 106,
+        "scalarWitnessChecks": 848,
+        "integralScalarChecks": 608,
+        "nonintegralScalarDetections": 240,
+        "dyadicHalfObstructions": 28,
+        "naiveQuotientAdditionFailures": 106,
+        "nonrealCharacterPairs": 8,
+        "nonrealCyclicShifts": 712,
+        "nonrealUnitWitnesses": 8,
+        "principalLevelOneChecks": 64
       },
       "numericalControlsCertified": false,
       "newRoutesStageLeaves": []
@@ -42570,7 +42876,7 @@
       "compiled": false,
       "errors": null,
       "warnings": null,
-      "sha256": "6379f6e5b8cbef131544259921b3310a27634d7019f9b460b594801858ce87a2",
+      "sha256": "5ce1c41d38273c786ae06cc65c407b2cbcab759ad1464728faff4fe6876461e7",
       "missingNativeArtifacts": [
         "TauCeti.NumberTheory.ArithmeticFunction.TwistedDivisorSum"
       ],
@@ -42585,11 +42891,11 @@
         }
       },
       "nativeProbe": {
-        "completeLemmas": 10,
+        "completeLemmas": 14,
         "errors": 0,
         "warnings": 0,
         "placeholders": 0,
-        "sha256": "d567ad474796bddb61873c7df35e126c0f68f8f742efbfe1ed54ca21e11ff089"
+        "sha256": "43b984da28fba5db78e5d41a338675ce7434dbfafc4f9529ff06029f184e542c"
       },
       "sourceAndAvailableArtifactAudit": {
         "compiledSupplierNodes": 332,
@@ -42676,7 +42982,7 @@
       }
     },
     "publication": {
-      "base": "2bbf269f6c54f54622a5b2568f5bc89a88fd03f8",
+      "base": "b8f21724739bc5c38de0fce0529b984f067f2e56",
       "unchangedInputs": 66,
       "unchangedOutputs": 4,
       "sameSessionFollowupAfterMerge": true,
@@ -49019,6 +49325,49 @@
         "dyadicObstructionChecks": 3
       },
       "numericalMethod": "Exact rational residue masses and Bernoulli-polynomial constants, with integer divisor sums and modular inverses of two. Fixed quadratic finite characters may be presented at higher p-power level without changing their values; calculations use their level-one representatives. These finite checks do not establish infinite measure construction or analytic interpolation. The separate complete native probe proves the scalar constructor, certificate, coefficient-image, bound and congruence arguments.",
+      "fullSuggestedCompiled": false
+    },
+    "tameScalarIntegrality": {
+      "agent": "Codex",
+      "session": "codex-7e92bd",
+      "issue": 713,
+      "claimComment": 5854790528,
+      "winningBot": 5854791937,
+      "previousPR": 4803,
+      "previousHead": "b3ea2890dae103c75260163e7dda942ac4737c74",
+      "previousMerge": "1b75b3376bbaca6bf692a0a341d4f8085e43063b",
+      "preservedWholeNodes": 630,
+      "preservedBaseline": 539,
+      "preservedFindings": 16,
+      "newNodes": 4,
+      "reading": "Freshly read the whole actual tame-residue node with its finite cyclic proof, characteristic-zero uniqueness boundary and all prerequisites, and the existing doubled constant-residue and normalized-congruence interfaces. Read native character-sum vanishing, unit multiplication and additive translation permutations, finite range splittings, Fin/range equivalence, canonical residue values, unit/coprimality criteria, unbounded natural powers and p-adic scalar norms with their ambient hypotheses. Fourteen complete native lemmas check the finite algebra, representative construction, scalar lift criterion and dyadic norm bound. Source passages and the reviewed L4 audit remain the retained basis; no new whole-paper or independent review is claimed.",
+      "boundary": "For every nonprincipal tame character, a concrete difference of two unit-residue tests now detects exact scalar integrality of the full doubled family. The all-test half-normalization obstruction is proved for every such character at p=2, including imprimitive ones; odd-prime normalization was supplied previously. Principal tame characters beyond the level-one boundary, general character-pair constants, classical character Eisenstein existence/normalization and analytic weight-space comparisons remain open. The localized principal zeta theory stays separate. Eleven requests, fifteen gaps and zero closed stages remain; the missing pinned TwistedDivisorSum artifact still prevents full-module compilation.",
+      "inputBase": "1b75b3376bbaca6bf692a0a341d4f8085e43063b",
+      "sourceBoundary": "All16 findings, sourceVersions and eleven requests remain whole; all fifteen gaps remain open. The new obstruction is a worker consequence, not a source erratum or independent verdict.",
+      "publication": {
+        "base": "b8f21724739bc5c38de0fce0529b984f067f2e56",
+        "unchangedInputs": 66,
+        "unchangedOutputs": 4,
+        "sameSessionFollowupAfterMerge": true,
+        "lastClaimConfirmation": 5854791937,
+        "reviewIssue": 390,
+        "reviewUnclaimed": true
+      },
+      "finiteControls": {
+        "primeCharacterPairs": 53,
+        "cyclicShiftIdentities": 36346,
+        "unitWitnesses": 106,
+        "scalarWitnessChecks": 848,
+        "integralScalarChecks": 608,
+        "nonintegralScalarDetections": 240,
+        "dyadicHalfObstructions": 28,
+        "naiveQuotientAdditionFailures": 106,
+        "nonrealCharacterPairs": 8,
+        "nonrealCyclicShifts": 712,
+        "nonrealUnitWitnesses": 8,
+        "principalLevelOneChecks": 64
+      },
+      "numericalMethod": "Exact rational weighted character sums, canonical unit representatives and rational scalar valuations for quadratic and imprimitive tame characters at several primes. Exact Gaussian rational arithmetic independently checks a nonreal quartic character and its level25 lift. Every cyclic identity and unit-constant witness is exact. The principal level-one control concerns the existing zero-constant doubled positive series. Finite controls supplement, rather than prove, the infinite all-test measure criterion.",
       "fullSuggestedCompiled": false
     }
   },
