@@ -1,0 +1,16 @@
+{
+  "redteam": "RT-BP-DeformationAndDerivedPatchingAlgebra--R03.6",
+  "reviewJob": "REV-RT-BP-DeformationAndDerivedPatchingAlgebra--R03.6",
+  "status": "partial",
+  "findings": [
+    {
+      "finding": "RT-BP-DeformationAndDerivedPatchingAlgebra--R03/1",
+      "verdict": "confirmed",
+      "reason": "Confirmed at atlas commit f63511f24ba4e8f4301a45e44e6a6a9831734d57. The supported-on-components packet node contains seven API entries, including Module.IsSupportedOnComponents.mk, Module.isSupportedOnComponents_of_faithfulSMul and Module.isSupportedOnComponents_of_subsingleton. Their suggested signatures occur at lines 166, 173 and 178, in namespace Module with CommRing/AddCommGroup/Module assumptions. Reader lines 194-196 list only the other four; whole-reader searches for all three unqualified names return zero matches. Its zero-module unit test does not supply the omitted named API. At Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, Module.annihilator_eq_bot (Maps.lean:892), Module.annihilator_eq_top_iff (:901), and the minimal-prime definitions (MinimalPrime/Basic.lean:40,57,63) substantiate the proposed roles: faithful modules have bottom annihilator, subsingleton modules have top annihilator and no primes above it, and the constructor introduces the defining inclusion. Agree with low severity and the proposed reader-only fix; retain the seven packet API entries and existing suggested signatures. No missing mathematical deliverable or new theorem is required."
+    }
+  ],
+  "validation": {
+    "status": "blocked",
+    "reason": "The mandatory CLI splits the dotted basename at its first period and tries to load RT-BP-DeformationAndDerivedPatchingAlgebra--R03.result.json, which is absent. The canonical issue identifier is retained here; the existing result's finding identifier is preserved verbatim. See the report and handoff for reproduction and the separate direct semantic check."
+  }
+}
