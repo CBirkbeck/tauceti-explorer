@@ -1,0 +1,398 @@
+{
+ "family": "RS-27",
+ "roadmaps": {
+  "AlgebraicModuliForArithmeticGeometry": {
+   "action": "keep",
+   "reason": "Algebraic moduli is the general theory (projective parameter spaces, Hilbert and Quot schemes, algebraic spaces, stacks, coarse spaces, deformation comparisons, characteristic-zero resolution) that many roadmaps consume: abelian schemes, PEL and Shimura moduli, Faltings finiteness, local Galois deformation rings, K-theory and GAGA. It is not a continuation of Modular curves in that roadmap's own direction; ModularCurvesPartII already plays that role. By PROTOCOL section 15 a general theory that subsumes an existing roadmap's special cases builds on them: it keeps its place, imports what the anchors plan, and proves its general statements compatible with them. So it is kept, with seven layers narrowed."
+  }
+ },
+ "layers": {
+  "AlgebraicModuliForArithmeticGeometry:R09.1": {
+   "action": "narrow",
+   "keeps": "Projective bundles P(E) = Proj_S(Sym E) of a finite locally free module (and, over a Noetherian base, of a finite module) with O(1), O(n), the invertible-quotient universal property and base change, identified with the rank-one case of Modular curves 0G's relative Grassmannian and with StableReduction layer 2's relative Proj; the cohomology of O(n) on P(E); smoothness of Grassmannians and the Plücker closed immersion (0G states only projectivity and finite presentation); flag schemes, as closed subschemes of products of 0G's Grassmannians, with their universal flags; relative very ampleness and the projective embeddings it defines, on top of layer 2's relative ampleness; Hilbert polynomials, Castelnuovo–Mumford regularity and the boundedness statements in the Noetherian setting its consumers use; the closedness of the Frobenius-stable (semilinear) lattice conditions used by R05 and LocalGaloisDeformationRings L7, derived from 0G's closedness of invariant-subbundle equations; and the incidence and rank loci {dim(F ∩ W) ≥ k} in Grassmannians used by MordellLawrenceVenkatesh.",
+   "suppliedBy": [
+    "tauceti:TauCetiRoadmap/ModularCurves#0g-parameter-spaces-for-subgroup-schemes",
+    "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity"
+   ],
+   "reason": "Modular curves 0G constructs the relative Grassmannian of locally free rank-N quotients of a finite locally free module, with affine charts, transition maps, gluing, universal property, base change and projectivity, and cuts out invariant-subbundle (Hopf-ideal) equations as closed loci. StableReduction layer 2 plans relative ampleness, projective morphisms and relative Proj of a finitely generated graded quasi-coherent algebra. Tau Ceti roadmaps own what they plan, so R09.1 imports both and keeps what they do not plan."
+  },
+  "AlgebraicModuliForArithmeticGeometry:R09.2": {
+   "action": "narrow",
+   "keeps": "Hilbert and Quot schemes with fixed Hilbert polynomial in the projective finite-presentation cases used, realised inside the Grassmannians of Modular curves 0G through R09.1's boundedness, with representability, projectivity of the parameter morphism when the chosen theorem applies, base change, flatness of the universal family (not of H → S) and the dual-number negative example; relative Hom and Isom schemes of projective flat families through Hilbert schemes of graphs, proved to agree with Modular curves 0F's representable Hom functors from a finite locally free source; and the Chow-lemma/proper-modification and coherent dévissage package for proper GAGA.",
+   "suppliedBy": [
+    "tauceti:TauCetiRoadmap/ModularCurves#0f-hom-schemes-and-closed-loci",
+    "tauceti:TauCetiRoadmap/ModularCurves#0g-parameter-spaces-for-subgroup-schemes"
+   ],
+   "reason": "Modular curves 0F owns the representable Hom functors from a finite locally free source (the affine Weil-restriction case) with base change, and 0G the Grassmannian in which parameter spaces are realised. R09.2 keeps the general projective Hilbert, Quot, Hom and Isom theory, which restricts to 0F on finite sources."
+  },
+  "AlgebraicModuliForArithmeticGeometry:R09.3": {
+   "action": "narrow",
+   "keeps": "Algebraic spaces: quotients by étale and fppf equivalence relations as algebraic spaces, their morphisms, fibre products and properties, and descent of fppf sheaves as algebraic spaces; the comparison theorem that on the finite locally free and finite étale equivalence relations of Modular curves 0C, 4C and 9A this quotient is their scheme quotient (cited, not rebuilt); Weil restriction as an algebraic space along finite locally free morphisms for arbitrary targets, with the Stacks 05YC base-change map and 05YF representability, restricting to 0F in the affine case; and effective fppf descent for polarised projective schemes of arbitrary relative dimension and for polarisations of abelian schemes, separating descent of the line bundle from descent of the polarised object, built on 0E's affine and finite cases and StableReduction layer 2's graded-algebra (relative Proj) method.",
+   "suppliedBy": [
+    "tauceti:TauCetiRoadmap/ModularCurves#0c-finite-quotients-and-torsors",
+    "tauceti:TauCetiRoadmap/ModularCurves#0e-effective-descent-and-spreading-out",
+    "tauceti:TauCetiRoadmap/ModularCurves#0f-hom-schemes-and-closed-loci",
+    "tauceti:TauCetiRoadmap/ModularCurves#1e-the-cubic-polarisation-and-elliptic-descent",
+    "tauceti:TauCetiRoadmap/ModularCurves#4c-rigidifiers-and-km-470",
+    "tauceti:TauCetiRoadmap/ModularCurves#9a-katzmazur-quotient-problems",
+    "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity"
+   ],
+   "reason": "Modular curves layer 0 owns quotients by finite locally free equivalence relations and free finite group actions (0C), effective faithfully flat descent for affine and finite locally free schemes, sections, morphisms, polarised projective curves, group objects, finite locally free subgroup schemes, level structures and torsors (0E), and affine Weil restriction (0F). 1E applies descent to elliptic curves with their cubic polarisation, and 4C and 9A build the finite étale quotients of rigidified and quotient moduli problems. StableReduction layer 2 owns étale descent of polarised schemes through relative Proj. R09.3 keeps the general algebraic-space theory, which subsumes these special cases; it cites them and proves compatibility, as its own document already asks for #81."
+  },
+  "AlgebraicModuliForArithmeticGeometry:R09.4": {
+   "action": "narrow",
+   "keeps": "General categories fibred in groupoids, stacks and stackification, representable diagonals, smooth and étale atlases, algebraic and Deligne–Mumford stacks with their distinct separatedness, properness and tameness properties, quotient stacks, and the algebraicity of the moduli stacks of generalised elliptic curves and polarised abelian schemes; and the comparison showing that the stack of elliptic curves restricts to Modular curves 4A's Ell/R, with relative representability over Ell/R equal to representability of morphisms of stacks.",
+   "suppliedBy": [
+    "tauceti:TauCetiRoadmap/ModularCurves#4a-moduli-problems-over-ellr"
+   ],
+   "reason": "Modular curves 4A owns the fibred category Ell/R and representability, affineness, finiteness, flatness and étaleness relative to it. 4A says it is not a general theory of stacks, so the general theory stays in R09.4, which cites 4A for the elliptic case."
+  },
+  "AlgebraicModuliForArithmeticGeometry:R09.5": {
+   "action": "narrow",
+   "keeps": "The general coarse-space theorem for algebraic stacks with finite inertia, with the base-change statements actually available (flat base change and the tame case), for the generalised-elliptic-curve and polarised-abelian-scheme stacks; auxiliary prime-to-characteristic level for abelian schemes and generalised elliptic curves; normalisation, schematic closure and descent of finite correspondences for Deligne–Mumford stacks; and the proof that on Modular curves' affine problems over Ell this recovers 9D's M(𝒫) with its base-change statements (KM 8.1.6), and 9E's coarse j-line for [Γ(1)].",
+   "suppliedBy": [
+    "tauceti:TauCetiRoadmap/ModularCurves#4c-rigidifiers-and-km-470",
+    "tauceti:TauCetiRoadmap/ModularCurves#9d-coarse-moduli-schemes-and-finite-quotients",
+    "tauceti:TauCetiRoadmap/ModularCurves#9e-the-coarse-j-line-and-y₀n"
+   ],
+   "reason": "Modular curves 4C owns rigidification of elliptic moduli by auxiliary level (KM 4.7.0), and 9D–9E own coarse moduli schemes of affine problems over Ell as finite quotients with base change, including the coarse j-line. The link-rescope evidence records the same split: R09.5 keeps the general finite-inertia theorem and does not rebuild elliptic rigidification."
+  },
+  "AlgebraicModuliForArithmeticGeometry:R09.6": {
+   "action": "narrow",
+   "keeps": "The general comparison between the deformation functor at a geometric point of an algebraic stack, with stabilisers and versality, and the completed local ring of the constructed scheme or stack; algebraisation with effectivity; Artin representability with its hypotheses, for the abelian, PEL and generalised-elliptic moduli; and the check that on rigidified elliptic moduli it gives Modular curves 7B's identification and 7D's universal deformation over W(k)[[T]].",
+   "suppliedBy": [
+    "tauceti:TauCetiRoadmap/ModularCurves#7b-local-algebra-and-local-schemes",
+    "tauceti:TauCetiRoadmap/ModularCurves#7d-universal-deformations-of-elliptic-curves"
+   ],
+   "reason": "Modular curves 7B identifies the completed strict-henselian local rings of rigidified finite elliptic moduli schemes with the rings prorepresenting their deformation groupoids, and 7D constructs the universal deformation of an elliptic curve. These are special cases that R09.6 imports."
+  },
+  "AlgebraicModuliForArithmeticGeometry:R09.7": {
+   "action": "keep",
+   "reason": "The aggregate characteristic-zero resolution stage keeps its scope. The blowup package flagged against StableReduction layer 4 is its child R09.7a's, and is narrowed there."
+  },
+  "AlgebraicModuliForArithmeticGeometry:R09.7a": {
+   "action": "narrow",
+   "keeps": "Total, strict and controlled transforms of ideals and marked ideals under blowups in smooth centres; simple normal-crossings boundary divisors and permissible centres transverse to the accumulated boundary; marked ideals and their equivalence under the admissible transformations of the algorithm; the local order and exceptional-multiplicity calculations; and the smooth base-change comparison for these transforms, in characteristic zero.",
+   "suppliedBy": [
+    "tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces"
+   ],
+   "reason": "StableReduction layer 4 owns the Rees-algebra blowup of a quasi-coherent finite-type ideal as a relative Proj, with its universal property, properness and projectivity, flat base change, behaviour away from the centre, exceptional divisor, strict transform and affine charts. R09.7a imports that package and keeps the resolution-specific marked-ideal machinery; its characteristic-zero algorithm is not what layer 4's arithmetic-surface resolution provides."
+  },
+  "AlgebraicModuliForArithmeticGeometry:A0-extension": {
+   "action": "narrow",
+   "keeps": "Coherent cohomology and base change for proper flat morphisms of finite presentation over non-Noetherian bases, with the Tor-amplitude and perfect-complex hypotheses stated in each result, extending StableReduction layer 2's locally Noetherian theorems in all relative dimensions; the relative degree-zero Picard representability criteria for abelian schemes through algebraic spaces and Artin's criterion (limit preservation, representable diagonal, deformation and obstruction theory, openness of versality, algebraisation), verified in every PEL application; analytification on étale presentations with descent of local-isomorphism comparisons; and finiteness of normalisation under excellence.",
+   "suppliedBy": [
+    "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity"
+   ],
+   "reason": "StableReduction layer 2 plans coherent pushforward under proper morphisms over locally Noetherian bases, with the full cohomology-and-base-change theorem, Grauert's theorem and upper semicontinuity, stated for proper morphisms in general and specialised to curves only afterwards. A0-extension imports these and keeps the finite-presentation extension and the Picard and Artin material."
+  }
+ },
+ "links": [
+  {
+   "source": "tauceti:TauCetiRoadmap/ModularCurves#0g-parameter-spaces-for-subgroup-schemes",
+   "target": "AlgebraicModuliForArithmeticGeometry:R09.1",
+   "reason": "The relative Grassmannian of locally free quotients, and closedness of invariant-subbundle equations, which R09.1 now imports."
+  },
+  {
+   "source": "tauceti:TauCetiRoadmap/ModularCurves#0g-parameter-spaces-for-subgroup-schemes",
+   "target": "AlgebraicModuliForArithmeticGeometry:R09.2",
+   "reason": "The relative Grassmannian of locally free quotients in which Hilbert and Quot schemes are realised."
+  },
+  {
+   "source": "tauceti:TauCetiRoadmap/ModularCurves#0g-parameter-spaces-for-subgroup-schemes",
+   "target": "LocalGaloisDeformationRings:L7",
+   "reason": "L7's lattice moduli sit in Grassmannians of finite projective modules over Artinian rings: the relative Grassmannian of locally free quotients; R09.1 still supplies the Frobenius-stable lattice closedness."
+  },
+  {
+   "source": "tauceti:TauCetiRoadmap/ModularCurves#0g-parameter-spaces-for-subgroup-schemes",
+   "target": "MordellLawrenceVenkatesh:LV.3",
+   "reason": "The Grassmannian of a finite-dimensional vector space with its charts and projectivity is the field case of the relative Grassmannian of locally free quotients; R09.1 keeps smoothness and the Plücker immersion."
+  },
+  {
+   "source": "tauceti:TauCetiRoadmap/ModularCurves#0g-parameter-spaces-for-subgroup-schemes",
+   "target": "MordellLawrenceVenkatesh:LV.7",
+   "reason": "The projective Grassmannian used for closed incidence loci is the field case of the relative Grassmannian of locally free quotients; R09.1 keeps the rank loci."
+  },
+  {
+   "source": "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity",
+   "target": "AlgebraicModuliForArithmeticGeometry:R09.1",
+   "reason": "Relative ampleness, projective morphisms and relative Proj, on which projective bundles and very ampleness are built."
+  },
+  {
+   "source": "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity",
+   "target": "AlgebraicModuliForArithmeticGeometry:R09.3",
+   "reason": "Effective étale descent of polarised schemes through relative Proj, generalised by R09.3 to fppf descent in all dimensions."
+  },
+  {
+   "source": "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity",
+   "target": "AlgebraicModuliForArithmeticGeometry:A0-extension",
+   "reason": "Cohomology and base change, Grauert and semicontinuity for proper morphisms over locally Noetherian bases."
+  },
+  {
+   "source": "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity",
+   "target": "AbelianSchemesAndArithmeticModuli:A0",
+   "reason": "A0 relied on A0-extension for proper-flat cohomology and base change; the locally Noetherian theorems now come from StableReduction layer 2."
+  },
+  {
+   "source": "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity",
+   "target": "AbelianSchemesAndArithmeticModuli:A1",
+   "reason": "A1 consumed A0-extension; the locally Noetherian cohomology-and-base-change part of that supply is now StableReduction layer 2's."
+  },
+  {
+   "source": "tauceti:TauCetiRoadmap/ModularCurves#0f-hom-schemes-and-closed-loci",
+   "target": "AlgebraicModuliForArithmeticGeometry:R09.2",
+   "reason": "Representable Hom functors from a finite locally free source, the finite case of R09.2's Hom schemes."
+  },
+  {
+   "source": "tauceti:TauCetiRoadmap/ModularCurves#0f-hom-schemes-and-closed-loci",
+   "target": "AlgebraicModuliForArithmeticGeometry:R09.3",
+   "reason": "Affine Weil restriction, extended by R09.3 to algebraic spaces for arbitrary targets."
+  },
+  {
+   "source": "tauceti:TauCetiRoadmap/ModularCurves#0f-hom-schemes-and-closed-loci",
+   "target": "ReductiveGroupsPartII:RG2.0a",
+   "reason": "Restriction of scalars of affine finite-type schemes along a finite locally free base map is Modular curves 0F's affine Weil restriction."
+  },
+  {
+   "source": "tauceti:TauCetiRoadmap/ModularCurves#0c-finite-quotients-and-torsors",
+   "target": "AlgebraicModuliForArithmeticGeometry:R09.3",
+   "reason": "Finite locally free equivalence-relation quotients and free finite group actions, the scheme cases of R09.3's quotients."
+  },
+  {
+   "source": "tauceti:TauCetiRoadmap/ModularCurves#0c-finite-quotients-and-torsors",
+   "target": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1",
+   "reason": "Finite locally free quotients and finite group-scheme torsors, which R07.1 reached through R09.3."
+  },
+  {
+   "source": "tauceti:TauCetiRoadmap/ModularCurves#0c-finite-quotients-and-torsors",
+   "target": "AbelianSchemesAndArithmeticModuli:A0",
+   "reason": "Finite locally free quotients and finite group-scheme torsors, which A0 reached through R09.3."
+  },
+  {
+   "source": "tauceti:TauCetiRoadmap/ModularCurves#0e-effective-descent-and-spreading-out",
+   "target": "AlgebraicModuliForArithmeticGeometry:R09.3",
+   "reason": "Effective faithfully flat descent for affine and finite locally free schemes, sections, morphisms, polarised curves, group objects, subgroups and torsors."
+  },
+  {
+   "source": "tauceti:TauCetiRoadmap/ModularCurves#0e-effective-descent-and-spreading-out",
+   "target": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1",
+   "reason": "Effective descent of finite locally free schemes, group objects and their homomorphisms, which R07.1 reached through R09.3."
+  },
+  {
+   "source": "tauceti:TauCetiRoadmap/ModularCurves#0e-effective-descent-and-spreading-out",
+   "target": "HeightsRationalPointsAndObstructions:RP.3",
+   "reason": "Effective descent of finite group-scheme torsors, formerly reached through R09.3."
+  },
+  {
+   "source": "tauceti:TauCetiRoadmap/ModularCurves#0e-effective-descent-and-spreading-out",
+   "target": "AbelianSchemesAndArithmeticModuli:A0",
+   "reason": "Effective descent for affine and finite locally free objects and group objects, which A0 reached through R09.3."
+  },
+  {
+   "source": "tauceti:TauCetiRoadmap/ModularCurves#1e-the-cubic-polarisation-and-elliptic-descent",
+   "target": "AlgebraicModuliForArithmeticGeometry:R09.3",
+   "reason": "Descent of an elliptic curve with its cubic polarisation, the elliptic case of R09.3's descent of polarised objects."
+  },
+  {
+   "source": "tauceti:TauCetiRoadmap/ModularCurves#4c-rigidifiers-and-km-470",
+   "target": "AlgebraicModuliForArithmeticGeometry:R09.3",
+   "reason": "The finite étale equivalence-relation quotient of rigidified elliptic moduli, with which R09.3's quotients are compared."
+  },
+  {
+   "source": "tauceti:TauCetiRoadmap/ModularCurves#4c-rigidifiers-and-km-470",
+   "target": "AlgebraicModuliForArithmeticGeometry:R09.5",
+   "reason": "Rigidification of elliptic moduli by auxiliary level (KM 4.7.0)."
+  },
+  {
+   "source": "tauceti:TauCetiRoadmap/ModularCurves#9a-katzmazur-quotient-problems",
+   "target": "AlgebraicModuliForArithmeticGeometry:R09.3",
+   "reason": "Katz–Mazur quotient problems, with which R09.3's quotients are compared."
+  },
+  {
+   "source": "tauceti:TauCetiRoadmap/ModularCurves#4a-moduli-problems-over-ellr",
+   "target": "AlgebraicModuliForArithmeticGeometry:R09.4",
+   "reason": "The fibred category Ell/R and relative representability over it, the elliptic case of R09.4's stacks."
+  },
+  {
+   "source": "tauceti:TauCetiRoadmap/ModularCurves#9d-coarse-moduli-schemes-and-finite-quotients",
+   "target": "AlgebraicModuliForArithmeticGeometry:R09.5",
+   "reason": "Coarse moduli schemes of affine problems over Ell with the KM 8.1 base-change statements, which R09.5's general theorem recovers."
+  },
+  {
+   "source": "tauceti:TauCetiRoadmap/ModularCurves#9e-the-coarse-j-line-and-y₀n",
+   "target": "AlgebraicModuliForArithmeticGeometry:R09.5",
+   "reason": "The coarse j-line, used as R09.5's check on [Γ(1)]."
+  },
+  {
+   "source": "tauceti:TauCetiRoadmap/ModularCurves#7b-local-algebra-and-local-schemes",
+   "target": "AlgebraicModuliForArithmeticGeometry:R09.6",
+   "reason": "Completed local rings of rigidified elliptic moduli schemes as prorepresenting rings."
+  },
+  {
+   "source": "tauceti:TauCetiRoadmap/ModularCurves#7d-universal-deformations-of-elliptic-curves",
+   "target": "AlgebraicModuliForArithmeticGeometry:R09.6",
+   "reason": "Universal deformations of elliptic curves."
+  },
+  {
+   "source": "tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces",
+   "target": "AlgebraicModuliForArithmeticGeometry:R09.7a",
+   "reason": "The Rees-algebra blowup package that R09.7a imports."
+  },
+  {
+   "source": "tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces",
+   "target": "SchemeKTheoryOperations:S.5",
+   "reason": "S.5 requested Rees-algebra blowups from R09.7a; the blowup with universal property, charts and flat base change is StableReduction layer 4's."
+  },
+  {
+   "source": "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity",
+   "target": "AlgebraicModuliForArithmeticGeometry:R09.2",
+   "reason": "Forwarding for the narrowed R09.1 (REV-RS-27 correction): the projective Hilbert and Quot constructions use relative ampleness, projective morphisms and relative Proj, which StableReduction layer 2 now owns; R09.1 keeps relative very ampleness, Hilbert polynomials and boundedness."
+  },
+  {
+   "source": "tauceti:TauCetiRoadmap/ModularCurves#1e-the-cubic-polarisation-and-elliptic-descent",
+   "target": "AlgebraicModuliForArithmeticGeometry:R09.4",
+   "reason": "Forwarding for the narrowed R09.3 (REV-RS-27 correction): the algebraicity of the moduli stack of elliptic curves uses effective descent of elliptic curves with their polarisation, group law and level structures, the stack condition, which Modular curves 1E now owns; R09.3 keeps the general algebraic-space theory and fppf descent of polarised projective schemes in all dimensions."
+  },
+  {
+   "source": "tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces",
+   "target": "AlgebraicModuliForArithmeticGeometry:R09.7b",
+   "reason": "Forwarding for the narrowed R09.7a (REV-RS-27 correction): the local invariant and maximal-contact argument works on Rees-algebra blowups and their affine charts, which StableReduction layer 4 now owns; R09.7a keeps the transforms and marked ideals."
+  }
+ ],
+ "owners": [
+  {
+   "target": "The relative Grassmannian scheme of locally free rank-N quotients of a finite locally free module: affine charts, gluing, universal property, base change and projectivity",
+   "owner": "tauceti:TauCetiRoadmap/ModularCurves#0g-parameter-spaces-for-subgroup-schemes",
+   "formerly": [
+    "AlgebraicModuliForArithmeticGeometry:R09.1"
+   ]
+  },
+  {
+   "target": "Closedness of the equations defining invariant subbundles (Hopf-ideal and stability conditions) in a Grassmannian",
+   "owner": "tauceti:TauCetiRoadmap/ModularCurves#0g-parameter-spaces-for-subgroup-schemes",
+   "formerly": [
+    "AlgebraicModuliForArithmeticGeometry:R09.1"
+   ]
+  },
+  {
+   "target": "Relative ampleness, projective morphisms and relative Proj of a finitely generated graded quasi-coherent algebra",
+   "owner": "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity",
+   "formerly": [
+    "AlgebraicModuliForArithmeticGeometry:R09.1"
+   ]
+  },
+  {
+   "target": "Coherent pushforward under proper morphisms over locally Noetherian bases, R^i f_*, cohomology and base change, Grauert's theorem and semicontinuity",
+   "owner": "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity",
+   "formerly": [
+    "AlgebraicModuliForArithmeticGeometry:A0-extension"
+   ]
+  },
+  {
+   "target": "Representable Hom functors from a finite locally free source to an affine finitely presented scheme (affine Weil restriction), with base change",
+   "owner": "tauceti:TauCetiRoadmap/ModularCurves#0f-hom-schemes-and-closed-loci",
+   "formerly": [
+    "AlgebraicModuliForArithmeticGeometry:R09.2",
+    "AlgebraicModuliForArithmeticGeometry:R09.3"
+   ]
+  },
+  {
+   "target": "Quotients of affine schemes by finite locally free equivalence relations and by free finite group actions, and finite group-scheme torsors",
+   "owner": "tauceti:TauCetiRoadmap/ModularCurves#0c-finite-quotients-and-torsors",
+   "formerly": [
+    "AlgebraicModuliForArithmeticGeometry:R09.3"
+   ]
+  },
+  {
+   "target": "Effective faithfully flat descent for affine and finite locally free schemes, sections, morphisms, polarised projective relative curves, group objects, finite locally free subgroup schemes, level structures and torsors",
+   "owner": "tauceti:TauCetiRoadmap/ModularCurves#0e-effective-descent-and-spreading-out",
+   "formerly": [
+    "AlgebraicModuliForArithmeticGeometry:R09.3"
+   ]
+  },
+  {
+   "target": "Effective étale descent of schemes with a relatively ample invertible sheaf through the graded section algebra and relative Proj",
+   "owner": "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity",
+   "formerly": [
+    "AlgebraicModuliForArithmeticGeometry:R09.3"
+   ]
+  },
+  {
+   "target": "Descent of elliptic curves with the cubic polarisation O(3[0]), their group law, subgroups and level structures",
+   "owner": "tauceti:TauCetiRoadmap/ModularCurves#1e-the-cubic-polarisation-and-elliptic-descent",
+   "formerly": [
+    "AlgebraicModuliForArithmeticGeometry:R09.3"
+   ]
+  },
+  {
+   "target": "Rigidifiers of elliptic moduli problems and the finite étale equivalence-relation quotient of KM 4.7.0",
+   "owner": "tauceti:TauCetiRoadmap/ModularCurves#4c-rigidifiers-and-km-470",
+   "formerly": [
+    "AlgebraicModuliForArithmeticGeometry:R09.3",
+    "AlgebraicModuliForArithmeticGeometry:R09.5"
+   ]
+  },
+  {
+   "target": "Katz–Mazur quotient problems 𝒫/H and their finite quotient schemes",
+   "owner": "tauceti:TauCetiRoadmap/ModularCurves#9a-katzmazur-quotient-problems",
+   "formerly": [
+    "AlgebraicModuliForArithmeticGeometry:R09.3"
+   ]
+  },
+  {
+   "target": "The fibred category Ell/R of elliptic curves and representability properties relative to it",
+   "owner": "tauceti:TauCetiRoadmap/ModularCurves#4a-moduli-problems-over-ellr",
+   "formerly": [
+    "AlgebraicModuliForArithmeticGeometry:R09.4"
+   ]
+  },
+  {
+   "target": "Coarse moduli schemes of affine moduli problems over Ell as finite quotients of rigidified moduli, with the KM 8.1 base-change statements",
+   "owner": "tauceti:TauCetiRoadmap/ModularCurves#9d-coarse-moduli-schemes-and-finite-quotients",
+   "formerly": [
+    "AlgebraicModuliForArithmeticGeometry:R09.5"
+   ]
+  },
+  {
+   "target": "The coarse j-line M([Γ(1)]) = Spec R[j] and Y₀(N)",
+   "owner": "tauceti:TauCetiRoadmap/ModularCurves#9e-the-coarse-j-line-and-y₀n",
+   "formerly": [
+    "AlgebraicModuliForArithmeticGeometry:R09.5"
+   ]
+  },
+  {
+   "target": "Identification of the completed strict-henselian local ring of a rigidified finite elliptic moduli scheme with the ring prorepresenting its deformation groupoid",
+   "owner": "tauceti:TauCetiRoadmap/ModularCurves#7b-local-algebra-and-local-schemes",
+   "formerly": [
+    "AlgebraicModuliForArithmeticGeometry:R09.6"
+   ]
+  },
+  {
+   "target": "The universal deformation of an elliptic curve over W(k)[[T]] and its comparison with completed local rings",
+   "owner": "tauceti:TauCetiRoadmap/ModularCurves#7d-universal-deformations-of-elliptic-curves",
+   "formerly": [
+    "AlgebraicModuliForArithmeticGeometry:R09.6"
+   ]
+  },
+  {
+   "target": "The Rees-algebra blowup of a quasi-coherent finite-type ideal as relative Proj, with universal property, projectivity, flat base change, exceptional divisor, strict transform and affine charts",
+   "owner": "tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces",
+   "formerly": [
+    "AlgebraicModuliForArithmeticGeometry:R09.7a",
+    "AlgebraicModuliForArithmeticGeometry:R09.7"
+   ]
+  }
+ ],
+ "review": {
+  "status": "accepted",
+  "reviewer": "independent-review-REV-RS-27",
+  "date": "2026-09-29",
+  "notes": "Independent review by Claude Code, session cc-58621d, of the proposal by Claude Code session cc-fb70e5 (#3954), at main d62a8362. Read the member document in full, all twelve stages (nine listed in the proposal, R09.7b–R09.7d unchanged), the seventeen owner records, the thirty-one links, the family file and the report, and every anchor layer the proposal names (Modular curves 0C, 0E, 0F, 0G, 1E, 4A, 4C, 7B, 7D, 9A, 9D, 9E; Stable reduction layers 2 and 4). The keep decision is PROTOCOL section 15's rule for a general theory subsuming special cases; the anchors are unchanged; each narrowed layer states what it keeps and every moved piece has one anchor owner. The anchor layers do state what the owners claim: SR layer 2 proves cohomology and base change, Grauert and semicontinuity for proper morphisms over locally Noetherian bases before specializing to curves, SR layer 4 the Rees-algebra blowup as relative Proj, MC 0F the general finite-locally-free Weil restriction; MC 0G's Grassmannian is built for the Hopf algebra as a finite locally free module, the generality point the report already flags. On the current assembled atlas the links are acyclic and five already exist. Forwarding: for every consumer of a narrowed layer without a supplier link I checked for another path to the supplier and read its text; three later AM layers relied on moved pieces and lacked links (corrected below). The two links to MordellLawrenceVenkatesh LV.3 and LV.7 name a designed roadmap not yet in the atlas; restructure.py records them as skipped until it is promoted. check_restructure.py passes before and after the correction. Report: research/blueprint/reviews/REV-RS-27.md.",
+  "corrections": [
+   "Added the link StableReduction layer 2 -> R09.2: R09.2's projective Hilbert and Quot constructions use relative ampleness, projective morphisms and relative Proj, which R09.1 no longer owns.",
+   "Added the link Modular curves 1E -> R09.4: R09.4's algebraicity of the moduli stack of elliptic curves uses effective descent of elliptic curves, which R09.3 no longer owns.",
+   "Added the link StableReduction layer 4 -> R09.7b: R09.7b's local invariant works on the Rees-algebra blowups that R09.7a no longer owns.",
+   "Added this review object."
+  ]
+ }
+}
