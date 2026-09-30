@@ -9172,3 +9172,169 @@ example (n : ℕ+) (f g : C((ℤ_[p])ˣ,K)) (b : ℝ) (h : ‖f-g‖≤b) :
 end Bounds
 end
 end SuggestedTwistedEisensteinTests
+
+/-! Integral character-weighted positive Eisenstein coefficients. The native
+integer subring and the existing integral arithmetic characters are reused. -/
+namespace DirichletPadic
+noncomputable section
+open scoped AbstractMeasure BigOperators
+variable (p : ℕ) [Fact p.Prime]
+variable {K : Type*} [NormedField K] [IsUltrametricDist K] {D E : ℕ}
+local notation "U" => (ℤ_[p])ˣ
+local notation "O" => Valuation.integer (NormedField.valuation (K := K))
+local notation "iMap" => (ContinuousMap.mk Subtype.val continuous_subtype_val : C(O,K))
+
+def integralTwistedPositiveEisensteinMeasure (ψ : DirichletCharacter K D)
+    (φ : DirichletCharacter K E) (n : ℕ+) : D(U,O) := sorry
+
+lemma integralTwistedPositiveEisensteinMeasure_eq_sum (ψ : DirichletCharacter K D)
+    (φ : DirichletCharacter K E) (n : ℕ+) :
+    integralTwistedPositiveEisensteinMeasure p ψ φ n=
+      ∑ d∈(n : ℕ).divisors, if hd : ¬p∣d then
+        (⟨ψ ((n : ℕ)/d)*φ d, by
+          rw [Valuation.mem_integer_iff, NormedField.valuation_apply]
+          have hb : ‖ψ ((n : ℕ)/d)*φ d‖≤1 := by
+            rw [norm_mul]
+            calc
+              _ ≤ 1*1 := mul_le_mul (ψ.norm_le_one _) (φ.norm_le_one _)
+                (norm_nonneg _) zero_le_one
+              _ = 1 := one_mul _
+          exact_mod_cast hb⟩ : O) • AbstractMeasure.dirac O
+          (PadicInt.isUnit_iff.mpr (PadicInt.norm_natCast_eq_one_iff.mpr
+            ((Fact.out : p.Prime).coprime_iff_not_dvd.mpr hd))).unit else 0 := sorry
+
+lemma integralTwistedPositiveEisensteinMeasure_apply (ψ : DirichletCharacter K D)
+    (φ : DirichletCharacter K E) (n : ℕ+) (f : C(U,O)) :
+    integralTwistedPositiveEisensteinMeasure p ψ φ n f=
+      ∑ d∈(n : ℕ).divisors, if hd : ¬p∣d then
+        (⟨ψ ((n : ℕ)/d)*φ d, by
+          rw [Valuation.mem_integer_iff, NormedField.valuation_apply]
+          have hb : ‖ψ ((n : ℕ)/d)*φ d‖≤1 := by
+            rw [norm_mul]
+            calc
+              _ ≤ 1*1 := mul_le_mul (ψ.norm_le_one _) (φ.norm_le_one _)
+                (norm_nonneg _) zero_le_one
+              _ = 1 := one_mul _
+          exact_mod_cast hb⟩ : O) * f
+          (PadicInt.isUnit_iff.mpr (PadicInt.norm_natCast_eq_one_iff.mpr
+            ((Fact.out : p.Prime).coprime_iff_not_dvd.mpr hd))).unit else 0 := sorry
+
+theorem coe_integralTwistedPositiveEisensteinMeasure_apply
+    (ψ : DirichletCharacter K D) (φ : DirichletCharacter K E)
+    (n : ℕ+) (f : C(U,O)) :
+    (integralTwistedPositiveEisensteinMeasure p ψ φ n f : K)=
+      twistedPositiveEisensteinMeasure p ψ φ n ((iMap).comp f) := sorry
+
+lemma integralTwistedPositiveEisensteinMeasure_one (ψ : DirichletCharacter K D)
+    (φ : DirichletCharacter K E) :
+    integralTwistedPositiveEisensteinMeasure p ψ φ 1=AbstractMeasure.dirac O 1 := sorry
+
+lemma integralTwistedPositiveEisensteinMeasure_unique_coefficient
+    (ψ : DirichletCharacter K D) (φ : DirichletCharacter K E) (n : ℕ+)
+    (ν : D(U,O)) (hν : ∀ f : C(U,O), (ν f : K)=
+      twistedPositiveEisensteinMeasure p ψ φ n ((iMap).comp f)) :
+    ν=integralTwistedPositiveEisensteinMeasure p ψ φ n := sorry
+
+lemma integralTwistedPositiveEisensteinMeasure_bound (ψ : DirichletCharacter K D)
+    (φ : DirichletCharacter K E) (n : ℕ+) (f : C(U,O)) :
+    ‖integralTwistedPositiveEisensteinMeasure p ψ φ n f‖≤‖f‖ := sorry
+
+theorem integralTwistedPositiveEisensteinMeasure_test_congruence
+    (ψ : DirichletCharacter K D) (φ : DirichletCharacter K E) (n : ℕ+)
+    (f g : C(U,O)) (b : O) (h : ∀ u : U, b∣g u-f u) :
+    b∣integralTwistedPositiveEisensteinMeasure p ψ φ n g-
+      integralTwistedPositiveEisensteinMeasure p ψ φ n f := sorry
+
+variable [Algebra ℤ_[p] K] [IsBoundedSMul ℤ_[p] K]
+theorem integralTwistedPositiveEisensteinMeasure_moment
+    (ψ : DirichletCharacter K D) (φ : DirichletCharacter K E) (n : ℕ+) (e : ℕ) :
+    (integralTwistedPositiveEisensteinMeasure p ψ φ n
+      (integralPrimePowerArithmeticCharacter p 0 (1 : DirichletCharacter K (p^0)) e).toContinuousMap : K)=
+      ∑ d∈(n : ℕ).divisors, if ¬p∣d then ψ ((n : ℕ)/d)*φ d*(d : K)^e else 0 := sorry
+
+theorem integralTwistedPositiveEisensteinMeasure_weight_congruence
+    (ψ : DirichletCharacter K D) (φ : DirichletCharacter K E)
+    (n : ℕ+) (r e e' : ℕ) (hr : 0<r) (he : Nat.ModEq (p^(r-1)*(p-1)) e e') :
+    (p : O)^r∣
+      integralTwistedPositiveEisensteinMeasure p ψ φ n
+        (integralPrimePowerArithmeticCharacter p 0 (1 : DirichletCharacter K (p^0)) e').toContinuousMap-
+      integralTwistedPositiveEisensteinMeasure p ψ φ n
+        (integralPrimePowerArithmeticCharacter p 0 (1 : DirichletCharacter K (p^0)) e).toContinuousMap := sorry
+end
+end DirichletPadic
+
+namespace SuggestedIntegralTwistedEisensteinTests
+noncomputable section
+open scoped AbstractMeasure
+open DirichletPadic AbstractMeasure
+section General
+variable {p : ℕ} [Fact p.Prime] {K : Type*} [NormedField K]
+  [IsUltrametricDist K] {D E : ℕ}
+local notation "O" => Valuation.integer (NormedField.valuation (K := K))
+local notation "U" => (ℤ_[p])ˣ
+-- first_integral_coefficient
+example (ψ : DirichletCharacter K D) (φ : DirichletCharacter K E) :
+    integralTwistedPositiveEisensteinMeasure p ψ φ 1=dirac O 1 := sorry
+-- zero_integral_test
+example (ψ : DirichletCharacter K D) (φ : DirichletCharacter K E) (n : ℕ+) :
+    integralTwistedPositiveEisensteinMeasure p ψ φ n 0=0 := sorry
+-- exact_coefficient_inclusion
+example (ψ : DirichletCharacter K D) (φ : DirichletCharacter K E)
+    (n : ℕ+) (f : C(U,O)) :
+    (integralTwistedPositiveEisensteinMeasure p ψ φ n f : K)=
+      twistedPositiveEisensteinMeasure p ψ φ n
+        ((ContinuousMap.mk Subtype.val continuous_subtype_val).comp f) := sorry
+-- pointwise_ideal_transfer
+example (ψ : DirichletCharacter K D) (φ : DirichletCharacter K E)
+    (n : ℕ+) (f g : C(U,O)) (b : O) (h : ∀ u : U, b∣g u-f u) :
+    b∣integralTwistedPositiveEisensteinMeasure p ψ φ n g-
+      integralTwistedPositiveEisensteinMeasure p ψ φ n f := sorry
+-- zero_modulus_is_equality
+example (ψ : DirichletCharacter K D) (φ : DirichletCharacter K E)
+    (n : ℕ+) (f g : C(U,O)) (h : ∀ u : U, (0 : O)∣g u-f u) :
+    integralTwistedPositiveEisensteinMeasure p ψ φ n g=
+      integralTwistedPositiveEisensteinMeasure p ψ φ n f := sorry
+end General
+
+section Dyadic
+variable (χ : DirichletCharacter ℚ_[2] 3) (hχ : χ 2=-1)
+include hχ
+local notation "O2" => Valuation.integer (NormedField.valuation (K := ℚ_[2]))
+-- dyadic_integral_sign
+example : integralTwistedPositiveEisensteinMeasure 2 χ (1 : DirichletCharacter ℚ_[2] 1) 2=
+    -dirac O2 1 := sorry
+variable [IsBoundedSMul ℤ_[2] ℚ_[2]]
+-- dyadic_integral_left_moment
+example : integralTwistedPositiveEisensteinMeasure 2 χ (1 : DirichletCharacter ℚ_[2] 1) 5
+    (integralPrimePowerArithmeticCharacter 2 0 (1 : DirichletCharacter ℚ_[2] (2^0)) 1).toContinuousMap=4 := sorry
+-- dyadic_integral_right_moment
+example : integralTwistedPositiveEisensteinMeasure 2 (1 : DirichletCharacter ℚ_[2] 1) χ 5
+    (integralPrimePowerArithmeticCharacter 2 0 (1 : DirichletCharacter ℚ_[2] (2^0)) 1).toContinuousMap=-4 := sorry
+-- dyadic_actual_moment_difference
+example : integralTwistedPositiveEisensteinMeasure 2 χ (1 : DirichletCharacter ℚ_[2] 1) 5
+    (integralPrimePowerArithmeticCharacter 2 0 (1 : DirichletCharacter ℚ_[2] (2^0)) 5).toContinuousMap-
+    integralTwistedPositiveEisensteinMeasure 2 χ (1 : DirichletCharacter ℚ_[2] 1) 5
+      (integralPrimePowerArithmeticCharacter 2 0 (1 : DirichletCharacter ℚ_[2] (2^0)) 1).toContinuousMap=3120 := sorry
+-- dyadic_weight_congruence
+example : (8 : O2)∣
+    integralTwistedPositiveEisensteinMeasure 2 χ (1 : DirichletCharacter ℚ_[2] 1) 5
+      (integralPrimePowerArithmeticCharacter 2 0 (1 : DirichletCharacter ℚ_[2] (2^0)) 5).toContinuousMap-
+    integralTwistedPositiveEisensteinMeasure 2 χ (1 : DirichletCharacter ℚ_[2] 1) 5
+      (integralPrimePowerArithmeticCharacter 2 0 (1 : DirichletCharacter ℚ_[2] (2^0)) 1).toContinuousMap := sorry
+end Dyadic
+
+section OddCounterexample
+local instance : Fact (Nat.Prime 5) := ⟨by decide⟩
+variable [IsBoundedSMul ℤ_[5] ℚ_[5]]
+variable (χ : DirichletCharacter ℚ_[5] 3) (hχ : χ 2=-1)
+include hχ
+local notation "O5" => Valuation.integer (NormedField.valuation (K := ℚ_[5]))
+-- tame_component_is_not_full_precision
+example : ¬(25 : O5)∣
+    integralTwistedPositiveEisensteinMeasure 5 χ (1 : DirichletCharacter ℚ_[5] 1) 2
+      (integralPrimePowerArithmeticCharacter 5 0 (1 : DirichletCharacter ℚ_[5] (5^0)) 7).toContinuousMap-
+    integralTwistedPositiveEisensteinMeasure 5 χ (1 : DirichletCharacter ℚ_[5] 1) 2
+      (integralPrimePowerArithmeticCharacter 5 0 (1 : DirichletCharacter ℚ_[5] (5^0)) 3).toContinuousMap := sorry
+end OddCounterexample
+end
+end SuggestedIntegralTwistedEisensteinTests
