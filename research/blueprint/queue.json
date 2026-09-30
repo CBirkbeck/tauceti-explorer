@@ -39755,8 +39755,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-HARPAZ-WITTENBERG-20.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5006"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #5006",
+   "finishedAt": "2026-09-30T19:47:32Z"
   },
   {
    "id": "RT-PAPER-GROECHENIG-WYSS-ZIEGLER-20-B",
@@ -40121,7 +40122,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-RICHARD-YAFAEV-25.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #5007"
   },
   {
    "id": "RT-PAPER-BHATT-ETAL-23",
@@ -40790,8 +40792,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-BOCKLE-HARRIS-KHARE-ETAL-19.md",
-   "state": "pending",
-   "note": "released on GitHub issue #5014"
+   "state": "external",
+   "note": "claimed on GitHub issue #5014"
   },
   {
    "id": "RT-PAPER-LAWRENCE-VENKATESH-20",
