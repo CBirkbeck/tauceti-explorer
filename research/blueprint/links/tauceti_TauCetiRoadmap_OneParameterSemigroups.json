@@ -2,7 +2,7 @@
   "roadmapId": "tauceti:TauCetiRoadmap/OneParameterSemigroups",
   "protocol": "links-v1",
   "status": "complete",
-  "summary": "Independently accepted on 2026-09-23: retain three outward reuse links to PDE and OptimalTransport and four scope/comparison proposals. The original catalogue-wide screen covers 217 other records; the review searched all nine focal stages against the current 2007-stage world and found no additional direct contract. Seven pinned declaration statements were independently checked. Abstract real-Banach C0 generation is existing library work; concrete heat realizations, carrier comparisons and arbitrary ACP-solution uniqueness are separate obligations. Acceptance concerns this dependency map, not proof closure or approval of stale mathematical claims in the focal README.",
+  "summary": "Independently accepted on 2026-09-23: retain three outward reuse links to PDE and OptimalTransport and four scope/comparison proposals. The original catalogue-wide screen covers 217 other records; the review searched all nine focal stages against the current 2007-stage world and found no additional direct contract. Seven pinned declaration statements were independently checked. Abstract real-Banach C0 generation is existing library work; concrete heat realizations, carrier comparisons and arbitrary ACP-solution uniqueness are separate obligations. Acceptance concerns this dependency map, not proof closure or approval of stale mathematical claims in the focal README. Confirmed red-team fix (2026-09-30): add a fifth scope overlap for Part C and OptimalTransport 13A, reusing arbitrary-index kernel positivity and the scalar Kolmogorov bridge while retaining continuous-kernel packaging, C(X) universality, signed-measure separation and Sinkhorn theory at OT13A. No directed link is added.",
   "provenance": {
     "jobId": "LINK-tauceti_TauCetiRoadmap_OneParameterSemigroups",
     "issue": 52,
@@ -82,6 +82,48 @@
       "line": 149,
       "statement": "Every orbit is continuous and satisfies the integrated Cauchy equation with integral in the generator domain.",
       "url": "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Analysis/Semigroups/CauchyProblem.lean#L149"
+    },
+    {
+      "name": "Matrix.PosSemidef",
+      "file": "Mathlib/LinearAlgebra/Matrix/PosDef.lean",
+      "line": 59,
+      "statement": "Hermitian symmetry and nonnegative quadratic forms against finitely supported coefficients, with an arbitrary index type; no topology or monoid on that index.",
+      "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/LinearAlgebra/Matrix/PosDef.lean#L59"
+    },
+    {
+      "name": "TauCeti.posSemidef_iff_finite_sum",
+      "file": "TauCeti/LinearAlgebra/Matrix/PosSemidef.lean",
+      "line": 119,
+      "statement": "For a star ring with partial order and arbitrary index alpha, Matrix.PosSemidef K iff conjugate symmetry and nonnegative quadratic forms for every finite family v and coefficients x.",
+      "url": "https://github.com/CBirkbeck/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/LinearAlgebra/Matrix/PosSemidef.lean#L119"
+    },
+    {
+      "name": "Matrix.PosSemidef.KolmogorovSpace",
+      "file": "TauCeti/Analysis/PositiveDefinite/Kernel/Kolmogorov.lean",
+      "line": 126,
+      "statement": "Given scalar K : alpha -> alpha -> k with RCLike k and Matrix.PosSemidef K, construct its Hilbert realization through the scalar-to-operator bridge and Mathlib RKHS.OfKernel.",
+      "url": "https://github.com/CBirkbeck/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Analysis/PositiveDefinite/Kernel/Kolmogorov.lean#L126"
+    },
+    {
+      "name": "Matrix.PosSemidef.kolmogorovFeature",
+      "file": "TauCeti/Analysis/PositiveDefinite/Kernel/Kolmogorov.lean",
+      "line": 133,
+      "statement": "Given the same arbitrary-index scalar PSD kernel, map each index to its canonical feature vector in KolmogorovSpace.",
+      "url": "https://github.com/CBirkbeck/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Analysis/PositiveDefinite/Kernel/Kolmogorov.lean#L133"
+    },
+    {
+      "name": "Matrix.PosSemidef.inner_kolmogorovFeature",
+      "file": "TauCeti/Analysis/PositiveDefinite/Kernel/Kolmogorov.lean",
+      "line": 142,
+      "statement": "The inner product of the two canonical feature vectors equals K a b. No C(X) universality or signed-measure separation is asserted.",
+      "url": "https://github.com/CBirkbeck/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Analysis/PositiveDefinite/Kernel/Kolmogorov.lean#L142"
+    },
+    {
+      "name": "Matrix.PosSemidef.kolmogorovFeature_dense",
+      "file": "TauCeti/Analysis/PositiveDefinite/Kernel/Kolmogorov.lean",
+      "line": 171,
+      "statement": "The linear span of the feature vectors has topological closure equal to the full Kolmogorov Hilbert space. This minimality statement is not density of kernel sections in C(X).",
+      "url": "https://github.com/CBirkbeck/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Analysis/PositiveDefinite/Kernel/Kolmogorov.lean#L171"
     }
   ],
   "links": [
@@ -244,6 +286,35 @@
           "quote": "**reflection-positive** (`IsReflectionPositive`) when every such finite connection matrix is positive\nsemidefinite",
           "sourcePath": "content/tau-ceti/DenseGraphLimits/README.md",
           "locator": "lines 355-356"
+        }
+      ]
+    },
+    {
+      "stages": [
+        "tauceti:TauCetiRoadmap/OneParameterSemigroups#part-c--positive-definite-functions-and-bochners-theorem",
+        "tauceti:TauCetiRoadmap/OptimalTransport#13a-static-entropic-transport"
+      ],
+      "detail": "OT13A item 4 asks to first build continuous positive-definite and universal-kernel predicates on compact spaces. The generic algebraic kernel-positivity root and scalar Hilbert realization already exist at the pinned libraries and are Part C reuse interfaces. Continuity, universality in C(X), signed-Radon-measure energy/separation and Sinkhorn conclusions are additional OT13A contracts.",
+      "recommendation": "rescope",
+      "proposal": "Reuse Mathlib Matrix.PosSemidef for arbitrary index types, Tau Ceti posSemidef_iff_finite_sum for Hermitian symmetry and finite-family quadratic forms, and Matrix.PosSemidef.KolmogorovSpace/kolmogorovFeature/inner_kolmogorovFeature/kolmogorovFeature_dense for the scalar RCLike Hilbert realization where consumed. This uses Mathlib RKHS.OfKernel and requires no monoid on an arbitrary compact X. OT13A owns continuous-kernel packaging, density of kernel sections in C(X), integration against signed Radon measures, the energy/separation bridge and the stated Sinkhorn results. Dense feature span in the Kolmogorov Hilbert space is minimality, not C(X) universality. Keep the two-point discrete compact example K(x,y)=1: its finite quadratic form is |sum c_i|^2, its sections are only constants, and the nonzero signed measure delta_a-delta_b has zero kernel energy. Thus even a continuous, pointwise strictly positive PSD kernel need not be universal or separating. Do not rebuild the generic positivity/RKHS root or add a blanket Bochner-existence/BCR prerequisite. This overlap records the shared interface without a directed edge; any later edge must specify its narrower consumed contract and pass duplicate/cycle checks.",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/OneParameterSemigroups#part-c--positive-definite-functions-and-bochners-theorem",
+          "quote": "The **PD-function ↔ PD-kernel** equivalence (`K(a,b) = F(a + b⋆)`; `F(a − b)` for a group)",
+          "sourcePath": "content/tau-ceti/OneParameterSemigroups/README.md",
+          "locator": "line 216"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/OneParameterSemigroups#part-c--positive-definite-functions-and-bochners-theorem",
+          "quote": "pullbacks, and the GNS/Kolmogorov decomposition; normalization `F(0) = 1`.",
+          "sourcePath": "content/tau-ceti/OneParameterSemigroups/README.md",
+          "locator": "line 217"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/OptimalTransport#13a-static-entropic-transport",
+          "quote": "first build continuous positive-definite and universal-kernel predicates on compact\n   spaces, with universality expressed by density of kernel sections in `C(X)`, and the\n   signed-Radon-measure energy/separation lemmas used below.",
+          "sourcePath": "content/tau-ceti/OptimalTransport/README.md",
+          "locator": "lines 1486-1488"
         }
       ]
     }
@@ -1182,7 +1253,7 @@
     {
       "roadmapId": "tauceti:TauCetiRoadmap/OptimalTransport",
       "result": "links",
-      "note": "Read all Layers 10, 11 and 14 and the ownership section. Retained the explicit OT11 C0/uniqueness import; nonlinear resolvents and RCD comparison are recorded as a scope boundary, not blanket HY inputs."
+      "note": "Read all Layers 10, 11 and 14 and the ownership section. Retained the explicit OT11 C0/uniqueness import; nonlinear resolvents and RCD comparison are recorded as a scope boundary, not blanket HY inputs. Confirmed-finding fix: also read 13A item 4 (lines 1463-1498) and record its kernel-positivity reuse boundary with Part C. The added overlap rescope keeps C(X) universality, signed-Radon-measure energy/separation and Sinkhorn obligations with OT13A; it creates no Bochner/BCR or generic semigroup dependency."
     },
     {
       "roadmapId": "tauceti:TauCetiRoadmap/PDE",
@@ -1347,5 +1418,17 @@
     "notes": "Codex — codex-7e92bd, independent of original author ChatGPT Pro — cgp-14f035649b9f. Read all nine focal stage descriptions and all six other endpoint/overlap descriptions in full; confirmed all three directions and all four recommendations. All 15 evidence entries are exact raw-document substrings. Reopened the seven cited declarations at the pin and checked nine focal stages for missing suppliers/consumers across 2007 stages, with full reads of the close candidates recorded in the report. No additional direct dependency established. Clarified that growth is a separate predicate and classical-orbit existence does not prove arbitrary-solution uniqueness. No links added or removed; no roadmap merger or new library-status claim. See the independent report for mathematical checks and scope limits.",
     "removed": [],
     "added": []
+  },
+  "fixes": {
+    "jobId": "FIX-RT-LINK-tauceti_TauCetiRoadmap_OneParameterSemigroups",
+    "issue": 5037,
+    "worker": "Codex — codex-5ebb6f",
+    "date": "2026-09-30",
+    "inputRevision": "182ee99ce9221908991b1df82141a96a671c7296",
+    "inputSha256": "d948a78f97a63bdc35786f237e0ecf76d3b25645d5622bb27b23ac7f537e69dd",
+    "findings": [
+      "RT-LINK-tauceti_TauCetiRoadmap_OneParameterSemigroups/1"
+    ],
+    "scope": "One new evidence-backed overlap and OT examined-entry clarification; six freshly read pinned declarations. Original provenance/review and all three directed links are retained as historical records."
   }
 }
