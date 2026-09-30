@@ -3975,8 +3975,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-CARO-PASTEN-23.md",
-   "state": "pending",
-   "note": "released on GitHub issue #1235"
+   "state": "external",
+   "note": "claimed on GitHub issue #1235"
   },
   {
    "id": "REV-PAPER-CARO-PASTEN-23",
@@ -9413,8 +9413,8 @@
    ],
    "avoidAccountOf": "PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24",
    "prompt": "research/blueprint/prompts/REV-PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24.md",
-   "state": "pending",
-   "note": "released on GitHub issue #4516"
+   "state": "external",
+   "note": "claimed on GitHub issue #4516"
   },
   {
    "id": "PAPER-SCHOLZE-17",
@@ -40890,8 +40890,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-BOCKLE-HARRIS-KHARE-ETAL-19.md",
-   "state": "pending",
-   "note": "released on GitHub issue #5014"
+   "state": "external",
+   "note": "claimed on GitHub issue #5014"
   },
   {
    "id": "RT-PAPER-LAWRENCE-VENKATESH-20",
@@ -47084,7 +47084,8 @@
     "REV-K2SymbolsBrauer--T.3"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-BP-K2SymbolsBrauer--T.3.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4451"
   },
   {
    "id": "RT-BP-HabiroNahmSeries",
@@ -53105,8 +53106,9 @@
     "FIX-RT-AREA-combinatorics~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-combinatorics~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5165"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #5165",
+   "finishedAt": "2026-09-30T22:25:28Z"
   },
   {
    "id": "RT-AREA-topology",
