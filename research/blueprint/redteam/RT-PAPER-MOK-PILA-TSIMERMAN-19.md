@@ -19,7 +19,7 @@ The extraction disclosed its preprint-only scope. This audit supplies the publis
 
 **Where:** research/blueprint/papers/PAPER-MOK-PILA-TSIMERMAN-19.result.json: items 20; Part II brief's adjoint-Hodge import
 
-**Evidence and check:** Published §7.1, p.958, explicitly says “weight 0”; arXiv v3 §7.1, p.11, instead has weight 2. Both passages were read and the published page image inspected. Adjoint types (-1,1), (0,0), (1,-1) all have sum zero. At Tau Ceti f790474, TauCeti/Geometry/Hodge/Structure.lean:62 defines HodgeStructureOn W ω n with opposedness F(p) complementary to conjugate F(n+1-p); its piece at line 160 has bidegree (p,n-p). Thus changing the weight changes the mathematical type, not just its label.
+**Evidence and check:** Published §7.1, p.958, explicitly says “weight 0”; arXiv v3 §7.1, p.11, instead has weight 2. Both passages were read and the published page image inspected. Adjoint types (-1,1), (0,0), (1,-1) all have sum zero. At Tau Ceti f790474, TauCeti/Geometry/Hodge/Structure.lean:62 defines HodgeStructureOn W ω n with opposedness F(p) complementary to conjugate F(n+1-p); its piece at line 156 has bidegree (p,n-p). Thus changing the weight changes the mathematical type, not just its label.
 
 **Fix:** Use weight 0 in item 20 and its consumer contracts. Add a version-scoped sourceIssue for the preprint mistake, marking the published §7.1 as the known correction. Retain the existing general Hodge API and import the specialized adjoint construction from ShimuraData D2/D3.
 
