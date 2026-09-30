@@ -34202,7 +34202,8 @@
     "REV-PAPER-KHAYUTIN-19"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-KHAYUTIN-19.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4089"
   },
   {
    "id": "REV-RT-PAPER-KHAYUTIN-19",
@@ -34374,8 +34375,9 @@
     "REV-PAPER-GAMBURD-MAGEE-RONAN-19"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-GAMBURD-MAGEE-RONAN-19.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4098"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4098",
+   "finishedAt": "2026-09-30T07:30:41Z"
   },
   {
    "id": "REV-RT-PAPER-GAMBURD-MAGEE-RONAN-19",
