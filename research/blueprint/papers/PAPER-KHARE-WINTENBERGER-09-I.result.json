@@ -25,7 +25,7 @@
    "References [1]–[46]"
   ]
  },
- "summary": "KW I prove Serre's modularity conjecture for two-dimensional odd irreducible mod p representations of G_ℚ in two cases: odd characteristic with odd level, and characteristic 2 with weight 2 (Theorem 1.2), in the strong form (weight k(ρ̄), level N(ρ̄)). They then reduce the general case to Hypothesis (H), since proved by Kisin (Theorem 9.1). The proof is a double induction on the number of primes in the level and on the residual characteristic: weight reduction (Theorem 3.2), killing ramification in weight 2 (Theorem 3.1), the initial case from Khare's level-one theorem (Theorem 3.3), and raising the level to make ρ̄ locally good-dihedral (Theorem 3.4). It moves between characteristics through almost strictly compatible systems (Theorem 5.1) and modularity lifting (Theorem 4.1), both proved in Part II. The consequences are Theorem 10.1 (irreducible odd two-dimensional compatible systems come from newforms) and Corollary 10.2 (abelian varieties of GL₂-type over ℚ are modular; odd two-dimensional Artin representations come from weight-one forms, hence Artin's conjecture for them). The atlas already plans almost all of this: the Serre roadmaps' reviewed decomposition and packets have a node for every theorem of §§1–9 (ClassicalSerreModularity R26–R27, PotentialModularityAndCompatibleSystems R24.3–R24.6, GL2ModularityLifting R22.5–R22.6), and Theorem 10.1 is an application node at R27.6. What it lacks are the §10 consequences and one remark: Khare's weight-one descent, Langlands' conjecture for odd two-dimensional Artin representations with its proof (routed to ModularityAndLanglandsExtensions ML.1), the modularity of abelian varieties of GL₂-type with Ribet's reduction (a proposed Part II of EllipticCurveModularity), and the minimality remark after Theorem 5.1 (PotentialModularityAndCompatibleSystems R24.3). Four source issues are recorded: two slips in §9 and the unwritten passage from Theorem 3.4 to the weight and level of Theorem 1.2 (all three already in the atlas), and a clash of the letter r in §8.2 (new).",
+ "summary": "KW I prove Serre's modularity conjecture for two-dimensional odd irreducible mod p representations of G_ℚ in two cases: odd characteristic with odd level, and characteristic 2 with weight 2 (Theorem 1.2), in the strong form (weight k(ρ̄), level N(ρ̄)). They then reduce the general case to Hypothesis (H), since proved by Kisin (Theorem 9.1). The proof is a double induction on the number of primes in the level and on the residual characteristic: weight reduction (Theorem 3.2), killing ramification in weight 2 (Theorem 3.1), the initial case from Khare's level-one theorem (Theorem 3.3), and raising the level to make ρ̄ locally good-dihedral (Theorem 3.4). It moves between characteristics through almost strictly compatible systems (Theorem 5.1) and modularity lifting (Theorem 4.1), both proved in Part II. The consequences are Theorem 10.1 (irreducible odd two-dimensional compatible systems come from newforms) and Corollary 10.2 (abelian varieties of GL₂-type over ℚ are modular; odd two-dimensional Artin representations come from weight-one forms, hence Artin's conjecture for them). The atlas already plans almost all of this: the Serre roadmaps' reviewed decomposition and packets have a node for every theorem of §§1–9 (ClassicalSerreModularity R26–R27, PotentialModularityAndCompatibleSystems R24.3–R24.6, GL2ModularityLifting R22.5–R22.6), Theorem 10.1(i) is an application node at R27.6, and R27.6 also plans the strong form of Serre's conjecture for every ρ̄ of S-type that §10 applies, with the qualitative-to-refined passage (R20.5–R20.6 supplying the implications they list, R27.4 the dyadic scalar case). Theorem 10.1(ii) and Corollary 10.2(ii) are weight-one modularity in the proved cases, planned at ModularityAndLanglandsExtensions ML.1. What the atlas lacks are part of the §10 consequences and one remark: Khare's weight-one descent and Langlands' conjecture for odd two-dimensional Artin representations (routed to ML.1), the modularity of abelian varieties of GL₂-type with Ribet's reduction (a proposed Part II of EllipticCurveModularity), and the minimality remark after Theorem 5.1 (routed to LocalGaloisDeformationRings R08.6, which owns the minimal-lift definition). Four source issues are recorded: two slips in §9 and the unwritten passage from Theorem 3.4 to the weight and level of Theorem 1.2 (all three already in the atlas), and a clash of the letter r in §8.2 (new).",
  "items": [
   {
    "id": "PAPER-KHARE-WINTENBERGER-09-I/1",
@@ -133,7 +133,7 @@
    "planned": [
     "ClassicalSerreModularity:R27.4"
    ],
-   "note": "R27.4/theorem-1-2. The passage from 'modular' (Theorem 3.4) to weight k(ρ̄) and level N(ρ̄) is not written out in the paper (sourceIssues E3); the blueprint supplies it in R27.4/strong-form-by-minimal-lifts."
+   "note": "R27.4/theorem-1-2. The passage from 'modular' (Theorem 3.4) to weight k(ρ̄) and level N(ρ̄) is not written out in the paper (sourceIssues E3). The blueprint supplies it in three steps. ClassicalSerreModularity:R27.4/strong-form-by-minimal-lifts builds a newform of level N(ρ̄) for a twist ρ̄ ⊗ χ_p^i with 2 ≤ k(ρ̄ ⊗ χ_p^i) ≤ p + 1 (Theorems 5.1(1) and 4.1, which assume that range for p odd; or Lemma 6.2(i) when the projective image is dihedral). SerreWeightAndLevelOptimisation:R20.3 supplies the untwisting: θ-operators (R20.3/ribet-twist-to-small-weight) and Edixhoven's weight theorem (R20.3/edixhoven-weight-theorem) give a mod p eigenform of weight k(ρ̄) and level N(ρ̄) for ρ̄ itself, which the Deligne–Serre lifting lemma (AlgebraicModularFormsAndSerreWeights R15.5) lifts to characteristic zero; the R27.4 node imports this step. ClassicalSerreModularity:R27.6 assembles the characteristic-zero newform in every case (R27.6/full-classical-serre-theorem, with R20's optimisation)."
   },
   {
    "id": "PAPER-KHARE-WINTENBERGER-09-I/9",
@@ -146,7 +146,7 @@
    "planned": [
     "ClassicalSerreModularity:R27.4"
    ],
-   "note": "R27.4/theorem-1-2 and R27.4/strong-form-by-minimal-lifts. The strong form in Edixhoven's sense at p = 2 (ρ̄ unramified at 2 if and only if it arises from a Katz form of weight 1) is stated as not known (pp. 2–3) and is not claimed."
+   "note": "R27.4/theorem-1-2 and R27.4/strong-form-by-minimal-lifts. It supplies the dyadic scalar case of the qualitative-to-refined passage (item PAPER-KHARE-WINTENBERGER-09-I/73). The strong form in Edixhoven's sense at p = 2 (ρ̄ unramified at 2 if and only if it arises from a Katz form of weight 1) is stated as not known (pp. 2–3) and is not claimed."
   },
   {
    "id": "PAPER-KHARE-WINTENBERGER-09-I/10",
@@ -372,9 +372,9 @@
    "status": "planned",
    "library": [],
    "planned": [
-    "PotentialModularityAndCompatibleSystems:R24.3"
+    "LocalGaloisDeformationRings:R08.6"
    ],
-   "note": "R24.3/kw-annals-minimal-lifts and R24.3/required-lift-types; the p = 2 definition is KW II §3.3.1."
+   "note": "LocalGaloisDeformationRings:R08.6/kw-local-conditions (the inertia-rigid lifts conjugate on inertia to a fixed ρ₀, KW II §3.3.1–3.3.3, including the p = 2 wild-dihedral case) and R08.6/export-away-from-p own the definition, as they do for the same definition in KW II (item PAPER-KHARE-WINTENBERGER-09-II/110). PotentialModularityAndCompatibleSystems:R24.3/required-lift-types is a consumer ('minimal (R08.6 inertia-rigid) away from p and q'). R24.3/kw-annals-minimal-lifts is a different theorem (KW Annals Theorem 3.3, existence of a globally minimally ramified lift for p > 2) and is not cited for the definition."
   },
   {
    "id": "PAPER-KHARE-WINTENBERGER-09-I/27",
@@ -465,7 +465,7 @@
    "status": "missing",
    "library": [],
    "planned": [],
-   "note": "Stated as 'not difficult to see' and not proved. With q ∥ N(ρ̄) the residual inertia at q is unipotent up to a character of order prime to q, and when p ∤ q − 1 the only lifts of that shape with conductor exponent 1 are the Teichmüller-type ones of the minimal definition. No node of R24.3 states it: its layer text asks for the four lift constructions, not this uniqueness remark."
+   "note": "Stated as 'not difficult to see' and not proved. PotentialModularityAndCompatibleSystems:R24.3/required-lift-types records it among its hypotheses ('if q ∥ N(ρ̄) and p ∤ q − 1, every geometric lift with q ∥ N(ρ) is minimal at q, so (3) needs p | q − 1') as a note without a proof entry, and no layer plans a proof, so the item is missing. It is a local statement about the minimal (inertia-rigid) lifts at q ≠ p and is routed (route 5) to their owner, LocalGaloisDeformationRings R08.6, beside export-away-from-p (a minimal lift keeps the conductor). Proof: p ∤ q − 1 forces p odd, and every character of I_q through (ℤ/q)^× then has order prime to p. Conductor exponent 1 makes ρ̄|_{I_q} either 1 ⊕ χ with χ ≠ 1 through (ℤ/q)^×, or nontrivial unipotent, and likewise ρ|_{I_q} either 1 ⊕ χ′ with χ′ through (ℤ/q)^×, or unipotent. In the first case ρ|_{I_q} cannot be unipotent, χ′ reduces to χ, so χ′ is the Teichmüller lift of χ and ρ(I_q) → ρ̄(I_q) is bijective. In the unipotent case a nontrivial χ′ would reduce to 1 and so have p-power order dividing q − 1, which is impossible; so ρ|_{I_q} is unipotent, the minimal shape when ρ̄(I_q) is projectively cyclic of order p."
   },
   {
    "id": "PAPER-KHARE-WINTENBERGER-09-I/34",
@@ -760,7 +760,7 @@
    "planned": [
     "ClassicalSerreModularity:R27.6"
    ],
-   "note": "ClassicalSerreModularity:R27.6/scope-of-the-final-statement-and-the-compatible-system-export states it. The sketch: ρ̄_λ is irreducible for almost all λ (bounded conductor, fixed Hodge–Tate weights); after twisting to weights (a, 0), Serre's conjecture puts infinitely many ρ̄_λ at weight a + 1 and a bounded level, hence one newform serves infinitely many λ — the argument EllipticCurveModularity R29.2–R29.3 plans for elliptic curves."
+   "note": "ClassicalSerreModularity:R27.6/scope-of-the-final-statement-and-the-compatible-system-export states it. Its input is the strong form of Serre's conjecture (item PAPER-KHARE-WINTENBERGER-09-I/72, R27.6), applied to ρ̄_λ in infinitely many residue characteristics. The sketch: ρ̄_λ is irreducible for almost all λ (bounded conductor, fixed Hodge–Tate weights); after twisting to weights (a, 0), Serre's conjecture puts infinitely many ρ̄_λ at weight a + 1 and a bounded level, hence one newform serves infinitely many λ — the argument EllipticCurveModularity R29.2–R29.3 plans for elliptic curves."
   },
   {
    "id": "PAPER-KHARE-WINTENBERGER-09-I/56",
@@ -771,9 +771,9 @@
    "status": "planned",
    "library": [],
    "planned": [
-    "ClassicalSerreModularity:R27.6"
+    "ModularityAndLanglandsExtensions:ML.1"
    ],
-   "note": "Stated at R27.6 (same node). Its proof needs the weight-one descent (item PAPER-KHARE-WINTENBERGER-09-I/59), which no layer plans; that item is routed to ModularityAndLanglandsExtensions ML.1."
+   "note": "Owned at ModularityAndLanglandsExtensions:ML.1 together with the weight-one descent its proof needs (item PAPER-KHARE-WINTENBERGER-09-I/59, missing, route 3), so that ClassicalSerreModularity R27.6 does not depend on ML.1; the node ClassicalSerreModularity:R27.6/scope-of-the-final-statement-and-the-compatible-system-export states part (i) only and names ML.1 as the owner of part (ii). Planned, with the same status as its corollary PAPER-KHARE-WINTENBERGER-09-I/65: ML.1 plans weight-one modularity in the proved cases, and part (ii) is the stronger statement ('part (ii) is not implied by Langlands' conjecture', p. 21). Inputs, all imported by ML.1: the strong form of Serre's conjecture (item PAPER-KHARE-WINTENBERGER-09-I/72, ClassicalSerreModularity R27.6), applied to ρ̄_λ in infinitely many residue characteristics; irreducibility of ρ̄_λ for almost all λ (PotentialModularityAndCompatibleSystems:R24.6/residual-members (ii)); Sen–Fontaine unramifiedness at ℓ(λ) (item PAPER-KHARE-WINTENBERGER-09-I/57; PadicHodgeTheory:R06.2/dcris-of-tate-twists-and-unramified, since the members are crystalline at ℓ for ℓ ≫ 0, p. 8); the weight-one criteria of Gross and Coleman–Voloch (item PAPER-KHARE-WINTENBERGER-09-I/58; SerreWeightAndLevelOptimisation:R20.3/weight-one-forms-unramified-at-p and R20.3/edixhoven-weight-theorem); then the descent /59."
   },
   {
    "id": "PAPER-KHARE-WINTENBERGER-09-I/57",
@@ -811,7 +811,7 @@
    "status": "missing",
    "library": [],
    "planned": [],
-   "note": "This is the step of Theorem 10.1(ii) after Serre's conjecture and the weight-one criterion: finitely many characteristic-zero weight-one eigenforms of level N and the Deligne–Serre lifting lemma (AlgebraicModularFormsAndSerreWeights:R15.5) give one form for infinitely many λ. No layer plans it: R20.3 stops at the mod ℓ criterion, and R27.6 cites the argument without a proof entry. Khare's IMRN note was not read; the statement is the one KW I needs, taken from p. 20."
+   "note": "This is the step of Theorem 10.1(ii) after Serre's conjecture and the weight-one criterion: finitely many characteristic-zero weight-one eigenforms of level N and the Deligne–Serre lifting lemma (AlgebraicModularFormsAndSerreWeights:R15.5) give one form for infinitely many λ. No layer plans it: R20.3 stops at the mod ℓ criterion, and ClassicalSerreModularity R27.6 states Theorem 10.1(i) only, naming ML.1 as the owner of part (ii) and of this step. Khare's IMRN note was not read; the statement is the one KW I needs, taken from p. 20."
   },
   {
    "id": "PAPER-KHARE-WINTENBERGER-09-I/60",
@@ -884,10 +884,13 @@
    "name": "Corollary 10.2(ii): odd two-dimensional Artin representations are modular",
    "statement": "A continuous, odd, irreducible ρ : G_ℚ → GL₂(ℂ) arises from a newform of weight one. Hence Langlands' conjecture, and Artin's conjecture, hold for such ρ; the new cases are those with projective image A₅. This is the converse of Deligne–Serre.",
    "locator": "Corollary 10.2(ii), p. 21, and §10.2, pp. 20–21, author copy results.pdf (23 pp., PDF dated 31 May 2009)",
-   "status": "missing",
+   "status": "planned",
    "library": [],
-   "planned": [],
-   "note": "From Theorem 10.1(ii) applied to the compatible system of ρ (whose finite image makes it irregular with weights (0, 0)). No layer plans it: R27.6 mentions that 'Corollary 10.2 follows' without a node, and ML.1's text asks for weight-one modularity 'in proved cases' without naming this theorem. Deligne–Serre is AutomorphicGaloisRepresentations R19.1."
+   "planned": [
+    "ModularityAndLanglandsExtensions:ML.1",
+    "GL2AutomorphicRepresentationsAndTransfer:R17.5"
+   ],
+   "note": "From Theorem 10.1(ii) (item PAPER-KHARE-WINTENBERGER-09-I/56, also at ML.1) applied to the compatible system of ρ (whose finite image makes it irregular with weights (0, 0)). Planned at ModularityAndLanglandsExtensions:ML.1, whose text asks to organise 'weight-one modularity in proved cases'; this is the reading the other extractions share: PAPER-CALEGARI-GERAGHTY-20/ext-artin-conjecture-odd-2dim plans the same theorem at ML.1 and R17.5, and the note of PAPER-BOXER-CALEGARI-GEE-PILLONI-21/200 reads ML.1 the same way. The solvable-image cases are Langlands–Tunnell (item PAPER-KHARE-WINTENBERGER-09-I/63, GL2AutomorphicRepresentationsAndTransfer R17.5); the new case is projective image A₅. Deligne–Serre, the converse, is AutomorphicGaloisRepresentations R19.1."
   },
   {
    "id": "PAPER-KHARE-WINTENBERGER-09-I/66",
@@ -960,6 +963,35 @@
    "library": [],
    "planned": [],
    "note": "From Theorem 10.1(i), Faltings' isogeny theorem and Ribet's Theorem 4.4. It generalises EllipticCurveModularity R29.6 from dimension one; no layer plans it."
+  },
+  {
+   "id": "PAPER-KHARE-WINTENBERGER-09-I/72",
+   "kind": "theorem",
+   "name": "Serre's conjecture, strong form, for every ρ̄ of S-type",
+   "statement": "Let p be any prime and ρ̄ : G_ℚ → GL₂(F) of S-type (continuous, absolutely irreducible and odd, F a finite field of characteristic p). Then ρ̄ arises from S_{k(ρ̄)}(Γ₁(N(ρ̄))): there is a newform of weight k(ρ̄) and level N(ρ̄) from which ρ̄ arises. This covers every residual characteristic, including p = 2 with k(ρ̄) = 4, and even N(ρ̄) in odd characteristic. It follows from Theorems 1.2 and 9.1 with Hypothesis (H), which is Kisin's theorem (Theorem 0.1 and Corollary 0.2 of [28]), which make ρ̄ modular, together with the qualitative-to-refined passage (item PAPER-KHARE-WINTENBERGER-09-I/73).",
+   "locator": "§1, p. 2 (Serre's refined conjecture), Theorem 1.2 and the remark after it, pp. 2–3, Theorem 9.1, p. 18, and §10.1, pp. 19–20 ('the following corollary of Serre's conjecture (Theorem 1.2 and 9.1 of this paper, and Theorem 0.1 and Corollary 0.2 of [28])'), author copy results.pdf (23 pp., PDF dated 31 May 2009)",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "ClassicalSerreModularity:R27.6"
+   ],
+   "note": "ClassicalSerreModularity:R27.6/full-classical-serre-theorem: the layer is to 'assemble all cases and R20's optimisation to produce an actual normalised characteristic-zero newform of level N(rho-bar) and weight k(rho-bar)'. The paper states it as no numbered theorem, but §10.1 applies it to ρ̄_λ for infinitely many λ, at weight a + 1 and a fixed level, in every residue characteristic and at levels that may be even. Theorem 9.1 (item PAPER-KHARE-WINTENBERGER-09-I/52) concludes only that ρ̄ is modular. It is the input of Theorem 10.1(i) and (ii) (items PAPER-KHARE-WINTENBERGER-09-I/55 and /56)."
+  },
+  {
+   "id": "PAPER-KHARE-WINTENBERGER-09-I/73",
+   "kind": "theorem",
+   "name": "Qualitative implies refined: a modular ρ̄ of S-type arises from weight k(ρ̄) and level N(ρ̄)",
+   "statement": "Let ρ̄ : G_ℚ → GL₂(F) be of S-type in characteristic p and modular (it arises from a newform of some weight and some level). Then ρ̄ arises from S_{k(ρ̄)}(Γ₁(N(ρ̄))). For odd p this is the level results of Ribet, Diamond and Carayol with Edixhoven's weight theorem. For p = 2 it is Buzzard's level lowering [6] and Wiese's theorem for dihedral projective image [42], except when ρ̄|_{D₂} is scalar and the projective image of ρ̄ is not dihedral; then ρ̄ is unramified at 2, so k(ρ̄) = 2, and Theorem 1.2(2) supplies the conclusion.",
+   "locator": "Remark after Theorem 1.2, pp. 2–3 (Theorem 1.2(2) 'completes the work that the qualitative form of Serre's conjecture implies the refined form' by the scalar dyadic case, citing [6] and [42]), author copy results.pdf (23 pp., PDF dated 31 May 2009)",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "ClassicalSerreModularity:R27.6",
+    "ClassicalSerreModularity:R27.4",
+    "SerreWeightAndLevelOptimisation:R20.5",
+    "SerreWeightAndLevelOptimisation:R20.6"
+   ],
+   "note": "Owned at ClassicalSerreModularity:R27.6, which assembles 'all cases and R20's optimisation' (R27.6/full-classical-serre-theorem). It cannot be owned in SerreWeightAndLevelOptimisation: its dyadic scalar case is Theorem 1.2(2) at R27.4 (R27.4/theorem-1-2 with R27.4/strong-form-by-minimal-lifts, the supplier R20.5 itself names as 'R27's weight-two theorem'), and every R20 stage is upstream of R27.4. R20.5–R20.6 supply the implications they list: R20.6/strong-form-case-table gives the case table (level by R20.2 and R20.4, weight by R20.3/edixhoven-weight-theorem, the non-scalar dyadic cases by Buzzard at R20.5), R20.6/scalar-dyadic-restriction-is-unramified gives k(ρ̄) = 2 in the scalar case, and R20.5 has the ℚ(i)-induced and dihedral branches. The paper proves only the dyadic scalar case and cites the rest."
   }
  ],
  "prerequisites": [
@@ -1047,9 +1079,10 @@
     "PAPER-KHARE-WINTENBERGER-09-I/53",
     "PAPER-KHARE-WINTENBERGER-09-I/54",
     "PAPER-KHARE-WINTENBERGER-09-I/55",
-    "PAPER-KHARE-WINTENBERGER-09-I/56"
+    "PAPER-KHARE-WINTENBERGER-09-I/72",
+    "PAPER-KHARE-WINTENBERGER-09-I/73"
    ],
-   "reason": "KW I is already the source these layers were written for, and the reviewed decomposition and the packets ClassicalSerreModularity--R26.1 and --R27.3 have a node for each of these items at the layer named: the good-dihedral definition and its image lemmas (R27.1), the hypotheses (L_r), (W_r), (D_r), Theorem 3.2 and the §7 estimates (R27.2), Theorems 3.1 and 3.3 and the double induction (R27.3), Theorem 3.4 and Theorem 1.2 (R27.4), (H) and Theorem 9.1 (R27.5), and the full theorem with Theorem 10.1 (R27.6); Theorem 1.1 and Corollary 8.1 sit at R26.1 and R26.6. The route confirms the paper as their source and records the two things the extraction adds for these layers: the source issues E1–E4 (E1–E3 are already in the ClassicalSerreModularity packets, E4 is new), and that Theorem 10.1 is only an application node at R27.6 whose weight-one half rests on an item routed to ML.1."
+   "reason": "KW I is already the source these layers were written for, and the reviewed decomposition and the packets ClassicalSerreModularity--R26.1 and --R27.3 have a node for each of these items at the layer named: the good-dihedral definition and its image lemmas (R27.1), the hypotheses (L_r), (W_r), (D_r), Theorem 3.2 and the §7 estimates (R27.2), Theorems 3.1 and 3.3 and the double induction (R27.3), Theorem 3.4 and Theorem 1.2 (R27.4), (H) and Theorem 9.1 (R27.5), and the full theorem, its strong form for every ρ̄ of S-type with the qualitative-to-refined passage, and Theorem 10.1(i) (R27.6); Theorem 1.1 and Corollary 8.1 sit at R26.1 and R26.6. The route confirms the paper as their source and records the two things the extraction adds for these layers: the source issues E1–E4 (E1–E3 are already in the ClassicalSerreModularity packets, E4 is new), and the split of Theorem 10.1: part (i) stays at R27.6 as an application node, and part (ii) moves with Khare's weight-one descent to ModularityAndLanglandsExtensions ML.1 (route 3), which imports the strong form of Serre's conjecture from R27.6, so that R27.6 needs nothing from ML.1. Two items are added for R27.6: the strong form for every ρ̄ of S-type (PAPER-KHARE-WINTENBERGER-09-I/72), which §10.1 applies in every residue characteristic, and the qualitative-to-refined passage (PAPER-KHARE-WINTENBERGER-09-I/73). The second is owned here, with SerreWeightAndLevelOptimisation R20.5–R20.6 as planned suppliers of the implications they list and R27.4 for the dyadic scalar case; it cannot be owned in R20, because every R20 stage is upstream of R27.4."
   },
   {
    "route": "source",
@@ -1068,16 +1101,14 @@
     "PAPER-KHARE-WINTENBERGER-09-I/23",
     "PAPER-KHARE-WINTENBERGER-09-I/24",
     "PAPER-KHARE-WINTENBERGER-09-I/25",
-    "PAPER-KHARE-WINTENBERGER-09-I/26",
     "PAPER-KHARE-WINTENBERGER-09-I/27",
     "PAPER-KHARE-WINTENBERGER-09-I/28",
     "PAPER-KHARE-WINTENBERGER-09-I/29",
     "PAPER-KHARE-WINTENBERGER-09-I/30",
     "PAPER-KHARE-WINTENBERGER-09-I/31",
-    "PAPER-KHARE-WINTENBERGER-09-I/32",
-    "PAPER-KHARE-WINTENBERGER-09-I/33"
+    "PAPER-KHARE-WINTENBERGER-09-I/32"
    ],
-   "reason": "R24.3–R24.6 own the KW I interface to Part II: the four lift types of Theorem 5.1, the almost strictly compatible systems through them, Theorem 4.1 and the linked-system transfer. Every item here has a node there except the remark after Theorem 5.1 that, when q ∥ N(ρ̄) and p ∤ q − 1, a geometric lift with q ∥ N(ρ) is automatically minimal at q (item PAPER-KHARE-WINTENBERGER-09-I/33). It belongs with the minimal-lift definition at R24.3, since it is a statement about which lifts are minimal at q and is used to see that Theorem 5.1(3) only needs the case p | q − 1."
+   "reason": "R24.3–R24.6 own the KW I interface to Part II: the four lift types of Theorem 5.1, the almost strictly compatible systems through them, Theorem 4.1 and the linked-system transfer. Every item here has a node there. The local notion of a minimal lift at q ≠ p (item PAPER-KHARE-WINTENBERGER-09-I/26) and the remark after Theorem 5.1 that, when q ∥ N(ρ̄) and p ∤ q − 1, a geometric lift with q ∥ N(ρ) is automatically minimal at q (item PAPER-KHARE-WINTENBERGER-09-I/33) are owned by LocalGaloisDeformationRings R08.6 (route 5); R24.3/required-lift-types consumes both."
   },
   {
    "route": "source",
@@ -1086,11 +1117,12 @@
     "ModularityAndLanglandsExtensions:ML.1"
    ],
    "items": [
+    "PAPER-KHARE-WINTENBERGER-09-I/56",
     "PAPER-KHARE-WINTENBERGER-09-I/59",
     "PAPER-KHARE-WINTENBERGER-09-I/62",
     "PAPER-KHARE-WINTENBERGER-09-I/65"
    ],
-   "reason": "ML.1 is the layer that 'organize[s] Deligne-Serre Artin representations, weight-one modularity in proved cases' and keeps them separate from the weight-at-least-two GL₂/ℚ endpoints. KW I's weight-one consequences are exactly that: Corollary 10.2(ii) (odd two-dimensional complex representations of G_ℚ come from weight-one newforms, hence Langlands' and Artin's conjectures for them, the new case being A₅ image), the statement of Langlands' conjecture it proves, and Khare's weight-one descent that Theorem 10.1(ii) needs after Serre's conjecture. The inputs are all planned elsewhere and ML.1 imports them: Serre's theorem and Theorem 10.1 from ClassicalSerreModularity R27.6, the mod ℓ weight-one criterion from SerreWeightAndLevelOptimisation R20.3, the Deligne–Serre lemma from AlgebraicModularFormsAndSerreWeights R15.5, the Deligne–Serre representation from AutomorphicGaloisRepresentations R19.1, Langlands–Tunnell from GL2AutomorphicRepresentationsAndTransfer R17.5, and Artin L-functions from AnalyticNumberTheory AN.4. The paper is a source for ML.1; no new layer is needed."
+   "reason": "ML.1 is the layer that 'organize[s] Deligne-Serre Artin representations, weight-one modularity in proved cases' and keeps them separate from the weight-at-least-two GL₂/ℚ endpoints. KW I's weight-one results are exactly that: Theorem 10.1(ii), irreducible odd irregular compatible systems come from weight-one newforms (PAPER-KHARE-WINTENBERGER-09-I/56); Khare's weight-one descent, which its proof needs after Serre's conjecture (/59); Corollary 10.2(ii), odd two-dimensional complex representations of G_ℚ come from weight-one newforms, hence Langlands' and Artin's conjectures for them, the new case being A₅ image (/65); and the statement of Langlands' conjecture it proves (/62). Theorem 10.1(ii) is owned here with its descent rather than at ClassicalSerreModularity R27.6, so that R27.6 does not depend on ML.1. /56 and /65 are planned, since ML.1 plans weight-one modularity in the proved cases (the reading of PAPER-CALEGARI-GERAGHTY-20/ext-artin-conjecture-odd-2dim); /59 and /62 are missing. The inputs are all planned elsewhere and ML.1 imports them: the strong form of Serre's conjecture (/72) from ClassicalSerreModularity R27.6, not Theorem 10.1; irreducibility of ρ̄_λ for almost all λ from PotentialModularityAndCompatibleSystems R24.6/residual-members; Sen–Fontaine from PadicHodgeTheory R06.2/dcris-of-tate-twists-and-unramified (the members are crystalline at ℓ for ℓ ≫ 0, p. 8; item /57, also P7); Gross and Coleman–Voloch from SerreWeightAndLevelOptimisation R20.3/weight-one-forms-unramified-at-p and R20.3/edixhoven-weight-theorem; the Deligne–Serre lemma from AlgebraicModularFormsAndSerreWeights R15.5; the Deligne–Serre representation from AutomorphicGaloisRepresentations R19.1; Langlands–Tunnell from GL2AutomorphicRepresentationsAndTransfer R17.5; and Artin L-functions from AnalyticNumberTheory AN.4. None of these imports closes a cycle on the assembled atlas. The paper is a source for ML.1; no new layer is needed."
   },
   {
    "route": "part-ii",
@@ -1105,6 +1137,18 @@
    ],
    "brief": "Prove that every abelian variety A over ℚ of GL₂-type is modular: A is simple over ℚ, End_ℚ(A) ⊗ ℚ contains a number field E with [E : ℚ] = dim A, and the conclusion is that A is isomorphic to a quotient of J₁(N) for some N (Khare–Wintenberger I, Corollary 10.2(i); Ribet, 'Abelian varieties over Q and modular forms' (1992), Theorem 4.4). This starts where the parent stops. The parent Modularity and modular parametrisations of elliptic curves over Q (EllipticCurveModularity) proves the dimension-one case: residual Serre witnesses at bounded level (R29.2), one newform for infinitely many primes (R29.3), Tate-module comparison and exact conductor (R29.4), and the isogeny from A_f (R29.5). Generalise each step to dimension n = [E : ℚ], citing the parent and proving compatibility with it rather than rebuilding it. (1) Define 'modular' for an abelian variety over ℚ (a quotient of J₁(N)) and prove the equivalent forms: isogenous to a ℚ-simple factor A_f, or V_λ(A) ≅ ρ_{f,λ} for a weight-2 newform f. (2) For A of GL₂-type, prove that (V_λ(A))_λ is an E-rational, two-dimensional, strictly compatible system with Hodge–Tate weights (1, 0). Prove it is odd (through the Weil pairing and a Rosati-stable choice of E), irreducible, with determinant the cyclotomic character times a finite-order character; this is Ribet's §§2–4. (3) Apply Theorem 10.1(i) to obtain a newform f of weight 2 with V_λ(A) ≅ ρ_{f,λ}, and deduce via Faltings' isogeny theorem that A is isogenous to A_f, hence a quotient of J₁(N_f). (4) Prove Carayol's conductor formula cond(A) = N_f^{dim A}, so that the optimal level is cond(A)^{1/dim A}; KW I's 'N = M^n' is a valid but non-optimal bound. Import: ClassicalSerreModularity R27.6 (the full Serre theorem and Theorem 10.1); SmallRamificationAndAbelianVarietyBaseCases R25.5 (the GL₂(K)-type definition and its λ-adic representations); FaltingsFinitenessAndIsogenyTheorems R28.4; ModularCurvesPartII R14.5 (the quotient A_f of J₁(N)); AutomorphicGaloisRepresentations R19.3–R19.4 (the system of f and its local-global compatibility); AbelianSchemesAndArithmeticModuli A6 (Rosati involution, endomorphism algebras); Tau Ceti JacobianChallenge (the field-level abelian variety). The final theorem is Corollary 10.2(i). Decompose Ribet's paper and Carayol's conductor theorem at their statements before proving. Inner twists and the building-block theory over ℚ̄ are outside this Part II unless the proof of (2) needs them.",
    "reason": "Corollary 10.2(i) and Ribet's reduction are modularity of abelian varieties over ℚ beyond dimension one: the direction of EllipticCurveModularity, whose accepted RS-06 contract keeps 'the arithmetic application to an arbitrary E/ℚ'. Section 15 makes the extension a Part II that imports R29's steps and generalises them, not a new roadmap and not a widening of R29. ML.1 is not the owner: it explicitly separates its weight-one and broader targets 'from the existing weight-at-least-two cohomological and GL2/Q endpoints'. ClassicalSerreModularity R27.6 is not the owner either: its contract is the residual theorem, and it keeps abelian-variety applications to R29."
+  },
+  {
+   "route": "source",
+   "roadmap": "LocalGaloisDeformationRings",
+   "stages": [
+    "LocalGaloisDeformationRings:R08.6"
+   ],
+   "items": [
+    "PAPER-KHARE-WINTENBERGER-09-I/26",
+    "PAPER-KHARE-WINTENBERGER-09-I/33"
+   ],
+   "reason": "LocalGaloisDeformationRings R08.6 owns KW's local condition 'minimal at q ≠ p': R08.6/kw-local-conditions (the inertia-rigid lifts conjugate on inertia to a fixed ρ₀, KW II §3.3.1–3.3.3) and R08.6/export-away-from-p. The KW II extraction names the same owner for the same definition (PAPER-KHARE-WINTENBERGER-09-II/110), and PotentialModularityAndCompatibleSystems R24.3/required-lift-types consumes it. Item PAPER-KHARE-WINTENBERGER-09-I/26 is planned there. Item PAPER-KHARE-WINTENBERGER-09-I/33, the remark after Theorem 5.1 that for q ∥ N(ρ̄) and p ∤ q − 1 every geometric lift with q ∥ N(ρ) is minimal at q, is a statement about which lifts at q are minimal, so it belongs beside export-away-from-p's statement that a minimal lift keeps the conductor. R24.3/required-lift-types records it only as a hypothesis note without proof. The proof for the blueprint: p ∤ q − 1 forces p odd, and characters of I_q through (ℤ/q)^× then have order prime to p, so a lift 1 ⊕ χ′ of 1 ⊕ χ with conductor exponent 1 has χ′ the Teichmüller lift of χ; and a nontrivial unipotent ρ̄|_{I_q} lifts only to a unipotent ρ|_{I_q} when the conductor exponent is 1, since a nontrivial χ′ reducing to 1 would have p-power order dividing q − 1. R08.6 is upstream of R24.3, so the route closes no cycle."
   }
  ],
  "sourceIssues": [
@@ -1153,10 +1197,10 @@
    "kind": "gap",
    "locator": "§3.2 (Proof of Theorem 1.2) and the remark after Theorem 3.4, p. 6 of the author copy results.pdf (Invent. Math. 178 (2009) not compared)",
    "printed": "The source proposes deducing hypothesis (D0) from Theorems 3.1, 3.2 and 3.3, then obtaining Theorem 1.2 through Theorem 3.4 and its subsequent remark.",
-   "correction": "Theorem 3.4 gives only that ρ̄ is modular. Add the passage to weight k(ρ̄) and level N(ρ̄): if the projective image is dihedral, Lemma 6.2(i); otherwise Theorem 5.1(1) gives a lift minimally ramified away from p and crystalline of weight k(ρ̄) at p (k(ρ̄) = 2 when p = 2), Theorem 4.1 makes it modular, and its newform has weight k(ρ̄) and level N(ρ̄).",
-   "reason": "Theorem 1.2 asserts that ρ̄ arises from S_{k(ρ̄)}(Γ₁(N(ρ̄))), but Theorem 3.4 concludes 'is modular', and its proof (§8.4) lifts through Theorem 5.1(2), which has weight 2 and a type at p. The introduction (pp. 2–3) presents Theorem 1.2(2) as filling the dyadic scalar case of the qualitative-implies-refined problem, which is exactly the step not written out. Every ingredient is a result of the paper, so the theorem stands.",
+   "correction": "Theorem 3.4 gives only that ρ̄ is modular. Add the passage to weight k(ρ̄) and level N(ρ̄): if the projective image is dihedral, Lemma 6.2(i); otherwise choose i with 2 ≤ k(ρ̄ ⊗ χ_p^i) ≤ p + 1 (p odd; i = 0 when p = 2); Theorem 5.1(1) gives a lift of ρ̄ ⊗ χ_p^i minimally ramified away from p and crystalline of weight k(ρ̄ ⊗ χ_p^i) (k(ρ̄) = 2 when p = 2), Theorem 4.1 makes it modular, and its newform has level N(ρ̄) (twisting by χ_p leaves the prime-to-p conductor unchanged). Untwist: ρ̄ is then modular of level N(ρ̄) prime to p, and Edixhoven's weight theorem (with θ-operators and the Deligne–Serre lifting lemma) gives a newform of weight k(ρ̄) and level N(ρ̄).",
+   "reason": "Theorem 1.2 asserts that ρ̄ arises from S_{k(ρ̄)}(Γ₁(N(ρ̄))), but Theorem 3.4 concludes 'is modular', and its proof (§8.4) lifts through Theorem 5.1(2), which has weight 2 and a type at p. The introduction (pp. 2–3) presents Theorem 1.2(2) as filling the dyadic scalar case of the qualitative-implies-refined problem, which is exactly the step not written out. Theorems 4.1(2)(i) and 5.1 (p. 9) assume 2 ≤ k(ρ̄) ≤ p + 1 when p > 2, while Serre's weight reaches p² − 1 for odd p; the paper notes (p. 2) that only some twist ρ̄ ⊗ χ_p^i has weight in [2, p + 1]. So for k(ρ̄) > p + 1 the lift is built for the twist, and the untwisting is part of the correction: for instance ρ̄|_{I_p} ≅ χ̄_p ⊕ χ̄_p² has Serre weight p + 3 for p ≥ 5, and only its twist by χ̄_p^{−1}, of weight 2, is in range. Every ingredient is a result of the paper or of Edixhoven's weight theorem, so the theorem stands.",
    "affects": "the proof",
-   "known": "new: no erratum is registered for the article; recorded in the atlas as ClassicalSerreModularity/E9, confirmed by REV-ClassicalSerreModularity--R27.3, and supplied in ClassicalSerreModularity:R27.4/strong-form-by-minimal-lifts",
+   "known": "new: no erratum is registered for the article; recorded in the atlas as ClassicalSerreModularity/E9, confirmed by REV-ClassicalSerreModularity--R27.3, and supplied in ClassicalSerreModularity:R27.4/strong-form-by-minimal-lifts, which imports the untwisting from SerreWeightAndLevelOptimisation R20.3",
    "searched": [
     "Crossref metadata for doi:10.1007/s00222-009-0205-7 and the Crossref 'updates' filter, 29 September 2026",
     "a web search for an erratum to the paper, 29 September 2026: none found",
