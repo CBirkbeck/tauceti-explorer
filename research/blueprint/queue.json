@@ -40386,7 +40386,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-BENOIST-19.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #5008"
   },
   {
    "id": "RT-PAPER-BREUIL-HELLMANN-SCHRAEN-19",
