@@ -33249,7 +33249,8 @@
     "REV-PAPER-BERGSTROM-FABER-PAYNE-24"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-BERGSTROM-FABER-PAYNE-24.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4518"
   },
   {
    "id": "RT-PAPER-SMITH-24",
@@ -39597,7 +39598,8 @@
     "REV-PAPER-BETTS-STIX-25"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-BETTS-STIX-25.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4326"
   },
   {
    "id": "REV-RT-PAPER-BETTS-STIX-25",
@@ -39640,8 +39642,9 @@
     "REV-PAPER-CESNAVICIUS-21"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-CESNAVICIUS-21.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4328"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4328",
+   "finishedAt": "2026-09-30T00:39:38Z"
   },
   {
    "id": "REV-RT-PAPER-CESNAVICIUS-21",
