@@ -113,6 +113,7 @@ Write research/blueprint/papers/{PAPER}.result.json in the format of PROTOCOL.md
 5. List the prerequisite papers the atlas does not yet cover.
 5a. Record every mistake you find in the paper under `sourceIssues` (PROTOCOL.md section 18), including those noted earlier in this extraction's items, gaps and report: misprints, errors and gaps, each quoted at its locator with the correction and the reason, how far it reaches, and whether a published erratum or a later version already corrects it (say where you looked). Keep the list even if it is empty, which says you found none. Items use the corrected statements. A `sourceIssues` list in an older form is converted, keeping everything it says.
 6. Run `python3 scripts/check_paper.py research/blueprint/papers/{PAPER}.result.json` until it reports no errors. Set "status": "complete" only when the whole paper is extracted and every missing item is routed. Otherwise leave "partial" and write a handoff note, research/blueprint/handoff/{PAPER}.md.
+   An extraction does not decompose or prove the results the paper cites: each cited result is one item with its status and route, and proving missing items is the work of the roadmaps they are routed to (PROTOCOL.md section 16). Open proof closure, API outlines or supplier audits never keep an extraction partial. A handoff's resume list names only parts of the paper not yet extracted and items not yet routed.
 
 Worked examples of routing, by the maintainer (research/blueprint/papers/papers.json, "guides"):
 {GUIDES}
