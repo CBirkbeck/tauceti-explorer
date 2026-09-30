@@ -1,5 +1,23 @@
 # REV-PAPER-GAMBURD-MAGEE-RONAN-19: review of the Gamburd–Magee–Ronan extraction
 
+## Scope correction by the fix worker, 30 September 2026
+
+Codex `codex-J6LwjP`, issue #4984. This is an annotation to the historical independent review below, not a new independent verdict. Its full arXiv reading and acceptance describe the 23 September 2026 extraction. The earlier published-text access failure was real at that time; the public Annals PDF has now been read in full by the fix worker.
+
+The [fix report](../redteam/RT-PAPER-GAMBURD-MAGEE-RONAN-19.fixes.md) and [current reader](../papers/PAPER-GAMBURD-MAGEE-RONAN-19.md) supersede the historical coverage counts and route boundaries below. The current extraction has 50 items (1 library, 1 planned, 48 missing), four routes, 20 prerequisites and 18 source issues. All seven verified red-team findings are applied:
+
+- Annals fully corrects E7/E11 and partly corrects E2/E4/E5/E8/E17. E9 and E17 include proof-only components in the cited arXiv supplement. Dual locators and actual version readings are recorded. All 17 original issue/review objects are preserved in `versionHistory`; their verdicts have not been reassigned to new published scopes.
+- The generic scalar Laplace theorem coalesces with the accepted Wood supplier, with a prerequisite/gap and canonical design dependency until a stage exists. Item 41 retains the application, corrected residue and explicit uniformity obligation.
+- Missing C¹(K) and complex-transform adapters replace unsupported library imports. Real/complex p-series, Mellin and the existing real-measure transform have precise reuse boundaries.
+- PM.4 covers the base Gauss map and probability density only; new items 44–45 cover the missing conjugacy and C¹ spectral theorem.
+- PP90, ITM50, the original Pollicott notes, Baladi and Lalley 1988 are registered with distinct roles and access limitations. The published [Pol]/[Pol14] discrepancy is not resolved by equating different works.
+- New E18 records the row-3 Jacobian typo in both versions, without a copied independent verdict. Its corrected derivative agrees with the column sum.
+- Existing CA.4 Markoff nodes are reused for their coefficient-three specialization; the general source-completion request and current canonical design jobs are explicit. The packet is already partial after PR #5217.
+
+Published Examples 16–17 are also included; Example 17's deferred proof remains open. These current changes await the independent REV-FIX review. The old claims of complete inventory, three accepted routes, and all E1–E17 being new must be read only as historical preprint conclusions.
+
+## Historical independent review, 23 September 2026
+
 **Verdict: accept, after corrections made in place.**
 - **Paper:** Gamburd–Magee–Ronan, *An asymptotic formula for integer points on Markoff–Hurwitz varieties*, Ann. of Math. 190 (2019).
 - **Extraction:** by cc-fb70e5, issue #1139.
