@@ -156,9 +156,10 @@
       "id": "PAPER-PAN-26/12",
       "kind": "theorem",
       "name": "The special case",
-      "statement": "When pi_p is special the paper obtains a slightly weaker result.",
-      "locator": "Remark 1.1.12, p. 5, with the statement in Remark 7.3.10",
+      "statement": "For pi_p special (k = 1), Theorem 5.5.4 gives a three-step filtration on ker I^1_0[lambda~_tau]; the paper does not prove that ker I^1_0[lambda~_tau] is the eigenspace H~^1(K^p, C)[lambda_tau]^la_0, that is, that the generalised eigenspace is an honest eigenspace (see /556).",
+      "locator": "Remark 1.1.12, p. 5 (which points to Remark 7.3.10; the case is Remark 7.3.11, pp. 124-125)",
       "status": "missing",
+      "note": "Corrected by FIX-RT-PAPER-PAN-26 (RT-PAPER-PAN-26/9): the statement used to read 'When pi_p is special the paper obtains a slightly weaker result', and the locator copied the paper's pointer to Remark 7.3.10.",
       "uses": [
         "PAPER-PAN-26/10"
       ]
@@ -1036,11 +1037,15 @@
     {
       "id": "PAPER-PAN-26/300",
       "kind": "construction",
-      "name": "The de Rham bundle of the universal elliptic curve, its connection and the classical theta operator",
-      "statement": "Fix K_p and let X = X_{K^p K_p} with C the cusps. The first relative de Rham cohomology of the universal elliptic curve over X - C is a rank two bundle with a Hodge filtration and Gauss-Manin connection; its canonical extension D to X carries a logarithmic connection nabla : D -> D tensor Omega^1_X(C) and the filtration Fil^n D = D for n <= 0, omega for n = 1, and 0 for n >= 2. The Kodaira-Spencer isomorphism is that the composite omega = Fil^1 D -> D -> gr^0 D tensor Omega^1_X(C) = (wedge^2 D) tensor omega^{-1} tensor Omega^1_X(C) is an isomorphism, so Omega^1_X(C) may be identified with (wedge^2 D)^{-1} tensor omega^2; the cup product identifies wedge^2 D with the canonical extension of H^2_dR. For k >= 0 the k-th symmetric power carries nabla_k and a filtration with Fil^k Sym^k D = omega^k, and Kodaira-Spencer makes Fil^1 Sym^k D -> (Sym^k D / Fil^k) tensor Omega^1_X(C) an isomorphism; hence every section s of gr^0 Sym^k D has a unique lift with nabla_k of the lift in Fil^k Sym^k D tensor Omega^1_X(C). This defines theta'_{k+1} from gr^0 Sym^k D to omega^k tensor Omega^1_X(C), a logarithmic differential operator of order k+1 on omega^{-k} tensor (wedge^2 D)^k; applying the same construction to Sym^k D^* gives theta_{k+1} : omega^{-k} -> omega^{k+2} tensor (wedge^2 D)^{-k-1}. For k = 0, theta_1 is the derivation d followed by Kodaira-Spencer. Everything is compatible with varying K_p.",
+      "name": "The de Rham bundle of the universal elliptic curve and its canonical extension",
+      "statement": "Fix K_p and let X = X_{K^p K_p} with C the cusps. The first relative de Rham cohomology D_dR of the universal elliptic curve over X - C is a rank two vector bundle with a Hodge filtration and a Gauss-Manin connection; its canonical extension D to X carries a logarithmic connection nabla : D -> D tensor Omega^1_X(C) and the filtration Fil^n D = D for n <= 0, omega for n = 1, and 0 for n >= 2, and the cup product identifies wedge^2 D with the canonical extension of H^2_dR. For k >= 0 the k-th symmetric power Sym^k D carries the induced logarithmic connection nabla_k and the induced filtration, with Fil^k Sym^k D = omega^k. Everything is compatible with varying K_p.",
       "locator": "Section 4.1.2, p. 34",
-      "status": "missing",
-      "note": "This is the classical theta operator of the theory of modular forms; the point of the subsection is to extend it O_Fl-linearly to the infinite level."
+      "status": "planned",
+      "planned": [
+        "AbelianSchemesAndArithmeticModuli:A4",
+        "AutomorphicBundles:B3"
+      ],
+      "note": "Split by FIX-RT-PAPER-PAN-26 (RT-PAPER-PAN-26/6). AbelianSchemesAndArithmeticModuli A4 plans relative H^1_dR, its Hodge exact sequence, the Gauss-Manin connection and the cup-product pairing; AutomorphicBundles B3 plans the canonical extension and the extension of the logarithmic connection for bundles coming from whole-group representations, with B4 identifying the GL_2 Hodge line. The Kodaira-Spencer isomorphism with log poles is now item /557 and the operators theta'_{k+1} and theta_{k+1} item /558; this item used to hold all three. It was formerly on route 10, whose stages R15.2 and R15.5 plan none of it."
     },
     {
       "id": "PAPER-PAN-26/301",
@@ -1322,6 +1327,7 @@
       "statement": "Let infinity in Fl be the point where e_1 vanishes, with i_infinity its inclusion. Following [Pan22] set M-dagger_k(K^p) to be the stalk of omega^{k,sm}_{K^p} at infinity and M_k(K^p) = H^0(Fl, omega^{k,sm}_{K^p}) = colim_{K_p} H^0(X_{K^p K_p}, omega^k); these are the overconvergent and the classical modular forms of weight k and tame level K^p, with a natural restriction map between them, and M_k(K^p) = 0 for k < 0. Concretely M-dagger_k(K^p) is the colimit over n of the sections of omega^k on a strict neighbourhood of the canonical locus X_{K^p Gamma(p^n),c}, whose connected components correspond to those of X_{K^p Gamma(p^n)} because Igusa curves are irreducible. For a B x G_{Q_p}-representation W the notation W . e_1^i e_2^j means the twist of W(i+j) by the character sending an upper-triangular matrix to a^i d^j.",
       "locator": "Section 4.4.6 and the discussion on p. 44, with [Pan22, Definition 5.2.5, 5.3.8, Remark 5.2.7] and [Pan22, 5.2.4]",
       "status": "missing",
+      "note": "Moved from route 10 to route 1 by FIX-RT-PAPER-PAN-26 (RT-PAPER-PAN-26/6): AlgebraicModularFormsAndSerreWeights R15.2 and R15.5 (q-expansions, integral Hecke theory, Deligne-Serre lifting) do not plan overconvergent forms at infinite tame level on strict neighbourhoods of the canonical locus, and no layer does. Route 1's brief constructs them.",
       "uses": [
         "PAPER-PAN-26/202"
       ]
@@ -1576,8 +1582,9 @@
       "locator": "Proposition 5.1.7 with its proof, p. 54; quoted from Coleman",
       "status": "planned",
       "planned": [
-        "PadicDifferentialEquationsAndRigidCohomology:RD.4"
+        "PadicDifferentialEquationsAndRigidCohomology:RD.5"
       ],
+      "note": "Re-pointed from RD.4 to RD.5 by FIX-RT-PAPER-PAN-26 (RT-PAPER-PAN-26/5): RD.4 separates the construction from finite-dimensionality, and RD.5 proves finiteness of H^i and H^i_c for overconvergent F-isocrystals (Kedlaya). The paper's proof goes through Coleman ([Col97, Theorem 2.1], [Col96, section 8]): the group is the log-rigid cohomology of the overconvergent logarithmic F-isocrystal (Sym^k D, nabla_k) on the special fibre of the canonical locus, a union of compactified Igusa curves. No layer plans log-rigid cohomology or its comparison with the rigid cohomology of the open Igusa curve (the nearest material is the overconvergent logarithmic de Rham complex on dagger spaces of AutomorphicGaloisRepresentationsPartII AG2.4), so that comparison, or Coleman's computation, is an input nothing plans; route 1's brief asks its Part II to prove it or to import it from a named owner.",
       "uses": [
         "PAPER-PAN-26/353"
       ]
@@ -1612,6 +1619,7 @@
       "statement": "B acts on the fibre of omega^l_Fl at infinity through the l-th power of the character e'_2 sending an upper-triangular matrix to d, and e'_1 is the character sending it to a; these agree with e_2 and e_1 of 4.4.6 as characters of B but carry no Galois action, and W . (e'_2)^l denotes the corresponding twist. There is a Hausdorff LB-space structure on H^1_rig(Ig(K^p), Sym^k) . (e'_2)^l for which the B-action is locally analytic, and its locally analytic induction to GL_2(Q_p) defines a GL_2(Q_p)-equivariant sheaf on P^1(Q_p) whose global sections are that induction; for the trivial coefficient the induction of (e'_2)^l is the restriction of omega^l_Fl to P^1(Q_p).",
       "locator": "Section 5.1.10, p. 55",
       "status": "missing",
+      "note": "Moved from route 9 to route 11 by FIX-RT-PAPER-PAN-26 (RT-PAPER-PAN-26/2): SmoothRepresentationsOfLocalGroups SR.2 plans smooth induction only. Locally analytic induction belongs with LocallyAnalyticRepresentationsOfLocalGroups, where Ding's brief puts Emerton's closed induction.",
       "uses": [
         "PAPER-PAN-26/356",
         "PAPER-PAN-26/326",
@@ -2390,6 +2398,7 @@
       "statement": "Let DR_dR be the complex given by the derivation from the D_p^*-smooth structure sheaf to Omega^1_Dr, the latter being omega^{2}_Dr twisted by det via Kodaira-Spencer. Define H^i_{dR,c} of the height-zero Drinfeld tower at infinite level as the hypercohomology of j_! applied to that complex; since only H^1 of each term is non-zero, it is the (i-1)-st cohomology of the induced map H^1(j_! of the structure sheaf) -> H^1(j_! Omega^1_Dr).",
       "locator": "Definition 5.6.5, p. 81, with Remark 5.3.18",
       "status": "missing",
+      "note": "Moved from route 7 to route 1 by FIX-RT-PAPER-PAN-26 (RT-PAPER-PAN-26/5). RD.4 plans rigid cohomology of varieties over F_p, not the de Rham cohomology of a characteristic-zero Stein space. The presentation through j_! on the flag variety at infinite level is the paper's own and stays with route 1's Part II; the compactly supported de Rham cohomology of the finite-level Drinfeld spaces with Serre duality is Colmez-Dospinescu-Niziol's ([CDN20, section 4.3]; PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B items 4.1-thm-4-1 and 5.3-thm-5-8), and route 13 sends the paper's comparison with it (item /437) to that roadmap.",
       "uses": [
         "PAPER-PAN-26/394",
         "PAPER-PAN-26/390"
@@ -2443,6 +2452,7 @@
       "statement": "Defining H^i_{dR,c} at finite level by the same recipe, the infinite-level group is the colimit. Since the finite-level Drinfeld spaces are partially proper, the higher cohomology of the structure sheaf and of the differentials vanishes, so the de Rham cohomology is the naive one, and Serre duality gives H^i_dR dual to H^{2-i}_{dR,c}; the finiteness of the morphism to Omega identifies the H^1 of j_! of the pushforward with the compactly supported H^1 of Colmez-Dospinescu-Niziol. Since H^0_dR is the continuous functions on the set of connected components, H^2_{dR,c} is finite-dimensional.",
       "locator": "Section 5.6.9, p. 82; following [CDN20, sections 4.3 and 4.3.2]",
       "status": "missing",
+      "note": "Moved from route 7 to route 13 by FIX-RT-PAPER-PAN-26 (RT-PAPER-PAN-26/5): these are statements about characteristic-zero Stein spaces, not rigid cohomology of varieties over F_p, and the accepted PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B route 1 sends the same objects to ProetaleCohomologyOfPAdicCurvesAndTowers. That roadmap states the finite-level results (the vanishing of higher coherent cohomology on the partially proper spaces, Serre duality, the compactly supported H^1 of [CDN20, sections 4.3 and 4.3.2]); the identification with the j_! presentation of item /433 is made in route 1's roadmap, which imports that roadmap and is not imported by it.",
       "uses": [
         "PAPER-PAN-26/433"
       ]
@@ -2673,10 +2683,10 @@
       "id": "PAPER-PAN-26/465",
       "kind": "theorem",
       "name": "Proposition 6.1.20 and Corollary 6.1.21: exactness and compatibility with the Fontaine operators",
-      "statement": "Let f : X -> Y be a continuous B^+_dR/(t^k)-linear G_K-equivariant map of Hausdorff flat LB-modules with the comparison maps isomorphisms, and assume X and Y are increasing unions of G_K-stable Banach submodules that are Hodge-Tate of weights 0, k, that f maps the n-th term to the n-th term strictly, that coker f is Hausdorff, and that f is strict for the t-adic filtrations. Then ker f and coker f are again Hodge-Tate of weights 0, k and flat, their comparison maps are isomorphisms, and 0 -> (ker f)^K -> X^K -> Y^K -> (coker f)^K -> 0 is exact. Consequently the four Fontaine operators of ker f, X, Y and coker f form a commutative diagram of two exact rows.",
+      "statement": "Let f : X -> Y be a continuous B^+_dR/(t^{k+1})-linear G_K-equivariant map of Hausdorff LB-modules flat over B^+_dR/(t^{k+1}) with the comparison maps isomorphisms, and assume X and Y are increasing unions of G_K-stable Banach submodules that are Hodge-Tate of weights 0, k, that f maps the n-th term to the n-th term strictly, that coker f is Hausdorff, and that f is strict for the t-adic filtrations. Then ker f and coker f are again Hodge-Tate of weights 0, k and flat over B^+_dR/(t^{k+1}), their comparison maps are isomorphisms, and 0 -> (ker f)^K -> X^K -> Y^K -> (coker f)^K -> 0 is exact. Consequently the four Fontaine operators of ker f, X, Y and coker f form a commutative diagram of two exact rows.",
       "locator": "Proposition 6.1.20 and Corollary 6.1.21 with their proofs, pp. 91-92",
       "status": "missing",
-      "note": "This is the tool that transports the Fontaine operator along the exact sequences produced in section 5.",
+      "note": "This is the tool that transports the Fontaine operator along the exact sequences produced in section 5. Corrected by FIX-RT-PAPER-PAN-26 (RT-PAPER-PAN-26/10): the paper prints B^+_dR/(t^k) in Proposition 6.1.20; with that reading W_k = t^kW/t^{k+1}W = 0 and every Fontaine operator in Corollary 6.1.21 is zero. The item uses B^+_dR/(t^{k+1}), as 6.1.12, 6.1.17, 6.1.19 and the application in 6.2.14 do (source issue E4).",
       "uses": [
         "PAPER-PAN-26/464",
         "PAPER-PAN-26/455",
@@ -2857,7 +2867,13 @@
       "name": "Section 6.3.5: the structural de Rham period sheaf and its properties",
       "statement": "For U in B with preimage V_infinity, pulled back from an affinoid at finite level defined over a finite extension K, the cusps give a log structure on V_0 and V_infinity is an open covering in the pro-Kummer-etale site, so the geometric de Rham period sheaf of Diao-Lan-Liu-Zhu can be evaluated there, giving OB^+_dR(V_infinity). It has: a surjection theta_log onto the structure sheaf of the perfectoid curve, whose kernel powers give an exhaustive complete filtration with gr^i the i-th symmetric power of gr^1 over gr^0; a filtration-strict injection of B^+_dR(V_infinity) compatible with theta; an injection of the colimit of the finite-level structure rings; and compatible actions of G_K and of the group. It does not depend on the choices of K and of the open subgroup.",
       "locator": "Section 6.3.5, pp. 99-100; the constructions are [DLLZ18, section 2.2, Definition 2.2.10, Proposition 2.3.15] and [Sch16a, (3)]",
-      "status": "missing",
+      "status": "planned",
+      "planned": [
+        "HodgeTateAndCanonicalSubgroups:T6:log-sites",
+        "HodgeTateAndCanonicalSubgroups:T6:comparison",
+        "PadicHodgeTheory:P8:local-rational"
+      ],
+      "note": "Marked planned by FIX-RT-PAPER-PAN-26 (RT-PAPER-PAN-26/4). T6:log-sites constructs the Kummer-etale and pro-Kummer-etale sites of Diao-Lan-Liu-Zhu; T6:comparison constructs 'the logarithmic structural de Rham period sheaves, their connections and filtrations' and proves 'the logarithmic Poincare lemma'; P8:local-rational constructs the non-log rational period sheaves and says that HodgeTateAndCanonicalSubgroups 'owns the logarithmic Kummer-site extension'. The paper evaluates these sheaves on the covers V_infinity of the modular curve. The item was formerly on route 6 (CohomologyComparisons CP.3 and CP.0), which constructs no period sheaves.",
       "uses": [
         "PAPER-PAN-26/470"
       ]
@@ -2865,13 +2881,17 @@
     {
       "id": "PAPER-PAN-26/494",
       "kind": "theorem",
-      "name": "Section 6.3.6: the Poincare lemma sequence and log Faltings extension",
-      "statement": "The logarithmic connection of V_0 extends B^+_dR(V_infinity)-linearly to nabla_log on OB^+_dR(V_infinity), independently of the finite level, and induces a short strict exact Poincare lemma sequence 0 -> B^+_dR(V_infinity) -> OB^+_dR(V_infinity) -> OB^+_dR(V_infinity) tensor Omega^1_{V_0}(C) -> 0. Its first graded piece is the log Faltings extension 0 -> O(1) -> gr^1 OB^+_dR -> O tensor Omega^1_{V_0}(C) -> 0; since Omega^1_{V_0}(C) is the square of the automorphic bundle by Kodaira-Spencer it is trivial, and the symmetric-power description gives gr^k OB^+_dR a filtration with graded pieces the Tate twists O(i) for i = 0,...,k. Choosing X in Fil^1 whose image generates the quotient gives an isomorphism of filtered groups B^+_dR(V_infinity)[[X]] = OB^+_dR(V_infinity) with X of degree one.",
-      "locator": "Section 6.3.6 with the displayed sequences (6.3.2) and (6.3.3), pp. 99-100; the connection is [DLLZ18, 2.2.15]",
-      "status": "missing",
+      "name": "Section 6.3.6: the Poincare lemma sequence and the log Faltings extension",
+      "statement": "The logarithmic connection of V_0 extends B^+_dR(V_infinity)-linearly to nabla_log on OB^+_dR(V_infinity), independently of the finite level, and induces a short strict exact Poincare lemma sequence 0 -> B^+_dR(V_infinity) -> OB^+_dR(V_infinity) -> OB^+_dR(V_infinity) tensor Omega^1_{V_0}(C) -> 0. Its first graded piece is the log Faltings extension 0 -> O(1) -> gr^1 OB^+_dR -> O tensor Omega^1_{V_0}(C) -> 0.",
+      "locator": "Section 6.3.6 with the displayed sequence (6.3.2), pp. 99-100; the connection is [DLLZ18, 2.2.15]",
+      "status": "planned",
+      "planned": [
+        "HodgeTateAndCanonicalSubgroups:T6:comparison",
+        "PadicHodgeTheory:P8:local-rational"
+      ],
+      "note": "Split and marked planned by FIX-RT-PAPER-PAN-26 (RT-PAPER-PAN-26/4). T6:comparison plans the logarithmic period sheaves with their connections and filtrations and the logarithmic Poincare lemma, with P8:local-rational for the non-log case. The consequences specific to the modular curve, which use the Kodaira-Spencer isomorphism (item /557) - the triviality of Omega^1_{V_0}(C), the filtration of gr^k OB^+_dR by Tate twists and the presentation (6.3.3) - are now item /559 on route 1; this item used to contain them. It was formerly on route 6.",
       "uses": [
-        "PAPER-PAN-26/493",
-        "PAPER-PAN-26/300"
+        "PAPER-PAN-26/493"
       ]
     },
     {
@@ -3334,14 +3354,16 @@
       "id": "PAPER-PAN-26/552",
       "kind": "theorem",
       "name": "Remark 7.3.6: the comparison with the Breuil-Strauch conjecture",
-      "statement": "For k = 1, since pi'_p is fixed by a small subgroup, the quaternionic term is the units-invariants of H^1(Fl, j_! of the push-forward of the structure sheaf of a finite-level Drinfeld space) tensor pi'_p, and by 5.6.9 there is an exact sequence relating the compactly supported de Rham cohomology to that H^1. Taking lambda-isotypic parts in Theorem 5.6.7 gives that the units-invariants of H^1_{dR,c} tensor pi'_p is D_dR(rho restricted to G_{Q_p}) tensor pi_p, which is the form of the statement proved by Dospinescu-Le Bras.",
+      "statement": "For k = 1, pi'_p is fixed by 1 + p^n O_{D_p} for some n, so the quaternionic term of Theorem 7.3.2 is (H^1(Fl, j_! pi_{Dr,n*} O_{M^(0)_{Dr,n}}) tensor_C pi'_p)^{O_{D_p}^x}, and by 5.6.9 there is an exact sequence 0 -> H^1_{dR,c}(M^(0)_{Dr,n}) -> H^1(M^(0)_{Dr,n}, O) -d-> H^1(M^(0)_{Dr,n}, Omega^1). Taking lambda-isotypic parts in Theorem 5.6.7 gives (H^1_{dR,c}(M^(0)_{Dr,n}) tensor_C pi'_p)^{O_{D_p}^x} = D_dR(rho|G_{Q_p}) tensor_E pi_p (see also [DLB17, Theoreme 1.4]), and the inclusion of pi_p in Theorem 7.3.2 is Fil^1 D_dR(rho|G_{Q_p}) tensor_E pi_p inside D_dR(rho|G_{Q_p}) tensor_E pi_p. Moreover rho|G_{Q_p} is absolutely irreducible because pi_p is supercuspidal, so Emerton's local-global compatibility ([Pan22, Corollary 6.3.6]; item /564) gives H~^1(K^p, C)[lambda_tau]^la_0 = (pi^{infinity,p})^{K^p} tensor_E Pi(rho|G_{Q_p})^la, where Pi(rho|G_{Q_p}) is the unitary E-Banach representation attached to rho|G_{Q_p} by the p-adic local Langlands correspondence for GL_2(Q_p). Therefore Theorem 7.3.2 is equivalent to Pi(rho|G_{Q_p})^la completed-tensor_E C = (H^1(Fl, j_! pi_{Dr,n*} O_{M^(0)_{Dr,n}}) tensor_C pi'_p)^{O_{D_p}^x} / Fil^1 D_dR(rho|G_{Q_p}) tensor_E pi_p, which is the Breuil-Strauch conjecture for rho|G_{Q_p}. The conjecture for every de Rham rho_p of Hodge-Tate weights 0, 1 corresponding to pi_p under the classical local Langlands correspondence (such a rho_p is determined by the position of Fil^1 D_dR(rho_p)) was proved by Dospinescu-Le Bras [DLB17, Theoreme 1.4], taking into account the Serre duality Hom_cont(H^1(Fl, j_! pi_{Dr,n*} O_{M^(0)_{Dr,n}}), C) = H^0(M^(0)_{Dr,n}, Omega^1).",
       "locator": "Remark 7.3.6, p. 123; compare [DLB17, Theoreme 1.4]",
       "status": "missing",
+      "note": "Corrected by FIX-RT-PAPER-PAN-26 (RT-PAPER-PAN-26/9): the item used to omit the remark's second half and to run together the two uses of [DLB17, Theoreme 1.4]. The first is a comparison for the identification with D_dR; the second is the proof of the full Breuil-Strauch conjecture. The equivalence with the Breuil-Strauch conjecture for rho|G_{Q_p} rests on Emerton's local-global compatibility, which the paper's main theorems avoid.",
       "uses": [
         "PAPER-PAN-26/551",
         "PAPER-PAN-26/435",
         "PAPER-PAN-26/437",
-        "PAPER-PAN-26/8"
+        "PAPER-PAN-26/8",
+        "PAPER-PAN-26/564"
       ]
     },
     {
@@ -3362,13 +3384,16 @@
       "id": "PAPER-PAN-26/554",
       "kind": "theorem",
       "name": "Remark 7.3.9: the rigid cohomology of Igusa curves is D_cris",
-      "statement": "For k = 1, and in general by the same discussion, H^1_rig(Ig(K^p)) is the log rigid cohomology of the tower of Igusa curves, and the comparison between log rigid and log crystalline cohomology gives H^1_rig(Ig(K^p))[lambda] = (pi^{infinity,p})^{K^p} tensor D_cris(rho restricted to G_{Q_p}), where D_cris is taken over a sufficiently ramified cyclotomic extension and carries a Weil group action by Fontaine's recipe; the congruence relation on the Igusa curves turns that into a B-action making the isomorphism B-equivariant. Hence the principal series description becomes the statement of the Berger-Breuil-Emerton conjecture.",
+      "statement": "For k = 1, and in general by the same discussion, H^1_rig(Ig(K^p)) is the log rigid cohomology of the tower of Igusa curves, and the comparison between log rigid and log crystalline cohomology gives H^1_rig(Ig(K^p))[lambda] = (pi^{infinity,p})^{K^p} tensor D_cris(rho restricted to G_{Q_p}), where D_cris is taken over a sufficiently ramified cyclotomic extension and carries a Weil group action by Fontaine's recipe; the congruence relation on the Igusa curves turns that into a B-action making the isomorphism B-equivariant. Hence H~^1(K^p, C)[lambda_tau]^la_0 = (pi^{infinity,p})^{K^p} tensor Ind_B^{GL_2(Q_p)} D_cris(rho|G_{Q_p}) / pi_p, with pi_p embedded through Fil^1. If moreover rho|G_{Q_p} is absolutely irreducible, Emerton's local-global compatibility (item /564) gives Pi(rho|G_{Q_p})^la completed-tensor_E C = Ind_B^{GL_2(Q_p)} D_cris(rho|G_{Q_p}) / pi_p; the local form of this isomorphism was conjectured by Berger-Breuil [BB10, Conjecture 5.3.7] and by Emerton [Eme06a, Conjecture 6.7.3], and proved by Liu-Xie-Zhang [LXZ12] and Colmez [Col14] (item /565).",
       "locator": "Remark 7.3.9, pp. 123-124; the congruence relation is [Car86, section 1.6.4]",
       "status": "missing",
+      "note": "Corrected by FIX-RT-PAPER-PAN-26 (RT-PAPER-PAN-26/9): the item used to end 'Hence the principal series description becomes the statement of the Berger-Breuil-Emerton conjecture', dropping the paper's hypothesis 'if we further assume rho|G_{Q_p} is absolutely irreducible' and its use of Emerton's local-global compatibility.",
       "uses": [
         "PAPER-PAN-26/553",
         "PAPER-PAN-26/11",
-        "PAPER-PAN-26/353"
+        "PAPER-PAN-26/353",
+        "PAPER-PAN-26/564",
+        "PAPER-PAN-26/565"
       ]
     },
     {
@@ -3389,16 +3414,139 @@
       "id": "PAPER-PAN-26/556",
       "kind": "theorem",
       "name": "Remark 7.3.11: the special case",
-      "statement": "For pi_p special and k = 1, Theorem 5.5.4 gives ker I^1_0 at lambda_tau a three-step filtration whose graded pieces are (pi^{p,infinity})^{K^p} tensor pi_p, the quaternionic term, and the induction of the Igusa cohomology. If rho restricted to G_{Q_p} is absolutely irreducible, Emerton's local-global compatibility identifies the locally analytic weight-zero part with the completed tensor product of (pi^{p,infinity})^{K^p} with the locally analytic vectors of the representation attached to rho by the p-adic local Langlands correspondence, whose structure was conjectured by Emerton and proved by Liu-Xie-Zhang and Colmez. Theorem 7.2.2 gives an inclusion into ker I^1_0 at lambda_tau, and it is in fact an equality: a careful analysis using Serre duality shows Fil^2 is essentially the completed tensor product with Breuil's Sigma(2,L), and gr^3 essentially agrees with the locally analytic induction in Emerton's conjectural sequence. Hence ker I^1_0 at lambda_tau is the honest eigenspace in the special case too.",
+      "statement": "For pi_p special and k = 1, Theorem 5.5.4 gives ker I^1_0 at lambda_tau a three-step filtration whose graded pieces are (pi^{p,infinity})^{K^p} tensor pi_p, the quaternionic term, and the induction of the Igusa cohomology. If rho restricted to G_{Q_p} is absolutely irreducible, Emerton's local-global compatibility identifies the locally analytic weight-zero part with the completed tensor product of (pi^{p,infinity})^{K^p} with the locally analytic vectors of the representation attached to rho by the p-adic local Langlands correspondence, whose structure was conjectured by Emerton and proved by Liu-Xie-Zhang and Colmez. Theorem 7.2.2 gives an inclusion of the locally analytic weight-zero part into ker I^1_0 at lambda~_tau. The paper claims, without proof, that this inclusion is an equality ('We claim that it is actually an equality'), and sketches why: a careful analysis using Serre duality shows that Fil^2 is essentially the completed tensor product of (pi^{p,infinity})^{K^p} with Breuil's Sigma(2,L), and 'it can be shown that' gr^3 essentially agrees with the locally analytic induction in the quotient of Emerton's conjectural sequence. If so, ker I^1_0 at lambda~_tau is the eigenspace of lambda.",
       "locator": "Remark 7.3.11, pp. 124-125; the references are [Eme06a, Conjecture 6.7.7], [LXZ12], [Col14] and [Bre04, sections 2-3, Remarque 3.5.7]",
       "status": "missing",
-      "note": "This is what Remarks 1.1.12, 1.2.4 and 5.5.15 point forward to: the special case is settled, but only by importing the p-adic local Langlands correspondence, which the rest of the paper deliberately avoids.",
+      "note": "This is what Remarks 1.1.12, 1.2.4 and 5.5.15 point forward to. The equality in the special case is claimed with a sketch, for k = 1 and assuming rho|G_{Q_p} absolutely irreducible, and is not proved in the paper; the sketch imports Emerton's local-global compatibility (item /564), the description of Pi(rho|G_{Q_p})^la by Liu-Xie-Zhang and Colmez (item /565) and Breuil's Sigma(2, L) (item /566), which the rest of the paper deliberately avoids. Corrected by FIX-RT-PAPER-PAN-26 (RT-PAPER-PAN-26/9): the item used to state the equality as proved.",
       "uses": [
         "PAPER-PAN-26/555",
         "PAPER-PAN-26/422",
         "PAPER-PAN-26/413",
-        "PAPER-PAN-26/12"
+        "PAPER-PAN-26/12",
+        "PAPER-PAN-26/564",
+        "PAPER-PAN-26/565",
+        "PAPER-PAN-26/566"
       ]
+    },
+    {
+      "id": "PAPER-PAN-26/557",
+      "kind": "theorem",
+      "name": "The Kodaira-Spencer isomorphism with log poles",
+      "statement": "With X = X_{K^p K_p}, C its cusps and D the canonical extension of item /300, the composite omega = Fil^1 D -> D -nabla-> D tensor Omega^1_X(C) -> gr^0 D tensor Omega^1_X(C) = (wedge^2 D) tensor omega^{-1} tensor Omega^1_X(C) is an isomorphism, so that Omega^1_X(C) may be identified with (wedge^2 D)^{-1} tensor omega^2.",
+      "locator": "Section 4.1.2, p. 34 ('It is well-known that the composite map ... is an isomorphism (Kodaira-Spencer isomorphism)')",
+      "status": "planned",
+      "planned": [
+        "AlgebraicModularFormsAndSerreWeights:R15.1"
+      ],
+      "note": "Split from /300 by FIX-RT-PAPER-PAN-26 (RT-PAPER-PAN-26/6). The node AlgebraicModularFormsAndSerreWeights:R15.1/hodge-bundle-with-tate-curve-normalization records the Kodaira-Spencer isomorphism omega^{tensor 2} = Omega^1(log cusps) on the compactified level-n modular scheme, but only as an input quoted from Katz (A1.3.17) and Deligne, with no proof step, and the paper quotes it as well known. So its proof is owned by no layer; route 10 makes the paper a source for R15.1 for the form used here.",
+      "uses": [
+        "PAPER-PAN-26/300"
+      ]
+    },
+    {
+      "id": "PAPER-PAN-26/558",
+      "kind": "construction",
+      "name": "The operators theta'_{k+1} and theta_{k+1}",
+      "statement": "For k >= 0, the Kodaira-Spencer isomorphism (item /557) implies that the composite Fil^1 Sym^k D -> Sym^k D tensor Omega^1_X(C) -> (Sym^k D / Fil^k) tensor Omega^1_X(C) of nabla_k with the projection is an isomorphism. Hence every section s of gr^0 Sym^k D has a unique lift s~ in Sym^k D with nabla_k(s~) in Fil^k Sym^k D tensor Omega^1_X(C) = omega^k tensor Omega^1_X(C). This defines theta'_{k+1} : omega^{-k} tensor (wedge^2 D)^k = gr^0 Sym^k D -> omega^k tensor Omega^1_X(C), a logarithmic differential operator of order k+1 on omega^{-k} tensor (wedge^2 D)^k; applying the same construction to Sym^k D tensor (wedge^2 D)^{-k} = Sym^k D^* gives theta_{k+1} : omega^{-k} -> omega^{k+2} tensor (wedge^2 D)^{-k-1}. For k = 0, theta_1 is the derivation d : O_X -> Omega^1_X(C) followed by Kodaira-Spencer. Everything is compatible with varying K_p.",
+      "locator": "Section 4.1.2, p. 34",
+      "status": "missing",
+      "note": "Split from /300 by FIX-RT-PAPER-PAN-26 (RT-PAPER-PAN-26/6). No layer plans the characteristic-zero theta_{k+1}: AlgebraicModularFormsAndSerreWeights R15.3 has only the characteristic-p theta operator. Route 1 constructs it; Section 4.1 extends it O_Fl-linearly to infinite level (Theorem 4.1.4).",
+      "uses": [
+        "PAPER-PAN-26/300",
+        "PAPER-PAN-26/557"
+      ]
+    },
+    {
+      "id": "PAPER-PAN-26/559",
+      "kind": "theorem",
+      "name": "Section 6.3.6 on the modular curve: Kodaira-Spencer and the power-series presentation of OB^+_dR",
+      "statement": "In the setting of item /494, Omega^1_{V_0}(C) is isomorphic to omega^2 by the Kodaira-Spencer isomorphism, hence trivial, and O_{X_{K^p}}(V_infinity) tensor Omega^1_{V_0}(C) = O_{X_{K^p}}(V_infinity) after choosing a generator. Since gr^k OB^+_dR(V_infinity) is the k-th symmetric power of gr^1 over gr^0, the log Faltings extension gives gr^k OB^+_dR(V_infinity) a natural filtration with graded pieces isomorphic to O_{X_{K^p}}(V_infinity)(i), i = 0, ..., k. Choosing X in Fil^1 OB^+_dR(V_infinity) whose image in O_{X_{K^p}}(V_infinity) tensor Omega^1_{V_0}(C) is a generator, the natural map B^+_dR(V_infinity)[[X]] -> OB^+_dR(V_infinity) is an isomorphism of filtered groups, X of degree one.",
+      "locator": "Section 6.3.6 with (6.3.3), p. 100",
+      "status": "missing",
+      "note": "Split from /494 by FIX-RT-PAPER-PAN-26 (RT-PAPER-PAN-26/4): the Kodaira-Spencer step is specific to the modular curve, and route 1 plans it with the rest of Section 6.3.",
+      "uses": [
+        "PAPER-PAN-26/494",
+        "PAPER-PAN-26/557"
+      ]
+    },
+    {
+      "id": "PAPER-PAN-26/560",
+      "kind": "theorem",
+      "name": "Theorem 4.4.6 of Paper I: completed cohomology as cohomology on the flag variety",
+      "statement": "For every i >= 0 there are natural GL_2(Q_p)- and Hecke-equivariant isomorphisms H~^i(K^p, C) = H^i(Fl, O_{K^p}) and H~^i(K^p, C)^la = H^i(Fl, O^la_{K^p}), where O_{K^p} = pi_HT* O_{X_{K^p}}. As its proof shows, and as the paper uses, both sides can be computed by the Cech complex of a finite cover of Fl by opens of the basis B (for the cover {U_1, U_2}: O_{K^p}(U_1) + O_{K^p}(U_2) -> O_{K^p}(U_12)).",
+      "locator": "Section 3.4.1, p. 28 (citing [Pan22, Corollary 4.4.3] and the proof of [Pan22, Theorem 4.4.6]) and p. 30; also pp. 95-96; Paper I, Theorem 4.4.6",
+      "status": "missing",
+      "note": "Cited from Paper I ([Pan22], Forum of Mathematics Pi 10 (2022), e7), which has no extraction: papers.json leaves it out as the foundation of DESIGN-PAN, whose brief covers Paper I in full. Added by FIX-RT-PAPER-PAN-26 (RT-PAPER-PAN-26/8). Pan I read in arXiv:2008.07099v3 (8 July 2021), whose numbering agrees with every citation of it in this paper. Item /545 is the k = 1 case of Proposition 7.2.3, which restates the first isomorphism ([Pan22, Corollary 4.4.3])."
+    },
+    {
+      "id": "PAPER-PAN-26/561",
+      "kind": "theorem",
+      "name": "Theorem 4.3.9 of Paper I: power-series expansion of analytic sections",
+      "statement": "For U a standard affinoid of the flag variety (Paper I, 4.3.5) and f in O_{K^p}(U) G_m-analytic, there are an integer N = N(f), bounded above by a constant depending only on m, and unique elements c^{(n)}_{i,j,k}(f) of H^0(V_{G_{r(n)}}, O_{X_{K^p G_{r(n)}}}) for i, j, k >= 0 and n >= N, of norm at most p^{(n-1)(i+j+k)} ||f||_{G_m}, such that f = sum_{i,j,k >= 0} c^{(n)}_{i,j,k}(f) (x - x_n)^i (log(e_1/e_{1,n}))^j (log(t/t_n))^k in O_{K^p}(U)^{G_{r(n)}-an}. Conversely, for n > 0 and c_{i,j,k} in H^0(V_{G_{r(n)}}, O_{X_{K^p G_{r(n)}}}) with ||c_{i,j,k}|| <= p^{(n-1)(i+j+k)} C' for a uniform constant C', the same series defines an element of O_{K^p}(U)^{G_{r(n)}-an} whose coefficients are the c_{i,j,k}.",
+      "locator": "Section 3.2, pp. 19-21 (citing [Pan22, 4.3.5, Theorem 4.3.9 and Lemma 5.1.2]); the proofs of Theorems 5.2.8 (p. 59) and 5.3.8 (p. 65) are 'the same proof as [Pan22, Theorem 4.3.9]'; Paper I, Theorem 4.3.9",
+      "status": "missing",
+      "note": "Cited from Paper I ([Pan22], Forum of Mathematics Pi 10 (2022), e7), which has no extraction: papers.json leaves it out as the foundation of DESIGN-PAN, whose brief covers Paper I in full. Added by FIX-RT-PAPER-PAN-26 (RT-PAPER-PAN-26/8). Pan I read in arXiv:2008.07099v3 (8 July 2021), whose numbering agrees with every citation of it in this paper."
+    },
+    {
+      "id": "PAPER-PAN-26/562",
+      "kind": "theorem",
+      "name": "Theorem 4.2.2 of Paper I: Faltings's extension as a twist of the Hodge-Tate sequence",
+      "statement": "On the modular curve with its logarithmic structure at the cusps, there is an isomorphism of O^_X-modules between omega^{-1} tensor_{O_X} gr^1 OB^+_{dR,log} and V^_log(1) tensor O^_X under which, as extension classes, the log Faltings extension twisted by omega^{-1} and the relative Hodge-Tate filtration sequence differ by -1. The identification uses the Kodaira-Spencer isomorphism omega^2 = Omega^1_X(C) (with a trivialisation of wedge^2 D chosen implicitly, as the paper notes).",
+      "locator": "Proof of Lemma 6.5.3, p. 111, citing [Pan22, Theorem 4.2.2]; Paper I, Theorem 4.2.2",
+      "status": "missing",
+      "note": "Cited from Paper I ([Pan22], Forum of Mathematics Pi 10 (2022), e7), which has no extraction: papers.json leaves it out as the foundation of DESIGN-PAN, whose brief covers Paper I in full. Added by FIX-RT-PAPER-PAN-26 (RT-PAPER-PAN-26/8). Pan I read in arXiv:2008.07099v3 (8 July 2021), whose numbering agrees with every citation of it in this paper. The paper attributes the statement to Faltings. The logarithmic period sheaf is planned at HodgeTateAndCanonicalSubgroups T6:comparison (items /493 and /494) and Kodaira-Spencer at R15.1 (item /557).",
+      "uses": [
+        "PAPER-PAN-26/494",
+        "PAPER-PAN-26/557"
+      ]
+    },
+    {
+      "id": "PAPER-PAN-26/563",
+      "kind": "theorem",
+      "name": "Theorem 5.1.8 of Paper I: theta_h of diag(0,1) is the Sen operator",
+      "statement": "For U in the basis of opens of the flag variety, theta_h applied to the matrix diag(0, 1), where theta_h is the horizontal action of the Cartan subalgebra h on O^la_{K^p} (Paper I, Corollary 4.2.8), is the unique Sen operator on O_{K^p}(U)^la: the action theta_Sen of 1 in Lie Gal(K_infinity/K) on the G_{K_infinity}-fixed G_K-analytic vectors is theta_h(diag(0, 1)).",
+      "locator": "Section 3.3.1, p. 23 ('Our reference here is [Pan22, Theorem 5.1.8] and its proof') and the proof of Proposition 6.5.4, p. 111; Paper I, Theorem 5.1.8",
+      "status": "missing",
+      "note": "Cited from Paper I ([Pan22], Forum of Mathematics Pi 10 (2022), e7), which has no extraction: papers.json leaves it out as the foundation of DESIGN-PAN, whose brief covers Paper I in full. Added by FIX-RT-PAPER-PAN-26 (RT-PAPER-PAN-26/8). Pan I read in arXiv:2008.07099v3 (8 July 2021), whose numbering agrees with every citation of it in this paper."
+    },
+    {
+      "id": "PAPER-PAN-26/564",
+      "kind": "theorem",
+      "name": "Emerton's local-global compatibility, in the form the paper invokes",
+      "statement": "Let rho = rho_lambda be as in Section 7 (absolutely irreducible and occurring in completed cohomology). If rho|G_{Q_p} is absolutely irreducible, then H~^1(K^p, C)[lambda_tau]^la_0 = (pi^{infinity,p})^{K^p} tensor_E Pi(rho|G_{Q_p})^la (completed), where Pi(rho|G_{Q_p}) is the unitary E-Banach representation of GL_2(Q_p) attached to rho|G_{Q_p} by the p-adic local Langlands correspondence.",
+      "locator": "Remarks 7.3.6, 7.3.9 and 7.3.11, pp. 123-124, citing [Pan22, Corollary 6.3.6]; Emerton, Local-global compatibility in the p-adic Langlands programme for GL_2/Q [Eme11], Theorem 1.2.1",
+      "status": "planned",
+      "planned": [
+        "CompletedCohomologyAndLocalGlobalCompatibility:R31.4"
+      ],
+      "note": "Added by FIX-RT-PAPER-PAN-26 (RT-PAPER-PAN-26/8). R31.4 plans Emerton's Theorem 1.2.1 with its hypotheses: V a continuous irreducible two-dimensional promodular representation unramified outside finitely many primes, with absolutely irreducible residual representation whose restriction to G_{Q_p} is not a twist of an extension of the mod-p cyclotomic character by the trivial character; the injectivity statement further excludes V_p a sum of two characters or a self-extension of a character, and the isomorphism statement further assumes residual p-distinguishedness. The paper cites the result through [Pan22, Corollary 6.3.6], which for rho pro-modular and irreducible with rho|G_{Q_p} irreducible gives H~^1(K^p, Q_p)[p_lambda] = Pi(rho|G_{Q_p})^{direct sum d}, deduced there from Paskunas's work ([Pas13, Theorems 1.10 and 1.11], [Pas16, Corollary 2.24]); so the form used here needs R31.4's hypotheses or that argument, with the multiplicity space identified with (pi^{infinity,p})^{K^p}. Used only for the special case and the comparisons of Remarks 7.3.6-7.3.11, which the main theorems avoid. Paper I read in arXiv:2008.07099v3."
+    },
+    {
+      "id": "PAPER-PAN-26/565",
+      "kind": "theorem",
+      "name": "Liu-Xie-Zhang and Colmez: the locally analytic vectors of Pi(V)",
+      "statement": "For V a two-dimensional absolutely irreducible continuous representation of G_{Q_p}, the locally analytic vectors of the Banach representation Pi(V) attached to V by the p-adic local Langlands correspondence are as Berger-Breuil and Emerton conjectured: in the crystalline principal series case, in the local form Pi(V)^la completed-tensor_E C = Ind_B^{GL_2(Q_p)} D_cris(V) / pi_p that Remark 7.3.9 uses ([BB10, Conjecture 5.3.7], [Eme06a, Conjecture 6.7.3]); in the semistable non-crystalline (special) case, with the structure conjectured in [Eme06a, Conjecture 6.7.7] that Remark 7.3.11 uses. The paper cites these results and does not state them in full.",
+      "locator": "Remark 7.3.9, p. 124, and Remark 7.3.11, pp. 124-125, citing [LXZ12] and [Col14]",
+      "status": "missing",
+      "note": "Added by FIX-RT-PAPER-PAN-26 (RT-PAPER-PAN-26/8). The precise statements are to be taken from [LXZ12] and [Col14]; this item records what the paper uses, only in the comparisons of Remarks 7.3.9 and 7.3.11. It is on route 1 for now; the maintainer may prefer a Part II of PadicLocalLanglandsForGL2Qp."
+    },
+    {
+      "id": "PAPER-PAN-26/566",
+      "kind": "construction",
+      "name": "Breuil's Sigma(2, L)",
+      "statement": "Breuil's locally analytic representation Sigma(2, L) of GL_2(Q_p) attached to an L-invariant L ([Bre04, sections 2 and 3], with Breuil's use of Morita duality, Remarque 3.5.7). Remark 7.3.11 claims that, by a careful analysis using Serre duality, Fil^2 ker I^1_0[lambda~_tau] is essentially (pi^{p,infinity})^{K^p} completed-tensor_E Sigma(2, L).",
+      "locator": "Remark 7.3.11, p. 125, citing [Bre04, sections 2 and 3, Remarque 3.5.7]",
+      "status": "missing",
+      "note": "Added by FIX-RT-PAPER-PAN-26 (RT-PAPER-PAN-26/8). Cited; used only in the sketch of the special case (item /556). It is on route 1 for now; the maintainer may prefer a Part II of PadicLocalLanglandsForGL2Qp."
+    },
+    {
+      "id": "PAPER-PAN-26/567",
+      "kind": "theorem",
+      "name": "Scholze's Proposition 7.9: the two de Rham lattices",
+      "statement": "Let X be a smooth adic space over Spa(k, O_k), with k a discretely valued complete extension of Q_p with perfect residue field, and (E, nabla, Fil) a filtered O_X-module with integrable connection (a locally free O_X-module with a separated exhaustive filtration by local direct summands and an integrable connection satisfying Griffiths transversality). Let M_0 = (E tensor_{O_X} OB^+_dR)^{nabla=0} and let M be the B^+_dR-local system associated to (E, nabla, Fil). Then M is contained in M_0 tensor_{B^+_dR} B_dR, and (M cap Fil^i M_0)/(M cap Fil^{i+1} M_0) = Fil^{-i}E tensor_{O_X} O^_X(i) inside gr^i M_0 = E tensor_{O_X} O^_X(i) for all i in Z; conversely M is the unique B^+_dR-submodule of M_0 tensor B_dR with this property.",
+      "locator": "pp. 103 and 106 (Sections 6.4.1-6.4.2 and the proof of the lemma on the periods l_1), citing [Sch13, Proposition 7.9] or [Pan22, (4.1.2)]; Scholze, p-adic Hodge theory for rigid-analytic varieties, Proposition 7.9",
+      "status": "missing",
+      "note": "Added by FIX-RT-PAPER-PAN-26 (RT-PAPER-PAN-26/8). Statement checked in arXiv:1205.3463v2. The paper applies it to the canonical extension D with its logarithmic connection on V_0, a logarithmic variant of Scholze's setting (or via [Pan22, (4.1.2)]). PadicHodgeTheory P8 plans the period sheaves and the proper smooth comparison, not this statement, so it is missing; route 12 (the PadicHodgeTheory Part II) plans it. HodgeTateAndCanonicalSubgroups T6:comparison, which derives the Hodge-Tate filtration from the two de Rham lattices for automorphic local systems, is its logarithmic automorphic consumer."
     }
   ],
   "prerequisites": [
@@ -3482,8 +3630,8 @@
       "roadmap": "LocallyAnalyticCompletedCohomology",
       "title": "Completed cohomology and p-adic local–global compatibility over Q, Part II: locally analytic vectors and the Hodge-Tate period map",
       "area": "langlands",
-      "reason": "This is the route the maintainer has already chosen for this paper: papers.json records that PAPER-PAN-26 is 'Already routed by the maintainer: a Part II, LocallyAnalyticCompletedCohomology (DESIGN-PAN), of the completed-cohomology roadmap. Do not re-route it: read the paper in full and route its items into that roadmap's layers and to existing roadmaps as sources.' That roadmap is not yet registered - it has no file in research/blueprint/roadmaps/ and does not appear in data/atlas.json, because DESIGN-PAN is still pending in queue.json - so its layers cannot be named and the items are carried here, to the same roadmap id and with the same parent, rather than to a new target. The parent carries completed cohomology, its Hecke and deformation actions and p-adic local-global compatibility over Q; what this paper adds is a different object, the sheaf of GL_2(Q_p)-locally analytic sections of the structure sheaf of the perfectoid modular curve pushed forward along the Hodge-Tate period map, and everything built from it: the weight decomposition under the horizontal Cartan action, the two differential operators and the intertwining operator, its identification with Fontaine's monodromy operator, the spectral decomposition of its kernel over the Newton stratification, and the resulting classicality and local-global statements. That is a layer sequence of its own, and PROTOCOL section 15 makes it a Part II rather than a re-planning of the parent. When DESIGN-PAN has run, a reviewer should re-express this route as a source route naming that roadmap's layers.",
-      "brief": "Final theorems to reach: (i) that a two-dimensional absolutely irreducible representation of the Galois group of Q which appears in the completed cohomology of modular curves and is de Rham at p with Hodge-Tate weights 0 and k > 0 comes from a cuspidal eigenform of weight k+1; (ii) that the n-invariants of the Gamma(p^n)-analytic vectors of the corresponding multiplicity space are finite-dimensional for n >= 2; (iii) the geometric description of the locally analytic vectors of that space, as a quotient of the compactly supported cohomology of the Drinfeld tower tensored with quaternionic forms when the local component is supercuspidal, and as a quotient of a locally analytic induction of the rigid cohomology of Igusa curves when it is a principal series; and (iv) the uniform statement behind both, that the locally analytic vectors are H^1 of a two-term de Rham complex on the flag variety modulo its Hodge filtration. What to cover: the pushforward sheaves O_{K^p}, their locally analytic and smooth subsheaves and the twists by the automorphic bundle; the horizontal Cartan action and the weight sheaves O^{la,chi}, with the explicit power-series description of their sections over the standard affinoids; the Hodge-Tate structure of those sections and the compactness of restriction maps, with the Hausdorff LB-space structure on the cohomology of the flag variety; the differential operator along the modular curve extending the classical theta operator O_Fl-linearly, the operator along the flag variety coming from Beilinson-Bernstein localisation, and the intertwining operator built from them, with its n-cohomology; the Newton stratification of the flag variety and the computation of the kernel and cokernel of the operator on each stratum, which needs the supersingular uniformization and the exchange of the two operators under Lubin-Tate-Drinfeld duality; the spectral decomposition of the kernel and the vanishing-cycle sequence that makes its generalized eigenspaces honest; and the comparison of the intertwining operator with the Fontaine operator of the truncated de Rham period sheaf. What to import: the parent roadmap for completed cohomology, its big Hecke algebra and the Galois determinant; PerfectoidShimuraVarieties and HodgeTateAndCanonicalSubgroups for the perfectoid tower, the Hodge-Tate period map and the Hodge-Tate exact sequence; PadicHodgeTheory and CohomologyComparisons for the period rings, the structural de Rham sheaf and Fontaine's almost de Rham theory; LocallyAnalyticDistributions for the functional analysis of locally analytic vectors; GL2AutomorphicRepresentationsAndTransfer for Jacquet-Langlands and the local classification; and from the literature Paper I of this series, which is indispensable, together with Scholze-Weinstein, Diao-Lan-Liu-Zhu, Fontaine and Coleman.",
+      "reason": "This is the route the maintainer has already chosen for this paper: papers.json records that PAPER-PAN-26 is 'Already routed by the maintainer: a Part II, LocallyAnalyticCompletedCohomology (DESIGN-PAN), of the completed-cohomology roadmap. Do not re-route it: read the paper in full and route its items into that roadmap's layers and to existing roadmaps as sources.' That roadmap is not yet registered - it has no file in research/blueprint/roadmaps/ and does not appear in data/atlas.json, because DESIGN-PAN is still pending in queue.json - so its layers cannot be named and the items are carried here, to the same roadmap id and with the same parent, rather than to a new target. The parent carries completed cohomology, its Hecke and deformation actions and p-adic local-global compatibility over Q; what this paper adds is a different object, the sheaf of GL_2(Q_p)-locally analytic sections of the structure sheaf of the perfectoid modular curve pushed forward along the Hodge-Tate period map, and everything built from it: the weight decomposition under the horizontal Cartan action, the two differential operators and the intertwining operator, its identification with Fontaine's monodromy operator, the spectral decomposition of its kernel over the Newton stratification, and the resulting classicality and local-global statements. That is a layer sequence of its own, and PROTOCOL section 15 makes it a Part II rather than a re-planning of the parent. When DESIGN-PAN has run, a reviewer should re-express this route as a source route naming that roadmap's layers. Correction (FIX-RT-PAPER-PAN-26, RT-PAPER-PAN-26/1, 30 September 2026): this route is meant for DESIGN-PAN, the maintainer's design job for LocallyAnalyticCompletedCohomology, and not for a grouped Part II of the parent. make_queue.py's paper_designs groups Part II proposals by parent alone, so at present the route also feeds DESIGN-CompletedCohomologyAndLocalGlobalCompatibilityPartII (issue #3459) beside the proposals of four other papers; the maintainer is asked to fold it into DESIGN-PAN and to regenerate that job without it. The route's roadmap id and parent are left unchanged, since re-keying it would create a third design job. The same fix added items /326, /433, /558, /559, /560, /561, /562, /563, /565 and /566 to this route (RT-PAPER-PAN-26/4, /5, /6 and /8); they have no review verdict on this route yet.",
+      "brief": "Final theorems to reach: (i) that a two-dimensional absolutely irreducible representation of the Galois group of Q which appears in the completed cohomology of modular curves and is de Rham at p with Hodge-Tate weights 0 and k > 0 comes from a cuspidal eigenform of weight k+1; (ii) that the n-invariants of the Gamma(p^n)-analytic vectors of the corresponding multiplicity space are finite-dimensional for n >= 2; (iii) the geometric description of the locally analytic vectors of that space, as a quotient of the compactly supported cohomology of the Drinfeld tower tensored with quaternionic forms when the local component is supercuspidal, and as a quotient of a locally analytic induction of the rigid cohomology of Igusa curves when it is a principal series; and (iv) the uniform statement behind both, that the locally analytic vectors are H^1 of a two-term de Rham complex on the flag variety modulo its Hodge filtration. What to cover: the pushforward sheaves O_{K^p}, their locally analytic and smooth subsheaves and the twists by the automorphic bundle; the horizontal Cartan action and the weight sheaves O^{la,chi}, with the explicit power-series description of their sections over the standard affinoids; the Hodge-Tate structure of those sections and the compactness of restriction maps, with the Hausdorff LB-space structure on the cohomology of the flag variety; the differential operator along the modular curve extending the classical theta operator O_Fl-linearly, the operator along the flag variety coming from Beilinson-Bernstein localisation, and the intertwining operator built from them, with its n-cohomology; the Newton stratification of the flag variety and the computation of the kernel and cokernel of the operator on each stratum, which needs the supersingular uniformization and the exchange of the two operators under Lubin-Tate-Drinfeld duality; the spectral decomposition of the kernel and the vanishing-cycle sequence that makes its generalized eigenspaces honest; and the comparison of the intertwining operator with the Fontaine operator of the truncated de Rham period sheaf. Also construct here, since no layer plans them: the characteristic-zero operators theta'_{k+1} and theta_{k+1} of order k+1 built from the Kodaira-Spencer isomorphism (item /558), and the overconvergent and classical modular forms at infinite tame level on strict neighbourhoods of the canonical locus (item /326); the consequences of Kodaira-Spencer for the log period sheaf on the modular curve, namely the filtration of gr^k OB^+_dR by Tate twists and the presentation B^+_dR(V_infinity)[[X]] = OB^+_dR(V_infinity) (item /559); the compactly supported de Rham cohomology of the Drinfeld tower in its j_! presentation on the flag variety (item /433); and the comparison between the log-rigid cohomology of the overconvergent logarithmic F-isocrystal (Sym^k D, nabla_k) on the compactified Igusa curves and the rigid cohomology of the open Igusa curve, or Coleman's computation ([Col96, section 8], [Col97, Theorem 2.1]), which the proof of Proposition 5.1.7 uses and no layer plans: prove it here or import it from a named owner. The equality in the special case (Remark 7.3.11) is claimed with a sketch, for k = 1 and rho|G_{Q_p} absolutely irreducible, and is not proved in the paper (items /12 and /556); plan it as a claim, not as a theorem. What to import: the parent roadmap for completed cohomology, its big Hecke algebra and the Galois determinant; PerfectoidShimuraVarieties and HodgeTateAndCanonicalSubgroups for the perfectoid tower, the Hodge-Tate period map and the Hodge-Tate exact sequence; PadicHodgeTheory R06.1 for A_inf, theta, B^+_dR and t; HodgeTateAndCanonicalSubgroups T6:log-sites and T6:comparison, with PadicHodgeTheory P8:local-rational for the non-log input, for the pro-Kummer-etale site, the logarithmic structural de Rham period sheaf with its connection and filtration, the logarithmic Poincare lemma and the log Faltings extension (items /493 and /494); CohomologyComparisons CP.0 and CP.3 for the comparison normalisations; from the PadicHodgeTheory Part II proposed by route 12 of this extraction (queued with the other PadicHodgeTheory Part II proposals as DESIGN-PadicHodgeTheoryPartII), Fontaine's almost de Rham theory, its Banach and LB generalisations, the Fontaine operator and Theorem 6.1.16 (items /20 and /451-/465) and Scholze's Proposition 7.9 (item /567); from LocallyAnalyticRepresentationsOfLocalGroups (route 11, with the proposals of Ding and Dospinescu-Le Bras), locally analytic vectors of Banach and Hausdorff LB representations, the compact-type criteria, R^i LA with LA-acyclicity and the locally analytic induction from the Borel (items /100-/106, /108-/116 and /357); LocallyAnalyticDistributions L4 for the compactness of maps between Tate algebras (item /107); PadicDifferentialEquationsAndRigidCohomology RD.4 for rigid cohomology and RD.5 for its finiteness (items /353 and /354); from ProetaleCohomologyOfPAdicCurvesAndTowers (route 13, with Colmez-Dospinescu-Niziol), the compactly supported de Rham cohomology of the finite-level Drinfeld spaces with Serre duality (item /437); AbelianSchemesAndArithmeticModuli A4 for the relative de Rham bundle, its Hodge filtration and Gauss-Manin connection, AutomorphicBundles B3 for the canonical extension with its logarithmic connection, and AlgebraicModularFormsAndSerreWeights R15.1 for the Kodaira-Spencer isomorphism with log poles (items /300 and /557); GL2AutomorphicRepresentationsAndTransfer for Jacquet-Langlands and the local classification; for the special case and the comparisons of Remarks 7.3.6-7.3.11 only, CompletedCohomologyAndLocalGlobalCompatibility R31.4 (Emerton's local-global compatibility, item /564) and PadicLocalLanglandsForGL2Qp (the p-adic local Langlands correspondence, with the results of Liu-Xie-Zhang, Colmez and Breuil in items /565 and /566); and from the literature Paper I of this series, which is indispensable (its Theorems 4.2.2, 4.3.9, 4.4.6 and 5.1.8 are items /560-/563, and DESIGN-PAN's brief covers Paper I in full), together with Scholze-Weinstein, Diao-Lan-Liu-Zhu, Fontaine and Coleman.",
       "items": [
         "PAPER-PAN-26/2",
         "PAPER-PAN-26/3",
@@ -3690,36 +3838,28 @@
         "PAPER-PAN-26/553",
         "PAPER-PAN-26/554",
         "PAPER-PAN-26/555",
-        "PAPER-PAN-26/556"
+        "PAPER-PAN-26/556",
+        "PAPER-PAN-26/326",
+        "PAPER-PAN-26/433",
+        "PAPER-PAN-26/558",
+        "PAPER-PAN-26/559",
+        "PAPER-PAN-26/560",
+        "PAPER-PAN-26/561",
+        "PAPER-PAN-26/562",
+        "PAPER-PAN-26/563",
+        "PAPER-PAN-26/565",
+        "PAPER-PAN-26/566"
       ]
     },
     {
       "route": "source",
       "roadmap": "LocallyAnalyticDistributions",
       "stages": [
-        "LocallyAnalyticDistributions:L0",
-        "LocallyAnalyticDistributions:L1",
-        "LocallyAnalyticDistributions:L2"
+        "LocallyAnalyticDistributions:L4"
       ],
-      "reason": "L0 constructs the Banach spaces of functions analytic on every residue ball with their Gauss norms, and L1 and L2 the transform and the growth conditions on them; Section 2 of this paper is exactly the next step in that direction, and the paper is its source. It extends the theory of locally analytic vectors from Banach representations to Hausdorff LB-spaces, isolates the criterion by which a Banach subspace of an LB-space lands in one step of a presentation, gives the compact-operator criteria that make such colimits Hausdorff, including a Cartan-Serre lemma, and proves that the two notions of acyclicity for the functor of locally analytic vectors introduced in the author's earlier paper coincide. None of that is specific to modular curves, and every later section of the paper uses it.",
+      "reason": "L4 plans the 'continuity and compactness of the semigroup operators' on affinoid-valued function spaces 'in the precise compact-operator setting'. Example 2.2.2 of the paper (item /107) - the inclusion of Tate algebras from the closed unit disc to the closed disc of radius |p| is compact, and more generally a continuous algebra map from a Tate algebra, or from Z_p<T_1,...,T_n>[[x]] tensor Q_p, to a Banach algebra is compact when the images of the variables are topologically nilpotent - is the standard input of such compactness statements, and the paper is a source for it there. Corrected by FIX-RT-PAPER-PAN-26 (RT-PAPER-PAN-26/2, 30 September 2026): this route used to send all of Section 2 (items /100-/116) to L0-L2, which plan locally analytic functions, Amice's transform and admissible growth, but no group representation, analytic vectors, representations on LB-spaces or R^i LA. Those items, with /357, now go to route 11 (LocallyAnalyticRepresentationsOfLocalGroups). The route keeps its position, so that no other route moves, and its roadmap; its stages are re-pointed from L0-L2 to L4, as the verifier of RT-PAPER-PAN-26/2 prescribed for any source route kept for these items ('it should name L4, not L0'). The review's verdict on this route was given to the L0-L2 route, so the next review of this extraction should give it a fresh verdict.",
       "items": [
-        "PAPER-PAN-26/100",
-        "PAPER-PAN-26/101",
-        "PAPER-PAN-26/102",
-        "PAPER-PAN-26/103",
-        "PAPER-PAN-26/104",
-        "PAPER-PAN-26/105",
-        "PAPER-PAN-26/106",
-        "PAPER-PAN-26/107",
-        "PAPER-PAN-26/108",
-        "PAPER-PAN-26/109",
-        "PAPER-PAN-26/110",
-        "PAPER-PAN-26/111",
-        "PAPER-PAN-26/112",
-        "PAPER-PAN-26/113",
-        "PAPER-PAN-26/114",
-        "PAPER-PAN-26/115",
-        "PAPER-PAN-26/116"
+        "PAPER-PAN-26/107"
       ]
     },
     {
@@ -3761,24 +3901,9 @@
       "stages": [
         "PadicHodgeTheory:R06.1"
       ],
-      "reason": "R06.1 constructs B_dR^+ with its filtration from the shared A_inf and theta interfaces. What this paper adds, and what no layer of the atlas currently plans, is Fontaine's classification of almost de Rham B_dR-representations in the generality the applications need: Banach and then Hausdorff LB modules over B_dR^+/(t^k) with a continuous semilinear Galois action, Fontaine's generalisation of Sen theory to them, the behaviour of kernels and cokernels of strict maps, the definition of the Fontaine operator on a module that is Hodge-Tate of weights 0 and k, and the criterion that it vanishes exactly for de Rham representations. That criterion is the engine of the paper's classicality theorem, and it belongs beside the period rings.",
+      "reason": "R06.1 constructs C_p, its tilt, A_inf, theta and B^+_dR with its filtration and t, from the shared A_inf and theta interfaces. The paper uses exactly these in Section 6.1.1 (item /450, planned at R06.1 and AInfCohomology AI.0), and is a source for them in the form it applies them. Corrected by FIX-RT-PAPER-PAN-26 (RT-PAPER-PAN-26/3, 30 September 2026): this route used to carry Fontaine's almost de Rham theory in Banach and LB form, the Fontaine operator and Theorem 6.1.16 (items /20 and /451-/465), which R06.1 does not plan, as its former reason said. Those items now go to route 12, a Part II of PadicHodgeTheory. The route keeps its roadmap, its stage and its position; only its items and this reason changed, and the planned item /450 has no review verdict on this route yet.",
       "items": [
-        "PAPER-PAN-26/20",
-        "PAPER-PAN-26/451",
-        "PAPER-PAN-26/452",
-        "PAPER-PAN-26/453",
-        "PAPER-PAN-26/454",
-        "PAPER-PAN-26/455",
-        "PAPER-PAN-26/456",
-        "PAPER-PAN-26/457",
-        "PAPER-PAN-26/458",
-        "PAPER-PAN-26/459",
-        "PAPER-PAN-26/460",
-        "PAPER-PAN-26/461",
-        "PAPER-PAN-26/462",
-        "PAPER-PAN-26/463",
-        "PAPER-PAN-26/464",
-        "PAPER-PAN-26/465"
+        "PAPER-PAN-26/450"
       ]
     },
     {
@@ -3788,10 +3913,8 @@
         "CohomologyComparisons:CP.3",
         "CohomologyComparisons:CP.0"
       ],
-      "reason": "CP.0 fixes the common objects and coefficient normalisations and CP.3 the canonical B_dR^+-valued deformation of de Rham cohomology. This paper is a source for both in the relative, logarithmic and infinite-level setting: the structural de Rham period sheaf with its log connection, the Poincare lemma sequence and the log Faltings extension with the explicit power-series presentation of the period ring, the commutation of graded pieces with locally analytic vectors and with decompletion, and the comparison identifying the completed cohomology of a modular curve with coefficients in the truncated period sheaf with the cohomology of the flag variety, proved here using only the etale site.",
+      "reason": "CP.0 fixes the common objects and coefficient normalisations and CP.3 the canonical B_dR^+-valued deformation of de Rham cohomology. This paper is a source for both in the relative, logarithmic and infinite-level setting: the commutation of graded pieces with locally analytic vectors and with decompletion, and the comparison identifying the completed cohomology of a modular curve with coefficients in the truncated period sheaf with the cohomology of the flag variety, proved here using only the etale site. Corrected by FIX-RT-PAPER-PAN-26 (RT-PAPER-PAN-26/4, 30 September 2026): the logarithmic structural de Rham period sheaf with its connection, the Poincare lemma sequence and the log Faltings extension (items /493 and /494) are planned at HodgeTateAndCanonicalSubgroups T6:log-sites and T6:comparison, with PadicHodgeTheory P8:local-rational for the non-log input, and left this route; neither CP.0 nor CP.3 constructs period sheaves. The consequences of Kodaira-Spencer on the modular curve, with the power-series presentation of the period ring, are item /559 on route 1. The route keeps its roadmap, stages and position.",
       "items": [
-        "PAPER-PAN-26/493",
-        "PAPER-PAN-26/494",
         "PAPER-PAN-26/495",
         "PAPER-PAN-26/496",
         "PAPER-PAN-26/545",
@@ -3805,11 +3928,9 @@
       "stages": [
         "PadicDifferentialEquationsAndRigidCohomology:RD.4"
       ],
-      "reason": "RD.4 constructs rigid cohomology with compact support and its finiteness. The paper uses that layer's output twice and sharpens it into the shape its consumers need: the rigid cohomology of the tower of Igusa curves with symmetric-power coefficients, defined as the cokernel of the theta operator on overconvergent forms and identified with the log-rigid cohomology of an overconvergent logarithmic F-isocrystal, and the compactly supported de Rham cohomology of the height-zero Drinfeld tower at infinite level, with the Serre duality and partial properness that make its top degree finite-dimensional. Both are sources for that layer.",
+      "reason": "RD.4 constructs the overconvergent de Rham complex and rigid cohomology with compact support; finiteness is RD.5, which RD.4 keeps apart ('a named finite-dimensional output type cannot replace the finiteness proof'). The paper uses the construction for the rigid cohomology of the tower of Igusa curves with symmetric-power coefficients, defined as the cokernel of the theta operator on overconvergent forms (Definition 5.1.6, item /353), and is a source for it there. Corrected by FIX-RT-PAPER-PAN-26 (RT-PAPER-PAN-26/5, 30 September 2026): the reason used to say that RD.4 includes finiteness, which it does not. The finite-dimensionality of Proposition 5.1.7 (item /354) is planned at RD.5; the identification of that group with the log-rigid cohomology of an overconvergent logarithmic F-isocrystal on the compactified Igusa curves, which its proof uses, is planned by no layer and is named in route 1's brief. The compactly supported de Rham cohomology of the height-zero Drinfeld tower - a characteristic-zero rigid-analytic Stein space, not a variety over F_p - left this route: its j_! presentation (item /433) is on route 1, and its comparison with Colmez-Dospinescu-Niziol's compactly supported cohomology with Serre duality (item /437) is on route 13. The route keeps its roadmap, stage and position.",
       "items": [
-        "PAPER-PAN-26/353",
-        "PAPER-PAN-26/433",
-        "PAPER-PAN-26/437"
+        "PAPER-PAN-26/353"
       ]
     },
     {
@@ -3833,23 +3954,86 @@
       "stages": [
         "SmoothRepresentationsOfLocalGroups:SR.2"
       ],
-      "reason": "SR.2 constructs smooth and compact induction from closed subgroups with Frobenius reciprocity and induction in stages. The paper needs the sheaf-theoretic form of induction from the Borel to GL_2(Q_p) on the rational points of the flag variety, in both the smooth and the locally analytic variety, together with the fact that the induction of the character by which the Borel acts on the fibre of the automorphic line bundle at infinity recovers that bundle restricted to the rational points. That is a source for SR.2, and the locally analytic version, which the layer does not plan, is where the main theorem in the principal series case lives.",
+      "reason": "SR.2 constructs smooth and compact induction from closed subgroups with Frobenius reciprocity and induction in stages. The paper needs the sheaf-theoretic form of induction from the Borel to GL_2(Q_p) on the rational points of the flag variety, in both the smooth and the locally analytic variety, together with the fact that the induction of the character by which the Borel acts on the fibre of the automorphic line bundle at infinity recovers that bundle restricted to the rational points. That is a source for SR.2 for the smooth induction (item /356). Corrected by FIX-RT-PAPER-PAN-26 (RT-PAPER-PAN-26/2, 30 September 2026): the locally analytic induction (item /357), which SR.2 does not plan and where the main theorem in the principal series case lives, moved to route 11 (LocallyAnalyticRepresentationsOfLocalGroups), beside Emerton's closed induction in Ding's proposal. The route keeps its roadmap, stage and position.",
       "items": [
-        "PAPER-PAN-26/356",
-        "PAPER-PAN-26/357"
+        "PAPER-PAN-26/356"
       ]
     },
     {
       "route": "source",
       "roadmap": "AlgebraicModularFormsAndSerreWeights",
       "stages": [
-        "AlgebraicModularFormsAndSerreWeights:R15.2",
-        "AlgebraicModularFormsAndSerreWeights:R15.5"
+        "AlgebraicModularFormsAndSerreWeights:R15.1"
       ],
-      "reason": "R15.2 carries integral Hecke theory and q-expansions and R15.5 eigenforms and lifting. The paper needs the de Rham bundle of the universal elliptic curve with its Gauss-Manin connection, Hodge filtration and Kodaira-Spencer isomorphism, and the differential operator theta_{k+1} of order k+1 built from them, together with the spaces of classical and of overconvergent modular forms at infinite tame level presented as sections over strict neighbourhoods of the canonical locus. Those are classical objects which those layers plan, and the paper is a source for the form in which a p-adic geometric argument needs them.",
+      "reason": "R15.1 constructs the Hodge bundle and geometric forms on the compactified modular curve. Its node R15.1/hodge-bundle-with-tate-curve-normalization records the Kodaira-Spencer isomorphism omega^{tensor 2} = Omega^1(log cusps), quoted from Katz (A1.3.17) and Deligne without a proof step. The paper uses that isomorphism in characteristic zero on X_{K^p K_p} (Section 4.1.2, item /557, planned there) and is a source for the form it needs; the proof step itself is owned by no layer (see /557's note). Corrected by FIX-RT-PAPER-PAN-26 (RT-PAPER-PAN-26/6, 30 September 2026): the reason used to say that R15.2 and R15.5 plan the de Rham bundle, its Gauss-Manin connection, Kodaira-Spencer, theta_{k+1} and overconvergent forms. They plan the q-expansion principle, integral Hecke theory and Deligne-Serre lifting, and none of these. Item /300 is split: the de Rham bundle, its Hodge filtration and Gauss-Manin connection are planned at AbelianSchemesAndArithmeticModuli A4 and the canonical extension with its log connection at AutomorphicBundles B3 (item /300); Kodaira-Spencer at R15.1 (item /557); theta'_{k+1} and theta_{k+1} (item /558) and the overconvergent and classical forms at infinite level (item /326) go to route 1. The route keeps its roadmap and position, and its stages are re-pointed from R15.2 and R15.5 to R15.1, the owner the verifier named for the Kodaira-Spencer part: check_paper.py rejects a route with no items, and dropping the route would hand its accepted verdict to route 11. The review's verdict was given to the R15.2/R15.5 route, so the next review of this extraction should give this route a fresh verdict.",
       "items": [
-        "PAPER-PAN-26/300",
-        "PAPER-PAN-26/326"
+        "PAPER-PAN-26/557"
+      ]
+    },
+    {
+      "route": "new",
+      "roadmap": "LocallyAnalyticRepresentationsOfLocalGroups",
+      "title": "Locally analytic representations of p-adic reductive groups",
+      "area": "representations",
+      "reason": "Section 2 of the paper (items /100-/106 and /108-/116) is the theory of locally analytic vectors of representations of p-adic Lie groups on Banach and Hausdorff LB-spaces, with the compact-type criteria and the derived functors R^i LA, and item /357 is the locally analytic induction from the Borel of GL_2(Q_p). No layer plans either: LocallyAnalyticDistributions L0-L2 plan locally analytic functions, Amice's transform and admissible growth, with no group representation, and SmoothRepresentationsOfLocalGroups SR.2 plans smooth induction only. The owner is the new roadmap LocallyAnalyticRepresentationsOfLocalGroups, proposed by the accepted PAPER-DING-25 route 1 and PAPER-DOSPINESCU-LEBRAS-17 route 3 (design pending as DESIGN-LocallyAnalyticRepresentationsOfLocalGroups), whose briefs put there the density of locally analytic vectors in admissible Banach representations, representations of compact type and Emerton's closed induction. Added by FIX-RT-PAPER-PAN-26 (RT-PAPER-PAN-26/2, 30 September 2026), keyed exactly as Ding's route (id, title and area) so that make_queue merges it into that design, and appended after route 10 so that no existing route changes position. It has no review verdict yet, so the queue does not apply it until the next review of this extraction accepts it. Example 2.2.2 (item /107) stays on route 2, re-pointed to LocallyAnalyticDistributions L4.",
+      "brief": "This route coalesces with LocallyAnalyticRepresentationsOfLocalGroups, proposed by PAPER-DING-25 (route 1) and extended by PAPER-DOSPINESCU-LEBRAS-17 (route 3), PAPER-COLMEZ-DOSPINESCU-NIZIOL-20 (route 4) and PAPER-BOXER-CALEGARI-GEE-PILLONI-25 (route 34); keep their id, title, area and brief. Section 2 of Pan's paper needs the following there, as the paper states it. (1) For a p-adic Lie group G with a compact open G_0 carrying an integer-valued saturated p-valuation and G_n = G_0^{p^n}: the G_n-analytic vectors of a Q_p-Banach representation and the locally analytic vectors as a Hausdorff LB-space (2.1.1, Example 2.1.3); Hausdorff LB-spaces and analytic functions with values in them, independently of the presentation (2.1.2, 2.1.4); Proposition 2.1.5 (Emerton's Proposition 1.1.10): a continuous linear map from a Banach space to a Hausdorff locally convex space exhausted by injective images of Banach spaces V_n lands in one v_n(V_n); and locally analytic vectors of a representation on a Hausdorff LB-space (2.1.6). (2) Compact operators between Q_p-Banach spaces (2.2.1). The definition, its bounded-set characterisation, continuity and stability under composition are Mathlib's IsCompactOperator (Mathlib/Analysis/Normed/Operator/Compact/Basic.lean at 082e2d3) and are imported; plan here the criterion by finiteness of the image of the unit ball in p^kY^o/p^{k+n}Y^o, Proposition 2.2.3 (an inductive sequence of Banach spaces with injective compact transition maps has Hausdorff colimit; Schneider, Nonarchimedean functional analysis, Lemma 16.9), Corollary 2.2.4 (Hausdorffness survives a completed tensor product with a Banach space) and Lemma 2.2.5 (the Cartan-Serre criterion for compact transition maps). DLB17's brief imports the underlying locally convex functional analysis; these compact-type statements have no other owner and are planned in this roadmap. Import the standard compact maps between Tate algebras (Example 2.2.2) from LocallyAnalyticDistributions L4, for which route 2 of this extraction makes the paper a source. (3) Section 2.3: Lemma 2.3.2, Proposition 2.3.3 and Corollary 2.3.4 on closed embeddings and continuous cohomology after a completed tensor product; the derived functors R^i LA, LA-acyclicity and strong LA-acyclicity of [Pan22, section 2.2]; and Proposition 2.3.6: a LA-acyclic Q_p-Banach representation is strongly LA-acyclic. (4) Locally analytic induction from the Borel B of GL_2(Q_p) of a Hausdorff LB-space with locally analytic B-action, as a GL_2(Q_p)-equivariant sheaf on P^1(Q_p) whose global sections are the induction (5.1.10, item /357), beside Emerton's closed induction in Ding's brief. The coefficient field of the application is C, which is not spherically complete (Remark 7.3.5): state each result over the field for which it is proved. Export to the Part II of route 1 of this extraction (LocallyAnalyticCompletedCohomology) and to the PadicHodgeTheory Part II of route 12, which use Proposition 2.1.5 and the LB-space formalism.",
+      "items": [
+        "PAPER-PAN-26/100",
+        "PAPER-PAN-26/101",
+        "PAPER-PAN-26/102",
+        "PAPER-PAN-26/103",
+        "PAPER-PAN-26/104",
+        "PAPER-PAN-26/105",
+        "PAPER-PAN-26/106",
+        "PAPER-PAN-26/108",
+        "PAPER-PAN-26/109",
+        "PAPER-PAN-26/110",
+        "PAPER-PAN-26/111",
+        "PAPER-PAN-26/112",
+        "PAPER-PAN-26/113",
+        "PAPER-PAN-26/114",
+        "PAPER-PAN-26/115",
+        "PAPER-PAN-26/116",
+        "PAPER-PAN-26/357"
+      ]
+    },
+    {
+      "route": "part-ii",
+      "parent": "PadicHodgeTheory",
+      "roadmap": "PadicHodgeTheoryPartIIAlmostDeRham",
+      "title": "P-adic Hodge theory and geometric comparison, Part II: Fontaine's almost de Rham representations and the Fontaine operator in Banach and LB families",
+      "area": "padic",
+      "reason": "Fontaine's classification of almost de Rham B_dR-representations and the paper's Banach and LB generalisations of it (items /20 and /451-/465) are planned by no layer: R06.1 constructs the period rings and has no representation category, no Sen theory and no Fontaine operator, as the former route 5's own reason said. PROTOCOL section 16 makes material that needs new layers in the direction of an existing roadmap a part-ii route. Scholze's Proposition 7.9 (item /567) goes with it: PadicHodgeTheory P8 plans the period sheaves and the proper smooth comparison, not Scholze's comparison of the two de Rham lattices. Added by FIX-RT-PAPER-PAN-26 (RT-PAPER-PAN-26/3, and /8 for item /567, 30 September 2026) and appended after route 11, so that no existing route changes position. It has no review verdict yet, so the queue does not apply it until the next review of this extraction accepts it. make_queue groups Part II proposals by parent, so the route joins DESIGN-PadicHodgeTheoryPartII with the other PadicHodgeTheory Part II proposals, whatever its roadmap id.",
+      "brief": "Final theorems, as the paper states them (arXiv v1, Section 6.1): (i) Theorem 6.1.16 (Fontaine): for a two-dimensional continuous representation V of G_{Q_p} over a finite extension of Q_p with Hodge-Tate weights 0, k > 0 and W = V tensor B^+_dR/(t^{k+1}), the Fontaine operator N_W vanishes if and only if V is de Rham; (ii) Proposition 6.1.5, Fontaine's generalisation of Sen's decompletion to flat Banach B^+_dR/(t^k)-modules with continuous semilinear G_K-action whose phi^K_0 is an isomorphism, and Proposition 6.1.8 on kernels and cokernels of maps strict topologically and for the t-adic filtrations; (iii) their Hausdorff LB versions, Proposition 6.1.18 and Proposition 6.1.20 with Corollary 6.1.21, stated for B^+_dR/(t^{k+1})-modules. The paper prints B^+_dR/(t^k) in Proposition 6.1.20, and with that reading every Fontaine operator in Corollary 6.1.21 is zero (source issue E4). What to cover: Fontaine's almost de Rham theory [Fon04]: B_pdR, D_pdR(V) as the H_K-invariants of V tensor B_dR on which Gamma_K acts unipotently, its t-adic filtration, dim D_pdR(V) = dim V for Hodge-Tate V, the nilpotent operator nu, and the classification of almost de Rham B_dR-representations; the paper's Banach and LB generalisations: Banach B^+_dR/(t^k)-modules and their graded pieces (6.1.2), the decompleted pieces (6.1.3-6.1.4, Lemmas 6.1.6 and 6.1.7), Definition 6.1.9 (Hodge-Tate of weights 0, l), Lemma 6.1.11, Definition 6.1.13 (the Fontaine operator N_W : W_{0,0} -> W_{0,-k}(k) of a flat Banach B^+_dR/(t^{k+1})-module Hodge-Tate of weights 0, k) with its functoriality (Remark 6.1.14), the comparison of 6.1.15 with Fontaine's D_pdR and -nu, and the LB setting of 6.1.17 and 6.1.19. Also Scholze's comparison of the two de Rham lattices [Sch13, Proposition 7.9] (item /567), with the logarithmic form the paper uses on the modular curve (pp. 103 and 106, or [Pan22, (4.1.2)]). What to import: PadicHodgeTheory R06.1 for A_inf, theta, B^+_dR, its filtration and t (Mathlib at 082e2d3 has WittVector.fontaineTheta, BDeRhamPlus and BDeRham in Mathlib/RingTheory/Perfectoid, without the discrete valuation ring property, t or the Galois action); PadicHodgeTheory P7, node P7/sen-module, for Sen's module D_Sen and Sen's operator in the finite-dimensional case, which Proposition 6.1.5 generalises; PadicHodgeTheory P8:local-rational for the period sheaves; and LocallyAnalyticRepresentationsOfLocalGroups (route 11 of this extraction) for Proposition 2.1.5 and the LB-space formalism used in 6.1.17-6.1.20. Export to the Part II of route 1 (LocallyAnalyticCompletedCohomology), whose comparison of the intertwining operator with the Fontaine operator (Theorem 6.2.6) imports these results. make_queue merges this route with the other PadicHodgeTheory Part II proposals (PAPER-FARGUES-FONTAINE-18 route 5, which carries Rep_{B_dR}(G_K); PAPER-GUO-REINECKE-24 route 2; PAPER-HEUER-25 route 4; PAPER-GLEASON-LIM-XU-26 route 14): plan the paper's Banach and LB generalisations beside Fargues-Fontaine's B_dR-representations, not as a second theory of them.",
+      "items": [
+        "PAPER-PAN-26/20",
+        "PAPER-PAN-26/451",
+        "PAPER-PAN-26/452",
+        "PAPER-PAN-26/453",
+        "PAPER-PAN-26/454",
+        "PAPER-PAN-26/455",
+        "PAPER-PAN-26/456",
+        "PAPER-PAN-26/457",
+        "PAPER-PAN-26/458",
+        "PAPER-PAN-26/459",
+        "PAPER-PAN-26/460",
+        "PAPER-PAN-26/461",
+        "PAPER-PAN-26/462",
+        "PAPER-PAN-26/463",
+        "PAPER-PAN-26/464",
+        "PAPER-PAN-26/465",
+        "PAPER-PAN-26/567"
+      ]
+    },
+    {
+      "route": "new",
+      "roadmap": "ProetaleCohomologyOfPAdicCurvesAndTowers",
+      "title": "Pro-étale cohomology of p-adic curves and of the Drinfeld tower",
+      "area": "padic",
+      "reason": "Section 5.6.9 of the paper compares its compactly supported de Rham cohomology of the height-zero Drinfeld tower with that of Colmez-Dospinescu-Niziol, citing [CDN20, sections 4.3 and 4.3.2]. This is the de Rham cohomology of characteristic-zero rigid-analytic Stein spaces, which PadicDifferentialEquationsAndRigidCohomology RD.4 (rigid cohomology of varieties over F_p) does not plan, and the accepted PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B route 1 sends the same objects (its items 4.1-thm-4-1 and 5.3-thm-5-8, with Serre duality) to the new roadmap ProetaleCohomologyOfPAdicCurvesAndTowers. Added by FIX-RT-PAPER-PAN-26 (RT-PAPER-PAN-26/5, 30 September 2026), keyed exactly as that route (id, title and area) so that make_queue merges it into DESIGN-ProetaleCohomologyOfPAdicCurvesAndTowers, and appended as the last route, so that no existing route changes position. It has no review verdict yet, so the queue does not apply it until the next review of this extraction accepts it.",
+      "brief": "This route coalesces with ProetaleCohomologyOfPAdicCurvesAndTowers, proposed by PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B (route 1) and extended by PAPER-COLMEZ-DOSPINESCU-NIZIOL-23 (route 3), PAPER-DOSPINESCU-LEBRAS-17 (route 2) and PAPER-BOXER-CALEGARI-GEE-PILLONI-25 (route 25); keep their id, title, area and brief. Section 5.6.9 of Pan's paper (item /437) needs from it, for the height-zero Drinfeld spaces M^(0)_{Dr,n} over C at finite level n: their compactly supported de Rham cohomology H^i_{dR,c} and its colimit over n; the vanishing of the higher coherent cohomology of the structure sheaf and of the differentials on these partially proper spaces, so that their de Rham cohomology is the naive one; Serre duality between H^i_dR and H^{2-i}_{dR,c}; Colmez-Dospinescu-Niziol's compactly supported cohomology H^1_c of the structure sheaf and of the differentials ([CDN20, sections 4.3 and 4.3.2]), with which the paper identifies H^1 of j_! of the push-forward along the finite morphism to Omega; and the finite-dimensionality of H^2_{dR,c}, since H^0_dR is the space of continuous functions on the set of connected components. These are the statements behind CDN20-B's items 4.1-thm-4-1 (the two towers have the same compactly supported de Rham cohomology) and 5.3-thm-5-8 (its decomposition), specialised to GL_2(Q_p). The j_! presentation on the flag variety at infinite level (Definition 5.6.5, item /433) is the paper's own and stays with route 1's Part II (LocallyAnalyticCompletedCohomology), which imports this roadmap; this roadmap does not import that one. The paper uses the result for the supercuspidal description, Theorem 5.6.7 and Remark 7.3.6.",
+      "items": [
+        "PAPER-PAN-26/437"
       ]
     }
   ],
@@ -3901,12 +4085,27 @@
         "the author's page at sites.google.com/view/luepan/home, checked 2026-09-23: it links paper II only to the journal DOI, with no preprint or accepted-version PDF, and lists no erratum.",
         "the author's March 2026 survey arXiv:2603.27937 ('On the locally analytic completed cohomology of modular curves', to appear in the Proceedings of the 2025 International Congress of Basic Science), which recapitulates this work and records no correction to it."
       ]
+    },
+    {
+      "id": "PAPER-PAN-26/E4",
+      "kind": "misprint",
+      "locator": "Proposition 6.1.20 and Corollary 6.1.21, pp. 91-92 (arXiv v1)",
+      "printed": "Proposition 6.1.20 assumes continuous B^+_dR/(t^k)-linear G_K-equivariant f : X -> Y between Hausdorff flat LB modules with continuous semilinear G_K-actions, phi^K_{X,0}, phi^K_{Y,0} isomorphisms, and increasing stable Banach unions X = U_n X_n, Y = U_n Y_n. It calls ker f = U_n ker f|X_n, and also coker f = U_n Y_n/f(X_n), flat LB modules, Hodge-Tate of weights 0, k. Corollary 6.1.21 asserts a commuting diagram of Fontaine operators N_W : W_{0,0} -> W_{k,-k}, taking W to be ker f, X, Y or coker f.",
+      "correction": "Read B^+_dR/(t^{k+1}) for B^+_dR/(t^k) in all five places of Proposition 6.1.20, as in 6.1.12 ('Let W be a flat Banach B^+_dR/(t^{k+1})-module'), 6.1.17 and 6.1.19. Corollary 6.1.21 then compares the Fontaine operators N_W : W_{0,0} -> W_{k,-k} of ker f, X, Y and coker f.",
+      "reason": "For a B^+_dR/(t^k)-module W one has t^kW = 0, so W_k = t^kW/t^{k+1}W = 0 and its summand W_{k,-k} is 0. The Fontaine operator N_W : W_{0,0} -> W_{k,-k} = W_{0,-k}(k) of 6.1.19 therefore vanishes for each of ker f, X, Y and coker f, and Corollary 6.1.21 ('Same setup as in Proposition 6.1.20') says nothing as printed. Proposition 6.1.20 itself is meaningful as printed, since being Hodge-Tate of weights 0, k is a condition on W_0 alone, but then it misses the case the paper applies. The surrounding text works throughout with B^+_dR/(t^{k+1}): 6.1.12, Remark 6.1.14, 6.1.15 (W = V tensor B^+_dR/(t^{k+1})), Theorem 6.1.16, 6.1.17 ('Hausdorff LB-B^+_dR/(t^{k+1})-modules') and 6.1.19; and the application in 6.2.4 and 6.2.14 is to B^+_{dR,k+1}, where B^+_{dR,k} := B^+_dR/(t^k) (p. 92), inside the Cech complexes of the proof of Theorem 6.2.6. So the intended statement is clear from the context, and the slip is a misprint that affects nothing. Found by the red team RT-PAPER-PAN-26 (finding /10) and confirmed by its verifier; checked again for FIX-RT-PAPER-PAN-26 in the arXiv v1 text. Item /465 uses the corrected statement.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "arXiv:2209.06366, whose only version is still v1 of 14 September 2022 (arXiv API listing checked 2026-09-30); the PDF was downloaded again on 2026-09-30 and its sha256 is 0873b61a758c57a9c5567f8e9ed7d905adcb7b359013a24e680facd1027b31b4, the hash this extraction records. This is the text read.",
+        "the published version, Annals of Mathematics 203 (2026), no. 1, 121-281 (doi:10.4007/annals.2026.203.1.3): paywalled and not obtained, as recorded for E1-E3. It is much longer than v1 and may already correct the slip.",
+        "the author's page sites.google.com/view/luepan/home, checked 2026-09-30: it lists the paper with its Annals reference and no erratum or corrigendum."
+      ]
     }
   ],
   "gaps": [
     {
-      "gap": "The special case is settled only by importing the p-adic local Langlands correspondence",
-      "detail": "Remark 1.1.12 says the result is slightly weaker when the local component pi_p is special, and Remarks 1.2.4, 5.5.15 and 7.3.11 say why: that the generalized eigenspace is an honest eigenspace, and the resulting description of the locally analytic vectors, are obtained there from Emerton's local-global compatibility and the known p-adic local Langlands correspondence for GL_2(Q_p), the very inputs the paper otherwise avoids. Remark 5.5.15 asks for a direct proof. A blueprint following this paper will have the supercuspidal and principal series cases self-contained and the special case only conditionally."
+      "gap": "The special case is only claimed, with a sketch that imports the p-adic local Langlands correspondence",
+      "detail": "Remark 1.1.12 says the result is slightly weaker when the local component pi_p is special, and Remarks 1.2.4, 5.5.15 and 7.3.11 say why. For k = 1 and assuming rho|G_{Q_p} absolutely irreducible, Remark 7.3.11 claims that ker I^1_0[lambda~_tau] equals the locally analytic weight-zero part of the eigenspace, so that the generalised eigenspace is an honest eigenspace, and sketches an argument ('We claim that it is actually an equality', 'it can be shown that') from Emerton's local-global compatibility, the known description of Pi(rho|G_{Q_p})^la ([LXZ12], [Col14]) and Breuil's Sigma(2, L), the very inputs the paper otherwise avoids. It is not proved in the paper. Remark 5.5.15 asks for a direct proof. A blueprint following this paper will have the supercuspidal and principal series cases self-contained and the special case only as a claim, conditional on those inputs. (Corrected by FIX-RT-PAPER-PAN-26, RT-PAPER-PAN-26/9: this gap used to say that the special case is settled.)"
     },
     {
       "gap": "The conceptual proof of Theorem 5.2.6 rests on a compatibility deferred to future work",
