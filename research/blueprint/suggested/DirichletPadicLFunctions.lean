@@ -15831,3 +15831,167 @@ example : Filter.Tendsto (fun n => RingHom.id ℚ_[2]
 -- rational_embedding_not_continuous
 example : ¬Continuous (Rat.castHom ℚ_[2] : ℚ → ℚ_[2]) := by sorry
 end DirichletPadic.SuggestedMoritaLimitLawTests
+
+/- Actual translated angular means and an overconvergent series/limit comparison. -/
+
+namespace DirichletPadic
+noncomputable section
+open Filter
+open scoped Topology
+open scoped Classical
+variable (p : ℕ) [Fact p.Prime]
+variable {K : Type*} [NormedField K] {f : ℕ}
+
+lemma moritaShiftedIncrement_norm (u : ℤ_[p]ˣ) (z : ℤ_[p]) :
+    ‖(↑((moritaOmega p u)⁻¹) : ℤ_[p]) * z‖ = ‖z‖ := by sorry
+
+lemma moritaShiftedArgument_disc (u : ℤ_[p]ˣ) (z : ℤ_[p]) (hz : ‖z‖ ≤ ‖(moritaModulus p : ℤ_[p])‖) :
+    ‖(moritaAngular p u : ℤ_[p]) + (↑((moritaOmega p u)⁻¹) : ℤ_[p])*z-1‖ ≤ ‖(moritaModulus p : ℤ_[p])‖ := by sorry
+
+def moritaShiftedSamples (z : ℤ_[p]) : (ℤ_[p] → K) →ₗ[K] (ℕ → K) where
+  toFun A a := if h : IsUnit (a : ℤ_[p]) then
+    A ((moritaAngular p h.unit : ℤ_[p]) + (↑((moritaOmega p h.unit)⁻¹) : ℤ_[p])*z) else 0
+  map_add' A B := by ext a; simp only [Pi.add_apply]; split_ifs <;> simp
+  map_smul' c A := by ext a; simp only [Pi.smul_apply,smul_eq_mul,RingHom.id_apply]; split_ifs <;> simp
+lemma moritaShiftedSamples_unit (z : ℤ_[p]) (A : ℤ_[p] → K) (a : ℕ) (h : IsUnit (a : ℤ_[p])) :
+    moritaShiftedSamples p z A a = A ((moritaAngular p h.unit : ℤ_[p]) + (↑((moritaOmega p h.unit)⁻¹) : ℤ_[p])*z) := by sorry
+
+lemma moritaShiftedSamples_nonunit (z : ℤ_[p]) (A : ℤ_[p] → K) (a : ℕ) (h : p ∣ a) :
+    moritaShiftedSamples p z A a = 0 := by sorry
+
+lemma moritaShiftedSamples_zero_shift : moritaShiftedSamples p (0 : ℤ_[p]) = (moritaAngularSamples p : (ℤ_[p] → K) →ₗ[K] (ℕ → K)) := by sorry
+
+lemma moritaShiftedSamples_congr (z : ℤ_[p]) (hz : ‖z‖ ≤ ‖(moritaModulus p : ℤ_[p])‖) (A B : ℤ_[p] → K)
+    (h : ∀ x : ℤ_[p], ‖x-1‖ ≤ ‖(moritaModulus p : ℤ_[p])‖ → A x=B x) :
+    moritaShiftedSamples p z A = moritaShiftedSamples p z B := by sorry
+
+def moritaShiftedMean (χ : DirichletCharacter K f) (n : ℕ) (z : ℤ_[p]) : (ℤ_[p] → K) →ₗ[K] K :=
+  (moritaFiniteMean p χ n).comp (moritaShiftedSamples p z)
+lemma moritaShiftedMean_apply (χ : DirichletCharacter K f) (n : ℕ) (z : ℤ_[p]) (A : ℤ_[p] → K) :
+    moritaShiftedMean p χ n z A = moritaFiniteMean p χ n (moritaShiftedSamples p z A) := by sorry
+
+lemma moritaShiftedMean_zero_shift (χ : DirichletCharacter K f) (n : ℕ) :
+    moritaShiftedMean p χ n 0 = moritaAngularMean p χ n := by sorry
+
+lemma moritaShiftedMean_congr (χ : DirichletCharacter K f) (n : ℕ) (z : ℤ_[p])
+    (hz : ‖z‖ ≤ ‖(moritaModulus p : ℤ_[p])‖) (A B : ℤ_[p] → K)
+    (h : ∀ x : ℤ_[p], ‖x-1‖ ≤ ‖(moritaModulus p : ℤ_[p])‖ → A x=B x) :
+    moritaShiftedMean p χ n z A = moritaShiftedMean p χ n z B := by sorry
+
+lemma moritaShiftedMean_constant [CharZero K] (n : ℕ) (z : ℤ_[p]) (c : K) :
+    moritaShiftedMean p (1 : DirichletCharacter K 1) n z (fun _ => c) = c*(1-(p : K)⁻¹) := by sorry
+
+lemma moritaShiftedSamples_taylor (ι : ℤ_[p] →+* K) (A : ℤ_[p] → K) (D : ℕ → ℤ_[p] → K) (R : ℝ)
+    (hT : ∀ x h : ℤ_[p], ‖x-1‖ ≤ ‖(moritaModulus p : ℤ_[p])‖ →
+      ‖h‖ < R → HasSum (fun m => (ι h)^m * D m x) (A (x+h)))
+    (z : ℤ_[p]) (hz : ‖z‖ < R) (a : ℕ) (ha : ¬p ∣ a) :
+    HasSum (fun m => (moritaTorsionCharacterMap p ι (a : ZMod (moritaModulus p)))⁻¹ ^ m *
+      moritaAngularSamples p (D m) a * (ι z)^m) (moritaShiftedSamples p z A a) := by sorry
+
+lemma moritaShiftedMean_taylor (ι : ℤ_[p] →+* K) (χ : DirichletCharacter K f)
+    (A : ℤ_[p] → K) (D : ℕ → ℤ_[p] → K) (R : ℝ)
+    (hT : ∀ x h : ℤ_[p], ‖x-1‖ ≤ ‖(moritaModulus p : ℤ_[p])‖ →
+      ‖h‖ < R → HasSum (fun m => (ι h)^m * D m x) (A (x+h)))
+    (n : ℕ) (z : ℤ_[p]) (hz : ‖z‖ < R) :
+    HasSum (fun m => (ι z)^m * moritaAngularMean p (moritaCharacterTwist p ι χ m) n (D m))
+      (moritaShiftedMean p χ n z A) := by sorry
+
+lemma moritaShiftedSamples_add (z : ℤ_[p]) (A B : ℤ_[p] → K) :
+    moritaShiftedSamples p z (A+B) = moritaShiftedSamples p z A + moritaShiftedSamples p z B := by sorry
+lemma moritaShiftedSamples_smul (z : ℤ_[p]) (A : ℤ_[p] → K) (c : K) :
+    moritaShiftedSamples p z (c • A) = c • moritaShiftedSamples p z A := by sorry
+lemma moritaShiftedMean_add (χ : DirichletCharacter K f) (n : ℕ) (z : ℤ_[p]) (A B : ℤ_[p] → K) :
+    moritaShiftedMean p χ n z (A+B) = moritaShiftedMean p χ n z A + moritaShiftedMean p χ n z B := by sorry
+lemma moritaShiftedMean_smul (χ : DirichletCharacter K f) (n : ℕ) (z : ℤ_[p]) (A : ℤ_[p] → K) (c : K) :
+    moritaShiftedMean p χ n z (c • A) = c * moritaShiftedMean p χ n z A := by sorry
+
+section Bounds
+variable [NormedAlgebra ℚ_[p] K] [IsUltrametricDist K] [CharZero K]
+variable (ι : ℤ_[p] →+* K) (χ : DirichletCharacter K f) (hf : 0 < f)
+variable (D : ℕ → ℤ_[p] → K) (B R : ℝ) (hB : 0 ≤ B) (hR : ‖(moritaModulus p : ℤ_[p])‖ < R)
+variable (hval : ∀ m x, ‖x-1‖ ≤ ‖(moritaModulus p : ℤ_[p])‖ → ‖D m x‖ ≤ B / R^m)
+variable (hLip : ∀ m x y, ‖x-1‖ ≤ ‖(moritaModulus p : ℤ_[p])‖ → ‖y-1‖ ≤ ‖(moritaModulus p : ℤ_[p])‖ →
+      ‖D m x-D m y‖ ≤ (B / R^m / ‖(moritaModulus p : ℤ_[p])‖) * ‖x-y‖)
+include hf hB hR hval hLip
+lemma moritaOverconvergentDerivativeMean_norm (m n : ℕ) :
+    ‖moritaAngularMean p (moritaCharacterTwist p ι χ m) n (D m)‖ ≤ moritaMeanBoundConstant (K:=K) p f * (B / R^m) := by sorry
+
+lemma moritaShiftedTaylorTerm_norm (hι : ∀ x : ℤ_[p], ‖ι x‖=‖x‖) (z : ℤ_[p]) (hz : ‖z‖ ≤ ‖(moritaModulus p : ℤ_[p])‖)
+    (m n : ℕ) : ‖(ι z)^m * moritaAngularMean p (moritaCharacterTwist p ι χ m) n (D m)‖ ≤
+      (moritaMeanBoundConstant (K:=K) p f * B) * (‖(moritaModulus p : ℤ_[p])‖ / R)^m := by sorry
+
+lemma moritaShiftedLimitTerm_norm (hι : ∀ x : ℤ_[p], ‖ι x‖=‖x‖) (z : ℤ_[p]) (hz : ‖z‖ ≤ ‖(moritaModulus p : ℤ_[p])‖)
+    (v : ℕ → K) (hv : ∀ m, Tendsto (fun n => moritaAngularMean p (moritaCharacterTwist p ι χ m) n (D m)) atTop (𝓝 (v m)))
+    (m : ℕ) : ‖(ι z)^m * v m‖ ≤ (moritaMeanBoundConstant (K:=K) p f * B) * (‖(moritaModulus p : ℤ_[p])‖ / R)^m := by sorry
+
+lemma moritaShiftedLimit_summable [CompleteSpace K] (hι : ∀ x : ℤ_[p], ‖ι x‖=‖x‖)
+    (z : ℤ_[p]) (hz : ‖z‖ ≤ ‖(moritaModulus p : ℤ_[p])‖)
+    (v : ℕ → K) (hv : ∀ m, Tendsto (fun n => moritaAngularMean p (moritaCharacterTwist p ι χ m) n (D m)) atTop (𝓝 (v m))) :
+    Summable (fun m => (ι z)^m * v m) := by sorry
+
+lemma moritaShiftedMean_limit [CompleteSpace K] (hι : ∀ x : ℤ_[p], ‖ι x‖=‖x‖)
+    (A : ℤ_[p] → K)
+    (hT : ∀ x h : ℤ_[p], ‖x-1‖ ≤ ‖(moritaModulus p : ℤ_[p])‖ →
+      ‖h‖ < R → HasSum (fun m => (ι h)^m * D m x) (A (x+h)))
+    (z : ℤ_[p]) (hz : ‖z‖ ≤ ‖(moritaModulus p : ℤ_[p])‖)
+    (v : ℕ → K) (hv : ∀ m, Tendsto (fun n => moritaAngularMean p (moritaCharacterTwist p ι χ m) n (D m)) atTop (𝓝 (v m))) :
+    Tendsto (fun n => moritaShiftedMean p χ n z A) atTop (𝓝 (∑' m, (ι z)^m * v m)) := by sorry
+
+end Bounds
+end
+end DirichletPadic
+
+namespace DirichletPadic.SuggestedMoritaTranslatedTests
+open Filter
+open scoped Topology
+-- increment_dyadic
+example (u : ℤ_[2]ˣ) : ‖(↑((moritaOmega 2 u)⁻¹) : ℤ_[2]) * 4‖ = 1/4 := by sorry
+-- increment_odd
+example (u : ℤ_[3]ˣ) : ‖(↑((moritaOmega 3 u)⁻¹) : ℤ_[3]) * 3‖ = 1/3 := by sorry
+-- disc_boundary_dyadic
+example (u : ℤ_[2]ˣ) : ‖(moritaAngular 2 u : ℤ_[2]) + (↑((moritaOmega 2 u)⁻¹) : ℤ_[2])*4-1‖ ≤ 1/4 := by sorry
+-- disc_boundary_odd
+example (u : ℤ_[3]ˣ) : ‖(moritaAngular 3 u : ℤ_[3]) + (↑((moritaOmega 3 u)⁻¹) : ℤ_[3])*3-1‖ ≤ 1/3 := by sorry
+-- shifted_sample_dyadic
+example : moritaShiftedSamples 2 4 (fun x => (x : ℚ_[2])^2) 3 = 49 := by sorry
+-- shifted_sample_nonunit
+example : moritaShiftedSamples 2 4 (fun _ => (37 : ℚ_[2])) 2 = 0 := by sorry
+-- shifted_sample_zero
+example (A : ℤ_[3] → ℚ_[3]) : moritaShiftedSamples 3 0 A = moritaAngularSamples 3 A := by sorry
+-- shifted_sample_wrong_angular_translation
+example : moritaShiftedSamples 2 4 (fun x => (x : ℚ_[2])^2) 3 ≠ 1 := by sorry
+-- shifted_mean_dyadic
+example : moritaShiftedMean 2 (1 : DirichletCharacter ℚ_[2] 1) 0 4 (fun x => (x : ℚ_[2])^2) = 37/2 := by sorry
+-- shifted_mean_odd
+example : moritaShiftedMean 3 (1 : DirichletCharacter ℚ_[3] 1) 0 3 (fun x => (x : ℚ_[3])^2) = 41/3 := by sorry
+-- shifted_mean_zero
+example (A : ℤ_[2] → ℚ_[2]) (n : ℕ) : moritaShiftedMean 2 (1 : DirichletCharacter ℚ_[2] 1) n 0 A =
+    moritaAngularMean 2 (1 : DirichletCharacter ℚ_[2] 1) n A := by sorry
+-- shifted_mean_constant
+example (z : ℤ_[2]) (n : ℕ) : moritaShiftedMean 2 (1 : DirichletCharacter ℚ_[2] 1) n z (fun _ => 3) = 3/2 := by sorry
+-- shifted_sample_taylor_quadratic
+example : HasSum (fun m : ℕ => if m=0 then (9 : ℚ_[2]) else if m=1 then 24 else if m=2 then 16 else 0)
+    (moritaShiftedSamples 2 4 (fun x => (x : ℚ_[2])^2) 3) := by sorry
+-- shifted_taylor_dyadic
+example : (5/2 : ℚ_[2])+8+8 = moritaShiftedMean 2 (1 : DirichletCharacter ℚ_[2] 1) 0 4 (fun x => (x : ℚ_[2])^2) := by sorry
+-- shifted_taylor_missing_twist
+example : moritaShiftedMean 2 (1 : DirichletCharacter ℚ_[2] 1) 0 4 (fun x => (x : ℚ_[2])^2) ≠ 13/2 := by sorry
+-- derivative_mean_larger_radius
+example : ‖moritaAngularMean 2 (moritaCharacterTwist 2 PadicInt.Coe.ringHom
+    (1 : DirichletCharacter ℚ_[2] 1) 1) 0 (fun x => 2*(x : ℚ_[2]))‖ = 1/2 := by sorry
+-- shifted_term_quadratic
+example : ‖(4 : ℚ_[2])^2 * moritaAngularMean 2 (moritaCharacterTwist 2 PadicInt.Coe.ringHom
+    (1 : DirichletCharacter ℚ_[2] 1) 2) 0 (fun _ => 1)‖ = 1/8 := by sorry
+-- radius_boundary_needs_extension
+example : ¬‖(4 : ℤ_[2])‖ < (1/4 : ℝ) ∧ ‖(4 : ℤ_[2])‖ < (1/2 : ℝ) := by sorry
+-- limit_term_constant
+example (v : ℚ_[2]) (hv : Tendsto (fun n => moritaAngularMean 2
+    (moritaCharacterTwist 2 PadicInt.Coe.ringHom (1 : DirichletCharacter ℚ_[2] 1) 0) n (fun _ => 1)) atTop (𝓝 v)) :
+    ‖v‖ ≤ moritaMeanBoundConstant (K:=ℚ_[2]) 2 1 := by sorry
+-- translated_constant_series
+example (z : ℤ_[2]) : HasSum (fun m : ℕ => (z : ℚ_[2])^m * (if m=0 then 1/2 else 0)) (1/2) := by sorry
+-- translated_limit_constant_dyadic
+example (z : ℤ_[2]) : Tendsto (fun n => moritaShiftedMean 2 (1 : DirichletCharacter ℚ_[2] 1) n z (fun _ => 1)) atTop (𝓝 (1/2)) := by sorry
+-- translated_limit_constant_odd
+example (z : ℤ_[3]) : Tendsto (fun n => moritaShiftedMean 3 (1 : DirichletCharacter ℚ_[3] 1) n z (fun _ => 1)) atTop (𝓝 (2/3)) := by sorry
+end DirichletPadic.SuggestedMoritaTranslatedTests
