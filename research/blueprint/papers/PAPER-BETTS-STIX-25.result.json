@@ -151,7 +151,8 @@
       "locator": "arXiv v1 §2.1, Definition 2.3, p.7",
       "status": "missing",
       "library": [],
-      "planned": []
+      "planned": [],
+      "note": "Cross-reference added by FIX-RT-PAPER-LAWRENCE-VENKATESH-20, 30 September 2026 (RT-PAPER-LAWRENCE-VENKATESH-20/4). GSp-irreducibility is the case G = GSp_{2d} of Serre's G-irreducibility ([LV20, §2.3]). PAPER-LAWRENCE-VENKATESH-20 now routes the general notion, with G-complete reducibility and G-semisimplification for reductive G over a field of characteristic 0, to MordellLawrenceVenkatesh LV.1 (its item /g-semisimplification, route 2). LV.1 is thus the one owner: it should state the general notion and obtain this one as its symplectic case. This item and route 2 are unchanged."
     },
     {
       "id": "PAPER-BETTS-STIX-25/13",
@@ -162,7 +163,7 @@
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "The Lawrence–Venkatesh roadmap's LV.1 plans Faltings's lemma in its semisimple form (LV Lemma 2.3); this paper uses the symplectic version, so it is a source for LV.1."
+      "note": "The Lawrence–Venkatesh roadmap's LV.1 plans Faltings's lemma in its semisimple form (LV Lemma 2.3); this paper uses the symplectic version, so it is a source for LV.1. Cross-reference added by FIX-RT-PAPER-LAWRENCE-VENKATESH-20, 30 September 2026 (RT-PAPER-LAWRENCE-VENKATESH-20/4): PAPER-LAWRENCE-VENKATESH-20 now routes [LV20, Lemma 2.6] itself, for any reductive G ⊂ GL_n, to LV.1 (its item /lemma-2-6, route 2). This lemma is the case G = GSp_{2d}: for GSp-irreducible ρ, ρ^ss = ρ, and isomorphism of symplectic representations is GSp(Q_p)-conjugacy. So LV.1 should state Lemma 2.6 once, for reductive G, and derive this lemma from it. The printed proof of [LV20, Lemma 2.6] is incomplete (MordellLawrenceVenkatesh/E28): a complete proof parametrizes conjugates modulo the centralizer and needs Richardson's theorem and finiteness of H¹(Q_p, −); see PAPER-LAWRENCE-VENKATESH-20/lemma-2-6. The misprinted domain in the refinement of Lemma 2.6 (E27) does not affect this statement."
     },
     {
       "id": "PAPER-BETTS-STIX-25/14",
