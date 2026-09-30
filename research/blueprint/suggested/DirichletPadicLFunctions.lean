@@ -1,3 +1,5 @@
+import Mathlib.Topology.Algebra.InfiniteSum.Ring
+import Mathlib.Topology.Algebra.InfiniteSum.NatInt
 import Mathlib.NumberTheory.DirichletCharacter.Bounds
 import Mathlib.Analysis.Normed.Group.Ultra
 import Mathlib.Algebra.BigOperators.Intervals
@@ -15422,3 +15424,124 @@ example (m n : ℕ) : ‖moritaAngularMean 2 (moritaCharacterTwist 2 PadicInt.Co
 example (m n : ℕ) : ‖moritaAngularMean 3 (moritaCharacterTwist 3 PadicInt.Coe.ringHom
     (1 : DirichletCharacter ℚ_[3] 1) m) n (fun x => (((x : ℚ_[3])-1)/3)^2)‖ ≤ 9 := by sorry
 end DirichletPadic.SuggestedMoritaTwistTests
+
+/- Taylor transport for finite angular means, conditional on the actual pointwise HasSum input. -/
+namespace DirichletPadic
+noncomputable section
+open scoped Classical
+variable (p : ℕ) [Fact p.Prime]
+variable {K : Type*} [NormedField K] {f : ℕ}
+
+lemma moritaAngularIncrement_norm (u : ℤ_[p]ˣ) (N z : ℕ) :
+    ‖(↑((moritaOmega p u)⁻¹) : ℤ_[p]) * ((N : ℤ_[p]) * z)‖ ≤ ‖(N : ℤ_[p])‖ := by sorry
+
+omit [Fact p.Prime] in
+lemma moritaFiniteMean_hasSum (χ : DirichletCharacter K f) (n : ℕ) (F : ℕ → ℕ → K) (G : ℕ → K)
+    (h : ∀ a < moritaLevel p f n, ¬p ∣ a → HasSum (F a) (G a)) :
+    HasSum (fun m => moritaFiniteMean p χ n (fun a => F a m)) (moritaFiniteMean p χ n G) := by sorry
+
+lemma moritaAngularSamples_taylor (ι : ℤ_[p] →+* K) (A : ℤ_[p] → K) (D : ℕ → ℤ_[p] → K)
+    (hT : ∀ x h : ℤ_[p], ‖x-1‖ ≤ ‖(moritaModulus p : ℤ_[p])‖ →
+      ‖h‖ < ‖(moritaModulus p : ℤ_[p])‖ → HasSum (fun m => (ι h)^m * D m x) (A (x+h)))
+    (n a z : ℕ) (ha : ¬p ∣ a) (hN : ‖(moritaLevel p f n : ℤ_[p])‖ < ‖(moritaModulus p : ℤ_[p])‖) :
+    HasSum (fun m => (moritaTorsionCharacterMap p ι (a : ZMod (moritaModulus p)))⁻¹ ^ m *
+      moritaAngularSamples p (D m) a * ((moritaLevel p f n : K) * z)^m)
+      (moritaAngularSamples p A (a + moritaLevel p f n * z)) := by sorry
+
+lemma moritaTranslatedMean_taylor (ι : ℤ_[p] →+* K) (χ : DirichletCharacter K f)
+    (A : ℤ_[p] → K) (D : ℕ → ℤ_[p] → K)
+    (hT : ∀ x h : ℤ_[p], ‖x-1‖ ≤ ‖(moritaModulus p : ℤ_[p])‖ →
+      ‖h‖ < ‖(moritaModulus p : ℤ_[p])‖ → HasSum (fun m => (ι h)^m * D m x) (A (x+h)))
+    (n z : ℕ) (hN : ‖(moritaLevel p f n : ℤ_[p])‖ < ‖(moritaModulus p : ℤ_[p])‖) :
+    HasSum (fun m => ((moritaLevel p f n : K) * z)^m *
+      moritaAngularMean p (moritaCharacterTwist p ι χ m) n (D m))
+      (moritaFiniteMean p χ n (fun a => moritaAngularSamples p A (a+moritaLevel p f n*z))) := by sorry
+
+omit [Fact p.Prime] in
+def moritaPowerSum (p m : ℕ) : K := ∑ z ∈ Finset.range (moritaModulus p), (z : K)^m
+
+lemma moritaAngularMean_next_taylor (ι : ℤ_[p] →+* K) (χ : DirichletCharacter K f)
+    (A : ℤ_[p] → K) (D : ℕ → ℤ_[p] → K)
+    (hT : ∀ x h : ℤ_[p], ‖x-1‖ ≤ ‖(moritaModulus p : ℤ_[p])‖ →
+      ‖h‖ < ‖(moritaModulus p : ℤ_[p])‖ → HasSum (fun m => (ι h)^m * D m x) (A (x+h)))
+    (n : ℕ) (hN : ‖(moritaLevel p f n : ℤ_[p])‖ < ‖(moritaModulus p : ℤ_[p])‖) :
+    HasSum (fun m => (moritaModulus p : K)⁻¹ * moritaPowerSum p m * (moritaLevel p f n : K)^m *
+      moritaAngularMean p (moritaCharacterTwist p ι χ m) n (D m)) (moritaAngularMean p χ (n+1) A) := by sorry
+
+lemma moritaAngularMean_difference_taylor [CharZero K] (ι : ℤ_[p] →+* K) (χ : DirichletCharacter K f)
+    (A : ℤ_[p] → K) (D : ℕ → ℤ_[p] → K) (hD : D 0 = A)
+    (hT : ∀ x h : ℤ_[p], ‖x-1‖ ≤ ‖(moritaModulus p : ℤ_[p])‖ →
+      ‖h‖ < ‖(moritaModulus p : ℤ_[p])‖ → HasSum (fun m => (ι h)^m * D m x) (A (x+h)))
+    (n : ℕ) (hN : ‖(moritaLevel p f n : ℤ_[p])‖ < ‖(moritaModulus p : ℤ_[p])‖) :
+    HasSum (fun m => (moritaModulus p : K)⁻¹ * moritaPowerSum p (m+1) * (moritaLevel p f n : K)^(m+1) *
+      moritaAngularMean p (moritaCharacterTwist p ι χ (m+1)) n (D (m+1)))
+      (moritaAngularMean p χ (n+1) A - moritaAngularMean p χ n A) := by sorry
+
+omit [Fact p.Prime] in
+lemma moritaPowerSum_zero : moritaPowerSum (K:=K) p 0 = (moritaModulus p : K) := by sorry
+
+omit [Fact p.Prime] in
+lemma moritaPowerSum_two_one : moritaPowerSum (K:=K) 2 1 = 6 := by sorry
+
+omit [Fact p.Prime] in
+lemma moritaPowerSum_three_one : moritaPowerSum (K:=K) 3 1 = 3 := by sorry
+
+lemma moritaPowerSum_norm [NormedAlgebra ℚ_[p] K] [IsUltrametricDist K] (m : ℕ) :
+    ‖moritaPowerSum (K:=K) p m‖ ≤ 1 := by sorry
+
+end
+end DirichletPadic
+
+namespace DirichletPadic.SuggestedMoritaTaylorTests
+-- increment_dyadic_unit
+example : ‖(↑((moritaOmega 2 (-1))⁻¹) : ℤ_[2]) * (4 * 3)‖ = 1/4 := by sorry
+-- increment_zero
+example (u : ℤ_[2]ˣ) : ‖(↑((moritaOmega 2 u)⁻¹) : ℤ_[2]) * (16 * 0)‖ = 0 := by sorry
+-- mean_sum_ignored_nonunits
+example : HasSum (fun m : ℕ => moritaFiniteMean 2 (1 : DirichletCharacter ℚ_[2] 1) 0
+    (fun a => if 2 ∣ a then (m : ℚ_[2]) else 0)) 0 := by sorry
+-- mean_sum_zero
+example : HasSum (fun _ : ℕ => moritaFiniteMean 3 (1 : DirichletCharacter ℚ_[3] 1) 0 (fun _ => 0)) 0 := by sorry
+-- sample_taylor_dyadic_square
+example : HasSum (fun m : ℕ => if m=0 then (1 : ℚ_[2]) else if m=1 then 8 else if m=2 then 16 else 0)
+    (moritaAngularSamples 2 (fun x => (((x : ℚ_[2])-1)/4)^2) (3+16)) := by sorry
+-- sample_taylor_strict_radius
+example : ‖(moritaLevel 2 1 1 : ℤ_[2])‖ < ‖(moritaModulus 2 : ℤ_[2])‖ := by sorry
+-- sample_taylor_initial_boundary
+example : ¬ ‖(moritaLevel 2 1 0 : ℤ_[2])‖ < ‖(moritaModulus 2 : ℤ_[2])‖ := by sorry
+-- translated_square_dyadic
+example : moritaFiniteMean 2 (1 : DirichletCharacter ℚ_[2] 1) 1
+    (fun a => moritaAngularSamples 2 (fun x => (((x : ℚ_[2])-1)/4)^2) (a+16)) = 75/4 := by sorry
+-- translated_zero_block
+example (A : ℤ_[3] → ℚ_[3]) : moritaFiniteMean 3 (1 : DirichletCharacter ℚ_[3] 1) 1
+    (fun a => moritaAngularSamples 3 A (a+moritaLevel 3 1 1*0)) =
+      moritaAngularMean 3 (1 : DirichletCharacter ℚ_[3] 1) 1 A := by sorry
+-- power_sum_zero_dyadic
+example : moritaPowerSum (K:=ℚ_[2]) 2 0 = 4 := by sorry
+-- power_sum_linear_dyadic
+example : moritaPowerSum (K:=ℚ_[2]) 2 1 = 6 := by sorry
+-- power_sum_square_dyadic
+example : moritaPowerSum (K:=ℚ_[2]) 2 2 = 14 := by sorry
+-- power_sum_linear_odd
+example : moritaPowerSum (K:=ℚ_[3]) 3 1 = 3 := by sorry
+-- power_sum_square_odd
+example : moritaPowerSum (K:=ℚ_[3]) 3 2 = 5 := by sorry
+-- power_sum_square_norm
+example : ‖moritaPowerSum (K:=ℚ_[3]) 3 2‖ = 1 := by sorry
+-- next_mean_square_dyadic
+example : moritaAngularMean 2 (1 : DirichletCharacter ℚ_[2] 1) 1 (fun x => (((x : ℚ_[2])-1)/4)^2) = 11/4 := by sorry
+-- next_mean_square_odd
+example : moritaAngularMean 3 (1 : DirichletCharacter ℚ_[3] 1) 1 (fun x => (((x : ℚ_[3])-1)/3)^2) = 19/9 := by sorry
+-- difference_square_dyadic
+example : (3/4 : ℚ_[2]) + 7/4 =
+    moritaAngularMean 2 (1 : DirichletCharacter ℚ_[2] 1) 1 (fun x => (((x : ℚ_[2])-1)/4)^2) -
+    moritaAngularMean 2 (1 : DirichletCharacter ℚ_[2] 1) 0 (fun x => (((x : ℚ_[2])-1)/4)^2) := by sorry
+-- difference_square_odd
+example : (2/3 : ℚ_[3]) + 10/9 =
+    moritaAngularMean 3 (1 : DirichletCharacter ℚ_[3] 1) 1 (fun x => (((x : ℚ_[3])-1)/3)^2) -
+    moritaAngularMean 3 (1 : DirichletCharacter ℚ_[3] 1) 0 (fun x => (((x : ℚ_[3])-1)/3)^2) := by sorry
+-- difference_missing_normalizer
+example : (4*(3/4+7/4) : ℚ_[2]) ≠ 5/2 := by sorry
+-- difference_raw_derivative_error
+example : (3/4+2*(7/4) : ℚ_[2]) ≠ 5/2 := by sorry
+end DirichletPadic.SuggestedMoritaTaylorTests

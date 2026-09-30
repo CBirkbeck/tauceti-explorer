@@ -27709,3 +27709,252 @@ Exact controls check 1,200 character values,36,000 products,1,200 order identiti
 Initial capture at 1df72414bec56fa3850f2e52db4f9e5809425845 changes only the source-issue registry and generated register. All30 He–Li–Shi–Yang records change only their citation metadata, now naming the published Inventiones article and page range. Every changed field was read, and the complete before/after delta retained; mathematical statements, corrections, review statuses, registry metadata, all16 Dirichlet findings and all consumed suppliers are unchanged. No independent source verification is claimed. Publication refresh at cb87b15f reads BMS E19–22 (the perfectoid converse needs topological nilpotence of p; the Witt-map exponent, domain and cyclotomic root indices require corrections) and Kisin–Pappas E17, E81–83 (the algebraically closed residue-field scope, Iwahori base ring, integral-model base and proposition citation). E65 is retired as a duplicate of E64, whose corrected coefficient ring is O_{F,(p)}. These registry changes are recorded without independently verifying the papers. Polylogarithms removes three whole-stage M.8 edges pending an actual early Deligne interface, adds the corresponding gap, and imports the early completed-unit map from I.2 while distinguishing the injective uncompleted map and pro-p torsion treatment. Its changed fields and requests were read in full; Dirichlet has no direct Polylogarithms node consumer. All16 Dirichlet findings and the other captured suppliers remain unchanged.
 
 The separate partial signature file also compiled with zero errors and 2,689 expected placeholder warnings across 3,600 pinned source modules. It includes all 21 new named declarations and 26 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 3fcf66475a663dc73034c788785ceddce1da33cd85167df1d371b065db07430e.
+
+
+## Finite Taylor expansions of angular character means
+
+Eight L3 nodes derive the exact Taylor series of the next finite angular mean and its consecutive difference from pointwise Taylor sums. They preserve the strict radius, inverse character, fixed averaging level, power sum and factorial normalization. All848 predecessor nodes,700 baseline records and16 source findings remain whole.
+
+Retains the full KL1964 and Morita1975 readings. KL p.333 Hilfssatz2 equation(8) was re-read directly in the official page image, including its strict |N_n|<|q| hypothesis, m≥1, s_m/q, inverse character and factorial. Pinned statements for finite HasSum interchange, multiplication by a scalar, natural-index tails, mapping an inverse unit, normalized scalar norms and the ultrametric finite-sum bound were re-read. Additive companions are identified through their actual to_additive generators, never invented as declaration-index entries.
+
+### The translated angular increment stays inside the Taylor radius
+
+`DirichletPadicLFunctions:L3/morita-angular-increment-norm` — `DirichletPadic.moritaAngularIncrement_norm`
+
+For every native unit u and natural N,z, ‖Ω(u)⁻¹Nz‖≤‖N‖ in ℤ_p. Thus the translated sample increment is strictly inside radius r whenever ‖N_n‖<r.
+
+**Hypotheses:** p is prime; q=4 at p=2 and q=p otherwise; N_n=lcm(f,q)q^n. The preceding native torsion character θ, inverse twists χ_m and angular samples S are used without changing levels or support. K is a normed field and ι:ℤ_p→K is an explicit unital ring homomorphism. The power-sum norm estimate additionally requires a normed ℚ_p-algebra and an ultrametric norm. Characteristic zero is required to cancel q in the difference formula. The Taylor hypotheses concern ordinary functions A:ℤ_p→K and D_m:ℤ_p→K. At every x with ‖x−1‖≤r=‖q‖ and every h with ‖h‖<r, the actual series Σ_(m≥0)ι(h)^m D_m(x) has sum A(x+h). D_0=A is imposed for the difference identity. The application uses D_m=A^(m)/m!; no derivative carrier or Taylor theorem is constructed here. For the translated, next-level and difference Taylor identities, ‖N_n‖<r is required. It is not asserted at n=0. The separate finite polynomial controls can hold outside this hypothesis because polynomials have finite Taylor expansions at every increment. Satisfaction of these pointwise Taylor hypotheses by the source closed-disc analytic space remains part of the existing precise LAD L0 request. The conditional arithmetic transport uses no new analytic class, unproved interchange premise, convergence of the sequence of means, or primitive-conductor reduction.
+
+**Proof:**
+
+1. The scalar value of the inverse unit Ω(u)⁻¹ has norm one. Multiplicativity removes that unit from the norm.
+2. Every natural cast z lies in ℤ_p and has norm at most one. Multiplication by its norm can only decrease ‖N‖.
+3. The complete increment_norm proof establishes the actual scalar estimate, including N=0 or z=0; no norm assumption on the coefficient homomorphism ι is needed.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/morita-omega`, `mathlib:PadicInt.norm_units`, `mathlib:PadicInt.norm_le_one`.
+
+**Tests:**
+
+- `SuggestedMoritaTaylorTests.increment_dyadic_unit` (computation): At p=2,u=−1,N=4,z=3 the norm of the angular increment is1/4.
+- `SuggestedMoritaTaylorTests.increment_zero` (degenerate): The increment is zero for z=0, hence has norm zero.
+
+**Acceptance:** The strict Taylor-radius test is applied after this non-strict arithmetic bound.
+
+**Source:** Section 2 pp.332–333, block decomposition (5), Taylor formula (3), and Hilfssatz2 equation (8); p.333 read again in the page image. Equation(8) is derived from actual pointwise Taylor sums and finite sums. The inverse character χΩ^(−m), factor s_m/q, power N_n^m and divided derivative A^(m)/m! are retained. The later estimate(9) and limiting functional are not asserted here.
+
+### Finite character means commute with pointwise convergent sums
+
+`DirichletPadicLFunctions:L3/morita-finite-mean-has-sum` — `DirichletPadic.moritaFiniteMean_hasSum`
+
+Let F(a,m) and G(a) take values in K. If Σ_m F(a,m) has sum G(a) at each a<N_n with p∤a, then Σ_m M^n_χ(a↦F(a,m)) has sum M^n_χ(G). No summability hypothesis is needed at excluded multiples of p.
+
+**Hypotheses:** p is prime; q=4 at p=2 and q=p otherwise; N_n=lcm(f,q)q^n. The preceding native torsion character θ, inverse twists χ_m and angular samples S are used without changing levels or support. K is a normed field and ι:ℤ_p→K is an explicit unital ring homomorphism. The power-sum norm estimate additionally requires a normed ℚ_p-algebra and an ultrametric norm. Characteristic zero is required to cancel q in the difference formula. The Taylor hypotheses concern ordinary functions A:ℤ_p→K and D_m:ℤ_p→K. At every x with ‖x−1‖≤r=‖q‖ and every h with ‖h‖<r, the actual series Σ_(m≥0)ι(h)^m D_m(x) has sum A(x+h). D_0=A is imposed for the difference identity. The application uses D_m=A^(m)/m!; no derivative carrier or Taylor theorem is constructed here. For the translated, next-level and difference Taylor identities, ‖N_n‖<r is required. It is not asserted at n=0. The separate finite polynomial controls can hold outside this hypothesis because polynomials have finite Taylor expansions at every increment. Satisfaction of these pointwise Taylor hypotheses by the source closed-disc analytic space remains part of the existing precise LAD L0 request. The conditional arithmetic transport uses no new analytic class, unproved interchange premise, convergence of the sequence of means, or primitive-conductor reduction.
+
+**Proof:**
+
+1. Unfold the actual finite mean into N_n⁻¹ times a finite sum, retaining its p-unit support test.
+2. For a surviving index, multiply the supplied HasSum by the scalar χ(a). At a discarded index the series and target are identically zero.
+3. Apply the native finite-sum theorem and multiply the resulting series by N_n⁻¹. The source statement hasProd_prod has an explicitly generated additive companion hasSum_sum; its statement and generator were re-read at the pin.
+4. The complete mean_hasSum proof performs this interchange. It neither introduces an infinite double series nor assumes interchange as a hypothesis.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/morita-finite-mean`, `mathlib:hasProd_prod`, `mathlib:HasSum.mul_left`.
+
+**Tests:**
+
+- `SuggestedMoritaTaylorTests.mean_sum_ignored_nonunits` (non-example): At p=2,f=1,n=0 arbitrary growing values m on even indices still give the zero mean series.
+- `SuggestedMoritaTaylorTests.mean_sum_zero` (degenerate): At p=3 the zero sampled series has sum zero.
+
+**Acceptance:** Only the finitely many supported evaluations require a pointwise HasSum input.
+
+**Source:** Section 2 pp.332–333, block decomposition (5), Taylor formula (3), and Hilfssatz2 equation (8); p.333 read again in the page image. Equation(8) is derived from actual pointwise Taylor sums and finite sums. The inverse character χΩ^(−m), factor s_m/q, power N_n^m and divided derivative A^(m)/m! are retained. The later estimate(9) and limiting functional are not asserted here.
+
+### Taylor expansion at an actual angular sample
+
+`DirichletPadicLFunctions:L3/morita-angular-sample-taylor` — `DirichletPadic.moritaAngularSamples_taylor`
+
+Under the stated pointwise Taylor hypothesis and ‖N_n‖<r, for p∤a and any natural z, the series with m-th term θ_ι(a)^(−m) S(D_m)(a)(N_n z)^m has sum S(A)(a+N_n z).
+
+**Hypotheses:** p is prime; q=4 at p=2 and q=p otherwise; N_n=lcm(f,q)q^n. The preceding native torsion character θ, inverse twists χ_m and angular samples S are used without changing levels or support. K is a normed field and ι:ℤ_p→K is an explicit unital ring homomorphism. The power-sum norm estimate additionally requires a normed ℚ_p-algebra and an ultrametric norm. Characteristic zero is required to cancel q in the difference formula. The Taylor hypotheses concern ordinary functions A:ℤ_p→K and D_m:ℤ_p→K. At every x with ‖x−1‖≤r=‖q‖ and every h with ‖h‖<r, the actual series Σ_(m≥0)ι(h)^m D_m(x) has sum A(x+h). D_0=A is imposed for the difference identity. The application uses D_m=A^(m)/m!; no derivative carrier or Taylor theorem is constructed here. For the translated, next-level and difference Taylor identities, ‖N_n‖<r is required. It is not asserted at n=0. The separate finite polynomial controls can hold outside this hypothesis because polynomials have finite Taylor expansions at every increment. Satisfaction of these pointwise Taylor hypotheses by the source closed-disc analytic space remains part of the existing precise LAD L0 request. The conditional arithmetic transport uses no new analytic class, unproved interchange premise, convergence of the sequence of means, or primitive-conductor reduction.
+
+**Proof:**
+
+1. Let u be the actual p-adic unit represented by a. The preceding angular-norm theorem places α(u) in the closed principal disc.
+2. Use the preceding exact sample-translation identity. Its increment is Ω(u)⁻¹N_n z, whose norm is strictly below r by the new increment estimate.
+3. Apply the actual pointwise Taylor HasSum at that point and increment. Replace ι of the inverse unit by the inverse of its image using native map_units_inv; distribute the ring map and the natural power.
+4. Identify the torsion coefficient with θ_ι(a), and the derivative evaluation with the preceding sample function. Reassociate the scalar factors. The complete sample_taylor proof checks this exact equality of series terms.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/morita-angular-increment-norm`, `DirichletPadicLFunctions:L3/morita-angular-norm`, `DirichletPadicLFunctions:L3/morita-angular-samples-translation`, `DirichletPadicLFunctions:L3/morita-torsion-character-map`, `DirichletPadicLFunctions:L3/morita-torsion-character-unit`, `mathlib:map_units_inv`.
+
+**Tests:**
+
+- `SuggestedMoritaTaylorTests.sample_taylor_dyadic_square` (computation): For A=((x−1)/4)², a=3,N=16,z=1, the finite Taylor coefficients are1,8,16 and the translated sample is25.
+- `SuggestedMoritaTaylorTests.sample_taylor_strict_radius` (compatibility): For p=2,f=1,n=1 the level has norm1/16, strictly smaller than the radius1/4.
+- `SuggestedMoritaTaylorTests.sample_taylor_initial_boundary` (non-example): For p=2,f=1,n=0 the two norms equal1/4; the strict-radius hypothesis is false.
+
+**Acceptance:** D_m is an actual function in the displayed pointwise Taylor input; it is not a nominal analytic placeholder type.
+
+**Source:** Section 2 pp.332–333, block decomposition (5), Taylor formula (3), and Hilfssatz2 equation (8); p.333 read again in the page image. Equation(8) is derived from actual pointwise Taylor sums and finite sums. The inverse character χΩ^(−m), factor s_m/q, power N_n^m and divided derivative A^(m)/m! are retained. The later estimate(9) and limiting functional are not asserted here.
+
+### The Taylor series of a translated finite angular mean
+
+`DirichletPadicLFunctions:L3/morita-translated-mean-taylor` — `DirichletPadic.moritaTranslatedMean_taylor`
+
+Under the same Taylor and radius hypotheses, Σ_(m≥0)(N_n z)^m M^n_(χ_m,ang)(D_m) has sum M^n_χ(a↦S(A)(a+N_n z)) for every natural z.
+
+**Hypotheses:** p is prime; q=4 at p=2 and q=p otherwise; N_n=lcm(f,q)q^n. The preceding native torsion character θ, inverse twists χ_m and angular samples S are used without changing levels or support. K is a normed field and ι:ℤ_p→K is an explicit unital ring homomorphism. The power-sum norm estimate additionally requires a normed ℚ_p-algebra and an ultrametric norm. Characteristic zero is required to cancel q in the difference formula. The Taylor hypotheses concern ordinary functions A:ℤ_p→K and D_m:ℤ_p→K. At every x with ‖x−1‖≤r=‖q‖ and every h with ‖h‖<r, the actual series Σ_(m≥0)ι(h)^m D_m(x) has sum A(x+h). D_0=A is imposed for the difference identity. The application uses D_m=A^(m)/m!; no derivative carrier or Taylor theorem is constructed here. For the translated, next-level and difference Taylor identities, ‖N_n‖<r is required. It is not asserted at n=0. The separate finite polynomial controls can hold outside this hypothesis because polynomials have finite Taylor expansions at every increment. Satisfaction of these pointwise Taylor hypotheses by the source closed-disc analytic space remains part of the existing precise LAD L0 request. The conditional arithmetic transport uses no new analytic class, unproved interchange premise, convergence of the sequence of means, or primitive-conductor reduction.
+
+**Proof:**
+
+1. Apply the preceding finite-mean HasSum interchange to the actual pointwise angular-sample expansions at all supported indices.
+2. Pull the scalar (N_n z)^m through the finite mean using its native linear expression.
+3. Apply the preceding exact twisted-mean comparison to the remaining inverse torsion weight. Its level equality keeps the original denominator and range unchanged.
+4. The complete translated_mean_taylor proof expands and compares the actual finite sums, retaining the original-character nonunit branch through the already verified twist identity.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/morita-angular-sample-taylor`, `DirichletPadicLFunctions:L3/morita-finite-mean-has-sum`, `DirichletPadicLFunctions:L3/morita-angular-mean-twist`, `mathlib:Finset.mul_sum`.
+
+**Tests:**
+
+- `SuggestedMoritaTaylorTests.translated_square_dyadic` (computation): For p=2,f=1,n=1,z=1 and A=((x−1)/4)², the translated finite mean is75/4.
+- `SuggestedMoritaTaylorTests.translated_zero_block` (compatibility): At z=0 the translated finite mean is the original angular mean.
+
+**Acceptance:** No replacement of the fixed level by the primitive conductor of χ_m occurs.
+
+**Source:** Section 2 pp.332–333, block decomposition (5), Taylor formula (3), and Hilfssatz2 equation (8); p.333 read again in the page image. Equation(8) is derived from actual pointwise Taylor sums and finite sums. The inverse character χΩ^(−m), factor s_m/q, power N_n^m and divided derivative A^(m)/m! are retained. The later estimate(9) and limiting functional are not asserted here.
+
+### The power sum of one averaging block
+
+`DirichletPadicLFunctions:L3/morita-block-power-sum` — `DirichletPadic.moritaPowerSum`
+
+For each natural m define s_m=Σ_(0≤z<q)z^m in K, including the convention 0^0=1. Then s_0=q. These are the scalar coefficients in the q-block Taylor expansion.
+
+**Hypotheses:** p is prime; q=4 at p=2 and q=p otherwise; N_n=lcm(f,q)q^n. The preceding native torsion character θ, inverse twists χ_m and angular samples S are used without changing levels or support. K is a normed field and ι:ℤ_p→K is an explicit unital ring homomorphism. The power-sum norm estimate additionally requires a normed ℚ_p-algebra and an ultrametric norm. Characteristic zero is required to cancel q in the difference formula. The Taylor hypotheses concern ordinary functions A:ℤ_p→K and D_m:ℤ_p→K. At every x with ‖x−1‖≤r=‖q‖ and every h with ‖h‖<r, the actual series Σ_(m≥0)ι(h)^m D_m(x) has sum A(x+h). D_0=A is imposed for the difference identity. The application uses D_m=A^(m)/m!; no derivative carrier or Taylor theorem is constructed here. For the translated, next-level and difference Taylor identities, ‖N_n‖<r is required. It is not asserted at n=0. The separate finite polynomial controls can hold outside this hypothesis because polynomials have finite Taylor expansions at every increment. Satisfaction of these pointwise Taylor hypotheses by the source closed-disc analytic space remains part of the existing precise LAD L0 request. The conditional arithmetic transport uses no new analytic class, unproved interchange premise, convergence of the sequence of means, or primitive-conductor reduction.
+
+**Proof:**
+
+1. Use the native finite range0,…,q−1 and natural power in K. This is a finite scalar construction, independent of any analytic space.
+2. At m=0 each summand is one, including z=0, so the finite sum is the natural cast q.
+3. Evaluate the small blocks directly: s_1=6,s_2=14 at p=2,q=4, and s_1=3,s_2=5 at p=3,q=3.
+4. The complete powerSum definition and its zero/dyadic/odd lemmas use the actual native sum. The norm comparison is a separate node.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/morita-modulus`.
+
+**Uses:**
+
+- Next-level finite mean: Collects the powers of the q block indices after finite Taylor interchange.
+- Consecutive difference identity: Provides s_m/q for each positive derivative order.
+- Future convergence estimate: Its integral norm bound is sufficient for a coarse geometric estimate.
+
+**API:**
+
+- `DirichletPadic.moritaPowerSum_zero` (simp): s_0=q, with0^0=1.
+- `DirichletPadic.moritaPowerSum_two_one` (example): The dyadic first power sum is6.
+- `DirichletPadic.moritaPowerSum_three_one` (example): The ternary first power sum is3.
+- `DirichletPadic.moritaPowerSum_norm` (relation): In the normalized ultrametric coefficient field every s_m has norm at most one; promoted below.
+
+**Tests:**
+
+- `SuggestedMoritaTaylorTests.power_sum_zero_dyadic` (degenerate): For p=2, s_0=4.
+- `SuggestedMoritaTaylorTests.power_sum_linear_dyadic` (computation): For p=2, s_1=6.
+- `SuggestedMoritaTaylorTests.power_sum_square_dyadic` (computation): For p=2, s_2=14.
+- `SuggestedMoritaTaylorTests.power_sum_linear_odd` (computation): For p=3, s_1=3.
+- `SuggestedMoritaTaylorTests.power_sum_square_odd` (computation): For p=3, s_2=5.
+
+**Acceptance:** The source sum is unnormalized. Its factor1/q is supplied separately in the mean identity.
+
+**Source:** Section 2 pp.332–333, block decomposition (5), Taylor formula (3), and Hilfssatz2 equation (8); p.333 read again in the page image. Equation(8) is derived from actual pointwise Taylor sums and finite sums. The inverse character χΩ^(−m), factor s_m/q, power N_n^m and divided derivative A^(m)/m! are retained. The later estimate(9) and limiting functional are not asserted here.
+
+### Integral norm bound for every block power sum
+
+`DirichletPadicLFunctions:L3/morita-block-power-sum-norm` — `DirichletPadic.moritaPowerSum_norm`
+
+In an ultrametric normed ℚ_p-algebra K, ‖s_m‖≤1 for every m.
+
+**Hypotheses:** p is prime; q=4 at p=2 and q=p otherwise; N_n=lcm(f,q)q^n. The preceding native torsion character θ, inverse twists χ_m and angular samples S are used without changing levels or support. K is a normed field and ι:ℤ_p→K is an explicit unital ring homomorphism. The power-sum norm estimate additionally requires a normed ℚ_p-algebra and an ultrametric norm. Characteristic zero is required to cancel q in the difference formula. The Taylor hypotheses concern ordinary functions A:ℤ_p→K and D_m:ℤ_p→K. At every x with ‖x−1‖≤r=‖q‖ and every h with ‖h‖<r, the actual series Σ_(m≥0)ι(h)^m D_m(x) has sum A(x+h). D_0=A is imposed for the difference identity. The application uses D_m=A^(m)/m!; no derivative carrier or Taylor theorem is constructed here. For the translated, next-level and difference Taylor identities, ‖N_n‖<r is required. It is not asserted at n=0. The separate finite polynomial controls can hold outside this hypothesis because polynomials have finite Taylor expansions at every increment. Satisfaction of these pointwise Taylor hypotheses by the source closed-disc analytic space remains part of the existing precise LAD L0 request. The conditional arithmetic transport uses no new analytic class, unproved interchange premise, convergence of the sequence of means, or primitive-conductor reduction.
+
+**Proof:**
+
+1. The normalized scalar norm identifies ‖z:K‖ with ‖z:ℤ_p‖, which is at most one for a natural z. Raising it to any natural power preserves that bound.
+2. Apply the native ultrametric finite-sum estimate with nonnegative bound1. Its additive version is generated from the indexed norm_prod_le_of_forall_le_of_nonneg statement; the full generator and hypotheses were read.
+3. The complete powerSum_norm proof checks both the scalar normalization and the ultrametric estimate. No stronger power-sum divisibility or source-specific optimal constant is claimed.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/morita-block-power-sum`, `mathlib:PadicInt.norm_le_one`, `mathlib:norm_algebraMap'`, `mathlib:IsUltrametricDist.norm_prod_le_of_forall_le_of_nonneg`.
+
+**Tests:**
+
+- `SuggestedMoritaTaylorTests.power_sum_square_norm` (computation): At p=3, s_2=5 has3-adic norm one, so a strict bound would be false.
+
+**Acceptance:** The ordinary real triangle inequality would not give this bound independently of q.
+
+**Source:** Section 2 pp.332–333, block decomposition (5), Taylor formula (3), and Hilfssatz2 equation (8); p.333 read again in the page image. Equation(8) is derived from actual pointwise Taylor sums and finite sums. The inverse character χΩ^(−m), factor s_m/q, power N_n^m and divided derivative A^(m)/m! are retained. The later estimate(9) and limiting functional are not asserted here.
+
+### The complete Taylor expansion of the next finite mean
+
+`DirichletPadicLFunctions:L3/morita-next-mean-taylor` — `DirichletPadic.moritaAngularMean_next_taylor`
+
+Under the pointwise Taylor and radius hypotheses, Σ_(m≥0)(s_m/q)N_n^m M^n_(χ_m,ang)(D_m) has sum M^(n+1)_(χ,ang)(A).
+
+**Hypotheses:** p is prime; q=4 at p=2 and q=p otherwise; N_n=lcm(f,q)q^n. The preceding native torsion character θ, inverse twists χ_m and angular samples S are used without changing levels or support. K is a normed field and ι:ℤ_p→K is an explicit unital ring homomorphism. The power-sum norm estimate additionally requires a normed ℚ_p-algebra and an ultrametric norm. Characteristic zero is required to cancel q in the difference formula. The Taylor hypotheses concern ordinary functions A:ℤ_p→K and D_m:ℤ_p→K. At every x with ‖x−1‖≤r=‖q‖ and every h with ‖h‖<r, the actual series Σ_(m≥0)ι(h)^m D_m(x) has sum A(x+h). D_0=A is imposed for the difference identity. The application uses D_m=A^(m)/m!; no derivative carrier or Taylor theorem is constructed here. For the translated, next-level and difference Taylor identities, ‖N_n‖<r is required. It is not asserted at n=0. The separate finite polynomial controls can hold outside this hypothesis because polynomials have finite Taylor expansions at every increment. Satisfaction of these pointwise Taylor hypotheses by the source closed-disc analytic space remains part of the existing precise LAD L0 request. The conditional arithmetic transport uses no new analytic class, unproved interchange premise, convergence of the sequence of means, or primitive-conductor reduction.
+
+**Proof:**
+
+1. For every z in0,…,q−1 take the preceding translated-mean HasSum. Apply the native finite-sum theorem once more and multiply by q⁻¹.
+2. The exact preceding q-block decomposition identifies the target finite sum with the next-level angular mean.
+3. At each derivative order factor N_n^m and the twisted mean out of the finite sum over z; the remaining sum is exactly s_m.
+4. The complete next_mean_taylor proof checks this coefficient and target normalization. Its hypothesis is pointwise Taylor convergence, not the resulting mean expansion.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/morita-translated-mean-taylor`, `DirichletPadicLFunctions:L3/morita-block-power-sum`, `DirichletPadicLFunctions:L3/morita-mean-blocks`, `mathlib:hasProd_prod`, `mathlib:HasSum.mul_left`, `mathlib:Finset.sum_mul`.
+
+**Tests:**
+
+- `SuggestedMoritaTaylorTests.next_mean_square_dyadic` (computation): For p=2,f=1,A=((x−1)/4)², the first next-level mean is11/4.
+- `SuggestedMoritaTaylorTests.next_mean_square_odd` (computation): For p=3,f=1,A=((x−1)/3)², the first next-level mean is19/9.
+
+**Acceptance:** The polynomial tests have globally finite Taylor expansions and do not assert that the general strict-radius hypothesis holds at n=0.
+
+**Source:** Section 2 pp.332–333, block decomposition (5), Taylor formula (3), and Hilfssatz2 equation (8); p.333 read again in the page image. Equation(8) is derived from actual pointwise Taylor sums and finite sums. The inverse character χΩ^(−m), factor s_m/q, power N_n^m and divided derivative A^(m)/m! are retained. The later estimate(9) and limiting functional are not asserted here.
+
+### The positive-degree Taylor series for consecutive finite means
+
+`DirichletPadicLFunctions:L3/morita-mean-difference-taylor` — `DirichletPadic.moritaAngularMean_difference_taylor`
+
+Assume additionally characteristic zero and D_0=A. Under the same strict-radius condition, Σ_(m≥1)(s_m/q)N_n^m M^n_(χ_m,ang)(D_m) has sum M^(n+1)_(χ,ang)(A)−M^n_(χ,ang)(A). The suggested signature indexes the positive terms by m+1.
+
+**Hypotheses:** p is prime; q=4 at p=2 and q=p otherwise; N_n=lcm(f,q)q^n. The preceding native torsion character θ, inverse twists χ_m and angular samples S are used without changing levels or support. K is a normed field and ι:ℤ_p→K is an explicit unital ring homomorphism. The power-sum norm estimate additionally requires a normed ℚ_p-algebra and an ultrametric norm. Characteristic zero is required to cancel q in the difference formula. The Taylor hypotheses concern ordinary functions A:ℤ_p→K and D_m:ℤ_p→K. At every x with ‖x−1‖≤r=‖q‖ and every h with ‖h‖<r, the actual series Σ_(m≥0)ι(h)^m D_m(x) has sum A(x+h). D_0=A is imposed for the difference identity. The application uses D_m=A^(m)/m!; no derivative carrier or Taylor theorem is constructed here. For the translated, next-level and difference Taylor identities, ‖N_n‖<r is required. It is not asserted at n=0. The separate finite polynomial controls can hold outside this hypothesis because polynomials have finite Taylor expansions at every increment. Satisfaction of these pointwise Taylor hypotheses by the source closed-disc analytic space remains part of the existing precise LAD L0 request. The conditional arithmetic transport uses no new analytic class, unproved interchange premise, convergence of the sequence of means, or primitive-conductor reduction.
+
+**Proof:**
+
+1. Remove the zeroth coefficient from the preceding HasSum by the native natural-index tail theorem, using the explicitly generated additive companion of hasProd_nat_add_iff'.
+2. The zeroth power sum is q, and q is nonzero in characteristic zero. Cancel q⁻¹q and use D_0=A.
+3. Although χ_0 is the inflated character, its angular mean equals the original mean: apply the exact twisted-mean comparison and simplify the exponent-zero weight on the p-unit samples. Do not replace the inflated character globally by χ.
+4. The complete difference_taylor proof verifies the series with index m+1 and the exact subtracted target. Substituting D_m=A^(m)/m! yields the source equation(8); proving the analytic supplier input, a decay estimate and a complete-field limit remains separate.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/morita-next-mean-taylor`, `DirichletPadicLFunctions:L3/morita-angular-mean-twist`, `mathlib:hasProd_nat_add_iff'`.
+
+**Tests:**
+
+- `SuggestedMoritaTaylorTests.difference_square_dyadic` (computation): For the normalized dyadic square at n=0 the positive contributions are3/4 and7/4, summing to5/2.
+- `SuggestedMoritaTaylorTests.difference_square_odd` (computation): For the normalized ternary square at n=0 the positive contributions are2/3 and10/9, summing to16/9.
+- `SuggestedMoritaTaylorTests.difference_missing_normalizer` (non-example): Dropping1/q multiplies the dyadic difference5/2 by4 and is false.
+- `SuggestedMoritaTaylorTests.difference_raw_derivative_error` (non-example): Replacing divided derivatives by raw derivatives doubles the quadratic contribution7/4 and is false.
+
+**Acceptance:** The source factorial, inverse character, common level and1/q normalization must all survive. This is not yet convergence of the sequence indexed by n.
+
+**Source:** Section 2 pp.332–333, block decomposition (5), Taylor formula (3), and Hilfssatz2 equation (8); p.333 read again in the page image. Equation(8) is derived from actual pointwise Taylor sums and finite sums. The inverse character χΩ^(−m), factor s_m/q, power N_n^m and divided derivative A^(m)/m! are retained. The later estimate(9) and limiting functional are not asserted here.
+
+**Remaining:** The source finite Taylor identity is now derived from actual pointwise HasSum data: translated samples, finite-mean interchange, block power sums, next-level means and the positive-degree difference series. Next combine the preceding uniform twist estimate with the divided-derivative bounds from the existing LAD L0 request, prove a geometric difference bound tending to zero and construct the complete-field limit. The source analytic instantiation of the pointwise Taylor hypothesis is still open. Gamma analyticity on pℤ_p at odd p and8ℤ₂, Gross–Koblitz and Ferrero–Greenberg remain open with their recorded source and normalization work. All16 gaps and12 requests remain open.
+
+### Finite Taylor expansions of angular character means validation
+
+All 848 predecessor nodes, 700 baseline records, 16 findings, requests and sourceVersions remain whole. This checkpoint adds 8 nodes, 11 named suggested declarations and 21 typed examples. The indexed blueprint, four-file intake, whitespace, preservation, API/test parity and versioned-source checks pass. The graph has 1116 reachable nodes, 5638 edges and 874 native leaves and is acyclic. Its stage request leaves are PadicMeasuresIwasawaAlgebras:L1, PadicMeasuresIwasawaAlgebras:L3, PadicMeasuresIwasawaAlgebras:L3, LocallyAnalyticDistributions:L1, AdicSpacesPartII:F1, AdicSpacesPartII:R2, PadicDifferentialEquationsAndRigidCohomology:RD.0, PadicDifferentialEquationsAndRigidCohomology:RD.4, PadicHodgeTheory:P7:annulus-foundations, PadicMeasuresIwasawaAlgebras:L2, LocallyAnalyticDistributions:L1, LocallyAnalyticDistributions:L0. All new conditional arithmetic routes end in exact preceding nodes and native declarations, with no new stage leaves. They take the actual pointwise Taylor HasSum as an explicit hypothesis; its source analytic instantiation is still covered by the retained LAD L0 request and is not claimed here.
+
+**The full current suggested module was NOT COMPILED.** Its real native import requires TauCeti.NumberTheory.ArithmeticFunction.TwistedDivisorSum. No matching existing artifact was found; WORKERS.md prohibits building the native library. Current compiler exit code, error count and warning count are unavailable, not zero. The exact named signatures and native source were reviewed. PR4773 remains the last compiled full predecessor, with zero errors and1,803 expected placeholder warnings; that receipt does not validate this new module.
+
+The current source closure covers 3604 pinned Mathlib modules and 29 pinned Tau Ceti modules. Only 28 Tau module artifacts are available and hash-verified. The 140 available artifact files and the previously compiled332-node PMIA artifact are checked as partial dependencies. The current369-node supplier source preserves the older interface; no current-module compilation against either revision is claimed. Existing builds only were inspected; no setup, update, cache fetch or native build occurred.
+
+The complete composite native probe replays all15 definitions and107 lemmas of PR5268, then adds1 definition and10 lemmas proving the actual pointwise-to-finite-mean interchange and coefficient identities. The explicit Taylor HasSum is the only analytic input; no finite averaging or series-interchange conclusion is assumed. The separate probe compiles against 2825 pinned Mathlib modules and 7 pinned Tau Ceti modules with zero errors, warnings or placeholders. The separate probe retains the earlier explicit PMIA integer-ring comparison and uses only the verified existing seven-module Teichmuller artifact set. It does not replace the missing TwistedDivisorSum artifact needed by the full suggested file. General roadmap declarations remain unchecked.
+
+Exact controls check10,800 pointwise polynomial Taylor identities,630 translated means,180 next means,180 consecutive differences,180 zeroth coefficients and18 power-sum norm bounds. Explicit dyadic and ternary coefficients detect a missing q inverse or factorial denominator. Exact rational arithmetic at p=2,3 for principal characters at levels1,3,4,5,8,9, averaging depths0–2 and normalized polynomials of degrees0–4; pointwise Taylor checks use actual angular translates. These finite polynomial controls do not certify infinite analytic convergence. The largest observed discrepancy is 0 (all exact identities).
+
+Initial clean capture at 72d1977f14fa9dd0924c0d3f2d7cc78bd0135064 has no delta across all72 inputs. The four merged predecessor outputs and whole issue body are unchanged. Original winning claim and unclaimed review390 were verified. Publication refresh reads the complete changed WORKERS/PROTOCOL/intake content introducing key-definition surveys: kind:keydef follows paper jobs and precedes fixes, PROTOCOL section19 specifies the five survey criteria and review format, and intake allows keydefs deliverables. No existing blueprint or same-worker continuation rule changes. This current four-file checkpoint remains in scope. All mathematical source, registry and supplier inputs remain unchanged.
+
+The separate partial signature file also compiled with zero errors and 2,720 expected placeholder warnings across 3,600 pinned source modules. It includes all 11 new named declarations and 21 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 43076180832f57e8c8dcafca7e40bdb3d33a9e0f7bdace665a750c4a8ad061a0.
