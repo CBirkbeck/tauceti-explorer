@@ -139,6 +139,7 @@ Read every one of your roadmaps: its document and layer descriptions (data/atlas
 - what the area needs that nothing plans: a definition or key theorem that the area's targets, or the papers routed to it, use, that no layer plans and the libraries lack;
 - mathematics planned twice, among your roadmaps or between one of them and any other roadmap, that no restructuring proposal already resolves;
 - layers whose prerequisites are wrong or missing, and targets that are out of date with the literature.
+Tau Ceti roadmaps (ids starting with "tauceti:") are suppliers and are never re-planned. Findings concern what the atlas plans: the planned roadmaps, their packets and their links to Tau Ceti. A planned layer that duplicates a Tau Ceti layer is a finding; a Tau Ceti roadmap's own layers, and a link between two Tau Ceti roadmaps, are not. Record anything you notice inside Tau Ceti under "upstreamNotes" in your result, as {{"roadmaps": [...], "note": "..."}}, for the maintainer to pass on.
 Record each as a finding in research/blueprint/redteam/{RT}.result.json, with the report research/blueprint/redteam/{RT}.md (PROTOCOL.md section 17). For missing mathematics, the fix names the roadmap and layer that should own it, or proposes a Part II or a new roadmap in a sentence. List in `checked` what you read. Run `python3 scripts/check_redteam.py research/blueprint/redteam/{RT}.result.json` until it reports no errors, and set "status": "complete" when you are done.
 Edit only your two files, a handoff note research/blueprint/handoff/{RT}.md if you stop early, and your scratch directory.
 """ + CHECK_INPUTS
@@ -201,7 +202,7 @@ Sources: {LIBRARY}/; public versions may be fetched into your scratch directory 
 REDTEAM_FOCUS = {
     "audit": "An audit: re-check every claim. For each target marked built or partly built, open each cited declaration at the pinned commit and check that it provides the target. For each target marked not built, search the libraries (declarations.tsv, then the files) for it under other names.",
     "restructure": "A restructuring proposal: check it against the member roadmaps' documents. Every target of a changed layer is kept, moved or supplied; every owner owns what it is said to; no consumer loses a prerequisite; there is no cycle; Tau Ceti roadmaps are unchanged.",
-    "link": "A link map: check each link's evidence on both sides, and look for links the map missed between the roadmap and the rest of the atlas.",
+    "link": "A link map: check each link's evidence on both sides, and look for links the map missed between the roadmap and the atlas's planned roadmaps. Links between two Tau Ceti roadmaps are Tau Ceti's own and out of scope (PROTOCOL.md section 10): make no finding about them. Record anything you notice inside a Tau Ceti roadmap under \"upstreamNotes\" in your result, as {\"roadmaps\": [...], \"note\": \"...\"}, for the maintainer to pass on.",
     "paper": "A paper extraction: re-read the paper. Look for items it uses or proves that the extraction missed, statuses that are wrong, and routes that go to the wrong owner or duplicate an existing roadmap.",
     "design": "A new roadmap: check its layers and packet against the sources. Look for missing definitions and theorems, wrong statements, prerequisites that do not give the proof steps, baseline citations that do not hold, unit tests that would not catch a wrong definition, and anything it plans that another roadmap owns.",
     "blueprint": "A blueprint packet: check it against its sources. Look for missing definitions and theorems, wrong statements, prerequisites that do not give the proof steps, baseline citations that do not hold, unit tests that would not catch a wrong definition, and anything it plans that another roadmap owns.",
@@ -262,7 +263,8 @@ LINK_TEMPLATE = """You are a mathematician mapping dependencies between roadmaps
 
 READ FIRST (binding): research/blueprint/PROTOCOL.md, especially section 10 (links) and section 9 (restructuring).
 
-JOB: find every prerequisite relationship and every overlap between the stages of roadmap {ROADMAP} ("{TITLE}") and the stages of all other roadmaps in the atlas, and write them to {OUTPUT}.
+JOB: find every prerequisite relationship and every overlap between the stages of roadmap {ROADMAP} ("{TITLE}") and the stages of the atlas's planned roadmaps (every roadmap whose id does not start with "tauceti:", and the new roadmaps in research/blueprint/roadmaps/), and write them to {OUTPUT}.
+Links between two Tau Ceti roadmaps are Tau Ceti's own and are not mapped here (PROTOCOL.md section 10): leave those already in {OUTPUT} as they are, and add, change or review none. If you notice a problem inside a Tau Ceti roadmap, such as a wrong or missing dependency between Tau Ceti roadmaps or a construction its document asks for that cannot work, record it in the packet's "upstreamNotes" as {{"roadmaps": [...], "note": "..."}}. It is passed to the maintainer; it is not a link.
 If {OUTPUT} already exists (a checkpoint from an earlier worker), read it and research/blueprint/handoff/{JOB}.md first, keep the links and overlaps that you can confirm, and continue the screen from where it stopped. Set "status": "complete" only when the whole catalogue-wide screen is finished; otherwise leave "status": "partial" and say in the handoff note exactly where you stopped.
 
 SOURCES
@@ -274,9 +276,8 @@ SOURCES
 METHOD
 1. Read {ROADMAP}'s document and every one of its stage descriptions in full. For each stage, write down in your scratch directory its inputs (what it assumes or imports) and its outputs (what it constructs or proves), in precise mathematical terms.
 2. Candidate search. For each input and output, search the stage titles, stage descriptions and documents of every other roadmap for the objects, their synonyms and their notation (grep -i over an extracted text dump). Read the summaries of all roadmaps in the same and neighbouring areas. Examine at least the following:
-   - every roadmap in the same area;
-   - every roadmap whose document mentions this roadmap's objects;
-   - every other upstream Tau Ceti roadmap (ids starting with "tauceti:").
+   - every planned roadmap in the same area;
+   - every planned roadmap whose document mentions this roadmap's objects.
 3. Decide each candidate pair by reading both stage descriptions in full.
    - Prerequisite: the source stage supplies a result or construction that the target stage uses. Record the direction (prerequisite → consumer), the reason, and two verbatim quotes: one showing the output, one showing the use. Mark the link "explicit" when a text names the other roadmap or stage, and "inferred" when the match is exact but unnamed.
    - Overlap: both stages develop the same mathematics. Record what overlaps and recommend merge, rescope or keep, with a concrete proposal.
@@ -293,9 +294,10 @@ LINK_REVIEW_TEMPLATE = """You are an independent reviewer for the Tau Ceti Atlas
 READ FIRST: research/blueprint/PROTOCOL.md sections 9 and 10.
 
 REVIEW: the link packet {TARGET} for roadmap {ROADMAP}.
-- For every link, read both stage descriptions in full and confirm three things: that the source really supplies what the target uses, that the direction is right, and that both quotes are verbatim and relevant. Fix what is wrong, and remove any link that rests on shared vocabulary only.
+- Links between two Tau Ceti roadmaps are Tau Ceti's own (PROTOCOL.md section 10): leave those already in the packet as they are, and remove any added since the last review. The rest of this review concerns links that involve a planned roadmap.
+- For every such link, read both stage descriptions in full and confirm three things: that the source really supplies what the target uses, that the direction is right, and that both quotes are verbatim and relevant. Fix what is wrong, and remove any link that rests on shared vocabulary only.
 - For every overlap, confirm it and judge the recommendation.
-- Spot-check completeness. Take at least five stages of {ROADMAP} and search the atlas for suppliers and consumers the packet missed. Add any you find, with evidence, marked "addedBy": "{JOB}".
+- Spot-check completeness. Take at least five stages of {ROADMAP} and search the planned roadmaps for suppliers and consumers the packet missed. Add any you find, with evidence, marked "addedBy": "{JOB}".
 - Run `python3 scripts/check_links.py {TARGET}` and fix every error.
 Then add a top-level "review" object to the packet:
 {{"status": "accepted" | "needs_changes", "reviewer": "independent-review-{JOB}", "date": "<today>", "notes": "...", "removed": [...], "added": [...]}}
@@ -528,6 +530,40 @@ ROADMAP_FILE = re.compile(r"(?:content/campaign|data/decompositions|research/blu
 PROMOTABLE = re.compile(r"^research/blueprint/(?:packets/[^/]+\.json|links/[^/]+\.json|restructure/RS-[0-9]+\.result\.json)$")
 # A blueprint job's prompt shows at most this much of the findings it carries.
 HANDED_BUDGET = 12_000
+
+
+def concerns_planned(finding, planned):
+    """Whether a red-team finding is about what the atlas plans: it names a planned roadmap
+    (by id or by its files). One that names only Tau Ceti roadmaps is Tau Ceti's own business,
+    and goes to the maintainer's notes instead of a fix (PROTOCOL.md sections 10 and 17)."""
+    text = " ".join(str(finding.get(key) or "") for key in ("where", "claim", "fix"))
+    if any(r in planned for r in ROADMAP_FILE.findall(text)):
+        return True
+    return any(re.search(rf"(?<![A-Za-z0-9]){re.escape(r)}(?![A-Za-z0-9])", text) for r in planned)
+
+
+def upstream_notes_text(findings, noted):
+    """research/blueprint/UPSTREAM_NOTES.md: what workers found inside Tau Ceti roadmaps, for the
+    maintainer to pass on. Confirmed red-team findings first, then workers' unverified notes."""
+    lines = ["# Notes for Tau Ceti", "",
+             "The atlas does not plan, fix or review Tau Ceti's own roadmaps, or the links between two of them "
+             "(research/blueprint/PROTOCOL.md sections 10 and 17). What workers noticed there is collected here, "
+             "for the maintainer to pass upstream. Generated by research/blueprint/make_queue.py; do not edit by hand.", ""]
+    by_red_team = defaultdict(list)
+    for rt, finding in findings:
+        by_red_team[rt].append(finding)
+    lines += [f"## Confirmed by an independent verifier ({len(findings)})", ""]
+    for rt in sorted(by_red_team):
+        lines += [f"### {rt}", ""]
+        for f in by_red_team[rt]:
+            lines.append(f"- **{f['id']}** ({f.get('severity')}, {f.get('kind')}) at {f.get('where')}: {f.get('claim')} "
+                         f"*Suggested fix:* {f.get('fix')}")
+        lines.append("")
+    lines += [f"## Noted by workers, not verified ({len(noted)})", ""]
+    for source, note in noted:
+        roadmaps = ", ".join(note.get("roadmaps") or []) or "Tau Ceti"
+        lines.append(f"- {roadmaps} (from `{source}`): {note.get('note')}")
+    return "\n".join(lines).rstrip() + "\n"
 
 
 def finding_layers(finding, known):
@@ -1137,6 +1173,10 @@ def main():
             for rid in j.get("roadmapIds") or []:
                 writers[rid].append(j)
     handed = defaultdict(list)
+    # What the atlas plans: every roadmap with a live blueprint or design job. Tau Ceti roadmaps are not planned here.
+    planned = {rid for rid in writers if not str(rid).startswith("tauceti:")}
+    upstream = []
+    retire = {}
 
     def route_to_blueprints(findings):
         """For findings that name no file the swarm may edit: the files of the finished blueprints they
@@ -1217,6 +1257,14 @@ def main():
              "outputs": [f"research/blueprint/redteam/{rt}.review.json", f"research/blueprint/reviews/REV-{rt}.md"], "after": [rt],
              "avoidAccountOf": rt, "independentOf": [rt] + independent}, REDTEAM_REVIEW_TEMPLATE.format(**fill, JOB="REV-" + rt, RT=rt, TARGET=fields.get("TARGET", target)))
         findings = confirmed_findings(rt)
+        if rt.startswith(("RT-LINK-", "RT-AREA-")):
+            # Findings inside Tau Ceti, or on a link between two Tau Ceti roadmaps, go to the maintainer's notes.
+            upstream.extend((rt, f) for f in findings if not concerns_planned(f, planned))
+            findings = [f for f in findings if concerns_planned(f, planned)]
+            if not findings:
+                retire[rt] = (
+                    "Not planned: every confirmed finding of this red team concerns Tau Ceti roadmaps alone, which the atlas does not "
+                    "plan, fix or review; they are passed to the maintainer in research/blueprint/UPSTREAM_NOTES.md.")
         if findings:
             files, elsewhere = finding_files(findings)
             outputs = [f"research/blueprint/redteam/{rt}.fixes.md"] + [f for f in files if f not in fields.get("OUTPUTS", [])] + fields.get("OUTPUTS", [])
@@ -1350,6 +1398,12 @@ def main():
         merged.append(job)
     extra_old = [j for j in old if j["id"] not in {x["id"] for x in merged}]
     merged += extra_old
+    # A fix left with no finding about what the atlas plans is withdrawn, with every round and review,
+    # unless it is finished or under way.
+    for job in merged:
+        base = job["id"].partition("FIX-")[2].partition("~")[0] if job["id"].startswith(("FIX-", "REV-FIX-")) else None
+        if base in retire and job.get("state") == "pending":
+            job["state"], job["note"] = "superseded", retire[base]
     stats = defaultdict(int)
     for j in merged:
         stats[j["kind"]] += 1
@@ -1364,6 +1418,17 @@ def main():
         return
     for path, text in prompts.items():
         (REPO / path).write_text(text, encoding="utf-8")
+    noted = []
+    for folder in ("links", "redteam"):
+        for path in sorted((BP / folder).glob("*.json")):
+            try:
+                data = json.loads(path.read_text())
+            except (OSError, ValueError):
+                continue
+            for note in (data.get("upstreamNotes") or []) if isinstance(data, dict) else []:
+                if isinstance(note, dict) and str(note.get("note") or "").strip():
+                    noted.append((str(path.relative_to(REPO)), note))
+    (BP / "UPSTREAM_NOTES.md").write_text(upstream_notes_text(sorted(upstream, key=lambda x: (x[0], x[1]["id"])), noted), encoding="utf-8")
     reserved = {k: {"job": v[0], "statement": v[1]} for k, v in RESERVED.items()}
     (BP / "reserved-ids.json").write_text(json.dumps(reserved, indent=1, ensure_ascii=False) + "\n")
     tmp = queue_path.with_suffix(".json.tmp")
