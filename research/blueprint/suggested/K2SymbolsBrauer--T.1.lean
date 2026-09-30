@@ -1,4 +1,14 @@
 /-
+FIX-RT-AREA-ktheory-2~2, Codex — codex-rtOQ9t, 2026-09-30.
+Current revision is unchecked and NOT COMPILED. Any earlier compilation
+record below describes only that earlier revision and environment.
+
+T.2:symbols/milnor-number-field and milnor-global-positive-characteristic
+already own the general Bass–Tate theorems (n >= 3); retain their unread
+original-proof gap. V.2 and E.5 specialize these nodes. T.4 owns transfers
+and reciprocity, not a second copy of the general Milnor calculation.
+-/
+/-
 Independent review REV-K2SymbolsBrauer--T.1, Codex codex-5ebb6f, 2026-09-29.
 The current plan and verdict are in the packet K2SymbolsBrauer--T.1.json and
 research/blueprint/reviews/REV-K2SymbolsBrauer--T.1.md. The original companion

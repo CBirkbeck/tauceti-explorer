@@ -1,2263 +1,5475 @@
-# Polylogarithms, explicit regulators and Zagier statements — blueprint
+# Polylogarithms — blueprint
 
-Blueprint packet for the roadmap `Polylogarithms`, stages P.1–P.6 (`research/blueprint/packets/Polylogarithms.json`). Written for job `BP-Polylogarithms`, issue #73, by Claude Code, session `cc-7b31c4`, 24 September 2026. Nothing here is formalised: every node carries `implementationStatus: "unchecked"`, and the suggested Lean file is signatures only.
+Polylogarithms, explicit regulators and Zagier statements, planned from Goncharov and Rudenko's weight-four paper (arXiv v3 and the final v5), Goncharov's Arakelov-motivic-complexes paper, Weibel's K-book, Burgos Gil-Feliu-Takeda for the comparison with Beilinson's regulator, and Neukirch-Schmidt-Wingberg for Leopoldt. P.1 builds Li_n from its series and its principal branch on C - [1, infinity), with the jump across the cut proved first, then Zagier's L_n (n >= 2) with the Bernoulli coefficients, its continuity, and the Bloch-Wigner function with its differential, positivity and five-term relation. P.2 descends D through K3BlochGroups V.3's convention, assembles the regulator of a number field, builds the Bloch-Wigner cocycle and compares it with the Borel class up to a rational scalar owned by BorelRegulators R.7, with the volume formula and certified numerics. P.3 builds the explicit weight <= 3 complexes on B_2 and the trilogarithm group, their residues, the maps from K-theory and the weight-three special value. P.4 builds the inductive groups B_n and delta_n by one recursion, the general complex, the condition *_n, the Zagier determinant with its normalisation in every weight, Zagier's three propositions and the weight-four theorem. P.5 plans the curve complexes, the weight-two form and its classes, Goncharov's regulator into his Deligne complex with its comparison with Beilinson's regulator, the Chow polylogarithm, the Arakelov complex, the Chow dilogarithm with the reciprocity conjecture and its three proved cases, and the weight-three curve regulator. P.6 states Leopoldt with the p-adic regulator and collects the tests. Nothing here is formalised; implementationStatus is unchecked throughout.
 
-**Sources.** Goncharov and Rudenko, *Motivic correlators, cluster varieties and Zagier's conjecture on zeta_F(4)*, arXiv:1803.08585v3, SHA-256 `9a64439247df10f0d0f41a2a304c8b152392d1521a4051b1fe4fd9239c78b093`; the abstract and §1.1 items 1–6, which state the classical and single-valued polylogarithms, the higher Bloch groups, the polylogarithmic complexes, the condition `o_n` and Theorems 1.1–1.3. Goncharov, *Polylogarithms, regulators, and Arakelov motivic complexes*, arXiv:math/0207036v3, SHA-256 `ac729924bca286113e8aae593f6012bf72c77d935178606e7a2be677bd3440db`; sections 1, 2, 3 and 6 read in full from the arXiv e-print LaTeX source (SHA-256 `fa6ea8977eb6e95d07110f170e158511cde856fb40d2c3f05e350206978432be`), for the regulator map to the Deligne complex and its real form, the Arakelov motivic complex and its degree-zero identification with the Gillet–Soulé arithmetic Chow group, the Chow polylogarithm with its three identities, and the Chow dilogarithm with the strong reciprocity law and the three cases in which it is proved; sections 4, 5 and 7, which build the Grassmannian polylogarithm and the Borel regulator, are `BorelRegulators`' material and were not read. Weibel's *K-book*, author-hosted draft of 29 August 2013, SHA-256 `a04f53c9393b20672fab2a6818279b2f9996dbc7cf74735789ed13804b058845`, VI.5.1–VI.5.4.1, for the Bloch-group convention P.2 descends through. **Not obtained:** Zagier's 1990 paper and Goncharov's 1991, 1994 and 1995 papers; two statements are used exactly as Goncharov and Rudenko state them, and the packet records that as a gap.
+FIX-RT-AREA-ktheory-2~2 preserves the earlier independent review as history. These are planned mathematical nodes, with source and implementation gaps. This revision and the suggested Lean prototypes are unchecked and not compiled; it requires an independent fix review.
 
-**Library baseline.** Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174`, Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369`. The reviewed audit `AUDIT-30` records all six layers as not built; 22 pinned declarations are cited as baseline. The weight-one case is the only polylogarithm the libraries have — `Complex.hasSum_taylorSeries_log` is `Li_1` up to sign — and `Complex.arg` is the **principal** argument, discontinuous on the negative real axis, which is exactly why P.1 forbids using it as a globally continuous function and proves instead that the two cuts cancel. Mathlib's `NumberField.Units.regulator` is the weight-one determinant whose pattern the weight-`n` determinant of P.4 follows.
+## Scope and current status
 
-| layer | nodes | planets | coverage |
-| --- | --- | --- | --- |
-| `Polylogarithms:P.1` | 6 | 4 | source_decomposed |
-| `Polylogarithms:P.2` | 5 | 3 | source_decomposed |
-| `Polylogarithms:P.3` | 5 | 3 | source_decomposed |
-| `Polylogarithms:P.4` | 7 | 3 | source_decomposed |
-| `Polylogarithms:P.5` | 12 | 6 | source_decomposed |
-| `Polylogarithms:P.6` | 2 | 1 | source_decomposed |
+**protocol:** blueprint-v1
 
-In total: 37 nodes (1 application, 4 comparison, 13 construction, 6 definition, 2 lemma, 11
-theorem), 101 API items, 74 unit tests, 20 planets, 15 requests and 6 gaps. Every layer is
-`source_decomposed`.
+**part:** None
 
-## P.1 — Classical and single-valued polylogarithms
+**status:** partial
 
-`Li_n` is built from its series and continued by the inductive integral, so it is
-**multivalued** on the twice-punctured plane and every statement names its path or its cut.
-Zagier's single-valued `L_n` is then the combination `pi_n(sum_k (2^k B_k / k!) Li_{n-k}(z)
-log^k|z|)`: the Bernoulli coefficients are forced by the monodromy cancellation, which is proved
-as its own lemma before the function is defined. `L_2` is the Bloch–Wigner function, and it gets
-its own node with the differential formula P.5 needs and the five-term identity P.2 descends.
-Those last two nodes carry the ids that a confirmed red-team finding asks to be moved here from
-`K3BlochGroups:V.3`; the restructure list says so.
+**scope**
 
-### `classical-polylogarithm` — The classical n-logarithm ★
+- Polylogarithms:P.1
+- Polylogarithms:P.2
+- Polylogarithms:P.3
+- Polylogarithms:P.4
+- Polylogarithms:P.5
+- Polylogarithms:P.6
 
-*definition* · planet **Classical n-logarithm**
+## baseline
 
-For an integer n at least one define the classical n-logarithm on the open unit disc by the
-absolutely convergent power series Li_n(z) = sum over k at least one of z to the k over k to the
-n. Continue it analytically to a multivalued analytic function on the complex plane with 0 and 1
-removed, by induction on n: Li_n(z) is the integral from 0 to z of Li_{n-1} against d log z,
-along a path avoiding 0 and 1. Every statement below names the path or the cut domain; no global
-branch is asserted.
+**tauceti:** f790474821cf4256814db967cb154e7af3d0c369
 
-**Hypotheses.** n is a positive integer. For the series, the modulus of z is less than one. For the continuation, z lies in the complex plane with 0 and 1 removed and a path from 0 to z in that set is given.
+**mathlib:** 082e2d37e8b0463410cdb532e111cd43d5a66174
 
-**Construction and proof.**
+**declarations**
 
-1. Prove absolute convergence of the series on the open unit disc, by comparison with the
-   geometric series; for n at least two it converges on the closed disc as well, and the
-   boundary case is recorded separately.
-1. Prove the base case n = 1: the series is minus the principal logarithm of 1 - z on the disc,
-   which is the pinned Mathlib statement.
-1. Define the continuation by the displayed integral, by induction on n, and prove that the
-   integrand is analytic on the complement of 0 and 1 so that the integral depends only on the
-   homotopy class of the path.
-1. Prove the differentiation formula z d/dz Li_n(z) = Li_{n-1}(z) on the cut domain, which is
-   the recursion read backwards.
-1. Fix one cut domain, the plane slit along the real ray from 1 to infinity, and record the
-   resulting principal branch, together with the branch-change formula across the cut.
-1. Prove the distribution relations, which express the sum of Li_n over the m-th roots of a
-   point in terms of Li_n at that point.
+- **ref:** mathlib:Additive; **kind:** def; **module:** Mathlib/Algebra/Group/TypeTags/Basic.lean; **provides:** The additive type tag, turning F^x into a Z-module and, after tensoring, a Q-vector space.; **checked:** declaration and signature confirmed at Mathlib/Algebra/Group/TypeTags/Basic.lean:42 at the pinned commit (Mathlib 082e2d3, Tau Ceti f790474); its use in the citing nodes checked by the review
+- **ref:** mathlib:AlgebraicGeometry.Scheme; **kind:** structure; **module:** Mathlib/AlgebraicGeometry/Scheme.lean; **provides:** Schemes, the setting of the varieties, cycles and curves of P.5.; **checked:** declaration and signature confirmed at Mathlib/AlgebraicGeometry/Scheme.lean:42 at the pinned commit (Mathlib 082e2d3, Tau Ceti f790474); its use in the citing nodes checked by the review
+- **ref:** mathlib:AnalyticOn; **kind:** def; **module:** Mathlib/Analysis/Analytic/Basic.lean; **provides:** Analyticity on a set, asserted for Li_n on C - [1, infinity).; **checked:** declaration and signature confirmed at Mathlib/Analysis/Analytic/Basic.lean:125 at the pinned commit (Mathlib 082e2d3, Tau Ceti f790474); its use in the citing nodes checked by the review
+- **ref:** mathlib:AnalyticOnNhd.eqOn_of_preconnected_of_eventuallyEq; **kind:** theorem; **module:** Mathlib/Analysis/Analytic/Uniqueness.lean; **provides:** The identity theorem, extending identities from the disc to the star-shaped domain.; **checked:** declaration and signature confirmed at Mathlib/Analysis/Analytic/Uniqueness.lean:223 at the pinned commit (Mathlib 082e2d3, Tau Ceti f790474); its use in the citing nodes checked by the review
+- **ref:** mathlib:CochainComplex; **kind:** abbrev; **module:** Mathlib/Algebra/Homology/HomologicalComplex.lean; **provides:** Cochain complexes, the shape of the polylogarithmic, cycle and Deligne complexes.; **checked:** declaration and signature confirmed at Mathlib/Algebra/Homology/HomologicalComplex.lean:157 at the pinned commit (Mathlib 082e2d3, Tau Ceti f790474); its use in the citing nodes checked by the review
+- **ref:** mathlib:CochainComplex.mappingCone; **kind:** def; **module:** Mathlib/Algebra/Homology/HomotopyCategory/MappingCone.lean; **provides:** The mapping cone of a map of cochain complexes, which gives the Arakelov motivic complex and the curve complexes.; **checked:** declaration and signature confirmed at Mathlib/Algebra/Homology/HomotopyCategory/MappingCone.lean:57 at the pinned commit (Mathlib 082e2d3, Tau Ceti f790474); its use in the citing nodes checked by the review
+- **ref:** mathlib:CochainComplex.mappingCone.triangle; **kind:** def; **module:** Mathlib/Algebra/Homology/HomotopyCategory/Pretriangulated.lean; **provides:** The distinguished triangle of a mapping cone.; **checked:** declaration and signature confirmed at Mathlib/Algebra/Homology/HomotopyCategory/Pretriangulated.lean:54 at the pinned commit (Mathlib 082e2d3, Tau Ceti f790474); its use in the citing nodes checked by the review
+- **ref:** mathlib:Complex.arg; **kind:** def; **module:** Mathlib/Analysis/SpecialFunctions/Complex/Arg.lean; **provides:** The principal argument, discontinuous on (-infinity, 0]; arg(1 - z) is discontinuous on (1, infinity), where its jump cancels that of Im Li_2.; **checked:** declaration and signature confirmed at Mathlib/Analysis/SpecialFunctions/Complex/Arg.lean:30 at the pinned commit (Mathlib 082e2d3, Tau Ceti f790474); its use in the citing nodes checked by the review
+- **ref:** mathlib:Complex.continuousAt_arg; **kind:** theorem; **module:** Mathlib/Analysis/SpecialFunctions/Complex/Arg.lean; **provides:** Continuity of the argument on the slit plane, used for the argument term of D off the cut.; **checked:** declaration and signature confirmed at Mathlib/Analysis/SpecialFunctions/Complex/Arg.lean:579 at the pinned commit (Mathlib 082e2d3, Tau Ceti f790474); its use in the citing nodes checked by the review
+- **ref:** mathlib:Complex.hasStrictDerivAt_log; **kind:** theorem; **module:** Mathlib/Analysis/SpecialFunctions/Complex/LogDeriv.lean; **provides:** The derivative of the principal log on the slit plane, the base of the recursion z d/dz Li_{n+1} = Li_n.; **checked:** declaration and signature confirmed at Mathlib/Analysis/SpecialFunctions/Complex/LogDeriv.lean:32 at the pinned commit (Mathlib 082e2d3, Tau Ceti f790474); its use in the citing nodes checked by the review
+- **ref:** mathlib:Complex.hasSum_taylorSeries_neg_log; **kind:** lemma; **module:** Mathlib/Analysis/SpecialFunctions/Complex/LogBounds.lean; **provides:** For |z| < 1, sum z^n/n = -log(1 - z): exactly Li_1 on the disc.; **checked:** declaration and signature confirmed at Mathlib/Analysis/SpecialFunctions/Complex/LogBounds.lean:281 at the pinned commit (Mathlib 082e2d3, Tau Ceti f790474); its use in the citing nodes checked by the review
+- **ref:** mathlib:Complex.log; **kind:** def; **module:** Mathlib/Analysis/SpecialFunctions/Complex/Log.lean; **provides:** The principal complex logarithm (arg in (-pi, pi]); Li_1 = -log(1 - z) everywhere, which fixes the value of every Li_n on the cut (1, infinity).; **checked:** declaration and signature confirmed at Mathlib/Analysis/SpecialFunctions/Complex/Log.lean:30 at the pinned commit (Mathlib 082e2d3, Tau Ceti f790474); its use in the citing nodes checked by the review
+- **ref:** mathlib:Complex.slitPlane; **kind:** def; **module:** Mathlib/Analysis/Complex/Basic.lean; **provides:** The slit plane C - (-infinity, 0], on which the principal log is analytic; the cut domain of the principal Li_n is its preimage {z | 1 - z in slitPlane} = C - [1, infinity).; **checked:** declaration and signature confirmed at Mathlib/Analysis/Complex/Basic.lean:628 at the pinned commit (Mathlib 082e2d3, Tau Ceti f790474); its use in the citing nodes checked by the review
+- **ref:** mathlib:Distribution; **kind:** abbrev; **module:** Mathlib/Analysis/Distribution/Distribution.lean; **provides:** Distributions on an open subset of a normed space: the nearest baseline carrier for currents, which are a gap.; **checked:** declaration and signature confirmed at Mathlib/Analysis/Distribution/Distribution.lean:165 at the pinned commit (Mathlib 082e2d3, Tau Ceti f790474); its use in the citing nodes checked by the review
+- **ref:** mathlib:ExteriorAlgebra.exteriorPower; **kind:** abbrev; **module:** Mathlib/LinearAlgebra/ExteriorAlgebra/Basic.lean; **provides:** The exterior powers Lambda^n of the rationalised units.; **checked:** declaration and signature confirmed at Mathlib/LinearAlgebra/ExteriorAlgebra/Basic.lean:79 at the pinned commit (Mathlib 082e2d3, Tau Ceti f790474); its use in the citing nodes checked by the review
+- **ref:** mathlib:ExteriorAlgebra.gradedAlgebra; **kind:** instance; **module:** Mathlib/LinearAlgebra/ExteriorAlgebra/Grading.lean; **provides:** The graded algebra structure, giving the wedge product (1 - x) wedge x wedge y across degrees.; **checked:** declaration and signature confirmed at Mathlib/LinearAlgebra/ExteriorAlgebra/Grading.lean:72 at the pinned commit (Mathlib 082e2d3, Tau Ceti f790474); its use in the citing nodes checked by the review
+- **ref:** mathlib:Finsupp; **kind:** structure; **module:** Mathlib/Data/Finsupp/Defs.lean; **provides:** Finitely supported functions: Q[F] = F ->0 Q, the space of formal combinations the Bloch groups are quotients of.; **checked:** declaration and signature confirmed at Mathlib/Data/Finsupp/Defs.lean:88 at the pinned commit (Mathlib 082e2d3, Tau Ceti f790474); its use in the citing nodes checked by the review
+- **ref:** mathlib:HomologicalComplex.homology; **kind:** def; **module:** Mathlib/Algebra/Homology/ShortComplex/HomologicalComplex.lean; **provides:** Cohomology of a complex; H^1 B(F; n) = Ker delta_n.; **checked:** declaration and signature confirmed at Mathlib/Algebra/Homology/ShortComplex/HomologicalComplex.lean:90 at the pinned commit (Mathlib 082e2d3, Tau Ceti f790474); its use in the citing nodes checked by the review
+- **ref:** mathlib:IsDiscreteValuationRing; **kind:** class; **module:** Mathlib/RingTheory/DiscreteValuationRing/Basic.lean; **provides:** Discrete valuation rings, the local rings of the residues.; **checked:** declaration and signature confirmed at Mathlib/RingTheory/DiscreteValuationRing/Basic.lean:58 at the pinned commit (Mathlib 082e2d3, Tau Ceti f790474); its use in the citing nodes checked by the review
+- **ref:** mathlib:IsLocalRing.ResidueField; **kind:** def; **module:** Mathlib/RingTheory/LocalRing/ResidueField/Defs.lean; **provides:** Residue fields of the valuations.; **checked:** declaration and signature confirmed at Mathlib/RingTheory/LocalRing/ResidueField/Defs.lean:30 at the pinned commit (Mathlib 082e2d3, Tau Ceti f790474); its use in the citing nodes checked by the review
+- **ref:** mathlib:IsPrimitiveRoot.geom_sum_eq_zero; **kind:** theorem; **module:** Mathlib/RingTheory/RootsOfUnity/PrimitiveRoots.lean; **provides:** The sum of the powers of a primitive root of unity vanishes, the coefficient identity behind the distribution relation.; **checked:** declaration and signature confirmed at Mathlib/RingTheory/RootsOfUnity/PrimitiveRoots.lean:444 at the pinned commit (Mathlib 082e2d3, Tau Ceti f790474); its use in the citing nodes checked by the review
+- **ref:** mathlib:Matrix.GeneralLinearGroup; **kind:** abbrev; **module:** Mathlib/LinearAlgebra/Matrix/GeneralLinearGroup/Defs.lean; **provides:** GL_2(C), on whose configurations the Bloch-Wigner cocycle is defined.; **checked:** declaration and signature confirmed at Mathlib/LinearAlgebra/Matrix/GeneralLinearGroup/Defs.lean:43 at the pinned commit (Mathlib 082e2d3, Tau Ceti f790474); its use in the citing nodes checked by the review
+- **ref:** mathlib:Matrix.det; **kind:** def; **module:** Mathlib/LinearAlgebra/Matrix/Determinant/Basic.lean; **provides:** The determinant of the regulator matrices.; **checked:** declaration and signature confirmed at Mathlib/LinearAlgebra/Matrix/Determinant/Basic.lean:60 at the pinned commit (Mathlib 082e2d3, Tau Ceti f790474); its use in the citing nodes checked by the review
+- **ref:** mathlib:MeasureTheory.integral; **kind:** irreducible_def; **module:** Mathlib/MeasureTheory/Integral/Bochner/Basic.lean; **provides:** The Bochner integral, for the convergent integrals of the forms r_{m-1}.; **checked:** declaration and signature confirmed at Mathlib/MeasureTheory/Integral/Bochner/Basic.lean:158 at the pinned commit (Mathlib 082e2d3, Tau Ceti f790474); its use in the citing nodes checked by the review
+- **ref:** mathlib:NumberField.ComplexEmbedding.conjugate; **kind:** abbrev; **module:** Mathlib/NumberTheory/NumberField/InfinitePlace/Embeddings.lean; **provides:** The conjugate of a complex embedding, which negates the weight-two regulator component.; **checked:** declaration and signature confirmed at Mathlib/NumberTheory/NumberField/InfinitePlace/Embeddings.lean:192 at the pinned commit (Mathlib 082e2d3, Tau Ceti f790474); its use in the citing nodes checked by the review
+- **ref:** mathlib:NumberField.ComplexEmbedding.isReal_iff; **kind:** theorem; **module:** Mathlib/NumberTheory/NumberField/InfinitePlace/Embeddings.lean; **provides:** A complex embedding is real iff it equals its conjugate; the real-place vanishing.; **checked:** declaration and signature confirmed at Mathlib/NumberTheory/NumberField/InfinitePlace/Embeddings.lean:213 at the pinned commit (Mathlib 082e2d3, Tau Ceti f790474); its use in the citing nodes checked by the review
+- **ref:** mathlib:NumberField.InfinitePlace; **kind:** def; **module:** Mathlib/NumberTheory/NumberField/InfinitePlace/Basic.lean; **provides:** The infinite places of a number field.; **checked:** declaration and signature confirmed at Mathlib/NumberTheory/NumberField/InfinitePlace/Basic.lean:57 at the pinned commit (Mathlib 082e2d3, Tau Ceti f790474); its use in the citing nodes checked by the review
+- **ref:** mathlib:NumberField.InfinitePlace.IsComplex; **kind:** def; **module:** Mathlib/NumberTheory/NumberField/InfinitePlace/Basic.lean; **provides:** Complex places.; **checked:** declaration and signature confirmed at Mathlib/NumberTheory/NumberField/InfinitePlace/Basic.lean:188 at the pinned commit (Mathlib 082e2d3, Tau Ceti f790474); its use in the citing nodes checked by the review
+- **ref:** mathlib:NumberField.InfinitePlace.IsReal; **kind:** def; **module:** Mathlib/NumberTheory/NumberField/InfinitePlace/Basic.lean; **provides:** Real places.; **checked:** declaration and signature confirmed at Mathlib/NumberTheory/NumberField/InfinitePlace/Basic.lean:185 at the pinned commit (Mathlib 082e2d3, Tau Ceti f790474); its use in the citing nodes checked by the review
+- **ref:** mathlib:NumberField.InfinitePlace.embedding; **kind:** def; **module:** Mathlib/NumberTheory/NumberField/InfinitePlace/Basic.lean; **provides:** The embedding attached to an infinite place (Mathlib's choice in a conjugate pair).; **checked:** declaration and signature confirmed at Mathlib/NumberTheory/NumberField/InfinitePlace/Basic.lean:102 at the pinned commit (Mathlib 082e2d3, Tau Ceti f790474); its use in the citing nodes checked by the review
+- **ref:** mathlib:NumberField.InfinitePlace.nrComplexPlaces; **kind:** abbrev; **module:** Mathlib/NumberTheory/NumberField/InfinitePlace/Basic.lean; **provides:** The invariant r_2.; **checked:** declaration and signature confirmed at Mathlib/NumberTheory/NumberField/InfinitePlace/Basic.lean:441 at the pinned commit (Mathlib 082e2d3, Tau Ceti f790474); its use in the citing nodes checked by the review
+- **ref:** mathlib:NumberField.InfinitePlace.nrRealPlaces; **kind:** abbrev; **module:** Mathlib/NumberTheory/NumberField/InfinitePlace/Basic.lean; **provides:** The invariant r_1.; **checked:** declaration and signature confirmed at Mathlib/NumberTheory/NumberField/InfinitePlace/Basic.lean:437 at the pinned commit (Mathlib 082e2d3, Tau Ceti f790474); its use in the citing nodes checked by the review
+- **ref:** mathlib:NumberField.Units.fundSystem; **kind:** def; **module:** Mathlib/NumberTheory/NumberField/Units/DirichletTheorem.lean; **provides:** A fundamental system of units, the basis eps_i of the p-adic regulator.; **checked:** declaration and signature confirmed at Mathlib/NumberTheory/NumberField/Units/DirichletTheorem.lean:476 at the pinned commit (Mathlib 082e2d3, Tau Ceti f790474); its use in the citing nodes checked by the review
+- **ref:** mathlib:NumberField.Units.rank; **kind:** def; **module:** Mathlib/NumberTheory/NumberField/Units/DirichletTheorem.lean; **provides:** The unit rank r_1 + r_2 - 1.; **checked:** declaration and signature confirmed at Mathlib/NumberTheory/NumberField/Units/DirichletTheorem.lean:359 at the pinned commit (Mathlib 082e2d3, Tau Ceti f790474); its use in the citing nodes checked by the review
+- **ref:** mathlib:NumberField.Units.torsion; **kind:** def; **module:** Mathlib/NumberTheory/NumberField/Units/Basic.lean; **provides:** The torsion subgroup of the units, removed in Leopoldt's statement.; **checked:** declaration and signature confirmed at Mathlib/NumberTheory/NumberField/Units/Basic.lean:146 at the pinned commit (Mathlib 082e2d3, Tau Ceti f790474); its use in the citing nodes checked by the review
+- **ref:** mathlib:NumberField.dedekindZeta; **kind:** def; **module:** Mathlib/NumberTheory/NumberField/DedekindZeta.lean; **provides:** The Dedekind zeta function as an L-series, whose values the Zagier statements are about.; **checked:** declaration and signature confirmed at Mathlib/NumberTheory/NumberField/DedekindZeta.lean:49 at the pinned commit (Mathlib 082e2d3, Tau Ceti f790474); its use in the citing nodes checked by the review
+- **ref:** mathlib:NumberField.discr; **kind:** abbrev; **module:** Mathlib/NumberTheory/NumberField/Discriminant/Defs.lean; **provides:** The discriminant of a number field, the normalising factor of the Zagier determinant.; **checked:** declaration and signature confirmed at Mathlib/NumberTheory/NumberField/Discriminant/Defs.lean:36 at the pinned commit (Mathlib 082e2d3, Tau Ceti f790474); its use in the citing nodes checked by the review
+- **ref:** mathlib:PadicAlgCl; **kind:** abbrev; **module:** Mathlib/NumberTheory/Padics/Complex.lean; **provides:** An algebraic closure of Q_p, where the values log_p sigma(eps) of the p-adic regulator lie.; **checked:** declaration and signature confirmed at Mathlib/NumberTheory/Padics/Complex.lean:54 at the pinned commit (Mathlib 082e2d3, Tau Ceti f790474); its use in the citing nodes checked by the review
+- **ref:** mathlib:Polynomial.bernoulli; **kind:** def; **module:** Mathlib/NumberTheory/BernoulliPolynomials.lean; **provides:** The Bernoulli polynomials, which appear in the inversion formula of the classical polylogarithm.; **checked:** declaration and signature confirmed at Mathlib/NumberTheory/BernoulliPolynomials.lean:51 at the pinned commit (Mathlib 082e2d3, Tau Ceti f790474); its use in the citing nodes checked by the review
+- **ref:** mathlib:RatFunc; **kind:** structure; **module:** Mathlib/FieldTheory/RatFunc/Defs.lean; **provides:** The rational function field F(t), over which the relation subspace R_n(F) is defined.; **checked:** declaration and signature confirmed at Mathlib/FieldTheory/RatFunc/Defs.lean:67 at the pinned commit (Mathlib 082e2d3, Tau Ceti f790474); its use in the citing nodes checked by the review
+- **ref:** mathlib:Set.Countable.isConnected_compl_of_one_lt_rank; **kind:** theorem; **module:** Mathlib/Analysis/Normed/Module/Connected.lean; **provides:** The complement of a countable set in a real vector space of dimension at least two is connected; used for C - {0, 1, x} in the five-term proof.; **checked:** declaration and signature confirmed at Mathlib/Analysis/Normed/Module/Connected.lean:115 at the pinned commit (Mathlib 082e2d3, Tau Ceti f790474); its use in the citing nodes checked by the review
+- **ref:** mathlib:TensorProduct; **kind:** def; **module:** Mathlib/LinearAlgebra/TensorProduct/Defs.lean; **provides:** Tensor products over Q in the terms of the polylogarithmic complexes.; **checked:** declaration and signature confirmed at Mathlib/LinearAlgebra/TensorProduct/Defs.lean:71 at the pinned commit (Mathlib 082e2d3, Tau Ceti f790474); its use in the citing nodes checked by the review
+- **ref:** mathlib:TestFunction; **kind:** structure; **module:** Mathlib/Analysis/Distribution/TestFunction.lean; **provides:** Test functions on an open subset of a normed space.; **checked:** declaration and signature confirmed at Mathlib/Analysis/Distribution/TestFunction.lean:67 at the pinned commit (Mathlib 082e2d3, Tau Ceti f790474); its use in the citing nodes checked by the review
+- **ref:** mathlib:Valuation; **kind:** structure; **module:** Mathlib/RingTheory/Valuation/Basic.lean; **provides:** Valuations, for the residue maps and the specialisation lemma.; **checked:** declaration and signature confirmed at Mathlib/RingTheory/Valuation/Basic.lean:80 at the pinned commit (Mathlib 082e2d3, Tau Ceti f790474); its use in the citing nodes checked by the review
+- **ref:** mathlib:WeierstrassCurve; **kind:** structure; **module:** Mathlib/AlgebraicGeometry/EllipticCurve/Weierstrass.lean; **provides:** Weierstrass curves, the plane cubics of the elliptic Chow dilogarithm.; **checked:** declaration and signature confirmed at Mathlib/AlgebraicGeometry/EllipticCurve/Weierstrass.lean:77 at the pinned commit (Mathlib 082e2d3, Tau Ceti f790474); its use in the citing nodes checked by the review
+- **ref:** mathlib:bernoulli; **kind:** def; **module:** Mathlib/NumberTheory/Bernoulli.lean; **provides:** The Bernoulli numbers with B_1 = -1/2, the convention that gives 2 B_1/1! = -1 in L_2 = Im Li_2 + arg(1 - z) log|z|.; **checked:** declaration and signature confirmed at Mathlib/NumberTheory/Bernoulli.lean:195 at the pinned commit (Mathlib 082e2d3, Tau Ceti f790474); its use in the citing nodes checked by the review
+- **ref:** mathlib:exteriorPower.alternatingMapLinearEquiv; **kind:** def; **module:** Mathlib/LinearAlgebra/ExteriorPower/Basic.lean; **provides:** The universal property of Lambda^n: alternating multilinear maps are linear maps out of it; used for r_{m-1}, the Chow dilogarithm and the residue.; **checked:** declaration and signature confirmed at Mathlib/LinearAlgebra/ExteriorPower/Basic.lean:212 at the pinned commit (Mathlib 082e2d3, Tau Ceti f790474); its use in the citing nodes checked by the review
+- **ref:** mathlib:exteriorPower.ιMulti; **kind:** def; **module:** Mathlib/LinearAlgebra/ExteriorPower/Basic.lean; **provides:** The wedge of n vectors in Lambda^n.; **checked:** declaration and signature confirmed at Mathlib/LinearAlgebra/ExteriorPower/Basic.lean:56 at the pinned commit (Mathlib 082e2d3, Tau Ceti f790474); its use in the citing nodes checked by the review
+- **ref:** mathlib:hasSum_one_div_nat_pow_mul_fourier; **kind:** theorem; **module:** Mathlib/NumberTheory/ZetaValues.lean; **provides:** The Fourier series of the Bernoulli polynomials: the unit-circle case of the inversion formula of Li_n.; **checked:** declaration and signature confirmed at Mathlib/NumberTheory/ZetaValues.lean:340 at the pinned commit (Mathlib 082e2d3, Tau Ceti f790474); its use in the citing nodes checked by the review
+- **ref:** mathlib:hasSum_zeta_two; **kind:** theorem; **module:** Mathlib/NumberTheory/ZetaValues.lean; **provides:** sum 1/n^2 = pi^2/6, the value Li_2(1).; **checked:** declaration and signature confirmed at Mathlib/NumberTheory/ZetaValues.lean:453 at the pinned commit (Mathlib 082e2d3, Tau Ceti f790474); its use in the citing nodes checked by the review
+- **ref:** mathlib:intervalIntegral; **kind:** def; **module:** Mathlib/MeasureTheory/Integral/IntervalIntegral/Basic.lean; **provides:** The interval integral, the form Li_{n+1}(z) = integral_0^1 Li_n(tz) t^{-1} dt of the continuation.; **checked:** declaration and signature confirmed at Mathlib/MeasureTheory/Integral/IntervalIntegral/Basic.lean:659 at the pinned commit (Mathlib 082e2d3, Tau Ceti f790474); its use in the citing nodes checked by the review
+- **ref:** mathlib:intervalIntegral.hasDerivAt_integral_of_dominated_loc_of_deriv_le; **kind:** theorem; **module:** Mathlib/Analysis/Calculus/ParametricIntervalIntegral.lean; **provides:** Differentiation under the integral sign, for the analyticity of the recursive integral.; **checked:** declaration and signature confirmed at Mathlib/Analysis/Calculus/ParametricIntervalIntegral.lean:97 at the pinned commit (Mathlib 082e2d3, Tau Ceti f790474); its use in the citing nodes checked by the review
+- **ref:** mathlib:riemannZeta; **kind:** def; **module:** Mathlib/NumberTheory/LSeries/RiemannZeta.lean; **provides:** The Riemann zeta function; Li_n(1) = zeta(n) and L_n(1) = zeta(n) for odd n.; **checked:** declaration and signature confirmed at Mathlib/NumberTheory/LSeries/RiemannZeta.lean:121 at the pinned commit (Mathlib 082e2d3, Tau Ceti f790474); its use in the citing nodes checked by the review
+- **ref:** mathlib:riemannZeta_two_mul_nat; **kind:** theorem; **module:** Mathlib/NumberTheory/LSeries/HurwitzZetaValues.lean; **provides:** zeta(2k) through the Bernoulli numbers, used to fix the constant in the inversion formula.; **checked:** declaration and signature confirmed at Mathlib/NumberTheory/LSeries/HurwitzZetaValues.lean:206 at the pinned commit (Mathlib 082e2d3, Tau Ceti f790474); its use in the citing nodes checked by the review
+- **ref:** tauceti:TauCeti.Divisor.degree_principal; **kind:** theorem; **module:** TauCeti/FieldTheory/FunctionField/Divisor/ProductFormula.lean; **provides:** A principal divisor has degree zero; used for the independence of the auxiliary point on the projective line.; **checked:** declaration and signature confirmed at TauCeti/FieldTheory/FunctionField/Divisor/ProductFormula.lean:234 at the pinned commit (Mathlib 082e2d3, Tau Ceti f790474); its use in the citing nodes checked by the review
+- **ref:** tauceti:TauCeti.Place; **kind:** structure; **module:** TauCeti/FieldTheory/FunctionField/Place/Basic.lean; **provides:** Places of a function field, the closed points of the curve complexes.; **checked:** declaration and signature confirmed at TauCeti/FieldTheory/FunctionField/Place/Basic.lean:99 at the pinned commit (Mathlib 082e2d3, Tau Ceti f790474); its use in the citing nodes checked by the review
+- **ref:** tauceti:TauCeti.Place.ResidueField; **kind:** abbrev; **module:** TauCeti/FieldTheory/FunctionField/Place/Basic.lean; **provides:** The residue field at a place.; **checked:** declaration and signature confirmed at TauCeti/FieldTheory/FunctionField/Place/Basic.lean:452 at the pinned commit (Mathlib 082e2d3, Tau Ceti f790474); its use in the citing nodes checked by the review
+- **ref:** tauceti:TauCeti.Place.finite_setOf_ord_ne_zero; **kind:** theorem; **module:** TauCeti/FieldTheory/FunctionField/Place/Zeros.lean; **provides:** A function has nonzero order at only finitely many places (Stichtenoth Cor. 1.3.4); finiteness of the total residue.; **checked:** declaration and signature confirmed at TauCeti/FieldTheory/FunctionField/Place/Zeros.lean:461 at the pinned commit (Mathlib 082e2d3, Tau Ceti f790474); its use in the citing nodes checked by the review
+- **ref:** tauceti:TauCeti.Place.ord; **kind:** def; **module:** TauCeti/FieldTheory/FunctionField/Place/Basic.lean; **provides:** The order of a function at a place.; **checked:** declaration and signature confirmed at TauCeti/FieldTheory/FunctionField/Place/Basic.lean:135 at the pinned commit (Mathlib 082e2d3, Tau Ceti f790474); its use in the citing nodes checked by the review
+- **ref:** tauceti:TauCeti.Place.residueUnit; **kind:** def; **module:** TauCeti/FieldTheory/FunctionField/Place/Residue.lean; **provides:** The residue of a function that is a unit at a place.; **checked:** declaration and signature confirmed at TauCeti/FieldTheory/FunctionField/Place/Residue.lean:113 at the pinned commit (Mathlib 082e2d3, Tau Ceti f790474); its use in the citing nodes checked by the review
+- **ref:** tauceti:TauCeti.unitFiltration; **kind:** def; **module:** TauCeti/NumberTheory/LocalField/UnitFiltration/Basic.lean; **provides:** The unit filtration of a local field; the principal units U^1 in Leopoldt's statement.; **checked:** declaration and signature confirmed at TauCeti/NumberTheory/LocalField/UnitFiltration/Basic.lean:88 at the pinned commit (Mathlib 082e2d3, Tau Ceti f790474); its use in the citing nodes checked by the review
 
-**API.**
+## sources
 
-| name | role | statement |
-| --- | --- | --- |
-| `polylog` | constructor | The principal branch of Li_n on the cut domain, and the series on the disc. |
-| `polylog_hasSum` | characterisation | On the open unit disc the series sums to Li_n(z). |
-| `polylog_one_eq_neg_log` | compatibility | Li_1 is minus the principal logarithm of 1 - z, agreeing with the pinned Mathlib series. |
-| `polylog_deriv` | relation | z times the derivative of Li_n is Li_{n-1} on the cut domain. |
-| `polylog_analyticOn` | characterisation | Li_n is analytic on the cut domain. |
-| `polylog_distribution` | relation | The distribution relation over the m-th roots of a point. |
+**id:** GR.2022
 
-**Used by.** *P.1's single-valued polylogarithm*: L_n is a finite combination of the Li_{n-k} against powers of log|z|. *P.3's trilogarithm regulator*: the explicit weight-three regulator is written through Li_3. *ColemanIntegration L2*: that layer builds the p-adic counterpart; the complex-analytic function planned here is its archimedean partner, and neither is derived from the other.
+**title:** Motivic correlators, cluster varieties and Zagier's conjecture on zeta_F(4)
 
-**Unit tests.**
+**authors:** Alexander Goncharov and Daniil Rudenko
 
-- `weight_one` — Li_1(z) = -log(1 - z) on the disc.
-- `value_at_half_weight_two` — Li_2 at one half is pi squared over twelve minus one half of the
-  square of log 2, a specific value a wrong normalisation fails.
-- `derivative_recursion` — z d/dz Li_3 = Li_2 on the cut domain.
-- `not_single_valued` — Continuation around 1 changes the branch: Li_n is not a global analytic
-  function on the punctured plane.
+**edition:** arXiv:1803.08585v3, 26 April 2022
 
-**Acceptance.**
+**url:** https://arxiv.org/abs/1803.08585
 
-- At n = 1 the principal branch is minus the principal logarithm of 1 - z, which is the pinned
-  Mathlib series.
-- The differentiation formula holds on the cut domain, which pins the normalisation of the
-  integral.
-- The function is multivalued: continuing around 1 changes the branch, and the branch-change
-  formula records by how much. A definition that returns a single global analytic function is
-  wrong.
+**sha256:** 9a64439247df10f0d0f41a2a304c8b152392d1521a4051b1fe4fd9239c78b093
 
-**Depends on.** **baseline** `mathlib:Complex.log`, `mathlib:Complex.slitPlane`, `mathlib:Complex.hasSum_taylorSeries_log`, `mathlib:intervalIntegral`, `mathlib:AnalyticOn`.
+**accessed:** 2026-09-24
 
-**Source.** GR.2022, 1.1, item 1 (PDF p. 2): “The classical n-logarithm function Li_n(z) on the unit disc |z| < 1 is given by the absolutely convergent power series: Li_n(z) = sum_{k=1}^{infinity} z^k / k^n, |z| < 1. It is continued analytically to a multivalued analytic function on C - {0, 1} by induction, setting Li_n(z) = integral from 0 to z of Li_{n-1}(z) d log z, n >= 2.” — The definition and the inductive continuation, as displayed.
+**readSections**
 
-### `single-valued-polylogarithm` — Zagier's single-valued polylogarithm ★
+- Abstract and 1.1, items 1 to 6: the classical n-logarithm, the single-valued L_n, Zagier's conjecture, functional equations, the polylogarithmic motivic complexes, the condition o_n and Theorems 1.1, 1.2 and 1.3 (PDF pp. 2-6)
+- Review (REV-Polylogarithms): pp. 1-16, the opening of Section 5 and Section 9.3; footnotes 1, 2, 4 and 6; page images checked for the glyph *_n and for 'n > 1'.
 
-*definition* · planet **Single-valued polylogarithm**
+---
 
-Let pi_n be the projection from the complex numbers divided by (2 pi i) to the power n minus one
-to the reals which takes the real part when n is odd and the imaginary part when n is even.
-Define L_n(z) as pi_n applied to the sum, over k from 0 to n - 1, of 2 to the k times the k-th
-Bernoulli number over k factorial, times Li_{n-k}(z) times the k-th power of log of the modulus
-of z, where the Li_{n-k} are taken along the same path. The resulting function is single-valued
-on the complex projective line with 0, 1 and infinity removed, and continuous on the whole
-projective line. Its weight-two case is the Bloch-Wigner dilogarithm.
+**id:** Gonch.Arakelov.2004
 
-**Hypotheses.** n is a positive integer. z lies in the complex projective line.
+**title:** Polylogarithms, regulators, and Arakelov motivic complexes
 
-**Construction and proof.**
+**authors:** Alexander B. Goncharov
 
-1. Define the parity projection pi_n and record which part it takes in each parity; the
-   normalisation by the power of 2 pi i is part of the definition and is not adjustable later.
-1. Form the displayed finite combination with the Bernoulli coefficients, using the pinned
-   Bernoulli numbers.
-1. Prove single-valuedness: the monodromy of each Li_{n-k} around 1 and around 0 contributes
-   terms that cancel in the combination after applying the projection. This is the step the
-   layer exists for, and it is where the Bernoulli coefficients are forced.
-1. Prove the continuous extension at 0, at 1 and at infinity, using that the logarithmic
-   singularities are killed by the vanishing of the other factors.
-1. Prove the reality relation L_n at the conjugate equals minus one to the n minus one times
-   L_n, and the inversion relation L_n(z) plus minus one to the n times L_n(1/z) equals zero.
-1. Record that the weight-two case is the Bloch-Wigner function, which is treated in its own
-   node with its own API.
+**edition:** arXiv:math/0207036v3, 17 June 2004; published as J. Amer. Math. Soc. 18 (2005) 1-60, with the same theorem numbering and different equation numbers
 
-**API.**
+**url:** https://arxiv.org/abs/math/0207036
 
-| name | role | statement |
-| --- | --- | --- |
-| `singleValuedPolylog` | constructor | The function L_n on the complex projective line. |
-| `singleValuedPolylog_continuous` | characterisation | L_n is continuous on the whole projective line. |
-| `singleValuedPolylog_zero_one_infty` | simp | L_n vanishes at 0, at 1 and at infinity for n at least two. |
-| `singleValuedPolylog_conj` | relation | L_n at the conjugate is minus one to the n minus one times L_n. |
-| `singleValuedPolylog_inv` | relation | L_n(z) plus minus one to the n times L_n of the inverse is zero. |
-| `singleValuedPolylog_two` | compatibility | The weight-two case is the Bloch-Wigner function. |
-| `singleValuedPolylog_one` | compatibility | The weight-one case is log of the modulus. |
+**sha256:** ac729924bca286113e8aae593f6012bf72c77d935178606e7a2be677bd3440db
 
-**Used by.** *P.4's higher Bloch groups*: L_n is the map from B_n(C) to the reals that makes the relation subgroup a subgroup of functional equations. *P.4's Zagier determinant*: the entries of the regulator matrix are values of L_n at the embeddings. *P.2's weight-two regulator*: its weight-two case is the function descended through the Bloch group.
+**accessed:** 2026-09-24
 
-**Unit tests.**
+**readSections**
 
-- `weight_one_is_log_abs` — L_1(z) = log of the modulus of z.
-- `weight_two_is_bloch_wigner` — L_2 agrees with Im Li_2(z) + arg(1 - z) log|z|.
-- `reality` — L_3 at the conjugate equals L_3, while L_2 at the conjugate equals minus L_2.
-- `not_analytic_at_one` — L_n is continuous at 1 but not analytic there: a non-example
-  distinguishing the two.
+- Abstract and the introduction, on the weight-n regulator to the Deligne complex, the Grassmannian polylogarithms, the recovery of Lobachevsky's volume formula at n = 2 and the Chow dilogarithm with its reciprocity law strengthening Suslin's for Milnor K_3 on curves (PDF p. 1)
+- Section 1 (Introduction) read in full from the arXiv e-print LaTeX source, whose SHA-256 is fa6ea8977eb6e95d07110f170e158511cde856fb40d2c3f05e350206978432be and whose PDF hash is the one recorded above: Beilinson's conjectures and the one case in which the regulator comparison is known; the regulator map on motivic complexes, the Arakelov motivic complex in its complex, real and number-field forms, the higher Arakelov Chow groups and the two Problems, of which the first is the comparison with Beilinson's regulator; the Chow n-logarithm function; the Chow dilogarithm with the explicit cross-ratio formula on the projective line and the functional equations from the boundary; and the Grassmannian n-logarithm.
+- Section 2 (Arakelov motivic complexes): Theorem-Construction 2.3 (the canonical map of complexes and its real form), the definition of the forms r_{m-1} in item 4, Theorem 2.4 with Lemma 2.5 (convergence and the distribution homomorphism), Definition 2.13 (the higher Arakelov Chow groups) and Proposition 2.14 with its proof (the identification with the Gillet-Soule arithmetic Chow group).
+- Section 3 (The Chow polylogarithms) read in full: the spaces of cycles with their face and vertex maps, Theorem-Construction 3.1 with the three identities and the Radon-transform proof, the cocycle interpretation, Theorem 3.3 (torus invariance of the top member) with the remark that it fails below the top, and its reformulation.
+- Section 6 (The Chow dilogarithm and a reciprocity law) read in full: the polylogarithmic complexes and their residues, Proposition 6.1, Conjecture 6.2 with its two conditions and the remark comparing it with Suslin's law, Conjecture 6.3 in general weight, Theorem 6.5 and Proposition 6.6 (the projective line, modulo 6-torsion), Theorem 6.10 (families of curves and the differential identity), Theorem 6.12 (an arbitrary curve over the algebraic numbers) with Lemma 6.13, and Theorem 6.14 with Lemmas 6.15 and 6.16 and Propositions 6.17 and 6.18 (the elliptic curve, explicitly).
+- Not read: Sections 4 and 5 (the Grassmannian polylogarithms and their relation with the symmetric space of the special linear group, through which the source constructs the Borel regulator) and Section 7 (the appendix on volumes of simplices in symmetric spaces). Those are the content of BorelRegulators and are recorded as a gap.
+- Review (REV-Polylogarithms): Sections 1, 2, 3 and 6 re-read from the e-print TeX source and the PDF, with the published JAMS text compared at every source issue (SHA-256 of the JAMS PDF 36de73ac0fbc242e52f858e20c7e22839b050bc65cab54426505b662f36617be).
 
-**Acceptance.**
+---
 
-- L_1(z) is log of the modulus of z.
+**id:** Kbook.2013
+
+**title:** The K-book: An Introduction to Algebraic K-theory
+
+**authors:** Charles A. Weibel
+
+**edition:** Author-hosted combined draft dated 29 August 2013 (published as Graduate Studies in Mathematics 145, American Mathematical Society, 2013)
+
+**url:** https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf
+
+**sha256:** a04f53c9393b20672fab2a6818279b2f9996dbc7cf74735789ed13804b058845
+
+**accessed:** 2026-09-24
+
+**readSections**
+
+- VI.5.1 to VI.5.4.1: the pre-Bloch group, the antisymmetric tensor quotient, the Bloch group and the element c (PDF pp. 495-497)
+- Review (REV-Polylogarithms): VI.5.1 to VI.5.4.1 re-read (PDF pp. 486-497).
+
+---
+
+**id:** GR.2026
+
+**title:** Motivic correlators, cluster varieties and Zagier's conjecture on zeta_F(4)
+
+**authors:** Alexander Goncharov and Daniil Rudenko
+
+**edition:** arXiv:1803.08585v5, 15 July 2026, final version, accepted for publication in Annals of Mathematics
+
+**url:** https://arxiv.org/abs/1803.08585v5
+
+**sha256:** d7694f411ff344af087768a951a871aef6ebd4bbed571af6d6c045560d6ed8df
+
+**accessed:** 2026-09-24
+
+**readSections**
+
+- pp. 1-16: Conventions, Section 1.1 (items 1 to 6, Theorems 1.1 to 1.3, Conjecture 1.4), Section 1.2 (the explicit groups B_2 and B_3, the 22-term relation), Definition 1.11 and Theorem 1.14; Sections 7.2 and 7.3 (pp. 64-65)
+
+---
+
+**id:** BFT.2011
+
+**title:** On Goncharov's regulator and higher arithmetic Chow groups
+
+**authors:** J. I. Burgos Gil, E. Feliu and Y. Takeda
+
+**edition:** arXiv:0909.5296v1; published in Int. Math. Res. Not. IMRN 2011, no. 1, 40-73
+
+**url:** https://arxiv.org/abs/0909.5296
+
+**sha256:** 63155506c01244497f732d6d57cf78b979a18cbbe24cbca8fade1da99f359cd5
+
+**accessed:** 2026-09-24
+
+**readSections**
+
+- Abstract, introduction, Section 5.2 with Remark 5.12 and Theorem 5.13, Section 6.1, Theorem 6.18
+
+---
+
+**id:** NSW.2013
+
+**title:** Cohomology of Number Fields
+
+**authors:** J. Neukirch, A. Schmidt and K. Wingberg
+
+**edition:** Second edition, Grundlehren 323; electronic edition 2.3 (18 May 2020), hosted by the authors
+
+**url:** https://www.mathi.uni-heidelberg.de/~schmidt/NSW2e/NSW2.3.pdf
+
+**sha256:** abbb7cdefc9ecb3350286c3cba36fe36a90c103257ff8f64173e09a50afdcb91
+
+**accessed:** 2026-09-24
+
+**readSections**
+
+- Chapter X, Section 3, (10.3.3) to (10.3.6), pp. 626-628
+
+---
+
+## coverage
+
+**stageId:** Polylogarithms:P.1
+
+**status:** source_decomposed
+
+**note:** The classical n-logarithm on the disc and its principal branch on C - [1, infinity), with the jump across the cut proved before L_n is defined; the distribution and inversion formulas; the single-valued L_n (n >= 2) with its continuity on the projective line; the Bloch-Wigner function with its differential, its positivity and the five-term relation with the cross-ratio identity behind it. Positivity rests on a Mathlib gap (a minimum principle for superharmonic functions).
+
+---
+
+**stageId:** Polylogarithms:P.2
+
+**status:** partial
+
+**note:** Descent through V.3's convention, the embedding-wise regulator, the Bloch-Wigner cocycle, the Borel comparison up to some q in Q^x, the volume formula with Lobachevsky's identity, and the certified numerics with their error theorem.
+
+**remaining**
+
+- The exact scalar and sign of the Borel comparison (Goncharov Sections 5.4 and 5.5; BorelRegulators R.7)
+- Goncharov Section 7 and Milnor's volume formula (GeometricTopology layer 7)
+- The expansion of Li_2 near the unit circle (gap)
+
+---
+
+**stageId:** Polylogarithms:P.3
+
+**status:** partial
+
+**note:** The explicit weight <= 3 complexes on B_2 (V.3) and the trilogarithm group B_3 with the 22-term relation, d^2 = 0, the residue on exterior powers and on the complexes, the maps from K-theory with their degree range, the regulator compatibility, the top-degree comparison and the special-value theorem in its established form.
+
+**remaining**
+
+- Goncharov 1995: the weight-three maps and their regulator comparison
+- Transfers on the complexes (only on H^3)
+- GR Proposition 5.4 (the 22-term relation and delta_3)
+- Suslin 1984 (the top-degree comparison)
+- Part (b) of the special-value theorem
+
+---
+
+**stageId:** Polylogarithms:P.4
+
+**status:** partial
+
+**note:** The inductive groups B_n and delta_n by one recursion, the descent through the specialisation lemma, L_n on B_n(C), the comparison with the explicit groups, the general complex, the condition *_n, the Zagier determinant with its general normalisation, Zagier's three propositions with their proved cases, the weight-four theorem and the Lie coalgebra extension.
+
+**remaining**
+
+- The specialisation argument and the descent of L_n (Goncharov 1994, 1995)
+- The general-weight normalisation (Zagier 1990)
+- Part (b) of the weight-four theorem for the inductive B_3
+- Suslin's rigidity (requested from K3BlochGroups V.4)
+
+---
+
+**stageId:** Polylogarithms:P.5
+
+**status:** partial
+
+**note:** The curve complexes and unramified classes; the weight-two form with its exact Steinberg and residue identities and its period classes; the forms r_{m-1}, their currents, the residue and Proposition 2.8; Goncharov's Deligne complex and his regulator as a map of complexes with its real form; the comparison with Beilinson's regulator (Burgos Gil-Feliu-Takeda); the Chow polylogarithm; the Arakelov complex; the Chow dilogarithm, the strong reciprocity conjecture and its three proved cases; the weight-three curve regulator.
+
+**remaining**
+
+- Real Deligne-Beilinson complex (requested from MotivicEtaleKTheory:M.8)
+- Currents on complex manifolds and the Poincare-Lelong formula (gap)
+- Chow varieties (gap)
+- The group (36) and the Gersten comparison (gap)
+- The elliptic trilogarithm (gap)
+- The proof of Burgos Gil-Feliu-Takeda Theorem 6.18
+
+---
+
+**stageId:** Polylogarithms:P.6
+
+**status:** partial
+
+**note:** Leopoldt's conjecture in the injectivity form, the p-adic regulator and its rank, the proved equivalence (Neukirch-Schmidt-Wingberg 10.3.6), and the tests with explicit points.
+
+**remaining**
+
+- The weight-three differential of L_3 as an API item of P.1 (gap)
+
+---
+
+## restructure
+
+**kind:** move-nodes
+
+**title:** The Bloch-Wigner nodes belong here, not to K3BlochGroups V.3
+
+**detail:** The red-team finding RT-AREA-ktheory-2/27, confirmed by REV-RT-AREA-ktheory-2, records that research/blueprint/reserved-ids.json reserves the Bloch-Wigner function and its five-term identity as nodes of K3BlochGroups V.3 although P.1 plans them, and its fix is to re-reserve them here. This packet implements that fix: P.1/bloch-wigner-dilogarithm and P.1/bloch-wigner-five-term are nodes of this packet, with P.2 keeping the descent to the Bloch group and K3BlochGroups V.3 keeping the algebraic pre-Bloch group, the five-term relation and the Bloch group. The companion packet for K3BlochGroups delivers its two reserved ids as required by its own job, imports the construction from here rather than rebuilding it, does not mark them as planets, and carries the matching restructure entry. Applying the fix means retiring those two ids from K3BlochGroups and pointing its consumers at the two nodes here.
+
+**action:** rescope
+
+**roadmaps**
+
+- Polylogarithms
+- K3BlochGroups
+
+**proposal:** Retire K3BlochGroups:V.3/bloch-wigner-dilogarithm and V.3/bloch-wigner-five-term and point their consumers at Polylogarithms:P.1/bloch-wigner-dilogarithm and P.1/bloch-wigner-five-term; P.2 keeps the descent.
+
+---
+
+**kind:** new-roadmap
+
+**title:** A Part II for the proof of the weight-four theorem
+
+**detail:** The red-team finding RT-AREA-ktheory-2/51, confirmed by REV-RT-AREA-ktheory-2, records that P.4 treats the weight-four Zagier theorem as a separately identified extension although it is a published theorem, and that no roadmap owns it. Its fix is to record it as a theorem, which this packet does, and either to plan its proof in P.4 or to name its owner. The proof needs motivic correlators, cluster varieties and the cluster polylogarithm maps, which is a body of mathematics far larger than the statement infrastructure P.4 owns, so the proposal is a new roadmap extending this one, titled, in the form section 15 requires, Polylogarithms, explicit regulators and Zagier statements, Part II: weight four via motivic correlators and cluster polylogarithms, with this roadmap as its first prerequisite. Its scope would be the motivic correlators of the source's section 2, the cluster polylogarithm maps of its sections 3 and 4, the map from the weight-three to the weight-two groups of its section 5, and the weight-four Beilinson regulator of its section 9.
+
+**action:** split
+
+**roadmaps**
+
+- Polylogarithms
+
+**proposal:** Polylogarithms, explicit regulators and Zagier statements, Part II: weight four via motivic correlators and cluster polylogarithms (GR Sections 2 to 9, including Theorem 1.14 and the complex (44)), with this roadmap as its first prerequisite.
+
+---
+
+**kind:** ownership
+
+**title:** The general weight-two curve regulator form belongs to P.5, and its target to M.8
+
+**detail:** The red-team findings RT-AREA-ktheory-2/7 and /24, both confirmed, record that P.5 and EllipticRegulators ER.2 plan the same weight-two regulator form and that no stage owns the real Deligne-Beilinson complex in general. This packet follows their fix: P.5 owns the general curve formula for the form, with its closedness, its residues and the Steinberg relation through the Bloch-Wigner function, and ER.2 is expected to specialise it to an elliptic curve with the factor of two pi and the orientation. The Deligne complex is requested from MotivicEtaleKTheory M.8 as an early part needing no BorelRegulators input, and every statement of P.5 that mentions a Deligne class is conditional on it. (P.5's coverage is partial for the reasons listed in its coverage record.)
+
+**action:** rescope
+
+**roadmaps**
+
+- Polylogarithms
+- EllipticRegulators
+- MotivicEtaleKTheory
+
+**proposal:** P.5 owns eta(f, g) with its Steinberg, residue and period statements; the link runs P.5 -> EllipticRegulators ER.2 (ER.2 specialises P.5/weight-two-regulator-form, and no P.5 node depends on ER.2 or ER.3); the real Deligne-Beilinson complex is an early part of MotivicEtaleKTheory M.8.
+
+---
+
+**kind:** ownership
+
+**action:** rescope
+
+**roadmaps**
+
+- Polylogarithms
+
+**title:** P.3 owns the explicit weight <= 3 complexes, P.4 the inductive groups
+
+**detail:** The atlas has P.4 requiring P.3, but the blueprint built P.3's complexes on P.4's inductive groups, a stage cycle; the reserved id P.3/polylogarithmic-complex is for n <= 3; the stage text asks P.3 for 'the weight-three polylogarithmic groups and relations of the adopted Goncharov model'. Added by REV-Polylogarithms.
+
+**proposal:** P.3 owns the explicit groups and complexes of GR v5 Section 1.2 (B_2 from K3BlochGroups V.3, the trilogarithm group B_3) and the reserved id P.3/polylogarithmic-complex; P.4 owns the inductive B_n, delta_n, the general complex and the comparisons; this keeps the atlas edge P.3 -> P.4.
+
+---
+
+**kind:** ownership
+
+**action:** rescope
+
+**roadmaps**
+
+- Polylogarithms
+- SpecialValuesBirchTate
+
+**title:** The normalised Zagier determinant belongs to P.4
+
+**detail:** SpecialValuesBirchTate B.8 requires P.6, which requires P.4, so the former request to B.8 pointed the wrong way (a cycle) and is deleted; the audit flagged the overlap. Added by REV-Polylogarithms.
+
+**proposal:** P.4/zagier-determinant owns the normalised determinant; B.8 imports it.
+
+---
+
+**kind:** ownership
+
+**action:** rescope
+
+**roadmaps**
+
+- Polylogarithms
+- K3BlochGroups
+- ArithmeticQuantumTopology
+- HabiroNahmSeries
+
+**title:** The Rogers dilogarithm has three consumers and no owner
+
+**detail:** K3BlochGroups requests 'The Rogers dilogarithm L(x) = Li_2(x) + 1/2 log(x) log(1 - x) on (0, 1)' from P.1 for V.5/element-c-order-six; ArithmeticQuantumTopology QT.5 builds one on P.1's Li_2; HabiroNahmSeries HB.3 defines its own in the normalisation pi^2/6 - Li_2 - 1/2 log x log(1 - x). No source read for this packet defines it, so the review does not plan it. Added by REV-Polylogarithms.
+
+**proposal:** Plan it once, as Polylogarithms:P.1/rogers-dilogarithm, with both normalisations, the extension to the real projective line, the reflection and five-term identities, and the induced homomorphism under which c has order six; NEXT SOURCE ACTION: Zagier, The Dilogarithm Function (2007), Section II.1.
+
+---
+
+**kind:** note-duplicate-boundary
+
+**title:** RT-AREA-ktheory-2/7,18,24: early foundations before comparisons
+
+**detail:** Maintainer: split the requested early finite-Chern and real-Deligne interfaces from M.8’s late comparison work. Retain finite coefficients, naturality, products, twists and real conjugation; P.5 retains Goncharov’s concrete current complex and the comparison with generic Deligne cohomology. The packet requests record missing exports without introducing M.8→R.7 or M.8→D.2 cycles.
+
+---
+
+**kind:** note-duplicate-boundary
+
+**title:** RT-AREA-ktheory-2/23–27: retained mathematics and common foundations
+
+**detail:** P.2 retains oriented ideal-tetrahedron volume and Bloch–Wigner comparison, importing the Tau Ceti geometric carrier; QT.5 applies this theorem. P.5 retains Goncharov’s distinct current-complex model and its comparison to the requested early Deligne interface. P.6 imports the early I.2 completed-unit proposition while retaining regulator equivalence, the abelian theorem and tests; no weak/strong Leopoldt theorem is deleted. The V.3 analytic reserved-ID correction is maintainer work; actual P.1/P.2 analytic owners already exist.
+
+---
+
+## sourceVersions
+
+**source:** GR.2022
+
+**kind:** preprint
+
+**url:** https://arxiv.org/pdf/1803.08585v3
+
+**read:** 2026-09-24
+
+**sha256:** 9a64439247df10f0d0f41a2a304c8b152392d1521a4051b1fe4fd9239c78b093
+
+---
+
+**source:** GR.2026
+
+**kind:** preprint
+
+**url:** https://arxiv.org/pdf/1803.08585v5
+
+**read:** 2026-09-24
+
+**sha256:** d7694f411ff344af087768a951a871aef6ebd4bbed571af6d6c045560d6ed8df
+
+**note:** The final version, accepted by the Annals of Mathematics; the journal version was not yet available.
+
+---
+
+**source:** Gonch.Arakelov.2004
+
+**kind:** preprint
+
+**url:** https://arxiv.org/pdf/math/0207036v3
+
+**read:** 2026-09-24
+
+**sha256:** ac729924bca286113e8aae593f6012bf72c77d935178606e7a2be677bd3440db
+
+---
+
+**source:** Gonch.Arakelov.2004
+
+**kind:** published
+
+**url:** https://www.ams.org/journals/jams/2005-18-01/S0894-0347-04-00472-2/S0894-0347-04-00472-2.pdf
+
+**read:** 2026-09-24
+
+**sha256:** 36de73ac0fbc242e52f858e20c7e22839b050bc65cab54426505b662f36617be
+
+---
+
+**source:** Kbook.2013
+
+**kind:** author copy
+
+**url:** https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf
+
+**read:** 2026-09-24
+
+**sha256:** a04f53c9393b20672fab2a6818279b2f9996dbc7cf74735789ed13804b058845
+
+---
+
+**source:** BFT.2011
+
+**kind:** preprint
+
+**url:** https://arxiv.org/pdf/0909.5296v1
+
+**read:** 2026-09-24
+
+**sha256:** 63155506c01244497f732d6d57cf78b979a18cbbe24cbca8fade1da99f359cd5
+
+---
+
+**source:** NSW.2013
+
+**kind:** author copy
+
+**url:** https://www.mathi.uni-heidelberg.de/~schmidt/NSW2e/NSW2.3.pdf
+
+**read:** 2026-09-24
+
+**sha256:** abbb7cdefc9ecb3350286c3cba36fe36a90c103257ff8f64173e09a50afdcb91
+
+---
+
+## Mathematical nodes
+
+### Polylogarithms:P.1
+
+#### The classical n-logarithm
+
+`Polylogarithms:P.1/classical-polylogarithm` — definition
+
+For an integer n define the classical n-logarithm Li_n. For n >= 1 it is the absolutely convergent series Li_n(z) = sum_{k>=1} z^k/k^n on the open unit disc. Its principal branch is defined for every z in C by Li_1(z) = -log(1 - z), with Mathlib's principal logarithm, and Li_{n+1}(z) = integral_0^1 Li_n(tz) t^{-1} dt; it agrees with the series on the disc, satisfies z d/dz Li_{n+1} = Li_n, and is analytic on the star-shaped domain C - [1, infinity) = {z | 1 - z in slitPlane}. On the cut (1, infinity) its value is the limit from the lower half-plane, because Mathlib's argument of a negative real number is pi. For n <= 0, Li_n(z) = (z d/dz)^{-n}(z/(1 - z)), a rational function on C - {1} that agrees with the series on the disc. The multivalued analytic continuation of the source along paths in C - {0, 1} is described only through the explicit jump across (1, infinity) (P.1/branch-change-and-monodromy): no statement uses homotopy invariance of path integrals, which the pinned Mathlib does not have.
+
+**realises**
+
+- Polylogarithms:P.1
+
+**hypotheses**
+
+- n is an integer; the source defines the weights n >= 1, and the case n <= 0 is the rational function that HabiroNahmSeries HB.4 uses.
+- For the series, |z| < 1.
+- For the principal branch z is arbitrary, and analyticity is asserted on C - [1, infinity). For the continuation of the source, z lies in C - {0, 1} and gamma : [0, 1] -> C is a piecewise C^1 path with gamma(0) = 0, gamma(1) = z and gamma(t) not in {0, 1} for t > 0; only its effect across the cut, the jump formula, is planned.
+
+**proofSteps**
+
+- Prove absolute convergence of the series on the open unit disc by comparison with the geometric series; for n >= 2 it converges uniformly on the closed disc (comparison with sum 1/k^n), which gives continuity there.
+- Base case n = 1: on the disc sum z^k/k = -log(1 - z), which is mathlib:Complex.hasSum_taylorSeries_neg_log; take -log(1 - z) as the definition of Li_1 on all of C.
+- Define the principal branch on the star-shaped domain C - [1, infinity) (star-shaped about 0) by Li_{n+1}(z) = integral_0^1 Li_n(tz) t^{-1} dt, an intervalIntegral, and prove its analyticity there by differentiating under the integral sign (mathlib:intervalIntegral.hasDerivAt_integral_of_dominated_loc_of_deriv_le), starting from mathlib:Complex.hasStrictDerivAt_log. The multivalued continuation is described only through the explicit jump across (1, infinity) (P.1/branch-change-and-monodromy), never through homotopy invariance.
+- Prove the differentiation formula z d/dz Li_{n+1}(z) = Li_n(z) on C - [1, infinity), and agreement with the series on the disc by comparing coefficients.
+- Record the value on the cut: Li_1(x) = -log(1 - x) = -log(x - 1) - i pi for x > 1, the limit from the lower half-plane, and so every Li_n on (1, infinity) is its lower-side limit.
+- Prove Li_n(1) = zeta(n) for n >= 2 from continuity on the closed disc and the series at z = 1; at n = 2 this is mathlib:hasSum_zeta_two.
+- For n <= 0 define Li_n by the rational function and prove agreement with the series on the disc by applying z d/dz to the geometric series.
+- The distribution relations and the inversion formula are the lemma nodes P.1/classical-distribution and P.1/classical-inversion.
+
+**acceptance**
+
+- At n = 1 the principal branch is -log(1 - z) for every z in C; on the disc it is the pinned Mathlib series.
+- The differentiation formula holds on C - [1, infinity), which pins the normalisation of the integral.
+- Li_2(-1) = -pi^2/12: a principal branch built with the cut along (-infinity, 0] (Mathlib's slitPlane itself) instead of [1, infinity) fails this.
+- Li_n is not a single-valued analytic function on C - {0, 1}: its principal values jump by 2 pi i (log x)^{n-1}/(n-1)! across x > 1.
+
+**prerequisites**
+
+- mathlib:Complex.log
+- mathlib:Complex.slitPlane
+- mathlib:Complex.hasSum_taylorSeries_neg_log
+- mathlib:Complex.hasStrictDerivAt_log
+- mathlib:intervalIntegral
+- mathlib:intervalIntegral.hasDerivAt_integral_of_dominated_loc_of_deriv_le
+- mathlib:AnalyticOn
+- mathlib:hasSum_zeta_two
+- mathlib:riemannZeta
+
+**sources**
+
+- **sourceId:** GR.2022; **locator:** 1.1, item 1 (PDF p. 2); **excerpt:** Li_n(z) = sum_{k=1}^{infinity} z^k / k^n, |z| < 1. It is continued analytically to a multivalued analytic function on C - {0, 1} by induction, setting Li_n(z) = integral from 0 to z of Li_{n-1}(z) d log z, n >= 2.; **match:** The definition and the inductive continuation, as displayed.
+
+**implementationStatus:** unchecked
+
+**api**
+
+- **name:** polylog; **role:** constructor; **statement:** polylog (n : Z) : C -> C. For n >= 1 the principal branch described above (analytic on C - [1, infinity), lower-side values on (1, infinity)); for n <= 0 the rational function (z d/dz)^{-n}(z/(1 - z)).
+- **name:** polylog_hasSum; **role:** characterisation; **statement:** For |z| < 1 and every integer n, the series sum_{k>=1} z^k/k^n sums to Li_n(z).
+- **name:** polylog_one_eq_neg_log; **role:** compatibility; **statement:** For every z in C, Li_1(z) = -log(1 - z) with Mathlib's principal logarithm; on the disc this is mathlib:Complex.hasSum_taylorSeries_neg_log. This pins the value on the cut.
+- **name:** polylog_zero; **role:** simp; **statement:** Li_n(0) = 0 for every integer n.
+- **name:** polylog_deriv; **role:** relation; **statement:** For every integer n and z not in [1, infinity) with z != 0: HasDerivAt (Li_{n+1}) (Li_n(z)/z) z, that is, z d/dz Li_{n+1} = Li_n.
+- **name:** polylog_analyticOn; **role:** characterisation; **statement:** For n >= 1, Li_n is analytic on {z | 1 - z in slitPlane} = C - [1, infinity); for n <= 0 it is analytic on C - {1}.
+- **name:** polylog_conj; **role:** relation; **statement:** Li_n(conj z) = conj(Li_n(z)) for z not in [1, infinity).
+- **name:** polylog_one_eq_zeta; **role:** compatibility; **statement:** For n >= 2, Li_n(1) = zeta(n) (mathlib:riemannZeta); in particular Li_2(1) = pi^2/6 (mathlib:hasSum_zeta_two).
+- **name:** polylog_continuousOn_closedBall; **role:** characterisation; **statement:** For n >= 2, Li_n is continuous on the closed unit disc.
+- **name:** polylogSeries; **role:** other; **statement:** polylogSeries (n : Z) : Q[[X]], the formal power series with coefficient k^{-n} at X^k for k >= 1 and 0 at X^0; evaluated on the disc it is Li_n. This is the form HabiroNahmSeries HB.8 and HB.9 use.
+- **name:** polylog_jump; **role:** relation; **statement:** For n >= 1 and x > 1, Li_n(x + i eps) - Li_n(x - i eps) -> 2 pi i (log x)^{n-1}/(n-1)! as eps -> 0+. Promoted to Polylogarithms:P.1/branch-change-and-monodromy.
+- **name:** polylog_distribution; **role:** relation; **statement:** The distribution relation Li_n(z^m) = m^{n-1} sum_{zeta^m = 1} Li_n(zeta z). Promoted to Polylogarithms:P.1/classical-distribution.
+- **name:** polylog_inversion; **role:** relation; **statement:** The inversion formula Li_n(z) + (-1)^n Li_n(1/z) = -((2 pi i)^n/n!) B_n(1/2 + log(-z)/(2 pi i)). Promoted to Polylogarithms:P.1/classical-inversion.
+
+**uses**
+
+- **where:** P.1's single-valued polylogarithm; **how:** L_n is a finite combination of the Li_{n-k} against powers of log|z|
+- **where:** P.3's trilogarithm regulator; **how:** the explicit weight-three regulator is written through Li_3
+- **where:** ColemanIntegration L2; **how:** that layer builds the p-adic counterpart; the complex-analytic function planned here is its archimedean partner, and neither is derived from the other
+- **where:** HabiroNahmSeries HB.3; **how:** uses Li_2 continuous at 1 with value pi^2/6 (polylog_one_eq_zeta, polylog_continuousOn_closedBall)
+- **where:** HabiroNahmSeries HB.4; **how:** uses sum_t Li_r(zeta^t w) = m^{1-r} Li_r(w^m) and the polylogarithms Li_{2-r} of non-positive index, r >= 2 (P.1/classical-distribution and polylog for n <= 0)
+- **where:** HabiroNahmSeries HB.8 and HB.9; **how:** use Li_n(t) as a formal power series in Q[[t]] (polylogSeries)
+
+**tests**
+
+- **name:** weight_one; **kind:** compatibility; **statement:** polylog 1 z = -log(1 - z) for every z in C; for |z| < 1 this is the Mathlib series sum z^k/k.
+- **name:** value_at_half_weight_two; **kind:** computation; **statement:** polylog 2 (1/2) = pi^2/12 - (log 2)^2/2.
+- **name:** value_at_neg_one; **kind:** computation; **statement:** polylog 2 (-1) = -pi^2/12. A principal branch with the cut along (-infinity, 0] instead of [1, infinity) fails this.
+- **name:** value_at_one; **kind:** computation; **statement:** polylog 2 1 = pi^2/6.
+- **name:** derivative_recursion; **kind:** characterisation; **statement:** For z not in [1, infinity) and z != 0: z * deriv (polylog 3) z = polylog 2 z.
+- **name:** nonpositive_index; **kind:** degenerate; **statement:** polylog 0 z = z/(1 - z) and polylog (-1) z = z/(1 - z)^2 for z != 1.
+- **name:** jump_across_cut; **kind:** non-example; **statement:** polylog 1 (3 + i eps) - polylog 1 (3 - i eps) -> 2 pi i as eps -> 0+, so no continuous single-valued Li_1 exists on C - {0, 1}.
+
+**planet:** **name:** Classical n-logarithm
+
+**library:** **module:** TauCeti/Analysis/SpecialFunctions/Polylogarithm; **namespace:** TauCeti.Polylog
+
+#### The distribution relations of the classical polylogarithm
+
+`Polylogarithms:P.1/classical-distribution` — lemma
+
+For n >= 1, m >= 1 and z with zeta z not in [1, infinity) for every m-th root of unity zeta (so also z^m not in [1, infinity)): Li_n(z^m) = m^{n-1} sum_{zeta^m = 1} Li_n(zeta z). The same identity holds for n <= 0 whenever z^m != 1.
+
+**realises**
+
+- Polylogarithms:P.1
+
+**hypotheses**
+
+- n is an integer, m >= 1.
+- z lies in the star-shaped domain where every Li_n(zeta z) is analytic.
+
+**proofSteps**
+
+- On the disc compare coefficients, using sum_{zeta^m = 1} zeta^k = m if m divides k and 0 otherwise (mathlib:IsPrimitiveRoot.geom_sum_eq_zero).
+- Extend by the identity theorem on the domain, which is star-shaped about 0 and hence connected (mathlib:AnalyticOnNhd.eqOn_of_preconnected_of_eventuallyEq).
+
+**acceptance**
+
+- At n = 1, m = 2: -log(1 - z^2) = -log(1 - z) - log(1 + z) on the disc.
+- At n = 2, m = 2, z = 1/2: Li_2(1/4) = 2(Li_2(1/2) + Li_2(-1/2)).
+
+**prerequisites**
+
+- Polylogarithms:P.1/classical-polylogarithm
+- mathlib:IsPrimitiveRoot.geom_sum_eq_zero
+- mathlib:AnalyticOnNhd.eqOn_of_preconnected_of_eventuallyEq
+
+**sources**
+
+- **sourceId:** GR.2022; **locator:** 1.1, item 3 (PDF p. 4); **excerpt:** Although we do not know explicitly functional equations for n-logarithms for large n except a trivial one L_n(z) + (-1)^n L_n(z^{-1}) = 0, and the distribution relations; **match:** The source names the distribution relations; the form for Li_n stated here is the standard one, checked numerically by the reviewer for n = 1, ..., 4 and m = 2, 3.
+
+**implementationStatus:** unchecked
+
+**addedBy:** REV-Polylogarithms
+
+#### The inversion formula of the classical polylogarithm
+
+`Polylogarithms:P.1/classical-inversion` — lemma
+
+For n >= 1 and z in C - [0, infinity): Li_n(z) + (-1)^n Li_n(1/z) = -((2 pi i)^n/n!) B_n(1/2 + log(-z)/(2 pi i)), where B_n is the Bernoulli polynomial and log is the principal logarithm. On the unit circle this is Mathlib's hasSum_one_div_nat_pow_mul_fourier.
+
+**realises**
+
+- Polylogarithms:P.1
+
+**hypotheses**
+
+- n >= 1; z is not a non-negative real number.
+
+**proofSteps**
+
+- n = 1: -log(1 - z) + log(1 - 1/z) = -log(-z) on C - [0, infinity).
+- Apply z d/dz to both sides and use B_n' = n B_{n-1}; the two sides then differ by a constant.
+- Fix the constant at z = -1: B_n(1/2) = (2^{1-n} - 1) B_n and Li_n(-1) = (2^{1-n} - 1) zeta(n), with zeta(2k) from mathlib:riemannZeta_two_mul_nat; for odd n both sides vanish at z = -1.
+
+**acceptance**
+
+- At n = 2, z = -1: 2 Li_2(-1) = -pi^2/6.
+- Applying the parity projection gives the inversion relation of L_n in P.1/distribution-and-inversion.
+
+**prerequisites**
+
+- Polylogarithms:P.1/classical-polylogarithm
+- mathlib:Polynomial.bernoulli
+- mathlib:riemannZeta_two_mul_nat
+- mathlib:hasSum_one_div_nat_pow_mul_fourier
+
+**sources**
+
+- **sourceId:** GR.2022; **locator:** 1.1, item 3 (PDF p. 4); **excerpt:** Although we do not know explicitly functional equations for n-logarithms for large n except a trivial one L_n(z) + (-1)^n L_n(z^{-1}) = 0; **match:** The source states the single-valued consequence; the classical formula is not stated in the sources read. It extends mathlib:hasSum_one_div_nat_pow_mul_fourier from the unit circle, and the reviewer checked it numerically for n = 1, ..., 4 at four points (error below 5e-41).
+
+**implementationStatus:** unchecked
+
+**addedBy:** REV-Polylogarithms
+
+#### Zagier's single-valued polylogarithm
+
+`Polylogarithms:P.1/single-valued-polylogarithm` — definition
+
+For n >= 2 let pi_n : C -> R be z |-> Re z for n odd and z |-> Im z for n even (GR (1) writes the codomain as (2 pi i)^{n-1} R; see source issue Polylogarithms/E1). Define L_n(z) := pi_n(sum_{k=0}^{n-1} (2^k B_k/k!) Li_{n-k}(z) log^k|z|) for z in C, with the principal branches of P.1/classical-polylogarithm and Mathlib's Bernoulli numbers (B_1 = -1/2). The value does not depend on the branch: L_n is single-valued and real-analytic on C - {0, 1} (P.1/branch-change-and-monodromy). Its continuity on the projective line, with L_n(infinity) = 0, is P.1/single-valued-continuity. Its weight-two case is the Bloch-Wigner dilogarithm. GR's weight-one map {z}_1 |-> log|z| is a separate convention on B_1(C) and is not the case n = 1 of this formula, which gives -log|1 - z|.
+
+**realises**
+
+- Polylogarithms:P.1
+
+**hypotheses**
+
+- n >= 2 (the source prints n > 1).
+- z lies in C; the point infinity of the projective line is handled by the limit statement of P.1/single-valued-continuity.
+
+**proofSteps**
+
+- Define the parity projection pi_n and record which part it takes in each parity; the codomain is R.
+- Form the displayed combination with mathlib:bernoulli, whose convention B_1 = -1/2 gives 2 B_1/1! = -1, so that L_2 = Im Li_2 + arg(1 - z) log|z|; mathlib's bernoulli' (B_1 = +1/2) gives the wrong sign.
+- Prove single-valuedness from the jump formula of P.1/branch-change-and-monodromy: the jump of the combination across (1, infinity) is -2 pi i [t^{n-1}] (at/sinh(at)) e^{ibt} with a = log|z| and b = arg z, and pi_n kills it because at/sinh(at) is even with real coefficients.
+- Prove real-analyticity on C - {0, 1}: off the cut every term is real-analytic, and across the cut the two one-sided analytic continuations agree after pi_n by the previous step.
+- Record that the weight-two case is the Bloch-Wigner function, which is treated in its own node with its own API.
+
+**acceptance**
+
 - L_2 is the Bloch-Wigner function and satisfies the five-term relation.
-- L_n is continuous on the whole projective line, including at the three special points, but is
-  not analytic at them.
-- The Bernoulli coefficients are not free: changing one breaks single-valuedness, which is the
-  acceptance test.
-
-**Depends on.** **inside this roadmap** `classical-polylogarithm`; **baseline** `mathlib:bernoulli`, `mathlib:Polynomial.bernoulli`, `mathlib:Complex.log`, `mathlib:Complex.arg`.
-
-**Source.** GR.2022, 1.1, item 1 (PDF p. 3): “the following expression is a single-valued function on CP^1 - {0, 1, infinity}: L_n(z) := pi_n( sum_{k=0}^{n-1} (2^k B_k / k!) Li_{n-k}(z) log^k |z| ), n >= 1. Here B_k are the Bernoulli numbers ... For example, L_2(z) is the Bloch-Wigner dilogarithm. The function L_n(z) is continuous on CP^1.” — The definition, its single-valuedness, its continuity and the identification of the weight-two case, all as displayed.
-
-### `bloch-wigner-dilogarithm` — The Bloch-Wigner dilogarithm ★
-
-*definition* · planet **Bloch-Wigner dilogarithm**
+- L_3(1) = zeta(3) != 0: L_n does not vanish at 1 for odd n.
+- L_n is not real-differentiable at 0 or at 1 (test not_analytic_at_one).
+- The Bernoulli coefficients are pinned by single-valuedness together with continuity at infinity (equivalently, the clean inversion relation), not by single-valuedness alone: Ramakrishnan's coefficients (-1)^k/k! also give a single-valued function, which for n = 3 is unbounded near infinity.
 
-Define D(z) = Im Li_2(z) + arg(1 - z) log of the modulus of z on the cut domain, extended by
-zero at 0, 1 and infinity. It is the weight-two case of the single-valued polylogarithm, it is
-real analytic away from those three points and continuous on the whole projective line, and it
-is independent of the presentation used to write it. The principal argument is not used as a
-globally continuous function: the cut of the argument and the cut of the dilogarithm cancel, and
-the proof says where.
+**prerequisites**
 
-**Hypotheses.** z lies in the complex projective line.
+- Polylogarithms:P.1/classical-polylogarithm
+- Polylogarithms:P.1/branch-change-and-monodromy
+- mathlib:bernoulli
+- mathlib:Complex.log
+- mathlib:Complex.arg
 
-**Construction and proof.**
+**sources**
 
-1. Write the displayed expression on the cut domain, with the principal branch of Li_2 and the
-   principal argument.
-1. Prove that the jump of the imaginary part of Li_2 across its cut cancels the jump of the
-   argument term, so that the sum extends continuously across the cut.
-1. Extend by zero at the three special points and prove continuity there.
-1. Prove that the expression agrees with the weight-two case of the single-valued polylogarithm,
-   so that the two presentations define the same function.
-1. Prove conjugation, D at the conjugate is minus D, and inversion, D of the inverse is minus D;
-   deduce that D vanishes on the real points of the projective line.
-1. Prove the differential formula: dD is log of the modulus of z times d arg(1 - z) minus log of
-   the modulus of 1 - z times d arg z, which is the weight-two regulator form P.5 uses.
+- **sourceId:** GR.2022; **locator:** 1.1, item 1 (PDF p. 3); **excerpt:** the following expression is a single-valued function on CP^1 - {0, 1, infinity}: L_n(z) := pi_n( sum_{k=0}^{n-1} (2^k B_k / k!) Li_{n-k}(z) log^k |z| ), n > 1. Here B_k are the Bernoulli numbers ... For example, L_2(z) is the Bloch-Wigner dilogarithm. The function L_n(z) is continuous on CP^1.; **match:** The definition, its single-valuedness, its continuity and the identification of the weight-two case, as displayed, for n > 1.
 
-**API.**
+**implementationStatus:** unchecked
 
-| name | role | statement |
-| --- | --- | --- |
-| `blochWigner` | constructor | The function D on the complex projective line. |
-| `blochWigner_eq_singleValued` | compatibility | D is the weight-two case of the single-valued polylogarithm. |
-| `blochWigner_conj` | relation | D at the conjugate is minus D. |
-| `blochWigner_inv` | relation | D of the inverse is minus D. |
-| `blochWigner_real` | simp | D vanishes at every real point. |
-| `blochWigner_differential` | relation | The differential formula for dD. |
+**api**
 
-**Used by.** *P.2's weight-two regulator*: the regulator is D descended through the Bloch group. *K3BlochGroups V.3*: that layer's warning about torsion is about this function; its two reserved analytic nodes import from here, and the restructure entries of both packets propose that they become citations. *P.5's curve regulator*: the differential formula is the weight-two logarithmic expression the curve complex produces.
+- **name:** singleValuedPolylog; **role:** constructor; **statement:** The function L_n : C -> R for n >= 2, defined as above.
+- **name:** singleValuedPolylog_contDiffOn; **role:** characterisation; **statement:** L_n is real-analytic, in particular smooth, on C - {0, 1}.
+- **name:** singleValuedPolylog_zero; **role:** simp; **statement:** L_n(0) = 0 for n >= 2.
+- **name:** singleValuedPolylog_continuous; **role:** characterisation; **statement:** For n >= 2, L_n is continuous on C. Promoted to Polylogarithms:P.1/single-valued-continuity.
+- **name:** singleValuedPolylog_at_one; **role:** simp; **statement:** For n >= 2, L_n(1) = zeta(n) for n odd and 0 for n even. Promoted to Polylogarithms:P.1/single-valued-continuity.
+- **name:** singleValuedPolylog_tendsto_cocompact; **role:** characterisation; **statement:** For n >= 2, L_n(z) -> 0 as z -> infinity (Tendsto L_n (cocompact C) (nhds 0)), the value at infinity of the projective line. Promoted to Polylogarithms:P.1/single-valued-continuity.
+- **name:** singleValuedPolylog_conj; **role:** relation; **statement:** L_n(conj z) = (-1)^{n-1} L_n(z) for n >= 2. Promoted to Polylogarithms:P.1/distribution-and-inversion.
+- **name:** singleValuedPolylog_inv; **role:** relation; **statement:** For n >= 2 and z != 0: L_n(z) + (-1)^n L_n(1/z) = 0. Promoted to Polylogarithms:P.1/distribution-and-inversion.
 
-**Unit tests.**
+**uses**
 
-- `vanishes_on_reals` — D vanishes at every real point, by conjugation.
-- `value_at_i` — D at the imaginary unit is Catalan's constant.
-- `five_term` — The five-term relation holds, which is the next node.
-- `not_global_arg` — Replacing the principal argument by a global branch makes the formula
-  discontinuous: a non-example.
+- **where:** P.4's polylogarithm on the higher Bloch groups; **how:** L_n induces the map from B_n(C) to the reals (P.4/polylog-on-higher-bloch), which makes the relation subgroup a subgroup of functional equations
+- **where:** P.4's Zagier determinant; **how:** the entries of the regulator matrix are values of L_n at the embeddings
+- **where:** P.2's weight-two regulator; **how:** its weight-two case is the function descended through the Bloch group
 
-**Acceptance.**
+**tests**
 
-- D vanishes at 0, 1 and infinity and on the real line.
-- D at the imaginary unit is Catalan's constant.
-- D is real analytic off the three special points and continuous at them.
-- The definition does not use the argument as a global function; a definition that does is
-  discontinuous on the negative real axis.
+- **name:** weight_two_is_bloch_wigner; **kind:** compatibility; **statement:** singleValuedPolylog 2 z = (polylog 2 z).im + arg(1 - z) * log |z| for every z.
+- **name:** reality; **kind:** characterisation; **statement:** L_3(conj z) = L_3(z), while L_2(conj z) = -L_2(z).
+- **name:** value_at_one_odd; **kind:** computation; **statement:** singleValuedPolylog 3 1 = zeta(3).
+- **name:** bernoulli_sign; **kind:** non-example; **statement:** With bernoulli' (B_1 = +1/2) the weight-two formula Im Li_2(z) - arg(1 - z) log|z| jumps by 4 pi log x across x > 1 (about 13.806 at x = 3); with bernoulli it is continuous.
+- **name:** ramakrishnan_unbounded; **kind:** non-example; **statement:** pi_3(Li_3 - log|z| Li_2 + (1/2) log^2|z| Li_1) is single-valued but unbounded as z -> infinity, so it is not L_3.
+- **name:** not_analytic_at_one; **kind:** non-example; **statement:** not (DifferentiableAt R (singleValuedPolylog 2) 1).
 
-**Depends on.** **inside this roadmap** `classical-polylogarithm`, `single-valued-polylogarithm`; **baseline** `mathlib:Complex.arg`, `mathlib:Complex.log`.
+**planet:** **name:** Single-valued polylogarithm
 
-**Source.** GR.2022, 1.1, item 1 (PDF p. 3): “For example, L_2(z) is the Bloch-Wigner dilogarithm.” — The identification of the weight-two single-valued polylogarithm with the Bloch-Wigner function.
+**library:** **module:** TauCeti/Analysis/SpecialFunctions/Polylogarithm; **namespace:** TauCeti.Polylog
 
-### `bloch-wigner-five-term` — The five-term relation for the Bloch-Wigner function ★
+#### The Bloch-Wigner dilogarithm
 
-*theorem* · planet **Five-term relation for D**
+`Polylogarithms:P.1/bloch-wigner-dilogarithm` — definition
 
-For any five distinct points on the complex projective line the sum over the cyclic index of L_2
-of the cross-ratio of four consecutive points vanishes. Equivalently, in the usual form, the
-alternating sum over the five four-element subsets vanishes. Consequently D induces a
-homomorphism from the pre-Bloch group of the complex numbers to the reals, and by restriction
-from the Bloch group.
+Define D : C -> R by D(z) = Im Li_2(z) + arg(1 - z) log|z|, with the principal branch of P.1/classical-polylogarithm (lower-side values on (1, infinity)) and Mathlib's principal argument; since Mathlib sets log 0 = 0 and arg 0 = 0, the formula gives D(0) = D(1) = 0 with no special case. D equals L_2 of P.1/single-valued-polylogarithm, is real-analytic on C - {0, 1}, continuous on C, tends to 0 at infinity and vanishes on R. Across (1, infinity) the imaginary part of Li_2 jumps by 2 pi log x and arg(1 - z) log|z| by -2 pi log x, so the jumps cancel; dropping the argument term leaves a function discontinuous on (1, infinity).
 
-**Hypotheses.** The five points are distinct points of the complex projective line.
+**realises**
 
-**Construction and proof.**
+- Polylogarithms:P.1
 
-1. Define the cross-ratio in the normalisation of the source, which is the negative of the
-   cluster cross-ratio and is pinned by the value at the four points infinity, minus one, zero
-   and z being minus z.
-1. Prove the cyclic form of the relation by the standard argument: differentiate both sides
-   using the differential formula of the previous node and check that the resulting one-form
-   vanishes identically, then fix the constant at a degenerate configuration where all terms
-   vanish.
-1. Convert the cyclic form into the alternating form, using the inversion relation and the
-   identity relating the cross-ratio of a cyclic shift with the inverse cross-ratio.
-1. Check that the five arguments of the alternating form are the five arguments of the
-   normalisation of the five-term relation that K3BlochGroups V.3 fixes, so that the descent
-   below is through that presentation and no other.
-1. Apply the universal property of the pre-Bloch group: the assignment of D to a generator kills
-   the class of one and every five-term element, so it descends; restrict to the Bloch group.
-1. Record that the descended map kills torsion, because the reals are torsion free.
+**hypotheses**
 
-**Acceptance.**
+- z lies in C; the value at infinity is the limit 0.
 
-- The relation holds for one explicit five-tuple of algebraic points, checked with an error
-  bound, which is the acceptance test the roadmap names.
-- The descended map vanishes on the element c of the Bloch group, which is torsion.
-- The descended map is not zero on the Bloch group of the complex numbers, which is what makes
-  it a regulator.
+**proofSteps**
 
-**Depends on.** **inside this roadmap** `bloch-wigner-dilogarithm`; **other roadmaps** `K3BlochGroups:V.3`.
+- Write the displayed expression for every z in C, with the value of Li_2 on the cut fixed by polylog_one_eq_neg_log and the recursion.
+- Prove that the jump of Im Li_2 across (1, infinity) (2 pi log x, P.1/branch-change-and-monodromy) cancels the jump of arg(1 - z) log|z| (-2 pi log x), so D is continuous across the cut; off the cut the argument term is continuous by mathlib:Complex.continuousAt_arg.
+- Prove that the expression agrees with the weight-two case of the single-valued polylogarithm (2 B_1/1! = -1).
+- Prove conjugation D(conj z) = -D(z), inversion D(1/z) = -D(z) and D(1 - z) = -D(z); deduce that D vanishes on R.
+- Continuity at 0 and 1 and the limit 0 at infinity are the case n = 2 of P.1/single-valued-continuity.
 
-**Source.** GR.2022, 1.1, item 3 (PDF pp. 3-4): “recall the cross-ratio of four points on P^1(F): [s_1, s_2, s_3, s_4] := (s_1 - s_2)(s_3 - s_4) / ((s_1 - s_4)(s_3 - s_2)), [infinity, -1, 0, z] = -z. Then for any five distinct points s_1, ..., s_5 on CP^1 we have: sum_{i=1}^{5} L_2([s_i, s_{i+1}, s_{i+2}, s_{i+3}]) = 0, i in Z/5Z.” — The cross-ratio normalisation and the five-term relation, as displayed, together with the footnote converting the cyclic form into the alternating one.
+**acceptance**
 
-### `branch-change-and-monodromy` — Branch change and the cancellation of monodromy
+- D vanishes at 0 and 1, on the real line, and at infinity.
+- D(i) = sum_{k>=0} (-1)^k/(2k+1)^2, Catalan's constant 0.9159655941772190...
+- D is real analytic off 0 and 1 and continuous at them.
+- Im Li_2 jumps by 2 pi log x across x > 1 and arg(1 - z) log|z| jumps by -2 pi log x there, so D is continuous across (1, infinity); dropping the argument term leaves a function discontinuous on (1, infinity).
 
-*lemma*
+**prerequisites**
 
-Record the monodromy of the classical n-logarithm: continuing Li_n around the point 1 adds a
-multiple of 2 pi i times Li_{n-1} composed with the appropriate power of the logarithm, and
-continuing around 0 adds the corresponding lower-weight term. In the combination that defines
-the single-valued polylogarithm these contributions cancel after the parity projection. This is
-the lemma the roadmap asks to be proved before the global function is defined.
+- Polylogarithms:P.1/classical-polylogarithm
+- Polylogarithms:P.1/single-valued-polylogarithm
+- Polylogarithms:P.1/branch-change-and-monodromy
+- mathlib:Complex.arg
+- mathlib:Complex.log
+- mathlib:Complex.continuousAt_arg
 
-**Hypotheses.** n is at least two; the paths are loops in the complex plane with 0 and 1 removed.
+**sources**
 
-**Construction and proof.**
+- **sourceId:** GR.2022; **locator:** 1.1, item 1 (PDF p. 3); **excerpt:** For example, L_2(z) is the Bloch-Wigner dilogarithm.; **match:** The identification of the weight-two single-valued polylogarithm with the Bloch-Wigner function.
+- **sourceId:** Gonch.Arakelov.2004; **locator:** Introduction, item 4 (PDF p. 5); **excerpt:** It has a single-valued cousin, the Bloch-Wigner function: L2(z) := ImLi2(z) + arg(1 - z) log |z|; **match:** The defining formula, as displayed.
 
-1. Compute the monodromy of Li_2 around 1 from the integral representation and the residue of
-   the integrand, obtaining the standard term with the logarithm.
-1. Induct on n using the integral recursion to obtain the general monodromy formula.
-1. Substitute the monodromy formulas into the defining combination of L_n and check that the
-   terms cancel after applying the parity projection; the cancellation is exactly what forces
-   the Bernoulli coefficients.
-1. State the resulting single-valuedness as the input to the definition of L_n, not as a
-   consequence of it.
+**implementationStatus:** unchecked
 
-**Acceptance.**
+**api**
 
-- The weight-two case reproduces the familiar statement that Im Li_2 plus the argument term is
-  single valued.
-- The cancellation fails if the coefficients are changed, so the lemma pins the definition.
-- The lemma is about the multivalued continuation and cannot be stated for a single chosen
-  branch.
+- **name:** blochWigner; **role:** constructor; **statement:** The function D : C -> R defined above.
+- **name:** blochWigner_eq_singleValued; **role:** compatibility; **statement:** D = L_2, the weight-two single-valued polylogarithm.
+- **name:** blochWigner_zero; **role:** simp; **statement:** D(0) = 0.
+- **name:** blochWigner_one; **role:** simp; **statement:** D(1) = 0.
+- **name:** blochWigner_conj; **role:** relation; **statement:** D(conj z) = -D(z).
+- **name:** blochWigner_inv; **role:** relation; **statement:** D(1/z) = -D(z).
+- **name:** blochWigner_one_sub; **role:** relation; **statement:** D(1 - z) = -D(z).
+- **name:** blochWigner_real; **role:** simp; **statement:** D(x) = 0 for every real x.
+- **name:** blochWigner_continuous; **role:** characterisation; **statement:** D is continuous on C.
+- **name:** blochWigner_tendsto_cocompact; **role:** characterisation; **statement:** D(z) -> 0 as z -> infinity.
+- **name:** blochWigner_differential; **role:** relation; **statement:** The differential formula dD = log|z| d arg(1 - z) - log|1 - z| d arg z on C - {0, 1}. Promoted to Polylogarithms:P.1/bloch-wigner-differential.
+- **name:** blochWigner_pos; **role:** characterisation; **statement:** D(z) > 0 for Im z > 0. Promoted to Polylogarithms:P.1/bloch-wigner-positivity.
 
-**Depends on.** **inside this roadmap** `classical-polylogarithm`, `single-valued-polylogarithm`.
+**uses**
 
-**Source.** GR.2022, 1.1, item 1 (PDF p. 3): “The obtained multivalued analytic function has a single valued cousin. Namely, consider the projection given by pi_n ...” — The single-valued cousin whose existence this lemma proves.
+- **where:** P.2's weight-two regulator; **how:** the regulator is D descended through the Bloch group
+- **where:** K3BlochGroups V.3; **how:** that layer's warning about torsion is about this function; its two reserved analytic nodes import from here, and the restructure entries of both packets propose that they become citations
+- **where:** P.5's curve regulator; **how:** the differential formula is the weight-two logarithmic expression the curve complex produces
+- **where:** P.2's certified numerics; **how:** the reduction steps use D(1 - z) = -D(z), D(1/z) = -D(z) and D(conj z) = -D(z)
+- **where:** P.2's descent; **how:** D(x) + D(1 - x) = 0 is the statement that the element c is killed
 
-### `distribution-and-inversion` — Inversion, reality and distribution relations
+**tests**
 
-*lemma*
+- **name:** vanishes_on_reals; **kind:** computation; **statement:** blochWigner x = 0 for every real x, including x > 1 on the cut.
+- **name:** value_at_i; **kind:** computation; **statement:** blochWigner I = sum_{k>=0} (-1)^k/(2k+1)^2 (Catalan's constant, about 0.9159655941772190).
+- **name:** regular_tetrahedron; **kind:** computation; **statement:** blochWigner (exp(i pi/3)) = sum_{k>=1} sin(k pi/3)/k^2, about 1.0149416064096536, the maximum of D.
+- **name:** five_term; **kind:** characterisation; **statement:** D(i) - D(-1) + D(i) - D((1+i)/2) + D((1-i)/2) = 0, the two-variable five-term relation at x = i, y = -1 (each term is +-G or 0).
+- **name:** im_li2_jump; **kind:** non-example; **statement:** (polylog 2 (3 + i eps)).im - (polylog 2 (3 - i eps)).im -> 2 pi log 3 as eps -> 0+, so Im Li_2 alone is not continuous across the cut.
 
-For every n at least one the single-valued polylogarithm satisfies the inversion relation L_n(z)
-plus minus one to the n times L_n of the inverse equals zero, the reality relation L_n at the
-conjugate equals minus one to the n minus one times L_n, and the distribution relations
-inherited from the classical polylogarithm. The reality relation is not an algebraic functional
-equation and is recorded separately, as the source insists.
+**planet:** **name:** Bloch-Wigner dilogarithm
 
-**Hypotheses.** n is a positive integer.
+**library:** **module:** TauCeti/Analysis/SpecialFunctions/Polylogarithm; **namespace:** TauCeti.Polylog
 
-**Construction and proof.**
+#### The differential of the Bloch-Wigner function
 
-1. Derive the inversion relation from the corresponding relation for the classical polylogarithm
-   on the cut domain, and check that the parity projection converts it into the displayed form.
-1. Derive the reality relation from complex conjugation of the defining combination, using that
-   the Bernoulli coefficients are rational and that the projection interacts with conjugation by
-   the stated sign.
-1. Derive the distribution relations from those of the classical polylogarithm.
-1. Classify the three: inversion and distribution are algebraic functional equations and belong
-   to the relation subgroup of P.4; the reality relation is not, and the source says so.
+`Polylogarithms:P.1/bloch-wigner-differential` — lemma
 
-**Acceptance.**
+For z in C - {0, 1}, D is real-differentiable at z, with fderiv R D z v = -log|z| Im(v/(1 - z)) - log|1 - z| Im(v/z) for v in C; that is, dD = log|z| d arg(1 - z) - log|1 - z| d arg z.
 
-- At n = 2 inversion says D of the inverse is minus D.
-- At n = 3 reality says L_3 is invariant under conjugation, so it does not vanish on the reals,
-  unlike L_2.
-- The reality relation is excluded from the list of algebraic functional equations, which
-  matters for the definition of the relation subgroup in P.4.
+**realises**
 
-**Depends on.** **inside this roadmap** `single-valued-polylogarithm`.
+- Polylogarithms:P.1
 
-**Source.** GR.2022, 1.1, item 3 and footnote 4 (PDF p. 4): “Although we do not know explicitly functional equations for n-logarithms for large n except a trivial one L_n(z) + (-1)^n L_n(z^{-1}) = 0, and the distribution relations, one can define a subgroup of all functional equations. ... And the reality relation L_n(conjugate z) = (-1)^{n-1} L_n(z), which is not on the list of algebraic functional equations.” — The three relations and the classification, as displayed.
+**hypotheses**
 
-## P.2 — The weight-two regulator
+- z is neither 0 nor 1; off the cut the formula is computed directly, and on (1, infinity) it follows from continuity of D and of the right-hand side.
 
-The weight-two regulator, assembled rather than rebuilt. The Bloch group and the five-term
-normalisation come from `K3BlochGroups:V.3`, the configuration complex and cross-ratio from
-`K3BlochGroups:V.4`, the Borel/Deligne scalar from `BorelRegulators:R.7`, and the hyperbolic-
-manifold comparison stays with `ArithmeticQuantumTopology:QT.5`. What P.2 owns is the descent of
-`D` through that convention, the embedding-wise matrix with the real places proved to contribute
-zero, the Borel comparison with its sign and scalar, and a numerical evaluation that is a
-**separate function with an error theorem** — a value below its own error bound proves nothing.
+**proofSteps**
 
-### `bloch-wigner-descent` — Descent of the Bloch-Wigner function through the Bloch group ★
+- Off [1, infinity) differentiate Im Li_2 with polylog_deriv (d Li_2 = -log(1 - z) dz/z) and arg(1 - z) log|z| with the derivatives of Complex.log and Complex.arg; the terms Im(-log(1 - z) dz/z) and log|z| d arg(1 - z) + arg(1 - z) d log|z| combine to the displayed form.
+- On (1, infinity) both sides are continuous and D is continuous across the cut, so the formula extends.
 
-*construction* · planet **Descent of D to the Bloch group**
+**acceptance**
 
-Construct the homomorphism from the Bloch group of the complex numbers to the reals induced by
-the Bloch-Wigner function, through the pre-Bloch group in the convention that K3BlochGroups V.3
-fixes: the antisymmetric tensor quotient as the target of the boundary, and the five-term
-relations in that layer's normalisation. The descent is through that convention and no other; a
-second convention gives a different integral map with the same rationalisation.
+- Checked numerically by the reviewer at twelve point-direction pairs, including z = 4 on the cut.
 
-**Hypotheses.** The field is the complex numbers. The Bloch group is the one K3BlochGroups V.3 constructs.
+**prerequisites**
 
-**Construction and proof.**
+- Polylogarithms:P.1/bloch-wigner-dilogarithm
+- Polylogarithms:P.1/classical-polylogarithm
+- mathlib:Complex.hasStrictDerivAt_log
+- mathlib:Complex.continuousAt_arg
 
-1. Import the pre-Bloch group, the five-term relation, the boundary and the Bloch group from
-   K3BlochGroups V.3.
-1. Apply the universal property of the pre-Bloch group to the assignment of the Bloch-Wigner
-   value to a generator, which kills the class of one and every five-term element by the
-   previous layer's theorem.
-1. Restrict the resulting homomorphism to the Bloch group.
-1. Prove naturality for a field embedding into the complex numbers, which is what makes the
-   embedding-wise assembly of the next node possible.
-1. Record the two consequences the roadmap insists on: the map kills torsion, so it cannot
-   separate two integral conventions, and its composition with the comparison of conventions is
-   the corresponding map for the other convention.
+**sources**
 
-**API.**
+- **sourceId:** Gonch.Arakelov.2004; **locator:** proof of Lemma 6.9, (85), p. 57; **excerpt:** dL2 (z) = - log |1 - z|d arg z + log |z|d arg(1 - z); **match:** The differential formula, as displayed.
 
-| name | role | statement |
-| --- | --- | --- |
-| `blochWignerHom` | constructor | The homomorphism from the Bloch group of the complex numbers to the reals. |
-| `blochWignerHom_gen` | simp | Its value on the class of a generator is the Bloch-Wigner value. |
-| `blochWignerHom_torsion` | characterisation | It vanishes on every torsion element. |
-| `blochWignerHom_map` | functoriality | Naturality for a field embedding into the complex numbers. |
+**implementationStatus:** unchecked
 
-**Used by.** *P.2's embedding-wise regulator*: the regulator matrix is built from this map at each embedding. *K3BlochGroups V.6*: that layer exports the integral model through which this map is compared with the abstract regulator. *EllipticRegulators ER.2*: the Steinberg relation through the Bloch-Wigner function is stated there against this descent.
+**addedBy:** REV-Polylogarithms
 
-**Unit tests.**
+#### Positivity of the Bloch-Wigner function
 
-- `kills_c` — The image of the element c is zero.
-- `natural_in_embedding` — For a real embedding the map vanishes, by the conjugation relation.
-- `nonzero` — The map is not identically zero on the Bloch group of the complex numbers.
-- `convention_blind` — Two conventions differing by 2-torsion give the same descended map: a
-  non-example for identifying them.
+`Polylogarithms:P.1/bloch-wigner-positivity` — lemma
 
-**Acceptance.**
+On C - {0, 1}, the Laplacian of D is Delta D = -2 Im z/(|z|^2 |1 - z|^2). Consequently D is strictly superharmonic on the upper half-plane, where it is continuous up to the boundary with value 0 on R and at infinity, and so D(z) > 0 for Im z > 0 (and D(z) < 0 for Im z < 0).
 
-- The map kills the element c, which has order six.
-- The map is natural for an embedding of a number field into the complex numbers.
-- The map does not distinguish the Suslin convention from the Calegari-Garoufalidis-Zagier
-  convention, whose difference is 2-torsion.
+**realises**
 
-**Depends on.** **inside this roadmap** `bloch-wigner-five-term`, `bloch-wigner-dilogarithm`; **other roadmaps** `K3BlochGroups:V.3`.
+- Polylogarithms:P.1
 
-**Source.** Kbook.2013, VI.5.1 (PDF p. 495): “and Bloch's group B(F) is defined to be its kernel.” — The convention through which the function descends is the one fixed there.
+**hypotheses**
 
-### `weight-two-regulator` — The embedding-wise weight-two regulator of a number field ★
+- Im z > 0 for the positivity statement.
 
-*construction* · planet **Weight-two regulator**
+**proofSteps**
 
-For a number field F with r_2 complex places, construct the regulator map from the Bloch group
-of F to the real vector space indexed by the complex places, whose component at a place is the
-Bloch-Wigner descent evaluated after the corresponding embedding. Construct the associated
-determinant on an r_2-tuple of elements. Real places contribute zero, by the conjugation
-relation, and that vanishing is proved rather than assumed.
+- Differentiate the formula of P.1/bloch-wigner-differential once more: Im Li_2 is harmonic, and the product arg(1 - z) log|z| of two harmonic functions has Laplacian 2 grad arg(1 - z) . grad log|z| = -2 Im z/(|z|^2 |1 - z|^2).
+- Apply the strong minimum principle for superharmonic functions on the upper half-plane with boundary values 0 (a gap: the pinned Mathlib has the mean-value property of harmonic functions but no minimum principle for superharmonic ones).
 
-**Hypotheses.** F is a number field; the places are the infinite places of F. The elements are in the Bloch group of F.
+**acceptance**
 
-**Construction and proof.**
+- D(e^{i pi/3}) = 1.0149... > 0 and D(i) = G > 0.
+- Delta D at z = 0.3 + 0.7i is -2.4630541871..., as predicted.
 
-1. Import the infinite places and their embeddings, and the count of real and complex places.
-1. Define the component at a complex place by composing the map induced on Bloch groups by the
-   embedding with the Bloch-Wigner descent, and check that the choice between an embedding and
-   its conjugate changes only the sign, which the determinant absorbs.
-1. Prove that the component at a real place vanishes, using the conjugation relation for the
-   Bloch-Wigner function.
-1. Assemble the map into the vector space indexed by the complex places and define the
-   determinant of the resulting matrix on an r_2-tuple.
-1. Prove naturality for a field extension, with the transfer behaviour that the comparison with
-   the Borel class requires.
+**prerequisites**
 
-**API.**
+- Polylogarithms:P.1/bloch-wigner-differential
+- Polylogarithms:P.1/bloch-wigner-dilogarithm
 
-| name | role | statement |
-| --- | --- | --- |
-| `weightTwoRegulator` | constructor | The map from the Bloch group of F to the real vector space indexed by the complex places. |
-| `weightTwoRegulator_real_place` | simp | The component at a real place is zero. |
-| `weightTwoRegulator_det` | constructor | The determinant on an r_2-tuple of Bloch elements. |
-| `weightTwoRegulator_conj` | relation | Changing an embedding for its conjugate changes the component by a sign. |
-| `weightTwoRegulator_map` | functoriality | Naturality for a field extension. |
+**sources**
 
-**Used by.** *P.2's Borel comparison*: the comparison is stated for this map. *P.4's Zagier determinant*: the weight-n determinant is defined by the same pattern, with L_n in place of L_2. *SpecialValuesBirchTate B.8*: the statement infrastructure there uses the same normalised covolume pattern.
+- **sourceId:** Gonch.Arakelov.2004; **locator:** Introduction, item 5 (PDF p. 7); **excerpt:** formula relates its volume to the Bloch-Wigner function: vol I(z1 , ..., z4 ) = L2 (r(z1 , ..., z4 )); **match:** Positivity of the volume of a positively oriented ideal tetrahedron is the geometric meaning; the analytic proof through the Laplacian is the reviewer's, checked numerically at four points.
 
-**Unit tests.**
+**implementationStatus:** unchecked
 
-- `totally_real` — For a totally real field the regulator vanishes identically.
-- `imaginary_quadratic` — For an imaginary quadratic field the target is one dimensional.
-- `determinant_sign` — The determinant changes sign under a transposition of the chosen
-  elements, so it is defined up to a recorded sign.
-- `not_the_unit_regulator` — This is not the pinned weight-one unit regulator: a non-example,
-  since the two have different sources and targets.
+**addedBy:** REV-Polylogarithms
 
-**Acceptance.**
+#### The five-term relation for the Bloch-Wigner function
 
-- For a totally real field the regulator is zero, because every place is real.
-- For an imaginary quadratic field the target is one dimensional and the regulator of a nonzero
-  element is a single real number.
-- The determinant is well defined up to sign, and the sign convention is recorded rather than
-  left to the reader.
+`Polylogarithms:P.1/bloch-wigner-five-term` — theorem
 
-**Depends on.** **inside this roadmap** `bloch-wigner-descent`; **other roadmaps** `K3BlochGroups:V.3`; **baseline** `mathlib:NumberField.InfinitePlace`, `mathlib:NumberField.InfinitePlace.nrComplexPlaces`, `mathlib:NumberField.InfinitePlace.nrRealPlaces`, `mathlib:Matrix.det`.
+Let [s_1, s_2, s_3, s_4] := (s_1 - s_2)(s_3 - s_4)/((s_1 - s_4)(s_3 - s_2)) be the source's cross-ratio (so [infinity, -1, 0, z] = -z; it is written out explicitly, not imported). For any five distinct points s_1, ..., s_5 of the complex projective line, sum_{i in Z/5} D([s_i, s_{i+1}, s_{i+2}, s_{i+3}]) = 0; equivalently sum_{i=1}^5 (-1)^i D([s_1, ..., s_i-hat, ..., s_5]) = 0. In particular, for x != y in C - {0, 1}: D(x) - D(y) + D(y/x) - D((1 - x^{-1})/(1 - y^{-1})) + D((1 - x)/(1 - y)) = 0, which is the alternating form at (s_1, ..., s_5) = (infinity, 0, 1, x, y) and the normalisation of the five-term relation in the K-book and K3BlochGroups V.3.
 
-**Source.** GR.2022, 1.1, item 2 (PDF p. 3): “Then there exist elements y_1, ..., y_{r_2} in Q[F] satisfying a certain condition o_4 ... such that zeta_F(4) = pi^{4(r_1+r_2)} |d_F|^{-1/2} det(L_4(sigma_{r_1+i}(y_j))), 1 <= i, j <= r_2.” — The weight-four shape of the determinant; the weight-two case has the same shape with L_2, and is the theorem of Zagier's 1986 paper that the source cites.
+**realises**
 
-### `borel-comparison` — Comparison of the weight-two regulator with the Borel class ★
+- Polylogarithms:P.1
 
-*theorem* · planet **Borel comparison at weight two**
+**hypotheses**
 
-The embedding-wise weight-two regulator agrees, up to an explicit nonzero rational scalar and an
-explicit sign, with the Borel regulator on the indecomposable K_3 of the number field, under the
-comparison that K3BlochGroups V.4 supplies between that group and the Bloch group. The scalar
-and the sign are part of the statement.
+- The five points are distinct points of the complex projective line; in the two-variable form x, y are distinct points of C - {0, 1}.
 
-**Hypotheses.** F is a number field.
+**proofSteps**
 
-**Construction and proof.**
+- Fix x in C - {0, 1}. The function f(y) given by the two-variable sum is real-differentiable on C - {0, 1, x}, and df = 0 by P.1/bloch-wigner-differential together with the cross-ratio identity of P.1/five-cross-ratio-identity.
+- The set C - {0, 1, x} is connected (mathlib:Set.Countable.isConnected_compl_of_one_lt_rank, with rank_R C = 2), so f is constant.
+- As y -> 0, f(y) -> D(x) + D(1 - x) = 0, by continuity of D at 0 and blochWigner_one_sub.
+- The cyclic and alternating forms follow by the Mobius invariance of the cross-ratio and footnote 2 of the source ([s_2, s_3, s_4, s_1] = [s_1, s_2, s_3, s_4]^{-1}, with D(1/z) = -D(z)).
+- The descent through the pre-Bloch group is P.2/bloch-wigner-descent, not part of this node.
 
-1. Import Suslin's exact sequence from K3BlochGroups V.4, which identifies the Bloch group with
-   the indecomposable K_3 modulo the enhanced roots of unity.
-1. Import the Borel regulator and its comparison with the Beilinson-Deligne regulator, with its
-   scalar, from BorelRegulators R.7.
-1. Compare the two maps on the rationalised groups, where the enhanced torsion term dies, and
-   fix the scalar by evaluating both sides on a single explicit element.
-1. Record that the comparison is only after rationalisation: a real regulator kills torsion, so
-   it cannot be used to identify two integral models, and the roadmap forbids doing so.
-1. State the sign convention explicitly, and record which orientation of the embeddings it
-   depends on.
+**acceptance**
 
-**Acceptance.**
+- x = i, y = -1: D(i) - D(-1) + D(i) - D((1+i)/2) + D((1-i)/2) = 0, each term being +-G or 0.
+- x = i/2, y = (1+i)/2: D(i/2) - D((1+i)/2) + D(1 - i) - D(2 - i) + D((3+i)/2) = 0, with terms of size 0.5 to 0.9 (P.6/tests).
 
-- Both sides vanish for a totally real field.
-- The scalar is a specific nonzero rational, not an unspecified constant.
-- The comparison does not transfer to the integral groups, which is the limitation the statement
-  records.
+**prerequisites**
 
-**Depends on.** **inside this roadmap** `weight-two-regulator`; **other roadmaps** `K3BlochGroups:V.4`, `BorelRegulators:R.7`.
+- Polylogarithms:P.1/bloch-wigner-dilogarithm
+- Polylogarithms:P.1/five-cross-ratio-identity
+- Polylogarithms:P.1/bloch-wigner-differential
+- mathlib:Set.Countable.isConnected_compl_of_one_lt_rank
 
-**Source.** GR.2022, Theorem 1.3(iv) (PDF p. 6): “The following composition is a non-zero rational multiple of the Borel regulator map: K_7(C)_Q -> H^1 B(C; 4) -> R.” — The weight-four statement of exactly this shape; the weight-two case is the one attributed to Zagier's 1986 paper in the same passage.
+**sources**
 
-### `hyperbolic-volume` — The cross-ratio cocycle and the volume of an ideal tetrahedron
+- **sourceId:** GR.2022; **locator:** 1.1, item 3 (PDF pp. 3-4); **excerpt:** recall the cross-ratio of four points on P^1(F): [s_1, s_2, s_3, s_4] := (s_1 - s_2)(s_3 - s_4) / ((s_1 - s_4)(s_3 - s_2)), [infinity, -1, 0, z] = -z. Then for any five distinct points s_1, ..., s_5 on CP^1 we have: sum_{i=1}^{5} L_2([s_i, s_{i+1}, s_{i+2}, s_{i+3}]) = 0, i in Z/5Z.; **match:** The cross-ratio normalisation and the cyclic five-term relation, as displayed; footnote 2 converts it into the alternating form.
 
-*theorem*
+**implementationStatus:** unchecked
+
+**planet:** **name:** Five-term relation for D
+
+#### The cross-ratio identity behind the five-term relation
+
+`Polylogarithms:P.1/five-cross-ratio-identity` — lemma
+
+For pairwise distinct s_1, ..., s_5 in C, let x_i = [s_i, s_{i+1}, s_{i+2}, s_{i+3}] (indices mod 5, the cross-ratio of GR (3)). Then x_i is not 0 or 1, and 1 - x_i = -x_i x_{i+2}^{-1} x_{i+3}^{-1}.
+
+**realises**
+
+- Polylogarithms:P.1
+
+**hypotheses**
+
+- The s_i are pairwise distinct complex numbers (points at infinity by continuity).
+
+**proofSteps**
+
+- Clear denominators; the identity is a polynomial identity (field_simp; ring).
+
+**acceptance**
+
+- Checked exactly over Q(i) by the reviewer for 20 random 5-tuples.
+
+**prerequisites**
+
+
+**sources**
+
+- **sourceId:** GR.2022; **locator:** 1.1, item 3, (3) and (4) (PDF pp. 3-4); **excerpt:** recall the cross-ratio of four points on P^1(F): [s_1, s_2, s_3, s_4] := (s_1 - s_2)(s_3 - s_4) / ((s_1 - s_4)(s_3 - s_2)); **match:** The identity behind (4): with eta(f, g) = log|f| d arg g - log|g| d arg f, bilinear and antisymmetric with eta(f, -1) = 0, it gives sum eta(x_i, 1 - x_i) = 0.
+
+**implementationStatus:** unchecked
+
+**addedBy:** REV-Polylogarithms
+
+#### Branch change and the cancellation of monodromy
+
+`Polylogarithms:P.1/branch-change-and-monodromy` — lemma
+
+For n >= 1 the principal branch satisfies Li_n(x + i0) - Li_n(x - i0) = 2 pi i (log x)^{n-1}/(n-1)! for x > 1. Equivalently, continuation along a loop based in the unit disc that winds once counterclockwise around 1 and not around 0 sends Li_n to Li_n - 2 pi i (log z)^{n-1}/(n-1)!; the loop around 0 fixes the principal branch, which is analytic at 0, and sends log z to log z + 2 pi i. Consequently, for n >= 2 and real c_k, pi_n(sum_{k<n} c_k Li_{n-k}(z) log^k|z|) is continuous across (1, infinity) and real-analytic on C - {0, 1} if and only if the power series (sum_k c_k s^k) e^s has vanishing odd coefficients in degrees below n. The Bernoulli choice c_k = 2^k B_k/k! gives s/sinh s, which is even.
+
+**realises**
+
+- Polylogarithms:P.1
+
+**hypotheses**
+
+- n >= 1; x > 1 is a point of the cut; the c_k are real.
+
+**proofSteps**
+
+- The jump of Li_1 = -log(1 - z) across (1, infinity) is 2 pi i, by the jump of Complex.log across (-infinity, 0); integrate it through the recursion Li_{n+1}(z) = integral_0^1 Li_n(tz) t^{-1} dt to get the jump 2 pi i (log x)^{n-1}/(n-1)!.
+- Substitute the jumps into sum_k c_k Li_{n-k}(z) log^k|z|: with a = log|z| the jump is 2 pi i [t^{n-1}] (sum_k c_k (at)^k) e^{at} evaluated at the cut, and pi_n kills it exactly when the odd coefficients vanish in degrees below n.
+- For c_k = 2^k B_k/k!, sum_k c_k s^k = 2s/(e^{2s} - 1), so the product with e^s is s/sinh s, which is even.
+- State the resulting single-valuedness as the input to the definition of L_n, not as a consequence of it.
+
+**acceptance**
+
+- At n = 2: Im Li_2(x +- i0) = +- pi log x for x > 1, while arg(1 - z) jumps from -pi to +pi, so Im Li_2 + arg(1 - z) log|z| is continuous across the cut.
+- The criterion does not single out the Bernoulli coefficients: Ramakrishnan's c_k = (-1)^k/k! give (sum c_k s^k) e^s = 1, also single-valued; continuity at infinity is what pins the Bernoulli choice (P.1/single-valued-continuity).
+- The lemma is about the jump of the principal branch and cannot be stated for a single-valued function.
+
+**prerequisites**
+
+- Polylogarithms:P.1/classical-polylogarithm
+- mathlib:Complex.log
+
+**sources**
+
+- **sourceId:** GR.2022; **locator:** 1.1, item 1 (PDF p. 3); **excerpt:** The obtained multivalued analytic function has a single valued cousin. Namely, consider the projection given by pi_n ...; **match:** The single-valued cousin whose existence this lemma proves; the jump formula and the criterion are the reviewer's, checked numerically for n = 1, ..., 4 at x = 3.
+
+**implementationStatus:** unchecked
+
+#### Inversion, reality and distribution relations
+
+`Polylogarithms:P.1/distribution-and-inversion` — lemma
+
+For n >= 2: the inversion relation L_n(z) + (-1)^n L_n(1/z) = 0 for z != 0; the reality relation L_n(conj z) = (-1)^{n-1} L_n(z); and for m >= 1 the distribution relation L_n(z^m) = m^{n-1} sum_{zeta^m = 1} L_n(zeta z). The inversion relation fails for the formula at n = 1 (the defect is -log|z|). The reality relation is not an algebraic functional equation and is recorded separately, as the source insists.
+
+**realises**
+
+- Polylogarithms:P.1
+
+**hypotheses**
+
+- n >= 2 for every clause; z != 0 for inversion.
+
+**proofSteps**
+
+- Derive the inversion relation from P.1/classical-inversion: after the parity projection the Bernoulli polynomial term cancels against the log|z| terms, which is where the Bernoulli coefficients are used.
+- Derive the reality relation from polylog_conj and the rationality of the Bernoulli coefficients, with the sign by which pi_n interacts with conjugation.
+- Derive the distribution relation from P.1/classical-distribution.
+- Record the classification: inversion and distribution are algebraic functional equations of L_n; whether the corresponding elements lie in R_n(F) is not established by the sources read, and P.4 must not assume it. The reality relation is not an algebraic functional equation.
+
+**acceptance**
+
+- At n = 2 inversion says D(1/z) = -D(z).
+- L_3(1) = zeta(3) != 0, so L_3 does not vanish on the reals, unlike L_2.
+- At n = 1 the inversion relation fails: the defect is -log|z| (0.2724 at z = 0.3 + 0.7i).
+- The reality relation is excluded from the list of algebraic functional equations.
+
+**prerequisites**
+
+- Polylogarithms:P.1/single-valued-polylogarithm
+- Polylogarithms:P.1/classical-polylogarithm
+- Polylogarithms:P.1/classical-distribution
+- Polylogarithms:P.1/classical-inversion
+
+**sources**
+
+- **sourceId:** GR.2022; **locator:** 1.1, item 3 and footnote 4 (PDF p. 4); **excerpt:** Although we do not know explicitly functional equations for n-logarithms for large n except a trivial one L_n(z) + (-1)^n L_n(z^{-1}) = 0, and the distribution relations ... And the reality relation L_n(conjugate z) = (-1)^{n-1} L_n(z), which is not on the list of algebraic functional equations.; **match:** The three relations and the classification, as displayed.
+
+**implementationStatus:** unchecked
+
+#### Continuity of the single-valued polylogarithm on the projective line
+
+`Polylogarithms:P.1/single-valued-continuity` — lemma
+
+For n >= 2, L_n is continuous on C, L_n(0) = 0, L_n(1) = zeta(n) for n odd and 0 for n even, and L_n(z) -> 0 as z -> infinity, so L_n extends continuously to the projective line with L_n(infinity) = 0. L_n is not differentiable at 0, at 1 or at infinity.
+
+**realises**
+
+- Polylogarithms:P.1
+
+**hypotheses**
+
+- n >= 2.
+
+**proofSteps**
+
+- Continuity on C - {0, 1} follows from the definition and the single-valuedness of P.1/single-valued-polylogarithm.
+- At 0 each term Li_{n-k}(z) log^k|z| tends to 0, since Li_{n-k}(z) = O(|z|) and |z| log^k|z| -> 0.
+- At 1, Li_m is continuous at 1 for m >= 2 (continuity on the closed disc together with the jump formula, whose jump 2 pi i (log x)^{m-1}/(m-1)! tends to 0 as x -> 1), log^k|z| -> 0 for k >= 1, and Li_1(z) log^{n-1}|z| = -log(1 - z) log^{n-1}|z| -> 0; so L_n(z) -> pi_n(Li_n(1)) = pi_n(zeta(n)).
+- At infinity, by the inversion relation of P.1/distribution-and-inversion, L_n(z) = -(-1)^n L_n(1/z) -> 0.
+- Non-differentiability: the derivative of the term carrying log|z| (at 0 and infinity) or log|1 - z| (at 1) is unbounded.
+
+**acceptance**
+
+- L_3(1) = zeta(3) and L_2(1) = 0.
+- Without the Bernoulli coefficients a single-valued combination can be unbounded at infinity (Ramakrishnan's L_3), so this lemma is what pins the definition.
+
+**prerequisites**
+
+- Polylogarithms:P.1/single-valued-polylogarithm
+- Polylogarithms:P.1/distribution-and-inversion
+- Polylogarithms:P.1/classical-polylogarithm
+- Polylogarithms:P.1/branch-change-and-monodromy
+- mathlib:riemannZeta
+
+**sources**
+
+- **sourceId:** GR.2022; **locator:** 1.1, item 1 (PDF p. 3); **excerpt:** The function L_n(z) is continuous on CP^1.; **match:** The continuity statement, for n > 1.
+
+**implementationStatus:** unchecked
+
+**addedBy:** REV-Polylogarithms
+
+### Polylogarithms:P.2
+
+#### Descent of the Bloch-Wigner function through the Bloch group
+
+`Polylogarithms:P.2/bloch-wigner-descent` — construction
+
+Construct blochWignerPreHom : P(C) ->+ R, the homomorphism out of the pre-Bloch group of K3BlochGroups V.3 (generators [x] for x in C - {0}, [1] = 0, the five-term relations in the K-book normalisation) induced by [x] |-> D(x) through preBloch.lift, and blochWignerHom : B(C) ->+ R, its restriction to the Bloch group, the kernel of the boundary into the antisymmetric tensor quotient. The descent is through that convention and no other; a second convention gives a different integral map with the same rationalisation. Both maps kill torsion, because R is torsion-free. The element c = [x] + [1 - x] is sent to D(x) + D(1 - x) = 0; in B(C) itself c = 0 (K-book Cor. VI.5.4.1 as corrected in K3BlochGroups/E10), while c has order six in B(Q) and B(R), and its image along Q -> C is killed.
+
+**realises**
+
+- Polylogarithms:P.2
+
+**hypotheses**
+
+- The field is C; for naturality, F is a field with an embedding sigma : F -> C.
+- The pre-Bloch group and the Bloch group are those of K3BlochGroups V.3.
+
+**proofSteps**
+
+- Import the pre-Bloch group (K3BlochGroups:V.3/pre-bloch-group, with preBloch.lift), the five-term relation (V.3/five-term-relation) and the Bloch group (V.3/bloch-group, with blochGroup.map).
+- Apply preBloch.lift to x |-> D(x): D(1) = 0, and every five-term element is killed by the two-variable form of P.1/bloch-wigner-five-term, which is stated in exactly V.3's normalisation.
+- Restrict the resulting homomorphism to the Bloch group.
+- Prove naturality for a field embedding sigma : F -> C: the composite with preBloch.map sigma is [x] |-> D(sigma x).
+- Record the consequences the roadmap insists on: the map kills torsion, so it cannot separate two integral conventions, and its composition with the comparison of conventions is the corresponding map for the other convention.
+
+**acceptance**
+
+- The composite P(C) -> R sends c = [x] + [1 - x] to D(x) + D(1 - x) = 0 for every x; the descended map kills every torsion element, for instance the image of c in B(Q), of order six, under Q -> C.
+- The map is natural for an embedding of a number field into C.
+- The map does not distinguish the Suslin convention from the Calegari-Garoufalidis-Zagier convention, whose difference is 2-torsion.
+
+**prerequisites**
+
+- Polylogarithms:P.1/bloch-wigner-five-term
+- Polylogarithms:P.1/bloch-wigner-dilogarithm
+- K3BlochGroups:V.3/pre-bloch-group
+- K3BlochGroups:V.3/five-term-relation
+- K3BlochGroups:V.3/bloch-group
+
+**sources**
+
+- **sourceId:** Kbook.2013; **locator:** VI.5.1 (PDF p. 495); **excerpt:** and Bloch's group B(F) is defined to be its kernel.; **match:** The convention through which the function descends is the one fixed there.
+
+**implementationStatus:** unchecked
+
+**api**
+
+- **name:** blochWignerPreHom; **role:** constructor; **statement:** The homomorphism P(C) ->+ R, preBloch.lift applied to D.
+- **name:** blochWignerPreHom_gen; **role:** simp; **statement:** blochWignerPreHom [x] = D(x).
+- **name:** blochWignerHom; **role:** constructor; **statement:** The homomorphism B(C) ->+ R, the restriction of blochWignerPreHom.
+- **name:** blochWignerHom_gen; **role:** simp; **statement:** On an element of B(C) given by sum n_i [x_i], its value is sum n_i D(x_i).
+- **name:** blochWignerHom_torsion; **role:** characterisation; **statement:** It vanishes on every element of finite order.
+- **name:** blochWignerHom_map; **role:** functoriality; **statement:** For sigma : F -> C, blochWignerHom (blochGroup.map sigma b) = blochWignerPreHom of the image of b, computed generator by generator as D(sigma x).
+
+**uses**
+
+- **where:** P.2's embedding-wise regulator; **how:** the regulator matrix is built from this map at each embedding
+- **where:** K3BlochGroups V.6; **how:** that layer exports the integral model through which this map is compared with the abstract regulator
+- **where:** EllipticRegulators ER.2; **how:** the Steinberg relation through the Bloch-Wigner function is stated there against this descent
+
+**tests**
+
+- **name:** kills_c; **kind:** characterisation; **statement:** blochWignerPreHom ([x] + [1 - x]) = 0; at x = i this is D(i) + D(1 - i) = G - G.
+- **name:** vanishes_real_embedding; **kind:** degenerate; **statement:** For sigma : F -> C with real image, the composite with blochGroup.map sigma vanishes, since D vanishes on R.
+- **name:** conj_embedding; **kind:** characterisation; **statement:** For sigma : F -> C, the descent along conj o sigma is minus the descent along sigma.
+- **name:** nonzero; **kind:** computation; **statement:** [exp(i pi/3)] lies in B(C): its boundary w wedge (1 - w) = w wedge w^{-1} = -(w wedge w) vanishes, since C^x is 2-divisible and 2(a wedge a) = 0; and blochWignerHom [exp(i pi/3)] = D(exp(i pi/3)) = sum sin(k pi/3)/k^2 > (sqrt 3/2)(1 + 1/4 - 1/16 - 1/25) > 0.
+- **name:** convention_blind; **kind:** non-example; **statement:** Two conventions differing by 2-torsion give the same descended map, so equality of the real maps does not identify the integral groups.
+
+**planet:** **name:** Descent of D to the Bloch group
+
+**library:** **module:** TauCeti/NumberTheory/Regulators/WeightTwo; **namespace:** TauCeti.Regulator
+
+#### The embedding-wise weight-two regulator of a number field
+
+`Polylogarithms:P.2/weight-two-regulator` — construction
+
+For a number field F construct weightTwoRegulator : B(F) -> (complex places of F -> R), whose component at a complex place w is blochWignerHom o blochGroup.map(w.embedding), with Mathlib's choice w.embedding (mathlib:NumberField.InfinitePlace.embedding) in the conjugate pair; replacing it by its conjugate negates the component. For a real embedding the same composite vanishes because D vanishes on R, and that vanishing is proved rather than assumed. Construct the determinant det(D(sigma_{r_1+i}(y_j)))_{1<=i,j<=r_2} on an r_2-tuple of elements of B(F), with the complex places enumerated.
+
+**realises**
+
+- Polylogarithms:P.2
+
+**hypotheses**
+
+- F is a number field; the places are the infinite places of F.
+- The elements are in the Bloch group of F.
+
+**proofSteps**
+
+- Import the infinite places, their embeddings (InfinitePlace.embedding, IsReal, IsComplex) and the counts r_1, r_2.
+- Define the component at a complex place w by composing blochGroup.map(w.embedding) with blochWignerHom; prove that the conjugate embedding (ComplexEmbedding.conjugate) gives minus the component, by blochWigner_conj.
+- Prove that for a real embedding (ComplexEmbedding.isReal_iff) the composite vanishes, by blochWigner_real.
+- Assemble the map into the vector space indexed by the complex places and define the determinant of the resulting matrix on an r_2-tuple.
+- Prove naturality for a field embedding F -> L: the component at a complex place of L over a complex place v of F is the v-component, up to the sign recording whether the embeddings agree or are conjugate on F, and it is 0 over a real place of F.
+
+**acceptance**
+
+- For a totally real field the regulator is zero, because there is no complex place.
+- For F = Q(sqrt -3) the regulator of 2[w], w = exp(i pi/3), is +-2 D(exp(i pi/3)), and zeta_F(2) = (1/9) pi^2 3^{-1/2} 2 D(exp(i pi/3)) (checked numerically to 30 digits).
+- The determinant is well defined up to sign, and the sign convention is recorded rather than left to the reader.
+
+**prerequisites**
+
+- Polylogarithms:P.2/bloch-wigner-descent
+- mathlib:NumberField.InfinitePlace
+- mathlib:NumberField.InfinitePlace.embedding
+- mathlib:NumberField.InfinitePlace.IsReal
+- mathlib:NumberField.InfinitePlace.IsComplex
+- mathlib:NumberField.InfinitePlace.nrComplexPlaces
+- mathlib:NumberField.InfinitePlace.nrRealPlaces
+- mathlib:NumberField.ComplexEmbedding.conjugate
+- mathlib:NumberField.ComplexEmbedding.isReal_iff
+- mathlib:Matrix.det
+- K3BlochGroups:V.3/bloch-group
+
+**sources**
+
+- **sourceId:** GR.2022; **locator:** Theorem 1.1 (PDF p. 3); **excerpt:** Then there exist elements y_1, ..., y_{r_2} in Q[F] satisfying a certain condition *_4 ... such that zeta_F(4) = pi^{4(r_1+r_2)} |d_F|^{-1/2} det(L_4(sigma_{r_1+i}(y_j))), 1 <= i, j <= r_2.; **match:** The weight-four shape of the determinant; the map of this node has the same shape with L_2 = D. The weight-two theorem is cited in the source to Zagier's 1986 paper, which was not read.
+- **sourceId:** GR.2022; **locator:** 1.1, item 2 (PDF p. 3); **excerpt:** Similar results about zeta_F(2) and zeta_F(3) were proved in [Zag86] and [Gon91], [Gon95], respectively.; **match:** The weight-two case this regulator is built for.
+
+**implementationStatus:** unchecked
+
+**api**
+
+- **name:** weightTwoRegulator; **role:** constructor; **statement:** The map B(F) -> (complex places -> R), w |-> blochWignerHom (blochGroup.map w.embedding b).
+- **name:** weightTwoRegulator_real_place; **role:** simp; **statement:** For a real embedding sigma, blochWignerHom (blochGroup.map sigma b) = 0.
+- **name:** weightTwoRegulator_det; **role:** constructor; **statement:** The determinant on an r_2-tuple of Bloch elements.
+- **name:** weightTwoRegulator_conj; **role:** relation; **statement:** blochWignerHom (blochGroup.map (conjugate sigma) b) = - blochWignerHom (blochGroup.map sigma b).
+- **name:** weightTwoRegulator_map; **role:** functoriality; **statement:** Naturality for a field embedding F -> L, with the recorded signs.
+
+**uses**
+
+- **where:** P.2's Borel comparison; **how:** the comparison is stated for this map
+- **where:** P.4's Zagier determinant; **how:** the weight-n determinant is defined by the same pattern, with L_n in place of D
+- **where:** SpecialValuesBirchTate B.8; **how:** imports the normalised determinant pattern (the restructure entry records that P.4 owns it)
+- **where:** HabiroNahmSeries HB.3; **how:** the torsion criterion evaluates this map on explicit Bloch classes
+
+**tests**
+
+- **name:** totally_real; **kind:** degenerate; **statement:** For a totally real field the regulator vanishes identically.
+- **name:** determinant_sign; **kind:** characterisation; **statement:** The determinant changes sign under a transposition of the chosen elements or of two complex places.
+- **name:** conj_component; **kind:** characterisation; **statement:** Replacing the embedding at a complex place by its conjugate negates the component.
+- **name:** eisenstein_field; **kind:** computation; **statement:** F = Q(sqrt -3), w = exp(i pi/3) in F: 2[w] lies in B(F), since the boundary of [w] is w wedge w^{-1} = -(w wedge w), which 2 kills in the antisymmetric quotient; [w] itself does not, since w wedge w != 0 there (compare K3BlochGroups V.6). The regulator of 2[w] is +-2 D(exp(i pi/3)), about +-2.0298832128, and zeta_F(2) = (1/9) pi^2 3^{-1/2} 2 D(exp(i pi/3)).
+
+**planet:** **name:** Weight-two regulator
+
+**library:** **module:** TauCeti/NumberTheory/Regulators/WeightTwo; **namespace:** TauCeti.Regulator
+
+#### Comparison of the weight-two regulator with the Borel class
+
+`Polylogarithms:P.2/borel-comparison` — theorem
+
+There is q in Q^x such that, for every number field F, the composite K_3^ind(F)_Q -> B(F)_Q -> R^{complex places} (K3BlochGroups V.4's Suslin map, then P.2/weight-two-regulator) equals q times the Borel regulator of BorelRegulators R.4 at every complex place. The exact value of q and its sign are not established by the sources read: they need Goncharov's Sections 5.4 and 5.5 (unread) or Bloch's lectures, and BorelRegulators R.7 owns them (gap). The comparison holds only after rationalisation.
+
+**realises**
+
+- Polylogarithms:P.2
+
+**hypotheses**
+
+- F is a number field.
+
+**proofSteps**
+
+- Import Suslin's exact sequence (K3BlochGroups:V.4/suslin-exact-sequence) and the map to B(F) (V.4/psi-map), which identify B(F)_Q with K_3^ind(F)_Q.
+- Import the Borel classes and the Borel regulator at each complex place from BorelRegulators R.4 (reserved id BorelRegulators:R.4/borel-regulator).
+- By Goncharov's Theorem 1.1 at n = 2 with (11), the class of the Bloch-Wigner cocycle (P.2/bloch-wigner-cocycle) is a nonzero rational multiple of the Borel class b_3; pairing both with K_3(C) through the Hurewicz map gives the comparison with some q in Q^x. The proof of Theorem 1.1 is in Goncharov's Sections 4 and 5, which were not read (the gap on the Grassmannian half).
+- Record that the comparison is only after rationalisation: a real regulator kills torsion, so it cannot be used to identify two integral models, and the roadmap forbids doing so.
+- Record that the exact q and its sign are BorelRegulators R.7's (gap), so that no consumer reads them from this node.
+
+**acceptance**
+
+- Both sides vanish for a totally real field, which has no complex place.
+- The statement gives some q in Q^x and no more; K3BlochGroups V.6/regulator-agreement must take the exact scalar and sign from BorelRegulators R.7.
+- The comparison does not transfer to the integral groups, which is the limitation the statement records.
+
+**prerequisites**
+
+- Polylogarithms:P.2/weight-two-regulator
+- Polylogarithms:P.2/bloch-wigner-cocycle
+- K3BlochGroups:V.4/psi-map
+- K3BlochGroups:V.4/suslin-exact-sequence
+- BorelRegulators:R.4/borel-regulator
+
+**sources**
+
+- **sourceId:** Gonch.Arakelov.2004; **locator:** Introduction, item 6, Theorem 1.1 (PDF p. 8); **excerpt:** Theorem 1.1 The cohomology class of the Grassmannian cocycle (12) is a non zero rational multiple of the Borel class b2n-1 .; **match:** At n = 2, by (11), the Grassmannian cocycle is D of the cross-ratio, so its class is a nonzero rational multiple of b_3.
+- **sourceId:** Gonch.Arakelov.2004; **locator:** Introduction, item 6 (PDF p. 8); **excerpt:** For normalization of the Borel classes and precise relationship between the Grassmannian polylogarithms and the Borel regulator see Chapter 5, especially Sections 5.4 and 5.5.; **match:** Why the exact scalar is not fixed here: those sections were not read.
+
+**implementationStatus:** unchecked
+
+**planet:** **name:** Borel comparison at weight two
+
+#### The Bloch-Wigner cocycle of GL_2(C)
+
+`Polylogarithms:P.2/bloch-wigner-cocycle` — construction
+
+For x in the complex projective line and g_1, ..., g_4 in GL_2(C), set c_x(g_1, ..., g_4) = D(r(g_1 x, ..., g_4 x)), where r is Goncharov's cross-ratio, normalised by r(infinity, 0, 1, t) = t, and c_x = 0 when two of the points coincide. It is a measurable GL_2(C)-invariant homogeneous 3-cocycle, the cocycle identity being the alternating five-term relation, and its cohomology class does not depend on x.
+
+**realises**
+
+- Polylogarithms:P.2
+
+**hypotheses**
+
+- x is a point of the projective line; g_1, ..., g_4 are in GL_2(C).
+- r(a, b, c, d) = 1/cr(a, b, c, d) for the cross-ratio of K3BlochGroups:V.4/cross-ratio (cr(0, infinity, 1, t) = t); since D(1/t) = -D(t), using cr instead flips every sign.
+
+**proofSteps**
+
+- Invariance: r is invariant under the diagonal action of PGL_2(C).
+- Cocycle identity: sum_{i=0}^4 (-1)^i c_x(g_0, ..., g_i-hat, ..., g_4) = 0 is the alternating five-term relation of P.1/bloch-wigner-five-term (degenerate tuples give 0 on both sides).
+- Measurability: c_x is continuous off the closed set of degenerate tuples.
+- Independence of x: c_x - c_y is the coboundary of (g_1, g_2, g_3) |-> D(r(g_1 x, g_2 x, g_3 x, y))-type terms, as in the source's remark that different points give canonically cohomologous cocycles.
+
+**prerequisites**
+
+- Polylogarithms:P.1/bloch-wigner-five-term
+- Polylogarithms:P.1/bloch-wigner-dilogarithm
+- K3BlochGroups:V.4/cross-ratio
+- mathlib:Matrix.GeneralLinearGroup
+
+**sources**
+
+- **sourceId:** Gonch.Arakelov.2004; **locator:** Introduction, item 6, (12) (PDF p. 8); **excerpt:** For any point x in CP^{n-1} the function c^n_{2n-1}(g_1, ..., g_{2n}) := L^G_n(g_1 x, ..., g_{2n} x) (12) is a measurable (2n-1)-cocycle of the Lie group GL_n(C).; **match:** The cocycle at n = 2.
+- **sourceId:** Gonch.Arakelov.2004; **locator:** Introduction, item 5, (11) (PDF p. 7); **excerpt:** It follows from (8) that the Grassmannian dilogarithm is given by the Bloch-Wigner function: L^G_2(z_1, ..., z_4) = L_2(r(z_1, ..., z_4)) (11); **match:** Why the n = 2 cocycle is D of the cross-ratio.
+
+**implementationStatus:** unchecked
+
+**api**
+
+- **name:** blochWignerCocycle; **role:** constructor; **statement:** c_x(g_1, ..., g_4) := D(r(g_1 x, ..., g_4 x)), 0 on degenerate tuples.
+- **name:** blochWignerCocycle_smul; **role:** characterisation; **statement:** c_x(g g_1, ..., g g_4) = c_x(g_1, ..., g_4).
+- **name:** blochWignerCocycle_cocycle; **role:** relation; **statement:** The homogeneous cocycle identity.
+- **name:** blochWignerCocycle_measurable; **role:** characterisation; **statement:** c_x is measurable.
+- **name:** blochWignerCocycle_cohomologous; **role:** characterisation; **statement:** c_x and c_y differ by a coboundary, so the class does not depend on x.
+
+**uses**
+
+- **where:** P.2's Borel comparison; **how:** its class is compared with the Borel class b_3
+- **where:** BorelRegulators R.4 and R.7; **how:** the Borel class it is compared with lives there
+
+**tests**
+
+- **name:** standard_quadruple; **kind:** computation; **statement:** For x = 0, g_1 = (0 1; 1 0), g_2 = 1, g_3 = (1 1; 0 1), g_4 = (1 z; 0 1), the points are infinity, 0, 1, z, and c_x(g_1, ..., g_4) = D(z); at z = i this is Catalan's constant.
+- **name:** degenerate_tuple; **kind:** degenerate; **statement:** If g_1 x = g_2 x then c_x(g_1, ..., g_4) = 0.
+- **name:** cocycle_is_five_term; **kind:** characterisation; **statement:** The cocycle identity at (g_0, ..., g_4) sending x to infinity, 0, 1, a, b is the two-variable five-term relation at (a, b).
+- **name:** convention_sign; **kind:** non-example; **statement:** With V.4's cross-ratio cr in place of r the cocycle is -c_x: D(cr(infinity, 0, 1, z)) = -D(z).
+
+**library:** **module:** TauCeti/NumberTheory/Regulators/WeightTwo; **namespace:** TauCeti.Regulator
+
+**addedBy:** REV-Polylogarithms
+
+**acceptance**
+
+- The value at the standard quadruple (infinity, 0, 1, z) is D(z).
+- The cocycle identity is the alternating five-term relation.
+
+#### The cross-ratio cocycle and the volume of an ideal tetrahedron
+
+`Polylogarithms:P.2/hyperbolic-volume` — theorem
 
 For distinct points z_1, ..., z_4 of the complex projective line, the boundary of hyperbolic 3-space, the ideal tetrahedron I(z_1, ..., z_4) has oriented volume vol I(z_1, ..., z_4) = D(r(z_1, ..., z_4)), with Goncharov's cross-ratio r(infinity, 0, 1, x) = x, oriented so that (infinity, 0, 1, z) with Im z > 0 has positive volume D(z). Equivalently it is -D(cr(z_1, ..., z_4)) with K3BlochGroups V.4's cr(0, infinity, 1, x) = x, and -D([z_1, ..., z_4]) with GR's cross-ratio (3). The five-term relation is additivity of volume: the two triangulations, into 2 and into 3 ideal tetrahedra, of the convex hull of five ideal points give sum_i (-1)^i I(z_1, ..., z_i-hat, ..., z_5) = 0 as chains. Hyperbolic 3-space and its volume are imported from the Tau Ceti roadmap GeometricTopology, layer 7, and the manifold-level comparison is ArithmeticQuantumTopology QT.5's. P.2 is the sole owner of this ideal-tetrahedron identity, including the Milnor/Lobachevsky formula needed in its proof; QT.5 imports the result for its manifold-level volume sum.
 
-**Hypotheses and remaining gap.**
+**realises**
+
+- Polylogarithms:P.2
+
+**hypotheses**
 
 - The four points are distinct points of the complex projective line.
 - The volume is the Riemannian volume of hyperbolic 3-space of the GeometricTopology roadmap; Milnor's formula for the volume of an ideal tetrahedron through Lobachevsky's function is not in any source read and is recorded as a gap.
 
-P.2 owns the Milnor/Lobachevsky comparison needed below. Its proof remains a gap;
-the request to GeometricTopology supplies the ambient geometry and volume only.
-QT.5 owns the manifold Bloch invariant and its volume sum and imports this identity.
+**proofSteps**
 
-**Construction and proof.**
+- Import the cross-ratio from K3BlochGroups:V.4/cross-ratio and record the conversions r = 1/cr and [a, b, c, d] = 1 - 1/cr(a, b, c, d), so that D o r = -D o cr = -D o [ , , , ] (checked numerically).
+- By invariance, reduce to (infinity, 0, 1, z) with Im z > 0; by Milnor's formula (gap) its volume is L(alpha) + L(beta) + L(gamma) over the angles of the triangle (0, 1, z), which is D(z) by P.2/lobachevsky-identity.
+- Identify the five-term relation with the two triangulations, into 2 and into 3 ideal tetrahedra, of the convex hull of five ideal points.
+- Import hyperbolic 3-space, its Riemannian volume and ideal-tetrahedron geometry from GeometricTopology layer 7. Prove the tetrahedron volume identity only in P.2, retaining the Milnor/Lobachevsky proof gap here. ArithmeticQuantumTopology QT.5 consumes this identity to compare its manifold Bloch class with the sum of tetrahedron volumes; it is not an input to P.2.
 
-1. Import the cross-ratio from K3BlochGroups:V.4/cross-ratio and record the conversions r = 1/cr and [a, b, c, d] = 1 - 1/cr(a, b, c, d), so that D o r = -D o cr = -D o [ , , , ] (checked numerically).
-2. By invariance, reduce to (infinity, 0, 1, z) with Im z > 0; by Milnor's formula (gap) its volume is L(alpha) + L(beta) + L(gamma) over the angles of the triangle (0, 1, z), which is D(z) by P.2/lobachevsky-identity.
-3. Identify the five-term relation with the two triangulations, into 2 and into 3 ideal tetrahedra, of the convex hull of five ideal points.
-4. Import hyperbolic 3-space, its Riemannian volume and ideal-tetrahedron geometry from GeometricTopology layer 7. Prove the tetrahedron volume identity only in P.2, retaining the Milnor/Lobachevsky proof gap here. ArithmeticQuantumTopology QT.5 consumes this identity to compare its manifold Bloch class with the sum of tetrahedron volumes; it is not an input to P.2.
-
-**Acceptance.**
+**acceptance**
 
 - The volume is positive for a positively oriented tetrahedron (P.1/bloch-wigner-positivity) and changes sign under an odd permutation of the vertices.
 - The regular ideal tetrahedron, with cross-ratio a primitive sixth root of unity, has the maximal volume D(exp(i pi/3)) = 1.01494160640965...
 - The subdivision identity is the five-term relation.
 
-**Depends on.** `Polylogarithms:P.1/bloch-wigner-five-term`, `Polylogarithms:P.1/bloch-wigner-positivity`, `Polylogarithms:P.2/lobachevsky-identity`, `K3BlochGroups:V.4/cross-ratio`, `tauceti:TauCetiRoadmap/GeometricTopology#layer-7-riemannian-geometric-structures-and-volume`.
+**prerequisites**
 
-**Source.** Gonch.Arakelov.2004, abstract, introduction item 5 (PDF p. 7), and the
-cross-ratio convention in Section 6 (p. 53), as recorded in the packet. The abstract
-was rechecked on 2026-09-30; Section 7's proof was not read in this fix round.
+- Polylogarithms:P.1/bloch-wigner-five-term
+- Polylogarithms:P.1/bloch-wigner-positivity
+- Polylogarithms:P.2/lobachevsky-identity
+- K3BlochGroups:V.4/cross-ratio
 
-### `certified-numerics` — Certified numerical evaluation of the Bloch-Wigner function
+**sources**
 
-*construction*
+- **sourceId:** Gonch.Arakelov.2004; **locator:** Abstract and introduction (PDF p. 1); **excerpt:** For n = 2 we recover Lobachevsky's formula expressing the volume of an ideal geodesic simplex in the hyperbolic space via the dilogarithm.; **match:** The volume formula in the weight-two case, as the source states it.
+- **sourceId:** Gonch.Arakelov.2004; **locator:** Introduction, item 5 (PDF p. 7); **excerpt:** formula relates its volume to the Bloch-Wigner function: vol I(z1 , ..., z4 ) = L2 (r(z1 , ..., z4 )); **match:** The volume formula with Goncharov's cross-ratio, whose normalisation r(infinity, 0, 1, x) = x is fixed in his Section 6 (p. 53).
 
-Construct a numerical evaluation of the Bloch-Wigner function as a separate function of a point
-and a precision, together with an error theorem bounding the difference from the true value by
-an explicit expression in the precision. The numerical function is not the definition of the
-regulator, and an inequality between numerical values is not a proof that an exact value is
-nonzero unless the error bound is smaller than the gap; the statement says so.
+**implementationStatus:** unchecked
 
-**Hypotheses.** The point is a complex number with 0 and 1 removed, given by exact data. The precision is a positive integer.
+**uses**
 
-**Construction and proof.**
+- **where:** ArithmeticQuantumTopology QT.5; **how:** imports this identity for the volume of a hyperbolic manifold through its Bloch class, rather than proving it again
+- **where:** P.2's Borel comparison; **how:** Bloch's route to the identification of the regulator goes through this volume computation; the route planned here goes through the cocycle
 
-1. Reduce the argument into a region of fast convergence using the inversion and conjugation
-   relations and the Landen-type transformation, recording each reduction step as an exact
-   identity.
-1. Truncate the defining series at a length determined by the precision and bound the tail
-   explicitly.
-1. Bound the error contributed by the elementary terms, the logarithm and the argument, in terms
-   of the precision of the input.
-1. State the error theorem: the numerical value differs from the true value by at most the
-   displayed bound.
-1. State the separation lemma the consumers need: if the numerical value exceeds the bound in
-   absolute value then the true value is nonzero. A value alone proves nothing.
+**planet:** **name:** Lobachevsky's volume formula
 
-**API.**
+#### The Bloch-Wigner function through Lobachevsky's function
 
-| name | role | statement |
-| --- | --- | --- |
-| `blochWignerApprox` | constructor | The numerical evaluation, as a function of a point and a precision. |
-| `blochWignerApprox_error` | characterisation | The error theorem bounding the difference from the true value. |
-| `blochWignerApprox_ne_zero` | characterisation | If the numerical value exceeds the bound then the true value is nonzero. |
-| `blochWignerApprox_mono` | compatibility | The bound decreases as the precision increases. |
+`Polylogarithms:P.2/lobachevsky-identity` — lemma
 
-**Used by.** *P.6's tests*: the five-term relation at algebraic points is checked numerically only after this error theorem. *P.4's determinant identity*: a numerical check of the Zagier determinant is meaningful only with this bound.
+Let L(theta) = -integral_0^theta log|2 sin t| dt be Lobachevsky's function. For Im z > 0, D(z) = L(arg z) + L(arg(1/(1 - z))) + L(arg(1 - 1/z)); the three arguments lie in (0, pi), are the angles of the triangle with vertices 0, 1, z (at 0, at 1 and at z) and sum to pi.
 
-**Unit tests.**
+**realises**
 
-- `known_value` — At the imaginary unit the numerical value agrees with Catalan's constant to
-  the stated precision.
-- `bound_tends_to_zero` — The error bound tends to zero as the precision grows.
-- `zero_at_real` — At a real point the numerical value is within the bound of zero.
-- `not_a_proof` — A numerical value below the error bound does not prove nonvanishing: the non-
-  example the roadmap insists on.
+- Polylogarithms:P.2
 
-**Acceptance.**
+**hypotheses**
 
-- At a point where the true value is known exactly, for instance the imaginary unit, the
-  numerical value agrees to the stated precision.
+- Im z > 0.
+
+**proofSteps**
+
+- Both sides tend to 0 as z tends to a real point or to infinity: the angles degenerate to 0 or pi, where L vanishes, and D vanishes on the boundary.
+- The differentials agree: dL(theta) = -log|2 sin theta| d theta, and by the law of sines the terms combine to log|z| d arg(1 - z) - log|1 - z| d arg z (P.1/bloch-wigner-differential).
+- Hence the difference is constant on the connected upper half-plane, and the constant is 0.
+
+**acceptance**
+
+- At z = exp(i pi/3) the triangle is equilateral and D = 3 L(pi/3) = 1.01494160640965...
+- At z = i the angles are pi/2, pi/4, pi/4 and D(i) = 2 L(pi/4) = G.
+
+**prerequisites**
+
+- Polylogarithms:P.1/bloch-wigner-dilogarithm
+- Polylogarithms:P.1/bloch-wigner-differential
+- mathlib:intervalIntegral
+
+**sources**
+
+- **sourceId:** Gonch.Arakelov.2004; **locator:** Abstract (PDF p. 1); **excerpt:** For n = 2 we recover Lobachevsky's formula expressing the volume of an ideal geodesic simplex in the hyperbolic space via the dilogarithm.; **match:** The analytic half of Lobachevsky's formula; Goncharov's proof (Section 7) was not read, and the reviewer checked the identity numerically to 1e-40 at z = 0.3 + 0.7i.
+
+**implementationStatus:** unchecked
+
+**addedBy:** REV-Polylogarithms
+
+#### Certified numerical evaluation of the Bloch-Wigner function
+
+`Polylogarithms:P.2/certified-numerics` — construction
+
+Construct blochWignerApprox : Q x Q -> N -> Q, a computable function taking a Gaussian rational z = a + bi in Q(i) - {0, 1} and a precision p, together with the error theorem of P.2/certified-numerics-error bounding |blochWignerApprox z p - D(z)| by 2^{-p}. The numerical function is not the definition of the regulator, and a numerical value is not a proof that an exact value is nonzero unless its absolute value exceeds the error bound; the statement says so. Because the input is exact and the output rational, the error theorem cannot be satisfied by defining the approximation to be D itself.
+
+**realises**
+
+- Polylogarithms:P.2
+
+**hypotheses**
+
+- The point is a Gaussian rational z in Q(i) - {0, 1}, given as a pair of rationals.
+- The precision is a natural number p, and the target accuracy is 2^{-p}.
+
+**proofSteps**
+
+- Reduce the argument into a region of fast convergence using D(1/z) = -D(z), D(1 - z) = -D(z) and D(conj z) = -D(z) (P.1/bloch-wigner-dilogarithm), recording each reduction step as an exact identity.
+- Away from the unit circle truncate the series of Li_2 at a length determined by the precision and bound the tail explicitly. Near |z| = 1, where the reduction cannot help (the orbit of exp(+-i pi/3) under z |-> 1 - z and z |-> 1/z stays on the circle and the series tail is about 1/N), use Li_2(e^w) = zeta(2) + w(1 - log(-w)) + sum_{k>=2} zeta(2 - k) w^k/k! for |w| < 2 pi, which converges geometrically (gap: not in the sources read; checked numerically to 2e-31 at w = i pi/3).
+- Bound the error of the elementary terms, the logarithm and the argument, by rational interval arithmetic.
+- The error theorem and the separation lemma are P.2/certified-numerics-error.
+
+**acceptance**
+
+- At a point where the true value is known exactly, for instance the imaginary unit, the numerical value agrees to the stated precision.
 - The error bound tends to zero as the precision grows.
-- A numerical value smaller than the error bound proves nothing, which is the non-example the
-  roadmap asks for.
+- A numerical value smaller than the error bound proves nothing, which is the non-example the roadmap asks for.
 
-**Depends on.** **inside this roadmap** `bloch-wigner-dilogarithm`, `distribution-and-inversion`.
+**prerequisites**
 
-**Source.** GR.2022, 1.1, item 2 (PDF p. 3): “Zagier's conjecture predicts that the classical regulator formula ... has analogs for zeta_F(n) for any positive integer n.” — The determinant identities these numerics are used to test; the source states them exactly, and the numerical evaluation is a separate object.
+- Polylogarithms:P.1/bloch-wigner-dilogarithm
+- Polylogarithms:P.1/distribution-and-inversion
+- Polylogarithms:P.1/classical-polylogarithm
+- mathlib:riemannZeta
 
-## P.3 — Weight-three polylogarithmic complexes
+**sources**
 
-Goncharov's complexes, in the rational convention of the source: `B_n(F) → B_{n-1}(F)⊗F^×_Q → …
-→ Λ^n F^×_Q` in degrees `1..n`. The weight-three case `B_3(F) → B_2(F)⊗F^× → Λ³F^×` is the
-layer's subject, and `d² = 0` is proved where it is visible: `{x} ↦ {x}_2 ⊗ x ↦ (1−x) ∧ x ∧ x =
-0`. Residues, transfers and functoriality follow, then the comparison from the weight-three
-Adams piece — with its degree range, since the general isomorphism is a conjecture in the source
-and is labelled one here — and the weight-three special value.
+- **sourceId:** GR.2022; **locator:** 1.1, item 2 (PDF p. 3); **excerpt:** Zagier's conjecture predicts that the classical regulator formula ... has analogs for zeta_F(n) for any positive integer n.; **match:** The determinant identities these numerics are used to test; the source states them exactly, and the numerical evaluation is a separate object.
 
-### `polylogarithmic-complex` — Goncharov's polylogarithmic complexes ★
+**implementationStatus:** unchecked
 
-*construction* · planet **Polylogarithmic complexes**
+**api**
 
-For a field F and a weight n construct the weight-n polylogarithmic motivic complex, placed in
-degrees one to n: B_n(F) at degree one, then B_{n-1}(F) tensor the rationalised units, then
-B_{n-2}(F) tensor the second exterior power, and so on, ending with the n-th exterior power of
-the rationalised units. The differential has degree plus one and is induced by the map delta_n
-defined in P.4. The first four complexes are written out, and the weight-three one is the
-complex this layer is about. All groups are rational, following the source's convention, which
-differs from the integral one by tensoring.
+- **name:** blochWignerApprox; **role:** constructor; **statement:** The computable approximation Q x Q -> N -> Q.
+- **name:** blochWignerApprox_error; **role:** characterisation; **statement:** |blochWignerApprox z p - D(z)| <= 2^{-p}. Promoted to Polylogarithms:P.2/certified-numerics-error.
+- **name:** blochWignerApprox_ne_zero; **role:** characterisation; **statement:** If |blochWignerApprox z p| > 2^{-p} then D(z) != 0. Promoted to Polylogarithms:P.2/certified-numerics-error.
+- **name:** blochWignerApprox_mono; **role:** compatibility; **statement:** The error bound 2^{-p} decreases as p grows.
 
-**Hypotheses.** F is a field. n is a positive integer. All groups are tensored with the rationals.
+**uses**
 
-**Construction and proof.**
+- **where:** P.6's tests; **how:** the five-term relation at algebraic points is checked numerically only after this error theorem
+- **where:** P.4's determinant identity; **how:** a numerical check of the Zagier determinant is meaningful only with this bound
 
-1. Import the higher Bloch groups and the map delta_n from P.4.
-1. Form the displayed terms, with the exterior powers taken over the rationals.
-1. Define the differential in each degree as delta tensored with the identity on the exterior
-   factor, with the sign convention recorded.
-1. Prove that consecutive differentials compose to zero, which for the first step is the
-   computation the source displays and in general follows from it by tensoring.
-1. Write out the first four complexes explicitly and check that the weight-one complex is the
-   rationalised units and the weight-two complex is the Bloch complex.
-1. Record the convention difference: the source's groups are rational, and the integral version
-   of Goncharov is a different object whose comparison is stated but not proved here.
+**tests**
 
-**API.**
+- **name:** known_value; **kind:** computation; **statement:** |blochWignerApprox (0, 1) p - sum_{k<N} (-1)^k/(2k+1)^2| <= 2^{-p} + 1/(2N+1)^2 for all N.
+- **name:** bound_tends_to_zero; **kind:** characterisation; **statement:** The error bound tends to zero as the precision grows.
+- **name:** zero_at_real; **kind:** degenerate; **statement:** For a real rational a != 0, 1: |blochWignerApprox (a, 0) p| <= 2^{-p}.
+- **name:** not_a_proof; **kind:** non-example; **statement:** A numerical value whose absolute value is below the error bound does not prove nonvanishing: |blochWignerApprox (2, 0) p| <= 2^{-p}, and indeed D(2) = 0.
 
-| name | role | statement |
-| --- | --- | --- |
-| `polylogComplex` | data | The weight-n complex in degrees one to n. |
-| `polylogComplex_d_comp_d` | relation | Consecutive differentials compose to zero. |
-| `polylogComplex_one` | compatibility | The weight-one complex is the rationalised units. |
-| `polylogComplex_two` | compatibility | The weight-two complex is the rationalised Bloch complex. |
-| `polylogComplex_map` | functoriality | A field homomorphism induces a map of complexes. |
+**library:** **module:** TauCeti/NumberTheory/Regulators/WeightTwo; **namespace:** TauCeti.Regulator
 
-**Used by.** *P.3's weight-three special value*: the theorem is about the first cohomology of the weight-three complex. *P.4's condition o_n*: the condition is membership in the first cohomology of the weight-n complex. *P.5's curve complexes*: the curve complexes are built from these by residues along the places of the function field.
+#### The error theorem for the certified Bloch-Wigner numerics
 
-**Unit tests.**
+`Polylogarithms:P.2/certified-numerics-error` — theorem
 
-- `weight_two_is_bloch` — The weight-two complex is the rationalised Bloch complex.
-- `d_squared_weight_three` — In weight three the composite of the two differentials is zero.
-- `degrees` — The complex is supported in degrees one to n.
-- `not_integral` — The groups are rational: the integral complex of Goncharov is a different
-  object, and the two are not identified here.
+For z in Q(i) - {0, 1} and p in N: |blochWignerApprox z p - D(z)| <= 2^{-p}. Consequently, if |blochWignerApprox z p| > 2^{-p} then D(z) != 0, and if two approximations differ by more than 2^{-p} + 2^{-q} then the two values of D differ.
 
-**Acceptance.**
+**realises**
 
-- The weight-one complex is the rationalised units in degree one.
-- The weight-two complex is B_2(F) to the second exterior power, which is the rationalised Bloch
-  complex of K3BlochGroups V.3.
-- The composite of two differentials is zero, checked in weight three where it is the first
-  nontrivial case.
-- The complex is in degrees one to n; a shifted indexing changes every cohomology statement
-  below.
+- Polylogarithms:P.2
 
-**Depends on.** **inside this roadmap** `higher-bloch-group`, `delta-map`; **baseline** `mathlib:TensorProduct`, `mathlib:exteriorPower.map`, `mathlib:Additive`.
+**proofSteps**
 
-**Source.** GR.2022, 1.1, item 4 (PDF p. 5): “So we get a complex in the degrees [1, n], where B_n(F) is in the degree 1, and the differential has degree +1, called the weight n polylogarithmic motivic complex: B(F; n) : B_n(F) -> B_{n-1}(F) tensor F^x_Q -> B_{n-2}(F) tensor Lambda^2 F^x_Q -> ... -> Lambda^n F^x_Q.” — The complex and its indexing, as displayed, together with the first four instances.
+- Sum the error bounds of the reduction, the truncation (or the expansion near the circle) and the elementary terms.
+- The separation lemma follows by the triangle inequality.
 
-### `weight-three-complex` — The weight-three complex and its differential-square-zero proof ★
+**acceptance**
 
-*theorem* · planet **The weight-three complex**
+- At z = i and p = 20 the approximation lies within 2^{-20} of Catalan's constant.
+- The five-term sum at the points of P.6/tests is within 5 * 2^{-p} of 0.
 
-The weight-three polylogarithmic complex is B_3(F) to B_2(F) tensor the rationalised units to
-the third exterior power of the rationalised units, and the composite of its two differentials
-is zero. Explicitly, the class of x in B_3 maps to the class of x in B_2 tensor x, which maps in
-turn to (1 - x) wedge x wedge x, and that vanishes.
+**prerequisites**
 
-**Hypotheses.** F is a field; all groups are rational.
+- Polylogarithms:P.2/certified-numerics
+- Polylogarithms:P.1/bloch-wigner-dilogarithm
 
-**Construction and proof.**
+**sources**
 
-1. Write the two differentials explicitly on generators, using the definition of delta in each
-   weight.
-1. Compute the composite on a generator: the class of x goes to the class of x in B_2 tensor x,
-   and then to (1 - x) wedge x wedge x.
-1. Observe that the result vanishes because a wedge with a repeated entry is zero in the
-   rationalised exterior power; this is where rationality is used, and the integral statement
-   needs the corresponding care.
-1. Extend from generators to the whole group by linearity and by the definition of B_3 as a
-   quotient.
-1. Record that the analogous computation in every weight is the general statement of the
-   previous node.
+- **sourceId:** GR.2022; **locator:** 1.1, item 2 (PDF p. 3); **excerpt:** Zagier's conjecture predicts that the classical regulator formula ... has analogs for zeta_F(n) for any positive integer n.; **match:** The determinant identities these numerics are used to test; the source states them exactly, and the numerical evaluation is a separate object.
 
-**Acceptance.**
+**implementationStatus:** unchecked
+
+**addedBy:** REV-Polylogarithms
+
+**hypotheses**
+
+- z is a Gaussian rational other than 0 and 1; p is a natural number.
+
+### Polylogarithms:P.3
+
+#### Goncharov's polylogarithmic complexes in weights at most three
+
+`Polylogarithms:P.3/polylogarithmic-complex` — construction
+
+For an infinite field F and n in {1, 2, 3}, the weight-n polylogarithmic motivic complex B(F; n) in degrees [1, n], with the group of weight n in degree 1 and the differential of degree +1, built on the explicit groups of GR v5 Section 1.2: B(F; 1) = F^x_Q; B(F; 2) : B_2(F) -> Lambda^2 F^x_Q; B(F; 3) : B_3(F) -> B_2(F) tensor F^x_Q -> Lambda^3 F^x_Q. Here F^x_Q = F^x tensor Q, B_2(F) is P(F) tensor Q for the pre-Bloch group P(F) of K3BlochGroups V.3 (GR's explicit B_2(F) = Q[F]/R_2(F), with the same five-term relations), and B_3(F) is the group of P.3/trilogarithm-group. The differentials are d{x}_2 = (1 - x) wedge x, d({x}_2 tensor y) = (1 - x) wedge x wedge y and d{x}_3 = {x}_2 tensor x. The general weight, built on the inductive groups of P.4, is P.4/general-polylog-complex.
+
+**realises**
+
+- Polylogarithms:P.3
+
+**hypotheses**
+
+- F is an infinite field (GR v5, Conventions, p. 4).
+- n is 1, 2 or 3.
+- All groups are Q-vector spaces, following the source.
+
+**proofSteps**
+
+- Import P(F) tensor Q with its boundary from K3BlochGroups V.3 (pre-bloch-group, bloch-boundary, antisym-exterior-comparison) and set d{x}_2 = (1 - x) wedge x, which is -(toExterior o bloch-boundary) tensor Q because V.3's boundary is [x] |-> x wedge (1 - x).
+- Import B_3(F) and delta_3 : B_3(F) -> B_2(F) tensor F^x_Q from P.3/trilogarithm-group.
+- Define B_2(F) tensor F^x_Q -> Lambda^3 F^x_Q by {x}_2 tensor y |-> (1 - x) wedge x wedge y, using the wedge product of the graded exterior algebra (mathlib:ExteriorAlgebra.gradedAlgebra); it is well defined because d{x}_2 is.
+- Prove d o d = 0 in weight three (P.3/weight-three-complex); in weights one and two there is nothing to prove.
+- Assemble each weight as a cochain complex of Q-vector spaces concentrated in degrees 1 to n.
+- Record the convention difference: the source's groups are rational, and Goncharov's integral complexes Gamma(F, n) are different objects, not identified here.
+
+**acceptance**
+
+- The weight-one complex is F^x_Q in degree one.
+- The weight-two complex is P(F) tensor Q -> Lambda^2 F^x_Q, whose H^1 is B(F) tensor Q (K3BlochGroups V.3), with the differential of opposite sign to V.3's boundary.
+- Over Q: d({2}_2 tensor 3) = (-1) wedge 2 wedge 3 = 0, while d({3}_2 tensor 5) = 2 wedge 3 wedge 5 != 0.
+- The complex is in degrees one to n; a shifted indexing changes every cohomology statement below.
+
+**prerequisites**
+
+- Polylogarithms:P.3/trilogarithm-group
+- K3BlochGroups:V.3/pre-bloch-group
+- K3BlochGroups:V.3/five-term-relation
+- K3BlochGroups:V.3/bloch-boundary
+- K3BlochGroups:V.3/antisym-exterior-comparison
+- mathlib:ExteriorAlgebra.exteriorPower
+- mathlib:exteriorPower.ιMulti
+- mathlib:ExteriorAlgebra.gradedAlgebra
+- mathlib:TensorProduct
+- mathlib:Additive
+- mathlib:CochainComplex
+
+**sources**
+
+- **sourceId:** GR.2026; **locator:** Section 1.2 (PDF p. 9); **excerpt:** A deep result of Suslin ([Sus90, Corollary 5.6]) implies that the natural map B2(F) -> B2(F) is an isomorphism.; **match:** The explicit weight-two group, identified with the inductive one for infinite fields.
+- **sourceId:** GR.2026; **locator:** Section 1.2, (19) (PDF p. 9); **excerpt:** Let us denote by R3(F) the subspace of Q[F] generated by the elements {x}_3 - {x^{-1}}_3, {x}_3 + {1 - x}_3 + {1 - x^{-1}}_3 - {1}_3 for all x in F^x (19) and the 22-term relation [Gon95, Formula 1.10, Theorem 1.3] for the trilogarithm.; **match:** The explicit weight-three group.
+- **sourceId:** Gonch.Arakelov.2004; **locator:** Section 6.1 (PDF p. 52); **excerpt:** where delta_n({x}_k tensor Y) := {x}_{k-1} tensor x wedge Y for k > 2, and (1 - x) wedge x wedge y for k = 2, called the weight n polylogarithmic complex.; **match:** The differentials on generators, including the case k = 2.
+
+**implementationStatus:** unchecked
+
+**api**
+
+- **name:** polylogComplex; **role:** data; **statement:** The weight-n complex for n <= 3, as a cochain complex of Q-vector spaces in degrees 1..n.
+- **name:** polylogComplex_d_gen; **role:** simp; **statement:** d{x}_2 = (1 - x) wedge x, d({x}_2 tensor y) = (1 - x) wedge x wedge y and d{x}_3 = {x}_2 tensor x.
+- **name:** polylogComplex_d_comp_d; **role:** relation; **statement:** d o d = 0. Promoted to Polylogarithms:P.3/weight-three-complex.
+- **name:** polylogComplex_one; **role:** compatibility; **statement:** The weight-one complex is F^x_Q in degree one.
+- **name:** polylogComplex_two; **role:** compatibility; **statement:** The weight-two complex is P(F) tensor Q -> Lambda^2 F^x_Q with d = -(toExterior o bloch-boundary) tensor Q.
+- **name:** polylogComplex_map; **role:** functoriality; **statement:** A field homomorphism F -> F' induces a map of complexes.
+- **name:** polylogComplex_map_id; **role:** functoriality; **statement:** The identity induces the identity.
+- **name:** polylogComplex_map_comp; **role:** functoriality; **statement:** Composition is preserved.
+- **name:** polylogComplex_H1_eq_ker; **role:** characterisation; **statement:** H^1 B(F; n) is the kernel of the first differential.
+
+**uses**
+
+- **where:** P.3's weight-three special value; **how:** the elements of the theorem are cocycles of the weight-three complex
+- **where:** P.3's residue maps; **how:** the residues are maps between these complexes
+- **where:** P.4's general complex; **how:** for infinite F, the weight-three complex maps onto P.4's in degree one
+- **where:** P.5's curve complexes; **how:** the curve complexes are built from these by residues along the places of the function field
+
+**tests**
+
+- **name:** d_gen_over_Q; **kind:** computation; **statement:** Over Q: d({2}_2 tensor 3) = 0 and d({3}_2 tensor 5) = 2 wedge 3 wedge 5 != 0.
+- **name:** d_squared_weight_three; **kind:** characterisation; **statement:** d(d{x}_3) = 0 for every x.
+- **name:** degenerate_one; **kind:** degenerate; **statement:** {1}_2 = 0 in B_2(F), so d({1}_2 tensor y) = 0.
+- **name:** weight_two_against_V3; **kind:** compatibility; **statement:** Under B_2(F) = P(F) tensor Q, the weight-two differential is -(toExterior o bloch-boundary) tensor Q.
+- **name:** sign_convention; **kind:** non-example; **statement:** The boundary convention x wedge (1 - x) gives the negative differential: with it, d({3}_2 tensor 5) = -(2 wedge 3 wedge 5).
+
+**planet:** **name:** Trilogarithmic motivic complex
+
+**library:** **module:** TauCeti/NumberTheory/Polylogarithmic/Complexes; **namespace:** TauCeti.Polylog
+
+#### The trilogarithm group B_3(F)
+
+`Polylogarithms:P.3/trilogarithm-group` — definition
+
+For an infinite field F let R_3(F) be the Q-subspace of Q[F] = (F ->0 Q) spanned by {x}_3 - {x^{-1}}_3 and {x}_3 + {1 - x}_3 + {1 - x^{-1}}_3 - {1}_3 for x in F^x (GR v5 (19)), by {0}_3 (which the source's list omits; without it {0}_3 would be a free summand), and by the 22-term relation of Goncharov (1995, Formula 1.10), which GR v5 obtain by substituting (29) into their relation Q_3 (p. 12). Set B_3(F) := Q[F]/R_3(F) and delta_3 : B_3(F) -> B_2(F) tensor F^x_Q, {x}_3 |-> {x}_2 tensor x for x in F^x and {0}_3 |-> 0.
+
+**realises**
+
+- Polylogarithms:P.3
+
+**hypotheses**
+
+- F is an infinite field.
+- All groups are Q-vector spaces.
+
+**proofSteps**
+
+- Define R_3(F) by the displayed generators and B_3(F) as the quotient.
+- delta_3 kills (19): rationally {x^{-1}}_2 = -{x}_2 and {1 - x}_2 = -{x}_2 in B_2(F), so delta_3({x}_3 - {x^{-1}}_3) = ({x}_2 + {x^{-1}}_2) tensor x = 0 and the image of the three-term element is {x}_2 tensor (x (1 - x^{-1})/(1 - x)) = {x}_2 tensor (-1) = 0.
+- delta_3 kills the 22-term relation: GR, Proposition 5.4 (not read in full; gap).
+- The natural map to the inductive group of P.4 is P.4/explicit-to-inductive-comparison.
+
+**prerequisites**
+
+- K3BlochGroups:V.3/pre-bloch-group
+- mathlib:Finsupp
+- mathlib:TensorProduct
+- mathlib:Additive
+
+**sources**
+
+- **sourceId:** GR.2026; **locator:** Section 1.2, (19) (PDF p. 9); **excerpt:** Let us denote by R3(F) the subspace of Q[F] generated by the elements {x}_3 - {x^{-1}}_3, {x}_3 + {1 - x}_3 + {1 - x^{-1}}_3 - {1}_3 for all x in F^x (19) and the 22-term relation [Gon95, Formula 1.10, Theorem 1.3] for the trilogarithm.; **match:** The definition of R_3(F) and B_3(F).
+- **sourceId:** GR.2026; **locator:** Section 1.2 (PDF p. 9); **excerpt:** It was conjectured in [Gon95] that the natural map B3(F) -> B3(F) is an isomorphism.; **match:** The comparison with the inductive group, recorded in P.4/explicit-to-inductive-comparison.
+
+**implementationStatus:** unchecked
+
+**api**
+
+- **name:** trilogGroup; **role:** data; **statement:** The Q-vector space B_3(F).
+- **name:** trilogGroup.mk; **role:** constructor; **statement:** The class {x}_3 of x in F.
+- **name:** trilogGroup.mk_zero; **role:** simp; **statement:** {0}_3 = 0.
+- **name:** trilogGroup.mk_inv; **role:** relation; **statement:** {x}_3 = {x^{-1}}_3 for x in F^x.
+- **name:** trilogGroup.mk_three_term; **role:** relation; **statement:** {x}_3 + {1 - x}_3 + {1 - x^{-1}}_3 = {1}_3 for x in F^x.
+- **name:** trilogGroup.lift; **role:** universal-property; **statement:** A Q-linear map on Q[F] that kills R_3(F) descends to B_3(F), uniquely.
+- **name:** trilogGroup.map; **role:** functoriality; **statement:** A field homomorphism induces a map of trilogarithm groups.
+- **name:** trilogGroup.delta; **role:** constructor; **statement:** delta_3 : B_3(F) -> B_2(F) tensor F^x_Q.
+- **name:** trilogGroup.delta_mk; **role:** simp; **statement:** delta_3 {x}_3 = {x}_2 tensor x for x in F^x.
+
+**uses**
+
+- **where:** P.3's weight-three complex; **how:** B_3(F) is its degree-one term
+- **where:** GR, weight-four proof; **how:** the complex (44) uses B_3(F), not the inductive group
+
+**tests**
+
+- **name:** inversion; **kind:** characterisation; **statement:** {x}_3 = {x^{-1}}_3 in B_3(F).
+- **name:** three_term; **kind:** computation; **statement:** {x}_3 + {1 - x}_3 + {1 - x^{-1}}_3 = {1}_3; at x = 2 over Q: {2}_3 + {-1}_3 + {1/2}_3 = {1}_3.
+- **name:** zero_class; **kind:** degenerate; **statement:** {0}_3 = 0.
+- **name:** one_ne_zero; **kind:** non-example; **statement:** {1}_3 != 0 in B_3(Q): L_3 kills R_3(C) (Goncharov 1995) and L_3(1) = zeta(3) != 0.
+- **name:** delta_compat; **kind:** compatibility; **statement:** delta_3 on B_3(F) equals delta_3 on the inductive group after the natural map.
+
+**library:** **module:** TauCeti/NumberTheory/Polylogarithmic/Complexes; **namespace:** TauCeti.Polylog
+
+**addedBy:** REV-Polylogarithms
+
+**acceptance**
+
+- {x}_3 = {x^{-1}}_3 and the three-term relation hold in B_3(F).
+- L_3(1) = zeta(3) shows {1}_3 != 0 in B_3(Q).
+
+#### The weight-three complex and its differential-square-zero proof
+
+`Polylogarithms:P.3/weight-three-complex` — theorem
+
+In the weight-three complex B_3(F) -> B_2(F) tensor F^x_Q -> Lambda^3 F^x_Q of P.3/polylogarithmic-complex the composite of the two differentials is zero: {x}_3 |-> {x}_2 tensor x |-> (1 - x) wedge x wedge x = 0.
+
+**realises**
+
+- Polylogarithms:P.3
+
+**hypotheses**
+
+- F is an infinite field; all groups are rational.
+
+**proofSteps**
+
+- Write the two differentials on generators.
+- Compute the composite on a generator: {x}_3 goes to {x}_2 tensor x and then to (1 - x) wedge x wedge x.
+- The result vanishes because x wedge x = 0 in Lambda^2 of any abelian group; rationality plays no role.
+- Extend from generators by linearity; the first differential is well defined on B_3(F) by P.3/trilogarithm-group.
+- The analogous computation in every weight is part of P.4/general-polylog-complex.
+
+**acceptance**
 
 - The composite vanishes on a generator, which is the whole content.
-- Over the rationals the repeated wedge vanishes; over the integers the antisymmetric quotient
-  of K3BlochGroups V.3 would be needed instead, and the difference is 2-torsion.
-- The weight-two analogue is the statement that the Bloch boundary kills the five-term
-  relations.
+- Over the integers the same computation gives d o d = 0 in Goncharov's Gamma(F; 3), since x wedge x = 0 in Lambda^2 of any abelian group.
 
-**Depends on.** **inside this roadmap** `polylogarithmic-complex`, `delta-map`, `higher-bloch-group`.
+**prerequisites**
 
-**Source.** GR.2022, 1.1, item 4 (PDF p. 5): “Evidently, the following composition is zero for n >= 3: B_n(F) -> B_{n-1}(F) tensor F^x_Q -> B_{n-2}(F) tensor Lambda^2 F^x_Q.” — The vanishing, as displayed, specialised to weight three.
+- Polylogarithms:P.3/polylogarithmic-complex
+- Polylogarithms:P.3/trilogarithm-group
+- mathlib:ExteriorAlgebra.gradedAlgebra
 
-### `residues-and-transfers` — Residues, transfers and functoriality of the weight-three complex
+**sources**
 
-*construction*
+- **sourceId:** GR.2022; **locator:** 1.1, item 4 (PDF p. 5); **excerpt:** Evidently, the following composition is zero for n >= 3: B_n(F) -> B_{n-1}(F) tensor F^x_Q -> B_{n-2}(F) tensor Lambda^2 F^x_Q.; **match:** The vanishing, as displayed, specialised to weight three.
 
-For a field with a discrete valuation construct the residue map from the weight-three complex of
-the field to the weight-two complex of the residue field, shifted by one, and prove that it
-commutes with the differentials. Construct the transfer along a finite field extension and prove
-the projection formula. Prove functoriality for an arbitrary field homomorphism.
+**implementationStatus:** unchecked
 
-**Hypotheses.** F is a field with a discrete valuation and residue field k, or a finite extension is given.
+#### The residue on exterior powers of the units
 
-**Construction and proof.**
+`Polylogarithms:P.3/exterior-residue` — construction
 
-1. Define the residue on the last term by the tame symbol on the exterior power of the units,
-   imported from K2SymbolsBrauer T.3.
-1. Define the residue on the middle term by the valuation on the unit factor, and on the first
-   term by zero, and prove that these commute with the differentials.
-1. Construct the transfer along a finite extension on each term, using the norm on the unit
-   factors and the transfer on the higher Bloch groups.
-1. Prove the projection formula relating restriction and transfer.
-1. Prove functoriality for a general field homomorphism, and the compatibility of residues with
-   a homomorphism respecting the valuations.
+Let K be a field with a discrete valuation v, units U and residue field k. There is a unique homomorphism res_v : Lambda^n K^x -> Lambda^{n-1} k^x (exterior powers of abelian groups, hence also after tensoring with Q) with res_v(pi wedge u_1 wedge ... wedge u_{n-1}) = u_1-bar wedge ... wedge u_{n-1}-bar and res_v(u_1 wedge ... wedge u_n) = 0 for a uniformiser pi and units u_i; it does not depend on pi. For n = 2, res_v(f wedge g) = (-1)^{v(f)v(g)} tame_v{f, g}^{-1}, the inverse of the tame symbol of K2SymbolsBrauer T.3 up to that sign.
 
-**API.**
+**realises**
 
-| name | role | statement |
-| --- | --- | --- |
-| `weightThreeResidue` | constructor | The residue map to the weight-two complex of the residue field. |
-| `weightThreeResidue_comm` | compatibility | It commutes with the differentials. |
-| `weightThreeTransfer` | constructor | The transfer along a finite extension. |
-| `weightThreeTransfer_projection` | relation | The projection formula. |
-| `weightThreeComplex_map` | functoriality | Functoriality for a field homomorphism. |
+- Polylogarithms:P.3
 
-**Used by.** *P.5's curve complexes*: the curve complex is assembled from the residues at the places of the function field. *P.3's special-value theorem*: the transfer is what reduces a number-field statement along a subfield.
+**hypotheses**
 
-**Unit tests.**
+- v is a discrete valuation on K with residue field k; n >= 1.
 
-- `unramified_first_term` — The residue vanishes on the first term.
-- `projection_formula` — Transfer after restriction is multiplication by the degree.
-- `commutes_with_d` — Residue and differential commute, checked on a generator.
+**proofSteps**
 
-**Acceptance.**
+- K^x = pi^Z x U gives Lambda^n K^x = (pi wedge Lambda^{n-1} U) + Lambda^n U; define res_v on the two summands through the universal property of the exterior power (mathlib:exteriorPower.alternatingMapLinearEquiv) and the reduction U -> k^x.
+- Independence of pi: for pi' = pi u_0 the difference is u_0 wedge u_1 wedge ..., which res_v kills.
+- The comparison at n = 2 with the tame symbol is a computation on the cases (pi, u), (u, u') and (pi, pi).
 
-- The residue of the first term is zero, so a class of B_3 is unramified.
-- The projection formula holds, which is the acceptance test for the transfer.
-- The residue commutes with the differentials, which is what makes the curve complexes of P.5
-  well defined.
+**prerequisites**
 
-**Depends on.** **inside this roadmap** `weight-three-complex`, `polylogarithmic-complex`; **other roadmaps** `K2SymbolsBrauer:T.3`.
+- mathlib:ExteriorAlgebra.exteriorPower
+- mathlib:exteriorPower.alternatingMapLinearEquiv
+- mathlib:Additive
+- mathlib:Valuation
+- mathlib:IsDiscreteValuationRing
+- mathlib:IsLocalRing.ResidueField
+- K2SymbolsBrauer:T.3/tame-symbol
 
-**Source.** GR.2022, 1.1, item 4 (PDF p. 5): “The subgroup R_n(F) is generated by all elements obtained this way, and {0}.” — The specialisation construction that the residue maps generalise; the source defines the relation subgroup by exactly such boundary data.
+**sources**
 
-### `k-theory-comparison-weight-three` — Comparison from weight-three rational K-theory
+- **sourceId:** Gonch.Arakelov.2004; **locator:** Section 2, item 6 (PDF pp. 17-18); **excerpt:** There is a homomorphism resv : Lambda^n K* -> Lambda^{n-1} kv* uniquely defined by the properties (ui in U): resv(pi wedge u1 wedge ... wedge un-1) = u1 wedge ... wedge un-1 and resv(u1 wedge ... wedge un) = 0. It does not depend on the choice of pi.; **match:** The definition and the independence of the uniformiser, as displayed.
 
-*theorem*
+**implementationStatus:** unchecked
 
-There is a canonical homomorphism from the weight-three graded piece of the Adams filtration on
-the rationalised K-groups of F to the cohomology of the weight-three polylogarithmic complex, in
-each degree, and it is compatible with the explicit trilogarithm regulator. The comparison
-carries its proven degree range: no claim is made that the complex computes every motivic
-cohomology group in every weight.
+**api**
 
-**Hypotheses.** F is a field; all K-groups are rationalised.
+- **name:** resExterior; **role:** constructor; **statement:** res_v : Lambda^n K^x -> Lambda^{n-1} k^x.
+- **name:** resExterior_uniformizer; **role:** simp; **statement:** res_v(pi wedge u_1 wedge ... wedge u_{n-1}) = u_1-bar wedge ... wedge u_{n-1}-bar.
+- **name:** resExterior_unit; **role:** simp; **statement:** res_v(u_1 wedge ... wedge u_n) = 0 for units u_i.
+- **name:** resExterior_indep; **role:** characterisation; **statement:** The map does not depend on the uniformiser.
+- **name:** resExterior_two; **role:** compatibility; **statement:** For n = 2, res_v(f wedge g) = (-1)^{v(f)v(g)} tame_v{f, g}^{-1} (K2SymbolsBrauer:T.3/tame-symbol).
 
-**Construction and proof.**
+**uses**
 
-1. Import the Adams filtration on rationalised K-theory and its weight-three graded pieces.
-1. Construct the comparison in each degree, following the weight-three case of the general
-   construction the source describes.
-1. Prove compatibility with the regulator: composing with the map given by the single-valued
-   trilogarithm gives the Borel regulator up to a nonzero rational.
-1. State the degree range in which the comparison is known to be an isomorphism, and record the
-   general statement as the conjecture the source labels as such, not as a theorem.
-1. Record the relation to the rank filtration and Suslin's conjecture that it agrees with the
-   Adams filtration, as the source states.
+- **where:** P.3's residue maps; **how:** the last term of the residue of the weight-three complex
+- **where:** P.5's residue map; **how:** Goncharov's Res is the sum of these over the divisors of a variety
 
-**Acceptance.**
+**tests**
 
-- The weight-two case of the comparison recovers the statement of P.2 through Suslin's sequence.
-- The general isomorphism is a conjecture in the source and is recorded as one.
-- The comparison is compatible with the trilogarithm regulator, with its scalar.
+- **name:** res_uniformizer; **kind:** computation; **statement:** K = Q(t), v = ord_t: res(t wedge 2 wedge 3) = 2 wedge 3.
+- **name:** res_units; **kind:** degenerate; **statement:** res(2 wedge 3 wedge 5) = 0.
+- **name:** res_other_uniformizer; **kind:** characterisation; **statement:** res(2t wedge 3 wedge 5) = 3 wedge 5.
+- **name:** res_tame; **kind:** compatibility; **statement:** res(t wedge u) = u-bar while the tame symbol of (t, u) is u-bar^{-1}; res(t wedge t) = 0 while the tame symbol of (t, t) is -1.
 
-**Depends on.** **inside this roadmap** `weight-three-complex`, `single-valued-polylogarithm`; **other roadmaps** `MotivicEtaleKTheory:M.7`, `BorelRegulators:R.7`.
+**library:** **module:** TauCeti/NumberTheory/Polylogarithmic/Complexes; **namespace:** TauCeti.Polylog
 
-**Source.** GR.2022, 1.1, items 6 (PDF pp. 5-6): “For an arbitrary field F, it was conjectured in [Gon95] that the weight n polylogarithmic motivic complexes calculate the weight n pieces of the Quillen K-groups of the field F modulo torsion. Precisely, let gamma be the Adams gamma-filtration on Quillen's algebraic K-theory. The conjecture states that one expects the following isomorphisms: gr^n_gamma K_{2n-i}(F)_Q = H^i B(F; n), i >= 0.” — The conjecture, labelled as such in the source; the weight-three comparison this node states is the proved part attributed there to Goncharov's 1991 and 1995 papers.
+**addedBy:** REV-Polylogarithms
 
-### `weight-three-special-value` — The weight-three special-value theorem for number fields ★
+**acceptance**
 
-*theorem* · planet **Weight-three special value**
+- res(t wedge 2 wedge 3) = 2 wedge 3 for K = Q(t), v = ord_t.
+- For n = 2 the residue is the tame symbol up to inversion and sign.
 
-For a number field F the value of the Dedekind zeta function at three equals, up to an explicit
-power of pi, the square root of the discriminant and a nonzero rational, the determinant of the
-matrix of values of the single-valued trilogarithm at the embeddings of a suitable family of
-elements of B_3(F) satisfying the condition that their delta vanishes. The theorem is the
-weight-three case of Zagier's conjecture, proved by Goncharov.
+#### Residue maps of the polylogarithmic complexes
 
-**Hypotheses.** F is a number field with r_1 real and r_2 complex places.
+`Polylogarithms:P.3/residues-and-transfers` — construction
 
-**Construction and proof.**
+For an infinite field K with a discrete valuation v and infinite residue field k, define res_v : B(K; 3) -> B(k; 2)[-1] by: zero on B_3(K); res_v({x}_2 tensor y) = v(y) {x-bar}_2 if v(x) = 0 and 0 otherwise; and P.3/exterior-residue on Lambda^3 K^x_Q. Likewise res_v : B(K; 2) -> B(k; 1)[-1] is zero on B_2(K) and P.3/exterior-residue on Lambda^2 K^x_Q. These are maps of complexes of Q-vector spaces, natural for an extension of valued fields with ramification index e (the residue is multiplied by e). Integrally the weight-two residue is a map of complexes only after inverting 2: res_v((1 - x) wedge x) = (-1)^{v(x)} for v(x) < 0. No source read constructs transfers on these complexes; the only transfer available is the one on H^3 = K^M_3(F)_Q from K2SymbolsBrauer:T.3/transfer-and-norm-residue (gap).
 
-1. State the determinant formula in the shape the source fixes for weight four, with the
-   trilogarithm and the corresponding exponents.
-1. Import the Borel rank theorem in weight three, which gives the size of the matrix.
-1. Combine the K-theory comparison of the previous node with Borel's theorem to prove the
-   identity up to a nonzero rational, following the architecture the source describes for weight
-   four.
-1. Record the two separate propositions: the existence of elements satisfying the condition, and
-   the determinant identity for any such family.
-1. Attribute the theorem: the weight-two case to Zagier's 1986 paper and the weight-three case
-   to Goncharov's 1991 and 1995 papers, as the source does.
-
-**Acceptance.**
-
-- The matrix is of size r_1 + r_2 in weight three, not r_2, because the parity of the weight
-  changes which places contribute; the statement records the correct size.
-- The identity is up to a nonzero rational, and the rational is not claimed to be computed.
-- For a field with no complex places the statement is still nontrivial in weight three, unlike
-  weight two.
-
-**Depends on.** **inside this roadmap** `k-theory-comparison-weight-three`, `single-valued-polylogarithm`; **other roadmaps** `BorelRegulators:R.3`; **baseline** `mathlib:NumberField.dedekindZeta`, `mathlib:NumberField.discr`.
-
-**Source.** GR.2022, 1.1, item 2 (PDF p. 3): “Similar results about zeta_F(2) and zeta_F(3) were proved in [Zag86] and [Gon91], [Gon95], respectively.” — The attribution and the existence of the weight-three theorem, as displayed; the shape of the identity is that of the weight-four formula the source states in full.
-
-## P.4 — General polylogarithmic statement infrastructure
-
-The statement infrastructure. `δ_n` first, then the higher Bloch groups `B_n(F) = Q[F]/R_n(F)`
-with `R_n` generated by the specialisations `Σ n_i({f_i(1)} − {f_i(0)})` of elements of `ker
-δ_n` over `F(t)`; the map `L_n : B_n(C) → R` is what makes `R_n` a group of *functional
-equations*, and the reality relation is deliberately outside it. The condition `o_n` is `δ y =
-0`, the determinant carries its `π` power and `|d_F|^{-1/2}`, and Zagier's statement is split
-into **three** propositions that are never collapsed. The weight-four case is recorded as
-Goncharov–Rudenko's **theorem**, with a restructure entry naming the Part II that would own its
-proof.
-
-### `delta-map` — The map delta_n
-
-*construction*
-
-For a field F define delta_n from the rational vector space on F to B_{n-1}(F) tensor the
-rationalised units when n is at least three, and to the second exterior power of the
-rationalised units when n is two, by sending the generator at x to the class of x in weight n -
-1 tensor x, respectively to (1 - x) wedge x, with delta_2 at one and at zero set to zero. The
-generator at infinity is adjoined with the relation that it is zero. The map descends to a
-homomorphism out of B_n(F).
-
-**Hypotheses.** F is a field. n is at least two. All groups are rational.
-
-**Construction and proof.**
-
-1. Define the map on generators by the displayed formulas, in the two cases n = 2 and n at least
-   three.
-1. Set the values at zero, at one and at infinity to zero, which is the degenerate convention
-   the source fixes.
-1. Prove by induction on n, simultaneously with the definition of the relation subgroup, that
-   the map kills that subgroup and so descends to B_n(F); this is the joint induction the source
-   performs.
-1. Prove functoriality for a field homomorphism.
-1. Record the weight-two case against K3BlochGroups V.3: there the target is the antisymmetric
-   tensor quotient and the group is integral, while here it is the exterior square and
-   everything is rational. The two agree after tensoring with the rationals and differ
-   integrally by 2-torsion.
-
-**API.**
-
-| name | role | statement |
-| --- | --- | --- |
-| `deltaMap` | constructor | The map on the rational vector space on F, in both cases. |
-| `deltaMap_gen` | simp | Its value on a generator, in each of the two cases. |
-| `deltaMap_degenerate` | simp | Its value at zero, one and infinity is zero. |
-| `deltaMap_descends` | characterisation | It kills the relation subgroup and so descends to the higher Bloch group. |
-| `deltaMap_map` | functoriality | Naturality for a field homomorphism. |
-| `deltaMap_two_eq_blochBoundary` | compatibility | In weight two it is the rationalised Bloch boundary of K3BlochGroups V.3. |
-
-**Used by.** *P.4's higher Bloch groups*: the relation subgroup is defined inside the kernel of this map. *P.3's complexes*: the differential of the polylogarithmic complex is this map tensored with the identity. *P.4's condition o_n*: the condition is that this map vanishes on the element.
-
-**Unit tests.**
-
-- `weight_two_boundary` — In weight two the map sends the generator at x to (1 - x) wedge x.
-- `degenerate_zero` — The values at zero, one and infinity vanish.
-- `descends` — The map is well defined on the quotient by the relation subgroup.
-- `not_integral` — The weight-two map here is not the integral Bloch boundary: its target is the
-  exterior square, not the antisymmetric quotient.
-
-**Acceptance.**
-
-- At n = 2 the map is the rationalised Bloch boundary of K3BlochGroups V.3.
-- The values at zero, one and infinity are zero.
-- The map descends to B_n(F), which is the content of the joint induction.
-
-**Depends on.** **other roadmaps** `K3BlochGroups:V.3`; **baseline** `mathlib:FreeAbelianGroup`, `mathlib:TensorProduct`, `mathlib:exteriorPower.map`, `mathlib:Additive`.
-
-**Source.** GR.2022, 1.1, item 4 (PDF p. 4): “We define by induction a map Q[F] -> delta_n : B_{n-1}(F) tensor F^x_Q for n >= 2, F^x_Q wedge F^x_Q for n = 2, {x} -> {x}_{n-1} tensor x for n >= 2, (1 - x) wedge x for n = 2, delta_2{1} = delta_2{0} = 0. It is handy to add a generator {infinity} together with the relation {infinity} = 0.” — The map and its degenerate conventions, as displayed.
-
-### `higher-bloch-group` — Zagier's higher Bloch groups ★
-
-*definition* · planet **Higher Bloch groups**
-
-For a field F define, by induction on n at least one, a subspace R_n(F) of the rational vector
-space on F reflecting the functional equations of the classical n-logarithm, and set B_n(F) to
-be the quotient. R_1(F) is generated by the elements at xy minus those at x and at y, together
-with the generator at zero, so that the weight-one quotient is the rationalised units. For n at
-least two, R_n(F) is generated by the elements obtained from an expression in the kernel of
-delta_n over the rational function field F(t) by specialising t to one and to zero and
-subtracting, together with the generator at zero. The class of a generator is written with the
-weight as a subscript. The convention is the rational one of the source, which differs from the
-integral definition by tensoring.
+**realises**
 
-**Hypotheses.** F is a field. n is a positive integer. All groups are rational.
+- Polylogarithms:P.3
 
-**Construction and proof.**
+**hypotheses**
 
-1. Define R_1(F) by the displayed generators and check that the quotient is the rationalised
-   units.
-1. For n at least two define the subspace by the specialisation recipe, inside the kernel of
-   delta_n, and prove that it is a subspace.
-1. Prove the joint induction with the previous node: delta_n kills R_n(F), so that it descends
-   to the quotient.
-1. Prove functoriality for a field homomorphism, and the behaviour under a finite extension.
-1. Record the two conventions: the source's groups are rational; the integral groups of
-   Goncharov are a different object, and the weight-two integral group is the Bloch group of
-   K3BlochGroups V.3, which is why the two roadmaps are not planning the same thing.
-1. Record the theorem that makes the definition the right one: the single-valued polylogarithm
-   induces a map from B_n(C) to the reals, so the relation subgroup really is a subgroup of
-   functional equations.
+- K is an infinite field with a discrete valuation v and infinite residue field k.
+- All groups are rational; integrally the statement needs 2 inverted.
 
-**API.**
+**proofSteps**
 
-| name | role | statement |
-| --- | --- | --- |
-| `higherBloch` | data | The rational vector space B_n(F). |
-| `higherBloch.mk` | constructor | The class of a generator, with the weight as a subscript. |
-| `higherBloch.one` | compatibility | The weight-one group is the rationalised units. |
-| `higherBloch.two` | compatibility | The weight-two group is the rationalised Bloch group of K3BlochGroups V.3. |
-| `higherBloch.lift` | universal-property | A map on generators killing the relation subspace descends. |
-| `higherBloch.map` | functoriality | A field homomorphism induces a map of higher Bloch groups. |
+- Define res_v on each term as displayed, using P.3/exterior-residue on the exterior powers.
+- Check res_v o d = d o res_v on generators: on {x}_3 both sides vanish (d{x}_3 = {x}_2 tensor x has residue v(x){x-bar}_2 only when v(x) = 0); on {x}_2 tensor y with v(x) = v(1 - x) = 0 both sides are v(y) (1 - x-bar) wedge x-bar; when v(x) != 0 both sides vanish rationally.
+- Prove naturality for an extension of valued fields, with the ramification index.
+- Record that transfers are not constructed (gap), and that the stage's transfers are available only on H^3.
 
-**Used by.** *P.3's complexes*: every term of the polylogarithmic complex is one of these groups tensored with an exterior power. *P.4's Zagier statement*: the elements of the statement are elements of B_n(F) with vanishing delta. *HabiroNumberFields and K3BlochGroups V.3*: the weight-two case is the rationalisation of the integral Bloch group those layers own.
+**acceptance**
 
-**Unit tests.**
+- res_t({x}_2 tensor t) = {x}_2 for x in k^x - {1} and K = k(t).
+- Residue and differential commute, which is what makes the curve complexes of P.5 well defined.
+- Transfers are not claimed.
 
-- `weight_one` — B_1(F) is the rationalised units.
-- `weight_two` — B_2(F) is the rationalised Bloch group.
-- `polylog_descends` — The single-valued polylogarithm descends to B_n(C).
-- `not_integral` — B_2(F) is not the integral Bloch group: the two differ by torsion, which is
-  the point of the two conventions.
+**prerequisites**
 
-**Acceptance.**
+- Polylogarithms:P.3/polylogarithmic-complex
+- Polylogarithms:P.3/trilogarithm-group
+- Polylogarithms:P.3/exterior-residue
+- mathlib:Valuation
+- mathlib:IsLocalRing.ResidueField
 
-- The weight-one group is the rationalised units.
-- The weight-two group is the rationalisation of the Bloch group of K3BlochGroups V.3.
-- The single-valued polylogarithm descends to B_n(C), which is the acceptance test that R_n
-  consists of functional equations.
-- The reality relation is not in R_n, because it is not an algebraic functional equation.
+**sources**
 
-**Depends on.** **inside this roadmap** `delta-map`, `single-valued-polylogarithm`, `distribution-and-inversion`; **other roadmaps** `K3BlochGroups:V.3`; **baseline** `mathlib:FreeAbelianGroup`.
+- **sourceId:** Gonch.Arakelov.2004; **locator:** Section 6.1, (75) (PDF p. 52); **excerpt:** Here resv({x}2 tensor y) is zero unless v(x) = 0. In the latter case it is resv({x}2 tensor y) = v(y){x}2, where x denotes projection of x to the residue field of K.; **match:** The residue on the middle term, as displayed.
+- **sourceId:** Gonch.Arakelov.2004; **locator:** Section 6.1 (PDF p. 52); **excerpt:** If K is a field with a discrete valuation v and the residue field kv, then there is a homomorphism of complexes resv : Gamma(K, n) -> Gamma(kv, n - 1)[-1]; **match:** That the residue is a map of complexes.
 
-**Source.** GR.2022, 1.1, item 4 (PDF p. 4): “one defines inductively for each n >= 1 a subspace R_n(F) in Q[F] reflecting functional equations for the classical n-logarithm function, and set B_n(F) := Q[F] / R_n(F). ... Any expression sum n_i {f_i(t)} which lies in the kernel of delta_n for the field F(t) gives rise to an element sum n_i ({f_i(1)} - {f_i(0)}). The subgroup R_n(F) is generated by all elements obtained this way, and {0}.” — The definition, the specialisation recipe and the map that justifies calling R_n a group of functional equations, all as displayed.
+**implementationStatus:** unchecked
 
-### `condition-o-n` — The condition o_n
+**api**
 
-*definition*
+- **name:** weightThreeResidue; **role:** constructor; **statement:** res_v : B(K; 3) -> B(k; 2)[-1].
+- **name:** weightThreeResidue_trilog; **role:** simp; **statement:** res_v vanishes on B_3(K).
+- **name:** weightThreeResidue_tensor; **role:** simp; **statement:** res_v({x}_2 tensor y) = v(y){x-bar}_2 if v(x) = 0, and 0 otherwise.
+- **name:** weightThreeResidue_comm; **role:** compatibility; **statement:** res_v o d = d o res_v.
+- **name:** weightTwoResidue; **role:** constructor; **statement:** res_v : B(K; 2) -> B(k; 1)[-1].
+- **name:** weightThreeResidue_natural; **role:** functoriality; **statement:** For an extension of valued fields with ramification index e, the residues are related by multiplication by e.
 
-An element y of B_n(F) satisfies the condition o_n when delta_n of y vanishes, that is, when y
-lies in the first cohomology of the weight-n polylogarithmic complex. The condition is a
-property of the element, decidable against a presentation, and it is what an element must
-satisfy before it can appear in the Zagier determinant.
+**uses**
 
-**Hypotheses.** F is a field; n is at least two; y lies in B_n(F).
+- **where:** P.5's curve complexes; **how:** the curve complex is assembled from the residues at the closed points
+- **where:** P.5's strong reciprocity law; **how:** Res = sum_x res_x is one side of the law
 
-**Construction and proof.**
+**tests**
 
-1. Define the condition as the vanishing of delta_n.
-1. Identify the set of such elements with the first cohomology of the weight-n complex, which is
-   the kernel of the first differential since the complex starts in degree one.
-1. Prove that the condition is preserved by the maps induced by field homomorphisms.
-1. Record that Zagier's original formulation uses different subgroups, defined only for number
-   fields, and that the two are compared but not identified here.
+- **name:** res_unramified; **kind:** computation; **statement:** K = k(t), v = ord_t: res_t({x}_2 tensor t) = {x}_2 for x in k^x - {1}.
+- **name:** res_ramified_zero; **kind:** non-example; **statement:** res_t({t}_2 tensor a) = 0 for a in k^x; using v(x) in place of v(y) would give a nonzero value.
+- **name:** commutes_with_d; **kind:** characterisation; **statement:** res_t(d({x}_2 tensor t)) = d(res_t({x}_2 tensor t)) = (1 - x) wedge x.
+- **name:** integral_two_torsion; **kind:** degenerate; **statement:** Integrally, res_v((1 - x) wedge x) = (-1)^{v(x)} for v(x) < 0, while res_v{x}_2 = 0; after tensoring with Q the discrepancy vanishes.
 
-**API.**
+**library:** **module:** TauCeti/Algebra/KTheory/Polylogarithmic/WeightThree; **namespace:** TauCeti.Polylog
 
-| name | role | statement |
-| --- | --- | --- |
-| `ConditionO` | characterisation | The predicate that delta_n of the element vanishes. |
-| `conditionO_iff_H1` | characterisation | It holds exactly for the elements of the first cohomology of the weight-n complex. |
-| `conditionO_subspace` | structure | The elements satisfying it form a subspace. |
-| `conditionO_map` | functoriality | It is preserved by the induced maps. |
+#### The maps from weight-three rational K-theory to the trilogarithmic complex
 
-**Used by.** *P.4's Zagier statement*: the elements of the determinant are required to satisfy it. *P.3's special-value theorem*: the weight-three statement uses the same condition in weight three.
+`Polylogarithms:P.3/k-theory-comparison-weight-three` — theorem
 
-**Unit tests.**
+For an infinite field F there are homomorphisms K_{6-i}(F)_Q -> H^i B(F; 3), i = 1, 2, 3 (with the explicit B_3 of P.3/trilogarithm-group), that vanish on the rank filtration F^rk_2 K_{6-i}(F)_Q and so induce gr^rk_3 K_{6-i}(F)_Q -> H^i B(F; 3). The identification gr^rk_3 = gr^3_gamma is Suslin's conjecture, and isomorphy for i = 1, 2 is Goncharov's conjecture (P.4/goncharov-comparison-conjecture). The construction is Goncharov's (1995), which was not obtained; its weight-four analogue is GR Theorem 1.3(i). The regulator compatibility and the case i = 3 are P.3/trilogarithm-regulator-borel and P.3/milnor-degree-comparison.
 
-- `weight_two` — In weight two the condition is membership in the rationalised Bloch group.
-- `subspace` — The elements satisfying the condition form a subspace.
-- `not_automatic` — A generic generator does not satisfy the condition.
+**realises**
 
-**Acceptance.**
+- Polylogarithms:P.3
 
-- At weight two the condition is exactly membership in the rationalised Bloch group.
-- The set of elements satisfying the condition is a subspace.
-- An arbitrary element of B_n(F) does not satisfy the condition, so the condition is a real
-  restriction.
+**hypotheses**
 
-**Depends on.** **inside this roadmap** `higher-bloch-group`, `delta-map`, `polylogarithmic-complex`.
+- F is an infinite field; K-groups are rationalised.
 
-**Source.** GR.2022, 1.1, item 5 and footnote 7 (PDF p. 5): “The condition o_n. It simply says that delta y = 0 for an element y in B_n(F), i.e., y in H^1 B(F; n). ... Zagier's conjecture in its original formulation does not use groups B_n(F); it uses subgroups beta_n(F), defined for number fields only.” — The condition and the caveat about the original formulation, as displayed.
+**proofSteps**
 
-### `zagier-determinant` — The Zagier regulator determinant
+- Import rational K-theory with its rank filtration (the plus construction and the Hurewicz map, GeneralAlgebraicKTheory K.2:plus) and its Adams eigenspaces (SchemeKTheoryOperations S.6; the atlas edge is MotivicEtaleKTheory M.6).
+- Construct the maps through the configuration complexes, as in Goncharov (1995) and, in weight four, GR Sections 7.1 to 7.3 (gap: Goncharov 1995 not obtained, GR Section 7 not decomposed).
+- Prove that they vanish on F^rk_2.
+- Record the conjectures: gr^rk = gr_gamma (Suslin) and isomorphy for i = 1, 2 (Goncharov).
 
-*construction*
+**acceptance**
 
-For a number field F, a weight n and a family of r_2 elements of B_n(F) (respectively r_1 + r_2
-elements, according to the parity of n) satisfying the condition o_n, construct the matrix whose
-entries are the values of the single-valued polylogarithm at the images of the elements under
-the embeddings, and its determinant, together with the normalisation by the power of pi and the
-square root of the discriminant that the statement uses.
+- The weight-four analogue is GR Theorem 1.3(i), with K_{8-i} and i = 1, ..., 4.
+- Isomorphy for i = 1, 2 is a conjecture in the source and is recorded as one.
+- No map is claimed out of gr_gamma: gr^rk = gr_gamma is Suslin's conjecture.
 
-**Hypotheses.** F is a number field; n is at least two; the elements satisfy the condition o_n.
+**prerequisites**
 
-**Construction and proof.**
+- Polylogarithms:P.3/polylogarithmic-complex
+- Polylogarithms:P.3/trilogarithm-group
+- MotivicEtaleKTheory:M.6
+- SchemeKTheoryOperations:S.6
+- GeneralAlgebraicKTheory:K.2:plus
 
-1. Order the embeddings as the source does, so that conjugate embeddings are paired, and choose
-   the representatives the parity of n requires.
-1. Define the matrix entry at a place and an element as the value of the single-valued
-   polylogarithm at the image.
-1. Define the determinant and the normalising factor, the power of pi and the inverse square
-   root of the absolute discriminant, exactly as displayed.
-1. Prove that the determinant is well defined up to the sign coming from the ordering, and that
-   it vanishes when the family is linearly dependent in the relevant cohomology.
-1. Prove that the weight-two case is the determinant of P.2 and the weight-one case is the
-   classical unit regulator pattern.
+**sources**
 
-**API.**
+- **sourceId:** GR.2026; **locator:** Theorem 1.3(i) (PDF p. 6); **excerpt:** (i) Let F be an infinite field. Then there are canonical homomorphisms K_{8-i}(F)_Q -> H^i B(F; 4), i = 1, 2, 3, 4. Their restrictions to F^rk_3 K_{8-i}(F)_Q are zero.; **match:** The weight-four form of the maps.
+- **sourceId:** GR.2022; **locator:** 1.1, item 6 (PDF p. 5); **excerpt:** The conjecture states that one expects the following isomorphisms: gr^n_gamma K_{2n-i}(F)_Q = H^i B(F; n), i > 0.; **match:** The conjecture, labelled as such, with i > 0 as printed.
 
-| name | role | statement |
-| --- | --- | --- |
-| `zagierMatrix` | constructor | The matrix of polylogarithm values at the embeddings. |
-| `zagierDet` | constructor | Its determinant with the normalising factor. |
-| `zagierDet_dependent` | characterisation | The determinant vanishes on a linearly dependent family. |
-| `zagierDet_two` | compatibility | In weight two it is the determinant of the weight-two regulator. |
-| `zagierDet_sign` | relation | The dependence on the chosen ordering is by a sign. |
+**implementationStatus:** unchecked
 
-**Used by.** *P.4's statement of Zagier's conjecture*: the conjecture is an identity between this determinant and a zeta value. *P.3's weight-three theorem*: the weight-three statement is the same determinant with the trilogarithm. *SpecialValuesBirchTate B.8*: the normalised covolume infrastructure there follows the same pattern.
+#### The trilogarithm regulator is a multiple of the Borel regulator
 
-**Unit tests.**
+`Polylogarithms:P.3/trilogarithm-regulator-borel` — theorem
 
-- `weight_two_agrees` — In weight two the construction agrees with P.2's determinant.
-- `dependent_vanishes` — A dependent family gives determinant zero.
-- `matrix_size` — The matrix has size r_2 in even weight and r_1 + r_2 in odd weight.
-- `normalisation` — Changing the power of pi changes the identity: the normalisation is not
-  free.
+The composite K_5(C)_Q -> H^1 B(C; 3) -> R of the map of P.3/k-theory-comparison-weight-three with the map induced by {z}_3 |-> L_3(z) (which kills R_3(C): Goncharov 1995, not obtained) is a nonzero rational multiple of the Borel regulator of BorelRegulators R.4.
 
-**Acceptance.**
+**realises**
 
-- In weight two the construction is the determinant of the weight-two regulator of P.2.
+- Polylogarithms:P.3
+
+**proofSteps**
+
+- Goncharov (1995), not obtained: gap.
+
+**acceptance**
+
+- The scalar is a nonzero rational, not computed here.
+
+**prerequisites**
+
+- Polylogarithms:P.3/k-theory-comparison-weight-three
+- Polylogarithms:P.1/single-valued-polylogarithm
+- BorelRegulators:R.4/borel-regulator
+
+**sources**
+
+- **sourceId:** GR.2022; **locator:** 1.1, item 2 (PDF p. 3); **excerpt:** Similar results about zeta_F(2) and zeta_F(3) were proved in [Zag86] and [Gon91], [Gon95], respectively.; **match:** The weight-three theorem is attributed to Goncharov's 1991 and 1995 papers, which were not obtained; the weight-four form is GR Theorem 1.3(iv).
+- **sourceId:** GR.2026; **locator:** Theorem 1.3(iv) (PDF p. 6); **excerpt:** (iv) The following composition is a non-zero rational multiple of the Borel regulator map [Bor77]: K7(C)Q -> H^1 B(C; 4) -> R.; **match:** The weight-four shape of the statement.
+
+**implementationStatus:** unchecked
+
+**addedBy:** REV-Polylogarithms
+
+**hypotheses**
+
+- The field is C; K-groups are rationalised.
+
+#### Weight-three cohomology in top degree is Milnor K-theory
+
+`Polylogarithms:P.3/milnor-degree-comparison` — theorem
+
+For an infinite field F, H^3 B(F; 3) = Lambda^3 F^x_Q / d(B_2(F) tensor F^x_Q) is K^M_3(F)_Q, and the map K_3(F)_Q -> H^3 B(F; 3) of P.3/k-theory-comparison-weight-three induces gr^rk_3 K_3(F)_Q = K^M_3(F)_Q = H^3 B(F; 3) (Suslin).
+
+**realises**
+
+- Polylogarithms:P.3
+
+**proofSteps**
+
+- Rationally, Milnor K-theory is the exterior algebra of F^x_Q modulo the Steinberg elements (1 - x) wedge x, which is the image of d.
+- The comparison with Quillen K_3 in the top rank-graded piece is Suslin's theorem (gap: Suslin 1984 not obtained).
+
+**acceptance**
+
+- For F algebraically closed both sides are uniquely divisible.
+
+**prerequisites**
+
+- Polylogarithms:P.3/k-theory-comparison-weight-three
+- K2SymbolsBrauer:T.2/milnor-k-theory
+
+**sources**
+
+- **sourceId:** GR.2026; **locator:** after Theorem 1.3 (PDF p. 7); **excerpt:** The map (12) for i = 4 is an isomorphism due to a theorem of Suslin [Sus84] relating Quillen's and Milnor's K-groups. Conjecture 1.4. The maps (12) are isomorphisms.; **match:** The weight-four form of the top-degree case; the weight-three case is the same theorem of Suslin.
+
+**implementationStatus:** unchecked
+
+**addedBy:** REV-Polylogarithms
+
+**hypotheses**
+
+- F is an infinite field; all groups are rational.
+
+#### The weight-three special-value theorem for number fields
+
+`Polylogarithms:P.3/weight-three-special-value` — theorem
+
+Let F be a number field with r_1 real and r_2 complex places, real embeddings sigma_1, ..., sigma_{r_1}, one embedding sigma_{r_1+1}, ..., sigma_{r_1+r_2} from each conjugate pair, and discriminant d_F. (a) There exist y_1, ..., y_{r_1+r_2} in Q[F] with delta_3 y_j = 0 in B_2(F) tensor F^x_Q and q in Q^x such that zeta_F(3) = q pi^{3 r_2} |d_F|^{-1/2} det(L_3(sigma_i(y_j)))_{1<=i,j<=r_1+r_2}, where L_3 is extended linearly to Q[C]; q = 1 can be arranged by rescaling y_1. (b) The corresponding statement for every such family, with q in Q possibly 0, is not established by the sources read (gap). This is the weight-three case of Zagier's conjecture, attributed by the source to Goncharov (1991, 1995).
+
+**realises**
+
+- Polylogarithms:P.3
+
+**hypotheses**
+
+- F is a number field with r_1 real and r_2 complex places.
+
+**proofSteps**
+
+- State the determinant with the odd-weight normalisation pi^{3 r_2} |d_F|^{-1/2}; the general normalisation is P.4/zagier-determinant, restated here because P.4 depends on P.3.
+- Borel's rank theorem (BorelRegulators:R.3/borel-rank-theorem) gives dim K_5(F)_Q = r_1 + r_2.
+- Borel's theorem (BorelRegulators R.5) relates zeta_F(3) to the Borel regulator up to Q^x.
+- Combine with P.3/trilogarithm-regulator-borel and the maps of P.3/k-theory-comparison-weight-three: the images of a basis of K_5(F)_Q are cocycles y_j with nonzero determinant, which gives (a).
+- Record that (b) needs every class of H^1 to come from K_5(F)_Q, which the sources read do not establish.
+
+**acceptance**
+
+- F = Q, y_1 = {1}_3: zeta(3) = L_3(1) exactly (q = 1).
+- F = Q(i), y_1 = {1}_3: pi^3 (1/2) L_3(1) = 16 zeta_{Q(i)}(3), since zeta_{Q(i)}(3) = zeta(3) pi^3/32.
+- The matrix has size r_1 + r_2 in weight three, not r_2: the parity of the weight changes which places contribute.
+- Part (b) is not claimed.
+
+**prerequisites**
+
+- Polylogarithms:P.3/k-theory-comparison-weight-three
+- Polylogarithms:P.3/trilogarithm-regulator-borel
+- Polylogarithms:P.3/trilogarithm-group
+- Polylogarithms:P.1/single-valued-polylogarithm
+- BorelRegulators:R.3/borel-rank-theorem
+- BorelRegulators:R.5
+- mathlib:NumberField.dedekindZeta
+- mathlib:NumberField.discr
+- mathlib:NumberField.InfinitePlace.embedding
+
+**sources**
+
+- **sourceId:** GR.2022; **locator:** 1.1, item 2 (PDF p. 3); **excerpt:** Similar results about zeta_F(2) and zeta_F(3) were proved in [Zag86] and [Gon91], [Gon95], respectively.; **match:** The attribution and the existence of the weight-three theorem, as displayed; the shape of the identity is that of the weight-four formula the source states in full.
+
+**implementationStatus:** unchecked
+
+**planet:** **name:** Zagier's conjecture for ζ_F(3)
+
+### Polylogarithms:P.4
+
+#### The map delta_n on the inductive groups
+
+`Polylogarithms:P.4/delta-map` — construction
+
+For a field F and n >= 2, the map delta_n of P.4/higher-bloch-group descends to homomorphisms delta_n : B_n(F) -> B_{n-1}(F) tensor F^x_Q for n >= 3 and delta_2 : B_2(F) -> Lambda^2 F^x_Q, {x}_n |-> {x}_{n-1} tensor x, respectively (1 - x) wedge x; that is, R_n(F) is contained in Ker delta_n (P.4/specialization-and-delta). Under B_2(F) = P(F) tensor Q, delta_2 = -(toExterior o bloch-boundary) tensor Q, since K3BlochGroups V.3's boundary is [x] |-> x wedge (1 - x).
+
+**realises**
+
+- Polylogarithms:P.4
+
+**hypotheses**
+
+- F is a field; n >= 2; all groups are rational.
+
+**proofSteps**
+
+- Take delta_n on Q[F] from P.4/higher-bloch-group.
+- R_n(F) is contained in Ker delta_n by P.4/specialization-and-delta.
+- Descend through higherBloch.lift.
+- Prove functoriality for a field homomorphism.
+- Record the weight-two sign against V.3 (P.4/explicit-to-inductive-comparison).
+
+**acceptance**
+
+- Over Q: delta_2{3}_2 = (-2) wedge 3 = 2 wedge 3 != 0 and delta_2{1/2}_2 = (1/2) wedge (1/2) = 0.
+- delta_n{0}_n = delta_n{1}_n = delta_n{infinity}_n = 0.
+- The map is well defined on the quotient, which is the content of P.4/specialization-and-delta.
+
+**prerequisites**
+
+- Polylogarithms:P.4/higher-bloch-group
+- Polylogarithms:P.4/specialization-and-delta
+- mathlib:TensorProduct
+- mathlib:ExteriorAlgebra.exteriorPower
+- mathlib:Additive
+
+**sources**
+
+- **sourceId:** GR.2022; **locator:** 1.1, item 4 (PDF p. 4); **excerpt:** We define by induction a map Q[F] -> delta_n : B_{n-1}(F) tensor F^x_Q for n >= 2, F^x_Q wedge F^x_Q for n = 2, {x} -> {x}_{n-1} tensor x for n >= 2, (1 - x) wedge x for n = 2, delta_2{1} = delta_2{0} = 0. It is handy to add a generator {infinity} together with the relation {infinity} = 0.; **match:** The map and its degenerate conventions, as displayed.
+- **sourceId:** GR.2026; **locator:** Section 1.1, item 4 (PDF p. 5); **excerpt:** One proves that the map delta_n induces a group homomorphism; **match:** The descent, stated in the source with its proof in Goncharov (1995).
+
+**implementationStatus:** unchecked
+
+**api**
+
+- **name:** deltaMap; **role:** constructor; **statement:** The descended map on B_n(F), in both cases.
+- **name:** deltaMap_gen; **role:** simp; **statement:** delta_n {x}_n = {x}_{n-1} tensor x (n >= 3) and delta_2 {x}_2 = (1 - x) wedge x.
+- **name:** deltaMap_degenerate; **role:** simp; **statement:** delta_n vanishes on {0}_n, {1}_n and {infinity}_n.
+- **name:** deltaMap_descends; **role:** characterisation; **statement:** delta_n kills R_n(F). Promoted to Polylogarithms:P.4/specialization-and-delta.
+- **name:** deltaMap_map; **role:** functoriality; **statement:** Naturality for a field homomorphism.
+- **name:** deltaMap_two_eq_blochBoundary; **role:** compatibility; **statement:** delta_2 = -(toExterior o bloch-boundary) tensor Q under B_2(F) = P(F) tensor Q. Promoted to Polylogarithms:P.4/explicit-to-inductive-comparison.
+
+**uses**
+
+- **where:** P.4's general complex; **how:** its differential is this map tensored with the identity
+- **where:** P.4's condition *_n; **how:** the condition is that this map vanishes on the element
+
+**tests**
+
+- **name:** weight_two_boundary; **kind:** computation; **statement:** Over Q: delta_2{3}_2 = 2 wedge 3 != 0 and delta_2{1/2}_2 = 0.
+- **name:** weight_three_gen; **kind:** computation; **statement:** delta_3{x}_3 = {x}_2 tensor x.
+- **name:** degenerate_zero; **kind:** degenerate; **statement:** delta_n{0}_n = delta_n{1}_n = delta_n{infinity}_n = 0 for every n >= 2.
+- **name:** descends; **kind:** characterisation; **statement:** delta_n is well defined on B_n(F).
+- **name:** sign_against_V3; **kind:** non-example; **statement:** V.3's boundary [x] |-> x wedge (1 - x) is -delta_2 under B_2(F) = P(F) tensor Q, not delta_2.
+
+**library:** **module:** TauCeti/NumberTheory/Polylogarithmic/HigherBloch; **namespace:** TauCeti.Polylog
+
+#### Specialisation commutes with delta_n
+
+`Polylogarithms:P.4/specialization-and-delta` — lemma
+
+Let K be a field with a discrete valuation v, residue field k and uniformiser pi, and let u_pi : K^x_Q -> k^x_Q, f |-> (f pi^{-v(f)})-bar. For every n >= 1 the map s_v : Q[K] -> Q[k], {f} |-> {f-bar} if v(f) = 0 and 0 otherwise ({0}, {infinity} |-> 0), induces s_v : B_n(K) -> B_n(k) for n >= 2 (for n = 1 use u_pi), and (s_v tensor u_pi) o delta_n = delta_n o s_v for n >= 3 and Lambda^2(u_pi) o delta_2 = delta_2 o s_v. Consequently R_n(F) is contained in Ker delta_n for every field F: apply this at t = 1 and at t = 0 on F(t).
+
+**realises**
+
+- Polylogarithms:P.4
+
+**hypotheses**
+
+- v is a discrete valuation on K with residue field k; n >= 1.
+
+**proofSteps**
+
+- Joint induction on n. At n = 2 check the identity on {f} in the cases v(f) > 0, v(f) < 0, v(f) = 0 with f-bar != 1, and f-bar = 1, using delta_2{1} = 0 and, rationally, (-1) wedge u = 0.
+- For n >= 3 the identity on generators is immediate from the definitions; that s_v kills R_n(K) is a two-variable specialisation argument over K(t) using the case n - 1 (gap: the argument of Goncharov 1995 was not obtained).
+- Apply the result to the valuations t and t - 1 of F(t) to get R_n(F) in Ker delta_n.
+
+**acceptance**
+
+- At n = 2, f = t in k(t) with v = ord_t: s_v{t} = 0 and Lambda^2(u_t)((1 - t) wedge t) = 1 wedge 1 = 0.
+
+**prerequisites**
+
+- Polylogarithms:P.4/higher-bloch-group
+- mathlib:RatFunc
+- mathlib:Valuation
+- mathlib:IsDiscreteValuationRing
+- mathlib:IsLocalRing.ResidueField
+
+**sources**
+
+- **sourceId:** GR.2026; **locator:** Section 1.1, item 4 (PDF p. 5); **excerpt:** One proves that the map delta_n induces a group homomorphism; **match:** The source asserts the descent and refers to Goncharov (1995) for the proof, which was not obtained; this lemma is the specialisation argument that proves it (gap for the full induction).
+
+**implementationStatus:** unchecked
+
+**addedBy:** REV-Polylogarithms
+
+#### The explicit groups B_2, B_3 against the inductive groups
+
+`Polylogarithms:P.4/explicit-to-inductive-comparison` — comparison
+
+For an infinite field F the identity on generators induces: B_2(F) -> B_2^ind(F), an isomorphism compatible with delta_2 (GR v5 p. 9 and footnote 2, through Suslin's rigidity B(F) = B(F(t)), Corollary 5.6 of Suslin 1990); B_3(F) -> B_3^ind(F), surjective, with bijectivity Goncharov's conjecture; and, for the span B_4(F) of the {x}_4 in GR's combinatorial L_4(F), a natural map B_4(F) -> B_4^ind(F), conjecturally an isomorphism (GR v5 p. 12). Here B_n^ind is P.4/higher-bloch-group. Under B_2(F) = P(F) tensor Q ({x}_2 |-> [x], matching the source's five-term relation with V.3's), delta_2 = -(toExterior o bloch-boundary) tensor Q.
+
+**realises**
+
+- Polylogarithms:P.4
+
+**hypotheses**
+
+- F is an infinite field; all groups are rational.
+
+**proofSteps**
+
+- The five-term relations lie in R_2^ind(F) (specialise the five-term element in a variable), so the identity on generators descends; surjectivity is clear.
+- Injectivity in weight two: an element of R_2^ind(F) is a specialisation of an element of Ker delta_2 over F(t), whose class lies in B(F(t)) tensor Q = B(F) tensor Q by Suslin's rigidity (requested from K3BlochGroups V.4; gap), so its two specialisations agree.
+- In weight three the relations (19) and the 22-term relation lie in R_3^ind(F), giving the surjection (GR v5 p. 9; the 22-term case is GR Proposition 5.4, not read in full).
+- The sign against V.3 is a computation on generators.
+
+**acceptance**
+
+- delta_2{x}_2 = (1 - x) wedge x = -(x wedge (1 - x)), the opposite of V.3's sign (K-book VI.5.1: '[x] to x wedge (1 - x)').
+- Over Q, delta_2{3}_2 = 2 wedge 3 != 0 and delta_2{2}_2 = (-1) wedge 2 = 0.
+
+**prerequisites**
+
+- Polylogarithms:P.4/higher-bloch-group
+- Polylogarithms:P.4/delta-map
+- Polylogarithms:P.3/trilogarithm-group
+- Polylogarithms:P.3/polylogarithmic-complex
+- K3BlochGroups:V.3/pre-bloch-group
+- K3BlochGroups:V.3/bloch-boundary
+- K3BlochGroups:V.3/antisym-exterior-comparison
+- K3BlochGroups:V.4
+
+**sources**
+
+- **sourceId:** GR.2026; **locator:** Section 1.2 (PDF p. 9); **excerpt:** A deep result of Suslin ([Sus90, Corollary 5.6]) implies that the natural map B2(F) -> B2(F) is an isomorphism.; **match:** The weight-two isomorphism.
+- **sourceId:** GR.2026; **locator:** Section 1.2 (PDF p. 9); **excerpt:** It was conjectured in [Gon95] that the natural map B3(F) -> B3(F) is an isomorphism.; **match:** The weight-three map and its conjectural bijectivity.
+
+**implementationStatus:** unchecked
+
+**addedBy:** REV-Polylogarithms
+
+#### The weight-n polylogarithmic motivic complex
+
+`Polylogarithms:P.4/general-polylog-complex` — construction
+
+For a field F and n >= 1, the complex B(F; n) of GR (6): B_n(F) -> B_{n-1}(F) tensor F^x_Q -> B_{n-2}(F) tensor Lambda^2 F^x_Q -> ... -> B_2(F) tensor Lambda^{n-2} F^x_Q -> Lambda^n F^x_Q in degrees [1, n], with the inductive groups of P.4/higher-bloch-group, B_n(F) in degree 1 and the differential {x}_k tensor Y |-> {x}_{k-1} tensor (x wedge Y) for k >= 3 and {x}_2 tensor Y |-> (1 - x) wedge x wedge Y (the printed (5) and (6) of GR v5 have misprints, source issue Polylogarithms/E6). d o d = 0 because x wedge x = 0.
+
+**realises**
+
+- Polylogarithms:P.4
+
+**hypotheses**
+
+- F is a field (infinite for GR's results); n >= 1; all groups rational.
+
+**proofSteps**
+
+- Define the terms and the differential through P.4/delta-map tensored with the wedge product.
+- d o d = 0: on {x}_k tensor Y the composite is {x}_{k-2} tensor (x wedge x wedge Y) = 0 for k >= 4, and (1 - x) wedge x wedge x wedge Y = 0 for k = 3.
+- Functoriality for field homomorphisms.
+
+**prerequisites**
+
+- Polylogarithms:P.4/higher-bloch-group
+- Polylogarithms:P.4/delta-map
+- mathlib:ExteriorAlgebra.gradedAlgebra
+- mathlib:TensorProduct
+- mathlib:CochainComplex
+- mathlib:HomologicalComplex.homology
+
+**sources**
+
+- **sourceId:** GR.2022; **locator:** 1.1, item 4 (PDF p. 5); **excerpt:** So we get a complex in the degrees [1, n], where B_n(F) is in the degree 1, and the differential has degree +1, called the weight n polylogarithmic motivic complex: B(F; n) : B_n(F) -> B_{n-1}(F) tensor F^x_Q -> ... -> Lambda^n F^x_Q.; **match:** The complex and its indexing, as displayed.
+- **sourceId:** Gonch.Arakelov.2004; **locator:** Section 6.1 (PDF p. 52); **excerpt:** where delta_n({x}_k tensor Y) := {x}_{k-1} tensor x wedge Y for k > 2, and (1 - x) wedge x wedge y for k = 2, called the weight n polylogarithmic complex.; **match:** The differential on generators.
+
+**implementationStatus:** unchecked
+
+**api**
+
+- **name:** generalPolylogComplex; **role:** data; **statement:** B(F; n) as a cochain complex of Q-vector spaces in degrees 1..n.
+- **name:** generalPolylogComplex_d_gen; **role:** simp; **statement:** The differential on generators, in the two cases.
+- **name:** generalPolylogComplex_d_comp_d; **role:** relation; **statement:** d o d = 0.
+- **name:** generalPolylogComplex_map; **role:** functoriality; **statement:** A field homomorphism induces a map of complexes.
+- **name:** generalPolylogComplex_H1; **role:** characterisation; **statement:** H^1 B(F; n) = Ker delta_n.
+- **name:** generalPolylogComplex_three_explicit; **role:** compatibility; **statement:** For infinite F the natural map from P.3's B(F; 3) is a map of complexes, surjective in degree 1.
+
+**uses**
+
+- **where:** P.4's condition *_n; **how:** the condition is membership in H^1
+- **where:** P.4's Goncharov conjecture; **how:** the conjecture compares H^i of this complex with K-theory
+
+**tests**
+
+- **name:** d_comp_d_weight_four; **kind:** characterisation; **statement:** {x}_4 |-> {x}_3 tensor x |-> {x}_2 tensor (x wedge x) = 0.
+- **name:** weight_one; **kind:** degenerate; **statement:** B(F; 1) is F^x_Q in degree 1.
+- **name:** H1_is_kernel; **kind:** compatibility; **statement:** H^1 B(F; 2) = Ker delta_2.
+- **name:** not_a_cocycle; **kind:** non-example; **statement:** {3}_2 in B_2(Q) is not a cocycle: delta_2{3}_2 = 2 wedge 3 != 0.
+
+**planet:** **name:** Polylogarithmic motivic complexes
+
+**library:** **module:** TauCeti/NumberTheory/Polylogarithmic/HigherBloch; **namespace:** TauCeti.Polylog
+
+**addedBy:** REV-Polylogarithms
+
+**acceptance**
+
+- For n <= 3 and infinite F it receives the explicit complex of P.3.
+- H^1 is Ker delta_n.
+
+#### Goncharov's conjecture on the polylogarithmic complexes
+
+`Polylogarithms:P.4/goncharov-comparison-conjecture` — comparison
+
+For an infinite field F, n >= 1 and i > 0, Goncharov's conjecture asserts gr^n_gamma K_{2n-i}(F)_Q = H^i B(F; n). It is recorded as a conjecture (a Prop-valued statement), never assumed. Proved cases: n = 1 (K_1(F)_Q = F^x_Q); n = 2 (Suslin, through P.4/explicit-to-inductive-comparison); i = n (Suslin: H^n = K^M_n(F)_Q, P.3/milnor-degree-comparison at n = 3); and for n = 3, 4 the existence of the maps out of K-theory (P.3/k-theory-comparison-weight-three, GR Theorem 1.3(i)). Suslin's conjecture that the rank and gamma filtrations agree rationally is a separate conjecture.
+
+**realises**
+
+- Polylogarithms:P.4
+
+**proofSteps**
+
+- State the conjecture as a Prop with its hypotheses.
+- Record the proved cases with their nodes.
+
+**acceptance**
+
+- No node of this packet assumes the conjecture.
+
+**prerequisites**
+
+- Polylogarithms:P.4/general-polylog-complex
+- Polylogarithms:P.4/explicit-to-inductive-comparison
+- Polylogarithms:P.3/milnor-degree-comparison
+- MotivicEtaleKTheory:M.6
+- SchemeKTheoryOperations:S.6
+
+**sources**
+
+- **sourceId:** GR.2022; **locator:** 1.1, item 6 (PDF p. 5); **excerpt:** The conjecture states that one expects the following isomorphisms: gr^n_gamma K_{2n-i}(F)_Q = H^i B(F; n), i > 0.; **match:** The conjecture, as displayed.
+- **sourceId:** GR.2026; **locator:** Section 1.1, item 6 (PDF p. 7); **excerpt:** The map (12) for i = 4 is an isomorphism due to a theorem of Suslin [Sus84] relating Quillen's and Milnor's K-groups. Conjecture 1.4. The maps (12) are isomorphisms.; **match:** The proved top-degree case and Conjecture 1.4.
+
+**implementationStatus:** unchecked
+
+**addedBy:** REV-Polylogarithms
+
+**hypotheses**
+
+- F is an infinite field; n >= 1 and i > 0; K-groups are rationalised.
+
+#### The single-valued polylogarithm on B_n(C)
+
+`Polylogarithms:P.4/polylog-on-higher-bloch` — theorem
+
+For n >= 2 the assignment {z} |-> L_n(z) (with L_n(infinity) = 0) kills R_n(C) and so induces a homomorphism L_n : B_n(C) -> R. For n = 1, {z}_1 |-> log|z| is the map B_1(C) = C^x_Q -> R; it is GR's weight-one convention, not the case n = 1 of the formula for L_n.
+
+**realises**
+
+- Polylogarithms:P.4
+
+**hypotheses**
+
+- n >= 1.
+
+**proofSteps**
+
+- R_n(C) is spanned by {0} and by specialisations of elements of Ker delta_n over C(t).
+- For sum n_i{f_i(t)} in Ker delta_n, the function t |-> sum n_i L_n(f_i(t)) is constant on the projective line: its differential is expressed through delta_n (Goncharov 1994, Theorem 1.5; gap: not obtained, and the general-weight differential formula of L_n is not planned in P.1). Hence the values at t = 1 and t = 0 agree.
+
+**acceptance**
+
+- L_2({exp(i pi/3)}_2) = D(exp(i pi/3)) = 1.01494... != 0, although delta_2 of it is 0: this refutes the wrong definition R_n := Ker delta_n.
+- L_3({1}_3) = zeta(3).
+
+**prerequisites**
+
+- Polylogarithms:P.4/higher-bloch-group
+- Polylogarithms:P.1/single-valued-polylogarithm
+- Polylogarithms:P.1/single-valued-continuity
+
+**sources**
+
+- **sourceId:** GR.2026; **locator:** Section 1.1, item 4 (PDF p. 5); **excerpt:** One proves [Gon94a, Theorem 1.5] that there is a map of abelian groups L_n : B_n(C) -> R, {z}_n |-> L_n(z), n > 1. For n = 1 we have a map B_1(C) -> R, {z}_1 |-> log |z|.; **match:** The theorem, cited by the source to Goncharov (1994).
+
+**implementationStatus:** unchecked
+
+**addedBy:** REV-Polylogarithms
+
+#### Goncharov's inductive groups B_n(F) and the maps delta_n on Q[F]
+
+`Polylogarithms:P.4/higher-bloch-group` — definition
+
+For every field F define simultaneously, by recursion on n >= 1, a Q-subspace R_n(F) of Q[F] = (F ->0 Q) (generators {x}, x in F, with a generator {infinity} set to 0), the quotient B_n(F) := Q[F]/R_n(F) with classes {x}_n, and the map delta_n : Q[F] -> B_{n-1}(F) tensor F^x_Q for n >= 3, {x} |-> {x}_{n-1} tensor x, respectively delta_2 : Q[F] -> Lambda^2 F^x_Q, {x} |-> (1 - x) wedge x, with delta_n{0} = delta_n{1} = 0 (the source fixes the value at 0 only for n = 2; source issue Polylogarithms/E3). R_1(F) is spanned by {xy} - {x} - {y} for x, y in F^x and by {0}, so that B_1(F) = F^x_Q. For n >= 2, R_n(F) is spanned by {0} and by sum_i n_i({f_i(1)} - {f_i(0)}) for every sum_i n_i {f_i(t)} in Ker delta_n over F(t). The recursion runs over all fields at once, since R_n(F) uses delta_n over F(t). That delta_n descends to B_n(F) is P.4/delta-map. These are GR's inductive groups, rational as in the source; the explicit groups B_2 and B_3 of P.3 are compared with them in P.4/explicit-to-inductive-comparison.
+
+**realises**
+
+- Polylogarithms:P.4
+
+**hypotheses**
+
+- F is a field; GR's results assume F infinite, but the definition makes sense for every field.
+- n >= 1.
+- All groups are Q-vector spaces.
+
+**proofSteps**
+
+- Define R_1(F) and check B_1(F) = F^x_Q, {x}_1 |-> x tensor 1.
+- For n >= 2, given B_{n-1}(K) for every field K, define delta_n on Q[K] and then R_n(F) by specialising elements of Ker delta_n over F(t) at t = 1 and t = 0 (a pole specialises to {infinity} = 0).
+- Prove functoriality: a field homomorphism F -> F' induces B_n(F) -> B_n(F') through F(t) -> F'(t).
+- Prove {x}_n = (-1)^{n-1}{x^{-1}}_n for n >= 2 by induction: {xt}_n - (-1)^{n-1}{(xt)^{-1}}_n lies in Ker delta_n over F(t) by the case n - 1, and specialises to the relation at t = 1 and to 0 at t = 0.
+- Record that the source's groups are rational; Goncharov's integral groups (1995) are different objects.
+
+**acceptance**
+
+- B_1(F) = F^x_Q.
+- For infinite F, B_2(F) = P(F) tensor Q (K3BlochGroups V.3 pre-Bloch group) by P.4/explicit-to-inductive-comparison; the rationalised Bloch group is Ker delta_2 in B_2(F).
+- L_n descends to B_n(C) (P.4/polylog-on-higher-bloch), which shows that R_n consists of functional equations.
+- R_n is not Ker delta_n: {exp(i pi/3)}_2 lies in Ker delta_2 but L_2 of it is D(exp(i pi/3)) != 0.
+
+**prerequisites**
+
+- mathlib:Finsupp
+- mathlib:RatFunc
+- mathlib:TensorProduct
+- mathlib:ExteriorAlgebra.exteriorPower
+- mathlib:exteriorPower.ιMulti
+- mathlib:Additive
+
+**sources**
+
+- **sourceId:** GR.2022; **locator:** 1.1, item 4 (PDF p. 4); **excerpt:** one defines inductively for each n >= 1 a subspace R_n(F) in Q[F] reflecting functional equations for the classical n-logarithm function, and set B_n(F) := Q[F] / R_n(F). ... The subgroup R_n(F) is generated by all elements obtained this way, and {0}.; **match:** The definition, as displayed.
+- **sourceId:** GR.2022; **locator:** 1.1, item 4 (PDF p. 4); **excerpt:** Any expression sum n_i {f_i(t)} which lies in the kernel of delta_n for the field F(t) gives rise to an element sum n_i ({f_i(1)} - {f_i(0)}).; **match:** The specialisation recipe.
+- **sourceId:** GR.2026; **locator:** Conventions (PDF p. 4); **excerpt:** Conventions. A few remarks about conventions are in order. First, we work everywhere with infinite fields. Second, we work modulo torsion, i.e., with Q-vector spaces.; **match:** The standing hypotheses of the version of record.
+
+**implementationStatus:** unchecked
+
+**api**
+
+- **name:** higherBloch; **role:** data; **statement:** The Q-vector space B_n(F).
+- **name:** higherBloch.module; **role:** instance; **statement:** B_n(F) is a Q-vector space.
+- **name:** higherBloch.mk; **role:** constructor; **statement:** The class {x}_n of x in F.
+- **name:** higherBloch.mk_zero; **role:** simp; **statement:** {0}_n = 0.
+- **name:** higherBloch.mk_infty; **role:** simp; **statement:** {infinity}_n = 0.
+- **name:** higherBloch.induction_on; **role:** characterisation; **statement:** B_n(F) is spanned by the classes {x}_n.
+- **name:** higherBloch.mk_inv; **role:** relation; **statement:** {x}_n = (-1)^{n-1}{x^{-1}}_n for n >= 2 and x in F^x.
+- **name:** higherBloch.one; **role:** compatibility; **statement:** B_1(F) = F^x_Q.
+- **name:** higherBloch.two; **role:** compatibility; **statement:** For infinite F, B_2(F) = P(F) tensor Q, {x}_2 |-> [x]. Promoted to Polylogarithms:P.4/explicit-to-inductive-comparison.
+- **name:** higherBloch.lift; **role:** universal-property; **statement:** A Q-linear map on Q[F] killing R_n(F) descends, uniquely.
+- **name:** higherBloch.map; **role:** functoriality; **statement:** A field homomorphism induces B_n(F) -> B_n(F').
+- **name:** higherBloch.map_id; **role:** functoriality; **statement:** The identity induces the identity.
+- **name:** higherBloch.map_comp; **role:** functoriality; **statement:** Composition is preserved.
+- **name:** deltaQ; **role:** constructor; **statement:** delta_n : Q[F] -> B_{n-1}(F) tensor F^x_Q (n >= 3) or Lambda^2 F^x_Q (n = 2).
+
+**uses**
+
+- **where:** P.4's general complex; **how:** every term is one of these groups tensored with an exterior power
+- **where:** P.4's Zagier statement; **how:** the elements of the statement lie in Ker delta_n inside B_n(F)
+- **where:** GR Theorems 1.1 and 1.2; **how:** the weight-four elements y_j lie in Ker delta_4 inside B_4(F)
+
+**tests**
+
+- **name:** weight_one; **kind:** compatibility; **statement:** B_1(F) = F^x_Q, {x}_1 |-> x tensor 1.
+- **name:** inv_two; **kind:** characterisation; **statement:** {x}_2 + {x^{-1}}_2 = 0: {xt} + {(xt)^{-1}} lies in Ker delta_2 over F(t) and specialises to {x} + {x^{-1}} at t = 1 and to {0} + {infinity} = 0 at t = 0.
+- **name:** one_two; **kind:** computation; **statement:** {1}_2 = 0 (the previous argument with x = 1).
+- **name:** one_three_ne_zero; **kind:** non-example; **statement:** {1}_3 != 0 in B_3(Q), since L_3(1) = zeta(3) != 0 (P.4/polylog-on-higher-bloch).
+- **name:** not_kernel; **kind:** non-example; **statement:** R_2(C) != Ker delta_2: delta_2{exp(i pi/3)} = (1 - w) wedge w = w^{-1} wedge w = 0, but L_2(exp(i pi/3)) = 1.0149... != 0.
+
+**planet:** **name:** Higher Bloch groups
+
+**library:** **module:** TauCeti/NumberTheory/Polylogarithmic/HigherBloch; **namespace:** TauCeti.Polylog
+
+#### The condition *_n: delta_n y = 0
+
+`Polylogarithms:P.4/condition-o-n` — definition
+
+An element y of B_n(F) satisfies GR's condition *_n when delta_n y = 0, that is, when y lies in H^1 B(F; n), the kernel of the first differential, since the complex starts in degree one. The elements satisfying it form the subspace Ker delta_n. The source's name is *_n (text extraction renders it as 'o_n'); GR v5 drops the name and speaks of Ker delta_4. Deciding the condition for n >= 3 needs equality in B_{n-1}(F), for which no algorithm is known, so a claimed element must carry a proof of its condition.
+
+**realises**
+
+- Polylogarithms:P.4
+
+**hypotheses**
+
+- F is a field; n is at least two; y lies in B_n(F).
+
+**proofSteps**
+
+- Define the condition as the vanishing of delta_n.
+- Identify the set of such elements with H^1 of the weight-n complex (P.4/general-polylog-complex).
+- Prove that the condition is preserved by the maps induced by field homomorphisms.
+- Record that Zagier's original formulation uses subgroups beta_n(F), defined for number fields only; they are not compared here (Zagier 1990 not obtained).
+
+**acceptance**
+
+- At weight two the condition is membership in Ker delta_2 = B(F) tensor Q.
+- The elements satisfying the condition form a subspace.
+- {3}_2 in B_2(Q) does not satisfy the condition, so it is a real restriction.
+
+**prerequisites**
+
+- Polylogarithms:P.4/higher-bloch-group
+- Polylogarithms:P.4/delta-map
+- Polylogarithms:P.4/general-polylog-complex
+
+**sources**
+
+- **sourceId:** GR.2022; **locator:** 1.1, item 5 and footnote 7 (PDF p. 5); **excerpt:** The condition *_n. It simply says that delta y = 0 for an element y in B_n(F), i.e., y in H^1 B(F; n). ... Zagier's conjecture in its original formulation does not use groups B_n(F); it uses subgroups beta_n(F), defined for number fields only.; **match:** The condition and the caveat about the original formulation; the asterisk was checked on the page image.
+
+**implementationStatus:** unchecked
+
+**api**
+
+- **name:** ConditionStar; **role:** characterisation; **statement:** The predicate deltaMap n y = 0 on B_n(F).
+- **name:** conditionStar_iff_H1; **role:** characterisation; **statement:** It holds exactly for the elements of H^1 B(F; n).
+- **name:** conditionStar_subspace; **role:** structure; **statement:** The elements satisfying it form the subspace Ker delta_n.
+- **name:** conditionStar_map; **role:** functoriality; **statement:** It is preserved by the maps induced by field homomorphisms.
+
+**uses**
+
+- **where:** P.4's Zagier statement; **how:** the elements of the determinant are required to satisfy it
+- **where:** GR Theorem 1.1; **how:** the weight-four elements satisfy *_4
+
+**tests**
+
+- **name:** fails_over_Q; **kind:** computation; **statement:** {3}_2 in B_2(Q) fails *_2: delta_2{3}_2 = 2 wedge 3 != 0.
+- **name:** one_three; **kind:** computation; **statement:** {1}_3 satisfies *_3: delta_3{1}_3 = {1}_2 tensor 1 = 0.
+- **name:** weight_two_compat; **kind:** compatibility; **statement:** *_2 holds iff y lies in Ker delta_2 = B(F) tensor Q.
+- **name:** subspace; **kind:** characterisation; **statement:** The elements satisfying *_n form a Q-subspace.
+
+**library:** **module:** TauCeti/NumberTheory/Polylogarithmic/HigherBloch; **namespace:** TauCeti.Polylog
+
+#### The Zagier regulator determinant
+
+`Polylogarithms:P.4/zagier-determinant` — construction
+
+Let F be a number field, n >= 2, sigma_1, ..., sigma_{r_1} the real embeddings and sigma_{r_1+1}, ..., sigma_{r_1+r_2} one from each conjugate pair. Put d_n = r_1 + r_2 and I_n = {1, ..., r_1 + r_2} for n odd, and d_n = r_2 and I_n = {r_1 + 1, ..., r_1 + r_2} for n even. For y in B_n(F)^{d_n}, Z_n(y) := pi^{n r_2} |d_F|^{-1/2} det(L_n(sigma_i(y_j)))_{i in I_n, j <= d_n} for n odd and pi^{n(r_1+r_2)} |d_F|^{-1/2} det(...) for n even, with L_n the map of P.4/polylog-on-higher-bloch and the empty determinant equal to 1. The weight-four normalisation is the one GR display; the general-weight one is derived from the functional equation and Borel's theorem and checked on Q and Q(i) (gap: Zagier 1990 not obtained). The condition *_n is not needed to define Z_n.
+
+**realises**
+
+- Polylogarithms:P.4
+
+**hypotheses**
+
+- F is a number field; n >= 2.
+
+**proofSteps**
+
+- Order the embeddings as the source does, with conjugate embeddings paired.
+- Define the matrix entry at sigma_i and y_j as L_n(sigma_i(y_j)).
+- Define the determinant and the normalising factor, depending on the parity of n.
+- Prove that reordering changes the determinant by a sign, that it vanishes on a linearly dependent family, and that for n even a row at a real place would vanish, which is why real places are excluded.
+- Prove that in weight two Z_2 is pi^{2(r_1+r_2)} |d_F|^{-1/2} times the determinant of P.2 on the image of B(F) tensor Q (P.4/explicit-to-inductive-comparison).
+
+**acceptance**
+
+- In weight two the construction is the normalised determinant of the weight-two regulator of P.2.
 - The determinant vanishes on a dependent family.
-- The normalisation is the displayed one; a different power of pi changes the statement and is
-  not a matter of convention.
+- F = Q, n = 3, y = ({1}_3): Z_3 = L_3(1) = zeta(3); a factor pi^{3(r_1+r_2)} would give pi^3 zeta(3), not a rational multiple of zeta(3).
 
-**Depends on.** **inside this roadmap** `condition-o-n`, `single-valued-polylogarithm`, `weight-two-regulator`; **baseline** `mathlib:NumberField.InfinitePlace`, `mathlib:NumberField.discr`, `mathlib:Matrix.det`, `mathlib:NumberField.Units.regulator`.
+**prerequisites**
 
-**Source.** GR.2022, Theorem 1.2 (PDF p. 5): “Then there exist elements y_1, ..., y_{r_2} in Ker delta_4 in B_4(F) such that zeta_F(4) = pi^{4(r_1+r_2)} |d_F|^{-1/2} det(L_4(sigma_{r_1+i}(y_j))), 1 <= i, j <= r_2.” — The determinant and its normalisation, as displayed in weight four.
+- Polylogarithms:P.4/condition-o-n
+- Polylogarithms:P.4/polylog-on-higher-bloch
+- Polylogarithms:P.4/explicit-to-inductive-comparison
+- Polylogarithms:P.1/single-valued-polylogarithm
+- Polylogarithms:P.2/weight-two-regulator
+- mathlib:NumberField.InfinitePlace
+- mathlib:NumberField.InfinitePlace.embedding
+- mathlib:NumberField.ComplexEmbedding.conjugate
+- mathlib:NumberField.discr
+- mathlib:Matrix.det
 
-### `zagier-statement` — Zagier's statement, in three separate propositions ★
+**sources**
 
-*theorem* · planet **Zagier's statement**
+- **sourceId:** GR.2022; **locator:** Theorem 1.2 (PDF p. 5); **excerpt:** Then there exist elements y_1, ..., y_{r_2} in Ker delta_4 in B_4(F) such that zeta_F(4) = pi^{4(r_1+r_2)} |d_F|^{-1/2} det(L_4(sigma_{r_1+i}(y_j))), 1 <= i, j <= r_2.; **match:** The determinant and its normalisation, as displayed in weight four.
 
-For a number field F and a weight n, state as three separate propositions: first, the existence
-of a family of elements of B_n(F) satisfying the condition o_n whose determinant is nonzero;
-second, the comparison of the first cohomology of the weight-n polylogarithmic complex with the
-weight-n graded piece of rationalised K-theory; third, the numerical identity that the
-normalised determinant of any such family is a nonzero rational multiple of the value of the
-Dedekind zeta function at n. These are different propositions and are never collapsed into one.
+**implementationStatus:** unchecked
 
-**Hypotheses.** F is a number field; n is at least two.
+**api**
 
-**Construction and proof.**
+- **name:** zagierIndex; **role:** data; **statement:** The index set I_n and the size d_n, depending on the parity of n.
+- **name:** zagierMatrix; **role:** constructor; **statement:** The matrix (L_n(sigma_i(y_j)))_{i in I_n, j <= d_n}.
+- **name:** zagierDet; **role:** constructor; **statement:** Z_n(y), the normalised determinant.
+- **name:** zagierDet_dependent; **role:** characterisation; **statement:** Z_n vanishes on a linearly dependent family.
+- **name:** zagierDet_two; **role:** compatibility; **statement:** In weight two it is the normalised determinant of the weight-two regulator.
+- **name:** zagierDet_sign; **role:** relation; **statement:** Reordering the family or the places changes Z_n by a sign.
 
-1. State the existence proposition, with the condition o_n and nonvanishing of the determinant.
-1. State the comparison proposition, which is the conjecture of the source for general weight
-   and a theorem in weights two, three and four.
-1. State the numerical identity, which is what the phrase Zagier's conjecture usually names.
-1. Prove the implications that hold unconditionally between the three, and record which
-   implications are open.
-1. Record what a conjectural equality may not be used for: it cannot supply a constructor of
-   Bloch elements, which is the rule the roadmap states.
+**uses**
 
-**Acceptance.**
+- **where:** P.4's statement of Zagier's conjecture; **how:** the conjecture is an identity between this determinant and a zeta value
+- **where:** P.3's weight-three theorem; **how:** the weight-three statement restates the odd-weight case of this normalisation
+- **where:** SpecialValuesBirchTate B.8; **how:** imports this determinant (restructure entry: P.4 owns it)
 
-- In weight two all three propositions are theorems, by Zagier's 1986 result.
-- In weight three all three are theorems, by Goncharov.
-- In weight four all three are theorems, by Goncharov and Rudenko; the recorded restructure
-  entry names the roadmap that would own that proof.
-- For general n the second proposition is a conjecture in the source and is labelled as one
-  here.
+**tests**
 
-**Depends on.** **inside this roadmap** `zagier-determinant`, `condition-o-n`, `k-theory-comparison-weight-three`; **baseline** `mathlib:NumberField.dedekindZeta`.
+- **name:** Q_weight_three; **kind:** computation; **statement:** F = Q, n = 3, y = ({1}_3): Z_3 = L_3(1) = zeta(3) = zeta_Q(3).
+- **name:** Qi_weight_two; **kind:** computation; **statement:** F = Q(i), y = ({i}_2): Z_2 = pi^2 (1/2) D(i) = pi^2 G/2 = 3 zeta_{Q(i)}(2).
+- **name:** Qi_weight_three; **kind:** computation; **statement:** F = Q(i), y = ({1}_3): Z_3 = pi^3 (1/2) zeta(3) = 16 zeta_{Q(i)}(3), since zeta_{Q(i)}(3) = zeta(3) pi^3/32.
+- **name:** Q_weight_four_empty; **kind:** degenerate; **statement:** F = Q, n = 4: d_4 = 0 and Z_4 = pi^4 = 90 zeta(4).
+- **name:** real_rows_vanish; **kind:** non-example; **statement:** For n even, L_n(sigma(x)) = 0 at a real sigma, so a matrix indexed by all places would be singular.
+- **name:** dependent_vanishes; **kind:** characterisation; **statement:** Z_n(y, y, ...) = 0 whenever two entries of the family coincide.
 
-**Source.** GR.2022, Theorem 1.1 and item 6 (PDF pp. 3, 5): “Then there exist elements y_1, ..., y_{r_2} in Q[F] satisfying a certain condition o_4 ... For any y_1, ..., y_{r_2} satisfying o_4 the right-hand side of (2) is equal to q times zeta_F(4) for some q in Q.” — The two halves the source separates, existence and the identity for any such family, quoted; the third proposition is the comparison the source states as a conjecture for general n.
+**library:** **module:** TauCeti/NumberTheory/Polylogarithmic/HigherBloch; **namespace:** TauCeti.Polylog
 
-### `weight-four-theorem` — The weight-four case is a theorem ★
+#### Zagier's statement, in three separate propositions
 
-*theorem* · planet **The weight-four theorem**
+`Polylogarithms:P.4/zagier-statement` — theorem
 
-For every number field F the value of the Dedekind zeta function at four equals the normalised
-determinant of the matrix of values of the single-valued 4-logarithm at the images of a family
-of elements of the kernel of delta_4 in B_4(F), up to a nonzero rational; and for any such
-family the normalised determinant is a rational multiple of that zeta value. This is Goncharov
-and Rudenko's theorem, not a conjecture, and the packet records it as such.
+For a number field F and n >= 2 (with d_n, I_n and Z_n as in P.4/zagier-determinant), three separate propositions: (Z1) there exist y_1, ..., y_{d_n} in Ker delta_n in B_n(F) with Z_n(y) != 0 (equivalently, when d_n >= 1, Z_n(y) = zeta_F(n) after rescaling y_1); (Z2) H^1 B(F; n) = Ker delta_n is isomorphic to gr^n_gamma K_{2n-1}(F)_Q (P.4/goncharov-comparison-conjecture at i = 1); (Z3) for all y_1, ..., y_{d_n} in Ker delta_n, Z_n(y) = q zeta_F(n) with q in Q, where q = 0 is allowed. These are different propositions and are never collapsed into one.
 
-**Hypotheses.** F is a number field.
+**realises**
 
-**Construction and proof.**
+- Polylogarithms:P.4
 
-1. State the theorem in the source's form, with the displayed normalisation.
-1. Record the architecture of its proof as the source describes it: the maps from the K-groups
-   to the cohomology of the weight-four complex, the identification of the composition with
-   Beilinson's regulator up to a nonzero rational, and Borel's theorem.
-1. Record that this packet states the theorem and builds its statement infrastructure but does
-   not plan its proof; the restructure entry names the roadmap that would.
-1. Record the further consequence the source draws, the extension describing the weight-four
-   part of the motivic Lie coalgebra, as a statement about which no claim is made here.
+**hypotheses**
 
-**Acceptance.**
+- F is a number field; n is at least two.
 
-- The statement uses the same determinant construction as every other weight, with n = 4.
-- It is a theorem: the packet's restructure entry exists precisely because no roadmap currently
-  owns its proof.
-- The proof is not a consequence of the weight-three construction, which is what the roadmap's
-  scope note says.
+**proofSteps**
 
-**Depends on.** **inside this roadmap** `zagier-statement`, `zagier-determinant`.
+- State (Z1) with the condition *_n and nonvanishing of the determinant.
+- State (Z2), the case i = 1 of Goncharov's conjecture.
+- State (Z3), the numerical identity for every family.
+- Record the proved cases: n = 2, (Z1) and (Z3) by Zagier (1986) with Suslin and Borel, and (Z2) by Suslin through P.4/explicit-to-inductive-comparison; n = 3, (Z1) by Goncharov (1991, 1995) as reported by GR (P.3/weight-three-special-value), with (Z2) and (Z3) not established by any source read; n = 4, (Z1) and (Z3) are GR Theorem 1.2 (P.4/weight-four-theorem), and (Z2) is GR Conjecture 1.4; n >= 5, all three conjectural.
+- Record what a conjectural equality may not be used for: it cannot supply a constructor of Bloch elements.
 
-**Source.** GR.2022, Abstract and Theorem 1.2 (PDF pp. 2, 5): “We prove Zagier's conjecture on the value at s = 4 of the Dedekind zeta-function of a number field F: zeta_F(4) = pi^{4(r_1+r_2)} |d_F|^{-1/2} det(L_4(sigma_i(y_j))), 1 <= i, j <= r_2.” — The theorem as stated in the abstract and proved in the paper.
+**acceptance**
 
-### `freeness-extension` — The weight-four part of the motivic Lie coalgebra
+- (Z3) allows q = 0: for a dependent family the determinant vanishes, so 'a nonzero rational multiple' would be false.
+- In weight four (Z2) is GR's Conjecture 1.4, not a theorem; only injectivity of K_7(F)_Q -> H^1 for number fields is proved there.
+- For general n the second proposition is a conjecture in the source and is labelled as one here.
 
-*comparison*
+**prerequisites**
 
-Record the extension relating the weight-four part of the motivic Lie coalgebra of a field to
-the higher Bloch groups: there is an exact sequence with B_4(F) on the left, the weight-four
-part in the middle and the second exterior power of B_2(F) on the right. The source describes
-this as strong evidence for the part of the Freeness Conjecture that describes it; it is not
-proved there, and nothing in this packet assumes it.
+- Polylogarithms:P.4/zagier-determinant
+- Polylogarithms:P.4/condition-o-n
+- Polylogarithms:P.4/goncharov-comparison-conjecture
+- Polylogarithms:P.4/weight-four-theorem
+- Polylogarithms:P.3/weight-three-special-value
+- mathlib:NumberField.dedekindZeta
 
-**Hypotheses.** F is a field.
+**sources**
 
-**Construction and proof.**
+- **sourceId:** GR.2022; **locator:** Theorem 1.1 and item 6 (PDF pp. 3, 5); **excerpt:** Then there exist elements y_1, ..., y_{r_2} in Q[F] satisfying a certain condition *_4 ... For any y_1, ..., y_{r_2} satisfying *_4 the right-hand side of (2) is equal to q times zeta_F(4) for some q in Q.; **match:** The two halves the source separates, existence and the identity for every family (with q in Q, not necessarily nonzero); the comparison is the conjecture of item 6.
+- **sourceId:** GR.2022; **locator:** 1.1, item 2 (PDF p. 3); **excerpt:** Similar results about zeta_F(2) and zeta_F(3) were proved in [Zag86] and [Gon91], [Gon95], respectively.; **match:** The proved weights two and three, as attributed.
 
-1. State the extension with its three terms, exactly as the source displays it.
-1. Record its status: evidence for a conjecture, not a theorem, and the source says so in those
-   words.
-1. Record what depends on it in this packet: nothing. It is stated so that a later layer that
-   needs it has a precise statement to cite, and so that no node silently assumes it.
+**implementationStatus:** unchecked
 
-**Acceptance.**
+**planet:** **name:** Zagier's conjecture
 
-- The sequence is recorded as a conjecture, not used as a hypothesis.
-- Its weight-two analogue is the identification of B_2 with the weight-two part, which is a
-  theorem.
-- No node of this packet has it as a prerequisite, which is the acceptance test.
+#### The weight-four case is a theorem
 
-**Depends on.** **inside this roadmap** `higher-bloch-group`.
+`Polylogarithms:P.4/weight-four-theorem` — theorem
 
-**Source.** GR.2022, Abstract (PDF p. 2): “We get a strong evidence for the part of Freeness Conjecture describing the weight four part L_4(F) of the motivic Lie coalgebra of F via higher Bloch groups as an extension: 0 -> B_4(F) -> L_4(F) -> Lambda^2 B_2(F) -> 0.” — The extension and its status, as displayed.
+Let F be a number field with [F : Q] = r_1 + 2 r_2, embeddings numbered so that conj(sigma_{r_1+i}) = sigma_{r_1+r_2+i}, and discriminant d_F. (a) If r_2 >= 1 there exist y_1, ..., y_{r_2} in Ker delta_4 in B_4(F) with zeta_F(4) = pi^{4(r_1+r_2)} |d_F|^{-1/2} det(L_4(sigma_{r_1+i}(y_j)))_{1<=i,j<=r_2}; if r_2 = 0 the statement is zeta_F(4) in Q^x pi^{4 r_1} |d_F|^{-1/2} (source issue Polylogarithms/E2: as printed, the case r_2 = 0 reads zeta_F(4) = pi^{4 r_1} |d_F|^{-1/2}, false for F = Q). (b) For any y_1, ..., y_{r_2} in Ker delta_4 the right-hand side equals q zeta_F(4) for some q in Q. This is Goncharov and Rudenko's theorem (GR Theorem 1.2), not a conjecture. The paper proves it with the complex (44), which uses the explicit B_4(F) in L_4(F) and the 22-term group B_3(F); for Ker delta_4 computed with the inductive B_3(F), part (b) needs an argument the sections read do not contain (gap).
 
-## P.5 — Curves and regulator complexes
+**realises**
 
-Coverage **source_decomposed**, after this session read Goncharov's paper properly: sections 1,
-2, 3 and 6 in full from the arXiv e-print source, in place of the abstract and first page the
-first pass had. The layer now carries twelve nodes. What it owns: the curve complexes from the
-function field and its residues; the general weight-two form η(f,g) = log|f| d arg g − log|g| d
-arg f with its Steinberg relation through `D`, which `EllipticRegulators:ER.2` specialises
-rather than owns; the forms r_{m−1} with the convergence theorem that turns them into
-distributions; Goncharov's canonical map of complexes from the weight `n` higher Chow complex
-to the weight `n` real Deligne complex, with the De Rham involution statement the stage text
-asks for; the Chow polylogarithm as a chain of distributions on the spaces of cycles with its
-three identities and the torus invariance of its top member; the Arakelov motivic complex with
-its real and number-field variants and the identification of its degree-zero cohomology with
-the Gillet–Soulé arithmetic Chow group; the Chow dilogarithm with the strong reciprocity law
-and the three cases the source proves — the projective line modulo 6-torsion, an elliptic curve
-explicitly, an arbitrary curve over the algebraic numbers rationally — with the family version;
-and the weight-three regulator.
+- Polylogarithms:P.4
 
-Two things are stated and **not** proved, each for a reason the source itself gives. The
-comparison with M's higher Chern character is **Problem a)** of the source's introduction:
-Goncharov constructs the regulator as a map of complexes and poses the comparison with
-Beilinson's regulator, through the Bloch–Levine isomorphism, as open. And the
-Eisenstein–Kronecker expression is a **target**, conditional on the analytic result
-`EllipticRegulators:ER.3` owns; the elliptic weight-three special-value conjecture is not among
-the theorems the weight-two argument gives, exactly as the stage text demands. The target of
-the regulator, the real Deligne–Beilinson cohomology of a curve, is still owned by no stage of
-the atlas and is requested from `MotivicEtaleKTheory:M.8`, as two confirmed red-team findings
-ask; every statement here that mentions a Deligne class is conditional and says so.
+**hypotheses**
 
-### `curve-polylogarithmic-complex` — The low-weight polylogarithmic complexes of a curve ★
+- F is a number field.
 
-*construction* · planet **Curve polylogarithmic complexes**
+**proofSteps**
 
-For a smooth curve X over a field construct the weight-two and weight-three polylogarithmic
-complexes of X from the complexes of its function field together with the residues at the closed
-points, as the total complex of the resulting two-term diagram. Prove that the residues commute
-with the differentials, so that the total complex is well defined, and define the subgroup of
-unramified classes as the kernel of the total residue.
+- State the theorem in the source's form, with the displayed normalisation and the correction for r_2 = 0.
+- Existence (a): from GR Theorem 1.3(iv) (the composite K_7(C)_Q -> H^1 B(C; 4) -> R is a nonzero rational multiple of the Borel regulator) and Borel's theorem (BorelRegulators R.5), as GR v5 p. 7 and Section 9.3 say.
+- Part (b): the source's argument was not located in the sections read (gap).
+- Record that this packet states the theorem and builds its statement infrastructure but does not plan its proof; the restructure entry names the Part II that would.
+- The further consequence, the extension describing L_4(F), is P.4/freeness-extension.
 
-**Hypotheses.** X is a smooth curve over a field; its function field and closed points are the usual ones.
+**acceptance**
 
-**Construction and proof.**
+- F = Q(i), y_1 = {i}_4 (delta_4{i}_4 = {i}_3 tensor i = 0, since i is torsion): pi^4 (1/2) L_4(i) = pi^4 beta(4)/2 = 45 zeta_{Q(i)}(4), because zeta_{Q(i)}(4) = zeta(4) beta(4) = pi^4 beta(4)/90.
+- It is a theorem: the restructure entry exists because no roadmap owns its proof.
+- The proof is not a consequence of the weight-three construction.
 
-1. Import the polylogarithmic complexes of the function field from P.3 and the residues of P.3.
-1. Form the diagram whose first row is the complex of the function field and whose second row is
-   the sum over the closed points of the complex of the residue field, shifted, with the residue
-   as the vertical map.
-1. Prove that the vertical map is a map of complexes, and that for a fixed class only finitely
-   many residues are nonzero.
-1. Define the complex of X as the total complex, and the unramified classes as the kernel of the
-   total residue.
-1. Prove functoriality for a dominant map of curves, with the transfer, and the compatibility
-   with the residues.
+**prerequisites**
 
-**API.**
+- Polylogarithms:P.4/zagier-determinant
+- Polylogarithms:P.4/condition-o-n
+- Polylogarithms:P.4/polylog-on-higher-bloch
+- mathlib:NumberField.dedekindZeta
+- mathlib:NumberField.discr
+- BorelRegulators:R.5
 
-| name | role | statement |
-| --- | --- | --- |
-| `curvePolylogComplex` | data | The total complex of the curve in weight two and weight three. |
-| `curveResidue` | constructor | The total residue at the closed points. |
-| `curveResidue_finite` | characterisation | Only finitely many residues of a class are nonzero. |
-| `unramifiedClasses` | data | The kernel of the total residue. |
-| `curvePolylogComplex_map` | functoriality | Functoriality for a dominant map, with the transfer. |
+**sources**
 
-**Used by.** *P.5's regulator comparison*: the regulator is defined on the unramified classes. *EllipticRegulators ER.2*: the elliptic case specialises this construction, as the confirmed red-team finding asks. *P.5's reciprocity law*: the law is the statement that the total residue of a suitable class vanishes.
+- **sourceId:** GR.2026; **locator:** Theorem 1.2 (PDF p. 5); **excerpt:** Let F be a number field, [F : Q] = r1 + 2r2, and the set {sigma_j} of all embeddings F -> C is numbered so that conj(sigma_{r1+i}) = sigma_{r1+r2+i}. Let dF be the discriminant of F. Then there exist elements y1, ..., yr2 in Ker delta4 in B4(F) such that; **match:** The theorem, in the version of record.
+- **sourceId:** GR.2026; **locator:** after Theorem 1.3 (PDF p. 7); **excerpt:** Theorem 1.2 follows from the part (iv) of Theorem 1.3 and Borel's theorem [Bor77].; **match:** The architecture of the proof.
+- **sourceId:** GR.2022; **locator:** Abstract (PDF p. 2); **excerpt:** We prove Zagier's conjecture on the value at s = 4 of the Dedekind zeta-function of a number field F: zeta_F(4) = pi^{4(r_1+r_2)} |d_F|^{-1/2} det(L_4(sigma_i(y_j))), 1 <= i, j <= r_2.; **match:** The theorem as stated in the abstract.
 
-**Unit tests.**
+**implementationStatus:** unchecked
 
-- `first_term_unramified` — A class of the first term has vanishing residue.
-- `finiteness` — Only finitely many residues are nonzero.
-- `projective_line` — For the projective line the complex is the one the reciprocity law is
-  stated for.
-- `not_the_field_complex` — The curve complex is not the complex of the function field: they
-  differ by the residue terms.
+**planet:** **name:** Zagier's conjecture on ζ_F(4)
 
-**Acceptance.**
+#### The weight-four part of the motivic Lie coalgebra
 
-- The residue of a class of the first term vanishes, so an element of B_n of the function field
-  is automatically unramified in that degree.
-- Only finitely many residues of a given class are nonzero, which is what makes the sum defined.
-- For the projective line the complex reduces to the one the source's reciprocity law is about.
+`Polylogarithms:P.4/freeness-extension` — comparison
 
-**Depends on.** **inside this roadmap** `residues-and-transfers`, `polylogarithmic-complex`; **other roadmaps** `K2SymbolsBrauer:T.4`.
+(a) Prediction (GR v5 (17), p. 8): assuming the category of mixed Tate motives of Beilinson's conjectures (GR Conjectures 1.5 to 1.7), there is an exact sequence 0 -> B_4(F) -> L_4(F) -> Lambda^2 B_2(F) -> 0 for the motivic Lie coalgebra. (b) Theorem (GR Theorem 1.14(c)): for the combinatorially defined Lie coalgebra, 0 -> B_4(F) -> L_4(F) -> Lambda^2 L_2(F) -> 0 is exact and functorial in F, with B_4(F) the span of the {x}_4 and the projection the (2,2)-component of the cobracket; the map from this B_4(F) to the inductive B_4(F) is conjecturally an isomorphism (GR v5 p. 12). The proof of (b) (GR Sections 4 to 6) belongs to the proposed Part II; no node here uses (a) or (b).
 
-**Source.** Gonch.Arakelov.2004, Abstract (PDF p. 1): “We study the Chow dilogarithm and prove a reciprocity law which strengthens Suslin's reciprocity law for Milnor's group K^M_3 on curves.” — The reciprocity law on curves this complex is built to state.
+**realises**
 
-### `weight-two-regulator-form` — The weight-two regulator form of a curve ★
+- Polylogarithms:P.4
 
-*construction* · planet **Weight-two regulator form**
+**hypotheses**
 
-For a smooth curve over the complex numbers and a symbol given by two nonzero rational
-functions, construct the real one-form given by the logarithm of the modulus of the first
-against the differential of the argument of the second, minus the same with the roles exchanged.
-Prove its closedness away from zeros and poles, its behaviour around them, and the Steinberg
-relation for it through the Bloch-Wigner function. This is the general curve formula;
-EllipticRegulators ER.2 specialises it to an elliptic curve, and the confirmed red-team finding
-asks for the ownership to be recorded this way.
+- F is a field.
 
-**Hypotheses.** X is a smooth curve over the complex numbers; f and g are nonzero rational functions on X.
+**proofSteps**
 
-**Construction and proof.**
+- State (a) as the prediction it is, with its hypotheses.
+- State (b) as GR's theorem, with the combinatorial L_4 and B_4.
+- Record that nothing in this packet depends on either.
 
-1. Define the one-form by the displayed expression, on the complement of the zeros and poles of
-   both functions.
-1. Prove that it is closed there, by computing its differential.
-1. Prove the behaviour around a zero or a pole: the form has a logarithmic singularity whose
-   residue is expressed through the orders and the tame symbol.
-1. Prove the Steinberg relation through the Bloch-Wigner function: for g equal to one minus f
-   the form is, up to an exact form, the differential of the Bloch-Wigner value of f, which is
-   the identity that makes the regulator descend to symbols.
-1. Record that the target of the regulator, the real Deligne-Beilinson cohomology of the curve,
-   is not constructed here: no stage of the atlas owns it, and the packet records a request for
-   it.
+**acceptance**
 
-**API.**
+- (a) is recorded as a prediction and not used as a hypothesis.
+- In weight two the combinatorial L_2 equals B_2 by definition, while the motivic L_2 = B_2 is a prediction.
+- No node of this packet has this node as a prerequisite.
 
-| name | role | statement |
-| --- | --- | --- |
-| `regulatorForm` | constructor | The one-form attached to a pair of nonzero rational functions. |
-| `regulatorForm_closed` | characterisation | It is closed away from the zeros and poles. |
-| `regulatorForm_antisymm` | relation | It is antisymmetric in the two functions. |
-| `regulatorForm_steinberg` | relation | For the Steinberg pair it is the differential of the Bloch-Wigner value, up to an exact form. |
-| `regulatorForm_residue` | relation | Its behaviour around a zero or a pole, through the tame symbol. |
+**prerequisites**
 
-**Used by.** *EllipticRegulators ER.2*: that layer specialises the form to an elliptic curve and fixes the factor of two pi and the orientation. *P.5's comparison with the Chern character*: the comparison is stated for the class of this form. *P.2's regulator*: the weight-two number-field regulator is the zero-dimensional case of the same expression.
+- Polylogarithms:P.4/higher-bloch-group
 
-**Unit tests.**
+**sources**
 
-- `constant_vanishes` — For constant functions the form vanishes.
-- `steinberg` — For the Steinberg pair the form is the differential of the Bloch-Wigner value up
-  to an exact form.
-- `antisymmetry` — Exchanging the two functions changes the sign.
-- `not_a_class` — The form is not a Deligne cohomology class until that cohomology is
-  constructed, which this packet requests.
+- **sourceId:** GR.2022; **locator:** Abstract (PDF p. 2); **excerpt:** We get a strong evidence for the part of Freeness Conjecture describing the weight four part L_4(F) of the motivic Lie coalgebra of F via higher Bloch groups as an extension: 0 -> B_4(F) -> L_4(F) -> Lambda^2 B_2(F) -> 0.; **match:** The extension and its status, as displayed.
+- **sourceId:** GR.2026; **locator:** Theorem 1.14(c) (PDF p. 16); **excerpt:** c) There is a short exact sequence of Q-vector space, functorial in F: 0 -> B4(F) -> L4(F) -> Lambda^2 L2(F) -> 0. (43) Here the map i is the natural embedding from Definition 1.11.; **match:** The proved extension.
 
-**Acceptance.**
+**implementationStatus:** unchecked
 
-- For f and g constant the form vanishes.
-- For g equal to one minus f the form is the differential of the Bloch-Wigner value of f up to
-  an exact form, which is the Steinberg relation.
+### Polylogarithms:P.5
+
+#### The low-weight polylogarithmic complexes of a curve
+
+`Polylogarithms:P.5/curve-polylogarithmic-complex` — construction
+
+Let X be a smooth curve over an infinite field k, with function field F and closed points x with residue fields k(x). For n = 2, 3 the weight-n polylogarithmic complex of X is the cone of the total residue Res = sum_x res_x : B(F; n) -> (direct sum over x of B(k(x); n - 1))[-1] (P.3/residues-and-transfers), shifted so that B(F; n) keeps its degrees; for each element only finitely many res_x are nonzero. A class of B(F; n) is unramified when all its residues vanish. Coefficients are rational, as in P.3; integrally the weight-two residue is a map of complexes only after inverting 2.
+
+**realises**
+
+- Polylogarithms:P.5
+
+**hypotheses**
+
+- X is a smooth curve over an infinite field k; for a proper X the closed points are the places of F over k (tauceti:TauCeti.Place).
+- Coefficients are Q (weight two needs 2 inverted integrally).
+
+**proofSteps**
+
+- Import the complexes of the function field and of the residue fields (P.3/polylogarithmic-complex) and the residues (P.3/residues-and-transfers, P.3/exterior-residue).
+- For f in F^x only finitely many places have ord f != 0 (tauceti:TauCeti.Place.finite_setOf_ord_ne_zero), so each element of B(F; n) has finitely many nonzero residues and Res lands in the direct sum.
+- Res is a map of complexes because each res_x is (P.3/residues-and-transfers).
+- Define the curve complex as the cone of Res, and the unramified classes as the kernel of Res on cohomology.
+- Prove functoriality for pull-back along a finite morphism of curves, with residues multiplied by ramification indices; push-forward needs transfers, which no source read constructs (gap).
+
+**acceptance**
+
+- For the projective line over an algebraically closed k the weight-three complex with its residue is the one Goncharov's Conjecture 6.2 is about.
+- Only finitely many residues of a given element are nonzero.
+- The residue of an element of B_n(F) in degree one vanishes for degree reasons, so that statement is not a test.
+
+**prerequisites**
+
+- Polylogarithms:P.3/residues-and-transfers
+- Polylogarithms:P.3/polylogarithmic-complex
+- Polylogarithms:P.3/exterior-residue
+- K2SymbolsBrauer:T.3/tame-symbol
+- tauceti:TauCeti.Place
+- tauceti:TauCeti.Place.ord
+- tauceti:TauCeti.Place.ResidueField
+- tauceti:TauCeti.Place.residueUnit
+- tauceti:TauCeti.Place.finite_setOf_ord_ne_zero
+- mathlib:CochainComplex.mappingCone
+
+**sources**
+
+- **sourceId:** Gonch.Arakelov.2004; **locator:** Section 6.1, (75) (PDF p. 52); **excerpt:** Let X be a regular curve over an algebraically closed field k and F := k(X)*. Set Res := sum_x resx where resx is the residue homomorphism for the valuation on F corresponding to a point x of X.; **match:** The total residue on a curve, as displayed (F := k(X)* is source issue E15).
+
+**implementationStatus:** unchecked
+
+**api**
+
+- **name:** curvePolylogComplex; **role:** data; **statement:** The cone of Res, in weights two and three.
+- **name:** curveResidue; **role:** constructor; **statement:** Res = sum_x res_x.
+- **name:** curveResidue_finite; **role:** characterisation; **statement:** Only finitely many res_x of an element are nonzero.
+- **name:** unramifiedClasses; **role:** data; **statement:** The kernel of Res on cohomology.
+- **name:** curvePolylogComplex_map; **role:** functoriality; **statement:** Pull-back along a finite morphism, with ramification indices.
+
+**uses**
+
+- **where:** P.5's unramified weight-two classes; **how:** the regulator form of an unramified class is closed
+- **where:** EllipticRegulators ER.2; **how:** the elliptic case specialises this construction
+- **where:** P.5's strong reciprocity conjecture; **how:** the conjecture asks for a homotopy for Res in weight three
+
+**tests**
+
+- **name:** res_P1; **kind:** computation; **statement:** On P^1 over k = k-bar, for f = t and g = t - a (a != 0): res_0(f wedge g) = -a, res_a(f wedge g) = a^{-1}, res_infinity(f wedge g) = 1, and all other residues are 1.
+- **name:** res_delta_two_torsion; **kind:** non-example; **statement:** Integrally, res_v(delta_2{x}_2) = res_v((1 - x) wedge x) = (-1)^{v(x)} for v(x) < 0, while res_v{x}_2 = 0: there is no integral map of complexes in weight two.
+- **name:** curveResidue_finite; **kind:** characterisation; **statement:** For an element of Lambda^2 F^x, the set of places with nonzero residue is finite (TauCeti.Place.finite_setOf_ord_ne_zero).
+- **name:** weil_product; **kind:** compatibility; **statement:** On a proper curve over k = k-bar, for f, g in F^x the product of the weight-two residues res_x(f wedge g) is +-1 (Weil reciprocity, K2SymbolsBrauer:T.4/weil-reciprocity, through the tame-symbol comparison of P.3/exterior-residue).
+
+**planet:** **name:** Curve polylogarithmic complexes
+
+**library:** **module:** TauCeti/AlgebraicGeometry/Curves/RegulatorComplexes; **namespace:** TauCeti.Regulator
+
+#### The weight-two regulator form of a curve
+
+`Polylogarithms:P.5/weight-two-regulator-form` — construction
+
+For a smooth complex curve X and f, g in C(X)^x, eta(f, g) := log|f| d arg g - log|g| d arg f is a real 1-form on the complement of the zeros and poles, and r_1(f wedge g) = i eta(f, g) is the form of (13) with m = 2 (values in R(1)). It is bilinear and antisymmetric, so it defines a homomorphism on Lambda^2 C(X)^x; eta(c, g) = log|c| d arg g for a constant c; it is closed off the divisors; for g = 1 - f it is exactly f^*(dD): eta(f, 1 - f) = d(D o f) on X - f^{-1}{0, 1, infinity} ((85)); and as a current d eta(f, g) = 2 pi sum_x log|tame_x{f, g}| delta_x, with the tame symbol tame_x{f, g} = (-1)^{v(f)v(g)} f^{v(g)}/g^{v(f)} (x) of K2SymbolsBrauer T.3. If X, f and g are defined over R then F_infinity^* eta(f, g) = -eta(f, g). This is the general curve formula; EllipticRegulators ER.2 specialises it.
+
+**realises**
+
+- Polylogarithms:P.5
+
+**hypotheses**
+
+- X is a smooth complex curve; f and g are nonzero rational functions on X.
+- Currents on X(C) (a gap: Mathlib has distributions on open subsets of normed spaces only).
+
+**proofSteps**
+
+- Define eta on the complement of the divisors and prove bilinearity and antisymmetry.
+- Closedness off the divisors: d eta = d log|f| wedge d arg g - d log|g| wedge d arg f, which is the real part of dlog f wedge dlog g, a (2,0)-form, and so vanishes on a curve.
+- The Steinberg identity is (85) composed with f.
+- The residue formula: near x write f = pi^a u, g = pi^b w and use d(d arg pi) = 2 pi delta_x.
+- Conjugation: log|f| is invariant and d arg f changes sign.
+
+**acceptance**
+
+- eta(z, 1 - z) = dD(z) on C - {0, 1}.
+- On P^1, eta(z, c) = -log|c| d arg z and d eta(z, c) = -2 pi log|c| (delta_0 - delta_infinity), matching tame_0{z, c} = 1/c and tame_infinity{z, c} = c.
 - The form is antisymmetric in the two functions.
-- The construction gives the form, not the class: the class needs the Deligne complex, which is
-  requested.
+- The construction gives the form, not a class: classes are P.5/unramified-weight-two-class.
 
-**Depends on.** **inside this roadmap** `bloch-wigner-dilogarithm`, `curve-polylogarithmic-complex`; **other roadmaps** `EllipticRegulators:ER.2`.
+**prerequisites**
 
-**Source.** GR.2022, 1.1, item 1 (PDF p. 3): “For example, L_2(z) is the Bloch-Wigner dilogarithm.” — The function through which the Steinberg relation for the form is proved; the form itself is the classical weight-two regulator expression that EllipticRegulators ER.2 states for an elliptic curve.
+- Polylogarithms:P.1/bloch-wigner-dilogarithm
+- Polylogarithms:P.1/bloch-wigner-differential
+- Polylogarithms:P.5/r-form
+- Polylogarithms:P.5/curve-polylogarithmic-complex
+- K2SymbolsBrauer:T.3/tame-symbol
+- mathlib:Complex.log
+- mathlib:Complex.arg
 
-### `chow-dilogarithm-reciprocity` — The Chow dilogarithm and the reciprocity law on a curve
+**sources**
 
-*theorem*
+- **sourceId:** Gonch.Arakelov.2004; **locator:** Section 2, item 4, (13) with m = 2 (PDF p. 14); **excerpt:** r_{m-1}(f_1,..., f_m) := Alt_m sum_{j>=0, 2j+1<=2m+1} c_{j,m} log|f_1| d log|f_2| wedge ... wedge d log|f_{2j+1}| wedge d i arg f_{2j+2} wedge ... wedge d i arg f_m, where c_{j,m} = 1/((2j+1)!(m-2j-1)!); **match:** At m = 2 the alternation gives r_1(f wedge g) = i(log|f| d arg g - log|g| d arg f) = i eta(f, g); the printed range '2j+1 <= 2m+1' is source issue E10.
+- **sourceId:** Gonch.Arakelov.2004; **locator:** proof of Lemma 6.9, (85) (PDF p. 57); **excerpt:** dL2(z) = - log |1 - z|d arg z + log |z|d arg(1 - z) (85); **match:** The Steinberg identity.
 
-Construct the Chow dilogarithm and prove the reciprocity law it satisfies on a curve, which
-strengthens Suslin's reciprocity law for Milnor K_3. The law is the statement that a suitable
-sum over the closed points of the curve, of local contributions built from the dilogarithm,
-vanishes.
+**implementationStatus:** unchecked
 
-**Hypotheses.** X is a smooth projective curve over the complex numbers.
+**api**
 
-**Construction and proof.**
+- **name:** regulatorForm; **role:** constructor; **statement:** eta(f, g) := log|f| d arg g - log|g| d arg f.
+- **name:** regulatorForm_add_left; **role:** relation; **statement:** eta(f_1 f_2, g) = eta(f_1, g) + eta(f_2, g).
+- **name:** regulatorForm_antisymm; **role:** relation; **statement:** eta(g, f) = -eta(f, g).
+- **name:** regulatorForm_const; **role:** simp; **statement:** eta(c, g) = log|c| d arg g for a constant c.
+- **name:** regulatorForm_closed; **role:** characterisation; **statement:** d eta(f, g) = 0 off the divisors.
+- **name:** regulatorForm_steinberg; **role:** relation; **statement:** eta(f, 1 - f) = d(D o f).
+- **name:** regulatorForm_residue; **role:** relation; **statement:** d eta(f, g) = 2 pi sum_x log|tame_x{f, g}| delta_x as currents.
+- **name:** regulatorForm_conj; **role:** relation; **statement:** F_infinity^* eta(f, g) = -eta(f, g) for f, g defined over R.
+- **name:** regulatorForm_eq_rForm; **role:** compatibility; **statement:** r_1(f wedge g) = i eta(f, g).
 
-1. Import the construction of the Chow dilogarithm from the source, with its defining integral.
-1. State the reciprocity law in the source's form, as the vanishing of the sum of local terms.
-1. Record that the law strengthens Suslin's reciprocity law for Milnor K_3 on curves, which
-   K2SymbolsBrauer T.4 owns in its own form, and prove the implication in that direction.
-1. Record that only the statement and the comparison are planned here: the proof of the
-   reciprocity law is in the source and is not decomposed further in this packet.
+**uses**
 
-**Acceptance.**
+- **where:** EllipticRegulators ER.2; **how:** specialises the form to an elliptic curve and fixes the factor of 2 pi and the orientation
+- **where:** P.5's unramified weight-two classes; **how:** the form of an unramified element is closed and gives a period class
+- **where:** P.5's weight-three curve regulator; **how:** alpha(f, g) = log|f| dlog|g| - log|g| dlog|f| is its companion
 
-- The law implies Suslin's reciprocity for Milnor K_3 on curves.
-- Only finitely many local terms are nonzero.
-- The weight-two analogue is Weil reciprocity, which K2SymbolsBrauer T.4 owns.
+**tests**
 
-**Depends on.** **inside this roadmap** `curve-polylogarithmic-complex`, `bloch-wigner-dilogarithm`; **other roadmaps** `K2SymbolsBrauer:T.4`.
+- **name:** regulatorForm_steinberg; **kind:** characterisation; **statement:** eta(z, 1 - z) = dD(z) on C - {0, 1}.
+- **name:** regulatorForm_const; **kind:** non-example; **statement:** eta(c, z) = log|c| d arg z, nonzero for |c| != 1.
+- **name:** regulatorForm_antisymm; **kind:** characterisation; **statement:** eta(g, f) = -eta(f, g).
+- **name:** regulatorForm_residue_P1; **kind:** computation; **statement:** On P^1, d eta(z, c) = -2 pi log|c| (delta_0 - delta_infinity).
+- **name:** regulatorForm_constants; **kind:** degenerate; **statement:** eta(c, c') = 0 for constants c, c'.
 
-**Source.** Gonch.Arakelov.2004, Abstract (PDF p. 1): “We study the Chow dilogarithm and prove a reciprocity law which strengthens Suslin's reciprocity law for Milnor's group K^M_3 on curves.” — The theorem as the source states it.
+**planet:** **name:** Weight-two regulator form
 
-### `deligne-target-request` — The target of the curve regulator, and what is missing
+**library:** **module:** TauCeti/AlgebraicGeometry/Curves/RegulatorComplexes; **namespace:** TauCeti.Regulator
 
-*comparison*
+#### Unramified weight-two elements give closed currents and period classes
 
-The weight-two and weight-three curve regulators take values in the real Deligne-Beilinson
-cohomology of the curve. No stage of the atlas constructs that cohomology in general:
-EllipticRegulators ER.2 builds the real Deligne complex only in degree two and weight two for an
-elliptic curve, and MotivicEtaleKTheory M.8 constructs only the cycle-class maps into it. This
-node states the comparison that P.5 owes and records the missing input as a request, rather than
-inventing a second Deligne complex here.
+`Polylogarithms:P.5/unramified-weight-two-class` — theorem
 
-**Hypotheses.** X is a smooth curve over the real or complex numbers.
+Let X be a smooth projective complex curve and xi = sum_i f_i wedge g_i in Lambda^2 C(X)^x with |tame_x(xi)| = 1 at every point x (in particular if xi is unramified, Res xi = 0). Then eta(xi) = sum_i eta(f_i, g_i) extends to a closed 1-current on X(C); its class in H^1(X(C), R) depends only on xi; for a 1-cycle gamma avoiding the supports, integral_gamma eta(xi) depends only on the class of gamma in H_1(X(C), Z); if X and the f_i, g_i are defined over R, F_infinity^* eta(xi) = -eta(xi), so the class lies in H^1(X(C), R)^-. The identification of this class with the Beilinson regulator in H^2_D(X, R(2)) = H^1(X(C), R(1)) is conditional on MotivicEtaleKTheory M.8 and P.5/regulator-induces-beilinson.
 
-**Construction and proof.**
+**realises**
 
-1. State the comparison this layer owes: the class of the regulator form is the image of the
-   corresponding K-theory class under the Beilinson regulator, in the degrees the source
-   establishes.
-1. Record what is missing: the real Deligne-Beilinson complex for smooth varieties over the
-   reals, with its products and long exact sequence, and the universal Deligne regulator.
-1. Record where it should live, following the confirmed red-team finding: as an early part of
-   MotivicEtaleKTheory M.8 that needs no BorelRegulators input, so that R.7, M.8, ER.2 and P.5
-   can all import it.
-1. State the consequence for this packet: every statement of P.5 that mentions a Deligne class
-   is conditional on that construction, and each such statement says so.
+- Polylogarithms:P.5
 
-**Acceptance.**
+**hypotheses**
 
-- The statement is conditional and says so; no node of this packet proves a Deligne-cohomology
-  statement.
-- The elliptic case of ER.2 is a special case of the requested construction, not a substitute
-  for it.
-- The libraries contain no Deligne cohomology, which the reviewed audit records.
-
-**Depends on.** **inside this roadmap** `weight-two-regulator-form`, `curve-polylogarithmic-complex`; **other roadmaps** `MotivicEtaleKTheory:M.8`, `EllipticRegulators:ER.2`.
-
-**Source.** Gonch.Arakelov.2004, Abstract and introduction (PDF p. 1): “We construct an explicit regulator map from the weight n Bloch Higher Chow group complex to the weight n Deligne complex of a regular projective complex algebraic variety X.” — The regulator target whose general construction the atlas lacks.
-
-### `r-forms-and-distributions` — The forms r_{m-1} and the distributions they define
-
-*theorem*
-
-For rational functions f_1, ..., f_m on a complex variety, define the real (m-1)-form
-r_{m-1}(f_1,...,f_m) as the alternation, over the permutations of the functions, of the sum
-over j of c_{j,m} log|f_1| d log|f_2| wedge ... wedge d log|f_{2j+1}| wedge d i arg f_{2j+2}
-wedge ... wedge d i arg f_m, with c_{j,m} = 1/((2j+1)!(m-2j-1)!). Then for any irreducible
-subvariety Y of a smooth complex variety X and any smooth compactly supported form on X, the
-integral of this form against the restriction converges over the smooth locus of Y. Hence the
-form defines a distribution on X(C), and the assignment is a group homomorphism from the m-th
-exterior power of the multiplicative group of the function field of Y into the degree m-1
-distributions.
-
-**Hypotheses.**
-
-- X is a smooth complex variety and Y an irreducible subvariety; the functions are nonzero
-  rational functions on Y.
-- The form is taken on the complement of the zeros and poles; the convergence statement is what
-  allows it to be extended across them as a distribution and is the only reason the regulator
-  is defined at all.
-- For m = 3 the form is the one used for the Chow dilogarithm, and for m = 2 the alternation
-  gives the weight-two regulator form of a curve up to the normalisation.
-
-**Construction and proof.**
-
-1. Define the form by the displayed alternating sum and check that it is real.
-1. Prove the convergence of the integral over the smooth locus of Y against a smooth compactly
-   supported test form; the source reduces this to a lemma on a smooth projective Y, where the
-   integral is estimated by the logarithmic growth of the factors.
-1. Conclude that the form defines a distribution by pairing with test forms.
-1. Prove that the assignment kills the Steinberg-type relations needed to descend to the
-   exterior power, and that it is additive in each argument.
-1. Record the special cases m = 2 and m = 3 and their agreement with the forms already
-   constructed in this layer.
-
-**Acceptance.**
-
-- For m = 2 the form is the weight-two regulator form of a curve up to the normalisation fixed
-  in this layer.
-- For m = 3 the form is the one integrated in the definition of the Chow dilogarithm.
-- For a constant function the form vanishes, which is the statement that makes the torus
-  invariance of the Chow polylogarithm possible.
-
-**Depends on.** **inside this roadmap** `weight-two-regulator-form`, `bloch-wigner-dilogarithm`; **libraries** `mathlib:Complex.log`, `mathlib:Complex.arg`, `mathlib:MeasureTheory.integral`, `mathlib:exteriorPower.map`.
-
-**Source.** Gonch.Arakelov.2004, Section 2, item 4, equation (1wq): “r_{m-1}(f_1,..., f_m) :=
-Alt_m sum_{j>=0, 2j+1<=2m+1} c_{j,m} log|f_1| d log|f_2| wedge ... wedge d log|f_{2j+1}| wedge
-d i arg f_{2j+2} wedge ... wedge d i arg f_m, where c_{j,m} = 1/((2j+1)!(m-2j-1)!) and Alt_m is
-the operation of alternation.” — The definition of the form, verbatim.
-
-**Source.** Gonch.Arakelov.2004, Theorem 2.4: “Let Y be an arbitrary irreducible subvariety of
-a smooth complex variety X and f_1, ..., f_m in C^*(Y). Then for any smooth differential form
-omega with compact support on X(C) the following integral is convergent ... It provides a group
-homomorphism r_{m-1}: Lambda^m C(Y)^* -> D^{m-1}_{X(C)}(m-1).” — The convergence and the
-homomorphism, verbatim.
-
-### `regulator-map-on-higher-chow` — Goncharov's regulator map from the higher Chow complex to the Deligne complex ★
-
-*construction* · planet **Regulator on the higher Chow complex**
-
-For a regular complex projective variety X there is a canonical homomorphism of complexes from
-Bloch's weight n higher Chow group complex of X to the weight n real Deligne complex of X, the
-latter being the truncation in degrees at most 2n of Deligne's complex. Its components are
-built from the distributions of the previous node by pushing forward along the cycle. If X is
-defined over the reals the image lies in the subcomplex fixed by the De Rham involution induced
-by complex conjugation. This is the object the roadmap calls the regulator on the curve
-complexes; the present layer needs it only for a curve, but the source constructs it in general
-and this packet states it as the source does.
-
-**Hypotheses.**
-
-- X is a regular complex projective variety; n is a positive integer.
-- The target is the truncation in degrees at most 2n of Deligne's complex; the packet does not
-  construct that complex and requests it from MotivicEtaleKTheory M.8, so every statement about
-  the target is conditional and says so.
-- Over the reals the relevant subcomplex is the one fixed by the De Rham involution given by
-  complex conjugation, which is what the stage text means by retaining real and complex
-  conjugation.
-
-**Construction and proof.**
-
-1. Attach to a cycle in the higher Chow complex the rational functions obtained by restricting
-   the coordinate functions of the simplex.
-1. Apply the distribution-valued homomorphism of the previous node to those functions,
-   obtaining a distribution on X(C) attached to the cycle.
-1. Push forward along the projection and check the degrees, so that the assignment lands in the
-   required component of the Deligne complex.
-1. Prove that the assignment commutes with the differentials: the boundary of a cycle is the
-   alternating sum of its intersections with the codimension-one faces, and the differential of
-   the distribution is computed by the corresponding Stokes argument.
-1. Prove that for X over the reals the image is fixed by the De Rham involution, by conjugating
-   the defining integrals.
-1. Record what is NOT proved here: that the induced map on cohomology agrees with Beilinson's
-   regulator. The source states that as a problem, and the next node records it.
-
-**API.**
-
-| name | role | statement |
-| --- | --- | --- |
-| `chowRegulator` | data | The homomorphism of complexes from the weight n higher Chow complex to the weight n real Deligne complex. |
-| `chowRegulator_chainMap` | characterisation | It commutes with the differentials. |
-| `chowRegulator_real` | characterisation | For a variety over the reals the image lies in the subcomplex fixed by the De Rham involution. |
-| `chowRegulator_point` | example | At a point the map is the Chow n-logarithm function. |
-| `chowRegulator_natural` | functoriality | Naturality in the variety for a map of regular projective varieties. |
-
-**Used by.** *P.5's Arakelov complex*: The Arakelov motivic complex is the cone of this map shifted by one, so the construction is its input. *P.5's comparison problem*: The comparison with the higher Chern character is a statement about the map induced on cohomology by this map. *EllipticRegulators ER.2*: The elliptic weight-two regulator is the specialisation of this map to a curve in weight two, in the normalisation ER.2 fixes.
-
-**Unit tests.**
-
-- `point_case` — For a point the map is the Chow n-logarithm function of the next node.
-- `chain_map` — The composition with the boundary of the higher Chow complex is the
-  differential of the Deligne complex applied to the map.
-- `real_variety` — For a variety defined over the reals the image is fixed by the De Rham
-  involution.
-- `not_the_class` — The map produces a class in the Deligne complex only once that complex is
-  constructed; the packet requests it and states every consequence conditionally.
-
-**Acceptance.**
-
-- For X a point the map reduces to the Chow n-logarithm function, which is the next node.
-- For n = 2 and a curve the map is the weight-two regulator form of this layer, integrated
-  against the cycle.
-- The map is a map of complexes, not merely of cohomology groups, which is the point of the
-  construction and what makes the Arakelov cone available.
-
-**Depends on.** **inside this roadmap** `r-forms-and-distributions`, `curve-polylogarithmic-complex`; **other roadmaps** `MotivicEtaleKTheory:M.8`; **libraries** `mathlib:CochainComplex`, `mathlib:AlgebraicGeometry.Scheme`.
-
-**Source.** Gonch.Arakelov.2004, Theorem-Construction 2.3: “Let X be a regular complex
-projective variety. Then there exists a canonical homomorphism of complexes P^bullet(n):
-Z^bullet(X; n) -> C^bullet_D(X; n). If X is defined over R then the image of the map
-P^bullet(n) lies in the subcomplex C^bullet_D(X_{/R}; n).” — The construction, verbatim,
-including the real statement.
-
-**Source.** Gonch.Arakelov.2004, Section 1, item 2: “In Chapter 2 we construct a homomorphism
-of complexes: Bloch's weight n Higher Chow group complex Z^bullet(X; n) of X -> the weight n
-real Deligne complex C^bullet_D(X(C); n) of X. This construction is a version of the one given
-in [G5]. The complex C^bullet_D(X(C); n) is the truncation tau_{<= 2n} of the complex proposed
-by Deligne.” — The same map described in the introduction, with the truncation made explicit.
-
-### `chow-polylogarithm-forms` — The Chow polylogarithm: a chain of distributions on the spaces of cycles ★
-
-*construction* · planet **Chow polylogarithm**
-
-Fix a simplex L in projective space of dimension p+q and a hyperplane H in general position. On
-the variety of codimension q effective cycles meeting all faces of L properly there is an
-explicitly constructed chain of distributions omega^q_p, defined as the Radon transform of the
-distribution r_{p+q-1}(L;H) along the incidence variety, satisfying three identities: the
-differential of omega^q_0 is the pullback of the standard form; the differential of omega^q_p
-is the alternating sum of the pullbacks of omega^q_{p-1} along the face maps; and the
-alternating sum of the pullbacks of omega^q_p along the projections from the vertices vanishes.
-On smooth cycles in general position the distribution is a real-analytic form. The collection
-is the q-th Chow polylogarithm, and the first two identities say exactly that it is a cocycle
-computing the Deligne cohomology of the truncated simplicial variety of cycles.
-
-**Hypotheses.**
-
-- L is a simplex in projective space of dimension p+q and H a hyperplane in general position
-  with respect to it.
-- The face maps are the intersections with the codimension-one faces and the vertex maps are
-  the projections from the vertices, both defined on the open part where the projection keeps
-  the codimension.
-- The Radon transform is the push-forward along the second projection of the restriction to the
-  incidence variety of the pull-back of the distribution; the push-forward is defined because
-  that projection is proper.
-
-**Construction and proof.**
-
-1. Form the incidence variety of pairs of a point and a cycle containing it, with its two
-   projections.
-1. Pull back the distribution r_{p+q}(L;H), restrict it to the incidence variety, which is
-   legitimate by the convergence theorem, and push it forward along the proper projection;
-   normalise by the power of 2 pi i.
-1. Prove identity (i) by the definition.
-1. Prove identity (iii) from the identity satisfied by the alternating sum of the wedge of the
-   coordinate ratios, which is the lemma the source isolates.
-1. Prove identity (ii) from the fact that the push-forward of distributions commutes with the
-   De Rham differential.
-1. Prove the real-analyticity of the restriction to smooth cycles in general position.
-1. Record the interpretation: (i) and (ii) say that the chain is a 2q-cocycle in the complex
-   computing the Deligne cohomology of the simplicial variety of cycles.
-
-**API.**
-
-| name | role | statement |
-| --- | --- | --- |
-| `chowPolylog` | data | The chain of distributions omega^q_p on the spaces of cycles. |
-| `chowPolylog_d_zero` | characterisation | The first identity, for p = 0. |
-| `chowPolylog_d` | characterisation | The second identity, relating the differential to the face maps. |
-| `chowPolylog_vertex` | characterisation | The third identity, for the projections from the vertices. |
-| `chowPolylog_analytic` | characterisation | Real-analyticity on smooth cycles in general position. |
-| `chowPolylogFunction` | projection | The top member, the Chow q-logarithm function. |
-| `chowPolylogFunction_torus_invariant` | characterisation | Torus invariance of the top member, hence independence of the hyperplane. |
-
-**Used by.** *P.5's Chow dilogarithm*: The Chow dilogarithm is the case q = 2 of the top member and every functional equation it satisfies comes from the identities here. *P.5's weight-three regulator*: The weight-three curve regulator is the case q = 3, and its functional equations are the same identities. *BorelRegulators*: Restricting the top member to the planes in general position gives the Grassmannian polylogarithm, through which the source builds the Borel regulator; that construction is not planned here.
-
-**Unit tests.**
-
-- `q_two_is_chow_dilogarithm` — For q = 2 the top member is the Chow dilogarithm.
-- `torus_invariance` — The top member is invariant under the torus action and independent of
-  the hyperplane.
-- `not_invariant_below_top` — For p < q - 1 the torus invariance fails, so the statement is
-  about the top member only.
-- `cocycle` — The first two identities make the chain a cocycle in the complex computing the
-  Deligne cohomology of the simplicial variety of cycles.
-
-**Acceptance.**
-
-- For q = 2 and p = 1 the top distribution is the Chow dilogarithm function of this layer.
-- For a point of the component parametrising points, the construction reduces to the standard
-  form of the simplex.
-- Identity (iii) fails for the forms with p < q - 1; only the top one, the Chow q-logarithm
-  function, is torus invariant, which the source records as a remark.
-
-**Depends on.** **inside this roadmap** `r-forms-and-distributions`, `regulator-map-on-higher-chow`, `polylogarithmic-complex`; **libraries** `mathlib:MeasureTheory.integral`.
-
-**Source.** Gonch.Arakelov.2004, Theorem-Construction 3.1, identities (i), (ii), (iii): “For
-given q >= 0 there is an explicitly constructed chain of (q-p-1)-distributions omega^q_p =
-omega^q_p(L; H) on Z^q_p(L) such that i) d omega^q_0(L,H) = pi_q(Omega_L); ii) d omega^q_p(L;
-H) = sum_i (-1)^i a_i^* omega^q_{p-1}(L; H_i); iii) sum_j (-1)^j b_j^* omega^q_p(L; H) = 0. The
-restriction of omega^q_p to the subvariety of smooth cycles in generic position with respect to
-the ...” — The construction with its three identities, verbatim.
-
-**Source.** Gonch.Arakelov.2004, Section 3, after Theorem-Construction 3.1: “The varieties
-Z^q_p(L) for p >= 0 form a truncated simplicial variety Z^q_bullet(L). The conditions i) and
-ii) just mean that the sequence of forms omega^q_p is a 2q-cocycle in the complex computing the
-Deligne cohomology H^{2q}(Z^q_bullet(L), R_D(q)).” — The cocycle interpretation, verbatim.
-
-**Source.** Gonch.Arakelov.2004, Theorem 3.2 and the remark after it: “The Chow polylogarithm
-function is invariant under the natural action of the torus on Z^q_p(C). In particular it does
-not depend on the choice of the hyperplane H. Remark. The statements of Theorem 3.2 are no
-longer true for the forms omega^q_p for p < q-1.” — The torus invariance of the top function
-and the warning that it is special to it, verbatim.
-
-### `arakelov-motivic-complex` — The Arakelov motivic complex and the higher Arakelov Chow groups
-
-*construction*
-
-The weight n Arakelov motivic complex of a regular complex projective variety is the cone of
-the regulator map, shifted by minus one. Over the reals the same definition is taken with the
-subcomplex fixed by the De Rham involution, giving the real Arakelov motivic complex; over a
-number field one views the variety over the rationals and takes the Deligne complex of the
-corresponding real variety. Replacing the last group of the Deligne complex by its quotient
-modulo smooth closed forms of the same type gives the higher Arakelov Chow group complex, whose
-cohomology in the appropriate degree is the arithmetic Chow group of Gillet and Soule.
-
-**Hypotheses.**
-
-- X is a regular projective variety over the complex numbers, over the reals or over a number
-  field, as stated in each case.
-- The Deligne complex and its quotient by the smooth closed forms are requested from
-  MotivicEtaleKTheory M.8; this node constructs only the cone and its variants.
-- The identification with the Gillet-Soule group is in the degree the source specifies and uses
-  the identification of the last two cohomology groups of the Gersten complex with those of the
-  cycle complex.
-
-**Construction and proof.**
-
-1. Form the cone of the regulator map and shift it by minus one; record the three variants,
-   complex, real and over a number field.
-1. Define the quotient complex in which the last group of the Deligne complex is replaced by
-   its quotient modulo smooth closed forms, and the corresponding higher Arakelov Chow group
-   complex.
-1. Define the higher Arakelov Chow groups as its cohomology.
-1. Prove the identification in degree zero with the Gillet-Soule arithmetic Chow group: map the
-   end of the Gersten complex into the cycle complex by sending a pair of a subvariety and a
-   rational function to the graph cycle, and a wedge of two functions to the corresponding
-   cycle in the product with the affine plane; compute the composition with the regulator and
-   recognise the denominator of the Gillet-Soule presentation.
-1. Record that the construction works equally for the Suslin-Voevodsky versions of the motivic
-   complexes, as the source states.
-
-**API.**
-
-| name | role | statement |
-| --- | --- | --- |
-| `arakelovComplex` | data | The cone of the regulator map shifted by minus one. |
-| `arakelovComplex_real` | data | The real variant, taken with the involution-fixed subcomplex. |
-| `arakelovComplex_numberField` | data | The variant over a number field. |
-| `higherArakelovChow` | data | The higher Arakelov Chow groups as the cohomology of the quotient complex. |
-| `higherArakelovChow_zero` | characterisation | In degree zero the group is the Gillet-Soule arithmetic Chow group. |
-| `arakelovComplex_triangle` | compatibility | The distinguished triangle relating the motivic complex, the Deligne complex and the Arakelov complex. |
-
-**Used by.** *P.5's comparison problem*: The source poses the comparison with Beilinson’s regulator as a problem about the cohomology of the map whose cone this is. *MotivicEtaleKTheory M.8*: The construction is a consumer of the Deligne complex that M.8 owns, and its statements are conditional on it. *Arithmetic intersection theory*: The degree-zero identification is what ties the construction to the arithmetic Chow groups, and the source asks for an arithmetic Riemann-Roch theorem in this generality as a further problem.
-
-**Unit tests.**
-
-- `degree_zero` — The degree-zero higher Arakelov Chow group is the Gillet-Soule arithmetic
-  Chow group.
-- `cone_triangle` — The complex sits in the distinguished triangle of a cone.
-- `real_variant` — Over the reals the construction uses the involution-fixed subcomplex.
-- `depends_on_motivic_complex` — The construction takes the motivic complex as an input and is
-  not claimed to be independent of that choice.
-
-**Acceptance.**
-
-- In degree zero the group is the arithmetic Chow group of Gillet and Soule, which is the
-  source's Proposition 2.12.
-- The construction is a cone, so it fits into the expected long exact sequence relating motivic
-  cohomology, Deligne cohomology and the Arakelov groups.
-- The complex depends on the choice of motivic complex; the source records that the objects
-  built from different motivic complexes are supposed to agree in the derived category and that
-  the precise relation with an earlier construction is not clear.
-
-**Depends on.** **inside this roadmap** `regulator-map-on-higher-chow`; **other roadmaps** `MotivicEtaleKTheory:M.8`; **libraries** `mathlib:CochainComplex`, `mathlib:HomologicalComplex`.
-
-**Source.** Gonch.Arakelov.2004, Section 1, item 2, equations (6.11.02.14), (6.11.02.4) and
-(6.11.02.4q): “The weight n Arakelov motivic complex Gamma_A^bullet(X; n) is the cone of the
-map (4.29.02.2), shifted by -1 ... For a regular projective variety X over R the image of map
-(4.29.02.2) lies in the subcomplex C^bullet_D(X_{/R}; n) := C^bullet_D(X(C); n)^{bar
-F_infinity} where bar F_infinity is the De Rham involution provided by the action of complex
-conjugation.” — The three variants of the definition, verbatim.
-
-**Source.** Gonch.Arakelov.2004, Definition 2.11 and Proposition 2.12: “The Higher Arakelov
-Chow groups are CH-hat^n(X; i) := H^{2n-i}(Z-hat^bullet(X; n)). ... Proposition. CH-hat^n(X; 0)
-= CH-hat^n(X).” — The definition and the identification with the Gillet-Soule group, verbatim.
-
-**Source.** Gonch.Arakelov.2004, Section 1, item 2, the remark on other motivic complexes: “Our
-construction works equally well for the Suslin-Voevodsky versions of the motivic complexes. ...
-The Arakelov motivic complexes constructed using regulator maps on different motivic complexes
-are supposed to lead to the same object of the derived category. However a precise relationship
-between the construction given in [G7] and the one in Chapter 2 is not clear.” — The source's
-own caveat about the dependence on the choice of motivic complex, verbatim.
-
-### `chern-character-comparison-problem` — The comparison with the higher Chern character, as the source states it
-
-*comparison*
-
-The roadmap asks that the regulator be compared with the higher Chern character of
-MotivicEtaleKTheory in the degrees established by the source. What the source establishes is
-the construction of the regulator as a map of complexes; the comparison itself it poses as a
-PROBLEM: show that taking cohomology of the regulator map and using the isomorphism between the
-rational higher Chow groups of a variety and the corresponding part of its rational K-theory
-gives a non-zero rational multiple of Beilinson's regulator map. This node states that
-comparison precisely, with the two inputs it needs — the Bloch-Levine isomorphism and M.8's
-higher Chern character — and records that it is open in the source. Nothing in this packet
-assumes it.
-
-**Hypotheses.**
-
-- X is a regular projective variety over the complex numbers, or over the reals or a number
-  field in the corresponding variants.
-- The Bloch-Levine isomorphism between rational higher Chow groups and the weight-graded pieces
-  of rational K-theory is imported, not proved here; MotivicEtaleKTheory M.7 owns the Adams
-  filtration and M.8 the Chern character.
-- The expected comparison is up to a non-zero rational factor, and the source does not pin the
-  factor.
-
-**Construction and proof.**
-
-1. State the composition: rational K-theory in the relevant degree, the Bloch-Levine
-   isomorphism to the rational higher Chow group, the map induced on cohomology by the
-   regulator, and the resulting map to real Deligne cohomology.
-1. State Beilinson's regulator as the composition of the higher Chern character with the
-   Deligne cycle class, as M.8 constructs it.
-1. State the comparison: the two agree up to a non-zero rational factor, in the degrees where
-   both are defined.
-1. Record the status: the source states this as Problem a) of its introduction, so the atlas
-   must not treat it as proved; every statement in this layer that mentions Beilinson's
-   regulator is conditional on it.
-1. Record what IS proved and can be used unconditionally: the regulator is a map of complexes,
-   lands in the real subcomplex over the reals, and induces the Gillet-Soule arithmetic Chow
-   group in degree zero.
-
-**Acceptance.**
-
-- For the spectrum of a number field the comparison is known in the form that Beilinson's
-  regulator agrees with Borel's up to a non-zero rational factor, which BorelRegulators R.7
-  owns; the statement here is the general one and is open.
-- The factor is not pinned by the source, so no formalisation may assume a specific
-  normalisation.
-- A formalisation that assumed the comparison would be assuming an open problem; the node
-  exists so that this cannot happen silently.
-
-**Depends on.** **inside this roadmap** `regulator-map-on-higher-chow`, `arakelov-motivic-complex`; **other roadmaps** `MotivicEtaleKTheory:M.8`, `MotivicEtaleKTheory:M.7`, `BorelRegulators:R.7`.
-
-**Source.** Gonch.Arakelov.2004, Section 1, item 2, Problems a) and b): “Problems. a) Show that
-taking cohomology of the map (4.29.02.2) and using the isomorphism between the rational Bloch's
-Higher Chow groups of X and the corresponding part of the rational K-theory of X ([Bl2], [Lev])
-we get a non-zero rational multiple of the Beilinson's regulator map. b) To generalize the
-arithmetic Riemann-Roch theorem proved by Gillet and Soule to the case of Higher ...” — The
-comparison, stated by the source as an open problem; this is the precise status of the stage
-target.
-
-**Source.** Gonch.Arakelov.2004, Section 1, item 1: “This conjecture is fully established only
-when X = Spec(F) where F is a number field. In this case the regulator map r_B coincides, up to
-a non-zero rational factor, with the Borel regulator ([B1]), and the relation with special
-values of the Dedekind zeta-function of F was given by the Borel theorem [Bo].” — The one case
-in which the comparison is known, which is the case BorelRegulators R.7 owns.
-
-### `strong-reciprocity-law` — The strong reciprocity law on a curve, and the three cases in which it is proved ★
-
-*theorem* · planet **Strong reciprocity law**
-
-Let X be a regular projective curve over an algebraically closed field k with function field F.
-The strong reciprocity law asserts that there is a canonical homomorphism h from the third
-exterior power of the multiplicative group of F to the second Bloch group of k which kills the
-wedge of a constant with anything, makes the residue square commute, that is Res equals delta_2
-composed with h, and, when k is the complex numbers, computes the Chow dilogarithm: the
-integral of r_2 over X(C), divided by 2 pi i, equals the Bloch-Wigner value of h. The source
-proves it in three cases: for the projective line, where h is given explicitly by the sum over
-triples of points of the product of the orders against the class of the cross-ratio, modulo
-6-torsion; for an elliptic curve over an algebraically closed field, explicitly; and for an
-arbitrary curve over the algebraic numbers, after tensoring with the rationals.
-
-**Hypotheses.**
-
-- X is a regular projective curve over an algebraically closed field; F is its function field;
-  the second Bloch group is Goncharov's group B_2, and the more explicit variant B_2 with the
-  five-term relations is compared with it.
-- The law strengthens Suslin's reciprocity law for Milnor K_3: Suslin's says that the
-  projection of the image of the residue to K_2 vanishes, hence that the image lies in the
-  image of delta_2; the strong law asks for a natural lift, which is not formal because the
-  kernel of delta_2 is non-trivial.
-- In the projective line case the statement holds modulo 6-torsion; in the number-field case it
-  is after tensoring with the rationals.
-
-**Construction and proof.**
-
-1. State the law as the source does, with its two conditions, and record that the second is the
-   analytic statement about the Chow dilogarithm.
-1. Prove the case of the projective line: define h by the displayed sum over triples of points,
-   show it is independent of the auxiliary point by the five-term relation together with the
-   vanishing of the total order of a rational function, and check the two conditions modulo
-   6-torsion.
-1. Prove the case of an elliptic curve by the explicit formula of the following node.
-1. Prove the case of an arbitrary curve over the algebraic numbers: choose a projection to the
-   projective line, reduce to a Galois covering, use the transfer on Milnor K_3 to write the
-   sum over the Galois group as a pull-back plus a sum of Steinberg terms, and define h by the
-   resulting formula; the well-definedness is the source's lemma on the vanishing of the
-   corresponding sum of classes.
-1. Record the family version: for a family of curves the Chow dilogarithm is a sum of Bloch-
-   Wigner values of rational functions on the base, and, given h with Res equal to delta_2
-   composed with h, the differentials of the two sides of the analytic statement agree.
-1. Record what remains conjectural: the general case, and the general-weight version for the
-   polylogarithmic complexes.
-
-**Acceptance.**
-
-- For the projective line the explicit formula reproduces the classical expression of the Chow
-  dilogarithm as a sum of Bloch-Wigner values at cross-ratios, which is the formula quoted in
-  the introduction of the source.
-- For the five lines in the plane the functional equation of the Chow dilogarithm, together
-  with that formula, is equivalent to Abel's five-term equation.
-- Suslin's reciprocity law alone does not give the lift: the kernel of delta_2 is non-trivial,
-  so the existence of h is not formal, and the source says so.
-
-**Depends on.** **inside this roadmap** `chow-dilogarithm-reciprocity`, `curve-polylogarithmic-complex`, `bloch-wigner-five-term`; **other roadmaps** `K3BlochGroups:V.3/five-term-relation`, `K3BlochGroups:V.3/bloch-group`, `K3BlochGroups:V.4/suslin-exact-sequence`, `K2SymbolsBrauer:T.4`.
-
-**Source.** Gonch.Arakelov.2004, Conjecture 6.2: “Let X be a regular projective curve over an
-algebraically closed field k and F := k(X)^*. Then there exists a canonical homomorphism of
-groups h: Lambda^3 F^* -> B_2(k) satisfying the following two conditions: a) h(k^* wedge
-Lambda^2 F^*) = 0 and the diagram is commutative. b) If X is a curve over C then (1/(2 pi i))
-integral_{X(C)} r_2(f_1 wedge f_2 wedge f_3) = L_2(h(f_1 wedge f_2 wedge f_3)).” — The law,
-verbatim.
-
-**Source.** Gonch.Arakelov.2004, Section 6, remark 2 after Conjecture 6.2: “According to
-Suslin's reciprocity law for the Milnor group K^M_3(F) the projection of Res(Lambda^3 F^*) in
-Lambda^2 k^* to K_2(k) is zero. Since by Matsumoto's theorem K_2(k) = Coker(delta_2), one has
-Res(Lambda^3 F^*) contained in Im(delta_2). However Ker(delta_2) is nontrivial, so it is a
-priori unclear that we can lift naturally the map Res to a map h.” — Why the law is stronger
-than Suslin’s, verbatim.
-
-**Source.** Gonch.Arakelov.2004, Theorem 6.5: “Assume that k = k-bar. Then the map h: Lambda^3
-k(P^1)^* -> B_2(k) given by the formula h(f_1 wedge f_2 wedge f_3) := sum v_{x_1}(f_1)
-v_{x_2}(f_2) v_{x_3}(f_3) {r(x_1, x_2, x_3, infinity)}_2 satisfies all the conditions of
-conjecture 6.2 modulo 6-torsion.” — The projective line case with its explicit formula and its
-torsion caveat, verbatim.
-
-**Source.** Gonch.Arakelov.2004, Theorem 6.12: “Let X be a regular projective curve over Q-bar
-and F := Q-bar(X). Then there exists a homomorphism h: Lambda^3 F^* -> B_2(Q-bar) tensor Q as
-in conjecture 6.2 such that for any embedding sigma one has (1/(2 pi i)) integral_{X(C)}
-r_2(sigma(f_1 wedge f_2 wedge f_3)) = L_2(sigma(h(f_1 wedge f_2 wedge f_3))).” — The case of an
-arbitrary curve over the algebraic numbers, verbatim.
-
-**Source.** Gonch.Arakelov.2004, Theorem 6.10: “a) Let pi: Y -> S be a family of curves over a
-base S over C. Then there are rational functions phi_i on S such that P_2(Y -> S; f_1, f_2,
-f_3) = sum_i L_2(phi_i(s)). b) ... Suppose that there exists a map h with Res = delta_2
-composed with h. Then d P_2(Y -> S; f_1, f_2, f_3) = d L_2(h(f_1, f_2, f_3)).” — The family
-version and the differential identity, verbatim.
-
-### `chow-dilogarithm-on-elliptic-curves` — The Chow dilogarithm of an elliptic curve, explicitly
-
-*theorem*
-
-For an elliptic curve E over an algebraically closed field, presented as a plane curve, there
-is an explicit reciprocity homomorphism h. Writing a rational function as a ratio of products
-of linear homogeneous functions reduces everything to four linear functions l_0, ..., l_3; with
-L_i the line they cut, D_i the divisor of its intersection with the curve and l_{ij} the
-intersection point of two of the lines, the value of h on the wedge of the three ratios l_i/l_0
-is minus the alternating sum over i of the class of the cross-ratio of the three points l_{ij}
-with j different from i against the divisor D_i. It satisfies every condition of the strong
-reciprocity law, so over the complex numbers the Chow dilogarithm of E equals the Bloch-Wigner
-value of h. The same formula computes the integral for an arbitrary plane curve, with the
-factor 2 pi.
-
-**Hypotheses.**
-
-- E is an elliptic curve over an algebraically closed field, realised as a plane curve; l_0,
-  ..., l_3 are linear homogeneous functions in the coordinates.
-- The class of a cross-ratio against a divisor means the corresponding integer combination of
-  classes, as the source defines it.
-- The decomposition of a rational function into a ratio of products of linear functions uses
-  the group law: the divisor of the ratio of the line through two points to the line through
-  their sum and its negative is the displayed one.
-
-**Construction and proof.**
-
-1. Reduce to four linear functions by decomposing a rational function into a ratio of products
-   of linear ones, using the group law step described by the source.
-1. Prove the two elementary identities for the canonical functions attached to a pair of lines:
-   on the third line the two ratios sum to one, and the quotient of two of them is minus the
-   third ratio.
-1. Compute the total residue of the wedge of the three ratios by evaluating the residues at the
-   three divisors with the first identity, and reducing the residues on the remaining line by
-   the second; the result is minus delta_2 of the displayed class.
-1. Prove that the formula gives a well-defined homomorphism: the relations between the
-   functions attached to pairs of points are generated by the displayed one, its image has
-   vanishing delta_2 by the previous step, and one checks the value at a degenerate triple
-   where the first factor is constant.
-1. Prove the analytic statement for an arbitrary plane curve: both sides have the same
-   differential by the residue computation and the family version of the reciprocity law, so
-   they differ by a constant, and the constant vanishes by deforming the curve to a union of
-   lines.
-
-**Acceptance.**
-
-- For a line in the plane the formula is checked directly and is the base of the deformation
-  argument.
+- X is a smooth projective complex curve; xi has residues of absolute value one.
+
+**proofSteps**
+
+- d eta(xi) = 2 pi sum_x log|tame_x(xi)| delta_x (regulatorForm_residue), which vanishes under the hypothesis, so eta(xi) is a closed current.
+- Closed currents define de Rham classes; the period over gamma depends only on its homology class by Stokes (currents gap).
+- The conjugation statement is regulatorForm_conj.
+
+**acceptance**
+
+- For X = P^1 and xi = z wedge c with c constant: d eta(xi) = -2 pi log|c| (delta_0 - delta_infinity), so eta(xi) is closed iff |c| = 1.
+
+**prerequisites**
+
+- Polylogarithms:P.5/weight-two-regulator-form
+- Polylogarithms:P.5/r-form-differential
+- Polylogarithms:P.5/curve-polylogarithmic-complex
+- K2SymbolsBrauer:T.3/tame-symbol
+
+**sources**
+
+- **sourceId:** Gonch.Arakelov.2004; **locator:** Proposition 2.8, (24) (PDF p. 19), n = 2; **excerpt:** Proposition 2.8 Let Y be an arbitrary subvariety of a regular complex variety X and f1 wedge ... wedge fn in Lambda^n C(Y)*. Then drn-1(f1 wedge ... wedge fn) = pi_n(d log f1 wedge ... wedge d log fn) + 2 pi i (rn-2 o Res)(f1 wedge ... wedge fn) (24); **match:** On a curve pi_2(dlog f wedge dlog g) = 0, so d eta(xi) is supported on the residues.
+
+**implementationStatus:** unchecked
+
+**addedBy:** REV-Polylogarithms
+
+#### The Chow dilogarithm
+
+`Polylogarithms:P.5/chow-dilogarithm` — definition
+
+For a smooth projective complex curve X define P_2(X; .) : Lambda^3 C(X)^x -> R by P_2(X; f_1 wedge f_2 wedge f_3) := -(2 pi)^{-1} integral_{X(C)} r_2(f_1 wedge f_2 wedge f_3), where r_2 = Alt_3((1/6) log|f_1| dlog|f_2| wedge dlog|f_3| - (1/2) log|f_1| d arg f_2 wedge d arg f_3) is the real 2-form of (13) with m = 3; the integral converges (P.5/r-forms-and-distributions). With this normalisation P_2 = D o h in every proved case (Prop. 6.8; Prop. 6.18 with (93)); the printed normalisation (2 pi i)^{-1} integral r_2 of (6) and (74) is purely imaginary and equals i P_2 (source issue E12).
+
+**realises**
+
+- Polylogarithms:P.5
+
+**hypotheses**
+
+- X is a smooth projective complex curve; f_1, f_2, f_3 are nonzero rational functions on X.
+
+**proofSteps**
+
+- The integral converges by Theorem 2.4 (P.5/r-forms-and-distributions) with Y = X.
+- Multilinearity and alternation of r_2 give a homomorphism out of Lambda^3 (mathlib:exteriorPower.alternatingMapLinearEquiv).
+- Fix the constant -(2 pi)^{-1} by (93) with Proposition 6.18, or by the corrected Lemma 6.9 with Proposition 6.6; the reviewer's quadrature gives integral_C r_2((1 - z) wedge z wedge (z - a)) = -2 pi D(a) at two points.
+
+**prerequisites**
+
+- Polylogarithms:P.5/r-form
+- Polylogarithms:P.5/r-forms-and-distributions
+- mathlib:exteriorPower.alternatingMapLinearEquiv
+
+**sources**
+
+- **sourceId:** Gonch.Arakelov.2004; **locator:** Section 1, item 4, (6) and (7) (PDF p. 5); Section 6, (74) (PDF p. 52); **excerpt:** The Chow dilogarithm is a real function on its complex points defined by the formula P2(X; f1, f2, f3) := 1/(2 pi i) integral_{X(C)} r2(f1, f2, f3); **match:** The definition, with the normalisation corrected (source issue E12): r_2 is real, so the printed value is imaginary.
+
+**implementationStatus:** unchecked
+
+**api**
+
+- **name:** chowDilog; **role:** constructor; **statement:** The homomorphism Lambda^3 C(X)^x -> R defined above.
+- **name:** chowDilog_const; **role:** relation; **statement:** chowDilog(c wedge g wedge g') = 0 for c in C^x (Theorem 3.4 with n = 1).
+- **name:** chowDilog_P1; **role:** characterisation; **statement:** On X = P^1: chowDilog(f_1 wedge f_2 wedge f_3) = sum v_{x_1}(f_1) v_{x_2}(f_2) v_{x_3}(f_3) D(r(x_1, x_2, x_3, infinity)) with r(infinity, 0, 1, x) = x. Promoted to Polylogarithms:P.5/chow-dilogarithm-projective-line.
+- **name:** chowDilog_steinberg; **role:** relation; **statement:** chowDilog((1 - f) wedge f wedge g) = sum_x v_x(g) D(f(x)). Promoted to Polylogarithms:P.5/chow-dilogarithm-steinberg.
+
+**uses**
+
+- **where:** P.5's strong reciprocity conjecture; **how:** condition (b) says chowDilog = D o h
+- **where:** P.5's Chow polylogarithm; **how:** the top member for q = 2 is a multiple of this function
+
+**tests**
+
+- **name:** chowDilog_P1_line; **kind:** computation; **statement:** On P^1, chowDilog((1 - z) wedge z wedge (z - a)) = D(a) for a in C - {0, 1}; numerically 0.99503 at a = 0.3 + 0.8i.
+- **name:** chowDilog_real; **kind:** degenerate; **statement:** If X and f_1, f_2, f_3 are defined over R then chowDilog(f_1 wedge f_2 wedge f_3) = 0: F_infinity^* r_2 = r_2, while F_infinity reverses the orientation of X(C).
+- **name:** chowDilog_not_imaginary; **kind:** non-example; **statement:** chowDilog takes real values; (2 pi i)^{-1} integral r_2 = i chowDilog is not the Chow dilogarithm of Conjecture 6.2(b).
+- **name:** chowDilog_alternating; **kind:** characterisation; **statement:** chowDilog(f_2 wedge f_1 wedge f_3) = -chowDilog(f_1 wedge f_2 wedge f_3).
+
+**planet:** **name:** Chow dilogarithm
+
+**library:** **module:** TauCeti/AlgebraicGeometry/Curves/RegulatorComplexes; **namespace:** TauCeti.Regulator
+
+**addedBy:** REV-Polylogarithms
+
+**acceptance**
+
+- On P^1, chowDilog((1 - z) wedge z wedge (z - a)) = D(a).
+- The value is real, and 0 for curves and functions defined over R.
+
+#### The strong reciprocity law implies Suslin reciprocity
+
+`Polylogarithms:P.5/strong-reciprocity-implies-suslin` — lemma
+
+Let X be a regular projective curve over an algebraically closed field k with function field F. If h : Lambda^3 F^x -> B_2(k) satisfies Res = delta_2 o h on Lambda^3 F^x, then the image of Res in K_2(k) = Lambda^2 k^x / Im delta_2 (Matsumoto; the identification needs k algebraically closed, or 2 inverted) vanishes, which is Suslin's reciprocity law for K^M_3 of the curve. The converse fails: Ker delta_2 is nonzero, so the existence of h is not formal.
+
+**realises**
+
+- Polylogarithms:P.5
+
+**proofSteps**
+
+- Res(x) = delta_2(h(x)) lies in Im delta_2, which is the kernel of Lambda^2 k^x -> K_2(k) by Matsumoto (K2SymbolsBrauer:T.2/matsumoto), since k^x is 2-divisible.
+- Compatibility of Res with the residues on Milnor K-theory (K2SymbolsBrauer:T.3/higher-milnor-residues).
+
+**acceptance**
+
+- Ker delta_2 contains {exp(i pi/3)}_2 over C, which is not zero in B_2(C); so a lift h is not determined by Res.
+
+**prerequisites**
+
+- Polylogarithms:P.5/strong-reciprocity-conjecture
+- K2SymbolsBrauer:T.2/matsumoto
+- K2SymbolsBrauer:T.3/higher-milnor-residues
+
+**sources**
+
+- **sourceId:** Gonch.Arakelov.2004; **locator:** Section 6, Remark 2 after Conjecture 6.2 (PDF p. 54); **excerpt:** According to Suslin's reciprocity law for the Milnor group K^M_3(F) the projection of Res(Lambda^3 F^*) in Lambda^2 k^* to K_2(k) is zero. Since by Matsumoto's theorem K_2(k) = Coker(delta_2), one has Res(Lambda^3 F^*) contained in Im(delta_2).; **match:** The implication and why it is not an equivalence.
+
+**implementationStatus:** unchecked
+
+**addedBy:** REV-Polylogarithms
+
+**hypotheses**
+
+- X is a regular projective curve over an algebraically closed field k.
+
+#### Goncharov's forms r_{m-1}
+
+`Polylogarithms:P.5/r-form` — definition
+
+For rational functions f_1, ..., f_m on a complex variety, r_{m-1}(f_1, ..., f_m) := Alt_m sum_{j>=0, 2j+1<=m} c_{j,m} log|f_1| dlog|f_2| wedge ... wedge dlog|f_{2j+1}| wedge d(i arg f_{2j+2}) wedge ... wedge d(i arg f_m), with c_{j,m} = 1/((2j+1)!(m-2j-1)!), an R(m-1)-valued (m-1)-form off the divisors (the printed range '2j+1 <= 2m+1' is source issue E10). It is multilinear and alternating, so it defines a homomorphism out of Lambda^m C(Y)^x, and d r_{m-1} = pi_m(dlog f_1 wedge ... wedge dlog f_m) off the divisors (14).
+
+**realises**
+
+- Polylogarithms:P.5
+
+**hypotheses**
+
+- f_1, ..., f_m are nonzero rational functions; the form lives on the complement of their divisors.
+
+**proofSteps**
+
+- Define the alternating sum; it is multilinear in the log|f_i| and dlog|f_i|, d arg f_i, hence additive in each f_i and alternating.
+- Compute d r_{m-1} off the divisors, using d dlog|f| = d d arg f = 0 there (14).
+- The identity r_{m-1} = omega_{m-1}(log|f_1| wedge ... wedge log|f_m|) of (15).
+
+**prerequisites**
+
+- mathlib:exteriorPower.alternatingMapLinearEquiv
+- mathlib:Complex.log
+- mathlib:Complex.arg
+
+**sources**
+
+- **sourceId:** Gonch.Arakelov.2004; **locator:** Section 2, item 4, (13) (PDF p. 14); **excerpt:** r_{m-1}(f_1,..., f_m) := Alt_m sum_{j>=0, 2j+1<=2m+1} c_{j,m} log|f_1| d log|f_2| wedge ... wedge d log|f_{2j+1}| wedge d i arg f_{2j+2} wedge ... wedge d i arg f_m, where c_{j,m} = 1/((2j+1)!(m-2j-1)!); **match:** The definition, with the range corrected (E10).
+- **sourceId:** Gonch.Arakelov.2004; **locator:** Section 2, item 4, (14) (PDF p. 14); **excerpt:** So rm-1(f1, ..., fm) is an R(m - 1)-valued (m - 1)-form and it is easy to check that drm-1(f1, ..., fm) = pi_m(d log f1 wedge ... wedge d log fm) (14); **match:** The values and the differential.
+
+**implementationStatus:** unchecked
+
+**api**
+
+- **name:** rForm; **role:** constructor; **statement:** r_{m-1}(f_1, ..., f_m), as a homomorphism out of Lambda^m.
+- **name:** rForm_zero; **role:** simp; **statement:** r_0(f) = log|f|.
+- **name:** rForm_one; **role:** simp; **statement:** r_1(f wedge g) = i eta(f, g).
+- **name:** rForm_two; **role:** simp; **statement:** r_2 = Alt_3((1/6) log|f_1| dlog|f_2| wedge dlog|f_3| - (1/2) log|f_1| d arg f_2 wedge d arg f_3).
+- **name:** rForm_d; **role:** relation; **statement:** d r_{m-1} = pi_m(dlog f_1 wedge ... wedge dlog f_m) off the divisors.
+- **name:** rForm_eq_omega; **role:** characterisation; **statement:** r_{m-1}(f_1 wedge ... wedge f_m) = omega_{m-1}(log|f_1| wedge ... wedge log|f_m|).
+
+**uses**
+
+- **where:** P.5's distributions; **how:** Theorem 2.4 extends r_{m-1} across the divisors
+- **where:** P.5's Chow dilogarithm; **how:** the case m = 3
+- **where:** P.5's weight-two regulator form; **how:** the case m = 2
+
+**tests**
+
+- **name:** rForm_zero; **kind:** computation; **statement:** r_0(f) = log|f|.
+- **name:** rForm_one; **kind:** computation; **statement:** r_1(z wedge (1 - z)) = i dD(z) on C - {0, 1}.
+- **name:** rForm_const; **kind:** non-example; **statement:** r_1(c wedge z) = i log|c| d arg z != 0 for |c| != 1: the form does not kill constants.
+- **name:** rForm_range; **kind:** characterisation; **statement:** For m = 3 exactly j in {0, 1} occur, with c_{0,3} = 1/2 and c_{1,3} = 1/6, matching the displayed r_2 of Section 1, item 4.
+
+**library:** **module:** TauCeti/AlgebraicGeometry/HigherChow/GoncharovRegulator; **namespace:** TauCeti.Regulator
+
+**addedBy:** REV-Polylogarithms
+
+**acceptance**
+
+- r_1 = i eta and r_0 = log|.|.
+- For m = 3 the coefficients are 1/2 and 1/6.
+
+#### The forms r_{m-1} and the distributions they define
+
+`Polylogarithms:P.5/r-forms-and-distributions` — theorem
+
+Let Y be an irreducible subvariety of a smooth complex variety X and f_1, ..., f_m in C(Y)^x. For every smooth compactly supported form omega on X(C), the integral of r_{m-1}(f_1, ..., f_m) wedge omega over the smooth locus of Y(C) off the divisors converges. Hence r_{m-1} defines a current r_{m-1}(f_1 wedge ... wedge f_m) on X(C), of degree m - 1 + 2 codim_X Y (the printed degree m - 1 is source issue E14), and the assignment is a homomorphism out of Lambda^m C(Y)^x.
+
+**realises**
+
+- Polylogarithms:P.5
+
+**hypotheses**
+
+- X is a smooth complex variety and Y an irreducible subvariety; the functions are nonzero rational functions on Y.
+- Currents on X(C) are a gap: the pinned Mathlib has distributions on open subsets of normed spaces (mathlib:Distribution, mathlib:TestFunction) and no currents on complex manifolds.
+
+**proofSteps**
+
+- Reduce, by embedded resolution of singularities (Goncharov Theorem 2.6; AlgebraicModuliForArithmeticGeometry R09.7), to Y smooth projective and the divisors of the f_i with normal crossings.
+- Prove Lemma 2.5: on a smooth projective Y the integral converges, by the logarithmic growth of the factors.
+- Conclude that the form defines a current by pairing with test forms, and that the assignment is additive in each argument and alternating (P.5/r-form).
+
+**acceptance**
+
+- For m = 3 and Y a curve the current is the one integrated in the Chow dilogarithm.
+- For m = 1, r_0(f) = log|f| is locally integrable on Y.
+
+**prerequisites**
+
+- Polylogarithms:P.5/r-form
+- AlgebraicModuliForArithmeticGeometry:R09.7
+- mathlib:exteriorPower.alternatingMapLinearEquiv
+- mathlib:MeasureTheory.integral
+- mathlib:Distribution
+- mathlib:TestFunction
+
+**sources**
+
+- **sourceId:** Gonch.Arakelov.2004; **locator:** Theorem 2.4 with Lemma 2.5, (18) (PDF p. 15); **excerpt:** Let Y be an arbitrary irreducible subvariety of a smooth complex variety X and f_1, ..., f_m in C^*(Y). Then for any smooth differential form omega with compact support on X(C) the following integral is convergent ... It provides a group homomorphism r_{m-1}: Lambda^m C(Y)^* -> D^{m-1}_{X(C)}(m-1).; **match:** The convergence and the homomorphism; the degree printed in (18) is source issue E14.
+
+**implementationStatus:** unchecked
+
+#### The residue on a normal variety
+
+`Polylogarithms:P.5/residue-map` — construction
+
+For a normal complex variety X, Res : Lambda^n C(X)^x -> direct sum over the irreducible divisors Y of X of Lambda^{n-1} C(Y)^x is the sum of the residues of P.3/exterior-residue for the discrete valuations of the local rings of the divisors; for a non-normal subvariety Goncharov defines r_{n-2} o Res through the normalisation ((22), ii).
+
+**realises**
+
+- Polylogarithms:P.5
+
+**hypotheses**
+
+- X is a normal complex variety.
+
+**proofSteps**
+
+- For each irreducible divisor Y the local ring O_{X,Y} is a discrete valuation ring with residue field C(Y); apply P.3/exterior-residue.
+- Only finitely many divisors contribute, those in the support of the f_i.
+
+**prerequisites**
+
+- Polylogarithms:P.3/exterior-residue
+- mathlib:AlgebraicGeometry.Scheme
+
+**sources**
+
+- **sourceId:** Gonch.Arakelov.2004; **locator:** Section 2, item 6 (PDF p. 18); **excerpt:** Let X be a normal variety. Then there is the residue homomorphism Res : Lambda^n C(X)* -> direct sum over Y in X^(1) of Lambda^{n-1} C(Y)*, where the sum is over all irreducible divisors of X.; **match:** The residue, as displayed.
+
+**implementationStatus:** unchecked
+
+**api**
+
+- **name:** varietyResidue; **role:** constructor; **statement:** Res = sum_Y res_Y.
+- **name:** varietyResidue_finite; **role:** characterisation; **statement:** Only finitely many divisors contribute.
+- **name:** varietyResidue_normalization; **role:** compatibility; **statement:** The definition through the normalisation for non-normal subvarieties.
+
+**tests**
+
+- **name:** res_line; **kind:** computation; **statement:** X = A^1, Res(z wedge c) = c at the divisor 0 for a constant c.
+- **name:** res_units; **kind:** degenerate; **statement:** Res(c wedge c') = 0 for constants.
+- **name:** res_curve_agrees; **kind:** compatibility; **statement:** For a curve, Res is the total residue of P.5/curve-polylogarithmic-complex on Lambda^n.
+
+**library:** **module:** TauCeti/AlgebraicGeometry/HigherChow/GoncharovRegulator; **namespace:** TauCeti.Regulator
+
+**addedBy:** REV-Polylogarithms
+
+**acceptance**
+
+- Res(z wedge c) = c at 0 on A^1.
+
+**uses**
+
+- **where:** P.5's differential of the currents; **how:** Res is the residue term of Proposition 2.8
+- **where:** P.5's regulator on the higher Chow complex; **how:** the chain-map proof passes through Res
+
+#### The differential of the currents r_{n-1}
+
+`Polylogarithms:P.5/r-form-differential` — theorem
+
+For Y a subvariety of a regular complex variety X and f_1 wedge ... wedge f_n in Lambda^n C(Y)^x, as currents on X(C): d r_{n-1}(f_1 wedge ... wedge f_n) = pi_n(dlog f_1 wedge ... wedge dlog f_n) + 2 pi i eps_n (r_{n-2} o Res)(f_1 wedge ... wedge f_n) (Proposition 2.8 with Lemma 2.7). With Goncharov's residue convention res_v(pi wedge u) = u-bar the printed sign eps_n = 1 is wrong at n = 2, where eps_2 = -1 (source issue E21); the sign for general n is to be fixed against Burgos Gil-Feliu-Takeda Section 5 (gap).
+
+**realises**
+
+- Polylogarithms:P.5
+
+**hypotheses**
+
+- X regular; currents on X(C) (gap).
+
+**proofSteps**
+
+- Lemma 2.7: the formula is compatible with blow-ups, so one may assume normal crossings.
+- Near a component of the divisors, integrate by parts and use the Poincare-Lelong formula 2 d d^c log|f| = 2 pi i delta(f) (17) (gap: not in Mathlib).
+
+**acceptance**
+
+- n = 2, X = P^1, f = z, g = c: r_1(z wedge c) = -i log|c| d arg z, so d r_1 = -2 pi i log|c| (delta_0 - delta_infinity), while the printed right side is +2 pi i log|c| (delta_0 - delta_infinity).
+
+**prerequisites**
+
+- Polylogarithms:P.5/r-forms-and-distributions
+- Polylogarithms:P.5/residue-map
+- AlgebraicModuliForArithmeticGeometry:R09.7
+
+**sources**
+
+- **sourceId:** Gonch.Arakelov.2004; **locator:** Proposition 2.8, (24) (PDF p. 19); **excerpt:** Proposition 2.8 Let Y be an arbitrary subvariety of a regular complex variety X and f1 wedge ... wedge fn in Lambda^n C(Y)*. Then drn-1(f1 wedge ... wedge fn) = pi_n(d log f1 wedge ... wedge d log fn) + 2 pi i (rn-2 o Res)(f1 wedge ... wedge fn) (24); **match:** The formula; the sign is source issue E21.
+
+**implementationStatus:** unchecked
+
+**addedBy:** REV-Polylogarithms
+
+#### The form r_{m-1}(L; H) of a simplex
+
+`Polylogarithms:P.5/simplex-form` — construction
+
+Let L be a simplex in CP^m with faces L_0, ..., L_m and H a hyperplane in general position; choose coordinates (z_0 : ... : z_m) with L_i = {z_i = 0} and H = {z_1 + ... + z_m = z_0}. Then r_{m-1}(L; H) := r_{m-1}(z_1/z_0 wedge ... wedge z_m/z_0) (25), skew-symmetric in the faces, with d r_{m-1}(L; H) = pi_m(Omega_L) on CP^m - L and, as currents, d r_{n-1}(L; H) = pi_n(Omega_L) + 2 pi i sum_i (-1)^i r_{n-2}(L-hat_i; H_i) delta_{L_i} (Corollary 2.9, with the sign caveat of P.5/r-form-differential).
+
+**realises**
+
+- Polylogarithms:P.5
+
+**hypotheses**
+
+- L is a simplex in CP^m and H a hyperplane in general position with respect to it.
+
+**proofSteps**
+
+- Define through the coordinates and check independence of the choices made (the invariant definition through the functions f_i with (f_i) = L_i - L_0 and f_i(l_i) = 1).
+- Corollary 2.9 follows from P.5/r-form-differential.
+
+**prerequisites**
+
+- Polylogarithms:P.5/r-form
+- Polylogarithms:P.5/r-form-differential
+
+**sources**
+
+- **sourceId:** Gonch.Arakelov.2004; **locator:** Section 2, item 7, (25) and Corollary 2.9 (PDF pp. 19-20); **excerpt:** r_{m-1}(L; H) := r_{m-1}(z1/z0 wedge ... wedge zm/z0) (25) ... Corollary 2.9 One has dr_{n-1}(L; H) = pi_n(Omega_L) + 2 pi i sum_i (-1)^i r_{n-2}(L-hat_i; H_i) delta_{L_i} (26); **match:** The definition and its differential.
+
+**implementationStatus:** unchecked
+
+**api**
+
+- **name:** simplexForm; **role:** constructor; **statement:** r_{m-1}(L; H).
+- **name:** simplexForm_perm; **role:** relation; **statement:** Skew-symmetry under permutations of the faces.
+- **name:** simplexForm_d; **role:** relation; **statement:** d r_{m-1}(L; H) = pi_m(Omega_L) off L.
+- **name:** simplexForm_d_current; **role:** relation; **statement:** Corollary 2.9 as currents.
+
+**tests**
+
+- **name:** simplexForm_one; **kind:** computation; **statement:** m = 1: A^1 = P^1 - {1}, L = {0} u {infinity}: r_0(L; {1}) = log|z|.
+- **name:** simplexForm_depends_on_H; **kind:** non-example; **statement:** m = 1 with the hyperplane {lambda} in place of {1}: the form is log|z/lambda|, so r_{m-1}(L; H) depends on H.
+- **name:** simplexForm_perm; **kind:** characterisation; **statement:** Exchanging two faces of L changes the sign of r_{m-1}(L; H).
+
+**library:** **module:** TauCeti/AlgebraicGeometry/HigherChow/GoncharovRegulator; **namespace:** TauCeti.Regulator
+
+**addedBy:** REV-Polylogarithms
+
+**acceptance**
+
+- For m = 1, r_0(L; {1}) = log|z|.
+
+**uses**
+
+- **where:** P.5's regulator on the higher Chow complex; **how:** the values are push-forwards of r_{i-1}(L; H)
+- **where:** P.5's Chow polylogarithm; **how:** omega^q_p is the Radon transform of r_{p+q-1}(L; H)
+
+#### Goncharov's real Deligne complex C_D(X; n)
+
+`Polylogarithms:P.5/goncharov-deligne-complex` — construction
+
+For a regular complex projective variety X and n >= 1, let D^{p,q} be the complex-valued currents of type (p, q) on X(C). C_D(X; n) is the subcomplex of the total complex of the n x n square of the Dolbeault bicomplex D^{p,q} (0 <= p, q <= n - 1, with D^{0,0} in degree 1), valued in R(n - 1), together with the closed R(n)-valued currents D^{n,n}_{R,cl}(n) in degree 2n, the map into it being 2 d' d''. It is concentrated in degrees [1, 2n]. For X over R, C_D(X_{/R}; n) is the subcomplex fixed by the De Rham involution F_infinity-bar.
+
+**realises**
+
+- Polylogarithms:P.5
+
+**hypotheses**
+
+- X is a regular complex projective variety; currents on X(C) are a gap.
+
+**proofSteps**
+
+- Form the Dolbeault double complex of currents and its n x n square.
+- Restrict to R(n - 1)-valued currents and adjoin D^{n,n}_{R,cl}(n) with 2 d' d''; check d^2 = 0.
+- Define the real form by the De Rham involution.
+
+**prerequisites**
+
+- mathlib:CochainComplex
+- mathlib:Distribution
+
+**sources**
+
+- **sourceId:** Gonch.Arakelov.2004; **locator:** Section 2, item 3 (PDF pp. 10-11); **excerpt:** Take the intersection of the part of the complex Tot coming from the n x n square in the diagram (and concentrated in degrees [1, 2n - 1]) with the complex of distributions with values in R(n - 1).; **match:** The definition of the complex; the top term is D^{n,n}_{R,cl}(n).
+
+**implementationStatus:** unchecked
+
+**api**
+
+- **name:** goncharovDeligneComplex; **role:** data; **statement:** C_D(X; n).
+- **name:** goncharovDeligneComplex_real; **role:** data; **statement:** C_D(X_{/R}; n), the involution-fixed subcomplex.
+- **name:** goncharovDeligneComplex_degrees; **role:** characterisation; **statement:** Concentrated in degrees [1, 2n].
+- **name:** goncharovDeligneComplex_top; **role:** simp; **statement:** The last differential is 2 d' d'' into D^{n,n}_{R,cl}(n).
+
+**tests**
+
+- **name:** point_weight_one; **kind:** computation; **statement:** For X a point and n = 1, C_D(X; 1) = R in degree 1.
+- **name:** degrees; **kind:** characterisation; **statement:** C_D(X; n) vanishes outside degrees [1, 2n].
+- **name:** comparison; **kind:** compatibility; **statement:** H^i C_D(X; n) = H^i_D(X, R(n)) for i <= 2n (P.5/goncharov-deligne-complex-comparison).
+
+**library:** **module:** TauCeti/AlgebraicGeometry/HigherChow/GoncharovRegulator; **namespace:** TauCeti.Regulator
+
+**addedBy:** REV-Polylogarithms
+
+**acceptance**
+
+- For a point and n = 1 it is R in degree 1.
+- It is concentrated in degrees [1, 2n].
+
+**uses**
+
+- **where:** P.5's regulator on the higher Chow complex; **how:** its target
+- **where:** P.5's Arakelov motivic complex; **how:** the cone is formed with this complex
+
+#### Goncharov's complex computes truncated Deligne cohomology
+
+`Polylogarithms:P.5/goncharov-deligne-complex-comparison` — comparison
+
+For a regular complex projective variety X, C_D(X; n) is quasi-isomorphic to the truncated Beilinson-Deligne complex tau_{<=2n} R(X; n)_D (Proposition 2.1, with Lemma 2.2).
+
+**realises**
+
+- Polylogarithms:P.5
+
+**proofSteps**
+
+- Lemma 2.2 (a cone construction for a morphism injective in low degrees and surjective in high degrees) and the Dolbeault resolution; the Beilinson-Deligne complex is M.8's.
+
+**acceptance**
+
+- For X a point and n = 1 both sides are R in degree 1.
+
+**prerequisites**
+
+- Polylogarithms:P.5/goncharov-deligne-complex
+
+**sources**
+
+- **sourceId:** Gonch.Arakelov.2004; **locator:** Proposition 2.1 (PDF p. 11); **excerpt:** Proposition 2.1 Let X be a regular complex projective variety. Then the complex CD(X; n) is quasiisomorphic to the truncated Beilinson-Deligne complex tau_{<=2n} R(X; n)_D.; **match:** The comparison, verbatim.
+
+**implementationStatus:** unchecked
+
+**addedBy:** REV-Polylogarithms
+
+**hypotheses**
+
+- X is a regular complex projective variety; n >= 1.
+
+#### Goncharov's regulator map from the higher Chow complex to the Deligne complex
+
+`Polylogarithms:P.5/regulator-map-on-higher-chow` — construction
+
+For a regular complex projective variety X and n >= 1, define P(n) : Z(X; n) -> C_D(X; n) on Bloch's cycle complex (MotivicEtaleKTheory M.4) with Goncharov's affine simplices Delta^i = P^i - {z_1 + ... + z_i = z_0}: for a cycle Y in X x Delta^i meeting all faces properly, P^{2n-i}(n)(Y) := (2 pi i)^{n-i} pi_{X*} r_{i-1}(g_1 wedge ... wedge g_i), where g_k is the restriction of z_k/z_0 to Y (Definition 2.11), and P^{2n}(n)(Y) := (2 pi i)^n delta_Y. That P(n) is a map of complexes is P.5/regulator-map-chain-map, and the real statement is P.5/regulator-map-real.
+
+**realises**
+
+- Polylogarithms:P.5
+
+**hypotheses**
+
+- X is a regular complex projective variety; n >= 1.
+- The cycles meet all faces of X x Delta^i properly (Remark after Definition 2.11).
+
+**proofSteps**
+
+- Attach to a cycle Y the functions g_k = z_k/z_0 restricted to Y.
+- Apply the current r_{i-1} of P.5/r-forms-and-distributions (the simplex form r_{i-1}(L; H) of P.5/simplex-form restricted to Y) and push forward along the proper projection pi_X.
+- Multiply by (2 pi i)^{n-i} and check that the result lies in C^{2n-i}_D(X; n).
+
+**acceptance**
+
+- X = Spec C, n = 1: P^1(1)({a}) = log|a| for a in C^x - {1} (the example after Corollary 2.9).
+- The map is defined on cycles meeting the faces properly and on no others.
+- The chain-map property is a separate theorem.
+
+**prerequisites**
+
+- Polylogarithms:P.5/r-forms-and-distributions
+- Polylogarithms:P.5/simplex-form
+- Polylogarithms:P.5/goncharov-deligne-complex
+- MotivicEtaleKTheory:M.4
+- mathlib:CochainComplex
+- mathlib:AlgebraicGeometry.Scheme
+
+**sources**
+
+- **sourceId:** Gonch.Arakelov.2004; **locator:** Definition 2.11 (PDF p. 22); **excerpt:** Definition 2.11 P^{2n-i}(n)(Y) := (2 pi i)^{n-i} pi_X* r_{i-1}(g1 wedge ... wedge gi); **match:** The definition, as displayed.
+- **sourceId:** Gonch.Arakelov.2004; **locator:** Theorem-Construction 2.3 (PDF p. 13); **excerpt:** Let X be a regular complex projective variety. Then there exists a canonical homomorphism of complexes P^bullet(n): Z^bullet(X; n) -> C^bullet_D(X; n).; **match:** The construction whose data this node is.
+
+**implementationStatus:** unchecked
+
+**planet:** **name:** Regulator on the higher Chow complex
+
+**api**
+
+- **name:** chowRegulator; **role:** data; **statement:** P(n) : Z(X; n) -> C_D(X; n) on cycles meeting the faces properly.
+- **name:** chowRegulator_apply; **role:** simp; **statement:** P^{2n-i}(n)(Y) = (2 pi i)^{n-i} pi_{X*} r_{i-1}(g_1 wedge ... wedge g_i).
+- **name:** chowRegulator_top; **role:** simp; **statement:** P^{2n}(n)(Y) = (2 pi i)^n delta_Y.
+- **name:** chowRegulator_chainMap; **role:** characterisation; **statement:** P(n) commutes with the differentials. Promoted to Polylogarithms:P.5/regulator-map-chain-map.
+- **name:** chowRegulator_real; **role:** characterisation; **statement:** Over R the image lies in C_D(X_{/R}; n). Promoted to Polylogarithms:P.5/regulator-map-real.
+- **name:** chowRegulator_point; **role:** example; **statement:** At X = Spec C, n = 1: P^1(1)({a}) = log|a|.
+
+**uses**
+
+- **where:** P.5's Arakelov complex; **how:** the Arakelov motivic complex is the cone of this map, shifted by one
+- **where:** P.5's comparison with Beilinson's regulator; **how:** Burgos Gil-Feliu-Takeda compare the map induced on cohomology
+
+**tests**
+
+- **name:** point_case; **kind:** computation; **statement:** X = Spec C, n = 1: P^1(1)({a}) = log|a| for a in C^x - {1}.
+- **name:** top_degree; **kind:** degenerate; **statement:** For i = 0, P^{2n}(n)(Y) = (2 pi i)^n delta_Y.
+- **name:** normalisation; **kind:** characterisation; **statement:** The factor is (2 pi i)^{n-i}: for n = 2, i = 1 the value on a curve Y with function g is 2 pi i pi_{X*} log|g|.
+- **name:** not_on_classes; **kind:** non-example; **statement:** The map is on cycles: two cycles with the same class in CH^n(X, i) have images differing by a coboundary, not equal images.
+
+**library:** **module:** TauCeti/AlgebraicGeometry/HigherChow/GoncharovRegulator; **namespace:** TauCeti.Regulator
+
+#### Goncharov's regulator is a map of complexes
+
+`Polylogarithms:P.5/regulator-map-chain-map` — theorem
+
+P(n) : Z(X; n) -> C_D(X; n) of P.5/regulator-map-on-higher-chow is a homomorphism of complexes (Theorem 2.12).
+
+**realises**
+
+- Polylogarithms:P.5
+
+**proofSteps**
+
+- The boundary of a cycle is the alternating sum of its intersections with the faces.
+- Compute d of pi_{X*} r_{i-1}(g_1 wedge ... wedge g_i) with P.5/r-form-differential and Corollary 2.9: the residue terms are the values on the faces, with the signs of the cycle complex (the sign caveat of source issue E21 applies).
+
+**acceptance**
+
+- For X a point, n = 1, and the cycle {a} in Delta^1, d P^1(1)({a}) = 0 in degree 2 since C_D(pt; 1) is R in degree 1.
+
+**prerequisites**
+
+- Polylogarithms:P.5/regulator-map-on-higher-chow
+- Polylogarithms:P.5/r-form-differential
+- Polylogarithms:P.5/simplex-form
+
+**sources**
+
+- **sourceId:** Gonch.Arakelov.2004; **locator:** Theorem 2.12 (PDF p. 23); **excerpt:** Theorem 2.12 P^bullet(n) is a homomorphism of complexes.; **match:** The theorem.
+
+**implementationStatus:** unchecked
+
+**addedBy:** REV-Polylogarithms
+
+**hypotheses**
+
+- X is a regular complex projective variety; n >= 1; currents on X(C) (gap).
+
+#### Goncharov's regulator over the reals
+
+`Polylogarithms:P.5/regulator-map-real` — lemma
+
+If X is defined over R then the image of P(n) lies in the subcomplex C_D(X_{/R}; n) fixed by the De Rham involution.
+
+**realises**
+
+- Polylogarithms:P.5
+
+**proofSteps**
+
+- Conjugation fixes log|g| and negates d arg g, so it acts on r_{i-1} by the sign that the De Rham involution, which includes complex conjugation of the coefficients, compensates.
+
+**acceptance**
+
+- For X = Spec R and n = 1, P^1(1)({a}) = log|a| is fixed.
+
+**prerequisites**
+
+- Polylogarithms:P.5/regulator-map-on-higher-chow
+- Polylogarithms:P.5/goncharov-deligne-complex
+
+**sources**
+
+- **sourceId:** Gonch.Arakelov.2004; **locator:** Theorem-Construction 2.3 (PDF p. 13); **excerpt:** If X is defined over R then the image of the map P^bullet(n) lies in the subcomplex C^bullet_D(X_{/R}; n).; **match:** The real statement, verbatim.
+
+**implementationStatus:** unchecked
+
+**addedBy:** REV-Polylogarithms
+
+**hypotheses**
+
+- X is a regular projective variety defined over R.
+
+#### The Chow polylogarithm: a chain of distributions on the spaces of cycles
+
+`Polylogarithms:P.5/chow-polylogarithm-forms` — construction
+
+Fix a simplex L in projective space of dimension p+q and a hyperplane H in general position. On the variety of codimension q effective cycles meeting all faces of L properly there is an explicitly constructed chain of distributions omega^q_p, defined as the Radon transform of the current r_{p+q-1}(L; H) of P.5/simplex-form along the incidence variety, with the constant fixed so that identity (i) holds as printed (source issue E13), satisfying three identities: the differential of omega^q_0 is the pullback of the standard form; the differential of omega^q_p is the alternating sum of the pullbacks of omega^q_{p-1} along the face maps; and the alternating sum of the pullbacks of omega^q_p along the projections from the vertices vanishes. On smooth cycles in general position the distribution is a real-analytic form. The collection is the q-th Chow polylogarithm, and the first two identities say exactly that it is a cocycle computing the Deligne cohomology of the truncated simplicial variety of cycles. The top member omega^q_{q-1}, the Chow q-logarithm function, is torus invariant and independent of H (Theorem 3.3); these two statements fail for p < q - 1 (Remark), while identity (iii) holds for every p. Equivalently (Theorem 3.4), for dim X = n the integral (2 pi i)^{1-n} integral_{X(C)} r_{2n}(f_1, ..., f_{2n+1}) does not change when one f_i is multiplied by a nonzero constant.
+
+**realises**
+
+- Polylogarithms:P.5
+
+**hypotheses**
+
+- L is a simplex in projective space of dimension p+q and H a hyperplane in general position with respect to it.
+- The face maps are the intersections with the codimension-one faces and the vertex maps are the projections from the vertices, both defined on the open part where the projection keeps the codimension.
+- The Radon transform is the push-forward along the second projection of the restriction to the incidence variety of the pull-back of the distribution; the push-forward is defined because that projection is proper.
+
+**proofSteps**
+
+- Form the incidence variety of pairs of a point and a cycle containing it, with its two projections.
+- Pull back the current r_{p+q-1}(L; H), restrict it to the incidence variety, which is legitimate by the convergence theorem, and push it forward along the proper projection; the normalising constant is 1 if identity (i) is to hold as printed (the printed r_{p+q} and (2 pi i)^{-q} are source issue E13).
+- Prove identity (i) by the definition.
+- Prove identity (iii) from the identity satisfied by the alternating sum of the wedge of the coordinate ratios, which is the lemma the source isolates.
+- Prove identity (ii) from the fact that the push-forward of distributions commutes with the De Rham differential.
+- Prove the real-analyticity of the restriction to smooth cycles in general position.
+- Record the interpretation: (i) and (ii) say that the chain is a 2q-cocycle in the complex computing the Deligne cohomology of the simplicial variety of cycles.
+
+**acceptance**
+
+- For q = 2 the top member at a curve Y in P^3 meeting the faces properly is a constant multiple of integral_{Y(C)} r_2(z_1/z_0 wedge z_2/z_0 wedge z_3/z_0), that is of the Chow dilogarithm.
+- For p = 0 the construction reduces to the simplex form r_{q-1}(L; H).
+- Identity (iii) holds for every p; torus invariance and independence of H hold only for p = q - 1 (Theorem 3.3 and its Remark).
+
+**prerequisites**
+
+- Polylogarithms:P.5/r-forms-and-distributions
+- Polylogarithms:P.5/simplex-form
+- mathlib:MeasureTheory.integral
+
+**sources**
+
+- **sourceId:** Gonch.Arakelov.2004; **locator:** Theorem-Construction 3.1, identities (i), (ii), (iii) (PDF p. 26); **excerpt:** For given q >= 0 there is an explicitly constructed chain of (q-p-1)-distributions omega^q_p = omega^q_p(L; H) on Z^q_p(L) such that i) d omega^q_0(L,H) = pi_q(Omega_L); ii) d omega^q_p(L; H) = sum_i (-1)^i a_i^* omega^q_{p-1}(L; H_i); iii) sum_j (-1)^j b_j^* omega^q_p(L; H) = 0.; **match:** The construction with its three identities, verbatim.
+- **sourceId:** Gonch.Arakelov.2004; **locator:** Section 3, after Theorem-Construction 3.1 (PDF p. 26); **excerpt:** The varieties Z^q_p(L) for p >= 0 form a truncated simplicial variety Z^q_bullet(L). The conditions i) and ii) just mean that the sequence of forms omega^q_p is a 2q-cocycle in the complex computing the Deligne cohomology H^{2q}(Z^q_bullet(L), R_D(q)).; **match:** The cocycle interpretation, verbatim.
+- **sourceId:** Gonch.Arakelov.2004; **locator:** Theorem 3.3, the Remark after it, and Theorem 3.4 (PDF pp. 27-28); **excerpt:** Theorem 3.3 The Chow polylogarithm function is invariant under the natural action of the torus (C*)^{p+q} on Z^q_p(C). In particular it does not depend on the choice of the hyperplane H. Remark. The statements of Theorem 3.3 are no longer true for the forms omega^q_p for p < q - 1.; **match:** The torus invariance of the top function and the warning that it is special to it, verbatim.
+
+**implementationStatus:** unchecked
+
+**planet:** **name:** Chow polylogarithm
+
+**api**
+
+- **name:** chowPolylog; **role:** data; **statement:** The chain of distributions omega^q_p on the spaces of cycles.
+- **name:** chowPolylog_d_zero; **role:** characterisation; **statement:** The first identity, for p = 0.
+- **name:** chowPolylog_d; **role:** characterisation; **statement:** The second identity, relating the differential to the face maps.
+- **name:** chowPolylog_vertex; **role:** characterisation; **statement:** The third identity, for the projections from the vertices.
+- **name:** chowPolylog_analytic; **role:** characterisation; **statement:** Real-analyticity on smooth cycles in general position.
+- **name:** chowPolylogFunction; **role:** projection; **statement:** The top member, the Chow q-logarithm function.
+- **name:** chowPolylogFunction_torus_invariant; **role:** characterisation; **statement:** Torus invariance of the top member, hence independence of the hyperplane.
+- **name:** chowPolylog_reformulation; **role:** characterisation; **statement:** Theorem 3.4: for dim X = n, (2 pi i)^{1-n} integral_{X(C)} r_{2n}(f_1, ..., f_{2n+1}) is unchanged when one f_i is multiplied by a nonzero constant.
+
+**uses**
+
+- **where:** P.5's Chow dilogarithm; **how:** The Chow dilogarithm is the case q = 2 of the top member and every functional equation it satisfies comes from the identities here.
+- **where:** P.5's weight-three regulator; **how:** The weight-three curve regulator is the case q = 3, and its functional equations are the same identities.
+- **where:** BorelRegulators; **how:** Restricting the top member to the planes in general position gives the Grassmannian polylogarithm, through which the source builds the Borel regulator; that construction is not planned here.
+
+**tests**
+
+- **name:** q_two_is_chow_dilogarithm; **kind:** compatibility; **statement:** For q = 2 the top member at a curve Y in P^3 is a constant multiple of the Chow dilogarithm of (Y; z_1/z_0, z_2/z_0, z_3/z_0), the constant fixed by the normalisation of source issue E13.
+- **name:** torus_invariance; **kind:** characterisation; **statement:** The top member is invariant under the torus and independent of H.
+- **name:** not_invariant_below_top; **kind:** non-example; **statement:** For p < q - 1 torus invariance fails (Remark after Theorem 3.3).
+- **name:** cocycle; **kind:** characterisation; **statement:** Identities (i) and (ii) make the chain a 2q-cocycle in the complex computing H^{2q}(Z^q(L), R_D(q)).
+- **name:** p_zero; **kind:** degenerate; **statement:** For p = 0, omega^q_0 = r_{q-1}(L; H) and d omega^q_0 = pi_q(Omega_L).
+
+**library:** **module:** TauCeti/AlgebraicGeometry/HigherChow/GoncharovRegulator; **namespace:** TauCeti.Regulator
+
+#### The Arakelov motivic complex and the higher Arakelov Chow groups
+
+`Polylogarithms:P.5/arakelov-motivic-complex` — construction
+
+The weight-n Arakelov motivic complex of a regular complex projective variety X is the cone of the regulator map P(n) : Z(X; n) -> C_D(X; n), shifted by -1 (mathlib:CochainComplex.mappingCone). Over R the same definition is taken with C_D(X_{/R}; n), and over a number field one views X over Q and takes the real variety. Replacing the last group of the Deligne complex by its quotient modulo the smooth closed forms gives the complex whose cohomology CH-hat^n(X; i) := H^{2n-i} is the higher Arakelov Chow group (Definition 2.13, (35)). In degree zero it is a version of the arithmetic Chow group, the group (36) of pairs (Z, g) on the complex variety (P.5/higher-arakelov-chow-degree-zero); it is not Gillet and Soule's group of an arithmetic variety over Z.
+
+**realises**
+
+- Polylogarithms:P.5
+
+**hypotheses**
+
+- X is a regular projective variety over C, over R or over a number field, as stated in each case.
+- The motivic complex is Bloch's cycle complex; the source does not claim that the construction is independent of this choice.
+
+**proofSteps**
+
+- Form the cone of the chain map P(n) (P.5/regulator-map-chain-map) with mathlib:CochainComplex.mappingCone and shift it by -1; record the three variants.
+- Define the quotient complex and the higher Arakelov Chow groups (Definition 2.13).
+- The distinguished triangle is mathlib:CochainComplex.mappingCone.triangle.
+- The degree-zero identification is P.5/higher-arakelov-chow-degree-zero.
+- Record that the construction works equally for the Suslin-Voevodsky versions of the motivic complexes.
+
+**acceptance**
+
+- It fits into the long exact sequence of a cone relating the cycle complex, C_D(X; n) and the Arakelov complex.
+- X = Spec C, n = 1: H^1 of the Arakelov complex is {a in C^x : |a| = 1} and CH-hat^1(pt; 0) = 0 (test arakelov_point).
+- The complex depends on the choice of motivic complex, as the source says.
+
+**prerequisites**
+
+- Polylogarithms:P.5/regulator-map-on-higher-chow
+- Polylogarithms:P.5/regulator-map-chain-map
+- Polylogarithms:P.5/goncharov-deligne-complex
+- MotivicEtaleKTheory:M.4
+- mathlib:CochainComplex.mappingCone
+- mathlib:CochainComplex.mappingCone.triangle
+
+**sources**
+
+- **sourceId:** Gonch.Arakelov.2004; **locator:** Section 1, item 2, (3), (4) and (5) (PDF p. 3); **excerpt:** The weight n Arakelov motivic complex Gamma_A^bullet(X; n) is the cone of the map (2), shifted by -1 ... For a regular projective variety X over R the image of map (2) lies in the subcomplex C^bullet_D(X_{/R}; n) := C^bullet_D(X(C); n)^{bar F_infinity}; **match:** The three variants of the definition, verbatim.
+- **sourceId:** Gonch.Arakelov.2004; **locator:** Definition 2.13 and Proposition 2.14, (35) and (36) (PDF p. 25); **excerpt:** The Higher Arakelov Chow groups are CH-hat^n(X; i) := H^{2n-i}(Z-hat^bullet(X; n)). ... Proposition. CH-hat^n(X; 0) = CH-hat^n(X).; **match:** The definition and the degree-zero identification (numbered 2.13 and 2.14 in the source).
+- **sourceId:** Gonch.Arakelov.2004; **locator:** Section 1, item 2, the remark on other motivic complexes (PDF p. 3); **excerpt:** Our construction works equally well for the Suslin-Voevodsky versions of the motivic complexes. ... However a precise relationship between the construction given in [G7] and the one in Chapter 2 is not clear.; **match:** The source's own caveat about the dependence on the choice of motivic complex, verbatim.
+
+**implementationStatus:** unchecked
+
+**api**
+
+- **name:** arakelovComplex; **role:** data; **statement:** The cone of P(n) shifted by -1.
+- **name:** arakelovComplex_real; **role:** data; **statement:** The real variant, with the involution-fixed subcomplex.
+- **name:** arakelovComplex_numberField; **role:** data; **statement:** The variant over a number field.
+- **name:** higherArakelovChow; **role:** data; **statement:** CH-hat^n(X; i) := H^{2n-i} of the quotient complex.
+- **name:** higherArakelovChow_zero; **role:** characterisation; **statement:** CH-hat^n(X; 0) is the group (36). Promoted to Polylogarithms:P.5/higher-arakelov-chow-degree-zero.
+- **name:** arakelovComplex_triangle; **role:** compatibility; **statement:** The distinguished triangle of the cone.
+
+**uses**
+
+- **where:** MotivicEtaleKTheory M.8; **how:** the Deligne comparison of the target is M.8's
+- **where:** Arithmetic intersection theory; **how:** the source asks for an arithmetic Riemann-Roch theorem in this generality (Problem b)
+
+**tests**
+
+- **name:** arakelov_point; **kind:** computation; **statement:** X = Spec C, n = 1: Z^1(pt; 1) is free on the points a in C^x - {1} of A^1 = P^1 - {1}, H^1 of the cycle complex is C^x, C_D(pt; 1) = R in degree 1 with P^1(1)(a) = log|a|; hence H^1 of the Arakelov complex is {a : |a| = 1} and CH-hat^1(pt; 0) = 0.
+- **name:** cone_triangle; **kind:** characterisation; **statement:** The complex sits in the distinguished triangle of a cone (mappingCone.triangle).
+- **name:** real_variant; **kind:** degenerate; **statement:** Over R the construction uses the involution-fixed subcomplex.
+- **name:** depends_on_motivic_complex; **kind:** non-example; **statement:** Nothing identifies the complex with the one Goncharov builds from polylogarithmic complexes ([G7]): the source says the relationship 'is not clear'.
+
+**library:** **module:** TauCeti/AlgebraicGeometry/HigherChow/GoncharovRegulator; **namespace:** TauCeti.Regulator
+
+#### Degree-zero higher Arakelov Chow groups
+
+`Polylogarithms:P.5/higher-arakelov-chow-degree-zero` — theorem
+
+CH-hat^n(X; 0) = CH-hat^n(X), where CH-hat^n(X) is the group (36) of pairs (Z, g), Z a codimension-n cycle and g an R(n-1)-valued current of type (n-1, n-1) with d'd'' g/(pi i) + delta_Z smooth, modulo the pairs (div f, -log|f|) and (0, d'u + d''v) (Proposition 2.14). The group (36), a complex-variety version of Gillet and Soule's, has no owner in the atlas (gap), and the proof rests on the comparison of the last two cohomology groups of the Gersten complex with those of the cycle complex, asserted as 'well known' without reference (gap).
+
+**realises**
+
+- Polylogarithms:P.5
+
+**proofSteps**
+
+- Map the end of the Gersten complex into the cycle complex: a pair of a subvariety and a rational function to its graph cycle, a wedge of two functions to a cycle in the product with Delta^2.
+- Use that this is an isomorphism on the last two cohomology groups (gap).
+- Compute the composite with the regulator and recognise the relations of (36).
+
+**acceptance**
+
+- For X a point and n = 1 both sides vanish (test arakelov_point).
+
+**prerequisites**
+
+- Polylogarithms:P.5/arakelov-motivic-complex
+- SchemeKTheoryOperations:S.4
+- MotivicEtaleKTheory:M.4
+
+**sources**
+
+- **sourceId:** Gonch.Arakelov.2004; **locator:** Proposition 2.14 and (36) (PDF p. 25); **excerpt:** Proposition 2.14 CH-hat^n(X; 0) = CH-hat^n(X).; **match:** The identification, as printed.
+
+**implementationStatus:** unchecked
+
+**addedBy:** REV-Polylogarithms
+
+**hypotheses**
+
+- X is a regular complex projective variety; n >= 1.
+
+#### Goncharov's regulator induces Beilinson's regulator
+
+`Polylogarithms:P.5/regulator-induces-beilinson` — comparison
+
+Let X be a smooth projective complex variety. The composite K_n(X)_Q = direct sum over p of CH^p(X, n)_Q -> direct sum over p of H^{2p-n}_D(X, R(p)) of Bloch's Chern-character isomorphism with the map induced on cohomology by Goncharov's regulator P(p) (P.5/regulator-map-on-higher-chow) equals Beilinson's regulator, once Goncharov's r_{m-1} carries the sign (-1)^m of Burgos Gil-Feliu-Takeda Section 5.2 (Remark 5.12). Goncharov poses this as Problem a) of his introduction; it is Theorem 6.18 of Burgos Gil-Feliu-Takeda, not a result of the source read for P.5. Its proof there is not decomposed here (gap).
+
+**realises**
+
+- Polylogarithms:P.5
+
+**hypotheses**
+
+- X smooth projective over C ('equidimensional projective complex algebraic manifold').
+- Normalisations: the conventions of Burgos Gil-Feliu-Takeda Section 2 for the Deligne complex of currents and twists, and the sign (-1)^m relating their r_{m-1} to Goncharov's (13).
+
+**proofSteps**
+
+- Compare Goncharov's forms r_{m-1} with Wang's forms T_m (BFT Theorem 5.13).
+- Pass from the simplicial complex to the cubical complexes by the quasi-isomorphisms of BFT Lemma 6.17 and Proposition 6.12 (Levine).
+- Identify the cubical regulator with Burgos and Feliu's regulator, which induces Beilinson's regulator (BFT Theorem 4.7 and Theorem 6.11).
+- Conclude by the commutative square (6.13) of BFT. (Not decomposed: gap.)
+
+**acceptance**
+
+- For X = Spec C in weight p = 2 it specialises to the comparison of the Chow-dilogarithm regulator with Beilinson's regulator on K_3(C), whose Borel side BorelRegulators R.7 owns.
+- The sign (-1)^m is recorded, not absorbed silently.
+
+**prerequisites**
+
+- Polylogarithms:P.5/regulator-map-on-higher-chow
+- Polylogarithms:P.5/regulator-map-chain-map
+- Polylogarithms:P.5/goncharov-deligne-complex-comparison
+- MotivicEtaleKTheory:M.4
+- MotivicEtaleKTheory:M.6
+
+**sources**
+
+- **sourceId:** BFT.2011; **locator:** Theorem 6.18 (arXiv v1, p. 21); **excerpt:** Let X be an equidimensional projective complex algebraic manifold. Let Ps' be the composition of Ps with the isomorphism given by the Chern character of [Blo86] ... Then, the morphism Ps' agrees with Beilinson's regulator.; **match:** The comparison, proved.
+- **sourceId:** BFT.2011; **locator:** Section 5.2, Remark 5.12; **excerpt:** The sign (-1)^m appears due to the difference in sign on the differential of the Deligne complex; **match:** The sign convention relating their forms to Goncharov's.
+- **sourceId:** Gonch.Arakelov.2004; **locator:** Section 1, item 2, Problems a) (PDF p. 4); **excerpt:** Show that taking cohomology of the map (2) and using the isomorphism between the rational Bloch's Higher Chow groups of X and the corresponding part of the rational K-theory of X ([Bl2], [Lev]) we get a non-zero rational multiple of the Beilinson's regulator map.; **match:** The source poses it as a problem.
+
+**implementationStatus:** unchecked
+
+**addedBy:** REV-Polylogarithms
+
+#### Goncharov's strong reciprocity conjecture, as a statement
+
+`Polylogarithms:P.5/strong-reciprocity-conjecture` — definition
+
+Let X be a regular projective curve over an algebraically closed field k, F = k(X). For a homomorphism h : Lambda^3 F^x -> B_2(k), IsReciprocityHom h means: (a) h(k^x wedge Lambda^2 F^x) = 0, delta_2 o h = Res on Lambda^3 F^x and h o delta_3 = Res on B_2(F) tensor F^x (both triangles of (77)); (b) for k = C, -(2 pi)^{-1} integral_{X(C)} r_2 = D o h, that is P.5/chow-dilogarithm = D o h (the printed (2 pi i)^{-1} is source issue E12). Conjecture 6.2 is the Prop: there is a canonical h with IsReciprocityHom h. It is recorded as a conjecture and never assumed. Here B_2 is rational (P.4/higher-bloch-group at n = 2) unless a proved case says otherwise; the source's integral group, defined by rigidity in Goncharov [G1], was not obtained (gap), and Goncharov's explicit integral B_2 with the cross-ratio r(infinity, 0, 1, x) = x belongs to K3BlochGroups V.3, which owns 'the conventions used by Goncharov' (requested).
+
+**realises**
+
+- Polylogarithms:P.5
+
+**hypotheses**
+
+- X is a regular projective curve over an algebraically closed field k.
+
+**proofSteps**
+
+- State IsReciprocityHom as a Prop-valued definition and the conjecture as its existential; no proof is claimed.
+
+**prerequisites**
+
+- Polylogarithms:P.5/chow-dilogarithm
+- Polylogarithms:P.5/curve-polylogarithmic-complex
+- Polylogarithms:P.3/residues-and-transfers
+- Polylogarithms:P.4/higher-bloch-group
+- K3BlochGroups:V.3
+
+**sources**
+
+- **sourceId:** Gonch.Arakelov.2004; **locator:** Conjecture 6.2 (PDF pp. 53-54); **excerpt:** Let X be a regular projective curve over an algebraically closed field k and F := k(X)^*. Then there exists a canonical homomorphism of groups h: Lambda^3 F^* -> B_2(k) satisfying the following two conditions; **match:** The conjecture; condition (b) as printed has the normalisation error E12, and 'F := k(X)*' is E15.
+- **sourceId:** Gonch.Arakelov.2004; **locator:** Section 6, the list of proved cases (PDF p. 54); **excerpt:** We prove this conjecture in the following cases: a) X = P^1 ... b) X is an elliptic curve over an algebraically closed field ... c) k = Q-bar, X is any curve.; **match:** Exactly which cases are theorems.
+
+**implementationStatus:** unchecked
+
+**api**
+
+- **name:** IsReciprocityHom; **role:** characterisation; **statement:** Conditions (a) and (b) on h.
+- **name:** StrongReciprocityConjecture; **role:** other; **statement:** The Prop: there exists a canonical h with IsReciprocityHom h.
+- **name:** isReciprocityHom_second_triangle; **role:** relation; **statement:** The first half of (a) implies h o delta_3 = Res. Promoted to Polylogarithms:P.5/reciprocity-second-triangle.
+
+**tests**
+
+- **name:** P1_case; **kind:** compatibility; **statement:** On P^1 the explicit h of P.5/reciprocity-projective-line satisfies IsReciprocityHom modulo 6-torsion.
+- **name:** res_nonzero; **kind:** non-example; **statement:** h cannot take values in the Bloch group Ker delta_2: on P^1, Res(t wedge (t - 1) wedge (t - a)) = a wedge (1 - a) != 0 modulo 2-torsion, so delta_2 o h = Res forces h outside the kernel.
+- **name:** imaginary_normalisation; **kind:** non-example; **statement:** With the printed (2 pi i)^{-1} integral r_2, condition (b) equates a purely imaginary number with a real one and fails for every h unless both vanish.
+- **name:** real_curves; **kind:** degenerate; **statement:** For X and the f_i defined over R, both sides of (b) vanish: chowDilog = 0 and D o h is 0 on real-defined data whose h lies in the image of B_2(R).
+
+**library:** **module:** TauCeti/AlgebraicGeometry/Curves/RegulatorComplexes; **namespace:** TauCeti.Regulator
+
+**addedBy:** REV-Polylogarithms
+
+**acceptance**
+
+- The conjecture is recorded as a Prop and assumed by no node.
+- Its three proved cases are nodes of this layer.
+
+**uses**
+
+- **where:** P.5's proved cases; **how:** each proves IsReciprocityHom for an explicit h
+- **where:** P.5's weight-three curve regulator; **how:** Conjecture 6.3 in weight three is condition (a)
+
+#### The second triangle of the reciprocity law
+
+`Polylogarithms:P.5/reciprocity-second-triangle` — lemma
+
+If h(k^x wedge Lambda^2 F^x) = 0 and Res = delta_2 o h on Lambda^3 F^x, then h o delta_3 = Res on B_2(F) tensor F^x (Lemma 6.4).
+
+**realises**
+
+- Polylogarithms:P.5
+
+**proofSteps**
+
+- h o delta_3 - Res takes values in Ker delta_2 and vanishes on B_2(F) tensor k^x.
+- Every element of k(X)^x is connected to a constant along a curve; rigidity of Ker delta_2 (rationally B(k) = B(k(t)), Suslin; requested from K3BlochGroups V.4) concludes.
+
+**prerequisites**
+
+- Polylogarithms:P.5/strong-reciprocity-conjecture
+- Polylogarithms:P.4/explicit-to-inductive-comparison
+
+**sources**
+
+- **sourceId:** Gonch.Arakelov.2004; **locator:** Lemma 6.4 (PDF p. 54); **excerpt:** Lemma 6.4 Assume that we have a map h such that h(k* wedge Lambda^2 F*) = 0 and Res = delta2 o h. Then h o delta3 = Res.; **match:** The lemma, verbatim.
+
+**implementationStatus:** unchecked
+
+**addedBy:** REV-Polylogarithms
+
+**hypotheses**
+
+- X is a regular projective curve over an algebraically closed field k, F = k(X); groups rational.
+
+**acceptance**
+
+- On P^1 the explicit h satisfies both triangles modulo 6-torsion.
+
+#### The Chow dilogarithm on Steinberg elements
+
+`Polylogarithms:P.5/chow-dilogarithm-steinberg` — lemma
+
+For a smooth projective complex curve X and f, g in C(X)^x: integral_{X(C)} r_2((1 - f) wedge f wedge g) = -2 pi sum_x v_x(g) D(f(x)) (Lemma 6.9, corrected: the printed statement lacks 2 pi, source issue E11), that is chowDilog((1 - f) wedge f wedge g) = sum_x v_x(g) D(f(x)). The proof is the current identity d[D(f) d arg g - (1/3) alpha(1 - f, f) log|g|] = 2 pi D(f) delta(g) + r_2((1 - f) wedge f wedge g) ((83) and (84)), with alpha(f, g) = log|f| dlog|g| - log|g| dlog|f|.
+
+**realises**
+
+- Polylogarithms:P.5
+
+**proofSteps**
+
+- Differentiate the 1-current (83) using d(d arg g) = 2 pi delta(g) and (85).
+- Integrate over X(C): the exact term integrates to 0.
+
+**acceptance**
+
+- X = P^1, f = z, g = z - a: integral r_2((1 - z) wedge z wedge (z - a)) = -2 pi D(a); the reviewer's quadrature gives ratios -6.28344 and -6.28355 at a = 0.3 + 0.8i and -0.45 + 0.6i.
+
+**prerequisites**
+
+- Polylogarithms:P.1/bloch-wigner-dilogarithm
+- Polylogarithms:P.1/bloch-wigner-differential
+- Polylogarithms:P.5/chow-dilogarithm
+- Polylogarithms:P.5/r-form-differential
+
+**sources**
+
+- **sourceId:** Gonch.Arakelov.2004; **locator:** Lemma 6.9 (PDF p. 57); **excerpt:** Lemma 6.9 Let X be an arbitrary curve over C. Then integral_{X(C)} r2((1 - f) wedge f wedge g) = - sum_{x in X(C)} vx(g) L2(f(x)); **match:** The lemma as printed; the missing factor 2 pi is source issue E11.
+- **sourceId:** Gonch.Arakelov.2004; **locator:** proof of Lemma 6.9, (83) and (84) (PDF p. 57); **excerpt:** Consider the following 1-form on X(C) L2(f)d arg g - (1/3) alpha(1 - f, f) log |g| (83) ... We claim that its derivative is equal to: 2 pi L2(f)delta(g) + r2((1 - f) wedge f wedge g) (84); **match:** The current identity that proves it.
+
+**implementationStatus:** unchecked
+
+**addedBy:** REV-Polylogarithms
+
+**hypotheses**
+
+- X is a smooth projective complex curve; f, g are nonzero rational functions, f not constant.
+
+#### The Chow dilogarithm on the projective line
+
+`Polylogarithms:P.5/chow-dilogarithm-projective-line` — theorem
+
+On X = P^1: chowDilog(f_1 wedge f_2 wedge f_3) = sum over x_1, x_2, x_3 in P^1(C) of v_{x_1}(f_1) v_{x_2}(f_2) v_{x_3}(f_3) D(r(x_1, x_2, x_3, infinity)), with r(infinity, 0, 1, x) = x (Proposition 6.8).
+
+**realises**
+
+- Polylogarithms:P.5
+
+**proofSteps**
+
+- Reduce by multilinearity and projective invariance to f_1 = 1 - z, f_2 = z, f_3 = z - a.
+- Apply P.5/chow-dilogarithm-steinberg.
+
+**acceptance**
+
+- chowDilog((1 - z) wedge z wedge (z - a)) = D(a) (test chowDilog_P1_line).
+
+**prerequisites**
+
+- Polylogarithms:P.5/chow-dilogarithm-steinberg
+- Polylogarithms:P.5/chow-dilogarithm
+
+**sources**
+
+- **sourceId:** Gonch.Arakelov.2004; **locator:** Proposition 6.8 (PDF p. 57); **excerpt:** P2(P1; f1, f2, f3) = sum_{xi in P1(C)} vx1(f1)vx2(f2)vx3(f3)L2(r(x1, x2, x3, infinity)); **match:** The formula; with the corrected normalisation of P_2 (E12) it holds as printed.
+
+**implementationStatus:** unchecked
+
+**addedBy:** REV-Polylogarithms
+
+**hypotheses**
+
+- X = P^1 over C.
+
+#### The reciprocity law on the projective line
+
+`Polylogarithms:P.5/reciprocity-projective-line` — theorem
+
+For k algebraically closed, h(f_1 wedge f_2 wedge f_3) := sum v_{x_1}(f_1) v_{x_2}(f_2) v_{x_3}(f_3) {r(x_1, x_2, x_3, infinity)}_2 in Goncharov's explicit B_2(k) (K3BlochGroups V.3, requested) is independent of the point infinity, satisfies condition (a) of P.5/strong-reciprocity-conjecture modulo 6-torsion and, for k = C, condition (b) (Theorem 6.5); moreover h((1 - f) wedge f wedge g) = sum_x v_x(g){f(x)}_2 modulo 6-torsion (Proposition 6.6).
+
+**realises**
+
+- Polylogarithms:P.5
+
+**proofSteps**
+
+- Independence of the auxiliary point: the five-term relation together with sum_x v_x(f) = 0 (tauceti:TauCeti.Divisor.degree_principal).
+- Condition (a): compute delta_2 o h and Res on generators (Lemma 6.7), using Weil reciprocity.
+- Condition (b): P.5/chow-dilogarithm-projective-line.
+
+**acceptance**
+
+- For f_i = (t - a_i)/(t - b_i) with all a_i, b_i finite and distinct, h(f_1 wedge f_2 wedge f_3) = sum over x_i in {a_i, b_i} of eps_1 eps_2 eps_3 {(x_1 - x_3)/(x_2 - x_3)}_2, with eps_i = +1 at a_i and -1 at b_i, since r(a, b, c, infinity) = (a - c)/(b - c) (p. 56).
+
+**prerequisites**
+
+- Polylogarithms:P.5/strong-reciprocity-conjecture
+- Polylogarithms:P.5/chow-dilogarithm-projective-line
+- K3BlochGroups:V.3
+- K2SymbolsBrauer:T.4/weil-reciprocity
+- tauceti:TauCeti.Divisor.degree_principal
+
+**sources**
+
+- **sourceId:** Gonch.Arakelov.2004; **locator:** Theorem 6.5 (PDF p. 54); **excerpt:** Assume that k = k-bar. Then the map h: Lambda^3 k(P^1)^* -> B_2(k) given by the formula h(f_1 wedge f_2 wedge f_3) := sum v_{x_1}(f_1) v_{x_2}(f_2) v_{x_3}(f_3) {r(x_1, x_2, x_3, infinity)}_2 satisfies all the conditions of conjecture 6.2 modulo 6-torsion.; **match:** The theorem, verbatim.
+- **sourceId:** Gonch.Arakelov.2004; **locator:** Proposition 6.6 (PDF p. 55); **excerpt:** Proposition 6.6 Let k = k-bar. Then modulo 6-torsion h((1 - f) wedge f wedge g) = sum_{x in P1(k)} vx(g){f(x)}2; **match:** The Steinberg value of h.
+
+**implementationStatus:** unchecked
+
+**addedBy:** REV-Polylogarithms
+
+**hypotheses**
+
+- k is algebraically closed; statements hold modulo 6-torsion.
+
+#### The Chow dilogarithm in families of curves
+
+`Polylogarithms:P.5/chow-dilogarithm-families` — theorem
+
+(a) For a family of curves pi : Y -> S over C and f_1, f_2, f_3 on Y, there are rational functions phi_i on S with P_2(Y -> S; f_1, f_2, f_3) = sum_i D(phi_i(s)). (b) If there is h with Res = delta_2 o h, then d P_2(Y -> S; f_1, f_2, f_3) = d D(h(f_1, f_2, f_3)) (Theorem 6.10 with Lemma 6.11).
+
+**realises**
+
+- Polylogarithms:P.5
+
+**proofSteps**
+
+- Reduce to the projective line by a projection and the transfer on Milnor K_3 (i o N = sum over g of g^* for Galois covers, (87); requested from K2SymbolsBrauer T.4).
+- Apply P.5/chow-dilogarithm-steinberg and Proposition 6.8.
+
+**acceptance**
+
+- For a constant family the functions phi_i are constant.
+
+**prerequisites**
+
+- Polylogarithms:P.5/chow-dilogarithm-steinberg
+- Polylogarithms:P.5/chow-dilogarithm-projective-line
+- K2SymbolsBrauer:T.4/milnor-transfer-transitivity
+
+**sources**
+
+- **sourceId:** Gonch.Arakelov.2004; **locator:** Theorem 6.10 (PDF p. 58); **excerpt:** a) Let pi: Y -> S be a family of curves over a base S over C. Then there are rational functions phi_i on S such that P_2(Y -> S; f_1, f_2, f_3) = sum_i L_2(phi_i(s)).; **match:** Part (a), verbatim.
+
+**implementationStatus:** unchecked
+
+**addedBy:** REV-Polylogarithms
+
+**hypotheses**
+
+- pi : Y -> S is a family of smooth projective curves over a complex base S.
+
+#### The reciprocity law for curves over Q-bar
+
+`Polylogarithms:P.5/reciprocity-algebraic-numbers` — theorem
+
+For a regular projective curve X over Q-bar with F = Q-bar(X) there is h : Lambda^3 F^x -> B_2(Q-bar) tensor Q satisfying condition (a) of P.5/strong-reciprocity-conjecture and, for every embedding sigma : Q-bar -> C, -(2 pi)^{-1} integral_{X(C)} r_2(sigma(f_1 wedge f_2 wedge f_3)) = D(sigma(h(f_1 wedge f_2 wedge f_3))) (Theorem 6.12 with Lemma 6.13; the printed (2 pi i)^{-1} is source issue E12).
+
+**realises**
+
+- Polylogarithms:P.5
+
+**proofSteps**
+
+- Choose a projection to P^1, pass to a Galois closure and use the transfer on Milnor K_3 to write |G| h as a pull-back plus Steinberg terms.
+- Lemma 6.13: the Steinberg part is well defined, by the injectivity of the regulator on K_3^ind(Q-bar)_Q (Borel, requested from BorelRegulators R.4, transported through P.2/borel-comparison) and P.5/chow-dilogarithm-families.
+- Condition (b) follows from Theorem 6.10(b) and the value at a degenerate member.
+
+**acceptance**
+
+- After tensoring with Q only: torsion is not controlled.
+
+**prerequisites**
+
+- Polylogarithms:P.5/reciprocity-projective-line
+- Polylogarithms:P.5/chow-dilogarithm-families
+- Polylogarithms:P.2/borel-comparison
+- BorelRegulators:R.4/borel-regulator
+- K2SymbolsBrauer:T.4/milnor-transfer-transitivity
+
+**sources**
+
+- **sourceId:** Gonch.Arakelov.2004; **locator:** Theorem 6.12 (PDF p. 59); **excerpt:** Let X be a regular projective curve over Q-bar and F := Q-bar(X). Then there exists a homomorphism h: Lambda^3 F^* -> B_2(Q-bar) tensor Q as in conjecture 6.2; **match:** The theorem.
+- **sourceId:** Gonch.Arakelov.2004; **locator:** Lemma 6.13 (PDF p. 59); **excerpt:** Lemma 6.13 Suppose sum_i (1 - fi) wedge fi wedge gi = 0 in Lambda^3 Q(X)*. Then sum_i sum_x vx(gi) {fi(x)}2 = 0 in the group B2(Q).; **match:** The lemma that makes h well defined.
+
+**implementationStatus:** unchecked
+
+**addedBy:** REV-Polylogarithms
+
+**hypotheses**
+
+- X is a regular projective curve over Q-bar; the statement is after tensoring with Q.
+
+#### The Chow dilogarithm of an elliptic curve, explicitly
+
+`Polylogarithms:P.5/chow-dilogarithm-on-elliptic-curves` — theorem
+
+For an elliptic curve E over an algebraically closed field, presented as a plane curve, there is an explicit reciprocity homomorphism h. Writing a rational function as a ratio of products of linear homogeneous functions reduces everything to four linear functions l_0, ..., l_3; with L_i the line they cut, D_i the divisor of its intersection with the curve and l_{ij} the intersection point of two of the lines, the value of h on the wedge of the three ratios l_i/l_0 is minus the alternating sum over i of the class of the cross-ratio of the three points l_{ij} with j different from i against the divisor D_i. It satisfies condition (a) of P.5/strong-reciprocity-conjecture and, over C, condition (b) in the corrected normalisation chowDilog = D o h (source issue E12). The integral formula for an arbitrary plane curve is P.5/chow-dilogarithm-plane-curves.
+
+**realises**
+
+- Polylogarithms:P.5
+
+**hypotheses**
+
+- E is an elliptic curve over an algebraically closed field, realised as a plane cubic; l_0, ..., l_3 are linear homogeneous functions defining distinct lines, no three concurrent and none a component of E (the source says 'any'; source issue E18).
+- The class of a cross-ratio against a divisor means the corresponding integer combination of classes, as the source defines it.
+- The decomposition of a rational function into a ratio of products of linear functions uses the group law: the divisor of the ratio of the line through two points to the line through their sum and its negative is the displayed one.
+
+**proofSteps**
+
+- Reduce to four linear functions by decomposing a rational function into a ratio of products of linear ones, using the group law step described by the source.
+- Prove the two elementary identities for the canonical functions attached to a pair of lines: on the third line the two ratios sum to one, and the quotient of two of them is minus the third ratio.
+- Compute the total residue of the wedge of the three ratios by evaluating the residues at the three divisors with the first identity, and reducing the residues on the remaining line by the second; the result is minus delta_2 of the displayed class.
+- Prove that the formula gives a well-defined homomorphism: the relations between the functions attached to pairs of points are generated by the displayed one, its image has vanishing delta_2 by the previous step, and one checks the value at a degenerate triple where the first factor is constant.
+- Prove the analytic statement for an arbitrary plane curve: both sides have the same differential by the residue computation and the family version of the reciprocity law, so they differ by a constant, and the constant vanishes by deforming the curve to a union of lines.
+
+**acceptance**
+
+- For a line in the plane the formula is checked directly and is the base of the deformation argument.
 - For the projective line the formula reduces to the cross-ratio formula of the previous node.
-- The formula is the input for the elliptic dilogarithm: EllipticRegulators ER.3 owns the
-  elliptic dilogarithm and its Kronecker-Eisenstein description, and this node is what connects
-  the Chow dilogarithm of an elliptic curve to it.
 
-**Depends on.** **inside this roadmap** `strong-reciprocity-law`, `chow-dilogarithm-reciprocity`, `bloch-wigner-dilogarithm`; **other roadmaps** `EllipticRegulators:ER.2`, `EllipticRegulators:ER.3`.
+**prerequisites**
 
-**Source.** Gonch.Arakelov.2004, Theorem 6.14, equations (hrule) and (homot1): “Let E be an
-elliptic curve over an algebraically closed field k. Then there exists a homomorphism of groups
-h: Lambda^3 F^* -> B_2(k) such that for any linear homogeneous functions l_0,...,l_3 one has
-h(l_1/l_0 wedge l_2/l_0 wedge l_3/l_0) = -sum_i (-1)^i {r(l_{i0},..., l_{ii}-hat, ..., l_{i3},
-D_i)}_2 and which satisfies all the properties of conjecture 6.2. In particular, if k = C then
-...” — The theorem with its explicit formula, verbatim.
+- Polylogarithms:P.5/strong-reciprocity-conjecture
+- Polylogarithms:P.5/chow-dilogarithm-families
+- Polylogarithms:P.5/chow-dilogarithm-projective-line
+- Polylogarithms:P.5/chow-dilogarithm-plane-curves
+- Polylogarithms:P.1/bloch-wigner-dilogarithm
+- mathlib:WeierstrassCurve
 
-**Source.** Gonch.Arakelov.2004, Proposition 6.18, equation (elfo): “Let X be an algebraic
-curve in P^2 over C and l_0,...,l_3 linear homogeneous functions on C^3. Then integral_{X(C)}
-r_2(l_1/l_0 wedge l_2/l_0 wedge l_3/l_0) = 2 pi sum_i (-1)^i L_2(r(l_{i0},..., l_{ii}-hat, ...,
-l_{i3}, D_i)).” — The explicit integral formula for a plane curve, verbatim, with the factor 2
-pi.
+**sources**
 
-**Source.** Gonch.Arakelov.2004, Lemma 6.16: “For any plane curve X one has sum_x
-res_x((l_1/l_0) wedge (l_2/l_0) wedge (l_3/l_0)) = -delta_2(sum_i (-1)^i {r(l_{i0},...,
-l_{ii}-hat, ..., l_{i3}, D_i)}_2).” — The residue computation behind the formula, verbatim.
+- **sourceId:** Gonch.Arakelov.2004; **locator:** Theorem 6.14, (93) and (94) (PDF p. 62); **excerpt:** Let E be an elliptic curve over an algebraically closed field k. Then there exists a homomorphism of groups h: Lambda^3 F^* -> B_2(k) for any linear homogeneous functions l_0,...,l_3 one has h(l_1/l_0 wedge l_2/l_0 wedge l_3/l_0) = -sum_i (-1)^i {r(l_{i0},..., l_{ii}-hat, ..., l_{i3}, D_i)}_2; **match:** The theorem with its explicit formula, verbatim.
 
-### `weight-three-curve-regulator` — The weight-three curve regulator, and the Eisenstein-Kronecker expression as a target ★
+**implementationStatus:** unchecked
 
-*construction* · planet **Weight-three curve regulator**
+#### The Chow dilogarithm of a plane curve
 
-In weight three the curve regulator is the case q = 3 of the Chow polylogarithm: the top member
-of the chain, restricted to the cycles attached to a curve, together with the residue map from
-the weight-three polylogarithmic complex of the function field to the weight-two complex of the
-base field. The general-weight reciprocity conjecture of the source asserts that this residue
-map admits a lift analogous to h, and the source does not prove it. Separately the roadmap asks
-for the Eisenstein-Kronecker expression as a TARGET: for an elliptic curve the weight-two value
-has an expression through the elliptic dilogarithm whose Kronecker-Eisenstein description
-EllipticRegulators ER.3 owns, and the weight-three analogue is stated here as a target
-conditional on that analytic result, never as a theorem.
+`Polylogarithms:P.5/chow-dilogarithm-plane-curves` — theorem
 
-**Hypotheses.**
+For an algebraic curve X in P^2 over C and linear homogeneous functions l_0, ..., l_3 in general position (distinct lines, no three concurrent, none a component of X): integral_{X(C)} r_2(l_1/l_0 wedge l_2/l_0 wedge l_3/l_0) = 2 pi sum_i (-1)^i D(r(l_{i0}, ..., l_{ii}-hat, ..., l_{i3}, D_i)), where L_i is the line of l_i, D_i its intersection divisor with X and l_{ij} the point L_i n L_j (Proposition 6.18 with Lemmas 6.15 and 6.16).
 
-- X is a regular projective curve over an algebraically closed field with function field F; the
-  weight-three polylogarithmic complex and its residues are those of P.3.
-- The weight-three regulator lands in the real Deligne complex in the degrees fixed by the Chow
-  polylogarithm construction; the target itself is requested from MotivicEtaleKTheory M.8.
-- The Eisenstein-Kronecker expression is a target and not a theorem: ER.3 is the owner of the
-  elliptic dilogarithm and of the justification of the interchange of sums and integrals that
-  its Fourier and Kronecker-Eisenstein descriptions need, and that justification is a
-  hypothesis here.
+**realises**
 
-**Construction and proof.**
+- Polylogarithms:P.5
 
-1. Take the case q = 3 of the Chow polylogarithm and restrict it to the cycles attached to a
-   curve with three rational functions, obtaining the weight-three regulator on the curve
-   complex.
-1. Record the functional equations it satisfies: they are the identities (ii) and (iii) of the
-   Chow polylogarithm in that case.
-1. State the general-weight reciprocity conjecture of the source for the residue map from the
-   weight n complex of the function field to the weight n-1 complex of the base, and record
-   that the source states it as a conjecture and proves only the weight-two cases.
-1. State the Eisenstein-Kronecker target: for an elliptic curve, the value of the weight-two
-   regulator is expressed by the elliptic dilogarithm, whose Kronecker-Eisenstein series
-   description is ER.3's; the weight-three analogue is stated with the same shape, conditional
-   on that description and on the analytic justification ER.3 must supply.
-1. Record explicitly that the elliptic weight-three special-value conjecture is NOT included
-   among the theorems obtained by the weight-two argument, which is what the stage text
-   demands.
+**proofSteps**
 
-**API.**
+- Both sides have the same differential in families (Lemma 6.16 and P.5/chow-dilogarithm-families).
+- Deform X to a union of lines, where the formula is checked directly on each line.
 
-| name | role | statement |
-| --- | --- | --- |
-| `weightThreeCurveRegulator` | data | The weight-three regulator on the curve complex, as the case q = 3 of the Chow polylogarithm. |
-| `weightThreeCurveRegulator_functional` | characterisation | Its two functional equations, from the identities of the Chow polylogarithm. |
-| `weightThreeReciprocity` | data | The general-weight reciprocity statement, recorded as a conjecture with its hypotheses. |
-| `eisensteinKroneckerTarget` | data | The Eisenstein-Kronecker expression, stated as a target conditional on the analytic result of EllipticRegulators ER.3. |
-| `weightThree_not_special_value` | compatibility | The record that the elliptic weight-three special-value conjecture does not follow from the weight-two argument. |
+**acceptance**
 
-**Used by.** *EllipticRegulators ER.3*: The elliptic dilogarithm and its Kronecker-Eisenstein description are the analytic input of the target stated here. *P.3*: The weight-three complex and its residues are the algebraic input. *The atlas*: The node exists so that the weight-three statements are visible as conjectures and targets rather than being mistaken for theorems of the weight-two argument.
+- With chowDilog = -(2 pi)^{-1} integral r_2 this reads chowDilog = -sum_i (-1)^i D(...), matching h of (93).
 
-**Unit tests.**
+**prerequisites**
 
-- `weight_two_case` — In weight two the construction is the Chow dilogarithm with its proved
-  reciprocity law.
-- `conjectural_in_weight_three` — The weight-three reciprocity statement is recorded as a
-  conjecture and no proof is claimed.
-- `conditional_eisenstein_kronecker` — The Eisenstein-Kronecker expression carries the
-  hypothesis that ER.3 supplies its analytic justification.
-- `no_special_value` — The elliptic weight-three special-value conjecture is not asserted.
+- Polylogarithms:P.5/chow-dilogarithm-families
+- Polylogarithms:P.5/chow-dilogarithm-projective-line
+- Polylogarithms:P.5/chow-dilogarithm
 
-**Acceptance.**
+**sources**
 
-- In weight two the construction reduces to the Chow dilogarithm and its reciprocity law, which
-  are theorems.
-- In weight three the reciprocity statement is a conjecture in the source, and this packet
-  states it as such.
-- The Eisenstein-Kronecker expression is conditional on ER.3's analytic result; a statement
-  that asserted it unconditionally would be claiming an analytic theorem that no source read
-  here proves.
+- **sourceId:** Gonch.Arakelov.2004; **locator:** Proposition 6.18, (96) (PDF p. 64); **excerpt:** Let X be an algebraic curve in P^2 over C and l_0,...,l_3 linear homogeneous functions on C^3. Then integral_{X(C)} r_2(l_1/l_0 wedge l_2/l_0 wedge l_3/l_0) = 2 pi sum_i (-1)^i L_2(r(l_{i0},..., l_{ii}-hat, ..., l_{i3}, D_i)).; **match:** The formula, with the factor 2 pi.
+- **sourceId:** Gonch.Arakelov.2004; **locator:** Lemma 6.16 (PDF p. 62); **excerpt:** For any plane curve X one has sum_x res_x((l_1/l_0) wedge (l_2/l_0) wedge (l_3/l_0)) = -delta_2(sum_i (-1)^i {r(l_{i0},..., l_{ii}-hat, ..., l_{i3}, D_i)}_2).; **match:** The residue computation.
 
-**Depends on.** **inside this roadmap** `chow-polylogarithm-forms`, `weight-three-complex`, `residues-and-transfers`, `chow-dilogarithm-on-elliptic-curves`; **other roadmaps** `EllipticRegulators:ER.3`, `MotivicEtaleKTheory:M.8`.
+**implementationStatus:** unchecked
 
-**Source.** Gonch.Arakelov.2004, Conjecture 6.3: “Let X be a projective regular curve over an
-algebraically closed field k and F := k(X). Then the homomorphism Res: Gamma(F;n) ->
-Gamma(k;n-1)[-1] ...” — The general-weight reciprocity conjecture, stated by the source as a
-conjecture; the weight-three case is the one this node records.
+**addedBy:** REV-Polylogarithms
 
-**Source.** Gonch.Arakelov.2004, Section 6, the list of proved cases: “We prove this conjecture
-in the following cases: a) X = P^1 ... b) X is an elliptic curve over an algebraically closed
-field ... c) k = Q-bar, X is any curve.” — Exactly which cases are theorems; everything else,
-and in particular every weight above two, is conjectural.
+**hypotheses**
 
-**Source.** Gonch.Arakelov.2004, Section 1, item 4: “A formula for the Chow dilogarithm on
-elliptic curves is given in Chapter 6.” — The elliptic formula that the Eisenstein-Kronecker
-target is built on.
+- X is a plane curve over C; the four lines are in general position with respect to X.
 
-## P.6 — Other precise statements and tests
+#### The weight-three regulator of a complex curve
 
-Leopoldt in the two forms the roadmap names — injectivity of the completed global-unit map, and
-nonvanishing of the p-adic regulator — with the equivalence proved modulo torsion, the abelian
-case imported from `IntegralIwasawaTheory:L4`, and the conjecture never installed as a
-hypothesis. Then the four tests, with the line drawn between what is proved (the conjugation
-cancellation) and what is a numerical check with an error bound (the five-term evaluation). A
-list of floating-point values is not a certificate: the boundary-proof requirement is discharged
-by importing `K3BlochGroups:V.6`'s constructor, which refuses an element whose boundary has not
-been proved to vanish.
+`Polylogarithms:P.5/weight-three-curve-regulator` — construction
 
-### `leopoldt-statement` — Leopoldt's conjecture, in two equivalent forms ★
+For a smooth projective complex curve X with F = C(X) define rho_2 : B_2(F) tensor F^x -> 1-currents on X(C), {f}_2 tensor g |-> D(f) d arg g - (1/3) alpha(1 - f, f) log|g| with alpha(f, g) = log|f| dlog|g| - log|g| dlog|f|, and rho_3 = r_2 : Lambda^3 F^x -> 2-currents. Then, as currents, d rho_2({f}_2 tensor g) = 2 pi D(f) delta(g) + r_2((1 - f) wedge f wedge g); that is, (rho_2, rho_3, 2 pi D o Res delta) is a map of complexes from the weight-three curve complex to real currents. Well-definedness of rho_2 on B_2(F) tensor F^x (compatibility with the relations of B_2) is not proved in the source read and is a gap (Goncharov, 'Explicit regulator maps on polylogarithmic motivic complexes' [G7]). In weight three Goncharov's Conjecture 6.3 (Res is homotopic to zero) is equivalent to condition (a) of Conjecture 6.2 without its first clause, so it is proved in the three cases of P.5/reciprocity-projective-line, P.5/chow-dilogarithm-on-elliptic-curves and P.5/reciprocity-algebraic-numbers; the case n >= 4 is P.5/general-weight-reciprocity-conjecture. The Eisenstein-Kronecker expression in weight three is not planned: it needs the elliptic trilogarithm and weight-three Kronecker-Eisenstein series, which no stage owns (gap). The elliptic weight-three special-value conjecture is not asserted.
 
-*definition* · planet **Leopoldt's conjecture**
+**realises**
 
-For a number field F and a prime p, state Leopoldt's conjecture in two forms: first, that the
-canonical map from the p-adic completion of the global unit group to the product of the local
-unit groups at the places above p is injective; second, that the p-adic regulator, the
-determinant built from the p-adic logarithms of a basis of the units at those places, is
-nonzero. Prove that the two are equivalent after quotienting by torsion. Neither form is assumed
-anywhere in constructing the local regulator or the Iwasawa cohomology.
+- Polylogarithms:P.5
 
-**Hypotheses.** F is a number field; p is a prime. The global units are the units of the ring of integers.
+**hypotheses**
 
-**Construction and proof.**
+- X is a smooth projective complex curve with function field F; currents on X(C) are a gap.
 
-1. Construct the completed global unit group and the map to the product of the local units,
-   importing the p-adic logarithm from PadicHodgeRegulators.
-1. Define the p-adic regulator as the determinant of the matrix of p-adic logarithms of a basis
-   of the units modulo torsion, at the embeddings into the completions above p.
-1. Prove that the determinant is independent of the chosen basis up to a unit, so that its
-   nonvanishing is well defined.
-1. Prove the equivalence of the two forms modulo torsion, by identifying the kernel of the map
-   with the degeneracy of the determinant.
-1. Record the proved special case, the abelian one, which IntegralIwasawaTheory L4 owns through
-   the Baker-Brumer theorem, and state the general case as a conjecture.
+**proofSteps**
 
-**API.**
+- Define rho_2 on generators and rho_3 = r_2 (P.5/r-form).
+- Prove the current identity (84) as in P.5/chow-dilogarithm-steinberg.
+- Record the gap on well-definedness and the status of Conjecture 6.3 in weight three.
+- Record that the elliptic weight-three special-value conjecture is not asserted, as the stage requires.
 
-| name | role | statement |
-| --- | --- | --- |
-| `LeopoldtInjective` | characterisation | The injectivity form of the conjecture. |
-| `padicRegulator` | constructor | The p-adic regulator determinant. |
-| `padicRegulator_basis_independent` | characterisation | Its nonvanishing does not depend on the chosen basis. |
-| `leopoldt_iff` | characterisation | The two forms are equivalent modulo torsion. |
-| `leopoldt_abelian` | compatibility | The abelian case, imported from IntegralIwasawaTheory L4. |
+**acceptance**
 
-**Used by.** *P.6's tests*: the statement is what the tests are about. *IntegralIwasawaTheory and AutomorphicPadicLFunctions*: both use the same closure of global units in local units; the statement is planned once, here.
+- rho_2({z}_2 tensor z) = -dL_3(z) on C - {0, 1}, with L_3 = Re(Li_3 - log|z| Li_2 + (1/3) log^2|z| Li_1) (checked by finite differences).
+- The weight-three reciprocity statement is proved in three cases and recorded as a conjecture in general.
+- No Eisenstein-Kronecker statement is made.
 
-**Unit tests.**
+**prerequisites**
 
-- `degree_one` — For the rationals the conjecture is trivially true.
-- `abelian_case` — For an abelian field the conjecture holds, by the imported theorem.
-- `equivalence` — The two forms are equivalent modulo torsion.
-- `not_an_assumption` — No construction in this packet takes the conjecture as a hypothesis.
+- Polylogarithms:P.5/curve-polylogarithmic-complex
+- Polylogarithms:P.5/r-form
+- Polylogarithms:P.5/chow-dilogarithm-steinberg
+- Polylogarithms:P.1/bloch-wigner-dilogarithm
+- Polylogarithms:P.3/weight-three-complex
 
-**Acceptance.**
+**sources**
 
-- For a totally real field of degree one the conjecture is trivially true.
+- **sourceId:** Gonch.Arakelov.2004; **locator:** proof of Lemma 6.9, (83) and (84) (PDF p. 57); **excerpt:** Consider the following 1-form on X(C) L2(f)d arg g - (1/3) alpha(1 - f, f) log |g| (83) ... We claim that its derivative is equal to: 2 pi L2(f)delta(g) + r2((1 - f) wedge f wedge g) (84); **match:** The weight-three curve regulator and its differential identity.
+- **sourceId:** Gonch.Arakelov.2004; **locator:** Conjecture 6.3 (PDF p. 54); **excerpt:** Let X be a projective regular curve over an algebraically closed field k and F := k(X). Then the homomorphism Res: Gamma(F;n) -> Gamma(k;n-1)[-1] ...; **match:** The general-weight reciprocity conjecture, stated by the source as a conjecture; the weight-three case is the one this node records.
+- **sourceId:** Gonch.Arakelov.2004; **locator:** Section 6, the list of proved cases (PDF p. 54); **excerpt:** We prove this conjecture in the following cases: a) X = P^1 ... b) X is an elliptic curve over an algebraically closed field ... c) k = Q-bar, X is any curve.; **match:** Exactly which cases are theorems.
+
+**implementationStatus:** unchecked
+
+**planet:** **name:** Weight-three curve regulator
+
+**api**
+
+- **name:** weightThreeCurveRegulator; **role:** constructor; **statement:** (rho_2, rho_3) as above.
+- **name:** weightThreeCurveRegulator_d; **role:** characterisation; **statement:** d rho_2({f}_2 tensor g) = 2 pi D(f) delta(g) + rho_3(delta_3({f}_2 tensor g)).
+- **name:** weightThreeCurveRegulator_diag; **role:** relation; **statement:** rho_2({f}_2 tensor f) = -d(L_3 o f).
+
+**uses**
+
+- **where:** P.6's tests; **how:** the weight-three differential identity is (84)
+- **where:** EllipticRegulators; **how:** a weight-three elliptic statement would start from this map (not planned)
+
+**tests**
+
+- **name:** rho2_diag_exact; **kind:** computation; **statement:** For f = z on P^1: rho_2({z}_2 tensor z) = -dL_3(z) on C - {0, 1}.
+- **name:** rho2_d_P1; **kind:** computation; **statement:** On P^1, integral of d rho_2({z}_2 tensor (z - a)) is 0, i.e. integral r_2((1 - z) wedge z wedge (z - a)) = -2 pi D(a).
+- **name:** rho_not_chow_trilog; **kind:** non-example; **statement:** rho is not omega^3_2: omega^3_2 is a function on codimension-3 cycles of P^5 (surfaces), while rho_3 is a 2-current on the curve.
+- **name:** rho_constant_g; **kind:** degenerate; **statement:** rho_2({f}_2 tensor c) = D(f) . 0 - (1/3) alpha(1 - f, f) log|c| for constant c.
+
+#### Goncharov's reciprocity conjecture in weight n >= 4, as a statement
+
+`Polylogarithms:P.5/general-weight-reciprocity-conjecture` — definition
+
+For a regular projective curve X over an algebraically closed field k with F = k(X) and n >= 4, the Prop that Res : B(F; n) -> B(k; n - 1)[-1] is homotopic to zero (Conjecture 6.3), with the complexes of P.4/general-polylog-complex and residues defined as in P.3. Recorded as a conjecture, never assumed; in weight three it is proved in the cases of P.5/weight-three-curve-regulator.
+
+**realises**
+
+- Polylogarithms:P.5
+
+**proofSteps**
+
+- State the homotopy as a Prop.
+
+**prerequisites**
+
+- Polylogarithms:P.4/general-polylog-complex
+- Polylogarithms:P.5/curve-polylogarithmic-complex
+
+**sources**
+
+- **sourceId:** Gonch.Arakelov.2004; **locator:** Conjecture 6.3 (PDF p. 54); **excerpt:** Let X be a projective regular curve over an algebraically closed field k and F := k(X). Then the homomorphism Res: Gamma(F;n) -> Gamma(k;n-1)[-1] ...; **match:** The general-weight reciprocity conjecture, stated by the source as a conjecture; the weight-three case is the one this node records.
+
+**implementationStatus:** unchecked
+
+**api**
+
+- **name:** GeneralReciprocityConjecture; **role:** other; **statement:** The Prop of Conjecture 6.3 for a given n.
+- **name:** generalReciprocity_three; **role:** compatibility; **statement:** For n = 3 the Prop is condition (a) of Conjecture 6.2 without its first clause.
+- **name:** generalReciprocity_two; **role:** compatibility; **statement:** For n = 2 the Prop is Weil reciprocity after tensoring with Q.
+
+**tests**
+
+- **name:** weight_three_cases; **kind:** compatibility; **statement:** For n = 3 the Prop holds for P^1 modulo 6-torsion, elliptic curves and curves over Q-bar.
+- **name:** weight_two; **kind:** degenerate; **statement:** For n = 2 the Prop says Res : Lambda^2 F^x -> k^x_Q is homotopic to zero, which is Weil reciprocity rationally.
+- **name:** not_assumed; **kind:** non-example; **statement:** No node of this packet has this Prop as a hypothesis.
+
+**addedBy:** REV-Polylogarithms
+
+**hypotheses**
+
+- X is a regular projective curve over an algebraically closed field; n >= 4.
+
+**acceptance**
+
+- The Prop is assumed by no node.
+
+**uses**
+
+- **where:** the atlas; **how:** records the conjecture for n >= 4 so that no node assumes it
+
+### Polylogarithms:P.6
+
+#### Leopoldt's conjecture
+
+`Polylogarithms:P.6/leopoldt-statement` — definition
+
+For a number field K with unit group E_K and a prime p, Leopoldt's conjecture for K and p is the Prop that the canonical map E_K tensor Z_p -> product over the places p of S = S_p u S_infinity of U-hat_p is injective, where U_p is the unit group of K_p (K_p^x at an archimedean place) and U-hat its p-adic completion (NSW 10.3.6(iii)); equivalently rr_p(K) = r_1 + r_2 - 1 (P.6/padic-regulator, NSW 10.3.5). The uncompleted map E_K -> product of K_p^x is injective for every K, so the conjecture is about the completion. It is a statement, never a typeclass assumption, and no construction of the local regulator or of Iwasawa cohomology assumes it.
+
+**realises**
+
+- Polylogarithms:P.6
+
+**hypotheses**
+
+- K is a number field; p is a prime.
+- E_K = (O_K)^x (mathlib:NumberField.Units.torsion, fundSystem); the principal units U^1 at the places above p are tauceti:TauCeti.unitFiltration.
+
+**proofSteps**
+
+- Import the completed global-to-local unit map and its strong-Leopoldt injectivity proposition from the requested early I.2 interface. Keep the passage to local pro-p units explicit: ordinary units do not canonically land in principal units without powering or a Teichmüller/pro-p projection.
+- State injectivity as a Prop.
+- Record the proved special case, the abelian one, which IntegralIwasawaTheory L4 owns through Baker-Brumer.
+
+**acceptance**
+
+- For K = Q or K imaginary quadratic the rank r_1 + r_2 - 1 is 0 and the conjecture holds trivially.
 - For an abelian field the conjecture is a theorem, imported and not reproved.
-- The two forms are equivalent modulo torsion, which is the acceptance test.
-- The statement is a conjecture declaration, never a typeclass assumption used to prove
-  something else.
+- The statement is a conjecture declaration, never a typeclass assumption used to prove something else.
 
-**Depends on.** **other roadmaps** `IntegralIwasawaTheory:L4`, `PadicHodgeRegulators:D.3`; **baseline** `mathlib:NumberField.Units.regulator`, `mathlib:NumberField.InfinitePlace`, `mathlib:Matrix.det`.
+**prerequisites**
 
-**Source.** GR.2022, 1.1, item 2 (PDF p. 3): “Zagier's conjecture predicts that the classical regulator formula Res_{s=1} zeta_F(s) = 2^{r_1+r_2} pi^{r_2} R_F h_F / (w_F sqrt|d_F|) for the residue of the Dedekind zeta-function of a number field F at s = 1 has analogs for zeta_F(n).” — The archimedean regulator whose p-adic analogue Leopoldt's conjecture is about; the p-adic statement is standard and is set out here in the two forms the roadmap names.
+- IntegralIwasawaTheory:L4
+- PadicHodgeRegulators:D.1
+- mathlib:NumberField.Units.torsion
+- mathlib:NumberField.Units.fundSystem
+- mathlib:NumberField.Units.rank
+- tauceti:TauCeti.unitFiltration
+- IntegralIwasawaTheory:I.2
 
-### `tests` — The tests of the layer
+**sources**
 
-*application*
+- **sourceId:** NSW.2013; **locator:** Theorem 10.3.6 (PDF p. 628 of the electronic edition 2.3); **excerpt:** (i) Leopoldt's conjecture is true for K and p. (ii) rank Zp E(S)K = r1 + r2 - 1. (iii) The canonical homomorphism EK tensor Z Zp -> prod_{p in S} U-hat_p is injective.; **match:** The injectivity form, with the equivalence proved there.
+- **sourceId:** NSW.2013; **locator:** (10.3.5) (PDF p. 627); **excerpt:** Leopoldt's Conjecture. For every number field K and every prime number p, the p-adic regulator rank rrp(K) is equal to r1 + r2 - 1.; **match:** The rank form.
 
-Collect the four tests the roadmap requires: the five-term relation evaluated at algebraic
-points with certified numerics, the cancellation of the weight-two function at real embeddings
-by conjugation, the weight-three differential identity, and the requirement that every claimed
-Bloch element carries a boundary proof. The last is discharged by importing the constructor of
-K3BlochGroups V.6, which refuses an element whose boundary has not been proved to vanish.
+**implementationStatus:** unchecked
 
-**Hypotheses.** The field is a number field or the complex numbers, as each test requires.
+**api**
 
-**Construction and proof.**
+- **name:** LeopoldtConjecture; **role:** characterisation; **statement:** The Prop: E_K tensor Z_p -> product of U-hat_p is injective.
+- **name:** leopoldt_iff_rank; **role:** characterisation; **statement:** LeopoldtConjecture K p iff rr_p(K) = r_1 + r_2 - 1. Promoted to Polylogarithms:P.6/leopoldt-equivalence.
+- **name:** leopoldt_abelian; **role:** compatibility; **statement:** The abelian case, imported from IntegralIwasawaTheory L4.
 
-1. State the five-term test: evaluate the relation at an explicit five-tuple of algebraic points
-   using the certified numerics of P.2, with the error bound smaller than the claimed gap.
-1. State the conjugation test: at a real embedding the weight-two function vanishes, so the
-   regulator component is zero, which is proved rather than checked numerically.
-1. State the weight-three differential identity as a test of the normalisation of the
-   trilogarithm.
-1. State the boundary-proof requirement and discharge it by importing the constructor of
-   K3BlochGroups V.6; a list of floating-point values is not a certificate, which is the rule
-   the roadmap states.
-1. Record which tests are proofs and which are numerical checks with error bounds; they are
-   different, and the packet says which is which.
+**uses**
 
-**Acceptance.**
+- **where:** P.6's tests; **how:** the statement is what the tests are about
+- **where:** IntegralIwasawaTheory and AutomorphicPadicLFunctions; **how:** both use the same closure of global units in local units; the statement is planned once, here
 
-- The five-term test passes with a certified bound, not with a bare numerical coincidence.
+**tests**
+
+- **name:** imaginary_quadratic; **kind:** degenerate; **statement:** For K imaginary quadratic, r_1 + r_2 - 1 = 0 and the conjecture holds.
+- **name:** naive_map_injective; **kind:** non-example; **statement:** The uncompleted map E_K -> product over p | p of K_p^x is injective for every K, so the conjecture cannot be stated on E_K itself.
+- **name:** real_quadratic; **kind:** computation; **statement:** K = Q(sqrt 2), p = 7: the conjecture holds, since R_7(K) = +-log_7 sigma(1 + sqrt 2) != 0 (test padicRegulator_Q_sqrt2_7).
+- **name:** abelian_case; **kind:** compatibility; **statement:** For an abelian field the conjecture holds, by IntegralIwasawaTheory L4.
+
+**planet:** **name:** Leopoldt's conjecture
+
+**library:** **module:** TauCeti/NumberTheory/Leopoldt; **namespace:** TauCeti.Leopoldt
+
+#### The p-adic regulator
+
+`Polylogarithms:P.6/padic-regulator` — definition
+
+For a number field K of degree d, a prime p, a basis eps_1, ..., eps_r of E_K modulo torsion (r = r_1 + r_2 - 1) and the d embeddings sigma_1, ..., sigma_d of K into C_p (values already in Q_p-bar = PadicAlgCl p), the regulator matrix is R_p(eps) = (log_p sigma_j(eps_i))_{i<=r, j<=d}, and rr_p(K) := rank R_p(eps), independent of the choices (NSW 10.3.3). For K totally real, R_p(K) := det of any (d-1) x (d-1) minor, well defined up to sign (10.3.4).
+
+**realises**
+
+- Polylogarithms:P.6
+
+**hypotheses**
+
+- K is a number field, p a prime; log_p is Iwasawa's p-adic logarithm (PadicHodgeRegulators D.1).
+
+**proofSteps**
+
+- Define the matrix and its rank; independence of the basis and of the ordering (NSW Remark 1).
+- For K totally real the columns sum to 0 (the norm of a unit is +-1), so all (d-1)-minors agree up to sign.
+
+**prerequisites**
+
+- PadicHodgeRegulators:D.1
+- mathlib:PadicAlgCl
+- mathlib:NumberField.Units.fundSystem
+- mathlib:NumberField.Units.rank
+- mathlib:Matrix.det
+
+**sources**
+
+- **sourceId:** NSW.2013; **locator:** (10.3.3) and (10.3.4) (PDF pp. 626-627); **excerpt:** We define the regulator matrix Rp(eps1, ..., eps_{r1+r2-1}) := (logp sigma_j(eps_i)) and set rrp(K) := rank Rp(eps1, ..., eps_{r1+r2-1}) ... We call rrp(K) the p-adic regulator rank of K.; **match:** The definition; Remark 1 there gives independence of the choices.
+
+**implementationStatus:** unchecked
+
+**api**
+
+- **name:** padicRegulatorMatrix; **role:** constructor; **statement:** (log_p sigma_j(eps_i)), an r x d matrix over PadicAlgCl p.
+- **name:** padicRegulatorRank; **role:** constructor; **statement:** rr_p(K), the rank of the matrix.
+- **name:** padicRegulatorRank_indep; **role:** characterisation; **statement:** Independent of the basis and of the ordering.
+- **name:** padicRegulatorRank_le; **role:** relation; **statement:** rr_p(K) <= r_1 + r_2 - 1.
+- **name:** padicRegulator; **role:** constructor; **statement:** R_p(K) for K totally real, up to sign.
+
+**tests**
+
+- **name:** padicRegulator_imag_quadratic; **kind:** degenerate; **statement:** For K imaginary quadratic, r = 0 and rr_p(K) = 0.
+- **name:** padicRegulator_Q_sqrt2_7; **kind:** computation; **statement:** K = Q(sqrt 2), p = 7, sqrt 2 = 10 mod 49: eps = 1 + sqrt 2 maps to 11, eps^6 = 15 mod 49, so v_7(log_7 eps^6) = 1 and R_7(K) != 0.
+- **name:** rank_two_places; **kind:** non-example; **statement:** The matrix has d = 2 columns for Q(sqrt 2) whatever p does: a matrix indexed by the places above p (one column if p is inert, two if split) is not the regulator matrix.
+- **name:** unit_not_root_of_unity; **kind:** characterisation; **statement:** If eps is a unit that is not a root of unity then log_p(eps) != 0 (NSW, after 10.3.5).
+
+**library:** **module:** TauCeti/NumberTheory/Leopoldt; **namespace:** TauCeti.Leopoldt
+
+**addedBy:** REV-Polylogarithms
+
+**acceptance**
+
+- For Q(sqrt 2) and p = 7, R_7 != 0.
+- For imaginary quadratic K the matrix is empty.
+
+**uses**
+
+- **where:** P.6's Leopoldt statement; **how:** the rank form rr_p(K) = r_1 + r_2 - 1
+- **where:** IntegralIwasawaTheory L4; **how:** the Baker-Brumer theorem gives R_p != 0 for abelian fields
+
+#### The equivalent forms of Leopoldt's conjecture
+
+`Polylogarithms:P.6/leopoldt-equivalence` — theorem
+
+For a number field K and a prime p, the following are equivalent: rr_p(K) = r_1 + r_2 - 1; the rank of the closure E-bar of E_K in the product of the U-hat_p over S_p u S_infinity is r_1 + r_2 - 1; the map E_K tensor Z_p -> product of U-hat_p is injective (NSW Theorem 10.3.6, (i) to (iii)). For K totally real they are equivalent to R_p(K) != 0.
+
+**realises**
+
+- Polylogarithms:P.6
+
+**proofSteps**
+
+- The kernel of the completed map is detected by the p-adic logarithm on the principal units (tauceti:TauCeti.unitFiltration), which identifies the rank of the image with rr_p(K).
+- The diagonal map E_K→∏K_v× is injective. Passing instead to completed local unit groups kills prime-to-p roots of unity; track the p-primary torsion separately, then compare the free ℤ_p ranks using logarithms. Do not describe the uncompleted diagonal map as having that kernel.
+
+**acceptance**
+
+- For K = Q(sqrt 2) and p = 7 all forms hold (R_7 != 0).
+
+**prerequisites**
+
+- Polylogarithms:P.6/leopoldt-statement
+- Polylogarithms:P.6/padic-regulator
+
+**sources**
+
+- **sourceId:** NSW.2013; **locator:** Theorem 10.3.6 (PDF p. 628); **excerpt:** Let K be a number field, p be a prime number and assume that S is a finite set of places of K containing Sp u S_infinity. Then the following assertions are equivalent.; **match:** The theorem.
+- **sourceId:** NSW.2013; **locator:** after (10.3.5) (PDF p. 627); **excerpt:** For totally real number fields the Leopoldt conjecture is equivalent to the non-vanishing of the p-adic regulator Rp.; **match:** The totally real case.
+
+**implementationStatus:** unchecked
+
+**addedBy:** REV-Polylogarithms
+
+**hypotheses**
+
+- K is a number field and p a prime; S = S_p u S_infinity.
+
+#### The tests of the layer
+
+`Polylogarithms:P.6/tests` — application
+
+The four tests the roadmap requires. (1) Five-term, exact: at x = i/2, y = (1 + i)/2, D(i/2) - D((1 + i)/2) + D(1 - i) - D(2 - i) + D((3 + i)/2) = 0, an instance of P.1/bloch-wigner-five-term, proved and not computed (the terms are about 0.809, -0.916, -0.916, 0.512 and 0.512). (2) Five-term, numerical consistency: blochWignerApprox at precision p gives |sum| <= 5 . 2^{-p}, and blochWignerApprox_ne_zero certifies D(i/2) != 0. (3) Conjugation at real embeddings: weightTwoRegulator_real_place, a proof. (4) Weight three: the current identity (84) of P.5/weight-three-curve-regulator and dL_3(z) = -D(z) d arg z + (1/3) log|z| (log|1 - z| dlog|z| - log|z| dlog|1 - z|) for L_3 = Re(Li_3 - log|z| Li_2 + (1/3) log^2|z| Li_1) (checked by finite differences). (5) Every claimed Bloch element carries a boundary proof: K3BlochGroups:V.6/bloch-element-constructor and V.6/five-term-certificate refuse an element without one; a list of floating-point values is not a certificate.
+
+**realises**
+
+- Polylogarithms:P.6
+
+**hypotheses**
+
+- The field is a number field or the complex numbers, as each test requires.
+
+**proofSteps**
+
+- Test 1 is an instance of the two-variable five-term relation.
+- Test 2 applies P.2/certified-numerics-error; a numerical enclosure cannot prove an identity, and none is claimed.
+- Test 3 is weightTwoRegulator_real_place.
+- Test 4 states (84) and the differential of L_3; the latter needs the API item singleValuedPolylog_three_differential of P.1 (a gap: the general-weight differential is not planned).
+- Test 5 imports the V.6 constructors.
+
+**acceptance**
+
+- The five-term test is a proof, with a separate numerical consistency check under a certified bound.
 - The conjugation test is a proof, not a numerical check.
-- A claimed Bloch element without a boundary proof is rejected, which is the acceptance test the
-  roadmap names.
+- A claimed Bloch element without a boundary proof is rejected.
 
-**Depends on.** **inside this roadmap** `certified-numerics`, `bloch-wigner-five-term`, `single-valued-polylogarithm`; **other roadmaps** `K3BlochGroups:V.6`.
+**prerequisites**
 
-**Source.** GR.2022, 1.1, item 3 (PDF p. 4): “Then for any five distinct points s_1, ..., s_5 on CP^1 we have: sum_{i=1}^{5} L_2([s_i, s_{i+1}, s_{i+2}, s_{i+3}]) = 0.” — The relation the first test evaluates.
+- Polylogarithms:P.1/bloch-wigner-five-term
+- Polylogarithms:P.2/certified-numerics-error
+- Polylogarithms:P.2/weight-two-regulator
+- Polylogarithms:P.5/weight-three-curve-regulator
+- Polylogarithms:P.1/single-valued-polylogarithm
+- K3BlochGroups:V.6/bloch-element-constructor
+- K3BlochGroups:V.6/five-term-certificate
 
-## Requests to other roadmaps
+**sources**
 
-- `K3BlochGroups:V.3` — The integral pre-Bloch group, the five-term relation in its
-  normalisation, the boundary into the antisymmetric tensor quotient and the integral Bloch
-  group. P.2 descends the Bloch-Wigner function through exactly that convention, and P.4's
-  weight-two higher Bloch group is its rationalisation; neither is rebuilt here.
-- `K3BlochGroups:V.4` — The configuration complex of points of the projective line, the cross-
-  ratio and Suslin's exact sequence. P.2 imports the configuration machinery for the cocycle and
-  the exact sequence for the Borel comparison.
-- `K3BlochGroups:V.6` — The constructor that refuses a Bloch element whose boundary has not been
-  proved to vanish, and the five-term certificate format. P.6's fourth test is discharged by
-  importing them.
-- `BorelRegulators:R.7` — The comparison of the Borel map with the Beilinson-Deligne regulator,
-  with its precise scalar. P.2's and P.3's comparisons are stated against it.
-- `BorelRegulators:R.3` — Borel's rank theorem, which fixes the size of the regulator matrix in
-  each weight and parity.
-- `MotivicEtaleKTheory:M.8` — The real Deligne-Beilinson complex for smooth varieties over the
-  reals, with its products, its long exact sequence and the universal Deligne regulator, as an
-  early part that needs no BorelRegulators input, so that R.7, M.8, EllipticRegulators ER.2 and
-  P.5 can all import it. Two confirmed red-team findings ask for exactly this, and P.5 is
-  blocked on it.
-- `MotivicEtaleKTheory:M.7` — The Adams filtration on rationalised K-theory and its weight-
-  graded pieces, against which P.3's comparison is stated.
-- `EllipticRegulators:ER.2` — The elliptic specialisation of the weight-two regulator form, with
-  the factor of two pi, the orientation and the torsion ambiguity. P.5 owns the general curve
-  formula, as the confirmed red-team finding asks; ER.2 specialises it.
-- `EllipticRegulators:ER.3` — The elliptic dilogarithm with its convergence, its invariance and
-  its Fourier and Kronecker–Eisenstein descriptions, with the interchange of sums and integrals
-  justified. P.5's weight-three node states the Eisenstein–Kronecker expression as a target
-  conditional on exactly that analytic result.
-- `K2SymbolsBrauer:T.3` — The tame symbol of a discrete valuation, used for the residues of the
-  weight-three complex.
-- `K2SymbolsBrauer:T.4` — Weil reciprocity and the Bass-Tate transfers on a curve, the weight-
-  two analogue of the reciprocity law P.5 states in weight three.
-- `IntegralIwasawaTheory:L4` — The abelian case of Leopoldt's conjecture through the Baker-
-  Brumer theorem, imported by P.6 and not reproved.
-- `PadicHodgeRegulators:D.3` — The p-adic logarithm and the p-adic regulator machinery P.6's
-  statement is phrased with.
-- `tauceti:TauCetiRoadmap/GeometricTopology#layer-7-riemannian-geometric-structures-and-volume` — Hyperbolic
-  3-space with curvature -1 Riemannian metric and volume, its ideal boundary and oriented
-  ideal tetrahedra. The Milnor/Lobachevsky comparison is P.2's own proof obligation.
-- `SpecialValuesBirchTate:B.8` — The statement infrastructure for higher regulator formulas with
-  complex places, whose normalised covolume pattern P.4's determinant follows; the two should
-  agree on the normalisation.
+- **sourceId:** GR.2022; **locator:** 1.1, item 3 (PDF p. 4); **excerpt:** Then for any five distinct points s_1, ..., s_5 on CP^1 we have: sum_{i=1}^{5} L_2([s_i, s_{i+1}, s_{i+2}, s_{i+3}]) = 0.; **match:** The relation the first test evaluates.
 
-**Export to ArithmeticQuantumTopology QT.5.** QT.5 imports
-`Polylogarithms:P.2/hyperbolic-volume` and P.1's Bloch-Wigner function and five-term
-identity for the manifold volume sum. QT.5 is a consumer, not a prerequisite of P.2.
+**implementationStatus:** unchecked
 
-## Gaps
+## Open gaps
 
-**Milnor's ideal-tetrahedron formula remains a P.2 gap.** The ambient hyperbolic
-geometry is requested from GeometricTopology layer 7. The proof that the volume is
-the sum of the three Lobachevsky values, and hence the Bloch-Wigner value, belongs
-to P.2 and has not been supplied by this ownership fix.
+**title:** Goncharov's 1994 and 1995 papers and Zagier's 1990 paper were not obtained
 
-**Zagier's and Goncharov's original papers were not obtained.** The definitions of the higher Bloch groups, the polylogarithmic complexes and the single-valued
-polylogarithms are read in Goncharov and Rudenko's paper, which states them in full and
-attributes them to Zagier's 1990 paper and Goncharov's 1995 paper. Those two originals are not
-freely available and were not read. Two statements are therefore used exactly as Goncharov and
-Rudenko state them: that the relation subspace contains all functional equations depending non-
-trivially on a parameter, and the proof that the single-valued polylogarithm descends to the
-higher Bloch group, which they cite to Goncharov's 1994 paper, Theorem 1.5.
+**neededBy**
 
-**The weight-three theorem is stated, not decomposed.** The weight-three special-value theorem is attributed by the source to Goncharov's 1991 and 1995
-papers, which were not obtained. This packet states the theorem, builds its statement
-infrastructure and records the architecture of the weight-four proof that the source describes,
-but it does not decompose the weight-three proof into nodes. A continuation that obtains the
-originals should do so.
+- Polylogarithms:P.4/specialization-and-delta
+- Polylogarithms:P.4/polylog-on-higher-bloch
+- Polylogarithms:P.4/zagier-determinant
+- Polylogarithms:P.3/trilogarithm-group
+- Polylogarithms:P.6/tests
 
-**The target of the curve regulator has no owner.** The real Deligne-Beilinson cohomology of a smooth variety over the reals is constructed by no
-stage of the atlas: EllipticRegulators ER.2 builds only the degree-two weight-two complex for an
-elliptic curve, MotivicEtaleKTheory M.8 only the cycle-class maps into it, and the pinned
-libraries have none. This is the subject of two confirmed red-team findings, and the packet
-records a request rather than planning a second Deligne complex here. P.5 is decomposed against
-its sources nonetheless: the statements that need the target are stated conditionally and say so.
+**detail:** Four inputs are used as Goncharov and Rudenko state them: the specialisation argument that delta_n descends to B_n(F) (P.4/specialization-and-delta; Goncharov 1995); the descent of L_n to B_n(C) (P.4/polylog-on-higher-bloch; Goncharov 1994, Theorem 1.5), with the general-weight differential of L_n, which P.1 does not plan and P.6's weight-three test needs; the 22-term relation and its compatibility with delta_3 and L_3 (GR Proposition 5.4, not read in full); and the general-weight normalisation of Zagier's conjecture (Zagier 1990), which the review derived and checked on Q and Q(i). NEXT SOURCE ACTION: obtain Goncharov, Geometry of configurations, polylogarithms and motivic cohomology (Adv. Math. 1995) and Polylogarithms and motivic Galois groups (1994).
 
-**The Grassmannian half of Goncharov's paper was not read.** Sections 4 and 5 construct the Grassmannian n-logarithm as the restriction of the Chow
-n-logarithm to the planes in general position, relate it to the geometry of the symmetric space
-of the special linear group, recover Lobachevsky's volume formula in weight two and build the
-Borel regulator on the odd K-groups of the complex numbers; section 7 is the appendix on
-volumes of simplices that the construction rests on. Those sections remain unread. The general
-Grassmannian/Borel comparison is coordinated with BorelRegulators; the weight-two
-tetrahedron formula in section 7 remains P.2's proof obligation. The Chow polylogarithm node records the restriction that produces
-the Grassmannian function, so the interface is in place for whoever plans R.3 and R.7.
+---
 
-**The comparison of Goncharov's regulator with Beilinson's is open in the source.** The stage text asks for the comparison with M's higher Chern character. The source constructs
-the regulator as a map of complexes and poses the comparison as Problem a) of its introduction:
-that taking cohomology and using the isomorphism between rational higher Chow groups and the
-corresponding part of rational K-theory gives a non-zero rational multiple of Beilinson's
-regulator. No source read here proves it. The packet states it with its two inputs and records
-its status, and the only case the source records as known is the spectrum of a number field,
-which BorelRegulators R.7 owns.
+**title:** The weight-three theorem is stated, not decomposed
 
-**The proof of the weight-four theorem is not planned anywhere.** Goncharov and Rudenko's theorem is recorded here as a theorem, and its statement infrastructure
-is built, but no roadmap plans its proof, which needs motivic correlators and cluster
-polylogarithms. The restructure list proposes the Part II that would own it.
+**neededBy**
 
-## Structure
+- Polylogarithms:P.3/k-theory-comparison-weight-three
+- Polylogarithms:P.3/trilogarithm-regulator-borel
+- Polylogarithms:P.3/weight-three-special-value
+- Polylogarithms:P.3/milnor-degree-comparison
 
-**The Bloch-Wigner nodes belong here, not to K3BlochGroups V.3.** The red-team finding RT-AREA-ktheory-2/27, confirmed by REV-RT-AREA-ktheory-2, records that
-research/blueprint/reserved-ids.json reserves the Bloch-Wigner function and its five-term
-identity as nodes of K3BlochGroups V.3 although P.1 plans them, and its fix is to re-reserve
-them here. This packet implements that fix: P.1/bloch-wigner-dilogarithm and P.1/bloch-wigner-
-five-term are nodes of this packet, with P.2 keeping the descent to the Bloch group and
-K3BlochGroups V.3 keeping the algebraic pre-Bloch group, the five-term relation and the Bloch
-group. The companion packet for K3BlochGroups delivers its two reserved ids as required by its
-own job, imports the construction from here rather than rebuilding it, does not mark them as
-planets, and carries the matching restructure entry. Applying the fix means retiring those two
-ids from K3BlochGroups and pointing its consumers at the two nodes here.
+**detail:** The weight-three maps from K-theory, their compatibility with the Borel regulator and the special-value theorem are Goncharov's (1991, 1995), not obtained; the 'for every family' half (b) is not established by any source read; the top-degree comparison is Suslin's (1984), not obtained. NEXT SOURCE ACTION: decompose GR v5 Sections 7.1 to 7.3 (decorated flags, the Bigrassmannian, the weight <= 3 complexes, Theorem 1.8) and obtain Goncharov 1995, Section 5.
 
-**A Part II for the proof of the weight-four theorem.** The red-team finding RT-AREA-ktheory-2/51, confirmed by REV-RT-AREA-ktheory-2, records that P.4
-treats the weight-four Zagier theorem as a separately identified extension although it is a
-published theorem, and that no roadmap owns it. Its fix is to record it as a theorem, which this
-packet does, and either to plan its proof in P.4 or to name its owner. The proof needs motivic
-correlators, cluster varieties and the cluster polylogarithm maps, which is a body of
-mathematics far larger than the statement infrastructure P.4 owns, so the proposal is a new
-roadmap extending this one, titled, in the form section 15 requires, Polylogarithms, explicit
-regulators and Zagier statements, Part II: weight four via motivic correlators and cluster
-polylogarithms, with this roadmap as its first prerequisite. Its scope would be the motivic
-correlators of the source's section 2, the cluster polylogarithm maps of its sections 3 and 4,
-the map from the weight-three to the weight-two groups of its section 5, and the weight-four
-Beilinson regulator of its section 9.
+---
 
-**The general weight-two curve regulator form belongs to P.5, and its target to M.8.** The red-team findings RT-AREA-ktheory-2/7 and /24, both confirmed, record that P.5 and
-EllipticRegulators ER.2 plan the same weight-two regulator form and that no stage owns the real
-Deligne-Beilinson complex in general. This packet follows their fix: P.5 owns the general curve
-formula for the form, with its closedness, its residues and the Steinberg relation through the
-Bloch-Wigner function, and ER.2 is expected to specialise it to an elliptic curve with the
-factor of two pi and the orientation. The Deligne complex is requested from MotivicEtaleKTheory
-M.8 as an early part needing no BorelRegulators input, and every statement of P.5 that mentions
-a Deligne class is conditional on it.
+**title:** The real Deligne-Beilinson complex has no owner
 
-## Mistakes found in the sources
+**neededBy**
 
-## Checks
+- Polylogarithms:P.5/goncharov-deligne-complex-comparison
+- Polylogarithms:P.5/unramified-weight-two-class
+- Polylogarithms:P.5/regulator-induces-beilinson
 
-    python3 scripts/check_blueprint.py research/blueprint/packets/Polylogarithms.json
+**detail:** No stage constructs the real Deligne-Beilinson complex of a smooth variety over R in general: EllipticRegulators ER.2 builds only degree two and weight two for an elliptic curve, and M.8 only the cycle-class maps into it. The confirmed findings RT-AREA-ktheory-2/7 and /24 ask for it as an early part of M.8, and the packet requests it there. Goncharov's regulator itself lands in his explicit complex C_D(X; n), which P.5 now plans; the Deligne complex is needed only for Proposition 2.1 and for the identifications with Deligne classes.
 
-reports 0 errors and 0 warnings against the pinned declaration index. The suggested Lean file was not compiled: no Lean toolchain at the pinned commits was available in this session, and the file is signatures and `example` statements only.
+---
+
+**title:** The proof of the weight-four theorem is not planned anywhere
+
+**neededBy**
+
+- Polylogarithms:P.4/weight-four-theorem
+
+**detail:** Goncharov and Rudenko's theorem is recorded as a theorem with its statement infrastructure, but no roadmap plans its proof, which needs motivic correlators and cluster polylogarithms (restructure entry). Part (b) for Ker delta_4 computed with the inductive B_3(F) needs an argument not located in the sections read: the paper's complex (44) uses the 22-term group, whose identification with the inductive group is conjectural (GR v5 p. 9).
+
+---
+
+**title:** The Grassmannian half of Goncharov's paper was not read
+
+**neededBy**
+
+- Polylogarithms:P.2/borel-comparison
+- Polylogarithms:P.2/bloch-wigner-cocycle
+- Polylogarithms:P.2/lobachevsky-identity
+
+**detail:** Sections 4 and 5 of Goncharov 2004 construct the Grassmannian polylogarithms and prove Theorem 1.1 (the cocycle class is a nonzero rational multiple of the Borel class); Section 7 treats the simplex-volume formula. P.2 cites Theorem 1.1 at n = 2 without its proof. NEXT SOURCE ACTION: coordinate Sections 4 and 5 with BorelRegulators R.3 to R.7, and read Section 7 for P.2's own tetrahedron-volume proof gap. The weight-two volume identity is not transferred to BorelRegulators.
+
+---
+
+**title:** The exact scalar and sign of the weight-two Borel comparison
+
+**neededBy**
+
+- Polylogarithms:P.2/borel-comparison
+
+**detail:** P.2/borel-comparison asserts some q in Q^x. The exact q and its sign need Goncharov Sections 5.4 and 5.5 ('For normalization of the Borel classes ... see Chapter 5'), unread, or Bloch's lectures; BorelRegulators R.7 owns them, and K3BlochGroups V.6/regulator-agreement should take them from there.
+
+---
+
+**title:** Milnor's formula for the volume of an ideal tetrahedron
+
+**neededBy**
+
+- Polylogarithms:P.2/hyperbolic-volume
+
+**detail:** The volume of an ideal tetrahedron is L(alpha) + L(beta) + L(gamma). P.2 owns this comparison and its missing proof; none of the sources read for the packet proves it (Goncharov Section 7 remains unread). GeometricTopology layer 7 supplies the ambient hyperbolic geometry and Riemannian volume, not this formula. QT.5 imports the completed P.2 identity when available and does not close this gap.
+
+---
+
+**title:** A minimum principle for superharmonic functions
+
+**neededBy**
+
+- Polylogarithms:P.1/bloch-wigner-positivity
+
+**detail:** Positivity of D on the upper half-plane follows from Delta D = -2 Im z/(|z|^2 |1 - z|^2) < 0 and the boundary values 0, by the strong minimum principle for superharmonic functions, which the pinned Mathlib does not contain (it has the mean-value property of harmonic functions and Liouville's theorem).
+
+---
+
+**title:** A geometrically convergent expansion of Li_2 near the unit circle
+
+**neededBy**
+
+- Polylogarithms:P.2/certified-numerics
+
+**detail:** Li_2(e^w) = zeta(2) + w(1 - log(-w)) + sum_{k>=2} zeta(2 - k) w^k/k! for |w| < 2 pi is needed because the reduction steps cannot move exp(+-i pi/3) off the circle; it is standard but in no source read (checked numerically to 2e-31).
+
+---
+
+**title:** Transfers on the polylogarithmic complexes
+
+**neededBy**
+
+- Polylogarithms:P.3/residues-and-transfers
+- Polylogarithms:P.5/curve-polylogarithmic-complex
+
+**detail:** The stage asks for transfers; no source read constructs them on B(F; 3) (Lambda^3 of the norm composed with restriction is [L:F]^3, not [L:F]). Only the transfer on H^3 = K^M_3(F)_Q exists (K2SymbolsBrauer:T.3/transfer-and-norm-residue). Push-forward of curve complexes needs it.
+
+---
+
+**title:** Currents on complex manifolds
+
+**neededBy**
+
+- Polylogarithms:P.5/weight-two-regulator-form
+- Polylogarithms:P.5/unramified-weight-two-class
+- Polylogarithms:P.5/chow-dilogarithm
+- Polylogarithms:P.5/r-forms-and-distributions
+- Polylogarithms:P.5/r-form-differential
+- Polylogarithms:P.5/goncharov-deligne-complex
+- Polylogarithms:P.5/regulator-map-on-higher-chow
+- Polylogarithms:P.5/chow-polylogarithm-forms
+- Polylogarithms:P.5/weight-three-curve-regulator
+
+**detail:** Currents of type (p, q) on a complex manifold, integration over subvarieties, push-forward along proper maps and the Poincare-Lelong formula 2 d'd'' log|f| = 2 pi i delta(f) ((17)). The pinned Mathlib has distributions on open subsets of normed spaces only (mathlib:Distribution); no stage owns currents.
+
+---
+
+**title:** Chow varieties
+
+**neededBy**
+
+- Polylogarithms:P.5/chow-polylogarithm-forms
+
+**detail:** The spaces Z^q_p(L) of effective cycles meeting the faces of a simplex properly, 'a union of an infinite number of finite dimensional complex algebraic varieties' (Goncharov p. 26); no stage owns them.
+
+---
+
+**title:** The group (36) and the Gersten comparison
+
+**neededBy**
+
+- Polylogarithms:P.5/higher-arakelov-chow-degree-zero
+
+**detail:** The group (36) of pairs (Z, g) on a complex variety (a version of Gillet and Soule's arithmetic Chow group) has no owner; the proof of Proposition 2.14 rests on the comparison of the last two cohomology groups of the Gersten complex with those of the cycle complex, asserted without reference (requested from SchemeKTheoryOperations S.4).
+
+---
+
+**title:** The sign of the residue term in Goncharov's Proposition 2.8
+
+**neededBy**
+
+- Polylogarithms:P.5/r-form-differential
+- Polylogarithms:P.5/simplex-form
+- Polylogarithms:P.5/regulator-map-chain-map
+
+**detail:** With the residue convention res_v(pi wedge u) = u-bar, the printed formula has the wrong sign at n = 2 (source issue E21); the correct sign for general n is to be fixed against Burgos Gil-Feliu-Takeda Section 5, which records a sign (-1)^m relative to Goncharov.
+
+---
+
+**title:** The proof of the comparison with Beilinson's regulator is not decomposed
+
+**neededBy**
+
+- Polylogarithms:P.5/regulator-induces-beilinson
+
+**detail:** Burgos Gil-Feliu-Takeda Sections 4 to 6 (Burgos and Feliu's cubical regulator, Wang's forms, Levine's comparison of the simplicial and cubical complexes). Beilinson's regulator in their normalisation is requested from MotivicEtaleKTheory M.8.
+
+---
+
+**title:** Weight-three elliptic objects and the curve regulator's well-definedness
+
+**neededBy**
+
+- Polylogarithms:P.5/weight-three-curve-regulator
+
+**detail:** The weight-three Eisenstein-Kronecker expression needs the elliptic trilogarithm and weight-three Kronecker-Eisenstein series, which no stage owns (EllipticRegulators ER.3 is weight two); sources not read (Goncharov, Mixed elliptic motives, 1998; Goncharov-Levin). Well-definedness of rho_2 on B_2(F) tensor F^x is in Goncharov [G7], not read. The elliptic weight-three special-value conjecture is not asserted.
+
+---
+
+**title:** Goncharov's integral Bloch group and Suslin's rigidity
+
+**neededBy**
+
+- Polylogarithms:P.5/strong-reciprocity-conjecture
+- Polylogarithms:P.5/reciprocity-second-triangle
+- Polylogarithms:P.4/explicit-to-inductive-comparison
+
+**detail:** The target of Conjecture 6.2 is Goncharov's integral group defined through rigidity ([G1], not obtained); the packet states the conjecture rationally. Suslin's rigidity B(F(t)) = B(F) (Suslin 1990, Corollary 5.6) is requested from K3BlochGroups V.4.
+
+---
+
+**title:** Early M.8 supplier must be split before it can be a dependency
+
+**detail:** The generic real Deligne complex and generic regulator definition is requested through M.8 but requires a separately accepted early prefix. Do not add the whole M.8→consumer edge: it imports late D.2/R.7 work and can close a cycle. No new stage ID is fabricated here.
+
+**neededBy**
+
+- Polylogarithms:P.5/goncharov-deligne-complex-comparison
+- Polylogarithms:P.5/regulator-induces-beilinson
+- Polylogarithms:P.5/unramified-weight-two-class
+
+---
+
+## Supplier requests
+
+**supplier:** K3BlochGroups:V.3
+
+**need:** The pre-Bloch group, the five-term relation, the boundary [x] |-> x wedge (1 - x) into the antisymmetric quotient, the Bloch group and the comparison of the antisymmetric quotient with the exterior square, imported by node id (V.3/pre-bloch-group, five-term-relation, bloch-boundary, bloch-group, antisym-exterior-comparison). From V.3's stated scope ('the conventions used by Bloch, Goncharov and Calegari-Garoufalidis-Zagier'): Goncharov's explicit integral Bloch group B_2(F) = Z[P^1(F)]/R_2(F), R_2 generated by {0}, {infinity} and the five-term elements with the cross-ratio r(infinity, 0, 1, x) = x (Goncharov 2004, Section 6.1), its boundary {x}_2 |-> (1 - x) wedge x into Lambda^2 F^x, and its comparison with P(F), which involves the swap r = 1/cr against V.4's cross-ratio.
+
+**neededBy**
+
+- Polylogarithms:P.2/bloch-wigner-descent
+- Polylogarithms:P.2/weight-two-regulator
+- Polylogarithms:P.3/polylogarithmic-complex
+- Polylogarithms:P.3/trilogarithm-group
+- Polylogarithms:P.4/explicit-to-inductive-comparison
+- Polylogarithms:P.5/strong-reciprocity-conjecture
+- Polylogarithms:P.5/reciprocity-projective-line
+
+---
+
+**supplier:** K3BlochGroups:V.4
+
+**need:** The cross-ratio (V.4/cross-ratio), the map psi and Suslin's exact sequence (V.4/psi-map, V.4/suslin-exact-sequence), by node id; and Suslin's rigidity B(F(t)) = B(F) for infinite F (Suslin 1990, Corollary 5.6), which the identification of the explicit and inductive weight-two groups and Goncharov's Lemma 6.4 use. If V.4 does not take the rigidity theorem, it stays a gap of this packet.
+
+**neededBy**
+
+- Polylogarithms:P.2/borel-comparison
+- Polylogarithms:P.2/bloch-wigner-cocycle
+- Polylogarithms:P.2/hyperbolic-volume
+- Polylogarithms:P.4/explicit-to-inductive-comparison
+- Polylogarithms:P.5/reciprocity-second-triangle
+
+---
+
+**supplier:** K3BlochGroups:V.6
+
+**need:** The constructor that refuses a Bloch element without a proved boundary and the five-term certificate (V.6/bloch-element-constructor, V.6/five-term-certificate). V.6/regulator-agreement cites the scalar 'fixed in' P.2/borel-comparison; after this review P.2 asserts only some q in Q^x, and V.6 should take the exact scalar and sign from BorelRegulators R.7.
+
+**neededBy**
+
+- Polylogarithms:P.6/tests
+
+---
+
+**supplier:** BorelRegulators:R.4
+
+**need:** The Borel regulator on K_3^ind(F)_Q at each complex place (reserved id BorelRegulators:R.4/borel-regulator), and its injectivity modulo torsion for number fields F.
+
+**neededBy**
+
+- Polylogarithms:P.2/borel-comparison
+- Polylogarithms:P.3/trilogarithm-regulator-borel
+- Polylogarithms:P.5/reciprocity-algebraic-numbers
+
+---
+
+**supplier:** BorelRegulators:R.3
+
+**need:** Borel's rank theorem (reserved id BorelRegulators:R.3/borel-rank-theorem): dim K_{2n-1}(F)_Q is r_1 + r_2 for n odd and r_2 for n even (n >= 2).
+
+**neededBy**
+
+- Polylogarithms:P.3/weight-three-special-value
+
+---
+
+**supplier:** BorelRegulators:R.5
+
+**need:** Borel's theorem relating zeta_F(n) to the Borel regulator up to Q^x (Borel 1977).
+
+**neededBy**
+
+- Polylogarithms:P.3/weight-three-special-value
+- Polylogarithms:P.4/weight-four-theorem
+
+---
+
+**supplier:** MotivicEtaleKTheory:M.8
+
+**need:** The real Deligne-Beilinson complex for smooth varieties over R, with its products and long exact sequence, as an early part needing no BorelRegulators input (confirmed findings RT-AREA-ktheory-2/7 and /24), and Beilinson's regulator in the normalisation of Burgos Gil-Feliu-Takeda. FIX-RT-AREA-ktheory-2~2: require an EARLY real Deligne complex and generic regulator definition interface, before D.2 and BorelRegulators:R.7. The current atlas M.8 remains unsplit and depends on those later comparisons; this request is not a dependency on all of M.8 and does not claim the prefix already exists.
+
+**neededBy**
+
+- Polylogarithms:P.5/goncharov-deligne-complex-comparison
+- Polylogarithms:P.5/unramified-weight-two-class
+- Polylogarithms:P.5/regulator-induces-beilinson
+
+---
+
+**supplier:** MotivicEtaleKTheory:M.4
+
+**need:** Bloch's simplicial cycle complex Z(X; n) of cycles on X x Delta^m meeting all faces properly, with d = sum (-1)^i d_i, in Goncharov's affine simplices Delta^m = P^m - {z_1 + ... + z_m = z_0}.
+
+**neededBy**
+
+- Polylogarithms:P.5/regulator-map-on-higher-chow
+- Polylogarithms:P.5/arakelov-motivic-complex
+- Polylogarithms:P.5/higher-arakelov-chow-degree-zero
+- Polylogarithms:P.5/regulator-induces-beilinson
+
+---
+
+**supplier:** MotivicEtaleKTheory:M.6
+
+**need:** K_n(X)^{(p)}_Q = CH^p(X, n)_Q with its Chern character (Bloch, Levine), and for fields the rational weight decomposition of K-theory against which Goncharov's conjecture is stated.
+
+**neededBy**
+
+- Polylogarithms:P.5/regulator-induces-beilinson
+- Polylogarithms:P.3/k-theory-comparison-weight-three
+- Polylogarithms:P.4/goncharov-comparison-conjecture
+
+---
+
+**supplier:** SchemeKTheoryOperations:S.6
+
+**need:** The rational Adams eigenspace decomposition of K_*(F)_Q and the gamma-filtration graded pieces.
+
+**neededBy**
+
+- Polylogarithms:P.3/k-theory-comparison-weight-three
+- Polylogarithms:P.4/goncharov-comparison-conjecture
+
+---
+
+**supplier:** SchemeKTheoryOperations:S.4
+
+**need:** The Gersten comparison: the last two cohomology groups of the Gersten complex agree with those of Bloch's cycle complex (Goncharov, proof of Proposition 2.14, 'well known'). If neither S.4 nor M.4 owns it, it stays a gap.
+
+**neededBy**
+
+- Polylogarithms:P.5/higher-arakelov-chow-degree-zero
+
+---
+
+**supplier:** GeneralAlgebraicKTheory:K.2:plus
+
+**need:** BGL(F)^+ and the Hurewicz map, which define the rank filtration the weight-three maps vanish on.
+
+**neededBy**
+
+- Polylogarithms:P.3/k-theory-comparison-weight-three
+
+---
+
+**supplier:** K2SymbolsBrauer:T.3
+
+**need:** By node id: the tame symbol (T.3/tame-symbol), compared with the residue on Lambda^2; the higher Milnor residues (T.3/higher-milnor-residues); and the transfer with the norm-residue formula (T.3/transfer-and-norm-residue), the only transfer available on H^3 = K^M_3(F)_Q.
+
+**neededBy**
+
+- Polylogarithms:P.3/exterior-residue
+- Polylogarithms:P.5/weight-two-regulator-form
+- Polylogarithms:P.5/curve-polylogarithmic-complex
+- Polylogarithms:P.5/unramified-weight-two-class
+- Polylogarithms:P.5/strong-reciprocity-implies-suslin
+
+---
+
+**supplier:** K2SymbolsBrauer:T.4
+
+**need:** By node id, Weil reciprocity (T.4/weil-reciprocity) and the Milnor transfer (T.4/milnor-transfer-transitivity); in addition i o N = sum over g in G of g^* on K^M_3 for a Galois cover (Goncharov (87)), and Suslin's reciprocity law for K^M_3 of a curve, which T.4 states only in degree two.
+
+**neededBy**
+
+- Polylogarithms:P.5/reciprocity-projective-line
+- Polylogarithms:P.5/chow-dilogarithm-families
+- Polylogarithms:P.5/reciprocity-algebraic-numbers
+
+---
+
+**supplier:** K2SymbolsBrauer:T.2
+
+**need:** By node id, Matsumoto's theorem (T.2/matsumoto) and Milnor K-theory (T.2/milnor-k-theory).
+
+**neededBy**
+
+- Polylogarithms:P.5/strong-reciprocity-implies-suslin
+- Polylogarithms:P.3/milnor-degree-comparison
+
+---
+
+**supplier:** AlgebraicModuliForArithmeticGeometry:R09.7
+
+**need:** Embedded resolution of singularities in characteristic zero (Goncharov Theorem 2.6).
+
+**neededBy**
+
+- Polylogarithms:P.5/r-forms-and-distributions
+- Polylogarithms:P.5/r-form-differential
+
+---
+
+**supplier:** IntegralIwasawaTheory:L4
+
+**need:** The abelian case of Leopoldt's conjecture through the Baker-Brumer theorem, imported by P.6 and not reproved.
+
+**neededBy**
+
+- Polylogarithms:P.6/leopoldt-statement
+
+---
+
+**supplier:** PadicHodgeRegulators:D.1
+
+**need:** Iwasawa's p-adic logarithm on C_p (or on Q_p-bar), with log_p(eps) != 0 for a unit eps that is not a root of unity.
+
+**neededBy**
+
+- Polylogarithms:P.6/leopoldt-statement
+- Polylogarithms:P.6/padic-regulator
+
+---
+
+**supplier:** tauceti:TauCetiRoadmap/GeometricTopology#layer-7-riemannian-geometric-structures-and-volume
+
+**need:** Hyperbolic 3-space with its curvature -1 Riemannian metric and volume, its ideal boundary and oriented ideal tetrahedra. P.2 owns the comparison of tetrahedron volume with the Lobachevsky function and Bloch-Wigner dilogarithm; that comparison is not requested from GeometricTopology.
+
+**neededBy**
+
+- Polylogarithms:P.2/hyperbolic-volume
+
+---
+
+**supplier:** IntegralIwasawaTheory:I.2
+
+**need:** Shared early completed global-unit map E_K⊗ℤ_p → ∏_{v|p}Û_v and strong-Leopoldt injectivity, with comparison to local principal-unit logarithms after the necessary pro-p/torsion treatment. Distinguish this conjecture from weak cyclotomic Leopoldt and from the proved abelian Baker–Brumer case at L4. P.6 retains its regulator matrix, determinant/rank equivalence and tests.
+
+**neededBy**
+
+- Polylogarithms:P.6/leopoldt-statement
+- Polylogarithms:P.6/leopoldt-equivalence
+
+---
+
+## Source issues
+
+**id:** Polylogarithms/E1
+
+**source:** GR.2022
+
+**kind:** misprint
+
+**locator:** 1.1, item 1, (1), PDF p. 3 (arXiv v3; unchanged in v5, p. 3)
+
+**printed:** pi_n : C -> (2 pi i)^{n-1} R, z |-> Re(z) for n = 2k + 1, Im(z) for n = 2k.
+
+**correction:** pi_n : C -> R, z |-> Re z for n odd and Im z for n even; or keep the codomain (2 pi i)^{n-1} R and send z |-> i Im z for n even.
+
+**reason:** For even n, (2 pi i)^{n-1} R = iR, but Im z is real. With the reading z |-> i Im z, L_2 would be i D, contradicting 'L_2(z) is the Bloch-Wigner dilogarithm' and (7), which treat L_n as real.
+
+**affects:** nothing
+
+**known:** new
+
+**searched**
+
+- 2026-09-24: arXiv 1803.08585 abstract page listing v1 to v5, the full texts of v3 and v5 (v5 is the final version accepted by the Annals of Mathematics); no journal version or erratum was available.
+- arXiv v1 writes pi_n : C -> C/R(n) = R(n - 1), a different convention.
+
+**review:** **verdict:** confirmed; **reason:** Checked in the v3 and v5 PDFs by two review checkers independently; the node now uses the real-valued reading.; **by:** REV-Polylogarithms
+
+---
+
+**id:** Polylogarithms/E2
+
+**source:** GR.2026
+
+**kind:** error
+
+**locator:** Theorem 1.2, (7), PDF p. 5 (arXiv v5); Theorem 1.1 and the abstract (v3, pp. 2-3)
+
+**printed:** Then there exist elements y1, ..., yr2 in Ker delta4 in B4(F) such that zetaF(4) = pi^{4(r1+r2)} |dF|^{-1/2} det(L4(sigma_{r1+i}(yj))), 1 <= i, j <= r2.
+
+**correction:** ... such that zeta_F(4) = q pi^{4(r_1+r_2)} |d_F|^{-1/2} det(...) for some q in Q^x; when r_2 >= 1 one may take q = 1 by rescaling y_1, and when r_2 = 0 the statement is zeta_F(4) in Q^x pi^{4 r_1} |d_F|^{-1/2}.
+
+**reason:** For r_2 = 0 the determinant is empty, equal to 1, and the display reads zeta_F(4) = pi^{4 r_1} |d_F|^{-1/2}. For F = Q this says zeta(4) = pi^4, but zeta(4) = pi^4/90.
+
+**affects:** a stated result
+
+**known:** new
+
+**searched**
+
+- 2026-09-24: arXiv 1803.08585 abstract page listing v1 to v5, the full texts of v3 and v5 (v5 is the final version accepted by the Annals of Mathematics); no journal version or erratum was available.
+
+**review:** **verdict:** confirmed; **reason:** Checked at the locator in v3 and v5; the review recomputed zeta(4) = pi^4/90 and checked the case F = Q(i), where the display holds up to the rational 45.; **by:** REV-Polylogarithms
+
+---
+
+**id:** Polylogarithms/E3
+
+**source:** GR.2022
+
+**kind:** misprint
+
+**locator:** 1.1, item 4, the display of delta_n, PDF p. 4 (v3; the same in v5, p. 4)
+
+**printed:** {x} |-> {x}_{n-1} tensor x for n > 2 ... delta_2{1} = delta_2{0} = 0
+
+**correction:** Also set delta_n{0} = 0 for n > 2: 0 is not in F^x, so {0}_{n-1} tensor 0 is undefined.
+
+**reason:** The generator {0} is in Q[F] and is killed in R_n(F), but delta_n{0} must be defined before R_n(F) is; the display fixes it only for n = 2.
+
+**affects:** nothing
+
+**known:** new
+
+**searched**
+
+- 2026-09-24: arXiv 1803.08585 abstract page listing v1 to v5, the full texts of v3 and v5 (v5 is the final version accepted by the Annals of Mathematics); no journal version or erratum was available.
+
+**review:** **verdict:** confirmed; **reason:** Checked at the locator in v3 and v5 by the review.; **by:** REV-Polylogarithms
+
+---
+
+**id:** Polylogarithms/E4
+
+**source:** GR.2022
+
+**kind:** misprint
+
+**locator:** Definition 1.10 (p. 12), Theorem 1.14(c) (p. 15) and (43) (p. 16), arXiv v3
+
+**printed:** 0 -> B4(F) -> L4(F) -> L2(F) wedge L2(F) -> 0, where B4(F) is also Q[F]/R4(F) (item 4).
+
+**correction:** The left term is the span B_4(F) of the {x}_4 inside the combinatorial L_4(F), not the inductive B_4(F).
+
+**reason:** The same symbol denotes two groups whose identification is only conjectured.
+
+**affects:** nothing
+
+**known:** Corrected in arXiv v5 (Definition 1.11, p. 12: 'Conjecturally, the natural map B4(F) -> B4(F) is an isomorphism'; Theorem 1.14(c), p. 16)
+
+**searched**
+
+- 2026-09-24: arXiv 1803.08585 abstract page listing v1 to v5, the full texts of v3 and v5 (v5 is the final version accepted by the Annals of Mathematics); no journal version or erratum was available.
+
+**review:** **verdict:** confirmed; **reason:** Checked in v5 by the review; recorded as known.; **by:** REV-Polylogarithms
+
+---
+
+**id:** Polylogarithms/E5
+
+**source:** GR.2022
+
+**kind:** error
+
+**locator:** Theorem 1.3(i), PDF p. 6 (arXiv v3)
+
+**printed:** Let F be any field.
+
+**correction:** Let F be an infinite field.
+
+**reason:** The constructions use results valid for infinite fields; the final version works everywhere with infinite fields (v5 Conventions, p. 4).
+
+**affects:** a stated result
+
+**known:** Corrected in arXiv v5 (Theorem 1.3(i), p. 6: 'Let F be an infinite field', and the Conventions, p. 4)
+
+**searched**
+
+- 2026-09-24: arXiv 1803.08585 abstract page listing v1 to v5, the full texts of v3 and v5 (v5 is the final version accepted by the Annals of Mathematics); no journal version or erratum was available.
+
+**review:** **verdict:** confirmed; **reason:** Checked in v3 and v5 by the review; recorded as known.; **by:** REV-Polylogarithms
+
+---
+
+**id:** Polylogarithms/E6
+
+**source:** GR.2026
+
+**kind:** misprint
+
+**locator:** (5) and (6), PDF p. 5 (arXiv v5)
+
+**printed:** delta_n : B_n(F) -> ... Lambda^2 F for n = 2 (5); the differential ... sends {x}_k wedge x_1 wedge ... wedge x_{n-k} to delta_k({x}_k) wedge x_1 wedge ... wedge x_k (6).
+
+**correction:** Lambda^2 F^x in (5); {x}_k tensor x_1 wedge ... wedge x_{n-k} |-> delta_k({x}_k) wedge x_1 wedge ... wedge x_{n-k} in (6).
+
+**reason:** The target of delta_2 is Lambda^2 F^x (item 4 and the first four complexes on the same page); the source of the differential is B_k(F) tensor Lambda^{n-k} F^x, so the element is a tensor and the wedge runs to x_{n-k}.
+
+**affects:** nothing
+
+**known:** new
+
+**searched**
+
+- 2026-09-24: arXiv 1803.08585 abstract page listing v1 to v5, the full texts of v3 and v5 (v5 is the final version accepted by the Annals of Mathematics); no journal version or erratum was available.
+
+**review:** **verdict:** confirmed; **reason:** Checked on the page image of v5 p. 5 by the review.; **by:** REV-Polylogarithms
+
+---
+
+**id:** Polylogarithms/E7
+
+**source:** GR.2022
+
+**kind:** misprint
+
+**locator:** Conjecture 1.4, PDF p. 6 (arXiv v3)
+
+**printed:** The maps (12) are isomorphisms modulo torsion.
+
+**correction:** The maps (12) are isomorphisms.
+
+**reason:** Both sides are Q-vector spaces, so 'modulo torsion' is vacuous.
+
+**affects:** nothing
+
+**known:** Corrected in arXiv v5 (Conjecture 1.4, p. 7: 'The maps (12) are isomorphisms')
+
+**searched**
+
+- 2026-09-24: arXiv 1803.08585 abstract page listing v1 to v5, the full texts of v3 and v5 (v5 is the final version accepted by the Annals of Mathematics); no journal version or erratum was available.
+
+**review:** **verdict:** confirmed; **reason:** Checked in v5 by the review; recorded as known.; **by:** REV-Polylogarithms
+
+---
+
+**id:** Polylogarithms/E8
+
+**source:** Kbook.2013
+
+**kind:** error
+
+**locator:** Lemma VI.5.4(c) and the sentence before it, PDF p. 496
+
+**printed:** The elements c = [x] + [1 - x] and <x> = [x] + [x^{-1}] of B(F) play an important role ... (c) There is a homomorphism F^x -> B(F) sending x to <x>.
+
+**correction:** <x> lies in P(F), with boundary x wedge (-x); the homomorphism is F^x -> P(F), with 2-torsion image, and <x> lies in B(F) iff x wedge (-x) = 0.
+
+**reason:** Over F_5 the boundary of <2> is 2 wedge 3, the nonzero element of the antisymmetric square.
+
+**affects:** a stated result
+
+**known:** K3BlochGroups/E9 (the K3BlochGroups blueprint, confirmed by REV-K3BlochGroups)
+
+**searched**
+
+- 2026-09-24: the K3BlochGroups packet's sourceIssues; the K-book author-hosted draft of 29 August 2013.
+
+**review:** **verdict:** confirmed; **reason:** Re-read at the locator by this review; the entry records a correction already made in the atlas.; **by:** REV-Polylogarithms
+
+---
+
+**id:** Polylogarithms/E9
+
+**source:** Kbook.2013
+
+**kind:** misprint
+
+**locator:** Corollary VI.5.4.1, PDF p. 497
+
+**printed:** If char(F) = 2 or sqrt(-1) in F then 3c = 0 in B(F); if char(F) = 3 or cuberoot(-1) in F then 2c = 0 in B(F).
+
+**correction:** Read 'cuberoot(-1) in F' as 'F contains a root of t^2 - t + 1'.
+
+**reason:** -1 is always a cube root of -1, yet c has order 6 in B(F_11). With the corrected reading, C has both roots, so c = 0 in B(C), which P.2/bloch-wigner-descent uses.
+
+**affects:** nothing
+
+**known:** K3BlochGroups/E10 (the K3BlochGroups blueprint, confirmed by REV-K3BlochGroups)
+
+**searched**
+
+- 2026-09-24: the K3BlochGroups packet's sourceIssues; the K-book author-hosted draft of 29 August 2013.
+
+**review:** **verdict:** confirmed; **reason:** Re-read at the locator by this review; the entry records a correction already made in the atlas.; **by:** REV-Polylogarithms
+
+---
+
+**id:** Polylogarithms/E10
+
+**source:** Gonch.Arakelov.2004
+
+**kind:** misprint
+
+**locator:** (13), PDF p. 14 (arXiv v3); JAMS p. 12
+
+**printed:** sum_{j >= 0, 2j+1 <= 2m+1}
+
+**correction:** sum_{j >= 0, 2j+1 <= m}
+
+**reason:** c_{j,m} = 1/((2j+1)!(m-2j-1)!) needs m - 2j - 1 >= 0; the displayed r_2 of Section 1, item 4 has only j = 0, 1; Burgos Gil-Feliu-Takeda Section 5.2 print '0 <= 2j+1 <= m' without comment.
+
+**affects:** nothing
+
+**known:** new
+
+**searched**
+
+- 2026-09-24: arXiv math/0207036 v1 to v3 metadata and the v3 text; the published JAMS 18 (2005) 1-60 text; Burgos Gil-Feliu-Takeda, IMRN 2011, which reworks Sections 2 and 5; no erratum found.
+
+**review:** **verdict:** confirmed; **reason:** Checked at the locator in v3 and JAMS by the review.; **by:** REV-Polylogarithms
+
+---
+
+**id:** Polylogarithms/E11
+
+**source:** Gonch.Arakelov.2004
+
+**kind:** misprint
+
+**locator:** Lemma 6.9, PDF p. 57 (arXiv v3); JAMS p. 49
+
+**printed:** integral_{X(C)} r2((1 - f) wedge f wedge g) = - sum_x vx(g) L2(f(x))
+
+**correction:** integral_{X(C)} r_2((1 - f) wedge f wedge g) = -2 pi sum_x v_x(g) L_2(f(x))
+
+**reason:** The proof's (84) has 2 pi L_2(f) delta(g) and Proposition 6.18 has 2 pi; the review's quadrature gives ratios -6.28344 at a = 0.3 + 0.8i and -6.28355 at a = -0.45 + 0.6i for f = z, g = z - a.
+
+**affects:** the proof
+
+**known:** new
+
+**searched**
+
+- 2026-09-24: arXiv math/0207036 v1 to v3 metadata and the v3 text; the published JAMS 18 (2005) 1-60 text; Burgos Gil-Feliu-Takeda, IMRN 2011, which reworks Sections 2 and 5; no erratum found.
+
+**review:** **verdict:** confirmed; **reason:** The review read the printed lemma and (84) side by side (PDF p. 57) and reproduced the quadrature.; **by:** REV-Polylogarithms
+
+---
+
+**id:** Polylogarithms/E12
+
+**source:** Gonch.Arakelov.2004
+
+**kind:** error
+
+**locator:** (6) and (7), PDF p. 5; (74), p. 52; Conjecture 6.2(b), (78), p. 54; Theorem 6.12, p. 59; (94), p. 62 (arXiv v3); JAMS (79)-(80), p. 46
+
+**printed:** The Chow dilogarithm is a real function on its complex points defined by the formula P2(X; f1, f2, f3) := 1/(2 pi i) integral_{X(C)} r2(f1, f2, f3); (1/(2 pi i)) integral r2(f1 wedge f2 wedge f3) = L2(h(f1 wedge f2 wedge f3))
+
+**correction:** P_2 := -(2 pi)^{-1} integral_{X(C)} r_2, so -(2 pi)^{-1} integral r_2 = L_2(h); equivalently (2 pi i)^{-1} integral r_2 = i L_2(h), an element of R(1).
+
+**reason:** r_2 is real by (13) (the j = 0 term has i^2 = -1), so the printed left side is purely imaginary while L_2 is real; (93) with Proposition 6.18, and the corrected Lemma 6.9 with Proposition 6.6, both force -(2 pi)^{-1}.
+
+**affects:** a stated result
+
+**known:** new
+
+**searched**
+
+- 2026-09-24: arXiv math/0207036 v1 to v3 metadata and the v3 text; the published JAMS 18 (2005) 1-60 text; Burgos Gil-Feliu-Takeda, IMRN 2011, which reworks Sections 2 and 5; no erratum found.
+
+**review:** **verdict:** confirmed; **reason:** The review checked the reality of r_2 from (13) and the constant from (93) and Proposition 6.18.; **by:** REV-Polylogarithms
+
+---
+
+**id:** Polylogarithms/E13
+
+**source:** Gonch.Arakelov.2004
+
+**kind:** misprint
+
+**locator:** proof of Theorem-Construction 3.1, PDF p. 27 (arXiv v3); JAMS p. 23
+
+**printed:** omega^q_p := pi2* Res_{Gamma_p} pi1* (2 pi i)^{-q} r_{p+q}(L; H)
+
+**correction:** The index is p + q - 1, and the constant is 1 if identity (i) is to hold as printed.
+
+**reason:** The same proof says 'Radon transform of the distribution r_{p+q-1}(L; H)'; a (q-p-1)-distribution needs r_{p+q-1}; at p = 0, omega^q_0 = c r_{q-1}(L; H) and d r_{q-1}(L; H) = pi_q(Omega_L), so (i) forces c = 1.
+
+**affects:** nothing
+
+**known:** new
+
+**searched**
+
+- 2026-09-24: arXiv math/0207036 v1 to v3 metadata and the v3 text; the published JAMS 18 (2005) 1-60 text; Burgos Gil-Feliu-Takeda, IMRN 2011, which reworks Sections 2 and 5; no erratum found.
+
+**review:** **verdict:** confirmed; **reason:** Checked at the locator by the review.; **by:** REV-Polylogarithms
+
+---
+
+**id:** Polylogarithms/E14
+
+**source:** Gonch.Arakelov.2004
+
+**kind:** misprint
+
+**locator:** Theorem 2.4, (18), PDF p. 15 (arXiv v3)
+
+**printed:** r_{m-1}: Lambda^m C(Y)* -> D^{m-1}_{X(C)}(m - 1)
+
+**correction:** D^{m-1+2 codim_X Y}_{X(C)}(m - 1)
+
+**reason:** The current <r delta_Y, omega> = integral_{Y^0} r wedge omega pairs with forms of degree 2 dim Y - m + 1.
+
+**affects:** nothing
+
+**known:** new
+
+**searched**
+
+- 2026-09-24: arXiv math/0207036 v1 to v3 metadata and the v3 text; the published JAMS 18 (2005) 1-60 text; Burgos Gil-Feliu-Takeda, IMRN 2011, which reworks Sections 2 and 5; no erratum found.
+
+**review:** **verdict:** confirmed; **reason:** Checked at the locator by the review.; **by:** REV-Polylogarithms
+
+---
+
+**id:** Polylogarithms/E15
+
+**source:** Gonch.Arakelov.2004
+
+**kind:** misprint
+
+**locator:** Section 6.1 and Conjecture 6.2, PDF pp. 52-53 (arXiv v3)
+
+**printed:** F := k(X)*
+
+**correction:** F := k(X)
+
+**reason:** Lambda^3 F^* is taken of F; Conjecture 6.3 writes F := k(X).
+
+**affects:** nothing
+
+**known:** new
+
+**searched**
+
+- 2026-09-24: arXiv math/0207036 v1 to v3 metadata and the v3 text; the published JAMS 18 (2005) 1-60 text; Burgos Gil-Feliu-Takeda, IMRN 2011, which reworks Sections 2 and 5; no erratum found.
+
+**review:** **verdict:** confirmed; **reason:** Checked at the locator by the review.; **by:** REV-Polylogarithms
+
+---
+
+**id:** Polylogarithms/E16
+
+**source:** Gonch.Arakelov.2004
+
+**kind:** error
+
+**locator:** Abstract, PDF p. 1 (arXiv v3)
+
+**printed:** We study the Chow dilogarithm and prove a reciprocity law which strengthens Suslin's reciprocity law for Milnor's group K^M_3 on curves.
+
+**correction:** ... and prove, for P^1 (modulo 6-torsion), elliptic curves and curves over Q-bar (after tensoring with Q), a reciprocity law (Conjecture 6.2) ...
+
+**reason:** Section 6 states the law as Conjecture 6.2 and proves only the cases a) to c) (p. 54: 'We prove this conjecture in the following cases').
+
+**affects:** a stated result
+
+**known:** new
+
+**searched**
+
+- 2026-09-24: arXiv math/0207036 v1 to v3 metadata and the v3 text; the published JAMS 18 (2005) 1-60 text; Burgos Gil-Feliu-Takeda, IMRN 2011, which reworks Sections 2 and 5; no erratum found.
+
+**review:** **verdict:** confirmed; **reason:** Checked against Section 6 by the review.; **by:** REV-Polylogarithms
+
+---
+
+**id:** Polylogarithms/E17
+
+**source:** Gonch.Arakelov.2004
+
+**kind:** gap
+
+**locator:** proof of Proposition 6.17, PDF p. 63 (arXiv v3)
+
+**printed:** One can prove that they generate all the relations between the functions l_{x,y}/l_{x+y}.
+
+**correction:** A proof or a reference; also h(k^* wedge Lambda^2 F^*) = 0, needed for 'all the properties of conjecture 6.2' in Theorem 6.14, is used ('the first factor in F is a constant') but not shown.
+
+**reason:** An unproved step in the proof of the elliptic case.
+
+**affects:** the proof
+
+**known:** new
+
+**searched**
+
+- 2026-09-24: arXiv math/0207036 v1 to v3 metadata and the v3 text; the published JAMS 18 (2005) 1-60 text; Burgos Gil-Feliu-Takeda, IMRN 2011, which reworks Sections 2 and 5; no erratum found.
+
+**review:** **verdict:** confirmed; **reason:** Checked at the locator by the review.; **by:** REV-Polylogarithms
+
+---
+
+**id:** Polylogarithms/E18
+
+**source:** Gonch.Arakelov.2004
+
+**kind:** gap
+
+**locator:** Theorem 6.14, Lemma 6.16 and Proposition 6.18, PDF pp. 62-64 (arXiv v3)
+
+**printed:** for any linear homogeneous functions l0, ..., l3
+
+**correction:** for l_0, ..., l_3 defining distinct lines, no three concurrent, none a component of X
+
+**reason:** r(l_{i0}, ..., l_{ii}-hat, ..., l_{i3}, x) needs three distinct points l_{ij} on L_i; the proof assumes 'four generic lines'.
+
+**affects:** a stated result
+
+**known:** new
+
+**searched**
+
+- 2026-09-24: arXiv math/0207036 v1 to v3 metadata and the v3 text; the published JAMS 18 (2005) 1-60 text; Burgos Gil-Feliu-Takeda, IMRN 2011, which reworks Sections 2 and 5; no erratum found.
+
+**review:** **verdict:** confirmed; **reason:** Checked at the locator by the review.; **by:** REV-Polylogarithms
+
+---
+
+**id:** Polylogarithms/E19
+
+**source:** Gonch.Arakelov.2004
+
+**kind:** misprint
+
+**locator:** proof of Lemma 6.13, PDF p. 60 (arXiv v3)
+
+**printed:** is equal to 2 pi integral_{CP^1} r2(sum_i (1 - fi) wedge fi wedge gi)
+
+**correction:** -(2 pi)^{-1} integral_{X(C)} r_2(...)
+
+**reason:** With Lemma 6.9 corrected (E11), and since the integral is over X.
+
+**affects:** nothing
+
+**known:** new
+
+**searched**
+
+- 2026-09-24: arXiv math/0207036 v1 to v3 metadata and the v3 text; the published JAMS 18 (2005) 1-60 text; Burgos Gil-Feliu-Takeda, IMRN 2011, which reworks Sections 2 and 5; no erratum found.
+
+**review:** **verdict:** confirmed; **reason:** Checked at the locator by the review; the value is 0 either way.; **by:** REV-Polylogarithms
+
+---
+
+**id:** Polylogarithms/E20
+
+**source:** Gonch.Arakelov.2004
+
+**kind:** misprint
+
+**locator:** Section 3.1, the maps b_j and (39), PDF p. 26 (arXiv v3)
+
+**printed:** b_j : Z^q_p(L)^0 -> Z^{q-1}_p(L-hat_j), 0 <= i <= p + q, with iii) sum_{j=0}^{p+q+1} (-1)^j b_j^* omega^q_p(L; H) = 0
+
+**correction:** (iii) is an identity on Z^{q+1}_p(L') for a simplex L' in P^{p+q+1}: sum_{j=0}^{p+q+1} (-1)^j b_j^* omega^q_p(L-hat'_j; H'_j) = 0.
+
+**reason:** b_j^* omega^q_p needs omega^q_p on the target; the range 0..p+q+1 counts the vertices of a simplex in P^{p+q+1}; Lemma 3.2 (points of P^{n+1} to P^n) matches this reading.
+
+**affects:** nothing
+
+**known:** new
+
+**searched**
+
+- 2026-09-24: arXiv math/0207036 v1 to v3 metadata and the v3 text; the published JAMS 18 (2005) 1-60 text; Burgos Gil-Feliu-Takeda, IMRN 2011, which reworks Sections 2 and 5; no erratum found.
+
+**review:** **verdict:** confirmed; **reason:** Checked at the locator by the review.; **by:** REV-Polylogarithms
+
+---
+
+**id:** Polylogarithms/E21
+
+**source:** Gonch.Arakelov.2004
+
+**kind:** error
+
+**locator:** Proposition 2.8, (24), PDF p. 19, with the residue convention of Section 2, item 6, p. 18 (arXiv v3)
+
+**printed:** drn-1(f1 wedge ... wedge fn) = pi_n(d log f1 wedge ... wedge d log fn) + 2 pi i (rn-2 o Res)(f1 wedge ... wedge fn), with resv(pi wedge u1 wedge ...) = u1 wedge ...
+
+**correction:** The residue term needs the sign -1 at n = 2 with this convention (equivalently, put the uniformiser last); the sign for general n is to be fixed against Burgos Gil-Feliu-Takeda.
+
+**reason:** n = 2, X = P^1, f = z, g = c constant: by (13), r_1(z wedge c) = -i log|c| d arg z, and with the source's d(d i arg z) = 2 pi i (delta_0 - delta_infinity) (p. 20), d r_1 = -2 pi i log|c| (delta_0 - delta_infinity); the printed right side is +2 pi i log|c| (delta_0 - delta_infinity), since res_0(z wedge c) = c and res_infinity(z wedge c) = c^{-1}. Burgos Gil-Feliu-Takeda Remark 5.12 record a sign discrepancy (-1)^m.
+
+**affects:** the proof
+
+**known:** new
+
+**searched**
+
+- 2026-09-24: arXiv math/0207036 v1 to v3 metadata and the v3 text; the published JAMS 18 (2005) 1-60 text; Burgos Gil-Feliu-Takeda, IMRN 2011, which reworks Sections 2 and 5; no erratum found.
+
+**review:** **verdict:** confirmed; **reason:** The review redid the n = 2 computation from (13) and the residue convention.; **by:** REV-Polylogarithms
+
+---
+
+## Earlier independent review (historical)
+
+**status:** accepted
+
+**reviewer:** independent-review-REV-Polylogarithms
+
+**date:** 2026-09-24
+
+**notes:** Independent review of all 37 nodes, the baseline, the requests, gaps, coverage and restructure entries, and the suggested Lean file, against GR arXiv v3 (the packet's text) and v5 (the final version, accepted by the Annals, added as GR.2026), Goncharov 2004 (arXiv v3 from the e-print TeX, compared with JAMS 2005 at every source issue), the K-book, Burgos Gil-Feliu-Takeda (IMRN 2011) and Neukirch-Schmidt-Wingberg (electronic edition 2.3). Identities used as tests were checked numerically (mpmath, 30 to 50 digits; quadrature for the Chow dilogarithm). Outcome: 33 nodes corrected, 42 added, 4 deleted and replaced; 7 baseline citations removed or replaced (one near miss: hasSum_taylorSeries_log is the alternating series of log(1 + z), and Li_1 is hasSum_taylorSeries_neg_log), 42 added, all confirmed at the pinned commits; every test now has a kind; 21 source issues recorded (the packet had none). Main corrections: (1) stage cycles removed: P.1 five-term -> K3BlochGroups V.3, P.2 -> BorelRegulators R.7, P.2 -> ArithmeticQuantumTopology QT.5, P.3 -> P.4 (the explicit weight <= 3 complexes now live in P.3 on K3BlochGroups V.3's B_2 and a new trilogarithm group, the inductive groups and the general complex in P.4), P.5 -> EllipticRegulators ER.2/ER.3, and the request to SpecialValuesBirchTate B.8; (2) false statements corrected: L_1 = log|z| (it is -log|1 - z|), L_n(1) = 0 (it is zeta(n) for odd n), inversion at n = 1, the Bernoulli coefficients 'forced' by single-valuedness, the monodromy formula, the discontinuity of D on the negative axis, c of order six in B(C) (c = 0), 'nonzero rational multiple for every family' in Zagier's statement, the weight-four comparison called a theorem, the delta-map sign against V.3, the p-adic regulator at the places above p, the Chow dilogarithm normalisation (2 pi i)^{-1} (imaginary), the Chow trilogarithm offered as the curve regulator; (3) status corrections: the comparison of Goncharov's regulator with Beilinson's is a theorem (Burgos Gil-Feliu-Takeda, Theorem 6.18), Goncharov's strong reciprocity law is Conjecture 6.2 with three proved cases, the weight-four extension of GR Theorem 1.14(c) is proved, GR's condition is *_n not 'o_n'; (4) closure: 42 nodes added for missing lemmas, split nodes and the stage targets that were not realised (the cocycle of P.2, the unramified classes of P.5, the explicit B_3 of P.3), each justified in its note. Coverage: P.1 source_decomposed; P.2 to P.6 partial, with 17 gaps named. The packet is accepted as partial: every node is verified, corrected or added, every baseline citation is confirmed, and the remaining open points are recorded as gaps and requests. Deleted nodes: Polylogarithms:P.5/chow-dilogarithm-reciprocity: Deleted: it stated Goncharov's Conjecture 6.2 as a theorem for every complex curve (proved only for P^1, elliptic curves and curves over Q-bar), described Weil-type local terms that are not Goncharov's law, cited only the abstract (which overstates the paper, source issue E16), and constructed an object without API or tests. Replaced by P.5/chow-dilogarithm, P.5/strong-reciprocity-conjecture and P.5/strong-reciprocity-implies-suslin.; Polylogarithms:P.5/deligne-target-request: Deleted: bookkeeping, not a declaration (PROTOCOL sections 2 and 14), and its proof step contradicted the packet's own claim about the comparison; its content is the M.8 request and the gaps, and its stage target is realised by P.5/unramified-weight-two-class.; Polylogarithms:P.5/chern-character-comparison-problem: Replaced by P.5/regulator-induces-beilinson: the comparison it recorded as open was proved by Burgos Gil, Feliu and Takeda (IMRN 2011, Theorem 6.18); its supplier MotivicEtaleKTheory:M.7 was wrong (M.6 owns the rational Chern character isomorphism).; Polylogarithms:P.5/strong-reciprocity-law: Replaced: a theorem node headlined by Conjecture 6.2, spanning pp. 53-61; its analytic condition (2 pi i)^{-1} integral r_2 = L_2(h) equates an imaginary number with a real one (source issue E12); its target K3BlochGroups:V.3/bloch-group is the kernel of the boundary, which would force Res = 0; conventions were not pinned. Split into P.5/strong-reciprocity-conjecture, P.5/reciprocity-second-triangle, P.5/chow-dilogarithm-steinberg, P.5/chow-dilogarithm-projective-line, P.5/reciprocity-projective-line, P.5/chow-dilogarithm-families and P.5/reciprocity-algebraic-numbers.
+
+**checked**
+
+- **nodeId:** Polylogarithms:P.1/classical-polylogarithm; **verdict:** corrected; **note:** Hypothesis 3 was inconsistent (a path from 0 inside C - {0,1}); the continuation step relied on homotopy invariance, which the pinned Mathlib lacks, and is replaced by the segment integral on the star-shaped domain; hasSum_taylorSeries_log was a near miss for Li_1 and is replaced by hasSum_taylorSeries_neg_log; value on the cut pinned; index extended to n <= 0 for HabiroNahmSeries HB.4; API completed (conj, zeta values, continuity on the closed disc, formal series); the distribution relation and the inversion formula promoted to lemma nodes; tests given kinds, not_single_valued replaced by jump_across_cut, three tests added.
+- **nodeId:** Polylogarithms:P.1/classical-distribution; **verdict:** added; **note:** Promoted from the API of classical-polylogarithm (PROTOCOL section 4): consumed by distribution-and-inversion and by HabiroNahmSeries HB.4.
+- **nodeId:** Polylogarithms:P.1/classical-inversion; **verdict:** added; **note:** Needed by distribution-and-inversion (inversion of L_n) and absent from the packet; verified numerically.
+- **nodeId:** Polylogarithms:P.1/single-valued-polylogarithm; **verdict:** corrected; **note:** The excerpt misquoted the source ('n >= 1'; GR prints 'n > 1'), and the weight-one API, acceptance and test (L_1 = log|z|) were false: the formula at n = 1 gives -log|1 - z|; the projection pi_n was paraphrased wrongly; the API item saying L_n vanishes at 1 was false for odd n (L_3(1) = zeta(3)); the claim that single-valuedness forces the Bernoulli coefficients was false (Ramakrishnan's coefficients); continuity moved to a lemma node so that the dependency on inversion is acyclic; branch-change-and-monodromy made a prerequisite; Polynomial.bernoulli removed (unused); tests given kinds, with three added.
+- **nodeId:** Polylogarithms:P.1/bloch-wigner-dilogarithm; **verdict:** corrected; **note:** The only source (GR) does not state the formula: Goncharov's display added; the discontinuity was placed on the negative real axis, but it is on (1, infinity); the differential formula promoted to a lemma node; API completed (one_sub, continuity, limit at infinity, values at 0 and 1, positivity); value_at_i restated (Mathlib has no Catalan constant); tests given kinds, not_global_arg replaced by im_li2_jump; branch-change-and-monodromy and continuousAt_arg added as prerequisites.
+- **nodeId:** Polylogarithms:P.1/bloch-wigner-differential; **verdict:** added; **note:** Promoted from bloch-wigner-dilogarithm proof step 6 (PROTOCOL section 4): consumed by the five-term proof and by P.5.
+- **nodeId:** Polylogarithms:P.1/bloch-wigner-positivity; **verdict:** added; **note:** Positivity is used by P.2 (hyperbolic volume, the nonzero test); the Laplacian formula was verified numerically; the minimum principle is recorded as a gap.
+- **nodeId:** Polylogarithms:P.1/bloch-wigner-five-term; **verdict:** corrected; **note:** The prerequisite K3BlochGroups:V.3 closed the stage cycle P.1 -> V.3 -> P.1 (V.3/bloch-wigner-dilogarithm imports P.1) and is removed with the descent sentence, which is P.2's; the constant-fixing step was impossible for five distinct points and is replaced by a connectedness argument; the cross-ratio identity and the differential formula are lemma nodes; the cross-ratio is written explicitly because K3BlochGroups V.4 owns the cross-ratio with another normalisation; the K-book two-variable form K3BlochGroups requests is added; exact instances replace the numerical acceptance.
+- **nodeId:** Polylogarithms:P.1/five-cross-ratio-identity; **verdict:** added; **note:** The vanishing of the one-form in the five-term proof rests on this identity, which was not listed.
+- **nodeId:** Polylogarithms:P.1/branch-change-and-monodromy; **verdict:** corrected; **note:** The monodromy statement was wrong (it named Li_{n-1} and a loop around 0 that adds a term); replaced by the exact jump formula across (1, infinity), verified numerically; proof step 1 invoked a residue that does not exist; acceptance 2 (the coefficients are forced) was false; the prerequisite on single-valued-polylogarithm inverted the dependency and is removed, and this node now precedes the definition of L_n.
+- **nodeId:** Polylogarithms:P.1/distribution-and-inversion; **verdict:** corrected; **note:** Inversion was stated for every n >= 1 but fails at n = 1; the inversion and conjugation facts it uses were absent and are the new lemma nodes classical-inversion and classical-distribution plus polylog_conj; acceptance 2 was a non sequitur; the claim that these relations lie in the relation subgroup of P.4 is unsourced and is withdrawn.
+- **nodeId:** Polylogarithms:P.1/single-valued-continuity; **verdict:** added; **note:** Split from single-valued-polylogarithm: continuity at infinity needs inversion, which depends on the definition, so it cannot be part of the definition node without a cycle.
+- **nodeId:** Polylogarithms:P.2/bloch-wigner-descent; **verdict:** corrected; **note:** The stage prerequisite K3BlochGroups:V.3 replaced by the V.3 node ids (PROTOCOL section 3); acceptance 1 was false for C, where c = 0 (K-book Cor. VI.5.4.1 as corrected in K3BlochGroups/E10), and is restated; the pre-Bloch homomorphism added to the API for HabiroNahmSeries HB.3; natural_in_embedding renamed to what it states; the nonzero test given an explicit element; tests given kinds.
+- **nodeId:** Polylogarithms:P.2/weight-two-regulator; **verdict:** corrected; **note:** Prerequisites completed with Mathlib's embedding, IsReal, IsComplex, conjugate and isReal_iff, and the V.3 stage replaced by V.3/bloch-group; the transfer in proof step 5 had no supplier and is replaced by naturality with signs; the excerpt misquoted the condition *_4 as 'o_4'; the tests imaginary_quadratic and not_the_unit_regulator passed for the zero map and are replaced by an explicit Eisenstein-field computation (verified numerically) and the conjugation test.
+- **nodeId:** Polylogarithms:P.2/borel-comparison; **verdict:** corrected; **note:** The prerequisite BorelRegulators:R.7 closed a stage cycle (R.7 requires P.2) and is replaced by the reserved R.4/borel-regulator; the source was GR Theorem 1.3(iv), a weight-four statement, with a false match, and is replaced by Goncharov's Theorem 1.1 with (11); the promised explicit scalar and sign cannot come from what was read, so the statement now asserts q in Q^x and a gap records the exact value against R.7; the cocycle and the V.4 node ids are the prerequisites.
+- **nodeId:** Polylogarithms:P.2/bloch-wigner-cocycle; **verdict:** added; **note:** The stage asks for the configuration and cross-ratio cocycle; the Borel comparison rests on it and it was missing.
+- **nodeId:** Polylogarithms:P.2/hyperbolic-volume; **verdict:** corrected; **note:** The prerequisite ArithmeticQuantumTopology:QT.5 would close a cycle (QT.5 requests this identity from P.2) and moves to uses; hyperbolic space and volume are cited from Tau Ceti GeometricTopology layer 7; the sign depends on the cross-ratio convention, which was not fixed, and is now fixed with the three conversions (verified numerically); the analytic three-angle identity is a lemma node and Milnor's formula a gap; stage prerequisite V.4 replaced by V.4/cross-ratio; Goncharov's display added as a source; planet added.
+- **nodeId:** Polylogarithms:P.2/lobachevsky-identity; **verdict:** added; **note:** The analytic input of the volume formula, missing from the packet; verified numerically.
+- **nodeId:** Polylogarithms:P.2/certified-numerics; **verdict:** corrected; **note:** The truncation step converges only like 1/N at the sixth roots of unity, and a geometric expansion near the circle is added (recorded as a gap); the input is made exact and the output rational, since otherwise the error theorem is satisfied by D itself; known_value claimed an exact value that is not exact; the error theorem is split into its own node (PROTOCOL section 2); tests given kinds.
+- **nodeId:** Polylogarithms:P.2/certified-numerics-error; **verdict:** added; **note:** Split from certified-numerics: the error theorem is what P.6 consumes.
+- **nodeId:** Polylogarithms:P.3/polylogarithmic-complex; **verdict:** corrected; **note:** Its prerequisites P.4/higher-bloch-group and P.4/delta-map created the stage cycle P.3 <-> P.4 (P.4 requires P.3), and the reserved id is for n <= 3; the node now builds the weight <= 3 complexes on GR v5's explicit groups (B_2 from K3BlochGroups V.3, B_3 from the new node trilogarithm-group), which is what GR's weight-three and weight-four proofs use and what the stage asks for; the general weight moves to P.4/general-polylog-complex; the wedge product (ExteriorAlgebra.gradedAlgebra) and the V.3 node ids are cited; the weight-two identification had the sign of V.3's boundary wrong; API and tests completed.
+- **nodeId:** Polylogarithms:P.3/trilogarithm-group; **verdict:** added; **note:** The stage asks for 'the weight-three polylogarithmic groups and relations of the adopted Goncharov model', which the packet never constructed; GR's weight-three and weight-four arguments use this explicit group.
+- **nodeId:** Polylogarithms:P.3/weight-three-complex; **verdict:** corrected; **note:** Proof step 3 and acceptance 2 located the vanishing in rationality, but x wedge x = 0 in Lambda^2 of any abelian group; acceptance 3 confused well-definedness with d^2 = 0 and is removed; the P.4 prerequisites (a stage cycle) are replaced; the planet is dropped, since the node is a check (PROTOCOL section 14).
+- **nodeId:** Polylogarithms:P.3/exterior-residue; **verdict:** added; **note:** The residue on Lambda^n of the units is needed by the weight-three residue and by P.5; K2SymbolsBrauer T.3 builds residues on K_2 and Milnor K-theory, not on exterior powers, so the old request was a near miss.
+- **nodeId:** Polylogarithms:P.3/residues-and-transfers; **verdict:** corrected; **note:** The source cited (the GR sentence on R_n) states neither residues nor transfers, and Goncharov (75) is cited instead; the transfer recipe was wrong (Lambda^3 of the norm composed with restriction is [L:F]^3, not [L:F]) and no source read constructs a transfer on these complexes, so it is a gap; 'projection formula' named the degree formula; the vacuous test unramified_first_term is replaced; the integral 2-torsion defect recorded.
+- **nodeId:** Polylogarithms:P.3/k-theory-comparison-weight-three; **verdict:** corrected; **note:** The statement mapped from the Adams graded piece, but the source's maps vanish on the rank filtration and gr^rk = gr_gamma is Suslin's conjecture; the 'proven degree range' was never stated; the excerpt misquoted 'i > 0' as 'i >= 0' and was over 300 characters; MotivicEtaleKTheory:M.7 was the wrong supplier (S.6 and M.6); the node is split into the maps, the regulator compatibility and the Milnor-degree comparison.
+- **nodeId:** Polylogarithms:P.3/trilogarithm-regulator-borel; **verdict:** added; **note:** Split from k-theory-comparison-weight-three (PROTOCOL section 2).
+- **nodeId:** Polylogarithms:P.3/milnor-degree-comparison; **verdict:** added; **note:** Split from k-theory-comparison-weight-three: the proved degree of the comparison.
+- **nodeId:** Polylogarithms:P.3/weight-three-special-value; **verdict:** corrected; **note:** The normalisation was left as 'an explicit power of pi' and the proof step invited pi^{3(r_1+r_2)}, which is wrong: it is pi^{3 r_2} (checked on Q and Q(i)); Borel's theorem relating zeta values to the regulator is BorelRegulators R.5, not R.3 (ranks), and R.3 is cited by its reserved id; the 'for any family' half is recorded as not established; a concrete instance added; planet renamed from the source ('proving Zagier's conjecture for zeta_F(3)', GR v5 p. 10).
+- **nodeId:** Polylogarithms:P.4/delta-map; **verdict:** corrected; **note:** Its content used B_{n-1} and B_n without listing them, while higher-bloch-group listed it: a hidden cycle; the descent ('prove by induction ...') is a non-routine theorem, now the lemma specialization-and-delta; the weight-two comparison with V.3 had the wrong sign; the claim that the source fixes delta_n{0} for n >= 3 is false (source issue E3); the stage prerequisite K3BlochGroups:V.3 is replaced by node ids in the comparison node.
+- **nodeId:** Polylogarithms:P.4/specialization-and-delta; **verdict:** added; **note:** The descent of delta_n was asserted as a routine step; it is the specialisation argument, with a gap for Goncharov 1995.
+- **nodeId:** Polylogarithms:P.4/explicit-to-inductive-comparison; **verdict:** added; **note:** The identification of the explicit and inductive groups is a theorem, not a definition, and was missing; it carries the sign against V.3.
+- **nodeId:** Polylogarithms:P.4/general-polylog-complex; **verdict:** added; **note:** The general-weight complex moves here from P.3, which restores the atlas order P.3 -> P.4.
+- **nodeId:** Polylogarithms:P.4/goncharov-comparison-conjecture; **verdict:** added; **note:** The comparison proposition of Zagier's statement needs its own statement with its proved cases.
+- **nodeId:** Polylogarithms:P.4/polylog-on-higher-bloch; **verdict:** added; **note:** Consumed by the Zagier determinant, the weight-four theorem and the higher Bloch group tests; it was an acceptance line of higher-bloch-group with no node.
+- **nodeId:** Polylogarithms:P.4/higher-bloch-group; **verdict:** corrected; **note:** The weight-two group was identified with the rationalised Bloch group of V.3, which is a kernel; GR's B_2 is the rationalised pre-Bloch group, and the identification is a theorem for infinite fields (Suslin), not a definition; delta-map and this node listed each other in content, and the definition is recast as one recursion producing R_n and delta_n on Q[F], with the descent in delta-map; the excerpt was 394 characters and is split; the P.1 prerequisites belong to polylog-on-higher-bloch; API (module structure, mk_zero, mk_inv with its proof, map_id, map_comp) and tests completed.
+- **nodeId:** Polylogarithms:P.4/condition-o-n; **verdict:** corrected; **note:** The name is the glyph *_n (checked on the page image), not 'o_n'; the claim 'decidable against a presentation' is unsupported for n >= 3 and is withdrawn; the unsourced claim that Zagier's beta_n are 'compared' is withdrawn; the API predicate is renamed; tests made concrete.
+- **nodeId:** Polylogarithms:P.4/zagier-determinant; **verdict:** corrected; **note:** The normalisation was claimed 'exactly as displayed' but only weight four is displayed; the general-weight normalisation (pi^{n r_2} for odd n, pi^{n(r_1+r_2)} for even n) is now stated and checked on Q and Q(i), with a gap for Zagier 1990; the index type depends on the parity; NumberField.Units.regulator (a 'pattern') is dropped; the weight-one proof step contradicted n >= 2; tests replaced by concrete computations.
+- **nodeId:** Polylogarithms:P.4/zagier-statement; **verdict:** corrected; **note:** The third proposition claimed a nonzero rational multiple for every family, which is false (dependent families; GR Theorem 1.2 says q in Q); the acceptances claimed all three propositions are theorems in weights two, three and four, but the weight-four comparison is GR Conjecture 1.4 and weight three is unsourced beyond existence; the weight-two comparison is Suslin's, not Zagier's; the match named the wrong proposition; the excerpt misquoted *_4; planet renamed from the source ('Zagier's conjecture').
+- **nodeId:** Polylogarithms:P.4/weight-four-theorem; **verdict:** corrected; **note:** The statement ('up to a nonzero rational') was not the source's exact equality, and the exact equality is false when r_2 = 0 (source issue E2); normalisation and numbering added; Borel's theorem (R.5), the descended L_4 and the zeta and discriminant declarations added as prerequisites; the circular dependence on zagier-statement removed; part (b)'s dependence on the conjectural B_3 = B_3^ind recorded as a gap; a concrete instance for Q(i) added (verified numerically); the sources now cite the version of record.
+- **nodeId:** Polylogarithms:P.4/freeness-extension; **verdict:** corrected; **note:** The node said the sequence is not proved in the source, but GR Theorem 1.14(c) proves it for the combinatorial L_4 with B_4 in L_4; only the motivic version is a prediction; the weight-two acceptance confused the two versions.
+- **nodeId:** Polylogarithms:P.5/curve-polylogarithmic-complex; **verdict:** corrected; **note:** The only source was the abstract; Goncharov Section 6.1 and (75) now cited; the weight-two residue on Lambda^2 is supplied by P.3/exterior-residue with its tame-symbol comparison; the integral 2-torsion defect recorded; the audited Tau Ceti place API (Place, ord, ResidueField, residueUnit, finite_setOf_ord_ne_zero), read at the pinned commit, is cited; transfers removed (gap); the weak tests replaced by computations.
+- **nodeId:** Polylogarithms:P.5/weight-two-regulator-form; **verdict:** corrected; **note:** The only source (GR, on D) does not state the form: Goncharov (13) and (85) cited; the Steinberg relation 'up to an exact form' is vacuous and is replaced by the exact identity; the residue behaviour made the exact current identity with the tame symbol; API completed (bilinearity, constants, conjugation, relation to r_1); EllipticRegulators:ER.2 removed from the prerequisites (it reversed the confirmed fix RT-AREA-ktheory-2/7 and closed a cycle); the use 'zero-dimensional case' was false; tests with kinds.
+- **nodeId:** Polylogarithms:P.5/unramified-weight-two-class; **verdict:** added; **note:** The stage asks to 'prove that unramified classes define the relevant global motivic/Deligne classes', which no node realised; the Deligne identification is conditional on M.8.
+- **nodeId:** Polylogarithms:P.5/chow-dilogarithm; **verdict:** added; **note:** The Chow dilogarithm was constructed inside a theorem node with no API or tests; the normalisation is corrected (source issue E12, verified by quadrature).
+- **nodeId:** Polylogarithms:P.5/strong-reciprocity-implies-suslin; **verdict:** added; **note:** The comparison with Suslin's law claimed by the deleted node, stated as the lemma it is.
+- **nodeId:** Polylogarithms:P.5/r-form; **verdict:** added; **note:** Split from r-forms-and-distributions (a definition, a theorem and a lemma in one node).
+- **nodeId:** Polylogarithms:P.5/r-forms-and-distributions; **verdict:** corrected; **note:** Proof step 4 (the form kills Steinberg-type relations) is false: r_1((1 - z) wedge z) = -i dD(z) != 0, and Lambda^m needs only multilinearity and alternation; the acceptance 'for a constant function the form vanishes' is false (r_1(c wedge f) = i log|c| d arg f); the definition is split into P.5/r-form; the locator was a TeX label; exteriorPower.map (functoriality) replaced by the universal property; the resolution input (R09.7) and the currents gap recorded.
+- **nodeId:** Polylogarithms:P.5/residue-map; **verdict:** added; **note:** Goncharov's Res on a normal variety was used by the regulator but not planned.
+- **nodeId:** Polylogarithms:P.5/r-form-differential; **verdict:** added; **note:** Proposition 2.8 was used by the chain-map proof but not planned; its sign is source issue E21.
+- **nodeId:** Polylogarithms:P.5/simplex-form; **verdict:** added; **note:** The form r_{m-1}(L; H) and Corollary 2.9 are used by the regulator and the Chow polylogarithm.
+- **nodeId:** Polylogarithms:P.5/goncharov-deligne-complex; **verdict:** added; **note:** The target of Goncharov's regulator is his explicit complex, not tau_{<=2n} of Deligne's complex; it is P.5's own object.
+- **nodeId:** Polylogarithms:P.5/goncharov-deligne-complex-comparison; **verdict:** added; **note:** Proposition 2.1, the only place M.8's Deligne complex is needed.
+- **nodeId:** Polylogarithms:P.5/regulator-map-on-higher-chow; **verdict:** corrected; **note:** The domain's owner MotivicEtaleKTheory:M.4 was neither a prerequisite nor requested; the target is Goncharov's C_D(X; n), only quasi-isomorphic to tau_{<=2n} (new nodes goncharov-deligne-complex and its comparison); the residue map, Proposition 2.8, the simplex form and resolution were missing (new nodes); Definition 2.11, Theorem 2.12 (a two-page proof) and the real statement are split; normalisations added; the spurious prerequisite curve-polylogarithmic-complex removed; tests with kinds.
+- **nodeId:** Polylogarithms:P.5/regulator-map-chain-map; **verdict:** added; **note:** Split from regulator-map-on-higher-chow (Theorem 2.12 has a two-page proof).
+- **nodeId:** Polylogarithms:P.5/regulator-map-real; **verdict:** added; **note:** Split from regulator-map-on-higher-chow; the stage asks to retain real/complex conjugation.
+- **nodeId:** Polylogarithms:P.5/chow-polylogarithm-forms; **verdict:** corrected; **note:** The locator 'Theorem 3.2' is Lemma 3.2; torus invariance is Theorem 3.3 and the excerpt changed the source's wording; acceptance 3 said identity (iii) fails below the top, but it is torus invariance that fails; proof step 2 copied the misprinted index r_{p+q} (source issue E13); spurious prerequisites (P.3's complex, the regulator map) removed and the simplex form added; Theorem 3.4 added; the Chow varieties recorded as a gap; tests with kinds.
+- **nodeId:** Polylogarithms:P.5/arakelov-motivic-complex; **verdict:** corrected; **note:** Wrong numbering (Definition 2.11 and Proposition 2.12 are 2.13 and 2.14) in the node and in readSections; 'the arithmetic Chow group of Gillet and Soule' over-claims: the source has (a version of) it for a complex variety; the cone is CochainComplex.mappingCone, not HomologicalComplex; the degree-zero identification split off with its unproved Gersten step as a gap; TeX-label locators replaced; a computed test added.
+- **nodeId:** Polylogarithms:P.5/higher-arakelov-chow-degree-zero; **verdict:** added; **note:** Split from arakelov-motivic-complex (Proposition 2.14) with its two gaps.
+- **nodeId:** Polylogarithms:P.5/regulator-induces-beilinson; **verdict:** added; **note:** Replaces chern-character-comparison-problem: the comparison is a published theorem (Burgos Gil-Feliu-Takeda, IMRN 2011, Theorem 6.18, read), and its suppliers are M.4, M.6 and M.8, not M.7.
+- **nodeId:** Polylogarithms:P.5/strong-reciprocity-conjecture; **verdict:** added; **note:** The conjecture as a Prop-valued statement, never a theorem; conventions pinned.
+- **nodeId:** Polylogarithms:P.5/reciprocity-second-triangle; **verdict:** added; **note:** Lemma 6.4, used by the proved cases.
+- **nodeId:** Polylogarithms:P.5/chow-dilogarithm-steinberg; **verdict:** added; **note:** Lemma 6.9, corrected (source issue E11, checked by quadrature).
+- **nodeId:** Polylogarithms:P.5/chow-dilogarithm-projective-line; **verdict:** added; **note:** Proposition 6.8, which had no node.
+- **nodeId:** Polylogarithms:P.5/reciprocity-projective-line; **verdict:** added; **note:** Theorem 6.5 with Proposition 6.6 and Lemma 6.7.
+- **nodeId:** Polylogarithms:P.5/chow-dilogarithm-families; **verdict:** added; **note:** Theorem 6.10 with Lemma 6.11.
+- **nodeId:** Polylogarithms:P.5/reciprocity-algebraic-numbers; **verdict:** added; **note:** Theorem 6.12 with Lemma 6.13; Borel injectivity requested from R.4.
+- **nodeId:** Polylogarithms:P.5/chow-dilogarithm-on-elliptic-curves; **verdict:** corrected; **note:** EllipticRegulators ER.2 and ER.3 were prerequisites, reversing the confirmed fix RT-AREA-ktheory-2/7 (a cycle) and used by no proof; acceptance 3 (the formula is the input for the elliptic dilogarithm) is not in the source; the analytic statement inherited the imaginary normalisation (E12); 'any linear functions' needs general position (E18); the plane-curve integral formula is split off; the unproved generation claim of Proposition 6.17 is source issue E17; TeX-label locators replaced.
+- **nodeId:** Polylogarithms:P.5/chow-dilogarithm-plane-curves; **verdict:** added; **note:** Split from chow-dilogarithm-on-elliptic-curves (Theorem 6.14 spans about three pages).
+- **nodeId:** Polylogarithms:P.5/weight-three-curve-regulator; **verdict:** corrected; **note:** It built the wrong object (the Chow trilogarithm lives on codimension-3 cycles of P^5, the weight-three regulator of a point); the curve regulator is the pair (rho_2, rho_3) of (83)-(84); Conjecture 6.3 in weight three is proved in the three cases, not open; the Eisenstein-Kronecker target was conditioned on EllipticRegulators ER.3, which owns only weight two, and is now a gap; unused prerequisites (the elliptic node, ER.3) removed; M.8 not needed.
+- **nodeId:** Polylogarithms:P.5/general-weight-reciprocity-conjecture; **verdict:** added; **note:** Conjecture 6.3 for n >= 4, stated separately as the stage's weight-three node demands.
+- **nodeId:** Polylogarithms:P.6/leopoldt-statement; **verdict:** corrected; **note:** The regulator was taken at the embeddings into the completions above p, whose number is unrelated to r = r_1 + r_2 - 1 (Q(sqrt 2) with 7 split gives a 2 x 1 matrix); the node also proved the equivalence (split into padic-regulator and leopoldt-equivalence); the p-adic logarithm belongs to PadicHodgeRegulators D.1, not D.3 (the unramified p > 3 theorem); the GR excerpt does not state Leopoldt, and Neukirch-Schmidt-Wingberg Section X.3, freely available and read, is cited; the archimedean regulator was not used and is replaced by the unit-group declarations; tests restated as tests.
+- **nodeId:** Polylogarithms:P.6/padic-regulator; **verdict:** added; **note:** The p-adic regulator as the source defines it, split from leopoldt-statement.
+- **nodeId:** Polylogarithms:P.6/leopoldt-equivalence; **verdict:** added; **note:** The equivalence the stage asks to prove, split from the definition node.
+- **nodeId:** Polylogarithms:P.6/tests; **verdict:** corrected; **note:** 'The weight-three differential identity' was never stated and no P.3 or P.5 node was a prerequisite; the five-term test 'with the error bound smaller than the claimed gap' is incoherent for an identity equal to 0; explicit points given (verified); the V.6 node ids replace the stage.
