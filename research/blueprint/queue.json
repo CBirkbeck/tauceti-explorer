@@ -38694,8 +38694,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-DOR-23.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5001"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #5001",
+   "finishedAt": "2026-09-30T19:49:32Z"
   },
   {
    "id": "RT-PAPER-ICHINO-PRASANNA-23",
@@ -40792,8 +40793,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-BOCKLE-HARRIS-KHARE-ETAL-19.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5014"
+   "state": "pending",
+   "note": "released on GitHub issue #5014"
   },
   {
    "id": "RT-PAPER-LAWRENCE-VENKATESH-20",
