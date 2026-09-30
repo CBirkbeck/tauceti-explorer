@@ -1,3 +1,6 @@
+import Mathlib.NumberTheory.DirichletCharacter.Bounds
+import Mathlib.Analysis.Normed.Group.Ultra
+import Mathlib.Algebra.BigOperators.Intervals
 import TauCeti.NumberTheory.LocalField.Teichmuller
 import Mathlib.NumberTheory.LegendreSymbol.ZModChar
 import Mathlib.Algebra.Ring.Int.Units
@@ -14913,3 +14916,121 @@ example (u : ℤ_[3]ˣ) : Filter.Tendsto (fun n : ℕ => (u : ℤ_[3])^(3^n)) Fi
 -- frobenius_dyadic_limit
 example : Filter.Tendsto (fun n : ℕ => (-1 : ℤ_[2])^(2^n)) Filter.atTop (nhds 1) := by sorry
 end SuggestedTeichmullerAngularTests
+
+/-! Finite arithmetic means used by KL and Morita. A natural test sequence is
+used here; analytic functions enter later through their sampled angular values. -/
+namespace DirichletPadic
+noncomputable section
+open scoped BigOperators
+
+def moritaModulus (p : ℕ) : ℕ := if p = 2 then 4 else p
+lemma moritaModulus_two : moritaModulus 2 = 4 := by sorry
+lemma moritaModulus_odd (p : ℕ) (h : p ≠ 2) : moritaModulus p = p := by sorry
+lemma moritaModulus_pos (p : ℕ) [Fact p.Prime] : 0 < moritaModulus p := by sorry
+lemma moritaModulus_prime_dvd (p : ℕ) : p ∣ moritaModulus p := by sorry
+
+def moritaLevel (p f n : ℕ) : ℕ := Nat.lcm f (moritaModulus p) * moritaModulus p ^ n
+lemma moritaLevel_zero (p f : ℕ) : moritaLevel p f 0 = Nat.lcm f (moritaModulus p) := by sorry
+lemma moritaLevel_succ (p f n : ℕ) : moritaLevel p f (n+1) = moritaModulus p * moritaLevel p f n := by sorry
+lemma moritaLevel_pos (p f n : ℕ) [Fact p.Prime] (hf : 0 < f) : 0 < moritaLevel p f n := by sorry
+lemma moritaLevel_conductor_dvd (p f n : ℕ) : f ∣ moritaLevel p f n := by sorry
+lemma moritaLevel_modulus_dvd (p f n : ℕ) : moritaModulus p ∣ moritaLevel p f n := by sorry
+lemma moritaLevel_prime_dvd (p f n : ℕ) : p ∣ moritaLevel p f n := by sorry
+
+variable {K : Type*} [Field K] {f : ℕ}
+/-- The finite mean is linear on natural test sequences; no topology is imposed. -/
+def moritaFiniteMean (p : ℕ) (χ : DirichletCharacter K f) (n : ℕ) : (ℕ → K) →ₗ[K] K := by sorry
+lemma moritaFiniteMean_apply (p : ℕ) (χ : DirichletCharacter K f) (n : ℕ) (F : ℕ → K) :
+    moritaFiniteMean p χ n F = (moritaLevel p f n : K)⁻¹ * ∑ a ∈ Finset.range (moritaLevel p f n),
+      if p ∣ a then 0 else χ (a : ZMod f) * F a := by sorry
+lemma moritaFiniteMean_zero (p : ℕ) (χ : DirichletCharacter K f) (n : ℕ) :
+    moritaFiniteMean p χ n 0 = 0 := by sorry
+lemma moritaFiniteMean_add (p : ℕ) (χ : DirichletCharacter K f) (n : ℕ) (F G : ℕ → K) :
+    moritaFiniteMean p χ n (F+G) = moritaFiniteMean p χ n F + moritaFiniteMean p χ n G := by sorry
+lemma moritaFiniteMean_smul (p : ℕ) (χ : DirichletCharacter K f) (n : ℕ) (c : K) (F : ℕ → K) :
+    moritaFiniteMean p χ n (c • F) = c * moritaFiniteMean p χ n F := by sorry
+lemma moritaFiniteMean_congr (p : ℕ) (χ : DirichletCharacter K f) (n : ℕ) (F G : ℕ → K)
+    (h : ∀ a < moritaLevel p f n, ¬p ∣ a → F a = G a) :
+    moritaFiniteMean p χ n F = moritaFiniteMean p χ n G := by sorry
+lemma moritaFiniteMean_normalization [CharZero K] (p : ℕ) [Fact p.Prime] (hf : 0 < f)
+    (χ : DirichletCharacter K f) (n : ℕ) (F : ℕ → K) :
+    (moritaLevel p f n : K) * moritaFiniteMean p χ n F = ∑ a ∈ Finset.range (moritaLevel p f n),
+      if p ∣ a then 0 else χ (a : ZMod f) * F a := by sorry
+lemma moritaFiniteMean_source_interval (p : ℕ) (χ : DirichletCharacter K f) (n : ℕ) (F : ℕ → K) :
+    moritaFiniteMean p χ n F = (moritaLevel p f n : K)⁻¹ * ∑ a ∈ Finset.Icc 1 (moritaLevel p f n),
+      if p ∣ a then 0 else χ (a : ZMod f) * F a := by sorry
+lemma moritaMean_character_period (p : ℕ) (χ : DirichletCharacter K f) (n a z : ℕ) :
+    χ ((a + moritaLevel p f n * z : ℕ) : ZMod f) = χ (a : ZMod f) := by sorry
+lemma moritaMean_support_period (p f n a z : ℕ) :
+    p ∣ a + moritaLevel p f n * z ↔ p ∣ a := by sorry
+lemma moritaFiniteMean_blocks (p : ℕ) (χ : DirichletCharacter K f) (n : ℕ) (F : ℕ → K) :
+    moritaFiniteMean p χ (n+1) F = (moritaModulus p : K)⁻¹ * ∑ z ∈ Finset.range (moritaModulus p),
+      moritaFiniteMean p χ n (fun a => F (a + moritaLevel p f n * z)) := by sorry
+lemma moritaFiniteMean_difference [CharZero K] (p : ℕ) [Fact p.Prime]
+    (χ : DirichletCharacter K f) (n : ℕ) (F : ℕ → K) :
+    moritaFiniteMean p χ (n+1) F - moritaFiniteMean p χ n F = (moritaModulus p : K)⁻¹ * ∑ z ∈ Finset.range (moritaModulus p),
+      moritaFiniteMean p χ n (fun a => F (a + moritaLevel p f n * z) - F a) := by sorry
+lemma moritaFiniteMean_trivial_constant [CharZero K] (p : ℕ) [Fact p.Prime] (n : ℕ) :
+    moritaFiniteMean p (1 : DirichletCharacter K 1) n (fun _ => 1) = 1 - (p : K)⁻¹ := by sorry
+lemma moritaFiniteMean_norm {L : Type*} [NormedField L] [IsUltrametricDist L]
+    (p : ℕ) (χ : DirichletCharacter L f) (n : ℕ) (F : ℕ → L)
+    (B : ℝ) (hB : 0 ≤ B) (hF : ∀ a < moritaLevel p f n, ¬p ∣ a → ‖F a‖ ≤ B) :
+    ‖moritaFiniteMean p χ n F‖ ≤ ‖(moritaLevel p f n : L)⁻¹‖ * B := by sorry
+end
+end DirichletPadic
+namespace SuggestedMoritaFiniteMeanTests
+open scoped BigOperators
+open DirichletPadic
+-- modulus_dyadic
+example : moritaModulus 2 = 4 := by sorry
+-- modulus_odd
+example : moritaModulus 3 = 3 := by sorry
+-- modulus_not_two
+example : moritaModulus 2 ≠ 2 := by sorry
+-- level_initial
+example : moritaLevel 3 1 0 = 3 := by sorry
+-- level_dyadic_conductor
+example : moritaLevel 2 3 0 = 12 := by sorry
+-- level_dyadic_step
+example : moritaLevel 2 3 1 = 48 := by sorry
+-- level_overlap
+example : moritaLevel 2 8 0 = 8 := by sorry
+-- level_not_product
+example : moritaLevel 2 8 0 ≠ 8*4 := by sorry
+-- mean_zero
+example : moritaFiniteMean 3 (1 : DirichletCharacter ℚ 1) 0 (fun _ => 0) = 0 := by sorry
+-- mean_dyadic_constant
+example : moritaFiniteMean 2 (1 : DirichletCharacter ℚ 1) 0 (fun _ => 1) = 1/2 := by sorry
+-- mean_three_constant
+example : moritaFiniteMean 3 (1 : DirichletCharacter ℚ 1) 0 (fun _ => 1) = 2/3 := by sorry
+-- mean_dyadic_linear
+example : moritaFiniteMean 2 (1 : DirichletCharacter ℚ 1) 0 (fun a => a) = 1 := by sorry
+-- mean_not_probability
+example : moritaFiniteMean 2 (1 : DirichletCharacter ℚ 1) 0 (fun _ => 1) ≠ 1 := by sorry
+-- mean_nonunits_ignored
+example (F G : ℕ → ℚ) (h1 : F 1=G 1) (h3 : F 3=G 3) :
+    moritaFiniteMean 2 (1 : DirichletCharacter ℚ 1) 0 F = moritaFiniteMean 2 (1 : DirichletCharacter ℚ 1) 0 G := by sorry
+-- mean_scaled_linear
+example : 4 * moritaFiniteMean 2 (1 : DirichletCharacter ℚ 1) 0 (fun a => a) = 4 := by sorry
+-- mean_endpoint_linear
+example (F : ℕ → ℚ) : moritaFiniteMean 2 (1 : DirichletCharacter ℚ 1) 0 F = (F 1 + F 3)/4 := by sorry
+-- character_period_twelve
+example (χ : DirichletCharacter ℚ 4) (a z : ℕ) : χ ((a+12*z : ℕ) : ZMod 4) = χ (a : ZMod 4) := by sorry
+-- character_period_missing_conductor
+example : (1 : ZMod 4) ≠ ((1+3 : ℕ) : ZMod 4) := by sorry
+-- support_period_three
+example (a z : ℕ) : 3 ∣ a+12*z ↔ 3 ∣ a := by sorry
+-- mean_block_dyadic
+example (F : ℕ → ℚ) : moritaFiniteMean 2 (1 : DirichletCharacter ℚ 1) 1 F =
+    (1/4) * ∑ z ∈ Finset.range 4, moritaFiniteMean 2 (1 : DirichletCharacter ℚ 1) 0 (fun a => F (a+4*z)) := by sorry
+-- mean_difference_dyadic_linear
+example : moritaFiniteMean 2 (1 : DirichletCharacter ℚ 1) 1 (fun a => a) -
+    moritaFiniteMean 2 (1 : DirichletCharacter ℚ 1) 0 (fun a => a) = 3 := by sorry
+-- mean_constant_all_levels
+example (n : ℕ) : moritaFiniteMean 2 (1 : DirichletCharacter ℚ 1) n (fun _ => 1) = 1/2 := by sorry
+-- mean_norm_dyadic
+example (F : ℕ → ℚ_[2]) (h : ∀ a < 4, ¬2 ∣ a → ‖F a‖ ≤ 1) :
+    ‖moritaFiniteMean 2 (1 : DirichletCharacter ℚ_[2] 1) 0 F‖ ≤ 4 := by sorry
+-- mean_norm_not_uniform_unit_bound
+example : ‖moritaFiniteMean 2 (1 : DirichletCharacter ℚ_[2] 1) 0 (fun _ => 1)‖ = 2 := by sorry
+end SuggestedMoritaFiniteMeanTests
