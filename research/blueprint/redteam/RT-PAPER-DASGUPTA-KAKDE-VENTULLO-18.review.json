@@ -1,0 +1,25 @@
+{
+  "redteam": "RT-PAPER-DASGUPTA-KAKDE-VENTULLO-18",
+  "findings": [
+    {
+      "finding": "RT-PAPER-DASGUPTA-KAKDE-VENTULLO-18/1",
+      "verdict": "confirmed",
+      "reason": "Confirmed the omission of shared imports in route 1. Read the complete brief, the named item notes, IHG.1/.4/.6 and I.7, the IHG packet, DK23 items 262,264,272,276,280-286, and published DKV pp.856-865. The m-residue field is E, of characteristic zero, so 1 and the nontrivial totally odd character chi remain distinct, even at p=2: the generalized-matrix-algebra/extension-module construction belongs to IHG.1. Add that explicit import and retain only the Hida-family specialization and Gross-Stark local calculations in the Part II. Qualify the proposed IHG.4 import: its scope gives the Frobenius density/continuity pattern, not integrality from density alone. The application must establish continuity and closedness of the coefficient subring and congruence ideal in the actual Lambda-adic topology (p.858, (54)-(55)); request any missing general closed-subring lemma from the common owner. IHG.6 is the separate residual-coincidence/local-condition branch and a comparison with I.7, not an unconditional replacement for this paper's distinct-character construction. The packet leaves IHG.1's GMA/extension modules partial and IHG.4/.6 not_read; these are planned suppliers, not existing Lean theorems. Mathlib's pinned Hensel input remains a library import. Keep the arithmetic choice of tau, Lemma 4.4, and the R/R-prime arguments of Lemmas 4.6-4.9 explicit."
+    },
+    {
+      "finding": "RT-PAPER-DASGUPTA-KAKDE-VENTULLO-18/2",
+      "verdict": "confirmed",
+      "reason": "Confirmed. The missing item rev-the-eisenstein-series-e-k is one of four items in the L0-only source route. Published pp.848-849, (29)-(30), actually use the swapped-character Eisenstein series and its Hida family. L0 owns ray-class quotient/evaluation data; the accepted RS-14 and L3 README assign Hilbert Eisenstein construction and congruences to AutomorphicPadicLFunctions:L3. The sibling extraction items eisenstein-series/eisenstein-family and DK23/208,/211 use L3. Mark this item planned at L3 and remove it from the L0 route; retain all its two-character Fourier, Hecke, specialization and congruence requirements in the item's owner note. Ordinary/Hida-family packaging imports PadicFamilies:L5, not a second construction at L0. Alternatively use a dedicated L3 source route if the detailed expansion must be queued explicitly. In-memory application of the planned-at-L3 correction passes check_paper with all 125 items retained and all 108 remaining missing items routed once. The Automorphic packet has L0 partial, L3 not_read and no DKV source; do not call the rerouting implemented mathematics."
+    },
+    {
+      "finding": "RT-PAPER-DASGUPTA-KAKDE-VENTULLO-18/3",
+      "verdict": "confirmed",
+      "reason": "Confirmed. RS-16 is accepted and explicitly narrows IntegralIwasawaTheory:I.3 to the pseudomeasure/Stickelberger normalization dictionary; the general totally-real Deligne-Ribet object comes from AutomorphicPadicLFunctions:L3. Route 1's reason and import paragraph still assign construction to I.3, although the brief also names L3. Published p.834 (3) and the deligne-ribet item require existence/interpolation, not the Stickelberger dictionary. The teichmuller-character item similarly requires the cyclotomic/torsion projection and the dyadic decomposition, owned by DirichletPadicLFunctions:L3 with the existing cyclotomic-character input; I.3 is not its builder. Remove I.3 from those two planned lists, rewrite the imports and retain I.3 only for a separately identified comparison actually used. Preserve the p=2 clause: the pinned TauCeti.teichmuller is a residue-field-unit lift and is trivial over F_2, not the sign character on Z_2 units. The claimed chronology is corroborated by PR #2275 merged at 2026-09-23T13:17:56Z and #2517 at 21:19:51Z."
+    },
+    {
+      "finding": "RT-PAPER-DASGUPTA-KAKDE-VENTULLO-18/4",
+      "verdict": "confirmed",
+      "reason": "Confirmed missing sourceVersions with 35 sourceIssues. Both URLs were opened and the PDFs independently hashed: published 974e64272b1883923fac951f86f3491593543d050c8efaf739e53342623fb659 and arXiv v1 0bc900e2c7c16fa9aff1147ec138d121b4798fab3b4deb76eed415ba7f409a99, matching the historical source.readSections receipts. Add the two top-level PROTOCOL section 18 records, attributing September 22 reading dates to those receipts rather than to this verifier. Prefer the working HTTPS journal URL for a new receipt. Also correct the associated readSections page count: v1 has 38 pages, verified by the downloaded PDF's page tree, final printed page 38 and arXiv's version page, not 33. This is a metadata correction, not a new mathematical source issue. The current checker only mandates version records for affects='a stated result'; its permissiveness does not remove the protocol obligation. This verifier read selected published sections and v1 comparison passages on September 30, not both papers in full."
+    }
+  ]
+}
