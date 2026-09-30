@@ -13,7 +13,7 @@ The target theorems are represented, but the packet does not yet provide a decla
 | Nodes | 46 | 60 |
 | Definition/construction API items | 45 | 62 |
 | Packet unit-test specifications | 36 | 56 |
-| Baseline declarations | 8 | 10 |
+| Indexed baseline declarations | 8 | 9 |
 | Open supplier requests | 17 | 15 |
 | Explicit gaps | 0 | 15 |
 | Planets | 21 | 20 |
@@ -58,11 +58,11 @@ Remaining finite-level bundles are named in the granularity gap. In particular t
 
 ## Baseline and ownership
 
-All eight original declarations were read in their pinned Mathlib modules: `IsReduced`, `Module.Free`, `MonoidAlgebra`, `Polynomial.Splits`, `Group.IsSolvable`, `Group.isSolvable_of_ker_le_range`, `Group.isSolvable_of_isSolvable_injective`, and `ZMod.neg_one_ne_one`. None is removed. The splitting predicate's claimed role is narrowed; the solvability extension lemma's actual kernel/range hypotheses are spelled out. These general declarations do not themselves prove the specialised Galois/image or matrix-group facts.
+All eight original declarations were read in their pinned Mathlib modules: `IsReduced`, `Module.Free`, `MonoidAlgebra`, `Polynomial.Splits`, `Group.IsSolvable`, `Group.isSolvable_of_ker_le_range`, `Group.isSolvable_of_isSolvable_injective`, and `ZMod.neg_one_ne_one`. None of the original eight is removed. The splitting predicate's claimed role is narrowed; the solvability extension lemma's actual kernel/range hypotheses are spelled out. These general declarations do not themselves prove the specialised Galois/image or matrix-group facts.
 
-Added `HenselianRing` and `IsAdicComplete.henselianRing`, reading `Mathlib/RingTheory/Henselian.lean` lines 94–99 and 170–171 at Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174`. Tau Ceti remains pinned to `f790474821cf4256814db967cb154e7af3d0c369`.
+Added `HenselianRing`, reading `Mathlib/RingTheory/Henselian.lean` lines 94–99, and checked its supporting `IsAdicComplete.henselianRing` instance at lines 170–171, at Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174`. Tau Ceti remains pinned to `f790474821cf4256814db967cb154e7af3d0c369`.
 
-The supplied text index omits the named completeness instance, although it is in the pinned source and Lean successfully synthesises it. For indexed checking, one explicit, source-verified index row was supplemented; the official checker was not modified and no baseline name was suppressed. Please repair the index generator's handling of named instances. A raw run with the unaugmented index reports that one false-negative lookup.
+The supplied text index omits the named completeness instance, although it is in the pinned source and Lean successfully synthesises it. The first CI run rejected a standalone baseline-reference row for that unindexed name. The final packet instead cites the indexed HenselianRing class as its prerequisite and records the existing supporting instance, full statement and source check in that entry's supportingEvidence. The supplier request explicitly requires the Henselian instance, supplied by completeness. No mathematics is removed or replaced by a proposed duplicate. The final official checker uses the **unmodified standard index**, without a supplement. Please repair the index generator's handling of named instances.
 
 Read the relevant reviewed audit entries for deformation/patching algebra, Hilbert/quaternionic forms and arithmetic image theory; there is no standalone GL₂ modularity-lifting audit row at this base. Read the concrete suppliers' statements, not just their names. Reused:
 
@@ -104,9 +104,9 @@ A bounded search of the publisher record, arXiv versions and title/author correc
 
 ## Validation and handoff
 
-The unchanged official `scripts/check_blueprint.py` check function, SHA-256 `c42583dceef772f2d94ac543fe07ee82392065113dbc63128d9a642402f7edb3`, reports **0 errors and 0 warnings**, using a read-only Git-backed repository context and the one verified index supplement. This avoids making a repository snapshot or disturbing the shared checkout. Additional checks cover exact allowed paths, intake privacy, whitespace, per-node review bijection, all source-issue verdicts and the concrete cross-packet dependency graph.
+The unchanged official `scripts/check_blueprint.py` check function, SHA-256 `c42583dceef772f2d94ac543fe07ee82392065113dbc63128d9a642402f7edb3`, reports **0 errors and 0 warnings**, using a read-only Git-backed repository context and the unmodified standard index. This avoids making a repository snapshot or disturbing the shared checkout. Additional checks cover exact allowed paths, intake privacy, whitespace, per-node review bijection, all source-issue verdicts and the concrete cross-packet dependency graph.
 
-The suggested file elaborates with Lean v4.34.0-rc2 and the existing Mathlib 082e2d3 build: **0 errors, 0 warnings**. Available RAM was 90 GiB; only one compile ran at a time and no library was built/downloaded. The actual active fragment includes pStar and its API, Hensel input and matrix regressions. High-level comment sketches are explicitly labelled incomplete; successful compilation does not validate them.
+The suggested file elaborates with Lean v4.34.0-rc2 and the existing Mathlib 082e2d3 build: **0 errors, 0 warnings**. Available RAM was 90 GiB; only one compile ran at a time and no library was built/downloaded. The actual active fragment includes pStar and its three API entries, Hensel input and matrix regressions. High-level comment sketches are explicitly labelled incomplete; successful compilation does not validate them.
 
 Orchestrator actions: keep the packet unaccepted; route the fifteen exact gaps and outstanding requests; arrange the README and out-of-file consumer synchronisation after these splits; repair the named-instance index omission. The README is not an allowed deliverable of #412 and was therefore not edited. Resume from the packet's `gaps` and per-node `review.checked`, not the earlier source-decomposed flags.
 

@@ -79,14 +79,13 @@
         "kind": "class",
         "module": "Mathlib/RingTheory/Henselian.lean",
         "provides": "For a commutative ring R and ideal I, includes simple-root lifting for monic f: f(a₀) ∈ I and the derivative a unit modulo I imply a root a congruent to a₀ modulo I.",
-        "checked": "Full class statement read at the pinned commit, lines 94–99, 2026-09-30."
-      },
-      {
-        "ref": "mathlib:IsAdicComplete.henselianRing",
-        "kind": "instance",
-        "module": "Mathlib/RingTheory/Henselian.lean",
-        "provides": "An I-adically complete commutative ring is Henselian at I. Apply to the maximal ideal of the complete local Hecke algebra, after supplying that completeness.",
-        "checked": "Full instance statement read at the pinned commit, lines 170–171, 2026-09-30."
+        "checked": "Full class statement read at the pinned commit, lines 94–99, 2026-09-30.",
+        "supportingEvidence": {
+          "declaration": "IsAdicComplete.henselianRing",
+          "module": "Mathlib/RingTheory/Henselian.lean",
+          "statement": "An I-adically complete commutative ring is Henselian at I. Apply to the maximal ideal of the complete local Hecke algebra, after supplying that completeness.",
+          "checked": "Full instance statement read at the pinned commit, lines 170–171, 2026-09-30. The standard index omits this named instance; the suggested file also checks typeclass synthesis. It is an existing instance supplying the HenselianRing class, not a new planned declaration."
+        }
       }
     ]
   },
@@ -793,7 +792,6 @@
         "mathlib:Polynomial.Splits",
         "AutomorphicGaloisRepresentations:R19.6",
         "mathlib:HenselianRing",
-        "mathlib:IsAdicComplete.henselianRing",
         "AutomorphicGaloisRepresentations:R19.6/hecke-algebra-representation-quaternionic"
       ],
       "library": {
@@ -4067,7 +4065,7 @@
   "requests": [
     {
       "supplier": "HilbertModularVarietiesAndShimuraCurves:R18.6",
-      "need": "Definite quaternionic forms S_{τ,ψ}(U, A) with the weight modules W_k (including the p = 2 extension of W_2 to non-compact U with U_v = D_v^× at Σ), the Hecke algebras 𝕋_ψ(U) and 𝕋_{ψ,Q}(U_Q) with T_v, S_v, U_v and ⟨h⟩, non-Eisenstein localisation, finiteness, reducedness and the Jacquet–Langlands identification of 𝒪′-points with π. Also the isotropy groups and their Sylow exponents (KW II §7.2), the freeness criterion (KW II Lemma 7.4, Gee Proposition 5.4(2)), the Ihara-type lemma (KW II Lemma 7.1) and the dyadic twist f ↦ f_χ (KW II Proposition 7.6). Supply completeness of the local Hecke algebra at its maximal ideal to apply the pinned HenselianRing lifting statement.",
+      "need": "Definite quaternionic forms S_{τ,ψ}(U, A) with the weight modules W_k (including the p = 2 extension of W_2 to non-compact U with U_v = D_v^× at Σ), the Hecke algebras 𝕋_ψ(U) and 𝕋_{ψ,Q}(U_Q) with T_v, S_v, U_v and ⟨h⟩, non-Eisenstein localisation, finiteness, reducedness and the Jacquet–Langlands identification of 𝒪′-points with π. Also the isotropy groups and their Sylow exponents (KW II §7.2), the freeness criterion (KW II Lemma 7.4, Gee Proposition 5.4(2)), the Ihara-type lemma (KW II Lemma 7.1) and the dyadic twist f ↦ f_χ (KW II Proposition 7.6). Supply the HenselianRing instance at the maximal ideal of the local Hecke algebra, obtained from maximal-ideal-adic completeness using the existing pinned instance in Mathlib/RingTheory/Henselian.lean.",
       "neededBy": [
         "GL2ModularityLifting:R22.1/minimal-level-data",
         "GL2ModularityLifting:R22.2/auxiliary-level-groups",
@@ -4763,7 +4761,7 @@
     "status": "needs_changes",
     "reviewer": "independent-review-REV-GL2ModularityLifting--R22.1",
     "date": "2026-09-30",
-    "notes": "Independent review of all 46 original nodes and 14 split-out declarations, all eight original baseline citations plus two Henselian inputs, the fine/stage suppliers, all nine source issues, tests, planets and suggested file. Corrected statement-level errors and proof steps; recorded 15 precise gaps and retained 15 open requests. The suggested arithmetic/matrix fragment compiles at Mathlib082e2d3, but missing typed roadmap APIs and unresolved named proof inputs preclude acceptance. Published Dieulefait–Pacetti text was collated; E9 affects its proof, not the lemma's conclusion.",
+    "notes": "Independent review of all 46 original nodes and 14 split-out declarations, all eight original baseline citations plus the Henselian class and its source-verified supporting completeness instance, the fine/stage suppliers, all nine source issues, tests, planets and suggested file. Corrected statement-level errors and proof steps; recorded 15 precise gaps and retained 15 open requests. The suggested arithmetic/matrix fragment compiles at Mathlib082e2d3, but missing typed roadmap APIs and unresolved named proof inputs preclude acceptance. Published Dieulefait–Pacetti text was collated; E9 affects its proof, not the lemma's conclusion.",
     "checked": [
       {
         "nodeId": "GL2ModularityLifting:R22.1/minimal-level-data",
