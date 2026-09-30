@@ -13,7 +13,7 @@
   "MotivesAndAlgebraicCycles:MC.6",
   "MotivesAndAlgebraicCycles:MC.7"
  ],
- "summary": "Algebraic cycles, pure and mixed motives, planned from four freely available sources read in full for the parts used: the Stacks Project's chapter on Weil cohomology theories for correspondences, Chow motives and the axiomatics of a realisation; Jannsen's 1992 paper, read from the author's institutional repository, for the semisimplicity of numerical motives; Huber and Mueller-Stach's paper on Nori motives and Kontsevich periods for the diagram construction and the formal period torsor; and Mazza, Voevodsky and Weibel's Clay lecture notes for the geometric mixed motives that survive the narrowing RS-08 imposes on MC.4. MC.0 builds the graded category of correspondences over Q and the equivalence relations; MC.1 builds the Chow motives with their tensor structure, twists, duality, Chow groups and the projective bundle formula; MC.2 owns what a realisation is, ending in the equivalence between classical Weil cohomology theories and Q-linear symmetric monoidal functors on motives; MC.3 is Jannsen's theorem with the trace formula, the Wedderburn lemma, the dual numbers non-example, the radical computation and the Tannakian conclusion after the sign change; MC.4 is left partial and plans only what RS-08 assigns it, importing the cycle complexes from MotivicEtaleKTheory:M.4 and the finite correspondences, the effective category and cancellation from M.5a; MC.5 and MC.6 build Nori's diagram categories, the motivic Galois group and the torsor of formal periods; MC.7 is left partial with the two conjectures the sources state precisely and the register of known cases, and with the Hodge and Tate conjectures named as remaining rather than written from memory. The Chow groups themselves, the intersection product and every cohomology theory are imported through six requests and are planned nowhere in this packet.",
+ "summary": "Algebraic cycles, pure and mixed motives, planned from four freely available sources read in full for the parts used: the Stacks Project's chapter on Weil cohomology theories for correspondences, Chow motives and the axiomatics of a realisation; Jannsen's 1992 paper, read from the author's institutional repository, for the semisimplicity of numerical motives; Huber and Mueller-Stach's paper on Nori motives and Kontsevich periods for the diagram construction and the formal period torsor; and Mazza, Voevodsky and Weibel's Clay lecture notes for the geometric mixed motives that survive the narrowing RS-08 imposes on MC.4. MC.0 builds the graded category of correspondences over Q and the equivalence relations; MC.1 builds the Chow motives with their tensor structure, twists, duality, Chow groups and the projective bundle formula; MC.2 owns what a realisation is, ending in the equivalence between classical Weil cohomology theories and Q-linear symmetric monoidal functors on motives; MC.3 is Jannsen's theorem with the trace formula, the Wedderburn lemma, the dual numbers non-example, the radical computation and the Tannakian conclusion after the sign change; MC.4 is left partial and plans only what RS-08 assigns it, importing the cycle complexes from MotivicEtaleKTheory:M.4 and the finite correspondences, the effective category and cancellation from M.5a; MC.5 and MC.6 build Nori's diagram categories, the motivic Galois group and the torsor of formal periods; MC.7 is left partial with the two conjectures the sources state precisely and the register of known cases, and with the Hodge and Tate conjectures named as remaining rather than written from memory. The Chow groups themselves, the intersection product and every cohomology theory are imported through six requests and are planned nowhere in this packet. FIX-RT-AREA-iwasawa-3~2: MC.5 exports the effective/localized Nori diagram/category and coefficient maps; MC.6 exports the single formal-period presentation P_eff, its Tate localization P and inverse, the effective-then-localized comparison and the period torsor/complex point. PS.2 imports them and owns the integration/evaluation application. The original partial status, gaps and requests remain.",
  "baseline": {
   "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
   "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -639,6 +639,42 @@
     "module": "TauCeti/AlgebraicTopology/Singular/Relative.lean",
     "provides": "The relative singular homology of a topological pair (Mathlib's TopPair) in degree n with coefficients in an object of a category with homology (line 165), functorial in the pair.",
     "checked": "statement read at the pinned commit by REV-MotivesAndAlgebraicCycles (R3)"
+   },
+   {
+    "ref": "mathlib:IsLocalization.Away.invSelf",
+    "module": "Mathlib/RingTheory/Localization/Away/Basic.lean",
+    "provides": "The explicit inverse of the localized image of the inverted element; reused for FormalPeriods.tateInverse.",
+    "checked": "Actual statement read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by Codex codex-5ebb6f, 30 September 2026."
+   },
+   {
+    "ref": "mathlib:IsLocalization.Away.mul_invSelf",
+    "module": "Mathlib/RingTheory/Localization/Away/Basic.lean",
+    "provides": "algebraMap R S x * invSelf x = 1 for an Away localization; reused for the Tate inverse API/test.",
+    "checked": "Actual statement read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by Codex codex-5ebb6f, 30 September 2026."
+   },
+   {
+    "ref": "mathlib:IsLocalization.Away.lift",
+    "module": "Mathlib/RingTheory/Localization/Away/Basic.lean",
+    "provides": "Extend a ring map g:R->P to a localization away from x when g(x) is a unit. PS.2 imports this for evaluation; no new localization theorem is planned.",
+    "checked": "Actual statement read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by Codex codex-5ebb6f, 30 September 2026."
+   },
+   {
+    "ref": "mathlib:IsLocalization.algEquivOfAlgEquiv",
+    "module": "Mathlib/RingTheory/Localization/Basic.lean",
+    "provides": "An algebra equivalence carrying the source submonoid to the target induces an equivalence of their localizations, compatibly with canonical maps. Reused for the effective-to-localized comparison.",
+    "checked": "Actual statement read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by Codex codex-5ebb6f, 30 September 2026."
+   },
+   {
+    "ref": "mathlib:Polynomial.not_isUnit_X",
+    "module": "Mathlib/Algebra/Polynomial/Degree/Operations.lean",
+    "provides": "The polynomial variable is not a unit over a nontrivial coefficient ring, including Q; the negative effective Tate test.",
+    "checked": "Actual statement read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by Codex codex-5ebb6f, 30 September 2026."
+   },
+   {
+    "ref": "mathlib:LaurentPolynomial.T_add",
+    "module": "Mathlib/Algebra/Polynomial/Laurent.lean",
+    "provides": "T(m+n)=T(m)*T(n), together with T(0)=1, verifies the inverse in the Laurent Tate model.",
+    "checked": "Actual statement read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 by Codex codex-5ebb6f, 30 September 2026."
    }
   ]
  },
@@ -5784,7 +5820,8 @@
    "acceptance": [
     "The assumption of rank one is essential: the localisation is at an invertible object and there is nothing to invert otherwise.",
     "The extension is unique, so the localised theory is determined by the effective one together with the choice of vertex.",
-    "Localising the coalgebra at a group-like element is the algebraic counterpart of inverting the corresponding object."
+    "Localising the coalgebra at a group-like element is the algebraic counterpart of inverting the corresponding object.",
+    "Export the effective diagram, its localization at f_0, the extended representation and the canonical coefficient map A^eff -> A=A^eff[chi^-1] together. For Nori motives f_0=(G_m,{1},1) has rank-one fibre Q and is 1(-1). MC.6 and PeriodsAndSpecialValues:PS.2 import this same supplier package; the canonical localization map, not an arbitrary ring homomorphism, is meant in the algebra statement."
    ],
    "prerequisites": [
     "MotivesAndAlgebraicCycles:MC.5/graded-multiplicative-diagram",
@@ -5858,6 +5895,10 @@
     {
      "where": "MotivesAndAlgebraicCycles:MC.6/formal-periods",
      "how": "the algebra of formal periods is the localisation of the effective one at the period of that same pair"
+    },
+    {
+     "where": "PeriodsAndSpecialValues:PS.2",
+     "how": "imports the effective/localized Nori diagram-category and coefficient-algebra exports through MC.6; it does not construct a second Nori category"
     }
    ],
    "tests": [
@@ -6169,7 +6210,8 @@
    "acceptance": [
     "The sign convention is part of the theorem and is that of Definition B.14 (2)-(3).",
     "The localisation statement identifies MM_Nori with the localisation of MM^eff_Nori at 1(-1), which makes the twist invertible.",
-    "H^1_Nori(G_m, {1}) tensor H^1_Nori(G_m, {1}) has fibre H^2(C^* x C^*, C^* x {1} union {1} x C^*; Q) = Q."
+    "H^1_Nori(G_m, {1}) tensor H^1_Nori(G_m, {1}) has fibre H^2(C^* x C^*, C^* x {1} union {1} x C^*; Q) = Q.",
+    "The supplier export includes MM^eff_Nori -> MM_Nori, the rank-one Lefschetz object 1(-1) with its inverse in MM_Nori, and A^eff -> A^eff[chi^-1]. This is localization of Nori diagrams/categories (B.18/B.22), not Voevodsky-style Tate stabilization at MC.4 or localization of Chow motives at MC.1."
    ],
    "prerequisites": [
     "MotivesAndAlgebraicCycles:MC.5/nori-motives",
@@ -6903,7 +6945,7 @@
    ],
    "title": "Formal periods",
    "kind": "definition",
-   "statement": "The space of effective formal periods is the vector space over the rational numbers generated by symbols consisting of a variety over the rational numbers, a subvariety, a class in relative algebraic de Rham cohomology in degree d and a class in relative singular homology in degree d, modulo three families of relations: linearity in the last two entries; for every morphism of pairs, the equality of the symbol formed with the pullback of a de Rham class and the symbol formed with the pushforward of the homology class; and for every triple of nested subvarieties, the equality of the symbol formed with the connecting map in homology and the symbol formed with the connecting map in de Rham cohomology. It becomes an algebra by the product of pairs with the exterior product of the two entries. The space of formal periods is the localisation of the effective one at the period of the pair given by the multiplicative group, the point one, the logarithmic differential form and the unit circle.",
+   "statement": "The space of effective formal periods is the vector space over the rational numbers generated by symbols consisting of a variety over the rational numbers, a subvariety, a class in relative algebraic de Rham cohomology in degree d and a class in relative singular homology in degree d, modulo three families of relations: linearity in the last two entries; for every morphism of pairs, the equality of the symbol formed with the pullback of a de Rham class and the symbol formed with the pushforward of the homology class; and for every triple of nested subvarieties, the equality of the symbol formed with the connecting map in homology and the symbol formed with the connecting map in de Rham cohomology. It becomes an algebra by the product of pairs with the exterior product of the two entries. The space of formal periods is the localisation of the effective one at the period of the pair given by the multiplicative group, the point one, the logarithmic differential form and the unit circle. Write P_eff=P^+, L=(G_m,{1},dX/X,S^1) in P_eff and P=P_eff[L^-1]. Export the canonical map P_eff -> P and the explicit inverse of its image of L; L*L^-1=L^-1*L=1. The single algebra/presentation already planned here is imported by PeriodsAndSpecialValues:PS.2, which owns its integration/evaluation contract and verifies the localization rather than defining a duplicate formal-period algebra.",
    "hypotheses": [
     "The base field is the rational numbers.",
     "The relative de Rham and singular homology groups are those of the pair, in the same degree d.",
@@ -6918,13 +6960,18 @@
    "acceptance": [
     "All three relations are part of the definition; Kontsevich imposes the third only in a special case, and the source does not know whether his generators give all relations (Remark 2.9).",
     "The localisation is at one explicit element, the formal period of (G_m, {1}, dX/X, S^1), whose evaluation (constructed in PeriodsAndSpecialValues:PS.2) is 2πi.",
-    "The definition does not presuppose any category of mixed motives; it is a presentation by generators and relations."
+    "The definition does not presuppose any category of mixed motives; it is a presentation by generators and relations.",
+    "Representing ev(L)=2πi alone is insufficient: PS.2 must import P and use the localization universal property to extend the effective evaluation, with ev(L) nonzero, so that ev(L^-1)=(2πi)^-1. Neither injectivity nor the assertion that 1/π is not an effective numerical period is claimed."
    ],
    "prerequisites": [
     "MotivesAndAlgebraicCycles:MC.6/period-space-of-a-diagram",
     "MotivesAndAlgebraicCycles:MC.5/effective-pairs-diagram",
     "MotivesAndAlgebraicCycles:MC.5/diagram-localisation",
-    "SchemeAndStackFoundations:SF.2"
+    "SchemeAndStackFoundations:SF.2",
+    "mathlib:IsLocalization.Away.invSelf",
+    "mathlib:IsLocalization.Away.mul_invSelf",
+    "mathlib:Polynomial.not_isUnit_X",
+    "mathlib:LaurentPolynomial.T_add"
    ],
    "sources": [
     {
@@ -6980,6 +7027,21 @@
      "name": "FormalPeriods.ofEff",
      "role": "constructor",
      "statement": "The localisation map P^+ → P."
+    },
+    {
+     "name": "FormalPeriods.tateInverse",
+     "role": "data",
+     "statement": "The element L^-1 in P, obtained from pinned IsLocalization.Away.invSelf for the effective Tate symbol L."
+    },
+    {
+     "name": "FormalPeriods.tate_mul_inverse",
+     "role": "simp",
+     "statement": "ofEff(L)*tateInverse=1, by the pinned localization API."
+    },
+    {
+     "name": "FormalPeriods.tate_inverse_mul",
+     "role": "simp",
+     "statement": "tateInverse*ofEff(L)=1."
     }
    ],
    "uses": [
@@ -7016,6 +7078,21 @@
      "name": "FormalPeriods.mul_gen_test",
      "kind": "compatibility",
      "statement": "The product of two generators is the generator of the product pair, with subvariety D × X′ ∪ X × D′, form ω ∧ ω′ and chain γ × γ′."
+    },
+    {
+     "name": "FormalPeriods.tate_inverse_test",
+     "kind": "computation",
+     "statement": "In P, ofEff(L)*tateInverse=1 and tateInverse*ofEff(L)=1; merely naming the Tate symbol in P_eff fails to supply this contract."
+    },
+    {
+     "name": "FormalPeriods.effective_tate_nonunit",
+     "kind": "non-example",
+     "statement": "In the rank-one Tate algebra model P_eff=Q[t], t is not a unit. Thus Q[t] cannot be the coordinate ring of the rank-one Tate G_m-torsor with its prescribed coordinate: the required inverse is absent."
+    },
+    {
+     "name": "FormalPeriods.tate_laurent_model",
+     "kind": "computation",
+     "statement": "In the localized Tate model Q[t,t^-1], t*t^-1=t^-1*t=1. This is the rank-one Tate tensor-isomorphism torsor model; it does not compute the entire Tate subcategory of Nori motives or erase that existing gap."
     }
    ],
    "planet": {
@@ -7030,7 +7107,7 @@
    ],
    "title": "Formal periods are the comparison algebra of de Rham and singular cohomology",
    "kind": "theorem",
-   "statement": "Let D be the diagram of pairs over Q, T_1 = H*_dR algebraic de Rham cohomology and T_2 = H* singular cohomology with rational coefficients. Then the algebra of formal periods P agrees with the space of periods P_{1,2} of these two representations and with their comparison algebra A_{1,2}: the three are canonically isomorphic Q-algebras, P = P_{1,2} = A_{1,2}, the ring structure on the comparison algebra of the diagram of all pairs being that of the diagram of good pairs, to which it is canonically identified.",
+   "statement": "Let D be the diagram of pairs over Q, T_1 = H*_dR algebraic de Rham cohomology and T_2 = H* singular cohomology with rational coefficients. Then the algebra of formal periods P agrees with the space of periods P_{1,2} of these two representations and with their comparison algebra A_{1,2}: the three are canonically isomorphic Q-algebras, P = P_{1,2} = A_{1,2}, the ring structure on the comparison algebra of the diagram of all pairs being that of the diagram of good pairs, to which it is canonically identified. The identification first gives P_eff ≃ A^eff_{1,2}, carrying L to its comparison class chi_{1,2}; applying the pinned localization-of-an-algebra-equivalence API gives P_eff[L^-1] ≃ A^eff_{1,2}[chi_{1,2}^-1]=A_{1,2}. Export that localized identification to PS.2 and the full tensor-isomorphism torsor theorem; the effective identification alone does not identify Spec(P_eff) with the full torsor.",
    "hypotheses": [
     "The base field is Q and D is the diagram of pairs of Definition 1.1, localised at (G_m, {1}, 1).",
     "The two representations are algebraic de Rham cohomology and singular cohomology of pairs, in the degree of the vertex; the comparison isomorphism plays no part in the identification.",
@@ -7045,14 +7122,16 @@
    "acceptance": [
     "The theorem identifies three algebras and turns a presentation by generators and relations into a Tannakian object.",
     "The identification is of algebras, not only of vector spaces; the multiplicative structure is carried by good pairs.",
-    "The evaluation to the complex numbers plays no part in the theorem; its injectivity is the period conjecture, which the source does not address."
+    "The evaluation to the complex numbers plays no part in the theorem; its injectivity is the period conjecture, which the source does not address.",
+    "The exported comparison explicitly commutes with the two localization maps and carries the Tate inverse to the inverse of the comparison Tate class. MC.6/formal-periods provides the one presentation; PS.2 owns the integration/evaluation application, not another Nori category or torsor proof."
    ],
    "prerequisites": [
     "MotivesAndAlgebraicCycles:MC.6/formal-periods",
     "MotivesAndAlgebraicCycles:MC.6/periods-equal-comparison-algebra",
     "MotivesAndAlgebraicCycles:MC.5/diagram-comparison",
     "MotivesAndAlgebraicCycles:MC.5/diagram-localisation",
-    "MotivesAndAlgebraicCycles:MC.5/graded-multiplicative-diagram"
+    "MotivesAndAlgebraicCycles:MC.5/graded-multiplicative-diagram",
+    "mathlib:IsLocalization.algEquivOfAlgEquiv"
    ],
    "sources": [
     {
@@ -7062,7 +7141,19 @@
      "match": "The node is Theorem 2.10. Its two parenthetical cross references are misprinted (finding E1), and its proof applies Theorem 2.6 as a statement about algebras on the diagram of all pairs (finding E37)."
     }
    ],
-   "implementationStatus": "unchecked"
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "FormalPeriods.localizeComparison",
+     "role": "compatibility",
+     "statement": "For an effective Q-algebra identification e:P_eff ≃ A_eff, the imported IsLocalization.algEquivOfAlgEquiv induces P ≃ Localization.Away(e(L)), compatibly with the canonical maps on every effective element. This is the localization step in the existing comparison theorem, not a new general localization theory."
+    },
+    {
+     "name": "FormalPeriods.localizeComparison_ofEff",
+     "role": "simp",
+     "statement": "The induced localized comparison sends ofEff(x) to the canonical image of e(x), for every effective element x, in particular the Tate class."
+    }
+   ]
   },
   {
    "id": "MotivesAndAlgebraicCycles:MC.6/fibre-functor-extension",
@@ -7169,7 +7260,8 @@
     "The statement is about a heap structure and a torsor structure on an explicitly presented algebra, so it is a theorem about generators and relations and not only an abstract Tannakian statement.",
     "The group under which Spec P is a torsor is G_mot, defined through singular cohomology; the source's proof writes G_1, the de Rham group (finding E39); both groups act, on the two sides.",
     "The period conjecture, the injectivity of the evaluation map to the complex numbers, plays no part.",
-    "The result is due to Nori and stated without proof by Kontsevich; the source supplies the proof."
+    "The result is due to Nori and stated without proof by Kontsevich; the source supplies the proof.",
+    "This theorem uses P=P_eff[L^-1], and the localized category MM_Nori, throughout. The rank-one Tate model is Q[t,t^-1]; Q[t] is the effective model and does not already furnish the full Tate tensor-isomorphism torsor."
    ],
    "prerequisites": [
     "MotivesAndAlgebraicCycles:MC.6/iso-torsor",
@@ -12718,12 +12810,14 @@
    "acceptance": [
     "When the comparison is the integration pairing, the value on the class of (G_m, {1}, dX/X, S^1) is 2πi, as the source records; the identification with integration is proved in PeriodsAndSpecialValues:PS.2.",
     "The point is a point of the torsor: under the heap map it satisfies φ φ⁻¹ φ = φ.",
-    "The injectivity of the resulting map P → C is the period conjecture and is not claimed."
+    "The injectivity of the resulting map P → C is the period conjecture and is not claimed.",
+    "The complex point is defined on the localized algebra. Conditional on PS.2 identifying its effective restriction with integration and sending L to 2πi, its value on the supplier Tate inverse is (2πi)^-1. Constructing/descent of the actual integration evaluation stays with PS.2, using the existing localization lift."
    ],
    "prerequisites": [
     "MotivesAndAlgebraicCycles:MC.6/tensor-iso-scheme",
     "MotivesAndAlgebraicCycles:MC.6/formal-periods-equal-comparison-algebra",
-    "ComplexComparisonPartII:C5"
+    "ComplexComparisonPartII:C5",
+    "mathlib:IsLocalization.Away.lift"
    ],
    "sources": [
     {
@@ -12766,6 +12860,11 @@
      "name": "periodPoint_action",
      "role": "relation",
      "statement": "Every complex point of X_{1,2} is the composite of this point with a unique complex point of G_1."
+    },
+    {
+     "name": "periodPoint_tate_inverse",
+     "role": "compatibility",
+     "statement": "If periodPoint.formal(ofEff(L))=2πi, then periodPoint.formal(tateInverse)=(2πi)^-1. No injectivity is needed."
     }
    ],
    "uses": [
@@ -12802,6 +12901,11 @@
      "name": "periodPoint_heap_test",
      "kind": "characterisation",
      "statement": "The heap operation applied to (φ, φ, φ) returns φ."
+    },
+    {
+     "name": "periodPoint_tate_inverse_test",
+     "kind": "computation",
+     "statement": "With the normalization per(L)=2πi from the integration comparison, per(tateInverse)=(2πi)^-1 and per(L)*per(tateInverse)=1."
     }
    ]
   },
@@ -13183,7 +13287,7 @@
   {
    "stageId": "MotivesAndAlgebraicCycles:MC.5",
    "status": "partial",
-   "note": "The layer was marked source_decomposed, but the representation by singular cohomology (the 'homology of algebraic pairs, boundary morphisms' and the 'long exact sequence of a triple' of the layer's brief and acceptance) had no node, the realisation functor of Proposition D.3 and the Basic Lemma, on which the comparison of diagrams and all computations rest, had no node, the rigidity criterion used is Proposition C.4 and had no node, and two results of the source are wrong as stated (Lemma 1.12(2)-(3)) or rest on an undefined product (Theorem 1.6). The de Rham fibre functor of the brief is MC.6/fibre-functor-extension; a comparison functor with geometric motives is not constructed in any source read and is not planned.",
+   "note": "The layer was marked source_decomposed, but the representation by singular cohomology (the 'homology of algebraic pairs, boundary morphisms' and the 'long exact sequence of a triple' of the layer's brief and acceptance) had no node, the realisation functor of Proposition D.3 and the Basic Lemma, on which the comparison of diagrams and all computations rest, had no node, the rigidity criterion used is Proposition C.4 and had no node, and two results of the source are wrong as stated (Lemma 1.12(2)-(3)) or rest on an undefined product (Theorem 1.6). The de Rham fibre functor of the brief is MC.6/fibre-functor-extension; a comparison functor with geometric motives is not constructed in any source read and is not planned. FIX-RT-AREA-iwasawa-3~2 makes the existing Nori/Tate localization exports explicit and adds inverse, evaluation and rank-one model checks. Coverage remains partial with the original remaining work; these export contracts do not certify proof closure.",
    "remaining": [
     "Obtain von Wangenheim's thesis (Theorem 2.4, Satz 5.23) for the universal property and the comodule description of the diagram category (gap).",
     "Obtain a proof of Nori's Basic Lemma (Beilinson, LNM 1289, Lemma 3.3) (gap).",
@@ -13194,7 +13298,7 @@
   {
    "stageId": "MotivesAndAlgebraicCycles:MC.6",
    "status": "partial",
-   "note": "Marked source_decomposed with nothing remaining, but the stage acceptance item on Artin and Tate subcategories is realised by no node, and the general tensor isomorphism torsors, the rigidity-to-Hopf step, the pro-algebraic reconstruction and the export of the complex point were missing; the last four are now nodes.",
+   "note": "Marked source_decomposed with nothing remaining, but the stage acceptance item on Artin and Tate subcategories is realised by no node, and the general tensor isomorphism torsors, the rigidity-to-Hopf step, the pro-algebraic reconstruction and the export of the complex point were missing; the last four are now nodes. FIX-RT-AREA-iwasawa-3~2 makes the existing Nori/Tate localization exports explicit and adds inverse, evaluation and rank-one model checks. Coverage remains partial with the original remaining work; these export contracts do not certify proof closure.",
    "remaining": [
     "The Artin and Tate subcategories of Nori motives and their tensor automorphism groups, which the stage's acceptance asks for, are computed in no source read (gap).",
     "The universal property of Nori's diagram category, used by MC.6/fibre-functor-extension, rests on von Wangenheim's work, not obtained (gap).",
@@ -14655,879 +14759,905 @@
    "read": "2026-09-24",
    "sha256": "48f8af5249081217fc4a806414a764d9d69d66eff9092ddd8e2cf0ea078579e8",
    "citation": "DM.TC: Pierre Deligne and James S. Milne, Tannakian Categories"
+  },
+  {
+   "kind": "preprint",
+   "url": "https://arxiv.org/pdf/1105.0865v5",
+   "read": "2026-09-30",
+   "sha256": "e55d85bf168c4eedb79949c37d648ea5c071af50d18a2c7ccc316d460e96c563",
+   "readExtent": "Fixer read selected Definition 0.1/2.8, Theorem 1.6(3), Theorem 2.10 and evaluation passage, Definition B.18, Assumption B.20/Lemma B.21 and Proposition B.22 (pp.2,5,10-11,24-25); no fresh full-paper read or verification of inherited source issues."
   }
  ],
  "review": {
-  "status": "needs_changes",
-  "reviewer": "independent-review-REV-MotivesAndAlgebraicCycles",
-  "date": "2026-09-25",
-  "notes": "Four independent reviewers (MC.0–MC.1, MC.2–MC.3, MC.4–MC.5, MC.6–MC.7) checked every node against its source at the cited locator (all recorded SHA-256 values match), every baseline citation at the pinned commits, closure, granularity, API, unit tests, planets and the library audit; RS-08's narrowing of MC.4 was followed. Of the 96 original nodes 5 are verified, 89 corrected and 2 removed (MC.4/cancellation-over-a-perfect-field duplicated MotivicEtaleKTheory M.5a; the Nisnevich-against-etale comparison lies outside MC.4 as RS-08 narrows it); 79 nodes are added; MC.0/homological-equivalence moved to MC.2, since it needs MC.2's Weil cohomology. Baseline: 48 original citations, 39 confirmed (four with no remaining consumer kept as register entries), 9 fixed, 3 removed; 57 added. Source issues: E1–E5 confirmed, E6–E47 added and confirmed, among them errors in stated results of the Stacks Project (0FGR's diagonal formula), Jannsen (the trivial relation) and Huber–Müller-Stach (Lemma 1.12, Theorem 2.6's subspaces). Coverage: MC.1 and MC.3 are source decomposed; MC.0, MC.2, MC.4, MC.5, MC.6 and MC.7 were marked source decomposed with work remaining and are now partial. The suggested Lean file, which did not elaborate and stated a trivially true proposition in place of about 150 statements, is rewritten against the corrected packet and elaborates at Mathlib 082e2d3 with only placeholder-proof warnings. needs_changes only because the roadmap document research/blueprint/readmes/MotivesAndAlgebraicCycles.md is outside this review's files and still describes the uncorrected packet; it must be regenerated before promotion.",
-  "checked": [
-   {
-    "nodeId": "MotivesAndAlgebraicCycles:MC.0/correspondence-group",
-    "verdict": "corrected",
-    "note": "Definition and excerpt checked against weil.tex (tag 0FFZ) at the pinned Stacks commit, SHA-256 matches. Statement keeps the source's hypotheses. Hypotheses now say how the index category is stated with the pinned libraries (proper, no projective morphisms) and that integral Chow groups stay with SF.5; the garbled fourth unit test is replaced and all tests carry kinds."
-   },
-   {
-    "nodeId": "MotivesAndAlgebraicCycles:MC.0/correspondence-action-on-cycles",
-    "verdict": "corrected",
-    "note": "Both formulas, the dimension bookkeeping and the excerpt checked against tag 0FFZ; statement and proof steps faithful. Unit tests made precise and given kinds."
-   },
-   {
-    "nodeId": "MotivesAndAlgebraicCycles:MC.0/correspondence-composition",
-    "verdict": "verified",
-    "note": "Composition formula c' o c = pr_{13,*}(pr_{12}^*c . pr_{23}^*c') and the degree r + s checked against tag 0FFZ; hypotheses (flat projections, proper pr_13) are what the formula needs. Only the test kinds were added."
-   },
-   {
-    "nodeId": "MotivesAndAlgebraicCycles:MC.0/composition-associative",
-    "verdict": "corrected",
-    "note": "Lemma 0FG0 and its proof read at the pinned Stacks commit. The node bundled four separately proved parts; it now holds part (1), with (2)/(3) and (4) split into two added nodes. Proof steps now name all five justifications (source issue E3 confirmed) and the silent use of functoriality of flat pullback. Excerpt shortened to at most 300 characters."
-   },
-   {
-    "nodeId": "MotivesAndAlgebraicCycles:MC.0/graph-correspondence",
-    "verdict": "corrected",
-    "note": "Example 0FG1 checked; the codimension computation is right. The quoted text contains a misprint (Corr^0(X × Y) for Corr^0(X, Y)), recorded as R101. One unit test placed the graph of a rational point in the wrong Chow group; corrected. Excerpt shortened."
-   },
-   {
-    "nodeId": "MotivesAndAlgebraicCycles:MC.0/category-of-correspondences",
-    "verdict": "corrected",
-    "note": "Lemma 0FG2 and its proof (identity axiom via Stacks 0FFD) checked; faithful. Excerpt shortened; the additivity of the degree zero category, used in MC.1 but planned nowhere, added as an API item promoted to a new node; test kinds added."
-   },
-   {
-    "nodeId": "MotivesAndAlgebraicCycles:MC.0/correspondence-functor",
-    "verdict": "verified",
-    "note": "Lemma 0FG3 and its proof checked in weil.tex: statement, contravariance and the scheme-theoretic intersection Z' = (Gamma_f × Z) ∩ (X × Gamma_g) with Stacks 0FFD are as the node says. Excerpt literal and under 300 characters."
-   },
-   {
-    "nodeId": "MotivesAndAlgebraicCycles:MC.0/transpose-correspondence",
-    "verdict": "corrected",
-    "note": "Remark 0FG4 checked; degree shift d - e + r verified (codimension d + r on X × Y equals e + (d - e + r) on Y × X). Excerpt shortened, test kinds added."
-   },
-   {
-    "nodeId": "MotivesAndAlgebraicCycles:MC.0/graph-acts-as-gysin-and-pushforward",
-    "verdict": "corrected",
-    "note": "Lemma 0FG5 checked, all four assertions; they are proved by one computation, so one node is right. Proof steps now cite the four Chow-homology lemmas by tag. Source issues E4 (subscript star for pullback in the proof of (2)) and E5 (spelling) confirmed at their locators. Excerpt shortened."
-   },
-   {
-    "nodeId": "MotivesAndAlgebraicCycles:MC.0/tensor-of-correspondences",
-    "verdict": "corrected",
-    "note": "Paragraph after Example 0FG6 and Lemma 0FG7 (proof omitted in the source) checked. The hidden non-routine step (bifunctoriality) is split into the added node MC.0/tensor-interchange; Q-bilinearity (Mathlib MonoidalPreadditive/MonoidalLinear, confirmed at the pin) added; excerpt shortened; test kinds added."
-   },
-   {
-    "nodeId": "MotivesAndAlgebraicCycles:MC.0/projective-line-idempotents",
-    "verdict": "corrected",
-    "note": "Example 0FG6 checked, including the composition rules in Stacks's order (c' o c = pr_13,*(pr_12^*c . pr_23^*c')). The proof steps gave the wrong reason for one of the two mixed composites (c_0 o c_2 is a non-proper self-intersection that vanishes because CH^2(P^1) = 0); corrected, and the basis computation of the diagonal made explicit. Excerpt shortened."
-   },
-   {
-    "nodeId": "MotivesAndAlgebraicCycles:MC.0/pointed-curve-idempotents",
-    "verdict": "corrected",
-    "note": "Author-generalised node (the source states only P^1; the match field says so honestly). Composites recomputed in Stacks's order: one mixed composite vanishes by contraction, the other as a non-proper self-intersection in CH^2(C) = 0; proof steps corrected accordingly and prerequisites completed. Geometric irreducibility is stronger than needed but harmless. SF.3 is not needed (see the requests correction)."
-   },
-   {
-    "nodeId": "MotivesAndAlgebraicCycles:MC.0/adequate-equivalence-relation",
-    "verdict": "corrected",
-    "note": "Jannsen p. 447 (Regensburg copy of the Inventiones article, SHA-256 matches) and Milne section 4 read. The definition was too loose to formalise and the node asserted that numerical equivalence is the coarsest adequate relation, which fails for the trivial relation (new source issue E10 against Jannsen p. 448). Restated as the precise family form on Chow groups with F-coefficients; API and tests rebuilt; excerpts made literal."
-   },
-   {
-    "nodeId": "MotivesAndAlgebraicCycles:MC.0/numerical-equivalence",
-    "verdict": "corrected",
-    "note": "Milne p. 5 and Jannsen p. 448 read. Statement made precise on Chow groups; the claim that numerical equivalence is the coarsest adequate relation corrected to exclude the trivial relation (new source issue E10), with proof; the elliptic-curve unit test was false with rational coefficients for torsion differences and now names Cremona 37a1 with a point of infinite order; vague test replaced; API item depending on MC.2 removed; excerpts literal."
-   },
-   {
-    "nodeId": "MotivesAndAlgebraicCycles:MC.2/homological-equivalence",
-    "verdict": "corrected",
-    "note": "Jannsen p. 448 and Milne p. 8 read. Hypotheses made precise (classical theory over algebraically closed k, coefficient field of the theory an F-algebra); prerequisites completed with the MC.2 nodes the proof uses (axioms, pushforward, Lemma 0FGW); a gap recorded for Jannsen's use over non-closed fields; the dependence of an MC.0 node on MC.2 flagged as a stage-order problem for the coordinator."
-   },
-   {
-    "nodeId": "MotivesAndAlgebraicCycles:MC.1/chow-motive",
-    "verdict": "corrected",
-    "note": "Section 0FG9 definition and Jannsen p. 447 checked (Jannsen's q A^{dim X - m + n}(X × Y) p agrees with Stacks's Corr^{n-m}). Added the precise identification with Mathlib's Karoubi envelope of the category of pairs (X, m) (new node), which is what makes the Karoubi citations valid; excerpt shortened; test kinds added."
-   },
-   {
-    "nodeId": "MotivesAndAlgebraicCycles:MC.1/motives-category",
-    "verdict": "corrected",
-    "note": "Lemma 0FGA first assertion checked. Added the Q-linear structure on Mathlib's Karoubi envelope, absent from the pinned Mathlib, as an API item; replaced two vacuous unit tests by computations."
-   },
-   {
-    "nodeId": "MotivesAndAlgebraicCycles:MC.1/motive-functor-h",
-    "verdict": "corrected",
-    "note": "Lemma 0FGA and the section's opening paragraph checked. The acceptance item on faithfulness was wrong (h is not faithful: two rational points of P^1 have equal graph classes); corrected. The product and disjoint-union properties rested on statements planned nowhere; now on two added MC.0 nodes. Excerpt shortened; kinds added."
-   },
-   {
-    "nodeId": "MotivesAndAlgebraicCycles:MC.1/motives-karoubian",
-    "verdict": "corrected",
-    "note": "Lemma 0FGB and proof checked. Proof step 2 used the wrong identity (a = p o a o p instead of the source's a = p o a o a) for the morphism N -> M; corrected, and the splitting stated in Mathlib's form."
-   },
-   {
-    "nodeId": "MotivesAndAlgebraicCycles:MC.1/motives-monoidal",
-    "verdict": "corrected",
-    "note": "Tensor functor paragraph and Lemma 0FGC (details omitted in the source) checked; the display (q o c o p) tensor (q' o c' o p') = (q tensor q') o (c tensor c') o (p tensor p') is the interchange law, now a prerequisite node. Bilinearity added; kinds added."
-   },
-   {
-    "nodeId": "MotivesAndAlgebraicCycles:MC.1/tate-twist",
-    "verdict": "verified",
-    "note": "Paragraph after Lemma 0FGC checked verbatim: 1(n) = (Spec(k), 1, n), 1(n + m) = 1(n) tensor 1(m), M(n) = (X, p, m + n). Only the test kinds were added."
-   },
-   {
-    "nodeId": "MotivesAndAlgebraicCycles:MC.1/lefschetz-motive",
-    "verdict": "corrected",
-    "note": "Lemma 0FGD, its proof and Remark 0FGE checked; the sign 1(-1) verified from Hom((Spec k,1,-1),(X,c_2,0)) = c_2 o Corr^1(Spec k, X). New misprint E7 (b for b' in the proof). Prerequisites completed (identifications with the point, graph functor); excerpt shortened."
-   },
-   {
-    "nodeId": "MotivesAndAlgebraicCycles:MC.1/motives-additive",
-    "verdict": "corrected",
-    "note": "Lemma 0FGF and proof checked. The reduction and the 'obvious notation' rested on facts planned nowhere; now on two added lemma nodes. Statement made explicit about which motive is re-twisted and about the zero object; excerpt shortened."
-   },
-   {
-    "nodeId": "MotivesAndAlgebraicCycles:MC.1/h-projective-line",
-    "verdict": "verified",
-    "note": "Lemma 0FGG (proof: Example 0FG6 and Lemma 0FGD) checked; statement and the two ingredients as prerequisites are right. Mathlib's Karoubi.decomposition applies once M_k is the Karoubi envelope of C_k, as the corrected chow-motive node states."
-   },
-   {
-    "nodeId": "MotivesAndAlgebraicCycles:MC.1/motives-universal-property",
-    "verdict": "corrected",
-    "note": "Lemma 0FGH and its proof checked. Uniqueness made precise (up to unique monoidal isomorphism); prerequisites completed with the twist-raising isomorphism (new node) and Mathlib's karoubiUniversal (confirmed at the pin), which also realises the stage target on extension through idempotent completion; excerpt shortened."
-   },
-   {
-    "nodeId": "MotivesAndAlgebraicCycles:MC.1/motive-dual",
-    "verdict": "corrected",
-    "note": "Lemma 0FGI and its proof checked, cycle by cycle on X^4 and X^5. New misprint E8 (pr_15 for pr_25; conclusion unaffected). The duality convention is fixed: Stacks's left dual (Categories 0FFP, read) is Mathlib's ExactPairing (h X) (h X (d)), i.e. a right dual. Prerequisites completed; excerpt shortened."
-   },
-   {
-    "nodeId": "MotivesAndAlgebraicCycles:MC.1/motives-rigid",
-    "verdict": "corrected",
-    "note": "Lemma 0FGJ and its proof checked, and the three categorical lemmas it cites read (Homology 0FFT, 0FFU; Categories 0FFP, 0FFS). Convention corrected (Stacks's left dual is Mathlib's right dual); the two lemmas absent from the pinned Mathlib added as nodes, the third cited as Mathlib's ExactPairing.tensor; excerpt shortened."
-   },
-   {
-    "nodeId": "MotivesAndAlgebraicCycles:MC.1/chow-group-of-motive",
-    "verdict": "corrected",
-    "note": "Definition 0FGL and the following paragraph checked. One unit test was false (CH^0(1(-i)) vanishes for i nonzero); corrected. Prerequisite for compatibility with composition (Lemma 0FG0 (4)) added."
-   },
-   {
-    "nodeId": "MotivesAndAlgebraicCycles:MC.1/chow-groups-representable",
-    "verdict": "corrected",
-    "note": "Lemma 0FGM checked: Hom((Spec k, 1, -i), (X, p, m)) = p o Corr^{m+i}(Spec k, X) = p(CH^{m+i}(X) tensor Q). Statement and sign right; prerequisites point at the split-off parts of Lemma 0FG0."
-   },
-   {
-    "nodeId": "MotivesAndAlgebraicCycles:MC.1/manin-identity-principle",
-    "verdict": "corrected",
-    "note": "Lemma 0FGN and its proof checked. The categorical steps are now cited to the Mathlib declarations that provide them (tensorRightHomEquiv for Categories 0FFQ, isIso_of_yoneda_map_bijective for the Yoneda step); the bare yoneda functor citation replaced."
-   },
-   {
-    "nodeId": "MotivesAndAlgebraicCycles:MC.1/projective-bundle-formula",
-    "verdict": "corrected",
-    "note": "Section 0FGP, the definition of c_i and Lemma 0FGQ checked (convention p_*O_P(1) = E, c_i in Corr^i(X, P)). The step the source leaves under 'Some details omitted' (compatibility of c_i with the product by Z) is written out with its inputs; prerequisites completed; excerpt shortened; planet named as in the source."
-   },
-   {
-    "nodeId": "MotivesAndAlgebraicCycles:MC.1/diagonal-of-projective-bundle",
-    "verdict": "corrected",
-    "note": "Lemma 0FGR, its proof and the Chow lemmas it cites (02U9, 0FA9, 02UD) read at the pinned commit; the live tag page (no comments) prints the same formula. The printed binomial coefficients are wrong for r >= 3 (checked on P^2 over a point); new source issue E9 (error, affects a stated result). Statement, acceptance and proof corrected; the local computation split into its own node; the prerequisite on the motivic projective bundle formula, which the proof does not use, removed."
-   },
-   {
-    "nodeId": "MotivesAndAlgebraicCycles:MC.1/motives-mod-adequate-relation",
-    "verdict": "corrected",
-    "note": "Jannsen pages 448 and 450 read (locator corrected from page 447). Construction made precise on top of the corrected adequate-relation node, with the formalisation route through Mathlib's quotient category and Karoubi envelope; rigidity prerequisite added; the trivial-relation case (zero category) added as a test; excerpt shortened."
-   },
-   {
-    "nodeId": "MotivesAndAlgebraicCycles:MC.0/correspondences-with-the-point",
-    "verdict": "added",
-    "note": "Split from MC.0/composition-associative (Lemma 0FG0 (2), (3), proofs omitted in the source); used by the Lefschetz, duality, representability and Weil-cohomology nodes."
-   },
-   {
-    "nodeId": "MotivesAndAlgebraicCycles:MC.0/composition-compatible-with-action",
-    "verdict": "added",
-    "note": "Split from MC.0/composition-associative (Lemma 0FG0 (4)); used by the Chow groups of a motive and their representability."
-   },
-   {
-    "nodeId": "MotivesAndAlgebraicCycles:MC.0/correspondences-of-disjoint-union",
-    "verdict": "added",
-    "note": "The additivity of the degree zero category of correspondences is used by the additivity of motives, h of a disjoint union and rigidity, and was planned nowhere (the source says 'Details omitted')."
-   },
-   {
-    "nodeId": "MotivesAndAlgebraicCycles:MC.0/tensor-interchange",
-    "verdict": "added",
-    "note": "Bifunctoriality of the tensor product of correspondences, used silently by Lemma 0FG7 (proof omitted), Lemma 0FGC and the tensor product of motives; now its own node (PROTOCOL section 2)."
-   },
-   {
-    "nodeId": "MotivesAndAlgebraicCycles:MC.0/graph-against-diagonals",
-    "verdict": "added",
-    "note": "Lemma 0FG8 is listed in the packet's readSections but no node carried it; the proof of Lemma 0FH1 (MC.2/weil-from-monoidal-functor, axiom (C)(b)) cites it. Added, with a new misprint (E11) in its proof."
-   },
-   {
-    "nodeId": "MotivesAndAlgebraicCycles:MC.1/twisted-correspondence-category",
-    "verdict": "added",
-    "note": "The ambient category of pairs (X, m) of which the category of motives is the Karoubi envelope; needed to make the packet's Karoubi citations literally valid."
-   },
-   {
-    "nodeId": "MotivesAndAlgebraicCycles:MC.1/lower-twist-by-lefschetz",
-    "verdict": "added",
-    "note": "The isomorphism sigma is used by both Lemma 0FGF (additivity) and Lemma 0FGH (universal property, 'see proof of Lemma 0FGF'); promoted to a node so that both can cite it."
-   },
-   {
-    "nodeId": "MotivesAndAlgebraicCycles:MC.1/dual-of-biproduct",
-    "verdict": "added",
-    "note": "Stacks Homology Lemma 0FFT, cited by the proof of Lemma 0FGJ (rigidity of motives); absent from the pinned Mathlib and Tau Ceti (searched for exact pairings of biproducts)."
-   },
-   {
-    "nodeId": "MotivesAndAlgebraicCycles:MC.1/dual-of-summand",
-    "verdict": "added",
-    "note": "Stacks Homology Lemma 0FFU, cited by the proof of Lemma 0FGJ; absent from the pinned Mathlib and Tau Ceti."
-   },
-   {
-    "nodeId": "MotivesAndAlgebraicCycles:MC.1/projective-space-projectors",
-    "verdict": "added",
-    "note": "The MC.1 acceptance asks for explicit projectors for projective spaces; the packet had them only for P^1. Added from the paragraph after Lemma 0FGQ and the corrected Lemma 0FGR."
-   },
-   {
-    "nodeId": "MotivesAndAlgebraicCycles:MC.1/diagonal-as-zero-scheme",
-    "verdict": "added",
-    "note": "The non-routine step of Lemma 0FGR ('a local calculation shows'), split into its own node (PROTOCOL section 2)."
-   },
-   {
-    "nodeId": "MotivesAndAlgebraicCycles:MC.2/weil-cohomology-data",
-    "verdict": "corrected",
-    "note": "Checked (D1) to (D3) against Section 0FGS of weil.tex at the pinned commit (SHA-256 matches). Prerequisite SF.2 replaced by SF.5 (the data need Chow groups, not a theory) and the new graded-vector-space node; Koszul sign and linearity of the trace made explicit; API gained functor laws, graded commutativity and simp lemmas; the tests had no kind and restated types, and were rewritten with kinds."
-   },
-   {
-    "nodeId": "MotivesAndAlgebraicCycles:MC.2/classical-weil-cohomology",
-    "verdict": "corrected",
-    "note": "Definition 0FGV, axioms (A), (B), (C) and Remark 0FGU checked verbatim. Removed MC.0/correspondence-group (unused), added Module.Finite; API split so each axiom is one item; tests given kinds, the vanishing-range test now uses the source's Example 0FHZ; acceptance on (C)(d) made precise (rescaling all traces)."
-   },
-   {
-    "nodeId": "MotivesAndAlgebraicCycles:MC.2/weil-pushforward",
-    "verdict": "corrected",
-    "note": "Construction and Lemma 0FGT checked; statement and proof verified. Added API items (identity, linearity, pushforward to a point) and kinds for the tests."
-   },
-   {
-    "nodeId": "MotivesAndAlgebraicCycles:MC.2/cycle-class-degree",
-    "verdict": "corrected",
-    "note": "Lemma 0FGW and its proof checked; statement verified. Added the stage's acceptance check (degree, trace and first Chern class of a divisor on a curve), which no node realised."
-   },
-   {
-    "nodeId": "MotivesAndAlgebraicCycles:MC.2/trace-of-a-product",
-    "verdict": "corrected",
-    "note": "Bundled Lemmas 0FGX and 0FGY; split, with 0FGY now MC.2/pushforward-along-projection. The proof used Lemma 0FGW and the exterior product of cycles from SF.5, neither listed; the old step 'use the normalisation' was wrong, since (C)(d) concerns Spec k only."
-   },
-   {
-    "nodeId": "MotivesAndAlgebraicCycles:MC.2/class-of-the-diagonal",
-    "verdict": "corrected",
-    "note": "Lemma 0FGZ checked, including the sign (recomputed: the sign (−1)^i is right). The proof steps invoked the Gysin map; the source uses (C)(b) via γ([Δ]) = Δ_*1, which needs γ([X]) = 1 (new node) and Δ_* (MC.2/weil-pushforward), both added."
-   },
-   {
-    "nodeId": "MotivesAndAlgebraicCycles:MC.2/euler-characteristic-self-intersection",
-    "verdict": "corrected",
-    "note": "Lemma 0FH0 checked. Proof steps rewritten to the source's route (γ([Δ]) = Δ_*1, projection formula, Lemma 0FGW) and the right-hand equality attributed to Chow Homology 0FFE, 0FBM and Morphisms 08S2 (SF.5); missing prerequisites added."
-   },
-   {
-    "nodeId": "MotivesAndAlgebraicCycles:MC.2/weil-from-monoidal-functor",
-    "verdict": "corrected",
-    "note": "Lemma 0FH1 and its proof checked. The data depend on a chosen isomorphism F[2] → G(1(1)), which the statement omitted; the Koszul sign convention of the target is now stated; (D3) is built from [X], not from the duality as the node said; inputs Lemmas 0FG0, 0FG5, 0FG8, 0FGI and Homology 0FFV added. Found the misprint F[−2d] for F[2d] in the proof (E12)."
-   },
-   {
-    "nodeId": "MotivesAndAlgebraicCycles:MC.2/weil-to-monoidal-functor",
-    "verdict": "corrected",
-    "note": "Lemma 0FH2 and its proof checked. Added the formula on correspondences, the reduction from schemes to varieties (source leaves details omitted, E18), the identity axiom, the vanishing of H^1(P^1), and prerequisites 0FGT, 0FGY, 0FGZ, 0FH0, 0FGD, Chow 0FF4. Found the misprint 'equalith' (E14)."
-   },
-   {
-    "nodeId": "MotivesAndAlgebraicCycles:MC.2/realization-equivalence",
-    "verdict": "corrected",
-    "note": "Proposition 0FH3 checked. Error corrected: the node placed F[2] in degree two, but F[n] has F in degree −n and G(1(1)) sits in degree −2. Proof step deriving (2) from connectedness replaced by the source's (A)(b), (A)(d). The source does not verify that the constructions are mutually inverse (E13); new node MC.2/realization-round-trip supplies it."
-   },
-   {
-    "nodeId": "MotivesAndAlgebraicCycles:MC.2/chow-groups-under-field-extension",
-    "verdict": "corrected",
-    "note": "Bundled Lemmas 0FH5, 0FH6, 0FH8 (tags correct); split into three nodes, this one now Lemma 0FH6. Removed the unused prerequisite MC.0/numerical-equivalence. The packet's readSections name 0FH9 where 0FH5 is meant. MC.7 consumers of this id should cite the part they use."
-   },
-   {
-    "nodeId": "MotivesAndAlgebraicCycles:MC.3/trace-formula-for-correspondences",
-    "verdict": "corrected",
-    "note": "Jannsen Lemma 1 checked in the rendered page 448. The packet had no Weil cohomology over a non-closed field, which Jannsen uses; the node now works through MC.2/weil-cohomology-by-base-change. Proof steps rewritten: Chow identity ⟨f · ᵗg⟩ = deg((g ∘ f) · [Δ]) plus the new MC.2/lefschetz-trace-formula; missing prerequisites added."
-   },
-   {
-    "nodeId": "MotivesAndAlgebraicCycles:MC.3/pseudo-abelian-semisimplicity",
-    "verdict": "corrected",
-    "note": "Lemma 2 and proof checked in the rendered page 449. The conclusion now points to a definition of semisimple abelian category (new node). Baseline: wedderburn_data_unique is about simple rings and unused, removed; existence of a presentation is TauCeti.IsSemisimpleRing.wedderburnPresentation. The printed 'two-sided ideal' is only a left ideal from the hypothesis (E15); the step still works."
-   },
-   {
-    "nodeId": "MotivesAndAlgebraicCycles:MC.3/dual-numbers-non-example",
-    "verdict": "corrected",
-    "note": "Remark 3 checked. The proof deduced simplicity from the absence of free summands, which is indecomposability; replaced by the description of monomorphisms. Kernel argument written out; DualNumber, Simple, Faithful, Linear added as prerequisites."
-   },
-   {
-    "nodeId": "MotivesAndAlgebraicCycles:MC.3/jannsen-semisimplicity",
-    "verdict": "corrected",
-    "note": "Theorem 1 and all three implications checked on pages 448-449. The three implications are now separate nodes. Error corrected: the old step said the relation is 'not coarser than' numerical equivalence; the argument shows the opposite. The unconditional statement needs a Weil cohomology to exist over every field; MC.2/etale-cohomology-is-weil added. Finite dimensionality and radical base change, used without nodes, are now nodes."
-   },
-   {
-    "nodeId": "MotivesAndAlgebraicCycles:MC.3/radical-of-homological-correspondences",
-    "verdict": "corrected",
-    "note": "Corollary 1 and proof checked on pages 449-450. The MC.7 prerequisite (a back-edge to a later layer) replaced by MC.2/kunneth-components; added the embedding into endomorphisms and the nilpotence criterion (characteristic zero); statement now records the vanishing of traces used later."
-   },
-   {
-    "nodeId": "MotivesAndAlgebraicCycles:MC.3/rank-of-a-motive",
-    "verdict": "corrected",
-    "note": "Proof of Corollary 2 on page 450 checked, with Milne's genus formula. Error corrected: the proof exhibited a curve of genus at least one as having negative rank; genus one gives rank zero, genus at least two is needed. Rank and fibre functor now defined (new nodes); SF.3 added for the degree of the canonical divisor; the trace formula is not needed."
-   },
-   {
-    "nodeId": "MotivesAndAlgebraicCycles:MC.3/numerical-motives-tannakian",
-    "verdict": "corrected",
-    "note": "Corollary 2, its proof and Remarks 1-2 checked on pages 450-451 (rendered). The printed grading (X, pπ^{r+2m}, r) is a misprint for twist m (E16). Added Remark 4 as a node (the rank formula needs lifting p to homological idempotents), the MC.2 Künneth-component node in place of MC.7, and the Tannakian definition; neutrality separated; the abelian-variety claim of Remark 2 marked as resting on the unread Lieberman input."
-   },
-   {
-    "nodeId": "MotivesAndAlgebraicCycles:MC.2/pushforward-along-projection",
-    "verdict": "added",
-    "note": "Added by REV-MotivesAndAlgebraicCycles: Pushforward along a projection integrates over the first factor. The node is Lemma 0FGY, split off from MC.2/trace-of-a-product, with the one-line equivalence written out."
-   },
-   {
-    "nodeId": "MotivesAndAlgebraicCycles:MC.2/cycle-class-of-fundamental-class",
-    "verdict": "added",
-    "note": "Added by REV-MotivesAndAlgebraicCycles: The cycle class of the fundamental class is the unit. The node is the step of the proof of Lemma 0FGZ showing γ([X]) = 1, made a lemma because Lemmas 0FGZ and 0FH0, the realisation and the round trip all use γ([Δ]) = Δ_*1."
-   },
-   {
-    "nodeId": "MotivesAndAlgebraicCycles:MC.2/graded-vector-spaces-koszul",
-    "verdict": "added",
-    "note": "Added by REV-MotivesAndAlgebraicCycles: Graded vector spaces with the Koszul sign. The node is that example, the convention Lemma 0FH1 uses for graded commutativity; the source omits the verification that it is symmetric monoidal."
-   },
-   {
-    "nodeId": "MotivesAndAlgebraicCycles:MC.2/weil-cohomology-of-schemes",
-    "verdict": "added",
-    "note": "Added by REV-MotivesAndAlgebraicCycles: A classical Weil cohomology theory on smooth projective schemes. The node supplies the omitted details: the extension of a classical theory from varieties to smooth projective schemes (source issue E18)."
-   },
-   {
-    "nodeId": "MotivesAndAlgebraicCycles:MC.2/weil-cohomology-by-base-change",
-    "verdict": "added",
-    "note": "Added by REV-MotivesAndAlgebraicCycles: A Weil cohomology theory for varieties over an arbitrary field. Jannsen fixes a Weil cohomology theory for varieties over an arbitrary field without defining the notion; the node makes it precise as the base change of a classical theory over an algebraic closure, which is the form MC.3 uses."
-   },
-   {
-    "nodeId": "MotivesAndAlgebraicCycles:MC.2/etale-cohomology-is-weil",
-    "verdict": "added",
-    "note": "Added by REV-MotivesAndAlgebraicCycles: l-adic cohomology is a classical Weil cohomology theory. Jannsen's instance of a Weil cohomology theory; the node states that it is one, with every part imported from its owner."
-   },
-   {
-    "nodeId": "MotivesAndAlgebraicCycles:MC.2/lefschetz-trace-formula",
-    "verdict": "added",
-    "note": "Added by REV-MotivesAndAlgebraicCycles: The Lefschetz trace formula for correspondences. With g the diagonal this is the formula for the correspondence f. Jannsen calls it well known and cites Kleiman, whose survey was not obtained."
-   },
-   {
-    "nodeId": "MotivesAndAlgebraicCycles:MC.2/kunneth-components",
-    "verdict": "added",
-    "note": "Added by REV-MotivesAndAlgebraicCycles: The Künneth components of the diagonal. The definition and the defining trace identity; placed in MC.2 so that MC.3 does not depend on MC.7, which states the conjecture that they are algebraic."
-   },
-   {
-    "nodeId": "MotivesAndAlgebraicCycles:MC.2/homological-correspondences-embed",
-    "verdict": "added",
-    "note": "Added by REV-MotivesAndAlgebraicCycles: Realisation of correspondences is faithful modulo homological equivalence. The node is the statement Jannsen uses as a definition, with the identification of H^{2d}(X × X) with the endomorphisms of cohomology made explicit and extended to correspondences between two varieties."
-   },
-   {
-    "nodeId": "MotivesAndAlgebraicCycles:MC.2/realization-round-trip",
-    "verdict": "added",
-    "note": "Added by REV-MotivesAndAlgebraicCycles: The two constructions of Proposition 0FH3 are mutually inverse. The proposition asserts a bijection; its proof builds the two constructions and checks the extra conditions but does not compose them (source issue E13). The node supplies the verification."
-   },
-   {
-    "nodeId": "MotivesAndAlgebraicCycles:MC.2/graph-duality-compatibility",
-    "verdict": "added",
-    "note": "Added by REV-MotivesAndAlgebraicCycles: Graphs and the duality pairings. The node is Lemma 0FG8, which no node of the packet planned although Lemma 0FH1 uses it for (C)(b). It belongs with the correspondences of MC.0 and may be re-parented there."
-   },
-   {
-    "nodeId": "MotivesAndAlgebraicCycles:MC.2/chow-kernel-torsion",
-    "verdict": "added",
-    "note": "Added by REV-MotivesAndAlgebraicCycles: The kernel of base change on Chow groups is torsion. The node is Lemma 0FH8, formerly bundled into MC.2/chow-groups-under-field-extension."
-   },
-   {
-    "nodeId": "MotivesAndAlgebraicCycles:MC.2/zero-cycles-separable-points",
-    "verdict": "added",
-    "note": "Added by REV-MotivesAndAlgebraicCycles: Zero cycles are generated by separable points. The node is Lemma 0FH5, formerly bundled into MC.2/chow-groups-under-field-extension; its proof, a Bertini argument of about a page, is not routine and is laid out in the proof steps."
-   },
-   {
-    "nodeId": "MotivesAndAlgebraicCycles:MC.3/semisimple-abelian-category",
-    "verdict": "added",
-    "note": "Added by REV-MotivesAndAlgebraicCycles: Semisimple abelian categories. Jannsen uses the notion without defining it; this sentence is the description the node records as its block decomposition."
-   },
-   {
-    "nodeId": "MotivesAndAlgebraicCycles:MC.3/categorical-rank",
-    "verdict": "added",
-    "note": "Added by REV-MotivesAndAlgebraicCycles: Trace and rank in a rigid symmetric monoidal category. Jannsen uses the rank of Deligne and Milne, which was not obtained; the node records the standard definition through the commutativity constraint, which is what makes the sign change of Corollary 2 change ranks."
-   },
-   {
-    "nodeId": "MotivesAndAlgebraicCycles:MC.3/tannakian-category",
-    "verdict": "added",
-    "note": "Added by REV-MotivesAndAlgebraicCycles: Tannakian categories. The node takes Milne's formulation over F, with his footnote requiring End(1) = F, and records neutrality separately as the stage asks."
-   },
-   {
-    "nodeId": "MotivesAndAlgebraicCycles:MC.3/numerical-cycles-finite-dimensional",
-    "verdict": "added",
-    "note": "Added by REV-MotivesAndAlgebraicCycles: Numerical cycle groups are finite-dimensional. The node is the fact Jannsen quotes from Kleiman's Theorem 3.5, which was not obtained; the proof steps are the standard argument through a Weil cohomology theory."
-   },
-   {
-    "nodeId": "MotivesAndAlgebraicCycles:MC.3/radical-base-change",
-    "verdict": "added",
-    "note": "Added by REV-MotivesAndAlgebraicCycles: The radical of a finite-dimensional algebra commutes with field extension. Jannsen uses this without proof; the node is the standard separability argument, needed because the reduction to one coefficient field rests on it."
-   },
-   {
-    "nodeId": "MotivesAndAlgebraicCycles:MC.3/nilpotent-of-vanishing-power-traces",
-    "verdict": "added",
-    "note": "Added by REV-MotivesAndAlgebraicCycles: An endomorphism with vanishing power traces is nilpotent. The step of Jannsen's proof this lemma makes precise."
-   },
-   {
-    "nodeId": "MotivesAndAlgebraicCycles:MC.3/semisimple-category-implies-numerical",
-    "verdict": "added",
-    "note": "Added by REV-MotivesAndAlgebraicCycles: A semisimple category of motives forces numerical equivalence. The node is the implication a) to c) of Theorem 1 with its proof."
-   },
-   {
-    "nodeId": "MotivesAndAlgebraicCycles:MC.3/numerical-implies-semisimple-algebras",
-    "verdict": "added",
-    "note": "Added by REV-MotivesAndAlgebraicCycles: Numerical correspondences form semisimple algebras. The node is the implication c) to b) of Theorem 1 with its proof, which continues on page 449."
-   },
-   {
-    "nodeId": "MotivesAndAlgebraicCycles:MC.3/semisimple-algebras-imply-semisimple-category",
-    "verdict": "added",
-    "note": "Added by REV-MotivesAndAlgebraicCycles: Semisimple correspondence algebras give a semisimple category. The node is the implication b) to a) of Theorem 1 with its proof."
-   },
-   {
-    "nodeId": "MotivesAndAlgebraicCycles:MC.3/cohomology-of-numerical-motives",
-    "verdict": "added",
-    "note": "Added by REV-MotivesAndAlgebraicCycles: Cohomology of a numerical motive. The node is Remark 4, which no node of the packet planned although Corollary 2's rank formula needs it to make sense of pH^i(X) for a numerical class p."
-   },
-   {
-    "nodeId": "MotivesAndAlgebraicCycles:MC.3/numerical-quotient-functor",
-    "verdict": "added",
-    "note": "Added by REV-MotivesAndAlgebraicCycles: The quotient from Chow motives to numerical motives. Milne builds both categories by one recipe; the quotient functor is reduction of cycles. He adds that M_rat(k) contains more information than M_num(k)."
-   },
-   {
-    "nodeId": "MotivesAndAlgebraicCycles:MC.4/effective-geometric-motives",
-    "verdict": "corrected",
-    "note": "Definition 14.1 checked (p. 109) with the meaning of 'thick' (Definition 9.1). Statement restricted to the definition; the resolution-dependent consequences moved to a new node (they needed later nodes and would have made a cycle). IsLocalization replaced by Mathlib's triangEnvelope, triangEnvelope_le_iff, IsTriangulated and IsStableUnderRetracts. API extended (universal property, Tate twist, compactness); the test closed_under_summands was wrong (the Lefschetz summand of M(P^1) is a cone, so it cannot distinguish thick from triangulated) and was replaced; tests given kinds; literal excerpts."
-   },
-   {
-    "nodeId": "MotivesAndAlgebraicCycles:MC.4/tate-stabilised-motives",
-    "verdict": "corrected",
-    "note": "Checked the paragraph after 14.2 (p. 110), Appendix 8A and Voevodsky's Corollary 4.10. The construction is MVW's C[T^{-1}] (new node), not a localisation at morphisms (IsLocalization removed); the tensor structure needs 15.8 (new node); full faithfulness uses cancellation over a perfect field, imported from M.5a. Hypothesis k perfect; API and tests with kinds; literal excerpts."
-   },
-   {
-    "nodeId": "MotivesAndAlgebraicCycles:MC.4/homotopy-invariance-and-mayer-vietoris",
-    "verdict": "corrected",
-    "note": "Checked 14.5 (p. 110), 6.12 (p. 103), 13.15-13.16. Vector bundle statement split to a new node; proof steps now derive both statements in DM over any field (MVW's route through 13.15 needs k perfect); literal excerpts. Still two statements in one node: the Lean file should give them two declarations."
-   },
-   {
-    "nodeId": "MotivesAndAlgebraicCycles:MC.4/motive-of-projective-space",
-    "verdict": "corrected",
-    "note": "Checked 13.17, 15.1-15.5 and Definition 3.1 / Lemma 2.13. Projective bundle theorem split off; Theorem 15.2 and Exercise 15.4, hidden in 'the inclusion is split', are new nodes; A^1, G_m, P^1 hold over any field. Source issues E20 (13.17 display) and E22 (15.5 proof, known erratum) recorded."
-   },
-   {
-    "nodeId": "MotivesAndAlgebraicCycles:MC.4/gysin-triangle",
-    "verdict": "corrected",
-    "note": "Checked 15.13-15.15. The Gysin map comes from 15.13, whose proof uses 13.26 and hence resolution (E21); the node now carries that hypothesis, follows the source's proof (12.20, 15.14) instead of 'importing the Gysin map' from M.5a (which does not own it), covers every closed point (third term M(Spec k(x))(1)[2]) and writes out the boundary sequence."
-   },
-   {
-    "nodeId": "MotivesAndAlgebraicCycles:MC.4/geometric-motives-rigid",
-    "verdict": "corrected",
-    "note": "Checked Lecture 20 (20.3-20.17). The node bundled the dual, the double dual, the dual of a tensor product and rigidity; these are now four new nodes and this node is 20.14/20.15/20.17 with the translation to Mathlib's RigidCategory. Corrected the sign: M(X)^* = M^c(X)(-d)[-2d]."
-   },
-   {
-    "nodeId": "MotivesAndAlgebraicCycles:MC.4/chow-motives-into-geometric-motives",
-    "verdict": "corrected",
-    "note": "Checked 20.1, 20.2 and the authors' corrections for p. 167. The statement claimed the integral category of the source is MC.1's; MC.1 is Q-linear with Stacks conventions. Now: the integral Hom bijections with d = dim Y (E23), the functor recorded as asserted but not proved (E24, gap), and the explicit translation to MC.1 including twists. Proof steps add the Kuenneth step the duality theorem needs."
-   },
-   {
-    "nodeId": "MotivesAndAlgebraicCycles:MC.4/motivic-cohomology-higher-chow",
-    "verdict": "corrected",
-    "note": "Checked 19.1-19.3 and the proof of 19.1 (19.9, 19.12). The node stated the comparison without proof although RS-08 assigns it to MC.4; now decomposed through two new nodes (16.7-16.12, 19.4-19.9) with the cycle-complex inputs requested precisely from M.4."
-   },
-   {
-    "nodeId": "MotivesAndAlgebraicCycles:MC.4/blow-up-triangle-and-formula",
-    "verdict": "corrected",
-    "note": "Checked 13.25, 13.26, 14.5.3-14.5.4, 15.13 and the paragraph after 14.1. Split into three: this node is Theorem 13.26 with its proof (cdh, platification, resolution; hypothesis k perfect via 13.25); the smooth-centre formula and the generation statement are new nodes. The cdh inputs had no supplier: requested from M.5a; resolution and platification from SF.4."
-   },
-   {
-    "nodeId": "MotivesAndAlgebraicCycles:MC.4/motives-with-compact-support",
-    "verdict": "corrected",
-    "note": "Checked 16.1-16.2, 16.13-16.17. The node bundled a definition with four theorems, one (16.15) with a non-routine cdh proof; now split into the definition (with M^c(A^i) needing k perfect through 16.7) and three new theorem nodes, plus a new node for z_equi. API and tests with kinds; literal excerpts."
-   },
-   {
-    "nodeId": "MotivesAndAlgebraicCycles:MC.4/borel-moore-motivic-homology",
-    "verdict": "corrected",
-    "note": "Checked 16.20-16.24. The node bundled the definitions with Friedlander-Voevodsky's shifting and duality theorems, which MVW cite without proof; those are new nodes with a gap. The acceptance line saying the higher Chow identification is 'imported' had no supplier; it is not planned (no target uses it)."
-   },
-   {
-    "nodeId": "MotivesAndAlgebraicCycles:MC.5/diagram",
-    "verdict": "corrected",
-    "note": "Checked Definitions B.1, B.4 and Example B.3. HMS require representations to send identity edges to identities; the node imposed nothing. Mathlib's Quiver/Prefunctor cited; API and tests fixed (the test named 'cofiltered' tested filteredness); literal excerpts."
-   },
-   {
-    "nodeId": "MotivesAndAlgebraicCycles:MC.5/endomorphism-coalgebra",
-    "verdict": "corrected",
-    "note": "Checked B.6-B.8. Statement correct; hypotheses add R noetherian; tests made concrete with kinds; literal excerpts replace a paraphrase over 300 characters."
-   },
-   {
-    "nodeId": "MotivesAndAlgebraicCycles:MC.5/diagram-category",
-    "verdict": "corrected",
-    "note": "Checked the Section 1 notation list and B.6-B.9. Split: universal property (B.8, unproved in the source) and generation (B.9) are new nodes; the abelian structure is not in the pinned library (FGComoduleCat has none) and is a new lemma; comodule side convention stated."
-   },
-   {
-    "nodeId": "MotivesAndAlgebraicCycles:MC.5/graded-multiplicative-diagram",
-    "verdict": "corrected",
-    "note": "Checked B.14-B.17 on the rendered page. The grading is Z/2Z, not the integers; the five conditions and the sign placement (first variable) are now stated; the sign description copied from Theorem 1.6 contradicted B.14 (E29); property references in the proof misprinted (E32)."
-   },
-   {
-    "nodeId": "MotivesAndAlgebraicCycles:MC.5/diagram-localisation",
-    "verdict": "corrected",
-    "note": "Checked B.18-B.22. Added the edges c_{f,n}, the weak product structure, the precise sense of 'localisation' and chi; the proof of B.22 uses the universal property, now a prerequisite."
-   },
-   {
-    "nodeId": "MotivesAndAlgebraicCycles:MC.5/effective-pairs-diagram",
-    "verdict": "corrected",
-    "note": "Checked Definition 1.1 on the rendered page and Definition D.1. Grading by parity; vertex product and closure of good and very good pairs under it; good-pair condition sourced from relative singular cohomology (SF.2 and Tau Ceti); SF.3 moved to the nodes that use normal crossings; misprint R315."
-   },
-   {
-    "nodeId": "MotivesAndAlgebraicCycles:MC.5/nori-motives",
-    "verdict": "corrected",
-    "note": "Checked Definitions 1.3 and 1.11. Representation now its own node; the two definitions of 1(-1) reconciled (E35); the test and acceptance calling MM^eff a full subcategory were unsupported (the source proves no fullness) and are replaced by faithfulness."
-   },
-   {
-    "nodeId": "MotivesAndAlgebraicCycles:MC.5/nori-tensor-category",
-    "verdict": "corrected",
-    "note": "Checked Theorem 1.6 and its proof against B.14. Sign convention corrected to B.14 with an explicit normalisation (E29); the product on coboundary edges is undefined in the source (E30, gap) and the repair is stated; Kuenneth requested from SF.2."
-   },
-   {
-    "nodeId": "MotivesAndAlgebraicCycles:MC.5/diagram-comparison",
-    "verdict": "corrected",
-    "note": "Checked Corollaries 1.7 and 1.8 with Remark 1.9. Corollary 1.8 split off (new node); the proof's inputs (Proposition D.3 and the universal property) are now nodes."
-   },
-   {
-    "nodeId": "MotivesAndAlgebraicCycles:MC.5/cohomology-with-supports",
-    "verdict": "corrected",
-    "note": "Checked Corollary 1.10 and Lemma 1.12. Split: the three computations of 1.12 are proved separately and two are false as stated without geometric irreducibility (E28); they are new nodes with corrected hypotheses. The acceptance about a point of a curve needed a rational point."
-   },
-   {
-    "nodeId": "MotivesAndAlgebraicCycles:MC.5/nori-rigidity",
-    "verdict": "corrected",
-    "note": "Checked Lemma 1.13, Theorem 1.14, Remark 1.9 and Appendix C. The criterion used is Proposition C.4, not Lemma C.3 (MM_Nori is not generated by one object); Lemma 1.13 and the criterion are new nodes. Tau Ceti's instRigidCategory goes from Hopf to rigid and is used only after the criterion."
-   },
-   {
-    "nodeId": "MotivesAndAlgebraicCycles:MC.4/inverting-a-tensor-object",
-    "verdict": "added",
-    "note": "Added by R3: Inverting an object of a symmetric monoidal category. Sources read at the locators given; prerequisites as listed."
-   },
-   {
-    "nodeId": "MotivesAndAlgebraicCycles:MC.4/symmetric-group-acts-trivially-on-tate-twists",
-    "verdict": "added",
-    "note": "Added by R3: The symmetric group acts trivially on Z(n). Sources read at the locators given; prerequisites as listed."
-   },
-   {
-    "nodeId": "MotivesAndAlgebraicCycles:MC.4/geometric-motives-generated-by-smooth-projective",
-    "verdict": "added",
-    "note": "Added by R3: Geometric motives contain all schemes and are generated by smooth projective ones. Sources read at the locators given; prerequisites as listed."
-   },
-   {
-    "nodeId": "MotivesAndAlgebraicCycles:MC.4/vector-bundle-invariance",
-    "verdict": "added",
-    "note": "Added by R3: The motive of a vector bundle. Sources read at the locators given; prerequisites as listed."
-   },
-   {
-    "nodeId": "MotivesAndAlgebraicCycles:MC.4/projective-space-quotient",
-    "verdict": "added",
-    "note": "Added by R3: The quotient of P^n by P^(n-1) is R(n)[2n]. Sources read at the locators given; prerequisites as listed."
-   },
-   {
-    "nodeId": "MotivesAndAlgebraicCycles:MC.4/projective-space-inclusion-split",
-    "verdict": "added",
-    "note": "Added by R3: The maps from P^i to R(i)[2i] extend to P^n. Sources read at the locators given; prerequisites as listed."
-   },
-   {
-    "nodeId": "MotivesAndAlgebraicCycles:MC.4/projective-bundle-theorem",
-    "verdict": "added",
-    "note": "Added by R3: The projective bundle theorem for geometric motives. Sources read at the locators given; prerequisites as listed."
-   },
-   {
-    "nodeId": "MotivesAndAlgebraicCycles:MC.4/blow-up-smooth-centre-and-gysin-map",
-    "verdict": "added",
-    "note": "Added by R3: The motive of a blow-up along a smooth centre, and the Gysin map. Sources read at the locators given; prerequisites as listed."
-   },
-   {
-    "nodeId": "MotivesAndAlgebraicCycles:MC.4/equidimensional-cycle-sheaves",
-    "verdict": "added",
-    "note": "Added by R3: The sheaves of equidimensional cycles z_equi(T, r). Sources read at the locators given; gap recorded."
-   },
-   {
-    "nodeId": "MotivesAndAlgebraicCycles:MC.4/suslin-friedlander-comparison",
-    "verdict": "added",
-    "note": "Added by R3: The Suslin-Friedlander complexes compute motivic cohomology. Sources read at the locators given; prerequisites as listed."
-   },
-   {
-    "nodeId": "MotivesAndAlgebraicCycles:MC.4/suslin-friedlander-into-cycle-complex",
-    "verdict": "added",
-    "note": "Added by R3: The Suslin-Friedlander complexes and Bloch's cycle complexes. Sources read at the locators given; prerequisites as listed."
-   },
-   {
-    "nodeId": "MotivesAndAlgebraicCycles:MC.4/compact-support-localisation-triangle",
-    "verdict": "added",
-    "note": "Added by R3: The localisation triangle for motives with compact support. Sources read at the locators given; prerequisites as listed."
-   },
-   {
-    "nodeId": "MotivesAndAlgebraicCycles:MC.4/compact-support-kunneth",
-    "verdict": "added",
-    "note": "Added by R3: The Kuenneth isomorphism for motives with compact support. Sources read at the locators given; gap recorded."
-   },
-   {
-    "nodeId": "MotivesAndAlgebraicCycles:MC.4/compact-support-geometric",
-    "verdict": "added",
-    "note": "Added by R3: Motives with compact support are geometric. Sources read at the locators given; prerequisites as listed."
-   },
-   {
-    "nodeId": "MotivesAndAlgebraicCycles:MC.4/bivariant-shifting-theorem",
-    "verdict": "added",
-    "note": "Added by R3: Bivariant cycle cohomology and the shifting theorem. Sources read at the locators given; gap recorded."
-   },
-   {
-    "nodeId": "MotivesAndAlgebraicCycles:MC.4/friedlander-voevodsky-duality",
-    "verdict": "added",
-    "note": "Added by R3: Friedlander-Voevodsky duality. Sources read at the locators given; gap recorded."
-   },
-   {
-    "nodeId": "MotivesAndAlgebraicCycles:MC.4/dual-of-motive-of-smooth-scheme",
-    "verdict": "added",
-    "note": "Added by R3: The dual of the motive of a smooth scheme. Sources read at the locators given; prerequisites as listed."
-   },
-   {
-    "nodeId": "MotivesAndAlgebraicCycles:MC.4/geometric-motive-dual",
-    "verdict": "added",
-    "note": "Added by R3: The dual of a geometric motive. Sources read at the locators given; prerequisites as listed."
-   },
-   {
-    "nodeId": "MotivesAndAlgebraicCycles:MC.4/double-dual-isomorphism",
-    "verdict": "added",
-    "note": "Added by R3: Geometric motives are reflexive. Sources read at the locators given; prerequisites as listed."
-   },
-   {
-    "nodeId": "MotivesAndAlgebraicCycles:MC.4/dual-of-tensor-product",
-    "verdict": "added",
-    "note": "Added by R3: The dual of a tensor product. Sources read at the locators given; prerequisites as listed."
-   },
-   {
-    "nodeId": "MotivesAndAlgebraicCycles:MC.5/finite-comodules-abelian",
-    "verdict": "added",
-    "note": "Added by R3: Finite-dimensional comodules form an abelian category. Sources read at the locators given; prerequisites as listed."
-   },
-   {
-    "nodeId": "MotivesAndAlgebraicCycles:MC.5/diagram-category-universal-property",
-    "verdict": "added",
-    "note": "Added by R3: The universal property of the diagram category. Sources read at the locators given; gap recorded."
-   },
-   {
-    "nodeId": "MotivesAndAlgebraicCycles:MC.5/diagram-category-generation",
-    "verdict": "added",
-    "note": "Added by R3: The diagram category is generated by the vertices. Sources read at the locators given; prerequisites as listed."
-   },
-   {
-    "nodeId": "MotivesAndAlgebraicCycles:MC.5/singular-cohomology-representation",
-    "verdict": "added",
-    "note": "Added by R3: Relative singular cohomology as a representation of the pair diagram. Sources read at the locators given; prerequisites as listed."
-   },
-   {
-    "nodeId": "MotivesAndAlgebraicCycles:MC.5/basic-lemma",
-    "verdict": "added",
-    "note": "Added by R3: Nori's Basic Lemma. Sources read at the locators given; gap recorded."
-   },
-   {
-    "nodeId": "MotivesAndAlgebraicCycles:MC.5/cellular-realisation-functor",
-    "verdict": "added",
-    "note": "Added by R3: The realisation functor on complexes of varieties. Sources read at the locators given; gap recorded."
-   },
-   {
-    "nodeId": "MotivesAndAlgebraicCycles:MC.5/nori-generators",
-    "verdict": "added",
-    "note": "Added by R3: Generators of Nori motives from normal crossings pairs. Sources read at the locators given; prerequisites as listed."
-   },
-   {
-    "nodeId": "MotivesAndAlgebraicCycles:MC.5/nori-top-cohomology",
-    "verdict": "added",
-    "note": "Added by R3: Top cohomology of projective space and of projective varieties. Sources read at the locators given; prerequisites as listed."
-   },
-   {
-    "nodeId": "MotivesAndAlgebraicCycles:MC.5/nori-gysin-isomorphism",
-    "verdict": "added",
-    "note": "Added by R3: The Gysin isomorphism for a smooth pair in Nori motives. Sources read at the locators given; prerequisites as listed."
-   },
-   {
-    "nodeId": "MotivesAndAlgebraicCycles:MC.5/nori-duality-morphism",
-    "verdict": "added",
-    "note": "Added by R3: The duality morphism for pairs from a normal crossings divisor. Sources read at the locators given; prerequisites as listed."
-   },
-   {
-    "nodeId": "MotivesAndAlgebraicCycles:MC.5/rigidity-criterion",
-    "verdict": "added",
-    "note": "Added by R3: Nori's rigidity criterion. Sources read at the locators given; prerequisites as listed."
-   },
-   {
-    "nodeId": "MotivesAndAlgebraicCycles:MC.6/torsor",
-    "verdict": "corrected",
-    "note": "Definition A.1 and Lemmas A.2, A.3 read on pages 14-15 of arXiv:1105.0865v5 (SHA-256 matches). Axiom (2) restated exactly (three-term chain with the reversal (u, z, y)); affine part split off; bogus prerequisites (CategoryTheory.Equivalence, FGPointRepresentationCat) replaced by mathlib:Group and mathlib:Torsor; API renamed Heap (Mathlib has class Torsor); tests with kinds that fail the plausible wrong operations."
-   },
-   {
-    "nodeId": "MotivesAndAlgebraicCycles:MC.6/tensor-automorphism-group",
-    "verdict": "corrected",
-    "note": "Lemma 3.2, Theorem 1.14 and Theorem B.10 read. Statement pinned to G_mot = Aut⊗(H*) (singular), consistent with Theorem 1.14 and now with MC.6/period-torsor; hidden rigidity-to-antipode step made a node; tauceti:TauCeti.Tannaka.reconstructedPoint (only builds the point) replaced by pointsFunctorIsoTensorAutFunctor after reading GroupFunctor.lean, Equivalence.lean and Reconstruction.lean at the pin."
-   },
-   {
-    "nodeId": "MotivesAndAlgebraicCycles:MC.6/comparison-algebra",
-    "verdict": "corrected",
-    "note": "Definition 2.1, Lemma 2.2 and Proposition B.16 read. Multiplicativity of both representations added as a hypothesis (the source omits it: E36); acceptance 'no unit element' corrected to 'no counit'; second coaction and colimit API added; tests with kinds."
-   },
-   {
-    "nodeId": "MotivesAndAlgebraicCycles:MC.6/period-space-of-a-diagram",
-    "verdict": "corrected",
-    "note": "Definition 2.4 and Proposition 2.5 read. Change-of-variables relation stated exactly; multiplicativity hypothesis added; literal excerpt; tests with kinds."
-   },
-   {
-    "nodeId": "MotivesAndAlgebraicCycles:MC.6/periods-equal-comparison-algebra",
-    "verdict": "corrected",
-    "note": "Theorem 2.6, its proof and Remark 2.7 read on the rendered page 10. The source's proof says 'subspace' where both spaces are quotients (new finding E38); the node's quotient argument is kept and the finding recorded; multiplicativity hypothesis added."
-   },
-   {
-    "nodeId": "MotivesAndAlgebraicCycles:MC.6/formal-periods",
-    "verdict": "corrected",
-    "note": "Definition 2.8 and Remark 2.9 read. Acceptance claim that dropping relation (3) 'makes the object too large to be a torsor' is in no source and was removed; evaluation API moved to PeriodsAndSpecialValues:PS.2 / MC.6/period-point; product written with X × D′ (source misprint E41); relations as API; tests with kinds."
-   },
-   {
-    "nodeId": "MotivesAndAlgebraicCycles:MC.6/formal-periods-equal-comparison-algebra",
-    "verdict": "corrected",
-    "note": "Theorem 2.10 read. Corollary 2.11 split into a node, Corollary 2.12 dropped (it concerns complex values, PS.2); the algebra structure routed through good pairs, since H* is not graded multiplicative on all pairs (new finding E37); E1 confirmed."
-   },
-   {
-    "nodeId": "MotivesAndAlgebraicCycles:MC.6/fibre-functor-extension",
-    "verdict": "corrected",
-    "note": "Lemma 3.1 and Proposition B.8 read. Tensor structure added under the multiplicative hypothesis (E36); faithfulness argued; unused prerequisite MC.6/tensor-automorphism-group removed; universal-property gap named."
-   },
-   {
-    "nodeId": "MotivesAndAlgebraicCycles:MC.6/iso-torsor",
-    "verdict": "corrected",
-    "note": "Theorem 3.3 read. Heap operation written out; the claim that 'the appendix on torsors provides' the identification of the acting groups was wrong (Proposition A.6 gives abstract quotients); the identification follows from the composition maps; prerequisites to the new scheme node."
-   },
-   {
-    "nodeId": "MotivesAndAlgebraicCycles:MC.6/period-torsor",
-    "verdict": "corrected",
-    "note": "Corollary 3.4, Remark 3.5 and Theorem 0.2 read. 'Equivalently' between the torsor and the map P → P⊗P⊗P removed; G_mot pinned to singular cohomology against the source's proof (new finding E39); Tannakian input taken on MM_Nori; faithful flatness from DM Theorem 3.2; E2 confirmed; introduction misprint R405."
-   },
-   {
-    "nodeId": "MotivesAndAlgebraicCycles:MC.7/kunneth-conjecture-C",
-    "verdict": "corrected",
-    "note": "Milne Section 6 (pages 8-9) and Jannsen pages 449-451 read. The claimed equivalence between the cohomological and numerical forms is in neither source; restated as an implication; Jannsen locator corrected (the idempotent sentence is on page 451); API and tests reworked with kinds."
-   },
-   {
-    "nodeId": "MotivesAndAlgebraicCycles:MC.7/conjecture-D",
-    "verdict": "corrected",
-    "note": "Milne Section 6 read. Known case given with its field and characteristic; literal excerpt; the divisor test (Matsusaka, in no source read) and a bookkeeping test replaced by checkable ones with kinds."
-   },
-   {
-    "nodeId": "MotivesAndAlgebraicCycles:MC.7/known-cases-of-conjecture-C",
-    "verdict": "corrected",
-    "note": "Jannsen Remarks 1 and 2 (page 451) read. Each case given with field, characteristic, coefficients; the scope of the Katz-Messing case flagged; Milne's weaker statements (abelian varieties in characteristic zero) noted; dependence on the MC.3 Deligne-criterion gap recorded."
-   },
-   {
-    "nodeId": "MotivesAndAlgebraicCycles:MC.7/smash-nilpotence",
-    "verdict": "corrected",
-    "note": "Lemmas 0FH7, 0FH8, 0FH9 read in the pinned weil.tex (SHA-256 matches) and on the tag pages. The packet's proof steps ('divisibility ... count divisibility') are not the source's proof and do not prove torsion; replaced by the symmetric-power/norm/Picard argument; attribution corrected to Voevodsky; prerequisites to SF.3 and SF.5; three new findings in the proof (E45 misprint, E46 and E47 omitted steps)."
-   },
-   {
-    "nodeId": "MotivesAndAlgebraicCycles:MC.7/hodge-conjecture",
-    "verdict": "corrected",
-    "note": "Deligne Sections 1, 2, 4 and 5 read (SHA-256 matches). The definition node contained major theorems (Hodge decomposition, currents, Lefschetz (1,1), Chern-class formulation, integral failure) as proof steps and API; split into MC.7/hodge-class, MC.7/cycle-classes-are-hodge and the predicate; prerequisites corrected (adequate relations and Conjecture D are not inputs); tests replaced by checkable ones."
-   },
-   {
-    "nodeId": "MotivesAndAlgebraicCycles:MC.7/tate-conjecture",
-    "verdict": "corrected",
-    "note": "Totaro Sections 1 and 2 read (SHA-256 matches). Proof step 5 claimed failure over 'any field not finitely generated', which the source does not say, and called Raskind's conjecture an exception; prerequisites corrected to SF.2/SF.5 (a Weil cohomology of MC.2 has no Galois action); Tate's theorem removed as a unit test."
-   },
-   {
-    "nodeId": "MotivesAndAlgebraicCycles:MC.7/tate-conjecture-variants",
-    "verdict": "corrected",
-    "note": "Totaro Section 1 (pages 4-5, rendered diagram) and Section 2 read. Borel-Moore variant needs resolution with smooth compactification; Schoen's implication is over the algebraic closure of a finite field; integral divisor case over finite fields added; diagram arrows to the standard conjectures added; Brauer/Sha/BSD equivalence given its fibred-surface hypotheses; 'fails to make sense over C' corrected; wrong prerequisite MC.4/borel-moore-motivic-homology (motivic, not l-adic) replaced; strong and Tate-Beilinson split into nodes. Two misprints in the source recorded (E43, E44)."
-   },
-   {
-    "nodeId": "MotivesAndAlgebraicCycles:MC.7/lefschetz-and-hodge-standard-conjectures",
-    "verdict": "corrected",
-    "note": "Milne Section 7 read: it names both conjectures and states neither. The node's precise statements were written from memory (the Hodge standard form lacked the sign); the Lefschetz predicate is now typed from Deligne Section 4 Example 2 with hard Lefschetz from DWP.9; the Hodge standard conjecture is recorded, not typed; unsupported implication API items removed."
-   },
-   {
-    "nodeId": "MotivesAndAlgebraicCycles:MC.7/bloch-beilinson-filtration-and-murre",
-    "verdict": "corrected",
-    "note": "Milne Aside 6.1 read. An acceptance item listed properties of the filtration from memory; removed."
-   },
-   {
-    "nodeId": "MotivesAndAlgebraicCycles:MC.7/motivic-t-structure",
-    "verdict": "verified",
-    "note": "Milne Section 10 (Final note, page 15) read; the excerpt and the negative record match (the source prints 'a category mixed motives', a trivial slip)."
-   },
-   {
-    "nodeId": "MotivesAndAlgebraicCycles:MC.7/tate-and-hodge-known-cases",
-    "verdict": "corrected",
-    "note": "Totaro Sections 3, 4, 5 and Deligne remark (iii) read. Entries now carry field, characteristic, codimension and coefficients (the stage's acceptance); missing entries of the source added (Zarhin, h^{2,0} = 0, Tankeev, degree-2 K3, p > 5 and characteristic 2 restrictions, Beilinson injectivity in codimension one); Faltings entry requests R28.4; unhypothesised reports marked inadmissible."
-   },
-   {
-    "nodeId": "MotivesAndAlgebraicCycles:MC.6/torsor-groups",
-    "verdict": "added",
-    "note": "Added by R4: The left and right groups of a nonempty heap."
-   },
-   {
-    "nodeId": "MotivesAndAlgebraicCycles:MC.6/affine-torsor",
-    "verdict": "added",
-    "note": "Added by R4: Torsors in the category of affine schemes."
-   },
-   {
-    "nodeId": "MotivesAndAlgebraicCycles:MC.6/affine-torsor-groups",
-    "verdict": "added",
-    "note": "Added by R4: A nonempty affine torsor carries affine group schemes on both sides."
-   },
-   {
-    "nodeId": "MotivesAndAlgebraicCycles:MC.6/rigid-bialgebra-is-hopf",
-    "verdict": "added",
-    "note": "Added by R4: A commutative bialgebra with a rigid comodule category is a Hopf algebra."
-   },
-   {
-    "nodeId": "MotivesAndAlgebraicCycles:MC.6/very-good-pairs-generate-periods",
-    "verdict": "added",
-    "note": "Added by R4: Formal periods are generated by very good pairs."
-   },
-   {
-    "nodeId": "MotivesAndAlgebraicCycles:MC.6/tensor-iso-scheme",
-    "verdict": "added",
-    "note": "Added by R4: The scheme of tensor isomorphisms between two fibre functors on a diagram category."
-   },
-   {
-    "nodeId": "MotivesAndAlgebraicCycles:MC.6/tensor-iso-torsor",
-    "verdict": "added",
-    "note": "Added by R4: Tensor morphisms between fibre functors form a torsor."
-   },
-   {
-    "nodeId": "MotivesAndAlgebraicCycles:MC.6/pro-algebraic-approximation",
-    "verdict": "added",
-    "note": "Added by R4: Finite subdiagrams give the motivic Galois group as a pro-algebraic group."
-   },
-   {
-    "nodeId": "MotivesAndAlgebraicCycles:MC.6/period-point",
-    "verdict": "added",
-    "note": "Added by R4: The comparison isomorphism as a complex point of the period torsor."
-   },
-   {
-    "nodeId": "MotivesAndAlgebraicCycles:MC.7/hodge-class",
-    "verdict": "added",
-    "note": "Added by R4: Hodge classes."
-   },
-   {
-    "nodeId": "MotivesAndAlgebraicCycles:MC.7/cycle-classes-are-hodge",
-    "verdict": "added",
-    "note": "Added by R4: The class of an algebraic cycle is a Hodge class."
-   },
-   {
-    "nodeId": "MotivesAndAlgebraicCycles:MC.7/strong-tate-conjecture",
-    "verdict": "added",
-    "note": "Added by R4: The strong Tate conjecture."
-   },
-   {
-    "nodeId": "MotivesAndAlgebraicCycles:MC.7/tate-beilinson-conjecture",
-    "verdict": "added",
-    "note": "Added by R4: The Tate-Beilinson conjecture."
-   }
-  ]
+  "status": "pending",
+  "notes": "Independent REV-FIX-RT-AREA-iwasawa-3~2 required. The previous needs_changes review is preserved in reviewHistory, and all 21 gaps/14 requests and partial coverage are retained. This fix does not accept its own work."
+ },
+ "reviewHistory": [
+  {
+   "status": "needs_changes",
+   "reviewer": "independent-review-REV-MotivesAndAlgebraicCycles",
+   "date": "2026-09-25",
+   "notes": "Four independent reviewers (MC.0–MC.1, MC.2–MC.3, MC.4–MC.5, MC.6–MC.7) checked every node against its source at the cited locator (all recorded SHA-256 values match), every baseline citation at the pinned commits, closure, granularity, API, unit tests, planets and the library audit; RS-08's narrowing of MC.4 was followed. Of the 96 original nodes 5 are verified, 89 corrected and 2 removed (MC.4/cancellation-over-a-perfect-field duplicated MotivicEtaleKTheory M.5a; the Nisnevich-against-etale comparison lies outside MC.4 as RS-08 narrows it); 79 nodes are added; MC.0/homological-equivalence moved to MC.2, since it needs MC.2's Weil cohomology. Baseline: 48 original citations, 39 confirmed (four with no remaining consumer kept as register entries), 9 fixed, 3 removed; 57 added. Source issues: E1–E5 confirmed, E6–E47 added and confirmed, among them errors in stated results of the Stacks Project (0FGR's diagonal formula), Jannsen (the trivial relation) and Huber–Müller-Stach (Lemma 1.12, Theorem 2.6's subspaces). Coverage: MC.1 and MC.3 are source decomposed; MC.0, MC.2, MC.4, MC.5, MC.6 and MC.7 were marked source decomposed with work remaining and are now partial. The suggested Lean file, which did not elaborate and stated a trivially true proposition in place of about 150 statements, is rewritten against the corrected packet and elaborates at Mathlib 082e2d3 with only placeholder-proof warnings. needs_changes only because the roadmap document research/blueprint/readmes/MotivesAndAlgebraicCycles.md is outside this review's files and still describes the uncorrected packet; it must be regenerated before promotion.",
+   "checked": [
+    {
+     "nodeId": "MotivesAndAlgebraicCycles:MC.0/correspondence-group",
+     "verdict": "corrected",
+     "note": "Definition and excerpt checked against weil.tex (tag 0FFZ) at the pinned Stacks commit, SHA-256 matches. Statement keeps the source's hypotheses. Hypotheses now say how the index category is stated with the pinned libraries (proper, no projective morphisms) and that integral Chow groups stay with SF.5; the garbled fourth unit test is replaced and all tests carry kinds."
+    },
+    {
+     "nodeId": "MotivesAndAlgebraicCycles:MC.0/correspondence-action-on-cycles",
+     "verdict": "corrected",
+     "note": "Both formulas, the dimension bookkeeping and the excerpt checked against tag 0FFZ; statement and proof steps faithful. Unit tests made precise and given kinds."
+    },
+    {
+     "nodeId": "MotivesAndAlgebraicCycles:MC.0/correspondence-composition",
+     "verdict": "verified",
+     "note": "Composition formula c' o c = pr_{13,*}(pr_{12}^*c . pr_{23}^*c') and the degree r + s checked against tag 0FFZ; hypotheses (flat projections, proper pr_13) are what the formula needs. Only the test kinds were added."
+    },
+    {
+     "nodeId": "MotivesAndAlgebraicCycles:MC.0/composition-associative",
+     "verdict": "corrected",
+     "note": "Lemma 0FG0 and its proof read at the pinned Stacks commit. The node bundled four separately proved parts; it now holds part (1), with (2)/(3) and (4) split into two added nodes. Proof steps now name all five justifications (source issue E3 confirmed) and the silent use of functoriality of flat pullback. Excerpt shortened to at most 300 characters."
+    },
+    {
+     "nodeId": "MotivesAndAlgebraicCycles:MC.0/graph-correspondence",
+     "verdict": "corrected",
+     "note": "Example 0FG1 checked; the codimension computation is right. The quoted text contains a misprint (Corr^0(X × Y) for Corr^0(X, Y)), recorded as R101. One unit test placed the graph of a rational point in the wrong Chow group; corrected. Excerpt shortened."
+    },
+    {
+     "nodeId": "MotivesAndAlgebraicCycles:MC.0/category-of-correspondences",
+     "verdict": "corrected",
+     "note": "Lemma 0FG2 and its proof (identity axiom via Stacks 0FFD) checked; faithful. Excerpt shortened; the additivity of the degree zero category, used in MC.1 but planned nowhere, added as an API item promoted to a new node; test kinds added."
+    },
+    {
+     "nodeId": "MotivesAndAlgebraicCycles:MC.0/correspondence-functor",
+     "verdict": "verified",
+     "note": "Lemma 0FG3 and its proof checked in weil.tex: statement, contravariance and the scheme-theoretic intersection Z' = (Gamma_f × Z) ∩ (X × Gamma_g) with Stacks 0FFD are as the node says. Excerpt literal and under 300 characters."
+    },
+    {
+     "nodeId": "MotivesAndAlgebraicCycles:MC.0/transpose-correspondence",
+     "verdict": "corrected",
+     "note": "Remark 0FG4 checked; degree shift d - e + r verified (codimension d + r on X × Y equals e + (d - e + r) on Y × X). Excerpt shortened, test kinds added."
+    },
+    {
+     "nodeId": "MotivesAndAlgebraicCycles:MC.0/graph-acts-as-gysin-and-pushforward",
+     "verdict": "corrected",
+     "note": "Lemma 0FG5 checked, all four assertions; they are proved by one computation, so one node is right. Proof steps now cite the four Chow-homology lemmas by tag. Source issues E4 (subscript star for pullback in the proof of (2)) and E5 (spelling) confirmed at their locators. Excerpt shortened."
+    },
+    {
+     "nodeId": "MotivesAndAlgebraicCycles:MC.0/tensor-of-correspondences",
+     "verdict": "corrected",
+     "note": "Paragraph after Example 0FG6 and Lemma 0FG7 (proof omitted in the source) checked. The hidden non-routine step (bifunctoriality) is split into the added node MC.0/tensor-interchange; Q-bilinearity (Mathlib MonoidalPreadditive/MonoidalLinear, confirmed at the pin) added; excerpt shortened; test kinds added."
+    },
+    {
+     "nodeId": "MotivesAndAlgebraicCycles:MC.0/projective-line-idempotents",
+     "verdict": "corrected",
+     "note": "Example 0FG6 checked, including the composition rules in Stacks's order (c' o c = pr_13,*(pr_12^*c . pr_23^*c')). The proof steps gave the wrong reason for one of the two mixed composites (c_0 o c_2 is a non-proper self-intersection that vanishes because CH^2(P^1) = 0); corrected, and the basis computation of the diagonal made explicit. Excerpt shortened."
+    },
+    {
+     "nodeId": "MotivesAndAlgebraicCycles:MC.0/pointed-curve-idempotents",
+     "verdict": "corrected",
+     "note": "Author-generalised node (the source states only P^1; the match field says so honestly). Composites recomputed in Stacks's order: one mixed composite vanishes by contraction, the other as a non-proper self-intersection in CH^2(C) = 0; proof steps corrected accordingly and prerequisites completed. Geometric irreducibility is stronger than needed but harmless. SF.3 is not needed (see the requests correction)."
+    },
+    {
+     "nodeId": "MotivesAndAlgebraicCycles:MC.0/adequate-equivalence-relation",
+     "verdict": "corrected",
+     "note": "Jannsen p. 447 (Regensburg copy of the Inventiones article, SHA-256 matches) and Milne section 4 read. The definition was too loose to formalise and the node asserted that numerical equivalence is the coarsest adequate relation, which fails for the trivial relation (new source issue E10 against Jannsen p. 448). Restated as the precise family form on Chow groups with F-coefficients; API and tests rebuilt; excerpts made literal."
+    },
+    {
+     "nodeId": "MotivesAndAlgebraicCycles:MC.0/numerical-equivalence",
+     "verdict": "corrected",
+     "note": "Milne p. 5 and Jannsen p. 448 read. Statement made precise on Chow groups; the claim that numerical equivalence is the coarsest adequate relation corrected to exclude the trivial relation (new source issue E10), with proof; the elliptic-curve unit test was false with rational coefficients for torsion differences and now names Cremona 37a1 with a point of infinite order; vague test replaced; API item depending on MC.2 removed; excerpts literal."
+    },
+    {
+     "nodeId": "MotivesAndAlgebraicCycles:MC.2/homological-equivalence",
+     "verdict": "corrected",
+     "note": "Jannsen p. 448 and Milne p. 8 read. Hypotheses made precise (classical theory over algebraically closed k, coefficient field of the theory an F-algebra); prerequisites completed with the MC.2 nodes the proof uses (axioms, pushforward, Lemma 0FGW); a gap recorded for Jannsen's use over non-closed fields; the dependence of an MC.0 node on MC.2 flagged as a stage-order problem for the coordinator."
+    },
+    {
+     "nodeId": "MotivesAndAlgebraicCycles:MC.1/chow-motive",
+     "verdict": "corrected",
+     "note": "Section 0FG9 definition and Jannsen p. 447 checked (Jannsen's q A^{dim X - m + n}(X × Y) p agrees with Stacks's Corr^{n-m}). Added the precise identification with Mathlib's Karoubi envelope of the category of pairs (X, m) (new node), which is what makes the Karoubi citations valid; excerpt shortened; test kinds added."
+    },
+    {
+     "nodeId": "MotivesAndAlgebraicCycles:MC.1/motives-category",
+     "verdict": "corrected",
+     "note": "Lemma 0FGA first assertion checked. Added the Q-linear structure on Mathlib's Karoubi envelope, absent from the pinned Mathlib, as an API item; replaced two vacuous unit tests by computations."
+    },
+    {
+     "nodeId": "MotivesAndAlgebraicCycles:MC.1/motive-functor-h",
+     "verdict": "corrected",
+     "note": "Lemma 0FGA and the section's opening paragraph checked. The acceptance item on faithfulness was wrong (h is not faithful: two rational points of P^1 have equal graph classes); corrected. The product and disjoint-union properties rested on statements planned nowhere; now on two added MC.0 nodes. Excerpt shortened; kinds added."
+    },
+    {
+     "nodeId": "MotivesAndAlgebraicCycles:MC.1/motives-karoubian",
+     "verdict": "corrected",
+     "note": "Lemma 0FGB and proof checked. Proof step 2 used the wrong identity (a = p o a o p instead of the source's a = p o a o a) for the morphism N -> M; corrected, and the splitting stated in Mathlib's form."
+    },
+    {
+     "nodeId": "MotivesAndAlgebraicCycles:MC.1/motives-monoidal",
+     "verdict": "corrected",
+     "note": "Tensor functor paragraph and Lemma 0FGC (details omitted in the source) checked; the display (q o c o p) tensor (q' o c' o p') = (q tensor q') o (c tensor c') o (p tensor p') is the interchange law, now a prerequisite node. Bilinearity added; kinds added."
+    },
+    {
+     "nodeId": "MotivesAndAlgebraicCycles:MC.1/tate-twist",
+     "verdict": "verified",
+     "note": "Paragraph after Lemma 0FGC checked verbatim: 1(n) = (Spec(k), 1, n), 1(n + m) = 1(n) tensor 1(m), M(n) = (X, p, m + n). Only the test kinds were added."
+    },
+    {
+     "nodeId": "MotivesAndAlgebraicCycles:MC.1/lefschetz-motive",
+     "verdict": "corrected",
+     "note": "Lemma 0FGD, its proof and Remark 0FGE checked; the sign 1(-1) verified from Hom((Spec k,1,-1),(X,c_2,0)) = c_2 o Corr^1(Spec k, X). New misprint E7 (b for b' in the proof). Prerequisites completed (identifications with the point, graph functor); excerpt shortened."
+    },
+    {
+     "nodeId": "MotivesAndAlgebraicCycles:MC.1/motives-additive",
+     "verdict": "corrected",
+     "note": "Lemma 0FGF and proof checked. The reduction and the 'obvious notation' rested on facts planned nowhere; now on two added lemma nodes. Statement made explicit about which motive is re-twisted and about the zero object; excerpt shortened."
+    },
+    {
+     "nodeId": "MotivesAndAlgebraicCycles:MC.1/h-projective-line",
+     "verdict": "verified",
+     "note": "Lemma 0FGG (proof: Example 0FG6 and Lemma 0FGD) checked; statement and the two ingredients as prerequisites are right. Mathlib's Karoubi.decomposition applies once M_k is the Karoubi envelope of C_k, as the corrected chow-motive node states."
+    },
+    {
+     "nodeId": "MotivesAndAlgebraicCycles:MC.1/motives-universal-property",
+     "verdict": "corrected",
+     "note": "Lemma 0FGH and its proof checked. Uniqueness made precise (up to unique monoidal isomorphism); prerequisites completed with the twist-raising isomorphism (new node) and Mathlib's karoubiUniversal (confirmed at the pin), which also realises the stage target on extension through idempotent completion; excerpt shortened."
+    },
+    {
+     "nodeId": "MotivesAndAlgebraicCycles:MC.1/motive-dual",
+     "verdict": "corrected",
+     "note": "Lemma 0FGI and its proof checked, cycle by cycle on X^4 and X^5. New misprint E8 (pr_15 for pr_25; conclusion unaffected). The duality convention is fixed: Stacks's left dual (Categories 0FFP, read) is Mathlib's ExactPairing (h X) (h X (d)), i.e. a right dual. Prerequisites completed; excerpt shortened."
+    },
+    {
+     "nodeId": "MotivesAndAlgebraicCycles:MC.1/motives-rigid",
+     "verdict": "corrected",
+     "note": "Lemma 0FGJ and its proof checked, and the three categorical lemmas it cites read (Homology 0FFT, 0FFU; Categories 0FFP, 0FFS). Convention corrected (Stacks's left dual is Mathlib's right dual); the two lemmas absent from the pinned Mathlib added as nodes, the third cited as Mathlib's ExactPairing.tensor; excerpt shortened."
+    },
+    {
+     "nodeId": "MotivesAndAlgebraicCycles:MC.1/chow-group-of-motive",
+     "verdict": "corrected",
+     "note": "Definition 0FGL and the following paragraph checked. One unit test was false (CH^0(1(-i)) vanishes for i nonzero); corrected. Prerequisite for compatibility with composition (Lemma 0FG0 (4)) added."
+    },
+    {
+     "nodeId": "MotivesAndAlgebraicCycles:MC.1/chow-groups-representable",
+     "verdict": "corrected",
+     "note": "Lemma 0FGM checked: Hom((Spec k, 1, -i), (X, p, m)) = p o Corr^{m+i}(Spec k, X) = p(CH^{m+i}(X) tensor Q). Statement and sign right; prerequisites point at the split-off parts of Lemma 0FG0."
+    },
+    {
+     "nodeId": "MotivesAndAlgebraicCycles:MC.1/manin-identity-principle",
+     "verdict": "corrected",
+     "note": "Lemma 0FGN and its proof checked. The categorical steps are now cited to the Mathlib declarations that provide them (tensorRightHomEquiv for Categories 0FFQ, isIso_of_yoneda_map_bijective for the Yoneda step); the bare yoneda functor citation replaced."
+    },
+    {
+     "nodeId": "MotivesAndAlgebraicCycles:MC.1/projective-bundle-formula",
+     "verdict": "corrected",
+     "note": "Section 0FGP, the definition of c_i and Lemma 0FGQ checked (convention p_*O_P(1) = E, c_i in Corr^i(X, P)). The step the source leaves under 'Some details omitted' (compatibility of c_i with the product by Z) is written out with its inputs; prerequisites completed; excerpt shortened; planet named as in the source."
+    },
+    {
+     "nodeId": "MotivesAndAlgebraicCycles:MC.1/diagonal-of-projective-bundle",
+     "verdict": "corrected",
+     "note": "Lemma 0FGR, its proof and the Chow lemmas it cites (02U9, 0FA9, 02UD) read at the pinned commit; the live tag page (no comments) prints the same formula. The printed binomial coefficients are wrong for r >= 3 (checked on P^2 over a point); new source issue E9 (error, affects a stated result). Statement, acceptance and proof corrected; the local computation split into its own node; the prerequisite on the motivic projective bundle formula, which the proof does not use, removed."
+    },
+    {
+     "nodeId": "MotivesAndAlgebraicCycles:MC.1/motives-mod-adequate-relation",
+     "verdict": "corrected",
+     "note": "Jannsen pages 448 and 450 read (locator corrected from page 447). Construction made precise on top of the corrected adequate-relation node, with the formalisation route through Mathlib's quotient category and Karoubi envelope; rigidity prerequisite added; the trivial-relation case (zero category) added as a test; excerpt shortened."
+    },
+    {
+     "nodeId": "MotivesAndAlgebraicCycles:MC.0/correspondences-with-the-point",
+     "verdict": "added",
+     "note": "Split from MC.0/composition-associative (Lemma 0FG0 (2), (3), proofs omitted in the source); used by the Lefschetz, duality, representability and Weil-cohomology nodes."
+    },
+    {
+     "nodeId": "MotivesAndAlgebraicCycles:MC.0/composition-compatible-with-action",
+     "verdict": "added",
+     "note": "Split from MC.0/composition-associative (Lemma 0FG0 (4)); used by the Chow groups of a motive and their representability."
+    },
+    {
+     "nodeId": "MotivesAndAlgebraicCycles:MC.0/correspondences-of-disjoint-union",
+     "verdict": "added",
+     "note": "The additivity of the degree zero category of correspondences is used by the additivity of motives, h of a disjoint union and rigidity, and was planned nowhere (the source says 'Details omitted')."
+    },
+    {
+     "nodeId": "MotivesAndAlgebraicCycles:MC.0/tensor-interchange",
+     "verdict": "added",
+     "note": "Bifunctoriality of the tensor product of correspondences, used silently by Lemma 0FG7 (proof omitted), Lemma 0FGC and the tensor product of motives; now its own node (PROTOCOL section 2)."
+    },
+    {
+     "nodeId": "MotivesAndAlgebraicCycles:MC.0/graph-against-diagonals",
+     "verdict": "added",
+     "note": "Lemma 0FG8 is listed in the packet's readSections but no node carried it; the proof of Lemma 0FH1 (MC.2/weil-from-monoidal-functor, axiom (C)(b)) cites it. Added, with a new misprint (E11) in its proof."
+    },
+    {
+     "nodeId": "MotivesAndAlgebraicCycles:MC.1/twisted-correspondence-category",
+     "verdict": "added",
+     "note": "The ambient category of pairs (X, m) of which the category of motives is the Karoubi envelope; needed to make the packet's Karoubi citations literally valid."
+    },
+    {
+     "nodeId": "MotivesAndAlgebraicCycles:MC.1/lower-twist-by-lefschetz",
+     "verdict": "added",
+     "note": "The isomorphism sigma is used by both Lemma 0FGF (additivity) and Lemma 0FGH (universal property, 'see proof of Lemma 0FGF'); promoted to a node so that both can cite it."
+    },
+    {
+     "nodeId": "MotivesAndAlgebraicCycles:MC.1/dual-of-biproduct",
+     "verdict": "added",
+     "note": "Stacks Homology Lemma 0FFT, cited by the proof of Lemma 0FGJ (rigidity of motives); absent from the pinned Mathlib and Tau Ceti (searched for exact pairings of biproducts)."
+    },
+    {
+     "nodeId": "MotivesAndAlgebraicCycles:MC.1/dual-of-summand",
+     "verdict": "added",
+     "note": "Stacks Homology Lemma 0FFU, cited by the proof of Lemma 0FGJ; absent from the pinned Mathlib and Tau Ceti."
+    },
+    {
+     "nodeId": "MotivesAndAlgebraicCycles:MC.1/projective-space-projectors",
+     "verdict": "added",
+     "note": "The MC.1 acceptance asks for explicit projectors for projective spaces; the packet had them only for P^1. Added from the paragraph after Lemma 0FGQ and the corrected Lemma 0FGR."
+    },
+    {
+     "nodeId": "MotivesAndAlgebraicCycles:MC.1/diagonal-as-zero-scheme",
+     "verdict": "added",
+     "note": "The non-routine step of Lemma 0FGR ('a local calculation shows'), split into its own node (PROTOCOL section 2)."
+    },
+    {
+     "nodeId": "MotivesAndAlgebraicCycles:MC.2/weil-cohomology-data",
+     "verdict": "corrected",
+     "note": "Checked (D1) to (D3) against Section 0FGS of weil.tex at the pinned commit (SHA-256 matches). Prerequisite SF.2 replaced by SF.5 (the data need Chow groups, not a theory) and the new graded-vector-space node; Koszul sign and linearity of the trace made explicit; API gained functor laws, graded commutativity and simp lemmas; the tests had no kind and restated types, and were rewritten with kinds."
+    },
+    {
+     "nodeId": "MotivesAndAlgebraicCycles:MC.2/classical-weil-cohomology",
+     "verdict": "corrected",
+     "note": "Definition 0FGV, axioms (A), (B), (C) and Remark 0FGU checked verbatim. Removed MC.0/correspondence-group (unused), added Module.Finite; API split so each axiom is one item; tests given kinds, the vanishing-range test now uses the source's Example 0FHZ; acceptance on (C)(d) made precise (rescaling all traces)."
+    },
+    {
+     "nodeId": "MotivesAndAlgebraicCycles:MC.2/weil-pushforward",
+     "verdict": "corrected",
+     "note": "Construction and Lemma 0FGT checked; statement and proof verified. Added API items (identity, linearity, pushforward to a point) and kinds for the tests."
+    },
+    {
+     "nodeId": "MotivesAndAlgebraicCycles:MC.2/cycle-class-degree",
+     "verdict": "corrected",
+     "note": "Lemma 0FGW and its proof checked; statement verified. Added the stage's acceptance check (degree, trace and first Chern class of a divisor on a curve), which no node realised."
+    },
+    {
+     "nodeId": "MotivesAndAlgebraicCycles:MC.2/trace-of-a-product",
+     "verdict": "corrected",
+     "note": "Bundled Lemmas 0FGX and 0FGY; split, with 0FGY now MC.2/pushforward-along-projection. The proof used Lemma 0FGW and the exterior product of cycles from SF.5, neither listed; the old step 'use the normalisation' was wrong, since (C)(d) concerns Spec k only."
+    },
+    {
+     "nodeId": "MotivesAndAlgebraicCycles:MC.2/class-of-the-diagonal",
+     "verdict": "corrected",
+     "note": "Lemma 0FGZ checked, including the sign (recomputed: the sign (−1)^i is right). The proof steps invoked the Gysin map; the source uses (C)(b) via γ([Δ]) = Δ_*1, which needs γ([X]) = 1 (new node) and Δ_* (MC.2/weil-pushforward), both added."
+    },
+    {
+     "nodeId": "MotivesAndAlgebraicCycles:MC.2/euler-characteristic-self-intersection",
+     "verdict": "corrected",
+     "note": "Lemma 0FH0 checked. Proof steps rewritten to the source's route (γ([Δ]) = Δ_*1, projection formula, Lemma 0FGW) and the right-hand equality attributed to Chow Homology 0FFE, 0FBM and Morphisms 08S2 (SF.5); missing prerequisites added."
+    },
+    {
+     "nodeId": "MotivesAndAlgebraicCycles:MC.2/weil-from-monoidal-functor",
+     "verdict": "corrected",
+     "note": "Lemma 0FH1 and its proof checked. The data depend on a chosen isomorphism F[2] → G(1(1)), which the statement omitted; the Koszul sign convention of the target is now stated; (D3) is built from [X], not from the duality as the node said; inputs Lemmas 0FG0, 0FG5, 0FG8, 0FGI and Homology 0FFV added. Found the misprint F[−2d] for F[2d] in the proof (E12)."
+    },
+    {
+     "nodeId": "MotivesAndAlgebraicCycles:MC.2/weil-to-monoidal-functor",
+     "verdict": "corrected",
+     "note": "Lemma 0FH2 and its proof checked. Added the formula on correspondences, the reduction from schemes to varieties (source leaves details omitted, E18), the identity axiom, the vanishing of H^1(P^1), and prerequisites 0FGT, 0FGY, 0FGZ, 0FH0, 0FGD, Chow 0FF4. Found the misprint 'equalith' (E14)."
+    },
+    {
+     "nodeId": "MotivesAndAlgebraicCycles:MC.2/realization-equivalence",
+     "verdict": "corrected",
+     "note": "Proposition 0FH3 checked. Error corrected: the node placed F[2] in degree two, but F[n] has F in degree −n and G(1(1)) sits in degree −2. Proof step deriving (2) from connectedness replaced by the source's (A)(b), (A)(d). The source does not verify that the constructions are mutually inverse (E13); new node MC.2/realization-round-trip supplies it."
+    },
+    {
+     "nodeId": "MotivesAndAlgebraicCycles:MC.2/chow-groups-under-field-extension",
+     "verdict": "corrected",
+     "note": "Bundled Lemmas 0FH5, 0FH6, 0FH8 (tags correct); split into three nodes, this one now Lemma 0FH6. Removed the unused prerequisite MC.0/numerical-equivalence. The packet's readSections name 0FH9 where 0FH5 is meant. MC.7 consumers of this id should cite the part they use."
+    },
+    {
+     "nodeId": "MotivesAndAlgebraicCycles:MC.3/trace-formula-for-correspondences",
+     "verdict": "corrected",
+     "note": "Jannsen Lemma 1 checked in the rendered page 448. The packet had no Weil cohomology over a non-closed field, which Jannsen uses; the node now works through MC.2/weil-cohomology-by-base-change. Proof steps rewritten: Chow identity ⟨f · ᵗg⟩ = deg((g ∘ f) · [Δ]) plus the new MC.2/lefschetz-trace-formula; missing prerequisites added."
+    },
+    {
+     "nodeId": "MotivesAndAlgebraicCycles:MC.3/pseudo-abelian-semisimplicity",
+     "verdict": "corrected",
+     "note": "Lemma 2 and proof checked in the rendered page 449. The conclusion now points to a definition of semisimple abelian category (new node). Baseline: wedderburn_data_unique is about simple rings and unused, removed; existence of a presentation is TauCeti.IsSemisimpleRing.wedderburnPresentation. The printed 'two-sided ideal' is only a left ideal from the hypothesis (E15); the step still works."
+    },
+    {
+     "nodeId": "MotivesAndAlgebraicCycles:MC.3/dual-numbers-non-example",
+     "verdict": "corrected",
+     "note": "Remark 3 checked. The proof deduced simplicity from the absence of free summands, which is indecomposability; replaced by the description of monomorphisms. Kernel argument written out; DualNumber, Simple, Faithful, Linear added as prerequisites."
+    },
+    {
+     "nodeId": "MotivesAndAlgebraicCycles:MC.3/jannsen-semisimplicity",
+     "verdict": "corrected",
+     "note": "Theorem 1 and all three implications checked on pages 448-449. The three implications are now separate nodes. Error corrected: the old step said the relation is 'not coarser than' numerical equivalence; the argument shows the opposite. The unconditional statement needs a Weil cohomology to exist over every field; MC.2/etale-cohomology-is-weil added. Finite dimensionality and radical base change, used without nodes, are now nodes."
+    },
+    {
+     "nodeId": "MotivesAndAlgebraicCycles:MC.3/radical-of-homological-correspondences",
+     "verdict": "corrected",
+     "note": "Corollary 1 and proof checked on pages 449-450. The MC.7 prerequisite (a back-edge to a later layer) replaced by MC.2/kunneth-components; added the embedding into endomorphisms and the nilpotence criterion (characteristic zero); statement now records the vanishing of traces used later."
+    },
+    {
+     "nodeId": "MotivesAndAlgebraicCycles:MC.3/rank-of-a-motive",
+     "verdict": "corrected",
+     "note": "Proof of Corollary 2 on page 450 checked, with Milne's genus formula. Error corrected: the proof exhibited a curve of genus at least one as having negative rank; genus one gives rank zero, genus at least two is needed. Rank and fibre functor now defined (new nodes); SF.3 added for the degree of the canonical divisor; the trace formula is not needed."
+    },
+    {
+     "nodeId": "MotivesAndAlgebraicCycles:MC.3/numerical-motives-tannakian",
+     "verdict": "corrected",
+     "note": "Corollary 2, its proof and Remarks 1-2 checked on pages 450-451 (rendered). The printed grading (X, pπ^{r+2m}, r) is a misprint for twist m (E16). Added Remark 4 as a node (the rank formula needs lifting p to homological idempotents), the MC.2 Künneth-component node in place of MC.7, and the Tannakian definition; neutrality separated; the abelian-variety claim of Remark 2 marked as resting on the unread Lieberman input."
+    },
+    {
+     "nodeId": "MotivesAndAlgebraicCycles:MC.2/pushforward-along-projection",
+     "verdict": "added",
+     "note": "Added by REV-MotivesAndAlgebraicCycles: Pushforward along a projection integrates over the first factor. The node is Lemma 0FGY, split off from MC.2/trace-of-a-product, with the one-line equivalence written out."
+    },
+    {
+     "nodeId": "MotivesAndAlgebraicCycles:MC.2/cycle-class-of-fundamental-class",
+     "verdict": "added",
+     "note": "Added by REV-MotivesAndAlgebraicCycles: The cycle class of the fundamental class is the unit. The node is the step of the proof of Lemma 0FGZ showing γ([X]) = 1, made a lemma because Lemmas 0FGZ and 0FH0, the realisation and the round trip all use γ([Δ]) = Δ_*1."
+    },
+    {
+     "nodeId": "MotivesAndAlgebraicCycles:MC.2/graded-vector-spaces-koszul",
+     "verdict": "added",
+     "note": "Added by REV-MotivesAndAlgebraicCycles: Graded vector spaces with the Koszul sign. The node is that example, the convention Lemma 0FH1 uses for graded commutativity; the source omits the verification that it is symmetric monoidal."
+    },
+    {
+     "nodeId": "MotivesAndAlgebraicCycles:MC.2/weil-cohomology-of-schemes",
+     "verdict": "added",
+     "note": "Added by REV-MotivesAndAlgebraicCycles: A classical Weil cohomology theory on smooth projective schemes. The node supplies the omitted details: the extension of a classical theory from varieties to smooth projective schemes (source issue E18)."
+    },
+    {
+     "nodeId": "MotivesAndAlgebraicCycles:MC.2/weil-cohomology-by-base-change",
+     "verdict": "added",
+     "note": "Added by REV-MotivesAndAlgebraicCycles: A Weil cohomology theory for varieties over an arbitrary field. Jannsen fixes a Weil cohomology theory for varieties over an arbitrary field without defining the notion; the node makes it precise as the base change of a classical theory over an algebraic closure, which is the form MC.3 uses."
+    },
+    {
+     "nodeId": "MotivesAndAlgebraicCycles:MC.2/etale-cohomology-is-weil",
+     "verdict": "added",
+     "note": "Added by REV-MotivesAndAlgebraicCycles: l-adic cohomology is a classical Weil cohomology theory. Jannsen's instance of a Weil cohomology theory; the node states that it is one, with every part imported from its owner."
+    },
+    {
+     "nodeId": "MotivesAndAlgebraicCycles:MC.2/lefschetz-trace-formula",
+     "verdict": "added",
+     "note": "Added by REV-MotivesAndAlgebraicCycles: The Lefschetz trace formula for correspondences. With g the diagonal this is the formula for the correspondence f. Jannsen calls it well known and cites Kleiman, whose survey was not obtained."
+    },
+    {
+     "nodeId": "MotivesAndAlgebraicCycles:MC.2/kunneth-components",
+     "verdict": "added",
+     "note": "Added by REV-MotivesAndAlgebraicCycles: The Künneth components of the diagonal. The definition and the defining trace identity; placed in MC.2 so that MC.3 does not depend on MC.7, which states the conjecture that they are algebraic."
+    },
+    {
+     "nodeId": "MotivesAndAlgebraicCycles:MC.2/homological-correspondences-embed",
+     "verdict": "added",
+     "note": "Added by REV-MotivesAndAlgebraicCycles: Realisation of correspondences is faithful modulo homological equivalence. The node is the statement Jannsen uses as a definition, with the identification of H^{2d}(X × X) with the endomorphisms of cohomology made explicit and extended to correspondences between two varieties."
+    },
+    {
+     "nodeId": "MotivesAndAlgebraicCycles:MC.2/realization-round-trip",
+     "verdict": "added",
+     "note": "Added by REV-MotivesAndAlgebraicCycles: The two constructions of Proposition 0FH3 are mutually inverse. The proposition asserts a bijection; its proof builds the two constructions and checks the extra conditions but does not compose them (source issue E13). The node supplies the verification."
+    },
+    {
+     "nodeId": "MotivesAndAlgebraicCycles:MC.2/graph-duality-compatibility",
+     "verdict": "added",
+     "note": "Added by REV-MotivesAndAlgebraicCycles: Graphs and the duality pairings. The node is Lemma 0FG8, which no node of the packet planned although Lemma 0FH1 uses it for (C)(b). It belongs with the correspondences of MC.0 and may be re-parented there."
+    },
+    {
+     "nodeId": "MotivesAndAlgebraicCycles:MC.2/chow-kernel-torsion",
+     "verdict": "added",
+     "note": "Added by REV-MotivesAndAlgebraicCycles: The kernel of base change on Chow groups is torsion. The node is Lemma 0FH8, formerly bundled into MC.2/chow-groups-under-field-extension."
+    },
+    {
+     "nodeId": "MotivesAndAlgebraicCycles:MC.2/zero-cycles-separable-points",
+     "verdict": "added",
+     "note": "Added by REV-MotivesAndAlgebraicCycles: Zero cycles are generated by separable points. The node is Lemma 0FH5, formerly bundled into MC.2/chow-groups-under-field-extension; its proof, a Bertini argument of about a page, is not routine and is laid out in the proof steps."
+    },
+    {
+     "nodeId": "MotivesAndAlgebraicCycles:MC.3/semisimple-abelian-category",
+     "verdict": "added",
+     "note": "Added by REV-MotivesAndAlgebraicCycles: Semisimple abelian categories. Jannsen uses the notion without defining it; this sentence is the description the node records as its block decomposition."
+    },
+    {
+     "nodeId": "MotivesAndAlgebraicCycles:MC.3/categorical-rank",
+     "verdict": "added",
+     "note": "Added by REV-MotivesAndAlgebraicCycles: Trace and rank in a rigid symmetric monoidal category. Jannsen uses the rank of Deligne and Milne, which was not obtained; the node records the standard definition through the commutativity constraint, which is what makes the sign change of Corollary 2 change ranks."
+    },
+    {
+     "nodeId": "MotivesAndAlgebraicCycles:MC.3/tannakian-category",
+     "verdict": "added",
+     "note": "Added by REV-MotivesAndAlgebraicCycles: Tannakian categories. The node takes Milne's formulation over F, with his footnote requiring End(1) = F, and records neutrality separately as the stage asks."
+    },
+    {
+     "nodeId": "MotivesAndAlgebraicCycles:MC.3/numerical-cycles-finite-dimensional",
+     "verdict": "added",
+     "note": "Added by REV-MotivesAndAlgebraicCycles: Numerical cycle groups are finite-dimensional. The node is the fact Jannsen quotes from Kleiman's Theorem 3.5, which was not obtained; the proof steps are the standard argument through a Weil cohomology theory."
+    },
+    {
+     "nodeId": "MotivesAndAlgebraicCycles:MC.3/radical-base-change",
+     "verdict": "added",
+     "note": "Added by REV-MotivesAndAlgebraicCycles: The radical of a finite-dimensional algebra commutes with field extension. Jannsen uses this without proof; the node is the standard separability argument, needed because the reduction to one coefficient field rests on it."
+    },
+    {
+     "nodeId": "MotivesAndAlgebraicCycles:MC.3/nilpotent-of-vanishing-power-traces",
+     "verdict": "added",
+     "note": "Added by REV-MotivesAndAlgebraicCycles: An endomorphism with vanishing power traces is nilpotent. The step of Jannsen's proof this lemma makes precise."
+    },
+    {
+     "nodeId": "MotivesAndAlgebraicCycles:MC.3/semisimple-category-implies-numerical",
+     "verdict": "added",
+     "note": "Added by REV-MotivesAndAlgebraicCycles: A semisimple category of motives forces numerical equivalence. The node is the implication a) to c) of Theorem 1 with its proof."
+    },
+    {
+     "nodeId": "MotivesAndAlgebraicCycles:MC.3/numerical-implies-semisimple-algebras",
+     "verdict": "added",
+     "note": "Added by REV-MotivesAndAlgebraicCycles: Numerical correspondences form semisimple algebras. The node is the implication c) to b) of Theorem 1 with its proof, which continues on page 449."
+    },
+    {
+     "nodeId": "MotivesAndAlgebraicCycles:MC.3/semisimple-algebras-imply-semisimple-category",
+     "verdict": "added",
+     "note": "Added by REV-MotivesAndAlgebraicCycles: Semisimple correspondence algebras give a semisimple category. The node is the implication b) to a) of Theorem 1 with its proof."
+    },
+    {
+     "nodeId": "MotivesAndAlgebraicCycles:MC.3/cohomology-of-numerical-motives",
+     "verdict": "added",
+     "note": "Added by REV-MotivesAndAlgebraicCycles: Cohomology of a numerical motive. The node is Remark 4, which no node of the packet planned although Corollary 2's rank formula needs it to make sense of pH^i(X) for a numerical class p."
+    },
+    {
+     "nodeId": "MotivesAndAlgebraicCycles:MC.3/numerical-quotient-functor",
+     "verdict": "added",
+     "note": "Added by REV-MotivesAndAlgebraicCycles: The quotient from Chow motives to numerical motives. Milne builds both categories by one recipe; the quotient functor is reduction of cycles. He adds that M_rat(k) contains more information than M_num(k)."
+    },
+    {
+     "nodeId": "MotivesAndAlgebraicCycles:MC.4/effective-geometric-motives",
+     "verdict": "corrected",
+     "note": "Definition 14.1 checked (p. 109) with the meaning of 'thick' (Definition 9.1). Statement restricted to the definition; the resolution-dependent consequences moved to a new node (they needed later nodes and would have made a cycle). IsLocalization replaced by Mathlib's triangEnvelope, triangEnvelope_le_iff, IsTriangulated and IsStableUnderRetracts. API extended (universal property, Tate twist, compactness); the test closed_under_summands was wrong (the Lefschetz summand of M(P^1) is a cone, so it cannot distinguish thick from triangulated) and was replaced; tests given kinds; literal excerpts."
+    },
+    {
+     "nodeId": "MotivesAndAlgebraicCycles:MC.4/tate-stabilised-motives",
+     "verdict": "corrected",
+     "note": "Checked the paragraph after 14.2 (p. 110), Appendix 8A and Voevodsky's Corollary 4.10. The construction is MVW's C[T^{-1}] (new node), not a localisation at morphisms (IsLocalization removed); the tensor structure needs 15.8 (new node); full faithfulness uses cancellation over a perfect field, imported from M.5a. Hypothesis k perfect; API and tests with kinds; literal excerpts."
+    },
+    {
+     "nodeId": "MotivesAndAlgebraicCycles:MC.4/homotopy-invariance-and-mayer-vietoris",
+     "verdict": "corrected",
+     "note": "Checked 14.5 (p. 110), 6.12 (p. 103), 13.15-13.16. Vector bundle statement split to a new node; proof steps now derive both statements in DM over any field (MVW's route through 13.15 needs k perfect); literal excerpts. Still two statements in one node: the Lean file should give them two declarations."
+    },
+    {
+     "nodeId": "MotivesAndAlgebraicCycles:MC.4/motive-of-projective-space",
+     "verdict": "corrected",
+     "note": "Checked 13.17, 15.1-15.5 and Definition 3.1 / Lemma 2.13. Projective bundle theorem split off; Theorem 15.2 and Exercise 15.4, hidden in 'the inclusion is split', are new nodes; A^1, G_m, P^1 hold over any field. Source issues E20 (13.17 display) and E22 (15.5 proof, known erratum) recorded."
+    },
+    {
+     "nodeId": "MotivesAndAlgebraicCycles:MC.4/gysin-triangle",
+     "verdict": "corrected",
+     "note": "Checked 15.13-15.15. The Gysin map comes from 15.13, whose proof uses 13.26 and hence resolution (E21); the node now carries that hypothesis, follows the source's proof (12.20, 15.14) instead of 'importing the Gysin map' from M.5a (which does not own it), covers every closed point (third term M(Spec k(x))(1)[2]) and writes out the boundary sequence."
+    },
+    {
+     "nodeId": "MotivesAndAlgebraicCycles:MC.4/geometric-motives-rigid",
+     "verdict": "corrected",
+     "note": "Checked Lecture 20 (20.3-20.17). The node bundled the dual, the double dual, the dual of a tensor product and rigidity; these are now four new nodes and this node is 20.14/20.15/20.17 with the translation to Mathlib's RigidCategory. Corrected the sign: M(X)^* = M^c(X)(-d)[-2d]."
+    },
+    {
+     "nodeId": "MotivesAndAlgebraicCycles:MC.4/chow-motives-into-geometric-motives",
+     "verdict": "corrected",
+     "note": "Checked 20.1, 20.2 and the authors' corrections for p. 167. The statement claimed the integral category of the source is MC.1's; MC.1 is Q-linear with Stacks conventions. Now: the integral Hom bijections with d = dim Y (E23), the functor recorded as asserted but not proved (E24, gap), and the explicit translation to MC.1 including twists. Proof steps add the Kuenneth step the duality theorem needs."
+    },
+    {
+     "nodeId": "MotivesAndAlgebraicCycles:MC.4/motivic-cohomology-higher-chow",
+     "verdict": "corrected",
+     "note": "Checked 19.1-19.3 and the proof of 19.1 (19.9, 19.12). The node stated the comparison without proof although RS-08 assigns it to MC.4; now decomposed through two new nodes (16.7-16.12, 19.4-19.9) with the cycle-complex inputs requested precisely from M.4."
+    },
+    {
+     "nodeId": "MotivesAndAlgebraicCycles:MC.4/blow-up-triangle-and-formula",
+     "verdict": "corrected",
+     "note": "Checked 13.25, 13.26, 14.5.3-14.5.4, 15.13 and the paragraph after 14.1. Split into three: this node is Theorem 13.26 with its proof (cdh, platification, resolution; hypothesis k perfect via 13.25); the smooth-centre formula and the generation statement are new nodes. The cdh inputs had no supplier: requested from M.5a; resolution and platification from SF.4."
+    },
+    {
+     "nodeId": "MotivesAndAlgebraicCycles:MC.4/motives-with-compact-support",
+     "verdict": "corrected",
+     "note": "Checked 16.1-16.2, 16.13-16.17. The node bundled a definition with four theorems, one (16.15) with a non-routine cdh proof; now split into the definition (with M^c(A^i) needing k perfect through 16.7) and three new theorem nodes, plus a new node for z_equi. API and tests with kinds; literal excerpts."
+    },
+    {
+     "nodeId": "MotivesAndAlgebraicCycles:MC.4/borel-moore-motivic-homology",
+     "verdict": "corrected",
+     "note": "Checked 16.20-16.24. The node bundled the definitions with Friedlander-Voevodsky's shifting and duality theorems, which MVW cite without proof; those are new nodes with a gap. The acceptance line saying the higher Chow identification is 'imported' had no supplier; it is not planned (no target uses it)."
+    },
+    {
+     "nodeId": "MotivesAndAlgebraicCycles:MC.5/diagram",
+     "verdict": "corrected",
+     "note": "Checked Definitions B.1, B.4 and Example B.3. HMS require representations to send identity edges to identities; the node imposed nothing. Mathlib's Quiver/Prefunctor cited; API and tests fixed (the test named 'cofiltered' tested filteredness); literal excerpts."
+    },
+    {
+     "nodeId": "MotivesAndAlgebraicCycles:MC.5/endomorphism-coalgebra",
+     "verdict": "corrected",
+     "note": "Checked B.6-B.8. Statement correct; hypotheses add R noetherian; tests made concrete with kinds; literal excerpts replace a paraphrase over 300 characters."
+    },
+    {
+     "nodeId": "MotivesAndAlgebraicCycles:MC.5/diagram-category",
+     "verdict": "corrected",
+     "note": "Checked the Section 1 notation list and B.6-B.9. Split: universal property (B.8, unproved in the source) and generation (B.9) are new nodes; the abelian structure is not in the pinned library (FGComoduleCat has none) and is a new lemma; comodule side convention stated."
+    },
+    {
+     "nodeId": "MotivesAndAlgebraicCycles:MC.5/graded-multiplicative-diagram",
+     "verdict": "corrected",
+     "note": "Checked B.14-B.17 on the rendered page. The grading is Z/2Z, not the integers; the five conditions and the sign placement (first variable) are now stated; the sign description copied from Theorem 1.6 contradicted B.14 (E29); property references in the proof misprinted (E32)."
+    },
+    {
+     "nodeId": "MotivesAndAlgebraicCycles:MC.5/diagram-localisation",
+     "verdict": "corrected",
+     "note": "Checked B.18-B.22. Added the edges c_{f,n}, the weak product structure, the precise sense of 'localisation' and chi; the proof of B.22 uses the universal property, now a prerequisite."
+    },
+    {
+     "nodeId": "MotivesAndAlgebraicCycles:MC.5/effective-pairs-diagram",
+     "verdict": "corrected",
+     "note": "Checked Definition 1.1 on the rendered page and Definition D.1. Grading by parity; vertex product and closure of good and very good pairs under it; good-pair condition sourced from relative singular cohomology (SF.2 and Tau Ceti); SF.3 moved to the nodes that use normal crossings; misprint R315."
+    },
+    {
+     "nodeId": "MotivesAndAlgebraicCycles:MC.5/nori-motives",
+     "verdict": "corrected",
+     "note": "Checked Definitions 1.3 and 1.11. Representation now its own node; the two definitions of 1(-1) reconciled (E35); the test and acceptance calling MM^eff a full subcategory were unsupported (the source proves no fullness) and are replaced by faithfulness."
+    },
+    {
+     "nodeId": "MotivesAndAlgebraicCycles:MC.5/nori-tensor-category",
+     "verdict": "corrected",
+     "note": "Checked Theorem 1.6 and its proof against B.14. Sign convention corrected to B.14 with an explicit normalisation (E29); the product on coboundary edges is undefined in the source (E30, gap) and the repair is stated; Kuenneth requested from SF.2."
+    },
+    {
+     "nodeId": "MotivesAndAlgebraicCycles:MC.5/diagram-comparison",
+     "verdict": "corrected",
+     "note": "Checked Corollaries 1.7 and 1.8 with Remark 1.9. Corollary 1.8 split off (new node); the proof's inputs (Proposition D.3 and the universal property) are now nodes."
+    },
+    {
+     "nodeId": "MotivesAndAlgebraicCycles:MC.5/cohomology-with-supports",
+     "verdict": "corrected",
+     "note": "Checked Corollary 1.10 and Lemma 1.12. Split: the three computations of 1.12 are proved separately and two are false as stated without geometric irreducibility (E28); they are new nodes with corrected hypotheses. The acceptance about a point of a curve needed a rational point."
+    },
+    {
+     "nodeId": "MotivesAndAlgebraicCycles:MC.5/nori-rigidity",
+     "verdict": "corrected",
+     "note": "Checked Lemma 1.13, Theorem 1.14, Remark 1.9 and Appendix C. The criterion used is Proposition C.4, not Lemma C.3 (MM_Nori is not generated by one object); Lemma 1.13 and the criterion are new nodes. Tau Ceti's instRigidCategory goes from Hopf to rigid and is used only after the criterion."
+    },
+    {
+     "nodeId": "MotivesAndAlgebraicCycles:MC.4/inverting-a-tensor-object",
+     "verdict": "added",
+     "note": "Added by R3: Inverting an object of a symmetric monoidal category. Sources read at the locators given; prerequisites as listed."
+    },
+    {
+     "nodeId": "MotivesAndAlgebraicCycles:MC.4/symmetric-group-acts-trivially-on-tate-twists",
+     "verdict": "added",
+     "note": "Added by R3: The symmetric group acts trivially on Z(n). Sources read at the locators given; prerequisites as listed."
+    },
+    {
+     "nodeId": "MotivesAndAlgebraicCycles:MC.4/geometric-motives-generated-by-smooth-projective",
+     "verdict": "added",
+     "note": "Added by R3: Geometric motives contain all schemes and are generated by smooth projective ones. Sources read at the locators given; prerequisites as listed."
+    },
+    {
+     "nodeId": "MotivesAndAlgebraicCycles:MC.4/vector-bundle-invariance",
+     "verdict": "added",
+     "note": "Added by R3: The motive of a vector bundle. Sources read at the locators given; prerequisites as listed."
+    },
+    {
+     "nodeId": "MotivesAndAlgebraicCycles:MC.4/projective-space-quotient",
+     "verdict": "added",
+     "note": "Added by R3: The quotient of P^n by P^(n-1) is R(n)[2n]. Sources read at the locators given; prerequisites as listed."
+    },
+    {
+     "nodeId": "MotivesAndAlgebraicCycles:MC.4/projective-space-inclusion-split",
+     "verdict": "added",
+     "note": "Added by R3: The maps from P^i to R(i)[2i] extend to P^n. Sources read at the locators given; prerequisites as listed."
+    },
+    {
+     "nodeId": "MotivesAndAlgebraicCycles:MC.4/projective-bundle-theorem",
+     "verdict": "added",
+     "note": "Added by R3: The projective bundle theorem for geometric motives. Sources read at the locators given; prerequisites as listed."
+    },
+    {
+     "nodeId": "MotivesAndAlgebraicCycles:MC.4/blow-up-smooth-centre-and-gysin-map",
+     "verdict": "added",
+     "note": "Added by R3: The motive of a blow-up along a smooth centre, and the Gysin map. Sources read at the locators given; prerequisites as listed."
+    },
+    {
+     "nodeId": "MotivesAndAlgebraicCycles:MC.4/equidimensional-cycle-sheaves",
+     "verdict": "added",
+     "note": "Added by R3: The sheaves of equidimensional cycles z_equi(T, r). Sources read at the locators given; gap recorded."
+    },
+    {
+     "nodeId": "MotivesAndAlgebraicCycles:MC.4/suslin-friedlander-comparison",
+     "verdict": "added",
+     "note": "Added by R3: The Suslin-Friedlander complexes compute motivic cohomology. Sources read at the locators given; prerequisites as listed."
+    },
+    {
+     "nodeId": "MotivesAndAlgebraicCycles:MC.4/suslin-friedlander-into-cycle-complex",
+     "verdict": "added",
+     "note": "Added by R3: The Suslin-Friedlander complexes and Bloch's cycle complexes. Sources read at the locators given; prerequisites as listed."
+    },
+    {
+     "nodeId": "MotivesAndAlgebraicCycles:MC.4/compact-support-localisation-triangle",
+     "verdict": "added",
+     "note": "Added by R3: The localisation triangle for motives with compact support. Sources read at the locators given; prerequisites as listed."
+    },
+    {
+     "nodeId": "MotivesAndAlgebraicCycles:MC.4/compact-support-kunneth",
+     "verdict": "added",
+     "note": "Added by R3: The Kuenneth isomorphism for motives with compact support. Sources read at the locators given; gap recorded."
+    },
+    {
+     "nodeId": "MotivesAndAlgebraicCycles:MC.4/compact-support-geometric",
+     "verdict": "added",
+     "note": "Added by R3: Motives with compact support are geometric. Sources read at the locators given; prerequisites as listed."
+    },
+    {
+     "nodeId": "MotivesAndAlgebraicCycles:MC.4/bivariant-shifting-theorem",
+     "verdict": "added",
+     "note": "Added by R3: Bivariant cycle cohomology and the shifting theorem. Sources read at the locators given; gap recorded."
+    },
+    {
+     "nodeId": "MotivesAndAlgebraicCycles:MC.4/friedlander-voevodsky-duality",
+     "verdict": "added",
+     "note": "Added by R3: Friedlander-Voevodsky duality. Sources read at the locators given; gap recorded."
+    },
+    {
+     "nodeId": "MotivesAndAlgebraicCycles:MC.4/dual-of-motive-of-smooth-scheme",
+     "verdict": "added",
+     "note": "Added by R3: The dual of the motive of a smooth scheme. Sources read at the locators given; prerequisites as listed."
+    },
+    {
+     "nodeId": "MotivesAndAlgebraicCycles:MC.4/geometric-motive-dual",
+     "verdict": "added",
+     "note": "Added by R3: The dual of a geometric motive. Sources read at the locators given; prerequisites as listed."
+    },
+    {
+     "nodeId": "MotivesAndAlgebraicCycles:MC.4/double-dual-isomorphism",
+     "verdict": "added",
+     "note": "Added by R3: Geometric motives are reflexive. Sources read at the locators given; prerequisites as listed."
+    },
+    {
+     "nodeId": "MotivesAndAlgebraicCycles:MC.4/dual-of-tensor-product",
+     "verdict": "added",
+     "note": "Added by R3: The dual of a tensor product. Sources read at the locators given; prerequisites as listed."
+    },
+    {
+     "nodeId": "MotivesAndAlgebraicCycles:MC.5/finite-comodules-abelian",
+     "verdict": "added",
+     "note": "Added by R3: Finite-dimensional comodules form an abelian category. Sources read at the locators given; prerequisites as listed."
+    },
+    {
+     "nodeId": "MotivesAndAlgebraicCycles:MC.5/diagram-category-universal-property",
+     "verdict": "added",
+     "note": "Added by R3: The universal property of the diagram category. Sources read at the locators given; gap recorded."
+    },
+    {
+     "nodeId": "MotivesAndAlgebraicCycles:MC.5/diagram-category-generation",
+     "verdict": "added",
+     "note": "Added by R3: The diagram category is generated by the vertices. Sources read at the locators given; prerequisites as listed."
+    },
+    {
+     "nodeId": "MotivesAndAlgebraicCycles:MC.5/singular-cohomology-representation",
+     "verdict": "added",
+     "note": "Added by R3: Relative singular cohomology as a representation of the pair diagram. Sources read at the locators given; prerequisites as listed."
+    },
+    {
+     "nodeId": "MotivesAndAlgebraicCycles:MC.5/basic-lemma",
+     "verdict": "added",
+     "note": "Added by R3: Nori's Basic Lemma. Sources read at the locators given; gap recorded."
+    },
+    {
+     "nodeId": "MotivesAndAlgebraicCycles:MC.5/cellular-realisation-functor",
+     "verdict": "added",
+     "note": "Added by R3: The realisation functor on complexes of varieties. Sources read at the locators given; gap recorded."
+    },
+    {
+     "nodeId": "MotivesAndAlgebraicCycles:MC.5/nori-generators",
+     "verdict": "added",
+     "note": "Added by R3: Generators of Nori motives from normal crossings pairs. Sources read at the locators given; prerequisites as listed."
+    },
+    {
+     "nodeId": "MotivesAndAlgebraicCycles:MC.5/nori-top-cohomology",
+     "verdict": "added",
+     "note": "Added by R3: Top cohomology of projective space and of projective varieties. Sources read at the locators given; prerequisites as listed."
+    },
+    {
+     "nodeId": "MotivesAndAlgebraicCycles:MC.5/nori-gysin-isomorphism",
+     "verdict": "added",
+     "note": "Added by R3: The Gysin isomorphism for a smooth pair in Nori motives. Sources read at the locators given; prerequisites as listed."
+    },
+    {
+     "nodeId": "MotivesAndAlgebraicCycles:MC.5/nori-duality-morphism",
+     "verdict": "added",
+     "note": "Added by R3: The duality morphism for pairs from a normal crossings divisor. Sources read at the locators given; prerequisites as listed."
+    },
+    {
+     "nodeId": "MotivesAndAlgebraicCycles:MC.5/rigidity-criterion",
+     "verdict": "added",
+     "note": "Added by R3: Nori's rigidity criterion. Sources read at the locators given; prerequisites as listed."
+    },
+    {
+     "nodeId": "MotivesAndAlgebraicCycles:MC.6/torsor",
+     "verdict": "corrected",
+     "note": "Definition A.1 and Lemmas A.2, A.3 read on pages 14-15 of arXiv:1105.0865v5 (SHA-256 matches). Axiom (2) restated exactly (three-term chain with the reversal (u, z, y)); affine part split off; bogus prerequisites (CategoryTheory.Equivalence, FGPointRepresentationCat) replaced by mathlib:Group and mathlib:Torsor; API renamed Heap (Mathlib has class Torsor); tests with kinds that fail the plausible wrong operations."
+    },
+    {
+     "nodeId": "MotivesAndAlgebraicCycles:MC.6/tensor-automorphism-group",
+     "verdict": "corrected",
+     "note": "Lemma 3.2, Theorem 1.14 and Theorem B.10 read. Statement pinned to G_mot = Aut⊗(H*) (singular), consistent with Theorem 1.14 and now with MC.6/period-torsor; hidden rigidity-to-antipode step made a node; tauceti:TauCeti.Tannaka.reconstructedPoint (only builds the point) replaced by pointsFunctorIsoTensorAutFunctor after reading GroupFunctor.lean, Equivalence.lean and Reconstruction.lean at the pin."
+    },
+    {
+     "nodeId": "MotivesAndAlgebraicCycles:MC.6/comparison-algebra",
+     "verdict": "corrected",
+     "note": "Definition 2.1, Lemma 2.2 and Proposition B.16 read. Multiplicativity of both representations added as a hypothesis (the source omits it: E36); acceptance 'no unit element' corrected to 'no counit'; second coaction and colimit API added; tests with kinds."
+    },
+    {
+     "nodeId": "MotivesAndAlgebraicCycles:MC.6/period-space-of-a-diagram",
+     "verdict": "corrected",
+     "note": "Definition 2.4 and Proposition 2.5 read. Change-of-variables relation stated exactly; multiplicativity hypothesis added; literal excerpt; tests with kinds."
+    },
+    {
+     "nodeId": "MotivesAndAlgebraicCycles:MC.6/periods-equal-comparison-algebra",
+     "verdict": "corrected",
+     "note": "Theorem 2.6, its proof and Remark 2.7 read on the rendered page 10. The source's proof says 'subspace' where both spaces are quotients (new finding E38); the node's quotient argument is kept and the finding recorded; multiplicativity hypothesis added."
+    },
+    {
+     "nodeId": "MotivesAndAlgebraicCycles:MC.6/formal-periods",
+     "verdict": "corrected",
+     "note": "Definition 2.8 and Remark 2.9 read. Acceptance claim that dropping relation (3) 'makes the object too large to be a torsor' is in no source and was removed; evaluation API moved to PeriodsAndSpecialValues:PS.2 / MC.6/period-point; product written with X × D′ (source misprint E41); relations as API; tests with kinds."
+    },
+    {
+     "nodeId": "MotivesAndAlgebraicCycles:MC.6/formal-periods-equal-comparison-algebra",
+     "verdict": "corrected",
+     "note": "Theorem 2.10 read. Corollary 2.11 split into a node, Corollary 2.12 dropped (it concerns complex values, PS.2); the algebra structure routed through good pairs, since H* is not graded multiplicative on all pairs (new finding E37); E1 confirmed."
+    },
+    {
+     "nodeId": "MotivesAndAlgebraicCycles:MC.6/fibre-functor-extension",
+     "verdict": "corrected",
+     "note": "Lemma 3.1 and Proposition B.8 read. Tensor structure added under the multiplicative hypothesis (E36); faithfulness argued; unused prerequisite MC.6/tensor-automorphism-group removed; universal-property gap named."
+    },
+    {
+     "nodeId": "MotivesAndAlgebraicCycles:MC.6/iso-torsor",
+     "verdict": "corrected",
+     "note": "Theorem 3.3 read. Heap operation written out; the claim that 'the appendix on torsors provides' the identification of the acting groups was wrong (Proposition A.6 gives abstract quotients); the identification follows from the composition maps; prerequisites to the new scheme node."
+    },
+    {
+     "nodeId": "MotivesAndAlgebraicCycles:MC.6/period-torsor",
+     "verdict": "corrected",
+     "note": "Corollary 3.4, Remark 3.5 and Theorem 0.2 read. 'Equivalently' between the torsor and the map P → P⊗P⊗P removed; G_mot pinned to singular cohomology against the source's proof (new finding E39); Tannakian input taken on MM_Nori; faithful flatness from DM Theorem 3.2; E2 confirmed; introduction misprint R405."
+    },
+    {
+     "nodeId": "MotivesAndAlgebraicCycles:MC.7/kunneth-conjecture-C",
+     "verdict": "corrected",
+     "note": "Milne Section 6 (pages 8-9) and Jannsen pages 449-451 read. The claimed equivalence between the cohomological and numerical forms is in neither source; restated as an implication; Jannsen locator corrected (the idempotent sentence is on page 451); API and tests reworked with kinds."
+    },
+    {
+     "nodeId": "MotivesAndAlgebraicCycles:MC.7/conjecture-D",
+     "verdict": "corrected",
+     "note": "Milne Section 6 read. Known case given with its field and characteristic; literal excerpt; the divisor test (Matsusaka, in no source read) and a bookkeeping test replaced by checkable ones with kinds."
+    },
+    {
+     "nodeId": "MotivesAndAlgebraicCycles:MC.7/known-cases-of-conjecture-C",
+     "verdict": "corrected",
+     "note": "Jannsen Remarks 1 and 2 (page 451) read. Each case given with field, characteristic, coefficients; the scope of the Katz-Messing case flagged; Milne's weaker statements (abelian varieties in characteristic zero) noted; dependence on the MC.3 Deligne-criterion gap recorded."
+    },
+    {
+     "nodeId": "MotivesAndAlgebraicCycles:MC.7/smash-nilpotence",
+     "verdict": "corrected",
+     "note": "Lemmas 0FH7, 0FH8, 0FH9 read in the pinned weil.tex (SHA-256 matches) and on the tag pages. The packet's proof steps ('divisibility ... count divisibility') are not the source's proof and do not prove torsion; replaced by the symmetric-power/norm/Picard argument; attribution corrected to Voevodsky; prerequisites to SF.3 and SF.5; three new findings in the proof (E45 misprint, E46 and E47 omitted steps)."
+    },
+    {
+     "nodeId": "MotivesAndAlgebraicCycles:MC.7/hodge-conjecture",
+     "verdict": "corrected",
+     "note": "Deligne Sections 1, 2, 4 and 5 read (SHA-256 matches). The definition node contained major theorems (Hodge decomposition, currents, Lefschetz (1,1), Chern-class formulation, integral failure) as proof steps and API; split into MC.7/hodge-class, MC.7/cycle-classes-are-hodge and the predicate; prerequisites corrected (adequate relations and Conjecture D are not inputs); tests replaced by checkable ones."
+    },
+    {
+     "nodeId": "MotivesAndAlgebraicCycles:MC.7/tate-conjecture",
+     "verdict": "corrected",
+     "note": "Totaro Sections 1 and 2 read (SHA-256 matches). Proof step 5 claimed failure over 'any field not finitely generated', which the source does not say, and called Raskind's conjecture an exception; prerequisites corrected to SF.2/SF.5 (a Weil cohomology of MC.2 has no Galois action); Tate's theorem removed as a unit test."
+    },
+    {
+     "nodeId": "MotivesAndAlgebraicCycles:MC.7/tate-conjecture-variants",
+     "verdict": "corrected",
+     "note": "Totaro Section 1 (pages 4-5, rendered diagram) and Section 2 read. Borel-Moore variant needs resolution with smooth compactification; Schoen's implication is over the algebraic closure of a finite field; integral divisor case over finite fields added; diagram arrows to the standard conjectures added; Brauer/Sha/BSD equivalence given its fibred-surface hypotheses; 'fails to make sense over C' corrected; wrong prerequisite MC.4/borel-moore-motivic-homology (motivic, not l-adic) replaced; strong and Tate-Beilinson split into nodes. Two misprints in the source recorded (E43, E44)."
+    },
+    {
+     "nodeId": "MotivesAndAlgebraicCycles:MC.7/lefschetz-and-hodge-standard-conjectures",
+     "verdict": "corrected",
+     "note": "Milne Section 7 read: it names both conjectures and states neither. The node's precise statements were written from memory (the Hodge standard form lacked the sign); the Lefschetz predicate is now typed from Deligne Section 4 Example 2 with hard Lefschetz from DWP.9; the Hodge standard conjecture is recorded, not typed; unsupported implication API items removed."
+    },
+    {
+     "nodeId": "MotivesAndAlgebraicCycles:MC.7/bloch-beilinson-filtration-and-murre",
+     "verdict": "corrected",
+     "note": "Milne Aside 6.1 read. An acceptance item listed properties of the filtration from memory; removed."
+    },
+    {
+     "nodeId": "MotivesAndAlgebraicCycles:MC.7/motivic-t-structure",
+     "verdict": "verified",
+     "note": "Milne Section 10 (Final note, page 15) read; the excerpt and the negative record match (the source prints 'a category mixed motives', a trivial slip)."
+    },
+    {
+     "nodeId": "MotivesAndAlgebraicCycles:MC.7/tate-and-hodge-known-cases",
+     "verdict": "corrected",
+     "note": "Totaro Sections 3, 4, 5 and Deligne remark (iii) read. Entries now carry field, characteristic, codimension and coefficients (the stage's acceptance); missing entries of the source added (Zarhin, h^{2,0} = 0, Tankeev, degree-2 K3, p > 5 and characteristic 2 restrictions, Beilinson injectivity in codimension one); Faltings entry requests R28.4; unhypothesised reports marked inadmissible."
+    },
+    {
+     "nodeId": "MotivesAndAlgebraicCycles:MC.6/torsor-groups",
+     "verdict": "added",
+     "note": "Added by R4: The left and right groups of a nonempty heap."
+    },
+    {
+     "nodeId": "MotivesAndAlgebraicCycles:MC.6/affine-torsor",
+     "verdict": "added",
+     "note": "Added by R4: Torsors in the category of affine schemes."
+    },
+    {
+     "nodeId": "MotivesAndAlgebraicCycles:MC.6/affine-torsor-groups",
+     "verdict": "added",
+     "note": "Added by R4: A nonempty affine torsor carries affine group schemes on both sides."
+    },
+    {
+     "nodeId": "MotivesAndAlgebraicCycles:MC.6/rigid-bialgebra-is-hopf",
+     "verdict": "added",
+     "note": "Added by R4: A commutative bialgebra with a rigid comodule category is a Hopf algebra."
+    },
+    {
+     "nodeId": "MotivesAndAlgebraicCycles:MC.6/very-good-pairs-generate-periods",
+     "verdict": "added",
+     "note": "Added by R4: Formal periods are generated by very good pairs."
+    },
+    {
+     "nodeId": "MotivesAndAlgebraicCycles:MC.6/tensor-iso-scheme",
+     "verdict": "added",
+     "note": "Added by R4: The scheme of tensor isomorphisms between two fibre functors on a diagram category."
+    },
+    {
+     "nodeId": "MotivesAndAlgebraicCycles:MC.6/tensor-iso-torsor",
+     "verdict": "added",
+     "note": "Added by R4: Tensor morphisms between fibre functors form a torsor."
+    },
+    {
+     "nodeId": "MotivesAndAlgebraicCycles:MC.6/pro-algebraic-approximation",
+     "verdict": "added",
+     "note": "Added by R4: Finite subdiagrams give the motivic Galois group as a pro-algebraic group."
+    },
+    {
+     "nodeId": "MotivesAndAlgebraicCycles:MC.6/period-point",
+     "verdict": "added",
+     "note": "Added by R4: The comparison isomorphism as a complex point of the period torsor."
+    },
+    {
+     "nodeId": "MotivesAndAlgebraicCycles:MC.7/hodge-class",
+     "verdict": "added",
+     "note": "Added by R4: Hodge classes."
+    },
+    {
+     "nodeId": "MotivesAndAlgebraicCycles:MC.7/cycle-classes-are-hodge",
+     "verdict": "added",
+     "note": "Added by R4: The class of an algebraic cycle is a Hodge class."
+    },
+    {
+     "nodeId": "MotivesAndAlgebraicCycles:MC.7/strong-tate-conjecture",
+     "verdict": "added",
+     "note": "Added by R4: The strong Tate conjecture."
+    },
+    {
+     "nodeId": "MotivesAndAlgebraicCycles:MC.7/tate-beilinson-conjecture",
+     "verdict": "added",
+     "note": "Added by R4: The Tate-Beilinson conjecture."
+    }
+   ]
+  }
+ ],
+ "fixes": {
+  "job": "FIX-RT-AREA-iwasawa-3~2",
+  "issue": 5138,
+  "worker": "Codex — codex-5ebb6f",
+  "date": "2026-09-30",
+  "inputRevision": "a49b81b9aee5e26f603d4b56500f5fff9ce6bdb5",
+  "findings": {
+   "RT-AREA-iwasawa-3/8": "Applied to the existing MC.5/MC.6 supplier boundary; PS.2 application handed to its blueprint jobs.",
+   "RT-AREA-iwasawa-3/1": "Handoff to BP-GeneralizedHeegnerCycles--GH.0 as the issue requires.",
+   "RT-AREA-iwasawa-3/2-7": "Handoff to BP-KatoEulerSystems as the issue requires."
+  },
+  "scope": "Six existing nodes refined; no new nodes, stages or planet names, no generated/campaign/data edits. Independent REV-FIX pending; Lean signatures not compiled because no existing built checkout at the pins is available."
  }
 }

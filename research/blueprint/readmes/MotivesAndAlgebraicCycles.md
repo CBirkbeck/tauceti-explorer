@@ -5197,3 +5197,23 @@ MC.7 is asked to do two different things: to give typed statements of open conje
     python3 scripts/check_blueprint.py research/blueprint/packets/MotivesAndAlgebraicCycles.json
 
 Zero errors and zero warnings against the pinned declaration index.
+
+## FIX-RT-AREA-iwasawa-3~2: Nori and Tate localization exports (30 September 2026)
+
+Codex — codex-5ebb6f, issue #5138. Applies confirmed finding /8 to the finished supplier packet. Independent REV-FIX remains pending. The packet still has 173 nodes, 21 gaps and 14 requests; its original partial coverage and previous needs_changes review are preserved. The original review and compilation accounts elsewhere in this document are historical. The added signatures below were not compiled.
+
+MC.5/diagram-localisation and MC.5/nori-tensor-category already contain HMS Definition B.18, Lemma B.21, Proposition B.22 and Theorem 1.6(3). They now explicitly export the effective/localized diagrams, their representations and categories, MM^eff_Nori -> MM_Nori, the rank-one Lefschetz object 1(-1) and its inverse, and the canonical coefficient map A^eff -> A=A^eff[chi^-1]. The localized-category universal-property and coboundary-product gaps remain. This is Nori localization, distinct from MC.1's Chow localization and MC.4's Voevodsky-style Tate stabilization.
+
+MC.6/formal-periods already gives the single presentation P_eff=P^+ and P=P_eff[L^-1], with L=(G_m,{1},dX/X,S^1). PS.2 imports this presentation and owns its integration/evaluation application; it does not rebuild the Nori category or a second formal-period algebra. The supplier now names `FormalPeriods.tateInverse`, `FormalPeriods.tate_mul_inverse` and `FormalPeriods.tate_inverse_mul`, using Mathlib's existing Away localization API. The inverse is of the image of L in P, not an asserted inverse in P_eff.
+
+The comparison is effective first, then localized: P_eff ≃ A^eff_{1,2}, carrying L to the comparison Tate class chi_{1,2}; the imported localization-equivalence API gives P ≃ A^eff_{1,2}[chi_{1,2}^-1]=A_{1,2}, compatibly with both canonical maps. `FormalPeriods.localizeComparison` is the application signature of that existing API. The tensor-isomorphism torsor theorem uses P and MM_Nori. The effective identification alone does not make Spec(P_eff) the full torsor.
+
+The supplier complex point is on P. `periodPoint_tate_inverse` says, conditional on the integration normalization supplied by PS.2, per(L)=2πi implies per(L^-1)=(2πi)^-1. PS.2 must descend its effective integration map through the relations, prove the normalization/nonzero value and use the localization lift to extend it. No evaluation injectivity, numerical-period conjecture or claim that 1/π is not an effective numerical period is introduced.
+
+Added tests (also actual examples in the suggested Lean file):
+- `FormalPeriods.tate_inverse_test`: both L*L^-1 and L^-1*L equal 1 in P.
+- `FormalPeriods.effective_tate_nonunit`: the prescribed Tate coordinate t is not a unit in Q[t], so this effective model lacks the inverse required by the rank-one G_m-torsor.
+- `FormalPeriods.tate_laurent_model`: in Q[t,t^-1], t*t^-1=t^-1*t=1. This is a model test, not a proof that the entire Nori Tate subcategory has been computed; that existing gap stays open.
+- `periodPoint_tate_inverse_test`: with per(L)=2πi, evaluate the inverse and check the product is 1.
+
+Pinned Mathlib localization, polynomial and Laurent declarations were read and registered in the packet. No general localization theorem is planned again. The selected HMS v5 PDF hash matches the inherited receipt. All inherited sourceIssues and mathematical review verdicts are unchanged. See [the fixes report](../redteam/RT-AREA-iwasawa-3.fixes-2.md) for all eight finding dispositions and the PS.2/Heegner/Kato blueprint handoffs.
