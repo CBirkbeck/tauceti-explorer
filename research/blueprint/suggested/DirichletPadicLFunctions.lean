@@ -10965,3 +10965,134 @@ example : ∃ H : PowerSeries O2,
 end Dyadic
 end
 end SuggestedTameResidueTests
+
+/-! Congruences for the full doubled tame series, including its constant.
+Normalization records an integral lift of the difference, not divisibility in a field. -/
+namespace DirichletPadic
+noncomputable section
+open scoped PowerSeries.WithPiTopology
+variable {p : ℕ} [Fact p.Prime] {K : Type*} [NontriviallyNormedField K]
+  [IsUltrametricDist K] [Algebra ℤ_[p] K] [IsBoundedSMul ℤ_[p] K]
+local notation "O" => Valuation.integer (NormedField.valuation (K := K))
+local notation "U" => (ℤ_[p])ˣ
+
+theorem integralPrimePowerArithmeticCharacter_weight_congruence
+    (t r e e' : ℕ) (χ : DirichletCharacter K (p^t)) (hr : 1≤r)
+    (he : Nat.ModEq (p^(r-1)*(p-1)) e e') (u : U) :
+    (p : O)^r ∣ integralPrimePowerArithmeticCharacter p t χ e' u-
+      integralPrimePowerArithmeticCharacter p t χ e u := sorry
+
+variable [CompleteSpace K] {D : ℕ} [NeZero D]
+theorem integralDoubledTameEisensteinSeries_test_congruence
+    (η : DirichletCharacter K D) (hD : IsUnit (D : K)) (hpD : ¬p∣D)
+    (f g : C(U,O)) (b : O) (h : ∀ u, b∣g u-f u) :
+    PowerSeries.C b ∣ integralDoubledTameEisensteinSeries η hD hpD g-
+      integralDoubledTameEisensteinSeries η hD hpD f := sorry
+
+theorem integralDoubledTameEisensteinSeries_weight_congruence
+    (η : DirichletCharacter K D) (hD : IsUnit (D : K)) (hpD : ¬p∣D)
+    (t r e e' : ℕ) (χ : DirichletCharacter K (p^t)) (hr : 1≤r)
+    (he : Nat.ModEq (p^(r-1)*(p-1)) e e') :
+    PowerSeries.C ((p : O)^r) ∣
+      integralDoubledTameEisensteinSeries η hD hpD
+        (integralPrimePowerArithmeticCharacter p t χ e').toContinuousMap-
+      integralDoubledTameEisensteinSeries η hD hpD
+        (integralPrimePowerArithmeticCharacter p t χ e).toContinuousMap := sorry
+
+theorem integralDoubledTameEisensteinSeries_normalized_congruence [CharZero K]
+    (η : DirichletCharacter K D) (hD : IsUnit (D : K)) (hpD : ¬p∣D)
+    (f g : C(U,O)) (a : O) (h : ∀ u, 2*a∣g u-f u) :
+    ∃ H : PowerSeries O,
+      (2 : K)⁻¹ • PowerSeries.map (Valuation.integer (NormedField.valuation (K := K))).subtype
+        (integralDoubledTameEisensteinSeries η hD hpD g)-
+      (2 : K)⁻¹ • PowerSeries.map (Valuation.integer (NormedField.valuation (K := K))).subtype
+        (integralDoubledTameEisensteinSeries η hD hpD f)=
+      PowerSeries.map (Valuation.integer (NormedField.valuation (K := K))).subtype
+        (PowerSeries.C a*H) := sorry
+end
+end DirichletPadic
+
+namespace SuggestedTameCongruenceTests
+noncomputable section
+open DirichletPadic
+open scoped PowerSeries.WithPiTopology
+section General
+variable {p : ℕ} [Fact p.Prime] {K : Type*} [NontriviallyNormedField K]
+  [IsUltrametricDist K] [Algebra ℤ_[p] K] [IsBoundedSMul ℤ_[p] K]
+  [CompleteSpace K] {D : ℕ} [NeZero D]
+local notation "O" => Valuation.integer (NormedField.valuation (K := K))
+local notation "U" => (ℤ_[p])ˣ
+variable (η : DirichletCharacter K D) (hD : IsUnit (D : K)) (hpD : ¬p∣D)
+-- zero_modulus
+example (f g : C(U,O)) (h : ∀ u, (0 : O)∣g u-f u) :
+    integralDoubledTameEisensteinSeries η hD hpD g=
+      integralDoubledTameEisensteinSeries η hD hpD f := sorry
+-- identical_tests
+example (f : C(U,O)) (b : O) : PowerSeries.C b ∣
+    integralDoubledTameEisensteinSeries η hD hpD f-
+      integralDoubledTameEisensteinSeries η hD hpD f := sorry
+-- constant_included
+example (f g : C(U,O)) (b : O) (h : ∀ u, b∣g u-f u) :
+    b∣PowerSeries.coeff 0 (integralDoubledTameEisensteinSeries η hD hpD g)-
+      PowerSeries.coeff 0 (integralDoubledTameEisensteinSeries η hD hpD f) := sorry
+-- normalized_zero_modulus
+example [CharZero K] (f g : C(U,O)) (h : ∀ u, (0 : O)∣g u-f u) :
+    (2 : K)⁻¹ • PowerSeries.map (Valuation.integer (NormedField.valuation (K := K))).subtype
+      (integralDoubledTameEisensteinSeries η hD hpD g)-
+    (2 : K)⁻¹ • PowerSeries.map (Valuation.integer (NormedField.valuation (K := K))).subtype
+      (integralDoubledTameEisensteinSeries η hD hpD f)=0 := sorry
+end General
+
+section Dyadic
+variable [IsBoundedSMul ℤ_[2] ℚ_[2]]
+local notation "O2" => Valuation.integer (NormedField.valuation (K := ℚ_[2]))
+local notation "U2" => (ℤ_[2])ˣ
+local notation "q4" => (ContinuousMap.mk (fun u : U2 => PadicInt.toZModPow 2 (u : ℤ_[2]))
+  (Continuous.comp (PadicInt.continuous_toZModPow 2 2) Units.continuous_val) : C(U2,ZMod (2^2)))
+local notation "f4" => ContinuousMap.comp (ContinuousMap.equivFnOfDiscrete.symm
+  (Function.update (fun _ : ZMod (2^2) => (0 : O2)) 1 1)) q4
+-- wild_level_above_precision
+example (χ : DirichletCharacter ℚ_[2] (2^3)) (u : U2) :
+    (2 : O2)∣integralPrimePowerArithmeticCharacter 2 3 χ 1 u-
+      integralPrimePowerArithmeticCharacter 2 3 χ 0 u := sorry
+-- dyadic_pointwise_eight
+example (χ : DirichletCharacter ℚ_[2] (2^2)) (u : U2) :
+    (8 : O2)∣integralPrimePowerArithmeticCharacter 2 2 χ 5 u-
+      integralPrimePowerArithmeticCharacter 2 2 χ 1 u := sorry
+variable (η : DirichletCharacter ℚ_[2] 3) (hD : IsUnit (3 : ℚ_[2])) (hpD : ¬2∣3)
+-- dyadic_whole_eight
+example (χ : DirichletCharacter ℚ_[2] (2^2)) :
+    PowerSeries.C (8 : O2)∣integralDoubledTameEisensteinSeries η hD hpD
+      (integralPrimePowerArithmeticCharacter 2 2 χ 5).toContinuousMap-
+    integralDoubledTameEisensteinSeries η hD hpD
+      (integralPrimePowerArithmeticCharacter 2 2 χ 1).toContinuousMap := sorry
+-- dyadic_constant_eight
+example : (8 : O2)∣PowerSeries.coeff 0 (integralDoubledTameEisensteinSeries η hD hpD
+      (integralPrimePowerArithmeticCharacter 2 0 (1 : DirichletCharacter ℚ_[2] (2^0)) 4).toContinuousMap)-
+    PowerSeries.coeff 0 (integralDoubledTameEisensteinSeries η hD hpD
+      (integralPrimePowerArithmeticCharacter 2 0 (1 : DirichletCharacter ℚ_[2] (2^0)) 0).toContinuousMap) := sorry
+-- wild_full_level_above_precision
+example (χ : DirichletCharacter ℚ_[2] (2^3)) :
+    PowerSeries.C (2 : O2)∣integralDoubledTameEisensteinSeries η hD hpD
+      (integralPrimePowerArithmeticCharacter 2 3 χ 1).toContinuousMap-
+    integralDoubledTameEisensteinSeries η hD hpD
+      (integralPrimePowerArithmeticCharacter 2 3 χ 0).toContinuousMap := sorry
+-- dyadic_scaled_exact_precision
+example (hη : η 2=-1) (s : ℕ) :
+    ‖PowerSeries.coeff 0 ((2 : ℚ_[2])⁻¹ • PowerSeries.map
+      (Valuation.integer (NormedField.valuation (K := ℚ_[2]))).subtype
+      (integralDoubledTameEisensteinSeries η hD hpD ((2 : O2)^(s+1) • f4)))‖=
+      (2 : ℝ)^(-(s : ℤ)) := sorry
+-- dyadic_missing_factor_two
+example (hη : η 2=-1) : ¬ ∃ H : PowerSeries O2,
+    (2 : ℚ_[2])⁻¹ • PowerSeries.map
+      (Valuation.integer (NormedField.valuation (K := ℚ_[2]))).subtype
+      (integralDoubledTameEisensteinSeries η hD hpD ((2 : O2) • f4))=
+    PowerSeries.map (Valuation.integer (NormedField.valuation (K := ℚ_[2]))).subtype
+      (PowerSeries.C (2 : O2)*H) := sorry
+end Dyadic
+-- missing_totient_factor
+example : letI : Fact (Nat.Prime 5) := ⟨by decide⟩
+    ¬ (5 : ℤ_[5])∣(2 : ℤ_[5])^1-(2 : ℤ_[5])^0 := sorry
+end
+end SuggestedTameCongruenceTests

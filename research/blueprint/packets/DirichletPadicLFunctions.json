@@ -10,7 +10,7 @@
     "DirichletPadicLFunctions:L4"
   ],
   "status": "partial",
-  "summary": "Partial continuation preserving all 617 predecessor nodes whole. Four L4 nodes identify the doubled tame constant on all integral tests with the actual unit restriction, compute its finite unit residues and prove a concrete dyadic obstruction to halving the family integrally. Existing findings, requests and gaps remain.",
+  "summary": "Partial continuation preserving all 621 predecessor nodes whole. One L2 lemma and three L4 theorems give pointwise integral arithmetic-character congruences, full doubled tame-series congruences including the constant, and normalized precision through an explicit integral quotient. The dyadic loss is sharp.",
   "baseline": {
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
@@ -40670,6 +40670,269 @@
       "acceptance": [
         "The quantifier ranges over actual formal-series-valued continuous O-linear measures. The counterexample already rules out an arbitrary integral series at the single witness test."
       ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L4/integral-doubled-tame-test-congruence",
+      "parentStageId": "DirichletPadicLFunctions:L4",
+      "realises": [
+        "DirichletPadicLFunctions:L4"
+      ],
+      "title": "Congruences of the full doubled tame series",
+      "kind": "theorem",
+      "statement": "For b∈O and f,g∈C(U,O), if b divides g(u)−f(u) for every u, then C(b) divides Gη(g)−Gη(f) in PowerSeries O, including coefficient zero.",
+      "hypotheses": [
+        "p is prime; K is a nontrivially normed ultrametric field with Algebra ℤ_p K and IsBoundedSMul ℤ_p K. U=(ℤ_p)ˣ and O=Valuation.integer(NormedField.valuation(K)) are the actual native carriers, with inclusion ι:O↪K.",
+        "For statements involving Gη, also assume CompleteSpace K, D>0, η:DirichletCharacter K D, hD:IsUnit(D:K) and p∤D. Gη is the existing integralDoubledTameEisensteinSeries with the native coefficientwise topology. No norm on the power-series ring is required.",
+        "Weight changes retain the same χ:DirichletCharacter K(p^t), with t,e,e′ natural. Require r≥1 and e≡e′ modulo p^(r−1)(p−1). There is no relation required between t and r. These are exponents of the test; the classical weight, where an independent comparison exists, is e+1.",
+        "Normalization additionally assumes CharZero K. The expression ½ map_ι(Gη(f)) is only evaluated on O-valued continuous tests. An integral lift of a difference is asserted explicitly; divisibility in K would not express integral precision. The factor two is retained even at p=2.",
+        "The constructor permits principal η but retains its level-one zero-constant boundary. No new classical modularity assertion, arbitrary K-test extension, analytic family or generic measure constructor is introduced."
+      ],
+      "proofSteps": [
+        "For the actual norm-valuation integer ring, native Valuation.integer.integers and Valuation.Integers.dvd_iff_le identify b∣a with ‖a‖≤‖b‖. This includes b=0; no inverse of b or divided continuous test is constructed. The complete integer_dvd_iff_norm probe checks this exact native specialization.",
+        "The pointwise hypothesis therefore gives ‖g−f‖≤‖b‖ by native ContinuousMap.norm_le on the compact unit group. Linearity gives Gη(g)−Gη(f)=Gη(g−f). Apply the existing all-coefficient norm bound, then the same native divisibility equivalence, to obtain b∣coeff_n(Gη(g)−Gη(f)) for every n, including n=0.",
+        "Choose one quotient coefficient h_n for each n. Native PowerSeries.mk forms H with those coefficients; coeff_C_mul and ext give Gη(g)−Gη(f)=C(b)H. This routine coefficient assembly is the complete constant_dvd_of_coeff proof. The complete series_test_congruence combines these steps for an actual AbstractMeasure with the stated bound.",
+        "At b=0 the hypothesis says f=g, and the conclusion is equality of full series. At f=g the result holds for every modulus. The constant coefficient is not inferred from the earlier positive-coefficient finite-atom congruences: it uses the existing full-series norm bound."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L4/integral-doubled-tame-eisenstein-bound",
+        "mathlib:Valuation.integer.integers",
+        "mathlib:Valuation.Integers.dvd_iff_le",
+        "mathlib:ContinuousMap.norm_le",
+        "mathlib:PowerSeries.mk",
+        "mathlib:PowerSeries.coeff_C_mul",
+        "mathlib:PowerSeries.ext"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/TameSeriesCongruences",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.integralDoubledTameEisensteinSeries_test_congruence"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Theorem 5.7 and Remark 5.8, published 143–144 / PDF 44–45; Definition 8.1, Theorem 8.2 and Remark 8.3, published 159–161 / PDF 60–62. Whole passages read in the preceding doubled tame-series checkpoint; the finite-residue discussion on published 145–146 was read in the immediately preceding constant-residue checkpoint.",
+          "match": "Worker consequences of the already planned full doubled tame series and its coefficient bound, motivated by the integral measure and Eisenstein-series discussion. The full tame congruences and the sharp dyadic precision example are derived here, not attributed as verbatim theorems of RJW. Existing source corrections and the independent classical ModularForms ownership remain unchanged."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedTameCongruenceTests.zero_modulus",
+          "kind": "degenerate",
+          "statement": "The zero-modulus pointwise condition implies equality of the full series."
+        },
+        {
+          "name": "SuggestedTameCongruenceTests.identical_tests",
+          "kind": "degenerate",
+          "statement": "Equal tests give a difference divisible by every constant series."
+        },
+        {
+          "name": "SuggestedTameCongruenceTests.constant_included",
+          "kind": "compatibility",
+          "statement": "The coefficient-zero difference is divisible by the same b in O."
+        }
+      ],
+      "acceptance": [
+        "The modulus is an actual element of O, including zero. The conclusion is divisibility in PowerSeries O, with a coefficientwise integral quotient witness."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L2/integral-arithmetic-character-weight-congruence",
+      "parentStageId": "DirichletPadicLFunctions:L2",
+      "realises": [
+        "DirichletPadicLFunctions:L2"
+      ],
+      "title": "Integral congruences of arithmetic characters",
+      "kind": "lemma",
+      "statement": "For r≥1, fixed χ at any level p^t, and e≡e′ modulo p^(r−1)(p−1), every actual unit u∈U satisfies (p:O)^r ∣ κO_(t,χ,e′)(u)−κO_(t,χ,e)(u).",
+      "hypotheses": [
+        "p is prime; K is a nontrivially normed ultrametric field with Algebra ℤ_p K and IsBoundedSMul ℤ_p K. U=(ℤ_p)ˣ and O=Valuation.integer(NormedField.valuation(K)) are the actual native carriers, with inclusion ι:O↪K.",
+        "Weight changes retain the same χ:DirichletCharacter K(p^t), with t,e,e′ natural. Require r≥1 and e≡e′ modulo p^(r−1)(p−1). There is no relation required between t and r. These are exponents of the test; the classical weight, where an independent comparison exists, is e+1.",
+        "Completeness of K, a tame character and CharZero K are not required. The integral arithmetic character and its coefficient inclusion are reused."
+      ],
+      "proofSteps": [
+        "Reduce the actual unit u with Units.map(toZModPow r). This lies in the finite group (ZMod(p^r))ˣ. Native pow_card_eq_one, ZMod.card_units_eq_totient and Nat.totient_prime_pow show that its p^(r−1)(p−1)-th power is one; positivity of r and primality supply NeZero(p^r). Native pow_eq_pow_of_modEq equates the e and e′ powers.",
+        "Take underlying values and subtract. Native PadicInt.ker_toZModPow and the principal-ideal membership criterion give a witness z∈ℤ_p with u^e′−u^e=p^r z. The complete unit_power_divisibility proves this for every actual unit, not only natural-number divisor atoms.",
+        "The witness algebraMap(z) lies in O because ‖algebraMap(z)‖=‖z•1‖≤‖z‖≤1, using IsBoundedSMul, norm_smul_le and PadicInt.norm_le_one. Use this element of the native subtype as the integral quotient witness. No independently supplied ℤ_p-algebra structure on O is assumed. Complete algebra_image_integral and integral_power_divisibility verify this transport.",
+        "Let x=κO_(0,1,1)(u) and c=κO_(t,χ,0)(u). The integral-character coefficient comparison, arithmetic-character pointwise value and zero-level formula give κO_(t,χ,e)(u)=c*x^e by injectivity of O↪K. Multiply the preceding quotient identity by c; complete weighted_power_divisibility supplies the required integral divisibility.",
+        "The finite character is held fixed and may have t>r. The modulus controls powers of the unit coordinate, so no reduction of χ to level r is needed. Dropping the factor p−1 is false already at p=5, r=1, u=2, e=0 and e′=1."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L2/integral-arithmetic-character-coefficient",
+        "DirichletPadicLFunctions:L2/arithmetic-character-pointwise-value",
+        "DirichletPadicLFunctions:L2/arithmetic-character-zero-level",
+        "mathlib:pow_card_eq_one",
+        "mathlib:ZMod.card_units_eq_totient",
+        "mathlib:Nat.totient_prime_pow",
+        "mathlib:pow_eq_pow_of_modEq",
+        "mathlib:PadicInt.ker_toZModPow",
+        "mathlib:norm_smul_le",
+        "mathlib:PadicInt.norm_le_one",
+        "mathlib:Valuation.mem_integer_iff",
+        "mathlib:NormedField.valuation_apply"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/TameSeriesCongruences",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.integralPrimePowerArithmeticCharacter_weight_congruence"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Theorem 5.7 and Remark 5.8, published 143–144 / PDF 44–45; Definition 8.1, Theorem 8.2 and Remark 8.3, published 159–161 / PDF 60–62. Whole passages read in the preceding doubled tame-series checkpoint; the finite-residue discussion on published 145–146 was read in the immediately preceding constant-residue checkpoint.",
+          "match": "Worker consequences of the already planned full doubled tame series and its coefficient bound, motivated by the integral measure and Eisenstein-series discussion. The full tame congruences and the sharp dyadic precision example are derived here, not attributed as verbatim theorems of RJW. Existing source corrections and the independent classical ModularForms ownership remain unchanged."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedTameCongruenceTests.wild_level_above_precision",
+          "kind": "compatibility",
+          "statement": "At p=2, any character of level 8 has exponents zero and one congruent modulo 2 on units."
+        },
+        {
+          "name": "SuggestedTameCongruenceTests.dyadic_pointwise_eight",
+          "kind": "computation",
+          "statement": "At p=2, fixed characters at level 4 have exponents one and five congruent modulo 8 on all units."
+        },
+        {
+          "name": "SuggestedTameCongruenceTests.missing_totient_factor",
+          "kind": "non-example",
+          "statement": "At p=5, 5 does not divide 2¹−2⁰; congruence modulo p^(r−1) alone is insufficient."
+        }
+      ],
+      "acceptance": [
+        "The theorem uses every unit of ℤ_p and arbitrary fixed finite χ. Completeness, tame η and characteristic zero are not hypotheses of this pointwise lemma."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L4/integral-doubled-tame-weight-congruence",
+      "parentStageId": "DirichletPadicLFunctions:L4",
+      "realises": [
+        "DirichletPadicLFunctions:L4"
+      ],
+      "title": "Weight congruences including the tame constant",
+      "kind": "theorem",
+      "statement": "For fixed χ at level p^t, r≥1 and e≡e′ modulo p^(r−1)(p−1), C((p:O)^r) divides Gη(κO_(t,χ,e′))−Gη(κO_(t,χ,e)) in PowerSeries O.",
+      "hypotheses": [
+        "p is prime; K is a nontrivially normed ultrametric field with Algebra ℤ_p K and IsBoundedSMul ℤ_p K. U=(ℤ_p)ˣ and O=Valuation.integer(NormedField.valuation(K)) are the actual native carriers, with inclusion ι:O↪K.",
+        "For statements involving Gη, also assume CompleteSpace K, D>0, η:DirichletCharacter K D, hD:IsUnit(D:K) and p∤D. Gη is the existing integralDoubledTameEisensteinSeries with the native coefficientwise topology. No norm on the power-series ring is required.",
+        "Weight changes retain the same χ:DirichletCharacter K(p^t), with t,e,e′ natural. Require r≥1 and e≡e′ modulo p^(r−1)(p−1). There is no relation required between t and r. These are exponents of the test; the classical weight, where an independent comparison exists, is e+1.",
+        "Normalization additionally assumes CharZero K. The expression ½ map_ι(Gη(f)) is only evaluated on O-valued continuous tests. An integral lift of a difference is asserted explicitly; divisibility in K would not express integral precision. The factor two is retained even at p=2.",
+        "The constructor permits principal η but retains its level-one zero-constant boundary. No new classical modularity assertion, arbitrary K-test extension, analytic family or generic measure constructor is introduced."
+      ],
+      "proofSteps": [
+        "Apply the full test-congruence theorem with b=(p:O)^r and the two native continuous maps underlying the existing integral arithmetic characters.",
+        "Its pointwise hypothesis is precisely the preceding integral arithmetic-character weight congruence. This gives a single integral formal-series quotient and hence includes the tame constant in degree zero.",
+        "For p=2, exponents one and five give congruence modulo 8 at every fixed character. Exponents zero and four also give a modulo-8 constant congruence for the principal level-zero test. At r=1 arbitrary characters of level 8 still qualify, since t≤r was never required.",
+        "This is a formal-series congruence for the doubled integral family. A classical interpretation needs the separate owner-supplied modular-form existence and normalization theorems. The normalization precision is the next statement and is not obtained by cancelling two in O."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L4/integral-doubled-tame-test-congruence",
+        "DirichletPadicLFunctions:L2/integral-arithmetic-character-weight-congruence"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/TameSeriesCongruences",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.integralDoubledTameEisensteinSeries_weight_congruence"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Theorem 5.7 and Remark 5.8, published 143–144 / PDF 44–45; Definition 8.1, Theorem 8.2 and Remark 8.3, published 159–161 / PDF 60–62. Whole passages read in the preceding doubled tame-series checkpoint; the finite-residue discussion on published 145–146 was read in the immediately preceding constant-residue checkpoint.",
+          "match": "Worker consequences of the already planned full doubled tame series and its coefficient bound, motivated by the integral measure and Eisenstein-series discussion. The full tame congruences and the sharp dyadic precision example are derived here, not attributed as verbatim theorems of RJW. Existing source corrections and the independent classical ModularForms ownership remain unchanged."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedTameCongruenceTests.dyadic_whole_eight",
+          "kind": "computation",
+          "statement": "The whole doubled series for exponents one and five is congruent modulo 8 at fixed level-4 character."
+        },
+        {
+          "name": "SuggestedTameCongruenceTests.dyadic_constant_eight",
+          "kind": "compatibility",
+          "statement": "For principal level-zero tests, the doubled constants at exponents zero and four are congruent modulo 8."
+        },
+        {
+          "name": "SuggestedTameCongruenceTests.wild_full_level_above_precision",
+          "kind": "compatibility",
+          "statement": "The full series congruence modulo 2 holds at fixed arbitrary level-8 character."
+        }
+      ],
+      "acceptance": [
+        "Both the positive coefficients and degree zero are covered by one divisibility statement. No finite-character-level bound or exceptional classical-weight assertion is added."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L4/integral-doubled-tame-normalized-congruence",
+      "parentStageId": "DirichletPadicLFunctions:L4",
+      "realises": [
+        "DirichletPadicLFunctions:L4"
+      ],
+      "title": "Integral precision after halving the tame family",
+      "kind": "theorem",
+      "statement": "In characteristic zero, for a∈O and f,g∈C(U,O) with 2a∣g(u)−f(u) for every u, there is H∈PowerSeries O such that ½ map_ι(Gη(g))−½ map_ι(Gη(f))=map_ι(C(a)H).",
+      "hypotheses": [
+        "p is prime; K is a nontrivially normed ultrametric field with Algebra ℤ_p K and IsBoundedSMul ℤ_p K. U=(ℤ_p)ˣ and O=Valuation.integer(NormedField.valuation(K)) are the actual native carriers, with inclusion ι:O↪K.",
+        "For statements involving Gη, also assume CompleteSpace K, D>0, η:DirichletCharacter K D, hD:IsUnit(D:K) and p∤D. Gη is the existing integralDoubledTameEisensteinSeries with the native coefficientwise topology. No norm on the power-series ring is required.",
+        "Weight changes retain the same χ:DirichletCharacter K(p^t), with t,e,e′ natural. Require r≥1 and e≡e′ modulo p^(r−1)(p−1). There is no relation required between t and r. These are exponents of the test; the classical weight, where an independent comparison exists, is e+1.",
+        "Normalization additionally assumes CharZero K. The expression ½ map_ι(Gη(f)) is only evaluated on O-valued continuous tests. An integral lift of a difference is asserted explicitly; divisibility in K would not express integral precision. The factor two is retained even at p=2.",
+        "The constructor permits principal η but retains its level-one zero-constant boundary. No new classical modularity assertion, arbitrary K-test extension, analytic family or generic measure constructor is introduced."
+      ],
+      "proofSteps": [
+        "The full test-congruence theorem with modulus 2a gives Gη(g)−Gη(f)=C(2a)H for an actual H∈PowerSeries O. Map this identity under the native coefficient inclusion O↪K.",
+        "Use additivity of PowerSeries.map and scalar multiplication to combine the normalized difference, then extract coefficients. Native coeff_map, coeff_smul and coeff_C_mul reduce the identity to (1/2)(2ι(a)ι(h_n))=ι(a)ι(h_n). Characteristic zero ensures 2≠0 in K. Complete normalized_cleared_congruence proves exactly this algebra for any commutative source ring and characteristic-zero target field.",
+        "The conclusion supplies an integral lift with factor C(a); this is stronger than a field-valued divisibility assertion. It does not assert that either normalized value separately lies in the integer ring. At a=0 the condition gives f=g and the difference is zero.",
+        "For sharpness take p=2, K=ℚ₂, D=3, η(2)=−1 and f4 the existing indicator of units congruent to 1 modulo 4. Its doubled constant is 1/3 by the existing residue comparison and the explicit three-term sum. Linearity gives normalized constant 2^s/3 on 2^(s+1)f4; native scalar norms give exact norm 2^(−s). The complete scaled_dyadic_third_norm verifies this norm for all s.",
+        "In particular 2f4 is pointwise divisible by 2 but its normalized constant is 1/3, which is not divisible by 2 in O. If a proposed quotient H existed with C(2), coefficient zero would give 2ι(h₀)=1/3. The complete dyadic_third_not_twice_integral contradicts the integer-ring norm bound. Thus the missing factor two cannot be discarded uniformly at p=2."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L4/integral-doubled-tame-test-congruence",
+        "DirichletPadicLFunctions:L4/integral-tame-constant-residue",
+        "DirichletPadicLFunctions:L4/dyadic-tame-normalized-constant-norm",
+        "mathlib:PowerSeries.coeff_map",
+        "mathlib:PowerSeries.coeff_smul",
+        "mathlib:PowerSeries.coeff_C_mul",
+        "mathlib:Padic.norm_p_pow",
+        "mathlib:Padic.norm_natCast_eq_one_iff",
+        "mathlib:Valuation.mem_integer_iff",
+        "mathlib:NormedField.valuation_apply"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/TameSeriesCongruences",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.integralDoubledTameEisensteinSeries_normalized_congruence"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Theorem 5.7 and Remark 5.8, published 143–144 / PDF 44–45; Definition 8.1, Theorem 8.2 and Remark 8.3, published 159–161 / PDF 60–62. Whole passages read in the preceding doubled tame-series checkpoint; the finite-residue discussion on published 145–146 was read in the immediately preceding constant-residue checkpoint.",
+          "match": "Worker consequences of the already planned full doubled tame series and its coefficient bound, motivated by the integral measure and Eisenstein-series discussion. The full tame congruences and the sharp dyadic precision example are derived here, not attributed as verbatim theorems of RJW. Existing source corrections and the independent classical ModularForms ownership remain unchanged."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedTameCongruenceTests.normalized_zero_modulus",
+          "kind": "degenerate",
+          "statement": "The zero-modulus hypothesis makes the normalized difference zero."
+        },
+        {
+          "name": "SuggestedTameCongruenceTests.dyadic_scaled_exact_precision",
+          "kind": "computation",
+          "statement": "For every s, the normalized constant on 2^(s+1) times the fixed indicator has norm exactly 2^(−s)."
+        },
+        {
+          "name": "SuggestedTameCongruenceTests.dyadic_missing_factor_two",
+          "kind": "non-example",
+          "statement": "The normalized series on 2 times the indicator has no integral lift divisible by C(2)."
+        }
+      ],
+      "acceptance": [
+        "The result retains an explicit integral quotient witness and characteristic zero. The sharp example proves loss of one dyadic digit for all-test precision; no integral normalized measure is asserted."
+      ]
     }
   ],
   "requests": [
@@ -40788,7 +41051,7 @@
       "stageId": "DirichletPadicLFunctions:L4",
       "status": "partial",
       "remaining": [
-        "The doubled tame constant now has all-test unit-measure and finite-residue comparisons, and a specific dyadic residue test proves that halving the entire family cannot give an integral formal-series-valued measure on all tests. General scalar-denominator criteria, integral congruences for the full tame family, general character-pair constants, classical character Eisenstein existence/normalization and analytic weight-space comparisons remain open. The principal tame level-one construction remains separate from the localized principal theory. All eleven requests and fifteen gaps remain, with zero closed stages and the existing missing pinned TwistedDivisorSum artifact.",
+        "Full doubled tame test and fixed-character weight congruences now include the constant, with integral quotient witnesses after clearing the normalization denominator. The dyadic precision loss is sharp. General scalar-denominator criteria, general character-pair constants, classical character Eisenstein existence/normalization and analytic weight-space comparisons remain open. The principal tame level-one construction remains separate from the localized principal theory. All eleven requests and fifteen gaps remain, with zero closed stages and the missing pinned TwistedDivisorSum artifact.",
         "The positive part now has a native continuous power-series-valued measure, uniform coefficient bounds, test and weight congruences, and whole-series comparison with the actual p-stabilized modular form after removing its constant coefficient. Assemble the full family with the actual localized A₀ coefficient, prove constant-term congruences with denominator qualifications, and decompose the tame-character extension. Geometric affinoid realization and Hida–Coleman control belong to PadicFamilies; retain the weight shift recorded in E9."
       ]
     }
@@ -40819,7 +41082,7 @@
       "neededBy": [
         "DirichletPadicLFunctions:L4/positive-eisenstein-completed-coordinates"
       ],
-      "detail": "The doubled tame constant now has all-test unit-measure and finite-residue comparisons, and a specific dyadic residue test proves that halving the entire family cannot give an integral formal-series-valued measure on all tests. General scalar-denominator criteria, integral congruences for the full tame family, general character-pair constants, classical character Eisenstein existence/normalization and analytic weight-space comparisons remain open. The principal tame level-one construction remains separate from the localized principal theory. All eleven requests and fifteen gaps remain, with zero closed stages and the existing missing pinned TwistedDivisorSum artifact. The positive part now has a native continuous power-series-valued measure, uniform coefficient bounds, test and weight congruences, and whole-series comparison with the actual p-stabilized modular form after removing its constant coefficient. Assemble the full family with the actual localized A₀ coefficient, prove constant-term congruences with denominator qualifications, and decompose the tame-character extension. Geometric affinoid realization and Hida–Coleman control belong to PadicFamilies; retain the weight shift recorded in E9."
+      "detail": "Full doubled tame test and fixed-character weight congruences now include the constant, with integral quotient witnesses after clearing the normalization denominator. The dyadic precision loss is sharp. General scalar-denominator criteria, general character-pair constants, classical character Eisenstein existence/normalization and analytic weight-space comparisons remain open. The principal tame level-one construction remains separate from the localized principal theory. All eleven requests and fifteen gaps remain, with zero closed stages and the missing pinned TwistedDivisorSum artifact. The positive part now has a native continuous power-series-valued measure, uniform coefficient bounds, test and weight congruences, and whole-series comparison with the actual p-stabilized modular form after removing its constant coefficient. Assemble the full family with the actual localized A₀ coefficient, prove constant-term congruences with denominator qualifications, and decompose the tame-character extension. Geometric affinoid realization and Hida–Coleman control belong to PadicFamilies; retain the weight shift recorded in E9."
     },
     {
       "title": "Canonical coefficient-field character evaluation of actual pseudomeasures",
@@ -41176,34 +41439,34 @@
   "checks": {
     "blueprint": "Zero errors and warnings with the unmodified pinned index.",
     "intake": "Exactly four authorized deliverables; zero problems.",
-    "sourceIssues": "All 16 findings, sourceVersions and eleven requests remain whole; all fifteen gaps remain open. This is a derived denominator obstruction, not a new source erratum or an independent verdict.",
+    "sourceIssues": "All 16 findings, sourceVersions and eleven requests remain whole; all fifteen gaps remain open. These are derived congruences, with no new source erratum or independent verdict.",
     "validation": {
-      "nodes": 621,
+      "nodes": 625,
       "kinds": {
         "definition": 1,
-        "lemma": 244,
+        "lemma": 245,
         "construction": 70,
-        "theorem": 186,
+        "theorem": 189,
         "comparison": 120
       },
       "api": 528,
-      "packetTests": 1024,
+      "packetTests": 1036,
       "definitionConstructionTests": 298,
-      "typedExamples": 1027,
+      "typedExamples": 1039,
       "planets": 24,
       "baseline": 536,
-      "preservedWholeNodes": 617,
-      "preservedBaseline": 534,
+      "preservedWholeNodes": 621,
+      "preservedBaseline": 536,
       "preservedSourceIssues": 16,
       "newSourceIssues": 0,
       "newNodes": 4,
       "newNamedDeclarations": 4,
-      "newTypedTests": 10,
+      "newTypedTests": 12,
       "requests": 11,
       "gaps": 15,
       "closedStages": 0,
-      "reachableNodes": 877,
-      "dependencyEdges": 4291,
+      "reachableNodes": 881,
+      "dependencyEdges": 4322,
       "acyclic": true,
       "baselineLeaves": 714,
       "stageRequestLeaves": [
@@ -41217,7 +41480,7 @@
         "PadicMeasuresIwasawaAlgebras:L2",
         "PadicMeasuresIwasawaAlgebras:L3"
       ],
-      "readerWords": 297339,
+      "readerWords": 300254,
       "scopedMutationCheck": true,
       "correctedPredecessorNodes": 0,
       "fullSuggestedCompiled": false,
@@ -41244,25 +41507,25 @@
         "TauCeti.NumberTheory.ArithmeticFunction.TwistedDivisorSum"
       ],
       "scratchCompleteDefinitions": 0,
-      "scratchCompleteLemmas": 11,
-      "scratchMathlibModules": 2809,
+      "scratchCompleteLemmas": 10,
+      "scratchMathlibModules": 2816,
       "scratchTauModules": 0,
       "scratchErrors": 0,
       "scratchWarnings": 0,
       "scratchPlaceholders": 0,
       "finiteControls": {
-        "primeTameLevelPairs": 9,
-        "unitResidueValues": 8638,
-        "integralResidueChecks": 8638,
-        "unitSupportChecks": 10260,
-        "unitMassRefinements": 36,
-        "ambientRefinements": 10260,
-        "levelZeroMismatchDetected": 6,
-        "nonunitMismatchDetected": 1349,
-        "dyadicNonintegralHalfResidues": 682,
-        "dyadicIntegralHalfResidues": 341,
-        "integralNormalizedPositiveCoefficients": 128,
-        "sharpWitnessChecks": 7
+        "residueTestPairs": 243,
+        "constantDivisibilities": 243,
+        "positiveDivisibilities": 7776,
+        "normalizedIntegralQuotients": 243,
+        "unitPowerCongruences": 534,
+        "weightedPowerCongruences": 534,
+        "arithmeticConstantCongruences": 90,
+        "arithmeticPositiveCongruences": 2880,
+        "characterLevelAbovePrecision": 6,
+        "missingTotientDetected": 1588,
+        "sharpDyadicPrecisions": 21,
+        "missingNormalizationFactorDetected": 21
       },
       "numericalControlsCertified": false,
       "newRoutesStageLeaves": []
@@ -41272,7 +41535,7 @@
       "compiled": false,
       "errors": null,
       "warnings": null,
-      "sha256": "71edc9e303db2baf8120a7a18e2a4daf23e73a7b0124cc7360820067547537f1",
+      "sha256": "0dde500b765469b737e9c3cf32c5824fac91e9d2b6eec04e5d366ffbbf1e9225",
       "missingNativeArtifacts": [
         "TauCeti.NumberTheory.ArithmeticFunction.TwistedDivisorSum"
       ],
@@ -41287,11 +41550,11 @@
         }
       },
       "nativeProbe": {
-        "completeLemmas": 11,
+        "completeLemmas": 10,
         "errors": 0,
         "warnings": 0,
         "placeholders": 0,
-        "sha256": "67057877a3866dbe234c63485cbeeabe76e949e922df06e893f8dbd643112af8"
+        "sha256": "717db1dbf6d6f6e84fdaf540561db070ad44aa334a609bf7db8c2a6885c26e5e"
       },
       "sourceAndAvailableArtifactAudit": {
         "compiledSupplierNodes": 332,
@@ -41378,7 +41641,7 @@
       }
     },
     "publication": {
-      "base": "f53142c920839bc211e74d970913ec50ec7b36d6",
+      "base": "6e5f93b0e9d7ec9ae55ed4dec71cdbb3b203d3f1",
       "unchangedInputs": 66,
       "unchangedOutputs": 4,
       "sameSessionFollowupAfterMerge": true,
@@ -47637,6 +47900,49 @@
         "sharpWitnessChecks": 7
       },
       "numericalMethod": "Exact rational residue masses with original character zero extensions. Checks every unit and nonunit residue at four positive levels for nine prime/tame-level pairs, refinement and total unit mass. Checks dyadic half-residue valuations through level ten and 128 normalized positive divisor coefficients for the indicator of 1 modulo 4. These are finite checks of the formula; the identification with actual measures remains the recorded proof plan.",
+      "fullSuggestedCompiled": false
+    },
+    "tameFullCongruences": {
+      "agent": "Codex",
+      "session": "codex-7e92bd",
+      "issue": 713,
+      "claimComment": 5854790528,
+      "winningBot": 5854791937,
+      "previousPR": 4796,
+      "previousHead": "a5543e04ae69a95a96e1a786ee2c562ae672b2cf",
+      "previousMerge": "c105fdd01bd38c8af16cca6f71f97af16ec2c545",
+      "preservedWholeNodes": 621,
+      "preservedBaseline": 536,
+      "preservedFindings": 16,
+      "newNodes": 4,
+      "reading": "Read the whole existing positive finite-atom and positive-series congruence nodes and their actual signatures, and the full doubled-series coefficient bound, integral-character inclusion and pointwise/zero-level interfaces. Read the pinned native valuation integer-ring divisibility proof, finite-group power congruence with its ambient monoid hypotheses, unit-group cardinality, totient and reduction-kernel statements. The complete native probe checks the norm-to-divisibility route, transport of actual unit-power quotients without a new algebra on O, normalization and the dyadic obstruction. Source readings and the L4 library audit from the preceding two checkpoints remain the source basis; no fresh whole-paper review is claimed.",
+      "boundary": "Full doubled tame test and fixed-character weight congruences now include the constant, with integral quotient witnesses after clearing the normalization denominator. The dyadic precision loss is sharp. General scalar-denominator criteria, general character-pair constants, classical character Eisenstein existence/normalization and analytic weight-space comparisons remain open. The principal tame level-one construction remains separate from the localized principal theory. All eleven requests and fifteen gaps remain, with zero closed stages and the missing pinned TwistedDivisorSum artifact.",
+      "inputBase": "a20eabdf7b6940103068fb06f925f9bfe8813697",
+      "sourceBoundary": "All 16 findings, sourceVersions and eleven requests remain whole; all fifteen gaps remain open. These are derived congruences, with no new source erratum or independent verdict.",
+      "publication": {
+        "base": "6e5f93b0e9d7ec9ae55ed4dec71cdbb3b203d3f1",
+        "unchangedInputs": 66,
+        "unchangedOutputs": 4,
+        "sameSessionFollowupAfterMerge": true,
+        "lastClaimConfirmation": 5854791937,
+        "reviewIssue": 390,
+        "reviewUnclaimed": true
+      },
+      "finiteControls": {
+        "residueTestPairs": 243,
+        "constantDivisibilities": 243,
+        "positiveDivisibilities": 7776,
+        "normalizedIntegralQuotients": 243,
+        "unitPowerCongruences": 534,
+        "weightedPowerCongruences": 534,
+        "arithmeticConstantCongruences": 90,
+        "arithmeticPositiveCongruences": 2880,
+        "characterLevelAbovePrecision": 6,
+        "missingTotientDetected": 1588,
+        "sharpDyadicPrecisions": 21,
+        "missingNormalizationFactorDetected": 21
+      },
+      "numericalMethod": "Exact rational finite residue sums for locally constant tests, exact Bernoulli-polynomial constants at fixed finite character, and integer divisor coefficients. Pointwise powers are checked on every unit residue in the tested range. All normalized quotient and dyadic valuation checks use exact fractions. Finite checks do not prove the infinite measure statements; the complete native probe supplies the general norm and divisibility arguments.",
       "fullSuggestedCompiled": false
     }
   },
