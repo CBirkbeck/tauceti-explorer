@@ -1008,15 +1008,18 @@
       "name": "Area of the modular domain",
       "statement": "For F={|Re z|≤1/2, |z|≥1} with any null-boundary convention, μ(F)=π/3. Integrate y⁻² from √(1−x²) to infinity and then integrate (1−x²)⁻¹/² over [−1/2,1/2].",
       "locator": "§2, p. 953 ('By (2.8) or otherwise we have that area(F) = π/3')",
-      "status": "missing",
+      "status": "planned",
       "library": [],
-      "planned": [],
+      "planned": [
+        "tauceti:TauCetiRoadmap/FuchsianOrbifolds#layer-2-hyperbolic-polygons-and-cofinite-groups",
+        "tauceti:TauCetiRoadmap/FuchsianOrbifolds#layer-4-compactified-quotient-riemann-surfaces"
+      ],
       "prerequisites": [
         "PAPER-DUKE-IMAMOGLU-TOTH-16/15",
         "PAPER-DUKE-IMAMOGLU-TOTH-16/16"
       ],
       "proofSteps": [],
-      "note": "Missing at the inspected pins; scoped to the assigned owner. Main-paper proof read; recursive closure is not certified by this partial checkpoint.",
+      "note": "Missing at the inspected pins; scoped to the assigned owner. Main-paper proof read; recursive closure is not certified by this partial checkpoint. Planned by FIX-RT-PAPER-DUKE-IMAMOGLU-TOTH-16 (RT-PAPER-DUKE-IMAMOGLU-TOTH-16/4): Tau Ceti FuchsianOrbifolds Layer 2.1 derives the Gauss–Bonnet area formula for finite hyperbolic polygons and Layer 4.5 the orbifold area formula; F is the standard polygon.",
       "sourceGates": []
     },
     {
@@ -1222,7 +1225,7 @@
       "id": "PAPER-DUKE-IMAMOGLU-TOTH-16/22",
       "kind": "definition",
       "name": "Signature with geodesic boundary",
-      "statement": "For a finitely generated Fuchsian group, its oriented core orbifold has signature (g;m₁,...,m_r;s;t), with genus g, elliptic orders m_i≥2, s cusps and t geodesic boundary components. Derive this data from the quotient; do not define the quotient by the signature.",
+      "statement": "For a finitely generated Fuchsian group of the second kind, its oriented Nielsen core orbifold has signature (g; m₁, …, m_r; s; t), with genus g, elliptic orders m_i ≥ 2, s cusps and t ≥ 1 geodesic boundary components. This extends the cofinite signature (t = 0) of Tau Ceti FuchsianOrbifolds Layer 4.5, which is imported. Derive the data from the quotient; do not define the quotient by the signature.",
       "locator": "§2, pp. 952–953",
       "status": "missing",
       "library": [],
@@ -1232,7 +1235,7 @@
         "PAPER-DUKE-IMAMOGLU-TOTH-16/21"
       ],
       "proofSteps": [],
-      "note": "Missing at the inspected pins; scoped to the assigned owner. Open source/proof gates: S2.",
+      "note": "Missing at the inspected pins; scoped to the assigned owner. Open source/proof gates: S2. Restated by FIX-RT-PAPER-DUKE-IMAMOGLU-TOTH-16 as the extension of the upstream cofinite case (RT-PAPER-DUKE-IMAMOGLU-TOTH-16/4).",
       "uses": [
         {
           "where": "PAPER-DUKE-IMAMOGLU-TOTH-16/38",
@@ -1282,7 +1285,7 @@
       "id": "PAPER-DUKE-IMAMOGLU-TOTH-16/23",
       "kind": "theorem",
       "name": "Boundary orbifold Gauss–Bonnet",
-      "statement": "For a finite-area hyperbolic core of signature (g;m₁,...,m_r;s;t), area=2π(2(g−1)+s+t+Σ_i(1−1/m_i)). Geodesic boundary contributes through t; cusps are limits of horocycle truncations.",
+      "statement": "For the finite-area hyperbolic Nielsen core of a group of the second kind, with signature (g; m₁, …, m_r; s; t) and t ≥ 1, area = 2π(2(g − 1) + s + t + Σ_i (1 − 1/m_i)). This extends the cofinite orbifold area formula (t = 0) of Tau Ceti FuchsianOrbifolds Layer 4.5, which is imported. Geodesic boundary contributes through t; cusps are limits of horocycle truncations.",
       "locator": "(2.8), p. 953 (cited [2, Thm. 10.4.3])",
       "status": "missing",
       "library": [],
@@ -1292,7 +1295,7 @@
         "PAPER-DUKE-IMAMOGLU-TOTH-16/15"
       ],
       "proofSteps": [],
-      "note": "Missing at the inspected pins; scoped to the assigned owner. Open source/proof gates: S2.",
+      "note": "Missing at the inspected pins; scoped to the assigned owner. Open source/proof gates: S2. Restated by FIX-RT-PAPER-DUKE-IMAMOGLU-TOTH-16 as the extension of the upstream cofinite case (RT-PAPER-DUKE-IMAMOGLU-TOTH-16/4).",
       "sourceGates": [
         "S2"
       ]
@@ -2303,14 +2306,16 @@
       "name": "Hyperbolic Laplacian",
       "statement": "On smooth functions H→C use Δ=−y²(∂²_x+∂²_y). Thus Δy^s=s(1−s)y^s. The printed y^(−2) on p961 is inconsistent with (7.10) and is not adopted.",
       "locator": "§5, p961; (7.10)",
-      "status": "missing",
+      "status": "planned",
       "library": [],
-      "planned": [],
+      "planned": [
+        "QSeriesPartitionsAndMockModularForms:QM.3"
+      ],
       "prerequisites": [
         "PAPER-DUKE-IMAMOGLU-TOTH-16/14"
       ],
       "proofSteps": [],
-      "note": "Missing at the inspected pins; scoped to the assigned owner. Open source/proof gates: S4.",
+      "note": "Missing at the inspected pins; scoped to the assigned owner. Open source/proof gates: S4. Planned by FIX-RT-PAPER-DUKE-IMAMOGLU-TOTH-16 (RT-PAPER-DUKE-IMAMOGLU-TOTH-16/5) at QSeriesPartitionsAndMockModularForms QM.3, whose blueprint packet has the node QSeriesPartitionsAndMockModularForms:QM.3/weight-k-hyperbolic-laplacian at k = 0 (read by the fixer; the packet's review is pending). One owner: QM, not AS or ES.",
       "uses": [
         {
           "where": "PAPER-DUKE-IMAMOGLU-TOTH-16/137",
@@ -2965,7 +2970,7 @@
         "PAPER-DUKE-IMAMOGLU-TOTH-16/56"
       ],
       "proofSteps": [],
-      "note": "Missing at the inspected pins; scoped to the assigned owner. Open source/proof gates: S5.",
+      "note": "Missing at the inspected pins; scoped to the assigned owner. Open source/proof gates: S5. Relation to QM.3's operator, corrected by the verifier of RT-PAPER-DUKE-IMAMOGLU-TOTH-16/5 and re-derived by the fixer: with Δ_hol,k = −y²(∂_x² + ∂_y²) + iky(∂_x + i∂_y) (QM.3/weight-k-hyperbolic-laplacian) and Δ_unit,k = −y²(∂_x² + ∂_y²) + iky∂_x, one has y^{k/2}Δ_hol,k y^{−k/2} = Δ_unit,k + k(k − 2)/4, so the operator Δ_{1/2} here is y^{1/4}Δ_hol,1/2 y^{−1/4} + 3/16, not merely the conjugate.",
       "uses": [
         {
           "where": "PAPER-DUKE-IMAMOGLU-TOTH-16/81",
@@ -3492,12 +3497,14 @@
       "name": "Ordinary Kloosterman sum",
       "statement": "K(m,n;c)=Σ_{a∈(Z/cZ)ˣ}e((m a+n a⁻¹)/c), c>0. The inverse is taken in the unit group; nonunits do not contribute.",
       "locator": "§8, p974",
-      "status": "missing",
+      "status": "planned",
       "library": [],
-      "planned": [],
+      "planned": [
+        "QSeriesPartitionsAndMockModularForms:QM.3"
+      ],
       "prerequisites": [],
       "proofSteps": [],
-      "note": "Missing at the inspected pins; scoped to the assigned owner. Open source/proof gates: S7.",
+      "note": "Missing at the inspected pins; scoped to the assigned owner. Open source/proof gates: S7. Planned by FIX-RT-PAPER-DUKE-IMAMOGLU-TOTH-16 (RT-PAPER-DUKE-IMAMOGLU-TOTH-16/5) at QSeriesPartitionsAndMockModularForms QM.3, whose blueprint packet has the node QSeriesPartitionsAndMockModularForms:QM.3/classical-kloosterman-sum (read by the fixer; the packet's review is pending). One owner: QM, not AS or ES. The QM node's K(m, n, c) = Σ_v e((mv̄ + nv)/c) is this sum after v = ā.",
       "uses": [
         {
           "where": "PAPER-DUKE-IMAMOGLU-TOTH-16/88",
@@ -4057,7 +4064,7 @@
         "PAPER-DUKE-IMAMOGLU-TOTH-16/45"
       ],
       "proofSteps": [],
-      "note": "Missing at the inspected pins; scoped to the assigned owner. Open source/proof gates: S3, S5.",
+      "note": "Missing at the inspected pins; scoped to the assigned owner. Open source/proof gates: S3, S5. Routed to GN.2 (route 1) by FIX-RT-PAPER-DUKE-IMAMOGLU-TOTH-16 (RT-PAPER-DUKE-IMAMOGLU-TOTH-16/3): the same function as PAPER-BRUINIER-EHLEN-YANG-21/11 (Definition 7.1, Lemmas 7.2–7.3 on integral forms), one owner at GN.2.",
       "uses": [
         {
           "where": "PAPER-DUKE-IMAMOGLU-TOTH-16/104",
@@ -4108,7 +4115,7 @@
       "id": "PAPER-DUKE-IMAMOGLU-TOTH-16/102",
       "kind": "theorem",
       "name": "Quadratic-form character invariance",
-      "statement": "Prove independence of the represented m, proper-equivalence invariance, χ_d(−Q)=sgn(d)χ_d(Q), and agreement with the narrow ideal character when D is fundamental. The genus-character library on ideals does not directly provide the imprimitive zero branch.",
+      "statement": "For χ = χ_d of item 101: prove independence of the represented m, proper-equivalence invariance and the parity law χ_d(−Q) = sgn(d)χ_d(Q), including the zero branch for imprimitive Q (gcd(a,b,c,d) > 1).",
       "locator": "§9; DIT11 (3.2)–(3.3)",
       "status": "missing",
       "library": [],
@@ -4119,11 +4126,20 @@
         "PAPER-DUKE-IMAMOGLU-TOTH-16/101"
       ],
       "proofSteps": [],
-      "note": "Missing at the inspected pins; scoped to the assigned owner. Open source/proof gates: S3, S5.",
+      "note": "Missing at the inspected pins; scoped to the assigned owner. Open source/proof gates: S3, S5. Split by FIX-RT-PAPER-DUKE-IMAMOGLU-TOTH-16 (RT-PAPER-DUKE-IMAMOGLU-TOTH-16/3): the comparison with the narrow ideal character for fundamental D is form-character-ideal-comparison (route 10). Formerly: 'Prove independence of the represented m, proper-equivalence invariance, χ_d(−Q)=sgn(d)χ_d(Q), and agreement with the narrow ideal character when D is fundamental. The genus-character library on ideals does not directly provide the imprimitive zero branch.'",
       "sourceGates": [
         "S3",
         "S5"
       ]
+    },
+    {
+      "id": "PAPER-DUKE-IMAMOGLU-TOTH-16/form-character-ideal-comparison",
+      "kind": "theorem",
+      "name": "The form character agrees with the ideal-class genus character",
+      "statement": "For a fundamental discriminant D = d′d with d, d′ fundamental, and a narrow ideal class A of Q(√D) corresponding to the proper equivalence class of the primitive form Q_A, χ_d(Q_A) = χ(A), where χ is the genus character of Cl⁺(Q(√D)) attached to D = d′d.",
+      "locator": "§9, p. 978 (the genus character on forms); §7, p. 971 (genus characters of Cl⁺)",
+      "status": "missing",
+      "note": "Split from item 102 by FIX-RT-PAPER-DUKE-IMAMOGLU-TOTH-16 (RT-PAPER-DUKE-IMAMOGLU-TOTH-16/3). The form character itself is owned at GN.2 (items 101–102); the ideal-side genus characters are the built Tau Ceti Multiquadratic theory. This comparison is the only part left in MultiquadraticPartII (route 10)."
     },
     {
       "id": "PAPER-DUKE-IMAMOGLU-TOTH-16/103",
@@ -4369,12 +4385,14 @@
       "name": "Bessel I and J functions",
       "statement": "For y>0 and complex ν, I_ν(y)=Σ_{k≥0}(y/2)^(ν+2k)/(k!Γ(ν+k+1)), and J_ν(y) has the extra factor(−1)^k. Use real log(y/2) for powers, and the entire reciprocal gamma where necessary.",
       "locator": "DIT11 (2.17), p. 959; DIT16 §5, p. 961 (the paper lists I_s, J_s, K_s, M_{r,s}, W_{r,s} as standard special functions with references [38], [55]); the J-series is used on p. 985 (display before (A.3))",
-      "status": "missing",
+      "status": "planned",
       "library": [],
-      "planned": [],
+      "planned": [
+        "QSeriesPartitionsAndMockModularForms:QM.2"
+      ],
       "prerequisites": [],
       "proofSteps": [],
-      "note": "Missing at the inspected pins; scoped to the assigned owner. Open source/proof gates: S8. Continuation:162 constructs the series from pinned regularized hypergeometric functions; the full named API, and W for112, remain missing.",
+      "note": "Missing at the inspected pins; scoped to the assigned owner. Open source/proof gates: S8. Continuation:162 constructs the series from pinned regularized hypergeometric functions; the full named API, and W for112, remain missing. Planned by FIX-RT-PAPER-DUKE-IMAMOGLU-TOTH-16 (RT-PAPER-DUKE-IMAMOGLU-TOTH-16/5) at QSeriesPartitionsAndMockModularForms QM.2, whose blueprint packet has the node QSeriesPartitionsAndMockModularForms:QM.2/modified-bessel-function-i and QM.2/bessel-function-j (read by the fixer; the packet's review is pending). One owner: QM, not AS or ES. QM's definitions are for complex z; this item is their restriction to y > 0.",
       "uses": [
         {
           "where": "PAPER-DUKE-IMAMOGLU-TOTH-16/118",
@@ -5097,7 +5115,7 @@
       "id": "PAPER-DUKE-IMAMOGLU-TOTH-16/141",
       "kind": "theorem",
       "name": "Theorem3 positive factors",
-      "statement": "Let d', d > 0 be fundamental discriminants with D = d'd > 1; then d' and d are coprime and D is fundamental. Let χ be the genus character. Then Λ(s,χ_{d'})Λ(s,χ_d) = Σ_{A∈Cl^+(K)} χ(A)∫_{C_A} E*(z,s)y^{−1}|dz|, as meromorphic functions of s (7.8). On Re(s) = 1/2 this is the second case of Theorem 3, where ∫_{∂F_A} replaces ∫_{C_A}.",
+      "statement": "Let D > 1 be a fundamental discriminant and D = d′d a factorization into positive fundamental discriminants (equivalently, d′, d > 0 coprime fundamental discriminants with d′d > 1; then D is fundamental). Let χ be the genus character. Then Λ(s,χ_{d'})Λ(s,χ_d) = Σ_{A∈Cl^+(K)} χ(A)∫_{C_A} E*(z,s)y^{−1}|dz|, as meromorphic functions of s (7.8). On Re(s) = 1/2 this is the second case of Theorem 3, where ∫_{∂F_A} replaces ∫_{C_A}.",
       "locator": "Theorem 3, second case, p.964; for all s by (7.8), p.972",
       "status": "missing",
       "library": [],
@@ -5107,7 +5125,7 @@
         "PAPER-DUKE-IMAMOGLU-TOTH-16/139"
       ],
       "proofSteps": [],
-      "note": "Missing at the inspected pins; scoped to the assigned owner. Main-paper proof read; recursive closure is not certified by this partial checkpoint.",
+      "note": "Missing at the inspected pins; scoped to the assigned owner. Main-paper proof read; recursive closure is not certified by this partial checkpoint. Hypothesis restored by FIX-RT-PAPER-DUKE-IMAMOGLU-TOTH-16 (RT-PAPER-DUKE-IMAMOGLU-TOTH-16/1): the product of two positive fundamental discriminants need not be fundamental or coprime to them (5·5 = 25; 8·12 = 96 = 16·6). This is an extraction correction, not an error in Theorem 3.",
       "sourceGates": []
     },
     {
@@ -5281,16 +5299,25 @@
         "PAPER-DUKE-IMAMOGLU-TOTH-16/149"
       ],
       "proofSteps": [],
-      "note": "Not in the paper as stated: (6.6) is printed without the factor cosh²(πr/4) (E6). The two forms agree because ‖φ‖² = 2L(1,sym²φ)/cosh(πr) (Rankin–Selberg with the normalisations (5.2), (5.7), (5.8)) and L(1,sym²φ) ≪_ε r^ε. In the deduction of Theorem 2 the product c(φ)⟨φ,φ⟩^{−1}φ = ⟨f,u_φ⟩u_φ is what enters, with ⟨f,u_φ⟩ ≪ r^{−A}, so the exponential factors cancel.",
+      "note": "Not in the paper as stated: (6.6) is printed without the factor cosh²(πr/4) (E6). The two forms agree because ‖φ‖² = 2L(1,sym²φ)/cosh(πr) (item 151: Rankin–Selberg with the normalisations (5.2), (5.7), (5.8)) and L(1,sym²φ) ≪_ε r^ε. In the deduction of Theorem 2 the product c(φ)⟨φ,φ⟩^{−1}φ = ⟨f,u_φ⟩u_φ is what enters, with ⟨f,u_φ⟩ ≪ r^{−A}, so the exponential factors cancel. Only a polynomial bound for L(1, sym²φ) is needed; the r^ε bound quoted here is not certified (RT-PAPER-DUKE-IMAMOGLU-TOTH-16/2).",
       "sourceGates": [
         "S7"
       ]
     },
     {
+      "id": "PAPER-DUKE-IMAMOGLU-TOTH-16/151",
+      "kind": "theorem",
+      "name": "Rankin–Selberg norm of the a(1) = 1 normalised Maass form",
+      "statement": "For an even or odd Hecke–Maass cusp form φ for PSL(2,Z), normalised by a(1) = 1 as in (5.7) (with the paper's leading Fourier factor 2, φ(z) = 2y^{1/2}Σ_n a(n)K_{ir}(2π|n|y)e(nx)), of Laplace eigenvalue 1/4 + r², and ⟨φ,φ⟩ = ∫_F |φ|² dμ: ⟨φ,φ⟩ = 2L(1, sym²φ)/cosh(πr). Together with a polynomial upper bound L(1, sym²φ) ≪ (1 + r)^A for an absolute A, which any polynomial bound suffices for, this converts the a(1) = 1 normalised estimate of Theorem 4 and [12, Thm. 5] into the unit-vector form of (6.6) (item 150).",
+      "locator": "Not a statement of the paper: an input of the corrected (6.6) (sourceIssues E6), Proposition 2, pp. 968–969",
+      "status": "missing",
+      "note": "Restored by FIX-RT-PAPER-DUKE-IMAMOGLU-TOTH-16 (RT-PAPER-DUKE-IMAMOGLU-TOTH-16/2); the review had removed it as an 'extraction repair', leaving items 150, 153 and E6 pointing at nothing. Inputs: the Rankin–Selberg unfolding of ⟨φ,φ⟩ against the level-one Eisenstein series with its residue, in the paper's normalisations (5.2), (5.7), (5.8); the identity also appears as Humphries–Nordentoft (4.2), (4.5), which the errata review checked. A polynomial bound for L(1, sym²φ) follows, for example, from the analytic continuation and functional equation of the symmetric-square L-function with the Phragmén–Lindelöf convexity bound. The stronger L(1, sym²φ) ≪_ε r^ε quoted in item 150 is not certified here and is not needed (the verifier). Routed to AL.3 (route 5), a normalisation adapter separate from AL.3's general theory."
+    },
+    {
       "id": "PAPER-DUKE-IMAMOGLU-TOTH-16/153",
       "kind": "theorem",
       "name": "Smooth genus equidistribution",
-      "statement": "(The step 'Theorem 2 follows from Propositions 1 and 2 and …', p.969, for smooth f.) Let f be a smooth, compactly supported Γ-invariant function and ε > 0. For every positive fundamental D and every genus G_D: Σ_{A∈G_D} ∫_{F_A} f dμ = (3/π)(∫_F f dμ)·Σ_{A∈G_D} area(F_A) + O_{f,ε}(D^{13/28+ε}). With Proposition 1 it follows that the ratio (Σ_{A∈G_D} ∫_{F_A} f dμ)/(Σ_{A∈G_D} area(F_A)) tends to (3/π)∫_F f dμ as D → ∞. The proof uses genus-character projection; the vanishing of surface Weyl sums for d', d > 0; odd cancellation (item 71); (6.5); the corrected unit-vector form of (6.6) (items 150–152); item 68; and Weyl's law (5.10).",
+      "statement": "(The step 'Theorem 2 follows from Propositions 1 and 2 and …', p.969, for smooth f.) Let f be a smooth, compactly supported Γ-invariant function and ε > 0. For every positive fundamental D and every genus G_D: Σ_{A∈G_D} ∫_{F_A} f dμ = (3/π)(∫_F f dμ)·Σ_{A∈G_D} area(F_A) + O_{f,ε}(D^{13/28+ε}). With Proposition 1 it follows that the ratio (Σ_{A∈G_D} ∫_{F_A} f dμ)/(Σ_{A∈G_D} area(F_A)) tends to (3/π)∫_F f dμ as D → ∞. The proof uses genus-character projection; the vanishing of surface Weyl sums for d', d > 0; odd cancellation (item 71); (6.5); the corrected unit-vector form of (6.6) (items 150–151); item 68; and Weyl's law (5.10).",
       "locator": "§6 proof of Theorem2",
       "status": "missing",
       "library": [],
@@ -5568,10 +5595,26 @@
       "id": "PAPER-DUKE-IMAMOGLU-TOTH-16/modular-group-generators-and-signature",
       "kind": "theorem",
       "name": "Generators and signature of PSL(2,Z)",
-      "statement": "Γ = PSL(2,Z) is generated by S = ±(0 1; −1 0) and T = ±(1 1; 0 1), and has signature (0;2,3;1,0).",
+      "statement": "Γ = PSL(2,Z) is generated by the images of S and T (from sl2z-generators, by the quotient map SL(2,Z) → PSL(2,Z)), and has signature (0; 2, 3; 1, 0).",
       "locator": "§2, p. 953 ('As is well known')",
-      "status": "missing",
-      "note": "Used for area(F) = π/3 via (2.8) and for the notation S, T in (3.1). Missing: routed to route 9."
+      "status": "planned",
+      "note": "Used for area(F) = π/3 via (2.8) and for the notation S, T in (3.1). Planned by FIX-RT-PAPER-DUKE-IMAMOGLU-TOTH-16 (RT-PAPER-DUKE-IMAMOGLU-TOTH-16/4): Tau Ceti FuchsianOrbifolds Layer 6.1 proves the signature of the effective level-one modular group from the standard fundamental polygon, and Layer 2.6 the (2, 3, ∞) triangle group with its presentation, elliptic orders and cusp count. The generation of SL(2,Z) is the library item sl2z-generators.",
+      "planned": [
+        "tauceti:TauCetiRoadmap/FuchsianOrbifolds#layer-6-the-level-one-modular-quotient-in-construction-order",
+        "tauceti:TauCetiRoadmap/FuchsianOrbifolds#layer-2-hyperbolic-polygons-and-cofinite-groups"
+      ]
+    },
+    {
+      "id": "PAPER-DUKE-IMAMOGLU-TOTH-16/sl2z-generators",
+      "kind": "theorem",
+      "name": "SL(2,Z) is generated by S and T",
+      "statement": "SL(2,Z) is generated by S = (0 −1; 1 0) and T = (1 1; 0 1): Subgroup.closure {S, T} = ⊤.",
+      "locator": "§2, p. 953 ('Γ is generated by S … and T …')",
+      "status": "library",
+      "library": [
+        "mathlib:SpecialLinearGroup.SL2Z_generators"
+      ],
+      "note": "Split from modular-group-generators-and-signature by FIX-RT-PAPER-DUKE-IMAMOGLU-TOTH-16 (RT-PAPER-DUKE-IMAMOGLU-TOTH-16/4). Read at Mathlib 082e2d3, Mathlib/LinearAlgebra/Matrix/FixedDetMatrices.lean:274, with S and T those of ModularGroup; the passage to PSL(2,Z) is the quotient adapter in modular-group-generators-and-signature."
     },
     {
       "id": "PAPER-DUKE-IMAMOGLU-TOTH-16/surface-F-Gamma-and-boundary-convention",
@@ -5805,7 +5848,7 @@
       "statement": "For λ ∈ ℂ and t > 0, J_λ satisfies t²J_λ″ + tJ_λ′ + (t²−λ²)J_λ = 0. Hence g(t) = t^{1/2}J_λ(t) satisfies t^{3/2}[g″(t) + (1 + (1/4−λ²)/t²) g(t)] = t²J_λ″ + tJ_λ′ + (t²−λ²)J_λ = 0. With λ = s−1/2, g solves f″ + (1 − s(s−1)/t²) f = 0.",
       "locator": "Appendix A, proof of (A.1), p. 983 ('A simple computation shows that …')",
       "status": "missing",
-      "note": "A standard fact used as a black box (refs [38], [55]). The identity t^{3/2}(…) = t²J″+tJ′+(t²−λ²)J checks directly. No existing item covers the Bessel ODE; item 111 has only the series definitions. Missing: routed to route 2."
+      "note": "A standard fact used as a black box (refs [38], [55]). The identity t^{3/2}(…) = t²J″+tJ′+(t²−λ²)J checks directly. No existing item covers the Bessel ODE; item 111 has only the series definitions. Missing: routed to route 2. Routed by FIX-RT-PAPER-DUKE-IMAMOGLU-TOTH-16 (RT-PAPER-DUKE-IMAMOGLU-TOTH-16/5) to QM.2 (route 11), beside QSeriesPartitionsAndMockModularForms:QM.2/bessel-function-j, which states Bessel's equation. The Liouville form for g = t^{1/2}J_λ on t > 0 is an adapter with its own hypotheses, not identified with that definition (the verifier)."
     },
     {
       "id": "PAPER-DUKE-IMAMOGLU-TOTH-16/appendix-a-leading-coefficient-match",
@@ -5934,6 +5977,7 @@
       "route": "source",
       "roadmap": "GeometryOfNumbersAndQuadraticArithmetic",
       "stages": [
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.2",
         "GeometryOfNumbersAndQuadraticArithmetic:GN.3",
         "GeometryOfNumbersAndQuadraticArithmetic:GN.4"
       ],
@@ -5967,9 +6011,11 @@
         "PAPER-DUKE-IMAMOGLU-TOTH-16/fundamental-discriminant-forms-primitive",
         "PAPER-DUKE-IMAMOGLU-TOTH-16/geodesic-and-cm-main-terms",
         "PAPER-DUKE-IMAMOGLU-TOTH-16/cycle-integral-convention",
-        "PAPER-DUKE-IMAMOGLU-TOTH-16/oriented-cycle-of-a-form"
+        "PAPER-DUKE-IMAMOGLU-TOTH-16/oriented-cycle-of-a-form",
+        "PAPER-DUKE-IMAMOGLU-TOTH-16/101",
+        "PAPER-DUKE-IMAMOGLU-TOTH-16/102"
       ],
-      "reason": "Reduction of integral quadratic forms, their oriented geodesics and Duke-type distribution are explicitly in GN.3–4. Import the core surface from FuchsianOrbifoldsPartII and genus algebra from MultiquadraticPartII; use MP.7 traces and AS spectral estimates. Do not duplicate the core construction or generic functional analysis."
+      "reason": "Reduction of integral quadratic forms, their oriented geodesics and Duke-type distribution are explicitly in GN.3–4. Import the core surface from FuchsianOrbifoldsPartII and genus algebra from MultiquadraticPartII; use MP.7 traces and AS spectral estimates. Do not duplicate the core construction or generic functional analysis. GN.2 owns the classical genus character χ_d(Q) on binary quadratic forms, possibly imprimitive, with its well-definedness, invariance and parity (items 101–102), the same function PAPER-BRUINIER-EHLEN-YANG-21/11 routes there (Gross–Kohnen–Zagier I.2), so it has one owner; it imports the ideal-side genus characters from Tau Ceti Multiquadratic (RT-PAPER-DUKE-IMAMOGLU-TOTH-16/3)."
     },
     {
       "route": "source",
@@ -5981,7 +6027,6 @@
         "AutomorphicSpectralTheory:AS.4"
       ],
       "items": [
-        "PAPER-DUKE-IMAMOGLU-TOTH-16/56",
         "PAPER-DUKE-IMAMOGLU-TOTH-16/57",
         "PAPER-DUKE-IMAMOGLU-TOTH-16/58",
         "PAPER-DUKE-IMAMOGLU-TOTH-16/59",
@@ -5998,7 +6043,6 @@
         "PAPER-DUKE-IMAMOGLU-TOTH-16/94",
         "PAPER-DUKE-IMAMOGLU-TOTH-16/105",
         "PAPER-DUKE-IMAMOGLU-TOTH-16/110",
-        "PAPER-DUKE-IMAMOGLU-TOTH-16/111",
         "PAPER-DUKE-IMAMOGLU-TOTH-16/112",
         "PAPER-DUKE-IMAMOGLU-TOTH-16/113",
         "PAPER-DUKE-IMAMOGLU-TOTH-16/114",
@@ -6013,10 +6057,9 @@
         "PAPER-DUKE-IMAMOGLU-TOTH-16/resolvent-fourier-expansion-weight0",
         "PAPER-DUKE-IMAMOGLU-TOTH-16/appendix-a2-series-of-whittaker-cycle-integral",
         "PAPER-DUKE-IMAMOGLU-TOTH-16/appendix-a3-series-of-rhs",
-        "PAPER-DUKE-IMAMOGLU-TOTH-16/bessel-equation-liouville-form",
         "PAPER-DUKE-IMAMOGLU-TOTH-16/appendix-a-leading-coefficient-match"
       ],
-      "reason": "The noncompact Laplacian, Eisenstein/Poincaré families, resolvent residues, Bessel suppliers and spectral expansion belong to the existing spectral layers. AS.0 supplies analytic operators and special-function interfaces, AS.1 initial convergence, AS.2 continuation, and AS.4 modular spectrum and summation. MP.7 imports these and supplies multiplier-specific adaptations. Continuation suppliers162–167 import the already built regularized hypergeometric series, beta/gamma identities and dominated differentiation (159–161); only the specific adapters, endpoint estimates and cycle integral proof are routed, not generic convergence/integration machinery. QSeriesPartitionsAndMockModularForms:QM.2 may reuse the Bessel adapter rather than redeclare it. The Biró interior convergence repair187 imports the already built TauCeti Vitali theorem171. Boundary-residue guard188 prevents this import from being used as an unproved uniform estimate."
+      "reason": "The noncompact Laplacian, Eisenstein/Poincaré families, resolvent residues, spectral expansion belong to the existing spectral layers. AS.0 supplies analytic operators and special-function interfaces, AS.1 initial convergence, AS.2 continuation, and AS.4 modular spectrum and summation. MP.7 imports these and supplies multiplier-specific adaptations. Continuation suppliers162–167 import the already built regularized hypergeometric series, beta/gamma identities and dominated differentiation (159–161); only the specific adapters, endpoint estimates and cycle integral proof are routed, not generic convergence/integration machinery. QSeriesPartitionsAndMockModularForms:QM.2 may reuse the Bessel adapter rather than redeclare it. The Biró interior convergence repair187 imports the already built TauCeti Vitali theorem171. Boundary-residue guard188 prevents this import from being used as an unproved uniform estimate. The Bessel functions, the hyperbolic Laplacian and Bessel's equation are QM's (RT-PAPER-DUKE-IMAMOGLU-TOTH-16/5); AS imports them."
     },
     {
       "route": "source",
@@ -6100,7 +6143,8 @@
       ],
       "items": [
         "PAPER-DUKE-IMAMOGLU-TOTH-16/64",
-        "PAPER-DUKE-IMAMOGLU-TOTH-16/65"
+        "PAPER-DUKE-IMAMOGLU-TOTH-16/65",
+        "PAPER-DUKE-IMAMOGLU-TOTH-16/151"
       ],
       "reason": "The normalized standard Maass L-function belongs to AL.2, and the missing Rankin–Selberg norm comparison to AL.3. This source route requires the exact a(1)=1 versus L²-unit constant before polynomial spectral bounds can be used."
     },
@@ -6146,10 +6190,9 @@
         "ExponentialSumsAndCircleMethod:ES.0"
       ],
       "items": [
-        "PAPER-DUKE-IMAMOGLU-TOTH-16/87",
         "PAPER-DUKE-IMAMOGLU-TOTH-16/147"
       ],
-      "reason": "Generic finite Kloosterman sums and Burgess character-sum estimates belong to the finite-sum owner. MP.7 retains the multiplier-specific sums and coefficient theorem, and AN imports the Dirichlet analytic consequences."
+      "reason": "Burgess character-sum estimates belong to the finite-sum owner. The ordinary Kloosterman sum is planned at QSeriesPartitionsAndMockModularForms QM.3 (item 87; RT-PAPER-DUKE-IMAMOGLU-TOTH-16/5). MP.7 retains the multiplier-specific sums and coefficient theorem, and AN imports the Dirichlet analytic consequences."
     },
     {
       "route": "part-ii",
@@ -6158,7 +6201,6 @@
       "title": "Fuchsian groups and orbifold Riemann surfaces, Part II: Nielsen cores and quadratic-class surfaces",
       "area": "analysis",
       "items": [
-        "PAPER-DUKE-IMAMOGLU-TOTH-16/17",
         "PAPER-DUKE-IMAMOGLU-TOTH-16/20",
         "PAPER-DUKE-IMAMOGLU-TOTH-16/21",
         "PAPER-DUKE-IMAMOGLU-TOTH-16/22",
@@ -6182,14 +6224,13 @@
         "PAPER-DUKE-IMAMOGLU-TOTH-16/50",
         "PAPER-DUKE-IMAMOGLU-TOTH-16/137",
         "PAPER-DUKE-IMAMOGLU-TOTH-16/standard-fundamental-domain-F",
-        "PAPER-DUKE-IMAMOGLU-TOTH-16/modular-group-generators-and-signature",
         "PAPER-DUKE-IMAMOGLU-TOTH-16/surface-F-Gamma-and-boundary-convention",
         "PAPER-DUKE-IMAMOGLU-TOTH-16/boundary-circle-unique-closed-geodesic",
         "PAPER-DUKE-IMAMOGLU-TOTH-16/Gamma-A-infinite-index",
         "PAPER-DUKE-IMAMOGLU-TOTH-16/boundary-arc-cutting-construction"
       ],
       "reason": "The upstream roadmap supplies Fuchsian actions, polygon and orbifold infrastructure, but its reviewed audit does not supply this arithmetic convex-core construction. Extend it, never replace or re-plan its layers.",
-      "brief": "Import Fuchsian groups and orbifold Riemann surfaces (tauceti:TauCetiRoadmap/FuchsianOrbifolds), especially its polygon theorem and effective PSL action; import the arithmetic class/cycle dictionary from Geometry of numbers and quadratic arithmetic (GeometryOfNumbersAndQuadraticArithmetic:GN.3), and genus signs from Multiquadratic fields and genus theory (tauceti:TauCetiRoadmap/Multiquadratic) with MultiquadraticPartII. For each narrow ideal class A of a positive fundamental discriminant D, construct the finite-area Nielsen core F_A and its locally isometric map to the modular orbifold. For the primitive minus period of length ℓ_A, prove signature (0; ℓ_A copies of 2; one cusp; one geodesic boundary), free product Z*(C2)^ℓ_A, simple geodesic boundary projecting to C_A of length 2 log ε_D, area πℓ_A, and the conformal invariance/class identification asserted in Theorem 1. Include free-side endpoint ordering, limit-set convex hull, cyclic-presentation invariance, complementary tiles and the exact multiplicity cover. Define integration by pushforward of the upstairs core measure; retain multiplicity where the modular projection overlaps itself. Prove the truncated Stokes conversion with compatible orientation and horizontal-side decay, importing the Laplacian and cusp estimates from Automorphic spectral theory (AutomorphicSpectralTheory). Theorem 2 is owned by GN.4 and imports these measures; it is not a second analytic endpoint here. Every construction needs its stated API and tests, including D=12 and D=28 and the all-2 parabolic rejection. S2 still requires source-level proof closure before design acceptance. Corrections the design must carry: in the proof of Theorem 1 the arc from z to γ(z), not only the full axis, must be shown to cross the circle about n_1, by the disjoint-disc induction (E19); and the recovery of A from the conformal class of F_A must treat F_A as an orbifold with its cone points, lift a conformal equivalence to φ(z) = az + b normalised at the cusp, and read the digits from the highest points of the elliptic orbits, since the printed 'cycle of distances' is measured between lifts in H, not on the surface (E20)."
+      "brief": "Import Fuchsian groups and orbifold Riemann surfaces (tauceti:TauCetiRoadmap/FuchsianOrbifolds), especially its polygon theorem and effective PSL action, Layer 2's polygon Gauss–Bonnet and triangle groups, Layer 4's signature and area formula and Layer 6's level-one signature; extend them to Nielsen cores of groups of the second kind (t ≥ 1 geodesic boundary components) and do not re-prove the cofinite case or the area of the modular domain; import the arithmetic class/cycle dictionary from Geometry of numbers and quadratic arithmetic (GeometryOfNumbersAndQuadraticArithmetic:GN.3), and genus signs from Multiquadratic fields and genus theory (tauceti:TauCetiRoadmap/Multiquadratic) with MultiquadraticPartII. For each narrow ideal class A of a positive fundamental discriminant D, construct the finite-area Nielsen core F_A and its locally isometric map to the modular orbifold. For the primitive minus period of length ℓ_A, prove signature (0; ℓ_A copies of 2; one cusp; one geodesic boundary), free product Z*(C2)^ℓ_A, simple geodesic boundary projecting to C_A of length 2 log ε_D, area πℓ_A, and the conformal invariance/class identification asserted in Theorem 1. Include free-side endpoint ordering, limit-set convex hull, cyclic-presentation invariance, complementary tiles and the exact multiplicity cover. Define integration by pushforward of the upstairs core measure; retain multiplicity where the modular projection overlaps itself. Prove the truncated Stokes conversion with compatible orientation and horizontal-side decay, importing the Laplacian and cusp estimates from Automorphic spectral theory (AutomorphicSpectralTheory). Theorem 2 is owned by GN.4 and imports these measures; it is not a second analytic endpoint here. Every construction needs its stated API and tests, including D=12 and D=28 and the all-2 parabolic rejection. S2 still requires source-level proof closure before design acceptance. Corrections the design must carry: in the proof of Theorem 1 the arc from z to γ(z), not only the full axis, must be shown to cross the circle about n_1, by the disjoint-disc induction (E19); and the recovery of A from the conformal class of F_A must treat F_A as an orbifold with its cone points, lift a conformal equivalence to φ(z) = az + b normalised at the cusp, and read the digits from the highest points of the elliptic orbits, since the printed 'cycle of distances' is measured between lifts in H, not on the surface (E20)."
     },
     {
       "route": "part-ii",
@@ -6201,12 +6242,22 @@
         "PAPER-DUKE-IMAMOGLU-TOTH-16/4",
         "PAPER-DUKE-IMAMOGLU-TOTH-16/44",
         "PAPER-DUKE-IMAMOGLU-TOTH-16/47",
-        "PAPER-DUKE-IMAMOGLU-TOTH-16/101",
-        "PAPER-DUKE-IMAMOGLU-TOTH-16/102",
-        "PAPER-DUKE-IMAMOGLU-TOTH-16/different-class-nontrivial-if-prime-3-mod-4"
+        "PAPER-DUKE-IMAMOGLU-TOTH-16/different-class-nontrivial-if-prime-3-mod-4",
+        "PAPER-DUKE-IMAMOGLU-TOTH-16/form-character-ideal-comparison"
       ],
       "reason": "All four audited upstream genus-theory layers are built. These items are specific extensions/adapters for the real-quadratic surface argument; the class group, elementary quotient, genus characters, rank formula and principal genus theorem remain imported.",
-      "brief": "Import Multiquadratic fields and genus theory (tauceti:TauCetiRoadmap/Multiquadratic) and the existing NumberField.NarrowClassGroup, elementary-two quotient, prime-discriminant factorization, genus characters and principal genus theorem. Extend these with J²=1 and ker(Cl⁺→Cl)={1,J}, equal sizes of genus cosets, and χ(J)=sgn(d) for a genus factorization D=dd′; include the criterion that all genus characters are even precisely when the discriminant is a sum of two squares in the paper’s stated sense. Construct the character χ_d(Q) for possibly imprimitive integral quadratic forms by a represented value prime to d, with the zero case gcd(a,b,c,d)>1, and prove representative independence and proper-equivalence invariance. Import the oriented form carrier and content reduction from Geometry of numbers and quadratic arithmetic (GeometryOfNumbersAndQuadraticArithmetic:GN.3). The consumers are Hecke period factorization in Analytic number theory (AnalyticNumberTheory:AN.4), plus-space trace identities in Metaplectic automorphic forms (MetaplecticAutomorphicForms:MP.7), and genus equidistribution in GN.4. Do not re-plan any of the built upstream algebra, assign quadratic-form reduction here, or assert class-number-one infinitude. Tests must include D=12, discriminant factors at 2, the trivial d=1 character, imprimitive forms and the distinction between Cl⁺/Cl⁺² and Cl⁺[2]. S3 and S5 record the remaining source obligations."
+      "brief": "Import Multiquadratic fields and genus theory (tauceti:TauCetiRoadmap/Multiquadratic) and the existing NumberField.NarrowClassGroup, elementary-two quotient, prime-discriminant factorization, genus characters and principal genus theorem. Extend these with J²=1 and ker(Cl⁺→Cl)={1,J}, equal sizes of genus cosets, and χ(J)=sgn(d) for a genus factorization D=dd′; include the criterion that all genus characters are even precisely when the discriminant is a sum of two squares in the paper’s stated sense. Import the form character χ_d(Q) on possibly imprimitive integral quadratic forms, with its well-definedness, invariance and parity, from GeometryOfNumbersAndQuadraticArithmetic:GN.2, its single owner (shared with PAPER-BRUINIER-EHLEN-YANG-21/11); prove here only its comparison χ_d(Q_A) = χ(A) with the narrow ideal-class genus character for fundamental D. Import the oriented form carrier and content reduction from Geometry of numbers and quadratic arithmetic (GeometryOfNumbersAndQuadraticArithmetic:GN.3). The consumers are Hecke period factorization in Analytic number theory (AnalyticNumberTheory:AN.4), plus-space trace identities in Metaplectic automorphic forms (MetaplecticAutomorphicForms:MP.7), and genus equidistribution in GN.4. Do not re-plan any of the built upstream algebra, assign quadratic-form reduction here, or assert class-number-one infinitude. Tests must include D=12, discriminant factors at 2, the trivial d=1 character, imprimitive forms and the distinction between Cl⁺/Cl⁺² and Cl⁺[2]. S3 and S5 record the remaining source obligations."
+    },
+    {
+      "route": "source",
+      "roadmap": "QSeriesPartitionsAndMockModularForms",
+      "stages": [
+        "QSeriesPartitionsAndMockModularForms:QM.2"
+      ],
+      "items": [
+        "PAPER-DUKE-IMAMOGLU-TOTH-16/bessel-equation-liouville-form"
+      ],
+      "reason": "QM.2 owns the Bessel functions (its packet's QM.2/modified-bessel-function-i and QM.2/bessel-function-j, with Bessel's equation), and QM.3 the Kloosterman sum and the weight-k Laplacian; items 111, 87 and 56 are planned there. The Liouville form of Bessel's equation used in Appendix A is an adapter beside them (RT-PAPER-DUKE-IMAMOGLU-TOTH-16/5)."
     }
   ],
   "sourceArchives": [
@@ -9217,6 +9268,20 @@
         "verdict": "confirmed",
         "reason": "Checked on the page image. Only −y²(∂²_x+∂²_y) is Γ-invariant and gives ∆y^s=s(1−s)y^s. The paper itself uses −y² in (7.10), p972, and in ∆_{1/2} in §8. Meaning is clear.",
         "by": "REV-PAPER-DUKE-IMAMOGLU-TOTH-16"
+      },
+      "errataRecord": {
+        "file": "research/blueprint/errata/PAPER-DUKE-IMAMOGLU-TOTH-16.json (supersededRecords)",
+        "id": "PAPER-DUKE-IMAMOGLU-TOTH-16/E1",
+        "writer": "ERRATA-PAPER-DUKE-IMAMOGLU-TOTH-16, Claude Code cc-fb70e5",
+        "locator": "§5 after (5.2), published p.961; author p.11; published Annals 184 (2016), 949–990, DOI 10.4007/annals.2016.184.3.8, compared with the 29 July 2016 author preprint.",
+        "kind": "misprint",
+        "affects": "nothing",
+        "correction": "Δ = −y²(∂²_x + ∂²_y).",
+        "review": {
+          "verdict": "confirmed",
+          "reason": "Confirmed on the publisher image and author p.11. Applying the printed operator to y^s gives s(1−s)y^(s−4); the corrected operator gives s(1−s)y^s. The paper itself uses the correct operator in (7.10).",
+          "by": "REV-ERRATA-PAPER-DUKE-IMAMOGLU-TOTH-16"
+        }
       }
     },
     {
@@ -9240,6 +9305,20 @@
         "verdict": "confirmed",
         "reason": "The bar on b(d) is visible in a 400-dpi crop. uF with |u|=1 keeps the Fourier shape, the weight, ⟨F,F⟩=1, the (linear) Shimura relation, and b(d′)conj(b(d)). The proof (Proposition 6) picks F=ψ in a fixed orthonormal basis B_r, which fixes it only up to such a u. Defence: 'unique' plainly means 'unique up to a unit', and nothing downstream uses more than |b(d)| or b(d′)conj(b(d)). Existence and (5.16) hold as stated.",
         "by": "REV-PAPER-DUKE-IMAMOGLU-TOTH-16"
+      },
+      "errataRecord": {
+        "file": "research/blueprint/errata/PAPER-DUKE-IMAMOGLU-TOTH-16.json (supersededRecords)",
+        "id": "PAPER-DUKE-IMAMOGLU-TOTH-16/E2",
+        "writer": "ERRATA-PAPER-DUKE-IMAMOGLU-TOTH-16, Claude Code cc-fb70e5",
+        "locator": "Theorem 4, published p.965; author p.14; published Annals 184 (2016), 949–990, DOI 10.4007/annals.2016.184.3.8, compared with the 29 July 2016 author preprint.",
+        "kind": "error",
+        "affects": "a stated result",
+        "correction": "F is unique only up to a constant factor of absolute value 1. The line spanned by F is unique, and F itself becomes unique once one also requires, for example, b(d_0) > 0 for one fundamental discriminant d_0 with b(d_0) ≠ 0.",
+        "review": {
+          "verdict": "confirmed",
+          "reason": "Confirmed by phase invariance of every displayed condition, including the conjugated coefficient in (5.16), inspected on the image. The chosen basis in Proposition 6 selects a representative but is not part of the uniqueness conditions in Theorem 4. Taking −F already disproves literal uniqueness.",
+          "by": "REV-ERRATA-PAPER-DUKE-IMAMOGLU-TOTH-16"
+        }
       }
     },
     {
@@ -9263,6 +9342,20 @@
         "verdict": "confirmed",
         "reason": "Revised on re-reading; independent check: The revised quotation is right and the ledger's is not quite: the p.966 image (checked at 400 dpi) reads 'λ = 190.13154731 = · · · = ½ + r²,' followed by 'where r/2 = 6.889875675 · · · .' The ledger's quote leaves out the '=' before the dots. The substance of E3 also holds. (5.6), p.962, fixes λ = ¼ + r² with r ≥ 0. Here r = 2 × 6.889875675 = 13.77975135, so ¼ + r² = 190.1315473, the printed λ, while ½ + r² = 190.3815473. With the known first even Maass parameter for SL2(Z), R = 13.779751351891, ¼ + R² = 190.13154731994, which agrees with all printed digits. The same value, 190.13154, is the third entry of (5.11). I also checked the other places on their page images: '½ + r²' appears in Proposition 6 and after (10.4) on p.981, and twice in the proof on p.982, i.e. twice on each page. There (10.3) uses K_{ir} and (10.1) the Whittaker index ir/2, and both force ¼ + r². 'nothing' is the right reach. The intended eigenvalue follows from (5.6), (10.1) and (10.3), and once corrected no statement changes. Theorem 4 is not touched. I did not reproduce the first reading's quadrature check of (5.16) for D = 12 and do not rely on it.",
         "by": "REV-PAPER-DUKE-IMAMOGLU-TOTH-16"
+      },
+      "errataRecord": {
+        "file": "research/blueprint/errata/PAPER-DUKE-IMAMOGLU-TOTH-16.json (supersededRecords)",
+        "id": "PAPER-DUKE-IMAMOGLU-TOTH-16/E3",
+        "writer": "ERRATA-PAPER-DUKE-IMAMOGLU-TOTH-16, Claude Code cc-fb70e5",
+        "locator": "Numerical example p.966 and Proposition 6 and proof pp.981–982; author pp.15 and 27–28; published Annals 184 (2016), 949–990, DOI 10.4007/annals.2016.184.3.8, compared with the 29 July 2016 author preprint.",
+        "kind": "misprint",
+        "affects": "nothing",
+        "correction": "1/4 + r² in each place.",
+        "review": {
+          "verdict": "confirmed",
+          "reason": "Confirmed all five appearances: the numerical example, the proposition, the line after (10.4), and twice on p.982. With r=13.77975135 the correct expression is approximately 190.13154727; the printed half-shift gives approximately 190.38154727.",
+          "by": "REV-ERRATA-PAPER-DUKE-IMAMOGLU-TOTH-16"
+        }
       }
     },
     {
@@ -9286,6 +9379,20 @@
         "verdict": "confirmed",
         "reason": "Theorem 1, (3.3), gives area(F_A) = πℓ_A. Only a lower bound is drawn from (6.2), so the missing π changes only the implied constant in (6.1). Rechecked by the review on the page images of dit.pdf, 23 September 2026. The web search found no erratum or corrigendum; Humphries–Nordentoft (arXiv 2211.05890) comment only on the Eichler remark.",
         "by": "REV-PAPER-DUKE-IMAMOGLU-TOTH-16"
+      },
+      "errataRecord": {
+        "file": "research/blueprint/errata/PAPER-DUKE-IMAMOGLU-TOTH-16.json (supersededRecords)",
+        "id": "PAPER-DUKE-IMAMOGLU-TOTH-16/E4",
+        "writer": "ERRATA-PAPER-DUKE-IMAMOGLU-TOTH-16, Claude Code cc-fb70e5",
+        "locator": "Proposition 1 proof, (6.2), published p.968; author p.16; published Annals 184 (2016), 949–990, DOI 10.4007/annals.2016.184.3.8, compared with the 29 July 2016 author preprint.",
+        "kind": "misprint",
+        "affects": "nothing",
+        "correction": "Σ_{A∈G_D} area(F_A) = π Σ_{A∈G_D} ℓ_A.",
+        "review": {
+          "verdict": "confirmed",
+          "reason": "Confirmed by comparing (6.2) with (3.3). Restoring π leaves the lower bound up to an implied constant unchanged.",
+          "by": "REV-ERRATA-PAPER-DUKE-IMAMOGLU-TOTH-16"
+        }
       }
     },
     {
@@ -9295,7 +9402,7 @@
       "printed": "\"Remark. It is also possible to give an upper bound for ℓ_A. For example, Eichler [17] gave a general argument that yields for the modular group that ℓ_A < c log ε_D for an explicit c.\"",
       "correction": "No bound ℓ_A ≪ log ε_D holds uniformly. ℓ_A can be about √D while log ε_D is about log D. Eichler's argument bounds the word length of the geometric code of the closed geodesic, which is a different quantity from ℓ_A.",
       "reason": "Take a odd with a² + 4 squarefree, for example a = 13 or 101 (D = 173 or 10205 = 5·13·157). Then D = a² + 4 ≡ 5 (mod 8) is a fundamental discriminant, and a² + 4 is squarefree for a positive proportion of a. For the principal class, (a + √D)/2 has regular continued fraction [a; a, a, …]. A regular partial quotient a in an odd position becomes a run of a − 1 twos in the minus continued fraction, so the reduced period is ((a + 2, 2, …, 2)) with a − 1 twos, and ℓ_A = a. Meanwhile ε_D = ((a + √D)/2)² = (a² + 2 + a√D)/2, so log ε_D ≈ 2 log a, and ℓ_A / log ε_D → ∞. A direct computation for a = 5, 7, 13, 21, 51, 101, 201, 401 gives ℓ_A = a. In each case the product of the reduced w over the period equals ε_D, as in (6.3), which confirms that ℓ_A is the paper's quantity. The remark is not used elsewhere in the paper.",
-      "affects": "nothing",
+      "affects": "a stated result",
       "known": "Partly: P. Humphries and A. C. Nordentoft, \"Sparse equidistribution of geometric invariants of real quadratic fields\", arXiv 2211.05890v2 (28 August 2025), Remark 3.22, observe that Eichler's argument bounds the geometric code of the geodesic and not ℓ_A (the arithmetic code), so the remark is unsupported. They do not show that the bound fails. The counterexample family here is new.",
       "searched": [
         "Annals of Mathematics article page https://annals.math.princeton.edu/2016/184-3/p08, checked 22 September 2026: no erratum is linked",
@@ -9309,7 +9416,22 @@
         "verdict": "confirmed",
         "reason": "I recomputed the counterexample by exact integer arithmetic. Take D = a² + 4 with a odd and a² + 4 squarefree, for a = 5, 7, 13, 21, 51, 101, 201, 401, so D ≡ 5 (mod 8) is fundamental. The principal class then has reduced cycle ((a+2, 2, …, 2)) with a − 1 twos, so ℓ_I = a, and the product of its a reduced numbers equals ε_D = ((a+√D)/2)² to machine precision, as in (6.3). Hence log ε_D ≈ 2 log a, and ℓ_I/log ε_D grows from 1.52 (a = 5) to 33.45 (a = 401). The remark is used nowhere. Rechecked by the review on the page images of dit.pdf, 23 September 2026. The web search found no erratum or corrigendum; Humphries–Nordentoft (arXiv 2211.05890) comment only on the Eichler remark.",
         "by": "REV-PAPER-DUKE-IMAMOGLU-TOTH-16"
-      }
+      },
+      "errataRecord": {
+        "file": "research/blueprint/errata/PAPER-DUKE-IMAMOGLU-TOTH-16.json (supersededRecords)",
+        "id": "PAPER-DUKE-IMAMOGLU-TOTH-16/E5",
+        "writer": "ERRATA-PAPER-DUKE-IMAMOGLU-TOTH-16, Claude Code cc-fb70e5",
+        "locator": "Remark after Proposition 1, published p.968; author p.17; published Annals 184 (2016), 949–990, DOI 10.4007/annals.2016.184.3.8, compared with the 29 July 2016 author preprint.",
+        "kind": "error",
+        "affects": "a stated result",
+        "correction": "No bound ℓ_A ≪ log ε_D holds uniformly. ℓ_A can be about √D while log ε_D is about log D. Eichler's argument bounds the word length of the geometric code of the closed geodesic, which is a different quantity from ℓ_A.",
+        "review": {
+          "verdict": "confirmed",
+          "reason": "Confirmed analytically using the primitive minus cycle and its exact monodromy, with an independent squarefree-value input to justify an unbounded fundamental-discriminant family. Nine exact cycle/unit computations supplement the argument. Changed affects to a stated result: the unnumbered upper-bound assertion is false, although it is unused in the equidistribution proof. Removed the unverified assertion of global novelty for the counterexample family.",
+          "by": "REV-ERRATA-PAPER-DUKE-IMAMOGLU-TOTH-16"
+        }
+      },
+      "reconciliation": "FIX-RT-PAPER-DUKE-IMAMOGLU-TOTH-16: affects 'a stated result', as REV-ERRATA-PAPER-DUKE-IMAMOGLU-TOTH-16 judged: the remark's upper bound ℓ_A < c log ε_D is itself a stated, false assertion, although no proof uses it. The extraction's 'nothing' measured downstream use only. Both counterexample computations agree."
     },
     {
       "id": "PAPER-DUKE-IMAMOGLU-TOTH-16/E6",
@@ -9332,7 +9454,22 @@
         "verdict": "confirmed",
         "reason": "Revised on re-reading; independent check: The revision (gap -> error, affects a stated result) is right. (1) The quotation of (6.6) and of 'Part (6.6) ... follows straight from Theorem 4 and Theorem 5 of [12]' is exact (p.968, p.969). (2) The normalization is fixed. On p.962 the paper says it will 'always' normalize φ by (5.7) with a(1) = 1, and Theorem 4 forces a(1) = 1 through the Shimura relation. I recomputed φ(i) and φ((1+√−3)/2) from the a(p) of Table 1 using φ = 2y^{1/2}Σa(n)K_{ir}(2π|n|y)e(nx) with r = 2·6.889875675. That gives ⟨φ,φ⟩^{−1}φ(i) = 4.41046×10⁹ and ⟨φ,φ⟩^{−1}φ(ρ) = 2.86296×10⁹, which match p.967 to every printed digit. So the object in (6.6) really is the a(1) = 1 form. For the unit vector, u(i) = 3.759, u(ρ) = 2.440, and 1/‖φ‖ = 1.173×10⁹ ≈ 0.47e^{πr/2}. The value ⟨φ,φ⟩ = 7.263×10⁻¹⁹ corresponds to L(1,sym²φ) = 1.148 under ‖φ‖² = 2L(1,sym²φ)/cosh(πr), which is Humphries–Nordentoft (4.5) with q = 1. That is consistent with the Euler product over p ≤ 13, which gives 1.28. (3) What the cited results give. Duke 1988 calls a form 'spectral' when ‖f‖ = 1 on Γ₀(N)\\H (p.79), and uses W_{(k/2)sgn n, it} with λ = 1/4 + t² ((2.4), p.77). This matches ⟨F,F⟩ = 1 and W_{(1/4)sgn n, ir/2} in Theorem 4, so t = r/2. Thm 5 (p.85) then gives |b(n)| ≪ r^{A'}ch(πr/4)|n|^{−2/7+ε} for fundamental n. Inserted into (5.16), this gives Weyl(⟨φ,φ⟩^{−1}φ,χ) ≪ r^C cosh²(πr/4)|D|^{3/4−2/7+ε}, so the proof as cited does not yield (6.6). (4) (6.6) is false, not just unproved. Take D = −4 = (1)(−4), which is inside the scope: (5.12) allows d'd < 0, and p.967 uses exactly this case. Here h = 1 and ω = 2, so Weyl = ⟨φ,φ⟩^{−1}φ(i)/2 = u(i)/(2‖φ‖), and (6.6) would force |u(i)| ≪ r^{C+ε}e^{−πr/2} for every even Hecke–Maass form. Odd forms vanish at i. By the local Weyl law at i, Σ_{r_j≤R}|u_j(i)|² + (1/4π)∫_{−R}^{R}|E(i,1/2+it)|²dt ≍ R². From (7.1), E(i,s) = 2ζ(s)L(s,χ₋₄)/ζ(2s), so fourth-moment bounds make the Eisenstein part O(R^{1+ε}). The even forms therefore have Σ|u_j(i)|² ≍ R², which is incompatible with exponential decay. (5) Theorem 2 survives. With c(φ) = ⟨f,φ⟩ we have c(φ)⟨φ,φ⟩^{−1}φ = ⟨f,u⟩u, and ⟨f,u⟩ ≪ r^{−A} together with the unit-vector bound closes the proof. Humphries–Nordentoft (arXiv 2211.05890v2, Prop. 6.2 and §9) work throughout with ∫|f|²dμ = 1 and make no comment on Proposition 2. Since (6.6) is a displayed part of Proposition 2 and is false as printed, 'error' and 'a stated result' are the right labels.",
         "by": "REV-PAPER-DUKE-IMAMOGLU-TOTH-16"
-      }
+      },
+      "errataRecord": {
+        "file": "research/blueprint/errata/PAPER-DUKE-IMAMOGLU-TOTH-16.json (supersededRecords)",
+        "id": "PAPER-DUKE-IMAMOGLU-TOTH-16/E6",
+        "writer": "ERRATA-PAPER-DUKE-IMAMOGLU-TOTH-16, Claude Code cc-fb70e5",
+        "locator": "Proposition 2, (6.6), and its proof, published pp.968–969; author p.17; published Annals 184 (2016), 949–990, DOI 10.4007/annals.2016.184.3.8, compared with the 29 July 2016 author preprint.",
+        "kind": "gap",
+        "affects": "the proof",
+        "correction": "Use the unit vector u=φ/‖φ‖ in (6.6), obtaining Weyl(u,χ)≪_ε(1+r)^C|D|^(13/28+ε). Equivalently retain the factor cosh²(πr/4) in the bound for Weyl(φ/‖φ‖²,χ) and use c(φ)=‖φ‖⟨f,u⟩ in the spectral sum. The norm identity and any polynomial bound for L(1,ad φ) give the required cancellation.",
+        "review": {
+          "verdict": "confirmed",
+          "reason": "Confirmed as a gap in the cited deduction, not as a proved counterexample to the printed estimate. Independently read Duke 1988 pp.77–79 and 85, including unit normalization and the hyperbolic-cosine factor. Checked the norm identity in Humphries–Nordentoft (4.5). Corrected the old explanation: rapid polynomial decay of c(φ) can hold for Hecke-normalized φ too; the stronger norm factor is what restores the argument. Only a polynomial upper bound for the adjoint L-value is needed.",
+          "by": "REV-ERRATA-PAPER-DUKE-IMAMOGLU-TOTH-16"
+        }
+      },
+      "reconciliation": "FIX-RT-PAPER-DUKE-IMAMOGLU-TOTH-16: kept as 'error', 'a stated result'. The errata review confirmed only a gap in the cited deduction and did not claim a counterexample; the extraction's review then gave one (the CM case D = −4 with the local Weyl law at z = i, and φ(i) recomputed to match p. 967), which makes the printed (6.6) false, not merely unproved. The errata verdict is kept in errataRecord."
     },
     {
       "id": "PAPER-DUKE-IMAMOGLU-TOTH-16/E7",
@@ -9355,6 +9492,20 @@
         "verdict": "confirmed",
         "reason": "As printed, the product is ζ_K(s). Kronecker's decomposition on p.971 needs the χ(p). Rechecked by the review on the page images of dit.pdf, 23 September 2026. The web search found no erratum or corrigendum; Humphries–Nordentoft (arXiv 2211.05890) comment only on the Eichler remark.",
         "by": "REV-PAPER-DUKE-IMAMOGLU-TOTH-16"
+      },
+      "errataRecord": {
+        "file": "research/blueprint/errata/PAPER-DUKE-IMAMOGLU-TOTH-16.json (supersededRecords)",
+        "id": "PAPER-DUKE-IMAMOGLU-TOTH-16/E7",
+        "writer": "ERRATA-PAPER-DUKE-IMAMOGLU-TOTH-16, Claude Code cc-fb70e5",
+        "locator": "§7 Euler product, published p.970; author p.18; published Annals 184 (2016), 949–990, DOI 10.4007/annals.2016.184.3.8, compared with the 29 July 2016 author preprint.",
+        "kind": "misprint",
+        "affects": "nothing",
+        "correction": "L(s, χ) = Σ_a χ(a)N(a)^{−s} = ∏_p (1 − χ(p)N(p)^{−s})^{−1}.",
+        "review": {
+          "verdict": "confirmed",
+          "reason": "Confirmed on the publisher image and author p.18. Expanding an Euler factor gives the coefficient χ(𝔭) at N(𝔭)⁻ˢ, which the printed expression omits.",
+          "by": "REV-ERRATA-PAPER-DUKE-IMAMOGLU-TOTH-16"
+        }
       }
     },
     {
@@ -9378,6 +9529,20 @@
         "verdict": "confirmed",
         "reason": "Revised on re-reading; independent check: Checked on the page images of pp. 981–982. Proposition 6 prints T(φ,χ)=12π^{1/2}D^{3/4}b(d′)b̄(d). The proof begins 'Let m>0, and suppose that D=d′d>1 where d is fundamental.' Every later display prints D^{3/4}: (10.4), (10.5) (6π^{1/2}D^{3/4}|m|), the p. 982 display (24π^{1/2}D^{3/4}m), (10.6) and the two displays after it. Proposition 6 is stated for every nonsquare D=d′d, including D<0: the first case of T(φ,χ) is d′d<0. It is the source of the d′d<0 (CM) line of (5.16), the third line of that display. (10.5) is said to come 'from Propositions 3 and 5', and Proposition 5 (p. 978) has |D|^{3/4}. Taking Res_{s=1/2+ir}(2s−1) of Proposition 5 gives (10.5) with |D|^{3/4}, and every later display inherits that factor. For D<0, D^{3/4} differs from |D|^{3/4} by a non-real unimodular factor, which contradicts (5.16). One point in the revision's reason needs tightening. 'T(φ,χ) is real' excludes D^{3/4} only together with b(d′)b̄(d) being real, which (5.16) implies. The reference to Proposition 5 is the cleaner argument. The restriction D>1 is unnecessary. The argument uses only Propositions 3–5, Proposition 4's residue and the Hecke relation, and all of them hold for D<0. With 'D=d′d not a square' the proof goes through word for word. The revision is right on both counts: extend the locator to the proof, and add the D>1 fix. Misprint with 'affects: nothing' is correct, because the intended |D|^{3/4} is recoverable from Proposition 5 and (5.16). I did not repeat the erratum searches recorded in E8.",
         "by": "REV-PAPER-DUKE-IMAMOGLU-TOTH-16"
+      },
+      "errataRecord": {
+        "file": "research/blueprint/errata/PAPER-DUKE-IMAMOGLU-TOTH-16.json (supersededRecords)",
+        "id": "PAPER-DUKE-IMAMOGLU-TOTH-16/E8",
+        "writer": "ERRATA-PAPER-DUKE-IMAMOGLU-TOTH-16, Claude Code cc-fb70e5",
+        "locator": "Proposition 6 and its all-discriminant continuation, published pp.981–982; author pp.27–28; published Annals 184 (2016), 949–990, DOI 10.4007/annals.2016.184.3.8, compared with the 29 July 2016 author preprint.",
+        "kind": "misprint",
+        "affects": "nothing",
+        "correction": "T(φ, χ) = 12π^{1/2} |D|^{3/4} b(d′) \\overline{b(d)}, as in (5.16).",
+        "review": {
+          "verdict": "confirmed",
+          "reason": "Confirmed by the negative-discriminant cases in the definition of T and by the absolute value in (5.16). Extended the locator to the p.982 continuation, which asserts the same identities for all permitted signs.",
+          "by": "REV-ERRATA-PAPER-DUKE-IMAMOGLU-TOTH-16"
+        }
       }
     },
     {
@@ -9401,6 +9566,20 @@
         "verdict": "confirmed",
         "reason": "Checked on the page image. At ν = 3, β = 0 the left side is π/2 and the printed right side is 2π. The corrected formula agrees numerically for real and complex (ν, β), for example ν = 2.3, β = 0.7 and ν = 1.5+0.5i, β = 0.2+i. The next display (A.2) is what the corrected formula gives, since 2^{n+s}/2^{n+s−1} = 2 produces the printed 2π. The printed formula would give an extra 2^{n+s−1} in each term. So the slip is confined to the quoted display. A web search on 23 Sep 2026 found no erratum.",
         "by": "REV-PAPER-DUKE-IMAMOGLU-TOTH-16"
+      },
+      "errataRecord": {
+        "file": "research/blueprint/errata/PAPER-DUKE-IMAMOGLU-TOTH-16.json (supersededRecords)",
+        "id": "PAPER-DUKE-IMAMOGLU-TOTH-16/E9",
+        "writer": "ERRATA-PAPER-DUKE-IMAMOGLU-TOTH-16, Claude Code cc-fb70e5",
+        "locator": "Appendix A, sine-power integral, published p.984; author p.30; published Annals 184 (2016), 949–990, DOI 10.4007/annals.2016.184.3.8, compared with the 29 July 2016 author preprint.",
+        "kind": "misprint",
+        "affects": "nothing",
+        "correction": "∫_0^π e^{iβx} sin^{ν−1}x dx = π e^{iπβ/2} Γ(ν) / (2^{ν−1} Γ((ν+β+1)/2) Γ((ν−β+1)/2)) for Re ν > 0.",
+        "review": {
+          "verdict": "confirmed",
+          "reason": "Confirmed at ν=3, β=0 and from DLMF 5.12.6 after expanding its beta function. Checked that inserting the factor yields the existing (A.2). No assertion of having consulted the physical Gradshteyn–Ryzhik edition is made.",
+          "by": "REV-ERRATA-PAPER-DUKE-IMAMOGLU-TOTH-16"
+        }
       }
     },
     {
@@ -9424,6 +9603,20 @@
         "verdict": "confirmed",
         "reason": "Checked on the page image. t^{1/2}(t/2)^{s−1/2+2r} = √2 (t/2)^{s+2r}. Numerically, t^{1/2}J_{s−1/2}(t) divided by the printed series equals √2 to 12 digits (s = 0.8+0.3i, t = 1.3). (A.3) as printed is correct with the √2, since (2π)^{3/2}·√2·2^{−2s} = π^{3/2}2^{2−2s}. The coefficient comparison with (A.2) therefore succeeds.",
         "by": "REV-PAPER-DUKE-IMAMOGLU-TOTH-16"
+      },
+      "errataRecord": {
+        "file": "research/blueprint/errata/PAPER-DUKE-IMAMOGLU-TOTH-16.json (supersededRecords)",
+        "id": "PAPER-DUKE-IMAMOGLU-TOTH-16/E10",
+        "writer": "ERRATA-PAPER-DUKE-IMAMOGLU-TOTH-16, Claude Code cc-fb70e5",
+        "locator": "Appendix A, Bessel series before (A.3), published p.985; author p.30; published Annals 184 (2016), 949–990, DOI 10.4007/annals.2016.184.3.8, compared with the 29 July 2016 author preprint.",
+        "kind": "misprint",
+        "affects": "nothing",
+        "correction": "t^{1/2} J_{s−1/2}(t) = √2 Σ_{r≥0} (−1)^r (t/2)^{s+2r} / (r! Γ(s + 1/2 + r)).",
+        "review": {
+          "verdict": "confirmed",
+          "reason": "Confirmed from DLMF 10.2.2 and direct multiplication by t^(1/2). Checked that (A.3) already has the correct factor, so the intermediate misprint does not change Lemma 7.",
+          "by": "REV-ERRATA-PAPER-DUKE-IMAMOGLU-TOTH-16"
+        }
       }
     },
     {
@@ -9447,7 +9640,22 @@
         "verdict": "confirmed",
         "reason": "Revised on re-reading; independent check: Both quoted sentences are on the page images (p. 983, the Proof paragraph; p. 985, the last paragraph before the References). The revision is right, and it is more accurate than the ledger text. I checked the proof independently. (1) The ODE step on p. 984 is correct: the differentiation, the Whittaker equation and the integration by parts all check. The boundary term vanishes because M(2t sin θ) = O(sin^σ θ), σ = Re s > 0. (2) The comparison the authors make is a comparison of coefficients of t^{s+ℓ}, the expansions (A.2) and (A.3) actually compute. The ledger says the paper uses a regular-point uniqueness argument from 'ordinary Taylor coefficients', but the paper never says that, so the ledger's 'is not the missing justification' criticises an argument the paper does not make. (3) The comparison does suffice, once one states the step the paper omits. With 1/4 − λ² = −s(s−1), a solution t^s Σ a_ℓ t^ℓ satisfies ℓ(ℓ+2s−1)a_ℓ = −a_{ℓ−2} and a_1 = 0. The factor ℓ(ℓ+2s−1) is nonzero because Re(ℓ+2s−1) > 0 for ℓ ≥ 1. So one coefficient determines the solution, including s = 1/2 and a_0 = 0. The t^s coefficients agree by the duplication formula: 2πΓ(s) = π^{3/2}2^{2−2s}Γ(2s)/Γ(s+1/2). (4) Numerical checks (mpmath) confirm the argument. (A.1) holds for both signs at (t, μ, s) = (1.3, 1, 1.7), (2.1, 0.4+0.3i, 0.6+0.8i) and (0.7, −1, 0.3), and at μ = 3, s = 2, where both sides vanish. The (A.2) coefficients c_0,…,c_6 at μ = 0.4+0.3i, s = 0.6+0.8i satisfy the recurrence and equal the (A.3) coefficients. So Lemma 7 is true. What is missing is a stated uniqueness principle at the regular singular point t = 0 (exponents s and 1−s). Also missing are the justification of termwise integration in (A.2) and the justification of the two t-derivatives under an improper integral whose integrand is O(sin^{σ−1}θ) at the endpoints. This is a minor gap in the proof, and the result is unaffected. So 'gap' and 'the proof' are right. One overreach in the revision's reason: 'more than what is needed' does not show that the authors meant the one-coefficient Frobenius argument. It is equally consistent with the count of two initial conditions for a second-order equation. Either reading leads to the same verdict.",
         "by": "REV-PAPER-DUKE-IMAMOGLU-TOTH-16"
-      }
+      },
+      "errataRecord": {
+        "file": "research/blueprint/errata/PAPER-DUKE-IMAMOGLU-TOTH-16.json (supersededRecords)",
+        "id": "PAPER-DUKE-IMAMOGLU-TOTH-16/E11",
+        "writer": "ERRATA-PAPER-DUKE-IMAMOGLU-TOTH-16, Claude Code cc-fb70e5",
+        "locator": "Appendix A, published pp.983–985; author pp.29–30; the candidate is extraction E11.",
+        "kind": "gap",
+        "affects": "nothing",
+        "correction": "No additional mathematical correction is needed beyond E9–E10. Read the explicitly displayed expansions (A.2)–(A.3) as t^s times convergent power series. A useful explanatory addition is c₁=0 and c_n=−c_(n−2)/(n(n+2s−1)).",
+        "review": {
+          "verdict": "rejected",
+          "reason": "Rejected as a substantive source gap after reading the whole Appendix. The intended Frobenius series and the necessary coefficients are already displayed; the omitted recurrence is an elementary consequence, not an extra hypothesis. Recorded this rejected candidate to distinguish the review from the extraction’s earlier assessment. This does not reject the genuine coefficient misprints E9–E10.",
+          "by": "REV-ERRATA-PAPER-DUKE-IMAMOGLU-TOTH-16"
+        }
+      },
+      "reconciliation": "FIX-RT-PAPER-DUKE-IMAMOGLU-TOTH-16: kept as 'gap', 'the proof', with the errata review's rejection recorded in errataRecord. Both reviews agree Lemma 7 is true and that no step is false; they differ only on whether the unstated recurrence and differentiation-under-the-integral justification count as a gap. The extraction records them as two routine unstated steps that items 117/166 and 163–165 supply, which is what a formalisation needs."
     },
     {
       "id": "PAPER-DUKE-IMAMOGLU-TOTH-16/E12",
@@ -9529,6 +9737,20 @@
         "verdict": "confirmed",
         "reason": "Seen on the page image. The variable of integration is z; x=Re z is a slip.",
         "by": "REV-PAPER-DUKE-IMAMOGLU-TOTH-16"
+      },
+      "errataRecord": {
+        "file": "research/blueprint/errata/PAPER-DUKE-IMAMOGLU-TOTH-16.json (supersededRecords)",
+        "id": "PAPER-DUKE-IMAMOGLU-TOTH-16/E12",
+        "writer": "ERRATA-PAPER-DUKE-IMAMOGLU-TOTH-16, Claude Code cc-fb70e5",
+        "locator": "§5 after (5.1), published p.961; author p.11. This is extraction E15.",
+        "kind": "misprint",
+        "affects": "nothing",
+        "correction": "Use φ(z) inside the norm integral.",
+        "review": {
+          "verdict": "confirmed",
+          "reason": "Confirmed independently on the published image and in the author preprint; added the previously omitted finding as errata E12.",
+          "by": "REV-ERRATA-PAPER-DUKE-IMAMOGLU-TOTH-16"
+        }
       }
     },
     {
@@ -9548,6 +9770,20 @@
         "verdict": "confirmed",
         "reason": "Seen on the page image; z is dropped on the right.",
         "by": "REV-PAPER-DUKE-IMAMOGLU-TOTH-16"
+      },
+      "errataRecord": {
+        "file": "research/blueprint/errata/PAPER-DUKE-IMAMOGLU-TOTH-16.json (supersededRecords)",
+        "id": "PAPER-DUKE-IMAMOGLU-TOTH-16/E13",
+        "writer": "ERRATA-PAPER-DUKE-IMAMOGLU-TOTH-16, Claude Code cc-fb70e5",
+        "locator": "§5, (5.4), published p.962; author p.11. This is extraction E16.",
+        "kind": "misprint",
+        "affects": "nothing",
+        "correction": "Retain the first argument on the right: E*(z,1−s)=E*(z,s).",
+        "review": {
+          "verdict": "confirmed",
+          "reason": "Confirmed on the published image and in the author preprint; added the omitted finding as errata E13.",
+          "by": "REV-ERRATA-PAPER-DUKE-IMAMOGLU-TOTH-16"
+        }
       }
     },
     {
@@ -9638,6 +9874,20 @@
         "verdict": "confirmed",
         "reason": "The p.963 image, checked at 300 dpi, reads 'L(s; t) = Σ_{n≥1} n^{it}σ_{−2it}(m)m^{−s} = ζ(s + it)ζ(s − it)'. The summation variable is n, but the summand is written in m, and m is not otherwise bound here. With n throughout, the identity is right: n^{it}σ_{−2it}(n) = Σ_{d|n} d^{−it}(n/d)^{it}, whose Dirichlet series is ζ(s+it)ζ(s−it). These are the coefficients of E*(z, ½+it) in (5.3), |n|^{it}σ_{−2it}(|n|), in the normalization (5.7). The completed function Λ(s,t) = ξ(s+it)ξ(s−it) then satisfies the stated functional equation. The meaning is clear.",
         "by": "REV-PAPER-DUKE-IMAMOGLU-TOTH-16"
+      },
+      "errataRecord": {
+        "file": "research/blueprint/errata/PAPER-DUKE-IMAMOGLU-TOTH-16.json (supersededRecords)",
+        "id": "PAPER-DUKE-IMAMOGLU-TOTH-16/E14",
+        "writer": "ERRATA-PAPER-DUKE-IMAMOGLU-TOTH-16, Claude Code cc-fb70e5",
+        "locator": "§5, Remark after (5.9), published p.963; author preprint dated 29 July 2016, p.12.",
+        "kind": "misprint",
+        "affects": "nothing",
+        "correction": "Use one summation index throughout: L(s;t)=Σ_(n≥1) n^(it)σ_(-2it)(n)n^(−s)=ζ(s+it)ζ(s−it).",
+        "review": {
+          "verdict": "confirmed",
+          "reason": "Added during the independent review. Both the publisher p.963 and author p.12 images display the mixed indices. The divisor-sum calculation identifies the intended expression.",
+          "by": "REV-ERRATA-PAPER-DUKE-IMAMOGLU-TOTH-16"
+        }
       }
     },
     {
@@ -9879,7 +10129,8 @@
     "mirroredFrom": "research/blueprint/errata/PAPER-DUKE-IMAMOGLU-TOTH-16.json",
     "preservedIds": "E1–E10 retained rather than renumbered; the separate errata file is outside this issue's write scope.",
     "scope": "Historical search/read claims inside the mirrored records belong to that errata job, not to this continuation. No review verdict is added. Fresh checks here: publisher and author listing, title/correction searches, arXiv title search; publisher images pp961,965,983–985; author-preprint Appendix and Theorem4 passages; HN22v2 Remark3.22. E5's infinite squarefree family is inherited and not independently source-closed in this continuation.",
-    "biroContinuation": "E1–E12 inherited, with E12 footnote page corrected to977 after a fresh read; E13 is the Biró one-point convergence misstatement and E14 the DIT11 operator-order discrepancy. Both have scoped written evidence and no independent verdict. Earlier searches remain attributed to the prior sessions."
+    "biroContinuation": "E1–E12 inherited, with E12 footnote page corrected to977 after a fresh read; E13 is the Biró one-point convergence misstatement and E14 the DIT11 operator-order discrepancy. Both have scoped written evidence and no independent verdict. Earlier searches remain attributed to the prior sessions.",
+    "canonicalization": "FIX-RT-PAPER-DUKE-IMAMOGLU-TOTH-16 (RT-PAPER-DUKE-IMAMOGLU-TOTH-16/6): the extraction's records are the single active records. The errata file's E1–E11 are the same mistakes as E1–E11 here, and its E12, E13 and E14 are E15, E16 and E21 here; its records are kept there under supersededRecords (which scripts/errata.py does not collect) and attached here as errataRecord, with their independent verdicts. E5, E6 and E11 were reconciled on their merits (see each 'reconciliation')."
   },
   "gateStatus": [
     {
