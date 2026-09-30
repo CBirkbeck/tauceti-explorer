@@ -33764,7 +33764,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-SCHROER-23.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4976"
   },
   {
    "id": "RT-PAPER-DASGUPTA-KAKDE-23",
@@ -36079,7 +36080,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-KALETHA-16.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4995"
   },
   {
    "id": "RT-PAPER-HOWE-KLEVDAL-26",
@@ -44934,8 +44936,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-RS-06.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5044"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #5044",
+   "finishedAt": "2026-09-30T16:41:45Z"
   },
   {
    "id": "REV-FIX-RT-RS-06",
