@@ -34660,8 +34660,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-BROWNING-SAWIN-20.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4980"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4980",
+   "finishedAt": "2026-09-30T19:12:48Z"
   },
   {
    "id": "RT-PAPER-DEMARCO-KRIEGER-YE-20",
