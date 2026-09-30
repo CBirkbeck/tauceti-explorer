@@ -2036,7 +2036,7 @@
    "statement": "R^□T_𝒮 ≅ R^loc_{S,T}[[x₁, …, x_g]]/J with g = h¹_{S,T}(G_{F,S}, ad⁰ρ̄), inducing an isomorphism on relative tangent spaces, and the minimal number of generators r(J) = dim J/𝔪J satisfies r(J) ≤ h²_{S,T}(ad⁰ρ̄) = h¹_{S,T}(G_{F,S}, ad⁰ρ̄(1)) (the dual Selmer group with conditions L(D_v)^⊥).",
    "hypotheses": [
     "The obstruction pairing uses Poitou–Tate duality and the product formula for local invariants (ArithmeticGaloisDuality R02.4); the relation-count algebra is DeformationAndDerivedPatchingAlgebra R03.2.",
-    "RS-08 cites the KW II form of this bound through Proposition 4.5 (published numbering), whose proof contains it as Lemma 4.6; the ESI preprint numbers it Lemma 4.5 (n = 2, T = S)."
+    "Version table: KW II author final (same theorem numbering as publication) Lemma 4.4 pp. 41–42 gives generators, Lemma 4.6 pp. 43–45 bounds relations, and Proposition 4.5 pp. 42–45 concludes dimension ≥ 1. The ESI preprint numbers the relation bound Lemma 4.5. Corollary 4.7 adds finiteness to deduce a characteristic-zero point; that application is R24.2, with commutative algebra from R03.4."
    ],
    "proofSteps": [
     "Choose g elements lifting a basis of the relative cotangent space: R^loc[[x]] ↠ R^□T by relative Nakayama (relative-tangent-space).",
@@ -3083,7 +3083,7 @@
    "kind": "definition",
    "statement": "Three residual hypotheses are used to choose Taylor–Wiles primes, and they are kept distinct. (1) Cyclotomic absolute irreducibility: ρ̄|G_{F(ζ_p)} is absolutely irreducible (KW II, p > 2). (2) Big image: p ≥ 5, p unramified in F, and ρ̄(G_F) ⊇ SL_2(𝔽_p) (Gee, Theorem 5.2(3)). (3) Non-solvable image: ρ̄(G_F) is not solvable (KW II, p = 2; Dickson then makes the projective image SL_2(𝔽_{2^r}) with r > 1). Adequacy (Thorne) and enormous image (ACC+ Definition 6.2.29) are further, different hypotheses, defined with their consumers (G7 and G8). Each theorem below states which one it uses; no implication between them is assumed.",
    "hypotheses": [
-    "Dickson's classification and the cohomology vanishing H¹(SL_2(𝔽_{2^r}), M_2(𝔽)) = 0 (r > 1; KW II Lemma 4.3(5)) are requested from ArithmeticGaloisRepresentations R01.4."
+    "All finite-image classification, dyadic adjoint invariant/submodule and finite-group H¹ statements are imported from R01.4 through the exact open request; they are not proved at R04.5. The separate odd-p global dual-Selmer vanishing remains at R02.6."
    ],
    "proofSteps": [
     "These are definitions; the implications that are used are proved where they are used. Gee proves ζ_p ∉ F^{ker ad ρ̄} from (2), using (Im ad ρ̄)^{ab} of order ≤ 2 and [F(ζ_p) : F] ≥ 4."
@@ -4048,6 +4048,10 @@
     {
      "where": "GlobalGaloisDeformations:G7/enormous-taylor-wiles-presentation",
      "how": "ACC+'s Taylor–Wiles primes are chosen for this problem."
+    },
+    {
+     "where": "PotentialAutomorphyInfrastructure:PA.3",
+     "how": "Import the actual arbitrary-rank variable-determinant Galois deformation problem and its representability/local-to-global presentation. Local component rings remain L7/L8 inputs to PA.3; abstract P9 takes its own hypotheses."
     }
    ],
    "tests": [
@@ -4069,7 +4073,8 @@
    ],
    "planet": {
     "name": "Global deformation problems with variable determinant"
-   }
+   },
+   "exportStatus": "Blueprint export specified; maintainer must add the missing G8 → PA.3 stage edge and corresponding L7/L8 directions. No source-graph promotion claimed."
   },
   {
    "id": "GlobalGaloisDeformations:G8/variable-determinant-representability",
@@ -4113,7 +4118,14 @@
      "match": "Lemma 6.2.4; Theorem 6.2.3 precedes it."
     }
    ],
-   "implementationStatus": "unchecked"
+   "implementationStatus": "unchecked",
+   "uses": [
+    {
+     "where": "PotentialAutomorphyInfrastructure:PA.3",
+     "how": "Import the actual arbitrary-rank variable-determinant Galois deformation problem and its representability/local-to-global presentation. Local component rings remain L7/L8 inputs to PA.3; abstract P9 takes its own hypotheses."
+    }
+   ],
+   "exportStatus": "Blueprint export specified; maintainer must add the missing G8 → PA.3 stage edge and corresponding L7/L8 directions. No source-graph promotion claimed."
   },
   {
    "id": "GlobalGaloisDeformations:G8/variable-determinant-presentation",
@@ -4157,7 +4169,14 @@
      "match": "Proposition 6.2.24."
     }
    ],
-   "implementationStatus": "unchecked"
+   "implementationStatus": "unchecked",
+   "uses": [
+    {
+     "where": "PotentialAutomorphyInfrastructure:PA.3",
+     "how": "Import the actual arbitrary-rank variable-determinant Galois deformation problem and its representability/local-to-global presentation. Local component rings remain L7/L8 inputs to PA.3; abstract P9 takes its own hypotheses."
+    }
+   ],
+   "exportStatus": "Blueprint export specified; maintainer must add the missing G8 → PA.3 stage edge and corresponding L7/L8 directions. No source-graph promotion claimed."
   },
   {
    "id": "GlobalGaloisDeformations:G8/fixed-versus-variable-determinant",
@@ -4699,7 +4718,7 @@
   },
   {
    "supplier": "ArithmeticGaloisRepresentations:R01.4",
-   "need": "Dickson's classification for the residual images used here: images containing SL_2(𝔽_p) have adjoint image PSL_2 or PGL_2(𝔽_{p^s}) with abelianisation of order ≤ 2; non-solvable 2-dimensional mod-2 images have projective image SL_2(𝔽_{2^r}), r > 1; and H¹(SL_2(𝔽_{2^r}), M_2(𝔽)) = 0 with the submodule list 0, Z, Ad⁰, Ad (KW II Lemma 4.3(5)).",
+   "need": "Dickson with the coefficient fields F₀ ⊂ 𝔽 visible: for p ≥ 5 and image containing SL₂(𝔽_p), the adjoint/projective image is PSL₂(𝔽_{p^s}) or PGL₂(𝔽_{p^s}) with abelianisation of order at most 2. At p = 2, non-solvable projective image is SL₂(F₀), |F₀|=2^r, r>1; H⁰(G,Ad)=H⁰(G,Ad⁰)=Z and H⁰(G,Ad/Z)=H⁰(G,(Ad⁰)*)=0 (KW II Lemma 4.3(2)(ii)); H¹(SL₂(F₀),M₂(𝔽))=0 and the only submodules are 0,Z,Ad⁰,Ad (4.3(5), Dickinson Lemma 42). For p>2, cyclotomic absolute irreducibility gives H⁰(G_F,Ad⁰)=H⁰(G_F,(Ad⁰)*(1))=0 and irreducibility over all F(ζ_{p^m}). The odd-p dual-Selmer H¹ vanishing of Lemma 5.2(1) belongs to ArithmeticGaloisDuality R02.6, not this finite-image request.",
    "neededBy": [
     "GlobalGaloisDeformations:R04.5/image-hypotheses",
     "GlobalGaloisDeformations:R04.5/dyadic-linear-disjointness",
@@ -4757,9 +4776,11 @@
  "coverage": [
   {
    "stageId": "GlobalGaloisDeformations:R04.1",
-   "status": "source_decomposed",
-   "remaining": [],
-   "notes": "RS-08 keeps for R04.1: framed and strict unframed functors over Artinian coefficient rings with continuity, determinant-fixed variants and change of coefficients; the identification of the equivalence relation with strict conjugacy and well-defined restriction; the separate determinant deformation functor not assumed equivalent. All planned; coefficient categories and determinants are imported (requests)."
+   "status": "partial",
+   "remaining": [
+    "Whole-stage promotion of the determinant comparison needs a layer split"
+   ],
+   "notes": "RS-08 keeps for R04.1: framed and strict unframed functors over Artinian coefficient rings with continuity, determinant-fixed variants and change of coefficients; the identification of the equivalence relation with strict conjugacy and well-defined restriction; the separate determinant deformation functor not assumed equivalent. All planned; coefficient categories and determinants are imported (requests). Stage coarsening creates a pre-existing R04.2 → R04.1 back-edge through determinant-comparison; retain the concrete proof graph but do not certify its stage promotion."
   },
   {
    "stageId": "GlobalGaloisDeformations:R04.2",
@@ -4804,7 +4825,15 @@
    "notes": "Planned in 4 nodes, within RS-08's keeps: ACC+ Definition 6.2.2 (variable determinant, Λ = ⊗̂Λ_v), Theorem 6.2.3 and Lemma 6.2.4 (n²|T| − 1 framing variables), the presentation of Proposition 6.2.24 over the local rings with ad ρ̄ coefficients, and the comparison with the fixed-determinant problem of R04.3 as separate statements: the quotient map always, and the product decomposition with 𝒪⟦G_{F,S}^{ab}(p)⟧ only for p ∤ n and twist-stable local problems, formally smooth exactly when that group is torsion-free. The local problems of ACC+ §6.2.5 (ordinary, Fontaine–Laffaille, level raising) are LocalGaloisDeformationRings'."
   }
  ],
- "gaps": [],
+ "gaps": [
+  {
+   "title": "Whole-stage promotion of the determinant comparison needs a layer split",
+   "neededBy": [
+    "GlobalGaloisDeformations:R04.1/determinant-comparison"
+   ],
+   "detail": "The concrete node graph is acyclic, but this R04.1 node imports R04.2/carayol-trace-theorem, inducing R04.2 → R04.1 against the existing R04.1 → R04.2 stage edge. This predates this fix. Resolve the declaration ownership/layer split before certifying or promoting the whole-stage closure; no mathematical cycle or false theorem is alleged. The present fix preserves both stable declarations and reports the exact obstruction for independent review."
+  }
+ ],
  "sourceIssues": [
   {
    "id": "GlobalGaloisDeformations/E1",
@@ -4869,336 +4898,356 @@
   }
  ],
  "review": {
-  "status": "accepted",
-  "reviewer": "independent-review-REV-GlobalGaloisDeformations",
-  "date": "2026-09-28",
-  "notes": "Independent review by Claude Code (cc-fb70e5) of BP-GlobalGaloisDeformations (Claude Code cc-39fac3, checkpoints #3804–#3825). Sources: all 8 sources downloaded at the cited URLs and every sha256 reproduced (KW II's UCLA host needed TLS verification off; the hash matches). All 113 excerpts compared with the extracted text word by word in order: 88 match at ≥ 0.9 on the located page, the other 25 were read against the page and all are faithful (the gaps are pdftotext losses of □, hats and sub/superscripts); pages agree with the locators (KW II ESI: printed page = PDF page − 1; ACC+: equal). One excerpt (ACC+ 6.2.24) was truncated mid-formula and is completed. Baseline: all 16 declarations exist at the cited modules in the pinned index; Tau Ceti ContCohomology Z1/B1/H1 were read at the pin and use the cocycle convention of R04.1/tangent-spaces. All 65 statements and proof steps were read against their prerequisites; numerical identities (KW II relative dimensions and patching counts, dyadic (h), Gee's R_∞/J_∞ dimensions, CHT/ACC+ variable counts) were recomputed. One mathematical error found: R04.3's relative tangent dimension inherited Gee's off-by-one (#T for #T − 1 when T ≠ ∅); corrected in three R04.3 nodes and recorded as new source issue E3 (also in the published version). Two further precision fixes (framing torsors), one excerpt completion, one notation fix and one missing supplier (L7 for G7, named by RS-08) corrected. Source issues E1, E2 confirmed; E3 added. Cross-roadmap references all resolve to atlas stages or packet nodes; the library-coverage duplicates with R02.3, R02.6, D8 and R03.2 are imported from those owners as RS-08 prescribes, not replanned. The suggested Lean file matches the packet and marks every unproved declaration honestly; G7/G8 signature sketches were added in its comment block. It was not compiled: no build at the pinned commits exists on this machine.",
-  "checked": [
-   {
-    "nodeId": "GlobalGaloisDeformations:R04.1/lifting-functor",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text (pages agree with the locators); statement, hypotheses and proof steps read against the prerequisites; API and tests checked for definitions and constructions."
-   },
-   {
-    "nodeId": "GlobalGaloisDeformations:R04.1/module-deformation-functor",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text (pages agree with the locators); statement, hypotheses and proof steps read against the prerequisites; API and tests checked for definitions and constructions."
-   },
-   {
-    "nodeId": "GlobalGaloisDeformations:R04.1/strict-deformation-functor",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text (pages agree with the locators); statement, hypotheses and proof steps read against the prerequisites; API and tests checked for definitions and constructions."
-   },
-   {
-    "nodeId": "GlobalGaloisDeformations:R04.1/module-deformations-are-strict-classes",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text (pages agree with the locators); statement, hypotheses and proof steps read against the prerequisites; API and tests checked for definitions and constructions."
-   },
-   {
-    "nodeId": "GlobalGaloisDeformations:R04.1/strict-vs-full-conjugacy",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text (pages agree with the locators); statement, hypotheses and proof steps read against the prerequisites; API and tests checked for definitions and constructions."
-   },
-   {
-    "nodeId": "GlobalGaloisDeformations:R04.1/restriction-of-deformations",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text (pages agree with the locators); statement, hypotheses and proof steps read against the prerequisites; API and tests checked for definitions and constructions."
-   },
-   {
-    "nodeId": "GlobalGaloisDeformations:R04.1/fixed-determinant-functors",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text (pages agree with the locators); statement, hypotheses and proof steps read against the prerequisites; API and tests checked for definitions and constructions."
-   },
-   {
-    "nodeId": "GlobalGaloisDeformations:R04.1/change-of-coefficients",
-    "verdict": "corrected",
-    "note": "Corrected: the non-example used ℓ for the residue characteristic; renamed to p (ℤ/(p² − 1) acting through a generator of 𝔽_{p²}^×). Otherwise verified."
-   },
-   {
-    "nodeId": "GlobalGaloisDeformations:R04.1/determinant-deformation-functor",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text (pages agree with the locators); statement, hypotheses and proof steps read against the prerequisites; API and tests checked for definitions and constructions."
-   },
-   {
-    "nodeId": "GlobalGaloisDeformations:R04.1/determinant-comparison",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text (pages agree with the locators); statement, hypotheses and proof steps read against the prerequisites; API and tests checked for definitions and constructions."
-   },
-   {
-    "nodeId": "GlobalGaloisDeformations:R04.1/tangent-spaces",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text (pages agree with the locators); statement, hypotheses and proof steps read against the prerequisites; API and tests checked for definitions and constructions."
-   },
-   {
-    "nodeId": "GlobalGaloisDeformations:R04.2/phi-p-condition",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text (pages agree with the locators); statement, hypotheses and proof steps read against the prerequisites; API and tests checked for definitions and constructions."
-   },
-   {
-    "nodeId": "GlobalGaloisDeformations:R04.2/phi-p-global",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text (pages agree with the locators); statement, hypotheses and proof steps read against the prerequisites; API and tests checked for definitions and constructions."
-   },
-   {
-    "nodeId": "GlobalGaloisDeformations:R04.2/universal-lifting-ring",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text (pages agree with the locators); statement, hypotheses and proof steps read against the prerequisites; API and tests checked for definitions and constructions."
-   },
-   {
-    "nodeId": "GlobalGaloisDeformations:R04.2/universal-continuous-lift",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text (pages agree with the locators); statement, hypotheses and proof steps read against the prerequisites; API and tests checked for definitions and constructions."
-   },
-   {
-    "nodeId": "GlobalGaloisDeformations:R04.2/universal-deformation-ring",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text (pages agree with the locators); statement, hypotheses and proof steps read against the prerequisites; API and tests checked for definitions and constructions."
-   },
-   {
-    "nodeId": "GlobalGaloisDeformations:R04.2/framed-unframed-comparison",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text (pages agree with the locators); statement, hypotheses and proof steps read against the prerequisites; API and tests checked for definitions and constructions."
-   },
-   {
-    "nodeId": "GlobalGaloisDeformations:R04.2/carayol-trace-theorem",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text (pages agree with the locators); statement, hypotheses and proof steps read against the prerequisites; API and tests checked for definitions and constructions."
-   },
-   {
-    "nodeId": "GlobalGaloisDeformations:R04.2/fixed-determinant-rings",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text (pages agree with the locators); statement, hypotheses and proof steps read against the prerequisites; API and tests checked for definitions and constructions."
-   },
-   {
-    "nodeId": "GlobalGaloisDeformations:R04.2/change-of-residue-field",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text (pages agree with the locators); statement, hypotheses and proof steps read against the prerequisites; API and tests checked for definitions and constructions."
-   },
-   {
-    "nodeId": "GlobalGaloisDeformations:R04.3/local-deformation-problem",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text (pages agree with the locators); statement, hypotheses and proof steps read against the prerequisites; API and tests checked for definitions and constructions."
-   },
-   {
-    "nodeId": "GlobalGaloisDeformations:R04.3/deformation-problem-ideal",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text (pages agree with the locators); statement, hypotheses and proof steps read against the prerequisites; API and tests checked for definitions and constructions."
-   },
-   {
-    "nodeId": "GlobalGaloisDeformations:R04.3/global-deformation-type",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text (pages agree with the locators); statement, hypotheses and proof steps read against the prerequisites; API and tests checked for definitions and constructions."
-   },
-   {
-    "nodeId": "GlobalGaloisDeformations:R04.3/global-framed-ring",
-    "verdict": "corrected",
-    "note": "Corrected: the framing torsor is Γ̂_n(A)^T modulo the diagonal scalars 1 + 𝔪_A (relative dimension n²#T − 1), not modulo 'the diagonal'."
-   },
-   {
-    "nodeId": "GlobalGaloisDeformations:R04.3/local-to-global-map",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text (pages agree with the locators); statement, hypotheses and proof steps read against the prerequisites; API and tests checked for definitions and constructions."
-   },
-   {
-    "nodeId": "GlobalGaloisDeformations:R04.3/relative-tangent-space",
-    "verdict": "corrected",
-    "note": "Corrected. The dimension formula copied Gee's p. 18 display with #T; for T ≠ ∅ the constant is #T − 1, because H⁰_{S,T} = 0 (a scalar vanishing at a framed place is 0), as ACC+ 6.2.24, CHT08 2.3.4 and this packet's own G8/variable-determinant-presentation and R04.5/taylor-wiles-generator-count (Gee 5.10's #T − 1 − [F:ℚ] + r) have. Statement, hypotheses (p > 2, finite S and T, T ≠ ∅), proof steps 2–3 and a consistency acceptance updated; new source issue E3."
-   },
-   {
-    "nodeId": "GlobalGaloisDeformations:R04.3/local-to-global-presentation",
-    "verdict": "corrected",
-    "note": "Corrected: the acceptance lower bound for g − r(J) now has #T − 1 (T ≠ ∅), following the corrected relative-tangent-space. The KW II obstruction pairing (preprint Lemma 4.5, published 4.6) was read and is as stated."
-   },
-   {
-    "nodeId": "GlobalGaloisDeformations:R04.3/global-dimension-lower-bound",
-    "verdict": "corrected",
-    "note": "Corrected: Gee's conventions (p > 2, finite S, T = S) added as a hypothesis, and step 3 now carries out the count with g − r ≥ #S − 1 − Σ_{v|∞}h⁰ − h⁰(ad⁰(1)), which yields exactly Gee's Proposition 3.24(3). The KW II check (1 + Σ_{v|p}[F_v:ℚ_p] − [F:ℚ] = 1) was recomputed."
-   },
-   {
-    "nodeId": "GlobalGaloisDeformations:R04.4/restriction-ring-map",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text (pages agree with the locators); statement, hypotheses and proof steps read against the prerequisites; API and tests checked for definitions and constructions."
-   },
-   {
-    "nodeId": "GlobalGaloisDeformations:R04.4/restriction-finiteness",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text (pages agree with the locators); statement, hypotheses and proof steps read against the prerequisites; API and tests checked for definitions and constructions."
-   },
-   {
-    "nodeId": "GlobalGaloisDeformations:R04.4/enlarging-ramification",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text (pages agree with the locators); statement, hypotheses and proof steps read against the prerequisites; API and tests checked for definitions and constructions."
-   },
-   {
-    "nodeId": "GlobalGaloisDeformations:R04.4/change-of-determinant",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text (pages agree with the locators); statement, hypotheses and proof steps read against the prerequisites; API and tests checked for definitions and constructions."
-   },
-   {
-    "nodeId": "GlobalGaloisDeformations:R04.4/diagonalizable-groups",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text (pages agree with the locators); statement, hypotheses and proof steps read against the prerequisites; API and tests checked for definitions and constructions."
-   },
-   {
-    "nodeId": "GlobalGaloisDeformations:R04.4/free-action-quotient",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text (pages agree with the locators); statement, hypotheses and proof steps read against the prerequisites; API and tests checked for definitions and constructions."
-   },
-   {
-    "nodeId": "GlobalGaloisDeformations:R04.4/truncated-actions",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text (pages agree with the locators); statement, hypotheses and proof steps read against the prerequisites; API and tests checked for definitions and constructions."
-   },
-   {
-    "nodeId": "GlobalGaloisDeformations:R04.4/twisting-action",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text (pages agree with the locators); statement, hypotheses and proof steps read against the prerequisites; API and tests checked for definitions and constructions."
-   },
-   {
-    "nodeId": "GlobalGaloisDeformations:R04.4/twist-action-free",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text (pages agree with the locators); statement, hypotheses and proof steps read against the prerequisites; API and tests checked for definitions and constructions."
-   },
-   {
-    "nodeId": "GlobalGaloisDeformations:R04.4/determinant-fixed-on-S",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text (pages agree with the locators); statement, hypotheses and proof steps read against the prerequisites; API and tests checked for definitions and constructions."
-   },
-   {
-    "nodeId": "GlobalGaloisDeformations:R04.4/determinant-twist-torsor",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text (pages agree with the locators); statement, hypotheses and proof steps read against the prerequisites; API and tests checked for definitions and constructions."
-   },
-   {
-    "nodeId": "GlobalGaloisDeformations:R04.4/inertia-rigid-deformations",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text (pages agree with the locators); statement, hypotheses and proof steps read against the prerequisites; API and tests checked for definitions and constructions."
-   },
-   {
-    "nodeId": "GlobalGaloisDeformations:R04.5/taylor-wiles-datum",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text (pages agree with the locators); statement, hypotheses and proof steps read against the prerequisites; API and tests checked for definitions and constructions."
-   },
-   {
-    "nodeId": "GlobalGaloisDeformations:R04.5/image-hypotheses",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text (pages agree with the locators); statement, hypotheses and proof steps read against the prerequisites; API and tests checked for definitions and constructions."
-   },
-   {
-    "nodeId": "GlobalGaloisDeformations:R04.5/taylor-wiles-local-cohomology",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text (pages agree with the locators); statement, hypotheses and proof steps read against the prerequisites; API and tests checked for definitions and constructions."
-   },
-   {
-    "nodeId": "GlobalGaloisDeformations:R04.5/odd-taylor-wiles-primes",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text (pages agree with the locators); statement, hypotheses and proof steps read against the prerequisites; API and tests checked for definitions and constructions."
-   },
-   {
-    "nodeId": "GlobalGaloisDeformations:R04.5/taylor-wiles-generator-count",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text (pages agree with the locators); statement, hypotheses and proof steps read against the prerequisites; API and tests checked for definitions and constructions."
-   },
-   {
-    "nodeId": "GlobalGaloisDeformations:R04.5/dyadic-linear-disjointness",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text (pages agree with the locators); statement, hypotheses and proof steps read against the prerequisites; API and tests checked for definitions and constructions."
-   },
-   {
-    "nodeId": "GlobalGaloisDeformations:R04.5/dyadic-taylor-wiles-primes",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text (pages agree with the locators); statement, hypotheses and proof steps read against the prerequisites; API and tests checked for definitions and constructions."
-   },
-   {
-    "nodeId": "GlobalGaloisDeformations:R04.5/taylor-wiles-inertia-action",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text (pages agree with the locators); statement, hypotheses and proof steps read against the prerequisites; API and tests checked for definitions and constructions."
-   },
-   {
-    "nodeId": "GlobalGaloisDeformations:R04.6/kw-deformation-data",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text (pages agree with the locators); statement, hypotheses and proof steps read against the prerequisites; API and tests checked for definitions and constructions."
-   },
-   {
-    "nodeId": "GlobalGaloisDeformations:R04.6/trace-subring-universal-representation",
-    "verdict": "corrected",
-    "note": "Corrected: step 1 named the torsor group as (GL₂)₁ × ∏_v(GL₂)₁/Ĝ_m; KW II Proposition 4.1 and the node's own statement and count 4|S| − 1 use (∏_{v∈S}(GL₂)₁)/Ĝ_m."
-   },
-   {
-    "nodeId": "GlobalGaloisDeformations:R04.6/factorization-through-local-conditions",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text (pages agree with the locators); statement, hypotheses and proof steps read against the prerequisites; API and tests checked for definitions and constructions."
-   },
-   {
-    "nodeId": "GlobalGaloisDeformations:R04.6/taylor-wiles-deformation-system",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text (pages agree with the locators); statement, hypotheses and proof steps read against the prerequisites; API and tests checked for definitions and constructions."
-   },
-   {
-    "nodeId": "GlobalGaloisDeformations:R04.6/patching-numerology",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text (pages agree with the locators); statement, hypotheses and proof steps read against the prerequisites; API and tests checked for definitions and constructions."
-   },
-   {
-    "nodeId": "GlobalGaloisDeformations:R04.6/dyadic-patching-data",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text (pages agree with the locators); statement, hypotheses and proof steps read against the prerequisites; API and tests checked for definitions and constructions."
-   },
-   {
-    "nodeId": "GlobalGaloisDeformations:G8/variable-determinant-problem",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text (pages agree with the locators); statement, hypotheses and proof steps read against the prerequisites; API and tests checked for definitions and constructions."
-   },
-   {
-    "nodeId": "GlobalGaloisDeformations:G8/variable-determinant-representability",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text (pages agree with the locators); statement, hypotheses and proof steps read against the prerequisites; API and tests checked for definitions and constructions."
-   },
-   {
-    "nodeId": "GlobalGaloisDeformations:G8/variable-determinant-presentation",
-    "verdict": "corrected",
-    "note": "Corrected: the ACC+ excerpt was cut off after '− h0(FS/F, ad ρ(1)) −'; it now gives the whole formula of Proposition 6.2.24 (pp. 144–145). Statement and proof (H⁰_{𝒮,T} = 0 for T ≠ ∅) verified."
-   },
-   {
-    "nodeId": "GlobalGaloisDeformations:G8/fixed-versus-variable-determinant",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text (pages agree with the locators); statement, hypotheses and proof steps read against the prerequisites; API and tests checked for definitions and constructions."
-   },
-   {
-    "nodeId": "GlobalGaloisDeformations:G7/polarized-deformation-problem",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text (pages agree with the locators); statement, hypotheses and proof steps read against the prerequisites; API and tests checked for definitions and constructions."
-   },
-   {
-    "nodeId": "GlobalGaloisDeformations:G7/polarized-representability",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text (pages agree with the locators); statement, hypotheses and proof steps read against the prerequisites; API and tests checked for definitions and constructions."
-   },
-   {
-    "nodeId": "GlobalGaloisDeformations:G7/polarized-tangent-obstruction",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text (pages agree with the locators); statement, hypotheses and proof steps read against the prerequisites; API and tests checked for definitions and constructions."
-   },
-   {
-    "nodeId": "GlobalGaloisDeformations:G7/polarized-presentation",
-    "verdict": "corrected",
-    "note": "Corrected: RS-08 names LocalGaloisDeformationRings L7 as G7's supplier of rank-n ordinary/height/Fontaine–Laffaille local conditions, which CHT Corollary 2.3.6 (in the acceptance) uses; L7 added as a prerequisite and a request, with a hypothesis recording it. Counts recomputed."
-   },
-   {
-    "nodeId": "GlobalGaloisDeformations:G7/taylor-wiles-local-diamond",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text (pages agree with the locators); statement, hypotheses and proof steps read against the prerequisites; API and tests checked for definitions and constructions."
-   },
-   {
-    "nodeId": "GlobalGaloisDeformations:G7/enormous-taylor-wiles-primes",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text (pages agree with the locators); statement, hypotheses and proof steps read against the prerequisites; API and tests checked for definitions and constructions."
-   },
-   {
-    "nodeId": "GlobalGaloisDeformations:G7/enormous-taylor-wiles-presentation",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text (pages agree with the locators); statement, hypotheses and proof steps read against the prerequisites; API and tests checked for definitions and constructions."
-   }
-  ]
- }
+  "status": "pending",
+  "notes": "FIX-RT-AREA-langlands-2~2 by Codex codex-5ebb6f; independent REV-FIX required. Previous reviews are preserved verbatim in reviewHistory. Partial status, unchecked implementation and existing gaps are retained."
+ },
+ "sourceVersions": [
+  {
+   "kind": "author copy",
+   "url": "https://www.math.ucla.edu/~shekhar/papers/proofs.pdf",
+   "citation": "KW II author final; selected Lemma4.3, Lemma4.4, Proposition4.5, Lemma4.6 and Corollary4.7 locators checked.",
+   "read": "2026-09-30",
+   "sha256": "53f45f8be3b3c7de19f42417920d34a809e908412826490ebed90f07c8e86ed4",
+   "worker": "Codex — codex-5ebb6f",
+   "readSections": [
+    "pp. 40–46"
+   ],
+   "note": "Fresh selected-passage check for FIX-RT-AREA-langlands-2~2; no new whole-paper reading claimed."
+  }
+ ],
+ "reviewHistory": [
+  {
+   "status": "accepted",
+   "reviewer": "independent-review-REV-GlobalGaloisDeformations",
+   "date": "2026-09-28",
+   "notes": "Independent review by Claude Code (cc-fb70e5) of BP-GlobalGaloisDeformations (Claude Code cc-39fac3, checkpoints #3804–#3825). Sources: all 8 sources downloaded at the cited URLs and every sha256 reproduced (KW II's UCLA host needed TLS verification off; the hash matches). All 113 excerpts compared with the extracted text word by word in order: 88 match at ≥ 0.9 on the located page, the other 25 were read against the page and all are faithful (the gaps are pdftotext losses of □, hats and sub/superscripts); pages agree with the locators (KW II ESI: printed page = PDF page − 1; ACC+: equal). One excerpt (ACC+ 6.2.24) was truncated mid-formula and is completed. Baseline: all 16 declarations exist at the cited modules in the pinned index; Tau Ceti ContCohomology Z1/B1/H1 were read at the pin and use the cocycle convention of R04.1/tangent-spaces. All 65 statements and proof steps were read against their prerequisites; numerical identities (KW II relative dimensions and patching counts, dyadic (h), Gee's R_∞/J_∞ dimensions, CHT/ACC+ variable counts) were recomputed. One mathematical error found: R04.3's relative tangent dimension inherited Gee's off-by-one (#T for #T − 1 when T ≠ ∅); corrected in three R04.3 nodes and recorded as new source issue E3 (also in the published version). Two further precision fixes (framing torsors), one excerpt completion, one notation fix and one missing supplier (L7 for G7, named by RS-08) corrected. Source issues E1, E2 confirmed; E3 added. Cross-roadmap references all resolve to atlas stages or packet nodes; the library-coverage duplicates with R02.3, R02.6, D8 and R03.2 are imported from those owners as RS-08 prescribes, not replanned. The suggested Lean file matches the packet and marks every unproved declaration honestly; G7/G8 signature sketches were added in its comment block. It was not compiled: no build at the pinned commits exists on this machine.",
+   "checked": [
+    {
+     "nodeId": "GlobalGaloisDeformations:R04.1/lifting-functor",
+     "verdict": "verified",
+     "note": "Excerpts matched against the source text (pages agree with the locators); statement, hypotheses and proof steps read against the prerequisites; API and tests checked for definitions and constructions."
+    },
+    {
+     "nodeId": "GlobalGaloisDeformations:R04.1/module-deformation-functor",
+     "verdict": "verified",
+     "note": "Excerpts matched against the source text (pages agree with the locators); statement, hypotheses and proof steps read against the prerequisites; API and tests checked for definitions and constructions."
+    },
+    {
+     "nodeId": "GlobalGaloisDeformations:R04.1/strict-deformation-functor",
+     "verdict": "verified",
+     "note": "Excerpts matched against the source text (pages agree with the locators); statement, hypotheses and proof steps read against the prerequisites; API and tests checked for definitions and constructions."
+    },
+    {
+     "nodeId": "GlobalGaloisDeformations:R04.1/module-deformations-are-strict-classes",
+     "verdict": "verified",
+     "note": "Excerpts matched against the source text (pages agree with the locators); statement, hypotheses and proof steps read against the prerequisites; API and tests checked for definitions and constructions."
+    },
+    {
+     "nodeId": "GlobalGaloisDeformations:R04.1/strict-vs-full-conjugacy",
+     "verdict": "verified",
+     "note": "Excerpts matched against the source text (pages agree with the locators); statement, hypotheses and proof steps read against the prerequisites; API and tests checked for definitions and constructions."
+    },
+    {
+     "nodeId": "GlobalGaloisDeformations:R04.1/restriction-of-deformations",
+     "verdict": "verified",
+     "note": "Excerpts matched against the source text (pages agree with the locators); statement, hypotheses and proof steps read against the prerequisites; API and tests checked for definitions and constructions."
+    },
+    {
+     "nodeId": "GlobalGaloisDeformations:R04.1/fixed-determinant-functors",
+     "verdict": "verified",
+     "note": "Excerpts matched against the source text (pages agree with the locators); statement, hypotheses and proof steps read against the prerequisites; API and tests checked for definitions and constructions."
+    },
+    {
+     "nodeId": "GlobalGaloisDeformations:R04.1/change-of-coefficients",
+     "verdict": "corrected",
+     "note": "Corrected: the non-example used ℓ for the residue characteristic; renamed to p (ℤ/(p² − 1) acting through a generator of 𝔽_{p²}^×). Otherwise verified."
+    },
+    {
+     "nodeId": "GlobalGaloisDeformations:R04.1/determinant-deformation-functor",
+     "verdict": "verified",
+     "note": "Excerpts matched against the source text (pages agree with the locators); statement, hypotheses and proof steps read against the prerequisites; API and tests checked for definitions and constructions."
+    },
+    {
+     "nodeId": "GlobalGaloisDeformations:R04.1/determinant-comparison",
+     "verdict": "verified",
+     "note": "Excerpts matched against the source text (pages agree with the locators); statement, hypotheses and proof steps read against the prerequisites; API and tests checked for definitions and constructions."
+    },
+    {
+     "nodeId": "GlobalGaloisDeformations:R04.1/tangent-spaces",
+     "verdict": "verified",
+     "note": "Excerpts matched against the source text (pages agree with the locators); statement, hypotheses and proof steps read against the prerequisites; API and tests checked for definitions and constructions."
+    },
+    {
+     "nodeId": "GlobalGaloisDeformations:R04.2/phi-p-condition",
+     "verdict": "verified",
+     "note": "Excerpts matched against the source text (pages agree with the locators); statement, hypotheses and proof steps read against the prerequisites; API and tests checked for definitions and constructions."
+    },
+    {
+     "nodeId": "GlobalGaloisDeformations:R04.2/phi-p-global",
+     "verdict": "verified",
+     "note": "Excerpts matched against the source text (pages agree with the locators); statement, hypotheses and proof steps read against the prerequisites; API and tests checked for definitions and constructions."
+    },
+    {
+     "nodeId": "GlobalGaloisDeformations:R04.2/universal-lifting-ring",
+     "verdict": "verified",
+     "note": "Excerpts matched against the source text (pages agree with the locators); statement, hypotheses and proof steps read against the prerequisites; API and tests checked for definitions and constructions."
+    },
+    {
+     "nodeId": "GlobalGaloisDeformations:R04.2/universal-continuous-lift",
+     "verdict": "verified",
+     "note": "Excerpts matched against the source text (pages agree with the locators); statement, hypotheses and proof steps read against the prerequisites; API and tests checked for definitions and constructions."
+    },
+    {
+     "nodeId": "GlobalGaloisDeformations:R04.2/universal-deformation-ring",
+     "verdict": "verified",
+     "note": "Excerpts matched against the source text (pages agree with the locators); statement, hypotheses and proof steps read against the prerequisites; API and tests checked for definitions and constructions."
+    },
+    {
+     "nodeId": "GlobalGaloisDeformations:R04.2/framed-unframed-comparison",
+     "verdict": "verified",
+     "note": "Excerpts matched against the source text (pages agree with the locators); statement, hypotheses and proof steps read against the prerequisites; API and tests checked for definitions and constructions."
+    },
+    {
+     "nodeId": "GlobalGaloisDeformations:R04.2/carayol-trace-theorem",
+     "verdict": "verified",
+     "note": "Excerpts matched against the source text (pages agree with the locators); statement, hypotheses and proof steps read against the prerequisites; API and tests checked for definitions and constructions."
+    },
+    {
+     "nodeId": "GlobalGaloisDeformations:R04.2/fixed-determinant-rings",
+     "verdict": "verified",
+     "note": "Excerpts matched against the source text (pages agree with the locators); statement, hypotheses and proof steps read against the prerequisites; API and tests checked for definitions and constructions."
+    },
+    {
+     "nodeId": "GlobalGaloisDeformations:R04.2/change-of-residue-field",
+     "verdict": "verified",
+     "note": "Excerpts matched against the source text (pages agree with the locators); statement, hypotheses and proof steps read against the prerequisites; API and tests checked for definitions and constructions."
+    },
+    {
+     "nodeId": "GlobalGaloisDeformations:R04.3/local-deformation-problem",
+     "verdict": "verified",
+     "note": "Excerpts matched against the source text (pages agree with the locators); statement, hypotheses and proof steps read against the prerequisites; API and tests checked for definitions and constructions."
+    },
+    {
+     "nodeId": "GlobalGaloisDeformations:R04.3/deformation-problem-ideal",
+     "verdict": "verified",
+     "note": "Excerpts matched against the source text (pages agree with the locators); statement, hypotheses and proof steps read against the prerequisites; API and tests checked for definitions and constructions."
+    },
+    {
+     "nodeId": "GlobalGaloisDeformations:R04.3/global-deformation-type",
+     "verdict": "verified",
+     "note": "Excerpts matched against the source text (pages agree with the locators); statement, hypotheses and proof steps read against the prerequisites; API and tests checked for definitions and constructions."
+    },
+    {
+     "nodeId": "GlobalGaloisDeformations:R04.3/global-framed-ring",
+     "verdict": "corrected",
+     "note": "Corrected: the framing torsor is Γ̂_n(A)^T modulo the diagonal scalars 1 + 𝔪_A (relative dimension n²#T − 1), not modulo 'the diagonal'."
+    },
+    {
+     "nodeId": "GlobalGaloisDeformations:R04.3/local-to-global-map",
+     "verdict": "verified",
+     "note": "Excerpts matched against the source text (pages agree with the locators); statement, hypotheses and proof steps read against the prerequisites; API and tests checked for definitions and constructions."
+    },
+    {
+     "nodeId": "GlobalGaloisDeformations:R04.3/relative-tangent-space",
+     "verdict": "corrected",
+     "note": "Corrected. The dimension formula copied Gee's p. 18 display with #T; for T ≠ ∅ the constant is #T − 1, because H⁰_{S,T} = 0 (a scalar vanishing at a framed place is 0), as ACC+ 6.2.24, CHT08 2.3.4 and this packet's own G8/variable-determinant-presentation and R04.5/taylor-wiles-generator-count (Gee 5.10's #T − 1 − [F:ℚ] + r) have. Statement, hypotheses (p > 2, finite S and T, T ≠ ∅), proof steps 2–3 and a consistency acceptance updated; new source issue E3."
+    },
+    {
+     "nodeId": "GlobalGaloisDeformations:R04.3/local-to-global-presentation",
+     "verdict": "corrected",
+     "note": "Corrected: the acceptance lower bound for g − r(J) now has #T − 1 (T ≠ ∅), following the corrected relative-tangent-space. The KW II obstruction pairing (preprint Lemma 4.5, published 4.6) was read and is as stated."
+    },
+    {
+     "nodeId": "GlobalGaloisDeformations:R04.3/global-dimension-lower-bound",
+     "verdict": "corrected",
+     "note": "Corrected: Gee's conventions (p > 2, finite S, T = S) added as a hypothesis, and step 3 now carries out the count with g − r ≥ #S − 1 − Σ_{v|∞}h⁰ − h⁰(ad⁰(1)), which yields exactly Gee's Proposition 3.24(3). The KW II check (1 + Σ_{v|p}[F_v:ℚ_p] − [F:ℚ] = 1) was recomputed."
+    },
+    {
+     "nodeId": "GlobalGaloisDeformations:R04.4/restriction-ring-map",
+     "verdict": "verified",
+     "note": "Excerpts matched against the source text (pages agree with the locators); statement, hypotheses and proof steps read against the prerequisites; API and tests checked for definitions and constructions."
+    },
+    {
+     "nodeId": "GlobalGaloisDeformations:R04.4/restriction-finiteness",
+     "verdict": "verified",
+     "note": "Excerpts matched against the source text (pages agree with the locators); statement, hypotheses and proof steps read against the prerequisites; API and tests checked for definitions and constructions."
+    },
+    {
+     "nodeId": "GlobalGaloisDeformations:R04.4/enlarging-ramification",
+     "verdict": "verified",
+     "note": "Excerpts matched against the source text (pages agree with the locators); statement, hypotheses and proof steps read against the prerequisites; API and tests checked for definitions and constructions."
+    },
+    {
+     "nodeId": "GlobalGaloisDeformations:R04.4/change-of-determinant",
+     "verdict": "verified",
+     "note": "Excerpts matched against the source text (pages agree with the locators); statement, hypotheses and proof steps read against the prerequisites; API and tests checked for definitions and constructions."
+    },
+    {
+     "nodeId": "GlobalGaloisDeformations:R04.4/diagonalizable-groups",
+     "verdict": "verified",
+     "note": "Excerpts matched against the source text (pages agree with the locators); statement, hypotheses and proof steps read against the prerequisites; API and tests checked for definitions and constructions."
+    },
+    {
+     "nodeId": "GlobalGaloisDeformations:R04.4/free-action-quotient",
+     "verdict": "verified",
+     "note": "Excerpts matched against the source text (pages agree with the locators); statement, hypotheses and proof steps read against the prerequisites; API and tests checked for definitions and constructions."
+    },
+    {
+     "nodeId": "GlobalGaloisDeformations:R04.4/truncated-actions",
+     "verdict": "verified",
+     "note": "Excerpts matched against the source text (pages agree with the locators); statement, hypotheses and proof steps read against the prerequisites; API and tests checked for definitions and constructions."
+    },
+    {
+     "nodeId": "GlobalGaloisDeformations:R04.4/twisting-action",
+     "verdict": "verified",
+     "note": "Excerpts matched against the source text (pages agree with the locators); statement, hypotheses and proof steps read against the prerequisites; API and tests checked for definitions and constructions."
+    },
+    {
+     "nodeId": "GlobalGaloisDeformations:R04.4/twist-action-free",
+     "verdict": "verified",
+     "note": "Excerpts matched against the source text (pages agree with the locators); statement, hypotheses and proof steps read against the prerequisites; API and tests checked for definitions and constructions."
+    },
+    {
+     "nodeId": "GlobalGaloisDeformations:R04.4/determinant-fixed-on-S",
+     "verdict": "verified",
+     "note": "Excerpts matched against the source text (pages agree with the locators); statement, hypotheses and proof steps read against the prerequisites; API and tests checked for definitions and constructions."
+    },
+    {
+     "nodeId": "GlobalGaloisDeformations:R04.4/determinant-twist-torsor",
+     "verdict": "verified",
+     "note": "Excerpts matched against the source text (pages agree with the locators); statement, hypotheses and proof steps read against the prerequisites; API and tests checked for definitions and constructions."
+    },
+    {
+     "nodeId": "GlobalGaloisDeformations:R04.4/inertia-rigid-deformations",
+     "verdict": "verified",
+     "note": "Excerpts matched against the source text (pages agree with the locators); statement, hypotheses and proof steps read against the prerequisites; API and tests checked for definitions and constructions."
+    },
+    {
+     "nodeId": "GlobalGaloisDeformations:R04.5/taylor-wiles-datum",
+     "verdict": "verified",
+     "note": "Excerpts matched against the source text (pages agree with the locators); statement, hypotheses and proof steps read against the prerequisites; API and tests checked for definitions and constructions."
+    },
+    {
+     "nodeId": "GlobalGaloisDeformations:R04.5/image-hypotheses",
+     "verdict": "verified",
+     "note": "Excerpts matched against the source text (pages agree with the locators); statement, hypotheses and proof steps read against the prerequisites; API and tests checked for definitions and constructions."
+    },
+    {
+     "nodeId": "GlobalGaloisDeformations:R04.5/taylor-wiles-local-cohomology",
+     "verdict": "verified",
+     "note": "Excerpts matched against the source text (pages agree with the locators); statement, hypotheses and proof steps read against the prerequisites; API and tests checked for definitions and constructions."
+    },
+    {
+     "nodeId": "GlobalGaloisDeformations:R04.5/odd-taylor-wiles-primes",
+     "verdict": "verified",
+     "note": "Excerpts matched against the source text (pages agree with the locators); statement, hypotheses and proof steps read against the prerequisites; API and tests checked for definitions and constructions."
+    },
+    {
+     "nodeId": "GlobalGaloisDeformations:R04.5/taylor-wiles-generator-count",
+     "verdict": "verified",
+     "note": "Excerpts matched against the source text (pages agree with the locators); statement, hypotheses and proof steps read against the prerequisites; API and tests checked for definitions and constructions."
+    },
+    {
+     "nodeId": "GlobalGaloisDeformations:R04.5/dyadic-linear-disjointness",
+     "verdict": "verified",
+     "note": "Excerpts matched against the source text (pages agree with the locators); statement, hypotheses and proof steps read against the prerequisites; API and tests checked for definitions and constructions."
+    },
+    {
+     "nodeId": "GlobalGaloisDeformations:R04.5/dyadic-taylor-wiles-primes",
+     "verdict": "verified",
+     "note": "Excerpts matched against the source text (pages agree with the locators); statement, hypotheses and proof steps read against the prerequisites; API and tests checked for definitions and constructions."
+    },
+    {
+     "nodeId": "GlobalGaloisDeformations:R04.5/taylor-wiles-inertia-action",
+     "verdict": "verified",
+     "note": "Excerpts matched against the source text (pages agree with the locators); statement, hypotheses and proof steps read against the prerequisites; API and tests checked for definitions and constructions."
+    },
+    {
+     "nodeId": "GlobalGaloisDeformations:R04.6/kw-deformation-data",
+     "verdict": "verified",
+     "note": "Excerpts matched against the source text (pages agree with the locators); statement, hypotheses and proof steps read against the prerequisites; API and tests checked for definitions and constructions."
+    },
+    {
+     "nodeId": "GlobalGaloisDeformations:R04.6/trace-subring-universal-representation",
+     "verdict": "corrected",
+     "note": "Corrected: step 1 named the torsor group as (GL₂)₁ × ∏_v(GL₂)₁/Ĝ_m; KW II Proposition 4.1 and the node's own statement and count 4|S| − 1 use (∏_{v∈S}(GL₂)₁)/Ĝ_m."
+    },
+    {
+     "nodeId": "GlobalGaloisDeformations:R04.6/factorization-through-local-conditions",
+     "verdict": "verified",
+     "note": "Excerpts matched against the source text (pages agree with the locators); statement, hypotheses and proof steps read against the prerequisites; API and tests checked for definitions and constructions."
+    },
+    {
+     "nodeId": "GlobalGaloisDeformations:R04.6/taylor-wiles-deformation-system",
+     "verdict": "verified",
+     "note": "Excerpts matched against the source text (pages agree with the locators); statement, hypotheses and proof steps read against the prerequisites; API and tests checked for definitions and constructions."
+    },
+    {
+     "nodeId": "GlobalGaloisDeformations:R04.6/patching-numerology",
+     "verdict": "verified",
+     "note": "Excerpts matched against the source text (pages agree with the locators); statement, hypotheses and proof steps read against the prerequisites; API and tests checked for definitions and constructions."
+    },
+    {
+     "nodeId": "GlobalGaloisDeformations:R04.6/dyadic-patching-data",
+     "verdict": "verified",
+     "note": "Excerpts matched against the source text (pages agree with the locators); statement, hypotheses and proof steps read against the prerequisites; API and tests checked for definitions and constructions."
+    },
+    {
+     "nodeId": "GlobalGaloisDeformations:G8/variable-determinant-problem",
+     "verdict": "verified",
+     "note": "Excerpts matched against the source text (pages agree with the locators); statement, hypotheses and proof steps read against the prerequisites; API and tests checked for definitions and constructions."
+    },
+    {
+     "nodeId": "GlobalGaloisDeformations:G8/variable-determinant-representability",
+     "verdict": "verified",
+     "note": "Excerpts matched against the source text (pages agree with the locators); statement, hypotheses and proof steps read against the prerequisites; API and tests checked for definitions and constructions."
+    },
+    {
+     "nodeId": "GlobalGaloisDeformations:G8/variable-determinant-presentation",
+     "verdict": "corrected",
+     "note": "Corrected: the ACC+ excerpt was cut off after '− h0(FS/F, ad ρ(1)) −'; it now gives the whole formula of Proposition 6.2.24 (pp. 144–145). Statement and proof (H⁰_{𝒮,T} = 0 for T ≠ ∅) verified."
+    },
+    {
+     "nodeId": "GlobalGaloisDeformations:G8/fixed-versus-variable-determinant",
+     "verdict": "verified",
+     "note": "Excerpts matched against the source text (pages agree with the locators); statement, hypotheses and proof steps read against the prerequisites; API and tests checked for definitions and constructions."
+    },
+    {
+     "nodeId": "GlobalGaloisDeformations:G7/polarized-deformation-problem",
+     "verdict": "verified",
+     "note": "Excerpts matched against the source text (pages agree with the locators); statement, hypotheses and proof steps read against the prerequisites; API and tests checked for definitions and constructions."
+    },
+    {
+     "nodeId": "GlobalGaloisDeformations:G7/polarized-representability",
+     "verdict": "verified",
+     "note": "Excerpts matched against the source text (pages agree with the locators); statement, hypotheses and proof steps read against the prerequisites; API and tests checked for definitions and constructions."
+    },
+    {
+     "nodeId": "GlobalGaloisDeformations:G7/polarized-tangent-obstruction",
+     "verdict": "verified",
+     "note": "Excerpts matched against the source text (pages agree with the locators); statement, hypotheses and proof steps read against the prerequisites; API and tests checked for definitions and constructions."
+    },
+    {
+     "nodeId": "GlobalGaloisDeformations:G7/polarized-presentation",
+     "verdict": "corrected",
+     "note": "Corrected: RS-08 names LocalGaloisDeformationRings L7 as G7's supplier of rank-n ordinary/height/Fontaine–Laffaille local conditions, which CHT Corollary 2.3.6 (in the acceptance) uses; L7 added as a prerequisite and a request, with a hypothesis recording it. Counts recomputed."
+    },
+    {
+     "nodeId": "GlobalGaloisDeformations:G7/taylor-wiles-local-diamond",
+     "verdict": "verified",
+     "note": "Excerpts matched against the source text (pages agree with the locators); statement, hypotheses and proof steps read against the prerequisites; API and tests checked for definitions and constructions."
+    },
+    {
+     "nodeId": "GlobalGaloisDeformations:G7/enormous-taylor-wiles-primes",
+     "verdict": "verified",
+     "note": "Excerpts matched against the source text (pages agree with the locators); statement, hypotheses and proof steps read against the prerequisites; API and tests checked for definitions and constructions."
+    },
+    {
+     "nodeId": "GlobalGaloisDeformations:G7/enormous-taylor-wiles-presentation",
+     "verdict": "verified",
+     "note": "Excerpts matched against the source text (pages agree with the locators); statement, hypotheses and proof steps read against the prerequisites; API and tests checked for definitions and constructions."
+    }
+   ]
+  }
+ ]
 }

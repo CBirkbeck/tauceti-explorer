@@ -23,6 +23,18 @@ contributors and reviewers converge on names and signatures. Every proof of a ne
 
 Pinned baseline: Mathlib `082e2d3`, Tau Ceti `f790474`. This file imports Mathlib only.
 
+Fix revision: Codex codex-5ebb6f, 30 September 2026, Refs #5142. Independent REV-FIX pending.
+No existing compiled build was available at the pins; no compilation of this revision is claimed.
+R04.5 imports the finite-image classification, invariants, H¹ vanishing and adjoint submodule
+list from R01.4. The missing supplier is not replaced by numerical group-order tests or an axiom.
+KW II author-final numbering: generators Lemma 4.4; relations Lemma 4.6; dimension Proposition 4.5.
+The ESI preprint calls the relation bound Lemma 4.5. Corollary 4.7 also needs finiteness and is
+applied at R24.2, using R03.4 algebra; it is not a second global-presentation theorem.
+G8's variable-determinant problem, representability and presentation supply arithmetic data to
+PA.3 together with the L7/L8 local component exports. P9 retains its abstract hypotheses.
+Stage-edge promotion remains a maintainer handoff. The existing signatures below retain their
+actual rank/determinant assumptions and are not evidence that the missing arithmetic is built.
+
 ## Conventions
 
 * A coefficient ring is a commutative topological ring `A` with a surjective ring map
