@@ -28654,3 +28654,339 @@ Exact controls check144 additions,144 subtractions,432 scalar cases,24 constant 
 Initial clean capture atfcf1084355d53701bf8f278c8cb9cdf5a75d2729 has zero delta across72 inputs and all four merged predecessor outputs. Whole issue body, original winning claim and unclaimed review390 were rechecked.
 
 The separate partial signature file also compiled with zero errors and 2,791 expected placeholder warnings across 3,600 pinned source modules. It includes all 11 new named declarations and 15 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: c269c1f440540f61091cf3fd0877cfd4b3586ad3294e4d3c5801b3766756f97a.
+
+
+## Translated angular means and their convergent Taylor expansion
+
+Eleven L3 nodes construct actual shifted angular samples and finite means and compare their limits with the convergent inverse-twisted derivative series. All882 predecessor nodes,711 baseline records and16 findings remain whole; one precise LAD L0 request and gap extends the radius requirement.
+
+Retains the full KL1964/Morita1975 readings and rereads Morita pp.258–260 directly, including boundary shifts, the larger-radius sufficient condition, the limit/series interchange and the still-open integer/logarithmic continuation. Reads the pinned geometric-series theorem, scalar multiplication of summable series, complete-space comparison test and full native Tannery theorem.
+
+### A translated angular increment has the norm of its shift
+
+`DirichletPadicLFunctions:L3/morita-shifted-increment-norm` — `DirichletPadic.moritaShiftedIncrement_norm`
+
+For every unit u and z∈ℤ_p, ‖Ω(u)^(−1)z‖=‖z‖.
+
+**Hypotheses:** p is prime, q=4 at p=2 and q=p otherwise, r=‖q‖, and α(u)=u/Ω(u) is the preceding principal angular coordinate. All character twists use the existing common level b=lcm(f,q), with inverse torsion exponent. A:ℤ_p→K and D_m:ℤ_p→K are actual ordinary functions. The intended D_m is A^(m)/m!, supplied by the owned analytic interface. The finite Taylor statement assumes an actual HasSum identity at every principal-disc point for all increments of norm<R. For the norm and limit statements, f>0, K is a characteristic-zero ultrametric normed field with a normalized normed ℚ_p-algebra structure, B≥0 and R>r. On the closed r-disc assume ‖D_m(x)‖≤B/R^m and ‖D_m(x)−D_m(y)‖≤B/(R^m r)‖x−y‖. The coefficient ring homomorphism ι:ℤ_p→K is norm preserving when the geometric bound is used. This is an explicit hypothesis, not a consequence asserted for an arbitrary ring homomorphism. The canonical normalized scalar embedding is the intended application. The limit comparison requires CompleteSpace K and actual Tendsto witnesses v_m for every twisted divided-derivative mean. The previously planned convergence theorem supplies those witnesses only once the actual analytic derivatives and their Taylor compatibility are available. No artificial analytic carrier or convergence for all continuous functions is asserted.
+
+**Proof:**
+
+1. The inverse of Ω(u) is a unit of ℤ_p. Its norm is one by the native unit norm theorem.
+2. Apply multiplicativity of the norm. The complete increment_norm proof checks the actual unit coercion.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/morita-omega`, `mathlib:PadicInt.norm_units`.
+
+**Tests:**
+
+- `SuggestedMoritaTranslatedTests.increment_dyadic` (computation): At p=2 and z=4 the increment has norm1/4.
+- `SuggestedMoritaTranslatedTests.increment_odd` (computation): At p=3 and z=3 it has norm1/3.
+
+**Acceptance:** The factor Ω^(−1) changes the point but not the increment norm.
+
+**Source:** Section2 pp.258–259, translated finite mean, inverse torsion twist, larger-radius sufficient condition and interchange of the mean limit with the Taylor series; Theorem2 pp.259–260. This checkpoint formalizes the actual shifted samples and finite Taylor identity and proves the infinite comparison using the stronger explicit geometric majorant supplied by a radius R>‖q‖. It does not yet construct the source analytic functional or prove its logarithmic/Gamma identification.
+
+### Boundary shifts preserve the principal disc
+
+`DirichletPadicLFunctions:L3/morita-shifted-argument-disc` — `DirichletPadic.moritaShiftedArgument_disc`
+
+If ‖z‖≤r, then ‖α(u)+Ω(u)^(−1)z−1‖≤r for every unit u.
+
+**Hypotheses:** p is prime, q=4 at p=2 and q=p otherwise, r=‖q‖, and α(u)=u/Ω(u) is the preceding principal angular coordinate. All character twists use the existing common level b=lcm(f,q), with inverse torsion exponent. A:ℤ_p→K and D_m:ℤ_p→K are actual ordinary functions. The intended D_m is A^(m)/m!, supplied by the owned analytic interface. The finite Taylor statement assumes an actual HasSum identity at every principal-disc point for all increments of norm<R. For the norm and limit statements, f>0, K is a characteristic-zero ultrametric normed field with a normalized normed ℚ_p-algebra structure, B≥0 and R>r. On the closed r-disc assume ‖D_m(x)‖≤B/R^m and ‖D_m(x)−D_m(y)‖≤B/(R^m r)‖x−y‖. The coefficient ring homomorphism ι:ℤ_p→K is norm preserving when the geometric bound is used. This is an explicit hypothesis, not a consequence asserted for an arbitrary ring homomorphism. The canonical normalized scalar embedding is the intended application. The limit comparison requires CompleteSpace K and actual Tendsto witnesses v_m for every twisted divided-derivative mean. The previously planned convergence theorem supplies those witnesses only once the actual analytic derivatives and their Taylor compatibility are available. No artificial analytic carrier or convergence for all continuous functions is asserted.
+
+**Proof:**
+
+1. Rewrite the difference from1 as (α(u)−1)+Ω(u)^(−1)z.
+2. The old angular norm bound controls the first term, and the preceding increment identity controls the second.
+3. Use the native ultrametric triangle inequality and the maximum of the two bounds. The complete shifted_disc proof includes equality ‖z‖=r.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/morita-angular-norm`, `DirichletPadicLFunctions:L3/morita-shifted-increment-norm`, `mathlib:IsUltrametricDist.isNonarchimedean_norm`.
+
+**Tests:**
+
+- `SuggestedMoritaTranslatedTests.disc_boundary_dyadic` (boundary): Every shift z=4 stays in the dyadic principal disc.
+- `SuggestedMoritaTranslatedTests.disc_boundary_odd` (boundary): Every shift z=3 stays in the ternary principal disc.
+
+**Acceptance:** The closed boundary is retained, rather than silently replacing qℤ_p by a smaller open disc.
+
+**Source:** Section2 pp.258–259, translated finite mean, inverse torsion twist, larger-radius sufficient condition and interchange of the mean limit with the Taylor series; Theorem2 pp.259–260. This checkpoint formalizes the actual shifted samples and finite Taylor identity and proves the infinite comparison using the stronger explicit geometric majorant supplied by a radius R>‖q‖. It does not yet construct the source analytic functional or prove its logarithmic/Gamma identification.
+
+### Actual shifted angular samples as a linear map
+
+`DirichletPadicLFunctions:L3/morita-shifted-samples` — `DirichletPadic.moritaShiftedSamples`
+
+Define S_z(A)(a)=A(α(a)+Ω(a)^(−1)z) when a is a p-unit, and0 otherwise, as a K-linear map (ℤ_p→K)→(ℕ→K).
+
+**Hypotheses:** p is prime, q=4 at p=2 and q=p otherwise, r=‖q‖, and α(u)=u/Ω(u) is the preceding principal angular coordinate. All character twists use the existing common level b=lcm(f,q), with inverse torsion exponent. A:ℤ_p→K and D_m:ℤ_p→K are actual ordinary functions. The intended D_m is A^(m)/m!, supplied by the owned analytic interface. The finite Taylor statement assumes an actual HasSum identity at every principal-disc point for all increments of norm<R. For the norm and limit statements, f>0, K is a characteristic-zero ultrametric normed field with a normalized normed ℚ_p-algebra structure, B≥0 and R>r. On the closed r-disc assume ‖D_m(x)‖≤B/R^m and ‖D_m(x)−D_m(y)‖≤B/(R^m r)‖x−y‖. The coefficient ring homomorphism ι:ℤ_p→K is norm preserving when the geometric bound is used. This is an explicit hypothesis, not a consequence asserted for an arbitrary ring homomorphism. The canonical normalized scalar embedding is the intended application. The limit comparison requires CompleteSpace K and actual Tendsto witnesses v_m for every twisted divided-derivative mean. The previously planned convergence theorem supplies those witnesses only once the actual analytic derivatives and their Taylor compatibility are available. No artificial analytic carrier or convergence for all continuous functions is asserted.
+
+**Proof:**
+
+1. Use the preceding native IsUnit test on the natural index and its actual unit witness. The value is evaluation of A at the displayed translated point; the nonunit branch is zero.
+2. Prove additivity and scalar compatibility pointwise in the two support branches, giving an actual native linear map.
+3. At z=0 recover the preceding angular samples. For ‖z‖≤r, the preceding disc lemma shows that extensions of A outside the closed principal disc cannot affect S_z.
+4. The complete shiftedSamples definition and its evaluation, zero-shift and congruence proofs implement the construction without an analytic-function placeholder.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/morita-angular-samples`, `DirichletPadicLFunctions:L3/morita-shifted-argument-disc`.
+
+**Uses:**
+
+- Morita1975 §2 p.258, definition of the translated finite mean: The summand evaluates the original function at the angular coordinate of x+z; on qℤ_p this is α(x)+Ω(x)^(−1)z.
+- DirichletPadicLFunctions:L3/morita-shifted-samples-taylor: Pointwise Taylor expansion at α(a) produces the inverse torsion weight in each coefficient.
+
+**API:**
+
+- `moritaShiftedSamples_unit` (simp): Evaluate at a p-unit using its actual unit witness.
+- `moritaShiftedSamples_nonunit` (simp): Evaluate to zero when p divides the index.
+- `moritaShiftedSamples_zero_shift` (compatibility): At z=0 the linear map is the preceding angular sample map.
+- `moritaShiftedSamples_congr` (extensionality): For ‖z‖≤r, equality of A and B on the principal disc gives identical samples.
+- `moritaShiftedSamples_add` (structure): S_z(A+B)=S_z(A)+S_z(B).
+- `moritaShiftedSamples_smul` (structure): S_z(cA)=cS_z(A).
+
+**Tests:**
+
+- `SuggestedMoritaTranslatedTests.shifted_sample_dyadic` (computation): For p=2,z=4,A(x)=x²,a=3 the value is49.
+- `SuggestedMoritaTranslatedTests.shifted_sample_nonunit` (degenerate): The sample at a=2 is zero, even for a nonzero constant A.
+- `SuggestedMoritaTranslatedTests.shifted_sample_zero` (compatibility): The zero shift recovers every old angular sample.
+- `SuggestedMoritaTranslatedTests.shifted_sample_wrong_angular_translation` (non-example): At a=3 the shifted square sample is not1: replacing Ω(a)^(−1)z by z gives the wrong point.
+
+**Acceptance:** The shift is a p-adic integer; its construction does not require a natural-number representative.
+
+**Source:** Section2 pp.258–259, translated finite mean, inverse torsion twist, larger-radius sufficient condition and interchange of the mean limit with the Taylor series; Theorem2 pp.259–260. This checkpoint formalizes the actual shifted samples and finite Taylor identity and proves the infinite comparison using the stronger explicit geometric majorant supplied by a radius R>‖q‖. It does not yet construct the source analytic functional or prove its logarithmic/Gamma identification.
+
+### The finite translated angular mean
+
+`DirichletPadicLFunctions:L3/morita-shifted-mean` — `DirichletPadic.moritaShiftedMean`
+
+Define M^n_(χ,z)(A)=M^n_χ(S_z(A)), using the actual normalized finite character mean and shifted samples, as a K-linear map.
+
+**Hypotheses:** p is prime, q=4 at p=2 and q=p otherwise, r=‖q‖, and α(u)=u/Ω(u) is the preceding principal angular coordinate. All character twists use the existing common level b=lcm(f,q), with inverse torsion exponent. A:ℤ_p→K and D_m:ℤ_p→K are actual ordinary functions. The intended D_m is A^(m)/m!, supplied by the owned analytic interface. The finite Taylor statement assumes an actual HasSum identity at every principal-disc point for all increments of norm<R. For the norm and limit statements, f>0, K is a characteristic-zero ultrametric normed field with a normalized normed ℚ_p-algebra structure, B≥0 and R>r. On the closed r-disc assume ‖D_m(x)‖≤B/R^m and ‖D_m(x)−D_m(y)‖≤B/(R^m r)‖x−y‖. The coefficient ring homomorphism ι:ℤ_p→K is norm preserving when the geometric bound is used. This is an explicit hypothesis, not a consequence asserted for an arbitrary ring homomorphism. The canonical normalized scalar embedding is the intended application. The limit comparison requires CompleteSpace K and actual Tendsto witnesses v_m for every twisted divided-derivative mean. The previously planned convergence theorem supplies those witnesses only once the actual analytic derivatives and their Taylor compatibility are available. No artificial analytic carrier or convergence for all continuous functions is asserted.
+
+**Proof:**
+
+1. Compose the existing finite character mean linear map with the newly constructed shifted-sample linear map.
+2. Its denominator and character support are exactly those of the old mean. At z=0 its value is the old angular mean.
+3. For ‖z‖≤r use shifted-sample congruence for extension independence. A constant sample ignores the shift at every surviving index; the old constant normalization gives c(1−1/p) for the level-one character.
+4. The complete shiftedMean definition and apply, zero-shift, congruence and constant lemmas check these claims; native linear-map structure supplies addition and scalar multiplication.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/morita-finite-mean`, `DirichletPadicLFunctions:L3/morita-shifted-samples`, `DirichletPadicLFunctions:L3/morita-angular-mean-constant`, `mathlib:LinearMap.comp`.
+
+**Uses:**
+
+- Morita1975 §2 pp.258–259, definition and limiting expansion of M_(χ,z): The finite maps are the actual sequence whose limit is compared with the twisted Taylor series.
+- Morita1975 Theorem2 and §3 pp.259–260: The difference from the zero-shift mean later supplies the finite integer boundary sum used for log Gamma.
+
+**API:**
+
+- `moritaShiftedMean_apply` (projection): Evaluate as the existing finite character mean of S_z(A).
+- `moritaShiftedMean_zero_shift` (compatibility): At shift zero recover the angular mean linear map.
+- `moritaShiftedMean_congr` (extensionality): For ‖z‖≤r the value depends only on A on the principal disc.
+- `moritaShiftedMean_constant` (example): In characteristic zero the level-one mean of constant c is c(1−1/p).
+- `moritaShiftedMean_add` (structure): The shifted mean preserves addition of actual functions.
+- `moritaShiftedMean_smul` (structure): The shifted mean of cA is c times the shifted mean of A.
+
+**Tests:**
+
+- `SuggestedMoritaTranslatedTests.shifted_mean_dyadic` (computation): At p=2,f=1,n=0,z=4,A=x² the mean is37/2.
+- `SuggestedMoritaTranslatedTests.shifted_mean_odd` (computation): At p=3,f=1,n=0,z=3,A=x² the mean is41/3.
+- `SuggestedMoritaTranslatedTests.shifted_mean_zero` (compatibility): At z=0 recover M^n_(χ,ang).
+- `SuggestedMoritaTranslatedTests.shifted_mean_constant` (degenerate): The dyadic principal mean of constant3 is3/2 at every shift and depth.
+
+**Acceptance:** This is a finite linear map, not an asserted bounded measure on all continuous functions.
+
+**Source:** Section2 pp.258–259, translated finite mean, inverse torsion twist, larger-radius sufficient condition and interchange of the mean limit with the Taylor series; Theorem2 pp.259–260. This checkpoint formalizes the actual shifted samples and finite Taylor identity and proves the infinite comparison using the stronger explicit geometric majorant supplied by a radius R>‖q‖. It does not yet construct the source analytic functional or prove its logarithmic/Gamma identification.
+
+### Taylor expansion at the actual shifted sample
+
+`DirichletPadicLFunctions:L3/morita-shifted-samples-taylor` — `DirichletPadic.moritaShiftedSamples_taylor`
+
+Under the actual radius-R Taylor HasSum hypothesis and ‖z‖<R, the series Σ_m θ_ι(a)^(−m) S(D_m)(a)(ιz)^m has sum S_z(A)(a) for every p-unit a.
+
+**Hypotheses:** p is prime, q=4 at p=2 and q=p otherwise, r=‖q‖, and α(u)=u/Ω(u) is the preceding principal angular coordinate. All character twists use the existing common level b=lcm(f,q), with inverse torsion exponent. A:ℤ_p→K and D_m:ℤ_p→K are actual ordinary functions. The intended D_m is A^(m)/m!, supplied by the owned analytic interface. The finite Taylor statement assumes an actual HasSum identity at every principal-disc point for all increments of norm<R. For the norm and limit statements, f>0, K is a characteristic-zero ultrametric normed field with a normalized normed ℚ_p-algebra structure, B≥0 and R>r. On the closed r-disc assume ‖D_m(x)‖≤B/R^m and ‖D_m(x)−D_m(y)‖≤B/(R^m r)‖x−y‖. The coefficient ring homomorphism ι:ℤ_p→K is norm preserving when the geometric bound is used. This is an explicit hypothesis, not a consequence asserted for an arbitrary ring homomorphism. The canonical normalized scalar embedding is the intended application. The limit comparison requires CompleteSpace K and actual Tendsto witnesses v_m for every twisted divided-derivative mean. The previously planned convergence theorem supplies those witnesses only once the actual analytic derivatives and their Taylor compatibility are available. No artificial analytic carrier or convergence for all continuous functions is asserted.
+
+**Proof:**
+
+1. Apply the supplied Taylor identity at x=α(a) and h=Ω(a)^(−1)z. The old angular norm bound verifies the base point and the new increment identity verifies ‖h‖<R.
+2. Map the unit inverse through ι, expand the m-th power of the product, and identify the torsion-character value at the natural p-unit.
+3. The complete sample_taylor proof establishes equality with the actual series, including the m=0 term. The generic analytic Taylor input is requested from LAD L0, with the larger radius explicitly retained.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/morita-shifted-samples`, `DirichletPadicLFunctions:L3/morita-shifted-increment-norm`, `DirichletPadicLFunctions:L3/morita-torsion-character-map`, `LocallyAnalyticDistributions:L0`.
+
+**Tests:**
+
+- `SuggestedMoritaTranslatedTests.shifted_sample_taylor_quadratic` (computation): At p=2,a=3,z=4,A=x² the three nonzero Taylor terms are9,24,16 and sum49.
+
+**Acceptance:** D_m is the divided derivative. Using raw derivatives without m! changes the coefficient.
+
+**Source:** Section2 pp.258–259, translated finite mean, inverse torsion twist, larger-radius sufficient condition and interchange of the mean limit with the Taylor series; Theorem2 pp.259–260. This checkpoint formalizes the actual shifted samples and finite Taylor identity and proves the infinite comparison using the stronger explicit geometric majorant supplied by a radius R>‖q‖. It does not yet construct the source analytic functional or prove its logarithmic/Gamma identification.
+
+### Finite translated means have the twisted Taylor expansion
+
+`DirichletPadicLFunctions:L3/morita-shifted-mean-taylor` — `DirichletPadic.moritaShiftedMean_taylor`
+
+For each finite depth n and ‖z‖<R, HasSum (m↦(ιz)^m M^n_(χΩ^(−m),ang)(D_m)) (M^n_(χ,z)(A)).
+
+**Hypotheses:** p is prime, q=4 at p=2 and q=p otherwise, r=‖q‖, and α(u)=u/Ω(u) is the preceding principal angular coordinate. All character twists use the existing common level b=lcm(f,q), with inverse torsion exponent. A:ℤ_p→K and D_m:ℤ_p→K are actual ordinary functions. The intended D_m is A^(m)/m!, supplied by the owned analytic interface. The finite Taylor statement assumes an actual HasSum identity at every principal-disc point for all increments of norm<R. For the norm and limit statements, f>0, K is a characteristic-zero ultrametric normed field with a normalized normed ℚ_p-algebra structure, B≥0 and R>r. On the closed r-disc assume ‖D_m(x)‖≤B/R^m and ‖D_m(x)−D_m(y)‖≤B/(R^m r)‖x−y‖. The coefficient ring homomorphism ι:ℤ_p→K is norm preserving when the geometric bound is used. This is an explicit hypothesis, not a consequence asserted for an arbitrary ring homomorphism. The canonical normalized scalar embedding is the intended application. The limit comparison requires CompleteSpace K and actual Tendsto witnesses v_m for every twisted divided-derivative mean. The previously planned convergence theorem supplies those witnesses only once the actual analytic derivatives and their Taylor compatibility are available. No artificial analytic carrier or convergence for all continuous functions is asserted.
+
+**Proof:**
+
+1. Apply the existing finite-mean HasSum interchange to the pointwise translated-sample Taylor identity. Only the surviving p-unit indices require that identity.
+2. Pull the fixed coefficient (ιz)^m outside each finite linear sum.
+3. Use the existing exact common-level inverse-twist formula to identify the weighted mean of D_m. Its common level gives the identical denominator and summation range.
+4. The complete mean_taylor proof carries out the finite interchange. No factor N_n^m belongs here, because z is the fixed actual shift, not a block index.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/morita-shifted-mean`, `DirichletPadicLFunctions:L3/morita-shifted-samples-taylor`, `DirichletPadicLFunctions:L3/morita-finite-mean-has-sum`, `DirichletPadicLFunctions:L3/morita-angular-mean-twist`.
+
+**Tests:**
+
+- `SuggestedMoritaTranslatedTests.shifted_taylor_dyadic` (computation): The dyadic square at z=4 has mean5/2+8+8=37/2.
+- `SuggestedMoritaTranslatedTests.shifted_taylor_missing_twist` (non-example): Omitting the inverse torsion twist gives13/2 and fails the same mean identity.
+
+**Acceptance:** Keep the original character χ, common averaging level and inverse torsion exponent consistent.
+
+**Source:** Section2 pp.258–259, translated finite mean, inverse torsion twist, larger-radius sufficient condition and interchange of the mean limit with the Taylor series; Theorem2 pp.259–260. This checkpoint formalizes the actual shifted samples and finite Taylor identity and proves the infinite comparison using the stronger explicit geometric majorant supplied by a radius R>‖q‖. It does not yet construct the source analytic functional or prove its logarithmic/Gamma identification.
+
+### Uniform means of derivatives bounded on a larger disc
+
+`DirichletPadicLFunctions:L3/morita-overconvergent-derivative-mean-norm` — `DirichletPadic.moritaOverconvergentDerivativeMean_norm`
+
+For all m,n, ‖M^n_(χΩ^(−m),ang)(D_m)‖≤C_f B/R^m, where C_f is the existing arithmetic mean-bound constant.
+
+**Hypotheses:** p is prime, q=4 at p=2 and q=p otherwise, r=‖q‖, and α(u)=u/Ω(u) is the preceding principal angular coordinate. All character twists use the existing common level b=lcm(f,q), with inverse torsion exponent. A:ℤ_p→K and D_m:ℤ_p→K are actual ordinary functions. The intended D_m is A^(m)/m!, supplied by the owned analytic interface. The finite Taylor statement assumes an actual HasSum identity at every principal-disc point for all increments of norm<R. For the norm and limit statements, f>0, K is a characteristic-zero ultrametric normed field with a normalized normed ℚ_p-algebra structure, B≥0 and R>r. On the closed r-disc assume ‖D_m(x)‖≤B/R^m and ‖D_m(x)−D_m(y)‖≤B/(R^m r)‖x−y‖. The coefficient ring homomorphism ι:ℤ_p→K is norm preserving when the geometric bound is used. This is an explicit hypothesis, not a consequence asserted for an arbitrary ring homomorphism. The canonical normalized scalar embedding is the intended application. The limit comparison requires CompleteSpace K and actual Tendsto witnesses v_m for every twisted divided-derivative mean. The previously planned convergence theorem supplies those witnesses only once the actual analytic derivatives and their Taylor compatibility are available. No artificial analytic carrier or convergence for all continuous functions is asserted.
+
+**Proof:**
+
+1. Since R>r>0, B/R^m is nonnegative. Apply the preceding uniform inverse-twist mean estimate to the actual function D_m.
+2. Its value bound is B/R^m and its closed-r-disc Lipschitz constant is B/(R^m r), exactly the explicit hypotheses here.
+3. The complete derivative_mean_norm proof needs no additional conductor growth with m. The larger-disc analytic supplier must provide these restricted derivative bounds and compatibility, rather than reusing the old r-radius request outside its stated domain.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/morita-character-twist-uniform`, `DirichletPadicLFunctions:L3/morita-mean-bound-constant`, `DirichletPadicLFunctions:L3/morita-radius-positive`, `LocallyAnalyticDistributions:L0`.
+
+**Tests:**
+
+- `SuggestedMoritaTranslatedTests.derivative_mean_larger_radius` (computation): At p=2,f=1,n=0, the inverse-twist mean of2x equals2 and has norm1/2.
+
+**Acceptance:** The radius R is distinct from r=‖q‖; the denominator is R^m.
+
+**Source:** Section2 pp.258–259, translated finite mean, inverse torsion twist, larger-radius sufficient condition and interchange of the mean limit with the Taylor series; Theorem2 pp.259–260. This checkpoint formalizes the actual shifted samples and finite Taylor identity and proves the infinite comparison using the stronger explicit geometric majorant supplied by a radius R>‖q‖. It does not yet construct the source analytic functional or prove its logarithmic/Gamma identification.
+
+### A uniform geometric majorant for translated Taylor terms
+
+`DirichletPadicLFunctions:L3/morita-shifted-taylor-term-norm` — `DirichletPadic.moritaShiftedTaylorTerm_norm`
+
+If ι preserves norms and ‖z‖≤r<R, every term has norm at most C_f B(r/R)^m, uniformly in the mean depth n.
+
+**Hypotheses:** p is prime, q=4 at p=2 and q=p otherwise, r=‖q‖, and α(u)=u/Ω(u) is the preceding principal angular coordinate. All character twists use the existing common level b=lcm(f,q), with inverse torsion exponent. A:ℤ_p→K and D_m:ℤ_p→K are actual ordinary functions. The intended D_m is A^(m)/m!, supplied by the owned analytic interface. The finite Taylor statement assumes an actual HasSum identity at every principal-disc point for all increments of norm<R. For the norm and limit statements, f>0, K is a characteristic-zero ultrametric normed field with a normalized normed ℚ_p-algebra structure, B≥0 and R>r. On the closed r-disc assume ‖D_m(x)‖≤B/R^m and ‖D_m(x)−D_m(y)‖≤B/(R^m r)‖x−y‖. The coefficient ring homomorphism ι:ℤ_p→K is norm preserving when the geometric bound is used. This is an explicit hypothesis, not a consequence asserted for an arbitrary ring homomorphism. The canonical normalized scalar embedding is the intended application. The limit comparison requires CompleteSpace K and actual Tendsto witnesses v_m for every twisted divided-derivative mean. The previously planned convergence theorem supplies those witnesses only once the actual analytic derivatives and their Taylor compatibility are available. No artificial analytic carrier or convergence for all continuous functions is asserted.
+
+**Proof:**
+
+1. Use multiplicativity of the field norm and the explicit identity ‖ι(z)‖=‖z‖ to bound the scalar factor by r^m.
+2. Multiply the preceding derivative-mean bound C_f B/R^m and simplify to C_f B(r/R)^m.
+3. The complete term_norm proof retains all signs and nonnegativity conditions. Since r/R<1, this real sequence is summable; the boundary ‖z‖=r is included because R is strictly larger.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/morita-overconvergent-derivative-mean-norm`.
+
+**Tests:**
+
+- `SuggestedMoritaTranslatedTests.shifted_term_quadratic` (computation): For p=2,z=4 and D_2=1 the quadratic translated coefficient has norm1/8.
+- `SuggestedMoritaTranslatedTests.radius_boundary_needs_extension` (non-example): The shift4 has norm1/4, so it fails the old strict1/4-radius condition but satisfies the new1/2-radius condition.
+
+**Acceptance:** Do not infer norm preservation merely from the algebraic coefficient map.
+
+**Source:** Section2 pp.258–259, translated finite mean, inverse torsion twist, larger-radius sufficient condition and interchange of the mean limit with the Taylor series; Theorem2 pp.259–260. This checkpoint formalizes the actual shifted samples and finite Taylor identity and proves the infinite comparison using the stronger explicit geometric majorant supplied by a radius R>‖q‖. It does not yet construct the source analytic functional or prove its logarithmic/Gamma identification.
+
+### The majorant survives the actual coefficient limits
+
+`DirichletPadicLFunctions:L3/morita-shifted-limit-term-norm` — `DirichletPadic.moritaShiftedLimitTerm_norm`
+
+If the actual twisted mean sequence for D_m tends to v_m for each m, then ‖(ιz)^m v_m‖≤C_f B(r/R)^m for all m and all ‖z‖≤r.
+
+**Hypotheses:** p is prime, q=4 at p=2 and q=p otherwise, r=‖q‖, and α(u)=u/Ω(u) is the preceding principal angular coordinate. All character twists use the existing common level b=lcm(f,q), with inverse torsion exponent. A:ℤ_p→K and D_m:ℤ_p→K are actual ordinary functions. The intended D_m is A^(m)/m!, supplied by the owned analytic interface. The finite Taylor statement assumes an actual HasSum identity at every principal-disc point for all increments of norm<R. For the norm and limit statements, f>0, K is a characteristic-zero ultrametric normed field with a normalized normed ℚ_p-algebra structure, B≥0 and R>r. On the closed r-disc assume ‖D_m(x)‖≤B/R^m and ‖D_m(x)−D_m(y)‖≤B/(R^m r)‖x−y‖. The coefficient ring homomorphism ι:ℤ_p→K is norm preserving when the geometric bound is used. This is an explicit hypothesis, not a consequence asserted for an arbitrary ring homomorphism. The canonical normalized scalar embedding is the intended application. The limit comparison requires CompleteSpace K and actual Tendsto witnesses v_m for every twisted divided-derivative mean. The previously planned convergence theorem supplies those witnesses only once the actual analytic derivatives and their Taylor compatibility are available. No artificial analytic carrier or convergence for all continuous functions is asserted.
+
+**Proof:**
+
+1. For fixed m multiply the actual mean Tendsto witness by the fixed scalar (ιz)^m.
+2. Take norms and pass the uniform upper bound through that real limit using the native closed-order theorem le_of_tendsto'.
+3. The complete limit_term_norm proof does not treat a formal symbol v_m as a limit; the Tendsto witness is an explicit input.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/morita-shifted-taylor-term-norm`, `mathlib:Filter.Tendsto.const_mul`, `mathlib:le_of_tendsto'`.
+
+**Tests:**
+
+- `SuggestedMoritaTranslatedTests.limit_term_constant` (degenerate): The m=0 dyadic constant-one coefficient has norm at most C_1=16.
+
+**Acceptance:** Existence of every derivative mean limit remains linked to the real analytic derivative/Taylor interface.
+
+**Source:** Section2 pp.258–259, translated finite mean, inverse torsion twist, larger-radius sufficient condition and interchange of the mean limit with the Taylor series; Theorem2 pp.259–260. This checkpoint formalizes the actual shifted samples and finite Taylor identity and proves the infinite comparison using the stronger explicit geometric majorant supplied by a radius R>‖q‖. It does not yet construct the source analytic functional or prove its logarithmic/Gamma identification.
+
+### The limiting translated Taylor series really converges
+
+`DirichletPadicLFunctions:L3/morita-shifted-limit-summable` — `DirichletPadic.moritaShiftedLimit_summable`
+
+In the complete field K, the series Σ_m(ιz)^m v_m is summable for each ‖z‖≤r.
+
+**Hypotheses:** p is prime, q=4 at p=2 and q=p otherwise, r=‖q‖, and α(u)=u/Ω(u) is the preceding principal angular coordinate. All character twists use the existing common level b=lcm(f,q), with inverse torsion exponent. A:ℤ_p→K and D_m:ℤ_p→K are actual ordinary functions. The intended D_m is A^(m)/m!, supplied by the owned analytic interface. The finite Taylor statement assumes an actual HasSum identity at every principal-disc point for all increments of norm<R. For the norm and limit statements, f>0, K is a characteristic-zero ultrametric normed field with a normalized normed ℚ_p-algebra structure, B≥0 and R>r. On the closed r-disc assume ‖D_m(x)‖≤B/R^m and ‖D_m(x)−D_m(y)‖≤B/(R^m r)‖x−y‖. The coefficient ring homomorphism ι:ℤ_p→K is norm preserving when the geometric bound is used. This is an explicit hypothesis, not a consequence asserted for an arbitrary ring homomorphism. The canonical normalized scalar embedding is the intended application. The limit comparison requires CompleteSpace K and actual Tendsto witnesses v_m for every twisted divided-derivative mean. The previously planned convergence theorem supplies those witnesses only once the actual analytic derivatives and their Taylor compatibility are available. No artificial analytic carrier or convergence for all continuous functions is asserted.
+
+**Proof:**
+
+1. From0<r<R obtain0≤r/R<1. The native real geometric-series theorem makes Σ(r/R)^m summable.
+2. Multiply the real summable majorant by C_f B. Apply the native comparison test for series in a complete normed additive group to the preceding limit-term bound.
+3. The complete translated_summable proof provides an actual Summable witness. Therefore the later tsum denotes the sum of a convergent series, not a fallback value for a divergent one.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/morita-shifted-limit-term-norm`, `DirichletPadicLFunctions:L3/morita-radius-positive`, `mathlib:summable_geometric_of_lt_one`, `mathlib:Summable.of_norm_bounded`, `mathlib:Summable.mul_left`.
+
+**Tests:**
+
+- `SuggestedMoritaTranslatedTests.translated_constant_series` (degenerate): For D_0=1 and all higher derivatives zero, the dyadic limiting series has the single value1/2, including z=0.
+
+**Acceptance:** Completeness is an explicit hypothesis of this comparison theorem.
+
+**Source:** Section2 pp.258–259, translated finite mean, inverse torsion twist, larger-radius sufficient condition and interchange of the mean limit with the Taylor series; Theorem2 pp.259–260. This checkpoint formalizes the actual shifted samples and finite Taylor identity and proves the infinite comparison using the stronger explicit geometric majorant supplied by a radius R>‖q‖. It does not yet construct the source analytic functional or prove its logarithmic/Gamma identification.
+
+### Pass the mean limit through the translated Taylor series
+
+`DirichletPadicLFunctions:L3/morita-shifted-mean-limit` — `DirichletPadic.moritaShiftedMean_limit`
+
+Under the stated complete-field, larger-radius, norm, derivative, Taylor and actual coefficient-limit hypotheses, M^n_(χ,z)(A) tends to Σ_m(ιz)^m v_m for every ‖z‖≤r.
+
+**Hypotheses:** p is prime, q=4 at p=2 and q=p otherwise, r=‖q‖, and α(u)=u/Ω(u) is the preceding principal angular coordinate. All character twists use the existing common level b=lcm(f,q), with inverse torsion exponent. A:ℤ_p→K and D_m:ℤ_p→K are actual ordinary functions. The intended D_m is A^(m)/m!, supplied by the owned analytic interface. The finite Taylor statement assumes an actual HasSum identity at every principal-disc point for all increments of norm<R. For the norm and limit statements, f>0, K is a characteristic-zero ultrametric normed field with a normalized normed ℚ_p-algebra structure, B≥0 and R>r. On the closed r-disc assume ‖D_m(x)‖≤B/R^m and ‖D_m(x)−D_m(y)‖≤B/(R^m r)‖x−y‖. The coefficient ring homomorphism ι:ℤ_p→K is norm preserving when the geometric bound is used. This is an explicit hypothesis, not a consequence asserted for an arbitrary ring homomorphism. The canonical normalized scalar embedding is the intended application. The limit comparison requires CompleteSpace K and actual Tendsto witnesses v_m for every twisted divided-derivative mean. The previously planned convergence theorem supplies those witnesses only once the actual analytic derivatives and their Taylor compatibility are available. No artificial analytic carrier or convergence for all continuous functions is asserted.
+
+**Proof:**
+
+1. For each fixed m, scalar multiplication transports the supplied coefficient mean limit to the m-th translated Taylor term.
+2. The preceding uniform estimate bounds every depth n by the same real summable geometric majorant C_f B(r/R)^m.
+3. Apply the pinned native Tannery theorem tendsto_tsum_of_dominated_convergence. It needs a complete normed additive group, not a real-vector-space structure, so it applies to K.
+4. At each n replace the sum of the series with the actual finite shifted mean using the preceding HasSum identity and ‖z‖≤r<R. The separate summability theorem checks the target series as well.
+5. The complete translated_limit proof finishes the series/limit interchange. The actual analytic carrier, construction of its derivative limits, analyticity in z, integer boundary identity and log-Gamma comparison remain later work.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/morita-shifted-mean-taylor`, `DirichletPadicLFunctions:L3/morita-shifted-taylor-term-norm`, `DirichletPadicLFunctions:L3/morita-shifted-limit-summable`, `mathlib:tendsto_tsum_of_dominated_convergence`, `mathlib:Filter.Tendsto.const_mul`.
+
+**Tests:**
+
+- `SuggestedMoritaTranslatedTests.translated_limit_constant_dyadic` (computation): The dyadic translated constant-one means tend to1/2 for every z.
+- `SuggestedMoritaTranslatedTests.translated_limit_constant_odd` (computation): The ternary translated constant-one means tend to2/3 for every z.
+
+**Acceptance:** All source shifts in qℤ_p are covered by the closed bound. No stage is closed by this conditional comparison.
+
+**Source:** Section2 pp.258–259, translated finite mean, inverse torsion twist, larger-radius sufficient condition and interchange of the mean limit with the Taylor series; Theorem2 pp.259–260. This checkpoint formalizes the actual shifted samples and finite Taylor identity and proves the infinite comparison using the stronger explicit geometric majorant supplied by a radius R>‖q‖. It does not yet construct the source analytic functional or prove its logarithmic/Gamma identification.
+
+**Supplier request — LocallyAnalyticDistributions:L0:** Extend the existing closed-principal-disc Morita request to an actual analytic function on the larger closed disc ‖u−1‖≤R with R>r=‖q‖, for K a complete finite normed ℚ_p-extension. Supply the restricted Gauss norm B, actual divided derivatives D_m=A^(m)/m!, their evaluation bound ‖D_m(x)‖≤B/R^m on the closed r-disc, and their restricted Lipschitz bound ‖D_m(x)−D_m(y)‖≤B/(R^m r)‖x−y‖. Export the actual Taylor HasSum at each closed-r-disc base point for every increment of norm<R, compatibility of restriction/evaluation and iterated divided derivatives, and their individual convergence inputs for the previously planned angular means. The old request states only Taylor increments of norm<r and does not cover boundary shifts z∈qℤ_p with ‖z‖=r. Morita1975 §2 pp.258–260 uses a sufficient larger radius R=|q|^(1−ε)>|q|; the consumer gives an explicit geometric majorant and keeps every mean-limit witness explicit until the typed supplier is available. This is generic analytic functionality in the existing LAD owner, not a new Dirichlet analytic carrier.
+
+**Consumers:** `DirichletPadicLFunctions:L3/morita-shifted-samples-taylor`, `DirichletPadicLFunctions:L3/morita-overconvergent-derivative-mean-norm`.
+
+**Remaining:** Actual shifted angular samples and finite linear means now have a conditional Taylor expansion and complete native series/limit comparison under R>‖q‖, explicit derivative bounds, a norm-preserving coefficient map and actual coefficient limits. The source application awaits the owned LAD larger-radius interface, including real derivative compatibility and convergence witnesses. Next prove analytic/continuous dependence on the closed shift disc and the finite integer boundary identity, then the logarithmic/Gamma comparison on pℤ_p at odd p and8ℤ₂. Gross–Koblitz and Ferrero–Greenberg retain the recorded full-proof reading and normalization work. All17 gaps and13 requests remain open.
+
+### Translated angular means and their convergent Taylor expansion validation
+
+All 882 predecessor nodes, 711 baseline records, 16 findings, requests and sourceVersions remain whole. This checkpoint adds 11 nodes, 23 named suggested declarations and 22 typed examples. The indexed blueprint, four-file intake, whitespace, preservation, API/test parity and versioned-source checks pass. The graph has 1153 reachable nodes, 5737 edges and 888 native leaves and is acyclic. Its stage request leaves are PadicMeasuresIwasawaAlgebras:L1, PadicMeasuresIwasawaAlgebras:L3, PadicMeasuresIwasawaAlgebras:L3, LocallyAnalyticDistributions:L1, AdicSpacesPartII:F1, AdicSpacesPartII:R2, PadicDifferentialEquationsAndRigidCohomology:RD.0, PadicDifferentialEquationsAndRigidCohomology:RD.4, PadicHodgeTheory:P7:annulus-foundations, PadicMeasuresIwasawaAlgebras:L2, LocallyAnalyticDistributions:L1, LocallyAnalyticDistributions:L0, LocallyAnalyticDistributions:L0. The first four new nodes route through preceding angular and finite-mean constructions with native norm facts. The seven analytic comparison nodes retain only the existing LAD L0 stage leaf, now backed by the precise larger-radius request. No new stage owner or import cycle is introduced.
+
+**The full current suggested module was NOT COMPILED.** Its real native import requires TauCeti.NumberTheory.ArithmeticFunction.TwistedDivisorSum. No matching existing artifact was found; WORKERS.md prohibits building the native library. Current compiler exit code, error count and warning count are unavailable, not zero. The exact named signatures and native source were reviewed. PR4773 remains the last compiled full predecessor, with zero errors and1,803 expected placeholder warnings; that receipt does not validate this new module.
+
+The current source closure covers 3604 pinned Mathlib modules and 29 pinned Tau Ceti modules. Only 28 Tau module artifacts are available and hash-verified. The 140 available artifact files and the previously compiled332-node PMIA artifact are checked as partial dependencies. The current369-node supplier source preserves the older interface; no current-module compilation against either revision is claimed. Existing builds only were inspected; no setup, update, cache fetch or native build occurred.
+
+The complete composite probe preserves all17 definitions and146 lemmas of PR5287, adds one Tannery import, and proves2 definitions and17 lemmas for actual translated means. Its norm-preserving embedding and actual coefficient Tendsto inputs are explicit. The separate probe compiles against 2826 pinned Mathlib modules and 7 pinned Tau Ceti modules with zero errors, warnings or placeholders. The probe retains the explicit PMIA integer-ring comparison and seven verified Teichmuller module artifacts. It imports native Tannery directly; no native module was rebuilt. The full suggested file remains NOT COMPILED because the pinned TwistedDivisorSum artifact is missing. General roadmap declarations remain unchecked.
+
+Exact rational controls pass700 shifted-disc and pointwise Taylor cases,900 finite Taylor identities,180 zero shifts,120 constants,900 extension-independence checks,300 derivative-value and1500 Lipschitz checks,2700 geometric bounds,2 boundary-radius controls and2 negative normalization controls. At p=2,z=4,A=x² the correct value37/2 differs from the untwisted13/2. Exact rational controls at p=2,3, original levels1,3,4,5,8,9 and depths0–2. Polynomials x^k of degrees0–4 use their actual divided derivatives, with R=2‖q‖ and B=1. Five shifts include0, positive and negative boundary shifts, a rational p-adic integral shift q/5 and an interior shift. Exact norms verify derivative/Lipschitz and uniform coefficient bounds. Finite checks do not prove the infinite interchange: the complete native Tannery proof does. The largest observed discrepancy is 0 (all exact identities and inequalities).
+
+Post-merge capture d0016c724086c2c81dd20f6512fbcc0815b4f4dc changes only the NumberFieldArithmetic and EllipticCurves link review metadata/history. Read both complete diffs: NFA accepts the prior three scoped links while retaining its restricted-ramification/discriminant gap; EllipticCurves accepts the prior Tate-curve/screening repairs and preserves the old review verbatim. All link payloads, overlaps and screening records are byte-for-byte equal as JSON values. No new mathematical route or independent source verification is inferred from those reviews. The72 captured inputs otherwise remain unchanged; own16 findings, supplier bodies, policies and pinned baseline are unchanged.
+
+The separate partial signature file also compiled with zero errors and 2,834 expected placeholder warnings across 3,600 pinned source modules. It includes all 23 new named declarations and 22 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 32209269f06675fa406ca9c1cbaf682ae894fca6cd4e4872fd07c166516da908.
