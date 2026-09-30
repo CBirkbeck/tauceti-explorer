@@ -10164,3 +10164,119 @@ example (ψ : DirichletCharacter ℚ_[2] 4) (e : ℕ) :
 end DyadicBadLevel
 end
 end SuggestedTwistedEulerTests
+
+/-! Common algebraic coefficients for the positive classical comparison.
+The classical modular form and its positive coefficient formula are explicit
+inputs. The primitive character Eisenstein construction remains with the
+existing ModularForms roadmap. The full module remains NOT COMPILED because
+its required pinned TwistedDivisorSum artifact is unavailable. -/
+namespace DirichletPadic
+noncomputable section
+open scoped AbstractMeasure MatrixGroups ModularForm PowerSeries.WithPiTopology
+open Matrix.SpecialLinearGroup CongruenceSubgroup UpperHalfPlane
+
+theorem twistedDivisorSum_ringHomComp {R S : Type*} [CommRing R] [CommRing S]
+    (j : R →+* S) {D E : ℕ} (ψ : DirichletCharacter R D) (φ : DirichletCharacter R E)
+    (e n : ℕ) :
+    j (DirichletCharacter.twistedDivisorSum e ψ φ n)=
+      DirichletCharacter.twistedDivisorSum e (ψ.ringHomComp j) (φ.ringHomComp j) n := sorry
+
+variable (p : ℕ) [Fact p.Prime]
+variable {F K : Type*} [Field F] [NormedField K] [IsUltrametricDist K]
+  [Algebra ℤ_[p] K] [IsBoundedSMul ℤ_[p] K]
+variable (ιC : F →+* ℂ) (ιK : F →+* K) {D E N : ℕ} [NeZero N]
+local notation "O" => Valuation.integer (NormedField.valuation (K := K))
+
+theorem integralTwistedPositiveEisensteinSeries_classical_positive
+    (ψ : DirichletCharacter F D) (φ : DirichletCharacter F E) (k : ℕ)
+    (f : ModularForm ((Gamma1 N).map (mapGL ℝ)) (k : ℤ))
+    (hf : ∀ n : ℕ+, (qExpansion 1 f).coeff (n : ℕ)=
+      ιC (DirichletCharacter.twistedDivisorSum (k-1) ψ φ (n : ℕ))) :
+    let g : ModularForm ((Gamma1 (p*N)).map (mapGL ℝ)) (k : ℤ) :=
+      ModularForm.ofLe (Gamma1_map_le_Gamma1_map_of_dvd (dvd_mul_left N p)) f-
+        ιC (φ p*(p : F)^(k-1)) •
+          TauCeti.ModularForm.levelRaise p (TauCeti.Gamma1_map_le_conjAct_scaleGL N p) f
+    ∃! Q : PowerSeries F,
+      PowerSeries.map ιC Q=qExpansion 1 g-PowerSeries.C ((qExpansion 1 g).coeff 0) ∧
+      PowerSeries.map ιK Q=
+        PowerSeries.map (Valuation.integer (NormedField.valuation (K := K))).subtype
+          (integralTwistedPositiveEisensteinSeries p (ψ.ringHomComp ιK) (φ.ringHomComp ιK)
+            (integralPrimePowerArithmeticCharacter p 0 (1 : DirichletCharacter K (p^0)) (k-1)).toContinuousMap) := sorry
+
+theorem integralTwistedPositiveEisensteinSeries_classical_full
+    (ψ : DirichletCharacter F D) (φ : DirichletCharacter F E) (k : ℕ)
+    (f : ModularForm ((Gamma1 N).map (mapGL ℝ)) (k : ℤ))
+    (hf : ∀ n : ℕ+, (qExpansion 1 f).coeff (n : ℕ)=
+      ιC (DirichletCharacter.twistedDivisorSum (k-1) ψ φ (n : ℕ)))
+    (c : F) (h0 : (qExpansion 1 f).coeff 0=ιC c) :
+    let g : ModularForm ((Gamma1 (p*N)).map (mapGL ℝ)) (k : ℤ) :=
+      ModularForm.ofLe (Gamma1_map_le_Gamma1_map_of_dvd (dvd_mul_left N p)) f-
+        ιC (φ p*(p : F)^(k-1)) •
+          TauCeti.ModularForm.levelRaise p (TauCeti.Gamma1_map_le_conjAct_scaleGL N p) f
+    ∃! Q : PowerSeries F,
+      PowerSeries.map ιC Q=qExpansion 1 g ∧
+      PowerSeries.map ιK Q=PowerSeries.C (ιK ((1-φ p*(p : F)^(k-1))*c))+
+        PowerSeries.map (Valuation.integer (NormedField.valuation (K := K))).subtype
+          (integralTwistedPositiveEisensteinSeries p (ψ.ringHomComp ιK) (φ.ringHomComp ιK)
+            (integralPrimePowerArithmeticCharacter p 0 (1 : DirichletCharacter K (p^0)) (k-1)).toContinuousMap) := sorry
+end
+end DirichletPadic
+
+namespace SuggestedClassicalTwistedTests
+noncomputable section
+open scoped AbstractMeasure MatrixGroups ModularForm PowerSeries.WithPiTopology
+open Matrix.SpecialLinearGroup CongruenceSubgroup UpperHalfPlane DirichletPadic
+section Algebra
+variable {F K : Type*} [Field F] [NormedField K] [IsUltrametricDist K]
+variable (ιK : F →+* K) {D E : ℕ}
+-- identity_preserves_native_divisor_sum
+example (ψ : DirichletCharacter F D) (φ : DirichletCharacter F E) (e n : ℕ) :
+    DirichletCharacter.twistedDivisorSum e (ψ.ringHomComp (RingHom.id F))
+      (φ.ringHomComp (RingHom.id F)) n=DirichletCharacter.twistedDivisorSum e ψ φ n := sorry
+-- embedding_preserves_native_zero
+example (ψ : DirichletCharacter F D) (φ : DirichletCharacter F E) (e : ℕ) :
+    ιK (DirichletCharacter.twistedDivisorSum e ψ φ 0)=0 := sorry
+-- nonreal_prime_value_survives_embedding
+example [Algebra ℤ_[2] K] [IsBoundedSMul ℤ_[2] K]
+    (i : F) (hi : i^2=-1) (ψ : DirichletCharacter F 5) (hψ : ψ 2=i) :
+    (integralTwistedPositiveEisensteinMeasure 2 (ψ.ringHomComp ιK)
+      ((1 : DirichletCharacter F 1).ringHomComp ιK) 2
+      (integralPrimePowerArithmeticCharacter 2 0 (1 : DirichletCharacter K (2^0)) 2).toContinuousMap : K)=ιK i := sorry
+end Algebra
+
+section Common
+variable {p : ℕ} [Fact p.Prime] {F K : Type*} [Field F] [NormedField K]
+  [IsUltrametricDist K] [Algebra ℤ_[p] K] [IsBoundedSMul ℤ_[p] K]
+variable (ιC : F →+* ℂ) (ιK : F →+* K) {D E N : ℕ} [NeZero N]
+-- common_positive_zero_constant
+example (Q : PowerSeries F) (k : ℕ)
+    (g : ModularForm ((Gamma1 N).map (mapGL ℝ)) (k : ℤ))
+    (hQ : PowerSeries.map ιC Q=qExpansion 1 g-PowerSeries.C ((qExpansion 1 g).coeff 0)) :
+    Q.coeff 0=0 := sorry
+-- common_positive_first_coefficient
+example (ψ : DirichletCharacter F D) (φ : DirichletCharacter F E) (e : ℕ)
+    (Q : PowerSeries F)
+    (hQ : PowerSeries.map ιK Q=
+      PowerSeries.map (Valuation.integer (NormedField.valuation (K := K))).subtype
+        (integralTwistedPositiveEisensteinSeries p (ψ.ringHomComp ιK) (φ.ringHomComp ιK)
+          (integralPrimePowerArithmeticCharacter p 0 (1 : DirichletCharacter K (p^0)) e).toContinuousMap)) :
+    Q.coeff 1=1 := sorry
+-- one_embedding_already_determines_common_series
+example (Q Q' : PowerSeries F) (h : PowerSeries.map ιC Q=PowerSeries.map ιC Q') : Q=Q' := sorry
+-- supplied_constant_has_euler_factor
+example (ψ : DirichletCharacter F D) (φ : DirichletCharacter F E) (e : ℕ)
+    (c : F) (Q : PowerSeries F)
+    (hQ : PowerSeries.map ιK Q=PowerSeries.C (ιK ((1-φ p*(p : F)^e)*c))+
+      PowerSeries.map (Valuation.integer (NormedField.valuation (K := K))).subtype
+        (integralTwistedPositiveEisensteinSeries p (ψ.ringHomComp ιK) (φ.ringHomComp ιK)
+          (integralPrimePowerArithmeticCharacter p 0 (1 : DirichletCharacter K (p^0)) e).toContinuousMap)) :
+    Q.coeff 0=(1-φ p*(p : F)^e)*c := sorry
+end Common
+
+-- fixed_weight_constant_can_be_nonintegral
+example : ‖(-7/240 : ℚ_[2])‖>1 := sorry
+-- zero_truncation_cannot_supply_full_constant
+example (Q : PowerSeries ℚ) (hQ : Q.coeff 0=(-7/240 : ℚ)) :
+    Q≠Q-PowerSeries.C (Q.coeff 0) := sorry
+end
+end SuggestedClassicalTwistedTests
