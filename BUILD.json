@@ -361,7 +361,7 @@
   "libraryAuditStatuses": 58,
   "bibliographicSources": 46,
   "roadmapEdges": 1725,
-  "stageEdges": 8348,
+  "stageEdges": 8349,
   "reviewedLinkPackets": 25,
   "promotedBlueprints": [
     {
@@ -398,7 +398,7 @@
       "file": "ClassicalSerreModularity--R27.3",
       "roadmap": "ClassicalSerreModularity",
       "nodes": 32,
-      "reviewer": "independent-review-REV-ClassicalSerreModularity--R27.3"
+      "reviewer": "independent-review-REV-FIX-RT-PAPER-KHARE-WINTENBERGER-09-I"
     },
     {
       "file": "ClassicalSerreModularity--R33.5",
@@ -492,8 +492,8 @@
     }
   ],
   "sourceDocuments": 296,
-  "htmlBytes": 30297267,
-  "htmlSha256": "7cc98cd1bd2d87b0eb205c3a82f6645b9f14dec057a244d674fb0c63535423d9",
+  "htmlBytes": 30299200,
+  "htmlSha256": "bbdd56d4afe9fa3e6114d314332c17456728e57ba6eec8f37e1089a8b557e7f7",
   "networkDependencies": 0,
   "localProgressOverridesIncluded": false,
   "assets": {
@@ -592,7 +592,7 @@
     "data/blueprints/ArithmeticKTheory--N.7.md": "35ccec306ac1e5a26abaebbf240c9643df611fb6bd35d2bab67411f06206ceb0",
     "data/blueprints/ArithmeticStatistics.json": "91eec9b4dd7122a64ca5d7f44fe60d747a615e534ab8c0637f606ef5640622c1",
     "data/blueprints/ArithmeticStatistics.md": "b7d2294252e401efd7ca43a2a536f9d0fec4b8fd1bfe120614ac5959ff626866",
-    "data/blueprints/ClassicalSerreModularity--R27.3.json": "68642dd5e684e9c699959155ce00ba73e549275161084de773980f1afbe7a4a6",
+    "data/blueprints/ClassicalSerreModularity--R27.3.json": "b248659c4698e9ad2c0adc3439f688f82e104297b69292fdd3ae1008544bb074",
     "data/blueprints/ClassicalSerreModularity--R27.3.md": "065d11b977a14df5a67d62820bfeb223730332e27f3683fc66045ad5df0f503d",
     "data/blueprints/ClassicalSerreModularity--R33.5.json": "24fc11d47100b27cd2f9e7f5ed687098d9290cd4d4af365e04bdeea44bcceddc",
     "data/blueprints/ClassicalSerreModularity--R33.5.md": "5f0699f7532a0170aa455ac496faac65223c12d765c9dcd46656a01500176a34",

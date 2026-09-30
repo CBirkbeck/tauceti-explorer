@@ -503,9 +503,10 @@
    ],
    "title": "From modularity to weight k(ρ̄) and level N(ρ̄), including the scalar dyadic case",
    "kind": "theorem",
-   "statement": "Let ρ̄ : G_ℚ → GL₂(𝔽) be of S-type and modular, and assume p odd, or p = 2 and k(ρ̄) = 2. Then ρ̄ arises from S_{k(ρ̄)}(Γ₁(N(ρ̄))) (for odd p after the twist that puts 2 ≤ k(ρ̄) ≤ p + 1). If the projective image is dihedral — which covers ρ̄|_{G_{ℚ(µ_p)}} reducible for odd p, every solvable image at p = 2 (Lemma 6.1), and every ρ̄ induced from ℚ(i) — Lemma 6.2(i) gives the conclusion (Wiese's theorem at p = 2). Otherwise Theorem 5.1(1) gives a lift ρ_p that is minimally ramified at every prime ≠ p and crystalline of weight k(ρ̄) at p (this is where k(ρ̄) = 2 is needed at p = 2); Theorem 4.1 makes ρ_p modular, and the newform f with ρ_f ≅ ρ_p has weight k(ρ̄), level prime to p (ρ_p is crystalline) and level exactly N(ρ̄) away from p (a minimal lift has the conductor of ρ̄ at every q ≠ p). At p = 2 this includes ρ̄|_{D₂} scalar with non-dihedral projective image, where Buzzard's multiplicity-one level lowering is not available: the \"missing case in characteristic 2\" that KW I say Theorem 1.2(2) fills.",
+   "statement": "Let ρ̄ : G_ℚ → GL₂(𝔽) be of S-type and modular, and assume p odd, or p = 2 and k(ρ̄) = 2. Then ρ̄ arises from S_{k(ρ̄)}(Γ₁(N(ρ̄))). If the projective image is dihedral — which covers ρ̄|_{G_{ℚ(µ_p)}} reducible for odd p, every solvable image at p = 2 (Lemma 6.1), and every ρ̄ induced from ℚ(i) — Lemma 6.2(i) gives the conclusion (Wiese's theorem at p = 2). Otherwise choose i with 2 ≤ k(ρ̄ ⊗ χ_p^i) ≤ p + 1 (p odd; i = 0 when p = 2) and put ρ̄′ = ρ̄ ⊗ χ_p^i, again of S-type with non-dihedral projective image, and with N(ρ̄′) = N(ρ̄) since twisting by χ_p leaves the prime-to-p conductor unchanged. Theorem 5.1(1) gives a lift ρ′_p of ρ̄′ that is minimally ramified at every prime ≠ p and crystalline of weight k(ρ̄′) at p (this is where k(ρ̄) = 2 is needed at p = 2); Theorem 4.1 makes ρ′_p modular, and the newform f′ with ρ_{f′} ≅ ρ′_p has weight k(ρ̄′), level prime to p (ρ′_p is crystalline) and level exactly N(ρ̄) away from p (a minimal lift has the conductor of ρ̄′ at every q ≠ p). Untwist (empty when i = 0, in particular at p = 2): ρ̄ = ρ̄′ ⊗ χ_p^{−i} is modular of level N(ρ̄) prime to p, since twisting by χ_p is the θ-operator on mod p forms of level prime to p; Edixhoven's weight theorem gives a mod p eigenform of type (N(ρ̄), k(ρ̄), ε) with representation ρ̄ (Serre's weight, with no exceptional case for p > 2), and as k(ρ̄) ≥ 2 the Deligne–Serre lifting lemma lifts it to a characteristic-zero eigenform of weight k(ρ̄) and level N(ρ̄), whose newform has level dividing N(ρ̄) and divisible by N(ρ̄) (the prime-to-p conductor of ρ̄ divides that of every characteristic-zero lift), hence equal to N(ρ̄). At p = 2 this includes ρ̄|_{D₂} scalar with non-dihedral projective image, where Buzzard's multiplicity-one level lowering is not available: the \"missing case in characteristic 2\" that KW I say Theorem 1.2(2) fills.",
    "hypotheses": [
-    "KW I state the refined conclusion in Theorem 1.2 but write out only modularity in §3.2 (Theorem 3.4 and the remark after it); this node supplies the passage to weight k(ρ̄) and level N(ρ̄) from the source's own Theorems 5.1(1) and 4.1 and Lemma 6.2(i) (source issue ClassicalSerreModularity/E9)",
+    "KW I state the refined conclusion in Theorem 1.2 but write out only modularity in §3.2 (Theorem 3.4 and the remark after it); this node supplies the passage to weight k(ρ̄) and level N(ρ̄) from the source's own Theorems 5.1(1) and 4.1 and Lemma 6.2(i), applied to a twist of weight in [2, p + 1], and imports the untwisting from SerreWeightAndLevelOptimisation R20.3 (source issue ClassicalSerreModularity/E9)",
+    "Theorems 4.1(2)(i) and 5.1 assume 2 ≤ k(ρ̄) ≤ p + 1 for odd p, while Serre's weight reaches p² − 1: for p ≥ 5, ρ̄|_{I_p} ≅ χ̄_p ⊕ χ̄_p² has weight p + 3, while its twist by χ̄_p^{−1}, 1 ⊕ χ̄_p, has weight 2 and is in range (so, when ρ̄|_{D_p} is split, does its twist by χ̄_p^{−2}, of weight p − 1); so for k(ρ̄) > p + 1 the lift is built for the twist and the conclusion for ρ̄ needs the untwisting",
     "p = 2 with k(ρ̄) = 4 is excluded: Theorem 5.1(1) has no crystalline branch there; R27.6 imports the optimisation for that case",
     "\"minimal\" is KW I §5's notion (Diamond §3 for odd p, KW II §3.3.1 at p = 2), which preserves the prime-to-p conductor; it is stronger than \"unramified wherever ρ̄ is\"",
     "the scalar dyadic case has k(ρ̄) = 2 automatically: ρ̄|_{D₂} scalar is unramified up to twist, hence finite at 2",
@@ -513,11 +514,14 @@
    ],
    "proofSteps": [
     "Dihedral projective image: Lemma 6.2(i) (R27.1).",
-    "Otherwise: Theorem 5.1(1) lift (PotentialModularityAndCompatibleSystems R24.6), Theorem 4.1 (R24.4; GL2ModularityLifting R22.5/R22.6), and read off weight and level from the local properties of ρ_p."
+    "Otherwise twist: choose i with 2 ≤ k(ρ̄ ⊗ χ_p^i) ≤ p + 1 (AlgebraicModularFormsAndSerreWeights R15.4; i = 0 at p = 2); N(ρ̄ ⊗ χ_p^i) = N(ρ̄).",
+    "Theorem 5.1(1) lift of ρ̄ ⊗ χ_p^i (PotentialModularityAndCompatibleSystems R24.6), Theorem 4.1 (R24.4; GL2ModularityLifting R22.5/R22.6), and read off weight and level from the local properties of the lift.",
+    "Untwist: θ-operators (SerreWeightAndLevelOptimisation R20.3/ribet-twist-to-small-weight) and Edixhoven's weight theorem (R20.3/edixhoven-weight-theorem) give a mod p eigenform of weight k(ρ̄) and level N(ρ̄) for ρ̄; the Deligne–Serre lifting lemma (AlgebraicModularFormsAndSerreWeights R15.5) lifts it, and the level of its newform is N(ρ̄) by R24.6/residual-members (iii)."
    ],
    "acceptance": [
     "Check that the level of the newform equals N(ρ̄) at each q ≠ p, including q where ρ̄(I_q) is projectively cyclic of order p (the unipotent-type minimal lift)",
-    "Check the scalar dyadic case: ρ̄|_{D₂} scalar ⇒ unramified up to twist ⇒ finite ⇒ k(ρ̄) = 2, so it lies inside the hypothesis"
+    "Check the scalar dyadic case: ρ̄|_{D₂} scalar ⇒ unramified up to twist ⇒ finite ⇒ k(ρ̄) = 2, so it lies inside the hypothesis",
+    "Check the untwisting on ρ̄|_{I_p} ≅ χ̄_p ⊕ χ̄_p² with p ≥ 5 (Serre weight p + 3): Theorem 5.1(1) applies to ρ̄ ⊗ χ̄_p^{−1} (weight 2), and the conclusion is for ρ̄ at weight p + 3, not only for the twist"
    ],
    "prerequisites": [
     "ClassicalSerreModularity:R27.1/dickson-and-the-dyadic-solvable-refinement",
@@ -526,7 +530,10 @@
     "GL2ModularityLifting:R22.5/kw-odd-prime-lifting",
     "GL2ModularityLifting:R22.6/kw-dyadic-lifting",
     "AlgebraicModularFormsAndSerreWeights:R15.6",
-    "AlgebraicModularFormsAndSerreWeights:R15.4"
+    "AlgebraicModularFormsAndSerreWeights:R15.4",
+    "SerreWeightAndLevelOptimisation:R20.3/ribet-twist-to-small-weight",
+    "SerreWeightAndLevelOptimisation:R20.3/edixhoven-weight-theorem",
+    "AlgebraicModularFormsAndSerreWeights:R15.5/deligne-serre-eigenvalue-lifting-lemma"
    ],
    "library": {
     "module": "TauCeti/NumberTheory/SerreConjecture/KhareWintenberger",
@@ -940,18 +947,17 @@
    "realises": [
     "ClassicalSerreModularity:R27.6"
    ],
-   "title": "Theorem 10.1: compatible systems that arise from newforms",
+   "title": "Theorem 10.1(i): regular compatible systems that arise from newforms",
    "kind": "application",
-   "statement": "Theorem 10.1, a corollary of the assembled theorem (KW I Theorems 1.2 and 9.1 with Kisin's theorem): (i) a two-dimensional REGULAR compatible system that is irreducible and odd arises up to twist from a newform of weight ≥ 2; (ii) a two-dimensional IRREGULAR compatible system that is irreducible and odd arises up to twist from a newform of weight 1. The proof of (ii) uses a theorem of Sen and Fontaine (for almost all λ, ρ_λ is unramified at the residue characteristic of λ) and the arguments of Gross and Coleman–Voloch on weight-one forms. KW I only sketch the proof; Corollary 10.2 (modularity of GL₂-type abelian varieties over ℚ; Artin's conjecture for odd two-dimensional ρ) follows. No statement is made for base fields other than ℚ or rank greater than 2.",
+   "statement": "Theorem 10.1(i), a corollary of the assembled theorem (KW I Theorems 1.2 and 9.1 with Kisin's theorem): a two-dimensional REGULAR compatible system that is irreducible and odd arises up to twist from a newform of weight ≥ 2. Theorem 10.1(ii) (a two-dimensional IRREGULAR compatible system that is irreducible and odd arises up to twist from a newform of weight 1) is owned by ModularityAndLanglandsExtensions:ML.1, together with Khare's weight-one descent that its proof needs after Serre's conjecture; ML.1 imports this layer's strong form (R27.6/full-classical-serre-theorem) for it, and so does Corollary 10.2(ii) (Artin's conjecture for odd two-dimensional ρ), which follows from part (ii). Corollary 10.2(i) (modularity of GL₂-type abelian varieties over ℚ) follows from part (i) with Faltings' isogeny theorem, outside this roadmap. KW I only sketch the proof. No statement is made for base fields other than ℚ or rank greater than 2.",
    "hypotheses": [
-    "in both parts irreducibility of ρ̄_λ for almost all λ comes first, from the bounded conductor and the fixed Hodge–Tate weights",
-    "part (ii) needs the Sen–Fontaine unramifiedness and the Gross / Coleman–Voloch weight-one criteria, cited and not proved",
+    "irreducibility of ρ̄_λ for almost all λ comes first, from the bounded conductor and the fixed Hodge–Tate weights",
+    "part (ii) of KW I Theorem 10.1, with the Sen–Fontaine unramifiedness and the Gross / Coleman–Voloch weight-one criteria it uses, is ModularityAndLanglandsExtensions:ML.1's, not this node's",
     "the conclusion is \"up to twist\"; the twist normalises the Hodge–Tate numbers to (a, 0) with a ≥ 0"
    ],
    "proofSteps": [
-    "Twist so that the Hodge–Tate numbers are (a, 0) with a ≥ 0.",
-    "For a > 0, apply the strong form to ρ̄_λ for infinitely many λ; the resulting forms are one newform in S_k(Γ₁(N)) with k = a + 1 and N fixed.",
-    "For a = 0, Sen–Fontaine give unramifiedness at the residue characteristic for almost all λ, and Gross and Coleman–Voloch place ρ̄_λ in S₁(Γ₁(N)) with N independent of λ."
+    "Twist so that the Hodge–Tate numbers are (a, 0) with a ≥ 0; regularity gives a > 0.",
+    "Apply the strong form to ρ̄_λ for infinitely many λ; the resulting forms are one newform in S_k(Γ₁(N)) with k = a + 1 and N fixed."
    ],
    "acceptance": [
     "Check that the newform produced in (i) has weight a + 1 and level N, both independent of λ",
@@ -969,7 +975,7 @@
     {
      "sourceId": "kw-serre-modularity-I",
      "locator": "Theorem 10.1, p. 20 of the preprint",
-     "match": "The export that downstream roadmaps consume."
+     "match": "The export that downstream roadmaps consume: part (i) here; part (ii) is ModularityAndLanglandsExtensions:ML.1's."
     },
     {
      "sourceId": "kw-serre-modularity-I",
@@ -2142,6 +2148,15 @@
     "ClassicalSerreModularity:R27.4/auxiliary-characteristic-choice"
    ],
    "status": "open"
+  },
+  {
+   "supplier": "SerreWeightAndLevelOptimisation:R20.3",
+   "need": "The untwisting step of KW I Theorem 1.2(1) (source issue ClassicalSerreModularity/E9): for p odd, if ρ̄ ⊗ χ_p^i arises from a newform of level N prime to p, then ρ̄ arises from a mod p eigenform of type (N, k(ρ̄), ε), k(ρ̄) Serre's weight. Twisting by χ_p is the θ-operator on mod p forms of level prime to p (R20.3/ribet-twist-to-small-weight), and Edixhoven's weight theorem (R20.3/edixhoven-weight-theorem, with no exceptional case for p > 2) gives the weight; the Deligne–Serre lifting lemma (AlgebraicModularFormsAndSerreWeights R15.5) then gives a characteristic-zero eigenform of weight k(ρ̄) ≥ 2 and level N.",
+   "neededBy": [
+    "ClassicalSerreModularity:R27.4/strong-form-by-minimal-lifts",
+    "ClassicalSerreModularity:R27.6/full-classical-serre-theorem"
+   ],
+   "status": "open"
   }
  ],
  "coverage": [
@@ -2167,7 +2182,7 @@
    "stageId": "ClassicalSerreModularity:R27.6",
    "status": "source_decomposed",
    "remaining": [],
-   "notes": "The strong form with its four branches, the finite-flat weight-two export to R29 (trivial character by Carayol), and Theorem 10.1 (carried application)."
+   "notes": "The strong form with its four branches, the finite-flat weight-two export to R29 (trivial character by Carayol), and Theorem 10.1(i) (carried application; part (ii) is ModularityAndLanglandsExtensions ML.1's)."
   },
   {
    "stageId": "ClassicalSerreModularity:R33.1",
@@ -2351,8 +2366,8 @@
    "affects": "the proof",
    "locator": "§3.2 (Proof of Theorem 1.2) and the Remark after Theorem 3.4, p. 6 of the author's preprint results.pdf (Invent. Math. 178 (2009) not compared)",
    "printed": "The source derives Theorem 1.2 from Theorem 3.4 and its subsequent remark. It also claims Theorem 3.4 makes (D0) imply Serre’s conjecture for S-type ρ̄ in odd characteristic when N(ρ̄) is odd, and in characteristic 2 when k(ρ̄) = 2.",
-   "correction": "Theorem 3.4 gives only that ρ̄ is modular. The passage to weight k(ρ̄) and level N(ρ̄): if the projective image is dihedral, Lemma 6.2(i); otherwise Theorem 5.1(1) gives a lift minimally ramified away from p and crystalline of weight k(ρ̄) at p (k(ρ̄) = 2 when p = 2), Theorem 4.1 makes it modular, and its newform has weight k(ρ̄) and level N(ρ̄). This covers the dyadic scalar case that the introduction says Theorem 1.2(2) fills.",
-   "reason": "Theorem 3.4 concludes \"is modular\" and its proof (§8.4) lifts with Theorem 5.1(2), which gives weight 2 and a type at p, so the weight k(ρ̄) and level N(ρ̄) of Theorem 1.2 are asserted without an argument in the paper. The introduction (pp. 2–3) says Theorem 1.2(2) fills the missing case of the qualitative-implies-refined problem at 2 (ρ̄|_{D₂} scalar, projective image not dihedral), which is exactly the step not written out. Every ingredient is a theorem of the paper, so the result stands.",
+   "correction": "Theorem 3.4 gives only that ρ̄ is modular. The passage to weight k(ρ̄) and level N(ρ̄): if the projective image is dihedral, Lemma 6.2(i); otherwise choose i with 2 ≤ k(ρ̄ ⊗ χ_p^i) ≤ p + 1 (p odd; i = 0 when p = 2); Theorem 5.1(1) gives a lift of ρ̄ ⊗ χ_p^i minimally ramified away from p and crystalline of weight k(ρ̄ ⊗ χ_p^i) (k(ρ̄) = 2 when p = 2), Theorem 4.1 makes it modular, and its newform has level N(ρ̄) (twisting by χ_p leaves the prime-to-p conductor unchanged). Untwist: ρ̄ is then modular of level N(ρ̄) prime to p, and Edixhoven's weight theorem (with θ-operators and the Deligne–Serre lifting lemma) gives a newform of weight k(ρ̄) and level N(ρ̄). This covers the dyadic scalar case that the introduction says Theorem 1.2(2) fills.",
+   "reason": "Theorem 3.4 concludes \"is modular\" and its proof (§8.4) lifts with Theorem 5.1(2), which gives weight 2 and a type at p, so the weight k(ρ̄) and level N(ρ̄) of Theorem 1.2 are asserted without an argument in the paper. The introduction (pp. 2–3) says Theorem 1.2(2) fills the missing case of the qualitative-implies-refined problem at 2 (ρ̄|_{D₂} scalar, projective image not dihedral), which is exactly the step not written out. Theorems 4.1(2)(i) and 5.1 assume 2 ≤ k(ρ̄) ≤ p + 1 when p > 2 (p. 9), and only some twist ρ̄ ⊗ χ_p^i has weight in that range (p. 2), so for odd p the argument ends with an untwisting (Edixhoven's weight theorem). Every ingredient is a theorem of the paper or of Edixhoven's weight theorem, so the result stands.",
    "known": "new as far as found: not in the arXiv or preprint versions read; the published version was not compared",
    "searched": [
     "KW I preprint results.pdf (sha256 3c389dc3…): §§1–3 and 8.4 read, and no argument for the refined form was found elsewhere in it"
@@ -2396,170 +2411,8 @@
  ],
  "review": {
   "status": "accepted",
-  "reviewer": "independent-review-REV-ClassicalSerreModularity--R27.3",
-  "date": "2026-09-29",
-  "notes": "Independent review by Claude Code (cc-fb70e5) of checkpoint 1 of BP-ClassicalSerreModularity--R27.3 (Claude Code cc-39fac3, PR #3858). Sources: the four PDFs were downloaded and every sha256 reproduced (KW I preprint, KW Annals 169, Dieulefait–Pacetti arXiv v2, Serre 1987); all 90 excerpts were compared with the extracted text (21 match verbatim after normalisation and 48 more by runs of words; the other 21 were read and differ only by layout: line breaks, sub- and superscripts, ligatures), and the locators agree with the pages. Closure and baseline: check_blueprint --index gives 0 errors and 0 warnings; the packet cites no baseline declarations, and the 13 requests name suppliers whose layer descriptions cover what is asked. Statements and proof steps of all 32 nodes were read against KW I, KW's Annals paper, DP and Serre. Corrections (2 nodes): the image of Ind κ is dihedral of order 2q only after normalising κ at the Frobenius attached to N, and the Paso 2 lift has that inertial type and projective image but infinite image on D_N. Source issues: E3–E7 confirmed; E8 (DP's 'dihedral image of order 2q' for a weight-2 lift) and E9 (KW I asserts weight k(ρ̄) and level N(ρ̄) in Theorem 1.2 while §3.2 proves only modularity) added. Two nodes sit under R27.1, owned by part R26.1, and discharge that part's recorded remaining item. The suggested Lean file compiles with lake env lean against Mathlib 082e2d37e.",
-  "checked": [
-   {
-    "nodeId": "ClassicalSerreModularity:R27.1/lemma-8-2-chebotarev-choice-of-auxiliary-primes",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites. Checked against KW I Lemma 8.2, its Remark and proof (pp. 17–18) and DP Lemma 1.15 (p. 9): the 𝔽_p-rational hypothesis is KW's own correction of their earlier version, and the Chebotarev request to Tau Ceti layer 10 names the right supplier. The node sits under R27.1, which is in the scope of part R26.1; it discharges that part's recorded remaining item, as RS-06 allows, and the R26.1 coverage record should say so at assembly."
-   },
-   {
-    "nodeId": "ClassicalSerreModularity:R27.1/good-dihedral-prime-insertion",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites. Checked against KW I §8.4 (p. 18) and Theorem 5.1(4) (pp. 9–10): p′ | q + 1, the level-2 pair {χ′, χ′^q} of p′-power order, and minimal ramification away from p′ and q. Same placement remark as the Lemma 8.2 node."
-   },
-   {
-    "nodeId": "ClassicalSerreModularity:R27.3/theorem-3-1-killing-ramification",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
-   },
-   {
-    "nodeId": "ClassicalSerreModularity:R27.3/theorem-3-3-initial-case",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
-   },
-   {
-    "nodeId": "ClassicalSerreModularity:R27.3/double-induction-assembly",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
-   },
-   {
-    "nodeId": "ClassicalSerreModularity:R27.3/d0-from-all-lr",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
-   },
-   {
-    "nodeId": "ClassicalSerreModularity:R27.4/auxiliary-characteristic-choice",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
-   },
-   {
-    "nodeId": "ClassicalSerreModularity:R27.4/theorem-3-4-raising-levels-and-the-chebotarev-choice",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
-   },
-   {
-    "nodeId": "ClassicalSerreModularity:R27.4/strong-form-by-minimal-lifts",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites. Verified. The step it supplies (modular ⇒ weight k(ρ̄) and level N(ρ̄) via Theorems 5.1(1) and 4.1 and Lemma 6.2(i)) is not written in KW I; it is now recorded as source issue E9, which the first hypothesis cites."
-   },
-   {
-    "nodeId": "ClassicalSerreModularity:R27.4/theorem-1-2",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
-   },
-   {
-    "nodeId": "ClassicalSerreModularity:R27.5/dyadic-weight-two-claim",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites. Verified against KW I, proof of Theorem 9.1 (p. 19); it uses the corrected readings of E3 and E6."
-   },
-   {
-    "nodeId": "ClassicalSerreModularity:R27.5/d1-by-the-prime-three",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
-   },
-   {
-    "nodeId": "ClassicalSerreModularity:R27.5/dr-for-r-at-least-two",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
-   },
-   {
-    "nodeId": "ClassicalSerreModularity:R27.5/hypothesis-H-and-theorem-9-1",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
-   },
-   {
-    "nodeId": "ClassicalSerreModularity:R27.6/full-classical-serre-theorem",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
-   },
-   {
-    "nodeId": "ClassicalSerreModularity:R27.6/finite-flat-weight-two-export",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
-   },
-   {
-    "nodeId": "ClassicalSerreModularity:R27.6/scope-of-the-final-statement-and-the-compatible-system-export",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
-   },
-   {
-    "nodeId": "ClassicalSerreModularity:R33.1/dp-target-and-the-weight-at-least-two-convention",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
-   },
-   {
-    "nodeId": "ClassicalSerreModularity:R33.1/dp-modularity-lifting-inputs",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites. Verified; the gap on DP Theorem 1.7's second bullet and the unread primary sources of Theorems 1.3–1.7 remain recorded as the packet's gaps."
-   },
-   {
-    "nodeId": "ClassicalSerreModularity:R33.1/fontaine-laffaille-member-not-bad-dihedral",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
-   },
-   {
-    "nodeId": "ClassicalSerreModularity:R33.1/solvable-residual-termination",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
-   },
-   {
-    "nodeId": "ClassicalSerreModularity:R33.1/paso-1-weight-two-system",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
-   },
-   {
-    "nodeId": "ClassicalSerreModularity:R33.2/dihedral-local-type-at-n",
-    "verdict": "corrected",
-    "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites. Corrected: the image of Ind κ is dihedral of order 2q only when κ is trivial on the Frobenius attached to N; without that the scalar κ(Art(N)) lies in the image, which has order 2q², and only the projective image is dihedral of order 2q. The normalisation is added to the statement, the constructor and a new characterisation (levelTwoCharacter_artin), with the image computed in a new proof step and a non-example test. The inertial type, which is all that the consuming nodes use, is unchanged."
-   },
-   {
-    "nodeId": "ClassicalSerreModularity:R33.2/dp-lift-existence-and-good-dihedral-insertion",
-    "verdict": "corrected",
-    "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites. Corrected: the lift's image on D_N is not dihedral of order 2q (det ρ^{(2)}_q(Frob_N) = ψ(N)·N is not a root of unity, so that image is infinite); the statement now says the inertial type is that of Ind κ, with inertia image cyclic of order q and projective image of D_N dihedral of order 2q. This follows DP p. 11, recorded as source issue E8. The degenerate test on q = 5 gave a wrong reason (Dickson's step needs only q ∤ 12, 24) and is restated."
-   },
-   {
-    "nodeId": "ClassicalSerreModularity:R33.2/lemma-2-1-large-image",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites. Checked against DP Lemma 2.1 (p. 11) and KW I Definition 2.1 and Lemma 6.3: the argument uses only the inertial type at N, so E8 does not touch it; that the type survives the congruences of Pasos 3–4 rests on E7's corrected notion of minimal lift."
-   },
-   {
-    "nodeId": "ClassicalSerreModularity:R33.2/paso-3-killing-the-odd-level",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
-   },
-   {
-    "nodeId": "ClassicalSerreModularity:R33.3/dp-dyadic-transition-and-the-order-three-type",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites. Checked against DP Lemma 2.3 (p. 12) and KW I Theorem 5.1(4): only an inertial type at 2 is prescribed, so the normalisation added to R33.2 is not needed here."
-   },
-   {
-    "nodeId": "ClassicalSerreModularity:R33.3/remark-6-weight-two-after-type-change",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites. Verified; it uses E6's corrected reading (flat over no extension of odd ramification index)."
-   },
-   {
-    "nodeId": "ClassicalSerreModularity:R33.3/paso-4-removing-two",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
-   },
-   {
-    "nodeId": "ClassicalSerreModularity:R33.3/paso-5-killing-the-good-dihedral-prime",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
-   },
-   {
-    "nodeId": "ClassicalSerreModularity:R33.4/dp-terminal-characteristic-five-and-the-schoof-base-case",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites. Verified; the terminal cases are imported from SmallRamificationAndAbelianVarietyBaseCases R25.5, and the Theorem 1.7 gap remains recorded."
-   },
-   {
-    "nodeId": "ClassicalSerreModularity:R33.4/dp-odd-characteristic-assembly",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
-   }
-  ]
+  "reviewer": "independent-review-REV-FIX-RT-PAPER-KHARE-WINTENBERGER-09-I",
+  "date": "2026-09-30",
+  "notes": "Independent review by Claude Code (cc-c2c06b) of the fixes FIX-RT-PAPER-KHARE-WINTENBERGER-09-I (Claude Code cc-f805bf, PR #5172) to this packet, for RT-PAPER-KHARE-WINTENBERGER-09-I /1, /2 and /7 (with /4's strong form, which the R27.6 node now cites); it follows the review REV-ClassicalSerreModularity--R27.3 (cc-fb70e5, accepted 2026-09-29). The KW I preprint results.pdf was re-downloaded (sha256 3c389dc3…bad82 reproduced) and read at pp. 2, 6, 9, 11 and 20–21: the twist into [2, p + 1] (p. 2), the weight hypotheses of §4 and Theorem 5.1 (pp. 6, 9), Lemma 6.2(i) with no weight bound (p. 11), and Theorem 10.1, its sketched proof and Corollary 10.2 (pp. 20–21). Checked: R27.4/strong-form-by-minimal-lifts now proves the refined form for the twist and untwists through R20.3/edixhoven-weight-theorem (unconditional for Serre's weight), R20.3/ribet-twist-to-small-weight and R15.5/deligne-serre-eigenvalue-lifting-lemma, with the level fixed by R24.6/residual-members (iii); every cited node exists with the statement used. The R27.6 export node now states Theorem 10.1(i) only and names ModularityAndLanglandsExtensions ML.1 as owner of part (ii) and of Corollary 10.2(ii); Corollary 10.2(i) follows from part (i) with Faltings, as p. 21 says. The request to SerreWeightAndLevelOptimisation R20.3 and E9's amended correction are right. The new imports R20.3 → R27.4, R15.5 → R27.4 and R20.3 → R27.6 are already implied on data/atlas.json plus the link files and close no cycle; R27.6 → ML.1 is acyclic. Corrected in place: the R27.4 hypothesis said that only the twist by χ̄_p^{−1} of χ̄_p ⊕ χ̄_p² is in [2, p + 1], but when ρ̄|_{D_p} is split its twist by χ̄_p^{−2} (χ̄_p^{p−2} ⊕ 1) has Serre weight p − 1 as well; the example's point, weight p + 3 out of range, stands. check_blueprint with the declaration index: 0 errors, 0 warnings. The earlier review's per-node 'checked' records (32 nodes) are superseded by this object and remain in the packet's history (PR #3862, commit 822be0e7)."
  }
 }
