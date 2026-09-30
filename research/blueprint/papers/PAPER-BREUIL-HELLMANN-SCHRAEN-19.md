@@ -24,10 +24,41 @@ The **trianguline variety** X_tri(r̄) is the Zariski closure, inside the framed
 
 Two facts decided the routing, and both were checked against `data/atlas.json` rather than assumed: **no stage plans the trianguline variety** — "trianguline" occurs in the atlas only as an adjective inside hypotheses of `CompletedCohomologyAndLocalGlobalCompatibility` and in a GL₂(Q_p) block check, never as the geometric object — and **no stage plans the Springer or Grothendieck resolution, the Steinberg variety or the nilpotent cone**. No other paper extraction has proposed a home for either.
 
-1. **New roadmap `SpringerResolutionAndCharacteristicCycles`** (area `representations`), 29 items: §2 in full — g̃ and the simultaneous resolution, X and its components, reducedness, Cohen–Macaulayness, the new normality result, the Steinberg variety, Beilinson–Bernstein and characteristic cycles, the three bases of the cycle group and the Kazhdan–Lusztig transition matrix, the tangent-space bound. Category O, Verma modules and Kazhdan–Lusztig polynomials, and flag varieties with the Bruhat order, are `planned` imports from the Tau Ceti representation-theory roadmaps (Lie highest weight Layer 3, Lie groups Layer 8) — a source route may not re-plan a Tau Ceti roadmap, so they cannot be routed there.
-2. **New roadmap `TriangulineVarietyAndItsLocalModel`** (area `padic`), 67 items: §§3 and 4 — almost de Rham representations and Fontaine's equivalence, lattices versus filtrations, trianguline (φ,Γ_K)-modules and their deformation groupoids, the formal smoothness theorem 3.4.4, the structure theorem 3.6.2, the local model diagram, local irreducibility, all local companion points, and the cycle formalism with the Breuil–Mézard conjecture.
-3. **Part II of `CompletedCohomologyAndLocalGlobalCompatibility`**, id `LocalGlobalCompatibilityPartIIEigenvarietyCompanions` (area `automorphic`), 27 items: §5 and the global statements of §1. The parent owns completed cohomology, classical specialisations, Hecke and deformation actions and patched completed modules, but its stages are written for modular and Shimura curves; nothing there plans an eigenvariety for a definite unitary group, the patched eigenvariety, or companion constituents.
-4. Four **source routes** carrying the 12 `planned` items to their existing owners: `PhiGammaModulesAndIwasawaCohomology` PG.3 and PG.7 ((φ,Γ_K)-modules over the relative Robba category of Kedlaya–Pottharst–Xiao, and the Herr complex that is this paper's (φ,γ_K)-cohomology), `PadicHodgeTheory` P7 (B_dR, the almost de Rham theory, Berger's functors), `LocalGaloisDeformationRings` R08.1 and R08.3 (the framed deformation ring that is the ambient space of X_tri(r̄)), and `CompletedCohomologyAndLocalGlobalCompatibility` R31.2 and R31.5 (completed cohomology and patched modules).
+1. **New roadmap `SpringerResolutionAndCharacteristicCycles`** (area `representations`): §2. It covers:
+   - the flag variety G/B with the orbits U_w on G/B × G/B;
+   - g̃ and the simultaneous resolution, and X with its components;
+   - reducedness, Cohen–Macaulayness and the new normality result;
+   - the Steinberg variety, the D-module foundations, Beilinson–Bernstein and characteristic cycles;
+   - the three bases of the cycle group and the Kazhdan–Lusztig transition matrix;
+   - the tangent-space bound.
+
+   Verma modules and L(λ) are planned at Tau Ceti LieHighestWeight Layer 3. Borel subgroups, the Weyl group and the Bruhat decomposition are planned at Tau Ceti ReductiveGroups Layer 7.
+
+   *Corrected by FIX-RT-PAPER-BREUIL-HELLMANN-SCHRAEN-19:* category O and Kazhdan–Lusztig theory are not planned by any Tau Ceti layer. They go to route 8. LieGroups Layer 8, about complex flag manifolds, is not the owner.
+2. **New roadmap `TriangulineVarietyAndItsLocalModel`** (area `padic`): §§3 and 4. It covers:
+   - lattices versus filtrations;
+   - trianguline (φ,Γ_K)-modules and their deformation groupoids;
+   - the formal smoothness theorem 3.4.4;
+   - **the construction of the trianguline variety X_tri(r̄) itself**, which was wrongly marked planned at R08.3;
+   - the structure theorem 3.6.2 and the local model diagram;
+   - local irreducibility and all local companion points;
+   - the cycle formalism with the Breuil–Mézard conjecture, with codimensions corrected by E12.
+
+   It imports almost de Rham theory from route 4.
+3. **Part II of `CompletedCohomologyAndLocalGlobalCompatibility`**, id `LocalGlobalCompatibilityPartIIEigenvarietyCompanions` (area `automorphic`): §5 and the global statements of §1.
+   - *Corrected:* completed cohomology is owned by CompletedCohomologyPartII (CC.1, CC.2, CC.5, CC.8), and R_{ρ̄,S} by GlobalGaloisDeformations G7. A definite-unitary eigenvariety is planned at AutomorphicGaloisRepresentationsPartII AG2.3.
+   - What is new is Emerton's Jacquet-module construction of Y(U^p,ρ̄) and of the patched eigenvariety, the CEGGPS patched module for GL_n (beside Böckle–Iyengar–Paškūnas in the same Part II), and companion constituents.
+4. **Part II of `PadicHodgeTheory`**, joining PAPER-FARGUES-FONTAINE-18 route 5: B_dR-representations, almost de Rham theory, Fontaine's G_a-equivalence with coefficients, B-pairs with Berger's equivalence, and W⁺_dR/W_dR with coefficients. This replaces the source route to P7, which plans none of them.
+5. **Source of `LocalGaloisDeformationRings` R08.1**: the framed Galois deformation groupoid X_r only.
+6. **New roadmap `LocallyAnalyticRepresentationsOfLocalGroups`**, joining PAPER-DING-25 route 1. It carries:
+   - very strongly admissible locally analytic vectors;
+   - the Orlik–Strauch functor and its Jordan–Hölder theorem;
+   - Emerton's Jacquet functor and adjunction;
+   - the product-of-groups extension of Remark 5.1.2.
+
+   This replaces the source route to R31.2/R31.5.
+7. **Source of `PhiGammaModulesAndIwasawaCohomology` PG.3 and PG.7**, unchanged.
+8. **Part II of Tau Ceti `LieHighestWeight`**, joining PAPER-BOXER-CALEGARI-GEE-PILLONI-25 route 3: category O and its block O(0), the Kazhdan–Lusztig polynomials, and the Kazhdan–Lusztig multiplicity theorem as a stated input.
 
 ## Source issues
 
@@ -80,3 +111,36 @@ Nothing needed correcting in place.
   verbatim with two co-proposing papers, so changing it here alone would break the merge.
 
 Full report: `research/blueprint/reviews/REV-PAPER-BREUIL-HELLMANN-SCHRAEN-19.md`.
+
+## Fixes (FIX-RT-PAPER-BREUIL-HELLMANN-SCHRAEN-19, 30 September 2026)
+
+Claude Code, session `cc-c2c06b`, issue #5009. This fix applies the four high and six medium findings of
+`RT-PAPER-BREUIL-HELLMANN-SCHRAEN-19`, with the corrections of its verifier (Claude Code, cc-58621d). The full record is
+`research/blueprint/redteam/RT-PAPER-BREUIL-HELLMANN-SCHRAEN-19.fixes.md`. The routing list above is rewritten to
+match; where other sections disagree with this one, this one is current.
+
+- **Codimension (E12, /4).** The cycles of the character fibre have codimension [K:Q_p]n(n+1)/2 + n, not the printed
+  [K:Q_p]n(n+3)/2, and the fibre has dimension n² − n + [K:Q_p]n(n−1)/2. The two values agree only for K = Q_p. For
+  n = 1 and [K:Q_p] = 2 the printed codimension exceeds the dimension of the ring. Items, conventions and gaps are
+  corrected.
+- **Miracle flatness (E13, /10).** Lemma 2.3.2 is false as printed. The counterexample is Spec k ⊔ A¹ → A¹. It needs
+  the local dimension equality, which every use in the paper satisfies.
+- **E8 (/11).** The graded pieces are finite projective over A⊗_{Q_p}K, not free: τ-dependent jumps occur.
+- **The trianguline variety (/2)** is built in route 2. R08.3 plans only Kisin's potentially semistable rings. The
+  trianguline Galois groupoids are split from X_r.
+- **Almost de Rham theory and B-pairs (/3)** go to the PadicHodgeTheory Part II of Fargues–Fontaine (route 4).
+- **Category O and Kazhdan–Lusztig (/1)** go to the LieHighestWeight Part II of Boxer–Calegari–Gee–Pilloni (route 8).
+  D-module foundations stay in route 1. Verma modules stay planned at Layer 3, with the Tau Ceti declarations and their
+  limits noted.
+- **Flag variety (/9).** Item 2.1-setting is planned at Tau Ceti ReductiveGroups Layers 7 and 3. The scheme G/B and the
+  orbits U_w are a new item in route 1.
+- **Completed cohomology, patching and the eigenvariety (/5, /6, /7).**
+  - Completed cohomology is planned at CompletedCohomologyPartII CC.1, CC.2, CC.5 and CC.8, and R_{ρ̄,S} at
+    GlobalGaloisDeformations G7.
+  - The patched module and the patched eigenvariety are missing items in route 3.
+  - AG2.3's definite-unitary eigenvariety is cited; route 3 plans only Emerton's construction.
+- **Locally analytic inputs (/5, /8).** They join Ding's LocallyAnalyticRepresentationsOfLocalGroups (route 6), with
+  Remark 5.1.2's product extension. Lemmas 5.2.1–5.2.6 stay in route 3, in their general form.
+- **Result:** 149 items (8 planned, 141 missing; 135 items, 12 planned and 123 missing before), 8 routes, 22
+  prerequisites and 13 source issues. The verdicts of routes 4 and 6, and of the
+  new route 8, must be recorded again, because those routes were replaced in place or added.
