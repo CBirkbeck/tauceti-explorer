@@ -40631,7 +40631,8 @@
     "REV-LINK-tauceti_TauCetiRoadmap_Chebotarev"
    ],
    "prompt": "research/blueprint/prompts/RT-LINK-tauceti_TauCetiRoadmap_Chebotarev.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4351"
   },
   {
    "id": "REV-RT-LINK-tauceti_TauCetiRoadmap_Chebotarev",
@@ -41315,8 +41316,9 @@
     "REV-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SchurWeyl"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SchurWeyl.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4373"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4373",
+   "finishedAt": "2026-09-30T11:50:55Z"
   },
   {
    "id": "RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SemisimpleAlgebras",
