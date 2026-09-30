@@ -10,7 +10,7 @@
     "DirichletPadicLFunctions:L4"
   ],
   "status": "partial",
-  "summary": "Four L2 nodes promote three existing formal/Amice APIs and compare actual tame measure values under a compatible continuous coefficient-field extension. One new theorem and five tests use the native Mahler basis and all continuous K-tests. All657 predecessor nodes remain whole; no new measure functor, finding, request or stage closure.",
+  "summary": "Four L2 nodes promote two existing inverse-weight/restriction APIs and compare actual ambient and intrinsic tame zeta values under a continuous scalar tower. Two new theorems and eight tests map both characters and continuous tests. All661 predecessor nodes remain whole; no new generic operator, finding, request or stage closure.",
   "baseline": {
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
@@ -3962,6 +3962,13 @@
         "module": "Mathlib/Algebra/Algebra/Tower.lean",
         "provides": "The direct coefficient algebra map equals the composite through a genuine scalar tower.",
         "checked": "Whole declaration and ambient hypotheses read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on30September2026; exercised by the complete native field-comparison proof and checked against the unchanged declaration index."
+      },
+      {
+        "ref": "mathlib:DFunLike.ext",
+        "kind": "theorem",
+        "module": "Mathlib/Data/FunLike/Basic.lean",
+        "provides": "Equality of function-like objects from equality of every evaluation; applied to the native AbstractMeasure FunLike instance.",
+        "checked": "Whole native statement and ambient DFunLike hypotheses, and the actual AbstractMeasure FunLike instance, read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on30September2026; exact name checked against the unchanged declaration index."
       }
     ]
   },
@@ -43417,6 +43424,228 @@
       "acceptance": [
         "This is an all-continuous-test equality for the actual tame measures. It neither constructs a generic coefficient-extension functor nor proves character-field descent, integral-ring comparison, inverse-weighted zeta comparison or a field-valued pseudomeasure evaluator."
       ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L2/tame-zeta-unrestricted-weight",
+      "parentStageId": "DirichletPadicLFunctions:L2",
+      "realises": [
+        "DirichletPadicLFunctions:L2"
+      ],
+      "title": "The tame zeta measure as a single inverse weight",
+      "kind": "lemma",
+      "statement": "ζ_η=weight(gK)(μ_η), where the native zero-extended inverse is used.",
+      "hypotheses": [
+        "p is prime; K is a complete nontrivially normed ultrametric field with Algebra ℤ_p K and bounded ℤ_p scalar action. D>0, η:DirichletCharacter K D, hD:IsUnit(D:K) and p∤D. The existing measure is defined by ζ_η=weight(gK)(unitRestriction p K μ_η). No second coefficient field is required."
+      ],
+      "proofSteps": [
+        "Promote the existing tameZetaMeasure_eq_unrestricted_weight API without duplicating or changing its suggested declaration.",
+        "The native PadicInt.inv conditional and PadicInt.isUnit_iff show that gK(x)=0 on every nonunit. On units, the unit characteristic function is1; on the complement, gK is0. Thus (1−χ_pℤ_p)gK=gK as actual continuous functions.",
+        "Evaluate both measures on every continuous f. The existing weight-evaluation and unit-restriction-evaluation give μ_η((1−χ_pℤ_p)(gK f))=μ_η(gK f). Native DFunLike.ext on the existing AbstractMeasure function-like structure concludes the equality.",
+        "The complete native inverse_zero_of_nonunit proof checks the zero branch from the native norm/unit equivalence. The already supplied continuity node bundles this inverse; continuity of field inversion at zero is never used."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L2/tame-zeta-measure",
+        "PadicMeasuresIwasawaAlgebras:L2/weight-evaluation",
+        "PadicMeasuresIwasawaAlgebras:L2/unit-restriction-evaluation",
+        "mathlib:PadicInt.inv",
+        "mathlib:PadicInt.isUnit_iff",
+        "mathlib:DFunLike.ext"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/TameCoefficientFields",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.tameZetaMeasure_eq_unrestricted_weight"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Remark3.33, published129/PDF30; Lemma5.11, equation(5-6), Definition5.13 and its following interpolation identity, published145–146/PDF46–47. These complete pages freshly read on30September2026; the coefficient-field discussion of Remark5.8(2), published143–144, was read in the immediately preceding continuation.",
+          "match": "Worker coefficient-field compatibility for the existing inverse-weighted tame zeta measure and its actual unit-group restriction. The source supplies these constructions; compatibility is derived from the preceding all-test tame-measure comparison and existing PMIA evaluation laws. No generic coefficient-extension functor, integral-ring transport or character-field descent theorem is presumed."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedTameZetaFieldComparisonTests.inverse_stays_zero_on_nonunits",
+          "kind": "non-example",
+          "statement": "In a compatible field extension, both coefficient images of PadicInt.inv x are zero for every nonunit x."
+        }
+      ],
+      "acceptance": [
+        "The original dyadic first-moment test2/3 and the distinction from Eμ remain unchanged. This identity does not omit the inverse weight."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L2/tame-zeta-field-comparison",
+      "parentStageId": "DirichletPadicLFunctions:L2",
+      "realises": [
+        "DirichletPadicLFunctions:L2"
+      ],
+      "title": "Tame zeta values under continuous field extension",
+      "kind": "comparison",
+      "statement": "For every f∈C(ℤ_p,K), ι(ζ_η,K(f))=ζ_(ηL),L(ι∘f).",
+      "hypotheses": [
+        "p is any prime, including2. K and L are complete nontrivially normed ultrametric fields, each with Algebra ℤ_p and IsBoundedSMul ℤ_p. D>0 with NeZero D, η:DirichletCharacter K D, hDK:IsUnit(D:K), hDL:IsUnit(D:L), and p∤D.",
+        "L is a K-algebra with ContinuousSMul K L and IsScalarTower ℤ_p K L. Write ι=algebraMap K L, ηL=η.ringHomComp ι, μK=tameMeasure η hDK hpD, and similarly μL. The two existing zeta constructors have their displayed coefficient fields. No isometry, finite-dimensionality, primitivity, nonprincipality or additional characteristic-zero assumption is imposed.",
+        "Write gK(x)=algebraMap_(ℤ_p→K)(PadicInt.inv x), and similarly gL. This inverse is the native unit inverse extended by zero on all nonunits, including nonzero multiples of p. Write U=ℤ_pˣ with its existing topology. Both sides use actual continuous tests, mapping f to ι∘f; no assertion that every L-valued test descends to K is made."
+      ],
+      "proofSteps": [
+        "Use tame-zeta-unrestricted-weight and PMIA weight-evaluation in each field. The desired values become ι(μK(gK f)) and μL(gL(ι∘f)).",
+        "Apply the preceding tame-measure-field-comparison to the actual continuous K-test gK f. The source and target retain the completeness, ultrametricity and bounded scalar actions required by those arithmetic constructors.",
+        "At every x, the actual ℤ_p/K/L scalar tower gives ι(gK(x))=gL(x) because PadicInt.inv x is an element of ℤ_p. Ring-map multiplicativity then gives ι∘(gK f)=gL(ι∘f) by continuous-map extensionality. This uses no preservation of field norms or extension of an integral inverseWeight operator.",
+        "The native weighted_value_transport proof verifies the all-test-to-weighted-test implication on actual continuous-dual measures and actual continuous maps. Its supplied all-test hypothesis is exactly the preceding tame comparison, while inverse_value_transport proves the pointwise tower identity.",
+        "Constant and positive power tests transport by map_one, map_pow and the scalar tower. D=1 gives zero on both sides. Transport of the constant test asserts equality of actual masses only; it does not identify a degree-zero zeta integral with L(η,1)."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L2/tame-zeta-unrestricted-weight",
+        "DirichletPadicLFunctions:L2/tame-measure-field-comparison",
+        "PadicMeasuresIwasawaAlgebras:L2/weight-evaluation",
+        "mathlib:IsScalarTower.algebraMap_apply",
+        "mathlib:algebraMapCLM",
+        "mathlib:ContinuousLinearMap.compLeftContinuous"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/TameCoefficientFields",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.algebraMap_tameZetaMeasure_apply"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Remark3.33, published129/PDF30; Lemma5.11, equation(5-6), Definition5.13 and its following interpolation identity, published145–146/PDF46–47. These complete pages freshly read on30September2026; the coefficient-field discussion of Remark5.8(2), published143–144, was read in the immediately preceding continuation.",
+          "match": "Worker coefficient-field compatibility for the existing inverse-weighted tame zeta measure and its actual unit-group restriction. The source supplies these constructions; compatibility is derived from the preceding all-test tame-measure comparison and existing PMIA evaluation laws. No generic coefficient-extension functor, integral-ring transport or character-field descent theorem is presumed."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedTameZetaFieldComparisonTests.ambient_mass_transport",
+          "kind": "compatibility",
+          "statement": "The total mass of the actual ambient zeta measure maps to the mass in L, without a special-value interpretation."
+        },
+        {
+          "name": "SuggestedTameZetaFieldComparisonTests.positive_moment_transport",
+          "kind": "compatibility",
+          "statement": "Every positive ordinary moment maps to the same power test over L."
+        },
+        {
+          "name": "SuggestedTameZetaFieldComparisonTests.ambient_modulus_one_zero",
+          "kind": "degenerate",
+          "statement": "At D=1 both ambient zeta evaluations are zero for every original and mapped test."
+        }
+      ],
+      "acceptance": [
+        "All tests are actual continuous K-tests, including constants. No principal-character branch identification or generic coefficient-extension map is asserted."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L2/intrinsic-tame-zeta-restriction",
+      "parentStageId": "DirichletPadicLFunctions:L2",
+      "realises": [
+        "DirichletPadicLFunctions:L2"
+      ],
+      "title": "The intrinsic tame zeta restriction formula",
+      "kind": "lemma",
+      "statement": "ζ_η,K^U=restrictUnits p K (ζ_η,K).",
+      "hypotheses": [
+        "p is prime, K is a complete nontrivially normed ultrametric ℤ_p-algebra with bounded scalar action. D>0, η:DirichletCharacter K D, hD:IsUnit(D:K), p∤D, and U=ℤ_pˣ with its native topology. No extension field is required."
+      ],
+      "proofSteps": [
+        "Promote the existing intrinsicTameZetaMeasure_eq_restrict API without a duplicate suggested signature.",
+        "Unfold the already constructed intrinsic measure, which applies the supplied intrinsic restriction to the actual ambient zeta measure. No new measure carrier, zero-extension operation or generic restriction is constructed.",
+        "The exact supplier evaluation theorem says r_Uζ(f)=ζ(z_V(f∘h⁻¹)), where V is the clopen unit locus and h:U≃ₜV is the existing PMIA homeomorphism. The h⁻¹ transport is required before zero extension; U and V are not silently identified as types."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L2/intrinsic-tame-zeta-measure",
+        "PadicMeasuresIwasawaAlgebras:L2/intrinsic-unit-restriction-evaluation"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/TameCoefficientFields",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.intrinsicTameZetaMeasure_eq_restrict"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Remark3.33, published129/PDF30; Lemma5.11, equation(5-6), Definition5.13 and its following interpolation identity, published145–146/PDF46–47. These complete pages freshly read on30September2026; the coefficient-field discussion of Remark5.8(2), published143–144, was read in the immediately preceding continuation.",
+          "match": "Worker coefficient-field compatibility for the existing inverse-weighted tame zeta measure and its actual unit-group restriction. The source supplies these constructions; compatibility is derived from the preceding all-test tame-measure comparison and existing PMIA evaluation laws. No generic coefficient-extension functor, integral-ring transport or character-field descent theorem is presumed."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [],
+      "acceptance": [
+        "The existing uniqueness-under-pushforward, zero-modulus and first-moment examples remain unchanged. No identification of additive and multiplicative convolution is introduced."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L2/intrinsic-tame-zeta-field-comparison",
+      "parentStageId": "DirichletPadicLFunctions:L2",
+      "realises": [
+        "DirichletPadicLFunctions:L2"
+      ],
+      "title": "Intrinsic tame zeta values under field extension",
+      "kind": "comparison",
+      "statement": "For every f∈C(U,K), ι(ζ_η,K^U(f))=ζ_(ηL),L^U(ι∘f).",
+      "hypotheses": [
+        "p is any prime, including2. K and L are complete nontrivially normed ultrametric fields, each with Algebra ℤ_p and IsBoundedSMul ℤ_p. D>0 with NeZero D, η:DirichletCharacter K D, hDK:IsUnit(D:K), hDL:IsUnit(D:L), and p∤D.",
+        "L is a K-algebra with ContinuousSMul K L and IsScalarTower ℤ_p K L. Write ι=algebraMap K L, ηL=η.ringHomComp ι, μK=tameMeasure η hDK hpD, and similarly μL. The two existing zeta constructors have their displayed coefficient fields. No isometry, finite-dimensionality, primitivity, nonprincipality or additional characteristic-zero assumption is imposed.",
+        "Write gK(x)=algebraMap_(ℤ_p→K)(PadicInt.inv x), and similarly gL. This inverse is the native unit inverse extended by zero on all nonunits, including nonzero multiples of p. Write U=ℤ_pˣ with its existing topology. Both sides use actual continuous tests, mapping f to ι∘f; no assertion that every L-valued test descends to K is made."
+      ],
+      "proofSteps": [
+        "Use intrinsic-tame-zeta-restriction in both fields and the exact supplier intrinsic-unit-restriction-evaluation. The two tests on ℤ_p are eK=z_V(f∘h⁻¹) and eL=z_V((ι∘f)∘h⁻¹), where the homeomorphism h depends only on p.",
+        "Show ι∘eK=eL pointwise, separating membership in V. On V use the supplied clopen-zero-extension-inside formula twice; both sides are ι(f(h⁻¹(x))). Off V use clopen-zero-extension-outside twice and ι(0)=0. This does not assume that f already extends to ℤ_p or that every L-test comes from K.",
+        "Apply tame-zeta-field-comparison to the actual continuous test eK, and replace its mapped test by eL. The complete native zero_extension_transport proves the piecewise equality from precisely these inside/outside formulas; restricted_values_transport checks its use with actual native continuous-dual measures. Supplier continuity and evaluation assertions remain blueprint dependencies, not native proofs claimed by this scratch check.",
+        "For κ_n,χ,w, use the existing arithmetic-character-pointwise-value formula. Native ringHomComp maps χ pointwise, and the scalar tower and preservation of powers identify ι∘κK with κL. This works for n=0 and w=0 on the actual units group; no positive-degree L-value claim follows for w=0.",
+        "At D=1 both intrinsic measures vanish. The actual quadratic modulo3 first moment over ℚ_2 is2/3; its image in every compatible extension is again2/3. Constants compare actual intrinsic masses, with no evaluation of a pseudomeasure or claim of character-field descent."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L2/intrinsic-tame-zeta-restriction",
+        "DirichletPadicLFunctions:L2/tame-zeta-field-comparison",
+        "DirichletPadicLFunctions:L2/arithmetic-character-pointwise-value",
+        "PadicMeasuresIwasawaAlgebras:L2/intrinsic-unit-restriction-evaluation",
+        "PadicMeasuresIwasawaAlgebras:L0/clopen-zero-extension-inside",
+        "PadicMeasuresIwasawaAlgebras:L0/clopen-zero-extension-outside",
+        "mathlib:MulChar.ringHomComp",
+        "mathlib:IsScalarTower.algebraMap_apply"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/TameCoefficientFields",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.algebraMap_intrinsicTameZetaMeasure_apply"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Remark3.33, published129/PDF30; Lemma5.11, equation(5-6), Definition5.13 and its following interpolation identity, published145–146/PDF46–47. These complete pages freshly read on30September2026; the coefficient-field discussion of Remark5.8(2), published143–144, was read in the immediately preceding continuation.",
+          "match": "Worker coefficient-field compatibility for the existing inverse-weighted tame zeta measure and its actual unit-group restriction. The source supplies these constructions; compatibility is derived from the preceding all-test tame-measure comparison and existing PMIA evaluation laws. No generic coefficient-extension functor, integral-ring transport or character-field descent theorem is presumed."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedTameZetaFieldComparisonTests.intrinsic_mass_transport",
+          "kind": "compatibility",
+          "statement": "Actual intrinsic total masses agree through the coefficient map."
+        },
+        {
+          "name": "SuggestedTameZetaFieldComparisonTests.intrinsic_arithmetic_character_transport",
+          "kind": "compatibility",
+          "statement": "Every arithmetic unit character maps both its Dirichlet value and coordinate power; n=0 and w=0 remain allowed."
+        },
+        {
+          "name": "SuggestedTameZetaFieldComparisonTests.intrinsic_modulus_one_zero",
+          "kind": "degenerate",
+          "statement": "At D=1 every original and mapped intrinsic test has value zero."
+        },
+        {
+          "name": "SuggestedTameZetaFieldComparisonTests.dyadic_intrinsic_first_moment_in_extension",
+          "kind": "computation",
+          "statement": "The quadratic modulo3 intrinsic first moment remains2/3 after a compatible continuous extension of ℚ_2."
+        }
+      ],
+      "acceptance": [
+        "This compares the actual arithmetic measures on all original-field tests. Integral-ring transport, descent and the independent PMIA L3 pseudomeasure evaluator are not consequences claimed here."
+      ]
     }
   ],
   "requests": [
@@ -43520,7 +43749,7 @@
       "stageId": "DirichletPadicLFunctions:L2",
       "status": "partial",
       "remaining": [
-        "The actual tame measure μ_η now has an all-continuous-test comparison under a compatible continuous extension K→L; its formal numerator/series maps and Amice identity have explicit fine prerequisites. Extend this precise comparison through the existing unit restriction and inverse-coordinate weight to ζ_η, and through the actual integer-ring inclusions; establish the required descent to the character field. These further steps are not inferred merely from the series map. The separate canonical coefficient-field pseudomeasure evaluator remains the PMIA L3 request. Primitive Gauss nonvanishing, exact primitive-conductor comparisons, analytic branches, logarithmic/degree-zero values, full source extraction and the PMIA L1 completed-algebra comparison remain open. The existing integral character and congruence nodes are reused with their stated boundaries."
+        "Both the actual tame measure and its ambient/intrinsic inverse-weighted zeta measures now have all-continuous-test comparisons under a compatible continuous field extension K→L. Next establish the corresponding comparison through the actual integer-ring inclusions and prove descent to the character field with its required topological hypotheses; these are not inferred from the field comparison alone. The separate canonical coefficient-field pseudomeasure evaluator remains the PMIA L3 request. Primitive Gauss nonvanishing, exact primitive-conductor comparisons, analytic branches, logarithmic/degree-zero values, full source extraction and the PMIA L1 completed-algebra comparison remain open. Existing integral character and congruence nodes retain their original boundaries."
       ]
     },
     {
@@ -43554,7 +43783,7 @@
     {
       "title": "L2 remaining source decomposition and interfaces",
       "neededBy": [],
-      "detail": "The actual tame measure μ_η now has an all-continuous-test comparison under a compatible continuous extension K→L; its formal numerator/series maps and Amice identity have explicit fine prerequisites. Extend this precise comparison through the existing unit restriction and inverse-coordinate weight to ζ_η, and through the actual integer-ring inclusions; establish the required descent to the character field. These further steps are not inferred merely from the series map. The separate canonical coefficient-field pseudomeasure evaluator remains the PMIA L3 request. Primitive Gauss nonvanishing, exact primitive-conductor comparisons, analytic branches, logarithmic/degree-zero values, full source extraction and the PMIA L1 completed-algebra comparison remain open. The existing integral character and congruence nodes are reused with their stated boundaries."
+      "detail": "Both the actual tame measure and its ambient/intrinsic inverse-weighted zeta measures now have all-continuous-test comparisons under a compatible continuous field extension K→L. Next establish the corresponding comparison through the actual integer-ring inclusions and prove descent to the character field with its required topological hypotheses; these are not inferred from the field comparison alone. The separate canonical coefficient-field pseudomeasure evaluator remains the PMIA L3 request. Primitive Gauss nonvanishing, exact primitive-conductor comparisons, analytic branches, logarithmic/degree-zero values, full source extraction and the PMIA L1 completed-algebra comparison remain open. Existing integral character and congruence nodes retain their original boundaries."
     },
     {
       "title": "L3 remaining source decomposition and interfaces",
@@ -43925,34 +44154,34 @@
     "intake": "Exactly four authorized deliverables; zero problems.",
     "sourceIssues": "All16 findings, three source records, sourceVersions, eleven requests and fifteen gaps remain whole. No new source mistake or independent verdict.",
     "validation": {
-      "nodes": 661,
+      "nodes": 665,
       "kinds": {
         "definition": 1,
-        "lemma": 255,
+        "lemma": 257,
         "construction": 71,
         "theorem": 208,
-        "comparison": 126
+        "comparison": 128
       },
       "api": 538,
-      "packetTests": 1125,
+      "packetTests": 1133,
       "definitionConstructionTests": 303,
-      "typedExamples": 1128,
+      "typedExamples": 1136,
       "planets": 24,
-      "baseline": 564,
-      "preservedWholeNodes": 657,
-      "preservedBaseline": 558,
+      "baseline": 565,
+      "preservedWholeNodes": 661,
+      "preservedBaseline": 564,
       "preservedSourceIssues": 16,
       "newSourceIssues": 0,
       "newNodes": 4,
-      "newNamedDeclarations": 1,
-      "newTypedTests": 5,
+      "newNamedDeclarations": 2,
+      "newTypedTests": 8,
       "requests": 11,
       "gaps": 15,
       "closedStages": 0,
-      "reachableNodes": 917,
-      "dependencyEdges": 4575,
+      "reachableNodes": 921,
+      "dependencyEdges": 4597,
       "acyclic": true,
-      "baselineLeaves": 742,
+      "baselineLeaves": 743,
       "stageRequestLeaves": [
         "AdicSpacesPartII:F1",
         "AdicSpacesPartII:R2",
@@ -43964,7 +44193,7 @@
         "PadicMeasuresIwasawaAlgebras:L2",
         "PadicMeasuresIwasawaAlgebras:L3"
       ],
-      "readerWords": 326316,
+      "readerWords": 328598,
       "scopedMutationCheck": true,
       "correctedPredecessorNodes": 0,
       "fullSuggestedCompiled": false,
@@ -43991,23 +44220,25 @@
         "TauCeti.NumberTheory.ArithmeticFunction.TwistedDivisorSum"
       ],
       "scratchCompleteDefinitions": 0,
-      "scratchCompleteLemmas": 3,
+      "scratchCompleteLemmas": 6,
       "scratchMathlibModules": 2819,
       "scratchTauModules": 0,
       "scratchErrors": 0,
       "scratchWarnings": 0,
       "scratchPlaceholders": 0,
       "finiteControls": {
-        "profiles": 7,
-        "coefficientMaps": 14,
-        "numeratorComparisons": 462,
-        "seriesComparisons": 462,
-        "finiteMahlerComparisons": 112,
-        "nonrealSeriesCoefficients": 29,
-        "compositionComparisons": 231,
-        "unmappedTestFailures": 47,
-        "explicitQuadraticValues": 5,
-        "modulusOneChecks": 66
+        "profiles": 48,
+        "coefficientMaps": 96,
+        "weightedValueComparisons": 384,
+        "restrictionComparisons": 384,
+        "zeroExtensionPointComparisons": 8432,
+        "unitInversePointComparisons": 2108,
+        "nonunitZeroChecks": 524,
+        "unmappedTestFailures": 156,
+        "wrongNonunitInverseFailures": 208,
+        "omittedWeightFailures": 248,
+        "modulusOneChecks": 72,
+        "exactDyadicMoments": 2
       },
       "numericalControlsCertified": false,
       "newRoutesStageLeaves": []
@@ -44017,7 +44248,7 @@
       "compiled": false,
       "errors": null,
       "warnings": null,
-      "sha256": "b91473a3160e3443536dcd69513fac1070538d6ee17ea0aabbab01cde8cd7880",
+      "sha256": "312118d11c77e8b8b83d3c1712000ee78f017ad75f94856a3208795c9df08d85",
       "missingNativeArtifacts": [
         "TauCeti.NumberTheory.ArithmeticFunction.TwistedDivisorSum"
       ],
@@ -44032,11 +44263,11 @@
         }
       },
       "nativeProbe": {
-        "completeLemmas": 3,
+        "completeLemmas": 6,
         "errors": 0,
         "warnings": 0,
         "placeholders": 0,
-        "sha256": "bb8ce60fce6e1f26c24498fa1ee5864ee0258a947908911ce2ab8152a17f0a13"
+        "sha256": "cf5794e9f1b35ea7b366c24510e412e3bf6c699ce40d20681a700ae94708cf4d"
       },
       "sourceAndAvailableArtifactAudit": {
         "compiledSupplierNodes": 332,
@@ -44123,7 +44354,7 @@
       }
     },
     "publication": {
-      "base": "268a6a513fb532e904eee3a19d51f0debcaced24",
+      "base": "75003a68838084dc3b0cfec12fd5064e3ca21be4",
       "unchangedInputs": 66,
       "unchangedOutputs": 4,
       "sameSessionFollowupAfterMerge": true,
@@ -50863,6 +51094,49 @@
         "modulusOneChecks": 66
       },
       "numericalMethod": "Exact Gaussian-rational pairs with Fraction components. The finite numerator and unit-denominator recurrence are computed independently before and after identity/conjugation character maps. Finite Mahler linear combinations map both coefficients and tests; a negative control omits test transport. These are algebraic finite models, not constructed p-adic field embeddings or numerical proofs of density.",
+      "fullSuggestedCompiled": false
+    },
+    "tameZetaFieldComparison": {
+      "agent": "Codex",
+      "session": "codex-7e92bd",
+      "issue": 713,
+      "claimComment": 5854790528,
+      "winningBot": 5854791937,
+      "previousPR": 4858,
+      "previousHead": "6d9b5e0411bd8060a0b02e7b03aeecc4cef4d3d4",
+      "previousMerge": "155bf2c19ef277a7ec4361ae5b4e51911cf44211",
+      "preservedWholeNodes": 661,
+      "preservedBaseline": 564,
+      "preservedFindings": 16,
+      "newNodes": 4,
+      "reading": "Freshly read complete RJW published129 and145–146, including the intrinsic unit inclusion and the full Definition5.13 context. Read the reviewed L2 library audit, whole existing ambient/intrinsic tame zeta nodes and APIs, and exact PMIA weighting, intrinsic restriction, clopen zero-extension and unit-homeomorphism interfaces. Read pinned native PadicInt.inv, isUnit_iff, scalar-tower equality and continuous-linear coefficient maps with ambient hypotheses. Reuse the preceding freshly audited all-test tame-measure comparison.",
+      "boundary": "Both the actual tame measure and its ambient/intrinsic inverse-weighted zeta measures now have all-continuous-test comparisons under a compatible continuous field extension K→L. Next establish the corresponding comparison through the actual integer-ring inclusions and prove descent to the character field with its required topological hypotheses; these are not inferred from the field comparison alone. The separate canonical coefficient-field pseudomeasure evaluator remains the PMIA L3 request. Primitive Gauss nonvanishing, exact primitive-conductor comparisons, analytic branches, logarithmic/degree-zero values, full source extraction and the PMIA L1 completed-algebra comparison remain open. Existing integral character and congruence nodes retain their original boundaries.",
+      "inputBase": "ecced2e18c470f3c48133f312dc0646b43325c07",
+      "sourceBoundary": "All16 findings, three source records, sourceVersions, eleven requests and fifteen gaps remain whole. No new source mistake or independent verdict.",
+      "publication": {
+        "base": "75003a68838084dc3b0cfec12fd5064e3ca21be4",
+        "unchangedInputs": 66,
+        "unchangedOutputs": 4,
+        "sameSessionFollowupAfterMerge": true,
+        "lastClaimConfirmation": 5854791937,
+        "reviewIssue": 390,
+        "reviewUnclaimed": true
+      },
+      "finiteControls": {
+        "profiles": 48,
+        "coefficientMaps": 96,
+        "weightedValueComparisons": 384,
+        "restrictionComparisons": 384,
+        "zeroExtensionPointComparisons": 8432,
+        "unitInversePointComparisons": 2108,
+        "nonunitZeroChecks": 524,
+        "unmappedTestFailures": 156,
+        "wrongNonunitInverseFailures": 208,
+        "omittedWeightFailures": 248,
+        "modulusOneChecks": 72,
+        "exactDyadicMoments": 2
+      },
+      "numericalMethod": "Exact Gaussian-rational pairs with Fraction components on synthetic finite atomic measures over residue representatives, under identity and conjugation maps. Inverse weights are reciprocal representatives only on p-units and zero elsewhere; these finite weighted measures are not asserted to approximate the arithmetic tame measure. Independent Euler–Bernoulli calculations check the actual known dyadic positive moments2/3 and−10/9. Negative controls omit test transport, use nonzero field inverses on nonunits, or omit inverse weighting.",
       "fullSuggestedCompiled": false
     }
   },
