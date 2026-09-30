@@ -38912,8 +38912,9 @@
     "REV-PAPER-RICHARD-YAFAEV-25"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-RICHARD-YAFAEV-25.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4289"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4289",
+   "finishedAt": "2026-09-30T15:04:39Z"
   },
   {
    "id": "REV-RT-PAPER-RICHARD-YAFAEV-25",
@@ -42273,7 +42274,8 @@
     "REV-RS-14"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-RS-14.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4400"
   },
   {
    "id": "RT-RS-15",
