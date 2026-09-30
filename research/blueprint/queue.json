@@ -23474,12 +23474,12 @@
     "REV-RS-14"
    ],
    "prompt": "research/blueprint/prompts/BP-DirichletPadicLFunctions.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [
     "BP-LocallyAnalyticDistributions",
     "BP-PadicMeasuresIwasawaAlgebras"
    ],
-   "note": "released on GitHub issue #713"
+   "note": "claimed on GitHub issue #713"
   },
   {
    "id": "REV-DirichletPadicLFunctions",
@@ -33278,8 +33278,9 @@
     "REV-PAPER-SMITH-24"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-SMITH-24.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4052"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4052",
+   "finishedAt": "2026-09-30T06:45:45Z"
   },
   {
    "id": "REV-RT-PAPER-SMITH-24",
@@ -39077,7 +39078,8 @@
     "REV-PAPER-BENOIST-19"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-BENOIST-19.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4301"
   },
   {
    "id": "RT-PAPER-BREUIL-HELLMANN-SCHRAEN-19",
