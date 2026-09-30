@@ -3691,6 +3691,13 @@
         "checked": "statement read at the pinned commit (line 289)"
       },
       {
+        "ref": "tauceti:NumberField.exists_norm_eq_neg_one_of_sq_sub_mul_sq_eq_neg_one",
+        "kind": "theorem",
+        "module": "TauCeti/NumberTheory/NumberField/Quadratic/Norm.lean",
+        "provides": "For K = ℚ(θ) with minpoly ℤ θ = X² − d, an integral solution of b² − da² = −1 gives a unit b + aθ of 𝓞_K of norm −1.",
+        "checked": "statement read at the pinned commit (line 108), 2026-09-30"
+      },
+      {
         "ref": "tauceti:NumberField.discr_eq_four_mul_of_mod_four_ne_one",
         "kind": "theorem",
         "module": "TauCeti/NumberTheory/NumberField/Quadratic/RingOfIntegers.lean",
@@ -19072,6 +19079,58 @@
       "implementationStatus": "unchecked"
     },
     {
+      "id": "ClassicalArithmeticCompletion:CA.5/negative-pell-iff-unit-of-norm-minus-one-for-d-one-mod-four",
+      "parentStageId": "ClassicalArithmeticCompletion:CA.5",
+      "realises": [
+        "ClassicalArithmeticCompletion:CA.5"
+      ],
+      "title": "The negative Pell equation and units of norm −1 when d ≡ 1 (mod 4)",
+      "kind": "theorem",
+      "statement": "Let d > 1 be squarefree with d ≡ 1 (mod 4) and K = ℚ(√d), so that 𝓞_K = {(a + b√d)/2 : a, b ∈ ℤ, a ≡ b (mod 2)} and ℤ[√d] is the subring with a and b even. (i) If d ≡ 1 (mod 8), every unit of 𝓞_K lies in ℤ[√d]. (ii) If d ≡ 5 (mod 8), the cube of every unit of 𝓞_K lies in ℤ[√d]: for u = (a + b√d)/2 of norm ν = ±1, u³ = (a(a² − 3ν) + b(a² − ν)√d)/2. (iii) Hence x² − dy² = −1 has an integer solution if and only if 𝓞_K has a unit of norm −1. With CA.5/negative-pell-iff-unit-of-norm-minus-one (d ≢ 1 (mod 4)) this gives the equivalence for every squarefree d > 1.",
+      "hypotheses": [
+        "d > 1 squarefree, d ≡ 1 (mod 4).",
+        "(i) assumes d ≡ 1 (mod 8) and (ii) assumes d ≡ 5 (mod 8); (iii) covers both."
+      ],
+      "proofSteps": [
+        "𝓞_K is ℤ[(1 + √d)/2] (Tau Ceti NumberField.adjoin_halfGen_eq_top_of_mod_four_eq_one), so its elements are (a + b√d)/2 with a ≡ b (mod 2), and ℤ√d embeds as the elements with a and b even (CA.5/zsqrtd-into-the-ring-of-integers, CA.5/index-of-the-order-z-sqrt-d). A unit u = (a + b√d)/2 has norm (a² − db²)/4 = ν = ±1, so a² − db² = 4ν.",
+        "(i) If a and b are odd then a² ≡ b² ≡ 1 (mod 8), so a² − db² ≡ 1 − d ≡ 0 (mod 8), which excludes ±4. So a and b are even and u ∈ ℤ[√d].",
+        "(ii) If a and b are even, u ∈ ℤ[√d] already. Otherwise expand u³ = (a³ + 3ab²d + (3a²b + b³d)√d)/8 and substitute db² = a² − 4ν: u³ = (a(a² − 3ν) + b(a² − ν)√d)/2. For a odd, a² − 3ν and a² − ν are even, so u³ ∈ ℤ[√d], and N(u³) = ν³ = ν.",
+        "(iii) An integer solution gives an element of ℤ[√d] ⊆ 𝓞_K of norm −1, a unit (Tau Ceti NumberField.exists_norm_eq_neg_one_of_sq_sub_mul_sq_eq_neg_one). Conversely, a unit u of norm −1 gives u (d ≡ 1 mod 8) or u³ (d ≡ 5 mod 8) in ℤ[√d], of norm −1; its coordinates x, y satisfy x² − dy² = −1, since the embedding carries the norm form of ℤ√d to the field norm (CA.5/zsqrtd-into-the-ring-of-integers)."
+      ],
+      "acceptance": [
+        "d = 5: u = (1 + √5)/2 has norm −1 and u³ = 2 + √5, with 2² − 5·1² = −1.",
+        "d = 13: u = (3 + √13)/2 has norm (9 − 13)/4 = −1 and u³ = 18 + 5√13, with 18² − 13·5² = 324 − 325 = −1.",
+        "d = 17 (≡ 1 mod 8): 4² − 17·1² = −1, and the unit 4 + √17 lies in ℤ[√17].",
+        "d = 21: the unit (5 + √21)/2 has norm (25 − 21)/4 = 1 and cube 55 + 12√21 (55² − 21·12² = 1); x² − 21y² = −1 has no solution, since −1 is not a square mod 3."
+      ],
+      "prerequisites": [
+        "ClassicalArithmeticCompletion:CA.5/zsqrtd-into-the-ring-of-integers",
+        "ClassicalArithmeticCompletion:CA.5/index-of-the-order-z-sqrt-d",
+        "tauceti:NumberField.adjoin_halfGen_eq_top_of_mod_four_eq_one",
+        "tauceti:NumberField.exists_norm_eq_neg_one_of_sq_sub_mul_sq_eq_neg_one",
+        "mathlib:Zsqrtd.norm"
+      ],
+      "sources": [
+        {
+          "sourceId": "conrad-quadraticfields-2021",
+          "locator": "Section 3, Theorem 3.4, p. 2",
+          "excerpt": "Theorem 3.4. The integers of K are {a + b √ d : a, b ∈Z} if d̸ ≡1 mod 4 and ( a + b 1 + √ d 2 ! : a, b ∈Z ) if d ≡1 mod 4.",
+          "match": "The ring 𝓞_K for d ≡ 1 (mod 4), whose units the node compares with ℤ[√d] through their norms (d ≡ 1 mod 8) and their cubes (d ≡ 5 mod 8)."
+        },
+        {
+          "sourceId": "conrad-pell-one-2025",
+          "locator": "Theorem 7.5, p. 12",
+          "excerpt": "Theorem 7.5. Assume x2 −dy2 = −1 has a solution in positive integers and let (x1, y1) be that solution where y1 is minimal. The integral solutions to both equations x2 −dy2 = ±1 are, up to sign, generated from (x1, y1) by taking integral powers of x1 + y1 √ d:",
+          "match": "The Pell-side statement in ℤ[√d]; the node transports solubility of x² − dy² = −1 to the units of 𝓞_K when d ≡ 1 (mod 4)."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/NumberField/Quadratic/Presentation",
+        "namespace": "TauCeti.ClassicalArithmetic"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
       "id": "ClassicalArithmeticCompletion:CA.5/class-group-of-q-sqrt-minus-14",
       "parentStageId": "ClassicalArithmeticCompletion:CA.5",
       "realises": [
@@ -25948,7 +26007,7 @@
     {
       "stageId": "ClassicalArithmeticCompletion:CA.5",
       "status": "source_decomposed",
-      "note": "RS-03 narrows CA.5 to the comparisons between quadratic and cyclotomic presentations, intrinsic integral bases, units, ideals and class groups, and the interpretation of certified matrix and algorithm outputs in those invariants; intrinsic existence and structure stay upstream (Mathlib, Tau Ceti, and the Tau Ceti roadmaps NumberFieldArithmetic and GlobalNumberFields), and ComputationalNumberTheory:CN.2 owns the certified algorithms and their completeness. Planned here: generation of the class group by the primes below the Minkowski bound, the class-group presentation by a family of ideals with its relation lattice, the class group of a complete relation matrix through its Smith form, the divisibility of |det| by h_K for found relations, the regulator-bound certificate for units and the joint class-number–regulator certificate; the Hermite matrix of an ideal in an integral basis with the norm as the product of pivots and the criterion for a Hermite matrix to be an ideal; the discriminant of a sublattice basis (integral-basis certificate), the index of ℤ[√d], Dedekind–Kummer at every prime for a monogenic presentation; Mathlib's ℤ√d inside 𝓞_K, Pell solutions as the norm-one units and the negative Pell equation as units of norm −1; the worked class groups of ℚ(√−14) and ℚ(√−30); and the interpretation of CN.2's certified outputs, requested from that layer."
+      "note": "RS-03 narrows CA.5 to the comparisons between quadratic and cyclotomic presentations, intrinsic integral bases, units, ideals and class groups, and the interpretation of certified matrix and algorithm outputs in those invariants; intrinsic existence and structure stay upstream (Mathlib, Tau Ceti, and the Tau Ceti roadmaps NumberFieldArithmetic and GlobalNumberFields), and ComputationalNumberTheory:CN.2 owns the certified algorithms and their completeness. Planned here: generation of the class group by the primes below the Minkowski bound, the class-group presentation by a family of ideals with its relation lattice, the class group of a complete relation matrix through its Smith form, the divisibility of |det| by h_K for found relations, the regulator-bound certificate for units and the joint class-number–regulator certificate; the Hermite matrix of an ideal in an integral basis with the norm as the product of pivots and the criterion for a Hermite matrix to be an ideal; the discriminant of a sublattice basis (integral-basis certificate), the index of ℤ[√d], Dedekind–Kummer at every prime for a monogenic presentation; Mathlib's ℤ√d inside 𝓞_K, Pell solutions as the norm-one units and the negative Pell equation as units of norm −1, for d ≢ 1 (mod 4) and, through the units of 𝓞_K in ℤ[√d] (d ≡ 1 mod 8) and their cubes (d ≡ 5 mod 8), for d ≡ 1 (mod 4) (added by FIX-RT-PAPER-KOYMANS-PAGANO for RT-PAPER-KOYMANS-PAGANO/5); the worked class groups of ℚ(√−14) and ℚ(√−30); and the interpretation of CN.2's certified outputs, requested from that layer."
     },
     {
       "stageId": "ClassicalArithmeticCompletion:CA.6",
