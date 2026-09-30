@@ -111,8 +111,19 @@
    "locator": "arXiv:2206.07759v2, implicit in §1, p. 2, and Proposition 3.1, p. 6",
    "status": "planned",
    "planned": [
-    "WeilConjectures:WC.3"
-   ]
+    "WeilConjectures:WC.6",
+    "DeligneWeightsAndPurity:DWP.7"
+   ],
+   "note": "WC.3 covers only the projective case (DWP.4). The integrated nodes WeilConjectures:WC.6/purity-for-proper-smooth-varieties and DeligneWeightsAndPurity:DWP.7/hodge-type-triangles-and-proper-smooth-purity-3-3-7-3-3-11 plan Weil II 3.3.9 and 3.3.11 (RT-PAPER-BERGSTROM-FABER-PAYNE-24/5). The DM-stack case is deligne-purity-dm."
+  },
+  {
+   "id": "PAPER-BERGSTROM-FABER-PAYNE-24/deligne-purity-dm",
+   "kind": "theorem",
+   "name": "Purity for smooth proper DM stacks over F_q",
+   "statement": "For a smooth proper Deligne–Mumford stack X over F_q, H^i(X_{F̄_q}, Q_ℓ) is pure of weight i: via H^i(X) ≅ H^i(X_c) for the coarse space X_c (Rπ_*Q_ℓ = Q_ℓ, the stabilizers being finite and the coefficients of characteristic 0) and Weil II 3.3.11 for X_c, which is étale-locally a quotient of a smooth scheme by a finite group, so that Ra^!Q_ℓ = Q_ℓ(n)[2n]; or via H^i(Y)^H when X ≅ [Y/H] with Y smooth proper and H finite (for M̄_{g,n}, boggi-pikaart).",
+   "locator": "arXiv:2206.07759v2, proof of Proposition 3.1, p. 6; proof of Proposition 4.2, p. 7",
+   "status": "missing",
+   "note": "Added by FIX-RT-PAPER-BERGSTROM-FABER-PAYNE-24 (RT-PAPER-BERGSTROM-FABER-PAYNE-24/5). A global quotient presentation exists only for some DM stacks; the coarse-space route is general. The stack-to-coarse-space comparison is imported from the stacks Part II (route 7). Consumers: vdbe-theorem-2-1, vdbe-lemma-4-1, prop-3-1 and Proposition 4.2. Routed to WC.6 as a source ('extend pure cohomology … beyond projective varieties'; WC.6 requires DWP.7)."
   },
   {
    "id": "PAPER-BERGSTROM-FABER-PAYNE-24/point-count-stack",
@@ -175,7 +186,7 @@
    "statement": "Let X be a DM stack, smooth and proper of pure relative dimension over Z. Equivalent: (i) #X(F_{p^m}) = P(p^m) + o(p^{m·dim X/2}) for some P ∈ Q[t], all p in a set of primes of Dirichlet density 1 and all m ≥ 1; (ii) #X(F_q) = P(q) for all finite fields F_q, for a polynomial P with positive integer coefficients; (iii) for all ℓ, H^•_ét(X_{Q̄}, Q_ℓ) vanishes in odd degrees and H^{2i} ≅ Q_ℓ(−i)^{⊕}. Then the coefficient of t^i is dim H^{2i}; by comparison and universal coefficients H^•(X_C, Q) is even with h^{2i} the coefficient of t^i.",
    "locator": "arXiv:2206.07759v2, §1, p. 2 ([vdBE05, Theorem 2.1])",
    "status": "missing",
-   "note": "Needs the Weil conjectures, the étale–singular comparison and the finite-spectrum lemma for smooth proper DM stacks over Z. Routed to WC.4/WC.5 as a source."
+   "note": "Needs the Weil conjectures, the étale–singular comparison and the finite-spectrum lemma for smooth proper DM stacks over Z. Routed to WC.4/WC.5 as a source. The weights of the α_{i,j} come from deligne-purity-dm."
   },
   {
    "id": "PAPER-BERGSTROM-FABER-PAYNE-24/vdbe-prop-3-1",
@@ -193,7 +204,7 @@
    "statement": "If Σ_i (−1)^i Σ_j α_{i,j}^m = P(p^m) + o(p^{ms/2}) as m → ∞, where α_{i,j} are the Frobenius eigenvalues on H^i (of weight i), then d_i = 0 for all odd i ≥ s, and all eigenvalues on H^{2i} equal p^i for s/2 ≤ i ≤ d.",
    "locator": "arXiv:2206.07759v2, proof of Proposition 3.1, p. 6",
    "status": "missing",
-   "note": "The linear-independence-of-characters argument WC.5:power-sum-converse plans in bound form. Routed there as a source."
+   "note": "The linear-independence-of-characters argument WC.5:power-sum-converse plans in bound form. Routed there as a source. The weights of the α_{i,j} come from deligne-purity-dm."
   },
   {
    "id": "PAPER-BERGSTROM-FABER-PAYNE-24/prop-3-1",
@@ -202,7 +213,7 @@
    "statement": "Let X be a smooth proper DM stack of relative dimension d over Z_p, F̃_p a lift of geometric Frobenius and s ≥ d an integer. If #X(F_{p^m}) = P(p^m) + o(p^{ms/2}) with P = Σ P_i t^i ∈ Q[t], then dim H^i(X_C) = 0 for all odd i ≥ s, dim H^{2i}(X_C) = P_i for s/2 ≤ i ≤ d, and all eigenvalues of F̃_p on H^{2i}_ét(X_{Q̄_p}, Q_ℓ) (ℓ ≠ p) are p^i for s/2 ≤ i ≤ d.",
    "locator": "arXiv:2206.07759v2, §3, Proposition 3.1 and proof, p. 6",
    "status": "missing",
-   "note": "The proof's display should read o(p^{ms/2}) (sourceIssues E2). Routed to WC.5 as a source."
+   "note": "The proof's display should read o(p^{ms/2}) (sourceIssues E2). Routed to WC.5 as a source. The weights of the α_{i,j} come from deligne-purity-dm."
   },
   {
    "id": "PAPER-BERGSTROM-FABER-PAYNE-24/vakil-wood",
@@ -265,7 +276,52 @@
    "statement": "For X over F_q with an action of a finite group G, #_G X(F_q) is the element of the representation ring of G with class function σ ↦ #X^σ(F_q).",
    "locator": "arXiv:2206.07759v2, §9.2, Definition 9.1, p. 22",
    "status": "missing",
-   "note": "Kisin–Lehrer's equivariant counting; routed to WC.1 as a source."
+   "note": "Kisin–Lehrer's equivariant counting; routed to WC.1 as a source. R(G) is representation-ring (library)."
+  },
+  {
+   "id": "PAPER-BERGSTROM-FABER-PAYNE-24/representation-ring",
+   "kind": "definition",
+   "name": "The representation ring R(G) and its character map",
+   "statement": "For a finite group G and a field k of characteristic 0, the representation ring R(G) (the split Grothendieck ring of FDRep k G, with [V]·[W] = [V ⊗ W]) and its character ring homomorphism R(G) → (G → k), which is injective and has image the virtual characters; so an element of R(G) is determined by its class function, as Definition 9.1 requires.",
+   "locator": "arXiv:2206.07759v2, §9.2, Definition 9.1, p. 22",
+   "status": "library",
+   "library": [
+    "tauceti:TauCeti.repRing",
+    "tauceti:TauCeti.repRingCharacter",
+    "tauceti:TauCeti.range_repRingCharacter",
+    "tauceti:TauCeti.repRingCharacter_injective"
+   ],
+   "note": "Added by FIX-RT-PAPER-BERGSTROM-FABER-PAYNE-24 (RT-PAPER-BERGSTROM-FABER-PAYNE-24/7). Read at Tau Ceti f790474: repRing (RepresentationRing/Basic.lean:106) is the split K₀ of FDRep k G, which agrees with the usual R(G) for a finite group whose order is invertible in k; repRingCharacter (:127) is a ring homomorphism; range_repRingCharacter (:157) identifies its image with the virtual characters; repRingCharacter_injective (Injective.lean:50) needs [Finite G] [CharZero k]."
+  },
+  {
+   "id": "PAPER-BERGSTROM-FABER-PAYNE-24/frobenius-characteristic",
+   "kind": "definition",
+   "name": "The Frobenius characteristic in a fixed degree",
+   "statement": "For each n, the Frobenius characteristic identifies R(S_n) with the symmetric polynomials of degree n in N ≥ n variables: the irreducible V_λ corresponds to the Schur polynomial s_λ, and p_μ = Σ_λ χ^λ(μ) s_λ.",
+   "locator": "arXiv:2206.07759v2, §9.2, p. 23 ('writing s_λ for the Schur function that corresponds to the character of the irreducible representation V_λ')",
+   "status": "planned",
+   "planned": [
+    "tauceti:TauCetiRoadmap/RepresentationTheory/SchurWeyl#layer-7-symmetric-functions-the-frobenius-characteristic-and-rsk"
+   ],
+   "note": "Added by FIX-RT-PAPER-BERGSTROM-FABER-PAYNE-24 (RT-PAPER-BERGSTROM-FABER-PAYNE-24/7). SchurWeyl L7 plans this finite-variable, degree-bounded form and defers the stable ring; its ingredients are in the libraries (TauCeti.schurPoly, TauCeti.spechtChar, TauCeti.symmetricCharacterTable, TauCeti.partitionEquivSimpleModuleClasses; Mathlib MvPolynomial.psum and psumPart over a Fintype alphabet), but neither has the map ch. The stable ring BFP use is symmetric-functions-and-plethysm."
+  },
+  {
+   "id": "PAPER-BERGSTROM-FABER-PAYNE-24/symmetric-functions-and-plethysm",
+   "kind": "construction",
+   "name": "The ring of symmetric functions, the stable Frobenius characteristic and plethysm",
+   "statement": "The graded ring Λ of symmetric functions in infinitely many variables (the inverse limit of the degree-bounded rings of symmetric polynomials) and its completion Λ̂; the stable Frobenius characteristic ch : ⊕_n R(S_n) ≅ Λ, a ring isomorphism for the induction product with ch(V_λ) = s_λ; and plethysm f ∘ g, making Λ a λ-ring with Adams operations ψ_k = p_k ∘ −, with p_n ∘ q = q^n for q a line element (e.g. the class of the Tate twist).",
+   "locator": "arXiv:2206.07759v2, §9.2, Corollary 9.5, p. 23; proof of Proposition 9.6, p. 23; §11, pp. 25–29",
+   "status": "missing",
+   "note": "Added by FIX-RT-PAPER-BERGSTROM-FABER-PAYNE-24 (RT-PAPER-BERGSTROM-FABER-PAYNE-24/7). Proposition 9.6 sums #_{S_n}M_{g,n}(F_q) over all n, so the stable ring is needed, not a fixed degree. Neither library has Λ, λ-rings or plethysm (Mathlib's Dickson.lean: 'Mathlib doesn't currently know what a Lambda ring is'). Routed to a new Part II of Tau Ceti SchurWeyl (route 8), which imports the λ-ring axiomatics from KTheoryLowDegrees Z.3 and Exp/Log from plethystic-exp-log."
+  },
+  {
+   "id": "PAPER-BERGSTROM-FABER-PAYNE-24/plethystic-exp-log",
+   "kind": "construction",
+   "name": "Plethystic exponential and logarithm",
+   "statement": "For a complete filtered ring with Adams operations ψ_k (for BFP, Λ̂((ħ)) with ψ_k = p_k ∘ −), Exp(f) = exp(Σ_{k≥1} ψ_k(f)/k) and Log(f) = Σ_{k≥1} (μ(k)/k) ψ_k(log f) are mutually inverse bijections between the augmentation ideal and 1 + the augmentation ideal, with Exp(f + g) = Exp(f)Exp(g).",
+   "locator": "arXiv:2206.07759v2, §9.3, proof of Proposition 9.6, p. 23 (Getzler–Kapranov's Exp and Log)",
+   "status": "missing",
+   "note": "Added by FIX-RT-PAPER-BERGSTROM-FABER-PAYNE-24 (RT-PAPER-BERGSTROM-FABER-PAYNE-24/7). The same construction as PAPER-YU-23/044 (routed to QSeriesPartitionsAndMockModularForms QM.0, accepted) and PAPER-SCHIFFMANN-16/5 (routed to CountingBundlesAndHallAlgebrasOfCurves); HabiroNahmSeries:HB.8/integral-plethystic-logarithm is a third instance. One owner: QM.0, through YU-23's accepted route, stated for a complete filtered ring with Adams operations. Routed to QM.0 as a source (route 9)."
   },
   {
    "id": "PAPER-BERGSTROM-FABER-PAYNE-24/prop-9-3",
@@ -277,22 +333,31 @@
    "note": "Comparison isomorphisms are functorial, hence G-equivariant (Kisin–Lehrer, Prop. 1.2). Routed to WC.4 as a source."
   },
   {
+   "id": "PAPER-BERGSTROM-FABER-PAYNE-24/poincare-duality-equivariant",
+   "kind": "theorem",
+   "name": "Equivariant Poincaré duality for polynomial point counts (Remark 9.4)",
+   "statement": "Let X be smooth, proper and irreducible over Z of relative dimension d, with polynomial point count P, and let a finite group G act on X over Z. Then P(t) = t^d P(1/t), and P_{V^∨}(t) = t^d P_V(t^{−1}) for every irreducible representation V of G, so P_{V,i} = P_{V,d−i} when V is self-dual.",
+   "locator": "arXiv:2206.07759v2, Remark 9.4, first paragraph, p. 22; used in Theorem 1.4 and §10, pp. 3 and 24",
+   "status": "missing",
+   "note": "Split from poincare-duality-dm by FIX-RT-PAPER-BERGSTROM-FABER-PAYNE-24 (RT-PAPER-BERGSTROM-FABER-PAYNE-24/3). The pairing is EtaleDualityAndPerverseSheaves EDC.2:pairings, which WC.2 imports to derive b_i = b_{2d−i}; G-equivariance follows by naturality, and P_{V,i} = [H^{2i} : V] by Proposition 9.3. Routed to WC.2 as a source."
+  },
+  {
    "id": "PAPER-BERGSTROM-FABER-PAYNE-24/poincare-duality-dm",
    "kind": "theorem",
-   "name": "Poincaré duality for smooth proper DM stacks; Remark 9.4",
-   "statement": "For X smooth and proper of relative dimension d over Z with polynomial point count, P(t) = t^d P(1/t); equivariantly, for X irreducible, P_{V^∨}(t) = t^d P_V(t^{−1}), so P_{V,i} = P_{V,d−i} for self-dual V. The same holds for the coarse space of a smooth proper DM stack, e.g. M̄_{g,n}.",
-   "locator": "arXiv:2206.07759v2, Remark 9.4, p. 22; used in Theorem 1.4 and §10, p. 3 and p. 24",
+   "name": "Poincaré duality for smooth proper DM stacks, Frobenius- and G-equivariantly",
+   "statement": "For a smooth proper Deligne–Mumford stack X of dimension d over F_q, or its coarse space, with an action of a finite group G, cup product gives a Frobenius- and G-equivariant perfect pairing H^i(X_{F̄_q}, Q_ℓ) × H^{2d−i}(X_{F̄_q}, Q_ℓ) → Q_ℓ(−d); hence the conclusions of poincare-duality-equivariant hold for M̄_{g,n} with its S_n-action.",
+   "locator": "arXiv:2206.07759v2, Remark 9.4, second paragraph, p. 22",
    "status": "missing",
-   "note": "WC.2 proves the Frobenius-equivariant duality for varieties; PAPER-CANNING-LARSON-PAYNE-24 routed the Betti version for DM stacks to SF.2. Routed to WC.2 as a source."
+   "note": "The same theorem as PAPER-CANNING-LARSON-PAYNE-24/14. Its single owner should be EtaleDualityAndPerverseSheavesPartIIStacks (ST.1–ST.2), importing EDC.2:pairings, as FIX-RT-AREA-etale /3 recommends and the verifier of RT-PAPER-BERGSTROM-FABER-PAYNE-24/3 requires; SF.2 does not own duality. Routed there by route 7. With Q_ℓ coefficients the moduli case also reduces to schemes: H^•(M̄_{g,n}) = H^•(X_{g,n})^H by boggi-pikaart, and EDC.2's pairing on X_{g,n} restricts to a perfect pairing on H-invariants."
   },
   {
    "id": "PAPER-BERGSTROM-FABER-PAYNE-24/weight-spectral-sequence",
    "kind": "theorem",
    "name": "Weight spectral sequence of a normal crossings compactification",
-   "statement": "For M_{g,n} ⊂ M̄_{g,n} with normal crossings boundary stratified by stable graphs G, there is a spectral sequence with E₁^{j,k} = ⊕_{|E(G)| = j} H^k(M̃_G) abutting to H^•_c(M_{g,n}), degenerating at E₂; in ℓ-adic cohomology after base change to F̄_p it is a spectral sequence of Galois representations (Petersen 2017, Ex. 3.5; Payne–Willwacher, §2.3).",
+   "statement": "For M_{g,n} ⊂ M̄_{g,n} with normal crossings boundary stratified by stable graphs G, there is a spectral sequence with E₁^{j,k} = ⊕_{|E(G)| = j} (H^k(∏_v M̄_{g_v,n_v}) ⊗ det E(G))^{Aut(G)} = H^k(D̃^{(j)}, ε^j), where D̃^{(j)} = ⊔_{|E(G)|=j} M̃_G and ε^j is the determinant of the local system of the j boundary branches, identified with the sign of the permutation action of Aut(G) on E(G); it abuts to H^{j+k}_c(M_{g,n}) and degenerates at E₂ (Payne–Willwacher §2.3; Deligne, Hodge II §3.2, dual form). In ℓ-adic cohomology after base change to F̄_p it is a spectral sequence of Galois representations (Petersen 2017, Ex. 3.5), and Frobenius acts trivially on det E(G), because the branches are defined over Z.",
    "locator": "arXiv:2206.07759v2, proof of Proposition 4.2, (3), p. 7; proof of Corollary 9.5, p. 23",
    "status": "missing",
-   "note": "DWP.8 plans weight filtrations of mixed complexes; Deligne's weight spectral sequence for the complement of a normal crossings divisor in a smooth proper DM stack is its geometric instance. Routed to DWP.8 as a source."
+   "note": "DWP.8 plans weight filtrations of mixed complexes; Deligne's weight spectral sequence for the complement of a normal crossings divisor in a smooth proper DM stack is its geometric instance. Routed to DWP.8 as a source. The paper's (3) omits det E(G) (sourceIssues E7; RT-PAPER-BERGSTROM-FABER-PAYNE-24/2): the untwisted page gives χ_c(M_{1,2}) = 2, but #M_{1,2}(F_q) = q², so χ_c = 1. With one edge the sign is trivial, so the (0, k) and (1, k) columns used by ac-lemma-2-6 are unaffected."
   },
   {
    "id": "PAPER-BERGSTROM-FABER-PAYNE-24/squarefree-count",
@@ -301,7 +366,7 @@
    "statement": "Let P_g be the set of squarefree polynomials over F_q of degree 2g + 2 or 2g + 1. Unique factorization f = h·m² (h squarefree, m monic) gives (q − 1)(q^{2g+2} + q^{2g+1}) = Σ_{j=0}^{g} #P_{g−j} q^j + (q − 1)q^{g+1}; with #P₀ = q²(q − 1), induction gives #P_g = (q − 1)(q^{2g+2} − q^{2g}) for g ≥ 1.",
    "locator": "arXiv:2206.07759v2, §5, p. 8",
    "status": "missing",
-   "note": "Elementary finite-field polynomial counting; routed to FF.3 as a source."
+   "note": "The monic count s_n (s_0 = 1, s_1 = q, s_n = q^n − q^{n−1}) is FF.3's, next to FF.3/gauss-count-formula; ArithmeticStatistics:ST.4/count-of-squarefree-monic-polynomials-over-a-finite-field duplicates it and should import it; #P_g = (q − 1)(s_{2g+2} + s_{2g+1}) (RT-PAPER-BERGSTROM-FABER-PAYNE-24/4, as its verifier corrected it). Routed to FF.3 as a source."
   },
   {
    "id": "PAPER-BERGSTROM-FABER-PAYNE-24/char-sum-interpolation",
@@ -324,20 +389,29 @@
   {
    "id": "PAPER-BERGSTROM-FABER-PAYNE-24/moduli-stacks",
    "kind": "definition",
-   "name": "Moduli stacks of curves, boundary and stable graphs",
-   "statement": "M_{g,n} ⊂ M̄_{g,n} are the moduli stacks of smooth and of stable n-pointed genus g curves, smooth and proper DM stacks over Z; ∂M̄_{g,n} := M̄_{g,n} ∖ M_{g,n} is a normal crossings divisor. It is stratified by marked dual graphs G, with strata M_G and normalized closures M̃_G ≅ (∏_{v ∈ V(G)} M̄_{g_v,n_v})/Aut(G), so H^•(M̃_G) = (⊗_v H^•(M̄_{g_v,n_v}))^{Aut(G)}.",
-   "locator": "arXiv:2206.07759v2, §2, p. 4; §4, Notation 4.1 and proof of Proposition 4.2, pp. 6–7",
+   "name": "Moduli stacks of stable pointed curves (Knudsen)",
+   "statement": "For g, n ≥ 0 with 2g − 2 + n > 0, M_{g,n} ⊂ M̄_{g,n} are the moduli stacks of smooth and of stable n-pointed genus g curves: smooth and proper Deligne–Mumford stacks over Z, whose boundary ∂M̄_{g,n} := M̄_{g,n} ∖ M_{g,n} is a divisor with normal crossings relative to Z, with universal curve M̄_{g,n+1} → M̄_{g,n} given by forgetting the last point.",
+   "locator": "arXiv:2206.07759v2, §1, p. 2; §2, p. 4; proof of Proposition 3.1, p. 6; proof of Proposition 4.2, p. 7",
    "status": "missing",
-   "note": "The roadmap MotivicStructuresInModuliOfCurves (PAPER-CANNING-LARSON-PAYNE-24) opens with exactly these objects. Stable pointed curves and dual graphs are imported from Tau Ceti StableReduction."
+   "note": "Imported from StableReductionPartII, the single owner of pointed stable-curve moduli (FIX-RT-AREA-etale /4); routed there by route 6 (RT-PAPER-BERGSTROM-FABER-PAYNE-24/1). The paper needs every (g, n) with 2g − 2 + n > 0, including Keel's M̄_{0,n} and M̄_{1,11} for the sharpness of Theorem 1.1; PAPER-YUAN-26 route 10's brief still reads 'for g>1' until FIX-RT-AREA-etale's Edit 1 (the pointed range) is applied. Stable pointed curves and dual graphs come from Tau Ceti StableReduction Layers 1 and 3. The boundary stratification is the separate item boundary-strata."
+  },
+  {
+   "id": "PAPER-BERGSTROM-FABER-PAYNE-24/boundary-strata",
+   "kind": "definition",
+   "name": "Boundary strata of M̄_{g,n} by stable graphs",
+   "statement": "∂M̄_{g,n} is stratified by marked dual graphs G (stable graphs of genus g with n legs): the open strata are M_G ≅ (∏_{v ∈ V(G)} M_{g_v,n_v})/Aut(G), and the normalized closed strata are M̃_G ≅ (∏_{v ∈ V(G)} M̄_{g_v,n_v})/Aut(G), so that with constant coefficients H^•(M̃_G) = (⊗_v H^•(M̄_{g_v,n_v}))^{Aut(G)}.",
+   "locator": "arXiv:2206.07759v2, §4, Notation 4.1 and proof of Proposition 4.2, pp. 6–7",
+   "status": "missing",
+   "note": "Split from moduli-stacks by FIX-RT-PAPER-BERGSTROM-FABER-PAYNE-24 (RT-PAPER-BERGSTROM-FABER-PAYNE-24/1). Plain Aut(G)-invariants are right here, for the open-strata decomposition used by Proposition 4.2(3) and for the Getzler–Kapranov formula of Proposition 9.6; only the E₁ page of the weight spectral sequence carries the sign det E(G) (weight-spectral-sequence; sourceIssues E7)."
   },
   {
    "id": "PAPER-BERGSTROM-FABER-PAYNE-24/boggi-pikaart",
    "kind": "theorem",
    "name": "M̄_{g,n} as a global finite quotient",
-   "statement": "M̄_{g,n} is S_n-equivariantly the global quotient [X_{g,n}/H] of a smooth projective variety by a finite group H (Boggi–Pikaart 2000); its coarse space over Q is a finite quotient of a smooth projective variety.",
+   "statement": "M̄_{g,n} can be realized S_n-equivariantly as the global quotient [X_{g,n}/H] of a smooth and proper variety X_{g,n} by a finite group H (Boggi–Pikaart 2000). BFP use it over F_q, for every q, to form the twisted forms [X^σ_{g,n}/H] of Remark 9.4, and over Q for the pure-Tate remark of §1.",
    "locator": "arXiv:2206.07759v2, §1, p. 2; Remark 9.4, p. 22",
    "status": "missing",
-   "note": "Routed to the moduli-of-curves roadmap."
+   "note": "The extraction's earlier wording 'smooth projective … over Q' is not the paper's: Remark 9.4 (p. 22) says 'smooth and proper'. The base over which BP00 (Compositio 120 (2000), 171–191) constructs X_{g,n}, and whether it is projective there, must be taken from BP00 itself; the fixer could not obtain it (Springer subscription). Routed with moduli-stacks to StableReductionPartII (route 6): it is a finite level-structure cover of M̄_{g,n}, of the same kind as the projective finite scheme covers of PAPER-YUAN-26 route 10 and de Jong's covers, and says nothing about cohomology (RT-PAPER-BERGSTROM-FABER-PAYNE-24/1)."
   },
   {
    "id": "PAPER-BERGSTROM-FABER-PAYNE-24/pure-tate",
@@ -346,7 +420,7 @@
    "statement": "If a smooth proper DM stack X over Z has polynomial point count and its coarse space over Q is a finite quotient of a smooth projective variety (as for M̄_{g,n}), then H^•(X_C, Q) is even and the Hodge structure on it is pure Tate.",
    "locator": "arXiv:2206.07759v2, §1, p. 2",
    "status": "missing",
-   "note": "Routed to the moduli-of-curves roadmap with its only application."
+   "note": "Inputs: the Boggi–Pikaart presentation (the coarse space is Y/H with Y smooth and proper, so H^•(X_C, Q) = H^•(Y)^H carries a pure Hodge structure); the Hodge decomposition of smooth projective complex varieties, which the atlas plans only in the draft SeveralComplexVariablesKahlerGeometry CV.5, with Tau Ceti HodgeStructures L0 (an import gap, recorded in route 1's brief); and the Hodge–Tate/de Rham comparison CohomologyComparisons CP.3 (or Katz's E-polynomial theorem) to pass from 'H^{2i}_ét is a sum of Q_ℓ(−i)' to Hodge type (i, i). No mixed Hodge structure is needed (RT-PAPER-BERGSTROM-FABER-PAYNE-24/6). Routed to the moduli-of-curves roadmap with its only application."
   },
   {
    "id": "PAPER-BERGSTROM-FABER-PAYNE-24/ac-boundary-sequence",
@@ -364,7 +438,7 @@
    "statement": "If H^k_c(M_{g,n}) = 0, then pullback to the normalization of the boundary gives an injection H^k(M̄_{g,n}) ↪ H^k(∂̃M̄_{g,n}).",
    "locator": "arXiv:2206.07759v2, §2, p. 4 ([AC98, Lemma 2.6])",
    "status": "missing",
-   "note": "Weight-filtration argument; routed to the moduli-of-curves roadmap."
+   "note": "For M̄_{g,n} this is the (0, k) corner of the weight spectral sequence: by E₂-degeneration, ker(H^k(M̄_{g,n}) → H^k(∂̃M̄_{g,n})) = E_2^{0,k} = gr^W_k H^k_c(M_{g,n}); one-edge graphs carry no sign twist. Inputs: weight-spectral-sequence (DWP.8), deligne-purity-dm, etale-singular-comparison (WC.4). AC98 argue with Hodge III 8.2.5, but the atlas plans no mixed Hodge structure on the cohomology of varieties, so the formalization follows the ℓ-adic route (RT-PAPER-BERGSTROM-FABER-PAYNE-24/6, as its verifier corrected it). Routed to the moduli-of-curves roadmap."
   },
   {
    "id": "PAPER-BERGSTROM-FABER-PAYNE-24/harer-vcd",
@@ -643,7 +717,7 @@
    "statement": "If M̄_{g′,n′} has polynomial point count for (g′, n′) ⪯ (g, n), then #_{S_n} M_{g,n}(F_q) = Σ_{λ ⊢ n} P_λ(q)s_λ with P_λ ∈ Z[t], and the coefficient of t^k in P_λ is the multiplicity of V_λ in Σ_i (−1)^i gr^W_{2k} H^i_c(M_{g,n}, Q).",
    "locator": "arXiv:2206.07759v2, §9.2, Corollary 9.5 and proof, p. 23",
    "status": "missing",
-   "note": "Routed to the moduli-of-curves roadmap."
+   "note": "Routed to the moduli-of-curves roadmap. The s_λ are those of frobenius-characteristic and symmetric-functions-and-plethysm."
   },
   {
    "id": "PAPER-BERGSTROM-FABER-PAYNE-24/getzler-kapranov",
@@ -652,7 +726,7 @@
    "statement": "For a stable S-module V, Ch(MV) = Log(exp(Δ) Exp(Ch V)) (Getzler–Kapranov 1998, Thm. 8.13). Applied to point counts via p_n ∘ q = q^n, with Ch(V) = Σ_{2(g−1)+n>0} h^{g−1} #_{S_n}M_{g,n}(F_q), Ch(MV) − Ch(V) = Σ h^{g−1} #_{S_n}∂M̄_{g,n}(F_q): the equivariant boundary counts are determined by #_{S_{n′}}M_{g′,n′}(F_q), (g′, n′) ≺ (g, n).",
    "locator": "arXiv:2206.07759v2, §9.3, proof of Proposition 9.6, p. 23; §11, p. 25",
    "status": "missing",
-   "note": "The §9 introduction cites it as Theorem 8.3 (sourceIssues E5). Routed to the moduli-of-curves roadmap."
+   "note": "The §9 introduction cites it as Theorem 8.3 (sourceIssues E5). Routed to the moduli-of-curves roadmap. Λ̂, plethysm and p_n ∘ q = q^n come from symmetric-functions-and-plethysm, Exp and Log from plethystic-exp-log; stable S-modules, Ch, the Laplacian Δ and Theorem 8.13 stay here."
   },
   {
    "id": "PAPER-BERGSTROM-FABER-PAYNE-24/lower-genus-equivariant-counts",
@@ -742,7 +816,7 @@
    "statement": "#_{S₂}M̄_{4,2} = (q^{11} + 9q^{10} + 55q⁹ + 220q⁸ + 561q⁷ + 901q⁶ + ⋯ + 9q + 1)s₂ + (2q^{10} + 21q⁹ + 99q⁸ + 277q⁷ + 461q⁶ + ⋯ + 2q)s_{1²}; #_{S₃}M̄_{4,3} = (q^{12} + 11q^{11} + 87q^{10} + 424q⁹ + 1347q⁸ + 2694q⁷ + 3414q⁶ + ⋯ + 1)s₃ + (5q^{11} + 58q^{10} + 349q⁹ + 1220q⁸ + 2578q⁷ + 3304q⁶ + ⋯ + 5q)s_{2,1} + (4q^{10} + 46q⁹ + 190q⁸ + 446q⁷ + 583q⁶ + ⋯ + 4q²)s_{1³}; #_{S₂}M_{4,2} = (q^{11} + 2q^{10} + 3q⁹ − 2q⁸ − 2q⁷ − q³ − q²)s₂ + (q^{10} + q⁹ − 2q⁷ − q³ − q²)s_{1²}; #_{S₃}M_{4,3} = (q^{12} + 2q^{11} + 3q^{10} − 2q⁹ − 4q⁸ + 2q⁷ − q⁶ − q³ + 2q²)s₃ + (q^{11} + 2q^{10} − q⁹ − 4q⁸ + q⁷ − 4q³ − 1)s_{2,1} + (−q⁸ − 2q³ + 2q + 1)s_{1³}.",
    "locator": "arXiv:2206.07759v2, §11, Theorem 11.1, p. 25; proof §11.3, pp. 28–29",
    "status": "missing",
-   "note": "Rechecked here: open + boundary (§11.3) = closed, the closed parts are palindromic, the dimensions sum to Theorems 1.4–1.5, and the Euler characteristics are 2s₃ − 6s_{2,1}. Routed to the moduli-of-curves roadmap."
+   "note": "Rechecked here: open + boundary (§11.3) = closed, the closed parts are palindromic, the dimensions sum to Theorems 1.4–1.5, and the Euler characteristics are 2s₃ − 6s_{2,1}. Routed to the moduli-of-curves roadmap. The s_λ are those of frobenius-characteristic and symmetric-functions-and-plethysm."
   },
   {
    "id": "PAPER-BERGSTROM-FABER-PAYNE-24/local-systems",
@@ -751,7 +825,7 @@
    "statement": "The universal curve π : M_{4,1} → M₄ gives V := R¹π_*Q_ℓ, with stalk H¹(C, Q_ℓ); for λ = (λ₁ ≥ ⋯ ≥ λ₄ ≥ 0), V_λ is the local system of the irreducible GSp(8)-representation of highest weight λ (Schur functors). The traces Tr(F_q, H^•_c(M₄, V_λ)) for |λ| ≤ n carry the same information as #_{S_m}M_{4,m}, m ≤ n (Getzler 1999; Bergström 2008).",
    "locator": "arXiv:2206.07759v2, §11.4, pp. 29–30",
    "status": "missing",
-   "note": "CLP24's brief plans symplectic local systems on M_g; routed there."
+   "note": "CLP24's brief plans symplectic local systems on M_g; routed there. The GSp(8) highest-weight representations come from Tau Ceti ClassicalGroups Layer 3 (the highest-weight classification for Sp_n of type C_n), with LieHighestWeight Layer 4 as the general engine, and from the accepted ClassicalGroupsPartII of PAPER-YU-23 (route 13: rational algebraic representations of split GSp_2g over Q) (RT-PAPER-BERGSTROM-FABER-PAYNE-24/7)."
   },
   {
    "id": "PAPER-BERGSTROM-FABER-PAYNE-24/theorem-11-5",
@@ -867,8 +941,7 @@
    "title": "Tautological rings and motivic structures in the cohomology of moduli of stable curves",
    "area": "algebraicgeometry",
    "items": [
-    "PAPER-BERGSTROM-FABER-PAYNE-24/moduli-stacks",
-    "PAPER-BERGSTROM-FABER-PAYNE-24/boggi-pikaart",
+    "PAPER-BERGSTROM-FABER-PAYNE-24/boundary-strata",
     "PAPER-BERGSTROM-FABER-PAYNE-24/pure-tate",
     "PAPER-BERGSTROM-FABER-PAYNE-24/ac-boundary-sequence",
     "PAPER-BERGSTROM-FABER-PAYNE-24/ac-lemma-2-6",
@@ -917,8 +990,8 @@
     "PAPER-BERGSTROM-FABER-PAYNE-24/local-systems",
     "PAPER-BERGSTROM-FABER-PAYNE-24/theorem-11-5"
    ],
-   "brief": "This is the new roadmap proposed by PAPER-CANNING-LARSON-PAYNE-24 under the same id, accepted on review; its brief remains binding. That brief already asks for 'the vanishing of the low-degree Borel–Moore homology of M_{g,n} proved by Bergström–Faber–Payne' as a layer, and this paper supplies it with its point-counting proof. Add, after the moduli stacks, boundary strata and vcd layers: the Arbarello–Cornalba method (excision sequence, Lemma 2.6, Lemma 2.9, vanishing in degrees 1, 3, 5), Keel's theorem, Church–Farb–Putman and Morita–Sakasai–Suzuki, Proposition 2.1; polynomial point counts of M̄_{g,n} and Proposition 4.2 (via DWP.8's weight spectral sequence); the hyperelliptic stack (Arsie–Vistoli) and the counts of §5; canonical genus 4 curves on the three quadrics (§6, with GN.2's classification); the genus 4 sieve computations of §8, Proposition 8.8 included; equivariant counts of M̄_{g,n} through twisted forms, the Getzler–Kapranov formula and Gorsky's Euler characteristic (§9); the assembly of §10; Theorems 1.1, 1.4, 1.5, 11.1 and 11.5, with the symplectic local systems V_λ on M₄. Import from WeilConjectures the stack point counts (Behrend), the van den Bogaart–Edixhoven theorem, Proposition 3.1, the Hasse–Weil sieve and equivariant counts (WC.1, WC.2, WC.4, WC.5), and from FiniteFieldsAndCharacterSums the squarefree and character-sum lemmas. Acceptance: Theorems 1.4 and 1.5 differ by Proposition 9.6 in every degree; the closed counts are palindromic; χ(M_{4,3}) = −10 and χ_{S₃}(M_{4,3}) = 2s₃ − 6s_{2,1}; and H^{11}(M̄_{1,11}) ≅ Q² shows Theorem 1.1 is sharp.",
-   "reason": "The atlas has no moduli of curves; PAPER-CANNING-LARSON-PAYNE-24 proposed this roadmap for the cohomology of M̄_{g,n}, and its design (DESIGN-MotivicStructuresInModuliOfCurves) is pending. Its brief names this paper's vanishing theorem as a planned layer, and Canning–Larson–Payne's own proofs start from it, so the whole moduli-theoretic content coalesces there, keeping its id, title and area."
+   "brief": "This is the new roadmap proposed by PAPER-CANNING-LARSON-PAYNE-24 under the same id, accepted on review; its brief remains binding. That brief already asks for 'the vanishing of the low-degree Borel–Moore homology of M_{g,n} proved by Bergström–Faber–Payne' as a layer, and this paper supplies it with its point-counting proof. Import the moduli stacks M_{g,n} ⊂ M̄_{g,n}, their properness, smoothness and normal-crossings boundary, and the Boggi–Pikaart presentation from StableReductionPartII; after the boundary-stratification and vcd layers add: the Arbarello–Cornalba method (excision sequence, Lemma 2.6 (derived from DWP.8's weight spectral sequence, not from Hodge III), Lemma 2.9, vanishing in degrees 1, 3, 5), Keel's theorem, Church–Farb–Putman and Morita–Sakasai–Suzuki, Proposition 2.1; polynomial point counts of M̄_{g,n} and Proposition 4.2 (via DWP.8's weight spectral sequence). Only the E₁ page of the weight spectral sequence, a sum over the normalized closed strata M̃_G, carries the sign det E(G) of the boundary branches (E7); the decomposition of ∂M̄_{g,n} into open strata M_G = (∏_v M_{g_v,n_v})/Aut(G), Proposition 4.2(3) and the Getzler–Kapranov formula of Proposition 9.6 take plain Aut(G)-invariants; the hyperelliptic stack (Arsie–Vistoli) and the counts of §5; canonical genus 4 curves on the three quadrics (§6, with GN.2's classification); the genus 4 sieve computations of §8, Proposition 8.8 included; equivariant counts of M̄_{g,n} through twisted forms, stable S-modules with their characteristic Ch and the Laplacian Δ, the Getzler–Kapranov formula (Theorem 8.13) and Gorsky's Euler characteristic (§9); the assembly of §10; Theorems 1.1, 1.4, 1.5, 11.1 and 11.5, with the symplectic local systems V_λ on M₄. Import from WeilConjectures the stack point counts (Behrend), the van den Bogaart–Edixhoven theorem, Proposition 3.1, the Hasse–Weil sieve and equivariant counts (WC.1, WC.2, WC.4, WC.5), and from FiniteFieldsAndCharacterSums the squarefree and character-sum lemmas. Import R(G) (Tau Ceti repRing, in the library) and the fixed-degree Frobenius characteristic (Tau Ceti SchurWeyl L7); the ring Λ of symmetric functions, the stable characteristic and plethysm from the SchurWeyl Part II of route 8; plethystic Exp and Log from QSeriesPartitionsAndMockModularForms QM.0; purity for DM stacks from WC.6 and Poincaré duality for DM stacks from the stacks Part II of route 7. Import gap: the pure-Tate remark needs the Hodge decomposition of smooth projective complex varieties, planned only in the draft SeveralComplexVariablesKahlerGeometry CV.5 (with Tau Ceti HodgeStructures L0), and the Hodge–Tate comparison CohomologyComparisons CP.3. Acceptance: Theorems 1.4 and 1.5 differ by Proposition 9.6 in every degree; the closed counts are palindromic; χ(M_{4,3}) = −10 and χ_{S₃}(M_{4,3}) = 2s₃ − 6s_{2,1}; and H^{11}(M̄_{1,11}) ≅ Q² shows Theorem 1.1 is sharp.",
+   "reason": "The moduli stacks themselves belong to StableReductionPartII (route 6); PAPER-CANNING-LARSON-PAYNE-24 proposed this roadmap for the cohomology of M̄_{g,n}, and its design (DESIGN-MotivicStructuresInModuliOfCurves) is pending. Its brief names this paper's vanishing theorem as a planned layer, and Canning–Larson–Payne's own proofs start from it, so the whole moduli-theoretic content coalesces there, keeping its id, title and area."
   },
   {
    "route": "source",
@@ -928,7 +1001,8 @@
     "WeilConjectures:WC.2",
     "WeilConjectures:WC.4",
     "WeilConjectures:WC.5",
-    "WeilConjectures:WC.5:power-sum-converse"
+    "WeilConjectures:WC.5:power-sum-converse",
+    "WeilConjectures:WC.6"
    ],
    "items": [
     "PAPER-BERGSTROM-FABER-PAYNE-24/point-count-stack",
@@ -949,9 +1023,10 @@
     "PAPER-BERGSTROM-FABER-PAYNE-24/twisted-form",
     "PAPER-BERGSTROM-FABER-PAYNE-24/def-9-1",
     "PAPER-BERGSTROM-FABER-PAYNE-24/prop-9-3",
-    "PAPER-BERGSTROM-FABER-PAYNE-24/poincare-duality-dm"
+    "PAPER-BERGSTROM-FABER-PAYNE-24/poincare-duality-equivariant",
+    "PAPER-BERGSTROM-FABER-PAYNE-24/deligne-purity-dm"
    ],
-   "reason": "The point-counting tools are general statements about zeta functions and Frobenius traces, which WeilConjectures owns for varieties. The paper supplies:\n- for WC.1: point counts of stacks and Behrend's trace formula (Proposition 1.3), the Vakil–Wood formula for the inverse zeta function and Proposition 7.4, the Hasse–Weil sieve (Propositions 7.1, 7.5, Remark 7.6), and twisted forms with equivariant point counts (Kisin–Lehrer);\n- for WC.2: Poincaré duality in the equivariant, DM-stack form of Remark 9.4;\n- for WC.4: the specialization comparison and Proposition 9.3;\n- for WC.5 and its power-sum-converse substage: the van den Bogaart–Edixhoven theorem and its finite-spectrum lemma, and Proposition 3.1."
+   "reason": "The point-counting tools are general statements about zeta functions and Frobenius traces, which WeilConjectures owns for varieties. The paper supplies:\n- for WC.1: point counts of stacks and Behrend's trace formula (Proposition 1.3), the Vakil–Wood formula for the inverse zeta function and Proposition 7.4, the Hasse–Weil sieve (Propositions 7.1, 7.5, Remark 7.6), and twisted forms with equivariant point counts (Kisin–Lehrer);\n- for WC.2: equivariant Poincaré duality for smooth proper schemes and its consequence for polynomial point counts (Remark 9.4); the DM-stack form goes to the stacks Part II (route 7);\n- for WC.4: the specialization comparison and Proposition 9.3;\n- for WC.6: purity for smooth proper DM stacks, through the coarse space and Weil II 3.3.11;\n- for WC.5 and its power-sum-converse substage: the van den Bogaart–Edixhoven theorem and its finite-spectrum lemma, and Proposition 3.1."
   },
   {
    "route": "source",
@@ -962,7 +1037,7 @@
    "items": [
     "PAPER-BERGSTROM-FABER-PAYNE-24/weight-spectral-sequence"
    ],
-   "reason": "DWP.8 plans weight filtrations of mixed ℓ-adic complexes. The weight spectral sequence of a normal crossings compactification of a smooth DM stack, with E₁ built from normalized boundary strata, is its geometric instance. The paper uses its Galois-equivariant form (Petersen; Payne–Willwacher), so it is a source for DWP.8."
+   "reason": "DWP.8 plans weight filtrations of mixed ℓ-adic complexes. The weight spectral sequence of a normal crossings compactification of a smooth DM stack, with E₁ built from normalized boundary strata, is its geometric instance. The paper uses its Galois-equivariant form (Petersen; Payne–Willwacher), so it is a source for DWP.8. Its E₁ term carries the orientation local system of the boundary branches, E₁^{j,k} = ⊕_{|E(G)|=j} (H^k(M̄_G) ⊗ det E(G))^{Aut(G)}, which the paper's display (3) omits (E7)."
   },
   {
    "route": "source",
@@ -975,7 +1050,7 @@
     "PAPER-BERGSTROM-FABER-PAYNE-24/squarefree-count",
     "PAPER-BERGSTROM-FABER-PAYNE-24/char-sum-interpolation"
    ],
-   "reason": "Two elementary finite-field lemmas behind the hyperelliptic counts belong with characters and polynomial counting: the vanishing of quadratic-character correlation sums by interpolation (FF.1), and the count of squarefree polynomials of degree 2g + 1 or 2g + 2 through f = h·m² (FF.3)."
+   "reason": "Two elementary finite-field lemmas behind the hyperelliptic counts belong with characters and polynomial counting: the vanishing of quadratic-character correlation sums by interpolation (FF.1), and the count of squarefree polynomials of degree 2g + 1 or 2g + 2 through f = h·m² (FF.3, which plans the counting theory of polynomials over F_q: Gauss's count formula and the prime polynomial theorem; the ArithmeticStatistics ST.4 node for the same count should import it)."
   },
   {
    "route": "source",
@@ -987,6 +1062,54 @@
     "PAPER-BERGSTROM-FABER-PAYNE-24/quadric-classification"
    ],
    "reason": "GN.2 integrates the classification of quadratic forms by discriminants and local invariants. The three PGL₄(F_q)-orbits of reduced irreducible quadric surfaces and the orders of their automorphism groups are its finite-field case, including characteristic 2 through the Arf invariant."
+  },
+  {
+   "route": "part-ii",
+   "parent": "tauceti:TauCetiRoadmap/StableReduction",
+   "roadmap": "StableReductionPartII",
+   "title": "Stable reduction of curves and stable maps, Part II: moduli of curves and stable compactifications",
+   "area": "arithmeticgeometry",
+   "items": [
+    "PAPER-BERGSTROM-FABER-PAYNE-24/moduli-stacks",
+    "PAPER-BERGSTROM-FABER-PAYNE-24/boggi-pikaart"
+   ],
+   "brief": "This is the pending PAPER-YUAN-26 Part II of the same id; its brief, with the pointed range 2g − 2 + n > 0 added by FIX-RT-AREA-etale /4, remains binding. This paper needs M̄_{g,n} for all 2g − 2 + n > 0 as a smooth proper Deligne–Mumford stack over Z with normal-crossings boundary and universal curve M̄_{g,n+1} → M̄_{g,n} (Knudsen), and Boggi–Pikaart's S_n-equivariant presentation M̄_{g,n} ≅ [X_{g,n}/H] with X_{g,n} smooth and proper and H finite (Compositio 120 (2000)), over the base the source proves; BFP use it over F_q for every q, to define the twisted forms [X^σ_{g,n}/H]. Export both to MotivicStructuresInModuliOfCurves.",
+   "reason": "Pointed moduli of curves have one owner, StableReductionPartII (FIX-RT-AREA-etale /4, confirmed by REV-RT-AREA-etale); the Boggi–Pikaart presentation is a finite cover of M̄_{g,n} of the kind this Part II already owns (RT-PAPER-BERGSTROM-FABER-PAYNE-24/1)."
+  },
+  {
+   "route": "part-ii",
+   "parent": "EtaleDualityAndPerverseSheaves",
+   "roadmap": "EtaleDualityAndPerverseSheavesPartIIStacks",
+   "title": "Étale duality, cycle classes and perverse sheaves, Part II: Artin and Deligne–Mumford stacks",
+   "area": "etale",
+   "items": [
+    "PAPER-BERGSTROM-FABER-PAYNE-24/poincare-duality-dm"
+   ],
+   "brief": "This is the stacks Part II that FIX-RT-AREA-etale /3 proposes as the one owner of ℓ-adic sheaf theory on Artin and Deligne–Mumford stacks (layers ST.0–ST.6, with its sources Laszlo–Olsson, Liu–Zheng and Sun); that proposal's brief is binding. This paper needs, at ST.1–ST.2, Poincaré duality for a smooth proper Deligne–Mumford stack X of dimension d over F_q, and for its coarse space: the Frobenius- and G-equivariant perfect cup-product pairing H^i(X_{F̄_q}, Q_ℓ) × H^{2d−i}(X_{F̄_q}, Q_ℓ) → Q_ℓ(−d), for a finite group G acting on X, and the comparison H^•(X) ≅ H^•(X_c) with the coarse space. Import the scheme pairing EDC.2:pairings; do not re-prove it. PAPER-CANNING-LARSON-PAYNE-24/14 states the same theorem and should be routed here too.",
+   "reason": "Duality on smooth proper DM stacks had two proposed owners, WC.2 (this extraction) and SF.2 (PAPER-CANNING-LARSON-PAYNE-24/14). SF.2's text owns no duality, and EDC is scheme-only; the confirmed RT-AREA-etale/3 makes this Part II the owner of sheaf theory on stacks (RT-PAPER-BERGSTROM-FABER-PAYNE-24/3, as its verifier corrected it)."
+  },
+  {
+   "route": "part-ii",
+   "parent": "tauceti:TauCetiRoadmap/RepresentationTheory/SchurWeyl",
+   "roadmap": "SchurWeylSymmetricFunctionsPartII",
+   "title": "Representations of the symmetric group, Specht modules, and Schur-Weyl duality, Part II: the ring of symmetric functions, the stable Frobenius characteristic and plethysm",
+   "area": "representations",
+   "items": [
+    "PAPER-BERGSTROM-FABER-PAYNE-24/symmetric-functions-and-plethysm"
+   ],
+   "brief": "Start where Tau Ceti SchurWeyl Layer 7 stops: it plans the Frobenius characteristic in a fixed degree and finitely many variables and defers 'the stable symmetric-function ring and the Hall inner product'. Construct the graded ring Λ of symmetric functions in infinitely many variables as the inverse limit of the degree-bounded rings of Layer 7, its completion Λ̂, the monomial, elementary, complete, power-sum and Schur bases, and the Hall inner product. Prove that the stable Frobenius characteristic ⊕_n R(S_n) → Λ is a ring isomorphism for the induction product with ch(V_λ) = s_λ, compatible with Layer 7 in each degree and with Tau Ceti repRing. Construct plethysm f ∘ g and the λ-ring structure on Λ with Adams operations ψ_k = p_k ∘ −, importing the λ-ring axiomatics from KTheoryLowDegrees Z.3 rather than redefining them, and prove p_n ∘ q = q^n for a line element q. Import plethystic Exp and Log from QSeriesPartitionsAndMockModularForms QM.0. Acceptance: ch(V_{(n)}) = h_n and ch(sgn) = e_n; p_2 ∘ s_{1,1} = s_{2,2} − s_{2,1,1} + s_{1,1,1,1}; Exp and Log are inverse on Λ̂'s augmentation ideal. Consumers: MotivicStructuresInModuliOfCurves (Getzler–Kapranov) and HabiroRings (its free Λ-ring gap). This Part II is distinct from SchurWeylIntegralFunctors (PAPER-CADORET-HUI-TAMAGAWA-17 route 3), which concerns integral Young symmetrizers.",
+   "reason": "Neither pinned library has the ring of symmetric functions, λ-rings or plethysm, and SchurWeyl Layer 7 defers the stable ring to 'a later, separately stated step'; this is that step, as a Part II in the roadmap's own direction (RT-PAPER-BERGSTROM-FABER-PAYNE-24/7, as its verifier corrected it)."
+  },
+  {
+   "route": "source",
+   "roadmap": "QSeriesPartitionsAndMockModularForms",
+   "stages": [
+    "QSeriesPartitionsAndMockModularForms:QM.0"
+   ],
+   "items": [
+    "PAPER-BERGSTROM-FABER-PAYNE-24/plethystic-exp-log"
+   ],
+   "reason": "Plethystic Exp and Log already have an accepted owner in QM.0, through PAPER-YU-23's route 7 (item 044). Getzler–Kapranov's Exp and Log are the same construction on Λ̂((ħ)), so they are imported from QM.0, stated for a complete filtered ring with Adams operations, not planned again (RT-PAPER-BERGSTROM-FABER-PAYNE-24/7)."
   }
  ],
  "sourceIssues": [
@@ -1103,6 +1226,21 @@
     "reason": "Confirmed on the page image of p. 31; the arXiv API returns Wong's 'An algorithm to compute fundamental classes of spin components of strata of differentials' as 2211.16061v1.",
     "by": "REV-PAPER-BERGSTROM-FABER-PAYNE-24"
    }
+  },
+  {
+   "id": "PAPER-BERGSTROM-FABER-PAYNE-24/E7",
+   "kind": "error",
+   "locator": "arXiv:2206.07759v2 (17 Oct 2023), proof of Proposition 4.2, display (3), p. 7",
+   "printed": "The source says the weight spectral sequence converges to compactly supported cohomology of M_{g,n} and degenerates at E_2; its first page is displayed as (3) E_1^{j,k} = ⊕_{|E(G)|=j} H^k(M̃_G).",
+   "correction": "E_1^{j,k} = ⊕_{|E(G)|=j} (H^k(∏_v M̄_{g_v,n_v}) ⊗ det E(G))^{Aut(G)} = H^k(D̃^{(j)}, ε^j), with ε^j the orientation local system of the j boundary branches; and 'M_{g,n}' in the same sentence should read 'M_{g′,n′}'.",
+   "reason": "For (g, n) = (1, 2) the double-edge graph with one leg on each genus-0 vertex has Aut(G) = Z/2 acting by −1 on det E(G): its twisted invariants vanish, its untwisted invariants are Q. The twisted page gives e_c = L², χ_c = 1; the printed page gives χ_c = 2. But #M_{1,2}(F_q) = q² (Getzler's genus-one counts; verified by the RT-PAPER-BERGSTROM-FABER-PAYNE-24 verifier for p = 5, …, 19), and H^•_c(M_{1,2}) = Q(−2) in degree 4. The cited [PW21, §2.3] states the twisted formula.",
+   "affects": "nothing",
+   "impact": "Propositions 4.2 and 9.5 hold: they use only that each E₁ row is a Frobenius-stable subspace built from H^•(M̄_{g_v,n_v}) by finite-group invariants, with eigenvalues p^k and dimensions independent of p, and the sign twist changes neither. Proposition 4.2(3), §9.3 and Proposition 9.6 use the open-strata decomposition, which correctly takes plain invariants; the closing sentence of §4 ('due to the Aut(G)-invariants in (3)') really refers to that decomposition.",
+   "known": "new; the cited [PW21, §2.3] states the twisted formula",
+   "searched": [
+    "2026-09-30 (FIX-RT-PAPER-BERGSTROM-FABER-PAYNE-24): arXiv:2206.07759 lists v2 (17 Oct 2023) as the last version; Crossref and the Annals page (doi:10.4007/annals.2024.199.3.7) list no erratum. The Annals text is not openly available and was not collated, so whether the published version corrects (3) is unknown."
+   ],
+   "addedBy": "FIX-RT-PAPER-BERGSTROM-FABER-PAYNE-24, from confirmed RT-PAPER-BERGSTROM-FABER-PAYNE-24/2"
   }
  ],
  "sourceVersions": [
