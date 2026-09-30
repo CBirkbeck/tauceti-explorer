@@ -818,17 +818,18 @@
       "parentStageId": "StableHomotopyKTheory:H.5:S-delooping",
       "title": "The iterated S.-construction is a connective Ω-spectrum",
       "kind": "theorem",
-      "statement": "For a small Waldhausen category C with K(C) = Ω|wS.C| and π₁|wS.C| ≅ K₀(C), the sequence of spaces Ω|wS.C|, |wS.C|, |wS.S.C|, …, |wS.^nC|, … with the maps |wS.^nC| → Ω|wS.^{n+1}C| forms a connective Ω-spectrum KC with π_i(KC) = K_i(C) for i ≥ 0. An exact functor induces a map of spectra. The comparison maps and their equivalences are imported from the early K.4:construction prefix. This node assembles those maps as an Ω-spectrum; it does not prove additivity, relative S-fibration or K-theory pairings.",
+      "statement": "For a small Waldhausen category C with K(C) = Ω|wS.C| and π₁|wS.C| ≅ K₀(C), the sequence of spaces Ω|wS.C|, |wS.C|, |wS.S.C|, …, |wS.^nC|, … with the maps |wS.^nC| → Ω|wS.^{n+1}C| forms a connective Ω-spectrum KC with π_i(KC) = K_i(C) for i ≥ 0. An exact functor induces a map of spectra, and a biexact functor A × B → C satisfying the cofibration condition F(A′, B) ∪_{F(A, B)} F(A, B′) ↣ F(A′, B′) for all pairs of cofibrations (Weibel IV 8.11, II.9.5.2) induces a pairing K(A) ∧ K(B) → K(C).",
       "hypotheses": [
         "C small Waldhausen category; the S.-construction S_nC (with chosen subquotients, cofibrations and weak equivalences) is supplied by GeneralAlgebraicKTheory:K.4:construction.",
-        "The homotopy-fibration step uses the fibration sequence of Weibel V.1.7, which rests on the Additivity Theorem; that proof is not read in this packet but is read and decomposed in GeneralAlgebraicKTheory:K.4/relative-S-construction-fibration-and-delooping, which supplies it by a link. Both supplier nodes now have parent K.4:construction, despite their preserved K.4/... stable ids. The precise realization-fibration criterion remains an H.2 gap."
+        "The homotopy-fibration step uses the fibration sequence of Weibel V.1.7, which rests on the Additivity Theorem; that proof is not read in this packet but is read and decomposed in GeneralAlgebraicKTheory:K.4/relative-S-construction-fibration-and-delooping, which supplies it by a link."
       ],
       "proofSteps": [
         "π₁ of a simplicial space X. with X₀ a point is the free group on π₀(X₁) modulo ∂₁x = ∂₂x·∂₀x; for X. = BwS.C this is K₀(C) (Weibel IV Proposition 8.4).",
         "For an exact functor f: B → C define S_nf = S_nB ×_{S_nC} S_{n+1}C, a simplicial Waldhausen category containing C, with C → S.f → S.B (Weibel IV 8.5.3).",
         "Lemma 8.5.4: for f = id_C, S.f is the simplicial path space of S.C and wS.S.f the path space of wS.S.C, contractible since S₀f = 0 (proof given).",
         "The realization of wS.B → wS.C → wS.(S.f) → wS.(S.B) is a homotopy fibration sequence by Weibel V.1.7 (source boundary here; to be read with the Additivity Theorem).",
-        "Taking f = id gives |wS.C| ≃ Ω|wS.S.C|; iterating in the multisimplicial categories S.^nC gives the Ω-spectrum (Weibel IV 8.5.5)."
+        "Taking f = id gives |wS.C| ≃ Ω|wS.S.C|; iterating in the multisimplicial categories S.^nC gives the Ω-spectrum (Weibel IV 8.5.5).",
+        "Products: a biexact functor induces wS.A × wS.B → wwS.S.C, factoring through the smash product after realization (Weibel IV 8.11, sketched)."
       ],
       "acceptance": [
         "For an exact category A with isomorphisms as weak equivalences, |iS.A| ≃ BQA (Waldhausen 1.9; Weibel IV Exercises 8.5–8.6, statements with hints).",
@@ -838,7 +839,7 @@
       "sources": [
         {
           "sourceId": "Weibel-KBook-IV",
-          "locator": "Proposition 8.4 with proof, Definition 8.5, Relative K-theory spaces 8.5.3, Lemma 8.5.4 with proof, Infinite Loop Structure 8.5.5, pp. IV.68–69",
+          "locator": "Proposition 8.4 with proof, Definition 8.5, Relative K-theory spaces 8.5.3, Lemma 8.5.4 with proof, Infinite Loop Structure 8.5.5, pp. IV.68–69; Products 8.11, p. IV.73",
           "excerpt": "forms a connective Ω-spectrum KC, called the K-theory spectrum of C.",
           "match": "Conclusion of 8.5.5, whose fibration input is deferred in the source to V.1.7 as recorded."
         }
@@ -1518,19 +1519,5 @@
         "note": "Weibel IV 2.9 matches; the acceptance item copied Weibel's example K₁(C; Z_ℓ) = Z_ℓ, which contradicts the formula of 2.9 itself (the Tate module of K₁(C) lies in K₂(C; Z_ℓ)); replaced by an index check."
       }
     ]
-  },
-  "revision": {
-    "job": "FIX-RT-AREA-ktheory-1",
-    "agent": "Codex",
-    "session": "codex-5ebb6f",
-    "date": "2026-09-29",
-    "status": "awaiting independent review",
-    "note": "The retained review object is the unmodified historical verdict on the earlier text. This fix revision has not received a new independent review; its acceptance must not be inferred from that old verdict."
-  },
-  "requests": [
-    {
-      "supplier": "GeneralAlgebraicKTheory:K.4:construction",
-      "need": "Supply additivity and the relative S-construction fibration before this spectrum assembly, including its natural iterated delooping maps. The late K.4 fibration/approximation layer cannot be the prerequisite of its own spectrum supplier."
-    }
-  ]
+  }
 }

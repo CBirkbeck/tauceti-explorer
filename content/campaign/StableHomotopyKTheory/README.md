@@ -51,11 +51,11 @@ Direct sum need not be strictly associative in the source category. Either work 
 
 <a id="stage-H.5:spectra"></a>
 
-**Early spectrum foundation (H.5:spectra).** Import EDS E5:abstract only, not its later spectra-comparison return. Choose a concrete spectrum model compatible with simplicial sets. Construct suspension spectra, loop and shift, stable homotopy groups indexed by integers, stable equivalences, homotopy fibres/cofibres, and long exact sequences. Construct the stable homotopy category and enough functorial fibrant/cofibrant replacement to justify the operations used. Establish the fibre/cofibre shift relation and finite products/biproducts. Own the generic smash product and its maps on stable homotopy groups here; the K-theory-specific biexact pairing is supplied by K.7.
+**Early spectrum foundation (H.5:spectra).** Import EDS E5:abstract only, not its later spectra-comparison return. Choose a concrete spectrum model compatible with simplicial sets. Construct suspension spectra, loop and shift, stable homotopy groups indexed by integers, stable equivalences, homotopy fibres/cofibres, and long exact sequences. Construct the stable homotopy category and enough functorial fibrant/cofibrant replacement to justify the operations used. Establish the fibre/cofibre shift relation and finite products/biproducts.
 
 <a id="stage-H.5:S-delooping"></a>
 
-**Later S-construction comparison (H.5:S-delooping).** Import Waldhausen additivity, the relative S-construction fibration and the natural iterated delooping maps from early GeneralAlgebraicKTheory K.4:construction. Assemble those maps into the connective Ω-spectrum and compare its homotopy groups to the connective K-groups. The realization-fibration hypotheses must be supplied by H.2; an unproved sequence of spaces does not discharge that obligation. Import generic smash products from H.5:spectra and K-theory-specific pairings from K.7; do not prove either again in this assembly stage. An E∞ refinement is required where it is actually used, but no universal-property characterisation of all localising invariants is assumed as a substitute for these constructions.
+**Later S-construction comparison (H.5:S-delooping).** Prove that the iterated S-construction produces a connective spectrum after the required delooping theorem; it is not enough to write down a sequence of spaces. Supply smash products and the pairing on homotopy groups needed for graded K-theory products. An E∞ refinement is required where it is actually used, but no universal-property characterisation of all localising invariants is assumed as a substitute for these constructions.
 
 ### H.6 — Coefficients, completion and spectral sequences
 
