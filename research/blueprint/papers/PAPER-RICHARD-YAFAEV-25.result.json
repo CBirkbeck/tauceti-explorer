@@ -10,7 +10,8 @@
     "arxiv": "2111.11216v4",
     "url": "https://doi.org/10.1007/s10240-025-00154-4",
     "readSections": [
-      "The entire published open-access article (§§1–8, Appendices A–B, references), pp.249–331, read 2026-09-22 (PDF from Centre Mersenne, SHA-256 3f3af58def7bb398b3d365ecf828a6571a9477fd7f2b7b891706f146fec05b9e). The companion Comptes Rendus note (10.5802/crmath.751) announces the same result."
+      "The entire published open-access article (§§1–8, Appendices A–B, references), pp.249–331, read 2026-09-22 (PDF from Centre Mersenne, SHA-256 3f3af58def7bb398b3d365ecf828a6571a9477fd7f2b7b891706f146fec05b9e). The companion Comptes Rendus note (10.5802/crmath.751) announces the same result.",
+      "FIX-RT-PAPER-RICHARD-YAFAEV-25: Codex codex-J6LwjP re-read published pp.260–265 and 310–311 on 2026-09-30 at https://www.numdam.org/item/10.1007/s10240-025-00154-4.pdf, including page images 310–311; SHA-256 matches the original full-publication record. This selective ownership/hypothesis audit does not replace the original full reading or re-review sourceIssues E1–E6."
     ]
   },
   "summary": "Proves the generalised André–Pink–Zannier conjecture for all Shimura varieties of abelian type (Theorem 1.3). More generally, it proves the conjecture for any point satisfying a new uniform integral Tate hypothesis (Theorem 1.4). This extends the conditional result of the authors' earlier Height functions on Hecke orbits. The key new input is polynomial lower bounds for Galois orbits in Hecke orbits (Theorem 5.1). They come from integral and uniform refinements of Faltings' theorems (Theorem 4.7, via Masser–Wüstholz and Noot), Nori theory and Serre's complete reducibility, local relative stability estimates for p-adic norms on closed orbits (Theorem 6.1), and a p-adic Kempf–Ness theorem (Theorem 7.1). The atlas has Shimura varieties, Faltings' isogeny theorem and the Cartan decomposition. It lacks Hecke-orbit heights, the uniform integral Tate hypothesis, p-adic geometric invariant theory over ℤ_p and the André–Pink–Zannier results.",
@@ -112,7 +113,7 @@
       "statement": "For an abelian variety A over a number field K and d ≥ 1 there is M′ such that for every prime ℓ > M′ and every open subgroup of the Galois image of index ≤ d·[K:ℚ], 𝔽_ℓ[U′(ℓ)] is semisimple and its commutant in End(A[ℓ]) is End(A/K̄) ⊗ 𝔽_ℓ ([28, Th. 1, Cor. 1, Th. 2]).",
       "locator": "Proof of Theorem 4.7, pp.261–263, citing Masser–Wüstholz [28], Publ. Math. IHÉS 141 (2025)",
       "status": "missing",
-      "note": "Routed to FaltingsFinitenessAndIsogenyTheorems R28.4 as a source."
+      "note": "Owned by FaltingsFinitenessAndIsogenyTheoremsPartII, coalescing with PAPER-TSIMERMAN-18 route 10. Apply the arithmetic Masser–Wüstholz comparison in the standing Theorem 4.7 context in which all geometric endomorphisms are defined over K. Keep the bounded extension-degree and large-prime uniformity explicit. The geometric minimum-isogeny-degree theorem alone does not supply this comparison; the design must acquire and decompose [28, Theorems 1–2 and Corollary 1]."
     },
     {
       "id": "PAPER-RICHARD-YAFAEV-25/12",
@@ -121,7 +122,7 @@
       "statement": "For A over a field K of finite type over ℚ with End(A/K) = End(A/K̄), Galois image U on T_A ≈ Ẑ^{2dim A} and Z the centraliser of End(A/K) in End_Ẑ(T_A): for every d there is M(A, K, d) such that for every open U′ ≤ U of index ≤ d, Ẑ[U′] ≤ Z is open of index ≤ M(A, K, d); likewise with U replaced by Π_p U_p⁰.",
       "locator": "Theorem 4.7, Proposition 4.8 and proofs, pp.260–265, Publ. Math. IHÉS 141 (2025) (misprint E1)",
       "status": "missing",
-      "note": "Number fields via Masser–Wüstholz and the double centraliser theorem; general fields by Noot's specialization. Routed to R28.4 as a source."
+      "note": "Owned by FaltingsFinitenessAndIsogenyTheoremsPartII. Import qualitative Faltings from R28.4 and Noot specialization/Serre independence through R01.6. Prove finite exceptional-prime bounds, large-prime double centralizers and Nakayama, then the product bound and specialization transfer. Preserve the product of the single-prime-supported subgroups U_p⁰ in Proposition 4.8, not an unrestricted product of projections. Existing source issue E1 remains applicable."
     },
     {
       "id": "PAPER-RICHARD-YAFAEV-25/13",
@@ -332,10 +333,10 @@
       "id": "PAPER-RICHARD-YAFAEV-25/35",
       "kind": "theorem",
       "name": "Propositions 7.13–7.15 (flatness, integrality and lifting of points)",
-      "statement": "For a closed X ⊆ 𝔸^n over ℤ̄_p of finite presentation, X_red is flat iff X(𝔽̄_p) = r_n(X(ℤ̄_p)) iff the generic fibre is dense iff no component lies in the special fibre (7.13); for flat π : X → Y, y ∈ Y(ℤ̄_p) lifts to X(ℤ̄_p) iff its reduction lifts (7.14); for integral π, x ∈ X(ℚ̄_p) is integral iff π(x) is (7.15).",
+      "statement": "Over ℤ̄_p: (7.13) for a closed X ⊆ 𝔸^n of finite presentation, X_red is flat iff X(𝔽̄_p) = r_n(X(ℤ̄_p)) iff the generic fibre is dense iff no irreducible component lies in the special fibre; (7.14) for reduced affine X,Y of finite presentation and a flat morphism π : X → Y, y ∈ Y(ℤ̄_p) lifts to X(ℤ̄_p) iff its reduction lifts to X(𝔽̄_p); (7.15) for affine X,Y and an integral morphism π : X → Y, x ∈ X(ℚ̄_p) is integral iff π(x) is integral. Proposition 7.15 does not require the reducedness or finite-presentation hypotheses of 7.13–7.14.",
       "locator": "Propositions 7.13–7.15, pp.310–311, citing EGA [14], [15, Prop. 14.5.6], Publ. Math. IHÉS 141 (2025)",
       "status": "missing",
-      "note": "General scheme theory. Routed to SchemeAndStackFoundations SF.0 as a source."
+      "note": "Owned once by HeckeOrbitsAndAndrePinkZannier, as foundational inputs to p-adic Kempf–Ness. Reuse the pinned flat/integral morphism and affine-scheme APIs through the SF.0 library-reuse contract; SF.0 does not prove these criteria. Retain the non-noetherian ℤ̄_p finite-presentation descent in footnote 19, the flat-reduction step of Remark 7.6.1 for the fibre in 7.14, and the integral-closure argument for 7.15. The generic-point valuative-existence definition alone is not the special-point lifting equivalence."
     },
     {
       "id": "PAPER-RICHARD-YAFAEV-25/36",
@@ -451,16 +452,17 @@
   ],
   "routes": [
     {
-      "route": "source",
-      "roadmap": "FaltingsFinitenessAndIsogenyTheorems",
-      "stages": [
-        "FaltingsFinitenessAndIsogenyTheorems:R28.4"
-      ],
+      "route": "part-ii",
+      "parent": "FaltingsFinitenessAndIsogenyTheorems",
+      "roadmap": "FaltingsFinitenessAndIsogenyTheoremsPartII",
+      "title": "Faltings finiteness, semisimplicity and isogeny theorems, Part II: Quantitative isogeny estimates",
+      "area": "arithmeticgeometry",
       "items": [
         "PAPER-RICHARD-YAFAEV-25/11",
         "PAPER-RICHARD-YAFAEV-25/12"
       ],
-      "reason": "R28.4 owns semisimplicity of Tate modules and Faltings' isogeny theorem. The paper supplies the uniform integral refinement those theorems need here. Using Masser–Wüstholz, Ẑ[U′] has uniformly bounded index in the commutant of End(A) for all open subgroups of bounded index. The paper extends this from number fields to fields of finite type (Theorem 4.7, Proposition 4.8)."
+      "reason": "Coalesce with the already accepted PAPER-TSIMERMAN-18 route 10. RS-06 retains qualitative Faltings semisimplicity and integral End/Tate comparison in R28.4; it does not supply these additional prime-uniform and bounded-subgroup-index estimates. The quantitative Part II owns the Masser–Wüstholz inputs and their uniform integral consequences. This repairs ownership; it is not a claim that an actual graph cycle was demonstrated.",
+      "brief": "Extend the single quantitative-isogeny Part II already proposed in PAPER-TSIMERMAN-18 route 10, with exactly its id, parent and title. Preserve that route's geometric isogeny-degree target, dimension-only constants, height and field-degree hypotheses, source-acquisition obligations and export to ComplexMultiplicationAndExplicitReciprocityPartII. Do not create a second quantitative theory. Start from Faltings finiteness, semisimplicity and isogeny theorems (FaltingsFinitenessAndIsogenyTheorems), using R28.4 only for qualitative semisimplicity, End/Tate and Hom comparison.\n\nAdd Masser–Wüstholz, Refinements of the Tate conjecture for abelian varieties [28], Theorems 1–2 and Corollary 1 (item 11). Acquire and decompose the full chapter and its arithmetic comparison from the isogeny estimates already assigned here; a bound for a geometric isogeny alone does not prove the arithmetic refinement. In the number-field setting with all geometric endomorphisms defined over K, track finite extensions obtained from the inverse image of an open Galois-image subgroup, and the bound d·[K:ℚ] on absolute extension degree. Obtain one large-prime threshold M′ for semisimplicity of the mod-ℓ generated algebra and its exact geometric-endomorphism commutant, uniformly over the bounded-index subgroups. Keep dependencies on A,K,d distinct from the dimension-only constants in the geometric-isogeny theorem.\n\nProve Richard–Yafaev Theorem 4.7 and Proposition 4.8, pp.260–265 (item 12): if K is finite type over ℚ and End(A/K)=End(A/K̄), there is M(A,K,d) bounding the index of Ẑ[U′] in the integral centralizer Z for all open U′≤U of index at most d, also for U replaced by the product of its single-prime-supported subgroups U_p⁰. For number fields, use qualitative Faltings at each fixed prime, finiteness of bounded-index open subgroups of the compact ℓ-adic Lie image, and finite maxima at the exceptional primes. Prove centralizer reduction outside finitely many primes via the saturated integral commutator equations. At the remaining large primes use item 11, the semisimple double-centralizer theorem and Nakayama to make the local index one; take the product of the finitely many exceptional bounds. Correct the M/M′ misprint exactly as source issue E1 records.\n\nImport Noot Corollary 1.5 specialization and Serre independence from Arithmetic Galois representations and conductors (ArithmeticGaloisRepresentations:R01.6, this extraction's items 13–14). Track the specialized number-field Tate lattice and endomorphism identification and the finite extension making its image a product; intersect a bounded-index subgroup with that image and compare generated algebras inside the same centralizer. This is a supplier obligation, not a claim that R01.6 is implemented. Export the uniform integral theorem to HeckeOrbitsAndAndrePinkZannier for its abelian-type Tate property. The quantitative owner must close the compact-Lie, centralizer, double-centralizer, Nakayama and specialization prerequisites in its blueprint. Suggested later file remains TauCeti/AlgebraicGeometry/AbelianVariety/QuantitativeIsogeny.lean. Design checks should include d=1, bounded finite extensions, exceptional versus large primes, and a proper single-prime-supported subgroup versus the full projected image. This extraction assigns these proofs; it does not certify the unread Masser–Wüstholz chapter or claim formalization."
     },
     {
       "route": "source",
@@ -473,17 +475,6 @@
         "PAPER-RICHARD-YAFAEV-25/14"
       ],
       "reason": "R01.6 owns Tate modules of abelian varieties and their Galois representations. The paper uses two inputs about them: Serre's theorems that after a finite extension the ℓ-adic images are independent, Zariski connected and contained in the Mumford–Tate group; and Noot's specialization from fields of finite type to number fields preserving endomorphisms and Tate modules."
-    },
-    {
-      "route": "source",
-      "roadmap": "SchemeAndStackFoundations",
-      "stages": [
-        "SchemeAndStackFoundations:SF.0"
-      ],
-      "items": [
-        "PAPER-RICHARD-YAFAEV-25/35"
-      ],
-      "reason": "SF.0 owns general scheme theory. The criteria for flatness by lifting of points, lifting along flat morphisms, and integrality of points under integral morphisms are general facts that the paper records for use in the p-adic Kempf–Ness theorem."
     },
     {
       "route": "part-ii",
@@ -520,6 +511,7 @@
         "PAPER-RICHARD-YAFAEV-25/32",
         "PAPER-RICHARD-YAFAEV-25/33",
         "PAPER-RICHARD-YAFAEV-25/34",
+        "PAPER-RICHARD-YAFAEV-25/35",
         "PAPER-RICHARD-YAFAEV-25/36",
         "PAPER-RICHARD-YAFAEV-25/37",
         "PAPER-RICHARD-YAFAEV-25/38",
@@ -527,7 +519,7 @@
         "PAPER-RICHARD-YAFAEV-25/40",
         "PAPER-RICHARD-YAFAEV-25/41"
       ],
-      "brief": "The atlas has Shimura varieties with Hecke correspondences (ShimuraVarieties V0–V7) and plans André–Oort-type applications in LogicAndDefinabilityInNumberTheory LD.6. It has nothing on generalised Hecke orbits, uniform integral Tate hypotheses or Galois lower bounds for Hecke orbits.\n\nImport:\n- Shimura data and varieties from ShimuraData and ShimuraVarieties;\n- the Pila–Zannier machinery (o-minimality, counting, functional transcendence) from LD.6;\n- hyperspecial models and the Cartan decomposition from ReductiveGroupsPartII RG2.3–RG2.4;\n- uniform integral Faltings (Theorem 4.7) and Masser–Wüstholz from FaltingsFinitenessAndIsogenyTheorems R28.4;\n- Serre's ℓ-independence and Noot's specialization from ArithmeticGaloisRepresentations R01.6;\n- flatness and lifting of points from SchemeAndStackFoundations SF.0;\n- Goursat's lemma from Mathlib.\n\nFirst construct, following Richard–Yafaev, Height functions on Hecke orbits (arXiv:2109.13718): generalised and geometric Hecke orbits, the height H_f on W(𝔸_f) with its index comparisons, and the reduction of Conjecture 1.1 to Galois lower bounds (its Theorem 1.2).\n\nThen state and prove, as in Richard–Yafaev (Publ. Math. IHÉS 141 (2025)):\n- the uniform integral Tate property (Definitions 2.1–2.4) with Nori theory, Serre's complete reducibility and McNinch;\n- its functoriality (Propositions 4.1–4.6, Corollaries 4.10–4.11);\n- Theorem 5.1 via Propositions 5.2, 5.5, 5.7, Theorem 5.4 and the structure Lemmas 5.9–5.19, including a correct Lemma 5.12 (sourceIssues E6);\n- Theorem 6.1 with §8's convexity estimates;\n- the p-adic Kempf–Ness Theorem 7.1 over ℤ_p with Seshadri's GIT;\n- Appendices A–B;\n- Theorems 1.4 and 1.3.\n\nExport Theorem 1.3 to LD.6 as a proven Zilber–Pink case. Acceptance: for S-Hecke orbits §5.2 alone suffices (Remark 5.2.1); the bounds hold for every point of A_g.",
+      "brief": "The atlas has Shimura varieties with Hecke correspondences (ShimuraVarieties V0–V7) and plans André–Oort-type applications in LogicAndDefinabilityInNumberTheory LD.6. It has nothing on generalised Hecke orbits, uniform integral Tate hypotheses or Galois lower bounds for Hecke orbits.\n\nImport:\n- Shimura data and varieties from ShimuraData and ShimuraVarieties;\n- the Pila–Zannier machinery (o-minimality, counting, functional transcendence) from LD.6;\n- hyperspecial models and the Cartan decomposition from ReductiveGroupsPartII RG2.3–RG2.4;\n- uniform integral Faltings (Theorem 4.7, Proposition 4.8) and Masser–Wüstholz from Faltings finiteness, semisimplicity and isogeny theorems, Part II: Quantitative isogeny estimates (FaltingsFinitenessAndIsogenyTheoremsPartII), coalescing this extraction’s items 11–12 with PAPER-TSIMERMAN-18 route 10;\n- Serre's ℓ-independence and Noot's specialization from ArithmeticGaloisRepresentations R01.6;\n- existing affine schemes, pullbacks, flat and integral morphism APIs through SchemeAndStackFoundations SF.0’s library-reuse contract; the point-lifting criteria below are new proofs in this Part II;\n- Goursat's lemma from Mathlib.\n\nFirst construct, following Richard–Yafaev, Height functions on Hecke orbits (arXiv:2109.13718): generalised and geometric Hecke orbits, the height H_f on W(𝔸_f) with its index comparisons, and the reduction of Conjecture 1.1 to Galois lower bounds (its Theorem 1.2).\n\nThen state and prove, as in Richard–Yafaev (Publ. Math. IHÉS 141 (2025)):\n- the uniform integral Tate property (Definitions 2.1–2.4) with Nori theory, Serre's complete reducibility and McNinch;\n- its functoriality (Propositions 4.1–4.6, Corollaries 4.10–4.11);\n- Theorem 5.1 via Propositions 5.2, 5.5, 5.7, Theorem 5.4 and the structure Lemmas 5.9–5.19, including a correct Lemma 5.12 (sourceIssues E6);\n- Theorem 6.1 with §8's convexity estimates;\n- the p-adic Kempf–Ness Theorem 7.1 over ℤ_p with Seshadri's GIT;\n- Appendices A–B;\n- Theorems 1.4 and 1.3.\n\nExport Theorem 1.3 to LD.6 as a proven Zilber–Pink case. Acceptance: for S-Hecke orbits §5.2 alone suffices (Remark 5.2.1); the bounds hold for every point of A_g.\n\nBefore the p-adic Kempf–Ness proof, construct item 35, Propositions 7.13–7.15 on pp.310–311, once here. Plan separate proof nodes for the three clauses while preserving the extraction item identity. For 7.13 use a closed affine scheme of finite presentation over ℤ̄_p, retaining X_red flatness, special-point lifting, generic-fibre density and absence of vertical irreducible components. ℤ̄_p is non-Noetherian: descend the finite-presentation equations to the integers of a finite extension of ℚ_p, prove the required compatibility and apply the Noetherian EGA IV 14.5.6/14.5.7 input before base change (footnote 19). Acquire those source proofs in the blueprint. For 7.14 retain reduced affine finite-presentation X,Y and a flat π. Form the fibre over y, use flat base change, prove its reduction is flat via Remark 7.6.1 (universal openness), and apply 7.13. For 7.15 assume affine X,Y and integral π only; a homomorphism from the integral target algebra into ℚ̄_p carries it into ℤ̄_p whenever its restriction does, by integral closedness. Do not add reducedness or finite presentation to that clause.\n\nReuse mathlib:AlgebraicGeometry.Flat, mathlib:AlgebraicGeometry.Flat.SpecMap_iff, mathlib:AlgebraicGeometry.Flat.isStableUnderBaseChange, mathlib:AlgebraicGeometry.IsIntegralHom and mathlib:AlgebraicGeometry.IsIntegralHom.SpecMap_iff, read at 082e2d3. The existing mathlib:AlgebraicGeometry.ValuativeCriterion.Existence quantifies lifts of generic-point valuation squares; it does not state 7.13 or 7.14. Do not rebuild these generic interfaces or mark item 35 library/planned on their strength. Suggested later file for this package: TauCeti/AlgebraicGeometry/Shimura/HeckeOrbits/IntegralPointLifting.lean. Specify the reduction map, point functor/base-change compatibility and integral-point membership API over the existing scheme carriers; design tests for affine space, a vertical special-fibre component excluded by flatness, a nonreduced flat fibre (so the reduction step is exercised), and an integral affine morphism without additional reducedness assumptions. Feed these lemmas to the orbit-integrality and smoothness arguments of §7, then Theorem 7.1.",
       "reason": "This is a new direction for Shimura varieties: Hecke-orbit geometry, Galois bounds through integral Tate hypotheses, and p-adic geometric invariant theory. No atlas layer or pending Part II covers it. The existing ShimuraVarieties Part IIs are about integral models, Honda–Tate theory and Kuga–Satake."
     }
   ],

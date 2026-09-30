@@ -2,7 +2,7 @@
 
 Rodolphe Richard and Andrei Yafaev, *Generalised André-Pink-Zannier conjecture for Shimura varieties of Abelian type*, [Publications Mathématiques de l'IHÉS 141 (2025), 249–331](https://doi.org/10.1007/s10240-025-00154-4); arXiv [2111.11216](https://arxiv.org/abs/2111.11216). A short announcement of the same result appeared in Comptes Rendus Mathématique 363 (10.5802/crmath.751).
 
-Extraction by Claude Code, session `cc-fb70e5`, 22 September 2026 (issue #1442). Status: **complete**. The whole published article was read and every missing item is routed once. The machine-readable extraction is [PAPER-RICHARD-YAFAEV-25.result.json](PAPER-RICHARD-YAFAEV-25.result.json): 41 items (1 library, 1 planned, 39 missing), 4 routes, 11 prerequisite entries and 6 recorded source issues.
+Extraction by Claude Code, session `cc-fb70e5`, 22 September 2026 (issue #1442). Status: **complete**. The whole published article was read and every missing item is routed once. The machine-readable extraction is [PAPER-RICHARD-YAFAEV-25.result.json](PAPER-RICHARD-YAFAEV-25.result.json): 41 items (1 library, 1 planned, 39 missing), 3 routes, 11 prerequisite entries and 6 recorded source issues.
 
 **Source.** The published open-access article (CC BY 4.0), pp.249–331, SHA-256 `3f3af58def7bb398b3d365ecf828a6571a9477fd7f2b7b891706f146fec05b9e`, read in full on 2026-09-22.
 
@@ -31,15 +31,15 @@ The proof follows the authors' earlier paper *Height functions on Hecke orbits* 
 - **Adjacent layers.** ShimuraVarieties V0–V7 cover Shimura varieties and Hecke correspondences. FaltingsFinitenessAndIsogenyTheorems R28.4 covers Faltings' isogeny theorem, and LD.6 covers André–Oort-type applications.
 - **Not in the atlas.** Hecke-orbit heights, Galois bounds, Nori theory, complete reducibility, and GIT over ℤ_p.
 
-## Routes
+## Routes (repaired 30 September 2026)
 
-1. **Source of FaltingsFinitenessAndIsogenyTheorems R28.4.** It covers Masser–Wüstholz's refinements of the Tate conjecture, and the uniform integral Faltings theorem over fields of finite type (Theorem 4.7, Proposition 4.8).
-2. **Source of ArithmeticGaloisRepresentations R01.6.** It covers Serre's ℓ-independence, connectedness and Mumford–Tate containment of Galois images of abelian varieties, and Noot's specialization.
-3. **Source of SchemeAndStackFoundations SF.0.** It covers the flatness and integrality lifting criteria of Propositions 7.13–7.15.
-4. **New Part II `HeckeOrbitsAndAndrePinkZannier`**, titled *Complex Shimura varieties and canonical models, Part II: generalised Hecke orbits and the André–Pink–Zannier conjecture*.
-   - It takes Hecke orbits and heights from [40], the uniform integral Tate framework with Nori and Serre theory, §§5–8, Appendices A–B, and Theorems 1.3 and 1.4.
-   - The existing ShimuraVarieties Part IIs cover integral models, Honda–Tate theory and Kuga–Satake, so this is a new direction.
-   - Theorem 1.3 is exported to LD.6 as a proven Zilber–Pink case.
+1. **Existing quantitative Part II `FaltingsFinitenessAndIsogenyTheoremsPartII`**, coalescing with [PAPER-TSIMERMAN-18 route 10](PAPER-TSIMERMAN-18.result.json), with the same parent and title, *Faltings finiteness, semisimplicity and isogeny theorems, Part II: Quantitative isogeny estimates*. Items 11–12 add Masser–Wüstholz's arithmetic refinements and Richard–Yafaev Theorem 4.7/Proposition 4.8. R28.4 supplies only the qualitative comparison; R01.6 supplies Noot specialization and Serre independence. The brief distinguishes these arithmetic refinements from Tsimerman's geometric isogeny-degree bound and records the still-open source/proof obligations.
+2. **Source of ArithmeticGaloisRepresentations R01.6.** Items 13–14 retain Serre's independence, connectedness and Mumford–Tate containment, and Noot's specialization. This assignment does not assert that the supplier is formalized.
+3. **Part II `HeckeOrbitsAndAndrePinkZannier`**, titled *Complex Shimura varieties and canonical models, Part II: generalised Hecke orbits and the André–Pink–Zannier conjecture*. Its 35 missing items include Hecke orbits/heights from [40], the uniform integral Tate framework with Nori and Serre theory, §§5–8, Appendices A–B, and Theorems 1.3–1.4. It now imports the uniform integral Faltings theorem from the quantitative Part II and owns item 35 next to its p-adic Kempf–Ness consumer. Theorem 1.3 is exported to LD.6.
+
+Item 35 keeps the three propositions' different hypotheses: 7.13 concerns a closed affine finite-presentation scheme and flatness of its **reduction**; 7.14 assumes reduced affine finite-presentation source and target and a flat arrow; 7.15 assumes affine schemes and an integral arrow, without the other two clauses' extra hypotheses. The brief retains the finite-presentation descent from non-Noetherian ℤ̄_p to the integers of a finite extension of ℚ_p, the flat-reduction step for the fibre, and the integral-closure argument. Pinned Mathlib flat/integral morphism and affine-scheme APIs are reused through SF.0's narrowed library contract. SF.0 and the definition of valuative existence do not supply the new point-lifting equivalences.
+
+The repair by Codex `codex-J6LwjP` re-read published pp.260–265 and 310–311, checking the latter page images and reproducing the original PDF hash. This is a selective routing repair, not another full extraction. The [fixes report](../redteam/RT-PAPER-RICHARD-YAFAEV-25.fixes.md) gives both verified findings, the ownership handoffs and validation. Extraction completeness is unchanged; the new routes await independent fix review and their eventual blueprints must close the stated source/proof obligations.
 
 ## Source issues (`sourceIssues` E1–E6)
 
@@ -54,7 +54,7 @@ The proof follows the authors' earlier paper *Height functions on Hecke orbits* 
   - **E4:** in Corollary 5.8's proof, the hypothesis on H_p should be on H_{v′} and the exponent 1/(2c(ρ)) should be c(ρ)/2; also, in H_Y, Y_k should be Y_l.
   - **E5:** in claim (30), "supp" should be "sup".
 
-The proofs of Theorem 4.7, Proposition 5.2, Lemma 5.3, Lemmas 7.3–7.4 and 7.10 and Corollary A.5 were checked in detail. No correction notice is listed, and Crossref has no correction relation.
+The original extraction records that the proofs of Theorem 4.7, Proposition 5.2, Lemma 5.3, Lemmas 7.3–7.4 and 7.10 and Corollary A.5 were checked in detail. Its original correction search found no correction notice or Crossref correction relation; the routing repair did not repeat that search.
 
 ## Prerequisites not yet covered
 
@@ -70,11 +70,13 @@ Links and reasons are in the JSON.
 ## Checks
 
 - `python3 scripts/check_paper.py research/blueprint/papers/PAPER-RICHARD-YAFAEV-25.result.json`: ok.
-- Every missing item appears in exactly one route, and no source route takes a planned or library item. The Part II brief is 246 words.
+- Every missing item appears in exactly one route, and no source route takes a planned or library item. The repaired routes cover respectively 2, 2 and 35 missing items; both Part II briefs state their imports, constructions and source obligations.
 - The Mathlib citation was read at 082e2d3 (`GroupTheory/Goursat.lean:128`). Planned layer ids were checked against `data/atlas.json`. Prerequisite DOIs were checked against Crossref.
 - No Lean was written or compiled; none is a deliverable of this job.
 
-## Review (REV-PAPER-RICHARD-YAFAEV-25, 23 September 2026)
+## Historical review (REV-PAPER-RICHARD-YAFAEV-25, 23 September 2026)
+
+The record below applies to the original four routes. It does not approve the three repaired routes above; the independent fix review must assess them. Source issues E1–E6 and their original review are unchanged.
 
 The independent review, by Claude Code (session `cc-7b31c4`, issue #1443), **accepted** this
 extraction and all four routes, with one small correction in place. The full record is
