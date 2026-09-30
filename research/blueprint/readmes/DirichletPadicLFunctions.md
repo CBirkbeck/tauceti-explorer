@@ -21069,3 +21069,111 @@ Eight complete native lemmas verify quadratic values under level change, existen
 Exact finite controls cover32 odd moduli,47904 multiplicativity equations,1088 character distances,1024 kernel coefficients,8952 residue differences,17904 convolution identities,64 unit witnesses,1152 scalar tests and128 half obstructions. The modulus-one criterion has44 scalar tests and2176 positive-coefficient checks at four primes, including an allowed nonintegral half and a rejected quarter. Exact rational arithmetic and p-adic valuations for all32 odd moduli from3 through65. The reference is the Legendre character at a prime divisor, extended by zero on nonunits at the larger modulus. Multiplicativity, nonprincipality and distance are checked exhaustively on finite residues. Principal/reference masses independently solve the finite kernel equation and mass and satisfy every convolution equation. These finite controls do not prove the infinite all-test measure statements. The largest observed discrepancy is 0.
 
 All66 captured inputs have an empty predecessor delta and remain guarded. The complete prior Lean body is preserved. The separate signature check uses exact4773 plus only4793,4796,4799,4803,4808,4813 and current additions;4777–4791 remain excluded. Four new declarations and eleven typed examples pass with zero errors and1931 expected placeholder warnings. This does not compile the full current module.
+
+
+## All-prime tame scalar and half-normalization criteria
+
+Partial continuation preserving all642 predecessor nodes whole. Three L4 theorems complete the scalar-integrality criteria for the normalized and doubled tame formal-series measures and show that an integral half exists exactly when p≠2 or D=1.
+
+Freshly read the complete normalized tame constructor and promoted coefficient-image comparison, the completed dyadic half and modulus-one scalar criteria, and the existing doubled/positive coefficient interfaces. Read native valuation-integer unit lemmas with their ambient hypotheses and actual integer-subring realization. Rechecked the bounded coefficient algebra image, native odd-prime unit criterion and codomain restriction used in the normalization proof. Eight complete native lemmas verify these norm and certificate facts, arbitrary unit-coefficient scalar necessity and sufficiency, and the normalized first coefficient. Retained whole RJW passages remain the source basis; no new whole-paper or independent review is claimed.
+
+### Exact scalar integrality of the normalized tame family
+
+`DirichletPadicLFunctions:L4/normalized-tame-scalar-integrality` — `DirichletPadic.integralTameEisensteinSeries_scalar_lift_iff`
+
+Under h2:IsUnit(2:O), an integral all-test scalar lift of sNη exists if and only if ‖s‖≤1, at every prime and positive tame level.
+
+**Hypotheses:** p is prime. K is a complete nontrivially normed ultrametric field with Algebra ℤ_p K and IsBoundedSMul ℤ_p K. D>0 with NeZero D, η:DirichletCharacter K D, hD:IsUnit(D:K), and p∤D. Every character, principal or nonprincipal and primitive or imprimitive, is allowed. U=(ℤ_p)ˣ and O=Valuation.integer(NormedField.valuation(K)) are the native carriers. Gη is integralDoubledTameEisensteinSeries. Under h2:IsUnit(2:O), Nη is the existing integralTameEisensteinSeries. Both are actual O-linear continuous measures with target PowerSeries O and its coefficientwise topology. An integral scalar lift means M:AbstractMeasure U O (PowerSeries O) such that map_ι(M(f))=s•map_ι(Gη(f)), or the corresponding equality for Nη, for every actual O-valued continuous test f. No coefficient extension to all K-valued tests and no norm on formal series is introduced. The normalized-family criterion requires h2 and does not require characteristic zero. The all-prime doubled criterion and half-lift classification require CharZero K, as their dyadic branch uses the preceding characteristic-zero results. The modulus-one tame kernel remains zero, not the source principal pseudomeasure convention.
+
+**Proof:**
+
+1. Evaluate the promoted doubled coefficient formula at degree one on the constant integral test one. The finite positive divisor sum contains only d=1, both character values are one, and the test value is one. Therefore coeff₁Gη(1)=2 in O, independently of η and D.
+2. Unfold only the scalar definition Nη=(↑h2.unit⁻¹)•Gη and use native coeff_smul. The native unit identity h2.mul_val_inv cancels two and gives coeff₁Nη(1)=1. Complete normalized_first_coefficient proves this exact step on any actual native measure with the given doubled first coefficient; it needs no unpromoted coefficient API as a prerequisite.
+3. If M lifts sNη, extract degree one at this test. The included coefficient is s and has norm at most one by membership in the actual integer subring. Complete scalar_lift_necessity proves the more general argument at any coefficient whose included value has norm one.
+4. Conversely package s as an actual element of O and multiply the existing Nη by it. Complete scalar_integral_lift constructs the native measure and proves its all-test coefficient inclusion. Complete scalar_lift_iff_of_unit_coefficient assembles both directions.
+5. The criterion is independent of the constant term, so it includes principal characters and D=1. For p=3, the scalar1/3 fails even for the principal modulus-four normalized family. No characteristic-zero hypothesis is required beyond the unit certificate and existing constructor hypotheses.
+
+**Prerequisites:** `DirichletPadicLFunctions:L4/integral-normalized-tame-series`, `DirichletPadicLFunctions:L4/integral-doubled-tame-eisenstein-coeff`, `DirichletPadicLFunctions:L4/integral-twisted-positive-eisenstein-coefficient`, `DirichletPadicLFunctions:L4/twisted-positive-eisenstein-evaluation`, `mathlib:IsUnit.mul_val_inv`, `mathlib:PowerSeries.coeff_smul`, `mathlib:PowerSeries.coeff_map`, `mathlib:Valuation.mem_integer_iff`, `mathlib:NormedField.valuation_apply`.
+
+**Tests:**
+
+- `SuggestedAllPrimeScalarTests.normalized_first_unit` (computation): The first coefficient of Nη at test one is exactly one.
+- `SuggestedAllPrimeScalarTests.normalized_zero_scalar` (degenerate): The zero measure is an integral lift of the zero scalar multiple.
+- `SuggestedAllPrimeScalarTests.normalized_third_no_lift` (non-example): Over ℚ₃, the principal modulus-four normalized family has no integral all-test lift after multiplication by1/3.
+
+**Acceptance:** The first coefficient supplies necessity on an actual integral test. Sufficiency constructs a continuous O-linear measure; no assumption about the constant or a nonprincipal character is hidden.
+
+**Source:** Tame kernel and integral coefficients, Theorem5.7, Remark5.8 and Definition5.13, published143–146/PDF44–47; Eisenstein coefficient measures, Theorem8.2 and Remark8.3, published159–161/PDF60–62. Whole passages read in retained checkpoints. Native valuation-integer unit norms and the existing normalization proof were freshly checked. Worker completion of the scalar-integrality and half-normalization criteria for the actual tame formal-series family. First positive coefficients handle odd primes, while the preceding actual unit-test argument handles the dyadic obstruction. These criteria are derived consequences, not quoted source statements. The zero tame modulus-one constructor remains distinct from the principal zeta pseudomeasure; no classical modularity or analytic-family theorem is inferred.
+
+### The scalar-integrality criterion at every prime
+
+`DirichletPadicLFunctions:L4/all-prime-tame-scalar-integrality` — `DirichletPadic.integralDoubledTameEisensteinSeries_all_prime_scalar_lift_iff`
+
+Assume CharZero K. An integral all-test scalar lift of sGη exists if and only if ‖2s‖≤1 when D=1, and if and only if ‖s‖≤1 when D≠1.
+
+**Hypotheses:** p is prime. K is a complete nontrivially normed ultrametric field with Algebra ℤ_p K and IsBoundedSMul ℤ_p K. D>0 with NeZero D, η:DirichletCharacter K D, hD:IsUnit(D:K), and p∤D. Every character, principal or nonprincipal and primitive or imprimitive, is allowed. U=(ℤ_p)ˣ and O=Valuation.integer(NormedField.valuation(K)) are the native carriers. Gη is integralDoubledTameEisensteinSeries. Under h2:IsUnit(2:O), Nη is the existing integralTameEisensteinSeries. Both are actual O-linear continuous measures with target PowerSeries O and its coefficientwise topology. An integral scalar lift means M:AbstractMeasure U O (PowerSeries O) such that map_ι(M(f))=s•map_ι(Gη(f)), or the corresponding equality for Nη, for every actual O-valued continuous test f. No coefficient extension to all K-valued tests and no norm on formal series is introduced. The normalized-family criterion requires h2 and does not require characteristic zero. The all-prime doubled criterion and half-lift classification require CharZero K, as their dyadic branch uses the preceding characteristic-zero results. The modulus-one tame kernel remains zero, not the source principal pseudomeasure convention.
+
+**Proof:**
+
+1. If D=1, use the exact modulus-one scalar criterion already proved at every prime. Its zero constant and first positive coefficient two are retained; it is not replaced by a nonprincipal theorem.
+2. Suppose D≠1. If p=2, apply the complete dyadic all-character scalar criterion. It supplies its own native nearby quadratic reference for a principal character and therefore covers every η without an external reference assumption.
+3. If p≠2, obtain IsUnit(2:ℤ_p) from the native p-adic unit/norm criterion and Nat.coprime_primes. The bounded coefficient algebra map has values in O, so its native codRestrict maps this unit to h2:IsUnit(2:O). Complete algebra_image_integral and odd_prime_two_isUnit verify the actual map and certificate, with no extra ℤ_p-algebra on O.
+4. The actual norm-valuation integer ring satisfies Valuation.integer.integers. Native Integers.one_of_isUnit therefore says the included unit2 has valuation one, hence norm one. Complete integer_unit_norm proves this for every O-unit, and odd_prime_two_norm specializes it to two at every odd prime; no isometric ℚ_p embedding is assumed.
+5. The doubled first coefficient on test one is2 by the promoted coefficient and finite divisor-Dirac formulas. Its included norm is one, so complete scalar_lift_iff_of_unit_coefficient gives the exact criterion ‖s‖≤1 in the odd-prime branch. This branch works for principal and imprimitive characters and never invokes a nonprincipal finite-residue formula.
+6. The cases D=1, D≠1 with p=2, and D≠1 with p≠2 are exhaustive. The result is a single criterion for the actual full doubled family. At odd p the first branch also simplifies to ‖s‖≤1 because two has norm one; the displayed doubled form records the genuine dyadic modulus-one exception.
+
+**Prerequisites:** `DirichletPadicLFunctions:L4/one-level-tame-scalar-integrality`, `DirichletPadicLFunctions:L4/dyadic-all-tame-scalar-integrality`, `DirichletPadicLFunctions:L4/integral-doubled-tame-eisenstein-coeff`, `DirichletPadicLFunctions:L4/integral-twisted-positive-eisenstein-coefficient`, `DirichletPadicLFunctions:L4/twisted-positive-eisenstein-evaluation`, `mathlib:PadicInt.isUnit_iff`, `mathlib:PadicInt.norm_natCast_eq_one_iff`, `mathlib:Nat.coprime_primes`, `mathlib:RingHom.codRestrict`, `mathlib:IsUnit.map`, `mathlib:norm_smul_le`, `mathlib:PadicInt.norm_le_one`, `mathlib:Valuation.integer.integers`, `mathlib:Valuation.Integers.one_of_isUnit`, `mathlib:Valuation.mem_integer_iff`, `mathlib:NormedField.valuation_apply`, `mathlib:PowerSeries.coeff_map`, `mathlib:PowerSeries.coeff_smul`.
+
+**Tests:**
+
+- `SuggestedAllPrimeScalarTests.triadic_principal_scalar` (computation): At p=3 the principal modulus-four scalar criterion is ‖s‖≤1.
+- `SuggestedAllPrimeScalarTests.triadic_one_level_scalar` (compatibility): At p=3 the modulus-one criterion also simplifies to ‖s‖≤1.
+- `SuggestedAllPrimeScalarTests.quintic_any_character_scalar` (computation): At p=5 every character at tame modulus6 has the same scalar criterion.
+
+**Acceptance:** All positive tame levels and primes are covered with the explicit D=1 exception. The coefficient field action is bounded, with no unstated norm isometry.
+
+**Source:** Tame kernel and integral coefficients, Theorem5.7, Remark5.8 and Definition5.13, published143–146/PDF44–47; Eisenstein coefficient measures, Theorem8.2 and Remark8.3, published159–161/PDF60–62. Whole passages read in retained checkpoints. Native valuation-integer unit norms and the existing normalization proof were freshly checked. Worker completion of the scalar-integrality and half-normalization criteria for the actual tame formal-series family. First positive coefficients handle odd primes, while the preceding actual unit-test argument handles the dyadic obstruction. These criteria are derived consequences, not quoted source statements. The zero tame modulus-one constructor remains distinct from the principal zeta pseudomeasure; no classical modularity or analytic-family theorem is inferred.
+
+### Exactly when the tame family has an integral half
+
+`DirichletPadicLFunctions:L4/all-prime-tame-half-classification` — `DirichletPadic.integralDoubledTameEisensteinSeries_half_lift_iff`
+
+Assume CharZero K. An integral all-test lift of(1/2)Gη exists if and only if p≠2 or D=1.
+
+**Hypotheses:** p is prime. K is a complete nontrivially normed ultrametric field with Algebra ℤ_p K and IsBoundedSMul ℤ_p K. D>0 with NeZero D, η:DirichletCharacter K D, hD:IsUnit(D:K), and p∤D. Every character, principal or nonprincipal and primitive or imprimitive, is allowed. U=(ℤ_p)ˣ and O=Valuation.integer(NormedField.valuation(K)) are the native carriers. Gη is integralDoubledTameEisensteinSeries. Under h2:IsUnit(2:O), Nη is the existing integralTameEisensteinSeries. Both are actual O-linear continuous measures with target PowerSeries O and its coefficientwise topology. An integral scalar lift means M:AbstractMeasure U O (PowerSeries O) such that map_ι(M(f))=s•map_ι(Gη(f)), or the corresponding equality for Nη, for every actual O-valued continuous test f. No coefficient extension to all K-valued tests and no norm on formal series is introduced. The normalized-family criterion requires h2 and does not require characteristic zero. The all-prime doubled criterion and half-lift classification require CharZero K, as their dyadic branch uses the preceding characteristic-zero results. The modulus-one tame kernel remains zero, not the source principal pseudomeasure convention.
+
+**Proof:**
+
+1. For p≠2, the native unit certificate supplies the existing integral normalized measure Nη. Its promoted coefficient-image comparison identifies it with the field half of Gη on every actual integral test. This constructs the required lift.
+2. For p=2, the preceding exact dyadic half-lift classification says such a measure exists precisely at D=1. That positive-series lift and the obstruction at every larger odd level remain unchanged.
+3. Combine the prime cases to obtain the stated equivalence. Equivalently, substitute s=2⁻¹ in the all-prime scalar criterion: at D=1 the norm of2s is one, at odd primes the inverse of two is an integral unit, and at p=2,D>1 its norm is at least two.
+4. When D≠1 this simplifies to existence if and only if p≠2. The statement concerns the given tame level and the actual full formal-series measure, not merely its arithmetic specializations. It supplies no ordinary principal zeta constant or classical modular-form existence theorem.
+
+**Prerequisites:** `DirichletPadicLFunctions:L4/all-prime-tame-scalar-integrality`, `DirichletPadicLFunctions:L4/dyadic-tame-half-classification`, `DirichletPadicLFunctions:L4/integral-normalized-tame-series`, `DirichletPadicLFunctions:L4/integral-normalized-tame-map`.
+
+**Tests:**
+
+- `SuggestedAllPrimeScalarTests.nontrivial_level_half_iff_odd` (compatibility): At any tame modulus greater than one, existence of an all-test integral half is equivalent to p≠2.
+- `SuggestedAllPrimeScalarTests.triadic_half_exists` (computation): Every character modulo4 admits an integral half at p=3.
+- `SuggestedAllPrimeScalarTests.dyadic_one_half_exists` (degenerate): At p=2 the modulus-one positive-series measure is the integral half.
+- `SuggestedAllPrimeScalarTests.dyadic_three_half_fails` (non-example): The principal modulus-three dyadic family has no integral half.
+
+**Acceptance:** The existence direction gives an actual existing measure. The obstruction is all-test integrality, and the sole dyadic exception is precisely the zero-constant tame level-one constructor.
+
+**Source:** Tame kernel and integral coefficients, Theorem5.7, Remark5.8 and Definition5.13, published143–146/PDF44–47; Eisenstein coefficient measures, Theorem8.2 and Remark8.3, published159–161/PDF60–62. Whole passages read in retained checkpoints. Native valuation-integer unit norms and the existing normalization proof were freshly checked. Worker completion of the scalar-integrality and half-normalization criteria for the actual tame formal-series family. First positive coefficients handle odd primes, while the preceding actual unit-test argument handles the dyadic obstruction. These criteria are derived consequences, not quoted source statements. The zero tame modulus-one constructor remains distinct from the principal zeta pseudomeasure; no classical modularity or analytic-family theorem is inferred.
+
+**Remaining:** The scalar-integrality and half-normalization questions for the actual full tame family are now classified at every prime and positive tame level, including principal and imprimitive characters and the precise D=1 exception. The normalized family under h2 also has its exact scalar criterion. Continue with the general two-character constant term and its compatibility with the existing positive coefficients, classical character Eisenstein existence/normalization, and analytic weight-space comparison; these are not supplied by the scalar classification. The tame zero constructor remains distinct from the localized principal zeta theory. Eleven requests, fifteen gaps and zero closed stages remain, and the missing pinned TwistedDivisorSum artifact still prevents full-module compilation.
+
+### All-prime tame scalar and half-normalization criteria validation
+
+All 642 predecessor nodes, 556 baseline records, 16 findings, requests and sourceVersions remain whole. This checkpoint adds 3 nodes, 3 named suggested declarations and 10 typed examples. The indexed blueprint, four-file intake, whitespace, preservation, API/test parity and versioned-source checks pass. The graph has 901 reachable nodes, 4495 edges and 735 native leaves and is acyclic. Its stage request leaves are PadicMeasuresIwasawaAlgebras:L1, PadicMeasuresIwasawaAlgebras:L3, PadicMeasuresIwasawaAlgebras:L3, LocallyAnalyticDistributions:L1, AdicSpacesPartII:F1, AdicSpacesPartII:R2, PadicDifferentialEquationsAndRigidCohomology:RD.0, PadicDifferentialEquationsAndRigidCohomology:RD.4, PadicHodgeTheory:P7:annulus-foundations, PadicMeasuresIwasawaAlgebras:L2, LocallyAnalyticDistributions:L1. All three new routes end in existing fine-grained owner nodes and native declarations, with no stage-only leaves or new supplier requests.
+
+**The full current suggested module was NOT COMPILED.** Its real native import requires TauCeti.NumberTheory.ArithmeticFunction.TwistedDivisorSum. No matching existing artifact was found; WORKERS.md prohibits building the native library. Current compiler exit code, error count and warning count are unavailable, not zero. The exact named signatures and native source were reviewed. PR4773 remains the last compiled full predecessor, with zero errors and1,803 expected placeholder warnings; that receipt does not validate this new module.
+
+The current source closure covers 3601 pinned Mathlib modules and 22 pinned Tau Ceti modules. Only 21 Tau module artifacts are available and hash-verified. The105 available artifact files and the previously compiled332-node PMIA artifact are checked as partial dependencies. The current369-node supplier source preserves the older interface; no current-module compilation against either revision is claimed. Existing builds only were inspected; no setup, update, cache fetch or native build occurred.
+
+Eight complete native lemmas verify the norm of an integer-ring unit, the bounded algebra image and odd-prime two-unit certificate, the norm of two, scalar lift construction, necessity from an arbitrary norm-one coefficient and their equivalence, and the normalized first coefficient. The separate probe compiles against 2816 pinned Mathlib modules and 0 pinned Tau Ceti modules with zero errors, warnings or placeholders. The separate Mathlib-only probe does not import, replace or compile the missing native Tau module. General roadmap declarations remain unchecked.
+
+Exact controls cover27 prime/level pairs and52 character families,520 scalar criteria and necessary-coefficient checks,52 half classifications,420 normalized scalar checks,2898 finite convolution equations,19536 integral constant values and19104 positive values. Nine dyadic unit witnesses retain the exceptional branch. Exact rational finite-residue convolution and p-adic valuations at primes2,3,5,7,11, including principal and imprimitive characters at seven tame levels. Scalar necessity is tested on the first positive coefficient at odd primes and modulus one, and on an independently computed unit-constant difference for dyadic D>1. Admissible scalar multiples are checked on every finite unit-residue constant and48 positive coefficient tests. These controls do not replace the infinite all-test proofs. The largest observed discrepancy is 0.
+
+All66 captured inputs have an empty predecessor delta and remain guarded. The complete old Lean body is preserved. The separate signature check uses exact4773 plus only4793,4796,4799,4803,4808,4813,4816 and current additions;4777–4791 remain excluded. Three declarations and ten typed examples give1944 expected placeholder warnings and zero errors. This is not the current full module.
