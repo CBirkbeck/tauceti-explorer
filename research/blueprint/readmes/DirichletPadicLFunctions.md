@@ -21445,3 +21445,156 @@ Seven complete Mathlib-only lemmas check level change on actual p-adic units, ar
 Exact finite rational controls exercise finite-character products, level raising and inverse cancellation on all unit residues, finite weighted-measure evaluations on nonconstant test vectors, the zero-level ambient counterexample and dyadic Euler–Bernoulli values. Counts and method are recorded below. Exact Python Fraction arithmetic. Finite unit-residue measures use the existing rational tame residue mass multiplied by the inverse unit representative modulo p^r. Weighting, products, level raising and inverse cancellation are checked on whole finite test vectors; positive moments agree with independent Euler–Bernoulli sums modulo p^r. This checks finite models and rational specializations, not the general measure theorem or nonreal character fields. The largest observed discrepancy is 0 for exact identities; every residue error divisible by the displayed p^r.
 
 All66 captured inputs and four predecessor outputs are guarded. The separate partial signature check appends only these five declarations and twelve examples to the exact PR4831 signature prefix; it retains that prefix’s exclusion of4777–4791. The full current module remains uncompiled because the compatible native TwistedDivisorSum artifact is unavailable. The partial signature run has1968 expected placeholder warnings and zero errors, against3573 pinned source modules. Seven supporting native lemmas separately compile against2806 Mathlib modules without any warning or placeholder.
+
+
+## Integral congruences of intrinsic tame character values
+
+Five L2 nodes promote the existing intrinsic integral bound and derive ideal congruences for all unit tests, arithmetic weights, finite varying-level character families and the existing restricted twist. Four new signatures and ten typed examples retain zero ideals, zero weights and arbitrary wild level. All652 predecessor nodes and558 baseline records remain whole; no new source finding, request or closed stage.
+
+The source passages published129 and144–146 were freshly read in the immediately preceding checkpoint of this uninterrupted30September2026 session. Read the whole existing intrinsic integral coefficient/bound node, arithmetic-character weight-congruence, tame-character Kummer theorem, new unit twist bridge and exact suggested signatures. The L2 target and reviewed audit were checked. Native integer-ring structure, Valuation.Integers.dvd_iff_le, compact-test norm criterion, subtype inclusion and actual measure linearity were read at the pinned sources; no generic measure theory is reconstructed.
+
+### The all-test bound for the integral unit measure
+
+`DirichletPadicLFunctions:L2/intrinsic-integral-tame-norm` — `DirichletPadic.intrinsicIntegralTameZetaMeasure_bound`
+
+For every continuous f:U→O, ‖ζO^U(f)‖≤‖f‖.
+
+**Hypotheses:** p is any prime, including2. K is a complete nontrivially normed ultrametric field with Algebra ℤ_p K and IsBoundedSMul ℤ_p K. Let O=Valuation.integer(NormedField.valuation(K)), with its existing subring norm and inclusion ι:O→K, and U=(ℤ_p)ˣ with its native compact topology. No separately chosen ℤ_p-algebra or field structure on O is assumed. D>0 with NeZero D, η:DirichletCharacter K D, hD:IsUnit(D:K), p∤D. Write ζO^U=intrinsicIntegralTameZetaMeasure η hD hpD. Its existing all-test bound is ‖ζO^U(f)‖≤‖f‖ for f∈C(U,O). The measure is the existing zero constructor at D=1. Neither η≠1 nor CharZero K is required for the actual integral congruences. Divisibility is in O. The divisor b∈O may be0 or a unit; the result does not divide in K or identify ‖p‖ in K with the standard normalized p-adic norm. Native Valuation.Integers.dvd_iff_le converts divisibility into the actual norm inequality.
+
+**Proof:**
+
+1. Promote the existing intrinsicIntegralTameZetaMeasure_bound API from intrinsic-integral-tame-coefficients. Its already present suggested declaration is reused verbatim; no additional signature or bound is assumed.
+2. The all-test coefficient comparison identifies the included value with ζK^U(ι∘f). The native subtype inclusion preserves pointwise norms; applying the compact continuous-map norm criterion in both directions identifies the two test norms.
+3. The existing intrinsic-tame-zeta-norm bounds the field-valued integral, giving exactly the displayed O-norm inequality. No field-style operator norm on O-valued measures is introduced.
+
+**Prerequisites:** `DirichletPadicLFunctions:L2/intrinsic-integral-tame-coefficients`, `DirichletPadicLFunctions:L2/intrinsic-tame-zeta-norm`, `mathlib:ContinuousMap.norm_le`.
+
+**Tests:**
+
+
+
+**Acceptance:** This supplies a precise dependency for integral ideal congruences. The existing typed integral_mass_norm example gives ‖ζO^U(1)‖≤1, and the zero-test example is unchanged.
+
+**Source:** Integral coefficient discussion after equation(5-3), published144/PDF45, and Definition5.13 with its character interpolation identity, published146/PDF47; intrinsic restriction uses Remark3.33, published129/PDF30. Whole published129 and144–146 freshly read in the immediately preceding integral unit-twist checkpoint on30September2026. Worker integral congruence consequences of the already constructed actual tame measure and its established all-test norm bound. The source motivates integration over the coefficient integer ring; the precise ideal-divisibility statements and varying-level finite families are derived using the pinned valuation-ring criterion, not attributed as verbatim source theorems. Weight-zero integrals do not assert a new degree-zero L-value formula.
+
+### Integral congruences on every unit test
+
+`DirichletPadicLFunctions:L2/intrinsic-integral-tame-test-congruence` — `DirichletPadic.intrinsicIntegralTameZetaMeasure_test_congruence`
+
+For every b∈O and f,g∈C(U,O), if b divides g(u)−f(u) for every actual unit u, then b divides ζO^U(g)−ζO^U(f) in O.
+
+**Hypotheses:** p is any prime, including2. K is a complete nontrivially normed ultrametric field with Algebra ℤ_p K and IsBoundedSMul ℤ_p K. Let O=Valuation.integer(NormedField.valuation(K)), with its existing subring norm and inclusion ι:O→K, and U=(ℤ_p)ˣ with its native compact topology. No separately chosen ℤ_p-algebra or field structure on O is assumed. D>0 with NeZero D, η:DirichletCharacter K D, hD:IsUnit(D:K), p∤D. Write ζO^U=intrinsicIntegralTameZetaMeasure η hD hpD. Its existing all-test bound is ‖ζO^U(f)‖≤‖f‖ for f∈C(U,O). The measure is the existing zero constructor at D=1. Neither η≠1 nor CharZero K is required for the actual integral congruences. Divisibility is in O. The divisor b∈O may be0 or a unit; the result does not divide in K or identify ‖p‖ in K with the standard normalized p-adic norm. Native Valuation.Integers.dvd_iff_le converts divisibility into the actual norm inequality.
+
+**Proof:**
+
+1. Use native Valuation.integer.integers for the actual norm valuation. Native dvd_iff_le translates each pointwise divisibility into ‖g(u)−f(u)‖≤‖b‖, including b=0.
+2. The compact continuous-map norm criterion, with the nonnegative bound ‖b‖, gives ‖g−f‖≤‖b‖. Apply the promoted all-test arithmetic norm bound.
+3. Linearity gives ζO^U(g−f)=ζO^U(g)−ζO^U(f). Apply the same native valuation criterion in the reverse direction to obtain an actual quotient witness in O.
+4. The complete native bounded-integral congruence proof verifies this deduction for an actual native O-valued measure with the displayed bound. The roadmap statement specializes it to ζO^U using the owned bound, rather than reconstructing a generic measure operation.
+
+**Prerequisites:** `DirichletPadicLFunctions:L2/intrinsic-integral-tame-norm`, `mathlib:Valuation.integer.integers`, `mathlib:Valuation.Integers.dvd_iff_le`, `mathlib:ContinuousMap.norm_le`.
+
+**Tests:**
+
+- `SuggestedIntegralUnitCongruenceTests.zero_ideal_exact_relation` (degenerate): Divisibility by0 of every pointwise difference gives equality of the actual integral values.
+- `SuggestedIntegralUnitCongruenceTests.integral_test_perturbation` (compatibility): Changing f by b times any continuous integral test changes its integral by a multiple of b in O.
+
+**Acceptance:** The hypothesis ranges over every actual unit, not sampled residues. Integrality of the quotient is retained; divisibility in the field K would be insufficient.
+
+**Source:** Integral coefficient discussion after equation(5-3), published144/PDF45, and Definition5.13 with its character interpolation identity, published146/PDF47; intrinsic restriction uses Remark3.33, published129/PDF30. Whole published129 and144–146 freshly read in the immediately preceding integral unit-twist checkpoint on30September2026. Worker integral congruence consequences of the already constructed actual tame measure and its established all-test norm bound. The source motivates integration over the coefficient integer ring; the precise ideal-divisibility statements and varying-level finite families are derived using the pinned valuation-ring criterion, not attributed as verbatim source theorems. Weight-zero integrals do not assert a new degree-zero L-value formula.
+
+### Weight congruences of integral tame character values
+
+`DirichletPadicLFunctions:L2/intrinsic-integral-tame-weight-congruence` — `DirichletPadic.intrinsicIntegralTameZetaMeasure_weight_congruence`
+
+For fixed χ modulo p^t, r≥1 and e≡e′ modulo p^(r−1)(p−1), (p:O)^r divides ζO^U(κO_(t,χ,e′))−ζO^U(κO_(t,χ,e)) in O.
+
+**Hypotheses:** p is any prime, including2. K is a complete nontrivially normed ultrametric field with Algebra ℤ_p K and IsBoundedSMul ℤ_p K. Let O=Valuation.integer(NormedField.valuation(K)), with its existing subring norm and inclusion ι:O→K, and U=(ℤ_p)ˣ with its native compact topology. No separately chosen ℤ_p-algebra or field structure on O is assumed. D>0 with NeZero D, η:DirichletCharacter K D, hD:IsUnit(D:K), p∤D. Write ζO^U=intrinsicIntegralTameZetaMeasure η hD hpD. Its existing all-test bound is ‖ζO^U(f)‖≤‖f‖ for f∈C(U,O). The measure is the existing zero constructor at D=1. Neither η≠1 nor CharZero K is required for the actual integral congruences. Divisibility is in O. The divisor b∈O may be0 or a unit; the result does not divide in K or identify ‖p‖ in K with the standard normalized p-adic norm. Native Valuation.Integers.dvd_iff_le converts divisibility into the actual norm inequality. t,e,e′≥0. κO is the existing integral arithmetic unit character. The finite character is held fixed, with no relation required between its level exponent t and the precision r. These are exponents of the actual character test, not the shifted classical Eisenstein weights.
+
+**Proof:**
+
+1. Apply the existing integral-arithmetic-character-weight-congruence to every u∈U. It gives precisely the pointwise divisibility by (p:O)^r from finite unit-group exponentiation and an actual integral quotient witness.
+2. Apply intrinsic-integral-tame-test-congruence to the two actual continuous character tests. No additional norm normalization or character descent to level r is needed.
+3. The weight-zero endpoint is a statement about an actual integral. Only the existing positive-weight common-field comparison permits an L-value interpretation, with its original nonprincipal tame and characteristic-zero hypotheses.
+4. For p=2, arbitrary χ modulo8 is allowed with r=1,e=0,e′=1. For χ modulo4, r=3,e=1,e′=5 gives divisibility by8. The factor p−1 cannot be dropped: for p=5 and quadratic η modulo3, the principal weight1 value includes as2/3 and weight2 as0, so their difference−2/3 is not divisible by5 in O. The complete native norm calculation and exact rational controls check this negative example.
+
+**Prerequisites:** `DirichletPadicLFunctions:L2/intrinsic-integral-tame-test-congruence`, `DirichletPadicLFunctions:L2/integral-arithmetic-character-weight-congruence`, `DirichletPadicLFunctions:L2/intrinsic-integral-tame-common-value`.
+
+**Tests:**
+
+- `SuggestedIntegralUnitCongruenceTests.wild_level_above_precision` (compatibility): At p=2, every χ modulo8 has its weight1 and weight0 integrals congruent modulo2.
+- `SuggestedIntegralUnitCongruenceTests.dyadic_weight_period` (computation): At p=2 and any χ modulo4, weight5 and weight1 integrals are congruent modulo8.
+- `SuggestedIntegralUnitCongruenceTests.missing_totient_factor_changes_values` (non-example): At p=5 and quadratic η modulo3, the principal weight2 and weight1 values differ by−2/3, which is not divisible by5 in O.
+
+**Acceptance:** No t≤r, positive-weight or primitive-character condition is added to this integral statement. The sufficient period is explicit and no optimal dyadic period is claimed.
+
+**Source:** Integral coefficient discussion after equation(5-3), published144/PDF45, and Definition5.13 with its character interpolation identity, published146/PDF47; intrinsic restriction uses Remark3.33, published129/PDF30. Whole published129 and144–146 freshly read in the immediately preceding integral unit-twist checkpoint on30September2026. Worker integral congruence consequences of the already constructed actual tame measure and its established all-test norm bound. The source motivates integration over the coefficient integer ring; the precise ideal-divisibility statements and varying-level finite families are derived using the pinned valuation-ring criterion, not attributed as verbatim source theorems. Weight-zero integrals do not assert a new degree-zero L-value formula.
+
+### Finite integral relations among tame character values
+
+`DirichletPadicLFunctions:L2/intrinsic-integral-tame-finite-congruence` — `DirichletPadic.intrinsicIntegralTameZetaMeasure_finite_character_congruence`
+
+For a finite family c_i∈O and κ_i=κO_(n_i,χ_i,w_i), if b divides Σ_i c_iκ_i(u) for every u∈U, then b divides Σ_i c_iζO^U(κ_i) in O.
+
+**Hypotheses:** p is any prime, including2. K is a complete nontrivially normed ultrametric field with Algebra ℤ_p K and IsBoundedSMul ℤ_p K. Let O=Valuation.integer(NormedField.valuation(K)), with its existing subring norm and inclusion ι:O→K, and U=(ℤ_p)ˣ with its native compact topology. No separately chosen ℤ_p-algebra or field structure on O is assumed. D>0 with NeZero D, η:DirichletCharacter K D, hD:IsUnit(D:K), p∤D. Write ζO^U=intrinsicIntegralTameZetaMeasure η hD hpD. Its existing all-test bound is ‖ζO^U(f)‖≤‖f‖ for f∈C(U,O). The measure is the existing zero constructor at D=1. Neither η≠1 nor CharZero K is required for the actual integral congruences. Divisibility is in O. The divisor b∈O may be0 or a unit; the result does not divide in K or identify ‖p‖ in K with the standard normalized p-adic norm. Native Valuation.Integers.dvd_iff_le converts divisibility into the actual norm inequality. I is a finite type with Fintype I. Each n_i,w_i is nonnegative and χ_i:DirichletCharacter K(p^(n_i)). The levels and weights may vary independently; no common finite level or positive weight is required. All scalar coefficients c_i lie in the displayed O.
+
+**Proof:**
+
+1. Form the actual continuous O-valued test F=Σ_i c_i•κ_i.toContinuousMap. Native continuous-map evaluation gives F(u)=Σ_i c_iκ_i(u).
+2. Apply intrinsic-integral-tame-test-congruence with f=0,g=F. Native measure linearity and finite-sum/scalar evaluation identify ζO^U(F) with the displayed linear combination. The complete native finite-integral congruence proof verifies this step on the existing measure carrier.
+3. At b=0 obtain exact linear relations; the empty family gives0. Two weight-zero characters may have different levels. No unproved assertion about their analytic logarithmic values is needed.
+4. For positive weights, existing intrinsic-integral-tame-character-value and common-field interpolation identify each included integral with its existing Euler–Bernoulli element. An integral quotient witness q then gives ι(Σ_i c_iζO^U(κ_i))=ι(b)ι(q). This is the ideal-valued realization of the existing tame-character-kummer bound for integral coefficients; the original field-coefficient theorem remains more general in its coefficients and is reused rather than replaced.
+
+**Prerequisites:** `DirichletPadicLFunctions:L2/intrinsic-integral-tame-test-congruence`, `DirichletPadicLFunctions:L2/integral-arithmetic-character`, `DirichletPadicLFunctions:L2/intrinsic-integral-tame-character-value`, `DirichletPadicLFunctions:L2/intrinsic-integral-tame-common-value`, `DirichletPadicLFunctions:L2/tame-character-kummer`.
+
+**Tests:**
+
+- `SuggestedIntegralUnitCongruenceTests.finite_family_kernel` (characterisation): A pointwise zero finite O-linear combination gives an exact zero combination of the actual integral values.
+- `SuggestedIntegralUnitCongruenceTests.empty_family` (degenerate): Every b divides the integral-value sum indexed by Fin0.
+- `SuggestedIntegralUnitCongruenceTests.mixed_levels_at_zero_weight` (compatibility): A pointwise relation between two weight-zero characters of arbitrary different levels gives the same divisibility relation between their integrals.
+
+**Acceptance:** The quotient lives in O and includes through its fixed native embedding. No division by b is made when b=0, and no characteristic-zero hypothesis is added to the integral theorem.
+
+**Source:** Integral coefficient discussion after equation(5-3), published144/PDF45, and Definition5.13 with its character interpolation identity, published146/PDF47; intrinsic restriction uses Remark3.33, published129/PDF30. Whole published129 and144–146 freshly read in the immediately preceding integral unit-twist checkpoint on30September2026. Worker integral congruence consequences of the already constructed actual tame measure and its established all-test norm bound. The source motivates integration over the coefficient integer ring; the precise ideal-divisibility statements and varying-level finite families are derived using the pinned valuation-ring criterion, not attributed as verbatim source theorems. Weight-zero integrals do not assert a new degree-zero L-value formula.
+
+### Integral congruences after a finite-character twist
+
+`DirichletPadicLFunctions:L2/integral-tame-twist-test-congruence` — `DirichletPadic.restrictUnits_integralTwistedTameZetaMeasure_test_congruence`
+
+For every n≥0, χ modulo p^n and b∈O, pointwise b∣g−f on U implies b∣r_UνOχ(g)−r_UνOχ(f), where νOχ is the existing integral ambient tame character twist.
+
+**Hypotheses:** p is any prime, including2. K is a complete nontrivially normed ultrametric field with Algebra ℤ_p K and IsBoundedSMul ℤ_p K. Let O=Valuation.integer(NormedField.valuation(K)), with its existing subring norm and inclusion ι:O→K, and U=(ℤ_p)ˣ with its native compact topology. No separately chosen ℤ_p-algebra or field structure on O is assumed. D>0 with NeZero D, η:DirichletCharacter K D, hD:IsUnit(D:K), p∤D. Write ζO^U=intrinsicIntegralTameZetaMeasure η hD hpD. Its existing all-test bound is ‖ζO^U(f)‖≤‖f‖ for f∈C(U,O). The measure is the existing zero constructor at D=1. Neither η≠1 nor CharZero K is required for the actual integral congruences. Divisibility is in O. The divisor b∈O may be0 or a unit; the result does not divide in K or identify ‖p‖ in K with the standard normalized p-adic norm. Native Valuation.Integers.dvd_iff_le converts divisibility into the actual norm inequality. Use the exact existing integral-tame-twist-unit-restriction comparison: r_UνOχ=weight(κO_(n,χ,0))ζO^U. No new twisted-measure constructor or generic restriction operator is defined.
+
+**Proof:**
+
+1. The existing all-test restriction comparison and PMIA weight-evaluation express the two values as ζO^U(cg) and ζO^U(cf), where c=κO_(n,χ,0).toContinuousMap.
+2. Pointwise, cg−cf=c(g−f); multiplying the given integral quotient witness by the O-element c(u) preserves divisibility by b. Apply intrinsic-integral-tame-test-congruence to these product tests.
+3. The complete native weighted-integral congruence proves this deduction without any inverse operation or a separately assumed bound on the twisting character.
+4. At level zero with the principal character this is the original congruence. On arithmetic tests κψ,e andκψ,e′, the existing integral-tame-twist-arithmetic-moment identifies the values with the χψ character integrals. Thus the statement connects the intrinsic congruence with the pre-existing ambient twist API, including zero weights and positive wild levels.
+
+**Prerequisites:** `DirichletPadicLFunctions:L2/integral-tame-twist-unit-restriction`, `DirichletPadicLFunctions:L2/integral-tame-twist-arithmetic-moment`, `DirichletPadicLFunctions:L2/intrinsic-integral-tame-test-congruence`, `PadicMeasuresIwasawaAlgebras:L2/weight-evaluation`.
+
+**Tests:**
+
+- `SuggestedIntegralUnitCongruenceTests.principal_zero_level_twist` (degenerate): The principal level-zero restricted twist preserves the same b-divisibility of all-test differences.
+- `SuggestedIntegralUnitCongruenceTests.twisted_arithmetic_tests` (compatibility): A pointwise b-congruence for ψ arithmetic tests induces the corresponding congruence of χψ tame character values.
+
+**Acceptance:** This is a congruence for the existing arithmetic twist, with ideal divisibility in O. Finite characters are not treated as globally invertible ambient functions.
+
+**Source:** Integral coefficient discussion after equation(5-3), published144/PDF45, and Definition5.13 with its character interpolation identity, published146/PDF47; intrinsic restriction uses Remark3.33, published129/PDF30. Whole published129 and144–146 freshly read in the immediately preceding integral unit-twist checkpoint on30September2026. Worker integral congruence consequences of the already constructed actual tame measure and its established all-test norm bound. The source motivates integration over the coefficient integer ring; the precise ideal-divisibility statements and varying-level finite families are derived using the pinned valuation-ring criterion, not attributed as verbatim source theorems. Weight-zero integrals do not assert a new degree-zero L-value formula.
+
+**Remaining:** The actual intrinsic integral tame measure now carries all-test, weight-period and finite O-linear character congruences. The existing restricted ambient twist inherits them through its precise unit-character comparison. Positive-weight algebraic special values are compared only through the existing common-field theorem; zero weights remain actual integral values. Complete the separate canonical coefficient-field pseudomeasure evaluator through the PMIA L3 request, primitive Gauss nonvanishing and exact primitive-conductor comparisons, further coefficient-field/descent comparisons, analytic branches and logarithmic/degree-zero value formulas. Finish the full source extraction and original PMIA L1 completed-algebra comparison. Existing denominator qualifications, principal-conductor and dyadic boundaries remain in force.
+
+### Integral congruences of intrinsic tame character values validation
+
+All 652 predecessor nodes, 558 baseline records, 16 findings, requests and sourceVersions remain whole. This checkpoint adds 5 nodes, 4 named suggested declarations and 10 typed examples. The indexed blueprint, four-file intake, whitespace, preservation, API/test parity and versioned-source checks pass. The graph has 913 reachable nodes, 4552 edges and 736 native leaves and is acyclic. Its stage request leaves are PadicMeasuresIwasawaAlgebras:L1, PadicMeasuresIwasawaAlgebras:L3, PadicMeasuresIwasawaAlgebras:L3, LocallyAnalyticDistributions:L1, AdicSpacesPartII:F1, AdicSpacesPartII:R2, PadicDifferentialEquationsAndRigidCohomology:RD.0, PadicDifferentialEquationsAndRigidCohomology:RD.4, PadicHodgeTheory:P7:annulus-foundations, PadicMeasuresIwasawaAlgebras:L2, LocallyAnalyticDistributions:L1. All five new routes use existing fine nodes and native declarations and have no stage-request leaf. Existing whole-packet requests remain open.
+
+**The full current suggested module was NOT COMPILED.** Its real native import requires TauCeti.NumberTheory.ArithmeticFunction.TwistedDivisorSum. No matching existing artifact was found; WORKERS.md prohibits building the native library. Current compiler exit code, error count and warning count are unavailable, not zero. The exact named signatures and native source were reviewed. PR4773 remains the last compiled full predecessor, with zero errors and1,803 expected placeholder warnings; that receipt does not validate this new module.
+
+The current source closure covers 3601 pinned Mathlib modules and 22 pinned Tau Ceti modules. Only 21 Tau module artifacts are available and hash-verified. The105 available artifact files and the previously compiled332-node PMIA artifact are checked as partial dependencies. The current369-node supplier source preserves the older interface; no current-module compilation against either revision is claimed. Existing builds only were inspected; no setup, update, cache fetch or native build occurred.
+
+Six complete supporting Mathlib-only lemmas verify bounded integral-test divisibility, finite scalar combinations, weighting, the zero-ideal kernel, coefficient inclusion of the integral quotient, and nondivisibility of−2/3 by5 in the native ℚ_5 integer ring. The bounded-integral argument is reused from the previous native probe and rebuilt here with the other five lemmas. They do not implement the new arithmetic roadmap declarations. The separate probe compiles against 2804 pinned Mathlib modules and 0 pinned Tau Ceti modules with zero errors, warnings or placeholders. The separate Mathlib-only probe does not import, replace or compile the missing native Tau module. General roadmap declarations remain unchecked.
+
+Exact rational controls pass for20 profiles,160 integral and160 twisted test pairs,40 mixed-level families,40 exact kernel relations,40 empty families and160 weight-value congruences, including90 nonzero differences and40 cases with level above precision. There are2056 pointwise weight checks, twelve primitive-modulus8 cases and two negative controls. Exact Fraction arithmetic in rational character specializations. Finite tame residue measures, multiplied by inverse unit representatives, check pointwise integral test differences, weighted differences and mixed-level character combinations. Independently evaluated Euler–Bernoulli sums check positive-weight periods, including a primitive quadratic character modulo8. Finite models do not establish the all-unit hypothesis or general measure theorem; general coefficient norms are not normalized numerically. The largest observed discrepancy is 0 for exact identities; all asserted residue differences vanish modulo the stated p^r.
+
+All66 captured inputs and four predecessor outputs are guarded. The partial signature check appends exactly four declarations and ten examples to the exact4843 prefix, preserving its exclusions of4777–4791. The full current module remains uncompiled because the compatible native TwistedDivisorSum artifact is missing; no library build occurs. The partial signature run has1982 expected placeholder warnings and zero errors against3573 pinned source modules. The separate native probe has six complete lemmas against2804 Mathlib modules and no errors, warnings or placeholders.
