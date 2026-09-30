@@ -8398,3 +8398,98 @@ example : HasSum (fun n : ℕ => coeff n (tameLogPrimitive η ε hε ℓ)*
 end Normed
 end SuggestedLogarithmicDiscComplementTests
 end
+
+/-! Inversion of the finite logarithmic complement. The trace carries exactly
+the point value's logarithmic correction, so subtraction removes it even for
+principal characters. No LAD operator or formal substitution is identified. -/
+noncomputable section
+namespace DirichletPadic
+open scoped BigOperators
+open PowerSeries
+section Field
+variable {K : Type*} [Field K] [CharZero K] {D : ℕ} [NeZero D]
+
+theorem cyclotomicLogDiscTrace_inversion_defect (p : ℕ) (hp : 0<p) (ξ : K)
+    (hξ : ξ^p=1) (η : DirichletCharacter K D) (ε : K) (hε : IsPrimitiveRoot ε D)
+    (ℓ : K → K) (hmul : ∀ x y, x≠0 → y≠0 → ℓ (x*y)=ℓ x+ℓ y)
+    (hroot : ∀ z : K, ∀ n : ℕ, 0<n → z^n=1 → ℓ z=0)
+    (ρ : K) (hρ : ρ≠0) :
+    cyclotomicLogDiscTrace p ξ η ε hε ℓ (ρ⁻¹-1)=
+      η (-1)*cyclotomicLogDiscTrace p ξ η ε hε ℓ (ρ-1)+
+        η (-1)*(gaussSum η⁻¹ (AddChar.zmodChar D hε.pow_eq_one))⁻¹*
+          ℓ ρ*(∑ a : ZMod D, η⁻¹ a) := sorry
+
+theorem cyclotomicLogDiscComplement_inversion (p : ℕ) (hp : 0<p) (ξ : K)
+    (hξ : ξ^p=1) (η : DirichletCharacter K D) (ε : K) (hε : IsPrimitiveRoot ε D)
+    (ℓ : K → K) (hmul : ∀ x y, x≠0 → y≠0 → ℓ (x*y)=ℓ x+ℓ y)
+    (hroot : ∀ z : K, ∀ n : ℕ, 0<n → z^n=1 → ℓ z=0)
+    (ρ : K) (hρ : ρ≠0) :
+    cyclotomicLogDiscComplement p ξ η ε hε ℓ (ρ⁻¹-1)=
+      η (-1)*cyclotomicLogDiscComplement p ξ η ε hε ℓ (ρ-1) := sorry
+
+theorem cyclotomicLogDiscComplement_odd_fixed_points (p : ℕ) (hp : 0<p)
+    (ξ : K) (hξ : ξ^p=1) (η : DirichletCharacter K D) (hodd : η (-1)=-1)
+    (ε : K) (hε : IsPrimitiveRoot ε D) (ℓ : K → K)
+    (hmul : ∀ x y, x≠0 → y≠0 → ℓ (x*y)=ℓ x+ℓ y)
+    (hroot : ∀ z : K, ∀ n : ℕ, 0<n → z^n=1 → ℓ z=0) :
+    cyclotomicLogDiscComplement p ξ η ε hε ℓ 0=0 ∧
+      cyclotomicLogDiscComplement p ξ η ε hε ℓ (-2)=0 := sorry
+end Field
+
+theorem cyclotomicLogDiscComplement_inversion_hasSum {K : Type*} [NormedField K]
+    [IsUltrametricDist K] [CharZero K] {D : ℕ} [NeZero D]
+    (p : ℕ) (hp : p.Prime) (ξ : K) (hξ : IsPrimitiveRoot ξ p) (hpK : ‖(p : K)‖<1)
+    (η : DirichletCharacter K D) (hD : 1<D) (ε : K) (hε : IsPrimitiveRoot ε D)
+    (hDK : ‖(D : K)‖=1) (ℓ : K → K)
+    (hmul : ∀ x y, x≠0 → y≠0 → ℓ (x*y)=ℓ x+ℓ y)
+    (hroot : ∀ z : K, ∀ n : ℕ, 0<n → z^n=1 → ℓ z=0)
+    (hlocal : ∀ x u : K, x≠0 → ‖u‖<1 →
+      HasSum (fun n : ℕ => coeff n (log K)*u^n) (ℓ (x*(1+u))-ℓ x))
+    (t : K) (ht : ‖t‖<1) :
+    HasSum (fun n : ℕ => coeff n (tameLogPrimitive η ε hε ℓ)*
+      (((1+t)⁻¹-1)^n-(p : K)⁻¹*∑ j ∈ Finset.range p, (ξ^j*(1+t)⁻¹-1)^n))
+      (η (-1)*cyclotomicLogDiscComplement p ξ η ε hε ℓ t) := sorry
+end DirichletPadic
+
+namespace SuggestedComplementInversionTests
+open scoped BigOperators
+open DirichletPadic PowerSeries
+section Field
+variable {K : Type*} [Field K] [CharZero K]
+variable (ℓ : K → K) (hmul : ∀ x y, x≠0 → y≠0 → ℓ (x*y)=ℓ x+ℓ y)
+variable (hroot : ∀ z : K, ∀ n : ℕ, 0<n → z^n=1 → ℓ z=0)
+include hmul hroot
+-- principal_trace_correction
+example (ξ : K) (hξ : ξ^3=1) (hε : IsPrimitiveRoot (-1 : K) 2)
+    (ρ : K) (hρ : ρ≠0) :
+    cyclotomicLogDiscTrace 3 ξ (1 : DirichletCharacter K 2) (-1) hε ℓ (ρ⁻¹-1)=
+      cyclotomicLogDiscTrace 3 ξ (1 : DirichletCharacter K 2) (-1) hε ℓ (ρ-1)-ℓ ρ := sorry
+-- principal_complement_invariant
+example (ξ : K) (hξ : ξ^3=1) (hε : IsPrimitiveRoot (-1 : K) 2)
+    (ρ : K) (hρ : ρ≠0) :
+    cyclotomicLogDiscComplement 3 ξ (1 : DirichletCharacter K 2) (-1) hε ℓ (ρ⁻¹-1)=
+      cyclotomicLogDiscComplement 3 ξ (1 : DirichletCharacter K 2) (-1) hε ℓ (ρ-1) := sorry
+-- repeated_root_complement_pair
+example {D : ℕ} [NeZero D] (η : DirichletCharacter K D) (ε : K)
+    (hε : IsPrimitiveRoot ε D) (ρ : K) (hρ : ρ≠0) :
+    cyclotomicLogDiscComplement 4 (-1) η ε hε ℓ (ρ⁻¹-1)=
+      η (-1)*cyclotomicLogDiscComplement 4 (-1) η ε hε ℓ (ρ-1) := sorry
+-- odd_origin_and_negative_two
+example {D : ℕ} [NeZero D] (η : DirichletCharacter K D) (hodd : η (-1)=-1)
+    (ε : K) (hε : IsPrimitiveRoot ε D) :
+    cyclotomicLogDiscComplement 2 (-1) η ε hε ℓ 0=0 ∧
+      cyclotomicLogDiscComplement 2 (-1) η ε hε ℓ (-2)=0 := sorry
+end Field
+-- principal_three_adic_inverse_series
+example {K : Type*} [NormedField K] [IsUltrametricDist K] [CharZero K]
+    (ξ : K) (hξ : IsPrimitiveRoot ξ 3) (h3 : ‖(3 : K)‖<1)
+    (hε : IsPrimitiveRoot (-1 : K) 2) (h2 : ‖(2 : K)‖=1) (ℓ : K → K)
+    (hmul : ∀ x y, x≠0 → y≠0 → ℓ (x*y)=ℓ x+ℓ y)
+    (hroot : ∀ z : K, ∀ n : ℕ, 0<n → z^n=1 → ℓ z=0)
+    (hlocal : ∀ x u : K, x≠0 → ‖u‖<1 →
+      HasSum (fun n : ℕ => coeff n (log K)*u^n) (ℓ (x*(1+u))-ℓ x)) :
+    HasSum (fun n : ℕ => coeff n (tameLogPrimitive (1 : DirichletCharacter K 2) (-1) hε ℓ)*
+      (((-3 : K)/4)^n-(3 : K)⁻¹*∑ j ∈ Finset.range 3, (ξ^j/4-1)^n))
+      (cyclotomicLogDiscComplement 3 ξ (1 : DirichletCharacter K 2) (-1) hε ℓ 3) := sorry
+end SuggestedComplementInversionTests
+end
