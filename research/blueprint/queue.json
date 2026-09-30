@@ -38545,7 +38545,8 @@
     "REV-PAPER-HARPAZ-WITTENBERG-20"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-HARPAZ-WITTENBERG-20.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4270"
   },
   {
    "id": "REV-RT-PAPER-HARPAZ-WITTENBERG-20",
@@ -41805,8 +41806,9 @@
     "REV-RS-02"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-RS-02.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4388"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4388",
+   "finishedAt": "2026-09-30T14:22:23Z"
   },
   {
    "id": "RT-RS-03",
