@@ -1,3 +1,69 @@
+# LLHLM23 — current handoff: scalar bounds and smooth regularity
+
+Codex — codex-J6LwjP; issue #1254; 30 September 2026.
+**Partial checkpoint:** 809 items (149 library, 48 planned, 612 missing),
+27 routes, 120 unreviewed source findings and 11 gaps.
+This session is ineligible to review or red-team this extraction.
+
+## Completed here
+
+- B56 computes the printed scalar BM polynomial and corrected H/Q products
+  as powers of 24. B57 computes generic scalar weights for the explicitly
+  chosen local family `P_{λ,e}=1`. V17 gives the sufficient global polynomial
+  `24`, retains all global hypotheses and separates V09's all-prime local
+  result from the supplied odd-prime patching construction.
+- The restriction `p ∤ 2n` now appears in P13/B25/B26/B42's extracted
+  statements; the old wording is retained as `sourceStatement`. P12/B24
+  already retained it. The scalar downstream gap is resolved **at this
+  corrected scope**; no dyadic patching theorem or unrestricted interval
+  theorem is promised. Historical boundary text and all source findings
+  remain available. `sourceData.rankOneScopeResolution` inventories the
+  bounds, including the still-restricted entire height intervals.
+- L144 imports a standard-smooth neighbourhood; L145 imports Tau Ceti's
+  cotangent localization equivalence and scalar/representative formulas;
+  L146 imports the cotangent Nakayama criterion. These are exact pinned
+  matches, not proposed reconstructions.
+- Z148–Z151 refine Z102 through polynomial first-order coordinates,
+  independent cotangent classes, rational-point regularity and the flat
+  local map `S_q→(κ(q)⊗_k S)_m`. The argument does not require perfection
+  or equality of those local dimensions. Z149 stays beside Z103 at R03.3;
+  the other three use existing SF.0. No new route was introduced.
+
+## Resume here
+
+1. Continue the `analytic-regularity-suppliers` gap at **Z79**. The Z102
+   source-outline frontier has now been replaced by explicit imports and
+   adapters. Do not list it as wholly unread or silently call it compiled.
+2. For characteristic-p generic fibres, read Stacks **07PR** through its
+   deeper suppliers: 15.49.5 (a derivation detecting an element outside
+   the pth powers), 15.49.1 (extension through localization and completion),
+   15.49.4 (the purely inseparable regularity step), and 10.97.8 (finite
+   completion and the product over primes). Preserve the finite normal
+   power-series base and purely inseparable tower hypotheses.
+3. For the nonzero-prime branch **07PU**, audit the finite complete-local
+   order in the field extension, the product of completions, and the
+   formal-smoothness inputs 15.38.2/15.38.4 and 15.50.2. The final special
+   fibre is the quotient by `x−f`, not a mere localization.
+4. For **032D**, separate coefficient-field/Cohen-ring existence, a system
+   of parameters, equivalent adic completeness, finite generation from
+   the residue quotient, and injectivity from dimension. Check ownership
+   and the pinned libraries before assigning any new foundations.
+5. The four outer proofs 07PR/07PU/032D/07PV were freshly reread in this
+   session to establish this handoff. Their deeper suppliers were not
+   closed. Preserve E60/Z99's correction of the characteristic-zero fibre
+   sentence in 07PV. Continue the other listed API, library, ownership,
+   global and source gaps; this checkpoint is not a complete extraction.
+
+The current report and result record source locators, the published PDF
+hash, pinned declaration hashes, proof steps and boundary tests. All 799
+inherited IDs/statuses, all 120 findings and Appendix B data are preserved.
+All 612 missing items are routed once; 1,775 internal edges are acyclic.
+The paper/intake, preservation/routing/cycle and whitespace checks pass;
+800 exact scalar product/prime diagnostics pass. No Lean deliverable or
+compilation. No scratch file is required to resume.
+
+---
+
 # LLHLM23 — current handoff: scalar diagrams and weight implications
 
 Codex — codex-rtOQ9t; issue 1254; 30 September 2026.
