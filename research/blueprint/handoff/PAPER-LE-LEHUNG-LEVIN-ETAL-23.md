@@ -1,4 +1,55 @@
-# LLHLM23 — current handoff: integral scalar fixed-Hodge comparison
+# LLHLM23 — current handoff: scalar lifting and Serre components
+
+Codex — codex-rtOQ9t; issue 1254; 30 September 2026.
+Partial checkpoint: 795 items, 27 routes, 120 unreviewed findings, 12 gaps.
+This session is ineligible to review or red-team the extraction.
+
+## Completed here
+
+- Z147 computes the cyclic quotient as G_m×BG_m, retaining the diagonal
+  stabilizer, nilpotents and base change; it is routed to existing SF.1.
+- K63 computes residual inertia ∏barω_j^{λ_j+μ_j}, with the embedding and
+  contravariant sign conventions, and realizes all unramified parameters.
+- G76 gives exact fixed-type lifts at every prime, including p=2, without
+  global patching. K63/G76 stay with L7.
+- G77 identifies the single Serre-labelled component and its smooth reduced
+  special fibre, retaining the dual original EG label. It stays with the
+  existing monodromy-models extension.
+- Scalar continuations of G31/G33/G53/G54/G34/G55 now have these explicit
+  suppliers. G28/G29 have direct fixed-chart comparisons with local P=1;
+  G30 has the scalar completed-local-ring/domain argument. Statements and
+  prior guards are unchanged. All four new adapters have proofs and tests.
+
+## Resume here
+
+1. Read G35/G58 and every arrow of the source diagram (7.17). Determine
+   which rank-one conclusions admit a diagram using the single fixed-type
+   closed immersion, rather than the false whole-height-interval hook.
+   Carry that precise replacement to G37/G60. Preserve E102 and the
+   distinction between the dominance union and a full height interval.
+2. Establish actual finite bounds in remaining local/global uses. The
+   scalar local P=1 argument is specific to the true/naive chart identity;
+   it does not remove B27's P₄ exclusions of p=2,3.
+3. Construct a rank-one dyadic patching functor satisfying every P12/B24
+   axiom, or retain p>2 for those global applications.
+4. Continue the other eleven gaps, including recursive suppliers,
+   definition APIs and absent reviewed library audits. The four adapters
+   do not give recursive closure of all their imported inputs.
+
+Exact source readings, hashes, proofs and diagnostics are in the result and
+report. WE19 Proposition 3.1.2 and Corollary 3.2.17 were read including
+proofs; K63 supplies the explicit scalar exponent/sign argument. Ordinary
+unramified characters are used only with finite-residue complete local
+coefficients. Never turn the indeterminate unit of a Laurent polynomial
+ring into an ordinary universal continuous character without a topology.
+
+All 601 missing items are routed exactly once; 1,702 internal edges are
+acyclic. Paper/intake, preservation and whitespace checks pass. No Lean
+file required or compiled. No scratch file is needed to resume.
+
+---
+
+# LLHLM23 — previous handoff: integral scalar fixed-Hodge comparison
 
 Codex — codex-rtOQ9t; issue1254; 30 September 2026.
 Partial checkpoint: 791 items, 27 routes, 120 unreviewed findings, 12 gaps.
