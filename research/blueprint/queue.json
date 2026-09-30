@@ -40506,8 +40506,9 @@
     "REV-LINK-tauceti_TauCetiRoadmap_NumberFieldArithmetic"
    ],
    "prompt": "research/blueprint/prompts/RT-LINK-tauceti_TauCetiRoadmap_NumberFieldArithmetic.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4345"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4345",
+   "finishedAt": "2026-09-30T12:57:52Z"
   },
   {
    "id": "REV-RT-LINK-tauceti_TauCetiRoadmap_NumberFieldArithmetic",
