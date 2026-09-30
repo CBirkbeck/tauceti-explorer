@@ -10,7 +10,7 @@
     "DirichletPadicLFunctions:L4"
   ],
   "status": "partial",
-  "summary": "Partial continuation preserving all473 predecessor nodes whole. Six L3 nodes prove norm-one cyclotomic arguments, exact coefficient and polynomial bounds, restrictedness of the normalized and constant-shifted series, and pointwise summability. They use native power series and the existing Coleman integer-growth input. All16 findings, four requests and eight gaps remain; zero stages are closed.",
+  "summary": "Partial continuation preserving all479 predecessor nodes whole. Six L3 nodes construct the finite point value, compare it with a transported constant, prove shifted-argument norm1, identify the convergent series through the supplied Coleman local expansion, and transport roots and branches. All16 findings, four requests and eight gaps remain; zero stages are closed.",
   "baseline": {
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
@@ -3241,6 +3241,48 @@
         "module": "Mathlib/Analysis/Normed/Group/InfiniteSum.lean",
         "provides": "A sequence in a complete normed additive group is summable if its norms are eventually bounded by a summable real sequence.",
         "checked": "Full native statement and ambient hypotheses read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174. The entire native Restricted module and DirichletCharacter.Bounds module were read; eight complete native lemmas verify the coefficient bounds, primitive-root norm argument and convergence steps."
+      },
+      {
+        "ref": "mathlib:HasSum.mul_left",
+        "kind": "theorem",
+        "module": "Mathlib/Topology/Algebra/InfiniteSum/Ring.lean",
+        "provides": "Multiplying a convergent series by a fixed scalar multiplies its sum, in a topological semiring.",
+        "checked": "Full statement and surrounding hypotheses read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174. Generated additive declarations are cited through their indexed multiplicative originals and applied to the multiplicative synonym of the additive field. Eight complete native lemmas check the actual coefficient and HasSum argument."
+      },
+      {
+        "ref": "mathlib:hasProd_prod",
+        "kind": "theorem",
+        "module": "Mathlib/Topology/Algebra/InfiniteSum/Basic.lean",
+        "provides": "A finite product of convergent infinite products converges to the product of their limits; applied to Multiplicative(K,+) this is finite HasSum addition (generated hasSum_sum).",
+        "checked": "Full statement and surrounding hypotheses read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174. Generated additive declarations are cited through their indexed multiplicative originals and applied to the multiplicative synonym of the additive field. Eight complete native lemmas check the actual coefficient and HasSum argument."
+      },
+      {
+        "ref": "mathlib:hasProd_ite_eq",
+        "kind": "theorem",
+        "module": "Mathlib/Topology/Algebra/InfiniteSum/Basic.lean",
+        "provides": "A sequence supported at one index has its single entry as product; on Multiplicative(K,+) this supplies the single constant-coefficient sum (generated hasSum_ite_eq).",
+        "checked": "Full statement and surrounding hypotheses read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174. Generated additive declarations are cited through their indexed multiplicative originals and applied to the multiplicative synonym of the additive field. Eight complete native lemmas check the actual coefficient and HasSum argument."
+      },
+      {
+        "ref": "mathlib:HasProd.mul",
+        "kind": "theorem",
+        "module": "Mathlib/Topology/Algebra/InfiniteSum/Basic.lean",
+        "provides": "Pointwise multiplication combines two infinite-product limits; on Multiplicative(K,+) this is HasSum.add.",
+        "checked": "Full statement and surrounding hypotheses read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174. Generated additive declarations are cited through their indexed multiplicative originals and applied to the multiplicative synonym of the additive field. Eight complete native lemmas check the actual coefficient and HasSum argument."
+      },
+      {
+        "ref": "mathlib:HasProd.tprod_eq",
+        "kind": "theorem",
+        "module": "Mathlib/Topology/Algebra/InfiniteSum/Defs.lean",
+        "provides": "In a Hausdorff space, a convergent product equals its specified limit; on Multiplicative(K,+) this gives HasSum.tsum_eq.",
+        "checked": "Full statement and surrounding hypotheses read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174. Generated additive declarations are cited through their indexed multiplicative originals and applied to the multiplicative synonym of the additive field. Eight complete native lemmas check the actual coefficient and HasSum argument."
+      },
+      {
+        "ref": "tauceti:NormedSpace.logOneAdd_eq_tsum",
+        "kind": "theorem",
+        "module": "TauCeti/Analysis/Normed/Algebra/LogOneAdd/Basic.lean",
+        "provides": "The existing logarithm function equals the sum of((-1)^(n+1)/n)•u^n, with totalized n=0 coefficient0. This identifies the supplied Coleman local series with native PowerSeries.log coefficients.",
+        "checked": "The whole module and this exact statement were read at pinned TauCeti f790474821cf4256814db967cb154e7af3d0c369. Its separate native radius theorem needs ContinuousSMul rational scalars and is not used for p-adic fields. No fresh compilation of this Tau module or of Coleman is claimed."
       }
     ]
   },
@@ -31766,6 +31808,388 @@
       "acceptance": [
         "The sum uses native Summable and retains the arbitrary constant. Completeness and the strict norm bound are explicit."
       ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/cyclotomic-logarithmic-point-value",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The finite cyclotomic logarithm value at a point",
+      "kind": "construction",
+      "statement": "Define V_(η,ε,ℓ)(t)=−G⁻¹Σ_(a∈ZMod D)w(a)ℓ(ε^a.val(1+t)−1). At t=0 this is the preceding cyclotomicLogConstant, with the same Gauss normalization.",
+      "hypotheses": [
+        "K is a characteristic-zero field, D is positive with NeZero D, η:DirichletCharacter K D, ε∈K and hε:IsPrimitiveRoot ε D. Put w=η⁻¹ and G=gaussSum(w,AddChar.zmodChar D hε.pow_eq_one). ℓ:K→K is a supplied function. The finite value and root transport are algebraic and require no norm, primitivity of η or nonzero Gauss hypothesis.",
+        "The norm, series and branch comparisons use a NormedField K with IsUltrametricDist, D>1, ‖(D:K)‖=1 and ‖t‖<1. Branch comparison assumes the precise equality hbranch:∀x, ‖x‖=1 → ℓ₀(x)=ℓ₁(x); Coleman supplies it for every pair of logarithm branches.",
+        "Series evaluation assumes hlocal:∀x,u∈K, x≠0 → ‖u‖<1 → HasSum(n↦coeff n (PowerSeries.log K)·u^n)(ℓ(x(1+u))−ℓ(x)). This is the existing Coleman local expansion together with its owned logarithm convergence, rewritten by the native Tau Ceti series equation and the native formal-log coefficient formula. Its arithmetic supplier applies over C_p or a complete appropriate coefficient field. The conditional consumer needs no extra completeness assumption since hlocal already supplies HasSum. No Coleman suggested import is made: that module imports this consumer."
+      ],
+      "proofSteps": [
+        "Use the actual character, primitive root and native finite residue ring. The function changes its argument to ε^a.val(1+t)−1; the Gauss denominator remains the one attached to ε.",
+        "At t=0 multiplication by1 recovers the existing constant. The zero supplied function gives0 at every point. Values depend only on the supplied function at arguments with nonzero character weight; terms with zero weight contribute0 even when the argument itself is0.",
+        "The finite definition remains meaningful at D=1: the principal character and root1 give V(t)=−ℓ(t), including the supplied junk value at t=0. This is outside the tame evaluation theorem and does not give a logarithm analytic at0.",
+        "The promoted comparison below identifies this finite value with the sum of the actual tameLogPrimitive only after the local logarithm law and tame norm conditions have been supplied. It is not defined to be an analytic p-adic L-value.",
+        "Root transport, convergence and branch agreement are recorded as promoted consumers below. The exact finite calculations detect140 failures of dropping the actual constant and176 failures of reversing the rescaling sign."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/cyclotomic-logarithmic-constant",
+        "mathlib:gaussSum",
+        "mathlib:AddChar.zmodChar",
+        "mathlib:MulChar.map_nonunit"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/LogarithmicPrimitive",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.cyclotomicLogValue"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Section6.2, finite logarithmic expression and Lemma6.4, published151/PDF52; Lemma6.5 and the tame trace calculation, published152–153/PDF53–54. Complete published151–153 freshly read for this checkpoint.",
+          "excerpt": "logarithmic growth",
+          "match": "Worker concrete evaluation comparison for the tame logarithmic expression. It imports the existing Coleman local expansion and identifies the actual convergent coefficient sum, including its finite constant. The source pure-p-power convergence error E45 is excluded by norm(D)=1; the distribution trace and analytic L-value remain separate comparisons."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedLogarithmicEvaluationTests.zero_point_is_actual_constant",
+          "kind": "computation",
+          "statement": "V(0) is exactly the existing finite logarithm constant."
+        },
+        {
+          "name": "SuggestedLogarithmicEvaluationTests.zero_function_value",
+          "kind": "degenerate",
+          "statement": "For the zero supplied function, V(t)=0 for every t."
+        },
+        {
+          "name": "SuggestedLogarithmicEvaluationTests.conductor_one_boundary",
+          "kind": "non-example",
+          "statement": "At D=1 with the principal character and root1, V(t)=−ℓ(t); this is not covered by the tame analytic comparison."
+        }
+      ],
+      "acceptance": [
+        "Keep the finite expression, actual constant and native totalized inverse explicit."
+      ],
+      "api": [
+        {
+          "name": "DirichletPadic.cyclotomicLogValue_def",
+          "role": "constructor",
+          "statement": "The displayed finite residue sum with original Gauss normalization."
+        },
+        {
+          "name": "DirichletPadic.cyclotomicLogValue_eq_logConstant",
+          "role": "compatibility",
+          "statement": "The value is the existing constant applied to x↦ℓ((x+1)(1+t)−1); promoted below."
+        },
+        {
+          "name": "DirichletPadic.cyclotomicLogValue_zero",
+          "role": "simp",
+          "statement": "At t=0 recover the preceding logarithm constant."
+        },
+        {
+          "name": "DirichletPadic.cyclotomicLogValue_zero_log",
+          "role": "simp",
+          "statement": "The zero supplied function gives0."
+        },
+        {
+          "name": "DirichletPadic.cyclotomicLogValue_congr",
+          "role": "extensionality",
+          "statement": "Agreement at all arguments with nonzero character weight gives the same finite value."
+        },
+        {
+          "name": "DirichletPadic.cyclotomicLogValue_root_transport",
+          "role": "functoriality",
+          "statement": "Transport to any unit power of the primitive root, using its matching Gauss normalization; promoted below."
+        },
+        {
+          "name": "DirichletPadic.tameLogPrimitive_hasSum",
+          "role": "compatibility",
+          "statement": "The supplied local expansion identifies the sum of the actual primitive with V; promoted below."
+        },
+        {
+          "name": "DirichletPadic.cyclotomicLogValue_eq_tsum",
+          "role": "compatibility",
+          "statement": "Under the same tame local-expansion hypotheses, V is the native tsum of the actual primitive coefficients times t^n."
+        },
+        {
+          "name": "DirichletPadic.cyclotomicLogValue_branch_independent",
+          "role": "compatibility",
+          "statement": "Functions agreeing on norm-one elements give the same V throughout the tame open disc; promoted below."
+        }
+      ],
+      "uses": [
+        {
+          "where": "RJW Lemma6.4",
+          "how": "The local logarithm expansion at ε^a−1 identifies the source finite formula with its coefficient series."
+        },
+        {
+          "where": "RJW proof of Theorem6.1(ii), tame case",
+          "how": "Evaluation at t=ξ−1 will feed the existing logarithmic distribution relation and its trace comparison."
+        },
+        {
+          "where": "Root and branch compatibility",
+          "how": "Checks that the concrete evaluated function keeps the normalization already established at t=0."
+        }
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/cyclotomic-logarithmic-point-as-constant",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Point evaluation as a transported constant",
+      "kind": "comparison",
+      "statement": "For every t∈K, V_(η,ε,ℓ)(t)=cyclotomicLogConstant(η,ε,x↦ℓ((x+1)(1+t)−1)).",
+      "hypotheses": [
+        "K is a characteristic-zero field, D is positive with NeZero D, η:DirichletCharacter K D, ε∈K and hε:IsPrimitiveRoot ε D. Put w=η⁻¹ and G=gaussSum(w,AddChar.zmodChar D hε.pow_eq_one). ℓ:K→K is a supplied function. The finite value and root transport are algebraic and require no norm, primitivity of η or nonzero Gauss hypothesis.",
+        "The norm, series and branch comparisons use a NormedField K with IsUltrametricDist, D>1, ‖(D:K)‖=1 and ‖t‖<1. Branch comparison assumes the precise equality hbranch:∀x, ‖x‖=1 → ℓ₀(x)=ℓ₁(x); Coleman supplies it for every pair of logarithm branches.",
+        "Series evaluation assumes hlocal:∀x,u∈K, x≠0 → ‖u‖<1 → HasSum(n↦coeff n (PowerSeries.log K)·u^n)(ℓ(x(1+u))−ℓ(x)). This is the existing Coleman local expansion together with its owned logarithm convergence, rewritten by the native Tau Ceti series equation and the native formal-log coefficient formula. Its arithmetic supplier applies over C_p or a complete appropriate coefficient field. The conditional consumer needs no extra completeness assumption since hlocal already supplies HasSum. No Coleman suggested import is made: that module imports this consumer."
+      ],
+      "proofSteps": [
+        "Unfold the two finite constructions. Their scalar and character weights agree exactly.",
+        "At x=ε^a.val−1 the inner argument simplifies to ε^a.val(1+t)−1 by subtraction followed by addition of1. Thus every summand agrees, including the zero-weight residues.",
+        "This is a finite algebraic comparison for arbitrary ℓ and t, so it transports the existing arbitrary-function root-independence theorem without proving another Gauss reindexing identity.",
+        "At t=0 the transformed function is ℓ itself, recovering the construction’s zero-point test."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/cyclotomic-logarithmic-point-value",
+        "DirichletPadicLFunctions:L3/cyclotomic-logarithmic-constant"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/LogarithmicPrimitive",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.cyclotomicLogValue_eq_logConstant"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Section6.2, finite logarithmic expression and Lemma6.4, published151/PDF52; Lemma6.5 and the tame trace calculation, published152–153/PDF53–54. Complete published151–153 freshly read for this checkpoint.",
+          "excerpt": "logarithmic growth",
+          "match": "Worker concrete evaluation comparison for the tame logarithmic expression. It imports the existing Coleman local expansion and identifies the actual convergent coefficient sum, including its finite constant. The source pure-p-power convergence error E45 is excluded by norm(D)=1; the distribution trace and analytic L-value remain separate comparisons."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [],
+      "acceptance": [
+        "The transformed function is independent of the root choice. No convergence or logarithm law is used."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/tame-shifted-logarithm-argument-norm",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Shifted logarithm arguments stay on the unit sphere",
+      "kind": "lemma",
+      "statement": "For a unit residue a and ‖t‖<1, ‖ε^a.val(1+t)−1‖=1; in particular every logarithm argument with nonzero character weight is nonzero.",
+      "hypotheses": [
+        "K is a characteristic-zero field, D is positive with NeZero D, η:DirichletCharacter K D, ε∈K and hε:IsPrimitiveRoot ε D. Put w=η⁻¹ and G=gaussSum(w,AddChar.zmodChar D hε.pow_eq_one). ℓ:K→K is a supplied function. The finite value and root transport are algebraic and require no norm, primitivity of η or nonzero Gauss hypothesis.",
+        "The norm, series and branch comparisons use a NormedField K with IsUltrametricDist, D>1, ‖(D:K)‖=1 and ‖t‖<1. Branch comparison assumes the precise equality hbranch:∀x, ‖x‖=1 → ℓ₀(x)=ℓ₁(x); Coleman supplies it for every pair of logarithm branches.",
+        "Series evaluation assumes hlocal:∀x,u∈K, x≠0 → ‖u‖<1 → HasSum(n↦coeff n (PowerSeries.log K)·u^n)(ℓ(x(1+u))−ℓ(x)). This is the existing Coleman local expansion together with its owned logarithm convergence, rewritten by the native Tau Ceti series equation and the native formal-log coefficient formula. Its arithmetic supplier applies over C_p or a complete appropriate coefficient field. The conditional consumer needs no extra completeness assumption since hlocal already supplies HasSum. No Coleman suggested import is made: that module imports this consumer."
+      ],
+      "proofSteps": [
+        "Put z=ε^a.val. The preceding tame argument-norm theorem gives ‖z−1‖=1 and the finite-order root theorem gives ‖z‖=1.",
+        "Write z(1+t)−1=(z−1)+zt. The second term has norm ‖t‖<1, strictly smaller than the first. The ultrametric triangle equality for unequal norms gives norm1; a complete native shifted-argument lemma checks it.",
+        "The same previous theorem gives ‖z/(z−1)‖=1, hence ‖(z/(z−1))t‖<1. The algebraic identity (z−1)(1+(z/(z−1))t)=z(1+t)−1, checked in a complete native lemma, places the point in exactly the local disc needed by the supplier.",
+        "Nonunit residues can have other arguments, but their character weights vanish. The proof must not apply a nonzero-input logarithm law to such a residue before using that vanishing."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/tame-cyclotomic-logarithm-argument-norm",
+        "mathlib:IsOfFinOrder.norm_eq_one",
+        "mathlib:MulChar.apply_ne_zero_iff",
+        "mathlib:IsUltrametricDist.isNonarchimedean_norm"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/LogarithmicPrimitive",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.tameCyclotomicLogValue_argument_norm"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Section6.2, finite logarithmic expression and Lemma6.4, published151/PDF52; Lemma6.5 and the tame trace calculation, published152–153/PDF53–54. Complete published151–153 freshly read for this checkpoint.",
+          "excerpt": "logarithmic growth",
+          "match": "Worker concrete evaluation comparison for the tame logarithmic expression. It imports the existing Coleman local expansion and identifies the actual convergent coefficient sum, including its finite constant. The source pure-p-power convergence error E45 is excluded by norm(D)=1; the distribution trace and analytic L-value remain separate comparisons."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedLogarithmicEvaluationTests.shifted_argument_ne_zero",
+          "kind": "compatibility",
+          "statement": "At every unit residue and every point of norm<1 the shifted logarithm argument is nonzero."
+        }
+      ],
+      "acceptance": [
+        "The strict open-disc and norm(D)=1 hypotheses remain explicit, including at p=2."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/tame-logarithmic-series-point-evaluation",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The convergent primitive has the finite logarithm value",
+      "kind": "theorem",
+      "statement": "Under the supplied local expansion hlocal and the tame norm conditions, HasSum(n↦coeff n (tameLogPrimitive(η,ε,ℓ))·t^n)(V_(η,ε,ℓ)(t)).",
+      "hypotheses": [
+        "K is a characteristic-zero field, D is positive with NeZero D, η:DirichletCharacter K D, ε∈K and hε:IsPrimitiveRoot ε D. Put w=η⁻¹ and G=gaussSum(w,AddChar.zmodChar D hε.pow_eq_one). ℓ:K→K is a supplied function. The finite value and root transport are algebraic and require no norm, primitivity of η or nonzero Gauss hypothesis.",
+        "The norm, series and branch comparisons use a NormedField K with IsUltrametricDist, D>1, ‖(D:K)‖=1 and ‖t‖<1. Branch comparison assumes the precise equality hbranch:∀x, ‖x‖=1 → ℓ₀(x)=ℓ₁(x); Coleman supplies it for every pair of logarithm branches.",
+        "Series evaluation assumes hlocal:∀x,u∈K, x≠0 → ‖u‖<1 → HasSum(n↦coeff n (PowerSeries.log K)·u^n)(ℓ(x(1+u))−ℓ(x)). This is the existing Coleman local expansion together with its owned logarithm convergence, rewritten by the native Tau Ceti series equation and the native formal-log coefficient formula. Its arithmetic supplier applies over C_p or a complete appropriate coefficient field. The conditional consumer needs no extra completeness assumption since hlocal already supplies HasSum. No Coleman suggested import is made: that module imports this consumer."
+      ],
+      "proofSteps": [
+        "For each nonzero-weight residue put z=ε^a.val and c_a=z/(z−1). The preceding geometry gives z−1≠0 and ‖c_a t‖<1. Apply the existing Coleman local expansion at the center z−1 and increment c_a t.",
+        "The owner’s convergent logOneAdd series has coefficient(-1)^(n+1)/n. The native Tau Ceti defining tsum equation and native PowerSeries.coeff_log identify it with coeff n (log K), including n=0 where both coefficients are0. The supplied law therefore states HasSum of coeff n(log K)(c_a t)^n to ℓ(z(1+t)−1)−ℓ(z−1). No native rational-scalar radius theorem is invoked.",
+        "Native coeff_rescale and multiplicativity of powers identify that summand with coeff n(rescale(c_a)(log K))t^n. A complete native rescaling/local-expansion pair of lemmas checks the conversion.",
+        "Multiply by the character weights, use HasSum for the zero sequence when a weight is0, and sum over the finite residue ring. Then multiply by−G⁻¹. The complete native weighted-HasSum lemma explicitly handles the zero-weight branch.",
+        "The actual tameLogPrimitive is C(c₀)−C(G⁻¹)Σ_a C(w(a))rescale(c_a)(log K), with c₀=−G⁻¹Σ_a w(a)ℓ(z−1). The constant series has HasSum c₀ at any t. Native coefficient identities and finite HasSum addition give the sum c₀−G⁻¹Σ_a w(a)(ℓ(z(1+t)−1)−ℓ(z−1)).",
+        "Cancel the repeated finite center term to obtain precisely V(t). Complete native finite-series and scalar-cancellation lemmas verify this step, so the constant is preserved rather than discarded. Native uniqueness of sums gives the eq_tsum API.",
+        "The hlocal parameter remains explicit because the Coleman suggested module imports this consumer. This identifies the evaluated series but does not construct its LAD distribution, prove the trace formula, or identify an analytic L-value. The inherited comparison request remains open."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/cyclotomic-logarithmic-point-value",
+        "DirichletPadicLFunctions:L3/tame-shifted-logarithm-argument-norm",
+        "DirichletPadicLFunctions:L3/tame-logarithmic-primitive-with-constant",
+        "DirichletPadicLFunctions:L3/normalized-tame-logarithmic-primitive",
+        "ColemanIntegration:L0/log-branch-local-expansion",
+        "ColemanIntegration:L0/log-one-add-convergence",
+        "mathlib:PowerSeries.coeff_log",
+        "mathlib:PowerSeries.coeff_rescale",
+        "mathlib:PowerSeries.coeff_C_mul",
+        "mathlib:HasSum.mul_left",
+        "mathlib:hasProd_prod",
+        "mathlib:hasProd_ite_eq",
+        "mathlib:HasProd.mul",
+        "mathlib:HasProd.tprod_eq",
+        "tauceti:NormedSpace.logOneAdd_eq_tsum"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/LogarithmicPrimitive",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.tameLogPrimitive_hasSum"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Section6.2, finite logarithmic expression and Lemma6.4, published151/PDF52; Lemma6.5 and the tame trace calculation, published152–153/PDF53–54. Complete published151–153 freshly read for this checkpoint.",
+          "excerpt": "logarithmic growth",
+          "match": "Worker concrete evaluation comparison for the tame logarithmic expression. It imports the existing Coleman local expansion and identifies the actual convergent coefficient sum, including its finite constant. The source pure-p-power convergence error E45 is excluded by norm(D)=1; the distribution trace and analytic L-value remain separate comparisons."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedLogarithmicEvaluationTests.supplied_local_series_value",
+          "kind": "compatibility",
+          "statement": "The actual native tsum equals V(t) under the exact hlocal law and tame hypotheses."
+        }
+      ],
+      "acceptance": [
+        "All supplier hypotheses are concrete equalities or HasSum statements. No artificial Prop field or reverse supplier import is used. Indexed multiplicative infinite-product declarations are used on Multiplicative(K,+), giving their generated additive HasSum forms."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/cyclotomic-logarithmic-point-root-transport",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Root transport of every finite logarithm value",
+      "kind": "lemma",
+      "statement": "If ε′=ε^u.val for a unit residue u and both roots use their own matching Gauss sum, V_(η,ε′,ℓ)(t)=V_(η,ε,ℓ)(t) for every t and supplied function ℓ.",
+      "hypotheses": [
+        "K is a characteristic-zero field, D is positive with NeZero D, η:DirichletCharacter K D, ε∈K and hε:IsPrimitiveRoot ε D. Put w=η⁻¹ and G=gaussSum(w,AddChar.zmodChar D hε.pow_eq_one). ℓ:K→K is a supplied function. The finite value and root transport are algebraic and require no norm, primitivity of η or nonzero Gauss hypothesis.",
+        "The norm, series and branch comparisons use a NormedField K with IsUltrametricDist, D>1, ‖(D:K)‖=1 and ‖t‖<1. Branch comparison assumes the precise equality hbranch:∀x, ‖x‖=1 → ℓ₀(x)=ℓ₁(x); Coleman supplies it for every pair of logarithm branches.",
+        "Series evaluation assumes hlocal:∀x,u∈K, x≠0 → ‖u‖<1 → HasSum(n↦coeff n (PowerSeries.log K)·u^n)(ℓ(x(1+u))−ℓ(x)). This is the existing Coleman local expansion together with its owned logarithm convergence, rewritten by the native Tau Ceti series equation and the native formal-log coefficient formula. Its arithmetic supplier applies over C_p or a complete appropriate coefficient field. The conditional consumer needs no extra completeness assumption since hlocal already supplies HasSum. No Coleman suggested import is made: that module imports this consumer."
+      ],
+      "proofSteps": [
+        "Apply the promoted point-as-constant comparison to each root, with the same function x↦ℓ((x+1)(1+t)−1).",
+        "Use the preceding promoted cyclotomic logarithm constant root-transport theorem. That theorem already transports the numerator and Gauss denominator by the same character factor; this checkpoint does not plan its proof again.",
+        "Rewrite both constants back to point values. This algebraic argument has no norm, primitivity or Gauss nonvanishing condition, and therefore is compatible with the totalized finite constructor.",
+        "Under hlocal and the tame hypotheses, the preceding HasSum theorem then identifies the two evaluated primitive series with these equal values. The equality is not obtained by replacing ε while freezing its old Gauss denominator."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/cyclotomic-logarithmic-point-as-constant",
+        "DirichletPadicLFunctions:L3/cyclotomic-logarithmic-root-transport"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/LogarithmicPrimitive",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.cyclotomicLogValue_root_transport"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Section6.2, finite logarithmic expression and Lemma6.4, published151/PDF52; Lemma6.5 and the tame trace calculation, published152–153/PDF53–54. Complete published151–153 freshly read for this checkpoint.",
+          "excerpt": "logarithmic growth",
+          "match": "Worker concrete evaluation comparison for the tame logarithmic expression. It imports the existing Coleman local expansion and identifies the actual convergent coefficient sum, including its finite constant. The source pure-p-power convergence error E45 is excluded by norm(D)=1; the distribution trace and analytic L-value remain separate comparisons."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedLogarithmicEvaluationTests.matched_root_gives_same_value",
+          "kind": "compatibility",
+          "statement": "Replacing the primitive root by a unit power leaves V(t) unchanged when its Gauss normalization is transported too."
+        }
+      ],
+      "acceptance": [
+        "The modular controls compare160 values across different primitive roots at nonzero as well as zero points."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/tame-logarithmic-point-branch-compatibility",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Logarithm branches agree throughout the tame disc",
+      "kind": "comparison",
+      "statement": "If ℓ₀ and ℓ₁ agree on all elements of norm1, then V_(η,ε,ℓ₀)(t)=V_(η,ε,ℓ₁)(t) for every ‖t‖<1 under the tame norm hypotheses.",
+      "hypotheses": [
+        "K is a characteristic-zero field, D is positive with NeZero D, η:DirichletCharacter K D, ε∈K and hε:IsPrimitiveRoot ε D. Put w=η⁻¹ and G=gaussSum(w,AddChar.zmodChar D hε.pow_eq_one). ℓ:K→K is a supplied function. The finite value and root transport are algebraic and require no norm, primitivity of η or nonzero Gauss hypothesis.",
+        "The norm, series and branch comparisons use a NormedField K with IsUltrametricDist, D>1, ‖(D:K)‖=1 and ‖t‖<1. Branch comparison assumes the precise equality hbranch:∀x, ‖x‖=1 → ℓ₀(x)=ℓ₁(x); Coleman supplies it for every pair of logarithm branches.",
+        "Series evaluation assumes hlocal:∀x,u∈K, x≠0 → ‖u‖<1 → HasSum(n↦coeff n (PowerSeries.log K)·u^n)(ℓ(x(1+u))−ℓ(x)). This is the existing Coleman local expansion together with its owned logarithm convergence, rewritten by the native Tau Ceti series equation and the native formal-log coefficient formula. Its arithmetic supplier applies over C_p or a complete appropriate coefficient field. The conditional consumer needs no extra completeness assumption since hlocal already supplies HasSum. No Coleman suggested import is made: that module imports this consumer."
+      ],
+      "proofSteps": [
+        "For a nonzero character weight, the preceding shifted-argument theorem places ε^a.val(1+t)−1 on the unit sphere. Apply the supplied equality hbranch at that exact argument.",
+        "For a zero weight both summands vanish without evaluating any logarithm law at0. The complete native weighted-congruence lemma then proves equality of the finite values.",
+        "The already owned Coleman log-branch-change theorem supplies hbranch for every pair of logarithm branches, since their difference is a scalar times the valuation and norm1 gives valuation0. This is a consumer of that theorem, not a second branch construction.",
+        "No nontrivial-character assumption is needed in this tame norm-one case: the branch terms agree individually, rather than cancelling in a character sum. This does not strengthen the earlier general-conductor branch statement outside the tame domain.",
+        "When both functions also carry hlocal, the preceding series comparison gives equality of their evaluated primitives throughout the open disc. The statement still does not identify a p-adic L-value."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/cyclotomic-logarithmic-point-value",
+        "DirichletPadicLFunctions:L3/tame-shifted-logarithm-argument-norm",
+        "ColemanIntegration:L0/log-branch-change"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/LogarithmicPrimitive",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.cyclotomicLogValue_branch_independent"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Section6.2, finite logarithmic expression and Lemma6.4, published151/PDF52; Lemma6.5 and the tame trace calculation, published152–153/PDF53–54. Complete published151–153 freshly read for this checkpoint.",
+          "excerpt": "logarithmic growth",
+          "match": "Worker concrete evaluation comparison for the tame logarithmic expression. It imports the existing Coleman local expansion and identifies the actual convergent coefficient sum, including its finite constant. The source pure-p-power convergence error E45 is excluded by norm(D)=1; the distribution trace and analytic L-value remain separate comparisons."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedLogarithmicEvaluationTests.unit_agreement_preserves_values",
+          "kind": "compatibility",
+          "statement": "Agreement of the two supplied functions on norm-one arguments preserves every finite value in the tame disc."
+        }
+      ],
+      "acceptance": [
+        "Separate the supplied function equality from the arithmetic fact that Coleman logarithm branches satisfy it."
+      ]
     }
   ],
   "requests": [
@@ -31827,7 +32251,7 @@
       "stageId": "DirichletPadicLFunctions:L3",
       "status": "partial",
       "remaining": [
-        "The actual tame logarithmic primitive now has explicit coefficient growth, native restrictedness at every smaller radius and pointwise summability in complete fields, under ‖D‖=1 and the exact Coleman-owned integer growth law. Next identify this convergent sum with the supplied local logarithm expression, then import the Coleman distribution relation and connect the finite powered constant to the LAD unit-restricted trace. No distribution or L-value identification is claimed here. The inherited discAnalytic/R+ comparison request remains open. Pure p-power conductors still require the smoothed primitive route under E45; retain E44 branch normalization, E46 plus sign, E47 full modulus and E48 n=1. Odd/dyadic analytic branches, pole/residue analysis and complete source extraction remain open.",
+        "The actual tame logarithmic primitive is now identified, under the exact Coleman local-expansion law, with its finite pointwise logarithm expression. Its constant, matching Gauss root transport and branch compatibility on the whole tame disc are explicit. Next apply this evaluation at p-th roots minus1, import the Coleman logarithmic distribution relation, and connect the resulting finite powered constant to the LAD unit-restricted trace. No distribution or analytic L-value identification is claimed. The inherited discAnalytic/R+ comparison request remains open. Pure p-power conductor still requires the smoothed primitive route under E45; retain E44 branch normalization, E46 plus sign, E47 full modulus and E48 n=1. Odd/dyadic analytic branches, pole/residue analysis and complete source extraction remain open.",
         "The actual tame integral and analytic transfer from supplied C(U,K)-valued families remain supplied. Actual odd/dyadic principal-unit families belong to PMIA L0a and scalar Mellin theory to LAD L3; instantiate the corrected Teichmüller twist when those interfaces are supplied."
       ]
     },
@@ -31859,7 +32283,7 @@
     {
       "title": "L3 remaining source decomposition and interfaces",
       "neededBy": [],
-      "detail": "The actual tame logarithmic primitive now has explicit coefficient growth, native restrictedness at every smaller radius and pointwise summability in complete fields, under ‖D‖=1 and the exact Coleman-owned integer growth law. Next identify this convergent sum with the supplied local logarithm expression, then import the Coleman distribution relation and connect the finite powered constant to the LAD unit-restricted trace. No distribution or L-value identification is claimed here. The inherited discAnalytic/R+ comparison request remains open. Pure p-power conductors still require the smoothed primitive route under E45; retain E44 branch normalization, E46 plus sign, E47 full modulus and E48 n=1. Odd/dyadic analytic branches, pole/residue analysis and complete source extraction remain open. The actual tame integral and analytic transfer from supplied C(U,K)-valued families remain supplied. Actual odd/dyadic principal-unit families belong to PMIA L0a and scalar Mellin theory to LAD L3; instantiate the corrected Teichmüller twist when those interfaces are supplied."
+      "detail": "The actual tame logarithmic primitive is now identified, under the exact Coleman local-expansion law, with its finite pointwise logarithm expression. Its constant, matching Gauss root transport and branch compatibility on the whole tame disc are explicit. Next apply this evaluation at p-th roots minus1, import the Coleman logarithmic distribution relation, and connect the resulting finite powered constant to the LAD unit-restricted trace. No distribution or analytic L-value identification is claimed. The inherited discAnalytic/R+ comparison request remains open. Pure p-power conductor still requires the smoothed primitive route under E45; retain E44 branch normalization, E46 plus sign, E47 full modulus and E48 n=1. Odd/dyadic analytic branches, pole/residue analysis and complete source extraction remain open. The actual tame integral and analytic transfer from supplied C(U,K)-valued families remain supplied. Actual odd/dyadic principal-unit families belong to PMIA L0a and scalar Mellin theory to LAD L3; instantiate the corrected Teichmüller twist when those interfaces are supplied."
     },
     {
       "title": "L4 completed-algebra, twisted localized constant coefficient and tame-family comparisons",
@@ -32176,44 +32600,44 @@
     "intake": "Exactly four authorized deliverables; zero problems.",
     "sourceIssues": "All16 source findings, sourceVersions and all four previous supplier requests remain whole. Confirmed external E44–E48 are retained; no new finding or independent verdict is added.",
     "validation": {
-      "nodes": 479,
+      "nodes": 485,
       "kinds": {
         "definition": 1,
-        "lemma": 210,
-        "construction": 59,
-        "theorem": 129,
-        "comparison": 80
+        "lemma": 212,
+        "construction": 60,
+        "theorem": 130,
+        "comparison": 82
       },
-      "api": 433,
-      "packetTests": 763,
-      "definitionConstructionTests": 253,
-      "typedExamples": 766,
+      "api": 442,
+      "packetTests": 770,
+      "definitionConstructionTests": 256,
+      "typedExamples": 773,
       "planets": 24,
-      "baseline": 461,
-      "preservedWholeNodes": 473,
-      "preservedBaseline": 452,
+      "baseline": 467,
+      "preservedWholeNodes": 479,
+      "preservedBaseline": 461,
       "preservedSourceIssues": 16,
       "newSourceIssues": 0,
       "newNodes": 6,
-      "newNamedDeclarations": 6,
+      "newNamedDeclarations": 11,
       "newTypedTests": 7,
       "requests": 4,
       "gaps": 8,
       "closedStages": 0,
-      "reachableNodes": 669,
-      "dependencyEdges": 3180,
+      "reachableNodes": 676,
+      "dependencyEdges": 3214,
       "acyclic": true,
-      "baselineLeaves": 602,
+      "baselineLeaves": 608,
       "stageRequestLeaves": [
         "LocallyAnalyticDistributions:L1",
         "PadicMeasuresIwasawaAlgebras:L1",
         "PadicMeasuresIwasawaAlgebras:L3"
       ],
-      "readerWords": 204592,
+      "readerWords": 208162,
       "scopedMutationCheck": true,
       "correctedPredecessorNodes": 0,
       "compilerErrors": 0,
-      "compilerWarnings": 1479,
+      "compilerWarnings": 1497,
       "allWarningsPlaceholders": true,
       "supplierNodes": 332,
       "currentSupplierNodes": 369,
@@ -32224,19 +32648,21 @@
       "actualSupplierModules": 1,
       "scratchCompleteDefinitions": 0,
       "scratchCompleteLemmas": 8,
-      "scratchMathlibModules": 2839,
+      "scratchMathlibModules": 2834,
       "scratchErrors": 0,
       "scratchWarnings": 0,
       "scratchPlaceholders": 0,
       "finiteControls": {
-        "characters": 4,
-        "primitiveRootChoices": 12,
-        "exactCoefficients": 288,
-        "gaussSquareIdentities": 12,
-        "tameCoefficientBounds": 1152,
-        "linearGrowthBounds": 1152,
-        "rootIndependenceCoefficients": 192,
-        "purePowerCounterexamples": 2
+        "characterPrimeCases": 12,
+        "rootChoices": 44,
+        "pointwiseSeriesComparisons": 220,
+        "shiftedUnitArguments": 920,
+        "localExpansionComparisons": 920,
+        "rootTransportValues": 160,
+        "zeroPointConstants": 44,
+        "guardPrecisionComparisons": 220,
+        "missingConstantFailures": 140,
+        "wrongRescalingFailures": 176
       },
       "numericalControlsCertified": true,
       "newRoutesStageLeaves": [
@@ -32246,14 +32672,14 @@
     "lean": {
       "status": "compiled with only expected placeholder warnings",
       "errors": 0,
-      "warnings": 1479,
-      "sha256": "9b8b6d9dec8feb34badd5c1435d33d3f31e04500fa693f98a789755eb910ad91",
+      "warnings": 1497,
+      "sha256": "4050678ce91c1dca8c54ca773b85ff26ea7f4bed09e08600c016931c5e4c556b",
       "nativeProbe": {
         "completeLemmas": 8,
         "errors": 0,
         "warnings": 0,
         "placeholders": 0,
-        "sha256": "06a8ade041711147bb67ac1a48741f5d12e6b6df3f40d065ad26d10444c0bc7f"
+        "sha256": "1bc008d27ff800315c79f7f009bd25b4e3ae91b58d63fdc3066fd78568840433"
       },
       "artifactReuse": {
         "compiledSupplierNodes": 332,
@@ -32322,16 +32748,16 @@
         "nativeArtifactFileCount": 105,
         "predecessorAgainstCurrentSupplier": {
           "exitCode": 0,
-          "sourceSha256": "0f26ac7add62aa17a241997dbd119cd2c879d5347126ff16ae68ba959fdfba16",
-          "modules": 3569,
-          "warnings": 1466,
+          "sourceSha256": "9b8b6d9dec8feb34badd5c1435d33d3f31e04500fa693f98a789755eb910ad91",
+          "modules": 3572,
+          "warnings": 1479,
           "errors": 0
         },
         "scope": "The actual332-node PMIA artifact compiled at PR3303 is reused. The current369-node PMIA source preserves all its lines in order, and all332 old packet nodes are unchanged; added residue restrictions and L4 declarations are not called. No compilation against the369-node source is claimed. The full new Dirichlet file uses that exact332-node artifact with21 pinned Tau modules,105 native artifact files and the audited pinned Mathlib closure. Existing native artifacts and original zero-warning logs are verified; no Lake setup, update, cache fetch or native library build occurs."
       }
     },
     "publication": {
-      "base": "05c10d6390c711d93da0205e30a13cb6913fbb1e",
+      "base": "3a19e32be7fece74538ba85dfc1c5d803e8110d5",
       "unchangedInputs": 58,
       "unchangedOutputs": 4,
       "sameSessionFollowupAfterMerge": true,
@@ -37497,6 +37923,46 @@
         "purePowerCounterexamples": 2
       },
       "numericalMethod": "Exact rational arithmetic in Q[X]/Phi_D for quadratic primitive characters of conductors3,4,5,8 and all primitive root choices. Multiplication-matrix inverses are certified exactly. The24 positive coefficients at each root are rational and satisfy the inverse-integer and linear growth bounds at primes2,3,5,7,11 prime to D. The identity G^2=chi(-1)D proves norm(G)=1 only in these particular examples. For D=p=3 the first coefficient1/3 violates the proposed coefficient bound even with the inverse Gauss norm retained, showing the norm(D)=1 hypothesis is essential. Finite tests do not establish a radius or a general Gauss norm theorem; convergence is checked separately in the complete native probe."
+    },
+    "tameLogarithmicEvaluation": {
+      "agent": "Codex",
+      "session": "codex-7e92bd",
+      "issue": 713,
+      "claimComment": 5854790528,
+      "winningBot": 5854791937,
+      "previousPR": 4707,
+      "previousHead": "c94ceef6a1f0889aba286984fa9859012dddc0ae",
+      "previousMerge": "dfd3b0ea8d7278dd44f3e4582c2a0841d63005c4",
+      "preservedWholeNodes": 479,
+      "preservedBaseline": 461,
+      "preservedFindings": 16,
+      "newNodes": 6,
+      "reading": "Complete published151–153 was freshly read, including the finite formula, local expansion and trace calculation. Whole Coleman L0 log-branch-local-expansion, log-one-add-convergence and log-branch-change nodes and their exact suggested signatures were read. The entire pinned Tau Ceti LogOneAdd.Basic module was read to compare its series with the native formal-log coefficients; its rational-scalar radius bound is not used. Native rescale and scalar coefficient statements, finite HasSum operations, single-index sums and uniqueness were read with their ambient hypotheses.",
+      "boundary": "The actual tame logarithmic primitive is now identified, under the exact Coleman local-expansion law, with its finite pointwise logarithm expression. Its constant, matching Gauss root transport and branch compatibility on the whole tame disc are explicit. Next apply this evaluation at p-th roots minus1, import the Coleman logarithmic distribution relation, and connect the resulting finite powered constant to the LAD unit-restricted trace. No distribution or analytic L-value identification is claimed. The inherited discAnalytic/R+ comparison request remains open. Pure p-power conductor still requires the smoothed primitive route under E45; retain E44 branch normalization, E46 plus sign, E47 full modulus and E48 n=1. Odd/dyadic analytic branches, pole/residue analysis and complete source extraction remain open.",
+      "inputBase": "3a19e32be7fece74538ba85dfc1c5d803e8110d5",
+      "sourceBoundary": "All16 source findings, sourceVersions and all four previous supplier requests remain whole. Confirmed external E44–E48 are retained; no new finding or independent verdict is added.",
+      "publication": {
+        "base": "3a19e32be7fece74538ba85dfc1c5d803e8110d5",
+        "unchangedInputs": 58,
+        "unchangedOutputs": 4,
+        "sameSessionFollowupAfterMerge": true,
+        "lastClaimConfirmation": 5854791937,
+        "reviewIssue": 390,
+        "reviewUnclaimed": true
+      },
+      "finiteControls": {
+        "characterPrimeCases": 12,
+        "rootChoices": 44,
+        "pointwiseSeriesComparisons": 220,
+        "shiftedUnitArguments": 920,
+        "localExpansionComparisons": 920,
+        "rootTransportValues": 160,
+        "zeroPointConstants": 44,
+        "guardPrecisionComparisons": 220,
+        "missingConstantFailures": 140,
+        "wrongRescalingFailures": 176
+      },
+      "numericalMethod": "Exact modular p-adic calculations for12 character/prime cases and44 root choices, using input precision p^20 and output p^8, independently repeated at p^12. Five points0,p,2p,p^2,-p are checked at every root. Direct unit logarithms at z^a(1+t)-1 are compared with the constant plus the normalized formal logarithmic series, with exact division of each p-part using guard digits. All tested primes are odd and split the required roots, and all weighted centers and shifted arguments are units. Omitted terms n>=2r+4 have valuation at least n-v_p(n)>=n/2>=r, making the truncation rigorous. Root transport, zero-point constants, missing-constant failures and wrong-rescaling failures are checked. These finite computations do not prove an analytic L-value, a distribution trace, or convergence for ramified conductors."
     }
   },
   "requestResolutions": [
