@@ -11773,3 +11773,83 @@ example (hD : IsUnit (3 : ℚ_[2])) (hpD : ¬2∣3) :
 end Dyadic
 end
 end SuggestedAllPrimeScalarTests
+
+/-! Full tame arithmetic specializations. The literal divisor sums below are
+the coefficient formulas of the existing native twistedDivisorSum; no new
+arithmetic-function or generalized-Bernoulli constructor is introduced.
+The primitive classical existence input remains with ModularForms Layer 0.
+All statements remain planning signatures. -/
+namespace DirichletPadic
+noncomputable section
+open scoped AbstractMeasure BigOperators MatrixGroups ModularForm PowerSeries.WithPiTopology
+open Matrix.SpecialLinearGroup CongruenceSubgroup UpperHalfPlane
+variable (p : ℕ) [Fact p.Prime] {F K : Type*} [Field F] [CharZero F] [Algebra ℚ F]
+  [NontriviallyNormedField K] [CharZero K] [Algebra ℚ K] [IsUltrametricDist K]
+  [Algebra ℤ_[p] K] [IsBoundedSMul ℤ_[p] K] [CompleteSpace K]
+  {D : ℕ} [NeZero D] (t : ℕ) (χ : DirichletCharacter F (p^t))
+  (η : DirichletCharacter F D) (hη : η≠1) (ιC : F →+* ℂ) (ιK : F →+* K)
+  (hD : IsUnit (D : K)) (hpD : ¬p∣D) (e : ℕ)
+local notation "O" => Valuation.integer (NormedField.valuation (K := K))
+local notation "θ" => (DirichletCharacter.changeLevel (Nat.dvd_mul_right D (p^t)) η *
+  DirichletCharacter.changeLevel (Nat.dvd_mul_left (p^t) D) χ)
+local notation "c" => (-((D*p^t : ℕ) : F)^e/(2*((e+1 : ℕ) : F)) *
+  ∑ a : ZMod (D*p^t), θ a *
+    algebraMap ℚ F (Polynomial.eval ((ZMod.val a : ℚ)/(D*p^t))
+      (Polynomial.bernoulli (e+1))))
+local notation "Qplus" => (PowerSeries.mk (fun m : ℕ =>
+  ∑ d ∈ Nat.divisors m, ite (p∣d) (0 : F) (θ (d : ZMod (D*p^t))*(d : F)^e)))
+local notation "G" => (integralDoubledTameEisensteinSeries
+  (MulChar.ringHomComp η ιK) hD hpD
+  (ContinuousMonoidHom.toContinuousMap
+    (integralPrimePowerArithmeticCharacter p t (MulChar.ringHomComp χ ιK) e)))
+include hη ιC
+
+theorem integralDoubledTameEisensteinSeries_common_series :
+    PowerSeries.map ιK
+      (PowerSeries.C ((1-θ (p : ZMod (D*p^t))*(p : F)^e)*c)+Qplus)=
+      (2 : K)⁻¹ • PowerSeries.map (O).subtype G := sorry
+
+theorem integralDoubledTameEisensteinSeries_classical_full
+    {M : ℕ} [NeZero M]
+    (f : ModularForm ((Gamma1 M).map (mapGL ℝ)) ((e+1 : ℕ) : ℤ))
+    (hf : ∀ m : ℕ+, (qExpansion 1 f).coeff (m : ℕ)=
+      ιC (∑ d ∈ (m : ℕ).divisors, θ (d : ZMod (D*p^t))*(d : F)^e))
+    (h0 : (qExpansion 1 f).coeff 0=ιC c) :
+    let g : ModularForm ((Gamma1 (p*M)).map (mapGL ℝ)) ((e+1 : ℕ) : ℤ) :=
+      ModularForm.ofLe (Gamma1_map_le_Gamma1_map_of_dvd (dvd_mul_left M p)) f-
+        ιC (θ (p : ZMod (D*p^t))*(p : F)^e) •
+          TauCeti.ModularForm.levelRaise p (TauCeti.Gamma1_map_le_conjAct_scaleGL M p) f
+    ∃! Q : PowerSeries F,
+      PowerSeries.map ιC Q=qExpansion 1 g ∧
+      PowerSeries.map ιK Q=(2 : K)⁻¹ • PowerSeries.map (O).subtype G := sorry
+
+end
+end DirichletPadic
+
+namespace SuggestedFullTameComparisonTests
+noncomputable section
+open scoped BigOperators PowerSeries.WithPiTopology
+section Algebra
+variable {F : Type*} [Field F] [CharZero F] {p N : ℕ}
+-- retained_series_has_zero_constant
+example (θ : DirichletCharacter F N) (e : ℕ) :
+    PowerSeries.coeff 0 (PowerSeries.mk (fun m : ℕ =>
+      ∑ d ∈ m.divisors, if p∣d then (0 : F) else θ (d : ZMod N)*(d : F)^e))=0 := sorry
+-- constant_retains_euler_factor
+example (θ : DirichletCharacter F N) (e : ℕ) (c : F) :
+    PowerSeries.coeff 0 (PowerSeries.C ((1-θ p*(p : F)^e)*c)+
+      PowerSeries.mk (fun m : ℕ => ∑ d ∈ m.divisors,
+        if p∣d then (0 : F) else θ (d : ZMod N)*(d : F)^e))=
+      (1-θ p*(p : F)^e)*c := sorry
+-- common_series_uniqueness_uses_one_embedding
+example (ιC : F →+* ℂ) (Q R : PowerSeries F)
+    (h : PowerSeries.map ιC Q=PowerSeries.map ιC R) : Q=R := sorry
+-- first_retained_coefficient_is_one
+example [Fact p.Prime] (θ : DirichletCharacter F N) (e : ℕ) :
+    PowerSeries.coeff 1 (PowerSeries.mk (fun m : ℕ =>
+      ∑ d ∈ m.divisors, if p∣d then (0 : F) else θ (d : ZMod N)*(d : F)^e))=1 := sorry
+-- dyadic_tame_cubic_constant
+example : (1-(-1 : ℚ)*2^2)*(-1/9)=-5/9 := sorry
+end Algebra
+end
+end SuggestedFullTameComparisonTests

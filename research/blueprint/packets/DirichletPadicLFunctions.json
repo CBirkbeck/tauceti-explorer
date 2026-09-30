@@ -10,7 +10,7 @@
     "DirichletPadicLFunctions:L4"
   ],
   "status": "partial",
-  "summary": "Partial continuation preserving all642 predecessor nodes whole. Three L4 theorems complete the scalar-integrality criteria for the normalized and doubled tame formal-series measures and show that an integral half exists exactly when p≠2 or D=1.",
+  "summary": "Partial continuation preserving645 nodes whole. Two comparison nodes assemble the actual tame constant and positive coefficients into a common full arithmetic series and identify it with a supplied classical p-stabilization. Classical existence remains an explicit input, with its exact owning construction described in the L4 gap.647 unchecked nodes, fifteen gaps, eleven requests and zero closed stages.",
   "baseline": {
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
@@ -3963,6 +3963,19 @@
         "Unit/numerator continuation: fresh full reading and collation of published §4, PDF37–40 / printed136–139, and v2 PDF26–28 on27 September2026. Earlier broader sections remain predecessor reading provenance. E6 is the already recorded Coleman E8 domain gap, not a new discovery.",
         "Positive-coefficient continuation: full v2 PDF43–46 read in batches of at most three physical pages; §8 collated with published printed158–161. The proof-ending sign in Lemma7.5 and §8 wording/weight shift are recorded explicitly.",
         "Classical modular comparison continuation, 27 September 2026: freshly read full published PDF59–62 / printed158–161 and collated full arXiv v2 PDF43–45. The eight new nodes extend the pinned level-one and degeneracy APIs, with exact normalization and a common integer for the positive measure/modular coefficients. Earlier wider readings are retained as predecessor provenance; no source-complete extraction or new source finding is claimed."
+      ]
+    },
+    {
+      "id": "Stein-Eisenstein-online",
+      "title": "Modular Forms, A Computational Approach: Eisenstein Series and Bernoulli Numbers",
+      "authors": "William Stein",
+      "edition": "Author-hosted online edition, v0.1 chapter",
+      "url": "https://wstein.org/books/modform/modform/eisenstein.html",
+      "sha256": "eb50d5d211a33736da400c5953ce96cbb6a3d6332485cfe88d26888a760672fc",
+      "accessed": "2026-09-30",
+      "readSections": [
+        "Definition5.1",
+        "Explicit Basis: equation(4), constant formula and Theorem5.8, used only at weight≥3"
       ]
     }
   ],
@@ -42463,6 +42476,138 @@
       "acceptance": [
         "The existence direction gives an actual existing measure. The obstruction is all-test integrality, and the sole dyadic exception is precisely the zero-constant tame level-one constructor."
       ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L4/tame-full-arithmetic-common-series",
+      "parentStageId": "DirichletPadicLFunctions:L4",
+      "realises": [
+        "DirichletPadicLFunctions:L4"
+      ],
+      "title": "Full tame arithmetic q-expansion through a common field",
+      "kind": "comparison",
+      "statement": "The explicit full series Q satisfies map(ιK)(Q)=2⁻¹·map(ι)(G). This includes the actual constant coefficient and every positive coefficient, for all t,e≥0 and nonprincipal η at its given tame level.",
+      "hypotheses": [
+        "p is any prime, F is a characteristic-zero field with a rational algebra structure and separate embeddings ιC:F→ℂ and ιK:F→K. K is a complete nontrivially normed ultrametric characteristic-zero field with bounded ℤ_p-algebra action. O is its native norm-valuation integer ring and ι:O→K its inclusion.",
+        "D is positive and prime to p, its image in K has the supplied unit certificate, and η:F-valued DirichletCharacter D is nonprincipal. χ has its given level p^t, t≥0. Set N=D p^t and θ=changeLevel(η)·changeLevel(χ) at exactly N. No primitive inducing character is silently substituted.",
+        "e≥0 is the arithmetic exponent, w=e+1 the modular weight. Let c=−N^e/(2(e+1)) Σ_(a:ZMod N) θ(a)B_(e+1)(a.val/N) in F, using the native Bernoulli polynomial and rational embedding. This is notation for a finite expression, not a second generalized-Bernoulli constructor.",
+        "Write A(q)=Σ_(m>0)(Σ_(d|m,p∤d)θ(d)d^e)q^m, implemented literally with PowerSeries.mk and the native empty divisor set at0. Its coefficients are the existing native twistedDivisorSum with left level1 after the existing right Euler deletion. Set Q=C((1−θ(p)p^e)c)+A.",
+        "G is the actual integralDoubledTameEisensteinSeries(η_K) at the existing integral arithmetic test κ^O_(t,χ_K,e). The half is formed only after mapping O[[q]] to K[[q]]. It is not asserted to be integral for every dyadic test."
+      ],
+      "proofSteps": [
+        "The existing common-constant theorem identifies coeff₀(G), included in K, with ιK(b), where b=(1−θ(p)p^e)(−N^e/(e+1))Σ_aθ(a)B_(e+1)(a.val/N). Native field arithmetic gives b=2(1−θ(p)p^e)c. The complete bernoulli_constant_map and doubled_bernoulli_constant lemmas check coefficient transport and this exact factor.",
+        "At m>0, the doubled-family coefficient theorem gives twice the existing positive measure. Its arithmetic-moment formula is the p-prime divisor sum with η(d)χ(d). For d coprime toN, both level changes evaluate to the original character values by the native unit-cast theorem. Otherwise d is nonunit at at least one original factor level; that character value and the product-level character both vanish. This proves θ(d)=η(d)χ(d) without incorrectly applying changeLevel evaluation to a nonunit. The same unit/nonunit argument identifies the native lcm-level product on every natural argument; no equality of dependent character types is required.",
+        "Apply the native right Euler-deletion comparison if expressing this finite sum using twistedDivisorSum. The left character is modulus1. The displayed signature keeps the literal existing coefficient formula, rather than defining another arithmetic function or requiring a substitute compiled TwistedDivisorSum.",
+        "At m=0 the native divisor set is empty. Complete full_series_from_coefficients combines the separately proved constant and positive formulas by PowerSeries.ext, coeff_map and coeff_smul. Invert2 in K, where characteristic zero proves it nonzero; no division in O is used.",
+        "At positive wild level θ(p)=0, so the explicit Euler factor is1. For an imprimitive principal wild character, the Bernoulli value at levelN already contains the removed p-factor; returning to a primitive inducing character without restoring it would change the answer."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L4/integral-doubled-tame-eisenstein-common-constant",
+        "DirichletPadicLFunctions:L4/integral-doubled-tame-eisenstein-coeff",
+        "DirichletPadicLFunctions:L4/integral-twisted-series-arithmetic-moment",
+        "DirichletPadicLFunctions:L4/integral-twisted-series-native-arithmetic-moment",
+        "mathlib:PowerSeries.ext",
+        "mathlib:PowerSeries.coeff_map",
+        "mathlib:PowerSeries.coeff_smul",
+        "mathlib:Nat.divisors_zero"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/TameClassicalComparison",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.integralDoubledTameEisensteinSeries_common_series"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Definition8.1, Theorem8.2 and Remark8.3, published159–161; Definitions5.9/5.13 and Theorem5.14, published143–146, whole pages read in4793 and retained.",
+          "match": "Worker-derived tame-character extension. The existing common Bernoulli constant and positive moments are assembled with separate coefficient embeddings. The source does not itself construct the general primitive character modular form required by the application."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedFullTameComparisonTests.retained_series_has_zero_constant",
+          "kind": "degenerate",
+          "statement": "The literal retained divisor series has constant0."
+        },
+        {
+          "name": "SuggestedFullTameComparisonTests.constant_retains_euler_factor",
+          "kind": "compatibility",
+          "statement": "The full explicit series has constant(1−θ(p)p^e)c."
+        },
+        {
+          "name": "SuggestedFullTameComparisonTests.first_retained_coefficient_is_one",
+          "kind": "computation",
+          "statement": "The first retained coefficient equals1 for every prime and native character."
+        }
+      ],
+      "acceptance": [
+        "The result is an identity with the existing actual integral family after scalar inclusion, not merely a freely chosen constant appended to a positive series. No modularity or geometric family is asserted."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L4/tame-actual-classical-full-comparison",
+      "parentStageId": "DirichletPadicLFunctions:L4",
+      "realises": [
+        "DirichletPadicLFunctions:L4"
+      ],
+      "title": "Full comparison with a supplied tame classical form",
+      "kind": "comparison",
+      "statement": "For an actual f:ModularForm(Γ₁(M),e+1), M>0, with a₀(f)=ιC(c) and a_m(f)=ιC(Σ_(d|m)θ(d)d^e) for m>0, let g=ofLe(f)−ιC(θ(p)p^e)·levelRaise(p,f) at Γ₁(pM). There is a unique Q∈F[[q]] with map(ιC)(Q)=qExpansion(g) and map(ιK)(Q)=2⁻¹·map(ι)(G).",
+      "hypotheses": [
+        "p is any prime, F is a characteristic-zero field with a rational algebra structure and separate embeddings ιC:F→ℂ and ιK:F→K. K is a complete nontrivially normed ultrametric characteristic-zero field with bounded ℤ_p-algebra action. O is its native norm-valuation integer ring and ι:O→K its inclusion.",
+        "D is positive and prime to p, its image in K has the supplied unit certificate, and η:F-valued DirichletCharacter D is nonprincipal. χ has its given level p^t, t≥0. Set N=D p^t and θ=changeLevel(η)·changeLevel(χ) at exactly N. No primitive inducing character is silently substituted.",
+        "e≥0 is the arithmetic exponent, w=e+1 the modular weight. Let c=−N^e/(2(e+1)) Σ_(a:ZMod N) θ(a)B_(e+1)(a.val/N) in F, using the native Bernoulli polynomial and rational embedding. This is notation for a finite expression, not a second generalized-Bernoulli constructor.",
+        "Write A(q)=Σ_(m>0)(Σ_(d|m,p∤d)θ(d)d^e)q^m, implemented literally with PowerSeries.mk and the native empty divisor set at0. Its coefficients are the existing native twistedDivisorSum with left level1 after the existing right Euler deletion. Set Q=C((1−θ(p)p^e)c)+A.",
+        "G is the actual integralDoubledTameEisensteinSeries(η_K) at the existing integral arithmetic test κ^O_(t,χ_K,e). The half is formed only after mapping O[[q]] to K[[q]]. It is not asserted to be integral for every dyadic test."
+      ],
+      "proofSteps": [
+        "The supplied positive and constant formulas identify qExpansion(f) with the image of C(c)+Fθ, where Fθ denotes the existing native divisor-coefficient series. The complete positive_formula_determines_full_series verifies the all-index assembly.",
+        "Use the existing bundled Γ₁ inclusion and levelRaise, together with the native period1 and qExpansion linearity laws. Their actual bundled q-expansion identity was proved completely in retained4780/ClassicalComparisonProbe; it is reused, not replaced by an assumed modularity witness.",
+        "Expand the full formal expression. Native expand preserves constants, so its constant becomes(1−θ(p)p^e)c and the positive part is the existing retained divisor series. Complete euler_full_constant verifies the constant split over every commutative ring.",
+        "The preceding common-series node identifies the K-image with the actual half of G, including its previously constructed constant measure. This removes the freely supplied p-adic constant of the earlier fixed-weight comparison: the only remaining classical input is f with its two exact coefficient formulas.",
+        "The injective complex coefficient embedding makes the common series unique, by native PowerSeries.map_injective. Complete common_series_unique checks this uniqueness without requiring any relation between the complex and p-adic topologies.",
+        "At p=2,D=3, the nontrivial quadratic η, t=0 and weight3, c=−1/9 and the full stabilized constant is−5/9. Retaining c itself would miss the Euler factor5."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L4/tame-full-arithmetic-common-series",
+        "DirichletPadicLFunctions:L4/integral-twisted-classical-full-comparison",
+        "mathlib:PowerSeries.map_injective",
+        "mathlib:PowerSeries.expand_C",
+        "mathlib:PowerSeries.C"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/TameClassicalComparison",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.integralDoubledTameEisensteinSeries_classical_full"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Definition8.1, Theorem8.2 and Remark8.3, published159–161; Definitions5.9/5.13 and Theorem5.14, published143–146, whole pages read in4793 and retained.",
+          "match": "Worker-derived tame-character extension. The existing common Bernoulli constant and positive moments are assembled with separate coefficient embeddings. The source does not itself construct the general primitive character modular form required by the application."
+        },
+        {
+          "sourceId": "Stein-Eisenstein-online",
+          "locator": "Explicit Basis for the Eisenstein Subspace, equation(4), its following constant formula, and Theorem5.8 restricted to weight≥3; Definition5.1 for the Bernoulli convention. Read30September2026.",
+          "match": "The left character is the primitive level-one character and the right character is θ, so the constant is −B_(w,θ)/(2w). Only weight≥3 is used in the existence application. The existing ModularForms Layer0 owns construction and its Gauss/Fourier translation; weight1, the weight2 trivial-pair correction and arbitrary imprimitive modular existence are not imported by this request."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedFullTameComparisonTests.common_series_uniqueness_uses_one_embedding",
+          "kind": "characterisation",
+          "statement": "Equality after the complex embedding determines the common F-series uniquely."
+        },
+        {
+          "name": "SuggestedFullTameComparisonTests.dyadic_tame_cubic_constant",
+          "kind": "computation",
+          "statement": "At the stated dyadic cubic example the constant is−5/9."
+        }
+      ],
+      "acceptance": [
+        "The theorem is conditional on an actual bundled classical form and exact coefficient formulas. It makes no existence assertion at weights1 or2 or for imprimitive characters."
+      ]
     }
   ],
   "requests": [
@@ -42581,7 +42726,7 @@
       "stageId": "DirichletPadicLFunctions:L4",
       "status": "partial",
       "remaining": [
-        "The scalar-integrality and half-normalization questions for the actual full tame family are now classified at every prime and positive tame level, including principal and imprimitive characters and the precise D=1 exception. The normalized family under h2 also has its exact scalar criterion. Continue with the general two-character constant term and its compatibility with the existing positive coefficients, classical character Eisenstein existence/normalization, and analytic weight-space comparison; these are not supplied by the scalar classification. The tame zero constructor remains distinct from the localized principal zeta theory. Eleven requests, fifteen gaps and zero closed stages remain, and the missing pinned TwistedDivisorSum artifact still prevents full-module compilation.",
+        "The full nonprincipal tame arithmetic specialization now has an explicit common algebraic q-expansion and a comparison with a supplied actual classical form, including the existing constant measure. Principal tame constants, two nontrivial character constants, imprimitive modular existence, weights1/2 and analytic weight-space realization remain open. The all-prime scalar classification is preserved. Eleven requests, fifteen gaps and zero closed stages remain; the missing pinned TwistedDivisorSum artifact prevents full-module compilation. The current unmodified check_blueprint.py tests BASE_REF before the stage registry, so the real owner id tauceti:TauCetiRoadmap/ModularForms#layer-0-diamond-operators-and-modular-forms-with-character-nebentypus is misclassified as an undeclared native library theorem if used as a prerequisite. The attempted existence application is therefore not published. No owner-stage baseline is fabricated and no existence theorem is asserted. The two current conditional comparisons have explicit classical hypotheses and no dependency on an existence theorem. The exact supplier input to discharge those hypotheses is recorded here for the later application: For N>1, a native primitive complex Dirichlet character θ at levelN, and natural w≥3 with θ(−1)=(−1)^w, export the existing Layer0 construction as an actual f:ModularForm(Γ₁(N),w), from its native character eigenspace. Supply a_m(f)=Σ_(d|m)θ(d)d^(w−1) for m>0 (native twistedDivisorSum with left character of conductor1) and a₀(f)=−N^(w−1)/(2w)Σ_(a:ZMod N)θ(a)B_w(a.val/N). The constant must compare the owner’s generalized Bernoulli convention with the native rational Bernoulli polynomial under an arbitrary specified coefficient embedding. Preserve the character’s given primitive level, parity, natural exponent and raising parameter1. Supply this through the owner’s existing Fourier/Gauss translation to native Eisenstein series, not a second modular-form type. The current consumer takes θ=ηχ at N=D p^t and applies native p-level raising only after this construction. This request deliberately excludes weights1/2 and any inference of product primitivity.",
         "The positive part now has a native continuous power-series-valued measure, uniform coefficient bounds, test and weight congruences, and whole-series comparison with the actual p-stabilized modular form after removing its constant coefficient. Assemble the full family with the actual localized A₀ coefficient, prove constant-term congruences with denominator qualifications, and decompose the tame-character extension. Geometric affinoid realization and Hida–Coleman control belong to PadicFamilies; retain the weight shift recorded in E9."
       ]
     }
@@ -42612,7 +42757,7 @@
       "neededBy": [
         "DirichletPadicLFunctions:L4/positive-eisenstein-completed-coordinates"
       ],
-      "detail": "The scalar-integrality and half-normalization questions for the actual full tame family are now classified at every prime and positive tame level, including principal and imprimitive characters and the precise D=1 exception. The normalized family under h2 also has its exact scalar criterion. Continue with the general two-character constant term and its compatibility with the existing positive coefficients, classical character Eisenstein existence/normalization, and analytic weight-space comparison; these are not supplied by the scalar classification. The tame zero constructor remains distinct from the localized principal zeta theory. Eleven requests, fifteen gaps and zero closed stages remain, and the missing pinned TwistedDivisorSum artifact still prevents full-module compilation. The positive part now has a native continuous power-series-valued measure, uniform coefficient bounds, test and weight congruences, and whole-series comparison with the actual p-stabilized modular form after removing its constant coefficient. Assemble the full family with the actual localized A₀ coefficient, prove constant-term congruences with denominator qualifications, and decompose the tame-character extension. Geometric affinoid realization and Hida–Coleman control belong to PadicFamilies; retain the weight shift recorded in E9."
+      "detail": "The full nonprincipal tame arithmetic specialization now has an explicit common algebraic q-expansion and a comparison with a supplied actual classical form, including the existing constant measure. Principal tame constants, two nontrivial character constants, imprimitive modular existence, weights1/2 and analytic weight-space realization remain open. The all-prime scalar classification is preserved. Eleven requests, fifteen gaps and zero closed stages remain; the missing pinned TwistedDivisorSum artifact prevents full-module compilation. The current unmodified check_blueprint.py tests BASE_REF before the stage registry, so the real owner id tauceti:TauCetiRoadmap/ModularForms#layer-0-diamond-operators-and-modular-forms-with-character-nebentypus is misclassified as an undeclared native library theorem if used as a prerequisite. The attempted existence application is therefore not published. No owner-stage baseline is fabricated and no existence theorem is asserted. The two current conditional comparisons have explicit classical hypotheses and no dependency on an existence theorem. The exact supplier input to discharge those hypotheses is recorded here for the later application: For N>1, a native primitive complex Dirichlet character θ at levelN, and natural w≥3 with θ(−1)=(−1)^w, export the existing Layer0 construction as an actual f:ModularForm(Γ₁(N),w), from its native character eigenspace. Supply a_m(f)=Σ_(d|m)θ(d)d^(w−1) for m>0 (native twistedDivisorSum with left character of conductor1) and a₀(f)=−N^(w−1)/(2w)Σ_(a:ZMod N)θ(a)B_w(a.val/N). The constant must compare the owner’s generalized Bernoulli convention with the native rational Bernoulli polynomial under an arbitrary specified coefficient embedding. Preserve the character’s given primitive level, parity, natural exponent and raising parameter1. Supply this through the owner’s existing Fourier/Gauss translation to native Eisenstein series, not a second modular-form type. The current consumer takes θ=ηχ at N=D p^t and applies native p-level raising only after this construction. This request deliberately excludes weights1/2 and any inference of product primitivity. The positive part now has a native continuous power-series-valued measure, uniform coefficient bounds, test and weight congruences, and whole-series comparison with the actual p-stabilized modular form after removing its constant coefficient. Assemble the full family with the actual localized A₀ coefficient, prove constant-term congruences with denominator qualifications, and decompose the tame-character extension. Geometric affinoid realization and Hida–Coleman control belong to PadicFamilies; retain the weight shift recorded in E9."
     },
     {
       "title": "Canonical coefficient-field character evaluation of actual pseudomeasures",
@@ -42969,34 +43114,34 @@
   "checks": {
     "blueprint": "Zero errors and warnings with the unmodified pinned index.",
     "intake": "Exactly four authorized deliverables; zero problems.",
-    "sourceIssues": "All16 findings, sourceVersions, eleven requests and fifteen gaps remain whole. These are worker consequences, not source errata or independent-review verdicts.",
+    "sourceIssues": "All16 findings, existing sourceVersions, eleven requests and fifteen gaps remain. A hash-recorded author-hosted source is added for the primitive weight≥3 normalization. No new source finding or independent-review verdict. The attempted existence application is withheld because of the documented owner-stage checker defect; both published comparison theorems are conditional and need no such application.",
     "validation": {
-      "nodes": 645,
+      "nodes": 647,
       "kinds": {
         "definition": 1,
         "lemma": 249,
         "construction": 71,
         "theorem": 203,
-        "comparison": 121
+        "comparison": 123
       },
       "api": 538,
-      "packetTests": 1093,
+      "packetTests": 1098,
       "definitionConstructionTests": 303,
-      "typedExamples": 1096,
+      "typedExamples": 1101,
       "planets": 24,
       "baseline": 557,
-      "preservedWholeNodes": 642,
-      "preservedBaseline": 556,
+      "preservedWholeNodes": 645,
+      "preservedBaseline": 557,
       "preservedSourceIssues": 16,
       "newSourceIssues": 0,
-      "newNodes": 3,
-      "newNamedDeclarations": 3,
-      "newTypedTests": 10,
+      "newNodes": 2,
+      "newNamedDeclarations": 2,
+      "newTypedTests": 5,
       "requests": 11,
       "gaps": 15,
       "closedStages": 0,
-      "reachableNodes": 901,
-      "dependencyEdges": 4495,
+      "reachableNodes": 903,
+      "dependencyEdges": 4508,
       "acyclic": true,
       "baselineLeaves": 735,
       "stageRequestLeaves": [
@@ -43010,7 +43155,7 @@
         "PadicMeasuresIwasawaAlgebras:L2",
         "PadicMeasuresIwasawaAlgebras:L3"
       ],
-      "readerWords": 315108,
+      "readerWords": 317435,
       "scopedMutationCheck": true,
       "correctedPredecessorNodes": 0,
       "fullSuggestedCompiled": false,
@@ -43038,22 +43183,22 @@
       ],
       "scratchCompleteDefinitions": 0,
       "scratchCompleteLemmas": 8,
-      "scratchMathlibModules": 2816,
+      "scratchMathlibModules": 2853,
       "scratchTauModules": 0,
       "scratchErrors": 0,
       "scratchWarnings": 0,
       "scratchPlaceholders": 0,
       "finiteControls": {
-        "primeLevelPairs": 27,
-        "characterFamilies": 52,
-        "scalarCriteria": 520,
-        "halfClassifications": 52,
-        "necessaryCoefficientTests": 520,
-        "integralConstantValues": 19536,
-        "integralPositiveValues": 19104,
-        "normalizedScalarTests": 420,
-        "convolutionEquations": 2898,
-        "dyadicUnitWitnesses": 9
+        "profiles": 36,
+        "wholeVectors": 432,
+        "coefficientComparisons": 21168,
+        "constantComparisons": 432,
+        "nonrealConstants": 27,
+        "residuePrecisionChecks": 432,
+        "principalWildLevelChecks": 72,
+        "positiveWildEulerVanishing": 144,
+        "parityCompatibleWeights": 72,
+        "wrongEulerDetected": 36
       },
       "numericalControlsCertified": false,
       "newRoutesStageLeaves": []
@@ -43063,7 +43208,7 @@
       "compiled": false,
       "errors": null,
       "warnings": null,
-      "sha256": "6e8d049373c00de1c45f6cf44633f9c6f6ae3cc416312a258c680d8648fc0b7e",
+      "sha256": "62465995a41c8470eff5402a6fae6ff736ad6f1223c6e53886535f5c8b1ff395",
       "missingNativeArtifacts": [
         "TauCeti.NumberTheory.ArithmeticFunction.TwistedDivisorSum"
       ],
@@ -43082,7 +43227,7 @@
         "errors": 0,
         "warnings": 0,
         "placeholders": 0,
-        "sha256": "ff1229151c524641036304bd91134aa9ec063dfa871d6a6d32d0673c5b131646"
+        "sha256": "b596c9960901917e0795afeeac84e06dc5e557cafa9b1bddc1e47c1683283627"
       },
       "sourceAndAvailableArtifactAudit": {
         "compiledSupplierNodes": 332,
@@ -43169,7 +43314,7 @@
       }
     },
     "publication": {
-      "base": "cc9d0f2a873a9ab218ad1b9474623364271aedb8",
+      "base": "027e81a8348ef01a096021b4cf85aa898ca076dc",
       "unchangedInputs": 66,
       "unchangedOutputs": 4,
       "sameSessionFollowupAfterMerge": true,
@@ -49683,6 +49828,47 @@
         "dyadicUnitWitnesses": 9
       },
       "numericalMethod": "Exact rational finite-residue convolution and p-adic valuations at primes2,3,5,7,11, including principal and imprimitive characters at seven tame levels. Scalar necessity is tested on the first positive coefficient at odd primes and modulus one, and on an independently computed unit-constant difference for dyadic D>1. Admissible scalar multiples are checked on every finite unit-residue constant and48 positive coefficient tests. These controls do not replace the infinite all-test proofs.",
+      "fullSuggestedCompiled": false
+    },
+    "fullTameClassicalComparison": {
+      "agent": "Codex",
+      "session": "codex-7e92bd",
+      "issue": 713,
+      "claimComment": 5854790528,
+      "winningBot": 5854791937,
+      "previousPR": 4822,
+      "previousHead": "6e27334caf5ed929b77b02346b104724c57561e4",
+      "previousMerge": "e936ed7fc39e14b7664532b3088cc67862f4ea29",
+      "preservedWholeNodes": 645,
+      "preservedBaseline": 557,
+      "preservedFindings": 16,
+      "newNodes": 2,
+      "reading": "Read the whole existing ModularForms Layer0 character-Eisenstein and exceptional-weight discussion, the reviewed library audits for Dirichlet L0–L4 and ModularForms Layer0, and the exact current common-constant, arithmetic-positive and conditional-classical interfaces. Read native conductor/primitivity statements at the pin. Read Stein’s author-hosted online chapter, Definition5.1 and the full Explicit Basis section; rely only on equation(4), its constant formula and Theorem5.8 at weights≥3. Source URL https://wstein.org/books/modform/modform/eisenstein.html, HTML SHA256 eb50d5d211a33736da400c5953ce96cbb6a3d6332485cfe88d26888a760672fc, accessed30September2026. The existing RJW whole-page readings are retained; no fresh independent review is claimed. The current unmodified check_blueprint.py tests BASE_REF before the stage registry, so the real owner id tauceti:TauCetiRoadmap/ModularForms#layer-0-diamond-operators-and-modular-forms-with-character-nebentypus is misclassified as an undeclared native library theorem if used as a prerequisite. The attempted existence application is therefore not published. No owner-stage baseline is fabricated and no existence theorem is asserted. The two current conditional comparisons have explicit classical hypotheses and no dependency on an existence theorem. The exact supplier input to discharge those hypotheses is recorded here for the later application: For N>1, a native primitive complex Dirichlet character θ at levelN, and natural w≥3 with θ(−1)=(−1)^w, export the existing Layer0 construction as an actual f:ModularForm(Γ₁(N),w), from its native character eigenspace. Supply a_m(f)=Σ_(d|m)θ(d)d^(w−1) for m>0 (native twistedDivisorSum with left character of conductor1) and a₀(f)=−N^(w−1)/(2w)Σ_(a:ZMod N)θ(a)B_w(a.val/N). The constant must compare the owner’s generalized Bernoulli convention with the native rational Bernoulli polynomial under an arbitrary specified coefficient embedding. Preserve the character’s given primitive level, parity, natural exponent and raising parameter1. Supply this through the owner’s existing Fourier/Gauss translation to native Eisenstein series, not a second modular-form type. The current consumer takes θ=ηχ at N=D p^t and applies native p-level raising only after this construction. This request deliberately excludes weights1/2 and any inference of product primitivity.",
+      "boundary": "The full nonprincipal tame arithmetic specialization now has an explicit common algebraic q-expansion and a comparison with a supplied actual classical form, including the existing constant measure. Principal tame constants, two nontrivial character constants, imprimitive modular existence, weights1/2 and analytic weight-space realization remain open. The all-prime scalar classification is preserved. Eleven requests, fifteen gaps and zero closed stages remain; the missing pinned TwistedDivisorSum artifact prevents full-module compilation. The current unmodified check_blueprint.py tests BASE_REF before the stage registry, so the real owner id tauceti:TauCetiRoadmap/ModularForms#layer-0-diamond-operators-and-modular-forms-with-character-nebentypus is misclassified as an undeclared native library theorem if used as a prerequisite. The attempted existence application is therefore not published. No owner-stage baseline is fabricated and no existence theorem is asserted. The two current conditional comparisons have explicit classical hypotheses and no dependency on an existence theorem. The exact supplier input to discharge those hypotheses is recorded here for the later application: For N>1, a native primitive complex Dirichlet character θ at levelN, and natural w≥3 with θ(−1)=(−1)^w, export the existing Layer0 construction as an actual f:ModularForm(Γ₁(N),w), from its native character eigenspace. Supply a_m(f)=Σ_(d|m)θ(d)d^(w−1) for m>0 (native twistedDivisorSum with left character of conductor1) and a₀(f)=−N^(w−1)/(2w)Σ_(a:ZMod N)θ(a)B_w(a.val/N). The constant must compare the owner’s generalized Bernoulli convention with the native rational Bernoulli polynomial under an arbitrary specified coefficient embedding. Preserve the character’s given primitive level, parity, natural exponent and raising parameter1. Supply this through the owner’s existing Fourier/Gauss translation to native Eisenstein series, not a second modular-form type. The current consumer takes θ=ηχ at N=D p^t and applies native p-level raising only after this construction. This request deliberately excludes weights1/2 and any inference of product primitivity.",
+      "inputBase": "814e6f5a4359ba89324906e295ffda16f05ceb75",
+      "sourceBoundary": "All16 findings, existing sourceVersions, eleven requests and fifteen gaps remain. A hash-recorded author-hosted source is added for the primitive weight≥3 normalization. No new source finding or independent-review verdict. The attempted existence application is withheld because of the documented owner-stage checker defect; both published comparison theorems are conditional and need no such application.",
+      "publication": {
+        "base": "027e81a8348ef01a096021b4cf85aa898ca076dc",
+        "unchangedInputs": 66,
+        "unchangedOutputs": 4,
+        "sameSessionFollowupAfterMerge": true,
+        "lastClaimConfirmation": 5854791937,
+        "reviewIssue": 390,
+        "reviewUnclaimed": true
+      },
+      "finiteControls": {
+        "profiles": 36,
+        "wholeVectors": 432,
+        "coefficientComparisons": 21168,
+        "constantComparisons": 432,
+        "nonrealConstants": 27,
+        "residuePrecisionChecks": 432,
+        "principalWildLevelChecks": 72,
+        "positiveWildEulerVanishing": 144,
+        "parityCompatibleWeights": 72,
+        "wrongEulerDetected": 36
+      },
+      "numericalMethod": "Exact Gaussian-rational Bernoulli polynomials, divisor sums and q^p vectors under identity and conjugation coefficient embeddings. Independent finite residue moments check the doubled constant to p^r precision. Includes principal positive wild levels and nonreal quartic tame values. These are coefficient controls, not constructed modular forms or proofs of infinite identities.",
       "fullSuggestedCompiled": false
     }
   },
