@@ -26,7 +26,7 @@
   ],
   "publishedVersionCheck": "Published version obtained by REV-PAPER-SCHIFFMANN-16 on 23 September 2026, contrary to the extraction’s expectation: the Annals PDF is served at https://annals.math.princeton.edu/wp-content/uploads/annals-v183-n1-p06-p.pdf (SHA-256 8e486963410368afe461a6f2a848eb7ddb618aa48fda7db2c0bd51710286c7a5, 66 pages, printed page = PDF page + 296, pp. 297–362). The four recorded findings were re-checked there. Three survive in print (E2, E3, E4) and are now located in both versions; one, E1, is corrected in print, where the lemma is renumbered 2.3 and its parts are labelled (i), (ii), (iii), so it is no longer a mistake in published work and its `known` field records the correction. The published text also renumbers statements throughout — preprint Corollary 1.6 is published Corollary 1.5, preprint Corollary 1.9 is published Corollary 1.4, preprint Corollary 1.10 is published Corollary 1.9 — and renames A^{≥0} to Y^{≥0} in Proposition 5.1."
  },
- "summary": "Schiffmann proves that the number of geometrically indecomposable vector bundles of rank r and degree d on a smooth projective geometrically connected curve X of genus g over a finite field is given by a universal function of the Weil numbers of X, computes that function explicitly, and identifies it with the point count of the moduli space of stable Higgs bundles. Precisely: there is a unique A_{g,r,d} in the localization K_g of Q[T_g]^{W_g} with A_{r,d}(X) = A_{g,r,d}(σ_X) for every such curve, where T_g is the torus of tuples (α_1,…,α_{2g}) with α_{2i−1}α_{2i} constant and σ_X the class of the Weil numbers; A_{g,r,d} is computed by an explicit residue formula from a plethystic logarithm of a sum over partitions of products J_λ(z)H_λ(z), where J_λ is a product of zeta values over the boxes of the Young diagram and H_λ an iterated residue of a symmetrising kernel; and when (r,d) are coprime and the characteristic exceeds an explicit bound, |Higgs^st_{r,d}(X)(F_q)| = q^{1+(g−1)r²}A_{r,d}(X). The proof has two halves. The arithmetic half counts pairs (F,θ) with θ a nilpotent endomorphism: their groupoid volume is the plethystic exponential of the counting series, by Krull–Schmidt, and the volume is computed by stratifying according to the Jordan type of θ and evaluating the fibres of the resulting functors, which turns the problem into a pairing of Eisenstein series in the Hall algebra of the curve; the spherical Hall algebra has a generic form over Q[T_g]^{W_g}, which makes every volume a function of σ_X alone, and Zariski density of the Weil numbers of genus-g curves gives uniqueness. The geometric half transports Crawley-Boevey and Van den Bergh's quiver argument to curves: the stack of Higgs bundles is presented by a quot scheme built from two line bundles and embedded in the representation space of a Kronecker quiver, indecomposability becomes a condition on the image of the moment map, and a smooth family over the affine line has the stable Higgs moduli space as its special fibre and the indecomposable bundles over the others; a contracting G_m-action and the Bialynicki-Birula–Hesselink decomposition make the point counts agree. The consequences are the purity of the cohomology of Higgs^st_{r,d}, its Poincaré polynomial over F_q and over C, and the count of the irreducible components of the stable global nilpotent cone as A_{g,r,d}(0); the extensions are the parabolic case and a group of conjectures, including that A_{g,r,d} is independent of d and a curve analogue of Kac's conjecture. The atlas has the two ends of this story and neither of its middles: GlobalShtukasAndFunctionFieldLanglands GS.0 constructs Bun_G on a global curve with its Harder–Narasimhan bounded opens, EndoscopicTransferAndUnitaryTraceComparison ET.2b the Hitchin base and map for a reductive group over a curve over a finite field, AlgebraicModuliForArithmeticGeometry R09.2 the Quot schemes, FunctionFieldArithmetic the curve, its adeles and its zeta function, DeligneWeightsAndPurity DWP.0 the Weil numbers, and the Tau Ceti roadmap on quiver representations the local model — Krull–Schmidt, the Euler form, Auslander–Reiten theory — for what this paper does globally. Nothing plans Hall algebras in any form, nor Eisenstein series in Hall-algebra form, nor counting problems for bundles, nor Kac polynomials, nor GIT for quiver representations. Of the 59 items, one is in Mathlib (Young diagrams and partitions), three are planned, and the remaining 55 are routed: 51 to a new roadmap, and four as sources of GlobalShtukasAndFunctionFieldLanglands GS.0, DeligneWeightsAndPurity DWP.0 and EndoscopicTransferAndUnitaryTraceComparison ET.2b.",
+ "summary": "Schiffmann proves that the number of geometrically indecomposable vector bundles of rank r and degree d on a smooth projective geometrically connected curve X of genus g over a finite field is given by a universal function of the Weil numbers of X, computes that function explicitly, and identifies it with the point count of the moduli space of stable Higgs bundles. Precisely: there is a unique A_{g,r,d} in the localization K_g of Q[T_g]^{W_g} with A_{r,d}(X) = A_{g,r,d}(σ_X) for every such curve, where T_g is the torus of tuples (α_1,…,α_{2g}) with α_{2i−1}α_{2i} constant and σ_X the class of the Weil numbers; A_{g,r,d} is computed by an explicit residue formula from a plethystic logarithm of a sum over partitions of products J_λ(z)H_λ(z), where J_λ is a product of zeta values over the boxes of the Young diagram and H_λ an iterated residue of a symmetrising kernel; and when (r,d) are coprime and the characteristic exceeds an explicit bound, |Higgs^st_{r,d}(X)(F_q)| = q^{1+(g−1)r²}A_{r,d}(X). The proof has two halves. The arithmetic half counts pairs (F,θ) with θ a nilpotent endomorphism: their groupoid volume is the plethystic exponential of the counting series, by Krull–Schmidt, and the volume is computed by stratifying according to the Jordan type of θ and evaluating the fibres of the resulting functors, which turns the problem into a pairing of Eisenstein series in the Hall algebra of the curve; the spherical Hall algebra has a generic form over Q[T_g]^{W_g}, which makes every volume a function of σ_X alone, and Zariski density of the Weil numbers of genus-g curves gives uniqueness. The geometric half transports Crawley-Boevey and Van den Bergh's quiver argument to curves: the stack of Higgs bundles is presented by a quot scheme built from two line bundles and embedded in the representation space of a Kronecker quiver, indecomposability becomes a condition on the image of the moment map, and a smooth family over the affine line has the stable Higgs moduli space as its special fibre and the indecomposable bundles over the others; a contracting G_m-action and the Bialynicki-Birula–Hesselink decomposition make the point counts agree. The consequences are the purity of the cohomology of Higgs^st_{r,d}, its Poincaré polynomial over F_q and over C, and the count of the irreducible components of the stable global nilpotent cone as A_{g,r,d}(0); the extensions are the parabolic case and a group of conjectures, including that A_{g,r,d} is independent of d (since proved by Mellit) and a curve analogue of Kac's conjecture. The atlas has the two ends of this story and neither of its middles: GlobalShtukasAndFunctionFieldLanglands GS.0 constructs Bun_G on a global curve with its Harder–Narasimhan bounded opens, EndoscopicTransferAndUnitaryTraceComparison ET.2b the Hitchin base and map for a reductive group over a curve over a finite field, AlgebraicModuliForArithmeticGeometry R09.2 the Quot schemes, FunctionFieldArithmetic the curve, its adeles and its zeta function, DeligneWeightsAndPurity DWP.0 the Weil numbers, and the Tau Ceti roadmap on quiver representations the local model — Krull–Schmidt, the Euler form, Auslander–Reiten theory — for what this paper does globally. Nothing plans Hall algebras in any form, nor Eisenstein series in Hall-algebra form, nor counting problems for bundles, nor Kac polynomials, nor GIT for quiver representations. After FIX-RT-PAPER-SCHIFFMANN-16 there are 67 items. One is in Mathlib (Young diagrams and partitions), two are planned, and the remaining 64 are routed. 58 go to a new roadmap and one to the LefschetzPencilsAndVanishingCycles Part II that PAPER-BROWNING-SAWIN-20 opens. Five go as sources: two to GlobalShtukasAndFunctionFieldLanglands GS.0, and one each to EndoscopicTransferAndUnitaryTraceComparison ET.2b, QSeriesPartitionsAndMockModularForms QM.0 and ReductiveGroupsPartII RG2.3.",
  "items": [
   {
    "id": "PAPER-SCHIFFMANN-16/1",
@@ -37,7 +37,7 @@
    "status": "missing",
    "library": [],
    "planned": [],
-   "note": "The ring in which all the counting polynomials of the paper live. DeligneWeightsAndPurity DWP.0 defines Weil q-numbers and their weights and FunctionFieldArithmetic FA.5 identifies the curve zeta function and its numerator, so the Weil numbers themselves are planned; the torus T_g with its W_g-action, the invariant ring R_g and its localization K_g, and the point σ_X ∈ T_g/W_g attached to a curve, are not."
+   "note": "The ring in which all the counting polynomials of the paper live. DeligneWeightsAndPurity DWP.0 defines Weil q-numbers and their weights and FunctionFieldArithmetic FA.5 identifies the curve zeta function and its numerator, so the Weil numbers themselves are planned; the torus T_g with its W_g-action, the invariant ring R_g and its localization K_g, and the point σ_X ∈ T_g/W_g attached to a curve, are not. T_g is the maximal torus of GSp_{2g} and W_g its Weyl group, so R_g = Q[T_g]^{W_g} is the rationalised full character ring Q ⊗ R(GSp_{2g}). ClassicalGroupsPartII, proposed by PAPER-YU-23 route 13 (item 099), plans that character ring; route 1 identifies R_g with it rather than proving the identification again. PAPER-YU-23 writes R_g for a smaller ring, the integral subring generated by the constituents of tensor powers of the standard representation; that is not this R_g (RT-PAPER-SCHIFFMANN-16/3)."
   },
   {
    "id": "PAPER-SCHIFFMANN-16/2",
@@ -59,7 +59,7 @@
    "status": "missing",
    "library": [],
    "planned": [],
-   "note": "The first main theorem, a global analogue of Kac's theorem that the number of geometrically indecomposable representations of a quiver over F_q is a polynomial in q. Nothing in the atlas plans it; the Tau Ceti roadmap on quiver representations plans the Krull–Schmidt and Gabriel theory but not Kac's counting theorem."
+   "note": "The first main theorem, a global analogue of Kac's theorem that the number of geometrically indecomposable representations of a quiver over F_q is a polynomial in q. Nothing in the atlas plans it; the Tau Ceti roadmap on quiver representations plans the Krull–Schmidt and Gabriel theory but not Kac's counting theorem. Mellit's theorem (item 8) gives A_{g,r,d} ∈ Q[T_g]^{W_g} for g ≥ 1. A Laurent polynomial in q and α_1, …, α_g (Mellit's coordinates, with α_{i+g} = qα_i^{−1}) is a regular function on T_g, and it is W_g-invariant because A_{g,r,d} ∈ K_g is. So the localisation is not needed for these untruncated counts. It does not settle the parabolic and slope-refined counts (items 54 and 55) or the positivity conjectures. For g = 0, A_{0,1,d} = 1 and A_{0,r,d} = 0 for r ≥ 2 (RT-PAPER-SCHIFFMANN-16/4)."
   },
   {
    "id": "PAPER-SCHIFFMANN-16/4",
@@ -87,7 +87,7 @@
    "status": "missing",
    "library": [],
    "planned": [],
-   "note": "The λ-ring formalism in which all the generating series are written. Mathlib has the Möbius function (ArithmeticFunction.moebius) and power sums (MvPolynomial.psum) but no λ-ring or Adams operations, and no layer of the atlas plans plethystic operators."
+   "note": "The λ-ring formalism in which all the generating series are written. Mathlib has the Möbius function (ArithmeticFunction.moebius) and power sums (MvPolynomial.psum) but no λ-ring or Adams operations, and no layer of the atlas plans plethystic operators. It has one owner, QSeriesPartitionsAndMockModularForms QM.0, through PAPER-YU-23 route 7 (item 044); PAPER-BERGSTROM-FABER-PAYNE-24 route 9 sends its Exp and Log there too. Route 5 requests it from QM.0, stated for a complete filtered ring with Adams operations. QM.0's packet has no plethystic node yet, so the item stays missing (RT-PAPER-SCHIFFMANN-16/3)."
   },
   {
    "id": "PAPER-SCHIFFMANN-16/6",
@@ -104,37 +104,34 @@
    "id": "PAPER-SCHIFFMANN-16/7",
    "kind": "theorem",
    "name": "Theorem 2: the explicit formula for A_{g,r,d}",
-   "statement": "Define rational functions A_{g,r}(z) ∈ K_g(z) by Σ_{r≥1} A_{g,r}(z)T^r = (q−1)·Log(Σ_λ q^{(g−1)⟨λ,λ⟩} J_λ(z) H_λ(z) T^{|λ|}). Then for every d ∈ Z, A_{g,r,d} = −Σ_{ξ ∈ μ_r} ξ^{−d} Res_{z=ξ}(A_{g,r}(z) dz/z), where μ_r is the set of r-th roots of unity. For r ≤ 2 one has A_{g,1,d} = ∏_{i=1}^{2g}(1−α_i) and an explicit closed formula for A_{g,2,d}.",
-   "locator": "arXiv:1406.3839v2 (4 October 2014), Theorem 1.2",
+   "statement": "Define rational functions A_{g,r}(z) ∈ K_g(z) by Σ_{r≥1} A_{g,r}(z)T^r = (q−1)·Log(Σ_λ q^{(g−1)⟨λ,λ⟩} J_λ(z) H_λ(z) T^{|λ|}). Then for every d ∈ Z, A_{g,r,d} = −Σ_{ξ ∈ μ_r} ξ^{−d} Res_{z=ξ}(A_{g,r}(z) dz/z), where μ_r is the set of r-th roots of unity. For r ≤ 2 one has A_{g,1,d} = ∏_{i=1}^{2g}(1−α_i) and A_{g,2,d} = ∏_{i=1}^{2g}(1−α_i) · [∏_i(1 − qα_i)/((q−1)(q²−1)) − ∏_i(1 + α_i)/(4(1+q)) + (∏_i(1 − α_i)/(2(q−1)))·(1/2 − 1/(q−1) − Σ_i 1/(1 − α_i))], with products and sums over i = 1, …, 2g.",
+   "locator": "arXiv:1406.3839v2 (4 October 2014), Theorem 1.2 and the examples after it, p. 3; published version (Annals 183 (2016)), Theorem 1.6 and the examples, pp. 304–305",
    "status": "missing",
    "library": [],
    "planned": [],
-   "note": "The second main theorem, which makes the first effective. It is closely parallel to the Hausel–Rodriguez-Villegas conjectural formula for the mixed Hodge polynomial of the character variety and to Mozgovoy's extension, differing by the factors H_λ(z)."
+   "note": "The second main theorem, which makes the first effective. It is closely parallel to the Hausel–Rodriguez-Villegas conjectural formula for the mixed Hodge polynomial of the character variety and to Mozgovoy's extension, differing by the factors H_λ(z). Acceptance tests for the rank-two formula (RT-PAPER-SCHIFFMANN-16/8): at g = 0 it gives 0, as it must, since every vector bundle on P¹ splits; at g = 1, with α_1α_2 = q, it gives (1 − α_1)(1 − α_2) = |E(F_q)|, the count that Atiyah's classification requires. FIX-RT-PAPER-SCHIFFMANN-16 checked both symbolically. They corroborate the formula; they do not prove it."
   },
   {
    "id": "PAPER-SCHIFFMANN-16/8",
    "kind": "theorem",
-   "name": "Conjecture 1: independence of the degree",
+   "name": "Conjecture 1 (now Mellit's theorem): independence of the degree",
    "statement": "The polynomial A_{g,r,d} does not depend on d. Equivalently, by Theorem 2, the rational function A_{g,r}(z) is regular at the nontrivial r-th roots of unity; since A_{g,r}(z) is regular outside μ_r with at most simple poles, this says (1−z)A_{g,r}(z) ∈ K_g[z], in which case A_{g,r,d} = [(1−z)A_{g,r}(z)]_{z=1} for all d. The conjecture is proved by direct computation when r is prime.",
-   "locator": "arXiv:1406.3839v2 (4 October 2014), Conjectures 1.3 and 1.4, proved for r prime in Appendix C",
+   "locator": "arXiv:1406.3839v2 (4 October 2014), Conjectures 1.3 and 1.4, proved for r prime in Appendix C; published version (Annals 183 (2016)), Conjectures 1.7 and 1.8, p. 305, and Appendix C",
    "status": "missing",
    "library": [],
    "planned": [],
-   "note": "Stated as Conjectures 1.3 and 1.4 and proved for r prime in Appendix C; by Theorem 2 it is essentially equivalent to a conjecture of Hausel and Thaddeus that the motive of Higgs^st_{r,d} is independent of d. It is a conjecture, not a theorem, and must be recorded as such."
+   "note": "Stated as Conjectures 1.3 and 1.4 and proved for r prime in Appendix C; by Theorem 2 it is essentially equivalent to a conjecture of Hausel and Thaddeus that the motive of Higgs^st_{r,d} is independent of d. Stated as a conjecture in the paper and proved there for r prime (Appendix C). It is now a theorem: Mellit, Invent. Math. 221 (2020), 301–327, arXiv:1707.04214, Theorem 1.1, shows for g ≥ 1, r ≥ 1 and every d that A_{g,r,d} = H_{g,r}(q, 1, α_1, …, α_g), a Laurent polynomial independent of d. Conjecture 1.4 of v2 then follows by the paper's own reduction: the residues of A_{g,r}(z) at the nontrivial r-th roots of unity vanish, and its poles there are at most simple. For g = 0 the statement is elementary: every vector bundle on P¹ splits, so A_{0,1,d} = 1 and A_{0,r,d} = 0 for r ≥ 2. For d and e prime to r, PAPER-GROECHENIG-WYSS-ZIEGLER-20 item 70 (#M^d_{GL_n}(X)(k) = #M^e_{GL_n}(X)(k), under that item's hypotheses: characteristic prime to n, d and e, and a primitive n^{2g}-th root of unity in k) with Theorem 3 gives A_{r,d}(X) = A_{r,e}(X) for the curves it covers, a weaker coprime-degree route. Mellit's Corollary 1.2, the coprime-degree independence of the E-polynomials of the moduli spaces, is a different statement from the all-degree theorem. Route 1 plans the theorem with Mellit's paper as its source (RT-PAPER-SCHIFFMANN-16/4)."
   },
   {
    "id": "PAPER-SCHIFFMANN-16/9",
    "kind": "definition",
    "name": "Stable Higgs bundles and their moduli space",
-   "statement": "Let Ω_X be the canonical bundle. A Higgs sheaf of rank r and degree d is a pair (V, θ) with V coherent of rank r and degree d and θ ∈ Hom(V, V ⊗ Ω_X). A Higgs subsheaf is a subsheaf W ⊆ V with θ(W) ⊆ W ⊗ Ω_X; (V,θ) is semistable (resp. stable) if μ(W) ≤ μ(V) (resp. <) for every proper Higgs subsheaf, and a Higgs subsheaf with μ(W) > μ(V) is destabilizing. For r > 0 a semistable Higgs sheaf is a Higgs bundle. Higgs_{r,d}(X) and Coh_{r,d}(X) are the moduli stacks of Higgs sheaves and of coherent sheaves, algebraic over k, locally of finite type, of dimensions 2(g−1)r² and (g−1)r². For (r,d) coprime, Higgs^st_{r,d}(X) is the open substack of stable Higgs bundles, represented by a smooth connected k-scheme. By Serre duality Higgs_{r,d}(X) also parametrises pairs (V, ν) with ν ∈ Ext^1(V,V)^*, a Higgs subsheaf being a subsheaf W with a(ν) ∈ b(Ext^1(W,W)^*) for the canonical maps a, b.",
-   "locator": "arXiv:1406.3839v2 (4 October 2014), Section 6.2",
-   "status": "planned",
+   "statement": "Let Ω_X be the canonical bundle. A Higgs sheaf of rank r and degree d is a pair (V, θ) with V coherent of rank r and degree d and θ ∈ Hom(V, V ⊗ Ω_X). A Higgs subsheaf is a subsheaf W ⊆ V with θ(W) ⊆ W ⊗ Ω_X; (V,θ) is semistable (resp. stable) if μ(W) ≤ μ(V) (resp. <) for every proper Higgs subsheaf, and a Higgs subsheaf with μ(W) > μ(V) is destabilizing. For r > 0 a semistable Higgs sheaf is a Higgs bundle. Higgs_{r,d}(X) and Coh_{r,d}(X) are the moduli stacks of Higgs sheaves and of coherent sheaves, algebraic over k, locally of finite type, of dimensions 2(g−1)r² and (g−1)r². For (r,d) coprime, Higgs^st_{r,d}(X) is the open substack of stable Higgs bundles; it is a G_m-gerbe over a smooth connected k-scheme Higgs^st_{r,d}, not itself that scheme, and the Hitchin map on Higgs^st_{r,d} is proper (used in the proof of Corollary 1.4). By Serre duality Higgs_{r,d}(X) also parametrises pairs (V, ν) with ν ∈ Ext^1(V,V)^*, a Higgs subsheaf being a subsheaf W with a(ν) ∈ b(Ext^1(W,W)^*) for the canonical maps a, b.",
+   "locator": "arXiv:1406.3839v2 (4 October 2014), Section 6.2; published version (Annals 183 (2016)), §6.2, pp. 336–337, and, for the properness, §6.11, p. 351",
+   "status": "missing",
    "library": [],
-   "planned": [
-    "EndoscopicTransferAndUnitaryTraceComparison:ET.2b",
-    "GlobalShtukasAndFunctionFieldLanglands:GS.0"
-   ],
-   "note": "EndoscopicTransferAndUnitaryTraceComparison ET.2b constructs, for a smooth proper curve over a finite field and a reductive group scheme in good characteristic, the stack of G-bundles, Higgs fields twisted by a chosen sufficiently positive divisor, the Hitchin base and map, and the Picard stack acting on Hitchin fibres; GS.0 constructs Bun_G. The case needed here is GL_r with the canonical twist and the stable locus for coprime (r,d), and the Serre-duality description by pairs (V,ν) is the paper's own reformulation."
+   "planned": [],
+   "note": "GlobalShtukasAndFunctionFieldLanglands GS.0 supplies Bun_{GL_r}. EndoscopicTransferAndUnitaryTraceComparison ET.2b supplies the Higgs stack, the Hitchin base and map and the Picard stack acting on the fibres, for a reductive group over a curve over a finite field and Higgs fields 'twisted by a chosen sufficiently positive divisor'. ET.2b does not say whether Ω_X is such a divisor, so the canonical twist is not explicitly supplied. Neither stage plans slope (semi)stability of Higgs sheaves, the coprime stable moduli space with its smoothness and connectedness, or the properness of the Hitchin map on it. The item is therefore missing, and route 1 plans it (RT-PAPER-SCHIFFMANN-16/6). PAPER-YU-23/036 should import it from there. The SL_n moduli space of PAPER-GROECHENIG-WYSS-ZIEGLER-20/62 is a related target, not the same one. The Serre-duality description by pairs (V, ν) is the paper's own reformulation."
   },
   {
    "id": "PAPER-SCHIFFMANN-16/10",
@@ -151,23 +148,23 @@
    "id": "PAPER-SCHIFFMANN-16/11",
    "kind": "theorem",
    "name": "Purity and the Poincaré polynomial of the Higgs moduli space",
-   "statement": "Let (r,d) be relatively prime. Then A_{g,r,d} ∈ N[−z_1, …, −z_{2g}]^{W_g}, and for every smooth geometrically connected projective curve X of genus g over F_q with p > C(r,d) the Frobenius eigenvalues on H^n_c(Higgs^st_{r,d}(X ⊗ F̄_q), Q̄_l) are of the form ∏_j σ_j^{n_j} with Σ n_j = n, the multiplicity of σ_1^{i_1}⋯σ_{2g}^{i_{2g}} being the coefficient a_{i_1,…,i_{2g}} of A_{g,r,d} written in the variables (−z_j). In particular Σ_n dim H_c^n(Higgs^st_{r,d}(X̄), Q̄_l) t^n = t^{2(1+(g−1)r²)} A_{g,r,d}(t,…,t), and the same formula holds with singular compactly supported cohomology for a compact Riemann surface X_C of genus g. Consequently A_{g,r,d} is unitary of degree 2(1+(g−1)r²).",
-   "locator": "arXiv:1406.3839v2 (4 October 2014), Corollaries 1.6, 1.7 and 1.8",
+   "statement": "Let (r,d) be relatively prime. Then A_{g,r,d} ∈ N[−z_1, …, −z_{2g}]^{W_g}, and for every smooth geometrically connected projective curve X of genus g over F_q with p > C(r,d) the Frobenius eigenvalues on H^n_c(Higgs^st_{r,d}(X ⊗ F̄_q), Q̄_l) are of the form ∏_j σ_j^{n_j} with Σ n_j = n, the multiplicity of σ_1^{i_1}⋯σ_{2g}^{i_{2g}} being the coefficient a_{i_1,…,i_{2g}} of A_{g,r,d} written in the variables (−z_j). In particular Σ_n (−1)^n dim H_c^n(Higgs^st_{r,d}(X̄), Q̄_l) t^n = t^{2(1+(g−1)r²)} A_{g,r,d}(t,…,t), and Σ_n (−1)^n dim H_c^n(Higgs^st_{r,d}(X_C), Q) t^n = t^{2(1+(g−1)r²)} A_{g,r,d}(t,…,t) with singular compactly supported cohomology for a compact Riemann surface X_C of genus g. Since Higgs^st_{r,d}(X_C) is connected of dimension 2(1+(g−1)r²), A_{g,r,d} is unitary of degree 2(1+(g−1)r²).",
+   "locator": "arXiv:1406.3839v2 (4 October 2014), Corollaries 1.6, 1.7 and 1.8, p. 4; published version (Annals 183 (2016)), Corollaries 1.3 and 1.5, pp. 300–302, proved in §§6.10–6.11, pp. 349–352",
    "status": "missing",
    "library": [],
    "planned": [],
-   "note": "Corollaries 1.6, 1.7 and 1.8. They combine Theorems 1–3 with the purity of the cohomology of Higgs^st_{r,d} and the comparison between the finite-field and complex cases; without the coprimality assumption they would give a global analogue of Kac's positivity conjecture for quivers, which is what Conjecture 1 would supply."
+   "note": "Corollaries 1.6, 1.7 and 1.8. They combine Theorems 1–3 with the purity of the cohomology of Higgs^st_{r,d} and the comparison between the finite-field and complex cases; without the coprimality assumption they would give a global analogue of Kac's positivity conjecture for quivers, which is what Conjecture 1 would supply. Corrected by FIX-RT-PAPER-SCHIFFMANN-16 (RT-PAPER-SCHIFFMANN-16/2). arXiv v2 prints both sums without the sign (−1)^n (E9); the published Corollary 1.3 has it. In rank one Higgs^st_{1,d} = Pic^d(X) × A^g, so the unsigned sum is t^{2g}(1 + t)^{2g}, while t^{2g}A_{g,1,d}(t, …, t) = t^{2g}(1 − t)^{2g}. The degree statement needs dim Higgs^st_{r,d}(X_C) = 2(1+(g−1)r²), which v2 misprints as 1+(g−1)r² (E10). Crosswalk: v2 Corollary 1.6 is published Corollary 1.3(i) with the first sentence of Corollary 1.5 (the eigenvalue description is in the proof of Corollary 1.3, §6.10); v2 Corollary 1.7 is published Corollary 1.3(ii); v2 Corollary 1.8 is the second sentence of published Corollary 1.5. PAPER-YU-23/131 and /178 use these statements; route 1 owns them (RT-PAPER-SCHIFFMANN-16/3)."
   },
   {
    "id": "PAPER-SCHIFFMANN-16/12",
    "kind": "theorem",
    "name": "The stable global nilpotent cone",
-   "statement": "Let μ : Higgs^st_{r,d} → A be the Hitchin map and Λ^st_{r,d} its zero fibre, the stable global nilpotent cone, a projective and in general singular Lagrangian subvariety of Higgs^st_{r,d}. Assume gcd(r,d) = 1. Then (i) over F_q, Λ^st_{r,d} is cohomologically pure, the Frobenius eigenvalues on H^i(Λ^st_{r,d}, Q̄_l) are of the form ∏_j α_j^{l_j} with Σ l_j = i, and |Λ^st_{r,d}(F_q)| = Ā_{g,r,d}(σ_X) where Ā_{g,r,d}(z) = q^{2(1+(g−1)r²)}A_{g,r,d}(z^{−1}) is the Poincaré dual of A_{g,r,d}; (ii) over F_q or C, dim H^{1+(g−1)r²}(Λ^st_{r,d}, C) = dim H^{1+(g−1)r²}(Higgs^st_{r,d}, C) = A_{g,r,d}(0), so that the number of irreducible components of Λ^st_{r,d} is A_{g,r,d}(0).",
-   "locator": "arXiv:1406.3839v2 (4 October 2014), Corollary 1.9",
+   "statement": "Let μ : Higgs^st_{r,d} → A be the Hitchin map and Λ^st_{r,d} its zero fibre, the stable global nilpotent cone, a projective and in general singular Lagrangian subvariety of Higgs^st_{r,d}. Assume gcd(r,d) = 1 and, for the proof given here, char(F_q) > C(r,d): the printed corollary states no bound, and its proof goes through Theorem 3, which Mozgovoy–Schiffmann [MS14] prove in all characteristics. Then (i) over F_q, Λ^st_{r,d} is cohomologically pure, the Frobenius eigenvalues on H^i(Λ^st_{r,d} ⊗ F̄_q, Q̄_l) are of the form ∏_j α_j^{l_j} with Σ l_j = i, and |Λ^st_{r,d}(F_q)| = Ā_{g,r,d}(σ_X) where Ā_{g,r,d}(z) = q^{1+(g−1)r²}A_{g,r,d}(z^{−1}) is the Poincaré dual of A_{g,r,d}; (ii) in geometric ℓ-adic cohomology over F̄_q, or in singular cohomology over C, dim H^{2(1+(g−1)r²)}(Λ^st_{r,d}) = dim H^{2(1+(g−1)r²)}(Higgs^st_{r,d}) = A_{g,r,d}(0), so that the number of irreducible components of Λ^st_{r,d} is A_{g,r,d}(0). Both displays are corrected here: the paper prints q^{2(1+(g−1)r²} in (i) and the degree 1+(g−1)r² in (ii) (E8).",
+   "locator": "arXiv:1406.3839v2 (4 October 2014), Corollary 1.9, p. 5; published version (Annals 183 (2016)), Corollary 1.4, p. 301, proved in §6.11, pp. 351–352",
    "status": "missing",
    "library": [],
    "planned": [],
-   "note": "Corollary 1.9, added in v2. ET.2b constructs the Hitchin base and map for a reductive group and the Picard stack acting on the fibres, but not the nilpotent cone, its purity, or the count of its irreducible components."
+   "note": "Corollary 1.9, added in v2. ET.2b constructs the Hitchin base and map for a reductive group and the Picard stack acting on the fibres, but not the nilpotent cone, its purity, or the count of its irreducible components. Its proof also needs the properness of the Hitchin map on Higgs^st_{r,d} (published p. 351: 'Since µ is proper'), which ET.2b does not plan for GL_r with the canonical twist; it is planned with item 9 in route 1 (RT-PAPER-SCHIFFMANN-16/6). Corrected by FIX-RT-PAPER-SCHIFFMANN-16 (RT-PAPER-SCHIFFMANN-16/1): both printed exponents are wrong (E8). The corrected ones are what the published proof gives: with D = 1+(g−1)r², Higgs^st and Λ^st are unions of affine fibrations of ranks n⁺_i = D and n⁻_i over the components Z_i of the G_m-fixed locus, with dim Z_i = D − n⁻_i. Acceptance tests. (a) r = 1: Higgs^st_{1,d} = Pic^d(X) × H⁰(X, Ω_X) and Λ^st_{1,d} = Pic^d(X); A_{g,1,d} = ∏_i(1 − α_i) and ∏_i α_i = q^g, so q^g·A(α^{−1}) = A(α) = |Pic^d(X)(F_q)|, whereas q^{2g}·A(α^{−1}) is q^g times too large; dim H^{2g}(Pic^d) = 1 = A(0), whereas dim H^g(Pic^d) = C(2g, g). (b) (g, r, d) = (1, 2, 1), X = E an elliptic curve: the stable bundles of rank 2 and degree 1 are parametrised by E (Atiyah), so Higgs^st_{2,1} = E × A¹ and Λ^st_{2,1} = E; A_{1,2,1} = (1 − α_1)(1 − α_2) by item 7, so q·A(α^{−1}) = |E(F_q)|, and dim H²(E) = 1 = A(0), whereas dim H¹(E) = 2."
   },
   {
    "id": "PAPER-SCHIFFMANN-16/13",
@@ -198,22 +195,30 @@
    "kind": "theorem",
    "name": "Krull–Schmidt for coherent sheaves on a curve",
    "statement": "(i) Coh(X) is a Krull–Schmidt category: every coherent sheaf M decomposes as M = M_1^{⊕n_1} ⊕ ⋯ ⊕ M_s^{⊕n_s} with the M_i distinct indecomposables, and the pairs (M_i, n_i) are unique up to permutation. (ii) If M is indecomposable then k_M := End(M)/rad(End(M)) is a field. (iii) If M, M′ are distinct indecomposables then any composite M → M′ → M lies in rad(End(M)).",
-   "locator": "arXiv:1406.3839v2 (4 October 2014), Lemma 2.2",
+   "locator": "arXiv:1406.3839v2 (4 October 2014), Lemma 2.2; published version (Annals 183 (2016)), Lemma 2.3, p. 309",
    "status": "missing",
-   "library": [],
+   "library": [
+    "tauceti:TauCeti.exists_equiv_linearEquiv_of_directSum_of_isLocalRing_end",
+    "tauceti:TauCeti.isLocalRing_end_of_isIndecomposable",
+    "tauceti:TauCeti.exists_indecomposable_decomposition",
+    "tauceti:TauCeti.exists_equiv_linearEquiv_of_isLocalRing_end"
+   ],
    "planned": [],
-   "note": "The Tau Ceti roadmap on quiver representations builds Fitting's lemma, the local-endomorphism-ring criterion and the Krull–Schmidt theorem for finite-length modules over a finite-dimensional algebra, and records that Mathlib has neither. Coherent sheaves on a projective curve are not modules over a finite-dimensional algebra, so the statement needed here — Krull–Schmidt for a Hom-finite category with local endomorphism rings of indecomposables, which is Atiyah's theorem of 1956 — is not covered. A reviewer may prefer a Part II of that Tau Ceti roadmap for the general Krull–Schmidt-category statement rather than a fresh treatment inside the new roadmap."
+   "note": "Krull–Schmidt in Azumaya's form and Fitting's lemma are built in Tau Ceti, for modules. TauCeti.exists_equiv_linearEquiv_of_directSum_of_isLocalRing_end (RingTheory/KrullSchmidt/DirectSum.lean:154) and TauCeti.exists_equiv_linearEquiv_of_isLocalRing_end (Uniqueness.lean:187) match two finite decompositions when the summands of one have local endomorphism rings, with no finiteness hypothesis on the module. TauCeti.isLocalRing_end_of_isIndecomposable (Indecomposable.lean:263) is Fitting's lemma for a module of finite length, and TauCeti.exists_indecomposable_decomposition (Existence.lean:181) gives decompositions. Their types are Module.End, Submodule and linear equivalences, and Coh(X) is not a category of finite-length modules, so they do not apply to sheaves as they stand. The item stays missing. What is missing is the transfer to Coh(X). (a) For M indecomposable, End(M) is a finite-dimensional k-algebra whose only idempotents are 0 and 1, since idempotents split in the abelian category Coh(X). So End(M) is indecomposable as a module over itself, and Fitting's lemma applied to that module makes it local. (b) Azumaya's matching then transfers to finite biproduct decompositions in Coh(X), or in any Hom-finite k-linear category with split idempotents. One way is through M′ ↦ Hom(M, M′), an equivalence between the direct summands of finite sums of copies of M and the finitely generated projective right End(M)-modules; another is to redo the exchange argument in the category. Finite-dimensionality of End(M) alone is not a type-correct application of the cited Fitting lemma to the sheaf. Atiyah's 1956 paper is the source for sheaves (RT-PAPER-SCHIFFMANN-16/7). The same applies to PAPER-YU-23/027."
   },
   {
    "id": "PAPER-SCHIFFMANN-16/16",
    "kind": "theorem",
    "name": "The radical of the endomorphism algebra of a decomposition",
    "statement": "Let M_1, …, M_s be distinct indecomposables, n_1, …, n_s ∈ N and M = ⊕_i M_i^{⊕n_i}. Then rad(End M) = ⊕_{i≠j} Hom(M_i^{⊕n_i}, M_j^{⊕n_j}) ⊕ ⊕_i rad(End M_i)^{⊕n_i}, and End(M)/rad(End M) ≅ ∏_i gl(n_i, k_{M_i}) is semisimple.",
-   "locator": "arXiv:1406.3839v2 (4 October 2014), Lemma 2.3",
+   "locator": "arXiv:1406.3839v2 (4 October 2014), Lemma 2.3; published version (Annals 183 (2016)), Lemma 2.4, p. 309",
    "status": "missing",
-   "library": [],
+   "library": [
+    "mathlib:IsArtinianRing.isNilpotent_jacobson_bot",
+    "mathlib:IsArtinianRing.isSemisimpleRing_iff_jacobson"
+   ],
    "planned": [],
-   "note": "The computation of the radical, from which the volume formula of the next item follows."
+   "note": "The computation of the radical, from which the volume formula of the next item follows. Its ring-theoretic inputs are in Mathlib. IsArtinianRing.isNilpotent_jacobson_bot (Mathlib/RingTheory/Artinian/Ring.lean:54) makes the Jacobson radical of the finite-dimensional algebra End(M) nilpotent. IsArtinianRing.isSemisimpleRing_iff_jacobson (Mathlib/RingTheory/Artinian/Module.lean:650), with the IsSemiprimaryRing instance that follows it, makes End(M)/rad End(M) semisimple. The sheaf-specific part stays missing: rad End(M) is the off-diagonal Hom spaces plus the rad End(M_i), and the quotient is ∏_i gl(n_i, k_{M_i}) (RT-PAPER-SCHIFFMANN-16/7)."
   },
   {
    "id": "PAPER-SCHIFFMANN-16/17",
@@ -246,7 +251,7 @@
    "status": "missing",
    "library": [],
    "planned": [],
-   "note": "Proposition 2.1: the bridge between the volume of the orbifold of pairs and the counting functions. It is the exact analogue of the corresponding step in Kac's and Hua's work for quivers."
+   "note": "Proposition 2.1: the bridge between the volume of the orbifold of pairs and the counting functions. It is the exact analogue of the corresponding step in Kac's and Hua's work for quivers. The Galois-orbit count it uses is the separate item galois-descent-of-indecomposables (RT-PAPER-SCHIFFMANN-16/8)."
   },
   {
    "id": "PAPER-SCHIFFMANN-16/20",
@@ -429,11 +434,11 @@
    "kind": "theorem",
    "name": "Zariski density of the Weil numbers of curves of genus g",
    "statement": "Fix a prime l and an embedding ι : Q̄_l → C, and let X_g be the collection of all smooth projective geometrically connected curves of genus g defined over a finite field of characteristic different from l. Then W = {σ_X : X ∈ X_g} is Zariski dense in T_g/W_g.",
-   "locator": "arXiv:1406.3839v2 (4 October 2014), Proposition 4.8, proved in Appendix B",
+   "locator": "arXiv:1406.3839v2 (4 October 2014), Proposition 4.8, p. 14, proved in Appendix B, pp. 35–36; published version (Annals 183 (2016)), Proposition 4.7, p. 321, proved in Appendix B, pp. 357–358",
    "status": "missing",
    "library": [],
    "planned": [],
-   "note": "Proposition 4.8, proved in Appendix B; it is exactly what gives the uniqueness half of Theorem 1, since it says that a polynomial identity valid on all curves of genus g is an identity in Q[T_g]^{W_g}. DeligneWeightsAndPurity DWP.0 owns Weil q-numbers and their properties but plans no density statement of this kind."
+   "note": "Proposition 4.8, proved in Appendix B; it is exactly what gives the uniqueness half of Theorem 1, since it says that a polynomial identity valid on all curves of genus g is an identity in Q[T_g]^{W_g}. It is a density statement, not a weight statement: DWP.0 owns Weil q-numbers but not this. Its proof combines big geometric monodromy of an explicit family of curves (Katz–Sarnak 10.1.16) with Deligne's equidistribution theorem (Weil II 3.5.3, DeligneWeightsAndPurity:DWP.8:equidistribution); route 3 sends it to the LefschetzPencilsAndVanishingCycles Part II. Normalise with a chosen square root of q, as the published version does (E6)."
   },
   {
    "id": "PAPER-SCHIFFMANN-16/37",
@@ -628,23 +633,23 @@
    "id": "PAPER-SCHIFFMANN-16/54",
    "kind": "theorem",
    "name": "Theorem 4: the parabolic case",
-   "statement": "For any fixed genus g, any N ≥ 0, any p = (p_1, …, p_N) and any tuple α = (r, d, d^{(1)}, …, d^{(N)}) with (r,d) ∈ N × Z and d^{(i)} = (d^{(i)}_1 ≤ ⋯ ≤ d^{(i)}_{p_i} = r), there exists a unique polynomial A_{g,p,α} ∈ Q[T_g]^{W_g} such that for every smooth projective curve X of genus g over a finite field and every divisor D = Σ_i p_i x_i with x_i ∈ X(F_q) one has A_α(X) = A_{g,p,α}(σ_X). For g = 0 this settles a conjecture of Schiffmann.",
-   "locator": "arXiv:1406.3839v2 (4 October 2014), Theorem 7.1",
+   "statement": "For any fixed genus g, any N ≥ 0, any p = (p_1, …, p_N) and any tuple α = (r, d, d^{(1)}, …, d^{(N)}) with (r,d) ∈ N × Z and d^{(i)} = (d^{(i)}_1 ≤ ⋯ ≤ d^{(i)}_{p_i} = r), there is a unique A_{g,p,α} ∈ K_g such that for every smooth projective curve X of genus g over a finite field and every divisor D = Σ_i p_i x_i with x_i ∈ X(F_q) one has A_α(X) = A_{g,p,α}(σ_X). The paper asserts A_{g,p,α} ∈ Q[T_g]^{W_g}, but its proof, parallel to that of Theorem 1.1, gives only K_g (E12). For N = 0 integrality is Mellit's theorem (item 8).",
+   "locator": "arXiv:1406.3839v2 (4 October 2014), Theorem 7.1, p. 32; published version (Annals 183 (2016)), Theorem 7.1, pp. 352–353, with §7.2, p. 353",
    "status": "missing",
    "library": [],
    "planned": [],
-   "note": "Theorem 4, proved along the same lines using the spherical Hall algebra of D-parabolic coherent sheaves. It answers, in the parabolic setting, a question of Deligne on counting irreducible l-adic local systems on a curve over a finite field."
+   "note": "Theorem 4, proved along the same lines using the spherical Hall algebra of D-parabolic coherent sheaves. It answers, in the parabolic setting, a question of Deligne on counting irreducible l-adic local systems on a curve over a finite field. Corrected by FIX-RT-PAPER-SCHIFFMANN-16 (RT-PAPER-SCHIFFMANN-16/5). The conclusion is stated in K_g, the ring the indicated argument gives. The printed Q[T_g]^{W_g} is kept as an open regularity obligation (E12): a gap in the justification, not a counterexample. For N = 0 the obligation is Theorem 1.1 without the localisation, which Mellit's theorem discharges for g ≥ 1 and Grothendieck's splitting theorem for g = 0. For N ≥ 1 nothing in the paper discharges it, and Mellit's theorem, which has no parabolic structure, does not either. The paper adds that for g = 0 the theorem settles [Sch04, Conjecture 9.2(ii)]; that remark rests on the printed assertion, and [Sch04] was not read."
   },
   {
    "id": "PAPER-SCHIFFMANN-16/55",
    "kind": "theorem",
    "name": "Refinement by Harder–Narasimhan slope",
-   "statement": "Fix g ≥ 0 and ν ∈ Q, and let A^{≥ν}_{r,d}(X), resp. A^{≤ν}_{r,d}(X), be the number of absolutely indecomposable vector bundles of class (r,d) lying in C_{≥ν}, resp. C_{≤ν}. Then there are polynomials A^{≥ν}_{g,r,d}, A^{≤ν}_{g,r,d} ∈ Q[T_g]^{W_g} with A^{≥ν}_{r,d}(X) = A^{≥ν}_{g,r,d}(σ_X) and A^{≤ν}_{r,d}(X) = A^{≤ν}_{g,r,d}(σ_X) for every smooth projective curve X of genus g over a finite field. When μ((r,d)) = ν this gives polynomials counting geometrically indecomposable semistable sheaves of slope ν.",
-   "locator": "arXiv:1406.3839v2 (4 October 2014), Corollary 8.1",
+   "statement": "Fix g ≥ 0 and ν ∈ Q, and let A^{≥ν}_{r,d}(X), resp. A^{≤ν}_{r,d}(X), be the number of absolutely indecomposable vector bundles of class (r,d) lying in C_{≥ν}, resp. C_{≤ν}. Then there are polynomials A^{≥ν}_{g,r,d}, A^{≤ν}_{g,r,d} ∈ K_g with A^{≥ν}_{r,d}(X) = A^{≥ν}_{g,r,d}(σ_X) and A^{≤ν}_{r,d}(X) = A^{≤ν}_{g,r,d}(σ_X) for every smooth projective curve X of genus g over a finite field. When μ((r,d)) = ν this gives polynomials counting geometrically indecomposable semistable sheaves of slope ν.",
+   "locator": "arXiv:1406.3839v2 (4 October 2014), Corollary 8.1, p. 33; published version (Annals 183 (2016)), Corollary 8.1, p. 353",
    "status": "missing",
    "library": [],
    "planned": [],
-   "note": "Corollary 8.1, the refinement of Theorem 1 by slope."
+   "note": "Corollary 8.1, the refinement of Theorem 1 by slope. Corrected by FIX-RT-PAPER-SCHIFFMANN-16 (RT-PAPER-SCHIFFMANN-16/5): arXiv v2 prints Q[T_g]^{W_g} (E11). The published Corollary 8.1 has K_g, the ring the proof of Theorem 1.1 gives. Mellit's theorem does not cover these slope-refined counts."
   },
   {
    "id": "PAPER-SCHIFFMANN-16/56",
@@ -689,6 +694,94 @@
    "library": [],
    "planned": [],
    "note": "Appendix A, the proof of Theorem 4.1(ii). FunctionFieldArithmetic FA.5 constructs the Euler product of the zeta function by closed-point degree, which is the counting input; the volume of the stack of torsion sheaves is not planned."
+  },
+  {
+   "id": "PAPER-SCHIFFMANN-16/residue-formula-arbitrary-ranks",
+   "kind": "theorem",
+   "name": "Residue formula for Y^{≥0} in arbitrary ranks",
+   "statement": "For a sequence r̲ = (r_t, …, r_1) of non-negative integers with n = Σ_i r_i, the truncated series Y^{≥0}_{r̲} (A^{≥0}_{r̲} in arXiv v2) comes from the rank-one series in n variables by iterated residues: Y^{≥0}_{r̲}(q^{½(1−r_t)}z^{(t)}_1, …, q^{½(1−r_1)}z^{(1)}_1; w) = q^{a(r̲)} vol_1^{−n} ∏_i vol_{r_i} · Res_{r̲}[Y^{≥0}_{(1^n)}(z^{(t)}_{r_t}, …, z^{(t)}_1, z^{(t−1)}_{r_{t−1}}, …, z^{(1)}_1; w)]. Here Res_{r̲} = ∏_i Res^{(i)}, Res^{(i)} is the iterated residue along z^{(i)}_{r_i}/z^{(i)}_{r_i−1} = ⋯ = z^{(i)}_2/z^{(i)}_1 = q^{−1}, and a(r̲) = −¼(g−1)Σ_i r_i(r_i − 1). Renaming the variables (z_n, …, z_1), so that z^{(i)}_1 = z_{1+r_{<i}}, and inserting the rank-one shuffle formula gives Y^{≥0}_{r̲}(q^{−½r_t}z^{(t)}_1, …, q^{−½r_1}z^{(1)}_1; w) = q^{b(r̲)} ∏_i vol_{r_i} · Res_{r̲}[(1/∏_{i<j} ζ̃(z_i/z_j)) Σ_{σ∈S_n} σ{∏_{i<j} ζ̃(z_i/z_j) · ∏_{i<n}(1 − q z_{i+1}/z_i)^{−1} · (1 − q^{−n/2} z_1 w)^{−1}}], with b(r̲) = ½(g−1)Σ_{i<j} r_i r_j. The same residues of the formula for Y^{<0} give Y^{<0}_{r̲}.",
+   "locator": "arXiv:1406.3839v2 (4 October 2014), §5.5, (5.10)–(5.11), p. 19; published version (Annals 183 (2016)), §5.5, (5.14)–(5.15), pp. 331–332",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Added by FIX-RT-PAPER-SCHIFFMANN-16 (RT-PAPER-SCHIFFMANN-16/8). The passage from the rank-one shuffle formulas (item 40) to arbitrary ranks, through the residue presentation of E^vec_r (item 31; Lemma 4.4 of v2, Theorem 4.2(iv) in print). Planned in route 1."
+  },
+  {
+   "id": "PAPER-SCHIFFMANN-16/jordan-type-sum",
+   "kind": "theorem",
+   "name": "The Jordan-type sum Ξ_r̲(z)",
+   "statement": "A generic Jordan type of weight r is a finite sequence r̲ = (r_1, …, r_t) of non-negative integers with Σ_i i·r_i = r and r_t ≠ 0. The map (r_1, …, r_t) ↦ λ = (1^{r_1}2^{r_2}⋯t^{r_t}) is a bijection from generic Jordan types of weight r to partitions of r, and forgetting degrees maps the Jordan types of weight (r,d) onto the generic ones. For a generic Jordan type r̲ put Ξ_r̲(z) = Σ vol(Nil^{≥0}_{α̲}) z^{Σ_i iα_i}, over the Jordan types α̲ above r̲. Its truncations to types of length at most s stabilise coefficientwise as s → ∞, because each Nil^{≥0}_α has finitely many isomorphism classes, and the limit is Ξ_r̲(z) = q^{e(r̲)} Exp((|X(F_q)|/(q−1))[Σ_{i,l≥1} q^{−r_{[i,i+l]}}(q^{r_{i+l}} − 1)z^l + z/(1−z)]) · Y^{≥0}_{r_t,…,r_1}(y_t, …, y_1; 1), with e(r̲) = (g−1)[Σ_i (i−1)r_i² + Σ_{i<j}(2i − ½)r_i r_j] and y_l = z^l q^{½(r_{>l} − r_{<l})}. With the plethystic product identity and the residue formula for arbitrary ranks this becomes Ξ_r̲(z) = q^{(g−1)⟨λ,λ⟩} J_λ(z) H_λ(z) Exp((|X(F_q)|/(q−1))·z/(1−z)). As in the source, the power T^r of z^{(1,0)} is left implicit.",
+   "locator": "arXiv:1406.3839v2 (4 October 2014), §5.6, (5.12)–(5.14) with Lemma 5.5, p. 20; published version (Annals 183 (2016)), §5.6, (5.16)–(5.18) with Lemma 5.5, pp. 331–333",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Added by FIX-RT-PAPER-SCHIFFMANN-16 (RT-PAPER-SCHIFFMANN-16/8). It combines the Jordan stratification (items 21–24), the torsion factor (item 38), the plethystic product identity (item 42) and the residue formula for arbitrary ranks. Planned in route 1."
+  },
+  {
+   "id": "PAPER-SCHIFFMANN-16/generating-identity",
+   "kind": "theorem",
+   "name": "The generating identity for A^{≥0}_{g,r,d}",
+   "statement": "Summing Ξ_r̲ over all generic Jordan types and using item 19 gives, with every rational function of z expanded in Q[[z]]: exp(Σ_{l≥1}(1/l) Σ_{r,d} A^{≥0}_{r,d}(X ⊗ F_{q^l}) z^{ld}T^{lr}/(q^l − 1)) = Σ_λ q^{(g−1)⟨λ,λ⟩} J_λ(z)H_λ(z)T^{|λ|} · Exp((|X(F_q)|/(q−1))·z/(1−z)). For d > 0, A^{≥0}_{0,d}(X ⊗ F_{q^l}) = |X(F_{q^l})|: a geometrically indecomposable torsion sheaf of degree d is the indecomposable d-fold self-extension of the structure sheaf of a rational point. So the rank-zero terms cancel the last factor, and by the uniqueness in Theorem 1 one gets, in K_g[[T,z]], Exp(Σ_{r>0,d} A^{≥0}_{g,r,d} z^d T^r/(q−1)) = Σ_λ q^{(g−1)⟨λ,λ⟩} J_λ(z)H_λ(z)T^{|λ|}.",
+   "locator": "arXiv:1406.3839v2 (4 October 2014), §5.7, (5.15)–(5.17), p. 21; published version (Annals 183 (2016)), §5.7, (5.19)–(5.21), pp. 333–334",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Added by FIX-RT-PAPER-SCHIFFMANN-16 (RT-PAPER-SCHIFFMANN-16/8). This is the heart of the proof of Theorem 2. The torsion count is for d > 0: the zero sheaf is not counted. Planned in route 1."
+  },
+  {
+   "id": "PAPER-SCHIFFMANN-16/periodicity-and-residue-extraction",
+   "kind": "theorem",
+   "name": "Periodicity and residue extraction",
+   "statement": "Let A^{≥0}_{g,r}(z) = Σ_{d≥0} A^{≥0}_{g,r,d} z^d; by the generating identity it is the rational function A_{g,r}(z) of Theorem 2. For d > (g−1)r(r−1), A^{≥0}_{r,d}(X) = A_{r,d}(X) (item 20), and A_{r,d}(X) depends only on d mod r (item degree-mod-r). So the A^{≥0}_{g,r,d} are eventually periodic in d with period r, and A^{≥0}_{g,r}(z) = P_{g,r}(z) + Σ_{d=0}^{r−1} A_{g,r,d} z^d/(1 − z^r) for some P_{g,r} ∈ K_g[z]. Hence A_{g,r,d} = −Σ_{l∈Z/rZ} Res_{z=ξ^l}(A_{g,r}(z) dz/z) ξ^{−ld} for ξ a primitive r-th root of unity.",
+   "locator": "arXiv:1406.3839v2 (4 October 2014), §5.8, (5.18), p. 21; published version (Annals 183 (2016)), §5.8, (5.22), pp. 334–335",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Added by FIX-RT-PAPER-SCHIFFMANN-16 (RT-PAPER-SCHIFFMANN-16/8). The step that turns the generating identity into the residue formula of Theorem 2 (item 7). Planned in route 1."
+  },
+  {
+   "id": "PAPER-SCHIFFMANN-16/degree-mod-r",
+   "kind": "theorem",
+   "name": "Dependence on d mod r",
+   "statement": "Tensoring by a line bundle of degree one on X is a bijection between the geometrically indecomposable vector bundles of rank r and degree d and those of rank r and degree d + r. So A_{r,d}(X), and with it A_{g,r,d}, depends only on d mod r. A line bundle of degree one on X over F_q exists because a curve over a finite field has a divisor of degree one (F. K. Schmidt's theorem); no rational point is assumed.",
+   "locator": "arXiv:1406.3839v2 (4 October 2014), §5.8, p. 21; published version (Annals 183 (2016)), §1.2, p. 299, and §5.8, p. 334",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Added by FIX-RT-PAPER-SCHIFFMANN-16 (RT-PAPER-SCHIFFMANN-16/8). FunctionFieldArithmetic FA.1 plans divisors and Pic, and its acceptance test warns against silently assuming a degree-one base point, but its text does not state F. K. Schmidt's theorem (e.g. Stichtenoth, Algebraic Function Fields and Codes, §5.1). Route 1's design job should request it from FA.1 rather than plan it. Planned in route 1."
+  },
+  {
+   "id": "PAPER-SCHIFFMANN-16/galois-descent-of-indecomposables",
+   "kind": "theorem",
+   "name": "Galois descent of indecomposables",
+   "statement": "Let G = Gal(F̄_q/F_q) act on the isomorphism classes of indecomposable coherent sheaves on X̄ = X ⊗ F̄_q of class α lying in C_{≥0}, and let ξ_{α,d} be the set of orbits of size d. Then (2.4) |ξ_{α,d}| = |Ind^{≥0}_{dα,d}|, the number of indecomposable sheaves M on X of class dα in C_{≥0} with End(M)/rad End(M) of degree d over F_q; and (2.5) A^{≥0}_α(X ⊗ F_{q^l}) = Σ_{d|l} d·|ξ_{α,d}|. For (2.4), an orbit {N_1, …, N_d} gives M = ⊕_i N_i with a σ-semilinear isomorphism M ≅ M^σ for each σ ∈ G. Aut(M) is a connected linear algebraic group over F_q (open in the affine space End(M)); H¹(G, Aut(M)) is trivial, and every class in the nonabelian H²(G, Aut(M)) is neutral (Steinberg, [Ser94, III.2.4, Cor. 3]; Springer, [Spr66, Th. 3.5]). The H² statement turns the semilinear isomorphisms into an effective descent datum, and the H¹ statement makes the descended sheaf unique up to isomorphism. So there is a unique M_0 on X with M_0 ⊗ F̄_q ≅ M, and M_0 is indecomposable. H¹ alone gives uniqueness, not existence.",
+   "locator": "published version (Annals 183 (2016)), Lemma 2.6 with (2.3)–(2.5), pp. 310–311; arXiv:1406.3839v2 (4 October 2014), proof of Proposition 2.1, p. 8, which asserts the two counts ('Thus') with no descent argument",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Added by FIX-RT-PAPER-SCHIFFMANN-16 (RT-PAPER-SCHIFFMANN-16/8). It is the Galois-orbit count that item 19 uses. Lang's theorem, the H¹ input, is requested from ReductiveGroupsPartII RG2.3 (item lang-steinberg, route 6). The H² neutrality for a connected group over a finite field (Springer) has no owner in the atlas and is planned in route 1 with this item. [Ser94] is Serre, Cohomologie galoisienne, 5th ed., LNM 5 (1994); [Spr66] is Springer, Nonabelian H² in Galois cohomology, Proc. Sympos. Pure Math. 9 (1966), 164–182."
+  },
+  {
+   "id": "PAPER-SCHIFFMANN-16/lang-steinberg",
+   "kind": "theorem",
+   "name": "Lang–Steinberg: H¹ of a connected group over a finite field vanishes",
+   "statement": "For H a smooth connected algebraic group over a finite field k, H¹(k, H) = 1. Here H = Aut(M), the unit group of the finite-dimensional k-algebra End(M) of a coherent sheaf M on X.",
+   "locator": "published version (Annals 183 (2016)), proof of Lemma 2.6, p. 311 ('By Steinberg's and Grothendieck's theorems (see [Ser94, III.2.4, Cor. 3] and [Spr66, Th. 3.5]), the Galois cohomology groups H^i(G, Aut(M)) are trivial (resp. neutral) for i = 1, 2')",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Added by FIX-RT-PAPER-SCHIFFMANN-16 (RT-PAPER-SCHIFFMANN-16/8). PAPER-LIPNOWSKI-TSIMERMAN-18/lang-theorem and PAPER-TREUMANN-VENKATESH-16/lang-steinberg make the same request, and source routes send both to ReductiveGroupsPartII RG2.3. RG2.3's text does not yet state it, so this is a request (route 6), not a planned item."
+  },
+  {
+   "id": "PAPER-SCHIFFMANN-16/coprime-indecomposables-absolute",
+   "kind": "theorem",
+   "name": "Coprime indecomposables are absolutely indecomposable with residue field k",
+   "statement": "Let gcd(r,d) = 1 and let F be an indecomposable vector bundle of rank r and degree d on X over k = F_q. Then F is geometrically indecomposable, and End(F) is a local k-algebra with End(F)/rad End(F) = k, so every endomorphism of F is c·Id + n with c ∈ k and n nilpotent. The paper states this without proof. It follows from the orbit description of galois-descent-of-indecomposables: if F ⊗ F̄_q splits, its indecomposable summands form one Galois orbit of some size l > 1 and all have class (r/l, d/l), so l divides gcd(r,d) = 1.",
+   "locator": "arXiv:1406.3839v2 (4 October 2014), proof of Lemma 6.4, p. 27, and the count of Y_1(k) in §6.9, p. 29; published version (Annals 183 (2016)), proof of Lemma 6.2, pp. 340–341, and §6.9, p. 349",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Added by FIX-RT-PAPER-SCHIFFMANN-16 (RT-PAPER-SCHIFFMANN-16/8). Used in the indecomposability criterion (item 48) and in |Y_1(k)| = q^{1+(g−1)r²}|I_{r,d}| (item 52). Planned in route 1."
   }
  ],
  "prerequisites": [
@@ -730,7 +823,7 @@
   {
    "citation": "Michael Atiyah, On the Krull–Schmidt theorem with applications to sheaves, Bull. Soc. Math. France 84 (1956), 307–317",
    "link": "http://www.numdam.org/item/BSMF_1956__84__307_0/",
-   "why": "Krull–Schmidt for categories of coherent sheaves, with the local endomorphism rings of indecomposables; the Tau Ceti roadmap on quiver representations plans the theorem for finite-length modules over a finite-dimensional algebra, and this is the version Section 2 needs."
+   "why": "Krull–Schmidt for categories of coherent sheaves, with the local endomorphism rings of indecomposables; Tau Ceti has the theorem for modules, in Azumaya's generality (item 15), and this is the version for sheaves that Section 2 needs."
   },
   {
    "citation": "Günter Harder, Chevalley groups over function fields and automorphic forms, Ann. of Math. 100 (1974), 249–306",
@@ -756,6 +849,11 @@
    "citation": "Jiuzhao Hua, Counting indecomposable representations of quivers over finite fields, J. Algebra 226 (2000), 1011–1033",
    "link": "https://doi.org/10.1006/jabr.1999.8220",
    "why": "The generating-series formula for the Kac polynomials of a quiver, which the formula for the constant terms A_{g,r,d}(0) in Corollary 1.10 differs from only by an extra term −l(λ); it is the combinatorial model for the whole computation."
+  },
+  {
+   "citation": "Anton Mellit, Poincaré polynomials of moduli spaces of Higgs bundles and character varieties (no punctures), Invent. Math. 221 (2020), 301–327",
+   "link": "https://doi.org/10.1007/s00222-020-00950-1",
+   "why": "Theorem 1.1 (arXiv:1707.04214v1, p. 2): for g ≥ 1 and every d, A_{g,r,d} = H_{g,r}(q, 1, α_1, …, α_g), a Laurent polynomial independent of d. It proves the paper's Conjectures 1.3 and 1.4 for g ≥ 1 and removes the localisation K_g from Theorem 1 (items 3 and 8). It does not cover the parabolic and slope-refined counts (items 54 and 55)."
   }
  ],
  "routes": [
@@ -768,10 +866,10 @@
     "PAPER-SCHIFFMANN-16/1",
     "PAPER-SCHIFFMANN-16/2",
     "PAPER-SCHIFFMANN-16/3",
-    "PAPER-SCHIFFMANN-16/5",
     "PAPER-SCHIFFMANN-16/6",
     "PAPER-SCHIFFMANN-16/7",
     "PAPER-SCHIFFMANN-16/8",
+    "PAPER-SCHIFFMANN-16/9",
     "PAPER-SCHIFFMANN-16/10",
     "PAPER-SCHIFFMANN-16/11",
     "PAPER-SCHIFFMANN-16/12",
@@ -815,10 +913,17 @@
     "PAPER-SCHIFFMANN-16/55",
     "PAPER-SCHIFFMANN-16/56",
     "PAPER-SCHIFFMANN-16/57",
-    "PAPER-SCHIFFMANN-16/58"
+    "PAPER-SCHIFFMANN-16/58",
+    "PAPER-SCHIFFMANN-16/residue-formula-arbitrary-ranks",
+    "PAPER-SCHIFFMANN-16/jordan-type-sum",
+    "PAPER-SCHIFFMANN-16/generating-identity",
+    "PAPER-SCHIFFMANN-16/periodicity-and-residue-extraction",
+    "PAPER-SCHIFFMANN-16/degree-mod-r",
+    "PAPER-SCHIFFMANN-16/galois-descent-of-indecomposables",
+    "PAPER-SCHIFFMANN-16/coprime-indecomposables-absolute"
    ],
-   "brief": "Plan the counting of indecomposable vector bundles on a curve over a finite field, the Hall-algebra machinery that computes it, and its identification with the point count of the moduli space of stable Higgs bundles, after Schiffmann. The final theorems are his Theorems 1, 2, 3 and 4. Theorem 1: for each genus g and each (r,d) ∈ N × Z there is a unique element A_{g,r,d} of K_g, the localization of Q[T_g]^{W_g} at the multiplicative set generated by the q^l − 1, such that the number A_{r,d}(X) of geometrically indecomposable vector bundles of rank r and degree d on X equals A_{g,r,d}(σ_X) for every smooth projective geometrically connected curve X of genus g over a finite field, where σ_X ∈ T_g/W_g is the class of the Weil numbers of X. Theorem 2 makes it effective: with J_λ(z) = ∏_{s∈λ} ζ*_X(q^{−1−l(s)}z^{a(s)}) and H_λ(z) an iterated residue of an explicit symmetrising kernel L(z_n,…,z_1), the rational functions A_{g,r}(z) defined by Σ_{r≥1} A_{g,r}(z)T^r = (q−1)Log(Σ_λ q^{(g−1)⟨λ,λ⟩}J_λ(z)H_λ(z)T^{|λ|}) satisfy A_{g,r,d} = −Σ_{ξ∈μ_r} ξ^{−d} Res_{z=ξ}(A_{g,r}(z)dz/z). Theorem 3: for (r,d) coprime there is an explicit constant C(r,d) such that, whenever char(F_q) > C(r,d), |Higgs^st_{r,d}(X)(F_q)| = q^{1+(g−1)r²}·A_{r,d}(X). Theorem 4 is the same polynomiality for quasi-parabolic bundles along a fixed divisor. The roadmap must cover, in this order. (1) The arithmetic frame: the Weil numbers of a curve, the torus T_g with its W_g-action, the invariant ring R_g = Q[T_g]^{W_g} and its localization K_g, the class σ_X ∈ T_g/W_g, and the Zariski density of the set of such classes as X runs over all curves of genus g in a fixed residue characteristic — the density is what gives uniqueness in Theorem 1 and is routed separately as a source of DeligneWeightsAndPurity. (2) The categorical frame: classes and the Euler form ⟨(r,d),(r′,d′)⟩ = (1−g)rr′ + (rd′ − r′d) of a curve, slopes, semistable sheaves, Harder–Narasimhan filtrations and the categories C_ν, C_{α_1,…,α_t}, C_{≥ν} and C_{≤ν}, with their finiteness and base-change properties; Krull–Schmidt for coherent sheaves in the form of Atiyah's theorem, together with the computation of the radical of the endomorphism algebra of a decomposition and the ratio |End^nil(M)|/|Aut(M)| = ∏_i |k_{M_i}|^{n_i(n_i−1)}/|GL(n_i,k_{M_i})|; and geometric indecomposability. (3) The orbifold of pairs: the groupoids Nil_α(X) of pairs (F,θ) with θ a nilpotent endomorphism, their volumes, the finiteness of Nil^{≥0}_α(X), the plethystic identity Σ_α vol(Nil^{≥0}_α(X))z^α = Exp(Σ_α A^{≥0}_α(X)z^α/(q−1)), and the vanishing of the difference between A^{≥0}_{r,d} and A_{r,d} when d > (g−1)r(r−1). (4) The Jordan stratification: the Jordan type of a nilpotent pair, the stratification of Nil_α, the groupoids of filtered sheaves, the three functors π, π′, π″ and the volumes of their fibres, giving vol(Nil^{≥0}_{α̲}) = q^{d′(α̲)}vol(C̃oh^{≥0}_{α̲}). (5) The Hall algebra of a curve: the convolution product and coproduct on functions on the groupoids of coherent sheaves, the extended algebra with its group-algebra factor, Green's theorem, the Hopf pairing on the finitely supported part; the characteristic functions and their volumes, including Siegel's formula for vol(Bun_{r,d}) and the volume of the stack of torsion sheaves, both of which are routed separately as sources of GlobalShtukas; Eisenstein series E_r(z), E^vec_r(z) with Harder's rationality, the Hecke commutation relation, the coproduct formula, the residue presentation of E^vec_r, the truncated series and the Harder–Narasimhan relations among them; and the spherical subalgebra with its generic form over R_g, quoted from Schiffmann–Vasserot and Schiffmann, which is what makes every volume a function of σ_X alone. (6) The computation: the generating series G^{≥0} and A^*, the separation of the torsion factor, the untruncated series, the shuffle formulas for the rank-one truncated series, and the plethystic identity turning the answer into a product over the boxes of a Young diagram — and hence Theorem 2 and the companion formula for the constant terms A_{g,r,d}(0). (7) The Higgs side: Higgs sheaves and bundles with the canonical twist, their stability, the moduli stack and the smooth moduli space for coprime (r,d), the Hitchin map and the stable global nilpotent cone; the two-line-bundle quot presentation of Álvarez-Cónsul and King with its embedding into the representation space of a Kronecker quiver, King's stability criterion for the doubled quiver, the moment map, the criterion for indecomposability in terms of the line kλ, the smooth family Y → A^1 with Y_0 ≅ Higgs^st_{r,d}(X), the contracting G_m-action and the Bialynicki-Birula–Hesselink decomposition, and the resulting equality of point counts that proves Theorem 3; then the purity and Poincaré-polynomial corollaries over F_q and over C. (8) The extensions and the conjectures, recorded as conjectures and not as theorems: quasi-parabolic bundles and Theorem 4, the refinement by Harder–Narasimhan slope, the conjecture that A_{g,r,d} is independent of d (proved for r prime), the conjecture that each Harder–Narasimhan type has its own counting polynomial, the spherical Hall Lie algebra of a curve, and the two conjectures relating A_{g,r,d}(0) to its dimensions and to a Donaldson–Thomas identity. Import, and do not re-plan: the stack Bun_G on a global curve with its level structures, deformation complex, Harder–Narasimhan bounded opens, finite type and adelic description from Global shtukas and Langlands over function fields (GlobalShtukasAndFunctionFieldLanglands), stage GS.0, of which this paper is also a source; curves, function fields, adeles and the zeta function with its Euler product over closed points from Global function fields, reciprocity and automorphic foundations (FunctionFieldArithmetic), stages FA.0, FA.1, FA.2 and FA.5, and automorphic forms with constant terms and cuspidal subspaces from FA.6; Weil q-numbers, their weights and the functorial linear algebra of eigenvalues from Deligne weights, purity and the Weil bounds (DeligneWeightsAndPurity), stage DWP.0, of which this paper is also a source; the Hilbert and Quot schemes with their representability, projectivity, tangent spaces and Grassmannian embedding from Algebraic moduli and representability for arithmetic geometry (AlgebraicModuliForArithmeticGeometry), stage R09.2, and algebraic stacks from R09.4; Higgs fields, the Hitchin base and map and the Picard stack acting on the fibres, for a reductive group over a curve over a finite field, from Endoscopic transfer and unitary trace comparison (EndoscopicTransferAndUnitaryTraceComparison), stage ET.2b, of which this paper is also a source; the Euler and Tits forms, dimension vectors, Krull–Schmidt for finite-length modules and Auslander–Reiten theory from the Tau Ceti roadmap on quiver representations, which is existing work and is never re-planned. Young diagrams, the conjugate partition and partitions are in Mathlib (YoungDiagram, YoungDiagram.transpose, Nat.Partition) and must not be rebuilt; nothing else in this roadmap is in the libraries. The roadmap owns, and must plan itself: the counting functions and their polynomiality, the orbifold of pairs and the Jordan stratification, the Hall algebra of a curve with its spherical subalgebra and generic form, the plethystic calculus, the explicit formulas, and the whole deformation argument relating indecomposable bundles to stable Higgs bundles. The conjectures of Sections 1 and 8 are to be stated with their exact hypotheses and recorded as open.",
-   "reason": "Nothing in the atlas goes in this direction. The subject is the enumeration of indecomposable vector bundles on a curve over a finite field, the Hall algebra of the category of coherent sheaves on that curve with its spherical subalgebra and its generic form, and the comparison of the answer with the point count of the moduli space of stable Higgs bundles. Searches of the layer descriptions return no occurrence of 'Hall algebra', of 'Kac polynomial', of 'character variety', of 'nilpotent cone' in this sense, or of any counting problem for bundles. What the atlas does have are the two ends of the story and neither of its middles: GlobalShtukasAndFunctionFieldLanglands GS.0 constructs Bun_G on a global curve with its Harder–Narasimhan bounded opens and adelic description, and EndoscopicTransferAndUnitaryTraceComparison ET.2b constructs the Hitchin base and map with the Picard stack acting on its fibres, for a reductive group over a curve over a finite field, as machinery for Ngô's proof of the fundamental lemma. Neither roadmap heads towards counting, and the mathematics between them — Hall algebras, Eisenstein series in Hall-algebra form, the orbifold of nilpotent pairs, the plethystic calculus, the two-line-bundle quot presentation and the deformation of the Higgs moduli space — belongs to neither. It is not a Part II of GS, because GS is organised around shtukas and the Langlands correspondence and this work uses only its first layer; it is not a Part II of ET, because ET is organised around the trace formula and this work uses only its Hitchin geometry. The closest existing direction is the Tau Ceti roadmap on quiver representations, whose Euler form, Krull–Schmidt theorem and Auslander–Reiten theory are the exact local model for Sections 2 and 6 of this paper; but a Tau Ceti roadmap is existing work that is never re-planned, and what this paper does is not an extension of quiver theory but its global analogue over a curve. So a new roadmap, in the function-fields galaxy alongside FunctionFieldArithmetic and GlobalShtukasAndFunctionFieldLanglands, which it imports from."
+   "brief": "Plan the counting of indecomposable vector bundles on a curve over a finite field, the Hall-algebra machinery that computes it, and its identification with the point count of the moduli space of stable Higgs bundles, after Schiffmann. The final theorems are his Theorems 1, 2, 3 and 4. Theorem 1: for each genus g and each (r,d) ∈ N × Z there is a unique element A_{g,r,d} of K_g, the localization of Q[T_g]^{W_g} at the multiplicative set generated by the q^l − 1, such that the number A_{r,d}(X) of geometrically indecomposable vector bundles of rank r and degree d on X equals A_{g,r,d}(σ_X) for every smooth projective geometrically connected curve X of genus g over a finite field, where σ_X ∈ T_g/W_g is the class of the Weil numbers of X. Theorem 2 makes it effective: with J_λ(z) = ∏_{s∈λ} ζ*_X(q^{−1−l(s)}z^{a(s)}) and H_λ(z) an iterated residue of an explicit symmetrising kernel L(z_n,…,z_1), the rational functions A_{g,r}(z) defined by Σ_{r≥1} A_{g,r}(z)T^r = (q−1)Log(Σ_λ q^{(g−1)⟨λ,λ⟩}J_λ(z)H_λ(z)T^{|λ|}) satisfy A_{g,r,d} = −Σ_{ξ∈μ_r} ξ^{−d} Res_{z=ξ}(A_{g,r}(z)dz/z). Theorem 3: for (r,d) coprime there is an explicit constant C(r,d) such that, whenever char(F_q) > C(r,d), |Higgs^st_{r,d}(X)(F_q)| = q^{1+(g−1)r²}·A_{r,d}(X). Theorem 4 is the same polynomiality for quasi-parabolic bundles along a fixed divisor. The roadmap must cover, in this order. (1) The arithmetic frame: the Weil numbers of a curve, the torus T_g with its W_g-action, the invariant ring R_g = Q[T_g]^{W_g} and its localization K_g, the class σ_X ∈ T_g/W_g, and the Zariski density of the set of such classes as X runs over all curves of genus g in a fixed residue characteristic — the density is what gives uniqueness in Theorem 1 and is imported from the LefschetzPencilsAndVanishingCycles Part II (route 3: Katz–Sarnak's curve-family monodromy with DeligneWeightsAndPurity:DWP.8:equidistribution). T_g is the maximal torus of GSp_{2g} and W_g its Weyl group, so R_g is the rationalised full character ring Q ⊗ R(GSp_{2g}): identify it with the GSp_{2g} character ring that ClassicalGroupsPartII plans (PAPER-YU-23 route 13, item 099) rather than prove that identification twice. Yu's R_g is a smaller ring, the integral subring generated by the constituents of tensor powers of the standard representation. (2) The categorical frame: classes and the Euler form ⟨(r,d),(r′,d′)⟩ = (1−g)rr′ + (rd′ − r′d) of a curve, slopes, semistable sheaves, Harder–Narasimhan filtrations and the categories C_ν, C_{α_1,…,α_t}, C_{≥ν} and C_{≤ν}, with their finiteness and base-change properties; Krull–Schmidt for coherent sheaves (Atiyah's theorem), planned only as the transfer to Coh(X) of the Tau Ceti module theorems named below, and the computation of the radical of the endomorphism algebra of a decomposition, on Mathlib's nilpotent Jacobson radical and semisimple quotient of an Artinian ring and the ratio |End^nil(M)|/|Aut(M)| = ∏_i |k_{M_i}|^{n_i(n_i−1)}/|GL(n_i,k_{M_i})|; and geometric indecomposability: the Galois descent of indecomposables with its counts (2.4)–(2.5) (published Lemma 2.6), using Lang's theorem, which route 6 requests from ReductiveGroupsPartII RG2.3, and Springer's neutrality of H² for connected groups over a finite field; for coprime (r,d), that indecomposable bundles are absolutely indecomposable with End/rad = k; and that A_{r,d}(X) depends only on d mod r, by tensoring with a line bundle of degree one, which exists by F. K. Schmidt's theorem (request it from FunctionFieldArithmetic FA.1). (3) The orbifold of pairs: the groupoids Nil_α(X) of pairs (F,θ) with θ a nilpotent endomorphism, their volumes, the finiteness of Nil^{≥0}_α(X), the plethystic identity Σ_α vol(Nil^{≥0}_α(X))z^α = Exp(Σ_α A^{≥0}_α(X)z^α/(q−1)), and the vanishing of the difference between A^{≥0}_{r,d} and A_{r,d} when d > (g−1)r(r−1). (4) The Jordan stratification: the Jordan type of a nilpotent pair, the stratification of Nil_α, the groupoids of filtered sheaves, the three functors π, π′, π″ and the volumes of their fibres, giving vol(Nil^{≥0}_{α̲}) = q^{d′(α̲)}vol(C̃oh^{≥0}_{α̲}). (5) The Hall algebra of a curve: the convolution product and coproduct on functions on the groupoids of coherent sheaves, the extended algebra with its group-algebra factor, Green's theorem, the Hopf pairing on the finitely supported part; the characteristic functions and their volumes, including Siegel's formula for vol(Bun_{r,d}) and the volume of the stack of torsion sheaves, both of which are routed separately as sources of GlobalShtukas; Eisenstein series E_r(z), E^vec_r(z) with Harder's rationality, the Hecke commutation relation, the coproduct formula, the residue presentation of E^vec_r, the truncated series and the Harder–Narasimhan relations among them; and the spherical subalgebra with its generic form over R_g, quoted from Schiffmann–Vasserot and Schiffmann, which is what makes every volume a function of σ_X alone. (6) The computation: the generating series G^{≥0} and A^*, the separation of the torsion factor, the untruncated series, the shuffle formulas for the rank-one truncated series, the residue formula for arbitrary ranks (5.14)–(5.15), the Jordan-type sum Ξ_r̲(z) (5.16)–(5.18) with the bijection between generic Jordan types and partitions, the plethystic identity turning the answer into a product over the boxes of a Young diagram, the generating identity (5.19)–(5.21) with the torsion count A^{≥0}_{0,d}(X ⊗ F_{q^l}) = |X(F_{q^l})| for d > 0, and the periodicity step (5.22) that extracts the residues — and hence Theorem 2, with the rank-two formula as its acceptance test (0 at g = 0, |E(F_q)| at g = 1), and the companion formula for the constant terms A_{g,r,d}(0). Equation numbers are those of the published version. (7) The Higgs side: Higgs sheaves and bundles with the canonical twist Ω_X, their slope (semi)stability, the moduli stack and, for coprime (r,d), the stable locus Higgs^st_{r,d}(X), a G_m-gerbe over the smooth connected scheme Higgs^st_{r,d} (published p. 337), the properness of the Hitchin map on Higgs^st_{r,d} and the stable global nilpotent cone (item 9). This roadmap is their one owner: PAPER-YU-23/036 imports them, and the SL_n moduli space of PAPER-GROECHENIG-WYSS-ZIEGLER-20/62 is a related target, not the same one; the two-line-bundle quot presentation of Álvarez-Cónsul and King with its embedding into the representation space of a Kronecker quiver, King's stability criterion for the doubled quiver, the moment map, the criterion for indecomposability in terms of the line kλ, the smooth family Y → A^1 with Y_0 ≅ Higgs^st_{r,d}(X), the contracting G_m-action and the Bialynicki-Birula–Hesselink decomposition, and the resulting equality of point counts that proves Theorem 3; then the purity and signed Poincaré-polynomial corollaries over F_q and over C (Σ_n (−1)^n dim H^n_c t^n, E9), and the corollary on the stable global nilpotent cone with the corrected exponents q^{1+(g−1)r²} and H^{2(1+(g−1)r²)} (E8). (8) The extensions: quasi-parabolic bundles and Theorem 4, with values in K_g, since the argument given does not prove the printed Q[T_g]^{W_g} (E12), and the refinement by Harder–Narasimhan slope, also in K_g (E11). Mellit's theorem (degree independence and integrality: for g ≥ 1 and every d, A_{g,r,d} = H_{g,r}(q, 1, α), a Laurent polynomial, so A_{g,r,d} ∈ Q[T_g]^{W_g}; item 8), planned here with Mellit's paper (Invent. Math. 221 (2020), Theorem 1.1) as its source; the paper's Conjectures 1.3 and 1.4, with its proof for r prime (Appendix C), are the historical form. Then the conjectures, recorded as open and not as theorems: that each Harder–Narasimhan type has its own counting polynomial, the spherical Hall Lie algebra of a curve, and the two conjectures relating A_{g,r,d}(0) to its dimensions and to a Donaldson–Thomas identity. Import, and do not re-plan: the stack Bun_G on a global curve with its level structures, deformation complex, Harder–Narasimhan bounded opens, finite type and adelic description from Global shtukas and Langlands over function fields (GlobalShtukasAndFunctionFieldLanglands), stage GS.0, of which this paper is also a source; curves, function fields, adeles and the zeta function with its Euler product over closed points from Global function fields, reciprocity and automorphic foundations (FunctionFieldArithmetic), stages FA.0, FA.1, FA.2 and FA.5, and automorphic forms with constant terms and cuspidal subspaces from FA.6; Weil q-numbers, their weights and the functorial linear algebra of eigenvalues from Deligne weights, purity and the Weil bounds (DeligneWeightsAndPurity), stage DWP.0; the Hilbert and Quot schemes with their representability, projectivity, tangent spaces and Grassmannian embedding from Algebraic moduli and representability for arithmetic geometry (AlgebraicModuliForArithmeticGeometry), stage R09.2, and algebraic stacks from R09.4; the Higgs stack for a twisting divisor, the Hitchin base and map and the Picard stack acting on the fibres, for a reductive group over a curve over a finite field, from Endoscopic transfer and unitary trace comparison (EndoscopicTransferAndUnitaryTraceComparison), stage ET.2b, of which this paper is also a source (route 4). ET.2b's twist is 'a chosen sufficiently positive divisor', and it does not say whether Ω_X qualifies, so the canonical twist, stability, the coprime moduli space and the properness of its Hitchin map are planned here, in (7); plethystic Exp and Log with their Adams operations from QSeriesPartitionsAndMockModularForms, stage QM.0, their one owner through PAPER-YU-23 route 7 and PAPER-BERGSTROM-FABER-PAYNE-24 route 9 (route 5 of this paper); the Euler and Tits forms, dimension vectors and Auslander–Reiten theory from the Tau Ceti roadmap on quiver representations, which is existing work and is never re-planned. From the Tau Ceti library: Krull–Schmidt in Azumaya's form, Fitting's lemma and the existence of indecomposable decompositions (TauCeti.exists_equiv_linearEquiv_of_directSum_of_isLocalRing_end, TauCeti.exists_equiv_linearEquiv_of_isLocalRing_end, TauCeti.isLocalRing_end_of_isIndecomposable, TauCeti.exists_indecomposable_decomposition). They are built for modules, and only their transfer to Coh(X) is planned here (item 15). From Mathlib: the nilpotent Jacobson radical and the semisimple quotient of an Artinian ring (IsArtinianRing.isNilpotent_jacobson_bot, IsArtinianRing.isSemisimpleRing_iff_jacobson). Young diagrams, the conjugate partition and partitions are in Mathlib (YoungDiagram, YoungDiagram.transpose, Nat.Partition) and must not be rebuilt. Beyond these, nothing in this roadmap is in the libraries. The roadmap owns, and must plan itself: the counting functions and their polynomiality, the orbifold of pairs and the Jordan stratification, the Hall algebra of a curve with its spherical subalgebra and generic form, the explicit formulas, and the whole deformation argument relating indecomposable bundles to stable Higgs bundles. It is the one owner of the counting polynomial A_{g,r,d} and of Theorems 1, 2 and 3 with their corollaries (items 2, 3, 7, 10, 11 and 12), of Mellit's theorem (item 8), of Krull–Schmidt for Coh(X) (item 15) and of the stable Higgs moduli (item 9). PAPER-YU-23 route 12 (GlobalShtukasAndFunctionFieldLanglandsCountingPartII) imports them by node id rather than plan its items 027, 036, 037, 046, 131 and 178 again. Yu's item 037 needs the Higgs comparison in the characteristic range it states, and this paper cites Mozgovoy–Schiffmann [MS14] for a proof of Theorem 3 in all characteristics (published p. 300); Yu's item 046 needs Mellit's all-degree theorem, not only this paper. The conjectures of Section 8 are to be stated with their exact hypotheses and recorded as open; Conjecture 1 of Section 1 is Mellit's theorem.",
+   "reason": "Nothing in the atlas goes in this direction. The subject is the enumeration of indecomposable vector bundles on a curve over a finite field, the Hall algebra of the category of coherent sheaves on that curve with its spherical subalgebra and its generic form, and the comparison of the answer with the point count of the moduli space of stable Higgs bundles. Searches of the layer descriptions return no occurrence of 'Hall algebra', of 'Kac polynomial', of 'character variety', of 'nilpotent cone' in this sense, or of any counting problem for bundles. What the atlas does have are the two ends of the story and neither of its middles: GlobalShtukasAndFunctionFieldLanglands GS.0 constructs Bun_G on a global curve with its Harder–Narasimhan bounded opens and adelic description, and EndoscopicTransferAndUnitaryTraceComparison ET.2b constructs the Hitchin base and map with the Picard stack acting on its fibres, for a reductive group over a curve over a finite field, as machinery for Ngô's proof of the fundamental lemma. Neither roadmap heads towards counting, and the mathematics between them — Hall algebras, Eisenstein series in Hall-algebra form, the orbifold of nilpotent pairs, the plethystic calculus, the two-line-bundle quot presentation and the deformation of the Higgs moduli space — belongs to neither. It is not a Part II of GS, because GS is organised around shtukas and the Langlands correspondence and this work uses only its first layer; it is not a Part II of ET, because ET is organised around the trace formula and this work uses only its Hitchin geometry. The closest existing direction is the Tau Ceti roadmap on quiver representations, whose Euler form, Krull–Schmidt theorem and Auslander–Reiten theory are the exact local model for Sections 2 and 6 of this paper; but a Tau Ceti roadmap is existing work that is never re-planned, and what this paper does is not an extension of quiver theory but its global analogue over a curve. So a new roadmap, in the function-fields galaxy alongside FunctionFieldArithmetic and GlobalShtukasAndFunctionFieldLanglands, which it imports from. One accepted extraction does go over the same ground. PAPER-YU-23 route 12, the Part II of GlobalShtukasAndFunctionFieldLanglands on counting unramified local systems, routes Yu's uses of this paper: the universal count of indecomposable bundles (Yu 046, through Mellit's theorem), the Higgs count (037), purity and the signed Poincaré polynomial (131), the top-weight term (178), Krull–Schmidt for bundles (027), the stable Higgs moduli (036) and the density of Weil tuples (100). Mellit's theorem (item 8) belongs to the same material. RT-PAPER-SCHIFFMANN-16/3 gives each statement one owner: this roadmap for the counting theorems, Mellit's theorem, Krull–Schmidt and the stable Higgs moduli; QM.0 for plethystic Exp and Log (route 5); and the LefschetzPencilsAndVanishingCycles Part II for the density (route 3). Yu's route 12 imports them."
   },
   {
    "route": "source",
@@ -834,15 +939,16 @@
    "reason": "GS.0 constructs Bun_G on the global curve with its level structures, deformation complex and Harder–Narasimhan bounded opens, proves that the relevant bounded opens are of finite type, accounts for automorphisms and central degree, and gives the adelic description of rational points; its acceptance examples are GL_1 giving the Picard stack and GL_n with unstable bundles showing that Bun_G is not a finite-type proper scheme. Two statements the layer needs and does not plan are proved here. The first is Siegel's formula in the shape (1^vec_{r,d} | 1^vec_{r,d}) = (q^{(g−1)(r²−1)}/(q−1))·|Pic^0(X)|·ζ_X(q^{−2})⋯ζ_X(q^{−r}), the volume of Bun_{r,d} over a finite field, together with the companion formula for the volume of the whole stack of coherent sheaves; this is the Tamagawa-number statement for SL_r in stack-volume form, and it is exactly the quantitative content that GS.0's finite-type statements leave open. The second is the volume of the stack of torsion sheaves, Σ_{l≥0}(1_{0,l} | 1_{0,l})s^l = Exp(|X(F_q)|s/(q−1)) = ∏_{i≥1} ζ_X(q^{−i}s), proved in the paper's Appendix A from the factorisation over closed points, the count |N_n(k)| = |k|^{n(n−1)} of the nilpotent cone and Heine's formula. The route also names the Euler form and Harder–Narasimhan package of Section 2.1, which GS.0 plans and for which this paper is a clean written source in the GL_r case."
   },
   {
-   "route": "source",
-   "roadmap": "DeligneWeightsAndPurity",
-   "stages": [
-    "DeligneWeightsAndPurity:DWP.0"
-   ],
+   "route": "part-ii",
+   "parent": "LefschetzPencilsAndVanishingCycles",
+   "roadmap": "UniversalHypersurfaceMonodromy",
+   "title": "Lefschetz pencils, nearby cycles and vanishing cycles, Part II: universal hypersurface monodromy",
+   "area": "etale",
    "items": [
     "PAPER-SCHIFFMANN-16/36"
    ],
-   "reason": "DWP.0 defines Weil q-numbers on actual algebraic-number carriers with their all-embeddings absolute-value property, proves independence of a splitting field, uniqueness of weight, and the behaviour under products, duals, Tate twists and finite-field base extension. The statement proved in this paper's Appendix B is of the same kind and is not planned there: fixing a prime l and an embedding of Q̄_l into C, the set of classes σ_X ∈ T_g/W_g of the Weil numbers of smooth projective geometrically connected curves of genus g over finite fields of characteristic different from l is Zariski dense in T_g/W_g. It is a statement about which tuples of Weil numbers actually occur, and it is what turns 'the same formula holds for every curve of genus g' into an identity of elements of Q[T_g]^{W_g} — the uniqueness half of the paper's first theorem. Any later roadmap that wants to define an invariant by its values on all curves of a fixed genus needs it."
+   "reason": "Proposition 4.8 (Proposition 4.7 in print) says which tuples of Frobenius eigenvalues occur, not what one Weil number satisfies, so DWP.0 cannot own it (REV-RT-AREA-etale/1). Its proof needs two inputs. The first is the big geometric monodromy of an explicit family of curves (Katz–Sarnak 10.1.16), which LPV.5 does not plan: LPV.5 proves open symplectic monodromy for pencil radical quotients. The second is Deligne's equidistribution theorem (Weil II 3.5.3), which DeligneWeightsAndPurity:DWP.8:equidistribution supplies. Browning–Sawin route 6 opens this Part II for Katz–Sarnak's universal-family monodromy (11.4.9). This continuation adds the curve families of their Chapter 10 and the density corollary.",
+   "brief": "Extend the universal-family monodromy direction of Browning–Sawin route 6 (Katz–Sarnak 11.4.9) with the families of curves of Katz–Sarnak Chapter 10, and derive Schiffmann's density of Weil numbers from them. Import LefschetzPencilsAndVanishingCycles LPV.0–5, EtaleDualityAndPerverseSheaves EDC.2–4, DeligneWeightsAndPurity DWP.0 (Weil numbers), DWP.5 (the rank-one twist) and DWP.8:equidistribution, and Tau Ceti RepresentationTheory/LieGroups Layer 6 (maximal tori and the Weyl group). (1) Katz–Sarnak Theorem 10.1.16 (p. 299; setting 10.1.1–10.1.3, p. 293). Let k be a finite field of characteristic p ≠ 2, g ≥ 1, and f ∈ k[X] of degree 2g with 2g distinct roots in k̄. The family Y² = f(X)(X − T) over U = Spec(k[T][1/f(T)]) is proper and smooth, with geometrically connected fibres of genus g. For every ℓ ≠ p, the Zariski closure G_geom of the geometric monodromy of R¹π_!Q̄_ℓ on U is Sp(2g). Decompose the proof as the source does: Lemma 10.1.9 (lisse of rank 2g, pure of weight one, with a symplectic autoduality with values in Q̄_ℓ(−1), so G_geom ⊆ Sp(2g)); 10.1.12 (tame at ∞, by the Euler–Poincaré formula); 10.1.13 (local monodromy at each root of f is trivial or a unipotent pseudoreflection); 10.1.14 (G_geom is connected and generated by unipotent pseudoreflections); 10.1.15 (irreducibility, by the diophantine criterion, using the Weil II bound on H¹_c and the Riemann hypothesis for y² = f(x)); and the Kazhdan–Margulis step of 10.1.16 ([Ka-ESDE, 1.5]). Request the Euler–Poincaré formula from its owner; do not plan it here. (2) Katz–Sarnak Theorem 10.2.2 (p. 301): the characteristic-2 family Y² − Y = X^{2g−1} + T/X over G_{m,F₂} also has G_geom = Sp(2g). Katz and Sarnak only sketch its proof and refer to Sutor's 1992 Princeton thesis, which was not read. Step (3) does not need it (take q odd), so plan it only for a characteristic-2 consumer, and then as a source-closure task. (3) Schiffmann, Proposition 4.8 of arXiv v2 = Proposition 4.7 of Annals 183 (2016), p. 321, proved in Appendix B (v2 pp. 35–36; published pp. 357–358). Fix ℓ and ι : Q̄_ℓ → C. The set W of classes σ_X ∈ T_g/W_g of the Weil numbers of smooth projective geometrically connected curves of genus g over finite fields of characteristic ≠ ℓ is Zariski dense. Follow the published proof. Fix q odd and prime to ℓ, and a square root q^{1/2} ∈ Q̄_ℓ with ι(q^{1/2}) = +√q. Let F = R¹π_!Q̄_ℓ(1/2), where Q̄_ℓ(1/2) is DWP.5's rank-one twist, on which a geometric Frobenius of degree n acts by (q^{1/2})^{−n}; it is not a Tate twist. Then F is ι-pure of weight 0, its arithmetic image lies in Sp(2g) (the pairing of (1) now takes values in Q̄_ℓ), and G_geom = Sp(2g) by (1). These are the hypotheses of the Katz–Sarnak 9.2.6 form of DWP.8:equidistribution. So the classes with eigenvalues (q^{1/2})^{−n}σ_i are equidistributed in the conjugacy classes of USp(2g), hence dense in T/W_g, for the maximal torus T ≅ (S¹)^g. Chenevier's argument (published p. 358) then gives Zariski density of W_q, hence of W: use the map T × R^× → T_g, (z, t) ↦ tz, and the leading coefficient in t of a function vanishing on W_qW_g. Every fibre of the family is a curve of Schiffmann's class X_g, so no moduli space of curves or universal curve over it is needed. This is how the published version replaces v2's open subset M°_g. Do not normalise by v2's ordinary twist (−1): it gives weight 3. Consumer: CountingBundlesAndHallAlgebrasOfCurves, the uniqueness half of Theorem 1. Tests: g = 1, against Weil II 3.5.6–3.5.7 with the measure (2/π) sin²θ dθ (PAPER-DELIGNE-80/E50); a value t that is a root of f, excluded from U; the other choice of ι(q^{1/2})."
   },
   {
    "route": "source",
@@ -851,10 +957,31 @@
     "EndoscopicTransferAndUnitaryTraceComparison:ET.2b"
    ],
    "items": [
-    "PAPER-SCHIFFMANN-16/44",
-    "PAPER-SCHIFFMANN-16/9"
+    "PAPER-SCHIFFMANN-16/44"
    ],
-   "reason": "ET.2b constructs, for a smooth proper curve over a finite field and a reductive group scheme in the source's good-characteristic range, the stack of G-bundles, Higgs fields twisted by a chosen sufficiently positive divisor, the Hitchin base and map, cameral and spectral covers and the Picard stack acting on the Hitchin fibres, and proves algebraicity and finite-type bounds. The boundedness statement proved here is of that kind and is not planned: there is a pair of line bundles (L_1, L_2) on X such that every semistable Higgs bundle and every indecomposable vector bundle of a fixed class is strongly generated by each of them, every kernel of an epimorphism from L_1 ⊗ V is strongly generated by L_2, and every unstable Higgs sheaf has a destabilizing Higgs subsheaf strongly generated by both. It is the input that makes a quot-scheme presentation of the Higgs stack possible at all, and it is stated for the canonical twist rather than for a sufficiently positive one. The route also names the definitions of Higgs sheaves and of the stable moduli space, which ET.2b plans for a general reductive group and for which this paper is a source in the GL_r case with the canonical twist and the coprime stability condition."
+   "reason": "ET.2b constructs, for a smooth proper curve over a finite field and a reductive group scheme in the source's good-characteristic range, the stack of G-bundles, Higgs fields twisted by a chosen sufficiently positive divisor, the Hitchin base and map, cameral and spectral covers and the Picard stack acting on the Hitchin fibres, and proves algebraicity and finite-type bounds. The boundedness statement proved here is of that kind and is not planned: there is a pair of line bundles (L_1, L_2) on X such that every semistable Higgs bundle and every indecomposable vector bundle of a fixed class is strongly generated by each of them, every kernel of an epimorphism from L_1 ⊗ V is strongly generated by L_2, and every unstable Higgs sheaf has a destabilizing Higgs subsheaf strongly generated by both. It is the input that makes a quot-scheme presentation of the Higgs stack possible at all, and it is stated for the canonical twist rather than for a sufficiently positive one. Item 9, the definitions of Higgs sheaves and of the stable moduli space, has left this route (RT-PAPER-SCHIFFMANN-16/6). ET.2b's twist is 'a chosen sufficiently positive divisor', and it plans no stability condition, no coarse moduli space and no properness of the Hitchin map on it, so route 1 plans them."
+  },
+  {
+   "route": "source",
+   "roadmap": "QSeriesPartitionsAndMockModularForms",
+   "stages": [
+    "QSeriesPartitionsAndMockModularForms:QM.0"
+   ],
+   "items": [
+    "PAPER-SCHIFFMANN-16/5"
+   ],
+   "reason": "Plethystic Exp and Log already have one accepted owner, QM.0, through PAPER-YU-23 route 7 (item 044); PAPER-BERGSTROM-FABER-PAYNE-24 route 9 sends its Getzler–Kapranov Exp and Log there too. This paper's Exp and Log on K_g[[z,T]], whose Adams operators act on the α_i as well as on z and T, are the same construction, so they are requested from QM.0, stated for a complete filtered ring with Adams operations, and not planned again (RT-PAPER-SCHIFFMANN-16/3). QM.0's packet has no plethystic node yet."
+  },
+  {
+   "route": "source",
+   "roadmap": "ReductiveGroupsPartII",
+   "stages": [
+    "ReductiveGroupsPartII:RG2.3"
+   ],
+   "items": [
+    "PAPER-SCHIFFMANN-16/lang-steinberg"
+   ],
+   "reason": "PAPER-LIPNOWSKI-TSIMERMAN-18 (item lang-theorem) and PAPER-TREUMANN-VENKATESH-16 (item lang-steinberg) route Lang's theorem to RG2.3. This is the same request, so that the vanishing has one owner; the Galois descent of indecomposables (published Lemma 2.6) uses it for Aut(M) (RT-PAPER-SCHIFFMANN-16/8)."
   }
  ],
  "sourceIssues": [
@@ -921,10 +1048,10 @@
   {
    "id": "PAPER-SCHIFFMANN-16/E4",
    "kind": "misprint",
-   "locator": "Corollary 1.6 and Corollary 1.9 i), the summation indices in the description of the Frobenius eigenvalues; in arXiv v2, the version read (the published version could not be consulted) Published version: all three slips survive — Σ n_i = n on printed p. 349, Σ_i l_j = i on printed p. 351, and the unmatched parenthesis q^{2(1+(g−1)r²} in published Corollary 1.4(i) on printed p. 301, the last read on a rendered page image.",
+   "locator": "Corollary 1.6 and Corollary 1.9 i), the summation indices in the description of the Frobenius eigenvalues; in arXiv v2, the version read (the published version could not be consulted) Published version: both slips survive — Σ n_i = n on printed p. 349 and Σ_i l_j = i on printed p. 351.",
    "printed": "Corollary 1.6 states $\\lambda=\\prod_j \\sigma_j^{n_j}, \\qquad \\sum n_i=n$. In Corollary 1.9 i), every Frobenius eigenvalue on $H^i(\\Lambda^{st}_{r,d}, \\overline{\\mathbb{Q}_l})$ is expressed as $\\prod_j \\alpha_j^{l_j}$ subject to $\\sum_i l_j=i$.",
    "correction": "Σ_j n_j = n in Corollary 1.6, and Σ_j l_j = i in Corollary 1.9 i).",
-   "reason": "In both statements the eigenvalue is a product over j of powers with exponents indexed by j, so the constraint is on the sum of those exponents over j. Corollary 1.6 writes Σ n_i, introducing an index i that appears nowhere else in the statement; Corollary 1.9 i) writes Σ_i l_j, summing over i a quantity that does not depend on i, and the letter i is already in use as the cohomological degree on the same line. Corollary 1.9 i) also carries an unmatched parenthesis in the exponent of the displayed Poincaré dual, q^{2(1+(g−1)r^2}, which should read q^{2(1+(g−1)r²)}.",
+   "reason": "In both statements the eigenvalue is a product over j of powers with exponents indexed by j, so the constraint is on the sum of those exponents over j. Corollary 1.6 writes Σ n_i, introducing an index i that appears nowhere else in the statement; Corollary 1.9 i) writes Σ_i l_j, summing over i a quantity that does not depend on i, and the letter i is already in use as the cohomological degree on the same line.",
    "affects": "nothing",
    "known": "new",
    "searched": [
@@ -934,9 +1061,155 @@
    ],
    "review": {
     "verdict": "confirmed",
-    "reason": "Confirmed in all three parts, and all three survive in print. On printed p. 349 the eigenvalue is written ‘λ = ∏_j σ_j^{n_j}, Σ n_i = n’, with an index i that occurs nowhere else in the statement; on printed p. 351 the condition is ‘Σ_i l_j = i’, summing over i a quantity independent of i while i is simultaneously the cohomological degree; and published Corollary 1.4(i) on printed p. 301 prints the Poincaré dual with the exponent q^{2(1+(g−1)r²}, two opening parentheses and none closing. I read that last one on a rendered page image rather than in the text layer, since a dropped bracket is exactly what a text layer invents.",
+    "reason": "Confirmed in all three parts, and all three survive in print. On printed p. 349 the eigenvalue is written ‘λ = ∏_j σ_j^{n_j}, Σ n_i = n’, with an index i that occurs nowhere else in the statement; on printed p. 351 the condition is ‘Σ_i l_j = i’, summing over i a quantity independent of i while i is simultaneously the cohomological degree; and published Corollary 1.4(i) on printed p. 301 prints the Poincaré dual with the exponent q^{2(1+(g−1)r²}, two opening parentheses and none closing. I read that last one on a rendered page image rather than in the text layer, since a dropped bracket is exactly what a text layer invents. [FIX-RT-PAPER-SCHIFFMANN-16, 30 September 2026: the third part is withdrawn from E4. The printed exponent is wrong, not merely unbalanced: the Poincaré dual needs q^{1+(g−1)r²}, and the bracket-only repair q^{2(1+(g−1)r²)} makes the formula false (RT-PAPER-SCHIFFMANN-16/1, confirmed). It is now E8, with the degree in part (ii).]",
     "by": "REV-PAPER-SCHIFFMANN-16"
    }
+  },
+  {
+   "id": "PAPER-SCHIFFMANN-16/E5",
+   "kind": "misprint",
+   "locator": "Appendix B, proof of Proposition 4.8, the reference '[D1, 3.5.3]', p. 35, and the bibliography entry [D1], p. 37, arXiv v2. Published version: Appendix B, proof of Proposition 4.7, the reference '[Del74, 3.5.3]', p. 357, and the entry [Del74], p. 359.",
+   "printed": "The arXiv v2 text invokes Deligne’s equidistribution result through [D1, 3.5.3] and [KS, Thm. 9.2.6]. Its [D1] lists P. Deligne’s first Weil-conjecture paper in Inst. Hautes Etudes Sci. Publ. Math., volume 52 (1981), pages 313-428. The published text cites [Del74, 3.5.3] and [KS99, Th. 9.2.6]; [Del74] identifies the first Weil-conjecture paper by P. Deligne in Inst. Hautes Études Sci. Publ. Math., volume 43 (1974), pages 273–307.",
+   "correction": "Deligne's equidistribution theorem is Théorème 3.5.3 of P. Deligne, La conjecture de Weil. II, Publ. Math. IHÉS 52 (1980), 137–252 (doi:10.1007/BF02684780), p. 211.",
+   "reason": "Weil I has no 3.5.3 and no equidistribution theorem; its §3 is the fundamental estimate, with Lemmas (3.5) and (3.6) on power series (p. 284). Weil II's Théorème 3.5.3 (p. 211) is the equidistribution theorem, and Katz–Sarnak's Theorem 9.2.6, the other reference, says 'compare [De-Weil II, 3.5.3]' (p. 276). The v2 entry is Weil II under the title of Weil I: volume 52 and pages 313–428 are Weil II's, 313–428 being the numbers printed at the foot of its pages 137–252; the year is 1980. The published version replaced the entry by Weil I in full, which is still not the paper cited. PAPER-ABE-18/E3 records the same 313–428 page range for Weil II.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the arXiv listing of 1406.3839: v2 (4 October 2014) is the last version (arXiv API, 29 September 2026)",
+    "the published version, Annals of Mathematics 183 (2016), 297–362, read 29 September 2026: it cites Weil I (43 (1974)) for 3.5.3",
+    "the erratum search recorded for E1–E4: none found"
+   ],
+   "addedBy": "FIX-RT-AREA-etale (RT-AREA-etale.fixes.md, 1.7), applied by FIX-RT-PAPER-SCHIFFMANN-16"
+  },
+  {
+   "id": "PAPER-SCHIFFMANN-16/E6",
+   "kind": "misprint",
+   "locator": "Appendix B, proof of Proposition 4.8, definition of F, p. 35, arXiv v2. Published version: corrected, Appendix B, p. 357.",
+   "printed": "The source defines F = R1ρ!(Ql)(−1) and calls it lisse and pure of weight zero. At Spec(Fqn) → M◦g representing a curve X over Fqn, it identifies the stalk with H1(X ⊗ Fq, Ql)(−1).",
+   "correction": "Fix a square root q^{1/2} of q in Q̄_l and set F = R¹ρ_!(Q̄_l)(1/2), the twist by the rank-one character on which a geometric Frobenius of degree n acts by (q^{1/2})^{−n}. This F is pure of weight zero, and its Frobenius eigenvalues at a degree-n point are the q^{−n/2}σ_i that the proof uses.",
+   "reason": "R¹ρ_! of a family of curves is pure of weight one, and the twist (−1) raises weights by 2, so the printed sheaf is pure of weight three: its eigenvalues at a degree-n point are q^nσ_i, not the unitary q^{−n/2}σ_i displayed a few lines later. Weight zero needs a half twist, which depends on the chosen square root of q.",
+   "affects": "nothing",
+   "known": "corrected in the published version: Annals of Mathematics 183 (2016), Appendix B, p. 357, which fixes 'a square root q^{1/2} of q in Q̄l' and sets 'F = R1ρ!(Ql)(1/2), a pure lisse sheaf of weight zero'",
+   "searched": [
+    "as for E5"
+   ],
+   "addedBy": "FIX-RT-AREA-etale (RT-AREA-etale.fixes.md, 1.7), applied by FIX-RT-PAPER-SCHIFFMANN-16"
+  },
+  {
+   "id": "PAPER-SCHIFFMANN-16/E7",
+   "kind": "gap",
+   "locator": "Appendix B, proof of Proposition 4.8, the monodromy over M◦g, p. 35, arXiv v2. Published version: corrected, Appendix B, p. 357.",
+   "printed": "The source takes M◦g to be smooth and open in the moduli space parametrizing smooth projective genus-g curves over Fq, with universal curve ρ : X → M◦g. Citing [KS, Thm 10.1.16, Thm. 10.2.2], it asserts that ρ(πgeom1(M◦g)) has Zariski closure Sp(2g, Ql).",
+   "correction": "Use the families of the cited theorems directly, as the published proof does. These are Katz–Sarnak 10.1.16 (p ≠ 2: Y² = f(X)(X − T) over Spec(k[T][1/f(T)])) and 10.2.2 (p = 2). Their fibres are smooth projective geometrically connected curves of genus g, so their Weil numbers lie in W.",
+   "reason": "Katz–Sarnak 10.1.16 and 10.2.2 compute the geometric monodromy of explicit one-parameter families of hyperelliptic and Artin–Schreier curves over an open subset of the T-line (pp. 293, 299, 301). Neither is about a family over an open subset of M_g, and the proof gives no passage from one to the other. The passage is also unnecessary: density of W needs only one family of genus-g curves with big monodromy.",
+   "affects": "the proof",
+   "known": "corrected in the published version: Annals of Mathematics 183 (2016), Appendix B, p. 357: 'In [KS99, §10.1, 10.2], Katz and Sarnak constructed a family ρ : X → Ug of smooth projective curves over Fq of genus g'",
+   "searched": [
+    "as for E5"
+   ],
+   "addedBy": "FIX-RT-AREA-etale (RT-AREA-etale.fixes.md, 1.7), applied by FIX-RT-PAPER-SCHIFFMANN-16"
+  },
+  {
+   "id": "PAPER-SCHIFFMANN-16/E8",
+   "kind": "error",
+   "locator": "Corollary 1.9 i) and ii), arXiv v2 p. 5; Corollary 1.4 (i) and (ii), Annals p. 301",
+   "printed": "The source calls $\\overline{A}_{g,r,d}(z_1, \\ldots, z_{2g})=q^{2(1+(g-1)r^2} A_{g,r,d}(z_1^{-1}, \\ldots, z_{2g}^{-1})$ the Poincaré dual of $A_{g,r,d}$ and asserts $\\text{dim}\\; H^{1 + (g-1)r^2} (\\Lambda^{st}_{r,d}, \\mathbb{C})=\\text{dim}\\; H^{1 + (g-1)r^2}(Higgs_{r,d}^{st}, \\mathbb{C})=A_{g,r,d}(0)$. Both displays also occur in the published version.",
+   "correction": "Ā_{g,r,d}(z) = q^{1+(g−1)r²}A_{g,r,d}(z^{−1}); dim H^{2(1+(g−1)r²)}(Λ^st_{r,d}) = dim H^{2(1+(g−1)r²)}(Higgs^st_{r,d}) = A_{g,r,d}(0).",
+   "reason": "Write D = 1+(g−1)r². The published proof (§6.11, pp. 351–352) gives the corrected statement. Higgs^st_{r,d} and Λ^st_{r,d} are unions of affine fibrations of ranks n⁺_i = D and n⁻_i over the components Z_i of the G_m-fixed locus, with dim Z_i = D − n⁻_i. So |Higgs^st(F_q)| = q^D Σ_i |Z_i(F_q)|, and by Poincaré duality on each Z_i, |Λ^st(F_q)| = Σ_i q^{n⁻_i}|Z_i(F_q)| = q^D A_{g,r,d}(σ_X^{−1}), not q^{2D}A_{g,r,d}(σ_X^{−1}). The top degree of Λ^st, of dimension D, is 2D; H^{2D} counts its irreducible components, and it is the degree whose dimension is A_{g,r,d}(0). Rank one: Higgs^st_{1,d} = Pic^d(X) × H⁰(X, Ω_X) and Λ^st_{1,d} = Pic^d(X). With A_{g,1,d} = ∏_i(1 − α_i) and ∏_i α_i = q^g, q^g A(α^{−1}) = A(α) = |Pic^d(X)(F_q)|, while the printed exponent gives q^g times too much; and dim H^{2g}(Pic^d) = 1 = A(0), while dim H^g(Pic^d) = C(2g, g). (g, r, d) = (1, 2, 1), for an elliptic curve E: Λ^st_{2,1} = E (Atiyah) and A_{1,2,1} = (1 − α_1)(1 − α_2), so q·A(α^{−1}) = |E(F_q)|; and dim H²(E) = 1 = A(0), while dim H¹(E) = 2. The '2(' of (ii)'s degree appears to have moved into (i)'s exponent.",
+   "affects": "a stated result",
+   "impact": "As printed, both parts of the corollary fail already for r = 1 and every g ≥ 1. Nothing later in the paper uses it. E4's former bracket-only repair, q^{2(1+(g−1)r²)}, is withdrawn.",
+   "known": "new",
+   "searched": [
+    "the arXiv listing of 1406.3839: v2 (4 October 2014) is the last version; read in its LaTeX source (sha256 a84104fa…0467) and PDF (sha256 7e5cbf6e…9bb2) on 30 September 2026",
+    "the published version, Annals of Mathematics 183 (2016), 297–362 (PDF sha256 8e486963…c7a5), read on 30 September 2026",
+    "Crossref metadata for doi:10.4007/annals.2016.183.1.6 (30 September 2026): no erratum or update is linked; the erratum search recorded for E1–E4 also found none"
+   ],
+   "addedBy": "FIX-RT-PAPER-SCHIFFMANN-16, from confirmed RT-PAPER-SCHIFFMANN-16/1"
+  },
+  {
+   "id": "PAPER-SCHIFFMANN-16/E9",
+   "kind": "misprint",
+   "locator": "Corollaries 1.6 and 1.7, arXiv v2 p. 4. Published version: corrected, Corollary 1.3 (i) and (ii), p. 300.",
+   "printed": "Corollary 1.6 asserts '$$\\sum_n dim\\; H_c^n(Higgs^{st}_{r,d}(\\overline{X}), \\overline{\\mathbb{Q}_l}) t^n= t^{2(1+ (g-1)r^2)}A_{g,r,d}(t,t, \\ldots, t).$$' Corollary 1.7 gives '$$\\sum_n dim\\; H_c^n(Higgs^{st}_{r,d}({X}_{\\mathbb{C}}), \\mathbb{Q}) t^n= t^{2(1+ (g-1)r^2)}A_{g,r,d}(t,t, \\ldots, t),$$'",
+   "correction": "Σ_n (−1)^n dim H_c^n(Higgs^st_{r,d}(X̄), Q̄_l) t^n = t^{2(1+(g−1)r²)} A_{g,r,d}(t, …, t), and the same with singular cohomology for X_C. Equivalently, the unsigned sum is t^{2(1+(g−1)r²)} A_{g,r,d}(−t, …, −t).",
+   "reason": "In rank one Higgs^st_{1,d} = Pic^d(X) × A^g, so Σ_n dim H_c^n t^n = t^{2g}(1 + t)^{2g}, while t^{2g}A_{g,1,d}(t, …, t) = t^{2g}(1 − t)^{2g}: the printed identity fails for every g ≥ 1, and the signed one holds. The published Corollary 1.3 has (−1)^n in both parts.",
+   "affects": "a stated result",
+   "impact": "Only the Poincaré-polynomial displays are affected. The eigenvalue description and the positivity A_{g,r,d} ∈ N[−z_1, …, −z_{2g}]^{W_g} in the same corollaries are unaffected.",
+   "known": "corrected in the published version: Annals of Mathematics 183 (2016), Corollary 1.3, p. 300, which has the sign (−1)^n in (i) and (ii)",
+   "searched": [
+    "the arXiv listing of 1406.3839: v2 (4 October 2014) is the last version; read in its LaTeX source (sha256 a84104fa…0467) and PDF (sha256 7e5cbf6e…9bb2) on 30 September 2026",
+    "the published version, Annals of Mathematics 183 (2016), 297–362 (PDF sha256 8e486963…c7a5), read on 30 September 2026",
+    "Crossref metadata for doi:10.4007/annals.2016.183.1.6 (30 September 2026): no erratum or update is linked; the erratum search recorded for E1–E4 also found none"
+   ],
+   "addedBy": "FIX-RT-PAPER-SCHIFFMANN-16, from confirmed RT-PAPER-SCHIFFMANN-16/2"
+  },
+  {
+   "id": "PAPER-SCHIFFMANN-16/E10",
+   "kind": "misprint",
+   "locator": "the sentence before Corollary 1.8, arXiv v2 p. 4. Published version: corrected, proof of Corollary 1.5, p. 352.",
+   "printed": "The source derives the next result directly from connectedness of the moduli space $Higgs^{st}_{r,d}(X_{\\mathbb{C}})$ and its stated dimension $1+ (g-1)r^2$.",
+   "correction": "connected and of dimension 2(1+(g−1)r²)",
+   "reason": "The corollary it introduces, that A_{g,r,d} is unitary of degree 2(1+(g−1)r²), follows from Corollary 1.7 only if dim_C Higgs^st_{r,d} = 2(1+(g−1)r²). For a connected smooth variety of dimension N, H_c^{2N} is one-dimensional and H_c^n = 0 for n > 2N, so the leading term of t^{2(1+(g−1)r²)}A_{g,r,d}(t, …, t) is t^{2N}; degree 2(1+(g−1)r²) for A needs N = 2(1+(g−1)r²). The published proof of Corollary 1.5 says so, and p. 351 uses ½ dim Higgs^st_{r,d} = 1+(g−1)r².",
+   "affects": "the proof",
+   "known": "corrected in the published version: Annals of Mathematics 183 (2016), proof of Corollary 1.5, p. 352: 'connected and of dimension 2(1 + (g − 1)r²)'",
+   "searched": [
+    "the arXiv listing of 1406.3839: v2 (4 October 2014) is the last version; read in its LaTeX source (sha256 a84104fa…0467) and PDF (sha256 7e5cbf6e…9bb2) on 30 September 2026",
+    "the published version, Annals of Mathematics 183 (2016), 297–362 (PDF sha256 8e486963…c7a5), read on 30 September 2026",
+    "Crossref metadata for doi:10.4007/annals.2016.183.1.6 (30 September 2026): no erratum or update is linked; the erratum search recorded for E1–E4 also found none"
+   ],
+   "addedBy": "FIX-RT-PAPER-SCHIFFMANN-16, from confirmed RT-PAPER-SCHIFFMANN-16/2"
+  },
+  {
+   "id": "PAPER-SCHIFFMANN-16/E11",
+   "kind": "misprint",
+   "locator": "Corollary 8.1, arXiv v2 p. 33. Published version: corrected, Corollary 8.1, p. 353.",
+   "printed": "Corollary 8.1 asserts existence, for every $(r,d) \\in (\\mathbb{Z}^2)^+$, of polynomials $A_{g,r,d}^{\\geq \\nu}, A_{g,r,d}^{\\leq \\nu} \\in \\mathbb{Q}[T_g]^{W_g}$.",
+   "correction": "A^{≥ν}_{g,r,d}, A^{≤ν}_{g,r,d} ∈ K_g",
+   "reason": "The corollary is introduced as what 'the proof of Theorem 1.1 yields', and that proof gives elements of K_g, the localisation of Q[T_g]^{W_g} at the q^l − 1. Theorem 1.1 itself is stated in K_g, and the paper calls the removal of the localisation conjectural (published p. 300). The published version prints K_g.",
+   "affects": "a stated result",
+   "known": "corrected in the published version: Annals of Mathematics 183 (2016), Corollary 8.1, p. 353, which has K_g",
+   "searched": [
+    "the arXiv listing of 1406.3839: v2 (4 October 2014) is the last version; read in its LaTeX source (sha256 a84104fa…0467) and PDF (sha256 7e5cbf6e…9bb2) on 30 September 2026",
+    "the published version, Annals of Mathematics 183 (2016), 297–362 (PDF sha256 8e486963…c7a5), read on 30 September 2026",
+    "Crossref metadata for doi:10.4007/annals.2016.183.1.6 (30 September 2026): no erratum or update is linked; the erratum search recorded for E1–E4 also found none"
+   ],
+   "addedBy": "FIX-RT-PAPER-SCHIFFMANN-16, from confirmed RT-PAPER-SCHIFFMANN-16/5"
+  },
+  {
+   "id": "PAPER-SCHIFFMANN-16/E12",
+   "kind": "gap",
+   "locator": "Theorem 7.1 and §7.2, arXiv v2 p. 32; published version, Theorem 7.1 and §7.2, pp. 352–353",
+   "printed": "Theorem 7.1 asserts a unique polynomial $A_{g,\\mathbf{p},\\boldsymbol{\\alpha}} \\in \\mathbb{Q}[T_g]^{W_g}$. The source describes its proof as following Theorem 1.1's argument, substituting the spherical Hall algebra for D-parabolic coherent sheaves over X for the spherical Hall algebra attached to X.",
+   "correction": "Only A_{g,p,α} ∈ K_g follows from the argument given. The stronger Q[T_g]^{W_g} needs a separate regularity proof. For N = 0 (no parabolic points) it is Mellit's theorem when g ≥ 1 (Invent. Math. 221 (2020), Theorem 1.1) and Grothendieck's splitting theorem when g = 0; for N ≥ 1 nothing in the paper proves it.",
+   "reason": "For N = 0, Theorem 7.1 is Theorem 1.1 with the localisation removed, which the paper itself calls conjectural (published p. 300: 'Conjecturally, A_{g,r,d} belongs to Q[T_g]^{W_g} and there is no need to consider the localization K_g'). The only proof offered is that it is 'completely parallel to that of Theorem 1.1', whose conclusion is in K_g. This is a gap in the justification, not a disproof of the stronger statement.",
+   "affects": "a stated result",
+   "known": "new; for N = 0 and g ≥ 1 settled by Mellit (Invent. Math. 221 (2020), 301–327, Theorem 1.1)",
+   "searched": [
+    "the arXiv listing of 1406.3839: v2 (4 October 2014) is the last version; read in its LaTeX source (sha256 a84104fa…0467) and PDF (sha256 7e5cbf6e…9bb2) on 30 September 2026",
+    "the published version, Annals of Mathematics 183 (2016), 297–362 (PDF sha256 8e486963…c7a5), read on 30 September 2026",
+    "Crossref metadata for doi:10.4007/annals.2016.183.1.6 (30 September 2026): no erratum or update is linked; the erratum search recorded for E1–E4 also found none"
+   ],
+   "addedBy": "FIX-RT-PAPER-SCHIFFMANN-16, from confirmed RT-PAPER-SCHIFFMANN-16/5"
+  }
+ ],
+ "sourceVersions": [
+  {
+   "kind": "preprint",
+   "url": "https://arxiv.org/e-print/1406.3839v2",
+   "read": "2026-09-22",
+   "sha256": "a84104fa77de6dc5731dac7add9c97badafe9e33793daa78c7d03048ffa40467"
+  },
+  {
+   "kind": "preprint",
+   "url": "https://arxiv.org/pdf/1406.3839v2",
+   "read": "2026-09-29",
+   "sha256": "7e5cbf6e3bb9caf4c48959493987c4543c2244cccdf17fa0fa426593a8639bb2"
+  },
+  {
+   "kind": "published",
+   "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v183-n1-p06-p.pdf",
+   "read": "2026-09-29",
+   "sha256": "8e486963410368afe461a6f2a848eb7ddb618aa48fda7db2c0bd51710286c7a5"
   }
  ],
  "verification": {
