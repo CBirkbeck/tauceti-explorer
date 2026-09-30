@@ -41356,7 +41356,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-LAND-MATHEW-MEIER-ETAL-24.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #5022"
   },
   {
    "id": "RT-PAPER-ANDRE-18-B",
@@ -41486,8 +41487,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-NELSON-VENKATESH-21.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5024"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #5024",
+   "finishedAt": "2026-09-30T17:37:21Z"
   },
   {
    "id": "RT-PAPER-NIKOLAUS-SCHOLZE-18",
