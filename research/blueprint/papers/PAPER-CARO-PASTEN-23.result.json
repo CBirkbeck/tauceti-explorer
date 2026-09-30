@@ -291,9 +291,49 @@
         "agent": "Codex",
         "session": "codex-rtOQ9t",
         "read": "Retried with an actual HTTP cookie jar. Redirect completed without cookies_not_supported, but the response explicitly identifies itself as a subscription preview and offers purchase. It is still HTML, not the final paper."
+      },
+      {
+        "name": "caro-chabonnty-2026.pdf",
+        "url": "https://martinluedtke.github.io/chabonnty-slides/caro.pdf",
+        "finalUrl": "https://martinluedtke.github.io/chabonnty-slides/caro.pdf",
+        "contentType": "application/pdf",
+        "bytes": 4157302,
+        "sha256": "eb9773c3cc5606d84e1f6f8cfd544f8b2b2e65fd1d50826dd9ed10d108597c33",
+        "date": "2026-09-30T17:21:51.297867+00:00",
+        "agent": "Codex",
+        "session": "codex-5ebb6f",
+        "isPdf": true,
+        "pages": 55,
+        "documentType": "Author conference slides, not a manuscript of the assigned paper",
+        "read": "Title PDF page 1, displayed threefold theorem PDF page 19 (frame 8/26; image inspected), higher-dimensional limitation PDF page 22 (frame 10/26), final PDF page 55. No whole-paper or whole-slide-deck reading claimed.",
+        "outcome": "New primary corroboration of the post-publication +5 threefold bound. The slides do not supply the revised Lemma 3.15, the complete higher-dimensional hypotheses, or the final article proof/inventory; they do not close G0.",
+        "pdfMetadata": "Beamer author Jerson Caro, Universidad de Los Andes; 55 overlay pages, 26 numbered frames; title dates the talk 29 June 2026, PDF creation metadata 9 July 2026."
+      },
+      {
+        "name": "caro-thesis-lead",
+        "url": "https://repositorio.uc.cl/server/api/core/bitstreams/337e9a34-709c-44af-a9fa-c27851647c76/content",
+        "date": "2026-09-30T17:21:00.706950+00:00",
+        "agent": "Codex",
+        "session": "codex-5ebb6f",
+        "error": "HTTP Error 403: Forbidden",
+        "read": "A newly indexed author-thesis bitstream lead returned HTTP 403 on direct retrieval; no thesis text read or mathematical version match claimed."
       }
     ],
-    "priorAtlasCommit": "d964b2642d4743641acce02cde0dab1b7019e443"
+    "priorAtlasCommit": "d964b2642d4743641acce02cde0dab1b7019e443",
+    "publicationCollationEvidence": [
+      {
+        "type": "Coauthor talk, not version of record",
+        "url": "https://martinluedtke.github.io/chabonnty-slides/caro.pdf",
+        "sha256": "eb9773c3cc5606d84e1f6f8cfd544f8b2b2e65fd1d50826dd9ed10d108597c33",
+        "read": "2026-09-30T17:21:51.297867+00:00",
+        "worker": "Codex codex-5ebb6f",
+        "locator": "PDF p. 19, frame 8/26; main theorem attributed on slide to Caro–Pasten 2023",
+        "displayedHypotheses": "A nice surface X of general type in a dimension-three abelian variety A over Q; good reduction at p for X and A; rank A(Q)≤1; no geometric elliptic curve in X′; p>(128/9)(c₁²(X))². The slide uses “nice” without restating all its definition.",
+        "displayedBound": "#X(Q)≤#X′(F_p)+((p−1)/(p−2))(p+4√p+5)c₁²(X)<#X′(F_p)+4p c₁²(X).",
+        "scope": "Corroborates a +5 bound in the threefold case directly from a coauthor, beyond the inherited follow-up W₂ citation. Does not establish final article theorem numbering, complete domains, the corrected Lemma 3.15 or full proof. The dim A>3 remark at PDF p. 22/frame 10 lists further conditions without stating them fully.",
+        "inventoryPolicy": "Keep all active preprint items, routes and nineteen source findings unchanged until the assigned final text can be fully collated. These slides are not listed as a read published paper or matching author manuscript in sourceVersions."
+      }
+    ]
   },
   "summary": "Complete routing of the read 39-page arXiv v2 inventory: 181 active items (14 library, 17 planned, 150 missing), 17 routes and seven superseded source records retained separately. The core surface Chabauty and integral formal Lie Part II proposals now import two explicitly scoped suppliers for complex hyperbolicity and density of simple reductions. Corrected statements and all nineteen preprint-scoped source issues are retained. Status remains partial solely because the substantially revised 54-page 2023 publication was not acquired or completely collated; proof closure is future blueprint work under §16. No formalization or independent review is claimed.",
   "items": [
@@ -3605,6 +3645,14 @@
       "session": "codex-rtOQ9t",
       "date": "2026-09-30",
       "work": "Acquisition-only checkpoint: directly retrieved Pasten’s author bibliography after the TLS-chain failure, checked Caro’s returned page, queried OpenAlex and Semantic Scholar, attempted UC repository discovery, and retried Springer with cookies. No matching final manuscript obtained. All extraction items, routes, source issues, sourceVersions and partial status preserved; no fresh full-paper reading or mathematical review claimed."
+    },
+    {
+      "agent": "Codex",
+      "session": "codex-5ebb6f",
+      "date": "2026-09-30",
+      "scope": "New coauthor conference-slide lead checked, including the main theorem image; blocked author-thesis bitstream recorded. Acquisition/collation evidence only; no extraction item, route, library claim or source finding changed.",
+      "status": "partial",
+      "remaining": "G0 only: obtain and read the full revised 54-page article or a demonstrably matching final author manuscript; extract/collate all revised statements and the nineteen preprint findings."
     }
   ],
   "sourceIssues": [
