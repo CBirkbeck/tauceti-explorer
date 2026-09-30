@@ -23653,12 +23653,12 @@
     "REV-RS-14"
    ],
    "prompt": "research/blueprint/prompts/BP-DirichletPadicLFunctions.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [
     "BP-LocallyAnalyticDistributions",
     "BP-PadicMeasuresIwasawaAlgebras"
    ],
-   "note": "released on GitHub issue #713"
+   "note": "claimed on GitHub issue #713"
   },
   {
    "id": "REV-DirichletPadicLFunctions",
@@ -35999,7 +35999,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-ELLENBERG-VENKATESH-WESTERLAND-16.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4994",
+   "finishedAt": "2026-09-30T19:38:24Z"
   },
   {
    "id": "RT-PAPER-BIJAKOWSKI-PILLONI-STROH-16",
@@ -39751,7 +39753,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-HARPAZ-WITTENBERG-20.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #5006"
   },
   {
    "id": "RT-PAPER-GROECHENIG-WYSS-ZIEGLER-20-B",
@@ -40719,8 +40722,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-ESNAULT-GROECHENIG-20.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5013"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #5013",
+   "finishedAt": "2026-09-30T19:38:28Z"
   },
   {
    "id": "RT-PAPER-BOCKLE-HARRIS-KHARE-ETAL-19",
@@ -40784,8 +40788,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-BOCKLE-HARRIS-KHARE-ETAL-19.md",
-   "state": "pending",
-   "note": "released on GitHub issue #5014"
+   "state": "external",
+   "note": "claimed on GitHub issue #5014"
   },
   {
    "id": "RT-PAPER-LAWRENCE-VENKATESH-20",
