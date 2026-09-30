@@ -18,7 +18,7 @@ The checkout is commit `32f535d0f3655ba146c7667838acb986807bc48b`. The origin wo
 
 ## Finding 1: the reader omits three accepted API entries
 
-**Kind:** other · **Severity:** low · **ID:** `RT-BP-DeformationAndDerivedPatchingAlgebra--R03/1`.
+**Kind:** other · **Severity:** low · **ID:** `RT-BP-DeformationAndDerivedPatchingAlgebra--R03.6/1`.
 
 The *Object: modules supported on components* API paragraph in the reader, lines 194–196, enumerates four declarations. The corresponding packet node has seven: the independent review added a constructor, compatibility with Mathlib faithfulness, and the zero-module example. Their signatures are already present in the suggested file at lines 166, 173 and 178. None of their names occurs in the reader:
 
