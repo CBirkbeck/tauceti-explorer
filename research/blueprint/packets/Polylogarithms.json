@@ -3892,8 +3892,7 @@
     "Polylogarithms:P.5/weight-two-regulator-form",
     "Polylogarithms:P.5/r-form-differential",
     "Polylogarithms:P.5/curve-polylogarithmic-complex",
-    "K2SymbolsBrauer:T.3/tame-symbol",
-    "MotivicEtaleKTheory:M.8"
+    "K2SymbolsBrauer:T.3/tame-symbol"
    ],
    "sources": [
     {
@@ -4493,8 +4492,7 @@
     "For X a point and n = 1 both sides are R in degree 1."
    ],
    "prerequisites": [
-    "Polylogarithms:P.5/goncharov-deligne-complex",
-    "MotivicEtaleKTheory:M.8"
+    "Polylogarithms:P.5/goncharov-deligne-complex"
    ],
    "sources": [
     {
@@ -5016,8 +5014,7 @@
     "Polylogarithms:P.5/regulator-map-chain-map",
     "Polylogarithms:P.5/goncharov-deligne-complex-comparison",
     "MotivicEtaleKTheory:M.4",
-    "MotivicEtaleKTheory:M.6",
-    "MotivicEtaleKTheory:M.8"
+    "MotivicEtaleKTheory:M.6"
    ],
    "sources": [
     {
@@ -5625,7 +5622,7 @@
     "E_K = (O_K)^x (mathlib:NumberField.Units.torsion, fundSystem); the principal units U^1 at the places above p are tauceti:TauCeti.unitFiltration."
    ],
    "proofSteps": [
-    "Construct E_K tensor Z_p and the map to the product of the completed local unit groups at S_p u S_infinity.",
+    "Import the completed global-to-local unit map and its strong-Leopoldt injectivity proposition from the requested early I.2 interface. Keep the passage to local pro-p units explicit: ordinary units do not canonically land in principal units without powering or a Teichmüller/pro-p projection.",
     "State injectivity as a Prop.",
     "Record the proved special case, the abelian one, which IntegralIwasawaTheory L4 owns through Baker-Brumer."
    ],
@@ -5640,7 +5637,8 @@
     "mathlib:NumberField.Units.torsion",
     "mathlib:NumberField.Units.fundSystem",
     "mathlib:NumberField.Units.rank",
-    "tauceti:TauCeti.unitFiltration"
+    "tauceti:TauCeti.unitFiltration",
+    "IntegralIwasawaTheory:I.2"
    ],
    "sources": [
     {
@@ -5823,7 +5821,7 @@
    "statement": "For a number field K and a prime p, the following are equivalent: rr_p(K) = r_1 + r_2 - 1; the rank of the closure E-bar of E_K in the product of the U-hat_p over S_p u S_infinity is r_1 + r_2 - 1; the map E_K tensor Z_p -> product of U-hat_p is injective (NSW Theorem 10.3.6, (i) to (iii)). For K totally real they are equivalent to R_p(K) != 0.",
    "proofSteps": [
     "The kernel of the completed map is detected by the p-adic logarithm on the principal units (tauceti:TauCeti.unitFiltration), which identifies the rank of the image with rr_p(K).",
-    "Torsion is removed: the kernel of the uncompleted map is the prime-to-p roots of unity (NSW p. 628)."
+    "The diagonal map E_K→∏K_v× is injective. Passing instead to completed local unit groups kills prime-to-p roots of unity; track the p-primary torsion separately, then compare the free ℤ_p ranks using logarithms. Do not describe the uncompleted diagonal map as having that kernel."
    ],
    "acceptance": [
     "For K = Q(sqrt 2) and p = 7 all forms hold (R_7 != 0)."
@@ -6097,6 +6095,15 @@
     "Polylogarithms:P.4/explicit-to-inductive-comparison"
    ],
    "detail": "The target of Conjecture 6.2 is Goncharov's integral group defined through rigidity ([G1], not obtained); the packet states the conjecture rationally. Suslin's rigidity B(F(t)) = B(F) (Suslin 1990, Corollary 5.6) is requested from K3BlochGroups V.4."
+  },
+  {
+   "title": "Early M.8 supplier must be split before it can be a dependency",
+   "detail": "The generic real Deligne complex and generic regulator definition is requested through M.8 but requires a separately accepted early prefix. Do not add the whole M.8→consumer edge: it imports late D.2/R.7 work and can close a cycle. No new stage ID is fabricated here.",
+   "neededBy": [
+    "Polylogarithms:P.5/goncharov-deligne-complex-comparison",
+    "Polylogarithms:P.5/regulator-induces-beilinson",
+    "Polylogarithms:P.5/unramified-weight-two-class"
+   ]
   }
  ],
  "requests": [
@@ -6157,7 +6164,7 @@
   },
   {
    "supplier": "MotivicEtaleKTheory:M.8",
-   "need": "The real Deligne-Beilinson complex for smooth varieties over R, with its products and long exact sequence, as an early part needing no BorelRegulators input (confirmed findings RT-AREA-ktheory-2/7 and /24), and Beilinson's regulator in the normalisation of Burgos Gil-Feliu-Takeda.",
+   "need": "The real Deligne-Beilinson complex for smooth varieties over R, with its products and long exact sequence, as an early part needing no BorelRegulators input (confirmed findings RT-AREA-ktheory-2/7 and /24), and Beilinson's regulator in the normalisation of Burgos Gil-Feliu-Takeda. FIX-RT-AREA-ktheory-2~2: require an EARLY real Deligne complex and generic regulator definition interface, before D.2 and BorelRegulators:R.7. The current atlas M.8 remains unsplit and depends on those later comparisons; this request is not a dependency on all of M.8 and does not claim the prefix already exists.",
    "neededBy": [
     "Polylogarithms:P.5/goncharov-deligne-complex-comparison",
     "Polylogarithms:P.5/unramified-weight-two-class",
@@ -6262,6 +6269,14 @@
    "neededBy": [
     "Polylogarithms:P.2/hyperbolic-volume"
    ]
+  },
+  {
+   "supplier": "IntegralIwasawaTheory:I.2",
+   "need": "Shared early completed global-unit map E_K⊗ℤ_p → ∏_{v|p}Û_v and strong-Leopoldt injectivity, with comparison to local principal-unit logarithms after the necessary pro-p/torsion treatment. Distinguish this conjecture from weak cyclotomic Leopoldt and from the proved abelian Baker–Brumer case at L4. P.6 retains its regulator matrix, determinant/rank equivalence and tests.",
+   "neededBy": [
+    "Polylogarithms:P.6/leopoldt-statement",
+    "Polylogarithms:P.6/leopoldt-equivalence"
+   ]
   }
  ],
  "restructure": [
@@ -6331,6 +6346,16 @@
    "title": "The Rogers dilogarithm has three consumers and no owner",
    "detail": "K3BlochGroups requests 'The Rogers dilogarithm L(x) = Li_2(x) + 1/2 log(x) log(1 - x) on (0, 1)' from P.1 for V.5/element-c-order-six; ArithmeticQuantumTopology QT.5 builds one on P.1's Li_2; HabiroNahmSeries HB.3 defines its own in the normalisation pi^2/6 - Li_2 - 1/2 log x log(1 - x). No source read for this packet defines it, so the review does not plan it. Added by REV-Polylogarithms.",
    "proposal": "Plan it once, as Polylogarithms:P.1/rogers-dilogarithm, with both normalisations, the extension to the real projective line, the reflection and five-term identities, and the induced homomorphism under which c has order six; NEXT SOURCE ACTION: Zagier, The Dilogarithm Function (2007), Section II.1."
+  },
+  {
+   "kind": "note-duplicate-boundary",
+   "title": "RT-AREA-ktheory-2/7,18,24: early foundations before comparisons",
+   "detail": "Maintainer: split the requested early finite-Chern and real-Deligne interfaces from M.8’s late comparison work. Retain finite coefficients, naturality, products, twists and real conjugation; P.5 retains Goncharov’s concrete current complex and the comparison with generic Deligne cohomology. The packet requests record missing exports without introducing M.8→R.7 or M.8→D.2 cycles."
+  },
+  {
+   "kind": "note-duplicate-boundary",
+   "title": "RT-AREA-ktheory-2/23–27: retained mathematics and common foundations",
+   "detail": "P.2 retains oriented ideal-tetrahedron volume and Bloch–Wigner comparison, importing the Tau Ceti geometric carrier; QT.5 applies this theorem. P.5 retains Goncharov’s distinct current-complex model and its comparison to the requested early Deligne interface. P.6 imports the early I.2 completed-unit proposition while retaining regulator equivalence, the abelian theorem and tests; no weak/strong Leopoldt theorem is deleted. The V.3 analytic reserved-ID correction is maintainer work; actual P.1/P.2 analytic owners already exist."
   }
  ],
  "sourceIssues": [

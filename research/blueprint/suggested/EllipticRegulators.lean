@@ -1,4 +1,19 @@
 /-
+FIX-RT-AREA-ktheory-2~2, Codex — codex-rtOQ9t, 2026-09-30.
+Current revision is unchecked and NOT COMPILED. Any earlier compilation
+record below describes only that earlier revision and environment.
+
+ER.1 imports C5/C6; ER.5 imports CM.1/CM.4 with Bloch's maximal-order,
+class-number-one E/Q specialization. ER.7 imports Kato L0 units and requests
+the early L1 symbol interface, retaining character-specific boundary proofs.
+ER.2 imports P.5's generic eta-form and requests an early real-Deligne
+interface from a split M.8; the whole late M.8 is not a prerequisite.
+ER.6 keeps its potential-good-reduction application of E.6. The functional
+equation is conditional outside the supplied E/Q or CM cases.
+ER.8 imports the CM class U, E.6 arithmetic models, Coleman L1, and the
+periods/exceptional factors from ModularSymbolsPadicLFunctions L1/L2.
+-/
+/-
 This file is not the roadmap and is not exhaustive. The roadmap document
 `research/blueprint/readmes/EllipticRegulators.md` is definitive. These statements
 suggest Lean forms so that contributors and reviewers can converge on names and

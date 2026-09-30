@@ -694,7 +694,8 @@
         "ModularCurvesPartII:R12.1",
         "ComplexComparisonPartII:C5",
         "tauceti:AddCircle.prodFundamentalGroupMulEquiv",
-        "tauceti:TauCeti.finrank_weilDifferentialFiltration_zero"
+        "tauceti:TauCeti.finrank_weilDifferentialFiltration_zero",
+        "ComplexComparisonPartII:C6"
       ],
       "sources": [
         {
@@ -786,7 +787,6 @@
         "The Deligne complex itself is not constructed here."
       ],
       "prerequisites": [
-        "MotivicEtaleKTheory:M.8",
         "ComplexComparisonPartII:C5",
         "EllipticRegulators:ER.1/periods-and-the-comparison-isomorphism",
         "EllipticRegulators:ER.1/all-embeddings-and-the-conjugation-action",
@@ -1099,7 +1099,6 @@
         "EllipticRegulators:ER.2/the-regulator-on-symbols",
         "EllipticRegulators:ER.2/the-eta-form-and-its-differential-identity",
         "EllipticRegulators:ER.2/the-deligne-cohomology-target",
-        "MotivicEtaleKTheory:M.8",
         "Polylogarithms:P.5/regulator-induces-beilinson"
       ],
       "sources": [
@@ -2610,7 +2609,8 @@
         "mathlib:WeierstrassCurve.LSeries",
         "mathlib:WeierstrassCurve.LFunction",
         "EllipticRegulators:ER.1/all-embeddings-and-the-conjugation-action",
-        "AutomorphicLFunctionsAndLocalFactors:AL.1"
+        "AutomorphicLFunctionsAndLocalFactors:AL.1",
+        "ComplexMultiplicationAndExplicitReciprocity:CM.1"
       ],
       "sources": [
         {
@@ -3512,7 +3512,8 @@
       ],
       "acceptance": [
         "L*(E, 0) = w·N·(2π)^{−2d}·L(E, 2).",
-        "For 32a2: L′(E, 0) = 0.7433332466435517344801648… = 32·L(E, 2)/(4π²), root number +1 (reviewer, PARI lfun)."
+        "For 32a2: L′(E, 0) = 0.7433332466435517344801648… = 32·L(E, 2)/(4π²), root number +1 (reviewer, PARI lfun).",
+        "For d=[F:Q], Λ(s)=N^(s/2)(2π)^(-ds)Γ(s)^d L(E,s) and Λ(s)=wΛ(2−s) give L*(E,0)=wN(2π)^(-2d)L(E,2). R29.6 supplies the equation for E/Q; over a general number field it remains an explicit hypothesis (CM cases use the Hecke comparison)."
       ],
       "prerequisites": [
         "EllipticRegulators:ER.6/the-beilinson-statement",
@@ -4880,7 +4881,8 @@
       "acceptance": [
         "Every p-adic ingredient named has an owner outside this roadmap.",
         "No p-adic conjecture is stated before L_p(E, ·), its periods and its exceptional factors are defined.",
-        "ER.5's theorem is independent of this node."
+        "ER.5's theorem is independent of this node.",
+        "Import the chosen period normalization and exceptional Euler factors from ModularSymbolsPadicLFunctions L1/L2. Good reduction alone does not identify the ordinary and supersingular p-adic L-function theories."
       ],
       "prerequisites": [
         "PadicHodgeRegulators:D.5",
@@ -4973,7 +4975,8 @@
       "acceptance": [
         "The certificate of U has all four fields.",
         "ER.5's identity holds for this curve with every constant explicit.",
-        "The numerical targets are reproduced (a check, not a proof)."
+        "The numerical targets are reproduced (a check, not a proof).",
+        "The explicit class U and its regulator come from ER.5; any assertion of arithmetic integrality requires the E.6 model/vertical certificate in addition to generic-fibre symbol certificates."
       ],
       "prerequisites": [
         "EllipticRegulators:ER.5/the-class-U",
@@ -4981,7 +4984,8 @@
         "EllipticRegulators:ER.4/the-divisor-formula",
         "EllipticKTheory:E.7/symbol-certificates",
         "EllipticKTheory:E.7/bloch-classes",
-        "EllipticKTheory:E.7/rational-galois-descent"
+        "EllipticKTheory:E.7/rational-galois-descent",
+        "EllipticKTheory:E.6/the-regular-proper-model"
       ],
       "sources": [
         {
@@ -5298,6 +5302,21 @@
         "EllipticRegulators:ER.7/the-X1-11-example"
       ],
       "detail": "Brunault determines the sign in L(f, χ, 1) = ±αΩ^+/(5τ(χ̄)) with ComputeL (source issue E5). The sign is minus (checker C, 40 digits), but a proof needs a certified error bound (Polylogarithms:P.2/certified-numerics style) or an exact modular-symbol computation with orientation tracking. Added by REV-EllipticRegulators."
+    },
+    {
+      "title": "Early M.8 supplier must be split before it can be a dependency",
+      "detail": "The generic real Deligne complex is requested through M.8 but requires a separately accepted early prefix. Do not add the whole M.8→consumer edge: it imports late D.2/R.7 work and can close a cycle. No new stage ID is fabricated here.",
+      "neededBy": [
+        "EllipticRegulators:ER.2/the-deligne-cohomology-target",
+        "EllipticRegulators:ER.2/the-normalisation-factor"
+      ]
+    },
+    {
+      "title": "Early modular-unit K₂ interface",
+      "detail": "KatoEulerSystems L0 already supplies modular units. The L1 request is for the early symbol and functoriality interface only; identify a concrete supplier before adding a whole-stage dependency. Brunault’s character-specific unramifiedness and pushforward proofs remain here.",
+      "neededBy": [
+        "EllipticRegulators:ER.7/symbols-of-modular-units-in-K2"
+      ]
     }
   ],
   "requests": [
@@ -5453,7 +5472,7 @@
     },
     {
       "supplier": "MotivicEtaleKTheory:M.8",
-      "need": "As an early part needing no BorelRegulators input (RT-AREA-ktheory-2/7 and /24, confirmed): the real Deligne–Beilinson complex R(n)_D of a smooth variety over R with its hypercohomology, products and the exact sequence 0 → F²H^1_dR → H^1(X(C), R(1)) → H^2_D(X_C, R(2)) → 0 for curves; Beilinson's regulator K_2^{(2)} → H^2_D(X_R, R(2)) with its compatibility with pull-back to open subsets and with cup products, the cup-product formula r{F, G} = [η_B(F, G)] (Nekovář (7.3.2)), and the comparison of Schneider's normalisation (the one Brunault uses) with the universal Chern/Deligne regulator.",
+      "need": "As an early part needing no BorelRegulators input (RT-AREA-ktheory-2/7 and /24, confirmed): the real Deligne–Beilinson complex R(n)_D of a smooth variety over R with its hypercohomology, products and the exact sequence 0 → F²H^1_dR → H^1(X(C), R(1)) → H^2_D(X_C, R(2)) → 0 for curves; Beilinson's regulator K_2^{(2)} → H^2_D(X_R, R(2)) with its compatibility with pull-back to open subsets and with cup products, the cup-product formula r{F, G} = [η_B(F, G)] (Nekovář (7.3.2)), and the comparison of Schneider's normalisation (the one Brunault uses) with the universal Chern/Deligne regulator. FIX-RT-AREA-ktheory-2~2: require an EARLY real Deligne complex interface, before D.2 and BorelRegulators:R.7. The current atlas M.8 remains unsplit and depends on those later comparisons; this request is not a dependency on all of M.8 and does not claim the prefix already exists.",
       "neededBy": [
         "EllipticRegulators:ER.2/the-deligne-cohomology-target",
         "EllipticRegulators:ER.2/the-normalisation-factor"
@@ -5603,6 +5622,28 @@
         "EllipticRegulators:ER.4/finite-fourier-transform",
         "EllipticRegulators:ER.5/fourier-transform-on-O-mod-C"
       ]
+    },
+    {
+      "supplier": "ComplexComparisonPartII:C6",
+      "need": "Hodge filtration/decomposition and conjugation for the elliptic H¹ comparison, compatible with C5 integration and the oriented period lattice. ER.1 specializes the comparison, it does not rebuild generic Hodge theory.",
+      "neededBy": [
+        "EllipticRegulators:ER.1/periods-and-the-comparison-isomorphism",
+        "EllipticRegulators:ER.1/all-embeddings-and-the-conjugation-action"
+      ]
+    },
+    {
+      "supplier": "ComplexMultiplicationAndExplicitReciprocity:CM.1",
+      "need": "CM elliptic curve and endomorphism-order interface; ER.5 specializes CM.4’s Hecke character to Bloch’s maximal-order, class-number-one E/Q case, retaining conductor, bad Euler factors and the explicit class U.",
+      "neededBy": [
+        "EllipticRegulators:ER.5/the-CM-setup-and-the-hecke-character"
+      ]
+    },
+    {
+      "supplier": "KatoEulerSystems:L1",
+      "need": "An early interface for K₂ symbols of the Siegel units supplied by L0, with restriction, descent and norm compatibility. ER.7 retains its character combinations, boundary certificates, Manin–Drinfeld argument and regulator/Rankin–Selberg evaluations; it does not require the late Iwasawa Euler-system stage as a whole.",
+      "neededBy": [
+        "EllipticRegulators:ER.7/symbols-of-modular-units-in-K2"
+      ]
     }
   ],
   "restructure": [
@@ -5713,6 +5754,16 @@
       "title": "M.8 must not take ER.2's identifications back",
       "detail": "ER.2 now imports the real Deligne complex from MotivicEtaleKTheory M.8 (RT-AREA-ktheory-2/24), and so does Polylogarithms P.5/regulator-induces-beilinson, on which ER.2's normalisation rests. M.8's stage text says 'R and ER provide the archimedean analytic identifications'. If M.8's blueprint cites ER.2 for them, the two roadmaps form a cycle. Added by REV-EllipticRegulators.",
       "proposal": "Split the real Deligne complex and its exact sequence into an early part of M.8 that needs no ER input (as RT-AREA-ktheory-2/24 intends); the archimedean identifications that M.8 takes from ER come from ER.4-ER.7, which ER.2 does not depend on."
+    },
+    {
+      "kind": "note-duplicate-boundary",
+      "title": "RT-AREA-ktheory-2/7,18,24: early foundations before comparisons",
+      "detail": "Maintainer: split the requested early finite-Chern and real-Deligne interfaces from M.8’s late comparison work. Retain finite coefficients, naturality, products, twists and real conjugation; P.5 retains Goncharov’s concrete current complex and the comparison with generic Deligne cohomology. The packet requests record missing exports without introducing M.8→R.7 or M.8→D.2 cycles."
+    },
+    {
+      "kind": "note-duplicate-boundary",
+      "title": "RT-AREA-ktheory-2/5–12: imports and retained elliptic work",
+      "detail": "CM.1/CM.4, C5/C6, Kato L0 and an early L1 symbol interface are the suppliers. ER.2 retains elliptic dimensions, embeddings/conjugation, period normalization and torsion lifts; P.5 supplies the generic η-form. ER.5 retains Bloch’s explicit U/Fourier/Hecke specialization. ER.6’s potential-good-reduction integrality is a legitimate application of E.6, not a duplicate to delete. R29.6, ER.5, Coleman L1 and modular-symbol L1/L2 imports already existed and are retained with their hypotheses. Schappacher source gaps remain open."
     }
   ],
   "sourceVersions": [

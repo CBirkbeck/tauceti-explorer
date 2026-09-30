@@ -597,6 +597,44 @@
         "Section 10: definition of K2T(C)int, the functions v, w, h, Proposition 10.2 with proof, Remark 10.3, Table 10.4 and the pullback computation (pp. 29-31)"
       ],
       "accessed": "2026-09-25"
+    },
+    {
+      "id": "Kbook.IV.chapter",
+      "title": "Weibel, K-book chapter IV, separately hosted author chapter",
+      "url": "https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.IV.pdf",
+      "sha256": "9f1c1b8cccfe19d547c27dd04c61f198fd7a0cddd0018a0b84442b00fa575248",
+      "accessed": "2026-09-30",
+      "readSections": [
+        "PDF p.59: IV.6.8–6.9, criterion and two arithmetic cases"
+      ],
+      "authors": "Charles A. Weibel",
+      "edition": "Separately hosted author chapter downloaded 2026-09-30; checksum and chapter-PDF pagination distinguish it from the earlier combined draft."
+    },
+    {
+      "id": "Kbook.III.chapter",
+      "title": "Weibel, K-book chapter III, separately hosted author chapter",
+      "url": "https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.III.pdf",
+      "sha256": "ba1bc2d25680ab25c4baadc5ab28e39d1077dc66bb12ca4e2174b6cb55f81307",
+      "accessed": "2026-09-30",
+      "readSections": [
+        "PDF pp.61–62: III.7.2–7.3, global Milnor groups"
+      ],
+      "authors": "Charles A. Weibel",
+      "edition": "Separately hosted author chapter downloaded 2026-09-30; checksum and chapter-PDF pagination distinguish it from the earlier combined draft."
+    },
+    {
+      "id": "Kbook.VI.chapter",
+      "title": "Weibel, K-book chapter VI, separately hosted author chapter",
+      "url": "https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.VI.pdf",
+      "sha256": "efca16d77ed598735aa4e819be48d10d35bec0cf1b4138548f94f67922d40cd1",
+      "accessed": "2026-09-30",
+      "readSections": [
+        "PDF p.20: VI.4.7, all three Geisser–Levine conclusions",
+        "PDF pp.23–24: VI.5.1–5.3, infinite-field scope of Theorem 5.2",
+        "PDF pp.37–39: VI.6.1–6.7, Harder and geometric/descent computation"
+      ],
+      "authors": "Charles A. Weibel",
+      "edition": "Separately hosted author chapter downloaded 2026-09-30; checksum and chapter-PDF pagination distinguish it from the earlier combined draft."
     }
   ],
   "nodes": [
@@ -1647,7 +1685,8 @@
       "proofSteps": [
         "Exactness at K₂(X) (E.3/localisation-sequence-for-a-curve).",
         "K_2 of a number field L is torsion: K_2(L) is the filtered colimit of K_2(O_{L,S}) over the finite sets S of finite places (K-theory commutes with filtered colimits of rings, GeneralAlgebraicKTheory K.1), and each K_2(O_{L,S}) is finite (ArithmeticKTheory N.3/finiteness-and-ranks-combined: every positive even K-group of a ring of S-integers is finite). The tame kernel sequence (K2SymbolsBrauer T.5) gives the same conclusion but is not needed.",
-        "⊗ℚ is exact."
+        "⊗ℚ is exact.",
+        "Apply the number-field residue statement to every closed point x, since k(x) is a finite extension of the base number field, not only to rational points. The direct sum of torsion K₂(k(x)) is torsion; no common annihilating exponent is required before tensoring with ℚ."
       ],
       "acceptance": [
         "Injective after ⊗ℚ.",
@@ -1656,7 +1695,9 @@
       "prerequisites": [
         "EllipticKTheory:E.3/localisation-sequence-for-a-curve",
         "ArithmeticKTheory:N.3/finiteness-and-ranks-combined",
-        "GeneralAlgebraicKTheory:K.1"
+        "GeneralAlgebraicKTheory:K.1",
+        "ArithmeticKTheory:N.2/even-degree-injectivity",
+        "ArithmeticKTheory:N.2/localisation-sequence-for-a-dedekind-domain"
       ],
       "sources": [
         {
@@ -2449,16 +2490,16 @@
       ],
       "title": "The K-theory of an elliptic curve over a finite field",
       "kind": "theorem",
-      "statement": "For a smooth projective curve over a finite field every K-group in positive degree is finite of order prime to the characteristic, and the groups are computed by Galois descent from the geometric ones: in odd degree they are two copies of the K-group of the base field, and in even degree a twisted Galois-invariant part of the torsion of the Jacobian. In degree one this gives two copies of the unit group of the base field. The theorem's proof has three inputs — finite generation, the cohomological computation of the geometric groups, and the Frobenius action — and it is NOT a consequence of the K-theory of a finite field alone, which the stage text says in as many words.",
+      "statement": "For an elliptic curve E/F_q with its rational origin, every positive K-group is finite of order prime to p. For odd n>0, K_n(E)≅K_n(F_q)⊕K_n(F_q); for n=2i>0 it is ⊕_{ℓ≠p} E(F̄_q)[ℓ∞](i)^Gal(F̄_q/F_q), with the Tate twist and Frobenius convention of K-book VI.6.7. In particular K₁(E)≅(F_q×)². Harder finiteness and the geometric/étale Frobenius computation are separate inputs; none follows from the base finite-field calculation alone.",
       "hypotheses": [
-        "The curve is smooth and projective over a finite field; for an elliptic curve the Jacobian is the curve itself.",
+        "E is an elliptic curve over F_q, hence smooth projective geometrically connected with full constant field F_q and Jacobian E. No disconnected-curve version is asserted.",
         "The Galois module structure is the one the source computes over the algebraic closure, with the Tate twists.",
         "The finiteness and the primality to the characteristic are Harder's theorem and are a separate input."
       ],
       "proofSteps": [
-        "Record Harder's theorem, the finiteness with order prime to the characteristic.",
-        "Record the geometric computation over the algebraic closure, in all four cases, with the twists.",
-        "Record the descent to the base field and the resulting formulas in odd and even degree.",
+        "Import E.5/harder-finiteness, with its distinct function-field finite-generation, Bass–Tate and Geisser–Levine inputs.",
+        "Apply the geometric computation VI.6.4 using the motivic/étale comparison and the curve’s étale cohomology, Jacobian Tate module and twists; this requires the requested M.6/M.7 and Tau Ceti elliptic interfaces.",
+        "Apply the Galois-descent sequence VI.6.6 and Weil’s Frobenius eigenvalue bounds, then VI.6.7, retaining twists before taking invariants.",
         "Read off degree one and record that the answer is two copies of the unit group of the base field.",
         "Record the reciprocity sequence the source derives for the function field, which links this computation with E.3's sequence.",
         "State the non-example: the computation uses finite generation, the geometric computation and the Frobenius action, and does not follow from the K-theory of a finite field."
@@ -2474,10 +2515,10 @@
       "prerequisites": [
         "EllipticKTheory:E.3/localisation-sequence-for-a-curve",
         "EllipticKTheory:E.2/K0-of-an-elliptic-curve",
-        "ArithmeticKTheory:N.3:finite-generation/finite-generation-of-K-of-S-integers",
         "KTheoryFiniteLocalFields:L.1",
-        "K2SymbolsBrauer:T.2/milnor-examples",
-        "MotivicEtaleKTheory:M.6"
+        "MotivicEtaleKTheory:M.6",
+        "EllipticKTheory:E.5/harder-finiteness",
+        "MotivicEtaleKTheory:M.7"
       ],
       "sources": [
         {
@@ -3624,7 +3665,9 @@
         "EllipticKTheory:E.7/symbol-certificates",
         "EllipticKTheory:E.7/reciprocity-determines-the-last-rational-point",
         "K2SymbolsBrauer:T.3/higher-milnor-residues",
-        "K2SymbolsBrauer:T.5/k2-of-the-rationals"
+        "K2SymbolsBrauer:T.5/k2-of-the-rationals",
+        "EllipticKTheory:E.6/the-regular-proper-model",
+        "EllipticKTheory:E.6/vertical-residues"
       ],
       "sources": [
         {
@@ -3718,6 +3761,57 @@
       ],
       "implementationStatus": "unchecked",
       "addedBy": "REV-EllipticKTheory"
+    },
+    {
+      "id": "EllipticKTheory:E.5/harder-finiteness",
+      "parentStageId": "EllipticKTheory:E.5",
+      "realises": [
+        "EllipticKTheory:E.5"
+      ],
+      "title": "Harder finiteness, separated from the Frobenius computation",
+      "kind": "theorem",
+      "statement": "For an elliptic curve E/F_q, p=char(F_q), K_n(E) is finite of order prime to p for every n≥1.",
+      "hypotheses": [
+        "E is smooth, projective and geometrically connected over F_q with its rational origin; F_q is its full constant field."
+      ],
+      "proofSteps": [
+        "For n=1, use localization and Weil reciprocity: K₁(E)≅F_q×⊕F_q×. For n=2, use the finite prime-to-p global-function-field tame kernel of Bass–Tate. These low degrees are separate inputs.",
+        "For n≥3 import T.2:symbols/milnor-global-positive-characteristic: K_n^M(F_q(E))=0.",
+        "Apply Geisser–Levine VI.4.7(c) to conclude that K_n(F_q(E)) is uniquely p-divisible. Merely knowing mod-p vanishing does not replace this comparison statement.",
+        "Use the five-term closed-point localization segment K_{n+1}(F_q(E)) → ⊕K_n(k(x)) → K_n(E) → K_n(F_q(E)) → ⊕K_{n−1}(k(x)). Multiplication by p is an automorphism on the two field terms by Geisser–Levine and on both residue sums by finite-field K-theory. The five-lemma diagram chase gives unique p-divisibility of K_n(E).",
+        "Apply N.3:finite-generation/proper-curve-finite-generation. A finitely generated p-divisible abelian group has no free part or p-primary torsion and is finite of order prime to p."
+      ],
+      "acceptance": [
+        "The affine example F_q[t,t⁻¹] has an infinite K₁, so properness cannot be removed.",
+        "Finite generation alone does not exclude p-torsion; Geisser–Levine and localization supply that step."
+      ],
+      "prerequisites": [
+        "ArithmeticKTheory:N.3:finite-generation/proper-curve-finite-generation",
+        "K2SymbolsBrauer:T.2:symbols/milnor-global-positive-characteristic",
+        "EllipticKTheory:E.3/localisation-sequence-for-a-curve",
+        "KTheoryFiniteLocalFields:L.1"
+      ],
+      "sources": [
+        {
+          "sourceId": "Kbook.VI.chapter",
+          "locator": "VI.6.1 and proof, PDF p.37; VI.4.7, PDF p.20",
+          "match": "Paraphrase of the inspected passage, not a quotation. The low-degree tame-kernel argument and the higher-degree p-divisibility argument are distinct."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "addedBy": "FIX-RT-AREA-ktheory-2~2",
+      "tests": [
+        {
+          "name": "harder_finiteness_1",
+          "kind": "characterisation",
+          "statement": "The affine example F_q[t,t⁻¹] has an infinite K₁, so properness cannot be removed."
+        },
+        {
+          "name": "harder_finiteness_2",
+          "kind": "characterisation",
+          "statement": "Finite generation alone does not exclude p-torsion; Geisser–Levine and localization supply that step."
+        }
+      ]
     }
   ],
   "coverage": [
@@ -3751,7 +3845,7 @@
       "remaining": [
         "Geisser-Levine and the étale cohomology of curves over F_q with Weil's theorem have no owner (gap)"
       ],
-      "note": "Five nodes. Pullback and pushforward (S.2), the projection formula, the class of f_*O for an isogeny with its integral non-example, the projective line (S.5), and the finite-field computation with its inputs cited. Corrected by REV-EllipticKTheory."
+      "note": "Five nodes. Pullback and pushforward (S.2), the projection formula, the class of f_*O for an isogeny with its integral non-example, the projective line (S.5), and the finite-field computation with its inputs cited. Corrected by REV-EllipticKTheory. FIX-RT-AREA-ktheory-2~2 adds explicit supplier/application nodes; their named source and interface gaps remain open."
     },
     {
       "stageId": "EllipticKTheory:E.6",
@@ -3776,11 +3870,11 @@
   ],
   "gaps": [
     {
-      "title": "Two inputs of the finite-field computation have no owner",
+      "title": "Finite-field computation: routed inputs still awaiting their proofs",
       "neededBy": [
         "EllipticKTheory:E.5/an-elliptic-curve-over-a-finite-field"
       ],
-      "detail": "Harder's theorem uses Geisser-Levine (K-book VI.4.7: the kernel and cokernel of K^M_n(k) → K_n(k) are uniquely p-divisible in characteristic p), and Theorems VI.6.4 and VI.6.7 use the étale cohomology of a smooth projective curve over F_q with Weil's theorem on the Frobenius eigenvalues (K-book VI.6.5-6.6). No atlas stage owns either. The remaining inputs are cited: finite generation (ArithmeticKTheory N.3:finite-generation), K_*(F_q) (L.1), Bass-Tate (K2SymbolsBrauer T.2/milnor-examples), the motivic spectral sequence (M.6), and the Tate module and Frobenius trace (Tau Ceti EllipticCurves layers 2 and 3). NEXT SOURCE ACTION: find or propose owners (MotivicEtaleKTheory for Geisser-Levine; an etale-cohomology roadmap for Weil's theorem) and file requests. Replaces the packet's gap 'The proofs of the finite-field computations were not read'; the review's checker read VI.4.2-4.8 and VI.6 complete. Added by REV-EllipticKTheory."
+      "detail": "FIX-RT-AREA-ktheory-2~2 routes function-field finite generation to new N.3 nodes, higher Milnor vanishing to existing T.2:symbols, Geisser–Levine to M.5d and the geometric étale/Frobenius package to M.6/M.7 plus the existing Tau Ceti elliptic-curve request. The separate low-degree tame-kernel request goes to T.4. A route is not an implemented theorem; the N.3 [GQ82] proof and these supplier interfaces remain explicit obligations."
     },
     {
       "title": "Uniqueness of the minimal regular model over O_{F,S}",
@@ -4045,6 +4139,27 @@
         "EllipticKTheory:E.6/existence-of-a-regular-proper-model",
         "EllipticKTheory:E.6/vertical-residues"
       ]
+    },
+    {
+      "supplier": "MotivicEtaleKTheory:M.5d",
+      "need": "Geisser–Levine in characteristic p: (a) K_n^M(k)/p^ν ≅ K_n(k;ℤ/p^ν), (b) K_n(k) has no p-torsion, (c) kernel and cokernel of K_n^M(k)→K_n(k) are uniquely p-divisible. Supply all three separately, with the finite-coefficient comparison and compatibility; Harder uses (c) after Bass–Tate vanishing.",
+      "neededBy": [
+        "EllipticKTheory:E.5/harder-finiteness"
+      ]
+    },
+    {
+      "supplier": "K2SymbolsBrauer:T.4",
+      "need": "Global-function-field Bass–Tate tame-kernel finiteness of order prime to p and reciprocity, as used in K-book VI.6.1 in degrees 1–2. T.2:symbols already owns general Milnor vanishing in degrees ≥3; do not reprove it here.",
+      "neededBy": [
+        "EllipticKTheory:E.5/harder-finiteness"
+      ]
+    },
+    {
+      "supplier": "MotivicEtaleKTheory:M.7",
+      "need": "Étale cohomology of a smooth projective geometrically connected finite-field curve, Poincaré duality, Tate twists, Weil Frobenius eigenvalue bounds, and the descent sequence used in K-book VI.6.4–6.7. This is a requested interface, not a claim these theorems are already built.",
+      "neededBy": [
+        "EllipticKTheory:E.5/an-elliptic-curve-over-a-finite-field"
+      ]
     }
   ],
   "restructure": [
@@ -4100,6 +4215,11 @@
       "title": "The worked examples of E.8 and ER.8",
       "detail": "E.8 requires a nontrivial certificate, a residue at a non-rational closed point and a bad-fibre integrality calculation; EllipticRegulators ER.8 requires a CM class with residue certificates, a non-rational torsion calculation followed by transfer, and an arithmetic-model integrality test. Added by REV-EllipticKTheory.",
       "proposal": "E.8 owns the K-theoretic certificates of the worked examples; ER.8 cites them and adds only regulator values."
+    },
+    {
+      "kind": "note-duplicate-boundary",
+      "title": "RT-AREA-ktheory-2/1,4,12: arithmetic and geometric inputs",
+      "detail": "E.5 is now explicitly elliptic/geometrically connected. N.3 supplies the function-field branch, separate from number-field finite generation. E.3 retains finite-field integral injectivity via T.2/k2-finite-field and rational injectivity over number fields; E.7 already required E.6 and E.8 now names both arithmetic-model suppliers. Generic f_*f^* remains multiplication by [f_*O], not by degree without an additional K₀ hypothesis."
     }
   ],
   "sourceVersions": [
@@ -4138,6 +4258,27 @@
       "url": "https://arxiv.org/abs/2605.11100v1",
       "read": "2026-09-25",
       "sha256": "93ca7e61d0b9897ed6a9b8eab968ef7f31856900e7cf7a400eb7ccbe7fe3361b"
+    },
+    {
+      "kind": "author copy",
+      "url": "https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.IV.pdf",
+      "read": "2026-09-30",
+      "sha256": "9f1c1b8cccfe19d547c27dd04c61f198fd7a0cddd0018a0b84442b00fa575248",
+      "note": "FIX-RT-AREA-ktheory-2~2: only PDF p.59: IV.6.8–6.9, criterion and two arithmetic cases inspected. Earlier version records remain historical."
+    },
+    {
+      "kind": "author copy",
+      "url": "https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.III.pdf",
+      "read": "2026-09-30",
+      "sha256": "ba1bc2d25680ab25c4baadc5ab28e39d1077dc66bb12ca4e2174b6cb55f81307",
+      "note": "FIX-RT-AREA-ktheory-2~2: only PDF pp.61–62: III.7.2–7.3, global Milnor groups inspected. Earlier version records remain historical."
+    },
+    {
+      "kind": "author copy",
+      "url": "https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.VI.pdf",
+      "read": "2026-09-30",
+      "sha256": "efca16d77ed598735aa4e819be48d10d35bec0cf1b4138548f94f67922d40cd1",
+      "note": "FIX-RT-AREA-ktheory-2~2: only PDF p.20: VI.4.7, all three Geisser–Levine conclusions; PDF pp.23–24: VI.5.1–5.3, infinite-field scope of Theorem 5.2; PDF pp.37–39: VI.6.1–6.7, Harder and geometric/descent computation inspected. Earlier version records remain historical."
     }
   ],
   "sourceIssues": [
