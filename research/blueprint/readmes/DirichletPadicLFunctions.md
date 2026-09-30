@@ -25293,3 +25293,254 @@ Three complete native definitions and twelve complete lemmas check canonical rep
 Exact finite controls check2025rational arguments at12precision profiles forp=2,3,5,7, including2025successive-reduction identities1470unit and555nonunit functional branches2025unit outputs960natural-value checks and48wraparound cases. An unsigned alternative fails885controls. The dyadic values at1 and5 explicitly disprove1-Lipschitz continuity. Exact modular evaluation of signed natural Gamma products at canonical p-adic representatives of sampled rational arguments with denominators prime to p. Checks compare successive precisions, both functional branches, native unit residues, natural values and wraparound; these finite calculations do not prove continuity or analytic identities. The largest observed discrepancy is 0.
 
 The only captured-input delta is the generated source registry and errata register: Land–Mathew–Meier et al. E2 has its independent review reset to awaiting review. Its orbit-category notation correction is mathematically unchanged, and the whole current record was read. It supplies no Morita input. The70other captured inputs,16Dirichlet findings and allfour predecessor outputs are unchanged. No fresh reading of that external paper or independent verdict is claimed. The full suggested module remains NOT COMPILED because the pinned TwistedDivisorSum artifact is unavailable. The separate partial signature file preserves all documented predecessor omissions. The exact5219partialprefix plus24declarations and30tests compiles with zero errors and2368expected placeholder warnings against3582pinned modules; SHA256:f105865b2622fc85ea4db213d9693023a50ed6579c1ec0a491c0f3693a61ad3e. This is not the full module and retains the documented4777–4791omissions. Publication refresh: nineteen registry records were read. Balakrishnan et al. E1–8 restore the earlier independent confirmation without a new verdict; E9–13 add uniqueness/nonzero-object qualifications, bibliographic corrections and the good-reduction proof repair, awaiting review. Betts–Stix E1 now requires split rather than merely reduced coefficient algebra; E7 records the precise filtration direction and tensor-quotient flatness input, and E8 corrects the Shimizu theorem/definition citations. The two K-theory records correct relative S-construction roles and add author-reported saturation to cofinality, awaiting review. K3BlochGroups E2 only updates the supplying node id. These external records supply no Gamma prerequisite. Their reported source readings remain attributed to their authors; this worker read the records and claims no new independent verdict. All70other captured inputs,16Dirichlet findings and four predecessor outputs are unchanged.
+
+
+## Local Gamma estimates and finite shifts
+
+Eight L3 nodes give exact Morita Gamma congruences at admissible exponents, the norm form, odd-prime nonexpansiveness, a native continuous small-disc dilation, its principal-unit bound and shifted sign identity, and the finite natural-shift product. All772predecessor nodes and653baseline records remain whole.
+
+Complete Morita1975 published258–266/PDF4–12 freshly viewed as images; earlier255–257 reading retained, so the complete twelve-page paper has now been read. Theorem2 uses a character-weighted overconvergent averaging limit and cites Kubota–Leopoldt; that cited proof remains unread and is not silently discharged. Theorem3 exponentiates the signed Gamma logarithm on2qℤ_p; Section4 and the Appendix were read but are not planned in this checkpoint. The reviewed AUDIT-24 L3 row was reread. Whole LAD closed-disc and fixed-radius supplier nodes were read; their carriers are not duplicated. All four new baseline declarations and their surrounding hypotheses were read at the pin.
+
+### Exact residue precision for Morita Gamma
+
+`DirichletPadicLFunctions:L3/morita-gamma-sharp-reduction` — `DirichletPadic.moritaGamma_reduction_congr`
+
+For an admissible exponent r, x≡y modulo p^r implies Γ_p(x)≡Γ_p(y) modulo p^r after scalar projection.
+
+**Hypotheses:** p is any prime unless the statement explicitly assumes p≠2. Γ_p is the preceding native continuous map ℤ_p→ℤ_pˣ; all norm identities use its scalar projection inℤ_p. G_p is its preceding signed natural integer product. An admissible positive exponent r satisfies r>0 and(p=2→r≠2). Same-exponent congruence and its norm form require precisely this condition. The finite-shift identity and continuous dilation do not require it. D_(p,r)(x)=Γ_p(p^r x) is only a native continuous dilation. No carrier for analytic functions, logarithm, distribution or new unit group is introduced. For the future analytic argument use r=1 at oddp andr=3 atp=2; the generic dilation remains meaningful atr=0.
+
+**Proof:**
+
+1. Use the preceding exact Gamma reduction at exponent r: its value is G_p(a_r(x)), with a_r(x) the least representative modulo p^(r+3). Do the same fory.
+2. Reduce both representatives to exponent r. Native cast_toZModPow and natCast_val identify them with toZModPow(r)(x) and toZModPow(r)(y), respectively. Thus the given input congruence gives Nat.ModEq(p^r)(a_r(x),a_r(y)).
+3. Apply the already planned finite morita-natural-congruence at this SAME exponent r, with the displayed positive/admissibility hypotheses. Its two finite products agree in ZMod(p^r). The scalar-projection node identifies the result withΓ_p.
+4. This removes the sufficient three-digit input buffer from the preceding continuity estimate where the finite congruence permits it. The complete sharp_residue probe checks the casts and exact finite input; it does not reprove the predecessor finite congruence.
+5. The exception is real: Γ_2(0)=1 andΓ_2(4)=3 disagree modulo4 although0≡4 modulo4. Do not apply a claim valid only at r≠2 to that case.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/morita-gamma-value-reduction`, `DirichletPadicLFunctions:L3/morita-gamma-value-projection`, `DirichletPadicLFunctions:L3/morita-natural-congruence`, `mathlib:PadicInt.cast_toZModPow`, `mathlib:ZMod.natCast_val`, `mathlib:ZMod.natCast_eq_natCast_iff`.
+
+**Tests:**
+
+- `SuggestedMoritaLocalTests.local_residue_odd` (compatibility): Equal inputs modulo9 give equalΓ_3 outputs modulo9.
+- `SuggestedMoritaLocalTests.local_residue_dyadic` (compatibility): Equal inputs modulo8 give equalΓ_2 outputs modulo8.
+- `SuggestedMoritaLocalTests.local_residue_mod4_failure` (non-example): Γ_2(0) andΓ_2(4) differ modulo4.
+
+**Acceptance:** No same-exponent all-prime statement without the dyadic exception is asserted.
+
+**Source:** Sections1–3, published255–261/PDF1–7: Theorem1, the following functional equations, and the principal-unit input immediately before Theorem3. Complete paper255–266 has now been read as page images. These nodes supply the exact continuous Gamma congruences and principal-unit input to the source analytic argument, plus iteration of its functional equation. They do not assert analyticity. The source signed function is our Γ_p; its finite Γ_p is unsigned. The special analytic input uses pZ_p at oddp and8Z_2 atp=2, since q=p or4 and2qZ_p equals those ideals.
+
+### The local Gamma norm estimate
+
+`DirichletPadicLFunctions:L3/morita-gamma-norm-congruence` — `DirichletPadic.moritaGamma_norm_congr`
+
+For admissible r, ‖x−y‖≤p^(−r) implies ‖Γ_p(x)−Γ_p(y)‖≤p^(−r).
+
+**Hypotheses:** p is any prime unless the statement explicitly assumes p≠2. Γ_p is the preceding native continuous map ℤ_p→ℤ_pˣ; all norm identities use its scalar projection inℤ_p. G_p is its preceding signed natural integer product. An admissible positive exponent r satisfies r>0 and(p=2→r≠2). Same-exponent congruence and its norm form require precisely this condition. The finite-shift identity and continuous dilation do not require it. D_(p,r)(x)=Γ_p(p^r x) is only a native continuous dilation. No carrier for analytic functions, logarithm, distribution or new unit group is introduced. For the future analytic argument use r=1 at oddp andr=3 atp=2; the generic dilation remains meaningful atr=0.
+
+**Proof:**
+
+1. Use native ker_toZModPow and norm_le_pow_iff_mem_span_pow on x−y to identify the norm hypothesis with equality of the two input reductions.
+2. Apply the preceding sharp-reduction theorem, then apply the same native kernel/norm equivalence to the output difference.
+3. The complete norm_congr probe checks this composition. Its helper reduction_norm repeats the native interface checked inPR5226; this is not a new proposed generic p-adic theorem.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/morita-gamma-sharp-reduction`, `mathlib:PadicInt.ker_toZModPow`, `mathlib:PadicInt.norm_le_pow_iff_mem_span_pow`.
+
+**Tests:**
+
+- `SuggestedMoritaLocalTests.local_norm_dyadic` (compatibility): Input distance at most1/8 givesΓ_2 output distance at most1/8.
+
+**Acceptance:** Atp=2,r=2 the implication is false.
+
+**Source:** Sections1–3, published255–261/PDF1–7: Theorem1, the following functional equations, and the principal-unit input immediately before Theorem3. Complete paper255–266 has now been read as page images. These nodes supply the exact continuous Gamma congruences and principal-unit input to the source analytic argument, plus iteration of its functional equation. They do not assert analyticity. The source signed function is our Γ_p; its finite Γ_p is unsigned. The special analytic input uses pZ_p at oddp and8Z_2 atp=2, since q=p or4 and2qZ_p equals those ideals.
+
+### Morita Gamma does not increase odd-prime distances
+
+`DirichletPadicLFunctions:L3/morita-gamma-odd-distance` — `DirichletPadic.moritaGamma_norm_sub_le`
+
+If p≠2, then ‖Γ_p(x)−Γ_p(y)‖≤‖x−y‖ for all x,y∈ℤ_p.
+
+**Hypotheses:** p is any prime unless the statement explicitly assumes p≠2. Γ_p is the preceding native continuous map ℤ_p→ℤ_pˣ; all norm identities use its scalar projection inℤ_p. G_p is its preceding signed natural integer product. An admissible positive exponent r satisfies r>0 and(p=2→r≠2). Same-exponent congruence and its norm form require precisely this condition. The finite-shift identity and continuous dilation do not require it. D_(p,r)(x)=Γ_p(p^r x) is only a native continuous dilation. No carrier for analytic functions, logarithm, distribution or new unit group is introduced. For the future analytic argument use r=1 at oddp andr=3 atp=2; the generic dilation remains meaningful atr=0.
+
+**Proof:**
+
+1. If x=y, both differences vanish. Otherwise native PadicInt.valuation supplies a natural r and norm_eq_zpow_neg_valuation identifies ‖x−y‖ withp^(−r).
+2. If r=0, the difference of two native p-adic integers has norm at most1 by norm_le_one, exactly the required bound.
+3. If r>0, the dyadic exclusion is vacuous becausep≠2. Apply the preceding local norm estimate at thatr. The complete odd_distance probe proves both cases.
+4. This is a consequence of the discrete p-adic norm and the sharp congruence, not an assertion that every continuous unit-valued map is nonexpansive. The dyadic values at1 and5 give a counterexample to droppingp≠2.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/morita-gamma-norm-congruence`, `mathlib:PadicInt.valuation`, `mathlib:PadicInt.norm_eq_zpow_neg_valuation`, `mathlib:PadicInt.norm_le_one`.
+
+**Tests:**
+
+- `SuggestedMoritaLocalTests.local_distance_odd` (characterisation): Γ_5 does not increase any distance.
+- `SuggestedMoritaLocalTests.local_distance_dyadic_failure` (non-example): Atp=2 the output distance at1 and5 is1/2, while the input distance is1/4.
+
+**Acceptance:** The statement is a norm inequality at odd primes only; no differentiability is inferred.
+
+**Source:** Sections1–3, published255–261/PDF1–7: Theorem1, the following functional equations, and the principal-unit input immediately before Theorem3. Complete paper255–266 has now been read as page images. These nodes supply the exact continuous Gamma congruences and principal-unit input to the source analytic argument, plus iteration of its functional equation. They do not assert analyticity. The source signed function is our Γ_p; its finite Γ_p is unsigned. The special analytic input uses pZ_p at oddp and8Z_2 atp=2, since q=p or4 and2qZ_p equals those ideals.
+
+### Gamma on a small residue disc
+
+`DirichletPadicLFunctions:L3/morita-gamma-disc` — `DirichletPadic.moritaGammaDisc`
+
+Define D_(p,r):C(ℤ_p,ℤ_pˣ) by D_(p,r)(x)=Γ_p(p^r x), for every natural r.
+
+**Hypotheses:** p is any prime unless the statement explicitly assumes p≠2. Γ_p is the preceding native continuous map ℤ_p→ℤ_pˣ; all norm identities use its scalar projection inℤ_p. G_p is its preceding signed natural integer product. An admissible positive exponent r satisfies r>0 and(p=2→r≠2). Same-exponent congruence and its norm form require precisely this condition. The finite-shift identity and continuous dilation do not require it. D_(p,r)(x)=Γ_p(p^r x) is only a native continuous dilation. No carrier for analytic functions, logarithm, distribution or new unit group is introduced. For the future analytic argument use r=1 at oddp andr=3 atp=2; the generic dilation remains meaningful atr=0.
+
+**Proof:**
+
+1. Bundle multiplication byp^r as a native continuous self-map ofℤ_p and compose it with the existingΓ_p using native ContinuousMap.comp. The complete disc definition checks this exact implementation.
+2. The coordinate variablex ranges overℤ_p. Its imagep^r x ranges over the closed disc p^rℤ_p; the constructor does not extendΓ_p to all points of a C_p disc or equip it with an analytic certificate.
+3. At r=0 multiplication by1 gives exactlyΓ_p. At x=0 the value isΓ_p(0)=1. At a natural n, compatibility of natural casts and the preceding natural-value theorem give scalar valueG_p(p^r n).
+4. Promote projection, the principal-unit norm estimate and the negative shifted identity to nodes because the analytic argument consumes them. No replacement for LAD closed-disc analytic functions or Coleman logarithm branches is defined.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/morita-gamma`, `DirichletPadicLFunctions:L3/morita-gamma-natural-values`, `mathlib:ContinuousMap.comp`.
+
+**Uses:**
+
+- Morita1975 Section3, proof of Theorem3: Supplies the source function−Γ_p(z+1)=Γ_p(z) on z∈2qℤ_p, in an explicit integral coordinate.
+- Future locally analytic Gamma construction: Keeps the actual continuous Gamma and its normalisation fixed before proving a power-series representation. Generic analytic carriers remain with LocallyAnalyticDistributions.
+- Morita natural-value comparison: Checks each small-disc coordinate against the same signed integer product.
+
+**API:**
+
+- `DirichletPadic.moritaGammaDisc_def` (constructor): Composition ofΓ_p with the native continuous multiplication-by-p^r map.
+- `DirichletPadic.moritaGammaDisc_apply` (projection): D_(p,r)(x)=Γ_p(p^r x); promoted below.
+- `DirichletPadic.moritaGammaDisc_zero` (simp): D_(p,r)(0)=1.
+- `DirichletPadic.moritaGammaDisc_zero_radius` (compatibility): D_(p,0)=Γ_p.
+- `DirichletPadic.moritaGammaDisc_nat` (simp): The scalar value atn isG_p(p^r n).
+- `DirichletPadic.moritaGammaDisc_norm_sub_one` (characterisation): At admissible positive r, the scalar value is withinp^(−r) of1; promoted below.
+- `DirichletPadic.moritaGammaDisc_shifted` (relation): For r>0, the scalar value is−Γ_p(p^r x+1); promoted below.
+
+**Tests:**
+
+- `SuggestedMoritaLocalTests.disc_zero` (degenerate): D_(2,3)(0)=1.
+- `SuggestedMoritaLocalTests.disc_radius_zero` (compatibility): D_(3,0)=Γ_3.
+- `SuggestedMoritaLocalTests.disc_nat` (computation): The scalar valueD_(2,3)(1)=105.
+- `SuggestedMoritaLocalTests.disc_not_always_principal` (non-example): At r=0,p=3,x=1, the distance from the scalar value to1 is1.
+
+**Acceptance:** The constructor is continuous for every r; the principal-unit conclusion below requires an admissible positive exponent.
+
+**Source:** Sections1–3, published255–261/PDF1–7: Theorem1, the following functional equations, and the principal-unit input immediately before Theorem3. Complete paper255–266 has now been read as page images. These nodes supply the exact continuous Gamma congruences and principal-unit input to the source analytic argument, plus iteration of its functional equation. They do not assert analyticity. The source signed function is our Γ_p; its finite Γ_p is unsigned. The special analytic input uses pZ_p at oddp and8Z_2 atp=2, since q=p or4 and2qZ_p equals those ideals.
+
+### The small-disc Gamma projection
+
+`DirichletPadicLFunctions:L3/morita-gamma-disc-projection` — `DirichletPadic.moritaGammaDisc_apply`
+
+D_(p,r)(x)=Γ_p(p^r x) as native units.
+
+**Hypotheses:** p is any prime unless the statement explicitly assumes p≠2. Γ_p is the preceding native continuous map ℤ_p→ℤ_pˣ; all norm identities use its scalar projection inℤ_p. G_p is its preceding signed natural integer product. An admissible positive exponent r satisfies r>0 and(p=2→r≠2). Same-exponent congruence and its norm form require precisely this condition. The finite-shift identity and continuous dilation do not require it. D_(p,r)(x)=Γ_p(p^r x) is only a native continuous dilation. No carrier for analytic functions, logarithm, distribution or new unit group is introduced. For the future analytic argument use r=1 at oddp andr=3 atp=2; the generic dilation remains meaningful atr=0.
+
+**Proof:**
+
+1. Unfold native continuous-map composition. The identity is definitional and is verified by the complete disc_value probe.
+2. Native unit coercion gives the corresponding scalar identity, which is used in both following estimates. This keeps the norm and scalar recurrence comparisons inℤ_p.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/morita-gamma-disc`, `mathlib:ContinuousMap.comp`.
+
+**Tests:**
+
+- `SuggestedMoritaLocalTests.disc_native_projection` (compatibility): D_(5,1)(x)=Γ_5(5x) as units.
+
+**Acceptance:** No new codomain coercion or comparison with a different Gamma function is involved.
+
+**Source:** Sections1–3, published255–261/PDF1–7: Theorem1, the following functional equations, and the principal-unit input immediately before Theorem3. Complete paper255–266 has now been read as page images. These nodes supply the exact continuous Gamma congruences and principal-unit input to the source analytic argument, plus iteration of its functional equation. They do not assert analyticity. The source signed function is our Γ_p; its finite Γ_p is unsigned. The special analytic input uses pZ_p at oddp and8Z_2 atp=2, since q=p or4 and2qZ_p equals those ideals.
+
+### Small-disc Gamma values are principal units
+
+`DirichletPadicLFunctions:L3/morita-gamma-disc-principal-unit` — `DirichletPadic.moritaGammaDisc_norm_sub_one`
+
+For admissible positive r and every x∈ℤ_p, ‖D_(p,r)(x)−1‖≤p^(−r). In particular use r=1 for oddp andr=3 forp=2 in Morita’s analytic argument.
+
+**Hypotheses:** p is any prime unless the statement explicitly assumes p≠2. Γ_p is the preceding native continuous map ℤ_p→ℤ_pˣ; all norm identities use its scalar projection inℤ_p. G_p is its preceding signed natural integer product. An admissible positive exponent r satisfies r>0 and(p=2→r≠2). Same-exponent congruence and its norm form require precisely this condition. The finite-shift identity and continuous dilation do not require it. D_(p,r)(x)=Γ_p(p^r x) is only a native continuous dilation. No carrier for analytic functions, logarithm, distribution or new unit group is introduced. For the future analytic argument use r=1 at oddp andr=3 atp=2; the generic dilation remains meaningful atr=0.
+
+**Proof:**
+
+1. The inputp^r x has norm ‖p^r‖‖x‖≤p^(−r), by native norm_p_pow and norm_le_one. Compare it with0 in the preceding Gamma norm-congruence theorem.
+2. UseΓ_p(0)=1 from the existing natural-value normalization and the small-disc scalar projection. The complete disc_bound probe proves this estimate from the explicit finite congruence and reduction inputs.
+3. For oddp,2 is a unit and2qℤ_p=pℤ_p becauseq=p. Forp=2,q=4 and2qℤ_2=8ℤ_2. These are exactly the exponents1 and3 used above; the bound is the source norm condition for−Γ_p(z+1) to be in1+2qℤ_p.
+4. The modulus4 case is excluded from this theorem: D_(2,2)(1)=Γ_2(4)=3, whose difference from1 has norm1/2, greater than1/4. The shifted identity below remains valid there.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/morita-gamma-disc-projection`, `DirichletPadicLFunctions:L3/morita-gamma-norm-congruence`, `DirichletPadicLFunctions:L3/morita-gamma-natural-values`, `mathlib:PadicInt.norm_p_pow`, `mathlib:PadicInt.norm_le_one`.
+
+**Tests:**
+
+- `SuggestedMoritaLocalTests.disc_bound_odd` (compatibility): ‖D_(3,1)(x)−1‖≤1/3.
+- `SuggestedMoritaLocalTests.disc_bound_dyadic` (compatibility): ‖D_(2,3)(x)−1‖≤1/8.
+- `SuggestedMoritaLocalTests.disc_bound_mod4_failure` (non-example): D_(2,2)(1)=3 violates the1/4 bound.
+
+**Acceptance:** This is the principal-unit input to the source exponential/logarithm argument. It is not that analytic argument or a proof of its inverse identities.
+
+**Source:** Sections1–3, published255–261/PDF1–7: Theorem1, the following functional equations, and the principal-unit input immediately before Theorem3. Complete paper255–266 has now been read as page images. These nodes supply the exact continuous Gamma congruences and principal-unit input to the source analytic argument, plus iteration of its functional equation. They do not assert analyticity. The source signed function is our Γ_p; its finite Γ_p is unsigned. The special analytic input uses pZ_p at oddp and8Z_2 atp=2, since q=p or4 and2qZ_p equals those ideals.
+
+### The source’s shifted Gamma on the small disc
+
+`DirichletPadicLFunctions:L3/morita-gamma-disc-shift` — `DirichletPadic.moritaGammaDisc_shifted`
+
+For every r>0,−Γ_p(p^r x+1)=D_(p,r)(x) after scalar projection, includingp=2,r=2.
+
+**Hypotheses:** p is any prime unless the statement explicitly assumes p≠2. Γ_p is the preceding native continuous map ℤ_p→ℤ_pˣ; all norm identities use its scalar projection inℤ_p. G_p is its preceding signed natural integer product. An admissible positive exponent r satisfies r>0 and(p=2→r≠2). Same-exponent congruence and its norm form require precisely this condition. The finite-shift identity and continuous dilation do not require it. D_(p,r)(x)=Γ_p(p^r x) is only a native continuous dilation. No carrier for analytic functions, logarithm, distribution or new unit group is introduced. For the future analytic argument use r=1 at oddp andr=3 atp=2; the generic dilation remains meaningful atr=0.
+
+**Proof:**
+
+1. Since r>0, native divisibility givesp dividingp^r x. Native norm_lt_one_iff_dvd and not_isUnit_iff identify this input as a nonunit.
+2. Apply the already planned nonunit branchΓ_p(z+1)=−Γ_p(z) atz=p^r x. Negate both sides and use the small-disc projection.
+3. The complete disc_shift probe checks divisibility, the native nonunit criterion and the sign. No same-exponent Gamma congruence is used here, so no dyadic exponent exception belongs in this statement.
+4. At oddp,r=1 orp=2,r=3, combine this identity with the previous principal-unit estimate. This supplies the exact signed function exponentiated in Morita Section3.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/morita-gamma-disc-projection`, `DirichletPadicLFunctions:L3/morita-gamma-functional-equation`, `mathlib:PadicInt.not_isUnit_iff`, `mathlib:PadicInt.norm_lt_one_iff_dvd`.
+
+**Tests:**
+
+- `SuggestedMoritaLocalTests.disc_shifted_dyadic` (compatibility): −Γ_2(8x+1)=D_(2,3)(x).
+- `SuggestedMoritaLocalTests.disc_shifted_exception_still_valid` (compatibility): −Γ_2(4x+1)=D_(2,2)(x), even though the sharp modulus4 bound fails.
+
+**Acceptance:** The positivity hypothesis onr guarantees the nonunit input; the conclusion is independent of the congruence exception.
+
+**Source:** Sections1–3, published255–261/PDF1–7: Theorem1, the following functional equations, and the principal-unit input immediately before Theorem3. Complete paper255–266 has now been read as page images. These nodes supply the exact continuous Gamma congruences and principal-unit input to the source analytic argument, plus iteration of its functional equation. They do not assert analyticity. The source signed function is our Γ_p; its finite Γ_p is unsigned. The special analytic input uses pZ_p at oddp and8Z_2 atp=2, since q=p or4 and2qZ_p equals those ideals.
+
+### The finite-shift product for Morita Gamma
+
+`DirichletPadicLFunctions:L3/morita-gamma-finite-shift` — `DirichletPadic.moritaGamma_add_nat`
+
+For x∈ℤ_p and n∈ℕ, Γ_p(x+n)=(−1)^n(∏_{0≤j<n} c(x+j))Γ_p(x), where c(y)=y for unitsy and1 otherwise; equality is after scalar projection.
+
+**Hypotheses:** p is any prime unless the statement explicitly assumes p≠2. Γ_p is the preceding native continuous map ℤ_p→ℤ_pˣ; all norm identities use its scalar projection inℤ_p. G_p is its preceding signed natural integer product. An admissible positive exponent r satisfies r>0 and(p=2→r≠2). Same-exponent congruence and its norm form require precisely this condition. The finite-shift identity and continuous dilation do not require it. D_(p,r)(x)=Γ_p(p^r x) is only a native continuous dilation. No carrier for analytic functions, logarithm, distribution or new unit group is introduced. For the future analytic argument use r=1 at oddp andr=3 atp=2; the generic dilation remains meaningful atr=0.
+
+**Proof:**
+
+1. Induct on the natural shift lengthn. Forn=0 the empty product and(−1)^0 are1.
+2. Rewrite x+(n+1)=(x+n)+1, apply the existing combined functional equation, then insert the induction hypothesis.
+3. Native Finset.prod_range_succ isolates the last factor c(x+n). The sign power increases by one, and commutative-ring algebra gives the displayed formula. The complete shift probe proves this induction for any supplied scalar function satisfying the exact combined recurrence.
+4. The factors are chosen by the actual unit condition atx+j, even ifx itself is a unit. A shift may cross a nonunit: atp=3,x=2,n=3 the product deletes3 and the signed multiplier is−8, not−24.
+5. This identity will transport a proved local analytic Gamma formula through finitely many residue classes. It supplies no analyticity of the starting disc and does not identify the piecewise multiplier with one polynomial on allℤ_p.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/morita-gamma-functional-equation`, `mathlib:Finset.prod_range_succ`.
+
+**Tests:**
+
+- `SuggestedMoritaLocalTests.shift_empty` (degenerate): The shift of length0 is the identity.
+- `SuggestedMoritaLocalTests.shift_crosses_nonunit` (computation): Γ_3(5)=−8Γ_3(2).
+- `SuggestedMoritaLocalTests.shift_deleted_factor` (non-example): The tempting all-factor multiplier−24 gives the wrong answer for that shift.
+
+**Acceptance:** The natural shift includes0 and everyprime. The unit/nonunit selection is retained at every factor.
+
+**Source:** Sections1–3, published255–261/PDF1–7: Theorem1, the following functional equations, and the principal-unit input immediately before Theorem3. Complete paper255–266 has now been read as page images. These nodes supply the exact continuous Gamma congruences and principal-unit input to the source analytic argument, plus iteration of its functional equation. They do not assert analyticity. The source signed function is our Γ_p; its finite Γ_p is unsigned. The special analytic input uses pZ_p at oddp and8Z_2 atp=2, since q=p or4 and2qZ_p equals those ideals.
+
+**Remaining:** The all-prime continuous Morita Gamma foundation now includes exact admissible residue estimates, the odd-prime distance bound, the principal-unit estimate on the source small disc, its signed shifted form and finite natural-shift products. Morita1975 has now been read completely. Its analytic proof is still open: decompose the character-weighted overconvergent averages and their uniform Taylor bounds, read the cited Kubota–Leopoldt convergence proof, import LAD analytic carriers and Coleman logarithm/appropriate exponential input, and identify the actual Gamma. The source uses2qℤ_p, q=p odd or4 dyadic, hencepℤ_p or8ℤ_2; no claim of one analytic function on the whole closed unit disc is made. Gross–Koblitz still needs complete proof reading, fixed additive character/compatibleπ/positive fractional parts and the negative Gauss convention; its original statement is odd-prime and the EulerSystems dyadic application needs a separate source. Ferrero–Greenberg still needs proof reading and χ(p)=1, log_p(p)=0, character shift and derivative coordinate, with nonvanishing separate. The new RJW assignments, analytic/distribution/special-value comparisons, fifteen gaps and eleven requests remain open.
+
+### Local Gamma estimates and finite shifts validation
+
+All 772 predecessor nodes, 653 baseline records, 16 findings, requests and sourceVersions remain whole. This checkpoint adds 8 nodes, 12 named suggested declarations and 19 typed examples. The indexed blueprint, four-file intake, whitespace, preservation, API/test parity and versioned-source checks pass. The graph has 1038 reachable nodes, 5353 edges and 830 native leaves and is acyclic. Its stage request leaves are PadicMeasuresIwasawaAlgebras:L1, PadicMeasuresIwasawaAlgebras:L3, PadicMeasuresIwasawaAlgebras:L3, LocallyAnalyticDistributions:L1, AdicSpacesPartII:F1, AdicSpacesPartII:R2, PadicDifferentialEquationsAndRigidCohomology:RD.0, PadicDifferentialEquationsAndRigidCohomology:RD.4, PadicHodgeTheory:P7:annulus-foundations, PadicMeasuresIwasawaAlgebras:L2, LocallyAnalyticDistributions:L1. The new routes end in preceding Gamma nodes or native declarations; no new stage-request leaf. Generic analytic spaces and logarithms remain with LAD and Coleman, and are not asserted as constructed here.
+
+**The full current suggested module was NOT COMPILED.** Its real native import requires TauCeti.NumberTheory.ArithmeticFunction.TwistedDivisorSum. No matching existing artifact was found; WORKERS.md prohibits building the native library. Current compiler exit code, error count and warning count are unavailable, not zero. The exact named signatures and native source were reviewed. PR4773 remains the last compiled full predecessor, with zero errors and1,803 expected placeholder warnings; that receipt does not validate this new module.
+
+The current source closure covers 3603 pinned Mathlib modules and 22 pinned Tau Ceti modules. Only 21 Tau module artifacts are available and hash-verified. The105 available artifact files and the previously compiled332-node PMIA artifact are checked as partial dependencies. The current369-node supplier source preserves the older interface; no current-module compilation against either revision is claimed. Existing builds only were inspected; no setup, update, cache fetch or native build occurred.
+
+One complete native continuous-map definition and nine complete lemmas check sharp residue transport, its norm form, odd-prime distances, dilation/projection/zero, the principal-unit bound, the negative shifted identity and the finite-product recurrence. The reduction_norm helper repeats the native kernel/norm adapter fromPR5226. Predecessor finite congruence, reduction and recurrence are explicit hypotheses; the probe does not claim new proofs of those prior planned results. The separate probe compiles against 2801 pinned Mathlib modules and 0 pinned Tau Ceti modules with zero errors, warnings or placeholders. The separate Mathlib-only probe does not import, replace or compile the missing native Tau module. General roadmap declarations remain unchecked.
+
+Exact finite controls check65017admissible congruences121203odd-prime distance comparisons915principal-unit disc values4680finite-shift products976shifted-disc identities. They also find5050dyadic distance failures and verify the modulus4 and deleted-factor counterexamples. Exact integer products, p-adic valuations of integer differences and modular recurrence tables; no floating-point approximation. The largest observed discrepancy is 0.
+
+At main55fb17aa only the shared errata registry and its register changed:26records. Whole new records and changed mathematical fields were read. Bergstrom–Faber–PayneE7 adds boundary orientation local systems. Gamburd–Magee–RonanE1–18 collate published locators, preserve historical preprint errors, correct the surviving summation/transfer bounds and add the row3 derivative typo; all await review. TemkinE1 corrects the source base-characteristic hypothesis while remaining confirmed; E5–10 add projectivity/exact-boundary and separable-distillation obligations, the minimal-polynomial repair, separatedness direction and two local wording fixes, awaiting review. No consumed Gamma supplier contract or own finding changed; no independent verdict or fresh reading of these unrelated papers is claimed. Publication refresh read all seven newly routed registry records, all awaiting review: KhayutinE35–40 correct dyadic quadratic-order norm cases, the k0 factor in a congruence count, the rescaled sieve exponent, the compact-element tree-index factor, the adelic norm quotient and a false compactness claim; PanE4 changes the relevant truncated deRham coefficient ring from t^k to t^(k+1). These are external source records, not Gamma supplier changes or independent verdicts. All70other captured inputs, all16Dirichlet findings and the four predecessor outputs remain unchanged. Second publication refresh read all three new Gao–Habegger records, awaiting review: E28 requires a torus automorphism rather than endomorphism; E29 supplies monodromy equivariance in the fixed-part Hom intersection; E30 corrects the Ax algebraic-group theorem reference. These do not supply a Gamma prerequisite. All other inputs and own findings are unchanged; no independent verdict or paper rereading is claimed.
+
+The separate partial signature file also compiled with zero errors and2,398 expected placeholder warnings across3,582 pinned source modules. It includes all12new named declarations and19tests, and retains the documented4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 6da4965eb67e78855450779a7b9feec5d66e7f487e30e209f49c252495726a0c.
