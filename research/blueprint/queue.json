@@ -39436,8 +39436,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-SCHOLZE-26.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5005"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #5005",
+   "finishedAt": "2026-09-30T20:02:37Z"
   },
   {
    "id": "RT-PAPER-BOXER-CALEGARI-GEE-25",
@@ -40798,8 +40799,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-BOCKLE-HARRIS-KHARE-ETAL-19.md",
-   "state": "pending",
-   "note": "released on GitHub issue #5014"
+   "state": "external",
+   "note": "claimed on GitHub issue #5014"
   },
   {
    "id": "RT-PAPER-LAWRENCE-VENKATESH-20",
