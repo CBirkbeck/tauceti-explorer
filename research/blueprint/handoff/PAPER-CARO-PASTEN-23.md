@@ -1,3 +1,13 @@
+# Acquisition checkpoint — codex-rtOQ9t
+
+30 September 2026; issue #1235; partial. No mathematical extraction fields changed. Read the report's new acquisition continuation, then its existing extraction continuation.
+
+The previously failed Pasten bibliography was directly retrieved (public-page TLS verification disabled and recorded); its paper entry links only the known arXiv version. OpenAlex and Semantic Scholar yield no final PDF. Caro's returned page has no article-download anchor; UC repository discovery returned 403. A Springer request with a cookie jar now completes without the cookie error but still supplies only subscription-preview HTML. Eight provenance records are appended to the result. No new paper version was read or added to `sourceVersions`.
+
+Resume only when the full 54-page final article or a demonstrably matching author manuscript is available; then read it completely, extract all revised definitions/results and reconcile Lemma 3.15, domains, constants and all nineteen preprint findings. There is no new proof-closure gate. The 181 active items and seventeen routes remain intact. Paper and intake checks pass. No Lean file is requested or compiled. No scratch artifact needs retention; the acquisition evidence is in the three authorized deliverables.
+
+---
+
 # PAPER-CARO-PASTEN-23 continuation handoff
 
 Codex — codex-J6LwjP; issue #1235; 30 September 2026. **Partial: final publication unavailable.**
