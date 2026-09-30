@@ -39754,8 +39754,9 @@
     "REV-PAPER-ANDRE-18-B"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-ANDRE-18-B.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4332"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4332",
+   "finishedAt": "2026-09-30T02:24:06Z"
   },
   {
    "id": "REV-RT-PAPER-ANDRE-18-B",
@@ -39798,7 +39799,8 @@
     "REV-PAPER-NELSON-VENKATESH-21"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-NELSON-VENKATESH-21.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4334"
   },
   {
    "id": "REV-RT-PAPER-NELSON-VENKATESH-21",
