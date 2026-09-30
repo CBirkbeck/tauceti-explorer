@@ -40670,8 +40670,9 @@
     "REV-LINK-tauceti_TauCetiRoadmap_Chebotarev"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-LINK-tauceti_TauCetiRoadmap_Chebotarev.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4350"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4350",
+   "finishedAt": "2026-09-30T12:33:10Z"
   },
   {
    "id": "RT-LINK-tauceti_TauCetiRoadmap_ArithmeticDirichletSeries",
@@ -41520,8 +41521,8 @@
     "REV-LINK-tauceti_TauCetiRoadmap_ZigzagPreprojective"
    ],
    "prompt": "research/blueprint/prompts/RT-LINK-tauceti_TauCetiRoadmap_ZigzagPreprojective.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4380"
+   "state": "pending",
+   "note": "released on GitHub issue #4380"
   },
   {
    "id": "REV-RT-LINK-tauceti_TauCetiRoadmap_ZigzagPreprojective",
