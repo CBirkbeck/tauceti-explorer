@@ -35933,8 +35933,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-SCHIFFMANN-16.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4993"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4993",
+   "finishedAt": "2026-09-30T19:21:47Z"
   },
   {
    "id": "RT-PAPER-ELLENBERG-VENKATESH-WESTERLAND-16",
@@ -40783,8 +40784,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-BOCKLE-HARRIS-KHARE-ETAL-19.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5014"
+   "state": "pending",
+   "note": "released on GitHub issue #5014"
   },
   {
    "id": "RT-PAPER-LAWRENCE-VENKATESH-20",
