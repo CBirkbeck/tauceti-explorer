@@ -37664,7 +37664,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-KOYMANS-MILOVIC-21.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #5000"
   },
   {
    "id": "RT-PAPER-BHATT-MATHEW-21",
@@ -46411,8 +46412,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-BP-ClassicalSerreModularity--R33.5.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5189"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #5189",
+   "finishedAt": "2026-09-30T17:40:56Z"
   },
   {
    "id": "REV-FIX-RT-BP-ClassicalSerreModularity--R33.5",
