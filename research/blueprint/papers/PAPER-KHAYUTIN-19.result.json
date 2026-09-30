@@ -38,7 +38,7 @@
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "The conjecture the paper proves under additional hypotheses. Duke's theorem, that the counting measure on a single packet equidistributes when |D_i| → ∞, is the one-fold statement it refines; GeometryOfNumbersAndQuadraticArithmetic GN.4 plans equidistribution and the ergodic machinery 'needed for Oppenheim/Duke-type arithmetic applications' but names no joint statement."
+      "note": "The conjecture the paper proves under additional hypotheses. Duke's theorem, that the counting measure on a single packet equidistributes when |D_i| → ∞, is the one-fold statement it refines; GeometryOfNumbersAndQuadraticArithmetic GN.4 plans equidistribution and the ergodic machinery 'needed for Oppenheim/Duke-type arithmetic applications' but names no joint statement. The one-fold input, in the adelic form the proof uses, is item 125."
     },
     {
       "id": "PAPER-KHAYUTIN-19/2",
@@ -116,11 +116,11 @@
       "id": "PAPER-KHAYUTIN-19/8",
       "kind": "theorem",
       "name": "The reduced norm and the components of the adelic quotient",
-      "statement": "The reduced norm induces a monomorphism of compact abelian groups Nrd : G(A)/G(A)^+ → A^×/(A^×)², and a monomorphism of double coset spaces G(Q)\\G(A)/G(A)^+ → Q^×\\A^×/(A^×)². By the Hasse–Schilling–Maass theorem every element of Q^× is a reduced norm when B is split at ∞, and only the positive ones otherwise; so the second map is onto in the split case and has index-2 image otherwise.",
+      "statement": "The reduced norm induces a monomorphism of locally compact abelian groups Nrd : G(A)/G(A)^+ → A^×/(A^×)², and a monomorphism of double coset spaces G(Q)\\G(A)/G(A)^+ → Q^×\\A^×/(A^×)². By the Hasse–Schilling–Maass theorem every element of Q^× is a reduced norm when B is split at ∞, and only the positive ones otherwise; and the second map is a bijection in both cases: when B is ramified at ∞ its image is Q_{>0}\\(R_{>0} × A_f^×)/A^{×2}, which maps isomorphically onto Q^×\\A^×/A^{×2} because −1 ∈ Q^×. Neither G(A)/G(A)^+ nor A^×/A^{×2} is compact; only the quotients by G(Q) and Q^× are. (Corrected: print says 'compact' and 'index-2 image'; E39, E40.)",
       "locator": "§2.3 'Simply connected cover', p. 162 (arXiv v3: Section 2.3)",
       "status": "missing",
       "library": [],
-      "note": "AA.4 plans strong approximation for simply connected almost-simple groups with the required noncompact local factor, which is what identifies G(A)^+ and its class set; the Hasse–Schilling–Maass norm theorem is quaternion arithmetic in the Tau Ceti quadratic-form roadmap's direction. Review note on status: The 'planned' status is generous. AdelicAlgebraicGroups:AA.4 plans strong approximation but not the reduced-norm description of G(A)/G(A)^+. The Hasse–Schilling–Maass norm theorem is not named in QuadraticFormInvariants layer 2; for B over Q it would follow from the local–global representation theorem for the quaternary norm form (GlobalQuadraticForms layers 5–6). Review: status changed from planned to missing; AA.4 plans strong approximation, not the reduced-norm description of G(A)/G(A)^+ (Hasse–Schilling–Maass), and Tau Ceti QuadraticFormInvariants layer 2 plans the reduced norm but not this description. Routed with items 17 and 21 as a source of AA.4."
+      "note": "AA.4 plans strong approximation for simply connected almost-simple groups with the required noncompact local factor, which is what identifies G(A)^+ and its class set; the Hasse–Schilling–Maass norm theorem is quaternion arithmetic in the Tau Ceti quadratic-form roadmap's direction. Review note on status: The 'planned' status is generous. AdelicAlgebraicGroups:AA.4 plans strong approximation but not the reduced-norm description of G(A)/G(A)^+. The Hasse–Schilling–Maass norm theorem is not named in QuadraticFormInvariants layer 2; for B over Q it would follow from the local–global representation theorem for the quaternary norm form (GlobalQuadraticForms layers 5–6). Review: status changed from planned to missing; AA.4 plans strong approximation, not the reduced-norm description of G(A)/G(A)^+ (Hasse–Schilling–Maass), and Tau Ceti QuadraticFormInvariants layer 2 plans the reduced norm but not this description. Routed with items 17 and 21 as a source of AA.4. RT-PAPER-KHAYUTIN-19/4: Proposition 3.6 uses only ker(χ_{E_0}∘Nrd), so the index-2 error changes nothing there; the compactness error is used at p. 254 (item 123) and is repaired there."
     },
     {
       "id": "PAPER-KHAYUTIN-19/9",
@@ -329,7 +329,16 @@
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "The rigidity half of the proof, deduced from the classification of joinings of Einsiedler and Lindenstrauss together with Linnik's basic lemma and the equidistribution of the torus orbits in each coordinate. This is the statement closest to GN.4's plan for ergodic methods in Duke-type applications, and it is what the cross-correlation estimate is then used to rule out. Review (REV-PAPER-KHAYUTIN-19): statement corrected against the published text: Minor. The hypothesis is (♠), which includes the archimedean condition g_∞^{-1}T(R)g_∞ = K_∞ as well as the conditions at p_1 and p_2. The dichotomy holds for P-almost every λ, not for each λ, and it is stated through the Q-group L ∈ {G^Δ, G × G}."
+      "note": "The rigidity half of the proof, deduced from the classification of joinings of Einsiedler and Lindenstrauss together with Linnik's basic lemma and the equidistribution of the torus orbits in each coordinate. This is the statement closest to GN.4's plan for ergodic methods in Duke-type applications, and it is what the cross-correlation estimate is then used to rule out. Review (REV-PAPER-KHAYUTIN-19): statement corrected against the published text: Minor. The hypothesis is (♠), which includes the archimedean condition g_∞^{-1}T(R)g_∞ = K_∞ as well as the conditions at p_1 and p_2. The dichotomy holds for P-almost every λ, not for each λ, and it is stated through the Q-group L ∈ {G^Δ, G × G}. The one-coordinate equidistribution it uses is item 125."
+    },
+    {
+      "id": "PAPER-KHAYUTIN-19/125",
+      "kind": "theorem",
+      "name": "Duke's theorem for toral packets on [G(A)] (Linnik's form)",
+      "statement": "Let G = PB^× for a quaternion algebra B over Q (a Q-form of PGL_2), with K_∞ < G(R) a maximal compact torus and p_1 a fixed prime. Let [T_i(A)g_i] ⊂ [G(A)] be homogeneous toral sets for maximal Q-anisotropic tori T_i with splitting fields E_i, satisfying (♠) (in particular g_{i,∞}^{−1}T_i(R)g_{i,∞} = K_∞, the CM normalization, and p_1 split in every E_i), with discriminants |D_i| → ∞, and let μ_i be their periodic probability measures. Then {μ_i} is tight (no escape of mass), and every weak-* limit point is a G(A)^+-invariant probability measure on [G(A)].",
+      "locator": "§4, p. 176 ('equidistribution in the absolute rank 1 case … is already covered by Linnik's method [Lin68]'); used in the proofs of Corollary 3.5 (p. 171), Lemma 4.7 and Theorem 4.4 (p. 178) and Lemma 10.1 (p. 238)",
+      "status": "missing",
+      "note": "Added by FIX-RT-PAPER-KHAYUTIN-19 (RT-PAPER-KHAYUTIN-19/5). The one-coordinate adelic equidistribution the proof uses three times: tightness in Corollary 3.5, the marginals in Lemma 4.7 and Theorem 4.4, and 'µ is a probability measure' in Lemma 10.1. The paper cites Linnik's method [Lin68] under the fixed split prime (Duke [Duk88] and Iwaniec treat the general modular case). For B = M_2 it specialises the Duke-type equidistribution routed by PAPER-DUKE-IMAMOGLU-TOTH-16 to GeometryOfNumbersAndQuadraticArithmetic GN.4 (its item 53 is the genus-restricted statement on the modular surface); the Part II imports that split input and states the adelic form with the split-prime hypothesis for arbitrary B, without re-proving the owner's surface theorem. An imported statement: route 1 cites it and does not reprove Linnik's theorem."
     },
     {
       "id": "PAPER-KHAYUTIN-19/28",
@@ -841,12 +850,12 @@
       "id": "PAPER-KHAYUTIN-19/74",
       "kind": "theorem",
       "name": "Measure of the Bowen balls at p_1",
-      "statement": "For any n ∈ N and a ∈ A_{p_1}, m(K_{p_1} ∩ aK_{p_1}a^{-1})/m(K_{p_1}^{(−n,n)} ∩ aK_{p_1}^{(−n,n)}a^{-1}) = p_1^{2n}.",
+      "statement": "For n ∈ N and a ∈ A_{p_1}, the ratio m(K_{p_1} ∩ aK_{p_1}a^{-1})/m(K_{p_1}^{(−n,n)} ∩ aK_{p_1}^{(−n,n)}a^{-1}) equals p_1^{2n} if n = 0 or a ∉ K_{p_1}, and (1 + p_1^{−1})p_1^{2n} = (p_1 + 1)p_1^{2n−1} if n ≥ 1 and a ∈ K_{p_1}; in every case it lies in [p_1^{2n}, (3/2)p_1^{2n}]. (Corrected: print gives p_1^{2n} for every n and a; E38.)",
       "locator": "§8.8, Lemma 8.33, p. 218 (arXiv v3: Lemma 112)",
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "The volume computation that turns the Bowen-ball parameter n into the saving p_1^{2n} in the final estimate."
+      "note": "The volume computation that turns the Bowen-ball parameter n into the saving p_1^{2n} in the final estimate. RT-PAPER-KHAYUTIN-19/3: for a ∈ K_{p_1} and n ≥ 1 the ratio counts the geodesic paths of length 2n with midpoint x_0, (p+1)p^{2n−1}; for n = 0 the two subgroups coincide. Theorem 8.7 holds with a changed constant: the upper bound on the denominator measure used on p. 219 has the needed direction."
     },
     {
       "id": "PAPER-KHAYUTIN-19/75",
@@ -984,12 +993,12 @@
       "id": "PAPER-KHAYUTIN-19/87",
       "kind": "theorem",
       "name": "The sieve with fixed congruence conditions",
-      "statement": "(Proposition 9.25) Fix k_0 ∈ N. In the setting of Theorem 9.7, assume in addition (R_max/k_0)^{θ_l} ≤ A(E)/k_0² and X ≤ A(E)^δ·k_0^{1−2δ}. Then Σ_{(x,y)∈E∩Z², k_0|Q(x,y)} f(Q(x,y)/k_0) ≪ A(E)·∏_{deg Q<p≤X/k_0, p∤k_0, p∤Q}(1 − ρ_Q(p)/p²)·Σ_{a≤X/k_0} f(a)ρ̃_Q(k_0a)/(k_0a)², with the implied constant of Theorem 9.7. (Proposition 9.26) In the setting of Theorem 9.7, assume in addition R_max^{θ_l} ≤ A(E)^{1−4η} and X ≤ A(E)^{δ/2}. Let k_0, k_1, k_2 ∈ N be such that every prime dividing k_1 divides k_2, gcd(k_0,k_2) = 1 and k := k_0k_1k_2 ≤ A(E)^{η/2}, and let l ∈ (Z/k_2Z)^×. Then Σ_{(x,y)∈E∩Z², Q(x,y)≡k_0k_1l mod k} f(Q(x,y)/k_0) ≪ A(E)·f(k_1)·(ρ_Q(k_1l; k_1k_2)/(k_1k_2)²)·∏_{deg Q<p≤X/(k_0k_1), p∤k_0k_2, p∤Q}(1 − ρ_Q(p)/p²)·Σ_{a≤X/(k_0k_1), gcd(a,k_2)=1} f(a)ρ̃_Q(k_0a)/(k_0a)², with the implied constant of Theorem 9.7.",
+      "statement": "(Proposition 9.25) Fix k_0 ∈ N. In the setting of Theorem 9.7, assume in addition (R_max/k_0)^{θ_l} ≤ (A(E)/k_0²)^{1−3η} and X ≤ A(E)^δ·k_0^{1−2δ} (corrected: the printed hypothesis (R_max/k_0)^{θ_l} ≤ A(E)/k_0² does not give Theorem 9.7's hypothesis for k_0^{−1}(E − r); E37). Then Σ_{(x,y)∈E∩Z², k_0|Q(x,y)} f(Q(x,y)/k_0) ≪ A(E)·∏_{deg Q<p≤X/k_0, p∤k_0, p∤Q}(1 − ρ_Q(p)/p²)·Σ_{a≤X/k_0} f(a)ρ̃_Q(k_0a)/(k_0a)², with the implied constant of Theorem 9.7. (Proposition 9.26) In the setting of Theorem 9.7, assume in addition R_max^{θ_l} ≤ A(E)^{1−4η} and X ≤ A(E)^{δ/2}. Let k_0, k_1, k_2 ∈ N be such that every prime dividing k_1 divides k_2, gcd(k_0,k_2) = 1 and k := k_0k_1k_2 ≤ A(E)^{η/2}, and let l ∈ (Z/k_2Z)^×. Then Σ_{(x,y)∈E∩Z², Q(x,y)≡k_0k_1l mod k} f(Q(x,y)/k_0) ≪ A(E)·f(k_1)·(ρ_Q(k_0k_1l; k_1k_2)/(k_1k_2)²) (corrected from the printed ρ_Q(k_1l; k_1k_2); E36)·∏_{deg Q<p≤X/(k_0k_1), p∤k_0k_2, p∤Q}(1 − ρ_Q(p)/p²)·Σ_{a≤X/(k_0k_1), gcd(a,k_2)=1} f(a)ρ̃_Q(k_0a)/(k_0a)², with the implied constant of Theorem 9.7.",
       "locator": "§9.7, Propositions 9.25 and 9.26, pp. 235–237 (arXiv v3: Propositions 137 and 138)",
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "The forms of the sieve theorem actually used in the application, where the shifted convolution comes with congruence conditions imposed by the ideals 𝔰 and 𝔢. Review (REV-PAPER-KHAYUTIN-19): statement corrected against the published text: Only described, not stated. The exact hypotheses and bounds follow."
+      "note": "The forms of the sieve theorem actually used in the application, where the shifted convolution comes with congruence conditions imposed by the ideals 𝔰 and 𝔢. Review (REV-PAPER-KHAYUTIN-19): statement corrected against the published text: Only described, not stated. The exact hypotheses and bounds follow. RT-PAPER-KHAYUTIN-19/2: Proposition 9.26's own hypotheses give the repaired curvature condition of 9.25 (k² ≤ A^η gives (R/k)^θ ≤ A^{1−4η} ≤ (A/k²)^{1−3η}), and Proposition 10.10 (p. 245) already applies the corrected ρ_Q(m; (D_0D_1)²), so §10 is unaffected. E25's separate rescaling repair stands."
     },
     {
       "id": "PAPER-KHAYUTIN-19/88",
@@ -1077,7 +1086,7 @@
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "The lattice-point counting exponent for ellipses, which is exactly the classical divisor-problem exponent; GeometryOfNumbersAndQuadraticArithmetic GN.4 plans lattice-point estimates for convex bodies, and van der Corput's and Huxley's bounds are the inputs quoted here."
+      "note": "The lattice-point counting exponent for ellipses, which is exactly the classical divisor-problem exponent; GeometryOfNumbersAndQuadraticArithmetic GN.4 plans lattice-point estimates for convex bodies, and van der Corput's and Huxley's bounds are the inputs quoted here. Which exponent closes the proof: RT-PAPER-KHAYUTIN-19/6 and the Huxley prerequisite; Huxley's θ_l ∈ (131/208, 2/3) with θ = 1/2, or θ < 1/2 with θ_l > 2/3 close enough to 2/3."
     },
     {
       "id": "PAPER-KHAYUTIN-19/96",
@@ -1143,7 +1152,7 @@
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "Gauss's principal genus theorem in adelic form for an arbitrary quadratic order. The Tau Ceti roadmap on global number fields, layer 11, constructs orders and their Picard groups, and HeegnerPointEulerSystems HE.0 the ring class fields and Artin maps; genus theory for a non-maximal order in this form is not planned. Review note on status: Pic of orders: tauceti:TauCetiRoadmap/GlobalNumberFields Layer 11; the idele-class quotient: HeegnerPointEulerSystems:HE.0; the cyclic Hasse norm theorem used in the proof: tauceti ClassFieldTheory Layer 13. The statement itself is not planned, so 'missing' stands."
+      "note": "Gauss's principal genus theorem in adelic form for an arbitrary quadratic order. The Tau Ceti roadmap on global number fields, layer 11, constructs orders and their Picard groups, and HeegnerPointEulerSystems HE.0 the ring class fields and Artin maps; genus theory for a non-maximal order in this form is not planned. Review note on status: Pic of orders: tauceti:TauCetiRoadmap/GlobalNumberFields Layer 11; the idele-class quotient: HeegnerPointEulerSystems:HE.0; the cyclic Hasse norm theorem used in the proof: tauceti ClassFieldTheory Layer 13. The statement itself is not planned, so 'missing' stands. Routed to MultiquadraticPartII with the genus block (RT-PAPER-KHAYUTIN-19/7)."
     },
     {
       "id": "PAPER-KHAYUTIN-19/102",
@@ -1154,7 +1163,7 @@
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "The local computation of the genus index. Review note on status: For maximal orders (𝔣 = 1), tauceti:TauCetiRoadmap/Multiquadratic Layer 3 plans Cl(K)/Cl(K)² ≅ Gal(K_gen/K) and the 2-rank t − 1 for imaginary K. That plausibly covers this index formula in that case; the non-maximal statement is missing."
+      "note": "The local computation of the genus index. Review note on status: For maximal orders (𝔣 = 1), tauceti:TauCetiRoadmap/Multiquadratic Layer 3 plans Cl(K)/Cl(K)² ≅ Gal(K_gen/K) and the 2-rank t − 1 for imaginary K. That plausibly covers this index formula in that case; the non-maximal statement is missing. RT-PAPER-KHAYUTIN-19/7: near miss (PROTOCOL §1) tauceti:TauCeti.Multiquadratic.twoRank_eq_ncard_ramifiedPrimes_sub_one (Multiquadratic/Quadratic/TwoRank.lean:155): for K = Q(√d), d < 0 squarefree, the 2-rank of Cl(𝓞_K) is t − 1, which gives the index formula for a maximal imaginary order once the local indices are evaluated; the non-maximal statement is new. Routed to MultiquadraticPartII."
     },
     {
       "id": "PAPER-KHAYUTIN-19/103",
@@ -1165,18 +1174,18 @@
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "The explicit description of the local unit group of a non-maximal order."
+      "note": "The explicit description of the local unit group of a non-maximal order. Routed to MultiquadraticPartII with the genus block (RT-PAPER-KHAYUTIN-19/7)."
     },
     {
       "id": "PAPER-KHAYUTIN-19/104",
       "kind": "theorem",
       "name": "Norms of local units",
-      "statement": "Fix v ≠ ∞ with residue characteristic p. (Lemma A.5) Nr O_{E_v}^× = Z_v^× if E_v/Q_v is unramified, and (Z_v^×)² if E_v/Q_v is ramified and p > 2. If 2 ramifies in E, Nr O_{E_2}^× is one of the three index-2 subgroups of Z_2^×, all of which contain (Z_2^×)² = 1 + 8Z_2. (Lemma A.6) Let Λ_v ⊊ O_{E_v} be non-maximal, with conductor 𝔣_vO_{E_v}. If p > 2, Nr Λ_v^× = (Z_v^×)². If p = 2: Nr Λ_2^× = Nr O_{E_2}^× if 2 ∥ 𝔣_2; Nr Λ_2^× = 1 + 4Z_2 if 4 ∥ 𝔣_2 and either E_2/Q_2 is unramified or Nr O_{E_2}^× = 1 + 4Z_2; and Nr Λ_2^× = 1 + 8Z_2 = (Z_2^×)² otherwise.",
+      "statement": "Fix v ≠ ∞ with residue characteristic p. (Lemma A.5) Nr O_{E_v}^× = Z_v^× if E_v/Q_v is unramified, and (Z_v^×)² if E_v/Q_v is ramified and p > 2. If 2 ramifies in E, Nr O_{E_2}^× is one of the three index-2 subgroups of Z_2^×, all of which contain (Z_2^×)² = 1 + 8Z_2. (Lemma A.6) Let Λ_v ⊊ O_{E_v} be non-maximal, with conductor 𝔣_vO_{E_v}. If p > 2, Nr Λ_v^× = (Z_v^×)². If p = 2, write t = ord_2 𝔣 ≥ 1: Nr Λ_2^× = Nr O_{E_2}^× if t = 1 and either E_2/Q_2 is unramified (the split étale case included) or 4 ∥ d_E (equivalently Nr O_{E_2}^× = 1 + 4Z_2); Nr Λ_2^× = 1 + 4Z_2 if t = 2 and E_2/Q_2 is unramified; and Nr Λ_2^× = 1 + 8Z_2 = (Z_2^×)² otherwise. (Corrected: the printed dyadic clauses, 'Nr O_{E_2}^× if 2 ∥ f_v' and '1 + 4Z_2 if 4 ∥ f_v and … Nr O_{E_v}^× = 1 + 4Z_2', are false when 8 ∥ d_E, resp. when 4 ∥ d_E and t = 2; sourceIssues E35.)",
       "locator": "Appendix A.1, Lemmas A.5 and A.6, pp. 258–260 (Corollary A.7 and 'Corollary A.8', p. 260) (arXiv v3: Lemmas 158 and 159 with Corollaries 160 and 161)",
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "The local norm computations that make the genus index explicit, including the dyadic cases. Review (REV-PAPER-KHAYUTIN-19): statement corrected against the published text: The p = 2 case of Lemma A.6 is given only as 'an explicit case distinction'. Corollary A.7 (arXiv Corollary 160), named in the locator, is not stated; it is proposed below as a separate item. 'Corollary 161' (printed Corollary A.8) is not a statement: it is the proof of Corollary A.7, typeset as a corollary (source issue). Review note on status: For 𝔣 = 1, see tauceti:TauCetiRoadmap/Multiquadratic Layer 3 (item 102). The non-maximal case is missing."
+      "note": "The local norm computations that make the genus index explicit, including the dyadic cases. Review (REV-PAPER-KHAYUTIN-19): statement corrected against the published text: The p = 2 case of Lemma A.6 is given only as 'an explicit case distinction'. Corollary A.7 (arXiv Corollary 160), named in the locator, is not stated; it is proposed below as a separate item. 'Corollary 161' (printed Corollary A.8) is not a statement: it is the proof of Corollary A.7, typeset as a corollary (source issue). Review note on status: For 𝔣 = 1, see tauceti:TauCetiRoadmap/Multiquadratic Layer 3 (item 102). The non-maximal case is missing. RT-PAPER-KHAYUTIN-19/1: the dyadic clause is corrected (E35). The fixer checked the corrected clause for all eight quadratic étale Q_2-algebras and t = 1, 2, 3 by computing the norms of Z_2 + 2^tO_E modulo 64; the printed clause fails exactly for 8 ∥ d_E with t = 1 and for 4 ∥ d_E with t = 2. No pinned declaration computes local norm groups; the built maximal-order genus theory of Tau Ceti Multiquadratic (item 106's near misses) is its global counterpart, and this item's non-maximal clause has no f = 1 case. Routed to MultiquadraticPartII."
     },
     {
       "id": "PAPER-KHAYUTIN-19/105",
@@ -1187,7 +1196,7 @@
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "The characters cutting out the genera. Mathlib has the Jacobi and Kronecker symbols and quadratic reciprocity, but the packaging as the primitive real characters attached to a discriminant is what is used here. Review note on status: Mostly in the library. Mathlib at 082e2d37 has ZMod.χ₄, ZMod.χ₈ (= (8/·) on odd n) and ZMod.χ₈' (= χ₄χ₈) in Mathlib/NumberTheory/LegendreSymbol/ZModChar.lean. It also has legendreSym and quadraticChar (ZMod p); χ_p(n) = (p*/n) = (n/p) by jacobiSym.quadratic_reciprocity. The prime discriminants p* appear in tauceti Multiquadratic Layer 1. Missing: only the (p*/·) packaging, the multiplicative extension to rationals prime to the modulus, and the adelic lifts."
+      "note": "The characters cutting out the genera. Mathlib has the Jacobi and Kronecker symbols and quadratic reciprocity, but the packaging as the primitive real characters attached to a discriminant is what is used here. Review note on status: Mostly in the library. Mathlib at 082e2d37 has ZMod.χ₄, ZMod.χ₈ (= (8/·) on odd n) and ZMod.χ₈' (= χ₄χ₈) in Mathlib/NumberTheory/LegendreSymbol/ZModChar.lean. It also has legendreSym and quadraticChar (ZMod p); χ_p(n) = (p*/n) = (n/p) by jacobiSym.quadratic_reciprocity. The prime discriminants p* appear in tauceti Multiquadratic Layer 1. Missing: only the (p*/·) packaging, the multiplicative extension to rationals prime to the modulus, and the adelic lifts. Routed to MultiquadraticPartII with the genus block (RT-PAPER-KHAYUTIN-19/7)."
     },
     {
       "id": "PAPER-KHAYUTIN-19/106",
@@ -1198,7 +1207,7 @@
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "Gauss's genus theory in the form the paper needs: membership in the principal genus is decided by finitely many Kronecker characters evaluated at the norm. This is what makes the ideal classes of the invariants of Section 7 detectable by congruence conditions. Review (REV-PAPER-KHAYUTIN-19): statement corrected against the published text: Only Proposition A.10 is stated, and its 2-adic clause is wrong. Which 2-adic characters are needed depends on [Z_2^× : Nr Λ_2^×], not on whether 2 | D. There are none when the index is 1, which can happen with 2 | D (E unramified at 2 and 2 ∥ 𝔣). There is one of χ_4, χ_8, χ_4χ_8 when the index is 2, and both χ_4 and χ_8 when Nr Λ_2^× = 1 + 8Z_2. Proposition A.11 and Corollary A.12 (arXiv 164, 165), named in the locator, are not stated; they are proposed below as a separate item. Review note on status: For 𝔣 = 1, see tauceti:TauCetiRoadmap/Multiquadratic Layer 3 (genus field, Cl/Cl²). The order case is missing."
+      "note": "Gauss's genus theory in the form the paper needs: membership in the principal genus is decided by finitely many Kronecker characters evaluated at the norm. This is what makes the ideal classes of the invariants of Section 7 detectable by congruence conditions. Review (REV-PAPER-KHAYUTIN-19): statement corrected against the published text: Only Proposition A.10 is stated, and its 2-adic clause is wrong. Which 2-adic characters are needed depends on [Z_2^× : Nr Λ_2^×], not on whether 2 | D. There are none when the index is 1, which can happen with 2 | D (E unramified at 2 and 2 ∥ 𝔣). There is one of χ_4, χ_8, χ_4χ_8 when the index is 2, and both χ_4 and χ_8 when Nr Λ_2^× = 1 + 8Z_2. Proposition A.11 and Corollary A.12 (arXiv 164, 165), named in the locator, are not stated; they are proposed below as a separate item. Review note on status: For 𝔣 = 1, see tauceti:TauCetiRoadmap/Multiquadratic Layer 3 (genus field, Cl/Cl²). The order case is missing. RT-PAPER-KHAYUTIN-19/7: near misses (PROTOCOL §1) tauceti:TauCeti.Multiquadratic.isSquare_iff_forall_genusCharFunNarrowClassGroupHom_eq_one (Multiquadratic/Quadratic/GenusCharacter/PrincipalGenus.lean:150), the principal genus theorem for the narrow class group of a maximal order of Q(√d), d squarefree, and tauceti:TauCeti.Multiquadratic.genusCharFun (GenusCharacter/Basic.lean:212), the products of prime-discriminant characters. They give this item at 𝔣 = 1 only after the imaginary narrow-to-ordinary and character-evaluation adapters; the non-maximal statement is new. Routed to MultiquadraticPartII."
     },
     {
       "id": "PAPER-KHAYUTIN-19/107",
@@ -1209,7 +1218,7 @@
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "The cohomological computation behind the multiplicity bound for the invariant map, and the local description of the 2-torsion of the Picard group of the order. Review (REV-PAPER-KHAYUTIN-19): statement corrected against the published text: Minor omission. In the tamely ramified maximal case, the non-trivial class of H^1(Q_v, O_{E_v}^×) is represented by −1 ∈ O_{E_v}^{(1)}. Proposition 8.32 uses this at odd p | D where Λ_v may be maximal."
+      "note": "The cohomological computation behind the multiplicity bound for the invariant map, and the local description of the 2-torsion of the Picard group of the order. Review (REV-PAPER-KHAYUTIN-19): statement corrected against the published text: Minor omission. In the tamely ramified maximal case, the non-trivial class of H^1(Q_v, O_{E_v}^×) is represented by −1 ∈ O_{E_v}^{(1)}. Proposition 8.32 uses this at odd p | D where Λ_v may be maximal. Routed to MultiquadraticPartII with the genus block (RT-PAPER-KHAYUTIN-19/7)."
     },
     {
       "id": "PAPER-KHAYUTIN-19/108",
@@ -1322,10 +1331,10 @@
       "id": "PAPER-KHAYUTIN-19/119",
       "kind": "theorem",
       "name": "The 2-torsion of the Picard group of an imaginary quadratic order",
-      "statement": "Let Λ be an imaginary quadratic order of discriminant D. Let μ_tame be the number of odd primes dividing D, and μ_wild := ord_2[Z_2^× : Nr Λ_2^×] ∈ {0,1,2}; μ_wild depends only on 𝔣_2 and on the ramification of 2 in E. Then #Pic(Λ)[2] = [Pic(Λ) : Pic(Λ)²] = 2^{μ_tame+μ_wild−1} ≍ 2^{ω(D)}. The first equality follows from the exact sequence 1 → Pic(Λ)[2] → Pic(Λ) → Pic(Λ)² → 1 (squaring); the second from Corollary A.2 and Lemma A.6.",
+      "statement": "Let Λ be an imaginary quadratic order of discriminant D. Let μ_tame be the number of odd primes dividing D, and μ_wild := ord_2[Z_2^× : Nr Λ_2^×] ∈ {0,1,2}; μ_wild depends only on t = ord_2 𝔣 and ord_2 d_E (it is 0 for t = 0 and E_2 unramified, and is fixed by item 104 otherwise); it does not depend only on whether 2 ramifies in E: D = −16 and D = −32 have the same 𝔣_2 = 2, 2 ramifies in both, and μ_wild is 1 and 2. Then #Pic(Λ)[2] = [Pic(Λ) : Pic(Λ)²] = 2^{μ_tame+μ_wild−1} ≍ 2^{ω(D)}. The first equality follows from the exact sequence 1 → Pic(Λ)[2] → Pic(Λ) → Pic(Λ)² → 1 (squaring); the second from Corollary A.2 and Lemma A.6.",
       "locator": "Annals 189 (2019), Appendix A.1, Corollary A.7, p. 260 (arXiv v3 Corollary 160)",
       "status": "missing",
-      "note": "Added by the review REV-PAPER-KHAYUTIN-19 (coverage of the published text): The size of Pic(Λ)[2] and the exponent μ_wild. μ_wild enters the weight r of Definition 8.6 (item 59), and Pic(Λ)[2] bounds the fibres in Corollary 8.28 (item 70). Suggested owner: HeegnerPointEulerSystems:HE.0, with items 101–107. The maximal-order case (2-rank = t − 1 for imaginary K) is planned by tauceti:TauCetiRoadmap/Multiquadratic Layer 3."
+      "note": "Added by the review REV-PAPER-KHAYUTIN-19 (coverage of the published text): The size of Pic(Λ)[2] and the exponent μ_wild. μ_wild enters the weight r of Definition 8.6 (item 59), and Pic(Λ)[2] bounds the fibres in Corollary 8.28 (item 70). Suggested owner: HeegnerPointEulerSystems:HE.0, with items 101–107. The maximal-order case (2-rank = t − 1 for imaginary K) is planned by tauceti:TauCetiRoadmap/Multiquadratic Layer 3. RT-PAPER-KHAYUTIN-19/1: Corollary A.7's sentence on μ_wild is false as printed (E35); the formula #Pic(Λ)[2] = 2^{μ_tame+μ_wild−1} holds with the corrected index (h(−16) = 1, h(−32) = 2). Near miss (PROTOCOL §1): tauceti:TauCeti.Multiquadratic.twoRank_eq_ncard_ramifiedPrimes_sub_one (TauCeti/NumberTheory/Multiquadratic/Quadratic/TwoRank.lean:155), the 2-rank t − 1 of Cl(𝓞_K) for K = Q(√d), d < 0 squarefree; it gives the case of a maximal order of an imaginary quadratic field after identifying the 2-rank with log₂ #Cl[2], and nothing for non-maximal orders. Routed to MultiquadraticPartII."
     },
     {
       "id": "PAPER-KHAYUTIN-19/120",
@@ -1334,7 +1343,7 @@
       "statement": "Let Λ be an imaginary quadratic order, 𝔊 = Gal(E/Q), cbd(x) = x/^σx, and let Λ^{(1)}, Λ_v^{(1)} be the norm-one units. The diagonal restriction map H^1(𝔊, Λ^×) → ∏_{v≠∞} H^1(𝔊, Λ_v^×) is injective, and there is a canonical isomorphism H^1(𝔊,Λ^×)\\∏_{v≠∞} H^1(𝔊, Λ_v^×) ≅ Pic(Λ)[2]. Consequently ∏_{v≠∞}[Λ_v^{(1)} : cbd(Λ_v^×)] = ∏_{v≠∞} #H^1(𝔊, Λ_v^×) = 2·#Pic(Λ)[2], using H^1(𝔊,L) ≅ L^{(1)}/cbd(L^×) and [Λ^{(1)} : cbd(Λ^×)] = 2.",
       "locator": "Annals 189 (2019), Appendix A.3, Proposition A.11 and Corollary A.12, pp. 261–263 (arXiv v3 Proposition 164, Corollary 165)",
       "status": "missing",
-      "note": "Added by the review REV-PAPER-KHAYUTIN-19 (coverage of the published text): The cohomological description of Pic(Λ)[2] that gives #inv^{-1}(inv([h])) ≪ #Pic(Λ)[2] (Corollary 8.28, item 70). It is a different result from the principal genus theorem of item 106. Suggested owner: HeegnerPointEulerSystems:HE.0. Inputs: Hilbert 90 for E and E_v (tauceti ProfiniteCohomology Layer 9), Pic(Z) = 1, and Z^× ∩ Nr E^× = 1 for imaginary E."
+      "note": "Added by the review REV-PAPER-KHAYUTIN-19 (coverage of the published text): The cohomological description of Pic(Λ)[2] that gives #inv^{-1}(inv([h])) ≪ #Pic(Λ)[2] (Corollary 8.28, item 70). It is a different result from the principal genus theorem of item 106. Suggested owner: HeegnerPointEulerSystems:HE.0. Inputs: Hilbert 90 for E and E_v (tauceti ProfiniteCohomology Layer 9), Pic(Z) = 1, and Z^× ∩ Nr E^× = 1 for imaginary E. Routed to MultiquadraticPartII with the genus block (RT-PAPER-KHAYUTIN-19/7)."
     },
     {
       "id": "PAPER-KHAYUTIN-19/121",
@@ -1358,7 +1367,7 @@
       "id": "PAPER-KHAYUTIN-19/123",
       "kind": "theorem",
       "name": "The main theorem in the range of large minimal ideal norm",
-      "statement": "Assume the hypotheses of Theorem 3.2: G a form of PGL_2 over Q; K_∞ < G(R) a maximal compact torus; p_1, p_2 primes; H_i = [T_i^Δ(A)(g_i,s_ig_i)] with g_∞^{-1}T_i(R)g_∞ = K_∞, p_1 and p_2 split in E_i, no exceptional Landau–Siegel zero for ζ_{E_i}, bounded conductors 𝔣_i, |D_i| → ∞, and, for every compact B ⊂ G(A), g_i^{-1}T_i(Q)s_ig_i ∩ B = ∅ for i ≫_B 1. Let θ_l be an admissible exponent and 𝔑_i := min{Nr 𝔞 : 𝔞 ⊆ Λ_i, [𝔞] = [𝔰_i]}. Suppose there is η_0 > 0 with 𝔑_i ≥ |D_i|^{(2−θ_l^{-1})/3+η_0} for all i ≫ 1 (condition (55)). Then for every ξ ∈ (G×G)(A), every n ∈ N and i ≫_{ξ,n} 1, Cor[μ_i, ν_ξ](B^{(−n,n)}) ≪_{G,𝔣} vol([G^Δ(A)^+ξ])^{-1}·κ(ξ)·|ω(ξ)|²·(log log(2|ω(ξ)|))^8·p_1^{−4n}, with κ, ω as in Theorem 8.7. Consequently, by Lemma 10.1 with ρ = 1, every weak-* limit of μ_i is (G×G)(A)^+-invariant. Ingredients: Lemma 10.4 turns (55) into R_max^{θ_l} ≤ A(E)^{1−4η} for some η = η(η_0,θ_l) > 0. The no-exceptional-zero hypothesis gives L′/L(1,χ_{E_i}) ≤ C·log|D_{E_i}| with C independent of i (Hecke, via Landau [Lan18]). Then Theorem 8.7, Proposition 10.15 and the class number formula for vol([T(A)g]) apply. Finally, ξ ↦ vol([G^Δ(A)^+ξ]) is bounded below by a non-vanishing continuous function of ctr(ξ), because the fibres of ctr on G^Δ(A)^+\\(G×G)(A) are compact.",
+      "statement": "Assume the hypotheses of Theorem 3.2: G a form of PGL_2 over Q; K_∞ < G(R) a maximal compact torus; p_1, p_2 primes; H_i = [T_i^Δ(A)(g_i,s_ig_i)] with g_∞^{-1}T_i(R)g_∞ = K_∞, p_1 and p_2 split in E_i, no exceptional Landau–Siegel zero for ζ_{E_i}, bounded conductors 𝔣_i, |D_i| → ∞, and, for every compact B ⊂ G(A), g_i^{-1}T_i(Q)s_ig_i ∩ B = ∅ for i ≫_B 1. Let θ_l be an admissible exponent and 𝔑_i := min{Nr 𝔞 : 𝔞 ⊆ Λ_i, [𝔞] = [𝔰_i]}. Suppose there is η_0 > 0 with 𝔑_i ≥ |D_i|^{(2−θ_l^{-1})/3+η_0} for all i ≫ 1 (condition (55)). Then for every ξ ∈ (G×G)(A), every n ∈ N and i ≫_{ξ,n} 1, Cor[μ_i, ν_ξ](B^{(−n,n)}) ≪_{G,𝔣} vol([G^Δ(A)^+ξ])^{-1}·κ(ξ)·|ω(ξ)|²·(log log(2|ω(ξ)|))^8·p_1^{−4n}, with κ, ω as in Theorem 8.7. Consequently, by Lemma 10.1 with ρ = 1, every weak-* limit of μ_i is (G×G)(A)^+-invariant. Ingredients: Lemma 10.4 turns (55) into R_max^{θ_l} ≤ A(E)^{1−4η} for some η = η(η_0,θ_l) > 0. The no-exceptional-zero hypothesis gives L′/L(1,χ_{E_i}) ≤ C·log|D_{E_i}| with C independent of i (Hecke, via Landau [Lan18]). Then Theorem 8.7, Proposition 10.15 and the class number formula for vol([T(A)g]) apply. Finally, ξ ↦ vol([G^Δ(A)^+ξ]) is bounded below by a non-vanishing continuous function of ctr(ξ): by the volume definition of §7.2, conjugation by ξ_1 preserves Haar measure on G(A)^+ (the adjoint action has determinant of absolute value one at every place), so the volume equals m_{G(A)^+}(Ω ∩ cΩc^{−1})^{−1} with c = ctr(ξ) and factors through ctr(ξ) directly. (Corrected: print argues from compactness of the fibres of ctr, which are isomorphic to G(A)/G(A)^+ and are not compact; E40.)",
       "locator": "Annals 189 (2019), §10.4, pp. 253–254 (arXiv v3 §10.4, around equation (eq:N-big-vs-D))",
       "status": "missing",
       "note": "Added by the review REV-PAPER-KHAYUTIN-19 (coverage of the published text): The final assembly of the main theorem (Theorem 3.2) in the range where the minimal ideal norm is large. No item states it; item 88 is only the abstract criterion. Suggested owner: GeometryOfNumbersPartIIToralJoinings (route 1). Print carries |D|^{−2/3+o(1)} here; see the source issue on Proposition 10.14 (the true exponent −1/3 is harmless)."
@@ -1370,7 +1379,7 @@
       "statement": "Assume the hypotheses of Theorem 3.2, and let θ be a bound towards the Ramanujan conjecture for SL_2 in the sense of Clozel–Ullmo. Input: for j ∈ {1,2}, m ∈ N and U = ∏_p U_p < G^{sc}(A_f) compact open, with U_{p_j} the intersection of two Iwahori subgroups in the apartment of A_{p_j} and K_{p_j} ⊇ U_{p_j} maximal compact, the Hecke operator T_{p_j^m} on L²([G^{sc}(A)])^U satisfies ‖T_{p_j^m}‖_0 ≪_{U^{p_j},p_j,ε} [K_{p_j} : U_{p_j}]·p_j^{−m(1−θ+ε)/2} on the orthocomplement of the constants. This follows from decay of matrix coefficients and Jacquet–Langlands. Claim: if there is ε_1 > 0 with 𝔑_i ≤ |D_i|^{1/(2+2/(1−θ)) − ε_1} for all i ≫ 1 (condition (59)), then every weak-* limit μ of μ_i satisfies ∫ f dμ = 0 for every smooth compactly supported f ∈ L²_00([(G×G)(A)]) invariant at p_1 under an intersection of two Iwahori subgroups in the apartment of A_{p_1}. Bootstrapping through maximal entropy for a^Δ, μ is then (G×G)(A)^+-invariant. The argument is that of Ellenberg–Michel–Venkatesh [EMV13, §3], with the effective equidistribution of [Kha17, §5] and Linnik's basic lemma for one-sided Bowen balls in the range 𝔑_i·p_1^m ≤ |D|^{1/2+o(1)}. The ranges (55) and (59) overlap as soon as θ_l < 2/3 or θ < 1/2: at θ_l = 2/3 and θ = 1/2 both thresholds equal 1/6, and Huxley's admissible θ_l > 131/208 gives 18/131 < 1/6.",
       "locator": "Annals 189 (2019), §10.4, pp. 254–256 (arXiv v3 §10.4, equations (eq:HeckeOp-Ramanujan)–(eq:emv-range))",
       "status": "missing",
-      "note": "Added by the review REV-PAPER-KHAYUTIN-19 (coverage of the published text): The other half of the proof of Theorem 3.2, and the verification that the two ranges overlap. No item covers them. Suggested owner: GeometryOfNumbersPartIIToralJoinings (route 1), importing [EMV13] and [Kha17], which are already prerequisites. The Hecke norm gap needs [Sar91], [BS91], [CU04], [COU01] and [JL70], which are not in the prerequisites."
+      "note": "Added by the review REV-PAPER-KHAYUTIN-19 (coverage of the published text): The other half of the proof of Theorem 3.2, and the verification that the two ranges overlap. No item covers them. Suggested owner: GeometryOfNumbersPartIIToralJoinings (route 1), importing [EMV13] and [Kha17], which are already prerequisites. The Hecke norm gap needs [Sar91], [BS91], [CU04], [COU01] and [JL70], which are not in the prerequisites. The references it needs ([Lin68], Siegel, [Sar91], [BS91], [CU04], [COU01], [JL70], [MT94], [EL10], Gelbart–Jacquet, [Sha88], [LRS99]) are now prerequisites (FIX-RT-PAPER-KHAYUTIN-19). The overlap of (55) and (59) needs one of the two alternative inputs recorded in the Huxley prerequisite."
     }
   ],
   "prerequisites": [
@@ -1427,7 +1436,7 @@
     {
       "citation": "M. N. Huxley, Exponential sums and lattice points III, Proc. London Math. Soc. 87 (2003), 591–609",
       "link": "https://doi.org/10.1112/S0024611503014485",
-      "why": "The sharper lattice-point exponent 131/208, which the paper records as also admissible; it is not needed for the main theorem but fixes the range in which the sieve operates."
+      "why": "One of two alternative inputs that close the proof of Theorem 3.2 (§10.4, p. 256). The large-norm range (55), 𝔑 ≥ |D|^{(2−θ_l^{−1})/3+η}, and the small-norm range (59), 𝔑 ≤ |D|^{1/(2+2/(1−θ))−ε}, overlap only if (2 − θ_l^{−1})/3 < 1/(2 + 2/(1 − θ)); with van der Corput's θ_l > 2/3 and Gelbart–Jacquet's θ = 1/2 both sides tend to 1/6 and the ranges do not overlap. Huxley's admissible exponents θ_l > 131/208 close the gap with θ = 1/2 (at θ_l = 131/208 the left side is 18/131 < 1/6); alternatively a bound θ < 1/2 towards Ramanujan (Shahidi, Luo–Rudnick–Sarnak) closes it with θ_l > 2/3 close enough to 2/3. Either suffices; neither is needed if the other is supplied (corrected by FIX-RT-PAPER-KHAYUTIN-19, RT-PAPER-KHAYUTIN-19/6)."
     },
     {
       "citation": "Jonathan Pila, O-minimality and the André–Oort conjecture for C^n, Ann. of Math. 173 (2011), 1779–1840",
@@ -1438,6 +1447,70 @@
       "citation": "Shou-Wu Zhang, Equidistribution of CM points on quaternion Shimura varieties, Int. Math. Res. Not. 2005, no. 59, 3657–3689",
       "link": "https://doi.org/10.1155/IMRN.2005.3657",
       "why": "One of the generalisations of Duke's theorem to quaternionic Shimura varieties that the paper takes as its unconditional starting point in each coordinate, alongside Michel's subconvexity route."
+    },
+    {
+      "citation": "Yu. V. Linnik, Ergodic properties of algebraic fields, translated by M. S. Keane, Ergebnisse der Mathematik und ihrer Grenzgebiete 45, Springer, New York, 1968",
+      "why": "[Lin68]. Linnik's ergodic method: Duke's theorem for toral packets with a fixed split prime (item 125), used in Corollary 3.5, Lemma 4.7 and Lemma 10.1, and Linnik's basic lemma for one-sided Bowen balls in the small-norm range (item 124). Added by FIX-RT-PAPER-KHAYUTIN-19 (RT-PAPER-KHAYUTIN-19/5–6)."
+    },
+    {
+      "citation": "C. L. Siegel, Über die Classenzahl quadratischer Zahlkörper, Acta Arith. 1 (1935), 83–86",
+      "link": "https://doi.org/10.4064/aa-1-1-83-86",
+      "why": "Siegel's ineffective lower bound for L(1, χ_D), the source of the ineffective o(1) in the range (58) of the small-norm argument (p. 255). Named in the text without a bibliography entry. Added by FIX-RT-PAPER-KHAYUTIN-19 (RT-PAPER-KHAYUTIN-19/5–6)."
+    },
+    {
+      "citation": "J. B. Conrey and H. Iwaniec, The cubic moment of central values of automorphic L-functions, Ann. of Math. (2) 151 (2000), 1175–1216",
+      "link": "https://doi.org/10.2307/121132",
+      "why": "[CI00], quoted in §1 for the subconvexity input to Duke-type equidistribution; see the note of item 99. Added by FIX-RT-PAPER-KHAYUTIN-19 (RT-PAPER-KHAYUTIN-19/5–6)."
+    },
+    {
+      "citation": "E. Landau, Über imaginär-quadratische Zahlkörper mit gleicher Klassenzahl, Nachr. Ges. Wiss. Göttingen, Math.-Phys. Kl. 1918, 285–295",
+      "why": "[Lan18]. With Hecke: under the no-exceptional-zero hypothesis, L′/L(1, χ_E) ≪ log|D_E| uniformly, the one place the Landau–Siegel hypothesis is used (item 123). Added by FIX-RT-PAPER-KHAYUTIN-19 (RT-PAPER-KHAYUTIN-19/5–6)."
+    },
+    {
+      "citation": "S. Gelbart and H. Jacquet, A relation between automorphic representations of GL(2) and GL(3), Ann. Sci. École Norm. Sup. (4) 11 (1978), 471–542",
+      "link": "https://doi.org/10.24033/asens.1355",
+      "why": "The bound θ = 1/2 towards Ramanujan used for the Hecke norm gap in the small-norm range (§10.4, p. 256). Named in the text without a bibliography entry. Added by FIX-RT-PAPER-KHAYUTIN-19 (RT-PAPER-KHAYUTIN-19/5–6)."
+    },
+    {
+      "citation": "F. Shahidi, On the Ramanujan conjecture and finiteness of poles for certain L-functions, Ann. of Math. (2) 127 (1988), 547–584",
+      "link": "https://doi.org/10.2307/2007005",
+      "why": "[Sha88]. A bound θ < 1/2 towards Ramanujan, one of the two alternative inputs that make the ranges of §10.4 overlap (see the Huxley entry). Added by FIX-RT-PAPER-KHAYUTIN-19 (RT-PAPER-KHAYUTIN-19/5–6)."
+    },
+    {
+      "citation": "W. Luo, Z. Rudnick and P. Sarnak, On the generalized Ramanujan conjecture for GL(n), in Automorphic forms, automorphic representations, and arithmetic (Fort Worth, 1996), Proc. Sympos. Pure Math. 66, Amer. Math. Soc., 1999, 301–310",
+      "why": "[LRS99]. As [Sha88]: a bound θ < 1/2 towards Ramanujan. Added by FIX-RT-PAPER-KHAYUTIN-19 (RT-PAPER-KHAYUTIN-19/5–6)."
+    },
+    {
+      "citation": "L. Clozel and E. Ullmo, Équidistribution des points de Hecke, in Contributions to automorphic forms, geometry, and number theory, Johns Hopkins Univ. Press, 2004, 193–254",
+      "why": "[CU04]. The notion of a bound θ towards Ramanujan and the Hecke operator norm bounds on L²([G^sc(A)]) of item 124. Added by FIX-RT-PAPER-KHAYUTIN-19 (RT-PAPER-KHAYUTIN-19/5–6)."
+    },
+    {
+      "citation": "L. Clozel, H. Oh and E. Ullmo, Hecke operators and equidistribution of Hecke points, Invent. Math. 144 (2001), 327–351",
+      "link": "https://doi.org/10.1007/s002220100126",
+      "why": "[COU01]. Decay of matrix coefficients giving the Hecke norm gap in item 124. Added by FIX-RT-PAPER-KHAYUTIN-19 (RT-PAPER-KHAYUTIN-19/5–6)."
+    },
+    {
+      "citation": "P. Sarnak, Diophantine problems and linear groups, in Proceedings of the ICM (Kyoto, 1990), Vol. I, II, Math. Soc. Japan, 1991, 459–471",
+      "why": "[Sar91]. The Hecke-operator spectral gap for quaternion quotients used in item 124. Added by FIX-RT-PAPER-KHAYUTIN-19 (RT-PAPER-KHAYUTIN-19/5–6)."
+    },
+    {
+      "citation": "M. Burger and P. Sarnak, Ramanujan duals. II, Invent. Math. 106 (1991), 1–11",
+      "link": "https://doi.org/10.1007/BF01243900",
+      "why": "[BS91]. Transfer of the spectral gap to the adelic quotient (item 124). Added by FIX-RT-PAPER-KHAYUTIN-19 (RT-PAPER-KHAYUTIN-19/5–6)."
+    },
+    {
+      "citation": "H. Jacquet and R. P. Langlands, Automorphic forms on GL(2), Lecture Notes in Mathematics 114, Springer, 1970",
+      "link": "https://doi.org/10.1007/BFb0058988",
+      "why": "[JL70]. The Jacquet–Langlands correspondence that transfers the Ramanujan bound from GL_2 to the quaternion algebra B (item 124). Added by FIX-RT-PAPER-KHAYUTIN-19 (RT-PAPER-KHAYUTIN-19/5–6)."
+    },
+    {
+      "citation": "G. A. Margulis and G. M. Tomanov, Invariant measures for actions of unipotent groups over local fields on homogeneous spaces, Invent. Math. 116 (1994), 347–392",
+      "link": "https://doi.org/10.1007/BF01231565",
+      "why": "[MT94]. Entropy and invariance used in the maximal-entropy bootstrap of the small-norm range (item 124). Added by FIX-RT-PAPER-KHAYUTIN-19 (RT-PAPER-KHAYUTIN-19/5–6)."
+    },
+    {
+      "citation": "M. Einsiedler and E. Lindenstrauss, Diagonal actions on locally homogeneous spaces, in Homogeneous flows, moduli spaces and arithmetic, Clay Math. Proc. 10, Amer. Math. Soc., 2010, 155–241",
+      "why": "[EL10]. Entropy of diagonal actions and the characterisation of measures of maximal entropy, used in the bootstrap of item 124. Added by FIX-RT-PAPER-KHAYUTIN-19 (RT-PAPER-KHAYUTIN-19/5–6)."
     }
   ],
   "routes": [
@@ -1464,6 +1537,7 @@
         "PAPER-KHAYUTIN-19/25",
         "PAPER-KHAYUTIN-19/26",
         "PAPER-KHAYUTIN-19/27",
+        "PAPER-KHAYUTIN-19/125",
         "PAPER-KHAYUTIN-19/28",
         "PAPER-KHAYUTIN-19/29",
         "PAPER-KHAYUTIN-19/30",
@@ -1531,7 +1605,7 @@
         "PAPER-KHAYUTIN-19/123",
         "PAPER-KHAYUTIN-19/124"
       ],
-      "brief": "Plan the joint equidistribution of CM points: toral packets on adelic quotients of forms of PGL_2, their self-joinings, the measure rigidity that classifies the limits, and the cross-correlation estimate that eliminates the remaining possibility, after Khayutin. The final theorems are his Theorems 1.3, 1.4, 3.2, 3.9 and 3.10 (published numbering; preprint Theorems 3, 4, 14, 21 and 22). Theorem 3.2 (preprint Theorem 14), the adelic main theorem, as printed: let G be a form of PGL_2 over Q, K_∞ < G(R) a maximal compact torus and p_1, p_2 finite primes; for each i let H_i = [T_i^Δ(A)(g_i, s_ig_i)] be a joint homogeneous toral set, with T_i < G a maximal torus defined and anisotropic over Q, g_i ∈ G(A), s_i ∈ T_i(A), splitting field E_i, discriminant D_i, conductor f_i, and μ_i its algebraic probability measure on [(G × G)(A)]; assume for all i that (1) g_{i,∞}^{-1}T_i(R)g_{i,∞} = K_∞, (2) p_1 and p_2 split in E_i, (3) the Dedekind zeta function of E_i has no exceptional Landau–Siegel zero, and (4) f_i ≪ 1; if |D_i| → ∞ and for every compact B ⊂ G(A) one has g_i^{-1}T_i(Q)s_ig_i ∩ B = ∅ for all i ≫_B 1, then every weak-* limit point of {μ_i} is (G × G)(A)^+-invariant, hence a convex combination of the Haar measures on the fibres of π^+ × π^+. For sets in the normalisation (♠), Proposition 7.8 shows that the genericity condition is equivalent to the minimal norm of an integral invertible ideal in the class of the twist tending to infinity. Proposition 3.6 computes which combinations occur. Theorem 1.3 is the corresponding statement for a sequence of toral packets with fundamental discriminants on Y × Y and is the mixing conjecture of Michel and Venkatesh under those hypotheses; Theorem 3.9 is the n-fold version, and Theorem 3.10 the consequence for Galois orbits of special points on a product of n quaternionic Shimura varieties. The roadmap must cover: homogeneous toral sets [T(A)g] for a maximal Q-anisotropic torus, their periodic measures, toral packets and their local and global discriminants, the joint sets [T^Δ(A)(g, sg)] and their self-joinings; the residual quotient G_res and the statement that equidistribution can only hold componentwise; measure rigidity — algebraic measures on adelic quotients, mixing of G(Q_v)^+ on the simply connected quotient, the ergodic decomposition, the reduction to an S-arithmetic joining and the dichotomy that a limit is either Haar or supported on a Hecke correspondence; explicit coordinates for a quaternion algebra split by the CM field, with the twisted Galois action, the description of the rational and local points, the different of a local quadratic order and the local maximal orders in those coordinates at split, inert and ramified places, together with the archimedean analogue built from the operator norm; denominators, good integral representatives and Bowen balls for the diagonal flow; the GIT double quotient G^Δ\\(G × G)/T^Δ, its orbits and stabilisers, the invariant functions ϑ_1, ϑ_2, ψ and the invariant rings, and the descent of the invariants to the Q-form; homogeneous Hecke sets, their volumes in terms of denominators, and the theorem that the dynamical and the arithmetic necessary conditions for equidistribution agree; the pair cross-correlation and its geometric expansion into relative orbital integrals indexed by rational double cosets, the reduction to compact stabilisers, the archimedean and non-archimedean orbital-integral estimates, and the arithmetic invariant map whose fibres are bounded by the 2-torsion of the Picard group; and finally the assembly: the reduction of the main theorem to a bound on cross-correlation, the identification of the shifted convolution with a sum along a binary quadratic form, the ellipse whose eccentricity is controlled by the minimal ideal norm, and the final bound with its saving p_1^{-2n}. Import, and do not re-plan: adelic points, reduction theory, the finite volume of the arithmetic quotient and strong approximation from Adelic algebraic groups and arithmetic quotients (AdelicAlgebraicGroups), stages AA.1, AA.3 and AA.4, of which this paper is also a source; lattice-point estimates for convex bodies, equidistribution and the ergodic, mixing and nondivergence machinery from the parent roadmap, Geometry of numbers, quadratic forms and homogeneous arithmetic (GeometryOfNumbersAndQuadraticArithmetic), stage GN.4, and the local–global theory and reduction of binary quadratic forms from GN.2 and GN.3; quadratic orders, their proper invertible ideals, Picard groups, conductors, ring class fields and Artin maps from Heegner-point Euler systems and arithmetic descent (HeegnerPointEulerSystems), stage HE.0, and CM points from HE.1, of which this paper is also a source; orders and Picard groups in a number field from the Tau Ceti roadmap on global number fields, layer 11, and quaternion algebras with their reduced norm and splitting criterion from the Tau Ceti roadmap on quadratic form invariants, layer 2 — both are existing work and are never re-planned; the large sieve, the Selberg sieve and the local densities from Sieve methods, prime gaps and prime patterns (SieveMethodsAndPrimePatterns), stages SV.0 to SV.2, of which this paper is also a source; Dirichlet L-functions with their non-vanishing at one and the density estimates from Analytic number theory, zeta functions and prime distribution (AnalyticNumberTheory), stages AN.1 and AN.3, and the mean values of multiplicative functions from AN.5; and canonical models with the reciprocity formula at special points from Complex Shimura varieties and canonical models (ShimuraVarieties), stage V4, together with the quaternionic curves of Hilbert Modular Varieties And Shimura Curves (HilbertModularVarietiesAndShimuraCurves), stage R18.1, for the statement about Galois orbits. The Einsiedler–Lindenstrauss classification of joinings of higher-rank torus actions, Duke's theorem, and the earlier work of Ellenberg, Michel and Venkatesh and of Einsiedler, Lindenstrauss, Michel and Venkatesh are external inputs and are listed as prerequisites; the roadmap cites them and does not reprove them. Record with every main theorem that the hypotheses are two fixed split primes, bounded conductor and the absence of an exceptional Landau–Siegel zero, that the latter is used in exactly one place — the passage from a sum of the ideal-counting function to the class number through L(1, χ_E) — and that the conclusion cannot be strengthened to equidistribution on the whole product, since the joint packets may miss connected components.",
+      "brief": "Plan the joint equidistribution of CM points: toral packets on adelic quotients of forms of PGL_2, their self-joinings, the measure rigidity that classifies the limits, and the cross-correlation estimate that eliminates the remaining possibility, after Khayutin. The final theorems are his Theorems 1.3, 1.4, 3.2, 3.9 and 3.10 (published numbering; preprint Theorems 3, 4, 14, 21 and 22). Theorem 3.2 (preprint Theorem 14), the adelic main theorem, as printed: let G be a form of PGL_2 over Q, K_∞ < G(R) a maximal compact torus and p_1, p_2 finite primes; for each i let H_i = [T_i^Δ(A)(g_i, s_ig_i)] be a joint homogeneous toral set, with T_i < G a maximal torus defined and anisotropic over Q, g_i ∈ G(A), s_i ∈ T_i(A), splitting field E_i, discriminant D_i, conductor f_i, and μ_i its algebraic probability measure on [(G × G)(A)]; assume for all i that (1) g_{i,∞}^{-1}T_i(R)g_{i,∞} = K_∞, (2) p_1 and p_2 split in E_i, (3) the Dedekind zeta function of E_i has no exceptional Landau–Siegel zero, and (4) f_i ≪ 1; if |D_i| → ∞ and for every compact B ⊂ G(A) one has g_i^{-1}T_i(Q)s_ig_i ∩ B = ∅ for all i ≫_B 1, then every weak-* limit point of {μ_i} is (G × G)(A)^+-invariant, hence a convex combination of the Haar measures on the fibres of π^+ × π^+. For sets in the normalisation (♠), Proposition 7.8 shows that the genericity condition is equivalent to the minimal norm of an integral invertible ideal in the class of the twist tending to infinity. Proposition 3.6 computes which combinations occur. Theorem 1.3 is the corresponding statement for a sequence of toral packets with fundamental discriminants on Y × Y and is the mixing conjecture of Michel and Venkatesh under those hypotheses; Theorem 3.9 is the n-fold version, and Theorem 3.10 the consequence for Galois orbits of special points on a product of n quaternionic Shimura varieties. The roadmap must cover: homogeneous toral sets [T(A)g] for a maximal Q-anisotropic torus, their periodic measures, toral packets and their local and global discriminants, the joint sets [T^Δ(A)(g, sg)] and their self-joinings; the residual quotient G_res and the statement that equidistribution can only hold componentwise; measure rigidity — algebraic measures on adelic quotients, mixing of G(Q_v)^+ on the simply connected quotient, the ergodic decomposition, the reduction to an S-arithmetic joining and the dichotomy that a limit is either Haar or supported on a Hecke correspondence; explicit coordinates for a quaternion algebra split by the CM field, with the twisted Galois action, the description of the rational and local points, the different of a local quadratic order and the local maximal orders in those coordinates at split, inert and ramified places, together with the archimedean analogue built from the operator norm; denominators, good integral representatives and Bowen balls for the diagonal flow; the GIT double quotient G^Δ\\(G × G)/T^Δ, its orbits and stabilisers, the invariant functions ϑ_1, ϑ_2, ψ and the invariant rings, and the descent of the invariants to the Q-form; homogeneous Hecke sets, their volumes in terms of denominators, and the theorem that the dynamical and the arithmetic necessary conditions for equidistribution agree; the pair cross-correlation and its geometric expansion into relative orbital integrals indexed by rational double cosets, the reduction to compact stabilisers, the archimedean and non-archimedean orbital-integral estimates, and the arithmetic invariant map whose fibres are bounded by the 2-torsion of the Picard group; and finally the assembly: the reduction of the main theorem to a bound on cross-correlation, the identification of the shifted convolution with a sum along a binary quadratic form, the ellipse whose eccentricity is controlled by the minimal ideal norm, and the final bound with its saving p_1^{-2n} (the large-norm range (55), item 123); the small-norm range (59), item 124, by the Ellenberg–Michel–Venkatesh argument with Linnik's basic lemma for one-sided Bowen balls, the Hecke-operator norm gap from a bound θ towards Ramanujan and Jacquet–Langlands, Siegel's ineffective lower bound, and the maximal-entropy bootstrap; and the overlap lemma: the ranges (55) and (59) overlap if (2 − θ_l^{−1})/3 < 1/(2 + 2/(1 − θ)), which fails at θ_l = 2/3, θ = 1/2 (both sides 1/6) and is closed by one of two alternative inputs, Huxley's admissible exponent θ_l ∈ (131/208, 2/3) (GN.4, route 5) with θ = 1/2, or a bound θ < 1/2 towards Ramanujan (Shahidi, Luo–Rudnick–Sarnak) imported from the atlas's automorphic roadmaps with θ_l > 2/3 close enough to 2/3. Import, and do not re-plan: adelic points, reduction theory, the finite volume of the arithmetic quotient and strong approximation from Adelic algebraic groups and arithmetic quotients (AdelicAlgebraicGroups), stages AA.1, AA.3 and AA.4, of which this paper is also a source; lattice-point estimates for convex bodies, equidistribution and the ergodic, mixing and nondivergence machinery from the parent roadmap, Geometry of numbers, quadratic forms and homogeneous arithmetic (GeometryOfNumbersAndQuadraticArithmetic), stage GN.4, and the local–global theory and reduction of binary quadratic forms from GN.2 and GN.3; quadratic orders, their proper invertible ideals, Picard groups, conductors, ring class fields and Artin maps from Heegner-point Euler systems and arithmetic descent (HeegnerPointEulerSystems), stage HE.0, and CM points from HE.1, of which this paper is also a source; orders and Picard groups in a number field from the Tau Ceti roadmap on global number fields, layer 11, and quaternion algebras with their reduced norm and splitting criterion from the Tau Ceti roadmap on quadratic form invariants, layer 2 — both are existing work and are never re-planned; the large sieve, the Selberg sieve and the local densities from Sieve methods, prime gaps and prime patterns (SieveMethodsAndPrimePatterns), stages SV.0 to SV.2, of which this paper is also a source; Dirichlet L-functions with their non-vanishing at one and the density estimates from Analytic number theory, zeta functions and prime distribution (AnalyticNumberTheory), stages AN.1 and AN.3, and the mean values of multiplicative functions from AN.5; and canonical models with the reciprocity formula at special points from Complex Shimura varieties and canonical models (ShimuraVarieties), stage V4, together with the quaternionic curves of Hilbert Modular Varieties And Shimura Curves (HilbertModularVarietiesAndShimuraCurves), stage R18.1, for the statement about Galois orbits. Duke's theorem for toral packets on [G(A)] in Linnik's form (item 125; for B = M_2 it specialises the equidistribution GN.4 plans through PAPER-DUKE-IMAMOGLU-TOTH-16) is an imported statement. The Einsiedler–Lindenstrauss classification of joinings of higher-rank torus actions, Linnik's book, and the earlier work of Ellenberg, Michel and Venkatesh and of Einsiedler, Lindenstrauss, Michel and Venkatesh are external inputs and are listed as prerequisites; the roadmap cites them and does not reprove them. Record with every main theorem that the hypotheses are two fixed split primes, bounded conductor and the absence of an exceptional Landau–Siegel zero, that the latter is used in exactly one place — the passage from a sum of the ideal-counting function to the class number through L(1, χ_E) — and that the conclusion cannot be strengthened to equidistribution on the whole product, since the joint packets may miss connected components.",
       "reason": "GN.4, the last analytic layer of Geometry of numbers, quadratic forms and homogeneous arithmetic, plans lattice-point estimates and equidistribution and says that it will 'separately schedule ergodic/mixing, unipotent-flow and nondivergence proofs needed for Oppenheim/Duke-type arithmetic applications', with Margulis among its sources; its acceptance criterion asks for the acting group, the quotient, the measure and the irrationality assumptions to be named. This paper is exactly a Duke-type arithmetic application pushed one step further: Duke's theorem is the equidistribution of a single packet of CM points, and what is proved here is the equidistribution of the joint packet {(z, σ.z)} in the product, which is the mixing conjecture of Michel and Venkatesh. Everything the paper needs beyond GN.4 is new layers in that direction: toral packets and their discriminants, self-joinings of periodic toral measures, measure rigidity for diagonal actions on adelic quotients, homogeneous Hecke sets and their volumes, the GIT double quotient and the geometric expansion of the pair cross-correlation into relative orbital integrals, and the arithmetic invariants that turn that expansion into a shifted convolution of ideal-counting functions. A search of the layer descriptions finds 'homogeneous dynamics' and 'Duke' only at GN.4 and, through it, at ProbabilisticAndMetricNumberTheory PM.4, and finds no occurrence at all of joinings, measure rigidity, toral packets or the mixing conjecture. The alternative reading is a new roadmap in the automorphic galaxy, since every object lives on the adelic quotient [(G × G)(A)] and the residual spectrum and Hecke correspondences of AdelicAlgebraicGroups are used throughout; a reviewer who prefers that should say so, and the brief transfers unchanged with GN.4 becoming an import rather than a parent. The case for the Part II is that the paper's own subject is the arithmetic of quadratic orders and binary quadratic forms — the ellipse of the final estimate is the reduced norm form of the twisting ideal, and its eccentricity is what the hypothesis of the mixing conjecture controls — which is the parent roadmap's subject."
     },
     {
@@ -1578,18 +1652,9 @@
         "PAPER-KHAYUTIN-19/15",
         "PAPER-KHAYUTIN-19/36",
         "PAPER-KHAYUTIN-19/37",
-        "PAPER-KHAYUTIN-19/101",
-        "PAPER-KHAYUTIN-19/102",
-        "PAPER-KHAYUTIN-19/103",
-        "PAPER-KHAYUTIN-19/104",
-        "PAPER-KHAYUTIN-19/105",
-        "PAPER-KHAYUTIN-19/106",
-        "PAPER-KHAYUTIN-19/107",
-        "PAPER-KHAYUTIN-19/114",
-        "PAPER-KHAYUTIN-19/119",
-        "PAPER-KHAYUTIN-19/120"
+        "PAPER-KHAYUTIN-19/114"
       ],
-      "reason": "HE.0 constructs the quadratic orders O_c = Z + cO_K with their proper invertible ideals, Picard groups, conductor-change maps and the comparison with the idele-class quotients, and derives the ring class fields and Artin maps. Two blocks of this paper belong there. The first is the local and global orders attached to a homogeneous toral set: Λ_v = E(Q_v) ∩ g_vO_vg_v^{-1}, its local form Z_v + 𝔣_vO_{E_v} with its Galois stability, the local and global discriminants, the global order Λ = ∩_{v≠∞}Λ_v, the map from ideles to invertible fractional Λ-ideals, and the different of a local quadratic order with the identity Nr 𝒟_v = D_v. The second is the appendix on principal genus theory: the short exact sequence realising Pic(Λ)/Pic(Λ)² through the adelic norm and the character χ_E, the index formula as a product of local norm indices, the computation of Nr Λ_v^× for a non-maximal order including every dyadic case, the principal genus theorem deciding membership in Pic(Λ)² by finitely many Kronecker characters evaluated at the norm, and the Galois cohomology of the local unit groups that computes the 2-torsion of Pic(Λ). All of this is classical Gauss genus theory for an arbitrary quadratic order, written adelically, and HE.0 is the layer that owns the objects it is about."
+      "reason": "HE.0 constructs the quadratic orders O_c = Z + cO_K with their proper invertible ideals, Picard groups, conductor-change maps and the comparison with the idele-class quotients, and derives the ring class fields and Artin maps. One block of this paper belongs there. The first is the local and global orders attached to a homogeneous toral set: Λ_v = E(Q_v) ∩ g_vO_vg_v^{-1}, its local form Z_v + 𝔣_vO_{E_v} with its Galois stability, the local and global discriminants, the global order Λ = ∩_{v≠∞}Λ_v, the map from ideles to invertible fractional Λ-ideals, and the different of a local quadratic order with the identity Nr 𝒟_v = D_v. The appendix on principal genus theory (items 101–107, 119, 120) extends the built maximal-order genus theory of Tau Ceti Multiquadratic to arbitrary quadratic orders and so goes to its Part II, MultiquadraticPartII (route 6), which imports this layer's orders and Picard groups (RT-PAPER-KHAYUTIN-19/7). HE.0 keeps the orders, ideles, discriminants and the local different (items 10–15, 36, 37, 114)."
     },
     {
       "route": "source",
@@ -1616,6 +1681,26 @@
         "PAPER-KHAYUTIN-19/108"
       ],
       "reason": "Added by the review. Two items first routed to the sieve roadmap belong to the parent roadmap's existing layers. GN.2 plans the local classification of quadratic forms, 'verify dyadic and real-place invariants', and the local diagonalisation of a binary quadratic form over Z_p, dyadic case included (Lemma B.1), is that. GN.4 plans 'lattice-point estimates' for convex bodies, and the admissible lattice-point exponents for ellipses, where van der Corput's and Huxley's bounds enter (Definitions 10.8–10.9), are such estimates. The sieve consumes both."
+    },
+    {
+      "route": "part-ii",
+      "parent": "tauceti:TauCetiRoadmap/Multiquadratic",
+      "roadmap": "MultiquadraticPartII",
+      "title": "Multiquadratic fields and genus theory, Part II: real quadratic signs and form characters",
+      "area": "numbertheory",
+      "items": [
+        "PAPER-KHAYUTIN-19/101",
+        "PAPER-KHAYUTIN-19/102",
+        "PAPER-KHAYUTIN-19/103",
+        "PAPER-KHAYUTIN-19/104",
+        "PAPER-KHAYUTIN-19/105",
+        "PAPER-KHAYUTIN-19/106",
+        "PAPER-KHAYUTIN-19/107",
+        "PAPER-KHAYUTIN-19/119",
+        "PAPER-KHAYUTIN-19/120"
+      ],
+      "brief": "This is the pending PAPER-DUKE-IMAMOGLU-TOTH-16 Part II of the same id (route 10); its brief remains binding. Add the genus theory of an arbitrary, possibly non-maximal, quadratic order Λ of discriminant D = 𝔣²d_E, written adelically as in Khayutin's Appendix A: the exact sequence 1 → Pic(Λ)/Pic(Λ)² → Q^×\\A^×/R_{>0}∏_v Nr Λ_v^× → {±1} → 1; the index formula 2[Pic(Λ) : Pic(Λ)²] = ∏_v [Z_v^× : Nr Λ_v^×]; the local unit groups Λ_v^× = Z_v^× + 𝔣_vO_{E_v} and their norm groups, with the corrected dyadic case (item 104; source issue E35); the Kronecker characters and the principal genus theorem for Λ; the local Galois cohomology H^1(𝔊, Λ_v^×) and the description of Pic(Λ)[2], with #Pic(Λ)[2] = 2^{μ_tame+μ_wild−1}. Import and do not re-plan the built maximal-order theory of Tau Ceti Multiquadratic (genus characters TauCeti.Multiquadratic.genusCharFun, the principal genus theorem isSquare_iff_forall_genusCharFunNarrowClassGroupHom_eq_one, the 2-rank formula twoRank_eq_ncard_ramifiedPrimes_sub_one), and prove that the order-level statements restrict to them at 𝔣 = 1 through the imaginary narrow-to-ordinary adapter. Import quadratic orders, their Picard groups, conductors and idele-class quotients from HeegnerPointEulerSystems HE.0 and Tau Ceti GlobalNumberFields layer 11, and Hilbert 90 from Tau Ceti ProfiniteCohomology layer 9. Tests: D = −16 and D = −32 (same 𝔣_2, μ_wild = 1 and 2), and h(−32) = 2 = #Pic[2]. Consumer: GeometryOfNumbersPartIIToralJoinings (route 1).",
+      "reason": "Genus theory for arbitrary quadratic orders extends a built Tau Ceti roadmap in its own direction, so by PROTOCOL §15–16 it is a Part II of Tau Ceti Multiquadratic, not a layer of HE.0, which does not import Multiquadratic; MultiquadraticPartII is already proposed and accepted for this direction (RT-PAPER-KHAYUTIN-19/7, as its verifier corrected it)."
     }
   ],
   "sourceIssues": [
@@ -2332,6 +2417,96 @@
         "reason": "found and checked on the page image by the review",
         "by": "REV-PAPER-KHAYUTIN-19"
       }
+    },
+    {
+      "id": "PAPER-KHAYUTIN-19/E35",
+      "kind": "error",
+      "locator": "Appendix A.1, Lemma A.6 and its proof, p. 259, and Corollary A.7, p. 260 (arXiv v3: Lemma 159, Corollary 160)",
+      "printed": "For p = 2 it gives Nr Λ_v^× = Nr O_{E_v}^× when 2 ∥ f_v. When 4 ∥ f_v and either E_v/Q_v has no ramification or Nr O_{E_v}^× = 1 + 4Z_2, it gives Nr Λ_v^× = 1 + 4Z_2. In all other cases it gives Nr Λ_v^× = 1 + 8Z_2 = Z_v^{×2}. Corollary A.7 says μ_wild is determined solely by f_2 and the ramification behavior of 2 in E.",
+      "correction": "With t = ord_2 f: Nr Λ_2^× = Nr O_{E_2}^× if t = 1 and E_2/Q_2 is unramified or 4 ∥ d_E; 1 + 4Z_2 if t = 2 and E_2/Q_2 is unramified; 1 + 8Z_2 otherwise. μ_wild depends on t and ord_2 d_E.",
+      "reason": "E_2 = Q_2(√−2), t = 1: units of Z_2 + 2O are a + 2b√−2, a odd, with norms a² + 8b² ≡ 1 mod 8, so Nr Λ_2^× = 1 + 8Z_2 ≠ Nr O^× = {1, 3}·Z_2^{×2}. E_2 = Q_2(i), t = 2: norms a² + 16b² ≡ 1 mod 8, so 1 + 8Z_2, not 1 + 4Z_2. Globally, D = −32 has h(D) = 2 = #Pic[2], while the printed lemma gives μ_wild = 1 and #Pic[2] = 2^{0+1−1} = 1. The red team's scan of D ≥ −3000 and the verifier's check of all eight square classes modulo 64 agree; the fixer re-checked the corrected clause for all eight quadratic étale Q_2-algebras and t = 1, 2, 3.",
+      "affects": "a stated result",
+      "impact": "Lemma A.6's dyadic clause and the μ_wild sentence of Corollary A.7 are false. Corollary A.7's formula, Proposition A.10, Lemma A.14 and Definition 8.6 use the index [Z_2^× : Nr Λ_2^×] only abstractly and still hold (RT-PAPER-KHAYUTIN-19/1).",
+      "known": "new",
+      "searched": [
+        "2026-09-30 (FIX-RT-PAPER-KHAYUTIN-19): arXiv:1710.04557 lists v3 (22 October 2018) as the last version (arXiv API); Crossref records no update or erratum relation for doi:10.4007/annals.2019.189.1.4. The published text at the cited pages is as the red team and its verifier quote it; the same text is in arXiv v3 (source archive sha256 d76399f1…, re-fetched by the fixer, identical to the extraction's). Not an exhaustive novelty claim."
+      ],
+      "addedBy": "FIX-RT-PAPER-KHAYUTIN-19"
+    },
+    {
+      "id": "PAPER-KHAYUTIN-19/E36",
+      "kind": "error",
+      "locator": "§9.7, Proposition 9.26 and its proof, pp. 236–237 (arXiv v3: Proposition 138)",
+      "printed": "The source bounds the sum over (x,y) ∈ E ∩ Z², Q(x,y) ≡ k_0k_1l mod k by ≪ A(E) f(k_1)ρ_Q(k_1l; k_1k_2)/(k_1k_2)² ⋯. Its proof chooses one among ρ_Q(k_1l; k_1k_2) residue classes modulo k_1k_2 satisfying Q(x,y) ≡ k_1l mod k_1k_2.",
+      "correction": "ρ_Q(k_0k_1l; k_1k_2): by the Chinese remainder theorem the condition summed over is k_0 | Q with Q ≡ k_0k_1l mod k_1k_2.",
+      "reason": "Q = x² + 3y², f = 1, k_0 = 2, k_1 = 1, k_2 = 3, l = 2 (mod 3): the left side counts points with Q ≡ 4 mod 6, e.g. (1,1), about a third of a large disc, while ρ_Q(2; 3) = #{x² ≡ 2 mod 3} = 0 (the verifier's witness, with θ_l = 3/4, η = 1/10, δ = 4; the red team's l = 5 is the same class).",
+      "affects": "a stated result",
+      "impact": "Proposition 9.26 as printed is false; with the corrected density it holds. Its application in §10 (Proposition 10.10, p. 245) already uses ρ_Q(m; (D_0D_1)²), so nothing downstream changes.",
+      "known": "new",
+      "searched": [
+        "2026-09-30 (FIX-RT-PAPER-KHAYUTIN-19): arXiv:1710.04557 lists v3 (22 October 2018) as the last version (arXiv API); Crossref records no update or erratum relation for doi:10.4007/annals.2019.189.1.4. The published text at the cited pages is as the red team and its verifier quote it; the same text is in arXiv v3 (source archive sha256 d76399f1…, re-fetched by the fixer, identical to the extraction's). Not an exhaustive novelty claim."
+      ],
+      "addedBy": "FIX-RT-PAPER-KHAYUTIN-19"
+    },
+    {
+      "id": "PAPER-KHAYUTIN-19/E37",
+      "kind": "gap",
+      "locator": "§9.7, Proposition 9.25 and its proof ('A direct calculation shows …'), p. 235 (arXiv v3: Proposition 137)",
+      "printed": "Within the framework of Theorem 9.7, it strengthens the hypotheses to (R_max/k_0)^{θ_l} ≤ A(E)/k_0² together with X ≤ A(E)^δ k_0^{1−2δ}.",
+      "correction": "(R_max/k_0)^{θ_l} ≤ (A(E)/k_0²)^{1−3η}, which is Theorem 9.7's hypothesis R_max^{θ_l} ≤ A(E)^{1−3η} for the rescaled domain k_0^{−1}(E − r).",
+      "reason": "A = 10^{12}, R_max = 10^7, k_0 = 10^5, θ_l = 3/4, η = 1/10: R_max^{θ_l} = 10^{5.25} ≤ A^{0.7} and (R/k_0)^{θ_l} = 10^{1.5} ≤ A/k_0² = 10², but (A/k_0²)^{0.7} = 10^{1.4} < 10^{1.5}, so the rescaled domain fails Theorem 9.7's hypothesis (the verifier's witness, with integral k_0 and admissible θ_l).",
+      "affects": "the proof",
+      "impact": "A proof gap, not a counterexample to the conclusion. In the application (Proposition 9.26) k² ≤ A^η gives the repaired inequality.",
+      "known": "new",
+      "searched": [
+        "2026-09-30 (FIX-RT-PAPER-KHAYUTIN-19): arXiv:1710.04557 lists v3 (22 October 2018) as the last version (arXiv API); Crossref records no update or erratum relation for doi:10.4007/annals.2019.189.1.4. The published text at the cited pages is as the red team and its verifier quote it; the same text is in arXiv v3 (source archive sha256 d76399f1…, re-fetched by the fixer, identical to the extraction's). Not an exhaustive novelty claim."
+      ],
+      "addedBy": "FIX-RT-PAPER-KHAYUTIN-19"
+    },
+    {
+      "id": "PAPER-KHAYUTIN-19/E38",
+      "kind": "error",
+      "locator": "§8.8, Lemma 8.33 and its proof, pp. 218–219 (arXiv v3: Lemma 112)",
+      "printed": "The source asserts, for every n ∈ N and a ∈ A_{p_1}, that m(K_{p_1} ∩ aK_{p_1}a^{−1}) / m(K_{p_1}^{(−n,n)} ∩ aK_{p_1}^{(−n,n)}a^{−1}) = p_1^{2n}.",
+      "correction": "p_1^{2n} if n = 0 or a ∉ K_{p_1}; (1 + p_1^{−1})p_1^{2n} if n ≥ 1 and a ∈ K_{p_1}.",
+      "reason": "For a ∈ K_{p_1} (the case k = 0 of the proof, e.g. a = 1) the numerator subgroup is Stab(x_0) and the denominator the stabiliser of the path x_{−n}…x_n, so the ratio is the number of geodesic paths of length 2n with midpoint x_0, (p+1)p^{n−1}·p^n. The proof's count excludes the p^{n−1} choices of y_1 through x_1 and lets y_1, y_2 leave x_0 along the same edge. The verifier checked exact GL_2 congruence counts for p = 2, 3, 5 and n = 1, 2.",
+      "affects": "a stated result",
+      "impact": "Theorem 8.7 (p. 219) holds with its implied constant changed by a factor at most 3/2.",
+      "known": "new",
+      "searched": [
+        "2026-09-30 (FIX-RT-PAPER-KHAYUTIN-19): arXiv:1710.04557 lists v3 (22 October 2018) as the last version (arXiv API); Crossref records no update or erratum relation for doi:10.4007/annals.2019.189.1.4. The published text at the cited pages is as the red team and its verifier quote it; the same text is in arXiv v3 (source archive sha256 d76399f1…, re-fetched by the fixer, identical to the extraction's). Not an exhaustive novelty claim."
+      ],
+      "addedBy": "FIX-RT-PAPER-KHAYUTIN-19"
+    },
+    {
+      "id": "PAPER-KHAYUTIN-19/E39",
+      "kind": "error",
+      "locator": "§2.3 'Simply connected cover', p. 162, and §3.3, proof of Proposition 3.6, p. 172 (arXiv v3 §2.3 and Proposition 18)",
+      "printed": "The source says the morphism is surjective when B splits at ∞; otherwise its image is the subgroup Q_{>0}\\R_{>0} × A_f^×/A^{×2} of index 2. On p. 172 it again claims surjectivity in the split case and an index 2 image in the other case.",
+      "correction": "The map G(Q)\\G(A)/G(A)^+ → Q^×\\A^×/A^{×2} is a bijection in both cases.",
+      "reason": "−1 ∈ Q^× has negative archimedean component, so Q^×·(R_{>0} × A_f^×) = A^×, and the natural map Q_{>0}\\(R_{>0} × A_f^×)/A^{×2} → Q^×\\A^×/A^{×2} is onto; it is injective, since x = q·y·a² with x_∞, y_∞ > 0 forces q > 0.",
+      "affects": "nothing",
+      "impact": "Proposition 3.6 uses only ker(χ_{E_0}∘Nrd).",
+      "known": "new",
+      "searched": [
+        "2026-09-30 (FIX-RT-PAPER-KHAYUTIN-19): arXiv:1710.04557 lists v3 (22 October 2018) as the last version (arXiv API); Crossref records no update or erratum relation for doi:10.4007/annals.2019.189.1.4. The published text at the cited pages is as the red team and its verifier quote it; the same text is in arXiv v3 (source archive sha256 d76399f1…, re-fetched by the fixer, identical to the extraction's). Not an exhaustive novelty claim."
+      ],
+      "addedBy": "FIX-RT-PAPER-KHAYUTIN-19"
+    },
+    {
+      "id": "PAPER-KHAYUTIN-19/E40",
+      "kind": "error",
+      "locator": "§2.3, p. 162 ('a monomorphism of compact abelian groups'), and its use in §10.4, p. 254 with footnote 11 (arXiv v3 §2.3 and §10.4)",
+      "printed": "On p. 162 it says Nrd : B^× → G_m yields a monomorphism Nrd : G(A)/G(A)^+ → A^×/A^{×2} between compact abelian groups. On p. 254 it calls the fiber of ctr : G^Δ(A)^+\\(G × G)(A) → G(A) compact, identifying it in a footnote with G(A)/G(A)^+. From this it claims a continuous, nonzero lower bound depending on ctr(ξ) for ξ ↦ vol([G^Δ(A)^+ξ]).",
+      "correction": "Locally compact, not compact. At p. 254 argue from the volume definition of §7.2: conjugation by ξ_1 preserves Haar measure on G(A)^+, so the volume is m_{G(A)^+}(Ω ∩ cΩc^{−1})^{−1} with c = ctr(ξ) and factors through ctr(ξ); no compactness is needed.",
+      "reason": "The parities of the p-adic valuations map A^×/A^{×2} (and its positive-archimedean subgroup) onto the infinite discrete group ⊕_p Z/2, and in the split case Nrd maps G(A)/G(A)^+ onto A^×/A^{×2}; so neither group is compact, in either signature.",
+      "affects": "the proof",
+      "impact": "The lower bound on vol([G^Δ(A)^+ξ]) used in the proof of Theorem 3.2 (item 123) holds by the repaired argument (the verifier of RT-PAPER-KHAYUTIN-19/4).",
+      "known": "new",
+      "searched": [
+        "2026-09-30 (FIX-RT-PAPER-KHAYUTIN-19): arXiv:1710.04557 lists v3 (22 October 2018) as the last version (arXiv API); Crossref records no update or erratum relation for doi:10.4007/annals.2019.189.1.4. The published text at the cited pages is as the red team and its verifier quote it; the same text is in arXiv v3 (source archive sha256 d76399f1…, re-fetched by the fixer, identical to the extraction's). Not an exhaustive novelty claim."
+      ],
+      "addedBy": "FIX-RT-PAPER-KHAYUTIN-19"
     }
   ]
 }

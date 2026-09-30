@@ -111,6 +111,8 @@ forms including the dyadic case, the densities at regular and at singular primes
 
 ### 3. Source of *Heegner-point Euler systems and arithmetic descent* — HE.0 — 15 items
 
+*Since FIX-RT-PAPER-KHAYUTIN-19 the principal genus appendix (items 101–107, 119, 120) is routed to MultiquadraticPartII (route 6); see the Fixes section at the end.*
+
 Two blocks. The **orders attached to a homogeneous toral set**: `Λ_v = E(Q_v) ∩ g_vO_vg_v^{-1}`, its local form
 `Z_v + 𝔣_vO_{E_v}` with Galois stability, the local and global discriminants, `Λ = ∩_{v≠∞}Λ_v`, the ideles-to-ideals
 map, and the different of a local quadratic order with `Nr 𝒟_v = D_v`. And the **principal genus theory
@@ -193,3 +195,27 @@ An independent review read the published article (Ann. of Math. 189 (2019), 145�
 - **Source issues:** 31 further mistakes were recorded (E4–E34) and E1–E3 were confirmed in print.
 
 The item and route counts above are those before the review. After it there are 124 items: 2 planned and 122 missing. They are routed as 82 to the Part II, 17 to the sieve roadmap, 18 to HE.0, 3 to AA.4 and 2 to GN.2/GN.4. Details are in [the review report](../reviews/REV-PAPER-KHAYUTIN-19.md).
+
+## Fixes (FIX-RT-PAPER-KHAYUTIN-19, 30 September 2026)
+
+Claude Code, session `cc-c2c06b`, issue #4982. This fix applies the four high and three medium findings of
+`RT-PAPER-KHAYUTIN-19`, with the corrections of its verifier (Codex, codex-a71f92). The full record is
+`research/blueprint/redteam/RT-PAPER-KHAYUTIN-19.fixes.md`.
+
+- **/1: Lemma A.6 at p = 2.** Item 104's dyadic clause is corrected, and so is item 119's sentence on μ_wild
+  (source issue E35). I checked the corrected clause for all eight quadratic étale Q₂-algebras.
+- **/2: Propositions 9.25 and 9.26.** Item 87 now has ρ_Q(k₀k₁l; k₁k₂) and the rescaled curvature hypothesis
+  (E36, an error; E37, a proof gap).
+- **/3: Lemma 8.33.** Item 74's ratio is (1 + 1/p₁)p₁^{2n} when n ≥ 1 and a ∈ K_{p₁}, and p₁^{2n} otherwise
+  (E38).
+- **/4: §2.3.** The norm map on double cosets is a bijection in both signatures, and the groups are locally compact,
+  not compact (E39, E40). Item 123's volume bound is re-proved from §7.2's volume definition, without the false
+  compact-fibre argument.
+- **/5: Duke's theorem.** New item 125 states it for toral packets on [G(A)] in Linnik's form. It is routed to route
+  1 as an imported statement.
+- **/6: prerequisites.** Huxley's entry now explains why one of two alternative inputs is needed to make the ranges
+  of §10.4 overlap. 14 prerequisites are added, among them Linnik, Siegel, Gelbart–Jacquet and Shahidi. Route 1's
+  brief now covers the small-norm range and the overlap lemma.
+- **/7: genus theory.** The genus block (items 101–107, 119, 120) moves from HE.0 to MultiquadraticPartII (new route
+  6). That route imports the built Tau Ceti genus theory, and items 102, 106 and 119 cite it as near misses.
+- **Result:** 125 items (2 planned, 123 missing), six routes, 27 prerequisites and 40 source issues.
