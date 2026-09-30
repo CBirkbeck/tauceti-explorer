@@ -37177,8 +37177,9 @@
     "FIX-RT-PAPER-GHOSH-SARNAK-22"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-PAPER-GHOSH-SARNAK-22.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5136"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #5136",
+   "finishedAt": "2026-09-30T22:49:36Z"
   },
   {
    "id": "RT-PAPER-LIU-ETAL-22",
@@ -40895,8 +40896,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-BOCKLE-HARRIS-KHARE-ETAL-19.md",
-   "state": "pending",
-   "note": "released on GitHub issue #5014"
+   "state": "external",
+   "note": "claimed on GitHub issue #5014"
   },
   {
    "id": "RT-PAPER-LAWRENCE-VENKATESH-20",
