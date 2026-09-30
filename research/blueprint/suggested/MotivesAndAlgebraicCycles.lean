@@ -15,6 +15,11 @@ modules only. Where the roadmap builds on a pinned Tau Ceti declaration
 `TopPair.singularHomology`), the docstring names it, the declaration here has a real signature
 and a `sorry` body, and the statements about it are made through Mathlib notions.
 
+FIX-RT-AREA-geomlanglands~2 (Codex codex-rtOQ9t, 30 September 2026):
+The new abstract reconstruction inventory and finite-hull signatures below are
+unchecked and NOT COMPILED. Earlier compilation accounts describe earlier revisions.
+The early MC.6:abstract stage is proposed in the packet, not installed here.
+
 FIX-RT-AREA-iwasawa-3~2 (Codex codex-5ebb6f, 30 September 2026): the added Tate inverse,
 localized-comparison and regression signatures have not been compiled. The preceding
 compilation account belongs to the independent review of the input file.
@@ -9120,3 +9125,165 @@ end Tate
 end MC7
 
 end TauCeti.Motives
+
+namespace TauCeti.Motives.AbstractTannaka
+
+open CategoryTheory CategoryTheory.Limits
+
+/-! Early MC.6 supplier, independent of MC.5.
+The full relative theorem needs an A-action/representer interface and internal
+comodules in Ind(A); the full neutral theorem needs its finite hull algebras,
+canonical coalgebra, and tensor-compatible fibre functor comparison. Those
+carriers are not supplied by the known-Hopf reconstruction theorem.
+The inventory below records each omitted signature and its required interface.
+It is planning prose, not an axiom or a compiled assertion.
+DM 2.23 is imported from upstream ReductiveGroups layer 6, not re-proved here.
+-/
+
+section FiniteHull
+
+variable {C : Type*} [Category C] [Preadditive C] [HasFiniteBiproducts C]
+
+/-- MC.6/neutral-finite-subcategory-representability: the actual subquotient-sum
+hull, without tensor closure or a motives input. -/
+def neutralFiniteHull (X : C) : Type _ :=
+  ObjectProperty.FullSubcategory fun Y : C =>
+    ∃ (n : ℕ) (Z : C) (i : Z ⟶ biproduct (fun _ : Fin n => X)),
+      Mono i ∧ ∃ q : Z ⟶ Y, Epi q
+
+/-- Finite sums belong to the hull. -/
+example (X : C) (n : ℕ) :
+    ∃ Y : neutralFiniteHull X, Y.obj = biproduct (fun _ : Fin n => X) := by
+  sorry
+
+/-- A quotient of a subobject of X belongs to its hull. -/
+example (X Z Y : C) (i : Z ⟶ X) [Mono i] (q : Z ⟶ Y) [Epi q] :
+    ∃ T : neutralFiniteHull X, T.obj = Y := by
+  sorry
+
+end FiniteHull
+
+/-! MotivesAndAlgebraicCycles:MC.6/relative-finite-piece-reconstruction
+Statement: Under the relative reconstruction data, L_i:A→C_i, V↦V⊗X_i, is left adjoint to F_i. Its monad is V↦V⊗A_i with A_i=F(X_i) an associative unital algebra object of A. The comparison gives C_i≃Mod_A(A_i)≃Comod_A(A_i∨), compatibly with F_i. Here modules and comodules have underlying objects in A, not arbitrary objects of Ind(A).
+Hypotheses: A is a rigid symmetric monoidal category; C is symmetric monoidal with a tensor action of A.; F:C→A is symmetric monoidal, A-linear and conservative. As printed in FS VI.10.2, C admits and F reflects coequalizers of F-split parallel pairs.; C is a small filtered union of full subcategories C_i stable under those coequalizers and the A-action; F_i=F|C_i is represented by X_i∈C_i (in the A-linear sense, giving the adjunction below).; The pinned Beck theorem requires preservation of the split coequalizers as well. The implementation adapter records that obligation explicitly; until it is derived from the intended source convention, the executable sufficient-hypothesis version additionally assumes F_i preserves them. This is an interface gap, not a claim that the printed theorem has been disproved.
+Proof plan: Use rigidity of A and the representing property to identify Hom(V⊗X_i,Y) with Hom(V,F_iY), naturally in V,Y. The A-linearity of F identifies F_iL_i with tensor by F(X_i).; Transport the adjunction unit and multiplication to the algebra structure on A_i. Invoke the pinned ordinary Beck theorem only after providing its split-coequalizer preservation/reflection instances (the recorded adapter obligation). Do not plan Barr–Beck again.; Duality of the underlying A-object identifies the A_i action with an A_i∨ coaction; associativity/unit correspond to coassociativity/counit. Record comparison naturality on changing i.
+
+relativePieceLeftAdjoint: not stated in Lean yet; requires the mathematical carriers and compatibility data specified above.
+Planned signature: The A-linear functor V↦V⊗X_i and L_i⊣F_i.
+relativePieceMonad: not stated in Lean yet; requires the mathematical carriers and compatibility data specified above.
+Planned signature: F_iL_i is tensor by A_i=F(X_i), with the adjunction algebra structure.
+relativePieceComparison: not stated in Lean yet; requires the mathematical carriers and compatibility data specified above.
+Planned signature: C_i≃Comod_A(A_i∨) over A; natural compatibility with the filtered inclusions.
+relativePiece_regular: planned example, not stated in Lean yet. For A=Vect_fd(k), C_i the finite left modules over a finite-dimensional k-algebra B and X_i=B, the construction recovers that module category and its dual coefficient coalgebra; fix the B-versus-B-opposite convention from the adjunction before identifying the algebra.
+relativePiece_needs_representer: planned example, not stated in Lean yet. A faithful exact functor without a chosen/established representing object is not sufficient input to this construction.
+relativePiece_duality: planned example, not stated in Lean yet. For a finite-dimensional algebra B, transpose the regular action and verify the coalgebra counit identity on B∨; reversing the action convention changes the order and must be tracked.
+-/
+
+/-! MotivesAndAlgebraicCycles:MC.6/relative-coalgebra-assembly
+Statement: For the relative finite-piece system, H=colim_i F(X_i)∨ in Ind(A) is a coalgebra. The coactions F(Y)→F(Y)⊗F(X_i)∨ for Y∈C_i are compatible, independent of a sufficiently large i, and induce C≃Comod_A(H). Comod_A(H) means H-comodules whose underlying object lies in A, viewed through A→Ind(A).
+Hypotheses: A is a rigid symmetric monoidal category; C is symmetric monoidal with a tensor action of A.; F:C→A is symmetric monoidal, A-linear and conservative. As printed in FS VI.10.2, C admits and F reflects coequalizers of F-split parallel pairs.; C is a small filtered union of full subcategories C_i stable under those coequalizers and the A-action; F_i=F|C_i is represented by X_i∈C_i (in the A-linear sense, giving the adjunction below).; The pinned Beck theorem requires preservation of the split coequalizers as well. The implementation adapter records that obligation explicitly; until it is derived from the intended source convention, the executable sufficient-hypothesis version additionally assumes F_i preserves them. This is an interface gap, not a claim that the printed theorem has been disproved.
+Proof plan: For i≤j, restrict the representing functor and dualize the induced algebra map to obtain the coalgebra transition F(X_i)∨→F(X_j)∨.; Form the filtered colimit using the existing Ind category. Define Δ and ε on finite pieces and check independence on overlaps.; Transpose the counit F(Y)⊗X_i→Y to obtain the displayed coaction. Full faithfulness and essential surjectivity are checked after factoring the finite dualizable underlying data through a sufficiently large finite piece.; The monoidal Ind-extension and the internal-comodule category/finite-factorization adapter are implementation interfaces still to supply; bare Ind does not provide them automatically.
+
+relativeReconstructionCoalgebra: not stated in Lean yet; requires the mathematical carriers and compatibility data specified above.
+Planned signature: H=colim_i F(X_i)∨ with Δ and ε.
+relativeReconstructionCoaction: not stated in Lean yet; requires the mathematical carriers and compatibility data specified above.
+Planned signature: For Y∈C, the compatible map F(Y)→F(Y)⊗H.
+relativeCoalgebraComparison: not stated in Lean yet; requires the mathematical carriers and compatibility data specified above.
+Planned signature: C≃Comod_A(H) commuting with the forgetful functors to A.
+relativeCoalgebra_constant: planned example, not stated in Lean yet. For a constant finite-piece system the colimit is the same coalgebra and the comparison is the finite-piece comparison.
+relativeCoaction_overlap: planned example, not stated in Lean yet. For Y in C_i and C_j, the two coactions agree after passage to a common upper piece and to H.
+relativeCoalgebra_finite_coefficients: planned example, not stated in Lean yet. For an H-comodule with underlying finite-dimensional vector space, its finitely many matrix coefficients and coassociativity relations lie in one sufficiently large piece.
+-/
+
+/-! MotivesAndAlgebraicCycles:MC.6/relative-bialgebra-reconstruction
+Statement: The relative reconstruction coalgebra H has a commutative unital multiplication compatible with Δ and ε; thus H is a bialgebra object in Ind(A), and C≃Comod_A(H) is a symmetric monoidal equivalence over A. No antipode is asserted without rigidity of C.
+Hypotheses: A is a rigid symmetric monoidal category; C is symmetric monoidal with a tensor action of A.; F:C→A is symmetric monoidal, A-linear and conservative. As printed in FS VI.10.2, C admits and F reflects coequalizers of F-split parallel pairs.; C is a small filtered union of full subcategories C_i stable under those coequalizers and the A-action; F_i=F|C_i is represented by X_i∈C_i (in the A-linear sense, giving the adjunction below).; The pinned Beck theorem requires preservation of the split coequalizers as well. The implementation adapter records that obligation explicitly; until it is derived from the intended source convention, the executable sufficient-hypothesis version additionally assumes F_i preserves them. This is an interface gap, not a claim that the printed theorem has been disproved.
+Proof plan: For each i,j choose k containing X_i⊗X_j. Generation under A-tensors and F-split coequalizers then gives C_i⊗C_j⊂C_k.; The tensor product of the units 1→F(X_i),1→F(X_j) induces X_k→X_i⊗X_j. Dualizing and taking the filtered colimit gives H⊗H→H; the tensor unit gives 1→H.; Check independence of k and associativity, symmetry, and unit on a common finite piece. Check that multiplication and unit are coalgebra maps and that the comparison respects tensor products and symmetry.; Use the bialgebra conclusion in the proposition. The premature Hopf label in the proof is the already confirmed PAPER-FARGUES-SCHOLZE-21/E108; do not duplicate its errata record.
+
+relativeReconstructionBialgebra: not stated in Lean yet; requires the mathematical carriers and compatibility data specified above.
+Planned signature: H with multiplication, unit, comultiplication and counit; commutative multiplication.
+relativeReconstruction_monoidal: not stated in Lean yet; requires the mathematical carriers and compatibility data specified above.
+Planned signature: The coalgebra comparison is symmetric monoidal over A.
+relativeReconstruction_mul_piece: not stated in Lean yet; requires the mathematical carriers and compatibility data specified above.
+Planned signature: Multiplication on pieces is dual to X_k→X_i⊗X_j.
+relativeBialgebra_matrix_monoid: planned example, not stated in Lean yet. Finite-dimensional comodules of O(M_n), n≥1, reconstruct that commutative bialgebra. It has no antipode, since a singular matrix cannot have an inverse.
+relativeBialgebra_unit: planned example, not stated in Lean yet. For C=A and F=id with representing unit, reconstruct the tensor unit bialgebra.
+relativeBialgebra_tensor_coaction: planned example, not stated in Lean yet. The reconstructed coaction on F(Y⊗Z) equals the product of the coactions on F(Y) and F(Z), including the tensor-unit coaction.
+-/
+
+/-! MotivesAndAlgebraicCycles:MC.6/relative-rigid-antipode
+Statement: If C is also rigid in relative reconstruction, the bialgebra H has an antipode and the comparison identifies C with the rigid category of H-comodules in A. This is an internal relative statement, not the already pinned fixed-Hopf reconstruction theorem.
+Hypotheses: A is a rigid symmetric monoidal category; C is symmetric monoidal with a tensor action of A.; F:C→A is symmetric monoidal, A-linear and conservative. As printed in FS VI.10.2, C admits and F reflects coequalizers of F-split parallel pairs.; C is a small filtered union of full subcategories C_i stable under those coequalizers and the A-action; F_i=F|C_i is represented by X_i∈C_i (in the A-linear sense, giving the adjunction below).; The pinned Beck theorem requires preservation of the split coequalizers as well. The implementation adapter records that obligation explicitly; until it is derived from the intended source convention, the executable sufficient-hypothesis version additionally assumes F_i preserves them. This is an interface gap, not a claim that the printed theorem has been disproved.; Every object of C is dualizable.
+Proof plan: On a representing piece use F(X_i)∨≅F(X_i∨); identify the corresponding coefficient pairing with Hom(X_i⊗X_i,1) as in FS.; Transpose the switch of the two factors to define inversion, and verify compatibility across pieces.; Evaluation and coevaluation identities give both convolution inverse identities. Transport duals across the monoidal comparison. PAPER-FARGUES-SCHOLZE-21/E46 corrects the proof’s A/H letter slip.
+
+The full named theorem is not stated in Lean yet: its reconstruction/recognition carriers are not available in this prototype. It is not replaced with a Prop parameter.
+relativeAntipode_gm: planned example, not stated in Lean yet. For the graded-vector-space fibre functor the Hopf algebra is k[t,t⁻¹], with S(t)=t⁻¹.
+relativeAntipode_no_rigidity: planned example, not stated in Lean yet. The matrix-monoid test cannot be passed as a rigid source: its noninvertible representations have no tensor duals.
+-/
+
+/-! MotivesAndAlgebraicCycles:MC.6/neutral-finite-subcategory-representability
+Statement: For X∈C, let <X> be the full subcategory of subquotients of finite direct sums X^n. There is P_X∈<X> such that A_X=ω(P_X) is the subalgebra of End_k(ωX) preserving ωY⊂(ωX)^n for every subobject Y⊂X^n. The fibre functor gives <X>≃Mod_fd(A_X), with P_X corresponding to the regular left A_X-module; hence ω|<X> is represented by P_X. This is the additional neutral representability lemma, not a consequence of just setting A=Vect in the relative theorem.
+Hypotheses: k is an arbitrary field; C is an essentially small k-linear abelian rigid symmetric monoidal category with End(1)=k.; ω:C→Vect_fd(k) is a chosen exact faithful k-linear symmetric monoidal functor. Neutrality, including the specified k-valued functor, is an assumption, not inferred from existence of a functor over an extension field.
+Proof plan: Exact faithfulness and finite-dimensional fibres imply finite length. In Hom(ωX,X), take the largest subobject preserving every Y⊂X^n; DM 2.12 identifies it also as the smallest subobject whose fibre contains id_ωX. This is P_X.; Lemma 2.13 identifies its fibre with the simultaneous stabilizer algebra A_X. Finite presentations and exactness construct the inverse M↦P_X⊗_{A_X}M via cokernels, proving the equivalence.; The regular module represents the underlying-vector-space functor. Direct sums X⊕Y give a filtered system of such full subcategories covering C. Tensor products are not assumed to remain in <X>.
+
+neutralFiniteHull: finite-hull carrier defined above; categorical closure and equivalence API remain to implement.
+Planned signature: Full subcategory of subquotients of X^n, closed under finite sums, subobjects and quotients.
+neutralStabilizerAlgebra: not stated in Lean yet; requires the mathematical carriers and compatibility data specified above.
+Planned signature: A_X⊂End_k(ωX) preserving every ωY⊂(ωX)^n.
+neutralFiniteRepresenter: not stated in Lean yet; requires the mathematical carriers and compatibility data specified above.
+Planned signature: P_X with ωP_X=A_X and natural Hom(P_X,Y)≅ωY for Y∈<X>.
+neutralFiniteHullEquivalence: not stated in Lean yet; requires the mathematical carriers and compatibility data specified above.
+Planned signature: <X>≃Mod_fd(A_X), taking P_X to the regular module and commuting with the fibre functor.
+neutralRepresenter_vect: planned example, not stated in Lean yet. In Vect_fd(k), X=k gives P_X=k and A_X=k; <X> is all finite-dimensional vector spaces.
+neutralHull_not_tensor_closed: planned example, not stated in Lean yet. In Rep_k(G_m), X the weight-one character has <X> consisting of weight-one sums, so X⊗X of weight two is absent.
+neutralRepresenter_nonsemisimple: planned example, not stated in Lean yet. For the regular representation of a constant cyclic group of order p over a field of characteristic p, the stabilizer algebra is the nonsemisimple group algebra; local representability does not assume semisimplicity.
+-/
+
+/-! MotivesAndAlgebraicCycles:MC.6/neutral-reconstruction-coalgebra
+Statement: For a neutral pair (C,ω), B=colim_<X> End(ω|<X>)∨ is a k-coalgebra, with a canonical equivalence C≃Comod_fd(B) over Vect_fd(k). The symmetric tensor structure of C induces on B a commutative unital bialgebra structure. For every commutative k-algebra R, tensor endomorphisms of ω⊗R identify naturally with k-algebra maps B→R.
+Hypotheses: k is an arbitrary field; C is an essentially small k-linear abelian rigid symmetric monoidal category with End(1)=k.; ω:C→Vect_fd(k) is a chosen exact faithful k-linear symmetric monoidal functor. Neutrality, including the specified k-valued functor, is an assumption, not inferred from existence of a functor over an extension field.
+Proof plan: Apply the finite-subcategory equivalence, take duals of its finite-dimensional endomorphism algebras, and form the filtered colimit (DM 2.14).; The comparison sends every object to its canonical coaction, compatible with the fibre functor. Tensor product gives a functor Comod(B)×Comod(B)→Comod(B) over vector spaces and hence a coalgebra map B⊗B→B by DM 2.16; tensor coherence gives commutative multiplication and a unit.; DM 2.15 identifies natural endomorphisms of the scalar-extended fibre functor with linear maps B→R; the tensor and unit conditions become multiplicativity and unitality.
+
+neutralReconstructionCoalgebra: not stated in Lean yet; requires the mathematical carriers and compatibility data specified above.
+Planned signature: The filtered colimit B with its coalgebra structure and comparison functor.
+neutralReconstructionBialgebra: not stated in Lean yet; requires the mathematical carriers and compatibility data specified above.
+Planned signature: The commutative multiplication and unit induced by the specified tensor structure.
+neutralTensorEndRepresentable: not stated in Lean yet; requires the mathematical carriers and compatibility data specified above.
+Planned signature: End^⊗(ω⊗R)≅Hom_k-alg(B,R), naturally in R.
+neutralCoalgebra_vect: planned example, not stated in Lean yet. The identity fibre functor on finite-dimensional vector spaces gives B=k.
+neutralEnd_basechange: planned example, not stated in Lean yet. For k-algebras R→S, B→R→S corresponds to scalar extension of the same tensor endomorphism.
+neutralCoalgebra_symmetry: planned example, not stated in Lean yet. In characteristic zero, the odd line with Koszul symmetry cannot be sent by an ordinary symmetric fibre functor to its ungraded one-dimensional vector space; using the wrong symmetry invalidates reconstruction.
+-/
+
+/-! MotivesAndAlgebraicCycles:MC.6/neutral-tannaka-reconstruction
+Statement: For a neutral pair (C,ω) over any field k, Aut^⊗(ω) is represented by an affine k-group scheme G=Spec(B), and the canonical functor C→Rep_fd(G) is a k-linear symmetric monoidal equivalence compatible with ω. Construct B from ω; do not assume an existing representing group or Hopf algebra as input.
+Hypotheses: k is an arbitrary field; C is an essentially small k-linear abelian rigid symmetric monoidal category with End(1)=k.; ω:C→Vect_fd(k) is a chosen exact faithful k-linear symmetric monoidal functor. Neutrality, including the specified k-valued functor, is an assumption, not inferred from existence of a functor over an extension field.
+Proof plan: Use the neutral bialgebra and the natural representability of tensor endomorphisms, for all commutative k-algebras R.; Duals make every monoidal natural endomorphism invertible: use DM 1.13 on the rigid category of finite projective R-modules containing the scalar-extended fibres. Yoneda turns inverse/composition into the antipode and group law.; After constructing B, import the pinned known-Hopf functorial comparison and representation/comodule dictionary. That theorem is a consistency identification, not a substitute for the construction of B or the local representability lemma.; Recover the existing diagram case by its exact faithful rigid fibre functor. Nori rigidity is checked only in the late application.
+
+The full named theorem is not stated in Lean yet: its reconstruction/recognition carriers are not available in this prototype. It is not replaced with a Prop parameter.
+neutralTannaka_vect: planned example, not stated in Lean yet. Vect_fd(k) reconstructs the trivial group.
+neutralTannaka_graded: planned example, not stated in Lean yet. Finite-support Z-graded vector spaces with ordinary symmetry reconstruct G_m; the weight n line corresponds to t^n (DM 2.30).
+neutralTannaka_needs_neutrality: planned example, not stated in Lean yet. A fibre functor available only over k′ does not supply a k-valued point or neutral k-reconstruction.
+-/
+
+/-! MotivesAndAlgebraicCycles:MC.6/tannaka-finiteness-recognition
+Statement: For the affine group G reconstructed from (C,ω): (a) G is finite over k iff some X has every Y∈C a subquotient of a finite sum X^n; (b) G is of finite type over k iff some X tensor-generates C, meaning every Y is a subquotient of P(X,X∨) for a polynomial P in two variables with nonnegative integer coefficients. Finite type and finite group are different assertions.
+Hypotheses: k is an arbitrary field; C is an essentially small k-linear abelian rigid symmetric monoidal category with End(1)=k.; ω:C→Vect_fd(k) is a chosen exact faithful k-linear symmetric monoidal functor. Neutrality, including the specified k-valued functor, is an assumption, not inferred from existence of a functor over an extension field.
+Proof plan: Transfer along neutral reconstruction. For finite G the finite regular representation generates all representations by sums and subquotients; conversely this property forces the coefficient coalgebra into a finite-dimensional one.; For finite-type G import the upstream finite-dimensional closed-immersion representation (layer 1), and generate the coordinate Hopf algebra by its matrix coefficients and those of its dual.; Conversely a tensor generator gives a closed immersion into GL(ωX), since its coefficients and inverse determinant generate the coordinate algebra. Cite DM 2.20 for the categorical recognition theorem.
+
+The full named theorem is not stated in Lean yet: its reconstruction/recognition carriers are not available in this prototype. It is not replaced with a Prop parameter.
+tannakaFiniteType_gm: planned example, not stated in Lean yet. G_m is finite type and generated tensorially by its weight-one representation, but not finite: its infinitely many weights cannot all be subquotients of powers X^n for a fixed X.
+tannakaFinite_constant: planned example, not stated in Lean yet. A constant finite group has the finite regular representation as a subquotient-sum generator, even when its representations are not semisimple.
+-/
+
+/-! MotivesAndAlgebraicCycles:MC.6/tannaka-connectedness-recognition
+Statement: In characteristic zero, the reconstructed affine group G is connected iff for every nontrivial representation X the subquotient-sum hull <X> is not stable under tensor products. Nontrivial means that G acts nontrivially, not merely that X≠0. Equivalently C has no nontrivial finite tensor subcategory. Apply only with the characteristic-zero hypothesis; finite connected group schemes in positive characteristic invalidate this unqualified extension.
+Hypotheses: k is an arbitrary field; C is an essentially small k-linear abelian rigid symmetric monoidal category with End(1)=k.; ω:C→Vect_fd(k) is a chosen exact faithful k-linear symmetric monoidal functor. Neutrality, including the specified k-valued functor, is an assumption, not inferred from existence of a functor over an extension field.; char(k)=0.
+Proof plan: By DM 2.21(a), a full tensor subcategory closed under subobjects corresponds to a faithfully flat quotient of G.; DM 2.20(a) identifies the finite subquotient-sum generators with finite quotient groups. In characteristic zero all finite group schemes are étale; connectedness is equivalent to having no nontrivial finite quotient.; Use DM 2.22 to obtain the criterion. In the Satake application the weight growth A_μ,A_2μ,… rules out the prohibited finite hull; that geometric verification stays with GS4.
+
+The full named theorem is not stated in Lean yet: its reconstruction/recognition carriers are not available in this prototype. It is not replaced with a Prop parameter.
+tannakaConnected_gm: planned example, not stated in Lean yet. For G_m over characteristic zero a nonzero weight produces unbounded multiples under tensor powers, and the criterion detects connectedness.
+tannakaConnected_charp: planned example, not stated in Lean yet. Over characteristic p the nontrivial finite connected group α_p has a finite-dimensional regular generator; connected does not imply the characteristic-zero criterion.
+-/
+
+end TauCeti.Motives.AbstractTannaka
