@@ -76,3 +76,16 @@ Acceptance concerns the corrected link packet; it is not approval of all source-
 - Atlas + other link packets + all stage `requires`: acyclic before and after, **4,441 → 4,446** distinct edges; 3,746 `requires` edges included. The Quiver edge already belongs to the before graph.
 - Refreshed against main `386e065b82a671bb88a50867b4f28fd6dccaa4c2`: protocols, atlas, source endpoints and the referenced Quiver packet are unchanged. The three changed unrelated link packets retain exactly the same directed pairs, so the graph calculation remains valid.
 - Whitespace and authorized-path checks passed. No Lean file changed or compiled. Archive/GitHub API workflow; no git command run for this job.
+
+## Correction by FIX-RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SemisimpleAlgebras (30 September 2026)
+
+This review's text above is kept as history. Red-team finding RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SemisimpleAlgebras/1, independently confirmed, shows that three of its statements are wrong for the published atlas:
+- the opening paragraph's "the exact QuiverRepresentations pair is already present in that roadmap's packet";
+- the Quiver row's "Removing this proposal removes no graph edge";
+- the validation line "The Quiver edge already belongs to the before graph".
+
+The QuiverRepresentations link packet is a partial research packet with no independent review and no promoted copy in `data/links`. Promotion skips it, and the atlas is assembled from promoted packets only, while `alreadyRecorded` is never merged. So the pair SSA 2 → QuiverRepresentations 3 never reached the atlas. The graph test above used the union of research proposals, which is not the promoted graph.
+
+The fix restores the pair to this packet's `links`, as a sixth link. It keeps this review's scope: Wedderburn is applied to `A/J(A)`, and the quiver owner keeps the simple-module identification and the lift, cover and Morita interfaces. `alreadyRecorded[0]` is kept as superseded provenance. The packet's `review` object and `redteamFix` record the change, and [the fixes report](../redteam/RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SemisimpleAlgebras.fixes.md) describes it.
+
+This review's verdicts, status and date are unchanged. They do not cover the revised packet, which needs renewed independent acceptance before promotion.
