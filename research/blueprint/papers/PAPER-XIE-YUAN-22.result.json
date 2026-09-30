@@ -14,7 +14,8 @@
   "sha256": "2587e70314bddb8f2ed01768f64b4a96b5da0f32d0d5382b4336b2415211c2ab",
   "version": "arXiv v1 (22 August 2021, 29 pages), the only arXiv version, read completely; the Inventiones article (received 31 August 2021) is subscription-only and was not collated.",
   "readSections": [
-   "2026-09-29: arXiv:2108.09722v1, all 29 pages: §§1–5 and references; page images checked at every source issue."
+   "2026-09-29: arXiv:2108.09722v1, all 29 pages: §§1–5 and references; page images checked at every source issue.",
+   "2026-09-30, Codex codex-J6LwjP: focused fix reading of arXiv v1 pp.1–3, 7, 9–11, 13–27; page images checked at pp.13, 16, 17, 25. This is not a new full-paper reading."
   ]
  },
  "summary": "Xie and Yuan prove the geometric Bogomolov conjecture in full: over a finitely generated K/k (k algebraically closed, any characteristic), a subvariety of an abelian variety with a dense set of small points is special. §3 lowers the transcendence degree to 1 without changing K, by passing to generic hyperplane sections over subfields k′ ⊂ K and tracking where X becomes special through fields of definition. Yamaki's theorem then reduces to good reduction and trivial trace. There §4 shows a torsion multi-section is numerically a multiple of ℒ^{dim A}, and §2's inequality for non-proper intersections bounds the dominant part of f⁻¹(𝒯) for the summation map f : X_{r−1} × X → X_r. So fibres over torsion points have height 0, are torsion by induction, and Manin–Mumford finishes. The atlas has no function-field Bogomolov theorem: the core goes to the uniform-Bogomolov Part II of HeightsRationalPointsAndObstructions, beside Gao–Habegger's characteristic-0 case. Heights, trace and Manin–Mumford inputs go to RP.0/RP.1/RP.5, the intersection theory to SchemeAndStackFoundations, and the line-bundle lemmas to AbelianSchemesAndArithmeticModuli.",
@@ -93,7 +94,7 @@
    "statement": "ĥ^M_L(X) := lim_{n→∞} n^{−2} h_{(𝒜,ℒ)}([n]X) exists, depends on (S, M) and L but not on the integral model (Gubler 2007, Thm. 3.6; Gubler 2003, Thm. 11.18), and ĥ^M_L(X) ≥ 0 (take ℒ ample). For a closed subvariety X′ of A_{K̄}, set ĥ(X′) := ĥ(X) with X the image of X′ → A_{K̄} → A; for points this gives ĥ : A(K̄) → [0, ∞). When trdeg(K/k) = 1 the model S is unique and M plays no role.",
    "locator": "arXiv:2108.09722v1, §1.1, (1.2)–(1.3), pp. 2–3",
    "status": "missing",
-   "note": "Routed to RP.0 as a source; the existence and independence are cited inputs from Gubler, listed as prerequisites."
+   "note": "Routed to RP.0 as a source; the existence and independence are cited inputs from Gubler, listed as prerequisites. Use height-properties, height-base-change and model-mk-height for the function-field height laws, compatible extensions and normalization; these are RP.0 inputs shared with GH19/5–6 and /72."
   },
   {
    "id": "PAPER-XIE-YUAN-22/height-quadratic-bound",
@@ -102,7 +103,7 @@
    "statement": "For x₁, …, x_m ∈ A(K̄), ĥ(x₁ + ⋯ + x_m) ≤ m(ĥ(x₁) + ⋯ + ĥ(x_m)), since ĥ is a positive semi-definite quadratic form on A(K̄).",
    "locator": "arXiv:2108.09722v1, proof of Lemma 5.3, p. 24",
    "status": "missing",
-   "note": "The function-field Néron–Tate height as a quadratic form; routed to RP.0 with the other function-field heights."
+   "note": "The function-field Néron–Tate height as a quadratic form; routed to RP.0 with the other function-field heights. Use height-properties, height-base-change and model-mk-height for the function-field height laws, compatible extensions and normalization; these are RP.0 inputs shared with GH19/5–6 and /72."
   },
   {
    "id": "PAPER-XIE-YUAN-22/good-reduction-height",
@@ -111,7 +112,7 @@
    "statement": "Let S be a smooth projective curve over k, K = k(S), and A/K with everywhere good reduction, 𝒜 → S the abelian scheme extending it. A symmetric ample L on A extends to a symmetric rigidified ℒ on 𝒜 (extend any divisor, subtract π*e*ℒ′; symmetry then follows from the rigidification). For a closed subvariety X with closure 𝒳, h_ℒ(X) = ℒ^{dim X+1} · 𝒳 / ((dim X + 1) deg_L(X)) satisfies h_ℒ([n]X) = n² h_ℒ(X), hence equals ĥ(X).",
    "locator": "arXiv:2108.09722v1, §4.3, pp. 21–22",
    "status": "missing",
-   "note": "Routed to RP.0 as a source (function-field heights), with Lemma 4.1(1) from A1 as its input."
+   "note": "Routed to RP.0 as a source (function-field heights), with Lemma 4.1(1) from A1 as its input. Use generic-trivial-line-bundle (SF.0, shared DGH21/29) to show ℒ−[−1]*ℒ is pulled back from S and then trivial by rigidification. Use abelian-scheme-projectivity (A2, shared DGH21/26) for a projective model and an ample symmetric rigidified extension when needed. The arbitrary generic bundle’s extension is obtained on the regular total space; the model/canonical comparison is model-mk-height."
   },
   {
    "id": "PAPER-XIE-YUAN-22/northcott-trivial-trace",
@@ -120,7 +121,7 @@
    "statement": "If A over a finitely generated K/k has trivial K/k-trace, then x ∈ A(K̄) has ĥ(x) = 0 if and only if x is torsion (Northcott property; Conrad 2006, Thm. 9.15).",
    "locator": "arXiv:2108.09722v1, proof of Lemma 5.3, p. 24; §5.3, p. 26",
    "status": "missing",
-   "note": "The kernel of the function-field Néron–Tate height, which combines Lang–Néron with Northcott; routed to RP.0 as a source as in PAPER-GAO-HABEGGER-19."
+   "note": "The kernel of the function-field Néron–Tate height, which combines Lang–Néron with Northcott; routed to RP.0 as a source as in PAPER-GAO-HABEGGER-19. Use height-properties, height-base-change and model-mk-height for the function-field height laws, compatible extensions and normalization; these are RP.0 inputs shared with GH19/5–6 and /72."
   },
   {
    "id": "PAPER-XIE-YUAN-22/trace",
@@ -141,7 +142,7 @@
    "planned": [
     "HeightsRationalPointsAndObstructions:RP.5"
    ],
-   "note": "RP.5 constructs translates and treats torsion translates as the special components of Manin–Mumford."
+   "note": "RP.5 constructs translates and treats torsion translates as the special components of Manin–Mumford. Use prime-to-p-torsion-density (A3). In §5.3 it supplies the dense set of admissible base points off A′_{e+1} and, after translation, dense all-torsion points in each torsion fibre component."
   },
   {
    "id": "PAPER-XIE-YUAN-22/stabilizer",
@@ -171,7 +172,7 @@
    "statement": "Let K be finitely generated over an algebraically closed field k, and A an abelian variety over K with trivial K/k-trace. If X ⊂ A_{K̄} is a closed subvariety with X(K̄) ∩ A(K̄)_tor Zariski dense in X, then X is a torsion subvariety (Raynaud over number fields; Hrushovski 2001 in general; Pink–Roessler 2002/2004).",
    "locator": "arXiv:2108.09722v1, §5, Theorem 5.1, pp. 22–23",
    "status": "missing",
-   "note": "RP.5 plans the Manin–Mumford theorem 'with precise characteristic and field hypotheses'; the positive-characteristic, trivial-trace case needs Hrushovski's or Pink–Roessler's proof, which no layer names. Routed to RP.5 as a source; PAPER-GAO-HABEGGER-19 marked the characteristic-0 case planned there. Added by REV-PAPER-XIE-YUAN-22: in positive characteristic a version covering all torsion, including p-power torsion, is Pink–Roessler (J. Algebraic Geom. 13 (2004), the paper's [PR04]) and Scanlon, Positive characteristic Manin–Mumford theorem (arXiv:math/0303340, Theorem 2.2): the Zariski closure of X ∩ G_tor is a finite union of 'special' subvarieties a + h⁻¹(X₀) with h: G → G₀ and X₀ defined over F̄_p. With trivial K/k-trace there is no nonzero homomorphism to an abelian variety over F̄_p ⊆ k, so these are torsion translates and Theorem 5.1 follows; the blueprint should derive it that way."
+   "note": "RP.5 plans the Manin–Mumford theorem 'with precise characteristic and field hypotheses'; the positive-characteristic, trivial-trace case needs Hrushovski's or Pink–Roessler's proof, which no layer names. Routed to RP.5 as a source; PAPER-GAO-HABEGGER-19 marked the characteristic-0 case planned there. Added by REV-PAPER-XIE-YUAN-22: in positive characteristic a version covering all torsion, including p-power torsion, is Pink–Roessler (J. Algebraic Geom. 13 (2004), the paper's [PR04]) and Scanlon, Positive characteristic Manin–Mumford theorem (arXiv:math/0303340, Theorem 2.2): the Zariski closure of X ∩ G_tor is a finite union of 'special' subvarieties a + h⁻¹(X₀) with h: G → G₀ and X₀ defined over F̄_p. With trivial K/k-trace there is no nonzero homomorphism to an abelian variety over F̄_p ⊆ k, so these are torsion translates and Theorem 5.1 follows; the blueprint should derive it that way. Use prime-to-p-torsion-density (A3). In §5.3 it supplies the dense set of admissible base points off A′_{e+1} and, after translation, dense all-torsion points in each torsion fibre component."
   },
   {
    "id": "PAPER-XIE-YUAN-22/chow-groups",
@@ -200,13 +201,13 @@
    "id": "PAPER-XIE-YUAN-22/intersection-multiplicity",
    "kind": "construction",
    "name": "Serre intersection multiplicities and proper intersections",
-   "statement": "For Cartier divisors H₁, …, H_m and a subvariety X of smooth B, m(Z, H₁ ∩ ⋯ ∩ H_m ∩ X) is Serre's Tor multiplicity of a component Z; for a proper intersection it is the length of the local ring, and the intersection cycle equals the cycle of the scheme-theoretic intersection (Fulton, Prop. 7.1(b)).",
+   "statement": "For proper intersections on a smooth variety B, Serre’s alternating Tor-length intersection multiplicity agrees with the intersection product multiplicity. Successive Cartier-divisor intersections satisfy associativity of multiplicities. When the higher Tor terms vanish (in particular the regular-sequence/complete-intersection application in Proposition 2.1), the multiplicity equals the length of the local ring of the scheme-theoretic intersection (Fulton Proposition 7.1(b)); proper intersection alone is not a general Tor-vanishing hypothesis.",
    "locator": "arXiv:2108.09722v1, §2.2, p. 9; proof of Proposition 2.1, p. 11",
    "status": "planned",
    "planned": [
     "SchemeAndStackFoundations:SF.5"
    ],
-   "note": "SF.5 plans intersection products; the length formula for proper intersections is part of that construction."
+   "note": "SF.5 plans intersection products; the length formula for proper intersections is part of that construction. SF.5 must supply the agreement of Serre’s Tor multiplicity and Fulton’s multiplicity for proper intersections on a smooth ambient variety (Fulton §20.4 and Proposition 7.1), and associativity for successive Cartier divisors, which is the step in Proposition 2.4. The length-only shortcut requires vanishing of the higher Tor terms, as in the complete-intersection application on p.11; it is not valid for every proper intersection. Keep this planned input together; no duplicate missing Tor/associativity items are introduced."
   },
   {
    "id": "PAPER-XIE-YUAN-22/nef-line-bundle",
@@ -251,7 +252,7 @@
    "statement": "If H₁, …, H_r are effective Cartier divisors on B with O_B(H_i) globally generated and X is a subvariety of B, then (H₁ ⋯ H_r · X)^prop ≤ H₁ ⋯ H_r · X.",
    "locator": "arXiv:2108.09722v1, §2.2, Proposition 2.4, p. 10",
    "status": "missing",
-   "note": "Generalizes Jia–Shibata–Xie–Zhang, Lemma 3.3; a special case of Fulton's positivity for globally generated bundles (Intersection Theory, Thm. 12.2). The last display of the proof has V for X (sourceIssues E6). Routed to SF.5 as a source."
+   "note": "Generalizes Jia–Shibata–Xie–Zhang, Lemma 3.3; a special case of Fulton's positivity for globally generated bundles (Intersection Theory, Thm. 12.2). The last display of the proof has V for X (sourceIssues E6). Routed to SF.5 as a source. The induction on Cartier divisors uses the associativity and Tor/product comparison explicitly named in intersection-multiplicity (SF.5)."
   },
   {
    "id": "PAPER-XIE-YUAN-22/fibre-dimension-loci",
@@ -305,7 +306,7 @@
    "statement": "For s₀, s₁ ∈ Γ(S, M) spanning a pencil with base locus H₀ ∩ H₁, the blow-up π : S̃ → S along H₀ ∩ H₁ turns x ↦ (s₀(x) : s₁(x)) into a flat morphism ψ : S̃ → P¹_k (Hartshorne II, Ex. 7.17.3). For every field F/k and t ∈ P¹(F), the fibre ψ⁻¹(t) ⊂ S̃_F is isomorphic to the corresponding member div(a₀s₁ − a₁s₀) of the pencil, since H₀ ∩ H₁ is Cartier in each member.",
    "locator": "arXiv:2108.09722v1, proof of Lemma 3.7, p. 17",
    "status": "missing",
-   "note": "Blow-ups are planned in AlgebraicModuliForArithmeticGeometry R09.7a and the smooth-axis Lefschetz case in LPV.3; this general pencil statement is routed to SF.4 (models and birational geometry) as a source."
+   "note": "SF.4 must supply the Rees-algebra blow-up of a closed subscheme over any field, with projective universal property and the pencil/graph comparison used here. R09.7a sits inside the characteristic-zero resolution scope R09.7 and cannot be assumed to discharge this all-characteristic input. Coalesce the underlying Rees-algebra construction with it only after an explicit scope extension/characteristic-independent supplier is approved. LefschetzPencilsAndVanishingCycles:LPV.3 is the smooth-axis special case; prove agreement there, without requiring smoothness of this paper’s base locus."
   },
   {
    "id": "PAPER-XIE-YUAN-22/geometric-integrality-open",
@@ -332,7 +333,7 @@
    "statement": "Let ℒ be a rigidified line bundle on an abelian scheme 𝒜 over a smooth projective curve S. If ℒ is symmetric, [m]*ℒ ≃ m²ℒ for all m ∈ Z; if anti-symmetric, [m]*ℒ ≃ mℒ.",
    "locator": "arXiv:2108.09722v1, §4.1, Lemma 4.1(1), p. 20",
    "status": "missing",
-   "note": "From the theorem of the cube fibrewise plus the rigidification. Routed to A1 (theorem of the cube) as a source."
+   "note": "From the theorem of the cube fibrewise plus the rigidification. Routed to A1 (theorem of the cube) as a source. Use seesaw (A1) with the reduced curve base to turn fibrewise triviality into pullback from S; rigidification kills that pullback. A1’s full relative cube theorem is an alternative supplier."
   },
   {
    "id": "PAPER-XIE-YUAN-22/lemma-4-1-2",
@@ -350,7 +351,7 @@
    "statement": "If ℒ is symmetric, rigidified and π-ample, then ℒ is nef on 𝒜.",
    "locator": "arXiv:2108.09722v1, §4.1, Lemma 4.1(3), p. 20",
    "status": "missing",
-   "note": "Proof: ℒ + m⁻²π*L′ is ample for all m, so its limit ℒ is nef. Routed to A2 as a source."
+   "note": "Proof: ℒ + m⁻²π*L′ is ample for all m, so its limit ℒ is nef. Routed to A2 as a source. Use relative-to-absolute-ample (R09.1), multiplication-degree (A3) and finite-pullback-ample (SF.0). For nonzero m with |m|→∞, m²ℒ+π*N is ample; dividing by m² and taking the limit gives nefness. No assertion about [0] being finite is used."
   },
   {
    "id": "PAPER-XIE-YUAN-22/lemma-4-1-4",
@@ -388,13 +389,13 @@
    "id": "PAPER-XIE-YUAN-22/good-reduction-model",
    "kind": "theorem",
    "name": "Good reduction gives an abelian scheme",
-   "statement": "If A over K = k(S) (S a smooth projective curve) has everywhere good reduction, there is a unique abelian scheme π : 𝒜 → S with generic fibre A; abelian subvarieties of A have Zariski closures that are abelian subschemes.",
+   "statement": "Let S be a smooth projective integral curve over an algebraically closed field k of any characteristic, K=k(S), and A/K have everywhere good reduction. Its Néron model 𝒜→S is an abelian scheme, unique with the specified generic-fibre identification. A homomorphism between generic fibres of such models extends uniquely to a homomorphism over S. No closed-immersion assertion for extensions of inclusions is part of this statement.",
    "locator": "arXiv:2108.09722v1, §4.3, p. 21; proof of Proposition 5.4, p. 25",
    "status": "planned",
    "planned": [
     "NeronModelsAndSemistableAbelianVarieties:R11.1"
    ],
-   "note": "R11.1 plans Néron models over Dedekind bases and the comparison of good reduction with an abelian-scheme model."
+   "note": "R11.1 supplies existence, uniqueness, good-reduction/model comparison and the mapping property. The removed closure clause is false in characteristic p (E16). The additional preservation of good reduction for a subvariety A′ and quotient is the separate item good-reduction-subquotients, shared with PAPER-GAO-HABEGGER-19/80 at derived R11.5, whose planned isogeny-invariance theorem is used there. R11.1 must not depend on its downstream R11.5. Over a curve in characteristic zero the extended inclusion is closed; the stronger exactness statement is PAPER-GAO-HABEGGER-19/81 and is not imported into the arbitrary-characteristic argument."
   },
   {
    "id": "PAPER-XIE-YUAN-22/semistable-reduction",
@@ -414,7 +415,7 @@
    "statement": "For a subvariety X of A_{K̄} and ε > 0, X(ε) := {x ∈ X(K̄) : ĥ(x) < ε}. X contains a dense set of small points of A/K/k if X(ε) is Zariski dense in X for all ε > 0; this is independent of L and (S, M), since any two such heights bound each other up to positive multiples.",
    "locator": "arXiv:2108.09722v1, §1.1, (1.4), p. 3",
    "status": "missing",
-   "note": "Routed to the uniform-Bogomolov Part II."
+   "note": "Routed to the uniform-Bogomolov Part II. Use height-properties, height-base-change and model-mk-height for the function-field height laws, compatible extensions and normalization; these are RP.0 inputs shared with GH19/5–6 and /72."
   },
   {
    "id": "PAPER-XIE-YUAN-22/special-subvariety",
@@ -432,7 +433,7 @@
    "statement": "If X is special then X(ε) is Zariski dense in X for every ε > 0 (Lang, Fundamentals of Diophantine Geometry, Ch. 6, Thm. 5.4).",
    "locator": "arXiv:2108.09722v1, §1.1, p. 3",
    "status": "missing",
-   "note": "The easy converse of Theorem 1.1; routed to the uniform-Bogomolov Part II."
+   "note": "The easy converse of Theorem 1.1; routed to the uniform-Bogomolov Part II. Use height-properties, height-base-change and model-mk-height for the function-field height laws, compatible extensions and normalization; these are RP.0 inputs shared with GH19/5–6 and /72. Use prime-to-p-torsion-density (A3). In §5.3 it supplies the dense set of admissible base points off A′_{e+1} and, after translation, dense all-torsion points in each torsion fibre component."
   },
   {
    "id": "PAPER-XIE-YUAN-22/theorem-1-1",
@@ -459,7 +460,7 @@
    "statement": "Let k be algebraically closed, K/k with trdeg(K/k) < ∞, and k₁, k₂ algebraically closed intermediate fields with k₁ ∩ k₂ = k. If A₁/k₁ and A₂/k₂ satisfy A₁ ⊗_{k₁} K ∼ A₂ ⊗_{k₂} K, there is an abelian variety A over k with A₁ ∼ A ⊗_k k₁ and A₂ ∼ A ⊗_k k₂, unique up to isogeny.",
    "locator": "arXiv:2108.09722v1, §3.1, Proposition 3.2, p. 13; proof, pp. 13–14",
    "status": "missing",
-   "note": "Routed to the uniform-Bogomolov Part II."
+   "note": "Routed to the uniform-Bogomolov Part II. The printed geometric proof assumes independent k₁,k₂ without proving that assumption. Keep the full statement; E18 supplies the defect induction: Reduce by Lemma 3.3 to K=acl(k₁k₂); write k₁=acl(k(c)), k₂=acl(k(b)) for finite tuples and δ=trdeg(k₁/k)+trdeg(k₂/k)−trdeg(k₁k₂/k). For δ=0 use the printed independent-fields proof. For δ>0 choose a k₁-copy τK independent of K over k₁ in an algebraically closed Ω; then K∩τK=k₁ and k₂∩τk₂=k. Transport the isogeny fixing A₁ to obtain A₂∼τA₂ over Ω. Put d₁=trdeg(k₁/k), d₂=trdeg(k₂/k), e=trdeg(k₁k₂/k), a=trdeg(c/k(b,τb)). Independence gives trdeg(k(b,τb,c)/k)=2e−d₁, hence the new defect δ′=2δ−d₁+a, with a≤d₁−δ. Equality would make the loci of c over k₂ and τk₂ equal after extension to acl(k₂τk₂), since both contain the locus over that field with the same dimension. Lemma 3.4 then descends this locus to k, contradicting dim locus=d₁−δ<d₁. Thus 0≤δ′<δ. Induction descends A₂ up to isogeny to k, and Lemma 3.3 over k₁ descends A₁. This uses algebraically closed fields and finite transcendence degrees throughout, but no characteristic-zero hypothesis."
   },
   {
    "id": "PAPER-XIE-YUAN-22/lemma-3-3",
@@ -486,7 +487,7 @@
    "statement": "Let K/k be an extension of algebraically closed fields and A an abelian variety over K. There is an algebraically closed intermediate field k_A of K/k with trdeg(k_A/k) < ∞ such that, for every algebraically closed intermediate k′, A is defined over k′ up to isogeny if and only if k_A ⊆ k′.",
    "locator": "arXiv:2108.09722v1, §3.1, Corollary 3.5(i), p. 15",
    "status": "missing",
-   "note": "Routed to the uniform-Bogomolov Part II."
+   "note": "Routed to the uniform-Bogomolov Part II. Apply Proposition 3.2 with its E18 dependent-fields repair to k′ and k_A over k′∩k_A. Minimize finite transcendence degree as in the paper. The original proof’s independence shortcut cannot be used here."
   },
   {
    "id": "PAPER-XIE-YUAN-22/cor-3-5-ii",
@@ -504,16 +505,16 @@
    "statement": "Let K/k be a field extension with k algebraically closed in K, I(K/k) the set of intermediate fields algebraically closed in K, A an abelian variety over K and X a subvariety of A_{K̄}. There is k_{A,X} ∈ I(K/k) such that for every k′ ∈ I(K/k), X is special for A/K/k′ if and only if k_{A,X} ⊆ k′.",
    "locator": "arXiv:2108.09722v1, §3.2, Proposition 3.6, p. 15; proof, p. 16",
    "status": "missing",
-   "note": "The statement is correct, but the case tr(A^{K/k})_K ≠ A of the printed proof is wrong; the repair runs the second case over k_A (sourceIssues E1). Routed to the uniform-Bogomolov Part II."
+   "note": "The statement is correct, but the case tr(A^{K/k})_K ≠ A of the printed proof is wrong; the repair runs the second case over k_A (sourceIssues E1). Routed to the uniform-Bogomolov Part II. The preceding algebraic-closure reduction also fails (E17); replace it by: First construct F=k_{A,X} over K̄/k̄, using E18 for Corollary 3.5(i) and E1 for the first case. Let F″ be the algebraic closure inside K̄ of the compositum of all σ(F), σ∈Aut(K̄/K), and set k_{A,X}=F″∩K. No finiteness of the orbit is assumed. F″ is stable under Aut(K̄/K). For x∈F″ all roots of its minimal polynomial over K lie in F″ (including multiplicities in inseparable characteristic), so its coefficients lie in F″∩K. Thus F″ is algebraic over k_{A,X}, which is algebraically closed in K. For relatively algebraically closed k′⊆K, its algebraic closure k̄′ in K̄ is stable under Aut(K̄/K); consequently X is special over k′ iff F⊆k̄′ iff F″⊆k̄′ iff k_{A,X}⊆k′."
   },
   {
    "id": "PAPER-XIE-YUAN-22/lemma-3-7-pencil",
    "kind": "theorem",
    "name": "Lemma 3.7, (1)–(2) (generic hyperplane sections as polarizations over k′)",
-   "statement": "Let k be algebraically closed, K/k finitely generated with trdeg(K/k) > 1, and (S, M) a polarization with M very ample. There are infinitely many intermediate fields k′ of K/k, algebraically closed in K with trdeg(k′/k) = 1, each with a geometrically integral codimension-1 subvariety H ⊂ S_{k′} such that (1) H is linearly equivalent to M_{k′} and (2) H → S_{k′} → S induces an isomorphism of generic points; so (H, M_{k′}|_H) is a polarization of K/k′.",
+   "statement": "Let k be algebraically closed, K/k finitely generated with trdeg(K/k) > 1, and (S, M) a polarization with M very ample. There are infinitely many intermediate fields k′ of K/k, algebraically closed in K with trdeg(k′/k) = 1, each with a geometrically integral codimension-1 subvariety H ⊂ S_{k′} such that (1) H is linearly equivalent to M_{k′} and (2) H → S_{k′} → S induces an isomorphism of generic points; after extending k′ to its algebraic closure k̄′ in K̄ and normalizing ν:H̃→H_{k̄′}, the pair (H̃,ν*(M_{k̄′}|_{H_{k̄′}})) is a polarization of Kk̄′/k̄′ in the sense of §1.1.",
    "locator": "arXiv:2108.09722v1, §3.3, Lemma 3.7, pp. 16–17; proof, pp. 17–18",
    "status": "missing",
-   "note": "k′ = k(s₁/s₀) from a pencil ⟨s₀, s₁⟩ and H the generic member. The proof builds one such k′; the two distinct ones Proposition 3.1 needs come from varying the pencil (sourceIssues E5). Routed to the uniform-Bogomolov Part II."
+   "note": "k′ = k(s₁/s₀) from a pencil ⟨s₀, s₁⟩ and H the generic member. The proof builds one such k′; the two distinct ones Proposition 3.1 needs come from varying the pencil (sourceIssues E5). Routed to the uniform-Bogomolov Part II. E19: geometric integrality gives regularity of K/k′ and integrality of H_{k̄′}. Normalize this geometric generic member, pull back M, and use finite-pullback-ample. Define the displayed height on H by the same intersection formula even before normalization; field-extension invariance and the projection formula for the strict transform give the equal height on H̃. This introduces no Bertini normality hypothesis."
   },
   {
    "id": "PAPER-XIE-YUAN-22/lemma-3-7-height",
@@ -522,7 +523,7 @@
    "statement": "For (k′, H) as in Lemma 3.7, any abelian variety A over K, symmetric ample L and subvariety X of A_{K̄}: ĥ^M_L(X) ≥ ĥ^{M_{k′}|_H}_L(X).",
    "locator": "arXiv:2108.09722v1, §3.3, Lemma 3.7, p. 17; proof, p. 18",
    "status": "missing",
-   "note": "Reduces to ℒ^{dim X+1} · (π*M)^{dim S−1} · 𝒳 ≥ ℒ_H^{dim X+1} · (π_H*M_H)^{dim S−2} · 𝒳*_H: base change to k′, replace one π*M by π⁻¹(H), and drop the effective cycle (𝒳_{k′})_H − 𝒳*_H. Routed to the uniform-Bogomolov Part II."
+   "note": "Reduces to ℒ^{dim X+1} · (π*M)^{dim S−1} · 𝒳 ≥ ℒ_H^{dim X+1} · (π_H*M_H)^{dim S−2} · 𝒳*_H: base change to k′, replace one π*M by π⁻¹(H), and drop the effective cycle (𝒳_{k′})_H − 𝒳*_H. Routed to the uniform-Bogomolov Part II. E19: geometric integrality gives regularity of K/k′ and integrality of H_{k̄′}. Normalize this geometric generic member, pull back M, and use finite-pullback-ample. Define the displayed height on H by the same intersection formula even before normalization; field-extension invariance and the projection formula for the strict transform give the equal height on H̃. This introduces no Bertini normality hypothesis."
   },
   {
    "id": "PAPER-XIE-YUAN-22/prop-3-1",
@@ -531,7 +532,7 @@
    "statement": "Let k be algebraically closed, K/k finitely generated with trdeg(K/k) ≥ 2 and A an abelian variety over K. There are intermediate fields k₁, k₂ of K/k, algebraically closed in K with trdeg(k_i/k) = 1, such that for every closed subvariety X of A_{K̄}, the geometric Bogomolov conjecture holds for (A/K/k, X) if it holds for (A_{K k̄₁}/K k̄₁/k̄₁, X) and (A_{K k̄₂}/K k̄₂/k̄₂, X).",
    "locator": "arXiv:2108.09722v1, §3, Proposition 3.1, p. 12; proof, pp. 18–19",
    "status": "missing",
-   "note": "Take k₁ ≠ k₂ from Lemma 3.7; small points stay small by the height inequality, so X is special over k₁ and k₂; if not special over k, k_{A,X} ≠ k lies in only one of them, by Proposition 3.6. The last sentence of the printed proof drops a 'not' (sourceIssues E10). Routed to the uniform-Bogomolov Part II."
+   "note": "Take two distinct pencils (E5), normalize their geometric generic members (E19), and use the height inequality plus height-base-change. The algebraically closed Proposition 3.6 uses E1 and E18, and its minimal field lies in F₁∩F₂=k; its general form is repaired by E17. E10 corrects the printed missing negation. For the shorter Proposition 3.1 route, work inside K̄ with F_i=acl(k_i). Distinct relatively algebraically closed transcendence-degree-one k_i have F₁∩F₂=k and the F_i are independent. After quotienting by the connected stabilizer and translating the minimal torsion subvariety, Stab⁰(X)=0 and T_X=A. Specialness over each F_i forces the trace onto A, so A is defined over each F_i up to isogeny. Proposition 3.2 in its independent case descends A up to isogeny to k. The isogeny image of X descends to each F_i, since all torsion points of the constant abelian variety lie over k. Lemma 3.4 descends that image to k, giving specialness. This avoids both the general Galois reduction and the dependent-fields induction for the endpoint proof."
   },
   {
    "id": "PAPER-XIE-YUAN-22/multi-section",
@@ -549,7 +550,7 @@
    "statement": "Let S be a smooth projective curve over a field k, π : 𝒜 → S an abelian scheme of relative dimension g ≥ 1, ℒ a symmetric rigidified line bundle and 𝒯 a torsion multi-section. Then [ℒ]^g ≡ (deg(ℒ_η)/deg(𝒯/S)) [𝒯] as 1-cycles on 𝒜, where deg(ℒ_η) is the degree of ℒ on the generic fibre.",
    "locator": "arXiv:2108.09722v1, §4.2, Proposition 4.2, p. 20; proof, p. 21",
    "status": "missing",
-   "note": "Both sides vanish against rigidified ℳ (projection formula for [m] and Lemma 4.1(2)); for ℳ = π*N compare degrees. Grushevsky–Zakharov prove the rational-equivalence version over higher-dimensional bases. The printed proof splits ℒ where it means ℳ (sourceIssues E11). Routed to the uniform-Bogomolov Part II."
+   "note": "Both sides vanish against rigidified ℳ (projection formula for [m] and Lemma 4.1(2)); for ℳ = π*N compare degrees. Grushevsky–Zakharov prove the rational-equivalence version over higher-dimensional bases. The printed proof splits ℒ where it means ℳ (sourceIssues E11). Routed to the uniform-Bogomolov Part II. Use multiplication-degree (A3), the generic-degree projection formula (SF.5), and the projective total space from abelian-scheme-projectivity (A2). The field degree is already recorded at A6/degree-of-an-endomorphism."
   },
   {
    "id": "PAPER-XIE-YUAN-22/fundamental-inequality",
@@ -594,7 +595,7 @@
    "statement": "It suffices to prove Theorem 1.1 when (a) trdeg(K/k) = 1, (b) the model S is a smooth projective curve, (c) A has semistable reduction over S, and (d) A has trivial K/k-trace and good reduction over S; moreover X may be assumed defined over K after a finite extension.",
    "locator": "arXiv:2108.09722v1, §5, pp. 22–23",
    "status": "missing",
-   "note": "By Proposition 3.1, the semistable reduction theorem and Yamaki's theorem. Routed to the uniform-Bogomolov Part II."
+   "note": "By Proposition 3.1, the semistable reduction theorem and Yamaki's theorem. Routed to the uniform-Bogomolov Part II. Use height-properties, height-base-change and model-mk-height for the function-field height laws, compatible extensions and normalization; these are RP.0 inputs shared with GH19/5–6 and /72."
   },
   {
    "id": "PAPER-XIE-YUAN-22/sum-varieties",
@@ -612,7 +613,7 @@
    "statement": "Under (a)–(d), with dim X ≥ 1 and X containing a dense set of small points: there is a unique integer r ≥ 1 with dim X_{r−1} < dim X_r and X_r a torsion subvariety of A. After a torsion translation and a finite extension of K, (e): A′ := X_r is an abelian subvariety of A and dim X_{r−1} < dim X_r.",
    "locator": "arXiv:2108.09722v1, §5.1, Lemma 5.3, pp. 23–24; condition (e), pp. 24–25",
    "status": "missing",
-   "note": "Corrected statement: the printed lemma omits dim X ≥ 1 (sourceIssues E4). Proof: X′_m = X_m − m x₀ stabilizes at an abelian subvariety B; small points pass from X^r to X_r; heights on B × C force the image of t in C = A/B to have height 0, hence be torsion by trivial trace. Routed to the uniform-Bogomolov Part II."
+   "note": "Corrected statement: the printed lemma omits dim X ≥ 1 (sourceIssues E4). Proof: X′_m = X_m − m x₀ stabilizes at an abelian subvariety B; small points pass from X^r to X_r; heights on B × C force the image of t in C = A/B to have height 0, hence be torsion by trivial trace. Routed to the uniform-Bogomolov Part II. Use height-properties, height-base-change and model-mk-height for the function-field height laws, compatible extensions and normalization; these are RP.0 inputs shared with GH19/5–6 and /72."
   },
   {
    "id": "PAPER-XIE-YUAN-22/fibre-jump-locus",
@@ -630,7 +631,7 @@
    "statement": "Under (a)–(e), for every t ∈ A′(K̄)_tor ∖ A′_{e+1}(K̄) of order prime to char k, every irreducible component of the fibre f⁻¹(t) ⊂ (X_{r−1} × X)_{K̄} has canonical height 0 in (A × A)_{K̄}.",
    "locator": "arXiv:2108.09722v1, §5.2, Proposition 5.4, p. 25; proof, pp. 25–26",
    "status": "missing",
-   "note": "Corrected statement: the printed proposition allows every torsion t, but the proof treats only torsion multi-sections of order prime to the characteristic (sourceIssues E2). Proof: Proposition 2.1 for h : ℬ → 𝒜′, 𝒴 and V = 𝒯 bounds Σ m_i[𝒵_i] by h*[𝒯] · [𝒴]; Proposition 4.2 replaces [𝒯] by a[ℒ_{𝒜′}]^{dim A′}; Lemma 4.1(4) and ĥ(Y) = 0 (Lemma 5.2) force [𝒵_i] · [ℒ_ℬ]^{e+1} = 0. Routed to the uniform-Bogomolov Part II."
+   "note": "Corrected statement: the printed proposition allows every torsion t, but the proof treats only torsion multi-sections of order prime to the characteristic (sourceIssues E2). Proof: Proposition 2.1 for h : ℬ → 𝒜′, 𝒴 and V = 𝒯 bounds Σ m_i[𝒵_i] by h*[𝒯] · [𝒴]; Proposition 4.2 replaces [𝒯] by a[ℒ_{𝒜′}]^{dim A′}; Lemma 4.1(4) and ĥ(Y) = 0 (Lemma 5.2) force [𝒵_i] · [ℒ_ℬ]^{e+1} = 0. Routed to the uniform-Bogomolov Part II. E16 repairs the model step: Use the Néron model 𝒜′_N of A′ and ℬ_N=𝒜×_S𝒜′_N of B. The generic isomorphism A×A′→B⊆A×A is (x,t)↦(x,t−x), with inverse (x,y)↦(x,x+y). Thus the summation h is the second projection, smooth and flat. The arrow ℬ_N→𝒜×_S𝒜 is an extended homomorphism, not an asserted immersion. Take 𝒴 to be the closure of Y in ℬ_N; its map to 𝒜′_N is surjective by properness and generic dominance. Projectivity and symmetric relatively ample rigidified bundles come from abelian-scheme-projectivity. For prime-to-p torsion, 𝒯 is smooth, so Proposition 2.1 and Proposition 4.2 apply, and Lemma 4.1(4) applies to h*ℒ_{𝒜′_N}. Compute heights on ℬ_N using good-reduction-height; height-properties transports small points and height zero back to the generic inclusion B⊆A×A. Use height-properties, height-base-change and model-mk-height for the function-field height laws, compatible extensions and normalization; these are RP.0 inputs shared with GH19/5–6 and /72."
   },
   {
    "id": "PAPER-XIE-YUAN-22/section-5-3",
@@ -639,7 +640,112 @@
    "statement": "Under (a)–(d), a closed subvariety X of A_{K̄} with a dense set of small points is a torsion subvariety. For dim X = 0 by Northcott; for dim X > 0, the components of f⁻¹(t) (t as in Proposition 5.4) have height 0 and dimension e < dim X, hence are torsion by induction. So X_{r−1} × X has dense torsion points, and Manin–Mumford for A × A makes it, and hence X, torsion.",
    "locator": "arXiv:2108.09722v1, §5.3, pp. 26–27",
    "status": "missing",
-   "note": "The induction step needs height 0 ⇒ dense small points (item height-zero-small-points; sourceIssues E3). Routed to the uniform-Bogomolov Part II."
+   "note": "The induction step needs height 0 ⇒ dense small points (item height-zero-small-points; sourceIssues E3). Routed to the uniform-Bogomolov Part II. Use prime-to-p-torsion-density (A3). In §5.3 it supplies the dense set of admissible base points off A′_{e+1} and, after translation, dense all-torsion points in each torsion fibre component."
+  },
+  {
+   "id": "PAPER-XIE-YUAN-22/good-reduction-subquotients",
+   "kind": "theorem",
+   "name": "Good reduction passes to abelian subvarieties and quotients",
+   "statement": "For S a smooth projective integral curve over algebraically closed k, K=k(S), and A/K of everywhere good reduction, every abelian subvariety A′⊆A and A/A′ has everywhere good reduction. Their Néron models are abelian schemes, and the inclusion A′→A extends to a homomorphism. In characteristic p the extension need not be a closed immersion and the closure of A′ in the Néron model of A need not be an abelian scheme. If its kernel is étale, the generically trivial kernel is trivial, so the proper monomorphism is closed; this applies in characteristic zero.",
+   "locator": "Xie–Yuan v1, proof of Proposition 5.4, p.25, repaired by E16; BLR §7.4 good-reduction criterion and §7.5; shared GH19/80.",
+   "status": "missing",
+   "note": "Missing derived theorem, route 5 at R11.5; reuse PAPER-GAO-HABEGGER-19/80. R11.5 already plans isogeny invariance and the Tate-module criterion; R11.1 supplies models and mapping. One proof uses the prime-to-residue-characteristic Tate module of A′ and A/A′ and Néron–Ogg–Shafarevich. Another uses Poincaré reducibility (A6), isogeny invariance and product factors. The existing A6 packet records an imperfect-field proof gap, relevant to K=k(S) in characteristic p; use the Tate-module proof or close that precise supplier gap, never treat it as discharged. Do not identify these models with embedded closures."
+  },
+  {
+   "id": "PAPER-XIE-YUAN-22/height-properties",
+   "kind": "theorem",
+   "name": "Functoriality, products and comparison of function-field canonical heights",
+   "statement": "For A/K with K=k(S), S a normal projective integral variety over algebraically closed k, fix an ample polarization M. Point canonical heights are additive in symmetric line bundles, satisfy ĥ_{φ*L}(x)=ĥ_L(φ(x)) for a homomorphism φ, and satisfy ĥ_{p₁*L₁⊗p₂*L₂}(x,y)=ĥ_{L₁}(x)+ĥ_{L₂}(y). For symmetric ample L,L′ there are c,C>0 with cĥ_L≤ĥ_{L′}≤Cĥ_L on A(K̄). Changing the ample base polarization, on a common projective model when necessary, likewise preserves dense small points by two-sided comparison. For cycles, the unnormalized mixed canonical height is multilinear and satisfies H_{φ*L₀,…,φ*L_d}(Z)=H_{L₀,…,L_d}(φ_*Z); if φ|_Z is generically finite onto its d-dimensional image, the degree factor cancels after dividing by (d+1)deg_{φ*L}(Z). In particular an isogeny transports normalized subvariety heights with the pulled-back polarization, and transports dense small points. No multilinearity is claimed for degree-normalized subvariety heights.",
+   "locator": "Xie–Yuan v1 pp.2–3,24,26; Gubler 2007 §§2.10,3.1–3.6; Gubler 2003 Theorem 11.18(a)–(e), p.756.",
+   "status": "missing",
+   "note": "Missing, route 1. Share the curve-height API with PAPER-GAO-HABEGGER-19/5–6. All §5 functorial/product applications are over a curve; retain polarized higher-dimensional bases for the definition of small points and §3. Comparison follows by ample differences and nonnegative canonical heights; for base polarizations use a common model and the projection formula. Homomorphic pullback may be nef rather than ample, so the mixed-height extension is needed. This is an input item, not a claim that the RP.0 blueprint has closed its proof."
+  },
+  {
+   "id": "PAPER-XIE-YUAN-22/height-base-change",
+   "kind": "theorem",
+   "name": "Finite and constant field extensions of geometric heights",
+   "statement": "For K=k(S) with S a smooth projective integral curve over algebraically closed k and finite K′/K, put S′=normalization of S in K′. Under Xie–Yuan’s degree-normalized model convention, recomputing the height using S′ gives ĥ_{S′}(x)=[K′:K]ĥ_S(x), and the same scaling for a geometric subvariety with a pulled-back line bundle; the degree includes inseparable degree. This differs from extending a point inside one fixed normalized M_K-field height, which is independent of its field of definition. Under an algebraically closed extension l/k, intersection numbers of base-changed proper schemes and canonical heights of geometrically integral subvarieties are unchanged. With the compatible base-changed models and polarizations, dense small points and specialness are invariant under finite extension of K and extension of algebraically closed constants. For Lemma 3.7, proper intersection degrees also commute with k′→k̄′ and finite birational normalization of the geometrically integral generic member; this supplies the normalized polarization and height comparison.",
+   "locator": "Xie–Yuan v1 (1.1)–(1.3), pp.2–3; pp.17–18,22–25; Gubler 2007 §3.1; Gubler 2003 §11; shared GH19/72.",
+   "status": "missing",
+   "note": "Missing, route 1, shared with PAPER-GAO-HABEGGER-19/5–6 and /72. Distinguish changing the base height from merely enlarging the field of definition. For points the projection formula and [K′(x):K]=[K′(x):K′][K′:K] give the scaling. Constant-field invariance for subvariety heights plus the fundamental inequality and height-zero/small-points equivalence supplies the descent of dense small points; trace and specialness base-change belong to RP.1/the existing Part II. SF.4 supplies finite normalization, SF.0 finite pullback of ample bundles, and SF.5 the projection and field-extension formulas. No new general Bertini-normality theorem is assumed."
+  },
+  {
+   "id": "PAPER-XIE-YUAN-22/model-mk-height",
+   "kind": "theorem",
+   "name": "Comparison of model heights with M_K-field Néron–Tate heights",
+   "statement": "For K=k(S), S normal projective over algebraically closed k and M ample, use the valuations ord_D at prime divisors D, weighted by deg_M(D), to obtain the product formula. The model intersection height equals the resulting M_K-field height with model metrics. Tate’s limit identifies the canonical height in (1.2) with the canonical-metric Néron–Tate height H_L(X)/((dim X+1)deg_L(X)). For S a curve, the weights of closed points are 1 and the formula agrees with the function-field point height, including the denominator [K(x):K].",
+   "locator": "Xie–Yuan v1 (1.1)–(1.3), pp.2–3; Gubler 2007 §3.1, Theorem 3.4(e), §§3.5–3.6; Gubler 2003 §11, Theorem 11.18.",
+   "status": "missing",
+   "note": "Missing, route 1; share PAPER-GAO-HABEGGER-19/5–6. Preserve Gubler’s unnormalized mixed height until the last division; Theorem 3.4(e) identifies model and local heights, then Theorem 3.6(d) and the Tate limit identify canonical heights. This interface is required before applying Conrad 9.15, Gubler’s inequalities or Yamaki’s height results to Xie–Yuan’s ĥ."
+  },
+  {
+   "id": "PAPER-XIE-YUAN-22/prime-to-p-torsion-density",
+   "kind": "theorem",
+   "name": "Density of prime-to-characteristic torsion",
+   "statement": "For an abelian variety A over an algebraically closed field k of characteristic p≥0, the union of A[n](k) over positive n invertible in k is Zariski dense in A. It remains dense after removing any proper closed subset. In characteristic zero every positive n is allowed. A torsion translate of an abelian subvariety has dense torsion points; the translating torsion point may itself have p-power order.",
+   "locator": "Xie–Yuan v1 §1.1 p.3 and §5.3 p.27; E2 prime-to-p restriction; A3 rank and étaleness theorem.",
+   "status": "missing",
+   "note": "Missing derived export of A3, route 3. Direct proof avoiding later quotient inputs: let H be the reduced closed subgroup generated as the closure of the prime-to-p torsion and C=H⁰, an abelian subvariety over perfect k. H has finitely many components, say N. Choose n>1 prime to pN. A[n](k)⊆H(k), and n invertible on the finite component group forces A[n](k)⊆C(k). A3 gives n^(2dim A)=#A[n](k)≤#C[n](k)=n^(2dim C), so C=A. The verifier’s alternative quotient proof uses divisibility of C(k) to lift prime-to-p torsion of A/C and requires quotients or Poincaré reducibility from A6; using it inside A3 would import the downstream A6/RP.5. The direct component-count proof avoids that cycle. Translate the dense prime-to-p subgroup to obtain all-torsion density in each torsion coset, not necessarily prime-to-p density in that coset."
+  },
+  {
+   "id": "PAPER-XIE-YUAN-22/seesaw",
+   "kind": "theorem",
+   "name": "Seesaw for fibrewise trivial line bundles",
+   "statement": "Let π:X→S be proper, flat and of finite presentation, with geometrically integral fibres, over a reduced locally Noetherian base. If an invertible sheaf ℒ restricts trivially to every geometric fibre, then π_*ℒ is invertible, its formation commutes with base change, and the evaluation map π*π_*ℒ→ℒ is an isomorphism. With a section e, ℒ≅π*e*ℒ; a rigidification along e makes it trivial.",
+   "locator": "Xie–Yuan v1, proof of Lemma 4.1(1), p.20; cohomology and base change input.",
+   "status": "missing",
+   "note": "Missing, route 3 A1; use proper-flat cohomology and base change from the JacobianChallenge Layer C / AlgebraicModuliForArithmeticGeometry A0-extension supplier. This is the general relative statement, while upstream ModularCurves Layer 2D supplies only its genus-one Poincaré instance and must be reused there. The relative theorem of the cube, once supplied by A1, also proves Lemma 4.1(1) directly. No fibrewise-equality argument over a nonreduced base is asserted."
+  },
+  {
+   "id": "PAPER-XIE-YUAN-22/generic-trivial-line-bundle",
+   "kind": "theorem",
+   "name": "Generic-fibre trivial line bundles come from the base",
+   "statement": "Let S be a smooth projective integral curve over a field, π:𝒜→S an abelian scheme, and η its generic point. An invertible sheaf ℒ on 𝒜 with ℒ|_{𝒜_η} trivial is isomorphic to π*N for a line bundle N on S. With a zero-section rigidification it is trivial.",
+   "locator": "Xie–Yuan v1 §4.3, p.21; shared PAPER-DIMITROV-GAO-HABEGGER-21/29.",
+   "status": "missing",
+   "note": "Missing, route 2 SF.0, one shared theorem with DGH21/29. Here 𝒜 is regular and each closed fibre is an integral reduced Cartier divisor; a rational trivialization yields a vertical divisor, hence a sum of entire fibres π*(s). This is stronger than applying seesaw without checking the special fibres. SF.0 owns the divisor/line-bundle comparison; use SF.5 only for subsequent intersection calculations."
+  },
+  {
+   "id": "PAPER-XIE-YUAN-22/multiplication-degree",
+   "kind": "theorem",
+   "name": "Degree and flatness of multiplication on an abelian scheme",
+   "statement": "For an abelian scheme 𝒜→S of constant relative dimension g and integer m≠0, [m] is finite locally free of rank |m|^(2g). It is étale when m is invertible on S. On the integral total space over a smooth integral curve, its generic degree is |m|^(2g), including inseparable degree, as required by the projection formula.",
+   "locator": "Xie–Yuan v1 §4.1 p.19, Proposition 4.2 proof p.21; A3.",
+   "status": "planned",
+   "note": "Planned at A3. A6/degree-of-an-endomorphism already imports this for the field-level degree; reuse it rather than add a second degree theorem. The generic degree is enough for the calculation on 𝒜. Never replace rank by the number of geometric points when m meets the characteristic.",
+   "planned": [
+    "AbelianSchemesAndArithmeticModuli:A3"
+   ]
+  },
+  {
+   "id": "PAPER-XIE-YUAN-22/abelian-scheme-projectivity",
+   "kind": "theorem",
+   "name": "Projectivity and symmetric rigidified ample bundles over a curve",
+   "statement": "If π:𝒜→S is an abelian scheme over a smooth projective integral curve, then π is projective and 𝒜 admits a symmetric, relatively ample invertible sheaf rigidified along the zero section. Thus 𝒜 is projective over the ground field and is smooth over it when S is smooth. A suitable positive power of a symmetric ample bundle on the generic fibre has such an extension.",
+   "locator": "Xie–Yuan v1 §4.3 pp.21–22, Proposition 5.4 p.26; Raynaud, Faisceaux amples XI 1.13/1.3, shared DGH21/26.",
+   "status": "missing",
+   "note": "Missing, route 3 A2. Coalesce with PAPER-DIMITROV-GAO-HABEGGER-21/26, more precise than GH19/14. This regular one-dimensional base case does not assume a polarization for an arbitrary abelian scheme over an arbitrary base; A2’s stated restriction remains. The full Raynaud proof is an owning-blueprint source obligation; the fix reads the invoking Xie–Yuan passages."
+  },
+  {
+   "id": "PAPER-XIE-YUAN-22/relative-to-absolute-ample",
+   "kind": "theorem",
+   "name": "Making a relatively ample bundle ample by a base twist",
+   "statement": "For a projective morphism π:X→S of Noetherian schemes with S projective over a field, π-ample ℒ and an ample N on S, ℒ⊗π*N^r is ample for all sufficiently large r.",
+   "locator": "Xie–Yuan v1, Lemma 4.1(3), p.20; EGA II 4.6.13.",
+   "status": "planned",
+   "note": "Planned as part of R09.1 relative ampleness; Lemma 4.1(3) uses this before pulling back by [m]. This does not require or supply a polarization on a general abelian scheme.",
+   "planned": [
+    "AlgebraicModuliForArithmeticGeometry:R09.1"
+   ]
+  },
+  {
+   "id": "PAPER-XIE-YUAN-22/finite-pullback-ample",
+   "kind": "theorem",
+   "name": "Finite pullback preserves ampleness",
+   "statement": "For a finite morphism f:X→Y of Noetherian schemes and an ample invertible sheaf L on Y, f*L is ample on X. In particular finite normalization preserves the ample bundle of a polarization, and finite multiplication [m], m≠0, preserves ampleness on the total abelian scheme.",
+   "locator": "Xie–Yuan v1, Lemma 4.1(3), p.20 and the normalized Lemma 3.7 repair E19.",
+   "status": "missing",
+   "note": "Missing, route 2 SF.0; shared general ampleness input, not a new theorem in each arithmetic consumer. Together with planned relative-to-absolute-ample and multiplication-degree it supplies the ample bundles approaching the nef ℒ in Lemma 4.1(3)."
   }
  ],
  "prerequisites": [
@@ -661,12 +767,12 @@
   {
    "citation": "W. Gubler, The Bogomolov conjecture for totally degenerate abelian varieties, Invent. Math. 169 (2007), 377–400",
    "link": "doi:10.1007/s00222-007-0049-y",
-   "why": "Theorem 3.6 (canonical heights of subvarieties over function fields), Lemma 4.1 (fundamental inequality, Lemma 5.2) and Corollary 4.4 (ĥ = 0 iff e₁ = 0, needed in §5.3; sourceIssues E3); read in arXiv:math/0609387v2."
+   "why": "Theorem 3.6 (canonical heights of subvarieties over function fields), Lemma 4.1 (fundamental inequality, Lemma 5.2) and Corollary 4.4 (ĥ = 0 iff e₁ = 0, needed in §5.3; sourceIssues E3); read in arXiv:math/0609387v2. Fresh 2026-09-30 reading of the author’s April 18, 2007 manuscript pp.5–8 checks §§3.1–3.6: model metrics, functoriality and the normalization interface. This is distinct from the earlier reader’s full citation record."
   },
   {
    "citation": "W. Gubler, Local and canonical heights of subvarieties, Ann. Sc. Norm. Super. Pisa Cl. Sci. (5) 2 (2003), 711–760",
    "link": "http://www.numdam.org/item/ASNSP_2003_5_2_4_711_0/",
-   "why": "Theorem 11.18: independence of the canonical height of subvarieties from the integral model, (1.2)."
+   "why": "Theorem 11.18: independence of the canonical height of subvarieties from the integral model, (1.2). Fresh 2026-09-30 reading: §11, especially Theorem 11.18(a)–(e), p.756, also supplies homomorphic pullback, mixed-height multilinearity and canonical metric comparison. Divide by (dim X+1)deg_L(X) to match this paper."
   },
   {
    "citation": "B. Conrad, Chow's K/k-image and K/k-trace, and the Lang–Néron theorem, Enseign. Math. (2) 52 (2006), 37–108",
@@ -691,6 +797,11 @@
   {
    "citation": "J.-P. Jouanolou, Théorèmes de Bertini et applications, Progress in Mathematics 42, Birkhäuser, 1983",
    "why": "Theorem 6.10, geometric integrality of a general hyperplane section (Lemma 3.7)."
+  },
+  {
+   "citation": "T. Scanlon, A positive characteristic Manin–Mumford theorem, Compositio Mathematica 141 (2005), 1351–1364",
+   "link": "https://doi.org/10.1112/S0010437X05001879",
+   "why": "Theorem 2.2 and Definition 2.1, arXiv:math/0303340: Manin–Mumford for all torsion in characteristic p. With trivial geometric trace the special subvarieties reduce to torsion translates, giving the form of Theorem 5.1 already requested by the extraction’s review. Focused fresh reading of v1 pp.1–2 and bibliography, not its complete proof."
   }
  ],
  "routes": [
@@ -711,9 +822,12 @@
     "PAPER-XIE-YUAN-22/northcott-trivial-trace",
     "PAPER-XIE-YUAN-22/trace",
     "PAPER-XIE-YUAN-22/quotient-minimal-torsion",
-    "PAPER-XIE-YUAN-22/manin-mumford"
+    "PAPER-XIE-YUAN-22/manin-mumford",
+    "PAPER-XIE-YUAN-22/height-properties",
+    "PAPER-XIE-YUAN-22/height-base-change",
+    "PAPER-XIE-YUAN-22/model-mk-height"
    ],
-   "reason": "RP.0 plans number-field heights only. This paper's geometric heights go there as a source: projective models, polarizations and integral models of a finitely generated K/k, the naive and canonical heights of subvarieties (Gubler), the quadratic bound, the good-reduction formula of §4.3, and the Northcott property for trivial trace. PAPER-GAO-HABEGGER-19 routed the curve case of these function-field heights to RP.0 in the same way. The K/k-trace joins GH19's trace and Lang–Néron at RP.1. RP.5 plans translates, stabilizers and Manin–Mumford with explicit characteristic hypotheses; this paper supplies the positive-characteristic trivial-trace case (Hrushovski; Pink–Roessler), quotients by abelian subvarieties and the minimal torsion subvariety."
+   "reason": "RP.0 plans number-field heights only. This paper's geometric heights go there as a source: projective models, polarizations and integral models of a finitely generated K/k, the naive and canonical heights of subvarieties (Gubler), the quadratic bound, the good-reduction formula of §4.3, and the Northcott property for trivial trace. PAPER-GAO-HABEGGER-19 routed the curve case of these function-field heights to RP.0 in the same way. The K/k-trace joins GH19's trace and Lang–Néron at RP.1. RP.5 plans translates, stabilizers and Manin–Mumford with explicit characteristic hypotheses; this paper supplies the positive-characteristic trivial-trace case (Hrushovski; Pink–Roessler), quotients by abelian subvarieties and the minimal torsion subvariety. Add the function-field functorial/product/comparison laws, compatible finite and constant extensions, and the model/M_K-field comparison. Coalesce RP.0 with GH19/5–6 and the foundation of /72; the latter’s Part II application imports the foundation. Positive-characteristic Manin–Mumford must use an all-torsion theorem such as Scanlon Theorem 2.2, with its trivial-trace specialization, not a prime-to-p-only theorem."
   },
   {
    "route": "source",
@@ -735,25 +849,31 @@
     "PAPER-XIE-YUAN-22/prop-2-1-inequality",
     "PAPER-XIE-YUAN-22/bertini-integral",
     "PAPER-XIE-YUAN-22/pencil-blowup",
-    "PAPER-XIE-YUAN-22/geometric-integrality-open"
+    "PAPER-XIE-YUAN-22/geometric-integrality-open",
+    "PAPER-XIE-YUAN-22/generic-trivial-line-bundle",
+    "PAPER-XIE-YUAN-22/finite-pullback-ample"
    ],
-   "reason": "§2 is intersection theory on smooth projective varieties, consuming the Chow groups and intersection products SF.5 plans: Proposition 2.2 (Bertini-type choice of hypersurfaces through V), Lemma 2.3, the proper part of an intersection with Proposition 2.4 (Fulton-type positivity), Lemma 2.5 and Proposition 2.1, together with nef line bundles and the Bertini integrality theorem of Lemma 3.7. The fibre-dimension loci Y_l and the openness of geometric integrality are morphism-level facts for SF.0. Resolving a pencil by blowing up its base locus is a birational-geometry construction for SF.4, using the blow-ups of AlgebraicModuliForArithmeticGeometry R09.7a."
+   "reason": "§2 is intersection theory on smooth projective varieties, consuming the Chow groups and intersection products SF.5 plans: Proposition 2.2 (Bertini-type choice of hypersurfaces through V), Lemma 2.3, the proper part of an intersection with Proposition 2.4 (Fulton-type positivity), Lemma 2.5 and Proposition 2.1, together with nef line bundles and the Bertini integrality theorem of Lemma 3.7. The fibre-dimension loci Y_l and the openness of geometric integrality are morphism-level facts for SF.0. The arbitrary-characteristic Rees-algebra pencil blow-up belongs to SF.4; R09.7a has a characteristic-zero enclosing scope and is not a proved all-characteristic supplier. Reuse one construction after its generality is established, and identify LPV.3’s smooth-axis pencil as its special case. SF.0 also gets finite pullback of ample bundles and generic-fibre triviality of line bundles, the latter shared with DGH21/29. SF.5’s existing planned intersection multiplicity input must include the Tor/product comparison and successive-Cartier associativity; no duplicate theory is requested."
   },
   {
    "route": "source",
    "roadmap": "AbelianSchemesAndArithmeticModuli",
    "stages": [
     "AbelianSchemesAndArithmeticModuli:A1",
-    "AbelianSchemesAndArithmeticModuli:A2"
+    "AbelianSchemesAndArithmeticModuli:A2",
+    "AbelianSchemesAndArithmeticModuli:A3"
    ],
    "items": [
     "PAPER-XIE-YUAN-22/rigidified-line-bundles",
     "PAPER-XIE-YUAN-22/lemma-4-1-1",
     "PAPER-XIE-YUAN-22/lemma-4-1-2",
     "PAPER-XIE-YUAN-22/lemma-4-1-3",
-    "PAPER-XIE-YUAN-22/lemma-4-1-4"
+    "PAPER-XIE-YUAN-22/lemma-4-1-4",
+    "PAPER-XIE-YUAN-22/seesaw",
+    "PAPER-XIE-YUAN-22/abelian-scheme-projectivity",
+    "PAPER-XIE-YUAN-22/prime-to-p-torsion-density"
    ],
-   "reason": "Lemma 4.1 is general theory of line bundles on an abelian scheme over a curve. Parts (1)–(2), [m]*ℒ ≃ m²ℒ and torsion restriction to torsion multi-sections, follow from the theorem of the cube in A1. Parts (3)–(4), nefness of symmetric relatively ample bundles, belong with A2's polarization theory. The vocabulary of symmetric and rigidified bundles goes with them."
+   "reason": "Lemma 4.1 is general theory of line bundles on an abelian scheme over a curve. Parts (1)–(2), [m]*ℒ ≃ m²ℒ and torsion restriction to torsion multi-sections, follow from the theorem of the cube in A1. Parts (3)–(4), nefness of symmetric relatively ample bundles, belong with A2's polarization theory. The vocabulary of symmetric and rigidified bundles goes with them. A1 also receives the general seesaw input from proper-flat cohomology and base change; A2 receives projectivity and symmetric relatively ample rigidified bundles over a regular curve, shared with DGH21/26. A3 receives prime-to-p torsion density, proved by the finite component group and the already planned torsion rank. Degree [m] is already planned at A3; relative-to-absolute ampleness is already planned at R09.1. Keep these as imports. The density proof uses no A6/RP.5 back-edge."
   },
   {
    "route": "part-ii",
@@ -789,8 +909,19 @@
     "PAPER-XIE-YUAN-22/prop-5-4",
     "PAPER-XIE-YUAN-22/section-5-3"
    ],
-   "brief": "This is the Part II proposed by PAPER-YUAN-26, PAPER-GAO-GE-KUHNE-26, PAPER-DIMITROV-GAO-HABEGGER-21 and PAPER-GAO-HABEGGER-19 under the same id, and their briefs remain binding. Gao–Habegger contributed the geometric Bogomolov conjecture over function fields of curves in characteristic 0. This paper adds the full conjecture: every characteristic and every finite transcendence degree, by a proof that uses no Betti map. Import from RP.0 the function-field heights, canonical heights of subvarieties, the good-reduction formula h_ℒ = ĥ and the Northcott property for trivial trace. Import from RP.1 the K/k-trace, and from RP.5 torsion subvarieties, stabilizers, quotients and Manin–Mumford for trivial trace in every characteristic (Hrushovski; Pink–Roessler). Import from SchemeAndStackFoundations SF.5 Chow groups, nefness and Xie–Yuan's non-proper intersection inequality (Proposition 2.1), and from SF.4 the pencil blow-up. Import rigidified line bundles and Lemma 4.1 from AbelianSchemesAndArithmeticModuli A1–A2, [m] and torsion from A3, Poincaré reducibility from A6, Néron models from NeronModelsAndSemistableAbelianVarieties R11.1 and semistable reduction from R11.3. State and prove, as in Xie–Yuan (Invent. Math. 229 (2022)): small points and special subvarieties; §3.1 fields of definition (Proposition 3.2, Lemmas 3.3–3.4, Corollary 3.5); Proposition 3.6 with the corrected first case (sourceIssues E1); Lemma 3.7 with two distinct pencils (E5); Proposition 3.1. Then Yamaki's reduction theorem (Crelle 2018, Theorem 1.5); multi-sections and Proposition 4.2; Zhang–Gubler's fundamental inequality with Lemma 5.2 and its converse (Gubler 2007, Cor. 4.4); X_m and Lemma 5.3 for dim X ≥ 1 (E4); the jump locus A′_{e+1}; Proposition 5.4 for prime-to-p torsion (E2); the §5.3 induction (E3); and Theorem 1.1. Acceptance: a special subvariety tr(Y ⊗ K̄) + T has dense small points. Proposition 4.2 for an elliptic scheme over a curve: any two torsion sections are numerically equivalent, both ≡ [ℒ]/deg ℒ_η. In characteristic 0 over a curve the result agrees with Gao–Habegger's Theorem 1.1.",
+   "brief": "This is the Part II proposed by PAPER-YUAN-26, PAPER-GAO-GE-KUHNE-26, PAPER-DIMITROV-GAO-HABEGGER-21 and PAPER-GAO-HABEGGER-19 under the same id, and their briefs remain binding. Gao–Habegger contributed the geometric Bogomolov conjecture over function fields of curves in characteristic 0. This paper adds the full conjecture: every characteristic and every finite transcendence degree, by a proof that uses no Betti map. Import from RP.0 the function-field heights, canonical heights of subvarieties, the good-reduction formula h_ℒ = ĥ and the Northcott property for trivial trace. Import from RP.1 the K/k-trace, and from RP.5 torsion subvarieties, stabilizers, quotients and Manin–Mumford for trivial trace in every characteristic (Hrushovski; Pink–Roessler). Import from SchemeAndStackFoundations SF.5 Chow groups, nefness and Xie–Yuan's non-proper intersection inequality (Proposition 2.1), and from SF.4 the pencil blow-up. Import rigidified line bundles and Lemma 4.1 from AbelianSchemesAndArithmeticModuli A1–A2, [m] and torsion from A3, Poincaré reducibility from A6, Néron models from NeronModelsAndSemistableAbelianVarieties R11.1 and semistable reduction from R11.3. State and prove the results of the inspected Xie–Yuan arXiv v1, with the recorded repairs (the Inventiones text remains uncollated): small points and special subvarieties; §3.1 fields of definition (Proposition 3.2, Lemmas 3.3–3.4, Corollary 3.5); Proposition 3.6 with the corrected first case (sourceIssues E1); Lemma 3.7 with two distinct pencils (E5); Proposition 3.1. Then Yamaki's reduction theorem (Crelle 2018, Theorem 1.5); multi-sections and Proposition 4.2; Zhang–Gubler's fundamental inequality with Lemma 5.2 and its converse (Gubler 2007, Cor. 4.4); X_m and Lemma 5.3 for dim X ≥ 1 (E4); the jump locus A′_{e+1}; Proposition 5.4 for prime-to-p torsion (E2); the §5.3 induction (E3); and Theorem 1.1. Acceptance: a special subvariety tr(Y ⊗ K̄) + T has dense small points. Proposition 4.2 for an elliptic scheme over a curve: any two torsion sections are numerically equivalent, both ≡ [ℒ]/deg ℒ_η. In characteristic 0 over a curve the result agrees with Gao–Habegger's Theorem 1.1. Apply the additional v1 corrections E16–E19: construct the Néron models 𝒜′_N and ℬ_N=𝒜×_S𝒜′_N in Proposition 5.4, with h the flat second projection and 𝒴 the closure there, never the possibly nonsmooth embedded closures; use R11.5 good-reduction-subquotients (shared GH19/80) after R11.1. For Proposition 3.2 use E18’s induction on the transcendence defect to prove the dependent case; Corollary 3.5(i) and E1 then use its full statement. For Proposition 3.6 replace the false field-intersection bijection by E17’s stable compositum of all Galois conjugates, with the minimal-polynomial proof. Proposition 3.1 can instead use the shorter independent transcendence-degree-one argument recorded in its note. In Lemma 3.7 normalize H_{k̄′} and use E19’s projection/base-change equality before invoking a polarization. Import height-properties, height-base-change and model-mk-height from RP.0, seesaw/projectivity from A1/A2, prime-to-p-torsion-density and multiplication-degree from A3, generic-trivial-line-bundle and finite-pullback-ample from SF.0, relative-to-absolute-ample from R09.1 and the all-characteristic pencil construction from SF.4. The §5.3 base points are prime-to-p torsion; torsion inside the resulting translated components may have p-primary part. Derive Theorem 5.1 from an all-torsion Manin–Mumford theorem, including Scanlon’s Theorem 2.2. Acceptance additionally checks: a finite curve cover of degree d rescales the relative geometric height by d; constant extension preserves it; the normalized pencil gives the same height; the Néron-model projection is flat in characteristic p even when the extended inclusion is not closed. These are source-input specifications; owning blueprint jobs close and test their proofs.",
    "reason": "Nothing in the atlas proves a Bogomolov theorem over function fields: RP.5 is explicitly the number-field case. PAPER-GAO-HABEGGER-19 already routes the geometric Bogomolov conjecture (characteristic 0, curves) to this Part II, and the pending design DESIGN-HeightsRationalPointsAndObstructionsPartII folds all Part IIs of this parent. So Xie–Yuan's complete proof coalesces with it, keeping its id, title, parent and area, rather than opening a new roadmap."
+  },
+  {
+   "route": "source",
+   "roadmap": "NeronModelsAndSemistableAbelianVarieties",
+   "stages": [
+    "NeronModelsAndSemistableAbelianVarieties:R11.5"
+   ],
+   "items": [
+    "PAPER-XIE-YUAN-22/good-reduction-subquotients"
+   ],
+   "reason": "Coalesce with PAPER-GAO-HABEGGER-19/80 at derived R11.5 after its good-reduction criterion and isogeny invariance, importing models from R11.1. The result holds in arbitrary characteristic and supplies Xie–Yuan’s Néron-model replacement E16. Do not import GH19/81’s characteristic-zero exactness. No R11.5→R11.1 edge is introduced. The new route needs independent acceptance; the fix does not modify the paper review or generated queue."
   }
  ],
  "sourceIssues": [
@@ -830,7 +961,8 @@
     "verdict": "confirmed",
     "reason": "Confirmed on the page images of pp. 25–26: Proposition 5.4 is stated for every t ∈ A′(K̄)_tor off A′_{e+1}, and the proof takes 'a torsion multi-section 𝒯 of 𝒜′ → S of order non-divisible by char K', which it needs (𝒯 finite étale and smooth, as Proposition 2.1 requires 𝒱 ∩ Y_{e+1} ⊆ 𝒱^sm). The p-power case is not argued. §5.3 needs only a Zariski-dense set of t, which prime-to-p torsion off A′_{e+1} provides.",
     "by": "REV-PAPER-XIE-YUAN-22"
-   }
+   },
+   "fixNote": "2026-09-30: the density used in this correction is now explicit as PAPER-XIE-YUAN-22/prime-to-p-torsion-density, route 3 to A3. Original correction and independent verdict are unchanged."
   },
   {
    "id": "PAPER-XIE-YUAN-22/E3",
@@ -1078,6 +1210,66 @@
     "reason": "Confirmed at the locator on the page image; the printed text is as quoted and the correction is the evident intended reading.",
     "by": "REV-PAPER-XIE-YUAN-22"
    }
+  },
+  {
+   "id": "PAPER-XIE-YUAN-22/E16",
+   "kind": "error",
+   "locator": "arXiv:2108.09722v1, proof of Proposition 5.4, p.25 (page image checked), use p.26",
+   "printed": "The source asserts that each of 𝒜′ and ℬ is an abelian scheme over S.",
+   "correction": "Use the Néron model 𝒜′_N of A′ and ℬ_N=𝒜×_S𝒜′_N of B. The generic isomorphism A×A′→B⊆A×A is (x,t)↦(x,t−x), with inverse (x,y)↦(x,x+y). Thus the summation h is the second projection, smooth and flat. The arrow ℬ_N→𝒜×_S𝒜 is an extended homomorphism, not an asserted immersion. Take 𝒴 to be the closure of Y in ℬ_N; its map to 𝒜′_N is surjective by properness and generic dominance. Projectivity and symmetric relatively ample rigidified bundles come from abelian-scheme-projectivity. For prime-to-p torsion, 𝒯 is smooth, so Proposition 2.1 and Proposition 4.2 apply, and Lemma 4.1(4) applies to h*ℒ_{𝒜′_N}. Compute heights on ℬ_N using good-reduction-height; height-properties transports small points and height zero back to the generic inclusion B⊆A×A.",
+   "reason": "The sentence identifies closures of generic abelian subvarieties with abelian schemes. In characteristic p, distinct finite flat order-p subgroups can meet trivially generically and coincide at a special point: an extended homomorphism is then a generic closed immersion with a special infinitesimal kernel, and its image closure has a multiple nonreduced fibre. The verifier supplies a trivial-trace instance, not just the constant Moret–Bailly mechanism: take a generically ordinary non-isotrivial abelian surface over a projective curve in the interior of the fine moduli space A_{2,n} in characteristic p, meeting the p-rank-one stratum. The positive-degree Hasse bundle forces a nonordinary fibre, excluding a constant surface factor; an elliptic factor and its elliptic quotient would both be isotrivial by good reduction on a projective curve, so the generic trace is trivial. After finite separable base change split the p+1 generic μ_p lines; at a p-rank-one fibre ker F=μ_p×α_p has only two order-p subgroup schemes, so two closures G,H coincide. The generic diagonal map into (𝒞/G)×(𝒞/H) has trivial kernel, but has kernel of length p there. Its closure has fibre multiplicity p by specialization/projection of cycles and is not smooth. The ambient generic fibre has good reduction and trivial trace. With X equal to this generic abelian subvariety, the paper’s setting applies. The endpoint survives by the Néron-model repair. Full moduli existence details remain the documented counterexample route of the verifier, not a new formalized construction.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "2026-09-30: arXiv submission history at https://arxiv.org/abs/2108.09722 lists v1 only; source passage read in that version.",
+    "2026-09-30: Springer DOI page and PDF endpoint, author/title searches and the YMSC lecture listing did not yield the full published text; the endpoint returned a subscription-webpage PDF. The publisher page lists no correction. Title+erratum/correction search found no primary correction. This is a preprint-scoped finding; a published correction remains possible.",
+    "RT-PAPER-XIE-YUAN-22 and its complete independent verification REV-RT-PAPER-XIE-YUAN-22 are the provenance of this repair; their verdicts are not transferred into this new sourceIssues entry."
+   ]
+  },
+  {
+   "id": "PAPER-XIE-YUAN-22/E17",
+   "kind": "error",
+   "locator": "arXiv:2108.09722v1, first paragraph of the proof of Proposition 3.6, p.16 (page image checked)",
+   "printed": "The source describes φ as bijective.",
+   "correction": "First construct F=k_{A,X} over K̄/k̄, using E18 for Corollary 3.5(i) and E1 for the first case. Let F″ be the algebraic closure inside K̄ of the compositum of all σ(F), σ∈Aut(K̄/K), and set k_{A,X}=F″∩K. No finiteness of the orbit is assumed. F″ is stable under Aut(K̄/K). For x∈F″ all roots of its minimal polynomial over K lie in F″ (including multiplicities in inseparable characteristic), so its coefficients lie in F″∩K. Thus F″ is algebraic over k_{A,X}, which is algebraically closed in K. For relatively algebraically closed k′⊆K, its algebraic closure k̄′ in K̄ is stable under Aut(K̄/K); consequently X is special over k′ iff F⊆k̄′ iff F″⊆k̄′ iff k_{A,X}⊆k′.",
+   "reason": "Noninjectivity: take algebraically closed k, K=k(s,t), ℓ prime different from char k, u=s^(1/ℓ)+t and F=acl(k(u))⊆K̄. A K-automorphism sends s^(1/ℓ) to ζs^(1/ℓ), ζ≠1, and u,σu are algebraically independent. If f∈F∩K is transcendental over k, both u and σu are algebraic over k(f), a contradiction. Thus F∩K=k, just as for k itself. For a constant elliptic E/k, a point P with x(P)=u makes {P} special over F but not over k, since all torsion of E lies in E(k). The corrected general reduction depends on E18 and E1 for the algebraically closed case. It uses all conjugates, not an unproved finite orbit, and the minimal-polynomial argument handles inseparability.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "2026-09-30: arXiv submission history at https://arxiv.org/abs/2108.09722 lists v1 only; source passage read in that version.",
+    "2026-09-30: Springer DOI page and PDF endpoint, author/title searches and the YMSC lecture listing did not yield the full published text; the endpoint returned a subscription-webpage PDF. The publisher page lists no correction. Title+erratum/correction search found no primary correction. This is a preprint-scoped finding; a published correction remains possible.",
+    "RT-PAPER-XIE-YUAN-22 and its complete independent verification REV-RT-PAPER-XIE-YUAN-22 are the provenance of this repair; their verdicts are not transferred into this new sourceIssues entry."
+   ]
+  },
+  {
+   "id": "PAPER-XIE-YUAN-22/E18",
+   "kind": "gap",
+   "locator": "arXiv:2108.09722v1, proof of Proposition 3.2, pp.13–14 (p.13 page image checked), used in Corollary 3.5(i), p.15",
+   "printed": "The source describes ψ as a morphism that is quasi-finite and flat.",
+   "correction": "Reduce by Lemma 3.3 to K=acl(k₁k₂); write k₁=acl(k(c)), k₂=acl(k(b)) for finite tuples and δ=trdeg(k₁/k)+trdeg(k₂/k)−trdeg(k₁k₂/k). For δ=0 use the printed independent-fields proof. For δ>0 choose a k₁-copy τK independent of K over k₁ in an algebraically closed Ω; then K∩τK=k₁ and k₂∩τk₂=k. Transport the isogeny fixing A₁ to obtain A₂∼τA₂ over Ω. Put d₁=trdeg(k₁/k), d₂=trdeg(k₂/k), e=trdeg(k₁k₂/k), a=trdeg(c/k(b,τb)). Independence gives trdeg(k(b,τb,c)/k)=2e−d₁, hence the new defect δ′=2δ−d₁+a, with a≤d₁−δ. Equality would make the loci of c over k₂ and τk₂ equal after extension to acl(k₂τk₂), since both contain the locus over that field with the same dimension. Lemma 3.4 then descends this locus to k, contradicting dim locus=d₁−δ<d₁. Thus 0≤δ′<δ. Induction descends A₂ up to isogeny to k, and Lemma 3.3 over k₁ descends A₁. This uses algebraically closed fields and finite transcendence degrees throughout, but no characteristic-zero hypothesis.",
+   "reason": "Such a dominant flat quasi-finite model forces dim U=dim S₁+dim S₂, equivalently independence of k₁,k₂ over k. The stated intersection condition alone does not imply independence, so the fibre argument need not dominate S₁ in the dependent case. The verifier’s defect induction proves the full statement; no restriction of Proposition 3.2, Corollary 3.5(i) or Proposition 3.6 is needed. Proposition 3.1 also has the shorter independent-field route in its item note.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "2026-09-30: arXiv submission history at https://arxiv.org/abs/2108.09722 lists v1 only; source passage read in that version.",
+    "2026-09-30: Springer DOI page and PDF endpoint, author/title searches and the YMSC lecture listing did not yield the full published text; the endpoint returned a subscription-webpage PDF. The publisher page lists no correction. Title+erratum/correction search found no primary correction. This is a preprint-scoped finding; a published correction remains possible.",
+    "RT-PAPER-XIE-YUAN-22 and its complete independent verification REV-RT-PAPER-XIE-YUAN-22 are the provenance of this repair; their verdicts are not transferred into this new sourceIssues entry."
+   ]
+  },
+  {
+   "id": "PAPER-XIE-YUAN-22/E19",
+   "kind": "gap",
+   "locator": "arXiv:2108.09722v1, Lemma 3.7 and proof of Proposition 3.1, pp.17–18 (p.17 page image checked)",
+   "printed": "The source uses (H, M_{k′}|_H) as the polarization.",
+   "correction": "E19: geometric integrality gives regularity of K/k′ and integrality of H_{k̄′}. Normalize this geometric generic member, pull back M, and use finite-pullback-ample. Define the displayed height on H by the same intersection formula even before normalization; field-extension invariance and the projection formula for the strict transform give the equal height on H̃. This introduces no Bertini normality hypothesis.",
+   "reason": "Section 1.1 requires a normal projective model over an algebraically closed constant field. The proof supplies only a geometrically integral generic member. Normalization after constant extension is finite birational and preserves the ample bundle by finite pullback; strict transforms and the projection formula preserve the relevant intersection numbers. Apply these equalities before Tate’s limit. This repairs the proof without adding a Bertini-normality assumption.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "2026-09-30: arXiv submission history at https://arxiv.org/abs/2108.09722 lists v1 only; source passage read in that version.",
+    "2026-09-30: Springer DOI page and PDF endpoint, author/title searches and the YMSC lecture listing did not yield the full published text; the endpoint returned a subscription-webpage PDF. The publisher page lists no correction. Title+erratum/correction search found no primary correction. This is a preprint-scoped finding; a published correction remains possible.",
+    "RT-PAPER-XIE-YUAN-22 and its complete independent verification REV-RT-PAPER-XIE-YUAN-22 are the provenance of this repair; their verdicts are not transferred into this new sourceIssues entry."
+   ]
   }
  ],
  "sourceVersions": [
@@ -1087,19 +1279,85 @@
    "read": "2026-09-29",
    "sha256": "2587e70314bddb8f2ed01768f64b4a96b5da0f32d0d5382b4336b2415211c2ab",
    "citation": "arXiv:2108.09722v1, read completely."
+  },
+  {
+   "kind": "preprint",
+   "url": "https://arxiv.org/pdf/2108.09722v1",
+   "read": "2026-09-30",
+   "sha256": "2587e70314bddb8f2ed01768f64b4a96b5da0f32d0d5382b4336b2415211c2ab",
+   "citation": "Focused fix reading by Codex codex-J6LwjP: pp.1–3, 7, 9–11, 13–27; page images at pp.13,16,17,25. Full reading remains the original extractor’s 2026-09-29 record."
   }
  ],
  "gaps": [
   {
    "id": "published-version",
    "title": "published text not collated",
-   "remaining": "The Inventiones version (31 pages against the preprint's 29) was not accessible; collate the locators and E1–E15 when a copy is available.",
+   "remaining": "The full Inventiones article remains unavailable. Collate all locators and E1–E19, especially Proposition 3.2/Corollary 3.5(i), the first paragraph of Proposition 3.6, Lemma 3.7 and the closure sentence in Proposition 5.4, against the final text. The 2026-09-30 PDF endpoint returned a rendering of the subscription webpage, not the article. All source issues remain explicitly about arXiv v1.",
    "items": [
     "PAPER-XIE-YUAN-22/prop-3-6",
     "PAPER-XIE-YUAN-22/prop-5-4",
     "PAPER-XIE-YUAN-22/lemma-5-3",
-    "PAPER-XIE-YUAN-22/section-5-3"
+    "PAPER-XIE-YUAN-22/section-5-3",
+    "PAPER-XIE-YUAN-22/prop-3-2",
+    "PAPER-XIE-YUAN-22/cor-3-5-i",
+    "PAPER-XIE-YUAN-22/lemma-3-7-pencil"
    ]
+  }
+ ],
+ "fixes": {
+  "job": "FIX-RT-PAPER-XIE-YUAN-22",
+  "agent": "Codex",
+  "session": "codex-J6LwjP",
+  "date": "2026-09-30",
+  "findings": [
+   "RT-PAPER-XIE-YUAN-22/1",
+   "RT-PAPER-XIE-YUAN-22/2",
+   "RT-PAPER-XIE-YUAN-22/3",
+   "RT-PAPER-XIE-YUAN-22/4",
+   "RT-PAPER-XIE-YUAN-22/5",
+   "RT-PAPER-XIE-YUAN-22/6",
+   "RT-PAPER-XIE-YUAN-22/7",
+   "RT-PAPER-XIE-YUAN-22/8",
+   "RT-PAPER-XIE-YUAN-22/9",
+   "RT-PAPER-XIE-YUAN-22/10"
+  ],
+  "scope": "All ten confirmed findings, including verifier refinements. Original extraction and review authorship retained. New source issues E16–E19 await an independent verdict in this file; the red-team verification is provenance, not a copied source-issue verdict."
+ },
+ "versionChecks": [
+  {
+   "date": "2026-09-30",
+   "url": "https://arxiv.org/abs/2108.09722",
+   "result": "Submission history has v1 only; no later correction located."
+  },
+  {
+   "date": "2026-09-30",
+   "url": "https://link.springer.com/article/10.1007/s00222-022-01112-1",
+   "result": "Subscription preview, bibliography and acknowledgments read, not the published article. No correction link found. The /content/pdf/ endpoint returned a 17-page rendering of the subscription webpage (SHA-256 109e41a2ab45f6f4117f3e539e9e2e737d9200cdb46eb6005658cc8e37961654), not the 31-page article. It is deliberately not a published sourceVersions entry."
+  },
+  {
+   "date": "2026-09-30",
+   "url": "https://archive.ymsc.tsinghua.edu.cn/pacm_lecture?html=Geometric_Bogomolov_conjecture_in_arbitrary_characteristics.html",
+   "result": "Lecture listing, no full article. Searches for the title with erratum/correction and author/publication PDF did not locate a corrected primary text. Findings remain about v1; corrections in print are not excluded."
+  }
+ ],
+ "supportingSourceReads": [
+  {
+   "url": "https://gubler.app.uni-regensburg.de/Publikationen/arXiv2bc.pdf",
+   "read": "2026-09-30",
+   "sha256": "73132a399dba9b9f8385e7834535a6823d0b4dd22cda283124904ab5a96e75dc",
+   "scope": "Gubler 2007 author manuscript dated 18 April 2007, pp.5–8: §2.10, §§3.1–3.8, Theorems 3.4/3.6 and Lemma 4.1. Focused input reading, not full-paper proof closure."
+  },
+  {
+   "url": "https://www.numdam.org/item/ASNSP_2003_5_2_4_711_0.pdf",
+   "read": "2026-09-30",
+   "sha256": "35f0e111a7484cc492847b5ce1277640c60dd7d2397aba1c58071a187b3dac3d",
+   "scope": "Gubler 2003, pp.751,755–758: M-field definition, canonical metrics, Theorem 11.18, normalization under finite field extensions. Focused input reading."
+  },
+  {
+   "url": "https://arxiv.org/pdf/math/0303340v1",
+   "read": "2026-09-30",
+   "sha256": "8e7f3bd8afd83151dc86224030300ba5be485ffd1e69725e59765b78926de44b",
+   "scope": "Scanlon v1, pp.1–2 and 6: Definition 2.1, Theorem 2.2 and bibliographic context. Not a fresh reading of its full proof."
   }
  ]
 }
