@@ -39608,8 +39608,9 @@
     "REV-PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4323"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4323",
+   "finishedAt": "2026-09-30T05:00:28Z"
   },
   {
    "id": "RT-PAPER-BETTS-STIX-25",
@@ -40069,7 +40070,8 @@
     "REV-PAPER-KHARE-WINTENBERGER-09-I"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-KHARE-WINTENBERGER-09-I.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4599"
   },
   {
    "id": "RT-PAPER-KHARE-WINTENBERGER-09-II",
