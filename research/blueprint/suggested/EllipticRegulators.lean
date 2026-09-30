@@ -26,7 +26,8 @@ Tau Ceti f790474821cf4256814db967cb154e7af3d0c369.
 The preceding REV-EllipticRegulators version (75 nodes) was elaborated against
 Mathlib 082e2d3 with `sorry` as its only warning. The Fourier changes for
 FIX-RT-AREA-combinatorics~2 have NOT been compiled: no existing build at that pin
-was found. They require independent review. The file
+was found. The scoped review REV-FIX-RT-AREA-combinatorics~2 checked their
+mathematics and signatures on 2026-09-30; this revision remains uncompiled. The file
 imports only Mathlib; the Tau Ceti declarations the packet cites are named in comments.
 
 Objects that another roadmap owns are not re-planned: the complex uniformisation is
