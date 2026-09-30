@@ -3975,8 +3975,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-CARO-PASTEN-23.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1235"
+   "state": "pending",
+   "note": "released on GitHub issue #1235"
   },
   {
    "id": "REV-PAPER-CARO-PASTEN-23",
@@ -32825,8 +32825,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/KEYDEF-algebraicgeometry.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5271"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #5271",
+   "finishedAt": "2026-09-30T22:34:19Z"
   },
   {
    "id": "REV-KEYDEF-algebraicgeometry",
@@ -40891,8 +40892,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-BOCKLE-HARRIS-KHARE-ETAL-19.md",
-   "state": "pending",
-   "note": "released on GitHub issue #5014"
+   "state": "external",
+   "note": "claimed on GitHub issue #5014"
   },
   {
    "id": "RT-PAPER-LAWRENCE-VENKATESH-20",
@@ -42730,7 +42731,8 @@
     "REV-PAPER-LUST-STEVENS-20"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-LUST-STEVENS-20.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #5102"
   },
   {
    "id": "REV-RT-PAPER-LUST-STEVENS-20",
@@ -46465,7 +46467,8 @@
     "REV-ArithmeticKTheory--N.7"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-BP-ArithmeticKTheory--N.7.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4428"
   },
   {
    "id": "RT-BP-ClassicalSerreModularity--R27.3",
