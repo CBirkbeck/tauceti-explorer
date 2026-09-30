@@ -35732,8 +35732,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-DUKE-IMAMOGLU-TOTH-16.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4990"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4990",
+   "finishedAt": "2026-09-30T18:50:02Z"
   },
   {
    "id": "RT-PAPER-KOENIGSMANN-16",
@@ -35864,7 +35865,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-TREUMANN-VENKATESH-16.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4992"
   },
   {
    "id": "RT-PAPER-SCHIFFMANN-16",
