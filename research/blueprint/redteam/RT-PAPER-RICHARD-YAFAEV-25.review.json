@@ -1,0 +1,15 @@
+{
+  "redteam": "RT-PAPER-RICHARD-YAFAEV-25",
+  "findings": [
+    {
+      "finding": "RT-PAPER-RICHARD-YAFAEV-25/1",
+      "verdict": "confirmed",
+      "reason": "Confirmed ownership error. Independently read published Richard–Yafaev Theorem 4.7 and Proposition 4.8 with proofs, pp. 260–265, and checked page images. Route 1 puts items 11/12 at R28.4 and route 4 imports them there. Accepted RS-06 retains qualitative Faltings semisimplicity/End–Tate/Hom comparison, not these additional uniform subgroup-index and prime-uniform refinements. Accepted Tsimerman route 10 already proposes FaltingsFinitenessAndIsogenyTheoremsPartII for quantitative Masser–Wüstholz theory beyond the same base. Confirm coalescing items 11/12 with that Part II using its existing id/parent/title, adding their precise source/proof obligations and R01.6 specialization/independence inputs, and updating route 4. Preserve original item IDs, hypotheses and source issues. This does not establish an actual graph cycle or certify the full Masser–Wüstholz chapter proof; a geometric isogeny bound alone is not the missing arithmetic comparison."
+    },
+    {
+      "finding": "RT-PAPER-RICHARD-YAFAEV-25/2",
+      "verdict": "confirmed",
+      "reason": "Confirmed routing mismatch. Independently read Propositions 7.13–7.15 and proofs on published pp. 310–311 with page-image checks and their explicit §7 uses. Accepted RS-25 narrows SF.0 to existing-library reuse and relative Spec/general relative Proj, and neither that contract nor the other SF stages explicitly supplies this package. Actual pinned Mathlib flat/integral morphism interfaces and the valuative-existence definition are reusable foundations, not assertions of these point-lifting equivalences. Confirm moving item 35 into route 4 with an explicit construction obligation, or adding a named foundations extension request and importing that owner. Preserve closed affine/finite-presentation and X_red conditions in 7.13, reduced affine/finite-presentation/flat-arrow conditions in 7.14, and affine/integral-arrow conditions in 7.15 without imposing the first two propositions’ extra hypotheses on 7.15. Reuse generic algebra/morphism APIs and retain the non-noetherian-base descent step. Remove the unsupported SF.0 proof import; represent item 35 once."
+    }
+  ]
+}
