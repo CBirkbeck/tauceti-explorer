@@ -39255,7 +39255,8 @@
     "REV-PAPER-BHATT-MORROW-SCHOLZE-18"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-BHATT-MORROW-SCHOLZE-18.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4309"
   },
   {
    "id": "RT-PAPER-ESNAULT-GROECHENIG-20",
@@ -39841,8 +39842,9 @@
     "REV-PAPER-NELSON-VENKATESH-21"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-NELSON-VENKATESH-21.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4333"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4333",
+   "finishedAt": "2026-09-30T04:53:12Z"
   },
   {
    "id": "RT-PAPER-NIKOLAUS-SCHOLZE-18",
