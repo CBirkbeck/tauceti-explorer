@@ -16857,3 +16857,202 @@ Nine complete native lemmas check the power-difference bound, norm of1+t, Froben
 Exact cyclotomic arithmetic checks20 disc-trace comparisons,112 shifted-root evaluations,344 local logarithm expansions and132 coefficient evaluation comparisons, all repeated at higher precision. Five origin values agree with the predecessor. Seventeen controls detect omission of1/p, and15 detect using t instead of the Frobenius-coordinate argument. Exact modular logarithms in Q₂(μ₃) and ramified Q_p(μ_p) for p=3,5,7,11. Input precision p^20, output p^8 plus one averaging digit, and an independent three-digit increase use the certified tail bound from4726: principal-unit valuation>=1/e and v_p(n)<=n/(2e) for n>=p², with guarded p-part division. Four open-disc inputs per case include0,p,p² and a non-root extension-field input (2*zeta3 in the dyadic case). Direct finite logarithms at every shifted root point and at tau=(1+t)^p-1 agree with local coefficient evaluations. Their normalized average equals eta(p)/p times V(tau). The t=0 values match the preceding retained controls. Controls detect omission of1/p and replacement of the Frobenius-coordinate argument by t; the latter is checked after multiplying by p, without assuming V(t)/p integral. No LAD operator or analytic L-value identity is inferred. The largest observed discrepancy is 0.
 
 The62-input capture atc3fcc4721d1550342ce2eb4393a07dfad5fd1445 changed only the global source-issue and errata register files relative to the predecessor capture; all16 Dirichlet global findings and all four predecessor outputs are preserved. Only existing pinned artifacts and the verified332-node PMIA artifact are used; no current369-node PMIA, LAD, Coleman, Polylogarithms or additional native Tau-module compilation is claimed.
+
+
+## The logarithmic complement across the open unit disc
+
+Partial continuation preserving all512 predecessor nodes whole. Six L3 nodes specify the actual disc complement, cancellation of its integration constant, local-law independence, the Euler expression, its convergent coefficient series and zero finite root average. All16 findings, nine requests and13 gaps remain; zero stages are closed.
+
+Whole published128–130 was freshly read from the digest-verified source PDF: equations(3-8)/(3-9) and Corollary3.32 motivate the finite complement/kernel comparison. Whole151–153 and the previous owner readings remain in use. Read the complete relevant RepresentationTheory.Invariants section: native averaging and its projection theorem already exist, so no generic projection is planned. Complete HasProd.div, ZMod.card, Equiv.prod_comp and AddChar.map_add_eq_mul declarations and their hypotheses were checked at the pinned revision. The current LAD Dist/LA/Amice suggested block was read in the predecessor: those carriers remain comments, so no LAD operator or support identification is claimed.
+
+### The finite logarithmic complement at a general point
+
+`DirichletPadicLFunctions:L3/cyclotomic-logarithmic-disc-complement` — `DirichletPadic.cyclotomicLogDiscComplement`
+
+Define U(t)=V(t)−TrV(t), using the actual preceding value and normalized finite trace.
+
+**Hypotheses:** K is a characteristic-zero field, D is positive with NeZero D, η:DirichletCharacter K D, ε∈K and hε:IsPrimitiveRoot ε D. V(t) and TrV(t) are the actual preceding cyclotomicLogValue and cyclotomicLogDiscTrace. Write σ_j(t)=ξ^j(1+t)−1 and τ_p(t)=(1+t)^p−1 as abbreviations of concrete expressions. The constructor permits all natural p, all ξ, all supplied functions ℓ and all t, with totalized field inverse. Root-average annihilation needs only p>0 and ξ^p=1; ξ need not be primitive, p need not be prime, and no logarithm, convergence or nonzero Gauss law is assumed. Normalized evaluation, local-law independence and HasSum use a normed ultrametric field, p prime, ξ primitive of order p,‖p‖<1, D>1,‖D‖=1 and‖t‖<1. The exact hlocal is: for x≠0 and‖u‖<1, the series coeff n(log K)u^n has sum ℓ(x(1+u))−ℓ(x). These statements require neither htrace nor primitivity or nonprincipality of η. Only the Euler expression uses the preceding finite trace hypotheses: p>0, ξ primitive of order p, p coprime to D, D>1, hdom:∀unit u,(ε^u.val(1+t))^p≠1, and the owned law htrace:∀z,z^p≠1→Σ_(j<p)ℓ(ξ^jz−1)=ℓ(z^p−1). The existing tame domain theorem supplies hdom when the norm hypotheses hold. All generic Coleman requests and the exact LAD interface gap persist.
+
+**Proof:**
+
+1. Subtract the existing finite trace from the existing point value. No new distribution carrier or generic projection is defined.
+2. At p=0 the trace is the empty sum, so U(t)=V(t). At p=1 the trace is V(t), so U(t)=0. At t=0 this agrees with the preceding cyclotomicLogAverageComplement; the zero supplied function gives0.
+3. The source restriction formula1−φψ determines the subtraction sign. The normalized comparison, local-law independence, Euler expression, HasSum and root-average cancellation are promoted below because later consumers need them.
+4. At a general point the value term V(t) must be retained. The origin-only formula in terms of a negative average of H is not valid without its additional H(t) term.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/cyclotomic-logarithmic-disc-trace`, `DirichletPadicLFunctions:L3/cyclotomic-logarithmic-point-value`, `DirichletPadicLFunctions:L3/cyclotomic-logarithmic-average-complement`.
+
+**Uses:**
+
+- RJW equations(3-8)/(3-9), published128: The subtraction1−φψ motivates the concrete finite difference to be compared with the existing restriction operator.
+- RJW Corollary3.32 and Theorem6.1(ii): Root-average annihilation is the finite expression needed before any support/operator comparison; at_zero recovers the preceding special-value expression.
+- Local primitive integration constant: Normalized evaluation removes its constant for every disc point, including principal characters.
+
+**API:**
+
+- `DirichletPadic.cyclotomicLogDiscComplement_def` (constructor): U(t)=V(t)−TrV(t), with the original Gauss factor and scalar1/p.
+- `DirichletPadic.cyclotomicLogDiscComplement_zero` (simp): At p=0 the complement is V(t).
+- `DirichletPadic.cyclotomicLogDiscComplement_one` (simp): At p=1 the complement is0.
+- `DirichletPadic.cyclotomicLogDiscComplement_at_zero` (compatibility): At t=0 this equals cyclotomicLogAverageComplement.
+- `DirichletPadic.cyclotomicLogDiscComplement_zero_log` (simp): The zero supplied function gives0.
+- `DirichletPadic.cyclotomicLogDiscComplement_eq_normalized` (compatibility): On the tame disc, the constant cancels and U(t)=evalH(t)−p⁻¹ΣevalH(σ_j(t)); promoted below.
+- `DirichletPadic.cyclotomicLogDiscComplement_local_law_independent` (extensionality): Any two functions satisfying the same local expansion law give the same U(t) on the tame disc; promoted below.
+- `DirichletPadic.cyclotomicLogDiscComplement_eq_euler` (compatibility): Under htrace and its domain, U(t)=V(t)−(η(p)/p)V(τ_p(t)); promoted below.
+- `DirichletPadic.cyclotomicLogDiscComplement_hasSum` (compatibility): The actual coefficient difference series has sum U(t); promoted below.
+- `DirichletPadic.cyclotomicLogDiscComplement_root_average_zero` (relation): For p>0 and ξ^p=1, the normalized root average of U is0; promoted below.
+
+**Tests:**
+
+- `SuggestedLogarithmicDiscComplementTests.empty_complement` (degenerate): At p=0, U(t)=V(t).
+- `SuggestedLogarithmicDiscComplementTests.singleton_complement` (computation): At p=1, U(t)=0.
+- `SuggestedLogarithmicDiscComplementTests.complement_at_origin` (compatibility): At t=0 this is the preceding actual root-average complement.
+- `SuggestedLogarithmicDiscComplementTests.zero_function_complement` (computation): The zero supplied function gives U(t)=0.
+
+**Acceptance:** The finite expression is specified at every field point; analytic and arithmetic hypotheses are attached only to their comparisons.
+
+**Source:** Section3.5.5, equations(3-8)/(3-9), published128/PDF29 and Corollary3.32, published129/PDF30; proof of Theorem6.1(ii), full root-trace display, published153/PDF54. Worker extension to the concrete complement of the already specified finite disc trace. Whole published128–130 freshly read from the verified published PDF; whole151–153 retained from the preceding source reading. The source motivates restriction by1−φψ and a zero ψ image. This checkpoint establishes only the concrete finite complement and its root-average identity; identifying them with the owned LAD operators remains open.
+
+### The integration constant cancels across the disc
+
+`DirichletPadicLFunctions:L3/logarithmic-disc-complement-normalized` — `DirichletPadic.cyclotomicLogDiscComplement_eq_normalized`
+
+Under the tame local expansion hypotheses, U(t)=Σ_n coeff n(H)t^n−p⁻¹Σ_(j<p)Σ_n coeff n(H)σ_j(t)^n, where H is the actual tameNormalizedLogPrimitive. Every displayed infinite series converges.
+
+**Hypotheses:** K is a characteristic-zero field, D is positive with NeZero D, η:DirichletCharacter K D, ε∈K and hε:IsPrimitiveRoot ε D. V(t) and TrV(t) are the actual preceding cyclotomicLogValue and cyclotomicLogDiscTrace. Write σ_j(t)=ξ^j(1+t)−1 and τ_p(t)=(1+t)^p−1 as abbreviations of concrete expressions. The constructor permits all natural p, all ξ, all supplied functions ℓ and all t, with totalized field inverse. Root-average annihilation needs only p>0 and ξ^p=1; ξ need not be primitive, p need not be prime, and no logarithm, convergence or nonzero Gauss law is assumed. Normalized evaluation, local-law independence and HasSum use a normed ultrametric field, p prime, ξ primitive of order p,‖p‖<1, D>1,‖D‖=1 and‖t‖<1. The exact hlocal is: for x≠0 and‖u‖<1, the series coeff n(log K)u^n has sum ℓ(x(1+u))−ℓ(x). These statements require neither htrace nor primitivity or nonprincipality of η. Only the Euler expression uses the preceding finite trace hypotheses: p>0, ξ primitive of order p, p coprime to D, D>1, hdom:∀unit u,(ε^u.val(1+t))^p≠1, and the owned law htrace:∀z,z^p≠1→Σ_(j<p)ℓ(ξ^jz−1)=ℓ(z^p−1). The existing tame domain theorem supplies hdom when the norm hypotheses hold. All generic Coleman requests and the exact LAD interface gap persist.
+
+**Proof:**
+
+1. The preceding point-evaluation theorem gives a HasSum for F=C(c₀)+H at t and at every σ_j(t); all shifted points lie inside the disc by the preceding domain lemma.
+2. Subtract the native one-term constant series from each HasSum. The actual coefficients of F=C(c₀)+H then give HasSum(coeff n(H)s^n)(V(s)−c₀). Use the native sum uniqueness theorem to read this as V(s)=c₀+evalH(s).
+3. Insert this equality at t and at every point of the finite trace. The sum of p copies of c₀ is p·c₀, and (p:K) is nonzero because p is prime and K has characteristic zero.
+4. The complete native constant-cancellation lemma proves(c₀+u)−p⁻¹Σ(c₀+v_j)=u−p⁻¹Σv_j. Thus no integration constant survives, while evalH(t) must remain away from the origin.
+5. At t=0 the normalized primitive has zero constant coefficient, recovering the earlier negative root average. At p=2 and t=2 the result is(evalH(2)−evalH(−4))/2.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/cyclotomic-logarithmic-disc-complement`, `DirichletPadicLFunctions:L3/logarithmic-disc-trace-shifted-domain`, `DirichletPadicLFunctions:L3/tame-logarithmic-series-point-evaluation`, `DirichletPadicLFunctions:L3/normalized-tame-logarithmic-primitive`, `mathlib:HasProd.div`, `mathlib:hasProd_ite_eq`, `mathlib:HasProd.tprod_eq`.
+
+**Tests:**
+
+- `SuggestedLogarithmicDiscComplementTests.dyadic_normalized_difference` (compatibility): Under the tame dyadic local law, U(2)=(evalH(2)−evalH(−4))/2.
+
+**Acceptance:** Neither the Coleman finite trace law nor nonprincipality of η is used. The argument uses actual HasSum values, not evaluation of a merely formal translated series.
+
+**Source:** Section3.5.5, equations(3-8)/(3-9), published128/PDF29 and Corollary3.32, published129/PDF30; proof of Theorem6.1(ii), full root-trace display, published153/PDF54. Worker extension to the concrete complement of the already specified finite disc trace. Whole published128–130 freshly read from the verified published PDF; whole151–153 retained from the preceding source reading. The source motivates restriction by1−φψ and a zero ψ image. This checkpoint establishes only the concrete finite complement and its root-average identity; identifying them with the owned LAD operators remains open.
+
+### Independence from the chosen local logarithm
+
+`DirichletPadicLFunctions:L3/logarithmic-disc-complement-local-law-independent` — `DirichletPadic.cyclotomicLogDiscComplement_local_law_independent`
+
+Under the same tame disc hypotheses, if ℓ₀ and ℓ₁ each satisfy the exact hlocal, their cyclotomicLogDiscComplement values agree at every t with‖t‖<1.
+
+**Hypotheses:** K is a characteristic-zero field, D is positive with NeZero D, η:DirichletCharacter K D, ε∈K and hε:IsPrimitiveRoot ε D. V(t) and TrV(t) are the actual preceding cyclotomicLogValue and cyclotomicLogDiscTrace. Write σ_j(t)=ξ^j(1+t)−1 and τ_p(t)=(1+t)^p−1 as abbreviations of concrete expressions. The constructor permits all natural p, all ξ, all supplied functions ℓ and all t, with totalized field inverse. Root-average annihilation needs only p>0 and ξ^p=1; ξ need not be primitive, p need not be prime, and no logarithm, convergence or nonzero Gauss law is assumed. Normalized evaluation, local-law independence and HasSum use a normed ultrametric field, p prime, ξ primitive of order p,‖p‖<1, D>1,‖D‖=1 and‖t‖<1. The exact hlocal is: for x≠0 and‖u‖<1, the series coeff n(log K)u^n has sum ℓ(x(1+u))−ℓ(x). These statements require neither htrace nor primitivity or nonprincipality of η. Only the Euler expression uses the preceding finite trace hypotheses: p>0, ξ primitive of order p, p coprime to D, D>1, hdom:∀unit u,(ε^u.val(1+t))^p≠1, and the owned law htrace:∀z,z^p≠1→Σ_(j<p)ℓ(ξ^jz−1)=ℓ(z^p−1). The existing tame domain theorem supplies hdom when the norm hypotheses hold. All generic Coleman requests and the exact LAD interface gap persist.
+
+**Proof:**
+
+1. Apply the promoted normalized comparison separately to ℓ₀ and ℓ₁. Both right-hand sides are the same actual H coefficient series, whose construction does not depend on either supplied function.
+2. In particular, replacing ℓ(x) by ℓ(x)+b preserves hlocal because the two copies of b cancel from its difference. The complete native shifted-local-law lemma checks this implication.
+3. This includes principal characters: individual V values can change by a nonzero constant, while their complement remains unchanged.
+4. Do not assert that a constant shift preserves logarithm normalization or htrace. This theorem intentionally needs only hlocal, so it does not use the Euler-expression route.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/logarithmic-disc-complement-normalized`.
+
+**Tests:**
+
+- `SuggestedLogarithmicDiscComplementTests.shifted_local_law_same_complement` (characterisation): For any b, replacing the supplied function by ℓ+b leaves the dyadic complement at t=2 unchanged under hlocal.
+
+**Acceptance:** The conclusion requires the exact two local expansion hypotheses, not an untyped assertion that two arbitrary branches agree.
+
+**Source:** Section3.5.5, equations(3-8)/(3-9), published128/PDF29 and Corollary3.32, published129/PDF30; proof of Theorem6.1(ii), full root-trace display, published153/PDF54. Worker extension to the concrete complement of the already specified finite disc trace. Whole published128–130 freshly read from the verified published PDF; whole151–153 retained from the preceding source reading. The source motivates restriction by1−φψ and a zero ψ image. This checkpoint establishes only the concrete finite complement and its root-average identity; identifying them with the owned LAD operators remains open.
+
+### The Euler expression at the Frobenius coordinate
+
+`DirichletPadicLFunctions:L3/logarithmic-disc-complement-euler` — `DirichletPadic.cyclotomicLogDiscComplement_eq_euler`
+
+Under the preceding finite trace law and explicit unit-domain hypotheses, U(t)=V(t)−(η(p)/p)V((1+t)^p−1).
+
+**Hypotheses:** K is a characteristic-zero field, D is positive with NeZero D, η:DirichletCharacter K D, ε∈K and hε:IsPrimitiveRoot ε D. V(t) and TrV(t) are the actual preceding cyclotomicLogValue and cyclotomicLogDiscTrace. Write σ_j(t)=ξ^j(1+t)−1 and τ_p(t)=(1+t)^p−1 as abbreviations of concrete expressions. The constructor permits all natural p, all ξ, all supplied functions ℓ and all t, with totalized field inverse. Root-average annihilation needs only p>0 and ξ^p=1; ξ need not be primitive, p need not be prime, and no logarithm, convergence or nonzero Gauss law is assumed. Normalized evaluation, local-law independence and HasSum use a normed ultrametric field, p prime, ξ primitive of order p,‖p‖<1, D>1,‖D‖=1 and‖t‖<1. The exact hlocal is: for x≠0 and‖u‖<1, the series coeff n(log K)u^n has sum ℓ(x(1+u))−ℓ(x). These statements require neither htrace nor primitivity or nonprincipality of η. Only the Euler expression uses the preceding finite trace hypotheses: p>0, ξ primitive of order p, p coprime to D, D>1, hdom:∀unit u,(ε^u.val(1+t))^p≠1, and the owned law htrace:∀z,z^p≠1→Σ_(j<p)ℓ(ξ^jz−1)=ℓ(z^p−1). The existing tame domain theorem supplies hdom when the norm hypotheses hold. All generic Coleman requests and the exact LAD interface gap persist.
+
+**Proof:**
+
+1. Unfold only the new complement constructor and invoke the preceding promoted cyclotomicLogDiscTrace_eq_frobenius.
+2. For the tame analytic application, the already proved powered-unit-domain theorem supplies hdom throughout the disc. The generic trace law remains imported from Coleman with all its existing request leaves.
+3. At t=0 both point arguments are0, so the old scalar factor(1−η(p)/p)c₀ is recovered. At a general t the two arguments differ; do not replace the displayed expression by that scalar times V(t).
+4. At p=2,t=2, the Frobenius point is8, so the second value is V(8). The finite controls detect the erroneous argument and preserve the reciprocal factor1/p.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/cyclotomic-logarithmic-disc-complement`, `DirichletPadicLFunctions:L3/cyclotomic-logarithmic-disc-trace-frobenius`.
+
+**Tests:**
+
+- `SuggestedLogarithmicDiscComplementTests.dyadic_complement_uses_eight` (computation): Under the exact dyadic trace and domain laws, U(2)=V(2)−η(2)V(8)/2.
+
+**Acceptance:** This is a finite value comparison. It is not an identification with an L-value, a formal substitution operator or an actual LAD restriction.
+
+**Source:** Section3.5.5, equations(3-8)/(3-9), published128/PDF29 and Corollary3.32, published129/PDF30; proof of Theorem6.1(ii), full root-trace display, published153/PDF54. Worker extension to the concrete complement of the already specified finite disc trace. Whole published128–130 freshly read from the verified published PDF; whole151–153 retained from the preceding source reading. The source motivates restriction by1−φψ and a zero ψ image. This checkpoint establishes only the concrete finite complement and its root-average identity; identifying them with the owned LAD operators remains open.
+
+### The convergent series for the disc complement
+
+`DirichletPadicLFunctions:L3/logarithmic-disc-complement-series` — `DirichletPadic.cyclotomicLogDiscComplement_hasSum`
+
+Under the tame local expansion hypotheses, the actual series coeff n(F)·(t^n−p⁻¹Σ_(j<p)σ_j(t)^n) has sum U(t).
+
+**Hypotheses:** K is a characteristic-zero field, D is positive with NeZero D, η:DirichletCharacter K D, ε∈K and hε:IsPrimitiveRoot ε D. V(t) and TrV(t) are the actual preceding cyclotomicLogValue and cyclotomicLogDiscTrace. Write σ_j(t)=ξ^j(1+t)−1 and τ_p(t)=(1+t)^p−1 as abbreviations of concrete expressions. The constructor permits all natural p, all ξ, all supplied functions ℓ and all t, with totalized field inverse. Root-average annihilation needs only p>0 and ξ^p=1; ξ need not be primitive, p need not be prime, and no logarithm, convergence or nonzero Gauss law is assumed. Normalized evaluation, local-law independence and HasSum use a normed ultrametric field, p prime, ξ primitive of order p,‖p‖<1, D>1,‖D‖=1 and‖t‖<1. The exact hlocal is: for x≠0 and‖u‖<1, the series coeff n(log K)u^n has sum ℓ(x(1+u))−ℓ(x). These statements require neither htrace nor primitivity or nonprincipality of η. Only the Euler expression uses the preceding finite trace hypotheses: p>0, ξ primitive of order p, p coprime to D, D>1, hdom:∀unit u,(ε^u.val(1+t))^p≠1, and the owned law htrace:∀z,z^p≠1→Σ_(j<p)ℓ(ξ^jz−1)=ℓ(z^p−1). The existing tame domain theorem supplies hdom when the norm hypotheses hold. All generic Coleman requests and the exact LAD interface gap persist.
+
+**Proof:**
+
+1. Apply the preceding point-evaluation HasSum to F at t and at each σ_j(t), using the shifted-point domain lemma.
+2. Native finite addition and scalar multiplication of HasSum statements give the averaged coefficient sequence with sum TrV(t). This step uses the finite trace definition, without imposing the extra htrace used by the previous Euler-valued trace theorem.
+3. Subtract that HasSum from the HasSum at t using native HasSum.sub, the additive declaration generated from the indexed HasProd.div. Distribute coeff n(F) over the difference.
+4. The complete native complement_hasSum proof checks this finite averaging and subtraction. Only finitely many infinite series are combined; there is no unproved interchange of two infinite sums.
+5. For p=2,t=2 the coefficient multiplier is(2^n−(−4)^n)/2. Its n=0 term is0, agreeing with constant cancellation.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/cyclotomic-logarithmic-disc-complement`, `DirichletPadicLFunctions:L3/logarithmic-disc-trace-shifted-domain`, `DirichletPadicLFunctions:L3/tame-logarithmic-series-point-evaluation`, `mathlib:hasProd_prod`, `mathlib:HasSum.mul_left`, `mathlib:HasProd.div`.
+
+**Tests:**
+
+- `SuggestedLogarithmicDiscComplementTests.dyadic_complement_series` (compatibility): The series coeff n(F)·(2^n−(−4)^n)/2 has sum U(2) under the tame dyadic local law.
+
+**Acceptance:** No finite logarithm trace law is needed to establish this actual coefficient HasSum.
+
+**Source:** Section3.5.5, equations(3-8)/(3-9), published128/PDF29 and Corollary3.32, published129/PDF30; proof of Theorem6.1(ii), full root-trace display, published153/PDF54. Worker extension to the concrete complement of the already specified finite disc trace. Whole published128–130 freshly read from the verified published PDF; whole151–153 retained from the preceding source reading. The source motivates restriction by1−φψ and a zero ψ image. This checkpoint establishes only the concrete finite complement and its root-average identity; identifying them with the owned LAD operators remains open.
+
+### The finite root average of the complement is zero
+
+`DirichletPadicLFunctions:L3/logarithmic-disc-complement-root-kernel` — `DirichletPadic.cyclotomicLogDiscComplement_root_average_zero`
+
+For p>0, ξ^p=1 and every supplied ℓ and t, p⁻¹Σ_(j<p)U(ξ^j(1+t)−1)=0.
+
+**Hypotheses:** K is a characteristic-zero field, D is positive with NeZero D, η:DirichletCharacter K D, ε∈K and hε:IsPrimitiveRoot ε D. V(t) and TrV(t) are the actual preceding cyclotomicLogValue and cyclotomicLogDiscTrace. Write σ_j(t)=ξ^j(1+t)−1 and τ_p(t)=(1+t)^p−1 as abbreviations of concrete expressions. The constructor permits all natural p, all ξ, all supplied functions ℓ and all t, with totalized field inverse. Root-average annihilation needs only p>0 and ξ^p=1; ξ need not be primitive, p need not be prime, and no logarithm, convergence or nonzero Gauss law is assumed. Normalized evaluation, local-law independence and HasSum use a normed ultrametric field, p prime, ξ primitive of order p,‖p‖<1, D>1,‖D‖=1 and‖t‖<1. The exact hlocal is: for x≠0 and‖u‖<1, the series coeff n(log K)u^n has sum ℓ(x(1+u))−ℓ(x). These statements require neither htrace nor primitivity or nonprincipality of η. Only the Euler expression uses the preceding finite trace hypotheses: p>0, ξ primitive of order p, p coprime to D, D>1, hdom:∀unit u,(ε^u.val(1+t))^p≠1, and the owned law htrace:∀z,z^p≠1→Σ_(j<p)ℓ(ξ^jz−1)=ℓ(z^p−1). The existing tame domain theorem supplies hdom when the norm hypotheses hold. All generic Coleman requests and the exact LAD interface gap persist.
+
+**Proof:**
+
+1. Use the native AddChar.zmodChar p hξ to index the roots by ZMod p, including repeated roots when ξ has smaller order. The native character law gives σ_a(σ_b(t))=σ_(a+b)(t).
+2. For each b, the native equivalence a↦a+b permutes the whole finite index set. Equiv.sum_comp therefore identifies the trace at σ_b(t) with the trace at t. The complete affine_orbit_sum lemma checks the affine composition and permutation.
+3. Expand the average of V−TrV. The first term is TrV(t), while the second is p⁻¹ times p copies of TrV(t). ZMod.card gives exactly p, and characteristic zero with p>0 permits its cancellation.
+4. The complete concrete_root_complement_zero proof includes conversion between the finite ZMod sum and the exact Finset.range p indexing used by the constructor, using the native root-character natural-power formula.
+5. General averaging projections already exist in Mathlib RepresentationTheory.Invariants; they are not replanned. This node checks the particular affine root action and finite Dirichlet expression, using native permutation lemmas directly.
+6. For p=2,ξ=−1, the identity is U(t)+U(−2−t)=0. Composite p=4,ξ=−1 is also covered, with repeated points; neither primitivity nor any norm or logarithm law is required.
+7. A zero finite average is the target of the future LAD φψ comparison. It is not yet a ψ=0 or unit-support theorem, because those typed owner interfaces are still missing.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/cyclotomic-logarithmic-disc-complement`, `mathlib:AddChar.zmodChar`, `mathlib:AddChar.map_add_eq_mul`, `mathlib:AddChar.zmodChar_apply'`, `mathlib:Equiv.prod_comp`, `mathlib:ZMod.card`, `mathlib:Fin.prod_univ_eq_prod_range`.
+
+**Tests:**
+
+- `SuggestedLogarithmicDiscComplementTests.dyadic_complement_pair` (computation): For every ℓ and t, U(t)+U(−2−t)=0 when p=2 and ξ=−1.
+- `SuggestedLogarithmicDiscComplementTests.composite_repeated_root_average` (degenerate): For p=4 and ξ=−1, which is not primitive of order4, the normalized root average of U is still0.
+
+**Acceptance:** The proof uses only finite sums and the root relation; numerical examples are supplementary to the complete native proof.
+
+**Source:** Section3.5.5, equations(3-8)/(3-9), published128/PDF29 and Corollary3.32, published129/PDF30; proof of Theorem6.1(ii), full root-trace display, published153/PDF54. Worker extension to the concrete complement of the already specified finite disc trace. Whole published128–130 freshly read from the verified published PDF; whole151–153 retained from the preceding source reading. The source motivates restriction by1−φψ and a zero ψ image. This checkpoint establishes only the concrete finite complement and its root-average identity; identifying them with the owned LAD operators remains open.
+
+**Remaining:** The actual complement now has constant-free normalized evaluation throughout the tame disc, local-law independence, its precise Euler expression, an actual coefficient HasSum and zero finite root average. Next compare it with LAD restriction to units and φψ when the owner supplies typed distribution/Amice/disc-evaluation interfaces; do not introduce replacement carriers here. The finite kernel identity alone is not a ψ=0 or unit-support theorem. All nine existing requests and13 gaps remain, including the exact discAnalytic/R+ comparison and the five inherited Coleman analytic requests. The smoothed pure-p-power route, distribution-to-L-value identification, positive-weight comparisons, pole/residue analysis and full source extraction remain open. Preserve E44–E48 and all source corrections.
+
+### The logarithmic complement across the open unit disc validation
+
+All 512 predecessor nodes, 475 baseline records, 16 findings, requests and sourceVersions remain whole. This checkpoint adds 6 nodes, 11 named suggested declarations and 10 typed examples. The indexed blueprint, four-file intake, whitespace, preservation, API/test parity and versioned-source checks pass. The graph has 754 reachable nodes, 3584 edges and 648 native leaves and is acyclic. Its stage request leaves are PadicMeasuresIwasawaAlgebras:L1, PadicMeasuresIwasawaAlgebras:L3, PadicMeasuresIwasawaAlgebras:L3, LocallyAnalyticDistributions:L1, AdicSpacesPartII:F1, AdicSpacesPartII:R2, PadicDifferentialEquationsAndRigidCohomology:RD.0, PadicDifferentialEquationsAndRigidCohomology:RD.4, PadicHodgeTheory:P7:annulus-foundations. The Euler-expression route retains the six existing Coleman distribution stage leaves. The other five routes retain only the already recorded LAD L1 leaf; no new request or generic averaging node is introduced.
+
+The full suggested module elaborates with zero errors and 1593 expected placeholder warnings. Source and artifact audits cover 3600 pinned Mathlib modules, 21 pinned Tau Ceti modules and the verified actual 332-node PMIA artifact. The current 369-node PMIA source preserves the compiled 332-node artifact's source in order; no new supplier declaration is called and no compilation against the current supplier revision is claimed. Source, olean and original compiler-log hashes were rechecked. Existing builds only were used.
+
+Eight complete native lemmas check constant cancellation, preservation of the local expansion law by a constant shift, finite averaging and subtraction of HasSum statements, exact ZMod/range conversion, invariance of the affine orbit sum, the concrete root-average kernel identity and the dyadic complement pair. The probe elaborates against 2792 pinned Mathlib modules with zero errors, warnings or placeholders. General roadmap declarations remain unchecked.
+
+Exact controls check112 complement values at20 disc inputs,344 local logarithm expansions,132 point-series evaluations,448 constant-shift comparisons and832 affine orbit compositions. All20 root averages vanish and376 value comparisons pass at higher precision. All20 predecessor traces agree. Seventeen controls detect the wrong subtraction sign and15 detect misuse of the origin-only normalized formula. Exact cyclotomic modular arithmetic reuses the retained4729 logarithm implementation and4726 certified tail bound. Five tame character/prime cases have four disc inputs each. Input precision p^20 and output p^8 retain two guard digits for the nested normalized average. Direct logarithm values are compared with their normalized local series at each orbit point; every nested affine point is checked against its cyclic permutation. The finite complement agrees with the normalized H expression and the Euler expression, and its root average is zero. Four shifts of the supplied logarithm test cancellation of its induced constant at every point, including the principal character. All values are independently repeated three digits higher. The predecessor traces agree. Negative controls detect the wrong complement sign and misuse of the origin-only normalized formula at nonzero points. These are finite and convergent-series controls, not a LAD operator, support or L-value identification. The largest observed discrepancy is 0.
+
+The62-input capture at3402cdffd5703e37c0f90e4f1a0acd2272e4e15d has no changes relative to the predecessor inputs. All four predecessor outputs are preserved before assembly. Only existing pinned artifacts and the verified332-node PMIA artifact are used; no current369-node PMIA, LAD, Coleman or Polylogarithms compilation is claimed.

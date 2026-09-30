@@ -8247,3 +8247,154 @@ example {D : ℕ} [NeZero D] (η : DirichletCharacter K D) (hD : 1<D)
 end Normed
 end SuggestedLogarithmicDiscTraceTests
 end
+
+/-! The concrete logarithmic complement on the open disc. Its finite root
+average vanishes for every supplied function. Analytic comparisons retain the
+precise local expansion hypotheses; no LAD operator or support theorem is
+identified here. General finite averaging projections already exist in Mathlib. -/
+noncomputable section
+namespace DirichletPadic
+open scoped BigOperators
+open PowerSeries
+section Field
+variable {K : Type*} [Field K] [CharZero K] {D : ℕ} [NeZero D]
+
+def cyclotomicLogDiscComplement (p : ℕ) (ξ : K) (η : DirichletCharacter K D)
+    (ε : K) (hε : IsPrimitiveRoot ε D) (ℓ : K → K) (t : K) : K := sorry
+lemma cyclotomicLogDiscComplement_def (p : ℕ) (ξ : K) (η : DirichletCharacter K D)
+    (ε : K) (hε : IsPrimitiveRoot ε D) (ℓ : K → K) (t : K) :
+    cyclotomicLogDiscComplement p ξ η ε hε ℓ t=
+      cyclotomicLogValue η ε hε ℓ t-cyclotomicLogDiscTrace p ξ η ε hε ℓ t := sorry
+lemma cyclotomicLogDiscComplement_zero (ξ : K) (η : DirichletCharacter K D)
+    (ε : K) (hε : IsPrimitiveRoot ε D) (ℓ : K → K) (t : K) :
+    cyclotomicLogDiscComplement 0 ξ η ε hε ℓ t=cyclotomicLogValue η ε hε ℓ t := sorry
+lemma cyclotomicLogDiscComplement_one (ξ : K) (η : DirichletCharacter K D)
+    (ε : K) (hε : IsPrimitiveRoot ε D) (ℓ : K → K) (t : K) :
+    cyclotomicLogDiscComplement 1 ξ η ε hε ℓ t=0 := sorry
+lemma cyclotomicLogDiscComplement_at_zero (p : ℕ) (ξ : K) (η : DirichletCharacter K D)
+    (ε : K) (hε : IsPrimitiveRoot ε D) (ℓ : K → K) :
+    cyclotomicLogDiscComplement p ξ η ε hε ℓ 0=
+      cyclotomicLogAverageComplement p ξ η ε hε ℓ := sorry
+lemma cyclotomicLogDiscComplement_zero_log (p : ℕ) (ξ : K) (η : DirichletCharacter K D)
+    (ε : K) (hε : IsPrimitiveRoot ε D) (t : K) :
+    cyclotomicLogDiscComplement p ξ η ε hε (fun _ => 0) t=0 := sorry
+
+theorem cyclotomicLogDiscComplement_eq_euler (p : ℕ) (hp : 0<p) (ξ : K)
+    (hξ : IsPrimitiveRoot ξ p) (hpD : p.Coprime D) (η : DirichletCharacter K D)
+    (hD : 1<D) (ε : K) (hε : IsPrimitiveRoot ε D) (ℓ : K → K) (t : K)
+    (hdom : ∀ u : (ZMod D)ˣ, (ε^(u : ZMod D).val*(1+t))^p≠1)
+    (htrace : ∀ z : K, z^p≠1 →
+      (∑ j ∈ Finset.range p, ℓ (ξ^j*z-1))=ℓ (z^p-1)) :
+    cyclotomicLogDiscComplement p ξ η ε hε ℓ t=
+      cyclotomicLogValue η ε hε ℓ t-
+        (η (p : ZMod D)/(p : K))*cyclotomicLogValue η ε hε ℓ ((1+t)^p-1) := sorry
+
+theorem cyclotomicLogDiscComplement_root_average_zero (p : ℕ) (hp : 0<p)
+    (ξ : K) (hξ : ξ^p=1) (η : DirichletCharacter K D) (ε : K)
+    (hε : IsPrimitiveRoot ε D) (ℓ : K → K) (t : K) :
+    (p : K)⁻¹*(∑ j ∈ Finset.range p,
+      cyclotomicLogDiscComplement p ξ η ε hε ℓ (ξ^j*(1+t)-1))=0 := sorry
+end Field
+
+section Normed
+variable {K : Type*} [NormedField K] [IsUltrametricDist K] [CharZero K]
+variable {D : ℕ} [NeZero D]
+
+theorem cyclotomicLogDiscComplement_eq_normalized (p : ℕ) (hp : p.Prime) (ξ : K)
+    (hξ : IsPrimitiveRoot ξ p) (hpK : ‖(p : K)‖<1) (η : DirichletCharacter K D)
+    (hD : 1<D) (ε : K) (hε : IsPrimitiveRoot ε D) (hDK : ‖(D : K)‖=1)
+    (ℓ : K → K) (hlocal : ∀ x u : K, x≠0 → ‖u‖<1 →
+      HasSum (fun n : ℕ => coeff n (log K)*u^n) (ℓ (x*(1+u))-ℓ x))
+    (t : K) (ht : ‖t‖<1) :
+    cyclotomicLogDiscComplement p ξ η ε hε ℓ t=
+      (∑' n : ℕ, coeff n (tameNormalizedLogPrimitive η ε hε)*t^n)-
+        (p : K)⁻¹*∑ j ∈ Finset.range p,
+          ∑' n : ℕ, coeff n (tameNormalizedLogPrimitive η ε hε)*(ξ^j*(1+t)-1)^n := sorry
+
+theorem cyclotomicLogDiscComplement_local_law_independent (p : ℕ) (hp : p.Prime)
+    (ξ : K) (hξ : IsPrimitiveRoot ξ p) (hpK : ‖(p : K)‖<1)
+    (η : DirichletCharacter K D) (hD : 1<D) (ε : K) (hε : IsPrimitiveRoot ε D)
+    (hDK : ‖(D : K)‖=1) (ℓ₀ ℓ₁ : K → K)
+    (h₀ : ∀ x u : K, x≠0 → ‖u‖<1 →
+      HasSum (fun n : ℕ => coeff n (log K)*u^n) (ℓ₀ (x*(1+u))-ℓ₀ x))
+    (h₁ : ∀ x u : K, x≠0 → ‖u‖<1 →
+      HasSum (fun n : ℕ => coeff n (log K)*u^n) (ℓ₁ (x*(1+u))-ℓ₁ x))
+    (t : K) (ht : ‖t‖<1) :
+    cyclotomicLogDiscComplement p ξ η ε hε ℓ₀ t=
+      cyclotomicLogDiscComplement p ξ η ε hε ℓ₁ t := sorry
+
+theorem cyclotomicLogDiscComplement_hasSum (p : ℕ) (hp : p.Prime) (ξ : K)
+    (hξ : IsPrimitiveRoot ξ p) (hpK : ‖(p : K)‖<1) (η : DirichletCharacter K D)
+    (hD : 1<D) (ε : K) (hε : IsPrimitiveRoot ε D) (hDK : ‖(D : K)‖=1)
+    (ℓ : K → K) (hlocal : ∀ x u : K, x≠0 → ‖u‖<1 →
+      HasSum (fun n : ℕ => coeff n (log K)*u^n) (ℓ (x*(1+u))-ℓ x))
+    (t : K) (ht : ‖t‖<1) :
+    HasSum (fun n : ℕ => coeff n (tameLogPrimitive η ε hε ℓ)*
+      (t^n-(p : K)⁻¹*∑ j ∈ Finset.range p, (ξ^j*(1+t)-1)^n))
+      (cyclotomicLogDiscComplement p ξ η ε hε ℓ t) := sorry
+end Normed
+end DirichletPadic
+
+namespace SuggestedLogarithmicDiscComplementTests
+open scoped BigOperators
+open DirichletPadic PowerSeries
+section Field
+variable {K : Type*} [Field K] [CharZero K] {D : ℕ} [NeZero D]
+-- empty_complement
+example (ξ : K) (η : DirichletCharacter K D) (ε : K) (hε : IsPrimitiveRoot ε D)
+    (ℓ : K → K) (t : K) :
+    cyclotomicLogDiscComplement 0 ξ η ε hε ℓ t=cyclotomicLogValue η ε hε ℓ t := sorry
+-- singleton_complement
+example (ξ : K) (η : DirichletCharacter K D) (ε : K) (hε : IsPrimitiveRoot ε D)
+    (ℓ : K → K) (t : K) : cyclotomicLogDiscComplement 1 ξ η ε hε ℓ t=0 := sorry
+-- complement_at_origin
+example (p : ℕ) (ξ : K) (η : DirichletCharacter K D) (ε : K)
+    (hε : IsPrimitiveRoot ε D) (ℓ : K → K) :
+    cyclotomicLogDiscComplement p ξ η ε hε ℓ 0=
+      cyclotomicLogAverageComplement p ξ η ε hε ℓ := sorry
+-- zero_function_complement
+example (p : ℕ) (ξ : K) (η : DirichletCharacter K D) (ε : K)
+    (hε : IsPrimitiveRoot ε D) (t : K) :
+    cyclotomicLogDiscComplement p ξ η ε hε (fun _ => 0) t=0 := sorry
+-- dyadic_complement_uses_eight
+example (η : DirichletCharacter K D) (hD : 1<D) (hpD : Nat.Coprime 2 D)
+    (ε : K) (hε : IsPrimitiveRoot ε D) (hξ : IsPrimitiveRoot (-1 : K) 2)
+    (ℓ : K → K) (hdom : ∀ u : (ZMod D)ˣ, (ε^(u : ZMod D).val*3)^2≠1)
+    (htrace : ∀ z : K, z^2≠1 →
+      (∑ j ∈ Finset.range 2, ℓ ((-1 : K)^j*z-1))=ℓ (z^2-1)) :
+    cyclotomicLogDiscComplement 2 (-1) η ε hε ℓ 2=
+      cyclotomicLogValue η ε hε ℓ 2-
+        (η (2 : ZMod D)/(2 : K))*cyclotomicLogValue η ε hε ℓ 8 := sorry
+-- dyadic_complement_pair
+example (η : DirichletCharacter K D) (ε : K) (hε : IsPrimitiveRoot ε D)
+    (ℓ : K → K) (t : K) :
+    cyclotomicLogDiscComplement 2 (-1) η ε hε ℓ t+
+      cyclotomicLogDiscComplement 2 (-1) η ε hε ℓ (-2-t)=0 := sorry
+-- composite_repeated_root_average
+example (η : DirichletCharacter K D) (ε : K) (hε : IsPrimitiveRoot ε D)
+    (ℓ : K → K) (t : K) :
+    (4 : K)⁻¹*(∑ j ∈ Finset.range 4,
+      cyclotomicLogDiscComplement 4 (-1) η ε hε ℓ ((-1 : K)^j*(1+t)-1))=0 := sorry
+end Field
+section Normed
+variable {K : Type*} [NormedField K] [IsUltrametricDist K] [CharZero K]
+variable {D : ℕ} [NeZero D]
+variable (η : DirichletCharacter K D) (hD : 1<D) (ε : K) (hε : IsPrimitiveRoot ε D)
+variable (hDK : ‖(D : K)‖=1) (h2 : ‖(2 : K)‖<1) (ℓ : K → K)
+variable (hlocal : ∀ x u : K, x≠0 → ‖u‖<1 →
+  HasSum (fun n : ℕ => coeff n (log K)*u^n) (ℓ (x*(1+u))-ℓ x))
+include hD hDK h2 hlocal
+-- dyadic_normalized_difference
+example : cyclotomicLogDiscComplement 2 (-1) η ε hε ℓ 2=
+    ((∑' n : ℕ, coeff n (tameNormalizedLogPrimitive η ε hε)*(2 : K)^n)-
+      (∑' n : ℕ, coeff n (tameNormalizedLogPrimitive η ε hε)*(-4 : K)^n))/2 := sorry
+-- shifted_local_law_same_complement
+example (b : K) : cyclotomicLogDiscComplement 2 (-1) η ε hε (fun x => ℓ x+b) 2=
+    cyclotomicLogDiscComplement 2 (-1) η ε hε ℓ 2 := sorry
+-- dyadic_complement_series
+example : HasSum (fun n : ℕ => coeff n (tameLogPrimitive η ε hε ℓ)*
+      (((2 : K)^n-(-4 : K)^n)/2))
+    (cyclotomicLogDiscComplement 2 (-1) η ε hε ℓ 2) := sorry
+end Normed
+end SuggestedLogarithmicDiscComplementTests
+end
