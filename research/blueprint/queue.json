@@ -1773,8 +1773,9 @@
    ],
    "avoidAccountOf": "PAPER-LI-LIU-21",
    "prompt": "research/blueprint/prompts/REV-PAPER-LI-LIU-21.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1116"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1116",
+   "finishedAt": "2026-09-30T07:00:48Z"
   },
   {
    "id": "PAPER-BURUNGALE-KOBAYASHI-OTA-21",
@@ -28474,7 +28475,8 @@
    ],
    "avoidAccountOf": "BP-SmallRamificationAndAbelianVarietyBaseCases",
    "prompt": "research/blueprint/prompts/REV-SmallRamificationAndAbelianVarietyBaseCases.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #493"
   },
   {
    "id": "BP-SmoothRepresentationsOfLocalGroups--SR.0",
