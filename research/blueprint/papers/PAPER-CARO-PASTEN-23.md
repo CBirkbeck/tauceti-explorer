@@ -1,3 +1,107 @@
+# Continuation: extraction routes and the publication boundary
+
+Codex — codex-J6LwjP; issue #1235; 30 September 2026. **Partial checkpoint: publication collation outstanding.**
+
+Every active missing item in the read preprint now has exactly one route. There are **181 active items: 14 library, 17 planned and 150 missing; 17 routes; 19 preprint-scoped source issues**. Seven false or superseded printed-claim records have moved to `supersededSourceItems`, with their original records, error IDs and corrected replacement IDs preserved. They are no longer potential theorem targets. The weaker threshold in the retired Lemma 5.5(i) record is *unproved by the printed argument*, not claimed false.
+
+The current [PROTOCOL §16](../PROTOCOL.md#16-papers-extraction-and-routing) assigns proof closure of cited results, APIs and supplier audits to the owning blueprints. They no longer justify withholding an extraction item or keeping an extraction partial. This continuation supersedes that aspect of the historical reports below. Their mathematical arguments and qualifications remain historical evidence; this is not an independent review of the W1–W8 or L1–L3 repairs.
+
+## What still prevents completion
+
+The assigned source is the **2023 Inventiones article, 54 pages**. The public **2021 arXiv v2 has 39 pages** and materially different endpoints. On 30 September the canonical [Springer PDF request](https://link.springer.com/content/pdf/10.1007/s00222-023-01217-1.pdf) again returned an HTML subscription preview, not a PDF. The public article acknowledgement records an earlier Lemma 3.15 mistake but does not expose the revised lemma or proof. The [arXiv history](https://arxiv.org/abs/2102.01055) still lists only v1/v2. Caro's current research page offers no download; the indexed Pasten page points to arXiv. No shared collation PDF was available. The fresh Crossref record has no update relation; this does not prove there is no correction in the inaccessible article.
+
+Freshly read **all 39 pages**, including proofs and bibliography, and checked the diagrams and selected formulas as images on pages 7, 12, 13, 14, 28, 29 and 37. The PDF SHA-256 is `d7398c4bc32d7ce631e8397145e63276e33f037070a252ba16442c01500c67f7`, identical to earlier downloads. The JSON retains URL, retrieval time, content type, size and hash for the PDF and acquisition attempts. `sourceVersions` lists only the preprint actually read as a mathematical text. The publisher preview is kept among acquisition records; it is deliberately not declared a read published version.
+
+**G0 is the remaining corpus blocker:** acquire the full version of record or a demonstrably matching final author copy, read it completely, and reconcile its results, domains, constants and corrections. The inherited Balakrishnan–Caro selection cites a published +5 bound on W₂; this continuation does not substitute that later citation for the missing article. The routed +3/C^(2) endpoints are expressly the preprint's statements, with the separately identified geometric repair as future proof work. No statement that the 2023 paper contains any of the recorded errors is made.
+
+## Routing decisions
+
+| Owner | Added or clarified responsibility |
+| --- | --- |
+| Existing Surface Chabauty Part II | The nine previously withheld preprint endpoints and weighted sum, the separate geometric alternatives of Lemma 9.3, and the valid general-type part of Corollary 10.5. Its rewritten brief gives the full local theorem, number-field/Q specializations, density-one application and both nonhyperelliptic symmetric-square bounds. |
+| Existing Formal Lie Theory Part II | Separate Lemma 7.7 convergence, inverse-coordinate and group-isomorphism parts; separate generic, integral and reduced closed-immersion assertions; explicit integral multiplication and identity series. |
+| Several complex variables and Kähler geometry, Part II: hyperbolicity of surfaces in complex tori | Brody's definition and compact comparison, the exact surface specialization of Green used by CP, and general-type consequences. The existing CV.0–CV.6 layers contain analytic/Kähler geometry but no such theorem. This new supplier imports their carriers, abelian uniformization and surface geometry. |
+| Abelian schemes and arithmetic moduli, Part II: density of geometrically simple reductions | CP Lemma 10.2 for odd-dimensional A/Q with End(A_C)=Z. A4–A6 and arithmetic Galois R01.5/R01.6 do not contain this density conclusion. Chavdarov/Serre proof development is assigned here. Yu /135 is explicitly recorded as a distinct finite-field-family consumer with which shared monodromy/sieve infrastructure must be coordinated. |
+| Existing ED.4 | Additional source work for the precise number-field Chabauty theorem. Its current description is over Q and does not establish the larger field scope merely by mentioning variants. The Q Coleman bound remains a planned import. |
+| Existing WC.1 | The cited Dwork rationality theorem, already within its zeta-rationality target. No duplicate zeta function is proposed. |
+
+The two new supplier briefs name their terminal theorems and imports. The hyperbolicity brief makes no general-dimensional hyperbolicity-to-general-type claim. The simple-reduction brief does not confuse irreducibility of one Frobenius polynomial with geometric simplicity, or a theorem for finite-field families with the number-field result. The density-one prime set is chosen from A before choosing X.
+
+## Inventory and source corrections
+
+The seven historical printed records correspond to E1, E2, E5, E7 (two records), E9 and E13. Their corrected replacements were already present and routed. Moving these records prevents an invalid theorem from being treated as an additional formalization target while retaining a reversible provenance trail.
+
+Restored the full arbitrary-scheme local/global differential pullback square of Lemma 4.3; the previous extraction unnecessarily restricted the source to one affine point. The sharpness example now repeats its ambient surface and forms, rather than referring to a removed false item as “the same two forms”. Corrected the pinned `Module.length_ne_top` locator to lines 106–108. The finite-difference construction is labelled as the inherited explicit repair; it no longer claims direct identification with an unread Bourbaki original.
+
+Six newly recorded v2 findings accompany the existing E1–E13:
+
+- **E14:** two differential-sheaf subscripts in diagrams (4.3) and Lemma 8.11 are ill-typed; use the sheaves on Y and A′ respectively.
+- **E15:** the homogeneous degree-h exponential term has denominator h!, not the unrelated truncation factorial m!; degree zero is handled separately.
+- **E16:** the Remark 4.7 differential quotient must use the ideal (z³,3z²), not (z,3z²). This is distinct from its incorrect jet coordinates in E2.
+- **E17:** the Abel map subtracts the chosen degree-two divisor d₀, not an undefined b₀.
+- **E18:** the Lemma 4.8 proof must separate m=0 before inferring that a lift of z is a regular parameter. The theorem's point case remains true.
+- **E19:** the multi-index convention has α∈Nⁿ, not N.
+
+Each has a locator, printed formula, correction, reason, impact, version and correction-search record. Their status in the publication is unknown. The separate errata ledger is outside this issue's edit scope and is unchanged.
+
+## Library and ownership verification
+
+At the exact pinned commits, freshly read the actual statements for all fourteen inherited library items: the abelian-variety and tangent carriers, ring Kähler differentials, the one-dimensional formal-group carrier, the Gauss-index and multiplicativity lemmas, module-length lemmas, scalar finite-field Frobenius, factorial valuations, ultrametric dominance and contraction fixed points. No paper-specific theorem was promoted to `library` merely from its name.
+
+The reviewed AUDIT-01, AUDIT-08, AUDIT-09, AUDIT-19 and AUDIT-25 records still separate built primitives from missing scheme intersection, invariant-lattice, zero-count, finite-field geometric and Banach-algebra constructions. **L0 now has the reviewed AUDIT-25 record**; the historical statement that no reviewed L0 record was located is superseded. No AdicSpacesPartII F0/R1/R2 reviewed row was found; those imports remain based on their named roadmap scope.
+
+The actual JacobianChallenge C/D/F descriptions explicitly plan symmetric powers, Picard/Jacobian construction and Abel maps, so their carrier import is retained. Tau Ceti's unit-disc Poincaré distance and Schwarz–Pick inequality were inspected; they do not supply compact-manifold Brody/Kobayashi theory. Current CV and complex-comparison scopes, arithmetic Galois stages and existing Yu /135 routing were checked for overlap. This continuation uses atlas commit `e7374e70f6c6a3ba9c3b7b92f5fda302259dd34d`.
+
+## Validation and handoff
+
+The paper checker and intake deliverable checks pass. Inventory guards verify 181 unique active IDs, exact-once routing for all 150 missing items, exact preservation of all seven historical records, valid corrected replacement references, and version coverage for all nineteen findings. All 28 selected dependency edges resolve and form a DAG. The §18 version validator passes, and the collation tool still reports `preprint`, so this checkpoint does not accidentally clear G0. Manual image checks cover the diagram types and the m=0 proof case. The executable regression below passes 23 exact polynomial, quotient and threshold assertions. No Lean file was requested or compiled; no new proof closure or independent mathematical acceptance is claimed.
+
+```python
+from fractions import Fraction as Q
+from math import factorial
+checks=0
+def check(q):
+ global checks
+ assert q;checks+=1
+def add(a,b,p):return tuple((x+y)%p for x,y in zip(a,b))
+def mul(a,b,p):return tuple(sum(a[i]*b[k-i] for i in range(k+1))%p for k in range(3))
+def deriv(a,p):return (a[1]%p,2*a[2]%p,0)
+def omega(a):return a[:2] # quotient by 3 z^2 dz when p!=3
+for p in [5,7,11,13]:
+ zero=(0,0,0);z=(0,1,0)
+ def pulls(s1,s2):
+  ds1=deriv(s1,p);ds2=deriv(s2,p)
+  return tuple(omega(add(ds1,mul(mul(s,s,p),ds2,p),p)) for s in [s1,s2])
+ check(pulls(zero,z)==((0,0),(0,0)))
+ check(pulls(z,zero)==((1,0),(1,0)))
+ # Explicit finite-dimensional quotient sizes: the relation 3z^2 spans p
+ # vectors, whereas the ideal generated by z spans p^2 vectors.
+ corrected={(0,0,3*a%p) for a in range(p)}
+ printed={(0,a,b) for a in range(p) for b in range(p)}
+ check(p**3//len(corrected)==p**2)
+ check(p**3//len(printed)==p)
+# Δ²(X)=[2](X)-2[1](X)=X² for the multiplicative formal law.
+mult2=[Q(0),Q(2),Q(1)];mult1=[Q(0),Q(1),Q(0)]
+delta=[a-2*b for a,b in zip(mult2,mult1)]
+check(delta==[0,0,1])
+check(delta[2]/factorial(2)==Q(1,2))
+check(delta[2]/factorial(3)!=Q(1,2))
+s=6;p=7
+check(Q(2*s**2,9)==8)
+check(Q(2*s,3)==4)
+check(p>s and p<Q(2*s**2,9))
+check(Q(128*s**2,9)==512)
+print(checks,'exact polynomial/quotient/threshold assertions passed')
+```
+
+Resume only with the final text: collate all published numbered results and source issues, update the inventory and briefs to that version, and then obtain independent review. Do not repeatedly return the job to partial status merely because its future blueprint proofs have not been written.
+
+---
+
+# Historical continuation reports
+
+The material below is retained as earlier work. The publication boundary and completion policy above take precedence over the older “withheld” and proof-closure language.
+
 # Continuation: the first residue ball and integral annihilators
 
 Codex — codex-c83e7a; issue #1235; 23 September 2026. **Partial checkpoint.**
