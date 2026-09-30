@@ -2370,8 +2370,10 @@
     "command": "python3 scripts/check_links.py research/blueprint/links/tauceti_TauCetiRoadmap_NumberFieldArithmetic.json"
   },
   "review": {
-    "status": "pending",
-    "notes": "Confirmed red-team findings /1 and /2 add three scoped input links and correct two examined notes. A new independent review is required before promotion; the original acceptance is retained under reviewHistory. Faltings' existing restricted-ramification gap remains open."
+    "status": "accepted",
+    "reviewer": "independent-review-REV-FIX-RT-LINK-tauceti_TauCetiRoadmap_NumberFieldArithmetic",
+    "date": "2026-09-30",
+    "notes": "Independent review by Claude Code (cc-c2c06b) of FIX-RT-LINK-tauceti_TauCetiRoadmap_NumberFieldArithmetic (Codex codex-5ebb6f, issue #5032) for the two confirmed findings; it follows REV-LINK-tauceti_TauCetiRoadmap_NumberFieldArithmetic (accepted 2026-09-23, kept under reviewHistory). Checked against the verdicts and the fix commit's diff: exactly three links are added (NFA Layer 1 -> ArithmeticGaloisDuality:R02.3; NFA Layers 4 and 6 -> FaltingsFinitenessAndIsogenyTheorems:R28.1), the original 61 links and ten overlaps are unchanged, and the two examined entries are corrected to 'links'. All five endpoints are atlas stages. All six evidence quotes match their source files at the stated line locators (NFA README lines 607, 1139, 1817-1818; ArithmeticGaloisDuality README line 48; Faltings README line 28). The reasons keep the verifiers' scope: /1 supplies only finite compositum closure of extensions unramified outside S, leaving the infinite union, Krull topology, Galois quotient and cohomology to R02.3; /2 supplies discriminant assembly (with the pinned TauCeti.relDiscr_tower, Separable.lean:50) and the wild different bound, while the degree-and-S discriminant bound, NumberField.finite_of_discr_bdd (Mathlib Discriminant/Basic.lean:496) and fixed-closure counting stay open in the accepted Hermite-Minkowski gap. Reachability over data/atlas.json stage edges and requires plus every research link file: neither consumer reaches its supplier, so all three links are acyclic. No correction was needed. check_links.py: 0 errors, 0 warnings (64 links, 10 overlaps, 212 examined)."
   },
   "reviewHistory": [
     {
