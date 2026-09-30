@@ -16,7 +16,7 @@
       "Comparison with arXiv 1506.01466v5, 1 December 2015"
     ]
   },
-  "summary": "André-Oort for A_g through discriminant-orbit and CM lift-height bounds. This continuation makes the quadratic-Hecke deduction of the CM height bound explicit at the imported-theorem level, identifies the existing discriminant tower theorem, and assigns quantitative extensions without duplicating the general CM, height or analytic foundations. The four mixed-Shimura items are routed to LD.6 as a source-scoped André–Oort endpoint; recursive primary-proof checks of cited sources remain prerequisite work.",
+  "summary": "André–Oort for A_g through discriminant-orbit and CM lift-height bounds. Shared LogicAndDefinabilityPartII supplies functional-transcendence foundations; ShimuraVarietiesPartII supplies general mixed geometry, relative orbit and conditional André–Oort. LD.6 assembles only arithmetic applications and its counting refinements. AN.4/AN.5 import existing Euler products; R35.2 owns one metric adapter. E9–E12 explicitly record the repaired Artin contour, unpolarized rigidity, sign and degree passages. Independent fix review remains pending.",
   "agent": {
     "name": "Claude Code",
     "session": "cc-fb70e5",
@@ -355,6 +355,31 @@
       "additionalReads": "Pila-Tsimerman 2014 pp. 663, 670, 673-678 and references; Pila-Tsimerman 2013 arXiv §3 and Lemma 4.1 pp. 3-10; Tsimerman 2012 arXiv §§7.1-7.2 pp. 17-22; Gao arXiv v6 §13 pp. 46-50; Yuan-Zhang pp. 534-535; Thorner-Zaman pp. 1139-1142; Masser-Wustholz printed pp. 6-7, 23-24; Silverberg-Zarhin introduction; Pila 2011 pp. 1792-1793. These are selected primary-source reads, not full-proof certification.",
       "pila2011Sha256": "cef3f37837e592309f4200b36a998ef2f1bb9c0d7c9267d5879b440effdc3bf4",
       "sourceIssueStorage": "Existing E1-E5 remain in the errata deliverable; sourceIssues here contains only newly recorded E6-E8."
+    },
+    "fix4985": {
+      "worker": "Codex — codex-5ebb6f",
+      "issue": 4985,
+      "date": "2026-09-30",
+      "inputRevision": "ac4bad49de4975fbd69d14d9cda2d8b636a822d6",
+      "readExtent": "Selected fresh reads in sourceVersions; preserves the attributed full extraction/review reads. Pins unchanged.",
+      "historicalSourceVersions": [
+        {
+          "kind": "published",
+          "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v187-n2-p02-p.pdf",
+          "read": "2026-09-23",
+          "sha256": "43259ca3cfedfb574bf1fe2f80e1023cb736ea299a76588536fd816340722abc",
+          "attribution": "REV-PAPER-TSIMERMAN-18 codex-hjdg0j; inherited full/selected read in provenance.independentReview"
+        },
+        {
+          "kind": "preprint",
+          "url": "https://arxiv.org/pdf/1506.01466v5",
+          "read": "2026-09-23",
+          "sha256": "ccc5f8beb50e11fc46bdaf1f05ae5718d26280643698585dcca3ddb99dc3ee9c",
+          "attribution": "REV-PAPER-TSIMERMAN-18 codex-hjdg0j; inherited full/selected read in provenance.independentReview"
+        }
+      ],
+      "review": "Independent REV-FIX-RT-PAPER-TSIMERMAN-18 pending; the earlier eleven-route paper review does not approve the revised twelve-route proposal.",
+      "scopeNote": "The separately owned errata file is not an issue-4985 deliverable. Its E1–E5 remain linked, unchanged, with their existing independent verdicts; the maintainer must add its missing sourceVersions in that file’s own job."
     }
   },
   "items": [
@@ -702,7 +727,8 @@
       "status": "missing",
       "dependsOn": [
         "PAPER-TSIMERMAN-18/stable-faltings-height"
-      ]
+      ],
+      "note": " E11 records the published word positive: the real lower constant c_g of Theorem 2.1 need not be positive. In the printed unscaled metric the j=0 elliptic example has height approximately -1.66769. The averaged-to-individual inequality is unchanged."
     },
     {
       "id": "PAPER-TSIMERMAN-18/cm-class-number",
@@ -973,16 +999,19 @@
       "statement": "For the relevant nontrivial Artin factors, prove two-sided subpolynomial control of the nonzero values at 1 using Brauer induction and bounded-degree Hecke/Brauer-Siegel inputs, allowing ineffective constants.",
       "locator": "Proof of Corollary 3.3, p. 384",
       "status": "missing",
-      "note": "Brauer pole cancellation and trivial-character factors need explicit handling; an upper bound alone does not bound the reciprocal. Original Artin-route obligation retained for source fidelity. The verified quadratic-Hecke deduction of the height bound does not assert this stronger general-Artin interface proved."
+      "note": "Only the finite nonzero value at s=1 is used, with two-sided control for its reciprocal; no disc of holomorphy is claimed. Brauer pole cancellation and trivial-character factors require explicit handling. E9 records the unavailable printed fixed-radius derivative argument; the quadratic-Hecke replacement does not certify the individual-Artin branch."
     },
     {
       "id": "PAPER-TSIMERMAN-18/artin-derivatives",
       "kind": "theorem",
-      "name": "Derivative estimate for the height proof",
-      "statement": "Establish |L'(1,conjugate(rho))|<=C_{g,epsilon}|Disc(E)|^epsilon for the relevant factors, or a direct logarithmic-derivative bound sufficient for Corollary 3.3.",
+      "name": "Factorwise logarithmic derivative at one",
+      "statement": "For a nontrivial irreducible Artin factor of the bounded-degree normal closure used in the height formula, with L(1,conjugate(rho)) finite and nonzero, use a Brauer identity L(s,conjugate(rho)) = product_i L(s,chi_i)^n_i. Prove the required subpolynomial bound at s=1 for L_prime/L by summing n_i times the Hecke logarithmic derivatives. If trivial Hecke factors occur, first remove their poles and prove cancellation of their total orders; evaluate the regularized factors, not separate infinite values. Constants depend only on g and epsilon and may be ineffective. This is a missing source obligation, not the printed fixed-radius Cauchy estimate for L_prime.",
       "locator": "Proof of Corollary 3.3, p. 384; [10], (5.2)",
       "status": "missing",
-      "note": "The source sketches Cauchy plus convexity. Justify the contour or work at the Hecke/averaged-expression level without assuming Artin holomorphy; this interface remains open in the extraction. Original Artin-route obligation retained for source fidelity. The verified quadratic-Hecke deduction of the height bound does not assert this stronger general-Artin interface proved."
+      "note": "E9 records why the printed arbitrary-Artin Cauchy/convexity argument is unavailable: Brauer denominators can have zeros, and no uniform fixed-radius holomorphic disc is supplied. The factorwise logarithmic identity is meromorphic before the stated cancellation/nonvanishing checks. The quadratic-Hecke height chain already present is the certified deduction from imported contracts; it does not prove this stronger individual-Artin obligation.",
+      "dependsOn": [
+        "PAPER-TSIMERMAN-18/artin-values"
+      ]
     },
     {
       "id": "PAPER-TSIMERMAN-18/cm-height-subpolynomial",
@@ -1037,7 +1066,8 @@
           "where": "PAPER-TSIMERMAN-18/endomorphism-definition, PAPER-TSIMERMAN-18/bounded-field-definition",
           "how": "These extracted consumers use this carrier and its comparison maps; promote any required API lemma to an explicit node in the later blueprint."
         }
-      ]
+      ],
+      "note": " E10 records the published unpolarized rigidity error. The field of moduli here is that of the polarized pair (A,lambda), and full level-three structure rigidifies that pair; no rigidity for unpolarized A is used. Lemma 4.1 is absent from v5."
     },
     {
       "id": "PAPER-TSIMERMAN-18/endomorphism-definition",
@@ -1059,7 +1089,7 @@
       "statement": "For polarized dimension-g A with field of moduli F, there is F'/F of degree <=2*3^(4g^2) defining A, all its endomorphisms and all its polarizations.",
       "locator": "Lemma 4.1, pp. 384-385",
       "status": "missing",
-      "note": "This published lemma is absent from arXiv v5.",
+      "note": "This published lemma is absent from arXiv v5. E10 records the published unpolarized rigidity error. The field of moduli here is that of the polarized pair (A,lambda), and full level-three structure rigidifies that pair; no rigidity for unpolarized A is used. Lemma 4.1 is absent from v5.",
       "dependsOn": [
         "PAPER-TSIMERMAN-18/level-three-descent",
         "PAPER-TSIMERMAN-18/endomorphism-definition"
@@ -1069,10 +1099,10 @@
       "id": "PAPER-TSIMERMAN-18/cm-common-definition-field",
       "kind": "theorem",
       "name": "Common small field for the CM pair",
-      "statement": "Fix the polarized A and its field of moduli F_A. Over the extension F_A' of Lemma 4.1, the O_E-endomorphisms and the ideal kernel T_I are defined, so B=A/T_I descends there. Choose on B a polarization descended along this quotient from a suitable multiple of the polarization on A, also over F_A'. Its polarized moduli field F_B is then contained in F_A'. Apply Lemma 4.1 to this polarized B and take F_A'F_B'; it defines A,B and their full 3-torsion, and has degree over F_A at most 4*3^(8g^2).",
+      "statement": "Fix the polarized A and its polarized field of moduli F_A. Over the extension F_A_prime of corrected Lemma 4.1, the O_E-endomorphisms and the ideal kernel T_I are defined, so f:A→B=A/T_I is defined there. Choose an integer n killing T_I; multiplication [n] factors through f as a defined isogeny g:B→A with g∘f=[n]. Give B the pullback polarization g^*lambda_A, defined over F_A_prime. Its polarized moduli field F_B is contained in F_A_prime. Apply corrected Lemma 4.1 to (B,g^*lambda_A); F_A_prime F_B_prime defines A,B and their full 3-torsion and has degree over F_A at most 4*3^(8g^2).",
       "locator": "Proof of Theorem 4.2, p. 385",
       "status": "missing",
-      "note": "This is an existence construction with a compatible chosen polarization on B, not a bound for an arbitrarily prescribed polarization on B. The isogeny estimate itself is geometric and does not require preserving polarizations.",
+      "note": "E10: a compatible chosen polarization on the ideal quotient repairs the false unpolarized rigidity step. This is an existence construction, not a bound for an arbitrarily prescribed polarization on B. Polarization morphisms are distinguished from chosen ample line bundles; the geometric isogeny estimate does not require preserving polarizations.",
       "dependsOn": [
         "PAPER-TSIMERMAN-18/ideal-isogeny",
         "PAPER-TSIMERMAN-18/bounded-field-definition",
@@ -1436,11 +1466,8 @@
       "name": "Special and weakly special subvarieties",
       "statement": "Use Shimura data and the fixed-factor description to define special and weakly special subvarieties and their lifts. A weakly special fixed factor may be nonspecial; the notions are distinct.",
       "locator": "Published §6.4, p. 388; Pila-Tsimerman 2014 §2 definitions, p. 663, and Theorem 6.1, p. 670",
-      "status": "planned",
-      "planned": [
-        "LogicAndDefinabilityInNumberTheory:LD.6"
-      ],
-      "note": "Import Shimura-data foundations from their owner; LD.6 owns the functional-transcendence interface.",
+      "status": "missing",
+      "note": "Import pure Shimura data from ShimuraData and analytic/algebraic quotients from ShimuraVarieties. This definition and the special-point promotion are shared with PAPER-MOK-PILA-TSIMERMAN-19/2, on its pending LogicAndDefinabilityPartII route; LD.6 consumes them. Do not send subvarieties of a quotient back to D4, which precedes that quotient.",
       "api": [
         {
           "name": "ShimuraSpecial.ofSubdatum",
@@ -1485,11 +1512,11 @@
     {
       "id": "PAPER-TSIMERMAN-18/algebraic-point-height",
       "kind": "definition",
-      "name": "Height and degree for algebraic lifts",
-      "statement": "Use absolute multiplicative Weil height on algebraic coordinates and maximum height on coordinate tuples. Fix the coordinatewise algebraic degree bound before counting; transport heights under finite field extension and between complex entries and real-imaginary coordinates by named comparisons.",
+      "name": "Algebraic tuple height and comparison adapters",
+      "statement": "Import the absolute coordinate height NumberField.absMulHeight₁ and its logarithm; for a finite algebraic coordinate tuple use the maximum of those heights (the counting height, not projective tuple height). The remaining RP.0 target is compatibility under finite field extension and named degree/height comparisons from complex entries to real and imaginary coordinates, with a fixed coordinatewise degree convention.",
       "locator": "Published §6.2, p. 387; Pila 2011, p. 1793",
       "status": "planned",
-      "note": "RP.0 supplies absolute heights and field-extension compatibility. The specific Siegel-coordinate comparison belongs to the CM lift theorem, not to a second height definition in LD.6.",
+      "note": "The coordinate height is already the pinned Mathlib definition; fix-coordinate-height-library records it separately. Tuple counting uses its maximum. Planned RP.0 refers only to the extension and complex-to-real comparison APIs; bounded-degree Northcott remains its separate planned item. No absolute-height construction is repeated at LD.6.",
       "planned": [
         "HeightsRationalPointsAndObstructions:RP.0"
       ],
@@ -1524,6 +1551,13 @@
           "where": "PAPER-TSIMERMAN-18/cm-lift-degree, PAPER-TSIMERMAN-18/cm-lift-height, PAPER-TSIMERMAN-18/pila-wilkie, PAPER-TSIMERMAN-18/cm-siegel-reduction-height",
           "how": "These extracted consumers use this carrier and its comparison maps; promote any required API lemma to an explicit node in the later blueprint."
         }
+      ],
+      "library": [
+        "mathlib:NumberField.absMulHeight₁",
+        "mathlib:NumberField.absLogHeight₁"
+      ],
+      "dependsOn": [
+        "PAPER-TSIMERMAN-18/fix-coordinate-height-library"
       ]
     },
     {
@@ -1537,7 +1571,7 @@
         "PAPER-TSIMERMAN-18/siegel-uniformization",
         "PAPER-TSIMERMAN-18/algebraic-point-height"
       ],
-      "note": "The inspected 2013 arXiv text says at most 4g for entries in its simple-case construction; the 2014 text uses 2g. This checkpoint retains only a dimension-dependent bound, does not identify it with joint coordinate-field degree, and leaves the numerical/convention reconciliation explicit."
+      "note": "E12 records the unsupported printed numerical bound 2g. For a CM field/type the Hodge-plane stabilizer is the type stabilizer, so complex period coordinates lie in its reflex field, whose degree is at most the number 2^g of CM types; an integral symplectic reduction preserves that field. Products give a dimension-dependent bound too. Real/imaginary conversion needs its own adapter (a safe coarse bound 2^(g+1) suffices). Retain d_g and the coordinatewise counting convention. No exact 2g field-degree theorem is imported from either cited sketch."
     },
     {
       "id": "PAPER-TSIMERMAN-18/cm-lift-height",
@@ -1570,14 +1604,12 @@
       "name": "Definable restricted uniformization",
       "statement": "Restricted Siegel uniformization on the chosen fundamental set is definable in R_an,exp, so its inverse image of algebraic V intersected with that set is definable.",
       "locator": "Published §6.3, p. 388",
-      "status": "planned",
-      "planned": [
-        "LogicAndDefinabilityInNumberTheory:LD.6"
-      ],
+      "status": "missing",
       "dependsOn": [
         "PAPER-TSIMERMAN-18/siegel-uniformization",
         "PAPER-TSIMERMAN-18/o-minimal-real-field"
-      ]
+      ],
+      "note": "The A_g instance of PAPER-MOK-PILA-TSIMERMAN-19/8, with Peterzil–Starchenko as primary source, has one owner in LogicAndDefinabilityPartII. It imports o-minimal/counting foundations from the early part of LD.6 and exports to LD.6 applications; an import of the whole application stage would create a cycle."
     },
     {
       "id": "PAPER-TSIMERMAN-18/algebraic-part",
@@ -1625,9 +1657,9 @@
     {
       "id": "PAPER-TSIMERMAN-18/pila-wilkie",
       "kind": "theorem",
-      "name": "Bounded-degree Pila-Wilkie",
-      "statement": "For definable T, a fixed algebraic degree bound d and epsilon>0, the number of degree-<=d points of height <=X in T outside T_alg is O_{T,d,epsilon}(X^epsilon). Include the extension from rational points.",
-      "locator": "Published Theorem 6.1, p. 388; Pila-Tsimerman 2014 proof of Theorem 7.1, p. 676; Pila 2011 Theorem 3.2, p. 1793",
+      "name": "Rational-point Pila–Wilkie counting",
+      "statement": "For X⊂R^n definable in a fixed o-minimal expansion of the real field and epsilon>0, there exists C_{X,epsilon}>0 such that for every T>=1 the rational points of maximum coordinate height <=T in X outside X_alg number at most C_{X,epsilon} T^epsilon. X_alg is the union of positive-dimensional connected semialgebraic subsets. This item counts rational points only.",
+      "locator": "Pila–Wilkie 2006 rational-point theorem; restated as Pila 2009 Theorem 1.4, author-copy p.2",
       "status": "planned",
       "planned": [
         "LogicAndDefinabilityInNumberTheory:LD.6"
@@ -1636,7 +1668,7 @@
         "PAPER-TSIMERMAN-18/algebraic-part",
         "PAPER-TSIMERMAN-18/algebraic-point-height"
       ],
-      "note": "Pila 2011 explicitly uses coordinatewise degree and maximum absolute multiplicative Weil height. Its cited proof source is Pila 2009 for degree greater than one; the original rational-point Pila-Wilkie paper alone does not supply that extension."
+      "note": "LD.6 explicitly plans the rational-point estimate. The degree-k extension used in the André–Oort proof is the separate missing fix-bounded-degree-counting item; the rational theorem alone is insufficient."
     },
     {
       "id": "PAPER-TSIMERMAN-18/orbit-to-many-lifts",
@@ -1679,11 +1711,8 @@
       "name": "Hyperbolic Ax-Lindemann for A_g",
       "statement": "For algebraic V in A_g, each maximal irreducible complex algebraic subset of pi^{-1}(V) is weakly special in the precise lifted sense.",
       "locator": "6.4, p. 388; [16], Theorem 6.1, p. 670",
-      "status": "planned",
-      "planned": [
-        "LogicAndDefinabilityInNumberTheory:LD.6"
-      ],
-      "note": "The conclusion is weakly special, not automatically special.",
+      "status": "missing",
+      "note": "The conclusion is weakly special, not automatically special. Derive the A_g statement of Pila–Tsimerman 2014 Theorem 6.1 as a corollary of the shared Part II Ax–Schanuel theorem (Mok–Pila–Tsimerman 2019 Theorem 1.1); do not schedule a second proof of the same functional-transcendence interface.",
       "dependsOn": [
         "PAPER-TSIMERMAN-18/siegel-uniformization",
         "PAPER-TSIMERMAN-18/special-weakly-special"
@@ -1695,13 +1724,11 @@
       "name": "A CM point promotes weakly special to special",
       "statement": "A weakly special subvariety of A_g containing a CM point is special, by the fixed-factor Shimura description.",
       "locator": "6.4, p. 388; [16], Theorem 7.1 proof",
-      "status": "planned",
-      "planned": [
-        "LogicAndDefinabilityInNumberTheory:LD.6"
-      ],
+      "status": "missing",
       "dependsOn": [
         "PAPER-TSIMERMAN-18/special-weakly-special"
-      ]
+      ],
+      "note": " FIX #4985: single shared owner is the pending LogicAndDefinabilityPartII proposed by PAPER-MOK-PILA-TSIMERMAN-19 route 1. LD.6 imports this interface for applications; it does not rebuild it."
     },
     {
       "id": "PAPER-TSIMERMAN-18/finitely-many-exceptional-cm",
@@ -1717,7 +1744,8 @@
         "PAPER-TSIMERMAN-18/semialgebraic-to-complex-algebraic",
         "PAPER-TSIMERMAN-18/hyperbolic-ax-lindemann",
         "PAPER-TSIMERMAN-18/cm-promotes-special",
-        "PAPER-TSIMERMAN-18/special-galois-transport"
+        "PAPER-TSIMERMAN-18/special-galois-transport",
+        "PAPER-TSIMERMAN-18/fix-bounded-degree-counting"
       ]
     },
     {
@@ -1773,7 +1801,7 @@
       "statement": "For a mixed Shimura variety whose pure part is a Shimura subvariety of A_g, the paper records Andre-Oort: every irreducible subvariety with dense special points is special. Apply Gao Theorem 13.6 after supplying Tsimerman's pure Galois-orbit bound; the dimension restriction in Gao's earlier unconditional corollary is thereby removed in this stated scope.",
       "locator": "Published introduction, p. 380; Gao section 13, Theorems 13.3 and 13.6, Remark 13.5",
       "status": "missing",
-      "note": "The section-13 reduction and proof have now been read. This consequence uses the pure ORBIT bound, not merely the already-proved pure Andre-Oort conclusion. Full mixed foundational ownership and earlier Gao theorem proofs remain to be extracted; no claim for all mixed Shimura varieties is made.",
+      "note": "The section-13 reduction and proof have now been read. This consequence uses the pure ORBIT bound, not merely the already-proved pure Andre-Oort conclusion. Full mixed foundational ownership and earlier Gao theorem proofs remain to be extracted; no claim for all mixed Shimura varieties is made. FIX #4985: only this restricted arithmetic assembly remains at LD.6. It imports the mixed foundations/orbit/conditional theorem from ShimuraVarietiesPartII and mixed Ax–Lindemann from LogicAndDefinabilityPartII; no general mixed theory is hidden in prerequisite work.",
       "dependsOn": [
         "PAPER-TSIMERMAN-18/all-cm-orbit-bound",
         "PAPER-TSIMERMAN-18/mixed-conditional-andre-oort"
@@ -1932,11 +1960,11 @@
       "name": "Countable algebraic decomposition of the weakly special locus",
       "statement": "For an algebraic V contained in A_g, the union of its positive-dimensional weakly special subvarieties is a countable union of closed algebraic subvarieties of V.",
       "locator": "Pila-Tsimerman 2014, Lemma 7.5, p. 677",
-      "status": "planned",
-      "planned": [
-        "LogicAndDefinabilityInNumberTheory:LD.6"
-      ],
-      "note": "Use countably many rational Shimura subdata and factorizations, and the algebraic locus where a whole positive-dimensional factor lies in V. Do not infer finiteness from countability alone."
+      "status": "missing",
+      "note": "Pila–Tsimerman 2014 Lemma 7.5: use countably many rational subdata and factorizations, and the closed algebraic whole-fibre containment locus. Single owner LogicAndDefinabilityPartII, refining the countably-many-families interface of PAPER-MOK-PILA-TSIMERMAN-19/2. Countability alone gives no finite-subunion conclusion; that definable application remains at LD.6.",
+      "dependsOn": [
+        "PAPER-TSIMERMAN-18/special-weakly-special"
+      ]
     },
     {
       "id": "PAPER-TSIMERMAN-18/weakly-special-union-definable",
@@ -2066,6 +2094,9 @@
           "where": "PAPER-TSIMERMAN-18/mixed-galois-orbit-factor",
           "how": "These extracted consumers use this carrier and its comparison maps; promote any required API lemma to an explicit node in the later blueprint."
         }
+      ],
+      "dependsOn": [
+        "PAPER-TSIMERMAN-18/fix-mixed-shimura-data"
       ]
     },
     {
@@ -2089,7 +2120,11 @@
       "status": "missing",
       "note": "Imports mixed Ax-Lindemann (Theorem 1.2), the quotient/dimension reduction of Theorem 12.2, definability and bounded-degree counting, not pure Ax-Lindemann with the word mixed substituted. Only section 13 was read in full in this continuation.",
       "dependsOn": [
-        "PAPER-TSIMERMAN-18/mixed-galois-orbit-factor"
+        "PAPER-TSIMERMAN-18/mixed-galois-orbit-factor",
+        "PAPER-TSIMERMAN-18/fix-mixed-shimura-data",
+        "PAPER-TSIMERMAN-18/fix-mixed-ax-lindemann",
+        "PAPER-TSIMERMAN-18/fix-mixed-quotient-reduction",
+        "PAPER-TSIMERMAN-18/fix-bounded-degree-counting"
       ]
     },
     {
@@ -2282,7 +2317,7 @@
         "PAPER-TSIMERMAN-18/hodge-line",
         "PAPER-TSIMERMAN-18/stable-faltings-height"
       ],
-      "note": "Derived comparison, not a quotation of a common normalization. Rescaling the norm downward increases the arithmetic degree. The additive constant is harmless for the height bound but must precede substitution of the exact average formula."
+      "note": "Derived comparison, not a quotation of a common normalization. Rescaling the norm downward increases the arithmetic degree. The additive constant is harmless for the height bound but must precede substitution of the exact average formula. Single owner ArakelovGeometryAndAbelianHeights:R35.2, importing the height construction as needed. The unscaled metric is also AGHMP’s, so the h_YZ=h_T+(g/2)log(2*pi) adapter is the same as its route-11 adapter. Compare the unscaled, (i/2)^g integration and (2*pi)^(-g) metrics with their orientation/absolute-value conventions once; quantitative CM and both averaged-Colmez consumers import this comparison."
     },
     {
       "id": "PAPER-TSIMERMAN-18/quadratic-hecke-averaged-colmez",
@@ -2311,7 +2346,8 @@
         "PAPER-TSIMERMAN-18/cm-hecke-log-functional-equation",
         "PAPER-TSIMERMAN-18/cm-hecke-log-derivative-one",
         "PAPER-TSIMERMAN-18/bost-lower-bound"
-      ]
+      ],
+      "note": " E11 records the published word positive: the real lower constant c_g of Theorem 2.1 need not be positive. In the printed unscaled metric the j=0 elliptic example has height approximately -1.66769. The averaged-to-individual inequality is unchanged."
     },
     {
       "id": "PAPER-TSIMERMAN-18/ideal-coefficient-divisor-majorant",
@@ -2323,7 +2359,7 @@
       "dependsOn": [
         "PAPER-TSIMERMAN-18/small-ideal-count-quadratic-library"
       ],
-      "note": "This proof uses unique ideal factorization and residue degrees, not the numerical quadratic count. The library item supplies compatible ideal/norm carriers only; the coefficient theorem itself is not claimed in the pinned library."
+      "note": "This proof uses unique ideal factorization and residue degrees, not the numerical quadratic count. The library item supplies compatible ideal/norm carriers only; the coefficient theorem itself is not claimed in the pinned library. Single owner AN.5 for the d_n coefficient majorant, beside fixed-divisor-subpolynomial and the existing tau/divisor nodes. Import the ideal Euler-factor carrier from existing ArithmeticDirichletSeries Layer 3; AN.0 was dropped by RS-07 and receives no source obligations."
     },
     {
       "id": "PAPER-TSIMERMAN-18/fixed-divisor-subpolynomial",
@@ -2346,6 +2382,95 @@
         "PAPER-TSIMERMAN-18/cm-height-subpolynomial",
         "PAPER-TSIMERMAN-18/cm-common-definition-field"
       ]
+    },
+    {
+      "id": "PAPER-TSIMERMAN-18/fix-coordinate-height-library",
+      "kind": "definition",
+      "name": "Imported absolute height of an algebraic coordinate",
+      "statement": "For x in any characteristic-zero field with IsIntegral Q x, use NumberField.absMulHeight₁ x, the [Q(x):Q]-th root of the number-field multiplicative height of the generator of Q(x). NumberField.absLogHeight₁ x is its logarithm. The algebraicity hypothesis excludes the definition's junk branch; the height of an empty tuple may be set to 1 by convention.",
+      "locator": "Mathlib pin 082e2d3, Mathlib/NumberTheory/Height/NumberField.lean:137 and 146; Pila 2009 §1, author-copy p.1",
+      "status": "library",
+      "library": [
+        "mathlib:NumberField.absMulHeight₁",
+        "mathlib:NumberField.absLogHeight₁"
+      ],
+      "note": "The actual nonalgebraic branch returns 1, despite the docstring saying 0. This citation covers the coordinate definitions, not extension compatibility, projective height or bounded-degree Northcott."
+    },
+    {
+      "id": "PAPER-TSIMERMAN-18/fix-bounded-degree-counting",
+      "kind": "theorem",
+      "name": "Pila counting with bounded coordinatewise algebraic degree",
+      "statement": "For X⊂R^n definable in a fixed o-minimal expansion of the real field, integer k>=1 and epsilon>0, there exists C_{X,k,epsilon}>0 such that, for all T>=1, points x in X\\X_alg with [Q(x_i):Q]<=k for every coordinate and max_i H(x_i)<=T number at most C_{X,k,epsilon} T^epsilon. Different coordinates may lie in different fields; no joint degree <=k is assumed.",
+      "locator": "Pila, On the algebraic points of a definable set, Selecta Math.15 (2009), Theorem 1.6; author-copy p.2; Tsimerman published §§6.2–6.3, pp.387–388",
+      "status": "missing",
+      "dependsOn": [
+        "PAPER-TSIMERMAN-18/algebraic-part",
+        "PAPER-TSIMERMAN-18/algebraic-point-height",
+        "PAPER-TSIMERMAN-18/pila-wilkie"
+      ],
+      "note": "Missing refinement in the LD.6 counting prefix, shared with the beyond-rational counting programme of PAPER-GAO-HABEGGER-19/30, while its semi-rational family theorem remains distinct. The publisher metadata identifies the 2009 article; the theorem was read in Pila’s 27 June 2008 author copy. This is one cited theorem item, not a decomposition of its proof."
+    },
+    {
+      "id": "PAPER-TSIMERMAN-18/fix-mixed-shimura-data",
+      "kind": "definition",
+      "name": "Mixed Shimura data, varieties and pure projection",
+      "statement": "Use Pink’s mixed datum (P,X,h): P is a connected Q-linear algebraic group with unipotent radical W, normal weight-minus-two subgroup U⊂W and reductive quotient G=P/W. X is P(R)U(C)-homogeneous with equivariant finite-fibre h to Hom(S_C,P_C), satisfying Gao Definition 2.1 conditions (1)–(5): real descent modulo U, mixed-Hodge types {(-1,1),(0,0),(1,-1),(-1,0),(0,-1),(-1,-1)} on Lie P, filtration W_n=0 for n<-2, Lie U for n=-2, Lie W for n=-1 and Lie P for n>=0, conjugation by h_x(i) giving a Cartan involution on G_ad,R and no compact Q-factor of G_ad, and the split/compact centre condition. Choose a Levi splitting P=W⋊G and integral lattices. For compact open K or congruence Gamma define P(Q)\\(X×P(A_f))/K and its connected Gamma\\X^+ component, with neat levels when smoothness is used. The quotient by W gives the pure datum and projection pi. Special subvarieties are connected components of images of subdata and Hecke translates, and special points have dimension zero. Weakly special subvarieties are the components of images of fibres of Shimura morphisms in Gao Definition 5.1.",
+      "locator": "Tsimerman published p.380; Gao arXiv:1310.1302v6 §§2.1–2.2, Definitions 2.1/2.3/2.4, Notation 2.8, pp.6–8; §5 Definition 5.1 p.16; §13.1 pp.46–47",
+      "status": "missing",
+      "note": "Pending ShimuraVarietiesPartII supplies general mixed foundations; C1 supplies only boundary instances. Import the specific universal-abelian-family carrier of PAPER-DIMITROV-GAO-HABEGGER-21/17 from an independently separated early uniformization prefix of AbelianSchemesBettiMapsPartII, not its later Betti-form/non-degeneracy or Ax–Schanuel applications. Do not duplicate that concrete datum, and do not import the whole Betti Part II backwards into mixed foundations.",
+      "api": [
+        {
+          "name": "MixedShimuraDatum.pureQuotient",
+          "role": "constructor",
+          "statement": "The quotient by W is a pure Shimura datum with the induced projection."
+        },
+        {
+          "name": "MixedShimuraVariety.uniformization",
+          "role": "comparison",
+          "statement": "For a fixed connected datum and neat congruence subgroup, Gamma\\X^+ has the uniformization to the mixed variety and compatible pure projection."
+        },
+        {
+          "name": "MixedShimuraVariety.specialSubvariety",
+          "role": "characterisation",
+          "statement": "Special subvarieties arise from subdata and Hecke translates; special points are the dimension-zero cases."
+        }
+      ],
+      "unitTests": [
+        "W=1 recovers a pure datum.",
+        "The universal abelian family recovers the imported DGH21/17 Kuga example without a second implementation.",
+        "Boundary data from C1 is an instance; it does not replace the general carrier."
+      ],
+      "uses": [
+        {
+          "where": "PAPER-TSIMERMAN-18/mixed-special-point-order, PAPER-TSIMERMAN-18/mixed-galois-orbit-factor, PAPER-TSIMERMAN-18/mixed-conditional-andre-oort",
+          "how": "Makes their datum, level, pure projection and special-point hypotheses expressible."
+        }
+      ]
+    },
+    {
+      "id": "PAPER-TSIMERMAN-18/fix-mixed-ax-lindemann",
+      "kind": "theorem",
+      "name": "Gao mixed Ax–Lindemann",
+      "statement": "Let S be a connected mixed Shimura variety with uniformization unif:X^+→S and Y⊂S a closed irreducible subvariety. If Z_tilde is an irreducible complex algebraic subset of X^+ contained in unif^(-1)(Y), maximal with these properties, then unif(Z_tilde) is weakly special. Algebraic means an analytic irreducible component of X^+ intersected with an algebraic subvariety of its algebraic ambient X^vee (Gao Definition 6.1).",
+      "locator": "Gao arXiv:1310.1302v6 Theorem 1.2, p.3, with §6.1 Definition 6.1; cited in proof of Theorem 13.6, pp.49–50",
+      "status": "missing",
+      "dependsOn": [
+        "PAPER-TSIMERMAN-18/fix-mixed-shimura-data"
+      ],
+      "note": "One missing cited theorem for LogicAndDefinabilityPartII, distinct from the pure MPT Ax–Schanuel corollary. Its proof closure belongs to that blueprint and imports general mixed geometry from ShimuraVarietiesPartII; it cannot be obtained by renaming pure Ax–Lindemann."
+    },
+    {
+      "id": "PAPER-TSIMERMAN-18/fix-mixed-quotient-reduction",
+      "kind": "theorem",
+      "name": "Gao mixed quotient reduction",
+      "statement": "For a connected mixed Shimura variety S=Gamma\\X^+ associated with (P,X^+) and a Hodge-generic irreducible subvariety Y⊂S, there exists a normal Q-subgroup N of P and quotient datum/variety map rho:S→S_prime such that Y=rho^(-1)(rho(Y)) and the union of positive-dimensional weakly special subvarieties contained in rho(Y) is not Zariski dense in rho(Y).",
+      "locator": "Gao arXiv:1310.1302v6 Theorem 12.2, pp.42–43; used in Theorem 13.6 proof p.49",
+      "status": "missing",
+      "dependsOn": [
+        "PAPER-TSIMERMAN-18/fix-mixed-shimura-data",
+        "PAPER-TSIMERMAN-18/fix-mixed-ax-lindemann"
+      ],
+      "note": "The statement, not its recursive proof, is an item because the conditional application explicitly uses it. Geometry/reduction belongs to ShimuraVarietiesPartII, importing functional transcendence and only the early definable-counting suppliers."
     }
   ],
   "prerequisites": [
@@ -2386,8 +2511,8 @@
     },
     {
       "citation": "Shimura-Taniyama, Complex multiplication of abelian varieties and its applications to number theory, Math. Soc. Japan 6 (1961)",
-      "link": "https://annals.math.princeton.edu/wp-content/uploads/annals-v187-n2-p02-p.pdf",
-      "why": "Citing-paper reference [17]: Proposition 7.17, section 7.6 Proposition 22 and section 15 Main Theorem 1. The link is to the citation, not a downloaded book. Polarized/reflex-field conventions remain."
+      "link": "https://www.mathsoc.jp/publications/pubmsj/",
+      "why": "Primary MSJ publication record No.6 (1961), not the citing Tsimerman PDF. Proposition 7.17, §7.6 Proposition 22 and §15 Main Theorem 1 are the cited reciprocity sources; full book proof closure remains at the CM blueprint."
     },
     {
       "citation": "Colmez, Periodes des varietes abeliennes a multiplication complexe, Annals 138 (1993), 625-683",
@@ -2396,8 +2521,8 @@
     },
     {
       "citation": "Bost, Arakelov geometry of abelian varieties, MPI report 96-51 (1996)",
-      "link": "https://annals.math.princeton.edu/wp-content/uploads/annals-v187-n2-p02-p.pdf",
-      "why": "Citing-paper reference [3] for the uniform lower bound; the primary report was not obtained."
+      "link": "https://archive.mpim-bonn.mpg.de/id/eprint/707/",
+      "why": "Primary MPIM record for Conference on arithmetical geometry, Berlin March 1996, report 96-51, containing Bost’s contribution. Record checked; the Bost proof was not read in this fix. It is the lower-bound prerequisite, not the Tsimerman citing PDF."
     },
     {
       "citation": "Brauer, On zeta-functions of algebraic number fields, Amer. J. Math. 69 (1947), 243-250",
@@ -2412,7 +2537,7 @@
     {
       "citation": "Peterzil-Starchenko, Definability of restricted theta functions and families of abelian varieties, Duke Math. J. 162 (2013), 731-765",
       "link": "https://doi.org/10.1215/00127094-2080018",
-      "why": "Restricted uniformization definability, existing LD.6 direction."
+      "why": "Restricted Siegel uniformization definability, shared LogicAndDefinabilityPartII supplier (MPT19/8) to LD.6 applications."
     },
     {
       "citation": "van den Dries-Miller, On the real exponential field with restricted analytic functions, Israel J. Math. 85 (1994), 19-56",
@@ -2441,13 +2566,18 @@
     },
     {
       "citation": "Rademacher, On the Phragmen-Lindelof theorem and some applications, Math. Z. 72 (1959), 192-204",
-      "link": "https://msp.org/ant/2017/11-5/ant-v11-n5-p04-p.pdf",
-      "why": "Original proof of the uniform convexity input, quoted explicitly by Thorner-Zaman Lemma 2.3 and their bibliography p. 1197. Link is to that citing primary source, not to an acquired original. Original Rademacher paper not read."
+      "link": "https://doi.org/10.1007/BF01162949",
+      "why": "Primary publisher record, Math. Z.72 (1959/60), 192–204; the original proof remains a prerequisite. The earlier Thorner–Zaman PDF is a secondary source for the convexity contract, not this document."
     },
     {
       "citation": "Pila, O-minimality and the Andre-Oort conjecture for C^n, Annals 173 (2011), 1779-1840",
       "link": "https://annals.math.princeton.edu/wp-content/uploads/annals-v173-n3-p11-p.pdf",
       "why": "Definition 3.1 and Theorem 3.2, pp. 1792-1793, read directly: coordinatewise bounded algebraic degree and maximum absolute multiplicative Weil height. The proof of the algebraic-degree extension is credited there to Pila 2009; retain that recursive proof obligation."
+    },
+    {
+      "citation": "Pila, On the algebraic points of a definable set, Selecta Mathematica (N.S.)15 (2009), 151–170",
+      "link": "https://people.maths.ox.ac.uk/pila/Algebraic.pdf",
+      "why": "Theorem 1.6, author copy dated 27 June 2008 pp.1–2, supplies bounded coordinatewise degree counting beyond the Pila–Wilkie rational theorem. Its primary proof closure belongs to the LD.6 counting blueprint; this fix read the statement and height conventions, not the full proof."
     }
   ],
   "routes": [
@@ -2458,30 +2588,27 @@
         "LogicAndDefinabilityInNumberTheory:LD.6"
       ],
       "items": [
-        "PAPER-TSIMERMAN-18/special-weakly-special",
         "PAPER-TSIMERMAN-18/reduction-to-number-field",
         "PAPER-TSIMERMAN-18/o-minimal-real-field",
-        "PAPER-TSIMERMAN-18/uniformization-definability",
         "PAPER-TSIMERMAN-18/algebraic-part",
         "PAPER-TSIMERMAN-18/pila-wilkie",
         "PAPER-TSIMERMAN-18/orbit-to-many-lifts",
         "PAPER-TSIMERMAN-18/semialgebraic-to-complex-algebraic",
-        "PAPER-TSIMERMAN-18/hyperbolic-ax-lindemann",
-        "PAPER-TSIMERMAN-18/cm-promotes-special",
         "PAPER-TSIMERMAN-18/finitely-many-exceptional-cm",
         "PAPER-TSIMERMAN-18/finite-weakly-special-families",
         "PAPER-TSIMERMAN-18/family-induction",
         "PAPER-TSIMERMAN-18/andre-oort-ag",
         "PAPER-TSIMERMAN-18/normalizer-reductive",
         "PAPER-TSIMERMAN-18/normalizer-special-envelopes",
-        "PAPER-TSIMERMAN-18/weakly-special-countable-union",
         "PAPER-TSIMERMAN-18/weakly-special-union-definable",
         "PAPER-TSIMERMAN-18/definable-countable-algebraic-union-finite",
         "PAPER-TSIMERMAN-18/normal-factor-parameter-locus",
         "PAPER-TSIMERMAN-18/maximal-fibre-isolated-parameter",
-        "PAPER-TSIMERMAN-18/special-galois-transport"
+        "PAPER-TSIMERMAN-18/special-galois-transport",
+        "PAPER-TSIMERMAN-18/fix-bounded-degree-counting",
+        "PAPER-TSIMERMAN-18/mixed-application-interface"
       ],
-      "reason": "LD.6 explicitly plans the Pila-Zannier/Andre-Oort branch with separate arithmetic, definability and functional-transcendence imports. This paper refines that branch rather than creating a duplicate roadmap. Geometric and ordinary-height foundations named in these interfaces remain imports from their owners. The added source-specific section-7 obligations split the previously compressed finite-family argument. A general algebraic-group or canonical-model lemma remains an import from its canonical owner in the later blueprint, not a duplicate implementation in logic."
+      "reason": "LD.6 owns o-minimal/counting foundations and the arithmetic Pila–Zannier/André–Oort application assembly. It receives the missing bounded-coordinate-degree refinement in its counting prefix, then applies the independent orbit and geometric suppliers. Weakly special/special definitions, CM-point promotion, definable Siegel uniformization, Ax–Lindemann and countable weakly-special families are supplied once by the shared LogicAndDefinabilityPartII; mixed definitions, relative orbit and conditional theorem come from ShimuraVarietiesPartII. Only mixed-application-interface stays here. Separate early counting from later applications before adding these mutual roadmap dependencies; an import of LD.6 as a whole into either Part II is forbidden. Generic group and canonical-model ingredients remain imports from their canonical owners."
     },
     {
       "route": "source",
@@ -2501,7 +2628,7 @@
         "PAPER-TSIMERMAN-18/bost-lower-bound",
         "PAPER-TSIMERMAN-18/cm-height-metric-normalization"
       ],
-      "reason": "The Hodge-line and stable-height machinery is already planned here. Attach the Bost lower-bound source to these height exports. Do not duplicate stable height or treat isogeny variation as a quantitative minimum-isogeny-degree theorem."
+      "reason": "The Hodge-line and stable-height machinery is already planned here. Attach the Bost lower-bound source to these height exports. Do not duplicate stable height or treat isogeny variation as a quantitative minimum-isogeny-degree theorem. The metric comparison has exactly one owner, R35.2; the quantitative CM and AGHMP Part II briefs must import it rather than reconstruct it."
     },
     {
       "route": "source",
@@ -2537,14 +2664,13 @@
         "PAPER-TSIMERMAN-18/algebraic-point-height",
         "PAPER-TSIMERMAN-18/northcott-finiteness"
       ],
-      "reason": "RP.0 supplies normalized absolute heights, extension compatibility and bounded-degree Northcott. The accepted audit distinguishes those targets from the already-built fixed-field element theorem. LD.6 consumes this interface and does not own a second ordinary height construction."
+      "reason": "RP.0 supplies extension compatibility, complex-to-real coordinate/degree comparison and bounded-degree Northcott. The absolute coordinate height is imported from pinned Mathlib NumberField.absMulHeight₁/absLogHeight₁; tuple counting takes the maximum. The library fixed-field Northcott theorem does not supply the separate bounded-degree theorem. LD.6 consumes these adapters."
     },
     {
       "route": "source",
       "roadmap": "AnalyticNumberTheory",
       "stages": [
         "AnalyticNumberTheory:AN.4",
-        "AnalyticNumberTheory:AN.0",
         "AnalyticNumberTheory:AN.5"
       ],
       "items": [
@@ -2565,7 +2691,7 @@
         "PAPER-TSIMERMAN-18/ideal-coefficient-divisor-majorant",
         "PAPER-TSIMERMAN-18/fixed-divisor-subpolynomial"
       ],
-      "reason": "AN.4 owns number-field ideal counts and analytic class-number/Hecke/Artin interfaces; AN.0 supplies coefficient/Euler-product comparison and AN.5 fixed-order divisor estimates. Attach the uniform Brauer-Siegel, primitive finite-order Hecke convexity and derivative source obligations here. Import characters from GlobalNumberFields and functional equations from AL.1. The accepted AN.4 decomposition already contains the Tate/Hecke comparison and the Artin-holomorphy distinction; this route adds its uniform analytic estimates, without a second carrier or assumed Artin conjecture. The quadratic character and conductor-discriminant theorem are imported from upstream ClassFieldTheory Layers 11/13 with the GlobalNumberFields dictionary; they are not new AN work."
+      "reason": "AN.4 owns number-field ideal counts and Hecke/Artin analytic comparisons with meromorphic continuation distinguished from holomorphy. AN.5 owns ideal-coefficient-divisor-majorant (the generalisation to d_n) and fixed-divisor-subpolynomial. Import Euler products and ideal/norm carriers from existing ArithmeticDirichletSeries Layer 3, not the dropped AN.0. Uniform Brauer–Siegel, primitive finite-order Hecke convexity and derivative estimates refine AN.4/AN.5. Import characters from GlobalNumberFields, quadratic reciprocity/conductor-discriminant from ClassFieldTheory Layers 11/13 and continuation/completed functional equations from AL.1. E9 records the unavailable printed general-Artin contour; artin-derivatives is a separate missing factorwise logarithmic estimate, with pole cancellation explicitly required. The height consumer uses the entire quadratic-Hecke chain."
     },
     {
       "route": "source",
@@ -2638,7 +2764,7 @@
         "PAPER-TSIMERMAN-18/primitive-orbit-exponent-budget"
       ],
       "reason": "Existing CM.0-CM.6 covers types, reciprocity and explicit class fields. Its stages and the current atlas and proposed-roadmap portfolio do not target general quantitative CM heights, arbitrary-centre-order orbit bounds or all-dimensional lift heights. These additional quantitative layers extend that direction; general CM and geometric foundations stay with their existing suppliers.",
-      "brief": "Build on ComplexMultiplicationAndExplicitReciprocity CM.0/CM.2, importing the general CM theorem from ShimuraVarieties V5, the abelian varieties/Hom/complete reducibility API from AbelianSchemesAndArithmeticModuli A3/A6, and level/coarse descent from PELModuli M6. Import stable Faltings height, normalization, Bost and product identities from ArakelovGeometryAndAbelianHeights R35.1-R35.6; quantitative geometric isogenies from FaltingsFinitenessAndIsogenyTheoremsPartII; uniform analytic estimates from AnalyticNumberTheory AN.0/AN.4/AN.5 and Hecke continuation from AutomorphicLFunctionsAndLocalFactors AL.1. Reuse GlobalNumberFields orders/characters and pinned CM field, regulator, different/discriminant and real class-number-residue declarations. Import the averaged Colmez theorem through the dedicated #1143/#1145 paper routes, including the Yuan-Zhang erratum; construct the normalization/application adapter here rather than duplicate those deep proofs. Target exactly: for every g>=1, primitive maximal-CM polarized dimension-g A has [Q(A):Q]>=c_g*D_E^delta_g for dimension-dependent c_g,delta_g>0; every CM point x in A_g satisfies abs(disc Z(End(A_x)))<=C_g*|Gal(Qbar/Q).x|^b_g; and its chosen Siegel fundamental-set lift has coordinatewise degree bounded in g and height <=C_g*abs(disc Z(End(A_x)))^a_g. Include class-set/ideal-degree imports, distant-isogeny and exponent budgeting, common-field descent, both exact height normalizations, all 2^g types and a real Bost lower constant. Primitive-to-general reduction requires every simple dimension h<=g, product centres with repeated isomorphic fields, nonmaximal orders, the square of the order index, and a separate compact-index comparison including p=2. For lift height, retain lattice covolume/order index, Riemann forms, symplectic bases, quantitative Siegel reduction and complex-to-real coordinate height/degree adapters. Source edition and reciprocity-stabilizer gaps listed in this intake are mandatory acquisition/verification tasks before executable blueprints. Give every carrier an API with positive/negative examples; do not change conditional/unread proof leaves into assumptions presented as theorems. Suggested later file: TauCeti/NumberTheory/ComplexMultiplication/Quantitative.lean. Import ClassFieldTheory Layers 11/13 for quadratic reciprocity characters and conductor-discriminant, and PELModuli M3 with ShimuraVarieties V0/V1 and ShimuraData D5 for the uniformization used by lift heights. The same Part II ID is also proposed by PAPER-YUAN-ZHANG-18 and PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18: merge those dedicated proof branches into one design; this route is their quantitative consumer, not a competing averaged-Colmez construction."
+      "brief": "Build on ComplexMultiplicationAndExplicitReciprocity CM.0/CM.2, importing the general CM theorem from ShimuraVarieties V5, the abelian varieties/Hom/complete reducibility API from AbelianSchemesAndArithmeticModuli A3/A6, and level/coarse descent from PELModuli M6. Import stable Faltings height, normalization, Bost and product identities from ArakelovGeometryAndAbelianHeights R35.1-R35.6; quantitative geometric isogenies from FaltingsFinitenessAndIsogenyTheoremsPartII; uniform analytic estimates from AnalyticNumberTheory AN.4/AN.5, with Euler products imported from ArithmeticDirichletSeries Layer 3 and Hecke continuation from AutomorphicLFunctionsAndLocalFactors AL.1. Reuse GlobalNumberFields orders/characters and pinned CM field, regulator, different/discriminant and real class-number-residue declarations. Import the averaged Colmez theorem through the dedicated #1143/#1145 paper routes, including the Yuan-Zhang erratum; import the metric comparison from ArakelovGeometryAndAbelianHeights R35.2 and construct only the averaged-height application here, without duplicating that comparison or the deep proofs. Target exactly: for every g>=1, primitive maximal-CM polarized dimension-g A has [Q(A):Q]>=c_g*D_E^delta_g for dimension-dependent c_g,delta_g>0; every CM point x in A_g satisfies abs(disc Z(End(A_x)))<=C_g*|Gal(Qbar/Q).x|^b_g; and its chosen Siegel fundamental-set lift has coordinatewise degree bounded in g and height <=C_g*abs(disc Z(End(A_x)))^a_g. Include class-set/ideal-degree imports, distant-isogeny and exponent budgeting, common-field descent, the metric comparison imported from ArakelovGeometryAndAbelianHeights R35.2, all 2^g types and a real Bost lower constant. Primitive-to-general reduction requires every simple dimension h<=g, product centres with repeated isomorphic fields, nonmaximal orders, the square of the order index, and a separate compact-index comparison including p=2. For lift height, retain lattice covolume/order index, Riemann forms, symplectic bases, quantitative Siegel reduction and complex-to-real coordinate height/degree adapters. Source edition and reciprocity-stabilizer proof obligations are recorded for this blueprint’s proof closure; they are not extraction-completeness gates. Give every carrier an API with positive/negative examples; do not change conditional/unread proof leaves into assumptions presented as theorems. Suggested later file: TauCeti/NumberTheory/ComplexMultiplication/Quantitative.lean. Import ClassFieldTheory Layers 11/13 for quadratic reciprocity characters and conductor-discriminant, and PELModuli M3 with ShimuraVarieties V0/V1 and ShimuraData D5 for the uniformization used by lift heights. The same Part II ID is also proposed by PAPER-YUAN-ZHANG-18 and PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18: merge those dedicated proof branches into one design; this route is their quantitative consumer, not a competing averaged-Colmez construction."
     },
     {
       "route": "part-ii",
@@ -2653,18 +2779,37 @@
       "brief": "For every g>=1 prove constants C_g,kappa_g>0 such that geometrically isogenous dimension-g abelian varieties A,B defined over one number field k admit a geometric isogeny of degree <=C_g*max(1,h_F(A),[k:Q])^kappa_g. The isogeny need not be k-defined or polarization-preserving; all constants depend only on g. Decompose Masser-Wustholz Factorization estimates (1995), Theorem II and the final field-degree discussion, acquiring the full proof and prerequisites beyond the inspected statement pages. Import AbelianSchemesAndArithmeticModuli A3/A6 for actual duals, quotients, degrees, Hom and products; ArakelovGeometryAndAbelianHeights R35 for stable height/product comparison; FaltingsFinitenessAndIsogenyTheorems R28 for precisely used qualitative facts. Prove the needed Zarhin/polarization-removal and field-degree estimates, rather than inserting an auxiliary-polarization degree into the final constant. Test a CM pair, negative stable height, product varieties and geometric versus rational isogenies. Export to ComplexMultiplicationAndExplicitReciprocityPartII. Suggested later file: TauCeti/AlgebraicGeometry/AbelianVariety/QuantitativeIsogeny.lean. Exact checked statement locators are Theorem II on printed p. 6 and the field-degree paragraph on p. 23 of Masser-Wustholz 1995."
     },
     {
-      "route": "source",
-      "roadmap": "LogicAndDefinabilityInNumberTheory",
-      "stages": [
-        "LogicAndDefinabilityInNumberTheory:LD.6"
-      ],
+      "route": "part-ii",
+      "parent": "LogicAndDefinabilityInNumberTheory",
+      "roadmap": "LogicAndDefinabilityPartII",
+      "title": "Logic, definability, valued fields and motivic integration, Part II: functional transcendence and Ax–Schanuel for Shimura varieties",
+      "area": "modeltheory",
       "items": [
-        "PAPER-TSIMERMAN-18/mixed-application-interface",
+        "PAPER-TSIMERMAN-18/special-weakly-special",
+        "PAPER-TSIMERMAN-18/cm-promotes-special",
+        "PAPER-TSIMERMAN-18/uniformization-definability",
+        "PAPER-TSIMERMAN-18/hyperbolic-ax-lindemann",
+        "PAPER-TSIMERMAN-18/weakly-special-countable-union",
+        "PAPER-TSIMERMAN-18/fix-mixed-ax-lindemann"
+      ],
+      "reason": "Coalesce with the accepted PAPER-MOK-PILA-TSIMERMAN-19 route 1, whose /2 and /8 already own the same missing special/weakly-special definitions and Siegel definability. Functional transcendence is their supplier to LD.6 applications. The mixed theorem is a distinct extension of this supplier, with general mixed geometry imported from its owner.",
+      "brief": "Use the same pending LogicAndDefinabilityPartII and DESIGN-LogicAndDefinabilityInNumberTheoryPartII as PAPER-MOK-PILA-TSIMERMAN-19 route 1. Preserve its Ax–Schanuel, derivative and differential targets. Share special/weakly-special subvarieties and special-point promotion with MPT19/2; share Peterzil–Starchenko definability of the A_g uniformization on the chosen Siegel fundamental set with MPT19/8. Derive Pila–Tsimerman 2014 Theorem 6.1 for A_g from MPT19 Theorem 1.1, rather than build a duplicate pure Ax–Lindemann proof. Own PT2014 Lemma 7.5 countable algebraic decomposition of the positive-dimensional weakly-special locus, refining MPT19/2’s countable families; definable finite-subunion and arithmetic induction stay in LD.6. Add the distinct Gao 2017 Theorem 1.2: for connected mixed S, closed irreducible Y and a maximal irreducible algebraic subset Z_tilde of unif^(-1)(Y), unif(Z_tilde) is weakly special, with Gao’s ambient-algebraic convention. Import pure geometry from ShimuraData/ShimuraVarieties and mixed geometry from an early foundational prefix of ShimuraVarietiesPartII. Import only the early o-minimality/cell-decomposition/counting prefix of LD.6, never its applications. Export functional transcendence to mixed quotient/conditional André–Oort and LD.6 arithmetic applications. The design must separate these stages and prove acyclicity before promotion; no new stage IDs are supplied by this paper fix. Primary proof closure of cited results belongs to the blueprint, with Gao/Peterzil–Starchenko/PT2014 as named prerequisites."
+    },
+    {
+      "route": "part-ii",
+      "parent": "ShimuraVarieties",
+      "roadmap": "ShimuraVarietiesPartII",
+      "title": "Complex Shimura varieties and canonical models, Part II: mixed Shimura varieties",
+      "area": "arithmeticgeometry",
+      "items": [
+        "PAPER-TSIMERMAN-18/fix-mixed-shimura-data",
         "PAPER-TSIMERMAN-18/mixed-special-point-order",
         "PAPER-TSIMERMAN-18/mixed-galois-orbit-factor",
+        "PAPER-TSIMERMAN-18/fix-mixed-quotient-reduction",
         "PAPER-TSIMERMAN-18/mixed-conditional-andre-oort"
       ],
-      "reason": "LD.6 records source-scoped André–Oort and related proven cases with their exact varieties and hypotheses, built from separate Galois-orbit bounds and functional transcendence. The paper's mixed consequence (p.380) is such a case. Gao's Theorem 13.6 shows that on a connected mixed Shimura variety of abelian type, a subvariety with dense special points is special provided the pure orbit bound (13.8) holds. Tsimerman's Theorem 4.2 supplies (13.8) whenever the pure part lies in A_g, via Gao's relative orbit inequality (Theorem 13.3: |Gal·s| ≥ C_ε N(s)^{1−ε} |Gal·π(s)|, with N(s) the unipotent denominator). The four items are recorded here as a source-scoped endpoint. The owner screen found no general mixed-Shimura owner: ShimuraCompactifications C1 constructs only the mixed data at boundaries and says so explicitly. So the mixed Shimura foundations and Gao's mixed Ax–Lindemann theorem are listed as prerequisite work (Gao, J. reine angew. Math. 732 (2017)), not as items of this paper, and the four items are not placed in the pure CM Part II."
+      "reason": "The pure Shimura roadmap extends in the general mixed direction. C1 constructs boundary mixed data only. No general mixed foundation is planned in the atlas or the proposed-roadmap screen; DGH21/17 constructs the specific universal-abelian-family example at AbelianSchemesBettiMapsPartII, which is imported as an early supplier rather than duplicated.",
+      "brief": "Extend ShimuraVarieties (Complex Shimura varieties and canonical models) by Pink mixed Shimura data and varieties: P=W⋊G, weight-minus-two U, weight-minus-one V=W/U, integral lattices, connected/adèlic quotients, neat levels, pure projection, special/weakly-special subvarieties and their morphisms. Build on the boundary mixed examples of ShimuraCompactifications C1 without rebuilding its compactifications. Share the concrete universal abelian family P_{2g,a}=V_{2g}⋊Sp_{2g} and its real-coordinate uniformization with PAPER-DIMITROV-GAO-HABEGGER-21/17: import it from an independently separated early prefix of AbelianSchemesBettiMapsPartII; its later Betti forms/non-degeneracy/Ax–Schanuel applications consume the mixed foundation and cannot be imported here. Supply Gao §13’s fixed datum, Levi splitting, lattices and neat level for the denominator N(s). Prove Theorem 13.3: for reflex field E and 0<epsilon<1, |Gal(Qbar/E)s|>=C_epsilon N(s)^(1-epsilon)|Gal(Qbar/E)pi(s)|, constants fixed by the datum/level and epsilon. Prove Gao Theorem 12.2’s Hodge-generic quotient reduction: Y=rho^(-1)(rho(Y)) and the positive-dimensional weakly-special locus in rho(Y) is not Zariski dense. Prove Theorem 13.6 with its exact connected abelian-type hypothesis, closed irreducible Y and dense special points, conditional on the stated pure positive-power orbit bound (13.8). Import mixed Ax–Lindemann from LogicAndDefinabilityPartII and definability/bounded-degree counting from early counting prefixes, never LD.6’s André–Oort application. LD.6 receives only Tsimerman’s restricted application when the pure part lies in A_g. Separate early foundations from late reduction/orbit/application stages before promoting either Part II; do not turn these reciprocal roadmap references into whole-roadmap dependency edges. Pink and Gao provide source proof closure, not new assumptions disguised as theorems. Tests must include W=1, the shared Kuga universal family, fixed-level dependence of N(s), no substitution of pure André–Oort for the pure orbit bound, and no assertion for all mixed varieties from Tsimerman’s restricted consequence."
     }
   ],
   "verificationGaps": [
@@ -2682,7 +2827,7 @@
     },
     {
       "id": "G3",
-      "description": "The quadratic-Hecke deduction now has explicit conductor, continuation, residue, convexity, Cauchy, gamma and metric adapters. It closes the inference from those imported contracts, not recursive source proof closure. Original Brauer 1947, Rademacher 1959, quadratic conductor-discriminant proof, Bost and the deep averaged-Colmez proof/erratum remain prerequisites; the latter belongs to #1143/#1145. Original general-Artin derivative/pole-cancellation obligations are retained separately and not certified by this alternative.",
+      "description": "The explicit quadratic-Hecke deduction uses named conductor, continuation, residue, convexity/Cauchy and metric contracts. It does not certify recursive proofs. E9 records the unavailable printed arbitrary-Artin contour; the separate missing Artin branch uses a regularized factorwise logarithmic estimate. Bost/Rademacher/averaged-Colmez original proof closure remains at the cited suppliers.",
       "status": "open",
       "disposition": "Does not block completeness: this concerns the recursive proof closure of cited prerequisite sources or audit refreshes, which PROTOCOL §16 handles through the prerequisites list. Every item of this paper is read and every missing item is routed."
     },
@@ -2694,9 +2839,9 @@
     },
     {
       "id": "G5",
-      "description": "Four mixed items remain explicitly unrouted: mixed-application-interface, mixed-special-point-order, mixed-galois-orbit-factor and mixed-conditional-andre-oort. Gao section 13 is inherited checked evidence; earlier mixed Ax-Lindemann/quotient constructions and the full mixed owner screen are still required. Do not put them into the pure CM Part II by analogy.",
+      "description": "Mixed foundational ownership and the restricted arithmetic consequence.",
       "status": "resolved",
-      "resolution": "Resolved by cc-fb70e5: the four mixed items are routed once, to LogicAndDefinabilityInNumberTheory LD.6 as a source-scoped André–Oort case. The owner screen found only ShimuraCompactifications C1 (boundary mixed data, explicitly not general mixed Shimura theory). Gao's mixed Ax–Lindemann and mixed foundations are prerequisite work in the Gao 2017 prerequisite entry, not items of this paper. The items were checked against Tsimerman p.380 and Gao arXiv v6 §13."
+      "resolution": "FIX #4985 supersedes the four-item LD.6 route: general mixed data, denominator, relative orbit, quotient reduction and conditional theorem route to pending ShimuraVarietiesPartII; Gao mixed Ax–Lindemann routes to shared LogicAndDefinabilityPartII; only mixed-application-interface stays in route 1 at LD.6. The DGH21/17 universal-family carrier is imported through an early uniformization prefix, never duplicated. Independent design/review and actual acyclic stage separation remain blueprint obligations, not partial-extraction gates."
     },
     {
       "id": "G6",
@@ -2707,26 +2852,47 @@
   ],
   "validation": {
     "lean": "No Lean file is required for this paper job; no Lean compilation or new formal proof is claimed.",
-    "local": "check_paper.py passes; intake.py check-files reports 3 files and 0 problems. Custom checks preserve 84 stable IDs, verify 101 unique items and 135 acyclic dependency edges, no multiply routed missing item, and 23 API outlines with 69 proposed unit tests. All 2412 mathematical regression assertions pass; these are sanity checks, not analytic proofs. A complete-status negative control reports exactly the four intentionally unrouted mixed items. Continuation cc-fb70e5: check_paper.py passes with status complete and zero unrouted missing items.",
+    "local": "FIX #4985: paper, source-issue/source-version, one-route, stable-ID/preservation, item-DAG and proposed-stage-direction checks described in the fixes report. No Lean compilation; historical mathematical regressions and recursive source proof closure are not claimed rerun.",
     "unroutedMissingCount": 0,
     "externalBaselineComplete": false,
     "structuralChecks": {
-      "items": 101,
+      "items": 106,
       "statuses": {
-        "library": 5,
-        "planned": 28,
-        "missing": 68
+        "library": 6,
+        "planned": 25,
+        "missing": 75
       },
-      "preservedIds": 84,
-      "dependencyEdges": 135,
+      "preservedIds": 101,
+      "dependencyEdges": 152,
       "acyclic": true,
-      "routes": 11,
-      "definitionsConstructions": 23,
-      "proposedUnitTests": 69,
+      "routes": 12,
+      "definitionsConstructions": 25,
+      "apiOutlines": 72,
+      "proposedUnitTests": 72,
       "unroutedMissing": [],
-      "mathematicalRegressionAssertions": 2412
+      "note": "Fresh checks in the fixes report. Historical 2412 regression assertions are not rerun or promoted to a current certificate."
     },
-    "independentReview": "Paper validator, deliverable scope, all planned supplier IDs, item dependencies and acyclicity, one route per missing item, 11 route verdicts, 23 structured APIs and 69 retained test proposals checked. No Lean compilation; this is a paper intake."
+    "independentReview": "Independent REV-FIX-RT-PAPER-TSIMERMAN-18 pending. The 23 September paper review and RT verifier are historical evidence for the identified changes, not acceptance of these revised routes or new E9–E12 records.",
+    "history": {
+      "local": "check_paper.py passes; intake.py check-files reports 3 files and 0 problems. Custom checks preserve 84 stable IDs, verify 101 unique items and 135 acyclic dependency edges, no multiply routed missing item, and 23 API outlines with 69 proposed unit tests. All 2412 mathematical regression assertions pass; these are sanity checks, not analytic proofs. A complete-status negative control reports exactly the four intentionally unrouted mixed items. Continuation cc-fb70e5: check_paper.py passes with status complete and zero unrouted missing items.",
+      "structuralChecks": {
+        "items": 101,
+        "statuses": {
+          "library": 5,
+          "planned": 28,
+          "missing": 68
+        },
+        "preservedIds": 84,
+        "dependencyEdges": 135,
+        "acyclic": true,
+        "routes": 11,
+        "definitionsConstructions": 23,
+        "proposedUnitTests": 69,
+        "unroutedMissing": [],
+        "mathematicalRegressionAssertions": 2412
+      },
+      "independentReview": "Paper validator, deliverable scope, all planned supplier IDs, item dependencies and acyclicity, one route per missing item, 11 route verdicts, 23 structured APIs and 69 retained test proposals checked. No Lean compilation; this is a paper intake."
+    }
   },
   "contributors": [
     {
@@ -2758,6 +2924,13 @@
       "session": "codex-hjdg0j",
       "role": "Independent reviewer, REV-PAPER-TSIMERMAN-18",
       "date": "2026-09-23"
+    },
+    {
+      "agent": "Codex",
+      "session": "codex-5ebb6f",
+      "date": "2026-09-30",
+      "issue": 4985,
+      "contribution": "All eleven verified findings; shared functional-transcendence and mixed suppliers, retired AN.0, source issues E9–E12, exact coordinate-height import and rational/bounded-degree counting split."
     }
   ],
   "sourceIssueReferences": [
@@ -2833,6 +3006,136 @@
         "verdict": "confirmed",
         "reason": "Independently checked the published page image, the stated v5 comparison and the indicated correction. This does not allege failure of the main theorem; the extracted proof uses the repaired formulation."
       }
+    },
+    {
+      "id": "PAPER-TSIMERMAN-18/E9",
+      "kind": "gap",
+      "locator": "Published proof of Corollary 3.3 p.384; corresponding v5 proof of Corollary 3.2 p.5 (Cauchy argument also present in v1–v4)",
+      "printed": "The source invokes the theorem of Cauchy.",
+      "correction": "Apply fixed-radius Cauchy and convexity only to an entire L-function. After averaging, use the nontrivial quadratic Hecke function L(s,eta_{E/F}), as in cm-hecke-cauchy-derivative. For an individual Artin factor use the separate factorwise logarithmic-derivative route with all pole cancellations justified.",
+      "reason": "Brauer writes the Artin function as a product of Hecke factors with integer exponents, possibly negative. Zeros of denominator factors can create poles; no fixed conductor-independent disc about 1 is shown holomorphic. Available zero-free regions shrink with conductor and allow an exceptional real zero. The printed application is therefore unjustified for arbitrary rho. The averaged height result survives through the entire quadratic-Hecke chain.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "30 September 2026: Annals article page https://annals.math.princeton.edu/2018/187-2/p02 and published PDF; no linked correction for these passages located.",
+        "30 September 2026: Crossref https://api.crossref.org/works/10.4007/annals.2018.187.2.2 returned no update-to record and empty relation object; this is a bounded metadata search.",
+        "30 September 2026: arXiv version history https://arxiv.org/abs/1506.01466 and downloaded v1–v5; compared the Corollary/Cauchy passages, searched rigidity and degree statements. The v2 general-Shimura withdrawal notice is distinct from these findings.",
+        "30 September 2026: author publications https://www.math.utoronto.ca/~jacobt/ and title/erratum/correction searches; no applicable separate correction located. This does not prove none exists."
+      ]
+    },
+    {
+      "id": "PAPER-TSIMERMAN-18/E10",
+      "kind": "error",
+      "locator": "Published Lemma 4.1 and proof p.384, applied to A and B=A/T_I in Theorem 4.2 p.385; Lemma 4.1 is absent from arXiv v5",
+      "printed": "The source claims rigidity of A after choosing a basis of A[3].",
+      "correction": "State the descent lemma for the polarized pair (A,lambda) and its polarized field of moduli. In Theorem 4.2 endow B=A/T_I with g^*lambda, where the defined isogeny g:B→A satisfies g∘f=[n]. Full level-three structure rigidifies this polarized pair.",
+      "reason": "For maximal CM A of dimension g>=2, O_E^× has rank g−1. Its finite-index kernel modulo 3 contains a nontrivial unit u≡1 mod 3; iota(u) is a nontrivial automorphism acting identically on A[3]. Thus unpolarized level structure is not rigid. Polarized automorphisms have finite order and Serre’s level-n rigidity for n>=3 applies. The published CM class set is unpolarized; a quotient needs the compatible chosen polarization.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "30 September 2026: Annals article page https://annals.math.princeton.edu/2018/187-2/p02 and published PDF; no linked correction for these passages located.",
+        "30 September 2026: Crossref https://api.crossref.org/works/10.4007/annals.2018.187.2.2 returned no update-to record and empty relation object; this is a bounded metadata search.",
+        "30 September 2026: arXiv version history https://arxiv.org/abs/1506.01466 and downloaded v1–v5; compared the Corollary/Cauchy passages, searched rigidity and degree statements. The v2 general-Shimura withdrawal notice is distinct from these findings.",
+        "30 September 2026: author publications https://www.math.utoronto.ca/~jacobt/ and title/erratum/correction searches; no applicable separate correction located. This does not prove none exists."
+      ]
+    },
+    {
+      "id": "PAPER-TSIMERMAN-18/E11",
+      "kind": "misprint",
+      "locator": "Published proof of Corollary 3.3 pp.383–384; the word positive in this lower-bound sentence is absent from the corresponding v5 Corollary 3.2 proof p.5",
+      "printed": "The source requires the constant to be positive.",
+      "correction": "Use the real lower-bound constant c_g of Theorem 2.1; it need not be positive. Keep h_Fal(A)<=sum_Phi h_Fal(E,Phi)−(2^g−1)c_g.",
+      "reason": "For j=0 and the printed unscaled volume metric, L(0,chi_{−3})=1/3 and L_prime(0,chi_{−3})=−log(3)/3+log Gamma(1/3)−log Gamma(2/3). The degree-one average formula gives h=−L_prime/(2L)−log(3)/4−log(2*pi)/2≈−1.66769. Even after adding log(2*pi)/2 it is negative (≈−0.74875), so a lower bound for all dimension-one heights cannot be positive. Only the word is wrong.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "30 September 2026: Annals article page https://annals.math.princeton.edu/2018/187-2/p02 and published PDF; no linked correction for these passages located.",
+        "30 September 2026: Crossref https://api.crossref.org/works/10.4007/annals.2018.187.2.2 returned no update-to record and empty relation object; this is a bounded metadata search.",
+        "30 September 2026: arXiv version history https://arxiv.org/abs/1506.01466 and downloaded v1–v5; compared the Corollary/Cauchy passages, searched rigidity and degree statements. The v2 general-Shimura withdrawal notice is distinct from these findings.",
+        "30 September 2026: author publications https://www.math.utoronto.ca/~jacobt/ and title/erratum/correction searches; no applicable separate correction located. This does not prove none exists."
+      ]
+    },
+    {
+      "id": "PAPER-TSIMERMAN-18/E12",
+      "kind": "gap",
+      "locator": "Published §6.2 p.387; corresponding v5 §6.2 pp.7–8; compare Pila–Tsimerman arXiv:1206.2663v3 proof of Lemma 7.4",
+      "printed": "The source bounds the degree by 2g.",
+      "correction": "Use a dimension-dependent bound d_g: in the CM-field case the complex period coordinates generate the reflex field of the type, of degree at most 2^g. Convert separately to real/imaginary coordinates, with a safe bound 2^(g+1), and use the bounded-coordinatewise-degree counting theorem.",
+      "reason": "For a symplectic Q-basis the period Hodge plane W_Phi is spanned by independent embedding rows v_phi. Galois sends it to W_sigmaPhi, so its stabilizer is the type stabilizer and its field is the reflex field. Integral symplectic reduction does not change that field. For the generic sextic CM Galois action (C2)^3⋊S3, sign changes act transitively on eight types, giving reflex degree 8>6. The literal 2g bound is unsupported even though the André–Oort proof needs only a bound in g.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "30 September 2026: Annals article page https://annals.math.princeton.edu/2018/187-2/p02 and published PDF; no linked correction for these passages located.",
+        "30 September 2026: Crossref https://api.crossref.org/works/10.4007/annals.2018.187.2.2 returned no update-to record and empty relation object; this is a bounded metadata search.",
+        "30 September 2026: arXiv version history https://arxiv.org/abs/1506.01466 and downloaded v1–v5; compared the Corollary/Cauchy passages, searched rigidity and degree statements. The v2 general-Shimura withdrawal notice is distinct from these findings.",
+        "30 September 2026: author publications https://www.math.utoronto.ca/~jacobt/ and title/erratum/correction searches; no applicable separate correction located. This does not prove none exists.",
+        "30 September 2026: compared Pila–Tsimerman arXiv:1206.2663v3 Lemmas 7.4–7.5; the same coordinatewise 2g assertion is in the earlier proof, not an independent justification."
+      ]
+    }
+  ],
+  "sourceVersions": [
+    {
+      "kind": "published",
+      "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v187-n2-p02-p.pdf",
+      "read": "2026-09-30",
+      "sha256": "43259ca3cfedfb574bf1fe2f80e1023cb736ea299a76588536fd816340722abc",
+      "readExtent": "Selected pp.380–381,383–385,387–388 as text; pp.381,384,385,387 as images. Earlier full read remains attributed to its workers."
+    },
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/1506.01466v5",
+      "read": "2026-09-30",
+      "sha256": "ccc5f8beb50e11fc46bdaf1f05ae5718d26280643698585dcca3ddb99dc3ee9c",
+      "readExtent": "Selected Corollary 3.2/Cauchy p.5 and §§6.2–6.3 pp.7–8; text search confirms no Lemma 4.1 rigidity statement."
+    },
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/1206.2663v3",
+      "read": "2026-09-30",
+      "sha256": "f177111d725cd49ede64a1e577bf598e7cbb429bd6d9237980fbb0876dcb2a5d",
+      "readExtent": "Selected Lemmas 7.4–7.5 and their proof passages; not the whole paper."
+    },
+    {
+      "kind": "author copy",
+      "url": "https://people.maths.ox.ac.uk/pila/Algebraic.pdf",
+      "read": "2026-09-30",
+      "sha256": "4ff1a624d92a0a5cbe05d77c5ce097d29353d70445f10efa2ba72833b0821c59",
+      "readExtent": "§1, author-copy pp.1–2: height/degree conventions and Theorems 1.4/1.6; no full proof read."
+    },
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/1310.1302v6",
+      "read": "2026-09-30",
+      "sha256": "1bf9f3d56804f29d4a21579fbc7bc80bc2b886411a36e7583c1950889ff2fc2a",
+      "readExtent": "Selected pp.2–3,6–8,16,42–43,46–50: definitions, Theorems 1.2/12.2/13.3/13.6 and §13 proof; no full Gao proof read."
+    },
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/1506.01466v1",
+      "read": "2026-09-30",
+      "sha256": "712a66e5c6b593d4ce35fa90906495908244f7e751c5d3af4bf00e781fad5188",
+      "readExtent": "Selected Corollary/Cauchy text passages and rigidity/degree searches; not a full version read."
+    },
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/1506.01466v2",
+      "read": "2026-09-30",
+      "sha256": "200b71c2bd03ae38b7540cf46fb82402b251188d5db4c28985ac8e54acb374e3",
+      "readExtent": "Selected Corollary/Cauchy text passages and rigidity/degree searches; not a full version read."
+    },
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/1506.01466v3",
+      "read": "2026-09-30",
+      "sha256": "76e443c37df02d1f4de2f1c10da1d04dc20c73a5da1e2e76cfaac94f5eb68794",
+      "readExtent": "Selected Corollary/Cauchy text passages and rigidity/degree searches; not a full version read."
+    },
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/1506.01466v4",
+      "read": "2026-09-30",
+      "sha256": "fc1b94a9ff32d9479b3faf19dfcfbec37fd1a8804c22e4cbdfb07a8ce1284137",
+      "readExtent": "Selected Corollary/Cauchy text passages and rigidity/degree searches; not a full version read."
     }
   ]
 }
