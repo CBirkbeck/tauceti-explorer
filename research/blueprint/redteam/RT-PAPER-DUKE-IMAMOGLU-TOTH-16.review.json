@@ -1,0 +1,85 @@
+{
+  "redteam": "RT-PAPER-DUKE-IMAMOGLU-TOTH-16",
+  "findings": [
+    {
+      "finding": "RT-PAPER-DUKE-IMAMOGLU-TOTH-16/1",
+      "verdict": "confirmed",
+      "reason": "Item 141 drops the standing fundamental-discriminant hypothesis. At the inspected Mathlib pin, 5, 8 and 12 satisfy IsFundamentalDiscriminant, but 5*5=25 and 8*12=96 do not; the factors need not be coprime. The published Theorem 3 (p.964) is in the fundamental field-discriminant setting, not a theorem that any two positive fundamental discriminants have fundamental product. Require D>1 fundamental and D=d*dprime with fundamental factors, or explicitly require coprimality as well as D>1. This is an extraction correction, not a newly discovered error in Theorem 3."
+    },
+    {
+      "finding": "RT-PAPER-DUKE-IMAMOGLU-TOTH-16/2",
+      "verdict": "confirmed",
+      "reason": "The inspected extraction jumps from 150 to 153, yet 153 and E6 still invoke the removed norm supplier 151. A corrected unit-vector Weyl estimate needs a precise Hecke/Petersson normalization comparison and an adequate polynomial spectral bound. The factor 2 in norm(phi)^2=2*L(1,sym^2 phi)/cosh(pi*r) is consistent with the paper's Fourier coefficient 2 and the unfolding residue calculation in the report. Restore a separately sourced AL.3 normalization adapter, with the analytic inputs and bound stated, rather than merely deleting the stale citation or claiming that a note constitutes a supplied theorem. I do not certify the stronger r^epsilon bound from an uncited assertion."
+    },
+    {
+      "finding": "RT-PAPER-DUKE-IMAMOGLU-TOTH-16/3",
+      "verdict": "confirmed",
+      "reason": "The shared binary-form character is visible in DIT items 101-102 and the independently opened BEY21 item 11 (Definition 7.1/Lemmas 7.2-7.3): on integral forms the latter restricts to the classical genus character. Give this common definition and invariance one owner; retain the local trace-zero-matrix/Hilbert-symbol and ideal-class comparisons as distinct adapters. Correction to the red team: the BEY extraction at the review snapshot is partial and describes its routes as provisional, so an earlier merged review is not an accepted mathematical route. GN.2 is a coherent proposed common owner, not ownership proved by acceptance timestamps. The parity law can also be shared at the form-character owner."
+    },
+    {
+      "finding": "RT-PAPER-DUKE-IMAMOGLU-TOTH-16/4",
+      "verdict": "confirmed",
+      "reason": "The upstream FuchsianOrbifolds document explicitly plans polygon Gauss-Bonnet (Layer 2.1), triangle signatures (2.6), cofinite signature/area (4.5), and the modular signature (6.1). The pinned FixedDetMatrices.lean proves SL2Z_generators. Thus route 9 must import these rather than re-plan them. Split the implemented SL2 generation theorem, its quotient-to-PSL adapter, and the planned signature. Keep the genuinely additional second-kind/Nielsen-core/geodesic-boundary statements in Part II. A single aggregate cannot be marked simultaneously library and planned without splitting its scope."
+    },
+    {
+      "finding": "RT-PAPER-DUKE-IMAMOGLU-TOTH-16/5",
+      "verdict": "confirmed",
+      "reason": "The independently inspected QM.2/QM.3 stage descriptions already own the Bessel/Kloosterman/weight-Laplacian direction, so competing AS/ES primitive definitions need one ownership decision and comparison maps. The large QM packet itself exceeded connector content limits; its exact leaf-node contracts are not certified here. Do not identify an ODE/Liouville-form adapter with a definition without matching hypotheses. Crucially the proposed weight-one-half conversion is wrong: if Delta_hol,k=-y^2(dxx+dyy)+i*k*y(dx+i*dy), then y^(k/2) Delta_hol,k y^(-k/2)=Delta_unit,k+k(k-2)/4. Hence Delta_unit,1/2=y^(1/4) Delta_hol,1/2 y^(-1/4)+3/16. Direct symbolic differentiation verifies the correction."
+    },
+    {
+      "finding": "RT-PAPER-DUKE-IMAMOGLU-TOTH-16/6",
+      "verdict": "confirmed",
+      "reason": "The two source-issue ledgers reuse IDs for different locators: standalone E12/E13/E14 explicitly correspond to extraction E15/E16/E21, while the extraction uses E12-E14 for other prerequisite issues. Their E5/E6/E11 judgments also need reconciliation. Reading scripts/errata.py shows collect() appends entries from both files without a sameAs or ID-deduplication branch: renaming and rerunning alone cannot produce one canonical entry. Establish a supported canonicalization policy and preserve source-file provenance and historical independent verdicts. Do not silently replace an earlier judgment merely because the other review is later; in particular an unnumbered false assertion can still affect a stated result."
+    },
+    {
+      "finding": "RT-PAPER-DUKE-IMAMOGLU-TOTH-16/7",
+      "verdict": "confirmed",
+      "reason": "The standalone errata ledger has no sourceVersions and contains stated-result findings, including E2. scripts/check_errata.py:versions_checked explicitly rejects that combination. The extraction also needs its published/preprint provenance represented consistently rather than only in prose. Record which document each reader actually inspected; do not attribute another worker's download hash or preprint reading to this verifier. I opened the published page images but did not obtain and hash the PDF bytes locally, and therefore do not independently certify the two hashes repeated in the red-team remedy."
+    },
+    {
+      "finding": "RT-PAPER-DUKE-IMAMOGLU-TOTH-16/8",
+      "verdict": "rejected",
+      "reason": "Rejected as a blanket status change at the current item granularity. Item 53 explicitly asserts the genus-by-genus extension, with genus masses; GN.4's Duke-type programme and another paper's CM-point row do not establish that exact contract. Item 57 includes the primitive-pair factor 1/2 and a classical Laplacian identity; item 60 includes the exact completed-series residues +/-1/2. The inspected AS.1-AS.2 and AL.2 documents are general adelic suppliers, not explicit comparisons to every normalization in these aggregates. Add related-planned imports and split genuinely planned general results from remaining genus/normalization adapters, but do not automatically mark all four aggregates planned or change counts on the evidence supplied. This rejects neither their proposed owners nor the need to reuse the general theory."
+    },
+    {
+      "finding": "RT-PAPER-DUKE-IMAMOGLU-TOTH-16/9",
+      "verdict": "confirmed",
+      "reason": "The declarations were opened at both exact pins. NarrowClassGroup.toClassGroup_ker identifies the kernel as the mkPrincipal range; mkPrincipal_sq and NumberField.mkPrincipal_eq_one_or_eq_mkPrincipal_gen supply the order-two and real-quadratic dichotomy inputs. DirichletTheorem.lean supplies Units.rank, fundSystem and exist_unique_eq_mul_prod. Item 4 currently has an empty library list despite explicitly relying on this dichotomy. Credit those inputs and isolate the corollary and presentation comparisons. Item 6 still needs a chosen real embedding, torsion/sign analysis, a totally positive generator greater than one, and the Pell normalization: the unit theorem alone is not that whole construction."
+    },
+    {
+      "finding": "RT-PAPER-DUKE-IMAMOGLU-TOTH-16/10",
+      "verdict": "confirmed",
+      "reason": "The pinned Stabilizer.lean gives PSL stabilizer orders 2 at i, 3 at rho, and 1 off their orbits. Orbits.lean gives representatives in the closed domain, injectivity on fd_left, and the isolated i orbit. These are genuine partial suppliers for item 52 and the half-open-domain adapter. Retain the actual boundary coverage/set-equality proof and the CM-form-to-orbit/discriminant comparison; do not infer the fundamental-discriminant classification merely from the three orbit-order theorems. Generation is as in finding 4. The missing analytic/geometric adapters should not cause existing statements to disappear from the library ledger."
+    },
+    {
+      "finding": "RT-PAPER-DUKE-IMAMOGLU-TOTH-16/11",
+      "verdict": "confirmed",
+      "reason": "Opened the pinned HeckeSlash Basic, Invariance and Composition files. heckeSlashSum acts on arbitrary upper-half-plane functions in integer weight, with slash invariance and Hecke-ring composition; k=0 is an existing carrier supplier for item 63. The actual interface is linear in a Hecke-ring element, not simply the unbundled finite sum quoted in the finding. Specify the element encoding all determinant-m cosets and the factor m^(-1/2); at composite/square m it must not be replaced without proof by one diagonal double coset. Smoothness, cuspidality, Laplacian compatibility, self-adjointness and the normalized eigenvalue comparison remain analytic work."
+    },
+    {
+      "finding": "RT-PAPER-DUKE-IMAMOGLU-TOTH-16/12",
+      "verdict": "confirmed",
+      "reason": "Item 14 is marked library with only UpperHalfPlane.dist_eq, but its statement also includes the projective-endpoint cross-ratio formula. At the pin, Metric.lean:dist_eq is exactly the arsinh expression and proves no such endpoint comparison. Split the imported metric identity from a sourced/proved cross-ratio adapter, retaining endpoint order, the point at infinity and the coincident-point case. This confirms insufficiency of the cited declaration; it is not a claim to have exhaustively searched every Mathlib file for every equivalent theorem."
+    },
+    {
+      "finding": "RT-PAPER-DUKE-IMAMOGLU-TOTH-16/13",
+      "verdict": "confirmed",
+      "reason": "The pinned genusCharFun definition is a function Z -> Z, the product of prime-discriminant functions; it is not by itself a bundled primitive complex Dirichlet character. The completed-L-function consumer therefore needs the periodicity/zero-on-nonunits comparison, a bundled character at level |d|, value extension to C, and conductor/primitivity for fundamental d, including d=1. Correct the red-team locators: the completed Dirichlet-functional-equation adapter is item 155, not 150; Burgess is 147, not 144. Reuse the proposed CA.1 character owner, but separately verify its exact contract before claiming that it supplies primitivity. No full CA packet/consumer elaboration is certified here."
+    },
+    {
+      "finding": "RT-PAPER-DUKE-IMAMOGLU-TOTH-16/14",
+      "verdict": "confirmed",
+      "reason": "The stale-reference defect is directly visible: 153 and E6 refer to deleted 151; the special-function notes refer to removed numbered suppliers, while routes use removed ranges. However the stronger assertion that all declaration records disappeared is false: baseline.declarations at the inspected snapshot still lists regularizedHGFun, beta/Gamma, dominated differentiation, the finite-dimensional span result, Vitali and jacobiTheta_S_smul. Replace dangling IDs by stable surviving items or these existing declaration records, and restore the genuinely absent normalization supplier from finding 2. Do not recreate already-recorded library mathematics as new missing theorems."
+    },
+    {
+      "finding": "RT-PAPER-DUKE-IMAMOGLU-TOTH-16/15",
+      "verdict": "confirmed",
+      "reason": "The published p.967 image supplies four numerical tests of Theorem 4, while the extraction records their recomputation in provenance/E3 rather than as a reusable acceptance contract for the theorem. Using the printed rounded Table 2 coefficients independently gives -1.940297469e9, 1.047598765e10, 2.862961917e9 and 4.410461480e9. Preserve the exact specialized identities and the approximate fixtures with all normalizations. Reject the proposed packaging as a theorem asserting exact decimal values: the source gives rounded numerical evidence, not certified error intervals, and recomputing products does not verify the period integrals independently."
+    },
+    {
+      "finding": "RT-PAPER-DUKE-IMAMOGLU-TOTH-16/16",
+      "verdict": "confirmed",
+      "reason": "The inspected AN stage descriptions separate AN.2 zero-free/exceptional-zero inputs, AN.3 explicit/density/mean-value estimates, and AN.4 number-field class-number interfaces. Route 6's unconditional attribution of the Siegel supplier to AN.3 needs a single explicit ownership decision; AN.2 is consistent with its cited source route. A class-number consequence at AN.4 is a consumer, not automatically a duplicate L(1,chi) theorem. Item 147 states an L-function estimate, not a finite character-sum bound. Split the Burgess finite-sum producer from the analytic reduction and its t/conductor ranges, record their dependency, and do not call a stage title a verified subconvexity proof."
+    }
+  ]
+}
