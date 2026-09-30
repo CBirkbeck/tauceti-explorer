@@ -10,7 +10,7 @@
     "DirichletPadicLFunctions:L4"
   ],
   "status": "partial",
-  "summary": "Partial continuation preserving all558 predecessor nodes whole. Six L4 nodes give actual finite unit-group coordinates of the integral character-weighted coefficients, their weighted divisor/coset formulas, refinement, reduced evaluation and moment precision. All16 findings, nine requests and13 gaps remain; zero closed stages.",
+  "summary": "Partial continuation preserving all564 predecessor nodes whole. Eight L4 nodes assemble the actual integral character-weighted positive series and give coefficient inclusion, whole ideal and weight congruences, left-character index scaling and finite-coordinate reduction of moment series. The existing integral coefficient bound API is promoted for its new consumer. All16 findings, nine requests and13 gaps remain; zero closed stages.",
   "baseline": {
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
@@ -3500,6 +3500,13 @@
         "module": "Mathlib/RingTheory/Ideal/Quotient/Defs.lean",
         "provides": "Two values have equal quotient images precisely when their difference lies in the ideal.",
         "checked": "Full native statement and ambient hypotheses read at pinned Mathlib082e2d3 on30September2026 and matched to the unchanged declaration index. No native library build."
+      },
+      {
+        "ref": "mathlib:PowerSeries.coeff_smul",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/PowerSeries/Basic.lean",
+        "provides": "The native coefficient projection commutes with the coefficient-module scalar action, so actual measure linearity lifts to the whole series.",
+        "checked": "Full native statement, ambient semiring and module hypotheses read at pinned Mathlib082e2d3 on30September2026; unchanged declaration index282951. No native build."
       }
     ]
   },
@@ -36779,6 +36786,546 @@
       "acceptance": [
         "The error and quotient equalities are in the native integer ring. Coefficient precision cannot exceed the group resolution without additional information. No arbitrary norm on the power-series carrier is introduced."
       ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L4/integral-twisted-positive-series",
+      "parentStageId": "DirichletPadicLFunctions:L4",
+      "realises": [
+        "DirichletPadicLFunctions:L4"
+      ],
+      "title": "Integral character-weighted positive series",
+      "kind": "construction",
+      "statement": "Construct the continuous O-linear positive-series measure E^+_(ψ,φ):C(U,O)→PowerSeries O from the existing actual integral weighted coefficient measures.",
+      "hypotheses": [
+        "p is any prime, including2. K is a normed ultrametric field, O is its native norm-valuation integer subring and U=(ℤ_p)ˣ. Let ψ:DirichletCharacter K D and φ:DirichletCharacter K E, with their ordered character positions retained.",
+        "The actual existing integral coefficient A^O_(ψ,φ,n) is used for every n>0. The new series E^+_(ψ,φ)(f) has coefficient A^O_n(f) for n>0 and zero at0. Its target is the native PowerSeries O with the native coefficientwise topology.",
+        "The bundled map is AbstractMeasure U O (PowerSeries O), namely a continuous O-linear map from C(U,O). No convolution-ring structure on measures, no norm on O[[q]], and no completeness of K or O are required for this assembly.",
+        "The zero constant denotes positive truncation only. It is not the true Eisenstein constant coefficient. No primitive-character condition, parity, exceptional-weight modularity or analytic-family construction is asserted.",
+        "Moment statements additionally require Algebra ℤ_p K and IsBoundedSMul ℤ_p K, and use the existing principal level-zero integral arithmetic character κ^O_e for natural e. The arithmetic exponent is e=k−1. No ℤ_p-algebra structure on O is postulated.",
+        "Finite moment reduction has group level r and coefficient precision s, with s≤r. Its coefficient ring is O/(p:O)^s, not assumed finite. Powers use native natural representatives of units modulo p^r."
+      ],
+      "proofSteps": [
+        "Extend the actual family A^O_n to index0 by the zero measure. Apply native PowerSeries.mk to its values on each integral continuous test. This uses native AbstractMeasure with a general topological module target; a normed power-series ring is unnecessary.",
+        "Native coefficient extensionality proves addition and O-scalar compatibility, using the linearity of each actual coefficient measure and native coeff_smul. Apply the native coefficientwise tendsto criterion to the continuity of each coefficient evaluation. The complete native seriesMeasure constructor and actual_series_continuous proof verify this exact assembly for any family of native R-valued measures.",
+        "Uniqueness follows by extensionality of the bundled measure and then native PowerSeries.ext. The zero and positive coefficient formulas determine the whole map. The complete assembled_unique proof checks that argument.",
+        "The old actual coefficient bound gives a uniform bound ‖coeff_n(E^+(f))‖≤‖f‖, including n=0. This is a family of coefficient bounds, not an asserted norm on the power-series target. The complete assembled_coefficient_bound proof checks precisely that distinction.",
+        "For both level-one characters, test1 gives the old unweighted mass series after each coefficient ring is included separately into ℚ_p. The typed level_one_mass_series test avoids assuming that the native valuation integer subring is definitionally ℤ_p. No missing general coefficient-algebra instance is introduced.",
+        "The initial coefficient is f(1), whereas the constant is0. For the quadratic-left dyadic pair the q² mass coefficient is−1. These tests distinguish the actual ordered character weights and the positive truncation from plausible erroneous series definitions."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L4/integral-twisted-positive-eisenstein-measure",
+        "DirichletPadicLFunctions:L4/positive-eisenstein-series",
+        "DirichletPadicLFunctions:L4/twisted-positive-eisenstein-measure",
+        "mathlib:AbstractMeasure",
+        "mathlib:PowerSeries.mk",
+        "mathlib:PowerSeries.coeff_mk",
+        "mathlib:PowerSeries.ext",
+        "mathlib:PowerSeries.coeff_smul",
+        "mathlib:PowerSeries.WithPiTopology.tendsto_iff_coeff_tendsto",
+        "DirichletPadicLFunctions:L4/integral-twisted-positive-eisenstein-bound"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/TwistedPositiveSeries",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.integralTwistedPositiveEisensteinSeries"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Definition8.1, Theorem8.2 with its entire proof and Remark8.3, published159–161/PDF60–62, freshly read in full. Proposition3.16, Definition3.17 and Example3.19, published121–123, read in the preceding finite-coordinate checkpoint.",
+          "match": "Worker extension of the positive divisor-Dirac construction to the already planned integral two-character coefficients. Native coefficientwise topology assembles the measures and their congruences. The character-pair extension and precise finite-coordinate reduction are derived here; they are not attributed verbatim to the source. The actual constant coefficient, classical modularity and weight-space geometry retain their existing boundaries and owners."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedTwistedSeriesTests.zero_test_series",
+          "kind": "degenerate",
+          "statement": "The zero integral test gives the zero power series."
+        },
+        {
+          "name": "SuggestedTwistedSeriesTests.positive_truncation_constant",
+          "kind": "degenerate",
+          "statement": "The constant coefficient is zero for every integral test."
+        },
+        {
+          "name": "SuggestedTwistedSeriesTests.first_series_coefficient",
+          "kind": "computation",
+          "statement": "The coefficient of q is exactly f(1), for every ordered character pair."
+        },
+        {
+          "name": "SuggestedTwistedSeriesTests.level_one_mass_series",
+          "kind": "compatibility",
+          "statement": "For K=ℚ_p and both characters of level1, the mass series agrees with the old unweighted positive-series mass after the two native coefficient inclusions into ℚ_p."
+        },
+        {
+          "name": "SuggestedTwistedSeriesTests.dyadic_series_prime_sign",
+          "kind": "non-example",
+          "statement": "For p=2 and the quadratic-left character modulo3, the coefficient of q² at test1 is−1."
+        }
+      ],
+      "acceptance": [
+        "The target carries the native coefficientwise topology. No analytic convergence in q, norm on the series ring or true character-pair constant coefficient is claimed."
+      ],
+      "uses": [
+        {
+          "where": "RJW Theorem8.2 positive q-expansion and Remark8.3 weight congruences",
+          "how": "Assembles the actual integral coefficient measures so arithmetic congruences hold for the whole positive formal series."
+        },
+        {
+          "where": "Atlas L4 character-weighted Eisenstein interpolation",
+          "how": "Preserves the integral coefficient ring, ordered pair, coefficient inclusion and left-character p-index scaling."
+        },
+        {
+          "where": "Finite-precision whole q-expansions",
+          "how": "Identifies coefficient reduction of the entire positive series with existing finite group-coordinate moments at sufficient resolution."
+        }
+      ],
+      "api": [
+        {
+          "name": "DirichletPadic.integralTwistedPositiveEisensteinSeries_coeff",
+          "role": "data",
+          "statement": "Coefficient n is A^O_n(f) for n>0 and0 for n=0. Promoted to integral-twisted-positive-series-coeff."
+        },
+        {
+          "name": "DirichletPadic.integralTwistedPositiveEisensteinSeries_coeff_zero",
+          "role": "simp",
+          "statement": "The constant coefficient is zero."
+        },
+        {
+          "name": "DirichletPadic.integralTwistedPositiveEisensteinSeries_coeff_pos",
+          "role": "simp",
+          "statement": "Every positive coefficient is the actual integral coefficient measure applied to f."
+        },
+        {
+          "name": "DirichletPadic.integralTwistedPositiveEisensteinSeries_zero",
+          "role": "simp",
+          "statement": "The zero test gives zero."
+        },
+        {
+          "name": "DirichletPadic.integralTwistedPositiveEisensteinSeries_add",
+          "role": "structure",
+          "statement": "E^+(f+g)=E^+(f)+E^+(g)."
+        },
+        {
+          "name": "DirichletPadic.integralTwistedPositiveEisensteinSeries_smul",
+          "role": "structure",
+          "statement": "E^+(a•f)=a•E^+(f) for every a∈O."
+        },
+        {
+          "name": "DirichletPadic.integralTwistedPositiveEisensteinSeries_continuous",
+          "role": "structure",
+          "statement": "The actual map is continuous for the native coefficientwise topology."
+        },
+        {
+          "name": "DirichletPadic.integralTwistedPositiveEisensteinSeries_unique",
+          "role": "extensionality",
+          "statement": "A native series-valued measure with the specified zero and positive coefficients equals E^+."
+        },
+        {
+          "name": "DirichletPadic.integralTwistedPositiveEisensteinSeries_coeff_norm_le",
+          "role": "relation",
+          "statement": "Each coefficient has norm at most the sup norm of f, uniformly in n."
+        },
+        {
+          "name": "DirichletPadic.integralTwistedPositiveEisensteinSeries_test_congr",
+          "role": "relation",
+          "statement": "If b divides g(u)−f(u) for every u, then C(b) divides E^+(g)−E^+(f) in O[[q]]. Promoted to integral-twisted-positive-series-test-congruence."
+        },
+        {
+          "name": "DirichletPadic.integralTwistedPositiveEisensteinSeries_coeff_mul_p",
+          "role": "relation",
+          "statement": "After inclusion into K, coefficient pn equals ψ(p) times coefficient n, including n=0. Promoted to integral-twisted-positive-series-p-scaling."
+        },
+        {
+          "name": "DirichletPadic.integralTwistedPositiveEisensteinSeries_weight_congr",
+          "role": "relation",
+          "statement": "For r≥1 and e≡e′ modulo p^(r−1)(p−1), C((p:O)^r) divides E^+(κ^O_e′)−E^+(κ^O_e). Promoted to integral-twisted-positive-series-weight-congruence."
+        },
+        {
+          "name": "DirichletPadic.integralTwistedPositiveEisensteinSeries_finite_moment_mod",
+          "role": "compatibility",
+          "statement": "For s≤r, reduction modulo (p:O)^s of E^+(κ^O_e) is the series of the actual level-r finite-coordinate moment pairings. Promoted to integral-twisted-positive-series-finite-moments."
+        },
+        {
+          "name": "DirichletPadic.coe_integralTwistedPositiveEisensteinSeries_apply",
+          "role": "coercion",
+          "statement": "Coefficient inclusion into K identifies the whole series with native mk of the actual K-valued coefficient evaluations. Promoted to integral-twisted-positive-series-coefficient-inclusion."
+        }
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L4/integral-twisted-positive-series-coeff",
+      "parentStageId": "DirichletPadicLFunctions:L4",
+      "realises": [
+        "DirichletPadicLFunctions:L4"
+      ],
+      "title": "Coefficients of the integral weighted positive series",
+      "kind": "lemma",
+      "statement": "coeff_n(E^+_(ψ,φ)(f)) is A^O_(ψ,φ,n)(f) for n>0, and0 for n=0.",
+      "hypotheses": [
+        "p is any prime, including2. K is a normed ultrametric field, O is its native norm-valuation integer subring and U=(ℤ_p)ˣ. Let ψ:DirichletCharacter K D and φ:DirichletCharacter K E, with their ordered character positions retained.",
+        "The actual existing integral coefficient A^O_(ψ,φ,n) is used for every n>0. The new series E^+_(ψ,φ)(f) has coefficient A^O_n(f) for n>0 and zero at0. Its target is the native PowerSeries O with the native coefficientwise topology.",
+        "The bundled map is AbstractMeasure U O (PowerSeries O), namely a continuous O-linear map from C(U,O). No convolution-ring structure on measures, no norm on O[[q]], and no completeness of K or O are required for this assembly.",
+        "The zero constant denotes positive truncation only. It is not the true Eisenstein constant coefficient. No primitive-character condition, parity, exceptional-weight modularity or analytic-family construction is asserted.",
+        "Moment statements additionally require Algebra ℤ_p K and IsBoundedSMul ℤ_p K, and use the existing principal level-zero integral arithmetic character κ^O_e for natural e. The arithmetic exponent is e=k−1. No ℤ_p-algebra structure on O is postulated.",
+        "Finite moment reduction has group level r and coefficient precision s, with s≤r. Its coefficient ring is O/(p:O)^s, not assumed finite. Powers use native natural representatives of units modulo p^r."
+      ],
+      "proofSteps": [
+        "Use native coeff_mk on the actual family used in the construction. This is a direct equality with the existing integral coefficient measure, not a new arithmetic-function definition.",
+        "Specialize to positive n and then to n=1. The existing integral Dirac formula gives f(1), independently of both conductors. At n=0 the coefficient is zero by the chosen truncation.",
+        "For the dyadic quadratic-left pair, the actual exponent-one coefficient at n=5 is−1+5=4. The complete native coefficient_formula checks extraction from the actual assembled measure; the typed example uses the actual existing weighted coefficient and integral arithmetic character."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L4/integral-twisted-positive-series",
+        "DirichletPadicLFunctions:L4/integral-twisted-positive-eisenstein-moment",
+        "mathlib:PowerSeries.coeff_mk"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/TwistedPositiveSeries",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.integralTwistedPositiveEisensteinSeries_coeff"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Definition8.1, Theorem8.2 with its entire proof and Remark8.3, published159–161/PDF60–62, freshly read in full. Proposition3.16, Definition3.17 and Example3.19, published121–123, read in the preceding finite-coordinate checkpoint.",
+          "match": "Worker extension of the positive divisor-Dirac construction to the already planned integral two-character coefficients. Native coefficientwise topology assembles the measures and their congruences. The character-pair extension and precise finite-coordinate reduction are derived here; they are not attributed verbatim to the source. The actual constant coefficient, classical modularity and weight-space geometry retain their existing boundaries and owners."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedTwistedSeriesTests.actual_positive_coefficient",
+          "kind": "compatibility",
+          "statement": "For every positive n and test f, the actual series coefficient equals A^O_n(f)."
+        },
+        {
+          "name": "SuggestedTwistedSeriesTests.dyadic_series_fifth_moment",
+          "kind": "computation",
+          "statement": "For the quadratic-left pair at p=2, the q⁵ coefficient of E^+(κ^O_1) is4."
+        }
+      ],
+      "acceptance": [
+        "The coefficient formula includes n=0 and retains the actual measure for every positive index."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L4/integral-twisted-positive-series-coefficient-inclusion",
+      "parentStageId": "DirichletPadicLFunctions:L4",
+      "realises": [
+        "DirichletPadicLFunctions:L4"
+      ],
+      "title": "Coefficient inclusion of the whole positive series",
+      "kind": "comparison",
+      "statement": "PowerSeries.map(O↪K)(E^+_(ψ,φ)(f)) equals PowerSeries.mk of the actual K-valued coefficient evaluations on the included test, with zero constant.",
+      "hypotheses": [
+        "p is any prime, including2. K is a normed ultrametric field, O is its native norm-valuation integer subring and U=(ℤ_p)ˣ. Let ψ:DirichletCharacter K D and φ:DirichletCharacter K E, with their ordered character positions retained.",
+        "The actual existing integral coefficient A^O_(ψ,φ,n) is used for every n>0. The new series E^+_(ψ,φ)(f) has coefficient A^O_n(f) for n>0 and zero at0. Its target is the native PowerSeries O with the native coefficientwise topology.",
+        "The bundled map is AbstractMeasure U O (PowerSeries O), namely a continuous O-linear map from C(U,O). No convolution-ring structure on measures, no norm on O[[q]], and no completeness of K or O are required for this assembly.",
+        "The zero constant denotes positive truncation only. It is not the true Eisenstein constant coefficient. No primitive-character condition, parity, exceptional-weight modularity or analytic-family construction is asserted.",
+        "Moment statements additionally require Algebra ℤ_p K and IsBoundedSMul ℤ_p K, and use the existing principal level-zero integral arithmetic character κ^O_e for natural e. The arithmetic exponent is e=k−1. No ℤ_p-algebra structure on O is postulated.",
+        "Finite moment reduction has group level r and coefficient precision s, with s≤r. Its coefficient ring is O/(p:O)^s, not assumed finite. Powers use native natural representatives of units modulo p^r."
+      ],
+      "proofSteps": [
+        "Use native PowerSeries.ext and coeff_map. For n>0 substitute the promoted coefficient formula and the existing coe_integralTwistedPositiveEisensteinMeasure_apply theorem; at n=0 both sides vanish.",
+        "The test in C(U,K) is the composite of f with the actual continuous subtype inclusion O→K. Native PowerSeries.map uses the integer subring’s ring homomorphism. No second family of K-series measures is needed.",
+        "The complete native map_series and mapped_series_ext proofs verify coefficient inclusion and assembly through an arbitrary coefficient ring homomorphism. Continuity of a general ring map is not assumed in the formal-series equality."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L4/integral-twisted-positive-series-coeff",
+        "DirichletPadicLFunctions:L4/integral-twisted-positive-eisenstein-coefficient",
+        "mathlib:PowerSeries.map",
+        "mathlib:PowerSeries.coeff_map",
+        "mathlib:PowerSeries.ext"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/TwistedPositiveSeries",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.coe_integralTwistedPositiveEisensteinSeries_apply"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Definition8.1, Theorem8.2 with its entire proof and Remark8.3, published159–161/PDF60–62, freshly read in full. Proposition3.16, Definition3.17 and Example3.19, published121–123, read in the preceding finite-coordinate checkpoint.",
+          "match": "Worker extension of the positive divisor-Dirac construction to the already planned integral two-character coefficients. Native coefficientwise topology assembles the measures and their congruences. The character-pair extension and precise finite-coordinate reduction are derived here; they are not attributed verbatim to the source. The actual constant coefficient, classical modularity and weight-space geometry retain their existing boundaries and owners."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [],
+      "acceptance": [
+        "The inclusion is the actual native integer-subring map. The theorem neither identifies O definitionally with ℤ_p nor asserts a new general scalar extension of measure spaces."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L4/integral-twisted-positive-series-test-congruence",
+      "parentStageId": "DirichletPadicLFunctions:L4",
+      "realises": [
+        "DirichletPadicLFunctions:L4"
+      ],
+      "title": "Integral ideals control the whole positive series",
+      "kind": "theorem",
+      "statement": "For b∈O, if b divides g(u)−f(u) at every u∈U, then C(b) divides E^+(g)−E^+(f) in PowerSeries O.",
+      "hypotheses": [
+        "p is any prime, including2. K is a normed ultrametric field, O is its native norm-valuation integer subring and U=(ℤ_p)ˣ. Let ψ:DirichletCharacter K D and φ:DirichletCharacter K E, with their ordered character positions retained.",
+        "The actual existing integral coefficient A^O_(ψ,φ,n) is used for every n>0. The new series E^+_(ψ,φ)(f) has coefficient A^O_n(f) for n>0 and zero at0. Its target is the native PowerSeries O with the native coefficientwise topology.",
+        "The bundled map is AbstractMeasure U O (PowerSeries O), namely a continuous O-linear map from C(U,O). No convolution-ring structure on measures, no norm on O[[q]], and no completeness of K or O are required for this assembly.",
+        "The zero constant denotes positive truncation only. It is not the true Eisenstein constant coefficient. No primitive-character condition, parity, exceptional-weight modularity or analytic-family construction is asserted.",
+        "Moment statements additionally require Algebra ℤ_p K and IsBoundedSMul ℤ_p K, and use the existing principal level-zero integral arithmetic character κ^O_e for natural e. The arithmetic exponent is e=k−1. No ℤ_p-algebra structure on O is postulated.",
+        "Finite moment reduction has group level r and coefficient precision s, with s≤r. Its coefficient ring is O/(p:O)^s, not assumed finite. Powers use native natural representatives of units modulo p^r."
+      ],
+      "proofSteps": [
+        "The existing actual coefficient test-congruence theorem gives b-divisibility at every positive index. The difference of constant coefficients is zero, hence also divisible by b.",
+        "For each index choose an integral quotient coefficient. Assemble those witnesses with native PowerSeries.mk. Native coeff_C_mul and extensionality prove that multiplying the resulting whole series by C(b) gives precisely the series difference.",
+        "The complete constant_divisibility and assembled_difference_divisibility proofs check this witness argument over any normed commutative coefficient ring. No field division or constant-series invertibility is used.",
+        "The converse coefficient_divisibility native proof shows that whole-series C(b)-divisibility implies b-divisibility of each coefficient. At b=0 the assertion reduces to equality; the typed zero_ideal_series_equality test checks that edge case."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L4/integral-twisted-positive-series-coeff",
+        "DirichletPadicLFunctions:L4/integral-twisted-positive-eisenstein-test-congruence",
+        "mathlib:PowerSeries.mk",
+        "mathlib:PowerSeries.coeff_mk",
+        "mathlib:PowerSeries.coeff_C_mul",
+        "mathlib:PowerSeries.ext"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/TwistedPositiveSeries",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.integralTwistedPositiveEisensteinSeries_test_congr"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Definition8.1, Theorem8.2 with its entire proof and Remark8.3, published159–161/PDF60–62, freshly read in full. Proposition3.16, Definition3.17 and Example3.19, published121–123, read in the preceding finite-coordinate checkpoint.",
+          "match": "Worker extension of the positive divisor-Dirac construction to the already planned integral two-character coefficients. Native coefficientwise topology assembles the measures and their congruences. The character-pair extension and precise finite-coordinate reduction are derived here; they are not attributed verbatim to the source. The actual constant coefficient, classical modularity and weight-space geometry retain their existing boundaries and owners."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedTwistedSeriesTests.zero_ideal_series_equality",
+          "kind": "degenerate",
+          "statement": "If0 divides g(u)−f(u) everywhere, the two whole positive series are equal."
+        }
+      ],
+      "acceptance": [
+        "All witnesses lie in O. The argument includes b=0 and does not discard integral precision by moving to K."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L4/integral-twisted-positive-series-weight-congruence",
+      "parentStageId": "DirichletPadicLFunctions:L4",
+      "realises": [
+        "DirichletPadicLFunctions:L4"
+      ],
+      "title": "Weight congruences of integral weighted positive series",
+      "kind": "theorem",
+      "statement": "For r≥1 and e≡e′ modulo p^(r−1)(p−1), C((p:O)^r) divides E^+(κ^O_e′)−E^+(κ^O_e) in O[[q]].",
+      "hypotheses": [
+        "p is any prime, including2. K is a normed ultrametric field, O is its native norm-valuation integer subring and U=(ℤ_p)ˣ. Let ψ:DirichletCharacter K D and φ:DirichletCharacter K E, with their ordered character positions retained.",
+        "The actual existing integral coefficient A^O_(ψ,φ,n) is used for every n>0. The new series E^+_(ψ,φ)(f) has coefficient A^O_n(f) for n>0 and zero at0. Its target is the native PowerSeries O with the native coefficientwise topology.",
+        "The bundled map is AbstractMeasure U O (PowerSeries O), namely a continuous O-linear map from C(U,O). No convolution-ring structure on measures, no norm on O[[q]], and no completeness of K or O are required for this assembly.",
+        "The zero constant denotes positive truncation only. It is not the true Eisenstein constant coefficient. No primitive-character condition, parity, exceptional-weight modularity or analytic-family construction is asserted.",
+        "Moment statements additionally require Algebra ℤ_p K and IsBoundedSMul ℤ_p K, and use the existing principal level-zero integral arithmetic character κ^O_e for natural e. The arithmetic exponent is e=k−1. No ℤ_p-algebra structure on O is postulated.",
+        "Finite moment reduction has group level r and coefficient precision s, with s≤r. Its coefficient ring is O/(p:O)^s, not assumed finite. Powers use native natural representatives of units modulo p^r."
+      ],
+      "proofSteps": [
+        "Apply the existing integral weighted coefficient weight-congruence at each positive n. It uses actual integral arithmetic characters and the full prime-power totient modulus. The zero coefficient contributes zero.",
+        "As in the preceding whole test-ideal theorem, choose integral quotient coefficients and assemble them with native mk. The complete native constant_divisibility proof supplies the whole-series step. This does not require an unstated pointwise divisibility theorem for arbitrary K-valued unit tests.",
+        "At p=2,r=3, exponents1 and5 differ by4=2^(3−1)(2−1), so their entire positive-series difference is divisible by C(8). The q⁵ difference for the quadratic-left pair is3120, consistent with this integral statement.",
+        "The tame component alone is insufficient. For p=5 and the quadratic-left character modulo3, exponents3 and7 agree modulo4, but the q² difference is120. The prior actual integer-ring counterexample says25 does not divide120. Native coefficient_divisibility then rules out divisibility of the whole series difference by C(25)."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L4/integral-twisted-positive-series-coeff",
+        "DirichletPadicLFunctions:L4/integral-twisted-positive-series-test-congruence",
+        "DirichletPadicLFunctions:L4/integral-twisted-positive-eisenstein-weight-congruence",
+        "mathlib:PowerSeries.coeff_C_mul",
+        "mathlib:PowerSeries.ext"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/TwistedPositiveSeries",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.integralTwistedPositiveEisensteinSeries_weight_congr"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Definition8.1, Theorem8.2 with its entire proof and Remark8.3, published159–161/PDF60–62, freshly read in full. Proposition3.16, Definition3.17 and Example3.19, published121–123, read in the preceding finite-coordinate checkpoint.",
+          "match": "Worker extension of the positive divisor-Dirac construction to the already planned integral two-character coefficients. Native coefficientwise topology assembles the measures and their congruences. The character-pair extension and precise finite-coordinate reduction are derived here; they are not attributed verbatim to the source. The actual constant coefficient, classical modularity and weight-space geometry retain their existing boundaries and owners."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedTwistedSeriesTests.dyadic_whole_series_congruence",
+          "kind": "computation",
+          "statement": "For p=2 and the quadratic-left pair, C(8) divides the whole difference between exponents5 and1."
+        },
+        {
+          "name": "SuggestedTwistedSeriesTests.tame_only_whole_series_failure",
+          "kind": "non-example",
+          "statement": "For p=5 and the quadratic-left pair, C(25) does not divide the whole difference between exponents7 and3, despite equality modulo p−1."
+        }
+      ],
+      "acceptance": [
+        "The stated exponent modulus includes the p-power part. This is an integral formal-series theorem, not a claim of modularity or analytic weight-space interpolation."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L4/integral-twisted-positive-series-p-scaling",
+      "parentStageId": "DirichletPadicLFunctions:L4",
+      "realises": [
+        "DirichletPadicLFunctions:L4"
+      ],
+      "title": "Left-character scaling of positive-series indices",
+      "kind": "theorem",
+      "statement": "After O↪K, coeff_(pn)(E^+(f))=ψ(p)coeff_n(E^+(f)) for every n≥0.",
+      "hypotheses": [
+        "p is any prime, including2. K is a normed ultrametric field, O is its native norm-valuation integer subring and U=(ℤ_p)ˣ. Let ψ:DirichletCharacter K D and φ:DirichletCharacter K E, with their ordered character positions retained.",
+        "The actual existing integral coefficient A^O_(ψ,φ,n) is used for every n>0. The new series E^+_(ψ,φ)(f) has coefficient A^O_n(f) for n>0 and zero at0. Its target is the native PowerSeries O with the native coefficientwise topology.",
+        "The bundled map is AbstractMeasure U O (PowerSeries O), namely a continuous O-linear map from C(U,O). No convolution-ring structure on measures, no norm on O[[q]], and no completeness of K or O are required for this assembly.",
+        "The zero constant denotes positive truncation only. It is not the true Eisenstein constant coefficient. No primitive-character condition, parity, exceptional-weight modularity or analytic-family construction is asserted.",
+        "Moment statements additionally require Algebra ℤ_p K and IsBoundedSMul ℤ_p K, and use the existing principal level-zero integral arithmetic character κ^O_e for natural e. The arithmetic exponent is e=k−1. No ℤ_p-algebra structure on O is postulated.",
+        "Finite moment reduction has group level r and coefficient precision s, with s≤r. Its coefficient ring is O/(p:O)^s, not assumed finite. Powers use native natural representatives of units modulo p^r."
+      ],
+      "proofSteps": [
+        "For n>0, the coefficient formula and actual inclusion comparison reduce the claim to the existing twistedPositiveEisensteinMeasure_mul_p theorem. Its ordered left-character factor is ψ(p).",
+        "At n=0 both coefficients vanish. The complete native zero_extended_scaling proof checks the extension of the positive-index identity over this boundary.",
+        "No integral lift of ψ(p) is introduced as a new generic character construction: the signature records the identity after the existing inclusion into K. Subtype injectivity recovers integral identities when the factor is explicitly integral, as in the dyadic sign test.",
+        "For the quadratic-left character modulo3 at p=2, coefficient10 is the negative of coefficient5 for every integral test. The native wrong_left_character proof rejects replacing−1 by1 in characteristic different from2. If p divides the left conductor the same finite identity may instead force zero; neither unconditional invariance nor unconditional deletion of all p-indexed coefficients is claimed."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L4/integral-twisted-positive-series-coeff",
+        "DirichletPadicLFunctions:L4/integral-twisted-positive-series-coefficient-inclusion",
+        "DirichletPadicLFunctions:L4/twisted-positive-eisenstein-p-scaling"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/TwistedPositiveSeries",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.integralTwistedPositiveEisensteinSeries_coeff_mul_p"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Definition8.1, Theorem8.2 with its entire proof and Remark8.3, published159–161/PDF60–62, freshly read in full. Proposition3.16, Definition3.17 and Example3.19, published121–123, read in the preceding finite-coordinate checkpoint.",
+          "match": "Worker extension of the positive divisor-Dirac construction to the already planned integral two-character coefficients. Native coefficientwise topology assembles the measures and their congruences. The character-pair extension and precise finite-coordinate reduction are derived here; they are not attributed verbatim to the source. The actual constant coefficient, classical modularity and weight-space geometry retain their existing boundaries and owners."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedTwistedSeriesTests.dyadic_series_index_sign",
+          "kind": "computation",
+          "statement": "At p=2 with the quadratic-left pair, coeff_10(E^+(f))=−coeff_5(E^+(f)) for every integral continuous test."
+        }
+      ],
+      "acceptance": [
+        "The scaling factor is the left character ψ(p), independent of the moment exponent; it is not the right-character Euler-deletion factor."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L4/integral-twisted-positive-series-finite-moments",
+      "parentStageId": "DirichletPadicLFunctions:L4",
+      "realises": [
+        "DirichletPadicLFunctions:L4"
+      ],
+      "title": "Finite-coordinate moments of the whole reduced series",
+      "kind": "comparison",
+      "statement": "For s≤r, reduction modulo (p:O)^s of E^+(κ^O_e) equals the native mk series with positive coefficient Σ_a red_s(coeff_a(E_(n;r)))val(a)^e and zero constant.",
+      "hypotheses": [
+        "p is any prime, including2. K is a normed ultrametric field, O is its native norm-valuation integer subring and U=(ℤ_p)ˣ. Let ψ:DirichletCharacter K D and φ:DirichletCharacter K E, with their ordered character positions retained.",
+        "The actual existing integral coefficient A^O_(ψ,φ,n) is used for every n>0. The new series E^+_(ψ,φ)(f) has coefficient A^O_n(f) for n>0 and zero at0. Its target is the native PowerSeries O with the native coefficientwise topology.",
+        "The bundled map is AbstractMeasure U O (PowerSeries O), namely a continuous O-linear map from C(U,O). No convolution-ring structure on measures, no norm on O[[q]], and no completeness of K or O are required for this assembly.",
+        "The zero constant denotes positive truncation only. It is not the true Eisenstein constant coefficient. No primitive-character condition, parity, exceptional-weight modularity or analytic-family construction is asserted.",
+        "Moment statements additionally require Algebra ℤ_p K and IsBoundedSMul ℤ_p K, and use the existing principal level-zero integral arithmetic character κ^O_e for natural e. The arithmetic exponent is e=k−1. No ℤ_p-algebra structure on O is postulated.",
+        "Finite moment reduction has group level r and coefficient precision s, with s≤r. Its coefficient ring is O/(p:O)^s, not assumed finite. Powers use native natural representatives of units modulo p^r."
+      ],
+      "proofSteps": [
+        "Use native PowerSeries.ext and coeff_map to inspect each coefficient of the actual reduced series. At n=0 the coefficient vanishes.",
+        "For every positive n, the existing integralTwistedEisensteinFinite_moment_mod theorem identifies the coefficient with the finite pairing over (ℤ/p^rℤ)ˣ. It uses the actual projected integral measure and keeps all signed contributions from colliding residues.",
+        "Native mk assembles these exact quotient-ring coefficients; the complete mapped_series_ext proof checks the formal-series step for arbitrary coefficient ring maps. Only the group-index set is finite. No finiteness of O or its quotient and no inverse-limit equivalence are used.",
+        "The same group level r works for every q-index n because the prior integral residue-power error bound is uniform. This produces equality of whole formal series, not merely a finite truncation. The finite numerical controls below are separate finite checks of that statement’s arithmetic content.",
+        "For the dyadic quadratic-left pair at n=5, the group-level2 coordinate is zero while the actual exponent-one coefficient is4 and is nonzero modulo8. The typed insufficient_group_level_in_series test exhibits this failure within the actual mapped series. The requirement s≤r cannot be omitted."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L4/integral-twisted-positive-series-coeff",
+        "DirichletPadicLFunctions:L4/integral-twisted-eisenstein-finite-moment-precision",
+        "mathlib:PowerSeries.map",
+        "mathlib:PowerSeries.coeff_map",
+        "mathlib:PowerSeries.mk",
+        "mathlib:PowerSeries.coeff_mk",
+        "mathlib:PowerSeries.ext"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/TwistedPositiveSeries",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.integralTwistedPositiveEisensteinSeries_finite_moment_mod"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Definition8.1, Theorem8.2 with its entire proof and Remark8.3, published159–161/PDF60–62, freshly read in full. Proposition3.16, Definition3.17 and Example3.19, published121–123, read in the preceding finite-coordinate checkpoint.",
+          "match": "Worker extension of the positive divisor-Dirac construction to the already planned integral two-character coefficients. Native coefficientwise topology assembles the measures and their congruences. The character-pair extension and precise finite-coordinate reduction are derived here; they are not attributed verbatim to the source. The actual constant coefficient, classical modularity and weight-space geometry retain their existing boundaries and owners."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedTwistedSeriesTests.insufficient_group_level_in_series",
+          "kind": "non-example",
+          "statement": "The dyadic quadratic-left q⁵ coordinate at group level2 is zero, but the coefficient of q⁵ in the exponent-one series reduced modulo8 is nonzero."
+        }
+      ],
+      "acceptance": [
+        "Group precision and coefficient precision are independent parameters with the explicit relation s≤r. The generic completed-algebra comparison stays open with its owner."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L4/integral-twisted-positive-eisenstein-bound",
+      "parentStageId": "DirichletPadicLFunctions:L4",
+      "realises": [
+        "DirichletPadicLFunctions:L4"
+      ],
+      "title": "Uniform bounds for integral weighted coefficients",
+      "kind": "lemma",
+      "statement": "For every positive n and f∈C(U,O), ‖A^O_(ψ,φ,n)(f)‖≤‖f‖.",
+      "hypotheses": [
+        "p is any prime, including2. K is a normed ultrametric field, O is its native norm-valuation integer subring and U=(ℤ_p)ˣ. Let ψ:DirichletCharacter K D and φ:DirichletCharacter K E, with their ordered character positions retained.",
+        "The actual existing integral coefficient A^O_(ψ,φ,n) is used for every n>0. The new series E^+_(ψ,φ)(f) has coefficient A^O_n(f) for n>0 and zero at0. Its target is the native PowerSeries O with the native coefficientwise topology.",
+        "The bundled map is AbstractMeasure U O (PowerSeries O), namely a continuous O-linear map from C(U,O). No convolution-ring structure on measures, no norm on O[[q]], and no completeness of K or O are required for this assembly.",
+        "The zero constant denotes positive truncation only. It is not the true Eisenstein constant coefficient. No primitive-character condition, parity, exceptional-weight modularity or analytic-family construction is asserted.",
+        "Moment statements additionally require Algebra ℤ_p K and IsBoundedSMul ℤ_p K, and use the existing principal level-zero integral arithmetic character κ^O_e for natural e. The arithmetic exponent is e=k−1. No ℤ_p-algebra structure on O is postulated.",
+        "Finite moment reduction has group level r and coefficient precision s, with s≤r. Its coefficient ring is O/(p:O)^s, not assumed finite. Powers use native natural representatives of units modulo p^r."
+      ],
+      "proofSteps": [
+        "Promote the existing integral coefficient constructor’s bound API because the new whole-series constructor consumes it. Its suggested signature is already present in the preserved predecessor; it is not redefined or duplicated.",
+        "Use the promoted all-test coefficient inclusion to identify the included value with A^K_n on the actual included continuous test. The norm of an element of the native integer subring is its inherited K-norm.",
+        "Apply the existing uniform K-valued test bound with the second test zero. Subtype inclusion is an isometry, so the sup norm of its composite with f equals the sup norm of f. Alternatively the same finite weighted-atom proof bounds every summand by ‖f‖, then uses the ultrametric maximum bound.",
+        "The result is uniform in n and in the two finite characters. It uses neither completeness nor a ℤ_p-algebra on O, and has no factor counting divisors. The whole-series assembly applies this bound separately to each positive coefficient and handles the zero coefficient directly."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L4/integral-twisted-positive-eisenstein-coefficient",
+        "DirichletPadicLFunctions:L4/twisted-positive-eisenstein-test-bound",
+        "mathlib:SubringClass.toNormedCommRing",
+        "mathlib:ContinuousMap.norm_coe_le_norm"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/IntegralTwistedEisensteinCoefficients",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.integralTwistedPositiveEisensteinMeasure_bound"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Definition8.1, Theorem8.2 with its entire proof and Remark8.3, published159–161/PDF60–62, freshly read in full. Proposition3.16, Definition3.17 and Example3.19, published121–123, read in the preceding finite-coordinate checkpoint.",
+          "match": "Worker extension of the positive divisor-Dirac construction to the already planned integral two-character coefficients. Native coefficientwise topology assembles the measures and their congruences. The character-pair extension and precise finite-coordinate reduction are derived here; they are not attributed verbatim to the source. The actual constant coefficient, classical modularity and weight-space geometry retain their existing boundaries and owners."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [],
+      "acceptance": [
+        "This is a promoted existing API with the exact previous Lean signature. The bound is on scalar evaluations and the compact-domain sup norm, never a norm on the weak measure carrier."
+      ]
     }
   ],
   "requests": [
@@ -36883,7 +37430,7 @@
       "stageId": "DirichletPadicLFunctions:L4",
       "status": "partial",
       "remaining": [
-        "The integral character-weighted positive measures now have actual finite unit-group coordinates, signed multiplicities, refinement, reduced-test evaluation and rigorous arithmetic moment precision. Their whole positive-series construction, native twisted-divisor/Euler-deletion comparison and shared primitive-character modular-form specialization still require treatment. The character-pair constant coefficient, its denominator qualifications and scalar/analytic specializations remain open. The generic completed-algebra comparison stays with its existing owner and request; this checkpoint only uses its existing finite projection interface. All source corrections, analytic pole/residue questions and full source extraction remain open.",
+        "The integral character-weighted coefficients now assemble into an actual continuous positive-series measure, with coefficient inclusion, whole ideal and weight congruences, left-character index scaling and finite-coordinate reduction of whole moment series. The native twisted-divisor/Euler-deletion comparison and shared primitive-character modular-form specialization still require treatment. The character-pair constant coefficient, denominator qualifications and scalar/analytic specializations remain open. Generic completed-algebra and weight-space geometry stay with their existing owners and requests. All source corrections, analytic pole/residue questions and full source extraction remain open.",
         "The positive part now has a native continuous power-series-valued measure, uniform coefficient bounds, test and weight congruences, and whole-series comparison with the actual p-stabilized modular form after removing its constant coefficient. Assemble the full family with the actual localized A₀ coefficient, prove constant-term congruences with denominator qualifications, and decompose the tame-character extension. Geometric affinoid realization and Hida–Coleman control belong to PadicFamilies; retain the weight shift recorded in E9."
       ]
     }
@@ -36914,7 +37461,7 @@
       "neededBy": [
         "DirichletPadicLFunctions:L4/positive-eisenstein-completed-coordinates"
       ],
-      "detail": "The integral character-weighted positive measures now have actual finite unit-group coordinates, signed multiplicities, refinement, reduced-test evaluation and rigorous arithmetic moment precision. Their whole positive-series construction, native twisted-divisor/Euler-deletion comparison and shared primitive-character modular-form specialization still require treatment. The character-pair constant coefficient, its denominator qualifications and scalar/analytic specializations remain open. The generic completed-algebra comparison stays with its existing owner and request; this checkpoint only uses its existing finite projection interface. All source corrections, analytic pole/residue questions and full source extraction remain open. The positive part now has a native continuous power-series-valued measure, uniform coefficient bounds, test and weight congruences, and whole-series comparison with the actual p-stabilized modular form after removing its constant coefficient. Assemble the full family with the actual localized A₀ coefficient, prove constant-term congruences with denominator qualifications, and decompose the tame-character extension. Geometric affinoid realization and Hida–Coleman control belong to PadicFamilies; retain the weight shift recorded in E9."
+      "detail": "The integral character-weighted coefficients now assemble into an actual continuous positive-series measure, with coefficient inclusion, whole ideal and weight congruences, left-character index scaling and finite-coordinate reduction of whole moment series. The native twisted-divisor/Euler-deletion comparison and shared primitive-character modular-form specialization still require treatment. The character-pair constant coefficient, denominator qualifications and scalar/analytic specializations remain open. Generic completed-algebra and weight-space geometry stay with their existing owners and requests. All source corrections, analytic pole/residue questions and full source extraction remain open. The positive part now has a native continuous power-series-valued measure, uniform coefficient bounds, test and weight congruences, and whole-series comparison with the actual p-stabilized modular form after removing its constant coefficient. Assemble the full family with the actual localized A₀ coefficient, prove constant-term congruences with denominator qualifications, and decompose the tame-character extension. Geometric affinoid realization and Hida–Coleman control belong to PadicFamilies; retain the weight shift recorded in E9."
     },
     {
       "title": "Canonical coefficient-field character evaluation of actual pseudomeasures",
@@ -37259,34 +37806,34 @@
     "intake": "Exactly four authorized deliverables; zero problems.",
     "sourceIssues": "All16 source findings, sourceVersions, nine requests and13 gaps remain. No source finding, request or independent verdict is added.",
     "validation": {
-      "nodes": 564,
+      "nodes": 572,
       "kinds": {
         "definition": 1,
-        "lemma": 231,
-        "construction": 68,
-        "theorem": 168,
-        "comparison": 96
+        "lemma": 233,
+        "construction": 69,
+        "theorem": 171,
+        "comparison": 98
       },
-      "api": 503,
-      "packetTests": 895,
-      "definitionConstructionTests": 290,
-      "typedExamples": 898,
+      "api": 517,
+      "packetTests": 907,
+      "definitionConstructionTests": 295,
+      "typedExamples": 910,
       "planets": 24,
-      "baseline": 498,
-      "preservedWholeNodes": 558,
-      "preservedBaseline": 492,
+      "baseline": 499,
+      "preservedWholeNodes": 564,
+      "preservedBaseline": 498,
       "preservedSourceIssues": 16,
       "newSourceIssues": 0,
-      "newNodes": 6,
-      "newNamedDeclarations": 10,
+      "newNodes": 8,
+      "newNamedDeclarations": 15,
       "newTypedTests": 12,
       "requests": 9,
       "gaps": 13,
       "closedStages": 0,
-      "reachableNodes": 806,
-      "dependencyEdges": 3861,
+      "reachableNodes": 814,
+      "dependencyEdges": 3904,
       "acyclic": true,
-      "baselineLeaves": 671,
+      "baselineLeaves": 672,
       "stageRequestLeaves": [
         "AdicSpacesPartII:F1",
         "AdicSpacesPartII:R2",
@@ -37297,11 +37844,11 @@
         "PadicMeasuresIwasawaAlgebras:L1",
         "PadicMeasuresIwasawaAlgebras:L3"
       ],
-      "readerWords": 258711,
+      "readerWords": 263611,
       "scopedMutationCheck": true,
       "correctedPredecessorNodes": 0,
       "compilerErrors": 0,
-      "compilerWarnings": 1737,
+      "compilerWarnings": 1764,
       "allWarningsPlaceholders": true,
       "supplierNodes": 332,
       "currentSupplierNodes": 369,
@@ -37310,25 +37857,22 @@
       "pinnedMathlibModules": 3600,
       "pinnedTauCetiModules": 21,
       "actualSupplierModules": 1,
-      "scratchCompleteDefinitions": 0,
-      "scratchCompleteLemmas": 14,
-      "scratchMathlibModules": 2801,
+      "scratchCompleteDefinitions": 1,
+      "scratchCompleteLemmas": 11,
+      "scratchMathlibModules": 2807,
       "scratchErrors": 0,
       "scratchWarnings": 0,
       "scratchPlaceholders": 0,
       "finiteControls": {
-        "finiteCoordinates": 25600,
-        "coefficientFormulaChecks": 61125,
-        "groupRefinements": 64000,
-        "jointReductionChecks": 320000,
-        "finitePairings": 25600,
-        "momentPrecisionChecks": 153600,
-        "quotientMomentChecks": 384000,
-        "dyadicPrecisionChecks": 38400,
-        "badLevelPrecisionChecks": 52224,
-        "deduplicationCounterexamples": 10236,
-        "insufficientGroupLevelCounterexamples": 42467,
-        "knownSignedCases": 8
+        "positiveSeriesTruncations": 320,
+        "leftCharacterIndexCoefficients": 20800,
+        "wholeTruncationWeightCoefficients": 83200,
+        "wholeTruncationWeightCongruences": 1280,
+        "wholeTruncationFiniteReductions": 4800,
+        "finiteReducedCoefficients": 312000,
+        "testIdealCoefficientWitnesses": 24960,
+        "wholeTruncationTestIdeals": 384,
+        "levelOneMassCoefficients": 260
       },
       "numericalControlsCertified": false,
       "newRoutesStageLeaves": []
@@ -37336,14 +37880,14 @@
     "lean": {
       "status": "compiled with only expected placeholder warnings",
       "errors": 0,
-      "warnings": 1737,
-      "sha256": "d1545fc413979976c9fcc625253c954d27d6a65432e19c55b0d976ee82d1b138",
+      "warnings": 1764,
+      "sha256": "3a6c2d757324a9f1e095a519ef32ea94e1c4eb95958996ede4b6014c62c8c9f5",
       "nativeProbe": {
-        "completeLemmas": 14,
+        "completeLemmas": 11,
         "errors": 0,
         "warnings": 0,
         "placeholders": 0,
-        "sha256": "8d35eb552887a0be9481beaa6c768ac559d8ea5b4eea78cc44f01a655109f47c"
+        "sha256": "0c0b119954861bd7c0388f37071bf757b07e7180e5140ecf2b25b2d40fe91a68"
       },
       "artifactReuse": {
         "compiledSupplierNodes": 332,
@@ -37412,16 +37956,16 @@
         "nativeArtifactFileCount": 105,
         "predecessorAgainstCurrentSupplier": {
           "exitCode": 0,
-          "sourceSha256": "c20610212762486f4a4e2ae2a35d769d63f0bd75ce80a54e470de6385c7d086a",
+          "sourceSha256": "d1545fc413979976c9fcc625253c954d27d6a65432e19c55b0d976ee82d1b138",
           "modules": 3572,
-          "warnings": 1715,
+          "warnings": 1737,
           "errors": 0
         },
         "scope": "The actual332-node PMIA artifact compiled at PR3303 is reused. The current369-node PMIA source preserves all its lines in order, and all332 old packet nodes are unchanged; added residue restrictions and L4 declarations are not called. No compilation against the369-node source is claimed. The full new Dirichlet file uses that exact332-node artifact with21 pinned Tau modules,105 native artifact files and the audited pinned Mathlib closure. Existing native artifacts and original zero-warning logs are verified; no Lake setup, update, cache fetch or native library build occurs."
       }
     },
     "publication": {
-      "base": "11b3425a6b756294f54c394424d3fae1cd26fde6",
+      "base": "debb44ceab944dd4320885ab8ba4fcf2a501fd0b",
       "unchangedInputs": 63,
       "unchangedOutputs": 4,
       "sameSessionFollowupAfterMerge": true,
@@ -43231,6 +43775,45 @@
         "knownSignedCases": 8
       },
       "numericalMethod": "Exact integer character-weighted divisor coordinates; pushforward sums all colliding weights. Independent group and coefficient reductions, finite test pairings, and explicit integral witnesses for residue-power precision are checked, including group level zero. No completed-algebra equivalence, modularity or infinite-family theorem is numerically certified."
+    },
+    "twistedPositiveSeries": {
+      "agent": "Codex",
+      "session": "codex-7e92bd",
+      "issue": 713,
+      "claimComment": 5854790528,
+      "winningBot": 5854791937,
+      "previousPR": 4758,
+      "previousHead": "af9e28aa2510e399f4ee82459e2a138d13141e7a",
+      "previousMerge": "f35e74772e09bf7cac18d563b7f631ee91ecfa75",
+      "preservedWholeNodes": 564,
+      "preservedBaseline": 498,
+      "preservedFindings": 16,
+      "newNodes": 8,
+      "reading": "Whole published RJW159–161 freshly read, including the proof of Theorem8.2 and all of Remark8.3; whole121–123 were read in the preceding checkpoint. Existing unweighted positive-series constructor/API/tests and its coefficient, congruence and index statements were read; the current integral weighted measures and finite-coordinate signatures are the actual inputs. Native AbstractMeasure with general topological codomain, coefficientwise power-series topology and scalar instances, mk/ext/coefficient/C-multiplication/map declarations were read at the pins. All63 captured inputs are unchanged.",
+      "boundary": "The integral character-weighted coefficients now assemble into an actual continuous positive-series measure, with coefficient inclusion, whole ideal and weight congruences, left-character index scaling and finite-coordinate reduction of whole moment series. The native twisted-divisor/Euler-deletion comparison and shared primitive-character modular-form specialization still require treatment. The character-pair constant coefficient, denominator qualifications and scalar/analytic specializations remain open. Generic completed-algebra and weight-space geometry stay with their existing owners and requests. All source corrections, analytic pole/residue questions and full source extraction remain open.",
+      "inputBase": "5852ea27458e7b167d2df14258d47f7241bbf046",
+      "sourceBoundary": "All16 source findings, sourceVersions, nine requests and13 gaps remain. No source finding, request or independent verdict is added.",
+      "publication": {
+        "base": "debb44ceab944dd4320885ab8ba4fcf2a501fd0b",
+        "unchangedInputs": 63,
+        "unchangedOutputs": 4,
+        "sameSessionFollowupAfterMerge": true,
+        "lastClaimConfirmation": 5854791937,
+        "reviewIssue": 390,
+        "reviewUnclaimed": true
+      },
+      "finiteControls": {
+        "positiveSeriesTruncations": 320,
+        "leftCharacterIndexCoefficients": 20800,
+        "wholeTruncationWeightCoefficients": 83200,
+        "wholeTruncationWeightCongruences": 1280,
+        "wholeTruncationFiniteReductions": 4800,
+        "finiteReducedCoefficients": 312000,
+        "testIdealCoefficientWitnesses": 24960,
+        "wholeTruncationTestIdeals": 384,
+        "levelOneMassCoefficients": 260
+      },
+      "numericalMethod": "Exact integer and modular arithmetic on q-indices0–64, primes2,3,5,7, every ordered pair of the level1 and quadratic level3/4/5 characters, exponents0–4, group levels0–4 and all coefficient precisions s≤r. Weight shifts use the full prime-power totient. Whole-truncation assertions include each coefficient; these are finite controls, not infinite-series proofs."
     }
   },
   "requestResolutions": [
