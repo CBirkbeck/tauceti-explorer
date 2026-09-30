@@ -12624,3 +12624,91 @@ end SuggestedTameCharacterDescentTests
 end CharacterMeasureDescent
 end
 end DirichletPadic
+
+/-! ## Character-field ranges of ambient test integrals
+Pointwise membership is the hypothesis allowing a native continuous subtype
+lift. Arbitrary ambient-valued tests need not have integrals in the field. -/
+namespace DirichletPadic
+noncomputable section
+section CharacterMeasureRange
+variable (p : ℕ) [Fact p.Prime] {K : Type*} [NontriviallyNormedField K]
+  [NormedAlgebra ℚ_[p] K] [Algebra ℤ_[p] K] [IsScalarTower ℤ_[p] ℚ_[p] K]
+  [IsBoundedSMul ℤ_[p] K] [IsUltrametricDist K] [CompleteSpace K]
+  {D : ℕ} [NeZero D] (η : DirichletCharacter K D)
+local notation "Fη" => tameCharacterField p η
+local instance : CompleteSpace Fη := tameCharacterField_complete p η
+local instance : IsBoundedSMul ℤ_[p] Fη := tameCharacterField_isBoundedSMul p η
+local instance : IsScalarTower ℤ_[p] Fη K := tameCharacterField_integerScalarTower p η
+local instance : Valuation.HasExtension (NormedField.valuation (K := Fη))
+  (NormedField.valuation (K := K)) := tameCharacterField_valuationExtension p η
+local notation "hF" => (isUnit_iff_ne_zero.mpr (Nat.cast_ne_zero.mpr (NeZero.ne D)) : IsUnit (D : Fη))
+local notation "hK" => (Iff.mpr isUnit_iff_ne_zero
+  (Iff.mpr (@Nat.cast_ne_zero K _ (Algebra.charZero_of_charZero ℚ_[p] K) D) (NeZero.ne D)) : IsUnit (D : K))
+local notation "ηF" => tameCharacterInField p η
+local notation "iMap" => (ContinuousMap.mk (algebraMap Fη K) continuous_subtype_val : C(Fη,K))
+local notation "OF" => Valuation.integer (NormedField.valuation (K := Fη))
+local notation "OK" => Valuation.integer (NormedField.valuation (K := K))
+local notation "jMap" => (ContinuousMap.mk (algebraMap OF OK)
+  (Continuous.subtype_mk (Continuous.comp continuous_subtype_val continuous_subtype_val) _) : C(OF,OK))
+
+lemma tameCharacterField_integer_range (x : OK) :
+    x∈Set.range (algebraMap OF OK) ↔ (x : K)∈Fη := sorry
+
+theorem tameMeasure_mem_characterField (hpD : ¬p∣D) (f : C(ℤ_[p],K))
+    (hf : ∀ x,f x∈Fη) : tameMeasure η hK hpD f∈Fη := sorry
+
+theorem tameZetaMeasure_mem_characterField (hpD : ¬p∣D) (f : C(ℤ_[p],K))
+    (hf : ∀ x,f x∈Fη) : tameZetaMeasure η hK hpD f∈Fη := sorry
+
+theorem intrinsicTameZetaMeasure_mem_characterField (hpD : ¬p∣D) (f : C((ℤ_[p])ˣ,K))
+    (hf : ∀ x,f x∈Fη) : intrinsicTameZetaMeasure η hK hpD f∈Fη := sorry
+
+theorem integralTameMeasure_mem_characterIntegerRange (hpD : ¬p∣D) (f : C(ℤ_[p],OK))
+    (hf : ∀ x,(f x : K)∈Fη) :
+    integralTameMeasure η hK hpD f∈Set.range (algebraMap OF OK) := sorry
+
+theorem integralTameZetaMeasure_mem_characterIntegerRange (hpD : ¬p∣D) (f : C(ℤ_[p],OK))
+    (hf : ∀ x,(f x : K)∈Fη) :
+    integralTameZetaMeasure η hK hpD f∈Set.range (algebraMap OF OK) := sorry
+
+theorem intrinsicIntegralTameZetaMeasure_mem_characterIntegerRange (hpD : ¬p∣D) (f : C((ℤ_[p])ˣ,OK))
+    (hf : ∀ x,(f x : K)∈Fη) :
+    intrinsicIntegralTameZetaMeasure η hK hpD f∈Set.range (algebraMap OF OK) := sorry
+
+namespace SuggestedTameCharacterRangeTests
+-- integer_range_contains_zero
+example : (0 : OK)∈Set.range (algebraMap OF OK) := sorry
+-- integer_range_contains_one
+example : (1 : OK)∈Set.range (algebraMap OF OK) := sorry
+-- integral_element_outside_character_field
+example (x : OK) (hx : (x : K)∉Fη) : x∉Set.range (algebraMap OF OK) := sorry
+-- tame_mass_range
+example (hpD : ¬p∣D) : tameMeasure η hK hpD 1∈Fη := sorry
+-- tame_constant_test_range
+example (hpD : ¬p∣D) (b : Fη) :
+    tameMeasure η hK hpD (ContinuousMap.const ℤ_[p] (b : K))∈Fη := sorry
+-- zeta_mass_range
+example (hpD : ¬p∣D) : tameZetaMeasure η hK hpD 1∈Fη := sorry
+-- zeta_constant_test_range
+example (hpD : ¬p∣D) (b : Fη) :
+    tameZetaMeasure η hK hpD (ContinuousMap.const ℤ_[p] (b : K))∈Fη := sorry
+-- intrinsic_mass_range
+example (hpD : ¬p∣D) : intrinsicTameZetaMeasure η hK hpD 1∈Fη := sorry
+-- intrinsic_constant_test_range
+example (hpD : ¬p∣D) (b : Fη) :
+    intrinsicTameZetaMeasure η hK hpD (ContinuousMap.const ((ℤ_[p])ˣ) (b : K))∈Fη := sorry
+-- integral_tame_mass_range
+example (hpD : ¬p∣D) : integralTameMeasure η hK hpD 1∈Set.range (algebraMap OF OK) := sorry
+-- integral_zeta_mass_range
+example (hpD : ¬p∣D) : integralTameZetaMeasure η hK hpD 1∈Set.range (algebraMap OF OK) := sorry
+-- intrinsic_integral_mass_range
+example (hpD : ¬p∣D) : intrinsicIntegralTameZetaMeasure η hK hpD 1∈Set.range (algebraMap OF OK) := sorry
+-- zero_tame_test_range
+example (hpD : ¬p∣D) : tameMeasure η hK hpD 0=0 ∧ tameMeasure η hK hpD 0∈Fη := sorry
+-- outside_constant_dirac_control
+example (b : K) (hb : b∉Fη) :
+    AbstractMeasure.dirac K (0 : ℤ_[p]) (ContinuousMap.const ℤ_[p] b)∉Fη := sorry
+end SuggestedTameCharacterRangeTests
+end CharacterMeasureRange
+end
+end DirichletPadic
