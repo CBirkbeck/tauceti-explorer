@@ -19521,8 +19521,8 @@
    ],
    "prompt": "research/blueprint/prompts/RS-09~2.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #4968",
-   "finishedAt": "2026-09-30T15:48:27Z"
+   "finishedAt": "2026-09-30T15:48:27Z",
+   "note": "deliverables arrived from an external worker on issue #4968"
   },
   {
    "id": "REV-RS-09~2",
@@ -33374,8 +33374,8 @@
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-CHEN-24.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #4972",
-   "finishedAt": "2026-09-30T16:16:14Z"
+   "finishedAt": "2026-09-30T16:16:14Z",
+   "note": "deliverables arrived from an external worker on issue #4972"
   },
   {
    "id": "RT-PAPER-CARAIANI-SCHOLZE-24",
@@ -33655,8 +33655,8 @@
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-FU-24.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #4975",
-   "finishedAt": "2026-09-30T16:09:44Z"
+   "finishedAt": "2026-09-30T16:09:44Z",
+   "note": "deliverables arrived from an external worker on issue #4975"
   },
   {
    "id": "RT-PAPER-CAI-FRIEDBERG-KAPLAN-24",
@@ -33958,6 +33958,27 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-BROWNING-LEBOUDEC-SAWIN-23.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-FIX-RT-PAPER-BROWNING-LEBOUDEC-SAWIN-23",
+   "kind": "review",
+   "priority": 1,
+   "order": 224,
+   "name": "paper extraction PAPER-BROWNING-LEBOUDEC-SAWIN-23: Browning–Le Boudec–Sawin (2023): The Hasse principle for random Fano hypersurfaces",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/reviews/REV-FIX-RT-PAPER-BROWNING-LEBOUDEC-SAWIN-23.md",
+    "research/blueprint/packets/ArithmeticStatistics.json"
+   ],
+   "after": [
+    "FIX-RT-PAPER-BROWNING-LEBOUDEC-SAWIN-23"
+   ],
+   "avoidAccountOf": "FIX-RT-PAPER-BROWNING-LEBOUDEC-SAWIN-23",
+   "independentOf": [
+    "FIX-RT-PAPER-BROWNING-LEBOUDEC-SAWIN-23"
+   ],
+   "prompt": "research/blueprint/prompts/REV-FIX-RT-PAPER-BROWNING-LEBOUDEC-SAWIN-23.md",
    "state": "pending"
   },
   {
@@ -34693,8 +34714,8 @@
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-DEMARCO-KRIEGER-YE-20.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #4981",
-   "finishedAt": "2026-09-30T16:04:08Z"
+   "finishedAt": "2026-09-30T16:04:08Z",
+   "note": "deliverables arrived from an external worker on issue #4981"
   },
   {
    "id": "RT-PAPER-COUVEIGNES-20",
@@ -35538,8 +35559,26 @@
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-YUN-ZHANG-17.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #4115",
-   "finishedAt": "2026-09-30T15:48:33Z"
+   "finishedAt": "2026-09-30T15:48:33Z",
+   "note": "deliverables arrived from an external worker on issue #4115"
+  },
+  {
+   "id": "FIX-RT-PAPER-YUN-ZHANG-17",
+   "kind": "fix",
+   "priority": 1,
+   "order": 258,
+   "name": "paper extraction PAPER-YUN-ZHANG-17: Zhiwei Yun–Wei Zhang (2017): Shtukas and the Taylor expansion of L-functions",
+   "target": "PAPER-YUN-ZHANG-17",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/redteam/RT-PAPER-YUN-ZHANG-17.fixes.md",
+    "research/blueprint/papers/PAPER-YUN-ZHANG-19.result.json",
+    "research/blueprint/papers/PAPER-YUN-ZHANG-17.result.json",
+    "research/blueprint/papers/PAPER-YUN-ZHANG-17.md"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/FIX-RT-PAPER-YUN-ZHANG-17.md",
+   "state": "pending"
   },
   {
    "id": "RT-PAPER-BAKKER-TSIMERMAN-16",
@@ -36337,8 +36376,8 @@
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-LIU-WOOD-ZUREICKBROWN-24.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #4136",
-   "finishedAt": "2026-09-30T15:28:54Z"
+   "finishedAt": "2026-09-30T15:28:54Z",
+   "note": "deliverables arrived from an external worker on issue #4136"
   },
   {
    "id": "REV-RT-PAPER-LIU-WOOD-ZUREICKBROWN-24",
@@ -36493,8 +36532,8 @@
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-FENG-YUN-ZHANG-24.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #4141",
-   "finishedAt": "2026-09-30T15:28:59Z"
+   "finishedAt": "2026-09-30T15:28:59Z",
+   "note": "deliverables arrived from an external worker on issue #4141"
   },
   {
    "id": "RT-PAPER-HE-LI-SHI-ETAL-23",
@@ -36540,8 +36579,8 @@
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-HE-LI-SHI-ETAL-23.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #4143",
-   "finishedAt": "2026-09-30T15:29:04Z"
+   "finishedAt": "2026-09-30T15:29:04Z",
+   "note": "deliverables arrived from an external worker on issue #4143"
   },
   {
    "id": "FIX-RT-PAPER-HE-LI-SHI-ETAL-23",
@@ -36989,6 +37028,27 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-GHOSH-SARNAK-22.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-FIX-RT-PAPER-GHOSH-SARNAK-22",
+   "kind": "review",
+   "priority": 1,
+   "order": 308,
+   "name": "paper extraction PAPER-GHOSH-SARNAK-22: Ghosh–Sarnak (2022): Integral points on Markoff type cubic surfaces",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/reviews/REV-FIX-RT-PAPER-GHOSH-SARNAK-22.md",
+    "research/blueprint/packets/ClassicalArithmeticCompletion.json"
+   ],
+   "after": [
+    "FIX-RT-PAPER-GHOSH-SARNAK-22"
+   ],
+   "avoidAccountOf": "FIX-RT-PAPER-GHOSH-SARNAK-22",
+   "independentOf": [
+    "FIX-RT-PAPER-GHOSH-SARNAK-22"
+   ],
+   "prompt": "research/blueprint/prompts/REV-FIX-RT-PAPER-GHOSH-SARNAK-22.md",
    "state": "pending"
   },
   {
@@ -37742,8 +37802,8 @@
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-CESNAVICIUS-19.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #4194",
-   "finishedAt": "2026-09-30T15:42:28Z"
+   "finishedAt": "2026-09-30T15:42:28Z",
+   "note": "deliverables arrived from an external worker on issue #4194"
   },
   {
    "id": "REV-RT-PAPER-CESNAVICIUS-19",
@@ -37812,8 +37872,25 @@
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-WOOD-19.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #4195",
-   "finishedAt": "2026-09-30T15:34:50Z"
+   "finishedAt": "2026-09-30T15:34:50Z",
+   "note": "deliverables arrived from an external worker on issue #4195"
+  },
+  {
+   "id": "FIX-RT-PAPER-WOOD-19",
+   "kind": "fix",
+   "priority": 1,
+   "order": 337,
+   "name": "paper extraction PAPER-WOOD-19: Melanie Matchett Wood (2019): Nonabelian Cohen–Lenstra moments",
+   "target": "PAPER-WOOD-19",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/redteam/RT-PAPER-WOOD-19.fixes.md",
+    "research/blueprint/papers/PAPER-WOOD-19.result.json",
+    "research/blueprint/papers/PAPER-WOOD-19.md"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/FIX-RT-PAPER-WOOD-19.md",
+   "state": "pending"
   },
   {
    "id": "RT-PAPER-LIPNOWSKI-TSIMERMAN-18",
@@ -38916,8 +38993,8 @@
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-ATOBE-KONDO-YASUDA-22.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #4244",
-   "finishedAt": "2026-09-30T15:46:06Z"
+   "finishedAt": "2026-09-30T15:46:06Z",
+   "note": "deliverables arrived from an external worker on issue #4244"
   },
   {
    "id": "REV-RT-PAPER-ATOBE-KONDO-YASUDA-22",
@@ -40939,8 +41016,25 @@
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-SKINNER-20.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #4321",
-   "finishedAt": "2026-09-30T15:46:11Z"
+   "finishedAt": "2026-09-30T15:46:11Z",
+   "note": "deliverables arrived from an external worker on issue #4321"
+  },
+  {
+   "id": "FIX-RT-PAPER-SKINNER-20",
+   "kind": "fix",
+   "priority": 1,
+   "order": 409,
+   "name": "paper extraction PAPER-SKINNER-20: Christopher Skinner: A converse to a theorem of Gross, Zagier, and Kolyvagin",
+   "target": "PAPER-SKINNER-20",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/redteam/RT-PAPER-SKINNER-20.fixes.md",
+    "research/blueprint/papers/PAPER-SKINNER-20.result.json",
+    "research/blueprint/papers/PAPER-SKINNER-20.md"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/FIX-RT-PAPER-SKINNER-20.md",
+   "state": "pending"
   },
   {
    "id": "RT-PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19",
@@ -41176,8 +41270,8 @@
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-CESNAVICIUS-21.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #5020",
-   "finishedAt": "2026-09-30T15:57:46Z"
+   "finishedAt": "2026-09-30T15:57:46Z",
+   "note": "deliverables arrived from an external worker on issue #5020"
   },
   {
    "id": "RT-PAPER-LAND-MATHEW-MEIER-ETAL-24",
@@ -41502,6 +41596,28 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-KOYMANS-PAGANO.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-FIX-RT-PAPER-KOYMANS-PAGANO",
+   "kind": "review",
+   "priority": 1,
+   "order": 418,
+   "name": "paper extraction PAPER-KOYMANS-PAGANO: Koymans–Pagano: On Stevenhagen's conjecture",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/reviews/REV-FIX-RT-PAPER-KOYMANS-PAGANO.md",
+    "research/blueprint/packets/ArithmeticStatistics.json",
+    "research/blueprint/packets/ClassicalArithmeticCompletion.json"
+   ],
+   "after": [
+    "FIX-RT-PAPER-KOYMANS-PAGANO"
+   ],
+   "avoidAccountOf": "FIX-RT-PAPER-KOYMANS-PAGANO",
+   "independentOf": [
+    "FIX-RT-PAPER-KOYMANS-PAGANO"
+   ],
+   "prompt": "research/blueprint/prompts/REV-FIX-RT-PAPER-KOYMANS-PAGANO.md",
    "state": "pending"
   },
   {
@@ -41870,6 +41986,27 @@
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-KHARE-WINTENBERGER-09-I.md",
    "state": "external",
    "note": "claimed on GitHub issue #5027"
+  },
+  {
+   "id": "REV-FIX-RT-PAPER-KHARE-WINTENBERGER-09-I",
+   "kind": "review",
+   "priority": 1,
+   "order": 426,
+   "name": "paper extraction PAPER-KHARE-WINTENBERGER-09-I: Khare–Wintenberger: Serre's modularity conjecture (I)",
+   "roadmapIds": [],
+   "outputs": [
+    "research/blueprint/reviews/REV-FIX-RT-PAPER-KHARE-WINTENBERGER-09-I.md",
+    "research/blueprint/packets/ClassicalSerreModularity--R27.3.json"
+   ],
+   "after": [
+    "FIX-RT-PAPER-KHARE-WINTENBERGER-09-I"
+   ],
+   "avoidAccountOf": "FIX-RT-PAPER-KHARE-WINTENBERGER-09-I",
+   "independentOf": [
+    "FIX-RT-PAPER-KHARE-WINTENBERGER-09-I"
+   ],
+   "prompt": "research/blueprint/prompts/REV-FIX-RT-PAPER-KHARE-WINTENBERGER-09-I.md",
+   "state": "pending"
   },
   {
    "id": "RT-PAPER-KHARE-WINTENBERGER-09-II",
@@ -42500,6 +42637,29 @@
    "note": "claimed on GitHub issue #5030"
   },
   {
+   "id": "REV-FIX-RT-LINK-tauceti_TauCetiRoadmap_ModularCurves",
+   "kind": "review",
+   "priority": 1,
+   "order": 598,
+   "name": "link map LINK-tauceti_TauCetiRoadmap_ModularCurves: Modular curves, following Katz–Mazur",
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/ModularCurves"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-FIX-RT-LINK-tauceti_TauCetiRoadmap_ModularCurves.md",
+    "research/blueprint/links/tauceti_TauCetiRoadmap_ModularCurves.json"
+   ],
+   "after": [
+    "FIX-RT-LINK-tauceti_TauCetiRoadmap_ModularCurves"
+   ],
+   "avoidAccountOf": "FIX-RT-LINK-tauceti_TauCetiRoadmap_ModularCurves",
+   "independentOf": [
+    "FIX-RT-LINK-tauceti_TauCetiRoadmap_ModularCurves"
+   ],
+   "prompt": "research/blueprint/prompts/REV-FIX-RT-LINK-tauceti_TauCetiRoadmap_ModularCurves.md",
+   "state": "pending"
+  },
+  {
    "id": "RT-LINK-tauceti_TauCetiRoadmap_EllipticCurves",
    "kind": "redteam",
    "priority": 2,
@@ -42569,6 +42729,29 @@
    "state": "done",
    "finishedAt": "2026-09-29T13:32:58Z",
    "note": "deliverables arrived from an external worker on issue #3991"
+  },
+  {
+   "id": "REV-FIX-RT-LINK-tauceti_TauCetiRoadmap_EllipticCurves",
+   "kind": "review",
+   "priority": 1,
+   "order": 600,
+   "name": "link map LINK-tauceti_TauCetiRoadmap_EllipticCurves: Elliptic curves",
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/EllipticCurves"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-FIX-RT-LINK-tauceti_TauCetiRoadmap_EllipticCurves.md",
+    "research/blueprint/links/tauceti_TauCetiRoadmap_EllipticCurves.json"
+   ],
+   "after": [
+    "FIX-RT-LINK-tauceti_TauCetiRoadmap_EllipticCurves"
+   ],
+   "avoidAccountOf": "FIX-RT-LINK-tauceti_TauCetiRoadmap_EllipticCurves",
+   "independentOf": [
+    "FIX-RT-LINK-tauceti_TauCetiRoadmap_EllipticCurves"
+   ],
+   "prompt": "research/blueprint/prompts/REV-FIX-RT-LINK-tauceti_TauCetiRoadmap_EllipticCurves.md",
+   "state": "pending"
   },
   {
    "id": "RT-LINK-tauceti_TauCetiRoadmap_AdicSpaces",
@@ -42690,8 +42873,32 @@
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-LINK-tauceti_TauCetiRoadmap_AlgebraicCurves.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #5031",
-   "finishedAt": "2026-09-30T16:16:19Z"
+   "finishedAt": "2026-09-30T16:16:19Z",
+   "note": "deliverables arrived from an external worker on issue #5031"
+  },
+  {
+   "id": "REV-FIX-RT-LINK-tauceti_TauCetiRoadmap_AlgebraicCurves",
+   "kind": "review",
+   "priority": 1,
+   "order": 602,
+   "name": "link map LINK-tauceti_TauCetiRoadmap_AlgebraicCurves: Algebraic curves — function fields, divisors, and Riemann–Roch",
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/AlgebraicCurves"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-FIX-RT-LINK-tauceti_TauCetiRoadmap_AlgebraicCurves.md",
+    "research/blueprint/links/tauceti_TauCetiRoadmap_ModularCurves.json",
+    "research/blueprint/links/tauceti_TauCetiRoadmap_AlgebraicCurves.json"
+   ],
+   "after": [
+    "FIX-RT-LINK-tauceti_TauCetiRoadmap_AlgebraicCurves"
+   ],
+   "avoidAccountOf": "FIX-RT-LINK-tauceti_TauCetiRoadmap_AlgebraicCurves",
+   "independentOf": [
+    "FIX-RT-LINK-tauceti_TauCetiRoadmap_AlgebraicCurves"
+   ],
+   "prompt": "research/blueprint/prompts/REV-FIX-RT-LINK-tauceti_TauCetiRoadmap_AlgebraicCurves.md",
+   "state": "pending"
   },
   {
    "id": "RT-LINK-tauceti_TauCetiRoadmap_NumberFieldArithmetic",
@@ -42762,6 +42969,29 @@
    "prompt": "research/blueprint/prompts/FIX-RT-LINK-tauceti_TauCetiRoadmap_NumberFieldArithmetic.md",
    "state": "external",
    "note": "claimed on GitHub issue #5032"
+  },
+  {
+   "id": "REV-FIX-RT-LINK-tauceti_TauCetiRoadmap_NumberFieldArithmetic",
+   "kind": "review",
+   "priority": 1,
+   "order": 604,
+   "name": "link map LINK-tauceti_TauCetiRoadmap_NumberFieldArithmetic: Number fields, ramification, Frobenius, and the LMFDB invariants",
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/NumberFieldArithmetic"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-FIX-RT-LINK-tauceti_TauCetiRoadmap_NumberFieldArithmetic.md",
+    "research/blueprint/links/tauceti_TauCetiRoadmap_NumberFieldArithmetic.json"
+   ],
+   "after": [
+    "FIX-RT-LINK-tauceti_TauCetiRoadmap_NumberFieldArithmetic"
+   ],
+   "avoidAccountOf": "FIX-RT-LINK-tauceti_TauCetiRoadmap_NumberFieldArithmetic",
+   "independentOf": [
+    "FIX-RT-LINK-tauceti_TauCetiRoadmap_NumberFieldArithmetic"
+   ],
+   "prompt": "research/blueprint/prompts/REV-FIX-RT-LINK-tauceti_TauCetiRoadmap_NumberFieldArithmetic.md",
+   "state": "pending"
   },
   {
    "id": "RT-LINK-tauceti_TauCetiRoadmap_LocalFieldsRamification",
@@ -42933,8 +43163,31 @@
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-LINK-tauceti_TauCetiRoadmap_Chebotarev.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #5033",
-   "finishedAt": "2026-09-30T16:16:23Z"
+   "finishedAt": "2026-09-30T16:16:23Z",
+   "note": "deliverables arrived from an external worker on issue #5033"
+  },
+  {
+   "id": "REV-FIX-RT-LINK-tauceti_TauCetiRoadmap_Chebotarev",
+   "kind": "review",
+   "priority": 1,
+   "order": 607,
+   "name": "link map LINK-tauceti_TauCetiRoadmap_Chebotarev: The Chebotarev density theorem",
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/Chebotarev"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-FIX-RT-LINK-tauceti_TauCetiRoadmap_Chebotarev.md",
+    "research/blueprint/links/tauceti_TauCetiRoadmap_Chebotarev.json"
+   ],
+   "after": [
+    "FIX-RT-LINK-tauceti_TauCetiRoadmap_Chebotarev"
+   ],
+   "avoidAccountOf": "FIX-RT-LINK-tauceti_TauCetiRoadmap_Chebotarev",
+   "independentOf": [
+    "FIX-RT-LINK-tauceti_TauCetiRoadmap_Chebotarev"
+   ],
+   "prompt": "research/blueprint/prompts/REV-FIX-RT-LINK-tauceti_TauCetiRoadmap_Chebotarev.md",
+   "state": "pending"
   },
   {
    "id": "RT-LINK-tauceti_TauCetiRoadmap_ArithmeticDirichletSeries",
@@ -43055,8 +43308,31 @@
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-LINK-tauceti_TauCetiRoadmap_ProfiniteProPGroups.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #5034",
-   "finishedAt": "2026-09-30T16:04:13Z"
+   "finishedAt": "2026-09-30T16:04:13Z",
+   "note": "deliverables arrived from an external worker on issue #5034"
+  },
+  {
+   "id": "REV-FIX-RT-LINK-tauceti_TauCetiRoadmap_ProfiniteProPGroups",
+   "kind": "review",
+   "priority": 1,
+   "order": 612,
+   "name": "link map LINK-tauceti_TauCetiRoadmap_ProfiniteProPGroups: Profinite and pro-p groups",
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/ProfiniteProPGroups"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-FIX-RT-LINK-tauceti_TauCetiRoadmap_ProfiniteProPGroups.md",
+    "research/blueprint/links/tauceti_TauCetiRoadmap_ProfiniteProPGroups.json"
+   ],
+   "after": [
+    "FIX-RT-LINK-tauceti_TauCetiRoadmap_ProfiniteProPGroups"
+   ],
+   "avoidAccountOf": "FIX-RT-LINK-tauceti_TauCetiRoadmap_ProfiniteProPGroups",
+   "independentOf": [
+    "FIX-RT-LINK-tauceti_TauCetiRoadmap_ProfiniteProPGroups"
+   ],
+   "prompt": "research/blueprint/prompts/REV-FIX-RT-LINK-tauceti_TauCetiRoadmap_ProfiniteProPGroups.md",
+   "state": "pending"
   },
   {
    "id": "RT-LINK-tauceti_Completed_EffectiveBounds",
@@ -43228,8 +43504,31 @@
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-LINK-tauceti_TauCetiRoadmap_AlgebraicCodingTheory.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #5035",
-   "finishedAt": "2026-09-30T15:57:51Z"
+   "finishedAt": "2026-09-30T15:57:51Z",
+   "note": "deliverables arrived from an external worker on issue #5035"
+  },
+  {
+   "id": "REV-FIX-RT-LINK-tauceti_TauCetiRoadmap_AlgebraicCodingTheory",
+   "kind": "review",
+   "priority": 1,
+   "order": 624,
+   "name": "link map LINK-tauceti_TauCetiRoadmap_AlgebraicCodingTheory: Algebraic codes and code-lattice constructions",
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/AlgebraicCodingTheory"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-FIX-RT-LINK-tauceti_TauCetiRoadmap_AlgebraicCodingTheory.md",
+    "research/blueprint/links/tauceti_TauCetiRoadmap_AlgebraicCodingTheory.json"
+   ],
+   "after": [
+    "FIX-RT-LINK-tauceti_TauCetiRoadmap_AlgebraicCodingTheory"
+   ],
+   "avoidAccountOf": "FIX-RT-LINK-tauceti_TauCetiRoadmap_AlgebraicCodingTheory",
+   "independentOf": [
+    "FIX-RT-LINK-tauceti_TauCetiRoadmap_AlgebraicCodingTheory"
+   ],
+   "prompt": "research/blueprint/prompts/REV-FIX-RT-LINK-tauceti_TauCetiRoadmap_AlgebraicCodingTheory.md",
+   "state": "pending"
   },
   {
    "id": "RT-LINK-tauceti_TauCetiRoadmap_GrothendieckEulerForms",
@@ -43299,8 +43598,31 @@
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-LINK-tauceti_TauCetiRoadmap_GrothendieckEulerForms.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #5036",
-   "finishedAt": "2026-09-30T15:51:02Z"
+   "finishedAt": "2026-09-30T15:51:02Z",
+   "note": "deliverables arrived from an external worker on issue #5036"
+  },
+  {
+   "id": "REV-FIX-RT-LINK-tauceti_TauCetiRoadmap_GrothendieckEulerForms",
+   "kind": "review",
+   "priority": 1,
+   "order": 634,
+   "name": "link map LINK-tauceti_TauCetiRoadmap_GrothendieckEulerForms: Grothendieck groups, Cartan maps, and Euler forms",
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/GrothendieckEulerForms"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-FIX-RT-LINK-tauceti_TauCetiRoadmap_GrothendieckEulerForms.md",
+    "research/blueprint/links/tauceti_TauCetiRoadmap_GrothendieckEulerForms.json"
+   ],
+   "after": [
+    "FIX-RT-LINK-tauceti_TauCetiRoadmap_GrothendieckEulerForms"
+   ],
+   "avoidAccountOf": "FIX-RT-LINK-tauceti_TauCetiRoadmap_GrothendieckEulerForms",
+   "independentOf": [
+    "FIX-RT-LINK-tauceti_TauCetiRoadmap_GrothendieckEulerForms"
+   ],
+   "prompt": "research/blueprint/prompts/REV-FIX-RT-LINK-tauceti_TauCetiRoadmap_GrothendieckEulerForms.md",
+   "state": "pending"
   },
   {
    "id": "RT-LINK-tauceti_TauCetiRoadmap_Multiquadratic",
@@ -43374,6 +43696,29 @@
    "note": "deliverables arrived from an external worker on issue #3993"
   },
   {
+   "id": "REV-FIX-RT-LINK-tauceti_TauCetiRoadmap_Multiquadratic",
+   "kind": "review",
+   "priority": 1,
+   "order": 637,
+   "name": "link map LINK-tauceti_TauCetiRoadmap_Multiquadratic: Multiquadratic fields and genus theory",
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/Multiquadratic"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-FIX-RT-LINK-tauceti_TauCetiRoadmap_Multiquadratic.md",
+    "research/blueprint/links/tauceti_TauCetiRoadmap_Multiquadratic.json"
+   ],
+   "after": [
+    "FIX-RT-LINK-tauceti_TauCetiRoadmap_Multiquadratic"
+   ],
+   "avoidAccountOf": "FIX-RT-LINK-tauceti_TauCetiRoadmap_Multiquadratic",
+   "independentOf": [
+    "FIX-RT-LINK-tauceti_TauCetiRoadmap_Multiquadratic"
+   ],
+   "prompt": "research/blueprint/prompts/REV-FIX-RT-LINK-tauceti_TauCetiRoadmap_Multiquadratic.md",
+   "state": "pending"
+  },
+  {
    "id": "RT-LINK-tauceti_TauCetiRoadmap_OneParameterSemigroups",
    "kind": "redteam",
    "priority": 2,
@@ -43441,8 +43786,31 @@
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-LINK-tauceti_TauCetiRoadmap_OneParameterSemigroups.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #5037",
-   "finishedAt": "2026-09-30T15:57:55Z"
+   "finishedAt": "2026-09-30T15:57:55Z",
+   "note": "deliverables arrived from an external worker on issue #5037"
+  },
+  {
+   "id": "REV-FIX-RT-LINK-tauceti_TauCetiRoadmap_OneParameterSemigroups",
+   "kind": "review",
+   "priority": 1,
+   "order": 638,
+   "name": "link map LINK-tauceti_TauCetiRoadmap_OneParameterSemigroups: One-parameter semigroups, completely monotone and positive-definite functions, and Bochner-type representations",
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/OneParameterSemigroups"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-FIX-RT-LINK-tauceti_TauCetiRoadmap_OneParameterSemigroups.md",
+    "research/blueprint/links/tauceti_TauCetiRoadmap_OneParameterSemigroups.json"
+   ],
+   "after": [
+    "FIX-RT-LINK-tauceti_TauCetiRoadmap_OneParameterSemigroups"
+   ],
+   "avoidAccountOf": "FIX-RT-LINK-tauceti_TauCetiRoadmap_OneParameterSemigroups",
+   "independentOf": [
+    "FIX-RT-LINK-tauceti_TauCetiRoadmap_OneParameterSemigroups"
+   ],
+   "prompt": "research/blueprint/prompts/REV-FIX-RT-LINK-tauceti_TauCetiRoadmap_OneParameterSemigroups.md",
+   "state": "pending"
   },
   {
    "id": "RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory",
@@ -43563,8 +43931,31 @@
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_ClassicalGroups.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #5038",
-   "finishedAt": "2026-09-30T16:16:27Z"
+   "finishedAt": "2026-09-30T16:16:27Z",
+   "note": "deliverables arrived from an external worker on issue #5038"
+  },
+  {
+   "id": "REV-FIX-RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_ClassicalGroups",
+   "kind": "review",
+   "priority": 1,
+   "order": 644,
+   "name": "link map LINK-tauceti_TauCetiRoadmap_RepresentationTheory_ClassicalGroups: Finite-dimensional representations of the classical groups",
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/RepresentationTheory/ClassicalGroups"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-FIX-RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_ClassicalGroups.md",
+    "research/blueprint/links/tauceti_TauCetiRoadmap_RepresentationTheory_ClassicalGroups.json"
+   ],
+   "after": [
+    "FIX-RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_ClassicalGroups"
+   ],
+   "avoidAccountOf": "FIX-RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_ClassicalGroups",
+   "independentOf": [
+    "FIX-RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_ClassicalGroups"
+   ],
+   "prompt": "research/blueprint/prompts/REV-FIX-RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_ClassicalGroups.md",
+   "state": "pending"
   },
   {
    "id": "RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_LieGroups",
@@ -43736,8 +44127,31 @@
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SchurWeyl.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #5039",
-   "finishedAt": "2026-09-30T15:58:00Z"
+   "finishedAt": "2026-09-30T15:58:00Z",
+   "note": "deliverables arrived from an external worker on issue #5039"
+  },
+  {
+   "id": "REV-FIX-RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SchurWeyl",
+   "kind": "review",
+   "priority": 1,
+   "order": 651,
+   "name": "link map LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SchurWeyl: Representations of the symmetric group, Specht modules, and Schur-Weyl duality",
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/RepresentationTheory/SchurWeyl"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-FIX-RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SchurWeyl.md",
+    "research/blueprint/links/tauceti_TauCetiRoadmap_RepresentationTheory_SchurWeyl.json"
+   ],
+   "after": [
+    "FIX-RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SchurWeyl"
+   ],
+   "avoidAccountOf": "FIX-RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SchurWeyl",
+   "independentOf": [
+    "FIX-RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SchurWeyl"
+   ],
+   "prompt": "research/blueprint/prompts/REV-FIX-RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SchurWeyl.md",
+   "state": "pending"
   },
   {
    "id": "RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SemisimpleAlgebras",
@@ -43808,8 +44222,31 @@
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SemisimpleAlgebras.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #5040",
-   "finishedAt": "2026-09-30T16:09:47Z"
+   "finishedAt": "2026-09-30T16:09:47Z",
+   "note": "deliverables arrived from an external worker on issue #5040"
+  },
+  {
+   "id": "REV-FIX-RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SemisimpleAlgebras",
+   "kind": "review",
+   "priority": 1,
+   "order": 652,
+   "name": "link map LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SemisimpleAlgebras: Semisimple algebras, Artin-Wedderburn, and the structure of their modules",
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-FIX-RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SemisimpleAlgebras.md",
+    "research/blueprint/links/tauceti_TauCetiRoadmap_RepresentationTheory_SemisimpleAlgebras.json"
+   ],
+   "after": [
+    "FIX-RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SemisimpleAlgebras"
+   ],
+   "avoidAccountOf": "FIX-RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SemisimpleAlgebras",
+   "independentOf": [
+    "FIX-RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SemisimpleAlgebras"
+   ],
+   "prompt": "research/blueprint/prompts/REV-FIX-RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SemisimpleAlgebras.md",
+   "state": "pending"
   },
   {
    "id": "RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SpinRepresentations",
@@ -43930,8 +44367,31 @@
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-LINK-tauceti_TauCetiRoadmap_StablePeriodicCurved.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #5041",
-   "finishedAt": "2026-09-30T16:04:18Z"
+   "finishedAt": "2026-09-30T16:04:18Z",
+   "note": "deliverables arrived from an external worker on issue #5041"
+  },
+  {
+   "id": "REV-FIX-RT-LINK-tauceti_TauCetiRoadmap_StablePeriodicCurved",
+   "kind": "review",
+   "priority": 1,
+   "order": 654,
+   "name": "link map LINK-tauceti_TauCetiRoadmap_StablePeriodicCurved: Stable, periodic, and curved homological algebra",
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/StablePeriodicCurved"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-FIX-RT-LINK-tauceti_TauCetiRoadmap_StablePeriodicCurved.md",
+    "research/blueprint/links/tauceti_TauCetiRoadmap_StablePeriodicCurved.json"
+   ],
+   "after": [
+    "FIX-RT-LINK-tauceti_TauCetiRoadmap_StablePeriodicCurved"
+   ],
+   "avoidAccountOf": "FIX-RT-LINK-tauceti_TauCetiRoadmap_StablePeriodicCurved",
+   "independentOf": [
+    "FIX-RT-LINK-tauceti_TauCetiRoadmap_StablePeriodicCurved"
+   ],
+   "prompt": "research/blueprint/prompts/REV-FIX-RT-LINK-tauceti_TauCetiRoadmap_StablePeriodicCurved.md",
+   "state": "pending"
   },
   {
    "id": "RT-LINK-tauceti_TauCetiRoadmap_ZigzagPreprojective",
@@ -44001,8 +44461,31 @@
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-LINK-tauceti_TauCetiRoadmap_ZigzagPreprojective.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #5042",
-   "finishedAt": "2026-09-30T15:58:03Z"
+   "finishedAt": "2026-09-30T15:58:03Z",
+   "note": "deliverables arrived from an external worker on issue #5042"
+  },
+  {
+   "id": "REV-FIX-RT-LINK-tauceti_TauCetiRoadmap_ZigzagPreprojective",
+   "kind": "review",
+   "priority": 1,
+   "order": 657,
+   "name": "link map LINK-tauceti_TauCetiRoadmap_ZigzagPreprojective: Zigzag, preprojective, and Ginzburg algebras",
+   "roadmapIds": [
+    "tauceti:TauCetiRoadmap/ZigzagPreprojective"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-FIX-RT-LINK-tauceti_TauCetiRoadmap_ZigzagPreprojective.md",
+    "research/blueprint/links/tauceti_TauCetiRoadmap_ZigzagPreprojective.json"
+   ],
+   "after": [
+    "FIX-RT-LINK-tauceti_TauCetiRoadmap_ZigzagPreprojective"
+   ],
+   "avoidAccountOf": "FIX-RT-LINK-tauceti_TauCetiRoadmap_ZigzagPreprojective",
+   "independentOf": [
+    "FIX-RT-LINK-tauceti_TauCetiRoadmap_ZigzagPreprojective"
+   ],
+   "prompt": "research/blueprint/prompts/REV-FIX-RT-LINK-tauceti_TauCetiRoadmap_ZigzagPreprojective.md",
+   "state": "pending"
   },
   {
    "id": "RT-BP-K3BlochGroups",
@@ -44430,6 +44913,36 @@
    "state": "pending"
   },
   {
+   "id": "REV-FIX-RT-RS-06",
+   "kind": "review",
+   "priority": 1,
+   "order": 666,
+   "name": "restructuring proposal RS-06: Beyond Katz–Mazur: modular curves, Serre modularity and Faltings finiteness",
+   "roadmapIds": [
+    "AlgebraicModularFormsAndSerreWeights",
+    "ArakelovGeometryAndAbelianHeights",
+    "ClassicalSerreModularity",
+    "EllipticCurveModularity",
+    "FaltingsFinitenessAndIsogenyTheorems",
+    "ModularCurvesPartII",
+    "SerreWeightAndLevelOptimisation",
+    "SmallRamificationAndAbelianVarietyBaseCases"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-FIX-RT-RS-06.md",
+    "research/blueprint/restructure/RS-06.result.json"
+   ],
+   "after": [
+    "FIX-RT-RS-06"
+   ],
+   "avoidAccountOf": "FIX-RT-RS-06",
+   "independentOf": [
+    "FIX-RT-RS-06"
+   ],
+   "prompt": "research/blueprint/prompts/REV-FIX-RT-RS-06.md",
+   "state": "pending"
+  },
+  {
    "id": "RT-RS-07",
    "kind": "redteam",
    "priority": 2,
@@ -44506,6 +45019,31 @@
    "state": "done",
    "finishedAt": "2026-09-29T12:33:13Z",
    "note": "deliverables arrived from an external worker on issue #3994"
+  },
+  {
+   "id": "REV-FIX-RT-RS-07",
+   "kind": "review",
+   "priority": 1,
+   "order": 667,
+   "name": "restructuring proposal RS-07: Analytic number theory and arithmetic statistics",
+   "roadmapIds": [
+    "AnalyticNumberTheory",
+    "ArithmeticStatistics",
+    "SieveMethodsAndPrimePatterns"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-FIX-RT-RS-07.md",
+    "research/blueprint/restructure/RS-07.result.json"
+   ],
+   "after": [
+    "FIX-RT-RS-07"
+   ],
+   "avoidAccountOf": "FIX-RT-RS-07",
+   "independentOf": [
+    "FIX-RT-RS-07"
+   ],
+   "prompt": "research/blueprint/prompts/REV-FIX-RT-RS-07.md",
+   "state": "pending"
   },
   {
    "id": "RT-RS-08",
@@ -44907,6 +45445,30 @@
    "state": "done",
    "finishedAt": "2026-09-29T11:47:42Z",
    "note": "deliverables arrived from an external worker on issue #3995"
+  },
+  {
+   "id": "REV-FIX-RT-RS-15",
+   "kind": "review",
+   "priority": 1,
+   "order": 679,
+   "name": "restructuring proposal RS-15: Isocrystals, Banach–Colmez spaces and B(G)",
+   "roadmapIds": [
+    "BunGAndNewtonStrata",
+    "VectorBundlesAndIsocrystals"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-FIX-RT-RS-15.md",
+    "research/blueprint/restructure/RS-15.result.json"
+   ],
+   "after": [
+    "FIX-RT-RS-15"
+   ],
+   "avoidAccountOf": "FIX-RT-RS-15",
+   "independentOf": [
+    "FIX-RT-RS-15"
+   ],
+   "prompt": "research/blueprint/prompts/REV-FIX-RT-RS-15.md",
+   "state": "pending"
   },
   {
    "id": "RT-RS-16",
@@ -45611,6 +46173,29 @@
    "note": "deliverables arrived from an external worker on issue #3996"
   },
   {
+   "id": "REV-FIX-RT-RS-28",
+   "kind": "review",
+   "priority": 1,
+   "order": 694,
+   "name": "restructuring proposal RS-28: Higher local fields, building on Class field theory",
+   "roadmapIds": [
+    "HigherLocalFieldsAndHigherClassFieldTheory"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-FIX-RT-RS-28.md",
+    "research/blueprint/restructure/RS-28.result.json"
+   ],
+   "after": [
+    "FIX-RT-RS-28"
+   ],
+   "avoidAccountOf": "FIX-RT-RS-28",
+   "independentOf": [
+    "FIX-RT-RS-28"
+   ],
+   "prompt": "research/blueprint/prompts/REV-FIX-RT-RS-28.md",
+   "state": "pending"
+  },
+  {
    "id": "RT-RS-29",
    "kind": "redteam",
    "priority": 2,
@@ -46121,8 +46706,8 @@
    ],
    "prompt": "research/blueprint/prompts/RT-BP-ArithmeticKTheory--N.7.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #4429",
-   "finishedAt": "2026-09-30T15:29:07Z"
+   "finishedAt": "2026-09-30T15:29:07Z",
+   "note": "deliverables arrived from an external worker on issue #4429"
   },
   {
    "id": "REV-RT-BP-ArithmeticKTheory--N.7",
@@ -46244,8 +46829,52 @@
    ],
    "prompt": "research/blueprint/prompts/REV-RT-BP-ClassicalSerreModularity--R33.5.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #4432",
-   "finishedAt": "2026-09-30T15:37:25Z"
+   "finishedAt": "2026-09-30T15:37:25Z",
+   "note": "deliverables arrived from an external worker on issue #4432"
+  },
+  {
+   "id": "FIX-RT-BP-ClassicalSerreModularity--R33.5",
+   "kind": "fix",
+   "priority": 1,
+   "order": 739,
+   "name": "blueprint BP-ClassicalSerreModularity--R33.5: Classical Serre Modularity",
+   "target": "BP-ClassicalSerreModularity--R33.5",
+   "roadmapIds": [
+    "ClassicalSerreModularity"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-BP-ClassicalSerreModularity--R33.5.fixes.md",
+    "research/blueprint/packets/ClassicalSerreModularity--R33.5.json",
+    "research/blueprint/readmes/ClassicalSerreModularity--R33.5.md",
+    "research/blueprint/suggested/ClassicalSerreModularity--R33.5.lean"
+   ],
+   "after": [],
+   "prompt": "research/blueprint/prompts/FIX-RT-BP-ClassicalSerreModularity--R33.5.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-FIX-RT-BP-ClassicalSerreModularity--R33.5",
+   "kind": "review",
+   "priority": 1,
+   "order": 739,
+   "name": "blueprint BP-ClassicalSerreModularity--R33.5: Classical Serre Modularity",
+   "roadmapIds": [
+    "ClassicalSerreModularity"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-FIX-RT-BP-ClassicalSerreModularity--R33.5.md",
+    "research/blueprint/packets/ClassicalSerreModularity--R33.5.json",
+    "research/blueprint/suggested/ClassicalSerreModularity--R33.5.lean"
+   ],
+   "after": [
+    "FIX-RT-BP-ClassicalSerreModularity--R33.5"
+   ],
+   "avoidAccountOf": "FIX-RT-BP-ClassicalSerreModularity--R33.5",
+   "independentOf": [
+    "FIX-RT-BP-ClassicalSerreModularity--R33.5"
+   ],
+   "prompt": "research/blueprint/prompts/REV-FIX-RT-BP-ClassicalSerreModularity--R33.5.md",
+   "state": "pending"
   },
   {
    "id": "RT-BP-EllipticCurveModularity",
@@ -46316,6 +46945,30 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-BP-EllipticCurveModularity.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-FIX-RT-BP-EllipticCurveModularity",
+   "kind": "review",
+   "priority": 1,
+   "order": 757,
+   "name": "blueprint BP-EllipticCurveModularity: Modularity and modular parametrisations of elliptic curves over Q",
+   "roadmapIds": [
+    "EllipticCurveModularity"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-FIX-RT-BP-EllipticCurveModularity.md",
+    "research/blueprint/packets/EllipticCurveModularity.json",
+    "research/blueprint/suggested/EllipticCurveModularity.lean"
+   ],
+   "after": [
+    "FIX-RT-BP-EllipticCurveModularity"
+   ],
+   "avoidAccountOf": "FIX-RT-BP-EllipticCurveModularity",
+   "independentOf": [
+    "FIX-RT-BP-EllipticCurveModularity"
+   ],
+   "prompt": "research/blueprint/prompts/REV-FIX-RT-BP-EllipticCurveModularity.md",
    "state": "pending"
   },
   {
@@ -46668,8 +47321,8 @@
    ],
    "prompt": "research/blueprint/prompts/RT-BP-K2SymbolsBrauer--T.3.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #4452",
-   "finishedAt": "2026-09-30T15:34:54Z"
+   "finishedAt": "2026-09-30T15:34:54Z",
+   "note": "deliverables arrived from an external worker on issue #4452"
   },
   {
    "id": "REV-RT-BP-K2SymbolsBrauer--T.3",
@@ -49275,8 +49928,8 @@
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-AUDIT-34.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #5047",
-   "finishedAt": "2026-09-30T15:58:07Z"
+   "finishedAt": "2026-09-30T15:58:07Z",
+   "note": "deliverables arrived from an external worker on issue #5047"
   },
   {
    "id": "RT-AUDIT-39",
@@ -49355,8 +50008,8 @@
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-AUDIT-39.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #5048",
-   "finishedAt": "2026-09-30T15:51:06Z"
+   "finishedAt": "2026-09-30T15:51:06Z",
+   "note": "deliverables arrived from an external worker on issue #5048"
   },
   {
    "id": "RT-AREA-elementary",
@@ -50427,6 +51080,62 @@
    "note": "deliverables arrived from an external worker on issue #3966"
   },
   {
+   "id": "FIX-RT-AREA-iwasawa-3~2",
+   "kind": "fix",
+   "priority": 1,
+   "order": 393,
+   "name": "area: Iwasawa theory and special values (Algebraic number theory), part 3 of 3",
+   "target": "area:iwasawa:3",
+   "roadmapIds": [
+    "ColemanIntegration",
+    "GeneralizedHeegnerCycles",
+    "KatoEulerSystems",
+    "ModularSymbolsPadicLFunctions",
+    "NoncommutativeAndEquivariantIwasawa",
+    "PeriodsAndSpecialValues"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-AREA-iwasawa-3.fixes-2.md",
+    "research/blueprint/packets/MotivesAndAlgebraicCycles.json",
+    "research/blueprint/readmes/MotivesAndAlgebraicCycles.md",
+    "research/blueprint/suggested/MotivesAndAlgebraicCycles.lean"
+   ],
+   "after": [
+    "FIX-RT-AREA-iwasawa-3"
+   ],
+   "prompt": "research/blueprint/prompts/FIX-RT-AREA-iwasawa-3~2.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-FIX-RT-AREA-iwasawa-3~2",
+   "kind": "review",
+   "priority": 1,
+   "order": 393,
+   "name": "area: Iwasawa theory and special values (Algebraic number theory), part 3 of 3",
+   "roadmapIds": [
+    "ColemanIntegration",
+    "GeneralizedHeegnerCycles",
+    "KatoEulerSystems",
+    "ModularSymbolsPadicLFunctions",
+    "NoncommutativeAndEquivariantIwasawa",
+    "PeriodsAndSpecialValues"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-FIX-RT-AREA-iwasawa-3~2.md",
+    "research/blueprint/packets/MotivesAndAlgebraicCycles.json",
+    "research/blueprint/suggested/MotivesAndAlgebraicCycles.lean"
+   ],
+   "after": [
+    "FIX-RT-AREA-iwasawa-3~2"
+   ],
+   "avoidAccountOf": "FIX-RT-AREA-iwasawa-3~2",
+   "independentOf": [
+    "FIX-RT-AREA-iwasawa-3~2"
+   ],
+   "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-iwasawa-3~2.md",
+   "state": "pending"
+  },
+  {
    "id": "RT-AREA-langlands-1",
    "kind": "redteam",
    "priority": 2,
@@ -50510,6 +51219,64 @@
    "note": "deliverables arrived from an external worker on issue #3967"
   },
   {
+   "id": "FIX-RT-AREA-langlands-1~2",
+   "kind": "fix",
+   "priority": 1,
+   "order": 401,
+   "name": "area: Galois representations and modularity (Algebraic number theory), part 1 of 3",
+   "target": "area:langlands:1",
+   "roadmapIds": [
+    "ArithmeticGaloisRepresentations",
+    "AutomorphicGaloisRepresentationsPartII",
+    "EndoscopicTransferAndUnitaryTraceComparison",
+    "IgusaVarietiesAndTorsionConcentration",
+    "IntegralHeckeAndGaloisDeterminants",
+    "PotentialAutomorphyInfrastructure",
+    "TorsionCohomologyInfrastructure"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-AREA-langlands-1.fixes-2.md",
+    "research/blueprint/packets/GlobalGaloisDeformations.json",
+    "research/blueprint/readmes/GlobalGaloisDeformations.md",
+    "research/blueprint/suggested/GlobalGaloisDeformations.lean"
+   ],
+   "after": [
+    "FIX-RT-AREA-langlands-1"
+   ],
+   "prompt": "research/blueprint/prompts/FIX-RT-AREA-langlands-1~2.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-FIX-RT-AREA-langlands-1~2",
+   "kind": "review",
+   "priority": 1,
+   "order": 401,
+   "name": "area: Galois representations and modularity (Algebraic number theory), part 1 of 3",
+   "roadmapIds": [
+    "ArithmeticGaloisRepresentations",
+    "AutomorphicGaloisRepresentationsPartII",
+    "EndoscopicTransferAndUnitaryTraceComparison",
+    "IgusaVarietiesAndTorsionConcentration",
+    "IntegralHeckeAndGaloisDeterminants",
+    "PotentialAutomorphyInfrastructure",
+    "TorsionCohomologyInfrastructure"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-FIX-RT-AREA-langlands-1~2.md",
+    "research/blueprint/packets/GlobalGaloisDeformations.json",
+    "research/blueprint/suggested/GlobalGaloisDeformations.lean"
+   ],
+   "after": [
+    "FIX-RT-AREA-langlands-1~2"
+   ],
+   "avoidAccountOf": "FIX-RT-AREA-langlands-1~2",
+   "independentOf": [
+    "FIX-RT-AREA-langlands-1~2"
+   ],
+   "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-langlands-1~2.md",
+   "state": "pending"
+  },
+  {
    "id": "RT-AREA-langlands-2",
    "kind": "redteam",
    "priority": 2,
@@ -50591,6 +51358,74 @@
    "state": "done",
    "finishedAt": "2026-09-29T20:19:04Z",
    "note": "deliverables arrived from an external worker on issue #3968"
+  },
+  {
+   "id": "FIX-RT-AREA-langlands-2~2",
+   "kind": "fix",
+   "priority": 1,
+   "order": 402,
+   "name": "area: Galois representations and modularity (Algebraic number theory), part 2 of 3",
+   "target": "area:langlands:2",
+   "roadmapIds": [
+    "AutomorphicGaloisRepresentations",
+    "ClassicalSerreModularity",
+    "GL2ModularityLifting",
+    "GlobalGaloisDeformations",
+    "LocalGaloisDeformationRings",
+    "OrdinaryAutomorphicFormsAndModularityLifting",
+    "PotentialModularityAndCompatibleSystems"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-AREA-langlands-2.fixes-2.md",
+    "research/blueprint/packets/ClassicalSerreModularity--R27.3.json",
+    "research/blueprint/readmes/ClassicalSerreModularity--R27.3.md",
+    "research/blueprint/suggested/ClassicalSerreModularity--R27.3.lean",
+    "research/blueprint/packets/GL2ModularityLifting--R22.1.json",
+    "research/blueprint/readmes/GL2ModularityLifting--R22.1.md",
+    "research/blueprint/suggested/GL2ModularityLifting--R22.1.lean",
+    "research/blueprint/packets/GlobalGaloisDeformations.json",
+    "research/blueprint/readmes/GlobalGaloisDeformations.md",
+    "research/blueprint/suggested/GlobalGaloisDeformations.lean"
+   ],
+   "after": [
+    "FIX-RT-AREA-langlands-2"
+   ],
+   "prompt": "research/blueprint/prompts/FIX-RT-AREA-langlands-2~2.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-FIX-RT-AREA-langlands-2~2",
+   "kind": "review",
+   "priority": 1,
+   "order": 402,
+   "name": "area: Galois representations and modularity (Algebraic number theory), part 2 of 3",
+   "roadmapIds": [
+    "AutomorphicGaloisRepresentations",
+    "ClassicalSerreModularity",
+    "GL2ModularityLifting",
+    "GlobalGaloisDeformations",
+    "LocalGaloisDeformationRings",
+    "OrdinaryAutomorphicFormsAndModularityLifting",
+    "PotentialModularityAndCompatibleSystems"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-FIX-RT-AREA-langlands-2~2.md",
+    "research/blueprint/packets/ClassicalSerreModularity--R27.3.json",
+    "research/blueprint/packets/GL2ModularityLifting--R22.1.json",
+    "research/blueprint/packets/GlobalGaloisDeformations.json",
+    "research/blueprint/suggested/ClassicalSerreModularity--R27.3.lean",
+    "research/blueprint/suggested/GL2ModularityLifting--R22.1.lean",
+    "research/blueprint/suggested/GlobalGaloisDeformations.lean"
+   ],
+   "after": [
+    "FIX-RT-AREA-langlands-2~2"
+   ],
+   "avoidAccountOf": "FIX-RT-AREA-langlands-2~2",
+   "independentOf": [
+    "FIX-RT-AREA-langlands-2~2"
+   ],
+   "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-langlands-2~2.md",
+   "state": "pending"
   },
   {
    "id": "RT-AREA-langlands-3",
@@ -50812,12 +51647,46 @@
     "tauceti:TauCetiRoadmap/StableReduction"
    ],
    "outputs": [
-    "research/blueprint/redteam/RT-AREA-algebraicgeometry.fixes.md"
+    "research/blueprint/redteam/RT-AREA-algebraicgeometry.fixes.md",
+    "research/blueprint/packets/MotivesAndAlgebraicCycles.json",
+    "research/blueprint/readmes/MotivesAndAlgebraicCycles.md",
+    "research/blueprint/suggested/MotivesAndAlgebraicCycles.lean"
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-AREA-algebraicgeometry.md",
    "state": "external",
    "note": "claimed on GitHub issue #3974"
+  },
+  {
+   "id": "REV-FIX-RT-AREA-algebraicgeometry",
+   "kind": "review",
+   "priority": 1,
+   "order": 421,
+   "name": "area: Schemes, curves and moduli (Algebraic geometry)",
+   "roadmapIds": [
+    "AlgebraicModuliForArithmeticGeometry",
+    "ComplexComparisonPartII",
+    "SchemeAndStackFoundations",
+    "tauceti:TauCetiRoadmap/AlgebraicCurves",
+    "tauceti:TauCetiRoadmap/AnalyticToricGeometry",
+    "tauceti:TauCetiRoadmap/HodgeStructures",
+    "tauceti:TauCetiRoadmap/JacobianChallenge",
+    "tauceti:TauCetiRoadmap/StableReduction"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-FIX-RT-AREA-algebraicgeometry.md",
+    "research/blueprint/packets/MotivesAndAlgebraicCycles.json",
+    "research/blueprint/suggested/MotivesAndAlgebraicCycles.lean"
+   ],
+   "after": [
+    "FIX-RT-AREA-algebraicgeometry"
+   ],
+   "avoidAccountOf": "FIX-RT-AREA-algebraicgeometry",
+   "independentOf": [
+    "FIX-RT-AREA-algebraicgeometry"
+   ],
+   "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-algebraicgeometry.md",
+   "state": "pending"
   },
   {
    "id": "RT-AREA-padic-1",
@@ -50906,6 +51775,76 @@
    "note": "deliverables arrived from an external worker on issue #3975"
   },
   {
+   "id": "FIX-RT-AREA-padic-1~2",
+   "kind": "fix",
+   "priority": 1,
+   "order": 431,
+   "name": "area: p-adic Hodge theory and p-adic geometry (Algebraic number theory), part 1 of 3",
+   "target": "area:padic:1",
+   "roadmapIds": [
+    "AdicEtaleGeometry",
+    "AdicSpacesPartII",
+    "DiamondsAndVStacks",
+    "FarguesFontaineDiamonds",
+    "HodgeTateAndCanonicalSubgroups",
+    "PerfectoidQuotients",
+    "PerfectoidSpaces",
+    "RelativeFarguesFontaine"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-AREA-padic-1.fixes-2.md",
+    "research/blueprint/packets/PerfectoidSpaces--P0.json",
+    "research/blueprint/readmes/PerfectoidSpaces--P0.md",
+    "research/blueprint/suggested/PerfectoidSpaces--P0.lean",
+    "research/blueprint/packets/AdicEtaleGeometry.json",
+    "research/blueprint/readmes/AdicEtaleGeometry.md",
+    "research/blueprint/suggested/AdicEtaleGeometry.lean",
+    "research/blueprint/packets/AdicSpacesPartII.json",
+    "research/blueprint/readmes/AdicSpacesPartII.md",
+    "research/blueprint/suggested/AdicSpacesPartII.lean"
+   ],
+   "after": [
+    "FIX-RT-AREA-padic-1"
+   ],
+   "prompt": "research/blueprint/prompts/FIX-RT-AREA-padic-1~2.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-FIX-RT-AREA-padic-1~2",
+   "kind": "review",
+   "priority": 1,
+   "order": 431,
+   "name": "area: p-adic Hodge theory and p-adic geometry (Algebraic number theory), part 1 of 3",
+   "roadmapIds": [
+    "AdicEtaleGeometry",
+    "AdicSpacesPartII",
+    "DiamondsAndVStacks",
+    "FarguesFontaineDiamonds",
+    "HodgeTateAndCanonicalSubgroups",
+    "PerfectoidQuotients",
+    "PerfectoidSpaces",
+    "RelativeFarguesFontaine"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-FIX-RT-AREA-padic-1~2.md",
+    "research/blueprint/packets/PerfectoidSpaces--P0.json",
+    "research/blueprint/packets/AdicEtaleGeometry.json",
+    "research/blueprint/packets/AdicSpacesPartII.json",
+    "research/blueprint/suggested/PerfectoidSpaces--P0.lean",
+    "research/blueprint/suggested/AdicEtaleGeometry.lean",
+    "research/blueprint/suggested/AdicSpacesPartII.lean"
+   ],
+   "after": [
+    "FIX-RT-AREA-padic-1~2"
+   ],
+   "avoidAccountOf": "FIX-RT-AREA-padic-1~2",
+   "independentOf": [
+    "FIX-RT-AREA-padic-1~2"
+   ],
+   "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-padic-1~2.md",
+   "state": "pending"
+  },
+  {
    "id": "RT-AREA-padic-2",
    "kind": "redteam",
    "priority": 2,
@@ -50990,6 +51929,76 @@
    "state": "done",
    "finishedAt": "2026-09-29T20:28:53Z",
    "note": "deliverables arrived from an external worker on issue #3976"
+  },
+  {
+   "id": "FIX-RT-AREA-padic-2~2",
+   "kind": "fix",
+   "priority": 1,
+   "order": 432,
+   "name": "area: p-adic Hodge theory and p-adic geometry (Algebraic number theory), part 2 of 3",
+   "target": "area:padic:2",
+   "roadmapIds": [
+    "AInfCohomology",
+    "CohomologyComparisons",
+    "CrystallineCohomology",
+    "DerivedDeRhamCohomology",
+    "FiniteFlatGroupsAndIntegralPadicHodgeTheory",
+    "PadicDifferentialEquationsAndRigidCohomology",
+    "PadicHodgeTheory",
+    "PrismaticCohomology"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-AREA-padic-2.fixes-2.md",
+    "research/blueprint/packets/FaltingsFinitenessAndIsogenyTheorems.json",
+    "research/blueprint/readmes/FaltingsFinitenessAndIsogenyTheorems.md",
+    "research/blueprint/suggested/FaltingsFinitenessAndIsogenyTheorems.lean",
+    "research/blueprint/packets/PerfectoidSpaces--P0.json",
+    "research/blueprint/readmes/PerfectoidSpaces--P0.md",
+    "research/blueprint/suggested/PerfectoidSpaces--P0.lean",
+    "research/blueprint/packets/AdicSpacesPartII.json",
+    "research/blueprint/readmes/AdicSpacesPartII.md",
+    "research/blueprint/suggested/AdicSpacesPartII.lean"
+   ],
+   "after": [
+    "FIX-RT-AREA-padic-2"
+   ],
+   "prompt": "research/blueprint/prompts/FIX-RT-AREA-padic-2~2.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-FIX-RT-AREA-padic-2~2",
+   "kind": "review",
+   "priority": 1,
+   "order": 432,
+   "name": "area: p-adic Hodge theory and p-adic geometry (Algebraic number theory), part 2 of 3",
+   "roadmapIds": [
+    "AInfCohomology",
+    "CohomologyComparisons",
+    "CrystallineCohomology",
+    "DerivedDeRhamCohomology",
+    "FiniteFlatGroupsAndIntegralPadicHodgeTheory",
+    "PadicDifferentialEquationsAndRigidCohomology",
+    "PadicHodgeTheory",
+    "PrismaticCohomology"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-FIX-RT-AREA-padic-2~2.md",
+    "research/blueprint/packets/FaltingsFinitenessAndIsogenyTheorems.json",
+    "research/blueprint/packets/PerfectoidSpaces--P0.json",
+    "research/blueprint/packets/AdicSpacesPartII.json",
+    "research/blueprint/suggested/FaltingsFinitenessAndIsogenyTheorems.lean",
+    "research/blueprint/suggested/PerfectoidSpaces--P0.lean",
+    "research/blueprint/suggested/AdicSpacesPartII.lean"
+   ],
+   "after": [
+    "FIX-RT-AREA-padic-2~2"
+   ],
+   "avoidAccountOf": "FIX-RT-AREA-padic-2~2",
+   "independentOf": [
+    "FIX-RT-AREA-padic-2~2"
+   ],
+   "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-padic-2~2.md",
+   "state": "pending"
   },
   {
    "id": "RT-AREA-padic-3",
@@ -51163,6 +52172,71 @@
    "note": "deliverables arrived from an external worker on issue #3978"
   },
   {
+   "id": "FIX-RT-AREA-etale~2",
+   "kind": "fix",
+   "priority": 1,
+   "order": 441,
+   "name": "area: Étale cohomology (Algebraic geometry)",
+   "target": "area:etale",
+   "roadmapIds": [
+    "AdicCoefficientsAndComparisons",
+    "ClassicalAdicEtaleCohomology",
+    "DeligneWeightsAndPurity",
+    "EtaleDualityAndPerverseSheaves",
+    "HabiroCohomologyFoundations",
+    "LefschetzPencilsAndVanishingCycles",
+    "WeightsInEtaleCohomology",
+    "WeilConjectures"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-AREA-etale.fixes-2.md",
+    "research/blueprint/packets/HabiroCohomologyFoundations--HQ.1.json",
+    "research/blueprint/readmes/HabiroCohomologyFoundations--HQ.1.md",
+    "research/blueprint/suggested/HabiroCohomologyFoundations--HQ.1.lean",
+    "research/blueprint/packets/HabiroRings.json",
+    "research/blueprint/readmes/HabiroRings.md",
+    "research/blueprint/suggested/HabiroRings.lean"
+   ],
+   "after": [
+    "FIX-RT-AREA-etale"
+   ],
+   "prompt": "research/blueprint/prompts/FIX-RT-AREA-etale~2.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-FIX-RT-AREA-etale~2",
+   "kind": "review",
+   "priority": 1,
+   "order": 441,
+   "name": "area: Étale cohomology (Algebraic geometry)",
+   "roadmapIds": [
+    "AdicCoefficientsAndComparisons",
+    "ClassicalAdicEtaleCohomology",
+    "DeligneWeightsAndPurity",
+    "EtaleDualityAndPerverseSheaves",
+    "HabiroCohomologyFoundations",
+    "LefschetzPencilsAndVanishingCycles",
+    "WeightsInEtaleCohomology",
+    "WeilConjectures"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-FIX-RT-AREA-etale~2.md",
+    "research/blueprint/packets/HabiroCohomologyFoundations--HQ.1.json",
+    "research/blueprint/packets/HabiroRings.json",
+    "research/blueprint/suggested/HabiroCohomologyFoundations--HQ.1.lean",
+    "research/blueprint/suggested/HabiroRings.lean"
+   ],
+   "after": [
+    "FIX-RT-AREA-etale~2"
+   ],
+   "avoidAccountOf": "FIX-RT-AREA-etale~2",
+   "independentOf": [
+    "FIX-RT-AREA-etale~2"
+   ],
+   "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-etale~2.md",
+   "state": "pending"
+  },
+  {
    "id": "RT-AREA-motives",
    "kind": "redteam",
    "priority": 2,
@@ -51283,12 +52357,76 @@
     "StableHomotopyKTheory"
    ],
    "outputs": [
-    "research/blueprint/redteam/RT-AREA-ktheory-1.fixes.md"
+    "research/blueprint/redteam/RT-AREA-ktheory-1.fixes.md",
+    "research/blueprint/packets/ArithmeticKTheory--N.1.json",
+    "research/blueprint/readmes/ArithmeticKTheory--N.1.md",
+    "research/blueprint/suggested/ArithmeticKTheory--N.1.lean",
+    "research/blueprint/packets/GeneralAlgebraicKTheory--K.1.json",
+    "research/blueprint/readmes/GeneralAlgebraicKTheory--K.1.md",
+    "research/blueprint/suggested/GeneralAlgebraicKTheory--K.1.lean",
+    "research/blueprint/packets/K2SymbolsBrauer--T.3.json",
+    "research/blueprint/readmes/K2SymbolsBrauer--T.3.md",
+    "research/blueprint/suggested/K2SymbolsBrauer--T.3.lean",
+    "research/blueprint/packets/ArithmeticKTheory--N.7.json",
+    "research/blueprint/readmes/ArithmeticKTheory--N.7.md",
+    "research/blueprint/suggested/ArithmeticKTheory--N.7.lean",
+    "research/blueprint/packets/GeneralAlgebraicKTheory--K.6.json",
+    "research/blueprint/readmes/GeneralAlgebraicKTheory--K.6.md",
+    "research/blueprint/suggested/GeneralAlgebraicKTheory--K.6.lean",
+    "research/blueprint/packets/K2SymbolsBrauer--T.1.json",
+    "research/blueprint/readmes/K2SymbolsBrauer--T.1.md",
+    "research/blueprint/suggested/K2SymbolsBrauer--T.1.lean",
+    "research/blueprint/packets/K3BlochGroups.json",
+    "research/blueprint/readmes/K3BlochGroups.md",
+    "research/blueprint/suggested/K3BlochGroups.lean"
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-AREA-ktheory-1.md",
    "state": "external",
    "note": "claimed on GitHub issue #3979"
+  },
+  {
+   "id": "REV-FIX-RT-AREA-ktheory-1",
+   "kind": "review",
+   "priority": 1,
+   "order": 461,
+   "name": "area: Algebraic K-theory (Algebraic K-theory and motives), part 1 of 2",
+   "roadmapIds": [
+    "ArithmeticKTheory",
+    "BorelRegulators",
+    "GeneralAlgebraicKTheory",
+    "K2SymbolsBrauer",
+    "KTheoryFiniteLocalFields",
+    "KTheoryLowDegrees",
+    "MotivicEtaleKTheory",
+    "StableHomotopyKTheory"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-FIX-RT-AREA-ktheory-1.md",
+    "research/blueprint/packets/ArithmeticKTheory--N.1.json",
+    "research/blueprint/packets/GeneralAlgebraicKTheory--K.1.json",
+    "research/blueprint/packets/K2SymbolsBrauer--T.3.json",
+    "research/blueprint/packets/ArithmeticKTheory--N.7.json",
+    "research/blueprint/packets/GeneralAlgebraicKTheory--K.6.json",
+    "research/blueprint/packets/K2SymbolsBrauer--T.1.json",
+    "research/blueprint/packets/K3BlochGroups.json",
+    "research/blueprint/suggested/ArithmeticKTheory--N.1.lean",
+    "research/blueprint/suggested/GeneralAlgebraicKTheory--K.1.lean",
+    "research/blueprint/suggested/K2SymbolsBrauer--T.3.lean",
+    "research/blueprint/suggested/ArithmeticKTheory--N.7.lean",
+    "research/blueprint/suggested/GeneralAlgebraicKTheory--K.6.lean",
+    "research/blueprint/suggested/K2SymbolsBrauer--T.1.lean",
+    "research/blueprint/suggested/K3BlochGroups.lean"
+   ],
+   "after": [
+    "FIX-RT-AREA-ktheory-1"
+   ],
+   "avoidAccountOf": "FIX-RT-AREA-ktheory-1",
+   "independentOf": [
+    "FIX-RT-AREA-ktheory-1"
+   ],
+   "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-ktheory-1.md",
+   "state": "pending"
   },
   {
    "id": "RT-AREA-ktheory-2",
@@ -51370,8 +52508,96 @@
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-AREA-ktheory-2.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #3980",
-   "finishedAt": "2026-09-30T16:16:30Z"
+   "finishedAt": "2026-09-30T16:16:30Z",
+   "note": "deliverables arrived from an external worker on issue #3980"
+  },
+  {
+   "id": "FIX-RT-AREA-ktheory-2~2",
+   "kind": "fix",
+   "priority": 1,
+   "order": 462,
+   "name": "area: Algebraic K-theory (Algebraic K-theory and motives), part 2 of 2",
+   "target": "area:ktheory:2",
+   "roadmapIds": [
+    "EllipticKTheory",
+    "EllipticRegulators",
+    "HabiroNumberFields",
+    "K3BlochGroups",
+    "Polylogarithms",
+    "RefinedTraceMethods",
+    "SchemeKTheoryOperations"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-AREA-ktheory-2.fixes-2.md",
+    "research/blueprint/packets/EllipticKTheory.json",
+    "research/blueprint/readmes/EllipticKTheory.md",
+    "research/blueprint/suggested/EllipticKTheory.lean",
+    "research/blueprint/packets/HabiroNumberFields.json",
+    "research/blueprint/readmes/HabiroNumberFields.md",
+    "research/blueprint/suggested/HabiroNumberFields.lean",
+    "research/blueprint/packets/EllipticRegulators.json",
+    "research/blueprint/readmes/EllipticRegulators.md",
+    "research/blueprint/suggested/EllipticRegulators.lean",
+    "research/blueprint/packets/Polylogarithms.json",
+    "research/blueprint/readmes/Polylogarithms.md",
+    "research/blueprint/suggested/Polylogarithms.lean",
+    "research/blueprint/packets/K3BlochGroups.json",
+    "research/blueprint/readmes/K3BlochGroups.md",
+    "research/blueprint/suggested/K3BlochGroups.lean",
+    "research/blueprint/packets/K2SymbolsBrauer--T.1.json",
+    "research/blueprint/readmes/K2SymbolsBrauer--T.1.md",
+    "research/blueprint/suggested/K2SymbolsBrauer--T.1.lean",
+    "research/blueprint/packets/ArithmeticKTheory--N.1.json",
+    "research/blueprint/readmes/ArithmeticKTheory--N.1.md",
+    "research/blueprint/suggested/ArithmeticKTheory--N.1.lean"
+   ],
+   "after": [
+    "FIX-RT-AREA-ktheory-2"
+   ],
+   "prompt": "research/blueprint/prompts/FIX-RT-AREA-ktheory-2~2.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-FIX-RT-AREA-ktheory-2~2",
+   "kind": "review",
+   "priority": 1,
+   "order": 462,
+   "name": "area: Algebraic K-theory (Algebraic K-theory and motives), part 2 of 2",
+   "roadmapIds": [
+    "EllipticKTheory",
+    "EllipticRegulators",
+    "HabiroNumberFields",
+    "K3BlochGroups",
+    "Polylogarithms",
+    "RefinedTraceMethods",
+    "SchemeKTheoryOperations"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-FIX-RT-AREA-ktheory-2~2.md",
+    "research/blueprint/packets/EllipticKTheory.json",
+    "research/blueprint/packets/HabiroNumberFields.json",
+    "research/blueprint/packets/EllipticRegulators.json",
+    "research/blueprint/packets/Polylogarithms.json",
+    "research/blueprint/packets/K3BlochGroups.json",
+    "research/blueprint/packets/K2SymbolsBrauer--T.1.json",
+    "research/blueprint/packets/ArithmeticKTheory--N.1.json",
+    "research/blueprint/suggested/EllipticKTheory.lean",
+    "research/blueprint/suggested/HabiroNumberFields.lean",
+    "research/blueprint/suggested/EllipticRegulators.lean",
+    "research/blueprint/suggested/Polylogarithms.lean",
+    "research/blueprint/suggested/K3BlochGroups.lean",
+    "research/blueprint/suggested/K2SymbolsBrauer--T.1.lean",
+    "research/blueprint/suggested/ArithmeticKTheory--N.1.lean"
+   ],
+   "after": [
+    "FIX-RT-AREA-ktheory-2~2"
+   ],
+   "avoidAccountOf": "FIX-RT-AREA-ktheory-2~2",
+   "independentOf": [
+    "FIX-RT-AREA-ktheory-2~2"
+   ],
+   "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-ktheory-2~2.md",
+   "state": "pending"
   },
   {
    "id": "RT-AREA-geomlanglands",
@@ -51450,8 +52676,64 @@
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-AREA-geomlanglands.md",
    "state": "done",
-   "note": "deliverables arrived from an external worker on issue #3981",
-   "finishedAt": "2026-09-30T16:16:35Z"
+   "finishedAt": "2026-09-30T16:16:35Z",
+   "note": "deliverables arrived from an external worker on issue #3981"
+  },
+  {
+   "id": "FIX-RT-AREA-geomlanglands~2",
+   "kind": "fix",
+   "priority": 1,
+   "order": 471,
+   "name": "area: Geometrisation of local Langlands (Algebraic number theory)",
+   "target": "area:geomlanglands",
+   "roadmapIds": [
+    "BunGAndNewtonStrata",
+    "ExcursionOperatorsAndSpectralAction",
+    "GeometricSatakeAndFusion",
+    "HeckeStacksAndLocalShtukas",
+    "LanglandsParameterStacks",
+    "VStackSheavesAndLisseCategories"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-AREA-geomlanglands.fixes-2.md",
+    "research/blueprint/packets/MotivesAndAlgebraicCycles.json",
+    "research/blueprint/readmes/MotivesAndAlgebraicCycles.md",
+    "research/blueprint/suggested/MotivesAndAlgebraicCycles.lean"
+   ],
+   "after": [
+    "FIX-RT-AREA-geomlanglands"
+   ],
+   "prompt": "research/blueprint/prompts/FIX-RT-AREA-geomlanglands~2.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-FIX-RT-AREA-geomlanglands~2",
+   "kind": "review",
+   "priority": 1,
+   "order": 471,
+   "name": "area: Geometrisation of local Langlands (Algebraic number theory)",
+   "roadmapIds": [
+    "BunGAndNewtonStrata",
+    "ExcursionOperatorsAndSpectralAction",
+    "GeometricSatakeAndFusion",
+    "HeckeStacksAndLocalShtukas",
+    "LanglandsParameterStacks",
+    "VStackSheavesAndLisseCategories"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-FIX-RT-AREA-geomlanglands~2.md",
+    "research/blueprint/packets/MotivesAndAlgebraicCycles.json",
+    "research/blueprint/suggested/MotivesAndAlgebraicCycles.lean"
+   ],
+   "after": [
+    "FIX-RT-AREA-geomlanglands~2"
+   ],
+   "avoidAccountOf": "FIX-RT-AREA-geomlanglands~2",
+   "independentOf": [
+    "FIX-RT-AREA-geomlanglands~2"
+   ],
+   "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-geomlanglands~2.md",
+   "state": "pending"
   },
   {
    "id": "RT-AREA-commutative",
@@ -52120,6 +53402,84 @@
    "note": "deliverables arrived from an external worker on issue #3989"
   },
   {
+   "id": "REV-FIX-RT-AREA-combinatorics",
+   "kind": "review",
+   "priority": 1,
+   "order": 561,
+   "name": "area: Combinatorics",
+   "roadmapIds": [
+    "AdditiveCombinatorics",
+    "tauceti:TauCetiRoadmap/AlgebraicCodingTheory",
+    "tauceti:TauCetiRoadmap/DenseGraphLimits"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-FIX-RT-AREA-combinatorics.md",
+    "research/blueprint/restructure/RS-03.result.json"
+   ],
+   "after": [
+    "FIX-RT-AREA-combinatorics"
+   ],
+   "avoidAccountOf": "FIX-RT-AREA-combinatorics",
+   "independentOf": [
+    "FIX-RT-AREA-combinatorics"
+   ],
+   "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-combinatorics.md",
+   "state": "pending"
+  },
+  {
+   "id": "FIX-RT-AREA-combinatorics~2",
+   "kind": "fix",
+   "priority": 1,
+   "order": 561,
+   "name": "area: Combinatorics",
+   "target": "area:combinatorics",
+   "roadmapIds": [
+    "AdditiveCombinatorics",
+    "tauceti:TauCetiRoadmap/AlgebraicCodingTheory",
+    "tauceti:TauCetiRoadmap/DenseGraphLimits"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-AREA-combinatorics.fixes-2.md",
+    "research/blueprint/papers/PAPER-ALPOGE-BHARGAVA-SHNIDMAN-26.result.json",
+    "research/blueprint/restructure/RS-03.result.json",
+    "research/blueprint/packets/EllipticRegulators.json",
+    "research/blueprint/readmes/EllipticRegulators.md",
+    "research/blueprint/suggested/EllipticRegulators.lean"
+   ],
+   "after": [
+    "FIX-RT-AREA-combinatorics"
+   ],
+   "prompt": "research/blueprint/prompts/FIX-RT-AREA-combinatorics~2.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-FIX-RT-AREA-combinatorics~2",
+   "kind": "review",
+   "priority": 1,
+   "order": 561,
+   "name": "area: Combinatorics",
+   "roadmapIds": [
+    "AdditiveCombinatorics",
+    "tauceti:TauCetiRoadmap/AlgebraicCodingTheory",
+    "tauceti:TauCetiRoadmap/DenseGraphLimits"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-FIX-RT-AREA-combinatorics~2.md",
+    "research/blueprint/restructure/RS-03.result.json",
+    "research/blueprint/packets/EllipticRegulators.json",
+    "research/blueprint/suggested/EllipticRegulators.lean"
+   ],
+   "after": [
+    "FIX-RT-AREA-combinatorics~2"
+   ],
+   "avoidAccountOf": "FIX-RT-AREA-combinatorics~2",
+   "independentOf": [
+    "FIX-RT-AREA-combinatorics~2"
+   ],
+   "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-combinatorics~2.md",
+   "state": "pending"
+  },
+  {
    "id": "RT-AREA-topology",
    "kind": "redteam",
    "priority": 2,
@@ -52198,6 +53558,67 @@
    "state": "done",
    "finishedAt": "2026-09-29T19:20:25Z",
    "note": "deliverables arrived from an external worker on issue #3990"
+  },
+  {
+   "id": "FIX-RT-AREA-topology~2",
+   "kind": "fix",
+   "priority": 1,
+   "order": 571,
+   "name": "area: Topology",
+   "target": "area:topology",
+   "roadmapIds": [
+    "ArithmeticQuantumTopology",
+    "tauceti:TauCetiRoadmap/AlgebraicTopology",
+    "tauceti:TauCetiRoadmap/CombinatorialHeegaardFloer",
+    "tauceti:TauCetiRoadmap/GeometricTopology",
+    "tauceti:TauCetiRoadmap/HeegaardFloer",
+    "tauceti:TauCetiRoadmap/UniversalCovers"
+   ],
+   "outputs": [
+    "research/blueprint/redteam/RT-AREA-topology.fixes-2.md",
+    "research/blueprint/packets/Polylogarithms.json",
+    "research/blueprint/readmes/Polylogarithms.md",
+    "research/blueprint/suggested/Polylogarithms.lean",
+    "research/blueprint/packets/HabiroNahmSeries.json",
+    "research/blueprint/readmes/HabiroNahmSeries.md",
+    "research/blueprint/suggested/HabiroNahmSeries.lean"
+   ],
+   "after": [
+    "FIX-RT-AREA-topology"
+   ],
+   "prompt": "research/blueprint/prompts/FIX-RT-AREA-topology~2.md",
+   "state": "pending"
+  },
+  {
+   "id": "REV-FIX-RT-AREA-topology~2",
+   "kind": "review",
+   "priority": 1,
+   "order": 571,
+   "name": "area: Topology",
+   "roadmapIds": [
+    "ArithmeticQuantumTopology",
+    "tauceti:TauCetiRoadmap/AlgebraicTopology",
+    "tauceti:TauCetiRoadmap/CombinatorialHeegaardFloer",
+    "tauceti:TauCetiRoadmap/GeometricTopology",
+    "tauceti:TauCetiRoadmap/HeegaardFloer",
+    "tauceti:TauCetiRoadmap/UniversalCovers"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-FIX-RT-AREA-topology~2.md",
+    "research/blueprint/packets/Polylogarithms.json",
+    "research/blueprint/packets/HabiroNahmSeries.json",
+    "research/blueprint/suggested/Polylogarithms.lean",
+    "research/blueprint/suggested/HabiroNahmSeries.lean"
+   ],
+   "after": [
+    "FIX-RT-AREA-topology~2"
+   ],
+   "avoidAccountOf": "FIX-RT-AREA-topology~2",
+   "independentOf": [
+    "FIX-RT-AREA-topology~2"
+   ],
+   "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-topology~2.md",
+   "state": "pending"
   },
   {
    "id": "RT-AREA-diffgeom",
