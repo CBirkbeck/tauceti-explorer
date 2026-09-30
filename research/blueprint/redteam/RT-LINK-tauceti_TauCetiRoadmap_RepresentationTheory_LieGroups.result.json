@@ -1,0 +1,35 @@
+{
+  "redteam": "RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_LieGroups",
+  "protocol": "redteam-v1",
+  "status": "complete",
+  "target": "LINK-tauceti_TauCetiRoadmap_RepresentationTheory_LieGroups",
+  "summary": "No new finding established against the accepted link map. All fourteen links, eleven overlap proposals and66 source quotations survive the checked supplier/consumer and scope attacks. Five sibling arrows remain correctly recorded without duplication; newer candidate requests already name their LieGroups suppliers. The raw-roadmap corrections and extension gaps explicitly recorded by the map remain open. This is a bounded link audit, not certification of the underlying mathematical proofs or library implementation.",
+  "worker": "Codex — codex-5ebb6f",
+  "date": "2026-09-30",
+  "inputRevision": "014bdec696c150e255fdcda3a5ae72aa57df9e78",
+  "baseline": {
+    "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+    "tauceti": "f790474821cf4256814db967cb154e7af3d0c369"
+  },
+  "checked": [
+    "Independence and claim: the accepted link author is ChatGPT Pro cgp-14f035649b9f and its reviewer is Codex codex-7e92bd, neither this session codex-5ebb6f. Issue4372 bot confirmation names this session and winning comment5910817576. Read the whole issue, accepted map and independent review.",
+    "Read the complete 539-line LieGroups README and all ten focal stage contracts. Read all 24 distinct nonfocal endpoint/overlap contracts, covering every one of the fourteen directed links and eleven overlap proposals. Roadmap declaration names were treated as promises, not evidence of implementation.",
+    "Independently checked all66 evidence objects against their raw repository sourcePath and line ranges. All66 quotations match inside the stated ranges after whitespace normalization. check_links.py reports zero errors and zero warnings against the accepted map, including endpoint, quote and cycle validation.",
+    "Checked the algebraic Ado prerequisite, general-field PBW supplier, semisimple highest-weight classification and reductive central-weight supplement. Real specialization, chosen bases, actual group characters, central-kernel descent, differential-operator filtration/symbol comparison and complex irreducibility restrictions are retained by the reasons.",
+    "Checked smooth versus algebraic differentiation, real versus complex scalar structures and Clifford polar-form normalization for Spin; finite-dimensional K-stable differentiation versus Frechet globalization; and left/right enveloping-operator conventions for AF.0. No unrestricted algebraic-field or infinite-dimensional differentiation theorem is inferred.",
+    "Checked boundaryless manifold inverse-function and local-flow inputs, independent universal-cover prefix before LieIII, foliation Frobenius prefix versus Lie-specific subgroup application, and the covering carrier versus additional geometry of the SL2-tilde model. Neither Riemannian completeness nor Geometrization is supplied by these links.",
+    "Checked maximal tori, Haar normalization, independent compact Peter-Weyl, algebraic versus compact torus character lattices, full versus partial flags, real versus nonarchimedean Cartan/Iwasawa, compact real forms versus compact duals, local versus global nilpotent BCH and closed-subgroup versus homogeneous-quotient contracts.",
+    "Checked the two restricted real-reductive Cartan consumers ALS.0 and AF.1a: invert K\\G to obtain G/K and its contraction; retain global group hypotheses, center/component/stabilizer corrections and the broader nonreductive van Est gap. Compact real form alone does not supply ShimuraData D2 Cartan positivity, tangent Hodge complex structure or integrability.",
+    "Reopened all five alreadyRecorded sibling arrows in the RootSystems, UniversalCovers and CompactGroups research packets. Read their source stage contracts. Searched all sibling research link maps: exactly those five touch the focal roadmap; none duplicates one of its fourteen retained arrows. Presence in an unpromoted sibling packet is not an assertion of production integration or acceptance of that whole packet.",
+    "Fresh discovery screened all211 atlas extracts, nine new roadmap definitions,143 blueprint packets,51 integrated decompositions and reserved ids for Lie/exponential/adjoint/closed-subgroup/BCH/Frobenius/cover/PBW/torus/flag/Cartan interfaces, including nodes, gaps and requests. The regex screen found103 roadmap records. Screened296 Markdown files under content and the proposed-roadmap directory, with549 matching lines. This was a candidate discovery screen, not a full proof reading of every matched record.",
+    "Read close additional candidates: LHW6/7, ReductiveGroups2, AlgebraicTopology5/6, GeometricTopology3, Spin2, RG2.1, ALS.2, GeometricSatake GS0/GS1, AL.0/AL.1, AA.1, R16.1, MP.0 and its selected requests, L3/L3h/L4, RiemannianGeometry RG.3, SCV CV.0-CV.6 and SymplecticContact SC.4-SC.6 with its two explicit LieGroups requests and quotient/Morse-Bott gap. The new Hamiltonian suppliers are already named in definition requires and packet requests. The generic free-action quotient is explicitly not claimed supplied by G/H. ArithmeticStatistics ST.2 Iwasawa-coordinate construction was also read as a candidate; its concrete arithmetic domain and normalized Haar-density obligations are not inferred from generic KAN alone.",
+    "Production assembler run in memory at014bdec696c150e255fdcda3a5ae72aa57df9e78:2840 stages,8007 distinct edges; all fourteen target-map pairs exist and populate consumer requires. Sixteen production edges touch LieGroups: those fourteen and the two RootSystems siblings. SymplecticContact SC.4 and the fine ST.2 coordinate node are not production stages. data/library-coverage.json has no focal LieGroups row. No new library-availability claim, source-book proof audit, Lean compilation or generated-data mutation is made."
+  ],
+  "findings": [],
+  "provenance": {
+    "session": "codex-5ebb6f",
+    "targetSha256": "eee20df0852e22579519a2f142d0df8bcccb9d158912745a18c66ec72d316f30",
+    "readmeSha256": "fe49bc9f716eb31a0e117f4c40aa7da36f4ca14be0434e6ff1453c043c45ebff",
+    "reviewSha256": "1979f1607dd181f6b495a74b58ced1c296bba9e9bf15b8cd888fa4d819f43d3f"
+  }
+}
