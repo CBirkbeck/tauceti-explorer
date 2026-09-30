@@ -1,0 +1,18 @@
+{
+  "redteam": "RT-BP-ArithmeticKTheory--N.7",
+  "status": "complete",
+  "reviewer": "Codex — codex-a71f92",
+  "date": "2026-09-30",
+  "findings": [
+    {
+      "finding": "RT-BP-ArithmeticKTheory--N.7/1",
+      "verdict": "confirmed",
+      "reason": "Confirmed against the accepted suggested file at 9cd6197f34b5f9b5d6c0bef9e030cc7e1a62c5ca: it has exactly the fourteen named `True` theorems, two `dummy : Unit` structures, and `VandiverConjecture ... : Prop := by sorry`. These replace the intended contracts, contrary to PROTOCOL section 13. Personally read NumberField.maximalRealSubfield, NumberField.classNumber, NumberField.of_subfield and the CyclotomicField number-field instance at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; the class-number nondivisibility condition is expressible with existing carriers. The current file at 0b4172110f86a14331ddf065536514089abfc957 has already removed the two dummy records and the eight N.8 True declarations in FIX-RT-AREA-ktheory-1 (#5221). Six N.7 True declarations and the Prop-valued Vandiver sorry remain, so the medium finding is still actionable. Correct the remaining contracts and N.7 header: reuse the owner-supplied Vandiver predicate; write genuine signatures when the carriers are available and explicit mathematical comments with supplier names when they are not. For Herbrand–Ribet a real class-group/eigenspace contract is required before a theorem signature can express its assertion; the current arbitrary Type stub does not do so. Preserve the already corrected N.8 comments and OrderCertificate ownership; do not recreate its obsolete structures or duplicate N.6 certificates."
+    },
+    {
+      "finding": "RT-BP-ArithmeticKTheory--N.7/2",
+      "verdict": "confirmed",
+      "reason": "Confirmed as a low-severity ownership/interface defect. Personally read IntegralIwasawaTheory L3 in the campaign document and stage extract: it explicitly owns the Vandiver(p) definition by nondivisibility of the maximal real cyclotomic class number. The current N.7 node says to state the condition and its equivalence, and its suggested file separately declares VandiverConjecture, but its three prerequisites are internal and the entire packet has zero occurrences of IntegralIwasawaTheory. N.7's stage already requires L0, whose cyclotomic arithmetic contract was also read; that inherited stage requirement alone is not the duplication, but it does not import L3's predicate either. Agree with adding an L3 supplier request/prerequisite and reusing its predicate, while keeping the equivalence/comparison, conditional K-theory consequences and separation discipline here. Restating a condition for explanation is legitimate; the correction is to record a single owner and import the actual predicate rather than introduce another declaration. The native atlas has no N.7-to-L3 path, so the proposed L3-to-N.7 dependency creates no cycle there; validate the resolved graph when applying the fix."
+    }
+  ]
+}
