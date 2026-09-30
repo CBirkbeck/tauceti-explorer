@@ -40840,7 +40840,8 @@
     "REV-LINK-tauceti_Completed_OrthogonalL2Bases"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-LINK-tauceti_Completed_OrthogonalL2Bases.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4358"
   },
   {
    "id": "RT-LINK-tauceti_TauCetiRoadmap_AlgebraicCodingTheory",
@@ -41340,8 +41341,9 @@
     "REV-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SemisimpleAlgebras"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SemisimpleAlgebras.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4375"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4375",
+   "finishedAt": "2026-09-30T11:05:37Z"
   },
   {
    "id": "RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SpinRepresentations",
