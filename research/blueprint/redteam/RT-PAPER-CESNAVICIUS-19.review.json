@@ -1,0 +1,25 @@
+{
+  "redteam": "RT-PAPER-CESNAVICIUS-19",
+  "findings": [
+    {
+      "finding": "RT-PAPER-CESNAVICIUS-19/1",
+      "verdict": "confirmed",
+      "reason": "Confirmed at 2c51791. I compared the affected extraction items and CS24 routes 1–3, read the named source statements (2019 Theorems 1.1/1.3/6.1 and Lemmas 5.1–5.2; CS24 Lemma 3.1.1 and Section 7.2; SGA2 XI), and checked assembled SF scopes plus the still-pending purity design. The same local Picard, Brauer-purity and regular-local tower inputs have different proposed owners; CS24's brief explicitly expects the earlier paper to join it. Coalesce under PurityForFlatCohomology and the two existing Part II IDs, updating shared references and wider consumers, while retaining P7's general Frobenius/limit infrastructure as an import. Qualify the proposed repair: the 2019 full H² bijectivity/H³ injectivity must not be reduced to CS24 7.2.8(a)'s H² injectivity; Azumaya Br, cohomological Br′ and ambient H² stay distinct until their comparison theorems; generic supports and support-local-global constructions already belong to SF.2 and should be imported, not moved wholesale into purity. Only the purity-specific vanishing, coniveau application and globalization belong to its consumer. Keep general formal-algebraization inputs at their supplier too."
+    },
+    {
+      "finding": "RT-PAPER-CESNAVICIUS-19/2",
+      "verdict": "confirmed",
+      "reason": "Confirmed. The extraction and dedicated errata file contain the same E1 with different affects values, corrections and review histories; generated data currently includes both. The copied-unchanged note is false. I read Proposition 2.2 in arXiv v4 and the author manuscript, its proof and the two commutative applications. Preserve kind gap, scoped to these manuscripts, with the extraction's a-stated-result classification; this does not assert the noncommutative geometric statement false. Keep one active canonical E1 (preferably in the extraction), combine the commutative and neutral-fibre repairs, and preserve both prior reviews/classification history. The other record should become a cross-reference outside the collected sourceIssues array; a new finding ID alone would not deduplicate it. Add actual sourceVersions wherever the canonical record lives. Remove E2–E4's stale pending-review text, but preserve their unread-published-source qualifications rather than replacing all known text by unqualified new. No new verification of E2–E5's mathematics or correction search is asserted."
+    },
+    {
+      "finding": "RT-PAPER-CESNAVICIUS-19/3",
+      "verdict": "confirmed",
+      "reason": "Confirmed by executing current collation.provenance/stated/records/exposure read-only. CESNAVICIUS-19 has one stated finding but returns published and is absent from exposure: the publisher regex matches the supporting Gabber–Ramero Springer link, while a reading regex independently matches the author-copy SHA-256 (and can match negative collation wording). The four other named records also return published despite explicit non-reading and hide 7+4+21+4=36 stated findings. The three named earlier red-team fixes do propose unread published entries. In an in-memory copy, adding only the actual arXiv v4 and author-copy sourceVersions changes this paper to preprint and restores its exposure. Their freshly downloaded hashes match those proposed. Record the historical read dates accurately and keep Duke non-reading separately. Ask the maintainer to require positive reading evidence tied to the relevant paper/version, respecting negative evidence and excluding supporting-source links. A hash alone neither establishes reading nor is necessary for a browser reading. The tool and other records are outside this review's deliverables."
+    },
+    {
+      "finding": "RT-PAPER-CESNAVICIUS-19/4",
+      "verdict": "confirmed",
+      "reason": "Confirmed. RS-25's retained-scope metadata excludes these new SF.0 obligations; the current route still places punctured, hartogs, pic-regular and det-free-resolution there. CMM21/044 is missing, so routing it to SF.0 cannot justify marking henselian-smooth-lift-import planned. Move the first three with the shared purity owner, attach the determinant input to the R03.3 regular-local factoriality proof with its actual sheaf determinant interface, and remove the empty SF.0 route. Mark smooth lifting missing and route it with SF.4's Elkik inputs, explicitly sharing CMM21/044. Reuse pinned HenselianRing R I, whose statement I read: monic simple-root lifting is not already the smooth-algebra lifting equivalence. Preserve the general ringed-space content of SGA2 XI 3.15 rather than silently narrowing it to a different module statement. Apply consistently with finding /1's ownership map."
+    }
+  ]
+}
