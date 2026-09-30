@@ -1,7 +1,7 @@
 {
  "paper": "PAPER-BHARGAVA-25",
  "protocol": "paper-v1",
- "status": "complete",
+ "status": "partial",
  "source": {
   "title": "Galois groups of random integer polynomials and van der Waerden's Conjecture",
   "authors": "Manjul Bhargava",
@@ -10,7 +10,8 @@
   "arxiv": "2111.06507",
   "url": "https://arxiv.org/abs/2111.06507v3",
   "readSections": [
-   "arXiv 2111.06507v3 (28 September 2024, 'to appear in Annals of Math'), read in full: 34 pages, SHA-256 b98647f10dbf4b74be61570d8f12fe7c8cadf24f7e47e667a1bcff6159471780, fetched from https://arxiv.org/pdf/2111.06507v3 on 29 September 2026 (v1: 12 November 2021; v2: 3 October 2022). The Annals article (received 14 January 2022, revised 13 February 2024, accepted 14 February 2024, online 12 March 2025) is subscription-only; v3 postdates acceptance. Item locators are v3's pages. Every recorded mistake was checked on v3's page images, and the numerical claims were recomputed exactly."
+   "arXiv 2111.06507v3 (28 September 2024, 'to appear in Annals of Math'), read in full: 34 pages, SHA-256 b98647f10dbf4b74be61570d8f12fe7c8cadf24f7e47e667a1bcff6159471780, fetched from https://arxiv.org/pdf/2111.06507v3 on 29 September 2026 (v1: 12 November 2021; v2: 3 October 2022). The Annals article (received 14 January 2022, revised 13 February 2024, accepted 14 February 2024, online 12 March 2025) is subscription-only; v3 postdates acceptance. Item locators are v3's pages. Every recorded mistake was checked on v3's page images, and the numerical claims were recomputed exactly.",
+   "Independent review by Codex, codex-rtOQ9t, 29–30 September 2026: read all 34 preprint pages as text; checked selected page images and exact numerical regressions. The version of record was not obtained. This does not claim a full reading of the external papers listed as prerequisites."
   ]
  },
  "sourceVersions": [
@@ -22,21 +23,25 @@
   },
   {
    "kind": "published",
-   "citation": "Ann. of Math. 201 (2025), no. 2, doi:10.4007/annals.2025.201.2.1; Project Euclid returned an HTML page to a direct request and the Annals site serves no PDF, so it was not read",
-   "read": "2026-09-29"
+   "url": "https://annals.math.princeton.edu/2025/201-2/p01",
+   "citation": "Annals of Mathematics 201 (2025), 339–377, DOI 10.4007/annals.2025.201.2.1",
+   "read": "Article metadata page read 2026-09-29; PDF not read: the direct Project Euclid request returned HTML, not the article.",
+   "compared": false
   }
  ],
- "summary": "Bhargava proves van der Waerden's 1936 conjecture: among the (2H + 1)^n monic integer polynomials of degree n with coefficients bounded by H, only O(H^{n−1}) have Galois group other than S_n (Theorem 1). Intransitive and imprimitive groups being classical, he bounds N_n(G, H) for primitive G through the index ind(G), which forces the discriminant of K_f to be ind(G)-powerful. The polynomials split into three cases by the ramified-prime product C and discriminant D: large D with small C (Fourier equidistribution of index conditions in boxes), small D (Schmidt's field count times Lemke Oliver–Thorne's polynomials per field), and large C (the double discriminant DD is divisible by C, via Proposition 34). Theorem 2 gives a general bound; with minimal-degree theorems for primitive groups (Liebeck–Saxl, Guralnick–Magaard, Babai) and new field counts (Theorems 20, 25) it yields power savings for primitive groups (Corollary 3), rare extra endomorphisms of hyperelliptic Jacobians (Corollary 4), and bounds for cyclic, regular and intransitive groups (Corollaries 5, 6, 8, Theorem 7). The atlas plans Hilbert irreducibility (IG.2), field counts (ST.3), Weil's bound (FF.2) and tame ramification; Mathlib has Jordan's transposition and 3-cycle theorems, Mahler measure and Schwartz–Zippel. The paper's machinery becomes a Part II of the Tau Ceti roadmap Galois groups of polynomials. Fifteen mistakes are recorded: Corollary 6 is false for n = 2 and not proved when 2 or 3 divides n, the threshold 53 of Corollary 3(a) is not reached by the argument (56 is), Theorem 2's log exponent can exceed c, and the §5 choice δ = 1/(2n) fails Case II for n = 4 and 6.",
+ "summary": "The preprint develops fixed-degree counting of integer polynomials by Galois group using permutation indices, powerful discriminants, finite-field Fourier estimates and a three-case sieve. The corrected principal scope is n≥3, transitive groups for number-field exponents, and the explicit application restrictions below. This independent review changes the extraction to partial: 74 items, 10 library, 3 planned and 61 missing, each missing item routed once across six routes. Five source routes have usable ownership contracts. The Part II is rejected pending its elimination proof, recursive suppliers, declaration splitting and definition APIs/tests. All 26 findings are checked against arXiv v3 only; E11 and E13 are proof failures, not disproved counting theorems. The published article was not obtained.",
  "items": [
   {
    "id": "PAPER-BHARGAVA-25/1",
    "kind": "definition",
    "name": "The counts E_n(H) and N_n(G, H)",
-   "statement": "For H ≥ 1, E_n(H) is the number of monic f(x) = x^n + a_1x^{n−1} + ··· + a_n ∈ Z[x] with max|a_i| ≤ H whose Galois group G_f is not S_n, and for a permutation group G ⊂ S_n, N_n(G, H) is the number of such f with G_f ≅ G as permutation groups. Trivially E_n(H) ≫ H^{n−1} (take a_n = 0).",
+   "statement": "For fixed n ≥ 2 and H ≥ 1, E_n(H) counts monic integer polynomials of degree n with nonleading coefficients bounded by H whose Galois group is not S_n. For a subgroup G ≤ S_n, N_n(G,H) counts separable such polynomials whose root action is conjugate to G. Repeated-root polynomials are included in E_n(H); their treatment separately from the n-letter action is required. The lower bound E_n(H) ≫ H^{n−1} follows by taking a_n = 0 and a separable complementary factor. The O(H^{n−1}) theorem is restricted to n ≥ 3 (E26). For irreducible f, put K_f=Q[x]/(f), D=|Disc(K_f)| and C=rad(D); item 22 identifies the primes in C with ramification.",
    "locator": "§1, pp. 1–2 (arXiv v3)",
    "status": "missing",
    "library": [],
-   "planned": []
+   "planned": [],
+   "sourceStatement": "For H ≥ 1, E_n(H) is the number of monic f(x) = x^n + a_1x^{n−1} + ··· + a_n ∈ Z[x] with max|a_i| ≤ H whose Galois group G_f is not S_n, and for a permutation group G ⊂ S_n, N_n(G, H) is the number of such f with G_f ≅ G as permutation groups. Trivially E_n(H) ≫ H^{n−1} (take a_n = 0).",
+   "reviewedBy": "REV-PAPER-BHARGAVA-25"
   },
   {
    "id": "PAPER-BHARGAVA-25/2",
@@ -56,46 +61,55 @@
    "id": "PAPER-BHARGAVA-25/3",
    "kind": "definition",
    "name": "Primitive permutation groups; primitivity versus subfields",
-   "statement": "A transitive G ⊂ S_n is primitive if it preserves no nontrivial partition of {1, …, n}. For irreducible f, G_f is intransitive exactly when f factors over Q (so an irreducible f has transitive G_f), and a transitive G_f is imprimitive exactly when Q[x]/(f(x)) has a proper subfield other than Q.",
+   "statement": "A transitive group on n > 1 letters is primitive if its invariant partitions are trivial. For a separable polynomial f of positive degree, the Galois action on its roots is transitive iff f is irreducible. For irreducible f of degree > 1, that action is primitive iff Q(α) has no intermediate field strictly between Q and Q(α).",
    "locator": "§1, p. 2 (arXiv v3)",
    "status": "library",
    "library": [
     "mathlib:MulAction.IsPreprimitive",
     "mathlib:MulAction.IsBlock",
-    "tauceti:TauCeti.isPreprimitive_iff_isAtom_adjoin_simple"
+    "tauceti:TauCeti.isPreprimitive_iff_isAtom_adjoin_simple",
+    "tauceti:TauCeti.isPretransitive_iff_irreducible"
    ],
    "planned": [],
-   "note": "Tau Ceti proves the Galois action on the roots of an irreducible separable p of degree > 1 is preprimitive iff F(α) is an atom (no intermediate field)."
+   "note": "Tau Ceti proves the Galois action on the roots of an irreducible separable p of degree > 1 is preprimitive iff F(α) is an atom (no intermediate field).",
+   "sourceStatement": "A transitive G ⊂ S_n is primitive if it preserves no nontrivial partition of {1, …, n}. For irreducible f, G_f is intransitive exactly when f factors over Q (so an irreducible f has transitive G_f), and a transitive G_f is imprimitive exactly when Q[x]/(f(x)) has a proper subfield other than Q.",
+   "reviewedBy": "REV-PAPER-BHARGAVA-25"
   },
   {
    "id": "PAPER-BHARGAVA-25/4",
    "kind": "definition",
    "name": "Index of a permutation and of a permutation group",
-   "statement": "For g ∈ S_n, ind(g) := n − (number of orbits of g on {1, …, n}); for a permutation group G, ind(G) := min_{1 ≠ g ∈ G} ind(g). Equivalently ind(g) = n minus the number of cycles of g including fixed points; ind(G) = 1 iff G contains a transposition.",
+   "statement": "For g ∈ S_n, ind(g) := n − (number of orbits of g on {1, …, n}); for a nontrivial permutation group G, ind(G) := min_{1 ≠ g ∈ G} ind(g). Equivalently ind(g) = n minus the number of cycles of g including fixed points; ind(G) = 1 iff G contains a transposition.",
    "locator": "§1, p. 2 (after Malle [31]) (arXiv v3)",
    "status": "missing",
    "library": [],
-   "planned": []
+   "planned": [],
+   "sourceStatement": "For g ∈ S_n, ind(g) := n − (number of orbits of g on {1, …, n}); for a permutation group G, ind(G) := min_{1 ≠ g ∈ G} ind(g). Equivalently ind(g) = n minus the number of cycles of g including fixed points; ind(G) = 1 iff G contains a transposition.",
+   "reviewedBy": "REV-PAPER-BHARGAVA-25"
   },
   {
    "id": "PAPER-BHARGAVA-25/5",
    "kind": "definition",
    "name": "k-powerful integers",
-   "statement": "An integer N is k-powerful if p^k | N for every prime p | N; 2-powerful integers are called squarefull and 3-powerful cubefull.",
+   "statement": "For k ≥ 1, a positive integer N is k-powerful if every prime dividing N occurs to exponent at least k. Squarefull and cubefull mean k = 2 and 3. Counting and convergent-tail estimates in item 52 require k ≥ 2.",
    "locator": "§2, footnote 2, p. 8 (arXiv v3)",
    "status": "missing",
    "library": [],
-   "planned": []
+   "planned": [],
+   "sourceStatement": "An integer N is k-powerful if p^k | N for every prime p | N; 2-powerful integers are called squarefull and 3-powerful cubefull.",
+   "reviewedBy": "REV-PAPER-BHARGAVA-25"
   },
   {
    "id": "PAPER-BHARGAVA-25/6",
    "kind": "definition",
    "name": "Number-field counts F_n(G, X), admissible exponents a(G), and Malle's conjecture",
-   "statement": "F_n(G, X) is the number of number fields of degree n with associated Galois group G (as a permutation group) and absolute discriminant at most X; a(G) > 0 denotes any constant with F_n(G, X) = O(X^{a(G)}). Malle conjectured that one may take a(G) = 1/ind(G) + ε, and indeed X^{1/ind(G)} ≪ F_n(G, X) ≪ X^{1/ind(G)+ε}.",
+   "statement": "For n ≥ 2 and a transitive G ≤ S_n, F_n(G,X) counts Q-isomorphism classes of degree-n number fields with root action G and absolute discriminant at most X. An admissible exponent a(G) > 0 satisfies F_n(G,X) = O_G(X^{a(G)}). Malle's weak conjecture predicts X^{1/ind(G)} ≪ F_n(G,X) ≪_ε X^{1/ind(G)+ε}; this is a conjectural target, not an unconditional counting theorem.",
    "locator": "§1, p. 2 (arXiv v3)",
    "status": "missing",
    "library": [],
-   "planned": []
+   "planned": [],
+   "sourceStatement": "F_n(G, X) is the number of number fields of degree n with associated Galois group G (as a permutation group) and absolute discriminant at most X; a(G) > 0 denotes any constant with F_n(G, X) = O(X^{a(G)}). Malle conjectured that one may take a(G) = 1/ind(G) + ε, and indeed X^{1/ind(G)} ≪ F_n(G, X) ≪ X^{1/ind(G)+ε}.",
+   "reviewedBy": "REV-PAPER-BHARGAVA-25"
   },
   {
    "id": "PAPER-BHARGAVA-25/7",
@@ -111,21 +125,26 @@
    "id": "PAPER-BHARGAVA-25/8",
    "kind": "definition",
    "name": "Splitting types and their index, length and automorphism count",
-   "statement": "A splitting type is a formal expression σ = (f_1^{e_1} ··· f_r^{e_r}); deg σ = Σ e_if_i, ind σ = Σ (e_i − 1)f_i, len σ = Σ f_i = deg σ − ind σ, and #Aut(σ) = ∏ f_i times the number of permutations of the factors f_i^{e_i} preserving σ (e.g. #Aut(1^1 2^5 2^5 3^1 1^1) = 288). The splitting type (f, p) of a binary form or polynomial f modulo p records its factorisation f ≡ ∏ P_i^{e_i}, deg P_i = f_i, and ind(f) modulo p is ind of (f, p).",
+   "statement": "A splitting type is a formal expression σ = (f_1^{e_1} ··· f_r^{e_r}); deg σ = Σ e_if_i, ind σ = Σ (e_i − 1)f_i, len σ = Σ f_i = deg σ − ind σ, and #Aut(σ) = ∏ f_i times the number of permutations of the factors f_i^{e_i} preserving σ (e.g. #Aut(1^1 2^5 2^5 2^5 3^1 1^1) = 288). The splitting type (f, p) of a binary form or polynomial f modulo p records its factorisation f ≡ ∏ P_i^{e_i}, deg P_i = f_i, and ind(f) modulo p is ind of (f, p).",
    "locator": "§4.1, p. 17 (arXiv v3)",
    "status": "missing",
    "library": [],
-   "planned": []
+   "planned": [],
+   "sourceStatement": "A splitting type is a formal expression σ = (f_1^{e_1} ··· f_r^{e_r}); deg σ = Σ e_if_i, ind σ = Σ (e_i − 1)f_i, len σ = Σ f_i = deg σ − ind σ, and #Aut(σ) = ∏ f_i times the number of permutations of the factors f_i^{e_i} preserving σ (e.g. #Aut(1^1 2^5 2^5 3^1 1^1) = 288). The splitting type (f, p) of a binary form or polynomial f modulo p records its factorisation f ≡ ∏ P_i^{e_i}, deg P_i = f_i, and ind(f) modulo p is ind of (f, p).",
+   "note": "The preprint example has three factors 2^5. The earlier extraction omitted one: its displayed type has automorphism count 48, whereas the source type has 288.",
+   "reviewedBy": "REV-PAPER-BHARGAVA-25"
   },
   {
    "id": "PAPER-BHARGAVA-25/9",
    "kind": "definition",
    "name": "Spaces of binary n-ic forms and monic polynomials, and their finite Fourier transforms",
-   "statement": "V_R is the rank n + 1 module of binary n-ic forms over R and V^1_R ⊂ V_R the monic ones (identified with monic polynomials of degree n). For Ψ_q : V_{Z/qZ} → C, Ψ̂_q(g) = q^{−(n+1)} Σ_f Ψ_q(f) exp(2πi[f, g]/q) on the dual V*_{Z/qZ} (and with q^{−n} on V^1), and M(Ψ_q) = max_{g ≠ 0} |Ψ̂_q(g)|.",
+   "statement": "For n ≥ 1, V_R is the rank n+1 coefficient module of binary n-ic forms, and V_R^1 is the affine space of monic degree-n polynomials. With d = n+1 or n respectively, q ≥ 2 and the standard coefficient pairing, Ψ̂_q(g) = q^{−d}Σ_f Ψ_q(f) exp(2πi⟨f,g⟩/q) on (Z/qZ)^d; M(Ψ_q) = max_{g≠0}|Ψ̂_q(g)|. Its periodic extension to integer frequencies distinguishes zero residue classes from the single frequency zero.",
    "locator": "§4.1, (9), p. 17; §4.2, p. 20 (arXiv v3)",
    "status": "missing",
    "library": [],
-   "planned": []
+   "planned": [],
+   "sourceStatement": "V_R is the rank n + 1 module of binary n-ic forms over R and V^1_R ⊂ V_R the monic ones (identified with monic polynomials of degree n). For Ψ_q : V_{Z/qZ} → C, Ψ̂_q(g) = q^{−(n+1)} Σ_f Ψ_q(f) exp(2πi[f, g]/q) on the dual V*_{Z/qZ} (and with q^{−n} on V^1), and M(Ψ_q) = max_{g ≠ 0} |Ψ̂_q(g)|.",
+   "reviewedBy": "REV-PAPER-BHARGAVA-25"
   },
   {
    "id": "PAPER-BHARGAVA-25/10",
@@ -141,54 +160,65 @@
    "id": "PAPER-BHARGAVA-25/11",
    "kind": "definition",
    "name": "Height and Mahler measure of a monic polynomial",
-   "statement": "H(f) = max_i |a_i| and M(f) = ∏_k max{1, |r_k|} over the complex roots. Then C(n, ⌊n/2⌋)^{−1} H(f) ≤ M(f) ≤ √(n + 1) H(f), M is multiplicative, and hence H(fg) = Θ(H(f)H(g)) with constants depending on the degrees.",
+   "statement": "For a monic complex polynomial f = x^n+a_1x^{n−1}+…+a_n, use H₊(f) = max(1,|a_1|,…,|a_n|), the sup norm of all coefficients, and M(f)=∏_r max(1,|r|), roots counted with multiplicity. Then binom(n,floor(n/2))^{−1}H₊(f) ≤ M(f) ≤ sqrt(n+1)H₊(f), M(fg)=M(f)M(g), and H₊(fg) is comparable to H₊(f)H₊(g) with constants depending only on the degrees. For H ≥ 1, this gives the same coefficient box as the original height.",
    "locator": "§8, p. 30 (arXiv v3)",
    "status": "library",
    "library": [
     "mathlib:Polynomial.mahlerMeasure",
     "mathlib:Polynomial.mahlerMeasure_mul",
     "mathlib:Polynomial.norm_coeff_le_choose_mul_mahlerMeasure",
-    "mathlib:Polynomial.mahlerMeasure_le_sqrt_natDegree_add_one_mul_supNorm"
+    "mathlib:Polynomial.mahlerMeasure_le_sqrt_natDegree_add_one_mul_supNorm",
+    "mathlib:Polynomial.mahlerMeasure_eq_leadingCoeff_mul_prod_roots"
    ],
-   "planned": []
+   "planned": [],
+   "sourceStatement": "H(f) = max_i |a_i| and M(f) = ∏_k max{1, |r_k|} over the complex roots. Then C(n, ⌊n/2⌋)^{−1} H(f) ≤ M(f) ≤ √(n + 1) H(f), M is multiplicative, and hence H(fg) = Θ(H(f)H(g)) with constants depending on the degrees.",
+   "note": "E20 corrects the source's zero-height exception. Mathlib's supNorm includes the leading coefficient.",
+   "reviewedBy": "REV-PAPER-BHARGAVA-25"
   },
   {
    "id": "PAPER-BHARGAVA-25/12",
    "kind": "definition",
    "name": "Discriminants and resultants of polynomials",
-   "statement": "Disc(f) of a polynomial and the resultant Res; Disc_{a_n}(Disc_x(f(x))) = Res_{a_n}(Disc(f), ∂Disc(f)/∂a_n) up to the leading coefficient ±n^n of Disc(f) in a_n, which has degree n − 1 in a_n.",
+   "statement": "Polynomial.discr and Polynomial.resultant provide the polynomial discriminant and resultant. For f of positive degree d, Res(f,f′)=(-1)^{d(d−1)/2}lc(f)Disc(f). The specialization to Disc_x(x^n+a_1x^{n−1}+…+a_n), including its degree n−1 and leading coefficient ±n^n in a_n, is a separate missing adapter in item 56.",
    "locator": "§5, Case III, pp. 24–25 (arXiv v3)",
    "status": "library",
    "library": [
     "mathlib:Polynomial.discr",
-    "mathlib:Polynomial.resultant"
+    "mathlib:Polynomial.resultant",
+    "mathlib:Polynomial.resultant_deriv"
    ],
-   "planned": []
+   "planned": [],
+   "sourceStatement": "Disc(f) of a polynomial and the resultant Res; Disc_{a_n}(Disc_x(f(x))) = Res_{a_n}(Disc(f), ∂Disc(f)/∂a_n) up to the leading coefficient ±n^n of Disc(f) in a_n, which has degree n − 1 in a_n.",
+   "reviewedBy": "REV-PAPER-BHARGAVA-25"
   },
   {
    "id": "PAPER-BHARGAVA-25/13",
    "kind": "definition",
-   "name": "Absolute discriminant of K_f and the product C of ramified primes",
-   "statement": "For irreducible monic f, K_f = Q[x]/(f(x)), D = |Disc(K_f)|, and C is the product of the primes ramified in K_f (the radical of D); Disc(f) = [O_K : Z[x]/(f)]²·Disc(K_f).",
+   "name": "Number-field discriminant and integral primitive-element index formula",
+   "statement": "For a number field K with an integral primitive element α and monic minimal polynomial f, Disc(f)=[O_K:Z[α]]² Disc(K). In the counting applications D=|Disc(K)|; the equality between ramification support and the prime support of D is imported separately via item 22.",
    "locator": "§1, p. 5; §5, p. 23 (arXiv v3)",
    "status": "library",
    "library": [
-    "mathlib:NumberField.discr"
+    "mathlib:NumberField.discr",
+    "tauceti:TauCeti.NumberField.IntegralPrimitiveElement.discr_minpoly_eq_index_sq_mul_discr"
    ],
-   "planned": []
+   "planned": [],
+   "note": "The index-squared identity has an exact pinned Tau Ceti theorem for an integral primitive element. Identification of the ramified-prime product with the discriminant radical is imported from the number-field ramification interface; it is not supplied by NumberField.discr alone.",
+   "reviewedBy": "REV-PAPER-BHARGAVA-25",
+   "sourceStatement": "For irreducible monic f, K_f = Q[x]/(f(x)), D = |Disc(K_f)|, and C is the product of the primes ramified in K_f (the radical of D); Disc(f) = [O_K : Z[x]/(f)]²·Disc(K_f)."
   },
   {
    "id": "PAPER-BHARGAVA-25/14",
    "kind": "definition",
    "name": "The partition count q(k, n − k)",
-   "statement": "q(k, n − k) is the number of partitions of k into at most n − k parts, equivalently of partitions of n into exactly n − k parts; it is the constant c of Theorem 2 and bounds the number of splitting types of index k.",
+   "statement": "For 0 ≤ k < n, q(k,n−k) counts partitions of k into at most n−k positive parts, equivalently partitions of n into exactly n−k positive parts (pad with zeros and add one to each part). It counts geometric root-multiplicity patterns, not all finite-field splitting types of index k. This filtered finite count and its bijection are missing adapters over Nat.Partition.",
    "locator": "Theorem 2, p. 3; Proposition 21, p. 12 (arXiv v3)",
-   "status": "library",
-   "library": [
-    "mathlib:Nat.Partition"
-   ],
+   "status": "missing",
+   "library": [],
    "planned": [],
-   "note": "Mathlib has partitions (Nat.Partition) with finiteness; the restricted count is a Finset.card over them, not a named definition."
+   "note": "Nat.Partition is the carrier only. For n=4,k=1 the types (1^2 1^1 1^1) and (1^2 2^1) both occur, while q(1,3)=1; the former assertion about all splitting types was false.",
+   "sourceStatement": "q(k, n − k) is the number of partitions of k into at most n − k parts, equivalently of partitions of n into exactly n − k parts; it is the constant c of Theorem 2 and bounds the number of splitting types of index k.",
+   "reviewedBy": "REV-PAPER-BHARGAVA-25"
   },
   {
    "id": "PAPER-BHARGAVA-25/15",
@@ -204,21 +234,27 @@
    "id": "PAPER-BHARGAVA-25/16",
    "kind": "theorem",
    "name": "Reducible polynomials (van der Waerden): intransitive Galois groups",
-   "statement": "Σ_{G ⊂ S_n intransitive} N_n(G, H) = O(H^{n−1}); the polynomials with intransitive Galois group are exactly the reducible ones (van der Waerden [43]; Chela [10] gives the asymptotic c_nH^{n−1} + O(H^{n−2})).",
+   "statement": "For fixed n ≥ 3 the number of reducible monic integer polynomials of degree n in the coefficient box is O_n(H^{n−1}); separable reducible polynomials have intransitive root action. For n=2 the count is instead of order H log H. The finer Chela asymptotic and its exact degree-dependent remainder require collation of the cited source before use.",
    "locator": "§1, (4), p. 2 (arXiv v3)",
    "status": "missing",
    "library": [],
-   "planned": []
+   "planned": [],
+   "sourceStatement": "Σ_{G ⊂ S_n intransitive} N_n(G, H) = O(H^{n−1}); the polynomials with intransitive Galois group are exactly the reducible ones (van der Waerden [43]; Chela [10] gives the asymptotic c_nH^{n−1} + O(H^{n−2})).",
+   "note": "E26 restores the degree range. The earlier unqualified Chela remainder O(H^{n−2}) is not independently certified here.",
+   "reviewedBy": "REV-PAPER-BHARGAVA-25"
   },
   {
    "id": "PAPER-BHARGAVA-25/17",
    "kind": "theorem",
    "name": "Imprimitive Galois groups (Widmer)",
-   "statement": "Σ_{G ⊂ S_n transitive, imprimitive} N_n(G, H) = O(H^{n/2+2}), essentially optimal (x^n + a_2x^{n−2} + ··· + a_n for even n); via number fields with a nontrivial subfield (Widmer [46]).",
+   "statement": "For fixed degree n, the number of monic integer polynomials of height at most H whose Galois action is transitive imprimitive is O_n(H^{n/2+2}), via number fields with a proper intermediate field (Widmer [46]). The even-polynomial example in the source supplies only a lower family of size H^{n/2}, not the matching exponent n/2+2.",
    "locator": "§1, (5), p. 2 (arXiv v3)",
    "status": "missing",
    "library": [],
-   "planned": []
+   "planned": [],
+   "sourceStatement": "Σ_{G ⊂ S_n transitive, imprimitive} N_n(G, H) = O(H^{n/2+2}), essentially optimal (x^n + a_2x^{n−2} + ··· + a_n for even n); via number fields with a nontrivial subfield (Widmer [46]).",
+   "note": "Do not claim a matching lower bound from the displayed family.",
+   "reviewedBy": "REV-PAPER-BHARGAVA-25"
   },
   {
    "id": "PAPER-BHARGAVA-25/18",
@@ -391,11 +427,14 @@
    "id": "PAPER-BHARGAVA-25/34",
    "kind": "theorem",
    "name": "Schmidt's small trace-zero element",
-   "statement": "A number field K of degree n and absolute discriminant D contains α ∈ O_K − Z of trace zero with ‖α‖ ≪ D^{1/(2n−2)}, where ‖·‖ is the L² norm over the archimedean embeddings; its minimal polynomial x^n + a_2x^{n−2} + ··· + a_n then has |a_i| ≪ D^{i/(2n−2)}.",
+   "statement": "For n ≥ 2 a degree-n number field K of absolute discriminant D has a nonzero nonrational integral trace-zero element α with archimedean L² norm ≪_n D^{1/(2n−2)}. If K has no proper intermediate field, α generates K, and its degree-n minimal polynomial has a_1=0 and |a_i| ≪_n D^{i/(2n−2)}. The generator conclusion needs this additional hypothesis.",
    "locator": "Proof of Theorem 20, p. 15 (as in [39]) (arXiv v3)",
    "status": "missing",
    "library": [],
-   "planned": []
+   "planned": [],
+   "sourceStatement": "A number field K of degree n and absolute discriminant D contains α ∈ O_K − Z of trace zero with ‖α‖ ≪ D^{1/(2n−2)}, where ‖·‖ is the L² norm over the archimedean embeddings; its minimal polynomial x^n + a_2x^{n−2} + ··· + a_n then has |a_i| ≪ D^{i/(2n−2)}.",
+   "note": "The proof of Theorem 20 assumes primitivity. The extraction had incorrectly extended the generator conclusion to every number field.",
+   "reviewedBy": "REV-PAPER-BHARGAVA-25"
   },
   {
    "id": "PAPER-BHARGAVA-25/35",
@@ -433,11 +472,14 @@
    "id": "PAPER-BHARGAVA-25/38",
    "kind": "theorem",
    "name": "Remark 23: the index strata of monic polynomials",
-   "statement": "Over an algebraically closed L with char L ∤ n!, the irreducible components of the variety of monic polynomials of degree n having index ≥ k are indexed by the partitions (m_1 ≥ ··· ≥ m_{n−k}) of n, each the image of A^{n−k} under (r_i) ↦ ∏ (x − r_i)^{m_i}, of dimension n − k; none lies in a hyperplane (through translates f(t(x + c)), a rational normal curve), and the same holds for binary n-ic forms with P^1 in place of A^1.",
+   "statement": "Over an algebraically closed field of characteristic zero or greater than n, and 0 ≤ k < n, the closed locus of monic degree-n polynomials with geometric index at least k has components given by multiplicity partitions of n into n−k parts: the images of (r_i) ↦ ∏(x−r_i)^{m_i}, each of dimension n−k. Each spans the coefficient affine space. Use the monic normalization t^{−n}f(tx+c) for t ≠ 0. For binary forms the corresponding projective locus is the image of (P¹)^{n−k} in P(V); the affine locus includes the scalar cone.",
    "locator": "Remark 23, pp. 13–14 (arXiv v3)",
    "status": "missing",
    "library": [],
-   "planned": []
+   "planned": [],
+   "sourceStatement": "Over an algebraically closed L with char L ∤ n!, the irreducible components of the variety of monic polynomials of degree n having index ≥ k are indexed by the partitions (m_1 ≥ ··· ≥ m_{n−k}) of n, each the image of A^{n−k} under (r_i) ↦ ∏ (x − r_i)^{m_i}, of dimension n − k; none lies in a hyperplane (through translates f(t(x + c)), a rational normal curve), and the same holds for binary n-ic forms with P^1 in place of A^1.",
+   "note": "E22 fixes the normalization and the projective/affine distinction. Finite projections and specialization needed by §6 are a separate recorded gap.",
+   "reviewedBy": "REV-PAPER-BHARGAVA-25"
   },
   {
    "id": "PAPER-BHARGAVA-25/39",
@@ -453,11 +495,14 @@
    "id": "PAPER-BHARGAVA-25/40",
    "kind": "theorem",
    "name": "Lemma 24: discriminant valuation bounds the index modulo p",
-   "statement": "If g ∈ Z[x] and Q[x]/(g) has nonzero discriminant D, then for every prime p > n the index of g over F_p is at least v_p(D).",
+   "statement": "Let g ∈ Z[x] be monic, separable and of degree n ≥ 1. Let D be the absolute discriminant of the maximal order in the finite étale Q-algebra Q[x]/(g). For every prime p > n, ind(g mod p) ≥ v_p(D). The integral and monic hypothesis is essential; see E18. In number-field applications g is irreducible.",
    "locator": "Lemma 24, pp. 14–15 (arXiv v3)",
    "status": "missing",
    "library": [],
-   "planned": []
+   "planned": [],
+   "sourceStatement": "If g ∈ Z[x] and Q[x]/(g) has nonzero discriminant D, then for every prime p > n the index of g over F_p is at least v_p(D).",
+   "note": "The tame proof uses v_p(D_i)=(e_i−1)f_i and geometric index e_i−1 for a monic local factor reducing to (x−c)^e, as corrected in E19.",
+   "reviewedBy": "REV-PAPER-BHARGAVA-25"
   },
   {
    "id": "PAPER-BHARGAVA-25/41",
@@ -483,32 +528,44 @@
    "id": "PAPER-BHARGAVA-25/43",
    "kind": "theorem",
    "name": "Twisted Poisson summation on boxes of forms and polynomials",
-   "statement": "For Ψ_q on V_{Z/qZ} and a Schwartz function φ on R^{n+1}, Σ_{f ∈ V_Z} Ψ_q(f)φ(f/H) = H^{n+1} Σ_{g ∈ V*_Z} Ψ̂_q(g) φ̂(gH/q) (10), and the monic analogue (19) on Z^n; with φ̂(g) ≪_N ‖g‖^{−N} ([41, Ch. 5, Thm 1.3]) the error beyond the main term is O(q^{n+1+ε}M(Ψ_q)) (resp. O(q^{n+ε}M(Ψ_q))).",
+   "statement": "For d ≥ 1, q ≥ 2, H ≥ 1, Ψ on (Z/qZ)^d and Schwartz φ on R^d, with Fourier signs as in item 9, Σ_{f∈Z^d}Ψ(f)φ(f/H)=H^dΣ_{g∈Z^d}Ψ̂(g mod q)φ̂(gH/q). Splitting the right side into g∈qZ^d and g∉qZ^d gives |Σ_f Ψ(f)φ(f/H)| ≪_{φ,d} H^d|Ψ̂(0)|+q^d M(Ψ). The error after removing only g=0 cannot in general be bounded solely by M(Ψ).",
    "locator": "§4.1, (10), p. 17; §4.2, (19), pp. 20–21 (arXiv v3)",
    "status": "missing",
    "library": [],
    "planned": [],
-   "note": "Mathlib has one-dimensional Poisson summation (mathlib:SchwartzMap.tsum_eq_tsum_fourier); the multidimensional twisted form is not there."
+   "note": "E23 records zero-residue aliases. Import the archimedean Schwartz/Fourier interface from AL.0, extending pinned one-dimensional SchwartzMap.tsum_eq_tsum_fourier by iteration with absolute convergence.",
+   "sourceStatement": "For Ψ_q on V_{Z/qZ} and a Schwartz function φ on R^{n+1}, Σ_{f ∈ V_Z} Ψ_q(f)φ(f/H) = H^{n+1} Σ_{g ∈ V*_Z} Ψ̂_q(g) φ̂(gH/q) (10), and the monic analogue (19) on Z^n; with φ̂(g) ≪_N ‖g‖^{−N} ([41, Ch. 5, Thm 1.3]) the error beyond the main term is O(q^{n+1+ε}M(Ψ_q)) (resp. O(q^{n+ε}M(Ψ_q))).",
+   "proofSteps": [
+    "Obtain the lattice formula by successive one-dimensional Poisson summation; justify each interchange using Schwartz decay.",
+    "Finite Fourier inversion and orthogonality give the q-periodic twist with normalization q^{−d}.",
+    "Frequencies qh contribute H^d Ψ̂(0) Σ_h φ̂(Hh), bounded uniformly after factoring H^d since H≥1.",
+    "For all remaining frequencies use M(Ψ) and H^d Σ_{g≠0}(1+H||g||/q)^{−N} ≪_{N,d} q^d for N>d."
+   ],
+   "reviewedBy": "REV-PAPER-BHARGAVA-25"
   },
   {
    "id": "PAPER-BHARGAVA-25/44",
    "kind": "theorem",
    "name": "Proposition 26: Fourier transform of w_{p,σ} on binary forms",
-   "statement": "For a splitting type σ with deg σ = d, ind σ = k, len σ = ℓ and p > n: ŵ_{p,σ}(0) = p^{−k}/#Aut(σ) + O(p^{−(k+1)}) and ŵ_{p,σ}(g) = O(p^{−(k+1)}) for g ≠ 0.",
+   "statement": "For a splitting type σ with 1 ≤ deg σ = d ≤ n, ind σ = k, len σ = ℓ and p > n: ŵ_{p,σ}(0) = p^{−k}/#Aut(σ) + O(p^{−(k+1)}) and ŵ_{p,σ}(g) = O(p^{−(k+1)}) for g ≠ 0.",
    "locator": "Proposition 26, pp. 17–18 (arXiv v3)",
    "status": "missing",
    "library": [],
-   "planned": []
+   "planned": [],
+   "sourceStatement": "For a splitting type σ with deg σ = d, ind σ = k, len σ = ℓ and p > n: ŵ_{p,σ}(0) = p^{−k}/#Aut(σ) + O(p^{−(k+1)}) and ŵ_{p,σ}(g) = O(p^{−(k+1)}) for g ≠ 0.",
+   "reviewedBy": "REV-PAPER-BHARGAVA-25"
   },
   {
    "id": "PAPER-BHARGAVA-25/45",
    "kind": "theorem",
    "name": "Corollaries 27–29: equidistribution of binary forms of large index modulo primes",
-   "statement": "The number of integral binary n-ic forms in [−H, H]^{n+1} of index ≥ k modulo p is O_ε(H^{n+1}/p^k + p^{n−k+ε}) (27); for D = ∏ p_i^{k_i} and C = ∏ p_i, those of index ≥ k_i modulo every p_i number O_ε(c^{ω(C)}H^{n+1}/D + C^ε ∏ p_i^{n−k_i}) (28), which is O(c^{ω(C)}H^{n+1}/D) if C < H^{1+δ} with 0 < δ < 1/n (29).",
+   "statement": "The number of integral binary n-ic forms in [−H, H]^{n+1} of index ≥ k modulo p is O_ε(H^{n+1}/p^k + p^{n−k+ε}) (27); for D = ∏ p_i^{k_i} and C = ∏ p_i, those of index ≥ k_i modulo every p_i number O_ε(c^{ω(C)}H^{n+1}/D + C^ε ∏ p_i^{n−k_i}) (28), which is O(c^{ω(C)}H^{n+1}/D) if C < H^{1+δ} with 0 < δ < 1/n (29). Here H ≥ 1, primes p_i are distinct and > n, and 1 ≤ k_i < n; empty or impossible index strata are treated separately.",
    "locator": "Corollaries 27–29, pp. 19–20 (arXiv v3)",
    "status": "missing",
    "library": [],
-   "planned": []
+   "planned": [],
+   "sourceStatement": "The number of integral binary n-ic forms in [−H, H]^{n+1} of index ≥ k modulo p is O_ε(H^{n+1}/p^k + p^{n−k+ε}) (27); for D = ∏ p_i^{k_i} and C = ∏ p_i, those of index ≥ k_i modulo every p_i number O_ε(c^{ω(C)}H^{n+1}/D + C^ε ∏ p_i^{n−k_i}) (28), which is O(c^{ω(C)}H^{n+1}/D) if C < H^{1+δ} with 0 < δ < 1/n (29).",
+   "reviewedBy": "REV-PAPER-BHARGAVA-25"
   },
   {
    "id": "PAPER-BHARGAVA-25/46",
@@ -526,21 +583,25 @@
    "id": "PAPER-BHARGAVA-25/47",
    "kind": "theorem",
    "name": "Proposition 30: Fourier transform of w_{p,σ} on monic polynomials",
-   "statement": "For monic polynomials and σ as in Proposition 26: ŵ_{p,σ}(0) = p^{−k}/#Aut(σ) + O(p^{−(k+1)}); ŵ_{p,σ}(g) = O(p^{−(k+1)}) for g ≠ 0 if d < n; and O(p^{−(k+1/2)}) if d = n, by grouping translates x ↦ x + c and Weil's bound.",
+   "statement": "For monic polynomials and σ as in Proposition 26: ŵ_{p,σ}(0) = p^{−k}/#Aut(σ) + O(p^{−(k+1)}); ŵ_{p,σ}(g) = O(p^{−(k+1)}) for g ≠ 0 if d < n; and O(p^{−(k+1/2)}) if d = n, by grouping translates x ↦ x + c and Weil's bound. Retain 1 ≤ d ≤ n and p > n; see E24.",
    "locator": "Proposition 30, pp. 21–22 (arXiv v3)",
    "status": "missing",
    "library": [],
-   "planned": []
+   "planned": [],
+   "sourceStatement": "For monic polynomials and σ as in Proposition 26: ŵ_{p,σ}(0) = p^{−k}/#Aut(σ) + O(p^{−(k+1)}); ŵ_{p,σ}(g) = O(p^{−(k+1)}) for g ≠ 0 if d < n; and O(p^{−(k+1/2)}) if d = n, by grouping translates x ↦ x + c and Weil's bound.",
+   "reviewedBy": "REV-PAPER-BHARGAVA-25"
   },
   {
    "id": "PAPER-BHARGAVA-25/48",
    "kind": "theorem",
    "name": "Corollaries 31–33: equidistribution of monic polynomials of large index",
-   "statement": "The number of integral monic polynomials of degree n in [−H, H]^n of index ≥ k modulo p is O(H^n/p^k + p^{n−k−1/2+ε}) (31); with several primes, O_ε(c^{ω(C)}H^n/D + C^ε ∏ p_i^{n−k_i−1/2}) (32); and O(c^{ω(C)}H^n/D) when C < H^{1+δ} with 0 < δ < 1/(2n − 1) (33).",
+   "statement": "The number of integral monic polynomials of degree n in [−H, H]^n of index ≥ k modulo p is O(H^n/p^k + p^{n−k−1/2+ε}) (31); with several primes, O_ε(c^{ω(C)}H^n/D + C^ε ∏ p_i^{n−k_i−1/2}) (32); and O(c^{ω(C)}H^n/D) when C < H^{1+δ} with 0 < δ < 1/(2n − 1) (33). Here H ≥ 1, p_i are distinct primes > n, D=∏p_i^{k_i}, C=∏p_i. For the final Corollary 33 estimate require k_i ≥ 2, as in the source.",
    "locator": "Corollaries 31–33, pp. 22–23 (arXiv v3)",
    "status": "missing",
    "library": [],
-   "planned": []
+   "planned": [],
+   "sourceStatement": "The number of integral monic polynomials of degree n in [−H, H]^n of index ≥ k modulo p is O(H^n/p^k + p^{n−k−1/2+ε}) (31); with several primes, O_ε(c^{ω(C)}H^n/D + C^ε ∏ p_i^{n−k_i−1/2}) (32); and O(c^{ω(C)}H^n/D) when C < H^{1+δ} with 0 < δ < 1/(2n − 1) (33).",
+   "reviewedBy": "REV-PAPER-BHARGAVA-25"
   },
   {
    "id": "PAPER-BHARGAVA-25/49",
@@ -558,14 +619,17 @@
    "id": "PAPER-BHARGAVA-25/50",
    "kind": "theorem",
    "name": "A nonzero polynomial over a field has at most its degree many roots",
-   "statement": "A nonzero polynomial of degree d over F_p has at most d roots; with the Chinese remainder theorem, Disc(f) ≡ 0 (mod C) has at most (n − 1)^{ω(C)} solutions a_n modulo a squarefree C coprime to n.",
+   "statement": "A nonzero polynomial over F_p has at most its degree many roots. For squarefree C, CRT multiplies such residue-class counts. The application to Disc_x(x^n+…+a_n) gives at most (n−1)^{ω(C)} possible a_n mod C once item 56 supplies its nonzero leading coefficient and gcd(C,n)=1.",
    "locator": "§5 Case III, p. 25 (arXiv v3)",
    "status": "library",
    "library": [
     "mathlib:Polynomial.card_roots'",
     "mathlib:ZMod.chineseRemainder"
    ],
-   "planned": []
+   "planned": [],
+   "sourceStatement": "A nonzero polynomial of degree d over F_p has at most d roots; with the Chinese remainder theorem, Disc(f) ≡ 0 (mod C) has at most (n − 1)^{ω(C)} solutions a_n modulo a squarefree C coprime to n.",
+   "note": "The library supplies the root count and CRT; the discriminant specialization is routed as missing in item 56.",
+   "reviewedBy": "REV-PAPER-BHARGAVA-25"
   },
   {
    "id": "PAPER-BHARGAVA-25/51",
@@ -584,21 +648,27 @@
    "id": "PAPER-BHARGAVA-25/52",
    "kind": "theorem",
    "name": "Counting k-powerful numbers with multiplicative weights",
-   "statement": "The number of k-powerful D ≤ X is O(X^{1/k}), and Σ_{Y < D, D k-powerful} c^{ω(D)}/D = O(Y^{−(k−1)/k} (log Y)^{c−1}); for squarefull D, Σ_{D > Y} c^{ω(D)}/D = O_ε(Y^{−1/2+ε}).",
+   "statement": "For fixed k ≥ 2 and fixed positive integer c, the positive k-powerful integers D ≤ X number O_k(X^{1/k}), and for Y ≥ 2, Σ_{D>Y, D k-powerful} c^{ω(D)}/D = O_{k,c}(Y^{−(k−1)/k}(log Y)^{c−1}). In particular the squarefull tail is O_ε(Y^{−1/2+ε}).",
    "locator": "§5 Case I, p. 23; §6 (22), p. 26 (arXiv v3)",
    "status": "missing",
    "library": [],
-   "planned": []
+   "planned": [],
+   "sourceStatement": "The number of k-powerful D ≤ X is O(X^{1/k}), and Σ_{Y < D, D k-powerful} c^{ω(D)}/D = O(Y^{−(k−1)/k} (log Y)^{c−1}); for squarefull D, Σ_{D > Y} c^{ω(D)}/D = O_ε(Y^{−1/2+ε}).",
+   "note": "Neither the k=1 harmonic tail nor N=0 is included. This is a multiplicative-function estimate owned by AN.5.",
+   "reviewedBy": "REV-PAPER-BHARGAVA-25"
   },
   {
    "id": "PAPER-BHARGAVA-25/53",
    "kind": "theorem",
    "name": "Local density of polynomials with prescribed discriminant",
-   "statement": "For squarefull (resp. k-powerful) D, the monic f of degree n with |Disc K_f| = D satisfy congruence conditions modulo the radical C of D of density O(c^{ω(D)}/D), with c depending on n (c = q(k, n − k) in §6).",
+   "statement": "For squarefull (resp. k-powerful) D, the monic f of degree n with |Disc K_f| = D satisfy congruence conditions modulo the radical C of D of density O(c^{ω(D)}/D), with c depending on n (c = q(k, n − k) in §6). Apply the tame index congruences at p>n; the finitely many p≤n require a separate uniform bound on their degree-n discriminant exponents and absorption into constants depending on n. Do not identify their full wild valuations with the mod-p geometric index.",
    "locator": "§5 Case I, p. 23; §6 Case I, p. 26 (arXiv v3)",
    "status": "missing",
    "library": [],
-   "planned": []
+   "planned": [],
+   "sourceStatement": "For squarefull (resp. k-powerful) D, the monic f of degree n with |Disc K_f| = D satisfy congruence conditions modulo the radical C of D of density O(c^{ω(D)}/D), with c depending on n (c = q(k, n − k) in §6).",
+   "note": "The small-prime step is recorded as a supplier obligation in review-gaps, not silently asserted proved.",
+   "reviewedBy": "REV-PAPER-BHARGAVA-25"
   },
   {
    "id": "PAPER-BHARGAVA-25/54",
@@ -624,11 +694,14 @@
    "id": "PAPER-BHARGAVA-25/56",
    "kind": "theorem",
    "name": "Proposition 34: divisibility for mod p reasons forces a derivative to vanish",
-   "statement": "If h ∈ Z[x_1, …, x_n] and h(c_1 + pd_1, …, c_n + pd_n) ≡ 0 (mod p²) for all d ∈ Z^n, then ∂h/∂x_n(c) ≡ 0 (mod p). Applied to Disc(f): if C | Disc(f) for mod-C reasons then C | ∂Disc(f)/∂a_n and C | DD(a_1, …, a_{n−1}) := Disc_{a_n}(Disc_x(f(x))), which is not identically zero (f = x^n + a_{n−1}x + a_n).",
+   "statement": "If p is prime, h∈Z[x_1,…,x_n], and h(c+pd)≡0 mod p² for every d∈Z^n, then every first partial derivative of h at c vanishes modulo p (take d=0 and each coordinate vector and expand mod p²). For h=Disc_x(x^n+a_1x^{n−1}+…+a_n), take a squarefree C supported on p>n with C²|h for mod-C reasons. Then C divides ∂h/∂a_n and the double discriminant Disc_{a_n}(h). The adapter must prove deg_{a_n}h=n−1, leading coefficient ±n^n and nonvanishing of the double discriminant by the specialization x^n+a_{n−1}x+a_n.",
    "locator": "Proposition 34, p. 24; p. 25 (arXiv v3)",
    "status": "missing",
    "library": [],
-   "planned": []
+   "planned": [],
+   "sourceStatement": "If h ∈ Z[x_1, …, x_n] and h(c_1 + pd_1, …, c_n + pd_n) ≡ 0 (mod p²) for all d ∈ Z^n, then ∂h/∂x_n(c) ≡ 0 (mod p). Applied to Disc(f): if C | Disc(f) for mod-C reasons then C | ∂Disc(f)/∂a_n and C | DD(a_1, …, a_{n−1}) := Disc_{a_n}(Disc_x(f(x))), which is not identically zero (f = x^n + a_{n−1}x + a_n).",
+   "note": "The earlier extraction weakened C² to C incorrectly. Remove p≤n before dividing by the leading coefficient. The general Taylor step, universal-discriminant identities and nonvanishing specialization need separate declaration nodes.",
+   "reviewedBy": "REV-PAPER-BHARGAVA-25"
   },
   {
    "id": "PAPER-BHARGAVA-25/57",
@@ -644,11 +717,13 @@
    "id": "PAPER-BHARGAVA-25/58",
    "kind": "theorem",
    "name": "§5 Case II: C ≤ H^{1+δ} and D ≤ H^{2+2δ}",
-   "statement": "These f number O(H^{(2+2δ)(n+2)/4}·H log^{n−1}H/H^{(2+2δ)/(n(n−1))}) = O(H^{n−1}) for n ≥ 6, and O(H^{2+2δ}·H log^{n−1}H/H^{(2+2δ)/(n(n−1))}) = O(H^{n−1}) for n = 4, 5, provided δ is small enough (δ = min{1/(2n), 1/60} serves every n ≥ 4; the paper's δ = 1/(2n) fails for n = 4 and n = 6, see E6).",
+   "statement": "These f number O(H^{(2+2δ)(n+2)/4}·H log^{n−1}H/H^{(2+2δ)/(n(n−1))}) = O(H^{n−1}) for n ≥ 6, and O(H^{2+2δ}·H log^{n−1}H/H^{(2+2δ)/(n(n−1))}) = O(H^{n−1}) for n = 4, 5, provided δ is small enough (δ = min{1/(2n), 1/60} serves every n ≥ 4; the paper's δ = 1/(2n) fails for n = 4 and n = 6, see E6). The weighted sum over field discriminants must be justified by dyadic summation or partial summation of F_n(G,X); it is not obtained by replacing each D^{-u} by X^{-u} in a range D≤X.",
    "locator": "§5 Case II, pp. 23–24 (arXiv v3)",
    "status": "missing",
    "library": [],
-   "planned": []
+   "planned": [],
+   "sourceStatement": "These f number O(H^{(2+2δ)(n+2)/4}·H log^{n−1}H/H^{(2+2δ)/(n(n−1))}) = O(H^{n−1}) for n ≥ 6, and O(H^{2+2δ}·H log^{n−1}H/H^{(2+2δ)/(n(n−1))}) = O(H^{n−1}) for n = 4, 5, provided δ is small enough (δ = min{1/(2n), 1/60} serves every n ≥ 4; the paper's δ = 1/(2n) fails for n = 4 and n = 6, see E6).",
+   "reviewedBy": "REV-PAPER-BHARGAVA-25"
   },
   {
    "id": "PAPER-BHARGAVA-25/59",
@@ -664,31 +739,40 @@
    "id": "PAPER-BHARGAVA-25/60",
    "kind": "theorem",
    "name": "Theorem 1 (van der Waerden's Conjecture)",
-   "statement": "E_n(H) = O(H^{n−1}) for every n.",
+   "statement": "For fixed n ≥ 3, E_n(H)=O_n(H^{n−1}). The preprint's unqualified degree range requires the quadratic exception E26; E_2(H) has order H log H. The n=1 count is zero.",
    "locator": "Theorem 1, p. 2; proof §5, pp. 23–26 (with §6 for n = 3) (arXiv v3)",
    "status": "missing",
    "library": [],
-   "planned": []
+   "planned": [],
+   "sourceStatement": "E_n(H) = O(H^{n−1}) for every n.",
+   "note": "The review preserves the intended theorem for n≥3 and does not certify every proof supplier; see the closure gaps.",
+   "reviewedBy": "REV-PAPER-BHARGAVA-25"
   },
   {
    "id": "PAPER-BHARGAVA-25/61",
    "kind": "theorem",
    "name": "The three regimes behind Theorem 2",
-   "statement": "For a permutation group G ⊂ S_n with k = ind(G), c = q(k, n − k), 0 < δ < 1/(2n − 1) and Y ≪ H^{2n−2}: the f with C < H^{1+δ} and D > Y number O(Y^{−(k−1)/k}H^n log^{c−1}H) (22); those with D ≤ Y number O(Y^{a(G)−u}H log^{n−1}H) (23), u = 1/(n(n − 1)) for primitive G and 0 otherwise; those with C > H^{1+δ} number O(H^{n+1−k}) (24), through index strata cut out by g_1, …, g_k.",
+   "statement": "Let G≤S_n be transitive, n≥2, k=ind(G)≥2, c=q(k,n−k), a=a(G)>u, 0<δ<1/(2n−1), H≥2 and 2≤Y≪H^{2n−2}. For the associated number fields the three target bounds are: C<H^{1+δ},D>Y gives O(Y^{−(k−1)/k}H^n log^{c−1}H); D≤Y gives O(Y^{a−u}H log^{n−1}H); C>H^{1+δ} gives O(H^{n+1−k}). Here u=1/(n(n−1)) for primitive G and zero otherwise. The last bound has the unresolved finite-projection/elimination obligation E10.",
    "locator": "§6, (22)–(24), pp. 26–28 (arXiv v3)",
    "status": "missing",
    "library": [],
-   "planned": []
+   "planned": [],
+   "sourceStatement": "For a permutation group G ⊂ S_n with k = ind(G), c = q(k, n − k), 0 < δ < 1/(2n − 1) and Y ≪ H^{2n−2}: the f with C < H^{1+δ} and D > Y number O(Y^{−(k−1)/k}H^n log^{c−1}H) (22); those with D ≤ Y number O(Y^{a(G)−u}H log^{n−1}H) (23), u = 1/(n(n − 1)) for primitive G and 0 otherwise; those with C > H^{1+δ} number O(H^{n+1−k}) (24), through index strata cut out by g_1, …, g_k.",
+   "note": "Intransitive groups do not have the field-count input; E17 redirects them to Theorem 7. The k=1 endpoint must be handled separately instead of summing a divergent k-powerful tail.",
+   "reviewedBy": "REV-PAPER-BHARGAVA-25"
   },
   {
    "id": "PAPER-BHARGAVA-25/62",
    "kind": "theorem",
    "name": "Theorem 2: counting polynomials with Galois group G",
-   "statement": "For every permutation group G ⊂ S_n, with k = ind(G), a = a(G), u as above and θ = (1 − 1/k)/(a + 1 − 1/k − u), N_n(G, H) = O(min{H^{n+1−k} + H^{n−(n−1)θ} log^{b}H, H^{(2n−2)(a−u)+1} log^{n−1}H}), where b = (c − 1)(1 − θ) + (n − 1)θ ≤ max{c − 1, n − 1} and c = q(k, n − k). (The paper states log^c H in the middle term; b > c can occur, see E11.)",
+   "statement": "For transitive G≤S_n with n≥2, k=ind(G), admissible a=a(G)>u, c=q(k,n−k), u=1/(n(n−1)) if primitive and zero otherwise, put θ=(1−1/k)/(a+1−1/k−u) and B=max(c,n−1). The corrected target is N_n(G,H)=O_G(min{H^{n+1−k}+H^{n−(n−1)θ}(log H)^B, H^{(2n−2)(a−u)+1}(log H)^{n−1}}), for H≥2. For k≥2 the balancing logarithm is b=(c−1)(1−θ)+(n−1)θ, so B is safe; k=1 needs a separate endpoint argument.",
    "locator": "Theorem 2, p. 3; proof §6, pp. 26–28 (arXiv v3)",
    "status": "missing",
    "library": [],
-   "planned": []
+   "planned": [],
+   "sourceStatement": "For every permutation group G ⊂ S_n, with k = ind(G), a = a(G), u as above and θ = (1 − 1/k)/(a + 1 − 1/k − u), N_n(G, H) = O(min{H^{n+1−k} + H^{n−(n−1)θ} log^{b}H, H^{(2n−2)(a−u)+1} log^{n−1}H}), where b = (c − 1)(1 − θ) + (n − 1)θ ≤ max{c − 1, n − 1} and c = q(k, n − k). (The paper states log^c H in the middle term; b > c can occur, see E11.)",
+   "note": "E11 proves that the printed comparison b<c fails, not that the smaller-log counting theorem is false. E17 gives an actual counterexample to the intransitive scope. This remains a target contingent on E10's unfilled proof step.",
+   "reviewedBy": "REV-PAPER-BHARGAVA-25"
   },
   {
    "id": "PAPER-BHARGAVA-25/63",
@@ -698,7 +782,9 @@
    "locator": "Corollary 3(a), p. 4; proof §7, pp. 28–29 (arXiv v3)",
    "status": "missing",
    "library": [],
-   "planned": []
+   "planned": [],
+   "note": "The 53–55 cases are unestablished by the displayed argument, not disproved. The corrected range n≥56 is conservative; preserve the source target n≥53 for a separate group-theoretic check. E12 preserves n≥28 by splitting elemental/non-elemental groups.",
+   "reviewedBy": "REV-PAPER-BHARGAVA-25"
   },
   {
    "id": "PAPER-BHARGAVA-25/64",
@@ -708,7 +794,8 @@
    "locator": "Corollary 3(b), p. 4; proof p. 29 (arXiv v3)",
    "status": "missing",
    "library": [],
-   "planned": []
+   "planned": [],
+   "note": "The non-elemental Galois companion and resolvent-counting interfaces need their own detailed nodes; the target is retained, not certified closed."
   },
   {
    "id": "PAPER-BHARGAVA-25/65",
@@ -729,17 +816,21 @@
    "status": "missing",
    "library": [],
    "planned": [],
-   "note": "The paper cites no reference; Zarhin, Math. Res. Lett. 7 (2000). For n ≤ 4 the Jacobian is an elliptic curve over Q, whose Q-endomorphism ring is Z."
+   "note": "Zarhin, Hyperelliptic Jacobians without complex multiplication, Math. Res. Lett. 7 (2000), pp.123–132, opening statement: degree n≥5 and geometric endomorphisms. The old note about Q-endomorphisms in small degree did not address the geometric claim and was removed; see E25.",
+   "reviewedBy": "REV-PAPER-BHARGAVA-25"
   },
   {
    "id": "PAPER-BHARGAVA-25/67",
    "kind": "theorem",
    "name": "Corollary 4: hyperelliptic Jacobians with extra endomorphisms are rare",
-   "statement": "Among y² = f(x) with f monic irreducible of degree n and |a_i| ≤ H, at most O(H^{n − bn/log² n}) Jacobians have endomorphism ring larger than Z.",
+   "statement": "For fixed n ≥ 5, among smooth curves y²=f(x) with f monic irreducible of degree n and integer coefficients bounded by H, at most O_n(H^{n−bn/log²n}) of the polynomial parameters yield Jacobians with End over Q̄ larger than Z, for a suitable absolute b>0. This counts parameters, and implies the corresponding upper bound on isomorphism classes.",
    "locator": "Corollary 4, p. 4 (arXiv v3)",
    "status": "missing",
    "library": [],
-   "planned": []
+   "planned": [],
+   "sourceStatement": "Among y² = f(x) with f monic irreducible of degree n and |a_i| ≤ H, at most O(H^{n − bn/log² n}) Jacobians have endomorphism ring larger than Z.",
+   "note": "Retain the n≥5 hypothesis from Zarhin. The distinct bounds for imprimitive, non-elemental and elemental groups must all enter this deduction.",
+   "reviewedBy": "REV-PAPER-BHARGAVA-25"
   },
   {
    "id": "PAPER-BHARGAVA-25/68",
@@ -765,11 +856,14 @@
    "id": "PAPER-BHARGAVA-25/70",
    "kind": "theorem",
    "name": "Galois number fields (Ellenberg–Venkatesh)",
-   "statement": "For a finite group G with |G| > 4, the number of Galois G-extensions of a number field K with norm of discriminant < X is O_{K,G,ε}(X^{3/8+ε}) ([18, Prop. 2.8]; Prop. 1.3 of the published version, for each n > 4). For |G| ≤ 4 the exponent is 1 (|G| = 2) or 1/2 (|G| = 3, 4).",
+   "statement": "For a finite group G with |G|>4 and a fixed number field K, the number of Galois G-extensions of K with norm of the relative discriminant below X is O_{K,G,ε}(X^{3/8+ε}). The author copy of Ellenberg–Venkatesh, Proposition 2.8, provides this statement.",
    "locator": "After Corollary 6, p. 5 (arXiv v3)",
    "status": "missing",
    "library": [],
-   "planned": []
+   "planned": [],
+   "sourceStatement": "For a finite group G with |G| > 4, the number of Galois G-extensions of a number field K with norm of discriminant < X is O_{K,G,ε}(X^{3/8+ε}) ([18, Prop. 2.8]; Prop. 1.3 of the published version, for each n > 4). For |G| ≤ 4 the exponent is 1 (|G| = 2) or 1/2 (|G| = 3, 4).",
+   "note": "Removed the unsupported blanket |G|≤4 claim: for the regular Klein four group a pure O(X^{1/2}) estimate misses logarithms. No low-degree assertion is imported here.",
+   "reviewedBy": "REV-PAPER-BHARGAVA-25"
   },
   {
    "id": "PAPER-BHARGAVA-25/71",
@@ -785,31 +879,46 @@
    "id": "PAPER-BHARGAVA-25/72",
    "kind": "theorem",
    "name": "Theorem 7: intransitive groups",
-   "statement": "Let G be intransitive on n letters, G ⊂ G_1 × ··· × G_k a subdirect product of transitive G_i on n_i letters, and N_{n_i}(G_i, H) = O(H^{α_i} log^{β_i}H). Then N_n(G, H) = O(H^{max α_i} log^{s−1}H) with s = Σ_{α_i = max α}(1 + β_i).",
+   "statement": "Let G≤S_n be intransitive with orbit sizes n_i and transitive quotient images G_i≤S_{n_i}. Suppose N_{n_i}(G_i,H)=O(H^{α_i}(log H)^{β_i}) for H≥2, α_i>0 and β_i≥0. Put A=max_i α_i and s=Σ_{α_i=A}(1+β_i). Then N_n(G,H)=O(H^A(log H)^{s−1}). Use H₊ including the leading coefficient, and overcount all tuples of irreducible factors; common splitting fields can give any subdirect product, so no exact product-group counting equality is asserted.",
    "locator": "Theorem 7, p. 5; proof §8, p. 30 (arXiv v3)",
    "status": "missing",
    "library": [],
-   "planned": []
+   "planned": [],
+   "sourceStatement": "Let G be intransitive on n letters, G ⊂ G_1 × ··· × G_k a subdirect product of transitive G_i on n_i letters, and N_{n_i}(G_i, H) = O(H^{α_i} log^{β_i}H). Then N_n(G, H) = O(H^{max α_i} log^{s−1}H) with s = Σ_{α_i = max α}(1 + β_i).",
+   "proofSteps": [
+    "Factor a separable f over Z into its monic irreducible factors. Their Galois groups are the orbit quotient images of G.",
+    "Mahler measure and item 11 give ∏H₊(f_i)≤C_n H₊(f), so put factor heights into dyadic bins 2^{j_i}, with Σj_i≤log₂(C_nH).",
+    "The number of tuples in these bins is bounded by ∏2^{α_i j_i}(1+j_i)^{β_i}, using cumulative counts, without differentiating them.",
+    "For α_i<A sum the exponentially decaying factors 2^{−(A−α_i)j_i}(1+j_i)^{β_i}. For the r indices α_i=A the simplex sum over total degree gives the factor (1+log H)^{Σβ_i+r−1}. Sum the outer geometric tail to get H^A."
+   ],
+   "note": "E4, E20 and E21 correct the notation, zero-height exception, and invalid shell-count inference. The hypotheses α_i>0,β_i≥0 cover all applications retained here.",
+   "reviewedBy": "REV-PAPER-BHARGAVA-25"
   },
   {
    "id": "PAPER-BHARGAVA-25/73",
    "kind": "theorem",
    "name": "Corollary 8: G × M_11",
-   "statement": "For G ⊂ S_k with k ≤ 9, N_{k+11}(G × M_11, H) = O(H^{8.686}); in particular N_11(M_11, H) = O(H^{8.686}), using ind(M_11) = 4 and a(M_11) = 2.5 from Theorem 20.",
+   "statement": "For G≤S_k with k≤8, or with k=9 and G≠S_9, the corrected target is N_{k+11}(G×M_11,H)=O(H^{8.686}). Also N_11(M_11,H)=O(H^{8.686}), using ind(M_11)=4 and a(M_11)=2.5+ε for sufficiently small positive ε. The unqualified k≤9 assertion is false for G=S_9; see E16.",
    "locator": "Corollary 8, p. 5 (arXiv v3)",
    "status": "missing",
    "library": [],
-   "planned": []
+   "planned": [],
+   "sourceStatement": "For G ⊂ S_k with k ≤ 9, N_{k+11}(G × M_11, H) = O(H^{8.686}); in particular N_11(M_11, H) = O(H^{8.686}), using ind(M_11) = 4 and a(M_11) = 2.5 from Theorem 20.",
+   "note": "The fixed-degree-nine S_9 family has order H^9 after multiplication by one fixed M_11 polynomial. Use the positive exponent margin to absorb logarithms and ε. This application inherits the general-counting proof gap.",
+   "reviewedBy": "REV-PAPER-BHARGAVA-25"
   },
   {
    "id": "PAPER-BHARGAVA-25/74",
    "kind": "theorem",
    "name": "Non-monic van der Waerden",
-   "statement": "The number E*_n(H) of f = a_0x^n + ··· + a_n with max|a_i| ≤ H and Galois group ≠ S_n is O(H^n); the paper asserts this follows by the same methods and gives no separate proof.",
+   "statement": "For fixed n ≥ 3, let E*_n(H) count degree-n integer polynomials a_0x^n+…+a_n with a_0≠0, all coefficients bounded by H and Galois group other than S_n. The target is E*_n(H)=O_n(H^n). The source says the methods extend, without a separate proof; the nonmonic integral-order and leading-coefficient arguments remain a gap.",
    "locator": "§1, p. 7 (arXiv v3)",
    "status": "missing",
    "library": [],
-   "planned": []
+   "planned": [],
+   "sourceStatement": "The number E*_n(H) of f = a_0x^n + ··· + a_n with max|a_i| ≤ H and Galois group ≠ S_n is O(H^n); the paper asserts this follows by the same methods and gives no separate proof.",
+   "note": "Do not derive this from Lemma 24 without its corrected integrality hypothesis, and do not include degree-dropping a_0=0 terms in the degree-n definition.",
+   "reviewedBy": "REV-PAPER-BHARGAVA-25"
   }
  ],
  "prerequisites": [
@@ -915,7 +1024,7 @@
     "PAPER-BHARGAVA-25/68",
     "PAPER-BHARGAVA-25/70"
    ],
-   "reason": "ST.3 owns counting theorems for number fields by degree, discriminant and Galois group, with low-degree cases organised independently of general conjectures. The paper imports Schmidt's bound with its small trace-zero element, the Lemke Oliver–Thorne bound, Bhargava's quartic and quintic densities, the Mäki–Wright abelian counts and the Ellenberg–Venkatesh Galois-field bound, and states them through Malle's F_n(G, X) and a(G). The paper's own field counts (Theorems 20 and 25) go to the Part II, since they need the index theory built there."
+   "reason": "ST.3 owns counting theorems for number fields by degree, discriminant and Galois group, with low-degree cases organised independently of general conjectures. The paper imports Schmidt's bound with its small trace-zero element, the Lemke Oliver–Thorne bound, Bhargava's quartic and quintic densities, the Mäki–Wright abelian counts and the Ellenberg–Venkatesh Galois-field bound, and states them through Malle's F_n(G, X) and a(G). The paper's own field counts (Theorems 20 and 25) go to the Part II, since they need the index theory built there. Item 34 now explicitly separates a small trace-zero element in an arbitrary field from its primitivity-dependent generator consequence; item 70 is restricted to |G|>4. No low-degree logarithms are silently dropped."
   },
   {
    "route": "source",
@@ -948,7 +1057,6 @@
    "items": [
     "PAPER-BHARGAVA-25/1",
     "PAPER-BHARGAVA-25/4",
-    "PAPER-BHARGAVA-25/5",
     "PAPER-BHARGAVA-25/7",
     "PAPER-BHARGAVA-25/8",
     "PAPER-BHARGAVA-25/9",
@@ -972,12 +1080,10 @@
     "PAPER-BHARGAVA-25/40",
     "PAPER-BHARGAVA-25/41",
     "PAPER-BHARGAVA-25/42",
-    "PAPER-BHARGAVA-25/43",
     "PAPER-BHARGAVA-25/44",
     "PAPER-BHARGAVA-25/45",
     "PAPER-BHARGAVA-25/47",
     "PAPER-BHARGAVA-25/48",
-    "PAPER-BHARGAVA-25/52",
     "PAPER-BHARGAVA-25/53",
     "PAPER-BHARGAVA-25/54",
     "PAPER-BHARGAVA-25/56",
@@ -996,10 +1102,34 @@
     "PAPER-BHARGAVA-25/71",
     "PAPER-BHARGAVA-25/72",
     "PAPER-BHARGAVA-25/73",
-    "PAPER-BHARGAVA-25/74"
+    "PAPER-BHARGAVA-25/74",
+    "PAPER-BHARGAVA-25/14"
    ],
-   "brief": "Extend Galois groups of polynomials (tauceti:TauCetiRoadmap/PolynomialGaloisGroups) from Sₙ as a Galois group over ℚ (its Layer 9) to counting monic integer polynomials in the box max|a_i| ≤ H by their Galois group, following Bhargava, Galois groups of random integer polynomials and van der Waerden's Conjecture (Ann. of Math. 201 (2025)). Final theorems, with the corrections recorded in PAPER-BHARGAVA-25's sourceIssues: Theorem 1, E_n(H) = O(H^{n−1}) for every n; Theorem 2, N_n(G, H) = O(min{H^{n+1−ind G} + H^{n−(n−1)θ} log^b H, H^{(2n−2)(a(G)−u)+1} log^{n−1} H}) with the log exponent b of E11; Corollary 3(a)–(c) with the thresholds 10, 16, 28 and 56 (E12, E13); Corollaries 4, 5 and 8; Corollary 6 for regular groups of order n > 4 prime to 6 (E15); Theorem 7 for intransitive groups. Layers, in order: (1) the index ind(g), ind(G), k-powerful integers and Proposition 11; (2) primitive groups: Jordan's double-transposition theorem, the Liebeck–Saxl, Guralnick–Magaard and Babai minimal-degree bounds as stated imports (with CFSG dependence recorded), Theorems 12, 13, 16 and Corollaries 17–18; this layer is also the owner PolynomialGaloisGroupsPartIIRandomPartitions asks to import the minimal-degree theorem from; (3) index strata: Remark 23, Propositions 21–22, Lemma 24; (4) field counts for primitive and non-elemental groups, Theorems 20 and 25; (5) Fourier equidistribution of index conditions in boxes, Propositions 26 and 30 and Corollaries 27–33, via multidimensional twisted Poisson summation; (6) the three-case sieve of §§5–6 with Proposition 34; (7) the corollaries and Theorem 7 via Mahler measure. Import: permutation representations, blocks, the Galois–primitivity dictionary and Frobenius specialisation from the parent (Layers 0–2, 5, 9); field counts from ArithmeticStatistics ST.3 (Schmidt, Lemke Oliver–Thorne, Bhargava quartic/quintic, Ellenberg–Venkatesh, Mäki–Wright); Hilbert irreducibility from IG.2; Weil's bound from FiniteFieldsAndCharacterSums FF.2; tame ramification and Dedekind–Kummer from the Tau Ceti LocalFieldsRamification and NumberFieldArithmetic roadmaps; the divisor bound from AnalyticNumberTheory AN.5; Bézout from SchemeAndStackFoundations SF.5; Mahler measure, Schwartz–Zippel and Jordan's transposition and 3-cycle theorems from Mathlib.",
-   "reason": "The parent Tau Ceti roadmap owns the permutation representation of a polynomial, blocks and primitivity, and Sₙ over ℚ, but no layer counts polynomials by Galois group or develops the index of a permutation group. The random-polynomial Part IIs proposed by PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23 treat growing degree with fixed coefficient laws, a different regime from the fixed-degree boxes here. The paper's own field counts stay in this Part II rather than ST.3, which would otherwise import its index theory and create a cycle."
+   "brief": "Extend the Tau Ceti roadmap Galois groups of polynomials (tauceti:TauCetiRoadmap/PolynomialGaloisGroups), importing its root actions, blocks, primitivity, Frobenius specialization and S_n realizations. The new direction is fixed-degree integer coefficient boxes, distinct from the growing-degree laws of PolynomialGaloisGroupsPartIIRandomPartitions. This brief is NOT ready for a design job: the review rejects the route until the recorded closure, splitting and elimination gaps are discharged. Retain the original source targets and their corrected scopes: E_n(H)=O(H^{n−1}) for n≥3, with the separate quadratic H log H case; item 62's transitive-group bound with B=max(q(k,n−k),n−1), k=ind(G), u=1/(n(n−1)) for primitive G and zero otherwise, and θ=(1−1/k)/(a+1−1/k−u); Corollary 3 with certified numerical thresholds 10,16,28,56 while preserving 53–55 as an unresolved source target; geometric Jacobian endomorphisms only for n≥5; prime cyclic groups; regular groups of order>4 coprime to 6; the subdirect-product bound of item 72; and G×M_11 only for k≤8 or proper G<S_9 at k=9. Layers: permutation index and primitive-group bounds; monic index strata and finite projections; primitive and non-elemental field-count adapters; coefficient-space weights and Fourier cancellation; the three-case sieve; and the application bounds. General k-powerful arithmetic and weighted tails are imported from AnalyticNumberTheory AN.5, and the lattice Poisson theorem from AutomorphicLFunctionsAndLocalFactors AL.0. Import field counts and small trace-zero elements from ArithmeticStatistics ST.3, the height form of Hilbert irreducibility from IG.2, Weil's bound from FiniteFieldsAndCharacterSums FF.2, tame/wild discriminants and Dedekind–Kummer from upstream LocalFieldsRamification and NumberFieldArithmetic, Bézout from SchemeAndStackFoundations SF.5, and Mahler measure/Newton identities/Schwartz–Zippel/Jordan special cases from the pinned libraries. Do not re-plan these suppliers. Name and prove the additional finite-projection, integral-spreading, lattice-point and small-prime adapters before accepting §6 Case III. Split compound statements and supply each definition's uses, API and tests, plus declaration dependencies, suggested files and planets. The nonmonic extension needs a separate proof respecting leading coefficients and integrality; it is a recorded gap, not a consequence of the current monic lemma.",
+   "reason": "The parent Tau Ceti roadmap owns the permutation representation of a polynomial, blocks and primitivity, and Sₙ over ℚ, but no layer counts polynomials by Galois group or develops the index of a permutation group. The random-polynomial Part IIs proposed by PAPER-BARYSOROKER-KOUKOULOPOULOS-KOZMA-23 treat growing degree with fixed coefficient laws, a different regime from the fixed-degree boxes here. The paper's own field counts stay in this Part II rather than ST.3, which would otherwise import its index theory and create a cycle. The broad direction is justified, but its current proof closure and declaration granularity are not: this review rejects activation while preserving the proposed owner and explicit continuation obligations."
+  },
+  {
+   "route": "source",
+   "roadmap": "AnalyticNumberTheory",
+   "stages": [
+    "AnalyticNumberTheory:AN.5"
+   ],
+   "items": [
+    "PAPER-BHARGAVA-25/5",
+    "PAPER-BHARGAVA-25/52"
+   ],
+   "reason": "AN.5 owns multiplicative functions, divisor estimates and weighted counting of integer sets. The positive k-powerful predicate and c^{ω(D)} tail estimate are general analytic-number-theory inputs, also relevant to arithmetic statistics and sieve consumers. Prove them once here for k≥2 and fixed positive integer c; the polynomial-counting Part II imports them together with item 51. The reviewed AUDIT-06 and fresh pinned searches do not supply these sharp weighted estimates."
+  },
+  {
+   "route": "source",
+   "roadmap": "AutomorphicLFunctionsAndLocalFactors",
+   "stages": [
+    "AutomorphicLFunctionsAndLocalFactors:AL.0"
+   ],
+   "items": [
+    "PAPER-BHARGAVA-25/43"
+   ],
+   "reason": "AL.0 owns Schwartz/Fourier theory and Poisson summation with explicit character and measure conventions. Item 43 is the finite-dimensional real lattice instance with a finite periodic twist, needed by the polynomial coefficient boxes; it extends the pinned one-dimensional Poisson theorem by iteration and absolute convergence. Its corrected grouping includes every zero-residue frequency (E23). The reviewed AUDIT-14 AL.0 row records only one-dimensional lattice Poisson in the baseline. Keep polynomial-specific weight functions and finite-field cancellation in the Part II."
   }
  ],
  "sourceIssues": [
@@ -1015,8 +1145,17 @@
    "searched": [
     "Crossref record of doi:10.4007/annals.2025.201.2.1, 29 September 2026: no update-to or relation entries, and no work declaring an update of it (filter updates:10.4007/annals.2025.201.2.1)",
     "The Annals article page https://annals.math.princeton.edu/2025/201-2/p01, 29 September 2026: no erratum or corrigendum listed",
-    "arXiv 2111.06507: v1 (12 November 2021), v2 (3 October 2022) and v3 (28 September 2024, after acceptance on 14 February 2024); v3 has the recorded passages. The published PDF is subscription-only (Project Euclid) and was not compared"
-   ]
+    "arXiv 2111.06507: v1 (12 November 2021), v2 (3 October 2022) and v3 (28 September 2024, after acceptance on 14 February 2024); v3 has the recorded passages. The published PDF is subscription-only (Project Euclid) and was not compared",
+    "Reviewer checked the Annals article page https://annals.math.princeton.edu/2025/201-2/p01 and exact-title/arXiv-id correction searches on 29–30 September 2026; no correction found.",
+    "Reviewer checked https://arxiv.org/abs/2111.06507: latest listed version v3 (28 September 2024); the cited passages were read in https://arxiv.org/pdf/2111.06507v3.",
+    "The Project Euclid PDF request returned HTML rather than the article; the author homepage could not be opened. The findings concern the preprint only. No claim that the published wording is identical, and no independent repeat of the extractor's Crossref query."
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed in v3 p.7 and its bibliography: [21] has the named authors; [26] is Lazard–McCallum.",
+    "by": "REV-PAPER-BHARGAVA-25"
+   },
+   "reviewScope": "arXiv:2111.06507v3 only; the published article was not obtained."
   },
   {
    "id": "PAPER-BHARGAVA-25/E2",
@@ -1030,8 +1169,17 @@
    "searched": [
     "Crossref record of doi:10.4007/annals.2025.201.2.1, 29 September 2026: no update-to or relation entries, and no work declaring an update of it (filter updates:10.4007/annals.2025.201.2.1)",
     "The Annals article page https://annals.math.princeton.edu/2025/201-2/p01, 29 September 2026: no erratum or corrigendum listed",
-    "arXiv 2111.06507: v1 (12 November 2021), v2 (3 October 2022) and v3 (28 September 2024, after acceptance on 14 February 2024); v3 has the recorded passages. The published PDF is subscription-only (Project Euclid) and was not compared"
-   ]
+    "arXiv 2111.06507: v1 (12 November 2021), v2 (3 October 2022) and v3 (28 September 2024, after acceptance on 14 February 2024); v3 has the recorded passages. The published PDF is subscription-only (Project Euclid) and was not compared",
+    "Reviewer checked the Annals article page https://annals.math.princeton.edu/2025/201-2/p01 and exact-title/arXiv-id correction searches on 29–30 September 2026; no correction found.",
+    "Reviewer checked https://arxiv.org/abs/2111.06507: latest listed version v3 (28 September 2024); the cited passages were read in https://arxiv.org/pdf/2111.06507v3.",
+    "The Project Euclid PDF request returned HTML rather than the article; the author homepage could not be opened. The findings concern the preprint only. No claim that the published wording is identical, and no independent repeat of the extractor's Crossref query."
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed in v3 p.5: the cited bound must grow with H, not only with fixed n.",
+    "by": "REV-PAPER-BHARGAVA-25"
+   },
+   "reviewScope": "arXiv:2111.06507v3 only; the published article was not obtained."
   },
   {
    "id": "PAPER-BHARGAVA-25/E3",
@@ -1045,23 +1193,41 @@
    "searched": [
     "Crossref record of doi:10.4007/annals.2025.201.2.1, 29 September 2026: no update-to or relation entries, and no work declaring an update of it (filter updates:10.4007/annals.2025.201.2.1)",
     "The Annals article page https://annals.math.princeton.edu/2025/201-2/p01, 29 September 2026: no erratum or corrigendum listed",
-    "arXiv 2111.06507: v1 (12 November 2021), v2 (3 October 2022) and v3 (28 September 2024, after acceptance on 14 February 2024); v3 has the recorded passages. The published PDF is subscription-only (Project Euclid) and was not compared"
-   ]
+    "arXiv 2111.06507: v1 (12 November 2021), v2 (3 October 2022) and v3 (28 September 2024, after acceptance on 14 February 2024); v3 has the recorded passages. The published PDF is subscription-only (Project Euclid) and was not compared",
+    "Reviewer checked the Annals article page https://annals.math.princeton.edu/2025/201-2/p01 and exact-title/arXiv-id correction searches on 29–30 September 2026; no correction found.",
+    "Reviewer checked https://arxiv.org/abs/2111.06507: latest listed version v3 (28 September 2024); the cited passages were read in https://arxiv.org/pdf/2111.06507v3.",
+    "The Project Euclid PDF request returned HTML rather than the article; the author homepage could not be opened. The findings concern the preprint only. No claim that the published wording is identical, and no independent repeat of the extractor's Crossref query."
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed in v3 p.4: the variable B is undefined; H is the running height.",
+    "by": "REV-PAPER-BHARGAVA-25"
+   },
+   "reviewScope": "arXiv:2111.06507v3 only; the published article was not obtained."
   },
   {
    "id": "PAPER-BHARGAVA-25/E4",
    "kind": "misprint",
    "locator": "Theorem 7, p. 5 (arXiv v3)",
    "printed": "The source asserts N_n(G_1 × ··· × G_k, H) = O(H^{max{α_1,…,α_k}} log^{s−1} H).",
-   "correction": "Then N_n(G, H) = O(H^{max{α_1,…,α_k}} log^{s−1} H)",
+   "correction": "Then N_n(G, H) = O(H^{max{α_1,…,α_k}} log^{s−1} H) In its hypotheses, write G_i for the transitive quotient image on an orbit, rather than a subgroup G_i⊂G.",
    "reason": "The hypothesis is about an intransitive G that is a subdirect product of G_1, …, G_k, and the proof (§8, p. 30) begins 'if f is a polynomial counted by N_n(G, H)'; the full product G_1 × ··· × G_k is only one such G.",
    "affects": "nothing",
    "known": "new",
    "searched": [
     "Crossref record of doi:10.4007/annals.2025.201.2.1, 29 September 2026: no update-to or relation entries, and no work declaring an update of it (filter updates:10.4007/annals.2025.201.2.1)",
     "The Annals article page https://annals.math.princeton.edu/2025/201-2/p01, 29 September 2026: no erratum or corrigendum listed",
-    "arXiv 2111.06507: v1 (12 November 2021), v2 (3 October 2022) and v3 (28 September 2024, after acceptance on 14 February 2024); v3 has the recorded passages. The published PDF is subscription-only (Project Euclid) and was not compared"
-   ]
+    "arXiv 2111.06507: v1 (12 November 2021), v2 (3 October 2022) and v3 (28 September 2024, after acceptance on 14 February 2024); v3 has the recorded passages. The published PDF is subscription-only (Project Euclid) and was not compared",
+    "Reviewer checked the Annals article page https://annals.math.princeton.edu/2025/201-2/p01 and exact-title/arXiv-id correction searches on 29–30 September 2026; no correction found.",
+    "Reviewer checked https://arxiv.org/abs/2111.06507: latest listed version v3 (28 September 2024); the cited passages were read in https://arxiv.org/pdf/2111.06507v3.",
+    "The Project Euclid PDF request returned HTML rather than the article; the author homepage could not be opened. The findings concern the preprint only. No claim that the published wording is identical, and no independent repeat of the extractor's Crossref query."
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed as a scope/notation correction in v3 pp.5,30. Each G_i is an orbit quotient image of G, not necessarily a subgroup of G; the intended upper bound is for each subdirect product.",
+    "by": "REV-PAPER-BHARGAVA-25"
+   },
+   "reviewScope": "arXiv:2111.06507v3 only; the published article was not obtained."
   },
   {
    "id": "PAPER-BHARGAVA-25/E5",
@@ -1075,8 +1241,17 @@
    "searched": [
     "Crossref record of doi:10.4007/annals.2025.201.2.1, 29 September 2026: no update-to or relation entries, and no work declaring an update of it (filter updates:10.4007/annals.2025.201.2.1)",
     "The Annals article page https://annals.math.princeton.edu/2025/201-2/p01, 29 September 2026: no erratum or corrigendum listed",
-    "arXiv 2111.06507: v1 (12 November 2021), v2 (3 October 2022) and v3 (28 September 2024, after acceptance on 14 February 2024); v3 has the recorded passages. The published PDF is subscription-only (Project Euclid) and was not compared"
-   ]
+    "arXiv 2111.06507: v1 (12 November 2021), v2 (3 October 2022) and v3 (28 September 2024, after acceptance on 14 February 2024); v3 has the recorded passages. The published PDF is subscription-only (Project Euclid) and was not compared",
+    "Reviewer checked the Annals article page https://annals.math.princeton.edu/2025/201-2/p01 and exact-title/arXiv-id correction searches on 29–30 September 2026; no correction found.",
+    "Reviewer checked https://arxiv.org/abs/2111.06507: latest listed version v3 (28 September 2024); the cited passages were read in https://arxiv.org/pdf/2111.06507v3.",
+    "The Project Euclid PDF request returned HTML rather than the article; the author homepage could not be opened. The findings concern the preprint only. No claim that the published wording is identical, and no independent repeat of the extractor's Crossref query."
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed as an induction gap in v3 pp.10–11. Independently tested all admissible m≤40; (4,2,2) fails the boundary extension. The odd fixed-point-free case and the complementation argument supply the stated repair.",
+    "by": "REV-PAPER-BHARGAVA-25"
+   },
+   "reviewScope": "arXiv:2111.06507v3 only; the published article was not obtained."
   },
   {
    "id": "PAPER-BHARGAVA-25/E6",
@@ -1090,8 +1265,17 @@
    "searched": [
     "Crossref record of doi:10.4007/annals.2025.201.2.1, 29 September 2026: no update-to or relation entries, and no work declaring an update of it (filter updates:10.4007/annals.2025.201.2.1)",
     "The Annals article page https://annals.math.princeton.edu/2025/201-2/p01, 29 September 2026: no erratum or corrigendum listed",
-    "arXiv 2111.06507: v1 (12 November 2021), v2 (3 October 2022) and v3 (28 September 2024, after acceptance on 14 February 2024); v3 has the recorded passages. The published PDF is subscription-only (Project Euclid) and was not compared"
-   ]
+    "arXiv 2111.06507: v1 (12 November 2021), v2 (3 October 2022) and v3 (28 September 2024, after acceptance on 14 February 2024); v3 has the recorded passages. The published PDF is subscription-only (Project Euclid) and was not compared",
+    "Reviewer checked the Annals article page https://annals.math.princeton.edu/2025/201-2/p01 and exact-title/arXiv-id correction searches on 29–30 September 2026; no correction found.",
+    "Reviewer checked https://arxiv.org/abs/2111.06507: latest listed version v3 (28 September 2024); the cited passages were read in https://arxiv.org/pdf/2111.06507v3.",
+    "The Project Euclid PDF request returned HTML rather than the article; the author homepage could not be opened. The findings concern the preprint only. No claim that the published wording is identical, and no independent repeat of the extractor's Crossref query."
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed in v3 pp.23–24. Exact exponent checks with δ=min(1/(2n),1/60) are strict for n=4,…,10000 and fit Corollary 33; the general inequalities are monotone after the exceptional n=4,5,6 cases. The count weighted by D^{-u} needs dyadic/partial summation, not substitution of the endpoint into every term.",
+    "by": "REV-PAPER-BHARGAVA-25"
+   },
+   "reviewScope": "arXiv:2111.06507v3 only; the published article was not obtained."
   },
   {
    "id": "PAPER-BHARGAVA-25/E7",
@@ -1105,8 +1289,17 @@
    "searched": [
     "Crossref record of doi:10.4007/annals.2025.201.2.1, 29 September 2026: no update-to or relation entries, and no work declaring an update of it (filter updates:10.4007/annals.2025.201.2.1)",
     "The Annals article page https://annals.math.princeton.edu/2025/201-2/p01, 29 September 2026: no erratum or corrigendum listed",
-    "arXiv 2111.06507: v1 (12 November 2021), v2 (3 October 2022) and v3 (28 September 2024, after acceptance on 14 February 2024); v3 has the recorded passages. The published PDF is subscription-only (Project Euclid) and was not compared"
-   ]
+    "arXiv 2111.06507: v1 (12 November 2021), v2 (3 October 2022) and v3 (28 September 2024, after acceptance on 14 February 2024); v3 has the recorded passages. The published PDF is subscription-only (Project Euclid) and was not compared",
+    "Reviewer checked the Annals article page https://annals.math.princeton.edu/2025/201-2/p01 and exact-title/arXiv-id correction searches on 29–30 September 2026; no correction found.",
+    "Reviewer checked https://arxiv.org/abs/2111.06507: latest listed version v3 (28 September 2024); the cited passages were read in https://arxiv.org/pdf/2111.06507v3.",
+    "The Project Euclid PDF request returned HTML rather than the article; the author homepage could not be opened. The findings concern the preprint only. No claim that the published wording is identical, and no independent repeat of the extractor's Crossref query."
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed in v3 p.24, including the quartic and quintic references and the concluding n=4,5 range.",
+    "by": "REV-PAPER-BHARGAVA-25"
+   },
+   "reviewScope": "arXiv:2111.06507v3 only; the published article was not obtained."
   },
   {
    "id": "PAPER-BHARGAVA-25/E8",
@@ -1120,8 +1313,17 @@
    "searched": [
     "Crossref record of doi:10.4007/annals.2025.201.2.1, 29 September 2026: no update-to or relation entries, and no work declaring an update of it (filter updates:10.4007/annals.2025.201.2.1)",
     "The Annals article page https://annals.math.princeton.edu/2025/201-2/p01, 29 September 2026: no erratum or corrigendum listed",
-    "arXiv 2111.06507: v1 (12 November 2021), v2 (3 October 2022) and v3 (28 September 2024, after acceptance on 14 February 2024); v3 has the recorded passages. The published PDF is subscription-only (Project Euclid) and was not compared"
-   ]
+    "arXiv 2111.06507: v1 (12 November 2021), v2 (3 October 2022) and v3 (28 September 2024, after acceptance on 14 February 2024); v3 has the recorded passages. The published PDF is subscription-only (Project Euclid) and was not compared",
+    "Reviewer checked the Annals article page https://annals.math.princeton.edu/2025/201-2/p01 and exact-title/arXiv-id correction searches on 29–30 September 2026; no correction found.",
+    "Reviewer checked https://arxiv.org/abs/2111.06507: latest listed version v3 (28 September 2024); the cited passages were read in https://arxiv.org/pdf/2111.06507v3.",
+    "The Project Euclid PDF request returned HTML rather than the article; the author homepage could not be opened. The findings concern the preprint only. No claim that the published wording is identical, and no independent repeat of the extractor's Crossref query."
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed in v3 p.25 against the elementary quadratic discriminant. The absent sign has no effect on nonvanishing.",
+    "by": "REV-PAPER-BHARGAVA-25"
+   },
+   "reviewScope": "arXiv:2111.06507v3 only; the published article was not obtained."
   },
   {
    "id": "PAPER-BHARGAVA-25/E9",
@@ -1135,37 +1337,65 @@
    "searched": [
     "Crossref record of doi:10.4007/annals.2025.201.2.1, 29 September 2026: no update-to or relation entries, and no work declaring an update of it (filter updates:10.4007/annals.2025.201.2.1)",
     "The Annals article page https://annals.math.princeton.edu/2025/201-2/p01, 29 September 2026: no erratum or corrigendum listed",
-    "arXiv 2111.06507: v1 (12 November 2021), v2 (3 October 2022) and v3 (28 September 2024, after acceptance on 14 February 2024); v3 has the recorded passages. The published PDF is subscription-only (Project Euclid) and was not compared"
-   ]
+    "arXiv 2111.06507: v1 (12 November 2021), v2 (3 October 2022) and v3 (28 September 2024, after acceptance on 14 February 2024); v3 has the recorded passages. The published PDF is subscription-only (Project Euclid) and was not compared",
+    "Reviewer checked the Annals article page https://annals.math.princeton.edu/2025/201-2/p01 and exact-title/arXiv-id correction searches on 29–30 September 2026; no correction found.",
+    "Reviewer checked https://arxiv.org/abs/2111.06507: latest listed version v3 (28 September 2024); the cited passages were read in https://arxiv.org/pdf/2111.06507v3.",
+    "The Project Euclid PDF request returned HTML rather than the article; the author homepage could not be opened. The findings concern the preprint only. No claim that the published wording is identical, and no independent repeat of the extractor's Crossref query."
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed in v3 p.26 against the monic Corollary 33 on p.23. The binary Proposition 26 does not supply the stated monic range.",
+    "by": "REV-PAPER-BHARGAVA-25"
+   },
+   "reviewScope": "arXiv:2111.06507v3 only; the published article was not obtained."
   },
   {
    "id": "PAPER-BHARGAVA-25/E10",
    "kind": "gap",
    "locator": "§6 Case III, subcase (ii), pp. 27–28 (arXiv v3)",
    "printed": "The source places Vk in the common zero locus on A^n of g1, g2, …, gk, a list of k polynomials chosen as Disc(f) together with its derivatives of orders 1 through k − 1 in a_n. It claims elimination or successive resultants let g_i depend only on a_1, …, a_{n−k+i}, and that O(H^{n−k}) choices of these variables satisfy g_1 = ··· = g_i = 0.",
-   "correction": "Let Z_i ⊂ A^{n−k+i} be the Zariski closure of the projection of V_k to the first n − k + i coordinates (dimension ≤ n − k), define W_i through membership in Z_i, and choose g_{i+1} vanishing on Z_{i+1} but on no component of Z_i × A^1; integral points of Z_i in the box are O(H^{n−k}).",
-   "reason": "Successive resultants can vanish identically, and the count O(H^{n−k}) needs dim{g_1 = ··· = g_i = 0} ≤ n − k in A^{n−k+i}, which the stated choice does not give; Disc(f) and its a_n-derivatives also involve a_n, not only a_1, …, a_{n−k+i}. The estimate (24) holds with the choice above.",
+   "correction": "Retain this as an open proof obligation. Prove the index≥k version of the finite projection to the top n−k coefficients, spread the finite projections over Z away from finitely many primes, control all component and exceptional fibers, then establish the lattice-point and congruence-fiber bounds needed by (24). Mere closures of coordinate projections and dimension≤n−k are not enough to select the claimed eliminants.",
+   "reason": "Successive resultants can vanish identically or acquire excess components; the stated triangular system does not establish the dimension bounds used in (24). The earlier proposed replacement also needs proof: if a projection has lower-dimensional components, dimension≤n−k alone need not provide an equation for the next projection nonzero on every component of Z_i×A¹. No complete repair is claimed here.",
    "affects": "the proof",
    "known": "new",
    "searched": [
     "Crossref record of doi:10.4007/annals.2025.201.2.1, 29 September 2026: no update-to or relation entries, and no work declaring an update of it (filter updates:10.4007/annals.2025.201.2.1)",
     "The Annals article page https://annals.math.princeton.edu/2025/201-2/p01, 29 September 2026: no erratum or corrigendum listed",
-    "arXiv 2111.06507: v1 (12 November 2021), v2 (3 October 2022) and v3 (28 September 2024, after acceptance on 14 February 2024); v3 has the recorded passages. The published PDF is subscription-only (Project Euclid) and was not compared"
-   ]
+    "arXiv 2111.06507: v1 (12 November 2021), v2 (3 October 2022) and v3 (28 September 2024, after acceptance on 14 February 2024); v3 has the recorded passages. The published PDF is subscription-only (Project Euclid) and was not compared",
+    "Reviewer checked the Annals article page https://annals.math.princeton.edu/2025/201-2/p01 and exact-title/arXiv-id correction searches on 29–30 September 2026; no correction found.",
+    "Reviewer checked https://arxiv.org/abs/2111.06507: latest listed version v3 (28 September 2024); the cited passages were read in https://arxiv.org/pdf/2111.06507v3.",
+    "The Project Euclid PDF request returned HTML rather than the article; the author homepage could not be opened. The findings concern the preprint only. No claim that the published wording is identical, and no independent repeat of the extractor's Crossref query."
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed only as the missing elimination/dimension argument in v3 pp.27–28. The extraction's proposed projection repair was not proved and is not certified by this review; it needs the additional obligations now recorded.",
+    "by": "REV-PAPER-BHARGAVA-25"
+   },
+   "reviewScope": "arXiv:2111.06507v3 only; the published article was not obtained."
   },
   {
    "id": "PAPER-BHARGAVA-25/E11",
    "kind": "error",
    "locator": "§6 Conclusion, p. 28, and Theorem 2, p. 3 (arXiv v3)",
-   "correction": "b = (c − 1)(1 − θ) + (n − 1)θ with θ = (1 − 1/k)/(a(G) + 1 − 1/k − u), which lies between c − 1 and n − 1 but can exceed c; Theorem 2 holds with log^{max(b, c)} H (or log^{max(c, n−1)} H) in place of log^c H.",
+   "printed": "b = (c−1) − (c−n)(1−1/k)/(a(G)+1−1/k−u) < c",
+   "correction": "The balancing computation yields b=(c−1)(1−θ)+(n−1)θ, which can exceed c. Retain B=max(c,n−1) as a safe logarithmic exponent in the corrected target when a>u. This repairs this comparison only; the elimination step E10 remains open. No counterexample to the source's log^c counting bound is established.",
    "reason": "b < c iff (n − c)θ < 1. For AGL(2, 3) on n = 9 letters, ind = 3, c = q(3, 6) = 3 and a(G) = 11/4 − 1 + 1/3 + ε from Theorem 20, so θ ≈ 0.2437 and b ≈ 3.46 > 3, while the middle exponent 7.05 exceeds n + 1 − k = 7. Only the power of log H changes; every corollary has room in the exponent of H.",
-   "affects": "a stated result",
+   "affects": "the proof",
    "known": "new",
    "searched": [
     "Crossref record of doi:10.4007/annals.2025.201.2.1, 29 September 2026: no update-to or relation entries, and no work declaring an update of it (filter updates:10.4007/annals.2025.201.2.1)",
     "The Annals article page https://annals.math.princeton.edu/2025/201-2/p01, 29 September 2026: no erratum or corrigendum listed",
-    "arXiv 2111.06507: v1 (12 November 2021), v2 (3 October 2022) and v3 (28 September 2024, after acceptance on 14 February 2024); v3 has the recorded passages. The published PDF is subscription-only (Project Euclid) and was not compared"
-   ]
+    "arXiv 2111.06507: v1 (12 November 2021), v2 (3 October 2022) and v3 (28 September 2024, after acceptance on 14 February 2024); v3 has the recorded passages. The published PDF is subscription-only (Project Euclid) and was not compared",
+    "Reviewer checked the Annals article page https://annals.math.princeton.edu/2025/201-2/p01 and exact-title/arXiv-id correction searches on 29–30 September 2026; no correction found.",
+    "Reviewer checked https://arxiv.org/abs/2111.06507: latest listed version v3 (28 September 2024); the cited passages were read in https://arxiv.org/pdf/2111.06507v3.",
+    "The Project Euclid PDF request returned HTML rather than the article; the author homepage could not be opened. The findings concern the preprint only. No claim that the published wording is identical, and no independent repeat of the extractor's Crossref query."
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed as a false comparison b<c in v3 p.28, not as a counterexample to the smaller-log counting theorem on p.3. Enumerating AGL(2,3) gives minimum index 3 and b≈3.461928>c=3 for a=25/12+10^{-6}; its H-exponent≈7.050762 is larger than 7, so the first term does not absorb it.",
+    "by": "REV-PAPER-BHARGAVA-25"
+   },
+   "reviewScope": "arXiv:2111.06507v3 only; the published article was not obtained."
   },
   {
    "id": "PAPER-BHARGAVA-25/E12",
@@ -1179,23 +1409,41 @@
    "searched": [
     "Crossref record of doi:10.4007/annals.2025.201.2.1, 29 September 2026: no update-to or relation entries, and no work declaring an update of it (filter updates:10.4007/annals.2025.201.2.1)",
     "The Annals article page https://annals.math.princeton.edu/2025/201-2/p01, 29 September 2026: no erratum or corrigendum listed",
-    "arXiv 2111.06507: v1 (12 November 2021), v2 (3 October 2022) and v3 (28 September 2024, after acceptance on 14 February 2024); v3 has the recorded passages. The published PDF is subscription-only (Project Euclid) and was not compared"
-   ]
+    "arXiv 2111.06507: v1 (12 November 2021), v2 (3 October 2022) and v3 (28 September 2024, after acceptance on 14 February 2024); v3 has the recorded passages. The published PDF is subscription-only (Project Euclid) and was not compared",
+    "Reviewer checked the Annals article page https://annals.math.princeton.edu/2025/201-2/p01 and exact-title/arXiv-id correction searches on 29–30 September 2026; no correction found.",
+    "Reviewer checked https://arxiv.org/abs/2111.06507: latest listed version v3 (28 September 2024); the cited passages were read in https://arxiv.org/pdf/2111.06507v3.",
+    "The Project Euclid PDF request returned HTML rather than the article; the author homepage could not be opened. The findings concern the preprint only. No claim that the published wording is identical, and no independent repeat of the extractor's Crossref query."
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed as a failed displayed deduction in v3 p.29. With k=5 the saving first exceeds 3 at n=46; the elemental/non-elemental split repairs the range 28≤n≤45.",
+    "by": "REV-PAPER-BHARGAVA-25"
+   },
+   "reviewScope": "arXiv:2111.06507v3 only; the published article was not obtained."
   },
   {
    "id": "PAPER-BHARGAVA-25/E13",
    "kind": "error",
    "locator": "Corollary 3(a), p. 4; §1, p. 4; §7, proof, p. 29 (arXiv v3)",
    "printed": "The source claims N_n(G, H) = O(H^{n−3.5}) for every n ≥ 53. For primitive G on n ≥ 53 letters that is elemental, it gives N_n(G, H) ≪ H^{n+1−13} + H^{n−(n−1)(1−1/13)/((n+2)/4−u+ε)} log^c H ≪ H^{n−3.5}.",
-   "correction": "The argument gives O(H^{n−3.5}) for n ≥ 56; for n = 53, 54, 55 it needs ind(G) ≥ 14 for elemental G, which Remark 14 does not provide.",
+   "correction": "The argument gives O(H^{n−3.5}) for n ≥ 56; for n = 53, 54, 55 it needs ind(G) ≥ 14 for elemental G, which Remark 14 does not provide. This establishes failure of the displayed argument, not falsity of the original 53 threshold.",
    "reason": "With k = 13 the saving (n − 1)(12/13)/((n + 2)/4 − u) is 3.4910, 3.4946 and 3.4981 at n = 53, 54, 55, below 3.5, and first exceeds 3.5 at n = 56. Remark 14 gives only ind(G) ≥ ⌈7n/30⌉ = 13 there. The non-elemental case is fine. The CFSG-free threshold 1090 is unaffected.",
-   "affects": "a stated result",
+   "affects": "the proof",
    "known": "new",
    "searched": [
     "Crossref record of doi:10.4007/annals.2025.201.2.1, 29 September 2026: no update-to or relation entries, and no work declaring an update of it (filter updates:10.4007/annals.2025.201.2.1)",
     "The Annals article page https://annals.math.princeton.edu/2025/201-2/p01, 29 September 2026: no erratum or corrigendum listed",
-    "arXiv 2111.06507: v1 (12 November 2021), v2 (3 October 2022) and v3 (28 September 2024, after acceptance on 14 February 2024); v3 has the recorded passages. The published PDF is subscription-only (Project Euclid) and was not compared"
-   ]
+    "arXiv 2111.06507: v1 (12 November 2021), v2 (3 October 2022) and v3 (28 September 2024, after acceptance on 14 February 2024); v3 has the recorded passages. The published PDF is subscription-only (Project Euclid) and was not compared",
+    "Reviewer checked the Annals article page https://annals.math.princeton.edu/2025/201-2/p01 and exact-title/arXiv-id correction searches on 29–30 September 2026; no correction found.",
+    "Reviewer checked https://arxiv.org/abs/2111.06507: latest listed version v3 (28 September 2024); the cited passages were read in https://arxiv.org/pdf/2111.06507v3.",
+    "The Project Euclid PDF request returned HTML rather than the article; the author homepage could not be opened. The findings concern the preprint only. No claim that the published wording is identical, and no independent repeat of the extractor's Crossref query."
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed as a proof gap at 53–55 in v3 p.29, not a disproof of Corollary 3(a). The displayed k=13 saving first exceeds 3.5 at 56; stronger information on the groups at 53–55 could still prove the original result.",
+    "by": "REV-PAPER-BHARGAVA-25"
+   },
+   "reviewScope": "arXiv:2111.06507v3 only; the published article was not obtained."
   },
   {
    "id": "PAPER-BHARGAVA-25/E14",
@@ -1209,8 +1457,17 @@
    "searched": [
     "Crossref record of doi:10.4007/annals.2025.201.2.1, 29 September 2026: no update-to or relation entries, and no work declaring an update of it (filter updates:10.4007/annals.2025.201.2.1)",
     "The Annals article page https://annals.math.princeton.edu/2025/201-2/p01, 29 September 2026: no erratum or corrigendum listed",
-    "arXiv 2111.06507: v1 (12 November 2021), v2 (3 October 2022) and v3 (28 September 2024, after acceptance on 14 February 2024); v3 has the recorded passages. The published PDF is subscription-only (Project Euclid) and was not compared"
-   ]
+    "arXiv 2111.06507: v1 (12 November 2021), v2 (3 October 2022) and v3 (28 September 2024, after acceptance on 14 February 2024); v3 has the recorded passages. The published PDF is subscription-only (Project Euclid) and was not compared",
+    "Reviewer checked the Annals article page https://annals.math.princeton.edu/2025/201-2/p01 and exact-title/arXiv-id correction searches on 29–30 September 2026; no correction found.",
+    "Reviewer checked https://arxiv.org/abs/2111.06507: latest listed version v3 (28 September 2024); the cited passages were read in https://arxiv.org/pdf/2111.06507v3.",
+    "The Project Euclid PDF request returned HTML rather than the article; the author homepage could not be opened. The findings concern the preprint only. No claim that the published wording is identical, and no independent repeat of the extractor's Crossref query."
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed in equation (28), v3 p.29: substituting a=4,k=7 gives 34/7−u. The stated weaker endpoint survives.",
+    "by": "REV-PAPER-BHARGAVA-25"
+   },
+   "reviewScope": "arXiv:2111.06507v3 only; the published article was not obtained."
   },
   {
    "id": "PAPER-BHARGAVA-25/E15",
@@ -1224,8 +1481,543 @@
    "searched": [
     "Crossref record of doi:10.4007/annals.2025.201.2.1, 29 September 2026: no update-to or relation entries, and no work declaring an update of it (filter updates:10.4007/annals.2025.201.2.1)",
     "The Annals article page https://annals.math.princeton.edu/2025/201-2/p01, 29 September 2026: no erratum or corrigendum listed",
-    "arXiv 2111.06507: v1 (12 November 2021), v2 (3 October 2022) and v3 (28 September 2024, after acceptance on 14 February 2024); v3 has the recorded passages. The published PDF is subscription-only (Project Euclid) and was not compared"
-   ]
+    "arXiv 2111.06507: v1 (12 November 2021), v2 (3 October 2022) and v3 (28 September 2024, after acceptance on 14 February 2024); v3 has the recorded passages. The published PDF is subscription-only (Project Euclid) and was not compared",
+    "Reviewer checked the Annals article page https://annals.math.princeton.edu/2025/201-2/p01 and exact-title/arXiv-id correction searches on 29–30 September 2026; no correction found.",
+    "Reviewer checked https://arxiv.org/abs/2111.06507: latest listed version v3 (28 September 2024); the cited passages were read in https://arxiv.org/pdf/2111.06507v3.",
+    "The Project Euclid PDF request returned HTML rather than the article; the author homepage could not be opened. The findings concern the preprint only. No claim that the published wording is identical, and no independent repeat of the extractor's Crossref query."
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed in v3 pp.4–5. A direct quadratic count gives N_2(C_2,H) of order H², contradicting exponent 1.709… . The author copy of Ellenberg–Venkatesh Proposition 2.8 requires |G|>4. Dropping the H^{n/p+1} term is unjustified when p=2 or 3; this alone is not a counterexample in every such degree.",
+    "by": "REV-PAPER-BHARGAVA-25"
+   },
+   "reviewScope": "arXiv:2111.06507v3 only; the published article was not obtained."
+  },
+  {
+   "id": "PAPER-BHARGAVA-25/E16",
+   "kind": "error",
+   "locator": "Corollary 8, p.5 (arXiv v3)",
+   "printed": "k ≤ 9",
+   "correction": "Restrict to k≤8, or k=9 with G≠S_9. Retain the M_11 bound separately.",
+   "reason": "Take G=S_9. Fix one monic integral degree-11 polynomial h with Galois group M_11 (existence follows from König, arXiv:1503.06686v2, Lemma 2, followed by Hilbert specialization and an integral primitive element). There are ≫T^9 monic S_9 polynomials g of height≤T. The Galois splitting fields are disjoint: an intersection would give a nontrivial common quotient of S_9 and the simple group M_11 of order 7920, impossible from the normal subgroups of S_9. The injective map g↦gh has height≤C_hT and Galois group S_9×M_11. Thus N_20(S_9×M_11,H)≫H^9, contradicting H^{8.686}.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "Reviewer checked the Annals article page https://annals.math.princeton.edu/2025/201-2/p01 and exact-title/arXiv-id correction searches on 29–30 September 2026; no correction found.",
+    "Reviewer checked https://arxiv.org/abs/2111.06507: latest listed version v3 (28 September 2024); the cited passages were read in https://arxiv.org/pdf/2111.06507v3.",
+    "The Project Euclid PDF request returned HTML rather than the article; the author homepage could not be opened. The findings concern the preprint only. No claim that the published wording is identical, and no independent repeat of the extractor's Crossref query."
+   ],
+   "reviewScope": "arXiv:2111.06507v3 only; not collated with the published article.",
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Checked at the cited preprint passage; Take G=S_9. Fix one monic integral degree-11 polynomial h with Galois group M_11 (existence follows from König, arXiv:1503.06686v2, Lemma 2, followed by Hilbert specialization and an integral primitive element). There are ≫T^9 monic S_9 polynomials g of height≤T. The Galois splitting fields are disjoint: an intersection would give a nontrivial common quotient of S_9 and the simple group M_11 of order 7920, impossible from the normal subgroups of S_9. The injective map g↦gh has height≤C_hT and Galois group S_9×M_11. Thus N_20(S_9×M_11,H)≫H^9, contradicting H^{8.686}.",
+    "by": "REV-PAPER-BHARGAVA-25"
+   }
+  },
+  {
+   "id": "PAPER-BHARGAVA-25/E17",
+   "kind": "error",
+   "locator": "Theorem 2, p.3; field-count definition p.2 and §6 p.27 (arXiv v3)",
+   "printed": "The source states the assertion for every permutation group G ⊂ S_n.",
+   "correction": "Require G transitive (and nontrivial, degree n≥2) for the number-field exponent a(G). Use Theorem 7 for intransitive groups, or define and separately bound étale-algebra counts.",
+   "reason": "Let n=3 and G=⟨(12)⟩ fixing the third letter. There are no degree-3 fields with this root action, so F_3(G,X)=0 and a(G)=1/100 is admissible as defined. Yet x(x²+ax+b), |a|≤sqrt(H), H/2≤b≤H, has negative quadratic discriminant and gives ≫H^{3/2} distinct polynomials with this action. The second expression in Theorem 2, with k=1,u=0, is H^{1.04}log²H. This is a contradiction.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "Reviewer checked the Annals article page https://annals.math.princeton.edu/2025/201-2/p01 and exact-title/arXiv-id correction searches on 29–30 September 2026; no correction found.",
+    "Reviewer checked https://arxiv.org/abs/2111.06507: latest listed version v3 (28 September 2024); the cited passages were read in https://arxiv.org/pdf/2111.06507v3.",
+    "The Project Euclid PDF request returned HTML rather than the article; the author homepage could not be opened. The findings concern the preprint only. No claim that the published wording is identical, and no independent repeat of the extractor's Crossref query."
+   ],
+   "reviewScope": "arXiv:2111.06507v3 only; not collated with the published article.",
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Checked at the cited preprint passage; Let n=3 and G=⟨(12)⟩ fixing the third letter. There are no degree-3 fields with this root action, so F_3(G,X)=0 and a(G)=1/100 is admissible as defined. Yet x(x²+ax+b), |a|≤sqrt(H), H/2≤b≤H, has negative quadratic discriminant and gives ≫H^{3/2} distinct polynomials with this action. The second expression in Theorem 2, with k=1,u=0, is H^{1.04}log²H. This is a contradiction.",
+    "by": "REV-PAPER-BHARGAVA-25"
+   }
+  },
+  {
+   "id": "PAPER-BHARGAVA-25/E18",
+   "kind": "error",
+   "locator": "Lemma 24, p.14 (arXiv v3)",
+   "printed": "g(x) ∈ Z[x]",
+   "correction": "Require g monic and separable of degree n, and define D as the maximal-order discriminant of Q[x]/(g); a local version may instead require p-integral normalized coefficients.",
+   "reason": "For g=5x²−1, n=2 and p=5>n, the Q-algebra is Q(sqrt(5)) with discriminant 5. Modulo 5 the polynomial is the nonzero constant −1, of index zero, while v_5(D)=1. Monicity supplies the integrality used in the proof.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "Reviewer checked the Annals article page https://annals.math.princeton.edu/2025/201-2/p01 and exact-title/arXiv-id correction searches on 29–30 September 2026; no correction found.",
+    "Reviewer checked https://arxiv.org/abs/2111.06507: latest listed version v3 (28 September 2024); the cited passages were read in https://arxiv.org/pdf/2111.06507v3.",
+    "The Project Euclid PDF request returned HTML rather than the article; the author homepage could not be opened. The findings concern the preprint only. No claim that the published wording is identical, and no independent repeat of the extractor's Crossref query."
+   ],
+   "reviewScope": "arXiv:2111.06507v3 only; not collated with the published article.",
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Checked at the cited preprint passage; For g=5x²−1, n=2 and p=5>n, the Q-algebra is Q(sqrt(5)) with discriminant 5. Modulo 5 the polynomial is the nonzero constant −1, of index zero, while v_5(D)=1. Monicity supplies the integrality used in the proof.",
+    "by": "REV-PAPER-BHARGAVA-25"
+   }
+  },
+  {
+   "id": "PAPER-BHARGAVA-25/E19",
+   "kind": "misprint",
+   "locator": "Proof of Lemma 24, p.15 (arXiv v3)",
+   "printed": "The source writes v_p(D)=ef and g_i(x−c), and specifies an index of e.",
+   "correction": "Use (e−1)f, g_i(x+c) for the minimal polynomial of α−c, and index e−1. The sum of the factor indices is at least (e−1)f.",
+   "reason": "For a tame local extension, v_p(D)=(e−1)f, not ef, already failing at e=1. A monic degree-e factor reducing to (x−c)^e has one geometric root and index e−1. Substituting x+c sends its root α to α−c. These corrections give the intended monic lemma.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "Reviewer checked the Annals article page https://annals.math.princeton.edu/2025/201-2/p01 and exact-title/arXiv-id correction searches on 29–30 September 2026; no correction found.",
+    "Reviewer checked https://arxiv.org/abs/2111.06507: latest listed version v3 (28 September 2024); the cited passages were read in https://arxiv.org/pdf/2111.06507v3.",
+    "The Project Euclid PDF request returned HTML rather than the article; the author homepage could not be opened. The findings concern the preprint only. No claim that the published wording is identical, and no independent repeat of the extractor's Crossref query."
+   ],
+   "reviewScope": "arXiv:2111.06507v3 only; not collated with the published article.",
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Checked at the cited preprint passage; For a tame local extension, v_p(D)=(e−1)f, not ef, already failing at e=1. A monic degree-e factor reducing to (x−c)^e has one geometric root and index e−1. Substituting x+c sends its root α to α−c. These corrections give the intended monic lemma.",
+    "by": "REV-PAPER-BHARGAVA-25"
+   }
+  },
+  {
+   "id": "PAPER-BHARGAVA-25/E20",
+   "kind": "misprint",
+   "locator": "§8, p.30, height definition and multiplicative comparisons (arXiv v3)",
+   "printed": "max{|a_i|}_{1≤i≤n}",
+   "correction": "Use H₊(f)=max(1,|a_1|,…,|a_n|), including the leading coefficient. The height boxes with external H≥1 are unchanged.",
+   "reason": "For f=x^n, the printed height is zero but M(f)=1, so the upper comparison fails. For f=x and g=x+1, H(fg)=1 but H(f)H(g)=0. Including the leading coefficient is exactly the sup-norm convention in the cited Mathlib comparisons.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Reviewer checked the Annals article page https://annals.math.princeton.edu/2025/201-2/p01 and exact-title/arXiv-id correction searches on 29–30 September 2026; no correction found.",
+    "Reviewer checked https://arxiv.org/abs/2111.06507: latest listed version v3 (28 September 2024); the cited passages were read in https://arxiv.org/pdf/2111.06507v3.",
+    "The Project Euclid PDF request returned HTML rather than the article; the author homepage could not be opened. The findings concern the preprint only. No claim that the published wording is identical, and no independent repeat of the extractor's Crossref query."
+   ],
+   "reviewScope": "arXiv:2111.06507v3 only; not collated with the published article.",
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Checked at the cited preprint passage; For f=x^n, the printed height is zero but M(f)=1, so the upper comparison fails. For f=x and g=x+1, H(fg)=1 but H(f)H(g)=0. Including the leading coefficient is exactly the sup-norm convention in the cited Mathlib comparisons.",
+    "by": "REV-PAPER-BHARGAVA-25"
+   }
+  },
+  {
+   "id": "PAPER-BHARGAVA-25/E21",
+   "kind": "gap",
+   "locator": "§8, p.30, last counting display (arXiv v3)",
+   "printed": "H_1^{α_1−1} log^{β_1}H_1",
+   "correction": "Overcount tuples of factors using H₊ and dyadic blocks or Stieltjes summation of the cumulative N_i. Do not assert a pointwise shell bound or equality with a full-product Galois count. Item 72 gives a repair for α_i>0,β_i≥0.",
+   "reason": "A cumulative A(T)=O(T^α) does not imply A(m)−A(m−1)=O(m^{α−1}): put mass 2^{jα} at m=2^j. Also factors may have intersecting splitting fields, and multiplicative height is comparable rather than equal. The proof's initial equality and subsequent shell substitution therefore need replacement.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "Reviewer checked the Annals article page https://annals.math.princeton.edu/2025/201-2/p01 and exact-title/arXiv-id correction searches on 29–30 September 2026; no correction found.",
+    "Reviewer checked https://arxiv.org/abs/2111.06507: latest listed version v3 (28 September 2024); the cited passages were read in https://arxiv.org/pdf/2111.06507v3.",
+    "The Project Euclid PDF request returned HTML rather than the article; the author homepage could not be opened. The findings concern the preprint only. No claim that the published wording is identical, and no independent repeat of the extractor's Crossref query."
+   ],
+   "reviewScope": "arXiv:2111.06507v3 only; not collated with the published article.",
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Checked at the cited preprint passage; A cumulative A(T)=O(T^α) does not imply A(m)−A(m−1)=O(m^{α−1}): put mass 2^{jα} at m=2^j. Also factors may have intersecting splitting fields, and multiplicative height is comparable rather than equal. The proof's initial equality and subsequent shell substitution therefore need replacement.",
+    "by": "REV-PAPER-BHARGAVA-25"
+   }
+  },
+  {
+   "id": "PAPER-BHARGAVA-25/E22",
+   "kind": "misprint",
+   "locator": "Remark 23, p.14 (arXiv v3)",
+   "printed": "f(t(x+c))",
+   "correction": "Translate first, then use t^{−n}f(tx+c) for t≠0. With c chosen so the coefficients of f(x+c) are nonzero, its coefficients are nonzero constants times t^{−i}. For binary forms use the projective image of (P¹)^{n−k} and its affine scalar cone.",
+   "reason": "The printed family is not monic for general t. Normalizing it without changing the order still gives a constant family when f=x^n. The corrected translate-and-scale family has the required nonzero monomial coordinates. A product of projective lines parametrizes projective binary forms, not their scalar multiples as affine vectors.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "Reviewer checked the Annals article page https://annals.math.princeton.edu/2025/201-2/p01 and exact-title/arXiv-id correction searches on 29–30 September 2026; no correction found.",
+    "Reviewer checked https://arxiv.org/abs/2111.06507: latest listed version v3 (28 September 2024); the cited passages were read in https://arxiv.org/pdf/2111.06507v3.",
+    "The Project Euclid PDF request returned HTML rather than the article; the author homepage could not be opened. The findings concern the preprint only. No claim that the published wording is identical, and no independent repeat of the extractor's Crossref query."
+   ],
+   "reviewScope": "arXiv:2111.06507v3 only; not collated with the published article.",
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Checked at the cited preprint passage; The printed family is not monic for general t. Normalizing it without changing the order still gives a constant family when f=x^n. The corrected translate-and-scale family has the required nonzero monomial coordinates. A product of projective lines parametrizes projective binary forms, not their scalar multiples as affine vectors.",
+    "by": "REV-PAPER-BHARGAVA-25"
+   }
+  },
+  {
+   "id": "PAPER-BHARGAVA-25/E23",
+   "kind": "error",
+   "locator": "§4.1 after (10), p.17; §4.2 after (19), p.21 (arXiv v3)",
+   "printed": "O(q^{n+1+ε}M(Ψ_q))",
+   "correction": "Include all integer frequencies congruent to zero modulo q in the mean contribution. The bound H^d|Ψ̂(0)|+q^dM(Ψ) survives, with constants depending on the Schwartz function and d.",
+   "reason": "Take Ψ≡1 and a Gaussian test function. All nonzero finite Fourier coefficients vanish, so M=0, but the infinite Poisson sum still has positive contributions from qZ^d\\{0}. The remainder after removing only the single frequency zero is not zero. Item 43 gives the corrected grouping.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "Reviewer checked the Annals article page https://annals.math.princeton.edu/2025/201-2/p01 and exact-title/arXiv-id correction searches on 29–30 September 2026; no correction found.",
+    "Reviewer checked https://arxiv.org/abs/2111.06507: latest listed version v3 (28 September 2024); the cited passages were read in https://arxiv.org/pdf/2111.06507v3.",
+    "The Project Euclid PDF request returned HTML rather than the article; the author homepage could not be opened. The findings concern the preprint only. No claim that the published wording is identical, and no independent repeat of the extractor's Crossref query."
+   ],
+   "reviewScope": "arXiv:2111.06507v3 only; not collated with the published article.",
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Checked at the cited preprint passage; Take Ψ≡1 and a Gaussian test function. All nonzero finite Fourier coefficients vanish, so M=0, but the infinite Poisson sum still has positive contributions from qZ^d\\{0}. The remainder after removing only the single frequency zero is not zero. Item 43 gives the corrected grouping.",
+    "by": "REV-PAPER-BHARGAVA-25"
+   }
+  },
+  {
+   "id": "PAPER-BHARGAVA-25/E24",
+   "kind": "error",
+   "locator": "Propositions 26 and 30, pp.17–18 and 21 (arXiv v3)",
+   "printed": "deg(σ)=d",
+   "correction": "State 1≤d≤n (and p>n for the stated proof). Handle the empty type separately.",
+   "reason": "For monic polynomials choose the one-factor type σ=(1^{n+1}), with d=n+1,k=n. No monic degree-n polynomial is divisible by a factor of degree n+1, so w≡0, contradicting the claimed zero-frequency main term p^{−n}+O(p^{−n−1}). In the binary setting only the zero form is divisible, and its contribution violates the claimed nonzero-frequency estimate.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "Reviewer checked the Annals article page https://annals.math.princeton.edu/2025/201-2/p01 and exact-title/arXiv-id correction searches on 29–30 September 2026; no correction found.",
+    "Reviewer checked https://arxiv.org/abs/2111.06507: latest listed version v3 (28 September 2024); the cited passages were read in https://arxiv.org/pdf/2111.06507v3.",
+    "The Project Euclid PDF request returned HTML rather than the article; the author homepage could not be opened. The findings concern the preprint only. No claim that the published wording is identical, and no independent repeat of the extractor's Crossref query."
+   ],
+   "reviewScope": "arXiv:2111.06507v3 only; not collated with the published article.",
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Checked at the cited preprint passage; For monic polynomials choose the one-factor type σ=(1^{n+1}), with d=n+1,k=n. No monic degree-n polynomial is divisible by a factor of degree n+1, so w≡0, contradicting the claimed zero-frequency main term p^{−n}+O(p^{−n−1}). In the binary setting only the zero form is divisible, and its contribution violates the claimed nonzero-frequency estimate.",
+    "by": "REV-PAPER-BHARGAVA-25"
+   }
+  },
+  {
+   "id": "PAPER-BHARGAVA-25/E25",
+   "kind": "error",
+   "locator": "Zarhin input before Corollary 4, p.4 (arXiv v3)",
+   "printed": "The source specifies Z as the endomorphism ring.",
+   "correction": "Require n≥5 for the stated S_n/A_n implication over Q̄. Keep the distinction between rational and geometric endomorphisms.",
+   "reason": "Zarhin's MRL 7 (2000), p.123, explicitly has n≥5. The cubic f=x³−2 has Galois group S_3 and defines an elliptic curve with the nontrivial geometric automorphism (x,y)↦(ζ_3x,y); hence End over Q̄ is larger than Z. This disproves the unqualified input, not the quantitative corollary in every small degree.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "Reviewer checked the Annals article page https://annals.math.princeton.edu/2025/201-2/p01 and exact-title/arXiv-id correction searches on 29–30 September 2026; no correction found.",
+    "Reviewer checked https://arxiv.org/abs/2111.06507: latest listed version v3 (28 September 2024); the cited passages were read in https://arxiv.org/pdf/2111.06507v3.",
+    "The Project Euclid PDF request returned HTML rather than the article; the author homepage could not be opened. The findings concern the preprint only. No claim that the published wording is identical, and no independent repeat of the extractor's Crossref query."
+   ],
+   "reviewScope": "arXiv:2111.06507v3 only; not collated with the published article.",
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Checked at the cited preprint passage; Zarhin's MRL 7 (2000), p.123, explicitly has n≥5. The cubic f=x³−2 has Galois group S_3 and defines an elliptic curve with the nontrivial geometric automorphism (x,y)↦(ζ_3x,y); hence End over Q̄ is larger than Z. This disproves the unqualified input, not the quantitative corollary in every small degree.",
+    "by": "REV-PAPER-BHARGAVA-25"
+   }
+  },
+  {
+   "id": "PAPER-BHARGAVA-25/E26",
+   "kind": "error",
+   "locator": "Theorem 1 and reducible-polynomial assertion, pp.1–2 (arXiv v3)",
+   "printed": "E_n(H)=O(H^{n−1})",
+   "correction": "For the all-polynomial count defined here, impose n≥3; handle n=1 trivially and n=2 with its H log H order of magnitude. The same qualification is needed for the intransitive estimate.",
+   "reason": "For H large, take 1≤r≤sqrt(H)/2 and 2r≤s≤H/(2r). Each (x−r)(x−s) is separable, has coefficients bounded by H and trivial Galois group. Summing floor(H/(2r))−2r+1 gives ≫H log H distinct polynomials, disproving E_2(H)=O(H). Conversely the integer-root factorization and the divisor bound give O(H log H).",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "Reviewer checked the Annals article page https://annals.math.princeton.edu/2025/201-2/p01 and exact-title/arXiv-id correction searches on 29–30 September 2026; no correction found.",
+    "Reviewer checked https://arxiv.org/abs/2111.06507: latest listed version v3 (28 September 2024); the cited passages were read in https://arxiv.org/pdf/2111.06507v3.",
+    "The Project Euclid PDF request returned HTML rather than the article; the author homepage could not be opened. The findings concern the preprint only. No claim that the published wording is identical, and no independent repeat of the extractor's Crossref query."
+   ],
+   "reviewScope": "arXiv:2111.06507v3 only; not collated with the published article.",
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Checked at the cited preprint passage; For H large, take 1≤r≤sqrt(H)/2 and 2r≤s≤H/(2r). Each (x−r)(x−s) is separable, has coefficients bounded by H and trivial Galois group. Summing floor(H/(2r))−2r+1 gives ≫H log H distinct polynomials, disproving E_2(H)=O(H). Conversely the integer-root factorization and the divisor bound give O(H log H).",
+    "by": "REV-PAPER-BHARGAVA-25"
+   }
   }
- ]
+ ],
+ "review": {
+  "status": "needs_changes",
+  "by": "independent-review-REV-PAPER-BHARGAVA-25",
+  "date": "2026-09-30",
+  "scope": "Independent review of the extraction and all 15 original findings, with 11 further findings. Verdicts apply to the preprint text actually read, not to an uncollated published text."
+ },
+ "gaps": [
+  {
+   "id": "review-elimination",
+   "neededBy": [
+    "PAPER-BHARGAVA-25/61",
+    "PAPER-BHARGAVA-25/62",
+    "PAPER-BHARGAVA-25/63",
+    "PAPER-BHARGAVA-25/64",
+    "PAPER-BHARGAVA-25/65",
+    "PAPER-BHARGAVA-25/67",
+    "PAPER-BHARGAVA-25/69",
+    "PAPER-BHARGAVA-25/71",
+    "PAPER-BHARGAVA-25/73"
+   ],
+   "detail": "E10: establish finite projection of the index≥k locus, closed images with controlled components/fibers, integral spreading away from finitely many primes, nonzero eliminants on the required fibers, and the integral-point/congruence-fiber count proving (24). The original projection-closure suggestion was not a completed proof."
+  },
+  {
+   "id": "review-granularity-and-api",
+   "neededBy": [
+    "PAPER-BHARGAVA-25/1",
+    "PAPER-BHARGAVA-25/4",
+    "PAPER-BHARGAVA-25/5",
+    "PAPER-BHARGAVA-25/6",
+    "PAPER-BHARGAVA-25/7",
+    "PAPER-BHARGAVA-25/8",
+    "PAPER-BHARGAVA-25/9",
+    "PAPER-BHARGAVA-25/10",
+    "PAPER-BHARGAVA-25/14",
+    "PAPER-BHARGAVA-25/15",
+    "PAPER-BHARGAVA-25/16",
+    "PAPER-BHARGAVA-25/17",
+    "PAPER-BHARGAVA-25/20",
+    "PAPER-BHARGAVA-25/21",
+    "PAPER-BHARGAVA-25/22",
+    "PAPER-BHARGAVA-25/23",
+    "PAPER-BHARGAVA-25/24",
+    "PAPER-BHARGAVA-25/25",
+    "PAPER-BHARGAVA-25/26",
+    "PAPER-BHARGAVA-25/27",
+    "PAPER-BHARGAVA-25/28",
+    "PAPER-BHARGAVA-25/29",
+    "PAPER-BHARGAVA-25/30",
+    "PAPER-BHARGAVA-25/31",
+    "PAPER-BHARGAVA-25/32",
+    "PAPER-BHARGAVA-25/33",
+    "PAPER-BHARGAVA-25/34",
+    "PAPER-BHARGAVA-25/35",
+    "PAPER-BHARGAVA-25/36",
+    "PAPER-BHARGAVA-25/38",
+    "PAPER-BHARGAVA-25/39",
+    "PAPER-BHARGAVA-25/40",
+    "PAPER-BHARGAVA-25/41",
+    "PAPER-BHARGAVA-25/42",
+    "PAPER-BHARGAVA-25/43",
+    "PAPER-BHARGAVA-25/44",
+    "PAPER-BHARGAVA-25/45",
+    "PAPER-BHARGAVA-25/46",
+    "PAPER-BHARGAVA-25/47",
+    "PAPER-BHARGAVA-25/48",
+    "PAPER-BHARGAVA-25/51",
+    "PAPER-BHARGAVA-25/52",
+    "PAPER-BHARGAVA-25/53",
+    "PAPER-BHARGAVA-25/54",
+    "PAPER-BHARGAVA-25/55",
+    "PAPER-BHARGAVA-25/56",
+    "PAPER-BHARGAVA-25/57",
+    "PAPER-BHARGAVA-25/58",
+    "PAPER-BHARGAVA-25/59",
+    "PAPER-BHARGAVA-25/60",
+    "PAPER-BHARGAVA-25/61",
+    "PAPER-BHARGAVA-25/62",
+    "PAPER-BHARGAVA-25/63",
+    "PAPER-BHARGAVA-25/64",
+    "PAPER-BHARGAVA-25/65",
+    "PAPER-BHARGAVA-25/66",
+    "PAPER-BHARGAVA-25/67",
+    "PAPER-BHARGAVA-25/68",
+    "PAPER-BHARGAVA-25/69",
+    "PAPER-BHARGAVA-25/70",
+    "PAPER-BHARGAVA-25/71",
+    "PAPER-BHARGAVA-25/72",
+    "PAPER-BHARGAVA-25/73",
+    "PAPER-BHARGAVA-25/74"
+   ],
+   "detail": "Split compound theorem items, especially 27–28, 30–31, 38, 42, 45, 48, 56 and 61–65, at declaration boundaries. Every missing definition needs uses, named APIs and three mathematical tests; every nonroutine proof step needs a prerequisite node or precise supplier. Current items are an extraction, not a closed blueprint. The Part II brief needs concrete files and planets after these nodes exist."
+  },
+  {
+   "id": "review-recursive-suppliers",
+   "neededBy": [
+    "PAPER-BHARGAVA-25/16",
+    "PAPER-BHARGAVA-25/17",
+    "PAPER-BHARGAVA-25/20",
+    "PAPER-BHARGAVA-25/24",
+    "PAPER-BHARGAVA-25/26",
+    "PAPER-BHARGAVA-25/28",
+    "PAPER-BHARGAVA-25/29",
+    "PAPER-BHARGAVA-25/31",
+    "PAPER-BHARGAVA-25/32",
+    "PAPER-BHARGAVA-25/33",
+    "PAPER-BHARGAVA-25/34",
+    "PAPER-BHARGAVA-25/41",
+    "PAPER-BHARGAVA-25/42",
+    "PAPER-BHARGAVA-25/54",
+    "PAPER-BHARGAVA-25/55",
+    "PAPER-BHARGAVA-25/66",
+    "PAPER-BHARGAVA-25/68"
+   ],
+   "detail": "The main paper was read in full and all its numbered intermediate results mapped, but the referenced minimal-degree/classification, field-count, resolvent and geometric-sieve arguments are not recursively closed. The 17 prerequisite entries remain a reading/worklist, not proof imports already verified to declaration granularity. Collate Chela's exact remainder before restoring it."
+  },
+  {
+   "id": "review-wild-and-index-adapters",
+   "neededBy": [
+    "PAPER-BHARGAVA-25/13",
+    "PAPER-BHARGAVA-25/22",
+    "PAPER-BHARGAVA-25/23",
+    "PAPER-BHARGAVA-25/40",
+    "PAPER-BHARGAVA-25/41",
+    "PAPER-BHARGAVA-25/53",
+    "PAPER-BHARGAVA-25/56",
+    "PAPER-BHARGAVA-25/57",
+    "PAPER-BHARGAVA-25/59",
+    "PAPER-BHARGAVA-25/61"
+   ],
+   "detail": "Separate the discriminant/index identity from ramification support; import the local different bounds and their global comparison. Supply the bound on discriminant exponents for the finitely many p≤n, and all integral-order and reduction adapters. Do not use tame reduction-index equality at wild primes."
+  },
+  {
+   "id": "review-source-threshold",
+   "neededBy": [
+    "PAPER-BHARGAVA-25/63"
+   ],
+   "detail": "The displayed argument yields the last Corollary 3(a) range from n≥56. It does not decide degrees 53,54,55. Prove the stronger group information needed there, or retain the conservative range without asserting the source theorem false."
+  },
+  {
+   "id": "review-nonmonic-and-repeated-roots",
+   "neededBy": [
+    "PAPER-BHARGAVA-25/1",
+    "PAPER-BHARGAVA-25/16",
+    "PAPER-BHARGAVA-25/60",
+    "PAPER-BHARGAVA-25/74"
+   ],
+   "detail": "Pin the convention for repeated-root polynomials and prove their separate count. Develop the asserted nonmonic extension, including leading-coefficient and integral-order conditions, rather than applying monic Lemma 24 unchanged."
+  },
+  {
+   "id": "review-published-collation",
+   "neededBy": [
+    "PAPER-BHARGAVA-25/E1",
+    "PAPER-BHARGAVA-25/E2",
+    "PAPER-BHARGAVA-25/E3",
+    "PAPER-BHARGAVA-25/E4",
+    "PAPER-BHARGAVA-25/E5",
+    "PAPER-BHARGAVA-25/E6",
+    "PAPER-BHARGAVA-25/E7",
+    "PAPER-BHARGAVA-25/E8",
+    "PAPER-BHARGAVA-25/E9",
+    "PAPER-BHARGAVA-25/E10",
+    "PAPER-BHARGAVA-25/E11",
+    "PAPER-BHARGAVA-25/E12",
+    "PAPER-BHARGAVA-25/E13",
+    "PAPER-BHARGAVA-25/E14",
+    "PAPER-BHARGAVA-25/E15",
+    "PAPER-BHARGAVA-25/E16",
+    "PAPER-BHARGAVA-25/E17",
+    "PAPER-BHARGAVA-25/E18",
+    "PAPER-BHARGAVA-25/E19",
+    "PAPER-BHARGAVA-25/E20",
+    "PAPER-BHARGAVA-25/E21",
+    "PAPER-BHARGAVA-25/E22",
+    "PAPER-BHARGAVA-25/E23",
+    "PAPER-BHARGAVA-25/E24",
+    "PAPER-BHARGAVA-25/E25",
+    "PAPER-BHARGAVA-25/E26"
+   ],
+   "detail": "Compare all 26 findings with the actual Annals pages 339–377 when obtainable. No finding here certifies that the version of record has the same statement. The preprint is v3, SHA-256 b98647f10dbf4b74be61570d8f12fe7c8cadf24f7e47e667a1bcff6159471780."
+  }
+ ],
+ "libraryAudit": {
+  "baseline": {
+   "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+   "tauceti": "f790474821cf4256814db967cb154e7af3d0c369"
+  },
+  "method": "All extraction library citations opened and statements read at these pins. New exact transitivity, integral primitive-element discriminant and resultant/derivative citations were also read. Independent pinned-tree searches grouped every missing item by subject; near matches were inspected, not treated as exact implementations.",
+  "reviewedAudits": [
+   "AUDIT-01: SF.5",
+   "AUDIT-06: AN.5",
+   "AUDIT-07: ST.3",
+   "AUDIT-09: IG.2",
+   "AUDIT-14: AL.0",
+   "AUDIT-19: FF.2"
+  ],
+  "searchCoverage": [
+   {
+    "items": [
+     1,
+     4,
+     7,
+     8,
+     10,
+     14,
+     16,
+     17,
+     20,
+     21,
+     24,
+     25,
+     26,
+     27,
+     28,
+     29,
+     30,
+     31,
+     60,
+     62,
+     63,
+     64,
+     65,
+     69,
+     71,
+     72,
+     73,
+     74
+    ],
+    "queries": "Galois group counting; permutation index/minimal degree; Liebeck, Saxl, Guralnick, Magaard, Babai; imprimitive/non-elemental/wreath; restricted partition counts. Existing primitivity and Jordan special cases inspected."
+   },
+   {
+    "items": [
+     5,
+     6,
+     15,
+     32,
+     33,
+     34,
+     41,
+     42,
+     52,
+     53,
+     54,
+     55,
+     57,
+     58,
+     59,
+     61,
+     68,
+     70
+    ],
+    "queries": "Schmidt; Lemke Oliver; Malle (word-boundary refinement excludes 'smaller'); field/discriminant counts; squarefull/cubefull/k-powerful; weighted divisors and tails; Hilbert irreducibility."
+   },
+   {
+    "items": [
+     9,
+     43,
+     44,
+     45,
+     47,
+     48
+    ],
+    "queries": "Poisson, Schwartz, Fourier finite lattice, binary forms, splitting-type weights, twisted sums. Only the one-dimensional lattice Poisson formula is present at the cited pin."
+   },
+   {
+    "items": [
+     35,
+     36,
+     38,
+     39,
+     40,
+     56
+    ],
+    "queries": "Weighted power sums, Bezout zero-dimensional intersection (exclude Bezout domains), discriminant/resultant, local index, elimination strata and finite projection."
+   },
+   {
+    "items": [
+     66,
+     67
+    ],
+    "queries": "Zarhin, hyperelliptic Jacobian, geometric endomorphisms. No exact theorem found."
+   }
+  ],
+  "limitations": "A failed name search is not a proof of absence. The status decision also used the reviewed audits, actual nearby declarations and the atlas owners. No Lean build, cache installation or language server was run."
+ },
+ "reviewChecks": {
+  "priorLocal": "Exact Python regressions passed before the terminal environment failed: inequality (6) through m=40; δ ranges through n=10000; all 432 affine AGL(2,3) permutations and its minimum index; power-saving thresholds; regular-group exponent arithmetic; splitting-type automorphism counts.",
+  "currentEnvironment": "Terminal access was restored before submission. Final validation is performed locally with scripts/check_paper.py and the swarm intake check-files command; see the independent review for the executed checks.",
+  "lean": "Not compiled; no suggested Lean file is a deliverable for this review.",
+  "executed": [
+   "python3 scripts/check_paper.py research/blueprint/papers/PAPER-BHARGAVA-25.result.json: ok",
+   "python3 research/blueprint/intake.py check-files on all five deliverables: 5 files, 0 problems",
+   "git diff --check: clean",
+   "Exact arithmetic and 432-element AGL(2,3) regression script: passed"
+  ]
+ }
 }
