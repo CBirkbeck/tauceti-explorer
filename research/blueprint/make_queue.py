@@ -199,6 +199,47 @@ Run `python3 scripts/check_errata.py research/blueprint/errata/{OWNER}.json` unt
 Sources: {LIBRARY}/; public versions may be fetched into your scratch directory with provenance, never into the repository.
 """
 
+KEYDEF_TEMPLATE = HEADER + """
+JOB: survey the key definitions of the area "{LABEL}" ({AREA}){PARTNOTE} (PROTOCOL.md section 19).
+Input: {INPUT}: the {COUNT} definitions and constructions of the paper catalogue, from {PAPERS} papers, that the libraries lack and whose owner is in this area (the layer that plans each, or else the roadmap its paper's route sends it to), with the roadmaps they belong to.
+Write {OUTPUT} in the format of PROTOCOL.md section 19, and the report {REPORT}.
+If {OUTPUT} already exists from an earlier attempt, read it and continue: keep what is right, extend what is missing, and do not start over.
+
+1. Read every item of the input. Then read the catalogue around it: data/items/index.json (the names, kinds, statuses and papers of every item) and data/items/<n>.json (each paper's items in full). Papers whose items sit in other areas often need a notion this area owns: count every paper that needs it, and cite its items.
+2. Group the items into notions. For each notion decide whether it is a key definition (the five criteria of section 19) and whether it belongs here: its owner layer is in this area, and no other survey covers it.
+3. For each key definition write its entry:
+   - what to define, with the conventions pinned;
+   - what Mathlib and Tau Ceti have and what is missing, read at the pinned commits (search {BASELINE}/declarations.tsv, then open the Lean file and read the statement);
+   - the papers that need it, with their items;
+   - the layers that own it;
+   - the key definitions it depends on, in any area;
+   - its size;
+   - at least five sample API statements: worked examples with their values, a counterexample showing that a hypothesis or distinction matters, and the theorems the definition exists to support. A plausible wrong definition must fail one of them.
+4. Account for every input item: in an entry's papers, under `elsewhere` (with its owner) or `reserve` (with the reason), or in `routine`.
+5. Order the entries by the number of papers that need them. Run `python3 scripts/check_keydefs.py {OUTPUT}` until it reports no errors, and set "status": "complete" only when every input item is accounted for. If you cannot finish, leave "partial" with `remaining`, and write a handoff note, research/blueprint/handoff/{JOB}.md.
+6. Write the report {REPORT} for a human reader:
+   - the entries as a table (definition, papers, owner, size);
+   - the notable exclusions, and why;
+   - the gaps (key definitions nothing plans) and the duplications (planned twice) you found.
+
+Other surveys are in research/blueprint/keydefs/KEYDEF-*.json and data/keydefs/*.json. Never give an entry to a notion another survey covers: list it under `elsewhere`, with that survey's id as its owner. Notions a Tau Ceti roadmap owns go under `elsewhere` too: the atlas does not plan Tau Ceti's roadmaps. Write every entry from the catalogue, the papers and the libraries; lists of definitions compiled elsewhere are not sources.
+Edit only {OUTPUT}, {REPORT}, the handoff note and your scratch directory.
+""" + CHECK_INPUTS
+
+KEYDEF_REVIEW_TEMPLATE = """You are an independent reviewer for the Tau Ceti Atlas. You did not write the survey you review. You run unattended in a tmux session as job {JOB}. Work in {REPO}. Your scratch directory is {WORKERS}/{JOB} (create it). Save as you go.
+
+READ FIRST (binding): research/blueprint/PROTOCOL.md, section 19, and sections 1 and 16, on which it rests.
+JOB: review the key-definition survey {OUTPUT} of the area "{LABEL}" ({AREA}){PARTNOTE}, with its report {REPORT} and its input {INPUT}.
+1. For every entry, check the five criteria of section 19. Open the cited catalogue items (data/items/<n>.json), confirm that each is an instance of the notion and that the paper count is right, and search the catalogue (data/items/index.json) for papers it missed.
+2. Read every declaration behind a library claim at the pinned commits ({BASELINE}/declarations.tsv, then the Lean file), and search for declarations the survey missed: a notion the libraries already have is not a key definition.
+3. Check each sample API statement. It must be true as stated, and do the discriminating job it claims: a counterexample really fails for the plausible wrong definition, and an example's value is right.
+4. Check the owners, dependencies and sizes against the atlas (data/atlas.json, research/blueprint/roadmaps/) and the other surveys (research/blueprint/keydefs/, data/keydefs/).
+5. Check the reserve and routine decisions, and add any key definition of the input that the survey missed, with its full entry.
+6. Correct {OUTPUT} and {REPORT} in place where the fix is clear. Run `python3 scripts/check_keydefs.py {OUTPUT}` until it reports no errors, then write into {OUTPUT}: "review": {{"status": "accepted" | "needs_changes" | "rejected", "reviewer": "independent-review-{JOB}", "date": "<YYYY-MM-DD>", "notes": "what you checked, what you corrected and what remains"}}. Accept only a survey whose every entry meets the criteria.
+7. Write your report to research/blueprint/reviews/{JOB}.md.
+Edit only {OUTPUT}, {REPORT}, research/blueprint/reviews/{JOB}.md and your scratch directory.
+""" + CHECK_INPUTS
+
 REDTEAM_FOCUS = {
     "audit": "An audit: re-check every claim. For each target marked built or partly built, open each cited declaration at the pinned commit and check that it provides the target. For each target marked not built, search the libraries (declarations.tsv, then the files) for it under other names.",
     "restructure": "A restructuring proposal: check it against the member roadmaps' documents. Every target of a changed layer is kept, moved or supplied; every owner owns what it is said to; no consumer loses a prerequisite; there is no cycle; Tau Ceti roadmaps are unchanged.",
@@ -420,6 +461,88 @@ def accepted_routes(pid):
         return []
     accepted = {entry.get("route") for entry in review.get("routes", []) if entry.get("verdict") == "accept"}
     return [route for number, route in enumerate(result.get("routes", []), 1) if number in accepted]
+
+
+# A key-definition survey reads at most this many catalogue items (PROTOCOL.md section 19);
+# a larger area is surveyed in parts, each a set of whole roadmaps.
+KEYDEF_PART = 450
+EVIDENCE_KINDS = ("definition", "construction")
+
+
+def keydef_slices(stages, galaxy_of, new_roadmaps, areas, root=REPO):
+    """{area: [item]}: every catalogue definition and construction the libraries lack, under the area of
+    its owner: the roadmap of the layer that plans it, or else the roadmap its paper's route sends it to.
+    Items a Tau Ceti layer plans, and items with no owner in an area, are left out.
+    stages: {stage id: stage}; galaxy_of: {roadmap id: area}; new_roadmaps: {roadmap id: definition};
+    areas: the area ids of data/galaxies.json."""
+    route_of, route_area, route_parent = {}, {}, {}
+    for path in sorted((root / "research" / "blueprint" / "papers").glob("PAPER-*.result.json")):
+        pid = path.name[:-len(".result.json")]
+        try:
+            routes = accepted_routes(pid) or json.loads(path.read_text()).get("routes", [])
+        except (OSError, ValueError):
+            continue
+        for route in routes:
+            rid = route.get("roadmap")
+            if not rid:
+                continue
+            route_area.setdefault(rid, route.get("area"))
+            route_parent.setdefault(rid, route.get("parent"))
+            for item in route.get("items") or []:
+                route_of.setdefault(item, rid)
+
+    def area_of(rid):
+        for candidate in (galaxy_of.get(rid), (new_roadmaps.get(rid) or {}).get("area"), route_area.get(rid),
+                          galaxy_of.get(route_parent.get(rid))):
+            if candidate in areas:
+                return candidate
+        return None
+
+    slices = defaultdict(list)
+    for path in sorted((root / "data" / "items").glob("[0-9]*.json"), key=lambda p: int(p.stem)):
+        data = json.loads(path.read_text())
+        for item in data.get("items", []):
+            if item.get("kind") not in EVIDENCE_KINDS or item.get("status") == "library":
+                continue
+            owner = layer = None
+            for ref in item.get("planned") or []:
+                ref = str(ref)
+                if ref.startswith("tauceti:"):
+                    owner = "tauceti"
+                    break
+                sid = ref if ref in stages else ref.split("/")[0]
+                if sid in stages:
+                    owner, layer = stages[sid]["owner"], sid
+                    break
+                if ref.split(":")[0] in new_roadmaps:
+                    owner = ref.split(":")[0]
+                    break
+            if owner == "tauceti":
+                continue
+            owner = owner or route_of.get(item["id"])
+            area = area_of(owner) if owner else None
+            if area:
+                slices[area].append({"id": item["id"], "paper": data.get("paper"), "kind": item["kind"], "name": item.get("name", ""),
+                                     "statement": item.get("statement", ""), "status": item.get("status"),
+                                     "planned": item.get("planned") or [], "owner": owner, "layer": layer})
+    return slices
+
+
+def keydef_parts(items, size=KEYDEF_PART):
+    """The items in parts of at most `size`, each a set of whole roadmaps (one larger roadmap is a part of its own)."""
+    by_owner = defaultdict(list)
+    for item in items:
+        by_owner[item["owner"]].append(item)
+    parts, current = [], []
+    for owner in sorted(by_owner):
+        block = by_owner[owner]
+        if current and len(current) + len(block) > size:
+            parts.append(current)
+            current = []
+        current = current + block
+    if current:
+        parts.append(current)
+    return parts or [[]]
 
 
 def excerpt(text, size=500):
@@ -1166,6 +1289,52 @@ def main():
         existing = []
     states = {j["id"]: j.get("state") for j in existing}
     previous_outputs = {j["id"]: j.get("outputs", []) for j in existing}
+
+    # Key definitions (PROTOCOL.md section 19): a survey of each area that
+    # research/blueprint/keydefs/areas.json enables, in parts for a large area, each with its review.
+    # A survey's input is written once it is queued and left alone once the job is taken.
+    keydef_config = BP / "keydefs" / "areas.json"
+    enabled = json.loads(keydef_config.read_text()).get("enabled", []) if keydef_config.exists() else []
+    if enabled:
+        galaxies = json.loads((REPO / "data" / "galaxies.json").read_text())["galaxies"]
+        labels = {galaxy["id"]: galaxy["label"] for galaxy in galaxies}
+        classification = json.loads((REPO / "data" / "roadmap-classification.json").read_text())["roadmaps"]
+        galaxy_of = {rid: record.get("galaxy") for rid, record in classification.items() if record.get("galaxy")}
+        new_roadmaps = {}
+        for path in sorted((BP / "roadmaps").glob("*.json")):
+            try:
+                definition = json.loads(path.read_text())
+            except (OSError, ValueError):
+                continue
+            new_roadmaps[definition.get("id", path.stem)] = definition
+        all_stages = {s["id"]: s for s in atlas["stages"]}
+        slices = keydef_slices(all_stages, galaxy_of, new_roadmaps, set(labels))
+        inputs = BP / "keydefs" / "inputs"
+        for number, area in enumerate(enabled, 1):
+            if area not in labels:
+                raise SystemExit(f"research/blueprint/keydefs/areas.json enables {area!r}, which is not an area of data/galaxies.json")
+            parts = keydef_parts(slices.get(area, []))
+            for k, items in enumerate(parts, 1):
+                multi = len(parts) > 1
+                job_id = f"KEYDEF-{area}" + (f"-{k}" if multi else "")
+                note = f", part {k} of {len(parts)}" if multi else ""
+                name = labels[area] + (f" (part {k} of {len(parts)})" if multi else "")
+                source = f"research/blueprint/keydefs/inputs/{job_id}.json"
+                output, report = f"research/blueprint/keydefs/{job_id}.json", f"research/blueprint/keydefs/{job_id}.md"
+                if states.get(job_id, "pending") == "pending" and not args.dry_run:
+                    owners = sorted({item["owner"] for item in items})
+                    listed = [{"id": rid, "title": (roadmaps.get(rid) or new_roadmaps.get(rid) or {}).get("title", rid),
+                               "layers": [{"id": s["id"], "title": s["title"]} for s in stages_by_owner.get(rid, [])]} for rid in owners]
+                    inputs.mkdir(parents=True, exist_ok=True)
+                    (REPO / source).write_text(json.dumps({"job": job_id, "area": area, "label": labels[area], "part": k if multi else None,
+                                                           "roadmaps": listed, "items": items}, indent=1, ensure_ascii=False) + "\n")
+                fields = dict(AREA=area, LABEL=labels[area], PARTNOTE=note, INPUT=source, OUTPUT=output, REPORT=report,
+                              COUNT=len(items), PAPERS=len({item["paper"] for item in items}))
+                add({"id": job_id, "kind": "keydef", "priority": 1, "order": 600 + 10 * number + k, "name": name, "area": area,
+                     "roadmapIds": [], "outputs": [output, report], "after": []}, KEYDEF_TEMPLATE.format(**fill, JOB=job_id, **fields))
+                add({"id": "REV-" + job_id, "kind": "review", "priority": 1, "order": 600 + 10 * number + k, "name": name, "area": area,
+                     "roadmapIds": [], "outputs": [f"research/blueprint/reviews/REV-{job_id}.md", output, report],
+                     "after": [job_id], "avoidAccountOf": job_id}, KEYDEF_REVIEW_TEMPLATE.format(**fill, JOB="REV-" + job_id, **fields))
     # Who writes each roadmap's plan: its blueprint jobs (one per part) and, for a new roadmap, its design job.
     writers = defaultdict(list)
     for j in jobs:

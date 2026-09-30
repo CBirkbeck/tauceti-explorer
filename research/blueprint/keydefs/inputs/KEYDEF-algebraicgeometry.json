@@ -1,0 +1,3514 @@
+{
+ "job": "KEYDEF-algebraicgeometry",
+ "area": "algebraicgeometry",
+ "label": "Schemes, curves and moduli",
+ "part": null,
+ "roadmaps": [
+  {
+   "id": "AlgebraicModuliForArithmeticGeometry",
+   "title": "Algebraic moduli and representability for arithmetic geometry",
+   "layers": [
+    {
+     "id": "AlgebraicModuliForArithmeticGeometry:A0-extension",
+     "title": "higher-dimensional moduli prerequisites"
+    },
+    {
+     "id": "AlgebraicModuliForArithmeticGeometry:R09.1",
+     "title": "Projective parameter spaces"
+    },
+    {
+     "id": "AlgebraicModuliForArithmeticGeometry:R09.2",
+     "title": "Hilbert and Quot functors"
+    },
+    {
+     "id": "AlgebraicModuliForArithmeticGeometry:R09.3",
+     "title": "Algebraic spaces and descent"
+    },
+    {
+     "id": "AlgebraicModuliForArithmeticGeometry:R09.4",
+     "title": "Algebraic stacks in the required class"
+    },
+    {
+     "id": "AlgebraicModuliForArithmeticGeometry:R09.5",
+     "title": "Coarse spaces and rigidification"
+    },
+    {
+     "id": "AlgebraicModuliForArithmeticGeometry:R09.6",
+     "title": "Formal deformation and representability comparisons"
+    },
+    {
+     "id": "AlgebraicModuliForArithmeticGeometry:R09.7",
+     "title": "Characteristic-zero resolution and normal-crossings compactification"
+    },
+    {
+     "id": "AlgebraicModuliForArithmeticGeometry:R09.7a",
+     "title": "Blowups, transforms and marked ideals"
+    },
+    {
+     "id": "AlgebraicModuliForArithmeticGeometry:R09.7b",
+     "title": "Local invariant, maximal contact and coefficient ideals"
+    },
+    {
+     "id": "AlgebraicModuliForArithmeticGeometry:R09.7c",
+     "title": "Global centres and termination"
+    },
+    {
+     "id": "AlgebraicModuliForArithmeticGeometry:R09.7d",
+     "title": "The compactification interface for Borel extension"
+    }
+   ]
+  },
+  {
+   "id": "ComplexComparisonPartII",
+   "title": "Complex Comparison PartII",
+   "layers": [
+    {
+     "id": "ComplexComparisonPartII:C0",
+     "title": "Coherent analytic modules on algebraic analytifications"
+    },
+    {
+     "id": "ComplexComparisonPartII:C1",
+     "title": "Analytic coherent cohomology and projective computations"
+    },
+    {
+     "id": "ComplexComparisonPartII:C2",
+     "title": "Projective coherent GAGA"
+    },
+    {
+     "id": "ComplexComparisonPartII:C3",
+     "title": "Proper coherent GAGA and algebraic spaces"
+    },
+    {
+     "id": "ComplexComparisonPartII:C4",
+     "title": "Chow algebraization and morphism comparison"
+    },
+    {
+     "id": "ComplexComparisonPartII:C5",
+     "title": "Algebraic de Rham–Betti comparison"
+    },
+    {
+     "id": "ComplexComparisonPartII:C6",
+     "title": "Arithmetic comparison acceptance tests"
+    }
+   ]
+  },
+  {
+   "id": "EssentialDimensionOfCovers",
+   "title": "EssentialDimensionOfCovers",
+   "layers": []
+  },
+  {
+   "id": "GenericDoublePointInterpolation",
+   "title": "GenericDoublePointInterpolation",
+   "layers": []
+  },
+  {
+   "id": "HodgeStructuresPartII",
+   "title": "HodgeStructuresPartII",
+   "layers": []
+  },
+  {
+   "id": "LefschetzFiniteFieldBertiniPartII",
+   "title": "LefschetzFiniteFieldBertiniPartII",
+   "layers": []
+  },
+  {
+   "id": "MacaulayficationOfNoetherianSchemes",
+   "title": "MacaulayficationOfNoetherianSchemes",
+   "layers": []
+  },
+  {
+   "id": "MotivicStructuresInModuliOfCurves",
+   "title": "MotivicStructuresInModuliOfCurves",
+   "layers": []
+  },
+  {
+   "id": "NumericalPicardAndContractionDescent",
+   "title": "NumericalPicardAndContractionDescent",
+   "layers": []
+  },
+  {
+   "id": "PurityForFlatCohomology",
+   "title": "PurityForFlatCohomology",
+   "layers": []
+  },
+  {
+   "id": "SchemeAndStackFoundations",
+   "title": "Scheme, stack, cohomology and intersection foundations",
+   "layers": [
+    {
+     "id": "SchemeAndStackFoundations:SF.0",
+     "title": "Schemes and morphisms"
+    },
+    {
+     "id": "SchemeAndStackFoundations:SF.1",
+     "title": "Descent and algebraic spaces/stacks"
+    },
+    {
+     "id": "SchemeAndStackFoundations:SF.2",
+     "title": "Sites and scheme cohomology"
+    },
+    {
+     "id": "SchemeAndStackFoundations:SF.3",
+     "title": "Curves, divisors and Picard objects"
+    },
+    {
+     "id": "SchemeAndStackFoundations:SF.4",
+     "title": "Deformations, models and birational geometry"
+    },
+    {
+     "id": "SchemeAndStackFoundations:SF.5",
+     "title": "Intersection theory and Riemann-Roch"
+    },
+    {
+     "id": "SchemeAndStackFoundations:SF.6",
+     "title": "Arithmetic cohomology handoffs"
+    }
+   ]
+  },
+  {
+   "id": "SchemeAndStackFoundationsFlatCohomologyPartII",
+   "title": "SchemeAndStackFoundationsFlatCohomologyPartII",
+   "layers": []
+  },
+  {
+   "id": "SchemeAndStackFoundationsPartIIComplexSurfaceContractions",
+   "title": "SchemeAndStackFoundationsPartIIComplexSurfaceContractions",
+   "layers": []
+  },
+  {
+   "id": "SheafConvolutionOnAbelianVarieties",
+   "title": "SheafConvolutionOnAbelianVarieties",
+   "layers": []
+  }
+ ],
+ "items": [
+  {
+   "id": "PAPER-BENOIST-19/137",
+   "paper": "PAPER-BENOIST-19",
+   "kind": "construction",
+   "name": "Projective bundle and tautological sections",
+   "statement": "For a line bundle L on S construct P_S(O⊕L) in the quotient convention with O(1), f_*O(1)≅O⊕L and the two induced sections v,w used by item57. Prove base-change and section identities.",
+   "status": "planned",
+   "planned": [
+    "AlgebraicModuliForArithmeticGeometry:R09.1"
+   ],
+   "owner": "AlgebraicModuliForArithmeticGeometry",
+   "layer": "AlgebraicModuliForArithmeticGeometry:R09.1"
+  },
+  {
+   "id": "PAPER-BOXER-PILLONI-26/blow-up-separating-two-cartier-divisors",
+   "paper": "PAPER-BOXER-PILLONI-26",
+   "kind": "construction",
+   "name": "Proposition-construction 4.1.11: blowing up to separate two Cartier divisors",
+   "statement": "Let X̄ be a scheme and D_1, D_2 effective Cartier divisors on X̄. Let p: X̃ → X̄ be the blow-up along the ideal generated by O_X̄(−D_1) and O_X̄(−D_2). There are effective Cartier divisors D'_1, D'_2 on X̃ with disjoint supports such that p^*D_1 + D'_2 = p^*D_2 + D'_1. Locally, with X̄ = Spec A, D_i = V(x_i), I = (x_1, x_2) and X̃ = Proj ⊕_n I^n, D'_i is the divisor of the section x'_i of O_X̃(1) given by x_i ∈ I in degree 1. Then x'_1x_2 = x'_2x_1 and V(x'_1, x'_2) = Proj(⊕_n I^n/(x_1, x_2)I^{n−1}) = ∅.",
+   "status": "missing",
+   "planned": [],
+   "owner": "AlgebraicModuliForArithmeticGeometry",
+   "layer": null
+  },
+  {
+   "id": "PAPER-CANNING-LARSON-PAYNE-24/93",
+   "paper": "PAPER-CANNING-LARSON-PAYNE-24",
+   "kind": "definition",
+   "name": "Projective and Grassmann bundles",
+   "statement": "For a vector bundle E on a base, P E and the Grassmann bundle Gr(r, E) are the parameter spaces of rank one quotients and rank r subbundles, with their tautological sub- and quotient bundles and universal properties; the paper works with P E^∨ over the Casnati–Ekedahl base and with Gr(7 − n, Q_n) over Z_n.",
+   "status": "planned",
+   "planned": [
+    "AlgebraicModuliForArithmeticGeometry:R09.1"
+   ],
+   "owner": "AlgebraicModuliForArithmeticGeometry",
+   "layer": "AlgebraicModuliForArithmeticGeometry:R09.1"
+  },
+  {
+   "id": "PAPER-CESNAVICIUS-21/17",
+   "paper": "PAPER-CESNAVICIUS-21",
+   "kind": "definition",
+   "name": "§1.14: height, coheight, codimension and blowing up",
+   "statement": "§1.14. For a scheme X the height of x ∈ X is dim(O_{X,x}) and the coheight is dim of the closure of {x}; X^{(i)} is the set of points of height i; the codimension of a closed Y ⊂ X is the infimum of the heights of the points of X lying on Y. Bl_Y(X) — also written Bl_𝓘(X) for the quasi-coherent ideal 𝓘 cutting out Y — is the blowing up; the paper uses freely that it has a universal property, commutes with flat base change in X, and is projective over X when 𝓘 is of finite type. For a module M over a ring R and an ideal 𝔯 one writes M⟨𝔯⟩ for the 𝔯-torsion, M⟨𝔯^∞⟩ for the union of the M⟨𝔯^n⟩, and M' :_M 𝔯 for the preimage of (M/M')⟨𝔯⟩ in M.",
+   "status": "planned",
+   "planned": [
+    "AlgebraicModuliForArithmeticGeometry:R09.7a",
+    "SchemeAndStackFoundations:SF.0"
+   ],
+   "owner": "AlgebraicModuliForArithmeticGeometry",
+   "layer": "AlgebraicModuliForArithmeticGeometry:R09.7a"
+  },
+  {
+   "id": "PAPER-CHEN-24/38",
+   "paper": "PAPER-CHEN-24",
+   "kind": "definition",
+   "name": "Vertical automorphism groups (Definition 2.5.5)",
+   "statement": "For a map of algebraic stacks f : X → Y and a T-point t, the vertical automorphism group of t is the kernel of f_* : Aut_{X(T)}(t) → Aut_{Y(T)}(f(t)); for Deligne–Mumford stacks f is representable exactly when all vertical automorphism groups of geometric points are trivial. Unless said otherwise the vertical automorphism group is taken relative to the map to M(1)‾ and written Aut^v(t); for a point of Adm⁰(G) given by π : C → E it is the group of G-equivariant automorphisms σ of C with π ∘ σ = π.",
+   "status": "missing",
+   "planned": [],
+   "owner": "AlgebraicModuliForArithmeticGeometry",
+   "layer": null
+  },
+  {
+   "id": "PAPER-CHEN-24/45",
+   "paper": "PAPER-CHEN-24",
+   "kind": "definition",
+   "name": "Sheaf of relative differentials and relative dualizing sheaf for stacks",
+   "statement": "For a representable morphism f : C → X of algebraic stacks, Ω_{C/X} is defined by descent from a smooth presentation, and for a representable flat proper finitely presented morphism with geometrically connected Cohen–Macaulay fibres the relative dualizing sheaf ω_{C/X} is defined by ω_{C/X}(t) := Γ(T, τ*ω_{C_T/T}) over schemes T → X, using that relative dualizing sheaves commute with arbitrary base change.",
+   "status": "missing",
+   "planned": [],
+   "owner": "AlgebraicModuliForArithmeticGeometry",
+   "layer": null
+  },
+  {
+   "id": "PAPER-CHEN-24/49",
+   "paper": "PAPER-CHEN-24",
+   "kind": "definition",
+   "name": "Degrees of line bundles on 1-dimensional stacks (Lemma 3.4.1, Definition 3.4.2, Proposition 3.4.3)",
+   "statement": "For a connected proper algebraic stack X of pure dimension 1 over a field admitting a finite flat surjection p : U → X from a connected scheme, deg(L) := deg(p*L)/deg p ∈ ℚ is independent of p. Such a cover exists for X smooth separated generically tame 1-dimensional with a coarse scheme, and in particular for Adm(G)‾_k and M(G)‾_k when char k ∤ 2|G|.",
+   "status": "missing",
+   "planned": [],
+   "owner": "AlgebraicModuliForArithmeticGeometry",
+   "layer": null
+  },
+  {
+   "id": "PAPER-DEMARCO-MAVRAKI-YE-26/11",
+   "paper": "PAPER-DEMARCO-MAVRAKI-YE-26",
+   "kind": "construction",
+   "name": "Chow varieties of bounded-degree cycles",
+   "statement": "For an irreducible quasi-projective Y ⊂ ℙ^N over Q̄ with closure Ȳ, Ch(Ȳ, r, D) is the Chow variety of r-dimensional cycles of degree ≤ D supported in Ȳ, a subvariety of Ch(ℙ^N, r, D) defined over Q̄. Ch(Y, r, D) is its open subset of cycles meeting Y, and \"degree ≤ D\" for subvarieties of Y is independent of the embedding up to changing D.",
+   "status": "missing",
+   "planned": [],
+   "owner": "AlgebraicModuliForArithmeticGeometry",
+   "layer": null
+  },
+  {
+   "id": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/126",
+   "paper": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16",
+   "kind": "construction",
+   "name": "Quotient stacks and torsor atlases imported from the moduli owner",
+   "statement": "For a smooth affine group scheme B acting on a scheme U, form [U/B] via B-torsors equipped with equivariant maps to U. The map U→[U/B] is representable, smooth and surjective; its pullback to any T-point is the corresponding B-torsor. Retain stabilizers, including ineffective central subgroups.",
+   "status": "planned",
+   "planned": [
+    "AlgebraicModuliForArithmeticGeometry:R09.4"
+   ],
+   "owner": "AlgebraicModuliForArithmeticGeometry",
+   "layer": "AlgebraicModuliForArithmeticGeometry:R09.4"
+  },
+  {
+   "id": "PAPER-GAO-GE-KUHNE-26/34",
+   "paper": "PAPER-GAO-GE-KUHNE-26",
+   "kind": "construction",
+   "name": "Hilbert scheme H_P(A) and its universal family",
+   "statement": "For a projective A over ℚ̄ with very ample L and a polynomial P, H_P(A) represents closed subschemes of A with Hilbert polynomial P; there is a universal closed subscheme X ⊆ A × H_P(A), flat and proper over H_P(A). H_P(A) is projective.",
+   "status": "planned",
+   "planned": [
+    "AlgebraicModuliForArithmeticGeometry:R09.2"
+   ],
+   "owner": "AlgebraicModuliForArithmeticGeometry",
+   "layer": "AlgebraicModuliForArithmeticGeometry:R09.2"
+  },
+  {
+   "id": "PAPER-GAO-GE-KUHNE-26/35",
+   "paper": "PAPER-GAO-GE-KUHNE-26",
+   "kind": "construction",
+   "name": "H_{r,d}(A) and its universal family",
+   "statement": "H_{r,d}(A) := ⨆_{P ∈ Ξ} H_P(A), a projective scheme over ℚ̄ with universal family X_{r,d}(A) ⊆ A × H_{r,d}(A) (the diagram (3.1)); its fibre over s is the subscheme it parametrizes.",
+   "status": "missing",
+   "planned": [],
+   "owner": "AlgebraicModuliForArithmeticGeometry",
+   "layer": null
+  },
+  {
+   "id": "PAPER-GAO-GE-KUHNE-26/43",
+   "paper": "PAPER-GAO-GE-KUHNE-26",
+   "kind": "construction",
+   "name": "Relative Hilbert scheme H over 𝔸_g",
+   "statement": "H := ⨆_{P ∈ Ξ} H_P(𝔄_g/𝔸_g) → 𝔸_g, with H_P(𝔄_g/𝔸_g) representing proper subschemes W ⊆ 𝔄_g ×_{𝔸_g} T flat over T with Hilbert polynomial P (w.r.t. 𝔏_g^{⊗4}); each H_P is projective over 𝔸_g and the universal family X ⊆ 𝔄_g ×_{𝔸_g} H =: A is flat and proper over H.",
+   "status": "planned",
+   "planned": [
+    "AlgebraicModuliForArithmeticGeometry:R09.2"
+   ],
+   "owner": "AlgebraicModuliForArithmeticGeometry",
+   "layer": "AlgebraicModuliForArithmeticGeometry:R09.2"
+  },
+  {
+   "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/14",
+   "paper": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B",
+   "kind": "definition",
+   "name": "Coarse moduli space of a tame Deligne–Mumford stack over O_F",
+   "statement": "For a smooth and tame Deligne–Mumford stack M/O_F, M/O_F denotes a coarse moduli space with canonical map Q : M → M (Keel–Mori), and V ⊂ M the maximal open subscheme for which Q^{-1}(V) → V is an isomorphism.",
+   "status": "missing",
+   "planned": [],
+   "owner": "AlgebraicModuliForArithmeticGeometry",
+   "layer": null
+  },
+  {
+   "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/15",
+   "paper": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B",
+   "kind": "definition",
+   "name": "Zariski-locally a finite étale quotient stack",
+   "statement": "M is Zariski-locally a finite étale quotient stack if there is a finite covering by Zariski-open substacks M = ∪_{i∈I} M_i with equivalences M_i = [U_i/Γ_i], where Γ_i is a finite étale group O_F-scheme, U_i a smooth O_F-scheme, the action of Γ_i on U_i is generically free and every orbit lies in an affine subset.",
+   "status": "missing",
+   "planned": [],
+   "owner": "AlgebraicModuliForArithmeticGeometry",
+   "layer": null
+  },
+  {
+   "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/19",
+   "paper": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B",
+   "kind": "definition",
+   "name": "The twisted inertia stack",
+   "statement": "For a stack X over Spec(k), the twisted inertia stack is the X-stack I_µ̂X = colim_n Hom(Bµ_n, X) → X.",
+   "status": "missing",
+   "planned": [],
+   "owner": "AlgebraicModuliForArithmeticGeometry",
+   "layer": null
+  },
+  {
+   "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/37",
+   "paper": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B",
+   "kind": "definition",
+   "name": "Gerbes banded by an abelian group and their classification",
+   "statement": "For X a stack and A an abelian sheaf, an A-gerbe on X is a stack over X which is locally non-empty and locally connected with band A; by Giraud's theorem the set of equivalence classes of A-gerbes on X is in natural bijection with the Čech cohomology group Ȟ²_ét(X, A). Unless stated otherwise 'gerbe' means G_m-gerbe, classified by Ȟ²_ét(X, G_m).",
+   "status": "missing",
+   "planned": [],
+   "owner": "AlgebraicModuliForArithmeticGeometry",
+   "layer": null
+  },
+  {
+   "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B/87",
+   "paper": "PAPER-GROECHENIG-WYSS-ZIEGLER-20-B",
+   "kind": "construction",
+   "name": "Quotient stacks of twisted group actions",
+   "statement": "Let S be a base algebraic space, A and B smooth group algebraic spaces over S and X an algebraic space over S with actions of A and B, with A acting on B by group automorphisms so that B ×_S X → X is A-equivariant. For an A-torsor ρ over S the twists X̄ = X ×^A ρ and B̄ = B ×^A ρ carry an action B̄ ×_S X̄ → X̄, the actions of B and A on X × ρ combine to an action of B ⋊ A, and the quotient morphism induces an isomorphism of quotient stacks [(X × ρ)/(B ⋊ A)] ≅ [X̄/B̄].",
+   "status": "missing",
+   "planned": [],
+   "owner": "AlgebraicModuliForArithmeticGeometry",
+   "layer": null
+  },
+  {
+   "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20/4",
+   "paper": "PAPER-GROECHENIG-WYSS-ZIEGLER-20",
+   "kind": "definition",
+   "name": "Finite and finite abelian quotient stacks",
+   "statement": "A Deligne–Mumford stack X is a finite quotient stack if X ≃ [Y/Γ] for an algebraic space Y with a generically fixed-point-free action of an abstract finite group Γ, and a finite abelian quotient stack if Γ can moreover be taken abelian.",
+   "status": "missing",
+   "planned": [],
+   "owner": "AlgebraicModuliForArithmeticGeometry",
+   "layer": null
+  },
+  {
+   "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20/6",
+   "paper": "PAPER-GROECHENIG-WYSS-ZIEGLER-20",
+   "kind": "definition",
+   "name": "Inertia stacks of finite quotient stacks",
+   "statement": "For a stack X the inertia stack is IX = X ×_{X×X} X; its S-points are pairs (x, α) with x ∈ X(S) and α ∈ Aut(x), and IX → X is a relative group. For a finite quotient stack, IX ≅ ⊔_{[γ] ∈ Γ/conj} [Y^γ/C(γ)], so F and w are locally constant functions on IX(k)_iso. For a groupoid A with A_iso finite, its mass is #A = Σ_{a ∈ A_iso} 1/|Aut(a)|.",
+   "status": "missing",
+   "planned": [],
+   "owner": "AlgebraicModuliForArithmeticGeometry",
+   "layer": null
+  },
+  {
+   "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20/8",
+   "paper": "PAPER-GROECHENIG-WYSS-ZIEGLER-20",
+   "kind": "definition",
+   "name": "Gerbes, bandings and their classification",
+   "statement": "For a Deligne–Mumford stack S and a commutative group scheme A over S, a gerbe over S is a morphism of algebraic stacks α → S whose objects are étale-locally isomorphic and exist étale-locally; an A-banding is a compatible family of isomorphisms A_{S′} ≅ Aut_{S′}(x). A-gerbes up to isomorphism are classified by H²_ét(S, A); automorphisms of an A-gerbe form the groupoid of A-torsors.",
+   "status": "missing",
+   "planned": [],
+   "owner": "AlgebraicModuliForArithmeticGeometry",
+   "layer": null
+  },
+  {
+   "id": "PAPER-GROECHENIG-WYSS-ZIEGLER-20/32",
+   "paper": "PAPER-GROECHENIG-WYSS-ZIEGLER-20",
+   "kind": "construction",
+   "name": "Twisting by torsors",
+   "statement": "Let S be a scheme and Γ a commutative étale group S-scheme. For an S-scheme N with a Γ-action and T ∈ H¹_ét(S, Γ), the T-twist is the algebraic space N_T = [(N ×_S T)/Γ] (anti-diagonal action), with Γ acting through T (Definition 4.5). There is an equivalence [N/Γ] ≃ [N_T/Γ] (Lemma 4.6), proved by exchanging quotients: for commuting actions of fppf group schemes Γ_1, Γ_2, [[N/Γ_1]/Γ_2] ≃ [[N/Γ_2]/Γ_1] (Lemma 4.7).",
+   "status": "missing",
+   "planned": [],
+   "owner": "AlgebraicModuliForArithmeticGeometry",
+   "layer": null
+  },
+  {
+   "id": "PAPER-JANNSEN-16/43",
+   "paper": "PAPER-JANNSEN-16",
+   "kind": "definition",
+   "name": "Definition 4.18: resolution of singularities (RS)_L",
+   "statement": "For a perfect field L: (RS1)_L every integral proper L-variety has a proper birational morphism from a smooth L-variety; (RS2)_L every smooth affine L-variety U has an open immersion into a smooth projective X with X ∖ U a simple normal crossings divisor. (RS)_L means both. RS2(U) at the start of §2 is (RS2) for one U. By Hironaka, (RS)_L holds in characteristic 0.",
+   "status": "planned",
+   "planned": [
+    "AlgebraicModuliForArithmeticGeometry:R09.7"
+   ],
+   "owner": "AlgebraicModuliForArithmeticGeometry",
+   "layer": "AlgebraicModuliForArithmeticGeometry:R09.7"
+  },
+  {
+   "id": "PAPER-KISIN-ZHOU-25/P09",
+   "paper": "PAPER-KISIN-ZHOU-25",
+   "kind": "construction",
+   "name": "General algebraic quotient stacks",
+   "statement": "Construct quotient stacks and smooth atlases in the moduli class used here, with their functors of points and finite level quotients.",
+   "status": "planned",
+   "planned": [
+    "AlgebraicModuliForArithmeticGeometry:R09.4"
+   ],
+   "owner": "AlgebraicModuliForArithmeticGeometry",
+   "layer": "AlgebraicModuliForArithmeticGeometry:R09.4"
+  },
+  {
+   "id": "PAPER-KLEVDAL-PATRIKIS-25/012",
+   "paper": "PAPER-KLEVDAL-PATRIKIS-25",
+   "kind": "definition",
+   "name": "Good relative compactification",
+   "statement": "A good compactification of a smooth family X/S is an open immersion into a smooth proper family Xbar/S whose boundary is a relative strict normal-crossings divisor. Étale-locally the divisor is a union of coordinate hyperplanes, not a coordinate linear subspace. Projectivity is an additional requirement in §2.",
+   "status": "planned",
+   "planned": [
+    "AlgebraicModuliForArithmeticGeometry:R09.7d"
+   ],
+   "owner": "AlgebraicModuliForArithmeticGeometry",
+   "layer": "AlgebraicModuliForArithmeticGeometry:R09.7d"
+  },
+  {
+   "id": "PAPER-PILLONI-20/quasi-coherent-derived-categories",
+   "paper": "PAPER-PILLONI-20",
+   "kind": "definition",
+   "name": "Derived categories D_qcoh, D^±_qcoh, D^b_qcoh, D^b_qcoh(O_X)_{fTd}; the base S",
+   "statement": "For a scheme X, D_qcoh(O_X) ⊂ D(O_X) is the full subcategory of complexes with quasi-coherent cohomology sheaves; D^+_qcoh(O_X) (resp. D^−_qcoh(O_X)) consists of objects with vanishing cohomology sheaves in sufficiently negative (resp. positive) degrees; D^b_qcoh(O_X) of objects with only finitely many non-zero cohomology sheaves; D^b_qcoh(O_X)_{fTd} ⊂ D^b_qcoh(O_X) of objects quasi-isomorphic to bounded complexes of flat O_X-modules ([32] Def. 4.3 p. 97). If X is locally noetherian, D^+_qcoh(O_X) is also the derived category of bounded-below complexes of quasi-coherent sheaves ([32] Cor. 7.19). For the rest of §4, S is a fixed noetherian affine scheme.",
+   "status": "missing",
+   "planned": [],
+   "owner": "AlgebraicModuliForArithmeticGeometry",
+   "layer": null
+  },
+  {
+   "id": "PAPER-PILLONI-20/embeddable-and-projectively-embeddable-morphisms",
+   "paper": "PAPER-PILLONI-20",
+   "kind": "definition",
+   "name": "Embeddable and projectively embeddable morphisms",
+   "statement": "A morphism of S-schemes f: X → Y is embeddable if there exist a smooth S-scheme P and a finite morphism i: X → P ×_S Y such that f is the composite of i and the second projection ([32] p. 189). f is projectively embeddable if it is embeddable and P can be taken to be a projective space over S ([32] p. 206).",
+   "status": "missing",
+   "planned": [],
+   "owner": "AlgebraicModuliForArithmeticGeometry",
+   "layer": null
+  },
+  {
+   "id": "PAPER-PILLONI-20/lci-morphism-cotangent-complex-dualizing-sheaf",
+   "paper": "PAPER-PILLONI-20",
+   "kind": "definition",
+   "name": "Local complete intersection morphisms, cotangent complex L_{X/S} and ω_{X/S}",
+   "statement": "A morphism f: X → S is a local complete intersection (lci) if locally on X it factors as X →^i Z → S with i a regular immersion (EGA IV 16.9.2) and Z smooth over S. For f lci the cotangent complex L_{X/S} is a perfect complex concentrated in degrees −1 and 0, and ω_{X/S} denotes its determinant in the sense of Knudsen–Mumford [43].",
+   "status": "missing",
+   "planned": [],
+   "owner": "AlgebraicModuliForArithmeticGeometry",
+   "layer": null
+  },
+  {
+   "id": "PAPER-PILLONI-20/fundamental-class-and-trace",
+   "paper": "PAPER-PILLONI-20",
+   "kind": "definition",
+   "name": "Fundamental class Θ: f^*O_Y → f^!O_Y and the trace Tr: Rf_*f^*O_Y → O_Y",
+   "statement": "Let X, Y be embeddable S-schemes and f: X → Y an embeddable morphism. A fundamental class of f is a map Θ: f^*O_Y (= O_X) → f^!O_Y constructed ad hoc in the situations of Construction 1 (4.2.1) or Construction 2 (4.2.2). If f is moreover projectively embeddable, applying Rf_* and composing with the trace Rf_*f^!O_Y → O_Y gives Tr: Rf_*f^*O_Y → O_Y.",
+   "status": "missing",
+   "planned": [],
+   "owner": "AlgebraicModuliForArithmeticGeometry",
+   "layer": null
+  },
+  {
+   "id": "PAPER-PILLONI-20/fundamental-class-construction-1-determinant-of-differential",
+   "paper": "PAPER-PILLONI-20",
+   "kind": "construction",
+   "name": "Construction 1: fundamental class as determinant of the differential",
+   "statement": "Let f: X → Y be an embeddable morphism of embeddable S-schemes. Assume X and Y are local complete intersections over S of the same pure relative dimension, X is normal, and there are an open V ⊂ X smooth over S whose complement has codimension ≥ 2 (printed 'codimension 2') and an open U ⊂ Y smooth over S with f(V) ⊂ U. Over V the fundamental class is det(df), the determinant of df: f^*Ω^1_{U/S} → Ω^1_{V/S}, a section of ω_{V/S} ⊗ f^*ω_{U/S}^{-1} = f^!O_Y|_V (Cor. 4.1.3.1); since f^!O_Y is invertible and X is normal, it extends uniquely to Θ: O_X → f^!O_Y.",
+   "status": "missing",
+   "planned": [],
+   "owner": "AlgebraicModuliForArithmeticGeometry",
+   "layer": null
+  },
+  {
+   "id": "PAPER-PILLONI-20/fundamental-class-construction-2-trace",
+   "paper": "PAPER-PILLONI-20",
+   "kind": "construction",
+   "name": "Construction 2: fundamental class of a finite flat morphism is the trace",
+   "statement": "If f: X → Y is finite flat, then f^!O_Y = Hom_{O_Y}(f_*O_X, O_Y) (as an f_*O_X-module) and the fundamental class Θ: O_X → f^!O_Y is defined by Θ(1) = tr_f, the trace morphism tr_f: f_*O_X → O_Y of the finite locally free algebra f_*O_X.",
+   "status": "missing",
+   "planned": [],
+   "owner": "AlgebraicModuliForArithmeticGeometry",
+   "layer": null
+  },
+  {
+   "id": "PAPER-PILLONI-20/flag-and-trivialization-space-FL-plus-over-Kli-plus",
+   "paper": "PAPER-PILLONI-20",
+   "kind": "definition",
+   "name": "The space ℱℒ^+ → 𝒳_Kli(p^n,ε)^+",
+   "statement": "ℱℒ^+ → 𝒳_Kli(p^n,ε)^+ is the moduli space of flags Filω_G ⊂ ω_G (locally direct summands of rank 1) together with a trivialization ρ of Grω_G = ω_G/Filω_G (a nowhere vanishing section of the line bundle Gr(ω_G)).",
+   "status": "planned",
+   "planned": [
+    "AlgebraicModuliForArithmeticGeometry:R09.1",
+    "AdicSpacesPartII:R1",
+    "ShimuraCompactifications:C2"
+   ],
+   "owner": "AlgebraicModuliForArithmeticGeometry",
+   "layer": "AlgebraicModuliForArithmeticGeometry:R09.1"
+  },
+  {
+   "id": "PAPER-SCHIFFMANN-16/43",
+   "paper": "PAPER-SCHIFFMANN-16",
+   "kind": "definition",
+   "name": "Strong generation and quot schemes",
+   "statement": "A vector bundle F is strongly generated by a vector bundle G if Ext^1(G,F) = 0 and the canonical map G ⊗ Hom(G,F) → F is surjective; then dim Hom(G,F) = ⟨G,F⟩. For a vector bundle V and α = (r,d), the quot scheme Quot(V, α) represents the functor assigning to an affine k-scheme S the set of equivalence classes of epimorphisms V ⊠ O_S ↠ F with F an S-flat coherent sheaf on X × S whose fibres have rank r and degree d, two epimorphisms being equivalent when they have the same kernel. It is a projective, generally singular scheme, and the tangent space at φ : V ↠ F is Hom(Ker φ, F). Choosing a line bundle L of sufficiently negative degree so that Ker φ is strongly generated by L, and setting a = ⟨L,V⟩ and b = ⟨L, V − α⟩, the map sending φ to Hom(L, Ker φ) ⊆ Hom(L,V) ≅ k^a is a closed embedding Quot(V,α) → Gr(a,b).",
+   "status": "planned",
+   "planned": [
+    "AlgebraicModuliForArithmeticGeometry:R09.2"
+   ],
+   "owner": "AlgebraicModuliForArithmeticGeometry",
+   "layer": "AlgebraicModuliForArithmeticGeometry:R09.2"
+  },
+  {
+   "id": "PAPER-BENOIST-19/146",
+   "paper": "PAPER-BENOIST-19",
+   "kind": "construction",
+   "name": "Geometric Betti/de Rham and Gauss–Manin comparison",
+   "statement": "For proper smooth complex families, construct de Rham–Betti comparison with cup, trace, pullback and relative Gauss–Manin compatibility, retaining the integral Betti lattice before complexification. This does not alone supply the Hodge filtration or its infinitesimal criterion.",
+   "status": "planned",
+   "planned": [
+    "ComplexComparisonPartII:C5"
+   ],
+   "owner": "ComplexComparisonPartII",
+   "layer": "ComplexComparisonPartII:C5"
+  },
+  {
+   "id": "PAPER-FARB-KISIN-WOLFSON-24/001",
+   "paper": "PAPER-FARB-KISIN-WOLFSON-24",
+   "kind": "definition",
+   "name": "Essential dimension of a finite map",
+   "statement": "Let C be an algebraically closed field of characteristic 0 and f : Y → X a finite map of C-varieties. ed(Y/X) is the least integer e for which there are a dense Zariski open V ⊂ X, a finite map Y' → Z of C-varieties with dim Z = e and a map V → Z with Y|_V ≅ V ×_Z Y' over V.",
+   "status": "missing",
+   "planned": [],
+   "owner": "EssentialDimensionOfCovers",
+   "layer": null
+  },
+  {
+   "id": "PAPER-FARB-KISIN-WOLFSON-24/002",
+   "paper": "PAPER-FARB-KISIN-WOLFSON-24",
+   "kind": "definition",
+   "name": "p-essential dimension of a G-cover",
+   "statement": "For a finite group G, a G-cover Y → U (a finite étale G-torsor over a C-variety U) and a prime p, ed(Y/U; p) is the least d for which there exist: a dense Zariski open V ⊂ U; a finite étale π : E → V with p ∤ deg π; a morphism f : E → Z of C-varieties with dim Z = d; and a G-cover Z̃ → Z with f*Z̃ ≅ Y ×_U E as G-covers of E.",
+   "status": "missing",
+   "planned": [],
+   "owner": "EssentialDimensionOfCovers",
+   "layer": null
+  },
+  {
+   "id": "PAPER-FARB-KISIN-WOLFSON-24/003",
+   "paper": "PAPER-FARB-KISIN-WOLFSON-24",
+   "kind": "definition",
+   "name": "p-incompressible cover",
+   "statement": "A G-cover Y → X of an irreducible C-variety X is p-incompressible if ed(Y/X; p) = dim X (the maximal possible value).",
+   "status": "missing",
+   "planned": [],
+   "owner": "EssentialDimensionOfCovers",
+   "layer": null
+  },
+  {
+   "id": "PAPER-FARB-KISIN-WOLFSON-24/004",
+   "paper": "PAPER-FARB-KISIN-WOLFSON-24",
+   "kind": "construction",
+   "name": "Classifying map of a G-cover in mod p cohomology",
+   "statement": "Let X be a proper connected smooth C-scheme with a normal crossings divisor D, U = X − D, η̄ a geometric generic point and G a finite quotient of π_1^ét(U, η̄) (equivalently a connected G-cover Y → U). The classifying map H^i(G, F_p) → H^i(π_1^ét(U, η̄), F_p) → H^i_ét(U, F_p) is inflation followed by the edge map regarding π_1^ét-representations as étale sheaves on U.",
+   "status": "missing",
+   "planned": [],
+   "owner": "EssentialDimensionOfCovers",
+   "layer": null
+  },
+  {
+   "id": "PAPER-FARB-KISIN-WOLFSON-24/006",
+   "paper": "PAPER-FARB-KISIN-WOLFSON-24",
+   "kind": "definition",
+   "name": "Mod p homology cover",
+   "statement": "For U as above, the mod p homology cover Y → U is the G-cover attached to the maximal elementary abelian p-group quotient G of π_1^ét(U, η̄); then H^1(G, F_p) ≅ H^1_ét(U, F_p). When U is proper it is the pullback along the Albanese map of the multiplication-by-p cover of Alb(U).",
+   "status": "missing",
+   "planned": [],
+   "owner": "EssentialDimensionOfCovers",
+   "layer": null
+  },
+  {
+   "id": "PAPER-FARB-KISIN-WOLFSON-24/038",
+   "paper": "PAPER-FARB-KISIN-WOLFSON-24",
+   "kind": "definition",
+   "name": "The invariants h^{0,i}_{X,D}",
+   "statement": "With K = W(k)[1/p], X a proper smooth formal O_K-scheme with relative normal crossings divisor D (2.2.2), h^{0,i}_{X,D} = dim_K H^0(X_K, Ω^i_{X_K/K}(log D)); for a smooth scheme Y over a field with ncd D, h^{0,i}_{Y,D} = dim H^0(Y, Ω^i_Y(log D)).",
+   "status": "missing",
+   "planned": [],
+   "owner": "EssentialDimensionOfCovers",
+   "layer": null
+  },
+  {
+   "id": "PAPER-FARB-KISIN-WOLFSON-24/043",
+   "paper": "PAPER-FARB-KISIN-WOLFSON-24",
+   "kind": "definition",
+   "name": "The invariants h^{0,1→i}",
+   "statement": "h^{0,1→i}_{X,D} = dim_K Im(∧^i H^0(X_K, Ω^1(log D)) → H^0(X_K, Ω^i(log D))) and h^{0,1→i}_{X_k,D_k} = dim_k Im(∧^i H^0(X_k, Ω^1(log D_k)) → H^0(X_k, Ω^i(log D_k))), the maps being wedge product.",
+   "status": "missing",
+   "planned": [],
+   "owner": "EssentialDimensionOfCovers",
+   "layer": null
+  },
+  {
+   "id": "PAPER-FARB-KISIN-WOLFSON-24/051",
+   "paper": "PAPER-FARB-KISIN-WOLFSON-24",
+   "kind": "definition",
+   "name": "Good reduction and unramified good reduction of (Y, D)",
+   "statement": "For C algebraically closed of characteristic 0, Y proper smooth over C and D ⊂ Y a normal crossings divisor, (Y, D) has good reduction at p if for some p-adic valuation on C (not necessarily complete) with ring O_C, Y extends to a smooth proper O_C-scheme Y° with a relative ncd D° extending D; it has unramified good reduction if (Y°, D°) can be chosen to descend to an absolutely unramified discrete valuation ring O ⊂ O_C. Then h^{0,1→i}_{Y,D,p} is the maximum of h^{0,1→i}_{Y°_k,D°_k} over all such (Y°, D°), k the residue field of O.",
+   "status": "missing",
+   "planned": [],
+   "owner": "EssentialDimensionOfCovers",
+   "layer": null
+  },
+  {
+   "id": "PAPER-FARB-KISIN-WOLFSON-24/072",
+   "paper": "PAPER-FARB-KISIN-WOLFSON-24",
+   "kind": "definition",
+   "name": "Albanese map unramified at p",
+   "statement": "α_X is unramified at p if O_C and X° in 2.2.12 can be chosen so that the special fibre of X° is generically étale over its image under α°_X.",
+   "status": "missing",
+   "planned": [],
+   "owner": "EssentialDimensionOfCovers",
+   "layer": null
+  },
+  {
+   "id": "PAPER-FARB-KISIN-WOLFSON-24/092",
+   "paper": "PAPER-FARB-KISIN-WOLFSON-24",
+   "kind": "construction",
+   "name": "The Heisenberg cover U(Ē) of a torus torsor",
+   "statement": "A mod p reduction Ē of the pro-p extension π_1^ét(U)^p gives a surjection π_1^ét(U, x̄) ↠ Ē onto a finite Heisenberg group and the corresponding finite cover U(Ē) → U.",
+   "status": "missing",
+   "planned": [],
+   "owner": "EssentialDimensionOfCovers",
+   "layer": null
+  },
+  {
+   "id": "PAPER-FARB-KISIN-WOLFSON-24/093",
+   "paper": "PAPER-FARB-KISIN-WOLFSON-24",
+   "kind": "definition",
+   "name": "Good reduction of a torus torsor over an abelian variety",
+   "statement": "U → S has good reduction at p if for some p-adic valuation on C with ring O_C, U → S extends to a T-torsor U° → S° over an abelian scheme over O_C; unramified good reduction if U° → S° can be chosen to descend to an absolutely unramified discrete valuation ring O ⊂ O_C.",
+   "status": "missing",
+   "planned": [],
+   "owner": "EssentialDimensionOfCovers",
+   "layer": null
+  },
+  {
+   "id": "PAPER-FARB-KISIN-WOLFSON-24/099",
+   "paper": "PAPER-FARB-KISIN-WOLFSON-24",
+   "kind": "construction",
+   "name": "Boundary strata and iterated blow-ups of torus embeddings",
+   "statement": "For a torus embedding X → S over a C-scheme S, the boundary D has the stratification D_0 ⊂ D_1 ⊂ … with D_j locally S × (closure of the j-dimensional T-orbits of X_0); D_0 is étale over S, finite étale if X is proper. X^1 → X is the blow-up of D_0, again a torus embedding with boundary D^1, smooth with relative ncd if X is; iterating gives X ← X^1 ← X^2 ← …, and X̂^i denotes the completion of X^i along D^i.",
+   "status": "missing",
+   "planned": [],
+   "owner": "EssentialDimensionOfCovers",
+   "layer": null
+  },
+  {
+   "id": "PAPER-FARB-KISIN-WOLFSON-24/106",
+   "paper": "PAPER-FARB-KISIN-WOLFSON-24",
+   "kind": "definition",
+   "name": "Analytic essential dimension and p-essential dimension",
+   "statement": "For a finite map V_1 → V of reduced complex analytic spaces, ed(V_1/V) is the least e such that for some dense Zariski open V' ⊂ V there are a finite map Y_1 → Y of analytic spaces with dim Y = e and a map V' → Y with V_1|_{V'} ≅ the normalization of V' ×_Y Y_1; ed(V_1/V; p) is the minimum of ed(Ṽ_1/Ṽ) over finite Ṽ → V of degree prime to p (degree taken over a Zariski open where it is finite flat), with Ṽ_1 the normalization of Ṽ ×_V V_1. Auxiliary covers need not be étale.",
+   "status": "missing",
+   "planned": [],
+   "owner": "EssentialDimensionOfCovers",
+   "layer": null
+  },
+  {
+   "id": "PAPER-FARB-KISIN-WOLFSON-24/117",
+   "paper": "PAPER-FARB-KISIN-WOLFSON-24",
+   "kind": "construction",
+   "name": "The special nodes Σ and Σ̃",
+   "statement": "Since μ_h is minuscule it corresponds to a set of vertices Σ ⊂ Δ(G) with at most one element in each connected component; Σ̃ = Σ ∪ c(Σ) for complex conjugation c.",
+   "status": "missing",
+   "planned": [],
+   "owner": "EssentialDimensionOfCovers",
+   "layer": null
+  },
+  {
+   "id": "PAPER-FARB-KISIN-WOLFSON-24/119",
+   "paper": "PAPER-FARB-KISIN-WOLFSON-24",
+   "kind": "definition",
+   "name": "Condition 3.3.5: a rational cocharacter in [μ_Σ̃]",
+   "statement": "Condition (3.3.5): the conjugacy class [μ_Σ̃] contains a cocharacter defined over Q; it implies that [μ_Σ̃] is Gal(Q̄/Q)-stable.",
+   "status": "missing",
+   "planned": [],
+   "owner": "EssentialDimensionOfCovers",
+   "layer": null
+  },
+  {
+   "id": "PAPER-FARB-KISIN-WOLFSON-24/135",
+   "paper": "PAPER-FARB-KISIN-WOLFSON-24",
+   "kind": "definition",
+   "name": "Principal p-congruence cover",
+   "statement": "With K = K_pK^p, K_p = G(Z_p) for a reductive model G_{Z_p}, K^1_p = ker(G(Z_p) → G(F_p)), K^1 = K^1_pK^p, Γ = K ∩ G(Q)_+ and Γ_1 = K^1 ∩ G(Q)_+, the covering Γ_1\\X^+ → Γ\\X^+ is a principal p-covering.",
+   "status": "missing",
+   "planned": [],
+   "owner": "EssentialDimensionOfCovers",
+   "layer": null
+  },
+  {
+   "id": "PAPER-COUVEIGNES-20/bounded-polynomials",
+   "paper": "PAPER-COUVEIGNES-20",
+   "kind": "construction",
+   "name": "Bounded-degree coefficient space and homogenization interface",
+   "statement": "For r>=1 and d>=0, let M be the monomials in r variables of total degree <=d, so #M=binom(d+r,d). The coefficient module V_R=R^M is identified with the degree-bounded polynomials; over C, homogenization at x_0 identifies it with degree-d homogeneous forms and H^0(P^r_C,O(d)). Give V_R the Euclidean metric making M orthonormal and V_Z=Z^M.",
+   "status": "missing",
+   "planned": [],
+   "owner": "GenericDoublePointInterpolation",
+   "layer": null
+  },
+  {
+   "id": "PAPER-COUVEIGNES-20/double-points",
+   "paper": "PAPER-COUVEIGNES-20",
+   "kind": "definition",
+   "name": "Double points and well-poised first jets",
+   "statement": "For n pairwise distinct points P_tau in A^r_C subset P^r_C with ideal sheaf I, define 2P by I^2. It has length n(r+1). Call 2P well poised in degree d when H^0(P^r_C,O(d))->H^0(2P,O(d)) is surjective.",
+   "status": "missing",
+   "planned": [],
+   "owner": "GenericDoublePointInterpolation",
+   "layer": null
+  },
+  {
+   "id": "PAPER-ESNAULT-GROECHENIG-20/001",
+   "paper": "PAPER-ESNAULT-GROECHENIG-20",
+   "kind": "definition",
+   "name": "Rigid stable connection with fixed determinant",
+   "statement": "In convention C, rigidity means that the isomorphism class is an isolated point of the moduli of P-stable rank-r integrable connections with the specified determinant (L,∇L). It does not require the isolated point to be reduced. Rank-one characters cannot be varied while forgetting the determinant condition.",
+   "status": "missing",
+   "planned": [],
+   "owner": "HodgeStructuresPartII",
+   "layer": null
+  },
+  {
+   "id": "PAPER-ESNAULT-GROECHENIG-20/002",
+   "paper": "PAPER-ESNAULT-GROECHENIG-20",
+   "kind": "definition",
+   "name": "Cohomological rigidity",
+   "statement": "In C, cohomological rigidity means H¹_dR(X,End⁰(E,∇))=0, where End⁰ is the kernel of trace. Equivalently the fixed-determinant moduli point is reduced and isolated. Use the trace-free statement on p.148, not the unqualified End printed on p.106; see E1.",
+   "status": "missing",
+   "planned": [],
+   "owner": "HodgeStructuresPartII",
+   "layer": null
+  },
+  {
+   "id": "PAPER-ESNAULT-GROECHENIG-20/003",
+   "paper": "PAPER-ESNAULT-GROECHENIG-20",
+   "kind": "construction",
+   "name": "Stable Betti, de Rham and Dolbeault moduli",
+   "statement": "For smooth projective X with polarization, fixed rank, Hilbert polynomial/Chern-class component and torsion determinant, construct the stable representation, connection and trace-free Higgs moduli used here. State the characteristic-zero vanishing rational Chern classes needed for the Simpson component. Over arithmetic bases use Langer's moduli, with geometric-point base-change rather than an unproved arbitrary-base-change isomorphism.",
+   "status": "missing",
+   "planned": [],
+   "owner": "HodgeStructuresPartII",
+   "layer": null
+  },
+  {
+   "id": "PAPER-ESNAULT-GROECHENIG-20/004",
+   "paper": "PAPER-ESNAULT-GROECHENIG-20",
+   "kind": "definition",
+   "name": "Integrable Higgs bundle",
+   "statement": "For smooth Z/T, a Higgs bundle is a finite locally free O_Z-module V with O_Z-linear θ:V→V⊗Ω¹_Z/T satisfying θ∧θ=0. Morphisms commute with θ. Scaling, tensor, dual and determinant must be constructed; trace-zero is the fixed-determinant subproblem, not part of the general definition.",
+   "status": "missing",
+   "planned": [],
+   "owner": "HodgeStructuresPartII",
+   "layer": null
+  },
+  {
+   "id": "PAPER-ESNAULT-GROECHENIG-20/048",
+   "paper": "PAPER-ESNAULT-GROECHENIG-20",
+   "kind": "construction",
+   "name": "Smooth arithmetic model",
+   "statement": "In C, choose an integral affine S smooth finite type over Z with function field embedded in C, a smooth projective X_S/S and a line bundle L_S pulling back to X,L. Spread the torsion relation and its flat structure and invert the determinant order as needed. Each subsequent shrinking must retain a nonempty generic fibre.",
+   "status": "missing",
+   "planned": [],
+   "owner": "HodgeStructuresPartII",
+   "layer": null
+  },
+  {
+   "id": "PAPER-ESNAULT-GROECHENIG-20/049",
+   "paper": "PAPER-ESNAULT-GROECHENIG-20",
+   "kind": "definition",
+   "name": "Relative rigid locus",
+   "statement": "For a finite-type morphism Y→S, Y^rig is the maximal open where the morphism is quasi-finite. For the stable de Rham/Dolbeault moduli this gives the relative locus of isolated geometric-fibre points, including their possible nonreduced local schemes.",
+   "status": "missing",
+   "planned": [],
+   "owner": "HodgeStructuresPartII",
+   "layer": null
+  },
+  {
+   "id": "PAPER-ESNAULT-GROECHENIG-20/061",
+   "paper": "PAPER-ESNAULT-GROECHENIG-20",
+   "kind": "definition",
+   "name": "Integrable lambda-connection",
+   "statement": "For regular λ on a smooth base, a λ-connection satisfies D(fs)=fD(s)+λs⊗df and D²=0. The fibres λ=0 and λ=1 are Higgs bundles and ordinary connections respectively. Define Griffiths-transverse filtrations and their associated graded Higgs fields before forming a flow.",
+   "status": "missing",
+   "planned": [],
+   "owner": "HodgeStructuresPartII",
+   "layer": null
+  },
+  {
+   "id": "PAPER-ESNAULT-GROECHENIG-20/062",
+   "paper": "PAPER-ESNAULT-GROECHENIG-20",
+   "kind": "construction",
+   "name": "Hodge moduli and its rigid locus",
+   "statement": "Construct M_Hod→A¹ of P-stable λ-connections with fixed torsion determinant; its fibres at 0,1 are M_Dol,M_dR. Define its relative quasi-finite locus and the G_m-action compatible with the parameter.",
+   "status": "missing",
+   "planned": [],
+   "owner": "HodgeStructuresPartII",
+   "layer": null
+  },
+  {
+   "id": "PAPER-ESNAULT-GROECHENIG-20/065",
+   "paper": "PAPER-ESNAULT-GROECHENIG-20",
+   "kind": "construction",
+   "name": "Nice Hodge models for the determinant orbit",
+   "statement": "Spread the finitely many rigid Hodge families simultaneously over a smooth affine arithmetic S, for ranks ≤r and all L^a with 0≤a<d=ord(L), maintaining geometric stability and exhaustion by their sections. Normalize the inconsistent S/A¹ and determinant-power indices in the printed formulas as in E9.",
+   "status": "missing",
+   "planned": [],
+   "owner": "HodgeStructuresPartII",
+   "layer": null
+  },
+  {
+   "id": "PAPER-ESNAULT-GROECHENIG-20/089",
+   "paper": "PAPER-ESNAULT-GROECHENIG-20",
+   "kind": "definition",
+   "name": "Absolute irreducibility and projective rigidity",
+   "statement": "A field-valued GL_r representation is absolutely irreducible when it remains irreducible over an algebraic closure; for PGL_r use absence of invariant proper projective linear subspaces. For a finitely generated abstract group, construct the finite-type PGL_r character moduli and call an isolated stable point rigid.",
+   "status": "missing",
+   "planned": [],
+   "owner": "HodgeStructuresPartII",
+   "layer": null
+  },
+  {
+   "id": "PAPER-ESNAULT-GROECHENIG-20/105",
+   "paper": "PAPER-ESNAULT-GROECHENIG-20",
+   "kind": "definition",
+   "name": "Integral versus strongly integral monodromy",
+   "statement": "Integral means conjugate to a representation over the algebraic integers O_Qbar; strongly integral means a Z-lattice of the same representation is preserved. These are different predicates. Finite generation lets an integral representation be defined over O_L for one number field but does not make its single complex embedding discrete.",
+   "status": "missing",
+   "planned": [],
+   "owner": "HodgeStructuresPartII",
+   "layer": null
+  },
+  {
+   "id": "PAPER-ESNAULT-GROECHENIG-20/107",
+   "paper": "PAPER-ESNAULT-GROECHENIG-20",
+   "kind": "construction",
+   "name": "Integral unitary representation of infinite image",
+   "statement": "Choose an algebraic unit α of modulus one that is not a root of unity (for example a unit-circle conjugate of a Salem number). On a genus≥1 surface send one standard generator to α and all others to 1. This gives an integral unitary rank-one representation of infinite image. Require α⁻¹ integral as well to land in GL₁(O_Qbar); this example is not a finite-determinant rigid connection.",
+   "status": "missing",
+   "planned": [],
+   "owner": "HodgeStructuresPartII",
+   "layer": null
+  },
+  {
+   "id": "PAPER-ESNAULT-GROECHENIG-20/136",
+   "paper": "PAPER-ESNAULT-GROECHENIG-20",
+   "kind": "definition",
+   "name": "Geometric origin of a flat connection",
+   "statement": "For the convention of Conjecture 1.3, geometric origin means that on a dense open U⊂X the connection is a subquotient of a Gauss–Manin connection R^if_*(O_Y,d) from a smooth projective family f:Y→U. Specify the comparison and chosen coefficient category. The definition does not assert existence of such a family for every rigid object.",
+   "status": "missing",
+   "planned": [],
+   "owner": "HodgeStructuresPartII",
+   "layer": null
+  },
+  {
+   "id": "PAPER-KLEVDAL-PATRIKIS-25/031",
+   "paper": "PAPER-KLEVDAL-PATRIKIS-25",
+   "kind": "definition",
+   "name": "Integral algebraic-group-valued local system",
+   "statement": "A complex representation is integral in the source sense if it is conjugate to a representation into G(O_L) for some number field L and a chosen integral model after the permitted spreading. Integral structure is data; boundedness at one coefficient place is weaker.",
+   "status": "missing",
+   "planned": [],
+   "owner": "HodgeStructuresPartII",
+   "layer": null
+  },
+  {
+   "id": "PAPER-LANDESMAN-LITT-24/29",
+   "paper": "PAPER-LANDESMAN-LITT-24",
+   "kind": "definition",
+   "name": "Polarizable complex variation of Hodge structure",
+   "statement": "A complex PVHS on a smooth complex variety X is a complex local system with a decreasing filtration of the associated holomorphic bundle by holomorphic subbundles satisfying Griffiths transversality, together with a flat Hermitian pairing which polarizes the induced Hodge structure on each fibre; the paper refers to [LL22, §5] for the definitions and uses the associated bigrading on the flat bundle. A local system has a real structure if it is the complexification of a real orthogonal local system; V ⊕ V^∨ always has one.",
+   "status": "missing",
+   "planned": [],
+   "owner": "HodgeStructuresPartII",
+   "layer": null
+  },
+  {
+   "id": "PAPER-LANDESMAN-LITT-24/30",
+   "paper": "PAPER-LANDESMAN-LITT-24",
+   "kind": "definition",
+   "name": "Admissible graded-polarizable variation of mixed Hodge structure",
+   "statement": "A variation of mixed Hodge structure on a smooth quasi-projective complex variety carries an increasing weight filtration by sub-local systems and a decreasing Hodge filtration by holomorphic subbundles satisfying Griffiths transversality, such that each graded piece of the weight filtration is a variation of pure Hodge structure; it is graded-polarizable if each graded piece is polarizable, and admissible if it has the relative monodromy filtration and the limiting behaviour required at the boundary of a compactification. The rational case is [PS08, Definitions 14.44, 14.45, 14.49]; the real case is [SZ85, Definition 3.4].",
+   "status": "missing",
+   "planned": [],
+   "owner": "HodgeStructuresPartII",
+   "layer": null
+  },
+  {
+   "id": "PAPER-LANDESMAN-LITT-24/31",
+   "paper": "PAPER-LANDESMAN-LITT-24",
+   "kind": "definition",
+   "name": "Deligne canonical extension of a flat bundle with regular singularities",
+   "statement": "For X a smooth variety with a normal crossings compactification X̄ with boundary D and (V ⊗ O_{X}, id ⊗ d) the flat bundle attached to a local system V on X, the Deligne canonical extension is the unique extension to a vector bundle with flat connection with logarithmic poles along D whose residues have eigenvalues with real parts in [0, 1). On a family of pointed curves it is denoted (ℰ, ∇) and is a vector bundle on C̄ with a flat connection with regular singularities along D.",
+   "status": "missing",
+   "planned": [],
+   "owner": "HodgeStructuresPartII",
+   "layer": null
+  },
+  {
+   "id": "PAPER-LANDESMAN-LITT-24/35",
+   "paper": "PAPER-LANDESMAN-LITT-24",
+   "kind": "definition",
+   "name": "The real form L̃ of a complex local system",
+   "statement": "For L a complex local system on a variety, set L̃ := L if L admits a real structure and L̃ := L ⊕ L̄ otherwise. Then L̃ carries a natural real structure, and if L is irreducible and underlies a complex variation of Hodge structure and admits a real structure, then L underlies a real variation of Hodge structure.",
+   "status": "missing",
+   "planned": [],
+   "owner": "HodgeStructuresPartII",
+   "layer": null
+  },
+  {
+   "id": "PAPER-LANDESMAN-LITT-24/39",
+   "paper": "PAPER-LANDESMAN-LITT-24",
+   "kind": "definition",
+   "name": "The analytic setting for the period map, and Hodge–de Rham degeneration for unitary coefficients",
+   "statement": "Let π : C̄ → B be a relative smooth proper curve over a smooth contractible complex-analytic base B with disjoint sections s₁, …, s_n with images D, C° = C̄ \\ D, π° : C° → B, V a unitary ℂ-local system on C°, W := R¹π°_*V, and (ℰ, ∇) the Deligne canonical extension. Set H := W ⊗_ℂ O_B ≅ R¹π_*(ℰ → ℰ ⊗ Ω¹_{C̄/B}(log D)), carrying the Gauss–Manin connection. Because V is unitary the Hodge–de Rham spectral sequence degenerates, giving the two-step filtration F¹H := π_*(ℰ ⊗ Ω¹_{C̄/B}(log D)) and H/F¹H ≅ R¹π_*ℰ.",
+   "status": "missing",
+   "planned": [],
+   "owner": "HodgeStructuresPartII",
+   "layer": null
+  },
+  {
+   "id": "PAPER-LANDESMAN-LITT-24/40",
+   "paper": "PAPER-LANDESMAN-LITT-24",
+   "kind": "construction",
+   "name": "The period map of the first cohomology of a unitary local system",
+   "statement": "Since B is contractible the local system W can be globally trivialized, giving a flat trivialization of H and hence a period map P : B → Gr(rk F¹H, rk H) to the Grassmannian of subspaces, sending b to F¹H_b ⊂ H_b.",
+   "status": "missing",
+   "planned": [],
+   "owner": "HodgeStructuresPartII",
+   "layer": null
+  },
+  {
+   "id": "PAPER-LANDESMAN-LITT-24/41",
+   "paper": "PAPER-LANDESMAN-LITT-24",
+   "kind": "definition",
+   "name": "The derivative of the period map and the classifying map of the family",
+   "statement": "The derivative of P is the O_B-linear map dP : T_B → P^*T_{Gr} ≅ (F¹H)^∨ ⊗ (H/F¹H), dual to dP^∨ : F¹H ⊗ (H/F¹H)^∨ → Ω¹_B. Since C̄, s₁, …, s_n is a family of n-pointed curves over B there is also a classifying map c : B → M_{g,n} with pullback c^* : c^*Ω¹_{M_{g,n}} → Ω¹_B. At a point b, writing C = C̄_b, D = D_b, E = ℰ|_C, Serre duality identifies dP^∨_b with a map H⁰(C, E ⊗ Ω¹_C(log D)) ⊗ H⁰(C, E^∨ ⊗ ω_C) → Ω¹_{B,b} and c^*_b with a map H⁰(C, ω_C^{⊗2}(D)) → Ω¹_{B,b}.",
+   "status": "missing",
+   "planned": [],
+   "owner": "HodgeStructuresPartII",
+   "layer": null
+  },
+  {
+   "id": "PAPER-LANDESMAN-LITT-24/42",
+   "paper": "PAPER-LANDESMAN-LITT-24",
+   "kind": "construction",
+   "name": "The Gauss–Manin composite ∇ : F¹H → H/F¹H ⊗ Ω¹_B",
+   "statement": "Let ∇ be the O_B-linear map obtained as the composition F¹H ↪ H →^{∇_GM} H ⊗ Ω¹_B → H/F¹H ⊗ Ω¹_B. Its fibre at m ∈ M is written ∇_m, and for v ∈ F¹H_m the induced linear map ∇_m(v) : H⁰(C, E^∨ ⊗ ω_C) → H⁰(C, ω_C^{⊗2}(D)) is u ↦ B_E(v, u).",
+   "status": "missing",
+   "planned": [],
+   "owner": "HodgeStructuresPartII",
+   "layer": null
+  },
+  {
+   "id": "PAPER-LANDESMAN-LITT-24/44",
+   "paper": "PAPER-LANDESMAN-LITT-24",
+   "kind": "definition",
+   "name": "The bilinear pairing B_E on a vector bundle over a pointed curve",
+   "statement": "Let C be a smooth proper connected curve of genus g, D ⊂ C a reduced divisor and E a vector bundle on C. Then B_E : (E ⊗ ω_C(D)) × (E^∨ ⊗ ω_C) → ω_C^{⊗2}(D) is the perfect pairing given by the tensor product followed by the trace pairing E ⊗ E^∨ → O_C.",
+   "status": "missing",
+   "planned": [],
+   "owner": "HodgeStructuresPartII",
+   "layer": null
+  },
+  {
+   "id": "PAPER-LANDESMAN-LITT-24/45",
+   "paper": "PAPER-LANDESMAN-LITT-24",
+   "kind": "definition",
+   "name": "Parabolic bundles, parabolic degree, slope and semistability",
+   "statement": "A parabolic bundle on (C, D) with D = x₁ + ⋯ + x_n is a vector bundle E on C together with, for each j, a decreasing filtration E_{x_j} = E¹_j ⊋ ⋯ ⊋ E^{n_j+1}_j = 0 and an increasing sequence of weights 0 ≤ α¹_j < ⋯ < α^{n_j}_j < 1. With J the set of j for which α¹_j = 0, put Ê₀ := ker(E → ⊕_{j∈J} E_{x_j}/E²_j), a subbundle of E. The parabolic degree is par-deg(E_⋆) := deg(E) + Σ_j Σ_i α^i_j dim(E^i_j/E^{i+1}_j) and the parabolic slope is μ_⋆(E_⋆) := par-deg(E_⋆)/rk(E). A subbundle F ⊂ E inherits a parabolic structure by intersecting the filtrations and taking maximal weights, and E_⋆ is parabolically semistable if μ_⋆(F_⋆) ≤ μ_⋆(E_⋆) for every nonzero subbundle F.",
+   "status": "missing",
+   "planned": [],
+   "owner": "HodgeStructuresPartII",
+   "layer": null
+  },
+  {
+   "id": "PAPER-LANDESMAN-LITT-24/58",
+   "paper": "PAPER-LANDESMAN-LITT-24",
+   "kind": "definition",
+   "name": "Cohomological rigidity and strong cohomological rigidity",
+   "statement": "Let X̄ be a smooth projective variety, Z ⊂ X̄ a strict normal crossings divisor and X = X̄ \\ Z, let G be a reductive group over ℂ and ρ : π₁(X) → G(ℂ) a homomorphism with quasi-unipotent monodromy at infinity. Then ρ is cohomologically rigid if H¹(X̄, j_{!*} ad ρ) = 0, where j : X ↪ X̄ and j_{!*} is the intermediate extension. If H¹(X, ad ρ) = 0 then ρ is strongly cohomologically rigid. A local system is (strongly) cohomologically rigid if its monodromy representation is.",
+   "status": "missing",
+   "planned": [],
+   "owner": "HodgeStructuresPartII",
+   "layer": null
+  },
+  {
+   "id": "PAPER-LANDESMAN-LITT-24/61",
+   "paper": "PAPER-LANDESMAN-LITT-24",
+   "kind": "definition",
+   "name": "Integral representations and local systems",
+   "statement": "Let G be a group scheme over ℤ. A representation π₁(X, x) → G(ℂ) is integral if it is conjugate to a representation factoring through G(O_K) for some number field K; a local system on a connected space is integral if its monodromy representation is.",
+   "status": "missing",
+   "planned": [],
+   "owner": "HodgeStructuresPartII",
+   "layer": null
+  },
+  {
+   "id": "PAPER-LANDESMAN-LITT-24/79",
+   "paper": "PAPER-LANDESMAN-LITT-24",
+   "kind": "definition",
+   "name": "Local systems of geometric origin",
+   "statement": "A local system V on a smooth complex variety X is of geometric origin if there are a Zariski open U ⊂ X and a smooth proper morphism f : Y → U such that V|_U is a subquotient of R^i f_*ℂ for some i.",
+   "status": "missing",
+   "planned": [],
+   "owner": "HodgeStructuresPartII",
+   "layer": null
+  },
+  {
+   "id": "PAPER-LANDESMAN-LITT-24/89",
+   "paper": "PAPER-LANDESMAN-LITT-24",
+   "kind": "definition",
+   "name": "Logarithmic Dolbeault complexes and the interior product",
+   "statement": "Let A^{i,j}_{log D}(ℰ) be the sheaf of C^∞ logarithmic (i, j)-forms valued in the Deligne canonical extension ℰ and A^n_{log D}(ℰ) = ⊕_{i+j=n} A^{i,j}_{log D}(ℰ). Then (A^{i,•}_{log D}(ℰ), ∂̄) is the Dolbeault complex of ℰ ⊗ Ω^i_{C̄}(log D) and (A^•_{log D}(ℰ), ∇ + ∂̄) is the de Rham resolution of the unitary local system V, with relative variants A^{i,j}_{log D, C̄/B}(ℰ). For v a C^∞ vector field on an open U ⊂ C̄ tangent to D and w a C^∞ section of A^i_{log D}(ℰ), the interior product int(v)(w) is defined by int(v)(w)(X₁, …, X_{i+j−1}) = w(v, X₁, …, X_{i+j−1}).",
+   "status": "missing",
+   "planned": [],
+   "owner": "HodgeStructuresPartII",
+   "layer": null
+  },
+  {
+   "id": "PAPER-LANDESMAN-LITT-24/91",
+   "paper": "PAPER-LANDESMAN-LITT-24",
+   "kind": "definition",
+   "name": "The logarithmic Kodaira–Spencer map",
+   "statement": "From the short exact sequence 0 → T_{C̄_b}(− log D) → T_{C̄}(− log D)|_{C̄_b} → π^*T_B|_{C̄_b} → 0, with T_{C̄}(− log D) the dual of Ω¹_{C̄}(log D), the Kodaira–Spencer map κ : T_{B,b} → H¹(T_{C̄_b}(− log D)) is the connecting homomorphism, sending a vector v ∈ T_{B,b} ≅ H⁰(C̄_b, π^*T_B|_{C̄_b}) to its image in H¹.",
+   "status": "missing",
+   "planned": [],
+   "owner": "HodgeStructuresPartII",
+   "layer": null
+  },
+  {
+   "id": "PAPER-LIU-ZHU-17/H02",
+   "paper": "PAPER-LIU-ZHU-17",
+   "kind": "definition",
+   "name": "Twisted nilpotent Higgs bundles",
+   "statement": "For a locally free Ω¹ and invertible twist T on a ringed site, a Higgs bundle is finite locally free E with O-linear θ:E→E⊗Ω¹⊗T and θ∧θ=0. Nilpotent means a finite filtration whose graded Higgs fields vanish, equivalently the locally commuting action is nilpotent in the finite-rank setting used here.",
+   "status": "missing",
+   "planned": [],
+   "owner": "HodgeStructuresPartII",
+   "layer": null
+  },
+  {
+   "id": "PAPER-LIU-ZHU-17/H03",
+   "paper": "PAPER-LIU-ZHU-17",
+   "kind": "definition",
+   "name": "Filtered and parameter connections",
+   "statement": "For a central parameter λ with dλ=0, a λ-connection satisfies ∇λ(ae)=a∇λ(e)+λe⊗da. A Griffiths filtration on an ordinary connection satisfies ∇Fil^j⊂Fil^(j−1)⊗Ω¹; associated graded carries the induced Higgs field.",
+   "status": "missing",
+   "planned": [],
+   "owner": "HodgeStructuresPartII",
+   "layer": null
+  },
+  {
+   "id": "PAPER-KISIN-ZHOU-25/C20",
+   "paper": "PAPER-KISIN-ZHOU-25",
+   "kind": "construction",
+   "name": "Polynomial graph avoiding a closed subset",
+   "statement": "For a nonzero h in k[X_0,...,X_(m-1)], m>=1, choose an integer B>=2 strictly greater than every individual exponent in supp(h). Define a:A1_k -> A^m_k by X_i -> T^(B^i). It sends 0 to0, is a closed graph immersion because X_0 maps to T, and h(a(T)) is nonzero.",
+   "status": "missing",
+   "planned": [],
+   "owner": "LefschetzFiniteFieldBertiniPartII",
+   "layer": null
+  },
+  {
+   "id": "PAPER-CESNAVICIUS-21/1",
+   "paper": "PAPER-CESNAVICIUS-21",
+   "kind": "definition",
+   "name": "Quasi-excellent and excellent schemes",
+   "statement": "A scheme X is quasi-excellent if it is locally Noetherian, for each x ∈ X the geometric fibres of Spec(Ô_{X,x}) → Spec(O_{X,x}) — the formal fibres of X at x — are regular, and every integral X-scheme X' finite over some affine open of X has a nonempty regular open subscheme. For such an X the regular locus Reg(X) is open. A quasi-excellent X is excellent if it is in addition universally catenary.",
+   "status": "missing",
+   "planned": [],
+   "owner": "MacaulayficationOfNoetherianSchemes",
+   "layer": null
+  },
+  {
+   "id": "PAPER-CESNAVICIUS-21/3",
+   "paper": "PAPER-CESNAVICIUS-21",
+   "kind": "definition",
+   "name": "CM-quasi-excellent and CM-excellent schemes",
+   "statement": "Definition 1.2. A scheme X is CM-quasi-excellent if it is locally Noetherian and (1) the formal fibres of the local rings of X are Cohen–Macaulay and (2) every integral, closed subscheme X' ⊂ X has a nonempty, Cohen–Macaulay open subscheme; it is CM-excellent if in addition it is universally catenary. Condition (2) alone already implies that the Cohen–Macaulay locus CM(X) is open.",
+   "status": "missing",
+   "planned": [],
+   "owner": "MacaulayficationOfNoetherianSchemes",
+   "layer": null
+  },
+  {
+   "id": "PAPER-CESNAVICIUS-21/19",
+   "paper": "PAPER-CESNAVICIUS-21",
+   "kind": "definition",
+   "name": "§2.1: universal catenarity",
+   "statement": "§2.1. A scheme X is universally catenary if it is locally Noetherian and every scheme X' locally of finite type over X is catenary, that is, any two saturated chains of specialisations of points of X' with the same endpoints have the same length (any such chain lies in every affine open of X' containing the endpoint of larger height). Every closed subscheme of a quasi-Cohen–Macaulay scheme is universally catenary; in particular every complete Noetherian local ring is.",
+   "status": "missing",
+   "planned": [],
+   "owner": "MacaulayficationOfNoetherianSchemes",
+   "layer": null
+  },
+  {
+   "id": "PAPER-CESNAVICIUS-21/20",
+   "paper": "PAPER-CESNAVICIUS-21",
+   "kind": "definition",
+   "name": "§2.2: locally and formally equidimensional schemes, and Ratliff's theorem",
+   "statement": "§2.2. A scheme X is locally equidimensional if it is locally Noetherian and every local ring O_{X,x} is equidimensional, that is, all irreducible components of Spec(O_{X,x}) have the same dimension; X is formally equidimensional (quasi-unmixed) if it is locally Noetherian and Ô_{X,x} is equidimensional for every x. By a theorem of Ratliff, a locally Noetherian X is formally equidimensional if and only if it is locally equidimensional and universally catenary.",
+   "status": "missing",
+   "planned": [],
+   "owner": "MacaulayficationOfNoetherianSchemes",
+   "layer": null
+  },
+  {
+   "id": "PAPER-CESNAVICIUS-21/28",
+   "paper": "PAPER-CESNAVICIUS-21",
+   "kind": "definition",
+   "name": "§2.10: (S_n)-quasi-excellence",
+   "statement": "§2.10. For n ∈ Z, a scheme X is (S_n)-quasi-excellent if it is locally Noetherian, the formal fibres of its local rings are (S_n), and every integral closed subscheme X' ⊂ X has a nonempty (S_n) open subscheme; it is (S_n)-excellent if in addition universally catenary. The second condition makes U_{(S_n)}(𝓜) open for every coherent 𝓜. A CM-quasi-excellent scheme is (S_n)-quasi-excellent for every n, and (S_n)-quasi-excellence is stable under localisation and ascends along morphisms locally of finite type.",
+   "status": "missing",
+   "planned": [],
+   "owner": "MacaulayficationOfNoetherianSchemes",
+   "layer": null
+  },
+  {
+   "id": "PAPER-CESNAVICIUS-21/51",
+   "paper": "PAPER-CESNAVICIUS-21",
+   "kind": "definition",
+   "name": "§4.1: biequidimensional schemes",
+   "statement": "§4.1. A scheme X is biequidimensional if it is Noetherian, of finite dimension, and the saturated chains of specialisations of its points all have the same length, necessarily dim(X). Every biequidimensional X is locally equidimensional, and by EGA IV₂ 5.2.1 every connected, locally equidimensional X of finite type over a field is biequidimensional. If X is biequidimensional then so is every nowhere dense closed subscheme whose ideal sheaf is locally principal; conversely, if such an X' inside a Noetherian, catenary, locally equidimensional X contains all the closed points of X and is biequidimensional, then so is X, because all closed points of X then have height dim(X') + 1.",
+   "status": "missing",
+   "planned": [],
+   "owner": "MacaulayficationOfNoetherianSchemes",
+   "layer": null
+  },
+  {
+   "id": "PAPER-CESNAVICIUS-21/55",
+   "paper": "PAPER-CESNAVICIUS-21",
+   "kind": "construction",
+   "name": "The construction in the proof of Proposition 4.4",
+   "statement": "One reduces to X and X_{R/𝔪} connected, notes that X_{R/𝔪} and hence X are biequidimensional by Lemma 2.3(a) and §4.1, and takes a normalized dualizing complex ω^•_X. The coherent ideals 𝓘_𝓜 := ∏_{j<dim(X)} Ann_{O_X}(H^{−j}(RHom_{O_X}(𝓜,ω^•_X))) have, by biequidimensionality and Lemma 3.6(a), the stalks ∏_{j<dim(O_{X,x})} Ann(H^j_{𝔪(x)}(O_{X,x},𝓜_x)), so by Lemma 3.6(b) they cut out the complement of CM(𝓜); hence 𝓙_1 := (𝓘_{X_{R/𝔪}})^{N_0} ⊂ 𝓘_𝓜 for some N_0 > 0. One then builds a decreasing chain X ⊃ X_1 ⊃ ⋯ ⊃ X_d of biequidimensional closed subschemes of strictly decreasing dimension, X_1 := Spec(O_X/𝓙_1), where X_{m+1} is cut out on X_m by a locally principal 𝓙_{m+1} := im((𝓛^{⊗N_m})^{−1} →^{f_m} O_X) produced by Lemma 4.3 so as to contain the non-CM locus of each 𝓜|_{X_m} but no generic point of X_m. For each x the sequence of local generators j_{1,x},…,j_{m_x,x} is then CM-secant for every 𝓜_x, so Theorem 3.14 applies to the coherent ideal 𝓙 := ∏_{i=1}^{d}(𝓙_1,…,𝓙_i), whose stalks are the corresponding products; one takes Z := Spec(O_X/𝓙) and n := N_0·d.",
+   "status": "missing",
+   "planned": [],
+   "owner": "MacaulayficationOfNoetherianSchemes",
+   "layer": null
+  },
+  {
+   "id": "PAPER-CESNAVICIUS-21/58",
+   "paper": "PAPER-CESNAVICIUS-21",
+   "kind": "construction",
+   "name": "The Noetherian induction in the proof of Proposition 5.2",
+   "statement": "Starting from an open U ⊊ X containing CM(X) ∩ ⋂_𝓜 CM(𝓜) for which the claim holds with a closed Z ⊂ U, one extends Z to a closed Z̃ ⊂ X by EGA I 9.4.7 and enlarges U using Lemma 5.1. Localising at a generic point of X \\ U — legitimate by EGA I 9.4.7 and a limit argument using the openness of the Cohen–Macaulay loci of CM-excellent schemes — one may assume X = Spec(R) local with U the punctured spectrum, sets Y := Bl_{Z̃}(X) with its modules 𝓜̃ := Bl_{Z̃}(𝓜), and, by Lemma 5.1 again, precomposes with Bl_{Y_{R/𝔪}}(Y) → Y so that Y_{R/𝔪} ⊂ Y is a divisor. Since X is formally equidimensional, Lemma 2.3(b) makes Y_{R̂} locally equidimensional, and Lemma 2.4 transports the Cohen–Macaulayness of Y_U and its modules to the completion; Proposition 4.4 applies to Y_{R̂} → Spec(R̂) and gives Z, and, since blowing up commutes with flat base change, Lemma 2.4 descends the conclusion to Y.",
+   "status": "missing",
+   "planned": [],
+   "owner": "MacaulayficationOfNoetherianSchemes",
+   "layer": null
+  },
+  {
+   "id": "PAPER-CANNING-LARSON-PAYNE-24/2",
+   "paper": "PAPER-CANNING-LARSON-PAYNE-24",
+   "kind": "definition",
+   "name": "The moduli stacks M_{g,n} and M̄_{g,n}",
+   "statement": "M_{g,n} is the moduli stack of smooth n-pointed genus g curves and M̄_{g,n} its Deligne–Mumford compactification by stable n-pointed curves; M̄_{g,n} is a smooth proper Deligne–Mumford stack over the integers of dimension d_{g,n} = 3g − 3 + n, and M_{g,n} ⊂ M̄_{g,n} is the open locus of smooth curves with complement the boundary ∂M_{g,n}.",
+   "status": "missing",
+   "planned": [],
+   "owner": "MotivicStructuresInModuliOfCurves",
+   "layer": null
+  },
+  {
+   "id": "PAPER-CANNING-LARSON-PAYNE-24/3",
+   "paper": "PAPER-CANNING-LARSON-PAYNE-24",
+   "kind": "construction",
+   "name": "Tautological morphisms and the boundary",
+   "statement": "The tautological morphisms between the M̄_{g,n} are those that forget a marked point, permute the marked points, or glue two marked points (on one curve or on two curves). The boundary ∂M_{g,n} = M̄_{g,n} \\ M_{g,n} is the image of the gluing maps; its normalisation ∂̃M_{g,n} is the disjoint union, over stable graphs with one edge, of the corresponding products of moduli spaces modulo automorphisms of the graph.",
+   "status": "missing",
+   "planned": [],
+   "owner": "MotivicStructuresInModuliOfCurves",
+   "layer": null
+  },
+  {
+   "id": "PAPER-CANNING-LARSON-PAYNE-24/4",
+   "paper": "PAPER-CANNING-LARSON-PAYNE-24",
+   "kind": "definition",
+   "name": "Tautological rings of M̄_{g,n} and of M_{g,n}",
+   "statement": "RH^*(M̄_{g,n}) ⊂ H^*(M̄_{g,n}) is the smallest collection of subrings closed under pushforward and pullback for all tautological morphisms; R^*(M_{g,n}) ⊂ A^*(M_{g,n}) denotes the subring of the Chow ring generated by tautological cycle classes, and RH^*(M_{g,n}) its image in cohomology.",
+   "status": "missing",
+   "planned": [],
+   "owner": "MotivicStructuresInModuliOfCurves",
+   "layer": null
+  },
+  {
+   "id": "PAPER-CANNING-LARSON-PAYNE-24/5",
+   "paper": "PAPER-CANNING-LARSON-PAYNE-24",
+   "kind": "definition",
+   "name": "ψ-classes, κ-classes and the Hodge bundle",
+   "statement": "On M̄_{g,n}, ψ_i is the first Chern class of the cotangent line at the i-th marking, the κ-classes are pushforwards of powers of ψ from the universal curve, and the Hodge bundle is f_*ω_f for the universal curve f : C → M̄_{g,n}; these generate the tautological classes.",
+   "status": "missing",
+   "planned": [],
+   "owner": "MotivicStructuresInModuliOfCurves",
+   "layer": null
+  },
+  {
+   "id": "PAPER-CANNING-LARSON-PAYNE-24/7",
+   "paper": "PAPER-CANNING-LARSON-PAYNE-24",
+   "kind": "definition",
+   "name": "The Lefschetz motive and the motives of level-one cusp forms",
+   "statement": "L := H^2(P^1) is the Lefschetz object, and S_12 := H^{11}(M̄_{1,11}) and S_16 := W_{15}H^{15}(M_{1,15}) are the two-dimensional motives attached to the level-one cusp forms of weight 12 and 16; a summand L^a S_b of H^*(M̄_{g,n})^{ss} means a Tate twist of that motive.",
+   "status": "missing",
+   "planned": [],
+   "owner": "MotivicStructuresInModuliOfCurves",
+   "layer": null
+  },
+  {
+   "id": "PAPER-CANNING-LARSON-PAYNE-24/11",
+   "paper": "PAPER-CANNING-LARSON-PAYNE-24",
+   "kind": "definition",
+   "name": "The subspaces Φ and Ψ and the partial order on (g, n)",
+   "statement": "With π_i : M_{g,n} → M_{g,n-1} forgetting the i-th marking, Φ^k_{g,n} := Σ_i π_i^*W_kH^k(M_{g,n-1}) ⊂ W_kH^k(M_{g,n}) and Ψ^k_{g,n} := Σ_i ψ_i Φ^{k-2}_{g,n} ⊂ W_kH^k(M_{g,n}). One writes (g', n') ≺ (g, n) when g' ≤ g, 2g' + n' ≤ 2g + n and (g', n') ≠ (g, n); every boundary stratum of M̄_{g,n} is a finite quotient of a product of M_{g',n'} with (g', n') ≺ (g, n).",
+   "status": "missing",
+   "planned": [],
+   "owner": "MotivicStructuresInModuliOfCurves",
+   "layer": null
+  },
+  {
+   "id": "PAPER-CANNING-LARSON-PAYNE-24/16",
+   "paper": "PAPER-CANNING-LARSON-PAYNE-24",
+   "kind": "definition",
+   "name": "Semi-tautological extensions (STEs)",
+   "statement": "A semi-tautological extension is a collection of subrings S^*(M̄_{g,n}) ⊂ H^*(M̄_{g,n}) containing the tautological subrings RH^*(M̄_{g,n}) and closed under pullback by forgetting and permuting marked points and under pushforward for gluing marked points. Examples: RH^*, H^* itself, and the subrings generated by algebraic cycle classes. An intersection of STEs is an STE; an STE is finitely generated if it is the smallest one containing a given finite union of Q-subspaces of ⊔_{g,n} H^*(M̄_{g,n}); it is motivic if each S^*(M̄_{g,n}) is a sub-Hodge structure whose base change to Q_ℓ is Galois stable. For an STE, S_k(M̄_{g,n}) denotes S^{2d_{g,n}-k}(M̄_{g,n}).",
+   "status": "missing",
+   "planned": [],
+   "owner": "MotivicStructuresInModuliOfCurves",
+   "layer": null
+  },
+  {
+   "id": "PAPER-CANNING-LARSON-PAYNE-24/37",
+   "paper": "PAPER-CANNING-LARSON-PAYNE-24",
+   "kind": "definition",
+   "name": "Symplectic local systems on M_g",
+   "statement": "For a partition λ = (λ_1 ≥ … ≥ λ_g ≥ 0), V_λ denotes the associated symplectic local system on M_g, of weight |λ| = λ_1 + … + λ_g; when |λ| = n, V_λ also denotes the irreducible S_n-representation indexed by λ, and λ^T the transposed partition.",
+   "status": "missing",
+   "planned": [],
+   "owner": "MotivicStructuresInModuliOfCurves",
+   "layer": null
+  },
+  {
+   "id": "PAPER-CANNING-LARSON-PAYNE-24/42",
+   "paper": "PAPER-CANNING-LARSON-PAYNE-24",
+   "kind": "definition",
+   "name": "The Chow–Künneth generation Property",
+   "statement": "A smooth algebraic stack X of finite type over a field, stratified by quotient stacks, has the Chow–Künneth generation Property (CKgP) if for every algebraic stack Y of finite type stratified by quotient stacks the exterior product A_*(X) ⊗ A_*(Y) → A_*(X × Y) is surjective.",
+   "status": "missing",
+   "planned": [],
+   "owner": "MotivicStructuresInModuliOfCurves",
+   "layer": null
+  },
+  {
+   "id": "PAPER-CANNING-LARSON-PAYNE-24/47",
+   "paper": "PAPER-CANNING-LARSON-PAYNE-24",
+   "kind": "construction",
+   "name": "The gonality stratification of M_{7,n}",
+   "statement": "M_{7,n} is filtered by the loci M^k_{7,n} of curves admitting a degree ≤ k map to P^1, M^2 ⊂ M^3 ⊂ M^4 ⊂ M^5 = M_{7,n}, since a genus 7 curve has gonality at most 5 by Brill–Noether theory. By Proposition 4.2(3) it suffices to prove the CKgP for each stratum M^k_{7,n} \\ M^{k-1}_{7,n}, and for the Chow-ring statement it suffices to show that every class supported on M^k is tautological modulo classes supported on M^{k-1}.",
+   "status": "missing",
+   "planned": [],
+   "owner": "MotivicStructuresInModuliOfCurves",
+   "layer": null
+  },
+  {
+   "id": "PAPER-CANNING-LARSON-PAYNE-24/48",
+   "paper": "PAPER-CANNING-LARSON-PAYNE-24",
+   "kind": "construction",
+   "name": "Hurwitz stacks of tetragonal curves and the Casnati–Ekedahl bundles",
+   "statement": "H_{4,g,n} is the Hurwitz stack of degree 4 covers f : C → P^1 with C smooth of genus g and n marked points, with forgetful map β_n to M_{g,n}; restricting to gonality exactly 4 gives a proper map β'_n : H^◇_{4,g,n} → M_{g,n} \\ M^3_{g,n} with image M^4 \\ M^3. The Casnati–Ekedahl structure theorem attaches to a degree 4 cover a rank 3 bundle E and a rank 2 bundle F on P^1, both of degree g + 3, with det E ≅ det F, giving a map H_{4,g} → B to the moduli stack of such pairs and an embedding of the universal curve into P E^∨.",
+   "status": "missing",
+   "planned": [],
+   "owner": "MotivicStructuresInModuliOfCurves",
+   "layer": null
+  },
+  {
+   "id": "PAPER-CANNING-LARSON-PAYNE-24/50",
+   "paper": "PAPER-CANNING-LARSON-PAYNE-24",
+   "kind": "construction",
+   "name": "The splitting-type stratification of H_{4,7,n}",
+   "statement": "The splitting types E = O(e_1) ⊕ O(e_2) ⊕ O(e_3) and F = O(f_1) ⊕ O(f_2) stratify H_{4,7,n} as X_n ⊔ Y_n ⊔ Z_n, where X_n is the locus with E = (3,3,4) and F = (5,5) or (4,6); Y_n = Σ_{2,n} ⊔ Σ_{3,n} with Σ_{2,n} the locus E = (2,4,4), F = (4,6) and Σ_{3,n} the locus E = (2,3,5), F = (4,6); and Z_n the maximally unbalanced locus, which parametrises hyperelliptic curves and maps into M^3_{7,n}.",
+   "status": "missing",
+   "planned": [],
+   "owner": "MotivicStructuresInModuliOfCurves",
+   "layer": null
+  },
+  {
+   "id": "PAPER-CANNING-LARSON-PAYNE-24/60",
+   "paper": "PAPER-CANNING-LARSON-PAYNE-24",
+   "kind": "construction",
+   "name": "Mukai's model of pentagonal genus 7 curves, with markings",
+   "statement": "Mukai realises every curve of gonality exactly 5 and genus 7 as a linear section C = OG(5,10) ∩ P^6 in the spinor embedding OG(5,10) ↪ P^{15}, canonically embedded, and conversely; in families this gives M^◦_7 ≅ [(Gr(7, S^+) \\ Δ)/SO_10], an open substack of the Grassmann bundle Gr(7, S^+) over BSO_10, with the tautological subbundle restricting to the dual of the Hodge bundle. With markings: let L = ι^*O_{P S^+}(−1) for the universal spinor embedding ι, let Z_n ⊂ OG(5, V)^n be the open locus where ⊕_i L_i → π_n^*S^+ has rank n, and Q_n the cokernel, a rank 16 − n bundle on Z_n; then Gr(7 − n, Q_n) parametrises the P^6 containing the n given points.",
+   "status": "missing",
+   "planned": [],
+   "owner": "MotivicStructuresInModuliOfCurves",
+   "layer": null
+  },
+  {
+   "id": "PAPER-CANNING-LARSON-PAYNE-24/76",
+   "paper": "PAPER-CANNING-LARSON-PAYNE-24",
+   "kind": "definition",
+   "name": "ω-decorated graphs and their conventions",
+   "statement": "A decoration ω ∈ H^{11}(M̄_{1,11}) ≅ S_12 on a genus 1 vertex, pulled back along forgetful maps, together with a stable graph, determines by gluing pushforward a morphism L^e S_12 → H^{11+2e}(M̄_{g,n}) where e is the number of edges; a collection of such graphs 'is a basis for H^k(M̄_{g,n})' when the corresponding morphisms form a basis of Hom(L^e S_12, H^k(M̄_{g,n})) and H^k(M̄_{g,n}) ≅ Hom(L^e S_12, H^k) ⊗ L^e S_12. In the pictures a white vertex has genus 1, a black vertex genus 0, undrawn markings sit on the leftmost genus 1 vertex, and ω_i, ω_{ij} denote pullbacks of ω forgetting the indicated markings.",
+   "status": "missing",
+   "planned": [],
+   "owner": "MotivicStructuresInModuliOfCurves",
+   "layer": null
+  },
+  {
+   "id": "PAPER-CANNING-LARSON-PAYNE-24/87",
+   "paper": "PAPER-CANNING-LARSON-PAYNE-24",
+   "kind": "construction",
+   "name": "The weight 15 complex and its first two maps",
+   "statement": "For g ≥ 3 one studies H^{15}(M̄_{g,n}) →^α ⊕_{|E(Γ)|=1} H^{15}(M̄_Γ)^{Aut(Γ)} → ⊕_{|E(Γ)|=2} (H^{15}(M̄_Γ) ⊗ det E(Γ))^{Aut(Γ)}, where Γ runs over stable graphs of genus g with n legs, the first map is pullback to the normalised boundary and the second is the differential of the weight spectral sequence described in the authors' earlier paper.",
+   "status": "missing",
+   "planned": [],
+   "owner": "MotivicStructuresInModuliOfCurves",
+   "layer": null
+  },
+  {
+   "id": "PAPER-BHATT-ETAL-23/numerical",
+   "paper": "PAPER-BHATT-ETAL-23",
+   "kind": "definition",
+   "name": "Relative N₁, N¹ and the curve cone",
+   "statement": "For projective X/T over the stipulated Noetherian bases, quotient real cycle and Cartier-divisor spaces by the degree pairing on curves over closed points; form the closed cone NE(X/T) and relative Picard number.",
+   "status": "missing",
+   "planned": [],
+   "owner": "NumericalPicardAndContractionDescent",
+   "layer": null
+  },
+  {
+   "id": "PAPER-HACON-WITASZEK-23/numerical",
+   "paper": "PAPER-HACON-WITASZEK-23",
+   "kind": "definition",
+   "name": "Relative numerical divisor and curve spaces",
+   "statement": "For projective X→S, define N¹_Q=Pic(X)⊗Q modulo equality of degree on contracted curves, as in Theorem6.1, and its real scalar extension for cone theory. N₁ and NE are the corresponding curve space and closed effective cone in the source range. Rational and real surjectivity must be related by a proved finite-dimensional rational-structure lemma.",
+   "status": "missing",
+   "planned": [],
+   "owner": "NumericalPicardAndContractionDescent",
+   "layer": null
+  },
+  {
+   "id": "PAPER-HACON-WITASZEK-23/modified-rho",
+   "paper": "PAPER-HACON-WITASZEK-23",
+   "kind": "construction",
+   "name": "AHK birational Picard-rank invariant",
+   "statement": "For normal Y admitting a projective resolution Y′, set ρ_AHK(Y)=dim N¹(Y′) minus the number of exceptional prime divisors (with the relative version where used). This is independent of the resolution and invariant under small modifications; it is not defined as the naive Picard rank of singular Y.",
+   "status": "missing",
+   "planned": [],
+   "owner": "NumericalPicardAndContractionDescent",
+   "layer": null
+  },
+  {
+   "id": "PAPER-HACON-WITASZEK-23/numerical-flop-boundary",
+   "paper": "PAPER-HACON-WITASZEK-23",
+   "kind": "construction",
+   "name": "Effective perturbations from numerical representatives",
+   "statement": "In the projective lifting setting of Theorem6.1(2b), let f:X→Z be the prescribed flop contraction, H=f*H_Z for H_Z ample, and A the Q-Cartier strict transform of an ample divisor on its chosen flop. N¹_Q surjectivity supplies Q-Cartier representatives Hcal,Acal with Hcal|X≡H and Acal|X≡A. For m sufficiently large, some divisible multiple of mHcal+Acal has a section whose divisor does not contain X. Dividing by that multiple gives an effective Q-divisor Dcal with Dcal|X≡mH+A, hence Dcal is negative on the chosen flopping ray. This is a perturbation construction, not yet the full lifted-step theorem.",
+   "status": "missing",
+   "planned": [],
+   "owner": "NumericalPicardAndContractionDescent",
+   "layer": null
+  },
+  {
+   "id": "PAPER-SCHROER-23/1",
+   "paper": "PAPER-SCHROER-23",
+   "kind": "definition",
+   "name": "Numerical Picard local system",
+   "statement": "For a proper scheme X over a field k, Pic^τ_{X/k} is the open subgroup of geometrically numerically trivial line bundles and Num_{X/k}=Pic_{X/k}/Pic^τ_{X/k}; it is an étale local system with geometric fiber a finite-rank free abelian group.",
+   "status": "missing",
+   "planned": [],
+   "owner": "NumericalPicardAndContractionDescent",
+   "layer": null
+  },
+  {
+   "id": "PAPER-SCHROER-23/3",
+   "paper": "PAPER-SCHROER-23",
+   "kind": "definition",
+   "name": "Component dual graph",
+   "statement": "For a noetherian scheme X, Γ(X) has its irreducible components as vertices, with an edge between distinct components iff their intersection is nonempty.",
+   "status": "missing",
+   "planned": [],
+   "owner": "NumericalPicardAndContractionDescent",
+   "layer": null
+  },
+  {
+   "id": "PAPER-SCHROER-23/5",
+   "paper": "PAPER-SCHROER-23",
+   "kind": "definition",
+   "name": "Contraction",
+   "statement": "A contraction of proper schemes is a proper morphism f:X→Y for which O_Y→f_*O_X is an isomorphism.",
+   "status": "missing",
+   "planned": [],
+   "owner": "NumericalPicardAndContractionDescent",
+   "layer": null
+  },
+  {
+   "id": "PAPER-SCHROER-23/9",
+   "paper": "PAPER-SCHROER-23",
+   "kind": "definition",
+   "name": "Intersection-labelled component graph",
+   "statement": "For a proper curve on a smooth proper surface S/k with H⁰(S,O)=k, attach to each pair of distinct components their surface intersection number as an edge label.",
+   "status": "missing",
+   "planned": [],
+   "owner": "NumericalPicardAndContractionDescent",
+   "layer": null
+  },
+  {
+   "id": "PAPER-SCHROER-23/183",
+   "paper": "PAPER-SCHROER-23",
+   "kind": "construction",
+   "name": "Lifting twice a numerical class",
+   "statement": "For an exact sequence 0→P→Q→N→0 of abelian fppf sheaves with 2P=0, multiplication by 2 on Q descends uniquely to a map d:N→Q, with projection∘d=[2]_N. Apply this to Pic^τ→Pic→Num of an Enriques family in the Pic^τ=μ₂ branch.",
+   "status": "missing",
+   "planned": [],
+   "owner": "NumericalPicardAndContractionDescent",
+   "layer": null
+  },
+  {
+   "id": "PAPER-CESNAVICIUS-SCHOLZE-24/043",
+   "paper": "PAPER-CESNAVICIUS-SCHOLZE-24",
+   "kind": "definition",
+   "name": "Virtual dimension of a Noetherian local ring",
+   "statement": "For a Noetherian local (R, 𝔪) with R̂ ≅ R̃/I, R̃ complete regular local, vdim(R) = dim(R̃) − μ(I), where μ(I) is the minimal number of generators of I; it does not depend on the presentation (SGA 2 XIV 5.2).",
+   "status": "missing",
+   "planned": [],
+   "owner": "PurityForFlatCohomology",
+   "layer": null
+  },
+  {
+   "id": "PAPER-CESNAVICIUS-SCHOLZE-24/132",
+   "paper": "PAPER-CESNAVICIUS-SCHOLZE-24",
+   "kind": "definition",
+   "name": "Parafactorial and geometrically parafactorial local rings",
+   "statement": "A local ring (R, 𝔪) is parafactorial if pullback is an equivalence from line bundles on Spec(R) to line bundles on Spec(R) ∖ {𝔪}; it is geometrically parafactorial if its strict Henselization is. Noetherian local geometrically factorial rings of dimension ≥ 2 are geometrically parafactorial (EGA IV 21.13.9(ii)), parafactorial rings have depth ≥ 2 (EGA IV 21.13.8), and local rings of dimension ≥ 2 with factorial strict Henselizations have torsion H^{≥2}(𝔾_m) (Grothendieck, Le groupe de Brauer II–III).",
+   "status": "missing",
+   "planned": [],
+   "owner": "PurityForFlatCohomology",
+   "layer": null
+  },
+  {
+   "id": "PAPER-BAKKER-TSIMERMAN-16/83",
+   "paper": "PAPER-BAKKER-TSIMERMAN-16",
+   "kind": "construction",
+   "name": "Symmetric powers as finite quotients",
+   "statement": "For a projective complex scheme Z and integer n≥1, construct SymⁿZ=Zⁿ/S_n with its finite-quotient universal property, compatible cycle map and base change in characteristic zero.",
+   "status": "planned",
+   "planned": [
+    "SchemeAndStackFoundations:SF.1"
+   ],
+   "owner": "SchemeAndStackFoundations",
+   "layer": "SchemeAndStackFoundations:SF.1"
+  },
+  {
+   "id": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19/9",
+   "paper": "PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19",
+   "kind": "definition",
+   "name": "Standing notation",
+   "statement": "X/Q is a smooth projective geometrically connected curve of genus g ≥ 2 with X(Q) ≠ ∅ and Jacobian J; r := rk J(Q), ρ := rk NS(J), K := End(J) ⊗ Q; b ∈ X(Q) is a base point and p a prime of good reduction; E := H^0(X_{Q_p},Ω¹)* ⊗ H^0(X_{Q_p},Ω¹)*; T_0 is the set of bad primes, T = T_0 ∪ {p}, G_T the maximal quotient of G_Q unramified outside T, and G_v the absolute Galois group of Q_v.",
+   "status": "planned",
+   "planned": [
+    "SchemeAndStackFoundations:SF.3",
+    "AnabelianGeometryAndNonabelianChabauty:NC.5"
+   ],
+   "owner": "SchemeAndStackFoundations",
+   "layer": "SchemeAndStackFoundations:SF.3"
+  },
+  {
+   "id": "PAPER-BENOIST-19/09",
+   "paper": "PAPER-BENOIST-19",
+   "kind": "definition",
+   "name": "Geometric/cohomological Brauer class and unramified locus",
+   "statement": "For smooth integral X, Br(X)=H²_et(X,G_m) embeds in Br(k(X)). For α in the field group its maximal unramified open U is the complement of the finitely many prime divisors with nonzero residue; α then belongs to Br(U).",
+   "status": "missing",
+   "planned": [],
+   "owner": "SchemeAndStackFoundations",
+   "layer": null
+  },
+  {
+   "id": "PAPER-BENOIST-19/10",
+   "paper": "PAPER-BENOIST-19",
+   "kind": "construction",
+   "name": "Divisorial residues and purity",
+   "statement": "For smooth integral X over R and prime divisor Γ, construct res_Γ:Br(R(X))→H¹_et(R(Γ),Q/Z); purity identifies Br(X) with their common kernel. Under finite extension the residue of restriction is ramification index times residue-field restriction, at orders invertible in the residue field.",
+   "status": "missing",
+   "planned": [],
+   "owner": "SchemeAndStackFoundations",
+   "layer": null
+  },
+  {
+   "id": "PAPER-BENOIST-19/136",
+   "paper": "PAPER-BENOIST-19",
+   "kind": "construction",
+   "name": "Characteristic-zero smooth SNC model",
+   "statement": "Resolve and compactify a real surface and its ramification divisor in characteristic0 to a smooth connected projective model with SNC ramification, without changing its function field. Keep the map proper birational and distinguish the total transform from the actual ramification support.",
+   "status": "planned",
+   "planned": [
+    "SchemeAndStackFoundations:SF.4"
+   ],
+   "owner": "SchemeAndStackFoundations",
+   "layer": "SchemeAndStackFoundations:SF.4"
+  },
+  {
+   "id": "PAPER-BENOIST-19/147",
+   "paper": "PAPER-BENOIST-19",
+   "kind": "construction",
+   "name": "Algebraic intersection and adjunction inputs",
+   "statement": "Use divisor intersections, surface Riemann–Roch, adjunction and Chern classes with the stated smooth projective hypotheses to compute H²K_X for P1×S, normal bundles, and the canonical class of the double-cover hypersurface.",
+   "status": "planned",
+   "planned": [
+    "SchemeAndStackFoundations:SF.5"
+   ],
+   "owner": "SchemeAndStackFoundations",
+   "layer": "SchemeAndStackFoundations:SF.5"
+  },
+  {
+   "id": "PAPER-BENOIST-WITTENBERG-20/elw-index",
+   "paper": "PAPER-BENOIST-WITTENBERG-20",
+   "kind": "definition",
+   "name": "Intermediate Euler-characteristic index",
+   "statement": "For a proper variety X/k and i≥0, ind_i(X) is the nonnegative generator of the ideal of Z generated by χ(X,F) for coherent sheaves F whose support has dimension at most i. For nonempty X, ind_0 is the usual closed-point degree index and ind_d divides ... divides ind_0.",
+   "status": "missing",
+   "planned": [],
+   "owner": "SchemeAndStackFoundations",
+   "layer": null
+  },
+  {
+   "id": "PAPER-BENOIST-WITTENBERG-20/euler-cycle-map",
+   "paper": "PAPER-BENOIST-WITTENBERG-20",
+   "kind": "construction",
+   "name": "Euler characteristic modulo lower index",
+   "statement": "For smooth proper X/k, χ of normalizations of dimension-i integral subvarieties induces CH_i(X)→Z/ind_{i−1}(X), and factors through algebraic equivalence. For k real closed and i=1 it also factors through the equivariant homological cycle class via φ.",
+   "status": "missing",
+   "planned": [],
+   "owner": "SchemeAndStackFoundations",
+   "layer": null
+  },
+  {
+   "id": "PAPER-BENOIST-WITTENBERG-20/coniveau",
+   "paper": "PAPER-BENOIST-WITTENBERG-20",
+   "kind": "definition",
+   "name": "Coniveau filtration by algebraic support",
+   "statement": "For smooth X/R, G-module M and p≥0, N^p HG^i(X(C),M) consists of classes supported on Z(C) for some Zariski closed Z⊂X of codimension at least p; use N^p=HG for p≤0.",
+   "status": "missing",
+   "planned": [],
+   "owner": "SchemeAndStackFoundations",
+   "layer": null
+  },
+  {
+   "id": "PAPER-BENOIST-WITTENBERG-20/cohomology-sheaf",
+   "paper": "PAPER-BENOIST-WITTENBERG-20",
+   "kind": "construction",
+   "name": "Zariski cohomology sheaves",
+   "statement": "For smooth X/R and G-module M, H_X^q(M) is the Zariski sheafification of U↦HG^q(U(C),M). For X_C use ordinary cohomology. Its sections at the generic point are filtered colimits over dense opens.",
+   "status": "missing",
+   "planned": [],
+   "owner": "SchemeAndStackFoundations",
+   "layer": null
+  },
+  {
+   "id": "PAPER-BENOIST-WITTENBERG-20/coniveau-spectral",
+   "paper": "PAPER-BENOIST-WITTENBERG-20",
+   "kind": "construction",
+   "name": "Equivariant Bloch–Ogus spectral sequence",
+   "statement": "For smooth X/R and G-module M, E1^{p,q}=⊕_{Z irreducible,codim Z=p}colim_{U dense open in Z}HG^{q−p}(U(C),M(−p))⇒HG^{p+q}(X(C),M). Terms with p>q vanish; E2^{p,q}=H^p_Zar(X,H_X^q(M)); the induced filtration is N^p.",
+   "status": "missing",
+   "planned": [],
+   "owner": "SchemeAndStackFoundations",
+   "layer": null
+  },
+  {
+   "id": "PAPER-BENOIST-WITTENBERG-20/zero-real-sheaf",
+   "paper": "PAPER-BENOIST-WITTENBERG-20",
+   "kind": "definition",
+   "name": "Cohomology sheaf with zero real evaluation",
+   "statement": "For q≥0, define H_X^q(M)_0=ker(H_X^q(M)→ι_*H^q(G,M)), the subsheaf with zero evaluation at all real points.",
+   "status": "missing",
+   "planned": [],
+   "owner": "SchemeAndStackFoundations",
+   "layer": null
+  },
+  {
+   "id": "PAPER-BENOIST-WITTENBERG-20/support-theory",
+   "paper": "PAPER-BENOIST-WITTENBERG-20",
+   "kind": "definition",
+   "name": "Cohomology theory with algebraic supports",
+   "statement": "Let S_k be a full subcategory of algebraic k-schemes stable under étale extensions, containing Spec k and P¹_X for X∈S_k. A cohomology theory with supports is a contravariant graded abelian-group functor on pairs (X,Z closed), with natural localization LES for Z⊂Y⊂X; morphisms f satisfy f^−1(Z)⊆Z'.",
+   "status": "missing",
+   "planned": [],
+   "owner": "SchemeAndStackFoundations",
+   "layer": null
+  },
+  {
+   "id": "PAPER-BENOIST-WITTENBERG-20/strict-effaceable",
+   "paper": "PAPER-BENOIST-WITTENBERG-20",
+   "kind": "definition",
+   "name": "Strict effaceability",
+   "statement": "For smooth affine X∈S_k and finitely many points t_i, a theory is strictly effaceable at them if for every neighborhood W, p≥0 and closed Z⊂W of codimension≥p+1, there are a neighborhood U⊂W of the t_i and closed Z'⊂W containing Z with codimension≥p such that h_Z∩U^q(U)→h_Z'∩U^q(U) is zero for every q.",
+   "status": "missing",
+   "planned": [],
+   "owner": "SchemeAndStackFoundations",
+   "layer": null
+  },
+  {
+   "id": "PAPER-BHARGAVA-GROSS-WANG-17/2",
+   "paper": "PAPER-BHARGAVA-GROSS-WANG-17",
+   "kind": "definition",
+   "name": "The Jacobian J = Pic⁰ and the torsor J¹ = Pic¹",
+   "statement": "J = Pic⁰_{C/Q} is the Jacobian and J¹ = Pic¹_{C/Q} the J-torsor of degree-one divisor classes; d is the hyperelliptic class (pull-back of O(1)), and Pic_{C/K}/Z·d = J ⊔ J¹. A point of C over an extension of odd degree k gives the rational point (sum of conjugates) − ((k − 1)/2)d of J¹.",
+   "status": "planned",
+   "planned": [
+    "SchemeAndStackFoundations:SF.3"
+   ],
+   "owner": "SchemeAndStackFoundations",
+   "layer": "SchemeAndStackFoundations:SF.3"
+  },
+  {
+   "id": "PAPER-BHATT-18/strict-transform",
+   "paper": "PAPER-BHATT-18",
+   "kind": "construction",
+   "name": "Strict transform with exceptional torsion removed",
+   "statement": "For X→S, a blowup S′→S in I, and a quasi-coherent module F on X, its strict transform is the pullback to X×_S S′ modulo sections supported on the exceptional divisor. On the f-chart it is (F⊗_A A[I/f]) modulo f-power torsion. The strict transform X′ of X is the closed subscheme cut out by that torsion in its structure sheaf; it is also Bl_(I O_X)(X).",
+   "status": "missing",
+   "planned": [],
+   "owner": "SchemeAndStackFoundations",
+   "layer": null
+  },
+  {
+   "id": "PAPER-BHATT-ETAL-23/base",
+   "paper": "PAPER-BHATT-ETAL-23",
+   "kind": "definition",
+   "name": "Geometric base scopes",
+   "statement": "Track separately: excellent finite-dimensional bases with dualizing complexes; complete Noetherian local domains of residue characteristic p>0 in §§4–8; and §9's T quasi-projective over an excellent finite-dimensional ring with dualizing complex. All threefold dimensions are absolute.",
+   "status": "missing",
+   "planned": [],
+   "owner": "SchemeAndStackFoundations",
+   "layer": null
+  },
+  {
+   "id": "PAPER-BHATT-ETAL-23/absolute-closure",
+   "paper": "PAPER-BHATT-ETAL-23",
+   "kind": "definition",
+   "name": "Absolute integral closure and finite-cover index",
+   "statement": "For an integral excellent scheme X and a chosen algebraic closure of K(X), form normal finite dominant covers embedded in that closure and their inverse-limit scheme X⁺. Affinely, R⁺ is the integral closure of R in the chosen algebraic closure.",
+   "status": "missing",
+   "planned": [],
+   "owner": "SchemeAndStackFoundations",
+   "layer": null
+  },
+  {
+   "id": "PAPER-BHATT-ETAL-23/alteration",
+   "paper": "PAPER-BHATT-ETAL-23",
+   "kind": "definition",
+   "name": "Alteration",
+   "statement": "An alteration Y→X of integral Noetherian schemes is proper, surjective and generically finite. Finite normal covers form a distinct subclass; compatible generic-field choices are recorded.",
+   "status": "missing",
+   "planned": [],
+   "owner": "SchemeAndStackFoundations",
+   "layer": null
+  },
+  {
+   "id": "PAPER-BHATT-ETAL-23/divisors",
+   "paper": "PAPER-BHATT-ETAL-23",
+   "kind": "definition",
+   "name": "Rational/real divisors and reflexive divisor sheaves",
+   "statement": "On a normal integral Noetherian excellent scheme, construct finite-support Weil divisors with Z,Q,R coefficients, coefficientwise roundings, Q/R-Cartier predicates and reflexive O_X(D) for integral Weil D.",
+   "status": "missing",
+   "planned": [],
+   "owner": "SchemeAndStackFoundations",
+   "layer": null
+  },
+  {
+   "id": "PAPER-BHATT-SCHOLZE-17/S301",
+   "paper": "PAPER-BHATT-SCHOLZE-17",
+   "kind": "construction",
+   "name": "Perfect schemes and geometric perfection",
+   "statement": "A perfect F_p-scheme has invertible absolute Frobenius. Its perfection is the inverse limit of schemes under Frobenius, hence uses direct-limit perfect closures on affine coordinate rings. Perf is the category of qcqs perfect F_p-schemes.",
+   "status": "planned",
+   "planned": [
+    "SchemeAndStackFoundations:SF.0"
+   ],
+   "owner": "SchemeAndStackFoundations",
+   "layer": "SchemeAndStackFoundations:SF.0"
+  },
+  {
+   "id": "PAPER-BHATT-SCHOLZE-17/S310",
+   "paper": "PAPER-BHATT-SCHOLZE-17",
+   "kind": "definition",
+   "name": "Perfect finite presentation",
+   "statement": "A map of perfect rings B→A is perfectly finitely presented when A is the perfect closure of a finitely presented B-algebra. The corresponding local scheme property is denoted pfp.",
+   "status": "planned",
+   "planned": [
+    "SchemeAndStackFoundations:SF.0"
+   ],
+   "owner": "SchemeAndStackFoundations",
+   "layer": "SchemeAndStackFoundations:SF.0"
+  },
+  {
+   "id": "PAPER-BHATT-SCHOLZE-17/S316",
+   "paper": "PAPER-BHATT-SCHOLZE-17",
+   "kind": "definition",
+   "name": "Properness in Perf",
+   "statement": "A morphism in Perf is proper in this paper when it is pfp, separated and universally closed.",
+   "status": "missing",
+   "planned": [],
+   "owner": "SchemeAndStackFoundations",
+   "layer": null
+  },
+  {
+   "id": "PAPER-BHATT-SCHOLZE-17/S401",
+   "paper": "PAPER-BHATT-SCHOLZE-17",
+   "kind": "construction",
+   "name": "Witt schemes and formal Witt schemes",
+   "statement": "For a perfect scheme X, glue Spec W_n(O_X) into W_n(X); the compatible system in n gives the p-adic formal scheme W(X).",
+   "status": "missing",
+   "planned": [],
+   "owner": "SchemeAndStackFoundations",
+   "layer": null
+  },
+  {
+   "id": "PAPER-BHATT-SCHOLZE-17/S402",
+   "paper": "PAPER-BHATT-SCHOLZE-17",
+   "kind": "construction",
+   "name": "Vector-bundle groupoids on Witt schemes",
+   "statement": "Vect(W_n(X)) and Vect(W(X)) retain finite locally free modules and their isomorphisms, with compatible pullbacks.",
+   "status": "missing",
+   "planned": [],
+   "owner": "SchemeAndStackFoundations",
+   "layer": null
+  },
+  {
+   "id": "PAPER-BHATT-SCHOLZE-17/D501",
+   "paper": "PAPER-BHATT-SCHOLZE-17",
+   "kind": "construction",
+   "name": "Picard groupoid of a scheme",
+   "statement": "Pic(X) is the core of the invertible-sheaf category, with tensor product, unit and dual. Its object classes form Pic(X), while Aut(O_X)=Γ(X,O_X)×.",
+   "status": "missing",
+   "planned": [],
+   "owner": "SchemeAndStackFoundations",
+   "layer": null
+  },
+  {
+   "id": "PAPER-BHATT-SCHOLZE-17/G811",
+   "paper": "PAPER-BHATT-SCHOLZE-17",
+   "kind": "construction",
+   "name": "Ample, nef, big and exceptional locus interfaces",
+   "statement": "For a projective finite-type model and line L, retain ampleness, nonnegative curve degree (nef), top self-intersection positivity (big), and E(L), the union of subvarieties where L is not big; compare these with pullback to perfection.",
+   "status": "missing",
+   "planned": [],
+   "owner": "SchemeAndStackFoundations",
+   "layer": null
+  },
+  {
+   "id": "PAPER-BHATT-SCHOLZE-17/A1214",
+   "paper": "PAPER-BHATT-SCHOLZE-17",
+   "kind": "construction",
+   "name": "Abstract Picard groupoid",
+   "statement": "A Picard groupoid is a symmetric monoidal groupoid in which every object is tensor-invertible, with all monoidal coherence retained.",
+   "status": "missing",
+   "planned": [],
+   "owner": "SchemeAndStackFoundations",
+   "layer": null
+  },
+  {
+   "id": "PAPER-BOXER-PILLONI-26/ext-tor-independence",
+   "paper": "PAPER-BOXER-PILLONI-26",
+   "kind": "definition",
+   "name": "Tor-independence of schemes over a base",
+   "statement": "Morphisms X → S and S′ → S are Tor-independent if Tor_i^{O_{S,s}}(O_{X,x}, O_{S′,s′}) = 0 for all i > 0 and all points x ∈ X, s′ ∈ S′ lying over the same s ∈ S. Equivalently, the derived fibre product agrees with X ×_S S′, i.e. O_{X×_S S′} = O_X ⊗^L_{O_S} O_{S′}. This holds, for example, when X or S′ is flat over S.",
+   "status": "missing",
+   "planned": [],
+   "owner": "SchemeAndStackFoundations",
+   "layer": null
+  },
+  {
+   "id": "PAPER-BRESCIANI-24/1",
+   "paper": "PAPER-BRESCIANI-24",
+   "kind": "definition",
+   "name": "Curve and smooth completion",
+   "statement": "A curve is a smooth geometrically connected curve over a characteristic-zero field k; barX is its smooth proper completion. Hyperbolic means 2g(barX)-2+deg(barX\\X)>0.",
+   "status": "planned",
+   "planned": [
+    "SchemeAndStackFoundations:SF.3"
+   ],
+   "owner": "SchemeAndStackFoundations",
+   "layer": "SchemeAndStackFoundations:SF.3"
+  },
+  {
+   "id": "PAPER-BRESCIANI-24/21",
+   "paper": "PAPER-BRESCIANI-24",
+   "kind": "definition",
+   "name": "Finite and profinite étale gerbes",
+   "statement": "A finite étale gerbe over k is an étale gerbe with finite geometric automorphism groups; a profinite étale gerbe is a cofiltered 2-limit of such gerbes.",
+   "status": "missing",
+   "planned": [],
+   "owner": "SchemeAndStackFoundations",
+   "layer": null
+  },
+  {
+   "id": "PAPER-BRESCIANI-24/22",
+   "paper": "PAPER-BRESCIANI-24",
+   "kind": "construction",
+   "name": "Classifying stack of a group scheme",
+   "statement": "B_kG assigns to a k-scheme S the groupoid of fpqc G_S-torsors. For finite-type G the fppf topology suffices; retain fpqc for profinite G.",
+   "status": "missing",
+   "planned": [],
+   "owner": "SchemeAndStackFoundations",
+   "layer": null
+  },
+  {
+   "id": "PAPER-BRESCIANI-24/34",
+   "paper": "PAPER-BRESCIANI-24",
+   "kind": "definition",
+   "name": "Locally full morphism of gerbes",
+   "statement": "For affine gerbes over k, a morphism is locally full when the induced automorphism-group map at every field-valued object is faithfully flat; equivalently the maps of fpqc Isom sheaves are surjective. On neutral finite étale geometric fibers this is surjectivity of finite band groups.",
+   "status": "missing",
+   "planned": [],
+   "owner": "SchemeAndStackFoundations",
+   "layer": null
+  },
+  {
+   "id": "PAPER-BRESCIANI-24/36",
+   "paper": "PAPER-BRESCIANI-24",
+   "kind": "construction",
+   "name": "Finite root stack of a DVR",
+   "statement": "For DVR R with uniformizer π, the nth root stack of its closed divisor classifies triples (L,s,α:L^n≃O) with α(s^n)=π; it is [Spec R[t]/(t^n−π)/μ_n].",
+   "status": "missing",
+   "planned": [],
+   "owner": "SchemeAndStackFoundations",
+   "layer": null
+  },
+  {
+   "id": "PAPER-BRESCIANI-24/37",
+   "paper": "PAPER-BRESCIANI-24",
+   "kind": "construction",
+   "name": "Infinite root stack and specializing circle",
+   "statement": "The infinite root stack is lim_n root_n(Spec R). Its reduced closed fiber S_c^1 is noncanonically B_k Zhat(1); its k-point isomorphism classes are noncanonically H1(k,Zhat(1))=completed k*.",
+   "status": "missing",
+   "planned": [],
+   "owner": "SchemeAndStackFoundations",
+   "layer": null
+  },
+  {
+   "id": "PAPER-BRESCIANI-24/38",
+   "paper": "PAPER-BRESCIANI-24",
+   "kind": "definition",
+   "name": "Constant gerbe morphism",
+   "statement": "A morphism Y→X of fibered categories over k is constant if it factors through Spec k.",
+   "status": "missing",
+   "planned": [],
+   "owner": "SchemeAndStackFoundations",
+   "layer": null
+  },
+  {
+   "id": "PAPER-BRESCIANI-24/65",
+   "paper": "PAPER-BRESCIANI-24",
+   "kind": "construction",
+   "name": "Projection used to build the étale divisor",
+   "statement": "Choose a codimension-two linear center disjoint from barX_k, transverse hyperplane fibers through all geometric points over p and avoiding the boundary. Lift its two linear equations to R to get a finite morphism barX→P1_R, étale over a neighborhood of the image of p.",
+   "status": "missing",
+   "planned": [],
+   "owner": "SchemeAndStackFoundations",
+   "layer": null
+  },
+  {
+   "id": "PAPER-BRESCIANI-24/102",
+   "paper": "PAPER-BRESCIANI-24",
+   "kind": "construction",
+   "name": "Finite cover mapping to a constant elliptic curve",
+   "statement": "For a smooth projective curve X/k and an elliptic curve E over a subfield h, finite maps X→P1 and E_k→P1 yield, after selecting a component and a finite constant extension, a smooth finite cover Y→X with a finite map Y→E_k.",
+   "status": "missing",
+   "planned": [],
+   "owner": "SchemeAndStackFoundations",
+   "layer": null
+  },
+  {
+   "id": "PAPER-BRESCIANI-24/121",
+   "paper": "PAPER-BRESCIANI-24",
+   "kind": "construction",
+   "name": "Relative section isomorphism torsor",
+   "statement": "If Π_X/V=lim_i Φ_i with Φ_i proper étale gerbes and s1,s2 sections, then Isom(s1,s2)=lim_i(V×_(Φ_i)V); each finite-stage fiber product is finite étale over V.",
+   "status": "missing",
+   "planned": [],
+   "owner": "SchemeAndStackFoundations",
+   "layer": null
+  },
+  {
+   "id": "PAPER-BRESCIANI-24/149",
+   "paper": "PAPER-BRESCIANI-24",
+   "kind": "construction",
+   "name": "Finite étale gerbe presentation with locally full projections",
+   "statement": "A profinite étale gerbe admits a cofiltered finite étale presentation whose projections and transition maps are locally full, obtained by replacing each finite stage with the canonical image of the projection.",
+   "status": "missing",
+   "planned": [],
+   "owner": "SchemeAndStackFoundations",
+   "layer": null
+  },
+  {
+   "id": "PAPER-CADORET-HUI-TAMAGAWA-17/15",
+   "paper": "PAPER-CADORET-HUI-TAMAGAWA-17",
+   "kind": "construction",
+   "name": "Lisse sheaves and fundamental-group representations",
+   "statement": "For connected X in F and Λ=Zℓ or Fℓ, identify the relevant lisse Λ-sheaves with continuous finite-generated Λ-representations of π₁(X,x), with stalk transport up to the chosen path. Establish H⁰(X,F)=F_x^π and the arithmetic action under descent.",
+   "status": "missing",
+   "planned": [],
+   "owner": "SchemeAndStackFoundations",
+   "layer": null
+  },
+  {
+   "id": "PAPER-CANNING-LARSON-PAYNE-24/12",
+   "paper": "PAPER-CANNING-LARSON-PAYNE-24",
+   "kind": "definition",
+   "name": "Chow groups of algebraic stacks and exterior products",
+   "statement": "For algebraic stacks of finite type over a field that are stratified by quotient stacks, A_*(X) denotes the (Edidin–Graham/Kresch) Chow groups, with proper pushforward, flat pullback, excision for open–closed decompositions, the projection formula, Chern classes and the exterior product A_*(X) ⊗ A_*(Y) → A_*(X × Y).",
+   "status": "missing",
+   "planned": [],
+   "owner": "SchemeAndStackFoundations",
+   "layer": null
+  },
+  {
+   "id": "PAPER-CARO-PASTEN-23/good-pair",
+   "paper": "PAPER-CARO-PASTEN-23",
+   "kind": "definition",
+   "name": "Good integral model of a surface in an abelian variety",
+   "statement": "Over the integers R of a finite extension K/Q_p, take an abelian scheme A/R and a closed smooth proper relative surface X/R with geometrically integral fibers, embedded in A.",
+   "status": "missing",
+   "planned": [],
+   "owner": "SchemeAndStackFoundations",
+   "layer": null
+  },
+  {
+   "id": "PAPER-CARO-PASTEN-23/genus",
+   "paper": "PAPER-CARO-PASTEN-23",
+   "kind": "definition",
+   "name": "Arithmetic and geometric genera",
+   "statement": "For a projective integral curve over an algebraically closed field, p_a=1−χ(O_C) and g is the genus of its normalization. Over a perfect field use geometric base change.",
+   "status": "missing",
+   "planned": [],
+   "owner": "SchemeAndStackFoundations",
+   "layer": null
+  },
+  {
+   "id": "PAPER-CARO-PASTEN-23/delta",
+   "paper": "PAPER-CARO-PASTEN-23",
+   "kind": "definition",
+   "name": "Local delta invariant",
+   "statement": "At a point of an integral curve, δ_x is the length/dimension of the finite normalization quotient Õ_C,x/O_C,x, with geometric points used for geometric genus formulas.",
+   "status": "missing",
+   "planned": [],
+   "owner": "SchemeAndStackFoundations",
+   "layer": null
+  },
+  {
+   "id": "PAPER-CARO-PASTEN-23/multiplicity",
+   "paper": "PAPER-CARO-PASTEN-23",
+   "kind": "definition",
+   "name": "Local curve multiplicity",
+   "statement": "mult_x C is the Hilbert–Samuel multiplicity of the one-dimensional local ring of an integral curve at a closed point.",
+   "status": "missing",
+   "planned": [],
+   "owner": "SchemeAndStackFoundations",
+   "layer": null
+  },
+  {
+   "id": "PAPER-CARO-PASTEN-23/canonical",
+   "paper": "PAPER-CARO-PASTEN-23",
+   "kind": "definition",
+   "name": "Canonical divisor and Chern number",
+   "statement": "On a smooth projective geometrically integral surface S, K_S is the divisor class of det Ω¹ and s=c₁²(S)=K_S²; nef and ample are numerical/geometric conditions, not assumptions on every effective divisor.",
+   "status": "planned",
+   "planned": [
+    "SchemeAndStackFoundations:SF.5"
+   ],
+   "owner": "SchemeAndStackFoundations",
+   "layer": "SchemeAndStackFoundations:SF.5"
+  },
+  {
+   "id": "PAPER-CARO-PASTEN-23/branches",
+   "paper": "PAPER-CARO-PASTEN-23",
+   "kind": "definition",
+   "name": "Formal branches of a curve on a smooth surface",
+   "statement": "After completing at a geometric point of a smooth surface, factor a local curve equation into pairwise nonassociated irreducibles in k[[s₁,s₂]]; the factors define formal branches.",
+   "status": "missing",
+   "planned": [],
+   "owner": "SchemeAndStackFoundations",
+   "layer": null
+  },
+  {
+   "id": "PAPER-CARO-PASTEN-23/general-type",
+   "paper": "PAPER-CARO-PASTEN-23",
+   "kind": "definition",
+   "name": "Surface of general type",
+   "statement": "A smooth projective geometrically integral surface is of general type when its canonical bundle is big, equivalently its pluricanonical section growth is quadratic. Minimal means no smooth rational (−1)-curve.",
+   "status": "missing",
+   "planned": [],
+   "owner": "SchemeAndStackFoundations",
+   "layer": null
+  },
+  {
+   "id": "PAPER-CARO-PASTEN-23/global-pullback",
+   "paper": "PAPER-CARO-PASTEN-23",
+   "kind": "construction",
+   "name": "Global pullback of relative one-forms",
+   "statement": "For f:X→Y over T, define f•:H⁰(Y,Ω¹_Y/T)→H⁰(X,Ω¹_X/T) using the adjunction unit and the canonical differential map f*Ω¹_Y/T→Ω¹_X/T.",
+   "status": "missing",
+   "planned": [],
+   "owner": "SchemeAndStackFoundations",
+   "layer": null
+  },
+  {
+   "id": "PAPER-CARO-PASTEN-23/degree-canonical",
+   "paper": "PAPER-CARO-PASTEN-23",
+   "kind": "definition",
+   "name": "Polarized cycle and canonical degrees",
+   "statement": "For an r-cycle Z on A, deg_H Z=H^r.Z; for a smooth d-dimensional X⊂A, cdeg_H X=H^(d−1).K_X.",
+   "status": "missing",
+   "planned": [],
+   "owner": "SchemeAndStackFoundations",
+   "layer": null
+  },
+  {
+   "id": "PAPER-CESNAVICIUS-19/punctured",
+   "paper": "PAPER-CESNAVICIUS-19",
+   "kind": "definition",
+   "name": "Punctured semilocal spectrum",
+   "statement": "For a semilocal ring R, U_R is Spec R with all closed points removed; in the local case this is the complement of the maximal ideal.",
+   "status": "missing",
+   "planned": [],
+   "owner": "SchemeAndStackFoundations",
+   "layer": null
+  },
+  {
+   "id": "PAPER-CESNAVICIUS-19/torus",
+   "paper": "PAPER-CESNAVICIUS-19",
+   "kind": "definition",
+   "name": "Torus over a scheme",
+   "statement": "An X-torus is a smooth affine X-group scheme étale-locally isomorphic to G_m^r, with locally constant finite rank. The existing Tau Ceti field torus carrier is only the field specialization.",
+   "status": "missing",
+   "planned": [],
+   "owner": "SchemeAndStackFoundations",
+   "layer": null
+  },
+  {
+   "id": "PAPER-CESNAVICIUS-19/cohom-brauer",
+   "paper": "PAPER-CESNAVICIUS-19",
+   "kind": "definition",
+   "name": "Cohomological Brauer group and full H²",
+   "statement": "For a scheme X define Br'(X)=H²_et(X,G_m)_tors with its inclusion into H²; retain the ambient group separately.",
+   "status": "missing",
+   "planned": [],
+   "owner": "SchemeAndStackFoundations",
+   "layer": null
+  },
+  {
+   "id": "PAPER-CESNAVICIUS-19/homogeneous-quotient",
+   "paper": "PAPER-CESNAVICIUS-19",
+   "kind": "definition",
+   "name": "Diagonal Weil quotient",
+   "statement": "For affine S-group G and finite locally free π:S'→S, let Q be the fppf sheaf quotient (Res_(S'/S)G_(S'))/G by the diagonal action. Initially a quotient sheaf, not an assumed represented scheme.",
+   "status": "missing",
+   "planned": [],
+   "owner": "SchemeAndStackFoundations",
+   "layer": null
+  },
+  {
+   "id": "PAPER-CESNAVICIUS-19/generic-completion",
+   "paper": "PAPER-CESNAVICIUS-19",
+   "kind": "definition",
+   "name": "Principal generic-fibre completion",
+   "statement": "For a henselian pair (R,(f)) with f a nonzerodivisor, set Rhat=lim_n R/f^n and compare B=R[1/f] with Bhat=Rhat[1/f]. No Noetherian hypothesis is imposed.",
+   "status": "missing",
+   "planned": [],
+   "owner": "SchemeAndStackFoundations",
+   "layer": null
+  },
+  {
+   "id": "PAPER-CESNAVICIUS-19/smoothness-ideal",
+   "paper": "PAPER-CESNAVICIUS-19",
+   "kind": "definition",
+   "name": "Approximation smoothness ideal",
+   "statement": "For F=R[X₁,…,X_N], J finitely generated and S=F/J, define H_R(F,J)=Ann_F Ext¹_S(L_(S/R),J/J²). Use the truncated cotangent complex presentation rather than inventing a free smoothness predicate.",
+   "status": "missing",
+   "planned": [],
+   "owner": "SchemeAndStackFoundations",
+   "layer": null
+  },
+  {
+   "id": "PAPER-CESNAVICIUS-19/idempotent-groupoid",
+   "paper": "PAPER-CESNAVICIUS-19",
+   "kind": "definition",
+   "name": "Projective-module presentation groupoid",
+   "statement": "Present finite projective modules by idempotent matrices, allowing stabilization; arrows represent isomorphisms of their images/cokernels. Construct the smooth affine presentation/isomorphism spaces used in GR's comparison.",
+   "status": "missing",
+   "planned": [],
+   "owner": "SchemeAndStackFoundations",
+   "layer": null
+  },
+  {
+   "id": "PAPER-CESNAVICIUS-19/supports",
+   "paper": "PAPER-CESNAVICIUS-19",
+   "kind": "definition",
+   "name": "Cohomology with closed supports",
+   "statement": "For closed Z⊂X and abelian étale sheaf F, construct H_Z^q(X,F), its local sheaf ℋ_Z^q, and the localization maps for j:X\\Z→X; use the derived sections-with-support construction.",
+   "status": "missing",
+   "planned": [],
+   "owner": "SchemeAndStackFoundations",
+   "layer": null
+  },
+  {
+   "id": "PAPER-CESNAVICIUS-19/generic-injective-torus",
+   "paper": "PAPER-CESNAVICIUS-19",
+   "kind": "definition",
+   "name": "Generic injectivity condition for torus H²",
+   "statement": "For Noetherian integral regular X with function field K and X-torus T, require H²_et(V,T)→H²_et(K,T) injective for every nonempty open V⊂X.",
+   "status": "missing",
+   "planned": [],
+   "owner": "SchemeAndStackFoundations",
+   "layer": null
+  },
+  {
+   "id": "PAPER-CESNAVICIUS-19/flasque",
+   "paper": "PAPER-CESNAVICIUS-19",
+   "kind": "definition",
+   "name": "Flasque torus in the source convention",
+   "statement": "For a torus split by a finite étale Galois connected cover X'→X with group Γ, its character lattice M is flasque when Ext¹_(Z[Γ])(M,Z[Γ/H])=0 for every subgroup H≤Γ, in the extension-by convention of Remark6.3.",
+   "status": "missing",
+   "planned": [],
+   "owner": "SchemeAndStackFoundations",
+   "layer": null
+  },
+  {
+   "id": "PAPER-CESNAVICIUS-19/brauer-residue",
+   "paper": "PAPER-CESNAVICIUS-19",
+   "kind": "definition",
+   "name": "Admissible Brauer residue map",
+   "statement": "For a DVR O with fraction field K and residue k, define the residue on the ℓ-primary Brauer group to H¹_et(k,Q/Z)[ℓ∞] when ℓ≠char k, or when ℓ=char k and k is perfect; fix the map via the source's localization convention.",
+   "status": "missing",
+   "planned": [],
+   "owner": "SchemeAndStackFoundations",
+   "layer": null
+  },
+  {
+   "id": "PAPER-CESNAVICIUS-19/field-dimension-one",
+   "paper": "PAPER-CESNAVICIUS-19",
+   "kind": "definition",
+   "name": "Field of dimension at most one",
+   "statement": "A field k has dimension≤1 when H^i_et(k,G)=0 for all i≥2 and every commutative finite étale k-group G, and, in positive characteristic, H²_et(K,G_m)=0 for every finite separable extension K/k.",
+   "status": "missing",
+   "planned": [],
+   "owner": "SchemeAndStackFoundations",
+   "layer": null
+  },
+  {
+   "id": "PAPER-CESNAVICIUS-19/parafactorial",
+   "paper": "PAPER-CESNAVICIUS-19",
+   "kind": "definition",
+   "name": "Parafactorial pair and local ring",
+   "statement": "A locally Noetherian pair (X,Z) is parafactorial when for every open V⊂X restriction of invertible sheaves from V to V\\Z is an equivalence; a Noetherian local A is parafactorial for (Spec A,{m_A}).",
+   "status": "missing",
+   "planned": [],
+   "owner": "SchemeAndStackFoundations",
+   "layer": null
+  },
+  {
+   "id": "PAPER-CESNAVICIUS-19/lefschetz-condition",
+   "paper": "PAPER-CESNAVICIUS-19",
+   "kind": "definition",
+   "name": "Formal Lefschetz condition",
+   "statement": "For locally Noetherian X and closed Y, Lef(X,Y) requires Γ(U,E)→Γ(Xhat_Y,Ehat) to be an isomorphism for every neighborhood U of Y and every finite locally free E on U.",
+   "status": "missing",
+   "planned": [],
+   "owner": "SchemeAndStackFoundations",
+   "layer": null
+  },
+  {
+   "id": "PAPER-CESNAVICIUS-19/effective-lefschetz",
+   "paper": "PAPER-CESNAVICIUS-19",
+   "kind": "definition",
+   "name": "Effective formal Lefschetz condition",
+   "statement": "Leff(X,Y) is Lef(X,Y) together with algebraizability, on some open neighborhood of Y, of every finite locally free coherent sheaf on Xhat_Y.",
+   "status": "missing",
+   "planned": [],
+   "owner": "SchemeAndStackFoundations",
+   "layer": null
+  },
+  {
+   "id": "PAPER-CESNAVICIUS-19/factor-smoothness-ideal",
+   "paper": "PAPER-CESNAVICIUS-19",
+   "kind": "definition",
+   "name": "Conormal factorization ideal",
+   "statement": "For F=R[X₁,…,X_N], J finitely generated, S=F/J and M=J/J² with d:M→S^N, let H_fac={h∈F | ∃ S-linear u:S^N→M, u∘d=(h mod J) id_M}. This is an ideal of F containing J.",
+   "status": "missing",
+   "planned": [],
+   "owner": "SchemeAndStackFoundations",
+   "layer": null
+  },
+  {
+   "id": "PAPER-CESNAVICIUS-19/jacobian-smoothness-ideal",
+   "paper": "PAPER-CESNAVICIUS-19",
+   "kind": "definition",
+   "name": "Elkik minor–colon ideal",
+   "statement": "For chosen generators f₁,…,f_q of J⊂F=R[X₁,…,X_N], put H_Jac=Σ_α Δ_α·(J_α:J), where J_α=(f_i:i∈α), Δ_α is the ideal of |α|×|α| Jacobian minors and the empty minor is 1. The complement of its image’s vanishing locus in Spec(F/J) is the smooth locus.",
+   "status": "missing",
+   "planned": [],
+   "owner": "SchemeAndStackFoundations",
+   "layer": null
+  },
+  {
+   "id": "PAPER-CESNAVICIUS-19/conormal-stabilization",
+   "paper": "PAPER-CESNAVICIUS-19",
+   "kind": "construction",
+   "name": "Elkik conormal stabilization",
+   "statement": "Let A be Noetherian, B=A[X₁,…,X_N]/J with q chosen generators of J, V⊂Spec B smooth over A. Put C=Sym_B(J/J²), with projection π:Spec C→Spec B and zero section. Over π⁻¹V, C is smooth of relative dimension N. Embed Spec C in A_A^(2N+q) by its usual N+q coordinates and N zero coordinates. On every affine open U⊂π⁻¹V, the conormal module of this embedding is free of rank N+q.",
+   "status": "missing",
+   "planned": [],
+   "owner": "SchemeAndStackFoundations",
+   "layer": null
+  },
+  {
+   "id": "PAPER-CESNAVICIUS-22/torsor",
+   "paper": "PAPER-CESNAVICIUS-22",
+   "kind": "definition",
+   "name": "Right fppf torsor and nonabelian H1",
+   "statement": "For flat finitely presented group scheme G over S, a right G-torsor is an fppf sheaf E locally equivariantly isomorphic to G; H1(S,G) is its pointed set of isomorphism classes.",
+   "status": "planned",
+   "planned": [
+    "SchemeAndStackFoundations:SF.1"
+   ],
+   "owner": "SchemeAndStackFoundations",
+   "layer": "SchemeAndStackFoundations:SF.1"
+  },
+  {
+   "id": "PAPER-CESNAVICIUS-22/geometric-regularity",
+   "paper": "PAPER-CESNAVICIUS-22",
+   "kind": "definition",
+   "name": "Geometrically regular algebra",
+   "statement": "For a Noetherian k-algebra A over a field k, geometric regularity means regularity after every finite purely inseparable extension of k (equivalently after field extensions as in the paper). A regular ring map is flat with geometrically regular fibers.",
+   "status": "missing",
+   "planned": [],
+   "owner": "SchemeAndStackFoundations",
+   "layer": null
+  },
+  {
+   "id": "PAPER-CESNAVICIUS-22/torsor-twisting",
+   "paper": "PAPER-CESNAVICIUS-22",
+   "kind": "definition",
+   "name": "Twisting and transport of torsors",
+   "statement": "For G-torsor E, its inner automorphism group ^E G acts on Isom_G(E,E'); twisting gives a pointed-set bijection from H1(S,^E G) to H1(S,G) sending the neutral class to [E].",
+   "status": "missing",
+   "planned": [],
+   "owner": "SchemeAndStackFoundations",
+   "layer": null
+  },
+  {
+   "id": "PAPER-CESNAVICIUS-22/unipotent-filtration",
+   "paper": "PAPER-CESNAVICIUS-22",
+   "kind": "definition",
+   "name": "Vector-group filtration",
+   "statement": "A vector group on S is the additive group of a finite locally free O_S-module. A normal filtration has such successive quotients; a central filtration additionally has each quotient central in the corresponding quotient group.",
+   "status": "missing",
+   "planned": [],
+   "owner": "SchemeAndStackFoundations",
+   "layer": null
+  },
+  {
+   "id": "PAPER-CESNAVICIUS-22/support-cohomology",
+   "paper": "PAPER-CESNAVICIUS-22",
+   "kind": "definition",
+   "name": "Cohomology with supports",
+   "statement": "For closed Z⊂S and an abelian sheaf or appropriate complex F, RΓ_Z(S,F) is the fiber of RΓ(S,F)→RΓ(S\\Z,F).",
+   "status": "missing",
+   "planned": [],
+   "owner": "SchemeAndStackFoundations",
+   "layer": null
+  },
+  {
+   "id": "PAPER-CLAUSEN-MATHEW-21/061",
+   "paper": "PAPER-CLAUSEN-MATHEW-21",
+   "kind": "definition",
+   "name": "The étale site of a qcqs algebraic space",
+   "statement": "For a qcqs algebraic space X, et_X is the category of étale maps U → X with U qcqs, and a sieve on U is an étale covering sieve iff it contains finitely many U_i → U with ⊔U_i → U surjective (nonempty pullback to every point); X_et is this site.",
+   "status": "planned",
+   "planned": [
+    "SchemeAndStackFoundations:SF.1",
+    "SchemeAndStackFoundations:SF.2"
+   ],
+   "owner": "SchemeAndStackFoundations",
+   "layer": "SchemeAndStackFoundations:SF.1"
+  },
+  {
+   "id": "PAPER-CLAUSEN-MATHEW-MORROW-21/046",
+   "paper": "PAPER-CLAUSEN-MATHEW-MORROW-21",
+   "kind": "construction",
+   "name": "Henselization of pairs",
+   "statement": "Every pair (S, I) has a henselization (S^h, I^h): the initial henselian pair under (S, I), with S^h a filtered colimit of étale S-algebras, I^h = IS^h = I ⊗_S S^h and S/I ≅ S^h/I^h ([Stacks, Tag 0EM7]); any factorization S → S̃ → S/I with S̃ ind-étale over S and S̃ → S/I henselian is the henselization.",
+   "status": "missing",
+   "planned": [],
+   "owner": "SchemeAndStackFoundations",
+   "layer": null
+  },
+  {
+   "id": "PAPER-FARB-KISIN-WOLFSON-24/005",
+   "paper": "PAPER-FARB-KISIN-WOLFSON-24",
+   "kind": "definition",
+   "name": "Étale K(π,1)",
+   "statement": "A connected C-variety U is an étale K(π,1) if the edge map H^i(π_1^ét(U, x̄), F) → H^i_ét(U, F) is an isomorphism for every i and every finite π_1-module F of p-power order (here F = F_p is what is used).",
+   "status": "missing",
+   "planned": [],
+   "owner": "SchemeAndStackFoundations",
+   "layer": null
+  },
+  {
+   "id": "PAPER-FARB-KISIN-WOLFSON-24/007",
+   "paper": "PAPER-FARB-KISIN-WOLFSON-24",
+   "kind": "construction",
+   "name": "Albanese variety and Albanese map",
+   "statement": "For X smooth proper connected over an algebraically closed field of characteristic 0 with a base point x_0, Alb(X) is the abelian variety dual to Pic^0_X (reduced), with the Albanese map α_X : X → Alb(X), α_X(x_0) = 0, universal among pointed maps to abelian varieties; a point of X(C) gives a Poincaré line bundle on X × Pic^0_X.",
+   "status": "missing",
+   "planned": [],
+   "owner": "SchemeAndStackFoundations",
+   "layer": null
+  },
+  {
+   "id": "PAPER-FARB-KISIN-WOLFSON-24/008",
+   "paper": "PAPER-FARB-KISIN-WOLFSON-24",
+   "kind": "definition",
+   "name": "Albanese dimension and maximal Albanese dimension",
+   "statement": "The Albanese dimension of X is dim α_X(X); X has maximal Albanese dimension when dim α_X(X) = dim X.",
+   "status": "missing",
+   "planned": [],
+   "owner": "SchemeAndStackFoundations",
+   "layer": null
+  },
+  {
+   "id": "PAPER-FARB-KISIN-WOLFSON-24/103",
+   "paper": "PAPER-FARB-KISIN-WOLFSON-24",
+   "kind": "definition",
+   "name": "Complex analytic spaces and their Zariski topology",
+   "statement": "For a complex analytic space Y, a Zariski closed subset is a closed subset locally cut out by analytic functions, and a Zariski open subset is the complement of one; Zariski openness is not transitive along open embeddings of analytic spaces.",
+   "status": "planned",
+   "planned": [
+    "SchemeAndStackFoundations:SF.2",
+    "ComplexComparisonPartII:C0"
+   ],
+   "owner": "SchemeAndStackFoundations",
+   "layer": "SchemeAndStackFoundations:SF.2"
+  },
+  {
+   "id": "PAPER-FARB-KISIN-WOLFSON-24/130",
+   "paper": "PAPER-FARB-KISIN-WOLFSON-24",
+   "kind": "definition",
+   "name": "ncd compactification",
+   "statement": "For a smooth C-scheme Y, an ncd compactification is a dense open embedding Y ⊂ Ȳ into a proper smooth C-scheme with Ȳ ∖ Y a normal crossings divisor.",
+   "status": "missing",
+   "planned": [],
+   "owner": "SchemeAndStackFoundations",
+   "layer": null
+  },
+  {
+   "id": "PAPER-FENG-YUN-ZHANG-24/32",
+   "paper": "PAPER-FENG-YUN-ZHANG-24",
+   "kind": "construction",
+   "name": "Chow groups of stacks, refined Gysin maps and intersection products",
+   "statement": "The rationalized Chow groups of the algebraic stacks in play, proper pushforward, refined Gysin pullback along a regular embedding (used for Φ^!_{M_d} in Definition 8.16 and in Proposition 10.9), intersection products of cycle classes, and the Octahedron Lemma of [28, Theorem A.10] for exchanging the order of two refined intersections.",
+   "status": "planned",
+   "planned": [
+    "SchemeAndStackFoundations:SF.5"
+   ],
+   "owner": "SchemeAndStackFoundations",
+   "layer": "SchemeAndStackFoundations:SF.5"
+  },
+  {
+   "id": "PAPER-GAO-GE-KUHNE-26/27",
+   "paper": "PAPER-GAO-GE-KUHNE-26",
+   "kind": "definition",
+   "name": "Degree of a subvariety with respect to L",
+   "statement": "For irreducible closed X ⊆ A, deg_L X := c₁(L)^{dim X} ∩ [X]; for general X, deg_L X := Σ_i deg_L X_i over the irreducible components (so a 0-dimensional X has degree equal to its number of points).",
+   "status": "planned",
+   "planned": [
+    "SchemeAndStackFoundations:SF.5"
+   ],
+   "owner": "SchemeAndStackFoundations",
+   "layer": "SchemeAndStackFoundations:SF.5"
+  },
+  {
+   "id": "PAPER-GILLE-PARIMALA-26/8",
+   "paper": "PAPER-GILLE-PARIMALA-26",
+   "kind": "construction",
+   "name": "Dual conventions for vector schemes",
+   "statement": "For a quasi-coherent module E, V(E)=Spec Sym(E) represents linear maps from pulled-back E to O. For finite locally free E, W(E)=V(E dual) represents sections of E.",
+   "status": "missing",
+   "planned": [],
+   "owner": "SchemeAndStackFoundations",
+   "layer": null
+  },
+  {
+   "id": "PAPER-GILLE-PARIMALA-26/20",
+   "paper": "PAPER-GILLE-PARIMALA-26",
+   "kind": "definition",
+   "name": "Finite algebra as a product of local Artin algebras",
+   "statement": "A nonzero finite-dimensional commutative k-algebra A is a finite product of Artin local A_i with residue fields k_i; A_i may be nonreduced and k_i/k inseparable.",
+   "status": "missing",
+   "planned": [],
+   "owner": "SchemeAndStackFoundations",
+   "layer": null
+  },
+  {
+   "id": "PAPER-GILLE-PARIMALA-26/25",
+   "paper": "PAPER-GILLE-PARIMALA-26",
+   "kind": "construction",
+   "name": "Square-zero devissage of finite local algebras",
+   "statement": "For local Artin A with maximal ideal m and m^(n+1)=0, use A_j=A/m^(j+1), j=0,…,n. The kernel A_j→A_(j−1) is m^j/m^(j+1), square-zero for j≥1.",
+   "status": "missing",
+   "planned": [],
+   "owner": "SchemeAndStackFoundations",
+   "layer": null
+  },
+  {
+   "id": "PAPER-GILLE-PARIMALA-26/64",
+   "paper": "PAPER-GILLE-PARIMALA-26",
+   "kind": "definition",
+   "name": "Normal projective curve model",
+   "statement": "A model mathcal X/T here is connected normal integral flat projective of relative dimension one, with generic fibre the prescribed smooth geometrically integral X/K; denote its closed fibre Y.",
+   "status": "missing",
+   "planned": [],
+   "owner": "SchemeAndStackFoundations",
+   "layer": null
+  },
+  {
+   "id": "PAPER-GILLE-PARIMALA-26/87",
+   "paper": "PAPER-GILLE-PARIMALA-26",
+   "kind": "definition",
+   "name": "Strict-normal-crossing divisor on a regular surface",
+   "statement": "On a regular two-dimensional model, the support of D is locally the zero set of a product of distinct members of a regular system of parameters; multiplicities in a divisor do not change the open complement.",
+   "status": "missing",
+   "planned": [],
+   "owner": "SchemeAndStackFoundations",
+   "layer": null
+  },
+  {
+   "id": "PAPER-GILLE-PARIMALA-26/101",
+   "paper": "PAPER-GILLE-PARIMALA-26",
+   "kind": "construction",
+   "name": "Grothendieck valuation of a regular local surface",
+   "statement": "Blow up the closed point of a regular local ring A of dimension two. At the generic point of the exceptional P1_k take its DVR; the residue field is k(u), and the fraction-field valuation gives the completion used by the loop theorem.",
+   "status": "missing",
+   "planned": [],
+   "owner": "SchemeAndStackFoundations",
+   "layer": null
+  },
+  {
+   "id": "PAPER-GILLE-PARIMALA-26/137",
+   "paper": "PAPER-GILLE-PARIMALA-26",
+   "kind": "construction",
+   "name": "Extend a reduction of a linear torsor by its affine quotient section",
+   "statement": "Given a G-torsor P on U under the hypotheses of item 90, extend E_U=P×^G GL_n to a GL_n-torsor E on X via item 135. Its reduction section of E_U/G extends to E/G, which is affine by descent. Pull back the universal G-torsor E→E/G along the section; glue the locally constructed extensions with item 136.",
+   "status": "missing",
+   "planned": [],
+   "owner": "SchemeAndStackFoundations",
+   "layer": null
+  },
+  {
+   "id": "PAPER-HACON-WITASZEK-23/base",
+   "paper": "PAPER-HACON-WITASZEK-23",
+   "kind": "definition",
+   "name": "Permitted positive and mixed characteristic bases",
+   "statement": "The paper's variety is integral, separated and finite type over an F-finite positive-characteristic field or a divisorial DVR of mixed characteristic. Perfect residue fields and p>5 are additional theorem-specific guards; completion may lose Q-factoriality.",
+   "status": "missing",
+   "planned": [],
+   "owner": "SchemeAndStackFoundations",
+   "layer": null
+  },
+  {
+   "id": "PAPER-HACON-WITASZEK-23/divisors",
+   "paper": "PAPER-HACON-WITASZEK-23",
+   "kind": "definition",
+   "name": "Weil, Cartier and rational boundary data",
+   "statement": "On a normal Noetherian integral scheme, distinguish finite rational/real prime-divisor sums, Cartier divisors, Q-Cartier indices and reflexive divisorial sheaves O(D). A log pair has effective boundary and Q- or R-Cartier adjoint as specified.",
+   "status": "missing",
+   "planned": [],
+   "owner": "SchemeAndStackFoundations",
+   "layer": null
+  },
+  {
+   "id": "PAPER-HACON-WITASZEK-23/resolution",
+   "paper": "PAPER-HACON-WITASZEK-23",
+   "kind": "definition",
+   "name": "Thrifty and non-snc-blowup log resolution",
+   "statement": "A log resolution is projective birational from a regular scheme with simple-normal-crossing total boundary. The strong hypothesis in this paper additionally constructs it by blowups supported in the non-snc locus, preserving generic points of existing strata. It is an assumption, not a proved fourfold theorem.",
+   "status": "missing",
+   "planned": [],
+   "owner": "SchemeAndStackFoundations",
+   "layer": null
+  },
+  {
+   "id": "PAPER-HACON-WITASZEK-23/absolute-closure",
+   "paper": "PAPER-HACON-WITASZEK-23",
+   "kind": "construction",
+   "name": "Absolute integral closure as a scheme limit",
+   "statement": "Fix an algebraic closure of K(X). The normal finite covers embedded in it form a directed system; X⁺ is their inverse limit as schemes, while their structure sheaves form a filtered colimit. Chosen primes above boundary components must be compatible.",
+   "status": "missing",
+   "planned": [],
+   "owner": "SchemeAndStackFoundations",
+   "layer": null
+  },
+  {
+   "id": "PAPER-HACON-WITASZEK-23/embedded-resolution",
+   "paper": "PAPER-HACON-WITASZEK-23",
+   "kind": "definition",
+   "name": "Embedded-resolution hypothesis",
+   "statement": "Conjecture5.7: for a regular quasi-projective variety X and closed subscheme Z, there should be a projective birational ν:X′→X with exceptional and inverse-image schemes divisors and their union snc. This is a conjectural input, not a theorem; the stronger non-snc-blowup construction is separate.",
+   "status": "missing",
+   "planned": [],
+   "owner": "SchemeAndStackFoundations",
+   "layer": null
+  },
+  {
+   "id": "PAPER-HACON-WITASZEK-23/lifting",
+   "paper": "PAPER-HACON-WITASZEK-23",
+   "kind": "definition",
+   "name": "Flat projective lifting over a mixed DVR",
+   "statement": "For a projective scheme X/k, a lift over a mixed-characteristic DVR R with residue k is a flat projective R-scheme together with an isomorphism of its special fibre with X. Lifting to characteristic0 means existence of such R and data.",
+   "status": "missing",
+   "planned": [],
+   "owner": "SchemeAndStackFoundations",
+   "layer": null
+  },
+  {
+   "id": "PAPER-HACON-WITASZEK-23/punctured-normalization",
+   "paper": "PAPER-HACON-WITASZEK-23",
+   "kind": "construction",
+   "name": "Compatible deformations of punctured normalization",
+   "statement": "In Lem6.3, normalize the special fibre and remove its finite nonnormal locus. S₃ gives the R¹j_*O vanishing needed to push compatible punctured infinitesimal deformations back across the missing points, yielding finite flat normalization deformations.",
+   "status": "missing",
+   "planned": [],
+   "owner": "SchemeAndStackFoundations",
+   "layer": null
+  },
+  {
+   "id": "PAPER-HACON-WITASZEK-23/node-ruling-family",
+   "paper": "PAPER-HACON-WITASZEK-23",
+   "kind": "construction",
+   "name": "A punctured node family with smooth special fibre and singular generic vertex",
+   "statement": "Take R=Z_p for a prime p>5, K=Q_p, k=F_p and V=Spec R[x,y,z,w]/(xy−zw). Let T=V∖{(p,x,y,z,w)}, let S=T_k, let Z=V(x,y,z,w)∩T and let D=V(x,z)∩T. Then T is integral, flat, excellent and normal, S is a smooth integral threefold, Z≅Spec K is closed and disjoint from S, and D is Cartier on T∖Z.",
+   "status": "missing",
+   "planned": [],
+   "owner": "SchemeAndStackFoundations",
+   "layer": null
+  },
+  {
+   "id": "PAPER-HARPAZ-WITTENBERG-20/15",
+   "paper": "PAPER-HARPAZ-WITTENBERG-20",
+   "kind": "construction",
+   "name": "Compatible smooth compactification",
+   "statement": "Over characteristic-zero k, compactify a smooth variety, and after resolution compactify a morphism W→V between smooth varieties into a morphism of smooth proper varieties extending it; resolve a rational map without changing the dense smooth open.",
+   "status": "planned",
+   "planned": [
+    "SchemeAndStackFoundations:SF.4"
+   ],
+   "owner": "SchemeAndStackFoundations",
+   "layer": "SchemeAndStackFoundations:SF.4"
+  },
+  {
+   "id": "PAPER-HARPAZ-WITTENBERG-20/23",
+   "paper": "PAPER-HARPAZ-WITTENBERG-20",
+   "kind": "construction",
+   "name": "Zero-cycle Chow group and functoriality",
+   "statement": "CH₀(X) is the free group of closed points modulo pushforwards of principal divisors on integral curves. For proper X/k degree sends [P] to [k(P):k]. Proper pushforward uses residue degrees; flat/lci pullback and the degree projection formula descend to Chow groups in their stated settings.",
+   "status": "planned",
+   "planned": [
+    "SchemeAndStackFoundations:SF.5"
+   ],
+   "owner": "SchemeAndStackFoundations",
+   "layer": "SchemeAndStackFoundations:SF.5"
+  },
+  {
+   "id": "PAPER-HARPAZ-WITTENBERG-20/33",
+   "paper": "PAPER-HARPAZ-WITTENBERG-20",
+   "kind": "construction",
+   "name": "Units sequence for a torus torsor",
+   "statement": "For a torus torsor fσ:Yσ→X with X smooth geometrically integral, 1→G_m→fσ_*G_m→T̂→1 is exact on the étale site, R¹fσ_*G_m=0, and H¹(X_kbar,T̂)=0. The connecting maps encode the torsor class.",
+   "status": "missing",
+   "planned": [],
+   "owner": "SchemeAndStackFoundations",
+   "layer": null
+  },
+  {
+   "id": "PAPER-HARPAZ-WITTENBERG-20/55",
+   "paper": "PAPER-HARPAZ-WITTENBERG-20",
+   "kind": "construction",
+   "name": "Picard boundary exact sequence",
+   "statement": "For V dense in smooth X with kbar[V]^×=kbar^×, 0→Div_(X_kbar minus V_kbar)(X_kbar)→Pic(X_kbar)→Pic(V_kbar)→0 is exact; the boundary divisor lattice is a permutation Γ_k-module.",
+   "status": "missing",
+   "planned": [],
+   "owner": "SchemeAndStackFoundations",
+   "layer": null
+  },
+  {
+   "id": "PAPER-HARPAZ-WITTENBERG-23/30",
+   "paper": "PAPER-HARPAZ-WITTENBERG-23",
+   "kind": "construction",
+   "name": "Smooth compactification in characteristic zero",
+   "statement": "A smooth variety over a characteristic-zero field admits a smooth proper compactification with a dense open inclusion; no assertion in arbitrary positive characteristic is used.",
+   "status": "planned",
+   "planned": [
+    "SchemeAndStackFoundations:SF.4"
+   ],
+   "owner": "SchemeAndStackFoundations",
+   "layer": "SchemeAndStackFoundations:SF.4"
+  },
+  {
+   "id": "PAPER-JANNSEN-16/31",
+   "paper": "PAPER-JANNSEN-16",
+   "kind": "definition",
+   "name": "Definition 3.5, Lemma 3.6 and Proposition 3.7: unramified cohomology",
+   "statement": "For F a function field over k and n invertible in k, H^i_nr(F/k, Z/n(j)) ⊆ H^i(F, Z/n(j)) consists of the classes in the image of H^i_ét(Spec A, Z/n(j)) for every discrete valuation ring k ⊂ A ⊂ F; equivalently (Lemma 3.6) the common kernel of all residues δ_λ : H^i(F, Z/n(j)) → H^{i−1}(k(λ), Z/n(j−1)). For X smooth proper over k with F = k(X) (Proposition 3.7), H^i_nr(F/k) = ker(H^i(F) → ⊕_{x∈X¹} H^{i−1}(k(x))) = H⁰_Zar(X, 𝓗^i_n(j)).",
+   "status": "missing",
+   "planned": [],
+   "owner": "SchemeAndStackFoundations",
+   "layer": null
+  },
+  {
+   "id": "PAPER-KINGS-SPRANG-25/026",
+   "paper": "PAPER-KINGS-SPRANG-25",
+   "kind": "definition",
+   "name": "Γ-equivariant 𝒪_X-modules and equivariant cohomology (Grothendieck)",
+   "statement": "For a group Γ acting on a ringed space (X, 𝒪_X): a Γ-equivariant 𝒪_X-module is an 𝒪_X-module ℱ with a homomorphism Γ → Aut(X, ℱ) lifting the action; these form an abelian category with enough injectives (Grothendieck, Tôhoku, Proposition 5.1.1), and Hom_{Γ,𝒪_X}(ℱ, 𝒢) ≅ Hom_{𝒪_X}(ℱ, 𝒢)^Γ (Definition A.1). The equivariant cohomology H^i(X, Γ; ℱ) and the equivariant Ext groups Ext^i_{Γ,𝒪_X}(ℱ, 𝒢) are the derived functors of ℱ ↦ H^0(X, ℱ)^Γ and of Hom_{Γ,𝒪_X}(ℱ, −) (Definition A.2), with spectral sequences H^p(Γ, H^q(X, ℱ)) ⇒ H^{p+q}(X, Γ; ℱ) and H^p(Γ, Ext^q_{𝒪_X}(ℱ, 𝒢)) ⇒ Ext^{p+q}_{Γ,𝒪_X}(ℱ, 𝒢) (equation (A.1.1)). If π : X → S is Γ-invariant, the R^iπ_*ℱ inherit a Γ-action.",
+   "status": "missing",
+   "planned": [],
+   "owner": "SchemeAndStackFoundations",
+   "layer": null
+  },
+  {
+   "id": "PAPER-KINGS-SPRANG-25/027",
+   "paper": "PAPER-KINGS-SPRANG-25",
+   "kind": "definition",
+   "name": "Equivariant cohomology with supports and the localization sequence",
+   "statement": "For a Γ-stable closed D ⊂ X with complement j : U → X, 0 → j_!𝒪_U → 𝒪_X → i_*i^{-1}𝒪_X → 0 identifies Hom_{𝒪_X}(i_*i^{-1}𝒪_X, ℱ) with the sections Γ_D(X, ℱ) supported in D; H^i_D(X, Γ; ℱ) are the derived functors of ℱ ↦ Γ_D(X, ℱ)^Γ = Hom_{Γ,𝒪_X}(i_*i^{-1}𝒪_X, ℱ) (Definition A.3). There is a long exact sequence ⋯ → H^i_D(X, Γ; ℱ) → H^i(X, Γ; ℱ) → H^i(U, Γ; ℱ) → H^{i+1}_D(X, Γ; ℱ) → ⋯ and a spectral sequence H^p(Γ, H^q_D(X, ℱ)) ⇒ H^{p+q}_D(X, Γ; ℱ).",
+   "status": "missing",
+   "planned": [],
+   "owner": "SchemeAndStackFoundations",
+   "layer": null
+  },
+  {
+   "id": "PAPER-KINGS-SPRANG-25/028",
+   "paper": "PAPER-KINGS-SPRANG-25",
+   "kind": "definition",
+   "name": "Derived limits in a triangulated category",
+   "statement": "K is a derived limit R lim K_n of an inverse system (K_n, f_n) in a triangulated category 𝒟 if ∏K_n exists and there is a distinguished triangle K → ∏K_n → ∏K_n → K[1], the middle map being (k_n) ↦ (k_n − f_{n+1}(k_{n+1})); it is unique up to non-unique isomorphism (Definition B.1). For every L there is an exact sequence 0 → R^1 lim Hom(L, K_n[−1]) → Hom(L, R lim K_n) → lim Hom(L, K_n) → 0 (Lemma B.2; Stacks, Tag 0919).",
+   "status": "missing",
+   "planned": [],
+   "owner": "SchemeAndStackFoundations",
+   "layer": null
+  },
+  {
+   "id": "PAPER-KISIN-17/C01",
+   "paper": "PAPER-KISIN-17",
+   "kind": "construction",
+   "name": "Galois gerb with algebraic kernel",
+   "statement": "For a characteristic-zero Galois extension k′/k, a gerb is a topological extension 1→H(k′)→Q→Gal(k′/k)→1, with discrete kernel, algebraic semilinear conjugation, and a continuous section over a finite-index Galois subgroup giving the required descent and semidirect-product chart.",
+   "status": "missing",
+   "planned": [],
+   "owner": "SchemeAndStackFoundations",
+   "layer": null
+  },
+  {
+   "id": "PAPER-KISIN-17/C02",
+   "paper": "PAPER-KISIN-17",
+   "kind": "construction",
+   "name": "Morphisms and conjugacy of Galois gerbs",
+   "statement": "A gerb morphism is continuous over the Galois group and algebraic on the kernel. Conjugacy is by target-kernel points. For pro-gerbs keep the compatible finite-stage conjugacy data.",
+   "status": "missing",
+   "planned": [],
+   "owner": "SchemeAndStackFoundations",
+   "layer": null
+  },
+  {
+   "id": "PAPER-KISIN-17/C03",
+   "paper": "PAPER-KISIN-17",
+   "kind": "construction",
+   "name": "Gerb isomorphism scheme and automorphism group",
+   "statement": "For morphisms f1,f2 into the neutral gerb of G, the functor of kernel-point conjugators is the descended k-scheme Isom(f1,f2); I_f=Isom(f,f) is its automorphism group.",
+   "status": "missing",
+   "planned": [],
+   "owner": "SchemeAndStackFoundations",
+   "layer": null
+  },
+  {
+   "id": "PAPER-KISIN-17/C05",
+   "paper": "PAPER-KISIN-17",
+   "kind": "construction",
+   "name": "Crossed module and quotient groupoid",
+   "statement": "A homomorphism ∂:F→H with H-action on F satisfies equivariance and the Peiffer identity. Its quotient groupoid H/F has objects H and arrows f:h1→h2 when h2=∂(f)h1, with the induced strict monoidal structure.",
+   "status": "missing",
+   "planned": [],
+   "owner": "SchemeAndStackFoundations",
+   "layer": null
+  },
+  {
+   "id": "PAPER-KISIN-17/C06",
+   "paper": "PAPER-KISIN-17",
+   "kind": "construction",
+   "name": "Monoidal isomorphism and conjugacy data",
+   "statement": "For strict monoidal functors, retain natural isomorphisms respecting tensor and unit, conjugacy by a target group element, and the composite relation conjugate-isomorphism.",
+   "status": "missing",
+   "planned": [],
+   "owner": "SchemeAndStackFoundations",
+   "layer": null
+  },
+  {
+   "id": "PAPER-KISIN-17/C07",
+   "paper": "PAPER-KISIN-17",
+   "kind": "construction",
+   "name": "Simply connected quotient as a Picard groupoid",
+   "statement": "For connected reductive G over characteristic zero, the canonical G-action on Gsc from the lifted commutator gives Gsc→G a crossed module and the quotient G/Gsc a Picard groupoid; retain its neutral-gerb analogue.",
+   "status": "missing",
+   "planned": [],
+   "owner": "SchemeAndStackFoundations",
+   "layer": null
+  },
+  {
+   "id": "PAPER-KISIN-17/C11",
+   "paper": "PAPER-KISIN-17",
+   "kind": "construction",
+   "name": "Two-fiber product of categories",
+   "statement": "For F1:C1→C and F2:C2→C, objects are (c1,c2,α:F1(c1)≃F2(c2)); arrows are pairs making the comparison square commute. Strict monoidal structures induce the compatible monoidal two-fiber product.",
+   "status": "missing",
+   "planned": [],
+   "owner": "SchemeAndStackFoundations",
+   "layer": null
+  },
+  {
+   "id": "PAPER-KISIN-17/R23",
+   "paper": "PAPER-KISIN-17",
+   "kind": "construction",
+   "name": "Semidirect quotient for compatible actions",
+   "statement": "If Δ acts on H and Γ⊂H, with equivariant Γ→Δ acting by conjugation on H, define H*ΓΔ=(H⋊Δ)/{(γ,φ(γ)^−1)}. This is the source’s semidirect quotient, not an arbitrary free amalgamated product.",
+   "status": "missing",
+   "planned": [],
+   "owner": "SchemeAndStackFoundations",
+   "layer": null
+  },
+  {
+   "id": "PAPER-KISIN-17/T01",
+   "paper": "PAPER-KISIN-17",
+   "kind": "construction",
+   "name": "Twist of a representation by a torsor",
+   "statement": "For an affine Q-group Z, right Z-torsor P and Q-representation W, define W^P=(W⊗Q O(P))^Z using (zf)(x)=f(xz) on functions and the diagonal action.",
+   "status": "missing",
+   "planned": [],
+   "owner": "SchemeAndStackFoundations",
+   "layer": null
+  },
+  {
+   "id": "PAPER-KISIN-PAPPAS-18/S16",
+   "paper": "PAPER-KISIN-PAPPAS-18",
+   "kind": "construction",
+   "name": "Module twist by an affine torsor",
+   "statement": "For flat affine Z/A, a Z-torsor P and an A-module M with Z-action, define the twist as (M⊗_A O_P)^Z.",
+   "status": "missing",
+   "planned": [],
+   "owner": "SchemeAndStackFoundations",
+   "layer": null
+  },
+  {
+   "id": "PAPER-KLEVDAL-PATRIKIS-25/014",
+   "paper": "PAPER-KLEVDAL-PATRIKIS-25",
+   "kind": "construction",
+   "name": "Spread of a pointed good compactification",
+   "statement": "For the chosen (X_F,Xbar_F,D_F,xbar), after inverting an integer N>0, spread the smooth projective compactification, relative SNC divisor and algebraic geometric basepoint to O_F[1/N], with geometrically connected fibres and xbar integral over Zbar[1/N].",
+   "status": "missing",
+   "planned": [],
+   "owner": "SchemeAndStackFoundations",
+   "layer": null
+  },
+  {
+   "id": "PAPER-LAWRENCE-SAWIN-25/82",
+   "paper": "PAPER-LAWRENCE-SAWIN-25",
+   "kind": "definition",
+   "name": "Weil restriction of scalars",
+   "statement": "For a finite étale extension of rings and a scheme over the larger ring, the Weil restriction represents the functor of points over the smaller ring, giving a canonical bijection on integral points.",
+   "status": "missing",
+   "planned": [],
+   "owner": "SchemeAndStackFoundations",
+   "layer": null
+  },
+  {
+   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/D23",
+   "paper": "PAPER-LE-LEHUNG-LEVIN-ETAL-20",
+   "kind": "construction",
+   "name": "Sections of a module over a quasi-compact open of an affine scheme",
+   "statement": "Let A be a commutative ring, I = (f₁,…,f_r) ⊂ A, U = Spec A \\ V(I), and M an A-module. Define Sec_U(M) := Γ(U, M̃). By the sheaf axiom for the cover U = ∪_i D(f_i), Sec_U(M) is the kernel of ∏_i M_{f_i} → ∏_{i<j} M_{f_if_j}, (m_i)_i ↦ (m_i − m_j)_{i<j} (images in M_{f_if_j}). For r = 0 (U = ∅), Sec_U(M) = 0.",
+   "status": "missing",
+   "planned": [],
+   "owner": "SchemeAndStackFoundations",
+   "layer": null
+  },
+  {
+   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-20/D24",
+   "paper": "PAPER-LE-LEHUNG-LEVIN-ETAL-20",
+   "kind": "construction",
+   "name": "Hartogs closure H_U(J) of an ideal",
+   "statement": "Let A be a Noetherian ring and U ⊂ Spec A a quasi-compact open such that the restriction A → Γ(U, 𝒪_U) is an isomorphism. For an ideal J ⊂ A, H_U(J) is the image of Γ(U, J̃|_U) ↪ Γ(U, 𝒪_U) ≅ A; it is an ideal of A containing J. The embedding into A (not only the isomorphism class of Γ(U, J̃|_U)) is part of the construction.",
+   "status": "missing",
+   "planned": [],
+   "owner": "SchemeAndStackFoundations",
+   "layer": null
+  },
+  {
+   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/U08",
+   "paper": "PAPER-LE-LEHUNG-LEVIN-ETAL-23",
+   "kind": "definition",
+   "name": "Artinian formal etaleness at a point",
+   "statement": "A morphism of functors on Noetherian rings is formally etale at x:Spec k->F in this section if every compatible Artinian local thickening Spec A->G with residue field k admits a unique lift to F. For representable locally finite-type morphisms with locally Noetherian target this implies etaleness; it is deliberately weaker than the unrestricted formal-lifting definition.",
+   "status": "missing",
+   "planned": [],
+   "owner": "SchemeAndStackFoundations",
+   "layer": null
+  },
+  {
+   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/U26",
+   "paper": "PAPER-LE-LEHUNG-LEVIN-ETAL-23",
+   "kind": "definition",
+   "name": "Unibranch points and normalization",
+   "statement": "A point y is unibranch when the normalization of the reduced local ring is local. Under finite normalization its fibre is then a single point, equivalently connected. For a REDUCED excellent Noetherian local ring, unibranchness is equivalent to its completion being a domain. The printed remark omits reducedness (source issue E9); dual numbers show why it is necessary.",
+   "status": "missing",
+   "planned": [],
+   "owner": "SchemeAndStackFoundations",
+   "layer": null
+  },
+  {
+   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G14",
+   "paper": "PAPER-LE-LEHUNG-LEVIN-ETAL-23",
+   "kind": "definition",
+   "name": "Analytically unramified formal stack",
+   "statement": "A topologically finite type p-adic formal algebraic stack is analytically unramified when all smooth affine charts have reduced rings, equivalently its finite-type versal rings are reduced. Its associated reduced formal stack pulls back to Spf A_red. Distinguish this from the underlying reduced algebraic stack Spec(A/I)_red.",
+   "status": "missing",
+   "planned": [],
+   "owner": "SchemeAndStackFoundations",
+   "layer": null
+  },
+  {
+   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B07",
+   "paper": "PAPER-LE-LEHUNG-LEVIN-ETAL-23",
+   "kind": "definition",
+   "name": "Cycle of a finite module",
+   "statement": "For a finite module on a type's special-fiber versal ring, its top-dimensional cycle sums each irreducible component with coefficient equal to the length of the module localized at its generic prime.",
+   "status": "missing",
+   "planned": [],
+   "owner": "SchemeAndStackFoundations",
+   "layer": null
+  },
+  {
+   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z03",
+   "paper": "PAPER-LE-LEHUNG-LEVIN-ETAL-23",
+   "kind": "definition",
+   "name": "Elkik's presentation-dependent Jacobian ideal",
+   "statement": "For B=A[X_1,…,X_N]/J with fixed generators f_1,…,f_q, for each subset α of the generators let F_α be their ideal, Δ_α the ideal of |α|×|α| minors of their Jacobian (zero if |α|>N), and K_α=(F_α:J). Put H=Σ_α K_αΔ_α, with the usual empty-minor convention. Elkik permits a chosen H_B⊂H. The vanishing locus of the image of H in B is the nonsmooth locus.",
+   "status": "missing",
+   "planned": [],
+   "owner": "SchemeAndStackFoundations",
+   "layer": null
+  },
+  {
+   "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z66",
+   "paper": "PAPER-LE-LEHUNG-LEVIN-ETAL-23",
+   "kind": "construction",
+   "name": "Maximal-ideal associated graded algebra",
+   "statement": "For a commutative local ring (R,m,k), construct gr_m(R)=⊕_{n≥0} m^n/m^(n+1) as an N-graded commutative k-algebra. Scalar multiplication uses R→k since m annihilates each quotient; multiplication sends the classes of a∈m^i,b∈m^j to ab modulo m^(i+j+1). No choice of a coefficient-field section k→R is required.",
+   "status": "missing",
+   "planned": [],
+   "owner": "SchemeAndStackFoundations",
+   "layer": null
+  },
+  {
+   "id": "PAPER-SHENDE-TSIMERMAN-17/chow",
+   "paper": "PAPER-SHENDE-TSIMERMAN-17",
+   "kind": "definition",
+   "name": "Chow operations and Chern classes",
+   "statement": "Use Chow groups with proper pushforward, flat and refined lci pullback, Chern classes and intersection products, with explicit cycle multiplicities and rational coefficients where required.",
+   "status": "planned",
+   "planned": [
+    "SchemeAndStackFoundations:SF.5"
+   ],
+   "owner": "SchemeAndStackFoundations",
+   "layer": "SchemeAndStackFoundations:SF.5"
+  },
+  {
+   "id": "PAPER-VANHOFTEN-24/F01",
+   "paper": "PAPER-VANHOFTEN-24",
+   "kind": "construction",
+   "name": "Perfection of an algebraic space",
+   "statement": "For a characteristic-p algebraic space Y0, Y0^perf is the inverse limit along absolute Frobenius, with its projection to Y0; a perfect space has invertible Frobenius. Work over a perfect field k.",
+   "status": "missing",
+   "planned": [],
+   "owner": "SchemeAndStackFoundations",
+   "layer": null
+  },
+  {
+   "id": "PAPER-VANHOFTEN-24/F03",
+   "paper": "PAPER-VANHOFTEN-24",
+   "kind": "construction",
+   "name": "Perfect finite presentation and deperfections",
+   "statement": "A perfect k-algebraic space Y is pfp when Y≃Y0^perf for some finitely presented k-algebraic space Y0. A deperfection is such Y0 together with the comparison.",
+   "status": "missing",
+   "planned": [],
+   "owner": "SchemeAndStackFoundations",
+   "layer": null
+  },
+  {
+   "id": "PAPER-VANHOFTEN-24/F05",
+   "paper": "PAPER-VANHOFTEN-24",
+   "kind": "construction",
+   "name": "Perfect properness",
+   "statement": "A morphism of pfp perfect spaces is perfectly proper when it is the perfection of a proper finite-presentation morphism. Use the source exact equivalence with its valuative/topological formulation.",
+   "status": "missing",
+   "planned": [],
+   "owner": "SchemeAndStackFoundations",
+   "layer": null
+  },
+  {
+   "id": "PAPER-VANHOFTEN-24/F06",
+   "paper": "PAPER-VANHOFTEN-24",
+   "kind": "construction",
+   "name": "Perfect smoothness with relative dimension",
+   "statement": "A map f:Y→Z of perfect k-spaces is perfectly smooth of dimension d at y if étale neighborhoods admit a factorization U→(A^d)^perf×V→V with first map étale; d is nonnegative.",
+   "status": "missing",
+   "planned": [],
+   "owner": "SchemeAndStackFoundations",
+   "layer": null
+  },
+  {
+   "id": "PAPER-VANHOFTEN-24/F13",
+   "paper": "PAPER-VANHOFTEN-24",
+   "kind": "construction",
+   "name": "Weak perfect smoothness",
+   "statement": "f:Y→Z is weakly perfectly smooth of relative dimension d at y when an open neighborhood U of y admits a surjective perfectly smooth g:X→U of dimension e and f∘g is perfectly smooth of dimension e+d. The unqualified property admits such covers locally.",
+   "status": "missing",
+   "planned": [],
+   "owner": "SchemeAndStackFoundations",
+   "layer": null
+  },
+  {
+   "id": "PAPER-VANHOFTEN-24/F22",
+   "paper": "PAPER-VANHOFTEN-24",
+   "kind": "construction",
+   "name": "Perfect algebraic stacks",
+   "statement": "A pfp perfect algebraic stack is a stack in groupoids on perfect k-schemes with representable pfp diagonal and a representable surjective perfectly smooth atlas by a pfp perfect algebraic space, with the source diagonal conventions.",
+   "status": "missing",
+   "planned": [],
+   "owner": "SchemeAndStackFoundations",
+   "layer": null
+  },
+  {
+   "id": "PAPER-VANHOFTEN-24/F23",
+   "paper": "PAPER-VANHOFTEN-24",
+   "kind": "construction",
+   "name": "Weak smooth maps of perfect stacks",
+   "statement": "For a map of perfect stacks, test weak perfect smoothness on smooth atlases using the source convention; a map may be nonrepresentable. Track atlas dimensions when defining the stack relative dimension.",
+   "status": "missing",
+   "planned": [],
+   "owner": "SchemeAndStackFoundations",
+   "layer": null
+  },
+  {
+   "id": "PAPER-WITASZEK-22/contraction",
+   "paper": "PAPER-WITASZEK-22",
+   "kind": "definition",
+   "name": "Contraction",
+   "statement": "A scheme or algebraic-space morphism f:X→Y is a contraction when proper and surjective and the canonical O_Y→f_*O_X is an isomorphism. Universal validity after every base change is a stronger condition, not part of this definition.",
+   "status": "missing",
+   "planned": [],
+   "owner": "SchemeAndStackFoundations",
+   "layer": null
+  },
+  {
+   "id": "PAPER-WITASZEK-22/char-zero-fiber",
+   "paper": "PAPER-WITASZEK-22",
+   "kind": "construction",
+   "name": "Characteristic-zero fiber",
+   "statement": "For a scheme or algebraic space X, X_Q is X×Spec(Z)Spec(Q), with its projection; likewise X_Fp. These are base changes, not a choice of one generic point.",
+   "status": "missing",
+   "planned": [],
+   "owner": "SchemeAndStackFoundations",
+   "layer": null
+  },
+  {
+   "id": "PAPER-WITASZEK-22/mixed-characteristic",
+   "paper": "PAPER-WITASZEK-22",
+   "kind": "definition",
+   "name": "Mixed-characteristic scheme",
+   "statement": "A connected scheme X is mixed-characteristic in the paper's convention when X_Q is nonempty and X_Fp is nonempty for some prime p.",
+   "status": "missing",
+   "planned": [],
+   "owner": "SchemeAndStackFoundations",
+   "layer": null
+  },
+  {
+   "id": "PAPER-WITASZEK-22/universal-homeomorphism",
+   "paper": "PAPER-WITASZEK-22",
+   "kind": "definition",
+   "name": "Universal homeomorphism",
+   "statement": "A morphism is a universal homeomorphism when every base change is a homeomorphism on underlying topological spaces. For algebraic spaces, representability is an additional hypothesis and is not automatic.",
+   "status": "missing",
+   "planned": [],
+   "owner": "SchemeAndStackFoundations",
+   "layer": null
+  },
+  {
+   "id": "PAPER-WITASZEK-22/elementary-extension",
+   "paper": "PAPER-WITASZEK-22",
+   "kind": "definition",
+   "name": "Elementary subintegral extension",
+   "statement": "An inclusion A⊆B is elementary if B=A[b] for b with b²,b³∈A.",
+   "status": "missing",
+   "planned": [],
+   "owner": "SchemeAndStackFoundations",
+   "layer": null
+  },
+  {
+   "id": "PAPER-WITASZEK-22/relative-spec",
+   "paper": "PAPER-WITASZEK-22",
+   "kind": "construction",
+   "name": "Relative spectrum",
+   "statement": "For a quasi-coherent O_X-algebra A, Spec_X A represents maps to X equipped with an algebra homomorphism A→f_*O.",
+   "status": "planned",
+   "planned": [
+    "SchemeAndStackFoundations:SF.0"
+   ],
+   "owner": "SchemeAndStackFoundations",
+   "layer": "SchemeAndStackFoundations:SF.0"
+  },
+  {
+   "id": "PAPER-WITASZEK-22/finite-equivalence",
+   "paper": "PAPER-WITASZEK-22",
+   "kind": "definition",
+   "name": "Finite set-theoretic equivalence relation",
+   "statement": "For X separated finite type over Noetherian S, σ₁,σ₂:E⇒X are finite and E→X×S X is injective on points valued in every algebraically closed field, with equivalence-relation image. Nilpotents in E are allowed; the map need not be a monomorphism.",
+   "status": "missing",
+   "planned": [],
+   "owner": "SchemeAndStackFoundations",
+   "layer": null
+  },
+  {
+   "id": "PAPER-WITASZEK-22/finite-geometric-quotient",
+   "paper": "PAPER-WITASZEK-22",
+   "kind": "definition",
+   "name": "Geometric quotient of a finite relation",
+   "statement": "A categorical coequalizer X→Y in separated finite-type S-algebraic spaces is geometric if finite and its geometric-point fibers are exactly the equivalence classes.",
+   "status": "missing",
+   "planned": [],
+   "owner": "SchemeAndStackFoundations",
+   "layer": null
+  },
+  {
+   "id": "PAPER-WITASZEK-22/proper-action",
+   "paper": "PAPER-WITASZEK-22",
+   "kind": "definition",
+   "name": "Proper group action",
+   "statement": "For an affine group scheme G of finite type over Noetherian S acting on X, properness means (m,p₂):G×S X→X×S X is proper.",
+   "status": "missing",
+   "planned": [],
+   "owner": "SchemeAndStackFoundations",
+   "layer": null
+  },
+  {
+   "id": "PAPER-WITASZEK-22/topological-action-quotient",
+   "paper": "PAPER-WITASZEK-22",
+   "kind": "definition",
+   "name": "Topological quotient of a proper action",
+   "statement": "A G-invariant map q:X→Z is a topological quotient if locally of finite type, universally submersive, and induces the orbit-space bijection on all algebraically closed-field points.",
+   "status": "missing",
+   "planned": [],
+   "owner": "SchemeAndStackFoundations",
+   "layer": null
+  },
+  {
+   "id": "PAPER-WITASZEK-22/geometric-action-quotient",
+   "paper": "PAPER-WITASZEK-22",
+   "kind": "definition",
+   "name": "Geometric quotient of a proper action",
+   "statement": "A topological quotient is geometric if O_Z→(q_*O_X)^G is an isomorphism.",
+   "status": "missing",
+   "planned": [],
+   "owner": "SchemeAndStackFoundations",
+   "layer": null
+  },
+  {
+   "id": "PAPER-WITASZEK-22/topological-pushout",
+   "paper": "PAPER-WITASZEK-22",
+   "kind": "definition",
+   "name": "Topological pushout datum",
+   "statement": "Given Y→pX and Y→gY′ with p representable quasi-compact quasi-separated and g representable universal homeomorphism, a topological pushout is a commuting square with X→fX′ representable universal homeomorphism. The terminology alone does not assert a categorical pushout.",
+   "status": "missing",
+   "planned": [],
+   "owner": "SchemeAndStackFoundations",
+   "layer": null
+  },
+  {
+   "id": "PAPER-WITASZEK-22/geometric-pushout",
+   "paper": "PAPER-WITASZEK-22",
+   "kind": "definition",
+   "name": "Geometric pushout",
+   "statement": "A topological pushout is geometric if O_X′→f_*O_X ×_(fp)_*O_Y q_*O_Y′ is an isomorphism of sheaves of rings.",
+   "status": "missing",
+   "planned": [],
+   "owner": "SchemeAndStackFoundations",
+   "layer": null
+  },
+  {
+   "id": "PAPER-WITASZEK-22/conductor-square",
+   "paper": "PAPER-WITASZEK-22",
+   "kind": "construction",
+   "name": "Conductor square for a finite reduced surjection",
+   "statement": "For finite surjective f:Y→X of reduced Noetherian schemes, define the conductor I locally as {s∈B:sB⊆A} for A⊆B. It is an ideal in both rings and A=B×_(B/I)(A/I); this does not require birationality.",
+   "status": "missing",
+   "planned": [],
+   "owner": "SchemeAndStackFoundations",
+   "layer": null
+  },
+  {
+   "id": "PAPER-WITASZEK-22/multiplicative-perfection",
+   "paper": "PAPER-WITASZEK-22",
+   "kind": "construction",
+   "name": "Direct-limit multiplicative perfection",
+   "statement": "For a commutative monoid M and prime p, M^perf is the filtered colimit M→M→… of p-th powers. Applied to a Z_(p)-algebra this forgets addition; p-th power is not a mixed-characteristic ring map.",
+   "status": "missing",
+   "planned": [],
+   "owner": "SchemeAndStackFoundations",
+   "layer": null
+  },
+  {
+   "id": "PAPER-WITASZEK-22/line-perfection",
+   "paper": "PAPER-WITASZEK-22",
+   "kind": "construction",
+   "name": "Perfection of a line-bundle sheaf",
+   "statement": "For L on a Z_(p)-scheme, L^perf is the sheafification of the set-presheaf colimit of L^(p^n) under p-th powers of sections. Define H⁰(X,L)^perf as the analogous colimit of global-section sets.",
+   "status": "missing",
+   "planned": [],
+   "owner": "SchemeAndStackFoundations",
+   "layer": null
+  },
+  {
+   "id": "PAPER-WITASZEK-22/picard-groupoid",
+   "paper": "PAPER-WITASZEK-22",
+   "kind": "construction",
+   "name": "Picard groupoid",
+   "statement": "Pic(X) has line bundles as objects and only isomorphisms as morphisms. It is the core of the existing full invertible-sheaf category, not the Picard group of isomorphism classes.",
+   "status": "missing",
+   "planned": [],
+   "owner": "SchemeAndStackFoundations",
+   "layer": null
+  },
+  {
+   "id": "PAPER-WITASZEK-22/picard-invert-p",
+   "paper": "PAPER-WITASZEK-22",
+   "kind": "construction",
+   "name": "Picard groupoid with formal p-power roots",
+   "statement": "Pic(X)[1/p] has objects (L,n), n∈N, and Hom((L,n),(M,m))=colim_(N≥n,m) Isom(L^(p^(N−n)),M^(p^(N−m))).",
+   "status": "missing",
+   "planned": [],
+   "owner": "SchemeAndStackFoundations",
+   "layer": null
+  },
+  {
+   "id": "PAPER-WITASZEK-22/stein-relative-spectrum",
+   "paper": "PAPER-WITASZEK-22",
+   "kind": "construction",
+   "name": "Relative spectrum in Stein factorization",
+   "statement": "For a proper map f:X→Y of algebraic spaces, form Y′=Spec_Y(f_*O_X). It factors f as h:X→Y′ then π:Y′→Y, with h proper and surjective, π integral, and O_Y′≅h_*O_X canonically. Formation commutes with flat base change.",
+   "status": "missing",
+   "planned": [],
+   "owner": "SchemeAndStackFoundations",
+   "layer": null
+  },
+  {
+   "id": "PAPER-YANG-ZHAO-25/J01",
+   "paper": "PAPER-YANG-ZHAO-25",
+   "kind": "construction",
+   "name": "Shared integral Chow and refined-intersection supplier",
+   "statement": "For finite-type schemes over a field, import integral Chow groups formed from L09, proper pushforward with residue-degree weights, flat and lci pullback, refined Gysin for regular immersions, Chern operators, the Whitney formula, zero-section self-intersection and excess/projection formulas. These are the existing SchemeAndStackFoundations:SF.5 targets; this paper supplies applications, not a second theory. Keep Gysin operations with singular base changes distinct from a purity isomorphism for singular schemes.",
+   "status": "planned",
+   "planned": [
+    "SchemeAndStackFoundations:SF.5"
+   ],
+   "owner": "SchemeAndStackFoundations",
+   "layer": "SchemeAndStackFoundations:SF.5"
+  },
+  {
+   "id": "PAPER-YANG-ZHAO-25/J02",
+   "paper": "PAPER-YANG-ZHAO-25",
+   "kind": "construction",
+   "name": "Localized Chern classes with a rank threshold",
+   "statement": "Let X be finite type over a field, Z⊂X closed, and K a bounded complex of finite-rank locally free O_X-modules. Suppose K|U, U=X−Z, has cohomology only in degree zero and H0(K)|U is locally free of rank n−1, n≥1. Bloch’s construction supplies c_i^X_Z(K) in bivariant CH^i(Z→X) for i≥n; lower-degree classes remain ordinary Chern classes on X. In particular K need not be acyclic on U. Retain the global-image, quasi-isomorphism, support-enlargement and proper-pushforward properties below as explicit construction obligations.",
+   "status": "missing",
+   "planned": [],
+   "owner": "SchemeAndStackFoundations",
+   "layer": null
+  },
+  {
+   "id": "PAPER-YUN-ZHANG-17/30",
+   "paper": "PAPER-YUN-ZHANG-17",
+   "kind": "construction",
+   "name": "§A.1 (rational Chow groups of proper cycles on Deligne–Mumford stacks)",
+   "statement": "For a Deligne–Mumford stack X locally of finite type over k, Ch_{c,i}(X)_Q is the colimit of Ch_i(Y)_Q over closed substacks Y ⊆ X proper over k (§A.1.2); the degree map satisfies deg([x]) = [k_x : k]/|Aut(x)|_{k_x} (§A.1.3); for X smooth separated of pure dimension n the refined Gysin map along the diagonal gives the intersection product Ch_{c,i} × Ch_{c,j} → Ch_{c,i+j−n} and the pairing ⟨ , ⟩_X (A.1) (§A.1.4); the cycle class map cl_X : Ch_{c,j}(X)_Q → H^{2n−2j}_c(X ⊗_k k̄, Q_ℓ)(n−j) intertwines it with the cup product (§A.1.5); and cCh_n(X × X)_Q, the colimit over correspondences Z with proper first projection, is an associative Q-algebra acting on Ch_{c,i}(X)_Q (§A.1.6).",
+   "status": "missing",
+   "planned": [],
+   "owner": "SchemeAndStackFoundations",
+   "layer": null
+  },
+  {
+   "id": "PAPER-YUN-ZHANG-17/41",
+   "paper": "PAPER-YUN-ZHANG-17",
+   "kind": "construction",
+   "name": "Chow groups of Artin stacks, refined Gysin maps and Riemann–Roch",
+   "statement": "Chow groups of algebraic stacks with proper pushforward and flat pullback, refined Gysin maps for regular local immersions and for morphisms with vector bundle normal cone stacks, the excess intersection formula, deformation to the normal cone, and the Riemann–Roch map τ_X relating K-theory and Chow groups.",
+   "status": "planned",
+   "planned": [
+    "SchemeAndStackFoundations:SF.5"
+   ],
+   "owner": "SchemeAndStackFoundations",
+   "layer": "SchemeAndStackFoundations:SF.5"
+  },
+  {
+   "id": "PAPER-ZHANG-21/140",
+   "paper": "PAPER-ZHANG-21",
+   "kind": "construction",
+   "name": "Chow operations for the cycle construction",
+   "statement": "Use rational equivalence, proper pushforward with residue multiplicities, flat/lci pullback, Chern classes and projection/excess-intersection formulas on the actual schemes/stacks in the moduli problem; a finite unramified divisor map need not be a closed immersion.",
+   "status": "planned",
+   "planned": [
+    "SchemeAndStackFoundations:SF.5"
+   ],
+   "owner": "SchemeAndStackFoundations",
+   "layer": "SchemeAndStackFoundations:SF.5"
+  },
+  {
+   "id": "PAPER-ZHU-17/A01",
+   "paper": "PAPER-ZHU-17",
+   "kind": "definition",
+   "name": "Fpqc space",
+   "statement": "Over a field k, a k-space is a set-valued fpqc sheaf on affine k-schemes: finite disjoint unions map to products and faithfully flat ring maps give the usual equalizer.",
+   "status": "missing",
+   "planned": [],
+   "owner": "SchemeAndStackFoundations",
+   "layer": null
+  },
+  {
+   "id": "PAPER-ZHU-17/A02",
+   "paper": "PAPER-ZHU-17",
+   "kind": "definition",
+   "name": "Algebraic space and representable morphism",
+   "statement": "An algebraic space is an étale sheaf with schematic diagonal and an étale surjective scheme atlas. Quasi-separatedness is not imposed here. A map of spaces is representable if its affine-test pullbacks are algebraic spaces.",
+   "status": "missing",
+   "planned": [],
+   "owner": "SchemeAndStackFoundations",
+   "layer": null
+  },
+  {
+   "id": "PAPER-ZHU-17/A05",
+   "paper": "PAPER-ZHU-17",
+   "kind": "definition",
+   "name": "Perfect algebraic space",
+   "statement": "Over a perfect field k of characteristic p>0, a perfect algebraic space has invertible absolute Frobenius. Relative Frobenius and the Frobenius-twisted k-structure are used for k-linear maps.",
+   "status": "planned",
+   "planned": [
+    "SchemeAndStackFoundations:SF.0"
+   ],
+   "owner": "SchemeAndStackFoundations",
+   "layer": "SchemeAndStackFoundations:SF.0"
+  },
+  {
+   "id": "PAPER-ZHU-17/A07",
+   "paper": "PAPER-ZHU-17",
+   "kind": "construction",
+   "name": "Perfection functor",
+   "statement": "Perfection X^perf is the inverse Frobenius limit, interpreted with k-twists. It is right adjoint to inclusion of perfect algebraic spaces; on affine rings it is the direct-limit perfect closure.",
+   "status": "planned",
+   "planned": [
+    "SchemeAndStackFoundations:SF.0"
+   ],
+   "owner": "SchemeAndStackFoundations",
+   "layer": "SchemeAndStackFoundations:SF.0"
+  },
+  {
+   "id": "PAPER-ZHU-17/A13",
+   "paper": "PAPER-ZHU-17",
+   "kind": "definition",
+   "name": "Affine-group torsor and contracted product",
+   "statement": "For an affine group H, an H-torsor E→X is fpqc and satisfies E×H≅E×_X E. For an H-space T define E×^H T as the fpqc quotient of E×T by the diagonal action.",
+   "status": "missing",
+   "planned": [],
+   "owner": "SchemeAndStackFoundations",
+   "layer": null
+  },
+  {
+   "id": "PAPER-ZHU-17/A17",
+   "paper": "PAPER-ZHU-17",
+   "kind": "definition",
+   "name": "Perfect-site space and ind-perfect algebraic space",
+   "statement": "A perfect k-space is an fpqc sheaf on perfect affine k-schemes. An ind-perfect algebraic space is such a sheaf presented by a filtered union of perfect algebraic spaces with closed transition maps.",
+   "status": "missing",
+   "planned": [],
+   "owner": "SchemeAndStackFoundations",
+   "layer": null
+  },
+  {
+   "id": "PAPER-ZHU-17/A20",
+   "paper": "PAPER-ZHU-17",
+   "kind": "definition",
+   "name": "Perfect finite-presentation conditions",
+   "statement": "Locally perfectly finite type means an étale affine atlas by perfections of finite-type k-affines. Perfectly finite type adds quasi-compactness; pfp adds quasi-separatedness. A model is a finite-presentation algebraic space X′ with X≅(X′)^perf.",
+   "status": "planned",
+   "planned": [
+    "SchemeAndStackFoundations:SF.0"
+   ],
+   "owner": "SchemeAndStackFoundations",
+   "layer": "SchemeAndStackFoundations:SF.0"
+  },
+  {
+   "id": "PAPER-ZHU-17/A21",
+   "paper": "PAPER-ZHU-17",
+   "kind": "construction",
+   "name": "Weakly normal model with prescribed generic fields",
+   "statement": "For pfp perfect X, choose finitely generated k-subfields K_i of each generic residue field whose perfections give that field. The corresponding weakly normal finite-presentation model is unique with these identifications.",
+   "status": "planned",
+   "planned": [
+    "SchemeAndStackFoundations:SF.0"
+   ],
+   "owner": "SchemeAndStackFoundations",
+   "layer": "SchemeAndStackFoundations:SF.0"
+  },
+  {
+   "id": "PAPER-ZHU-17/A24",
+   "paper": "PAPER-ZHU-17",
+   "kind": "definition",
+   "name": "Perfectly proper morphism",
+   "statement": "A morphism of pfp perfect algebraic spaces is perfectly proper if separated and universally closed.",
+   "status": "missing",
+   "planned": [],
+   "owner": "SchemeAndStackFoundations",
+   "layer": null
+  },
+  {
+   "id": "PAPER-ZHU-17/A265",
+   "paper": "PAPER-ZHU-17",
+   "kind": "definition",
+   "name": "Perfect smoothness",
+   "statement": "A map f:X→Y of pfp perfect algebraic spaces is perfectly smooth at x if étale charts factor it as an étale map to V×(A^n)^perf followed by projection.",
+   "status": "missing",
+   "planned": [],
+   "owner": "SchemeAndStackFoundations",
+   "layer": null
+  },
+  {
+   "id": "PAPER-CESNAVICIUS-SCHOLZE-24/005",
+   "paper": "PAPER-CESNAVICIUS-SCHOLZE-24",
+   "kind": "construction",
+   "name": "The Bégueri resolution",
+   "statement": "For a commutative, finite, locally free group G over a scheme S with Cartier dual G^*, there is a short exact sequence 0 → G → Res_{G^*/S}(𝔾_m) → Q → 0 of fppf sheaves with Res_{G^*/S}(𝔾_m) and Q commutative, smooth, affine S-group schemes; the map Res_{G^*/S}(𝔾_m) → Q is faithfully flat and finitely presented, so the sequence stays exact on the fppf site of any animated algebra over S.",
+   "status": "missing",
+   "planned": [],
+   "owner": "SchemeAndStackFoundationsFlatCohomologyPartII",
+   "layer": null
+  },
+  {
+   "id": "PAPER-CESNAVICIUS-SCHOLZE-24/033",
+   "paper": "PAPER-CESNAVICIUS-SCHOLZE-24",
+   "kind": "definition",
+   "name": "Syntomic, ind-fppf and ind-syntomic ring maps",
+   "statement": "A ring map A → A' is syntomic if Spec(A') is covered by spectra of A-algebras A[x_1, …, x_n]/(f_1, …, f_c) with each A[x]/(f_1, …, f_i) flat over A and f_1, …, f_c regular in A[x]_𝔭 for primes 𝔭 ⊇ (f); it is ind-fppf (resp. ind-syntomic) if A' is a filtered colimit of faithfully flat, finitely presented (resp. syntomic) A-algebras, equivalently if every A-map B → A' from a finitely presented B factors through a faithfully flat finitely presented (resp. syntomic) A-algebra. These classes are stable under composition, base change, finite products and filtered colimits; A → Â for a Noetherian local Q-algebra with a nonreduced formal fibre is flat but not ind-fppf.",
+   "status": "missing",
+   "planned": [],
+   "owner": "SchemeAndStackFoundationsFlatCohomologyPartII",
+   "layer": null
+  },
+  {
+   "id": "PAPER-CESNAVICIUS-SCHOLZE-24/058",
+   "paper": "PAPER-CESNAVICIUS-SCHOLZE-24",
+   "kind": "definition",
+   "name": "The pro-fppf site",
+   "statement": "A scheme map X' → X is pro-ppf (resp. pro-fppf) if X' is covered by affine opens Spec(A') mapping to affine opens Spec(A) ⊂ X with A' a filtered colimit of flat, finitely presented A-algebras (resp. and X' → X faithfully flat); pro-ppf families form a pro-fppf cover if every quasi-compact open is a finite union of images of quasi-compact opens. Pro-fppf covers are fpqc covers.",
+   "status": "missing",
+   "planned": [],
+   "owner": "SchemeAndStackFoundationsFlatCohomologyPartII",
+   "layer": null
+  },
+  {
+   "id": "PAPER-CESNAVICIUS-SCHOLZE-24/085",
+   "paper": "PAPER-CESNAVICIUS-SCHOLZE-24",
+   "kind": "definition",
+   "name": "Flat, faithfully flat and étale maps of animated rings",
+   "statement": "An animated A-module M is flat (resp. faithfully flat) if π_0(M) is so over π_0(A) and π_*(A) ⊗_{π_0 A} π_0(M) ≅ π_*(M); then π_*(M' ⊗^L_A M) ≅ π_*(M') ⊗_{π_0 A} π_0(M) for every animated M'. A map of animated rings is flat, faithfully flat, étale, finitely presented or finite if A' is flat and π_0(f) has the property; fpqc, fppf and étale covers define Grothendieck topologies on animated rings and give no new covers of 0-truncated rings.",
+   "status": "missing",
+   "planned": [],
+   "owner": "SchemeAndStackFoundationsFlatCohomologyPartII",
+   "layer": null
+  },
+  {
+   "id": "PAPER-CESNAVICIUS-SCHOLZE-24/088",
+   "paper": "PAPER-CESNAVICIUS-SCHOLZE-24",
+   "kind": "construction",
+   "name": "Étale and fppf cohomology over an animated ring",
+   "statement": "For an animated ring A, étale, fppf and fpqc sheaves (the last with a cardinal bound) are ∞-sheaves on flat A-algebras; RΓ_ét(A, F) and RΓ_fppf(A, F) are the values of sheafifications, and RΓ_fppf(U_A, F) = R lim RΓ_fppf(A', F) over fppf A' factoring through an open U ⊂ Spec(π_0 A). For 0-truncated A this is classical cohomology; for a commutative affine R-group G, G(A) ≅ τ^{≤0} RΓ_fppf(A, G), so cohomology may be nonzero in negative degrees; quasi-coherent sheaves are hypersheaves.",
+   "status": "missing",
+   "planned": [],
+   "owner": "SchemeAndStackFoundationsFlatCohomologyPartII",
+   "layer": null
+  },
+  {
+   "id": "PAPER-CESNAVICIUS-SCHOLZE-24/118",
+   "paper": "PAPER-CESNAVICIUS-SCHOLZE-24",
+   "kind": "definition",
+   "name": "The Brauer group of a scheme",
+   "statement": "For a scheme X, Br(X) = ∪_{n>0} im(H^1(X, PGL_n) → H^2(X, 𝔾_m)_tors), the classes of Azumaya algebras.",
+   "status": "missing",
+   "planned": [],
+   "owner": "SchemeAndStackFoundationsFlatCohomologyPartII",
+   "layer": null
+  },
+  {
+   "id": "PAPER-BAKKER-TSIMERMAN-16/108",
+   "paper": "PAPER-BAKKER-TSIMERMAN-16",
+   "kind": "construction",
+   "name": "Resolution of cyclic quotient surface singularities",
+   "statement": "The minimal resolution of a complex surface singularity of type 1/n(1,a), with gcd(a,n)=1 and 0<a<n, replaces it by a chain of smooth rational curves with intersection matrix determined by the negative continued fraction n/a.",
+   "status": "missing",
+   "planned": [],
+   "owner": "SchemeAndStackFoundationsPartIIComplexSurfaceContractions",
+   "layer": null
+  },
+  {
+   "id": "PAPER-LAWRENCE-SAWIN-25/9",
+   "paper": "PAPER-LAWRENCE-SAWIN-25",
+   "kind": "definition",
+   "name": "Character sheaves on an abelian variety (Definitions 2.3, 2.4)",
+   "statement": "For a continuous character χ : π₁^et(A_k‾) → ℚ‾_p^×, L_χ is the unique rank-one sheaf on A_k‾ with monodromy χ. If χ is Gal(k‾|k)-invariant, L_χ denotes the unique lisse rank-one sheaf on A_k whose associated representation restricts to χ and whose stalk at the identity has trivial Galois action, obtained from the splitting of 1 → π₁^et(A_k‾) → π₁^et(A_k) → Gal(k‾|k) → 1 given by the identity section. For such χ, P^χ is the subcategory of perverse K with H^i(A_k‾, Q ⊗ L_χ) = 0 for i ≠ 0 and all subquotients Q of K_k‾, and N^χ := P^χ ∩ N.",
+   "status": "missing",
+   "planned": [],
+   "owner": "SheafConvolutionOnAbelianVarieties",
+   "layer": null
+  },
+  {
+   "id": "PAPER-LAWRENCE-SAWIN-25/79",
+   "paper": "PAPER-LAWRENCE-SAWIN-25",
+   "kind": "definition",
+   "name": "Free groups, characters of the fundamental group and the dual torus",
+   "statement": "The character group Π(A) of the étale fundamental group of an abelian variety, a torus over ℚ‾_p whose torsion points are the finite-order characters; torsion translates of proper subtori are the loci to be avoided.",
+   "status": "missing",
+   "planned": [],
+   "owner": "SheafConvolutionOnAbelianVarieties",
+   "layer": null
+  }
+ ]
+}
