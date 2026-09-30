@@ -798,3 +798,47 @@ routes accepted, all 19 findings confirmed, none rejected and none added.
   `data/galaxies.json`, and its roadmap id is free.
 
 Full report: `research/blueprint/reviews/REV-PAPER-ELLENBERG-VENKATESH-WESTERLAND-16.md`.
+
+## Fixes (FIX-RT-PAPER-ELLENBERG-VENKATESH-WESTERLAND-16, 30 September 2026)
+
+Claude Code, session `cc-c2c06b`, issue #4994. This fix applies the nine medium findings of
+`RT-PAPER-ELLENBERG-VENKATESH-WESTERLAND-16`, with the qualifications of its verifier (Codex, codex-rtOQ9t). The full
+record is `research/blueprint/redteam/RT-PAPER-ELLENBERG-VENKATESH-WESTERLAND-16.fixes.md`. Where the sections above
+disagree with this one, this one is current.
+
+- **Route order (/1, /2).** No dependency now runs from IG (route 2) to the Part II (route 1) or ArithmeticStatistics
+  (route 3), or from the Part II to ArithmeticStatistics. So IG comes first, then the Part II, then ArithmeticStatistics,
+  and the two cycles are gone.
+  - The Hurwitz-space vocabulary of §§2–3 (items 8–14, 17, 22, 24) moves to IG.3 and IG.5.
+  - Item 137 (the arithmetic monodromy quotient) moves to ST.5.
+- **One owner (/3).** IG.3 and IG.5 own the tuple action on arbitrary tuples, the Hurwitz covering spaces, the
+  monodromy invariants, the braid-orbit monoid and the extraction lemma. PAPER-WOOD-19 and
+  PAPER-LIU-WOOD-ZUREICKBROWN-24 route them there too.
+  - The monoid (item 22) is built from the block inclusions of braid groups, so it no longer depends on the gluing
+    (item 18). The gluing now consumes it.
+  - The Part II keeps the component ring and EVW's central sum U_D (items 23, 25, 26). Wood's product of power
+    blocks is a different element.
+- **(7.8.2) (/4).** The fixed-n mod-L comparison is a new item, `mod-l-comparison`, at IG.5, where PAPER-WOOD-19/86
+  and /259 already sit. Item 69 keeps the stability step, the cell bound and the rational bound.
+- **Mapping classes (/5).** The identification of B_n with the mapping class group of the marked disc is a new Part
+  II adapter, `disc-mapping-class-adapter`. It imports MappingClassGroupsAndCanonicalRepresentations
+  (Landesman–Litt) and Tau Ceti GeometricTopology Layer 3.
+  - EVW's group permutes the points. It is not Landesman–Litt's pure group.
+  - IG cannot import that roadmap, which imports IG.0 and IG.1, so items 9 and 10 keep only the configuration-space
+    and free-group statements.
+- **Tau Ceti AlgebraicCurves (/7).** Item 83 imports Layer 3's class-group bridge, with a labelled wrapper for the
+  Picard comparison. Item 96 imports Layer 10's hyperelliptic models and genus.
+- **Comparison theorems (/8).**
+  - `artin-comparison` (SGA 4 XI 4.4) is planned at SF.2.
+  - `riemann-existence-punctured-line` (SGA 1 XII 5.1, for A¹_C − S) is a request to IG.3. C4 plans GAGA, not this
+    theorem, and BelyiMaps plans only three-point covers.
+- **Katz–Lang (/9).** `katz-lang-abelian-covers` states that A-covers of a curve correspond to Sur(Jac[ℓ^k], A), with
+  no quotient by Aut(A). It feeds item 97.
+- **E20 (/11).** The published abstract and the paragraph after Theorem 1.2 state the arithmetic consequences for all
+  large q. The paper proves them only for q ≢ 1 (mod ℓ).
+  - For q ≡ 1 (mod ℓ) and A = (Z/ℓ)², there are ℓ Frobenius-stable orbits instead of one, so the moment-one argument
+    does not apply. This is not a counterexample to positive proportions.
+  - The arXiv listing's abstract carries the congruence; the v4 PDF does not.
+- **Prerequisites.** SGA 4 XI and Katz–Lang are added.
+- **Result:** 142 items (7 library, 9 planned, 126 missing), routes of 44, 34 and 48 items, 13 prerequisites and 20
+  source issues.

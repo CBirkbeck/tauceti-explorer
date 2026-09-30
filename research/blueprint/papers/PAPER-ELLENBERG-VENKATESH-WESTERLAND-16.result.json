@@ -16,7 +16,7 @@
       "Codex codex-c83e7a continuation,2026-09-23: read all58 published PDF pages729–786; independently checked the exact-family monodromy invocation and inherited moment-convergence witness."
     ]
   },
-  "summary": "Ellenberg–Venkatesh–Westerland prove homological stability for Hurwitz spaces of nonsplitting pairs (G, c) (Theorem 6.1) and its version for Hurwitz schemes. They deduce that the ℓ-parts of class groups of imaginary quadratic extensions of F_q(t) approach the Cohen–Lenstra distribution as q → ∞ (Theorem 1.2). Complete (cc-442dc5): every numbered statement is an item, every missing item is routed, and nineteen findings are recorded. Theorem 1.2 is established only along odd q prime to ℓ, not for all q ≢ 1 (mod ℓ) as printed (E11). Not formalised.",
+  "summary": "Ellenberg–Venkatesh–Westerland prove homological stability for Hurwitz spaces of nonsplitting pairs (G, c) (Theorem 6.1) and its version for Hurwitz schemes. They deduce that the ℓ-parts of class groups of imaginary quadratic extensions of F_q(t) approach the Cohen–Lenstra distribution as q → ∞ (Theorem 1.2). Complete (cc-442dc5): every numbered statement is an item, every missing item is routed, and nineteen findings are recorded. Theorem 1.2 is established only along odd q prime to ℓ, not for all q ≢ 1 (mod ℓ) as printed (E11). Not formalised. FIX-RT-PAPER-ELLENBERG-VENKATESH-WESTERLAND-16 (30 September 2026) reordered the routes so that no dependency runs from IG (route 2) to the Hurwitz-stability Part II (route 1) or to ArithmeticStatistics (route 3), and none from the Part II to ArithmeticStatistics. It added five items and E20: the consequences stated in the abstract and after Theorem 1.2 are likewise established only for q ≢ 1 (mod ℓ).",
   "conventions": [
     "Unless an item specifies otherwise, §§3–6 use finite G, one conjugacy class c generating G and satisfying nonsplitting, and a field k with |G| invertible. g^h=h^{-1}gh.",
     "Graded modules are nonnegatively graded; degree is the supremum of nonzero degrees with explicit bottom for zero and infinity for unbounded modules. M[q]_n=M_(n−q), zero for n<q.",
@@ -177,38 +177,41 @@
           "where": "§5.5; PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/50",
           "how": "Geometric arc complex: uses ordered and unordered disc configurations as specified by this dependency; Vertices are isotopy classes, relative endpoints, of arcs from the boundary basepoint to one puncture, disjoint from other punctures in their interior. A q-simplex is q+1 such arcs admitting representatives disjoint except at the basepoint, with tangent order fixing the semisimplicial ordering."
         }
-      ]
+      ],
+      "note": "Changed by FIX-RT-PAPER-ELLENBERG-VENKATESH-WESTERLAND-16 (RT-PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/1, /3): routed to IG.5 (route 2) with the rest of the Hurwitz-space vocabulary of §§2–3."
     },
     {
       "id": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/9",
       "kind": "theorem",
       "name": "Configuration asphericity and braid identification",
-      "statement": "Conf_n(D) is a K(B_n,1); the fundamental group at the standard configuration identifies with mapping classes of the punctured disc fixing the boundary, with generators exchanging adjacent punctures.",
-      "locator": "§§1.3,2.1",
+      "statement": "Conf_n(D) is a K(B_n,1): its universal cover is contractible, and its fundamental group at the standard configuration is the Artin braid group B_n, with σ_j the loop exchanging the j-th and (j+1)-th points and leaving the others fixed.",
+      "locator": "§§1.3, 2.1, p. 738",
       "status": "missing",
       "routingGroup": "top",
       "dependsOn": [
         "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/2",
         "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/8"
-      ]
+      ],
+      "note": "Changed by FIX-RT-PAPER-ELLENBERG-VENKATESH-WESTERLAND-16 (RT-PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/1, /5): routed to IG.5 (route 2) with the Hurwitz-space vocabulary. The identification of B_n with the mapping class group of the marked disc (half twists as σ_j) is the separate Part II adapter disc-mapping-class-adapter, which imports its owners; IG must not import MappingClassGroupsAndCanonicalRepresentations, which itself imports IG.0 and IG.1."
     },
     {
       "id": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/10",
       "kind": "theorem",
       "name": "Free punctured-disc fundamental group",
-      "statement": "The fundamental group of the n-punctured disc based on the boundary is free on positively oriented peripheral loops; change of peripheral generators is effected by a boundary-fixing diffeomorphism.",
-      "locator": "§2.1",
+      "statement": "The fundamental group of the n-punctured disc D − S, based at a boundary point, is free on n positively oriented peripheral loops.",
+      "locator": "§2.1, p. 738",
       "status": "missing",
       "routingGroup": "top",
       "dependsOn": [
         "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/8"
-      ]
+      ],
+      "note": "Changed by FIX-RT-PAPER-ELLENBERG-VENKATESH-WESTERLAND-16 (RT-PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/1, /5): routed to IG.3 (route 2). The comparison of two systems of peripheral generators by a boundary-fixing diffeomorphism moved to the Part II adapter disc-mapping-class-adapter."
     },
     {
       "id": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/11",
       "kind": "construction",
       "name": "Hurwitz action on monodromy tuples",
-      "statement": "The braid generator sigma_i acts on G^n by replacing (g_i,g_(i+1)) with (g_i g_(i+1) g_i^{-1},g_i). This gives a B_n action preserving the product, generated subgroup and each conjugacy-class multiplicity.",
+      "statement": "The braid generator sigma_i acts on G^n by replacing (g_i,g_(i+1)) with (g_i g_(i+1) g_i^{-1},g_i). This gives a B_n action preserving the product, generated subgroup and each conjugacy-class multiplicity. The action is defined on arbitrary tuples in G^n; the product-one condition, generation and the class conditions are imposed separately.",
       "locator": "§§1.3.2,2.1–2.2",
       "status": "missing",
       "routingGroup": "top",
@@ -262,7 +265,8 @@
           "where": "§2.3; PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/17",
           "how": "Global, boundary and Nielsen monodromy: uses hurwitz action on monodromy tuples as specified by this dependency; A marked c-tuple has global monodromy subgroup generated by its entries, boundary monodromy their ordered product, and Nielsen multiset of their conjugacy classes. These are constant on braid orbits; global subgroup is literal before G-conjugation and only a conjugacy class after it."
         }
-      ]
+      ],
+      "note": "Changed by FIX-RT-PAPER-ELLENBERG-VENKATESH-WESTERLAND-16 (RT-PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/1, /3): routed to IG.3 (route 2), which plans 'the braid action' on generating tuples. Stated for arbitrary tuples, so that the disc setting of EVW (no product condition) and the product-one setting of PAPER-WOOD-19 and PAPER-LIU-WOOD-ZUREICKBROWN-24 share one construction."
     },
     {
       "id": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/12",
@@ -322,7 +326,8 @@
           "where": "§2.3; PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/15",
           "how": "Marked topological branched G-cover: uses four hurwitz covering spaces as specified by this dependency; A marked cover comprises a finite branched cover Y→D, a G-action identifying the unramified locus as a G-torsor, specified local ramification types, and a point over the boundary basepoint; isomorphisms respect every datum. Surjectivity of monodromy means Y is connected."
         }
-      ]
+      ],
+      "note": "Changed by FIX-RT-PAPER-ELLENBERG-VENKATESH-WESTERLAND-16 (RT-PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/1, /3): routed to IG.5 (route 2), which plans 'Hurwitz moduli with braid/Nielsen-class components'. The four spaces are defined for arbitrary c-tuples; product one and generation are imposed separately."
     },
     {
       "id": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/13",
@@ -334,7 +339,8 @@
       "routingGroup": "top",
       "dependsOn": [
         "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/12"
-      ]
+      ],
+      "note": "Changed by FIX-RT-PAPER-ELLENBERG-VENKATESH-WESTERLAND-16 (RT-PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/1, /3): routed to IG.5 (route 2) with the rest of the Hurwitz-space vocabulary of §§2–3."
     },
     {
       "id": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/14",
@@ -393,7 +399,8 @@
           "where": "§§7.2–7.4; PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/65",
           "how": "Rational conjugacy-class locus: uses simultaneous conjugation and unmarked quotient as specified by this dependency; When c is a rational conjugacy class of G, take the open-and-closed locus Hn^c_G,n with finite local monodromies in c. Over C, its analytic space is CHur^c_G,n/G. Rationality is needed for the indicated arithmetic base, not merely a chosen complex conjugacy class."
         }
-      ]
+      ],
+      "note": "Changed by FIX-RT-PAPER-ELLENBERG-VENKATESH-WESTERLAND-16 (RT-PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/1, /3): routed to IG.5 (route 2) with the rest of the Hurwitz-space vocabulary of §§2–3."
     },
     {
       "id": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/15",
@@ -519,7 +526,8 @@
           "where": "Theorem 6.1, equation 6.1.2; E5; PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/58",
           "how": "Full-monodromy stabilization: uses global, boundary and nielsen monodromy as specified by this dependency; After enlarging A,B, the same U induces isomorphisms H_p(CHur^c_G,n;k)→H_p(CHur^c_G,n+d;k) for n>Ap+B. Decompose by exact generated subgroup Q and use induction; the diagonal action on the Q-summand is U_Q, not the printed extra scalar."
         }
-      ]
+      ],
+      "note": "Changed by FIX-RT-PAPER-ELLENBERG-VENKATESH-WESTERLAND-16 (RT-PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/1, /3): routed to IG.3 (route 2) with the rest of the Hurwitz-space vocabulary of §§2–3."
     },
     {
       "id": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/18",
@@ -532,7 +540,8 @@
       "dependsOn": [
         "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/15",
         "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/16",
-        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/1"
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/1",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/22"
       ],
       "api": [
         {
@@ -568,14 +577,11 @@
       ],
       "uses": [
         {
-          "where": "§3.3; PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/22",
-          "how": "Braid-orbit monoid: uses gluing covers and homology multiplication as specified by this dependency; S=disjoint union over n of c^n/B_n, with multiplication induced by concatenation and identity the empty tuple. Degree is word length; the generator corresponding to g∈c is r_g."
-        },
-        {
           "where": "§5, equation 5.0.2; PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/47",
           "how": "Graded Hurwitz homology module: uses gluing covers and homology multiplication as specified by this dependency; M_p=sum_(n≥0) H_p(Hur^c_G,n;k), graded by n, is a left R-module under gluing. M_0=R."
         }
-      ]
+      ],
+      "note": "Changed by FIX-RT-PAPER-ELLENBERG-VENKATESH-WESTERLAND-16 (RT-PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/1, /3): now consumes the braid-orbit monoid (item 22, IG.3) instead of supplying it."
     },
     {
       "id": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/19",
@@ -658,13 +664,12 @@
       "id": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/22",
       "kind": "definition",
       "name": "Braid-orbit monoid",
-      "statement": "S=disjoint union over n of c^n/B_n, with multiplication induced by concatenation and identity the empty tuple. Degree is word length; the generator corresponding to g∈c is r_g.",
+      "statement": "S=disjoint union over n of c^n/B_n, with multiplication induced by concatenation and identity the empty tuple. Degree is word length; the generator corresponding to g∈c is r_g. Concatenation respects braid orbits because the block inclusion B_n × B_m → B_(n+m) acts on a concatenated tuple through its two factors; this algebraic operation is what the topological gluing of item 18 induces on H_0.",
       "locator": "§3.3",
       "status": "missing",
       "routingGroup": "top",
       "dependsOn": [
-        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/11",
-        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/18"
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/11"
       ],
       "api": [
         {
@@ -702,8 +707,13 @@
         {
           "where": "§3.3; PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/23",
           "how": "Presentation of the component ring: uses braid-orbit monoid as specified by this dependency; R=H_0(disjoint union Hur^c;k) is k[S], generated by r_g in degree one with relations r_g r_h=r_(ghg^{-1}) r_g. The boundary-product map gives a G-grading, independent of the length grading."
+        },
+        {
+          "where": "§2.4; PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/18",
+          "how": "Gluing covers and homology multiplication: on fibres the gluing concatenates tuples, and on H_0 it induces the multiplication of the braid-orbit monoid."
         }
-      ]
+      ],
+      "note": "Changed by FIX-RT-PAPER-ELLENBERG-VENKATESH-WESTERLAND-16 (RT-PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/3): routed to IG.3 (route 2), where PAPER-WOOD-19/255 (the monoid of braid orbits and its central power-block element) and /134 already use the same monoid. Following the verifier, concatenation is proved directly from the block inclusions of braid groups, so the item no longer depends on item 18; the gluing (item 18, Part II) now consumes it. Otherwise the move would recreate the cycle."
     },
     {
       "id": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/23",
@@ -718,7 +728,8 @@
         "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/4",
         "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/13",
         "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/22"
-      ]
+      ],
+      "note": "The braid-orbit monoid it presents is imported from IG.3 (item 22; RT-PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/3)."
     },
     {
       "id": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/24",
@@ -731,7 +742,8 @@
       "dependsOn": [
         "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/11",
         "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/17"
-      ]
+      ],
+      "note": "Changed by FIX-RT-PAPER-ELLENBERG-VENKATESH-WESTERLAND-16 (RT-PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/3): routed to IG.3 (route 2). Its input is the Lemma 3 of Fried–Völklein's appendix ([27]), the same lemma that PAPER-WOOD-19/255 uses; one owner."
     },
     {
       "id": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/25",
@@ -789,7 +801,8 @@
           "where": "Theorem 6.1, equation 6.1.2; E5; PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/58",
           "how": "Full-monodromy stabilization: uses central stabilization element as specified by this dependency; After enlarging A,B, the same U induces isomorphisms H_p(CHur^c_G,n;k)→H_p(CHur^c_G,n+d;k) for n>Ap+B. Decompose by exact generated subgroup Q and use induction; the diagonal action on the Q-summand is U_Q, not the printed extra scalar."
         }
-      ]
+      ],
+      "note": "It stays in the Part II (RT-PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/3). Wood's central element v = ∏_{g∈c}(g)^{ord(g)} (PAPER-WOOD-19/255) is a product of power blocks, not EVW's sum U_D, so the two stabilization statements are not interchangeable."
     },
     {
       "id": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/26",
@@ -1533,7 +1546,8 @@
         "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/9",
         "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/48",
         "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/49",
-        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/50"
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/50",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/disc-mapping-class-adapter"
       ]
     },
     {
@@ -1881,7 +1895,8 @@
       "dependsOn": [
         "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/14",
         "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/16",
-        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/64"
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/64",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/riemann-existence-punctured-line"
       ],
       "api": [
         {
@@ -1924,7 +1939,8 @@
           "where": "§8.6; PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/82",
           "how": "Generalized dihedral cover datum: uses rational conjugacy-class locus as specified by this dependency; For a nontrivial finite abelian odd-ell group A, take G=A⋊C2 with inversion action and c the involutions. Then Z(G)=1, c is rational, generating and nonsplitting, and X_n=Hn^c_G,n over F_q is defined when q is odd and ell∤q."
         }
-      ]
+      ],
+      "note": "Its identification of the complex points with CHur^c_{G,n}/G (Lemma 7.4) uses riemann-existence-punctured-line (RT-PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/8)."
     },
     {
       "id": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/66",
@@ -2004,7 +2020,7 @@
       "id": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/69",
       "kind": "theorem",
       "name": "Uniform etale Betti bound",
-      "statement": "For finite center-free nonsplitting (G,c) with c rational, there is C=C(G,c) such that dim H^i(Hn^c_G,n over Fbar_q,Q_L)≤C^(i+1), uniformly in i,n and q prime to |G|, with auxiliary prime L>max(|G|,q,n). Use mod-L comparison, exact S_n-invariants, topological stability to reduce to bounded branch number, and the cell bound; do not drop the published restriction on L without a separate independence theorem.",
+      "statement": "For finite center-free nonsplitting (G,c) with c rational, there is C=C(G,c) such that dim H^i(Hn^c_G,n over Fbar_q,Q_L)≤C^(i+1), uniformly in i,n and q prime to |G|, with auxiliary prime L>max(|G|,q,n). Import the mod-L comparison (7.8.2) (mod-l-comparison, IG.5), then use topological stability (7.8.3) to reduce to bounded branch number, and the cell bound; do not drop the published restriction on L without a separate independence theorem.",
       "locator": "Proposition 7.8",
       "status": "missing",
       "routingGroup": "top",
@@ -2012,10 +2028,11 @@
         "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/19",
         "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/60",
         "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/65",
-        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/68",
         "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/112",
-        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/124"
-      ]
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/124",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/mod-l-comparison"
+      ],
+      "note": "Changed by FIX-RT-PAPER-ELLENBERG-VENKATESH-WESTERLAND-16 (RT-PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/4): split. The fixed-n comparison (7.8.2) is now mod-l-comparison at IG.5, shared with PAPER-WOOD-19/86 and /259. This item keeps the n-uniform stability step (7.8.3), which uses item 65 (Lemma 7.4) and Corollary 6.2, together with the cell bound and the universal-coefficient step. The comparison alone gives no stability, and no Frobenius-equivariant stabilization follows."
     },
     {
       "id": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/70",
@@ -2364,9 +2381,9 @@
           "statement": "imaginaryQuadraticFamily q n with odd q,n and ramified infinity"
         },
         {
-          "name": "classGroupPicardIso",
+          "name": "classGroupPicardWrapper",
           "role": "compatibility",
-          "statement": "classGroupPicardIso requires unique rational infinity point"
+          "statement": "labelled specialization wrapper: AlgebraicCurves Layer 3's Cl⁰(F) ≅ ClassGroup(R_x) for a single degree-one place at infinity, composed with the Cl(F)/Picard comparison of AlgebraicCurves Layer 12 and JacobianChallenge Layer D; not a new proof of the class-group bridge"
         }
       ],
       "unitTests": [
@@ -2402,7 +2419,8 @@
           "where": "Equation 8.7.5, corrected E8; PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/89",
           "how": "Size of the odd-degree quadratic family: uses imaginary quadratic function-field family as specified by this dependency; For q odd and odd n≥3, |S_n|=2(q^n−q^(n−1)), from monic squarefree polynomials and the two square classes of nonzero constants. For n=1, |S_1|=2q, not 2(q−1)."
         }
-      ]
+      ],
+      "note": "Changed by FIX-RT-PAPER-ELLENBERG-VENKATESH-WESTERLAND-16 (RT-PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/7). Cl⁰(F) ≅ ClassGroup(O_L) for a model with a single degree-one place at infinity is the affine class-group bridge of tauceti:TauCetiRoadmap/AlgebraicCurves Layer 3, which is imported, not rebuilt. As the verifier noted, the comparison with the F_q-points of the Picard scheme also needs the curve/Picard/Jacobian dictionary (AlgebraicCurves Layer 12 with tauceti:TauCetiRoadmap/JacobianChallenge Layer D), so Layer 3 alone is not the whole supplier. Only the family S_n and the labelled wrapper classGroupPicardWrapper stay here."
     },
     {
       "id": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/84",
@@ -2693,7 +2711,7 @@
           "kind": "sanity"
         }
       ],
-      "note": "Use the monic representative of the affine configuration polynomial. The general arithmetic/geometric image quotient need not equal its cyclotomic multiplier image without the full-geometric-Sp hypothesis; item137 states the correct exact sequence. The full family image is proved in item116 only in its stated range.",
+      "note": "Use the monic representative of the affine configuration polynomial. The general arithmetic/geometric image quotient need not equal its cyclotomic multiplier image without the full-geometric-Sp hypothesis; item137 states the correct exact sequence. The full family image is proved in item116 only in its stated range. Changed by FIX-RT-PAPER-ELLENBERG-VENKATESH-WESTERLAND-16 (RT-PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/7): the model y² = f(x), f squarefree of odd degree n, and its genus g = (n − 1)/2 are tauceti:TauCetiRoadmap/AlgebraicCurves Layer 10 (Stichtenoth Prop. 6.2.3), imported. Only the torsion local system, the Weil pairing and the multiplier are planned here.",
       "uses": [
         {
           "where": "Theorem 8.8 proof, p.779, corrected E10; PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/97",
@@ -2716,8 +2734,10 @@
       "dependsOn": [
         "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/84",
         "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/87",
-        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/96"
-      ]
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/96",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/katz-lang-abelian-covers"
+      ],
+      "note": "The identification of the fibre with surjections uses katz-lang-abelian-covers (RT-PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/9)."
     },
     {
       "id": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/98",
@@ -2967,7 +2987,8 @@
       "routingGroup": "stats",
       "dependsOn": [
         "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/109"
-      ]
+      ],
+      "note": "The published abstract (p. 729) and the paragraph after Theorem 1.2 (p. 730) state this for all large q. The paper proves it only for q ≢ 1 (mod ℓ), odd and prime to ℓ (E11, E20). This item is stated in that proved domain ('allowed q')."
     },
     {
       "id": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/111",
@@ -3500,8 +3521,81 @@
         "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/100",
         "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/127"
       ],
-      "routingGroup": "ig",
-      "proofOutline": "Use the geometric/arithmetic fundamental-group sequence and compatibility of the Weil pairing with the cyclotomic character. Quotient A by G and take the kernel of the induced multiplier. For a counterexample to the unconditional claim, take S=Spec C(t) and the quadratic twist by t of a constant elliptic curve: G=1, A={±I}, and chi_ell=1 for ell odd."
+      "routingGroup": "stats",
+      "proofOutline": "Use the geometric/arithmetic fundamental-group sequence and compatibility of the Weil pairing with the cyclotomic character. Quotient A by G and take the kernel of the induced multiplier. For a counterexample to the unconditional claim, take S=Spec C(t) and the quadratic twist by t of a constant elliptic curve: G=1, A={±I}, and chi_ell=1 for ell odd.",
+      "note": "Changed by FIX-RT-PAPER-ELLENBERG-VENKATESH-WESTERLAND-16 (RT-PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/2): routed to ArithmeticStatistics ST.5 (route 3) with the monodromy items it serves (96, 99), so that IG no longer needs GSp (item 100). The general arithmetic fundamental-group sequence stays an IG import (item 127)."
+    },
+    {
+      "id": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/disc-mapping-class-adapter",
+      "kind": "theorem",
+      "name": "Braid group as the mapping class group of the marked disc",
+      "statement": "Let D be the closed disc and S a set of n interior points. The mapping class group π_0 Diff⁺(D, ∂D; S) of diffeomorphisms fixing ∂D pointwise and preserving S as a set (the points may be permuted) is isomorphic to B_n, with σ_j the half Dehn twist exchanging the j-th and (j+1)-th points along a circle containing only those two. The isomorphism is compatible with π_1(Conf_n(D)) ≅ B_n (item 9) by point-pushing, and its action on π_1(D − S, *) for * ∈ ∂D is Artin's representation B_n → Aut(F_n) on the peripheral generators of item 10. Any two systems of positively oriented peripheral generators differ by a boundary-fixing diffeomorphism.",
+      "locator": "§2.1, p. 738 ('π_0Diff⁺(Σ, ∂Σ) ≅ B_n ≅ π_1(Conf_n, c_n)'); used in §5.5, pp. 758–760",
+      "status": "missing",
+      "routingGroup": "top",
+      "dependsOn": [
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/2",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/9",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/10"
+      ],
+      "library": [],
+      "note": "Added by FIX-RT-PAPER-ELLENBERG-VENKATESH-WESTERLAND-16 (RT-PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/5), with the verifier's scope. Import the mapping class groups of punctured surfaces with boundary and their action on π_1 from MappingClassGroupsAndCanonicalRepresentations, the new roadmap of PAPER-LANDESMAN-LITT-24 (its items 51 and 113, with g = 0, one boundary component and n marked points). Import Diff of the compact disc with marked interior points from tauceti:TauCetiRoadmap/GeometricTopology Layer 3, whose text postpones noncompact manifolds. Two cautions: EVW's group fixes the boundary pointwise but lets the points be permuted, whereas LL24's PMod fixes each puncture; and LL24/113 is stated under 2g − 2 + n > 0, which does not cover every small n here. So the identification with Artin's presentation and the peripheral-generator comparison stay here as an EVW adapter until proved. It lives in the Part II, which may import both owners: the MappingClassGroups roadmap imports IG.0 and IG.1, so IG (items 9 and 10) must not import it."
+    },
+    {
+      "id": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/artin-comparison",
+      "kind": "theorem",
+      "name": "Artin comparison for finite coefficients",
+      "statement": "For X a smooth separated scheme of finite type over C and L a prime, H^i_ét(X, Z/L) ≅ H^i(X(C), Z/L) naturally in X, where the right side is the singular cohomology of the analytic space X(C). The smooth case suffices here: PHn^c_{G,n} is finite étale over the smooth PConf_n.",
+      "locator": "Proposition 7.8 proof, p. 769, citing [6, Th. 4.4, Exposé XI] (SGA 4, Exposé XI, Théorème 4.4)",
+      "status": "planned",
+      "routingGroup": "planned",
+      "dependsOn": [],
+      "library": [],
+      "planned": [
+        "SchemeAndStackFoundations:SF.2"
+      ],
+      "note": "Added by FIX-RT-PAPER-ELLENBERG-VENKATESH-WESTERLAND-16 (RT-PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/8). SF.2 is the recorded integration owner of the CohomologicalPointCounting ComplexComparison supplier, as for item 93. That supplier's status is 'requires declaration and proof verification', not a proved library theorem, and SF.2's text names site comparisons and the CohomologicalPointCounting integration, not this theorem by name, so the design job should confirm the contract there. Hypotheses: finite constant coefficients, X of finite type over C."
+    },
+    {
+      "id": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/riemann-existence-punctured-line",
+      "kind": "theorem",
+      "name": "Riemann existence for the punctured complex affine line",
+      "statement": "For a finite set S ⊂ C, analytification is an equivalence from finite étale covers of A¹_C − S to finite covering spaces of C − S (SGA 1 XII, Théorème 5.1, for a smooth affine curve). Hence a G-cover of P¹_C branched in S or S ∪ {∞} is the same as a conjugacy class of surjections π_1(C − S, x_0) ↠ G.",
+      "locator": "Lemma 7.4 proof, p. 767, citing [31, Exp. XII, Th. 5.1]",
+      "status": "missing",
+      "routingGroup": "cover",
+      "dependsOn": [],
+      "library": [],
+      "note": "Added by FIX-RT-PAPER-ELLENBERG-VENKATESH-WESTERLAND-16 (RT-PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/8). IG.3 constructs branched covers from generating tuples 'via Riemann existence', and lists ComplexComparisonPartII:C4 and the BelyiMaps successors among its inputs. But C4 plans Chow algebraization, GAGA and the connectedness of affine complex curves, not the Riemann-existence equivalence, and BelyiMaps plans it only for three-point covers (Layers 8 and 12). So this n-point instance is a request to IG.3 (route 2), not a planned item. The equivalence for arbitrary finite-type C-schemes is not needed here."
+    },
+    {
+      "id": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/mod-l-comparison",
+      "kind": "theorem",
+      "name": "Mod-L comparison of Hurwitz-scheme cohomology for L > n",
+      "statement": "Let (G,c) be as in Proposition 7.8 (G center-free, c a rational conjugacy class generating G), q prime to |G|, and L a prime with L > max(|G|, q, n). Apply Proposition 7.7 (item 68) over A = W(F_q) to U = PConf_n with its compactification X_n (Lemma 7.6, item 66), U′ = PHn^c_{G,n} = Hn^c_{G,n} ×_{Conf_n} PConf_n and S_n acting by permuting the points. Composing with Artin's comparison (artin-comparison) at the complex fibre gives H^i(PHn^c_{G,n}(C), Z/L) ≅ H^i_ét(PHn^c_{G,n}/F̄_q, Z/L) as S_n-modules. Since L > n, taking S_n-invariants is exact, and gives (7.8.2) H^i(Hn^c_{G,n}(C), Z/L) ≅ H^i_ét(Hn^c_{G,n}/F̄_q, Z/L). This is a comparison for each fixed n; it asserts no Frobenius equivariance and no stability.",
+      "locator": "Proposition 7.8 proof, (7.8.2), pp. 769–770",
+      "status": "missing",
+      "routingGroup": "cover",
+      "dependsOn": [
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/65",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/66",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/68",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/artin-comparison"
+      ],
+      "library": [],
+      "note": "Added by FIX-RT-PAPER-ELLENBERG-VENKATESH-WESTERLAND-16 (RT-PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/4). It is the same theorem as PAPER-WOOD-19/86 and /259, which Wood's extraction routes to IG.5 citing EVW Proposition 7.7, so it has one owner, IG.5 (route 2). The coefficient maps are those of Proposition 7.7 and of Artin's comparison, composed. Item 69 keeps only the stability step (7.8.3), the cell bound and the passage to Q_L-coefficients."
+    },
+    {
+      "id": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/katz-lang-abelian-covers",
+      "kind": "theorem",
+      "name": "Abelian étale covers of a curve and the torsion of its Jacobian",
+      "statement": "Let C be a smooth proper connected curve over an algebraically closed field k, with a base point c_0, and ℓ a prime different from char k. For a finite abelian group A with ℓ^k A = 0, pulling back the isogeny [ℓ^k] : Jac(C) → Jac(C) along the Abel–Jacobi map at c_0 identifies H¹_ét(C, A) = Hom(π_1(C, c_0), A) with Hom(Jac(C)[ℓ^k], A); equivalently π_1^ab(C) ⊗ Z/ℓ^k ≅ Jac(C)[ℓ^k]. So A-torsors over C (étale covers with a given A-action) correspond to homomorphisms Jac(C)[ℓ^k] → A, and connected ones to surjections Jac(C)[ℓ^k] ↠ A. No quotient by Aut(A) is taken: a cover here carries its A-action.",
+      "locator": "Theorem 8.8 proof, p. 779, citing Katz–Lang [37, (2.4)] ('in the case at hand, this is just Kummer theory')",
+      "status": "missing",
+      "routingGroup": "stats",
+      "dependsOn": [],
+      "library": [],
+      "note": "Added by FIX-RT-PAPER-ELLENBERG-VENKATESH-WESTERLAND-16 (RT-PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/9). It replaces the class-field step (8.7.2) in the fibre identification of item 97, and it is the only link between the Hurwitz fibre and V. The Abel–Jacobi map and the Albanese property are imported from tauceti:TauCetiRoadmap/JacobianChallenge Layer F. Following the verifier, the classification keeps Sur(Jac(C)[ℓ^k], A): quotienting by Aut(A) would forget the chosen action and change the count. The unmarked fibre of item 97 becomes Sur(V, A)/{±1} only after the hyperelliptic involution is accounted for (E10). The contract is general; it is routed with item 96 (route 3)."
     }
   ],
   "prerequisites": [
@@ -3565,6 +3659,16 @@
       "sha256": "b7389a31ceb4593c069bf537635b49f262380d60b764a117e29662daafd252f2",
       "readDate": "2026-09-23",
       "why": "Read PDF pp.1–5,9,16,23–28: MainTheorem1.3, adjoint irreducibility3.7.1, congruence lifting4.1.2, nonsplitting4.5 and proof4.7. This is selected source reading, not complete recursive proof closure; root-system, representation-theory and base-case monodromy originals remain."
+    },
+    {
+      "citation": "M. Artin, Comparaison avec la cohomologie classique : cas d'un schéma lisse, SGA 4, Tome 3, Exposé XI, Lecture Notes in Math. 305 (1973), 64–78",
+      "link": "https://doi.org/10.1007/BFb0070717",
+      "why": "Théorème 4.4, the comparison of étale and singular cohomology with finite coefficients, which Proposition 7.8 uses to pass from Proposition 7.7 to the complex Hurwitz space (artin-comparison, mod-l-comparison). EVW's reference [6] names Tome 1 (LNM 269), which does not contain Exposé XI."
+    },
+    {
+      "citation": "N. M. Katz and S. Lang, Finiteness theorems in geometric classfield theory, with an appendix by K. A. Ribet, Enseign. Math. (2) 27 (1981), 285–319; reprinted in S. Lang, Collected Papers III, 101–135",
+      "link": "https://doi.org/10.1007/978-1-4614-6324-5_9",
+      "why": "(2.4): abelian étale covers of a curve over an algebraically closed field with ℓ-torsion group A correspond to maps from the ℓ^k-torsion of its Jacobian. Theorem 8.8's proof uses it in place of class field theory (katz-lang-abelian-covers)."
     }
   ],
   "routes": [
@@ -3575,21 +3679,11 @@
       "title": "Inverse Galois theory and arithmetic fundamental groups, Part II: homological stability of Hurwitz spaces",
       "area": "arithmeticgeometry",
       "items": [
-        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/8",
-        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/9",
-        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/10",
-        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/11",
-        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/12",
-        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/13",
-        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/14",
-        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/17",
         "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/18",
         "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/19",
         "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/20",
         "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/21",
-        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/22",
         "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/23",
-        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/24",
         "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/25",
         "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/26",
         "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/27",
@@ -3615,6 +3709,7 @@
         "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/47",
         "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/48",
         "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/49",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/disc-mapping-class-adapter",
         "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/50",
         "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/51",
         "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/52",
@@ -3629,8 +3724,8 @@
         "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/69",
         "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/70"
       ],
-      "reason": "IG.3 and IG.5 plan branch cycles, descent, Hurwitz moduli and specialization, but not the chain-level nonsplitting stability argument of EVW §§3–6. Extend that direction and import its existing foundations.",
-      "brief": "Build the nonsplitting Hurwitz-space stability theorem with its actual central operator U: for finite G, a single generating nonsplitting conjugacy class c, and field coefficients in which |G| is invertible, H_p stabilizes from n to n+deg U for n>Ap+B; include connected/full-monodromy covers and, when center-free, their unmarked quotients. Construct the braid-orbit ring, graded K-complex, all degree estimates, the truncated arc/coset resolution, its spectral sequence and the induction. Import Inverse Galois theory and arithmetic fundamental groups (InverseGaloisAndArithmeticFundamentalGroups), algebraic topology of spaces and manifolds (tauceti:TauCetiRoadmap/AlgebraicTopology), existing braid and singular-chain carriers, and shared graded homological-algebra suppliers. Audit a reusable noncommutative right/left Tor interface before assigning ownership; do not reimplement commutative or abstract derived-functor machinery. Import arithmetic Hurwitz schemes and tame comparison from IG.5 and export only the uniform Betti estimate with its auxiliary-prime conditions. Do not promise Frobenius-equivariant stabilization or fixed-q CL convergence. Resolve source findings and recursive proof gaps in this partial extraction before blueprint completion."
+      "reason": "IG.3 and IG.5 plan branch cycles, the braid action on tuples, descent, Hurwitz moduli with braid/Nielsen-class components and specialization, but not the chain-level nonsplitting stability argument of EVW §§4–6. So the Hurwitz action on arbitrary tuples, the four Hurwitz covering spaces, their monodromy invariants, the braid-orbit monoid and the extraction lemma (items 8–14, 17, 22, 24) go to IG.3 and IG.5 (route 2). PAPER-WOOD-19 (items 134, 255) and PAPER-LIU-WOOD-ZUREICKBROWN-24 (route 2) route the same objects there, and this Part II imports them. It keeps the component ring and EVW's central sum U_D with its finite kernel and cokernel (items 23, 25, 26); Wood's product of power blocks is a different element (RT-PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/3). Extend that direction and import its existing foundations.",
+      "brief": "Build the nonsplitting Hurwitz-space stability theorem with its actual central operator U: for finite G, a single generating nonsplitting conjugacy class c, and field coefficients in which |G| is invertible, H_p stabilizes from n to n+deg U for n>Ap+B; include connected/full-monodromy covers and, when center-free, their unmarked quotients. Construct the braid-orbit ring from the braid-orbit monoid imported from IG.3 (item 22), the graded K-complex, all degree estimates, the truncated arc/coset resolution, its spectral sequence and the induction. Import Inverse Galois theory and arithmetic fundamental groups (InverseGaloisAndArithmeticFundamentalGroups), including the Hurwitz-space vocabulary of EVW §§2–3 at IG.3 and IG.5 (items 8–14, 17, 22, 24); the mapping class group of the marked disc, with the boundary fixed pointwise and the points permuted, from MappingClassGroupsAndCanonicalRepresentations (PAPER-LANDESMAN-LITT-24), and Diff of the compact disc with marked interior points from tauceti:TauCetiRoadmap/GeometricTopology Layer 3, through the adapter disc-mapping-class-adapter; algebraic topology of spaces and manifolds (tauceti:TauCetiRoadmap/AlgebraicTopology), existing braid and singular-chain carriers, and shared graded homological-algebra suppliers. Audit a reusable noncommutative right/left Tor interface before assigning ownership; do not reimplement commutative or abstract derived-functor machinery. Import arithmetic Hurwitz schemes and tame comparison from IG.5, including the fixed-n mod-L comparison (7.8.2) (mod-l-comparison, shared with PAPER-WOOD-19/86 and /259), and export only the uniform Betti estimate with its auxiliary-prime conditions. Do not promise Frobenius-equivariant stabilization or fixed-q CL convergence. Resolve source findings and recursive proof gaps in this partial extraction before blueprint completion."
     },
     {
       "route": "source",
@@ -3642,6 +3737,16 @@
         "InverseGaloisAndArithmeticFundamentalGroups:IG.1"
       ],
       "items": [
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/8",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/9",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/10",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/11",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/12",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/13",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/14",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/17",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/22",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/24",
         "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/15",
         "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/16",
         "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/61",
@@ -3664,9 +3769,10 @@
         "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/132",
         "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/133",
         "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/136",
-        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/137"
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/riemann-existence-punctured-line",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/mod-l-comparison"
       ],
-      "reason": "The cover/moduli/comparison constructions specialize the existing branch-cycle and Hurwitz-space direction. Import Riemann existence, ordinary curve moduli and etale/nearby-cycle foundations from their established owners; keep only the marked/unmarked and tame-family adapters here. The continuation adds the labelled polynomial-family adapter, its double-cover normal form, and the finite-cover image lemmas at IG.0/IG.1; general quotient-stack construction remains an R09.4 import."
+      "reason": "The cover/moduli/comparison constructions specialize the existing branch-cycle and Hurwitz-space direction. Import Riemann existence, ordinary curve moduli and etale/nearby-cycle foundations from their established owners; keep only the marked/unmarked and tame-family adapters here. The continuation adds the labelled polynomial-family adapter, its double-cover normal form, and the finite-cover image lemmas at IG.0/IG.1; general quotient-stack construction remains an R09.4 import. It also owns the Hurwitz-space vocabulary of EVW §§2–3 (items 8–14, 17, 22, 24; RT-PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/1, /3): IG.3 takes the tuples, braid action, monodromy invariants and braid-orbit monoid, and IG.5 the configuration spaces and Hurwitz covering spaces. They are stated for arbitrary tuples, with product and generation imposed separately. It takes the fixed-n mod-L comparison (7.8.2) at IG.5, which is PAPER-WOOD-19/86 and /259 at the same owner (RT-PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/4), and a request to IG.3 for Riemann existence on the punctured complex line (RT-PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/8). Item 137 moved to route 3 (RT-PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/2). No item of this route depends on an item of route 1 or route 3."
     },
     {
       "route": "source",
@@ -3698,6 +3804,7 @@
         "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/94",
         "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/95",
         "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/96",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/katz-lang-abelian-covers",
         "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/97",
         "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/98",
         "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/99",
@@ -3716,6 +3823,7 @@
         "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/114",
         "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/115",
         "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/116",
+        "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/137",
         "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/121",
         "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/122",
         "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/123",
@@ -3723,7 +3831,7 @@
         "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/134",
         "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/135"
       ],
-      "reason": "ST.0 owns probability/family normalization and ST.5 owns distributions and function-field higher moments. EVW supplies the CL finite-moment argument, generalized-dihedral counting dictionary, monodromy/component calculation and large-q density result. Import stability, CFT, Jacobians, trace and weights; do not claim these statistical results already exist in Lean."
+      "reason": "ST.0 owns probability/family normalization and ST.5 owns distributions and function-field higher moments. EVW supplies the CL finite-moment argument, generalized-dihedral counting dictionary, monodromy/component calculation and large-q density result. Import stability, CFT, Jacobians, trace and weights; do not claim these statistical results already exist in Lean. ArithmeticStatistics:ST.5 imports InverseGaloisAndArithmeticFundamentalGroups IG.0 (item 127) and IG.5 (items 63, 131–133), and the Hurwitz-stability Part II (item 69). The atlas needs the stage edges IG.5 → ST.5 and Part II → ST.5 (RT-PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/2). Item 137, the arithmetic monodromy quotient with its cyclotomic multiplier, moved here from route 2 with the monodromy items it serves (96, 99), so that IG no longer needs GSp. The route imports tauceti:TauCetiRoadmap/AlgebraicCurves: Layer 3's class-group bridge and Layer 10's hyperelliptic models and genus formula (RT-PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/7). It also imports tauceti:TauCetiRoadmap/JacobianChallenge Layer F, Abel–Jacobi and the Albanese property, for katz-lang-abelian-covers (RT-PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/9)."
     }
   ],
   "sourceIssues": [
@@ -4140,6 +4248,26 @@
         "reason": "Confirmed. Vasiu §2.2 (PDF p.4) says \"We now assume that S is a smooth group scheme over R. So Lie(S) is a free R-module of rank equal to the relative dimension of S.\" The standing base is only a connected affine Spec(R) (§1, p.2: \"A reductive group scheme F over a connected affine scheme Spec(R)…\"), not a local ring, and over such a base Lie(S) is finite locally free but need not be free: for an invertible non-free R-module L the vector group S = Spec(Sym_R(L^∨)), which is the off-diagonal unipotent subgroup Hom(O,L) of GL(O⊕L), is smooth of relative dimension 1 with Lie(S) = L. As the finding notes, the applications run over W(k), where projective modules are free, so nothing downstream is affected.",
         "by": "REV-PAPER-ELLENBERG-VENKATESH-WESTERLAND-16"
       }
+    },
+    {
+      "id": "PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/E20",
+      "kind": "gap",
+      "locator": "Abstract, p. 729, and the paragraph after Theorem 1.2, p. 730 (published version; the arXiv v4 PDF has the same abstract, p. 1)",
+      "printed": "The abstract asserts existence of Q = Q(A) such that for q greater than Q a positive proportion of quadratic extensions of F_q(t) have ℓ-primary class group isomorphic to A. After Theorem 1.2, it says that for q > Q0(ℓ) among imaginary quadratic extensions over F_q(t), positive proportions have class numbers divisible by ℓ and indivisible by ℓ, respectively.",
+      "correction": "What the paper proves is these statements for q > Q with q ≢ 1 (mod ℓ), q odd and prime to ℓ, as in Theorem 1.2 and E11. For q ≡ 1 (mod ℓ) the paper says only that 'the method of proof still works' and yields a different distribution, and it gives no argument; that case is not proved there.",
+      "reason": "Theorem 1.2 (p. 730) is stated 'as q → ∞ with q ≢ 1 (mod ℓ)', and its proof, through Proposition 8.3 and Theorem 8.8, needs moments tending to 1 and ℓ ∤ q(q − 1). The abstract and the sentence 'In particular, for q > Q0(ℓ), …' drop the congruence. The moment-one argument does not carry over as written. Take A = (Z/ℓ)², k = 1, g ≥ 2 and q ≡ 1 (mod ℓ). The multiplier-q coset GSp_q(V) of V = Jac[ℓ] is then Sp(V) itself. The Sp(V)-orbits on Sur(V, A), which are the ordered pairs of independent covectors, are classified by the value of the alternating pairing on the pair (Witt), and all ℓ values occur. So there are ℓ Frobenius-stable orbits, each stable under −I, where the case q ≢ 1 (mod ℓ) has one. For ℓ = 3, g = 2 they have 80·24 = 1920 and 80·27 = 2160, 2160 elements. Proposition 8.3 therefore does not apply, and the paper supplies no replacement. This does not show that the positive-proportion statements fail when q ≡ 1 (mod ℓ): the modified distribution (Garton's thesis, [30]) may still have positive masses. The paper does not prove it.",
+      "affects": "a stated result",
+      "impact": "The consequences stated in the abstract and on p. 730 are proved for q ≢ 1 (mod ℓ), q odd and prime to ℓ. Items 109 and 110 are stated in that domain. The paper does not claim the Cohen–Lenstra limit itself when q ≡ 1 (mod ℓ).",
+      "known": "new: no correction found. The arXiv listing's abstract for v4 (1 December 2015) reads 'for q greater than Q and not congruent to 1 modulo l', but the v4 PDF, the published abstract and the paragraph after Theorem 1.2 do not carry the congruence.",
+      "searched": [
+        "2026-09-22: publisher record https://annals.math.princeton.edu/2016/183-3/p01 and published PDF; no linked correction located.",
+        "2026-09-22: title plus erratum/corrigendum search, and author names plus Lemma 8.4 correction search; no correction to these particular statements located.",
+        "2026-09-22: https://www.math.ias.edu/~akshay/research.html and https://www-users.cse.umn.edu/~cwesterl/docs/preprints.html; the withdrawal/gap notice concerns EVW II, not this published first paper. No claim to have compared every arXiv version.",
+        "Earlier note: No existing correction located in the sources searched; novelty not established.",
+        "Rechecked by cc-442dc5 on 23 September 2026: the Crossref record of DOI 10.4007/annals.2016.183.3.1 registers no update relation; arXiv 0912.0325 has v4 as the final version ('to appear in Annals') and no withdrawal (it is the sequel, arXiv 1212.0923, that was withdrawn).",
+        "30 September 2026: the arXiv API record of 0912.0325 (v4, 1 December 2015, the abstract quoted above) and the v4 PDF (sha256 4adef21f…771c), p. 1; the published PDF (sha256 6c10d770…a7f6), pp. 729–730; Crossref for doi:10.4007/annals.2016.183.3.1, no update relation."
+      ],
+      "addedBy": "FIX-RT-PAPER-ELLENBERG-VENKATESH-WESTERLAND-16, from confirmed RT-PAPER-ELLENBERG-VENKATESH-WESTERLAND-16/11"
     }
   ],
   "audit": {
