@@ -294,23 +294,34 @@
     "data/blueprints/ArithmeticKTheory--N.7.md"
    ]
   },
+  "research/blueprint/packets/ArithmeticStatistics.json": {
+   "promotedAt": "2026-09-30T21:12:14Z",
+   "review": "f8c6c809e1576224",
+   "reviewDate": "2026-09-30",
+   "reviewer": "independent-review-REV-FIX-RT-PAPER-BROWNING-LEBOUDEC-SAWIN-23",
+   "sha256": "91eec9b4dd7122a64ca5d7f44fe60d747a615e534ab8c0637f606ef5640622c1",
+   "to": [
+    "data/blueprints/ArithmeticStatistics.json",
+    "data/blueprints/ArithmeticStatistics.md"
+   ]
+  },
   "research/blueprint/packets/ClassicalSerreModularity--R27.3.json": {
-   "promotedAt": "2026-09-29T01:08:10Z",
-   "review": "35c322bf8f5b9499",
-   "reviewDate": "2026-09-29",
-   "reviewer": "independent-review-REV-ClassicalSerreModularity--R27.3",
-   "sha256": "68642dd5e684e9c699959155ce00ba73e549275161084de773980f1afbe7a4a6",
+   "promotedAt": "2026-09-30T21:17:38Z",
+   "review": "36c93802d3ce2abd",
+   "reviewDate": "2026-09-30",
+   "reviewer": "independent-review-REV-FIX-RT-PAPER-KHARE-WINTENBERGER-09-I",
+   "sha256": "b248659c4698e9ad2c0adc3439f688f82e104297b69292fdd3ae1008544bb074",
    "to": [
     "data/blueprints/ClassicalSerreModularity--R27.3.json",
     "data/blueprints/ClassicalSerreModularity--R27.3.md"
    ]
   },
   "research/blueprint/packets/ClassicalSerreModularity--R33.5.json": {
-   "promotedAt": "2026-09-29T01:15:02Z",
-   "review": "de2bc1e65f261e7b",
-   "reviewDate": "2026-09-29",
-   "reviewer": "independent-review-REV-ClassicalSerreModularity--R33.5",
-   "sha256": "24fc11d47100b27cd2f9e7f5ed687098d9290cd4d4af365e04bdeea44bcceddc",
+   "promotedAt": "2026-09-30T21:23:14Z",
+   "review": "ad41befdbaccc7c5",
+   "reviewDate": "2026-09-30",
+   "reviewer": "independent-review-REV-FIX-RT-BP-ClassicalSerreModularity--R33.5",
+   "sha256": "5763d16595d69e1a5f2f4a220c03127950801a2dc45bbf9f01cf741fa517276f",
    "to": [
     "data/blueprints/ClassicalSerreModularity--R33.5.json",
     "data/blueprints/ClassicalSerreModularity--R33.5.md"
@@ -746,11 +757,11 @@
    ]
   },
   "research/blueprint/restructure/RS-28.result.json": {
-   "promotedAt": "2026-09-21T17:38:22Z",
-   "review": "3ad9a87d930780ff",
-   "reviewDate": "2026-09-21",
-   "reviewer": "independent-review-REV-RS-28",
-   "sha256": "1e2359dee52ea9b261cb2858823092487cafe9d3218f6412678b61813a950e9d",
+   "promotedAt": "2026-09-30T21:30:57Z",
+   "review": "f028b628192e977a",
+   "reviewDate": "2026-09-30",
+   "reviewer": "independent-review-REV-FIX-RT-RS-28",
+   "sha256": "d47c024cbb6a73d23bcdc27995389a77d2c862434024c58755e995a21710bf9e",
    "to": [
     "data/restructure/RS-28.result.json",
     "data/restructure/RS-28.md"

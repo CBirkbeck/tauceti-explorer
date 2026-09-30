@@ -30,7 +30,7 @@ BLOB = GITHUB + "/blob/main/"
 KIND_TITLE = {"blueprint": "Blueprint", "design": "New roadmap", "link": "Links", "review": "Review", "assembly": "Assembly",
               "restructure": "Restructure", "paper": "Paper", "redteam": "Red team", "fix": "Fix", "errata": "Errata",
               "plan": "Plan", "classify": "Classification", "naming": "Planet names", "status": "Status mapping",
-              "sources": "Sources", "collation": "Collation", "attribution": "Sources and credit"}
+              "sources": "Sources", "collation": "Collation", "attribution": "Sources and credit", "keydef": "Key definitions"}
 
 
 LOCAL_ONLY = {"PLAN-HABIRO", "REV-PLAN-HABIRO"}
@@ -187,6 +187,14 @@ def body(job, jobs, roadmaps, stages):
                   "- **Each finding precise and evidenced:** where, what, the evidence (a source locator with a quotation, or a declaration read at the pinned commit), the fix, and its severity.",
                   "- **What you checked**, even when you find nothing: a clean result is evidence too.",
                   "", "An independent verifier checks every finding; confirmed findings of high or medium severity become a fix job."]
+    if job["kind"] == "keydef":
+        lines += ["", "### What this issue delivers",
+                  "- **The area's key definitions:** the notions at least two of the atlas's papers need and Mathlib and Tau Ceti lack, each a real piece of work to formalise, in the format of PROTOCOL.md section 19, ordered by the number of papers that need them.",
+                  "- **For each one:** what to define, with the conventions pinned; what the libraries have and what is missing, read at the pinned commits; the papers that need it, with their catalogue items; the layers that own it; what it depends on; its size (M, L or XL).",
+                  "- **A sample API that tells a right formalisation from a wrong one:** at least five statements, among them worked examples with their values, a counterexample showing that a hypothesis matters, and the theorems the definition exists to support.",
+                  "- **Every input item accounted for:** in an entry, owned elsewhere, in the reserve with its reason, or routine.",
+                  "- **A report** for a human reader, with the gaps (key definitions nothing plans) and duplications it found.",
+                  "", "An independent review checks every entry; accepted surveys go live on the atlas's definitions page."]
     if job["kind"] == "errata":
         lines += ["", "### What this issue delivers",
                   "- **Every mistake in the published source that earlier work on it found**, in `research/blueprint/errata/<paper>.json` (PROTOCOL.md section 18): misprints, errors and gaps, each quoted at its locator with the correction, the reason and how far it reaches.",
@@ -285,6 +293,8 @@ def title(job, roadmaps):
         return f"[Red team] {job.get('name') or jid}"[:240]
     if job["kind"] == "errata":
         return f"[Errata] {job.get('name') or jid}"[:240]
+    if job["kind"] == "keydef":
+        return f"[Key definitions] {job.get('name') or jid}"[:240]
     if job["kind"] == "review" and jid.startswith("REV-ERRATA-"):
         return f"[Review] Mistakes recorded in {job.get('name') or jid[len('REV-ERRATA-'):]}"[:240]
     if job["kind"] == "fix":
@@ -301,6 +311,8 @@ def title(job, roadmaps):
             return f"[Review] Red-team findings on the {job.get('name') or target}"[:240]
         if target.startswith("FIX-"):
             return f"[Review] Fixes for the {job.get('name') or target}"[:240]
+        if target.startswith("KEYDEF-"):
+            return f"[Review] Key definitions: {job.get('name') or target}"[:240]
         if target.startswith("DESIGN-") and job.get("name"):
             return f"[Review] New roadmap: {job['name']}"[:240]
         if target.startswith("LINK-"):
@@ -315,7 +327,7 @@ def title(job, roadmaps):
 
 def labels_for(job, roadmaps, by_id):
     rid = (job.get("roadmapIds") or [None])[0]
-    group = roadmaps[rid].get("group") if rid in roadmaps else None
+    group = roadmaps[rid].get("group") if rid in roadmaps else job.get("area")
     state = {"pending": "available", "running": "running", "done": "submitted", "external": "claimed"}.get(job.get("state"), "available")
     if state == "available" and not ready(job, by_id):
         state = "blocked"
@@ -346,6 +358,7 @@ def main():
     ap.add_argument("--kinds", default="blueprint,design,link,plan,review,assembly,classify,naming")
     ap.add_argument("--pace", type=float, default=7.5, help="seconds between issue creations (GitHub allows about 500 an hour)")
     ap.add_argument("--limit", type=int, default=0)
+    ap.add_argument("--ids", default="", help="only these jobs (comma-separated ids)")
     ap.add_argument("--yes", action="store_true")
     ap.add_argument("--days", type=float, default=None, help="stale: days without progress (or --hours)")
     ap.add_argument("--hours", type=float, default=24.0, help="stale: hours without progress (default 24)")
@@ -355,6 +368,9 @@ def main():
     by_id = {j["id"]: j for j in jobs}
     kinds = set(args.kinds.split(","))
     selected = [j for j in jobs if j["kind"] in kinds and j.get("state") in ("pending", "running")]
+    if args.ids:
+        wanted = set(args.ids.split(","))
+        selected = [j for j in selected if j["id"] in wanted]
     selected.sort(key=lambda j: (j.get("priority", 9), j.get("order", 0), j["id"]))
     if args.limit:
         selected = selected[:args.limit]
@@ -493,8 +509,9 @@ def deliverables_complete(job, root=REPO):
         if job["kind"] == "review":
             # A blueprint, design or fix review finishes when it records its verdict in the
             # review object of every file it reviews, naming itself; a checkpoint writes only its report.
-            if any(target.startswith(("BP-", "DESIGN-", "FIX-")) for target in job.get("after") or []):
+            if any(target.startswith(("BP-", "DESIGN-", "FIX-", "KEYDEF-")) for target in job.get("after") or []):
                 reviewed = [path for path in paths if path.parent.name in ("packets", "links")
+                            or (path.parent.name == "keydefs" and path.suffix == ".json")
                             or (path.parent.name == "restructure" and path.name.endswith(".result.json"))]
                 if reviewed:
                     reviews = [json.loads(path.read_text()).get("review") or {} for path in reviewed]
@@ -506,7 +523,7 @@ def deliverables_complete(job, root=REPO):
                 result = json.loads(verdicts.with_name(verdicts.name.replace(".review.json", ".result.json")).read_text())
                 judged = {item.get("finding") for item in json.loads(verdicts.read_text()).get("findings", []) if item.get("verdict")}
                 return {item.get("id") for item in result.get("findings", [])} <= judged
-        if job["kind"] in ("link", "paper", "redteam"):
+        if job["kind"] in ("link", "paper", "redteam", "keydef"):
             return json.loads(paths[0].read_text()).get("status") == "complete"
         if job["kind"] == "errata":
             issues = json.loads(paths[0].read_text()).get("sourceIssues")

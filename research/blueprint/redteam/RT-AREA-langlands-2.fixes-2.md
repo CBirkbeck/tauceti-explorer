@@ -1,7 +1,7 @@
 # Fix report: RT-AREA-langlands-2, second round
 
 Refs #5142. Worker: **Codex — codex-5ebb6f**. Date: **30 September 2026**.
-Base explorer commit: `e6e9d218c1971a4be31a1e022cf09308b11b44dd`. The bot confirmed this session’s winning claim before work began.
+Initial base explorer commit: `e6e9d218c1971a4be31a1e022cf09308b11b44dd`. Conflict resolution subsequently incorporated main `fcf1084`, preserving the concurrent langlands-1 round-2 amendments and the latest independent CSM review in history. The bot confirmed this session’s winning claim before work began.
 
 This report implements the confirmed findings that can be represented in the three permitted blueprint packets and supplies exact handoffs for the other owners. It changes only this report and the packet/reader/suggested-file trios for ClassicalSerreModularity--R27.3, GL2ModularityLifting--R22.1 and GlobalGaloisDeformations. Campaign source, data, restructuring proposals, library audits and other workers’ files are not edited.
 
@@ -15,9 +15,9 @@ The issue’s abbreviated table lists 35 findings. The current result and verifi
 | --- | --- | --- | --- | --- |
 | ClassicalSerreModularity--R27.3 | 32 → 33 | 4 / 28 | 16 | 3 → 5 |
 | GL2ModularityLifting--R22.1 | 60 → 68 | 7 / 53 | 21 | 15 → 17 |
-| GlobalGaloisDeformations | 65 → 65 | 5 / 60 | 19 | 0 → 1 |
+| GlobalGaloisDeformations | 66 → 66 | 5 / 61 | 19 | 0 → 1 |
 
-No original node ID is deleted. No baseline record is changed. All 19 source-issue payloads and their original independent verdicts are unchanged (CSM7, GL2 9, Global3); this fix adds no source accusation. Eight new §7.6/§8 nodes and one explicit Artin export are planned. Current packet checks count definition/construction API/test specifications as CSM15/15, GL2 70/62 and Global91/70. Existing unrelated API/granularity and proof gaps remain.
+The table compares against main `fcf1084`; the initial Global base had 65 nodes, before the concurrent shared Chebotarev–Selmer selection lemma was added. That lemma, both published source records, all consumer contracts and the other worker’s fix amendment are preserved verbatim. CSM’s independent KW-I fix review and its split-at-p twist correction are also preserved. No original node ID is deleted. No baseline record is changed. All 19 source-issue payloads and their original independent verdicts are unchanged (CSM7, GL2 9, Global3); this fix adds no source accusation. Eight new §7.6/§8 nodes and one explicit Artin export are planned. Current packet checks count definition/construction API/test specifications as CSM15/15, GL2 70/62 and Global91/70. Existing unrelated API/granularity and proof gaps remain.
 
 ## The owned mathematical repairs
 
@@ -128,8 +128,8 @@ The suggested files preserve their historical active fragments and add signature
 - Official check_blueprint.py on all three packets with the unmodified pinned declaration index: zero errors, zero warnings.
 - check_errata.versions_checked on all three packets: no errors; all19 source-issue payloads/verdicts unchanged. The new receipts are selected-passage reads, not whole-paper evidence.
 - Existing IDs, baseline records and prior review objects are preserved; current reviews are pending. The node/source/request/test coverage and definition API requirements pass the packet checker.
-- The concrete cross-packet dependency graph reachable from the166 revised packet nodes contains1567 nodes and5404 edges and is acyclic. Opaque stages and explicit gaps are not thereby proved.
-- The accepted assembled atlas has2891 vertices and8258 edges and is acyclic. All ten stage directions introduced by this repair are jointly acyclic on that graph. Twenty maintainer directions are also jointly acyclic in a temporary simulation with three clearly marked TEMP vertices and the proposed R26.6 edge removal. Reverse R22.1 → field-supplier and ML.1 → R27.6 edges are rejected by negative cycle tests.
+- After conflict resolution, the concrete cross-packet dependency graph reachable from the167 revised packet nodes contains1566 nodes and5396 edges and is acyclic. Opaque stages and explicit gaps are not thereby proved.
+- After conflict resolution, the accepted assembled atlas has2919 vertices and8297 edges and is acyclic. The eighteen added stage directions relative to the initial base (including the concurrent worker’s amendments) are jointly acyclic on that graph. Before resolution, the ten directions introduced by this repair and twenty maintainer directions were jointly acyclic on the initial-base assembled graph (2891 vertices,8258 edges), including a temporary simulation with three clearly marked TEMP vertices and the proposed R26.6 edge removal. Reverse R22.1 → field-supplier and ML.1 → R27.6 edges were rejected by negative cycle tests on that initial-base graph. Those earlier simulation results are historical; no new TEMP-stage promotion is claimed.
 
 The full stage-coarsening of every original packet prerequisite is already cyclic, and the revised whole-packet stage-coarsening remains cyclic. This is explicitly distinguished from the acyclic concrete graph and the acyclic introduced directions. Two original direct back-edges explain the obstruction:
 

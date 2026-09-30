@@ -288,12 +288,48 @@ theorem presentation (hT : T.Nonempty) :
 def GroupGn (n : ℕ) : Type _   -- (GL_n × GL_1) ⋊ {1, j}, with ν : 𝒢_n → GL_1
 theorem polarized_framedRing_iso (hS : IsSchur r̄) :
     R□T 𝒮 ≃ₐ[𝒪] MvPowerSeries (T × Fin n × Fin n) (Runiv 𝒮)   -- n²|T| variables: the centraliser is trivial
--- G7/enormous-taylor-wiles-presentation (ACC+ 6.2.32)
-theorem exists_twPresentation (hE : Enormous (ρbar.restrict (F⟮ζ p⟯))) (hζ : ζ p ∉ F) (N : ℕ) :
-    ∃ Q : TaylorWilesDatum N, Q.card = q ∧
-      ∃ f : MvPowerSeries (Fin (q * n - n ^ 2 * finrank ℚ F⁺)) (Rloc 𝒮 S) →ₐ[Λ] R S (𝒮.addQ Q),
-        Function.Surjective f
 ```
+-/
+
+/- Round-2 planning boundary (FIX-RT-AREA-langlands-1~2).
+
+R04.5/chebotarev-selmer-selection is the shared arithmetic selection lemma.
+Its future signature must take the finite-dimensional cohomology space, actual
+localization maps, finite-quotient detecting Frobenius classes and their
+conjugacy/coboundary compatibility, an admissible padding class, a finite
+avoidance set, and q ≥ dim H. It returns q distinct degree-one admissible
+places with injective joint localization. G7 verifies the enormous-image
+detecting-element hypotheses and applies it; it does not repeat Chebotarev.
+The full arithmetic carriers are absent at the pin, so no executable signature
+or placeholder Prop-valued structure is introduced for this contract.
+
+G7/enormous-taylor-wiles-presentation is published ACC+ Proposition 6.2.33
+(arXiv-v2 6.2.32). Before giving exists_twPresentation a Lean signature, require:
+* F = F⁺ F₀, F⁺ totally real, F₀ imaginary quadratic, ζ_p ∉ F;
+* p ∤ 2n, continuous absolutely irreducible ρbar, enormous cyclotomic image;
+* k containing all residual eigenvalues, the actual G8 variable-determinant
+  global problem, S containing p-adic and residual ramification places, T = S;
+* N ≥ 1 and q at least the specified dual Selmer dimension.
+Return ordered distinct eigenvalues, #Q = q, q_v ≡ 1 mod p^N, splitting in F₀,
+the Λ[Δ_Q]-action with qn cyclic factors each of order at least p^N, a
+surjection from the power-series ring in g variables, and the augmentation
+quotient. Define g as the proven nonnegative integer qn − n²[F⁺:Q], then convert
+to a finite indexing type: truncated Nat subtraction cannot encode the theorem.
+The degree-one selection avoids primes over the discriminant of F₀.
+
+PA.4 imports that package and supplies arithmetic complexes, Hecke actions,
+uniform bounds and specialization. Its neatness primes remain separate.
+PA.3 imports G8's actual global rings/framing and G7's augmentation map, with
+L7/L8/R08.2 local conditions, to instantiate P9's abstract algebra. Polarized
+and fixed-determinant variants retain their own hypotheses and dimension counts.
+CG Proposition 8.5 is a different big-image, fixed-determinant theorem with one
+selected generalized eigenline and q + |T| − 1 − [F:Q]n(n−1)/2 − l₀ variables.
+Its contract cannot be obtained by renaming the enormous-image theorem.
+
+These comments replace the incomplete exists_twPresentation sketch, whose
+omitted field/framing/cardinality hypotheses made it unsuitable as a signature.
+The new tests below are expressible at the baseline; the arithmetic signature
+must wait for its named suppliers. This file has not been compiled in this fix.
 -/
 
 end TauCeti.GaloisDeformation
@@ -301,6 +337,22 @@ end TauCeti.GaloisDeformation
 namespace TauCeti.GaloisDeformation.SuggestedTest
 
 open TauCeti.GaloisDeformation
+
+/-- Shared selection: independent coordinate detections have zero joint kernel. -/
+example : Function.Injective (fun x : Fin 2 → ZMod 3 => (x 0, x 1)) := by
+  intro x y h
+  funext i
+  fin_cases i
+  · exact congrArg Prod.fst h
+  · exact congrArg Prod.snd h
+
+/-- Repeating one detection cannot kill a two-dimensional kernel. -/
+example : ¬ Function.Injective (fun x : Fin 2 → ZMod 3 => (x 0, x 0)) := by
+  intro h
+  have he := h (a₁ := fun _ => 0) (a₂ := fun i => if i = 0 then 0 else 1)
+    (by simp)
+  have bad := congrFun he 1
+  norm_num at bad
 
 /-- The framed restriction invariance is a group identity. -/
 example {A : Type*} [CommRing A] (n : ℕ) (x α β : GL (Fin n) A) :

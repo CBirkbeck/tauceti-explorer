@@ -1290,7 +1290,7 @@ and Čech acyclicity on sheafy Tate affinoids, glueing squares, Kiehl gluing of 
 R5 (sousperfectoid rings and spaces), AdicEtaleGeometry A1 (étale morphisms by local description, finite étale affinoid
 algebras), and the Tau Ceti anchor's Layers 0–5 (Huber pairs, Tate rings and the open mapping theorem, restricted power
 series, rational subsets with their universal property and perturbation invariance, sheafy pairs, adic spaces).
-PerfectoidQuotients Q4 (ECD 5.8) is related to A3's closed immersions by a comparison node but is not needed by the proof.
+PerfectoidQuotients Q4 (ECD 5.8) is not an input: the closed immersions used here are built directly into the sousperfectoid ball, and the transfer between characteristics is made on étale categories (P3, P5) (RT-AREA-padic-1/6).
 
 **Consumers.** PerfectoidSpaces P6 (affinoid pro-étale maps, ECD 7.10–7.11, and through it the strictly totally
 disconnected covers of ECD 7.18 used by DiamondsAndVStacks D1), and RelativeFarguesFontaine RF0 (the chart-cover
@@ -1541,8 +1541,8 @@ cases and general sous-perfectoid bases remain a recorded gap.
   (iv) is the node above; the inclusions X_{fét} ⊆ X_{ét,aff} ⊆ X_{ét,qc,sep} ⊆ X_{ét,qcqs} are compatible with all four
   comparison functors. A3 does not reprove (o)–(iii); P5 does not claim (iv).
 - `A3/zariski-closed-immersion-ecd-comparison` (comparison). The closed embedding of A3.4, composed into the perfectoid
-  ball, is strongly Zariski closed in the sense of ECD 5.7; by ECD 5.8 (PerfectoidQuotients:Q4) every Zariski closed
-  immersion of perfectoid spaces is strongly Zariski closed. The 6.4(iv) proof does not need 5.8.
+  ball, is strongly Zariski closed in the sense of ECD 5.7, directly. ECD 5.8 (PerfectoidQuotients Q4) is not
+  imported, and the 6.4(iv) proof does not need it (RT-AREA-padic-1/6).
 
 #### Acceptance tests
 
@@ -2241,8 +2241,8 @@ Every declaration of the roadmap, layer by layer: its identifier, kind and plane
   - prerequisites: `PerfectoidSpaces:P5/finite-stage-descent-of-qcqs-etale-objects`, `PerfectoidSpaces:P5/cofiltered-limits-of-affinoid-perfectoid-spaces`, `PerfectoidSpaces:P2/fibre-products-of-perfectoid-spaces`, `PerfectoidSpaces:P3/strongly-etale-morphisms-and-base-change`, `AdicEtaleGeometry:A3/tilting-affinoid-etale-and-limits`, `AdicEtaleGeometry:A3/finite-stage-approximation-char-p`, `AdicEtaleGeometry:A3/independence-of-presentations`
 - **ECD Proposition 6.4 assembled: parts (o)–(iii) from PerfectoidSpaces P5, part (iv) from AdicEtaleGeometry A3** — `AdicEtaleGeometry:A3/etale-descent-to-finite-stage-6-4` (comparison)
   - prerequisites: `PerfectoidSpaces:P5/cofiltered-limits-of-affinoid-perfectoid-spaces`, `PerfectoidSpaces:P5/finite-stage-descent-of-qcqs-etale-objects`, `AdicEtaleGeometry:A3/affinoid-etale-finite-stage-6-4-iv`, `PerfectoidSpaces:P3/strongly-finite-etale-maps-are-affinoid-over-affinoids`, `PerfectoidSpaces:P2/fibre-products-of-perfectoid-spaces`
-- **Comparison of the Zariski closed immersions of A3 with ECD Definition 5.7 and Theorem 5.8 (PerfectoidQuotients Q4)** — `AdicEtaleGeometry:A3/zariski-closed-immersion-ecd-comparison` (comparison)
-  - prerequisites: `AdicEtaleGeometry:A3/affinoid-etale-zariski-closed-embedding`, `PerfectoidQuotients:Q4/zariski-closed-subsets-are-strongly-zariski-closed`, `AdicSpacesPartII:R5/sousperfectoid-rings`, `PerfectoidSpaces:P1/perfectoid-tate-rings-and-algebras`
+- **The Zariski closed immersions of A3 are strongly Zariski closed (ECD Definition 5.7)** — `AdicEtaleGeometry:A3/zariski-closed-immersion-ecd-comparison` (comparison)
+  - prerequisites: `AdicEtaleGeometry:A3/affinoid-etale-zariski-closed-embedding`, `AdicSpacesPartII:R5/sousperfectoid-rings`, `PerfectoidSpaces:P1/perfectoid-tate-rings-and-algebras`
 
 ### A4. Analytic adic presentations for diamondification
 

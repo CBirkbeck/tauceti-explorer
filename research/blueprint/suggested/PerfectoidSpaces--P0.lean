@@ -17834,6 +17834,20 @@ end PerfectoidTower
 --   relative Frobenius tower `Perfectoid.FrobeniusTower.perfection`, with affinoid core
 --   `Perfectoid.FrobeniusTower.perfection_isHomeomorph_spaComap`.
 
+/-! ## PerfectoidSpaces:P7/regular-finite-flat-residue-tower (theorem) -/
+
+-- Perfectoid.exists_regularFiniteFlatTower_isAlgClosed: not stated here; needs complete regular
+--   local rings and the Cohen structure theorem (supplier: none in the pinned libraries; gap
+--   recorded in the packet). Česnavičius 2019, Lemma 5.1.
+
+/-! ## PerfectoidSpaces:P7/regular-finite-flat-perfectoid-tower (theorem) -/
+
+-- Perfectoid.exists_regularFiniteFlatTower_perfectoid: not stated here; needs complete regular
+--   local rings and the Cohen structure theorem (supplier: none in the pinned libraries; gap
+--   recorded in the packet), with
+--   PerfectoidSpaces:P1/perfectoid-tate-ring-from-integral-perfectoid for the conclusion.
+--   Česnavičius 2019, Lemma 5.2.
+
 end PerfectoidSpace
 
 end TauCeti

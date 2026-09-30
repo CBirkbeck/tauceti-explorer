@@ -46,6 +46,7 @@ theorem finiteFlatExport_of_strong (p : ℕ) [Fact p.Prime] (hp : 5 ≤ p)
 -- Proof: R15.4/weight-two-iff-finite-flat-at-p gives k=2 (with its coefficient
 -- hypotheses); R15.6's determinant formula gives eps=1. Apply hstrong, then
 -- R20.4/nebentypus-congruent-character at p>=5, retaining the residual isomorphism.
+-- The attached newform has level exactly N(rho-bar): R24.6/residual-members (iii).
 -- Specialize the single owned StrongSerre statement using serre_strong' to obtain
 -- hstrong. Neither R27.6's classical proof nor its unconditional export is imported.
 ```

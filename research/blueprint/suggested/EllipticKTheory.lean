@@ -1,4 +1,18 @@
 /-
+FIX-RT-AREA-ktheory-2~2, Codex — codex-rtOQ9t, 2026-09-30.
+Current revision is unchecked and NOT COMPILED. Any earlier compilation
+record below describes only that earlier revision and environment.
+
+E.5/harder-finiteness: not separately stated; needs the actual higher-K
+localization functor, N.3:finite-generation/proper-curve-finite-generation,
+T.2:symbols/milnor-global-positive-characteristic and M.5d Geisser–Levine.
+The existing K_finite_of_finite_field signature illustrates the geometrically
+integral proper-curve interface; its proof is still sorry and does not establish
+prime-to-characteristic order or the twisted Frobenius formulas.
+E.3 imports N.2 residue injectivity for every closed residue number field.
+E.7/E.8 arithmetic certificates require E.6 models and vertical residues.
+-/
+/-
 This file is not the roadmap and is not exhaustive. The roadmap document
 `research/blueprint/readmes/EllipticKTheory.md` is definitive. These statements
 suggest Lean forms so that contributors and reviewers can converge on names and

@@ -790,3 +790,122 @@ lists the papers whose quoted statements still rest on a preprint, and
 (new confirmed mistakes first, then those awaiting review, then those already
 corrected in print) and `data/source-issues.json`; the intake runs it after
 every merge. Nothing is sent to the authors without the maintainer.
+
+## 19. Key definitions
+
+The key definitions are the objects that many of the atlas's papers need and
+that the libraries do not have yet: the notions a formaliser builds first,
+because much else rests on them. Their list is the atlas's summary of what has
+to be defined, published on its definitions page (`definitions.html`). Each
+entry says what to define, which papers need it, which layer owns it, what the
+libraries already have, what it depends on, how big it is, and how to tell a
+right formalisation from a wrong one.
+
+A survey (`kind:keydef`, job `KEYDEF-<area>`, or `KEYDEF-<area>-<n>` for one
+part of a large area) covers one area's share of the paper catalogue (section
+16). Its input, `research/blueprint/keydefs/inputs/KEYDEF-<area>.json`, lists
+every definition and construction of the catalogue that the libraries do not
+have and whose owner is in the area: the roadmap of the layer that plans it, or
+else the roadmap its paper's route sends it to. Surveys are queued as
+`research/blueprint/keydefs/areas.json` enables their areas.
+
+An entry is a key definition only when all five of these hold.
+
+1. **It is a definition**: a structure, class, predicate or construction that
+   mathematicians name. Theorems, conjectures, estimates and methods are not
+   entries, and neither is an intermediate object of a single proof. Notions
+   that are always used together may share an entry, such as a site and the
+   cohomology of its sheaves.
+2. **It is real work to formalise.** The pinned Mathlib and Tau Ceti (section 1)
+   do not have it, and it is not a one-line definition from what they have. The
+   entry says exactly what the libraries have and what is missing, citing
+   declarations read at the pinned commits.
+3. **At least two papers need it.** Count distinct papers over the whole
+   catalogue (every `data/items/<n>.json`, not only the input), and cite the
+   catalogue items that are instances of it. A count comes from cited items,
+   never from recollection.
+4. **It is important.** Entries are ordered by the number of papers that need
+   them.
+5. **It comes with a sample API**: at least five statements a formalisation
+   must satisfy, chosen so that a plausible wrong definition fails one of them.
+   They include worked examples with their values, a counterexample showing
+   that a hypothesis or a distinction in the definition matters, and the
+   theorems the definition exists to support. They let a candidate definition be
+   validated, not only typechecked.
+
+The survey writes `research/blueprint/keydefs/KEYDEF-<area>.json`:
+
+```json
+{
+ "job": "KEYDEF-<area>",
+ "protocol": "keydef-v1",
+ "area": "<area id of data/galaxies.json>",
+ "status": "partial | complete",
+ "baseline": {"tauceti": "<commit>", "mathlib": "<commit>"},
+ "definitions": [{
+   "id": "<area>/<slug>",
+   "name": "the notion as mathematicians name it, at most 80 characters",
+   "short": "its planet label, at most 60 characters",
+   "define": "what to define: the objects, their data and conditions, with the conventions pinned",
+   "library": {"has": ["mathlib:<declaration>", "tauceti:<declaration>"], "missing": "what the libraries lack, precisely"},
+   "papers": [{"paper": "PAPER-<id>", "items": ["PAPER-<id>/<n>"]}],
+   "owners": ["<stage id of the layer that plans it>"],
+   "dependsOn": ["<id of another key definition>", "tauceti:TauCetiRoadmap/<roadmap>#<layer>"],
+   "size": "M | L | XL",
+   "api": [{"kind": "example | counterexample | theorem | compatibility", "statement": "..."}]
+ }],
+ "elsewhere": [{"name": "...", "items": ["PAPER-<id>/<n>"], "owner": "<key definition id, stage id or Tau Ceti layer>"}],
+ "reserve": [{"name": "...", "items": ["PAPER-<id>/<n>"], "reason": "the criterion it fails, and why"}],
+ "routine": ["PAPER-<id>/<n>"],
+ "remaining": ["what a continuation must do, while the status is partial"]
+}
+```
+
+- **Owners.** `owners` names the layers that plan the notion, in
+  `data/atlas.json` or in a new roadmap under `research/blueprint/roadmaps/`. An
+  empty list says that nothing plans it yet, which is a gap. Owners in two
+  different roadmaps are a duplication (section 15). The report lists both.
+- **One entry per notion, across the atlas.** A notion owned in another area,
+  or already covered by another survey (`research/blueprint/keydefs/`,
+  `data/keydefs/`), is listed under `elsewhere`, not given an entry. So is a
+  notion that a Tau Ceti roadmap owns: the atlas does not plan Tau Ceti's
+  roadmaps.
+- **Dependencies** name other key definitions, in any area, or the Tau Ceti
+  layers that supply them. The graph is acyclic.
+- **Size**: `M` is one library file, the definition with its basic API; `L` is a
+  small project with one or two missing prerequisites; `XL` is several files and
+  probably more than one roadmap.
+- **Every input item is accounted for**: in the `papers` of an entry, under
+  `elsewhere` or `reserve`, or in `routine`. Routine items are not key: used by
+  one paper only, a special case or variant of an entry, a one-line definition,
+  or a technical step of one proof. The reserve holds the near misses, each with
+  its reason.
+- **Written from the sources.** Entries are written from the catalogue, the
+  papers and the libraries. Lists of definitions compiled elsewhere are not
+  sources.
+- `python3 scripts/check_keydefs.py <file>` must report no errors. The status is
+  `complete` only when every input item is accounted for.
+
+The survey also writes a report, `research/blueprint/keydefs/KEYDEF-<area>.md`,
+for a human reader: the entries as a table (definition, papers, owner, size),
+the notable exclusions and why, and the gaps and duplications it found.
+
+An independent reviewer (`REV-KEYDEF-<area>`), running on a different account,
+checks every entry against the five criteria:
+- the cited items are instances of it and the counts are right;
+- every library claim, by reading the declarations at the pinned commits;
+- each API statement is true and does the discriminating job it claims (a
+  counterexample really fails for the wrong definition);
+- the dependencies and sizes are right;
+- the reserve and routine decisions are sound, and nothing key is missing.
+
+The reviewer adds any key definition the survey missed, corrects the file in
+place where the fix is clear, and writes
+`"review": {"status": "accepted | needs_changes | rejected", "reviewer": "independent-review-REV-KEYDEF-<area>", "date": "...", "notes": "..."}`
+into it, with a report under `research/blueprint/reviews/`.
+
+An accepted survey goes live by the rule of section 8, into
+`data/keydefs/<area>.json`. The definitions page then lists it:
+- an index of every promoted key definition, by area and number of papers;
+- each entry, with its papers, owners, library status, dependencies, size and
+  sample API.

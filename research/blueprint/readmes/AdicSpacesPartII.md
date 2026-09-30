@@ -119,7 +119,9 @@ R5 needs R0, R3, AdicEtaleGeometry A1 and PerfectoidSpaces P1–P3. F1 needs R0�
   ambient class, perfectoid × smooth products and the coefficient algebras and sheaves on them.
 - **PadicDifferentialEquationsAndRigidCohomology owns** frames, tubes of frames, `j†`, Robba rings,
   Frobenius structures and rigid cohomology (RD.0–RD.6); **AutomorphicGaloisRepresentationsPartII
-  AG2.4** owns the ordinary-locus rigid cohomology used by HLTT. F1 supplies the dagger carrier:
+  AG2.4** forms the ordinary-locus cohomology used by HLTT from F1's complexes, identifies it with rigid cohomology
+  through RD.4's Grosse-Klönne comparison (HLTT Lemma 6.8, for the dagger tube of the special fibre), and imports
+  finiteness from RD.5 and Frobenius weights from RD.6 (RT-AREA-padic-2/32). F1 supplies the dagger carrier:
   dagger algebras, weak completions, dagger spaces, affinoid strict neighbourhoods and the de Rham
   complexes; it does not infer a rigid/de Rham comparison from an equality of point sets.
 - **ClassicalAdicEtaleCohomology H1** owns the specialisation morphism of étale sites and the
@@ -8833,6 +8835,13 @@ change, and Tate and Kiehl theorems. Continuous profinite-torsor descent of modu
 sheaves and weight-space descent are PerfectoidSpaces P9's; R5 supplies their ambient spaces and
 coefficient rings. No product with a smooth space is asserted to be perfectoid.
 
+**The sousperfectoid prefix (RT-AREA-padic-1/9).** Nineteen of R5's nodes, the sousperfectoid rings and
+spaces and the perfectoid-times-smooth and perfectoid-times-polydisc products, use no classical étale
+cohomology and no coefficient sheaves. They are what AdicEtaleGeometry A3, PerfectoidSpaces P6 and P9,
+RelativeFarguesFontaine RF0 and BunGAndNewtonStrata BG0 import. The packet's restructure entry lists
+them and proposes the atlas sub-stage R5:sousperfectoid for them, so that ClassicalAdicEtaleCohomology H0
+stays an input of the families part of R5 only.
+
 ### Conventions
 
 1. A prime p is fixed. Tate rings are complete and Hausdorff (anchor convention 3); "a Tate
@@ -9124,7 +9133,9 @@ notion, different from the one here) and `j†`; RD.4 owns rigid cohomology, Mon
 dagger de Rham cohomology of the partially proper space attached to `]Ȳ[` with rigid cohomology
 (Grosse-Klönne's Theorem 5.1, whose proof runs through `j†`). The coherence theorem for proper direct images of
 dagger spaces (Grosse-Klönne 3.5) is proved through `j†` as well and is placed with RD.4. AG2.4 owns the
-Shimura-variety-specific boundary and slope comparisons. Rigid spaces are those of
+Shimura-variety-specific boundary and slope comparisons, among them the boundary-stratum adapter of HLTT
+Lemma 6.21; it imports the Grosse-Klönne comparison from RD.4, finiteness from RD.5 and the Weil-number
+property of Frobenius eigenvalues from RD.6 (RT-AREA-padic-2/32). Rigid spaces are those of
 AdicSpacesPartII:R1/rigid-analytic-space; smooth pairs of adic spaces are AdicSpacesPartII:R4/smooth-pair;
 coherent sheaves, continuous differentials and smooth morphisms of adic spaces are R3 and R0 objects.
 

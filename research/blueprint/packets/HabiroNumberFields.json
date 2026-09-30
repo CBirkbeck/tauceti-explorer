@@ -370,6 +370,46 @@
         "Chapter V, Example 11.10 and Lemma 11.10.1 (c_{1,1} is the Kummer map; c_{1,2}(β) = ζ in Weibel's indexing)."
       ],
       "accessed": "2026-09-25"
+    },
+    {
+      "id": "CGZ.1712.04887v3.fix",
+      "title": "Calegari–Garoufalidis–Zagier, Bloch groups, algebraic K-theory, units, and Nahm’s conjecture (v3)",
+      "url": "https://arxiv.org/pdf/1712.04887v3",
+      "sha256": "024317c20a1d8b66234e608af46941093a675b6399ef480dfedd52a31dcd7bf5",
+      "accessed": "2026-09-30",
+      "readSections": [
+        "PDF p.20: Lemma 3.5, Keune coinvariants and unit descent",
+        "PDF pp.23–24: §4.2, finite-field homology maps",
+        "PDF pp.37–39: Theorem 7.4 and proof"
+      ],
+      "authors": "Frank Calegari, Stavros Garoufalidis, Don Zagier",
+      "edition": "arXiv:1712.04887v3; preprint, not the published Ann. Sci. ENS text."
+    },
+    {
+      "id": "GSWZ.2412.04241v2.fix",
+      "title": "Garoufalidis–Scholze–Wheeler–Zagier, The Habiro ring of a number field (v2)",
+      "url": "https://arxiv.org/pdf/2412.04241v2",
+      "sha256": "308d1dd1c42bd979e5d5c31d9d95215a1808f604031b49c0ce2a1eb767273de9",
+      "accessed": "2026-09-30",
+      "readSections": [
+        "PDF pp.3–6: motivation, compatible roots and coefficient rings",
+        "PDF p.9: Definition 1.3 and (19)–(22)",
+        "PDF pp.37–38: §3.1, (174), Lemma 3.1 and its unramified p>3 scope"
+      ],
+      "authors": "Stavros Garoufalidis, Peter Scholze, Campbell Wheeler, Don Zagier",
+      "edition": "arXiv:2412.04241v2; preprint."
+    },
+    {
+      "id": "Hutchinson.2104.14413v4.fix",
+      "title": "Hutchinson, Chern class and quantum dilogarithm (v4)",
+      "url": "https://arxiv.org/pdf/2104.14413v4",
+      "sha256": "e7a358154bf29701afcb1feb2308287f90e0fe405813d9548879dd5b2f2f30bf",
+      "accessed": "2026-09-30",
+      "readSections": [
+        "PDF pp.5–8: Soulé formula, Theorem 3.1, Bott/Hurewicz proof and references; existing sign gap retained"
+      ],
+      "authors": "Kevin Hutchinson",
+      "edition": "2104.14413v4; arXiv preprint, not a separately inspected published edition."
     }
   ],
   "nodes": [
@@ -831,7 +871,6 @@
       "prerequisites": [
         "HabiroNumberFields:HB.1/bloch-group-conventions",
         "StableHomotopyKTheory:H.6",
-        "MotivicEtaleKTheory:M.8",
         "MotivicEtaleKTheory:M.7",
         "K3BlochGroups:V.2/milnor-k3-number-field"
       ],
@@ -925,7 +964,6 @@
       ],
       "prerequisites": [
         "HabiroNumberFields:HB.1/cyclotomic-character-and-eigenspaces",
-        "MotivicEtaleKTheory:M.8",
         "MotivicEtaleKTheory:M.1",
         "tauceti:TauCeti.kummerClassMap",
         "tauceti:TauCeti.kummerClassMap_injective"
@@ -1049,8 +1087,7 @@
       ],
       "prerequisites": [
         "HabiroNumberFields:HB.1/the-chern-class-map-c-zeta",
-        "HabiroNumberFields:HB.1/finite-coefficient-K3-and-the-chern-class",
-        "MotivicEtaleKTheory:M.8"
+        "HabiroNumberFields:HB.1/finite-coefficient-K3-and-the-chern-class"
       ],
       "sources": [
         {
@@ -1196,18 +1233,21 @@
       "proofSteps": [
         "Reduce to n = p^m (Chinese remainder theorem for c_ζ; CGZ cite Lemma 2.8, which is the analogue for R_ζ).",
         "Since p ∤ Δ_F, F(ζ)/F is totally ramified at p and ζ_p ∉ F. The image of c_ζ factors through H¹_ét(O_{F(ζ)}[1/p], μ_n)^{χ^{−1}}.",
-        "Kummer sequence: O[1/p]ˣ/n → H¹_ét(O[1/p], μ_n) → Pic(O[1/p])[n]. By Keune's injection and p ∤ |K₂(O_F)|, the χ^{−1}-part of the Picard term vanishes, so the image consists of p-unit classes.",
+        "Import M.3’s equivariant Kummer sequence O_L[1/p]×/p^m → H¹(O_L[1/p],μ_n) → Pic(O_L[1/p])[p^m]. Apply N.6/keune-cyclotomic-picard-injection to the twisted COINVARIANTS of Pic/p^m. Since p∤#K₂(O_F), that quotient vanishes; the finite-module vanishing criterion then kills the twisted invariants in Pic[p^m]. Thus the Chern class has a p-unit representative. The injection and finite-module proof remain the named N.6 gap.",
         "Valuation sequence O_{F(ζ)}ˣ/n → O_{F(ζ)}[1/p]ˣ/n → ⊕_{v|p} ℤ/n: G acts trivially on the last term (total ramification) and χ^{−1} is non-trivial, so its χ^{−1}-part vanishes and the classes are unit classes."
       ],
       "acceptance": [
-        "F = ℚ, n = 3: 3 is odd, 3 ∤ Δ_ℚ = 1 and 3 ∤ |K₂(ℤ)| = 2; the image lies in (ℤ[ζ₃]ˣ/3)^{χ^{−1}} = ⟨ζ₃⟩."
+        "F = ℚ, n = 3: 3 is odd, 3 ∤ Δ_ℚ = 1 and 3 ∤ |K₂(ℤ)| = 2; the image lies in (ℤ[ζ₃]ˣ/3)^{χ^{−1}} = ⟨ζ₃⟩.",
+        "Only after the totally ramified valuation-module argument do the p-unit representatives become classes of ordinary units; an S-unit is not automatically a unit."
       ],
       "prerequisites": [
         "HabiroNumberFields:HB.1/s-units-realise-c-zeta",
         "HabiroNumberFields:HB.1/the-excluded-primes",
         "HabiroNumberFields:HB.1/cyclotomic-character-and-eigenspaces",
         "tauceti:IsDedekindDomain.selmerGroup.ker_toClassGroup",
-        "ArithmeticKTheory:N.3/finiteness-and-ranks-combined"
+        "ArithmeticKTheory:N.3/finiteness-and-ranks-combined",
+        "ArithmeticKTheory:N.6/keune-cyclotomic-picard-injection",
+        "MotivicEtaleKTheory:M.3"
       ],
       "sources": [
         {
@@ -2259,8 +2299,7 @@
       ],
       "prerequisites": [
         "HabiroNumberFields:HB.2/cyclic-bar-chains",
-        "StableHomotopyKTheory:H.6",
-        "MotivicEtaleKTheory:M.8"
+        "StableHomotopyKTheory:H.6"
       ],
       "sources": [
         {
@@ -2440,7 +2479,6 @@
       "prerequisites": [
         "HabiroNumberFields:HB.1/finite-coefficient-K3-and-the-chern-class",
         "tauceti:TauCeti.kummerClassMap",
-        "MotivicEtaleKTheory:M.8",
         "HabiroNumberFields:HB.1/the-chern-class-map-c-zeta"
       ],
       "sources": [
@@ -2490,8 +2528,7 @@
       ],
       "prerequisites": [
         "HabiroNumberFields:HB.2/bott-element",
-        "HabiroNumberFields:HB.2/chern-sign-conventions",
-        "MotivicEtaleKTheory:M.8"
+        "HabiroNumberFields:HB.2/chern-sign-conventions"
       ],
       "sources": [
         {
@@ -2593,7 +2630,9 @@
         "HabiroNumberFields:HB.1/finite-coefficient-K3-and-the-chern-class",
         "KTheoryFiniteLocalFields:L.7",
         "KTheoryFiniteLocalFields:L.2",
-        "HabiroNumberFields:HB.1/the-chern-class-map-c-zeta"
+        "HabiroNumberFields:HB.1/the-chern-class-map-c-zeta",
+        "K3BlochGroups:V.5/finite-field-bloch-comparison",
+        "K3BlochGroups:V.5/nonsplit-cartan-mod-n"
       ],
       "sources": [
         {
@@ -2868,7 +2907,7 @@
       "kind": "lemma",
       "statement": "Let n = p^m be an odd prime power and suppose R_ζ(η_ζ) = ζ^a and c_ζ(η_ζ) = ζ^b in (Q(ζ)^×/Q(ζ)^{×n})^{χ^{−1}} with b prime to p. Then for every prime q ≡ −1 mod n with q ≢ −1 mod pn, R_{ζ,q} = c_{ζ,q}^{a b^{−1}} on B(F_q) ⊗ Z/n, and the constant γ of the-comparison-with-the-chern-class is a b^{−1} mod n for every number field F and n prime to M_F. (CGZ Theorem 1.6 itself does not apply to F = Q(ζ)^+, whose discriminant is divisible by p; the comparison is made through the local maps.)",
       "hypotheses": [
-        "a, b are the exponents supplied by CGZ Theorem 7.4 (a = 2) and Hutchinson (b = 1 in the adopted convention); this node is conditional on them.",
+        "The evaluations R_ζ(η_ζ)=ζ^a and c_ζ(η_ζ)=ζ^b, with b a unit modulo n, are hypotheses. Their values a=2 and b=1 are discharged only by the later Nahm evaluation and the separately normalized Chern calculation; this node does not import HB.4.",
         "q ≢ −1 mod pn so that η_ζ generates B(F_q) ⊗ Z/n (CGZ Lemma 5.1)."
       ],
       "proofSteps": [
@@ -2992,25 +3031,27 @@
       "realises": [
         "HabiroNumberFields:HB.2"
       ],
-      "title": "Hutchinson's refinement: R_ζ = c_ζ^2 for n prime to M_F",
+      "title": "The early conditional implication giving exponent two",
       "kind": "theorem",
-      "statement": "For every number field F and every n prime to M_F (so n odd and μ_n(F) = 1), R_ζ = c_ζ^2 on B_CGZ(F)/n ≅ K_3(F)/n, in the convention of chern-sign-conventions. Consequently ε_m(ξ) = R_{ζ_m}(ξ̄) for m prime to M_K. Outside n prime to M_F neither CGZ Theorem 1.6 nor this refinement is available from the sources, and no comparison is asserted there.",
+      "statement": "For a number field F and n prime to M_F, assume the compatible prime-power evaluations R_ζ(η_ζ)=ζ² and c_ζ(η_ζ)=ζ in the chosen Chern convention, together with their Chinese-remainder compatibility. Then scalar-from-eta and the unknown-power comparison imply R_ζ=c_ζ² on B_CGZ(F)/n≅K₃(F)/n, hence ε_n=R_ζ. This stable node is only the algebraic conditional implication; the unconditional evaluation and its assembly belong after HabiroNahmSeries HB.4 (proposed HB.5). The unresolved source-sign comparison is retained.",
       "hypotheses": [
-        "n prime to M_F (HB.1/the-excluded-primes), so n is odd and μ_n(F) = 1; the sign convention of HB.2/chern-sign-conventions.",
-        "Input not supplied inside this packet: CGZ Theorem 7.4, R_ζ(η_ζ) = ζ², whose only proof (CGZ §7.2) runs through the radial asymptotics of Nahm sums, which HabiroNahmSeries HB.4 plans; that stage requires HB.2, so citing it here would close a stage cycle. It is recorded as a gap, and a restructure entry proposes a stage after HabiroNahmSeries HB.4 for the final equality."
+        "n prime to M_F; for every odd prime-power factor N of n, the two stated η-evaluations in matching Chern/Kummer/Bloch conventions are explicit hypotheses.",
+        "Chinese-remainder and root-change compatibility as in distribution-in-the-order. The published sign discrepancy is not resolved by assuming an evaluation."
       ],
       "proofSteps": [
-        "CGZ Theorem 7.4 (R_ζ(η_ζ) = ζ^2) from HabiroNahmSeries:HB.4/acceptance-andrews-gordon.",
-        "Hutchinson (c_ζ(η_ζ) = ζ) from chern-class-of-eta.",
-        "γ = 2 by scalar-from-eta; conclude with the-comparison-with-the-chern-class."
+        "For each prime-power factor apply scalar-from-eta with a=2 and b=1; no Nahm-sum theorem is used inside this implication.",
+        "Use the unknown-power comparison and Chinese-remainder compatibility to obtain R=c² at n.",
+        "Apply the definition ε=c². The actual R(η)=ζ² proof is the accepted HabiroNahmSeries:HB.4/acceptance-andrews-gordon and must be used only downstream."
       ],
       "acceptance": [
-        "R_ζ = c_ζ^2 for n prime to M_F."
+        "Under the explicitly stated evaluation and compatibility hypotheses, R=c² and ε=R.",
+        "HB.2 consumers may use ε=c² for every m independently of the conditional R-comparison; the unconditional comparison is not an early HB.2 export."
       ],
       "prerequisites": [
         "HabiroNumberFields:HB.2/scalar-from-eta",
         "HabiroNumberFields:HB.2/chern-class-of-eta",
-        "HabiroNumberFields:HB.2/the-comparison-with-the-chern-class"
+        "HabiroNumberFields:HB.2/the-comparison-with-the-chern-class",
+        "HabiroNumberFields:HB.2/distribution-in-the-order"
       ],
       "sources": [
         {
@@ -3053,7 +3094,8 @@
         "Prove (d) from additivity of the Chern class.",
         "Prove (e) from compatibility of c with Z/m'(2) → Z/m(2) and of t_ζ with ζ_{m'} ↦ ζ_{m'}^{m'/m}.",
         "Prove (f) from R-injectivity-and-image and the-comparison-with-the-chern-class.",
-        "Record the four-object distinction through the Selmer-group sequence."
+        "Record the four-object distinction through the Selmer-group sequence.",
+        "Retain ε_m=c_{ζ_m}² for every m. The equality ε=R requires the late evaluation/normalization hypotheses of the conditional hutchinson-refinement and must not be assumed by HB.4 itself."
       ],
       "acceptance": [
         "ε_m is defined for all m and all ξ ∈ K_3(K).",
@@ -4121,7 +4163,8 @@
         "HabiroNumberFields:HB.2/the-exported-interface",
         "HabiroNumberFields:HB.6/coefficient-rings-and-frobenius",
         "HabiroNumberFields:HB.6/the-p-completed-ring",
-        "PadicHodgeRegulators:D.4"
+        "PadicHodgeRegulators:D.4",
+        "PadicHodgeRegulators:D.1"
       ],
       "sources": [
         {
@@ -4347,7 +4390,8 @@
         "HabiroNumberFields:HB.7/pochhammer-dwork-difference",
         "HabiroNumberFields:HB.7/dworks-lemma",
         "PadicHodgeRegulators:D.3",
-        "PadicHodgeRegulators:D.4"
+        "PadicHodgeRegulators:D.4",
+        "PadicHodgeRegulators:D.1"
       ],
       "sources": [
         {
@@ -5012,7 +5056,7 @@
       "neededBy": [
         "HabiroNumberFields:HB.1/units-realise-c-zeta"
       ],
-      "detail": "CGZ Lemma 3.5 uses 'by results of Keune [18], there is an injection (Pic(O_{F(ζ)}[1/p])/p^m)_{χ^{−1}} → K₂(O_F)/p^m' (F. Keune, On the structure of the K₂ of the ring of integers in a number field, K-Theory 2 (1989)). No stage in the atlas plans it; ArithmeticKTheory N.6 (tame kernels and cohomological descriptions) is the nearest owner. NEXT ACTION: read Keune's paper and route the statement, with its hypotheses on p and on the roots of unity, to ArithmeticKTheory N.6 by a request. Added by REV-HabiroNumberFields."
+      "detail": "Now routed to ArithmeticKTheory:N.6/keune-cyclotomic-picard-injection with an explicit source/proof gap there. CGZ Lemma 3.5 was re-read in v3, PDF p.20: the injection is on twisted coinvariants of Pic/p^m, followed by finite-module vanishing, Kummer p-units and total-ramification valuation descent. Keune’s original proof has not been read; no completed proof is claimed."
     },
     {
       "title": "The Galois-module structure of the units (Herbrand's unit theorem)",
@@ -5035,7 +5079,7 @@
         "HabiroNumberFields:HB.2/eta-is-zeta-times-bott",
         "HabiroNumberFields:HB.2/the-element-eta"
       ],
-      "detail": "Hutchinson defines η_ζ in K_3(Q(ζ)^+)/N as the image of [α_3(t_ζ)] and identifies it with CGZ's (34) through the formula of Hutchinson, 'A Bloch–Wigner complex for SL_2', J. K-Theory 12 (2013), §6.4, for the image of H_3 of a cyclic subgroup of SL_2(F) in RP(F) → P(F). That paper was not read. The two Bloch-group expressions were checked to agree as multisets (n ≤ 11), but the sign and normalisation of the map H_3(SL_2(F), Z) → B(F) against Suslin's map (K3BlochGroups:V.4) are not established here. The same source is the open K3BlochGroups gap 'The finite-field inputs of CGZ §4.2 beyond Suslin's sequence are unowned', whose neededBy names HabiroNumberFields:HB.2. Added by REV-HabiroNumberFields."
+      "detail": "Hutchinson defines η_ζ in K_3(Q(ζ)^+)/N as the image of [α_3(t_ζ)] and identifies it with CGZ's (34) through the formula of Hutchinson, 'A Bloch–Wigner complex for SL_2', J. K-Theory 12 (2013), §6.4, for the image of H_3 of a cyclic subgroup of SL_2(F) in RP(F) → P(F). That paper was not read. The two Bloch-group expressions were checked to agree as multisets (n ≤ 11), but the sign and normalisation of the map H_3(SL_2(F), Z) → B(F) against Suslin's map (K3BlochGroups:V.4) are not established here. The same source is the open K3BlochGroups gap 'The finite-field inputs of CGZ §4.2 beyond Suslin's sequence are unowned', whose neededBy names HabiroNumberFields:HB.2. Added by REV-HabiroNumberFields. FIX-RT-AREA-ktheory-2~2 inspected the 2013 preprint v2 §6.4 cyclic formula on PDF p.33 and the finite-field comparison, now routed through V.5. This does not settle the full infinite-field comparison with Suslin or the Chern sign; those remain open."
     },
     {
       "title": "The sign of the comparison scalar",
@@ -5082,7 +5126,19 @@
       "neededBy": [
         "HabiroNumberFields:HB.2/hutchinson-refinement"
       ],
-      "detail": "Hutchinson deduces R_ζ = c_ζ² from his c_ζ(η_ζ) = ζ and CGZ Theorem 7.4, R_ζ(η_ζ) = ζ². CGZ prove Theorem 7.4 (§7.2) through the radial asymptotics of Nahm sums (Theorem 7.1) and the Andrews–Gordon identity, which HabiroNahmSeries HB.4 plans (HB.4/acceptance-andrews-gordon); that stage requires HabiroNumberFields HB.2, so the input cannot be a prerequisite here without a stage cycle. It was checked numerically (locally for odd n ≤ 27 and globally for n = 5). NEXT ACTION: accept the restructure entry placing the final equality after HabiroNahmSeries HB.4, or find a proof of Theorem 7.4 that avoids Nahm sums. Added by REV-HabiroNumberFields."
+      "detail": "The R(η)=ζ² proof is now present in the accepted HabiroNahmSeries packet at HB.4/acceptance-andrews-gordon, supported by HB.4/andrews-gordon-radial-constant. CGZ v3 pp.37–39 were freshly read. HB.4 depends on HB.2, so the final unconditional R=c² must be assembled at HB.5 or another accepted later owner. HB.2/hutchinson-refinement now exposes only the conditional implication. In particular the external HabiroNahmSeries:HB.9/constant-term-is-the-unit must discharge that premise or be repointed to the later comparison. That packet is outside this issue’s allowlist; exact handoff is in the fix report."
+    },
+    {
+      "title": "Early M.8 supplier must be split before it can be a dependency",
+      "detail": "The generic finite-coefficient étale Chern classes is requested through M.8 but requires a separately accepted early prefix. Do not add the whole M.8→consumer edge: it imports late D.2/R.7 work and can close a cycle. No new stage ID is fabricated here.",
+      "neededBy": [
+        "HabiroNumberFields:HB.1/finite-coefficient-K3-and-the-chern-class",
+        "HabiroNumberFields:HB.1/hutchinson-chern-class-agrees",
+        "HabiroNumberFields:HB.1/the-chern-class-map-c-zeta",
+        "HabiroNumberFields:HB.2/bott-element",
+        "HabiroNumberFields:HB.2/chern-sign-conventions",
+        "HabiroNumberFields:HB.2/soule-formula-in-degree-three"
+      ]
     }
   ],
   "requests": [
@@ -5139,7 +5195,7 @@
     },
     {
       "supplier": "MotivicEtaleKTheory:M.8",
-      "need": "Soulé's étale Chern classes c̄_{i,k} : K_{2i−k}(A; ℤ/ℓ^ν) → H^k(A, μ_{ℓ^ν}^{⊗i}) for rings A with ℓ invertible, and their ℓ-adic limits c : K_{2m−1}(F) → H¹(F, ℤ_ℓ(m)). Needed with: compatibility with reduction modulo ℓ^ν and with K_m(A)/ℓ^ν → K_m(A; ℤ/ℓ^ν); base change along finite extensions; c̄_{1,1} = the Kummer map on K₁(F; ℤ/N) = Fˣ/(Fˣ)^N; and Soulé's product formula (Hutchinson Theorem 2.12, Soulé II.3 Théorème 1(i)) with its specialisation c̄_{2,1}(a∗b) = −c̄_{1,1}(a) ∪ c̄_{1,0}(b) (Hutchinson Corollary 2.13).",
+      "need": "Soulé's étale Chern classes c̄_{i,k} : K_{2i−k}(A; ℤ/ℓ^ν) → H^k(A, μ_{ℓ^ν}^{⊗i}) for rings A with ℓ invertible, and their ℓ-adic limits c : K_{2m−1}(F) → H¹(F, ℤ_ℓ(m)). Needed with: compatibility with reduction modulo ℓ^ν and with K_m(A)/ℓ^ν → K_m(A; ℤ/ℓ^ν); base change along finite extensions; c̄_{1,1} = the Kummer map on K₁(F; ℤ/N) = Fˣ/(Fˣ)^N; and Soulé's product formula (Hutchinson Theorem 2.12, Soulé II.3 Théorème 1(i)) with its specialisation c̄_{2,1}(a∗b) = −c̄_{1,1}(a) ∪ c̄_{1,0}(b) (Hutchinson Corollary 2.13). FIX-RT-AREA-ktheory-2~2: require an EARLY finite-coefficient étale Chern classes interface, before D.2 and BorelRegulators:R.7. The current atlas M.8 remains unsplit and depends on those later comparisons; this request is not a dependency on all of M.8 and does not claim the prefix already exists.",
       "neededBy": [
         "HabiroNumberFields:HB.1/finite-coefficient-K3-and-the-chern-class",
         "HabiroNumberFields:HB.1/the-chern-class-map-c-zeta",
@@ -5195,6 +5251,21 @@
       "neededBy": [
         "HabiroNumberFields:HB.1/the-chern-class-map-c-zeta",
         "HabiroNumberFields:HB.1/s-units-realise-c-zeta"
+      ]
+    },
+    {
+      "supplier": "ArithmeticKTheory:N.6",
+      "need": "Use keune-cyclotomic-picard-injection for n=p^m, p odd and unramified in F: twisted Pic/p^m coinvariants inject into K₂(O_F)/p^m. Combine their vanishing with the corresponding finite-module Pic[p^m] invariant criterion. Original Keune proof remains an explicit supplier gap.",
+      "neededBy": [
+        "HabiroNumberFields:HB.1/units-realise-c-zeta"
+      ]
+    },
+    {
+      "supplier": "PadicHodgeRegulators:D.1",
+      "need": "Import Coleman Li₂, the logarithm branch, five-term identity and the GSWZ normalization D_p(z)=Li₂(z)+(1/2)log(z)log(1−z). HB.7 applies them to completed coefficient algebras; D.2 owns descent/comparison and D.3/D.4 the regulator/integrality results. Keep p>3 and unramified hypotheses on the integral estimates.",
+      "neededBy": [
+        "HabiroNumberFields:HB.7/invertible-local-sections",
+        "HabiroNumberFields:HB.7/pochhammer-sections"
       ]
     }
   ],
@@ -5318,6 +5389,16 @@
       "title": "Who owns GSWZ §2.1 (the Pochhammer symbol at roots of unity)",
       "detail": "HabiroNahmSeries requests 'the asymptotics of the Pochhammer symbol at roots of unity that GSWZ Section 2.1 develops' from HB.2; this packet plans Lemma 2.1 and Proposition 2.2 in HB.7 (HB.7/pochhammer-dwork-difference), the only place this roadmap uses them. Added by REV-HabiroNumberFields.",
       "proposal": "If HabiroNahmSeries HB.4 or HB.8 needs §2.1 before HB.7, move HB.7/pochhammer-dwork-difference to HB.2 (no new edge: HB.7 requires HB.2) and redirect the HabiroNahmSeries request to that node."
+    },
+    {
+      "kind": "note-duplicate-boundary",
+      "title": "RT-AREA-ktheory-2/2: conditional early implication and late comparison",
+      "detail": "Preserve the stable HB.2/hutchinson-refinement ID with explicit premises, but move the unconditional assembly to HabiroNahmSeries HB.5 after the accepted HB.4/acceptance-andrews-gordon. Update HB.9/constant-term-is-the-unit to discharge those premises or consume the late result. No HB.4→HB.2 edge is added. ε_m=c² for all m, the unknown-power comparison, Chern η calculation, sign gap, root lines and CRT remain early. The excluded HabiroNahmSeries owner must complete this integration."
+    },
+    {
+      "kind": "note-duplicate-boundary",
+      "title": "RT-AREA-ktheory-2/7,18,24: early foundations before comparisons",
+      "detail": "Maintainer: split the requested early finite-Chern and real-Deligne interfaces from M.8’s late comparison work. Retain finite coefficients, naturality, products, twists and real conjugation; P.5 retains Goncharov’s concrete current complex and the comparison with generic Deligne cohomology. The packet requests record missing exports without introducing M.8→R.7 or M.8→D.2 cycles."
     }
   ],
   "sourceIssues": [
@@ -5959,6 +6040,27 @@
       "url": "https://arxiv.org/e-print/2104.14413v4",
       "read": "2026-09-25",
       "sha256": "ee224a185b2bd1b8094e35f7f6b11ce282981ec639c1220869a66b0f3d15df5e"
+    },
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/1712.04887v3",
+      "read": "2026-09-30",
+      "sha256": "024317c20a1d8b66234e608af46941093a675b6399ef480dfedd52a31dcd7bf5",
+      "note": "FIX-RT-AREA-ktheory-2~2: only PDF p.20: Lemma 3.5, Keune coinvariants and unit descent; PDF pp.23–24: §4.2, finite-field homology maps; PDF pp.37–39: Theorem 7.4 and proof inspected. Earlier version records remain historical."
+    },
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/2412.04241v2",
+      "read": "2026-09-30",
+      "sha256": "308d1dd1c42bd979e5d5c31d9d95215a1808f604031b49c0ce2a1eb767273de9",
+      "note": "FIX-RT-AREA-ktheory-2~2: only PDF pp.3–6: motivation, compatible roots and coefficient rings; PDF p.9: Definition 1.3 and (19)–(22); PDF pp.37–38: §3.1, (174), Lemma 3.1 and its unramified p>3 scope inspected. Earlier version records remain historical."
+    },
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/2104.14413v4",
+      "read": "2026-09-30",
+      "sha256": "e7a358154bf29701afcb1feb2308287f90e0fe405813d9548879dd5b2f2f30bf",
+      "note": "FIX-RT-AREA-ktheory-2~2: only PDF pp.5–8: Soulé formula, Theorem 3.1, Bott/Hurewicz proof and references; existing sign gap retained inspected. Earlier version records remain historical."
     }
   ],
   "review": {

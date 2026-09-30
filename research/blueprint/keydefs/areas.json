@@ -1,0 +1,4 @@
+{
+ "purpose": "The areas whose key definitions are surveyed (research/blueprint/PROTOCOL.md, section 19). research/blueprint/make_queue.py queues a survey and its review for each enabled area, in parts for a large one.",
+ "enabled": ["algebraicgeometry", "algebraicnt"]
+}

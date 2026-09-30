@@ -677,11 +677,11 @@ orthogonality step in SGA 7 I, Expose IX 7.4.3. The layer ends with the global d
 - R_i the valuation ring of K_i, K_i/Q_l finite with m_i = [K_i : Q_l]
 - G_i an l-divisible group over R_i of height h_i and with maximal formal subgroup of dimension d_i
 - C_i the completion of an algebraic closure of K_i
-- Tate's results are quoted as [13]: Proposition 2, Theorem 2, and Theorem 3 Corollary 2
+- Tate's results are quoted as [13]: Proposition 2, Theorem 2, and Theorem 3 Corollary 2. Suppliers: the order of s^*(Omega^1) is FiniteFlatGroupsAndIntegralPadicHodgeTheory R07.1's invariant-differentials lemma, derived from Proposition 2 (a discriminant formula) and its Lemma 1; the decomposition is R07.1's Hodge-Tate node; Theorem 2 is the Tate-Sen theorem of PadicHodgeTheory R06.1:tate-sen, requested from R06.1 until that sub-stage exists (RT-AREA-padic-2/5, /20)
 
 **Construction, or proof, in steps.**
 
-1. Faltings quotes, without reproving, three results of Tate's paper on p-divisible groups: the order of the module of invariant differentials of the level-n piece (Proposition 2), the Hodge-Tate decomposition T_l(G_i) otimes C_i = C_i^{h_i - d_i} + C_i^{d_i}(1) (Theorem 3, Corollary 2), and the statement that a character of D whose C-realization is C(+k) differs from chi_0^k by a character of finite order (Theorem 2).
+1. Faltings quotes, without reproving, three results of Tate's paper on p-divisible groups: the order of the module of invariant differentials of the level-n piece (Proposition 2), the Hodge-Tate decomposition T_l(G_i) otimes C_i = C_i^{h_i - d_i} + C_i^{d_i}(1) (Theorem 3, Corollary 2), and Tate's Theorem 2 (H^0 and H^1 of C(eta) vanish when eta has infinite image on inertia), which gives that a character of D whose C-realization is C(+k) agrees with chi_0^k on an open subgroup of inertia; the finite-order statement for the global character is the class-field-theory step of the next node.
 2. Combining the Hodge-Tate decomposition with Lemma 6 identifies the action of D_i on the top exterior power.
 3. These are imported results; this packet does not decompose their proofs.
 
@@ -701,7 +701,7 @@ orthogonality step in SGA 7 I, Expose IX 7.4.3. The layer ends with the global d
 
   > Nach [13], Proposition 2 kann man dies sofort ausrechnen: Sei d_i die Dimension der maximalen formalen Untergruppe von G_i. Dann ist # s^*(Omega^1_{(G_i)_n/R_i}) = l^{n . m_i . d_i}. Wenn C_i die Komplettierung des algebraischen Abschlusses von K_i bezeichnet, so ist weiter bekannt ([13], Theorem 3, Corollary 2), dass T_l(G_i) otimes C_i = C_i^{h_i - d_i} + C_i^{d_i}(+1).
 
-  Literal quotation of the imported statements with their exact locators in Tate's paper; Tate's paper is not present in the supplied library, so this node is an explicit import boundary.
+  Literal quotation of the imported statements with their exact locators in Tate's paper; Tate's paper has a public copy (source tate-1967-p-divisible-groups), and these statements are routed to FiniteFlatGroupsAndIntegralPadicHodgeTheory R07.1 and PadicHodgeTheory R06.1:tate-sen (RT-AREA-padic-2/5).
 
 #### `global-determinant-identity-forcing-sum-m-i-d-i-equals-mh-over-two` — The global determinant computation sum_i m_i d_i = m h / 2
 
@@ -721,7 +721,7 @@ orthogonality step in SGA 7 I, Expose IX 7.4.3. The layer ends with the global d
 1. Sum the local differential computations to get # s^*(Omega^1_{A/A_n}) = l^{n sum m_i d_i}, hence via Lemma 5 the formula h(A_n) - h(A) = n log(l)(h/2 - (1/m) sum m_i d_i).
 2. Transfer to the global setting: induce the Tate module from pi to pitilde = Gal(Qbar/Q), so that the determinant line of the induced submodule carries a global character chi of pitilde with values in Z_l^*.
 3. Class field theory gives chi = (l-adic power of chi_0) . (character of finite order).
-4. The local Hodge-Tate computation gives L otimes C = C(+ sum m_i d_i) as D-module, so by Tate's Theorem 2 the exponent is sum m_i d_i.
+4. The local Hodge-Tate computation gives L otimes C = C(+ sum m_i d_i) as D-module, so by Tate's Theorem 2 the exponent is sum m_i d_i (Tate's Theorem 2 is the local Tate-Sen theorem of PadicHodgeTheory R06.1:tate-sen; combined with the class-field-theory step it gives the global exponent).
 5. The Weil bound for the Frobenius eigenvalues on Lambda^{mh} of the induced Tate module forces the exponent to be m h / 2, since chi_0(F_p) = p and the conjugates of chi(F_p) have absolute value p^{mh/2}.
 6. Therefore h(A_n) = h(A) for all n; this is Satz 2 as originally printed, and must be replaced by the weaker corrected statement recorded in the R28.3 nodes.
 
@@ -781,7 +781,7 @@ rather than in R28.4, which is the re-parenting the independent review performed
 1. The closures G_{i,n} are finite flat over R_i but the transition maps G_{i,n+1}/G_{i,n} -> G_{i,n}/G_{i,n-1} need not be isomorphisms, so the system need not be an l-divisible group.
 2. A discriminant (different) computation shows the transition maps are isomorphisms for all sufficiently large n.
 3. Replacing A = A_0 by A_m for m large enough makes the relevant maps isomorphisms for all n > m, which is exactly what the argument of Satz 2 needs.
-4. Faltings notes that this argument already occurs in Tate's paper on p-divisible groups, p. 182.
+4. Faltings notes that this argument already occurs in Tate's paper on p-divisible groups, p. 182. It is Tate's proof of Proposition 12: the affine algebras D_i of E_{i+1}/E_i form an increasing sequence of orders in a finite separable K-algebra, so D_i = D_{i+1} for i >= i_0 (read on the page image, 30 September 2026). FiniteFlatGroupsAndIntegralPadicHodgeTheory R07.1 plans Proposition 12 and supplies it (RT-AREA-padic-2/5).
 
 **Acceptance.**
 
@@ -1306,7 +1306,7 @@ states them, with Torelli and de Franchis marked as unread imports.
 2. Form the mod-l representation V_l and induce to pitilde; the determinant of the induced sub-representation Wtilde_l defines a character chi with values in (Z/lZ)^*.
 3. Twist by eps^h, where eps records the action of pitilde on Lambda^m of the induced trivial module, to make the character unramified outside l; this uses unipotence of inertia at v not dividing l, i.e. semistable reduction.
 4. Class field theory over Q identifies an everywhere-unramified-outside-l character of pitilde with a power of the cyclotomic character chi_0.
-5. Raynaud's Theoreme 4.1.1 computes the determinant of the generic fibre of a finite flat commutative group scheme killed by l over a strictly henselian mixed-characteristic base with e <= l - 1 as the tame character of level equal to the different exponent; summing the local contributions gives chi . eps^h = chi_0^{+d} with l^d = # s^*(Omega^1_{G/R}).
+5. Raynaud's Theoreme 4.1.1 computes the determinant of the generic fibre of a finite flat commutative group scheme killed by l over a strictly henselian mixed-characteristic base with e <= l - 1 as the tame character of level equal to the different exponent; summing the local contributions gives chi . eps^h = chi_0^{+d} with l^d = # s^*(Omega^1_{G/R}). The theorem and the comparison of the different exponent with the length of s^*(Omega^1) are requested from FiniteFlatGroupsAndIntegralPadicHodgeTheory R07.1 (RT-AREA-padic-2/5).
 6. Evaluating at F_p shows +- p^d is a root of P_{mh} modulo l; by the choice of N (which excludes all j != h m /2) one gets d = h m / 2.
 7. By Lemma 5, h(B_2) - h(B_1) = log(l)(h/2 - d/m) = 0.
 
@@ -1595,10 +1595,6 @@ their point groups - do.
 Each of these is something this packet could not establish from the sources read. None is papered over,
 and no node depends on one without naming it.
 
-### Tate, p-divisible groups (Driebergen 1966) is absent from the supplied library
-
-Faltings uses [13] Proposition 2 (order of s^*(Omega^1) of the level-n piece), Theorem 2 (a character whose C-realization is C(+k) is chi_0^k up to finite order) and Theorem 3 Corollary 2 (the Hodge-Tate decomposition T_l(G) otimes C = C^{h-d} + C^d(1)); the erratum additionally cites p. 182. A catalogue search of the supplied library (CATALOGUE.json, papers/, text/) finds no copy: the only Tate items are tate-thesis.pdf and ADD_Tate_K2Galois.pdf, neither of which is this paper. Next source action: obtain 'p-divisible groups', Proceedings of a Conference on Local Fields (Driebergen 1966), Springer 1967, pp. 158-183, from an authorized public copy and read Proposition 2, Theorem 2, Theorem 3 and its Corollary 2, plus p. 182. Until then these are import boundaries, not verified inputs.
-
 ### Zarhin's idempotent argument is unread and is the load-bearing step of Satz 3 and Satz 4
 
 Faltings writes 'Wie in [16] folgt daraus, dass W Bild eines Idempotents aus End_K(A) otimes_Z Q_l ist (Q_l on the page image; corrected by the reviewer). Der Rest des Beweises geht genauso wie in [16], und sei daher nur skizziert' (p. 361). Reference [16] is Zarhin, A remark on endomorphisms of abelian varieties over function fields of finite characteristic, Math. USSR Izvestija 8 (1974) 477-480 (cf. also [15], Math. USSR Sbornik 24 (1974) 451-461). Neither is in the supplied library. Without it, semisimplicity and the Tate conjecture for homomorphisms have an unread core. Next source action: obtain Zarhin 1974 (Izvestija) and decompose the passage from 'infinitely many quotients isomorphic' to 'the invariant subspace is the image of an idempotent'.
@@ -1631,10 +1627,6 @@ Faltings says the statement 'wurde zwar schon in [6] gezeigt (Ende von Section 2
 
 On p. 363 Faltings writes 'Es folgt dann alles aus der Tatsache, dass M_l otimes Q_l halbeinfach ist (Satz 3)'. The implicit statement is a Jordan-Zassenhaus-type finiteness of isomorphism classes of lattices over the Z_l-order M_l in the semisimple Q_l-algebra M_l otimes Q_l. That finiteness is a theorem in its own right and is not proved here. The roadmap text for R28.1 already flags that such a finite-lattice theorem 'is not implicit in Northcott'; this packet locates the actual use at R28.5, not R28.1. Next source action: pin a primary source for the local Jordan-Zassenhaus statement over Z_l (e.g. Curtis-Reiner, Methods of Representation Theory, Section 26) and identify or request an owning atlas stage in the general-algebra roadmaps.
 
-### Raynaud's Theoreme 4.1.1 has no supplier stage, and its supplier node sits in an unreviewed packet
-
-Verified: Faltings' '[10], Theoreme 4.11' is Raynaud's Theoreme 4.1.1 (Bull. SMF 102 (1974), p. 272), whose statement and standing hypotheses (R strictly henselian of unequal characteristics; finite flat commutative group scheme killed by p; e <= p-1) the reviewer read. The drafted link came from 'FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1/determinant-of-the-generic-fibre-by-the-tame-different-character', a node the EXT-07 continuation run intended to create. That packet was absent when this review started, so the link was dangling and was removed. The continuation run then wrote research/expansion/external/EXT-07/FiniteFlatGroupsAndIntegralPadicHodgeTheory.json during this review. The packet is unreviewed and outside this review's assignment, but it does contain a node with exactly that id, under R07.1. Its HANDOFF proposes extending R07.1's scope to Raynaud section 4. No existing stage covers the theorem: the R07.1 stage text scopes Raynaud sections 2-3 (Corollary 3.3.6, Theorems 3.4.1/3.4.3), not section 4. Orchestrator decision: once the FiniteFlatGroups packet is reviewed and R07.1's scope is extended to Raynaud 4.1, restore the link. Otherwise keep Theoreme 4.1.1 as an import here. The link to restore is FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1/determinant-of-the-generic-fibre-by-the-tame-different-character -> FaltingsFinitenessAndIsogenyTheorems:R28.5/determinant-character-of-the-kernel-computed-by-raynaud (source: Faltings p. 364; Raynaud p. 272).
-
 ### Satz 7 duplicates the Parshin construction owned by RP.4, and uses de Franchis finiteness implicitly
 
 Verified: the proof of Satz 7 (p. 365) as recorded, with the covering degree printed m > 2. The atlas stage HeightsRationalPointsAndObstructions:RP.4 owns 'the Parshin covering reduction ... then apply the existing Shafarevich finiteness route', and consumes R28.5; the Satz 7 node here reproduces that construction. The drafted link R28.5 -> RP.4 has been re-pointed to come from the curve corollary node, which is what RP.4 consumes. Also unread and implicit in 'Dasselbe gilt fuer die Abbildung Y(x) -> X_1 -> X': finiteness of nonconstant maps from a fixed curve of genus at least 2 to X (de Franchis), and genus at least 2 of Y(x). Parshin [9] is not in the library (CATALOGUE.json search: no hit). Orchestrator decision: keep the Satz 7 node as the source record of Faltings' version or merge it into RP.4.
@@ -1658,6 +1650,30 @@ The reviewed integrated decomposition added five supplier links from Foundations
 ### R28.5 carries two different jobs and should be divided (`split-layer`)
 
 R28.5 contains both the finiteness theorems themselves, Satz 5 and Satz 6 with their inputs, and the two applications that follow from them, the finiteness of curves of genus at least two with good reduction outside S and the Mordell conjecture through the Parshin construction. The two halves have different acceptance tests: the first is measured against the source's own proof, the second against the statement of Torelli's theorem and the Parshin construction, both of which this roadmap imports rather than proves, and the second of which the atlas already assigns to HeightsRationalPointsAndObstructions:RP.4. Dividing the layer would make the boundary between what this roadmap proves and what it consumes visible in the atlas, and would stop the curve corollary and Mordell appearing to be part of the same body of work as the finiteness theorems.
+
+## Fixes (FIX-RT-AREA-padic-2~2, 30 September 2026)
+
+Claude Code, session `cc-c2c06b`, issue #5152. This round applies to the packet the edits that the first round of
+`RT-AREA-padic-2` (`research/blueprint/redteam/RT-AREA-padic-2.fixes.md`, /5, /20 and C1–C2) wrote for this roadmap.
+The full record is `research/blueprint/redteam/RT-AREA-padic-2.fixes-2.md`. Where the sections above disagree with
+this one, this one and the packet are current.
+
+- **Tate's paper is read, and its statements have suppliers.** A public scan of Tate, p-divisible groups (1967) exists
+  (source `tate-1967-p-divisible-groups`; the FiniteFlatGroupsAndIntegralPadicHodgeTheory packet read §§2, 3.3 and 4).
+  - The count of invariant differentials of the levels, derived from Proposition 2 (a discriminant formula) and its
+    Lemma 1, is requested from FiniteFlatGroupsAndIntegralPadicHodgeTheory R07.1. It is no longer requested from
+    ArakelovGeometryAndAbelianHeights R35.4.
+  - The Hodge–Tate decomposition (Theorem 3 and its corollaries) is requested from R07.1, not from
+    HodgeTateAndCanonicalSubgroups T0.
+  - Theorem 2 (Tate–Sen) and the finite-image triviality are owned by the proposed sub-stage PadicHodgeTheory
+    R06.1:tate-sen. Until it exists, the request names its parent R06.1, not R06.2.
+  - The shift in erratum a) is Tate's proof of Proposition 12 on p. 182, read on the page image here, and is requested
+    from R07.1.
+
+  The gap on Tate's paper is removed.
+- **Raynaud's Théorème 4.1.1** and the comparison of the different exponent with the length of s^*(Ω¹) are requested
+  from R07.1. The node on the determinant character now lists R07.1 as a prerequisite. The gap is removed. No source
+  for the comparison has been read, and the request says so.
 
 ## Checks
 
