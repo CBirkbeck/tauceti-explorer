@@ -1,3 +1,66 @@
+# LLHLM23 — current handoff: characteristic-p generic formal fibres
+
+Codex — codex-a71f92; issue #1254; claim confirmation 5910256576;
+30 September 2026. **Partial checkpoint:** 833 items (154 library, 48 planned,
+631 missing), 27 routes, 123 unreviewed source findings and 11 gaps.
+This session is ineligible to review or red-team this extraction.
+
+## Completed here
+
+- L147–L151 are exact pinned imports: coefficientwise polynomial derivation,
+  the Kähler universal property, a power of a finitely generated radical,
+  contraction of maximal ideals under integral maps, and separable polynomial
+  contraction. Existing finite completion L112 is reused.
+- Z152–Z160 supply p-basis APIs, finite coefficient subrings, the directed
+  intersection after finite field extension and a detecting derivation on a
+  finite order. The relative differentiation kernel is kK^p, not always K^p.
+- Z161–Z167 supply derivation localization, the inseparable hypersurface test,
+  Frobenius-bounded orders, the unique-prime completion comparison, the regular
+  power-series base and the purely inseparable generic-fibre induction.
+  Deliberately chosen orders avoid a new normality theorem. Rescale a root
+  z by b to put f=a/b into the integral equation (bz)^p=a b^(p−1).
+- Z168–Z170 prove every finite scalar-extension test by a coefficient-root
+  field square, existing finite-separable regularity and faithful-flat descent.
+  Z79 now imports Z170. This source-level generic-prime branch is no longer
+  wholly unread; no Lean implementation or recursive global closure is claimed.
+- E121–E123 record current Stacks proof/notation defects at07P2,07P4,07P5.
+  E122 requires a cofinal restriction before a direct sum, with the family
+  {F_p(t),F_p(t^p)} as a boundary example. All intended results survive.
+  These findings await independent review.
+
+Z164 stays at existing R03.1, Z166 at R03.3; the remaining new source items
+refine the existing SF.0/SF.4 direction. There is no new route or roadmap.
+
+## Resume here
+
+1. Continue the analytic-regularity-suppliers gap at **07PU**, the nonzero
+   polynomial-prime fibre in Z79. Audit the finite complete-local order in the
+   extended residue field and its locality, then the formal-smoothness inputs
+   Stacks15.38.2/15.38.4 and15.50.2. The final fibre is a quotient by x−f.
+2. **07N9:** Z164 supplies only the unique-prime specialization. Decompose the
+   full product over primes, Artinian finite quotients and the compatible
+   inverse-limit product map. The existing finite-product linear completion
+   equivalence is not by itself this algebra comparison.
+3. **032D:** separate coefficient-field/Cohen-ring existence, systems of
+   parameters, equivalent adic completeness, finite generation from the
+   residue quotient and injectivity from dimension. Preserve ownership.
+4. Z160 supplies exactly the finite-order case of07PH needed by07PR. Its
+   arbitrary finite-type reduction still imports Cohen normalization and
+   birational denominator rescaling. Z169 supplies finite field tests, not
+   the entire transcendental-field/smooth-model formulation of0381.
+5. Preserve E60/Z99's characteristic-zero repair, the scalar prime/Hodge bounds,
+   Appendix B certificates and the remaining global/source/API/owner gaps.
+
+All 809 previous item IDs/statuses/statements/locators, 120 previous findings
+and pre-existing sourceData are preserved. Every missing item is routed once;
+1,827 internal edges are acyclic. Paper/intake/source-version/preservation
+checks and 19,319 exact finite diagnostics pass; the diagnostics supplement,
+not replace, the proofs. No Lean deliverable or compilation. Source hashes and
+proof/API/test contracts are in the result and report; no scratch file is
+required to resume.
+
+---
+
 # LLHLM23 — current handoff: scalar bounds and smooth regularity
 
 Codex — codex-J6LwjP; issue #1254; 30 September 2026.
