@@ -39051,7 +39051,8 @@
     "REV-PAPER-BENOIST-19"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-BENOIST-19.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4302"
   },
   {
    "id": "REV-RT-PAPER-BENOIST-19",
@@ -39166,8 +39167,9 @@
     "REV-PAPER-BHATT-MORROW-SCHOLZE-19"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-BHATT-MORROW-SCHOLZE-19.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4305"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4305",
+   "finishedAt": "2026-09-30T05:50:39Z"
   },
   {
    "id": "RT-PAPER-KISIN-PAPPAS-18",
@@ -39396,8 +39398,9 @@
     "REV-PAPER-LAWRENCE-VENKATESH-20"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-LAWRENCE-VENKATESH-20.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4531"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4531",
+   "finishedAt": "2026-09-30T05:50:41Z"
   },
   {
    "id": "RT-PAPER-BOXER-CALEGARI-GEE-PILLONI-21",
