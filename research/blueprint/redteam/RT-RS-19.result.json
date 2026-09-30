@@ -1,0 +1,25 @@
+{
+  "redteam": "RT-RS-19",
+  "protocol": "redteam-v1",
+  "status": "complete",
+  "target": "RS-19",
+  "summary": "No actionable error, omission or duplication established in accepted RS-19. All 28 layer decisions, 13 owners and four links preserve the distinct early duality/perversity, late decomposition, Hitchin support and contracting-boundary trace obligations. Native and accepted-union projection tests preserve every path through the four retired vertices. This scoped result does not certify all future implementations or the partial EDC packet.",
+  "checked": [
+    "Read the complete RS-19 family (30 evidence records), result, report, independent review and both member README documents at 14e0fb4d9e0b702fa59a604790b30ad2500b745d.",
+    "Checked all 28 stages (24 keep, four drop), 13 owner entries and four link reasons against their original mathematical contracts; neither roadmap or any upstream Tau Ceti roadmap is replanned.",
+    "Read the full descriptions of all 34 native outside consumers in 11 roadmaps, plus IG.0 and IG.1; checked early/late, coefficient, support, trace, local/global and mixed/equal-characteristic boundaries.",
+    "Checked EDC.0 foundational ownership and EDC.1:adjoint -> EDC.2:trace-purity -> EDC.1:biduality -> EDC.2:pairings, including relative versus arithmetic duality and derived integral restrictions.",
+    "Checked smooth-pair purity versus absolute purity, weak versus hard Lefschetz, field versus integral perversity, nearby-cycle shifts and the restricted filtered-colimit support extension.",
+    "Checked rational geometric decomposition versus arithmetic semisimplicity and integral/mod-ell coefficients; ET.2b retains all Hitchin/support hypotheses and constructions.",
+    "Checked EDC.8 general trace classes versus ET.5 contracting-boundary trace/stabilization, and preserved ET.6 full Weil-Deligne monodromy, ET.6a two-tower realization and ET.7a/7b separate automorphic/virtual exports.",
+    "Read all 13 available member aggregate coverage entries, all 15 ET audit entries in AUDIT-32 and REV-AUDIT-32; recorded absent aggregate ET coverage and absent/null audit review metadata separately from the accepted review report.",
+    "Fresh public-source reads on 30 September 2026: BBD selected image pages, including 5.3.8 and 5.4.5 with their short proofs, and 5.4.10 statement/setup; Varshavsky math/0505564v2 conventions, trace-class construction, 2.1.3 and 2.3.2 with proofs.",
+    "At pinned Mathlib 082e2d3, read TStructure/Basic.lean 30-125 and all Heart.lean; at pinned Tau Ceti f790474, read all InvolutiveDual.lean. These conditional abstract interfaces do not supply the geometric constructions.",
+    "Actual check_restructure/apply_restructurings passes with four added links, no skipped links, no historical stage/edge/description loss and unchanged upstream stage content.",
+    "Independent removal-and-splicing check: native 3508 -> 3502 edges and accepted union 7108 -> 7098; exactly four boundary pairs, all preserved, every proposed edge expands to an old path, and no proposal-edge return path.",
+    "All nine suppliedBy-to-surviving-consumer checks pass. All 69 outside exports survive, no surviving parent is retired, and no accepted link references a dropped vertex.",
+    "Read the complete partial two-node EDC decomposition; both parent IDs remain valid, and its seven links, 13 coverage entries and three gaps are not promoted to complete. Exact retired-stage/node-prefix searches across packets, decompositions and reserved IDs find no references.",
+    "Compared relevant inputs with refreshed main, validated the red-team JSON and both deliverables with intake; no Lean file requested, changed or compiled."
+  ],
+  "findings": []
+}

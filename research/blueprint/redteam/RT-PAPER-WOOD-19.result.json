@@ -1,0 +1,61 @@
+{
+  "redteam": "RT-PAPER-WOOD-19",
+  "protocol": "redteam-v1",
+  "status": "complete",
+  "target": "PAPER-WOOD-19",
+  "agent": "Codex",
+  "session": "codex-rtOQ9t",
+  "date": "2026-09-30",
+  "inputCommit": "c9e1212bfcbe14236ed26e6895958f905424729c",
+  "summary": "Two medium findings: the corrected function-field conjecture omits its lifting invariant's characteristic restriction; the supplementary product-one component monoid uses general marked-cover moduli not supplied by its recorded narrower prerequisite. Two low findings correct review provenance and the absent sourceVersions list. All 31 cited library declarations match their pinned statements; no competing Part II owner was established. The full published paper and companion lifting note were reread, and all three inherited finite Python diagnostics passed.",
+  "checked": [
+    "Independence and input: neither PAPER-WOOD-19 nor REV-PAPER-WOOD-19 was performed by codex-rtOQ9t. Inspected all 344 item statements/statuses/locators, the full extraction report, both Part II briefs, route destinations and the independent review report; proof/API metadata was examined particularly for /121–146 and /250–344. Input file hashes are in the accompanying report.",
+    "Read the full published Wood paper, Duke Math. J. 168 (2019), pp.377–427, from https://par.nsf.gov/servlets/purl/10152050 on 2026-09-30. SHA256 154e700c1b634b9e9bde4334a19678d05ff98ca18efb6b07cb5b809f2da9c03d. All proofs, tables, appendix and references included; selected pages including Definition3.1 and Conjecture5.1 also inspected visually. Targeted comparison with arXiv1702.04644v2 Theorem1.2; not a second complete preprint reading.",
+    "Read all 13 pages and proofs of Wood's author-hosted lifting.pdf, SHA256 9628210e96313805ceac89594c64e2eceb3aaebf044f617cee4d7f25ee7ef673. Read Seguin Fields of Definition of Components of Hurwitz Spaces pp.4–13 and23–24, including the proofs relevant to /315–319; SHA256 bd2084d9af14256e1bbca39d085ebcb73d7a0f191d1d13b68e16e2059484712c. Original Emsalem/Cau proofs not read; not a complete Seguin reading.",
+    "Checked good/admissible types, rigid weights, real |c| normalization, integral reduced Schur multiplier versus scalar H2, chosen-cover transport, arithmetic and geometric lifting invariants, fixed-fiber square classes, 2-adic parity, multidegree boundary behavior, Section7 Euler products and appendix weights. The extraction preserves the non-good liminf gap and does not infer fixed-q asymptotics from q tending to infinity.",
+    "Considered all ten inherited sourceIssues against the published main paper and companion note. They are not reported as newly discovered errors. The arbitrary-u conjecture issue E7 already has a generator repair; finding /1 is the additional missing characteristic hypothesis in that extracted repair.",
+    "Read all 31 declarations cited by the 13 library items at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 and TauCetif790474821cf4256814db967cb154e7af3d0c369: wreath product, low-degree group homology, factor-set cohomology, Schur–Zassenhaus, bounded discriminant finiteness, finite discrete topology, pure-filter convergence, Goursat, elementary two quotient, rank-nullity, finite-field module cardinality and abelianization. Also read the generic fiber/power-map APIs to test /70 for duplication; its existing adapter note prevents that finding.",
+    "Inspected ArithmeticStatistics and InverseGalois roadmap texts, relevant stage descriptions, reviewed library coverage for ST.0/ST.3/ST.5, IG.1/IG.3/IG.4/IG.5, R02.4 and FA.4, and the relevant upstream InductionRestriction and ArithmeticDirichletSeries layers. Cross-searched papers, roadmaps, packets, restructurings and links for duplicate ownership. PAPER-LIU-WOOD-ZUREICKBROWN-24 explicitly coalesces with the same reduced-Schur Part II.",
+    "Paper checker passed. Structural audit found 344 unique IDs, 318 missing items each routed exactly once across ten routes, and 115 resolved acyclic explicit internal prerequisite edges. This is not a proof that every necessary edge is recorded.",
+    "Reran the extraction's finite Python diagnostics: 6588 assertions, 563 assertions, and 743639 parity checks, all passing. Compared the extracted table material with the published tables, but did not independently rerun the GAP cover/multiplier/center computations or reconstruct the historical number-field data. No Lean deliverable was required or compiled.",
+    "Ran check_redteam.py, intake.py check-files for the two deliverables, and git diff --check. Only the red-team result and report are changed."
+  ],
+  "findings": [
+    {
+      "id": "RT-PAPER-WOOD-19/1",
+      "kind": "error",
+      "severity": "medium",
+      "where": "research/blueprint/papers/PAPER-WOOD-19.result.json: item PAPER-WOOD-19/298, compared with /34; ST.3 refined-invariant consumer",
+      "claim": "The generator-corrected conjecture quantifies over Q=F_q(t) and any good admissible G′ without the prime-to-characteristic hypothesis needed to form I_{G′,π,Q}. It does not explicitly import /34's context. Tameness of a representation does not imply char(Q) is prime to the target group's order.",
+      "evidence": "Wood's published Definition3.1, p.388 (PDF page12 of the NSF copy, SHA256154e700c1b634b9e9bde4334a19678d05ff98ca18efb6b07cb5b809f2da9c03d), requires a global field 'whose characteristic does not divide |F|'. Item /34 retains this; /298 does not. Take G=C3, G′=C3⋊C2≅S3 embedded anti-diagonally with the swap in C3≀C2, and Q=F3(t). G′ is admissible and good, so meets /298's stated group conditions, but 3 divides |G′|=6. The recorded invariant definition is unavailable for that input. This is an extracted-statement scope defect, not a new disproof of a number-field conjecture.",
+      "fix": "Add char(Q)=0 or char(Q)∤|G′| to /298; for Q=F_q(t), require gcd(q,|G′|)=1. Explicitly connect the conjectural API to /34 and retain the condition in the ST.3 explanation. Preserve the generator correction and conjectural status. Boundary tests should reject F3(t),S3 and admit F5(t),S3 at this input condition."
+    },
+    {
+      "id": "RT-PAPER-WOOD-19/2",
+      "kind": "missing",
+      "severity": "medium",
+      "where": "research/blueprint/papers/PAPER-WOOD-19.result.json: /315 prerequisites and /316–319 consumers; InverseGaloisAndArithmeticFundamentalGroups:IG.5 route",
+      "claim": "The geometric/Galois part of Comp(F) for arbitrary finite F and all exact monodromy subgroups lacks a supplier of the necessary marked, possibly disconnected cover moduli. Its recorded /77 prerequisite only constructs the scheme for centerless groups generated by involution classes, while /255 supplies braid algebra. The stronger moduli interface is used by the bounded-core argument.",
+      "evidence": "Seguin, Fields of Definition of Components of Hurwitz Spaces, author-hosted version SHA256bd2084d9af14256e1bbca39d085ebcb73d7a0f191d1d13b68e16e2059484712c: §§2.2.2–2.2.3 allow disconnected marked covers and Remark2.2 permits trivial monodromy at listed branch points; §2.2.6 p.7 identifies H*(F,n) components with all product-one braid orbits and says its existence 'follows from [Ems95, Théorème 3]', also citing Kanev. These suppliers are absent from the extraction's prerequisite list. /77 explicitly retains centerlessness. Even for ambient F=S3, the power block (τ,τ) in /317,/319 has proper monodromy C2 with nontrivial center, so restricting to full-monodromy tuples does not repair the dependency.",
+      "fix": "Add an explicit construction/API under the existing IG.5 owner for marked possibly disconnected F-covers over Q, unramified at infinity, allowing trivial-monodromy punctures, with the full product-one component identification and continuous exact-subgroup-preserving Galois action. Import existing moduli/fundamental-group foundations. Record Emsalem/Kanev with an honest reading status, or identify an already planned supplier of exactly that scope. Rewire /315–319; retain /77's narrower hypotheses for Wood's original construction. Do not introduce another roadmap or restrict away the proper-monodromy power blocks."
+    },
+    {
+      "id": "RT-PAPER-WOOD-19/3",
+      "kind": "error",
+      "severity": "low",
+      "where": "research/blueprint/papers/PAPER-WOOD-19.md: final Review section, page-range and no-recorded-commit assertions",
+      "claim": "The review paragraph gives the published pagination as 378–428 and infers from the absence of a libraryPins key that no library commit was recorded. The matching PDF is pp.377–427, and the full pins are present under parityContinuation.pins.",
+      "evidence": "The NSF published PDF's page headers and the result's source.venue give 377–427. In PAPER-WOOD-19.result.json, parityContinuation.pins.mathlib is 082e2d37e8b0463410cdb532e111cd43d5a66174 and parityContinuation.pins.tauceti is f790474821cf4256814db967cb154e7af3d0c369; adjacent declaration records and the continuation report supply further provenance. All 31 cited declaration statements were read at these pins in this red team.",
+      "fix": "Correct the report's printed page range and replace its no-commit assertion with the actual metadata location and IDs. Any normalization to a top-level field should preserve those values. Do not suggest that the library statements failed verification."
+    },
+    {
+      "id": "RT-PAPER-WOOD-19/4",
+      "kind": "missing",
+      "severity": "low",
+      "where": "research/blueprint/papers/PAPER-WOOD-19.result.json: missing sourceVersions alongside sourceIssues",
+      "claim": "The extraction has ten source issues, including quoted stated results, but lacks the sourceVersions list required by PROTOCOL §18. The provenance exists in other fields but is not supplied in the prescribed source-collation form.",
+      "evidence": "PROTOCOL §18 prescribes sourceVersions alongside sourceIssues to distinguish the published text, preprints and author copies. The result has no such key. Its source record gives the published PDF hash/date; the source-issue and continuation records additionally identify arXiv1702.04644v2 and Wood's lifting.pdf. The unchanged input passes check_paper.py, so this is not reported as a current checker failure.",
+      "fix": "Populate sourceVersions with the published Wood paper, arXiv v2 and the companion author copy, preserving their actual recorded read dates, URLs and SHA256 values. Retain historical failed-fetch notes as history and the later successful published collation as the final record. No change to the separate errata file is needed for this finding."
+    }
+  ]
+}
