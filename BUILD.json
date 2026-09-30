@@ -368,7 +368,7 @@
   "libraryAuditStatuses": 58,
   "bibliographicSources": 46,
   "roadmapEdges": 1714,
-  "stageEdges": 8301,
+  "stageEdges": 8302,
   "reviewedLinkPackets": 25,
   "promotedBlueprints": [
     {
@@ -493,8 +493,8 @@
     }
   ],
   "sourceDocuments": 296,
-  "htmlBytes": 30266723,
-  "htmlSha256": "33aa44f48916b5c3633d27c5c5e674a0da32cb42113beb883b6f75ec63d3b0e1",
+  "htmlBytes": 30269454,
+  "htmlSha256": "a8b0728b5a67b4b172dbeb6f1e513f2aba942bb9238992e30c9bc65bf0b96925",
   "networkDependencies": 0,
   "localProgressOverridesIncluded": false,
   "assets": {
@@ -647,7 +647,7 @@
     "data/links/tauceti_TauCetiRoadmap_RepresentationTheory_SemisimpleAlgebras.json": "7012bb7990816fcd08b20a8aa8e94e6fff2d94bcb6ba26a297aa83715f011249",
     "data/links/tauceti_TauCetiRoadmap_RepresentationTheory_SpinRepresentations.json": "962fbed050164d112342726430e5097e0659bdce5cad310f0537cc2534375a3f",
     "data/links/tauceti_TauCetiRoadmap_StablePeriodicCurved.json": "e753c513d03d5191f484342a954f519022c39daffd6c100db4082ba07de37dfe",
-    "data/links/tauceti_TauCetiRoadmap_ZigzagPreprojective.json": "6c8de93ad421f59bff577fa558047627baa60ea47d152997e43dd24b14d7d78c",
+    "data/links/tauceti_TauCetiRoadmap_ZigzagPreprojective.json": "a0cb77d38e12e53c186d2befbf5ebf88990e98188c5063b889d30aa20ae51301",
     "data/restructure/RS-01.md": "98c2b8bc8e09b0a6c7d8377a15c2bb8518e0e5a9dd09486caf37c55ddfc84f61",
     "data/restructure/RS-01.result.json": "5af1dcec89e0917c1bc59cf9db6a73914cd8596cb732a244ae5a038d22e5bb48",
     "data/restructure/RS-02.md": "1878587f220cd63fbccffa73950790a123e203be1917722c0503a1fc2b775838",

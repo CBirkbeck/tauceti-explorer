@@ -2,7 +2,7 @@
   "roadmapId": "tauceti:TauCetiRoadmap/ZigzagPreprojective",
   "protocol": "links-v1",
   "status": "complete",
-  "summary": "Independently accepted on 2026-09-23: retain 13 incoming links and seven overlap proposals; no outgoing link to a currently specified consumer and no new edge. Restore 11 normalized evidence quotations to exact raw text, add evidence for every overlap, and keep the generic quotient-module equivalence coordinated with the quiver owner. The nine-stage completeness check across the current 2007-stage world confirms an additional projective-cover link already held in the QuiverRepresentations packet, recorded here without duplication. The examined ledger now includes all 218 current roadmap records with read depth stated. Small-graph, opposite, support, characteristic and completion conditions remain explicit. This is a mathematical planning-contract review, not a library implementation certificate.",
+  "summary": "Independently accepted on 2026-09-23: retain 13 incoming links and seven overlap proposals; no outgoing link to a currently specified consumer and no new edge. Restore 11 normalized evidence quotations to exact raw text, add evidence for every overlap, and keep the generic quotient-module equivalence coordinated with the quiver owner. The nine-stage completeness check across the then-current 2007-stage world found an additional projective-cover prerequisite, QuiverRepresentations Layer 3 -> Zigzag Layer 3, but recorded it only in alreadyRecorded because a partial, unreviewed QuiverRepresentations research packet listed it, so it never reached the atlas. The confirmed red-team fix (FIX-RT-LINK-tauceti_TauCetiRoadmap_ZigzagPreprojective) now carries it here as a fourteenth incoming link; the 13 reviewed links and seven overlaps are unchanged. The examined ledger now includes all 218 current roadmap records with read depth stated. Small-graph, opposite, support, characteristic and completion conditions remain explicit. This is a mathematical planning-contract review, not a library implementation certificate.",
   "links": [
     {
       "source": "tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations#layer-0-quivers-and-the-path-algebra",
@@ -261,6 +261,26 @@
           "quote": "Prove natural transfer of the action through a **supplied** Morita or derived equivalence,",
           "sourcePath": "content/tau-ceti/ZigzagPreprojective/README.md",
           "locator": "lines 441-441"
+        }
+      ]
+    },
+    {
+      "source": "tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations#layer-3-the-structure-of-a-finite-dimensional-algebra",
+      "target": "tauceti:TauCetiRoadmap/ZigzagPreprojective#layer-3-projectives-graded-cartan-matrices-and-q-euler-forms",
+      "reason": "Once the specific zigzag algebra is proved finite-dimensional and split/basic, consume its ordinary primitive-idempotent/projective-cover and composition-Cartan infrastructure. Zigzag supplies homogeneous projectives and graded radical layers and compares the q=1 specialization; align row/column conventions with GEF by an explicit transpose. This dependency does not assert hereditary Ext vanishing for self-injective zigzag algebras, or finite dimensionality of arbitrary preprojective quotients. The pinned Tau Ceti declarations IsProjectiveCover and exists_isProjectiveCover_of_finiteDimensional (the projective-cover predicate and existence of covers over a finite-dimensional algebra) and zigzagProjective_projective (Z e_i is a projective left module) are reused, not re-planned; the pin has no algebra-level Cartan matrix or primitive-idempotent decomposition, which remain Quiver Layer 3 work. Zigzag keeps as explicit obligations the finite-dimensional split/basic hypotheses, the graded refinement of the covers, the left-module convention and the [P_i:S_j] versus [P_j:S_i] transpose, which the symmetric zigzag Cartan matrix hides. The dependency asserts neither finite global dimension nor unconditional invertibility of the Cartan matrix.",
+      "confidence": "inferred",
+      "evidence": [
+        {
+          "stageId": "tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations#layer-3-the-structure-of-a-finite-dimensional-algebra",
+          "quote": "Build `projectiveCover M`: a projective `P` with an\n  essential epimorphism `P ↠ M` (superfluous kernel), **unique up to isomorphism**",
+          "sourcePath": "content/tau-ceti/RepresentationTheory/QuiverRepresentations/README.md",
+          "locator": "lines 288-289"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/ZigzagPreprojective#layer-3-projectives-graded-cartan-matrices-and-q-euler-forms",
+          "quote": "Define the indecomposable graded left projective `P_i = Z e_i`, its simple head, socle, radical\n  layers, grading shifts, and all homogeneous `Hom(P_i,P_j{d})` spaces.",
+          "sourcePath": "content/tau-ceti/ZigzagPreprojective/README.md",
+          "locator": "lines 281-282"
         }
       ]
     }
@@ -1684,15 +1704,38 @@
       "packet": "research/blueprint/links/tauceti_TauCetiRoadmap_RepresentationTheory_QuiverRepresentations.json",
       "blob": "06902c9a285bfd281b9adf0b03443261c97244ac",
       "reviewRecheck": "2026-09-23",
-      "note": "Confirmed ordinary finite-dimensional primitive-idempotent, projective-cover and composition-factor input. Zigzag must prove finite dimensionality and split/basic structure, then supply grading and transpose comparisons. Present in the sibling packet; not duplicated here."
+      "note": "Provenance only. The host packet is a partial, unreviewed research packet with no promoted data/links counterpart, so at the 2026-09-23 review this pair never reached the atlas. The review's check of the input (ordinary finite-dimensional primitive-idempotent, projective-cover and composition-factor input; Zigzag proves finite dimensionality and split/basic structure, then supplies grading and transpose comparisons) stands. The pair is now carried in this packet's links by FIX-RT-LINK-tauceti_TauCetiRoadmap_ZigzagPreprojective; the sibling packet is not accepted or promoted by this entry.",
+      "state": "research-only-at-review; now-carried-in-this-packet-links"
     }
   ],
   "review": {
     "status": "accepted",
     "reviewer": "independent-review-REV-LINK-tauceti_TauCetiRoadmap_ZigzagPreprojective",
     "date": "2026-09-23",
-    "notes": "Codex — codex-7e92bd, independent of original author ChatGPT Pro — cgp-0d58f52c658d. Read all 24 original endpoint/overlap stage descriptions in full, including all nine focal stages; checked every direction and seven recommendations. Restored raw quotation whitespace, supplied source paths/locators and overlap evidence, clarified owner coordination for the generic relation-quotient equivalence and the potentially infinite linear resolutions used in Koszulity. Searched all nine focal stages for missing suppliers/consumers and confirmed the already-recorded QuiverRepresentations3-to-Zigzag3 link without duplicating it. No additional exact edge established. Acceptance does not certify unresolved source propositions or library availability. See report.",
+    "notes": "Codex — codex-7e92bd, independent of original author ChatGPT Pro — cgp-0d58f52c658d. Read all 24 original endpoint/overlap stage descriptions in full, including all nine focal stages; checked every direction and seven recommendations. Restored raw quotation whitespace, supplied source paths/locators and overlap evidence, clarified owner coordination for the generic relation-quotient equivalence and the potentially infinite linear resolutions used in Koszulity. Searched all nine focal stages for missing suppliers/consumers and confirmed the QuiverRepresentations3-to-Zigzag3 dependency, but left it in alreadyRecorded on the ground that a sibling packet held it; that packet is partial and unreviewed, so the pair was not covered in the atlas (red-team finding RT-LINK-tauceti_TauCetiRoadmap_ZigzagPreprojective/1, independently confirmed). The fix adds it to links; see redteamFix and the fixes report. This review's status and date are historical and do not represent a review of the revised packet, which needs renewed independent acceptance before promotion. Acceptance does not certify unresolved source propositions or library availability. See report.",
     "removed": [],
     "added": []
+  },
+  "redteamFix": {
+    "job": "FIX-RT-LINK-tauceti_TauCetiRoadmap_ZigzagPreprojective",
+    "finding": "RT-LINK-tauceti_TauCetiRoadmap_ZigzagPreprojective/1",
+    "verification": "research/blueprint/redteam/RT-LINK-tauceti_TauCetiRoadmap_ZigzagPreprojective.review.json",
+    "agent": "Claude Code",
+    "session": "cc-f805bf",
+    "date": "2026-09-30",
+    "base": "4965fe182433f5499363e9535ec13e8dc7d3ade7",
+    "scope": "Append exactly the one confirmed link QuiverRepresentations Layer 3 -> Zigzag Layer 3 with raw two-sided quotations; retag alreadyRecorded[0] as provenance; correct the summary and review narrative. The 13 original links, seven overlaps and the examined ledger are unchanged. Promotion to data/links is the normal reviewed intake operation.",
+    "validation": {
+      "stages": 2840,
+      "edgesBefore": 8249,
+      "edgesAfter": 8250,
+      "repeatEdges": 8250,
+      "requiresFilled": true,
+      "researchUnionEdges": 8360,
+      "acyclic": true,
+      "literalNewQuotes": 2,
+      "original13LinksUnchanged": true,
+      "checkLinks": "0 errors, 0 warnings"
+    }
   }
 }
