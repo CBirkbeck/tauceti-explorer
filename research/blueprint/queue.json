@@ -37681,8 +37681,9 @@
     "REV-PAPER-CHANG-CHEN-MISHIBA-23"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-CHANG-CHEN-MISHIBA-23.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4234"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4234",
+   "finishedAt": "2026-09-30T11:08:46Z"
   },
   {
    "id": "REV-RT-PAPER-CHANG-CHEN-MISHIBA-23",
@@ -40744,7 +40745,8 @@
     "REV-LINK-tauceti_TauCetiRoadmap_ProfiniteProPGroups"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-LINK-tauceti_TauCetiRoadmap_ProfiniteProPGroups.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4354"
   },
   {
    "id": "RT-LINK-tauceti_Completed_EffectiveBounds",
