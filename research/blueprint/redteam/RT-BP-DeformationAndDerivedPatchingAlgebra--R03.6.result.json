@@ -1,0 +1,31 @@
+{
+  "redteam": "RT-BP-DeformationAndDerivedPatchingAlgebra--R03",
+  "job": "RT-BP-DeformationAndDerivedPatchingAlgebra--R03.6",
+  "protocol": "redteam-v1",
+  "status": "complete",
+  "target": "BP-DeformationAndDerivedPatchingAlgebra--R03.6",
+  "summary": "One low-severity reader/API omission. No supported false theorem, wrong positive library citation, incorrect owner, or duplicated construction found in the checked accepted revision. All 53 node proof outlines and 126 positive baseline contracts were inspected; no Lean compiled.",
+  "checked": [
+    "Independence and accepted revision: inspected BP and REV attribution; Codex session codex-5ebb6f authored neither. Read the accepted 53-node packet, all 897 reader lines, all 988 suggested Lean lines, and the independent review report against repository commit 32f535d0f3655ba146c7667838acb986807bc48b.",
+    "All 53 node statements, hypotheses, proof outlines, acceptance examples, uses and prerequisites; both definitions and all 22 API items. Checked radical near faithfulness versus ideal nilpotence and actual module support, including infinite modules and zero rings.",
+    "Base-change, quotient and framing transport: finite-module equality, flat-map equality without finiteness, unconditional inclusion, minimal-prime lifting, quotient kernel conditions, and finite-variable augmentation kernel versus arbitrary-variable coefficient retraction.",
+    "Localization, maximal-depth and group-action chains: nonzerodivisor hypotheses, minimal-prime contraction, nonzero regular-sequence convention, associated-prime dimension bound, component support without full support, semilinearity, transitivity, and catenary/equidimensional special-fibre lifting.",
+    "All patching and R=T statements: augmentation containment modulo Ann(M_infinity), radical comparison, kernel equality over a regular patched ring, freeness with nonzero finite-level ring, and the distinct reduced, torsion-free and integral conclusions. Checked the compatible values of the quotient ring isomorphisms and the zero-ring case.",
+    "Public source passages read afresh on 2026-09-30: Taylor Definition 2.1, Lemmas 2.2-2.3 and Theorem 4.1 conclusion; Calegari-Geraghty Theorem 6.3(iv), Theorem 6.4 and proof, Remark 6.5, Proposition 6.6 and following paragraph; its entire two-page correction; Kisin Section 3.3; Khare-Wintenberger II Propositions 9.2(III), 9.3(III), Lemma 9.6(b) and relevant proofs; ACC+ Sections 6.3.5 and 6.5 use sites. Six PDF hashes agree with the packet. Read all 23 distinct Stacks tags cited in the nodes, including 00HR, with proofs where supplied. This is a passage audit, not a claim to have read six entire papers.",
+    "All 126 positive Mathlib baseline references: actual source statement/type read in the cited modules at 082e2d37e8b0463410cdb532e111cd43d5a66174; definitions and critical standing scalar-tower assumptions inspected separately. Verified all names in the pinned declaration index. Existing Tau Ceti pin f790474821cf4256814db967cb154e7af3d0c369 and accepted AUDIT-17 coverage were used; no new exhaustive absence claim is made.",
+    "Ownership and dependency boundaries: R03.3, R03.5, P7, P8, P9; all three external prerequisite nodes, including the integrated depth node and the two P7 nodes supplying R03.3 facts; the audited overlaps PA.3, R22.4 and R31.5. No support theorem is built a second time in an arithmetic consumer, and derived two-system comparison remains in P9.",
+    "All 11 counted unit tests and the additional acceptance examples and suggested-file examples: dual numbers, integer quotients, reducible local rings, nil nonnilpotent ideals, nonfinite modules, infinite-variable power series, missing surjectivity, missing semilinearity, and the zero finite-level quotient. Static signature and mathematical checks only; no Lean compiled.",
+    "Closure and structure: check_blueprint.py with the real pinned declaration index reports 0 errors and 0 warnings; 53 nodes (2 definitions, 41 lemmas, 10 theorems), 22 API items, 11 tests, 6 planets, 126 baseline references, no gaps or requests. Node dependency graph and leaf resolution checked; implementationStatus remains unchecked."
+  ],
+  "findings": [
+    {
+      "id": "RT-BP-DeformationAndDerivedPatchingAlgebra--R03/1",
+      "kind": "other",
+      "severity": "low",
+      "where": "research/blueprint/readmes/DeformationAndDerivedPatchingAlgebra--R03.6.md:194-196, API of DeformationAndDerivedPatchingAlgebra:R03.6/supported-on-components",
+      "claim": "The reader lists only the original four supported-on-components API declarations. It omits the accepted constructor Module.IsSupportedOnComponents.mk, compatibility lemma Module.isSupportedOnComponents_of_faithfulSMul, and zero-module lemma Module.isSupportedOnComponents_of_subsingleton that the independent reviewer added to the packet and suggested file. The mathematical deliverables are present; their reader API outline is stale.",
+      "evidence": "The supported-on-components node has seven API entries; its final three are the three names above. The corresponding signatures are at suggested/DeformationAndDerivedPatchingAlgebra--R03.6.lean:166,173,178; none of the names occurs in the reader. PROTOCOL section 8 requires that the roadmap reader gives the named declarations with their API and agrees with the packet. For the two compatibility/examples, the actual pinned declarations Mathlib/RingTheory/Ideal/Maps.lean:892 and :901 at 082e2d37e8b0463410cdb532e111cd43d5a66174 state respectively \"Module.annihilator R M = ⊥ ↔ FaithfulSMul R M\" and \"annihilator R M = ⊤ ↔ Subsingleton M\". Together with Ideal.minimalPrimes in MinimalPrime/Basic.lean:57 these confirm the accepted additions use the existing notions, not missing mathematics.",
+      "fix": "Extend the supported-on-components API paragraph in the reader with Module.IsSupportedOnComponents.mk (introduction from the minimal-prime inclusion), Module.isSupportedOnComponents_of_faithfulSMul (compatibility with Mathlib faithfulness), and Module.isSupportedOnComponents_of_subsingleton (the zero-module case). Preserve the seven packet API entries and their existing suggested signatures; no new node or theorem is needed."
+    }
+  ]
+}
