@@ -36635,7 +36635,8 @@
     "REV-PAPER-KOYMANS-MILOVIC-21"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-KOYMANS-MILOVIC-21.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4186"
   },
   {
    "id": "REV-RT-PAPER-KOYMANS-MILOVIC-21",
@@ -38547,8 +38548,9 @@
     "REV-PAPER-HARPAZ-WITTENBERG-20"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-HARPAZ-WITTENBERG-20.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4270"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4270",
+   "finishedAt": "2026-09-30T14:31:36Z"
   },
   {
    "id": "REV-RT-PAPER-HARPAZ-WITTENBERG-20",
@@ -42167,7 +42169,8 @@
     "REV-RS-13"
    ],
    "prompt": "research/blueprint/prompts/RT-RS-13.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4399"
   },
   {
    "id": "REV-RT-RS-13",
@@ -42216,7 +42219,8 @@
     "REV-RS-14"
    ],
    "prompt": "research/blueprint/prompts/RT-RS-14.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4401"
   },
   {
    "id": "REV-RT-RS-14",
@@ -42455,7 +42459,8 @@
     "REV-RS-18"
    ],
    "prompt": "research/blueprint/prompts/RT-RS-18.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4408"
   },
   {
    "id": "REV-RT-RS-18",
@@ -42505,8 +42510,9 @@
     "REV-RS-19"
    ],
    "prompt": "research/blueprint/prompts/RT-RS-19.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4410"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4410",
+   "finishedAt": "2026-09-30T14:31:44Z"
   },
   {
    "id": "REV-RT-RS-19",
@@ -43044,8 +43050,9 @@
     "REV-DeformationAndDerivedPatchingAlgebra--R03.6"
    ],
    "prompt": "research/blueprint/prompts/RT-BP-DeformationAndDerivedPatchingAlgebra--R03.6.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4418"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4418",
+   "finishedAt": "2026-09-30T14:31:50Z"
   },
   {
    "id": "REV-RT-BP-DeformationAndDerivedPatchingAlgebra--R03.6",
