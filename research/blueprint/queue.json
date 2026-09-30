@@ -4323,8 +4323,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-LE-LEHUNG-LEVIN-ETAL-23.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1254"
+   "state": "pending",
+   "note": "released on GitHub issue #1254"
   },
   {
    "id": "REV-PAPER-LE-LEHUNG-LEVIN-ETAL-23",
@@ -23476,12 +23476,12 @@
     "REV-RS-14"
    ],
    "prompt": "research/blueprint/prompts/BP-DirichletPadicLFunctions.md",
-   "state": "external",
+   "state": "pending",
    "suppliers": [
     "BP-LocallyAnalyticDistributions",
     "BP-PadicMeasuresIwasawaAlgebras"
    ],
-   "note": "claimed on GitHub issue #713"
+   "note": "released on GitHub issue #713"
   },
   {
    "id": "REV-DirichletPadicLFunctions",
@@ -33669,7 +33669,8 @@
     "REV-PAPER-DITTMANN-POP-23"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-DITTMANN-POP-23.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4068"
   },
   {
    "id": "RT-PAPER-BHATT-SCHOLZE-22",
@@ -40692,8 +40693,9 @@
     "REV-LINK-tauceti_TauCetiRoadmap_ArithmeticDirichletSeries"
    ],
    "prompt": "research/blueprint/prompts/RT-LINK-tauceti_TauCetiRoadmap_ArithmeticDirichletSeries.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4353"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4353",
+   "finishedAt": "2026-09-30T12:29:39Z"
   },
   {
    "id": "REV-RT-LINK-tauceti_TauCetiRoadmap_ArithmeticDirichletSeries",
@@ -41191,8 +41193,9 @@
     "REV-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_ClassicalGroups"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_ClassicalGroups.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4369"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4369",
+   "finishedAt": "2026-09-30T12:29:44Z"
   },
   {
    "id": "RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_LieGroups",
@@ -41241,8 +41244,9 @@
     "REV-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_LieGroups"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_LieGroups.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4371"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4371",
+   "finishedAt": "2026-09-30T12:29:48Z"
   },
   {
    "id": "RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_RootSystems",
@@ -41468,7 +41472,8 @@
     "REV-LINK-tauceti_TauCetiRoadmap_StablePeriodicCurved"
    ],
    "prompt": "research/blueprint/prompts/RT-LINK-tauceti_TauCetiRoadmap_StablePeriodicCurved.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4378"
   },
   {
    "id": "REV-RT-LINK-tauceti_TauCetiRoadmap_StablePeriodicCurved",
@@ -41515,7 +41520,8 @@
     "REV-LINK-tauceti_TauCetiRoadmap_ZigzagPreprojective"
    ],
    "prompt": "research/blueprint/prompts/RT-LINK-tauceti_TauCetiRoadmap_ZigzagPreprojective.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4380"
   },
   {
    "id": "REV-RT-LINK-tauceti_TauCetiRoadmap_ZigzagPreprojective",
@@ -42523,7 +42529,8 @@
     "REV-RS-24"
    ],
    "prompt": "research/blueprint/prompts/RT-RS-24.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4414"
   },
   {
    "id": "REV-RT-RS-24",
@@ -46254,8 +46261,9 @@
     "REV-AUDIT-34"
    ],
    "prompt": "research/blueprint/prompts/RT-AUDIT-34.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4456"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4456",
+   "finishedAt": "2026-09-30T12:29:51Z"
   },
   {
    "id": "REV-RT-AUDIT-34",
