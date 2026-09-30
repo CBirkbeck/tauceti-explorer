@@ -40886,8 +40886,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-BOCKLE-HARRIS-KHARE-ETAL-19.md",
-   "state": "pending",
-   "note": "released on GitHub issue #5014"
+   "state": "external",
+   "note": "claimed on GitHub issue #5014"
   },
   {
    "id": "RT-PAPER-LAWRENCE-VENKATESH-20",
@@ -42182,8 +42182,9 @@
     "FIX-RT-PAPER-KHARE-WINTENBERGER-09-I"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-PAPER-KHARE-WINTENBERGER-09-I.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5149"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #5149",
+   "finishedAt": "2026-09-30T21:17:30Z"
   },
   {
    "id": "RT-PAPER-KHARE-WINTENBERGER-09-II",
@@ -46585,7 +46586,8 @@
     "FIX-RT-BP-ClassicalSerreModularity--R33.5"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-BP-ClassicalSerreModularity--R33.5.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #5190"
   },
   {
    "id": "RT-BP-EllipticCurveModularity",
