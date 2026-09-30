@@ -43210,7 +43210,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-LINK-tauceti_TauCetiRoadmap_AlgebraicCodingTheory.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #5035"
   },
   {
    "id": "RT-LINK-tauceti_TauCetiRoadmap_GrothendieckEulerForms",
@@ -43279,8 +43280,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-LINK-tauceti_TauCetiRoadmap_GrothendieckEulerForms.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5036"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #5036",
+   "finishedAt": "2026-09-30T15:51:02Z"
   },
   {
    "id": "RT-LINK-tauceti_TauCetiRoadmap_Multiquadratic",
@@ -49244,7 +49246,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-AUDIT-34.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #5047"
   },
   {
    "id": "RT-AUDIT-39",
@@ -49322,8 +49325,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-AUDIT-39.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5048"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #5048",
+   "finishedAt": "2026-09-30T15:51:06Z"
   },
   {
    "id": "RT-AREA-elementary",
