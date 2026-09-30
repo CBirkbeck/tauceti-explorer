@@ -1,0 +1,30 @@
+{
+  "redteam": "RT-BP-K2SymbolsBrauer--T.3",
+  "findings": [
+    {
+      "finding": "RT-BP-K2SymbolsBrauer--T.3/1",
+      "verdict": "confirmed",
+      "reason": "Confirmed at revision 31176e3. Current relDSRel (Lean line 2352) admits D3 from pair admissibility alone, unlike K-book III.5.11.1(b), PDF p.235, which requires r, s or t itself in I. In R=F3[x,y]/(x²,y²), I=(xy), put z=xy and (r,s,t)=(x,y,x+y). All entries are outside I, all pair products equal z, and the extra relation <x,z>-<z,x+y>-<z,y> has nonzero image (1,1) under the square-zero detector of Ex.III.5.14(a), PDF p.237. I independently checked the tensor target and this calculation and reran the report's enumerator: 477 D1, 20385 D2 and 56889 source-D3 relations vanish; 12960 of 13824 extra D3 triples do not. Thus the specified map to relative K2 cannot descend. Add the explicit triple-entry ideal hypothesis, derive/retain pair witnesses, recheck descent and presentation, synchronize packet/API/tests and retain this non-example. The packet's prose already gives the correct restriction; its Lean realization does not."
+    },
+    {
+      "finding": "RT-BP-K2SymbolsBrauer--T.3/2",
+      "verdict": "confirmed",
+      "reason": "Confirmed at revision 31176e3. For Q, m=1 and a=b=-1, the current global_reciprocity (Lean line 2786) permits all hypotheses but its product is -1. At pinned Mathlib 082e2d3, rootsOfUnity_one and the Subsingleton instance force every finite value to be 1; the unconditional HasEnoughRootsOfUnity M 1 instance supplies the roots hypotheses, and 1 is a unit in every completion. The single real factor is -1 by K-book III.6.2.1, PDF p.240, and the packet's realSignSymbol/signSymbolAt tests. Define the real factor as 1 for m=1 and the quadratic sign for m=2, using absence of real places for m>2 under the primitive-root hypothesis, or require 2≤m and state m=1 separately. Update the prose/theorem/global comparison and add the Q, m=1, (-1,-1) regression while retaining the quadratic cancellation test."
+    },
+    {
+      "finding": "RT-BP-K2SymbolsBrauer--T.3/3",
+      "verdict": "confirmed",
+      "reason": "Confirmed at revision 31176e3. The total conicSymbol at Lean line 2582 equals -1 at (0,0), since 0*x²+0*y²=1 is impossible. The unrestricted-real test at line 2659 then asserts a false equivalence with 0<0 and 0<0. K-book III.6.2–6.2.2, PDF pp.240–241, uses units for Steinberg symbols, and hilbertK2_real correctly takes units. Restrict the compatibility test and packet/proof wording to real units or nonzero inputs; keep a zero-input non-example if the auxiliary conic function stays total. For that total function the all-real criterion is both coefficients nonpositive, not both strictly negative. No assumption about sorry-defined K2 operations is needed for this counterexample."
+    },
+    {
+      "finding": "RT-BP-K2SymbolsBrauer--T.3/4",
+      "verdict": "confirmed",
+      "reason": "Confirmed at revision 31176e3, with a qualification to the proposed repair. T.4/transfer-base-change is arbitrary in F'/F but invokes T.3/higher-ramification-formula, whose packet and Lean line 956 require a finite extension; F'=F(u) violates it. K-book Ex.III.7.7–7.9, PDF pp.265–266, and E10 also require the larger scope for completion. Generalize the supplier to normalized surjective valuations with ord_w|F=e*ord_v and e>0; the unit/uniformizer proof and pinned TauCeti decomposition do not require finite-dimensionality. Propagate positivity into residueFieldMap/localness (current helper line 448 omits it). Also handle separately places trivial on F(t): for Q⊂Q(u), the place t-u on Q(u)(t) is trivial on Q(t), so no positive-index comparison applies, but imported symbols have all entries units and residue zero. Use the generalized comparison at the other finite places and index one at infinity. Add an infinite-constant-extension or completion compatibility test. Merely deleting FiniteDimensional is insufficient; do not restrict the consumer to finite extensions."
+    },
+    {
+      "finding": "RT-BP-K2SymbolsBrauer--T.3/5",
+      "verdict": "confirmed",
+      "reason": "Confirmed at revision 31176e3. The two named T.4 proof steps still say inverse, whereas T.3/higher-milnor-residues and milnorResidue_two (Lean line 869) identify the uniformizer-last degree-two residue with the roadmap tame symbol. Both send {2,5} at Q's 5-adic place to 2 in F5×, whose inverse is 3. Weibel's opposite convention (III.6.3 and III.7.3, PDF pp.242,254) belongs to the separate milnorResidue_kbook comparison. Replace the two internal inverse comparisons by equality, label source-convention comparisons explicitly, and retain the distinguishing test. Inverting all factors preserves product one (III.6.5.3 and III.7.5.1), so the low severity is appropriate."
+    }
+  ]
+}
