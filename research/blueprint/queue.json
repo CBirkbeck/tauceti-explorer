@@ -35051,7 +35051,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-GAMBURD-MAGEE-RONAN-19.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4984"
   },
   {
    "id": "RT-PAPER-TSIMERMAN-18",
@@ -37040,8 +37041,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-GHOSH-SARNAK-22.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4999"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4999",
+   "finishedAt": "2026-09-30T17:53:11Z"
   },
   {
    "id": "REV-FIX-RT-PAPER-GHOSH-SARNAK-22",
