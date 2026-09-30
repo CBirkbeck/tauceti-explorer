@@ -39173,8 +39173,9 @@
     "REV-PAPER-KISIN-PAPPAS-18"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-KISIN-PAPPAS-18.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4308"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4308",
+   "finishedAt": "2026-09-30T01:23:15Z"
   },
   {
    "id": "REV-RT-PAPER-KISIN-PAPPAS-18",
@@ -39303,7 +39304,8 @@
     "REV-PAPER-BOCKLE-HARRIS-KHARE-ETAL-19"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-BOCKLE-HARRIS-KHARE-ETAL-19.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4314"
   },
   {
    "id": "REV-RT-PAPER-BOCKLE-HARRIS-KHARE-ETAL-19",
