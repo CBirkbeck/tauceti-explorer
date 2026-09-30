@@ -39094,8 +39094,9 @@
     "REV-PAPER-BREUIL-HELLMANN-SCHRAEN-19"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-BREUIL-HELLMANN-SCHRAEN-19.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4304"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4304",
+   "finishedAt": "2026-09-30T05:06:55Z"
   },
   {
    "id": "REV-RT-PAPER-BREUIL-HELLMANN-SCHRAEN-19",
@@ -39366,7 +39367,8 @@
     "REV-PAPER-LAWRENCE-VENKATESH-20"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-LAWRENCE-VENKATESH-20.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4532"
   },
   {
    "id": "REV-RT-PAPER-LAWRENCE-VENKATESH-20",
