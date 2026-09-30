@@ -1,81 +1,67 @@
-# Benoist (2019): the period-index problem for real surfaces, extraction and routing
+# Benoist (2019): period and index on real surfaces
 
-Issue [#1454](https://github.com/CBirkbeck/tauceti-explorer/issues/1454). Status: **complete**. Implementation and proof closure are not claimed.
+Updated for [FIX-RT-PAPER-BENOIST-19, issue #5008](https://github.com/CBirkbeck/tauceti-explorer/issues/5008) by Codex, session `codex-rtOQ9t`, on 30 September 2026. The extraction contains **202 items: 14 library, 13 planned and 175 missing**, with 12 routes. Every missing item is routed once. This applies 55 confirmed red-team findings and preserves the verifier's five rejections. The [fix report](../redteam/RT-PAPER-BENOIST-19.fixes.md) gives each disposition, source evidence, checks and the maintainer's integration actions.
 
-- **Provenance.** Completed by Claude Code, session cc-442dc5, on 23 September 2026. It continues the merged Codex checkpoints, whose report follows below as history.
-- **The paper.** O. Benoist, *The period-index problem for real surfaces*, Publ. Math. IHÉS 130 (2019), 63–110.
-  - The published Numdam PDF was re-fetched; its SHA-256 (8dfc0f22…) matches the checkpoint.
-- **Items.** The result has **187 items: 13 library, 13 planned and 161 missing**. Every missing item is routed exactly once, and every numbered statement is an item.
-- **Mistakes.** Nineteen are recorded under `sourceIssues`.
+The paper proves period equals index for Brauer classes on a real-surface function field that evaluate trivially at all real points of their unramified locus. It identifies an obstruction for unramified classes on a smooth projective real surface, applies it to real Enriques surfaces, proves the zero-signature u-invariant bound in transcendence degree two, and constructs a counterexample to extending the topological criterion to non-archimedean real closed fields. Its complex unramified proof uses moving hypersurfaces and a Noether–Lefschetz cone.
 
-## This continuation (cc-442dc5)
+## Corrected proof boundaries
 
-**New items.** Conjectures 0.9 (Lang) and 0.11 (Pfister) were only in a side list. They are now statement-only items 186 and 187.
+The nonzero evaluation locus is **Θ={x:α_x≠0}**. For a period-two lift, the degree-zero component is 1 on Θ and 0 on Ψ∖Θ. The error in the printed calculation can occur on Ψ∖Θ when the covering class has nonzero first component there. Ξ in §6 is the complement of Ψ, not a definition of the zero-evaluation locus in §4.
 
-**E3 and E4 now affect a stated result.**
-- **The failing step.** In the proof of Proposition 4.4 (p. 84), the degree-one term gives [ζ]_1 = [α̃]_0·[e]_1 on Ψ, not [e]_1.
-- **Why it fails.** [α̃]_0 is α|_x, which is 0 on Ξ and 1 on Ψ∖Ξ. So Propositions 4.4, 4.5 and 6.6 are not established as stated when Ξ ≠ ∅ and Ψ ≠ Ξ.
-- **Why the main theorems are unaffected.** They use these propositions only through Proposition 6.7. That proposition takes Ψ = Θ = {x : α|_x = 0}, where the evaluation of the lift of (n/2)α is identically 0. This is the uniform case the checkpoint repairs, so Theorems 0.3–0.5, 0.10 and 0.12 are unaffected, up to the cited Jannsen lemma.
+In the period induction, apply the uniform repair to `a=(n/2)α` on `Ψ=Θ(α)`. The constant evaluation is `t=n/2 mod 2`: it is 1 for n≡2 mod 4 and 0 for 4|n. For the latter case, Θ(a) may be empty although Ψ is nonempty. Extend the prescribed lift from U_α to the possibly larger U_a by Picard surjectivity. Corestriction then shows that the restricted period is exactly n/2. The prior explanations that reversed Θ and asserted evaluation always zero are superseded.
 
-**Reclassified to affect nothing.** E6, E11, E12, E16 and E18. Each is a sign, degree, twist or "cokernel" slip whose intended form is fixed by the displayed conventions or the cited source.
+The uniform trace correction uses the integral class `b=p*η−ψ(ζ)` and Picard primitivity at MC.2; it does not add a mod-two class to an integral one. The additional curve correction in Assumption 4.1(ii) remains necessary. The unrestricted nonuniform propositions remain recorded with G4a/G4b; no counterexample to their statements is claimed.
 
-**Gaps.** The gap statuses are normalized.
-- G2, G4, G5, G7, G8 and G12 are resolved.
-- G1, G4a, G4b, G6 and G9 are recorded as findings.
-- G10 (Jannsen's lemma) and G11 are deferred as cited suppliers' proofs.
+Before deforming a fibre, normalize its integral representative so its reduction equals the chosen pulled-back Kummer class on T_U. The concluding splitting step also needs transport of the **pair `(T,p⁻¹R)`** and of that pullback square. Item 202 records it; **G13/E21** retains the unresolved verification of invariant strata and controlled lifts. Ordinary equivariant Ehresmann alone does not establish this. The exact Jannsen diagram contract G10 also remains explicit. Cited results are single supplier items; their recursive proof interiors are not extraction-completion gates under PROTOCOL §16.
 
-**Why the status is now complete.**
-- Every numbered statement is an item.
-- Every missing item is routed exactly once, and the mistakes are recorded.
-- The one open mathematical gap does not reach the main theorems.
+The incidence model has P1 fibres over R∩D as well as exceptional P1 curves over Sing R. The ramification proof now handles both and uses Witt's theorem for a possibly ramified class on a transverse real curve. The blowup construction requires an ample A0 with H¹(R,A0|R)=0. The real-divisor approximation uses H−R so the product defining t has no unwanted double R component. The circle sheaf has Z/4 stalks for n≡2 mod 4 and F2² stalks for 4|n; either gives a two-point fibre over 1. The Enriques half detector requires S(R) nonempty.
 
-## Mistakes found (`sourceIssues`)
+## Shared owners and routes
 
-- **E1** (error; affects a stated result), Published §3.1 p.76. *Printed:* finite double cover *Correction:* The projective equation gives a proper generically degree-two map, finite flat on S0; introduce its finite Stein model separately. The explicit model and resolution are now174–185. The same finite-cover wording on p86 must refer only to the finite model or to the complement of the exceptional set, not to the full pullback of the auxiliary curve.
-- **E2** (gap; affects the proof), Lemma1.4 p.70. *Printed:* p*p*α̃ *Correction:* Choose beta compatibly so beta modulo n equals p*aTilde before taking its trace.
-- **E3** (gap; affects a stated result), Proposition4.4 p.84, after(4.8). *Printed:* ([ζ]₁)|Ψ=([e]₁)|Ψ *Correction:* The displayed computation gives [zeta]_1=[aTilde]_0[e]_1. The uniform case is repaired by item162; the general case remains G4a.
-- **E4** (gap; affects a stated result), Proposition4.5 pp.84–85. *Printed:* β|TU=p*α̃+2ε+cl(ϕ) *Correction:* Supply a typed replacement. Items158–165 do so under uniform evaluation; do not assume aTilde has an integral lift on U.
-- **E5** (gap; affects the proof), Proposition4.5 p.85, application of Assumption4.1(ii). *Printed:* δ−cl(θ₂) *Correction:* Subtract an additional Picard class nu made from the allowed curves before applying Proposition3.3; include2nu in the final theta.
-- **E6** (misprint; affects nothing), Lemma7.3 p.98 and equation(7.13) p.103. *Printed:* p*η+ψ(ζ) *Correction:* Use p*eta-psi(zeta) with the displayed(1,-phi) convention; the traced equations are unchanged.
-- **E7** (gap; affects the proof), Proof of Lemma7.3 p.99. *Printed:* Q→j*j*Q *Correction:* Use injectivity of the TARGET p_*(Z/n)→j_*j*p_*(Z/n). Item157 proves it in this setting.
-- **E8** (gap; affects the proof), Proposition6.7 statement and proof p.95. *Printed:* n/2 *Correction:* Separate the odd case from the half-period hypothesis; initially conclude the restricted period divides n/2.
-- **E9** (gap; affects the proof), Proof of Theorem0.12 p.95. *Printed:* K=∪iKi *Correction:* Include a transcendence basis of K/R in K0 before expressing K as the union of finite extensions of K0.
-- **E10** (gap; affects the proof), Proof of Theorem0.13 p.96. *Printed:* not proportional *Correction:* Choose local parameters jointly so det(dy1,dy2) is nonzero, after restricting to a smooth point.
-- **E11** (misprint; affects nothing), Equation(2.1) p.72. *Printed:* M(−k) *Correction:* Use coefficient M(dprime-d) in the source of the Gysin map.
-- **E12** (misprint; affects nothing), Equation(5.7) p.88. *Printed:* H⁰(C,N_C/T) *Correction:* The normal-sequence boundary lands in H¹(C,N_C/T).
-- **E13** (gap; affects the proof), Proof of Proposition0.7 p.108. *Printed:* (0:−1:1:1) *Correction:* Use general real points of the divisor u=0 away from zeros and poles, with the required sign, and justify simultaneous specialization.
-- **E14** (misprint; affects nothing), Proof of Proposition0.7 p.107. *Printed:* Br(R(S)) *Correction:* Use Br(K(S)), for the real Puiseux field K defined in this proof.
-- **E15** (misprint; affects nothing), Proof of Theorem0.6 p.107. *Printed:* unique δ *Correction:* Say unique NONZERO delta with component0 zero, as in the preceding paragraph on p.106.
-- **E16** (misprint; affects nothing), Proof of Proposition7.1 p.103, following(7.14). *Printed:* kernel *Correction:* Use torsion-freeness of the cokernel of the Picard cycle map.
-- **E17** (misprint; affects nothing), Proof of Theorem1.5 p.71. *Printed:* n=dl *Correction:* Distinguish Voisin’s hypersurface-degree parameter from the period n; substitute m=dn for surfaces in |dnH|.
-- **E18** (misprint; affects nothing), Published §3.1 p77 first line; author-copy p15 has the same wording. *Printed:* v *Correction:* The fixed singular points over Sing R are where w vanishes, with v nonzero.
-- **E19** (misprint; affects nothing), Published(5.5) p87, with the normalization fixed in §5.1 p86. *Printed:* rg *Correction:* The restriction coefficient is sqrt(a1)rg before rescaling g by the nonzero scalar sqrt(a1).
+| Routes | Owner and role |
+| --- | --- |
+| 1 | SchemeAndStackFoundations:SF.2, early sites/equivariant-sheaf carrier; import Česnavičius-19's Brauer/purity/residue/Kummer core and Kings–Sprang's equivariant Ext/spectral sequences. |
+| 2 | MotivesAndAlgebraicCycles:MC.2, cycle maps, topological Brauer sequences, Picard primitivity, Kahn and cycle-class comparison compatibility. |
+| 3 | MotivesAndAlgebraicCycles:MC.7, complex/real divisor (1,1) algebraicity. |
+| 4 | AlgebraicModuliForArithmeticGeometry:R09.1/A0-extension, Serre vanishing. |
+| 5 | BrauerPeriodIndexArithmetic tranche in **SemisimpleAlgebrasPartII**. |
+| 6 | EquivariantTopologyRealVarieties tranche in **AlgebraicTopologyPartII**; generic C2 topology, shared BW20 localization/self-duality, circle extensions and transport inputs. |
+| 7 | DegeneratingHodgeStructures tranche in **HodgeStructuresPartII**; generic real Hodge/Noether–Lefschetz criteria, with VHS from ShimuraData:D3. |
+| 8 | QuadraticFormsRealFunctionFields tranche in **QuadraticFormInvariantsPartII**; early C_i, orderings/Harrison, Pfister, Witt, Springer and Amer–Brumer inputs. |
+| 9 | **RealSurfacePeriodIndex**, the double-cover geometry and all late surface, Enriques, Puiseux, u-invariant and del Pezzo applications. |
+| 10 | ShimuraData:D3, the existing VHS definition. |
+| 11 | SchemeAndStackFoundations:SF.6, late Betti Kummer/comparison interfaces. |
+| 12 | InverseGaloisAndArithmeticFundamentalGroups:IG.0/IG.1, the Artin comparison already owned by Landesman–Litt/116(2). |
 
-The reasons and the places searched are in the JSON.
+Route positions 1–10 are preserved. New routes 11–12 require explicit independent review entries before the queue imports them. The required order is early SF.2 carriers → shared topology → late SF.6 comparison → MC.2 cycle compatibility → surface application. Item 158 is purely cohomological and no longer depends back on the later Brauer sequences. The quadratic-form foundation does not import the final surface applications.
 
-## Gaps: status after this continuation
+All required Part II tranches must be included before DESIGN-RealSurfacePeriodIndex runs. Its brief names both the proposed tranche IDs and the actual parent-grouped DESIGN jobs. Accepted co-proposers and the pending Jannsen-16 tranche are distinguished. Queue generation, other extractions and the review JSON are outside this issue's five deliverables; exact integration instructions are in the fix report.
 
-- **G1** (recorded). E1 records the non-finite map; the checkpoint supplies the finite rank-two model and audits the later uses.
-- **G2** (resolved). Choose β with β mod n = p*α̃ first, as Lemma 1.3 allows (E2).
-- **G4a** (recorded). E3, now affecting Propositions 4.4, 4.5 and 6.6 as stated. The uniform case, which is all the main theorems use, is repaired.
-- **G4b** (recorded). E4, as for G4a.
-- **G4** (resolved). The sign (E6) and the target-restriction argument (E7, item 157) are supplied.
-- **G5** (resolved). The odd case is separate. The restricted period divides n/2 and is at least n/2 by corestriction, so it equals n/2 (E8).
-- **G6** (recorded). E9 and E10 record the two small proof completions.
-- **G7** (resolved). E11: the coefficient is M(d′−d), as in the cited BW1 (1.22).
-- **G8** (resolved). E12: the boundary lands in H¹(C, N_C/T), as in the cited Benoist 2018.
-- **G9** (recorded). E13 records the generic-point repair.
-- **G10** (deferred). Jannsen's lemma is a cited supplier's proof; the Springer chapter is not openly available.
-- **G11** (deferred). The transitive closure of cited proof interiors is supplier and design work.
-- **G12** (resolved). Item 157 supplies the target-sheaf argument (E7).
+The new ordering item uses the pinned RingPreordering/IsOrdering, IsSemireal/IsFormallyReal and IsRealClosed carriers. Ordered real-closure existence and ordering conversion are imported from **tauceti:TauCetiRoadmap/RealAlgebraicGeometry Layer 1**, already present in the upstream feed but pending atlas refresh. Item 191 adds only its consumer interface. No Tau Ceti roadmap is re-planned.
 
-## Validation (cc-442dc5)
+## Source records
 
-`scripts/check_paper.py` and `research/blueprint/intake.py check-files` pass on the result. Item ids are unique, every missing item is routed exactly once, and every prerequisite target exists. No Lean deliverable is part of a paper job.
+The extraction and errata JSON now contain identical **24 source records**. Existing independent errata verdicts are retained with review history: **17 confirmed and two rejected** (E16 and E19). E19's imposed normalization was unwarranted: rescaling the anti-invariant identification gives the printed `(1,rg)` without changing g. E7 and E8 are classified as misprint/nothing. E10 uses the same `w′=(w²−1)/(2w)` parameter repair in both records. E13 requires avoiding zeros and poles of unit parts at both sign-test arcs.
 
-## Checkpoint history (unchanged)
+Five records are newly written and await independent errata review:
 
-The report of the earlier checkpoint follows as it was written. Where it says *partial* or *open*, or gives the earlier classification of E3, E4, E6, E11, E12, E16 or E18, or the earlier gap statuses, this continuation supersedes it.
+- **E20:** missing R∩D fibre case in Proposition 4.2.
+- **E21:** compatible Kummer representative and relative-pair transport at the end of Proposition 6.6.
+- **E22:** extra double R component in Lemma 6.4's printed divisor formula.
+- **E23:** pushforward vanishing belongs on U and only after restricting to Ψ.
+- **E24:** Lemma 6.5's stray Θ should be Ψ=S(R)∖Ξ.
+
+Both files give top-level sourceVersions with URLs, SHA-256 hashes, dates and exact reading scope. The [published PDF](https://www.numdam.org/item/10.1007/s10240-019-00108-7.pdf) was read at the affected passages and compared with [arXiv v2](https://arxiv.org/pdf/1804.03642v2) and the [author copy](https://www.math.ens.psl.eu/~benoist/articles/realperiodindex.pdf). Full prior readings remain attributed to their earlier workers. No claim of a complete fresh reading of every version or all citing literature is made.
+
+## Validation and provenance
+
+The paper/errata checkers, source-version checks, five-file intake and whitespace checks pass. All inherited item IDs/statuses and pinned baseline metadata survive. All external dependency IDs resolve. The explicit dependency graph is acyclic (198 internal and 49 external edges); it contains no late comparison/application back-edge into the foundation tranches. There are 218 finite diagnostics for parity, circle presentations, the w′ identity and divisor orders; these do not prove G10 or G13. No Lean file is requested or compiled, and no new library build was created.
+
+The completed extraction and independent reviews of September 2026 remain historical evidence. Their acceptance covers the versions they reviewed; this fix is awaiting its own review. The current account above and the result JSON supersede earlier wrong evaluation-locus explanations, E19 confirmation, route counts, ownership statements and recursive-closure demands.
+
+## Checkpoint history
+
+The following earlier checkpoint is preserved for provenance. Its item counts, route boundaries and gap status are historical; the current sections above control. References to “before closure” or transitive proof extraction below do not reinstate the removed §16 gates.
 
 ## Benoist: the period-index problem for real surfaces
 
