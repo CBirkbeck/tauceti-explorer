@@ -11,7 +11,7 @@
   "EllipticCurveModularity:R29.6"
  ],
  "status": "partial",
- "summary": "Checkpoint 1 (Claude Code cc-39fac3), under the accepted RS-06: every stage R29.1–R29.6 is source_decomposed at declaration granularity for the content RS-06 keeps here — the explicit exceptional set Σ_E, Lemme 5 with the conductor criterion, the Serre witnesses at level N, the pigeonhole and norm argument, the newform F_E with rational coefficients, the Tate-module comparison, exact conductor and bad Euler factors, the isogeny to E, the modular parametrisation and the modularity theorem with the L-function consequences — with the general theory imported from its owners by request. The packet stays partial because those suppliers are open.",
+ "summary": "Checkpoint 1 (Claude Code cc-39fac3), under the accepted RS-06: every stage R29.1–R29.6 is source_decomposed at declaration granularity for the content RS-06 keeps here — the explicit exceptional set Σ_E, Lemme 5 with the conductor criterion, the Serre witnesses at level N, the pigeonhole and norm argument, the newform F_E with rational coefficients, the Tate-module comparison, exact conductor and bad Euler factors, the isogeny to E, the modular parametrisation and the modularity theorem with the L-function consequences — with the general theory imported from its owners by request. The packet stays partial because those suppliers are open. Verified red-team fixes import Layer 5 uniqueness, make requested prerequisites explicit, preserve oldform multiplicities and coefficient-field scalars, strengthen exceptional-set tests, and distinguish conditional stateable Lean signatures from precise unavailable contracts. The existing review describes the earlier packet; these edits require REV-FIX-RT-BP-EllipticCurveModularity.",
  "baseline": {
   "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
   "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -21,112 +21,126 @@
     "kind": "def",
     "module": "Mathlib/AlgebraicGeometry/EllipticCurve/Weierstrass.lean",
     "provides": "The j-invariant of a Weierstrass curve.",
-    "checked": "name, kind and module confirmed in the pinned declaration index; used by the suggested file, which elaborates against Mathlib 082e2d3"
+    "checked": "name, kind and module confirmed in the pinned declaration index; used by the pre-fix suggested file, which its earlier review reported elaborating against Mathlib 082e2d3; that compilation claim does not cover the current uncompiled prototype"
    },
    {
     "ref": "mathlib:Set.Finite",
     "kind": "def",
     "module": "Mathlib/Basic/Finite/Defs.lean",
     "provides": "Finite sets.",
-    "checked": "name, kind and module confirmed in the pinned declaration index; used by the suggested file, which elaborates against Mathlib 082e2d3"
+    "checked": "name, kind and module confirmed in the pinned declaration index; used by the pre-fix suggested file, which its earlier review reported elaborating against Mathlib 082e2d3; that compilation claim does not cover the current uncompiled prototype"
    },
    {
     "ref": "mathlib:CuspForm",
     "kind": "structure",
     "module": "Mathlib/NumberTheory/ModularForms/Basic.lean",
     "provides": "Cusp forms of weight k for a subgroup Γ of GL₂(ℝ) (arithmetic groups enter through their image, e.g. (Gamma1 N).map (mapGL ℝ)).",
-    "checked": "name, kind and module confirmed in the pinned declaration index; used by the suggested file, which elaborates against Mathlib 082e2d3; statement re-read at the pinned commit by REV-EllipticCurveModularity, which corrected the provides text"
+    "checked": "name, kind and module confirmed in the pinned declaration index; used by the pre-fix suggested file, which its earlier review reported elaborating against Mathlib 082e2d3; that compilation claim does not cover the current uncompiled prototype; statement re-read at the pinned commit by REV-EllipticCurveModularity, which corrected the provides text"
    },
    {
     "ref": "mathlib:IsPrimitiveRoot",
     "kind": "structure",
     "module": "Mathlib/RingTheory/RootsOfUnity/PrimitiveRoots.lean",
     "provides": "Primitive roots of unity.",
-    "checked": "name, kind and module confirmed in the pinned declaration index; used by the suggested file, which elaborates against Mathlib 082e2d3"
+    "checked": "name, kind and module confirmed in the pinned declaration index; used by the pre-fix suggested file, which its earlier review reported elaborating against Mathlib 082e2d3; that compilation claim does not cover the current uncompiled prototype"
    },
    {
     "ref": "mathlib:Nat.totient",
     "kind": "def",
     "module": "Mathlib/Data/Nat/Totient.lean",
     "provides": "Euler's φ.",
-    "checked": "name, kind and module confirmed in the pinned declaration index; used by the suggested file, which elaborates against Mathlib 082e2d3"
+    "checked": "name, kind and module confirmed in the pinned declaration index; used by the pre-fix suggested file, which its earlier review reported elaborating against Mathlib 082e2d3; that compilation claim does not cover the current uncompiled prototype"
    },
    {
     "ref": "mathlib:Finite.exists_infinite_fiber",
     "kind": "theorem",
     "module": "Mathlib/Data/Fintype/Pigeonhole.lean",
     "provides": "A map from an infinite type to a finite one has an infinite fibre.",
-    "checked": "name, kind and module confirmed in the pinned declaration index; used by the suggested file, which elaborates against Mathlib 082e2d3"
+    "checked": "name, kind and module confirmed in the pinned declaration index; used by the pre-fix suggested file, which its earlier review reported elaborating against Mathlib 082e2d3; that compilation claim does not cover the current uncompiled prototype"
    },
    {
     "ref": "mathlib:Set.Infinite",
     "kind": "def",
     "module": "Mathlib/Basic/Finite/Defs.lean",
     "provides": "Infinite sets.",
-    "checked": "name, kind and module confirmed in the pinned declaration index; used by the suggested file, which elaborates against Mathlib 082e2d3"
+    "checked": "name, kind and module confirmed in the pinned declaration index; used by the pre-fix suggested file, which its earlier review reported elaborating against Mathlib 082e2d3; that compilation claim does not cover the current uncompiled prototype"
    },
    {
     "ref": "mathlib:NumberField.RingOfIntegers",
     "kind": "def",
     "module": "Mathlib/NumberTheory/NumberField/Basic.lean",
     "provides": "The ring of integers 𝒪_K.",
-    "checked": "name, kind and module confirmed in the pinned declaration index; used by the suggested file, which elaborates against Mathlib 082e2d3"
+    "checked": "name, kind and module confirmed in the pinned declaration index; used by the pre-fix suggested file, which its earlier review reported elaborating against Mathlib 082e2d3; that compilation claim does not cover the current uncompiled prototype"
    },
    {
     "ref": "mathlib:Algebra.norm",
     "kind": "def",
     "module": "Mathlib/RingTheory/Norm/Defs.lean",
     "provides": "The norm of a finite extension.",
-    "checked": "name, kind and module confirmed in the pinned declaration index; used by the suggested file, which elaborates against Mathlib 082e2d3"
+    "checked": "name, kind and module confirmed in the pinned declaration index; used by the pre-fix suggested file, which its earlier review reported elaborating against Mathlib 082e2d3; that compilation claim does not cover the current uncompiled prototype"
    },
    {
     "ref": "mathlib:Algebra.norm_eq_zero_iff",
     "kind": "theorem",
     "module": "Mathlib/RingTheory/Norm/Basic.lean",
     "provides": "For a finite free extension of domains (e.g. 𝒪_K over ℤ), the norm of x vanishes iff x = 0.",
-    "checked": "name, kind and module confirmed in the pinned declaration index; used by the suggested file, which elaborates against Mathlib 082e2d3; statement re-read at the pinned commit by REV-EllipticCurveModularity, which corrected the provides text"
+    "checked": "name, kind and module confirmed in the pinned declaration index; used by the pre-fix suggested file, which its earlier review reported elaborating against Mathlib 082e2d3; that compilation claim does not cover the current uncompiled prototype; statement re-read at the pinned commit by REV-EllipticCurveModularity, which corrected the provides text"
    },
    {
     "ref": "mathlib:Int.eq_zero_of_abs_lt_dvd",
     "kind": "lemma",
     "module": "Mathlib/Algebra/Order/Group/Unbundled/Int.lean",
     "provides": "An integer divisible by m with |n| < m is zero.",
-    "checked": "name, kind and module confirmed in the pinned declaration index; used by the suggested file, which elaborates against Mathlib 082e2d3"
+    "checked": "name, kind and module confirmed in the pinned declaration index; used by the pre-fix suggested file, which its earlier review reported elaborating against Mathlib 082e2d3; that compilation claim does not cover the current uncompiled prototype"
    },
    {
     "ref": "tauceti:HeckeRing.GL2.Newform",
     "kind": "structure",
     "module": "TauCeti/NumberTheory/ModularForms/Newforms/Newform.lean",
     "provides": "Tau Ceti's newforms: normalised (a₁ = 1) cusp forms of weight k on Γ₁(N) with a nebentypus χ, in the new subspace, eigen for the Hecke operators at indices coprime to N.",
-    "checked": "name, kind and module confirmed in the pinned declaration index; statement re-read at the pinned commit by REV-EllipticCurveModularity, which corrected the provides text"
+    "checked": "name, kind and module confirmed in the pinned declaration index; statement re-read at the pinned commit by REV-EllipticCurveModularity, which corrected the provides text; statement freshly read at the pin by codex-J6LwjP on 2026-09-30 for the fix"
    },
    {
     "ref": "tauceti:HeckeRing.GL2.Newform.eq_of_forall_notMem_eigenvalue_eq",
     "kind": "theorem",
     "module": "TauCeti/NumberTheory/ModularForms/Newforms/StrongMultiplicityOne.lean",
     "provides": "Strong multiplicity one at a FIXED level N and nebentypus (Miyake 4.6.12): two newforms of level N with f.χ = g.χ whose eigenvalues agree at all indices coprime to N outside a finite set are equal. It does not compare different levels.",
-    "checked": "name, kind and module confirmed in the pinned declaration index; statement re-read at the pinned commit by REV-EllipticCurveModularity, which corrected the provides text"
+    "checked": "name, kind and module confirmed in the pinned declaration index; statement re-read at the pinned commit by REV-EllipticCurveModularity, which corrected the provides text; statement freshly read at the pin by codex-J6LwjP on 2026-09-30 for the fix"
    },
    {
     "ref": "mathlib:WeierstrassCurve.localPolynomial",
     "kind": "def",
     "module": "Mathlib/AlgebraicGeometry/EllipticCurve/LFunction.lean",
     "provides": "The local polynomial of a Weierstrass curve over a local field (good, split/nonsplit multiplicative, additive).",
-    "checked": "name, kind and module confirmed in the pinned declaration index; used by the suggested file, which elaborates against Mathlib 082e2d3"
+    "checked": "name, kind and module confirmed in the pinned declaration index; used by the pre-fix suggested file, which its earlier review reported elaborating against Mathlib 082e2d3; that compilation claim does not cover the current uncompiled prototype"
    },
    {
     "ref": "mathlib:WeierstrassCurve.LFunction",
     "kind": "def",
     "module": "Mathlib/AlgebraicGeometry/EllipticCurve/LFunction.lean",
     "provides": "The formal L-function of a Weierstrass curve over a number field.",
-    "checked": "name, kind and module confirmed in the pinned declaration index; used by the suggested file, which elaborates against Mathlib 082e2d3"
+    "checked": "name, kind and module confirmed in the pinned declaration index; used by the pre-fix suggested file, which its earlier review reported elaborating against Mathlib 082e2d3; that compilation claim does not cover the current uncompiled prototype; statement freshly read at the pin by codex-J6LwjP on 2026-09-30 for the fix"
    },
    {
     "ref": "mathlib:WeierstrassCurve.LSeries",
     "kind": "def",
     "module": "Mathlib/AlgebraicGeometry/EllipticCurve/LFunction.lean",
     "provides": "The complex L-series of a Weierstrass curve.",
-    "checked": "name, kind and module confirmed in the pinned declaration index; used by the suggested file, which elaborates against Mathlib 082e2d3"
+    "checked": "name, kind and module confirmed in the pinned declaration index; used by the pre-fix suggested file, which its earlier review reported elaborating against Mathlib 082e2d3; that compilation claim does not cover the current uncompiled prototype"
+   },
+   {
+    "ref": "mathlib:UpperHalfPlane.qExpansion",
+    "kind": "def",
+    "module": "Mathlib/NumberTheory/ModularForms/QExpansion.lean",
+    "provides": "The power-series q-expansion at a positive cusp width, here width one, used for the actual Newform coefficient interfaces.",
+    "checked": "Statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, line 162, on 2026-09-30; no compilation claimed."
+   },
+   {
+    "ref": "mathlib:ModularForm.eta",
+    "kind": "def",
+    "module": "Mathlib/NumberTheory/ModularForms/DedekindEta.lean",
+    "provides": "Dedekind eta on ℂ, defined by its infinite product, used for the level-11 test identity.",
+    "checked": "Statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, line 60, on 2026-09-30; no compilation claimed."
    }
   ]
  },
@@ -147,7 +161,8 @@
     "4.6 La conjecture de Taniyama-Weil: Theoreme 4, (4.6.1), Lemme 5 with (4.6.2), (4.6.3) and conditions (a),(b), the proof of Theoreme 4 through (4.6.4), and Remarques (1)-(3), pp. 207-208",
     "4.7 Varietes abeliennes a multiplications reelles: Theoreme 5 and (4.7.1), (4.7.2), pp. 208-209",
     "Reviewer (REVIEW-EXT-10-EXT-07): 1.3 (p. 181), 2.5 Proposition 2 (p. 187), 2.8 Proposition 4 with proof (pp. 189-190), 2.9 Proposition 5 with proof (p. 191), 3.1.3-3.1.7 (pp. 194-195), 3.2 (pp. 195-198), 3.3 (p. 198), the introduction to section 4 (p. 199), 4.6 and 4.7 to (4.7.5) (pp. 207-209), bibliography entries [8], [11], [13], [14], [29]. Serre marks conjectural statements with a subscript question mark, e.g. (3.3.1_?); the packet's \"(3.3.1?)\" is that label, not a doubtful locator",
-    "2026-09-28 (cc-39fac3): SHA-256 re-verified against a fresh download; every excerpt used here copied from this PDF's text layer and checked as an exact substring."
+    "2026-09-28 (cc-39fac3): SHA-256 re-verified against a fresh download; every excerpt used here copied from this PDF's text layer and checked as an exact substring.",
+    "2026-09-30 (codex-J6LwjP): fresh read of §4.6, printed pp. 207–208, for the five verified fixes; identical SHA-256."
    ]
   },
   {
@@ -202,7 +217,19 @@
    "url": "https://johncremona.github.io/book/fulltext/chapter2.pdf",
    "sha256": "432fa5290b2b2ac0d623169e9198d928e5dd75acb490db2d58775630d0f6ea94",
    "readSections": [
-    "2026-09-28 (cc-39fac3): §2.6 (modular elliptic curves E_f, conductor and L-series), pp. 24–25; §2.15.1 (modular parametrisations), p. 47."
+    "2026-09-28 (cc-39fac3): §2.6 (modular elliptic curves E_f, conductor and L-series), pp. 24–25; §2.15.1 (modular parametrisations), p. 47.",
+    "2026-09-30 (codex-J6LwjP): fresh read of printed pp. 25–27, especially §2.7, Lemma 2.7.1 proof and Proposition 2.7.2; identical SHA-256."
+   ]
+  },
+  {
+   "id": "DDT-FLT-2007",
+   "title": "Fermat's Last Theorem",
+   "authors": "Henri Darmon, Fred Diamond and Richard Taylor",
+   "edition": "Author revision dated 9 September 2007, 167 pages; printed and PDF pages agree.",
+   "url": "https://www.math.mcgill.ca/darmon/pub/Articles/Expository/05.DDT/paper.pdf",
+   "sha256": "254f6e29957f95219eff046c29478f5ee584615bee12c8aa8357f499c8cbe8b3",
+   "readSections": [
+    "2026-09-30: p. 46, Lemma 1.48 and Proposition 1.49; pp. 85–87, construction (3.1.1), Theorem 3.1 and proof discussion. The underlying Ribet proof is imported through R19.1, not claimed freshly read."
    ]
   }
  ],
@@ -215,7 +242,7 @@
    ],
    "title": "The exceptional primes of E",
    "kind": "definition",
-   "statement": "Let E/ℚ be an elliptic curve of conductor N and j-invariant j_E. Its exceptional set Σ_E is the finite set of primes p such that p ≤ 5, or p ∣ N, or p ∣ v_ℓ(j_E) for some prime ℓ with v_ℓ(N) = 1, or E admits a ℚ-rational cyclic subgroup of order p. Every p ∉ Σ_E is good for E and E[p] is irreducible.",
+   "statement": "Let E/ℚ be an elliptic curve of conductor N and j-invariant j_E. Its exceptional set Σ_E is the finite set of primes p such that p ≤ 5, or p ∣ N, or p ∣ v_ℓ(j_E) for some prime ℓ with v_ℓ(N) = 1, or E admits a ℚ-rational cyclic subgroup of order p. Every prime p ∉ Σ_E is good for E and E[p] is irreducible.",
    "hypotheses": [
     "Σ_E depends only on the ℚ-isomorphism class of E; it is finite by the finiteness of the prime degrees of rational isogenies (FaltingsFinitenessAndIsogenyTheorems R28.6) and because only finitely many ℓ have v_ℓ(N) = 1, each with v_ℓ(j_E) a fixed negative integer."
    ],
@@ -280,29 +307,44 @@
     {
      "name": "TauCeti.EllipticCurve.Modularity.irreducible_of_not_mem",
      "role": "projection",
-     "statement": "p ∉ Σ_E ⇒ E[p] irreducible."
+     "statement": "For a prime p, p∉Σ_E implies that E[p] is irreducible."
     },
     {
      "name": "TauCeti.EllipticCurve.Modularity.goodReduction_of_not_mem",
      "role": "projection",
-     "statement": "p ∉ Σ_E ⇒ p ∤ N."
+     "statement": "For a prime p, p∉Σ_E implies p∤N, equivalently good reduction of E at p."
     }
    ],
    "tests": [
     {
      "name": "exceptionalPrimes_11a1",
-     "kind": "example",
+     "kind": "computation",
      "statement": "E = X₀(11) (11a1, y² + y = x³ − x² − 10x − 20): 5 ∈ Σ_E (rational 5-torsion) and 11 ∈ Σ_E."
     },
     {
      "name": "exceptionalPrimes_contains_small",
-     "kind": "example",
+     "kind": "compatibility",
      "statement": "2, 3, 5 ∈ Σ_E for every E."
     },
     {
      "name": "exceptionalPrimes_CM",
-     "kind": "example",
+     "kind": "compatibility",
      "statement": "E: y² = x³ − x (CM by ℤ[i], N = 32): Σ_E is still finite; 2 ∈ Σ_E."
+    },
+    {
+     "name": "exceptionalPrimes_11a1_seven",
+     "kind": "non-example",
+     "statement": "For 11a1, y²+y=x³−x²−10x−20, 7∉Σ_E. Its discriminant is −11^5, v₁₁(j)=−5, and a₃=−1 gives nonsquare mod-7 Frobenius discriminant 3, ruling out a rational cyclic 7-subgroup."
+    },
+    {
+     "name": "exceptionalPrimes_26b1",
+     "kind": "computation",
+     "statement": "For y²+xy+y=x³−x²−3x+3 (26b1), 7∈Σ_E although 7>5 and E has good reduction at 7. The point (1,0) has order seven and v₂(j)=−7; either substantive clause gives membership. This test alone does not distinguish the two clauses."
+    },
+    {
+     "name": "exceptionalPrimes_valuation_only",
+     "kind": "computation",
+     "statement": "For y²+xy=x³−7x+9, 7∈Σ_E solely through the valuation clause: c₄=337, Δ=−2^7·137, v₂(j)=−7 and good reduction at 7. The good-prime trace a₃=−2 gives nonsquare discriminant 6 modulo 7, excluding a rational cyclic 7-subgroup."
     }
    ],
    "planet": {
@@ -370,7 +412,8 @@
    ],
    "prerequisites": [
     "EllipticCurveModularity:R29.1/residual-conductor-divides",
-    "ArithmeticGaloisRepresentations:R01.6"
+    "ArithmeticGaloisRepresentations:R01.6",
+    "tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv"
    ],
    "library": {
     "module": "TauCeti/NumberTheory/EllipticCurve/Modularity",
@@ -441,7 +484,7 @@
    ],
    "title": "Weight two and trivial character at good primes",
    "kind": "lemma",
-   "statement": "For p ∉ Σ_E (so E has good reduction at p and p ≥ 7), E[p] extends to a finite flat group scheme over ℤ_p (the p-torsion of the Néron model), so ρ̄_{E,p} is finite at p; with det ρ̄_{E,p} = χ̄_p, Serre's recipe gives weight k(ρ̄_{E,p}) = 2 and character ε = 1.",
+   "statement": "For a prime p ∉ Σ_E (so E has good reduction at p and p ≥ 7), E[p] extends to a finite flat group scheme over ℤ_p (the p-torsion of the Néron model), so ρ̄_{E,p} is finite at p; with det ρ̄_{E,p} = χ̄_p, Serre's recipe gives weight k(ρ̄_{E,p}) = 2 and character ε = 1.",
    "hypotheses": [
     "p odd: Serre's Proposition 4 (k = 2 iff det|_I = χ and finite at p) is proved for p ≠ 2; excluding p ≤ 5 avoids the boundary."
    ],
@@ -487,7 +530,7 @@
    ],
    "title": "Serre witnesses at level N",
    "kind": "construction",
-   "statement": "For each p ∉ Σ_E the classical Serre theorem (ClassicalSerreModularity R27.6) gives a normalised newform g_p of weight 2, level N(ρ̄_{E,p}) = N and trivial character, with a prime λ_p | p of its coefficient field, such that ρ̄_{g_p, λ_p} ≅ ρ̄_{E,p}; its reduction is Serre's normalised eigenform f_p ∈ S₂(Γ₀(N), F̄_p). Its Hecke eigenvalues satisfy a_ℓ(g_p) ≡ a_ℓ(E) mod λ_p for every ℓ ∤ Np.",
+   "statement": "For each prime p ∉ Σ_E the classical Serre theorem (ClassicalSerreModularity R27.6) gives a normalised newform g_p of weight 2, level N(ρ̄_{E,p}) = N and trivial character, with a prime λ_p | p of its coefficient field, such that ρ̄_{g_p, λ_p} ≅ ρ̄_{E,p}; its reduction is Serre's normalised eigenform f_p ∈ S₂(Γ₀(N), F̄_p). Its Hecke eigenvalues satisfy a_ℓ(g_p) ≡ a_ℓ(E) mod λ_p for every ℓ ∤ Np.",
    "hypotheses": [
     "p ∉ Σ_E; the level is the prime-to-p conductor, equal to N by Lemme 5.",
     "The witness is used only through its Hecke eigensystem mod λ_p; no claim is made that it has coefficients in F_p (Serre's (3.2.6?) rationality is not used)."
@@ -557,17 +600,17 @@
    "tests": [
     {
      "name": "serreWitness_11a1",
-     "kind": "example",
+     "kind": "computation",
      "statement": "E = 11a1, p = 7: the witness is the unique newform of level 11, f = q∏(1 − qⁿ)²(1 − q¹¹ⁿ)²."
     },
     {
      "name": "serreWitness_trace_2",
-     "kind": "example",
+     "kind": "computation",
      "statement": "For E = 11a1 and p = 7: a₂(f) = −2 = a₂(E)."
     },
     {
      "name": "serreWitness_not_at_exceptional",
-     "kind": "example",
+     "kind": "compatibility",
      "statement": "p = 5 ∈ Σ_{11a1}: no witness is requested (E[5] is reducible)."
     }
    ],
@@ -711,7 +754,8 @@
     "EllipticCurveModularity:R29.2/weight-two-and-level-N-from-the-weight-recipe",
     "EllipticCurveModularity:R29.3/pigeonhole-infinite-fiber",
     "EllipticCurveModularity:R29.3/algebraic-integer-norm-vanishing",
-    "AlgebraicModularFormsAndSerreWeights:R15.5/deligne-serre-eigenvalue-lifting-lemma"
+    "AlgebraicModularFormsAndSerreWeights:R15.5/deligne-serre-eigenvalue-lifting-lemma",
+    "tauceti:TauCetiRoadmap/ModularForms#layer-4-eigenforms-newforms-primitive-forms-the-conductor"
    ],
    "library": {
     "module": "TauCeti/NumberTheory/EllipticCurve/Modularity",
@@ -740,48 +784,6 @@
    "implementationStatus": "unchecked"
   },
   {
-   "id": "EllipticCurveModularity:R29.3/strong-multiplicity-one-across-levels",
-   "parentStageId": "EllipticCurveModularity:R29.3",
-   "realises": [
-    "EllipticCurveModularity:R29.3"
-   ],
-   "title": "Strong multiplicity one across levels dividing N",
-   "kind": "lemma",
-   "statement": "Let f and g be normalised newforms of weight 2 and trivial character, of levels M and M′ dividing N. If A_ℓ(f) = A_ℓ(g) for all but finitely many primes ℓ ∤ N, then M = M′ and f = g.",
-   "hypotheses": [
-    "Tau Ceti proves strong multiplicity one only at a fixed level and nebentypus (HeckeRing.GL2.Newform.eq_of_forall_notMem_eigenvalue_eq); the library audit (data/library-coverage.json, AUDIT-16, ModularForms Layer 4) records the newform decomposition across levels (Miyake Cor. 4.6.20, Diamond–Shurman Thm 5.8.3) as absent.",
-    "The Atkin–Lehner–Li decomposition S₂(Γ₀(L)) = ⊕_{M″|L} ⊕_{d|L/M″} S₂(Γ₀(M″))^new(dz) and the description of good-Hecke eigenspaces are requested from Tau Ceti ModularForms Layer 4."
-   ],
-   "proofSteps": [
-    "Put L = lcm(M, M′), which divides N. The forms f(dz) (d | L/M) and g(z) lie in S₂(Γ₀(L)) and are eigenvectors of every T_ℓ with ℓ ∤ L, with the eigenvalues of f and g respectively (Tau Ceti's level raising).",
-    "Atkin–Lehner–Li (requested): the simultaneous eigenspace of the T_ℓ, ℓ ∤ N, in S₂(Γ₀(L)) for the eigenvalues of f is spanned by the f(dz), d | L/M; eigenvalues agreeing for almost all ℓ determine the eigenvalue system at all ℓ ∤ N (Tau Ceti's EigenformAwayFromLevel.eigenvalue_eq_of_forall_notMem), so g lies in it.",
-    "The sum ⊕_{M″|L} ⊕_{d|L/M″} S₂(Γ₀(M″))^new(dz) is direct, g lies in the (M′, 1) summand and the f(dz) in (M, d) summands; if M′ ≠ M, g = Σ c_d f(dz) forces g = 0, which is impossible. So M = M′.",
-    "At the common level M, the fixed-level theorem HeckeRing.GL2.Newform.eq_of_forall_notMem_eigenvalue_eq (trivial nebentypus on both sides) gives f = g."
-   ],
-   "acceptance": [
-    "Test: the unique newform of level 11 and its level-raised copies f(z), f(2z) in S₂(Γ₀(22)): f(2z) is not a newform, and the newform decomposition of S₂(Γ₀(22)) (dimension 2) is f(z), f(2z) with no new part.",
-    "Non-example of the fixed-level statement alone: it cannot compare a newform of level 11 with one of level 33, which is why this lemma is separate."
-   ],
-   "prerequisites": [
-    "tauceti:HeckeRing.GL2.Newform",
-    "tauceti:HeckeRing.GL2.Newform.eq_of_forall_notMem_eigenvalue_eq"
-   ],
-   "library": {
-    "module": "TauCeti/NumberTheory/EllipticCurve/Modularity",
-    "namespace": "TauCeti.EllipticCurve.Modularity"
-   },
-   "sources": [
-    {
-     "sourceId": "CREMONA-AMEC-1997",
-     "locator": "Chapter II, §2.7, p. 26 (printed page; PDF page 20)",
-     "excerpt": "We also need to identify “oldclasses”: these are also common eigenspaces for all the T p (though not for all the Wq , see below) but have dimension greater than 1.",
-     "match": "Oldclasses are the good-Hecke eigenspaces of lower-level newforms (Atkin–Lehner); the theorem itself is requested from Tau Ceti ModularForms Layer 4."
-    }
-   ],
-   "implementationStatus": "unchecked",
-   "addedBy": "REV-EllipticCurveModularity"
-  },
-  {
    "id": "EllipticCurveModularity:R29.3/newform-of-E",
    "parentStageId": "EllipticCurveModularity:R29.3",
    "realises": [
@@ -791,20 +793,22 @@
    "kind": "definition",
    "statement": "F_E is the unique normalised newform of weight 2 and trivial character, of some level M_E | N, with A_ℓ(F_E) = a_ℓ(E) for all ℓ ∤ N. Uniqueness is strong multiplicity one; its Fourier coefficients are rational integers (rational-coefficient-field).",
    "hypotheses": [
-    "Uniqueness among newforms of all levels dividing N is R29.3/strong-multiplicity-one-across-levels; Tau Ceti's HeckeRing.GL2.Newform.eq_of_forall_notMem_eigenvalue_eq alone covers only a fixed level and nebentypus."
+    "Uniqueness across positive levels M,M′ dividing N is the prime-agreement theorem of Tau Ceti ModularForms Layer 5. Its built fixed-space theorem has stronger all-good-index hypotheses. The construction initially yields M_E|N; exact-conductor is the later identification M_E=N."
    ],
    "proofSteps": [
-    "Existence: the theorem above.",
-    "Uniqueness: two newforms of levels dividing N with the same eigenvalues outside N coincide, and have the same level (strong-multiplicity-one-across-levels)."
+    "Existence is a-single-newform-for-infinitely-many-p-and-exact-coefficients, using the Layer 4 primitive-associate interface.",
+    "Apply the imported Layer 5 theorem to two such newforms: their prime coefficients agree outside N, so their levels and normalized forms agree."
    ],
    "acceptance": [
-    "The level M_E is shown to equal N in R29.4 (exact-conductor)."
+    "The level M_E is shown to equal N in R29.4 (exact-conductor).",
+    "At ambient level 22, the unique level-11 newform has old copies f(z), f(2z), exhausting the two-dimensional cusp space with no new part. The copy f(2z) is not a normalized newform of level 22. Uniqueness compares primitive newforms, not their ambient oldforms."
    ],
    "prerequisites": [
     "EllipticCurveModularity:R29.3/a-single-newform-for-infinitely-many-p-and-exact-coefficients",
-    "EllipticCurveModularity:R29.3/strong-multiplicity-one-across-levels",
+    "tauceti:TauCetiRoadmap/ModularForms#layer-5-strong-multiplicity-one-and-the-eigenform-characterization",
     "tauceti:HeckeRing.GL2.Newform",
-    "tauceti:HeckeRing.GL2.Newform.eq_of_forall_notMem_eigenvalue_eq"
+    "tauceti:HeckeRing.GL2.Newform.eq_of_forall_notMem_eigenvalue_eq",
+    "tauceti:TauCetiRoadmap/ModularForms#layer-4-eigenforms-newforms-primitive-forms-the-conductor"
    ],
    "library": {
     "module": "TauCeti/NumberTheory/EllipticCurve/Modularity",
@@ -837,17 +841,17 @@
     {
      "name": "TauCeti.EllipticCurve.Modularity.newformOf",
      "role": "constructor",
-     "statement": "F_E."
+     "statement": "Choose the unique primitive form F_E at a positive level M_E dividing the conductor N. After exact-conductor identifies M_E=N, export a form of level N. The suggested fixed-level interface takes an explicit existence proof of a trivial-character level-N newform whose prime Fourier coefficients away from N equal E.LFunction(ℓ); it does not assert existence for arbitrary N."
     },
     {
      "name": "TauCeti.EllipticCurve.Modularity.newformOf_coeff_prime",
      "role": "characterisation",
-     "statement": "a_ℓ(F_E) = a_ℓ(E) for ℓ ∤ N."
+     "statement": "For every prime ℓ∤N, a_ℓ(F_E)=a_ℓ(E)=E.LFunction(ℓ)."
     },
     {
      "name": "TauCeti.EllipticCurve.Modularity.newformOf_unique",
      "role": "extensionality",
-     "statement": "Any newform with these good coefficients is F_E."
+     "statement": "A normalized trivial-character newform at a level dividing N with the same coefficients at primes away from N has the same primitive level as F_E and equals F_E after transport. At the fixed exported level N this is ordinary equality."
     },
     {
      "name": "TauCeti.EllipticCurve.Modularity.newformOf_coeff_int",
@@ -858,18 +862,18 @@
    "tests": [
     {
      "name": "newformOf_11a1",
-     "kind": "example",
+     "kind": "computation",
      "statement": "E = 11a1: F_E = η(z)²η(11z)², level 11."
     },
     {
      "name": "newformOf_isogeny_invariant",
-     "kind": "example",
+     "kind": "compatibility",
      "statement": "Isogenous curves (11a1, 11a2, 11a3) have the same F_E."
     },
     {
      "name": "newformOf_twist",
-     "kind": "example",
-     "statement": "The quadratic twist E^{(d)} has F_{E^{(d)}} = F_E ⊗ χ_d (coefficients twisted at good ℓ)."
+     "kind": "compatibility",
+     "statement": "For squarefree nonzero d, the newform of the quadratic twist E^(d) is the primitive associate of F_E⊗χ_d; at primes away from the two conductors and d its coefficient is χ_d(ℓ)a_ℓ(F_E). The raw twist at an ambient level need not itself be primitive."
     }
    ],
    "planet": {
@@ -890,14 +894,15 @@
    ],
    "proofSteps": [
     "For σ ∈ Gal(ℚ̄/ℚ), F_E^σ is a newform of the same level and character with A_ℓ(F_E^σ) = σ(a_ℓ(E)) = a_ℓ(E) for ℓ ∤ N.",
-    "Strong multiplicity one gives F_E^σ = F_E, so every coefficient is σ-fixed, hence rational; coefficients of newforms are algebraic integers, so they lie in ℤ."
+    "The imported Layer 5 prime-agreement theorem gives F_E^σ=F_E. Every Fourier coefficient is therefore rational; the Layer 8g/8 integral coefficient-field interface makes it a rational integer, including coefficients at bad primes."
    ],
    "acceptance": [
     "Serre only records that the good A_ℓ lie in ℤ; the bad coefficients are rational by this conjugation argument."
    ],
    "prerequisites": [
     "EllipticCurveModularity:R29.3/newform-of-E",
-    "tauceti:HeckeRing.GL2.Newform.eq_of_forall_notMem_eigenvalue_eq"
+    "tauceti:TauCetiRoadmap/ModularForms#layer-8g-galois-stability-the-character-field-and-rationality",
+    "tauceti:TauCetiRoadmap/ModularForms#layer-5-strong-multiplicity-one-and-the-eigenform-characterization"
    ],
    "library": {
     "module": "TauCeti/NumberTheory/EllipticCurve/Modularity",
@@ -940,7 +945,7 @@
     "AutomorphicGaloisRepresentations:R19.4",
     "EllipticCurveModularity:R29.3/rational-coefficient-field",
     "ModularCurvesPartII:R14.5",
-    "AutomorphicGaloisRepresentations:R19.6"
+    "AutomorphicGaloisRepresentations:R19.6/weight-two-tate-module-decomposition"
    ],
    "library": {
     "module": "TauCeti/NumberTheory/EllipticCurve/Modularity",
@@ -1021,7 +1026,9 @@
     "EllipticCurveModularity:R29.4/tate-module-comparison",
     "EllipticCurveModularity:R29.4/exact-conductor",
     "AutomorphicGaloisRepresentations:R19.4",
-    "mathlib:WeierstrassCurve.localPolynomial"
+    "mathlib:WeierstrassCurve.localPolynomial",
+    "tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv",
+    "tauceti:TauCetiRoadmap/ModularForms#layer-4-eigenforms-newforms-primitive-forms-the-conductor"
    ],
    "library": {
     "module": "TauCeti/NumberTheory/EllipticCurve/Modularity",
@@ -1062,7 +1069,7 @@
     "EllipticCurveModularity:R29.4/tate-module-comparison",
     "EllipticCurveModularity:R29.4/exact-conductor",
     "ModularCurvesPartII:R14.5",
-    "AutomorphicGaloisRepresentations:R19.6",
+    "AutomorphicGaloisRepresentations:R19.6/weight-two-tate-module-decomposition",
     "FaltingsFinitenessAndIsogenyTheorems:R28.6/isogeny-criterion-for-elliptic-curves"
    ],
    "library": {
@@ -1110,7 +1117,8 @@
    "prerequisites": [
     "EllipticCurveModularity:R29.5/isogeny-to-E",
     "ModularCurvesPartII:R14.5",
-    "ModularCurvesPartII:R14.6"
+    "ModularCurvesPartII:R14.6",
+    "tauceti:TauCetiRoadmap/JacobianChallenge#layer-f-abeljacobi-and-the-universal-property"
    ],
    "library": {
     "module": "TauCeti/NumberTheory/EllipticCurve/Modularity",
@@ -1170,17 +1178,17 @@
    "tests": [
     {
      "name": "modularParametrisation_11a1",
-     "kind": "example",
+     "kind": "computation",
      "statement": "E = X₀(11) = 11a1: φ_E is an isomorphism (degree 1)."
     },
     {
      "name": "modularParametrisation_11a3",
-     "kind": "example",
+     "kind": "computation",
      "statement": "E = 11a3 with λ : 11a1 → 11a3 a 5-isogeny (the minimal degree): deg φ_E = 5 (the degree depends on the curve in the isogeny class and on λ)."
     },
     {
      "name": "modularParametrisation_37a",
-     "kind": "example",
+     "kind": "computation",
      "statement": "E = 37a1 (y² + y = x³ − x): deg φ_E = 2."
     }
    ],
@@ -1202,11 +1210,15 @@
    ],
    "proofSteps": [
     "(i) is newform-of-E with exact-conductor and bad-euler-factors; (ii) is isogeny-to-E, composed with J₀(N) → A_{F_E}; (iii) is modular-parametrisation.",
-    "(iii) ⇒ (ii): by the universal property of the Abel–Jacobi map (ModularCurvesPartII R14.6), a nonconstant φ : X₀(N) → E sending ∞ to O factors through a surjection J₀(N) → E.",
-    "(ii) ⇒ (i): V_r(E) is then a Galois quotient of V_r(J₀(N)) ≅ ⊕_f ⊕_{λ|r} V_{f,λ} (R19.6); V_r(E) being semisimple (R28.6), Jordan–Hölder gives V_r(E) ≅ V_{f,λ} for a newform f of level dividing N with a degree-one prime λ | r of its coefficient field; comparing Frobenius polynomials (R01.5) gives a_ℓ(E) = A_ℓ(f) under that embedding for ℓ ∤ Nr, and R29.3–R29.4 (rationality, strong multiplicity one, exact conductor, bad factors) give (i)."
+    "(iii) ⇒ (ii): first translate φ by −φ(∞), preserving nonconstancy. The pointed map factors through a nonzero homomorphism J₀(N)→E by the R14.6/Jacobian universal property. Its image is a positive-dimensional abelian subvariety of the elliptic curve E, hence all of E.",
+    "(ii) ⇒ (i), decomposition: the requested R14.5 old/new isogeny and the individual R19.6 Tate comparison give V_r(J₀(N)) ≅ ⊕_{M|N} ⊕_[f] (⊕_{λ|r} Res_{K_f,λ/ℚ_r} ρ_{f,λ})^{⊕τ(N/M)}. Index f by Galois orbit, and keep both restriction of scalars and the divisor multiplicity. Choose r∤2N, so the imported rank-two realization applies at every M|N.",
+    "After extending scalars to an algebraic closure of ℚ_r, the preceding direct sum splits into absolutely irreducible two-dimensional representations, by R19.1/newform-rank-two-realisation (DDT Theorem 3.1(c)). The surjective Tate map to the two-dimensional V_r(E) then has a nonzero restriction to some irreducible summand; it is injective and hence an isomorphism by dimension. This uses absolute irreducibility of the summands, not semisimplicity alone, and makes no unsupported degree-one-prime assertion.",
+    "Frobenius traces give a_ℓ(f)=a_ℓ(E) for all ℓ∤Nr under an injective embedding of the coefficient field. These good coefficients are therefore rational. Every Galois conjugate of f agrees at those primes; Layer 8g and Layer 5 give equality of the forms, so all coefficients are rational integers. Comparing f to the already constructed F_E by Layer 5 identifies their primitive levels and forms; exact-conductor and bad-euler-factors supply (i)."
    ],
    "acceptance": [
-    "Dependency check: the chain R29.1–R29.5 uses R27.6 but no statement that assumes E modular."
+    "Dependency check: the chain R29.1–R29.5 uses R27.6 but no statement that assumes E modular.",
+    "At N=22 the two old copies of the rational level-11 form contribute dimension 2×2=4 to V_r(J₀(22)), matching genus two. A multiplicity-free expression would give dimension two.",
+    "For a coefficient field K_f of degree d, the total dimension of one A_f Tate module is 2d, whether r splits or is inert; the sum of local degrees [K_f,λ:ℚ_r] equals d."
    ],
    "prerequisites": [
     "EllipticCurveModularity:R29.3/newform-of-E",
@@ -1216,10 +1228,15 @@
     "EllipticCurveModularity:R29.5/modular-parametrisation",
     "ClassicalSerreModularity:R27.6",
     "ModularCurvesPartII:R14.6",
-    "AutomorphicGaloisRepresentations:R19.6",
+    "AutomorphicGaloisRepresentations:R19.6/weight-two-tate-module-decomposition",
     "FaltingsFinitenessAndIsogenyTheorems:R28.6/semisimplicity-of-the-rational-tate-module-of-an-elliptic-curve",
     "ArithmeticGaloisRepresentations:R01.5",
-    "EllipticCurveModularity:R29.3/rational-coefficient-field"
+    "EllipticCurveModularity:R29.3/rational-coefficient-field",
+    "tauceti:TauCetiRoadmap/ModularForms#layer-4-eigenforms-newforms-primitive-forms-the-conductor",
+    "tauceti:TauCetiRoadmap/ModularForms#layer-8g-galois-stability-the-character-field-and-rationality",
+    "ModularCurvesPartII:R14.5",
+    "tauceti:TauCetiRoadmap/ModularForms#layer-5-strong-multiplicity-one-and-the-eigenform-characterization",
+    "AutomorphicGaloisRepresentations:R19.1/newform-rank-two-realisation"
    ],
    "library": {
     "module": "TauCeti/NumberTheory/EllipticCurve/Modularity",
@@ -1231,6 +1248,18 @@
      "locator": "§4.6, p. 207 (printed page; Collège de France PDF page 29)",
      "excerpt": "THÉORÈME 4 . Admettons (3 .3 .1,). Alors E est une courbe de Weil de niveau N .",
      "match": "Serre's Theorem 4, conditional in 1987 on (3.3.1?), which R27.6 now supplies."
+    },
+    {
+     "sourceId": "CREMONA-AMEC-1997",
+     "locator": "Chapter II, §2.7, printed pp. 26–27, oldclass basis and Proposition 2.7.2",
+     "excerpt": "hence its dimension is d(N/M)",
+     "match": "Divisor multiplicities in the oldspace; its Jacobian realization is explicitly requested from R14.5."
+    },
+    {
+     "sourceId": "DDT-FLT-2007",
+     "locator": "Lemma 1.48, p. 46; §3.1 (3.1.1), p. 85; Theorem 3.1(a),(c), p. 86 with proof discussion",
+     "excerpt": "ρ is absolutely irreducible.",
+     "match": "Rank-two scalar components and their absolute irreducibility justify selecting a summand after scalar extension; the full old/new Jacobian is a separate R14.5 input."
     }
    ],
    "implementationStatus": "unchecked",
@@ -1260,7 +1289,8 @@
    "prerequisites": [
     "EllipticCurveModularity:R29.4/bad-euler-factors",
     "mathlib:WeierstrassCurve.LFunction",
-    "mathlib:WeierstrassCurve.LSeries"
+    "mathlib:WeierstrassCurve.LSeries",
+    "tauceti:TauCetiRoadmap/ModularForms#layer-7-l-functions"
    ],
    "library": {
     "module": "TauCeti/NumberTheory/EllipticCurve/Modularity",
@@ -1343,7 +1373,8 @@
    "supplier": "ArithmeticGaloisRepresentations:R01.5",
    "need": "Chebotarev/Brauer–Nesbitt recognition of semisimple r-adic representations by Frobenius characteristic polynomials.",
    "neededBy": [
-    "EllipticCurveModularity:R29.4/tate-module-comparison"
+    "EllipticCurveModularity:R29.4/tate-module-comparison",
+    "EllipticCurveModularity:R29.6/modularity-theorem"
    ],
    "status": "open"
   },
@@ -1353,7 +1384,11 @@
    "neededBy": [
     "EllipticCurveModularity:R29.1/exceptional-primes",
     "EllipticCurveModularity:R29.1/residual-conductor-divides",
-    "EllipticCurveModularity:R29.4/exact-conductor"
+    "EllipticCurveModularity:R29.4/exact-conductor",
+    "EllipticCurveModularity:R29.1/residual-conductor-equality",
+    "EllipticCurveModularity:R29.1/residual-irreducibility-and-the-conductor-of-E-p",
+    "EllipticCurveModularity:R29.2/finite-flat-weight-two",
+    "EllipticCurveModularity:R29.4/tate-module-comparison"
    ],
    "status": "open"
   },
@@ -1393,20 +1428,21 @@
   },
   {
    "supplier": "tauceti:TauCetiRoadmap/ModularForms#layer-4-eigenforms-newforms-primitive-forms-the-conductor",
-   "need": "Finiteness of the set of normalised newforms of weight 2 and level dividing N; the newform decomposition across levels (Atkin–Lehner–Li: S₂(Γ₀(L)) = ⊕_{M|L} ⊕_{d|L/M} S₂(Γ₀(M))^new(dz), the good-Hecke eigenspace of a newform's eigensystem at level L spanned by the f(dz), and existence and uniqueness of the newform attached to an eigensystem, Miyake Cor. 4.6.20 / Diamond–Shurman Thm 5.8.3); and, for bad primes, that a newform is a U_ℓ-eigenvector with eigenvalue its ℓ-th coefficient, with a_ℓ ∈ {±1} when ℓ ∥ N and a_ℓ = 0 when ℓ² | N in weight 2 with trivial character (Miyake 4.6.17). The library audit (AUDIT-16) lists all three as absent: Tau Ceti's newform results are at one fixed level.",
+   "need": "Finiteness of normalized weight-two newforms of levels dividing N; existence of a primitive associate and the oldspace decomposition S₂(Γ₀(N)) = ⊕_{M|N} ⊕_{d|N/M} V_d S₂(Γ₀(M))^new, with V_d f(z)=f(dz); and the U_ℓ-eigenvector theorem and bad-prime coefficient classification (±1 for ℓ∥N, 0 for ℓ²|N, weight two and trivial character). The decomposition supports the Jacobian old/new request to R14.5 in the final theorem. Cross-level uniqueness is imported separately from Layer 5, not constructed from this request.",
    "neededBy": [
     "EllipticCurveModularity:R29.3/a-single-newform-for-infinitely-many-p-and-exact-coefficients",
-    "EllipticCurveModularity:R29.3/strong-multiplicity-one-across-levels",
     "EllipticCurveModularity:R29.3/newform-of-E",
-    "EllipticCurveModularity:R29.4/bad-euler-factors"
+    "EllipticCurveModularity:R29.4/bad-euler-factors",
+    "EllipticCurveModularity:R29.6/modularity-theorem"
    ],
    "status": "open"
   },
   {
    "supplier": "tauceti:TauCetiRoadmap/ModularForms#layer-8g-galois-stability-the-character-field-and-rationality",
-   "need": "Galois conjugates of newforms are newforms of the same level and character (the coefficient field).",
+   "need": "Galois conjugates f^σ of newforms have the same level and conjugate character, with a_n(f^σ)=σ(a_n(f)); for trivial character it stays trivial. Fourier coefficients are algebraic integers in a number field, using the integral Hecke algebra of ModularForms Layer 8. This supplies coefficient-field rationality by prime-agreement multiplicity one.",
    "neededBy": [
-    "EllipticCurveModularity:R29.3/rational-coefficient-field"
+    "EllipticCurveModularity:R29.3/rational-coefficient-field",
+    "EllipticCurveModularity:R29.6/modularity-theorem"
    ],
    "status": "open"
   },
@@ -1421,19 +1457,13 @@
    "status": "open"
   },
   {
-   "supplier": "AutomorphicGaloisRepresentations:R19.6",
-   "need": "The Tate module of the modular quotient A_f is the Galois representation of f.",
-   "neededBy": [
-    "EllipticCurveModularity:R29.5/isogeny-to-E"
-   ],
-   "status": "open"
-  },
-  {
    "supplier": "ModularCurvesPartII:R14.5",
-   "need": "The quotient A_f of J₀(N) for a weight-two newform f with trivial character, dim A_f = [K_f : ℚ].",
+   "need": "For normalized weight-two newforms f with trivial character: the quotient A_f, dim A_f=[K_f:ℚ], and the old/new ℚ-isogeny J₀(N) ∼ ∏_{M|N} ∏_[f] A_f^{τ(N/M)}, where [f] runs over Galois orbits of primitive level-M newforms and τ counts positive divisors. Use ModularForms Layer 4 for degeneracy multiplicities. This is a Jacobian/quotient construction; the individual A_f Tate comparison is the existing R19.6/weight-two-tate-module-decomposition node, imported directly.",
    "neededBy": [
     "EllipticCurveModularity:R29.5/isogeny-to-E",
-    "EllipticCurveModularity:R29.5/modular-parametrisation"
+    "EllipticCurveModularity:R29.5/modular-parametrisation",
+    "EllipticCurveModularity:R29.4/tate-module-comparison",
+    "EllipticCurveModularity:R29.6/modularity-theorem"
    ],
    "status": "open"
   },
@@ -1441,7 +1471,8 @@
    "supplier": "ModularCurvesPartII:R14.6",
    "need": "The rational cusp ∞ of X₀(N) and the Abel–Jacobi morphism X₀(N) → J₀(N) normalised there (with Tau Ceti JacobianChallenge Layer F's universal property).",
    "neededBy": [
-    "EllipticCurveModularity:R29.5/modular-parametrisation"
+    "EllipticCurveModularity:R29.5/modular-parametrisation",
+    "EllipticCurveModularity:R29.6/modularity-theorem"
    ],
    "status": "open"
   },
@@ -1458,6 +1489,16 @@
    "need": "Analytic continuation and functional equation of L(f, s) for a weight-two newform with trivial character.",
    "neededBy": [
     "EllipticCurveModularity:R29.6/l-function-continuation"
+   ],
+   "status": "open"
+  },
+  {
+   "supplier": "tauceti:TauCetiRoadmap/ModularForms#layer-5-strong-multiplicity-one-and-the-eigenform-characterization",
+   "need": "For normalized newforms f,g of weight two and trivial character, at positive levels M,M′ dividing N, agreement of a_ℓ(f),a_ℓ(g) at all but finitely many primes ℓ∤N implies M=M′ and equality of the forms after transport of level. The fixed-level library theorem compares all good indices outside a finite set and does not by itself provide this prime-agreement or cross-level statement.",
+   "neededBy": [
+    "EllipticCurveModularity:R29.3/newform-of-E",
+    "EllipticCurveModularity:R29.3/rational-coefficient-field",
+    "EllipticCurveModularity:R29.6/modularity-theorem"
    ],
    "status": "open"
   }
@@ -1507,6 +1548,16 @@
     "EllipticCurveModularity:R29.1/exceptional-primes"
    ],
    "detail": "Verified: Serre's Lemme 5 and its attribution 'd'apres Mazur [29], (4.6.2) est vrai des que p > 163'. Not verified: Mazur's theorem. Searched the supplied library: CATALOGUE.json contains no record for Mazur, 'Rational isogenies of prime degree', Invent. Math. 44 (1978); the Mazur items present are ADD_MAZUR89 (Deforming Galois representations), ADD_MazurWiles_AbelianExtensions (Class fields of abelian extensions of Q) and ADD_MazurSwinnertonDyer_WeilCurves (Arithmetic of Weil curves). Note that Serre observes the argument only needs N_p to DIVIDE N, so the sharp constant 163 is not essential to Theoreme 4; but irreducibility of rho_p for all but finitely many p is. Next source action: obtain Mazur, Invent. Math. 44 (1978), 129-162, and read the theorem on rational points of X_0(p); alternatively record the weaker statement that E[p] is irreducible for all but finitely many p, which follows from Faltings finiteness as the stage text itself proposes. Checkpoint cc-39fac3 (2026-09-28): the argument no longer needs Mazur's theorem; finiteness of the exceptional primes comes from R28.6 (finite prime degrees of rational isogenies). The sharp bound p > 163 remains an unread refinement."
+  },
+  {
+   "title": "Suggested interfaces awaiting conductor, residual and modular-curve carriers",
+   "neededBy": [
+    "EllipticCurveModularity:R29.1/exceptional-primes",
+    "EllipticCurveModularity:R29.2/weight-two-and-level-N-from-the-weight-recipe",
+    "EllipticCurveModularity:R29.3/newform-of-E",
+    "EllipticCurveModularity:R29.5/modular-parametrisation"
+   ],
+   "detail": "The suggested file contains all API/test names, separating actual signatures from precise commented contracts. The fixed-level newform API uses the built Newform and E.LFunction with an explicit existence hypothesis; supplying that proof from the initial M|N construction and exact-conductor remains mathematical work. The named residual, conductor, Serre-witness and Jacobian contracts cannot yet be exported with the requested linked carriers; comments are not elaborated signatures. The exceptional set is a Set ℕ data prototype whose definition is unimplemented, not a proposition placeholder. No implementation or compilation is claimed."
   }
  ],
  "sourceIssues": [],
@@ -1545,6 +1596,14 @@
    "citation": "Algorithms for modular elliptic curves (second edition)",
    "read": "2026-09-28",
    "sha256": "432fa5290b2b2ac0d623169e9198d928e5dd75acb490db2d58775630d0f6ea94"
+  },
+  {
+   "kind": "author copy",
+   "url": "https://www.math.mcgill.ca/darmon/pub/Articles/Expository/05.DDT/paper.pdf",
+   "citation": "Fermat's Last Theorem, revision 9 September 2007",
+   "read": "2026-09-30",
+   "sha256": "254f6e29957f95219eff046c29478f5ee584615bee12c8aa8357f499c8cbe8b3",
+   "scope": "Only p. 46 and pp. 85–87, as recorded in sources; not a whole-paper read."
   }
  ],
  "review": {
