@@ -4323,8 +4323,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-LE-LEHUNG-LEVIN-ETAL-23.md",
-   "state": "pending",
-   "note": "released on GitHub issue #1254"
+   "state": "external",
+   "note": "claimed on GitHub issue #1254"
   },
   {
    "id": "REV-PAPER-LE-LEHUNG-LEVIN-ETAL-23",
@@ -33669,8 +33669,9 @@
     "REV-PAPER-DITTMANN-POP-23"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-DITTMANN-POP-23.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4068"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4068",
+   "finishedAt": "2026-09-30T12:36:49Z"
   },
   {
    "id": "RT-PAPER-BHATT-SCHOLZE-22",
@@ -35205,7 +35206,8 @@
     "REV-PAPER-KALETHA-16"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-KALETHA-16.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4125"
   },
   {
    "id": "RT-PAPER-HOWE-KLEVDAL-26",
@@ -40479,8 +40481,9 @@
     "REV-LINK-tauceti_TauCetiRoadmap_AlgebraicCurves"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-LINK-tauceti_TauCetiRoadmap_AlgebraicCurves.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4341"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4341",
+   "finishedAt": "2026-09-30T12:36:53Z"
   },
   {
    "id": "RT-LINK-tauceti_TauCetiRoadmap_NumberFieldArithmetic",
@@ -41521,8 +41524,8 @@
     "REV-LINK-tauceti_TauCetiRoadmap_ZigzagPreprojective"
    ],
    "prompt": "research/blueprint/prompts/RT-LINK-tauceti_TauCetiRoadmap_ZigzagPreprojective.md",
-   "state": "pending",
-   "note": "released on GitHub issue #4380"
+   "state": "external",
+   "note": "claimed on GitHub issue #4380"
   },
   {
    "id": "REV-RT-LINK-tauceti_TauCetiRoadmap_ZigzagPreprojective",
@@ -42530,8 +42533,9 @@
     "REV-RS-24"
    ],
    "prompt": "research/blueprint/prompts/RT-RS-24.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4414"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4414",
+   "finishedAt": "2026-09-30T12:36:57Z"
   },
   {
    "id": "REV-RT-RS-24",
@@ -43335,8 +43339,9 @@
     "REV-EllipticCurveModularity"
    ],
    "prompt": "research/blueprint/prompts/RT-BP-EllipticCurveModularity.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4435"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4435",
+   "finishedAt": "2026-09-30T12:37:02Z"
   },
   {
    "id": "REV-RT-BP-EllipticCurveModularity",
@@ -46293,7 +46298,8 @@
     "REV-AUDIT-34"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-AUDIT-34.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4455"
   },
   {
    "id": "RT-AUDIT-39",
