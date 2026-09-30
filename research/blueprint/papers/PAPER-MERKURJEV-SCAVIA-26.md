@@ -90,7 +90,7 @@ The baseline is Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti 
 
 The reviewed audit agrees that the complete Kummer isomorphism is **not** built: the class map and injectivity exist, while profinite Hilbert 90 and surjectivity remain upstream work. Likewise the explicit three-term inflation/restriction sequence is built, but transgression/five-term exactness is not. Representation Mackey decomposition does not substitute for the missing cohomology double-coset formula. Generic spectral-sequence infrastructure does not imply Hochschild–Serre is implemented.
 
-Reviewed audit targets and full relevant layer descriptions were checked for ProfiniteCohomology, IG, ArithmeticGaloisDuality and SchemeAndStackFoundations. The number-field deformation roadmaps and LanglandsParameterStacks were compared to exclude inappropriate ownership: their number-field/local-Weil hypotheses do not cover arbitrary-base-field generic nonliftability. Upstream ClassFieldTheory, ProfiniteCohomology and InductionRestriction were used as existing scope references, with no upstream replanning. The new roadmap records, current packet inventory and reserved IDs do not supply negligible-class or nonliftable-matrix nodes. The original input snapshot was explorer `ba038a948ca92463af2e5f4d6c20b31fb7b47d29`. This continuation rechecked all eleven library-item statements at the pins, the complete ProfiniteCohomology, IG, ArithmeticGaloisDuality and SchemeAndStackFoundations roadmap texts, and their relevant reviewed audit rows. It retains ownership and statuses: neither Kummer surjectivity nor continuous five-term exactness is newly claimed as built.
+Reviewed audit targets and full relevant layer descriptions were checked for ProfiniteCohomology, IG, ArithmeticGaloisDuality and SchemeAndStackFoundations. The number-field deformation roadmaps and LanglandsParameterStacks were compared to exclude inappropriate ownership: their number-field/local-Weil hypotheses do not cover arbitrary-base-field generic nonliftability. Upstream ClassFieldTheory, ProfiniteCohomology and InductionRestriction were used as existing scope references, with no upstream replanning. (Added by FIX-RT-PAPER-MERKURJEV-SCAVIA-26: Tau Ceti ProfiniteProPGroups Layer 5, which plans the weak finite embedding problem, the extension/H² dictionary and the splitting criterion, is also an upstream owner and is now cited.) The new roadmap records, current packet inventory and reserved IDs do not supply negligible-class or nonliftable-matrix nodes. The original input snapshot was explorer `ba038a948ca92463af2e5f4d6c20b31fb7b47d29`. This continuation rechecked all eleven library-item statements at the pins, the complete ProfiniteCohomology, IG, ArithmeticGaloisDuality and SchemeAndStackFoundations roadmap texts, and their relevant reviewed audit rows. It retains ownership and statuses: neither Kummer surjectivity nor continuous five-term exactness is newly claimed as built.
 
 ## Routes
 
@@ -388,3 +388,30 @@ print(f'TOTAL: {sum(counts.values())} exact assertions passed')
 | /132 | Continuous weak matrix lift for every N-valued representation | missing | 7 |
 | /133 | Restriction of negligible subgroups need not be surjective | missing | 7 |
 
+
+## Fixes (FIX-RT-PAPER-MERKURJEV-SCAVIA-26, 30 September 2026)
+
+Claude Code, session `cc-c2c06b`, issue #5004. This fix applies the five medium findings of
+`RT-PAPER-MERKURJEV-SCAVIA-26`, following the verifier's refinements. The full record is
+`research/blueprint/redteam/RT-PAPER-MERKURJEV-SCAVIA-26.fixes.md`.
+
+- **Weak embedding problems.** Item /3 is planned first at Tau Ceti ProfiniteProPGroups Layer 5, which
+  plans the weak finite embedding problem, the extension/H² dictionary and the splitting criterion.
+  Routes 1, 6 and 7 import it.
+  - /8 keeps only two things: the generalization to an arbitrary finite abelian kernel, by primary
+    decomposition, and the naturality under pullback along ρ.
+- **Connecting homomorphisms.** /43 is now library: Tau Ceti's DiscreteShortExact with explicitDelta0
+  and explicitDelta1 and the long exact sequence. It leaves route 6.
+  - Its one missing step, ∂₂ as a pulled-back extension class, moves to /49.
+  - /50, /67 and /98 cite the built cup, corestriction, naturality and long-exact declarations.
+- **Matrix groups.** /75, /76, /79, /86 and /100 cite the built matrix groups (upperTriangularGroup,
+  upperUnitriangularGroup, diagonalTorus, transvectionUnit) and Mathlib's reduction map and |GL_n(F_q)|.
+  - The general U_(n+1)(F_p) structure is imported from PAPER-HARPAZ-WITTENBERG-23's route in the
+    ProfiniteCohomology Part II design.
+- **Universal coefficients.** /52, /53 and /123 move to a new source route 8 for ArithmeticGaloisDuality
+  D7, the accepted owner of finite-group coefficient comparisons (through CALEGARI-DIMITROV-TANG-25).
+  /54 stays in route 6 as the consumer.
+- **Sharpness.** New item /134: the roots-of-unity hypothesis of Theorem 1.3 is sharp. The witness is
+  H = A = Z/2 over Q; the general cyclic family comes from Gherman–Merkurjev Theorem 4.2. Sharp is not
+  the same as necessary.
+- **Result:** 134 items (12 library, 10 planned, 112 missing) and eight routes.
