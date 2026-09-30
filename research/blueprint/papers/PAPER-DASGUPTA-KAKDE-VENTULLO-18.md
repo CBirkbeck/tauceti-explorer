@@ -2,12 +2,9 @@
 
 Samit Dasgupta, Mahesh Kakde and Kevin Ventullo, *On the Gross–Stark Conjecture*, [Annals of Mathematics (2) 188 (2018), no. 3, 833–870](https://doi.org/10.4007/annals.2018.188.3.3); arXiv [1605.08169](https://arxiv.org/abs/1605.08169) (v1).
 
-Extraction by Claude Code, session `cc-d67081`, 22 September 2026 (issue #1147). Status: **complete**. Every missing item is routed exactly once. The machine-readable extraction is [PAPER-DASGUPTA-KAKDE-VENTULLO-18.result.json](PAPER-DASGUPTA-KAKDE-VENTULLO-18.result.json):
+Current fix #4986: Codex — `codex-5ebb6f`, 30 September 2026. **Complete extraction: 125 items (2 library, 15 planned, 108 missing), five routes and 35 source records.** All missing items have exactly one route. The 125 item IDs and mathematical statements, 24 prerequisites and all 35 source-issue payloads/verdicts are preserved. Independent fix review is pending.
 
-- 118 items: 1 in the libraries, 15 planned, 102 missing;
-- 4 routes: one Part II and three source routes;
-- 24 prerequisite entries;
-- 9 source issues.
+The original extraction was Claude Code `cc-d67081`, 22 September (issue #1147); its 118-item/nine-issue inventory was expanded by the independent review below. The older four-route review does not approve the five revised routes. The machine-readable extraction is [PAPER-DASGUPTA-KAKDE-VENTULLO-18.result.json](PAPER-DASGUPTA-KAKDE-VENTULLO-18.result.json).
 
 **Source.** The **published version is free**: the Annals article page advertises the full text through its `citation_pdf_url`, and that PDF (SHA-256 `974e6427…2fb659`, accessed 2026-09-22) was read in full on 2026-09-22. Every recorded misprint was checked on a page image. **All locators are to the published pages, 833–870.**
 
@@ -43,7 +40,7 @@ Tau Ceti at f790474 has three near misses, recorded as notes on the items that n
 
 **The atlas plans the inputs, but not the theorem.** Fifteen items are planned:
 
-- the Deligne–Ribet p-adic L-function, Siegel's algebraicity, the Hilbert Eisenstein series E_k(1, η) and the Eisenstein family E(1, χ) — AutomorphicPadicLFunctions L3, with IntegralIwasawaTheory I.3;
+- the Deligne–Ribet p-adic L-function, Siegel's algebraicity, the Hilbert Eisenstein series E_k(1, η) and the Eisenstein family E(1, χ) — AutomorphicPadicLFunctions L3; IntegralIwasawaTheory I.3 only compares its normalization with Stickelberger elements, not existence or Eisenstein construction;
 - Λ-adic Hilbert modular forms, Hida families and the ordinary projector — PadicFamilies L5 and L0a;
 - the Galois representations of Theorem 4.1 — OrdinaryAutomorphicFormsAndModularityLifting R21.3;
 - local Tate duality and the Poitou–Tate orthogonality — ArithmeticGaloisDuality R02.4;
@@ -57,7 +54,7 @@ Tau Ceti at f790474 has three near misses, recorded as notes on the items that n
 
 **1. A Part II: `IntegralIwasawaTheoryPartII` (93 items).** Title "Arithmetic Iwasawa theory and the main conjecture, Part II: the Gross–Stark conjecture"; area `automorphic`.
 
-The brief sets out six parts: the statement and the regulator; the cohomological reformulation, with both proofs of the orthogonality and with Proposition 2.2; Hida theory in weight one, up to the trichotomy of cases; the infinitesimal eigenform and the three Artin rings; the cohomology class, Ribet's wrench and Lemma 4.4; and the computation of the regulator, including the c-cocycle argument for χ^{-1} in Case 3. It imports the six atlas roadmaps and the two Tau Ceti roadmaps listed above.
+The brief sets out six parts: the statement and the regulator; the cohomological reformulation, with both proofs of the orthogonality and with Proposition 2.2; Hida theory in weight one, up to the trichotomy of cases; the infinitesimal eigenform and the three Artin rings; the cohomology class, Ribet's wrench and Lemma 4.4; and the computation of the regulator, including the c-cocycle argument for χ^{-1} in Case 3. It imports the named analytic, arithmetic and geometric suppliers above, plus IntegralHeckeAndGaloisDeterminants IHG.1 for distinct-character GMA/extension modules and IHG.4 for Frobenius-density/continuity interpolation with proved closedness in the actual Lambda-adic topology. IHG.6 is the separate residual-coincidence/local-condition comparison used by Brumer–Stark I.7, not an unconditional replacement. The residue field here is E of characteristic zero, so distinctness survives at p=2. Verify only the actual Hida-family hypotheses and retain the Gross–Stark choice of tau, Lemma 4.4 and R/R′ calculations of Lemmas 4.6–4.9. These are planned supplier interfaces: IHG.1 is partial and IHG.4/IHG.6 not_read, not existing Lean proofs.
 
 It is a Part II of IntegralIwasawaTheory rather than a new roadmap because that roadmap already owns the Deligne–Ribet dictionary (I.3), Wiles's totally real main conjecture with its Hecke algebras, Eisenstein ideals and Galois representations (I.5), and the integral Brumer–Stark theorem of Dasgupta–Kakde (I.6–I.7) — the same authors, the same Hilbert modular congruences and the same generalised Ribet method. The Gross–Stark conjecture is that programme's neighbour, but it is a distinct theorem with its own machinery, so it does not belong inside the existing layers.
 
@@ -67,7 +64,11 @@ It is a Part II of IntegralIwasawaTheory rather than a new roadmap because that 
 
 **4. Source of PadicFamilies L5 (3 items).** Three facts about Hida families over a totally real field used without proof: a cuspidal Hida family is determined by its Fourier expansion; the localized Hecke algebra is reduced, because tame level equal to the conductor of the tame character leaves no n-old forms; and its total ring of fractions is the product of the fields of the cuspidal Hida eigenfamilies. The paper stresses that the second was missing from the rank one paper and credits Hida for pointing it out.
 
-## Source issues (`sourceIssues` E1–E9)
+**5. Source of AutomorphicPadicLFunctions L3 (three planned items).** The Hilbert Eisenstein series and families E(1,χ), E(χ,1) retain the exact two-character Fourier coefficients, eigenvalues, weight specializations and mod-π congruence. RS-14 assigns construction/congruences to L3; ordinary Hida packaging imports PadicFamilies L5. This route tells the L3 blueprint about the source details while route 2 remains purely L0. L3 is not_read, so planned status is not a claim of implementation.
+
+## Historical original source issues (E1–E9)
+
+The following records describe the original extraction; the independent review below rejected E1 and E8 and expanded the inventory to E35. The fix preserves every resulting payload and verdict.
 
 Two gaps, six misprints in the published text and one arXiv-only misprint already corrected in print.
 
@@ -104,7 +105,7 @@ Remark 5.2, where the authors record that this argument fills a hole at the end 
 - The dimension counts 2^r + r_an − 1 and 2^r + 2r_an − 2 were recomputed from the stated generators, and the sign in (87) was checked against (8) and (17): L_an(χ) = (−1)^r det(ℓ_i(u_j))/det(o_i(u_j)) = R_p(χ) in all three.
 - The claim in E2 that no Λ-algebra homomorphism W → E[π]/(π^{r_an+1}) exists for r ≥ 2 unless L*_an(χ) = 0 was verified from the relations of W_1 by hand.
 
-## Review (REV-PAPER-DASGUPTA-KAKDE-VENTULLO-18, 23 September 2026)
+## Historical review (REV-PAPER-DASGUPTA-KAKDE-VENTULLO-18, 23 September 2026)
 
 The review, by Claude Code (session cc-39fac3), accepted the extraction and its four routes after corrections made in place. The full record is `research/blueprint/reviews/REV-PAPER-DASGUPTA-KAKDE-VENTULLO-18.md`.
 
@@ -117,3 +118,12 @@ The review, by Claude Code (session cc-39fac3), accepted the extraction and its 
   - The published Theorem 3.2 lost arXiv v1's normalisation ν_1(t)E_1(1, χ_S) = E_1(1, χ_S), which the later proofs need (E18). Restoring it repairs them.
   - The rest are misprints and local slips that affect nothing.
   - Theorem 1 stands.
+
+
+## Fix #4986, 30 September 2026
+
+All four confirmed findings are addressed in the [fixes report](../redteam/RT-PAPER-DASGUPTA-KAKDE-VENTULLO-18.fixes.md). IHG imports now separate the generic common theorem from the Hida-family specialization, qualify continuity/closedness and keep the residual-coincidence branch distinct. The two-character Eisenstein item moves from missing at L0 to planned at L3; a dedicated L3 source route carries its requirements and the two sibling planned items. Deligne–Ribet existence/interpolation is owned solely by AutomorphicPadicLFunctions L3. The Teichmüller character is planned only at DirichletPadicLFunctions L3, including the separate dyadic sign decomposition. I.3 is not in either planned list and is imported only for a separately identified normalization comparison, if used. The trivial-character pole and the p=2 order-of-vanishing suppliers remain unchanged.
+
+`sourceVersions` records the original 22 September receipts with attribution and the fixer's 30 September selected reads separately. The two binaries match the earlier hashes. Both PDFs have 38 pages; the old 33-page v1 metadata is corrected. The fresh reads cover published pp.848–849,858,860–861,864–865 and corresponding v1 passages, the publisher/version metadata and actual pinned Hensel/Teichmüller signatures. They are not new full-proof reads. No new source issue or independent source verdict is manufactured.
+
+Validation checks the paper/schema and explicit version metadata, one route per missing item, all original IDs/statements/prerequisites/source records, exact status counts, the unchanged item dependency graph, and the revised source-stage directions against the assembled atlas. Actual future Part II vertices are not invented; temporary vertices model only direction checks. No Lean file was written or compiled. The existing supplier packets remain partial/not_read, and their missing proof closure belongs to those blueprints. Independent `REV-FIX-RT-PAPER-DASGUPTA-KAKDE-VENTULLO-18` must review the revised proposal before promotion.
