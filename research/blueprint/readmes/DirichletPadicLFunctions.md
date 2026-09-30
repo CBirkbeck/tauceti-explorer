@@ -21598,3 +21598,130 @@ Six complete supporting Mathlib-only lemmas verify bounded integral-test divisib
 Exact rational controls pass for20 profiles,160 integral and160 twisted test pairs,40 mixed-level families,40 exact kernel relations,40 empty families and160 weight-value congruences, including90 nonzero differences and40 cases with level above precision. There are2056 pointwise weight checks, twelve primitive-modulus8 cases and two negative controls. Exact Fraction arithmetic in rational character specializations. Finite tame residue measures, multiplied by inverse unit representatives, check pointwise integral test differences, weighted differences and mixed-level character combinations. Independently evaluated Euler–Bernoulli sums check positive-weight periods, including a primitive quadratic character modulo8. Finite models do not establish the all-unit hypothesis or general measure theorem; general coefficient norms are not normalized numerically. The largest observed discrepancy is 0 for exact identities; all asserted residue differences vanish modulo the stated p^r.
 
 All66 captured inputs and four predecessor outputs are guarded. The partial signature check appends exactly four declarations and ten examples to the exact4843 prefix, preserving its exclusions of4777–4791. The full current module remains uncompiled because the compatible native TwistedDivisorSum artifact is missing; no library build occurs. The partial signature run has1982 expected placeholder warnings and zero errors against3573 pinned source modules. The separate native probe has six complete lemmas against2804 Mathlib modules and no errors, warnings or placeholders.
+
+
+## Tame measure values under continuous coefficient-field extension
+
+Four L2 nodes promote three existing formal/Amice APIs and compare actual tame measure values under a compatible continuous coefficient-field extension. One new theorem and five tests use the native Mahler basis and all continuous K-tests. All657 predecessor nodes remain whole; no new measure functor, finding, request or stage closure.
+
+Freshly read complete RJW published143–144, including Remark5.8(2) and the full coefficient-field discussion. Read whole existing tame numerator/series/measure nodes and exact suggested APIs, and the exact PMIA bounded inverse and Amice identities. Read pinned native Mahler density, Amice coefficient evaluation, continuous-linear postcomposition and scalar restriction, algebraMapCLM, scalar-tower equality, dense-span extensionality and unit cancellation with their ambient assumptions.
+
+### Coefficient maps of the finite tame numerator
+
+`DirichletPadicLFunctions:L2/tame-numerator-coefficient-map` — `DirichletPadic.tameNumerator_map`
+
+PowerSeries.map φ (Qη)=Q_(η.ringHomComp φ).
+
+**Hypotheses:** R,S are commutative rings, D>0 with NeZero D, η:DirichletCharacter R D and φ:R→+*S. Qη=tameNumerator η and Fη=tameSeries η hD are the existing formal series. The series comparison takes hD:IsUnit(D:R) and hDS:IsUnit(D:S). No primitivity, nonprincipality, field or p-adic topology is required for these formal identities.
+
+**Proof:**
+
+1. Promote the existing tameNumerator_map API without adding or changing its suggested declaration.
+2. Expand the existing finite numerator −Σ_a C(η(a))q_(a.val). Coefficient mapping preserves the finite sum, negation and products, and maps C(η(a)) to C(φ(η(a))).
+3. The coefficients of the existing q_a are natural binomial coefficients, so they commute with every ring map by preservation of natural casts. The native ringHomComp has pointwise value φ(η(a)); coefficient extensionality gives the result.
+
+**Prerequisites:** `DirichletPadicLFunctions:L2/tame-numerator`, `DirichletPadicLFunctions:L1/smoothing-denominator`, `mathlib:PowerSeries.coeff_map`, `mathlib:MulChar.ringHomComp`.
+
+**Tests:**
+
+
+
+**Acceptance:** The existing numerator_field_extension example over ℚ→ℚ_2 and modulus-one zero example remain unchanged. No Gauss scalar or root of unity is chosen.
+
+**Source:** Theorem5.7, Remark5.8(2) and the full coefficient-field discussion in equation(5-3) and its following paragraph, published143–144/PDF44–45. These complete pages freshly read on30September2026 for this coefficient-field continuation. Worker coefficient-field compatibility for the already constructed finite tame kernel and its actual measure. The source specifies a fixed coefficient field containing the character values; the all-continuous-test comparison is derived from the existing formal-series map and native Mahler density. No arbitrary discontinuous embedding, generic measure-extension operator or character-field descent theorem is assumed.
+
+### Coefficient maps of the tame formal series
+
+`DirichletPadicLFunctions:L2/tame-series-coefficient-map` — `DirichletPadic.tameSeries_map`
+
+PowerSeries.map φ (Fη)=F_(η.ringHomComp φ), for the displayed D-unit certificates in both rings.
+
+**Hypotheses:** R,S are commutative rings, D>0 with NeZero D, η:DirichletCharacter R D and φ:R→+*S. Qη=tameNumerator η and Fη=tameSeries η hD are the existing formal series. The series comparison takes hD:IsUnit(D:R) and hDS:IsUnit(D:S). No primitivity, nonprincipality, field or p-adic topology is required for these formal identities.
+
+**Proof:**
+
+1. Promote the already declared tameSeries_map API, preserving its general commutative-ring signature.
+2. Write q=q_D. Its constant coefficient is the supplied unit D; native mul_invOfUnit gives the actual inverse used by the existing constructor. Expanding the constructor thus gives qFη=Qη in R[[T]], and the same calculation gives q_S F_(ηS)=Q_(ηS) in S[[T]].
+3. Map the first identity by PowerSeries.map φ. Coefficientwise preservation of binomial natural casts identifies map(q_R)=q_S, and tame-numerator-coefficient-map identifies the right side.
+4. Cancel the actual unit q_S using native IsUnit.mul_left_cancel. The complete unit_factor_transport proof checks this mapped-equation argument over arbitrary commutative rings; it does not assume a field of fractions or division by T. Independence of the D-unit proof follows from this same equality.
+
+**Prerequisites:** `DirichletPadicLFunctions:L2/tame-series`, `DirichletPadicLFunctions:L2/tame-numerator-coefficient-map`, `DirichletPadicLFunctions:L1/smoothing-denominator`, `mathlib:PowerSeries.mul_invOfUnit`, `mathlib:IsUnit.mul_left_cancel`.
+
+**Tests:**
+
+
+
+**Acceptance:** The map applies to principal characters too. Existing D=1 and quadratic modulo3 coefficient tests remain, as does the distinction between formal existence and the tame norm bound.
+
+**Source:** Theorem5.7, Remark5.8(2) and the full coefficient-field discussion in equation(5-3) and its following paragraph, published143–144/PDF44–45. These complete pages freshly read on30September2026 for this coefficient-field continuation. Worker coefficient-field compatibility for the already constructed finite tame kernel and its actual measure. The source specifies a fixed coefficient field containing the character values; the all-continuous-test comparison is derived from the existing formal-series map and native Mahler density. No arbitrary discontinuous embedding, generic measure-extension operator or character-field descent theorem is assumed.
+
+### The Amice coefficients of the actual tame measure
+
+`DirichletPadicLFunctions:L2/tame-measure-amice` — `DirichletPadic.amiceTransform_tameMeasure`
+
+The native Amice transform of tameMeasure η hD hpD is exactly tameSeries η hD.
+
+**Hypotheses:** p is prime; K is a complete normed ultrametric field with a ℤ_p-algebra and bounded ℤ_p scalar action. D>0, η:DirichletCharacter K D, hD:IsUnit(D:K) and p∤D. No normed extension field is required for this promoted identity.
+
+**Proof:**
+
+1. Promote the already present amiceTransform_tameMeasure API without duplicating its suggested declaration.
+2. The existing measure is boundedInvTransform of the actual bounded coefficient sequence of Fη. Use the exact PMIA bounded-inverse-amice identity, whose complete ultrametric and scalar-action hypotheses are precisely those retained here.
+3. Power-series coefficient extensionality identifies PowerSeries.mk of that coefficient sequence with Fη. Native coeff_amiceTransform then expresses each coefficient as the actual measure value on the corresponding coefficient-field-valued Mahler test.
+
+**Prerequisites:** `DirichletPadicLFunctions:L2/tame-measure`, `DirichletPadicLFunctions:L2/tame-coefficient-sequence`, `PadicMeasuresIwasawaAlgebras:L2/bounded-inverse-amice`, `mathlib:AbstractMeasure.coeff_amiceTransform`, `mathlib:PowerSeries.coeff_mk`.
+
+**Tests:**
+
+
+
+**Acceptance:** This is the needed fine dependency for transport on the Mahler basis. The original mass1/3 and ordinary second moment−2/9 examples over ℚ_2 remain unchanged.
+
+**Source:** Theorem5.7, Remark5.8(2) and the full coefficient-field discussion in equation(5-3) and its following paragraph, published143–144/PDF44–45. These complete pages freshly read on30September2026 for this coefficient-field continuation. Worker coefficient-field compatibility for the already constructed finite tame kernel and its actual measure. The source specifies a fixed coefficient field containing the character values; the all-continuous-test comparison is derived from the existing formal-series map and native Mahler density. No arbitrary discontinuous embedding, generic measure-extension operator or character-field descent theorem is assumed.
+
+### Tame measure values under continuous field extension
+
+`DirichletPadicLFunctions:L2/tame-measure-field-comparison` — `DirichletPadic.algebraMap_tameMeasure_apply`
+
+For every f∈C(ℤ_p,K), ι(μK(f))=μL(ι∘f).
+
+**Hypotheses:** p is any prime, including2. K and L are complete normed ultrametric fields, each with a ℤ_p-algebra structure and IsBoundedSMul ℤ_p on that field. D>0 with NeZero D, η:DirichletCharacter K D, hDK:IsUnit(D:K), hDL:IsUnit(D:L), and p∤D. L is a K-algebra with ContinuousSMul K L, and IsScalarTower ℤ_p K L relates the displayed algebra structures. Put ι=algebraMap K L, ηL=η.ringHomComp ι, μK=tameMeasure η hDK hpD and μL=tameMeasure ηL hDL hpD. The coefficient map is continuous by the native theorem. No isometry, finite-dimensionality, nontrivial norm, characteristic-zero or nonprincipal-character hypothesis is added. Continuous tests retain their actual coefficient field: f∈C(ℤ_p,K) maps to ι∘f∈C(ℤ_p,L). The assertion is an equality in L on all these tests, not a new generic map of arbitrary measure spaces. The D=1 constructor remains zero.
+
+**Proof:**
+
+1. Use tame-series-coefficient-map for ι and tame-measure-amice in each field. Taking coefficients gives ι(coeff_n(AμK))=coeff_n(AμL) for every n.
+2. Regard both sides as continuous K-linear maps C(ℤ_p,K)→L. The left side is algebraMapCLM(K,L) composed with the actual continuous-dual measure μK. On the right, use native ContinuousLinearMap.compLeftContinuous to map tests by ι, then compose with the K-scalar restriction of the actual L-linear measure μL. All continuity and scalar compatibility is provided by the displayed ContinuousSMul and actual ℤ_p/K/L tower.
+3. Native PadicInt.dense_span_mahler says the K-linear span of the native K-valued Mahler tests is dense. Apply ContinuousLinearMap.ext_on, with the Hausdorff topology of L, to reduce equality of these two maps to these tests.
+4. For each Mahler test, the scalar tower gives ι(algebraMap_(ℤ_p→K)(a))=algebraMap_(ℤ_p→L)(a), and ι(1)=1. Thus coefficient mapping carries exactly the K-valued Mahler test to the L-valued one. Native coeff_amiceTransform now reduces the equality to the first step.
+5. The complete native proof verifies this reduction for actual native measures with the stated coefficient equality. Completeness and ultrametricity of the target are unnecessary for that abstract reduction, but are retained here because the existing arithmetic μL constructor uses them. No assumption that every L-test descends to K is made.
+6. At D=1 both arithmetic measures are zero. For quadratic η modulo3 over ℚ_2, every compatible extension has mass1/3 and second Mahler value−1/9; the latter differs from the ordinary second moment−2/9 and detects a basis convention error.
+
+**Prerequisites:** `DirichletPadicLFunctions:L2/tame-series-coefficient-map`, `DirichletPadicLFunctions:L2/tame-measure-amice`, `mathlib:PadicInt.dense_span_mahler`, `mathlib:ContinuousLinearMap.ext_on`, `mathlib:ContinuousLinearMap.compLeftContinuous`, `mathlib:ContinuousLinearMap.restrictScalars`, `mathlib:algebraMapCLM`, `mathlib:IsScalarTower.algebraMap_apply`, `mathlib:AbstractMeasure.coeff_amiceTransform`.
+
+**Tests:**
+
+- `SuggestedTameFieldComparisonTests.mass_transport` (compatibility): The actual total mass maps by ι to the total mass of the mapped-character measure.
+- `SuggestedTameFieldComparisonTests.mahler_test_transport` (compatibility): Every native K-valued Mahler test maps to the corresponding L-valued one and their tame values agree through ι.
+- `SuggestedTameFieldComparisonTests.modulus_one_after_extension` (degenerate): The D=1 measures give zero on every original and mapped continuous test.
+- `SuggestedTameFieldComparisonTests.dyadic_quadratic_mass_in_extension` (computation): For quadratic η modulo3 over ℚ_2, the mapped measure has mass1/3 in every eligible extension L.
+- `SuggestedTameFieldComparisonTests.dyadic_quadratic_second_mahler_in_extension` (non-example): The same measure on the second Mahler test has value−1/9, not its ordinary second moment−2/9.
+
+**Acceptance:** This is an all-continuous-test equality for the actual tame measures. It neither constructs a generic coefficient-extension functor nor proves character-field descent, integral-ring comparison, inverse-weighted zeta comparison or a field-valued pseudomeasure evaluator.
+
+**Source:** Theorem5.7, Remark5.8(2) and the full coefficient-field discussion in equation(5-3) and its following paragraph, published143–144/PDF44–45. These complete pages freshly read on30September2026 for this coefficient-field continuation. Worker coefficient-field compatibility for the already constructed finite tame kernel and its actual measure. The source specifies a fixed coefficient field containing the character values; the all-continuous-test comparison is derived from the existing formal-series map and native Mahler density. No arbitrary discontinuous embedding, generic measure-extension operator or character-field descent theorem is assumed.
+
+**Remaining:** The actual tame measure μ_η now has an all-continuous-test comparison under a compatible continuous extension K→L; its formal numerator/series maps and Amice identity have explicit fine prerequisites. Extend this precise comparison through the existing unit restriction and inverse-coordinate weight to ζ_η, and through the actual integer-ring inclusions; establish the required descent to the character field. These further steps are not inferred merely from the series map. The separate canonical coefficient-field pseudomeasure evaluator remains the PMIA L3 request. Primitive Gauss nonvanishing, exact primitive-conductor comparisons, analytic branches, logarithmic/degree-zero values, full source extraction and the PMIA L1 completed-algebra comparison remain open. The existing integral character and congruence nodes are reused with their stated boundaries.
+
+### Tame measure values under continuous coefficient-field extension validation
+
+All 657 predecessor nodes, 558 baseline records, 16 findings, requests and sourceVersions remain whole. This checkpoint adds 4 nodes, 1 named suggested declarations and 5 typed examples. The indexed blueprint, four-file intake, whitespace, preservation, API/test parity and versioned-source checks pass. The graph has 917 reachable nodes, 4575 edges and 742 native leaves and is acyclic. Its stage request leaves are PadicMeasuresIwasawaAlgebras:L1, PadicMeasuresIwasawaAlgebras:L3, PadicMeasuresIwasawaAlgebras:L3, LocallyAnalyticDistributions:L1, AdicSpacesPartII:F1, AdicSpacesPartII:R2, PadicDifferentialEquationsAndRigidCohomology:RD.0, PadicDifferentialEquationsAndRigidCohomology:RD.4, PadicHodgeTheory:P7:annulus-foundations, PadicMeasuresIwasawaAlgebras:L2, LocallyAnalyticDistributions:L1. All four new routes use native declarations and existing fine nodes; there is no new stage-request leaf. Existing whole-packet requests stay open.
+
+**The full current suggested module was NOT COMPILED.** Its real native import requires TauCeti.NumberTheory.ArithmeticFunction.TwistedDivisorSum. No matching existing artifact was found; WORKERS.md prohibits building the native library. Current compiler exit code, error count and warning count are unavailable, not zero. The exact named signatures and native source were reviewed. PR4773 remains the last compiled full predecessor, with zero errors and1,803 expected placeholder warnings; that receipt does not validate this new module.
+
+The current source closure covers 3601 pinned Mathlib modules and 22 pinned Tau Ceti modules. Only 21 Tau module artifacts are available and hash-verified. The105 available artifact files and the previously compiled332-node PMIA artifact are checked as partial dependencies. The current369-node supplier source preserves the older interface; no current-module compilation against either revision is claimed. Existing builds only were inspected; no setup, update, cache fetch or native build occurred.
+
+Three complete Mathlib-only proofs verify transport of the native Mahler test, the all-test comparison for actual measures from their mapped Amice coefficients, and mapped formal equations with a unit factor. The measure comparison uses native dense-span extensionality and genuine continuous linear maps, with no placeholder interface. The separate probe compiles against 2819 pinned Mathlib modules and 0 pinned Tau Ceti modules with zero errors, warnings or placeholders. The separate Mathlib-only probe does not import, replace or compile the missing native Tau module. General roadmap declarations remain unchecked.
+
+Exact Gaussian-rational controls pass for seven character profiles and fourteen coefficient maps:462 numerator and462 series coefficient comparisons,112 finite Mahler comparisons,231 composition comparisons and66 modulus-one checks. Twenty-nine coefficients are nonreal;47 negative controls detect failure to map the test data. Five quadratic values distinguish the Mahler and ordinary second moments. Exact Gaussian-rational pairs with Fraction components. The finite numerator and unit-denominator recurrence are computed independently before and after identity/conjugation character maps. Finite Mahler linear combinations map both coefficients and tests; a negative control omits test transport. These are algebraic finite models, not constructed p-adic field embeddings or numerical proofs of density. The largest observed discrepancy is 0 in every exact asserted identity.
+
+All66 captured inputs and four predecessor outputs are guarded. The partial signature file appends only the new theorem and five tests to the exact4849 prefix; the three promoted signatures are already present once. The prefix still omits4777–4791. Full-module compilation remains unavailable because the pinned native TwistedDivisorSum artifact is absent; no library build is performed. The partial signature run has1988 expected placeholder warnings and zero errors against3573 pinned modules. The three complete native proofs compile against2819 Mathlib modules with no error, warning or placeholder. During publication, the two global errata-register inputs changed. A registry-only refresh at 2bfd3bd212d63c63913b56a55a32d68f8d5da2ed compared all changed records: only PAPER-LE-LEHUNG-LEVIN-ETAL-23/E121–E123 changed; all16 Dirichlet findings, every other captured mathematical input and all four predecessor outputs remain unchanged. No independent verdict on those unrelated records is made.
