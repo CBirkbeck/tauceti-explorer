@@ -12843,3 +12843,80 @@ end SuggestedJointCharacterMomentTests
 end JointCharacterMoments
 end
 end DirichletPadic
+
+/-! Prime level changes of the existing finite tame kernel.
+The formal statements require unit level images, not a p-adic topology.
+Nonprincipality is essential for the series identity; the finite character sum
+also applies to principal characters. The measure comparison remains separate. -/
+namespace DirichletPadic
+section TamePrimeLevel
+variable {R : Type*} [CommRing R] {M q : ℕ} [NeZero M] [Fact q.Prime]
+
+lemma changeLevel_prime_nat_value (η : DirichletCharacter R M) (a : ℕ) :
+    η.changeLevel (dvd_mul_left M q) (a : ZMod (q*M)) =
+      if q ∣ a then 0 else η (a : ZMod M) := sorry
+
+lemma changeLevel_prime_finite_sum {S : Type*} [CommRing S]
+    (η : DirichletCharacter R M) (φ : R →+* S) (Y : S) :
+    (∑ a ∈ Finset.range (q*M), φ (η.changeLevel (dvd_mul_left M q)
+      (a : ZMod (q*M))) * Y^a) =
+      (∑ a ∈ Finset.range M, φ (η (a : ZMod M)) * Y^a) *
+        (∑ j ∈ Finset.range q, Y^(j*M)) -
+      φ (η (q : ZMod M)) *
+        (∑ a ∈ Finset.range M, φ (η (a : ZMod M)) * (Y^q)^a) := sorry
+
+lemma tameSeries_changeLevel_prime [IsDomain R] (η : DirichletCharacter R M)
+    (hη : η ≠ 1) (hM : IsUnit (M : R)) (hN : IsUnit ((q*M : ℕ) : R)) :
+    tameSeries (η.changeLevel (dvd_mul_left M q)) hN =
+      tameSeries η hM - C (η (q : ZMod M)) *
+        PowerSeries.subst ((1+X : R⟦X⟧)^q-1) (tameSeries η hM) := sorry
+
+lemma tameSeries_changeLevel_prime_dvd [IsDomain R] (η : DirichletCharacter R M)
+    (hη : η ≠ 1) (hM : IsUnit (M : R)) (hN : IsUnit ((q*M : ℕ) : R))
+    (hqM : q ∣ M) :
+    tameSeries (η.changeLevel (dvd_mul_left M q)) hN = tameSeries η hM := sorry
+end TamePrimeLevel
+end DirichletPadic
+
+namespace SuggestedTamePrimeLevelTests
+open DirichletPadic
+variable {R : Type*} [CommRing R] {M q : ℕ} [NeZero M] [Fact q.Prime]
+-- added_prime_zero
+example (η : DirichletCharacter R M) :
+    η.changeLevel (dvd_mul_left M q) (q : ZMod (q*M)) = 0 := sorry
+-- unchanged_away_from_prime
+example (η : DirichletCharacter R M) (a : ℕ) (ha : ¬ q ∣ a) :
+    η.changeLevel (dvd_mul_left M q) (a : ZMod (q*M)) = η (a : ZMod M) := sorry
+-- principal_lift_has_new_zero
+example : (1 : DirichletCharacter ℚ 3).changeLevel (dvd_mul_left 3 2)
+    (2 : ZMod (2*3)) = 0 := sorry
+-- principal_polynomial_mod_three_to_six
+example (Y : R) :
+    (∑ a ∈ Finset.range 6, (1 : DirichletCharacter R 6) (a : ZMod 6)*Y^a) =
+      Y + Y^5 := sorry
+-- repeated_prime_finite_sum
+example (η : DirichletCharacter R M) (Y : R) (hqM : q ∣ M) :
+    (∑ a ∈ Finset.range (q*M), η.changeLevel (dvd_mul_left M q)
+      (a : ZMod (q*M))*Y^a) =
+      (∑ a ∈ Finset.range M, η (a : ZMod M)*Y^a) *
+        (∑ j ∈ Finset.range q, Y^(j*M)) := sorry
+-- nonprincipal_mass_factor
+example [IsDomain R] (η : DirichletCharacter R M) (hη : η ≠ 1)
+    (hM : IsUnit (M : R)) (hN : IsUnit ((q*M : ℕ) : R)) :
+    constantCoeff (tameSeries (η.changeLevel (dvd_mul_left M q)) hN) =
+      (1-η (q : ZMod M))*constantCoeff (tameSeries η hM) := sorry
+-- principal_mass_counterexample
+example : constantCoeff (tameSeries (1 : DirichletCharacter ℚ 9)
+    (by norm_num : IsUnit ((9 : ℕ) : ℚ))) ≠
+    constantCoeff (tameSeries (1 : DirichletCharacter ℚ 3)
+      (by norm_num : IsUnit ((3 : ℕ) : ℚ))) := sorry
+-- correct_zero_constant_substitution
+example : constantCoeff ((1+X : R⟦X⟧)^q-1) = 0 := sorry
+-- repeated_prime_character_value_zero
+example (η : DirichletCharacter R M) (hqM : q ∣ M) : η (q : ZMod M) = 0 := sorry
+-- repeated_prime_series_coefficients
+example [IsDomain R] (η : DirichletCharacter R M) (hη : η ≠ 1)
+    (hM : IsUnit (M : R)) (hN : IsUnit ((q*M : ℕ) : R)) (hqM : q ∣ M) (n : ℕ) :
+    coeff n (tameSeries (η.changeLevel (dvd_mul_left M q)) hN) =
+      coeff n (tameSeries η hM) := sorry
+end SuggestedTamePrimeLevelTests
