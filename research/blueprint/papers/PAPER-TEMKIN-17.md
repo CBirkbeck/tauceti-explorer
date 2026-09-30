@@ -1,102 +1,83 @@
 # PAPER-TEMKIN-17: Tame distillation and desingularization by p-alterations
 
-Michael Temkin, *Tame distillation and desingularization by p-alterations*, Ann. of Math. 186 (2017), 97–126 ([doi](https://doi.org/10.4007/annals.2017.186.1.3), [arXiv:1508.06255](https://arxiv.org/abs/1508.06255v2)).
+Michael Temkin, *Tame distillation and desingularization by p-alterations*, Ann. of Math. 186 (2017), 97–126 ([published article](https://annals.math.princeton.edu/wp-content/uploads/annals-v186-n1-p03-p.pdf), [arXiv:1508.06255v2](https://arxiv.org/abs/1508.06255v2)).
 
-Extraction by Claude Code, session `cc-39fac3`, 29 September 2026 (issue #1155). Status: **complete**. Every missing item is routed exactly once.
+Original extraction: Claude Code, `cc-39fac3`, 29 September 2026, issue #1155. Verified corrections: Codex, `codex-rtOQ9t`, 30 September 2026, issue #4988. Status: **complete extraction**; blueprint proof closure and Lean implementation are not claimed. [The fix report](../redteam/RT-PAPER-TEMKIN-17.fixes.md) accounts for all 17 confirmed findings, including the verifier's scope corrections.
 
-The machine-readable extraction is [PAPER-TEMKIN-17.result.json](PAPER-TEMKIN-17.result.json). It has:
-- 64 items: 4 library, 5 planned, 55 missing;
-- 3 routes: a new Part II, a Part II that coalesces with an existing proposal, and one source route;
-- 12 prerequisite entries;
-- 3 source issues.
+The [machine-readable extraction](PAPER-TEMKIN-17.result.json) has **79 items: 8 library, 3 planned and 68 missing**. Every missing item is routed exactly once. There are four routes, thirteen prerequisite entries and ten source findings. All 64 original item IDs remain; the three original route positions remain, and the SF.4 source route is appended as route 4.
 
-## Source read
+## Source and verification
 
-The published Annals article, pp. 97–126 (SHA-256 `1f4ac06f…`), freely available from the journal and read completely. Locators are its page numbers.
+The original extraction read all 30 pages of the published article (SHA-256 `1f4ac06f2f31430abdd984d8e635a324defb6de340f6a599f708c04996fbfba4`) and compared the 24-page arXiv v2 (SHA-256 `24f67ac306b7af4bf058c086a76f29bbd8854639354bcb241275d8e2dd43a435`). Both were freshly retrieved for this fix. The fix reread published pp. 104, 113, 115, 117–119 and 121–124, checked images of pp. 117 and 123, and compared the affected v2 passages. It also read the relevant Exposé X definition/proof and Temkin's stable-modification statements. This targeted reread does not replace the earlier complete-reading provenance.
 
-arXiv:1508.06255v2 ("final version", 21 February 2017) was compared: its statements and numbering are the same.
+The reviewed audit, accepted RS-25, current layer descriptions and declarations at Mathlib `082e2d3` and Tau Ceti `f790474` were checked. Detailed URLs, hashes, declaration paths, assumptions and dependency checks are in the fix report.
 
 ## What the paper proves
 
-**Theorem 1.2.5.**
-- Setting: X admits a finite-type morphism to a quasi-excellent scheme of dimension ≤ 3, and Z ⊂ X is nowhere dense.
-- Conclusion: there is a projective char(X)-alteration X′ → X with X′ regular and the preimage of Z an snc divisor. Its degree is divisible only by primes that are residue characteristics of X.
-- Over a perfect field the alteration can be separable.
-- It relies on Cossart–Piltant's resolution of qe threefolds.
+Theorem 1.2.5 claims that a scheme X of finite type over a quasi-excellent scheme of dimension at most three, with nowhere dense closed Z, has a projective char(X)-alteration b : X′ → X with regular source and b⁻¹(Z) the support of an snc divisor. Over a perfect field it can be separable. Theorem 1.2.9 gives the corresponding log-smooth alteration of a morphism. Theorem 4.3.1 gives the universal P-resolvability and morphism forms under char(S) ⊆ P.
 
-**Theorem 1.2.9 (desingularization of morphisms).** A maximally dominating f : X → S of finite type over a qe threefold becomes log smooth, (X′, Z′) → (S′, W′), after char(S)-alterations of both sides.
+The method runs through arbitrary-rank valued-field tameness (Theorem 2.6.6), constructible compactness and openness of tame loci on Riemann–Zariski spaces, field and alteration tame distillation (Theorems 3.2.12 and 3.3.6), then Gabber's log-geometric modification argument. Pank splitting, Krasner/decompletion and composed valuations supply the valued-field part.
 
-**The general form, Theorem 4.3.1.**
-- If S is universally P-resolvable and char(S) ⊆ P, then X is universally P-resolvable.
-- Its morphisms admit log-smooth P-altered desingularization.
+Two proof gaps must remain visible. For projectivity, the universal-resolvability definition must use projective alterations, following Exposé X. The construction must also establish snc of b⁻¹(Z) itself: an snc union with a vertical boundary does not imply it. For the separable case, the distillation step needs separate variants for separable input. These are recorded as E5 and E6 and explicit blueprint obligations, not silently attributed to the printed proof.
 
-This generalizes Gabber's ℓ′ theorems from P = {ℓ}′ to any P containing the residue characteristics.
+## What the libraries and atlas supply
 
-**Method.**
-1. **Tameness theorem (§2, Theorem 2.6.6).** A valued field with no nontrivial p-extension is tame.
-   - Height one follows from Pank's splitting k^a = k^t ⊗ k_w for henselian fields, by decompletion (Lemma 2.5.2: Krasner's lemma plus density of k in k^h).
-   - Higher height follows by induction through composed valuations (Lemma 2.6.3, Corollary 2.6.4).
-   - The general case follows by descent to finitely generated subfields.
-2. **Tame distillation for fields (§3.2, Theorem 3.2.12).** On a constructibly compact set S of valuations, a finite L/K becomes S-tame over a P-extension K′/K, where P is the set of wild primes. This uses:
-   - Riemann–Zariski spaces RZ_K(X) ≅ Val_K(X): compactness and openness of restriction maps (§3.1);
-   - the openness of tame loci (Lemma 3.2.10).
-3. **Tame distillation of alterations (§3.3, Theorem 3.3.6).** After enlarging, any alteration factors as a tame Galois covering followed by a P^w-alteration.
-4. **Desingularization (§4).** Gabber's proof (Illusie–Temkin, Exposé X) goes through with Sylow subgroups replaced by distillation. That gives Theorem 4.2.1 (relative curves) and Theorem 4.3.1.
+The original four library items cover valuations, the primitive element theorem, the valuative criterion of properness and étale local structure. Four additional library items now cover valuation rings dominating local subrings; openness of flat locally finitely presented morphisms; Chevalley constructibility for quasi-compact locally finitely presented morphisms to qcqs targets; and constructible compactness of qcqs schemes.
 
-## What the atlas and libraries already have
+Tau Ceti already supplies `ValuationSpectrum`, continuous pullback, spectrality and compact patch topology. Mathlib supplies valuation-ring prime localizations and their correspondence with overrings, and linear disjointness of separable and purely inseparable subextensions. These support `absolute-rz`, `composed-valuations` and `split-towers`, but their full statements remain **missing**: respectively the field/valuation-ring identification and centre/openness adapters, residue-valuation composition and chains, and existence of separable distillations.
 
-- **Library (4 items).** Mathlib has:
-  - valuations, valuation rings and valuation subrings;
-  - the primitive element theorem;
-  - the valuative criterion of properness (`AlgebraicGeometry.IsProper.eq_valuativeCriterion`);
-  - the local structure of étale algebras (`Algebra.IsEtaleAt.exists_isStandardEtale`, Stacks 00UE).
-- **Planned (5 items).**
-  - AdicCoefficientsAndComparisons L5 plans de Jong's alteration theorem, flattening by blow-up, normalization under excellence and semistable reduction of curve families.
-  - CrystallineCohomology CR.5:log-algebra plans Kato's chart criterion, which specializes to the log-smoothness criterion of §1.2.7.
-- **Not planned anywhere.**
-  - Ramification theory of Krull-valued fields: Tau Ceti LocalFieldsRamification treats local fields only, and AdicSpaces Layer 1 treats valuation spectra.
-  - Riemann–Zariski spaces of schemes.
-  - Tame distillation.
-  - Degree-controlled alterations, which are only proposed (PrimeToDegreeAlterations).
+Three items are planned: the existing de Jong alteration scope at L5, Kato's log-smooth chart criterion at CR.5:log-algebra, and regular schemes at ModularCurves 4D. The last imports Mathlib's `IsRegularLocalRing` and `IsRegularRing`. General qcqs flattening, universally Japanese normalization and the non-proper relative-curve stable-modification input are missing in the required scope; L5's narrower tasks do not supply them.
 
-## Routes
+## Routes and shared owners
 
-1. **Part II `PrimeToDegreeAlterations`, "Adic coefficients and comparison with schemes, Part II: prime-to-degree alterations" (26 items).**
-   - Coalesced with the proposal of PAPER-DITTMANN-POP-23 and PAPER-JANNSEN-16, whose briefs ask for Gabber's ℓ′-alterations; DESIGN-AdicCoefficientsAndComparisonsPartII is pending.
-   - Temkin's P-alterations are the general form, so they join, together with the Riemann–Zariski spaces, tame loci, tame distillation (Theorems 3.2.12, 3.3.6), Gabber's modification theorem and the desingularization theorems.
-2. **New Part II `LocalFieldsPartIIGeneralValuedFields`, "Local fields and ramification, Part II: ramification theory of general valued fields" (27 items).**
-   - It covers §2 in full:
-     - P-extensions, henselian valued fields and henselization;
-     - the basic ramification tower with its six properties;
-     - tame fields and the tame closure;
-     - the splitting reformulations and Pank's theorem;
-     - Krasner and decompletion;
-     - composed valuations;
-     - the tameness theorem.
-   - This theory is reusable beyond alterations, for example in the model theory of valued fields, so it is a Part II of the Tau Ceti local-fields roadmap rather than part of the alterations route.
-3. **Source of CrystallineCohomology CR.5:log-algebra (2 items).** The log structure O_X ∩ i_*O_U^× of a divisor, and Kato's log regular log schemes.
+| Route | Owner | Items | Scope |
+|---|---|---:|---|
+| 1 | PrimeToDegreeAlterations, Part II of AdicCoefficientsAndComparisons | 30 | Degree-controlled alterations; pointed-scheme RZ extension; tame loci/distillation and its separable variants; non-proper stable modification and boundary log smoothness; non-free quotient gluing; Gabber modification and the repaired main proof routes. |
+| 2 | LocalFieldsPartIIGeneralValuedFields, Part II of LocalFieldsRamification | 28 | General valued-field tower/comparisons, Pank, decompletion, composed valuations, general Abhyankar input and tameness, including separably P-closed implies separably P-tame. |
+| 3 | CrystallineCohomology:CR.5:log-algebra | 5 | Divisorial log structure, log regularity, the regular-noetherian extension of the existing snc boundary carrier, log Abhyankar, and log smooth over log regular. |
+| 4 | SchemeAndStackFoundations:SF.4 | 5 | General flattening, universally Japanese normalization, named embedded resolution, quasi-excellent schemes and universally Japanese/Nagata schemes. |
 
-## Prerequisites not covered by the atlas
+Route 1 keeps the existing PrimeToDegreeAlterations id and coalesces with PAPER-DITTMANN-POP-23 and PAPER-JANNSEN-16. It imports SF.4's general scheme inputs rather than planning them again. SF.4 coalesces Stacks 081R with PAPER-BHATT-18's accepted route 6 and the MotivesAndAlgebraicCycles request; Cossart–Piltant/Lipman are named proved resolution settings under RS-25. The Lipman input builds compatibly on StableReduction Layer 4's DVR-curve case.
 
-All DOIs were checked through Crossref; Gabber's seminar is arXiv:1207.3648.
-- **Alterations:** Illusie–Temkin, Exposés VIII and X of Gabber's seminar; de Jong 1996; Temkin 2010 (Riemann–Zariski spaces).
-- **Pank's theorem:** Kuhlmann–Pank–Roquette 1986 and Ershov 2008.
-- **Resolution:** Cossart–Piltant (arXiv:1412.0868 and 2009), Lipman 1978.
-- **Other inputs:** Kato 1994 (log regularity), Raynaud–Gruson 1971 (flattening), Brink 2006 (continuity of roots).
+For relative curves, L5's `de-jong-5-8-curve-fibration-alteration` is the projective integral-excellent base case. The extension to non-proper curves uses Temkin 2010 Theorems 1.1 and 1.5 and Corollary 1.6, as Exposé X Remark 3.4.1(i) requires. The semistable log-smoothness item retains the boundary containing the non-smooth fibres.
+
+Route 2 imports the strictly henselian arbitrary-rank pro-p/tame-quotient theorem from ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles and obtains §2.2.6 over k^u. LocalFieldsRamification Layers 2–4 supply the local-field special cases; ProfiniteProPGroups Layer 2 supplies Sylow theory. ModularCurves 4D supplies strict henselisation of local rings. Additional semilocal non-strict henselisation and filtered-colimit compatibility are explicit supplier requests, consolidated with draft PerfectoidSpaces:P3 and H1/SF.2 work; they are not asserted to be in 4D's strict-only text. The Part II constructs the valuation-ring comparisons, not another local-ring henselisation functor.
+
+The general Abhyankar inequality is owned by the valued-fields Part II and exported to DiamondEtaleCohomology:C8. C8 retains its stronger comparison with modified topological transcendence degree, which is not closed by the algebraic inequality alone.
+
+For RZ spaces, ClassicalAdicEtaleCohomology:H1:henselian supplies the affine dominant-point Huber limit theorem, also used by DiamondEtaleCohomology:C5. Route 1 must identify its construction with this on the same Spv carrier. The dependency is **H1:henselian → PrimeToDegreeAlterations**; the reverse direction would conflict with the existing H1 → L5 path. All ten proposed supplier edges checked in the fix report are acyclic at the checked snapshot.
+
+The snc item extends AlgebraicModuliForArithmeticGeometry:R09.7a's existing boundary interface through CR.5, using the Exposé X support convention. Quotient gluing imports ModularCurves 0C's affine invariant-ring quotient, retaining its finite-type condition before asserting finiteness; non-free actions are allowed and are not automatically torsors.
+
+## Cited inputs and remaining blueprint obligations
+
+The prerequisites retain Illusie–Temkin Exposés VIII and X, de Jong, Pank/Kuhlmann–Pank–Roquette and Ershov, Temkin 2010, Lipman, Kato, Raynaud–Gruson and Brink. Cossart–Piltant is now cited as *J. Algebra* 529 (2019), 268–535, doi:10.1016/j.jalgebra.2019.02.017, with arXiv:1412.0868v2. The required input is embedded universal resolution; SF.4 must identify its exact source theorem and establish projectivity before supplying E5. Updating publication metadata is not a claim to have read that full article. SGA 1 Exposés V §1 and XIII §5 are added for quotient and tame/log inputs.
+
+The three new separable items state their hypotheses explicitly. Separably P-closed fields yield tameness for **separable** extensions at residue characteristics in P, through perfection. The field-distillation variant assumes L/K finite separable; the scheme variant assumes Y → X generically separable. Neither upgrades a general inseparable extension to a separable one.
+
+The five new scheme/boundary/quotient items include API outlines and semantic tests for their future blueprints. No recursive proof closure is imposed on this extraction.
 
 ## Source issues
 
-| id | kind | where | finding |
-|----|------|-------|---------|
-| E1 | gap | Theorem 4.2.1, Step 4 | The theorem assumes only char(X) ⊆ P. Step 4 applies Theorem 3.3.6 to S̄ → S, which yields a P^w-alteration with P^w ⊆ char(S); that need not be a P-alteration when S̄ → S is wildly ramified over fibres where X is empty. Two repairs: assume char(S) ⊆ P, as Theorem 4.3.1 does, the only place the theorem is used; or distill over S₀ = S minus the finitely many fibres over char(S) ∖ char(X), then extend. |
-| E2 | misprint | Lemma 3.3.7, proof | "Direct" and "inverse" are swapped, S′ should be S, and "L is the composite …, L/K is tame" should be L′. |
-| E3 | misprint | Theorem 2.6.6, proof | "Corollary 2.5.6(ii)" should be "Corollary 2.5.6", which has no part (ii). |
-| E4 | misprint | Lemma 2.6.3(ii), proof, p. 112 | "p = char(K̃_i) divides [L̃_i : K̃_i]" fails when p_i = 1, where K̃_i has characteristic 0; p is the residue characteristic of K̃_i's valuation. The argument survives. Added and confirmed by the independent review. |
+| ID | Kind | Locator in the published article | Correction or required argument |
+|---|---|---|---|
+| E1 | gap | Theorem 4.2.1 and Step 4, pp. 121–122 | Use char(S) ⊆ P, the needed scope and Exposé X's base hypothesis; the more general printed version needs the recorded descent argument. The older review's explanation of Exposé X's hypothesis is corrected. |
+| E2 | misprint | Lemma 3.3.7, p. 120 | Correct the implication direction, S/S′ and L/L′ in the Galois-closure argument. |
+| E3 | misprint | Theorem 2.6.6, p. 112 | Corollary 2.5.6 has no part (ii). |
+| E4 | misprint | Lemma 2.6.3(ii), p. 112 | Use the residual characteristic exponent of the induced valued field, not the characteristic of its underlying field. |
+| E5 | gap | §4.1.4 and §4.3.2, pp. 121, 124 | Restore the projective convention and prove the exact inverse-image snc property from the construction; an snc enlargement is insufficient. |
+| E6 | gap | Theorem 4.2.1 Step 4, p. 122 | Supply separable field/alteration distillation variants; arbitrary maximal P-extensions do not guarantee separability. |
+| E7 | gap | Lemma 3.2.10, p. 117 | Replace the chosen étale polynomial by the minimal polynomial before asserting injectivity. The lemma survives. |
+| E8 | error | §3.1.7, p. 115 | Separatedness implies injectivity for a pointed scheme; the converse fails for a non-dominant point. |
+| E9 | misprint | Lemma 3.2.10, p. 117 | The internal reference is to the first part of the lemma. |
+| E10 | misprint | Theorem 4.2.1 Step 10, p. 123 | Define T̄; the composite is log smooth and its source log regular; correct the target to (S,W). |
 
-- All three are in both arXiv v2 and the Annals text.
-- None affects Theorems 1.2.5, 1.2.9 or 4.3.1.
-- No erratum was found. This is not an exhaustive novelty claim.
+E5–E6 affect proof arguments; E7–E10 leave the downstream conclusions unchanged after their stated repairs. The record includes the snc-enlargement, standard-étale-polynomial and doubled-origin counterexamples. E1–E4's original records and independent-review dispositions remain, except for the explicitly verified correction to E1's explanation. No new independent source-issue verdict is fabricated.
 
-## Corrections by the independent review
+The Annals page, Crossref record, arXiv history, author publication page and an erratum search were checked on 30 September 2026; no correction was found. This is not an exhaustive novelty claim.
 
-The review `REV-PAPER-TEMKIN-17` (Claude Code, session `cc-fb70e5`, 29 September 2026) accepts the extraction. E1–E3 are confirmed, and a new misprint E4 is added and confirmed; it too is in arXiv v2. Two notes were added: on `lemma-2-6-3-ii` (E4), and on `theorem-1-2-5`, whose projectivity comes from Theorem 4.3.1(ii) rather than (i). No status, statement or route changed.
+## Review and validation
+
+The original independent review (Claude Code, `cc-fb70e5`, 29 September 2026) accepted the three original routes and confirmed E1–E4. Its derivation of projectivity from 4.3.1(ii) and its no-existing-owner assertions are superseded by the verified corrections above. The historical paper-review file is outside this issue's scope and remains unchanged. The appended SF.4 route needs an explicit accepted route-4 disposition when the corrected extraction is independently reviewed.
+
+The paper validator, intake on the three deliverables, preservation/routing guards, exact source-version check and dependency-cycle checks pass. No Lean file is requested or changed; no compilation was run.
