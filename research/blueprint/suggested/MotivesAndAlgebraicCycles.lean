@@ -28,8 +28,9 @@ never as invented definitions; each carries a docstring naming its owner:
   homology of complex points and relative de Rham cohomology of pairs over `ℚ`
   (`PairDiagram.PairHomology`, `PeriodData`); Betti, de Rham and `ℓ`-adic data with Galois
   actions for the conjectures of MC.7;
-* SchemeAndStackFoundations SF.6 and ComplexComparisonPartII C4, C5: the comparison
-  isomorphisms, the Hodge filtration and Chow's theorem (MC.6, MC.7);
+* ComplexComparisonPartII C5 (the Betti–de Rham comparison, which it owns), C4 and
+  SchemeAndStackFoundations SF.6 (the etale–Betti comparison): the comparison isomorphisms,
+  the Hodge filtration and Chow's theorem (MC.6, MC.7);
 * MotivicEtaleKTheory M.5a: the category `DM^{eff,-}_Nis(k, R)`, finite correspondences, the
   motive functors, the Tate object, the internal Hom and the cancellation theorem (`DMeffData`
   and the variables of MC.4); M.4: higher Chow groups (`HigherChowData`);
@@ -7847,7 +7848,7 @@ namespace PairDiagram
 
 open AlgebraicGeometry TopologicalSpace
 
-/-- SchemeAndStackFoundations SF.2 and SF.6 (and ComplexComparisonPartII:C5): relative algebraic
+/-- SchemeAndStackFoundations SF.2 and ComplexComparisonPartII:C5: relative algebraic
 de Rham cohomology `H^d_dR(X, Y)` of pairs of varieties over `ℚ`, with pullback, the connecting
 maps of triples and the exterior product; the cross product in singular homology; the classes
 `1`, `[pt]`, `dX/X` and `[S¹]`; and the comparison isomorphism
@@ -7879,7 +7880,7 @@ structure PeriodData (Hs : PairHomology) where
   dlog : HdR Var.gm Var.gmOne 1
   /-- The class of the unit circle in `H_1(ℂ^*, {1}; ℚ)`. -/
   circle : Hs.H Var.gm Var.gmOne 1
-  /-- The comparison isomorphism (SF.6). -/
+  /-- The comparison isomorphism (ComplexComparisonPartII:C5). -/
   comparison : ∀ v : Vertex,
     ℂ ⊗[ℚ] HdR v.X v.Y v.i ≃ₗ[ℂ] ℂ ⊗[ℚ] Module.Dual ℚ (Hs.H v.X v.Y v.i)
   comparison_natural : ∀ {X X' : Var} {Y : Closeds X.obj.left} {Y' : Closeds X'.obj.left}
@@ -8083,7 +8084,7 @@ variable (Hs : PairHomology) (dR : PeriodData Hs) (P : (good Hs).ProductStructur
   (M₁ : (deRhamGood Hs dR).GradedMultiplicative (goodGrading Hs) P)
   (M₂ : (goodRep Hs).GradedMultiplicative (goodGrading Hs) P)
 
-/-- MC.6/period-point: the comparison isomorphism `φ : H^*_dR ⊗ ℂ ≅ H^* ⊗ ℂ` (SF.6) as a complex
+/-- MC.6/period-point: the comparison isomorphism `φ : H^*_dR ⊗ ℂ ≅ H^* ⊗ ℂ` (C5) as a complex
 point of `X_{1,2} = Iso⊗(H^*_dR, H^*)`, the `ℚ`-algebra map `per : A_{1,2} ⟶ ℂ`,
 `(p, ω, γ) ↦ γ(φ_p(ω))`. No rational point of `X_{1,2}` is asserted. -/
 def periodPoint :
