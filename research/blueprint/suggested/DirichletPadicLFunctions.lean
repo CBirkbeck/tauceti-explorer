@@ -7718,3 +7718,137 @@ example (η : DirichletCharacter K D) (hD : 1<D) (ε : K) (hε : IsPrimitiveRoot
 end Normed
 end SuggestedLogarithmicEvaluationTests
 end
+
+/-! Root-of-unity averages of the concrete logarithm value. These finite
+expressions are candidates for the distribution restriction formulas; no LAD
+operator or analytic L-value is defined here. The exact local logarithm law
+remains supplied by Coleman. -/
+noncomputable section
+namespace DirichletPadic
+open scoped BigOperators
+open PowerSeries
+section Field
+variable {K : Type*} [Field K] [CharZero K] {D : ℕ} [NeZero D]
+
+def cyclotomicLogAverage (p : ℕ) (ξ : K) (η : DirichletCharacter K D) (ε : K)
+    (hε : IsPrimitiveRoot ε D) (ℓ : K → K) : K := sorry
+lemma cyclotomicLogAverage_def (p : ℕ) (ξ : K) (η : DirichletCharacter K D) (ε : K)
+    (hε : IsPrimitiveRoot ε D) (ℓ : K → K) :
+    cyclotomicLogAverage p ξ η ε hε ℓ=
+      (p : K)⁻¹*∑ j ∈ Finset.range p, cyclotomicLogValue η ε hε ℓ (ξ^j-1) := sorry
+lemma cyclotomicLogAverage_zero (ξ : K) (η : DirichletCharacter K D) (ε : K)
+    (hε : IsPrimitiveRoot ε D) (ℓ : K → K) : cyclotomicLogAverage 0 ξ η ε hε ℓ=0 := sorry
+lemma cyclotomicLogAverage_one (ξ : K) (η : DirichletCharacter K D) (ε : K)
+    (hε : IsPrimitiveRoot ε D) (ℓ : K → K) :
+    cyclotomicLogAverage 1 ξ η ε hε ℓ=cyclotomicLogConstant η ε hε ℓ := sorry
+lemma cyclotomicLogAverage_zero_log (p : ℕ) (ξ : K) (η : DirichletCharacter K D)
+    (ε : K) (hε : IsPrimitiveRoot ε D) : cyclotomicLogAverage p ξ η ε hε (fun _ => 0)=0 := sorry
+
+def cyclotomicLogAverageComplement (p : ℕ) (ξ : K) (η : DirichletCharacter K D) (ε : K)
+    (hε : IsPrimitiveRoot ε D) (ℓ : K → K) : K := sorry
+lemma cyclotomicLogAverageComplement_def (p : ℕ) (ξ : K) (η : DirichletCharacter K D)
+    (ε : K) (hε : IsPrimitiveRoot ε D) (ℓ : K → K) :
+    cyclotomicLogAverageComplement p ξ η ε hε ℓ=
+      cyclotomicLogConstant η ε hε ℓ-cyclotomicLogAverage p ξ η ε hε ℓ := sorry
+lemma cyclotomicLogAverageComplement_zero (ξ : K) (η : DirichletCharacter K D)
+    (ε : K) (hε : IsPrimitiveRoot ε D) (ℓ : K → K) :
+    cyclotomicLogAverageComplement 0 ξ η ε hε ℓ=cyclotomicLogConstant η ε hε ℓ := sorry
+lemma cyclotomicLogAverageComplement_one (ξ : K) (η : DirichletCharacter K D)
+    (ε : K) (hε : IsPrimitiveRoot ε D) (ℓ : K → K) :
+    cyclotomicLogAverageComplement 1 ξ η ε hε ℓ=0 := sorry
+lemma cyclotomicLogAverageComplement_zero_log (p : ℕ) (ξ : K)
+    (η : DirichletCharacter K D) (ε : K) (hε : IsPrimitiveRoot ε D) :
+    cyclotomicLogAverageComplement p ξ η ε hε (fun _ => 0)=0 := sorry
+end Field
+
+section Normed
+variable {K : Type*} [NormedField K] [IsUltrametricDist K] [CharZero K]
+variable {D : ℕ} [NeZero D]
+
+lemma cyclotomicLogAverage_root_in_disc (p : ℕ) (hp : p.Prime) (ξ : K)
+    (hξ : IsPrimitiveRoot ξ p) (hpK : ‖(p : K)‖<1) (j : ℕ) : ‖ξ^j-1‖<1 := sorry
+
+theorem cyclotomicLogAverage_hasSum (p : ℕ) (hp : p.Prime) (ξ : K)
+    (hξ : IsPrimitiveRoot ξ p) (hpK : ‖(p : K)‖<1) (η : DirichletCharacter K D)
+    (hD : 1<D) (ε : K) (hε : IsPrimitiveRoot ε D) (hDK : ‖(D : K)‖=1)
+    (ℓ : K → K) (hlocal : ∀ x u : K, x≠0 → ‖u‖<1 →
+      HasSum (fun n : ℕ => coeff n (log K)*u^n) (ℓ (x*(1+u))-ℓ x)) :
+    HasSum (fun n : ℕ => coeff n (tameLogPrimitive η ε hε ℓ)*
+      ((p : K)⁻¹*∑ j ∈ Finset.range p, (ξ^j-1)^n))
+      (cyclotomicLogAverage p ξ η ε hε ℓ) := sorry
+
+lemma cyclotomicLogAverage_eq_series_average (p : ℕ) (hp : p.Prime) (ξ : K)
+    (hξ : IsPrimitiveRoot ξ p) (hpK : ‖(p : K)‖<1) (η : DirichletCharacter K D)
+    (hD : 1<D) (ε : K) (hε : IsPrimitiveRoot ε D) (hDK : ‖(D : K)‖=1)
+    (ℓ : K → K) (hlocal : ∀ x u : K, x≠0 → ‖u‖<1 →
+      HasSum (fun n : ℕ => coeff n (log K)*u^n) (ℓ (x*(1+u))-ℓ x)) :
+    cyclotomicLogAverage p ξ η ε hε ℓ=
+      (p : K)⁻¹*∑ j ∈ Finset.range p,
+        ∑' n : ℕ, coeff n (tameLogPrimitive η ε hε ℓ)*(ξ^j-1)^n := sorry
+
+theorem cyclotomicLogAverageComplement_eq_normalized (p : ℕ) (hp : p.Prime) (ξ : K)
+    (hξ : IsPrimitiveRoot ξ p) (hpK : ‖(p : K)‖<1) (η : DirichletCharacter K D)
+    (hD : 1<D) (ε : K) (hε : IsPrimitiveRoot ε D) (hDK : ‖(D : K)‖=1)
+    (ℓ : K → K) (hlocal : ∀ x u : K, x≠0 → ‖u‖<1 →
+      HasSum (fun n : ℕ => coeff n (log K)*u^n) (ℓ (x*(1+u))-ℓ x)) :
+    cyclotomicLogAverageComplement p ξ η ε hε ℓ=
+      -(p : K)⁻¹*∑ j ∈ Finset.range p,
+        ∑' n : ℕ, coeff n (tameNormalizedLogPrimitive η ε hε)*(ξ^j-1)^n := sorry
+
+theorem cyclotomicLogAverageComplement_local_law_independent (p : ℕ) (hp : p.Prime)
+    (ξ : K) (hξ : IsPrimitiveRoot ξ p) (hpK : ‖(p : K)‖<1)
+    (η : DirichletCharacter K D) (hD : 1<D) (ε : K) (hε : IsPrimitiveRoot ε D)
+    (hDK : ‖(D : K)‖=1) (ℓ₀ ℓ₁ : K → K)
+    (h₀ : ∀ x u : K, x≠0 → ‖u‖<1 →
+      HasSum (fun n : ℕ => coeff n (log K)*u^n) (ℓ₀ (x*(1+u))-ℓ₀ x))
+    (h₁ : ∀ x u : K, x≠0 → ‖u‖<1 →
+      HasSum (fun n : ℕ => coeff n (log K)*u^n) (ℓ₁ (x*(1+u))-ℓ₁ x)) :
+    cyclotomicLogAverageComplement p ξ η ε hε ℓ₀=
+      cyclotomicLogAverageComplement p ξ η ε hε ℓ₁ := sorry
+end Normed
+end DirichletPadic
+
+namespace SuggestedLogarithmicAverageTests
+open scoped BigOperators
+open DirichletPadic PowerSeries
+section Field
+variable {K : Type*} [Field K] [CharZero K] {D : ℕ} [NeZero D]
+-- empty_average
+example (ξ : K) (η : DirichletCharacter K D) (ε : K) (hε : IsPrimitiveRoot ε D) (ℓ : K → K) :
+    cyclotomicLogAverage 0 ξ η ε hε ℓ=0 := sorry
+-- singleton_average
+example (ξ : K) (η : DirichletCharacter K D) (ε : K) (hε : IsPrimitiveRoot ε D) (ℓ : K → K) :
+    cyclotomicLogAverage 1 ξ η ε hε ℓ=cyclotomicLogConstant η ε hε ℓ := sorry
+-- zero_function_average
+example (p : ℕ) (ξ : K) (η : DirichletCharacter K D) (ε : K) (hε : IsPrimitiveRoot ε D) :
+    cyclotomicLogAverage p ξ η ε hε (fun _ => 0)=0 := sorry
+-- empty_complement_boundary
+example (ξ : K) (η : DirichletCharacter K D) (ε : K) (hε : IsPrimitiveRoot ε D) (ℓ : K → K) :
+    cyclotomicLogAverageComplement 0 ξ η ε hε ℓ=cyclotomicLogConstant η ε hε ℓ := sorry
+-- singleton_complement_zero
+example (ξ : K) (η : DirichletCharacter K D) (ε : K) (hε : IsPrimitiveRoot ε D) (ℓ : K → K) :
+    cyclotomicLogAverageComplement 1 ξ η ε hε ℓ=0 := sorry
+-- zero_function_complement
+example (p : ℕ) (ξ : K) (η : DirichletCharacter K D) (ε : K) (hε : IsPrimitiveRoot ε D) :
+    cyclotomicLogAverageComplement p ξ η ε hε (fun _ => 0)=0 := sorry
+-- arbitrary_added_constant_cancels
+example (p : ℕ) (hp : p≠0) (c : K) (v : ℕ → K) :
+    (c+v 0)-(p : K)⁻¹*(∑ j ∈ Finset.range p, (c+v j))=
+      v 0-(p : K)⁻¹*(∑ j ∈ Finset.range p, v j) := sorry
+end Field
+-- dyadic_root_shift
+example {K : Type*} [NormedField K] [IsUltrametricDist K] [CharZero K]
+    (h2 : ‖(2 : K)‖<1) (j : ℕ) : ‖(-1 : K)^j-1‖<1 := sorry
+-- average_of_point_sums
+example {K : Type*} [NormedField K] (p : ℕ) (c : ℕ → K) (t v : ℕ → K)
+    (h : ∀ j ∈ Finset.range p, HasSum (fun n : ℕ => c n*t j^n) (v j)) :
+    HasSum (fun n : ℕ => c n*((p : K)⁻¹*∑ j ∈ Finset.range p, t j^n))
+      ((p : K)⁻¹*∑ j ∈ Finset.range p, v j) := sorry
+-- adding_to_a_local_log_preserves_its_law
+example {K : Type*} [NormedField K] [CharZero K] (ℓ : K → K) (b : K)
+    (h : ∀ x u : K, x≠0 → ‖u‖<1 →
+      HasSum (fun n : ℕ => coeff n (log K)*u^n) (ℓ (x*(1+u))-ℓ x)) :
+    ∀ x u : K, x≠0 → ‖u‖<1 →
+      HasSum (fun n : ℕ => coeff n (log K)*u^n) ((ℓ (x*(1+u))+b)-(ℓ x+b)) := sorry
+end SuggestedLogarithmicAverageTests
+end

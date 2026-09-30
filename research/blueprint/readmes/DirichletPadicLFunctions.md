@@ -15983,3 +15983,213 @@ Eight complete native lemmas prove the affine factorization, shifted-argument no
 Exact modular p-adic controls check220 pointwise comparisons at44 root choices in12 character/prime cases,920 shifted unit arguments and local expansions,160 root transports,44 zero-point constants and220 higher-precision comparisons. They detect140 missing-constant and176 wrong-rescaling failures. Exact modular p-adic calculations for12 character/prime cases and44 root choices, using input precision p^20 and output p^8, independently repeated at p^12. Five points0,p,2p,p^2,-p are checked at every root. Direct unit logarithms at z^a(1+t)-1 are compared with the constant plus the normalized formal logarithmic series, with exact division of each p-part using guard digits. All tested primes are odd and split the required roots, and all weighted centers and shifted arguments are units. Omitted terms n>=2r+4 have valuation at least n-v_p(n)>=n/2>=r, making the truncation rigorous. Root transport, zero-point constants, missing-constant failures and wrong-rescaling failures are checked. These finite computations do not prove an analytic L-value, a distribution trace, or convergence for ramified conductors. The largest observed discrepancy is 0.
 
 The initial58-input capture at dfd3b0ea8d7278dd44f3e4582c2a0841d63005c4 had empty delta. A global-only refresh at3a19e32be7fece74538ba85dfc1c5d803e8110d5 updates the source-issue file and errata register while preserving all16 Dirichlet findings exactly; all other guarded inputs and the four predecessor outputs remain unchanged. The local expansion remains an explicit supplied law because the Coleman suggested module imports this consumer. The verified332-node PMIA artifact is reused; no current369-node PMIA, Coleman or additional native Tau-module compilation is claimed.
+
+
+## Root averages and cancellation of the logarithmic constant
+
+Partial continuation preserving all485 predecessor nodes whole. Six L3 nodes prove the averaging points lie in the convergence disc, construct the actual finite logarithm average and its complement, give the averaged HasSum, and eliminate the arbitrary primitive constant with independence under the exact local logarithm law. All16 findings, four requests and eight gaps remain; zero stages are closed.
+
+Read the whole pinned RootsOfUnity.Lemmas module, primitive-root power-surjectivity and coprimality statements, finite-order norm1 and the native finite HasSum operations. The whole native Tau roots-of-unity valuation module was inspected and found to give norm1 rather than the stronger distance from1; it is not imported or newly compiled. Published151–153 was read in the preceding checkpoint. Whole Coleman distribution-relation and weight-one nodes, their exact suggested interfaces, and whole LAD amice-transform, distribution-operations and division-by-x-and-primitives nodes were read. Their dependency graphs were inspected before limiting this checkpoint to the concrete finite average and constant cancellation.
+
+### The averaging points lie in the open unit disc
+
+`DirichletPadicLFunctions:L3/logarithmic-average-root-domain` — `DirichletPadic.cyclotomicLogAverage_root_in_disc`
+
+If p is prime, ξ is a primitive p-th root and ‖(p:K)‖<1, then ‖ξ^j−1‖<1 for every natural j, including j=0 and p=2.
+
+**Hypotheses:** K is a characteristic-zero field; D is positive with NeZero D; η:DirichletCharacter K D, ε∈K, hε:IsPrimitiveRoot ε D and ℓ:K→K. Write V(t)=cyclotomicLogValue(η,ε,ℓ)(t), c₀=cyclotomicLogConstant(η,ε,ℓ), F=tameLogPrimitive(η,ε,ℓ), and H=tameNormalizedLogPrimitive(η,ε). The two finite constructors allow every natural p and every ξ∈K, with native totalized inversion. For root geometry and the series comparisons, K is a normed ultrametric field, p is prime, ξ is a primitive p-th root, and ‖(p:K)‖<1. The tame comparisons additionally require D>1 and ‖(D:K)‖=1. No primitivity of η or nonzero Gauss hypothesis is needed for these actual totalized constructions. The exact local logarithm law hlocal is ∀x,u, x≠0 → ‖u‖<1 → HasSum(n↦coeff n(log K)u^n)(ℓ(x(1+u))−ℓ(x)), supplied by the existing Coleman local expansion as in the preceding checkpoint. It already supplies convergence, so the conditional consumer requires no extra completeness axiom. For independence, both functions carry this same law; no equality of their constant values is assumed.
+
+**Proof:**
+
+1. Finite order gives ‖ξ‖=1. The ultrametric induction in z^(n+1)−1=z(z^n−1)+(z−1) gives ‖ξ^j−1‖≤‖ξ−1‖ for every j. The previously checked power-difference helper is reused.
+2. For1≤k<p, primality gives gcd(k,p)=1, so ξ^k is again primitive. Native eq_pow_of_pow_eq_one expresses ξ as a power of ξ^k. Applying the power-difference inequality in both directions gives ‖ξ^k−1‖=‖ξ−1‖.
+3. The native cyclotomic product identity ∏_(1≤k<p)(1−ξ^k)=p now gives ‖ξ−1‖^(p−1)=‖(p:K)‖. This exact norm equality is checked by a complete native lemma, using the native product rather than planning a cyclotomic polynomial theorem.
+4. If ‖ξ−1‖≥1, its(p−1)-st power is≥1, contradicting ‖p‖<1. Combine the strict bound with the first inequality to place all averaging points in the open disc.
+5. At p=2 the primitive root is−1 and the nonzero shift is−2, whose norm is<1 by the stated hypothesis. Primality is essential to the equal-distance step; norm(m)<1 alone for composite m is not a replacement.
+
+**Prerequisites:** `mathlib:IsOfFinOrder.norm_eq_one`, `mathlib:IsPrimitiveRoot.pow_of_coprime`, `mathlib:IsPrimitiveRoot.eq_pow_of_pow_eq_one`, `mathlib:IsPrimitiveRoot.prod_one_sub_pow_eq_order`, `mathlib:IsUltrametricDist.isNonarchimedean_norm`.
+
+**Tests:**
+
+- `SuggestedLogarithmicAverageTests.dyadic_root_shift` (computation): When ‖2‖<1, every(-1)^j−1 has norm<1, including the dyadic endpoint.
+
+**Acceptance:** The complete native proof includes the exact cyclotomic norm identity and needs no newly compiled Tau Ceti module.
+
+**Source:** Section6.2, primitive indeterminacy and Lemmas6.4–6.5, published151–152/PDF52–53; root average in the proof of Theorem6.1(ii), published153/PDF54. Complete published151–153 read in the preceding checkpoint of this continuation. Worker concrete root-average and primitive-constant cancellation steps in the source trace calculation. This checkpoint proves the domain of evaluation and finite HasSum identities, while leaving the generic logarithm distribution relation with Coleman and the actual restriction operator with LAD. No collapse to the powered constant or analytic L-value is claimed.
+
+### The finite average of the evaluated logarithm
+
+`DirichletPadicLFunctions:L3/cyclotomic-logarithmic-root-average` — `DirichletPadic.cyclotomicLogAverage`
+
+Define A_(p,ξ)(η,ε,ℓ)=(p:K)⁻¹Σ_(0≤j<p)V(ξ^j−1). The arithmetic application takes p prime and ξ primitive; the finite constructor records the p=0 and p=1 boundaries.
+
+**Hypotheses:** K is a characteristic-zero field; D is positive with NeZero D; η:DirichletCharacter K D, ε∈K, hε:IsPrimitiveRoot ε D and ℓ:K→K. Write V(t)=cyclotomicLogValue(η,ε,ℓ)(t), c₀=cyclotomicLogConstant(η,ε,ℓ), F=tameLogPrimitive(η,ε,ℓ), and H=tameNormalizedLogPrimitive(η,ε). The two finite constructors allow every natural p and every ξ∈K, with native totalized inversion. For root geometry and the series comparisons, K is a normed ultrametric field, p is prime, ξ is a primitive p-th root, and ‖(p:K)‖<1. The tame comparisons additionally require D>1 and ‖(D:K)‖=1. No primitivity of η or nonzero Gauss hypothesis is needed for these actual totalized constructions. The exact local logarithm law hlocal is ∀x,u, x≠0 → ‖u‖<1 → HasSum(n↦coeff n(log K)u^n)(ℓ(x(1+u))−ℓ(x)), supplied by the existing Coleman local expansion as in the preceding checkpoint. It already supplies convergence, so the conditional consumer requires no extra completeness axiom. For independence, both functions carry this same law; no equality of their constant values is assumed.
+
+**Proof:**
+
+1. Use the actual point value V from the preceding checkpoint and a Finset.range p sum. This is the same range-indexing convention as the existing Coleman suggested distribution theorem, so no hidden choice of representatives is introduced.
+2. For p=0 the range is empty and the value is0. For p=1 the only point is ξ^0−1=0, so the value is the actual constant c₀, independently of ξ. The zero supplied function gives0 for every p and ξ.
+3. In the prime application, the preceding root-domain theorem permits evaluating the actual primitive at every point. The next promoted HasSum theorem connects the finite average to its coefficient series.
+4. Keep the factor1/p in the field. No integral-valued average is asserted, and replacing1/p by1 fails in exact small controls. The finite expression is not itself a definition of LAD’s φψ operator.
+5. The source’s later equality A=p⁻¹c^[p] uses the existing Coleman logarithm distribution relation. That collapse is not included here; its generic supplier graph has additional open analytic dependencies which must be recorded when imported.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/cyclotomic-logarithmic-point-value`.
+
+**Uses:**
+
+- RJW proof of Theorem6.1(ii), tame case: The finite average at T=0 is the target expression for the source φψ trace.
+- Primitive indeterminacy in Section6.2: A constant primitive shift is reproduced by the average, and hence disappears from its complement.
+- Future LAD restriction comparison: The actual distribution operator must separately be proved to give this finite value.
+
+**API:**
+
+- `DirichletPadic.cyclotomicLogAverage_def` (constructor): The displayed1/p average of V at ξ^j−1.
+- `DirichletPadic.cyclotomicLogAverage_zero` (simp): At p=0 the average is0.
+- `DirichletPadic.cyclotomicLogAverage_one` (simp): At p=1 the average is c₀.
+- `DirichletPadic.cyclotomicLogAverage_zero_log` (simp): The zero function gives0.
+- `DirichletPadic.cyclotomicLogAverage_hasSum` (compatibility): The average has the actual coefficient-series HasSum described below; promoted.
+- `DirichletPadic.cyclotomicLogAverage_eq_series_average` (compatibility): Under the root-domain and hlocal hypotheses, A=(1/p)Σ_j Σ′_n coeff n(F)(ξ^j−1)^n.
+
+**Tests:**
+
+- `SuggestedLogarithmicAverageTests.empty_average` (degenerate): The range0 average is0.
+- `SuggestedLogarithmicAverageTests.singleton_average` (computation): The range1 average is exactly c₀.
+- `SuggestedLogarithmicAverageTests.zero_function_average` (computation): The zero supplied logarithm function gives average0.
+
+**Acceptance:** The scalar normalization and finite domain remain explicit.
+
+**Source:** Section6.2, primitive indeterminacy and Lemmas6.4–6.5, published151–152/PDF52–53; root average in the proof of Theorem6.1(ii), published153/PDF54. Complete published151–153 read in the preceding checkpoint of this continuation. Worker concrete root-average and primitive-constant cancellation steps in the source trace calculation. This checkpoint proves the domain of evaluation and finite HasSum identities, while leaving the generic logarithm distribution relation with Coleman and the actual restriction operator with LAD. No collapse to the powered constant or analytic L-value is claimed.
+
+### The coefficient series of the finite root average
+
+`DirichletPadicLFunctions:L3/cyclotomic-logarithmic-average-series` — `DirichletPadic.cyclotomicLogAverage_hasSum`
+
+Under the prime, norm and hlocal hypotheses, HasSum(n↦coeff n(F)·((p:K)⁻¹Σ_(j<p)(ξ^j−1)^n))(A_(p,ξ)(η,ε,ℓ)).
+
+**Hypotheses:** K is a characteristic-zero field; D is positive with NeZero D; η:DirichletCharacter K D, ε∈K, hε:IsPrimitiveRoot ε D and ℓ:K→K. Write V(t)=cyclotomicLogValue(η,ε,ℓ)(t), c₀=cyclotomicLogConstant(η,ε,ℓ), F=tameLogPrimitive(η,ε,ℓ), and H=tameNormalizedLogPrimitive(η,ε). The two finite constructors allow every natural p and every ξ∈K, with native totalized inversion. For root geometry and the series comparisons, K is a normed ultrametric field, p is prime, ξ is a primitive p-th root, and ‖(p:K)‖<1. The tame comparisons additionally require D>1 and ‖(D:K)‖=1. No primitivity of η or nonzero Gauss hypothesis is needed for these actual totalized constructions. The exact local logarithm law hlocal is ∀x,u, x≠0 → ‖u‖<1 → HasSum(n↦coeff n(log K)u^n)(ℓ(x(1+u))−ℓ(x)), supplied by the existing Coleman local expansion as in the preceding checkpoint. It already supplies convergence, so the conditional consumer requires no extra completeness axiom. For independence, both functions carry this same law; no equality of their constant values is assumed.
+
+**Proof:**
+
+1. Apply the preceding actual tameLogPrimitive_hasSum at each point ξ^j−1, using the root-domain theorem. Its sum is V(ξ^j−1), with the original finite logarithm constant retained.
+2. Use native finite HasSum addition on the range p and multiply the result by the fixed scalar(p:K)⁻¹. This is a finite combination of convergent series, with no unjustified exchange of two infinite sums.
+3. Pull the common coeff n(F) out of the finite sum and commute the scalar. The complete native finite-average-HasSum lemma verifies exactly this normalized coefficient expression.
+4. Taking each individual sum gives the constructor’s eq_series_average API. At n=0 every power is1, including the point0, so the average coefficient multiplier is p⁻¹p=1. Thus the constant is reproduced, not discarded.
+5. This is an equality of ordinary convergent sums. It does not assert that the averaged sequence is the full coefficient sequence of a shifted formal substitution or construct a locally analytic distribution.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/cyclotomic-logarithmic-root-average`, `DirichletPadicLFunctions:L3/logarithmic-average-root-domain`, `DirichletPadicLFunctions:L3/tame-logarithmic-series-point-evaluation`, `mathlib:hasProd_prod`, `mathlib:HasSum.mul_left`, `mathlib:HasProd.tprod_eq`.
+
+**Tests:**
+
+- `SuggestedLogarithmicAverageTests.average_of_point_sums` (compatibility): A finite family of pointwise HasSum statements gives the normalized coefficient average and its finite sum.
+
+**Acceptance:** The exact native helper is complete and needs no completeness assumption beyond the supplied HasSum facts.
+
+**Source:** Section6.2, primitive indeterminacy and Lemmas6.4–6.5, published151–152/PDF52–53; root average in the proof of Theorem6.1(ii), published153/PDF54. Complete published151–153 read in the preceding checkpoint of this continuation. Worker concrete root-average and primitive-constant cancellation steps in the source trace calculation. This checkpoint proves the domain of evaluation and finite HasSum identities, while leaving the generic logarithm distribution relation with Coleman and the actual restriction operator with LAD. No collapse to the powered constant or analytic L-value is claimed.
+
+### The value remaining after subtracting the root average
+
+`DirichletPadicLFunctions:L3/cyclotomic-logarithmic-average-complement` — `DirichletPadic.cyclotomicLogAverageComplement`
+
+Define U_(p,ξ)(η,ε,ℓ)=c₀−A_(p,ξ)(η,ε,ℓ). This finite complementary value is the candidate for the source unit restriction at0; it is not yet identified with cyclotomicEulerLogValue or an L-function value.
+
+**Hypotheses:** K is a characteristic-zero field; D is positive with NeZero D; η:DirichletCharacter K D, ε∈K, hε:IsPrimitiveRoot ε D and ℓ:K→K. Write V(t)=cyclotomicLogValue(η,ε,ℓ)(t), c₀=cyclotomicLogConstant(η,ε,ℓ), F=tameLogPrimitive(η,ε,ℓ), and H=tameNormalizedLogPrimitive(η,ε). The two finite constructors allow every natural p and every ξ∈K, with native totalized inversion. For root geometry and the series comparisons, K is a normed ultrametric field, p is prime, ξ is a primitive p-th root, and ‖(p:K)‖<1. The tame comparisons additionally require D>1 and ‖(D:K)‖=1. No primitivity of η or nonzero Gauss hypothesis is needed for these actual totalized constructions. The exact local logarithm law hlocal is ∀x,u, x≠0 → ‖u‖<1 → HasSum(n↦coeff n(log K)u^n)(ℓ(x(1+u))−ℓ(x)), supplied by the existing Coleman local expansion as in the preceding checkpoint. It already supplies convergence, so the conditional consumer requires no extra completeness axiom. For independence, both functions carry this same law; no equality of their constant values is assumed.
+
+**Proof:**
+
+1. Subtract the preceding actual average from the existing actual logarithm constant, which is V(0). No separate primitive or normalization is chosen.
+2. At p=0 this is c₀ because the average is empty; at p=1 it is0 because the average equals c₀. The zero supplied function gives0 for every p.
+3. The normalized-primitive comparison below proves that this difference is independent of the arbitrary integration constant when the averaging range is nonempty. The p=0 boundary explicitly shows why that restriction is needed.
+4. The source’s Euler expression was already constructed as c₀−p⁻¹c^[p]. Equality with that expression still requires the Coleman logarithm distribution relation; equality with an actual distribution restriction additionally requires LAD’s operator comparison.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/cyclotomic-logarithmic-root-average`, `DirichletPadicLFunctions:L3/cyclotomic-logarithmic-constant`.
+
+**Uses:**
+
+- RJW display(6-5): The source restricts to units by subtracting the φψ contribution from the primitive value at0.
+- RJW Section6.2 primitive ambiguity: The complementary expression must eliminate an arbitrary constant of integration.
+- Future logarithm distribution comparison: Its finite target is the already constructed reciprocal Euler value.
+
+**API:**
+
+- `DirichletPadic.cyclotomicLogAverageComplement_def` (constructor): U=c₀−A.
+- `DirichletPadic.cyclotomicLogAverageComplement_zero` (simp): At p=0, U=c₀.
+- `DirichletPadic.cyclotomicLogAverageComplement_one` (simp): At p=1, U=0.
+- `DirichletPadic.cyclotomicLogAverageComplement_zero_log` (simp): The zero supplied function gives0.
+- `DirichletPadic.cyclotomicLogAverageComplement_eq_normalized` (compatibility): Under the tame local-law hypotheses, U is minus the average of evaluated H; promoted below.
+- `DirichletPadic.cyclotomicLogAverageComplement_local_law_independent` (characterisation): Any two functions satisfying the same local logarithm series law give the same U; promoted below.
+
+**Tests:**
+
+- `SuggestedLogarithmicAverageTests.empty_complement_boundary` (non-example): At p=0 the complement is c₀, so it need not be invariant under changing the constant.
+- `SuggestedLogarithmicAverageTests.singleton_complement_zero` (degenerate): At p=1 the complement is0.
+- `SuggestedLogarithmicAverageTests.zero_function_complement` (computation): For the zero supplied function the complement is0.
+
+**Acceptance:** Do not conflate the finite complementary value, the previously defined Euler candidate, and the analytic L-value.
+
+**Source:** Section6.2, primitive indeterminacy and Lemmas6.4–6.5, published151–152/PDF52–53; root average in the proof of Theorem6.1(ii), published153/PDF54. Complete published151–153 read in the preceding checkpoint of this continuation. Worker concrete root-average and primitive-constant cancellation steps in the source trace calculation. This checkpoint proves the domain of evaluation and finite HasSum identities, while leaving the generic logarithm distribution relation with Coleman and the actual restriction operator with LAD. No collapse to the powered constant or analytic L-value is claimed.
+
+### The complementary value only uses the normalized primitive
+
+`DirichletPadicLFunctions:L3/cyclotomic-logarithmic-average-constant-cancellation` — `DirichletPadic.cyclotomicLogAverageComplement_eq_normalized`
+
+Under the tame prime and hlocal hypotheses, U_(p,ξ)(η,ε,ℓ)=−(p:K)⁻¹Σ_(j<p)Σ′_n coeff n(H)(ξ^j−1)^n. The right side has no supplied logarithm constant.
+
+**Hypotheses:** K is a characteristic-zero field; D is positive with NeZero D; η:DirichletCharacter K D, ε∈K, hε:IsPrimitiveRoot ε D and ℓ:K→K. Write V(t)=cyclotomicLogValue(η,ε,ℓ)(t), c₀=cyclotomicLogConstant(η,ε,ℓ), F=tameLogPrimitive(η,ε,ℓ), and H=tameNormalizedLogPrimitive(η,ε). The two finite constructors allow every natural p and every ξ∈K, with native totalized inversion. For root geometry and the series comparisons, K is a normed ultrametric field, p is prime, ξ is a primitive p-th root, and ‖(p:K)‖<1. The tame comparisons additionally require D>1 and ‖(D:K)‖=1. No primitivity of η or nonzero Gauss hypothesis is needed for these actual totalized constructions. The exact local logarithm law hlocal is ∀x,u, x≠0 → ‖u‖<1 → HasSum(n↦coeff n(log K)u^n)(ℓ(x(1+u))−ℓ(x)), supplied by the existing Coleman local expansion as in the preceding checkpoint. It already supplies convergence, so the conditional consumer requires no extra completeness axiom. For independence, both functions carry this same law; no equality of their constant values is assumed.
+
+**Proof:**
+
+1. The existing primitive is exactly F=C(c₀)+H. At each averaging point, subtract the constant-series HasSum c₀ from the already supplied HasSum for F. A complete native lemma gives HasSum of the evaluated H with value V(ξ^j−1)−c₀.
+2. Take native sums to write V(ξ^j−1)=c₀+eval(H,ξ^j−1). These are convergent evaluations established by subtraction; no additional integer-growth parameter is needed.
+3. Substitute into A and use card(range p)=p. Since p is prime and K has characteristic0, p≠0 in K, so p⁻¹Σ_(j<p)c₀=c₀. The complete native finite-average-constant lemma verifies the cancellation for every nonzero natural p.
+4. Subtract A from c₀ to obtain minus the normalized average, with exactly the displayed minus sign. The coefficient0 of H is0, consistent with the original primitive value at the unshifted point.
+5. More generally, adding the same arbitrary scalar c to every evaluated primitive value shifts its average by c and leaves value-at0 minus average unchanged. This is the finite manifestation of the source’s integration-constant indeterminacy, without invoking an unconstructed distribution primitive.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/cyclotomic-logarithmic-average-complement`, `DirichletPadicLFunctions:L3/cyclotomic-logarithmic-average-series`, `DirichletPadicLFunctions:L3/tame-logarithmic-primitive-with-constant`, `DirichletPadicLFunctions:L3/normalized-tame-logarithmic-primitive`, `mathlib:hasProd_ite_eq`, `mathlib:HasProd.tprod_eq`.
+
+**Tests:**
+
+- `SuggestedLogarithmicAverageTests.arbitrary_added_constant_cancels` (compatibility): For nonzero p, adding c to an arbitrary family of p evaluated values leaves its value-at0 minus normalized average unchanged.
+
+**Acceptance:** The exact modular controls check cancellation for four arbitrary shifts at each of four character/prime cases. The finite proof treats every nonzero p; the analytic application uses p prime.
+
+**Source:** Section6.2, primitive indeterminacy and Lemmas6.4–6.5, published151–152/PDF52–53; root average in the proof of Theorem6.1(ii), published153/PDF54. Complete published151–153 read in the preceding checkpoint of this continuation. Worker concrete root-average and primitive-constant cancellation steps in the source trace calculation. This checkpoint proves the domain of evaluation and finite HasSum identities, while leaving the generic logarithm distribution relation with Coleman and the actual restriction operator with LAD. No collapse to the powered constant or analytic L-value is claimed.
+
+### The complementary value is independent of the local logarithm choice
+
+`DirichletPadicLFunctions:L3/cyclotomic-logarithmic-average-local-law-independence` — `DirichletPadic.cyclotomicLogAverageComplement_local_law_independent`
+
+If ℓ₀ and ℓ₁ both satisfy the exact local logarithm HasSum law, their complementary values U_(p,ξ)(η,ε,ℓ₀) and U_(p,ξ)(η,ε,ℓ₁) agree under the tame prime norm hypotheses.
+
+**Hypotheses:** K is a characteristic-zero field; D is positive with NeZero D; η:DirichletCharacter K D, ε∈K, hε:IsPrimitiveRoot ε D and ℓ:K→K. Write V(t)=cyclotomicLogValue(η,ε,ℓ)(t), c₀=cyclotomicLogConstant(η,ε,ℓ), F=tameLogPrimitive(η,ε,ℓ), and H=tameNormalizedLogPrimitive(η,ε). The two finite constructors allow every natural p and every ξ∈K, with native totalized inversion. For root geometry and the series comparisons, K is a normed ultrametric field, p is prime, ξ is a primitive p-th root, and ‖(p:K)‖<1. The tame comparisons additionally require D>1 and ‖(D:K)‖=1. No primitivity of η or nonzero Gauss hypothesis is needed for these actual totalized constructions. The exact local logarithm law hlocal is ∀x,u, x≠0 → ‖u‖<1 → HasSum(n↦coeff n(log K)u^n)(ℓ(x(1+u))−ℓ(x)), supplied by the existing Coleman local expansion as in the preceding checkpoint. It already supplies convergence, so the conditional consumer requires no extra completeness axiom. For independence, both functions carry this same law; no equality of their constant values is assumed.
+
+**Proof:**
+
+1. Apply the preceding normalized-primitive comparison separately to the two supplied functions. Each right-hand side uses the same η, ε, ξ and actual normalized formal H.
+2. The two expressions therefore agree, without assuming the functions agree pointwise on the unit sphere or that their finite constants coincide. This strengthens compatibility of the complementary expression, not pointwise equality of logarithm branches.
+3. Adding an arbitrary constant b to a function satisfying hlocal leaves its local differences unchanged, so it still satisfies hlocal; the typed test records this useful constant-shift model. Such a shifted function is not asserted to be a normalized group-homomorphism logarithm branch.
+4. In the arithmetic specialization actual Coleman branches supply the local law, and the preceding pointwise unit-sphere theorem gives additional compatibility. No nontrivial-character hypothesis is needed for the present finite cancellation.
+5. The generic logarithm distribution theorem remains owned by Coleman and the distribution restriction remains owned by LAD. Their missing comparison with U is not discharged by this choice-independence result.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/cyclotomic-logarithmic-average-constant-cancellation`.
+
+**Tests:**
+
+- `SuggestedLogarithmicAverageTests.adding_to_a_local_log_preserves_its_law` (compatibility): Adding an arbitrary constant to the supplied function leaves its local logarithm HasSum difference law unchanged.
+
+**Acceptance:** Both local laws are explicit in the suggested signature. No equality of constants or placeholder proposition is substituted for them.
+
+**Source:** Section6.2, primitive indeterminacy and Lemmas6.4–6.5, published151–152/PDF52–53; root average in the proof of Theorem6.1(ii), published153/PDF54. Complete published151–153 read in the preceding checkpoint of this continuation. Worker concrete root-average and primitive-constant cancellation steps in the source trace calculation. This checkpoint proves the domain of evaluation and finite HasSum identities, while leaving the generic logarithm distribution relation with Coleman and the actual restriction operator with LAD. No collapse to the powered constant or analytic L-value is claimed.
+
+**Remaining:** The actual logarithm values now admit a root-average HasSum, and value-at0 minus that average depends only on the normalized primitive, eliminating every supplied integration constant. Next collapse the finite average to p⁻¹ times the powered logarithm constant using the existing Coleman weight-one distribution relation, then compare with LAD restriction. Importing the current generic Coleman node also reaches open AdicSpacesPartII F1/R2, PadicDifferentialEquationsAndRigidCohomology RD.0/RD.4 and PadicHodgeTheory P7 annulus-foundations requests; those dependencies must be accounted for or supplied by a finer owned input, never silently dropped. LAD distribution-operations currently has a coarse PMIA L0 leaf. Neither route is imported by this finite checkpoint, and no analytic L-value is identified. The existing discAnalytic/R+ comparison request remains open. Retain the smoothed pure-p-power route and E44–E48; odd/dyadic analytic branches, pole/residue analysis and complete source extraction remain open.
+
+### Root averages and cancellation of the logarithmic constant validation
+
+All 485 predecessor nodes, 467 baseline records, 16 findings, requests and sourceVersions remain whole. This checkpoint adds 6 nodes, 15 named suggested declarations and 10 typed examples. The indexed blueprint, four-file intake, whitespace, preservation, API/test parity and versioned-source checks pass. The graph has 682 reachable nodes, 3235 edges and 610 native leaves and is acyclic. Its stage request leaves are PadicMeasuresIwasawaAlgebras:L1, PadicMeasuresIwasawaAlgebras:L3, PadicMeasuresIwasawaAlgebras:L3, LocallyAnalyticDistributions:L1. The primitive-root domain route reaches native declarations only. The other five new routes retain the existing LAD L1 comparison leaf; the broader generic distribution and restriction graphs are not claimed by this checkpoint.
+
+The full suggested module elaborates with zero errors and 1522 expected placeholder warnings. Source and artifact audits cover 3600 pinned Mathlib modules, 21 pinned Tau Ceti modules and the verified actual 332-node PMIA artifact. The current 369-node PMIA source preserves the compiled 332-node artifact's source in order; no new supplier declaration is called and no compilation against the current supplier revision is claimed. Source, olean and original compiler-log hashes were rechecked. Existing builds only were used.
+
+Eight complete native lemmas check power-difference and inverse-power bounds, the exact primitive-p-root norm identity, the open-disc bound for every root power, finite normalized averaging of HasSum, cancellation of an arbitrary constant, the constant-series HasSum and subtraction to the normalized primitive. The probe elaborates against 2838 pinned Mathlib modules with zero errors, warnings or placeholders. General roadmap declarations remain unchecked.
+
+Exact arithmetic in ramified cyclotomic extensions checks26 root evaluations,71 local logarithm expansions,22 generator-average comparisons, four normalized-complement identities,16 arbitrary-constant cancellations and26 higher-precision comparisons. Two controls detect omitting the1/p normalization. Exact modular arithmetic in (Z/p^20 Z)[X]/Phi_p for p=3,5,7,11, with tame roots split in Q_p and all p-th roots represented in the ramified cyclotomic extension. The conductor2 principal character is deliberately allowed: these finite and local-series statements need no primitivity. Output precision is p^8 with one extra digit for averaging, independently repeated three digits higher. Direct unit logarithms are computed as log(x^(p-1))/(p-1) and compared with the actual constant plus the normalized Taylor series at xi^j-1. A principal-unit argument has valuation at least1/e, e=p-1. Truncation starts at N=max(p^2,2e(r+2)); for n>=N, v_p(n)<=n/(2e), hence floor(n/e)-v_p(n)>=r. Every term division by the p-part of n is checked coefficientwise with guard digits. Finite averages, generator permutations and cancellation of arbitrary added constants are exact modulo the output precision. Missing the1/p average factor is detected. These controls do not prove a general logarithm distribution identity, identify an LAD restriction or establish an analytic L-value. The largest observed discrepancy is 0.
+
+The58-input capture ateca50d5dcbab7b8d02bf83e74e2b5732696b8487 has empty delta. The exact Coleman local logarithm law stays explicit. Only existing pinned artifacts and the verified332-node PMIA artifact are used; no current369-node PMIA, Coleman or additional native Tau-module compilation is claimed.
