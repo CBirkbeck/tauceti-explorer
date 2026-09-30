@@ -39136,7 +39136,8 @@
     "REV-PAPER-BHATT-MORROW-SCHOLZE-19"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-BHATT-MORROW-SCHOLZE-19.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4306"
   },
   {
    "id": "REV-RT-PAPER-BHATT-MORROW-SCHOLZE-19",
@@ -39403,8 +39404,9 @@
     "REV-PAPER-BOXER-CALEGARI-GEE-PILLONI-21"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-BOXER-CALEGARI-GEE-PILLONI-21.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4316"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4316",
+   "finishedAt": "2026-09-30T04:29:11Z"
   },
   {
    "id": "REV-RT-PAPER-BOXER-CALEGARI-GEE-PILLONI-21",
