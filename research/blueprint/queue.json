@@ -19216,8 +19216,9 @@
    ],
    "avoidAccountOf": "RS-04",
    "prompt": "research/blueprint/prompts/REV-RS-04.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #807"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #807",
+   "finishedAt": "2026-09-30T23:27:03Z"
   },
   {
    "id": "RS-05",
@@ -23656,12 +23657,12 @@
     "REV-RS-14"
    ],
    "prompt": "research/blueprint/prompts/BP-DirichletPadicLFunctions.md",
-   "state": "external",
+   "state": "pending",
    "suppliers": [
     "BP-LocallyAnalyticDistributions",
     "BP-PadicMeasuresIwasawaAlgebras"
    ],
-   "note": "claimed on GitHub issue #713"
+   "note": "released on GitHub issue #713"
   },
   {
    "id": "REV-DirichletPadicLFunctions",
@@ -35080,7 +35081,8 @@
     "REV-PAPER-MOK-PILA-TSIMERMAN-19"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-MOK-PILA-TSIMERMAN-19.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4094"
   },
   {
    "id": "RT-PAPER-GAMBURD-MAGEE-RONAN-19",
@@ -40902,8 +40904,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-BOCKLE-HARRIS-KHARE-ETAL-19.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5014"
+   "state": "pending",
+   "note": "released on GitHub issue #5014"
   },
   {
    "id": "RT-PAPER-LAWRENCE-VENKATESH-20",
@@ -45609,7 +45611,8 @@
     "REV-RS-23"
    ],
    "prompt": "research/blueprint/prompts/RT-RS-23.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #5117"
   },
   {
    "id": "REV-RT-RS-23",
@@ -45818,8 +45821,9 @@
     "REV-RS-27"
    ],
    "prompt": "research/blueprint/prompts/RT-RS-27.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5119"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #5119",
+   "finishedAt": "2026-09-30T23:27:26Z"
   },
   {
    "id": "REV-RT-RS-27",
@@ -51035,8 +51039,9 @@
     "FIX-RT-AREA-langlands-1~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-langlands-1~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5141"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #5141",
+   "finishedAt": "2026-09-30T23:27:32Z"
   },
   {
    "id": "RT-AREA-langlands-2",
