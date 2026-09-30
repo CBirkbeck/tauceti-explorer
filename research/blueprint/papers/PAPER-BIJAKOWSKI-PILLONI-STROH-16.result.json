@@ -20,13 +20,13 @@
    "sha256": "13c159cde16c09c98de6b29ed1cf0e293ae78e5dc250399a1ee9203b3601d92c"
   }
  ],
- "summary": "Bijakowski, Pilloni and Stroh extend Coleman's classicality criterion from modular curves to PEL Shimura varieties of type (A) and (C) at Iwahori level, with p unramified and totally split in the reflex field: an overconvergent form that is an eigenform of the Hecke operators U_i at the primes of F0 above p, with non-zero eigenvalues and weight large against their valuations, is classical (Theorem 5.3.1). The proof generalises Buzzard–Kassaei: Fargues's degree measures distance from the ordinary-multiplicative tube, the U_i increase it strictly off integer values (so f extends to X_Iw(1−) by finite slope alone), and on the rest U_i^N is decomposed into good and bad parts over good sequences of opens, where Kassaei series converge under the weight–slope hypothesis and glue modulo p^{A_N}. Lan's Köcher principle and rigid GAGA algebraise the result. The PEL moduli, automorphic bundles, Serre–Tate and GAGA are planned; the paper's machinery joins the proposed Part II HigherHidaAndColemanTheory, and its rigid-geometry, degree, ordinariness and compactification inputs go to AdicSpacesPartII, R07.1, PELModuli M2 and ShimuraCompactifications C5. Seven mistakes are recorded, including a gap in the dimension ≤ 1 case.",
+ "summary": "Bijakowski, Pilloni and Stroh extend Coleman's classicality criterion from modular curves to PEL Shimura varieties of type (A) and (C) at Iwahori level, with p unramified and totally split in the reflex field: an overconvergent form that is an eigenform of the Hecke operators U_i at the primes of F0 above p, with non-zero eigenvalues and weight large against their valuations, is classical (Theorem 5.3.1). The proof generalises Buzzard–Kassaei: Fargues's degree measures distance from the ordinary-multiplicative tube, the U_i increase it strictly off integer values (so f extends to X_Iw(1−) by finite slope alone), and on the rest U_i^N is decomposed into good and bad parts over good sequences of opens, where Kassaei series converge under the weight–slope hypothesis and glue modulo p^{A_N}. Lan's Köcher principle and rigid GAGA algebraise the result. The PEL moduli, automorphic bundles, Serre–Tate and GAGA are planned; the paper's machinery joins the proposed Part II HigherHidaAndColemanTheory, and its rigid-geometry, degree, PEL linear-algebra and ordinariness, and compactification inputs go to AdicSpacesPartII, HodgeTateAndCanonicalSubgroups T0, PELModuli M0/M2 and ShimuraCompactifications C5. Fourteen mistakes are recorded, including gaps in the dimension ≤ 1 case and in the continuation over half-open boxes.",
  "items": [
   {
    "id": "PAPER-BIJAKOWSKI-PILLONI-STROH-16/1",
    "kind": "definition",
    "name": "PEL data of type (A) and (C)",
-   "statement": "(B, ⋆) a simple Q-algebra with positive involution, centre F ⊇ F0 = F^⋆ totally real of degree d; type (A) when [F : F0] = 2 (B ⊗_{F0,τ} R ≅ M_n(C) with A ↦ Āᵗ), type (C) when F = F0 and B ⊗_{F,τ} R ≅ M_n(R) with A ↦ Aᵗ. With a non-degenerate anti-hermitian B-module (U_Q, ⟨,⟩), G = Aut_B(U_Q, ⟨,⟩) is the group of B-linear symplectic similitudes; G_R ≅ G(∏_τ U(a_τ, b_τ)) in type (A) and G(∏ Sp_{2a}) in type (C), with a_τ + b_τ = a = dim_Q U_Q/(2nd); h : S → G_R, U^{1,0}, the reflex field E.",
+   "statement": "(B, ⋆) a simple Q-algebra with positive involution, centre F ⊇ F0 = F^⋆ totally real of degree d; type (A) when [F : F0] = 2 (B ⊗_{F0,τ} R ≅ M_n(C) with A ↦ Āᵗ), type (C) when F = F0 and B ⊗_{F,τ} R ≅ M_n(R) with A ↦ Aᵗ. With a non-degenerate anti-hermitian B-module (U_Q, ⟨,⟩), G = Aut_B(U_Q, ⟨,⟩) is the group of B-linear symplectic similitudes; G_R ≅ G(∏_τ U(a_τ, b_τ)) in type (A), with a_τ + b_τ = dim_Q U_Q/(2nd) independent of τ, and G_R ≅ G(∏_{i=1}^d Sp_{2a}) in type (C), with a = dim_Q U_Q/(2nd); h : S → G_R, U^{1,0}, the reflex field E. Integral data: an order O_B ⊂ B stable under ⋆ and an O_B-stable lattice U ⊂ U_Q on which ⟨,⟩ is Z-valued.",
    "locator": "§1.1, pp. 979–980 (published version)",
    "status": "planned",
    "library": [],
@@ -43,31 +43,35 @@
    "status": "planned",
    "library": [],
    "planned": [
+    "PELModuli:M0",
     "PELModuli:M2"
-   ]
+   ],
+   "note": "M0 owns the PEL data and the linear algebra of O_B ⊗ Z_p; M2 owns the good-prime conditions. The splitting in F of the places of F0 above p (type (A)) and the total splitting of p in E are this paper's additions to M2's conditions."
   },
   {
    "id": "PAPER-BIJAKOWSKI-PILLONI-STROH-16/3",
    "kind": "theorem",
    "name": "Lemma 1.1.4: signatures are constant above each prime of F0",
-   "statement": "Under Hypothesis 1.1.1, (a_τ, b_τ) = (a_τ′, b_τ′) whenever τ, τ′ lie above the same prime π_i of F0; write (a_i, b_i).",
+   "statement": "Type (A), under Hypothesis 1.1.1. Fix C ≅ C_p and, for each τ : F0 → R, order the embeddings σ, σ̄ of F above τ so that σ lies above π_i^+ (Remark 1.1.3). Then (a_τ, b_τ) = (a_τ′, b_τ′) whenever τ, τ′ lie above the same prime π_i of F0; write (a_i, b_i). (In type (C), a_τ = dim_Q U_Q/(2nd) for every τ.)",
    "locator": "Remark 1.1.3 and Lemma 1.1.4, p. 981 (published version)",
    "status": "missing",
    "library": [],
-   "planned": []
+   "planned": [],
+   "note": "The convention matters: the other choice of σ swaps (a_τ, b_τ) (p. 979). The proof uses Hypothesis 1.1.1(v): det_{U^{1,0}} takes values in Z_p on O_B ⊗ Z_p."
   },
   {
    "id": "PAPER-BIJAKOWSKI-PILLONI-STROH-16/4",
    "kind": "theorem",
    "name": "Morita reduction of O_B ⊗ Z_p-modules",
-   "statement": "M ↦ E_{1,1}·M is an equivalence between M_n(Z_{p^f})-modules and Z_{p^f}-modules; with the idempotents F = (F_i^±) it identifies O_B ⊗ Z_p-modules with modules over ∏ Z_{p^{d_i}} ⊕ Z_{p^{d_i}} (type (A)) or ∏ Z_{p^{d_i}} (type (C)).",
+   "statement": "M ↦ E_{1,1}·M is an equivalence between the categories of M_n(R)-modules and R-modules, for any ring R (here R = Z_{p^f}).",
    "locator": "Remark 1.1.5, p. 982 (published version)",
    "status": "library",
    "library": [
     "mathlib:moritaEquivalenceMatrix",
     "mathlib:IsMoritaEquivalent.matrix"
    ],
-   "planned": []
+   "planned": [],
+   "note": "Mathlib states exactly this (RingTheory/Morita/Matrix.lean). The paper's next step, that the idempotents F = (F_i^±) identify O_B ⊗ Z_p-modules with modules over ∏ Z_{p^{d_i}} ⊕ Z_{p^{d_i}} (type (A)) or ∏ Z_{p^{d_i}} (type (C)), uses the decomposition of O_B ⊗ Z_p in item 2 and the splitting of modules over a finite product of rings; neither library states it, and it is routine."
   },
   {
    "id": "PAPER-BIJAKOWSKI-PILLONI-STROH-16/5",
@@ -78,26 +82,29 @@
    "status": "planned",
    "library": [],
    "planned": [
-    "PELModuli:M2"
-   ]
+    "PELModuli:M2",
+    "ShimuraCompactifications:C5"
+   ],
+   "note": "M2 plans representability and smoothness as an algebraic space; quasi-projectivity is proved at C5 (M2: 'Quasi-projectivity and scheme representability of all these integral algebraic spaces are proved by the compactification step C5')."
   },
   {
    "id": "PAPER-BIJAKOWSKI-PILLONI-STROH-16/6",
    "kind": "theorem",
-   "name": "Serre–Tate: the map to Barsotti–Tate stacks is formally étale",
-   "statement": "The morphism P : X → ∏_i BT^{d_i}_{a_i+b_i} (type (A); ∏_i BT^{d_i,pol}_{a_i} in type (C)) sending A to ∏ G_i, where A[(π_i^+)^∞] = Z^n_{p^{d_i}} ⊗ G_i, is formally étale.",
+   "name": "Serre–Tate for PEL abelian schemes",
+   "statement": "Over a base on which p is locally nilpotent, deformations of an abelian scheme with O_B-action and polarisation along a nilpotent thickening are equivalent to deformations of its p-divisible group with the induced O_B ⊗ Z_p-action and polarisation.",
    "locator": "§1.3, p. 984 (published version)",
    "status": "planned",
    "library": [],
    "planned": [
     "AbelianSchemesAndArithmeticModuli:A4"
-   ]
+   ],
+   "note": "The paper uses it as the formal étaleness of P : X → ∏ BT^{d_i}_{a_i+b_i} (§1.3). That form needs the Barsotti–Tate stacks of item 7, which is routed to the Part II downstream of A4, so it is stated there."
   },
   {
    "id": "PAPER-BIJAKOWSKI-PILLONI-STROH-16/7",
    "kind": "construction",
    "name": "Barsotti–Tate stacks with Iwahori level and the model X_Iw",
-   "statement": "BT^f_m (height mf, Z_{p^f}-action), BT^{f,pol}_l, their formal variants BT̂^f_{l,m} (dimension lf) and BT̂^{f,pol}_l; an Iwahori structure is a full flag 0 = H_0 ⊂ ··· ⊂ H_m = G[p] of Z_{p^f}-stable finite flat subgroups with H_j of rank p^{fj} (in the polarised case up to H_l, totally isotropic); forgetting it is representable and proper; X_Iw := X ×_{∏BT} ∏BT_Iw, proper over X, parametrising (A, λ, ι, η, H_•).",
+   "statement": "BT^f_m (height mf, Z_{p^f}-action), BT^{f,pol}_l, their formal variants BT̂^f_{l,m} (dimension lf) and BT̂^{f,pol}_l; an Iwahori structure is a full flag 0 = H_0 ⊂ ··· ⊂ H_m = G[p] of Z_{p^f}-stable finite flat subgroups with H_j of rank p^{fj} (in the polarised case up to H_l, totally isotropic); forgetting it is representable and proper; X_Iw := X ×_{∏BT} ∏BT_Iw, proper over X, parametrising (A, λ, ι, η, H_•). By Serre–Tate (item 6) the morphism P : X → ∏_i BT^{d_i}_{a_i+b_i} (type (A); ∏_i BT^{d_i,pol}_{a_i} in type (C)), sending A to ∏ G_i where A[(π_i^+)^∞] = Z^n_{p^{d_i}} ⊗ G_i (resp. A[π_i^∞] = Z^n_{p^{d_i}} ⊗ G_i), is formally étale.",
    "locator": "§1.3, pp. 983–985 (published version)",
    "status": "missing",
    "library": [],
@@ -112,8 +119,10 @@
    "status": "planned",
    "library": [],
    "planned": [
-    "AutomorphicBundles:B2"
-   ]
+    "AutomorphicBundles:B2",
+    "ShimuraCompactifications:C5"
+   ],
+   "note": "B2 constructs the bundle of a Levi representation on the canonical model. The integral sheaf on X and its extension over the compactification (§5.1) belong to C5, as in the accepted extractions of Boxer–Calegari–Gee–Pilloni (2021), Calegari–Geraghty (2020) and Pilloni (2020)."
   },
   {
    "id": "PAPER-BIJAKOWSKI-PILLONI-STROH-16/9",
@@ -131,7 +140,7 @@
    "id": "PAPER-BIJAKOWSKI-PILLONI-STROH-16/10",
    "kind": "theorem",
    "name": "Fargues's degree of finite flat group schemes",
-   "statement": "For a finite flat group scheme H over O_K̄, deg(H) ∈ [0, log_p |H|] ([Far10]); a morphism H → H′ that is an isomorphism on generic fibres has deg H ≤ deg H′, with equality iff it is an isomorphism ([Far10, coro. 3]); deg G[p] = dim G for a Barsotti–Tate group G; and the degree of a truncated Barsotti–Tate group of level one is an integer ([Pil11, lem. 2.1]).",
+   "statement": "For a finite flat group scheme H over O_K̄, deg(H) ∈ [0, log_p |H|] ([Far10]); a morphism H → H′ that is an isomorphism on generic fibres has deg H ≤ deg H′, with equality iff it is an isomorphism ([Far10, coro. 3]); deg G[p] = dim G for a Barsotti–Tate group G; the degree of a truncated Barsotti–Tate group of level one is an integer ([Pil11, lem. 2.1]); and deg is additive in short exact sequences of finite flat group schemes over O_K̄ (used on p. 992 for deg(H_l) = fl − deg(L)).",
    "locator": "§1.5, p. 987; proofs of Propositions 3.1.1–3.1.2, pp. 992–993 (published version)",
    "status": "missing",
    "library": [],
@@ -141,7 +150,7 @@
    "id": "PAPER-BIJAKOWSKI-PILLONI-STROH-16/11",
    "kind": "construction",
    "name": "The degree map δ and the ordinary-multiplicative locus",
-   "statement": "δ(G, H_•) = deg(H_l) ∈ [0, fl]; (G, H_•) is ordinary-multiplicative when δ = fl (then G is an extension of an étale BT of height f(m − l) by a multiplicative one and H_l is multiplicative). On the Raynaud generic fibre X^rig_Iw this gives δ : X^rig_Iw → ∏ [0, d_ia_i] and the opens X_Iw(ε) = {δ_i ≥ d_ia_i − ε_i}; X_Iw(0) is the ordinary-multiplicative tube.",
+   "statement": "δ(G, H_•) = deg(H_l) ∈ [0, fl]. For G of dimension fl (G from BT̂^f_{l,m}, or BT̂^{f,pol}_l with m = 2l), (G, H_•) is ordinary-multiplicative when δ = fl; then G is an extension of an étale BT of height f(m − l) by a multiplicative one and H_l is multiplicative. On the Raynaud generic fibre X^rig_Iw this gives δ : X^rig_Iw → ∏ [0, d_ia_i] (the i-th coordinate with f = d_i, l = a_i) and the opens X_Iw(ε) = {δ_i ≥ d_ia_i − ε_i}; X_Iw(0) is the ordinary-multiplicative tube. The degree is analytic: on the moduli of subgroups there are sections δ_L of invertible sheaves with |δ_L(x)| = p^{−deg L(x)} ([Pil11, §2.2.2], p. 1000), so for rational a ≤ b the set δ_i^{−1}([a, b]) is a quasi-compact open, and on C_i^rig the function δ_i∘p_2 − δ_i∘p_1 is the valuation of an analytic function (p. 993).",
    "locator": "§1.5, p. 987 (published version)",
    "status": "missing",
    "library": [],
@@ -151,11 +160,12 @@
    "id": "PAPER-BIJAKOWSKI-PILLONI-STROH-16/12",
    "kind": "theorem",
    "name": "Wedhorn's ordinariness theorem",
-   "statement": "p is totally split in E iff the ordinary locus is dense in X × Spec(O/π) ([Wed99, 1.6.3]); hence X_Iw(0) is non-empty. The ordinary locus of X_Iw × Spec(O/π) is dense if p is totally split in F, and (for p unramified in F) only then.",
+   "statement": "p is totally split in E if and only if the ordinary locus is dense in X × Spec(O/π) ([Wed99, 1.6.3]).",
    "locator": "§1.5, p. 987; Remark 1.5.1, p. 988 (published version)",
    "status": "missing",
    "library": [],
-   "planned": []
+   "planned": [],
+   "note": "The Iwahori-level consequences in Remark 1.5.1 need the model X_Iw of item 7 and are item 43, in the Part II."
   },
   {
    "id": "PAPER-BIJAKOWSKI-PILLONI-STROH-16/13",
@@ -165,13 +175,14 @@
    "locator": "Definition 1.5.2, p. 988 (published version)",
    "status": "missing",
    "library": [],
-   "planned": []
+   "planned": [],
+   "note": "OverconvergentAutomorphicForms O3 and O8 define overconvergent spaces for Hilbert and Siegel varieties as colimits over neighbourhoods of the ordinary locus, but not for PEL types (A) and (C) at Iwahori level, and O8 makes no classicality claim; the design should reuse that formalism."
   },
   {
    "id": "PAPER-BIJAKOWSKI-PILLONI-STROH-16/14",
    "kind": "construction",
    "name": "Hecke correspondences on Barsotti–Tate stacks",
-   "statement": "C^BT parametrises (G, H_•, L) with L ⊂ G[p] Z_{p^f}-stable and L ⊕ H_l = G[p] (L Lagrangian in the polarised case); p_1 forgets L and p_2 sends it to (G/L, H′_•) with H′_k the image of H_k for k ≤ l and of p^{−1}(H_k ∩ L) for k > l; p_1, p_2 are finite étale and give U : P(BT_Iw(O_K̄)) → P(BT_Iw(O_K̄)).",
+   "statement": "Over Spec(K): C^BT parametrises (G, H_•, L) with G of height mf with Z_{p^f}-action (resp. principally polarised of height 2lf), H_• an Iwahori structure and L ⊂ G[p] Z_{p^f}-stable (L Lagrangian in the polarised case) with L ⊕ H_l = G[p]; p_1 forgets L and p_2 sends it to (G/L, H′_•) with H′_k the image of H_k for k ≤ l and of p^{−1}(H_k ∩ L) for l < k ≤ m (non-polarised case); p_1, p_2 : C^BT → BT^f_{m,Iw} × Spec(K) (resp. BT^{f,pol}_{l,Iw} × Spec(K)) are representable, finite and étale. Taking schematic closures over O_K̄ gives U : P(BT_Iw(O_K̄)) → P(BT_Iw(O_K̄)), which sends finite sets to finite sets.",
    "locator": "§2.1, pp. 988–989 (published version)",
    "status": "missing",
    "library": [],
@@ -181,7 +192,7 @@
    "id": "PAPER-BIJAKOWSKI-PILLONI-STROH-16/15",
    "kind": "construction",
    "name": "Hecke correspondences C_i on X_Iw and the operators U_i on opens",
-   "statement": "For 1 ≤ i ≤ h, C_i = X_Iw ×_{BT_Iw} C^BT (via p_1, equivalently via p_2) parametrises O_B-stable L ⊂ A[π_i] of type U_i; A/L gets the polarisation x_i·λ for a chosen totally positive x_i ∈ O_{F0} with v_{π_j}(x_i) = δ_{ij} (p·λ when there is one place above p), so U_i is canonical only up to this choice; on admissible opens U_i(V) = p_2(p_1^{−1}(V)).",
+   "statement": "For 1 ≤ i ≤ h, C_i := (X_Iw × Spec K) ×_{BT_Iw × Spec K} C^BT (via p_1, equivalently via p_2, Remark 2.2.1) parametrises O_B-stable L ⊂ A[π_i] of type U_i, and p_1, p_2 : C_i → X_Iw × Spec(K) are finite étale. A/L gets the polarisation x_i·λ for a chosen totally positive x_i ∈ O_{F0} with v_{π_j}(x_i) = δ_{ij} (p·λ when there is one place above p), so U_i is canonical only up to this choice. With C_i^rig := X^rig_Iw ×_{X^an_Iw} C_i^an, U_i(V) = p_2(p_1^{−1}(V)) on admissible opens V of X^rig_Iw.",
    "locator": "§2.2 and Remark 2.2.1, pp. 989–990 (published version)",
    "status": "missing",
    "library": [],
@@ -195,7 +206,8 @@
    "locator": "§2.3 and Remarks 2.3.1–2.3.2, pp. 990–991 (published version)",
    "status": "missing",
    "library": [],
-   "planned": []
+   "planned": [],
+   "note": "OverconvergentAutomorphicForms O6 plans the p-level correspondences at the primes above p for Hilbert varieties only."
   },
   {
    "id": "PAPER-BIJAKOWSKI-PILLONI-STROH-16/17",
@@ -221,7 +233,7 @@
    "id": "PAPER-BIJAKOWSKI-PILLONI-STROH-16/19",
    "kind": "theorem",
    "name": "Proposition 4.1.2 (Kassaei, Bartenwerfer): bounded sections",
-   "statement": "For a locally free F on an admissible formal scheme with smooth reduced generic fibre and V ⊆ Z^rig quasi-compact, H^0(V, F^rig) ≅ K ⊗_O lim_n H^0(V, F̃^rig/p^n), where F̃^rig is the subsheaf of sections of norm ≤ 1 ([Kas06, lem. 2.3], [Pil11, coro. 5.1]).",
+   "statement": "For a locally free F on an admissible formal scheme with smooth reduced generic fibre and V ⊆ Z^rig quasi-compact, H^0(V, F^rig) ≅ K ⊗_O lim_n H^0(V, F̃^rig/p^n), where F̃^rig is the subsheaf of sections of norm ≤ 1 ([Kas06, lem. 2.3], [Pil11, coro. 5.1]). The norm is the canonical Banach norm on H^0(V, F^rig) ([Kas06, §2]); a cohomological correspondence T : H^0(T(V), F^rig) → H^0(V, F^rig) has operator norm |T|_V (§4.1.1), which Lemma 4.4.5 bounds.",
    "locator": "§4.1.1 and Proposition 4.1.2, pp. 994–995 (published version)",
    "status": "missing",
    "library": [],
@@ -311,7 +323,7 @@
    "id": "PAPER-BIJAKOWSKI-PILLONI-STROH-16/28",
    "kind": "theorem",
    "name": "Lemma 4.4.5: norm of the bad operators",
-   "statement": "If U_i^bad on V involves only complements L_0 of type U_i with deg L ≥ ν, then ‖U_i^bad‖_V ≤ p^{d_ia_ib_i − ν·inf_j(k_{i,j,a_i} + l_{i,j,b_i})} (type (A)) or p^{d_ia_i(a_i+1)/2 − ν·inf_j k_{i,j,a_i}} (type (C)), κ written as (k_{i,j,1} ≥ ··· ; l_{i,j,1} ≥ ···).",
+   "statement": "If U_i^bad on V involves only complements L_0 of type U_i with deg L ≥ ν, where L = F_i^+·L_0 in type (A) and L = F_i·L_0 in type (C) (so deg L_0 = n·deg L, Remark 4.3.4), then ‖U_i^bad‖_V ≤ p^{d_ia_ib_i − ν·inf_j(k_{i,j,a_i} + l_{i,j,b_i})} (type (A)) or p^{d_ia_i(a_i+1)/2 − ν·inf_j k_{i,j,a_i}} (type (C)), κ written as (k_{i,j,1} ≥ ··· ; l_{i,j,1} ≥ ···).",
    "locator": "Lemma 4.4.5, p. 1004 (published version)",
    "status": "missing",
    "library": [],
@@ -321,7 +333,7 @@
    "id": "PAPER-BIJAKOWSKI-PILLONI-STROH-16/29",
    "kind": "definition",
    "name": "Hypothesis 4.5.1: the weight–slope condition",
-   "statement": "For every 1 ≤ i ≤ h, inf_j(k_{i,j,a_i} + l_{i,j,b_i}) > v(α_i) + d_ia_ib_i in type (A), and inf_j k_{i,j,a_i} > v(α_i) + d_ia_i(a_i + 1)/2 in type (C).",
+   "statement": "Write κ = ∏_{i=1}^h ∏_{j=1}^{d_i}(k_{i,j,1} ≥ ⋯ ≥ k_{i,j,a_i}; l_{i,j,1} ≥ ⋯ ≥ l_{i,j,b_i}) in type (A) and ∏_{i,j}(k_{i,j,1} ≥ ⋯ ≥ k_{i,j,a_i}) in type (C) (p. 994), so that k_{i,j,a_i} and l_{i,j,b_i} are the smallest entries. For every 1 ≤ i ≤ h, inf_j(k_{i,j,a_i} + l_{i,j,b_i}) > v(α_i) + d_ia_ib_i in type (A), and inf_j k_{i,j,a_i} > v(α_i) + d_ia_i(a_i + 1)/2 in type (C).",
    "locator": "Hypothesis 4.5.1, p. 1004 (published version)",
    "status": "missing",
    "library": [],
@@ -361,7 +373,7 @@
    "id": "PAPER-BIJAKOWSKI-PILLONI-STROH-16/33",
    "kind": "theorem",
    "name": "Proposition 4.5.8: continuation to the whole rigid space",
-   "statement": "Under Hypothesis 4.5.1 the eigenform f extends to an element of H^0(X^rig_Iw, ω^κ), one direction i at a time.",
+   "statement": "Under Hypothesis 4.5.1 the eigenform f extends to an element of H^0(X^rig_Iw, ω^κ), one direction i at a time. The proof applies §4.5 on boxes with half-open sides, where §4.5 needs closed ones; the exhaustion step is missing (E12).",
    "locator": "Proposition 4.5.8, p. 1009 (published version)",
    "status": "missing",
    "library": [],
@@ -371,7 +383,7 @@
    "id": "PAPER-BIJAKOWSKI-PILLONI-STROH-16/34",
    "kind": "theorem",
    "name": "Toroidal compactifications at Iwahori level (Lan)",
-   "statement": "For a projective polyhedral cone decomposition S there is a projective X^S_Iw over O whose generic fibre is the toroidal compactification of X_Iw × K and which contains X_Iw as a dense open (using the normality of X_Iw); the forgetful map extends to X^S_Iw → X^S, and ω^κ extends to a locally free sheaf, formally canonical modulo every power of π ([Lan15, déf. 2.7, prop. 2.8, §3, prop. 7.3], [Lan16, rem. 13.12, 16.5], [Lan13, th. 6.4.1.1], [Lan, coro. 5.8–5.9]).",
+   "statement": "For a projective polyhedral cone decomposition S of X_Iw × K ([Lan15, déf. 2.7, prop. 2.8]) there is a projective X^S_Iw over O whose generic fibre is the toroidal compactification of X_Iw × K ([Lan15, §3]). It is built as a compactification of the normalization X^n_Iw of an auxiliary Siegel model in X_Iw × K ([Lan16, Example 13.12]; printed 'rem. 13.12', E14), and it contains X^n_Iw as a dense open. The forgetful map extends to X^S_Iw → X^S ([Lan13, th. 6.4.1.1], [Lan15, prop. 7.3]), and ω^κ extends to a locally free sheaf, formally canonical modulo every power of π ([Lan, coro. 5.8–5.9]). That the moduli model X_Iw is X^n_Iw is item 35.",
    "locator": "§5.1, pp. 1009–1010 (published version)",
    "status": "missing",
    "library": [],
@@ -381,20 +393,18 @@
    "id": "PAPER-BIJAKOWSKI-PILLONI-STROH-16/35",
    "kind": "theorem",
    "name": "Normality of the Iwahori-level model",
-   "statement": "X_Iw is normal, by [He13] or by [Str10, prop. 3.1.7.1] together with the flatness of local models ([Gör01] in type (A), [Gör03] in type (C)).",
+   "statement": "The moduli model X_Iw is normal, by [He13] or by [Str10, prop. 3.1.7.1] together with the flatness of local models ([Gör01] in type (A), [Gör03] in type (C)). Hence X_Iw is the normalization model X^n_Iw of item 34 and a dense open of X^S_Iw ([Lan16, rem. 16.5]).",
    "locator": "§5.1, p. 1009 (published version)",
-   "status": "planned",
+   "status": "missing",
    "library": [],
-   "planned": [
-    "PELModuli:M4"
-   ],
-   "note": "M4 plans normality and flatness of higher p-level integral models under their actual hypotheses."
+   "planned": [],
+   "note": "M4 plans normality only for the normalization model ('Do not assert smoothness, a fine moduli interpretation, or a universal abelian scheme on such a normalization without a separate theorem'). The moduli model is item 7, and its normality rests on PEL local models (Görtz, He), which no layer plans; the accepted extractions of Pilloni (2020) and Boxer–Calegari–Gee–Pilloni (2021) also keep Iwahori local-model geometry in their Part IIs."
   },
   {
    "id": "PAPER-BIJAKOWSKI-PILLONI-STROH-16/36",
    "kind": "theorem",
    "name": "Proposition 5.2.1: Köcher principle modulo π^n (Lan)",
-   "statement": "If the symmetric space of G has complex dimension > 1, restriction H^0(X̄^S_Iw × Spec(O/π^n), ω^κ) → H^0(X_Iw × Spec(O/π^n), ω^κ) is an isomorphism for all n ≥ 1 and κ ∈ X^+(T_M) ([Lan15, th. 8.7]).",
+   "statement": "If the symmetric space of G has complex dimension > 1, restriction H^0(X̄^S_Iw × Spec(O/π^n), ω^κ) → H^0(X^n_Iw × Spec(O/π^n), ω^κ) is an isomorphism for all n ≥ 1 and κ ∈ X^+(T_M) ([Lan15, th. 8.7]), X^n_Iw being the normalization model of item 34. With item 35 the target is H^0(X_Iw × Spec(O/π^n), ω^κ), which is Proposition 5.2.1.",
    "locator": "Proposition 5.2.1, p. 1010 (published version)",
    "status": "missing",
    "library": [],
@@ -404,7 +414,7 @@
    "id": "PAPER-BIJAKOWSKI-PILLONI-STROH-16/37",
    "kind": "theorem",
    "name": "Corollaries 5.2.2–5.2.3: formal and rigid Köcher principles",
-   "statement": "Passing to the limit, H^0(X̄^S_Iw, ω^κ) ≅ H^0(X_Iw^∧, ω^κ) on π-adic completions, and on rigid generic fibres H^0((X̄^S_Iw)^rig, ω^κ) ≅ H^0(X^rig_Iw, ω^κ).",
+   "statement": "Passing to the limit over n, H^0(𝔛̄^S_Iw, ω^κ) ≅ H^0(𝔛_Iw, ω^κ) for the π-adic formal completions (Corollary 5.2.2), and on rigid generic fibres H^0((𝔛̄^S_Iw)^rig, ω^κ) ≅ H^0(X^rig_Iw, ω^κ) (Corollary 5.2.3).",
    "locator": "Corollaries 5.2.2–5.2.3, p. 1010 (published version)",
    "status": "missing",
    "library": [],
@@ -430,13 +440,14 @@
    "locator": "Introduction, pp. 975–976; proof of Theorem 5.3.1, p. 1011 (published version)",
    "status": "missing",
    "library": [],
-   "planned": []
+   "planned": [],
+   "note": "PadicFamilies L2 plans the analogous small-slope classicality for the eigencurve built from modular symbols, not Coleman's theorem for overconvergent forms."
   },
   {
    "id": "PAPER-BIJAKOWSKI-PILLONI-STROH-16/40",
    "kind": "theorem",
    "name": "Theorem 5.3.1: classicality of overconvergent forms of small slope",
-   "statement": "Let X_Iw be a PEL Shimura variety of type (A) or (C) of Iwahori level at p satisfying Hypothesis 1.1.1, κ ∈ X^+(T_M) and f ∈ M(X_Iw, κ)† an eigenform of every U_i (1 ≤ i ≤ h) with non-zero eigenvalue α_i. If κ and the v(α_i) satisfy Hypothesis 4.5.1, f is classical, i.e. in the image of H^0(X_Iw × Spec K, ω^κ) ↪ M(X_Iw, κ)†. (When Hypothesis 1.4.2 fails the paper's argument needs completing, see E6.)",
+   "statement": "Let X_Iw be a PEL Shimura variety of type (A) or (C) of Iwahori level at p satisfying Hypothesis 1.1.1, κ ∈ X^+(T_M) and f ∈ M(X_Iw, κ)† an eigenform of every U_i (1 ≤ i ≤ h) with non-zero eigenvalue α_i. If κ and the v(α_i) satisfy Hypothesis 4.5.1, f is classical, i.e. in the image of H^0(X_Iw × Spec K, ω^κ) ↪ M(X_Iw, κ)†. (When Hypothesis 1.4.2 fails the paper's argument needs completing, see E6; so does the continuation over half-open boxes, see E12.)",
    "locator": "Theorem 5.3.1, p. 1011; Introduction, pp. 976–977 (published version)",
    "status": "missing",
    "library": [],
@@ -448,6 +459,26 @@
    "name": "Explicit weight–slope conditions",
    "statement": "For the Siegel variety of GSp_{2g} over a totally real F of degree d with p inert, the condition is inf_σ k_{σ,g} > v(α) + dg(g + 1)/2; for a unitary group of signature (a, b) over a CM field F with p inert in F0 and split in F, it is inf_σ(k_{σ,a} + l_{σ,b}) > v(α) + dab.",
    "locator": "Remark after the main theorem, p. 977 (published version)",
+   "status": "missing",
+   "library": [],
+   "planned": []
+  },
+  {
+   "id": "PAPER-BIJAKOWSKI-PILLONI-STROH-16/42",
+   "kind": "theorem",
+   "name": "Maximum modulus principle for rigid spaces",
+   "statement": "On a quasi-compact rigid space the absolute value of an analytic function attains its maximum, so its valuation attains its minimum. With item 11 this makes the increase of δ_i under U_i uniform on quasi-compact opens (proof of Proposition 3.2.1).",
+   "locator": "Proof of Proposition 3.2.1, p. 993 (published version)",
+   "status": "missing",
+   "library": [],
+   "planned": []
+  },
+  {
+   "id": "PAPER-BIJAKOWSKI-PILLONI-STROH-16/43",
+   "kind": "theorem",
+   "name": "Remark 1.5.1: ordinary loci at Iwahori level",
+   "statement": "Under Hypothesis 1.1.1 the ordinary and the ordinary-multiplicative loci of X_Iw × Spec(O/π) are non-empty, so X_Iw(0) ≠ ∅ (from item 12). The ordinary locus is dense in X_Iw × Spec(O/π) if p is totally split in F and, for p unramified in F, only then. The paper asserts this ('On peut montrer'), pointing only to an enumeration of the codimension-zero Kottwitz–Rapoport strata.",
+   "locator": "Remark 1.5.1, p. 988 (published version)",
    "status": "missing",
    "library": [],
    "planned": []
@@ -495,9 +526,9 @@
    "why": "Toroidal compactifications of X."
   },
   {
-   "citation": "K.-W. Lan, Integral models of toroidal compactifications with projective cone decompositions, IMRN 2017",
+   "citation": "K.-W. Lan, Integral models of toroidal compactifications with projective cone decompositions, Int. Math. Res. Not. IMRN 2017, no. 11, 3237–3280",
    "link": "10.1093/imrn/rnw123",
-   "why": "[Lan15]: compactifications of X_Iw and the Köcher principle, Theorem 8.7."
+   "why": "[Lan15]: compactifications of X_Iw and the Köcher principle, Theorem 8.7. The paper cites the 2015 preprint; its numbers (déf. 2.7, prop. 2.8, §3, prop. 7.3, th. 8.7) were not checked against the published version."
   },
   {
    "citation": "K.-W. Lan, Compactifications of PEL-type Shimura varieties in ramified characteristics, Forum Math. Sigma 4 (2016)",
@@ -535,9 +566,19 @@
    "why": "Rigid GAGA."
   },
   {
-   "citation": "S. Bijakowski, Analytic continuation on Shimura varieties with μ-ordinary locus, Algebra Number Theory 10 (2016), 843–885",
-   "link": "10.2140/ant.2016.10.843",
-   "why": "The follow-up removing the splitting hypothesis in E."
+   "citation": "A. Abbes and A. Mokrane, Sous-groupes canoniques et cycles évanescents p-adiques pour les variétés abéliennes, Publ. Math. IHÉS 99 (2004), 117–162",
+   "link": "10.1007/s10240-004-0022-x",
+   "why": "Lemma A.1.1 (quasi-finite and flat implies finite and flat), in the proofs of Propositions 4.1.7 and 4.1.8."
+  },
+  {
+   "citation": "S. Bosch, Half a century of rigid analytic spaces, Pure Appl. Math. Q. 5 (2009), 1435–1467",
+   "link": "10.4310/PAMQ.2009.v5.n4.a9",
+   "why": "Flat quasi-compact morphisms of rigid spaces are open, in the proof of Proposition 4.1.4."
+  },
+  {
+   "citation": "B. Stroh, Compactification de variétés de Siegel aux places de mauvaise réduction, Bull. Soc. Math. France 138 (2010), 259–315",
+   "link": "10.24033/bsmf.2591",
+   "why": "Proposition 3.1.7.1, the paper's alternative route to the normality of X_Iw (item 35)."
   }
  ],
  "routes": [
@@ -545,6 +586,7 @@
    "route": "source",
    "roadmap": "AdicSpacesPartII",
    "stages": [
+    "AdicSpacesPartII:R0",
     "AdicSpacesPartII:R2",
     "AdicSpacesPartII:R3"
    ],
@@ -552,31 +594,34 @@
     "PAPER-BIJAKOWSKI-PILLONI-STROH-16/19",
     "PAPER-BIJAKOWSKI-PILLONI-STROH-16/20",
     "PAPER-BIJAKOWSKI-PILLONI-STROH-16/21",
-    "PAPER-BIJAKOWSKI-PILLONI-STROH-16/22"
+    "PAPER-BIJAKOWSKI-PILLONI-STROH-16/22",
+    "PAPER-BIJAKOWSKI-PILLONI-STROH-16/42"
    ],
-   "reason": "R2 owns admissible formal schemes, blow-ups and generic fibres, and R3 coherent sheaves, finite étale traces and Kiehl-type finiteness. The paper's general rigid-geometry inputs — the Kassaei–Bartenwerfer description of sections by bounded sections, images of opens and strict neighbourhoods under finite étale maps (through Bosch–Lütkebohmert flattening), the finiteness criterion 4.1.8 and the identity principle — are statements about those objects, used by any analytic-continuation argument."
+   "reason": "R0 constructs finite and étale maps of rigid spaces, R2 owns admissible formal schemes, blow-ups and generic fibres, and R3 coherent sheaves, finite étale traces and Kiehl-type finiteness. The paper's general rigid-geometry inputs are statements about those objects, used by any analytic-continuation argument: the Kassaei–Bartenwerfer description of sections by bounded sections, images of opens and strict neighbourhoods under finite étale maps (through Bosch–Lütkebohmert flattening), the finiteness criterion 4.1.8, the identity principle and the maximum modulus principle. PAPER-PILLONI-20's accepted route sends Bartenwerfer's theorems to R0, R2 and R3 as well."
   },
   {
    "route": "source",
-   "roadmap": "FiniteFlatGroupsAndIntegralPadicHodgeTheory",
+   "roadmap": "HodgeTateAndCanonicalSubgroups",
    "stages": [
-    "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1"
+    "HodgeTateAndCanonicalSubgroups:T0"
    ],
    "items": [
     "PAPER-BIJAKOWSKI-PILLONI-STROH-16/10"
    ],
-   "reason": "R07.1 owns finite flat group schemes over mixed-characteristic bases; Fargues's degree and its monotonicity under generic isomorphisms extend that layer and are the quantity the whole dynamics is measured in."
+   "reason": "T0 holds Fargues's degree. The accepted routes of PAPER-BOXER-PILLONI-26 (route 12) and PAPER-BOXER-CALEGARI-GEE-PILLONI-21 (route 13) send the degree, its divisor and the comparison for generic isomorphisms ([Far10, coro. 3]) there, and T0 builds on the Barsotti–Tate API of FiniteFlatGroupsAndIntegralPadicHodgeTheory R07.1–R07.2 without defining a second one. This item coalesces with theirs; a route to R07.1 would give the degree a second owner."
   },
   {
    "route": "source",
    "roadmap": "PELModuli",
    "stages": [
+    "PELModuli:M0",
     "PELModuli:M2"
    ],
    "items": [
+    "PAPER-BIJAKOWSKI-PILLONI-STROH-16/3",
     "PAPER-BIJAKOWSKI-PILLONI-STROH-16/12"
    ],
-   "reason": "M2 owns the smooth PEL model at a good prime; Wedhorn's theorem that the ordinary locus of its special fibre is dense exactly when p splits completely in the reflex field is a statement about that model."
+   "reason": "M0 owns PEL data, their real signatures and the reflex field, and M2 the smooth PEL model at a good prime. Lemma 1.1.4 (signatures constant above each prime of F0 under Hypothesis 1.1.1) is linear algebra of that data, and Wedhorn's theorem, that the ordinary locus of the special fibre of X is dense exactly when p splits completely in the reflex field, is a statement about M2's model. The Iwahori-level clauses of Remark 1.5.1 need the model X_Iw of item 7 and stay with the Part II (item 43)."
   },
   {
    "route": "source",
@@ -588,7 +633,7 @@
     "PAPER-BIJAKOWSKI-PILLONI-STROH-16/34",
     "PAPER-BIJAKOWSKI-PILLONI-STROH-16/36"
    ],
-   "reason": "C5 owns integral PEL compactifications, including the higher p-level normalisations; Lan's toroidal compactifications of the Iwahori-level model, the extension of automorphic sheaves and Lan's Köcher principle modulo π^n are the results of that layer the paper consumes."
+   "reason": "C5 owns integral PEL compactifications, including 'higher p-level normalizations'. Lan's toroidal compactification of the Iwahori-level normalization model, the extension of the automorphic sheaves and Lan's Köcher principle modulo π^n are results of that layer. Items 34 and 36 are stated for the normalization model, which M4 and C5 own; its identification with the moduli model X_Iw of item 7 is item 35, in the Part II. Stated for X_Iw itself they would need item 7, which is downstream of C5."
   },
   {
    "route": "part-ii",
@@ -597,7 +642,6 @@
    "title": "Hida and Coleman families, period modules, and family L-functions, Part II: higher Hida and higher Coleman theory for coherent cohomology",
    "area": "padic",
    "items": [
-    "PAPER-BIJAKOWSKI-PILLONI-STROH-16/3",
     "PAPER-BIJAKOWSKI-PILLONI-STROH-16/7",
     "PAPER-BIJAKOWSKI-PILLONI-STROH-16/11",
     "PAPER-BIJAKOWSKI-PILLONI-STROH-16/13",
@@ -617,12 +661,14 @@
     "PAPER-BIJAKOWSKI-PILLONI-STROH-16/31",
     "PAPER-BIJAKOWSKI-PILLONI-STROH-16/32",
     "PAPER-BIJAKOWSKI-PILLONI-STROH-16/33",
+    "PAPER-BIJAKOWSKI-PILLONI-STROH-16/35",
     "PAPER-BIJAKOWSKI-PILLONI-STROH-16/37",
     "PAPER-BIJAKOWSKI-PILLONI-STROH-16/39",
     "PAPER-BIJAKOWSKI-PILLONI-STROH-16/40",
-    "PAPER-BIJAKOWSKI-PILLONI-STROH-16/41"
+    "PAPER-BIJAKOWSKI-PILLONI-STROH-16/41",
+    "PAPER-BIJAKOWSKI-PILLONI-STROH-16/43"
    ],
-   "brief": "This route joins the proposal of HigherHidaAndColemanTheory made from PAPER-PILLONI-20 and joined by PAPER-BOXER-CALEGARI-GEE-PILLONI-21 and PAPER-BOXER-PILLONI-26 (same id, parent, title and area); the design job merges its brief with theirs. Bijakowski–Pilloni–Stroh (Ann. of Math. 183 (2016), 975–1014) supply the degree-0 Coleman theory for PEL Shimura varieties of type (A) and (C) at Iwahori level with p unramified and split in the reflex field: Theorem 5.3.1, an overconvergent eigenform of every U_i with non-zero eigenvalues and weight large against the slopes (Hypothesis 4.5.1: inf(k + l) > v(α_i) + d_ia_ib_i in type (A), inf k > v(α_i) + d_ia_i(a_i + 1)/2 in type (C)) is classical. Build, in order: Barsotti–Tate stacks with Iwahori level and X_Iw; Fargues's degree map δ and the ordinary-multiplicative tube; overconvergent forms; the Hecke correspondences U_i normalised by p^{−n_i}; the dynamics (Propositions 3.1.1–3.2.2); continuation to X_Iw(1−) by finite slope alone; the good/bad decomposition of U_i^N over good sequences of opens (§§4.3–4.4) with the norm bound of Lemma 4.4.5; Kassaei series and their gluing modulo p^{A_N} (§4.5); and the formal and rigid Köcher principles with GAGA to algebraise. Keep the case where the symmetric space has dimension ≤ 1 explicit (PAPER-BIJAKOWSKI-PILLONI-STROH-16/E6): Coleman–Kassaei covers only the modular curve. Import PEL moduli (PELModuli M0, M2, M4), Serre–Tate (AbelianSchemesAndArithmeticModuli A4), automorphic bundles and classical forms (AutomorphicBundles B2, B4), Fargues's degree (FiniteFlatGroupsAndIntegralPadicHodgeTheory R07.1), rigid geometry and GAGA (AdicSpacesPartII R1–R3), Wedhorn's theorem (PELModuli M2) and Lan's compactifications and Köcher principle (ShimuraCompactifications C5). The higher Coleman theory of the joined briefs recovers this degree-0 statement for GSp_{2g}; the design should record the comparison rather than build two classicality theorems for the same group.",
+   "brief": "This route joins the proposal of HigherHidaAndColemanTheory made from PAPER-PILLONI-20 and joined by PAPER-BOXER-CALEGARI-GEE-PILLONI-21 and PAPER-BOXER-PILLONI-26 (same id, parent, title and area); the design job merges its brief with theirs. Bijakowski–Pilloni–Stroh (Ann. of Math. 183 (2016), 975–1014) supply the degree-0 Coleman theory for PEL Shimura varieties of type (A) and (C) at Iwahori level with p unramified and split in the reflex field: Theorem 5.3.1, an overconvergent eigenform of every U_i with non-zero eigenvalues and weight large against the slopes (Hypothesis 4.5.1: for every 1 ≤ i ≤ h, inf_{1≤j≤d_i}(k_{i,j,a_i} + l_{i,j,b_i}) > v(α_i) + d_ia_ib_i in type (A) and inf_{1≤j≤d_i} k_{i,j,a_i} > v(α_i) + d_ia_i(a_i + 1)/2 in type (C), k_{i,j,a_i} and l_{i,j,b_i} being the smallest entries of κ) is classical. Build, in order: Barsotti–Tate stacks with Iwahori level and X_Iw, with its normality, which identifies it with ShimuraCompactifications C5's normalization model, and its ordinary loci (Remark 1.5.1); Fargues's degree map δ and the ordinary-multiplicative tube; overconvergent forms; the Hecke correspondences U_i normalised by p^{−n_i}; the dynamics (Propositions 3.1.1–3.2.2); continuation to X_Iw(1−) by finite slope alone; the good/bad decomposition of U_i^N over good sequences of opens (§§4.3–4.4) with the norm bound of Lemma 4.4.5; Kassaei series and their gluing modulo p^{A_N} (§4.5), on closed boxes and then exhausting the half-open ones (PAPER-BIJAKOWSKI-PILLONI-STROH-16/E12); and the formal and rigid Köcher principles with GAGA to algebraise. Keep the case where the symmetric space has dimension ≤ 1 explicit (PAPER-BIJAKOWSKI-PILLONI-STROH-16/E6): Coleman–Kassaei covers only the modular curve. Import PEL moduli (PELModuli M0, M2, M4), Serre–Tate (AbelianSchemesAndArithmeticModuli A4), automorphic bundles and classical forms (AutomorphicBundles B2, B4), Fargues's degree (HodgeTateAndCanonicalSubgroups T0), rigid geometry and GAGA (AdicSpacesPartII R0–R3), Lemma 1.1.4 and Wedhorn's theorem (PELModuli M0, M2) and Lan's compactifications of the normalization model and Köcher principle (ShimuraCompactifications C5). The higher Coleman theory of the joined briefs recovers this degree-0 statement for GSp_{2g}; the design should record the comparison rather than build two classicality theorems for the same group.",
    "reason": "Classicality of small-slope overconvergent forms is Coleman theory for coherent cohomology in degree 0, which is exactly the direction of the proposed HigherHidaAndColemanTheory; PadicFamilies itself stops at modular curves and totally real fields in one degree, and OverconvergentAutomorphicForms builds coefficient sheaves, not classicality."
   }
  ],
@@ -640,7 +686,12 @@
     "Crossref record of doi:10.4007/annals.2016.183.3.5, 29 September 2026: no update-to or relation entries, and no work declaring an update of it (filter updates:10.4007/annals.2016.183.3.5)",
     "The Annals article page https://annals.math.princeton.edu/2016/183-3/p05, 29 September 2026: no erratum or corrigendum listed",
     "arXiv: Bijakowski's preprint 1212.2035 (v1 10 December 2012, v2 28 April 2015), on which the published text is based by the authors' own account, and his follow-up 1504.07423 (Algebra Number Theory 10 (2016)); neither is a correction of the published article"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Checked on the p. 984 image. Case (A) prints '⊕^d_{i=1} A[(π_i^+)^∞] ⊕ A[(π_i^−)^∞]' and case (C) '⊕^d_{i=1} A[π_i^∞]', while the sums run over the primes π_1, …, π_h of F0 above p (p. 981) and the target of P on the same page is ∏_{i=1}^h; d is [F0 : Q]. Misprint, affects nothing. No erratum or later version corrects it (Crossref and the Annals page, 30 September 2026).",
+    "by": "REV-PAPER-BIJAKOWSKI-PILLONI-STROH-16"
+   }
   },
   {
    "id": "PAPER-BIJAKOWSKI-PILLONI-STROH-16/E2",
@@ -655,7 +706,12 @@
     "Crossref record of doi:10.4007/annals.2016.183.3.5, 29 September 2026: no update-to or relation entries, and no work declaring an update of it (filter updates:10.4007/annals.2016.183.3.5)",
     "The Annals article page https://annals.math.princeton.edu/2016/183-3/p05, 29 September 2026: no erratum or corrigendum listed",
     "arXiv: Bijakowski's preprint 1212.2035 (v1 10 December 2012, v2 28 April 2015), on which the published text is based by the authors' own account, and his follow-up 1504.07423 (Algebra Number Theory 10 (2016)); neither is a correction of the published article"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Checked on the p. 984 image. P lands in ∏ BT^{d_i,pol}_{a_i}, and BT^{f,pol}_l is the stack of principally polarised Barsotti–Tate groups of height 2lf (p. 983), so G_i has height 2d_ia_i; counting heights in A[π_i^∞] = Z^n_{p^{d_i}} ⊗ G_i gives the same. Type (A) on the same page correctly prints d_i(a_i + b_i). Misprint, affects nothing.",
+    "by": "REV-PAPER-BIJAKOWSKI-PILLONI-STROH-16"
+   }
   },
   {
    "id": "PAPER-BIJAKOWSKI-PILLONI-STROH-16/E3",
@@ -670,7 +726,12 @@
     "Crossref record of doi:10.4007/annals.2016.183.3.5, 29 September 2026: no update-to or relation entries, and no work declaring an update of it (filter updates:10.4007/annals.2016.183.3.5)",
     "The Annals article page https://annals.math.princeton.edu/2016/183-3/p05, 29 September 2026: no erratum or corrigendum listed",
     "arXiv: Bijakowski's preprint 1212.2035 (v1 10 December 2012, v2 28 April 2015), on which the published text is based by the authors' own account, and his follow-up 1504.07423 (Algebra Number Theory 10 (2016)); neither is a correction of the published article"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Checked on the p. 994 image: 'pour tout 1 ⩽ i ⩽ d' twice, while the U_i exist only for 1 ≤ i ≤ h (p. 989, p. 993, Theorem 5.3.1). The only other d-for-h slips in the paper are the two of E1; every other d (pp. 979–980) counts the real embeddings of F0 and is right. Misprint, affects nothing.",
+    "by": "REV-PAPER-BIJAKOWSKI-PILLONI-STROH-16"
+   }
   },
   {
    "id": "PAPER-BIJAKOWSKI-PILLONI-STROH-16/E4",
@@ -685,7 +746,12 @@
     "Crossref record of doi:10.4007/annals.2016.183.3.5, 29 September 2026: no update-to or relation entries, and no work declaring an update of it (filter updates:10.4007/annals.2016.183.3.5)",
     "The Annals article page https://annals.math.princeton.edu/2016/183-3/p05, 29 September 2026: no erratum or corrigendum listed",
     "arXiv: Bijakowski's preprint 1212.2035 (v1 10 December 2012, v2 28 April 2015), on which the published text is based by the authors' own account, and his follow-up 1504.07423 (Algebra Number Theory 10 (2016)); neither is a correction of the published article"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Checked on the p. 997 image. That the finite étale U → Y is open and closed does not give the conclusion; what is needed is that U is open and closed in X. SGA 1 Exp. V 3.5 gives exactly that, applied to the Y-morphism U → X of finite étale Y-spaces (U → Y is finite étale by [AM04, lem. A.1.1]). The result is a proposition in SGA 1, not the printed 'coro.'. Misprint, affects nothing.",
+    "by": "REV-PAPER-BIJAKOWSKI-PILLONI-STROH-16"
+   }
   },
   {
    "id": "PAPER-BIJAKOWSKI-PILLONI-STROH-16/E5",
@@ -700,14 +766,19 @@
     "Crossref record of doi:10.4007/annals.2016.183.3.5, 29 September 2026: no update-to or relation entries, and no work declaring an update of it (filter updates:10.4007/annals.2016.183.3.5)",
     "The Annals article page https://annals.math.princeton.edu/2016/183-3/p05, 29 September 2026: no erratum or corrigendum listed",
     "arXiv: Bijakowski's preprint 1212.2035 (v1 10 December 2012, v2 28 April 2015), on which the published text is based by the authors' own account, and his follow-up 1504.07423 (Algebra Number Theory 10 (2016)); neither is a correction of the published article"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Checked on the p. 1009 image: 'la relation vérifiée par a_1' with the italic a_1 of the signature, where the matching sentence on p. 1005 reads 'la relation vérifiée par la valeur propre α_1'. Misprint, affects nothing.",
+    "by": "REV-PAPER-BIJAKOWSKI-PILLONI-STROH-16"
+   }
   },
   {
    "id": "PAPER-BIJAKOWSKI-PILLONI-STROH-16/E6",
    "kind": "gap",
    "locator": "Proof of Theorem 5.3.1, p. 1011, and Remark 5.3.2 (published version)",
    "printed": "The source claims that failure of Hypothesis 1.4.2 for G makes its symmetric space the Poincaré half-plane, and that [Col96] or [Kas06] then proves the theorem.",
-   "correction": "When the symmetric space has dimension ≤ 1 the variety need not be a modular curve: type (C) with B an indefinite quaternion algebra over Q (n = 2) gives Shimura curves, type (A) with Σ_τ a_τb_τ = 1 gives unitary curves, and Σ a_τb_τ = 0 gives finite sets. For compact curves the continuation of §4 together with GAGA on the proper X_Iw proves the theorem; non-compact unitary curves need the cusp analysis of Remark 5.3.2 or a comparison with modular curves.",
+   "correction": "When the symmetric space has dimension ≤ 1 the variety need not be a modular curve: type (C) with B an indefinite quaternion algebra over Q (n = 2) gives Shimura curves, type (A) with Σ_τ a_τb_τ = 1 gives unitary curves, and Σ a_τb_τ = 0 gives finite sets. For compact curves, and for the zero-dimensional cases (where the symmetric space is a point, not the Poincaré half-plane), X_Iw is proper, and the continuation of §4 (which does not use Hypothesis 1.4.2) together with GAGA on X_Iw proves the theorem; non-compact unitary curves need the cusp analysis of Remark 5.3.2 or a comparison with modular curves.",
    "reason": "[Col96] and [Kas06] treat the modular curve (GL_2 over Q). Theorem 5.3.1 assumes only Hypothesis 1.1.1, which allows those other PEL data, and Definition 1.4.3 relies on Hypothesis 1.4.2 to ignore cusps.",
    "affects": "the proof",
    "known": "new",
@@ -715,7 +786,12 @@
     "Crossref record of doi:10.4007/annals.2016.183.3.5, 29 September 2026: no update-to or relation entries, and no work declaring an update of it (filter updates:10.4007/annals.2016.183.3.5)",
     "The Annals article page https://annals.math.princeton.edu/2016/183-3/p05, 29 September 2026: no erratum or corrigendum listed",
     "arXiv: Bijakowski's preprint 1212.2035 (v1 10 December 2012, v2 28 April 2015), on which the published text is based by the authors' own account, and his follow-up 1504.07423 (Algebra Number Theory 10 (2016)); neither is a correction of the published article"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Checked on the p. 1011 image and against §1.1. Type (C) needs only F = F0 and B ⊗_{F,τ} R ≅ M_n(R) with the transpose involution (p. 979), so an indefinite quaternion division algebra over Q with p ∤ disc(B) satisfies Hypothesis 1.1.1 and gives compact Shimura curves. Type (A) with d = 2 and signatures (1, 1) and (0, 2) above the two primes of F0 over a split p is allowed by Lemma 1.1.4 and gives compact unitary curves; definite signatures give zero-dimensional varieties, where 'donc a le demi-plan de Poincaré' is itself false. [Col96] and [Kas06] treat only modular curves, and [Joh13], cited in the introduction, gives for quaternionic curves over Q only the classicality of the Hecke eigenvalues (Theorem 33(b)), so it does not close the gap. The repair holds, and the correction is amended to cover the zero-dimensional cases, which are proper too. Gap, affects the proof.",
+    "by": "REV-PAPER-BIJAKOWSKI-PILLONI-STROH-16"
+   }
   },
   {
    "id": "PAPER-BIJAKOWSKI-PILLONI-STROH-16/E7",
@@ -730,7 +806,145 @@
     "Crossref record of doi:10.4007/annals.2016.183.3.5, 29 September 2026: no update-to or relation entries, and no work declaring an update of it (filter updates:10.4007/annals.2016.183.3.5)",
     "The Annals article page https://annals.math.princeton.edu/2016/183-3/p05, 29 September 2026: no erratum or corrigendum listed",
     "arXiv: Bijakowski's preprint 1212.2035 (v1 10 December 2012, v2 28 April 2015), on which the published text is based by the authors' own account, and his follow-up 1504.07423 (Algebra Number Theory 10 (2016)); neither is a correction of the published article"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Checked on the p. 1010 image. By §1.1 the symmetric space has dimension Σ_τ a_τb_τ in type (A) and d·a(a + 1)/2 in type (C), so 'd > 1 ou a_1 > 1 si d = 1' is right in type (C) only. Besides the recorded examples, d = 1 with the definite signature (2, 0) has a_1 = 2 but a point as symmetric space; and in type (A) 'a_1' depends on how π_1^± are labelled (Remark 1.1.2). Proposition 5.2.1 uses the dimension condition itself. Error, affects nothing.",
+    "by": "REV-PAPER-BIJAKOWSKI-PILLONI-STROH-16"
+   }
+  },
+  {
+   "id": "PAPER-BIJAKOWSKI-PILLONI-STROH-16/E8",
+   "kind": "misprint",
+   "locator": "Proof of Proposition 3.1.2, p. 992 (published version)",
+   "printed": "The source identifies y with (G/L, π(H_•)), taking π to be the canonical quotient projection from G to G/L and interpreting the image scheme-theoretically.",
+   "correction": "y corresponds to (G/L, H′_•) = p_2^BT(G, H_•, L), with H′_k = π(H_k) for k ≤ l and, in the non-polarised case, H′_k the image of p^{−1}(H_k ∩ L) for l < k ≤ m",
+   "reason": "By §2.1 (p. 988) p_2^BT takes the image of H_k only for k ≤ l. For k > l, π(H_k) = (H_k + L)/L = G[p]/L on the generic fibre, since H_k ⊇ H_l and H_l ⊕ L = G[p], so π(H_•) is not a full flag when m > l. The proof uses only H′_l = π(H_l), which is right.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.4007/annals.2016.183.3.5, 30 September 2026: no update-to or relation entries, and no work declaring an update of it (filter updates:10.4007/annals.2016.183.3.5)",
+    "The Annals article page https://annals.math.princeton.edu/2016/183-3/p05, 30 September 2026: no erratum or corrigendum listed"
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Added by this review and checked on the page image at the locator.",
+    "by": "REV-PAPER-BIJAKOWSKI-PILLONI-STROH-16"
+   }
+  },
+  {
+   "id": "PAPER-BIJAKOWSKI-PILLONI-STROH-16/E9",
+   "kind": "misprint",
+   "locator": "Proof of Proposition 3.2.1, p. 993 (published version)",
+   "printed": "The source uses quasi-compactness in X_Iw^rig to claim that p_1^{−1}(V) ⊂ C^rig_{i,a_i} is likewise quasi-compact.",
+   "correction": "p_1^{−1}(V) ⊂ C_i^rig",
+   "reason": "The correspondence is C_i^rig (§2.2, p. 990); no space C_{i,a_i} is defined in the paper.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.4007/annals.2016.183.3.5, 30 September 2026: no update-to or relation entries, and no work declaring an update of it (filter updates:10.4007/annals.2016.183.3.5)",
+    "The Annals article page https://annals.math.princeton.edu/2016/183-3/p05, 30 September 2026: no erratum or corrigendum listed"
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Added by this review and checked on the page image at the locator.",
+    "by": "REV-PAPER-BIJAKOWSKI-PILLONI-STROH-16"
+   }
+  },
+  {
+   "id": "PAPER-BIJAKOWSKI-PILLONI-STROH-16/E10",
+   "kind": "misprint",
+   "locator": "Theorem 4.4.1, p. 1000 (published version)",
+   "printed": "The source asserts a good sequence of open subsets (U_k(N))_{k∈S_N} of U = U_γ, with length L(N). For each 0 ≤ k ≤ L(N) − 1 it claims a decomposition of U_i^N over U_k(N)∖U_{k+1}(N).",
+   "correction": "a good sequence (U_k(N))_{k∈S_N} with U_{L(N)+1}(N) = ∅ (of length L(N) + 1), such that for every 0 ≤ k ≤ L(N) the correspondence U_i^N decomposes on U_k(N)∖U_{k+1}(N)",
+   "reason": "Definition 4.3.2 makes the length the least R with U_R = ∅, so as printed U_{L(N)}(N) = ∅ and the top stratum is left out. The proof uses the other convention: S_1 = {0, …, N_max} (p. 1001), with U_{N_max} a stratum by Remark 4.3.8, and the induction takes 'V_{L+1} = ∅ si L + 1 est le cardinal de S_N' with a decomposition 'sur V_k∖V_{k+1} pour k ∈ S_N' (p. 1001).",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.4007/annals.2016.183.3.5, 30 September 2026: no update-to or relation entries, and no work declaring an update of it (filter updates:10.4007/annals.2016.183.3.5)",
+    "The Annals article page https://annals.math.princeton.edu/2016/183-3/p05, 30 September 2026: no erratum or corrigendum listed"
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Added by this review and checked on the page image at the locator.",
+    "by": "REV-PAPER-BIJAKOWSKI-PILLONI-STROH-16"
+   }
+  },
+  {
+   "id": "PAPER-BIJAKOWSKI-PILLONI-STROH-16/E11",
+   "kind": "misprint",
+   "locator": "§4.5, the formula for T_j (p. 1005), Definition 4.5.2 and the sentence after it (p. 1006) (published version)",
+   "printed": "The source defines f_{N,k} := α_i^{−1}U^good_{i,k}f + Σ_{j=1}^{N−1} Σ_{k_1∈S_{N−1},…,k_j∈S_{N−j}} α_i^{−j−1} U^bad_{i,j,k_1} … U^bad_{i,k_{j−1},k_j} U^good_{i,k_j} f. It also refers to the norm of α_i^{−1}U^bad_{i,j,k}.",
+   "correction": "U^bad_{i,k,k_1} (and α_i^{−1}U^bad_{i,k,k_1}): the first bad operator starts from the stratum k of the series, not from the summation index j",
+   "reason": "The series lives on V′_k∖V_{k+1}, and the decomposition it comes from, Theorem 4.4.1 (p. 1000), has T_j = ∐ U^good_{i,k_j,N} U^bad_{i,k_{j−1},k_j,N} … U^bad_{i,k,k_1,N}; T_N on p. 1006 and the proof of Lemma 4.5.3 also print U^bad_{i,k,k_1}.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.4007/annals.2016.183.3.5, 30 September 2026: no update-to or relation entries, and no work declaring an update of it (filter updates:10.4007/annals.2016.183.3.5)",
+    "The Annals article page https://annals.math.princeton.edu/2016/183-3/p05, 30 September 2026: no erratum or corrigendum listed"
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Added by this review and checked on the page image at the locator.",
+    "by": "REV-PAPER-BIJAKOWSKI-PILLONI-STROH-16"
+   }
+  },
+  {
+   "id": "PAPER-BIJAKOWSKI-PILLONI-STROH-16/E12",
+   "kind": "gap",
+   "locator": "§4.5, pp. 1005–1006, and the proof of Proposition 4.5.8, p. 1009 (published version)",
+   "printed": "At p. 1005 the source fixes an integer i between 1 and h, choosing an interval I_j in [0, d_ja_j] for each j ≠ i. At p. 1006 it says f is defined on δ_i^{−1}([d_ia_i − 1 + β_0, d_ia_i]) ∩ W_0 and bounded there by M because that space is quasi-compact. At p. 1009 it claims extension of f to δ^{−1}([0, d_1a_1] × ]d_2a_2 − 1, d_2a_2] × ⋯ × ]d_ha_h − 1, d_ha_h]).",
+   "correction": "Run §4.5 only for closed intervals I_j; then U_γ and δ_i^{−1}([d_ia_i − 1 + β_0, d_ia_i]) ∩ W_0 are quasi-compact and f is bounded there. In the proof of Proposition 4.5.8, extend f over each box whose sides are [d_ja_j − 1 + η, d_ja_j] for j > i, for every rational η > 0, and glue: at each point both extensions are limits of the Kassaei series computed from f on the U_i^N-images of that point, so they agree on overlaps, and these boxes form an admissible covering of the box with half-open sides, since each δ_j is −log_p of the absolute value of a section (item 11).",
+   "reason": "With I_j = ]d_ja_j − 1, d_ja_j] for some j, as in every step of the proof of Proposition 4.5.8 but the last, δ_i^{−1}([d_ia_i − 1 + β_0, d_ia_i]) ∩ W_0 is the increasing union of the quasi-compact opens where δ_j ≥ d_ja_j − 1 + η, and is not quasi-compact. So f, known only on W, need not be bounded there, and M need not exist. Likewise U_γ is then not quasi-compact, which Definition 4.3.2 (good sequences of a quasi-compact open) and Proposition 4.1.2 need. The repair is routine, but the paper does not state it.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.4007/annals.2016.183.3.5, 30 September 2026: no update-to or relation entries, and no work declaring an update of it (filter updates:10.4007/annals.2016.183.3.5)",
+    "The Annals article page https://annals.math.princeton.edu/2016/183-3/p05, 30 September 2026: no erratum or corrigendum listed"
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Added by this review and checked on the page image at the locator.",
+    "by": "REV-PAPER-BIJAKOWSKI-PILLONI-STROH-16"
+   }
+  },
+  {
+   "id": "PAPER-BIJAKOWSKI-PILLONI-STROH-16/E13",
+   "kind": "misprint",
+   "locator": "Proofs of Lemma 4.5.3 (p. 1006) and Proposition 4.5.7 (p. 1008) (published version)",
+   "printed": "On p. 1006, the norm of U^good_{p,i_k} is bounded by p^{n_i}. On p. 1008, the source gives |(f_{N,i} − h_1)(x)| ≤ p^{−A_N}, defines h_2 by summing over k_1 ∈ S_1, …, k_N ∈ S_N, and invokes the gluing proposition as lemme 4.1.2.",
+   "correction": "U^good_{i,k}; f_{N,k}; k_1 ∈ S_N, …, k_N ∈ S_1 (as in Definition 4.5.2 at level N + 1); proposition 4.1.2",
+   "reason": "Index and cross-reference slips: i is the fixed direction and k the stratum of x; at level N + 1 the chain k_1, …, k_N runs through S_N, …, S_1 (Definition 4.5.2, and T_N on p. 1006); the gluing result is Proposition 4.1.2 (p. 995).",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.4007/annals.2016.183.3.5, 30 September 2026: no update-to or relation entries, and no work declaring an update of it (filter updates:10.4007/annals.2016.183.3.5)",
+    "The Annals article page https://annals.math.princeton.edu/2016/183-3/p05, 30 September 2026: no erratum or corrigendum listed"
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Added by this review and checked on the page image at the locator.",
+    "by": "REV-PAPER-BIJAKOWSKI-PILLONI-STROH-16"
+   }
+  },
+  {
+   "id": "PAPER-BIJAKOWSKI-PILLONI-STROH-16/E14",
+   "kind": "misprint",
+   "locator": "§5.1, p. 1009 (published version)",
+   "printed": "The source constructs X^S_Iw by compactifying a normalization of X_Iw × Spec(K) inside an auxiliary Siegel variety, citing [Lan16, rem. 13.12].",
+   "correction": "[Lan16, Example 13.12]",
+   "reason": "The bibliography cites [Lan16] as published, Forum Math. Sigma 4 (2016), e1. In that version 13.12 is 'Example 13.12 (Parahoric levels at p; continuation of Example 2.4)', and there is no Remark 13.12 (open-access PDF, doi:10.1017/fms.2015.31, read 30 September 2026). Remark 16.5, cited in the preceding sentence, exists.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Crossref record of doi:10.4007/annals.2016.183.3.5, 30 September 2026: no update-to or relation entries, and no work declaring an update of it (filter updates:10.4007/annals.2016.183.3.5)",
+    "The Annals article page https://annals.math.princeton.edu/2016/183-3/p05, 30 September 2026: no erratum or corrigendum listed"
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Added by this review and checked on the page image at the locator.",
+    "by": "REV-PAPER-BIJAKOWSKI-PILLONI-STROH-16"
+   }
   }
  ]
 }
