@@ -3975,8 +3975,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-CARO-PASTEN-23.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1235"
+   "state": "pending",
+   "note": "released on GitHub issue #1235"
   },
   {
    "id": "REV-PAPER-CARO-PASTEN-23",
@@ -19215,8 +19215,8 @@
    ],
    "avoidAccountOf": "RS-04",
    "prompt": "research/blueprint/prompts/REV-RS-04.md",
-   "state": "pending",
-   "note": "released on GitHub issue #807"
+   "state": "external",
+   "note": "claimed on GitHub issue #807"
   },
   {
    "id": "RS-05",
@@ -35053,7 +35053,8 @@
     "REV-PAPER-MOK-PILA-TSIMERMAN-19"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-MOK-PILA-TSIMERMAN-19.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4095"
   },
   {
    "id": "REV-RT-PAPER-MOK-PILA-TSIMERMAN-19",
@@ -40898,8 +40899,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-BOCKLE-HARRIS-KHARE-ETAL-19.md",
-   "state": "pending",
-   "note": "released on GitHub issue #5014"
+   "state": "external",
+   "note": "claimed on GitHub issue #5014"
   },
   {
    "id": "RT-PAPER-LAWRENCE-VENKATESH-20",
@@ -52503,8 +52504,8 @@
     "FIX-RT-AREA-geomlanglands~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-geomlanglands~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5161"
+   "state": "pending",
+   "note": "released on GitHub issue #5161"
   },
   {
    "id": "RT-AREA-commutative",
