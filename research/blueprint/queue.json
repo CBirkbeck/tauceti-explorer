@@ -32860,8 +32860,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/KEYDEF-algebraicnt.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5273"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #5273",
+   "finishedAt": "2026-09-30T22:03:02Z"
   },
   {
    "id": "REV-KEYDEF-algebraicnt",
@@ -40887,8 +40888,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-BOCKLE-HARRIS-KHARE-ETAL-19.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5014"
+   "state": "pending",
+   "note": "released on GitHub issue #5014"
   },
   {
    "id": "RT-PAPER-LAWRENCE-VENKATESH-20",
@@ -42893,8 +42894,9 @@
     "FIX-RT-LINK-tauceti_TauCetiRoadmap_EllipticCurves"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-LINK-tauceti_TauCetiRoadmap_EllipticCurves.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5170"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #5170",
+   "finishedAt": "2026-09-30T22:03:06Z"
   },
   {
    "id": "RT-LINK-tauceti_TauCetiRoadmap_AdicSpaces",
@@ -43090,7 +43092,9 @@
     "FIX-RT-LINK-tauceti_TauCetiRoadmap_NumberFieldArithmetic"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-LINK-tauceti_TauCetiRoadmap_NumberFieldArithmetic.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #5173",
+   "finishedAt": "2026-09-30T22:03:09Z"
   },
   {
    "id": "RT-LINK-tauceti_TauCetiRoadmap_LocalFieldsRamification",
@@ -43286,7 +43290,8 @@
     "FIX-RT-LINK-tauceti_TauCetiRoadmap_Chebotarev"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-LINK-tauceti_TauCetiRoadmap_Chebotarev.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #5174"
   },
   {
    "id": "RT-LINK-tauceti_TauCetiRoadmap_ArithmeticDirichletSeries",
@@ -43584,7 +43589,8 @@
     "FIX-RT-LINK-tauceti_TauCetiRoadmap_AlgebraicCodingTheory"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-LINK-tauceti_TauCetiRoadmap_AlgebraicCodingTheory.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #5176"
   },
   {
    "id": "RT-LINK-tauceti_TauCetiRoadmap_GrothendieckEulerForms",
