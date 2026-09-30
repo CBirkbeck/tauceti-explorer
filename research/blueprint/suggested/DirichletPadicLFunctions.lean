@@ -8022,3 +8022,104 @@ example {K : Type*} [NormedField K] [IsUltrametricDist K] [CharZero K]
       -(∑' n : ℕ, coeff n (tameLogPrimitive η ε hε ℓ)*(2 : K)^n) := sorry
 end SuggestedLogarithmicInversionTests
 end
+
+/-! The finite root trace and the reciprocal Euler value. The exact weight-one
+trace law is supplied by Coleman; its general distribution theorem and all
+inherited request leaves are recorded in the packet. No reverse import is made. -/
+noncomputable section
+namespace DirichletPadic
+open scoped BigOperators
+open PowerSeries
+section Field
+variable {K : Type*} [Field K] [CharZero K] {D : ℕ} [NeZero D]
+
+lemma cyclotomicLogTrace_unit_domain (hD : 1<D) (ε : K) (hε : IsPrimitiveRoot ε D)
+    (p : ℕ) (hpD : p.Coprime D) (u : (ZMod D)ˣ) :
+    (ε^(u : ZMod D).val)^p≠1 := sorry
+
+theorem cyclotomicFrobeniusLogConstant_coprime (p : ℕ) (hpD : p.Coprime D)
+    (η : DirichletCharacter K D) (ε : K) (hε : IsPrimitiveRoot ε D) (ℓ : K → K) :
+    cyclotomicFrobeniusLogConstant p η ε hε ℓ=
+      η (p : ZMod D)*cyclotomicLogConstant η ε hε ℓ := sorry
+
+theorem cyclotomicLogAverage_eq_powered (p : ℕ) (hp : 0<p) (ξ : K)
+    (hξ : IsPrimitiveRoot ξ p) (hpD : p.Coprime D) (η : DirichletCharacter K D)
+    (hD : 1<D) (ε : K) (hε : IsPrimitiveRoot ε D) (ℓ : K → K)
+    (htrace : ∀ z : K, z^p≠1 →
+      (∑ j ∈ Finset.range p, ℓ (ξ^j*z-1))=ℓ (z^p-1)) :
+    cyclotomicLogAverage p ξ η ε hε ℓ=
+      (p : K)⁻¹*cyclotomicFrobeniusLogConstant p η ε hε ℓ := sorry
+
+theorem cyclotomicLogAverageComplement_eq_euler (p : ℕ) (hp : 0<p) (ξ : K)
+    (hξ : IsPrimitiveRoot ξ p) (hpD : p.Coprime D) (η : DirichletCharacter K D)
+    (hD : 1<D) (ε : K) (hε : IsPrimitiveRoot ε D) (ℓ : K → K)
+    (htrace : ∀ z : K, z^p≠1 →
+      (∑ j ∈ Finset.range p, ℓ (ξ^j*z-1))=ℓ (z^p-1)) :
+    cyclotomicLogAverageComplement p ξ η ε hε ℓ=
+      cyclotomicEulerLogValue p η ε hε ℓ := sorry
+
+theorem cyclotomicLogAverageComplement_euler_factor (p : ℕ) (hp : 0<p) (ξ : K)
+    (hξ : IsPrimitiveRoot ξ p) (hpD : p.Coprime D) (η : DirichletCharacter K D)
+    (hD : 1<D) (ε : K) (hε : IsPrimitiveRoot ε D) (ℓ : K → K)
+    (htrace : ∀ z : K, z^p≠1 →
+      (∑ j ∈ Finset.range p, ℓ (ξ^j*z-1))=ℓ (z^p-1)) :
+    cyclotomicLogAverageComplement p ξ η ε hε ℓ=
+      (1-η (p : ZMod D)/(p : K))*cyclotomicLogConstant η ε hε ℓ := sorry
+end Field
+
+theorem cyclotomicLogAverage_eigenvalue_hasSum {K : Type*} [NormedField K]
+    [IsUltrametricDist K] [CharZero K] {D : ℕ} [NeZero D]
+    (p : ℕ) (hp : p.Prime) (ξ : K) (hξ : IsPrimitiveRoot ξ p) (hpK : ‖(p : K)‖<1)
+    (hpD : p.Coprime D) (η : DirichletCharacter K D) (hD : 1<D)
+    (ε : K) (hε : IsPrimitiveRoot ε D) (hDK : ‖(D : K)‖=1) (ℓ : K → K)
+    (htrace : ∀ z : K, z^p≠1 →
+      (∑ j ∈ Finset.range p, ℓ (ξ^j*z-1))=ℓ (z^p-1))
+    (hlocal : ∀ x u : K, x≠0 → ‖u‖<1 →
+      HasSum (fun n : ℕ => coeff n (log K)*u^n) (ℓ (x*(1+u))-ℓ x)) :
+    HasSum (fun n : ℕ => coeff n (tameLogPrimitive η ε hε ℓ)*
+      ((p : K)⁻¹*∑ j ∈ Finset.range p, (ξ^j-1)^n))
+      ((η (p : ZMod D)/(p : K))*cyclotomicLogConstant η ε hε ℓ) := sorry
+end DirichletPadic
+
+namespace SuggestedLogarithmicTraceTests
+open scoped BigOperators
+open DirichletPadic PowerSeries
+section Field
+variable {K : Type*} [Field K] [CharZero K]
+-- cubic_root_dyadic_trace_domain
+example (ε : K) (hε : IsPrimitiveRoot ε 3) : ε^2≠1 := sorry
+-- identity_power_for_arbitrary_function
+example {D : ℕ} [NeZero D] (η : DirichletCharacter K D) (ε : K)
+    (hε : IsPrimitiveRoot ε D) (f : K → K) :
+    cyclotomicFrobeniusLogConstant 1 η ε hε f=cyclotomicLogConstant η ε hε f := sorry
+variable {D : ℕ} [NeZero D]
+variable (ξ : K) (hξ : IsPrimitiveRoot ξ 2) (hpD : Nat.Coprime 2 D)
+variable (η : DirichletCharacter K D) (hD : 1<D) (ε : K) (hε : IsPrimitiveRoot ε D)
+variable (ℓ : K → K)
+variable (htrace : ∀ z : K, z^2≠1 →
+  (∑ j ∈ Finset.range 2, ℓ (ξ^j*z-1))=ℓ (z^2-1))
+include hξ hpD hD htrace
+-- dyadic_average_retains_half
+example : cyclotomicLogAverage 2 ξ η ε hε ℓ=
+    (2 : K)⁻¹*cyclotomicFrobeniusLogConstant 2 η ε hε ℓ := sorry
+-- dyadic_complement_is_euler_value
+example : cyclotomicLogAverageComplement 2 ξ η ε hε ℓ=
+    cyclotomicEulerLogValue 2 η ε hε ℓ := sorry
+-- dyadic_reciprocal_euler_factor
+example : cyclotomicLogAverageComplement 2 ξ η ε hε ℓ=
+    (1-η (2 : ZMod D)/(2 : K))*cyclotomicLogConstant η ε hε ℓ := sorry
+end Field
+-- dyadic_coefficient_trace_value
+example {K : Type*} [NormedField K] [IsUltrametricDist K] [CharZero K]
+    {D : ℕ} [NeZero D] (ξ : K) (hξ : IsPrimitiveRoot ξ 2)
+    (h2 : ‖(2 : K)‖<1) (hpD : Nat.Coprime 2 D) (η : DirichletCharacter K D)
+    (hD : 1<D) (ε : K) (hε : IsPrimitiveRoot ε D) (hDK : ‖(D : K)‖=1)
+    (ℓ : K → K) (htrace : ∀ z : K, z^2≠1 →
+      (∑ j ∈ Finset.range 2, ℓ (ξ^j*z-1))=ℓ (z^2-1))
+    (hlocal : ∀ x u : K, x≠0 → ‖u‖<1 →
+      HasSum (fun n : ℕ => coeff n (log K)*u^n) (ℓ (x*(1+u))-ℓ x)) :
+    HasSum (fun n : ℕ => coeff n (tameLogPrimitive η ε hε ℓ)*
+      ((2 : K)⁻¹*∑ j ∈ Finset.range 2, (ξ^j-1)^n))
+      ((η (2 : ZMod D)/(2 : K))*cyclotomicLogConstant η ε hε ℓ) := sorry
+end SuggestedLogarithmicTraceTests
+end

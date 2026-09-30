@@ -10,7 +10,7 @@
     "DirichletPadicLFunctions:L4"
   ],
   "status": "partial",
-  "summary": "Partial continuation preserving all496 predecessor nodes whole. Four L3 nodes give the exact correction for inversion of any nonzero multiplicative coordinate, nonprincipal cancellation, preservation of the open disc and reciprocity of the actual tame coefficient evaluations. All16 findings, four requests and eight gaps remain; zero stages are closed.",
+  "summary": "Partial continuation preserving all500 predecessor nodes whole. Six L3 nodes check the trace domain, supply coprime character reindexing, compare the actual root average with the powered constant, identify its complement with the reciprocal Euler value, and give the corresponding averaged HasSum. All16 findings and four previous requests remain; five inherited Coleman requests and gaps are recorded explicitly, giving nine requests and13 gaps with zero closed stages.",
   "baseline": {
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
@@ -3325,6 +3325,20 @@
         "module": "Mathlib/Analysis/Normed/Group/Ultra.lean",
         "provides": "In an ultrametric seminormed group, the product of elements of unequal norms has the maximum norm. The generated additive version, or Multiplicative(K,+), yields the unequal-norm sum formula used for1+t.",
         "checked": "Complete native statement, section assumptions and proof read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on30September2026 and matched to the unchanged index. The complete native coordinate norm proof elaborates without placeholders."
+      },
+      {
+        "ref": "mathlib:IsPrimitiveRoot.ne_one",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/RootsOfUnity/PrimitiveRoots.lean",
+        "provides": "A primitive root of order strictly greater than1 is not1.",
+        "checked": "Complete native statement, ambient hypotheses and proof/definition read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on30September2026, alongside the primitive-power, unit-representative and character evaluations. Complete native lemmas verify the trace domain and unit-power permutation."
+      },
+      {
+        "ref": "mathlib:ZMod.unitOfCoprime",
+        "kind": "def",
+        "module": "Mathlib/Data/ZMod/Basic.lean",
+        "provides": "The actual unit of ZMod D associated to a natural number coprime to D; its coercion is that natural residue.",
+        "checked": "Complete native statement, ambient hypotheses and proof/definition read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on30September2026, alongside the primitive-power, unit-representative and character evaluations. Complete native lemmas verify the trace domain and unit-power permutation."
       }
     ]
   },
@@ -33119,6 +33133,327 @@
       "acceptance": [
         "The actual coefficient evaluation theorem is used at both points; merely equating two formal expressions would not establish convergence. No extra completeness hypothesis is needed beyond the supplied HasSum law."
       ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/cyclotomic-logarithmic-trace-unit-domain",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The unit residues avoid the excluded trace locus",
+      "kind": "lemma",
+      "statement": "If D>1 and p is coprime to D, then(ε^u.val)^p≠1 for every u∈(ZMod D)ˣ.",
+      "hypotheses": [
+        "K is a characteristic-zero field, D is positive with NeZero D, η:DirichletCharacter K D, ε∈K and hε:IsPrimitiveRoot ε D. Use the preceding actual c₀, c^[p]=cyclotomicFrobeniusLogConstant, V, A=cyclotomicLogAverage and U=cyclotomicLogAverageComplement, always with the same original Gauss denominator G=gaussSum(η⁻¹,AddChar.zmodChar D hε.pow_eq_one).",
+        "For the finite trace take p>0, p coprime to D, D>1 and ξ primitive of order p. The power-reindexing theorem only needs p coprime to D. The supplied ℓ:K→K may be arbitrary for that reindexing. No primitivity or nonprincipality of η, nonzero G hypothesis, norm, or prime p is needed for the finite comparisons.",
+        "The trace input is the exact law htrace:∀z, z^p≠1→Σ_(j<p)ℓ(ξ^jz−1)=ℓ(z^p−1). It is the existing ColemanIntegration:L2/distribution-relation specialized to weight1 together with ColemanIntegration:L2/polylogarithm-weight-one and the fixed logarithm branch. Its generic analytic graph and five additional supplier gaps are retained explicitly. The suggested law is a parameter because Coleman’s suggested file imports Dirichlet; no duplicate logarithm or generic distribution object is defined here.",
+        "Only the coefficient HasSum corollary adds a normed ultrametric field, p prime, ‖(p:K)‖<1, ‖(D:K)‖=1 and hlocal:∀x,u, x≠0→‖u‖<1→HasSum(n↦coeff n(log K)u^n)(ℓ(x(1+u))−ℓ(x)). The finite trace alone gives no distribution restriction or analytic L-value identity, and no pure-p-power convergence."
+      ],
+      "proofSteps": [
+        "Native ZMod.val_coe_unit_coprime gives gcd(u.val,D)=1. Apply IsPrimitiveRoot.pow_of_coprime to ε and then to its p-th power: both exponents are coprime to D.",
+        "The resulting element(ε^u.val)^p is primitive of order D. Native IsPrimitiveRoot.ne_one with D>1 excludes1. The complete native lemma checks precisely this argument, without reducing p to a residue representative.",
+        "Consequently no product ξ^jε^u.val can equal1: raising such an equality to p and using ξ^p=1 would contradict the preceding conclusion. A complete native helper verifies this implication for every j.",
+        "This is exactly the excluded locus z^p≠1 in Coleman’s distribution theorem, and it also ensures every weight-one input differs from1. Nonunit residues are discarded by the character’s zero values before invoking the theorem.",
+        "The condition p coprime to D cannot be omitted merely because ξ is a root of unity: when D=p, a nontrivial ε has ε^p=1. The earlier finite parity identity allowed such singular inputs, but the imported trace law does not."
+      ],
+      "prerequisites": [
+        "mathlib:ZMod.val_coe_unit_coprime",
+        "mathlib:IsPrimitiveRoot.pow_of_coprime",
+        "mathlib:IsPrimitiveRoot.ne_one"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/LogarithmicPrimitive",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.cyclotomicLogTrace_unit_domain"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Section6.2, display(6-5) and the proof of Theorem6.1(ii), published152–153/PDF53–54; whole published151–153 read in the parity checkpoint and retained here.",
+          "excerpt": "Evaluating at T = 0",
+          "match": "The source finite root trace is imported from the existing Coleman weight-one distribution result, with its excluded locus checked before use. The ensuing arithmetic reindexing and reciprocal Euler value are concrete Dirichlet consumers. The source analytic distribution/L-value identification is not supplied by this finite comparison, and confirmed E44–E48 remain in force."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedLogarithmicTraceTests.cubic_root_dyadic_trace_domain",
+          "kind": "computation",
+          "statement": "A primitive cubic root has ε²≠1, so the dyadic trace is admissible."
+        }
+      ],
+      "acceptance": [
+        "Both the powered excluded locus and every individual shifted argument are checked in complete native lemmas. The domain distinction from finite parity is retained."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/cyclotomic-powered-logarithmic-coprime-factor",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Coprime powers give the character factor without a primitive hypothesis",
+      "kind": "theorem",
+      "statement": "If p is coprime to D, then c^[p]=η(p)c₀ for every supplied function ℓ, including principal or imprimitive η.",
+      "hypotheses": [
+        "K is a characteristic-zero field, D is positive with NeZero D, η:DirichletCharacter K D, ε∈K and hε:IsPrimitiveRoot ε D. Use the preceding actual c₀, c^[p]=cyclotomicFrobeniusLogConstant, V, A=cyclotomicLogAverage and U=cyclotomicLogAverageComplement, always with the same original Gauss denominator G=gaussSum(η⁻¹,AddChar.zmodChar D hε.pow_eq_one).",
+        "For the finite trace take p>0, p coprime to D, D>1 and ξ primitive of order p. The power-reindexing theorem only needs p coprime to D. The supplied ℓ:K→K may be arbitrary for that reindexing. No primitivity or nonprincipality of η, nonzero G hypothesis, norm, or prime p is needed for the finite comparisons.",
+        "The trace input is the exact law htrace:∀z, z^p≠1→Σ_(j<p)ℓ(ξ^jz−1)=ℓ(z^p−1). It is the existing ColemanIntegration:L2/distribution-relation specialized to weight1 together with ColemanIntegration:L2/polylogarithm-weight-one and the fixed logarithm branch. Its generic analytic graph and five additional supplier gaps are retained explicitly. The suggested law is a parameter because Coleman’s suggested file imports Dirichlet; no duplicate logarithm or generic distribution object is defined here.",
+        "Only the coefficient HasSum corollary adds a normed ultrametric field, p prime, ‖(p:K)‖<1, ‖(D:K)‖=1 and hlocal:∀x,u, x≠0→‖u‖<1→HasSum(n↦coeff n(log K)u^n)(ℓ(x(1+u))−ℓ(x)). The finite trace alone gives no distribution restriction or analytic L-value identity, and no pure-p-power convergence."
+      ],
+      "proofSteps": [
+        "The native unit q=ZMod.unitOfCoprime p hpD acts bijectively on(ZMod D)ˣ. Reindex the actual unit sum by u↦qu.",
+        "Multiplicativity gives η⁻¹(qu)=η(p)⁻¹η⁻¹(u), and η(p)≠0 because p is a unit residue. Multiply the reindexed equality by η(p) to obtain Σ_uη⁻¹(u)f(pu)=η(p)Σ_uη⁻¹(u)f(u). The complete native unit-power-sum lemma verifies the scalar and uses no primitivity assumption.",
+        "Take f(a)=ℓ(ε^a.val−1). Native AddChar.zmodChar_apply' identifies evaluation at the natural cast p·u.val with ε^(p·u.val), so the exact unit-indexed hpow of the existing powered-constant eigenvalue theorem is supplied.",
+        "Apply that preceding theorem to obtain the displayed equality, using the same original G in both constants. Nonunit terms vanish by the actual character definition, as checked by the reused native all-residue/unit-sum conversion.",
+        "No multiplication or analytic property of ℓ is used. At p=1 this recovers the original constant for every function. The principal conductor2, p=3 control confirms the imprimitive tame boundary, without asserting the analogous ramified formula."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/cyclotomic-powered-logarithmic-eigenvalue",
+        "mathlib:ZMod.unitOfCoprime",
+        "mathlib:ZMod.isUnit_iff_coprime",
+        "mathlib:MulChar.apply_ne_zero_iff",
+        "mathlib:MulChar.inv_apply_eq_inv'",
+        "mathlib:Fintype.prod_bijective",
+        "mathlib:AddChar.zmodChar_apply'"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/LogarithmicPrimitive",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.cyclotomicFrobeniusLogConstant_coprime"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Section6.2, display(6-5) and the proof of Theorem6.1(ii), published152–153/PDF53–54; whole published151–153 read in the parity checkpoint and retained here.",
+          "excerpt": "Evaluating at T = 0",
+          "match": "The source finite root trace is imported from the existing Coleman weight-one distribution result, with its excluded locus checked before use. The ensuing arithmetic reindexing and reciprocal Euler value are concrete Dirichlet consumers. The source analytic distribution/L-value identification is not supplied by this finite comparison, and confirmed E44–E48 remain in force."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedLogarithmicTraceTests.identity_power_for_arbitrary_function",
+          "kind": "degenerate",
+          "statement": "At p=1, the actual powered constant equals c₀ for any supplied function, without logarithm laws."
+        }
+      ],
+      "acceptance": [
+        "This supplies the preceding conditional unit-power identity in the coprime case. All previous stronger or ramified supplier interfaces remain unchanged."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/cyclotomic-logarithmic-trace-powered-constant",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The root average is the powered constant divided by p",
+      "kind": "theorem",
+      "statement": "Under the finite tame trace hypotheses and the exact supplied Coleman weight-one law, A=(p:K)⁻¹c^[p].",
+      "hypotheses": [
+        "K is a characteristic-zero field, D is positive with NeZero D, η:DirichletCharacter K D, ε∈K and hε:IsPrimitiveRoot ε D. Use the preceding actual c₀, c^[p]=cyclotomicFrobeniusLogConstant, V, A=cyclotomicLogAverage and U=cyclotomicLogAverageComplement, always with the same original Gauss denominator G=gaussSum(η⁻¹,AddChar.zmodChar D hε.pow_eq_one).",
+        "For the finite trace take p>0, p coprime to D, D>1 and ξ primitive of order p. The power-reindexing theorem only needs p coprime to D. The supplied ℓ:K→K may be arbitrary for that reindexing. No primitivity or nonprincipality of η, nonzero G hypothesis, norm, or prime p is needed for the finite comparisons.",
+        "The trace input is the exact law htrace:∀z, z^p≠1→Σ_(j<p)ℓ(ξ^jz−1)=ℓ(z^p−1). It is the existing ColemanIntegration:L2/distribution-relation specialized to weight1 together with ColemanIntegration:L2/polylogarithm-weight-one and the fixed logarithm branch. Its generic analytic graph and five additional supplier gaps are retained explicitly. The suggested law is a parameter because Coleman’s suggested file imports Dirichlet; no duplicate logarithm or generic distribution object is defined here.",
+        "Only the coefficient HasSum corollary adds a normed ultrametric field, p prime, ‖(p:K)‖<1, ‖(D:K)‖=1 and hlocal:∀x,u, x≠0→‖u‖<1→HasSum(n↦coeff n(log K)u^n)(ℓ(x(1+u))−ℓ(x)). The finite trace alone gives no distribution restriction or analytic L-value identity, and no pure-p-power convergence."
+      ],
+      "proofSteps": [
+        "Use the existing Coleman distribution theorem at k=1. Since p>0 and K has characteristic0, ((p:K)^1)⁻¹(p:K)=1. Its weight-one identification Li₁(z)=−ℓ(1−z) converts the formula to the stated htrace, using ℓ(−x)=ℓ(x) from the fixed logarithm branch. The complete native adapter verifies signs and scalar cancellation, conditional on these owner interfaces.",
+        "The preceding unit-domain lemma permits this substitution at every z=ε^u.val. It also proves all ξ^jz≠1, so the weight-one formula is never used at its excluded point. No value of ℓ(0) is assumed.",
+        "Unfold the actual average and V. Exchange only the two finite sums. Nonunit residues contribute0; on each nonzero character weight, apply htrace. The complete normalized-trace lemma handles zero weights separately.",
+        "The remaining sum is exactly−G⁻¹Σ_aη⁻¹(a)ℓ(ε^(p·a.val)−1), after commuting the exponents. By the preceding actual constructor this is c^[p], and the outer scalar1/p remains.",
+        "The supplier theorem’s generic proof also passes through analytic continuation and annulus foundations. Import the exact existing nodes and retain their five additional open request leaves; do not replace that graph with the shorter weight-one sketch or claim those dependencies are discharged by this consumer."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/cyclotomic-logarithmic-root-average",
+        "DirichletPadicLFunctions:L3/cyclotomic-powered-logarithmic-constant",
+        "DirichletPadicLFunctions:L3/cyclotomic-logarithmic-trace-unit-domain",
+        "ColemanIntegration:L2/distribution-relation",
+        "ColemanIntegration:L2/polylogarithm-weight-one",
+        "ColemanIntegration:L0/log-branch",
+        "mathlib:MulChar.map_nonunit",
+        "mathlib:Fintype.prod_bijective"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/LogarithmicPrimitive",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.cyclotomicLogAverage_eq_powered"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Section6.2, display(6-5) and the proof of Theorem6.1(ii), published152–153/PDF53–54; whole published151–153 read in the parity checkpoint and retained here.",
+          "excerpt": "Evaluating at T = 0",
+          "match": "The source finite root trace is imported from the existing Coleman weight-one distribution result, with its excluded locus checked before use. The ensuing arithmetic reindexing and reciprocal Euler value are concrete Dirichlet consumers. The source analytic distribution/L-value identification is not supplied by this finite comparison, and confirmed E44–E48 remain in force."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedLogarithmicTraceTests.dyadic_average_retains_half",
+          "kind": "computation",
+          "statement": "For p=2 the actual average is exactly one half of the powered constant."
+        }
+      ],
+      "acceptance": [
+        "The comparison is conditional on the supplied trace law in the suggested file. No new generic logarithm distribution construction or reverse Coleman import occurs. All inherited analytic request leaves are recorded."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/cyclotomic-logarithmic-complement-euler-comparison",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The complementary trace value equals the Euler value",
+      "kind": "comparison",
+      "statement": "Under the finite tame trace hypotheses, U=cyclotomicEulerLogValue(p,η,ε,ℓ).",
+      "hypotheses": [
+        "K is a characteristic-zero field, D is positive with NeZero D, η:DirichletCharacter K D, ε∈K and hε:IsPrimitiveRoot ε D. Use the preceding actual c₀, c^[p]=cyclotomicFrobeniusLogConstant, V, A=cyclotomicLogAverage and U=cyclotomicLogAverageComplement, always with the same original Gauss denominator G=gaussSum(η⁻¹,AddChar.zmodChar D hε.pow_eq_one).",
+        "For the finite trace take p>0, p coprime to D, D>1 and ξ primitive of order p. The power-reindexing theorem only needs p coprime to D. The supplied ℓ:K→K may be arbitrary for that reindexing. No primitivity or nonprincipality of η, nonzero G hypothesis, norm, or prime p is needed for the finite comparisons.",
+        "The trace input is the exact law htrace:∀z, z^p≠1→Σ_(j<p)ℓ(ξ^jz−1)=ℓ(z^p−1). It is the existing ColemanIntegration:L2/distribution-relation specialized to weight1 together with ColemanIntegration:L2/polylogarithm-weight-one and the fixed logarithm branch. Its generic analytic graph and five additional supplier gaps are retained explicitly. The suggested law is a parameter because Coleman’s suggested file imports Dirichlet; no duplicate logarithm or generic distribution object is defined here.",
+        "Only the coefficient HasSum corollary adds a normed ultrametric field, p prime, ‖(p:K)‖<1, ‖(D:K)‖=1 and hlocal:∀x,u, x≠0→‖u‖<1→HasSum(n↦coeff n(log K)u^n)(ℓ(x(1+u))−ℓ(x)). The finite trace alone gives no distribution restriction or analytic L-value identity, and no pure-p-power convergence."
+      ],
+      "proofSteps": [
+        "The actual complementary constructor is U=c₀−A. Substitute the preceding equality A=p⁻¹c^[p].",
+        "The result is exactly the preceding definition of cyclotomicEulerLogValue, with the same supplied ℓ and the same original Gauss denominator. No new normalization or integration constant is chosen.",
+        "This completes the previously open comparison between two finite constructions: the evaluated root-trace complement and the reciprocal Euler candidate.",
+        "Identification with restriction of a locally analytic distribution still needs LAD’s operator comparison, and identification with an analytic L-value needs the remaining distribution and interpolation argument. Neither follows just from equality of these finite values."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/cyclotomic-logarithmic-average-complement",
+        "DirichletPadicLFunctions:L3/cyclotomic-logarithmic-trace-powered-constant",
+        "DirichletPadicLFunctions:L3/cyclotomic-euler-logarithmic-value"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/LogarithmicPrimitive",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.cyclotomicLogAverageComplement_eq_euler"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Section6.2, display(6-5) and the proof of Theorem6.1(ii), published152–153/PDF53–54; whole published151–153 read in the parity checkpoint and retained here.",
+          "excerpt": "Evaluating at T = 0",
+          "match": "The source finite root trace is imported from the existing Coleman weight-one distribution result, with its excluded locus checked before use. The ensuing arithmetic reindexing and reciprocal Euler value are concrete Dirichlet consumers. The source analytic distribution/L-value identification is not supplied by this finite comparison, and confirmed E44–E48 remain in force."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedLogarithmicTraceTests.dyadic_complement_is_euler_value",
+          "kind": "compatibility",
+          "statement": "At p=2 the actual trace complement equals the previously constructed reciprocal Euler value."
+        }
+      ],
+      "acceptance": [
+        "The finite comparison closes this specific missing step at the planning level; it closes no atlas stage or supplier request."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/cyclotomic-logarithmic-complement-reciprocal-factor",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The complementary value has the reciprocal Euler factor",
+      "kind": "theorem",
+      "statement": "Under the finite tame trace hypotheses, U=(1−η(p)/p)c₀.",
+      "hypotheses": [
+        "K is a characteristic-zero field, D is positive with NeZero D, η:DirichletCharacter K D, ε∈K and hε:IsPrimitiveRoot ε D. Use the preceding actual c₀, c^[p]=cyclotomicFrobeniusLogConstant, V, A=cyclotomicLogAverage and U=cyclotomicLogAverageComplement, always with the same original Gauss denominator G=gaussSum(η⁻¹,AddChar.zmodChar D hε.pow_eq_one).",
+        "For the finite trace take p>0, p coprime to D, D>1 and ξ primitive of order p. The power-reindexing theorem only needs p coprime to D. The supplied ℓ:K→K may be arbitrary for that reindexing. No primitivity or nonprincipality of η, nonzero G hypothesis, norm, or prime p is needed for the finite comparisons.",
+        "The trace input is the exact law htrace:∀z, z^p≠1→Σ_(j<p)ℓ(ξ^jz−1)=ℓ(z^p−1). It is the existing ColemanIntegration:L2/distribution-relation specialized to weight1 together with ColemanIntegration:L2/polylogarithm-weight-one and the fixed logarithm branch. Its generic analytic graph and five additional supplier gaps are retained explicitly. The suggested law is a parameter because Coleman’s suggested file imports Dirichlet; no duplicate logarithm or generic distribution object is defined here.",
+        "Only the coefficient HasSum corollary adds a normed ultrametric field, p prime, ‖(p:K)‖<1, ‖(D:K)‖=1 and hlocal:∀x,u, x≠0→‖u‖<1→HasSum(n↦coeff n(log K)u^n)(ℓ(x(1+u))−ℓ(x)). The finite trace alone gives no distribution restriction or analytic L-value identity, and no pure-p-power convergence."
+      ],
+      "proofSteps": [
+        "Use the preceding comparison with cyclotomicEulerLogValue and unfold that existing value as c₀−p⁻¹c^[p].",
+        "The new coprime power theorem supplies c^[p]=η(p)c₀ without a primitive-character hypothesis. Factor c₀ to obtain the displayed reciprocal Euler factor.",
+        "The complete native scalar calculation verifies the subtraction and reciprocal normalization. Exact controls detect replacing1/p by1, changing the subtraction to addition, or dropping the original Gauss denominator.",
+        "For p=1 the factor is0 and U=0, consistent with the singleton average. For p>1, the already established reciprocal-factor nonvanishing applies to this expression; no vanishing criterion at p=1 is asserted.",
+        "Odd-character vanishing from the preceding parity checkpoint is consistent with c₀=0 under the actual logarithm laws. The new formula also applies to even and principal tame characters, whose constants may be nonzero."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/cyclotomic-logarithmic-complement-euler-comparison",
+        "DirichletPadicLFunctions:L3/cyclotomic-powered-logarithmic-coprime-factor",
+        "DirichletPadicLFunctions:L3/cyclotomic-euler-logarithmic-value",
+        "DirichletPadicLFunctions:L3/reciprocal-euler-factor-nonzero"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/LogarithmicPrimitive",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.cyclotomicLogAverageComplement_euler_factor"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Section6.2, display(6-5) and the proof of Theorem6.1(ii), published152–153/PDF53–54; whole published151–153 read in the parity checkpoint and retained here.",
+          "excerpt": "Evaluating at T = 0",
+          "match": "The source finite root trace is imported from the existing Coleman weight-one distribution result, with its excluded locus checked before use. The ensuing arithmetic reindexing and reciprocal Euler value are concrete Dirichlet consumers. The source analytic distribution/L-value identification is not supplied by this finite comparison, and confirmed E44–E48 remain in force."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedLogarithmicTraceTests.dyadic_reciprocal_euler_factor",
+          "kind": "computation",
+          "statement": "For p=2 the complementary value is(1−η(2)/2)c₀."
+        }
+      ],
+      "acceptance": [
+        "The factor is reciprocal because this is weight one after one inverse weighting. The finite identity is not itself a definition or evaluation of L_p."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/cyclotomic-logarithmic-coefficient-trace-eigenvalue",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The averaged coefficient series has the character trace value",
+      "kind": "theorem",
+      "statement": "Under the prime tame norm, htrace and hlocal hypotheses, HasSum(n↦coeff n(F)·((p:K)⁻¹Σ_(j<p)(ξ^j−1)^n))((η(p)/p)c₀).",
+      "hypotheses": [
+        "K is a characteristic-zero field, D is positive with NeZero D, η:DirichletCharacter K D, ε∈K and hε:IsPrimitiveRoot ε D. Use the preceding actual c₀, c^[p]=cyclotomicFrobeniusLogConstant, V, A=cyclotomicLogAverage and U=cyclotomicLogAverageComplement, always with the same original Gauss denominator G=gaussSum(η⁻¹,AddChar.zmodChar D hε.pow_eq_one).",
+        "For the finite trace take p>0, p coprime to D, D>1 and ξ primitive of order p. The power-reindexing theorem only needs p coprime to D. The supplied ℓ:K→K may be arbitrary for that reindexing. No primitivity or nonprincipality of η, nonzero G hypothesis, norm, or prime p is needed for the finite comparisons.",
+        "The trace input is the exact law htrace:∀z, z^p≠1→Σ_(j<p)ℓ(ξ^jz−1)=ℓ(z^p−1). It is the existing ColemanIntegration:L2/distribution-relation specialized to weight1 together with ColemanIntegration:L2/polylogarithm-weight-one and the fixed logarithm branch. Its generic analytic graph and five additional supplier gaps are retained explicitly. The suggested law is a parameter because Coleman’s suggested file imports Dirichlet; no duplicate logarithm or generic distribution object is defined here.",
+        "Only the coefficient HasSum corollary adds a normed ultrametric field, p prime, ‖(p:K)‖<1, ‖(D:K)‖=1 and hlocal:∀x,u, x≠0→‖u‖<1→HasSum(n↦coeff n(log K)u^n)(ℓ(x(1+u))−ℓ(x)). The finite trace alone gives no distribution restriction or analytic L-value identity, and no pure-p-power convergence."
+      ],
+      "proofSteps": [
+        "Use the preceding cyclotomicLogAverage_hasSum, with all its prime, primitive-root, norm and local-law assumptions unchanged. It establishes convergence and gives target A.",
+        "The new finite trace comparison rewrites A as p⁻¹c^[p]. The coprime power theorem rewrites c^[p] as η(p)c₀.",
+        "Commute the field scalars to obtain the exact target(η(p)/p)c₀. The series itself is unchanged, including its constant coefficient and the n=0 values at all shifted root points.",
+        "This is the series realization of the finite trace calculation in the proof of Theorem6.1(ii). The separate LAD comparison must still establish that this is the value at0 of the actual φψ operator.",
+        "Retain D>1, norm(D)=1 and the explicit coprimality hypothesis. The singular pure-p-power case is outside the imported weight-one trace domain and is not repaired by this corollary."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/cyclotomic-logarithmic-average-series",
+        "DirichletPadicLFunctions:L3/cyclotomic-logarithmic-trace-powered-constant",
+        "DirichletPadicLFunctions:L3/cyclotomic-powered-logarithmic-coprime-factor"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/LogarithmicPrimitive",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.cyclotomicLogAverage_eigenvalue_hasSum"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Section6.2, display(6-5) and the proof of Theorem6.1(ii), published152–153/PDF53–54; whole published151–153 read in the parity checkpoint and retained here.",
+          "excerpt": "Evaluating at T = 0",
+          "match": "The source finite root trace is imported from the existing Coleman weight-one distribution result, with its excluded locus checked before use. The ensuing arithmetic reindexing and reciprocal Euler value are concrete Dirichlet consumers. The source analytic distribution/L-value identification is not supplied by this finite comparison, and confirmed E44–E48 remain in force."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedLogarithmicTraceTests.dyadic_coefficient_trace_value",
+          "kind": "compatibility",
+          "statement": "Under the dyadic tame local law, the actual averaged coefficient series sums to(η(2)/2)c₀."
+        }
+      ],
+      "acceptance": [
+        "No exchange of two infinite sums or unidentified formal substitution is used. The existing HasSum supplies all convergence required by the conditional consumer."
+      ]
     }
   ],
   "requests": [
@@ -33150,6 +33485,41 @@
       "neededBy": [
         "DirichletPadicLFunctions:L3/cyclotomic-logarithmic-constant"
       ]
+    },
+    {
+      "supplier": "AdicSpacesPartII:F1",
+      "need": "Inherited through the exact existing ColemanIntegration:L2/distribution-relation used by the Dirichlet finite trace comparison. For a smooth finitely generated O_K-algebra R with smooth compactification (in particular O[z, z^(-1), (z^N - 1)^(-1)] and the coordinate ring of the affine part Y of a good-reduction pair): its weak (Monsky-Washnitzer) completion R+, A+ = R+ (x) K, the identification of A+ with colim_r O(W_r) over the strict neighbourhoods W_r of the tube, the Banach norms of O(W_r) with Cauchy estimates for derivatives on shrunken neighbourhoods, the module of continuous differentials Omega+ with its derivation, noetherianity, and the identity principle (an element of O(W_r) or of Omega^1(W_r) vanishing on a residue disc of the tube vanishes, W_r being connected). This records the generic supplier theorem’s actual open graph; Dirichlet neither reconstructs this theory nor claims that the weight-one specialization closes it.",
+      "neededBy": [
+        "DirichletPadicLFunctions:L3/cyclotomic-logarithmic-trace-powered-constant"
+      ]
+    },
+    {
+      "supplier": "AdicSpacesPartII:R2",
+      "need": "Inherited through the exact existing ColemanIntegration:L2/distribution-relation used by the Dirichlet finite trace comparison. For a smooth proper curve X over O_K (K finite over Q_p): the rigid (adic) generic fibre X_an of the formal completion, equal to the analytification of X_K, its specialisation map to X_k, residue discs ]x[, and the isomorphism of ]x[ with the open unit disc given by a local parameter at x (formal fibre of a smooth point). This records the generic supplier theorem’s actual open graph; Dirichlet neither reconstructs this theory nor claims that the weight-one specialization closes it.",
+      "neededBy": [
+        "DirichletPadicLFunctions:L3/cyclotomic-logarithmic-trace-powered-constant"
+      ]
+    },
+    {
+      "supplier": "PadicDifferentialEquationsAndRigidCohomology:RD.0",
+      "need": "Inherited through the exact existing ColemanIntegration:L2/distribution-relation used by the Dirichlet finite trace comparison. Existence of Frobenius lifts: for the weak completion S of a smooth finitely generated O_K-algebra (K finite over Q_p, residue field F_q), a K-algebra endomorphism phi of S (x) K preserving S with phi(x) - x^q in pi S for all x (van der Put's lifting theorem); and that two such lifts are homotopic (induce homotopic maps of overconvergent de Rham complexes). This records the generic supplier theorem’s actual open graph; Dirichlet neither reconstructs this theory nor claims that the weight-one specialization closes it.",
+      "neededBy": [
+        "DirichletPadicLFunctions:L3/cyclotomic-logarithmic-trace-powered-constant"
+      ]
+    },
+    {
+      "supplier": "PadicDifferentialEquationsAndRigidCohomology:RD.4",
+      "need": "Inherited through the exact existing ColemanIntegration:L2/distribution-relation used by the Dirichlet finite trace comparison. For a smooth affine curve Y_k over F_q with a smooth lift: H^1 of the overconvergent de Rham complex of its dagger algebra equals H^1_rig(Y_k/K), and the Frobenius endomorphism of H^1_rig induced by a Frobenius lift does not depend on the lift. This records the generic supplier theorem’s actual open graph; Dirichlet neither reconstructs this theory nor claims that the weight-one specialization closes it.",
+      "neededBy": [
+        "DirichletPadicLFunctions:L3/cyclotomic-logarithmic-trace-powered-constant"
+      ]
+    },
+    {
+      "supplier": "PadicHodgeTheory:P7:annulus-foundations",
+      "need": "Inherited through the exact existing ColemanIntegration:L2/distribution-relation used by the Dirichlet finite trace comparison. For a complete subfield K of C_p, a centre e in K and 0 <= r < s <= infinity: the K-algebra O_K(A(e; r, s)) of Laurent series sum_{n in Z} a_n (z - e)^n with |a_n| rho^n -> 0 as |n| -> infinity for every rho in (r, s), as functions on {r < |z - e| < s}; its multiplicative Gauss norms |.|_rho and Frechet topology; restriction to sub-annuli and the end-germ ring colim_{r -> 1} O_K(A(e; r, 1)) (the elements of the Robba ring); the derivative; the identity principle (a Laurent series vanishing as a function on A(C_p) is zero, the Gauss norm |f|_rho being attained on the circle |z - e| = rho for rho in |C_p^x|); and the discreteness of the break radii of the Newton polygon (a nonzero f is a unit, dominant monomial times 1 + h with |h| < 1, on some open sub-annulus). This records the generic supplier theorem’s actual open graph; Dirichlet neither reconstructs this theory nor claims that the weight-one specialization closes it.",
+      "neededBy": [
+        "DirichletPadicLFunctions:L3/cyclotomic-logarithmic-trace-powered-constant"
+      ]
     }
   ],
   "coverage": [
@@ -33180,7 +33550,7 @@
       "stageId": "DirichletPadicLFunctions:L3",
       "status": "partial",
       "remaining": [
-        "The finite logarithmic values now have an exact arbitrary-point inversion correction; nonprincipal character cancellation removes it. The same reciprocity holds for actual convergent tame coefficient evaluations on the open disc. General finite root-average collapse to p⁻¹ times the powered constant still needs the existing Coleman weight-one distribution relation, followed by LAD restriction. The current generic Coleman graph reaches additional open AdicSpacesPartII F1/R2, PadicDifferentialEquationsAndRigidCohomology RD.0/RD.4 and PadicHodgeTheory P7 annulus-foundations dependencies; account for them or obtain a finer owned input. LAD operations has a coarse PMIA L0 leaf. The exact discAnalytic/R+ comparison request, smoothed pure-p-power route, positive-weight comparisons, pole/residue analysis and complete source extraction remain open. Retain E44–E48 and do not infer a formal substitution or analytic L-value identity from these pointwise statements.",
+        "The actual root average now equals p⁻¹c^[p], and the complementary value agrees with the existing Euler candidate and(1−η(p)/p)c₀ in the tame domain, conditional on the owned Coleman trace law. The averaged actual coefficient series has target(η(p)/p)c₀. Next compare with the actual LAD restriction/φψ operator and complete the distribution-to-L-value argument. LAD distribution-operations has a coarse PMIA L0 leaf which must be accounted for. The imported generic Coleman distribution node retains five additional open analytic supplier requests; the existing exact discAnalytic/R+ comparison also remains open. The smoothed pure-p-power route, positive-weight comparisons, pole/residue analysis and complete source extraction remain open. Preserve E44–E48; no stage is closed by these finite comparisons.",
         "The actual tame integral and analytic transfer from supplied C(U,K)-valued families remain supplied. Actual odd/dyadic principal-unit families belong to PMIA L0a and scalar Mellin theory to LAD L3; instantiate the corrected Teichmüller twist when those interfaces are supplied."
       ]
     },
@@ -33212,7 +33582,7 @@
     {
       "title": "L3 remaining source decomposition and interfaces",
       "neededBy": [],
-      "detail": "The finite logarithmic values now have an exact arbitrary-point inversion correction; nonprincipal character cancellation removes it. The same reciprocity holds for actual convergent tame coefficient evaluations on the open disc. General finite root-average collapse to p⁻¹ times the powered constant still needs the existing Coleman weight-one distribution relation, followed by LAD restriction. The current generic Coleman graph reaches additional open AdicSpacesPartII F1/R2, PadicDifferentialEquationsAndRigidCohomology RD.0/RD.4 and PadicHodgeTheory P7 annulus-foundations dependencies; account for them or obtain a finer owned input. LAD operations has a coarse PMIA L0 leaf. The exact discAnalytic/R+ comparison request, smoothed pure-p-power route, positive-weight comparisons, pole/residue analysis and complete source extraction remain open. Retain E44–E48 and do not infer a formal substitution or analytic L-value identity from these pointwise statements. The actual tame integral and analytic transfer from supplied C(U,K)-valued families remain supplied. Actual odd/dyadic principal-unit families belong to PMIA L0a and scalar Mellin theory to LAD L3; instantiate the corrected Teichmüller twist when those interfaces are supplied."
+      "detail": "The actual root average now equals p⁻¹c^[p], and the complementary value agrees with the existing Euler candidate and(1−η(p)/p)c₀ in the tame domain, conditional on the owned Coleman trace law. The averaged actual coefficient series has target(η(p)/p)c₀. Next compare with the actual LAD restriction/φψ operator and complete the distribution-to-L-value argument. LAD distribution-operations has a coarse PMIA L0 leaf which must be accounted for. The imported generic Coleman distribution node retains five additional open analytic supplier requests; the existing exact discAnalytic/R+ comparison also remains open. The smoothed pure-p-power route, positive-weight comparisons, pole/residue analysis and complete source extraction remain open. Preserve E44–E48; no stage is closed by these finite comparisons. The actual tame integral and analytic transfer from supplied C(U,K)-valued families remain supplied. Actual odd/dyadic principal-unit families belong to PMIA L0a and scalar Mellin theory to LAD L3; instantiate the corrected Teichmüller twist when those interfaces are supplied."
     },
     {
       "title": "L4 completed-algebra, twisted localized constant coefficient and tame-family comparisons",
@@ -33242,6 +33612,41 @@
         "DirichletPadicLFunctions:L3/cyclotomic-logarithmic-constant"
       ],
       "detail": "Inherited from ColemanIntegration:L0/disc-analytic-functions, used in its logarithm homomorphism and branch construction: for a finite extension L/Q_p inside C_p, supply the coefficient-map isomorphism between its analytic functions on the open unit disc centred at0 and the existing LAD ring R+_L of power series with norm(a_n)·r^n tending to0 for every0≤r<1, with the stated Frechet topology and termwise derivative compatibility. Coleman calls this discAnalytic.equivRPlus. The existing LocallyAnalyticDistributions:L1/amice-transform node supplies the distribution/R+ comparison but not this exact function/coefficient comparison. This request records the existing supplier boundary, not a new logarithm or distribution construction in Dirichlet. The consumer signatures remain conditional on the supplied logarithm laws."
+    },
+    {
+      "title": "Inherited Coleman distribution input: AdicSpacesPartII:F1",
+      "detail": "Inherited through the exact existing ColemanIntegration:L2/distribution-relation used by the Dirichlet finite trace comparison. For a smooth finitely generated O_K-algebra R with smooth compactification (in particular O[z, z^(-1), (z^N - 1)^(-1)] and the coordinate ring of the affine part Y of a good-reduction pair): its weak (Monsky-Washnitzer) completion R+, A+ = R+ (x) K, the identification of A+ with colim_r O(W_r) over the strict neighbourhoods W_r of the tube, the Banach norms of O(W_r) with Cauchy estimates for derivatives on shrunken neighbourhoods, the module of continuous differentials Omega+ with its derivation, noetherianity, and the identity principle (an element of O(W_r) or of Omega^1(W_r) vanishing on a residue disc of the tube vanishes, W_r being connected). This records the generic supplier theorem’s actual open graph; Dirichlet neither reconstructs this theory nor claims that the weight-one specialization closes it.",
+      "neededBy": [
+        "DirichletPadicLFunctions:L3/cyclotomic-logarithmic-trace-powered-constant"
+      ]
+    },
+    {
+      "title": "Inherited Coleman distribution input: AdicSpacesPartII:R2",
+      "detail": "Inherited through the exact existing ColemanIntegration:L2/distribution-relation used by the Dirichlet finite trace comparison. For a smooth proper curve X over O_K (K finite over Q_p): the rigid (adic) generic fibre X_an of the formal completion, equal to the analytification of X_K, its specialisation map to X_k, residue discs ]x[, and the isomorphism of ]x[ with the open unit disc given by a local parameter at x (formal fibre of a smooth point). This records the generic supplier theorem’s actual open graph; Dirichlet neither reconstructs this theory nor claims that the weight-one specialization closes it.",
+      "neededBy": [
+        "DirichletPadicLFunctions:L3/cyclotomic-logarithmic-trace-powered-constant"
+      ]
+    },
+    {
+      "title": "Inherited Coleman distribution input: PadicDifferentialEquationsAndRigidCohomology:RD.0",
+      "detail": "Inherited through the exact existing ColemanIntegration:L2/distribution-relation used by the Dirichlet finite trace comparison. Existence of Frobenius lifts: for the weak completion S of a smooth finitely generated O_K-algebra (K finite over Q_p, residue field F_q), a K-algebra endomorphism phi of S (x) K preserving S with phi(x) - x^q in pi S for all x (van der Put's lifting theorem); and that two such lifts are homotopic (induce homotopic maps of overconvergent de Rham complexes). This records the generic supplier theorem’s actual open graph; Dirichlet neither reconstructs this theory nor claims that the weight-one specialization closes it.",
+      "neededBy": [
+        "DirichletPadicLFunctions:L3/cyclotomic-logarithmic-trace-powered-constant"
+      ]
+    },
+    {
+      "title": "Inherited Coleman distribution input: PadicDifferentialEquationsAndRigidCohomology:RD.4",
+      "detail": "Inherited through the exact existing ColemanIntegration:L2/distribution-relation used by the Dirichlet finite trace comparison. For a smooth affine curve Y_k over F_q with a smooth lift: H^1 of the overconvergent de Rham complex of its dagger algebra equals H^1_rig(Y_k/K), and the Frobenius endomorphism of H^1_rig induced by a Frobenius lift does not depend on the lift. This records the generic supplier theorem’s actual open graph; Dirichlet neither reconstructs this theory nor claims that the weight-one specialization closes it.",
+      "neededBy": [
+        "DirichletPadicLFunctions:L3/cyclotomic-logarithmic-trace-powered-constant"
+      ]
+    },
+    {
+      "title": "Inherited Coleman distribution input: PadicHodgeTheory:P7:annulus-foundations",
+      "detail": "Inherited through the exact existing ColemanIntegration:L2/distribution-relation used by the Dirichlet finite trace comparison. For a complete subfield K of C_p, a centre e in K and 0 <= r < s <= infinity: the K-algebra O_K(A(e; r, s)) of Laurent series sum_{n in Z} a_n (z - e)^n with |a_n| rho^n -> 0 as |n| -> infinity for every rho in (r, s), as functions on {r < |z - e| < s}; its multiplicative Gauss norms |.|_rho and Frechet topology; restriction to sub-annuli and the end-germ ring colim_{r -> 1} O_K(A(e; r, 1)) (the elements of the Robba ring); the derivative; the identity principle (a Laurent series vanishing as a function on A(C_p) is zero, the Gauss norm |f|_rho being attained on the circle |z - e| = rho for rho in |C_p^x|); and the discreteness of the break radii of the Newton polygon (a nonzero f is a unit, dominant monomial times 1 + h with |h| < 1, on some open sub-annulus). This records the generic supplier theorem’s actual open graph; Dirichlet neither reconstructs this theory nor claims that the weight-one specialization closes it.",
+      "neededBy": [
+        "DirichletPadicLFunctions:L3/cyclotomic-logarithmic-trace-powered-constant"
+      ]
     }
   ],
   "sourceIssues": [
@@ -33527,46 +33932,51 @@
   "checks": {
     "blueprint": "Zero errors and warnings with the unmodified pinned index.",
     "intake": "Exactly four authorized deliverables; zero problems.",
-    "sourceIssues": "All16 source findings, sourceVersions and all four previous supplier requests remain whole. Confirmed external E44–E48 are retained; no new finding or independent verdict is added.",
+    "sourceIssues": "All16 source findings, sourceVersions and all four previous supplier requests remain whole. Five inherited analytic requests and matching gaps are added for the exact imported Coleman distribution node. Confirmed external E44–E48 remain; no new source finding or independent verdict is added.",
     "validation": {
-      "nodes": 500,
+      "nodes": 506,
       "kinds": {
         "definition": 1,
-        "lemma": 215,
+        "lemma": 216,
         "construction": 62,
-        "theorem": 139,
-        "comparison": 83
+        "theorem": 143,
+        "comparison": 84
       },
       "api": 454,
-      "packetTests": 789,
+      "packetTests": 795,
       "definitionConstructionTests": 262,
-      "typedExamples": 792,
+      "typedExamples": 798,
       "planets": 24,
-      "baseline": 473,
-      "preservedWholeNodes": 496,
-      "preservedBaseline": 472,
+      "baseline": 475,
+      "preservedWholeNodes": 500,
+      "preservedBaseline": 473,
       "preservedSourceIssues": 16,
       "newSourceIssues": 0,
-      "newNodes": 4,
-      "newNamedDeclarations": 4,
-      "newTypedTests": 4,
-      "requests": 4,
-      "gaps": 8,
+      "newNodes": 6,
+      "newNamedDeclarations": 6,
+      "newTypedTests": 6,
+      "requests": 9,
+      "gaps": 13,
       "closedStages": 0,
-      "reachableNodes": 691,
-      "dependencyEdges": 3264,
+      "reachableNodes": 742,
+      "dependencyEdges": 3537,
       "acyclic": true,
-      "baselineLeaves": 614,
+      "baselineLeaves": 646,
       "stageRequestLeaves": [
+        "AdicSpacesPartII:F1",
+        "AdicSpacesPartII:R2",
         "LocallyAnalyticDistributions:L1",
+        "PadicDifferentialEquationsAndRigidCohomology:RD.0",
+        "PadicDifferentialEquationsAndRigidCohomology:RD.4",
+        "PadicHodgeTheory:P7:annulus-foundations",
         "PadicMeasuresIwasawaAlgebras:L1",
         "PadicMeasuresIwasawaAlgebras:L3"
       ],
-      "readerWords": 217264,
+      "readerWords": 221467,
       "scopedMutationCheck": true,
       "correctedPredecessorNodes": 0,
       "compilerErrors": 0,
-      "compilerWarnings": 1540,
+      "compilerWarnings": 1552,
       "allWarningsPlaceholders": true,
       "supplierNodes": 332,
       "currentSupplierNodes": 369,
@@ -33576,37 +33986,44 @@
       "pinnedTauCetiModules": 21,
       "actualSupplierModules": 1,
       "scratchCompleteDefinitions": 0,
-      "scratchCompleteLemmas": 8,
-      "scratchMathlibModules": 2798,
+      "scratchCompleteLemmas": 9,
+      "scratchMathlibModules": 2794,
       "scratchErrors": 0,
       "scratchWarnings": 0,
       "scratchPlaceholders": 0,
       "finiteControls": {
         "characterPrimeCases": 5,
-        "pointInversionIdentities": 20,
-        "localLogExpansions": 88,
-        "coefficientEvaluationIdentities": 40,
-        "nonprincipalReciprocities": 16,
-        "principalCorrectionCounterexamples": 3,
-        "higherPrecisionPointComparisons": 40,
-        "coordinateInvolutions": 20
+        "rootEvaluations": 28,
+        "localLogExpansions": 75,
+        "traceComparisons": 5,
+        "poweredCharacterComparisons": 5,
+        "complementEulerComparisons": 5,
+        "higherPrecisionRootComparisons": 28,
+        "wrongNormalizationCounterexamples": 2,
+        "wrongSignCounterexamples": 2,
+        "wrongGaussCounterexamples": 1
       },
       "numericalControlsCertified": true,
       "newRoutesStageLeaves": [
-        "LocallyAnalyticDistributions:L1"
+        "AdicSpacesPartII:F1",
+        "AdicSpacesPartII:R2",
+        "LocallyAnalyticDistributions:L1",
+        "PadicDifferentialEquationsAndRigidCohomology:RD.0",
+        "PadicDifferentialEquationsAndRigidCohomology:RD.4",
+        "PadicHodgeTheory:P7:annulus-foundations"
       ]
     },
     "lean": {
       "status": "compiled with only expected placeholder warnings",
       "errors": 0,
-      "warnings": 1540,
-      "sha256": "28eb25fbb7a77bd84f47f1d45f7b47349b97d4eb88189436edf7cc0dd30b7e13",
+      "warnings": 1552,
+      "sha256": "787d892c3ba2ff2b5bf1671eb5c6ad08a6689a35fc45a342a3e34b434be7919f",
       "nativeProbe": {
-        "completeLemmas": 8,
+        "completeLemmas": 9,
         "errors": 0,
         "warnings": 0,
         "placeholders": 0,
-        "sha256": "cffbfbc89fbebde8a0a61b1ebb79bb7fd1648e2d8dd630d2bcac21d6480ac97b"
+        "sha256": "9bbf6cfe789c047eb9687a5288c42e9840e376522a44f13bfd55ca5d775c07cc"
       },
       "artifactReuse": {
         "compiledSupplierNodes": 332,
@@ -33675,24 +34092,24 @@
         "nativeArtifactFileCount": 105,
         "predecessorAgainstCurrentSupplier": {
           "exitCode": 0,
-          "sourceSha256": "f8dd04c4cf7066cb81259cf5ad831096b79270dae82e9723c2a10e3482ae0e33",
+          "sourceSha256": "28eb25fbb7a77bd84f47f1d45f7b47349b97d4eb88189436edf7cc0dd30b7e13",
           "modules": 3572,
-          "warnings": 1532,
+          "warnings": 1540,
           "errors": 0
         },
         "scope": "The actual332-node PMIA artifact compiled at PR3303 is reused. The current369-node PMIA source preserves all its lines in order, and all332 old packet nodes are unchanged; added residue restrictions and L4 declarations are not called. No compilation against the369-node source is claimed. The full new Dirichlet file uses that exact332-node artifact with21 pinned Tau modules,105 native artifact files and the audited pinned Mathlib closure. Existing native artifacts and original zero-warning logs are verified; no Lake setup, update, cache fetch or native library build occurs."
       }
     },
     "publication": {
-      "base": "00944d093e5039e2e6a9674315c3c18bb7d7814f",
-      "unchangedInputs": 58,
+      "base": "7734982c499f4722f83bc333bd7ff7ad7e685150",
+      "unchangedInputs": 62,
       "unchangedOutputs": 4,
       "sameSessionFollowupAfterMerge": true,
       "lastClaimConfirmation": 5854791937,
       "reviewIssue": 390,
       "reviewUnclaimed": true
     },
-    "closure": "Partial: 8 gaps, 4 requests (PadicMeasuresIwasawaAlgebras:L1, PadicMeasuresIwasawaAlgebras:L3, PadicMeasuresIwasawaAlgebras:L3, LocallyAnalyticDistributions:L1), zero closed stages; every implementation status unchecked."
+    "closure": "Partial: 13 gaps, 9 requests (PadicMeasuresIwasawaAlgebras:L1, PadicMeasuresIwasawaAlgebras:L3, PadicMeasuresIwasawaAlgebras:L3, LocallyAnalyticDistributions:L1, AdicSpacesPartII:F1, AdicSpacesPartII:R2, PadicDifferentialEquationsAndRigidCohomology:RD.0, PadicDifferentialEquationsAndRigidCohomology:RD.4, PadicHodgeTheory:P7:annulus-foundations), zero closed stages; every implementation status unchecked."
   },
   "provenance": {
     "smoothingFollowup": {
@@ -39005,6 +39422,46 @@
         "coordinateInvolutions": 20
       },
       "numericalMethod": "Exact modular arithmetic in Q₂(μ₃) and ramified Q_p(μ_p) for p=3,5,7,11. Unit inverses are product-checked. The same certified logarithm truncation as4719 uses input p^20, output p^8, then an independent three-digit increase; principal-unit valuation>=1/e and v_p(n)<=n/(2e) for n>=p² bound the discarded tail, with all p-part divisions guard-checked. Four open-disc inputs per case include0,p,p² and a non-root extension-field point. Actual finite logarithm values are compared with local coefficient expansions at both t and(1+t)^-1-1. The precise principal-character correction is tested, and omitting it fails in the D2,p3 control. Coordinate involutions and higher-precision values agree exactly. These controls do not assert a formal substitution identity, an analytic L-value or convergence at pure-p conductor."
+    },
+    "logarithmicTrace": {
+      "agent": "Codex",
+      "session": "codex-7e92bd",
+      "issue": 713,
+      "claimComment": 5854790528,
+      "winningBot": 5854791937,
+      "previousPR": 4722,
+      "previousHead": "067219a68d81dd43c5c34591918a1e8ba3281d41",
+      "previousMerge": "64295aaef9fd6c2f8ed81ae542e952e99379fcd8",
+      "preservedWholeNodes": 500,
+      "preservedBaseline": 473,
+      "preservedFindings": 16,
+      "newNodes": 6,
+      "reading": "Read the whole existing Coleman distribution and weight-one nodes, their exact suggested interfaces, all five inherited supplier request entries and the whole corresponding atlas stage descriptions. Read the complete reachable Polylogarithms classical-polylogarithm node, including its API, source match and tests; it is an inherited archimedean partner, not a p-adic proof input reconstructed here. The generic distribution closure was audited recursively:56 nodes and six stage leaves, with no Dirichlet descendant. Whole published151–153 and the exact Coleman branch reading are retained. Fresh native readings cover primitive coprime powers, nontrivial roots, unit representatives, the canonical residue unit and character sum reindexing.",
+      "boundary": "The actual root average now equals p⁻¹c^[p], and the complementary value agrees with the existing Euler candidate and(1−η(p)/p)c₀ in the tame domain, conditional on the owned Coleman trace law. The averaged actual coefficient series has target(η(p)/p)c₀. Next compare with the actual LAD restriction/φψ operator and complete the distribution-to-L-value argument. LAD distribution-operations has a coarse PMIA L0 leaf which must be accounted for. The imported generic Coleman distribution node retains five additional open analytic supplier requests; the existing exact discAnalytic/R+ comparison also remains open. The smoothed pure-p-power route, positive-weight comparisons, pole/residue analysis and complete source extraction remain open. Preserve E44–E48; no stage is closed by these finite comparisons.",
+      "inputBase": "7734982c499f4722f83bc333bd7ff7ad7e685150",
+      "sourceBoundary": "All16 source findings, sourceVersions and all four previous supplier requests remain whole. Five inherited analytic requests and matching gaps are added for the exact imported Coleman distribution node. Confirmed external E44–E48 remain; no new source finding or independent verdict is added.",
+      "publication": {
+        "base": "7734982c499f4722f83bc333bd7ff7ad7e685150",
+        "unchangedInputs": 62,
+        "unchangedOutputs": 4,
+        "sameSessionFollowupAfterMerge": true,
+        "lastClaimConfirmation": 5854791937,
+        "reviewIssue": 390,
+        "reviewUnclaimed": true
+      },
+      "finiteControls": {
+        "characterPrimeCases": 5,
+        "rootEvaluations": 28,
+        "localLogExpansions": 75,
+        "traceComparisons": 5,
+        "poweredCharacterComparisons": 5,
+        "complementEulerComparisons": 5,
+        "higherPrecisionRootComparisons": 28,
+        "wrongNormalizationCounterexamples": 2,
+        "wrongSignCounterexamples": 2,
+        "wrongGaussCounterexamples": 1
+      },
+      "numericalMethod": "Exact modular logarithms in Q₂(μ₃) and ramified Q_p(μ_p) extensions for p=3,5,7,11. Input precision p^20 and rigorous tail bounds from4719 certify output p^8 plus the averaging digit; repeat independently three digits higher. Principal-unit valuation>=1/e and v_p(n)<=n/(2e) for n>=p² bound the omitted tail, with guard digits and p-part division verified. The actual finite root average equals1/p times the directly computed powered constant, and that constant equals eta(p) times the original constant with the same Gauss denominator. The complementary value equals the reciprocal Euler expression. Odd, even, dyadic and principal-imprimitive tame cases are included. Controls detect omitting1/p, changing the subtraction sign and dropping the original Gauss denominator. No general distribution theorem, LAD restriction or L-value identity is proved by these finite controls."
     }
   },
   "requestResolutions": [
