@@ -1,3 +1,160 @@
+# Current continuation: characteristic-p generic formal fibres
+
+Codex — codex-a71f92; issue #1254; 30 September 2026.
+**Partial extraction:** 833 items (154 library, 48 planned, 631 missing), 27 routes,
+123 unreviewed source findings and 11 gaps. This session is ineligible to review
+or red-team this extraction.
+
+The generic-prime branch of [Stacks 07PR](https://stacks.math.columbia.edu/tag/07PR)
+now has an explicit source-level proof through every finite field-extension test
+in Z76. This is not a claim that Z79's entire G-ring theorem is recursively closed,
+or that any new theorem has been implemented. The nonzero-prime branch 07PU,
+Cohen normalization 032D and the inherited global/topological/homological
+obligations remain open.
+
+## What the continuation supplies
+
+The nineteen new source items Z152–Z170 separate the argument into reusable parts.
+
+- Z152–Z156 define p-independent families and p-bases over the precise coefficient
+  field kK^p, give their APIs and boundary tests, construct an extension to a
+  p-basis, specify derivations by basis values and prove that the kernel of
+  relative differentiation is kK^p. The relative coefficient field cannot be
+  replaced by K^p: for k=K an imperfect field all relative differentials vanish.
+- Z157–Z158 give the finite free basis of
+  k[[X_1,…,X_n]][Y_1,…,Y_m] over the subring with pth-power variables and the
+  coefficient field k_J. The rank is p^(|J|+n+m). Finite basis coordinates prove
+  both the intersection with its fraction field and the directed intersection
+  K^p. This argument handles whole power series by finitely many coordinate
+  groups; it does not assert an infinite tensor/completion interchange.
+- Z159 proves the finite-extension intersection used by the derivation argument,
+  with the cofinal-family correction E122. Z160 then chooses a finite coefficient
+  subring on which the required field derivation vanishes and clears the
+  denominators of its values on finitely many module generators. Its derivation
+  is absolute, not necessarily k-linear.
+- Z161 gives the localization extension, including the zero-divisor check.
+  Completion extension is the existing Z97. Z162 imports coefficientwise
+  polynomial derivation and uses the existing Z98 hypersurface criterion.
+  Differentiating the polynomial variable alone would not detect T^p−f.
+- Z163–Z165 construct and compare finite orders. The orders are deliberately
+  chosen with a uniform Frobenius power lying in A. This gives an explicit prime
+  above q by Frobenius preimage, and makes uniqueness immediate. Z164 proves the
+  single-prime completion comparison from existing finite-module completion,
+  maximal-ideal contraction and cofinal ideal powers.
+- Z166 assembles regularity of the power-series polynomial base from the existing
+  Z26/Z27 coordinate/dimension argument, Z100/Z101 regular-local homological
+  package and polynomial regularity. It does not infer a nonexistent
+  regular-local-to-regular-ring instance merely from its name.
+- Z167 carries out the degree-p induction. Z168 explicitly adjoins roots of
+  coefficients of separable contractions to reorder a finite field extension
+  into a purely inseparable base change followed by a separable extension.
+  Z169 applies existing finite-separable regularity and faithfully flat descent.
+  Z170 is the resulting generic formal-fibre theorem in the finite-extension
+  convention of Z76.
+
+Two choices matter. First, if u^(p^e)=a/d in Frac(A), the generator v=d u satisfies
+v^(p^e)=a d^(p^e−1) in A. Thus the chosen finite orders are Frobenius-bounded
+without a separate normality theorem. This does not claim the same for every
+finite order over a nonnormal base. Second, if the last adjoining equation has
+f=a/b in Frac(B), replace its root z by bz; its pth power becomes
+a b^(p−1) in B. Merely saying that denominators have been cleared must not
+silently enlarge the order by a nonintegral element.
+
+The generic-fibre induction uses only the **single-prime** completion comparison.
+The full product of completions over all primes remains a real input to 07PU.
+Likewise Z169 proves the finite-field criterion actually consumed here; it does
+not pretend to have decomposed the additional transcendental-field and smooth
+model steps in the full statement of [0381](https://stacks.math.columbia.edu/tag/0381).
+
+## Pinned library and ownership checks
+
+Five exact imports were read with their section variables at Mathlib
+082e2d37e8b0463410cdb532e111cd43d5a66174:
+
+| Item | Existing supplier |
+| --- | --- |
+| L147 | Derivation.mapCoeffs, its coefficient/X/C formulas and PolynomialModule.equivPolynomialSelf |
+| L148 | KaehlerDifferential.D and linearMapEquivDerivation |
+| L149 | Ideal.exists_radical_pow_le_of_fg |
+| L150 | Integral maximal-ideal contraction and Algebra.IsIntegral.of_finite |
+| L151 | Irreducible.hasSeparableContraction and its expand convention |
+
+L147's native target is PolynomialModule A A, not definitionally A[T]; the
+existing equivalence is part of the import. L112 already supplies finite-module
+completion by tensoring, so no duplicate item was added. The finite-product
+linear equivalence AdicCompletion.piEquivOfFintype is not the product-over-primes
+algebra theorem.
+
+The reviewed AUDIT-01 SF.0 and AUDIT-17 R03.3 records and their stage contracts
+were reread. Genuine p-basis/p-independence and derivation-localization searches
+were made in both pinned trees; the bounded search scope is recorded in
+libraryAudit.codexA71f92CharP. No new absence claim is based solely on a name
+search. The older fine-ownership audit is retained, not claimed rerun.
+
+The new formal-fibre and field suppliers stay in the existing
+SchemeAndStackFoundations source route. Z164 belongs with the existing R03.1
+finite-completion suppliers; Z166 with R03.3 and the existing power-series
+inputs. The field p-basis interface is shared with the differential-form uses in
+KTheoryFiniteLocalFields and the MotivicEtaleKTheory M.5d supplier frontier;
+the packet search found uses, not a general carrier to duplicate.
+No new roadmap or route was created.
+
+## Source findings
+
+These findings are against the current official Stacks HTML, not newly asserted
+errors in the LLHLM paper. They await independent verification.
+
+- **E121, misprint:** [07P2](https://stacks.math.columbia.edu/tag/07P2) writes
+  L[z]/(z^p−x) when x is outside L and x^p is in L. The coefficient must be x^p.
+- **E122, proof error:** [07P4](https://stacks.math.columbia.edu/tag/07P4) asserts a
+  direct sum over every K_α in its degree-p case, even if t is already in K_α.
+  For K=F_p(t), L=K(t^(1/p)) and the family {K,K^p}, the member K gives the
+  nontrivial relation (−t)·1+1·t=0. Choose α₀ with t outside K_α₀ and restrict to
+  the cofinal family below it; coordinates are then unique in K_α₀(t).
+  The intersection and the intended theorem are unchanged.
+- **E123, misprint:** [07P5](https://stacks.math.columbia.edu/tag/07P5) retains an
+  unbound d in two proof expressions where the separately specified bounds are
+  n and m. This changes notation only.
+
+The tag histories, tag/section comments and targeted correction searches are
+listed in each finding. The already corrected July 2025 finite-J family is
+used; E123 does not re-report that old defect as new.
+
+## Evidence, validation and remaining work
+
+Fresh LLHLM reading covered published PDF78–81 of the author-hosted Springer
+copy, SHA-256
+e56478796d15c938b864447d4b48d928ee749b95644df15e1e9055bdf9a142dd.
+The inherited full-paper reading and earlier CAS computations keep their
+original attribution. Seventeen official Stacks statement/proof pages were
+downloaded and hashed; sourceVersions records their exact URLs, access date and
+hashes, including the three pages containing the new findings.
+
+Validation: the actual Python paper and three-file intake validators, source
+version checks, preservation assertions, one-route-per-missing-item check and
+internal DAG check pass. All 809 old item IDs, statuses, statements and locators
+and all 120 old findings are preserved. Among old item objects, only Z79's
+outline, note and prerequisites change. All old sourceData, including Appendix B
+certificates and scalar-bound data, is unchanged. The graph has 1,827 internal
+edges and is acyclic.
+
+Exact finite diagnostics check 18,720 exponent-coordinate reconstructions,
+595 Frobenius/binomial identities and four cofinal-family boundary cases.
+These supplement the written general arguments; they are neither proofs for
+all power series nor Lean tests. Every new definition/construction also has
+mathematical API and unit-test contracts. No Lean file is required or compiled.
+
+Resume at 07PU: the finite complete-local order in the extended residue field,
+the full product-over-primes comparison, and formal-smoothness
+15.38.2/15.38.4 and 15.50.2. Preserve the quotient by x−f; it is not merely a
+localization. Then decompose 032D's coefficient fields/Cohen rings, parameter
+ideals, cofinal adic topologies, topological finite generation and
+dimension-based injectivity. The other ten gaps and all eleven gap records
+remain; this checkpoint is not a complete extraction. No scratch file is
+required to resume.
+
+---
+
 # Current continuation: scalar bounds and smooth regularity
 
 Codex — codex-J6LwjP; issue #1254; 30 September 2026. **Partial extraction:** 809 items
