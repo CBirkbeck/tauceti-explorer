@@ -24588,3 +24588,256 @@ Eleven complete native lemmas: eight finite formal/arithmetic checks (subst_one_
 Exact cyclotomic controls cover116prime-level pairs1508normalized coefficients1392Mahler coefficients494repeated-prime coefficients3042degree-weighted integral coefficients2112p-unit-degree cases and8424finite-ring identities. Wrong scalar and monomial-substitution formulas fail894and897times. The inflated quadratic-modulus9 Gauss-zero boundary is independently checked. Current prime-level controls compare the finite Euler pullback H-eta(q)/q H((1+T)^q-1) with an independent rootfree tame kernel at qN and its normalized Mahler recurrence. They check repeated primes, every derivative coefficient, denominator-weighted and p-unit-degree integrality, and reductions modulo p,p²,p³. No identification with the imprimitive Gauss-log constructor is made; its vanishing Gauss sum at the level3-to9 boundary is checked separately. Reused base controls: Current logarithmic coefficients through degree12 are independently checked from the explicit Gauss logarithm and the recursion (1+T)derivative(H)=F with H0=0; multiplication by n, p-unit degree integrality, and derivative convolution are tested at all tame prime/place pairs including2. Coordinate denominator cases are failures of that sufficient coordinate test only. The rational quadratic-conductor3 coefficient H2=-1/6 gives the genuine dyadic nonintegrality example, with2H2=-1/3 integral. Exact rational cyclotomic quotient rings Q[z]/Phi_l for all characters at twelve moduli, with least-conductor primitivity checked independently. Gauss products, all-residue shifts and same-additive-character parity are exact. Source Gauss coefficients through degree11 are compared with an independent root-free finite numerator/divisor recurrence. Tame inverse integrality is checked by rational coordinates and reduction modulo p,p²,p³; this is sufficient only and does not identify the quotient with the full local integer ring or prove the general theorem. The largest observed discrepancy is 0 in every asserted exact identity.
 
 The capture changes only the source registry and generated errata register; source_review.py records the assessed Nikolaus–Scholze and Schröer changes. All current mathematical consumer/supplier inputs remain unchanged. No new suggested import. The full module remains NOT COMPILED because the pinned TwistedDivisorSum artifact is unavailable; the partial signature file retains its documented4777–4791omissions. Captured registry refresh: Nikolaus–Scholze E26 adds the missing circle-action/equivariant-lift hypotheses to the Frobenius-lift statements; its unreviewed status is retained. Nine Schröer canonical records change: positive descent exponent, singular/relatively-minimal fiber scope, corrected rank variables, degree-zero Picard group, the omitted three rational elliptic-surface configurations and their Enriques-proof gap, and the discriminant-group index. Selected published-page evidence is explicitly maintainer-reported, not a whole-paper reading by this worker. Eleven duplicate errata-ledger records leave the active registry; their exact mathematical/provenance fields remain in historicalSourceIssues with file-qualified canonical aliases, which were checked. All16Dirichlet findings and64other captured inputs remain unchanged. These external records supply none of the current formal-series prerequisites; no independent verdict is claimed. The exact5207partialprefix plus current signatures/tests compiled with zero errors and2284expected placeholder warnings against3582pinned modules; SHA256:706db1f9230e8b848092e1752457551e9a53737cc33063cf91c0c1c86e3ba58e. This is not the full file. Updated issue713 instructions were read in full against the unchanged earlier body. The new source assignments and confirmed RT-AREA-iwasawa-2/1–2 are explicit outstanding L3 obligations, not resolved by this formal prime-level checkpoint. Finding1: L3 owns Morita Gamma into ℤ_p units, its continuous extension/uniqueness and unit/nonunit recurrences, and Gross–Koblitz with a fixed additive character, compatible π, finite-field degree and the original odd-prime scope; the sign convention must be reconciled. Finding2: L3 owns the Ferrero–Greenberg exceptional derivative formula after Gamma, with odd primitive character, conductor prime to p, χ(p)=1, compatible embeddings and the exact character/derivative coordinate. Formula and nonvanishing remain separate. The DKV cited-result extraction is not a decomposition of the original proofs. Source extraction for these two findings takes priority at the next continuation. The newly assigned RJW items retain their existing source corrections; the remaining transcendence/idèle/class-number/branch/pole/Eisenstein obligations must still be matched individually, importing Baker from DT.3 and retaining the corrected weight congruence for the p^k obstruction. Final registry refresh adds only André direct-summand E26, awaiting review: the printed nonaffinoid flatness sketch is replaced by complete-module flatness of the torsion-free integral model with free reduction, followed by inverting p. Its full record was read; the theorem statement is unchanged. It supplies no current Dirichlet input. The other68captured files,16Dirichlet findings and four predecessor outputs are unchanged.
+
+
+## Morita Gamma natural values and congruences
+
+Eight L3 nodes begin the assigned Morita Gamma construction with signed natural values and the finite congruence proof, preserving the modulo4 exception. They preserve all749predecessor nodes and631baseline records; the continuous function and analytic formulas remain open.
+
+Read Morita1975 §1 completely on published255–256 as page images; p257 was also read for the start of§2, but its theorem proofs are not claimed. The source’s Γ_p(n) is unsigned and the continuously extended function is(−1)^nΓ_p(n). Read Gross–Koblitz1979 published569–571/PDF2–4, after its cover, for the consumer convention and scope; proof pages572–581 remain open. Re-read the complete reviewed AUDIT-24 L3 entry and searched both pinned libraries for Morita Gamma/Gross–Koblitz; no such construction was found. Read the two matching consumer nodes in FiniteFieldsAndCharacterSums and EulerSystemsCyclotomicMainConjecture whole; neither supplies Gamma, and the latter requires a still-open dyadic formula. Native declarations above were read in full with ambient hypotheses.
+
+### Signed natural values of Morita Gamma
+
+`DirichletPadicLFunctions:L3/morita-natural-values` — `DirichletPadic.moritaNatGamma`
+
+Define the integer G_p(n)=(−1)^n∏_{0≤j<n}(1 if p divides j, and j otherwise).
+
+**Hypotheses:** p is prime whenever a p-adic norm or a prime-power congruence is asserted. The finite integer constructor and recurrence allow any natural p. Write G_p(n)=(−1)^n times the product of j with0≤j<n and p not dividing j; equivalently insert1 for excluded factors. At n=0 the empty product gives1, and at positive n this is the signed convention of the continuous Morita Gamma function. For prime-power reductions, r>0 and m=p^r. No odd-prime restriction is made unless explicitly stated. The modulus4 case p=2,r=2 has a sign change, not period4. Uniform continuity will use exponents r+3, which always avoid this exceptional case. All values here are finite integers and their native images in ZMod or ℤ_p. The continuous unit-valued Gamma function, analyticity, Gross–Koblitz and Ferrero–Greenberg are still separate open constructions and theorems.
+
+**Proof:**
+
+1. Use the native finite product in ℤ with its ordinary sign. No completion, choice of logarithm, additive character or new scalar ring enters this definition. Since every p divides0, the j=0 factor is1.
+2. The empty product gives G_p(0)=1 and the single j=0 factor gives G_p(1)=−1. For prime p and n≥1 this is exactly Morita’s unsigned product multiplied by(−1)^n, and the natural-value convention of Gross–Koblitz published569.
+3. The recurrence, unit norm and congruence API items are promoted to fine nodes below because they are prerequisites of the planned continuous extension. Do not extend the unsigned product: at an odd prime its parity sign is essential to p-adic continuity.
+4. The constructor uses a finite integer product, not the ordinary factorial. At p=3,n=4 it is2 because the factor3 is omitted. At p=3,n=5 its sign is negative, detecting an unsigned implementation.
+
+**Prerequisites:** `mathlib:Finset.prod_range_succ`.
+
+**Uses:**
+
+- Morita1975, Theorem1 and the recurrence after it: Supplies the dense natural values and congruences for the continuous extension into ℤ_p units.
+- Gross–Koblitz1979, published569–571, introduction and equation1.6: Pins the signed Gamma convention in the Gauss-sum formula; the original theorem remains odd-prime and its proof is an open source obligation.
+- EulerSystemsCyclotomicMainConjecture:L4/greither-gauss-sum-vectors: Its dyadic Gamma/Gross–Koblitz/Ferrero–Greenberg input requires a Gamma foundation atp=2. This finite construction includesp=2 but does not supply the still-unread dyadic analytic formulas.
+
+**API:**
+
+- `DirichletPadic.moritaNatGamma_def` (constructor): The displayed signed finite product inℤ.
+- `DirichletPadic.moritaNatGamma_zero` (simp): G_p(0)=1.
+- `DirichletPadic.moritaNatGamma_one` (simp): G_p(1)=−1.
+- `DirichletPadic.moritaNatGamma_succ` (relation): G_p(n+1) is−G_p(n) when p divides n and−nG_p(n) otherwise; promoted below.
+- `DirichletPadic.moritaNatGamma_norm` (compatibility): The image of every G_p(n) in native ℤ_p has norm1 for primep; promoted below.
+- `DirichletPadic.moritaNatGamma_isUnit` (structure): Every such image is a unit, by the native norm-one criterion.
+- `DirichletPadic.moritaNatGamma_primePower` (example): The value atp^r is1 modulo p^r except that G_2(4)=−1 modulo4; promoted below.
+- `DirichletPadic.moritaNatGamma_block` (relation): Translation byp^r multiplies a value modulo p^r byG_p(p^r); promoted below.
+- `DirichletPadic.moritaNatGamma_congr` (compatibility): At r>0, excluding only p=2,r=2, equal arguments modulo p^r give equal values modulo p^r; promoted below.
+- `DirichletPadic.moritaNatGamma_buffered` (compatibility): Arguments congruent modulo p^(r+3) give a difference of p-adic norm at most p^(−r), uniformly for every prime; promoted below.
+
+**Tests:**
+
+- `SuggestedMoritaNatTests.zero_value` (degenerate): G_p(0)=1 for every natural p.
+- `SuggestedMoritaNatTests.first_value_sign` (computation): G_p(1)=−1 for every natural p.
+- `SuggestedMoritaNatTests.deleted_factor_three` (compatibility): G_3(4)=2, the signed factorial product with multiples of3 removed.
+- `SuggestedMoritaNatTests.unsigned_formula_rejected` (non-example): G_3(5) differs from the corresponding unsigned finite product.
+
+**Acceptance:** This node plans the exact finite constructor. It does not assert existence of a continuous Gamma function.
+
+**Source:** Section1, published255–256/PDF1–2: finite product, inverse pairing, Lemma1, Theorem1 and the following recurrence. Both complete pages read as images on30September2026. Morita writes Γ_p(n) for the unsigned product and extends (−1)^nΓ_p(n). This packet calls the signed integer value G_p(n); the continuous Gamma convention of Gross–Koblitz uses that sign. The dyadic exponent2 exclusion is retained exactly. The elementary self-inverse classification below supplies the finite-group calculation in Morita’s argument without assuming a prime-power residue ring is a field.
+
+### The two natural Gamma recurrences
+
+`DirichletPadicLFunctions:L3/morita-natural-recurrence` — `DirichletPadic.moritaNatGamma_succ`
+
+G_p(n+1)=−c_p(n)G_p(n), where c_p(n)=1 if p divides n and c_p(n)=n otherwise.
+
+**Hypotheses:** p is prime whenever a p-adic norm or a prime-power congruence is asserted. The finite integer constructor and recurrence allow any natural p. Write G_p(n)=(−1)^n times the product of j with0≤j<n and p not dividing j; equivalently insert1 for excluded factors. At n=0 the empty product gives1, and at positive n this is the signed convention of the continuous Morita Gamma function.
+
+**Proof:**
+
+1. Split the range(n+1) product into the range n product and its last factor using native prod_range_succ.
+2. Use(−1)^(n+1)=−(−1)^n and commute the last factor into place. This proves both branches in a single algebraic calculation, including n=0.
+3. The complete native probe proves the combined recurrence and each conditional branch for the actual finite expression. At a multiple ofp the multiplier is−1; multiplying by−n there would introduce a nonunit and destroy the unit-valued extension.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/morita-natural-values`, `mathlib:Finset.prod_range_succ`.
+
+**Tests:**
+
+- `SuggestedMoritaNatTests.unit_step` (compatibility): If p does not divide n then G_p(n+1)=−nG_p(n).
+- `SuggestedMoritaNatTests.nonunit_step` (compatibility): If p divides n then G_p(n+1)=−G_p(n).
+
+**Acceptance:** No prime hypothesis is needed for this finite recurrence.
+
+**Source:** Section1, published255–256/PDF1–2: finite product, inverse pairing, Lemma1, Theorem1 and the following recurrence. Both complete pages read as images on30September2026. Morita writes Γ_p(n) for the unsigned product and extends (−1)^nΓ_p(n). This packet calls the signed integer value G_p(n); the continuous Gamma convention of Gross–Koblitz uses that sign. The dyadic exponent2 exclusion is retained exactly. The elementary self-inverse classification below supplies the finite-group calculation in Morita’s argument without assuming a prime-power residue ring is a field.
+
+### Natural Gamma values are p-adic units
+
+`DirichletPadicLFunctions:L3/morita-natural-unit-norm` — `DirichletPadic.moritaNatGamma_norm`
+
+For primep and every n≥0, the image of G_p(n) in ℤ_p has norm1.
+
+**Hypotheses:** p is prime whenever a p-adic norm or a prime-power congruence is asserted. The finite integer constructor and recurrence allow any natural p. Write G_p(n)=(−1)^n times the product of j with0≤j<n and p not dividing j; equivalently insert1 for excluded factors. At n=0 the empty product gives1, and at positive n this is the signed convention of the continuous Morita Gamma function. For prime-power reductions, r>0 and m=p^r. No odd-prime restriction is made unless explicitly stated. The modulus4 case p=2,r=2 has a sign change, not period4. Uniform continuity will use exponents r+3, which always avoid this exceptional case. All values here are finite integers and their native images in ZMod or ℤ_p. The continuous unit-valued Gamma function, analyticity, Gross–Koblitz and Ferrero–Greenberg are still separate open constructions and theorems.
+
+**Proof:**
+
+1. Induct on n. The empty product is1 and has norm1.
+2. If p divides n, the preceding recurrence changes only the sign, preserving the norm.
+3. Otherwise native Nat.Prime.coprime_iff_not_dvd and PadicInt.norm_natCast_eq_one_iff give norm1 for the multiplier n. Norm multiplicativity proves the induction step.
+4. Native PadicInt.isUnit_iff converts the norm equality into the API unit certificate. The complete native probe proves the norm statement at every prime, including2, and this conversion; no analytic Gamma theorem is assumed.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/morita-natural-values`, `DirichletPadicLFunctions:L3/morita-natural-recurrence`, `mathlib:Nat.Prime.coprime_iff_not_dvd`, `mathlib:PadicInt.norm_natCast_eq_one_iff`, `mathlib:PadicInt.isUnit_iff`.
+
+**Tests:**
+
+- `SuggestedMoritaNatTests.unit_value` (characterisation): The actual natural value is a native ℤ_p unit.
+- `SuggestedMoritaNatTests.dyadic_norm` (computation): Every G_2(n) has2-adic norm1.
+
+**Acceptance:** Values at0 and multiples ofp remain units; the deleted-factor condition is indispensable.
+
+**Source:** Section1, published255–256/PDF1–2: finite product, inverse pairing, Lemma1, Theorem1 and the following recurrence. Both complete pages read as images on30September2026. Morita writes Γ_p(n) for the unsigned product and extends (−1)^nΓ_p(n). This packet calls the signed integer value G_p(n); the continuous Gamma convention of Gross–Koblitz uses that sign. The dyadic exponent2 exclusion is retained exactly. The elementary self-inverse classification below supplies the finite-group calculation in Morita’s argument without assuming a prime-power residue ring is a field.
+
+### Self-inverse residues in the Gamma block
+
+`DirichletPadicLFunctions:L3/morita-prime-power-self-inverse` — `DirichletPadic.moritaPrimePower_sq_eq_one`
+
+In ℤ/p^rℤ with primep and r>0, a²=1 precisely when a=1 or a=−1, or p=2,r≥3 and a=1+2^(r−1) or a=−1+2^(r−1).
+
+**Hypotheses:** For prime-power reductions, r>0 and m=p^r. No odd-prime restriction is made unless explicitly stated. The modulus4 case p=2,r=2 has a sign change, not period4. Uniform continuity will use exponents r+3, which always avoid this exceptional case.
+
+**Proof:**
+
+1. Represent a by an integer x. Native intCast_eq_intCast_iff_dvd_sub converts a²=1 into p^r dividing(x−1)(x+1). The converse for each listed residue is direct expansion.
+2. For oddp, the prime cannot divide both x−1 and x+1 because it would divide2. Native Prime.pow_dvd_of_dvd_mul_left or its right version places the whole prime power in the other factor. Thus x is1 or−1 modulo p^r. This is an elementary replacement for the cyclic-unit-group observation used by Morita.
+3. For p=2, r=1 and r=2 are finite residue checks and give only±1. For r≥3 the equation makes x odd. Of x−1 and x+1 exactly one is divisible by2 but not4: write that factor as2u withu odd.
+4. Cancel that single2 from the divisibility. Since2 does not divideu, the same native prime-power division lemma forces2^(r−1) into the other factor. Consequently x≡1 or−1 modulo2^(r−1). Each class has exactly two lifts modulo2^r, giving the four displayed residues.
+5. The four residues are distinct for r≥3. Their product is1: the extra pair multiplies to−1 because2^(2r−2) is0 modulo2^r, and the first pair also multiplies to−1. This last calculation is used by the following finite-product theorem; it assumes no integral-domain structure on the residue ring.
+
+**Prerequisites:** `mathlib:ZMod.intCast_eq_intCast_iff_dvd_sub`, `mathlib:Prime.pow_dvd_of_dvd_mul_left`, `mathlib:Prime.pow_dvd_of_dvd_mul_right`.
+
+**Tests:**
+
+- `SuggestedMoritaNatTests.odd_square_roots` (computation): Modulo9 the only square roots of1 are±1.
+- `SuggestedMoritaNatTests.dyadic_extra_root` (non-example): Modulo8 the residue3 squares to1 but is neither1 nor−1.
+
+**Acceptance:** Do not apply the finite-field product-of-units theorem at exponent greater than1. The extra dyadic roots are explicit.
+
+**Source:** Section1, published255–256/PDF1–2: finite product, inverse pairing, Lemma1, Theorem1 and the following recurrence. Both complete pages read as images on30September2026. Morita writes Γ_p(n) for the unsigned product and extends (−1)^nΓ_p(n). This packet calls the signed integer value G_p(n); the continuous Gamma convention of Gross–Koblitz uses that sign. The dyadic exponent2 exclusion is retained exactly. The elementary self-inverse classification below supplies the finite-group calculation in Morita’s argument without assuming a prime-power residue ring is a field.
+
+### Gamma values on a prime-power block
+
+`DirichletPadicLFunctions:L3/morita-natural-prime-power` — `DirichletPadic.moritaNatGamma_primePower`
+
+For r>0, G_p(p^r) is1 modulo p^r except when p=2,r=2, where it is−1.
+
+**Hypotheses:** p is prime whenever a p-adic norm or a prime-power congruence is asserted. The finite integer constructor and recurrence allow any natural p. Write G_p(n)=(−1)^n times the product of j with0≤j<n and p not dividing j; equivalently insert1 for excluded factors. At n=0 the empty product gives1, and at positive n this is the signed convention of the continuous Morita Gamma function. For prime-power reductions, r>0 and m=p^r. No odd-prime restriction is made unless explicitly stated. The modulus4 case p=2,r=2 has a sign change, not period4. Uniform continuity will use exponents r+3, which always avoid this exceptional case. All values here are finite integers and their native images in ZMod or ℤ_p. The continuous unit-valued Gamma function, analyticity, Gross–Koblitz and Ferrero–Greenberg are still separate open constructions and theorems.
+
+**Proof:**
+
+1. Reduce the defining finite product modulo p^r. Native isUnit_natCast_iff_not_dvd_pow identifies the retained residues with the entire native unit group, once each; use prod_bij for this exact reindexing.
+2. Pair every non-self-inverse unit with its inverse. Native prod_involution makes the product over that complementary finite set1. The preceding fine classification supplies all the remaining factors.
+3. For oddp the remaining product is1·(−1)=−1 and the sign(−1)^(p^r) is also−1, so the signed product is1.
+4. Atp=2,r=1 the only unit residue is1 and the even sign contributes1. Atr=2 the units1 and−1 multiply to−1, giving the exceptional value. Atr≥3 the four self-inverse factors have product1 and the sign is1.
+5. This computation is Morita’s inverse-pairing argument with its omitted exponent isolated as an explicit value. It is not an assertion that the source is erroneous. Complete native concrete checks and exhaustive finite controls include modulus4,8,9 and higher prime powers.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/morita-natural-values`, `DirichletPadicLFunctions:L3/morita-prime-power-self-inverse`, `mathlib:ZMod.isUnit_natCast_iff_not_dvd_pow`, `mathlib:Finset.prod_bij`, `mathlib:Finset.prod_involution`.
+
+**Tests:**
+
+- `SuggestedMoritaNatTests.modulus_four_value` (non-example): G_2(4)=−1 modulo4.
+- `SuggestedMoritaNatTests.modulus_nine_value` (computation): G_3(9)=1 modulo9.
+
+**Acceptance:** The exception is part of the theorem, not an unstated restriction.
+
+**Source:** Section1, published255–256/PDF1–2: finite product, inverse pairing, Lemma1, Theorem1 and the following recurrence. Both complete pages read as images on30September2026. Morita writes Γ_p(n) for the unsigned product and extends (−1)^nΓ_p(n). This packet calls the signed integer value G_p(n); the continuous Gamma convention of Gross–Koblitz uses that sign. The dyadic exponent2 exclusion is retained exactly. The elementary self-inverse classification below supplies the finite-group calculation in Morita’s argument without assuming a prime-power residue ring is a field.
+
+### Translation by a prime-power Gamma block
+
+`DirichletPadicLFunctions:L3/morita-natural-block` — `DirichletPadic.moritaNatGamma_block`
+
+For r>0 and n≥0, G_p(n+p^r)=G_p(n)G_p(p^r) modulo p^r.
+
+**Hypotheses:** p is prime whenever a p-adic norm or a prime-power congruence is asserted. The finite integer constructor and recurrence allow any natural p. Write G_p(n)=(−1)^n times the product of j with0≤j<n and p not dividing j; equivalently insert1 for excluded factors. At n=0 the empty product gives1, and at positive n this is the signed convention of the continuous Morita Gamma function. For prime-power reductions, r>0 and m=p^r. No odd-prime restriction is made unless explicitly stated. The modulus4 case p=2,r=2 has a sign change, not period4. Uniform continuity will use exponents r+3, which always avoid this exceptional case. All values here are finite integers and their native images in ZMod or ℤ_p. The continuous unit-valued Gamma function, analyticity, Gross–Koblitz and Ferrero–Greenberg are still separate open constructions and theorems.
+
+**Proof:**
+
+1. Apply native prod_range_add to split the integer product at n. Split the sign by the same addition of exponents. The quotient-free expression is G_p(n) times the signed product of the next p^r factors.
+2. The map j↦n+j modulo p^r is a bijection from0≤j<p^r onto the residue ring. Because p divides p^r, the condition p not dividing n+j is exactly the condition that the resulting residue is a unit.
+3. Use the native unit criterion and prod_bij to reindex the translated retained product to the same unit product as the unshifted block. The sign attached to the length is(−1)^(p^r) in both cases.
+4. Thus the factor is precisely G_p(p^r), including its exceptional negative value modulo4. No division by an integer Gamma value or modular cancellation is needed.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/morita-natural-values`, `mathlib:Finset.prod_range_add`, `mathlib:Finset.prod_bij`, `mathlib:ZMod.isUnit_natCast_iff_not_dvd_pow`.
+
+**Tests:**
+
+- `SuggestedMoritaNatTests.four_step_changes_sign` (computation): G_2(n+4)=−G_2(n) modulo4 for every n.
+- `SuggestedMoritaNatTests.eight_step_period` (computation): G_2(n+8)=G_2(n) modulo8 for every n.
+
+**Acceptance:** The four-step formula must keep its sign; treating it as period4 is false.
+
+**Source:** Section1, published255–256/PDF1–2: finite product, inverse pairing, Lemma1, Theorem1 and the following recurrence. Both complete pages read as images on30September2026. Morita writes Γ_p(n) for the unsigned product and extends (−1)^nΓ_p(n). This packet calls the signed integer value G_p(n); the continuous Gamma convention of Gross–Koblitz uses that sign. The dyadic exponent2 exclusion is retained exactly. The elementary self-inverse classification below supplies the finite-group calculation in Morita’s argument without assuming a prime-power residue ring is a field.
+
+### Morita’s natural congruence with the dyadic exception
+
+`DirichletPadicLFunctions:L3/morita-natural-congruence` — `DirichletPadic.moritaNatGamma_congr`
+
+Let r>0 and exclude p=2,r=2. If n≡m modulo p^r then G_p(n)≡G_p(m) modulo p^r.
+
+**Hypotheses:** p is prime whenever a p-adic norm or a prime-power congruence is asserted. The finite integer constructor and recurrence allow any natural p. Write G_p(n)=(−1)^n times the product of j with0≤j<n and p not dividing j; equivalently insert1 for excluded factors. At n=0 the empty product gives1, and at positive n this is the signed convention of the continuous Morita Gamma function. For prime-power reductions, r>0 and m=p^r. No odd-prime restriction is made unless explicitly stated. The modulus4 case p=2,r=2 has a sign change, not period4. Uniform continuity will use exponents r+3, which always avoid this exceptional case. All values here are finite integers and their native images in ZMod or ℤ_p. The continuous unit-valued Gamma function, analyticity, Gross–Koblitz and Ferrero–Greenberg are still separate open constructions and theorems. Precisely, require that p=2 implies r≠2; no exclusion at p=2,r=1 or r≥3.
+
+**Proof:**
+
+1. The preceding prime-power value and translated-block nodes give period p^r for the residue-valued sequence under exactly the stated exclusion.
+2. Iterate that one-block equality by induction on a natural quotient. Every natural n is n mod p^r plus a nonnegative multiple of p^r, so its Gamma value reduces to the value at that remainder.
+3. Equal residues of n and m give equal remainders. Native natCast_eq_natCast_iff is the bridge to the suggested Nat.ModEq hypothesis; no density theorem is used in this finite statement.
+4. At the excluded modulus, n=1 and m=5 are congruent modulo4 but their Gamma values are−1 and−3, hence3 and1 modulo4. Both are units; unit-valuedness alone does not imply the false congruence.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/morita-natural-values`, `DirichletPadicLFunctions:L3/morita-natural-prime-power`, `DirichletPadicLFunctions:L3/morita-natural-block`, `mathlib:ZMod.natCast_eq_natCast_iff`.
+
+**Tests:**
+
+- `SuggestedMoritaNatTests.odd_congruent_values` (compatibility): Congruent arguments modulo9 give congruent G_3 values modulo9.
+- `SuggestedMoritaNatTests.false_modulus_four_congruence` (non-example): 1 and5 are congruent modulo4 but their G_2 values are not.
+
+**Acceptance:** The exact source hypothesis is preserved. The counterexample prevents a false all-prime1-Lipschitz conclusion.
+
+**Source:** Section1, published255–256/PDF1–2: finite product, inverse pairing, Lemma1, Theorem1 and the following recurrence. Both complete pages read as images on30September2026. Morita writes Γ_p(n) for the unsigned product and extends (−1)^nΓ_p(n). This packet calls the signed integer value G_p(n); the continuous Gamma convention of Gross–Koblitz uses that sign. The dyadic exponent2 exclusion is retained exactly. The elementary self-inverse classification below supplies the finite-group calculation in Morita’s argument without assuming a prime-power residue ring is a field.
+
+### An all-prime modulus for Gamma continuity
+
+`DirichletPadicLFunctions:L3/morita-natural-buffered-congruence` — `DirichletPadic.moritaNatGamma_buffered`
+
+For r≥0, if n≡m modulo p^(r+3), then the norm in ℤ_p of G_p(n)−G_p(m) is at most p^(−r).
+
+**Hypotheses:** p is prime whenever a p-adic norm or a prime-power congruence is asserted. The finite integer constructor and recurrence allow any natural p. Write G_p(n)=(−1)^n times the product of j with0≤j<n and p not dividing j; equivalently insert1 for excluded factors. At n=0 the empty product gives1, and at positive n this is the signed convention of the continuous Morita Gamma function. For prime-power reductions, r>0 and m=p^r. No odd-prime restriction is made unless explicitly stated. The modulus4 case p=2,r=2 has a sign change, not period4. Uniform continuity will use exponents r+3, which always avoid this exceptional case. All values here are finite integers and their native images in ZMod or ℤ_p. The continuous unit-valued Gamma function, analyticity, Gross–Koblitz and Ferrero–Greenberg are still separate open constructions and theorems.
+
+**Proof:**
+
+1. Apply morita-natural-congruence at exponent r+3. It is positive and never2, so its hypothesis holds for every prime, includingp=2.
+2. Native intCast_eq_intCast_iff_dvd_sub turns equality of the finite reductions into divisibility of the integer difference byp^(r+3), allowing a harmless sign reversal of the difference.
+3. Sincep^r dividesp^(r+3), the same integer difference is divisible byp^r. Native PadicInt.norm_int_le_pow_iff_dvd gives the claimed norm bound, including r=0.
+4. This fixed precision buffer is sufficient for a Cauchy construction using the canonical residues of a p-adic argument. It is not advertised as an optimal continuity estimate, and it does not itself construct a continuous extension.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/morita-natural-congruence`, `mathlib:ZMod.intCast_eq_intCast_iff_dvd_sub`, `mathlib:PadicInt.norm_int_le_pow_iff_dvd`.
+
+**Tests:**
+
+- `SuggestedMoritaNatTests.buffered_dyadic_bound` (compatibility): Arguments congruent modulo32 give G_2 values whose difference has norm at most1/4.
+- `SuggestedMoritaNatTests.buffered_zero_precision` (degenerate): At r=0 the norm bound is1 for arguments congruent modulo p³.
+
+**Acceptance:** The subsequent completion step must import this concrete modulus, preserve norm1 and prove uniqueness by density. No analytic formula follows from this bound alone.
+
+**Source:** Section1, published255–256/PDF1–2: finite product, inverse pairing, Lemma1, Theorem1 and the following recurrence. Both complete pages read as images on30September2026. Morita writes Γ_p(n) for the unsigned product and extends (−1)^nΓ_p(n). This packet calls the signed integer value G_p(n); the continuous Gamma convention of Gross–Koblitz uses that sign. The dyadic exponent2 exclusion is retained exactly. The elementary self-inverse classification below supplies the finite-group calculation in Morita’s argument without assuming a prime-power residue ring is a field.
+
+**Remaining:** RT-AREA-iwasawa-2/1 is partially addressed: eight finite L3 nodes supply Morita’s signed natural values, recurrence, unit norm, self-inverse residues, prime-power and translated blocks, the exact source congruence and an all-prime buffered norm estimate. Construct the continuous ℤ_p-unit-valued Gamma function from these values using native Cauchy completion, prove its natural values and uniqueness, then both functional equations by continuity. Morita’s §1 coversp=2 with its exponent2 exception; the original Gross–Koblitz introduction and statement cover oddp only. Read and decompose the original Gross–Koblitz proof, fixing the negative Gauss convention, positive fractional parts, compatible π and finite-field degree. The EulerSystems L4 dyadic consumer still needs a separate source proof beyond that odd-prime statement. RT-AREA-iwasawa-2/2 remains open: acquire and read the Ferrero–Greenberg proof, preserve the exceptional hypothesisχ(p)=1, log_p(p)=0, character shift and derivative coordinate, and separate its formula from nonvanishing. Morita’s analytic §2–3 results remain unread. The new RJW source assignments, existing branch/pole/transcendence/idèle/class-number/Eisenstein obligations, finite conductor iteration, analytic comparisons, fifteen gaps and eleven requests remain as recorded in the predecessor.
+
+### Morita Gamma natural values and congruences validation
+
+All 749 predecessor nodes, 631 baseline records, 16 findings, requests and sourceVersions remain whole. This checkpoint adds 8 nodes, 12 named suggested declarations and 18 typed examples. The indexed blueprint, four-file intake, whitespace, preservation, API/test parity and versioned-source checks pass. The graph has 1015 reachable nodes, 5258 edges and 813 native leaves and is acyclic. Its stage request leaves are PadicMeasuresIwasawaAlgebras:L1, PadicMeasuresIwasawaAlgebras:L3, PadicMeasuresIwasawaAlgebras:L3, LocallyAnalyticDistributions:L1, AdicSpacesPartII:F1, AdicSpacesPartII:R2, PadicDifferentialEquationsAndRigidCohomology:RD.0, PadicDifferentialEquationsAndRigidCohomology:RD.4, PadicHodgeTheory:P7:annulus-foundations, PadicMeasuresIwasawaAlgebras:L2, LocallyAnalyticDistributions:L1. The eight new routes terminate in native declarations and their new arithmetic fine nodes; no stage request or generic finite-group theory is commissioned.
+
+**The full current suggested module was NOT COMPILED.** Its real native import requires TauCeti.NumberTheory.ArithmeticFunction.TwistedDivisorSum. No matching existing artifact was found; WORKERS.md prohibits building the native library. Current compiler exit code, error count and warning count are unavailable, not zero. The exact named signatures and native source were reviewed. PR4773 remains the last compiled full predecessor, with zero errors and1,803 expected placeholder warnings; that receipt does not validate this new module.
+
+The current source closure covers 3603 pinned Mathlib modules and 22 pinned Tau Ceti modules. Only 21 Tau module artifacts are available and hash-verified. The105 available artifact files and the previously compiled332-node PMIA artifact are checked as partial dependencies. The current369-node supplier source preserves the older interface; no current-module compilation against either revision is claimed. Existing builds only were inspected; no setup, update, cache fetch or native build occurred.
+
+One complete native finite definition and twelve complete lemmas check both recurrence branches, zero/one values, the general p-adic norm-one and unit certificates, and concrete modulus4,8,9 cases. The general self-inverse classification, block and congruence theorems are planned from the source and are not claimed proved by this probe. The separate probe compiles against 2799 pinned Mathlib modules and 0 pinned Tau Ceti modules with zero errors, warnings or placeholders. The separate Mathlib-only probe does not import, replace or compile the missing native Tau module. General roadmap declarations remain unchecked.
+
+Exact finite controls cover36prime-power profiles22322residue squares1073natural values68406translated blocks68354admissible congruence pairs68406unit checks and24673buffered congruences. The unsigned formula fails533controls; the excluded modulo4 congruence fails52controls. Exact integer and finite-residue arithmetic; exhaustive self-inverse residues and translated blocks at all sampled prime powers. These finite checks do not prove the general congruence, continuity or any analytic formula. The largest observed discrepancy is 0.
+
+The capture changes only the source registry and generated errata register. Twenty-one Nelson–Venkatesh records were read in full: E1 strengthens the anisotropic binary self-twist obstruction to an actual counterexample and retains the subconvex upper bound; E3 adds the missing negative unitary interval; E15 corrects the ambient group; E16–33 correct operator topology, derivative scaling, semiclassical normalization, Taylor signs, localization, support/error terms, inclusion direction, conductor growth, elliptic control, quotient fibers, omitted basis elements, cutoffs, parametrix recursions, half-dimension, orbit-measure notation, Cauchy–Schwarz, and the Zhang citation. Every record remains awaiting review. These records provide no prerequisite for the Morita construction. Published-source checks in those records belong to their authors; this worker read the registry records and does not claim a fresh reading of Nelson–Venkatesh. The full suggested module remains NOT COMPILED because the pinned TwistedDivisorSum artifact is unavailable. The separate partial signature file keeps its exact predecessor omissions. The exact5214partialprefix plus twelve new signatures and eighteen tests compiles with zero errors and2314expected placeholder warnings against3582pinned modules; SHA256:acf32d8abda979b7908d2baf62fd06f003a7ad47e39ea05361e8c16998523857. It retains the documented4777–4791omissions and is not the full module. Publication refresh: twenty-five Ghosh–Sarnak-related registry records were read, with twenty earlier records now confirmed and E21–24 plus ClassicalArithmeticCompletion/E507 still awaiting review. They concern Markoff counts, corrected Hensel points, Vieta/orbit calculations, congruence restrictions, local densities, exceptional-orbit comparison and references. The confirmed local-density formula retains the χ(−1) factor for every prime congruent to3 modulo4. These records supply no Morita prerequisite; their reported source checks are attributed to their authors, not a fresh published-paper reading here. All70other captured files, the16Dirichlet findings and allfour predecessor outputs are unchanged.
