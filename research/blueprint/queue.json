@@ -34135,7 +34135,8 @@
     "REV-PAPER-DEMARCO-KRIEGER-YE-20"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-DEMARCO-KRIEGER-YE-20.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4087"
   },
   {
    "id": "REV-RT-PAPER-DEMARCO-KRIEGER-YE-20",
@@ -34473,8 +34474,9 @@
     "REV-PAPER-TSIMERMAN-18"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-TSIMERMAN-18.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4099"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4099",
+   "finishedAt": "2026-09-30T13:57:06Z"
   },
   {
    "id": "RT-PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18",
@@ -38256,7 +38258,8 @@
     "REV-PAPER-SCHOLZE-26"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-SCHOLZE-26.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4255"
   },
   {
    "id": "RT-PAPER-BOXER-CALEGARI-GEE-25",
@@ -40324,8 +40327,9 @@
     "REV-LINK-tauceti_TauCetiRoadmap_ModularCurves"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-LINK-tauceti_TauCetiRoadmap_ModularCurves.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4339"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4339",
+   "finishedAt": "2026-09-30T13:57:10Z"
   },
   {
    "id": "RT-LINK-tauceti_TauCetiRoadmap_EllipticCurves",
@@ -40649,7 +40653,8 @@
     "REV-LINK-tauceti_TauCetiRoadmap_ClassFieldTheory"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-LINK-tauceti_TauCetiRoadmap_ClassFieldTheory.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4348"
   },
   {
    "id": "RT-LINK-tauceti_TauCetiRoadmap_Chebotarev",
@@ -42321,8 +42326,9 @@
     "REV-RS-16"
    ],
    "prompt": "research/blueprint/prompts/RT-RS-16.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4404"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4404",
+   "finishedAt": "2026-09-30T13:57:14Z"
   },
   {
    "id": "REV-RT-RS-16",
@@ -42375,7 +42381,8 @@
     "REV-RS-17"
    ],
    "prompt": "research/blueprint/prompts/RT-RS-17.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4406"
   },
   {
    "id": "REV-RT-RS-17",
@@ -43015,7 +43022,8 @@
     "REV-DeformationAndDerivedPatchingAlgebra--R03.6"
    ],
    "prompt": "research/blueprint/prompts/RT-BP-DeformationAndDerivedPatchingAlgebra--R03.6.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4418"
   },
   {
    "id": "REV-RT-BP-DeformationAndDerivedPatchingAlgebra--R03.6",
