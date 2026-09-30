@@ -41847,8 +41847,9 @@
     "REV-RS-03"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-RS-03.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4390"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4390",
+   "finishedAt": "2026-09-30T13:40:50Z"
   },
   {
    "id": "RT-RS-05",
@@ -42315,7 +42316,8 @@
     "REV-RS-16"
    ],
    "prompt": "research/blueprint/prompts/RT-RS-16.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4404"
   },
   {
    "id": "REV-RT-RS-16",
