@@ -1,0 +1,31 @@
+{
+  "redteam": "RT-RS-14",
+  "protocol": "redteam-v1",
+  "status": "complete",
+  "target": "RS-14",
+  "summary": "Complete independent attack on the accepted two-roadmap restructuring: all 15 stage contracts, 34 owner records, 169 links, 13 native audits and original consumers checked. One low-severity presentation mismatch remains in the reader report after its accepted AN.1 correction. No supported mathematical, ownership, prerequisite or cycle defect found in the accepted JSON.",
+  "checked": [
+    "Read the full family definition, accepted RS-14.result.json and RS-14.md, REV-RS-14.md, both member READMEs and all 15 member stage descriptions at base d4afbc98a4f6b289d730897edbd18171f5cafb67; accepted data/restructure JSON is identical to the target proposal.",
+    "Compared every retained or imported construction in the twelve narrowed layers and the three kept layers with the original targets; kept the rational construction before its general-field comparisons, named hypotheses and source-unit aggregation boundaries.",
+    "Read all 34 owner records, 169 link endpoints and their reasons, 24 distinct external atlas supplier contracts and the two upstream contracts; checked every supplier scope, including finite versus inverse ray classes, generic versus arithmetic measures, and special-fibre versus characteristic-zero Igusa inputs.",
+    "Read all 13 native accepted library audits, including every target, evidence entry and all 27 directed duplication records; checked the six family evidence entries as three reciprocal D L1/L2/L4 versus A L3 pairs.",
+    "Read the relevant accepted RS-07, RS-11, RS-13 and RS-16 contracts; checked the retired AN.1 owner split, AL.1 analytic scope, PM-L0a/LAD-L3 character-space distinction, IntegralIwasawa I.3 comparison and analytic CPR versus arithmetic main-conjecture ownership.",
+    "Read the actual statements of fourteen positive Mathlib declarations at 082e2d37e8b0463410cdb532e111cd43d5a66174: two Riemann-zeta Bernoulli formulas, primitive Gauss shift, primitive Fourier formula, changeLevel/conductor/IsPrimitive/primitiveCharacter, LFunction_changeLevel, two Eisenstein q-expansion formulas and the Dedekind series/residue/one-sided-limit declarations. No new exhaustive absence claim.",
+    "Read all 26 external consumer contracts and their prerequisites across 11 roadmaps, including distinct checkpoint prerequisites; checked preservation of all 30 original member-to-external-consumer edges.",
+    "Enumerated every original consumer of each narrowed layer and checked that every suppliedBy owner forwards its contract to that layer and its consumers, through an existing or proposed edge; zero missing forwards and zero duplicate proposed links.",
+    "Applied scripts/restructure.py in memory after ten earlier accepted families and after all other accepted families; independently checked cycles by DFS. Respectively 136 and 131 new drawable edges, the same sixteen nondrawn upstream contracts, no valid-stage cycle rejection, no lost original edge and no hidden member stage.",
+    "Checked unchanged existing Tau Ceti stage IDs, owners, keys, titles, descriptions, source paths/lines and parent IDs; only graph consumer metadata gains the proposed contracts.",
+    "Compared the current report totals and AN.1 import claim with the accepted review corrections and RS-07, yielding one low-severity documentation finding. Recorded exact input hashes and reproducible graph revision in the report."
+  ],
+  "findings": [
+    {
+      "id": "RT-RS-14/1",
+      "kind": "other",
+      "severity": "low",
+      "where": "research/blueprint/restructure/RS-14.md:23-24 and 47-51; compare RS-14.result.json layers[DirichletPadicLFunctions:L0], owners, links and review.corrections",
+      "claim": "The reader report still describes the pre-review JSON as 33 owner records and 161 links and says D L0 imports AnalyticNumberTheory AN.1. The accepted JSON instead has 34 owners and 169 links and imports two upstream owners after RS-07 retired AN.1.",
+      "evidence": "RS-14.md:23-24 says \"33 single-owner records\" and \"161 explicit links\"; line 50 says \"import AnalyticNumberTheory AN.1\". REV-RS-14.md:48-56 and the accepted proposal review.corrections explicitly replace that supplier, split its owner into two, and replace eight links with sixteen. Accepted data/restructure/RS-07.result.json layers[AnalyticNumberTheory:AN.1] drops the stage and names UPSTREAM:Mathlib-Riemann-and-Dirichlet-L-functions and UPSTREAM:Mathlib-DirichletCharacter-conductor-and-orthogonality. Direct enumeration of the accepted RS-14 JSON gives 34 owners and 169 links.",
+      "fix": "Update RS-14.md current JSON totals to 34 owners and 169 links, and replace the AN.1 import in the classical-boundary paragraph with the two accepted upstream owners. Label the 144-new-edge figure explicitly as historical/pre-correction or replace it with counts tied to a named graph revision and distinguish nondrawn upstream contracts. Do not change the already corrected mathematical JSON or restore AN.1."
+    }
+  ]
+}
