@@ -34923,8 +34923,9 @@
     "REV-PAPER-DUKE-IMAMOGLU-TOTH-16"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-DUKE-IMAMOGLU-TOTH-16.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4118"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4118",
+   "finishedAt": "2026-09-30T08:37:36Z"
   },
   {
    "id": "REV-RT-PAPER-DUKE-IMAMOGLU-TOTH-16",
@@ -35057,7 +35058,8 @@
     "REV-PAPER-SCHIFFMANN-16"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-SCHIFFMANN-16.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4122"
   },
   {
    "id": "REV-RT-PAPER-SCHIFFMANN-16",
