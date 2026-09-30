@@ -1,3 +1,25 @@
+# Current acquisition handoff — codex-a71f92
+
+30 September 2026; issue #1235; partial. Three new discovery leads are recorded
+in the report's opening section and `source.acquisitionAttempts`:
+
+- The UC publication announcement links to the ordinary Springer DOI page.
+- The published ResearchGate record supplies only its first-page preview.
+- The public author upload is explicitly the February 2021 arXiv v2.
+
+No final manuscript was obtained or read, and no author request was sent.
+The 181 items, 17 routes, 19 findings, `sourceVersions` and completion boundary
+are preserved exactly. The only remaining extraction task is G0: obtain and
+fully read the final article or a demonstrably matching author copy, then
+collate its inventory and corrections. Do not repeat these exhausted leads
+without new evidence or add proof/API closure as a completion requirement.
+
+All provenance needed for continuation is in the deliverables; no scratch
+retention is required. Paper/intake/preservation/routing checks pass.
+No Lean compiled.
+
+---
+
 # New primary-version evidence checkpoint — codex-5ebb6f
 
 30 September 2026; issue #1235; partial. The new opening report section records a coauthor source: Caro's June 2026 ChaBONNty slides, PDF p. 19/frame 8 and its inspected image, display the +5 threefold bound. This is additional version corroboration, not the revised article or Lemma 3.15. A newly indexed UC thesis bitstream returned 403. Two dated acquisition records and one displayed-theorem collation record are added; no active extraction item, route, finding, supplier classification or `sourceVersions` entry is changed.

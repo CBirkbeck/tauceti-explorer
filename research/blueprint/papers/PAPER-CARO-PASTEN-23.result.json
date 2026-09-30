@@ -317,6 +317,40 @@
         "session": "codex-5ebb6f",
         "error": "HTTP Error 403: Forbidden",
         "read": "A newly indexed author-thesis bitstream lead returned HTTP 403 on direct retrieval; no thesis text read or mathematical version match claimed."
+      },
+      {
+        "name": "uc-publication-news",
+        "url": "https://www.mat.uc.cl/noticias/2023-10-02/revista-inventiones-mathematicae-publica-articulo-de-academicos-de-la-facultad-de-matematicas-uc-investigacion-dio-por-primera-vez-con-una-formula-explicita-para-contar-puntos-racionales-en-superficies.html",
+        "date": "2026-09-30T22:24:00Z",
+        "agent": "Codex",
+        "session": "codex-a71f92",
+        "certificateVerification": false,
+        "httpStatus": 200,
+        "contentType": "text/html; charset=UTF-8",
+        "bytes": 30718,
+        "sha256": "c6b3f7ce3f45f20b420fc201e84e18dd36ca8aff693233d1f39ee5906c93572a",
+        "read": "The university's 2023 announcement and its article link were inspected. Its invitation to read the full article links only https://link.springer.com/article/10.1007/s00222-023-01217-1, not a deposited manuscript or publisher sharing link. TLS verification was disabled for this public page, following the already recorded UC certificate-chain failure.",
+        "outcome": "New institutional lead exhausted; no final manuscript acquired."
+      },
+      {
+        "name": "researchgate-published-record",
+        "url": "https://www.researchgate.net/publication/374053422_A_Chabauty-Coleman_bound_for_surfaces",
+        "date": "2026-09-30T22:25:00Z",
+        "agent": "Codex",
+        "session": "codex-a71f92",
+        "retrieval": "Web page text, publisher-provided preview",
+        "read": "Read the record's access description, the first published page (1197), and its table of contents. The record offers a full-text request and a Springer publisher preview. The preview stops after the first page before the article's mathematical sections.",
+        "outcome": "The preview identifies the publication but does not supply Lemma 3.15, the final theorem contracts, or the full 54-page text. No author request was sent; no published reading is added to sourceVersions."
+      },
+      {
+        "name": "researchgate-author-preprint-record",
+        "url": "https://www.researchgate.net/publication/348958709_A_Chabauty-Coleman_bound_for_surfaces",
+        "date": "2026-09-30T22:25:00Z",
+        "agent": "Codex",
+        "session": "codex-a71f92",
+        "retrieval": "Web page text",
+        "read": "Read the upload attribution, version header, and contents only. The public author upload is explicitly arXiv:2102.01055v2, dated February 2021, and was uploaded by Hector Pasten on 13 February 2021.",
+        "outcome": "The freely readable author upload is the previously extracted preprint, not a matching final manuscript. No fresh full-paper reading or revision match is claimed."
       }
     ],
     "priorAtlasCommit": "d964b2642d4743641acce02cde0dab1b7019e443",
@@ -3653,6 +3687,12 @@
       "scope": "New coauthor conference-slide lead checked, including the main theorem image; blocked author-thesis bitstream recorded. Acquisition/collation evidence only; no extraction item, route, library claim or source finding changed.",
       "status": "partial",
       "remaining": "G0 only: obtain and read the full revised 54-page article or a demonstrably matching final author manuscript; extract/collate all revised statements and the nineteen preprint findings."
+    },
+    {
+      "date": "2026-09-30",
+      "worker": "Codex codex-a71f92",
+      "scope": "New final-manuscript discovery leads only",
+      "summary": "Inspected the university publication announcement and the distinct published/preprint ResearchGate records. The announcement routes to the known publisher page; the published record supplies only its first-page publisher preview, while the author-uploaded full text is explicitly arXiv v2. G0 remains. All 181 items, 17 routes, 19 findings, sourceVersions and completionBoundary are preserved; no new mathematical extraction or full-paper reading claimed."
     }
   ],
   "sourceIssues": [
