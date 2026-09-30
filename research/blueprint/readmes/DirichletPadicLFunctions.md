@@ -29987,3 +29987,256 @@ Exact controls pass1920 shifted translations,480 cancellations,720 negative fini
 Post-merge capture 73a373c104ecaf22e364f5df165fb175c97fcaab preserves all72 tracked inputs, complete issue body and four predecessor deliverables. Policies, own16 findings, full source registry and analytic suppliers are unchanged from the predecessor publication refresh. No independent source review verdict is claimed. Publication refresh mechanically isolates83 changed registry rows, all PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24:67 prior rows gain the external confirmed review,16 new confirmed rows E68–E83 appear. Read every changed mathematical statement/correction/reason and locator field; the full83-row field diff is retained. This records REV-PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24 verdicts, not an independent review of the paper or its83 review explanations. Material refinements distinguish the naive Habiro splitting from calligraphic gluing, require exact Coleman constants, correct localization/Gauss/series formulas and identify dyadic exp and root-of-unity exclusions. New rows also concern completed tensor products, descent/base change, Hensel hypotheses and finite-level notation. None changes the Morita boundary data, existing dyadic radius, owned analytic requests or own16 findings. Registry purpose/older/unchecked fields are unchanged; REGISTER is exactly the current renderer output.
 
 The separate partial signature file also compiled with zero errors and 2,949 expected placeholder warnings across 3,600 pinned source modules. It includes all 10 new named declarations and 22 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 2bed48ed7a5971f6c50dfa40f4ed399acb6d55f9b8ec6e128a6413cd658681ad.
+
+
+## Logarithmic integer boundaries and the signed Gamma comparison
+
+Nine L3 nodes specialize Morita’s actual integer boundary to the supplied logarithm, compare its finite sum with the existing signed Gamma, and check the primitive derivative. All928 predecessor nodes,725 baseline records and16 findings remain whole.
+
+Retains full Morita1975/KL1964 readings and freshly reads Morita p.260 for A=u(logu−1), A′=log and χ=Ω. Rereads Coleman L0/log-branch and its existing IsLogBranch interface, local expansion and Iwasawa-branch nodes; no reverse import or replacement logarithm. Reads full pinned identity/sub-constant derivative statements and existing product rule with ambient hypotheses.
+
+### The supplied logarithm vanishes on Morita’s torsion factor
+
+`DirichletPadicLFunctions:L3/morita-log-omega-zero` — `DirichletPadic.moritaLogOmega_zero`
+
+For every p-adic unit u, ℓ(ι(Ω(u)))=0.
+
+**Hypotheses:** p is prime, q=4 at p=2 and q=p otherwise. The actual Ω, angular map α, shifted means, translated difference function and signed Morita Gamma are the preceding constructions, not new carriers. The function ℓ:K→K is supplied by ColemanIntegration L0. Its explicit consumer hypotheses are multiplicativity ℓ(xy)=ℓ(x)+ℓ(y) for x,y≠0 and vanishing on roots of unity of positive order. The source application uses the existing Iwasawa branch on the coefficient field. No assertion about ℓ(0) is needed in the unit-supported sums. The coefficient map ι:ℤ_p→K is a ring homomorphism. The finite algebraic comparisons need a normed field only; the actual mean application additionally retains norm preservation, normalized ℚ_p-algebra structure, completeness, characteristic zero and ultrametricity. For the actual source primitive A(x)=ι(x)(ℓ(ιx)−1), retain actual D_m with D_0=A and D_1=ℓ∘ι, actual Taylor HasSum at every principal-disc center, coefficient bounds B/R^m and closed-r-disc Lipschitz bounds B/(R^m r), where B≥0 and R>r=‖q‖. Retain actual twisted coefficient-limit witnesses v_m. The derivative calculation proves the unbundled first derivative; identifying the owned analytic D_1 and all higher derivatives still requires the existing LAD compatibility. The Gamma comparison uses its already planned unit, zero-value and signed recurrence API. The complete native scratch proves the same deduction for any actual unit-valued function with precisely those laws; it does not reconstruct Gamma. Only nonnegative q-multiple arguments are compared here; continuity/density and the exponential/analyticity step remain open.
+
+**Proof:**
+
+1. The existing exact Ω-order theorem gives Ω(u)^φ(q)=1, with φ(q)>0 because q>0.
+2. Transport that identity through the unit coercion and ring homomorphism. Apply the supplied Coleman root-of-unity vanishing law.
+3. The complete log_omega proof uses the actual finite torsion factor, including the dyadic sign; it does not define a logarithm.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/morita-omega-order`, `ColemanIntegration:L0/log-branch`.
+
+**Tests:**
+
+- `SuggestedMoritaLogBoundaryTests.log_omega_dyadic` (boundary): A supplied branch vanishes at−1 in ℚ₂.
+- `SuggestedMoritaLogBoundaryTests.log_omega_quartic` (computation): It vanishes at every actual ζ∈ℚ₅ with ζ⁴=1.
+
+**Acceptance:** Keep the positive order φ(q); at p=2 it is2, not p−1=1.
+
+**Source:** Section3 pp.260–261: A(u)=u(log u−1), A′=log, χ=Ω and the logarithmic finite Gamma comparison; Section2 Theorem2 supplies the integer boundary. Specializing the already proved boundary to the actual logarithmic primitive cancels the inverse Ω twist. The remaining unit-supported logarithm sum equals the logarithm of the signed finite Gamma value. The source logarithm and analytic inputs are imported from their existing owners.
+
+### The angular projection preserves the logarithm
+
+`DirichletPadicLFunctions:L3/morita-log-angular-comparison` — `DirichletPadic.moritaLogAngular_eq`
+
+For every unit u, ℓ(ι(α(u)))=ℓ(ι(u)).
+
+**Hypotheses:** p is prime, q=4 at p=2 and q=p otherwise. The actual Ω, angular map α, shifted means, translated difference function and signed Morita Gamma are the preceding constructions, not new carriers. The function ℓ:K→K is supplied by ColemanIntegration L0. Its explicit consumer hypotheses are multiplicativity ℓ(xy)=ℓ(x)+ℓ(y) for x,y≠0 and vanishing on roots of unity of positive order. The source application uses the existing Iwasawa branch on the coefficient field. No assertion about ℓ(0) is needed in the unit-supported sums. The coefficient map ι:ℤ_p→K is a ring homomorphism. The finite algebraic comparisons need a normed field only; the actual mean application additionally retains norm preservation, normalized ℚ_p-algebra structure, completeness, characteristic zero and ultrametricity. For the actual source primitive A(x)=ι(x)(ℓ(ιx)−1), retain actual D_m with D_0=A and D_1=ℓ∘ι, actual Taylor HasSum at every principal-disc center, coefficient bounds B/R^m and closed-r-disc Lipschitz bounds B/(R^m r), where B≥0 and R>r=‖q‖. Retain actual twisted coefficient-limit witnesses v_m. The derivative calculation proves the unbundled first derivative; identifying the owned analytic D_1 and all higher derivatives still requires the existing LAD compatibility. The Gamma comparison uses its already planned unit, zero-value and signed recurrence API. The complete native scratch proves the same deduction for any actual unit-valued function with precisely those laws; it does not reconstruct Gamma. Only nonnegative q-multiple arguments are compared here; continuity/density and the exponential/analyticity step remain open.
+
+**Proof:**
+
+1. The actual unit identity u=Ω(u)α(u) remains valid after coefficient transport.
+2. Both factors are nonzero because they are images of units. Apply the supplied multiplicative logarithm law.
+3. The preceding torsion logarithm vanishes, leaving the stated equality. The complete log_angular proof verifies the unit factorization and nonzero hypotheses.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/morita-log-omega-zero`, `DirichletPadicLFunctions:L3/morita-angular`, `ColemanIntegration:L0/log-branch`.
+
+**Tests:**
+
+- `SuggestedMoritaLogBoundaryTests.log_angular_dyadic` (computation): At the dyadic unit3 the angular representative is−3 and ℓ(−3)=ℓ(3).
+- `SuggestedMoritaLogBoundaryTests.log_angular_odd` (computation): At the ternary unit2 the angular representative is−2 and ℓ(−2)=ℓ(2).
+
+**Acceptance:** No continuity or valuation-zero argument is substituted for the actual multiplicative law.
+
+**Source:** Section3 pp.260–261: A(u)=u(log u−1), A′=log, χ=Ω and the logarithmic finite Gamma comparison; Section2 Theorem2 supplies the integer boundary. Specializing the already proved boundary to the actual logarithmic primitive cancels the inverse Ω twist. The remaining unit-supported logarithm sum equals the logarithm of the signed finite Gamma value. The source logarithm and analytic inputs are imported from their existing owners.
+
+### Actual logarithmic samples are supported on p-units
+
+`DirichletPadicLFunctions:L3/morita-log-angular-samples` — `DirichletPadic.moritaLogSamples_eq`
+
+S(ℓ∘ι)(a)=0 if p|a, and equals ℓ(a) otherwise.
+
+**Hypotheses:** p is prime, q=4 at p=2 and q=p otherwise. The actual Ω, angular map α, shifted means, translated difference function and signed Morita Gamma are the preceding constructions, not new carriers. The function ℓ:K→K is supplied by ColemanIntegration L0. Its explicit consumer hypotheses are multiplicativity ℓ(xy)=ℓ(x)+ℓ(y) for x,y≠0 and vanishing on roots of unity of positive order. The source application uses the existing Iwasawa branch on the coefficient field. No assertion about ℓ(0) is needed in the unit-supported sums. The coefficient map ι:ℤ_p→K is a ring homomorphism. The finite algebraic comparisons need a normed field only; the actual mean application additionally retains norm preservation, normalized ℚ_p-algebra structure, completeness, characteristic zero and ultrametricity. For the actual source primitive A(x)=ι(x)(ℓ(ιx)−1), retain actual D_m with D_0=A and D_1=ℓ∘ι, actual Taylor HasSum at every principal-disc center, coefficient bounds B/R^m and closed-r-disc Lipschitz bounds B/(R^m r), where B≥0 and R>r=‖q‖. Retain actual twisted coefficient-limit witnesses v_m. The derivative calculation proves the unbundled first derivative; identifying the owned analytic D_1 and all higher derivatives still requires the existing LAD compatibility. The Gamma comparison uses its already planned unit, zero-value and signed recurrence API. The complete native scratch proves the same deduction for any actual unit-valued function with precisely those laws; it does not reconstruct Gamma. Only nonnegative q-multiple arguments are compared here; continuity/density and the exponential/analyticity step remain open.
+
+**Proof:**
+
+1. On p-nonunits the existing sample definition is zero independently of the value of ℓ at that integer.
+2. For p∤a, use the actual natural unit and the preceding angular-log comparison.
+3. The ring homomorphism maps the natural cast to the same natural cast in K. The complete log_samples proof covers the a=0 support case without needing ℓ(0).
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/morita-log-angular-comparison`, `DirichletPadicLFunctions:L3/morita-angular-samples`.
+
+**Tests:**
+
+- `SuggestedMoritaLogBoundaryTests.log_sample_unit` (computation): The dyadic logarithmic sample at3 is ℓ(3).
+- `SuggestedMoritaLogBoundaryTests.log_sample_nonunit` (degenerate): The sample at2 is zero even for an arbitrary function ℓ.
+
+**Acceptance:** This is an equality of the existing sample function, not a new logarithmic function or distribution.
+
+**Source:** Section3 pp.260–261: A(u)=u(log u−1), A′=log, χ=Ω and the logarithmic finite Gamma comparison; Section2 Theorem2 supplies the integer boundary. Specializing the already proved boundary to the actual logarithmic primitive cancels the inverse Ω twist. The remaining unit-supported logarithm sum equals the logarithm of the signed finite Gamma value. The source logarithm and analytic inputs are imported from their existing owners.
+
+### The source character cancels the inverse torsion twist
+
+`DirichletPadicLFunctions:L3/morita-log-torsion-boundary-cancellation` — `DirichletPadic.moritaLogDerivative_boundary_sum`
+
+With χ=θ_ι, the finite derivative boundary sum Σ_(a<z,p∤a)θ_ι(a)θ_ι(a)^(−1)S(ℓ∘ι)(a) equals Σ_(a<z,p∤a)ℓ(a).
+
+**Hypotheses:** p is prime, q=4 at p=2 and q=p otherwise. The actual Ω, angular map α, shifted means, translated difference function and signed Morita Gamma are the preceding constructions, not new carriers. The function ℓ:K→K is supplied by ColemanIntegration L0. Its explicit consumer hypotheses are multiplicativity ℓ(xy)=ℓ(x)+ℓ(y) for x,y≠0 and vanishing on roots of unity of positive order. The source application uses the existing Iwasawa branch on the coefficient field. No assertion about ℓ(0) is needed in the unit-supported sums. The coefficient map ι:ℤ_p→K is a ring homomorphism. The finite algebraic comparisons need a normed field only; the actual mean application additionally retains norm preservation, normalized ℚ_p-algebra structure, completeness, characteristic zero and ultrametricity. For the actual source primitive A(x)=ι(x)(ℓ(ιx)−1), retain actual D_m with D_0=A and D_1=ℓ∘ι, actual Taylor HasSum at every principal-disc center, coefficient bounds B/R^m and closed-r-disc Lipschitz bounds B/(R^m r), where B≥0 and R>r=‖q‖. Retain actual twisted coefficient-limit witnesses v_m. The derivative calculation proves the unbundled first derivative; identifying the owned analytic D_1 and all higher derivatives still requires the existing LAD compatibility. The Gamma comparison uses its already planned unit, zero-value and signed recurrence API. The complete native scratch proves the same deduction for any actual unit-valued function with precisely those laws; it does not reconstruct Gamma. Only nonnegative q-multiple arguments are compared here; continuity/density and the exponential/analyticity step remain open.
+
+**Proof:**
+
+1. At a p-unit, the actual torsion-character evaluation is the image of Ω(a), hence nonzero.
+2. Cancel θ_ι(a) with its inverse using that nonzero witness, and substitute the preceding logarithmic sample comparison.
+3. The p-nonunit branch is zero before cancellation. The complete torsion_boundary_sum proof performs the finite sum term by term.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/morita-log-angular-samples`, `DirichletPadicLFunctions:L3/morita-torsion-character-map`.
+
+**Tests:**
+
+- `SuggestedMoritaLogBoundaryTests.log_boundary_sum_2` (computation): At p=2,z=4 the actual torsion-weighted derivative sum equals ℓ(3).
+- `SuggestedMoritaLogBoundaryTests.log_boundary_sum_3` (computation): At p=3,z=3 the actual torsion-weighted derivative sum equals ℓ(2).
+
+**Acceptance:** The character must be θ_ι for this cancellation; the trivial character gives a different derivative sum.
+
+**Source:** Section3 pp.260–261: A(u)=u(log u−1), A′=log, χ=Ω and the logarithmic finite Gamma comparison; Section2 Theorem2 supplies the integer boundary. Specializing the already proved boundary to the actual logarithmic primitive cancels the inverse Ω twist. The remaining unit-supported logarithm sum equals the logarithm of the signed finite Gamma value. The source logarithm and analytic inputs are imported from their existing owners.
+
+### The logarithm of the signed natural Gamma product
+
+`DirichletPadicLFunctions:L3/morita-gamma-natural-log-sum` — `DirichletPadic.moritaGamma_log_nat`
+
+For every natural n, ℓ(ι(Γ_p(n)))=Σ_(a<n,p∤a)ℓ(a).
+
+**Hypotheses:** p is prime, q=4 at p=2 and q=p otherwise. The actual Ω, angular map α, shifted means, translated difference function and signed Morita Gamma are the preceding constructions, not new carriers. The function ℓ:K→K is supplied by ColemanIntegration L0. Its explicit consumer hypotheses are multiplicativity ℓ(xy)=ℓ(x)+ℓ(y) for x,y≠0 and vanishing on roots of unity of positive order. The source application uses the existing Iwasawa branch on the coefficient field. No assertion about ℓ(0) is needed in the unit-supported sums. The coefficient map ι:ℤ_p→K is a ring homomorphism. The finite algebraic comparisons need a normed field only; the actual mean application additionally retains norm preservation, normalized ℚ_p-algebra structure, completeness, characteristic zero and ultrametricity. For the actual source primitive A(x)=ι(x)(ℓ(ιx)−1), retain actual D_m with D_0=A and D_1=ℓ∘ι, actual Taylor HasSum at every principal-disc center, coefficient bounds B/R^m and closed-r-disc Lipschitz bounds B/(R^m r), where B≥0 and R>r=‖q‖. Retain actual twisted coefficient-limit witnesses v_m. The derivative calculation proves the unbundled first derivative; identifying the owned analytic D_1 and all higher derivatives still requires the existing LAD compatibility. The Gamma comparison uses its already planned unit, zero-value and signed recurrence API. The complete native scratch proves the same deduction for any actual unit-valued function with precisely those laws; it does not reconstruct Gamma. Only nonnegative q-multiple arguments are compared here; continuity/density and the exponential/analyticity step remain open.
+
+**Proof:**
+
+1. Use Γ_p(0)=1 and the supplied root-of-unity law to obtain the empty-sum base case.
+2. Apply the already planned signed Gamma recurrence at n. Its sign has logarithm zero; its Gamma factor is nonzero because Gamma is unit-valued.
+3. If p|n, the recurrence multiplies by−1 and adds no summand. Otherwise it multiplies by−n and contributes ℓ(n). Induct over n and use the finite range-sum recurrence.
+4. The complete gamma_log_sum proof needs only the actual unit, zero and recurrence laws. Routine local log_one/log_neg deductions come from the supplied Coleman laws and are not new planned logarithm operations.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/morita-gamma-functional-equation`, `DirichletPadicLFunctions:L3/morita-gamma-natural-values`, `DirichletPadicLFunctions:L3/morita-gamma-value-unit-norm`, `ColemanIntegration:L0/log-branch`.
+
+**Tests:**
+
+- `SuggestedMoritaLogBoundaryTests.gamma_log_sum_2` (computation): Γ₂(4)=3 gives logarithm ℓ(3).
+- `SuggestedMoritaLogBoundaryTests.gamma_log_sum_3` (computation): Γ₃(3)=−2 gives logarithm ℓ(2), with the sign killed by the branch law.
+
+**Acceptance:** The native scratch is a conditional recurrence proof; the suggested statement specializes the existing moritaGamma API.
+
+**Source:** Section3 pp.260–261: A(u)=u(log u−1), A′=log, χ=Ω and the logarithmic finite Gamma comparison; Section2 Theorem2 supplies the integer boundary. Specializing the already proved boundary to the actual logarithmic primitive cancels the inverse Ω twist. The remaining unit-supported logarithm sum equals the logarithm of the signed finite Gamma value. The source logarithm and analytic inputs are imported from their existing owners.
+
+### The source’s shifted and signed Gamma argument
+
+`DirichletPadicLFunctions:L3/morita-gamma-shifted-natural-log-sum` — `DirichletPadic.moritaGamma_shifted_log_nat`
+
+For a natural q-multiple z, ℓ(−ι(Γ_p(z+1)))=Σ_(a<z,p∤a)ℓ(a).
+
+**Hypotheses:** p is prime, q=4 at p=2 and q=p otherwise. The actual Ω, angular map α, shifted means, translated difference function and signed Morita Gamma are the preceding constructions, not new carriers. The function ℓ:K→K is supplied by ColemanIntegration L0. Its explicit consumer hypotheses are multiplicativity ℓ(xy)=ℓ(x)+ℓ(y) for x,y≠0 and vanishing on roots of unity of positive order. The source application uses the existing Iwasawa branch on the coefficient field. No assertion about ℓ(0) is needed in the unit-supported sums. The coefficient map ι:ℤ_p→K is a ring homomorphism. The finite algebraic comparisons need a normed field only; the actual mean application additionally retains norm preservation, normalized ℚ_p-algebra structure, completeness, characteristic zero and ultrametricity. For the actual source primitive A(x)=ι(x)(ℓ(ιx)−1), retain actual D_m with D_0=A and D_1=ℓ∘ι, actual Taylor HasSum at every principal-disc center, coefficient bounds B/R^m and closed-r-disc Lipschitz bounds B/(R^m r), where B≥0 and R>r=‖q‖. Retain actual twisted coefficient-limit witnesses v_m. The derivative calculation proves the unbundled first derivative; identifying the owned analytic D_1 and all higher derivatives still requires the existing LAD compatibility. The Gamma comparison uses its already planned unit, zero-value and signed recurrence API. The complete native scratch proves the same deduction for any actual unit-valued function with precisely those laws; it does not reconstruct Gamma. Only nonnegative q-multiple arguments are compared here; continuity/density and the exponential/analyticity step remain open.
+
+**Proof:**
+
+1. Apply the preceding natural Gamma logarithm formula at z+1.
+2. Because p|q|z, the last term is a p-nonunit and vanishes, reducing the range to a<z.
+3. The supplied logarithm ignores the extra sign. The complete gamma_shifted_log_sum proof retains−Γ_p(z+1), the expression matching Morita’s convention after conversion to the already planned signed Gamma.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/morita-gamma-natural-log-sum`, `DirichletPadicLFunctions:L3/morita-modulus`, `ColemanIntegration:L0/log-branch`.
+
+**Tests:**
+
+- `SuggestedMoritaLogBoundaryTests.gamma_shifted_log_2` (computation): At z=4, −Γ₂(5)=3 and its logarithm is ℓ(3).
+- `SuggestedMoritaLogBoundaryTests.gamma_shifted_log_3` (computation): At z=3, −Γ₃(4)=−2 and its logarithm is ℓ(2).
+- `SuggestedMoritaLogBoundaryTests.gamma_shifted_zero` (degenerate): At z=0, −Γ₂(1)=1 and its logarithm is0.
+
+**Acceptance:** The sign is harmless after taking the logarithm but must be retained for the later exponential comparison.
+
+**Source:** Section3 pp.260–261: A(u)=u(log u−1), A′=log, χ=Ω and the logarithmic finite Gamma comparison; Section2 Theorem2 supplies the integer boundary. Specializing the already proved boundary to the actual logarithmic primitive cancels the inverse Ω twist. The remaining unit-supported logarithm sum equals the logarithm of the signed finite Gamma value. The source logarithm and analytic inputs are imported from their existing owners.
+
+### The logarithmic primitive has the source’s integer boundary sum
+
+`DirichletPadicLFunctions:L3/morita-log-primitive-natural-boundary` — `DirichletPadic.moritaLogPrimitive_difference_nat`
+
+For A(x)=ι(x)(ℓ(ιx)−1), actual D_1=ℓ∘ι, χ=θ_ι and all retained analytic mean hypotheses, F_v(z)=Σ_(a<z,p∤a)ℓ(a) at every nonnegative q-multiple z.
+
+**Hypotheses:** p is prime, q=4 at p=2 and q=p otherwise. The actual Ω, angular map α, shifted means, translated difference function and signed Morita Gamma are the preceding constructions, not new carriers. The function ℓ:K→K is supplied by ColemanIntegration L0. Its explicit consumer hypotheses are multiplicativity ℓ(xy)=ℓ(x)+ℓ(y) for x,y≠0 and vanishing on roots of unity of positive order. The source application uses the existing Iwasawa branch on the coefficient field. No assertion about ℓ(0) is needed in the unit-supported sums. The coefficient map ι:ℤ_p→K is a ring homomorphism. The finite algebraic comparisons need a normed field only; the actual mean application additionally retains norm preservation, normalized ℚ_p-algebra structure, completeness, characteristic zero and ultrametricity. For the actual source primitive A(x)=ι(x)(ℓ(ιx)−1), retain actual D_m with D_0=A and D_1=ℓ∘ι, actual Taylor HasSum at every principal-disc center, coefficient bounds B/R^m and closed-r-disc Lipschitz bounds B/(R^m r), where B≥0 and R>r=‖q‖. Retain actual twisted coefficient-limit witnesses v_m. The derivative calculation proves the unbundled first derivative; identifying the owned analytic D_1 and all higher derivatives still requires the existing LAD compatibility. The Gamma comparison uses its already planned unit, zero-value and signed recurrence API. The complete native scratch proves the same deduction for any actual unit-valued function with precisely those laws; it does not reconstruct Gamma. Only nonnegative q-multiple arguments are compared here; continuity/density and the exponential/analyticity step remain open.
+
+**Proof:**
+
+1. Apply the existing actual F_v integer boundary theorem to χ=θ_ι. The original character level is q, so its averaging modulus lcm(q,q) is q.
+2. Use the actual D_1 compatibility and the preceding finite torsion cancellation to reduce the derivative boundary to the stated logarithm sum.
+3. The complete difference_log_sum proof uses the literal primitive A and actual twisted coefficient Tendsto witnesses. The separately checked derivative computation identifies its first unbundled derivative; the owned analytic representation and higher Taylor data remain inputs.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/morita-translated-difference-integer`, `DirichletPadicLFunctions:L3/morita-log-torsion-boundary-cancellation`, `DirichletPadicLFunctions:L3/morita-log-primitive-derivative`, `ColemanIntegration:L0/log-branch`.
+
+**Tests:**
+
+- `SuggestedMoritaLogBoundaryTests.log_difference_2_4` (computation): For the actual primitive data in ℚ₂, the value at4 is ℓ(3). All Taylor and coefficient-limit inputs are retained in the typed test.
+- `SuggestedMoritaLogBoundaryTests.log_difference_3_3` (computation): For the corresponding actual data in ℚ₃, the value at3 is ℓ(2).
+
+**Acceptance:** Do not assume the final boundary value or substitute a formal coefficient limit for the actual Tendsto inputs.
+
+**Source:** Section3 pp.260–261: A(u)=u(log u−1), A′=log, χ=Ω and the logarithmic finite Gamma comparison; Section2 Theorem2 supplies the integer boundary. Specializing the already proved boundary to the actual logarithmic primitive cancels the inverse Ω twist. The remaining unit-supported logarithm sum equals the logarithm of the signed finite Gamma value. The source logarithm and analytic inputs are imported from their existing owners.
+
+### The existing difference function agrees with log Gamma at natural q-multiples
+
+`DirichletPadicLFunctions:L3/morita-log-primitive-gamma-natural` — `DirichletPadic.moritaLogPrimitive_difference_gamma_nat`
+
+Under the preceding actual primitive and mean hypotheses, F_v(z)=ℓ(−ι(Γ_p(z+1))) for every nonnegative q-multiple z.
+
+**Hypotheses:** p is prime, q=4 at p=2 and q=p otherwise. The actual Ω, angular map α, shifted means, translated difference function and signed Morita Gamma are the preceding constructions, not new carriers. The function ℓ:K→K is supplied by ColemanIntegration L0. Its explicit consumer hypotheses are multiplicativity ℓ(xy)=ℓ(x)+ℓ(y) for x,y≠0 and vanishing on roots of unity of positive order. The source application uses the existing Iwasawa branch on the coefficient field. No assertion about ℓ(0) is needed in the unit-supported sums. The coefficient map ι:ℤ_p→K is a ring homomorphism. The finite algebraic comparisons need a normed field only; the actual mean application additionally retains norm preservation, normalized ℚ_p-algebra structure, completeness, characteristic zero and ultrametricity. For the actual source primitive A(x)=ι(x)(ℓ(ιx)−1), retain actual D_m with D_0=A and D_1=ℓ∘ι, actual Taylor HasSum at every principal-disc center, coefficient bounds B/R^m and closed-r-disc Lipschitz bounds B/(R^m r), where B≥0 and R>r=‖q‖. Retain actual twisted coefficient-limit witnesses v_m. The derivative calculation proves the unbundled first derivative; identifying the owned analytic D_1 and all higher derivatives still requires the existing LAD compatibility. The Gamma comparison uses its already planned unit, zero-value and signed recurrence API. The complete native scratch proves the same deduction for any actual unit-valued function with precisely those laws; it does not reconstruct Gamma. Only nonnegative q-multiple arguments are compared here; continuity/density and the exponential/analyticity step remain open.
+
+**Proof:**
+
+1. The preceding source specialization identifies F_v(z) with the actual finite logarithm sum.
+2. The shifted signed Gamma comparison identifies the same finite sum with ℓ(−ι(Γ_p(z+1))).
+3. The complete difference_log_gamma_nat proof composes those two independently checked comparisons. It is an integer-value theorem; extending it to all of qℤ_p by continuity and density is the next task.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/morita-log-primitive-natural-boundary`, `DirichletPadicLFunctions:L3/morita-gamma-shifted-natural-log-sum`.
+
+**Tests:**
+
+- `SuggestedMoritaLogBoundaryTests.log_difference_2_8` (computation): For actual dyadic primitive data, F_v(8)=ℓ(105), matching −Γ₂(9)=105.
+- `SuggestedMoritaLogBoundaryTests.log_gamma_zero` (degenerate): For arbitrary coefficient sequence v, F_v(0)=ℓ(−Γ₂(1))=0 under the supplied logarithm laws.
+
+**Acceptance:** This does not yet establish the all-point log-Gamma identity or analytic Gamma via exp.
+
+**Source:** Section3 pp.260–261: A(u)=u(log u−1), A′=log, χ=Ω and the logarithmic finite Gamma comparison; Section2 Theorem2 supplies the integer boundary. Specializing the already proved boundary to the actual logarithmic primitive cancels the inverse Ω twist. The remaining unit-supported logarithm sum equals the logarithm of the signed finite Gamma value. The source logarithm and analytic inputs are imported from their existing owners.
+
+### The first derivative of Morita’s logarithmic primitive
+
+`DirichletPadicLFunctions:L3/morita-log-primitive-derivative` — `DirichletPadic.moritaLogPrimitive_hasDerivAt`
+
+In a nontrivially normed field, if x≠0 and ℓ has derivative x^(−1) at x, then y↦y(ℓ(y)−1) has derivative ℓ(x) at x.
+
+**Hypotheses:** p is prime, q=4 at p=2 and q=p otherwise. The actual Ω, angular map α, shifted means, translated difference function and signed Morita Gamma are the preceding constructions, not new carriers. The function ℓ:K→K is supplied by ColemanIntegration L0. Its explicit consumer hypotheses are multiplicativity ℓ(xy)=ℓ(x)+ℓ(y) for x,y≠0 and vanishing on roots of unity of positive order. The source application uses the existing Iwasawa branch on the coefficient field. No assertion about ℓ(0) is needed in the unit-supported sums. The coefficient map ι:ℤ_p→K is a ring homomorphism. The finite algebraic comparisons need a normed field only; the actual mean application additionally retains norm preservation, normalized ℚ_p-algebra structure, completeness, characteristic zero and ultrametricity. For the actual source primitive A(x)=ι(x)(ℓ(ιx)−1), retain actual D_m with D_0=A and D_1=ℓ∘ι, actual Taylor HasSum at every principal-disc center, coefficient bounds B/R^m and closed-r-disc Lipschitz bounds B/(R^m r), where B≥0 and R>r=‖q‖. Retain actual twisted coefficient-limit witnesses v_m. The derivative calculation proves the unbundled first derivative; identifying the owned analytic D_1 and all higher derivatives still requires the existing LAD compatibility. The Gamma comparison uses its already planned unit, zero-value and signed recurrence API. The complete native scratch proves the same deduction for any actual unit-valued function with precisely those laws; it does not reconstruct Gamma. Only nonnegative q-multiple arguments are compared here; continuity/density and the exponential/analyticity step remain open.
+
+**Proof:**
+
+1. The supplied Coleman local logarithm derivative is an actual HasDerivAt witness at the nonzero point.
+2. Use the native identity derivative, subtraction of a constant and product rule. The derivative is (ℓ(x)−1)+x·x^(−1).
+3. Cancel x·x^(−1)=1 using x≠0. The complete primitive_derivative proof gives ℓ(x). The existing LAD derivative/evaluation compatibility is still needed to identify its bundled analytic D_1.
+
+**Prerequisites:** `ColemanIntegration:L0/log-branch-local-expansion`, `mathlib:HasDerivAt.mul`, `mathlib:hasDerivAt_id`, `mathlib:hasDerivAt_sub_const_iff`.
+
+**Tests:**
+
+- `SuggestedMoritaLogBoundaryTests.primitive_derivative_one` (degenerate): At x=1 with ℓ(1)=0 and ℓ′(1)=1, the primitive derivative is0.
+- `SuggestedMoritaLogBoundaryTests.primitive_derivative_four` (computation): At the ternary point4, ℓ′(4)=1/4 gives primitive derivative ℓ(4).
+- `SuggestedMoritaLogBoundaryTests.primitive_missing_constant` (non-example): Omitting−1 changes the derivative at1 from0 to1.
+
+**Acceptance:** This is the consumer derivative computation; the logarithm itself and its derivative theorem remain owned by Coleman.
+
+**Source:** Section3 pp.260–261: A(u)=u(log u−1), A′=log, χ=Ω and the logarithmic finite Gamma comparison; Section2 Theorem2 supplies the integer boundary. Specializing the already proved boundary to the actual logarithmic primitive cancels the inverse Ω twist. The remaining unit-supported logarithm sum equals the logarithm of the signed finite Gamma value. The source logarithm and analytic inputs are imported from their existing owners.
+
+**Remaining:** The actual logarithmic primitive now has its first unbundled derivative and the existing difference function agrees with ℓ(−Γ_p(z+1)) at every nonnegative q-multiple, conditional on the actual owned analytic data. Next transport the equality by continuity and density to qℤ_p, then use the source’s exponential comparison on2qℤ_p: pℤ_p for odd p and8ℤ₂. The analytic carrier, derivative compatibility, larger-radius Gauss bounds and coefficient mean inputs are still supplied obligations. The logarithm is Coleman-owned and is not rebuilt here. Gross–Koblitz and Ferrero–Greenberg retain the recorded source-reading/normalization tasks. All17 gaps and13 requests remain open; no stage closes.
+
+### Logarithmic integer boundaries and the signed Gamma comparison validation
+
+All 928 predecessor nodes, 725 baseline records, 16 findings, requests and sourceVersions remain whole. This checkpoint adds 9 nodes, 9 named suggested declarations and 20 typed examples. The indexed blueprint, four-file intake, whitespace, preservation, API/test parity and versioned-source checks pass. The graph has 1197 reachable nodes, 5871 edges and 900 native leaves and is acyclic. Its stage request leaves are PadicMeasuresIwasawaAlgebras:L1, PadicMeasuresIwasawaAlgebras:L3, PadicMeasuresIwasawaAlgebras:L3, LocallyAnalyticDistributions:L1, AdicSpacesPartII:F1, AdicSpacesPartII:R2, PadicDifferentialEquationsAndRigidCohomology:RD.0, PadicDifferentialEquationsAndRigidCohomology:RD.4, PadicHodgeTheory:P7:annulus-foundations, PadicMeasuresIwasawaAlgebras:L2, LocallyAnalyticDistributions:L1, LocallyAnalyticDistributions:L0, LocallyAnalyticDistributions:L0. All logarithm applications inherit the existing Coleman disc-analytic route to LAD L1. The two actual F_v applications additionally inherit the precise LAD L0 Taylor/Gauss requests; the13 predecessor requests remain whole. Native conditional proofs do not close those suppliers.
+
+**The full current suggested module was NOT COMPILED.** Its real native import requires TauCeti.NumberTheory.ArithmeticFunction.TwistedDivisorSum. No matching existing artifact was found; WORKERS.md prohibits building the native library. Current compiler exit code, error count and warning count are unavailable, not zero. The exact named signatures and native source were reviewed. PR4773 remains the last compiled full predecessor, with zero errors and1,803 expected placeholder warnings; that receipt does not validate this new module.
+
+The current source closure covers 3604 pinned Mathlib modules and 29 pinned Tau Ceti modules. Only 28 Tau module artifacts are available and hash-verified. The 140 available artifact files and the previously compiled332-node PMIA artifact are checked as partial dependencies. The current369-node supplier source preserves the older interface; no current-module compilation against either revision is claimed. Existing builds only were inspected; no setup, update, cache fetch or native build occurred.
+
+The complete composite probe preserves20definitions207lemmas from PR5311 verbatim after an additional pinned Deriv.Mul import and proves11newlemmas:9 planned consumer results and2 routine log_one/log_neg deductions from the supplied laws. Its Gamma comparison uses actual unit/zero/recurrence hypotheses; the suggested declarations specialize the existing moritaGamma and its preceding API. The separate probe compiles against 2886 pinned Mathlib modules and 7 pinned Tau Ceti modules with zero errors, warnings or placeholders. No native module is rebuilt and no logarithm or analytic carrier is introduced. Existing PMIA/Teichmuller artifacts remain hash-verified. Full suggested file remains NOT COMPILED because pinned TwistedDivisorSum has no compatible existing artifact. General roadmap declarations remain unchecked.
+
+Exact controls pass28 angular-log and28 torsion-cancellation identities,50 Gamma and14 shifted-Gamma prime-factor logarithm sums,100 and28 independent principal-log series congruences at precisions6/10,40 primitive derivative coefficient identities and6 signed finite Gamma controls. Exact prime-factor exponent vectors verify rational unit logarithm identities without using a numerical logarithm; p2/3 have torsion factors ±1. Independently, exact rational principal-log truncations agree modulo p^M for M6,10, with omitted terms bounded by v_p(t^n/n)>=n-v_p(n)>=M. Signed Gamma products are computed directly. Forty coefficient checks verify the local primitive derivative expansion. These controls do not supply analytic Gauss bounds, coefficient mean limits, or a new logarithm implementation. The largest observed discrepancy is 0 in exact identities; all series discrepancies have valuation at least the requested precision.
+
+Post-merge capture 9975d86beddfd45933d75257703673c9fb50ca60 preserves all72 tracked inputs, complete issue body and four predecessor deliverables. Policies, own16 findings, full source registry and the Coleman/LAD suppliers are unchanged from the predecessor publication refresh. No new independent source verdict is claimed.
+
+The separate partial signature file also compiled with zero errors and 2,978 expected placeholder warnings across 3,600 pinned source modules. It includes all 9 new named declarations and 20 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 7a21736a58df201a07162afee6ecbdf728754cca6cc8b270c77059ce4b7ce3b5.
