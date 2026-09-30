@@ -120,6 +120,17 @@ review finding). A statement needing a carrier that neither exists nor can hones
 e-invariant, the wild kernel, the order certificates — is left out, and a comment
 `<name>: not stated here; needs … (supplier: …)` records it in place, so that every packet name
 appears in this file.
+
+## Revision for FIX-RT-AREA-ktheory-1 (30 September 2026)
+
+Findings 1, 3, 7, 8, 9 and 10 of RT-AREA-ktheory-1, on the ArithmeticKTheory side: Quillen's rank
+filtration and its spectral sequence in N.3:finite-generation, with the arithmetic-group input
+imported from BorelRegulators R.1; the narrowed N.3:ranks with the finiteness of the positive even
+groups; the degree-two row of N.2 imported from K2SymbolsBrauer T.5; Tate's theorem from
+MotivicEtaleKTheory M.3; and the certificate engine owned by N.6 (`OrderCertificate`, moved from the
+K2SymbolsBrauer suggested file, where it had been compiled; it is reproduced here as a commented
+block). Every addition of this revision is a comment or a commented signature, and **this revision
+was not compiled**; the compiled declarations above are unchanged.
 -/
 
 noncomputable section
@@ -653,11 +664,15 @@ theorem rankClassGroupEquiv_cls_sub_cls (v : HeightOneSpectrum R)
   sorry
 
 /- `ArithmeticKTheory:N.2/the-three-classical-rows`, the K-theoretic identifications: that the
-boundary `K₁(F) → ⊕_𝔭 K₀(R/𝔭)` of (6.6) is `divisor` under `K₁(F) = Fˣ`, `K₀(R/𝔭) = ℤ`, that
-the map `⊕_𝔭 ℤ → K₀(R)` of (6.6) sends `e_𝔭` to `[R] − [𝔭]`, and row (b)
-`⊕_𝔭 K₂(R/𝔭) → K₂(R) → K₂(F) → ⊕_𝔭 (R/𝔭)ˣ → SK₁(R) → 1`: not stated here; needs the localisation
-sequence (6.6) with its boundary and `K₂` (supplier: GeneralAlgebraicKTheory K.1, K.3, K.7, with
-KTheoryLowDegrees Z.4, U.3, U.5). The tame-symbol identification is K2SymbolsBrauer T.3's. -/
+boundary `K₁(F) → ⊕_𝔭 K₀(R/𝔭)` of (6.6) is `divisor` under `K₁(F) = Fˣ`, `K₀(R/𝔭) = ℤ`, and that
+the map `⊕_𝔭 ℤ → K₀(R)` of (6.6) sends `e_𝔭` to `[R] − [𝔭]`: not stated here; needs the localisation
+sequence (6.6) with its boundary (supplier: GeneralAlgebraicKTheory K.1, K.3, K.7, with
+KTheoryLowDegrees Z.4, U.3, U.5).
+Row (b), `0 → K₂(O_{F,S}) → K₂(F) → ⊕_{𝔭∉S} k(𝔭)ˣ → 0`: not stated here; it is imported, not
+re-proved (RT-AREA-ktheory-1/9), from K2SymbolsBrauer `T.5/tame-kernel-sequence` and
+`T.5/s-integer-tame-kernel-sequence` (suggested there as `s_integer_tame_kernel_sequence`), and
+N.2 only identifies it with the degree-two segment of (6.6), whose boundary is the tame symbol by
+K2SymbolsBrauer `T.3/dedekind-localization-boundary` (supplier: K2SymbolsBrauer T.3, T.5). -/
 
 end ClassicalRow
 
@@ -742,9 +757,11 @@ here; needs the localisation sequences and their transfers in all degrees (suppl
 GeneralAlgebraicKTheory K.1, K.3). The degree-one shadow, that `N_{F'/F}` maps `S'`-units to
 `S`-units, is `norm_mem_unit`. -/
 
-/- `ArithmeticKTheory:N.2/even-degree-injectivity`: `K_n(R) → K_n(F)` is injective for even `n ≥ 2`
-when all residue fields are finite: not stated here; needs `K_n` for `n ≥ 2`, exactness of (6.6) and
-`K_{2j}(𝔽_q) = 0` (supplier: GeneralAlgebraicKTheory K.1, K.3; KTheoryFiniteLocalFields L.1). -/
+/- `ArithmeticKTheory:N.2/even-degree-injectivity`: `K_n(R) → K_n(F)` is injective for even `n ≥ 4`
+when all residue fields are finite, and for `n = 2` when `R = O_{F,S}` (the injectivity of K2SymbolsBrauer
+T.5's tame-kernel sequence, imported): not stated here; needs `K_n` for `n ≥ 2`, exactness of (6.6) and
+`K_{2j}(𝔽_q) = 0` (supplier: GeneralAlgebraicKTheory K.1, K.3; KTheoryFiniteLocalFields L.1;
+K2SymbolsBrauer T.5). -/
 
 end TauCeti.ArithmeticK
 
@@ -812,23 +829,111 @@ finitely generated for every `n ≥ 0` and finite `S`: not stated here beyond de
 needs `K_n` for `n ≥ 2` and the localisation sequence (supplier: GeneralAlgebraicKTheory K.1, K.3;
 KTheoryFiniteLocalFields L.1). -/
 
+/-! ### `ArithmeticKTheory:N.3:finite-generation/rank-filtration` (construction; namespace
+`TauCeti.QCat`, module `TauCeti/KTheory/Arithmetic/RankFiltration`)
+
+Quillen's filtration of `Q(P(A))` by rank, for a Dedekind domain `A`. It needs the Q-construction
+`QCat` of GeneralAlgebraicKTheory `K.1/exact-categories-and-Q-construction`, which is not pinned. -/
+
+-- QCat.rankFiltration: not stated here; needs QCat (P(A)) (supplier: GeneralAlgebraicKTheory K.1);
+--   suggested form `QCat.rankFiltration (A) (m : ℕ) : FullSubcategory (QCat (P A))` on the modules
+--   with `Module.finrank (FractionRing A) (FractionRing A ⊗[A] P) ≤ m`
+-- QCat.rankFiltration_mono: not stated here; needs QCat.rankFiltration (supplier: GeneralAlgebraicKTheory K.1)
+-- QCat.rank_le_of_hom: not stated here; needs the morphisms of QCat as admissible layers (supplier:
+--   GeneralAlgebraicKTheory K.1/exact-categories-and-Q-construction)
+-- QCat.rankFiltration_cellular: not stated here; needs QCat.rankFiltration (supplier:
+--   GeneralAlgebraicKTheory K.1)
+-- QCat.rankStratum: not stated here; needs QCat.rankFiltration (supplier: GeneralAlgebraicKTheory K.1)
+-- QCat.rankStratumEquiv: not stated here; needs QCat.rankStratum and the automorphism groups
+--   `P ≃ₗ[A] P` (supplier: GeneralAlgebraicKTheory K.1)
+-- QCat.iSup_rankFiltration: not stated here; needs QCat and nerves (supplier: GeneralAlgebraicKTheory
+--   K.1; StableHomotopyKTheory H.1)
+-- QCat.rankFiltration_zero: not stated here; needs QCat.rankFiltration (supplier:
+--   GeneralAlgebraicKTheory K.1)
+-- QCat.finite_rankStratum_classes: not stated here; needs QCat.rankStratum and the Steinitz
+--   classification (supplier: KTheoryLowDegrees Z.4/steinitz, Z.4/projective-classification); the
+--   count is `Nat.card (ClassGroup A)`
+-- test rankFiltration_zero_isPoint (degenerate): not stated here; needs QCat.rankFiltration 0
+--   (supplier: GeneralAlgebraicKTheory K.1)
+-- test rankStratum_int (computation): not stated here; needs QCat.rankStratum for `A = ℤ`, equivalent
+--   to the one-object groupoid of `GL (Fin m) ℤ` (supplier: GeneralAlgebraicKTheory K.1)
+-- test rankStratum_one_sqrt_neg_five (computation): not stated here; needs QCat.rankStratum; the
+--   count `Nat.card (ClassGroup (𝓞 ℚ(√-5))) = 2` is Tau Ceti's
+--   `classNumber_eq_two_of_minpoly_eq_X_sq_add_five`
+-- test rankFiltration_allModules_not_cellular (non-example): not stated here; needs QCat of the
+--   abelian category of finitely generated `A`-modules (supplier: GeneralAlgebraicKTheory K.1)
+-- test rank_le_of_hom_zero (characterisation): not stated here; needs K.1's `QCat.hom_zero`
+--   (supplier: GeneralAlgebraicKTheory K.1)
+
+/-! ### `ArithmeticKTheory:N.3:finite-generation/layer-poset` (definition; namespace `TauCeti`)
+
+The poset `J(V)` of proper layers `(W₀, W₁)`, `W₀ ≤ W₁`, `(W₀, W₁) ≠ (⊥, ⊤)`, ordered by
+`(W₀, W₁) ≤ (W₀', W₁') ↔ W₀' ≤ W₀ ∧ W₁ ≤ W₁'`. It is definable from Mathlib's `Submodule` alone;
+the signatures below are commented because this revision was not compiled. -/
+
+-- suggested form:
+--   def LayerPoset (F V : Type*) [Field F] [AddCommGroup V] [Module F V] : Type _ :=
+--     {p : Submodule F V × Submodule F V // p.1 ≤ p.2 ∧ p ≠ (⊥, ⊤)}
+--   instance : PartialOrder (LayerPoset F V)  -- (W₀, W₁) ≤ (W₀', W₁') ↔ W₀' ≤ W₀ ∧ W₁ ≤ W₁'
+-- LayerPoset.le_iff: `a ≤ b ↔ b.1.1 ≤ a.1.1 ∧ a.1.2 ≤ b.1.2`
+-- LayerPoset.map: `(e : V ≃ₗ[F] V') → LayerPoset F V ≃o LayerPoset F V'`, with map_refl and map_trans
+-- LayerPoset.glAction: `MulAction (V ≃ₗ[F] V) (LayerPoset F V)` by order automorphisms
+-- LayerPoset.lowerPart / LayerPoset.upperPart: the subposets `W₀ ≠ ⊥` and `W₁ ≠ ⊤`
+-- LayerPoset.lowerPart_sup_upperPart: they cover, and no chain meets both complements
+-- LayerPoset.of_finrank_eq_one: for `Module.finrank F V = 1`, the two-element antichain
+-- test layerPoset_zero (degenerate): `IsEmpty (LayerPoset F (Fin 0 → F))`
+-- test layerPoset_dim_one (computation): two incomparable elements when `finrank F V = 1`
+-- test layerPoset_dim_two_card (computation): `Nat.card (LayerPoset (ZMod 2) (Fin 2 → ZMod 2)) = 11`
+-- test layerPoset_with_top_contractible (non-example): the poset of all layers has a top element
+-- test layerPoset_map_gl (compatibility): `LayerPoset.map g ⟨(W₀, W₁), _⟩ = ⟨(W₀.map g, W₁.map g), _⟩`
+
+/- `ArithmeticKTheory:N.3:finite-generation/comma-category-is-the-layer-poset`: for `P` of rank
+`n ≥ 1`, `Q_{n−1} ↓ P ≃ LayerPoset F (F ⊗[A] P)`, `Aut_A(P)`-equivariantly: not stated here; needs
+QCat and its comma categories (supplier: GeneralAlgebraicKTheory K.1). -/
+
+/- `ArithmeticKTheory:N.3:finite-generation/layer-poset-is-the-suspended-building`: the nerve of
+`LayerPoset F V` is `GL(V)`-equivariantly homotopy equivalent to the suspension of the Tits building,
+so its reduced homology is the Steinberg module in degree `dim V − 1`: not stated here; needs nerves,
+Theorem A and the building and Solomon–Tits theorem (supplier: StableHomotopyKTheory H.1, H.2;
+BorelRegulators R.1). -/
+
+/- `ArithmeticKTheory:N.3:finite-generation/rank-spectral-sequence`:
+`E¹_{p,q} = ⊕_{[P], rank P = p} groupHomology (St(P ⊗ F)) q ⇒ H_{p+q}(BQ(P(A)))` (Mathlib's
+`groupHomology` for the `ℤ`-linear representation of `Aut_A(P)` on the Steinberg module): not stated
+here; needs QCat, the Steinberg module and the cellular-functor spectral sequence (supplier:
+GeneralAlgebraicKTheory K.1; BorelRegulators R.1; StableHomotopyKTheory H.1, H.2). -/
+
 /- `ArithmeticKTheory:N.3:finite-generation/quillen-finiteness-criterion`: a Dedekind domain with
-finite `Pic(R)` and finitely generated `H_n(Aut_R(P); St(P ⊗_R F))` has finitely generated
-`K_n(R)`: not stated here; needs `K_n` (Quillen's Q-construction) and the Steinberg module of the
-Tits building (supplier: GeneralAlgebraicKTheory K.1; StableHomotopyKTheory H.2; the gap on the
-arithmetic-group input). -/
+finite `Pic(R)` and finitely generated `H_q(Aut_R(P); St(P ⊗_R F))` has finitely generated
+`H_i(BQ(P(R)); ℤ)` and `K_n(R)`: not stated here; needs `K_n`, the rank spectral sequence and Serre's
+theorem for simple spaces (supplier: GeneralAlgebraicKTheory K.1; StableHomotopyKTheory H.1, H.6). -/
+
+/- `ArithmeticKTheory:N.3:finite-generation/steinberg-homology-of-automorphism-groups`: for
+`A = 𝓞 F` and every finitely generated projective `P` of rank `n ≥ 1`, `Aut_A(P)` is commensurable
+with `GL_n(𝓞 F)` and `H_i(Aut_A(P); St(P ⊗ F))` is finitely generated for all `i`: not stated here;
+needs the Steinberg module and the integral finiteness of Steinberg homology of arithmetic groups,
+with the dualizing module `St_n(F) ⊗ ℤ_χ^{⊗(n−1)}`, `χ = N_{F/ℚ} ∘ det` (supplier: BorelRegulators
+R.1). The commensurability half is elementary lattice algebra and could be stated against Mathlib's
+`Module.End`, but is left with its consumer. -/
 
 /- `ArithmeticKTheory:N.3:finite-generation/quillen-finite-generation-theorem`: `K_n(R)` is finitely
-generated for an integrally closed `R ⊂ F` finite over `ℤ`: not stated here; needs `K_n` and the
-Borel–Serre finiteness (supplier: GeneralAlgebraicKTheory K.1; BorelRegulators R.1). -/
+generated for an integrally closed `R ⊂ F` finite over `ℤ`: not stated here; needs `K_n` (supplier:
+GeneralAlgebraicKTheory K.1; through the two nodes above, BorelRegulators R.1). -/
 
-/- `ArithmeticKTheory:N.3:ranks/borel-rank-theorem`: `K_n(O_{F,S}) ⊗ ℚ ≅ K_n(F) ⊗ ℚ` and
-`rank K_n(O_{F,S}) = borelRank F n` for `n ≥ 2`: not stated here; needs `K_n` for `n ≥ 2` (supplier:
-GeneralAlgebraicKTheory K.1; BorelRegulators R.3; KTheoryFiniteLocalFields L.1). -/
+/- `ArithmeticKTheory:N.3:ranks/borel-rank-theorem`: for `n ≥ 2`, `K_n(𝓞 F) → K_n(O_{F,S}) → K_n(F)`
+are isomorphisms after `⊗ ℚ` and `rank K_n(O_{F,S}) = rank K_n(𝓞 F) = borelRank F n`, the latter
+imported from Borel's theorem for the order `𝓞 F`; in degree one the rank is
+`nrRealPlaces F + nrComplexPlaces F + |S| − 1`: not stated here; needs `K_n` for `n ≥ 2` (supplier:
+GeneralAlgebraicKTheory K.1; BorelRegulators R.3; KTheoryFiniteLocalFields L.1; KTheoryLowDegrees
+U.4 for degree one). -/
+
+/- `ArithmeticKTheory:N.3:ranks/even-K-groups-of-S-integers-are-finite`: `Finite (K_{2i}(O_{F,S}))`
+for `i ≥ 1` and finite `S` — for the ring, not for the field: not stated here; needs `K_{2i}`
+(supplier: GeneralAlgebraicKTheory K.1). -/
 
 /- `ArithmeticKTheory:N.3:ranks/even-K-groups-of-the-field-are-infinite-torsion`: `K_{2i}(F)` is an
 infinite torsion group for `i ≥ 1`: not stated here; needs `K_{2i}(F)` and the localisation sequence
-(supplier: GeneralAlgebraicKTheory K.1, K.3; BorelRegulators R.3; KTheoryFiniteLocalFields L.1). -/
+(supplier: GeneralAlgebraicKTheory K.1, K.3; KTheoryFiniteLocalFields L.1). -/
 
 /- `ArithmeticKTheory:N.3/finiteness-and-ranks-combined`: `K_n(O_{F,S}) ≅ ℤ^{borelRank F n} ⊕ T_n`
 with `T_n` finite for `n ≥ 2` (Mathlib's `AddCommGroup.equiv_free_prod_directSum_zmod`), the
@@ -1282,7 +1387,8 @@ odd `n ≥ 3` (supplier: GeneralAlgebraicKTheory K.1; MotivicEtaleKTheory M.7). 
 `K_n(F) ≅ ℤ^{r₁+r₂} ⊕ ℤ/w_i`, `ℤ^{r₂} ⊕ ℤ/2w_i ⊕ (ℤ/2)^{r₁-1}`, `ℤ^{r₁+r₂} ⊕ ℤ/(w_i/2)` or
 `ℤ^{r₂} ⊕ ℤ/w_i` according to `n mod 8`, with `i = (n + 1)/2`: not stated here; needs `K_n` for odd
 `n ≥ 3` and the `2`-adic comparison (supplier: GeneralAlgebraicKTheory K.1; MotivicEtaleKTheory
-M.7; StableHomotopyKTheory H.6). -/
+M.7, which owns the dyadic calculation with its real-place maps and extensions — N.5 does no second
+dyadic calculation; StableHomotopyKTheory H.6). -/
 
 /- `ArithmeticKTheory:N.5/soule-theorem`: `K_n(O_{F,S}) → K_n(F)` is an isomorphism for odd `n ≥ 3`
 and injective with cokernel `⊕_{𝔭∉S} K_{n-1}(k(𝔭))` for even `n ≥ 2`: not stated here; needs `K_n`,
@@ -1351,7 +1457,8 @@ MotivicEtaleKTheory M.7; StableHomotopyKTheory H.6). -/
 /- `ArithmeticKTheory:N.6/the-two-primary-corrections`: the eight rows of Theorem VI.9.11 for
 `K_n(O_S){2}` with `0 < nrRealPlaces F` and `1/2 ∈ O_S`, with the integer `ρ` and the signature
 defect `j = signatureDefect S`: not stated here; needs `K_n`, `H²_et(R; ℤ₂(·))` and `H̃²` (supplier:
-MotivicEtaleKTheory M.2, M.3, M.7; K2SymbolsBrauer T.7; StableHomotopyKTheory H.6). -/
+MotivicEtaleKTheory M.2, M.3 — Tate's theorem, not K2SymbolsBrauer T.7 —, M.7; StableHomotopyKTheory
+H.6). -/
 
 /-! ### `ArithmeticKTheory:N.6/tame-and-wild-kernels` (definition; namespace
 `TauCeti.ArithmeticK`, module `TauCeti/NumberTheory/KTheory/WildKernel`)
@@ -1388,36 +1495,130 @@ In degree two the tame kernel is K2SymbolsBrauer T.5's `unramifiedSubgroup` and 
 --   and the Steinberg symbol {-1, -1} ∈ K₂ (supplier: K2SymbolsBrauer T.1/T.2;
 --   KTheoryFiniteLocalFields L.7)
 
+/-! ### `ArithmeticKTheory:N.6/order-certificate` (definition; namespace `TauCeti`, module
+`TauCeti/Algebra/Module/OrderCertificate`)
+
+The certificate engine is N.6's (RT-AREA-ktheory-1/9). The block below was compiled against the
+pinned commits in the K2SymbolsBrauer suggested file (as `K2SymbolsBrauer:T.5/certified-presentation`)
+and is reproduced here as a comment, unchanged apart from this header, because this revision was not
+compiled; it needs only `Mathlib.Algebra.Module.Presentation.Basic` and
+`Mathlib.SetTheory.Cardinal.Finite`.
+
+structure OrderCertificate (A : Type v) [AddCommGroup A] where
+  /-- The relations (over `ℤ`). -/
+  rel : Module.Relations.{0, 0} ℤ
+  finite_G : Finite rel.G
+  finite_R : Finite rel.R
+  /-- The solution: the images of the generators. -/
+  sol : rel.Solution A
+  span_eq_top : Submodule.span ℤ (Set.range sol.var) = ⊤
+  /-- The lower-bound group. -/
+  B : Type v
+  [addCommGroupB : AddCommGroup B]
+  finite_B : Finite B
+  /-- The lower-bound map. -/
+  φ : A →+ B
+  surjective_φ : Function.Surjective φ
+  finite_quotient : Finite rel.Quotient
+  /-- The matching bound. -/
+  card_quotient_eq : Nat.card B = Nat.card rel.Quotient
+
+attribute [instance] OrderCertificate.addCommGroupB
+
+namespace OrderCertificate
+
+variable {A : Type v} [AddCommGroup A] (c : OrderCertificate A)
+
+/-- The upper bound: `fromQuotient` is onto, so `Nat.card A ≤ Nat.card rel.Quotient`. -/
+theorem fromQuotient_surjective : Function.Surjective c.sol.fromQuotient := by
+  sorry
+
+/-- Soundness: the solution is a presentation. -/
+theorem isPresentation : c.sol.IsPresentation := by
+  sorry
+
+/-- The Mathlib presentation (a real definition). -/
+def toPresentation : Module.Presentation.{0, 0} ℤ A :=
+  Module.Presentation.ofIsPresentation c.isPresentation
+
+/-- `Nat.card A = Nat.card B = Nat.card rel.Quotient`. -/
+@[simp]
+theorem card_eq : Nat.card A = Nat.card c.B ∧ Nat.card c.B = Nat.card c.rel.Quotient := by
+  sorry
+
+/-- `rel.Quotient ≃ₗ[ℤ] A` (a real definition). -/
+def linearEquiv : c.rel.Quotient ≃ₗ[ℤ] A := c.isPresentation.linearEquiv
+
+/-- A complete kernel argument gives a certificate with `B = A`. -/
+def ofIsPresentation {rel : Module.Relations.{0, 0} ℤ}
+    [Finite rel.G] [Finite rel.R] [Finite rel.Quotient] {sol : rel.Solution A}
+    (h : sol.IsPresentation) : OrderCertificate A where
+  rel := rel
+  finite_G := inferInstance
+  finite_R := inferInstance
+  sol := sol
+  span_eq_top := by sorry
+  B := A
+  finite_B := by sorry
+  φ := AddMonoidHom.id A
+  surjective_φ := Function.surjective_id
+  finite_quotient := inferInstance
+  card_quotient_eq := by sorry
+
+end OrderCertificate
+
+-- test orderCertificate_trivial (degenerate)
+example {A : Type} [AddCommGroup A] (c : OrderCertificate A) (hG : IsEmpty c.rel.G) :
+    Subsingleton A := by
+  sorry
+
+-- test upper_bound_not_iso (non-example)
+example :
+    Nat.card (⟨Unit, Unit, fun _ => Finsupp.single () 4⟩ : Module.Relations.{0, 0} ℤ).Quotient =
+      4 ∧
+    ∀ (B : Type) [AddCommGroup B] (φ : ZMod 2 →+ B), Function.Surjective φ → Nat.card B ≠ 4 := by
+  sorry
+
+-- test orderCertificate_isPresentation (characterisation)
+example {A : Type v} [AddCommGroup A] (c : OrderCertificate A) : c.sol.IsPresentation := by
+  sorry
+
+-- test orderCertificate_toPresentation (compatibility)
+example {A : Type v} [AddCommGroup A] (c : OrderCertificate A) :
+    c.toPresentation.toRelations = c.rel ∧ c.toPresentation.toSolution = c.sol := by
+  sorry
+
+The packet's structure field `card_eq` is named `card_quotient_eq` here, because the packet also
+asks for the lemma `OrderCertificate.card_eq` with a different statement. The test
+`orderCertificate_k2_int` needs `K₂(ℤ)` (supplier: K2SymbolsBrauer T.5/k2-of-the-integers). -/
+
 /-! ### `ArithmeticKTheory:N.6/certificate-driven-computation` (construction)
 
-The certificate format is K2SymbolsBrauer T.5's `OrderCertificate` on Mathlib's `Module.Relations`
-and `Module.Presentation`; the lower bound N.6 supplies is a surjection of `K_{2i}(O_S)` onto
-`⊕_{ℓ∈L} H²_et(O_S[1/ℓ]; ℤ_ℓ(i+1))`. Neither the format nor `K_{2i}` nor `H²_et` is pinned. -/
+The lower bound N.6 supplies from cohomology, in every even degree: a surjection of `K_{2i}(O_S)` onto
+`⊕_{ℓ∈L} K_{2i}(O_S){ℓ}`, of order `∏ h_ℓ` with `h_ℓ = #H²_et(O_S[1/ℓ]; ℤ_ℓ(i+1))` (or `H̃²`, or
+`2^ρ · #H²` in degree `8k + 4` with `ρ` certified). Neither `K_{2i}` nor `H²_et` is pinned. -/
 
--- OrderCertificate.ofCohomology: not stated here; needs K2SymbolsBrauer's OrderCertificate,
---   K_{2i}(O_S) and H²_et(O_S[1/ℓ]; ℤ_ℓ(i+1)) (supplier: K2SymbolsBrauer
---   T.5/certified-presentation; GeneralAlgebraicKTheory K.1; MotivicEtaleKTheory M.7)
+-- OrderCertificate.ofCohomology: not stated here; needs OrderCertificate (above), K_{2i}(O_S) and
+--   H²_et(O_S[1/ℓ]; ℤ_ℓ(i+1)) (supplier: GeneralAlgebraicKTheory K.1; MotivicEtaleKTheory M.7)
 -- evenK_toPrimaryCohomology_surjective: not stated here; needs K_{2i}(O_S), H²_et and the
 --   isomorphism of ArithmeticKTheory:N.6/even-groups-at-odd-primes (supplier:
 --   GeneralAlgebraicKTheory K.1; MotivicEtaleKTheory M.7)
 -- OrderCertificate.ofCohomology_card: not stated here; needs K_{2i}(O_S) and H²_et (supplier:
 --   GeneralAlgebraicKTheory K.1; MotivicEtaleKTheory M.7)
 -- OrderCertificate.ofCohomology_two_real: not stated here; needs K_{2i}(O_S), H²_et(R; ℤ₂(i+1)),
---   H̃²_et and the two-primary table (supplier: MotivicEtaleKTheory M.2, M.7;
+--   H̃²_et, ρ and the two-primary table (supplier: MotivicEtaleKTheory M.2, M.7;
 --   ArithmeticKTheory:N.6/the-two-primary-corrections)
--- OrderCertificate.ofCohomology_toPresentation: not stated here; needs K2SymbolsBrauer's
---   OrderCertificate.toPresentation (supplier: K2SymbolsBrauer T.5/certified-presentation)
--- test ofCohomology_K2_int (compatibility): not stated here; needs K₂(ℤ), H²(ℤ[1/2]; ℤ₂(2)) and
---   T.5's sign-symbol certificate (supplier: K2SymbolsBrauer T.5; MotivicEtaleKTheory M.7)
+-- OrderCertificate.ofCohomology_toPresentation: not stated here; needs OrderCertificate.ofCohomology;
+--   its target is OrderCertificate.toPresentation (above)
+-- test ofCohomology_K2_int (compatibility): not stated here; needs K₂(ℤ), H²(ℤ[1/2]; ℤ₂(2)) and the
+--   sign-symbol certificate (supplier: K2SymbolsBrauer T.5; MotivicEtaleKTheory M.7)
 -- test ofCohomology_trivial (degenerate): not stated here; needs OrderCertificate.ofCohomology
---   (supplier: K2SymbolsBrauer T.5/certified-presentation)
 -- test ofCohomology_missing_prime (non-example): not stated here; needs
---   OrderCertificate.ofCohomology and K₂(ℤ) (supplier: K2SymbolsBrauer T.5/certified-presentation)
--- test ofCohomology_two_row_four (non-example): not stated here; needs K₄(ℤ[√7]) and H²(ℤ[√7, 1/2];
---   ℤ₂(3)) (supplier: GeneralAlgebraicKTheory K.1; MotivicEtaleKTheory M.7)
+--   OrderCertificate.ofCohomology and K₂(ℤ) (supplier: K2SymbolsBrauer T.5)
+-- test ofCohomology_two_row_four (characterisation): not stated here; needs K₄(ℤ[√7]),
+--   H²(ℤ[√7, 1/2]; ℤ₂(3)) and ρ = 1 (supplier: GeneralAlgebraicKTheory K.1; MotivicEtaleKTheory M.7)
 -- test ofCohomology_isPresentation (characterisation): not stated here; needs the certificate and
---   K_{2i}(O_S); Mathlib's Module.Presentation is the pinned half (supplier: K2SymbolsBrauer
---   T.5/certified-presentation)
+--   K_{2i}(O_S); OrderCertificate.isPresentation (above) is the pinned-API half
 
 /- `ArithmeticKTheory:N.6/even-groups-of-a-totally-imaginary-field`: for `F` totally imaginary and
 `i ≥ 1`, `K_{2i}(O_S) ≅ ⊕_ℓ H²_et(O_S[1/ℓ]; ℤ_ℓ(i+1))`: not stated here; needs `K_{2i}` and étale

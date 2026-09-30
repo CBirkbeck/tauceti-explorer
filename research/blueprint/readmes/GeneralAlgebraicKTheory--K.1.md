@@ -1,10 +1,10 @@
 # General algebraic K-theory: K.1–K.5
 
-Checkpoint for FIX-RT-AREA-ktheory-1 by Codex, session codex-5ebb6f, 2026-09-29.
+Revision for FIX-RT-AREA-ktheory-1 by Claude Code, session cc-c2c06b, 2026-09-30, completing the checkpoint by Codex, session codex-5ebb6f, 2026-09-29.
 
 This document renders the companion packet. Its earlier accepted review is retained as history; the revised text awaits independent review. All implementation statuses remain unchecked. Source decompositions and proof obligations are separate from Lean completion.
 
-KSpace(A) is ΩBQ(A), and K_n(A) is π_n KSpace(A) = π_(n+1) BQ(A). The early ring model belongs to K.2:plus. Waldhausen additivity and relative S-fibration precede H.5:S-delooping spectrum assembly. The proposed late K.3:cofinality stage and other stage-graph edits still require maintainer integration.
+KSpace(A) is ΩBQ(A), and K_n(A) is π_n KSpace(A) = π_(n+1) BQ(A). The pinned exact-category carriers are imported and never redefined; no node uses Quillen's axiom (c). The ring model is one early node of K.2:plus, and the noncommutative scalar extension it uses is KTheoryLowDegrees Z.1's. Early K.3 rests only on K.1 and StableHomotopyKTheory H.1–H.2; general cofinality keeps its K.3 id but belongs to a proposed late K.3:cofinality. Waldhausen additivity and the relative S-fibration with its deloopings are in K.4:construction and precede H.5:S-delooping's spectrum assembly; the realisation theorem they need is requested from H.2 with its hypotheses checked. K.5 imports the ring model and KTheoryLowDegrees Z.1's Milnor patching and adds Milnor's K₁–K₀ Mayer–Vietoris sequence. The stage-graph changes these moves require are listed at the end for the maintainer.
 
 ## Pinned imports
 
@@ -12,16 +12,14 @@ Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; Tau Ceti f790474821cf4256814db
 
 - `mathlib:CategoryTheory.Core` — The maximal subgroupoid of a category, the groupoid of isomorphisms that the plus comparison localises. (`Mathlib/CategoryTheory/Core.lean`).
 - `mathlib:CategoryTheory.Idempotents.Karoubi` — The idempotent completion, the standard witness that cofinality changes the group in degree zero. (`Mathlib/CategoryTheory/Idempotents/Karoubi.lean`).
-- `mathlib:CategoryTheory.Limits.HasFilteredColimits` — Filtered colimits of categories, the input to K.1's colimit statement. (`Mathlib/CategoryTheory/Limits/Filtered.lean`).
+- `mathlib:CategoryTheory.Limits.HasFilteredColimits` — Filtered colimits of categories, the input to K.1's generic colimit statement. (`Mathlib/CategoryTheory/Limits/Filtered.lean`).
 - `mathlib:CategoryTheory.Limits.HasPushouts` — Pushouts, which the cofibration axioms of a Waldhausen category require along cofibrations. (`Mathlib/CategoryTheory/Limits/Shapes/Pullback/HasPullback.lean`).
 - `mathlib:CategoryTheory.ObjectProperty.IsSerreClass` — Serre classes in an abelian category, the hypothesis of Quillen's localisation theorem; the localisation long exact sequence itself is absent. (`Mathlib/CategoryTheory/Abelian/SerreClass/Basic.lean`).
 - `mathlib:CategoryTheory.nerve` — The nerve of a category, the first ingredient of the K-theory space. (`Mathlib/AlgebraicTopology/SimplicialSet/Nerve.lean`).
 - `mathlib:HomotopyGroup` — The homotopy groups of a pointed space, the third; no K-theory space is built from these three at the pins. (`Mathlib/Topology/Homotopy/HomotopyGroup.lean`).
 - `mathlib:LinearMap.ker_eq_range_of_comp_eq_id` — The complement is the image of the complementary idempotent, the other half. (`Mathlib/Algebra/Module/Submodule/Range.lean`).
-- `mathlib:Module.Finite.base_change` — Base change preserves finite generation, the other half. (`Mathlib/RingTheory/TensorProduct/Finite.lean`).
 - `mathlib:Module.Finite.exists_comp_eq_id_of_projective` — A finitely generated projective module is a retract of a finite free module, the module-theoretic half of K.2:plus's cofinality node. (`Mathlib/RingTheory/Finiteness/Projective.lean`).
-- `mathlib:Module.Projective.tensorProduct` — Base change preserves projectivity, half of the scalar-extension node of K.2:plus. (`Mathlib/Algebra/Module/Projective.lean`).
-- `mathlib:ModuleCat.extendScalars` — Extension of scalars between module categories, pinned between commutative rings; K.2:plus needs it along an arbitrary unital ring map. (`Mathlib/Algebra/Category/ModuleCat/ChangeOfRings.lean`).
+- `mathlib:ModuleCat.extendScalars` — Extension of scalars between module categories, pinned between commutative rings only. The functor along an arbitrary unital ring map is KTheoryLowDegrees:Z.1/extend-scalars, which agrees with this one for commutative rings; K.2:plus cites this declaration only for that comparison. (`Mathlib/Algebra/Category/ModuleCat/ChangeOfRings.lean`).
 - `mathlib:SSet.toTop` — The realisation of a simplicial set, the second ingredient. (`Mathlib/AlgebraicTopology/SingularSet.lean`).
 - `mathlib:Unitization` — The canonical unitisation of a nonunital ring with its universal property, exactly the unitisation K.5 specifies; nothing K-theoretic is built on it at the pins. (`Mathlib/Algebra/Algebra/Unitization.lean`).
 - `tauceti:TauCeti.ExactK0` — The Grothendieck group of an exact category, which the fundamental-group theorem of K.1 identifies with the first homotopy group of the Q-construction. (`TauCeti/CategoryTheory/GrothendieckGroup/Exact.lean`).
@@ -34,21 +32,38 @@ Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; Tau Ceti f790474821cf4256814db
 - `tauceti:TauCeti.ExactStructure.transport` — Transport of an exact structure along an additive equivalence, the pinned half of K.1's small-model target. (`TauCeti/CategoryTheory/Exact/Equivalence.lean`).
 - `tauceti:TauCeti.moduleResolutionEquiv` — The instance of that isomorphism for modules with finite projective resolutions. (`TauCeti/Algebra/Category/ModuleCat/CartanMap.lean`).
 - `tauceti:TauCeti.simpleClassBasis` — The Grothendieck group of finitely generated modules over an artinian ring is free on the simple classes, which is devissage in degree zero; K.3 states the theorem in every degree. (`TauCeti/RepresentationTheory/GrothendieckGroup/SimpleBasis.lean`).
-- `tauceti:TauCeti.finiteProjectiveModules` — Object property of finitely generated projective R-modules. Its full subcategory has an EssentiallySmall instance in this pinned file. (`TauCeti/Algebra/Category/ModuleCat/CartanMap.lean`).
+- `tauceti:TauCeti.finiteProjectiveModules` — Object property of finitely generated projective R-modules, R : Type u. Its full subcategory has an anonymous EssentiallySmall.{u} instance in this pinned file (CartanMap.lean, section 'Essential smallness'; not indexed by name), which fixes the universe of ExactK0 and of K(R) at u. (`TauCeti/Algebra/Category/ModuleCat/CartanMap.lean`).
 - `tauceti:TauCeti.finiteProjectiveModulesExactStructure` — Existing exact structure on the full subcategory of finitely generated projectives; import this carrier rather than reconstruct it. (`TauCeti/Algebra/Category/ModuleCat/CartanMap.lean`).
 - `tauceti:TauCeti.finiteProjectiveModulesExactStructure_eq_split` — The induced exact structure is equal to the split structure. This is the input that makes arbitrary scalar extension exact on projectives. (`TauCeti/Algebra/Category/ModuleCat/CartanMap.lean`).
 - `tauceti:TauCeti.finiteProjectiveModulesExactStructure_conflation_iff` — Conflations are exactly short exact sequences after inclusion in ModuleCat R. (`TauCeti/Algebra/Category/ModuleCat/CartanMap.lean`).
 - `tauceti:TauCeti.ExactK0.of` — Existing object-class map to ExactK0; the π₁ comparison must preserve this map. (`TauCeti/CategoryTheory/GrothendieckGroup/Exact.lean`).
 - `tauceti:TauCeti.ExactK0.of_conflation` — Existing conflation-additivity relation for the class map. (`TauCeti/CategoryTheory/GrothendieckGroup/Exact.lean`).
 - `tauceti:TauCeti.ExactK0.liftEquiv` — Existing universal property: conflation-additive invariants are additive homomorphisms out of ExactK0. (`TauCeti/CategoryTheory/GrothendieckGroup/Exact.lean`).
+- `tauceti:TauCeti.ExactK0.lift` — The homomorphism out of ExactK0 induced by a conflation-additive invariant; the map from ExactK0 to the fundamental group of the Q-construction is this lift of the two-edge loops. (`TauCeti/CategoryTheory/GrothendieckGroup/Exact.lean`).
+- `tauceti:TauCeti.ExactK0.hom_ext` — Two homomorphisms out of ExactK0 agreeing on object classes are equal; it checks one composite of the fundamental-group comparison. (`TauCeti/CategoryTheory/GrothendieckGroup/Exact.lean`).
+- `tauceti:TauCeti.ExactK0.AdditiveInvariant` — An isomorphism-invariant, conflation-additive function on objects with values in an abelian group: the datum ExactK0.lift consumes. Its values must lie in a commutative group, which is why the fundamental-group node proves commutativity before lifting. (`TauCeti/CategoryTheory/GrothendieckGroup/Exact.lean`).
+- `tauceti:TauCeti.ExactStructure.conflation_baseChange` — Base change of a conflation along any morphism is a conflation with the same kernel: the admissible-epimorphism half of composition in Q, and the dual step of the exact category of conflations. (`TauCeti/CategoryTheory/Exact/BaseChange.lean`).
+- `tauceti:TauCeti.ExactStructure.conflation_cobaseChange` — Cobase change of a conflation along any morphism is a conflation with the same cokernel (Bühler, Proposition 2.12); an input of the 3×3 lemma and of the exact category of conflations. (`TauCeti/CategoryTheory/Exact/BaseChange.lean`).
+- `tauceti:TauCeti.ExactStructure.conflation_comp_of_isPullback` — The pullback of a deflation along an inflation is a kernel of the composite deflation, so the pullback of an admissible monomorphism along an admissible epimorphism is an admissible monomorphism (Bühler, Proposition 2.15). It is the admissible-monomorphism half of composition in Q and is proved from E1op and the kernel property alone, without Quillen's axiom (c). (`TauCeti/CategoryTheory/Exact/BaseChange.lean`).
+- `tauceti:TauCeti.ExactStructure.exists_conflation_comp` — The Noether isomorphism for a composite of two inflations (Bühler, Lemma 3.5), the last step of the 3×3 lemma. (`TauCeti/CategoryTheory/Exact/BaseChange.lean`).
+- `tauceti:TauCeti.ExactStructure.bicartesianSq_of_isPushout_of_isInflation` — A pushout of an inflation is a bicartesian square (Bühler, Proposition 2.12), used in the 3×3 lemma. (`TauCeti/CategoryTheory/Exact/Bicartesian.lean`).
+- `tauceti:TauCeti.ExactStructure.conflation_biprod` — A biproduct of two conflations is a conflation; it makes the coproduct functor into the exact category of conflations exact. (`TauCeti/CategoryTheory/Exact/Biproduct.lean`).
+- `tauceti:TauCeti.ExactStructure.ConflationCategory` — The category of conflations of an exact structure: the full subcategory of short complexes on the conflations, with its three projection functors and functoriality in conflation-exact functors. It is the carrier of the extension category E(A) that K.3 makes exact; the pinned file puts no exact structure on it. (`TauCeti/CategoryTheory/Exact/Conflation.lean`).
+- `mathlib:RingHom.pullback` — The pullback of two ring maps as a subring of the product, for arbitrary (noncommutative) rings: the ring B of a Milnor square. (`Mathlib/RingTheory/LocalRing/Pullback.lean`).
+- `mathlib:RingHom.pullback_comm_sq` — The pullback square of rings commutes, which makes the composite of the first two maps of the Milnor sequence vanish. (`Mathlib/RingTheory/LocalRing/Pullback.lean`).
+- `mathlib:Ideal.Quotient.ring` — The quotient of a possibly noncommutative ring by a two-sided ideal ([I.IsTwoSided]) is a ring; it is the quotient map through which K.5 treats a pair (A, I) without narrowing to commutative rings. (`Mathlib/RingTheory/Ideal/Quotient/Defs.lean`).
+- `tauceti:TauCeti.ExactStructure.abelian` — The canonical exact structure of all short exact sequences on an abelian category: the ambient structure of Gillet–Waldhausen's closure hypothesis, where the ambient abelian category is data. (`TauCeti/CategoryTheory/Exact/Abelian.lean`).
+- `tauceti:TauCeti.ExactStructure.fullSubcategory` — The exact structure induced on an extension-closed full subcategory; with ExactStructure.abelian it presents an exact category inside a given abelian category, the form in which the K-book's Definition II.7.0 is used here. (`TauCeti/CategoryTheory/Exact/ExtensionClosed.lean`).
 
 ## Source provenance
 
-The source entries retain earlier workers’ read-section records. This checkpoint independently read the sections explicitly marked FIX-RT-AREA-ktheory-1 in the packet; it does not claim a fresh reading of every inherited proof.
+The source entries retain earlier workers’ read-section records. The two FIX-RT-AREA-ktheory-1 passes independently read the sections marked with that job in the packet; they do not claim a fresh reading of every inherited proof. Chapter III of the K-book and Bühler's survey are new sources of this revision.
 
 - [The K-book: An introduction to algebraic K-theory, Chapter II: The Grothendieck group K_0](https://www.math.rutgers.edu/~weibel/Kbook/Kbook.II.pdf) — Author's online chapter file Kbook.II.pdf, 106 pages; chapter page numbers equal PDF page numbers.; SHA-256 `529ea8a5853e9fa55279e7ad79047155409b10847bd924b56f708f0950ebc607`.
+- [The K-book: An introduction to algebraic K-theory, Chapter III: K_1 and K_2 of a ring](https://www.math.rutgers.edu/~weibel/Kbook/Kbook.III.pdf) — Author's online chapter file Kbook.III.pdf, 73 pages; chapter page numbers equal PDF page numbers.; SHA-256 `ba1bc2d25680ab25c4baadc5ab28e39d1077dc66bb12ca4e2174b6cb55f81307`.
 - [The K-book: An introduction to algebraic K-theory, Chapter IV: Definitions of higher K-theory](https://www.math.rutgers.edu/~weibel/Kbook/Kbook.IV.pdf) — Author's online chapter file Kbook.IV.pdf, 93 pages; chapter page numbers equal PDF page numbers.; SHA-256 `9f1c1b8cccfe19d547c27dd04c61f198fd7a0cddd0018a0b84442b00fa575248`.
 - [The K-book: An introduction to algebraic K-theory, Chapter V: The fundamental theorems of higher K-theory](https://www.math.rutgers.edu/~weibel/Kbook/Kbook.V.pdf) — Author's online chapter file Kbook.V.pdf, 90 pages; chapter page numbers equal PDF page numbers.; SHA-256 `52dcc8ee3a1764e5ea309c59f093ac8e2a1ea64f3b94bacc05e6a2b6125b1da8`.
+- [Exact categories](https://arxiv.org/pdf/0811.1480v2) — arXiv:0811.1480v2 (22 April 2009), 67 pages, the preprint of Expositiones Mathematicae 28 (2010), 1–69; printed page numbers equal PDF page numbers of the arXiv file. The journal version was not read.; SHA-256 `b7eaa8df7b6e572e2615776be4ab1930907f6c64b6a6610286d9ea5abc51d295`.
 
 ## Declarations and proof obligations
 
@@ -60,14 +75,15 @@ For an exact category A the category Q(A) has the objects of A; a morphism from 
 
 **Hypotheses.**
 
-- Import TauCeti.ExactStructure on a preadditive category with a zero object and binary biproducts. Its ConflationClass supplies kernel–cokernel pairs, and its E0/E1/E2 fields and their duals supply exactly the composition and base/cobase-change axioms used by Q. A dictionary to Quillen’s redundant cancellation axiom is a separate proof obligation if that axiom is invoked; it is not an extra exact-structure carrier.
+- Import TauCeti.ExactStructure on a preadditive category with a zero object and binary biproducts: its ConflationClass supplies the kernel–cokernel pairs and its E0/E1/E2 fields with their duals the composition and base/cobase-change axioms. No competing exact-category carrier is defined. Composition in Q needs exactly two pinned facts: base change of a conflation along any map is a conflation with the same kernel (ExactStructure.conflation_baseChange), and the pullback of an admissible monomorphism along an admissible epimorphism is an admissible monomorphism, being a kernel of the composite deflation (ExactStructure.conflation_comp_of_isPullback; Bühler, Proposition 2.15). Both are proved from E1op, E2op and the kernel–cokernel property.
+- Quillen's axiom (c) (Weibel, Exercise II.7.8(3); Bühler's 'obscure axiom', Proposition 2.16) is used by no node of this packet: every proof step is phrased in E0–E2, their duals and the kernel–cokernel property, as the composition step above shows. For the pinned carrier that axiom holds only for a morphism that has a cokernel (dually, a kernel), which is the hypothesis of Bühler's Proposition 2.16. The K-book defines exact categories inside an ambient abelian category (Definition II.7.0), which the pinned carrier does not have; the proofs here are intrinsic, and where a statement needs an ambient abelian category (the closure hypothesis of Gillet–Waldhausen) that category is part of the data, with the pinned induced structure.
 - The equivalence classes of the defining diagrams must form a set; this is guaranteed for a small exact category, and the next node says how a small model is chosen.
 - Composition uses the pullback of an admissible epimorphism along an arbitrary map, which exists and is again an admissible epimorphism by the base-change axiom; this is where the exactness axioms are used.
 
 **Proof outline.**
 
 1. Define the morphisms as equivalence classes of the displayed diagrams and check that the relation is an equivalence relation.
-2. Define composition by the pullback of the two middle objects and check, from the base-change axiom, that the resulting diagram is again of the required form.
+2. Define composition: for A ↞ B₂ ↣ B and B ↞ C₂ ↣ C form the pullback B₂ ×_B C₂ of the admissible epimorphism C₂ ↠ B along B₂ ↣ B (E2op). Its map to C₂ is an admissible monomorphism by ExactStructure.conflation_comp_of_isPullback and its map to B₂ an admissible epimorphism by ExactStructure.conflation_baseChange, so the composite A ↞ B₂ ×_B C₂ ↣ C is again of the required form by E1 and E1op.
 3. Prove associativity and the identity laws from the universal property of the pullback, which is the representative-independence the stage text asks for.
 4. Prove the subobject description: a morphism determines and is determined by an admissible subobject of the target together with an admissible epimorphism from it, so that morphisms out of the zero object are the admissible subobjects.
 5. Prove the factorisation of every morphism into an oppositely oriented admissible epimorphism followed by an admissible monomorphism, unique up to isomorphism.
@@ -81,7 +97,7 @@ For an exact category A the category Q(A) has the objects of A; a morphism from 
 - Q of the opposite exact category is isomorphic to Q(A), which is the symmetry the later comparisons use.
 - For the split exact structure the admissible epimorphisms are the split surjections; a definition that used all epimorphisms would fail this.
 
-**Prerequisites.** `tauceti:TauCeti.ExactStructure`, `tauceti:TauCeti.ExactK0`, `mathlib:CategoryTheory.nerve`
+**Prerequisites.** `tauceti:TauCeti.ExactStructure`, `tauceti:TauCeti.ExactStructure.conflation_baseChange`, `tauceti:TauCeti.ExactStructure.conflation_comp_of_isPullback`
 
 **Planning API.**
 
@@ -115,6 +131,8 @@ For an exact category A the category Q(A) has the objects of A; a morphism from 
 - `Weibel.KBook.IV`: Definition 6.1 with 6.1.1, p. IV.53. The construction with its composition, verbatim.
 - `Weibel.KBook.IV`: 6.1.2 (Subobjects) and the paragraph after it, p. IV.53. The subobject description and the two consequences, verbatim.
 - `Weibel.KBook.IV`: 6.1, the paragraph on the two distinguished kinds of morphism, p. IV.53. The factorisation, verbatim; it is what the universal property of the next node rests on.
+- `Buhler.ExactCategories`: Proposition 2.15, p. 10, and Proposition 2.16 with Remark 2.17, pp. 10–11 (arXiv v2). Proposition 2.15 is the composition step, proved from E1op and the kernel property; Proposition 2.16 is Quillen's axiom (c), valid only under its cokernel hypothesis and used by no node here.
+- `Weibel.KBook.II`: Exercise 7.8, pp. II.70–71. Quillen's axiom (c) in the source's numbering, with its kernel and cokernel hypotheses.
 
 ### The universal property of Q(A)
 
@@ -180,6 +198,7 @@ The K-groups are defined for a small exact category. An exact category with only
 - The exact category has a set of isomorphism classes; the small subcategory is equivalent to it as an exact category, that is by an equivalence carrying conflations to conflations in both directions.
 - Naturality is in exact functors: a square of exact functors and equivalences commutes up to a natural isomorphism, and isomorphic exact functors induce the same map.
 - The pinned Tau Ceti transport is along an additive equivalence with the exact structure carried across; that is the hypothesis this node reuses.
+- Universe discipline: the pinned ExactK0 E lives in Type w for [EssentiallySmall.{w} C], so the small model, its Q-category, nerve and realisation are taken w-small and every K-group lives in universe w. For a ring R : Type u the pinned EssentiallySmall.{u} instance of the finitely generated projectives fixes w = u. No universe is raised silently when passing to the model.
 
 **Proof outline.**
 
@@ -194,6 +213,7 @@ The K-groups are defined for a small exact category. An exact category with only
 - The K-groups do not depend on the choice of small model, and the isomorphism is natural in exact functors.
 - In degree zero the statement is Tau Ceti's pinned invariance of the Grothendieck group, and the two must agree.
 - The choice of zero object does not matter.
+- The comparison of the fundamental group with ExactK0 E : Type w is made on a w-small model, so the two groups live in the same universe.
 
 **Prerequisites.** `GeneralAlgebraicKTheory:K.1/exact-categories-and-Q-construction`, `tauceti:TauCeti.ExactStructure.transport`, `tauceti:TauCeti.ExactK0.transportEquiv`, `tauceti:TauCeti.ExactK0.mapEquiv`
 
@@ -205,35 +225,37 @@ The K-groups are defined for a small exact category. An exact category with only
 
 `GeneralAlgebraicKTheory:K.1/pi1-BQ-equals-K0` · theorem · parent `GeneralAlgebraicKTheory:K.1` · implementation unchecked
 
-For a small exact category the realisation of the nerve of Q(A) is a connected complex whose fundamental group at the zero object is the Grothendieck group of A; the element corresponding to the class of an object A is the based loop made of the two edges from the zero object to A, the admissible monomorphism and the oppositely oriented admissible epimorphism. The proof uses the maximal tree of all monomorphisms out of the zero object, and the inverse map is constructed from the universal property of the Grothendieck group, never by comparing cardinalities.
+For an exact structure E on an essentially w-small category, with the pinned ExactK0 E : Type w, the realisation of the nerve of Q(E) on the w-small model of the previous nodes is a connected complex whose fundamental group at the zero object is ExactK0 E; the element corresponding to ExactK0.of A is the based loop made of the two edges from the zero object to A, the admissible monomorphism and the oppositely oriented admissible epimorphism. Both directions of the isomorphism come from universal properties: ExactK0.lift of the two-edge loops in one direction, and in the other the map on fundamental groups induced, through the classification of coverings, by the functor from Q(E) to ExactK0 E that the universal property of Q provides. No counting argument is used.
 
 **Hypotheses.**
 
-- A is a small exact category with a chosen zero object.
+- C is preadditive with a zero object and binary biproducts and [EssentiallySmall.{w} C], as the pinned ExactK0 E : Type w requires. The realisation is formed on a w-small model and transported by K.1/small-models-and-transport, whose degree-zero part is ExactK0.transportEquiv.
 - The orientation of the loop is fixed once and for all as in the source, and every later comparison uses that orientation.
-- The Grothendieck group is the one generated by the objects with a relation for each conflation, which is the pinned Tau Ceti group.
+- The Grothendieck group is the pinned ExactK0 E, generated by the objects with a relation for each conflation; its class map is ExactK0.of, its universal property ExactK0.lift (with liftEquiv) out of an ExactK0.AdditiveInvariant with values in a commutative group, and its extensionality ExactK0.hom_ext.
 
 **Proof outline.**
 
 1. Take the family of all morphisms out of the zero object as a maximal tree of the nerve, which is legitimate because each non-zero vertex occurs exactly once.
-2. Read off the presentation of the fundamental group from the maximal tree: it is generated by the morphisms modulo the relation that the composite of two morphisms is the product.
-3. Identify the generators with the classes of objects through the two-edge loop, and show that the relation coming from a conflation is exactly the additivity relation of the Grothendieck group.
-4. Construct the inverse homomorphism from the universal property of the Grothendieck group, using the functor of the previous node that sends each inflation to the identity and each deflation to translation by the class of its kernel.
-5. Check that the two homomorphisms are mutually inverse, which completes the proof without any counting argument.
-6. Compare with the pinned Tau Ceti group on objects and on conflations.
-7. Use ExactK0.liftEquiv to construct the inverse to the fundamental-group class map. Check both compositions on object classes and use the existing extensionality/universal property; the library has ExactK0 already but does not have this π₁(BQ) comparison.
+2. Read off the presentation of the fundamental group from the maximal tree (StableHomotopyKTheory:H.1/coverings-fundamental-group-local-coefficients): it is generated by the morphisms of Q(E), modulo [t] = 1 for t in the tree and [f][g] = [f ∘ g] for composable pairs.
+3. Reduce the generators: [B₂ ↣ B] = 1, so [A ↞ B₂ ↣ B] = [A ↞ B₂], and [A ↞ B][0 ↞ A] = [0 ↞ B]; hence the fundamental group is generated by the classes ℓ(A) = [0 ↞ A], represented by the two-edge loops of the statement.
+4. For a conflation A ↣ B ↠ C the composite 0 ↣ C ↞ B equals 0 ↞ A ↣ B in Q(E), which gives ℓ(B) = ℓ(A)ℓ(C). Applied to the two split conflations with middle term A ⊞ C it gives ℓ(A)ℓ(C) = ℓ(C)ℓ(A), so the group, being generated by the ℓ(A), is commutative; isomorphic objects give equal ℓ. Hence ℓ is an ExactK0.AdditiveInvariant with values in the fundamental group written additively, and φ := ExactK0.lift ℓ : ExactK0 E → π₁ sends ExactK0.of A to ℓ(A).
+5. Construct ψ : π₁ → ExactK0 E from the functor from Q(E) to ExactK0 E, regarded as a one-object groupoid, that K.1/Q-construction-universal-property gives: every inflation goes to 0 and every deflation, as a morphism of Q(E), to the class of its kernel (Weibel, Example 6.2.3). A morphism-inverting functor to a groupoid induces a homomorphism on fundamental groups by the covering classification of H.1.
+6. Prove ψ ∘ φ = id by ExactK0.hom_ext, since ψ(ℓ(A)) is the class of the kernel of A ↠ 0, which is ExactK0.of A; prove φ ∘ ψ = id on the generators ℓ(A). No comparison of cardinalities enters.
+7. Transport to an essentially small category through K.1/small-models-and-transport and ExactK0.transportEquiv, and check that the resulting isomorphism still sends ExactK0.of A to ℓ(A) and each conflation relation (ExactK0.of_conflation) to the relation ℓ(B) = ℓ(A)ℓ(C). The library has ExactK0 but not this comparison.
 
 **Acceptance.**
 
-- The class of an object corresponds to the two-edge loop, with the orientation fixed here.
-- The inverse map is built from the universal property, as the stage text demands; equality of cardinalities is not a proof.
-- The relation coming from a conflation is the additivity relation, so the comparison is compatible with the pinned Tau Ceti presentation.
+- The class ExactK0.of A corresponds to the two-edge loop, with the orientation fixed here.
+- The isomorphism is built from ExactK0.lift and the covering classification, as the stage text demands; equality of cardinalities is not a proof.
+- The relation coming from a conflation is the additivity relation ExactK0.of_conflation, so the comparison is compatible with the pinned Tau Ceti presentation.
+- The fundamental group and ExactK0 E live in the same universe w.
 
-**Prerequisites.** `GeneralAlgebraicKTheory:K.1/Q-construction-universal-property`, `tauceti:TauCeti.ExactK0`, `mathlib:CategoryTheory.nerve`, `mathlib:SSet.toTop`, `mathlib:HomotopyGroup`, `tauceti:TauCeti.ExactK0.of`, `tauceti:TauCeti.ExactK0.of_conflation`, `tauceti:TauCeti.ExactK0.liftEquiv`
+**Prerequisites.** `GeneralAlgebraicKTheory:K.1/Q-construction-universal-property`, `GeneralAlgebraicKTheory:K.1/small-models-and-transport`, `StableHomotopyKTheory:H.1/coverings-fundamental-group-local-coefficients`, `tauceti:TauCeti.ExactK0`, `tauceti:TauCeti.ExactK0.of`, `tauceti:TauCeti.ExactK0.of_conflation`, `tauceti:TauCeti.ExactK0.AdditiveInvariant`, `tauceti:TauCeti.ExactK0.lift`, `tauceti:TauCeti.ExactK0.liftEquiv`, `tauceti:TauCeti.ExactK0.hom_ext`, `tauceti:TauCeti.ExactK0.transportEquiv`, `mathlib:CategoryTheory.nerve`, `mathlib:SSet.toTop`, `mathlib:HomotopyGroup`
 
 **Sources.**
 
 - `Weibel.KBook.IV`: Proposition 6.2 with its proof, p. IV.54. The theorem, the representative of a class and the maximal-tree proof, verbatim.
+- `Weibel.KBook.IV`: Proof of Proposition 6.2 and Example 6.2.3, p. IV.54. The generators, the additivity relation and the functor to the Grothendieck group from which the inverse map is built.
 
 ### The K-groups of an exact category
 
@@ -278,7 +300,7 @@ For a small exact category A, define BQ(A) as the realisation of the nerve of Q(
 **Consumers.**
 
 - Every later layer of this roadmap — K.2 compares these groups with the plus construction, K.3 proves the fundamental theorems about them, K.4 compares them with the Waldhausen construction and K.5 makes them relative.
-- K.6 and K.7 — The nonconnective extension takes this connective theory as input, and the invariance and product statements are about it.
+- K.6 and K.7 — The nonconnective extension takes this connective theory as input, and the invariance and product statements are about it; their ring forms go through the early ring model of K.2:plus.
 - The consumer roadmaps — ArithmeticKTheory, K2SymbolsBrauer, K3BlochGroups and the rest import these groups by name.
 
 **Unit tests.**
@@ -296,78 +318,77 @@ For a small exact category A, define BQ(A) as the realisation of the nerve of Q(
 
 `GeneralAlgebraicKTheory:K.1/elementary-properties-of-K-groups` · theorem · parent `GeneralAlgebraicKTheory:K.1` · implementation unchecked
 
-The K-groups of an exact category and of its opposite agree, since the two Q-categories are isomorphic; the direct sum of two exact categories is exact with Q of the sum the product of the Q-categories, so the K-groups of a finite product are the products of the K-groups; and the K-groups commute with filtered colimits of exact categories, because Q and the realisation both do. The direct sum makes the realisation a homotopy-commutative H-space, and the induced addition is the group operation.
+The K-groups of an exact category and of its opposite agree, since the two Q-categories are isomorphic; the direct sum of two exact categories is exact with Q of the sum the product of the Q-categories, so the K-groups of a finite direct sum are the products of the K-groups; and the K-groups commute with filtered colimits of exact categories, because the filtered colimit carries an exact structure, Q commutes with it and so do the classifying space and its homotopy groups. The direct sum makes the realisation a homotopy-commutative H-space, and the induced addition is the group operation. These are statements about exact categories only; their ring forms (finite products of rings, filtered colimits of rings through idempotent matrices, opposite rings) belong to the early ring model K.2/functorial-K-theory-of-a-ring.
 
 **Hypotheses.**
 
-- The products are finite; the colimits are over small filtering categories.
-- For rings the colimit statement is applied to the categories of finitely generated projective modules, which requires the model by idempotent matrices to make the assignment a functor.
+- The products are finite; the colimits are over small filtering categories of exact categories and exact functors, and the colimit carries the exact structure whose conflations are the images of conflations at some stage (Weibel, Exercise II.7.9, through the axioms of Exercise II.7.8(1)–(2)).
 - The H-space structure is the one induced by the direct sum, and the identification with the group structure is part of the statement.
 
 **Proof outline.**
 
-1. Prove that Q of the opposite category is isomorphic to Q(A), and read off the first statement.
+1. Prove that Q of the opposite category is isomorphic to Q(A), exchanging the two kinds of morphism, and read off the first statement.
 2. Prove that Q of a direct sum of exact categories is the product of the Q-categories and that the realisation preserves finite products, and read off the second.
-3. Prove that Q commutes with filtered colimits and that the realisation does, and read off the third.
-4. Record the ring instances of both statements.
-5. Prove that the direct sum makes the realisation a homotopy-commutative H-space, and that the addition it induces on the homotopy groups is the group operation, using that the two inclusions are isomorphic to the identity.
+3. Equip a filtered colimit of exact categories with its exact structure, prove that Q commutes with the filtered colimit, and read off the third from the commutation of classifying spaces and homotopy groups with filtered colimits of small categories (StableHomotopyKTheory:H.1/filtered-colimits-of-categories).
+4. Prove that the direct sum makes the realisation a homotopy-commutative H-space, and that the addition it induces on the homotopy groups is the group operation, using that the two inclusions are isomorphic to the identity.
+5. Leave the ring instances to K.2/functorial-K-theory-of-a-ring, which needs the idempotent-matrix model to make the filtered colimit a functor of rings.
 
 **Acceptance.**
 
-- The K-groups of a finite product of rings are the products of the K-groups.
+- The K-groups of a direct sum of two exact categories are the products of the K-groups.
 - The K-groups of a filtered colimit of exact categories are the colimit of the K-groups.
 - Infinite products are not claimed; only finite ones.
 - The H-space addition agrees with the group operation on homotopy groups.
 
-**Prerequisites.** `GeneralAlgebraicKTheory:K.1/K-groups-of-exact-categories`, `mathlib:CategoryTheory.Limits.HasFilteredColimits`
+**Prerequisites.** `GeneralAlgebraicKTheory:K.1/K-groups-of-exact-categories`, `StableHomotopyKTheory:H.1/filtered-colimits-of-categories`, `mathlib:CategoryTheory.Limits.HasFilteredColimits`
 
 **Sources.**
 
-- `Weibel.KBook.IV`: Elementary properties 6.4, pp. IV.55 to IV.56. All three statements with their proofs, verbatim.
+- `Weibel.KBook.IV`: Elementary properties 6.4, pp. IV.55 to IV.56. All three statements with their proofs, verbatim; the ring examples in the same passage are the ring model's (K.2/functorial-K-theory-of-a-ring).
 
-### Scalar extension of finitely generated projectives, without a flatness hypothesis
+### Scalar extension as an exact functor of finitely generated projectives, without a flatness hypothesis
 
 `GeneralAlgebraicKTheory:K.2:plus/scalar-extension-and-functoriality` · construction · parent `GeneralAlgebraicKTheory:K.2:plus` · implementation unchecked
 
-For a unital ring homomorphism from A to B the functor sending a module to its extension of scalars carries finitely generated projective A-modules to finitely generated projective B-modules and split exact sequences to split exact sequences, with no flatness hypothesis: projectivity and finite generation are both preserved by base change, and a split exact sequence is carried to a split exact sequence by any additive functor whatever. The resulting exact functor between the categories of finitely generated projectives is what makes the K-theory of a ring a functor. Tau Ceti already has the category of finitely generated projectives with its exact structure, proved to be the split one, and the statement that every additive functor is exact for split structures; Mathlib has the two base-change statements. What is missing, and what this node builds, is the functor itself along an arbitrary unital ring map and the functoriality of K that follows.
+For a unital ring homomorphism f from A to B, possibly noncommutative, the scalar-extension functor f_! = B ⊗_A − of KTheoryLowDegrees Z.1 (Z.1/extend-scalars, the left adjoint of restriction of scalars, for arbitrary unital rings) restricts to an additive functor from the finitely generated projective A-modules to the finitely generated projective B-modules (Z.1/extend-scalars-finite-projective). This node makes it an exact functor of the pinned exact categories: the exact structure on finitely generated projectives is the split one (finiteProjectiveModulesExactStructure_eq_split), and every additive functor is exact for split structures (ExactStructure.isConflationExact_split), so no flatness hypothesis is needed. The identity and composition natural isomorphisms of Z.1/extend-scalars make f ↦ f_! a pseudofunctor into exact functors, which is what makes the K-theory of a ring functorial in K.2/functorial-K-theory-of-a-ring. Neither the arbitrary-ring functor nor its preservation of finitely generated projectives is in the pinned libraries; they are Z.1's, and this node does not rebuild them.
 
 **Hypotheses.**
 
-- The ring map is unital and the rings need not be commutative; the extension of scalars is the tensor product over the source, taken on the correct side.
+- The ring map is unital and the rings need not be commutative; the extension of scalars is Z.1's ExtendScalars (in the K-book's right-module notation P ↦ P ⊗_A B), not Mathlib's ModuleCat.extendScalars, which is stated for commutative rings and is used only for the comparison in the commutative case.
 - No flatness is assumed. Flatness would be needed to preserve arbitrary exact sequences, and is not needed here because the exact structure on finitely generated projectives is the split one.
-- The pinned Mathlib base-change statements for projectivity and for finite generation are stated for an algebra over a commutative ring; for an arbitrary unital ring map the corresponding statements are part of this node.
-- Use the pinned finiteProjectiveModules R full subcategory, its EssentiallySmall instance, and finiteProjectiveModulesExactStructure_eq_split. Mathlib ModuleCat.extendScalars is cited only in its actual commutative scope; tensoring with the (S,R)-bimodule S for arbitrary unital noncommutative maps remains an explicit interface obligation, not a pinned claim.
+- The categories are the pinned full subcategories (finiteProjectiveModules R).FullSubcategory with finiteProjectiveModulesExactStructure R, each with the pinned EssentiallySmall.{u} instance, for rings in one universe u.
 
 **Proof outline.**
 
-1. Record the pinned material: the exact category of finitely generated projectives with the proof that its exact structure is the split one, the preservation of projectivity and of finiteness under base change, and the fact that every additive functor is exact for split structures.
-2. Construct the functor along an arbitrary unital ring map and prove that it lands in finitely generated projectives.
-3. Prove that it is exact, which by the split structure needs only additivity, and record that this is where the absence of a flatness hypothesis comes from.
-4. Prove functoriality in the ring map, up to the natural isomorphism of iterated tensor products, and deduce that the K-theory space and groups are functors on rings.
-5. Record the extension of the same argument to the categories of all finitely generated modules, where flatness is genuinely needed, so that the contrast is visible.
+1. Import from KTheoryLowDegrees Z.1 the functor ExtendScalars f with its unit and composition natural isomorphisms, and its restriction to an additive functor between the finitely generated projectives (Z.1/extend-scalars-finite-projective (b) and (d)).
+2. Prove that the restriction is conflation-exact for the pinned structures: rewrite both with finiteProjectiveModulesExactStructure_eq_split and apply ExactStructure.isConflationExact_split; record that this is where the absence of a flatness hypothesis comes from.
+3. Transport the unit and composition isomorphisms of Z.1/extend-scalars to natural isomorphisms of exact functors, so that f ↦ f_! respects identities and composites up to the specified isomorphisms.
+4. For commutative rings, compare f_! with Mathlib's ModuleCat.extendScalars through Z.1's natural isomorphism.
+5. Record the contrast on all finitely generated modules, where exactness of base change genuinely needs flatness.
 
 **Acceptance.**
 
-- Base change along any unital ring map induces an exact functor of the categories of finitely generated projectives, with no flatness hypothesis.
+- Base change along any unital ring map, including noncommutative ones, induces an exact functor of the categories of finitely generated projectives, with no flatness hypothesis.
 - Base change on all finitely generated modules is exact only under a flatness hypothesis; the two must not be confused.
-- The induced maps of K-groups are functorial in the ring map.
+- The exact functors attached to an identity and to a composite of ring maps are the identity and the composite, up to the natural isomorphisms of Z.1/extend-scalars.
 
-**Prerequisites.** `mathlib:Module.Projective.tensorProduct`, `mathlib:Module.Finite.base_change`, `mathlib:ModuleCat.extendScalars`, `tauceti:TauCeti.ExactStructure.isConflationExact_split`, `tauceti:TauCeti.ExactStructure`, `tauceti:TauCeti.finiteProjectiveModules`, `tauceti:TauCeti.finiteProjectiveModulesExactStructure`, `tauceti:TauCeti.finiteProjectiveModulesExactStructure_eq_split`, `tauceti:TauCeti.finiteProjectiveModulesExactStructure_conflation_iff`
+**Prerequisites.** `KTheoryLowDegrees:Z.1/extend-scalars`, `KTheoryLowDegrees:Z.1/extend-scalars-finite-projective`, `mathlib:ModuleCat.extendScalars`, `tauceti:TauCeti.ExactStructure.isConflationExact_split`, `tauceti:TauCeti.ExactStructure`, `tauceti:TauCeti.finiteProjectiveModules`, `tauceti:TauCeti.finiteProjectiveModulesExactStructure`, `tauceti:TauCeti.finiteProjectiveModulesExactStructure_eq_split`, `tauceti:TauCeti.finiteProjectiveModulesExactStructure_conflation_iff`
 
 **Planning API.**
 
 | Name | Role | Contract |
 | --- | --- | --- |
-| `projBaseChange` | data | The base-change functor on finitely generated projectives. |
-| `projBaseChange_exact` | characterisation | It is exact, by additivity alone, for the split structure. |
-| `projBaseChange_comp` | functoriality | Compatibility with composition of ring maps. |
-| `KGroup.ringMap` | functoriality | The induced map of K-groups. |
+| `projBaseChange` | data | The exact functor f_! between the pinned exact categories of finitely generated projectives, for a unital ring map f. |
+| `projBaseChange_exact` | characterisation | It is conflation-exact, by additivity alone, for the split structure. |
+| `projBaseChange_id` | functoriality | The exact functor of the identity ring map is naturally isomorphic to the identity. |
+| `projBaseChange_comp` | functoriality | Compatibility with composition of ring maps, through Z.1's composition isomorphism. |
 | `projBaseChange_no_flat` | relation | No flatness hypothesis is needed here, unlike on all finitely generated modules. |
+| `projBaseChange_comm` | compatibility | For commutative rings it is naturally isomorphic to the restriction of Mathlib's ModuleCat.extendScalars. |
 
 **Consumers.**
 
-- K.2, the plus comparison — The comparison is asserted to commute with ring maps, which needs this functor.
-- K.1, the elementary properties — The filtered-colimit statement for rings is applied to this functor.
+- K.2:plus, the ring model — K.2/functorial-K-theory-of-a-ring defines the map of K-theory spaces of a ring map as K of this exact functor.
+- K.2:plus, the plus comparison — The comparison is asserted to commute with ring maps, which needs this functor.
 - K.5 — Relative K-theory of a ring map is the homotopy fibre of the map this functor induces.
 
 **Unit tests.**
@@ -376,17 +397,18 @@ For a unital ring homomorphism from A to B the functor sending a module to its e
 - `free_case` (computation) — It carries a finite free module to a finite free module of the same rank.
 - `composition` (compatibility) — It is compatible with composition of ring maps.
 - `modules_need_flat` (non-example) — On all finitely generated modules exactness does need flatness; a formalisation that dropped it there would be wrong.
+- `noncommutative_map` (computation) — For the inclusion of a field k into the matrix ring M₂(k), neither ring being commutative in the second case, the functor sends k to M₂(k), free of rank one over M₂(k); in K₀(M₂(k)) ≅ ℤ, generated by the simple module k², the class of M₂(k) is twice that generator, so the induced map ℤ = K₀(k) → K₀(M₂(k)) = ℤ is multiplication by 2.
 
 **Sources.**
 
-- `Weibel.KBook.IV`: Definition 6.3.2, p. IV.55. The definition of the K-theory of a ring and the transfer in the opposite direction, verbatim.
+- `Weibel.KBook.IV`: Definition 6.3.2, p. IV.55. The definition of the K-theory of a ring for an arbitrary ring with unit, and the transfer in the opposite direction, verbatim; the arbitrary-ring scope is why the noncommutative functor of Z.1 is used.
 - `Weibel.KBook.IV`: Definition 6.3.3, p. IV.55. The flatness hypothesis where it is genuinely needed, on all finitely generated modules, verbatim; the contrast with finitely generated projectives is the point of this node.
 
 ### The extension category and the fibration over Q(A)
 
 `GeneralAlgebraicKTheory:K.2:plus/extension-category-and-the-fibration` · construction · parent `GeneralAlgebraicKTheory:K.2:plus` · implementation unchecked
 
-For an exact category A the EXTENSION CATEGORY has as objects the admissible exact sequences of A, with morphisms the equivalence classes of the displayed three-row diagrams. The functor to Q(A) sending a sequence to its quotient term is fibred, its fibre over the zero object is the groupoid of isomorphisms of A, and each fibre is symmetric monoidal with a faithful monoidal functor from that groupoid. Localising the fibre at that action and comparing gives a fibration from the localised groupoid through the localised fibre to a contractible category, and the localised extension category is itself contractible; these are the inputs to the plus-equals-Q theorem of the next node.
+For an exact category A the EXTENSION CATEGORY has as objects the admissible exact sequences of A, with morphisms the equivalence classes of the displayed three-row diagrams. The functor to Q(A) sending a sequence to its quotient term is fibred, its fibre over the zero object is the groupoid of isomorphisms of A, and each fibre is symmetric monoidal with a faithful monoidal functor from that groupoid. Localising the fibre at that action and comparing gives a fibration from the localised groupoid through the localised fibre to a contractible category, and the localised extension category is itself contractible; these are the inputs to the plus-equals-Q theorem of the next node. This category EA of Weibel IV.7.3, whose morphisms are the Q-type diagrams (7.3.1), is not the exact category E(A) of conflations with ordinary morphisms that the Additivity Theorem and the S-construction use (Weibel V.1.1.1 and II.9.3), which K.3 constructs: EA is not an exact category, and its only functor to Q(A) is the quotient-term functor.
 
 **Hypotheses.**
 
@@ -396,7 +418,7 @@ For an exact category A the EXTENSION CATEGORY has as objects the admissible exa
 
 **Proof outline.**
 
-1. Define the extension category with the source's morphisms and check that the three functors to A, taking the sub, total and quotient terms, are exact.
+1. Define the extension category with the source's morphisms (7.3.1) and the functor t to Q(A) taking a sequence to its quotient term, the right column of (7.3.1) being a morphism of Q(A). Record that the left column is an admissible monomorphism from the sub term of the target into that of the source and the middle column an admissible monomorphism from the total term of the source into that of the target, so that EA carries no exact sub- or total-term functors to A.
 2. Prove that the quotient functor to Q(A) is fibred and identify the fibre over the zero object with the groupoid of isomorphisms.
 3. Give each fibre its symmetric monoidal structure and the faithful monoidal functor from the groupoid of isomorphisms.
 4. Prove that the localisation of the groupoid through the localisation of a fibre to the associated category is a fibration, and that the last is contractible when A is split exact, being a connected group-like H-space on which the diagonal gives a homotopy between the identity and multiplication by two.
@@ -415,8 +437,6 @@ For an exact category A the EXTENSION CATEGORY has as objects the admissible exa
 | Name | Role | Contract |
 | --- | --- | --- |
 | `ExtCat` | data | The extension category of an exact category. |
-| `ExtCat.sub` | data | The sub-term functor. |
-| `ExtCat.total` | data | The total-term functor. |
 | `ExtCat.quot` | data | The quotient-term functor, which is the one fibred over Q(A). |
 | `ExtCat.fibre_zero` | characterisation | The fibre over the zero object is the groupoid of isomorphisms. |
 | `ExtCat.contractible` | characterisation | The extension category is contractible. |
@@ -424,15 +444,15 @@ For an exact category A the EXTENSION CATEGORY has as objects the admissible exa
 **Consumers.**
 
 - K.2:plus, the plus-equals-Q theorem — The theorem is proved by applying the fibration criterion to the localised extension category.
-- K.3, additivity — Additivity is the statement that the sub-and-quotient functor out of the extension category is a homotopy equivalence, so the two layers share this object.
-- K.4, the S-construction — The extension category is the second term of the S-construction, which is how the two constructions are compared.
+- Weibel IV.7.3 to 7.5, as distinct from V.1.1.1 — The category of conflations with ordinary morphisms, not this one, is the extension category of the Additivity Theorem and the second term of the S-construction; the two are kept apart.
 
 **Unit tests.**
 
 - `fibre_is_iso_groupoid` (degenerate) — The fibre over the zero object is the groupoid of isomorphisms.
 - `split_needed` (non-example) — For a non-split exact category the comparison category is not connected, so the hypothesis cannot be dropped.
-- `three_functors_exact` (computation) — The sub, total and quotient functors are exact.
+- `quotient_functor_to_Q` (computation) — The right column of every morphism (7.3.1) is a morphism of Q(A), and composing morphisms of EA composes these columns, so taking the quotient term is a functor t from EA to Q(A).
 - `not_directly_fibred` (non-example) — The fibration criterion does not apply to the extension category over Q(A) itself unless the category is zero; the localised functor must be used.
+- `not_the_conflation_category` (non-example) — EA is not the category of conflations: its morphisms over an identity of Q(A) are pairs of isomorphisms (Weibel 7.4), whereas a conflation X ↣ X ↠ 0 with X nonzero has the zero endomorphism in the category of conflations; a formalisation that reused the category of conflations here would lose the identification of the fibre over 0 with the groupoid of isomorphisms.
 
 **Sources.**
 
@@ -476,33 +496,35 @@ For a split exact category with isomorphism groupoid S, the LOOP SPACE of the re
 
 `GeneralAlgebraicKTheory:K.2:plus/cofinality-of-projective-modules` · lemma · parent `GeneralAlgebraicKTheory:K.2:plus` · implementation unchecked
 
-Every finitely generated projective module over a ring is a direct summand of a finite free module, so it has a complement whose sum with it is free, and that complement is again finitely generated projective. Consequently the category of finite free modules is cofinal in the finitely generated projectives, and the K-theoretic cofinality statement of K.3 applies: the higher K-groups of the two categories agree, while their zeroth groups need not. This is why the stable general linear group, which sees only free modules, detects the higher K-groups of a ring even when projectives are not free. Mathlib has the module-theoretic half and this node adds the K-theoretic consequence.
+Every finitely generated projective module over a ring is a direct summand of a finite free module, so it has a complement whose sum with it is free, and that complement is again finitely generated projective. Consequently the monoidal inclusion of the finite free modules into the groupoid of finitely generated projectives is cofinal, and the group-completion cofinality theorem (Weibel, Cofinality Theorem IV.4.11, owned by StableHomotopyKTheory H.4) gives, through the plus-equals-Q theorem, that the K-groups of the split exact category of finite free modules and of the finitely generated projectives agree in every positive degree, while their zeroth groups need not. This is why the stable general linear group, which sees only free modules, detects the higher K-groups of a ring even when projectives are not free. Mathlib has the module-theoretic half; this node adds the K-theoretic consequence without using the late exact-category cofinality theorem of K.3, which comes after K.4.
 
 **Hypotheses.**
 
 - The ring has a unit; the module is finitely generated and projective.
 - The complement is the kernel of the surjection from the finite free module, which is finitely generated and projective because the surjection splits.
+- The finite free modules form a full subcategory of the finitely generated projectives closed under extensions (an extension of free modules splits), so it is a split exact category, and its automorphism groups are those computed in the projectives; these are the hypotheses of Cofinality Theorem IV.4.11(b).
 - The K-theoretic conclusion is only for the groups in positive degrees; in degree zero the free category has a proper subgroup in general.
 
 **Proof outline.**
 
 1. Record Mathlib's statement: a finitely generated projective module is a retract of a finite free module, with the two maps composing to the identity.
 2. Deduce that the kernel of the retraction is the image of the complementary idempotent, hence finitely generated and projective, and that the sum of the module with it is free.
-3. Conclude that the finite free modules are cofinal in the finitely generated projectives.
-4. Apply the cofinality theorem of K.3 to get the agreement of the higher K-groups and the inclusion of the zeroth groups.
-5. Record the non-example: the zeroth groups genuinely differ for a ring with a non-free projective, so the agreement may not be extended to degree zero.
+3. Conclude that the inclusion of the groupoid of finite free modules into the groupoid of finitely generated projectives is a cofinal monoidal functor with the same automorphism groups.
+4. Apply the group-completion cofinality theorem (H.4) to identify the basepoint components of the two group completions, and transport through the plus-equals-Q theorem for the two split exact categories to get the agreement of the positive K-groups.
+5. Record the non-example: the zeroth groups genuinely differ for a ring with a non-free projective, so the agreement may not be extended to degree zero. The general exact-category cofinality theorem, K.3/cofinality-degree-zero-correction, recovers the same statement after K.4 and is not needed here.
 
 **Acceptance.**
 
 - Every finitely generated projective has a complement making the sum free.
 - The higher K-groups of the free and of the projective categories agree; the zeroth ones need not.
 - For a ring with a non-free finitely generated projective the zeroth groups differ, so the statement has content.
+- The proof uses only group completion and the plus comparison, not Waldhausen K-theory.
 
-**Prerequisites.** `mathlib:Module.Finite.exists_comp_eq_id_of_projective`, `mathlib:LinearMap.ker_eq_range_of_comp_eq_id`, `GeneralAlgebraicKTheory:K.3/cofinality-degree-zero-correction`
+**Prerequisites.** `mathlib:Module.Finite.exists_comp_eq_id_of_projective`, `mathlib:LinearMap.ker_eq_range_of_comp_eq_id`, `GeneralAlgebraicKTheory:K.2:plus/plus-equals-Q`, `StableHomotopyKTheory:H.4`
 
 **Sources.**
 
-- `Weibel.KBook.IV`: Cofinality 6.4.1, p. IV.56. The K-theoretic cofinality statement this node applies, verbatim.
+- `Weibel.KBook.IV`: Cofinality Theorem 4.11 with its proof, and the paragraph before Corollary 4.11.1, pp. IV.44–45. The cofinality this node proves and the group-completion theorem it applies, verbatim; Corollary 4.11.1 is the resulting product description.
 
 ### The explicit models in degrees one, two and three
 
@@ -569,49 +591,55 @@ The identifications of the first three K-groups with their classical models hold
 
 - `Weibel.KBook.IV`: §7, the opening and Corollary 7.2, pp. IV.61 to IV.62. The unconditional half, verbatim. Matsumoto’s theorem is in chapter III of the same book, which was not read for this job; it is imported from K2SymbolsBrauer and the packet does not quote it.
 
-### Early functorial connective K-theory of unital rings
+### The early ring model: functorial connective K-theory of unital rings
 
 `GeneralAlgebraicKTheory:K.2/functorial-K-theory-of-a-ring` · construction · parent `GeneralAlgebraicKTheory:K.2:plus` · implementation unchecked
 
-For every unital, possibly noncommutative ring R, import P(R) = (TauCeti.finiteProjectiveModules R).FullSubcategory with its existing split exact structure and essentially small model. Set K(R) = ΩBQ(P(R)). Scalar extension along a unital map R → S induces K(R) → K(S), preserving identities and composition without flatness. In every n ≥ 0 the projection maps induce K_n(R × S) ≅ K_n(R) × K_n(S), and K_n commutes with filtered colimits of unital rings via descent of finite idempotent matrices. This early interface is independent of the plus comparison and nonconnective extension. Late K.7 imports it and proves only the additional enhanced/nonconnective statements.
+For every unital, possibly noncommutative ring R : Type u, let P(R) be the pinned full subcategory (TauCeti.finiteProjectiveModules R).FullSubcategory with the pinned exact structure finiteProjectiveModulesExactStructure R, which is the split one (finiteProjectiveModulesExactStructure_eq_split), and the pinned EssentiallySmall.{u} instance. Set K(R) := KSpace(P(R)) = ΩBQ(P(R)) on the K.1 small model and K_n(R) := KGroup(P(R), n), in universe u. A unital ring map f : R → S induces K(f) := K(f_!) through the exact scalar-extension functor of K.2:plus/scalar-extension-and-functoriality, with K(id) ≃ id and K(g ∘ f) ≃ K(g) ∘ K(f) through its unit and composition isomorphisms. The model has four further properties, each the ring form of a generic K.1 statement: (i) π₀ K(R) ≅ RingK0 R ≅ ExactK0(P(R)), sending [P] to the class of P, naturally in R; (ii) the projections induce K_n(R × S) ≅ K_n(R) × K_n(S) for every n ≥ 0; (iii) for a small filtered diagram of unital rings with colimit R, colim K_n(R_i) ≅ K_n(R), computed on the equivalent categories of idempotent matrices, which are strictly functorial; (iv) Hom_R(−, R) is an exact equivalence P(R)^op ≃ P(R^op), so K_n(R^op) ≅ K_n(R). This one node owns the ring model: it depends neither on the plus comparison nor on the nonconnective theory, K.5 imports it, and the late K.6 and K.7 import it rather than rebuilding it.
 
 **Hypotheses.**
 
-- Unital associative rings and unital maps; commutativity is not a general hypothesis.
-- Use small-model transport of the existing essentially small projective category.
-- Filtered diagrams are small; finite idempotent matrices and their finitely many relations descend to a stage.
+- Unital associative rings and unital maps in one universe u; no commutativity, noetherian, flatness or invariant-basis-number hypothesis. The noncommutative scalar extension is KTheoryLowDegrees:Z.1/extend-scalars and is not in the pinned libraries.
+- Universe and smallness: P(R) is essentially u-small by the pinned instance, K(R) is formed on its K.1 small model, and K(R), K_n(R) and ExactK0(P(R)) live in universe u; the choice of model is irrelevant by K.1/small-models-and-transport.
+- Filtered diagrams are small; finite idempotent matrices, the matrices between them and the finitely many equations among these descend to a stage. The transition maps of the diagram need not be injective; the source's instance is a filtered union of subrings.
+- Duality: for P in P(R), Hom_R(P, R) is a finitely generated projective right R-module, that is a left R^op-module, and P → Hom_{R^op}(Hom_R(P, R), R) is an isomorphism; the functor is contravariant.
 
 **Proof outline.**
 
-1. Import the existing projective exact category and apply K.1 to its small model; construct the maps through scalar extension and prove identity/composition via tensor associativity and unit isomorphisms.
-2. For R × S, use its central complementary idempotents to decompose each finitely generated projective module and produce an exact equivalence P(R × S) ≃ P(R) × P(S). Apply the generic category-product theorem from K.1.
-3. For filtered colimits, use finite idempotent-matrix objects rather than pretend the literal category P(R) strictly commutes with colimits. Objects, morphisms and equalities use finite data and descend; then import the generic classifying-space/filtered-colimit theorem.
-4. Leave the plus-comparison naturality to its comparison node. K.5 relative ring theory uses this already-defined K(R) and the actual map K(f).
+1. Import the pinned exact category P(R) with its essentially small instance and apply K.1 to its small model. Construct K(f) from the exact functor f_! of K.2:plus through K.1's functoriality, and obtain K(id) ≃ id and K(g ∘ f) ≃ K(g) ∘ K(f) from the natural isomorphisms of f_!, since isomorphic exact functors induce homotopic maps (K.1).
+2. Degree zero: K.1/pi1-BQ-equals-K0 gives π₀ K(R) ≅ ExactK0(P(R)), and KTheoryLowDegrees:Z.1/ring-k0-exact gives RingK0 R ≃ ExactK0(P(R)); both send [P] to the class of P, and naturality in f holds because RingK0.map f (Z.1/ring-k0-map) and the map of f_! agree on classes (ExactK0.hom_ext).
+3. Products: the central idempotents (1, 0) and (0, 1) of R × S split each finitely generated projective module as the sum of its two parts; scalar extension along the two projections is an exact equivalence P(R × S) ≃ P(R) × P(S), and K.1/elementary-properties-of-K-groups for direct sums gives the product formula in every degree.
+4. Filtered colimits: replace P(R) by the equivalent idempotent-matrix category, the idempotent completion of the finite free modules (KTheoryLowDegrees:Z.1/projective-karoubi), which is strictly functorial in ring maps by applying them to matrix entries and is compatible with f_! because the scalar extension of the idempotent module P(e) is P(f(e)) (KTheoryLowDegrees:Z.1/extend-scalars-finite-projective (c)); objects, morphisms and equations descend to a stage, so it commutes with filtered colimits of rings as an exact category, and K.1's filtered-colimit statement with the small-model independence gives colim K_n(R_i) ≅ K_n(R).
+5. Opposite ring: Hom_R(−, R) is additive, sends R to R^op and hence finite free modules to finite free modules and summands to summands, and the evaluation map to the double dual is an isomorphism (checked on R and extended to summands), so it is an equivalence P(R)^op ≃ P(R^op), exact for the split structures. K.1's statement for opposite categories then gives K_n(R^op) ≅ K_n(R).
+6. Leave the naturality of the plus comparison to its own node, and record that K.5's relative ring theory uses this K(R) and the actual map K(f).
 
 **Acceptance.**
 
-- The two projections R × S → R,S give the product isomorphism in degree zero and every higher degree.
-- Identity and two composable ring maps give the same K-map as the corresponding tensor unit/associativity isomorphisms.
-- ℤ → ℤ/2 induces exact scalar extension on the split projective category although it is not flat on all modules.
-- An idempotent matrix over a filtered colimit and an equality between two maps descend at a sufficiently large stage.
+- The two projections R × S → R, S give the product isomorphism in degree zero and every higher degree.
+- Identity and two composable ring maps give the same K-map as the corresponding tensor unit and associativity isomorphisms.
+- In degree zero the model is RingK0 R, with K₀(f) = RingK0.map f.
+- An idempotent matrix over a filtered colimit, and an equality between two maps, descend at a sufficiently large stage.
+- The isomorphism K_n(R^op) ≅ K_n(R) is induced by the contravariant duality, not by an identification of the two categories.
 
-**Prerequisites.** `GeneralAlgebraicKTheory:K.2:plus/scalar-extension-and-functoriality`, `GeneralAlgebraicKTheory:K.1/elementary-properties-of-K-groups`
+**Prerequisites.** `GeneralAlgebraicKTheory:K.2:plus/scalar-extension-and-functoriality`, `GeneralAlgebraicKTheory:K.1/K-groups-of-exact-categories`, `GeneralAlgebraicKTheory:K.1/elementary-properties-of-K-groups`, `GeneralAlgebraicKTheory:K.1/pi1-BQ-equals-K0`, `GeneralAlgebraicKTheory:K.1/small-models-and-transport`, `KTheoryLowDegrees:Z.1/projective-karoubi`, `KTheoryLowDegrees:Z.1/extend-scalars-finite-projective`, `KTheoryLowDegrees:Z.1/ring-k0-exact`, `KTheoryLowDegrees:Z.1/ring-k0-map`, `tauceti:TauCeti.finiteProjectiveModules`, `tauceti:TauCeti.finiteProjectiveModulesExactStructure`, `tauceti:TauCeti.finiteProjectiveModulesExactStructure_eq_split`, `tauceti:TauCeti.ExactK0.hom_ext`
 
 **Planning API.**
 
 | Name | Role | Contract |
 | --- | --- | --- |
-| `KSpace.ofRing` | data | The K-theory space of a ring. |
-| `KSpace.ofRing_map` | functoriality | The map induced by a ring homomorphism. |
-| `KGroup.ofRing_prod` | compatibility | Compatibility with finite products of rings. |
-| `KGroup.ofRing_colimit` | compatibility | Compatibility with filtered colimits of rings. |
+| `KSpace.ofRing` | data | The K-theory space K(R) = ΩBQ(P(R)) of a unital ring, in the ring's universe. |
+| `KSpace.ofRing_map` | functoriality | The map K(f) induced by a unital ring homomorphism through projBaseChange. |
 | `KSpace.ofRing_map_id` | functoriality | The identity ring homomorphism induces the identity, with the small-model comparison. |
 | `KSpace.ofRing_map_comp` | functoriality | Composition of unital ring maps induces composition of K-space maps up to the specified natural homotopy. |
+| `KGroup.ofRing_zero_equiv` | compatibility | π₀ K(R) ≅ RingK0 R ≅ ExactK0(P(R)), natural in R, sending [P] to its class. |
+| `KGroup.ofRing_prod` | compatibility | Compatibility with finite products of rings. |
+| `KGroup.ofRing_colimit` | compatibility | Compatibility with filtered colimits of rings, through the idempotent-matrix model. |
+| `KGroup.ofRing_op` | equivalence | K_n(R^op) ≅ K_n(R), induced by the exact duality P(R)^op ≃ P(R^op). |
 
 **Consumers.**
 
-- K.5 — Relative K-theory is the homotopy fibre of the map this functor induces.
-- K.6 and K.7 — The nonconnective extension and the invariance statements are about this functor.
+- K.5 — Relative K-theory is the homotopy fibre of the map this functor induces, and the Milnor-square sequence identifies its K₀ end through the degree-zero comparison.
+- K.6 and K.7 — The nonconnective extension, Morita invariance and the product and colimit statements for rings import this functor instead of redefining it.
 - The consumer roadmaps — Every roadmap that speaks of the K-theory of a ring imports this functor.
 
 **Unit tests.**
@@ -620,10 +648,13 @@ For every unital, possibly noncommutative ring R, import P(R) = (TauCeti.finiteP
 - `scalar_identity_composition` (compatibility) — Identity and two composable ring maps give the same K-map as the corresponding tensor unit/associativity isomorphisms.
 - `nonflat_projectives` (non-example) — ℤ → ℤ/2 induces exact scalar extension on the split projective category although it is not flat on all modules.
 - `filtered_idempotent_descent` (computation) — An idempotent matrix over a filtered colimit and an equality between two maps descend at a sufficiently large stage.
+- `degree_zero_ring` (compatibility) — The degree-zero group of K(R) is RingK0 R, and K₀(f) is RingK0.map f; for R = ℤ it is ℤ generated by [ℤ].
+- `duality_not_identity` (non-example) — For a commutative ring the isomorphism K₀(R^op) ≅ K₀(R) induced by duality, composed with R^op = R, sends [P] to [Hom_R(P, R)]; for a Dedekind domain it inverts the ideal class of an invertible ideal, so it is not the identity when the class group has an element of order greater than two.
 
 **Sources.**
 
 - `Weibel.KBook.IV`: Definition 6.3.2 and Elementary properties 6.4, pp. IV.55 to IV.56. The functor and the two compatibilities, verbatim.
+- `Weibel.KBook.IV`: Elementary Properties 6.4, the ring instances, pp. IV.55–56. The opposite-ring statement and the idempotent-matrix model, verbatim (formulas transcribed from the text layer); the source states the colimit for a filtered union of subrings, and the node proves it for filtered colimits by the same descent.
 
 ### What the product description does not say
 
@@ -635,7 +666,7 @@ The loop space of the realisation of Q of the finitely generated projectives ove
 
 - The ring is unital; the zeroth K-group is taken with its discrete topology.
 - A choice of a finitely generated projective module in each class is made once and the equivalence depends on it.
-- The infinite-loop structure on the left is the one coming from the S-construction of K.4 or from the group completion, and the statement is about that structure.
+- The infinite-loop structure on the left is that of the connective Ω-spectrum that StableHomotopyKTheory:H.5:S-delooping assembles from the K.4:construction deloopings, or that of the group completion (H.4); the statement is about that structure.
 
 **Proof outline.**
 
@@ -656,26 +687,121 @@ The loop space of the realisation of Q of the finitely generated projectives ove
 
 - `Weibel.KBook.IV`: Corollary 7.2, p. IV.62. The product description, verbatim, with the Ω the previous excerpt had dropped. Prose verbatim from the text layer of the author's chapter file; formulas transcribed.
 
+### The 3×3 lemma for exact categories
+
+`GeneralAlgebraicKTheory:K.3/three-by-three-lemma` · lemma · parent `GeneralAlgebraicKTheory:K.3` · implementation unchecked
+
+For the pinned exact structure, consider a commutative 3×3 diagram whose three columns are conflations. If either (i) the middle row and one of the outer rows are conflations, or (ii) the two outer rows are conflations and the composite of the two maps of the middle row is zero, then the remaining row is a conflation.
+
+**Hypotheses.**
+
+- E is the pinned TauCeti.ExactStructure; no ambient abelian category, no weak idempotent completeness and no form of Quillen's axiom (c) is assumed.
+- In case (ii) the vanishing of the middle composite is a hypothesis: it is what identifies the first map of the middle row as a kernel, and without it the middle row need not be a complex.
+
+**Proof outline.**
+
+1. Case (i) with the first two rows conflations (the other case is dual): push out the first row along A′ → A (E2) to factor the morphism of the first two rows through a conflation A ↣ D ↠ C′ with the same quotient (ExactStructure.conflation_cobaseChange; Bühler, Proposition 3.1); both squares of the factorisation are bicartesian (ExactStructure.bicartesianSq_of_isPushout_of_isInflation and its dual).
+2. Identify the cokernels of B′ ↣ D and of D ↣ B through the maps induced out of the pushout, and prove the one commutativity not given by construction from the pushout property of the square on A′, B′, A and D.
+3. Conclude with the Noether isomorphism for exact categories (ExactStructure.exists_conflation_comp; Bühler, Lemma 3.5) that the third row is a conflation.
+4. Case (ii): push out under the second map of the first row and the middle column, obtain a map to the third term of the middle row and show, by the pullback characterisation (Bühler, Proposition 2.12), that it is a deflation and that the middle row's second map is one; then use the vanishing composite and the dual characterisation with the kernel of a composite deflation (ExactStructure.conflation_comp_of_isPullback; Bühler, Proposition 2.15) to show that the first map of the middle row is its kernel.
+
+**Acceptance.**
+
+- Both cases hold in every exact category, with no abelian embedding.
+- In case (ii) the hypothesis that the middle composite vanishes cannot be dropped.
+- For the canonical exact structure of an abelian category the statement is the classical nine lemma.
+
+**Prerequisites.** `tauceti:TauCeti.ExactStructure`, `tauceti:TauCeti.ExactStructure.conflation_cobaseChange`, `tauceti:TauCeti.ExactStructure.conflation_baseChange`, `tauceti:TauCeti.ExactStructure.bicartesianSq_of_isPushout_of_isInflation`, `tauceti:TauCeti.ExactStructure.exists_conflation_comp`, `tauceti:TauCeti.ExactStructure.conflation_comp_of_isPullback`
+
+**Sources.**
+
+- `Buhler.ExactCategories`: Corollary 3.6 (3 × 3-Lemma) with its proof, pp. 13–14 (arXiv v2). The statement, verbatim; the proof steps follow Bühler's two cases.
+- `Buhler.ExactCategories`: Proposition 3.1 and Lemma 3.5, pp. 12–13 (arXiv v2). The factorisation of case (i); Lemma 3.5 is the Noether isomorphism that Tau Ceti already has.
+
+### The exact category of conflations
+
+`GeneralAlgebraicKTheory:K.3/exact-category-of-conflations` · construction · parent `GeneralAlgebraicKTheory:K.3` · implementation unchecked
+
+For an exact structure E on a preadditive category A with a zero object and binary biproducts, the pinned category of conflations (TauCeti.ExactStructure.ConflationCategory: the full subcategory of short complexes on the conflations, with all morphisms of short complexes) carries an exact structure whose conflations are the sequences σ′ → σ → σ″ of conflations whose sub-term, total-term and quotient-term components are E-conflations. With it, written E(A), the three projection functors s, t, q to A are exact, the coproduct functor ∐ : A × A → E(A), (X, Z) ↦ (X ↣ X ⊞ Z ↠ Z), is exact, s ↣ t ↠ q is a short exact sequence of exact functors, and it is universal: exact functors B → E(A) correspond to short exact sequences of exact functors B → A. This is the extension category of Weibel V.1.1.1 and II.9.3, on which the Additivity Theorem is proved; it is not the category EA of IV.7.3 that K.2:plus uses for the plus comparison.
+
+**Hypotheses.**
+
+- E is the pinned TauCeti.ExactStructure; the construction is intrinsic in E0–E2, with no ambient abelian category and no form of Quillen's axiom (c).
+- A conflation of E(A) is a sequence σ′ → σ → σ″ of objects and morphisms of the pinned category of conflations whose three columns are E-conflations; its rows are conflations because they are objects of that category.
+- For K-theory, A is essentially small; then so is E(A).
+
+**Proof outline.**
+
+1. Kernel–cokernel pairs: a morphism of conflations whose composite into σ″ vanishes factors uniquely through σ′ componentwise, because each column is a kernel–cokernel pair, and the components commute with the row maps because the column inflations are monomorphisms; dually for cokernels. Closure under isomorphism is componentwise.
+2. E0 and E0op: the identity of a conflation is componentwise the identity, whose columns are conflations.
+3. E1: a composite of two inflations of E(A) is componentwise a composite of inflations (E1), and its componentwise cokernels form a conflation by the 3×3 lemma (i) applied to the first two rows (K.3/three-by-three-lemma). E1op is dual.
+4. E2: for an inflation σ′ ↣ σ with cokernel σ″ and any morphism σ′ → ρ take componentwise pushouts, which exist by E2 in A. Each new column is a conflation with the old cokernel (ExactStructure.conflation_cobaseChange), the two maps of the pushout row compose to zero by the pushout property, and the pushout row is a conflation by the 3×3 lemma (ii), its outer rows ρ and σ″ being conflations. The componentwise pushout is a pushout in E(A) because morphisms of conflations are determined componentwise. E2op is dual, with componentwise pullbacks (ExactStructure.conflation_baseChange).
+5. Exactness of s, t and q is the definition of the conflations of E(A); ∐ is exact because a biproduct of conflations is a conflation (ExactStructure.conflation_biprod).
+6. Universal property: an exact functor F : B → E(A) gives the short exact sequence s∘F ↣ t∘F ↠ q∘F of exact functors, and a short exact sequence F′ ↣ F ↠ F″ gives B ↦ (F′B ↣ FB ↠ F″B), exact because the conflations of E(A) are componentwise (Weibel, Definition V.1.1(a)).
+7. Essential smallness: a conflation is determined up to isomorphism by three objects of a small skeleton of A and two morphisms between them.
+
+**Acceptance.**
+
+- The conflations of E(A) are exactly the componentwise ones.
+- (s, q) ∘ ∐ is the identity of A × A and t ∘ ∐ is the biproduct functor.
+- ExactK0 of E(A) is ExactK0 A × ExactK0 A through (s, q), with inverse induced by ∐: the degree-zero shadow of the Extension Theorem (Weibel, Proposition II.9.3.1).
+- For the canonical structure of an abelian category, E(A) is not abelian (Bühler, Remark 3.10), so no abelian-category argument may be applied to it.
+
+**Prerequisites.** `tauceti:TauCeti.ExactStructure`, `tauceti:TauCeti.ExactStructure.ConflationCategory`, `tauceti:TauCeti.ExactStructure.conflation_cobaseChange`, `tauceti:TauCeti.ExactStructure.conflation_baseChange`, `tauceti:TauCeti.ExactStructure.conflation_biprod`, `GeneralAlgebraicKTheory:K.3/three-by-three-lemma`
+
+**Planning API.**
+
+| Name | Role | Contract |
+| --- | --- | --- |
+| `ConflationCategory.exactStructure` | structure | The exact structure on E.ConflationCategory whose conflations are the componentwise ones. |
+| `ConflationCategory.conflation_iff` | characterisation | A sequence of conflations is a conflation of E(A) exactly when its three columns are E-conflations. |
+| `ConflationCategory.isConflationExact_sub` | functoriality | The sub-term functor s : E(A) → A is exact. |
+| `ConflationCategory.isConflationExact_total` | functoriality | The total-term functor t : E(A) → A is exact. |
+| `ConflationCategory.isConflationExact_quot` | functoriality | The quotient-term functor q : E(A) → A is exact. |
+| `ConflationCategory.coprod` | constructor | The exact functor ∐ : A × A → E(A), (X, Z) ↦ (X ↣ X ⊞ Z ↠ Z). |
+| `ConflationCategory.sub_quot_coprod` | simp | (s, q) ∘ ∐ = id and t ∘ ∐ ≅ ⊞. |
+| `ConflationCategory.exactFunctorEquiv` | universal-property | Exact functors B → E(A) correspond to short exact sequences of exact functors B → A. |
+| `ConflationCategory.essentiallySmall` | instance | E(A) is essentially small when A is. |
+
+**Consumers.**
+
+- K.3/additivity-for-exact-categories (Weibel V.1.1.1 and the proof of V.1.2) — Additivity is proved in this universal case: t is homotopic to s ∐ q on K(E(A)), by the Extension Theorem V.1.3 for this category.
+- Weibel V.1.4 and Exercises V.1.5–1.6 — The categories of admissibly exact sequences of length n are iterated extension categories of this kind.
+- Weibel II.9.3 and IV.8.3 — For an exact category regarded as a Waldhausen category, the second term of the S-construction is this category with the cofibrations of II.9.3.
+
+**Unit tests.**
+
+- `componentwise_conflations` (characterisation) — A sequence of conflations is a conflation of E(A) if and only if its three columns are E-conflations; a sequence that is a kernel–cokernel pair of short complexes but has a column that is not an E-conflation is not one.
+- `coprod_section` (computation) — (s, q) ∘ ∐ is the identity of A × A, and t ∘ ∐ is naturally isomorphic to the biproduct functor.
+- `k0_of_extension_category` (compatibility) — (s, q) induces ExactK0 (E(A)) ≃ ExactK0 A × ExactK0 A, with inverse induced by ∐ (Weibel, Proposition II.9.3.1).
+- `not_abelian` (non-example) — For the category of abelian groups with its canonical exact structure, E(Ab) is not an abelian category (Bühler, Remark 3.10), so its exact structure is not the canonical structure of an abelian category.
+
+**Sources.**
+
+- `Weibel.KBook.V`: Universal Example 1.1.1, p. V.1. The object and the claim that it is exact, which the source does not prove.
+- `Buhler.ExactCategories`: Exercise 3.9 (Heller) and Remark 3.10, p. 16 (arXiv v2). The componentwise exact structure, stated as an exercise; the proof steps are this packet's, from Bühler's Corollary 3.6 and Proposition 2.12.
+- `Weibel.KBook.II`: Extension Categories 9.3 and Proposition 9.3.1, pp. II.92–93. The three functors and the degree-zero test.
+
 ### The Additivity theorem
 
 `GeneralAlgebraicKTheory:K.3/additivity-for-exact-categories` · theorem · parent `GeneralAlgebraicKTheory:K.3` · implementation unchecked
 
-Let E be the exact category of admissible exact sequences of an exact category, with the three exact functors taking the sub, total and quotient terms. The sub-and-quotient functor from Q(E) to the product of two copies of Q(A) is a homotopy equivalence; equivalently, for a short exact sequence of exact functors the middle one induces the sum of the maps induced by the outer two, as maps of H-spaces and hence on all K-groups. Two corollaries follow at once: for an admissible filtration of an exact functor with exact quotients the induced map is the sum of the maps of the quotients, and for a bounded exact sequence of exact functors the alternating sum of the induced maps is zero. The same statement holds for Waldhausen categories, which is how K.4 uses it.
+Let E(A) be the exact category of conflations of an exact category A (K.3/exact-category-of-conflations), with the exact functors s, t and q taking the sub, total and quotient terms. The functor (s, q) from Q(E(A)) to the product of two copies of Q(A) is a homotopy equivalence (the Extension Theorem); equivalently, for a short exact sequence of exact functors the middle one induces the sum of the maps induced by the outer two, as maps of H-spaces and hence on all K-groups. Two corollaries follow at once: for an admissible filtration of an exact functor with exact quotients the induced map is the sum of the maps of the quotients, and for a bounded admissibly exact sequence of exact functors the alternating sum of the induced maps is zero. This node is the exact-category theorem, proved by Quillen's Theorem A; the Waldhausen form is K.4/waldhausen-additivity, proved separately in K.4:construction.
 
 **Hypotheses.**
 
-- The functors are exact and the sequences of functors are pointwise admissible exact sequences.
+- The functors are exact and the sequences of functors are pointwise conflations; A is essentially small, and so is E(A).
 - For the filtration corollary the successive quotient functors must themselves be exact.
 - The equivalence is of H-spaces, so the conclusion is an equality of maps of K-groups and not merely of their effect on classes.
 
 **Proof outline.**
 
-1. Reduce to the universal case, the extension category itself, and show that the total functor induces the sum of the sub and quotient functors.
-2. Prove that the sub-and-quotient functor is a homotopy equivalence, using the comma-category criterion: each comma category has a full subcategory with an initial object which it is equivalent to by a pair of adjoints.
-3. Record the two adjunctions explicitly, by pushout along the injective part and by pullback along the surjective part, since they are the content of the proof.
+1. Reduce to the universal case: a short exact sequence of exact functors from B to A is an exact functor from B to E(A), so it suffices to show that t is homotopic to s ∐ q on K(E(A)); since t and s ∐ q agree after composing with the coproduct functor ∐, this follows once (s, q) is a homotopy equivalence with homotopy inverse ∐.
+2. Prove that (s, q) induces a homotopy equivalence of Q-categories by Quillen's Theorem A (StableHomotopyKTheory:H.2/quillen-theorem-a): for objects A and C the comma category T of triples (u, E, v), with E an extension A₀ ↣ B₀ ↠ C₀ and u : A₀ → A, v : C₀ → C morphisms of Q(A), is contractible.
+3. Contract T: pushing E out along the admissible-monomorphism part of u (ExactStructure.conflation_cobaseChange, the source's II Exercise 7.8(2)) is a functor p to the subcategory where u is an admissible epimorphism, left adjoint to its inclusion; pulling back along the admissible-epimorphism part of v (ExactStructure.conflation_baseChange) is a functor q to the subcategory where v is an admissible monomorphism, right adjoint to its inclusion (Weibel, Exercise V.1.1). Natural transformations give homotopies (StableHomotopyKTheory:H.1/natural-transformations-adjoints-contractibility), and the intersection of the two subcategories has an initial object, so T is contractible.
 4. Deduce the filtration corollary by induction on the length of the filtration.
 5. Deduce the alternating-sum corollary by induction on the length of the sequence.
-6. Record the Waldhausen form of the same theorem, which K.4 uses, and that the source states both in one place.
+6. Record that the source states the exact and Waldhausen forms together; the Waldhausen form, with its simplicial proof, is K.4/waldhausen-additivity and is not deduced from this node.
 
 **Acceptance.**
 
@@ -684,11 +810,12 @@ Let E be the exact category of admissible exact sequences of an exact category, 
 - A flasque category, one with an endofunctor carrying an object to the sum of itself with that endofunctor's value, has contractible K-theory by additivity; this is the Eilenberg swindle in this layer.
 - The hypothesis that the quotient functors are exact cannot be dropped in the filtration corollary.
 
-**Prerequisites.** `GeneralAlgebraicKTheory:K.1/K-groups-of-exact-categories`, `GeneralAlgebraicKTheory:K.2:plus/extension-category-and-the-fibration`
+**Prerequisites.** `GeneralAlgebraicKTheory:K.1/K-groups-of-exact-categories`, `GeneralAlgebraicKTheory:K.3/exact-category-of-conflations`, `StableHomotopyKTheory:H.2/quillen-theorem-a`, `StableHomotopyKTheory:H.1/natural-transformations-adjoints-contractibility`, `tauceti:TauCeti.ExactStructure.conflation_cobaseChange`, `tauceti:TauCeti.ExactStructure.conflation_baseChange`
 
 **Sources.**
 
 - `Weibel.KBook.V`: Additivity Theorem 1.2 with its proof, p. V.2. The theorem and the first line of its proof, verbatim, in the form that covers exact and Waldhausen categories at once.
+- `Weibel.KBook.V`: Extension Theorem 1.3 and its proof for exact categories, pp. V.2–4. The theorem and the Theorem A argument the proof steps follow.
 - `Weibel.KBook.V`: Corollary 1.2.1 and Proposition 1.8, pp. V.2 and V.9. The two corollaries with their proofs, verbatim.
 
 ### The Resolution theorem
@@ -706,8 +833,8 @@ Let P be a full exact subcategory of an exact category H, closed under extension
 **Proof outline.**
 
 1. Filter H by the full subcategories of objects admitting a resolution of length at most n, and prove that each successive inclusion satisfies the hypotheses in the length-one form.
-2. Prove the length-one case by factoring the inclusion of Q-categories through the full subcategory on the objects of P and applying the comma-category criterion twice, once with a contraction by natural transformations and once dually.
-3. Assemble the general case from the filtration and the fact that K-theory commutes with the filtered colimit of the subcategories.
+2. Prove the length-one case by factoring the inclusion of Q-categories through the full subcategory on the objects of P and applying Quillen's Theorem A (StableHomotopyKTheory:H.2/quillen-theorem-a) twice, once with a contraction by natural transformations and once dually, the dual step using a right adjoint (StableHomotopyKTheory:H.1/natural-transformations-adjoints-contractibility).
+3. Assemble the general case from the filtration and the fact that K-theory commutes with the filtered union of the subcategories (K.1/elementary-properties-of-K-groups).
 4. Record the instances: the finitely generated projectives inside the modules of finite projective dimension; for a regular noetherian ring the agreement of K and G; for a regular noetherian separated scheme the corresponding agreement.
 5. Record the degree-zero comparison with the pinned Tau Ceti resolution theorem, which is proved only under the stronger hypothesis that every resolving object is projective for the exact structure, and say that the general statement here is what is missing.
 
@@ -718,7 +845,7 @@ Let P be a full exact subcategory of an exact category H, closed under extension
 - For X obtained by gluing two affine planes along the punctured plane, K₀(VB(X)) ≅ ℤ while G₀(X) ≅ K₀(Perf(X)) ≅ ℤ² (II.8.2.4 and II.Ex.9.10(d)). This tests the distinction between vector-bundle and perfect-complex models.
 - For the doubled-origin affine line, gluing t^m produces Pic(X) ≅ ℤ, so rank and determinant forbid the assertion K₀(VB(X)) ≅ ℤ. Do not reuse V.3.4.2’s author-copy misprint as an acceptance test.
 
-**Prerequisites.** `GeneralAlgebraicKTheory:K.3/additivity-for-exact-categories`, `tauceti:TauCeti.ExactStructure.resolutionEquiv`, `tauceti:TauCeti.moduleResolutionEquiv`
+**Prerequisites.** `GeneralAlgebraicKTheory:K.1/K-groups-of-exact-categories`, `GeneralAlgebraicKTheory:K.1/elementary-properties-of-K-groups`, `StableHomotopyKTheory:H.2/quillen-theorem-a`, `StableHomotopyKTheory:H.1/natural-transformations-adjoints-contractibility`, `tauceti:TauCeti.ExactStructure.resolutionEquiv`, `tauceti:TauCeti.moduleResolutionEquiv`
 
 **Sources.**
 
@@ -755,7 +882,7 @@ If a ring map makes the target a module admitting a finite resolution by finitel
 - The transfer along the evaluation of a polynomial ring at zero is the zero map, by additivity; this is the source's own test.
 - Finite projective dimension without finite generation is not enough.
 
-**Prerequisites.** `GeneralAlgebraicKTheory:K.3/resolution-theorem`, `GeneralAlgebraicKTheory:K.1/elementary-properties-of-K-groups`
+**Prerequisites.** `GeneralAlgebraicKTheory:K.3/resolution-theorem`, `GeneralAlgebraicKTheory:K.3/additivity-for-exact-categories`, `GeneralAlgebraicKTheory:K.1/elementary-properties-of-K-groups`
 
 **Sources.**
 
@@ -776,10 +903,10 @@ Let an exact abelian subcategory of an abelian category be closed under subobjec
 
 **Proof outline.**
 
-1. Apply the comma-category criterion: it suffices that the comma category of the inclusion over each object is contractible.
+1. Apply Quillen's Theorem A (StableHomotopyKTheory:H.2/quillen-theorem-a): it suffices that the comma category of the inclusion over each object is contractible.
 2. Identify the comma category with the ordered set of layers whose quotient lies in the subcategory.
 3. Reduce, using the finite filtration, to the case of an object whose quotient by a subobject lies in the subcategory.
-4. Define the two maps on layers, intersecting both terms with the subobject and intersecting only the lower term, which are well defined because the subcategory is closed under subobjects and finite products, and use the natural transformations between them to contract.
+4. Define the two maps on layers, intersecting both terms with the subobject and intersecting only the lower term, which are well defined because the subcategory is closed under subobjects and finite products, and use the natural transformations between them to contract. The contraction is by natural transformations (StableHomotopyKTheory:H.1/natural-transformations-adjoints-contractibility).
 5. Record the finite-length corollary: for an ambient category in which every object has finite length the K-groups are the direct sum over the simple objects of the K-groups of their endomorphism division rings.
 6. Record the two standing instances and the source's statement that the Waldhausen analogue is an open problem.
 
@@ -790,7 +917,7 @@ Let an exact abelian subcategory of an abelian category be closed under subobjec
 - Additivity for filtrations does not prove this theorem, because the successive-quotient functors need not be exact.
 - The source records that the analogue for Waldhausen categories is an open problem, so no such statement may be asserted.
 
-**Prerequisites.** `GeneralAlgebraicKTheory:K.3/additivity-for-exact-categories`, `tauceti:TauCeti.simpleClassBasis`
+**Prerequisites.** `GeneralAlgebraicKTheory:K.1/K-groups-of-exact-categories`, `StableHomotopyKTheory:H.2/quillen-theorem-a`, `StableHomotopyKTheory:H.1/natural-transformations-adjoints-contractibility`, `tauceti:TauCeti.simpleClassBasis`
 
 **Sources.**
 
@@ -812,9 +939,9 @@ For a Serre subcategory of a small abelian category, the sequence of K-theory sp
 **Proof outline.**
 
 1. Observe that the composite of the two functors is constant at the zero object, so the map factors through the comma category over the zero object.
-2. Apply the fibration criterion: it suffices that the base changes along morphisms of the quotient are homotopy equivalences and that the K-theory of the subcategory maps by a homotopy equivalence to the comma category over the zero object.
+2. Apply the fibration criterion, Quillen's Theorem B (StableHomotopyKTheory:H.2/quillen-theorem-b): it suffices that the base changes along morphisms of the quotient are homotopy equivalences and that the K-theory of the subcategory maps by a homotopy equivalence to the comma category over the zero object.
 3. Reduce the first condition to the morphisms out of the zero object, using the factorisation of morphisms and the symmetry between a category and its opposite.
-4. Prove the reduction in five steps, the source's Claims: the comma category is equivalent to the category of pairs whose structure map is an isomorphism; the kernel functor is a homotopy equivalence on the subcategory of epimorphic pairs; the inclusion of that subcategory is a homotopy equivalence; isomorphisms modulo the subcategory induce homotopy equivalences; and the whole is the filtered colimit of the pieces.
+4. Prove the reduction in five steps, the source's Claims: the comma category is equivalent to the category of pairs whose structure map is an isomorphism; the kernel functor is a homotopy equivalence on the subcategory of epimorphic pairs; the inclusion of that subcategory is a homotopy equivalence; isomorphisms modulo the subcategory induce homotopy equivalences; and the whole is the filtered colimit of the pieces. The last claim uses that classifying spaces commute with filtered colimits (StableHomotopyKTheory:H.1/filtered-colimits-of-categories).
 5. Read off the long exact sequence and its right-exact end in degree zero.
 6. Record the boundary map in degree one and fix its sign convention here, since the later comparisons with tame symbols depend on it.
 7. Record the Dedekind-domain corollary, whose proof also uses the resolution theorem and devissage.
@@ -826,7 +953,7 @@ For a Serre subcategory of a small abelian category, the sequence of K-theory sp
 - The statement is for abelian categories; it may not be quoted for an arbitrary exact subcategory.
 - For a Dedekind domain the sequence relates the K-groups of the ring, of its fraction field and of its residue fields.
 
-**Prerequisites.** `GeneralAlgebraicKTheory:K.3/devissage-theorem`, `GeneralAlgebraicKTheory:K.3/resolution-theorem`, `mathlib:CategoryTheory.ObjectProperty.IsSerreClass`
+**Prerequisites.** `GeneralAlgebraicKTheory:K.3/devissage-theorem`, `GeneralAlgebraicKTheory:K.3/resolution-theorem`, `GeneralAlgebraicKTheory:K.1/Q-construction-universal-property`, `StableHomotopyKTheory:H.2/quillen-theorem-b`, `StableHomotopyKTheory:H.1/filtered-colimits-of-categories`, `mathlib:CategoryTheory.ObjectProperty.IsSerreClass`
 
 **Sources.**
 
@@ -842,17 +969,18 @@ For an exact subcategory closed under extensions and cofinal in an exact categor
 **Hypotheses.**
 
 - The subcategory is exact, closed under extensions and cofinal, meaning every object of the ambient category has a complement making the sum lie in the subcategory.
-- The Waldhausen form requires a cylinder functor satisfying the cylinder axiom, which K.4 defines.
+- The Waldhausen form requires a cylinder functor satisfying the cylinder axiom, which K.4 defines. The route of the general exact-category form through Waldhausen Cofinality IV.8.9 needs the subcategory to be saturated as well as cofinal (the author's correction, recorded as GeneralAlgebraicKTheory/E-cofinality-saturated); for an exact category the weak equivalences are the isomorphisms, which are saturated, so the exact-category statement is unaffected.
 - The degree-zero group of the subcategory is a subgroup of the ambient one, and the inclusion is generally proper.
-- This is late cofinality content, provisionally housed under the existing K.3 id pending the maintainer’s K.3:cofinality split. ExactK0.ofLE_surjective compares exact structures on one category and does not prove cofinal-subcategory K₀ injectivity.
+- The general proof needs the late K.4 fibration theorem and the comparison of the S- and Q-constructions, so this node belongs after K.4. It keeps its id and the parent K.3 because no stage K.3:cofinality exists yet, and records the proposed late parent in proposedParentStageId. The special case of Weibel's Exercise IV.6.6, the subcategory cut out by a surjection from K₀ to a group, needs only Theorems A and B. ExactK0.ofLE_surjective compares exact structures on one category and does not prove cofinal-subcategory K₀ injectivity.
 
 **Proof outline.**
 
-1. State the exact-category form and record that the source proves a special case and reduces the general one to Waldhausen cofinality.
-2. State the Waldhausen form with a surjection from the Grothendieck group and the resulting fibration onto the discrete quotient.
-3. Read off the agreement of the positive K-groups and the short exact sequence in degree zero.
-4. Record the idempotent completion example: the category is cofinal in its completion, the positive groups agree, and the zeroth group can change.
-5. Record the free-versus-projective example, in which the free modules are cofinal in the finitely generated projectives but not strictly so, which is the instance the previous layer uses.
+1. Prove the special case of Exercise IV.6.6 with Theorems A and B (StableHomotopyKTheory:H.2): for a surjection φ from K₀ of the ambient category onto a group G, the functor from Q of the ambient category to G sending a deflation to φ of the class of its kernel has homotopy fibre Q of the subcategory cut out by φ.
+2. State the Waldhausen form (Weibel V.2.3) with a surjection from the Grothendieck group and the resulting fibration onto the discrete quotient, proved from the fibration theorem.
+3. Deduce the general exact-category form from the Waldhausen form and Waldhausen Cofinality IV.8.9 for a saturated subcategory, transporting to Q-groups through K.4:construction/iS-versus-Q.
+4. Read off the agreement of the positive K-groups and the short exact sequence in degree zero.
+5. Record the idempotent completion example: the category is cofinal in its completion, the positive groups agree, and the zeroth group can change.
+6. Record the free-versus-projective example, in which the free modules are cofinal in the finitely generated projectives but not strictly so; K.2:plus obtains its positive-degree agreement earlier from the group-completion cofinality theorem, so it does not depend on this late node.
 
 **Acceptance.**
 
@@ -860,12 +988,15 @@ For an exact subcategory closed under extensions and cofinal in an exact categor
 - The zeroth group need not agree, and the idempotent completion is the standard witness.
 - A statement of agreement in degree zero for a merely cofinal subcategory is false and may not be recorded.
 
-**Prerequisites.** `GeneralAlgebraicKTheory:K.4/fibration-theorem`, `GeneralAlgebraicKTheory:K.4/delooping-and-the-spectrum`, `mathlib:CategoryTheory.Idempotents.Karoubi`
+**Prerequisites.** `GeneralAlgebraicKTheory:K.4/fibration-theorem`, `GeneralAlgebraicKTheory:K.4/delooping-and-the-spectrum`, `GeneralAlgebraicKTheory:K.4:construction/iS-versus-Q`, `StableHomotopyKTheory:H.2/quillen-theorem-a`, `StableHomotopyKTheory:H.2/quillen-theorem-b`, `mathlib:CategoryTheory.Idempotents.Karoubi`
 
 **Sources.**
 
 - `Weibel.KBook.IV`: Cofinality 6.4.1, p. IV.56. The exact-category form, with the source’s own note that its general proof goes through the Waldhausen form, verbatim.
 - `Weibel.KBook.V`: Cofinality Theorem 2.3, p. V.14. The Waldhausen form with the degree-zero correction, verbatim.
+- `Weibel.KBook.IV`: Exercise 6.6 (Gersten), p. IV.60, and Waldhausen Cofinality 8.9, p. IV.72. The Theorem A and B special case, and the Waldhausen cofinality theorem through which the source proves the general case; the missing saturation hypothesis of 8.9 is recorded under sourceIssues.
+
+Source discrepancy: `GeneralAlgebraicKTheory/E-cofinality-saturated`.
 
 ### Categories with cofibrations, Waldhausen categories and their extra axioms
 
@@ -947,18 +1078,18 @@ For a category with cofibrations, the n-th term of the S-construction is the cat
 1. Define the objects of the n-th term with their compatible choices of subquotients.
 2. Define the morphisms and the latching condition that makes a morphism a cofibration, and prove that the resulting structure is a category with cofibrations.
 3. Define the faces and degeneracies by deleting and duplicating rows and columns and prove that they are exact and satisfy the simplicial identities.
-4. Identify the second term with the extension category and its three faces with the quotient, total and sub functors, which is the bridge to K.2 and K.3.
+4. Identify the second term with the extension category E(C) of Weibel II.9.3, the category of cofibration sequences with the cofibrations of II.9.3, and its three faces with the quotient, total and sub functors. For an exact category regarded as a Waldhausen category this is the pinned category of conflations, TauCeti.ExactStructure.ConflationCategory, not the category EA of IV.7.3 with its Q-type morphisms. It is the category Waldhausen additivity is about.
 5. Define the subcategories of weak equivalences and check that they are preserved.
 6. Record the warning as a non-example: a map that is objectwise a cofibration need not satisfy the latching condition, and a formalisation that defined the cofibrations objectwise would not have a category with cofibrations.
 
 **Acceptance.**
 
-- The zeroth and first terms are trivial and the second is the extension category.
+- The zeroth term is trivial, the first is the category itself and the second is the extension category.
 - The three faces from the second term to the first are the quotient, the total and the sub functors.
 - The cofibrations of the n-th term are given by the latching condition; the objectwise definition is a non-example.
-- For an exact category the second term is the category of admissible exact sequences, which is K.2's extension category.
+- For an exact category the second term is the pinned category of conflations with the cofibrations of II.9.3, not the category EA of K.2:plus.
 
-**Prerequisites.** `GeneralAlgebraicKTheory:K.4:construction/waldhausen-categories`, `GeneralAlgebraicKTheory:K.2:plus/extension-category-and-the-fibration`
+**Prerequisites.** `GeneralAlgebraicKTheory:K.4:construction/waldhausen-categories`, `tauceti:TauCeti.ExactStructure.ConflationCategory`
 
 **Planning API.**
 
@@ -974,7 +1105,7 @@ For a category with cofibrations, the n-th term of the S-construction is the cat
 **Consumers.**
 
 - K.4:construction, the K-theory space — The space is built from the weak-equivalence subcategories of these terms.
-- K.4, additivity and the delooping — Both are statements about this simplicial category.
+- K.4:construction, additivity and the relative S-construction — Both are statements about this simplicial category and its relative version S.f.
 - K.6 — The nonconnective spectrum applies this construction to a Frobenius pair.
 
 **Unit tests.**
@@ -994,13 +1125,13 @@ For a category with cofibrations, the n-th term of the S-construction is the cat
 
 `GeneralAlgebraicKTheory:K.4:construction/K-theory-space-of-a-waldhausen-category` · definition · parent `GeneralAlgebraicKTheory:K.4:construction` · implementation unchecked
 
-The K-theory space of a small Waldhausen category is the loop space of the realisation of the weak-equivalence S-construction, and its K-groups are the homotopy groups of that loop space, so the n-th K-group is the (n+1)-st homotopy group of the realisation. The fundamental group of the realisation is the Grothendieck group of the category, which fixes the indexing; the realisation is an H-space under coproduct, and the whole is in fact an infinite loop space obtained by iterating the construction.
+The K-theory space of a small Waldhausen category is the loop space of the realisation of the weak-equivalence S-construction, and its K-groups are the homotopy groups of that loop space, so the n-th K-group is the (n+1)-st homotopy group of the realisation. The fundamental group of the realisation is the Grothendieck group of the category, which fixes the indexing; the realisation is an H-space under coproduct. Applying the S-construction degreewise gives the iterated multisimplicial categories S.ⁿC; the equivalences between the realisations of consecutive ones are K.4/delooping-and-the-spectrum, and their assembly into the connective Ω-spectrum is StableHomotopyKTheory:H.5:S-delooping.
 
 **Hypotheses.**
 
 - The category is small and Waldhausen; no extra axiom is needed for the definition.
 - The basepoint is the trivial object of the zeroth term, whose realisation is a point.
-- The infinite-loop structure comes from iterating the construction, and the identification of consecutive terms is the delooping theorem of K.4.
+- The iterated construction S.ⁿC is formed here, as the stage text's 'iterate S'; the identification of consecutive realisations is K.4/delooping-and-the-spectrum, and the Ω-spectrum is assembled by StableHomotopyKTheory:H.5:S-delooping. Neither is claimed by this node, which precedes both.
 
 **Proof outline.**
 
@@ -1008,7 +1139,7 @@ The K-theory space of a small Waldhausen category is the loop space of the reali
 2. Prove that the fundamental group of the realisation is the Grothendieck group, by the presentation of the fundamental group of a simplicial space whose zeroth term is a point.
 3. Define the K-groups with the stated shift and prove that they are abelian.
 4. Record the H-space structure induced by the coproduct.
-5. Record the iterated construction and the resulting infinite-loop structure, referring to the delooping theorem for the identification of consecutive terms.
+5. Construct the iterated S-construction S.ⁿC degreewise, as multisimplicial Waldhausen categories with their weak-equivalence nerves; the equivalences |wS.ⁿC| ≃ Ω|wS.ⁿ⁺¹C| are proved in K.4/delooping-and-the-spectrum and the spectrum is assembled in H.5:S-delooping.
 6. Record the canonical map from the realisation of the weak-equivalence subcategory to the K-theory space, and that it is not a homotopy equivalence in general.
 
 **Acceptance.**
@@ -1028,7 +1159,7 @@ The K-theory space of a small Waldhausen category is the loop space of the reali
 | `WaldhausenCategory.pi1_eq_K0` | characterisation | The fundamental group of the realisation is the Grothendieck group. |
 | `WaldhausenCategory.KSpace_map` | functoriality | The map induced by an exact functor. |
 | `WaldhausenCategory.hSpace` | structure | The H-space structure from the coproduct. |
-| `WaldhausenCategory.infiniteLoop` | compatibility | The infinite-loop structure from the iterated construction. |
+| `WaldhausenCategory.iteratedS` | data | The multisimplicial Waldhausen categories S.ⁿC obtained by applying the S-construction degreewise n times, with their weak-equivalence nerves; the deloopings between them are K.4/delooping-and-the-spectrum's. |
 
 **Consumers.**
 
@@ -1046,7 +1177,7 @@ The K-theory space of a small Waldhausen category is the loop space of the reali
 **Sources.**
 
 - `Weibel.KBook.IV`: Proposition 8.4 and Definition 8.5, p. IV.68. The degree-zero identification and the definition, verbatim.
-- `Weibel.KBook.IV`: Infinite Loop Structure 8.5.5, p. IV.69. The infinite-loop structure by iteration, verbatim.
+- `Weibel.KBook.IV`: Infinite Loop Structure 8.5.5, p. IV.69. The iteration of the construction, verbatim; the delooping equivalences it invokes are K.4/delooping-and-the-spectrum's and the spectrum is H.5:S-delooping's.
 
 ### Comparison of the S-construction with the Q-construction
 
@@ -1090,6 +1221,7 @@ For a Waldhausen category the map from the weak-equivalence S-construction of th
 **Hypotheses.**
 
 - The category is a small Waldhausen category; the theorem needs none of the three extra axioms.
+- The extension category is the second term S₂C of the S-construction, the category of cofibration sequences with the cofibrations of Weibel II.9.3; for an exact category it is the pinned category of conflations.
 - A cofibration sequence of functors requires the canonical map out of the pushout to be a cofibration for every cofibration of the source, which is a condition on the functors, not only on their values.
 - The suspension consequence does need a cylinder functor satisfying the cylinder axiom.
 
@@ -1107,7 +1239,7 @@ For a Waldhausen category the map from the weak-equivalence S-construction of th
 - Under the cylinder axiom the cone is null-homotopic and suspension induces minus the identity.
 - The theorem needs none of the three extra axioms; the corollaries about the cone do need the cylinder axiom.
 
-**Prerequisites.** `GeneralAlgebraicKTheory:K.4:construction/K-theory-space-of-a-waldhausen-category`, `StableHomotopyKTheory:H.2/quillen-theorem-a`, `StableHomotopyKTheory:H.2/quillen-theorem-b`
+**Prerequisites.** `GeneralAlgebraicKTheory:K.4:construction/S-construction`, `GeneralAlgebraicKTheory:K.4:construction/K-theory-space-of-a-waldhausen-category`, `StableHomotopyKTheory:H.2/quillen-theorem-a`, `StableHomotopyKTheory:H.2/quillen-theorem-b`
 
 **Sources.**
 
@@ -1117,35 +1249,44 @@ For a Waldhausen category the map from the weak-equivalence S-construction of th
 
 `GeneralAlgebraicKTheory:K.4/delooping-and-the-spectrum` · theorem · parent `GeneralAlgebraicKTheory:K.4:construction` · implementation unchecked
 
-For an exact functor f:B → C of small Waldhausen categories, construct S.f by the simplicial path-object pullback. There is a natural homotopy-fibration sequence Ω|wS.(S.B)| → |wS.C| → |wS.(S.f)| → |wS.(S.B)|. For f = id the relative path object is contractible, giving |wS.C| ≃ Ω|wS.(S.C)|. Iteration supplies these comparison maps and equivalences in every positive S-level. H.5:S-delooping imports these maps and assembles the connective Ω-spectrum; this node does not re-plan spectrum assembly or products. The initial |wC| → Ω|wS.C| is a group completion, not generally an equivalence.
+For an exact functor f : B → C of small Waldhausen categories let S.f be the simplicial Waldhausen category with Sₙf = SₙB ×_{SₙC} Sₙ₊₁C (Weibel IV.8.5.3): its objects are pairs (B∗, C∗) with f(B∗) = ∂₀C∗, C sits inside it as the objects (0, C = ⋯ = C), and the projection Sₙf → SₙB is exact. Realising the wS.-direction first, the levelwise sequences |wS.C| → |wS.(Sₙf)| → |wS.(SₙB)| realise to a homotopy fibration sequence Ω|wS.(S.B)| → |wS.C| → |wS.(S.f)| → |wS.(S.B)| based at the zero objects (Weibel V.1.7), whose first map, composed with the equivalence |wS.B| ≃ Ω|wS.(S.B)| of the case f = id_B, is homotopic to the map induced by f (Weibel, Exercise V.1.7). For f = id the relative term is the simplicial path object of wS.S.C and is contractible (IV.8.5.4), so |wS.C| ≃ Ω|wS.(S.C)| naturally in exact functors; applied to S.ⁿC this gives natural equivalences |wS.ⁿC| ≃ Ω|wS.ⁿ⁺¹C| for every n ≥ 1. StableHomotopyKTheory:H.5:S-delooping imports these maps and assembles the connective Ω-spectrum; this node does not re-plan spectrum assembly or products. The initial map |wC| → Ω|wS.C| is a group completion, not in general an equivalence.
 
 **Hypotheses.**
 
-- The categories are small Waldhausen categories and the functor is exact.
-- The proof uses additivity in the cofibration-sequence-of-functors form, and the fibration criterion for simplicial spaces with connected terms.
-- The relative K-theory space of the functor is the double loop space of the realisation of the relative construction, which is K.5's definition.
-- The passage from termwise split fibrations to realization still requires the precise connected-base simplicial realization criterion. H.2 must provide its model and hypotheses; do not replace it by diagonal realization alone or claim this gap is closed.
+- B and C are small Waldhausen categories and f is exact; no saturation, extension or cylinder axiom is needed.
+- Degreewise input: Sₙf is equivalent to the extension category E(C, Sₙf, SₙB) of SₙB by C (Weibel II.9.3), so Waldhausen additivity in the form of Corollary V.1.3.1 (K.4/waldhausen-additivity) makes (sub, quotient) : wS.(Sₙf) → wS.C × wS.(SₙB) a homotopy equivalence. Hence each |wS.C| → |wS.(Sₙf)| → |wS.(SₙB)| is a split homotopy fibration sequence over the zero object, its fibre inclusion induced by C ↦ (0, C = ⋯ = C), naturally in n.
+- Realisation input: the realisation theorem for levelwise homotopy fibration sequences of simplicial spaces, requested from StableHomotopyKTheory:H.2 (Waldhausen 1978, Lemma 5.2, as the K-book quotes it; Bousfield–Friedlander 1978, Theorem B.4). Its hypotheses hold here: (a) the levelwise sequences are homotopy fibration sequences, by the previous hypothesis; (b) every base term |wS.(SₙB)|, and every total term |wS.(Sₙf)|, is connected, because the zeroth term of an S-construction is the zero category (Weibel IV.8.4), which gives the connectivity form of the theorem and makes the π∗-Kan and π₀ conditions of the bisimplicial form automatic; (c) every space is the realisation of a multisimplicial set, so the simplicial spaces n ↦ |wS.(Sₙ−)| have cellular degeneracies and are good and proper, and realising in the wS.-direction first is legitimate by the bisimplicial realisation lemma (StableHomotopyKTheory:H.2/bisimplicial-realization-lemma).
+- The relative K-theory space of f is Ω²|wS.(S.f)|, K.5's Waldhausen relative theory (Weibel IV.8.5.3).
+- In the proof of V.1.7 the source exchanges the roles of B and C; the roles above follow IV.8.5.3 and the statement, and the misprint is recorded as GeneralAlgebraicKTheory/E-relative-S-proof-roles.
 
 **Proof outline.**
 
-1. Define the relative construction as the pullback of the path object, and record that the path object is simplicially contractible.
-2. Prove the fibration statement termwise, using additivity applied to the cofibration sequence of endofunctors that splits the relative term, and assemble by the realisation lemma.
-3. Specialise to the identity, use the explicit path-object contraction, and iterate the natural equivalence on S.^nC for n ≥ 1. Export the comparison maps to H.5:S-delooping, which alone assembles the spectrum.
-4. Record the non-example: the first map, from the realisation of the weak-equivalence subcategory to the loop space, is a group completion and not an equivalence.
-5. Record the degree-minus-one consequence the source gives, that the first homotopy group of the relative realisation is the cokernel of the map of Grothendieck groups, which is where negative K-theory first appears.
+1. Define S.f by the pullback SₙB ×_{SₙC} Sₙ₊₁C with the Waldhausen structure of IV.8.5.3, with the exact maps C → S.f → S.B, and record that for f = id it is the simplicial path object of S.C, contractible because S₀f = 0 (IV.8.5.4).
+2. Prove the equivalence Sₙf ≃ E(C, Sₙf, SₙB), natural in n, and apply K.4/waldhausen-additivity to obtain the split fibration sequences |wS.C| → |wS.(Sₙf)| → |wS.(SₙB)|.
+3. Check the hypotheses of the H.2 realisation theorem as listed (levelwise fibration sequences, connected base and total terms, realisations of multisimplicial sets, basepoints at the zero objects), realise in the wS.-direction first, and conclude that Ω|wS.(S.B)| → |wS.C| → |wS.(S.f)| → |wS.(S.B)| is a homotopy fibration sequence, the fibre of |wS.(S.f)| → |wS.(S.B)| over the zero object being identified with |wS.C| by the canonical map from the levelwise fibres (StableHomotopyKTheory:H.2/homotopy-fibre-and-long-exact-sequence).
+4. Identify the first map: the map of sequences S.id_B → S.f given by id_B on B and f on the second factor is compatible with the two fibration sequences, so the first map is the equivalence |wS.B| ≃ Ω|wS.(S.B)| of the case f = id followed by the map induced by f (Weibel, Exercise V.1.7, whose hint is this naturality).
+5. Specialise to f = id to get |wS.C| ≃ Ω|wS.(S.C)|, natural in exact functors; iterate on S.ⁿC for n ≥ 1 and export these maps to H.5:S-delooping, which alone assembles the spectrum.
+6. Record the non-example: the first map, from the realisation of the weak-equivalence subcategory to the loop space, is a group completion and not an equivalence.
+7. Record the degree-minus-one consequence the source gives, that the first homotopy group of the relative realisation is the cokernel of the map of Grothendieck groups, which is where negative K-theory first appears.
 
 **Acceptance.**
 
-- For every n ≥ 1 the natural map |wS.^n C| → Ω|wS.^(n+1) C| is an equivalence; these are the maps the spectrum-assembly owner consumes.
+- For every n ≥ 1 the natural map |wS.ⁿC| → Ω|wS.ⁿ⁺¹C| is an equivalence; these are the maps the spectrum-assembly owner consumes.
+- After the identification |wS.B| ≃ Ω|wS.(S.B)|, the first map of the fibration sequence is the map induced by f.
 - The first structure map is a group completion, not an equivalence.
 - The first homotopy group of the relative realisation is the cokernel of the map of Grothendieck groups.
+- The realisation step is not asserted for arbitrary levelwise fibrations of simplicial spaces: the connectivity and goodness hypotheses are checked here.
 
-**Prerequisites.** `GeneralAlgebraicKTheory:K.4/waldhausen-additivity`, `GeneralAlgebraicKTheory:K.4:construction/K-theory-space-of-a-waldhausen-category`
+**Prerequisites.** `GeneralAlgebraicKTheory:K.4/waldhausen-additivity`, `GeneralAlgebraicKTheory:K.4:construction/S-construction`, `GeneralAlgebraicKTheory:K.4:construction/K-theory-space-of-a-waldhausen-category`, `StableHomotopyKTheory:H.2`, `StableHomotopyKTheory:H.2/bisimplicial-realization-lemma`, `StableHomotopyKTheory:H.2/homotopy-fibre-and-long-exact-sequence`
 
 **Sources.**
 
-- `Weibel.KBook.V`: Proposition 1.7 with its proof, p. V.8. Displayed sequence in Proposition 1.7, p. V.8. Its first term is looped; the earlier transcription omitted Ω.
+- `Weibel.KBook.V`: Proposition 1.7 with its proof, p. V.8. The displayed sequence (its first term looped; the earlier transcription omitted Ω) and the realisation lemma the proof invokes, verbatim; the proof's exchange of B and C is recorded under sourceIssues.
+- `Weibel.KBook.IV`: Relative K-theory spaces 8.5.3 and Lemma 8.5.4, p. IV.69. The relative construction and the roles of B and C used here, verbatim.
 - `Weibel.KBook.IV`: Infinite Loop Structure 8.5.5, p. IV.69. Natural delooping equivalence in IV.8.5.5, whose fibration input is V.1.7.
+- `Weibel.KBook.V`: Exercise 1.7, p. V.10. The identification of the first map, verbatim; the source leaves it as an exercise and the proof steps carry it out.
+
+Source discrepancy: `GeneralAlgebraicKTheory/E-relative-S-proof-roles`.
 
 ### The Waldhausen localisation (fibration) theorem
 
@@ -1224,8 +1365,8 @@ For an exact category closed under kernels of surjections in an ambient abelian 
 
 **Hypotheses.**
 
-- The exact category is closed under kernels of surjections in an ambient abelian category, in the source's sense.
-- The weak equivalences are the quasi-isomorphisms computed in the ambient abelian category, not chain homotopy equivalences.
+- The exact category is given as a full subcategory of an abelian category M, closed under extensions and carrying the pinned induced structure (ExactStructure.fullSubcategory of ExactStructure.abelian M), and closed under kernels of surjections in M, in the source's sense (Weibel II.7.0.1). The ambient M is part of the data, since the pinned carrier has no Gabriel–Quillen embedding.
+- The weak equivalences are the quasi-isomorphisms computed in M, not chain homotopy equivalences. The repaired statement without the closure hypothesis computes them in the category of left exact functors (the Gabriel–Quillen embedding of Weibel's Exercise II.7.8), which neither library has; that statement is recorded, not decomposed.
 - The proof uses the fibration theorem and a cylinder functor on the complexes, namely the mapping cylinder.
 
 **Proof outline.**
@@ -1244,7 +1385,7 @@ For an exact category closed under kernels of surjections in an ambient abelian 
 - Replacing quasi-isomorphisms by chain homotopy equivalences changes the statement and needs its own argument.
 - Without the closure hypothesis the naive statement can fail in degree zero; the repaired form is the one to use.
 
-**Prerequisites.** `GeneralAlgebraicKTheory:K.4/approximation-theorem`, `GeneralAlgebraicKTheory:K.4/fibration-theorem`, `GeneralAlgebraicKTheory:K.1/K-groups-of-exact-categories`
+**Prerequisites.** `GeneralAlgebraicKTheory:K.4/approximation-theorem`, `GeneralAlgebraicKTheory:K.4/fibration-theorem`, `GeneralAlgebraicKTheory:K.1/K-groups-of-exact-categories`, `tauceti:TauCeti.ExactStructure.abelian`, `tauceti:TauCeti.ExactStructure.fullSubcategory`
 
 **Sources.**
 
@@ -1255,31 +1396,33 @@ For an exact category closed under kernels of surjections in an ambient abelian 
 
 `GeneralAlgebraicKTheory:K.5/relative-K-theory` · definition · parent `GeneralAlgebraicKTheory:K.5` · implementation unchecked
 
-For a ring homomorphism the RELATIVE K-THEORY space is the homotopy fibre of the induced map of K-theory spaces, and the relative groups are its homotopy groups; they fit into a long exact sequence with the absolute groups, ending in the zeroth relative group mapping to the zeroth group of the source. All the relative groups, the zeroth one included, are abelian, because the functorial H-space structure on the K-theory space makes the fibre one. A pair consisting of a ring and a two-sided ideal is treated through the quotient map, and then the zeroth relative group is the zeroth K-group of the ideal and the first is the classical relative group. For an exact functor of Waldhausen categories the relative theory is the double loop space of the relative S-construction of K.4, and its sequence ends one step further, with the cokernel of the map of Grothendieck groups appearing as a first negative group.
+For a unital ring homomorphism f the RELATIVE K-THEORY space K(f) is the homotopy fibre, at the basepoint of the target, of the induced map K(f) of the ring model (K.2/functorial-K-theory-of-a-ring), and the relative groups are its homotopy groups; they fit into a long exact sequence with the absolute groups, ending in the zeroth relative group mapping to the zeroth group of the source. All the relative groups, the zeroth one included, are abelian, because the functorial H-space structure on the K-theory space makes the fibre one. A pair consisting of a possibly noncommutative ring and a two-sided ideal is treated through the quotient map A → A/I. For an exact functor of Waldhausen categories the relative theory is the double loop space of the relative S-construction of K.4:construction, and its sequence ends one step further, with the cokernel of the map of Grothendieck groups appearing as a first negative group. The identification of the relative groups of a pair in degrees zero and one with the classical groups K₀(I) and K₁(A, I) = GL(I)/E(A, I) is KTheoryLowDegrees:U.6/relative-K1-homotopy-comparison, which imports this node; it is not asserted here.
 
 **Hypotheses.**
 
-- The rings are unital and the map is unital; for a pair the ideal is two-sided.
+- The rings are unital and the map is unital; for a pair the ideal is two-sided (Mathlib's Ideal with [I.IsTwoSided], whose quotient ring is Ideal.Quotient.ring), and no commutativity is assumed.
 - The homotopy fibre is taken at the basepoint of the target, and the H-space structure used for the group laws is the functorial one.
-- The Waldhausen version needs the relative S-construction and its fibration, which is K.4's theorem.
+- The Waldhausen version needs the relative S-construction and its fibration, which is K.4:construction's theorem K.4/delooping-and-the-spectrum.
+- The classical relative groups are KTheoryLowDegrees U.5's, and their comparison with this fibre is U.6's; both lie downstream of this node, so no statement of this node uses them.
 
 **Proof outline.**
 
-1. Define the relative space as the homotopy fibre and the relative groups as its homotopy groups.
+1. Define the relative space as the homotopy fibre (StableHomotopyKTheory:H.2/homotopy-fibre-and-long-exact-sequence) and the relative groups as its homotopy groups.
 2. Record the long exact sequence and its end in degree zero.
 3. Prove that every relative group is abelian, from the functorial H-space structure.
-4. Define the relative theory of a pair through the quotient map and record the identifications in degrees zero and one with the classical relative groups.
+4. Define the relative theory of a pair through the quotient map by a two-sided ideal. When the quotient map has a ring section, the fibre sequence splits and the relative groups are the kernels of K_n(A) → K_n(A/I).
 5. Record the Waldhausen version, the double loop space of the relative S-construction, and the extra term at the end of its sequence.
 6. Record what the pinned libraries have: Mathlib has the homotopy fibre of a map of complexes but no K-theory space, so nothing of this exists at the pins.
 
 **Acceptance.**
 
 - The relative groups are abelian in every degree, including degree zero.
-- For a pair the zeroth relative group is the zeroth K-group of the ideal.
+- For a pair whose quotient map has a ring section the relative groups are the kernels of K_n(A) → K_n(A/I).
 - The Waldhausen relative sequence has one more term than the ring one, the cokernel of the map of Grothendieck groups.
 - The relative theory of the identity map is trivial.
+- No identification of the relative groups of a pair with K₀(I) or K₁(A, I) is asserted here; that comparison is KTheoryLowDegrees U.6's.
 
-**Prerequisites.** `GeneralAlgebraicKTheory:K.2/functorial-K-theory-of-a-ring`, `GeneralAlgebraicKTheory:K.4/delooping-and-the-spectrum`
+**Prerequisites.** `GeneralAlgebraicKTheory:K.2/functorial-K-theory-of-a-ring`, `GeneralAlgebraicKTheory:K.4/delooping-and-the-spectrum`, `StableHomotopyKTheory:H.2/homotopy-fibre-and-long-exact-sequence`, `mathlib:Ideal.Quotient.ring`
 
 **Planning API.**
 
@@ -1289,7 +1432,7 @@ For a ring homomorphism the RELATIVE K-THEORY space is the homotopy fibre of the
 | `relativeK.group` | data | The relative groups. |
 | `relativeK.addCommGroup` | structure | Their abelian group structure, degree zero included. |
 | `relativeK.les` | characterisation | The long exact sequence with the absolute groups. |
-| `relativeK.ofPair` | example | The relative theory of a ring and an ideal, through the quotient map. |
+| `relativeK.ofPair` | example | The relative theory of a ring and a two-sided ideal, through the quotient map; its identification in degrees zero and one with K₀(I) and K₁(A, I) is KTheoryLowDegrees U.6's. |
 | `relativeK.waldhausen` | relation | The Waldhausen relative theory and its extra term. |
 
 **Consumers.**
@@ -1297,18 +1440,19 @@ For a ring homomorphism the RELATIVE K-THEORY space is the homotopy fibre of the
 - K.5, excision — Excision is the question of when the relative groups depend only on the ideal.
 - K.6 — The extra term at the end of the Waldhausen sequence is the first negative K-group, which is where the nonconnective theory starts.
 - K.7 — The products are asserted compatible with the relative groups.
+- KTheoryLowDegrees:U.6/relative-K1-homotopy-comparison — Identifies π₀ and π₁ of the fibre for a pair with the classical K₀(I) and K₁(A, I).
 
 **Unit tests.**
 
 - `identity_map` (degenerate) — The relative theory of the identity is trivial.
-- `degree_zero_pair` (computation) — For a pair the zeroth relative group is the zeroth K-group of the ideal.
+- `split_pair` (computation) — When the quotient map A → A/I has a ring section, the fibre sequence splits: π_n K(A, I) is the kernel of K_n(A) → K_n(A/I) and K_n(A) ≅ K_n(A/I) ⊕ π_n K(A, I) naturally; for the double ring A ⊕ I with its projection to A this gives π₀ K(A ⊕ I, 0 ⊕ I) = ker(K₀(A ⊕ I) → K₀(A)).
 - `abelian_in_degree_zero` (degenerate) — The zeroth relative group is abelian; it is a homotopy set made a group by the H-space structure, and that structure must be carried.
 - `waldhausen_extra_term` (computation) — The Waldhausen relative sequence has the cokernel of the map of Grothendieck groups as an extra term.
 
 **Sources.**
 
 - `Weibel.KBook.IV`: Relative groups 1.11.1, p. IV.8. The definition, the sequence and the abelian-group statement, verbatim.
-- `Weibel.KBook.IV`: Exercise 1.15, p. IV.16. The identification of the low relative groups for a pair, verbatim; the source states it as an exercise with hints and this packet records that.
+- `Weibel.KBook.IV`: Exercise 1.15, p. IV.16. The identification of the low relative groups for a pair, stated by the source as an exercise with hints; KTheoryLowDegrees:U.6/relative-K1-homotopy-comparison owns it and imports this node, which does not assert it.
 
 ### Relative K-theory is not support K-theory
 
@@ -1433,6 +1577,74 @@ A nonunital ring satisfies absolute excision in degree n when the comparison map
 
 - `Weibel.KBook.IV`: Absolute Excision 1.11.2, p. IV.9. The definition, the degree-zero statement, the degree-one criterion, the general criterion and the notion of an H-unital ring, verbatim.
 
+### Milnor's sequence is exact at the pair of K₁-groups
+
+`GeneralAlgebraicKTheory:K.5/milnor-square-K1-exactness` · lemma · parent `GeneralAlgebraicKTheory:K.5` · implementation unchecked
+
+For a Milnor square, the sequence K₁(B) → K₁(S) × K₁(T) → K₁(C) of classical K₁-groups, with first map (K₁(p), K₁(q)) and second map (x, y) ↦ K₁(φ)(x) · K₁(ψ)(y)⁻¹, is exact at K₁(S) × K₁(T). This is the one exactness position of Milnor's K₁–K₀ sequence that KTheoryLowDegrees Z.1 does not decompose.
+
+**Hypotheses.**
+
+- A Milnor square: unital, possibly noncommutative rings S, T and C in one universe, a surjective unital map φ : S → C, a unital map ψ : T → C, and B = RingHom.pullback φ ψ with its projections p : B → S and q : B → T, the convention of KTheoryLowDegrees Z.1. Equivalently (Weibel III.2.6), a unital map f : R → S carrying a two-sided ideal I of R isomorphically onto a two-sided ideal of S, with T = R/I and C = S/I; then B ≅ R.
+- Surjectivity of φ is essential: it is what makes the patched modules finitely generated projective and what lets elementary matrices over C lift to S.
+- K₁ is the classical GL/E of KTheoryLowDegrees U.2, written multiplicatively; its identification with π₁ of the ring model is KTheoryLowDegrees U.6's and is not used.
+
+**Proof outline.**
+
+1. The composite is trivial: φ ∘ p = ψ ∘ q (RingHom.pullback_comm_sq) and K₁ is functorial (KTheoryLowDegrees:U.2/K1-map).
+2. Let x = [g] and y = [h] with K₁(φ)(x) = K₁(ψ)(y). Represent g and h in one GL_n (KTheoryLowDegrees:U.1/finite-representatives) and enlarge n until φ(g) = ψ(h) · ē with ē in E_n(C) (the stable elementary subgroup, KTheoryLowDegrees:U.1/stable-elementary-subgroup).
+3. Lift ē to e in E_n(S), which is possible because φ is surjective (KTheoryLowDegrees:U.1/elementary-surjective-map); then φ(g e⁻¹) = ψ(h).
+4. A pair of invertible matrices over S and T with equal images in C is an invertible matrix over the pullback B, its inverse being the pair of inverses; so (g e⁻¹, h) lies in GL_n(B), and its class in K₁(B) maps to ([g], [h]) because e is elementary.
+
+**Acceptance.**
+
+- Every pair of classes with the same image in K₁(C) comes from K₁(B).
+- The lemma uses the surjectivity of φ only through the lifting of elementary matrices; the lifting of invertible matrices is neither needed nor true in general.
+- No exactness at K₁(B) is asserted: the sequence starts there.
+
+**Prerequisites.** `KTheoryLowDegrees:U.2/K1`, `KTheoryLowDegrees:U.2/K1-map`, `KTheoryLowDegrees:U.1/finite-representatives`, `KTheoryLowDegrees:U.1/stable-elementary-subgroup`, `KTheoryLowDegrees:U.1/elementary-surjective-map`, `mathlib:RingHom.pullback`, `mathlib:RingHom.pullback_comm_sq`
+
+**Sources.**
+
+- `Weibel.KBook.III`: Proof of Theorem 2.6, the last step, p. III.15. The argument of the proof steps, verbatim (formulas transcribed); in the notation here S is S, T is R/I and C is S/I.
+
+### Milnor's K₁–K₀ Mayer–Vietoris sequence for a Milnor square
+
+`GeneralAlgebraicKTheory:K.5/milnor-square-mayer-vietoris` · theorem · parent `GeneralAlgebraicKTheory:K.5` · implementation unchecked
+
+For a Milnor square the sequence K₁(B) → K₁(S) × K₁(T) → K₁(C) → K₀(B) → K₀(S) × K₀(T) → K₀(C) is exact at each of its four interior terms. Its maps are (K(p), K(q)), then (x, y) ↦ K(φ)x − K(ψ)y (written multiplicatively on K₁), then the Milnor boundary ∂ of KTheoryLowDegrees:Z.1/milnor-boundary, which sends a gluing matrix a ∈ GL_n(C) to [FreePatch(a)] − n[B] with the gluing orientation fixed there, then (K₀(p), K₀(q)), then the difference of K₀(φ) and K₀(ψ). The K₀-groups are RingK0, which is the degree-zero group of the ring model (K.2/functorial-K-theory-of-a-ring), and the K₁-groups are the classical GL/E. The sequence is natural in morphisms of Milnor squares. It is the low-degree excision statement for a Milnor square: in the ideal form f : R → S, exactness at K₀(R) and at K₀(S) × K₀(R/I) carries the classical excision for K₀, and exactness at K₁(S) × K₁(R/I) the degree-one surjectivity of K₁(R, I) → K₁(S, I) (Weibel, Remark III.2.2.1); nothing further is asserted. Bass's continuation into negative degrees (Weibel III.4.3) is K.6's.
+
+**Hypotheses.**
+
+- A Milnor square: unital, possibly noncommutative rings S, T and C in one universe, a surjective unital map φ : S → C, a unital map ψ : T → C, and B = RingHom.pullback φ ψ with its projections p : B → S and q : B → T, the convention of KTheoryLowDegrees Z.1. Equivalently (Weibel III.2.6), a unital map f : R → S carrying a two-sided ideal I of R isomorphically onto a two-sided ideal of S, with T = R/I and C = S/I; then B ≅ R.
+- Surjectivity of φ is essential: it is what makes the patched modules finitely generated projective and what lets elementary matrices over C lift to S.
+- The K₀-groups are Z.1's RingK0 and are identified with π₀ of the ring model by K.2/functorial-K-theory-of-a-ring; the K₁-groups are KTheoryLowDegrees U.2's GL/E. The identification of the latter with π₁ of the ring model (KTheoryLowDegrees U.6 with the plus comparison) lies downstream of K.5 and is not used, so the sequence is not stated for the homotopy groups of the ring model in degree one.
+- No surjectivity onto K₀(C) is asserted, and no term to the left of K₁(B).
+
+**Proof outline.**
+
+1. Pass between the two forms of the hypothesis: in the pullback form q is surjective, its kernel is carried isomorphically by p onto the kernel of φ, and B → S is the ideal form; conversely the ideal form is the pullback of S → S/I and R/I → S/I.
+2. Exactness at K₀(S) × K₀(T) is KTheoryLowDegrees:Z.1/milnor-exact-at-pair, which rests on Milnor patching (Z.1/milnor-finite-projective); exactness at K₀(B) is Z.1/milnor-exact-at-k0; exactness at K₁(C) is Z.1/milnor-boundary-kernel, since ∂ is additive and kills the image of K₁(S) × K₁(T).
+3. Exactness at K₁(S) × K₁(T) is K.5/milnor-square-K1-exactness.
+4. Identify the K₀-terms with the degree-zero groups of the ring model and K₀(p), K₀(q), K₀(φ), K₀(ψ) with its maps, through the degree-zero comparison of K.2/functorial-K-theory-of-a-ring.
+5. Naturality: a morphism of Milnor squares induces maps of all six terms commuting with the first, second, fourth and fifth maps by functoriality, and with ∂ because a morphism of squares carries FreePatch(a) to FreePatch of the image of a after scalar extension (Z.1/milnor-boundary).
+6. Record what is not asserted: exactness does not extend to a K₂-term in general (the continuation to K₂ of Weibel III.5.8 needs two ideals with I ∩ J = 0), and in the ideal form the classical K₁(R, I) → K₁(S, I) is onto but need not be injective (Swan's example, Weibel Exercise III.2.3), so no excision in degree one beyond surjectivity, and none in higher degrees, may be derived; the conditions under which excision holds are K.5/excision-and-its-failure's.
+
+**Acceptance.**
+
+- The six-term sequence is exact at K₁(S) × K₁(T), K₁(C), K₀(B) and K₀(S) × K₀(T).
+- For two-sided ideals I and J of R with I ∩ J = 0 the square R → R/J, R/I → R/(I + J) is a Milnor square, and the sequence is the K₁–K₀ part of Weibel's Theorem III.5.8.
+- For the rim square ℤC_p → ℤ[ζ_p], ℤ → 𝔽_p (Weibel Exercise III.2.2) it gives an exact sequence K₁(ℤC_p) → K₁(ℤ[ζ_p]) × K₁(ℤ) → K₁(𝔽_p) → K₀(ℤC_p) → K₀(ℤ[ζ_p]) × K₀(ℤ) → K₀(𝔽_p).
+- Nothing asserts excision for K₁ or higher K-groups; Swan's example (Weibel Exercise III.2.3) shows the classical relative K₁ depends on the ambient ring.
+
+**Prerequisites.** `GeneralAlgebraicKTheory:K.5/milnor-square-K1-exactness`, `GeneralAlgebraicKTheory:K.2/functorial-K-theory-of-a-ring`, `KTheoryLowDegrees:Z.1/milnor-finite-projective`, `KTheoryLowDegrees:Z.1/milnor-boundary`, `KTheoryLowDegrees:Z.1/milnor-boundary-kernel`, `KTheoryLowDegrees:Z.1/milnor-exact-at-k0`, `KTheoryLowDegrees:Z.1/milnor-exact-at-pair`, `mathlib:RingHom.pullback`
+
+**Sources.**
+
+- `Weibel.KBook.III`: Theorem 2.6 (Mayer–Vietoris) with its proof, p. III.15. The theorem, verbatim with the arrows' labels dropped; its proof derives the K₀ positions from II.2.9 (Milnor patching, owned by KTheoryLowDegrees Z.1) and the K₁ positions from the lifting of elementary matrices.
+- `Weibel.KBook.III`: Remark 2.2.1 and Exercise 2.3, pp. III.13 and III.16. The degree-one surjectivity and the failure of degree-one excision that bound what this node asserts.
+- `Weibel.KBook.III`: Theorem 5.8, p. III.41. The only extension to K₂ the source gives, under its hypothesis.
+
 ## Remaining gaps
 
 ### Quillen's original paper could not be read in this environment
@@ -1455,22 +1667,18 @@ Theorem 2.1, Theorem 2.4 and Theorem 5.1 of chapter V were read as statements, w
 
 The criteria that excision in degree one is equivalent to the ring being idempotent, and that excision in degrees up to n is equivalent to the vanishing of the first n torsion groups over the unitisation, are quoted by the source from Suslin and from Suslin and Wodzicki without proof, and this packet quotes them the same way. The counterexample they yield, a square-zero ring, is therefore also conditional on them. NEXT SOURCE ACTION: read Suslin and Wodzicki, 'Excision in algebraic K-theory' (Annals 136, 1992), and Suslin's 1995 sequel, and decompose the proof of the criterion in degree one at least, which is the one the counterexample uses.
 
-### Noncommutative scalar-extension interface
-
-Pinned ModuleCat.extendScalars has commutative hypotheses. For arbitrary unital ring maps R → S, construct the (S,R)-bimodule tensor functor, show it carries retracts of finite free modules to retracts of finite free modules, and transport split conflations. Record its unit and associativity natural isomorphisms before using it to define functorial K(R). The K-book IV.6.3.2 states this arbitrary-ring scope; the commutative pinned declaration alone does not discharge it.
-
 ## Requests to existing owners
 
-- `StableHomotopyKTheory:H.4` — Group completion of a symmetric monoidal groupoid, the plus construction, the stable general linear group and the cofinal stabilisation argument. AUDIT-28 records H.4 as owning exactly the comparison K.2:plus needs, so this packet states the plus-equals-Q theorem and cites H.4 for the group-completion side rather than building it.
-- `StableHomotopyKTheory:H.1` — The homotopy-theoretic apparatus the K.1 and K.3 proofs use: the classification of coverings by morphism-inverting functors, the comma-category criterion for a functor to be a homotopy equivalence, the fibration criterion, and the fact that a natural transformation gives a homotopy. Every proof step of this packet that invokes one of these names it.
-- `StableHomotopyKTheory:H.5:S-delooping` — Assemble the connective spectrum from the relative S-construction maps and all-level delooping equivalences supplied by early K.4:construction. Spectrum assembly consumes that prefix; it is not a prerequisite of additivity or its relative-fibration proof. Generic smash products belong to H.5:spectra; K-theory-specific pairings belong to K.7.
-- `KTheoryLowDegrees:U.6` — The identification of the first homotopy group of the plus construction with the quotient of the stable general linear group by its elementary subgroup, compatibly with determinant and transfer. K.2:low-degree-comparisons imports it by name and does not re-plan it.
-- `KTheoryLowDegrees:Z.1` — Finitely generated projective modules as summands of finite free modules, with complements, scalar extension and the ring Grothendieck group. AUDIT-28 records Z.1 as owning these, and K.2:plus cites them.
+- `StableHomotopyKTheory:H.4` — Group completion of a symmetric monoidal groupoid, the plus construction, the stable general linear group and the cofinal stabilisation argument, including the Cofinality Theorem for a cofinal monoidal functor with the same automorphism groups (Weibel IV.4.11(b)), which K.2:plus/cofinality-of-projective-modules now uses instead of the late exact-category cofinality. AUDIT-28 records H.4 as owning exactly the comparison K.2:plus needs, so this packet states the plus-equals-Q theorem and cites H.4 for the group-completion side rather than building it.
+- `StableHomotopyKTheory:H.1` — The homotopy-theoretic apparatus the K.1 and K.3 proofs use: the classification of coverings by morphism-inverting functors with the maximal-tree presentation of π₁, the fact that a natural transformation gives a homotopy (so adjoints are homotopy equivalences and categories with an initial object are contractible), and the commutation of classifying spaces with filtered colimits. The nodes cite the integrated H.1 nodes coverings-fundamental-group-local-coefficients, natural-transformations-adjoints-contractibility and filtered-colimits-of-categories by id.
+- `StableHomotopyKTheory:H.5:S-delooping` — Assemble the connective Ω-spectrum from the iterated S-construction and the natural deloopings |wS.ⁿC| ≃ Ω|wS.ⁿ⁺¹C| supplied by K.4:construction (K.4/delooping-and-the-spectrum), with its indexing π_i = K_i for i ≥ 0. Spectrum assembly consumes that prefix; it is not a prerequisite of additivity or of the relative S-fibration. Generic smash products belong to H.5:spectra, and the K-theory-specific biexact pairings and their coherence to K.7, so the pairing clause of the integrated H.5:S-delooping node should move to K.7.
+- `KTheoryLowDegrees:U.6` — The identification of the first homotopy group of the plus construction with the quotient of the stable general linear group by its elementary subgroup, compatibly with determinant and transfer. K.2:low-degree-comparisons imports it by name and does not re-plan it. U.6 also owns the comparison of π₀ and π₁ of K.5's relative fibre for a pair with K₀(I) and K₁(A, I) (U.6/relative-K1-homotopy-comparison); K.5 does not assert it, and U.6 should cite this packet's node GeneralAlgebraicKTheory:K.5/relative-K-theory rather than the integrated decomposition id.
+- `KTheoryLowDegrees:Z.1` — Finitely generated projective modules as summands of finite free modules, with complements, scalar extension along arbitrary (noncommutative) unital ring maps and the ring Grothendieck group, and Milnor patching with the K₀ end of the Mayer–Vietoris sequence. These are planned in the KTheoryLowDegrees--U.1 packet and cited here by node id: Z.1/extend-scalars and Z.1/extend-scalars-finite-projective (K.2:plus scalar extension), Z.1/projective-karoubi, Z.1/ring-k0-exact and Z.1/ring-k0-map (the ring model), and Z.1/milnor-finite-projective, Z.1/milnor-boundary, Z.1/milnor-boundary-kernel, Z.1/milnor-exact-at-k0 and Z.1/milnor-exact-at-pair (K.5's Mayer–Vietoris node). The one missing position of Milnor's sequence, exactness at K₁(S) × K₁(T), is planned in K.5 because KTheoryLowDegrees U.5, its natural owner, lies downstream of K.5 (through SchemeKTheoryOperations S.3).
 - `K2SymbolsBrauer:T.1:plus` — The identification of the second K-group with the second homology of the stable elementary subgroup and with the second homotopy group of the K-theory space.
 - `K2SymbolsBrauer:T.2:symbols` — Matsumoto's presentation of the second K-group of a FIELD by symbols. K.2:low-degree-comparisons states that it is field-specific and imports it from here.
 - `K3BlochGroups:V.4` — Suslin's exact sequence relating the third K-group to the Bloch group, which is the explicit degree-three model K.2:low-degree-comparisons registers.
 - `GeneralAlgebraicKTheory:K.6` — The nonconnective spectrum and the negative K-groups. K.4's delooping node produces the cokernel of a map of Grothendieck groups as a first negative group, and K.4's fibration theorem and K.5's support node both stop because a map of zeroth groups is not surjective; all three point at K.6, which is decomposed in the companion packet.
-- `StableHomotopyKTheory:H.2` — RT-AREA-ktheory-1/15: a precise realization theorem for the simplicial homotopy-fibration diagram in V.1.7, with connected bases and the proper/cofibrant or bisimplicial Kan hypotheses of the chosen model. Prove homotopy fibres agree after realization and verify the hypotheses for nerves of wS.(S_n f). Waldhausen 1978 Lemma 5.2 is a source lead, not read or established by this checkpoint.
+- `StableHomotopyKTheory:H.2` — RT-AREA-ktheory-1/15. The realisation theorem for levelwise homotopy fibration sequences of simplicial spaces, stated and proved in a model the relative S.-construction satisfies: for maps V. → W. → X. of simplicial spaces with compatible basepoints such that each Vₙ → Wₙ → Xₙ is a homotopy fibration sequence (Vₙ → hofib(Wₙ → Xₙ) over the basepoint is a weak equivalence), every Xₙ is connected, and the simplicial spaces are good (degeneracies closed cofibrations, automatic for realisations of multisimplicial sets), the sequence |V.| → |W.| → |X.| is a homotopy fibration sequence, the fibre identification being the canonical map into the homotopy fibre over the realised basepoint, so Ω|X.| → |V.| → |W.| → |X.| is one with the canonical connecting map. Either standard form may be adopted: Waldhausen 1978 (Algebraic K-theory of generalized free products, Lemma 5.2, as quoted in Weibel V.1.7) or Bousfield–Friedlander 1978 (Theorem B.4, for bisimplicial sets, with the π∗-Kan condition and the π₀ fibration condition, both implied when every Xₙ and Wₙ is connected); the locators are the red team's and verifier's and were not re-read here. This is neither the diagonal lemma nor the levelwise-equivalence theorem H.2 already plans, and it must not be stated for arbitrary levelwise fibrations without the connectivity (or π∗-Kan) hypothesis. Consumer: K.4/delooping-and-the-spectrum, which verifies the hypotheses for n ↦ (|wS.C| → |wS.(Sₙf)| → |wS.(SₙB)|).
 
 ## Stage changes for maintainer integration
 
@@ -1482,11 +1690,25 @@ Every target this layer lists is owned by another roadmap, and AUDIT-28 names al
 
 K.3's stage text warns against asserting localisation for arbitrary exact subcategories. This packet honours that by keeping Quillen's theorem, which is for a Serre subcategory of an abelian category, in K.3, and the Waldhausen theorem, which needs a cylinder functor with the cylinder axiom and saturation and extension for the larger class, in K.4. The two stage texts should each point at the other, because a reader who finds only one of them will be tempted to use it outside its hypotheses; that is exactly the error the K.3 text names.
 
-### Early exact-category theorems and late cofinality have different prerequisite closures
+### RT-AREA-ktheory-1/4: Waldhausen additivity and the relative S-fibration belong to K.4:construction
 
-RT-AREA-ktheory-1/20: K.3 additivity, resolution, dévissage and abelian localisation require K.1 and H.1/H.2, not all of K.4. Keep those in early K.3. Introduce a late K.3:cofinality stage after K.4 for the general cofinality proof via Waldhausen localisation; move the cofinality node there while retaining its stable id. Add K.4 → K.5 and K.2:plus → K.5. RT-AREA-ktheory-1/4: move Waldhausen additivity and relative S-fibration to K.4:construction, followed by H.5:S-delooping assembly and late K.4 localisation/approximation/comparisons. Delete EDS E5:abstract and H.5:spectra as prerequisites of the early S-construction; it only needs the homotopy-realization foundation H.1/H.2. Raw atlas snapshots are immutable; the maintainer must apply these stage changes.
+The atlas orders K.4:construction → H.5:S-delooping → K.4 but put Waldhausen additivity and the relative S-fibration in late K.4, although H.5:S-delooping's Ω-spectrum needs the deloopings they prove; K.4 also claimed 'the delooping theorem' that H.5:S-delooping proves, and the biexact K-pairing was planned both in H.5:S-delooping and in K.7. This packet now parents K.4/waldhausen-additivity and K.4/delooping-and-the-spectrum to K.4:construction and gives them the realisation input they need from H.2. The comparison with Q needs neither additivity nor the delooping, and the verifier's narrowing keeps late only the comparison results that need them, so the packet keeps K.4:construction/iS-versus-Q in the early part although the stage text lists the comparison among the late theorems.
 
-## Scoped source discrepancy
+Proposal: K.4:construction's text owns Waldhausen categories, the S-construction and its iteration, the K-theory space, the comparison with Q, Waldhausen additivity and the relative S-fibration with the iterated deloopings, and its handoff row matches. H.5:S-delooping imports K.4:construction and H.5:spectra and only assembles the connective Ω-spectrum; its integrated node's biexact-pairing clause moves to K.7, the single owner of K-theory products, while generic smash products stay in H.5:spectra. Late K.4 keeps the fibration and approximation theorems and Gillet–Waldhausen, and its text drops 'and the delooping theorem'. Edges: keep K.1 → K.4:construction and K.4:construction → H.5:S-delooping → K.4, now acyclic; add StableHomotopyKTheory:H.2 → K.4:construction; drop EnhancedDerivedSheaves:E5:abstract → K.4:construction and StableHomotopyKTheory:H.5:spectra → K.4:construction, which no K.4:construction node uses (enhanced and derived invariance keeps its own prerequisites in K.6 and K.7).
+
+### RT-AREA-ktheory-1/20: early K.3 and a late K.3:cofinality
+
+K.3 required all of K.4 although only its cofinality theorem uses Waldhausen theory, so every consumer of Quillen's 1973 theorems (K2SymbolsBrauer T.3:localization-comparison and T.5, ArithmeticKTheory N.2, SchemeKTheoryOperations S.3, KTheoryFiniteLocalFields L.1) inherited K.4, H.5 and the enhanced-category stages. In this packet early K.3 (the 3×3 lemma, the exact category of conflations, additivity, resolution with transfers and the degree-zero comparison with Tau Ceti's resolutionEquiv, dévissage and Serre-subcategory localisation) cites only K.1, StableHomotopyKTheory H.1 and H.2 and the pinned exact-category API; the general cofinality theorem needs the late fibration theorem and the S-versus-Q comparison.
+
+Proposal: Drop the edge K.4 → K.3. Create K.3:cofinality after K.4, requiring K.4 and K.4:construction, and move K.3/cofinality-degree-zero-correction there with its id unchanged (the node records proposedParentStageId). Keep K.3 → T.3:localization-comparison, T.5, N.2, S.3 and L.1. Retain the dependency of K.5 on K.4 explicitly: add K.4:construction → K.5 and K.4 → K.5 (K.5/relative-K-theory uses the relative S-fibration, K.5/relative-versus-support the fibration and approximation theorems). The edges K.3 → K.5 and StableHomotopyKTheory:H.5:spectra → K.5 are used by no K.5 node.
+
+### RT-AREA-ktheory-1/19 and 18: the early ring model and Milnor squares feed K.5
+
+The ring model is one node, K.2/functorial-K-theory-of-a-ring, in K.2:plus, and K.5, K.6 and K.7 import it; K.2:plus no longer depends on the late exact-category cofinality, since its cofinality node uses group-completion cofinality from StableHomotopyKTheory H.4. K.5's Milnor-square nodes import KTheoryLowDegrees Z.1 (patching, boundary, K₀ exactness), U.1 and U.2 (elementary lifting and classical K₁), all upstream of K.5. They cannot import U.5 or U.6: U.5 cites SchemeKTheoryOperations S.3, which follows S.2 and K.6, and U.6 imports K.5's relative fibre, so either import would close a cycle.
+
+Proposal: Add K.2:plus → K.5, KTheoryLowDegrees:Z.1 → K.5, KTheoryLowDegrees:U.1 → K.5 and KTheoryLowDegrees:U.2 → K.5; K.6 and K.7 require K.2:plus as well. The spectrum-level form of degree-one surjectivity for a Milnor square (Clausen–Mathew–Morrow, Proposition 4.34), which needs π₁ of the ring model to be GL/E (KTheoryLowDegrees U.6), must be placed after U.6, not in K.5 or K.6.
+
+## Source discrepancies
 
 `GeneralAlgebraicKTheory/E-double-origin`: Author chapter Kbook.V.pdf, Remark 3.4.2, p. V.22; version hashed in sourceVersions, read 2026-09-29
 
@@ -1495,3 +1717,19 @@ Use the affine plane with a double origin: glue two copies of Spec(k[x,y]) along
 The line has a nontrivial Picard group: transition units k[t,t⁻¹]× modulo the two copies of k[t]× give Pic(X) ≅ ℤ. Rank and determinant show that the class of a nontrivial line bundle cannot equal the class of O_X, so K₀(VB(X)) cannot be just the rank group ℤ. The plane is the actual example in both of the cited chapter-II locations. The equivalence of vector-bundle categories for the plane is quoted there from EGA IV(5.9); its proof is not claimed read or formalised here.
 
 Scope/known correction: No correction located in the searches listed; novelty is not established. Scoped to the author chapter copy, not the published edition.
+
+`GeneralAlgebraicKTheory/E-relative-S-proof-roles`: Author chapter Kbook.V.pdf, proof of Proposition 1.7, p. V.8; version hashed in sourceVersions, read 2026-09-30
+
+For f : B → C with Sn f = Sn B ×_{Sn C} Sn+1 C as in IV.8.5.3, Sn f is equivalent to the extension category E(C, Sn f, Sn B) of Sn B by C; (s, q) : wS.(Sn f) → wS.C × wS.(Sn B) is a homotopy equivalence; the degreewise fibration sequences are |wS.C| → |wS.(Sn f)| → |wS.(Sn B)|, with Xn = |wS.C| for all n. Realising these gives the sequence Ω|wS.(S.B)| → |wS.C| → |wS.(S.f)| → |wS.(S.B)| that the proposition states.
+
+In IV.8.5.3 an object of Sn f is a pair (B∗, C∗) with f(B∗) = ∂0 C∗, the subcategory C sits inside Sn f as the objects (0, C = ··· = C), and the exact projection is Sn f → Sn B; so the sub term of the extension is C and the quotient term Sn B. With the roles as printed the realisation would be Ω|wS.(S.C)| → |wS.B| → |wS.(S.f)| → |wS.(S.C)|, contradicting the displayed statement and Exercise V.1.7, which identifies the first map as the one induced by f : B → C.
+
+Scope/known correction: No correction located in the searches listed; novelty is not established. Scoped to the author chapter copy, not the published edition.
+
+`GeneralAlgebraicKTheory/E-cofinality-saturated`: Author chapter Kbook.IV.pdf, Waldhausen Cofinality 8.9, p. IV.72, and Kbook.V.pdf, Corollary 2.3.1, p. V.15; versions hashed in sourceVersions, read 2026-09-30
+
+Both statements need B to be saturated as well as cofinal: 'If B is a saturated, cofinal Waldhausen subcategory' and 'Let B be a saturated, cofinal Waldhausen subcategory'.
+
+Taken from the author's own correction list, which amends GSM 145 p.372 (IV.8.9), p.417 (V.2.3.1), p.180 (II.9.4) and p.189 (Ex. II.9.14) in this way; the packet did not re-derive the necessity of the hypothesis. The packet uses 8.9 only through the proof of Cofinality 6.4.1 for exact categories, whose weak equivalences are the isomorphisms and hence saturated, so no statement of the packet is affected.
+
+Scope/known correction: Corrected in the author's errata list for The K-book (AMS Graduate Studies in Mathematics 145, 2013), as preserved in the Wayback Machine capture of 2 December 2014 of Kbook.errata.pdf; the corrections are given against the published pagination and the author chapter files read here still carry the uncorrected text.

@@ -5,10 +5,10 @@ Blueprint for the roadmap `ArithmeticKTheory`, stages **N.7** and **N.8**, job `
 `research/blueprint/suggested/ArithmeticKTheory--N.7.lean`. Handoff:
 `research/blueprint/handoff/BP-ArithmeticKTheory--N.7.md`.
 
-**Both layers in scope are `source_decomposed`.** 15 nodes (3 definitions, 1 constructions, 4
-theorems, 2 comparisons, 5 applications), 23 API items, 16 unit tests, 6 planets; 21 pinned
-declarations cited, 4 gaps, 8 requests, 2 structural proposals. No layer is `closed`: closure
-means Lean, and nothing here is formalised.
+**N.7 is `source_decomposed`; N.8 is `partial`** (two certificate upper bounds are recorded
+gaps). 14 nodes (3 definitions, 1 construction, 4 theorems, 1 comparison, 5 applications), 24
+API items, 18 unit tests, 6 planets; 30 pinned declarations cited, 4 gaps, 9 requests, 3
+structural proposals. No layer is `closed`: closure means Lean, and nothing here is formalised.
 
 Pinned baseline: Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174`, Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369`.
 
@@ -43,14 +43,16 @@ tame kernel, and no K-group above the zeroth in either library. So the definitio
 prime — a composition of pinned objects — is one of the cheapest genuinely new definitions in
 this area, and a structural proposal records it as an early library target.
 
-**The three duplications.** AUDIT-27 records that `SpecialValuesBirchTate:B.3` asks for the
-same base examples as its independent test of Birch–Tate; that `K2SymbolsBrauer:T.5` proves
-`K₂(ℤ) = ℤ/2`, `K₂(𝔽_q) = 0` and the infinitude of `K₂(ℚ)`, and asks for a verified
-presentation *in this roadmap*; and that `K3BlochGroups:V.5` proves `K₃(ℤ) = ℤ/48` and carries
-`K₃(ℚ(i)) ≅ ℤ ⊕ ℤ/24` as a test. Every one of those computations is **imported here with its
-owner named** and none is re-planned (PROTOCOL §15). What is left to N.8 is the *format* of a
-certified example, the labelling rule and the consistency checks — and a structural proposal
-asks that its stage text say so.
+**The three duplications, and the fix.** AUDIT-27 records that `SpecialValuesBirchTate:B.3`
+asks for the same base examples as its independent test of Birch–Tate; that
+`K2SymbolsBrauer:T.5` proves `K₂(ℤ) = ℤ/2`, `K₂(𝔽_q) = 0` and the infinitude of `K₂(ℚ)`; and
+that `K3BlochGroups:V.5` proves `K₃(ℤ) = ℤ/48` and carries `K₃(ℚ(i)) ≅ ℤ ⊕ ℤ/24` as a test. The
+red team's RT-AREA-ktheory-1/9 and /11 (confirmed) settle the boundaries: N.8 imports `K₀(ℤ)`
+from `KTheoryLowDegrees:Z.6`, `K₁(ℤ)` from `U.6`, `K₂(ℤ)` and `K₂(ℚ)` from T.5 and `K₃` from
+V.5; it owns the certified examples `K₂(ℤ[i]) = 0` and the tame kernel of the real quadratic
+field `ℚ(√5)`, built on ArithmeticKTheory N.6's certificate engine, and the localisation
+sequence of `ℤ ⊂ ℤ[1/p]` in every degree; and the Birch–Tate check is B.3's, which imports
+N.8's real-quadratic certificate and must not supply its order bound.
 
 ---
 
@@ -605,24 +607,32 @@ and only started using this assumption circa 1920.” — The historical remark,
 
 ## N.8 — Certified examples
 
-**Coverage: source_decomposed.** 7 nodes.
+**Coverage: partial.** 6 nodes.
 
-Seven nodes. The format of a certified example, with the arithmetic data, the tame-kernel
-certificate imported from K2SymbolsBrauer T.5 and the labelling rule that an order deduced from
-Birch-Tate is a corollary and not a test of it; the first five K-groups of the integers with
-the roadmap that owns each and the two consistency checks; the Gaussian case, where the tame
-kernel vanishes by Tate's computation and the third K-group is the integers plus a cyclic group
-of order twenty-four by the structure theorem, the contrast with the rationals being the real
-place; the S-integer sequence for one inverted prime, obtained by comparing two instances of
-the tame-kernel sequence rather than by a new localisation theorem, with the extension class
-explicitly not determined; the check that the second K-group of the rationals is infinite while
-the tame kernel has order two; the real quadratic example with the Birch-Tate comparison and
-the worked rational instance as its model; and the status of the Birch-Tate formula, odd part a
-theorem of Wiles for totally real abelian fields and two-primary part open in general but known
-for abelian extensions of the rationals, so that an example says exactly what it rests on. The
-audit records three duplications, with SpecialValuesBirchTate B.3, K2SymbolsBrauer T.5 and
-K3BlochGroups V.5; every computation those layers own is imported here with its owner named and
-none is re-planned.
+Six nodes (RT-AREA-ktheory-1/9, /11). The format of a certified example
+(certified-example-format), which instantiates ArithmeticKTheory N.6's certificate engine — a
+presentation with span and an independent lower bound — and carries the labelling rule that an
+order deduced from Birch-Tate is a corollary and not a test of it; the first five K-groups of
+the integers, imported from their owners (K₀ from KTheoryLowDegrees Z.6, K₁ from U.6, K₂ from
+K2SymbolsBrauer T.5, K₃ from K3BlochGroups V.5) with the two consistency checks; the Gaussian
+case, where N.8 owns the certificate K₂(ℤ[i]) = 0 (Tate's vanishing, whose span obligation is a
+recorded gap) and the third K-group is the integers plus a cyclic group of order twenty-four by
+V.5's structure theorem; the localisation sequence of ℤ ⊂ ℤ[1/p] in every degree, with T.5's
+relative sequence in degree two; the check that K₂(ℚ) is infinite while the tame kernel has
+order two (T.5's computations); and the certified tame kernel of ℚ(√5), K₂ ≅ (ℤ/2)² with the
+sign symbols as lower bound, which N.8 owns and exports to SpecialValuesBirchTate B.3 (atlas
+edge N.8 → B.3, maintainer). The stage text's 'before checking Birch–Tate' is met in that
+order: the Birch–Tate check is B.3's, which combines N.8's certificate with its own w₂ and
+ζ-value and must not supply the certificate's bounds. The former node birch-tate-status is
+deleted: the status of the Birch–Tate formula (Wiles's odd part, the two-primary part for
+abelian fields) is SpecialValuesBirchTate's (B.4, B.5), and what an example may claim is the
+labelling rule of certified-example-format.
+
+Remaining:
+
+- The span (upper-bound) obligation of the ℚ(√5) certificate: a generation theorem for
+  K₂(𝓞_{ℚ(√5)}) (gap).
+- The span obligation of the ℤ[i] certificate, Tate's vanishing (gap).
 
 **Planets (1):** *Certified example*.
 
@@ -632,20 +642,25 @@ none is re-planned.
 
 A certified example of this roadmap consists of three things: the ARITHMETIC DATA of the field,
 namely its degree, its signature, its class number, its unit rank and the invariants w_i, each
-with a proof or with the pinned declaration that computes it; a TAME-KERNEL CERTIFICATE in the
-format K2SymbolsBrauer T.5 fixes, that is generators, relations, a generation proof and a proof
-that the relations are complete, so that an upper bound and a surjection are never reported as
-an isomorphism; and an explicit LABELLING of every number that is deduced rather than computed.
-The last is the rule the layer's text insists on: an order obtained from the Birch-Tate formula
-is a valid corollary of that formula and is labelled as one, and it may not then be used as the
-independent test of the formula.
+with a proof or with the pinned declaration that computes it; a TAME-KERNEL CERTIFICATE (or,
+for an even K-group, an order certificate) in the format of ArithmeticKTheory
+N.6/order-certificate, that is a finite presentation with a proof that its generators span (the
+upper bound) and an independent lower bound — a surjection onto a group of the presented order,
+from symbols (the real sign, tame or Hilbert symbols), from cohomology
+(N.6/certificate-driven-computation) or from a complete kernel argument — so that an upper
+bound and a surjection are never reported as an isomorphism; and an explicit LABELLING of every
+number that is deduced rather than computed. The last is the rule the layer's text insists on:
+an order obtained from the Birch-Tate formula is a valid corollary of that formula and is
+labelled as one, it may not then be used as the independent test of the formula, and it may not
+supply either bound of a certificate that SpecialValuesBirchTate B.3 uses as that test
+(RT-AREA-ktheory-1/11).
 
 **Hypotheses.**
 
 - F is a number field; the data are those of its ring of integers or of a ring of S-integers,
   as the example states.
-- The tame-kernel certificate format is imported from K2SymbolsBrauer T.5 and is not redefined
-  here.
+- The certificate format is ArithmeticKTheory N.6's (RT-AREA-ktheory-1/9) and is not redefined
+  here; the tame kernel and its exact sequences are K2SymbolsBrauer T.5's.
 - The labelling rule is a condition on the example, not on the mathematics: the same equality
   may appear as a computation in one example and as a corollary in another, and the example
   says which.
@@ -654,32 +669,34 @@ independent test of the formula.
 
 1. Define the record of arithmetic data with a field for each invariant and a proof obligation
    attached to it.
-1. Import the tame-kernel certificate and record which of its fields are present in a given
-   example.
+1. Import the order certificate of N.6/order-certificate and record which of its fields are
+   present in a given example.
 1. Define the labelling: each numerical claim carries a tag saying whether it is computed,
    imported or deduced, and from what.
 1. State the circularity rule: a claim tagged as deduced from a formula may not be cited as
-   evidence for that formula.
+   evidence for that formula, and may not fill a bound of a certificate used to test it.
 1. Record the minimum an example must contain to be admissible: the arithmetic data, at least
-   an upper bound for the tame kernel, and the labelling.
+   an upper bound for the tame kernel, and the labelling; it is certified only with both
+   bounds.
 
 **API.**
 
 | name | role | statement |
 | --- | --- | --- |
 | `ArithmeticData` | structure | Degree, signature, class number, unit rank and the invariants w_i, with their proofs. |
-| `CertifiedExample` | structure | The arithmetic data, the tame-kernel certificate and the labelling. |
+| `CertifiedExample` | structure | The arithmetic data, an order certificate in N.6's format (OrderCertificate) for the tame kernel, and the labelling. |
 | `CertifiedExample.tag` | projection | The tag of a numerical claim: computed, imported or deduced. |
 | `CertifiedExample.no_circularity` | characterisation | A claim tagged as deduced from a formula is not evidence for that formula. |
 | `CertifiedExample.admissible` | characterisation | The minimum an example must contain. |
 
-**Used by.** *N.8, every example*: Each of the five required examples is an instance of this record. *SpecialValuesBirchTate B.3*: That layer uses the same examples as its independent test, and the labelling is what keeps the test independent. *K2SymbolsBrauer T.5*: The certificate half is that layer’s format, imported here.
+**Used by.** *N.8, every example*: Each of the five required examples is an instance of this record. *SpecialValuesBirchTate B.3*: B.3 imports N.8's certified examples, the real-quadratic tame kernel among them, as the independent input of its Birch–Tate check (atlas edge N.8 → B.3); the labelling is what keeps that check independent. *ArithmeticKTheory N.6/order-certificate*: The certificate half is N.6's format, imported here; K2SymbolsBrauer T.5 supplies the tame kernel it is applied to.
 
 **Unit tests.**
 
 - `deduced_not_evidence` — An order deduced from Birch-Tate cannot be listed as a test of
   Birch-Tate.
-- `upper_bound_only` — Without the completeness proof the example reports an upper bound.
+- `upper_bound_only` — Without the lower bound (or a complete kernel argument) the example
+  reports an upper bound, not an order.
 - `rationals_admissible` — The rational example is admissible: its three numbers are known
   independently.
 - `data_from_libraries` — For the small fields used here the arithmetic data can be discharged
@@ -694,12 +711,12 @@ independent test of the formula.
 - The arithmetic data half can be discharged from the pinned libraries for the small fields
   this layer uses, which is why those are the required first examples.
 
-**Depends on.** **other roadmaps** `K2SymbolsBrauer:T.5`; **libraries** `mathlib:NumberField.classNumber`, `mathlib:NumberField.Units.rank`, `mathlib:NumberField.InfinitePlace.nrRealPlaces`, `mathlib:NumberField.InfinitePlace.nrComplexPlaces`.
+**Depends on.** **other roadmaps** `ArithmeticKTheory:N.6/order-certificate`; **libraries** `mathlib:NumberField.classNumber`, `mathlib:NumberField.Units.rank`, `mathlib:NumberField.InfinitePlace.nrRealPlaces`, `mathlib:NumberField.InfinitePlace.nrComplexPlaces`.
 
-**Source.** Kbook.2013, VI.8.6, the worked case of the rationals (PDF p. 513): “For example,
-when F = Q we have zeta_Q(-1) = -1/12, |K_2(Z)| = 2 and w_2(Q) = 24; see the Classical Data.” —
-The shape of a certified example: three independently known numbers checked against one
-another.
+**Source.** Kbook.2013, VI.8.6, the worked case of the rationals, printed p. 515 (PDF p. 523):
+“For example, when F = Q we have ζQ(−1) = −1/12, |K2(Z)| = 2 and w2(Q) = 24; see the Classical
+Data 8.1” — The shape of a certified example: three independently known numbers. Prose verbatim
+from the text layer of the author-hosted PDF; formulas transcribed.
 
 ### `k-groups-of-the-integers` — The first K-groups of the integers
 
@@ -707,11 +724,12 @@ another.
 
 The required first computation: the zeroth K-group of the integers is the integers, the first
 is cyclic of order two, the second is cyclic of order two generated by the symbol of minus one
-with itself, the third is cyclic of order forty-eight, and the fourth vanishes. The first two
-are the classical computations of the roadmap's earlier layers; the second is K2SymbolsBrauer
-T.5's, through Milnor's presentation and the sign symbol; the third is K3BlochGroups V.5's; the
-fourth is the source's table. This node records the five values with the roadmap that owns
-each, and the two consistency checks the layer's text asks for.
+with itself, the third is cyclic of order forty-eight, and the fourth vanishes. None is
+computed here: K₀(ℤ) = ℤ is KTheoryLowDegrees Z.6's, K₁(ℤ) = {±1} is KTheoryLowDegrees U.6's,
+K₂(ℤ) ≅ ℤ/2 with generator {−1, −1} is K2SymbolsBrauer T.5's (T.5/k2-of-the-integers, through
+Milnor's bound and the sign symbol), and K₃(ℤ) ≅ ℤ/48 is K3BlochGroups V.5's; the fourth is the
+source's table. This node records the five values with the roadmap that owns each, and the two
+consistency checks the layer's text asks for.
 
 **Hypotheses.**
 
@@ -722,7 +740,8 @@ each, and the two consistency checks the layer's text asks for.
 
 **Construction and proof.**
 
-1. Record the five values with their owners.
+1. Record the five values with their owners: Z.6 (K₀), U.6 (K₁), T.5/k2-of-the-integers (K₂),
+   V.5 (K₃), the source's table (K₄).
 1. Record the generator of the second group, the symbol of minus one with itself, and the sign
    symbol that detects it.
 1. Record the first consistency check: the second group has order two while the second K-group
@@ -740,17 +759,18 @@ each, and the two consistency checks the layer's text asks for.
 - The second group has order two, and the second K-group of the rationals is infinite; both are
   consistent with the tame-kernel sequence.
 - The fourth group vanishes; the eighth is only conjectured to vanish, and the packet says so.
+- As a certified example, K₂(ℤ) instantiates N.6's engine with T.5's bounds: one generator {−1,
+  −1}, the relation 2g = 0, span by Milnor's bound, lower bound the real sign symbol onto ℤˣ
+  (the instance orderCertificate_k2_int of ArithmeticKTheory N.6/order-certificate).
 
-**Depends on.** **inside this packet** `certified-example-format`, `w-invariant`, `vandiver-separation`; **other roadmaps** `K2SymbolsBrauer:T.5`, `K3BlochGroups:V.5`.
+**Depends on.** **inside this packet** `certified-example-format`, `w-invariant`, `vandiver-separation`; **other roadmaps** `KTheoryLowDegrees:Z.6`, `KTheoryLowDegrees:U.6`, `K2SymbolsBrauer:T.5/k2-of-the-integers`, `K2SymbolsBrauer:T.5/k2-of-the-rationals`, `K3BlochGroups:V.5`.
 
-**Source.** Kbook.2013, VI.10.1.1, Table 10.1.1 (PDF p. 528): “K_0(Z) = Z, K_1(Z) = Z/2, K_2(Z)
-= Z/2, K_3(Z) = Z/48, K_4(Z) = 0, K_5(Z) = Z, K_6(Z) = 0, K_7(Z) = Z/240.” — The five values,
-verbatim from the table.
-
-**Source.** Kbook.2013, VI.10.1.1, the note to the table (PDF p. 528): “The notation (0?)
-refers to a finite group, conjecturally zero, whose order is a product of irregular primes
-greater than 10^8.” — The boundary between the theorem in degree four and the conjecture in the
-higher degrees divisible by four, verbatim.
+**Source.** Kbook.2013, VI.10.1.1 (Table 10.1.1) and its note, printed p. 528 (PDF p. 536):
+“K0(Z) = Z, K1(Z) = Z/2, K2(Z) = Z/2, K3(Z) = Z/48, K4(Z) = 0, K5(Z) = Z, K6(Z) = 0, K7(Z) =
+Z/240. Table 10.1.1: The groups Kn(Z), n < 20,000. The notation ‘(0?)’ refers to a finite
+group, conjecturally zero, whose order is a product of irregular primes > 10^8.” — The first
+column of the table (transcribed) and its note, verbatim. Prose verbatim from the text layer of
+the author-hosted PDF; formulas transcribed.
 
 ### `gaussian-and-imaginary-quadratic` — The Gaussian integers: a vanishing tame kernel and a third K-group of order twenty-four
 
@@ -759,26 +779,31 @@ higher degrees divisible by four, verbatim.
 For the Gaussian rationals the required computations are that the tame kernel vanishes and that
 the third K-group is the direct sum of the integers and a cyclic group of order twenty-four.
 The first is Tate's computation, recorded by the source together with the other imaginary
-quadratic rings of class number one for which the same vanishing holds. The second follows from
-the general structure theorem for the third K-group of a number field: for a totally imaginary
-field with r_2 complex places the group is the direct sum of r_2 copies of the integers and a
-cyclic group of order the invariant w_2; the Gaussian rationals have one complex place and no
-real place, and their invariant w_2 is twenty-four, so the group is as stated.
+quadratic rings of class number one for which the same vanishing holds; this node owns it as a
+certified example in N.6's format (RT-AREA-ktheory-1/9): the tame kernel K₂(ℤ[i]) — T.5's
+unramified subgroup of K₂(ℚ(i)) — is certified trivial by the empty presentation, whose span
+obligation is the statement that every element of K₂(ℤ[i]) is trivial, proved by Tate's
+Euclidean-algorithm method (recorded gap), the lower bound being trivial. The second follows
+from the general structure theorem for the third K-group of a number field: for a totally
+imaginary field with r_2 complex places the group is the direct sum of r_2 copies of the
+integers and a cyclic group of order the invariant w_2; the Gaussian rationals have one complex
+place and no real place, and their invariant w_2 is twenty-four, so the group is as stated.
 
 **Hypotheses.**
 
 - The field is the Gaussian rationals and the ring is the Gaussian integers; the field is
   totally imaginary with one complex place and no real place.
-- The structure theorem for the third K-group is the source's Corollary 5.3, which this layer
-  imports; the case distinction between the totally imaginary case and the case with a real
-  place is part of it.
+- The structure theorem for the third K-group is the source's Corollary 5.3, which
+  K3BlochGroups V.5 owns and this layer imports; the case distinction between the totally
+  imaginary case and the case with a real place is part of it.
 - The value twenty-four for the invariant is computed by N.7's node and is the same as for the
   rationals.
 
 **Construction and proof.**
 
-1. Record Tate's vanishing computation for the tame kernel of the Gaussian integers, with the
-   other imaginary quadratic rings the source lists.
+1. Certify the tame kernel of the Gaussian integers in N.6's format: no generators, span =
+   Tate's vanishing (gap), trivial lower bound; K₂(ℤ[i]) is the tame kernel by
+   T.5/tame-kernel-sequence. Record the other imaginary quadratic rings the source lists.
 1. State the structure theorem for the third K-group of a number field in both cases, totally
    imaginary and with a real place.
 1. Compute the signature of the Gaussian rationals and its invariant w_2.
@@ -794,77 +819,101 @@ real place, and their invariant w_2 is twenty-four, so the group is as stated.
   the difference is the absence of a real place.
 - The third K-group of the Gaussian rationals has torsion of order twenty-four and that of the
   rationals of order forty-eight, and both are instances of the same formula.
-- The vanishing is Tate's computation and is imported; a formalisation may not derive it from
-  the structure theorem, which does not give the tame kernel.
+- The vanishing is Tate's computation, owned here as a certificate whose span obligation is the
+  recorded gap; a formalisation may not derive it from the structure theorem, which does not
+  give the tame kernel.
 
-**Depends on.** **inside this packet** `k-groups-of-the-integers`, `w-invariant`; **other roadmaps** `K3BlochGroups:V.5`, `K2SymbolsBrauer:T.5`.
+**Depends on.** **inside this packet** `k-groups-of-the-integers`, `certified-example-format`, `w-invariant`; **other roadmaps** `ArithmeticKTheory:N.6/order-certificate`, `K3BlochGroups:V.5`, `K2SymbolsBrauer:T.5/tame-kernel-sequence`, `K2SymbolsBrauer:T.5/unramified-subgroup`.
 
-**Source.** Kbook.2013, VI.5.3 (PDF p. 489): “Corollary 5.3. Let F be a number field, with r_1
-real embeddings and r_2 complex embeddings, and set w = w_2(F). Then the indecomposable third
-K-group is the direct sum of r_2 copies of Z and Z/w, and: (a) if F is totally imaginary then
-K_3(F) is the direct sum of r_2 copies of Z and Z/w; (b) if F has r_1 > 0 embeddings into R
-then K_3(F) is the direct sum of r_2 copies of Z, Z/(2w) and ...” — The structure theorem in
-both cases, verbatim.
+**Source.** Kbook.2013, VI.5.3 (Corollary 5.3), printed p. 488 (PDF p. 496): “Corollary 5.3.
+Let F be a number field, with r1 real embeddings and r2 complex embeddings, and set w = w2(F).
+Then K3^ind(F) ≅ Z^{r2} ⊕ Z/w, and: (a) If F is totally imaginary then K3(F) ≅ Z^{r2} ⊕ Z/w;
+(b) If F has r1 > 0 embeddings into R then K3(F) ≅ Z^{r2} ⊕ Z/(2w) ⊕ (Z/2)^{r1−1}.” — The
+structure theorem in both cases, verbatim. Prose verbatim from the text layer of the
+author-hosted PDF; formulas transcribed.
 
-**Source.** Kbook.2013, III.5.2.2 (PDF p. 222): “Tate has used the same Euclidean algorithm
-type techniques to show that ... K_2(R) = 1 for the imaginary quadratic rings R = Z[i], ...” —
-The vanishing of the tame kernel of the Gaussian integers, verbatim.
+**Source.** Kbook.2013, III.5.2.2 (Example 5.2.2), printed p. 218 (PDF p. 226): “Tate has used
+the same Euclidean algorithm type techniques to show that K2(Z[√−7]) and K2(Z[√−15]) are also
+cyclic of order 2, generated by the symbol {−1, −1}, while K2(R) = 1 for the imaginary
+quadratic rings R = Z[i], Z[√−3], Z[√−2] and Z[√−11].” — Tate's vanishing for Z[i] and the
+other rings, verbatim. Prose verbatim from the text layer of the author-hosted PDF; formulas
+transcribed.
 
-### `s-integer-sequence-for-one-inverted-prime` — The S-integer sequence for the integers with one prime inverted
+### `s-integer-sequence-for-one-inverted-prime` — The localisation sequence of the integers with one prime inverted, in every degree
 
 *application*
 
-Comparing the tame-kernel sequence of the integers with that of the integers with a prime
-inverted gives the short exact sequence whose left term is the second K-group of the integers,
-whose middle term is the second K-group of the integers with that prime inverted, and whose
-right map is the tame symbol at the inverted prime, onto the multiplicative group of the
-residue field. So the second K-group of the S-integers is an extension of a cyclic group of
-order p-1 by a cyclic group of order two. In degree one the sequence gives the unit group: the
-units of the integers with a prime inverted form the direct sum of a cyclic group of order two
-and an infinite cyclic group generated by the prime. The demonstration is what the layer's text
-asks for, and it is obtained by comparing two instances of a sequence this roadmap already
-owns, not by a new localisation theorem.
+Let p be a prime. The localisation sequence of ℤ ⊂ ℤ[1/p], whose fibre term is K_*(𝔽_p)
+(N.2/finite-support with R = ℤ and s = p), breaks up into short exact sequences 0 → K_n(ℤ) →
+K_n(ℤ[1/p]) → K_{n−1}(𝔽_p) → 0 for every n ≥ 1, and K₀(ℤ) → K₀(ℤ[1/p]) is an isomorphism. Hence
+K_n(ℤ[1/p]) ≅ K_n(ℤ) for odd n ≥ 3; for n = 2i ≥ 2, K_{2i}(ℤ[1/p]) is an extension of ℤ/(p^i −
+1) by K_{2i}(ℤ), of order #K_{2i}(ℤ)·(p^i − 1); and in degree one K₁(ℤ[1/p]) = ℤ[1/p]^× = {±1}
+× p^ℤ ≅ ℤ/2 ⊕ ℤ (KTheoryLowDegrees U.6). In degree two the sequence is K2SymbolsBrauer T.5's
+relative sequence 0 → K₂(ℤ) → K₂(ℤ[1/p]) → 𝔽_p^× → 0 (residue at p ∈ S), imported, and it
+splits: the retraction K₂(ℚ) → K₂(ℤ) given by the real sign symbol (T.5/k2-of-the-rationals)
+restricts to K₂(ℤ[1/p]). In the degrees 2i ≥ 4 the extension class is not determined here. The
+demonstration is what the layer's text asks for ('demonstrate the S-integer exact sequence for
+Z[1/p]'), and N.8 owns it in every degree (RT-AREA-ktheory-1/9).
 
 **Hypotheses.**
 
-- p is a prime; S is the set consisting of p together with the infinite place; the ring is the
-  integers with p inverted.
-- The two tame-kernel sequences are K2SymbolsBrauer T.5's; the localisation theorem behind them
-  is ArithmeticKTheory N.2's.
-- The extension is not claimed to be split; its class is not determined here.
+- p is a prime; S = {p} (with the infinite place for the K-book's count of S-units); the ring
+  is ℤ[1/p].
+- The localisation sequence is N.2's (the sequence of R → R[1/s] of N.2/finite-support); the
+  injectivity of K_n(ℤ) → K_n(ℚ) for n ≥ 1 is Bass–Milnor–Serre in degree one (SK₁(ℤ) = 0),
+  N.2/even-degree-injectivity in even degrees (T.5 in degree two) and Soulé's theorem
+  (N.5/soule-theorem) in odd degrees n ≥ 3.
+- The extension class in degrees 2i ≥ 4 is not claimed; in degree two the splitting comes from
+  the real place.
 
 **Construction and proof.**
 
-1. Write the tame-kernel sequence for the integers: the second K-group of the integers injects
-   into that of the rationals with cokernel the sum over all primes of the multiplicative
-   groups of the prime fields.
-1. Write the same sequence for the integers with p inverted, where the sum omits the place p.
-1. Compare the two, obtaining the short exact sequence with the tame symbol at p on the right.
-1. Record the resulting order statement: the middle group has order twice p-1 when it is
-   finite, and in particular is finite.
-1. Record the degree-one instance: the unit group of the integers with p inverted is the direct
-   sum of a cyclic group of order two and an infinite cyclic group.
-1. Record what is not determined: whether the extension splits, which needs more than the
-   comparison.
+1. Take the localisation sequence of ℤ → ℤ[1/p] with fibre K_*(𝔽_p) (N.2/finite-support,
+   dévissage for the p-torsion modules): ⋯ → K_n(𝔽_p) → K_n(ℤ) → K_n(ℤ[1/p]) → K_{n−1}(𝔽_p) →
+   K_{n−1}(ℤ) → ⋯.
+1. For n ≥ 1, K_n(ℤ) → K_n(ℚ) is injective (SK₁(ℤ) = 0, KTheoryLowDegrees U.6;
+   N.2/even-degree-injectivity for even n; N.5/soule-theorem with S = ∅ for odd n ≥ 3); it
+   factors through K_n(ℤ[1/p]), so K_n(ℤ) → K_n(ℤ[1/p]) is injective and every map K_n(𝔽_p) →
+   K_n(ℤ), n ≥ 1, is zero.
+1. Degree zero: K₀(𝔽_p) → K₀(ℤ) sends [𝔽_p] to [ℤ] − [pℤ] = 0 (N.2/the-three-classical-rows
+   (a)), so 0 → K₁(ℤ) → K₁(ℤ[1/p]) → K₀(𝔽_p) = ℤ → 0 is exact and K₀(ℤ) ≅ K₀(ℤ[1/p]).
+1. Insert Quillen's K_*(𝔽_p) (KTheoryFiniteLocalFields L.1): K_{2i}(𝔽_p) = 0 and K_{2i−1}(𝔽_p)
+   ≅ ℤ/(p^i − 1) for i ≥ 1; this gives the odd-degree isomorphisms and the even-degree
+   extensions.
+1. Degree two: identify the sequence with T.5/relative-s-integer-sequence, and split it by
+   restricting the retraction of T.5/k2-of-the-rationals.
+1. Degree one: compare with K₁(ℤ[1/p]) = ℤ/2 ⊕ ℤ (KTheoryLowDegrees U.6), the map to K₀(𝔽_p) =
+   ℤ being the p-adic valuation.
 
 **Acceptance.**
 
-- For p = 2 the residue field has one element in its multiplicative group, so the sequence
-  gives that the second K-group of the integers with two inverted has order two.
-- For p = 3 the group has order four.
-- The extension class is not determined by the comparison, and a formalisation that asserted a
-  splitting would be claiming more than the argument gives.
+- p = 2: K₂(ℤ[1/2]) ≅ K₂(ℤ) = ℤ/2, since 𝔽₂^× is trivial.
+- p = 3: K₂(ℤ[1/3]) ≅ ℤ/2 ⊕ ℤ/2, split by the real sign symbol.
+- K₃(ℤ[1/p]) ≅ K₃(ℤ) ≅ ℤ/48 for every p, and K₄(ℤ[1/p]) ≅ ℤ/(p² − 1) since K₄(ℤ) = 0 (the
+  source's table); for p = 2 this is ℤ/3.
+- Degree one: 0 → {±1} → {±1} × p^ℤ → ℤ → 0, the last map the p-adic valuation.
+- A formalisation that asserted a splitting in degrees 2i ≥ 4 would be claiming more than the
+  argument gives.
 
-**Depends on.** **inside this packet** `k-groups-of-the-integers`; **other roadmaps** `K2SymbolsBrauer:T.5`, `ArithmeticKTheory:N.2`.
+**Depends on.** **inside this packet** `k-groups-of-the-integers`; **other roadmaps** `ArithmeticKTheory:N.2/finite-support`, `ArithmeticKTheory:N.2/the-three-classical-rows`, `ArithmeticKTheory:N.2/even-degree-injectivity`, `ArithmeticKTheory:N.5/soule-theorem`, `KTheoryFiniteLocalFields:L.1`, `KTheoryLowDegrees:U.6`, `K2SymbolsBrauer:T.5/relative-s-integer-sequence`, `K2SymbolsBrauer:T.5/k2-of-the-rationals`.
 
-**Source.** Kbook.2013, VI.8.1, Classical Data (PDF p. 507): “The formulas for K_0(O_S) = Z +
-Pic(O_S) and K_1(O_S) = the units of O_S, isomorphic to Z^{r_2 + |S| - 1} + the roots of unity
-of F, are different.” — The degree-zero and degree-one terms of the S-integer computation,
-verbatim; the unit statement specialises to the integers with one prime inverted.
+**Source.** Kbook.2013, VI.8.1 (Classical Data), printed p. 513 (PDF p. 521): “The formulas for
+K0(OS) = Z ⊕ Pic(OS) and K1(OS) = OS^× ≅ Z^{r2+|S|−1} ⊕ µ(F) are different; see II.2.6.3 and
+III.1.3.6.” — The degree-zero and degree-one formulas. The printed rank r2 + |S| − 1 is wrong
+for fields with real places (it gives rank 0 for Z[1/p]); the node uses the correct rank r1 +
+r2 + |S| − 1 = 1, recorded as ArithmeticKTheory/E1. Prose verbatim from the text layer of the
+author-hosted PDF; formulas transcribed.
 
-**Source.** Kbook.2013, III.6.5.1 (PDF p. 245): “If R = Z then, since K_2(Z/p) = 1 and SK_1(Z)
-= 1, we have an exact sequence 1 -> K_2(Z) -> K_2(Q) -> the direct sum of the F_p^times -> 1.”
-— The sequence for the integers, which is one of the two compared here.
+**Source.** Kbook.2013, III.6.5.1 (Application 6.5.1), printed p. 236 (PDF p. 244):
+“Application 6.5.1 (K2 Q). If R = Z then, since K2(Z/p) = 1 and SK1(Z) = 1, we have an exact
+sequence 1 → K2(Z) → K2(Q) → ⊕ Fp^× → 1. As noted in Example 6.2.1, this sequence is split by
+the symbol (r, s)∞, so we have K2(Q) ≅ K2(Z) ⊕ ⊕ Fp^×.” — The sequence for the integers, which
+is one of the two compared. Prose verbatim from the text layer of the author-hosted PDF;
+formulas transcribed.
+
+**Source.** Kbook.2013, V.6.1, Application 6.1 and (6.1.1) (PDF p. 414; book p. 406): “The
+prototype is the case when S = {s^n}.” — The localisation sequence for R → R[1/s], here with R
+= ℤ and s = p, whose fibre is G_*(ℤ/p) = K_*(𝔽_p).
 
 ### `the-rationals-infinite-against-finite` — The rationals: an infinite second K-group over a tame kernel of order two
 
@@ -881,8 +930,9 @@ node adds is the check itself and its record as a certified example.
 **Hypotheses.**
 
 - The field is the rationals and the ring the integers.
-- Both computations are imported from K2SymbolsBrauer T.5; the sign symbol that splits the
-  sequence is that layer's own contribution.
+- Both computations are imported from K2SymbolsBrauer T.5 (T.5/k2-of-the-integers and
+  T.5/k2-of-the-rationals); the sign symbol that splits the sequence is that layer's own
+  contribution.
 - The infinite direct sum is over all primes, and each summand is finite cyclic, so the sum is
   infinite but torsion.
 
@@ -904,147 +954,128 @@ node adds is the check itself and its record as a certified example.
 - The example is admissible in the sense of this layer's format: every number is tagged and
   none is deduced from Birch-Tate.
 
-**Depends on.** **inside this packet** `certified-example-format`, `s-integer-sequence-for-one-inverted-prime`; **other roadmaps** `K2SymbolsBrauer:T.5`.
+**Depends on.** **inside this packet** `certified-example-format`, `s-integer-sequence-for-one-inverted-prime`; **other roadmaps** `K2SymbolsBrauer:T.5/k2-of-the-integers`, `K2SymbolsBrauer:T.5/k2-of-the-rationals`.
 
-**Source.** Kbook.2013, III.6.5.1 (PDF p. 245): “As noted in Example 6.2.1, this sequence is
-split by the symbol (r,s)_infinity, so we have K_2(Q) = K_2(Z) + the direct sum of the
-F_p^times.” — The decomposition that makes the check, verbatim.
+**Source.** Kbook.2013, III.6.5.1 (Application 6.5.1), printed p. 236 (PDF p. 244):
+“Application 6.5.1 (K2 Q). If R = Z then, since K2(Z/p) = 1 and SK1(Z) = 1, we have an exact
+sequence 1 → K2(Z) → K2(Q) → ⊕ Fp^× → 1. As noted in Example 6.2.1, this sequence is split by
+the symbol (r, s)∞, so we have K2(Q) ≅ K2(Z) ⊕ ⊕ Fp^×.” — The decomposition that makes the
+check, verbatim. Prose verbatim from the text layer of the author-hosted PDF; formulas
+transcribed.
 
-### `real-quadratic-example-and-birch-tate` — A real quadratic example, and the Birch-Tate check
+### `real-quadratic-example-and-birch-tate` — The certified tame kernel of a real quadratic field: ℚ(√5)
 
 *application*
 
-The required real quadratic example: a real quadratic field with its arithmetic data certified,
-its tame kernel presented in the format of this layer, and the Birch-Tate quotient computed and
-compared. The Birch-Tate conjecture asserts, for a totally real number field, that the value of
-the Dedekind zeta function at minus one equals, up to the sign given by the number of real
-places, the order of the tame kernel divided by the invariant w_2. The worked instance the
-source gives is the rationals, where the zeta value is minus one twelfth, the order is two and
-the invariant is twenty-four. For a real quadratic field the same three numbers are computed
-independently, and the labelling rule applies: if the order is obtained from the formula it is
-a corollary and not a test.
+The required real quadratic example is F = ℚ(√5), with 𝓞_F = ℤ[(1 + √5)/2] and fundamental unit
+ε = (1 + √5)/2 of norm −1. Its arithmetic data are certified (degree 2, signature (2, 0), class
+number 1, unit rank 1 with fundamental unit ε), and its tame kernel is certified in N.6's
+format as K₂(𝓞_F) ≅ (ℤ/2)², generated by {−1, −1} and {−1, ε}. Lower bound: the sign symbols at
+the two real places, σ₁(√5) > 0 and σ₂(√5) < 0, give a homomorphism K₂(𝓞_F) → K₂(F) → (ℤˣ)²
+sending {−1, −1} to (−1, −1) and {−1, ε} to (1, −1) (σ₁(ε) > 0 > σ₂(ε)), hence onto a group of
+order 4; both symbols are symbols of units and so lie in the tame kernel. Upper bound: a finite
+presentation with generators {−1, −1}, {−1, ε} and relations 2g = 0 for each, whose span
+obligation — that the two symbols generate K₂(𝓞_F) — is to be discharged by an explicit
+generation argument (recorded gap). The certificate uses neither the Birch–Tate formula nor a
+zeta value: N.8 owns it and exports it to SpecialValuesBirchTate B.3, which combines it with
+its own computations of ζ_F(−1) = 1/30 and w₂(F) = 120 for the Birch–Tate check 1/30 = 4/120
+(RT-AREA-ktheory-1/11); that check is B.3's and must not supply either bound here.
 
 **Hypotheses.**
 
-- F is a real quadratic field, so both places are real and the field is totally real; the ring
-  is its ring of integers.
-- The arithmetic data can be discharged from the pinned libraries, which have class numbers,
-  the Minkowski bound machinery and an extensive quadratic-field development.
-- The tame-kernel presentation is not in the libraries and is the part the certificate must
-  supply; the source cites the literature on second K-groups of quadratic fields for the
-  computations.
+- F = ℚ(√5) is real quadratic, so totally real with two real places; the ring is its ring of
+  integers.
+- The format is N.6/order-certificate; the sign symbols are K2SymbolsBrauer
+  T.5/real-sign-symbol at the two real embeddings, and the tame kernel is T.5's unramified
+  subgroup, identified with K₂(𝓞_F) by T.5/tame-kernel-sequence.
+- The upper bound is the part not in the libraries: it needs a generation theorem for K₂(𝓞_F)
+  (the source cites Browkin and Schinzel's work on K₂ of quadratic fields; not obtained,
+  recorded gap). Until it is discharged the example certifies #K₂(𝓞_F) ≥ 4 only, and says so.
+- Although the Birch–Tate formula is a theorem for this abelian field (Wiles, with the
+  two-primary part; SpecialValuesBirchTate), reading #K₂(𝓞_F) = 4 off it would be a corollary,
+  labelled as such, and not a certificate.
 
 **Construction and proof.**
 
-1. Fix a real quadratic field and certify its arithmetic data from the pinned libraries:
-   degree, signature, class number, unit rank and the invariant w_2.
-1. Present the tame kernel in the certificate format, recording which half of the certificate
-   is available.
-1. Compute the two sides of the Birch-Tate formula independently where possible, and tag each
-   number.
-1. Record the worked rational instance of the source as the model, with its three numbers.
-1. Record the status of the conjecture from the next node, so that the example does not appear
-   to prove more than it does.
+1. Certify the arithmetic data: degree and signature from the minimal polynomial X² − X − 1 of
+   ε, the class number from the pinned quadratic-field and class-number API, the unit rank r_1
+   + r_2 − 1 = 1 (Mathlib's NumberField.Units.rank) with ε fundamental.
+1. Lower bound: compute the two sign symbols of {−1, −1} and {−1, ε} (T.5/real-sign-symbol;
+   K-book Ex. III.6.4 for the surjection K₂(F) → {±1}^{r_1}) and conclude that K₂(𝓞_F) → (ℤˣ)²
+   is onto.
+1. Upper bound: present K₂(𝓞_F) by the two generators with relations 2g = 0 and discharge the
+   span obligation by an explicit generation argument (gap).
+1. Fill N.6/order-certificate: the presented group (ℤ/2)² and the lower-bound group (ℤˣ)² have
+   the same order 4, so soundness gives K₂(𝓞_F) ≅ (ℤ/2)².
+1. Export: SpecialValuesBirchTate B.3 imports the certificate for its independent Birch–Tate
+   check; the ζ-value and w₂(F) are B.3's.
 
 **Acceptance.**
 
-- The rational instance checks: minus one twelfth equals minus one times two divided by twenty-
-  four.
-- For a real quadratic field with class number one the arithmetic data are available from the
-  libraries and the tame-kernel presentation is the only missing half.
-- An order read off from the formula is tagged as a corollary and the example is then not a
-  test of the formula.
+- The two sign symbols separate {−1, −1} and {−1, ε}: their images (−1, −1) and (1, −1)
+  generate (ℤˣ)².
+- Without the generation argument the example reports #K₂(𝓞_F) ≥ 4, not an order.
+- The Birch–Tate identity 1/30 = (+1)·4/120 is SpecialValuesBirchTate B.3's check, which uses
+  this certificate as its independent input; an order read off from the formula would be tagged
+  as a corollary and could not fill either bound.
 
-**Depends on.** **inside this packet** `certified-example-format`, `the-rationals-infinite-against-finite`, `w-invariant`; **other roadmaps** `SpecialValuesBirchTate:B.3`; **libraries** `mathlib:NumberField.classNumber`, `mathlib:NumberField.dedekindZeta`.
+**Depends on.** **inside this packet** `certified-example-format`; **other roadmaps** `ArithmeticKTheory:N.6/order-certificate`, `K2SymbolsBrauer:T.5/real-sign-symbol`, `K2SymbolsBrauer:T.5/unramified-subgroup`, `K2SymbolsBrauer:T.5/tame-kernel-sequence`; **libraries** `mathlib:NumberField.classNumber`, `mathlib:NumberField.Units.rank`, `mathlib:NumberField.InfinitePlace.nrRealPlaces`.
 
-**Source.** Kbook.2013, VI.8.6 (PDF p. 513): “Birch-Tate Conjecture 8.6. If F is a number
-field, the zeta function zeta_F(s) has a pole of order r_2 at s = -1. Birch and Tate
-conjectured in 1970 that for totally real number fields (r_2 = 0) we have zeta_F(-1) =
-(-1)^{r_1} |K_2(O_F)|/w_2(F).” — The formula with its hypothesis, verbatim.
+**Source.** Kbook.2013, Ex. III.6.4 (PDF p. 251; book p. 243): “If F is a number ﬁeld with r1
+distinct embeddings F֒ →R, show that the r1 symbols ( , )∞on F deﬁne a surjection K2(F)
+→{±1}r1.” — The sign symbols at the real places, the lower bound of the certificate (text layer
+as extracted; '֒ →' is the hooked arrow).
 
-**Source.** Kbook.2013, VI.8.6, the worked case (PDF p. 513): “For example, when F = Q we have
-zeta_Q(-1) = -1/12, |K_2(Z)| = 2 and w_2(Q) = 24.” — The model instance, verbatim.
-
-### `birch-tate-status` — What is known about the Birch-Tate formula, and what the examples may claim
-
-*comparison*
-
-The odd part of the Birch-Tate conjecture is a theorem of Wiles for totally real abelian
-fields; the two-primary part is open in general but is known to follow from the two-adic Main
-Conjecture of Iwasawa theory, and it is known for abelian extensions of the rationals, so the
-full conjecture holds there. An example over a totally real abelian field may therefore use the
-formula as a theorem, with the reference; an example over a general totally real field may not.
-This node records the status so that the certified examples of this layer state exactly what
-they rest on, and so that the labelling rule of the format node has something precise to point
-at.
-
-**Hypotheses.**
-
-- F is a totally real number field; the abelian case is the one in which the full statement is
-  available.
-- The status is quoted from the source; neither the odd part nor the two-adic part is proved
-  here.
-- The pole order statement at minus one, that it is the number of complex places, is part of
-  the conjecture's setting and holds unconditionally.
-
-**Construction and proof.**
-
-1. Record the odd part as Wiles's theorem for totally real abelian fields, with the source's
-   reference.
-1. Record the two-primary part as open in general and as a consequence of the two-adic Main
-   Conjecture.
-1. Record that for abelian extensions of the rationals the full formula holds, so an example
-   over such a field may cite it.
-1. State the consequence for this layer: an example over a totally real abelian field may treat
-   the formula as a theorem and label its deductions accordingly; an example over another
-   totally real field must treat it as conjectural.
-1. Record that the roadmap SpecialValuesBirchTate owns the formula and its proof, and that this
-   layer only uses it in examples.
-
-**Acceptance.**
-
-- For the rationals the formula is available as a theorem and the worked instance is a check of
-  three independently known numbers.
-- For a general totally real field the two-primary part is open, so an order deduced from the
-  formula there is conditional and must be labelled as such.
-- Nothing in this layer proves any part of the conjecture.
-
-**Depends on.** **inside this packet** `real-quadratic-example-and-birch-tate`; **other roadmaps** `SpecialValuesBirchTate:B.3`.
-
-**Source.** Kbook.2013, VI.8.6, the status (PDF p. 513): “The odd part of this conjecture was
-proven by Wiles ... The two-primary part of the Birch-Tate conjecture is still open, but it is
-known to be a consequence of the 2-adic Main Conjecture of Iwasawa Theory ... so the full
-Birch-Tate Conjecture holds for all abelian extensions of Q.” — The exact status of both parts,
-verbatim.
+**Source.** Kbook.2013, VI.8.6 (Birch-Tate Conjecture 8.6), printed p. 515 (PDF p. 523): “Birch
+and Tate conjectured in 1970 that for totally real number fields (r2 = 0) we have ζF(−1) =
+(−1)^{r1} |K2(OF)|/w2(F). The odd part of this conjecture was proven by Wiles in [229]” — The
+formula whose independent test in SpecialValuesBirchTate B.3 this certificate feeds, and which
+may therefore not supply its bounds.
 
 ---
 
 ## Requests to other roadmaps
 
-- `K2SymbolsBrauer:T.5` — The tame kernel with its exact sequence, the computations of the
-  second K-groups of the integers, of the rationals and of a finite field, and the format of a
-  certified finite presentation with the rule that an upper bound is not an isomorphism.
-  AUDIT-27 records T.5 as owning exactly the computations N.8 needs, so they are imported by
-  name and none is re-planned here.
-- `K2SymbolsBrauer:T.7` — The twisted coefficient modules, the norm residue symbol and Tate's
-  comparison. The invariant w_i is defined with the twisted modules and the tame-kernel
-  vanishing theorem of N.7 is proved through Tate's comparison.
+- `K2SymbolsBrauer:T.5` — The tame kernel and its exact sequences (T.5/unramified-subgroup,
+  T.5/tame-kernel-sequence, T.5/relative-s-integer-sequence), the real sign symbol
+  (T.5/real-sign-symbol), and the computations K₂(ℤ) ≅ ℤ/2 with generator {−1, −1}
+  (T.5/k2-of-the-integers) and K₂(ℚ) ≅ K₂(ℤ) ⊕ ⊕_p 𝔽_p^×, infinite (T.5/k2-of-the-rationals),
+  which N.8 imports and does not recompute (RT-AREA-ktheory-1/9). The certificate format is no
+  longer requested from T.5: it is ArithmeticKTheory N.6/order-certificate, and T.5 drops its
+  competing certificate paragraph.
+- `K2SymbolsBrauer:T.7` — The twisted coefficient modules and the norm residue symbol. The
+  invariant w_i is defined with the twisted modules. Tate's comparison K₂/m ≅ H² is no longer
+  requested from T.7: MotivicEtaleKTheory M.3 owns it (RT-AREA-ktheory-1/8), and N.7's
+  tame-kernel vanishing theorem imports it from there (request to M.3).
 - `K3BlochGroups:V.5` — The third K-group of the integers, of the rationals and of the Gaussian
   rationals. AUDIT-27 names V.5 as owning the order forty-eight and the Gaussian computation
   that N.8 records.
-- `MotivicEtaleKTheory:M.3` — The norm residue map and Tate's comparison for local and global
-  fields, which is the first of the three inputs of N.7's tame-kernel vanishing theorem.
-- `ArithmeticKTheory:N.2` — The localisation theorem for a ring of S-integers, which is what
-  makes the tame-kernel sequence exact on the left and is the theorem the S-integer comparison
-  of N.8 rests on.
+- `MotivicEtaleKTheory:M.3` — The Galois symbol and Tate's comparison K₂/m ≅ H²(μ_m^{⊗2}) for
+  local and global fields and for rings of S-integers with the primes above m inverted, M.3
+  being its single owner (RT-AREA-ktheory-1/8): the first of the three inputs of N.7's
+  tame-kernel vanishing theorem.
 - `ArithmeticKTheory:N.5` — The odd K-groups with their Harris-Segal summands, which is where
   the torsion consequences of N.7 live.
-- `SpecialValuesBirchTate:B.3` — The Birch-Tate formula with its proved cases. AUDIT-27 records
-  B.3 as asking for the same base examples as its independent test; the labelling rule of N.8
-  is what keeps that test independent.
 - `K2SymbolsBrauer:T.2` — Matsumoto's presentation of the second K-group of a field by
   Steinberg symbols, the skew-symmetry and the relation between the symbol of an element with
   itself and with minus one, all used by the computations N.8 imports.
+- `KTheoryLowDegrees:U.6` — K₁(ℤ) = {±1} by the determinant (SK₁(ℤ) = 0), and K₁(ℤ[1/p]) =
+  ℤ[1/p]^× ≅ ℤ/2 ⊕ ℤ with the p-adic valuation as boundary, which N.8 imports for the first
+  K-groups of the integers and the degree-one row of the ℤ[1/p] sequence (RT-AREA-ktheory-1/9).
+  The checkpointed KTheoryLowDegrees U.1 packet plans them as U.6/K1-integers and
+  U.6/K1-integers-away-from-p; N.8 will cite them by id once that packet is accepted. U.6 → N.8
+  is a new atlas edge; it is acyclic. Needed by:
+  `ArithmeticKTheory:N.8/k-groups-of-the-integers`,
+  `ArithmeticKTheory:N.8/s-integer-sequence-for-one-inverted-prime`.
+- `KTheoryLowDegrees:Z.6` — K₀(ℤ) = ℤ (with π₀ of the K-theory space), which N.8 imports for
+  the first K-groups of the integers (RT-AREA-ktheory-1/9). The checkpointed KTheoryLowDegrees
+  Z.3 packet plans it as Z.6/integers-test. Z.6 → N.8 is a new atlas edge; it is acyclic.
+  Needed by: `ArithmeticKTheory:N.8/k-groups-of-the-integers`.
+- `KTheoryFiniteLocalFields:L.1` — Quillen's computation K₀(𝔽_q) = ℤ, K_{2i}(𝔽_q) = 0 and
+  K_{2i−1}(𝔽_q) ≅ ℤ/(q^i − 1) for i ≥ 1 (K-book IV.1.13), which gives the residue terms of the
+  localisation sequence of ℤ ⊂ ℤ[1/p] in N.8's example in every degree. The atlas already has
+  L.1 upstream of ArithmeticKTheory (L.1 → N.2); no cycle. Needed by:
+  `ArithmeticKTheory:N.8/s-integer-sequence-for-one-inverted-prime`.
 
 ## Gaps
 
@@ -1052,26 +1083,29 @@ verbatim.
 
 **The Herbrand-Ribet theorem is quoted from a remark.** The eigenspace statement, that l divides the k-th Bernoulli number exactly when the eigenspace of index l-2k of the modulo-l class group is non-zero, appears in the K-book as a remark with a reference to the original papers of Herbrand and of Ribet. Neither was obtained. The node states the theorem in the form the remark gives and records the numerical statement that among irregular primes below four thousand at most three values of k occur. NEXT SOURCE ACTION: obtain Ribet's 1976 Inventiones paper and Herbrand's original, or Washington chapter 6, and decompose the proof; Ribet's half uses modular forms and is a substantial piece of work in its own right.
 
-**The tame-kernel presentations of quadratic fields are in a paper that was not obtained.** The required real quadratic example needs a presentation of the tame kernel, and the K-book cites Browkin and Schinzel's 1982 paper in Crelle on the second K-groups of quadratic number fields for such computations. The paper was not obtained. The arithmetic half of the certificate is available from the pinned libraries, which have class numbers, the Minkowski bound and an extensive quadratic-field development; the presentation half is not. NEXT SOURCE ACTION: obtain Browkin and Schinzel, and one of the later tables of tame kernels of quadratic fields, and record a presentation with both bounds for one real quadratic field.
+**The tame-kernel presentations of quadratic fields are in a paper that was not obtained.** The required real quadratic example is ℚ(√5) (the field SpecialValuesBirchTate B.3 checks), and its tame kernel is certified in N.6's format: the lower bound #K₂(𝓞_F) ≥ 4 comes from the two real sign symbols and is complete; the upper bound needs a generation theorem, that {−1, −1} and {−1, ε} generate K₂(𝓞_F). The K-book cites Browkin and Schinzel's 1982 paper in Crelle on the second K-groups of quadratic number fields for such computations; it was not obtained. The Birch–Tate formula may not be used to supply this bound. NEXT SOURCE ACTION: obtain Browkin–Schinzel, or a later rigorous computation of tame kernels of real quadratic fields, and decompose the generation argument for ℚ(√5).
 
 **The vanishing of the tame kernel of the Gaussian integers is cited, not proved.** The K-book records that Tate computed the second K-groups of the imaginary quadratic rings of small discriminant, obtaining the trivial group for the Gaussian integers, and attributes the method to the same Euclidean-algorithm techniques that Milnor uses for the integers. No proof is given there and none is given here. NEXT SOURCE ACTION: obtain Tate's computation, or Milnor's section 10 for the method, and decompose the argument for at least the Gaussian case; the argument is elementary and is a good candidate for an early formalisation.
 
 ## Structural proposals
 
-### N.8 is a register of imports and should say so in its stage text
+### N.8 owns its certified examples and imports the rest
 
-*kind: `note-duplicate-boundary`.* The reviewed audit AUDIT-27 records three duplications for N.8, and each names a genuine owner: SpecialValuesBirchTate B.3 asks for the same base examples as the independent test of Birch-Tate; K2SymbolsBrauer T.5 proves the second K-group of the integers, of a finite field and the infinitude for the rationals, and asks for a verified presentation in this roadmap; and K3BlochGroups V.5 proves the third K-group of the integers and carries the Gaussian computation as a test. Everything N.8's stage text asks to compute is therefore owned elsewhere, and what N.8 can own is the FORMAT of a certified example, the labelling rule, and the checks between the imported numbers. Proposal: rewrite N.8's stage text to say that the computations are imported from those three layers and that N.8 owns the certificate format, the labelling discipline and the consistency checks. As written the text reads as a computation task and invites a worker to re-plan three other layers.
+*kind: `note-duplicate-boundary`.* RT-AREA-ktheory-1/9 and /11 (confirmed) settle the boundaries. N.8 imports K₀(ℤ) (KTheoryLowDegrees Z.6), K₁(ℤ) (U.6), K₂(ℤ) and K₂(ℚ) (K2SymbolsBrauer T.5) and K₃(ℤ), K₃(ℚ(i)) (K3BlochGroups V.5); it owns the format of a certified example on ArithmeticKTheory N.6's certificate engine, the certificate K₂(ℤ[i]) = 0, the certified tame kernel of the real quadratic field ℚ(√5), and the localisation sequence of ℤ ⊂ ℤ[1/p] in every degree. The Birch–Tate check is SpecialValuesBirchTate B.3's, which imports N.8's real-quadratic certificate. Proposal for the stage text: name those owners, say that N.8 owns the certificates and the ℤ[1/p] sequence, and replace 'before checking Birch–Tate' by 'for SpecialValuesBirchTate B.3 to check Birch–Tate against'.
 
 ### The word regular is missing from both libraries and is a cheap early target
 
 *kind: `note-library-target`.* AUDIT-27 records that a grep for the phrase regular prime over both pinned trees returns nothing, and the same for Vandiver. Yet every ingredient is pinned: cyclotomic extensions, rings of integers, class numbers and the Bernoulli numbers in both conventions, with the conversion. The definition of a regular prime is therefore a composition of pinned objects and is one of the cheapest genuinely new definitions in this area, with the decidability instance for a given prime following from the pinned class number. Proposal: record it as an early library target of this roadmap, ahead of the theorems that use it, since it unblocks both the statement of N.7's main theorem and the certified examples of N.8.
 
+### N.8's real-quadratic certificate feeds SpecialValuesBirchTate B.3
+
+*kind: `ownership`.* RT-AREA-ktheory-1/11 (confirmed): N.8 and B.3 both planned the certified real-quadratic tame kernel, and no edge made N.8 available to B.3, while N.8 imported B.3. N.8/real-quadratic-example-and-birch-tate now owns the certificate for ℚ(√5) (with N.6's engine) and no longer imports B.3; N.8/birch-tate-status, which imported B.3, is deleted. Proposal: add the atlas edge ArithmeticKTheory:N.8 → SpecialValuesBirchTate:B.3 (acyclic once N.8's imports of B.3 are gone, checked against the current packets) and let B.3/sqrt-five-birch-tate-check import the N.8 node instead of requesting the certificate from K2SymbolsBrauer T.5. B.3 keeps the w₂ computation, the L-function factorisation and the check, and must not supply the order bound.
+
 ## Checks
 
     python3 scripts/check_blueprint.py research/blueprint/packets/ArithmeticKTheory--N.7.json --index $TAUCETI_BASELINE/declarations.tsv
 
-reports **0 errors and 0 warnings** with the pinned declaration index in place, so all 21
-baseline references were resolved against it. `python3 -m unittest discover -s tests` passes.
-The suggested Lean file was **not compiled**: the Mathlib build on this machine is a shared
-cache that must not be rebuilt, and this tree has no elaborated dependency modules. Nothing
-here is claimed to be formalised; every `implementationStatus` is `unchecked`.
+reports **0 errors and 0 warnings** with the pinned declaration index in place (fix of
+RT-AREA-ktheory-1, 2026-09-30). The suggested Lean file was **not compiled** for this revision;
+its changes are comments and commented signatures only. Nothing here is claimed to be
+formalised; every `implementationStatus` is `unchecked`.

@@ -19,79 +19,68 @@ In total: 62 nodes (9 comparison, 8 construction, 8 definition, 15 lemma, 22 the
 
 ## V.1 — A concrete homological model
 
-The layer builds one thing: a model of `K₃` that a proof can compute with. The Steinberg group
-and its universal-central-extension property are imported from `K2SymbolsBrauer:T.1`; the plus
-construction is imported from `StableHomotopyKTheory:H.3`. What is proved here is that the
-stable Steinberg group is superperfect, that `BSt(A)⁺` is therefore two-connected with the same
-homotopy as `BGL(A)⁺` from degree three, and that Hurewicz in the first nonvanishing degree
-gives `K₃(A) ≅ H₃(St(A), ℤ)`. The bar model makes the isomorphism explicit on representatives,
-which is what V.6's certificates and Lee and Szczarba's calculation of `K₃(ℤ)` need.
-`GeneralAlgebraicKTheory:K.2:low-degree-comparisons` consumes this model; it does not build a
-second one.
+The layer builds one thing: a model of `K₃` that a proof can compute with. The Steinberg group,
+its universal-central-extension property and the recognition-theorem lemmas are imported from
+`K2SymbolsBrauer:T.1:classical`; the plus construction is imported from
+`StableHomotopyKTheory:H.3`. The superperfection of the stable Steinberg group is a corollary of
+two imported theorems and is not reproved here. What is proved here is that `BSt(A)⁺` is
+therefore two-connected with the same homotopy as `BGL(A)⁺` from degree three, and that Hurewicz
+in the first nonvanishing degree gives `K₃(A) ≅ H₃(St(A), ℤ)`. The bar model makes the
+isomorphism explicit on representatives, which is what V.6's certificates and Lee and Szczarba's
+calculation of `K₃(ℤ)` need. `GeneralAlgebraicKTheory:K.2:low-degree-comparisons` consumes this
+model; it does not build a second one.
 
-### `uce-superperfect` — A group carrying a universal central extension is superperfect
-
-*lemma*
-
-Let S -> P be a universal central extension of groups. Then S is perfect and H_2(S, Z) = 0;
-equivalently H_1(S, Z) = H_2(S, Z) = 0. Only the universal property is used: no property of the
-elementary or Steinberg groups enters.
-
-**Hypotheses.** S -> P is a central extension with kernel A, universal among central extensions of P.
-
-**Construction and proof.**
-
-1. A universal central extension is by definition a central extension that maps uniquely to
-   every central extension of the same base; the source of a universal central extension is
-   perfect, since otherwise the trivial extension by the abelianisation admits two distinct
-   maps.
-1. Because S is perfect, H_1(S, Z) = 0, by the identification of degree-one homology with the
-   abelianisation for trivial coefficients.
-1. If H_2(S, Z) were nonzero, the central extension of S classified by a nonzero class would be
-   a central extension of P admitting two distinct lifts over the identity of P, contradicting
-   uniqueness. Conclude H_2(S, Z) = 0.
-1. Record the converse direction as a separate statement: a perfect group with vanishing H_2
-   carries a universal central extension of itself only in the trivial sense; the converse is
-   not used below.
-
-**Acceptance.**
-
-- For S = P = the trivial group the statement is vacuously true and both homology groups vanish.
-- For a perfect group with nonvanishing Schur multiplier, for instance the alternating group on
-  five letters, the statement correctly fails to apply: that group is perfect but is not the
-  source of a universal central extension of itself.
-
-**Depends on.** **other roadmaps** `K2SymbolsBrauer:T.1`; **baseline** `mathlib:Group.IsPerfect`, `mathlib:groupHomology.H1`, `mathlib:groupHomology.H2`.
-
-**Source.** Kbook.2013, Ex. IV.1.9 (PDF p. 282): “Suppose that A -> S -> P is a universal central extension. In particular, S and P are perfect groups.” — States the perfectness half; the vanishing of H_2 is the standard characterisation used in the same exercise.
+**Moved to K2SymbolsBrauer:T.1:classical (RT-AREA-ktheory-1/29).** The group-theoretic lemmas this layer used to prove itself belong to the owner of the
+Recognition Theorem and now live there: `V.1/uce-superperfect` is
+`K2SymbolsBrauer:T.1:classical/uce-source-superperfect` (the source of a universal central
+extension is superperfect), `V.1/central-extension-comp` is
+`K2SymbolsBrauer:T.1:classical/central-extension-comp` (a composite of central extensions with
+perfect middle term is central; source issue K3BlochGroups/E2 concerns it), and
+`V.1/split-extensions-kill-h2` is `K2SymbolsBrauer:T.1:classical/split-extensions-kill-h2`.
+Their statements and proofs moved with them, the prerequisites rewritten for T.1:classical, and
+the other recognition-theorem nodes are planned beside them. `steinberg-superperfect` and
+`uce-plus-fibration` now cite the moved nodes, and the stage-level edge
+`K2SymbolsBrauer:T.1:classical → K3BlochGroups:V.1` is requested of the atlas maintainer.
 
 ### `steinberg-superperfect` — The stable Steinberg group is superperfect ★
 
 *theorem* · planet **Superperfection of St(A)**
 
-For every ring A the stable Steinberg group St(A) satisfies H_1(St(A), Z) = 0 and H_2(St(A), Z)
-= 0. The statement is about the stable group; no claim is made for the finite-rank groups
-St_n(A), whose kernels need not even be central.
+For every associative unital ring A the stable Steinberg group St(A) satisfies H_1(St(A), Z) = 0
+and H_2(St(A), Z) = 0, i.e. it is superperfect in the sense of
+K2SymbolsBrauer:T.1:classical/superperfect. The statement is about the stable group, with no
+stable-range hypothesis on A; no claim is made for the finite-rank groups St_n(A), whose kernels
+K2SymbolsBrauer T.1 keeps separate. It is a corollary of two imported theorems and is not proved
+here: St(A) → E(A) is a universal central extension (K2SymbolsBrauer:T.1/steinberg-is-uce), and
+the source of a universal central extension is superperfect
+(K2SymbolsBrauer:T.1:classical/uce-source-superperfect, the Recognition Theorem's (1) ⇒ (3)).
 
-**Hypotheses.** A is an associative unital ring. St(A) is the stable Steinberg group, the colimit of the St_n(A).
+**Hypotheses.** A is an associative unital ring in Type (Mathlib's integral group homology needs St(A) in the universe of ℤ). St(A) is the stable Steinberg group of K2SymbolsBrauer:T.1/stabilisation, the colimit of the St_n(A).
 
 **Construction and proof.**
 
-1. Import from K2SymbolsBrauer T.1 that the stable map St(A) -> E(A) is a universal central
-   extension with kernel K_2(A).
-1. Apply the previous lemma to that universal central extension.
-1. Record explicitly that the finite-rank statement is not being asserted: T.1 keeps the finite-
-   rank and stable objects distinct, and so does this node.
+1. Import from K2SymbolsBrauer:T.1/steinberg-is-uce that St(A) → E(A) is a universal central
+   extension with kernel K_2(A), for every ring (K-book Theorem III.5.5 has no hypothesis on A).
+1. Apply K2SymbolsBrauer:T.1:classical/uce-source-superperfect to it. The group-theoretic
+   argument (perfectness, splitting of central extensions of a universal source, and the
+   vanishing of H_2 when central extensions by Q/Z split) is owned there; this layer formerly
+   planned it as V.1/uce-superperfect, V.1/central-extension-comp and
+   V.1/split-extensions-kill-h2, which moved to K2SymbolsBrauer T.1:classical under
+   RT-AREA-ktheory-1/29.
+1. Record explicitly that no finite-rank statement is asserted.
 
 **Acceptance.**
 
-- For A the zero ring both groups are trivial and the statement holds.
-- The conclusion is used only through the two vanishing statements; no generator-level
-  computation in St(A) is needed to state it.
+- For A the zero ring St(0) is trivial and the statement holds.
+- For A = Z, H_2(E(Z), Z) ≅ K_2(Z) ≅ Z/2 (K-book III.5.5; K2SymbolsBrauer T.5) while H_2(St(Z),
+  Z) = 0: superperfection is a property of St(A), not of E(A).
 
-**Depends on.** **inside this roadmap** `uce-superperfect`; **other roadmaps** `K2SymbolsBrauer:T.1`; **baseline** `mathlib:groupHomology.H1`, `mathlib:groupHomology.H2`.
+**Depends on.** **other roadmaps** `K2SymbolsBrauer:T.1/stabilisation`, `K2SymbolsBrauer:T.1/steinberg-is-uce`, `K2SymbolsBrauer:T.1:classical/uce-source-superperfect`, `K2SymbolsBrauer:T.1:classical/superperfect`; **baseline** `mathlib:groupHomology.H1`, `mathlib:groupHomology.H2`.
 
-**Source.** Kbook.2013, Ex. IV.1.9 (PDF p. 282): “Since the Steinberg group St(R) is the universal central extension of E(R), this shows that K_n(R) = pi_n St(R)+ for all n >= 3, and that K_3(R) = H_3(St(R); Z).” — The cited exercise runs through exactly this superperfection step.
+**Sources.**
+
+- Kbook.2013, Theorem III.5.5 (PDF p. 228): “Theorem 5.5. (Kervaire, Steinberg) The Steinberg group St(R) is the universal central extension of E(R). Hence K2(R) ≅ H2(E(R); Z).” — The universal central extension, imported from K2SymbolsBrauer:T.1/steinberg-is-uce, to which K2SymbolsBrauer:T.1:classical/uce-source-superperfect is applied.
+- Kbook.2013, Ex. IV.1.9 (PDF p. 282): “Since the Steinberg group St(R) is the universal central extension of E(R), this shows that Kn(R) ≅ πnSt(R)+ for all n ≥ 3, and that K3(R) ≅ H3(St(R); Z).” — The K-book's use of the same fact on the way to K_3(R) ≅ H_3(St(R); Z).
 
 ### `bst-plus` — The plus construction on the classifying space of the stable Steinberg group
 
@@ -2610,10 +2599,22 @@ uses.
 - `PadicHodgeRegulators:D.3` — The comparison of the syntomic regulator in degree three with the
   p-adic dilogarithm on the Bloch-group model, with the coefficient hypotheses under which it
   holds, so that V.6's finite-coefficient comparison has a consumer with stated hypotheses.
-- `K2SymbolsBrauer:T.1` — The stable Steinberg group, the surjection onto the stable elementary
-  group, the centrality of its kernel and the universal-central-extension property, all in the
-  stable range. V.1 imports these and proves only superperfection and the homotopy-theoretic
-  consequences.
+- `K2SymbolsBrauer:T.1:classical` — The stable Steinberg group St(A) as the colimit of the
+  St_n(A) with its stabilisation maps, functorial in ring maps; the surjection onto E(A); the
+  general definition of a universal central extension; and the theorem that St(A) → E(A) is a
+  universal central extension with kernel K_2(A), for every associative unital ring with no
+  stable-range hypothesis (K-book III.5.2.1 and III.5.5 have none). Also the
+  universal-central-extension package that the superperfection of St(A) and Ex. IV.1.9 rest on:
+  the perfectness of both ends of a universal central extension (T.1/uce-perfect), superperfect
+  groups, and the theorem that the source of a universal central extension is superperfect
+  (T.1:classical/uce-source-superperfect with central-extension-comp, uce-extensions-split,
+  split-extensions-kill-h2 and h1-trivial-perfect), which this layer formerly planned as
+  V.1/uce-superperfect, V.1/central-extension-comp and V.1/split-extensions-kill-h2
+  (RT-AREA-ktheory-1/29 and /30). V.1 imports these, deduces the superperfection of St(A) as a
+  corollary, and proves only the homotopy-theoretic consequences: the plus construction BSt(A)⁺,
+  the connected-cover comparison, the Hurewicz step and the bar-cycle model of K_3. The
+  stage-level edge K2SymbolsBrauer:T.1:classical → K3BlochGroups:V.1 is requested of the atlas
+  maintainer.
 - `StableHomotopyKTheory:H.3` — The plus construction with its universal property, functoriality
   and relative form, and, if that roadmap takes ownership of homological stability, Suslin's
   stability theorem for the general linear groups of an infinite field, whose degree-three case
@@ -2700,3 +2701,8 @@ about what it prints.
     python3 scripts/check_blueprint.py research/blueprint/packets/K3BlochGroups.json
 
 reports 0 errors and 0 warnings against the pinned declaration index. The suggested Lean file was not compiled: no Lean toolchain at the pinned commits was available in this session, and the file is signatures and `example` statements only.
+
+FIX-RT-AREA-ktheory-1 (2026-09-30, finding /29): after three V.1 nodes moved to
+K2SymbolsBrauer:T.1:classical the checker still reports 0 errors and 0 warnings (99 nodes), and
+the edited suggested file elaborates with `lake env lean` against a build of Mathlib 082e2d3
+with `sorry` as the only warning.
