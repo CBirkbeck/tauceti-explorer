@@ -1,0 +1,63 @@
+{
+  "redteam": "RT-RS-11",
+  "protocol": "redteam-v1",
+  "status": "complete",
+  "target": "RS-11",
+  "summary": "Three medium findings in the accepted restructuring: the ordinary FW proof is assigned to its own prerequisite; BCS cyclotomic work still waits for unrelated completed branches; and the BCS/BSTW comparison has no resolved common supplier. These are surviving conflicts with confirmed RT-AREA-iwasawa-1 findings /22, /31 and /30, independently rechecked against the accepted RS-11 and current graph. The three actual narrowings preserve their theorem ranges, normalization work and signed comparisons. All six corrected links exist and the assembled graph is acyclic.",
+  "checked": [
+    "RS-11 family input, original report, accepted result and REV-RS-11 read; both complete member documents (17 stages), all five owner records, six corrected links and ten family evidence rows compared. The corrected JSON, rather than the original report's obsolete consumer claims, is the operative proposal.",
+    "Every target of narrowed ModularIwasawaMainConjectures L2, L3 and L4 compared with its reviewed library-coverage entry, retained contract and named supplier. The other 14 library-coverage entries were also read. No new library-absence claim or uninspected Lean declaration is asserted.",
+    "Fresh assembly at e1d958f420eb6f860b7980dd833e3e053854c4a0: 2907 stages and 8322 distinct stage edges, acyclic; all six proposal links are live. Immediate consumers of the three narrowed stages and their forwarding paths were checked. BSD.6a requires the signed comparisons retained at I.L4, so it does not need a new FW-owner shortcut.",
+    "FW arXiv:2107.13726v3, pp. 6-8, 68-74: Theorems 1.6-1.8, section 4.8, Theorems 5.1-5.2 and Propositions 5.5-5.8. Read 2026-09-30; the determinant diagram and unit conclusion on p.72 were also inspected visually. This checks restructuring scope and proof order, not every proof in the 103-page paper.",
+    "BCS arXiv:2405.00270v2, pp. 2, 7-11: rational/integral Theorem 1.1.2, Hypothesis 3.1.1 and Theorem 3.2.1, Theorem 4.1.3/Corollary 4.1.4, Theorem 4.2.1 and Proposition 4.2.2, section 5 base change, product divisibility and separate cyclotomic/anticyclotomic proofs. Read 2026-09-30; product inequalities and the four-factor argument on p.10 also inspected visually.",
+    "External Kato L4, HE.8b and BSD.6a contracts read; overlapping RS-14 and RS-16 analytic-proposition/determinant ownership checked. No member packet or decomposition and no packet request naming either member was found; proposed KatoEulerSystems:L5 is absent from the fresh stages and reserved IDs.",
+    "Confirmed RT-AREA-iwasawa-1 findings /22, /23, /29, /30 and /31, their verifier and the relevant fixes-report sections compared. The prior fixes report describes intended changes; those descriptions are not treated as already-live stages. The corrected BCS locator and direct Kato import in RS-11 are credited as repairs already made.",
+    "Cycle experiments: C.L2 -> C.L1 is cyclic. Kato L4 -> C.L2 is acyclic. The prior fix's six-input, two-output ordinary Kato L5 prefix is acyclic, including jointly with the ordinary import and the two branch-edge removals. This is graph validation, not certification that the prefix's full arithmetic proof is complete.",
+    "No Tau Ceti roadmap or upstream-to-upstream link is changed. No Lean file is required by this red-team issue; no Lean build, Lake cache or language server was run."
+  ],
+  "findings": [
+    {
+      "id": "RT-RS-11/1",
+      "kind": "error",
+      "severity": "medium",
+      "where": "research/blueprint/restructure/RS-11.result.json: first owners record, AutomorphicCongruences:L1 reason and KatoEulerSystems:L4 -> ModularIwasawaMainConjectures:L1 link reason",
+      "claim": "The proposal still assigns FW's ordinary reverse-bound argument to C.L1 as a period refinement of Skinner-Urban, while telling C.L1 to import shared C.L2 ingredients. FW section 4.8 uses the GU(3,1) theorem and Beilinson-Flach reciprocity owned by C.L2. Since C.L1 is already a prerequisite of C.L2, implementing the promised import creates a two-stage cycle. The earlier confirmed correction expressly requested amending this RS-11 owner, but the accepted result retains it.",
+      "evidence": "RS-11 C.L1: \"Own the SU U(2,2) congruence/Selmer reverse bound and the FW ordinary period refinement\" and \"Import shared L2 ingredients\". Its first owner is C.L1; its Kato-to-I.L1 reason says C.L1 supplies the other bound. FW https://arxiv.org/pdf/2107.13726v3, p.6 distinguishes Wan's removal of the SU weight restriction and the unavailable general canonical/Gross period comparison. Section 4.8, p.68, instead uses theorem 7.32, Beilinson-Flach reciprocity and Poitou-Tate: \"by reducing it to the Greenberg type main conjecture\". C.L2's member contract explicitly owns the corresponding U(3,1) and Beilinson-Flach construction. Fresh graph has C.L1 -> C.L2; adding its reverse is cyclic. RT-AREA-iwasawa-1/22 is confirmed, and its fixes report section /22 already requests splitting this owner.",
+      "fix": "Separate the SU U(2,2) reverse bound at C.L1 from the FW section 4.8 reverse-bound construction at C.L2 (or a prefix after C.L2). Keep the final Kato-plus-reverse-bound equality at I.L1 and the I.L1 -> C.L4 ordinary seed. Amend the first owner, C.L1/C.L2/I.L1 reasons and the Kato-to-I.L1 link reason accordingly. Name the source's Castella-Wan comparison and weight extension in the C.L2 proof contract. If C.L2 carries the complete section 4.8 argument including Kato, add KatoEulerSystems:L4 -> C.L2; this is acyclic. Do not add C.L2 -> C.L1 or assume an unrestricted canonical/Gross period equality. Coordinate the correction with the existing /22 blueprint handoff."
+    },
+    {
+      "id": "RT-RS-11/2",
+      "kind": "error",
+      "severity": "medium",
+      "where": "research/blueprint/restructure/RS-11.result.json: AutomorphicCongruences:L5/L5b reasons and ModularIwasawaMainConjectures:L3 prerequisites; REV-RS-11 branch-order correction",
+      "claim": "Adding the correct BCS child supplier did not remove the obsolete branch prerequisites. C.L5b expressly retains the completed HE.8b anticyclotomic theorem although the cyclotomic proof does not use it. I.L3 still requires aggregate C.L5, which requires C.L4, so the FW dependency that the review intended to remove survives as C.L4 -> C.L5 -> I.L3. The source has parallel cyclotomic and anticyclotomic consequences of the early product bound, rather than a required chain through both completed endpoints.",
+      "evidence": "RS-11 C.L5b says \"Retain the existing HE.8b comparison dependency\"; C.L5 keeps the \"existing dependency order\". REV-RS-11 removes C.L4 -> I.L3 because it \"would make the BCS layer wait for FW\". Fresh assembly still contains HE.8b -> C.L5b and C.L4 -> C.L5 -> I.L3. BCS https://arxiv.org/pdf/2405.00270v2, proof of Theorem 1.1.2 on p.10, uses Lemma 5.2.3, Proposition 5.2.1, cyclotomic control and the Kato bound for four twists; the anticyclotomic Theorem 4.2.1 is used in the separate proof on p.11. Confirmed RT-AREA-iwasawa-1/31 and its fixes report already require removing HE.8b -> C.L5b. The accepted RS-11 has implemented the Kato addition but retains the conflicting dependency.",
+      "fix": "Keep L5w -> L5a and branch from L5a to L5b and HE.8b. Remove the completed HE.8b prerequisite from L5b, retaining its direct Kato L4 input and all early comparison/control inputs. Make I.L3 consume the actual C.L5b theorem plus its retained curve/form and L0 interfaces; remove C.L5 -> I.L3 once any separately needed aggregate input is named directly. A genuinely late comparison of the two endpoints belongs after both. Amend the RS-11 reasons and hand off the dependency deletions through the authorized blueprint/link workflow; do not edit reviewed base data in this red-team job. Both removals are acyclic, and together remove every C.L4 -> I.L3 path in the current graph."
+    },
+    {
+      "id": "RT-RS-11/3",
+      "kind": "duplicate",
+      "severity": "medium",
+      "where": "research/blueprint/restructure/RS-11.result.json: AutomorphicCongruences:L5a reason and owners/links; RankZeroOneBSD:BSD.6a ordinary BSTW comparison boundary",
+      "claim": "The correct BCS locator now names the Perrin-Riou/Greenberg equivalence but still assigns no shared supplier for its arithmetic construction. C.L5a retains the two-variable comparison, while BSD.6a explicitly owns the BSTW zeta element, both reciprocity laws and section 9 comparison that prove it. Neither stage imports the other and RS-11's owner table resolves neither the overlap nor C.L5a's missing zeta-element input. This is the previously confirmed /30 conflict surviving the locator correction, not a new objection to Proposition 5.2.1's number.",
+      "evidence": "RS-11 C.L5a retains the two-variable mathematics and names Theorem 4.1.3/Corollary 4.1.4 as inputs to Proposition 5.2.1 without a supplier. BCS https://arxiv.org/pdf/2405.00270v2, p.8, attributes Theorem 4.1.3 to BSTW section 9.3.2, \"building on a pair of four-term exact sequences\"; Corollary 4.1.4 uses two such pairs. BSD.6a's current contract says \"Here own the source-specific two-variable zeta-element construction (Theorem 1.14, §§3–6)\" and \"Prove the main-conjecture comparison and cyclotomic descent of §§9–10\". Neither stage reaches the other in fresh assembly. RT-AREA-iwasawa-1/30 is confirmed; its fixes report selects a new ordinary KatoEulerSystems:L5 supplier. That stage is not yet live or reserved, and RS-11 contains no corresponding owner/import record.",
+      "fix": "Coordinate with confirmed /30: assign the ordinary BSTW two-variable zeta element, its two normalized reciprocity laws and the ordinary Perrin-Riou/Greenberg equivalence/product identity to one early supplier, for example the already proposed KatoEulerSystems:L5. Record that owner and its forwarding links to C.L5a and BSD.6a. C.L5a keeps quartic-CM base change, auxiliary-field selection, product divisibility and mu/control arguments; it imports the equivalence rather than reconstructing it. BSD.6a keeps the supersingular extension and its other BSD-specific branches. Preserve all integral/p-inverted, local-condition and normalization hypotheses. The prior fix's six existing inputs and two outputs are jointly acyclic with findings /1-/2; the separate analytic-function supplier still needs its own complete authorized contract."
+    }
+  ],
+  "upstreamNotes": [],
+  "libraryPins": {
+    "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+    "tauceti": "f790474821cf4256814db967cb154e7af3d0c369"
+  },
+  "inputHashes": {
+    "research/blueprint/restructure/RS-11.json": "bc4439bc658271fbabb796b7bfbe51a14fda0aa70b8ee3438abf86e8fb503795",
+    "research/blueprint/restructure/RS-11.result.json": "3a909467c198cbc752cc92e43c487d683dccc67a3966f4370b2b5dda93590824",
+    "research/blueprint/restructure/RS-11.md": "ca04c0012048aa44663e790b8e0f70e3539a997164b5e2b7a2cb64ead2a1c9d2",
+    "research/blueprint/reviews/REV-RS-11.md": "70453ab4ccf4362e630dd546d75b236c0ca9beddbc5d73b86ad77de7df09e584",
+    "content/campaign/AutomorphicCongruences/README.md": "5ad769f880c6ecb44f53c16f3ba076b590bae909d35abaf3aadc6c47b98c7477",
+    "content/campaign/ModularIwasawaMainConjectures/README.md": "fd55bb2a70175f5d83465617b1cd66390b5e7b1d2529e88052dad34ccd5004f1",
+    "research/blueprint/redteam/RT-AREA-iwasawa-1.result.json": "a474c7a305153e85de6748fe85dd929a5ac6bac4f9a47a350186fdd5750b7cd5",
+    "research/blueprint/redteam/RT-AREA-iwasawa-1.review.json": "61bd56ecc7ae507c2da6516753a3083c400cf4d14141dceab9e18f03f3a3344e",
+    "research/blueprint/redteam/RT-AREA-iwasawa-1.fixes.md": "2240552b74641ca68d0d3a974f909a62bb63c793e35163411e8cfff4243d653c"
+  }
+}
