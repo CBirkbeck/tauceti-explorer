@@ -29974,6 +29974,14 @@
         "ArithmeticStatistics:ST.5/hyperelliptic-torsion-local-system",
         "ArithmeticStatistics:ST.5/hyperelliptic-boundary-degeneration"
       ]
+    },
+    {
+      "supplier": "GeometryOfNumbersAndQuadraticArithmetic:GN.0",
+      "need": "The general gcd of maximal minors (Browning–Le Boudec–Sawin, Definition 3.7; PAPER-BROWNING-LEBOUDEC-SAWIN-23/minor-gcd, routed to GN.0): for linearly independent c_1, …, c_k ∈ ℤ^N with 1 ≤ k ≤ N, G(c_1, …, c_k) is the positive gcd of all k×k minors of the column matrix, with its unimodular invariance and its identification with the index of the lattice spanned by c_1, …, c_k in its saturation. ST.5/coefficient-vector-form's two-vector G(u, w) is the case k = 2 and should import this definition rather than define a second one; no GN.0 node supplies it yet (FIX-RT-PAPER-BROWNING-LEBOUDEC-SAWIN-23).",
+      "neededBy": [
+        "ArithmeticStatistics:ST.5/coefficient-vector-form",
+        "ArithmeticStatistics:ST.5/veronese-minor-valuation"
+      ]
     }
   ],
   "coverage": [
@@ -30010,7 +30018,8 @@
         "Accepted paper route PAPER-BHARGAVA-GROSS-WANG-17 route 2 (items 42-45: Bhargava-Gross-Wang Theorems 36 and 38, Definitions 37 and 39, Proposition 42 for pairs of n-ary quadratic forms attached to hyperelliptic curves) is not planned in this fragment; its geometric-sieve tail uses ArithmeticStatistics:ST.2/quantitative-ekedahl-geometric-sieve and its Definitions 37 and 39 specialise ArithmeticStatistics:ST.2/functions-defined-by-congruence-conditions.",
         "Accepted paper route PAPER-KOYMANS-MILOVIC-21 route 2: item 19 (Bhargava's geometric sieve with k = 2) is covered by ArithmeticStatistics:ST.2/quantitative-ekedahl-geometric-sieve; items 25-28 (governing fields and the 16-rank of Q(√−4p)) are class-group statistics, left to ArithmeticStatistics:ST.3 and not planned here.",
         "Bhargava-Shankar-Tsimerman Sections 6, 7 and 9 (the slicing argument, Shintani's second main term in Theorem 5, Theorem 27, the second-order densities and the sieve preserving second-order terms) are not decomposed; they are needed only if ArithmeticStatistics:ST.3 states Roberts' conjecture (BST Theorems 3, 4 and 7), and would then be planned in this stage.",
-        "Bhargava's geometric-sieve paper, Sections 2 and 4-5 (the axioms of Theorem 2.1, the squarefree-value theorems 1.5-1.6 for f_3, f_4, f_5 and g_2, …, g_5, the embedding sieve) are covered only for binary cubic and binary quartic forms."
+        "Bhargava's geometric-sieve paper, Sections 2 and 4-5 (the axioms of Theorem 2.1, the squarefree-value theorems 1.5-1.6 for f_3, f_4, f_5 and g_2, …, g_5, the embedding sieve) are covered only for binary cubic and binary quartic forms.",
+        "Accepted paper route PAPER-BROWNING-LEBOUDEC-SAWIN-23 route 4 (items pv-density, conic-density, pv-density-ball) is not planned in this fragment. It needs the local-solubility density for forms ordered by Euclidean coefficient height, ρ^loc_{d,n} = c_∞^{ball} ∏_p c_p > 0 for (d, n) ≠ (2, 2) (the extraction's E19 repair of Poonen–Voloch Theorem 3.6, which is for boxes), and Serre's zero density for plane conics transferred to the ball. Suppliers of the proof route recorded in pv-density-ball's note: ArithmeticStatistics:ST.2/quantitative-ekedahl-geometric-sieve applied to the Euclidean coefficient ball (tail O(1/(M log M) + 1/A) in codimension two); the uniform Lang–Weil estimate FiniteFieldsAndCharacterSums FF.2 (planned there, with its upstream proof gaps as obligations) together with a uniform bound on the singular locus; Hensel lifting of a smooth F_p-point; the codimension ≥ 2 of the locus reducible over F̄_p, spread out over Z; the nullity of the real-soluble cone's boundary and of the finite-place boundaries; equidistribution of congruence conditions; and the primitive-vector and ± normalisation. The real factor is the ball fraction of the real-soluble cone, not the box factor (FIX-RT-PAPER-BROWNING-LEBOUDEC-SAWIN-23)."
       ]
     },
     {
