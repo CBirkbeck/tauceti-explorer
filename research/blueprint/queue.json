@@ -40993,7 +40993,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-PAN-26.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #5017"
   },
   {
    "id": "RT-PAPER-SKINNER-20",
@@ -41188,8 +41189,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-BETTS-STIX-25.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5019"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #5019",
+   "finishedAt": "2026-09-30T18:06:12Z"
   },
   {
    "id": "RT-PAPER-BHATT-18",
@@ -51956,8 +51958,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-AREA-ktheory-1.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #3979"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #3979",
+   "finishedAt": "2026-09-30T18:06:15Z"
   },
   {
    "id": "REV-FIX-RT-AREA-ktheory-1",
