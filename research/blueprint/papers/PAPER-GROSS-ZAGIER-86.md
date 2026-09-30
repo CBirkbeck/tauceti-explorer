@@ -40,7 +40,9 @@ where c_{χ,f} is the (f, χ)-component of the Heegner divisor class. Equivalent
 
 ## Coverage
 
-There are **319 items**:
+There were **319 items** as submitted. After review there are 335 (the 319 below plus 16 added in review; see *Corrections made in review*): 24 library, 149 planned, 162 missing. The tables below are the extraction's own counts.
+
+As submitted:
 
 | Status | Count |
 |---|---|
@@ -90,6 +92,8 @@ The rest of the planned items are spread across:
 
 ## The routes
 
+*After review there are eleven routes; see* Corrections made in review *below and* `research/blueprint/reviews/REV-PAPER-GROSS-ZAGIER-86.md`*. The list below is the extraction's.*
+
 **The classical proof itself is what the atlas lacks.** The Gross–Zagier roadmap names "Gross–Zagier, Chapters II–IV" as a primary source contract, but its layers are written in Yuan–Zhang–Zhang's setting, and no stage plans:
 - the Green's functions G_{N,s} or their values at Heegner points;
 - the Eichler-order models of Chapter III;
@@ -119,7 +123,7 @@ These fall inside the layers' direction, so the main route is a source route.
 
 ## Mistakes in the paper
 
-**59** mistakes are recorded under `sourceIssues`, every one checked on the high-resolution page images.
+**59** mistakes were recorded by the extraction, every one checked on the high-resolution page images. The review confirmed all 59 and added 17 (E60–E76); after review the counts are 52 misprints, 19 errors and 5 gaps, and 8 reach a stated result, 5 the proof only and 63 nothing. The tables below are the extraction's.
 
 | Kind | Count |
 |---|---|
@@ -133,7 +137,7 @@ These fall inside the layers' direction, so the main route is a source route.
 | the proof only | 4 |
 | nothing | 49 |
 
-**No correction has been published.** I searched Crossref, Springer's article page and Conrad's re-examination, which records conventions but no erratum. The paper's own self-correction on p. 307 concerns its earlier announcement, not this paper. Items use the corrected statements.
+**No erratum has been published**, but Mann's appendix to Conrad's paper and Conrad's Corollary 7.15 and Theorem 9.2 already correct E19, E21 and E25 (found in review). I searched Crossref, Springer's article page and Conrad's re-examination, which records conventions but no erratum. The paper's own self-correction on p. 307 concerns its earlier announcement, not this paper. Items use the corrected statements.
 
 The mistakes a formaliser must know, **none of which changes the main theorems**:
 
@@ -157,7 +161,7 @@ Two errors do not reach a result:
 
 ## Prerequisites the atlas does not cover
 
-`prerequisites` lists 12 works, with the reason each is needed; none is in `papers.json`. Every link was checked on Crossref or Numdam; three entries with no verifiable link are listed by citation only.
+`prerequisites` listed 12 works (24 after review, which replaced the Waldspurger entry and added the works routes 5, 7 and 8 need), with the reason each is needed; none is in `papers.json`. Every link was checked on Crossref or Numdam; three entries with no verifiable link are listed by citation only.
 
 - **The class-number application:** Goldfeld 1976 and Oesterlé 1984 (the core of the new roadmap), and Mestre 1985.
 - **The N = 1 case and the Chapter II method:** Gross–Zagier, *On singular moduli* (1985).
@@ -178,3 +182,32 @@ Two errors do not reach a result:
 - Every planned stage id is an atlas stage id, and every library citation resolves in the pinned Mathlib and Tau Ceti trees by name and namespace.
 - Every missing item is taken by exactly one route.
 - Formulas behind every recorded mistake were read at 1,400 px. Numerical checks covered the main constants (6.3), (6.5) and (9.2), (3.5), Proposition (3.11), Theorems IV.5.5–5.8, Proposition IV.4.6, and the p. 318 examples (D = −43, −163).
+
+## Corrections made in review
+
+The independent review REV-PAPER-GROSS-ZAGIER-86 (Claude Code, session `cc-48533a`, issue #4499) corrected this extraction in place. Its report is `research/blueprint/reviews/REV-PAPER-GROSS-ZAGIER-86.md`, and the verdicts are in `PAPER-GROSS-ZAGIER-86.review.json`. In brief:
+
+- **Items.** 16 items were added. Fifteen came from the review's reading; the sixteenth is Theorem IV.5.6 for k ≥ 2, split off as item 335. Many notes and statements were corrected.
+  - **Now planned:** Kronecker's first limit formula (EllipticRegulators ER.7), Hankel's formula (QM.2), the cusps of Γ₀(D), the coefficient identity of V §1, and the class number formula.
+  - **Now library:** the genus character (Tau Ceti), L(E,s) (Mathlib) and ε.
+  - **Now missing:** the Atkin–Lehner group on X₀(N), the fibre at p | N, both copies of θ_𝒜, and Sturm's lemma in weight 2k > 2.
+- **Routes.** There are now eleven, all accepted.
+  - Route 1 (GrossZagierAndArithmeticHeights) keeps the classical proof in GZ.0–GZ.3 and GZ.5–GZ.8.
+  - The generic analytic inputs moved to their existing owners:
+    - Legendre functions and non-holomorphic Eisenstein series to AutomorphicSpectralTheory AS.0–AS.2 (route 9);
+    - K-Bessel integrals to AL.0 (route 10);
+    - Poincaré series and E₂* to QM.3 (route 11);
+    - the theta series to MetaplecticAutomorphicForms MP.5–MP.6 (route 3, formerly GN.3);
+    - partial zeta functions and the genus factorization to AN.4 (route 4, which no longer names the retired AN.1).
+  - Route 5 (ModularCurvesPartII) gained the Atkin–Lehner group, the modular polynomial, the fibre at p | N and the Hecke-algebra pairing.
+  - Route 7 is now a Part II of AnalyticNumberTheory, with a rewritten brief.
+  - Route 8 joins the proposed Part II HigherGreenFunctionCMValues and carries all the weight-2k > 2 material.
+- **Mistakes.** E1–E59 are all confirmed.
+  - E5, E19, E21 and E37 are now errors, not gaps.
+  - E19, E21 and E25 are already corrected in print (Mann; Conrad).
+  - E38 also covers p. 315.
+  - E60–E76 are new. The main ones: Proposition III.(1.4) is false as printed (E62; Edixhoven 1990); the fourth line of Corollary V.(1.3) is unproved for sign +1 (E68); "T_m maps each cusp to itself" is false (E60); and the choice of q before (0.5) (E63).
+- **Prerequisites.**
+  - The Waldspurger entry is replaced by the work actually cited (Forum Math. 1991), and Vignéras has its own entry.
+  - The Oesterlé entry is corrected: the exposé proves C = 7000 and only announces C = 55.
+  - Twelve works are added.
