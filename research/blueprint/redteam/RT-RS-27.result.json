@@ -1,0 +1,74 @@
+{
+  "redteam": "RT-RS-27",
+  "protocol": "redteam-v1",
+  "status": "complete",
+  "target": "RS-27",
+  "agent": "Codex",
+  "session": "codex-rtOQ9t",
+  "inputCommit": "73a373c104ecaf22e364f5df165fb175c97fcaab",
+  "summary": "Four findings (three high, one medium): omitted module descent; specific-moduli dependencies that would close cycles; an unassigned Artin-criterion import; and previously confirmed foundational overlaps still retained by RS-27. The anchor transfers and the encoded/deferred graph are otherwise sound in the checked scope.",
+  "checked": [
+    "All 28 family evidence records, the accepted proposal/report and independent review, all 17 owner records, nine layer decisions (eight narrowed), and all 34 links.",
+    "The member README and all 12 stages; target-by-target conservation for R09.1-R09.6, R09.7a and A0-extension, with R09.7/R09.7b-d retained.",
+    "The full relevant anchor blocks: ModularCurves 0C, 0E, 0F, 0G, 1E, 4A, 4C, 7B, 7D, 9A, 9D, 9E; StableReduction Layers 2 and 4 and its moduli boundary. The long anchor documents were read selectively at these blocks, not represented as full-cover audits.",
+    "All 30 distinct external consumer stages in the fresh assembled graph and AM requests in 12 blueprint packets, including designed-but-not-promoted MordellLawrenceVenkatesh, the Chow/GAGA consumers, S.5 blowups and L7 Grassmannians.",
+    "Fresh assemble(require_distances=False) at 73a373c104ecaf22e364f5df165fb175c97fcaab: 2907 stage records, 8322 stage edges, 2958 graph endpoint vertices; all edges plus the two deferred LV links are acyclic (2960 vertices). Of 34 proposal links, 32 are live and two deferred for absent LV stages.",
+    "Synthetic dependency tests reproduced two specific-moduli cycles; the four proposed foundation/Artin repair links were tested jointly and are acyclic. No claim that the currently encoded graph itself contains those cycles.",
+    "Reviewed library coverage for every changed AM layer; pinned Mathlib Module.Grassmannian and its functor, CategoryTheory.Pseudofunctor.IsStack and comonadicExtendScalars read in their source files. No exhaustive new library-absence claim.",
+    "Existing confirmed RT-AREA-algebraicgeometry and RT-AUDIT-01 findings and fixes were compared, distinguishing repairs already implemented by RS-27 from remaining conflicts. No re-review of their authors’ findings is claimed.",
+    "Stacks 023R/023T and 05YF primary statements, read 2026-09-30; finite locally free Weil restriction correctly exports an algebraic space, not an unrestricted scheme or properness theorem.",
+    "The proposal mutates no Tau Ceti roadmap/layer and adds no upstream-to-upstream links; no upstream edits or new upstream findings."
+  ],
+  "findings": [
+    {
+      "id": "RT-RS-27/1",
+      "kind": "missing",
+      "severity": "high",
+      "where": "research/blueprint/restructure/RS-27.result.json: layers.AlgebraicModuliForArithmeticGeometry:R09.3.keeps and suppliedBy",
+      "claim": "The narrowed contract loses effective descent for quasi-coherent modules, including coherent modules through etale presentations. Descent of fppf sheaves as algebraic spaces is a different target. Neither the retained polarized-object descent nor the listed anchor exports identifies the general module-descent equivalence. ComplexComparisonPartII C3 still requests this algebraic input from R09.3.",
+      "evidence": "The member README R09.3 says \"Prove effective descent for the sheaves\"; its reviewed library-coverage target is \"Effective descent for (quasi-coherent) sheaves\". ComplexComparisonPartII.json requests from R09.3 \"effective descent of coherent sheaves through etale presentations for proper algebraic spaces\". RS-27 instead retains \"descent of fppf sheaves as algebraic spaces\". ModularCurves 0E enumerates effective scheme/object classes; StableReduction Layer 2 descends a polarized scheme through its graded section algebra. Neither cited contract exports general QCoh descent. Stacks 35.5.2, https://stacks.math.columbia.edu/tag/023T (in section 023R, read 2026-09-30), specifies effectivity and full faithfulness for quasi-coherent modules. Pinned Mathlib comonadicExtendScalars, Mathlib/Algebra/Category/ModuleCat/Descent.lean:59, supplies affine module descent, not the omitted scheme/algebraic-space extension. Confirmed RT-AUDIT-01/16 already identifies C3 as a consumer of this R09.3 theorem.",
+      "fix": "Restore an explicit export: the equivalence between quasi-coherent modules and fpqc descent data, its functorial/base-change coherence, and coherent descent along etale presentations under the applicable finiteness hypotheses. Import the affine module theorem. Keep this export at R09.3 or name its single foundation supplier and add the forwarding edge to R09.3 and C3; do not substitute representability of sheaves of sets. Coordinate its foundation owner with finding /4."
+    },
+    {
+      "id": "RT-RS-27/2",
+      "kind": "error",
+      "severity": "high",
+      "where": "research/blueprint/restructure/RS-27.result.json: R09.4.keeps, R09.5.keeps, A0-extension.keeps; consumer boundaries in AbelianSchemesAndArithmeticModuli and ModularCurvesPartII",
+      "claim": "The retained specific moduli constructions require objects that the declared downstream consumers have not yet defined. R09.4 promises algebraicity of generalized-elliptic and polarized-abelian moduli, while R09.5 promises their auxiliary level. The graph currently omits the necessary object imports. Adding R13.1 -> R09.4 or A1 -> R09.4 produces a cycle. A0-extension also retains verification in every PEL application even though the application owner M2 consumes the general criterion. Keep general criteria upstream and put these specific applications after their object/level owners.",
+      "evidence": "RS-27 R09.4.keeps includes \"algebraicity of the moduli stacks of generalised elliptic curves and polarised abelian schemes\"; R09.5.keeps includes \"auxiliary prime-to-characteristic level for abelian schemes and generalised elliptic curves\". ModularCurvesPartII README R13.1 defines the generalized elliptic objects and imports R09.5; R13.2 constructs their actual level stacks. AbelianSchemes A0 imports R09.1-R09.6 and explicitly assigns abelian-specific verification to the consuming milestone; A1/A3/A4 supply abelian schemes/polarizations/level structure. Its A6 names PELModuli M1-M5 the sole owner of polarized moduli stacks. Fresh assembly at 73a373c has paths R09.4 -> R09.5 -> ModularCurvesPartII:R13.1 and R09.4 -> AbelianSchemesAndArithmeticModuli:A0 -> A1. Closing either path with the needed object import was checked to produce a directed cycle. Confirmed RT-AUDIT-01/5 separately assigns PEL Artin-input verification to M2/H1.",
+      "fix": "Narrow R09.4 to general stack/atlas and conditional representability machinery plus compatibility with the already supplied elliptic case; narrow R09.5 to the general coarse/normalization/correspondence criteria and existing elliptic rigidifiers. Assign generalized-elliptic stack algebraicity and auxiliary level to ModularCurvesPartII R13.2/R13.4a after R13.1; polarized-abelian/PEL applications to PELModuli M1/M2/M6 after the abelian object/polarization/level stages, with H1 for Hilbert-Blumenthal verification. Remove \"verified in every PEL application\" as a producer obligation from A0-extension. Record exact owner/forwarding contracts and preserve these applications rather than delete them. Do not repair by adding the two cycle-forming backward imports."
+    },
+    {
+      "id": "RT-RS-27/3",
+      "kind": "missing",
+      "severity": "medium",
+      "where": "research/blueprint/restructure/RS-27.result.json: R09.6 and A0-extension keeps/suppliedBy, owners and links",
+      "claim": "The proposal still does not assign R09.6 a supplier for the Artin representability criterion, although A0-extension explicitly owns its proof. Both narrowed keeps retain the theorem and no path links the two stages. This is a missing theorem-owner/import boundary, not a claim that the original R09.6 necessarily demanded a second independent proof. The earlier verified audit correction has not reached this binding restructuring contract.",
+      "evidence": "Member README A0-extension: \"For the selected Artin route prove the criterion itself\". R09.6 permits \"a proof or an assigned supplier\". RS-27 R09.6 retains \"Artin representability with its hypotheses\" but lists only ModularCurves 7B/7D as suppliedBy; those are elliptic deformation comparisons, not the general criterion. A0-extension.keeps retains the full Artin criterion. The assembled graph has no path in either direction between these two stages. RT-AUDIT-01.review.json verdict for /6 confirms the missing assignment and RT-AUDIT-01.fixes.md /6 explicitly proposes A0-extension as R09.6 supplier. No RS-27 owner/link implements that correction.",
+      "fix": "Name A0-extension as the single owner of the chosen Artin criterion; change R09.6.keeps to its applications/comparisons using that theorem, add A0-extension to suppliedBy and add A0-extension -> R09.6 with the exact theorem contract. Retain the existing AdicSpacesPartII F0/R3 imports for formal geometry. If the criterion needs a deformation prefix from R09.6, split that prefix before adding dependencies; do not introduce a mutual whole-layer import. The forward link is acyclic in the current graph."
+    },
+    {
+      "id": "RT-RS-27/4",
+      "kind": "duplicate",
+      "severity": "high",
+      "where": "research/blueprint/restructure/RS-27.result.json: R09.3/R09.4 keeps and owners; existing SF.1 and DiamondsAndVStacks D0 contracts",
+      "claim": "RS-27 expressly retains general algebraic-space/stack foundations and ordinary stackification at AM while accepted foundation contracts retain the same work at SchemeAndStackFoundations SF.1 and DiamondsAndVStacks D0. Its 17-owner table resolves only anchor overlaps and supplies no owner/import boundary for these live proposed-roadmap overlaps. This is an unresolved, previously confirmed conflict in the accepted RS-27 contract, not a newly discovered duplicate.",
+      "evidence": "RS-27 R09.3.keeps starts \"Algebraic spaces: quotients by etale and fppf equivalence relations\"; R09.4.keeps starts \"General categories fibred in groupoids, stacks and stackification, representable diagonals, smooth and etale atlases\". SF.1 README says \"Construct and export\" algebraic-space quotients, representable diagonals and atlas independence; accepted RS-25 retains these. DiamondsAndVStacks D0 explicitly constructs ordinary groupoid-valued prestack descent, stackification, 2-fibre products and groupoid quotients; accepted RS-05 retains ordinary stackification. Both layers are live in the fresh atlas. Confirmed RT-AREA-algebraicgeometry/1 and /39 already identify these pairs, and its fixes report recommends SF.1 -> R09.3/R09.4. RS-27 has none of those owners or links. Pinned Mathlib CategoryTheory.Pseudofunctor.IsStack (IsStack.lean:49) is an existing carrier; missing algebraicity/stackification must extend it, not create multiple replacement carriers.",
+      "fix": "Resolve the cross-family boundary in the proposal: use D0 for the ordinary site-level stackification/groupoid construction and one named foundational owner (the existing area-fix recommendation is SF.1) for algebraic spaces, representable diagonals and atlases. Narrow R09.3/R09.4 to the stated additional comparison, Weil-restriction, moduli-descent and application interfaces; record the owners and named imports/forwarding links. If a different single owner is chosen, coordinate the complementary SF.1/D0 correction explicitly rather than leave both construct-and-export contracts. SF.1 -> R09.3/R09.4 and D0 -> R09.4 are jointly acyclic with finding /3’s proposed link. Apply corrections only through the authorized restructuring/blueprint workflow; no upstream edits."
+    }
+  ],
+  "upstreamNotes": [],
+  "libraryPins": {
+    "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+    "tauceti": "f790474821cf4256814db967cb154e7af3d0c369"
+  },
+  "inputHashes": {
+    "research/blueprint/restructure/RS-27.result.json": "b9139d1012b7d39c1c7f5d630f2d231c3387a3ae247e14966966c6ab9e72bdf2",
+    "research/blueprint/restructure/RS-27.json": "0015a98ceef6351187d00af34bee6f803a297890414405e58e054571a7bc6179",
+    "research/blueprint/restructure/RS-27.md": "2be241cf63366dcb5c30a7a8b17e203257258aba6ed88e6f10bfa466f98ec1ed",
+    "research/blueprint/reviews/REV-RS-27.md": "b46664cb01d7890d66c1351418c95b9f168c8dcfc5bcf367fdfd2f80c0f5fc5d",
+    "content/campaign/AlgebraicModuliForArithmeticGeometry/README.md": "a137c6fcec0a00edaca46278b6212d97255fa43230f3fef239a13b24793bc3b4",
+    "content/tau-ceti/ModularCurves/README.md": "18da17ea4e8b66b9cfc2a2227f99b5c5aeae4ecb52afd97cbccd72ed29c2e2e6",
+    "content/tau-ceti/StableReduction/README.md": "bba0dac4b46eddafe48fa25fdd78b4816147698d0fb8223050d3ea3fb4cdaf73"
+  }
+}
