@@ -33589,8 +33589,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-SMITH-24.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4974"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4974",
+   "finishedAt": "2026-09-30T17:08:47Z"
   },
   {
    "id": "RT-PAPER-FU-24",
@@ -41416,7 +41417,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-ANDRE-18-B.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #5023"
   },
   {
    "id": "RT-PAPER-NELSON-VENKATESH-21",
@@ -41545,7 +41547,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-NIKOLAUS-SCHOLZE-18.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #5025"
   },
   {
    "id": "RT-PAPER-KOYMANS-PAGANO",
@@ -41611,8 +41614,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-KOYMANS-PAGANO.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5026"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #5026",
+   "finishedAt": "2026-09-30T17:08:51Z"
   },
   {
    "id": "REV-FIX-RT-PAPER-KOYMANS-PAGANO",
