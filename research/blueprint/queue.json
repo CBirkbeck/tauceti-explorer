@@ -23655,12 +23655,12 @@
     "REV-RS-14"
    ],
    "prompt": "research/blueprint/prompts/BP-DirichletPadicLFunctions.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [
     "BP-LocallyAnalyticDistributions",
     "BP-PadicMeasuresIwasawaAlgebras"
    ],
-   "note": "released on GitHub issue #713"
+   "note": "claimed on GitHub issue #713"
   },
   {
    "id": "REV-DirichletPadicLFunctions",
@@ -36521,7 +36521,8 @@
     "REV-PAPER-LIU-WOOD-ZUREICKBROWN-24"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-LIU-WOOD-ZUREICKBROWN-24.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4135"
   },
   {
    "id": "RT-PAPER-GUO-REINECKE-24",
@@ -40893,8 +40894,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-BOCKLE-HARRIS-KHARE-ETAL-19.md",
-   "state": "pending",
-   "note": "released on GitHub issue #5014"
+   "state": "external",
+   "note": "claimed on GitHub issue #5014"
   },
   {
    "id": "RT-PAPER-LAWRENCE-VENKATESH-20",
@@ -46468,8 +46469,9 @@
     "REV-ArithmeticKTheory--N.7"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-BP-ArithmeticKTheory--N.7.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4428"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4428",
+   "finishedAt": "2026-09-30T22:42:13Z"
   },
   {
    "id": "RT-BP-ClassicalSerreModularity--R27.3",
