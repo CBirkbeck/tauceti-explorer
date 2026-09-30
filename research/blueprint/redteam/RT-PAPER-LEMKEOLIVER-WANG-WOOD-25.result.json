@@ -1,0 +1,46 @@
+{
+ "redteam": "RT-PAPER-LEMKEOLIVER-WANG-WOOD-25",
+ "protocol": "redteam-v1",
+ "status": "complete",
+ "target": "PAPER-LEMKEOLIVER-WANG-WOOD-25",
+ "summary": "PAPER-LEMKEOLIVER-WANG-WOOD-25 extracts Lemke Oliver–Wang–Wood, The average size of 3-torsion in class groups of 2-extensions (Forum Math. Pi 13 (2025) e19). It has 35 items (3 library, 3 planned, 29 missing), 2 routes and 16 source issues, after a careful review and an accepted collation. The routes fit their stages as narrowed by RS-07 and RS-29. They match how other extractions route Ellenberg–Venkatesh, Brauer–Siegel, zero-density estimates and Cohen–Lenstra–Martinet, and the published-version collation covers the three findings that affect stated results. One finding, low. Four works the proofs use, and the extraction's own locators cite, are missing from the prerequisites and from the atlas. They are Klüners–Malle 2004 (Corollary 7.3, a key input of Theorem 6.2 and of Theorem 8.1 case (2)), Bhargava–Shankar–Wang 2015 (Theorem 2, in the proof of Theorem 8.1), Ellenberg–Venkatesh 2006 (Proposition 1.3) and Alberts 2020 (Corollary 1.8), the last two for the examples of Theorem 8.1.",
+ "checked": [
+  "Independence: the extraction is by Claude Code cc-fb70e5 (issue #1352), and its review by Claude Code cc-442dc5. The collation is by cc-e94dc5, reviewed by cc-39fac3. This worker (Claude Code, cc-c2c06b) did none of them.",
+  "Read both routes, their reasons and the statuses of all 35 items in the repository at c9e1212b. All six cited stage ids exist in the assembled atlas (2840 stages, 8007 edges). Five were narrowed by accepted proposals before the extraction. RS-07 names AN.3 the owner of 'zero-density estimates'. It keeps 'prehomogeneous zeta integrals … continuation and matrix functional equations' at AN.8, 'prime-ideal applications' at AN.4, and 'class-group asymptotics and moments' at ST.3. RS-29 keeps 'Shafarevich's solvable realization theorem' at IG.4. So route 1 (ST.3/ST.5), route 2 (AN.3/AN.4/AN.8) and the planned items fit their narrowed stages. The AN.8 packet so far covers only the Bost–Connes material (AN.8 not_read), so route 2's Shintani lemmas remain for AN.8's blueprint.",
+  "Consistency across extractions: searched every papers/*.result.json for Ellenberg–Venkatesh, Datskovsky–Wright, zero-density estimates, Zaman/Thorner, Brauer–Siegel, Shintani, Cohen–Lenstra–Martinet, Klüners–Wang and ℓ-torsion. Ellenberg–Venkatesh items go to ST.3 (BHARGAVA-25, BHARGAVA-SHANKAR-WANG-22), Brauer–Siegel to AN.4 (BINYAMINI-22, TSIMERMAN-18), zero-density to AN.3 (BENNETT-SIKSEK-20) and Cohen–Lenstra–Martinet to ST.5 (LIU-WOOD-ZUREICKBROWN-24). That matches this extraction, so no second owner exists.",
+  "Source versions: the extraction has no sourceVersions, although E9, E10 and E15 affect a stated result. The accepted collation record COL-LEMKEOLIVER-WANG-WOOD-25 carries the published version (read 2026-09-26) and holds all three as 'identical'. scripts/collation.py reads sourceVersions from either record, so this is by design and not a finding.",
+  "Prerequisites: fetched the published PDF (Cambridge Core URL of the collation record, 2026-09-30) and compared its references with the 15 prerequisites and the item locators (finding 1). The other omitted references, such as BST13, BTT21, Bha05, TT13, HL21, Kly20 and LOTZ21, are cited only in the introduction or in remarks. TZ17/TZ19a are cited as alternative constants next to Zaman's thesis, which is listed.",
+  "Library: the three library items were verified by the review at Mathlib 082e2d3 (classNumber, Units.regulator, Units.exist_unique_eq_mul_prod). I did not re-open them.",
+  "Source issues: did not re-verify E1–E16. The review checked each on page images with PARI/GP, and the collation review re-read E9, E10 and E15 on the version of record."
+ ],
+ "findings": [
+  {
+   "id": "RT-PAPER-LEMKEOLIVER-WANG-WOOD-25/1",
+   "kind": "missing",
+   "severity": "low",
+   "where": "research/blueprint/papers/PAPER-LEMKEOLIVER-WANG-WOOD-25.result.json: prerequisites (15 entries); items PAPER-LEMKEOLIVER-WANG-WOOD-25/24 (Theorem 6.2) and /35 (Theorem 8.1), whose locators cite the omitted works",
+   "claim": "Four works that the paper's proofs use, and that the extraction's own item locators cite, are missing from the prerequisites. None is covered elsewhere in the atlas.\n1. Klüners–Malle, Counting nilpotent Galois extensions (J. reine angew. Math. 572 (2004)), Corollary 7.3. It is the key input to Theorem 6.2 (item 24) in two ways. It gives |E_k(G, X)| = O(X^{1/2+ε}) for transitive 2-groups without a transposition, which is item 24's last sentence. And it gives the upper bound for |E_k(H, X)| over all permutation 2-groups H, which Klüners' Theorem 5.8 needs in order to give Malle's asymptotic for C₂ ≀ H. It is also cited for case (2) of Theorem 8.1.\n2. Bhargava–Shankar–Wang, Geometry-of-numbers methods over global fields I (2015), Theorem 2. The proof of Theorem 8.1 uses it for counting quadratic extensions K/F with local conditions at split primes.\n3. Ellenberg–Venkatesh, The number of extensions of a number field with fixed degree and bounded discriminant (Ann. of Math. 163 (2006)), Proposition 1.3.\n4. Alberts, The weak form of Malle's conjecture and solvable groups (Res. Number Theory 6 (2020)), Corollary 1.8.\nThe last two justify the examples of case (1) of Theorem 8.1, which the review wrote into item 35's statement. §16 lists in prerequisites 'the papers this one builds on that the atlas does not yet cover'. The list has Klüners' wreath-product paper, Klüners–Wang and EV07, but none of these four.",
+   "evidence": "Published p. 31 (proof of Theorem 6.2): 'When G has no transpositions, it is proved by [KM04, Corollary 7.3] that |E_k(G, X)| = O_{k,G,ε}(X^{1/2+ε}). … It is proved in [Klü12, Theorem 5.8] that when there exists a H-extension and |E_k(H, X)| is not growing too fast, Malle's conjecture |E_k(G, X)| ∼ D_G X holds for G = C₂ ≀ H. … the upper bound for |E_k(H, X)| is known for all permutation 2-groups H, again by [KM04, Corollary 7.3].' Before Theorem 8.1's proof: 'the hypotheses of the first case are satisfied, for example, by any group H ≠ C₂ in its regular representation that occurs as a Galois group over k [EV06, Proposition 1.3], and by any nilpotent group H without a transposition [Alb20, Corollary 1.8]. The hypotheses of the second case are satisfied for any p-group with p ≠ 5 odd, as follows from [KM04, Corollary 7.3] …'. Proof of Theorem 8.1: 'It follows from [BSW15, Theorem 2] that ∑_{[K:F]=2, group signature Σ} h₃(K/F) ∼ …'. Item 24 locator: 'Theorem 6.2 and proof, pp.30–31, citing Malle [Mal02, Mal04], Klüners–Malle [KM04, Corollary 7.3], Klüners [Klü12, Lemma 5.5, Theorem 5.8]'. Item 35 locator: 'Theorem 8.1 and proof, pp.40–41, citing [BST+20], [BSW15], [EV06], [Alb20], [KM04], [KW20]'. The 15 prerequisites contain none of KM04, BSW15, EV06 or Alb20, and papers.json mentions none of them (searched for 'Klüners', 'Malle', 'Alberts', 'Geometry-of-numbers methods over global fields', 'number of extensions of a number field'). The published PDF was fetched on 2026-09-30 from the Cambridge Core URL the collation record names.",
+   "fix": "Add to prerequisites:\n1. {'citation': 'J. Klüners, G. Malle, Counting nilpotent Galois extensions, J. reine angew. Math. 572 (2004), 1–26', 'link': 'https://doi.org/10.1515/crll.2004.050', 'why': 'Corollary 7.3: upper bounds for |E_k(G, X)| for nilpotent (in particular 2-) groups; used in Theorem 6.2 and Theorem 8.1 case (2)'}.\n2. {'citation': 'M. Bhargava, A. Shankar, X. Wang, Geometry-of-numbers methods over global fields I: prehomogeneous vector spaces, arXiv:1512.03035', 'link': 'https://arxiv.org/abs/1512.03035', 'why': 'Theorem 2: counting quadratic extensions with local conditions, used in the proof of Theorem 8.1'}.\n3. {'citation': 'J. S. Ellenberg, A. Venkatesh, The number of extensions of a number field with fixed degree and bounded discriminant, Ann. of Math. 163 (2006), 723–741', 'link': 'https://doi.org/10.4007/annals.2006.163.723', 'why': 'Proposition 1.3, used for the examples of Theorem 8.1 case (1)'}.\n4. {'citation': 'B. Alberts, The weak form of Malle's conjecture and solvable groups, Res. Number Theory 6 (2020), Paper No. 10', 'link': 'https://doi.org/10.1007/s40993-019-0181-x', 'why': 'Corollary 1.8, used for the examples of Theorem 8.1 case (1)'}.\nCheck the DOIs when adding. Re-run check_paper.py."
+  }
+ ],
+ "sourceVersions": [
+  {
+   "kind": "published",
+   "url": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/6AABE169B5BA8192FE036455DE4F806F/S2050508625000009a.pdf/the-average-size-of-3-torsion-in-class-groups-of-2-extensions.pdf",
+   "citation": "Forum Math. Pi 13 (2025), e19, doi 10.1017/S2050508625000009 (per-download stamp, so no stable hash)",
+   "read": "2026-09-30"
+  }
+ ],
+ "provenance": {
+  "agent": "Claude Code",
+  "session": "cc-c2c06b",
+  "issue": 4210,
+  "date": "2026-09-30",
+  "inputRevision": "c9e1212bfcbe14236ed26e6895958f905424729c",
+  "baseline": {
+   "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+   "tauceti": "f790474821cf4256814db967cb154e7af3d0c369"
+  }
+ }
+}
