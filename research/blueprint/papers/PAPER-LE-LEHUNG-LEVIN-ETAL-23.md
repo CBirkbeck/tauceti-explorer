@@ -1,3 +1,214 @@
+# LLHLM23 — equal-characteristic Cohen normalization checkpoint
+
+Codex — codex-a71f92; issue #1254; claim confirmation 5911407669;
+30 September 2026. This is a partial continuation of the 847-item checkpoint
+at commit 435f95ad473fd20abd0f429be68644bcafaeed1e, not a new extraction or independent review.
+
+Current census: **864 items: 164 library, 48 planned, 652 missing**;
+27 routes, 126 unreviewed source findings, 11 explicit gaps and
+1,903 acyclic internal dependency edges. Every missing item is routed once.
+All inherited item IDs, statements, statuses and locators, all 124 earlier
+source findings and every earlier sourceData entry are preserved. Among old
+items, only Z178's proof outline, dependencies and note are refined.
+
+## What this closes, and what it does not
+
+The needed equal-characteristic branch of [finite Cohen normalization,
+Stacks032D](https://stacks.math.columbia.edu/tag/032D) now has a source-level
+argument from named adapters and pinned library results. For a complete
+Noetherian local domain A of prime characteristic p with residue field k and
+dimension d, it gives a coefficient section k→A and a finite injective local
+map k[[X₁,…,X_d]]→A. Its fraction-field extension is finite, possibly inseparable.
+
+This does not formalize those adapters. It does not close mixed-characteristic
+Cohen structure, the full finite-type reduction in07PH, the extra transcendental
+field formulation in0381, or the inherited analytic, homological, global,
+definition-API and source boundaries. The extraction remains partial.
+
+The original Z178 locator is preserved verbatim for provenance; its older
+warning that these particular suppliers are still undecomposed is superseded
+by the current note and this checkpoint. No inherited mathematical statement
+or claimed status has been silently replaced.
+
+## Source scope and provenance
+
+The inherited complete reading of the main paper is retained, not claimed
+again. The fresh main-paper check covered PDF78–81 of the 212-page
+[Rice author copy](https://math.rice.edu/~bl70/LocModels.pdf), especially
+3.7.1–3.7.2. Its SHA-256 is
+e56478796d15c938b864447d4b48d928ee749b95644df15e1e9055bdf9a142dd.
+The existing publication/version reconciliation remains in force.
+No new finding is made against LLHLM23 itself.
+
+The continuation read the statements and proofs of official Stacks tags
+032D,032A,0322,0321,0320,031Z,07BQ,031Y,031X,031J,
+0319,031D,0315,031B,00OJ,00KQ,00FR and00DS. The result records the
+access date, exact URL and SHA-256 of each downloaded official HTML page in
+sourceVersions and sourceData.cohenNormalizationContinuation.032D is used
+only in Case I; the direct prime-field argument below avoids its mixed-
+characteristic coefficient-ring construction.
+
+## Arbitrary residue fields, without an unsupported smooth-colimit step
+
+L154 imports the actual pinned perfect-field smoothness instance. It has an
+EssFiniteType hypothesis. Applying it directly to an arbitrary residue field
+would lose a real premise.
+
+Z183 supplies just the needed directed-union H1 vanishing statement, a
+finite-support specialization of [07BQ](https://stacks.math.columbia.edu/tag/07BQ).
+For an element of the kernel of the naive cotangent differential, represent
+its class by a polynomial relation. All its variable labels lie in one member
+of the directed family. Evaluation and the finitely many derivative
+coordinates already vanish there because its inclusion in the union is
+injective. Vanishing of H1 at that stage makes the relation a sum of products
+of kernel relations; mapping that identity to the union kills the class.
+L155 supplies the native canonical presentation, polynomial cotangent basis,
+derivative-coordinate formula and H1 carrier.
+
+Z184 then follows the field argument of
+[0320](https://stacks.math.columbia.edu/tag/0320): write K/F as the union of
+its finitely generated intermediate fields, apply L154 at those stages,
+use Z183 for H1, and use freeness of the K-vector space Ω[K/F] for
+projectivity. The projectivity step is essential: this is not a theorem
+that arbitrary filtered colimits of formally smooth rings are formally smooth.
+
+Z185 specializes to the perfect prime field F_p and the actual residue field
+k=A/m. L156 is Mathlib's already implemented theorem lifting a formally
+smooth algebra map into an adically complete ring. Apply it to id:k→A/m
+to obtain a section k→A. The field k can be infinitely generated and
+imperfect. Compatible lifts through A/m^n and their inverse limit are
+already inside the pinned theorem, so they are not planned again.
+
+For example, F_p(t_i | i∈N) is allowed. Z/p²Z is not: it has residue
+characteristic p, but not ring characteristic p. A coefficient section is
+an existence result, not a canonical choice or uniqueness theorem.
+
+## Parameters, completeness and finiteness
+
+L157 imports the pinned finite set s with m minimal over span(s) and
+|s|=height(m). In a local ring every prime containing span(s) is contained
+in m, so minimality forces it to be m. Z186 therefore gives an m-primary
+parameter ideal generated by exactly d elements. It uses no regularity or
+Cohen–Macaulay hypothesis. In dimension zero a nonreduced ring may have a
+nonzero maximal ideal; the empty parameter ideal still works.
+
+Z187 compares native completions for power-cofinal ideals by explicit
+quotient maps: if I^c⊂J and J^d⊂I, the I-completion maps to the J-completion
+by reading level c n and reducing to level n. The inverse reads level d n.
+Compatibility proves both composites are identity. This proves separatedness
+as well as completeness. For parameters, I⊂m and m^N⊂I, using existing L149.
+The known c/d correction to0319 is already in the current source and is not
+reported as a new finding.
+
+Z188 supplies the exact scalar-finiteness step, rather than merely saying
+A/I is Artinian. Choose m^N⊂I. The finite filtration of A/m^N has successive
+pieces m^j/m^(j+1), finite over k by the already assigned associated-graded
+supplier Z67. Their finite generating sets lift through the filtration.
+The coefficient section identifies these k-actions, giving finite
+dimensionality of A/I over k.
+
+For Z189 put B=k[[X₁,…,X_d]], J=(X₁,…,X_d). Existing L05 constructs evaluation,
+L14 supplies completeness of B, and Z26 gives B/J=k. Choose finitely many
+lifts of a k-spanning family of A/I. The resulting B-linear map B^r→A is
+surjective modulo J. L159 supplies finite-free coordinatewise completion;
+L158 is the already pinned linear topological Nakayama surjectivity engine.
+It yields finiteness of A over B.
+
+No circular finite-module completion theorem is used to prove the initial
+finiteness. The module target only needs separatedness at the L158 step.
+Nor is the ring evaluation claimed surjective: X↦t² from k[[X]] to k[[t]]
+is finite of rank two and is not surjective.
+
+The general engine also serves PadicMeasuresIwasawaAlgebras:L5. That layer's
+compact/arithmetic module packaging remains its own plan; this checkpoint
+adds only the R03.1 parameter-evaluation application, not a competing
+generic module theorem.
+
+## Injectivity and the fraction field
+
+Z190 explicitly avoids assuming integral dimension equality for an injective
+map before injectivity has been established. Put q=ker(B→A). The finite
+B/q-algebra A is integral, so L160 gives dim(A)≤dim(B/q) without an injectivity
+premise. A nonzero element of q is a non-zero-divisor in the domain B;
+existing L16 then gives dim(B/q)+1≤dim(B). Since both original dimensions
+are the finite number d, this is impossible. Z27 supplies the power-series
+dimension used by Z178.
+
+Z191 localizes A at nonzero elements of B. A finite spanning family remains
+finite over Frac(B), and the localization is a domain. Multiplication by
+a nonzero element is injective; L161 makes it surjective, so the localization
+is a field. Its identification with Frac(A) proves the finite extension.
+No separability is inferred: X↦t^p in characteristic p supplies the standard
+purely inseparable boundary.
+
+## Existing owners and pinned-library audit
+
+| Items | Owner or import |
+| --- | --- |
+| Z183 | SchemeAndStackFoundations:SF.4, native naive-cotangent adapter |
+| Z184 | SchemeAndStackFoundations:SF.0, field formal smoothness |
+| Z185,Z187–Z189,Z191 | DeformationAndDerivedPatchingAlgebra:R03.1 |
+| Z186,Z190 | DeformationAndDerivedPatchingAlgebra:R03.3 |
+| L154–L159,L161 | Existing Mathlib at082e2d37e8b0463410cdb532e111cd43d5a66174 |
+| L160 | Existing Tau Ceti atf790474821cf4256814db967cb154e7af3d0c369 |
+
+Both owners' full atlas extracts and reviewed AUDIT-01/AUDIT-17 rows were
+read, together with the PadicMeasuresIwasawaAlgebras:L5 contract and packet
+scope/gaps. Relevant packet/decomposition/reserved-ID searches were checked.
+The existing ring, field, completion, formal-smoothness and naive-cotangent
+carriers are not missing. Missing labels apply only to the stated adapters.
+
+The R03.1 import is the early field supplier Z184, which depends only on
+Z183 and library results. It is not an import of the downstream SF.4
+formal-fibre theorem Z178, so this refinement introduces no item cycle.
+No roadmap, route or whole-stage dependency is added.
+
+Every new library citation was checked in the pinned Lean source, including
+standing variables. The complete-ring lifting lemma is a public declaration
+that name indexes may omit; it is present at Smooth/AdicCompletion.lean:94.
+The parameter-set theorem's actual minimal-over conclusion, not the stronger
+wording of its docstring in an arbitrary nonlocal ring, is what L157 imports.
+
+## Two bounded source findings
+
+E125 records two notation slips in the forward implication of
+[031X](https://stacks.math.columbia.edu/tag/031X): the polynomial presentation
+has coefficient field k, not K, and the final differential target after
+localization is Ω[K/F_p], not Ω[S/F_p]. The linked11 July2025 fix repairs
+different L/K notation in the reverse implication. The tag comments,
+displayed history and that correction were read.
+
+E126 records a tensor subscript in
+[031J](https://stacks.math.columbia.edu/tag/031J), proof(4)⇒(6):
+NL[P/R] must be tensored over P, as in its next sentence, not over R.
+For R=k,P=k[x],S=k, the two printed degree-zero modules are respectively
+k[x]dx and k dx, exposing the mismatch. The linked13 May2024 correction
+finishes another sentence; it does not correct this subscript.
+Both findings are unreviewed misprints with affects=nothing: the intended
+mathematical conclusions survive. Searches and exact source hashes are
+recorded per finding. No self-confirmation or independent verdict is added.
+
+## Verification and resume point
+
+Paper schema, intake file rules, source-version checks, complete inherited
+data preservation, single routing, dependency existence and acyclicity,
+finite-ring diagnostics and whitespace checks are run on the three
+deliverables and passed. The 3,302 exact assertions exercise coefficient-section
+operations, parameter evaluation spanning without surjectivity, power-cofinal
+truncations and characteristic-p Frobenius; they are not Lean proofs.
+
+No Lean file is required or compiled. No Lake project, library build, cache
+download or language server was started. Only the result, this report and
+the handoff are submitted. All provenance and proof contracts needed to
+resume are in those deliverables; scratch sources can be removed.
+
+Resume with the remaining consumers of Cohen structure, the general07PH
+finite-type reduction and0381's additional field criterion, keeping the
+mixed-characteristic branch distinct. Preserve all older gaps and all
+scalar/Appendix B conclusions.
+
+---
+
 # Current continuation: characteristic-p generic formal fibres
 
 Codex — codex-a71f92; issue #1254; 30 September 2026.
