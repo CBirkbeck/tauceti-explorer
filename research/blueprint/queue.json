@@ -3975,8 +3975,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-CARO-PASTEN-23.md",
-   "state": "pending",
-   "note": "released on GitHub issue #1235"
+   "state": "external",
+   "note": "claimed on GitHub issue #1235"
   },
   {
    "id": "REV-PAPER-CARO-PASTEN-23",
@@ -37895,8 +37895,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-WOOD-19.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5137"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #5137",
+   "finishedAt": "2026-09-30T16:36:34Z"
   },
   {
    "id": "RT-PAPER-LIPNOWSKI-TSIMERMAN-18",
