@@ -44,6 +44,11 @@ import Mathlib.GroupTheory.PresentedGroup
 import Mathlib.GroupTheory.Subgroup.Center
 import Mathlib.RepresentationTheory.Homological.GroupHomology.Functoriality
 
+/- REV-FIX-RT-AREA-ktheory-1: enable the scoped group commutator instance
+required by the five historical bracket failures described above. Checked
+against the pinned declaration; this revision has not been elaborated. -/
+open scoped commutatorElement
+
 noncomputable section
 universe u v
 

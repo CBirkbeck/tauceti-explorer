@@ -2778,7 +2778,8 @@ example {F : Type u} [Field F] (hm : IsUnit ((3 : ℕ) : F)) {ζ : F} (hζ : IsP
 open IsDedekindDomain NumberField in
 /-- `K2SymbolsBrauer:T.7/global-reciprocity`, the symbol form of the adapter: for a number field
 with `μ_m ⊆ F` and `a, b ∈ Fˣ`, the local symbols `(a, b)_v` (the norm residue symbol of `F_v` at
-the finite places, the sign symbol at the real places, `1` at the complex ones) are `1` for almost
+the finite places, `1` at real places for `m = 1`, the sign symbol there for
+`m = 2`, and `1` at complex places; `m > 2` allows no real places) are `1` for almost
 all `v`, and `∏_v (a, b)_v = 1`. The finite-place values are read in `μ_m(F)` (each lies in its
 image). The law itself is imported from ClassicalArithmeticCompletion CA.1 (ClassFieldTheory Layer
 14 for `m = 2`); the node proves its statement on `K₂(F)` and its compatibility with ClassFieldTheory
@@ -2795,9 +2796,9 @@ theorem global_reciprocity (F : Type u) [Field F] [NumberField F] (m : ℕ) [NeZ
       (Function.mulSupport c).Finite ∧
       (∏ᶠ v, ((c v : rootsOfUnity m F) : Fˣ)) *
         ∏ᶠ w : {w : InfinitePlace F // w.IsReal},
-          Units.map (Int.castRingHom F).toMonoidHom
+          (if m = 2 then Units.map (Int.castRingHom F).toMonoidHom
             (TameSymbol.signSymbolAt (InfinitePlace.embedding_of_isReal w.2)
-              (steinbergSymbol a b (Commute.all _ _))) = 1 := by
+              (steinbergSymbol a b (Commute.all _ _))) else 1) = 1 := by
   sorry
 
 /- `K2SymbolsBrauer:T.7/symbol-formula`: not stated here; needs the Galois symbol
@@ -2820,3 +2821,12 @@ here; needs the étale Chern class
 MotivicEtaleKTheory:M.3 and K2SymbolsBrauer:T.1/k2-pi2). -/
 
 end TauCeti.NormResidueSymbol
+
+/- REV-FIX-RT-AREA-ktheory-1 regression: m = 1, F = ℚ, a = b = −1
+must have real factor 1. In the uniformiser-last Milnor convention
+∂₅{2,5} = 2, not 3. This revision has not been elaborated. -/
+
+/- Local comparison: read the Brauer invariant through the coordinate map
+(Q/Z)[m] ≃ ZMod m, sending [a/m] to a. Multiplication by m in Q/Z
+is zero on this subgroup and is not the exponent coordinate. The higher-power
+sign remains a source-comparison gap. -/

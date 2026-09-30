@@ -555,7 +555,8 @@
         "R is a unital associative ring and modules are right modules, as in the source. The element t is central in R[t], so R[t,t⁻¹] is the localisation of R[t] (and of R[t⁻¹]) at a central element, and the two base changes into R[t,t⁻¹] are exact.",
         "The gluing α is part of the data of an object: two triples with isomorphic components and different gluings are in general not isomorphic (unit test pi_u1).",
         "VB(P¹_R) is closed under extensions in mod-P¹_R and essentially small; K(P¹_R) is computed on a small model, as K.1 prescribes.",
-        "The functors u_i land in VB(P¹_R) and are exact because the exact structure on P(R) is the split one and base change is additive (K.2:plus scalar extension)."
+        "The functors u_i land in VB(P¹_R) and are exact because the exact structure on P(R) is the split one and base change is additive (K.2:plus scalar extension).",
+        "Right-module convention: in these gluing-category arguments P(R) means the pinned finite projective modules over Rᵐᵒᵖ, not ModuleCat R (which consists of left modules). The early ring model uses left modules; transport the right-module K-groups to that model through K.2/functorial-K-theory-of-a-ring’s opposite-ring duality, naturally in ring maps. No identification of left and right module categories is assumed."
       ],
       "proofSteps": [
         "Define mod-P¹_R, with morphisms the pairs (f₊, f₋) such that (f₋ ⊗ 1) ∘ α = α′ ∘ (f₊ ⊗ 1), and prove that it is abelian with componentwise kernels and cokernels, using that R[t] → R[t,t⁻¹] and R[t⁻¹] → R[t,t⁻¹] are flat (localisation at the central element t).",
@@ -566,7 +567,7 @@
         "Prove functoriality in R: a unital ring map R → R′ induces base change mod-P¹_R → mod-P¹_{R′} componentwise, exact on VB and compatible with the twists, with the u_i, with identities and with composition (K.2:plus scalar extension)."
       ],
       "acceptance": [
-        "π_*(u_0(R)) ≅ R and R¹π_*(u_0(R)) = 0, while π_*(u_1(R)) = 0 = R¹π_*(u_1(R)): u_0(R) and u_1(R) have isomorphic components and are not isomorphic, which is what the gluing records.",
+        "π_*(u_0(R)) ≅ R and R¹π_*(u_0(R)) = 0, while π_*(u_1(R)) = 0 = R¹π_*(u_1(R)): for nonzero R, u_0(R) and u_1(R) have isomorphic components and are not isomorphic, which is what the gluing records.",
         "R¹π_*(u_2(R)) ≅ R: in the cokernel of (x, y) ↦ t²x − y from R[t] × R[t⁻¹] to R[t,t⁻¹] exactly the coefficient of t survives.",
         "For R = 0 the category VB(P¹_0) is zero and K(P¹_0) is contractible.",
         "The construction makes sense for every associative ring and uses no scheme; a definition through the centre of R, or through Spec of anything, is not this object."
@@ -675,7 +676,7 @@
         },
         {
           "name": "pi_u1",
-          "statement": "π_*(u_1(R)) = 0 and R¹π_*(u_1(R)) = 0, so u_1(R) is not isomorphic to u_0(R) although both have components R[t] and R[t⁻¹]; a definition that forgot the gluing would identify them.",
+          "statement": "π_*(u_1(R)) = 0 and R¹π_*(u_1(R)) = 0, so, if R is nonzero, u_1(R) is not isomorphic to u_0(R) although both have components R[t] and R[t⁻¹]; a definition that forgot the gluing would identify them.",
           "kind": "non-example"
         },
         {
@@ -713,14 +714,15 @@
         "Apply the Koszul sequence to u_i(P) and use u_i(P)(n) = u_{i−n}(P): this is a short exact sequence u_{i+2} ↣ u_{i+1}² ↠ u_i of exact functors P(R) → VB(P¹_R), and Additivity gives (u_{i+1})_* + (u_{i+1})_* ≃ (u_i)_* + (u_{i+2})_*.",
         "Call F Mumford-regular when R¹π_*(F(−1)) = 0; write MR ⊂ VB(P¹_R) for the exact subcategory of such F and MR(n) for the F with F(−n) in MR. VB(P¹_R) is the increasing union of the MR(n) as n → −∞, so K(VB(P¹_R)) is the filtered colimit of the K(MR(n)) (K.1, filtered colimits).",
         "Each inclusion MR(n) ⊂ MR(n−1) is a K-equivalence: the Koszul sequence gives exact functors back into MR(n), and Additivity makes their alternating sum a homotopy inverse (the argument of Lemma V.1.5.2 with r = 1).",
-        "For F in MR construct Quillen's canonical resolution 0 → u_1(T_1F) → u_0(T_0F) → F → 0 by exact functors T_0 = π_* and T_1 : MR → P(R), and conclude by Additivity that u_* : K(R) × K(R) → K(MR) is split up to homotopy (the gluing-category form of II.8.7.8, left to Exercise V.1.3).",
-        "Set v_i(F) = π_*(F(i)); then v_i u_j(P) is 0 for i < j and P for i = j, so (v_0, v_1)_* ∘ (u_0, u_1)_* is triangular with diagonal entries homotopic to the identity, hence a homotopy equivalence, and with the previous step (u_0, u_1) is an equivalence.",
+        "For F in MR construct Quillen’s canonical resolution 0 → u_1(T_1F) → u_0(T_0F) → F → 0 by exact functors T_0 = π_* and T_1 : MR → P(R). The sequence takes values in VB(P¹_R), not in MR: u_1(P) need not be Mumford-regular. Additivity gives (u_0, u_1)_* ∘ (T_0, −T_1)_* ≃ the inclusion K(MR) → K(VB), an equivalence by the preceding steps. Hence (u_0, u_1)_* has a right homotopy inverse.",
+        "The exact functors v_i : MR → P(R), v_i(F) = π_*(F(i)), for i = 0,1 induce maps on K(VB) by composing with a homotopy inverse of K(MR) → K(VB). Compute them first on u_0 and u_{−1}, which do land in MR: (v_0u_0, v_0u_{−1}) = (id, 2·id) and (v_1u_0, v_1u_{−1}) = (2·id, 3·id). The Koszul relation u_1 = 2u_0 − u_{−1} on K(VB) then gives v_0u_1 = 0 and v_1u_1 = id. Thus (v_0, v_1)_* ∘ (u_0, u_1)_* is triangular with diagonal identities. Together with the right inverse above this proves the equivalence; it does not apply π_* as an exact functor on all vector bundles.",
         "Naturality in R follows from the base-change functoriality of the gluing category; the form (u_0, u_0 − u_1) follows by an invertible change of basis."
       ],
       "acceptance": [
         "For a field F, K_0(P¹_F) ≅ ℤ², with basis the classes of u_0(F) and u_1(F).",
         "In K_0(P¹_R), [u_0(R)] + [u_2(R)] = 2[u_1(R)], the relation the Koszul sequence gives.",
-        "The theorem holds for noncommutative R, where there is no scheme P¹_R; an argument through Spec R does not prove this node."
+        "The theorem holds for noncommutative R, where there is no scheme P¹_R; an argument through Spec R does not prove this node.",
+        "For a nonzero field F, u_1(F) = O(−1) is not Mumford-regular: R¹π_*(u_1(F)(−1)) = R¹π_*u_2(F) ≅ F. The proof must not factor u_1 through MR."
       ],
       "prerequisites": [
         "GeneralAlgebraicKTheory:K.6/projective-line-over-a-ring",
@@ -786,7 +788,7 @@
       "acceptance": [
         "K_0 Nil(R) = K_0(R) ⊕ Nil_0(R), as the source states in II.7.4.4.",
         "For a field F every (Fⁿ, ν) is filtered by the kernels of the powers of ν with quotients of the form (F^a, 0), so Nil_0(F) = 0.",
-        "For A = k[ε] with k a field, Nil_0(A) ≅ (1 + εt·k[t])^× is non-zero (the source's Example III.3.8.1)."
+        "For A = k[ε]/(ε²) with k a field, Nil_0(A) ≅ (1 + εt·k[t])^× is non-zero (the source's Example III.3.8.1)."
       ],
       "prerequisites": [
         "GeneralAlgebraicKTheory:K.1/K-groups-of-exact-categories",
@@ -880,7 +882,7 @@
         },
         {
           "name": "nil0_dual_numbers",
-          "statement": "For A = k[ε] over a field k, Nil_0(A) ≅ (1 + εt·k[t])^× ≠ 0.",
+          "statement": "For A = k[ε]/(ε²) over a field k, Nil_0(A) ≅ (1 + εt·k[t])^× ≠ 0.",
           "kind": "computation"
         },
         {
@@ -977,6 +979,47 @@
       "implementationStatus": "unchecked"
     },
     {
+      "id": "GeneralAlgebraicKTheory:K.6/nil-inclusion-is-forgetful",
+      "parentStageId": "GeneralAlgebraicKTheory:K.6",
+      "realises": [
+        "GeneralAlgebraicKTheory:K.6"
+      ],
+      "title": "The Nil inclusion factors through the forgetful map on K-theory",
+      "kind": "lemma",
+      "statement": "Let R be a unital associative ring and I : Nil(R) → H_1(P¹_R) send (P, ν) to (P_ν, 0, 0). Under the resolution equivalence K(H_1(P¹_R)) ≃ K(P¹_R), the induced map is homotopic to ((u_0)_* − (u_1)_*) ∘ forget_*. In particular it vanishes on the reduced Nil homotopy fibre in every nonnegative degree.",
+      "hypotheses": [
+        "Use the right-module gluing convention of projective-line-over-a-ring, transported to the early ring model by opposite-ring duality.",
+        "ν is nilpotent, and H_1 is the category of objects admitting a length-one vector-bundle resolution, as in t-torsion-localisation-sequences."
+      ],
+      "proofSteps": [
+        "For (P, ν), the pair of maps (t − ν, 1 − t⁻¹ν) defines u_1(P) → u_0(P): the gluing square commutes since (1 − t⁻¹ν)t = t − ν.",
+        "Its plus component is injective with cokernel P_ν by the characteristic sequence. Its minus component is invertible, with inverse the finite sum Σ_j(t⁻¹ν)^j, since ν is nilpotent. Thus 0 → u_1(P) → u_0(P) → (P_ν,0,0) → 0 is exact in the gluing category.",
+        "Maps commuting with ν give maps of these resolutions. Consequently this is a conflation of exact functors Nil(R) → H_1(P¹_R), with first two terms u_1∘forget and u_0∘forget. Apply K.3 additivity and the resolution equivalence.",
+        "On the homotopy fibre of forget_* the factorization is null, proving the reduced-Nil vanishing. Split injectivity of u_0−u_1 alone would not imply this."
+      ],
+      "acceptance": [
+        "For ν = 0 the resolution is the standard u_1(P) ↣ u_0(P) ↠ (P,0,0).",
+        "For ν² = 0, (1−t⁻¹ν)⁻¹ = 1+t⁻¹ν on the second chart.",
+        "For R = ℤ, P = ℤ and ν = 1, the second-chart map 1−t⁻¹ is not invertible; this pair is outside Nil(R), so the argument cannot omit nilpotence."
+      ],
+      "prerequisites": [
+        "GeneralAlgebraicKTheory:K.6/projective-line-over-a-ring",
+        "GeneralAlgebraicKTheory:K.6/nil-category-and-nil-groups",
+        "GeneralAlgebraicKTheory:K.6/t-torsion-localisation-sequences",
+        "GeneralAlgebraicKTheory:K.3/additivity-for-exact-categories"
+      ],
+      "sources": [
+        {
+          "sourceId": "Kbook.2013",
+          "locator": "Proof of Theorem V.8.1, book p.430 (full PDF p.438; chapter V PDF pp.60–61), with the characteristic resolution of Lemma II.7.8.2",
+          "excerpt": "the corresponding map K(R) → K(P¹_R) in (8.1.1) is u0 − u1",
+          "match": "The source states the zero-endomorphism restriction. This node supplies the explicit nilpotent-endomorphism resolution needed to identify the map on the whole Nil category; this is the reviewer’s derivation."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "addedBy": "REV-FIX-RT-AREA-ktheory-1"
+    },
+    {
       "id": "GeneralAlgebraicKTheory:K.6/nil-groups-are-NK",
       "parentStageId": "GeneralAlgebraicKTheory:K.6",
       "realises": [
@@ -993,13 +1036,13 @@
       "proofSteps": [
         "Substitute Nil(R) ≃ H_{1,t} into the fibration (b) to obtain (8.1.1), with K_n H_{1,t} = K_n(R) ⊕ Nil_n(R).",
         "Identify the map on the summand K_n(R): the composite P(R) → Nil(R) → H_1, P ↦ (P, 0, 0), sits in the exact sequence u_1(P) ↣ u_0(P) ↠ (P, 0, 0), obtained by tensoring P with 0 → O(−1) → O → (R, 0, 0) → 0, so by Additivity it induces u_0 − u_1.",
-        "By the projective-line splitting, (u_0, u_0 − u_1) : K(R) × K(R) → K(P¹_R) is an equivalence; so K_n(R) → K_n(P¹_R) is split injective and Nil_n(R) → K_n(P¹_R) is zero.",
+        "By nil-inclusion-is-forgetful, the entire map K(Nil(R)) → K(P¹_R) factors as (u_0 − u_1) ∘ forget, so it vanishes on Nil_n(R). The projective-line splitting then identifies its K_n(R) summand with a split direct summand of K_n(P¹_R).",
         "j^* u_0(P) = P ⊗_R R[t⁻¹], so j^* ∘ u_0 is the base change K(R) → K(R[t⁻¹]) that splits off K_n(R) from K_n(R[t⁻¹]) = K_n(R) ⊕ NK_n(R).",
         "Conclude by the source's diagram chase that (8.1.1) splits as stated and that the boundary K_{n+1}(R[t⁻¹]) → K_n(R) ⊕ Nil_n(R) induces NK_{n+1}(R) ≅ Nil_n(R), naturally in R."
       ],
       "acceptance": [
         "For n = 0 this is Nil_0(R) ≅ NK_1(R), the classical Proposition III.3.5.3.",
-        "For A = k[ε], NK_1(A) ≅ Nil_0(A) ≅ (1 + εt·k[t])^× is non-zero, so N-terms genuinely occur.",
+        "For A = k[ε]/(ε²), NK_1(A) ≅ Nil_0(A) ≅ (1 + εt·k[t])^× is non-zero, so N-terms genuinely occur.",
         "No regularity is assumed."
       ],
       "prerequisites": [
@@ -1007,7 +1050,8 @@
         "GeneralAlgebraicKTheory:K.6/projective-line-splitting",
         "GeneralAlgebraicKTheory:K.6/nil-category-and-nil-groups",
         "GeneralAlgebraicKTheory:K.3/additivity-for-exact-categories",
-        "GeneralAlgebraicKTheory:K.2/functorial-K-theory-of-a-ring"
+        "GeneralAlgebraicKTheory:K.2/functorial-K-theory-of-a-ring",
+        "GeneralAlgebraicKTheory:K.6/nil-inclusion-is-forgetful"
       ],
       "sources": [
         {
@@ -1256,7 +1300,7 @@
         "Record the boundary with the scheme roadmap: the scheme form V.8.3 is SchemeKTheoryOperations S.5's, which imports this node; the earlier prerequisite on S.5 was the reverse of the stage order and is removed."
       ],
       "acceptance": [
-        "For a singular ring the N-terms can be non-zero and the decomposition has four terms; no node may drop them (for A = k[ε], NK_1(A) ≅ Nil_0(A) ≠ 0).",
+        "For a singular ring the N-terms can be non-zero and the decomposition has four terms; no node may drop them (for A = k[ε]/(ε²), NK_1(A) ≅ Nil_0(A) ≠ 0).",
         "The splitting is by multiplication by the class of the variable, and a different splitting would change the identification of the boundary.",
         "When NK_n(R) = 0 the decomposition has the two terms K_n(R) ⊕ K_{n−1}(R)."
       ],
@@ -1817,11 +1861,12 @@
       ],
       "title": "Morita invariance",
       "kind": "theorem",
-      "statement": "Two rings are Morita equivalent when their module categories are equivalent; the structure theorem says that this happens exactly when there is a finitely generated projective generator of one whose endomorphism ring is the other, and that the equivalence is then given by tensoring against a bimodule. Since K-theory is defined from the category of finitely generated projective modules, and an equivalence of module categories restricts to an equivalence of those subcategories, Morita equivalent rings have isomorphic K-groups in every degree, connective and negative alike. The standard instance is the matrix ring: the ring and its ring of n by n matrices are Morita equivalent, so their K-theories agree. The isomorphism is induced by an equivalence of categories, so it is compatible with everything this layer asserts, in particular with the products.",
+      "statement": "Two rings are Morita equivalent when their module categories are equivalent; the structure theorem says that this happens exactly when there is a finitely generated projective generator of one whose endomorphism ring is the other, and that the equivalence is then given by tensoring against a bimodule. Since K-theory is defined from the category of finitely generated projective modules, and an equivalence of module categories restricts to an equivalence of those subcategories, Morita equivalent rings have isomorphic K-groups in every degree, connective and negative alike. The standard instance is the matrix ring: the ring and its ring of n by n matrices for n ≥ 1 are Morita equivalent, so their K-theories agree. The comparison is additive and natural for the chosen equivalence. Compatibility with an external product requires a commuting diagram of the relevant biexact functors. An internal unital ring comparison additionally requires compatible unit-preserving monoidal data; an arbitrary Morita equivalence does not supply those data.",
       "hypotheses": [
         "R and S are rings, not necessarily commutative; the module categories are of right modules, as the source has them.",
         "The equivalence is an additive equivalence of abelian categories; Morita theory says that every such equivalence is of the tensor form.",
-        "Both pinned instances, the matrix equivalence of module categories and the Morita predicate with its matrix instance, exist in Mathlib and are cited, so the node is a comparison for them rather than a construction."
+        "Both pinned instances, the matrix equivalence of module categories and the Morita predicate with its matrix instance, exist in Mathlib and are cited, so the node is a comparison for them rather than a construction.",
+        "The matrix case requires n ≥ 1 (equivalently a nonempty finite index type). A Morita equivalence is not assumed monoidal. Right modules are represented by ModuleCat Rᵐᵒᵖ at the pin and compared with the early left-module ring model through K.2’s opposite-ring comparison."
       ],
       "proofSteps": [
         "Record the pinned material: the equivalence between modules over a ring and modules over its matrix ring, the Morita equivalence predicate and its matrix instance.",
@@ -1829,12 +1874,12 @@
         "Deduce that the equivalence restricts to an exact equivalence of the categories of finitely generated projective modules, so it induces isomorphisms on all K-groups by the functoriality of K under exact functors (K.1) applied to the early ring model P(R) of K.2:plus, which this node imports rather than re-defining.",
         "Negative degrees: the bimodule giving the equivalence also gives equivalences over R[t], R[t⁻¹] and R[t,t⁻¹], compatibly with the maps between them, so the isomorphism passes to the cokernels that define Bass's groups (K.6/negative-k-groups).",
         "Record the instance for matrix rings and the source's exercise that the matrix ring over a ring is Morita equivalent to it.",
-        "State the compatibility with products: the induced isomorphism is a ring isomorphism for the product structure of the next nodes, because the equivalence is monoidal for the relevant tensor.",
+        "Given equivalences on the two inputs and the target together with a natural isomorphism between the two composite biexact functors, apply naturality of K.7/products-from-biexact-functors to obtain the external-product comparison. Only in a compatible unit-preserving monoidal setting does this become an internal unital ring isomorphism.",
         "Record the source's remark that the Morita equivalence classes are not the isomorphism classes, so the statement has content."
       ],
       "acceptance": [
-        "The ring and its n by n matrix ring have isomorphic K-groups in every degree.",
-        "A Morita equivalence induces an isomorphism compatible with the products.",
+        "For n ≥ 1 a ring and its n by n matrix ring have isomorphic K-groups in every degree; M₀(k) is the zero ring and has K₀ = 0, whereas K₀(k) = ℤ.",
+        "External-product compatibility carries the natural isomorphism of biexact functors as data; no unital ring isomorphism is inferred from a bare Morita equivalence.",
         "Morita equivalent rings need not be isomorphic, so the theorem is not a triviality."
       ],
       "prerequisites": [
@@ -1892,7 +1937,7 @@
         {
           "name": "KTheory.moritaEquiv_mul",
           "role": "compatibility",
-          "statement": "The isomorphism respects the external products."
+          "statement": "Given Morita equivalences of both input categories and the target, and a compatible natural isomorphism of their external-product biexact functors, the induced K-group isomorphisms commute with that external product."
         },
         {
           "name": "moritaStructure",
@@ -1922,7 +1967,7 @@
       "tests": [
         {
           "name": "matrix_invariance",
-          "statement": "The K-groups of a ring and of its matrix ring agree.",
+          "statement": "For n ≥ 1, K_*(M_n(R)) ≅ K_*(R); the n = 0 case over a field fails.",
           "kind": "compatibility"
         },
         {
@@ -1932,8 +1977,8 @@
         },
         {
           "name": "respects_product",
-          "statement": "The induced isomorphism carries the external product to the external product.",
-          "kind": "computation"
+          "statement": "For a commutative ring with an invertible module L whose class differs from [R] in K₀, the Morita autoequivalence L ⊗_R − sends [R] to [L]. Thus it is not a unital K₀-ring automorphism. A product comparison must carry additional monoidal/biexact compatibility data.",
+          "kind": "non-example"
         },
         {
           "name": "negative_degrees",
@@ -2005,23 +2050,25 @@
       ],
       "title": "Filtered colimits and finite products in the nonconnective theory",
       "kind": "theorem",
-      "statement": "The connective statements — K_n(R × R′) ≅ K_n(R) × K_n(R′) for a finite product of unital rings and colim_i K_n(R_i) ≅ K_n(colim_i R_i) for a filtered colimit, n ≥ 0 — belong to the early ring node (K.2/functorial-K-theory-of-a-ring, from K.1/elementary-properties-of-K-groups) and are imported, not re-proved here. This node adds their nonconnective refinements. (a) For every n ≥ 1, Bass's K_{−n} takes finite products of rings to products (K.6/negative-k-groups) and commutes with filtered colimits of rings, because R ↦ R[t], R[t⁻¹], R[t,t⁻¹] commute with filtered colimits and so do cokernels. (b) Hence the Bass spectrum satisfies K^B(R × R′) ≃ K^B(R) × K^B(R′) and hocolim_i K^B(R_i) ≃ K^B(colim_i R_i), the maps being isomorphisms on π_n for every integer n by (a), the connective statements and K.6/bass-spectrum-homotopy-groups. (c) For Frobenius pairs and exact categories the non-positive filtered-colimit statement is K.6/additivity-and-colimits-for-negative-K's (Schlichting's Lemma 6.3 and Corollary 6.4), cited here, not restated. (d) Consequently the K-theory of the infinite matrix ring M(R) = colim_n M_n(R) is the colimit of the K-theories of the M_n(R), each isomorphic to that of R by Morita invariance, in every degree; this is the form in which the fourth axiom of K.6 is checked for K^B. Infinite products are not claimed.",
+      "statement": "The connective statements — K_n(R × R′) ≅ K_n(R) × K_n(R′) for a finite product of unital rings and colim_i K_n(R_i) ≅ K_n(colim_i R_i) for a filtered colimit, n ≥ 0 — belong to the early ring node (K.2/functorial-K-theory-of-a-ring, from K.1/elementary-properties-of-K-groups) and are imported, not re-proved here. This node adds their nonconnective refinements. (a) For every n ≥ 1, Bass's K_{−n} takes finite products of rings to products (K.6/negative-k-groups) and commutes with filtered colimits of rings, because R ↦ R[t], R[t⁻¹], R[t,t⁻¹] commute with filtered colimits and so do cokernels. (b) Hence the Bass spectrum satisfies K^B(R × R′) ≃ K^B(R) × K^B(R′) and hocolim_i K^B(R_i) ≃ K^B(colim_i R_i), the maps being isomorphisms on π_n for every integer n by (a), the connective statements and K.6/bass-spectrum-homotopy-groups. (c) For Frobenius pairs and exact categories the non-positive filtered-colimit statement is K.6/additivity-and-colimits-for-negative-K's (Schlichting's Lemma 6.3 and Corollary 6.4), cited here, not restated. (d) The infinite matrix ring M(R) = colim_n M_n(R) uses corner embeddings, which are nonunital. Its continuity statement requires the nonunital extension through K.5 unitisation, plus compatibility of the corner maps with the chosen Morita equivalences. It does not follow by applying (b) directly to unital ring maps; this adapter remains a proof obligation before checking the fourth axiom of K.6 for K^B. Infinite products are not claimed.",
       "hypotheses": [
         "Filtered colimits are over small filtered categories of unital rings and unital maps and are taken in rings; products are finite.",
         "The connective statements are imported from the early ring node; this node owns only the nonconnective refinements, for Bass's groups, the Bass spectrum and Schlichting's IK.",
-        "The pinned library has filtered colimits of categories but not the K-theoretic statement, which the audit records."
+        "The pinned library has filtered colimits of categories but not the K-theoretic statement, which the audit records.",
+        "Clause (d) uses nonunital corner embeddings and needs the stated unitisation/fibre adapter; the unital hypotheses in (a)–(b) alone do not cover it."
       ],
       "proofSteps": [
         "Import the connective finite-product and filtered-colimit statements for rings from K.2/functorial-K-theory-of-a-ring, which applies K.1/elementary-properties-of-K-groups to idempotent-matrix models.",
         "Negative degrees: finite products from K.6/negative-k-groups; filtered colimits by induction on n, since polynomial and Laurent extensions and cokernels commute with filtered colimits.",
         "Spectrum level: compare π_n in every degree, using K.6/bass-spectrum-homotopy-groups with the connective statements for n ≥ 0 and the previous step for n < 0.",
         "Frobenius pairs: cite K.6/additivity-and-colimits-for-negative-K for the non-positive filtered-colimit statement.",
-        "Record the consequence for the infinite matrix ring, with Morita invariance."
+        "For the infinite matrix ring, first extend continuity to nonunital rings: use K.5’s fibre K(A) = fib(K(ℤ ⊕ A) → K(ℤ)), commute filtered colimits with that fibre in spectra, and compare this with ordinary K for unital A via ℤ ⊕ A ≅ ℤ × A. Then prove that the corner-map transitions correspond to the identity under the chosen matrix Morita equivalences. These are required adapters, not a direct application of unital-ring continuity."
       ],
       "acceptance": [
         "The negative K-groups of a finite product ring are the products of the negative K-groups, and K^B(R × R′) ≃ K^B(R) × K^B(R′).",
         "The negative K-groups of a filtered colimit of rings are the colimits of the negative K-groups.",
-        "Neither statement is claimed for infinite products; the source records that those are different."
+        "Neither statement is claimed for infinite products; the source records that those are different.",
+        "The corner map M_n(R) → M_{n+1}(R), A ↦ diag(A,0), sends 1 to diag(1,0), not to 1 for a nonzero R. The theorem for unital filtered diagrams cannot be applied before unitisation."
       ],
       "prerequisites": [
         "GeneralAlgebraicKTheory:K.2/functorial-K-theory-of-a-ring",
@@ -2030,7 +2077,9 @@
         "GeneralAlgebraicKTheory:K.6/bass-spectrum-homotopy-groups",
         "GeneralAlgebraicKTheory:K.6/additivity-and-colimits-for-negative-K",
         "GeneralAlgebraicKTheory:K.7/morita-invariance",
-        "mathlib:CategoryTheory.Limits.HasFilteredColimits"
+        "mathlib:CategoryTheory.Limits.HasFilteredColimits",
+        "GeneralAlgebraicKTheory:K.5/nonunital-rings-and-unitisation",
+        "GeneralAlgebraicKTheory:K.5/relative-K-theory"
       ],
       "sources": [
         {
@@ -2948,7 +2997,7 @@
       "stageId": "GeneralAlgebraicKTheory:K.6",
       "status": "source_decomposed",
       "remaining": [],
-      "note": "Twenty-five nodes, covering both of the constructions the stage text asks for. The algebraic half: Karoubi’s flasque rings with the Eilenberg swindle, the infinite sum rings and the cone ring, stated with the explicit warning that the pinned IsFlasque of both libraries is the sheaf-theoretic predicate and that a formalisation must not reuse the name; Bass’s contracted functors, with the contraction LF defined as the cokernel of the map out of the two polynomial rings and with the splitting required natural in the variable as well as in the ring; the negative K-groups as the iterated contraction Lⁿ K_0 of the early ring functor; the Fundamental Theorem in every degree, decomposed down to its ring-level inputs — the projective line over an associative ring as a gluing category of projective modules (Weibel V.1.5.4; not a scheme, since for a noncommutative ring there is none), the splitting K(R) × K(R) ≃ K(P¹_R) by the Koszul resolution and additivity, the Nil category and its groups, the localisation sequences at t through R[t] and through P¹_R (V.7.1, Ex. V.7.5), Nil_n(R) ≅ NK_{n+1}(R) (V.8.1), exactness in positive degrees and the splitting by multiplication by t (V.8.2, Ex. V.8.1), and the contractedness of K_1, K_0 and every K_{−n} (III.3.6, III.3.7, III.4.1.2, III.4.2); the four axioms a theory of negative K-theory must satisfy, with Bass’s groups as the example that makes them non-vacuous; Mayer–Vietoris for a Milnor square in negative degrees (III.4.3) and its spectrum form, excision in degrees at most zero from K.5's degree-zero excision and the contraction (IV.10.1), which is what Clausen–Mathew–Morrow’s Proposition 4.34 uses, with the classical degree-one surjectivity (Remark III.2.2.1) recorded and its spectrum form handed to KTheoryLowDegrees U.6; the Bass delooping, built as the homotopy colimit of the iterated desuspensions, with the identification of its negative homotopy with Bass’s groups as its own node; and the vanishing theorem for regular noetherian rings with the non-example the stage text names by hand. The homotopical half is the flasque enlargement, the suspension and the idempotent completion the stage text asks for by name, decomposed from Schlichting: Frobenius categories, Frobenius pairs and their derived categories, with the bounded complexes over an exact category as the standing example; the countable envelope with the swindle in functorial form (Lemma 4.2), the enlargement functor F, the c-compact generation that identifies the idempotent completion of the derived category with the c-compact part of the enlargement, and the suspension S, together with the verification (Theorem 4.8) that the three axioms of the set-up hold; the axiomatic set-up itself and the negative groups it defines; localisation in non-positive degrees with the connecting map constructed by lifting, and the first negative group characterised as the obstruction to idempotent completeness of Verdier quotients; additivity and filtered colimits; the IK-theory spectrum with its homotopy groups computed in all three ranges and the localisation sequence in every degree; and the agreement with Bass’s, Pedersen’s, Karoubi’s and Pedersen–Weibel’s groups for rings and additive categories, with the presentation of the first negative group, the vanishing for noetherian abelian categories, the deduction of Bass’s vanishing theorem for a regular ring, and the conjecture for a general small abelian category recorded as a conjecture. The scheme clauses of the source’s agreement and vanishing theorems (Thomason’s groups of a qcqs scheme; negative G-theory of a noetherian scheme) are handed to SchemeKTheoryOperations S.5 and S.2 by request, since S.1 and S.2 define Perf(X), K(X) and G(X) after this layer. Every stage target has a node, and the independence-of-enlargement target is met twice over: by the model-independence statement of the Bass construction and by the agreement theorem, which identifies the two routes’ outputs with each other and with the classical groups. The localisation clause of the stage text is carried by the Schlichting localisation nodes in the nonconnective formulation the text asks for. The ring functor, its scalar extension, finite products and filtered colimits are imported from the early ring node of K.2:plus, not restated."
+      "note": "Twenty-six nodes, covering both of the constructions the stage text asks for. The algebraic half: Karoubi’s flasque rings with the Eilenberg swindle, the infinite sum rings and the cone ring, stated with the explicit warning that the pinned IsFlasque of both libraries is the sheaf-theoretic predicate and that a formalisation must not reuse the name; Bass’s contracted functors, with the contraction LF defined as the cokernel of the map out of the two polynomial rings and with the splitting required natural in the variable as well as in the ring; the negative K-groups as the iterated contraction Lⁿ K_0 of the early ring functor; the Fundamental Theorem in every degree, decomposed down to its ring-level inputs — the projective line over an associative ring as a gluing category of projective modules (Weibel V.1.5.4; not a scheme, since for a noncommutative ring there is none), the splitting K(R) × K(R) ≃ K(P¹_R) by the Koszul resolution and additivity, the Nil category and its groups, the localisation sequences at t through R[t] and through P¹_R (V.7.1, Ex. V.7.5), Nil_n(R) ≅ NK_{n+1}(R) (V.8.1), exactness in positive degrees and the splitting by multiplication by t (V.8.2, Ex. V.8.1), and the contractedness of K_1, K_0 and every K_{−n} (III.3.6, III.3.7, III.4.1.2, III.4.2); the four axioms a theory of negative K-theory must satisfy, with Bass’s groups as the example that makes them non-vacuous; Mayer–Vietoris for a Milnor square in negative degrees (III.4.3) and its spectrum form, excision in degrees at most zero from K.5's degree-zero excision and the contraction (IV.10.1), which is what Clausen–Mathew–Morrow’s Proposition 4.34 uses, with the classical degree-one surjectivity (Remark III.2.2.1) recorded and its spectrum form handed to KTheoryLowDegrees U.6; the Bass delooping, built as the homotopy colimit of the iterated desuspensions, with the identification of its negative homotopy with Bass’s groups as its own node; and the vanishing theorem for regular noetherian rings with the non-example the stage text names by hand. The homotopical half is the flasque enlargement, the suspension and the idempotent completion the stage text asks for by name, decomposed from Schlichting: Frobenius categories, Frobenius pairs and their derived categories, with the bounded complexes over an exact category as the standing example; the countable envelope with the swindle in functorial form (Lemma 4.2), the enlargement functor F, the c-compact generation that identifies the idempotent completion of the derived category with the c-compact part of the enlargement, and the suspension S, together with the verification (Theorem 4.8) that the three axioms of the set-up hold; the axiomatic set-up itself and the negative groups it defines; localisation in non-positive degrees with the connecting map constructed by lifting, and the first negative group characterised as the obstruction to idempotent completeness of Verdier quotients; additivity and filtered colimits; the IK-theory spectrum with its homotopy groups computed in all three ranges and the localisation sequence in every degree; and the agreement with Bass’s, Pedersen’s, Karoubi’s and Pedersen–Weibel’s groups for rings and additive categories, with the presentation of the first negative group, the vanishing for noetherian abelian categories, the deduction of Bass’s vanishing theorem for a regular ring, and the conjecture for a general small abelian category recorded as a conjecture. The scheme clauses of the source’s agreement and vanishing theorems (Thomason’s groups of a qcqs scheme; negative G-theory of a noetherian scheme) are handed to SchemeKTheoryOperations S.5 and S.2 by request, since S.1 and S.2 define Perf(X), K(X) and G(X) after this layer. Every stage target has a node, and the independence-of-enlargement target is met twice over: by the model-independence statement of the Bass construction and by the agreement theorem, which identifies the two routes’ outputs with each other and with the classical groups. The localisation clause of the stage text is carried by the Schlichting localisation nodes in the nonconnective formulation the text asks for. The ring functor, its scalar extension, finite products and filtered colimits are imported from the early ring node of K.2:plus, not restated."
     },
     {
       "stageId": "GeneralAlgebraicKTheory:K.7",
@@ -3000,6 +3049,14 @@
         "GeneralAlgebraicKTheory:K.6/agreement-and-vanishing-of-negative-K"
       ],
       "detail": "With the scheme clause removed, the ring clause of Schlichting's Theorem 7.1 rests on its additive-category clause and on the comparison of Karoubi's (and Pedersen's) negative groups with Bass's, which the source cites as [Kar71] and [Ped84]. Neither was read. Within the K-book the same comparison can be made through Theorem III.4.5 — every theory of negative K-theory satisfying the four axioms is canonically Bass's, proved there through the cone and suspension rings — together with Ex. III.4.10 and Variant IV.10.4.1; III.4.5 was read with its proof, the other two only as statements. NEXT SOURCE ACTION: read Karoubi 1971 or Pedersen 1984, or decompose the suspension-ring route through III.4.5 into nodes of this layer."
+    },
+    {
+      "title": "Nonunital matrix continuity and compatibility of corner maps",
+      "neededBy": [
+        "GeneralAlgebraicKTheory:K.7/invariance-under-filtered-colimits-and-products",
+        "GeneralAlgebraicKTheory:K.6/agreement-and-vanishing-of-negative-K"
+      ],
+      "detail": "REV-FIX-RT-AREA-ktheory-1: the claimed infinite-matrix consequence used a diagram of corner embeddings as if they were unital. Supply the unitisation/homotopy-fibre continuity adapter and identify each corner transition under the matrix Morita equivalences as described in the node. An abstract isomorphism K(M_n(R)) ≅ K(R) for each n does not identify the maps of the colimit diagram."
     }
   ],
   "requests": [
@@ -3119,121 +3176,129 @@
     }
   ],
   "review": {
-    "status": "accepted",
-    "reviewer": "independent-review-REV-GeneralAlgebraicKTheory--K.6",
-    "date": "2026-09-28",
-    "notes": "Checked all 22 nodes against Weibel's K-book (author PDF of 29 August 2013, sha256 reproduced) and Schlichting's 'Negative K-theory of derived categories' (sha256 reproduced), every baseline citation against the pinned index and the Lean sources (all 19 exist and say what is claimed, except the Karoubi-envelope citation on the flasque node), and the suggested file. Mathematics: two statements corrected — multiplication by the class of a unit is not an automorphism of a K-group inverse to that of the inverse unit ([u⁻¹] = −[u], degree +1), and the localisation boundary is K_*(R)-linear, not a derivation. Citations: fifteen K-book excerpts were paraphrases or mis-attributions (II.2.7, II.2.7.2, II.9.6.1, II.2.1.2, IV.6.4, II.7.4, II.9.5.2, II.7.4.1, IV.6.6, IV.1 'graded-commutative', II.7.4.4, III.1.1, the V.8 brackets, IV.10.3/10.4) and every K-book page was mislabelled (the 'PDF p.' values were printed pages in chapters III–V and wrong in chapter II); all re-pulled verbatim with 'printed p. N (PDF p. N+8)'. Added the source's own statement of the negative-K vanishing (III.4.1) and IV.6.4's filtered-colimit clause. One source misprint recorded (E1, IV.10.3). Test kinds added (none had one). Schlichting's nodes are faithful; two page numbers fixed. Accepted after these corrections.",
-    "checked": [
-      {
-        "nodeId": "GeneralAlgebraicKTheory:K.6/flasque-rings-and-the-swindle",
-        "verdict": "corrected",
-        "note": "corrected: removed the prerequisite mathlib:CategoryTheory.Idempotents.Karoubi, the Karoubi ENVELOPE (idempotent completion), which has nothing to do with Karoubi's flasque rings — a name coincidence of exactly the kind the node itself warns about; locator page fixed (printed 69, not 'PDF p. 105'); cone-ring citation is Exercise I.1.8."
-      },
-      {
-        "nodeId": "GeneralAlgebraicKTheory:K.6/contracted-functors",
-        "verdict": "corrected",
-        "note": "verified; locator relabelled (printed 210)."
-      },
-      {
-        "nodeId": "GeneralAlgebraicKTheory:K.6/negative-k-groups",
-        "verdict": "corrected",
-        "note": "verified; III.3.7 is on printed p. 206 (not 208); excerpts re-pulled verbatim."
-      },
-      {
-        "nodeId": "GeneralAlgebraicKTheory:K.6/fundamental-theorem-with-nil-terms",
-        "verdict": "corrected",
-        "note": "verified; the V.8.2 and V.8-opening excerpts had bracketed paraphrases in place of the source's words — re-pulled verbatim."
-      },
-      {
-        "nodeId": "GeneralAlgebraicKTheory:K.6/axioms-for-negative-k-theory",
-        "verdict": "corrected",
-        "note": "verified (all four axioms match); 4.4.1 is on printed p. 214; axioms (3)–(4) added as a citation."
-      },
-      {
-        "nodeId": "GeneralAlgebraicKTheory:K.6/mayer-vietoris-for-negative-k",
-        "verdict": "corrected",
-        "note": "verified; excerpt re-pulled verbatim; pages 212–213."
-      },
-      {
-        "nodeId": "GeneralAlgebraicKTheory:K.6/nonconnective-spectrum",
-        "verdict": "corrected",
-        "note": "verified; the 10.3/10.4 excerpt was a paraphrase joining two items — split and re-pulled; source misprint in 10.3 recorded (E1)."
-      },
-      {
-        "nodeId": "GeneralAlgebraicKTheory:K.6/vanishing-for-regular-noetherian-rings",
-        "verdict": "corrected",
-        "note": "verified; added the source's own statement (III.4.1: K_n(R) = 0 for n < 0 when R is regular noetherian); the regularity excerpt re-pulled from I.3.7.1 (printed 23)."
-      },
-      {
-        "nodeId": "GeneralAlgebraicKTheory:K.7/morita-invariance",
-        "verdict": "corrected",
-        "note": "verified; the II.2.7 and II.2.7.2 'excerpts' were not the source's text (paraphrases) — replaced by verbatim quotations; pages 75, 76, 321."
-      },
-      {
-        "nodeId": "GeneralAlgebraicKTheory:K.7/derived-morita-and-enhancements",
-        "verdict": "corrected",
-        "note": "verified; the 'II.9.6.1' citation (an exact equivalence induces a K-theory equivalence) is not what II.9.6.1 says (a lemma on cofibrations that are weak equivalences) — replaced by the Approximation Theorem II.9.7; 9.1.1 is the Waldhausen category (not 'category with cofibrations' as the excerpt had it); Proposition 11.15 is on p. 22, and its hypothesis/conclusion now quoted verbatim."
-      },
-      {
-        "nodeId": "GeneralAlgebraicKTheory:K.7/invariance-under-filtered-colimits-and-products",
-        "verdict": "corrected",
-        "note": "verified; the product citation was misattributed to II.2.1.2 (simple rings) and the IV.6.4 excerpt was a paraphrase; both re-pulled, and the filtered-colimit clause of IV.6.4 added."
-      },
-      {
-        "nodeId": "GeneralAlgebraicKTheory:K.7/products-from-biexact-functors",
-        "verdict": "corrected",
-        "note": "verified; four of five excerpts were paraphrases (II.7.4, II.9.5.2, II.7.4.1, IV.6.6) — re-pulled; pages 132, 165, 322, 342."
-      },
-      {
-        "nodeId": "GeneralAlgebraicKTheory:K.7/graded-commutativity",
-        "verdict": "corrected",
-        "note": "verified mathematically; the graded-commutativity citation was not in the source at the cited place — replaced by Loday's Theorem IV.1.10 (printed 266)."
-      },
-      {
-        "nodeId": "GeneralAlgebraicKTheory:K.7/compatibility-with-relative-groups-and-transfers",
-        "verdict": "corrected",
-        "note": "corrected: 'the boundary is a derivation for the product' is wrong — the boundary of a localisation sequence is K_*(R)-linear up to sign, a module map; the two cited passages (II.7.4.4 on Nil(R), and an 'II.9.5.2' sentence not in the source) supported none of the node's claims — replaced by the Projection Formula V.3.12 and the pairing IV.8.11. The boundary compatibility has no located source and is recorded in the review as unsourced."
-      },
-      {
-        "nodeId": "GeneralAlgebraicKTheory:K.7/unit-multiplication-and-K0-tensor-comparison",
-        "verdict": "corrected",
-        "note": "corrected: the claim that multiplication by the class of a unit is 'an automorphism of each K-group, inverse to multiplication by the inverse unit' is false — [u] ∈ K_1 raises degree, and [u⁻¹] = −[u]; the III.1.1/1.2 excerpt was a paraphrase — replaced by Example 1.1.1 (printed 180)."
-      },
-      {
-        "nodeId": "GeneralAlgebraicKTheory:K.6/frobenius-pairs",
-        "verdict": "verified",
-        "note": "verified against Schlichting (Definition 3.4, Lemma 4.2, Remark 1.9, Theorem 6.1, Lemma 8.1/Corollary 8.2 — D(E) is indeed the unbounded derived category — and §9 checked at their pages)."
-      },
-      {
-        "nodeId": "GeneralAlgebraicKTheory:K.6/frobenius-pairs-flasque-envelope-and-suspension",
-        "verdict": "verified",
-        "note": "verified against Schlichting (Definition 3.4, Lemma 4.2, Remark 1.9, Theorem 6.1, Lemma 8.1/Corollary 8.2 — D(E) is indeed the unbounded derived category — and §9 checked at their pages)."
-      },
-      {
-        "nodeId": "GeneralAlgebraicKTheory:K.6/schlichting-set-up",
-        "verdict": "verified",
-        "note": "verified against Schlichting (Definition 3.4, Lemma 4.2, Remark 1.9, Theorem 6.1, Lemma 8.1/Corollary 8.2 — D(E) is indeed the unbounded derived category — and §9 checked at their pages)."
-      },
-      {
-        "nodeId": "GeneralAlgebraicKTheory:K.6/schlichting-set-up-and-negative-localization",
-        "verdict": "verified",
-        "note": "verified against Schlichting (Definition 3.4, Lemma 4.2, Remark 1.9, Theorem 6.1, Lemma 8.1/Corollary 8.2 — D(E) is indeed the unbounded derived category — and §9 checked at their pages)."
-      },
-      {
-        "nodeId": "GeneralAlgebraicKTheory:K.6/additivity-and-colimits-for-negative-K",
-        "verdict": "verified",
-        "note": "verified against Schlichting (Definition 3.4, Lemma 4.2, Remark 1.9, Theorem 6.1, Lemma 8.1/Corollary 8.2 — D(E) is indeed the unbounded derived category — and §9 checked at their pages)."
-      },
-      {
-        "nodeId": "GeneralAlgebraicKTheory:K.6/nonconnective-spectrum-and-derived-invariance",
-        "verdict": "corrected",
-        "note": "verified; pages fixed (11.10/11.13 on pp. 21–22, 11.15 on p. 22) and 11.15 quoted verbatim."
-      },
-      {
-        "nodeId": "GeneralAlgebraicKTheory:K.6/agreement-and-vanishing-of-negative-K",
-        "verdict": "verified",
-        "note": "verified against Schlichting (Definition 3.4, Lemma 4.2, Remark 1.9, Theorem 6.1, Lemma 8.1/Corollary 8.2 — D(E) is indeed the unbounded derived category — and §9 checked at their pages)."
-      }
-    ]
-  }
+    "status": "needs_changes",
+    "reviewer": "independent-review-REV-FIX-RT-AREA-ktheory-1",
+    "date": "2026-09-30",
+    "notes": "Codex session codex-J6LwjP; follows independent-review-REV-GeneralAlgebraicKTheory--K.6. Corrected handedness, nonzero-ring tests, the MR/VB splitting argument, and the map from the entire Nil category; added its explicit natural resolution. Restricted Morita product claims and positive matrix size; exposed the missing nonunital matrix continuity adapter. Noncommutative P¹ resolution/localization, Karoubi comparison, early products and several True-valued prototypes remain inadequate for /4, /17–/19. Report: research/blueprint/reviews/REV-FIX-RT-AREA-ktheory-1.md. Pinned-index checker: 0 errors, 0 warnings. Suggested Lean not compiled; implementation remains unchecked."
+  },
+  "reviewHistory": [
+    {
+      "status": "accepted",
+      "reviewer": "independent-review-REV-GeneralAlgebraicKTheory--K.6",
+      "date": "2026-09-28",
+      "notes": "Checked all 22 nodes against Weibel's K-book (author PDF of 29 August 2013, sha256 reproduced) and Schlichting's 'Negative K-theory of derived categories' (sha256 reproduced), every baseline citation against the pinned index and the Lean sources (all 19 exist and say what is claimed, except the Karoubi-envelope citation on the flasque node), and the suggested file. Mathematics: two statements corrected — multiplication by the class of a unit is not an automorphism of a K-group inverse to that of the inverse unit ([u⁻¹] = −[u], degree +1), and the localisation boundary is K_*(R)-linear, not a derivation. Citations: fifteen K-book excerpts were paraphrases or mis-attributions (II.2.7, II.2.7.2, II.9.6.1, II.2.1.2, IV.6.4, II.7.4, II.9.5.2, II.7.4.1, IV.6.6, IV.1 'graded-commutative', II.7.4.4, III.1.1, the V.8 brackets, IV.10.3/10.4) and every K-book page was mislabelled (the 'PDF p.' values were printed pages in chapters III–V and wrong in chapter II); all re-pulled verbatim with 'printed p. N (PDF p. N+8)'. Added the source's own statement of the negative-K vanishing (III.4.1) and IV.6.4's filtered-colimit clause. One source misprint recorded (E1, IV.10.3). Test kinds added (none had one). Schlichting's nodes are faithful; two page numbers fixed. Accepted after these corrections.",
+      "checked": [
+        {
+          "nodeId": "GeneralAlgebraicKTheory:K.6/flasque-rings-and-the-swindle",
+          "verdict": "corrected",
+          "note": "corrected: removed the prerequisite mathlib:CategoryTheory.Idempotents.Karoubi, the Karoubi ENVELOPE (idempotent completion), which has nothing to do with Karoubi's flasque rings — a name coincidence of exactly the kind the node itself warns about; locator page fixed (printed 69, not 'PDF p. 105'); cone-ring citation is Exercise I.1.8."
+        },
+        {
+          "nodeId": "GeneralAlgebraicKTheory:K.6/contracted-functors",
+          "verdict": "corrected",
+          "note": "verified; locator relabelled (printed 210)."
+        },
+        {
+          "nodeId": "GeneralAlgebraicKTheory:K.6/negative-k-groups",
+          "verdict": "corrected",
+          "note": "verified; III.3.7 is on printed p. 206 (not 208); excerpts re-pulled verbatim."
+        },
+        {
+          "nodeId": "GeneralAlgebraicKTheory:K.6/fundamental-theorem-with-nil-terms",
+          "verdict": "corrected",
+          "note": "verified; the V.8.2 and V.8-opening excerpts had bracketed paraphrases in place of the source's words — re-pulled verbatim."
+        },
+        {
+          "nodeId": "GeneralAlgebraicKTheory:K.6/axioms-for-negative-k-theory",
+          "verdict": "corrected",
+          "note": "verified (all four axioms match); 4.4.1 is on printed p. 214; axioms (3)–(4) added as a citation."
+        },
+        {
+          "nodeId": "GeneralAlgebraicKTheory:K.6/mayer-vietoris-for-negative-k",
+          "verdict": "corrected",
+          "note": "verified; excerpt re-pulled verbatim; pages 212–213."
+        },
+        {
+          "nodeId": "GeneralAlgebraicKTheory:K.6/nonconnective-spectrum",
+          "verdict": "corrected",
+          "note": "verified; the 10.3/10.4 excerpt was a paraphrase joining two items — split and re-pulled; source misprint in 10.3 recorded (E1)."
+        },
+        {
+          "nodeId": "GeneralAlgebraicKTheory:K.6/vanishing-for-regular-noetherian-rings",
+          "verdict": "corrected",
+          "note": "verified; added the source's own statement (III.4.1: K_n(R) = 0 for n < 0 when R is regular noetherian); the regularity excerpt re-pulled from I.3.7.1 (printed 23)."
+        },
+        {
+          "nodeId": "GeneralAlgebraicKTheory:K.7/morita-invariance",
+          "verdict": "corrected",
+          "note": "verified; the II.2.7 and II.2.7.2 'excerpts' were not the source's text (paraphrases) — replaced by verbatim quotations; pages 75, 76, 321."
+        },
+        {
+          "nodeId": "GeneralAlgebraicKTheory:K.7/derived-morita-and-enhancements",
+          "verdict": "corrected",
+          "note": "verified; the 'II.9.6.1' citation (an exact equivalence induces a K-theory equivalence) is not what II.9.6.1 says (a lemma on cofibrations that are weak equivalences) — replaced by the Approximation Theorem II.9.7; 9.1.1 is the Waldhausen category (not 'category with cofibrations' as the excerpt had it); Proposition 11.15 is on p. 22, and its hypothesis/conclusion now quoted verbatim."
+        },
+        {
+          "nodeId": "GeneralAlgebraicKTheory:K.7/invariance-under-filtered-colimits-and-products",
+          "verdict": "corrected",
+          "note": "verified; the product citation was misattributed to II.2.1.2 (simple rings) and the IV.6.4 excerpt was a paraphrase; both re-pulled, and the filtered-colimit clause of IV.6.4 added."
+        },
+        {
+          "nodeId": "GeneralAlgebraicKTheory:K.7/products-from-biexact-functors",
+          "verdict": "corrected",
+          "note": "verified; four of five excerpts were paraphrases (II.7.4, II.9.5.2, II.7.4.1, IV.6.6) — re-pulled; pages 132, 165, 322, 342."
+        },
+        {
+          "nodeId": "GeneralAlgebraicKTheory:K.7/graded-commutativity",
+          "verdict": "corrected",
+          "note": "verified mathematically; the graded-commutativity citation was not in the source at the cited place — replaced by Loday's Theorem IV.1.10 (printed 266)."
+        },
+        {
+          "nodeId": "GeneralAlgebraicKTheory:K.7/compatibility-with-relative-groups-and-transfers",
+          "verdict": "corrected",
+          "note": "corrected: 'the boundary is a derivation for the product' is wrong — the boundary of a localisation sequence is K_*(R)-linear up to sign, a module map; the two cited passages (II.7.4.4 on Nil(R), and an 'II.9.5.2' sentence not in the source) supported none of the node's claims — replaced by the Projection Formula V.3.12 and the pairing IV.8.11. The boundary compatibility has no located source and is recorded in the review as unsourced."
+        },
+        {
+          "nodeId": "GeneralAlgebraicKTheory:K.7/unit-multiplication-and-K0-tensor-comparison",
+          "verdict": "corrected",
+          "note": "corrected: the claim that multiplication by the class of a unit is 'an automorphism of each K-group, inverse to multiplication by the inverse unit' is false — [u] ∈ K_1 raises degree, and [u⁻¹] = −[u]; the III.1.1/1.2 excerpt was a paraphrase — replaced by Example 1.1.1 (printed 180)."
+        },
+        {
+          "nodeId": "GeneralAlgebraicKTheory:K.6/frobenius-pairs",
+          "verdict": "verified",
+          "note": "verified against Schlichting (Definition 3.4, Lemma 4.2, Remark 1.9, Theorem 6.1, Lemma 8.1/Corollary 8.2 — D(E) is indeed the unbounded derived category — and §9 checked at their pages)."
+        },
+        {
+          "nodeId": "GeneralAlgebraicKTheory:K.6/frobenius-pairs-flasque-envelope-and-suspension",
+          "verdict": "verified",
+          "note": "verified against Schlichting (Definition 3.4, Lemma 4.2, Remark 1.9, Theorem 6.1, Lemma 8.1/Corollary 8.2 — D(E) is indeed the unbounded derived category — and §9 checked at their pages)."
+        },
+        {
+          "nodeId": "GeneralAlgebraicKTheory:K.6/schlichting-set-up",
+          "verdict": "verified",
+          "note": "verified against Schlichting (Definition 3.4, Lemma 4.2, Remark 1.9, Theorem 6.1, Lemma 8.1/Corollary 8.2 — D(E) is indeed the unbounded derived category — and §9 checked at their pages)."
+        },
+        {
+          "nodeId": "GeneralAlgebraicKTheory:K.6/schlichting-set-up-and-negative-localization",
+          "verdict": "verified",
+          "note": "verified against Schlichting (Definition 3.4, Lemma 4.2, Remark 1.9, Theorem 6.1, Lemma 8.1/Corollary 8.2 — D(E) is indeed the unbounded derived category — and §9 checked at their pages)."
+        },
+        {
+          "nodeId": "GeneralAlgebraicKTheory:K.6/additivity-and-colimits-for-negative-K",
+          "verdict": "verified",
+          "note": "verified against Schlichting (Definition 3.4, Lemma 4.2, Remark 1.9, Theorem 6.1, Lemma 8.1/Corollary 8.2 — D(E) is indeed the unbounded derived category — and §9 checked at their pages)."
+        },
+        {
+          "nodeId": "GeneralAlgebraicKTheory:K.6/nonconnective-spectrum-and-derived-invariance",
+          "verdict": "corrected",
+          "note": "verified; pages fixed (11.10/11.13 on pp. 21–22, 11.15 on p. 22) and 11.15 quoted verbatim."
+        },
+        {
+          "nodeId": "GeneralAlgebraicKTheory:K.6/agreement-and-vanishing-of-negative-K",
+          "verdict": "verified",
+          "note": "verified against Schlichting (Definition 3.4, Lemma 4.2, Remark 1.9, Theorem 6.1, Lemma 8.1/Corollary 8.2 — D(E) is indeed the unbounded derived category — and §9 checked at their pages)."
+        }
+      ]
+    }
+  ]
 }
