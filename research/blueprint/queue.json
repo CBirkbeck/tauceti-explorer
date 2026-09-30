@@ -37054,7 +37054,8 @@
     "REV-PAPER-HANSEN-26"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-HANSEN-26.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4527"
   },
   {
    "id": "RT-PAPER-KISIN-PAPPAS-ZHOU-26",
@@ -42208,8 +42209,9 @@
     "REV-RS-13"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-RS-13.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4398"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4398",
+   "finishedAt": "2026-09-30T14:51:10Z"
   },
   {
    "id": "RT-RS-14",
@@ -42501,7 +42503,9 @@
     "REV-RS-18"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-RS-18.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4407",
+   "finishedAt": "2026-09-30T14:51:14Z"
   },
   {
    "id": "RT-RS-19",
