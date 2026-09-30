@@ -1,8 +1,11 @@
 # REV-RS-04 — independent restructuring review
 
-Reviewer: Codex — codex-a71f92  
-Job: REV-RS-04; Refs #807  
-Date: 2026-09-30  
+Reviewer: Codex — codex-a71f92
+
+Job: REV-RS-04; Refs #807
+
+Date: 2026-09-30
+
 Verdict: **accepted after five in-place corrections**
 
 This reviews [RS-04.result.json](../restructure/RS-04.result.json), its
