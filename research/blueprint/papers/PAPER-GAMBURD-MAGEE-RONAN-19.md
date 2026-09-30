@@ -1,153 +1,74 @@
-# PAPER-GAMBURD-MAGEE-RONAN-19: An asymptotic formula for integer points on Markoff–Hurwitz varieties
+# PAPER-GAMBURD-MAGEE-RONAN-19: integer points on Markoff–Hurwitz varieties
 
-Alex Gamburd, Michael Magee and Ryan Ronan, *An asymptotic formula for integer points on Markoff-Hurwitz varieties*, [Annals of Mathematics 190 (2019), 751–809](https://doi.org/10.4007/annals.2019.190.3.2); arXiv [1603.06267](https://arxiv.org/abs/1603.06267).
+Alex Gamburd, Michael Magee and Ryan Ronan, *An asymptotic formula for integer points on Markoff-Hurwitz varieties*, [Annals of Mathematics 190 (2019), 751–809](https://doi.org/10.4007/annals.2019.190.3.2), [arXiv v3](https://arxiv.org/abs/1603.06267v3).
 
-Extraction by Claude Code, session `cc-fb70e5`, 22 September 2026 (issue #1139). Status: **complete**. The whole paper was read and every missing item is routed once. The machine-readable extraction is [PAPER-GAMBURD-MAGEE-RONAN-19.result.json](PAPER-GAMBURD-MAGEE-RONAN-19.result.json): 43 items (1 library, 1 planned, 41 missing), 3 routes, 14 prerequisite entries and 17 recorded source issues (E10–E17 added by the independent review, whose corrections are listed at the end).
+The [extraction](PAPER-GAMBURD-MAGEE-RONAN-19.result.json) has **50 items: 1 library, 1 planned, 48 missing; four routes; 20 prerequisites; 18 source issues**. Every missing item is routed once. This completes the extraction and confirmed-finding fixes, not the future mathematical blueprints or formalizations. Four named proof/supplier obligations remain explicit.
 
-**Source.** arXiv v3 (13 June 2018, 57 pages), SHA-256 `965e264e260ca42bbaa5a65f789e5cc6eb6117d70d7219603a3b855d29ba997a`, read in full on 2026-09-22. The Annals version is paywalled and was not available, so locators are v3 pages.
+Original extraction: Claude Code `cc-fb70e5`, 22 September 2026, #1139. Independent preprint review: `cc-442dc5`, 23 September. Published collation and fixes: Codex `codex-J6LwjP`, 30 September, #4984. The [fix report](../redteam/RT-PAPER-GAMBURD-MAGEE-RONAN-19.fixes.md) gives all seven finding dispositions and reproducible calculations. The historical independent verdict does not certify this new work.
 
-## What the paper proves
+## Sources actually read
 
-Let V be the Markoff–Hurwitz variety x₁² + … + x_n² = a x₁⋯x_n + k, with n ≥ 3 and a ≥ 1, and let E be its exceptional families (which exist only for a ∈ {1, 2}).
+The original extraction and review read all 57 pages of arXiv v3; their inability to obtain Annals is a dated access record. For this fix, the [public publisher PDF](https://annals.math.princeton.edu/wp-content/uploads/annals-v190-n3-p02-s.pdf) was read in full, pp.751–809 including references. Its SHA-256 is `c5e7ebb5322cdfd455735f13c2b420dba318089b382a3f78f40628efc838215a`. Selected v3 passages were freshly compared; its SHA-256 remains `965e264e260ca42bbaa5a65f789e5cc6eb6117d70d7219603a3b855d29ba997a`. The JSON records the exact scopes and dates. Formula images inspected include Annals pp.777,784,785,801,802,804 and v3 p.46.
 
-- **Theorem 3.** |(V(ℤ) − E) ∩ B(R)| = c(log R)^β + o((log R)^β) with c > 0. Here β = β(n) is Baragar's exponent, for which only (log R)^{β+o(1)} was known (Theorem 2). This answers Silverman's first question.
-- **Theorem 13.** For the linear semigroup Γ′, N(y, a) = h(y)e^{βa}(1 + o(1)).
-- **Theorem 10.** β is the unique s > 1 admitting a conformal probability measure for Γ′ on ∆ = H/ℝ₊.
+Annals adds Examples 16–17 and shifts v3 numbered results 16–46 to 18–48. Every original item has both versions' locators. Annals p.802 delegates proofs of (5.2)–(5.10) to the preprint; defects in those omitted proofs are scoped to that supplement. No separate erratum was found in bounded publisher/title searches; this is not proof of novelty.
 
-The proof has three layers.
+## Mathematical result and proof structure
 
-1. **Descent and moves (§2).**
-   - The moves m_j replace x_j by the other root a∏_{i≠j}x_i − x_j.
-   - Outside a compact set they behave predictably (Proposition 16), which gives infinite descent (Corollary 17).
-   - After normalising z = a^{1/(n−2)}x, the moves generate a free semigroup Λ of piecewise polynomial maps on ordered tuples (Lemma 18).
-   - Multiplicities are handled by admissible sequences (Lemmas 19–20), which reduces Theorem 3 to counting finitely many Λ-orbits.
-2. **Linearisation (§3).**
-   - Acceleration replaces the generators by λ^A_{n−1}λ_j, in the manner of Zorich's acceleration. The accelerated count M satisfies a renewal equation (3.7).
-   - After L ≈ ca/log a iterations, α(z) = ∏_{j≤n−2}z_j grows doubly exponentially (Lemma 24).
-   - A Zagier-type fit f(z) (Lemmas 25–28) then compares log log of the nonlinear orbit with the linear semigroup Γ′ = ⟨γ^A_{n−1}γ_j⟩₊ on the hyperplane H to within ε(a).
-   - This gives Proposition 21, and hence Theorem 3.
-3. **Transfer operators (§§4–5).**
-   - Γ′ generalises continued fractions: it is the Gauss map for n = 3 and the Rauzy gasket for n = 4.
-   - The transfer operator L_s[f](w) = Σ_{j,A}(1 + (A + 1)(1 − w_j))^{−s}f(γ^A_{n−1}γ_j.w) is studied on C¹(∆). The main tools are:
-     - a Ruelle–Perron–Frobenius theorem (Theorem 37), via the Ionescu-Tulcea–Marinescu inequality (Lemma 44);
-     - Pollicott's Wielandt theorem, with a non-lattice property from fixed points (Theorem 39, Proposition 40);
-     - monotonicity of λ_s (Proposition 41);
-     - Lalley's contour-shifting renewal method (§4.3).
-   - All of this rests on uniform contraction (Proposition 43). It is proved in §5 through a core/cusp decomposition of ∆, ten explicit ℓ¹ Jacobian bounds and Lemma 46, the two-step bound 24/25.
+For n≥3, a≥1 and integer k, let V satisfy x₁²+⋯+x_n²=a x₁⋯x_n+k, and remove the exceptional families E. If V(ℤ)−E is infinite, Theorem 3 gives a positive constant c with count c(log R)^β+o((log R)^β). The exponent β depends only on n. The linear-semigroup count has a uniform asymptotic h(y)e^{βt}, and β is characterized by a conformal probability measure.
 
-## What the atlas already has
+1. Vieta moves, compact exceptional sets and descent reduce the count to finitely many polynomial-semigroup orbits. Normalization z=a^{1/(n−2)}x produces the ordered moves. Freeness, admissible sequences and multiplicities are essential inputs.
+2. Acceleration and doubly exponential growth control a Zagier-type fit to a linear semigroup. The positivity argument and summation estimate need the repairs E1 and E10. The published finite-word comparison uses 2ε and accelerated words, correcting E7/E11.
+3. Transfer operators on C¹ of a simplex provide Ruelle–Perron–Frobenius data, a non-lattice bound, an analytic leading eigenvalue, and the renewal transform. The contraction proof uses core/cusp geometry and explicit Jacobian bounds. The scalar Tauberian step is imported; the uniform remainder needs its own proof.
 
-- **Library.** Mathlib has p-series summability (`Real.summable_one_div_nat_rpow`).
-- **Planned.**
-  - ProbabilisticAndMetricNumberTheory PM.4 plans the Gauss map and its invariant measure, which is the n = 3 case (Examples 32, 35).
-  - ClassicalArithmeticCompletion CA.4 already receives the Markoff equation and descent from PAPER-MARTIN-25 and PAPER-GHOSH-SARNAK-22.
-  - The accepted Part II `ArithmeticDynamicsPartIIMarkoff` (design pending) owns Markoff actions.
-- **Not in the atlas.** No stage mentions transfer operators, Ruelle–Perron–Frobenius theory, renewal theorems, iterated function systems, Kato perturbation theory or Schauder–Tychonoff, and no other extraction proposes them. Tau Ceti f790474 has none of these either.
+Published Example 16 adds the Cayley-cubic polynomial orbit (2,t,t) and P_j=2T_j(t/2)∈ℤ[t]. Vieta moves preserve the Chebyshev family. Example 17 states degree growth cD^{β(4)} for the orbit of (1,1,t,t) at n=4,a=2,k=2, but explicitly defers a detailed proof. These are new items 49–50; the latter remains a stated endpoint with an open proof source.
 
-## Routes
+## Coverage and ownership
 
-1. **Source of ClassicalArithmeticCompletion CA.4** (5 items): the Markoff–Hurwitz equation and moves, the exceptional families, the reduction to positive tuples, Proposition 16 and infinite descent. This is elementary descent, in the direction PAPER-MARTIN-25 established.
-2. **Part II `ArithmeticDynamicsPartIIMarkoff`** (18 items), coalesced with PAPER-MARTIN-25 and PAPER-GHOSH-SARNAK-22 under the same id and title. It takes the orbit counting for Markoff–Hurwitz moves:
-   - Aut(V);
-   - the semigroup Λ, freeness, multiplicities and regularisation;
-   - acceleration and the renewal equation;
-   - Lemmas 22–29, Propositions 21 and 30, and Theorem 3;
-   - the cited Theorems 1 (McShane–Rivin) and 2 (Baragar);
-   - the geodesic-counting connections.
+The pinned Mathlib real and complex p-series tests supply item 31. Its `mellin`, `spectralRadius` and general operator vocabulary are usable interfaces, but do not supply the complex Laplace adapters, Kato theorem or C¹(K) Banach carrier. `ContDiffMapSupportedIn` requires a globally smooth map vanishing outside K, so it cannot model the needed constant-one function. Tau Ceti's real-measure Laplace transform is existing work with a different domain and codomain.
 
-   The brief imports Theorem 13 from route 3. It asks for an explicit positivity proof (E1) and lists regression cases.
-3. **New Part II `ProbabilisticAndMetricNumberTheoryPartIITransferOperators`** (18 items), titled *Probabilistic, metric and ergodic number theory, Part II: transfer operators, renewal and multidimensional continued fractions* (galaxy `analytic`). It covers:
-   - the semigroups Γ, Γ′ and the count N(y, a);
-   - Theorems 13 and 10 and Remark 14;
-   - the renewal equation and L_s;
-   - Lemma 33 with Schauder–Tychonoff, Lemmas 36 and 44, Theorem 37, the limit set, Theorem 39 and Propositions 40–41;
-   - Kato perturbation and Lalley's method;
-   - Proposition 43 and §5.
+PM.4 plans only item 30: the base Gauss map and invariant probability density 1/((1+x)log 2). Items 44–45 separately route the complex-parameter conjugacy and the precise C¹ spectral theorem. Multiplication by (x+1)^s conjugates the GMR operator to the Gauss operator for Re s>1. Its unnormalized eigenfunction 1/(1+x) differs from the probability density; the GMR eigenfunction is x+1 before rescaling.
 
-   PM.4 stops at the one-dimensional Gauss map, and this is the natural extension in its direction. The brief asks for existence of β to be proved directly, since λ_s → ∞ as s ↓ 1, rather than through Baragar. It also asks for the sketched proofs (Theorem 37, §4.3) to be written out for countably many branches.
+| Route | Missing items | Owner and boundary |
+| --- | ---: | --- |
+| 1 | 5 | ClassicalArithmeticCompletion CA.4: general equation, moves, exceptional families, positive reduction and descent. Existing coefficient-three Markoff nodes supply n=a=3,k=0 specializations only. |
+| 2 | 20 | `DESIGN-ArithmeticDynamicsPartII`: polynomial moves, orbit counting, linearization and published polynomial examples; imports the uniform linear-semigroup theorem. |
+| 3 | 22 | `DESIGN-ProbabilisticAndMetricNumberTheoryPartII`: transfer/spectral/contraction theory, C¹(K), transform adapters and the uniform renewal application. |
+| 4 | 1 | `DESIGN-ArithmeticDirichletSeriesPartII`: coalesced scalar nondecreasing Laplace theorem, already owned by PAPER-WOOD-19/286 and its route 10. |
 
-## Source issues (`sourceIssues` E1–E9; E10–E17 from the review)
+Accepted proposal ids `ArithmeticDynamicsPartIIMarkoff`, `ProbabilisticAndMetricNumberTheoryPartIITransferOperators` and `ArithmeticDirichletSeriesPartIIHigherPoleTauberian` remain coalescing aliases. They are not existing stage ids. All three canonical design jobs are pending. Supplier order is scalar Tauberian theory → transfer renewal theory → Markoff dynamics, with CA.4 also supplying the last design.
 
-None affects the truth of Theorems 3, 10 or 13.
+The CA packet is already partial after the Ghosh–Sarnak fix, PR #5217. Its current Markoff nodes remain valid. It still needs this paper's general items 1–5: the JSON contains an exact continuation request. The packet is outside this job's deliverables. Refresh #1025's added-source list jointly with the existing Chen/Ghosh–Sarnak requests.
 
-- **E1** (gap, affects the proof of Theorem 3).
-  - **The problem.** Proposition 21 asserts c⋆ > 0, but Proposition 30 only proves convergence and boundedness. Baragar's (log R)^{β+o(1)} does not force c > 0.
-  - **Repair.** Run Lemmas 26–28 with a fixed ε₀ at a point with α(z) large. This gives M(z, a) ≥ N(f(z), a − 2ε₀) ≫ e^{βa}, since h is positive on the compact ∆.
-- **E2** (misprint). (3.5) should sum from A₀ = 0, and the prefactor log z_n⁽⁰⁾ should be (log z_n⁽⁰⁾)^β.
-- **E3** (error, nothing). In Proposition 16(3), the parenthesis "holds for all x ∈ V(ℤ₊)" is false: for n = 3, a = 1, k = 4, x = (1, 1, 2) is unexceptional and m₂(x) = x. The proof itself puts such points in K₀.
-- **E4** (misprints, index ranges).
-  - In the definition of admissible sequences, "l ≤ 2" should be "l ≥ 2".
-  - Lemma 20 has λ_j for j ≤ n − 2, and §3.1 for j ≤ n; both should be j ≤ n − 1.
-- **E5** (misprint). The Claim in Lemma 23 drops the exponent L − 1 on (c₀ + x), and its sums should start at A₁ = 0.
-- **E6** (misprint). Lemma 25 says "k′ ≥ 0", but k′ can be negative. The estimate survives.
-- **E7** (error, nothing). Lemma 27's "(λ′z⁽⁰⁾)_{n−2} ≥ z_{n−1}⁽⁰⁾ for any nonidentity λ′" fails for powers of λ_{n−1}. It holds for the accelerated words actually used.
-- **E8** (misprint). §4.5 should read λ_s ≤ 2^s(n − 2)Σ(3 + A)^{−s}. The printed 2(n − 2)Σ… is false for s ≥ 2; the conclusion λ_s → 0 is unaffected.
-- **E9** (misprints in §5.3). "β(w) < 2/3" should be β ≤ 3/2, "C_j" should be C_{n−2}, and "= 4/5" should be "≤ 4/5".
+## Proof and prerequisite boundaries
 
-**Also checked and correct:**
-- Lemma 31 (the action formula) and Lemma 22;
-- the eigenvector in Proposition 40;
-- Examples 7–9 and 35;
-- all ten bounds (5.1)–(5.10) and Lemma 46, numerically, on random points of ∆_core and ∆_cusp for n = 4–7. The largest two-step norm observed was 0.64, against the claimed 24/25.
+Item 48 is missing at the accepted Wood supplier, with an explicit prerequisite/gap until a stage exists. Item 41 proves the paper-specific nonnegativity, monotonicity, local finiteness, convergence and boundary continuation hypotheses. With νβ(1)=νβ(hβ)=1, the simple pole has coefficient hβ(w)/(β|λ′β|). The branch ratio ≥3/2 gives λ′β≤−log(3/2)λβ<0. Strict monotonicity alone would not imply a nonzero derivative.
 
-As a sanity check on Theorem 3, counting the orbit of (1, 1, 1, 1) for n = a = 4, k = 0 up to R = 10^640 gives local growth exponents 2.42–2.45. This is inside Baragar's interval (2.430, 2.477).
+Pointwise scalar asymptotics plus continuity of the residue do not establish uniformity in w. A uniform analytic/contour argument in a Banach norm, or an appropriate uniform Tauberian adapter, remains an explicit transfer-design obligation. The generic scalar theorem is not planned a second time there.
 
-No erratum is listed, Crossref has no update relation, and v3 is the last arXiv version.
+The chosen RPF route adapts Liverani's cone method to the summable countable branch family. PP90 Theorem 2.2 is a finite-type comparison, ITM50 supplies the two-norm method, and the countable-branch adaptation remains open. Baladi is background; Lalley 1988 is the historical precursor, alongside the existing Lalley 1989 entry.
 
-## Prerequisites not yet covered
+The original Pollicott Rauzy notes URL could not be obtained in this fix. Annals lists those notes as [Pol], while [Pol14] is *Apollonian circle packings*; its body cites [Pol14] for the Jacobian/RPF arguments. This discrepancy is recorded, not silently resolved by equating different texts. A later Aimino–Pollicott survey is not claimed as the original. The prerequisite register distinguishes source access from proof coverage.
 
-- Baragar 1994/1998, and Zagier 1982.
-- McShane–Rivin 1995.
-- Lalley 1989, Pollicott 1984 and Liverani 1995.
-- Kato's perturbation theory.
-- Avila–Hubert–Skripchenko 2016, and Arnoux–Starosta 2013 (the Rauzy gasket).
-- Horowitz 1975, and Hu–Tan–Zhang 2018 (Aut(V)).
-- Wirsing 1974.
-- Magee 2020.
+## Source findings after publication collation
 
-Links and reasons are in the JSON.
+All 17 old issue records, including their independent preprint verdicts, are preserved verbatim in their `versionHistory`. Active published scopes await independent review. The entries do not accuse Annals of errors it has corrected.
 
-## Checks
+| Issues | Current scope |
+| --- | --- |
+| E7, E11 | Fully corrected in Annals Lemmas 29–30 and (3.28), pp.784–786; retained as historical preprint findings. |
+| E2 | Published prefactor/index corrected; comparison still divides by zero at A₀=0, p.777. |
+| E4 | Two ranges corrected; Lemma 22's proof still lists n−2 generators instead of n−1, p.773. |
+| E5 | Inductive exponent corrected; the A₁=0 summand remains omitted, p.780. |
+| E8 | Expansion-ratio text corrected; factor 2 must still be 2^s, p.799. |
+| E17 | (5.1) range corrected; (5.5)/(5.9) still need squared denominators, pp.801–802. Separate proof slips occur only in v3 p.49. |
+| E9 | Wrong column-sum comparison survives p.804. Its (5.9)/(5.10) proof slips occur only in v3 p.53. |
+| E1,E3,E6,E10,E12–E16 | Published defects persist at the dual locators in the JSON: positivity/summation gaps, range hypotheses, constants and proof normalizations. |
+| E18 | New unreviewed Jacobian misprint in both v3 p.46 and Annals p.804: row 3 column i, for i>3, needs w₃ instead of w₂. The subsequent column sum is correct. |
 
-- `python3 scripts/check_paper.py research/blueprint/papers/PAPER-GAMBURD-MAGEE-RONAN-19.result.json`: ok.
-- Every missing item appears in exactly one route, and no route takes a planned or library item. The two briefs are 403 and 401 words.
-- The Mathlib citation was read at 082e2d3 (`Analysis/PSeries.lean:317`). Layer ids were checked against `data/atlas.json`, and prerequisite DOIs against Crossref (two initially mistyped DOIs were corrected).
-- No Lean was written or compiled; none is a deliverable of this job.
+The intended endpoint theorems are preserved by the proposed repairs. This is not a claim that every blueprint proof has been completed.
 
-## Independent review corrections (REV-PAPER-GAMBURD-MAGEE-RONAN-19, 23 September 2026)
+## Validation
 
-The review read arXiv v3 in full (same SHA-256), checking the displays the findings depend on against the page images. All locators are v3 printed pages, which equal PDF pages. E1–E9 are confirmed.
+The paper checker, §18 issue/version checks, intake file checks, exact-once routing, preserved historical records, canonical dependency acyclicity and whitespace checks pass. Fresh calculations cover 160 conjugacy cases, 20 exact Gauss telescoping identities, 300 exact Jacobian derivatives/column sums, four resolvent identities, a rigorous refutation of the printed spectral upper bound, and 121 exact Chebyshev polynomial/Vieta identities. The code is in the fix report. Historical growth/contraction numerical runs are attributed to their original workers, not claimed rerun here.
 
-**E1: repair amended in place.**
-- **The wrong half of (3.25).** The repair used the half that gives an upper bound on M. The lower bound needs the other half together with the λ = e case.
-- **Propagation to every point.** Positivity at points with large α must be carried to every z, via M(z, a) ≥ M(μz, a − d_μ).
-- **A second use in §4.3.** The identification β₀ = β in §4.3 (p.40) needs the same positive constant.
-
-**Qualifications on the other confirmed issues.**
-- **E6:** C₁ then depends on k′, not only on n.
-- **E8:** the printed step fails for every s > 1, and the printed λ_s bound is itself false (≈ 0.790 < λ₂ = 1 for n = 3). The "c = 3/2" text is on p.43.
-
-**New issues.**
-- **E10 (gap).** The proof of Proposition 30 sums a per-term error over the infinite set S_Λ. The repair is the ℝ₊-invariance of h.
-- **E11 (misprint).** Lemma 28 and (3.26) should have 2ε, not ε.
-- **E12 (error).** Lemma 27's strict inequality fails when a = 1 and a coordinate z_i with i ≤ n − 3 equals 1. The fix is ≤ in those coordinates.
-- **E13 (error).** Lemma 20 needs "unexceptional", and V(ℤ₊) − K₀ has infinitely many exceptional orbits.
-- **E14 (misprint).** The geodesic length in §1.1 is 2 log R + O(1), not log R.
-- **E15 (misprint).** Lemma 44 needs L_{ℜ(s)} on the right.
-- **E16 (misprint).** The Kato decomposition and Lalley's leading constant on p.40 are wrong as printed.
-- **E17 (misprint).** In §5, (5.1) holds for i ≤ n − 2, (5.5) and (5.9) have squared denominators, and p.49 has C₁ ≥ C_k.
-
-**Items corrected.**
-- **Statements:**
-  - 12 (Lemma 20 for unexceptional x);
-  - 20 (non-strict Lemma 27);
-  - 21 (2ε);
-  - 22 (the error term O(exp(βa^δ + (1 + δ)a)));
-  - 33 (Hausdorff);
-  - 34 (L_{ℜ(s)});
-  - 40 and 41 (the §4.3 formulas);
-  - 43 (the range of (5.1), the auxiliary bounds and the passage from ∆₀ to ∆).
-- **Notes:** 6 (the Aut(V) citations are about automorphisms of ℂⁿ preserving the polynomial) and 23 (geodesic length).
-- **Locators:** 8, 15 and 30.
-
-**Briefs.** Both Part II briefs now carry these corrections.
+No Lean file is a deliverable, and none was compiled. No new Lake project or library build was created.
