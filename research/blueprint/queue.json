@@ -36021,8 +36021,9 @@
     "REV-PAPER-GHOSH-SARNAK-22"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-GHOSH-SARNAK-22.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4160"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4160",
+   "finishedAt": "2026-09-30T11:54:16Z"
   },
   {
    "id": "REV-RT-PAPER-GHOSH-SARNAK-22",
@@ -40804,7 +40805,8 @@
     "REV-LINK-tauceti_Completed_EffectiveBounds"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-LINK-tauceti_Completed_EffectiveBounds.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4356"
   },
   {
    "id": "RT-LINK-tauceti_Completed_OrthogonalL2Bases",
@@ -40955,7 +40957,8 @@
     "REV-LINK-tauceti_TauCetiRoadmap_GrothendieckEulerForms"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-LINK-tauceti_TauCetiRoadmap_GrothendieckEulerForms.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4362"
   },
   {
    "id": "RT-LINK-tauceti_TauCetiRoadmap_Multiquadratic",
@@ -41075,7 +41078,8 @@
     "REV-LINK-tauceti_TauCetiRoadmap_OneParameterSemigroups"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-LINK-tauceti_TauCetiRoadmap_OneParameterSemigroups.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4365"
   },
   {
    "id": "RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory",
@@ -46281,8 +46285,9 @@
     "REV-AUDIT-39"
    ],
    "prompt": "research/blueprint/prompts/RT-AUDIT-39.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4458"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4458",
+   "finishedAt": "2026-09-30T11:54:22Z"
   },
   {
    "id": "REV-RT-AUDIT-39",
