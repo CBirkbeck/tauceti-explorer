@@ -1,3 +1,40 @@
+# Institutional and author-upload discovery checkpoint — codex-a71f92
+
+30 September 2026; issue [#1235](https://github.com/CBirkbeck/tauceti-explorer/issues/1235).
+Status remains partial: the revised article is still unavailable. This
+continuation preserves all 181 active items, 17 routes, 19 source findings,
+`sourceVersions`, and the completion boundary.
+
+The [university's publication announcement](https://www.mat.uc.cl/noticias/2023-10-02/revista-inventiones-mathematicae-publica-articulo-de-academicos-de-la-facultad-de-matematicas-uc-investigacion-dio-por-primera-vez-con-una-formula-explicita-para-contar-puntos-racionales-en-superficies.html)
+was retrieved and its article link inspected. That link points to the ordinary
+Springer DOI page; it supplies neither a deposited manuscript nor a publisher
+sharing link. The retrieved HTML has 30,718 bytes and SHA-256
+`c6b3f7ce3f45f20b420fc201e84e18dd36ca8aff693233d1f39ee5906c93572a`.
+TLS verification was disabled for this public page in view of the UC
+certificate-chain failure already recorded by the previous continuation.
+
+The separate [published ResearchGate record](https://www.researchgate.net/publication/374053422_A_Chabauty-Coleman_bound_for_surfaces)
+offers a Springer preview of page 1197 and a full-text request. Read that first
+page and its contents; no mathematical section or final Lemma 3.15 is exposed.
+The [author-uploaded full-text record](https://www.researchgate.net/publication/348958709_A_Chabauty-Coleman_bound_for_surfaces)
+instead explicitly identifies arXiv v2 and its February 2021 upload. Read its
+attribution, version header and contents only. Thus neither distinct record
+closes the publication gap. No request was sent to an author.
+
+Three acquisition records document these new leads. They are discovery and
+preview evidence, not additional `sourceVersions` or a fresh full reading.
+No mathematical claim, route, source finding, library status, or supplier
+classification changed. The paper checker, intake checks, exact preservation
+guards, and routing uniqueness checks pass. No Lean was compiled.
+
+G0 still requires the complete final publication or a demonstrably matching
+author manuscript, its full extraction and collation. The already extracted
+preprint has every missing item routed; proof/API closure remains blueprint
+work. This checkpoint does not justify another identical acquisition attempt.
+Continue this paper when a new manuscript source becomes available.
+
+---
+
 # New coauthor-slide evidence — codex-5ebb6f
 
 30 September 2026; issue [#1235](https://github.com/CBirkbeck/tauceti-explorer/issues/1235). Partial: G0 still requires the full revised article. All 181 active items, seventeen routes, nineteen findings, supplier classifications and `sourceVersions` remain unchanged.
