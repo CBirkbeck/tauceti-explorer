@@ -12282,3 +12282,132 @@ example (η : DirichletCharacter ℚ_[2] 3) (hη : η 2=-1)
       (primePowerArithmeticCharacter 2 0 (1 : DirichletCharacter L (2^0)) 1).toContinuousMap = 2/3 := sorry
 end
 end SuggestedTameZetaFieldComparisonTests
+
+/-! ## Integral tame values under a compatible valuation extension
+The native Valuation.HasExtension instance supplies the integer-ring map.
+No separate p-adic algebra on either integer subring is chosen. -/
+namespace DirichletPadic
+noncomputable section
+open scoped AbstractMeasure
+section IntegralCharacterFieldComparison
+variable {p : ℕ} [Fact p.Prime] {K L : Type*} [NormedField K] [NormedField L]
+  [IsUltrametricDist K] [IsUltrametricDist L]
+  [Algebra ℤ_[p] K] [Algebra ℤ_[p] L]
+  [IsBoundedSMul ℤ_[p] K] [IsBoundedSMul ℤ_[p] L]
+  [Algebra K L] [IsScalarTower ℤ_[p] K L]
+  [Valuation.HasExtension (NormedField.valuation (K := K)) (NormedField.valuation (K := L))]
+local notation "OK" => Valuation.integer (NormedField.valuation (K := K))
+local notation "OL" => Valuation.integer (NormedField.valuation (K := L))
+
+lemma algebraMap_integralPrimePowerArithmeticCharacter
+    (n w : ℕ) (χ : DirichletCharacter K (p^n)) (u : (ℤ_[p])ˣ) :
+    algebraMap OK OL (integralPrimePowerArithmeticCharacter p n χ w u) =
+      integralPrimePowerArithmeticCharacter p n (χ.ringHomComp (algebraMap K L)) w u := sorry
+
+namespace SuggestedTameIntegralFieldComparisonTests
+-- trivial_arithmetic_character_transport
+example (u : (ℤ_[p])ˣ) :
+    algebraMap OK OL
+      (integralPrimePowerArithmeticCharacter p 0 (1 : DirichletCharacter K (p^0)) 0 u)=1 := sorry
+-- arithmetic_sign_after_extension
+example : algebraMap OK OL
+    (integralPrimePowerArithmeticCharacter p 0 (1 : DirichletCharacter K (p^0)) 1 (-1))=-1 := sorry
+end SuggestedTameIntegralFieldComparisonTests
+end IntegralCharacterFieldComparison
+
+section IntegralMeasureFieldComparison
+variable {p : ℕ} [Fact p.Prime] {K L : Type*}
+  [NontriviallyNormedField K] [NontriviallyNormedField L]
+  [IsUltrametricDist K] [IsUltrametricDist L]
+  [Algebra ℤ_[p] K] [Algebra ℤ_[p] L]
+  [IsBoundedSMul ℤ_[p] K] [IsBoundedSMul ℤ_[p] L]
+  [CompleteSpace K] [CompleteSpace L]
+  [Algebra K L] [ContinuousSMul K L] [IsScalarTower ℤ_[p] K L]
+  [Valuation.HasExtension (NormedField.valuation (K := K)) (NormedField.valuation (K := L))]
+  {D : ℕ} [NeZero D]
+local notation "OK" => Valuation.integer (NormedField.valuation (K := K))
+local notation "OL" => Valuation.integer (NormedField.valuation (K := L))
+local notation "U" => (ℤ_[p])ˣ
+local notation "jMap" => (ContinuousMap.mk (algebraMap OK OL)
+  (Continuous.subtype_mk (Continuous.comp (continuous_algebraMap K L) continuous_subtype_val) _) : C(OK,OL))
+
+theorem algebraMap_integralTameMeasure_apply (η : DirichletCharacter K D)
+    (hDK : IsUnit (D : K)) (hDL : IsUnit (D : L)) (hpD : ¬p∣D)
+    (f : C(ℤ_[p],OK)) :
+    algebraMap OK OL (integralTameMeasure η hDK hpD f) =
+      integralTameMeasure (η.ringHomComp (algebraMap K L)) hDL hpD ((jMap).comp f) := sorry
+
+theorem algebraMap_integralTameZetaMeasure_apply (η : DirichletCharacter K D)
+    (hDK : IsUnit (D : K)) (hDL : IsUnit (D : L)) (hpD : ¬p∣D)
+    (f : C(ℤ_[p],OK)) :
+    algebraMap OK OL (integralTameZetaMeasure η hDK hpD f) =
+      integralTameZetaMeasure (η.ringHomComp (algebraMap K L)) hDL hpD ((jMap).comp f) := sorry
+
+theorem algebraMap_intrinsicIntegralTameZetaMeasure_apply (η : DirichletCharacter K D)
+    (hDK : IsUnit (D : K)) (hDL : IsUnit (D : L)) (hpD : ¬p∣D)
+    (f : C(U,OK)) :
+    algebraMap OK OL (intrinsicIntegralTameZetaMeasure η hDK hpD f) =
+      intrinsicIntegralTameZetaMeasure (η.ringHomComp (algebraMap K L)) hDL hpD ((jMap).comp f) := sorry
+
+theorem intrinsicIntegralTameZetaMeasure_baseChange_dvd_iff (η : DirichletCharacter K D)
+    (hDK : IsUnit (D : K)) (hDL : IsUnit (D : L)) (hpD : ¬p∣D)
+    (f g : C(U,OK)) (b : OK) :
+    algebraMap OK OL b∣
+      intrinsicIntegralTameZetaMeasure (η.ringHomComp (algebraMap K L)) hDL hpD ((jMap).comp g)-
+      intrinsicIntegralTameZetaMeasure (η.ringHomComp (algebraMap K L)) hDL hpD ((jMap).comp f) ↔
+    b∣intrinsicIntegralTameZetaMeasure η hDK hpD g-intrinsicIntegralTameZetaMeasure η hDK hpD f := sorry
+
+namespace SuggestedTameIntegralFieldComparisonTests
+-- integral_tame_mass_transport
+example (η : DirichletCharacter K D)
+    (hDK : IsUnit (D : K)) (hDL : IsUnit (D : L)) (hpD : ¬p∣D) :
+    algebraMap OK OL (integralTameMeasure η hDK hpD 1) =
+      integralTameMeasure (η.ringHomComp (algebraMap K L)) hDL hpD 1 := sorry
+-- integral_tame_modulus_one
+example (η : DirichletCharacter K 1)
+    (hDK : IsUnit ((1 : ℕ) : K)) (hDL : IsUnit ((1 : ℕ) : L)) (hpD : ¬p∣1)
+    (f : C(ℤ_[p],OK)) :
+    algebraMap OK OL (integralTameMeasure η hDK hpD f)=0 ∧
+      integralTameMeasure (η.ringHomComp (algebraMap K L)) hDL hpD ((jMap).comp f)=0 := sorry
+-- integral_zeta_mass_transport
+example (η : DirichletCharacter K D)
+    (hDK : IsUnit (D : K)) (hDL : IsUnit (D : L)) (hpD : ¬p∣D) :
+    algebraMap OK OL (integralTameZetaMeasure η hDK hpD 1) =
+      integralTameZetaMeasure (η.ringHomComp (algebraMap K L)) hDL hpD 1 := sorry
+-- integral_zeta_modulus_one
+example (η : DirichletCharacter K 1)
+    (hDK : IsUnit ((1 : ℕ) : K)) (hDL : IsUnit ((1 : ℕ) : L)) (hpD : ¬p∣1)
+    (f : C(ℤ_[p],OK)) :
+    algebraMap OK OL (integralTameZetaMeasure η hDK hpD f)=0 ∧
+      integralTameZetaMeasure (η.ringHomComp (algebraMap K L)) hDL hpD ((jMap).comp f)=0 := sorry
+-- integral_arithmetic_moment_transport
+example (η : DirichletCharacter K D)
+    (hDK : IsUnit (D : K)) (hDL : IsUnit (D : L)) (hpD : ¬p∣D)
+    (n w : ℕ) (χ : DirichletCharacter K (p^n)) :
+    algebraMap OK OL (intrinsicIntegralTameZetaMeasure η hDK hpD
+      (integralPrimePowerArithmeticCharacter p n χ w).toContinuousMap) =
+      intrinsicIntegralTameZetaMeasure (η.ringHomComp (algebraMap K L)) hDL hpD
+        (integralPrimePowerArithmeticCharacter p n (χ.ringHomComp (algebraMap K L)) w).toContinuousMap := sorry
+-- intrinsic_integral_modulus_one
+example (η : DirichletCharacter K 1)
+    (hDK : IsUnit ((1 : ℕ) : K)) (hDL : IsUnit ((1 : ℕ) : L)) (hpD : ¬p∣1)
+    (f : C(U,OK)) :
+    algebraMap OK OL (intrinsicIntegralTameZetaMeasure η hDK hpD f)=0 ∧
+      intrinsicIntegralTameZetaMeasure (η.ringHomComp (algebraMap K L)) hDL hpD ((jMap).comp f)=0 := sorry
+-- zero_ideal_reflects_equality
+example (η : DirichletCharacter K D)
+    (hDK : IsUnit (D : K)) (hDL : IsUnit (D : L)) (hpD : ¬p∣D) (f g : C(U,OK)) :
+    intrinsicIntegralTameZetaMeasure (η.ringHomComp (algebraMap K L)) hDL hpD ((jMap).comp g)=
+      intrinsicIntegralTameZetaMeasure (η.ringHomComp (algebraMap K L)) hDL hpD ((jMap).comp f) ↔
+    intrinsicIntegralTameZetaMeasure η hDK hpD g=intrinsicIntegralTameZetaMeasure η hDK hpD f := sorry
+-- same_rational_prime_precision
+example (η : DirichletCharacter K D)
+    (hDK : IsUnit (D : K)) (hDL : IsUnit (D : L)) (hpD : ¬p∣D)
+    (f g : C(U,OK)) (r : ℕ) :
+    (p : OL)^r∣intrinsicIntegralTameZetaMeasure (η.ringHomComp (algebraMap K L)) hDL hpD ((jMap).comp g)-
+      intrinsicIntegralTameZetaMeasure (η.ringHomComp (algebraMap K L)) hDL hpD ((jMap).comp f) ↔
+    (p : OK)^r∣intrinsicIntegralTameZetaMeasure η hDK hpD g-intrinsicIntegralTameZetaMeasure η hDK hpD f := sorry
+end SuggestedTameIntegralFieldComparisonTests
+end IntegralMeasureFieldComparison
+end
+end DirichletPadic
