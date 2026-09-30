@@ -4559,7 +4559,7 @@
     {
      "sourceId": "ACC-PUBLISHED-2023",
      "locator": "§6.2.28, Definition 6.2.29, Lemmas 6.2.30 and 6.2.32; printed pp. 1044–1046, PDF pp. 148–150",
-     "excerpt": "ζp /∈F",
+     "excerpt": "Lemma 6.2.32. Let T ⊆S. Assume that F is CM with maximal totally real subﬁeld F +, that ζp /∈F , and that ρ(GF(ζp)) is enormous. Let q ≥ h1 S⊥,T (ad ρ(1)). Then for every N ≥1, there is a choice of Taylor–Wiles datum",
      "match": "Published enormous-image hypothesis and proof; the historical arXiv-v2 citation above is retained with its own numbering."
     }
    ],
@@ -4611,8 +4611,8 @@
     {
      "sourceId": "ACC-PUBLISHED-2023",
      "locator": "Proposition 6.2.33 and proof, printed p. 1047 (PDF p. 151); preceding diamond/augmentation data, printed p. 1045 (PDF p. 149)",
-     "excerpt": "g = qn −n2[F + : Q]",
-     "match": "Published presentation count, with the rank-n diamond and augmentation interface from the preceding Taylor–Wiles datum."
+     "excerpt": "Proposition 6.2.33. Take T = S, and let q ≥h1 S⊥,T (ad ρ(1)). Assume that F = F +F0 with F + totally real and F0 an imaginary quadratic ﬁeld, that ζp /∈F , and that ρ(GF(ζp)) is enormous.",
+     "match": "Published Proposition 6.2.33 with its hypotheses T = S, F = F⁺F₀, ζ_p ∉ F and enormous image; its item (3) on the same page gives g = qn − n²[F⁺ : Q], and the diamond and augmentation data precede it on printed p. 1045."
     }
    ],
    "implementationStatus": "unchecked",
@@ -4670,7 +4670,7 @@
     {
      "sourceId": "ACC-PUBLISHED-2023",
      "locator": "Lemma 6.2.32, proof, printed pp. 1045–1046 (physical PDF pp. 149–150)",
-     "excerpt": "So by induction, it suﬃces to show",
+     "excerpt": "So by induction, it suﬃces to show that given any cocycle κ representing a nonzero element of H1 S⊥,T (ad ρ(1)), there are inﬁnitely many ﬁnite places v of F such that • v has degree one over Q and splits in F(ζpN );",
      "match": "Factors the conditional induction and positive-density selection out of the proof. The elementary degree-one estimate and finite avoidance are supplied explicitly above."
     }
    ],
@@ -5000,8 +5000,10 @@
   }
  ],
  "review": {
-  "status": "pending",
-  "notes": "FIX-RT-AREA-langlands-2~2 by Codex codex-5ebb6f; independent REV-FIX required. Previous reviews are preserved verbatim in reviewHistory. Partial status, unchecked implementation and existing gaps are retained."
+  "status": "accepted",
+  "reviewer": "independent-review-REV-FIX-RT-AREA-langlands-1~2",
+  "date": "2026-09-30",
+  "notes": "Independent review of FIX-RT-AREA-langlands-1~2 (Codex codex-J6LwjP, issue #5140, PR #5267). This session did no part of that fix or of FIX-RT-AREA-langlands-2~2. It follows the qualified verdicts of RT-AREA-langlands-1.review.json and the accepted independent-review-REV-GlobalGaloisDeformations (2026-09-28), which is preserved in reviewHistory and not re-certified here. Scope: findings /21 and /22, the only ones assigned to this packet. The added node R04.5/chebotarev-selmer-selection, the changed nodes R04.5/odd-taylor-wiles-primes, G7/enormous-taylor-wiles-primes and G7/enormous-taylor-wiles-presentation, the two consumerContracts, and the new ACC-PUBLISHED-2023 and CG-PUBLISHED-2018 sources. Read the published ACC+ PDF (SHA-256 c5429e4f…7f02, printed = physical + 896) at pp. 1044–1047 and the published CG PDF (SHA-256 c0ba8de0…25c5) at physical pp. 114–115; both hashes match the packet. Verified the published numbering (Definition 6.2.29, Lemmas 6.2.30 and 6.2.32, Propositions 6.2.25 and 6.2.33), the standing assumption that k contains the residual eigenvalues (p. 1045), the hypotheses F = F⁺F₀, ζ_p ∉ F, enormous image, T = S and g = qn − n²[F⁺:Q] (p. 1047), and CG Proposition 8.5's big image, one-dimensional generalized eigenspace and count q + |T| − 1 − [F:Q]n(n−1)/2 − l₀. The selection lemma's dimension-decrease, density-zero degree-two and padding steps are correct, and the G7 detecting-element argument follows ACC+'s proof. /21 and /22 are carried as the verifier required: one shared selection owner in R04.5, ACC+ Proposition 6.2.33 kept in G7 with CG as a comparison only, and PA.3/PA.4 contracts that leave the arithmetic work to PA, with no L7 → P9 edge. Correction: the three new ACC-PUBLISHED-2023 excerpts (6, 19 and 34 characters) were too short to identify their passages, and are replaced by literal excerpts of at most 300 characters from the same pages. The later FIX-RT-AREA-langlands-2~2 edits to this packet (R04.3/local-to-global-presentation, R04.5/image-hypotheses, the G8 PA.3 exports, gaps, requests, coverage) were checked only for consistency with /21–/22; this review does not accept that job. check_blueprint with the pinned index: 66 nodes, 0 errors, 0 warnings. The packet remains partial, with every node's implementationStatus unchecked. Report: research/blueprint/reviews/REV-FIX-RT-AREA-langlands-1~2.md."
  },
  "sourceVersions": [
   {
@@ -5384,7 +5386,7 @@
   "job": "FIX-RT-AREA-langlands-1~2",
   "agent": "Codex — codex-J6LwjP",
   "date": "2026-09-30",
-  "status": "awaiting independent review",
+  "status": "reviewed: accepted by REV-FIX-RT-AREA-langlands-1~2 (2026-09-30)",
   "reviewScope": "The unchanged review object records the 2026-09-28 review of the 65-node predecessor. It does not certify this added node, changed proof dependencies or consumer contracts. REV-FIX-RT-AREA-langlands-1~2 must review them before promotion."
  }
 }
