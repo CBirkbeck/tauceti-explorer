@@ -10,7 +10,7 @@
     "DirichletPadicLFunctions:L4"
   ],
   "status": "partial",
-  "summary": "Partial continuation preserving all 611 predecessor nodes whole. Five L4 nodes construct the doubled integral tame formal-series measure, identify and bound every coefficient, normalize over the coefficient field on integral tests, and compute its arithmetic constant at weight e+1. One existing L2 modulus-one API is promoted without duplicating its Lean declaration. All findings, requests and gaps remain open.",
+  "summary": "Partial continuation preserving all 617 predecessor nodes whole. Four L4 nodes identify the doubled tame constant on all integral tests with the actual unit restriction, compute its finite unit residues and prove a concrete dyadic obstruction to halving the family integrally. Existing findings, requests and gaps remain.",
   "baseline": {
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
@@ -3752,6 +3752,20 @@
         "module": "Mathlib/Analysis/Normed/Ring/Ultra.lean",
         "provides": "In an ultrametric seminormed ring with norm one equal to one, every natural scalar has norm at most one; applied to 2 in the native integer subring.",
         "checked": "Whole statement, ambient hypotheses and proof read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 30 September 2026, matched to the unchanged declaration index and used by the complete native probe."
+      },
+      {
+        "ref": "mathlib:ZMod.castHom",
+        "kind": "def",
+        "module": "Mathlib/Data/ZMod/Basic.lean",
+        "provides": "The native reduction ring homomorphism from ZMod n to a ring of characteristic dividing n, applied from ZMod(p^n) to ZMod p.",
+        "checked": "Whole pinned statement, ambient hypotheses and defining proof read on 30 September 2026 at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; matched to the unchanged index. The native reduction hom is used by the complete unit-lifting proof; the discrete-map equivalence is the exact existing finite-projection test interface."
+      },
+      {
+        "ref": "mathlib:ContinuousMap.equivFnOfDiscrete",
+        "kind": "def",
+        "module": "Mathlib/Topology/ContinuousMap/Basic.lean",
+        "provides": "Native equivalence between continuous functions on a discrete space and arbitrary functions, used for finite indicators without adding a new constructor.",
+        "checked": "Whole pinned statement, ambient hypotheses and defining proof read on 30 September 2026 at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; matched to the unchanged index. The native reduction hom is used by the complete unit-lifting proof; the discrete-map equivalence is the exact existing finite-projection test interface."
       }
     ]
   },
@@ -41014,6 +41028,269 @@
       "acceptance": [
         "The comparison requires η≠1, K of characteristic zero with its rational algebra, and E a characteristic-zero field with rational algebra and separate ring embeddings into ℂ and K. It computes a formal-series constant, not a classical modular form or a branch at all weights."
       ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L4/integral-tame-constant-restriction",
+      "parentStageId": "DirichletPadicLFunctions:L4",
+      "realises": [
+        "DirichletPadicLFunctions:L4"
+      ],
+      "title": "The tame constant as an actual unit measure",
+      "kind": "comparison",
+      "statement": "For every f∈C(U,O), ι(coeff₀ Gη(f))=restrictUnits(p,K,μ_η)(ι∘f).",
+      "hypotheses": [
+        "p is any prime. K is a complete nontrivially normed ultrametric field with Algebra ℤ_p K and IsBoundedSMul ℤ_p K. D>0, η:DirichletCharacter K D, hD:IsUnit(D:K) and p∤D. U=(ℤ_p)ˣ, O=Valuation.integer(NormedField.valuation(K)), and ι:O↪K are the native objects.",
+        "Gη is the existing integralDoubledTameEisensteinSeries. Its degree-zero coefficient is ζO^U(xO·f). The existing μ_η=tameMeasure(η,hD,hpD), ζK, intrinsic restriction r_U, pushforward j_U and weighting operation are reused. The field normalization is ½·map_ι(Gη(f)) on O-valued tests only.",
+        "For the finite-residue formula, also require CharZero K and η≠1, and take n≥1 and a:ZMod(p^n) with IsUnit a. Define q_n(u)=toZModPow n(↑u). The test e_(n,a):C(U,O) is the native continuous discrete function Function.update(0,a,1) composed with q_n. This is notation for existing continuous-map constructions, not another indicator definition or a new finite-projection operation.",
+        "The positive quotient level and the unit residue assumption are essential. At level zero the unit-group fiber is all of U, whereas the ambient residue fiber is all of ℤ_p. At positive level a nonunit residue has empty preimage in U even if its ambient mass is nonzero.",
+        "The dyadic statements specialize to K=ℚ₂, p=2, D=3 and η(2)=−1. The witness is exactly f=e_(2,1), the indicator of u≡1 modulo 4. No assumption about integrality on all tests is inferred from arithmetic character values. All assertions concern formal series; no classical modularity or analytic character-family theorem is added."
+      ],
+      "proofSteps": [
+        "The existing promoted coefficient formula gives the left side as the inclusion of ζO^U(xO·f). Apply the all-test integral coefficient comparison and the integral arithmetic-character inclusion to obtain ζK^U(xK·(ι∘f)), where xK(u)=algebraMap(↑u). The latter coordinate identity is the existing arithmetic zero-level formula.",
+        "Consider the actual K-valued unit measure ν=weight(xK)(ζK^U). Under j_U, the supplier weight-pushforward formula and the existing intrinsic-tame-zeta-inclusion give j_Uν=weight(x_K)(ζK). The existing arithmetic tame-zeta-weight theorem identifies this with Eμ_η.",
+        "The supplier intrinsic-unit-extension-projector also gives j_U(r_U μ_η)=Eμ_η. Apply the supplier restriction-section r_Uj_U=id to the equality of these two pushforwards. Thus ν=r_U μ_η, as actual measures on the native unit group. Evaluate at the included test and use weight-evaluation.",
+        "The cancellation behind the weight identity is inverse-coordinate times coordinate equal to one on units, and zero extension outside the unit locus. Complete inverse_coordinate_cancel and weighted_extension check the native pointwise algebra. The argument uses the existing generic projection formula rather than defining another weighting or restriction operation.",
+        "At the constant test one the result is the total unit mass. It is not the total ambient mass of μ_η. No characteristic-zero or nonprincipal assumption is needed for this all-test equality itself; those enter only the arithmetic residue formula."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L4/integral-doubled-tame-eisenstein-coeff",
+        "DirichletPadicLFunctions:L2/intrinsic-integral-tame-coefficients",
+        "DirichletPadicLFunctions:L2/integral-arithmetic-character-coefficient",
+        "DirichletPadicLFunctions:L2/arithmetic-character-zero-level",
+        "DirichletPadicLFunctions:L2/intrinsic-tame-zeta-inclusion",
+        "DirichletPadicLFunctions:L2/tame-zeta-weight",
+        "PadicMeasuresIwasawaAlgebras:L2/weight-pushforward",
+        "PadicMeasuresIwasawaAlgebras:L2/weight-evaluation",
+        "PadicMeasuresIwasawaAlgebras:L2/intrinsic-unit-extension-projector",
+        "PadicMeasuresIwasawaAlgebras:L2/intrinsic-unit-restriction-section"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/TameConstantResidues",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.integralDoubledTameEisensteinSeries_constant_restriction"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Restriction and zero extension in §3.5.3, Remark 3.31, equations 3-6 through 3-9 and Remark 3.33, published 127–129 / PDF 28–30; Lemmas 5.10–5.12 and Definition 5.13, published 145–146 / PDF 46–47. These whole pages were freshly read for this checkpoint. Theorem 8.2 and Remark 8.3, published 159–161, were read in the immediately preceding checkpoint.",
+          "excerpt": "extension by 0",
+          "match": "Worker consequences of the existing actual finite-residue construction and doubled tame formal series. Restriction and inverse weighting identify the true constant on every continuous integral test. The dyadic indicator gives a new concrete denominator obstruction derived here, not an assertion or error attributed to RJW. The finite-residue route avoids the invalid geometric expansion already recorded for Lemma 5.10."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedTameResidueTests.constant_zero_test",
+          "kind": "degenerate",
+          "statement": "The included doubled constant at the zero test is zero."
+        },
+        {
+          "name": "SuggestedTameResidueTests.constant_mass_is_unit_mass",
+          "kind": "compatibility",
+          "statement": "The included doubled constant at the constant test one equals the actual restricted unit mass of μ_η."
+        }
+      ],
+      "acceptance": [
+        "The equality is on every actual integral-valued continuous test. It identifies the restricted μ_η, preserving the unit Euler deletion and making no convolution-algebra identification."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L4/integral-tame-constant-residue",
+      "parentStageId": "DirichletPadicLFunctions:L4",
+      "realises": [
+        "DirichletPadicLFunctions:L4"
+      ],
+      "title": "Finite residues of the doubled tame constant",
+      "kind": "theorem",
+      "statement": "For n≥1, IsUnit a and η≠1 in characteristic zero, ι(coeff₀ Gη(e_(n,a)))=−hD.unit⁻¹·Σ_(j:ZMod D) η(a.val+p^n·j.val)·j.val.",
+      "hypotheses": [
+        "p is any prime. K is a complete nontrivially normed ultrametric field with Algebra ℤ_p K and IsBoundedSMul ℤ_p K. D>0, η:DirichletCharacter K D, hD:IsUnit(D:K) and p∤D. U=(ℤ_p)ˣ, O=Valuation.integer(NormedField.valuation(K)), and ι:O↪K are the native objects.",
+        "Gη is the existing integralDoubledTameEisensteinSeries. Its degree-zero coefficient is ζO^U(xO·f). The existing μ_η=tameMeasure(η,hD,hpD), ζK, intrinsic restriction r_U, pushforward j_U and weighting operation are reused. The field normalization is ½·map_ι(Gη(f)) on O-valued tests only.",
+        "For the finite-residue formula, also require CharZero K and η≠1, and take n≥1 and a:ZMod(p^n) with IsUnit a. Define q_n(u)=toZModPow n(↑u). The test e_(n,a):C(U,O) is the native continuous discrete function Function.update(0,a,1) composed with q_n. This is notation for existing continuous-map constructions, not another indicator definition or a new finite-projection operation.",
+        "The positive quotient level and the unit residue assumption are essential. At level zero the unit-group fiber is all of U, whereas the ambient residue fiber is all of ℤ_p. At positive level a nonunit residue has empty preimage in U even if its ambient mass is nonzero.",
+        "The dyadic statements specialize to K=ℚ₂, p=2, D=3 and η(2)=−1. The witness is exactly f=e_(2,1), the indicator of u≡1 modulo 4. No assumption about integrality on all tests is inferred from arithmetic character values. All assertions concern formal series; no classical modularity or analytic character-family theorem is added."
+      ],
+      "proofSteps": [
+        "Apply the preceding all-test constant comparison to the actual O-valued indicator. The coefficient inclusion maps its zero and one values to the corresponding K-valued indicator; complete coefficient_map_indicator proves this without choosing another coefficient ring.",
+        "Every ambient x with reduction a is a unit. If x were a nonunit, native not_isUnit_iff and norm_lt_one_iff_dvd would write x=p·y. Since n≥1, p divides p^n, so the native ring hom ZMod.castHom maps its reduction to zero in ZMod p. But the image of the unit a is a unit, contradicting that zero is not a unit in the nontrivial field ZMod p. Complete unit_of_unit_reduction proves this exact implication.",
+        "Consequently the ambient residue indicator vanishes off the unit locus. Apply the supplied intrinsic-unit-restriction evaluation and the zero-extension inside/outside laws to identify evaluation of r_U μ_η on the unit indicator with μ_η on the ambient indicator. Complete residue_indicator_outside checks the support step. The existing unit-domain homeomorphism evaluation identifies the two restrictions pointwise.",
+        "Use the existing finite-projection coefficient formula, followed by the already owned tame-residue-coefficients theorem. The latter supplies exactly the displayed finite sum with canonical representatives and the supplied unit inverse of D. No new residue system, Gauss scalar, root-of-unity sum or geometric expansion is introduced.",
+        "At p=2, D=3 and η(2)=−1, the residue 1 modulo 4 has mass 1/3. At level zero the unit mass is 2/3 but the ambient mass is 1/3. At residue 0 modulo 4 the unit test is zero but the ambient mass is 1/3. The last two tests detect removal of either of the two residue hypotheses."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L4/integral-tame-constant-restriction",
+        "DirichletPadicLFunctions:L2/tame-residue-coefficients",
+        "PadicMeasuresIwasawaAlgebras:L1/finite-projection-coefficient",
+        "PadicMeasuresIwasawaAlgebras:L1/integer-reduction-continuity",
+        "PadicMeasuresIwasawaAlgebras:L2/intrinsic-unit-restriction-evaluation",
+        "PadicMeasuresIwasawaAlgebras:L2/unit-domain-homeomorphism-evaluation",
+        "PadicMeasuresIwasawaAlgebras:L0/clopen-zero-extension-inside",
+        "PadicMeasuresIwasawaAlgebras:L0/clopen-zero-extension-outside",
+        "mathlib:PadicInt.not_isUnit_iff",
+        "mathlib:PadicInt.norm_lt_one_iff_dvd",
+        "mathlib:ZMod.castHom",
+        "mathlib:ContinuousMap.equivFnOfDiscrete"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/TameConstantResidues",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.integralDoubledTameEisensteinSeries_constant_residue"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Restriction and zero extension in §3.5.3, Remark 3.31, equations 3-6 through 3-9 and Remark 3.33, published 127–129 / PDF 28–30; Lemmas 5.10–5.12 and Definition 5.13, published 145–146 / PDF 46–47. These whole pages were freshly read for this checkpoint. Theorem 8.2 and Remark 8.3, published 159–161, were read in the immediately preceding checkpoint.",
+          "excerpt": "extension by 0",
+          "match": "Worker consequences of the existing actual finite-residue construction and doubled tame formal series. Restriction and inverse weighting identify the true constant on every continuous integral test. The dyadic indicator gives a new concrete denominator obstruction derived here, not an assertion or error attributed to RJW. The finite-residue route avoids the invalid geometric expansion already recorded for Lemma 5.10."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedTameResidueTests.dyadic_one_mod_four",
+          "kind": "computation",
+          "statement": "For η quadratic modulo 3 at p=2, the included doubled constant on the indicator of 1 modulo 4 is 1/3."
+        },
+        {
+          "name": "SuggestedTameResidueTests.level_zero_residue_boundary",
+          "kind": "non-example",
+          "statement": "For the same data, the doubled constant at the test one differs from the ambient total mass: 2/3 versus 1/3."
+        },
+        {
+          "name": "SuggestedTameResidueTests.nonunit_residue_boundary",
+          "kind": "non-example",
+          "statement": "The constant on the unit-group indicator of 0 modulo 4 differs from the ambient residue mass: zero versus 1/3."
+        }
+      ],
+      "acceptance": [
+        "n≥1, IsUnit a, η≠1 and CharZero K remain explicit. The theorem evaluates the already constructed measure, rather than postulating that the finite formula defines one."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L4/dyadic-tame-normalized-constant-norm",
+      "parentStageId": "DirichletPadicLFunctions:L4",
+      "realises": [
+        "DirichletPadicLFunctions:L4"
+      ],
+      "title": "A dyadic constant of norm two",
+      "kind": "lemma",
+      "statement": "For p=2, K=ℚ₂, D=3, η(2)=−1 and f=e_(2,1), the constant coefficient of ½·map_ι(Gη(f)) has norm exactly 2.",
+      "hypotheses": [
+        "p is any prime. K is a complete nontrivially normed ultrametric field with Algebra ℤ_p K and IsBoundedSMul ℤ_p K. D>0, η:DirichletCharacter K D, hD:IsUnit(D:K) and p∤D. U=(ℤ_p)ˣ, O=Valuation.integer(NormedField.valuation(K)), and ι:O↪K are the native objects.",
+        "Gη is the existing integralDoubledTameEisensteinSeries. Its degree-zero coefficient is ζO^U(xO·f). The existing μ_η=tameMeasure(η,hD,hpD), ζK, intrinsic restriction r_U, pushforward j_U and weighting operation are reused. The field normalization is ½·map_ι(Gη(f)) on O-valued tests only.",
+        "For the finite-residue formula, also require CharZero K and η≠1, and take n≥1 and a:ZMod(p^n) with IsUnit a. Define q_n(u)=toZModPow n(↑u). The test e_(n,a):C(U,O) is the native continuous discrete function Function.update(0,a,1) composed with q_n. This is notation for existing continuous-map constructions, not another indicator definition or a new finite-projection operation.",
+        "The positive quotient level and the unit residue assumption are essential. At level zero the unit-group fiber is all of U, whereas the ambient residue fiber is all of ℤ_p. At positive level a nonunit residue has empty preimage in U even if its ambient mass is nonzero.",
+        "The dyadic statements specialize to K=ℚ₂, p=2, D=3 and η(2)=−1. The witness is exactly f=e_(2,1), the indicator of u≡1 modulo 4. No assumption about integrality on all tests is inferred from arithmetic character values. All assertions concern formal series; no classical modularity or analytic character-family theorem is added."
+      ],
+      "proofSteps": [
+        "The character is nonprincipal: the principal character at the unit 2 has value 1, whereas η(2)=−1 and the coefficient field has characteristic zero. Apply the preceding residue formula at n=2,a=1.",
+        "Expand the three terms j=0,1,2. Their character arguments 1,5,9 reduce to 1,2,0 modulo 3, respectively. The weighted sum is −1. Since hD.unit has value 3, the included doubled constant is 1/3. Complete dyadic_residue_sum verifies the finite character calculation over every characteristic-zero field.",
+        "Native coeff_map and coeff_smul give the normalized constant (1/2)(1/3)=1/6. Complete normalized_constant checks extraction of this scalar from the formal series.",
+        "Native norm_natCast_eq_one_iff gives ‖3‖₂=1 and native norm_p gives ‖2‖₂=1/2. Multiplicativity and norm_div therefore give ‖1/6‖₂=2; complete dyadic_sixth_norm proves it. In particular the constant is outside the native integer ring.",
+        "The same test has normalized q¹ coefficient 1, because its value at the unit 1 is 1 and the old positive coefficient is the Dirac atom there. This isolates the actual constant-coefficient obstruction; it is not a failure of the positive divisor construction."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L4/integral-tame-constant-residue",
+        "DirichletPadicLFunctions:L4/integral-twisted-positive-series-coeff",
+        "DirichletPadicLFunctions:L4/integral-doubled-tame-eisenstein-normalize",
+        "mathlib:MulChar.map_zero",
+        "mathlib:PowerSeries.coeff_map",
+        "mathlib:PowerSeries.coeff_smul",
+        "mathlib:Padic.norm_natCast_eq_one_iff",
+        "mathlib:Padic.norm_p"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/TameConstantResidues",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.integralDoubledTameEisensteinSeries_dyadic_normalized_norm"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Restriction and zero extension in §3.5.3, Remark 3.31, equations 3-6 through 3-9 and Remark 3.33, published 127–129 / PDF 28–30; Lemmas 5.10–5.12 and Definition 5.13, published 145–146 / PDF 46–47. These whole pages were freshly read for this checkpoint. Theorem 8.2 and Remark 8.3, published 159–161, were read in the immediately preceding checkpoint.",
+          "excerpt": "extension by 0",
+          "match": "Worker consequences of the existing actual finite-residue construction and doubled tame formal series. Restriction and inverse weighting identify the true constant on every continuous integral test. The dyadic indicator gives a new concrete denominator obstruction derived here, not an assertion or error attributed to RJW. The finite-residue route avoids the invalid geometric expansion already recorded for Lemma 5.10."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedTameResidueTests.dyadic_normalized_one_mod_four",
+          "kind": "computation",
+          "statement": "The normalized constant on the residue test is exactly 1/6 in ℚ₂."
+        },
+        {
+          "name": "SuggestedTameResidueTests.dyadic_normalized_norm_two",
+          "kind": "non-example",
+          "statement": "Its norm is greater than one; arithmetic-character integrality does not imply all-test integrality."
+        },
+        {
+          "name": "SuggestedTameResidueTests.dyadic_normalized_positive_first",
+          "kind": "computation",
+          "statement": "The normalized q¹ coefficient on this same residue test is 1."
+        }
+      ],
+      "acceptance": [
+        "The norm is exactly two, with a fixed native continuous indicator as witness. No analytic limit, character density or classical modular-form existence is used."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L4/dyadic-tame-no-integral-normalization",
+      "parentStageId": "DirichletPadicLFunctions:L4",
+      "realises": [
+        "DirichletPadicLFunctions:L4"
+      ],
+      "title": "No integral measure for the halved dyadic family",
+      "kind": "theorem",
+      "statement": "For the same dyadic data, there is no M:AbstractMeasure U O (PowerSeries O) such that map_ι(M(f))=½·map_ι(Gη(f)) for every f∈C(U,O).",
+      "hypotheses": [
+        "p is any prime. K is a complete nontrivially normed ultrametric field with Algebra ℤ_p K and IsBoundedSMul ℤ_p K. D>0, η:DirichletCharacter K D, hD:IsUnit(D:K) and p∤D. U=(ℤ_p)ˣ, O=Valuation.integer(NormedField.valuation(K)), and ι:O↪K are the native objects.",
+        "Gη is the existing integralDoubledTameEisensteinSeries. Its degree-zero coefficient is ζO^U(xO·f). The existing μ_η=tameMeasure(η,hD,hpD), ζK, intrinsic restriction r_U, pushforward j_U and weighting operation are reused. The field normalization is ½·map_ι(Gη(f)) on O-valued tests only.",
+        "For the finite-residue formula, also require CharZero K and η≠1, and take n≥1 and a:ZMod(p^n) with IsUnit a. Define q_n(u)=toZModPow n(↑u). The test e_(n,a):C(U,O) is the native continuous discrete function Function.update(0,a,1) composed with q_n. This is notation for existing continuous-map constructions, not another indicator definition or a new finite-projection operation.",
+        "The positive quotient level and the unit residue assumption are essential. At level zero the unit-group fiber is all of U, whereas the ambient residue fiber is all of ℤ_p. At positive level a nonunit residue has empty preimage in U even if its ambient mass is nonzero.",
+        "The dyadic statements specialize to K=ℚ₂, p=2, D=3 and η(2)=−1. The witness is exactly f=e_(2,1), the indicator of u≡1 modulo 4. No assumption about integrality on all tests is inferred from arithmetic character values. All assertions concern formal series; no classical modularity or analytic character-family theorem is added."
+      ],
+      "proofSteps": [
+        "Assume such a measure M exists and specialize its all-test equality to the actual residue indicator e_(2,1). Extract coefficient zero after native PowerSeries.map.",
+        "Every coefficient of M(f) is an actual element of the native integer subring O. Native Valuation.mem_integer_iff and NormedField.valuation_apply imply that its image in ℚ₂ has norm at most one. Complete norm_included_integer checks that implication for every eligible normed field.",
+        "The preceding exact norm theorem says the same coefficient has norm two. This contradiction proves nonexistence. In fact continuity and linearity of a putative M are not needed for the contradiction: even a single integral power series at this test cannot have the required coefficient image. Complete normalized_third_not_integral and no_integral_series_with_half_third prove that stronger pointwise obstruction.",
+        "Doubling the normalized field series returns map_ι(Gη(f)), which does have the already constructed integral lift Gη(f). The obstruction is therefore to dropping the factor two on all tests in this dyadic example, not to the existence of the doubled family."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L4/dyadic-tame-normalized-constant-norm",
+        "mathlib:Valuation.mem_integer_iff",
+        "mathlib:NormedField.valuation_apply",
+        "mathlib:PowerSeries.coeff_map"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/TameConstantResidues",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.integralDoubledTameEisensteinSeries_no_integral_normalization"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Restriction and zero extension in §3.5.3, Remark 3.31, equations 3-6 through 3-9 and Remark 3.33, published 127–129 / PDF 28–30; Lemmas 5.10–5.12 and Definition 5.13, published 145–146 / PDF 46–47. These whole pages were freshly read for this checkpoint. Theorem 8.2 and Remark 8.3, published 159–161, were read in the immediately preceding checkpoint.",
+          "excerpt": "extension by 0",
+          "match": "Worker consequences of the existing actual finite-residue construction and doubled tame formal series. Restriction and inverse weighting identify the true constant on every continuous integral test. The dyadic indicator gives a new concrete denominator obstruction derived here, not an assertion or error attributed to RJW. The finite-residue route avoids the invalid geometric expansion already recorded for Lemma 5.10."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedTameResidueTests.no_integral_series_at_residue_test",
+          "kind": "non-example",
+          "statement": "At the witness test, no power series over O has the prescribed halved field-valued coefficient image."
+        },
+        {
+          "name": "SuggestedTameResidueTests.doubling_recovers_an_integral_series",
+          "kind": "compatibility",
+          "statement": "Twice the normalized series at the witness test is the coefficient image of an actual integral power series."
+        }
+      ],
+      "acceptance": [
+        "The quantifier ranges over actual formal-series-valued continuous O-linear measures. The counterexample already rules out an arbitrary integral series at the single witness test."
+      ]
     }
   ],
   "requests": [
@@ -41132,7 +41409,7 @@
       "stageId": "DirichletPadicLFunctions:L4",
       "status": "partial",
       "remaining": [
-        "The nonprincipal tame case now has an actual doubled integral formal-series measure with its constant and a separate field normalization on O-valued tests. The principal level-one construction still has zero tame constant and does not replace the existing localized principal theory. General character-pair constants, classical character Eisenstein existence and exact normalization, parity and exceptional-weight comparisons, arbitrary coefficient extension, analytic weight-space families and the global source decomposition remain open. The missing pinned TwistedDivisorSum artifact still prevents full-module compilation. All eleven requests and fifteen gaps remain; no stage is closed.",
+        "The doubled tame constant now has all-test unit-measure and finite-residue comparisons, and a specific dyadic residue test proves that halving the entire family cannot give an integral formal-series-valued measure on all tests. General scalar-denominator criteria, integral congruences for the full tame family, general character-pair constants, classical character Eisenstein existence/normalization and analytic weight-space comparisons remain open. The principal tame level-one construction remains separate from the localized principal theory. All eleven requests and fifteen gaps remain, with zero closed stages and the existing missing pinned TwistedDivisorSum artifact.",
         "The positive part now has a native continuous power-series-valued measure, uniform coefficient bounds, test and weight congruences, and whole-series comparison with the actual p-stabilized modular form after removing its constant coefficient. Assemble the full family with the actual localized A₀ coefficient, prove constant-term congruences with denominator qualifications, and decompose the tame-character extension. Geometric affinoid realization and Hida–Coleman control belong to PadicFamilies; retain the weight shift recorded in E9."
       ]
     }
@@ -41163,7 +41440,7 @@
       "neededBy": [
         "DirichletPadicLFunctions:L4/positive-eisenstein-completed-coordinates"
       ],
-      "detail": "The nonprincipal tame case now has an actual doubled integral formal-series measure with its constant and a separate field normalization on O-valued tests. The principal level-one construction still has zero tame constant and does not replace the existing localized principal theory. General character-pair constants, classical character Eisenstein existence and exact normalization, parity and exceptional-weight comparisons, arbitrary coefficient extension, analytic weight-space families and the global source decomposition remain open. The missing pinned TwistedDivisorSum artifact still prevents full-module compilation. All eleven requests and fifteen gaps remain; no stage is closed. The positive part now has a native continuous power-series-valued measure, uniform coefficient bounds, test and weight congruences, and whole-series comparison with the actual p-stabilized modular form after removing its constant coefficient. Assemble the full family with the actual localized A₀ coefficient, prove constant-term congruences with denominator qualifications, and decompose the tame-character extension. Geometric affinoid realization and Hida–Coleman control belong to PadicFamilies; retain the weight shift recorded in E9."
+      "detail": "The doubled tame constant now has all-test unit-measure and finite-residue comparisons, and a specific dyadic residue test proves that halving the entire family cannot give an integral formal-series-valued measure on all tests. General scalar-denominator criteria, integral congruences for the full tame family, general character-pair constants, classical character Eisenstein existence/normalization and analytic weight-space comparisons remain open. The principal tame level-one construction remains separate from the localized principal theory. All eleven requests and fifteen gaps remain, with zero closed stages and the existing missing pinned TwistedDivisorSum artifact. The positive part now has a native continuous power-series-valued measure, uniform coefficient bounds, test and weight congruences, and whole-series comparison with the actual p-stabilized modular form after removing its constant coefficient. Assemble the full family with the actual localized A₀ coefficient, prove constant-term congruences with denominator qualifications, and decompose the tame-character extension. Geometric affinoid realization and Hida–Coleman control belong to PadicFamilies; retain the weight shift recorded in E9."
     },
     {
       "title": "Canonical coefficient-field character evaluation of actual pseudomeasures",
@@ -41520,36 +41797,36 @@
   "checks": {
     "blueprint": "Zero errors and warnings with the unmodified pinned index.",
     "intake": "Exactly four authorized deliverables; zero problems.",
-    "sourceIssues": "All 16 findings, sourceVersions and eleven requests remain whole; all fifteen gaps remain open. No new source finding, generic measure operation, classical Eisenstein existence theorem or independent verdict is asserted.",
+    "sourceIssues": "All 16 findings, sourceVersions and eleven requests remain whole; all fifteen gaps remain open. This is a derived denominator obstruction, not a new source erratum or an independent verdict.",
     "validation": {
-      "nodes": 617,
+      "nodes": 621,
       "kinds": {
         "definition": 1,
-        "lemma": 243,
+        "lemma": 244,
         "construction": 70,
-        "theorem": 184,
-        "comparison": 119
+        "theorem": 186,
+        "comparison": 120
       },
       "api": 528,
-      "packetTests": 1014,
+      "packetTests": 1024,
       "definitionConstructionTests": 298,
-      "typedExamples": 1017,
+      "typedExamples": 1027,
       "planets": 24,
-      "baseline": 534,
-      "preservedWholeNodes": 611,
-      "preservedBaseline": 532,
+      "baseline": 536,
+      "preservedWholeNodes": 617,
+      "preservedBaseline": 534,
       "preservedSourceIssues": 16,
       "newSourceIssues": 0,
-      "newNodes": 6,
-      "newNamedDeclarations": 12,
-      "newTypedTests": 12,
+      "newNodes": 4,
+      "newNamedDeclarations": 4,
+      "newTypedTests": 10,
       "requests": 11,
       "gaps": 15,
       "closedStages": 0,
-      "reachableNodes": 873,
-      "dependencyEdges": 4257,
+      "reachableNodes": 877,
+      "dependencyEdges": 4291,
       "acyclic": true,
-      "baselineLeaves": 713,
+      "baselineLeaves": 714,
       "stageRequestLeaves": [
         "AdicSpacesPartII:F1",
         "AdicSpacesPartII:R2",
@@ -41561,7 +41838,7 @@
         "PadicMeasuresIwasawaAlgebras:L2",
         "PadicMeasuresIwasawaAlgebras:L3"
       ],
-      "readerWords": 294028,
+      "readerWords": 297339,
       "scopedMutationCheck": true,
       "correctedPredecessorNodes": 0,
       "fullSuggestedCompiled": false,
@@ -41587,27 +41864,26 @@
       "missingPinnedTauArtifacts": [
         "TauCeti.NumberTheory.ArithmeticFunction.TwistedDivisorSum"
       ],
-      "scratchCompleteDefinitions": 1,
-      "scratchCompleteLemmas": 10,
-      "scratchMathlibModules": 2810,
+      "scratchCompleteDefinitions": 0,
+      "scratchCompleteLemmas": 11,
+      "scratchMathlibModules": 2809,
       "scratchTauModules": 0,
       "scratchErrors": 0,
       "scratchWarnings": 0,
       "scratchPlaceholders": 0,
       "finiteControls": {
-        "characterProfiles": 27,
-        "arithmeticConstants": 162,
-        "finiteResidueMomentBounds": 486,
-        "exactExponentZeroMoments": 81,
-        "integralConstants": 162,
-        "residueRefinementEqualities": 1613,
-        "positiveDivisorEulerIdentities": 2916,
-        "doublingNormalizations": 2916,
-        "principalLevelEqualities": 54,
-        "missingEulerFactorDetected": 27,
-        "missingWeightShiftDetected": 131,
-        "missingDoublingDetected": 2738,
-        "dyadicNamedValues": 6
+        "primeTameLevelPairs": 9,
+        "unitResidueValues": 8638,
+        "integralResidueChecks": 8638,
+        "unitSupportChecks": 10260,
+        "unitMassRefinements": 36,
+        "ambientRefinements": 10260,
+        "levelZeroMismatchDetected": 6,
+        "nonunitMismatchDetected": 1349,
+        "dyadicNonintegralHalfResidues": 682,
+        "dyadicIntegralHalfResidues": 341,
+        "integralNormalizedPositiveCoefficients": 128,
+        "sharpWitnessChecks": 7
       },
       "numericalControlsCertified": false,
       "newRoutesStageLeaves": []
@@ -41617,7 +41893,7 @@
       "compiled": false,
       "errors": null,
       "warnings": null,
-      "sha256": "f37a3b403c8db52753bd3a48d145895b4d3feb52c13224684bf4b37e4376eaea",
+      "sha256": "71edc9e303db2baf8120a7a18e2a4daf23e73a7b0124cc7360820067547537f1",
       "missingNativeArtifacts": [
         "TauCeti.NumberTheory.ArithmeticFunction.TwistedDivisorSum"
       ],
@@ -41632,11 +41908,11 @@
         }
       },
       "nativeProbe": {
-        "completeLemmas": 10,
+        "completeLemmas": 11,
         "errors": 0,
         "warnings": 0,
         "placeholders": 0,
-        "sha256": "23842aa9491ef10f54aa3f6554fd20bd200bc1a44c3c86f49b01eb4d8b7eae0a"
+        "sha256": "67057877a3866dbe234c63485cbeeabe76e949e922df06e893f8dbd643112af8"
       },
       "sourceAndAvailableArtifactAudit": {
         "compiledSupplierNodes": 332,
@@ -41723,7 +41999,7 @@
       }
     },
     "publication": {
-      "base": "a08dae72e7830182748165c6e1d31832604e0144",
+      "base": "f53142c920839bc211e74d970913ec50ec7b36d6",
       "unchangedInputs": 66,
       "unchangedOutputs": 4,
       "sameSessionFollowupAfterMerge": true,
@@ -47939,6 +48215,49 @@
         "dyadicNamedValues": 6
       },
       "numericalMethod": "Exact rational Bernoulli-polynomial arithmetic and the existing finite residue formula. At group levels r at least the finite-character level, the actual residue sums satisfy the expected valuation bound r from the Euler–Bernoulli value. Finite refinement, retained product-level characters, divisor Euler deletion and factor-two normalization are checked exactly. These controls do not prove the measure construction, the infinite interpolation theorem or classical modularity.",
+      "fullSuggestedCompiled": false
+    },
+    "tameConstantResidues": {
+      "agent": "Codex",
+      "session": "codex-7e92bd",
+      "issue": 713,
+      "claimComment": 5854790528,
+      "winningBot": 5854791937,
+      "previousPR": 4793,
+      "previousHead": "34623c551fbe4d8cd3ab636837f0e171b1fb14c5",
+      "previousMerge": "6e7c358e973a0d514475cbd79993f28200e76758",
+      "preservedWholeNodes": 617,
+      "preservedBaseline": 534,
+      "preservedFindings": 16,
+      "newNodes": 4,
+      "reading": "Freshly read whole RJW published pages 127–129 and 145–146, including the distinction between ambient restriction and a measure on the subset. Read the whole PMIA finite-projection, coefficient, intrinsic restriction/evaluation, weight-pushforward and zero-extension inside/outside nodes, with their actual suggested signatures. Read the actual tame residue, inverse-weight recovery and integral coefficient comparison nodes; the preceding L4 audit and whole Theorem 8.2 reading are retained. Read native positive-quotient reduction, unit/norm/divisibility statements, discrete continuous-map equivalence, character zero law, p-adic scalar norms and norm-valuation integer membership at the pins. No generic PMIA operation or classical Eisenstein object is re-planned.",
+      "boundary": "The doubled tame constant now has all-test unit-measure and finite-residue comparisons, and a specific dyadic residue test proves that halving the entire family cannot give an integral formal-series-valued measure on all tests. General scalar-denominator criteria, integral congruences for the full tame family, general character-pair constants, classical character Eisenstein existence/normalization and analytic weight-space comparisons remain open. The principal tame level-one construction remains separate from the localized principal theory. All eleven requests and fifteen gaps remain, with zero closed stages and the existing missing pinned TwistedDivisorSum artifact.",
+      "inputBase": "94817436c1e2a512bf34a133c7b793ecab94e8bb",
+      "sourceBoundary": "All 16 findings, sourceVersions and eleven requests remain whole; all fifteen gaps remain open. This is a derived denominator obstruction, not a new source erratum or an independent verdict.",
+      "publication": {
+        "base": "f53142c920839bc211e74d970913ec50ec7b36d6",
+        "unchangedInputs": 66,
+        "unchangedOutputs": 4,
+        "sameSessionFollowupAfterMerge": true,
+        "lastClaimConfirmation": 5854791937,
+        "reviewIssue": 390,
+        "reviewUnclaimed": true
+      },
+      "finiteControls": {
+        "primeTameLevelPairs": 9,
+        "unitResidueValues": 8638,
+        "integralResidueChecks": 8638,
+        "unitSupportChecks": 10260,
+        "unitMassRefinements": 36,
+        "ambientRefinements": 10260,
+        "levelZeroMismatchDetected": 6,
+        "nonunitMismatchDetected": 1349,
+        "dyadicNonintegralHalfResidues": 682,
+        "dyadicIntegralHalfResidues": 341,
+        "integralNormalizedPositiveCoefficients": 128,
+        "sharpWitnessChecks": 7
+      },
+      "numericalMethod": "Exact rational residue masses with original character zero extensions. Checks every unit and nonunit residue at four positive levels for nine prime/tame-level pairs, refinement and total unit mass. Checks dyadic half-residue valuations through level ten and 128 normalized positive divisor coefficients for the indicator of 1 modulo 4. These are finite checks of the formula; the identification with actual measures remains the recorded proof plan.",
       "fullSuggestedCompiled": false
     }
   },
