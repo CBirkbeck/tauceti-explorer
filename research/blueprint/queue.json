@@ -34839,8 +34839,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-KHAYUTIN-19.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4982"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4982",
+   "finishedAt": "2026-09-30T18:29:28Z"
   },
   {
    "id": "RT-PAPER-YUN-ZHANG-19",
@@ -40893,7 +40894,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-BOXER-CALEGARI-GEE-PILLONI-21.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #5016"
   },
   {
    "id": "RT-PAPER-BOXER-CALEGARI-GEE-PILLONI-25",
@@ -41000,8 +41002,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-PAN-26.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5017"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #5017",
+   "finishedAt": "2026-09-30T18:29:32Z"
   },
   {
    "id": "RT-PAPER-SKINNER-20",
