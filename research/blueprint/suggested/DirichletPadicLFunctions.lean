@@ -10832,3 +10832,136 @@ example : PowerSeries.coeff 2 (integralDoubledTameEisensteinSeries η hD hpD
 end Dyadic
 end
 end SuggestedTameFullSeriesTests
+
+/-! The actual tame constant on residue tests, and a dyadic obstruction to
+removing the factor two on all integral-valued continuous tests. -/
+namespace DirichletPadic
+noncomputable section
+open scoped AbstractMeasure BigOperators PowerSeries.WithPiTopology
+open AbstractMeasure
+variable {p : ℕ} [Fact p.Prime] {K : Type*} [NontriviallyNormedField K]
+  [IsUltrametricDist K] [Algebra ℤ_[p] K] [IsBoundedSMul ℤ_[p] K]
+  [CompleteSpace K] {D : ℕ} [NeZero D]
+local notation "O" => Valuation.integer (NormedField.valuation (K := K))
+local notation "U" => (ℤ_[p])ˣ
+local notation "iMap" => (ContinuousMap.mk Subtype.val continuous_subtype_val : C(O,K))
+
+theorem integralDoubledTameEisensteinSeries_constant_restriction
+    (η : DirichletCharacter K D) (hD : IsUnit (D : K)) (hpD : ¬p∣D)
+    (f : C(U,O)) :
+    (PowerSeries.coeff (R := O) 0 (integralDoubledTameEisensteinSeries η hD hpD f) : K)=
+      restrictUnits p K (tameMeasure η hD hpD) ((iMap).comp f) := sorry
+
+theorem integralDoubledTameEisensteinSeries_constant_residue [CharZero K]
+    (η : DirichletCharacter K D) (hη : η≠1) (hD : IsUnit (D : K)) (hpD : ¬p∣D)
+    (n : ℕ) (hn : 1≤n) (a : ZMod (p^n)) (ha : IsUnit a) :
+    let q : C(U,ZMod (p^n)) := ⟨fun u => PadicInt.toZModPow n (u : ℤ_[p]),
+      (PadicInt.continuous_toZModPow p n).comp Units.continuous_val⟩
+    let f : C(U,O) := (ContinuousMap.equivFnOfDiscrete.symm
+      (Function.update (fun _ : ZMod (p^n) => (0 : O)) a 1)).comp q
+    (PowerSeries.coeff (R := O) 0 (integralDoubledTameEisensteinSeries η hD hpD f) : K)=
+      -(↑hD.unit⁻¹ : K)*∑ j : ZMod D,
+        η ((a.val+p^n*j.val : ℕ) : ZMod D)*(j.val : K) := sorry
+end
+end DirichletPadic
+
+namespace DirichletPadic
+noncomputable section
+open scoped PowerSeries.WithPiTopology
+variable [IsBoundedSMul ℤ_[2] ℚ_[2]]
+local notation "O2" => Valuation.integer (NormedField.valuation (K := ℚ_[2]))
+local notation "U2" => (ℤ_[2])ˣ
+local notation "q4" => (ContinuousMap.mk (fun u : U2 => PadicInt.toZModPow 2 (u : ℤ_[2]))
+  (Continuous.comp (PadicInt.continuous_toZModPow 2 2) Units.continuous_val) : C(U2,ZMod (2^2)))
+local notation "f4" => ContinuousMap.comp (ContinuousMap.equivFnOfDiscrete.symm
+  (Function.update (fun _ : ZMod (2^2) => (0 : O2)) 1 1)) q4
+
+theorem integralDoubledTameEisensteinSeries_dyadic_normalized_norm
+    (η : DirichletCharacter ℚ_[2] 3) (hη : η 2=-1)
+    (hD : IsUnit (3 : ℚ_[2])) (hpD : ¬2∣3) :
+    ‖PowerSeries.coeff 0 ((2 : ℚ_[2])⁻¹ • PowerSeries.map
+      (Valuation.integer (NormedField.valuation (K := ℚ_[2]))).subtype
+      (integralDoubledTameEisensteinSeries η hD hpD f4))‖=2 := sorry
+
+theorem integralDoubledTameEisensteinSeries_no_integral_normalization
+    (η : DirichletCharacter ℚ_[2] 3) (hη : η 2=-1)
+    (hD : IsUnit (3 : ℚ_[2])) (hpD : ¬2∣3) :
+    ¬ ∃ M : AbstractMeasure U2 O2 (PowerSeries O2),
+      ∀ f : C(U2,O2), PowerSeries.map
+        (Valuation.integer (NormedField.valuation (K := ℚ_[2]))).subtype (M f)=
+        (2 : ℚ_[2])⁻¹ • PowerSeries.map
+          (Valuation.integer (NormedField.valuation (K := ℚ_[2]))).subtype
+          (integralDoubledTameEisensteinSeries η hD hpD f) := sorry
+end
+end DirichletPadic
+
+namespace SuggestedTameResidueTests
+noncomputable section
+open scoped PowerSeries.WithPiTopology
+open DirichletPadic AbstractMeasure
+section General
+variable {p : ℕ} [Fact p.Prime] {K : Type*} [NontriviallyNormedField K]
+  [IsUltrametricDist K] [Algebra ℤ_[p] K] [IsBoundedSMul ℤ_[p] K]
+  [CompleteSpace K] {D : ℕ} [NeZero D]
+local notation "O" => Valuation.integer (NormedField.valuation (K := K))
+local notation "U" => (ℤ_[p])ˣ
+-- constant_zero_test
+example (η : DirichletCharacter K D) (hD : IsUnit (D : K)) (hpD : ¬p∣D) :
+    (PowerSeries.coeff (R := O) 0 (integralDoubledTameEisensteinSeries η hD hpD 0) : K)=0 := sorry
+-- constant_mass_is_unit_mass
+example (η : DirichletCharacter K D) (hD : IsUnit (D : K)) (hpD : ¬p∣D) :
+    (PowerSeries.coeff (R := O) 0 (integralDoubledTameEisensteinSeries η hD hpD 1) : K)=
+      restrictUnits p K (tameMeasure η hD hpD) 1 := sorry
+end General
+
+section Dyadic
+variable [IsBoundedSMul ℤ_[2] ℚ_[2]]
+variable (η : DirichletCharacter ℚ_[2] 3) (hη : η 2=-1)
+  (hD : IsUnit (3 : ℚ_[2])) (hpD : ¬2∣3)
+local notation "O2" => Valuation.integer (NormedField.valuation (K := ℚ_[2]))
+local notation "U2" => (ℤ_[2])ˣ
+local notation "q4" => (ContinuousMap.mk (fun u : U2 => PadicInt.toZModPow 2 (u : ℤ_[2]))
+  (Continuous.comp (PadicInt.continuous_toZModPow 2 2) Units.continuous_val) : C(U2,ZMod (2^2)))
+local notation "f4" => ContinuousMap.comp (ContinuousMap.equivFnOfDiscrete.symm
+  (Function.update (fun _ : ZMod (2^2) => (0 : O2)) 1 1)) q4
+include hη
+-- dyadic_one_mod_four
+example : (PowerSeries.coeff (R := O2) 0
+    (integralDoubledTameEisensteinSeries η hD hpD f4) : ℚ_[2])=1/3 := sorry
+-- level_zero_residue_boundary
+example : (PowerSeries.coeff (R := O2) 0
+    (integralDoubledTameEisensteinSeries η hD hpD 1) : ℚ_[2])≠tameMeasure η hD hpD 1 := sorry
+-- nonunit_residue_boundary
+example :
+    let g : C(U2,O2) := (ContinuousMap.equivFnOfDiscrete.symm
+      (Function.update (fun _ : ZMod (2^2) => (0 : O2)) 0 1)).comp q4
+    (PowerSeries.coeff (R := O2) 0 (integralDoubledTameEisensteinSeries η hD hpD g) : ℚ_[2])≠
+      finiteProjection (⟨PadicInt.toZModPow 2, PadicInt.continuous_toZModPow 2 2⟩ :
+        C(ℤ_[2],ZMod (2^2))) (tameMeasure η hD hpD) 0 := sorry
+-- dyadic_normalized_one_mod_four
+example : PowerSeries.coeff 0 ((2 : ℚ_[2])⁻¹ • PowerSeries.map
+    (Valuation.integer (NormedField.valuation (K := ℚ_[2]))).subtype
+    (integralDoubledTameEisensteinSeries η hD hpD f4))=1/6 := sorry
+-- dyadic_normalized_norm_two
+example : ‖PowerSeries.coeff 0 ((2 : ℚ_[2])⁻¹ • PowerSeries.map
+    (Valuation.integer (NormedField.valuation (K := ℚ_[2]))).subtype
+    (integralDoubledTameEisensteinSeries η hD hpD f4))‖>1 := sorry
+-- dyadic_normalized_positive_first
+example : PowerSeries.coeff 1 ((2 : ℚ_[2])⁻¹ • PowerSeries.map
+    (Valuation.integer (NormedField.valuation (K := ℚ_[2]))).subtype
+    (integralDoubledTameEisensteinSeries η hD hpD f4))=1 := sorry
+-- no_integral_series_at_residue_test
+example : ¬ ∃ H : PowerSeries O2,
+    PowerSeries.map (Valuation.integer (NormedField.valuation (K := ℚ_[2]))).subtype H=
+      (2 : ℚ_[2])⁻¹ • PowerSeries.map
+        (Valuation.integer (NormedField.valuation (K := ℚ_[2]))).subtype
+        (integralDoubledTameEisensteinSeries η hD hpD f4) := sorry
+-- doubling_recovers_an_integral_series
+example : ∃ H : PowerSeries O2,
+    PowerSeries.map (Valuation.integer (NormedField.valuation (K := ℚ_[2]))).subtype H=
+      (2 : ℚ_[2]) • ((2 : ℚ_[2])⁻¹ • PowerSeries.map
+        (Valuation.integer (NormedField.valuation (K := ℚ_[2]))).subtype
+        (integralDoubledTameEisensteinSeries η hD hpD f4)) := sorry
+end Dyadic
+end
+end SuggestedTameResidueTests
