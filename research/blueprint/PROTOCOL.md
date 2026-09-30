@@ -347,8 +347,18 @@ restructuring jobs of section 15.
 ## 10. Links between roadmaps
 
 Links are dependencies between stages of different roadmaps, recorded carefully
-and with evidence from both sides. A link job maps one roadmap against every
-other roadmap in the atlas. Its output is `research/blueprint/links/<file>.json`:
+and with evidence from both sides. A link job maps one roadmap against the
+atlas's planned roadmaps: every roadmap whose id does not start with `tauceti:`,
+and the new roadmaps in `research/blueprint/roadmaps/`. Its output is
+`research/blueprint/links/<file>.json`.
+
+Links between two Tau Ceti roadmaps are Tau Ceti's own, so they are not mapped,
+red-teamed, fixed or reviewed here. Those recorded before 30 September 2026 stay
+as they are, and `scripts/check_links.py` refuses new ones. A problem a worker
+notices inside a Tau Ceti roadmap goes into the packet's `upstreamNotes`, as
+`{"roadmaps": [...], "note": "..."}`, for the maintainer to pass on. Examples: a
+wrong or missing dependency between Tau Ceti roadmaps, or a construction its
+document asks for that cannot work. The format:
 
 ```json
 {
@@ -673,7 +683,12 @@ An independent verifier checks every finding at its evidence and writes
 ```
 
 Confirmed findings of high or medium severity become a fix job,
-`FIX-RT-<x>`, when the queue is next generated. The fixer applies each fix to
+`FIX-RT-<x>`, when the queue is next generated. A red team's findings concern
+what the atlas plans, not Tau Ceti's own roadmaps or the links between two of
+them (section 10). Anything noticed there goes into the result's `upstreamNotes`.
+A confirmed finding of a link or area red team that names no planned roadmap is
+not given to a fix: it is collected with the notes in
+`research/blueprint/UPSTREAM_NOTES.md` for the maintainer to pass upstream. The fixer applies each fix to
 the files it names, keeps every file valid under its checker, adds missing
 mathematics where the finding says it belongs (a node or a `requests` entry in
 the owning packet, or a note for the maintainer when it needs a new roadmap),

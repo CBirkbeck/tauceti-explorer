@@ -95,7 +95,10 @@ roadmap that owns it (PROTOCOL.md section 15).
       missing, a source of existing layers, a Part II of an existing roadmap
       or a new roadmap, with the brief its design job will follow
       (PROTOCOL.md section 16).
-   4. `kind:fix`: apply red-team findings that a verifier has confirmed. A fix
+   4. `kind:fix`: apply red-team findings that a verifier has confirmed.
+      Tau Ceti's own roadmaps, and the links between two of them, are never
+      planned, fixed or reviewed here. Note what you notice there in
+      `upstreamNotes`, for the maintainer. A fix
       to a roadmap's plan goes into that roadmap's blueprint packet, reader
       document and suggested file, which the issue lists among the
       deliverables, never into `content/campaign/` or `data/`. An independent
