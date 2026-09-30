@@ -17310,3 +17310,181 @@ Ten complete native lemmas check the actual p-adic unit inverse, its behavior un
 Exact residue controls check36 negative moments in six character/prime cases, all repeated at higher level and higher precision. They verify2248 exact rational mass refinements,18 parity zeros,24 corrected Teichmüller comparisons and all six old dyadic cell masses. Thirty-six cases detect the wrong exponent shift,12 detect omission of the Teichmüller factor and six show why k=0 is excluded. Exact rational cylinder masses are the preceding tameMeasure_residue formula, with nonprincipal quadratic eta modulo3 or4. At levels m=r and m=r+1, unit representatives are evaluated using modular inverses, with character levels at most2. The complete native inverse-power distance proof gives a1-Lipschitz bound on unit inverse powers; the finite character is constant on every chosen cylinder. Combined with the existing norm-at-most1 measure estimate and finite-projection evaluation, this bounds the Riemann approximation error by p^(-m), certifying every output modulo p^r. Rational mass refinement is checked exactly, and the six old dyadic cell masses are recovered. Negative moments are independently recomputed at higher level and one digit higher precision; parity zeros and counterexamples to an off-by-one inverse weight are checked. For odd p=3,5, finite Teichmueller lifts and their principal factors test the corrected chi*omega^(1-k) normalization and detect omission of that factor. This does not construct analytic principal-unit families or identify an L-value. The largest observed discrepancy is 0.
 
 The62-input capture atc7c4fdddb29c8101110783bcadbce4b8e6d53e5c has no changes relative to the predecessor inputs. All four predecessor outputs are preserved before assembly. Only existing pinned artifacts and the verified332-node PMIA artifact are used; no current369-node PMIA, LAD, Coleman or Polylogarithms compilation is claimed.
+
+
+## Negative moments and admissible smoothing quotients
+
+Partial continuation preserving all526 predecessor nodes whole. Six L3 nodes specify negative moments of the actual smoothing numerator, cross-smoothing, denominator-qualified independence, a negative-weight admissible parameter and actual pseudomeasure numerator/evaluation comparisons. All16 findings, nine requests and13 gaps remain; zero closed stages.
+
+Whole published129–130 and137–139 was freshly read, alongside the retained complete151–158 reading. Whole Coleman smoothed-value and smoothed-measure negative-moment nodes were checked: the higher polylogarithm formula already belongs there. Whole own arithmetic cross-smoothing, intrinsic positive-character shift, natural pseudomeasure numerator and conditional positive-character evaluation nodes and signatures were read. Whole PMIA coefficient-extension pushforward/weight, intrinsic coefficient extension, inverse identification/dilation and admissible evaluation/independence nodes were read. Native AbstractMeasure, pushforward evaluation, PadicInt inverse/unit statements, Ring.inverse_mul/unit, map_units_inv, division lemmas and one_lt_pow₀ were read at the pin. The reviewed library audit remains byte-identical in the62-input capture.
+
+### Negative moments of the actual smoothing numerator
+
+`DirichletPadicLFunctions:L3/smoothed-intrinsic-negative-moment` — `DirichletPadic.extend_intrinsicSmoothedNumerator_negative_moment`
+
+V_a(κ)=M_a.
+
+**Hypotheses:** p is any prime, including2. K is a complete ultrametric normed field with Algebra ℤ_p K and IsBoundedSMul ℤ_p K. Write Z=ℤ_p and U=Zˣ with native topologies. Let n≥0, χ:DirichletCharacter K(p^n), k≥1, and a,b be natural numbers prime to p. Write cχ=primePowerCharacter p n χ. Let I∈C(Z,K) be x↦algebraMap Z K(PadicInt.inv x), using the existing PMIA continuity theorem. The native inverse is the unit inverse on units and0 on nonunits. Define the shorthand M_a=twistedSmoothedMeasure p n χ a ha(I^k) and d_a=χ(a)·((a:K)⁻¹)^(k−1)−1. These are existing evaluations and field expressions, not new constructors. In character comparisons take a supplied native continuous monoid homomorphism κ:U→K with κ(u)=cχ(u)·algebraMap(↑u⁻¹)^(k−1). Write V_a(κ)=extendIntegralUnitCoefficients(intrinsicSmoothedNumerator p a ha)(κ.toContinuousMap). No family of characters is constructed. For the pseudomeasure comparisons use the existing multiplicative integral unit-measure ring M=D(U,Z), δ=diracHom, Q=FractionRing M and ζ_p=kubotaLeopoldtPseudomeasure p. Q is the total quotient ring; no domain or field structure on these rings is assumed. Give the natural parameter an explicit representative u:U with ↑u=(a:Z). Only the evalAt comparison takes f:M→+*K and the exact compatibility f(μ)=extendIntegralUnitCoefficients(μ)(κ.toContinuousMap) for every actual μ. Its M-algebra structure on K is f.toAlgebra. Require IsUnit(f(δ(u)−1)). The canonical general K-valued evaluator remains the existing PMIA L3 request; this statement supplies no such constructor. The quotient theorem requires d_a≠0 and d_b≠0. The explicit principal-unit admissibility theorem additionally assumes CharZero K and k≥2. At k=1, admissibility is χ(a)≠1; for the principal character there is no admissible parameter.
+
+**Proof:**
+
+1. The continuous ambient test cχ·I^(k−1) restricts to κ because the native inverse agrees with the inverse of a unit. Apply the existing intrinsic-numerator-extension-inclusion comparison and native map_apply to identify V_a with the coefficient extension of smoothedNumerator on this test.
+2. The actual numerator is inverseWeight(smoothedMeasure). Existing coefficient-extension-weight and inverse-weight-evaluation therefore give the extended arithmetic measure applied to I·cχ·I^(k−1).
+3. The identity(k−1)+1=k for k≥1 makes this test cχ·I^k. The existing twistedSmoothedMeasure_apply identifies it with M_a. The complete native inverse_weight_shift lemma checks this exponent calculation.
+4. Since k≥1, I^k vanishes on every nonunit. Thus M_a is also the inverse kth moment of the unit restriction, for every n≥0. In particular the level-zero case is valid here; the earlier positive-weight comparison needed n≥1 to remove nonunit contributions.
+5. At k=1, V_a of the finite character equals the first inverse moment. At a=1 both sides vanish because the actual arithmetic smoothing measure is zero. The identity character at n=0,k=1 is a valid numerator test even though its smoothing denominator is zero.
+
+**Prerequisites:** `DirichletPadicLFunctions:L1/intrinsic-numerator-extension-inclusion`, `DirichletPadicLFunctions:L1/smoothed-numerator`, `DirichletPadicLFunctions:L2/twisted-smoothed-measure`, `PadicMeasuresIwasawaAlgebras:L2/coefficient-extension-weight`, `PadicMeasuresIwasawaAlgebras:L2/inverse-weight-evaluation`, `PadicMeasuresIwasawaAlgebras:L2/padic-unit-inverse-identification`, `mathlib:AbstractMeasure.map_apply`, `mathlib:Ring.inverse_unit`.
+
+**Tests:**
+
+- `SuggestedSmoothedNegativeTests.negative_shift_level_zero` (compatibility): At n=0,k=1, the intrinsic numerator mass equals the first inverse moment of the actual level-zero smoothing twist.
+- `SuggestedSmoothedNegativeTests.negative_shift_identity_parameter` (degenerate): At a=1 every inverse-power test of the actual twist is zero.
+
+**Acceptance:** No primitivity, nontrivial character, root of unity or Gauss-sum hypothesis is needed. The comparison is between the existing intrinsic unit measure and existing ambient measure.
+
+**Source:** Equation(3-11) and its independence calculation, published129–130/PDF30–31; Definitions4.5 and4.10, equation(4-3) and Proposition4.11, published137–139/PDF38–40; equation(6-2), Theorem6.7(ii) and the smoothed argument in§7, published151–158/PDF52–59. Concrete arithmetic inputs to the already owned Coleman smoothed negative-moment comparison. The actual inverse-weighted numerator and smoothing measures are reused. The coefficient-field evaluation remains conditional on an explicit compatible ring homomorphism. No unsmoothed pure-p bounded measure or analytic L-value is constructed, and retained E44–E49 remain in force.
+
+### Cross-smoothing for negative moments
+
+`DirichletPadicLFunctions:L3/smoothed-negative-cross-relation` — `DirichletPadic.twistedSmoothedMeasure_negative_cross`
+
+d_b M_a=d_a M_b, without either denominator being assumed nonzero.
+
+**Hypotheses:** p is any prime, including2. K is a complete ultrametric normed field with Algebra ℤ_p K and IsBoundedSMul ℤ_p K. Write Z=ℤ_p and U=Zˣ with native topologies. Let n≥0, χ:DirichletCharacter K(p^n), k≥1, and a,b be natural numbers prime to p. Write cχ=primePowerCharacter p n χ. Let I∈C(Z,K) be x↦algebraMap Z K(PadicInt.inv x), using the existing PMIA continuity theorem. The native inverse is the unit inverse on units and0 on nonunits. Define the shorthand M_a=twistedSmoothedMeasure p n χ a ha(I^k) and d_a=χ(a)·((a:K)⁻¹)^(k−1)−1. These are existing evaluations and field expressions, not new constructors. In character comparisons take a supplied native continuous monoid homomorphism κ:U→K with κ(u)=cχ(u)·algebraMap(↑u⁻¹)^(k−1). Write V_a(κ)=extendIntegralUnitCoefficients(intrinsicSmoothedNumerator p a ha)(κ.toContinuousMap). No family of characters is constructed. For the pseudomeasure comparisons use the existing multiplicative integral unit-measure ring M=D(U,Z), δ=diracHom, Q=FractionRing M and ζ_p=kubotaLeopoldtPseudomeasure p. Q is the total quotient ring; no domain or field structure on these rings is assumed. Give the natural parameter an explicit representative u:U with ↑u=(a:Z). Only the evalAt comparison takes f:M→+*K and the exact compatibility f(μ)=extendIntegralUnitCoefficients(μ)(κ.toContinuousMap) for every actual μ. Its M-algebra structure on K is f.toAlgebra. Require IsUnit(f(δ(u)−1)). The canonical general K-valued evaluator remains the existing PMIA L3 request; this statement supplies no such constructor. The quotient theorem requires d_a≠0 and d_b≠0. The explicit principal-unit admissibility theorem additionally assumes CharZero K and k≥2. At k=1, admissibility is χ(a)≠1; for the principal character there is no admissible parameter.
+
+**Proof:**
+
+1. Use the existing equality b·σ_bμ_a−μ_a=a·σ_aμ_b−μ_b for the actual integral arithmetic measures. Apply coefficient extension using its additive, scalar and pushforward compatibilities.
+2. Evaluate on the actual continuous test cχ·I^k. For a native unit u representing b, the existing inverse identification and native Ring.inverse_mul and Ring.inverse_unit give I(bx)=algebraMap(↑u⁻¹)I(x) for every x, including nonunits. Native map_units_inv identifies this scalar with(b:K)⁻¹.
+3. The actual prime-power character API gives cχ(bx)=χ(b)cχ(x). Hence pushforward by b contributes the scalar χ(b)b^(−k). The complete native mapped_inverse_dilation and native_measure_cross proofs check the inverse convention and evaluation of the actual AbstractMeasure pushforward relation.
+4. The outer scalar b in the unweighted cross relation is essential. Since b is a unit, b·(b⁻¹)^k=(b⁻¹)^(k−1). The complete scalar_inverse_power proof checks the cancellation under exactly k≥1 and b≠0.
+5. The resulting factors are χ(b)b^(1−k)−1 and χ(a)a^(1−k)−1. At k=1 they are χ(b)−1 and χ(a)−1; at k=2 they are χ(b)/b−1 and χ(a)/a−1. No denominator has been cancelled and the identity is still meaningful at a=1.
+
+**Prerequisites:** `DirichletPadicLFunctions:L1/measure-cross-smoothing`, `DirichletPadicLFunctions:L2/twisted-smoothed-measure`, `DirichletPadicLFunctions:L2/prime-power-character`, `PadicMeasuresIwasawaAlgebras:L2/integral-coefficient-extension`, `PadicMeasuresIwasawaAlgebras:L2/coefficient-extension-pushforward`, `PadicMeasuresIwasawaAlgebras:L2/padic-unit-inverse-identification`, `mathlib:Ring.inverse_mul`, `mathlib:Ring.inverse_unit`, `mathlib:map_units_inv`, `mathlib:AbstractMeasure.map_apply`.
+
+**Tests:**
+
+- `SuggestedSmoothedNegativeTests.first_cross_denominator` (computation): At k=1 the cross factors are exactly χ(b)−1 and χ(a)−1.
+- `SuggestedSmoothedNegativeTests.second_cross_denominator` (computation): At k=2 the cross factors contain one inverse power of the smoothing parameter.
+
+**Acceptance:** Keep the scalar from the unweighted smoothing relation. Omitting it gives the incorrect exponent−k in the denominator. This is an arithmetic identity independent of any generic pseudomeasure evaluator.
+
+**Source:** Equation(3-11) and its independence calculation, published129–130/PDF30–31; Definitions4.5 and4.10, equation(4-3) and Proposition4.11, published137–139/PDF38–40; equation(6-2), Theorem6.7(ii) and the smoothed argument in§7, published151–158/PDF52–59. Concrete arithmetic inputs to the already owned Coleman smoothed negative-moment comparison. The actual inverse-weighted numerator and smoothing measures are reused. The coefficient-field evaluation remains conditional on an explicit compatible ring homomorphism. No unsmoothed pure-p bounded measure or analytic L-value is constructed, and retained E44–E49 remain in force.
+
+### Independence of admissible negative-moment quotients
+
+`DirichletPadicLFunctions:L3/smoothed-negative-quotient-independent` — `DirichletPadic.twistedSmoothedMeasure_negative_quotient_independent`
+
+If d_a and d_b are nonzero, then M_a/d_a=M_b/d_b.
+
+**Hypotheses:** p is any prime, including2. K is a complete ultrametric normed field with Algebra ℤ_p K and IsBoundedSMul ℤ_p K. Write Z=ℤ_p and U=Zˣ with native topologies. Let n≥0, χ:DirichletCharacter K(p^n), k≥1, and a,b be natural numbers prime to p. Write cχ=primePowerCharacter p n χ. Let I∈C(Z,K) be x↦algebraMap Z K(PadicInt.inv x), using the existing PMIA continuity theorem. The native inverse is the unit inverse on units and0 on nonunits. Define the shorthand M_a=twistedSmoothedMeasure p n χ a ha(I^k) and d_a=χ(a)·((a:K)⁻¹)^(k−1)−1. These are existing evaluations and field expressions, not new constructors. In character comparisons take a supplied native continuous monoid homomorphism κ:U→K with κ(u)=cχ(u)·algebraMap(↑u⁻¹)^(k−1). Write V_a(κ)=extendIntegralUnitCoefficients(intrinsicSmoothedNumerator p a ha)(κ.toContinuousMap). No family of characters is constructed. For the pseudomeasure comparisons use the existing multiplicative integral unit-measure ring M=D(U,Z), δ=diracHom, Q=FractionRing M and ζ_p=kubotaLeopoldtPseudomeasure p. Q is the total quotient ring; no domain or field structure on these rings is assumed. Give the natural parameter an explicit representative u:U with ↑u=(a:Z). Only the evalAt comparison takes f:M→+*K and the exact compatibility f(μ)=extendIntegralUnitCoefficients(μ)(κ.toContinuousMap) for every actual μ. Its M-algebra structure on K is f.toAlgebra. Require IsUnit(f(δ(u)−1)). The canonical general K-valued evaluator remains the existing PMIA L3 request; this statement supplies no such constructor. The quotient theorem requires d_a≠0 and d_b≠0. The explicit principal-unit admissibility theorem additionally assumes CharZero K and k≥2. At k=1, admissibility is χ(a)≠1; for the principal character there is no admissible parameter.
+
+**Proof:**
+
+1. Apply the preceding cross relation. Commute scalar multiplication to obtain the precise equality required by native div_eq_div_iff.
+2. Cancel only the two explicitly nonzero field denominators. The complete quotient_independent proof checks both hypotheses; primality of p and coprimality of a,b alone do not imply them.
+3. This proves independence of the actual smoothing parameter for the displayed negative-moment quotient without assuming a canonical character ring map or any analytic L-function. The later conditional evalAt comparison identifies this quotient with the already defined algebraic specialization when its compatible map is supplied.
+4. Level zero is allowed. At k=2 its denominator is a⁻¹−1, so the result compares the second inverse moments of the untwisted smoothing measures. At k=1 and principal χ every denominator is zero; this theorem does not define that value by totalized field division.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/smoothed-negative-cross-relation`, `mathlib:div_eq_div_iff`.
+
+**Tests:**
+
+- `SuggestedSmoothedNegativeTests.level_zero_quotient` (compatibility): At n=0,k=2, compare the actual inverse-square moments divided by a⁻¹−1 and b⁻¹−1, with both nonzero hypotheses.
+
+**Acceptance:** The theorem states independence, not existence or analyticity of a scalar L-function.
+
+**Source:** Equation(3-11) and its independence calculation, published129–130/PDF30–31; Definitions4.5 and4.10, equation(4-3) and Proposition4.11, published137–139/PDF38–40; equation(6-2), Theorem6.7(ii) and the smoothed argument in§7, published151–158/PDF52–59. Concrete arithmetic inputs to the already owned Coleman smoothed negative-moment comparison. The actual inverse-weighted numerator and smoothing measures are reused. The coefficient-field evaluation remains conditional on an explicit compatible ring homomorphism. No unsmoothed pure-p bounded measure or analytic L-value is constructed, and retained E44–E49 remain in force.
+
+### An admissible parameter in negative weight
+
+`DirichletPadicLFunctions:L3/negative-principal-unit-admissible` — `DirichletPadic.primePower_negative_principal_unit_admissible`
+
+For CharZero K and k≥2, d_(1+p^(n+1)) is a unit of K.
+
+**Hypotheses:** p is any prime, including2. K is a complete ultrametric normed field with Algebra ℤ_p K and IsBoundedSMul ℤ_p K. Write Z=ℤ_p and U=Zˣ with native topologies. Let n≥0, χ:DirichletCharacter K(p^n), k≥1, and a,b be natural numbers prime to p. Write cχ=primePowerCharacter p n χ. Let I∈C(Z,K) be x↦algebraMap Z K(PadicInt.inv x), using the existing PMIA continuity theorem. The native inverse is the unit inverse on units and0 on nonunits. Define the shorthand M_a=twistedSmoothedMeasure p n χ a ha(I^k) and d_a=χ(a)·((a:K)⁻¹)^(k−1)−1. These are existing evaluations and field expressions, not new constructors. In character comparisons take a supplied native continuous monoid homomorphism κ:U→K with κ(u)=cχ(u)·algebraMap(↑u⁻¹)^(k−1). Write V_a(κ)=extendIntegralUnitCoefficients(intrinsicSmoothedNumerator p a ha)(κ.toContinuousMap). No family of characters is constructed. For the pseudomeasure comparisons use the existing multiplicative integral unit-measure ring M=D(U,Z), δ=diracHom, Q=FractionRing M and ζ_p=kubotaLeopoldtPseudomeasure p. Q is the total quotient ring; no domain or field structure on these rings is assumed. Give the natural parameter an explicit representative u:U with ↑u=(a:Z). Only the evalAt comparison takes f:M→+*K and the exact compatibility f(μ)=extendIntegralUnitCoefficients(μ)(κ.toContinuousMap) for every actual μ. Its M-algebra structure on K is f.toAlgebra. Require IsUnit(f(δ(u)−1)). The canonical general K-valued evaluator remains the existing PMIA L3 request; this statement supplies no such constructor. The quotient theorem requires d_a≠0 and d_b≠0. The explicit principal-unit admissibility theorem additionally assumes CharZero K and k≥2. At k=1, admissibility is χ(a)≠1; for the principal character there is no admissible parameter.
+
+**Proof:**
+
+1. Put A=1+p^(n+1). The existing principal-unit character value, evaluated at weight zero, gives χ(A)=1. The existing reduction and unit criterion show p∤A, so A is an allowed smoothing parameter.
+2. Because p is prime, A>1; since k≥2, k−1>0. If(A⁻¹)^(k−1)=1, inversion gives A^(k−1)=1 in K. Injectivity of natural casts in characteristic zero gives the same equality in ℕ, contradicting native one_lt_pow₀.
+3. The complete inverse_natural_power_ne_one proof checks this argument without putting an order on K. Use sub_ne_zero and native isUnit_iff_ne_zero to obtain admissibility.
+4. For p=2,n=0,k=2, A=3 and the factor is1/3−1 in ℚ₂, which is nonzero even though it is not a unit of ℤ₂. This distinguishes admissibility in the coefficient field from integral invertibility.
+5. At k=1 the factor isχ(A)−1=0, so the principal-unit witness cannot be used. Nontrivial finite characters may instead use an explicitly supplied a withχ(a)≠1; no such parameter is claimed for a principal character.
+
+**Prerequisites:** `DirichletPadicLFunctions:L2/prime-power-principal-unit-value`, `mathlib:one_lt_pow₀`, `mathlib:isUnit_iff_ne_zero`, `mathlib:PadicInt.norm_natCast_eq_one_iff`, `mathlib:PadicInt.isUnit_iff`.
+
+**Tests:**
+
+- `SuggestedSmoothedNegativeTests.dyadic_negative_admissible` (computation): At p=2,n=0,k=2,1/3−1 is a unit in the coefficient field ℚ₂.
+- `SuggestedSmoothedNegativeTests.first_principal_inadmissible` (non-example): At k=1 the principal finite character gives zero denominator on every native unit.
+
+**Acceptance:** No topological generator of U is needed. The assertion is about a coefficient-field value, not regularity of a measure-ring denominator.
+
+**Source:** Equation(3-11) and its independence calculation, published129–130/PDF30–31; Definitions4.5 and4.10, equation(4-3) and Proposition4.11, published137–139/PDF38–40; equation(6-2), Theorem6.7(ii) and the smoothed argument in§7, published151–158/PDF52–59. Concrete arithmetic inputs to the already owned Coleman smoothed negative-moment comparison. The actual inverse-weighted numerator and smoothing measures are reused. The coefficient-field evaluation remains conditional on an explicit compatible ring homomorphism. No unsmoothed pure-p bounded measure or analytic L-value is constructed, and retained E44–E49 remain in force.
+
+### The actual pseudomeasure numerator at negative weight
+
+`DirichletPadicLFunctions:L3/pseudomeasure-negative-numerator` — `DirichletPadic.kubotaLeopoldtPseudomeasure_numerator_negative_moment`
+
+The coefficient-extended actual Iwasawa numerator at u, evaluated at κ, is M_a.
+
+**Hypotheses:** p is any prime, including2. K is a complete ultrametric normed field with Algebra ℤ_p K and IsBoundedSMul ℤ_p K. Write Z=ℤ_p and U=Zˣ with native topologies. Let n≥0, χ:DirichletCharacter K(p^n), k≥1, and a,b be natural numbers prime to p. Write cχ=primePowerCharacter p n χ. Let I∈C(Z,K) be x↦algebraMap Z K(PadicInt.inv x), using the existing PMIA continuity theorem. The native inverse is the unit inverse on units and0 on nonunits. Define the shorthand M_a=twistedSmoothedMeasure p n χ a ha(I^k) and d_a=χ(a)·((a:K)⁻¹)^(k−1)−1. These are existing evaluations and field expressions, not new constructors. In character comparisons take a supplied native continuous monoid homomorphism κ:U→K with κ(u)=cχ(u)·algebraMap(↑u⁻¹)^(k−1). Write V_a(κ)=extendIntegralUnitCoefficients(intrinsicSmoothedNumerator p a ha)(κ.toContinuousMap). No family of characters is constructed. For the pseudomeasure comparisons use the existing multiplicative integral unit-measure ring M=D(U,Z), δ=diracHom, Q=FractionRing M and ζ_p=kubotaLeopoldtPseudomeasure p. Q is the total quotient ring; no domain or field structure on these rings is assumed. Give the natural parameter an explicit representative u:U with ↑u=(a:Z). Only the evalAt comparison takes f:M→+*K and the exact compatibility f(μ)=extendIntegralUnitCoefficients(μ)(κ.toContinuousMap) for every actual μ. Its M-algebra structure on K is f.toAlgebra. Require IsUnit(f(δ(u)−1)). The canonical general K-valued evaluator remains the existing PMIA L3 request; this statement supplies no such constructor. The quotient theorem requires d_a≠0 and d_b≠0. The explicit principal-unit admissibility theorem additionally assumes CharZero K and k≥2. At k=1, admissibility is χ(a)≠1; for the principal character there is no admissible parameter.
+
+**Proof:**
+
+1. The existing pseudomeasure-natural-numerator comparison is equality of actual integral measures on U: n_u(ζ_p)=intrinsicSmoothedNumerator(p,a). It requires no regularity or admissibility at u.
+2. Apply the existing unit coefficient-extension function and evaluate at the supplied native κ. The new intrinsic negative-moment comparison gives M_a.
+3. This equality holds even whenκ(u)=1. It supplies the concrete negative-weight numerator input for the already owned Coleman smoothed-value formula, while its later division step retains a separate nonvanishing hypothesis.
+
+**Prerequisites:** `DirichletPadicLFunctions:L2/pseudomeasure-natural-numerator`, `DirichletPadicLFunctions:L3/smoothed-intrinsic-negative-moment`.
+
+**Tests:**
+
+
+
+**Acceptance:** Use the exact existing numerator and pseudomeasure objects. No new localization or generic evaluation constructor is introduced.
+
+**Source:** Equation(3-11) and its independence calculation, published129–130/PDF30–31; Definitions4.5 and4.10, equation(4-3) and Proposition4.11, published137–139/PDF38–40; equation(6-2), Theorem6.7(ii) and the smoothed argument in§7, published151–158/PDF52–59. Concrete arithmetic inputs to the already owned Coleman smoothed negative-moment comparison. The actual inverse-weighted numerator and smoothing measures are reused. The coefficient-field evaluation remains conditional on an explicit compatible ring homomorphism. No unsmoothed pure-p bounded measure or analytic L-value is constructed, and retained E44–E49 remain in force.
+
+### Conditional pseudomeasure evaluation by a negative moment
+
+`DirichletPadicLFunctions:L3/pseudomeasure-negative-evaluation` — `DirichletPadic.kubotaLeopoldtPseudomeasure_evalAt_negative_moment`
+
+For the supplied compatible f and admissible u, Iwasawa.evalAt_u(ζ_p)=M_a/d_a.
+
+**Hypotheses:** p is any prime, including2. K is a complete ultrametric normed field with Algebra ℤ_p K and IsBoundedSMul ℤ_p K. Write Z=ℤ_p and U=Zˣ with native topologies. Let n≥0, χ:DirichletCharacter K(p^n), k≥1, and a,b be natural numbers prime to p. Write cχ=primePowerCharacter p n χ. Let I∈C(Z,K) be x↦algebraMap Z K(PadicInt.inv x), using the existing PMIA continuity theorem. The native inverse is the unit inverse on units and0 on nonunits. Define the shorthand M_a=twistedSmoothedMeasure p n χ a ha(I^k) and d_a=χ(a)·((a:K)⁻¹)^(k−1)−1. These are existing evaluations and field expressions, not new constructors. In character comparisons take a supplied native continuous monoid homomorphism κ:U→K with κ(u)=cχ(u)·algebraMap(↑u⁻¹)^(k−1). Write V_a(κ)=extendIntegralUnitCoefficients(intrinsicSmoothedNumerator p a ha)(κ.toContinuousMap). No family of characters is constructed. For the pseudomeasure comparisons use the existing multiplicative integral unit-measure ring M=D(U,Z), δ=diracHom, Q=FractionRing M and ζ_p=kubotaLeopoldtPseudomeasure p. Q is the total quotient ring; no domain or field structure on these rings is assumed. Give the natural parameter an explicit representative u:U with ↑u=(a:Z). Only the evalAt comparison takes f:M→+*K and the exact compatibility f(μ)=extendIntegralUnitCoefficients(μ)(κ.toContinuousMap) for every actual μ. Its M-algebra structure on K is f.toAlgebra. Require IsUnit(f(δ(u)−1)). The canonical general K-valued evaluator remains the existing PMIA L3 request; this statement supplies no such constructor. The quotient theorem requires d_a≠0 and d_b≠0. The explicit principal-unit admissibility theorem additionally assumes CharZero K and k≥2. At k=1, admissibility is χ(a)≠1; for the principal character there is no admissible parameter.
+
+**Proof:**
+
+1. Give K the M-algebra structure f.toAlgebra. The exact existing admissible-evaluation-spec gives f(δ(u)−1)·evalAt_u(ζ_p)=f(n_u(ζ_p)).
+2. The hypothesis hf and the preceding actual negative numerator comparison identify the right side with M_a. On the left, use hf, additivity and the existing unit coefficient-extension Dirac formula: f(δ(u)−1)=κ(u)−1.
+3. The explicit pointwise formula forκ, the native unit representative ↑u=a, primePowerCharacter_natCast and map_units_inv identify this factor with d_a=χ(a)(a⁻¹)^(k−1)−1.
+4. The supplied IsUnit witness makes d_a nonzero in K. Apply native eq_div_iff_mul_eq. The complete evaluation_ratio proof uses the actual supplied ring homomorphism and checks exactly this unit-qualified division.
+5. Existing independence-of-clearing-factor and the separate negative-quotient theorem agree for two admissible parameters. At k≥2 the preceding principal-unit lemma supplies a concrete field denominator; at k=1 the finite character must supply a parameter outside its kernel.
+6. The general compatible f is still an explicit input. This does not extend f to the entire total quotient ring and does not identify an analytic L_p. The existing ColemanIntegration smoothed negative-moment node owns the higher-level L-value comparison, including the corrected finite factorχω^(1−k).
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/pseudomeasure-negative-numerator`, `DirichletPadicLFunctions:L3/smoothed-negative-quotient-independent`, `DirichletPadicLFunctions:L2/prime-power-character`, `PadicMeasuresIwasawaAlgebras:L2/integral-unit-coefficient-extension`, `PadicMeasuresIwasawaAlgebras:L3/admissible-evaluation-spec`, `PadicMeasuresIwasawaAlgebras:L3/independence-of-clearing-factor`, `mathlib:RingHom.toAlgebra`, `mathlib:eq_div_iff_mul_eq`, `mathlib:map_units_inv`.
+
+**Tests:**
+
+
+
+**Acceptance:** Canonical general coefficient-field evaluation remains an open PMIA request. Its absence is stated through the actual f and hf inputs; no new placeholder carrier conceals it.
+
+**Source:** Equation(3-11) and its independence calculation, published129–130/PDF30–31; Definitions4.5 and4.10, equation(4-3) and Proposition4.11, published137–139/PDF38–40; equation(6-2), Theorem6.7(ii) and the smoothed argument in§7, published151–158/PDF52–59. Concrete arithmetic inputs to the already owned Coleman smoothed negative-moment comparison. The actual inverse-weighted numerator and smoothing measures are reused. The coefficient-field evaluation remains conditional on an explicit compatible ring homomorphism. No unsmoothed pure-p bounded measure or analytic L-value is constructed, and retained E44–E49 remain in force.
+
+**Remaining:** The actual negative smoothing numerator, cross relation, admissible quotient independence and conditional pseudomeasure specialization now provide the concrete arithmetic inputs expected by the existing Coleman owner. Canonical general K-valued character evaluation remains the open PMIA L3 request. Analytic character families and scalar Mellin/L-function comparisons remain with PMIA L0a and LAD L3. The tame logarithm/trace/complement package awaits the owned typed analytic-distribution comparisons; pure-p smoothing primitives and pole/residue comparisons must reuse the existing Coleman nodes. Full source extraction, the other recorded gaps and the remaining Eisenstein comparisons stay open. Preserve E44–E49 and all earlier corrections.
+
+### Negative moments and admissible smoothing quotients validation
+
+All 526 predecessor nodes, 479 baseline records, 16 findings, requests and sourceVersions remain whole. This checkpoint adds 6 nodes, 6 named suggested declarations and 7 typed examples. The indexed blueprint, four-file intake, whitespace, preservation, API/test parity and versioned-source checks pass. The graph has 769 reachable nodes, 3655 edges and 651 native leaves and is acyclic. Its stage request leaves are PadicMeasuresIwasawaAlgebras:L1, PadicMeasuresIwasawaAlgebras:L3, PadicMeasuresIwasawaAlgebras:L3, LocallyAnalyticDistributions:L1, AdicSpacesPartII:F1, AdicSpacesPartII:R2, PadicDifferentialEquationsAndRigidCohomology:RD.0, PadicDifferentialEquationsAndRigidCohomology:RD.4, PadicHodgeTheory:P7:annulus-foundations. The new arithmetic routes use exact existing measure and pseudomeasure declarations. The evalAt theorem is conditional on its compatible character ring map; no analytic L-value or whole total-quotient-ring map is inferred.
+
+The full suggested module elaborates with zero errors and 1625 expected placeholder warnings. Source and artifact audits cover 3600 pinned Mathlib modules, 21 pinned Tau Ceti modules and the verified actual 332-node PMIA artifact. The current 369-node PMIA source preserves the compiled 332-node artifact's source in order; no new supplier declaration is called and no compilation against the current supplier revision is claimed. Source, olean and original compiler-log hashes were rechecked. Existing builds only were used.
+
+Eleven complete native lemmas check the p-adic inverse identification and dilation, its coefficient map, the inverse-weight shift and outer scalar cancellation, actual AbstractMeasure cross evaluation, admissible quotient algebra, ring-map evaluation and the negative-weight natural-power nonvanishing and boundary denominators. The probe elaborates against 2800 pinned Mathlib modules with zero errors, warnings or placeholders. General roadmap declarations remain unchecked.
+
+Nine exact finite signed-atom models give414 moment checks,1422 cross comparisons and900 admissible quotient comparisons. They retain103 zero denominators without division, check414 nonunit-support comparisons,54 identity zeros,46 first-principal zero factors and54 negative principal-unit denominators. They detect933 wrong-scalar and899 wrong-shift cases. Exact rational signed-atom models on integer points of Z_p. For a fixed explicit atomic measure B, construct mu_a=B-a*map(x->a*x,B) independently as atom dictionaries, then sum the actual unit inverse powers with level-zero, principal or quadratic finite-character weights. These concrete models satisfy the same cross-smoothing identity; nonunit atoms are retained and their inverse tests vanish. All eligible ratios are compared, zero denominators are counted and never divided, and incorrect exponents/scalars are tested. Arithmetic-shaped models are not the source arithmetic smoothedMeasure; no actual arithmetic moment, residue formula, approximation or analytic L-value is certified by these controls. The largest observed discrepancy is 0.
+
+The62-input capture at6b11327f8f2c88a4af3c59aa83dd511190eaab59 has no predecessor input changes. Existing pinned artifacts and the verified332-node PMIA artifact are reused; no compilation of the current369-node PMIA source or Coleman/LAD modules is claimed.
