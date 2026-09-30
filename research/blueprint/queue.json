@@ -23653,12 +23653,12 @@
     "REV-RS-14"
    ],
    "prompt": "research/blueprint/prompts/BP-DirichletPadicLFunctions.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [
     "BP-LocallyAnalyticDistributions",
     "BP-PadicMeasuresIwasawaAlgebras"
    ],
-   "note": "released on GitHub issue #713"
+   "note": "claimed on GitHub issue #713"
   },
   {
    "id": "REV-DirichletPadicLFunctions",
@@ -33525,8 +33525,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-BERGSTROM-FABER-PAYNE-24.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4973"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4973",
+   "finishedAt": "2026-09-30T18:17:52Z"
   },
   {
    "id": "RT-PAPER-SMITH-24",
@@ -34946,7 +34947,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-GAO-HABEGGER-19.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4983"
   },
   {
    "id": "RT-PAPER-MOK-PILA-TSIMERMAN-19",
@@ -35054,8 +35056,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-GAMBURD-MAGEE-RONAN-19.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4984"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4984",
+   "finishedAt": "2026-09-30T18:17:56Z"
   },
   {
    "id": "RT-PAPER-TSIMERMAN-18",
