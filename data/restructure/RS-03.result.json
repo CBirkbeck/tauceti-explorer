@@ -39,9 +39,17 @@
       "action": "narrow",
       "keeps": "The additive-combinatorics-facing API and normalization/comparison theorems for arbitrary finite abelian groups; retain all original energy, convolution and Plunnecke-Ruzsa consequences as imported theorems. Prove only the generality and compatibility missing from the audited cyclic/additive baseline.",
       "suppliedBy": [
-        "UPSTREAM:Mathlib audited cyclic Fourier, additive energy and Plunnecke-Ruzsa baseline (AUDIT-06; canonical audit pins)"
+        "UPSTREAM:Mathlib audited cyclic Fourier, additive energy and Plunnecke-Ruzsa baseline (AUDIT-16; canonical audit pins)"
       ],
       "reason": "The audit is partial, not a license either to rebuild built energy theory or to call arbitrary finite-abelian Fourier theory complete."
+    },
+    "AdditiveCombinatorics:AC.2": {
+      "action": "narrow",
+      "keeps": "Szemeredi's theorem for every k >= 4 through one selected complete proof route, with its ergodic/combinatorial prerequisites owned here; quantitative k = 3 statements beyond the imported tower-type bound (cornersTheoremBound); the Varnavides count and the proved correspondence between the finite quantitative and the infinite positive-upper-density forms (the pins have no upper or Banach density); and the named arithmetic removal lemma (Kral'-Serra-Vena, arXiv:0804.4847v1, Theorem 2) with its directed fixed-graph removal input. Roth's theorem in finite abelian groups and in [n] with its o(N) form, Behrend's lower bound and van der Waerden (a monochromatic homothetic copy, via Hales-Jewett) are imported with their stated hypotheses. The ThreeAPFree convention stays explicit: in a group of exponent two a + a = b + b, so a repeated endpoint (a, b, a) with a != b witnesses failure.",
+      "suppliedBy": [
+        "UPSTREAM:Mathlib Roth, corners, Behrend and Hales-Jewett/van der Waerden theorems (AUDIT-16; pin 082e2d37e8b0463410cdb532e111cd43d5a66174)"
+      ],
+      "reason": "RT-AREA-combinatorics/3: the layer still asked to formalize Roth, which pinned Mathlib proves: roth_3ap_theorem and roth_3ap_theorem_nat (Combinatorics/Additive/Corner/Roth.lean:137, 163; already AUDIT-16 evidence), rothNumberNat_isLittleO_id (Roth.lean:196), Behrend.roth_lower_bound (Combinatorics/Additive/AP/Three/Behrend.lean:481) and Combinatorics.exists_mono_homothetic_copy (Combinatorics/HalesJewett.lean:459). Import them and keep the stronger quantitative, correspondence, k >= 4 and removal work. The partly-built AUDIT-16 verdict is unchanged."
     },
     "ClassicalArithmeticCompletion:CA.1": {
       "action": "narrow",
@@ -239,6 +247,11 @@
       "source": "AdditiveCombinatorics:AC.0",
       "target": "FiniteFieldsAndCharacterSums:FF.1",
       "reason": "Specialize the general finite-abelian Fourier comparison to additive finite fields."
+    },
+    {
+      "source": "AdditiveCombinatorics:AC.0",
+      "target": "EllipticRegulators:ER.4",
+      "reason": "RT-AREA-combinatorics/14: ER.4 specializes AC.0’s finite-abelian character/coefficient comparison interface to C-torsion and imports generic inversion and Parseval. Lecture 10 uses the averaging factor 1/C²; Lecture 11 uses the unitary factor 1/C on the C²-element group. ER.4/ER.5 retain the torsion-dual identification, odd-function identities and scale comparison. Preserve the corrected dual-first Lecture-11 kernel recorded in EllipticRegulators/E7; swap only the input coordinates f(m,n)=F(n+mτ), not the output index."
     },
     {
       "source": "ComputationalNumberTheory:CN.2",
@@ -593,7 +606,7 @@
     },
     {
       "target": "Built additive energy, Plunnecke-Ruzsa and audited cyclic Fourier results",
-      "owner": "UPSTREAM:Mathlib audited cyclic Fourier, additive energy and Plunnecke-Ruzsa baseline (AUDIT-06; canonical audit pins)",
+      "owner": "UPSTREAM:Mathlib audited cyclic Fourier, additive energy and Plunnecke-Ruzsa baseline (AUDIT-16; canonical audit pins)",
       "formerly": [
         "AdditiveCombinatorics:AC.0",
         "FiniteFieldsAndCharacterSums:FF.1"
@@ -604,7 +617,8 @@
       "owner": "AdditiveCombinatorics:AC.0",
       "formerly": [
         "AdditiveCombinatorics:AC.0",
-        "FiniteFieldsAndCharacterSums:FF.1"
+        "FiniteFieldsAndCharacterSums:FF.1",
+        "EllipticRegulators:ER.4"
       ]
     },
     {
@@ -756,11 +770,8 @@
   ],
   "review": {
     "status": "accepted",
-    "reviewer": "independent-review-REV-RS-03",
-    "date": "2026-09-23",
-    "notes": "All 52 stages of the eight members are covered (21 narrow, 1 explicit keep, 30 unchanged and so omitted, as §15 allows). All 42 evidence pairs are resolved: 25 by owner entries and 17 in the report as different contracts (AC.0/ES.1, AC.5/ES.3/ES.4, the CA.4 false blanket duplicate, DT.5/RP.5 and the others). The protected EllipticCurves anchor is used only as a supplier. With the twelve accepted restructurings applied, all links apply and none closes a cycle. One correction: the proposal relied on the narrowed layers re-exporting their imports and gave consumers no direct links from the new suppliers, which §15 requires. The 42 missing links between atlas stages were added. 23 forwarding pairs whose supplier is an UPSTREAM audited Mathlib baseline were not added, since restructure.py does not draw them and the narrowed layers already name those contracts in suppliedBy. One pair targets AnalyticNumberTheory:AN.1, which the accepted RS-07 drops. See REV-RS-03.md.",
-    "corrections": [
-      "links: added 42 §15 forwarding links from the suppliers of the narrowed CA.1, CA.5, CN.0, CN.1, FF.1, FF.3, ED.0, ED.1, ED.2, ED.3, RP.0, RP.1 and RP.3 to those layers' atlas consumers (listed in REV-RS-03.md). None closes a cycle, and none contradicts an edge the report explicitly excludes (CN.4 -> ED.0, DT/ED -> CA.4, CN.3 -> ED.3)."
-    ]
+    "reviewer": "independent-review-REV-FIX-RT-AREA-combinatorics",
+    "date": "2026-09-30",
+    "notes": "Follows REV-RS-03 (accepted 2026-09-23), whose count is now 22 narrow and 1 explicit keep. Reviews the three RS-03 edits of FIX-RT-AREA-combinatorics (a2194142, PR #4635) against the verdicts in RT-AREA-combinatorics.review.json; no correction was needed. /3: the new AC.2 narrowing imports roth_3ap_theorem and roth_3ap_theorem_nat (Corner/Roth.lean:137, 163), rothNumberNat_isLittleO_id (:196), Behrend.roth_lower_bound (AP/Three/Behrend.lean:481) and Combinatorics.exists_mono_homothetic_copy (HalesJewett.lean:459), all at those lines at Mathlib 082e2d3; it keeps k >= 4, stronger k = 3 bounds, Varnavides and the density correspondence (no upper or Banach density at the pins) and Kral'-Serra-Vena Theorem 2 (arXiv:0804.4847v1, checked against the PDF, SHA-256 dea848ae...dba1b); the ThreeAPFree remark is right (ThreeGPFree, Defs.lean:72); AUDIT-16's partly-built verdict is left unchanged, as the verifier required. /14: the link AC.0 -> EllipticRegulators:ER.4 and ER.4 in the Fourier owner's formerly; no coding prerequisite is added. /16: both supplier strings read AUDIT-16, whose job lists AdditiveCombinatorics; AUDIT-06 does not. check_restructure: ok. apply_restructurings with all 31 promoted proposals, this file in place of the promoted copy: one new edge (AC.0 -> ER.4), AC.2 narrowed, no skipped stage-to-stage link, no cycle. The round-2 rewording of the AC.0 -> ER.4 reason (e3064573, PR #5210) is for REV-FIX-RT-AREA-combinatorics~2. See REV-FIX-RT-AREA-combinatorics.md."
   }
 }
