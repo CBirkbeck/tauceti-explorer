@@ -41610,7 +41610,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-KOYMANS-PAGANO.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #5026"
   },
   {
    "id": "REV-FIX-RT-PAPER-KOYMANS-PAGANO",
@@ -42366,8 +42367,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-SCHOLZE-12.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5029"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #5029",
+   "finishedAt": "2026-09-30T16:56:39Z"
   },
   {
    "id": "RT-PAPER-KEDLAYA-LIU-15",
@@ -51201,8 +51203,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-AREA-algebraicgeometry.md",
-   "state": "pending",
-   "note": "released on GitHub issue #3974"
+   "state": "external",
+   "note": "claimed on GitHub issue #3974"
   },
   {
    "id": "REV-FIX-RT-AREA-algebraicgeometry",
