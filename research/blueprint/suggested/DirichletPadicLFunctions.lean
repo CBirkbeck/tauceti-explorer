@@ -11853,3 +11853,13 @@ example : (1-(-1 : ℚ)*2^2)*(-1/9)=-5/9 := sorry
 end Algebra
 end
 end SuggestedFullTameComparisonTests
+
+/-! L1 coverage boundary.
+The existing kubotaLeopoldtPseudomeasure_eq_fraction states independence for
+regular smoothing parameters in the actual unit-measure total quotient.
+kubotaLeopoldtPseudomeasure_interpolation has its common scalar in ℚ, and
+includes every positive degree; degree one uses the zero Euler factor.
+kubotaLeopoldtPseudomeasure_even is sign invariance, not yet a comparison with
+the completed algebra of the quotient by ±1. The current L1 coverage retains
+that quotient comparison and its denominator-qualified congruence work.
+No declaration or proof has changed in this coverage clarification. -/
