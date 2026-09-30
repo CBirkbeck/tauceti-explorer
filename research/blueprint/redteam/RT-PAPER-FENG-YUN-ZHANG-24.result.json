@@ -1,0 +1,37 @@
+{
+ "redteam": "RT-PAPER-FENG-YUN-ZHANG-24",
+ "protocol": "redteam-v1",
+ "status": "complete",
+ "target": "PAPER-FENG-YUN-ZHANG-24",
+ "summary": "PAPER-FENG-YUN-ZHANG-24 extracts Feng–Yun–Zhang, Higher Siegel–Weil formula for unitary groups: the non-singular terms (Invent. Math. 235 (2024) 569–668). It has 34 items (5 planned, 29 missing), three routes and 28 source issues, after a thorough review. Its Part II coalesces consistently with the two Yun–Zhang extractions under one id and title. Routes 2–3 and the other planned statuses stand, and no other extraction owns the shtuka special cycles or the Hermitian Springer theory. One finding, low. Item 31 cites R34.1 and EDC.8 for the Grothendieck–Lefschetz trace formula and the sheaf-to-function dictionary. RS-17, accepted nine hours before the review, narrowed R34.1 to Frobenius and sheaf normalization adapters. EDC.8 defers ordinary Frobenius point counting to the existing Tau Ceti work CohomologicalPointCounting/TraceFormula (PR 196), which other stages import. So the trace-formula half of the item should name that owner.",
+ "checked": [
+  "Independence: the extraction is by Claude Code cc-fb70e5 (issue #1230) and its review by Claude Code cc-442dc5. This worker (Claude Code, cc-c2c06b) did neither, nor the Yun–Zhang extractions that share its Part II.",
+  "Read the three routes, their reasons and briefs, and the statuses of all 34 items in the repository at 113e7bcb. All ten cited stage ids exist in the assembled atlas (2840 stages, 8007 edges). Only R34.1 has been restructured (RS-17 narrow, finding 1). GS.0–GS.2, EDC.5, EDC.7, EDC.8, SF.5, GN.3 and FA.6 are unchanged, so items 14, 15, 30 and 32 and routes 2–3 stand.",
+  "Route 1: its title reproduces the parent's current title 'Global shtukas and Langlands over function fields'. The same id, ShtukaSpecialCyclesAndHigherSiegelWeil, is also used by PAPER-YUN-ZHANG-17 route 1 and PAPER-YUN-ZHANG-19 route 7, with the identical title, so the three coalesce into one Part II. The parent's other Part IIs (FENG-24's Tate cohomology, ABE-18 and DADDEZIO-23's crystalline companions, CIUBOTARU-HARRIS and GAN-HARRIS-SAWIN et al.'s Ramanujan–Arthur, KLEVDAL-PATRIKIS, YU-23) cover different topics.",
+  "Duplication across extractions: searched every papers/*.result.json for Hitchin or Hermitian shtukas, Springer sheaves, special cycles, Kudla–Rapoport, Siegel–Weil, Sht^r and Heegner–Drinfeld. The unitary Kudla–Rapoport and arithmetic Siegel–Weil items of HE-LI-SHI-ETAL-23, LI-LIU-21/22 and LI-ZHANG-22-B go to UnitaryKudlaRapoportCycles, UnitaryArithmeticInnerProductFormula and GSpinSpecialDivisorHeights. Those are number-field Shimura-variety settings, distinct from this function-field shtuka setting. The Siegel–Eisenstein and Weil-representation items elsewhere (Eischen–Harris–Li–Skinner, Disegni–Liu, Li–Zhang) go to AL/MP layers over number fields, while this extraction sends its function-field Eisenstein series to FA.6. No second owner of the shtuka cycles or of the Hermitian Springer theory was found.",
+  "Library: the extraction has no library items, and the review found none. I did not search further.",
+  "Source issues: did not re-verify E1–E28. The review checked them with brute-force and character computations; E22 (Lemma 10.5) is the substantive one and does not affect Theorem 1.1."
+ ],
+ "findings": [
+  {
+   "id": "RT-PAPER-FENG-YUN-ZHANG-24/1",
+   "kind": "library-claim",
+   "severity": "low",
+   "where": "research/blueprint/papers/PAPER-FENG-YUN-ZHANG-24.result.json: item PAPER-FENG-YUN-ZHANG-24/31 (planned ['EtaleDualityAndPerverseSheaves:EDC.8', 'WeightsInEtaleCohomology:R34.1'])",
+   "claim": "Item 31 bundles two inputs and cites two planners. The first is cohomological correspondences with their composition and trace, which EDC.8 does plan. The second is the Grothendieck–Lefschetz trace formula computing Frobenius traces of direct images, with the sheaf-to-function dictionary. Neither cited stage plans that. The accepted RS-17 narrowed R34.1 to 'Arithmetic/geometric Frobenius, dual/Tate/embedding normalization and representation-to-sheaf adapters using the imported definitions', which does not include the trace formula. RS-17 was accepted at 13:13 UTC on 23 September, nine hours before this extraction's review (22:22 UTC), whose status section still reads 'EDC.8 and R34.1 for correspondences and traces'. EDC.8 itself says 'Ordinary Frobenius point counting is still PR196 TraceFormula's theorem'. The atlas consistently treats the Grothendieck–Lefschetz trace formula as belonging to the existing Tau Ceti work CohomologicalPointCounting/TraceFormula (PR 196): EDC.8, R34.2 ('PR196 TraceFormula Layer 8'), WC.0 and WC.1 import from it, and it is external to the atlas graph. So item 31's plan for the trace formula points at a layer that no longer builds it, instead of at the existing work.",
+   "evidence": "Item 31 statement: 'Cohomological correspondences c_2^*K → c_1^!K with their composition and trace, and the Grothendieck–Lefschetz trace formula computing Frobenius traces of direct images; the sheaf-to-function dictionary used to pass between perverse sheaves on Herm_{2d}(X′/X) and functions on its k-points.' RS-17.result.json layers['WeightsInEtaleCohomology:R34.1']: {'action': 'narrow', 'keeps': 'Arithmetic/geometric Frobenius, dual/Tate/embedding normalization and representation-to-sheaf adapters using the imported definitions …', 'suppliedBy': ['DeligneWeightsAndPurity:DWP.0', 'DeligneWeightsAndPurity:DWP.5', 'DeligneWeightsAndPurity:DWP.8']}. REV-RS-17 committed 2026-09-23 13:13 UTC; REV-PAPER-FENG-YUN-ZHANG-24 committed 22:22 UTC. EDC.8 stage text: 'Construct cohomological correspondences c₂* K→c₁^!K, their composition … and the trace class on the fixed-point scheme … Ordinary Frobenius point counting is still PR196 TraceFormula's theorem'. R34.2: '… PR196 TraceFormula Layer 8's fixed-point/Tate-module trace'. WC.0: 'Map the private repository's … packets onto the saved PR196 owners'. data/atlas.json external lists 'upstream/ExistingPRs/TauCetiRoadmap/CohomologicalPointCounting/TraceFormula/README.md'. A search of every stage description and narrowed 'keeps' for the Grothendieck–Lefschetz or Lefschetz trace formula finds no layer that constructs it; DWP.2's node only uses it.",
+   "fix": "Split item 31, or rewrite its planned list and note. Keep EDC.8 for cohomological correspondences, their composition and the trace class. Name the existing Tau Ceti work CohomologicalPointCounting/TraceFormula (PR 196), as EDC.8 and R34.2 do, for the Grothendieck–Lefschetz trace formula and point counting. Cite R34.1 only for the Frobenius and sheaf normalization adapters it keeps after RS-17. If the maintainer prefers atlas stage ids only, record the dependency on PR196 in the note, and keep the status planned only for the EDC.8 part. Correct the status section of REV-PAPER-FENG-YUN-ZHANG-24.md. Re-run check_paper.py."
+  }
+ ],
+ "provenance": {
+  "agent": "Claude Code",
+  "session": "cc-c2c06b",
+  "issue": 4142,
+  "date": "2026-09-30",
+  "inputRevision": "113e7bcbe1303cc62d37f18c3598d0cba71d3433",
+  "baseline": {
+   "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+   "tauceti": "f790474821cf4256814db967cb154e7af3d0c369"
+  }
+ }
+}

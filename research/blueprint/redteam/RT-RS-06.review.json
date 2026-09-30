@@ -1,0 +1,10 @@
+{
+  "redteam": "RT-RS-06",
+  "findings": [
+    {
+      "finding": "RT-RS-06/1",
+      "verdict": "confirmed",
+      "reason": "Confirmed at base d600cfd3ce5b857c7a216966c678686f274dcfa8. The complete retained ClassicalSerreModularity:R27.1/dickson-and-the-dyadic-solvable-refinement node includes Dickson/KW 6.1 classification, KW 6.2(i) dihedral modularity at its Serre weight/level, and KW 6.2(ii) weight restrictions. Independently retrieved KW I pp. 10-11 and DP arXiv:2108.07577v2 pp. 8-9, with page-image checks and matching source hashes: these are distinct constructions. RS-06.md:347 names only R01.4 classification, and :478 routes the weight-proof gap only there. The general preservation rule at :312 retains statements but does not name this node’s missing component destinations. R01.4 owns images; R17.5/R17.6 own soluble modularity, R15.4 owns the local recipe, and R20 owns scoped weight/level refinement including Wiese. Confirm the medium component-migration fix: retain the stable alias and all hypotheses/source records; name these modularity routes and the applicable R20 refinement separately; name the KW 6.2(ii)/DP 1.14 application after R01.4 and R15.4; update gaps[4]. Keep odd-characteristic/normalized-weight conditions and unread Ribet source gap. Do not add completed modularity as an early R01.4 prerequisite or use R27.4’s late dyadic completion as an early R20.5 premise. This is not an assertion that the current graph cycles or the source theorem is false."
+    }
+  ]
+}
