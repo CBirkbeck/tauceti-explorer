@@ -54,6 +54,16 @@ Compiled with `lean` against the pinned commits; the only warnings are uses of s
 from a project pinned to `082e2d3`, and the Tau Ceti modules imported below were compiled from the
 `f790474` sources and placed first on `LEAN_PATH`.
 
+Revision for FIX-RT-AREA-ktheory-1 (30 September 2026): findings 8, 9, 12, 26, 27, 28 and 32 of
+RT-AREA-ktheory-1. The compiled declarations above were kept, with three exceptions: the block of
+`K2SymbolsBrauer:T.5/certified-presentation` (the structure `OrderCertificate` and its tests) was
+removed with that node, whose content now belongs to ArithmeticKTheory N.6; the theorem that
+states the relative S-integer sequence was renamed `relative_s_integer_sequence`; and docstrings
+were brought in line with the packet. Every declaration this revision adds is a commented
+signature, and **this revision was not compiled**. Stage placement after finding 28:
+`T.3:symbols` (tame symbol and Milnor residues) → `T.4` (Milnor norms, Kato, reciprocity) →
+`T.3:localization-comparison` (comparison with Quillen K-theory) → `T.5`.
+
 ## Pinned conventions
 
 * **The tame symbol** is the roadmap's
@@ -587,7 +597,14 @@ example {k : Type u} [Field k] (b : k) (a : kˣ) :
 
 end TauCeti.TameSymbol
 
-/-! ## `K2SymbolsBrauer:T.3:localization-comparison` — Serre's algebra, higher residues
+/-! ## Milnor residues — nodes parented in `K2SymbolsBrauer:T.3:symbols`
+
+Serre's algebra, the higher residues and specialisations, their product formula, the change of
+uniformiser, the kernel of Serre's map, finite support and rigidity realise
+`T.3:localization-comparison`'s text but are parented in `T.3:symbols`, so that `T.4` can use them
+while `T.3:localization-comparison` follows `T.4` (RT-AREA-ktheory-1/28). The ramification formula
+`higher_ramification_formula` is parented in `T.4`. The comparison with Quillen K-theory is the
+section after `T.4` below.
 
 Convention (pinned): `d_t(x) = λ_t(x) + ∂_v(x)·Π` with **Π on the right**, so
 `∂_v{u₁, …, u_{n-1}, π} = {ū₁, …, ū_{n-1}}`, degree two is the roadmap's tame symbol, and
@@ -933,8 +950,9 @@ theorem specialisation_change_of_uniformiser (c : v.valuationSubring.unitGroup)
           milnorK.mul (milnorResidue v hv n x) (milnorK.symbol ![res v c]) := by
   sorry
 
-/-- `K2SymbolsBrauer:T.3/higher-ramification-formula` (Ex. III.7.8): for `w` over `v` with
-ramification index `e`, `∂_w(res_{E/F} x) = e · res_{k_w/k_v}(∂_v x)`. -/
+/-- `K2SymbolsBrauer:T.3/higher-ramification-formula` (Ex. III.7.8; parented in `T.4`, one of the
+elementary identities before Kato's theorem): for `w` over `v` with ramification index `e`,
+`∂_w(res_{E/F} x) = e · res_{k_w/k_v}(∂_v x)`. -/
 theorem higher_ramification_formula {E : Type v} [Field E] [Algebra F E] [FiniteDimensional F E]
     (w : Valuation E ℤᵐ⁰) (hw : Function.Surjective w) (e : ℕ) (he : 0 < e)
     (hvw : ∀ r : F, w.ord (algebraMap F E r) = e * v.ord r) {n : ℕ} (x : milnorK F (n + 1)) :
@@ -984,7 +1002,8 @@ theorem finite_support_tameSymbol {I : Type v} (v : I → Valuation F ℤᵐ⁰)
 `∂ : K₂(F) → K₁(k)` of the localisation sequence of a DVR with its `K_*(R)`-module structure
 (supplier: GeneralAlgebraicKTheory:K.3 and GeneralAlgebraicKTheory:K.7). The comparison it
 records: with the K-book's right-linear normalisation `∂{f, g} = tameSymbol v g f`
-(the inverse of this roadmap's), with the left-linear one `∂{f, g} = tameSymbol v f g`. -/
+(the inverse of this roadmap's), with the left-linear one `∂{f, g} = tameSymbol v f g`. The other
+nodes of `T.3:localization-comparison` are in the section after `T.4`. -/
 
 /-! ### Unit tests for the higher residues -/
 
@@ -1628,8 +1647,11 @@ theorem projective_line_reciprocity_tameSymbol {F : Type u} [Field F] (f g : (Ra
       1 := by
   sorry
 
-/-- `K2SymbolsBrauer:T.4/weil-reciprocity`: for a function field `K/F` of one variable and
-`x ∈ K^M_{n+1}(K)`, `∂_P x = 0` at almost every place and `Σ_P N_{k(P)/F} ∂_P(x) = 0`. -/
+/-- `K2SymbolsBrauer:T.4/weil-reciprocity`, Suslin's reciprocity law: for any field `F` (perfect
+or not), a function field `K/F` of one variable and `x ∈ K^M_{n+1}(K)`, `∂_P x = 0` at almost every
+place and `Σ_P N_{k(P)/F} ∂_P(x) = 0`. The places are the closed points of the regular proper model
+(the normalisation, not necessarily smooth), `k(P)/F` may be inseparable, and `milnorNorm` is
+Kato's norm. MotivicEtaleKTheory M.4 imports it. -/
 theorem weil_reciprocity {F : Type u} {K : Type v} [Field F] [Field K] [Algebra F K]
     (hK : IsFunctionField F K) (n : ℕ) (x : milnorK K (n + 1)) :
     {P : Place F K | placeResidue P n x ≠ 0}.Finite ∧
@@ -1644,8 +1666,10 @@ theorem weil_reciprocity_symbol_form {F : Type u} {K : Type v} [Field F] [Field 
       ∏ᶠ P : Place F K, Units.map (Algebra.norm F : P.ResidueField →* F) (placeTame P f g) = 1 := by
   sorry
 
-/-- `K2SymbolsBrauer:T.4/weil-reciprocity-symbol-form`, disjoint supports: `f(div g) = g(div f)`
-for Tau Ceti's evaluation of a function on a divisor. -/
+/-- `K2SymbolsBrauer:T.4/disjoint-support-reciprocity`: for disjoint supports, `f(div g) = g(div f)`
+for Tau Ceti's evaluation of a function on a divisor (local factors the residue-field norms), from
+the symbol form: `∂_P{f, g} = f(P)^{ord_P g}` on the support of `div g` and `g(P)^{-ord_P f}` on the
+support of `div f`. -/
 theorem weil_reciprocity_symbol_form_eval {F : Type u} {K : Type v} [Field F] [Field K]
     [Algebra F K] (hK : IsFunctionField F K) (f g : Kˣ)
     (hfg : Disjoint (Divisor.principal hK f).support (Divisor.principal hK g).support) :
@@ -1655,8 +1679,46 @@ theorem weil_reciprocity_symbol_form_eval {F : Type u} {K : Type v} [Field F] [F
 /- `K2SymbolsBrauer:T.4/weil-reciprocity-symbol-form`, the product over the closed points `X^{(1)}`
 of a proper regular curve: not stated here; needs the closed-point/place dictionary with
 `Scheme.ord` and `κ(x) ≃ₐ[F] k(P_x)` (supplier: AlgebraicCurves Layer 12, 12A–12B).
-`K2SymbolsBrauer:T.4/valuation-comparison`: not stated here; needs the same dictionary
-(supplier: AlgebraicCurves Layer 12, 12A–12B). -/
+`K2SymbolsBrauer:T.4/valuation-comparison`: not stated here; needs the same dictionary, with
+Weil divisors on the regular model identified with `Divisor F K` (supplier: AlgebraicCurves Layer 12,
+12A, 12B and 12D; imported, not re-proved; regular, not smooth).
+`K2SymbolsBrauer:T.4/disjoint-support-reciprocity`, the elliptic instance (EllipticCurves Layer 2's
+milestone `f(div g) = g(div f)`): not compiled; suggested form, with the import
+`TauCeti.AlgebraicGeometry.EllipticCurve.Affine.FunctionField.Finrank`, for `W` elliptic over `F`:
+  example (W : WeierstrassCurve.Affine F) [W.IsElliptic] (f g : W.FunctionFieldˣ)
+      (hfg : Disjoint (Divisor.principal W.isFunctionField f).support
+        (Divisor.principal W.isFunctionField g).support) :
+      Divisor.eval (Divisor.principal W.isFunctionField g) f =
+        Divisor.eval (Divisor.principal W.isFunctionField f) g :=
+    weil_reciprocity_symbol_form_eval W.isFunctionField f g hfg
+(the universe of `W.FunctionField` has to match the statement's `K`). Its test value: on
+`y² = x³ - x` over `ℚ`, `f = x/(x - 2)` and `g = (x - 3)/(x - 5)` give `81/25` on both sides. -/
+
+/-! ## `K2SymbolsBrauer:T.3:localization-comparison` — the comparison with Quillen K-theory
+
+After RT-AREA-ktheory-1/28 this sub-stage follows `T.4`. It imports Milnor norms from `T.4` and
+K-theory transfers from GeneralAlgebraicKTheory K.3; it constructs no transfer. Its nodes need
+Quillen's localisation sequence and transfers, which neither pinned library has, so they are
+recorded here as comments (the discrete-valuation-ring comparison
+`K2SymbolsBrauer:T.3/localization-boundary` is the comment after `finite_support_tameSymbol`).
+
+`K2SymbolsBrauer:T.3/dedekind-localization-boundary` (K-book III.6.5, V.6.6): not stated here; needs
+the localisation sequence of a Dedekind domain `R` with fraction field `F`,
+`⊕_𝔭 K₂(R/𝔭) → K₂(R) → K₂(F) → ⊕_𝔭 K₁(R/𝔭) → K₁(R) → K₁(F)` (supplier: GeneralAlgebraicKTheory:K.3,
+its localisation, dévissage, resolution and transfer nodes). Suggested content: the `𝔭`-component of
+the boundary on `steinbergSymbol f g` is `tameSymbol (𝔭.valuation F) _ g f` (the K-book's
+right-linear normalisation), the cokernel of the boundary is `ker (K₁(R) → K₁(F))`.
+
+`K2SymbolsBrauer:T.3/quillen-transfer-norm-residue` (K-book V.(6.6.3)–(6.6.4)): not stated here;
+needs Quillen's transfers along a finite extension `R ⊆ R'` of Dedekind domains (supplier:
+GeneralAlgebraicKTheory:K.3/transfer-maps-and-projection-formula). Suggested content: the boundary
+of `N_{F'/F} x` at `𝔭` is `∑_{𝔭' | 𝔭} N_{k(𝔭')/k(𝔭)}` of the boundaries at the `𝔭'` (no
+ramification index), and restriction followed by transfer is multiplication by `[E : F]`.
+
+`K2SymbolsBrauer:T.3/milnor-quillen-transfer-comparison`: not stated here; needs Quillen's transfer
+on `K₂` (same supplier). Suggested content: `matsumotoEquiv F ∘ milnorNorm F E 2 =
+quillenTransfer ∘ matsumotoEquiv E`; proved for `[E : F] = 2` by Corollary III.6.1.5, a gap in
+general. -/
 
 end TauCeti.TameSymbol
 
@@ -1803,8 +1865,10 @@ example (v : HeightOneSpectrum ℤ) (p : ℕ) [Fact p.Prime] (hv : v.asIdeal = I
     v.valuation ℚ = Rat.padicValuation p ∧ Nonempty (ℤ ⧸ v.asIdeal ≃+* ZMod p) := by
   sorry
 
-/-- `K2SymbolsBrauer:T.5/tame-kernel-sequence` (imported from ArithmeticKTheory N.2's localisation
-sequence, with KTheoryLowDegrees U.4 for `SK₁(O_F) = 0`): for a number field,
+/-- `K2SymbolsBrauer:T.5/tame-kernel-sequence` (the case `S = ∅` of the S-integer sequence,
+derived through the Dedekind localisation sequence of `T.3/dedekind-localization-boundary`, with
+`K₂(𝔽_q) = 0` for injectivity and KTheoryLowDegrees U.4's `SK₁(O_F) = 0` for surjectivity; not
+imported from ArithmeticKTheory N.2, which imports it): for a number field,
 `0 → K₂(O_F) → K₂(F) → ⊕_𝔭 k(𝔭)ˣ → 0` is exact. -/
 theorem tame_kernel_sequence (F : Type u) [Field F] [NumberField F] :
     Function.Injective (K2.map (algebraMap (𝓞 F) F)) ∧
@@ -1815,10 +1879,11 @@ theorem tame_kernel_sequence (F : Type u) [Field F] [NumberField F] :
         (tameSymbolHomK2 (p.valuation F) (p.valuation_surjective F) x) = y p := by
   sorry
 
-/-- `K2SymbolsBrauer:T.5/s-integer-tame-kernel-sequence`: for a finite set `S` of finite places,
-`0 → K₂(O_F) → K₂(O_{F,S}) → ⊕_{𝔭 ∈ S} k(𝔭)ˣ → 0` is exact, and the image of `K₂(O_{F,S})` in
-`K₂(F)` is the subgroup unramified outside `S`. -/
-theorem s_integer_tame_kernel_sequence (F : Type u) [Field F] [NumberField F]
+/-- `K2SymbolsBrauer:T.5/relative-s-integer-sequence`: for a finite set `S` of finite places,
+`0 → K₂(O_F) → K₂(O_{F,S}) → ⊕_{𝔭 ∈ S} k(𝔭)ˣ → 0` is exact — the residues are at the primes **in**
+`S` — together with the image clause of `K2SymbolsBrauer:T.5/s-integer-tame-kernel-sequence`: the
+image of `K₂(O_{F,S})` in `K₂(F)` is the subgroup unramified outside `S`. -/
+theorem relative_s_integer_sequence (F : Type u) [Field F] [NumberField F]
     (S : Set (HeightOneSpectrum (𝓞 F))) (hS : S.Finite) :
     Function.Injective (K2.map (algebraMap (𝓞 F) (S.integer F))) ∧
     (K2.map (algebraMap (S.integer F) F)).range =
@@ -1831,100 +1896,23 @@ theorem s_integer_tame_kernel_sequence (F : Type u) [Field F] [NumberField F]
         (K2.map (algebraMap (S.integer F) F) x) = y p := by
   sorry
 
-/-! ### `K2SymbolsBrauer:T.5/certified-presentation` -/
+/- `K2SymbolsBrauer:T.5/s-integer-tame-kernel-sequence`, the remaining clauses: not compiled;
+suggested form (the residues are at the primes **outside** `S`, read through
+`IsDedekindDomain.integerHeightOneSpectrumEquiv`):
+  theorem s_integer_tame_kernel_sequence (F : Type u) [Field F] [NumberField F]
+      (S : Set (HeightOneSpectrum (𝓞 F))) (hS : S.Finite) :
+      Function.Injective (K2.map (algebraMap (S.integer F) F)) ∧
+      ∀ y : ∀ p : {p : HeightOneSpectrum (𝓞 F) // p ∉ S}, (ResidueField (p.1.valuation F))ˣ,
+        (Function.mulSupport y).Finite → ∃ x : K2 (S.integer F), ∀ p,
+          tameSymbolHomK2 (p.1.valuation F) (p.1.valuation_surjective F)
+            (K2.map (algebraMap (S.integer F) F) x) = y p
+(the surjectivity uses KTheoryLowDegrees U.4's `SK₁(O_{F,S}) = 0`).
 
-/-- **An order certificate** for an abelian group `A`, on Mathlib's presentations: finitely many
-generators and relations, a spanning solution (the upper bound), and a surjection onto a finite
-group of the presented order (the lower bound). An upper bound with a surjective presentation is
-never reported as an isomorphism without the lower bound. -/
-structure OrderCertificate (A : Type v) [AddCommGroup A] where
-  /-- The relations (over `ℤ`). -/
-  rel : Module.Relations.{0, 0} ℤ
-  finite_G : Finite rel.G
-  finite_R : Finite rel.R
-  /-- The solution: the images of the generators. -/
-  sol : rel.Solution A
-  span_eq_top : Submodule.span ℤ (Set.range sol.var) = ⊤
-  /-- The lower-bound group. -/
-  B : Type v
-  [addCommGroupB : AddCommGroup B]
-  finite_B : Finite B
-  /-- The lower-bound map. -/
-  φ : A →+ B
-  surjective_φ : Function.Surjective φ
-  finite_quotient : Finite rel.Quotient
-  /-- The matching bound. -/
-  card_quotient_eq : Nat.card B = Nat.card rel.Quotient
+`K2SymbolsBrauer:T.5/certified-presentation` was deleted with RT-AREA-ktheory-1/9: the order
+certificate (`OrderCertificate` on `Module.Relations` and `Module.Presentation`, with its API and
+tests) is ArithmeticKTheory N.6's certificate engine, and its block was removed from this file. -/
 
-attribute [instance] OrderCertificate.addCommGroupB
 
-namespace OrderCertificate
-
-variable {A : Type v} [AddCommGroup A] (c : OrderCertificate A)
-
-/-- The upper bound: `fromQuotient` is onto, so `Nat.card A ≤ Nat.card rel.Quotient`. -/
-theorem fromQuotient_surjective : Function.Surjective c.sol.fromQuotient := by
-  sorry
-
-/-- Soundness: the solution is a presentation. -/
-theorem isPresentation : c.sol.IsPresentation := by
-  sorry
-
-/-- The Mathlib presentation (a real definition). -/
-def toPresentation : Module.Presentation.{0, 0} ℤ A :=
-  Module.Presentation.ofIsPresentation c.isPresentation
-
-/-- `Nat.card A = Nat.card B = Nat.card rel.Quotient`. -/
-@[simp]
-theorem card_eq : Nat.card A = Nat.card c.B ∧ Nat.card c.B = Nat.card c.rel.Quotient := by
-  sorry
-
-/-- `rel.Quotient ≃ₗ[ℤ] A` (a real definition). -/
-def linearEquiv : c.rel.Quotient ≃ₗ[ℤ] A := c.isPresentation.linearEquiv
-
-/-- A complete kernel argument gives a certificate with `B = A`. -/
-def ofIsPresentation {rel : Module.Relations.{0, 0} ℤ}
-    [Finite rel.G] [Finite rel.R] [Finite rel.Quotient] {sol : rel.Solution A}
-    (h : sol.IsPresentation) : OrderCertificate A where
-  rel := rel
-  finite_G := inferInstance
-  finite_R := inferInstance
-  sol := sol
-  span_eq_top := by sorry
-  B := A
-  finite_B := by sorry
-  φ := AddMonoidHom.id A
-  surjective_φ := Function.surjective_id
-  finite_quotient := inferInstance
-  card_quotient_eq := by sorry
-
-end OrderCertificate
-
-/- The packet's structure field `card_eq` is named `card_quotient_eq` here, because the packet
-also asks for the lemma `OrderCertificate.card_eq` with a different statement. -/
-
--- test orderCertificate_trivial (degenerate)
-example {A : Type} [AddCommGroup A] (c : OrderCertificate A) (hG : IsEmpty c.rel.G) :
-    Subsingleton A := by
-  sorry
-
--- test upper_bound_not_iso (non-example)
-/- One generator with `4g = 0` sent to the generator of `ℤ/2`: it spans and solves the relation,
-but `ℤ/4 → ℤ/2` is not injective and no surjection from `ℤ/2` hits a group of order `4`. -/
-example :
-    Nat.card (⟨Unit, Unit, fun _ => Finsupp.single () 4⟩ : Module.Relations.{0, 0} ℤ).Quotient =
-      4 ∧
-    ∀ (B : Type) [AddCommGroup B] (φ : ZMod 2 →+ B), Function.Surjective φ → Nat.card B ≠ 4 := by
-  sorry
-
--- test orderCertificate_isPresentation (characterisation)
-example {A : Type v} [AddCommGroup A] (c : OrderCertificate A) : c.sol.IsPresentation := by
-  sorry
-
--- test orderCertificate_toPresentation (compatibility)
-example {A : Type v} [AddCommGroup A] (c : OrderCertificate A) :
-    c.toPresentation.toRelations = c.rel ∧ c.toPresentation.toSolution = c.sol := by
-  sorry
 
 /-! ### `K2SymbolsBrauer:T.5/real-sign-symbol` -/
 
@@ -2003,12 +1991,9 @@ theorem k2_of_the_integers :
       Function.Bijective (signSymbolAt (Int.castRingHom ℝ)) := by
   sorry
 
--- test orderCertificate_k2_int (computation)
-/- One generator `{-1, -1}`, one relation `2g = 0`, the span from Milnor's bound, the lower bound
-the real sign symbol onto `ℤˣ`: `K₂(ℤ) ≃ ℤ/2`. -/
-example : ∃ c : OrderCertificate (Additive (K2 ℤ)), Nat.card c.B = 2 ∧
-    ∀ g, c.sol.var g = Additive.ofMul (steinbergSymbol (-1 : ℤˣ) (-1) (Commute.all _ _)) := by
-  sorry
+/- The certificate for `K₂(ℤ)` (one generator `{-1, -1}`, one relation `2g = 0`, span from
+Milnor's bound, lower bound the real sign symbol) is stated in ArithmeticKTheory N.6's format by
+N.6/N.8, which import `k2_of_the_integers`. -/
 
 /-- `K2SymbolsBrauer:T.5/k2-of-the-rationals` (Application III.6.5.1): the residue sum gives the
 split exact sequence `1 → K₂(ℤ) → K₂(ℚ) → ⊕_p 𝔽_pˣ → 1`, split by the real sign symbol; in
@@ -2791,10 +2776,13 @@ example {F : Type u} [Field F] (hm : IsUnit ((3 : ℕ) : F)) {ζ : F} (hζ : IsP
 /-! ### `K2SymbolsBrauer:T.7/global-reciprocity` -/
 
 open IsDedekindDomain NumberField in
-/-- `K2SymbolsBrauer:T.7/global-reciprocity`: for a number field with `μ_m ⊆ F` and `a, b ∈ Fˣ`,
-the local symbols `(a, b)_v` (the norm residue symbol of `F_v` at the finite places, the sign
-symbol at the real places, `1` at the complex ones) are `1` for almost all `v`, and
-`∏_v (a, b)_v = 1`. The finite-place values are read in `μ_m(F)` (each lies in its image). -/
+/-- `K2SymbolsBrauer:T.7/global-reciprocity`, the symbol form of the adapter: for a number field
+with `μ_m ⊆ F` and `a, b ∈ Fˣ`, the local symbols `(a, b)_v` (the norm residue symbol of `F_v` at
+the finite places, the sign symbol at the real places, `1` at the complex ones) are `1` for almost
+all `v`, and `∏_v (a, b)_v = 1`. The finite-place values are read in `μ_m(F)` (each lies in its
+image). The law itself is imported from ClassicalArithmeticCompletion CA.1 (ClassFieldTheory Layer
+14 for `m = 2`); the node proves its statement on `K₂(F)` and its compatibility with ClassFieldTheory
+Layer 10's `sumLocalInv_eq_zero` for `brauerSymbol`. -/
 theorem global_reciprocity (F : Type u) [Field F] [NumberField F] (m : ℕ) [NeZero m]
     [HasEnoughRootsOfUnity F m]
     [∀ v : HeightOneSpectrum (𝓞 F), HasEnoughRootsOfUnity (v.adicCompletion F) m]
@@ -2814,13 +2802,20 @@ theorem global_reciprocity (F : Type u) [Field F] [NumberField F] (m : ℕ) [NeZ
 
 /- `K2SymbolsBrauer:T.7/symbol-formula`: not stated here; needs the Galois symbol
 `h_F : K₂(F)/m → H²(F, μ_m^{⊗2})` and the module `μ_m^{⊗2}` with its diagonal action (supplier:
-MotivicEtaleKTheory:M.3 for `h_F`, MotivicEtaleKTheory:M.1 for the twist). With a primitive root
+MotivicEtaleKTheory:M.3, the single owner of `h_F`, its Steinberg relation and Tate's theorems;
+MotivicEtaleKTheory:M.1 for the twist). With a primitive root
 `ζ ∈ F` its image in `Br(F)` is `brauerSymbol_symbol` above, computed with the pinned
 `TauCeti.kummerMap` and `TauCeti.ContCohomology.explicitCup11`.
 `K2SymbolsBrauer:T.7/local-comparison`: not stated here; needs the local invariant
 `inv_F : Br(F) → ℚ/ℤ` with its arithmetic-Frobenius normalisation and `kummerCupPairing ζ`
-(supplier: ClassFieldTheory Layer 5 and Layer 6).
-`K2SymbolsBrauer:T.7/chern-class-agreement`: not stated here; needs the étale Chern class
+(supplier: ClassFieldTheory Layer 5 and Layer 6), and for `m = 2` QuadraticFormInvariants 6E's
+`hilbertSymbol_eq_cohomological`.
+`TauCeti.NormResidueSymbol.brauerSymbol_algebraic` (API of `K2SymbolsBrauer:T.7/brauer-valued-symbol`):
+not stated here; needs QuadraticFormInvariants 7B's comparison of `BrauerGroup F` with
+`H2 (AbsoluteGaloisGroup F) (UnitsCoeff F)`; content: `β_ζ` lands in the `m`-torsion of
+`BrauerGroup F`, and `β_{-1}{a, b}` is the quaternion class `(a, b)`.
+`K2SymbolsBrauer:T.7/chern-class-agreement` (a compatibility of two imported maps): not stated
+here; needs the étale Chern class
 `c_{2,2}` on Quillen `K₂` and the comparison `K2SymbolsBrauer:T.1/k2-pi2` (supplier:
 MotivicEtaleKTheory:M.3 and K2SymbolsBrauer:T.1/k2-pi2). -/
 
