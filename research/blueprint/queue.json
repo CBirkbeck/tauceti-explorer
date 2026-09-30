@@ -35277,7 +35277,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-DASGUPTA-KAKDE-VENTULLO-18.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4986"
   },
   {
    "id": "RT-PAPER-GAN-ICHINO-18",
@@ -35603,7 +35604,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-YUN-ZHANG-17.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #5135"
   },
   {
    "id": "RT-PAPER-BAKKER-TSIMERMAN-16",
@@ -39433,7 +39435,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-SCHOLZE-26.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #5005"
   },
   {
    "id": "RT-PAPER-BOXER-CALEGARI-GEE-25",
@@ -40123,8 +40126,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-RICHARD-YAFAEV-25.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5007"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #5007",
+   "finishedAt": "2026-09-30T19:58:06Z"
   },
   {
    "id": "RT-PAPER-BHATT-ETAL-23",
@@ -40793,8 +40797,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-BOCKLE-HARRIS-KHARE-ETAL-19.md",
-   "state": "pending",
-   "note": "released on GitHub issue #5014"
+   "state": "external",
+   "note": "claimed on GitHub issue #5014"
   },
   {
    "id": "RT-PAPER-LAWRENCE-VENKATESH-20",
