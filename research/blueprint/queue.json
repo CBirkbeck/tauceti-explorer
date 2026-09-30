@@ -35931,7 +35931,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-SCHIFFMANN-16.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4993"
   },
   {
    "id": "RT-PAPER-ELLENBERG-VENKATESH-WESTERLAND-16",
