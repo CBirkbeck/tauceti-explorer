@@ -14528,3 +14528,101 @@ example (p : ℕ) [Fact p.Prime] (x : ℤ_[p]) (h : IsUnit x) :
 example (p : ℕ) [Fact p.Prime] (x : ℤ_[p]) (h : ¬IsUnit x) :
     (moritaGamma p (x+1) : ℤ_[p]) = -(moritaGamma p x : ℤ_[p]) := by sorry
 end SuggestedMoritaContinuousTests
+
+/-! Morita's local Gamma estimates. Continuous dilation only; the analytic averaging
+argument remains a separate obligation. All-prime congruences exclude p=2,r=2. -/
+namespace DirichletPadic
+lemma moritaGamma_reduction_congr (p : ℕ) [Fact p.Prime]
+    (r : ℕ) (hr : 0 < r) (he : p = 2 → r ≠ 2) (x y : ℤ_[p])
+    (hxy : PadicInt.toZModPow r x = PadicInt.toZModPow r y) :
+    PadicInt.toZModPow r (moritaGamma p x : ℤ_[p]) =
+      PadicInt.toZModPow r (moritaGamma p y : ℤ_[p]) := by sorry
+lemma moritaGamma_norm_congr (p : ℕ) [Fact p.Prime]
+    (r : ℕ) (hr : 0 < r) (he : p = 2 → r ≠ 2) (x y : ℤ_[p])
+    (hxy : ‖x-y‖ ≤ (p : ℝ)^(-(r : ℤ))) :
+    ‖(moritaGamma p x : ℤ_[p])-(moritaGamma p y : ℤ_[p])‖ ≤
+      (p : ℝ)^(-(r : ℤ)) := by sorry
+lemma moritaGamma_norm_sub_le (p : ℕ) [Fact p.Prime] (hp : p ≠ 2) (x y : ℤ_[p]) :
+    ‖(moritaGamma p x : ℤ_[p])-(moritaGamma p y : ℤ_[p])‖ ≤ ‖x-y‖ := by sorry
+noncomputable section
+/-- Native continuous Gamma composed with multiplication by p^r. -/
+def moritaGammaDisc (p : ℕ) [Fact p.Prime] (r : ℕ) : C(ℤ_[p], (ℤ_[p])ˣ) :=
+  (moritaGamma p).comp ⟨fun x => (p : ℤ_[p])^r*x, continuous_const.mul continuous_id⟩
+lemma moritaGammaDisc_def (p : ℕ) [Fact p.Prime] (r : ℕ) :
+    moritaGammaDisc p r = (moritaGamma p).comp
+      ⟨fun x => (p : ℤ_[p])^r*x, continuous_const.mul continuous_id⟩ := by sorry
+lemma moritaGammaDisc_apply (p : ℕ) [Fact p.Prime] (r : ℕ) (x : ℤ_[p]) :
+    moritaGammaDisc p r x = moritaGamma p ((p : ℤ_[p])^r*x) := by sorry
+lemma moritaGammaDisc_zero (p : ℕ) [Fact p.Prime] (r : ℕ) :
+    moritaGammaDisc p r 0 = 1 := by sorry
+lemma moritaGammaDisc_zero_radius (p : ℕ) [Fact p.Prime] :
+    moritaGammaDisc p 0 = moritaGamma p := by sorry
+lemma moritaGammaDisc_nat (p : ℕ) [Fact p.Prime] (r n : ℕ) :
+    (moritaGammaDisc p r (n : ℤ_[p]) : ℤ_[p]) =
+      (moritaNatGamma p (p^r*n) : ℤ_[p]) := by sorry
+lemma moritaGammaDisc_norm_sub_one (p : ℕ) [Fact p.Prime]
+    (r : ℕ) (hr : 0 < r) (he : p = 2 → r ≠ 2) (x : ℤ_[p]) :
+    ‖(moritaGammaDisc p r x : ℤ_[p])-1‖ ≤ (p : ℝ)^(-(r : ℤ)) := by sorry
+lemma moritaGammaDisc_shifted (p : ℕ) [Fact p.Prime]
+    (r : ℕ) (hr : 0 < r) (x : ℤ_[p]) :
+    -(moritaGamma p ((p : ℤ_[p])^r*x+1) : ℤ_[p]) =
+      (moritaGammaDisc p r x : ℤ_[p]) := by sorry
+open scoped Classical in
+lemma moritaGamma_add_nat (p : ℕ) [Fact p.Prime] (x : ℤ_[p]) (n : ℕ) :
+    (moritaGamma p (x+n) : ℤ_[p]) = (-1)^n *
+      (∏ j ∈ Finset.range n, if IsUnit (x+j) then x+j else 1) *
+        (moritaGamma p x : ℤ_[p]) := by sorry
+end
+end DirichletPadic
+namespace SuggestedMoritaLocalTests
+local instance : Fact (Nat.Prime 5) := ⟨by decide⟩
+open DirichletPadic
+-- local_residue_odd
+example (x y : ℤ_[3]) (h : PadicInt.toZModPow 2 x = PadicInt.toZModPow 2 y) :
+    PadicInt.toZModPow 2 (moritaGamma 3 x : ℤ_[3]) =
+      PadicInt.toZModPow 2 (moritaGamma 3 y : ℤ_[3]) := by sorry
+-- local_residue_dyadic
+example (x y : ℤ_[2]) (h : PadicInt.toZModPow 3 x = PadicInt.toZModPow 3 y) :
+    PadicInt.toZModPow 3 (moritaGamma 2 x : ℤ_[2]) =
+      PadicInt.toZModPow 3 (moritaGamma 2 y : ℤ_[2]) := by sorry
+-- local_residue_mod4_failure
+example : PadicInt.toZModPow 2 (moritaGamma 2 0 : ℤ_[2]) ≠
+    PadicInt.toZModPow 2 (moritaGamma 2 4 : ℤ_[2]) := by sorry
+-- local_norm_dyadic
+example (x y : ℤ_[2]) (h : ‖x-y‖ ≤ (2 : ℝ)^(-3 : ℤ)) :
+    ‖(moritaGamma 2 x : ℤ_[2])-(moritaGamma 2 y : ℤ_[2])‖ ≤ (2 : ℝ)^(-3 : ℤ) := by sorry
+-- local_distance_odd
+example (x y : ℤ_[5]) :
+    ‖(moritaGamma 5 x : ℤ_[5])-(moritaGamma 5 y : ℤ_[5])‖ ≤ ‖x-y‖ := by sorry
+-- local_distance_dyadic_failure
+example : ‖(moritaGamma 2 1 : ℤ_[2])-(moritaGamma 2 5 : ℤ_[2])‖ > ‖(1 : ℤ_[2])-5‖ := by sorry
+-- disc_zero
+example : moritaGammaDisc 2 3 0 = 1 := by sorry
+-- disc_radius_zero
+example : moritaGammaDisc 3 0 = moritaGamma 3 := by sorry
+-- disc_nat
+example : (moritaGammaDisc 2 3 1 : ℤ_[2]) = 105 := by sorry
+-- disc_not_always_principal
+example : ‖(moritaGammaDisc 3 0 1 : ℤ_[3])-1‖ = 1 := by sorry
+-- disc_native_projection
+example (x : ℤ_[5]) : moritaGammaDisc 5 1 x = moritaGamma 5 (5*x) := by sorry
+-- disc_bound_odd
+example (x : ℤ_[3]) : ‖(moritaGammaDisc 3 1 x : ℤ_[3])-1‖ ≤ (3 : ℝ)⁻¹ := by sorry
+-- disc_bound_dyadic
+example (x : ℤ_[2]) : ‖(moritaGammaDisc 2 3 x : ℤ_[2])-1‖ ≤ (8 : ℝ)⁻¹ := by sorry
+-- disc_bound_mod4_failure
+example : ‖(moritaGammaDisc 2 2 1 : ℤ_[2])-1‖ > (4 : ℝ)⁻¹ := by sorry
+-- disc_shifted_dyadic
+example (x : ℤ_[2]) : -(moritaGamma 2 (8*x+1) : ℤ_[2]) =
+    (moritaGammaDisc 2 3 x : ℤ_[2]) := by sorry
+-- disc_shifted_exception_still_valid
+example (x : ℤ_[2]) : -(moritaGamma 2 (4*x+1) : ℤ_[2]) =
+    (moritaGammaDisc 2 2 x : ℤ_[2]) := by sorry
+-- shift_empty
+example (p : ℕ) [Fact p.Prime] (x : ℤ_[p]) :
+    (moritaGamma p (x+0) : ℤ_[p]) = (moritaGamma p x : ℤ_[p]) := by sorry
+-- shift_crosses_nonunit
+example : (moritaGamma 3 (2+3) : ℤ_[3]) = -8 * (moritaGamma 3 2 : ℤ_[3]) := by sorry
+-- shift_deleted_factor
+example : (moritaGamma 3 (2+3) : ℤ_[3]) ≠ -24 * (moritaGamma 3 2 : ℤ_[3]) := by sorry
+end SuggestedMoritaLocalTests
