@@ -10,7 +10,7 @@
     "DirichletPadicLFunctions:L4"
   ],
   "status": "partial",
-  "summary": "Twelve L3 nodes connect the established odd-prime and dyadic coordinates to the finite character means through actual angular sampling. They retain the exact principal-disc norm, inverse translation factor and finite twist order. All 819 predecessor nodes, 690 baseline records and 16 source findings remain whole.",
+  "summary": "Six L3 nodes give a uniform finite-mean bound from explicit value and Lipschitz estimates on the source principal disc. They retain the normalized coefficient norm and the dyadic radius. The missing analytic Gauss/Taylor interface is precisely requested from LAD L0. All 831 predecessor nodes, 692 baseline records and 16 findings remain whole.",
   "baseline": {
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
@@ -4858,6 +4858,13 @@
         "module": "Mathlib/Data/Nat/Totient.lean",
         "provides": "For a prime p, its native totient is p−1; the separate dyadic computation uses φ(4)=2.",
         "checked": "Complete statement and ambient hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 30 September 2026. The complete composite AngularSampleProbe replays the earlier native coordinate and finite-mean proofs and adds the prime-case interface, finite order, actual sampling, translation and mean comparisons. Its only integer-ring comparison input is the explicit already planned PMIA equivalence."
+      },
+      {
+        "ref": "mathlib:norm_algebraMap'",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/Normed/Module/Basic.lean",
+        "provides": "A normed algebra with norm-one identity preserves the scalar field norm under its algebra map. For normed coefficient extensions of ℚ_p this identifies all natural scalar norms with those in ℤ_p.",
+        "checked": "Complete statement and ambient NormedField, SeminormedRing, NormedAlgebra and NormOneClass hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, Analysis/Normed/Module/Basic.lean lines279–301, on 30 September 2026. The complete natCast_norm auxiliary proof and the mean bounds elaborate against the existing pinned build."
       }
     ]
   },
@@ -56298,6 +56305,368 @@
       "acceptance": [
         "A uniform bound independent of n still requires the analytic block argument. No bounded measure on all continuous functions is constructed."
       ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/morita-angular-translate-norm",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Angular translation preserves the increment norm",
+      "kind": "lemma",
+      "statement": "For units u,v and z∈ℤ_p with scalar v=u+qz, ‖α(v)−α(u)‖=‖v−u‖.",
+      "hypotheses": [
+        "p is prime, q=moritaModulus(p) is 4 for p=2 and p otherwise, r=‖q‖ in ℤ_p, f>0 and N_n=lcm(f,q)q^n. Ω, α, angular samples S and angular finite means M are the preceding native constructions.",
+        "K is a normed field. For the mean estimates it is an ultrametric normed ℚ_p-algebra of characteristic zero, so its scalar norm agrees with the normalized ℚ_p norm; no completeness is required for these finite estimates. χ is a native Dirichlet character at level f, not necessarily primitive.",
+        "A is an ordinary function ℤ_p→K, used only on D={x:‖x−1‖≤r}. B,L are nonnegative real numbers. Whenever invoked, the value bound is ‖A(x)‖≤B on D and the Lipschitz bound is ‖A(x)−A(y)‖≤L‖x−y‖ for x,y∈D. These are explicit hypotheses, not a replacement definition of an analytic function.",
+        "The closed-disc analytic carrier and its Gauss, derivative and Taylor bounds belong to LAD L0. Their missing typed interface is requested precisely below. The arithmetic estimate does not prove convergence of the means or boundedness on all continuous functions."
+      ],
+      "proofSteps": [
+        "Apply the established exact angular translation formula α(v)−α(u)=Ω(u)⁻¹qz.",
+        "The native PadicInt.norm_units theorem makes the inverse torsion factor have norm one. Multiplicativity of the norm identifies both sides with ‖qz‖.",
+        "The complete angular_translate_norm probe replays the preceding coordinate construction and proves this equality at every prime, including the conductor-four dyadic branch."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/morita-angular-translation",
+        "mathlib:PadicInt.norm_units"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/AnalyticBounds",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.moritaAngular_translate_norm"
+      },
+      "sources": [
+        {
+          "sourceId": "KubotaLeopoldt-1964",
+          "locator": "Section 1 pp.329–330, principal-disc coefficient/Gauss bounds; Section 2 p.332, equations (3)–(7) and Hilfssatz 1.",
+          "excerpt": "die gleichmäßige Beschränktheit",
+          "match": "A source-motivated, deliberately coarse version of the finite uniform-bound argument: use the first-order Gauss Lipschitz estimate and the exact existing blocks. It holds at every level with explicit C=max(‖lcm(f,q)⁻¹‖,‖q⁻¹‖²); it is not the source’s sharper eventual constant ‖pq⁻²‖ or its convergence theorem."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedAnalyticBoundTests.angular_shift_isometry_dyadic",
+          "kind": "compatibility",
+          "statement": "For dyadic units differing by 4z, the angular difference has norm ‖4z‖."
+        },
+        {
+          "name": "SuggestedAnalyticBoundTests.angular_zero_shift",
+          "kind": "degenerate",
+          "statement": "The angular increment at zero shift has norm zero."
+        }
+      ],
+      "acceptance": [
+        "The inverse torsion factor changes signs but not the norm; it is still present in the exact formula."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/morita-angular-samples-shift-norm",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The norm of a shifted angular sample",
+      "kind": "lemma",
+      "statement": "Under the disc Lipschitz bound with constant L, every natural a,z satisfies ‖S(A)(a+N_nz)−S(A)(a)‖≤L‖N_n‖.",
+      "hypotheses": [
+        "p is prime, q=moritaModulus(p) is 4 for p=2 and p otherwise, r=‖q‖ in ℤ_p, f>0 and N_n=lcm(f,q)q^n. Ω, α, angular samples S and angular finite means M are the preceding native constructions.",
+        "K is a normed field. For the mean estimates it is an ultrametric normed ℚ_p-algebra of characteristic zero, so its scalar norm agrees with the normalized ℚ_p norm; no completeness is required for these finite estimates. χ is a native Dirichlet character at level f, not necessarily primitive.",
+        "A is an ordinary function ℤ_p→K, used only on D={x:‖x−1‖≤r}. B,L are nonnegative real numbers. Whenever invoked, the value bound is ‖A(x)‖≤B on D and the Lipschitz bound is ‖A(x)−A(y)‖≤L‖x−y‖ for x,y∈D. These are explicit hypotheses, not a replacement definition of an analytic function.",
+        "The closed-disc analytic carrier and its Gauss, derivative and Taylor bounds belong to LAD L0. Their missing typed interface is requested precisely below. The arithmetic estimate does not prove convergence of the means or boundedness on all continuous functions."
+      ],
+      "proofSteps": [
+        "If p divides a, the support-period theorem makes both samples zero; use L≥0.",
+        "Otherwise use native unit witnesses at a and a+N_nz. The two angular arguments lie in D by the existing angular norm theorem, so the stated pointwise Lipschitz inequality applies.",
+        "Write N_n=qk using the existing level divisibility theorem. The preceding translation isometry identifies the angular difference norm with ‖N_nz‖.",
+        "Multiplicativity and the native bound ‖z‖≤1 in ℤ_p give the claim. The complete sample_shift_norm probe checks the witnesses, support branches, casts and scalar norm. No differentiability is assumed by this arithmetic lemma."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/morita-angular-samples",
+        "DirichletPadicLFunctions:L3/morita-angular-norm",
+        "DirichletPadicLFunctions:L3/morita-angular-translate-norm",
+        "DirichletPadicLFunctions:L3/morita-mean-level",
+        "DirichletPadicLFunctions:L3/morita-mean-support-period",
+        "mathlib:PadicInt.norm_le_one"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/AnalyticBounds",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.moritaAngularSamples_shift_norm"
+      },
+      "sources": [
+        {
+          "sourceId": "KubotaLeopoldt-1964",
+          "locator": "Section 1 pp.329–330, principal-disc coefficient/Gauss bounds; Section 2 p.332, equations (3)–(7) and Hilfssatz 1.",
+          "excerpt": "die gleichmäßige Beschränktheit",
+          "match": "A source-motivated, deliberately coarse version of the finite uniform-bound argument: use the first-order Gauss Lipschitz estimate and the exact existing blocks. It holds at every level with explicit C=max(‖lcm(f,q)⁻¹‖,‖q⁻¹‖²); it is not the source’s sharper eventual constant ‖pq⁻²‖ or its convergence theorem."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedAnalyticBoundTests.sample_constant_shift",
+          "kind": "degenerate",
+          "statement": "For a constant dyadic function every level-shift sample difference is zero, including the nonunit branch."
+        },
+        {
+          "name": "SuggestedAnalyticBoundTests.sample_identity_shift_bound",
+          "kind": "computation",
+          "statement": "The dyadic scalar function A(x)=x has sample increment norm at most ‖N_n‖."
+        },
+        {
+          "name": "SuggestedAnalyticBoundTests.sample_nonunit_shift_zero",
+          "kind": "degenerate",
+          "statement": "Every dyadic sample at 2+N_nz is zero."
+        }
+      ],
+      "acceptance": [
+        "The bound holds for all natural z. It has no factor equal to the number of terms in a block."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/morita-angular-shifted-mean-norm",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "A shifted mean cancels its level denominator",
+      "kind": "lemma",
+      "statement": "For every n,z and the same disc Lipschitz bound, ‖M^n_χ(a↦S(A)(a+N_nz)−S(A)(a))‖≤L, where M^n_χ is the existing finite mean of natural samples.",
+      "hypotheses": [
+        "p is prime, q=moritaModulus(p) is 4 for p=2 and p otherwise, r=‖q‖ in ℤ_p, f>0 and N_n=lcm(f,q)q^n. Ω, α, angular samples S and angular finite means M are the preceding native constructions.",
+        "K is a normed field. For the mean estimates it is an ultrametric normed ℚ_p-algebra of characteristic zero, so its scalar norm agrees with the normalized ℚ_p norm; no completeness is required for these finite estimates. χ is a native Dirichlet character at level f, not necessarily primitive.",
+        "A is an ordinary function ℤ_p→K, used only on D={x:‖x−1‖≤r}. B,L are nonnegative real numbers. Whenever invoked, the value bound is ‖A(x)‖≤B on D and the Lipschitz bound is ‖A(x)−A(y)‖≤L‖x−y‖ for x,y∈D. These are explicit hypotheses, not a replacement definition of an analytic function.",
+        "The closed-disc analytic carrier and its Gauss, derivative and Taylor bounds belong to LAD L0. Their missing typed interface is requested precisely below. The arithmetic estimate does not prove convergence of the means or boundedness on all continuous functions."
+      ],
+      "proofSteps": [
+        "Apply the existing finite mean norm estimate with sample bound L‖N_n‖ from the preceding lemma. The character values have norm at most one by the native Dirichlet-character bound already used there.",
+        "The native norm_algebraMap′ equality identifies the natural scalar norm in K with its normalized norm in ℤ_p, through ℚ_p. The complete natCast_norm auxiliary proof checks the casts explicitly.",
+        "Since f>0 and q>0, N_n is positive, hence its scalar in characteristic-zero K is nonzero. Cancel ‖N_n⁻¹‖‖N_n‖=1.",
+        "The complete shifted_mean_norm probe proves this uniform shifted estimate. It uses only the stated pointwise Lipschitz bound and the existing finite arithmetic functional."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/morita-angular-samples-shift-norm",
+        "DirichletPadicLFunctions:L3/morita-mean-finite-norm",
+        "DirichletPadicLFunctions:L3/morita-mean-level",
+        "mathlib:norm_algebraMap'"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/AnalyticBounds",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.moritaAngularMean_shift_norm"
+      },
+      "sources": [
+        {
+          "sourceId": "KubotaLeopoldt-1964",
+          "locator": "Section 1 pp.329–330, principal-disc coefficient/Gauss bounds; Section 2 p.332, equations (3)–(7) and Hilfssatz 1.",
+          "excerpt": "die gleichmäßige Beschränktheit",
+          "match": "A source-motivated, deliberately coarse version of the finite uniform-bound argument: use the first-order Gauss Lipschitz estimate and the exact existing blocks. It holds at every level with explicit C=max(‖lcm(f,q)⁻¹‖,‖q⁻¹‖²); it is not the source’s sharper eventual constant ‖pq⁻²‖ or its convergence theorem."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedAnalyticBoundTests.shifted_constant_zero",
+          "kind": "degenerate",
+          "statement": "The shifted mean of constant angular samples is zero."
+        },
+        {
+          "name": "SuggestedAnalyticBoundTests.shifted_quadratic_three",
+          "kind": "computation",
+          "statement": "For p=3,f=1,n=0,z=1 and A(x)=((x−1)/3)², the shifted mean is 4/3, of norm 3, equal to its Lipschitz constant."
+        }
+      ],
+      "acceptance": [
+        "Compatibility of coefficient and p-adic scalar norms is essential; an arbitrary unrelated normed field would not justify the cancellation."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/morita-angular-mean-step-norm",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "A uniform bound for consecutive finite means",
+      "kind": "theorem",
+      "statement": "For every n and the disc Lipschitz bound with constant L, ‖M^{n+1}_{χ,ang}(A)−M^n_{χ,ang}(A)‖≤‖q⁻¹‖L.",
+      "hypotheses": [
+        "p is prime, q=moritaModulus(p) is 4 for p=2 and p otherwise, r=‖q‖ in ℤ_p, f>0 and N_n=lcm(f,q)q^n. Ω, α, angular samples S and angular finite means M are the preceding native constructions.",
+        "K is a normed field. For the mean estimates it is an ultrametric normed ℚ_p-algebra of characteristic zero, so its scalar norm agrees with the normalized ℚ_p norm; no completeness is required for these finite estimates. χ is a native Dirichlet character at level f, not necessarily primitive.",
+        "A is an ordinary function ℤ_p→K, used only on D={x:‖x−1‖≤r}. B,L are nonnegative real numbers. Whenever invoked, the value bound is ‖A(x)‖≤B on D and the Lipschitz bound is ‖A(x)−A(y)‖≤L‖x−y‖ for x,y∈D. These are explicit hypotheses, not a replacement definition of an analytic function.",
+        "The closed-disc analytic carrier and its Gauss, derivative and Taylor bounds belong to LAD L0. Their missing typed interface is requested precisely below. The arithmetic estimate does not prove convergence of the means or boundedness on all continuous functions."
+      ],
+      "proofSteps": [
+        "Apply the exact previously proved finite mean difference identity to the actual sample sequence S(A). The difference is q⁻¹ times the sum over 0≤z<q of the shifted finite means.",
+        "Each summand has norm at most L by the preceding lemma. Finite induction using the native nonarchimedean norm inequality bounds the sum by L, without an Archimedean cardinality factor.",
+        "Multiply by ‖q⁻¹‖. The complete step_norm probe proves this identity-and-estimate chain and uses the actual sample map and finite means.",
+        "For the Gauss-scaled Lipschitz value L=B/r this yields B/r² at every level. The source’s smaller constant ‖pq⁻²‖B requires its additional power-sum argument and level restriction, which are not claimed here."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/morita-angular-shifted-mean-norm",
+        "DirichletPadicLFunctions:L3/morita-angular-mean",
+        "DirichletPadicLFunctions:L3/morita-mean-difference",
+        "mathlib:IsUltrametricDist.isNonarchimedean_norm"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/AnalyticBounds",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.moritaAngularMean_step_norm"
+      },
+      "sources": [
+        {
+          "sourceId": "KubotaLeopoldt-1964",
+          "locator": "Section 1 pp.329–330, principal-disc coefficient/Gauss bounds; Section 2 p.332, equations (3)–(7) and Hilfssatz 1.",
+          "excerpt": "die gleichmäßige Beschränktheit",
+          "match": "A source-motivated, deliberately coarse version of the finite uniform-bound argument: use the first-order Gauss Lipschitz estimate and the exact existing blocks. It holds at every level with explicit C=max(‖lcm(f,q)⁻¹‖,‖q⁻¹‖²); it is not the source’s sharper eventual constant ‖pq⁻²‖ or its convergence theorem."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedAnalyticBoundTests.step_quadratic_two",
+          "kind": "computation",
+          "statement": "For p=2,f=1,A(x)=((x−1)/4)², M¹−M⁰=5/2."
+        },
+        {
+          "name": "SuggestedAnalyticBoundTests.step_quadratic_three",
+          "kind": "non-example",
+          "statement": "For p=3,f=1,A(x)=((x−1)/3)², the first difference has norm 9. The sharper eventual bound 3 cannot be asserted at n=0."
+        },
+        {
+          "name": "SuggestedAnalyticBoundTests.step_zero_function",
+          "kind": "degenerate",
+          "statement": "The zero function has zero consecutive difference."
+        }
+      ],
+      "acceptance": [
+        "A uniform bound on successive differences is not a decay estimate and does not establish the Cauchy property."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/morita-angular-mean-uniform-norm",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The uniform finite-mean bound from disc estimates",
+      "kind": "theorem",
+      "statement": "Assume both disc bounds, with value bound B and Lipschitz constant L. For every n, ‖M^n_{χ,ang}(A)‖≤max(‖lcm(f,q)⁻¹‖B,‖q⁻¹‖L).",
+      "hypotheses": [
+        "p is prime, q=moritaModulus(p) is 4 for p=2 and p otherwise, r=‖q‖ in ℤ_p, f>0 and N_n=lcm(f,q)q^n. Ω, α, angular samples S and angular finite means M are the preceding native constructions.",
+        "K is a normed field. For the mean estimates it is an ultrametric normed ℚ_p-algebra of characteristic zero, so its scalar norm agrees with the normalized ℚ_p norm; no completeness is required for these finite estimates. χ is a native Dirichlet character at level f, not necessarily primitive.",
+        "A is an ordinary function ℤ_p→K, used only on D={x:‖x−1‖≤r}. B,L are nonnegative real numbers. Whenever invoked, the value bound is ‖A(x)‖≤B on D and the Lipschitz bound is ‖A(x)−A(y)‖≤L‖x−y‖ for x,y∈D. These are explicit hypotheses, not a replacement definition of an analytic function.",
+        "The closed-disc analytic carrier and its Gauss, derivative and Taylor bounds belong to LAD L0. Their missing typed interface is requested precisely below. The arithmetic estimate does not prove convergence of the means or boundedness on all continuous functions."
+      ],
+      "proofSteps": [
+        "At n=0 use the established angular finite-norm estimate with N_0=lcm(f,q). This gives the first entry of the maximum.",
+        "For the induction step write M^{n+1}=(M^{n+1}−M^n)+M^n. The native ultrametric norm bounds this by the maximum of the step bound and the induction bound.",
+        "Apply the preceding consecutive-difference estimate to obtain the same maximum, independent of n. There is no real sum of n errors.",
+        "The complete uniform_norm probe proves this induction over the actual arithmetic functionals. Both B and L remain explicit, so the conclusion is also valid for ordinary disc-Lipschitz functions, without pretending all continuous functions have a common Lipschitz bound."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/morita-angular-mean-step-norm",
+        "DirichletPadicLFunctions:L3/morita-angular-mean-norm",
+        "DirichletPadicLFunctions:L3/morita-mean-level",
+        "mathlib:IsUltrametricDist.isNonarchimedean_norm"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/AnalyticBounds",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.moritaAngularMean_uniform_norm"
+      },
+      "sources": [
+        {
+          "sourceId": "KubotaLeopoldt-1964",
+          "locator": "Section 1 pp.329–330, principal-disc coefficient/Gauss bounds; Section 2 p.332, equations (3)–(7) and Hilfssatz 1.",
+          "excerpt": "die gleichmäßige Beschränktheit",
+          "match": "A source-motivated, deliberately coarse version of the finite uniform-bound argument: use the first-order Gauss Lipschitz estimate and the exact existing blocks. It holds at every level with explicit C=max(‖lcm(f,q)⁻¹‖,‖q⁻¹‖²); it is not the source’s sharper eventual constant ‖pq⁻²‖ or its convergence theorem."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedAnalyticBoundTests.uniform_constant_two",
+          "kind": "degenerate",
+          "statement": "At p=2,f=1 the constant-one mean has norm at most 4 at every level, using B=1,L=0."
+        },
+        {
+          "name": "SuggestedAnalyticBoundTests.uniform_deep_level_three",
+          "kind": "computation",
+          "statement": "At p=3,f=81, the principal-character means of ((x−1)/3)² have norm at most 81 at every level. The initial denominator, not 9, determines the stated bound."
+        }
+      ],
+      "acceptance": [
+        "Positive conductor and characteristic zero retain the nonzero denominator. No completeness, limit, or new distribution space enters this finite theorem."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/morita-angular-mean-gauss-uniform-norm",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The finite bound with the source Gauss scaling",
+      "kind": "comparison",
+      "statement": "For an ordinary A satisfying ‖A(x)‖≤B and ‖A(x)−A(y)‖≤(B/r)‖x−y‖ on D, every finite angular mean has norm at most C_f B, where C_f=max(‖lcm(f,q)⁻¹‖,‖q⁻¹‖²). For the source closed-disc analytic function the intended B is its Gauss norm; the exact supplier request records the missing proof and typed interface giving these hypotheses.",
+      "hypotheses": [
+        "p is prime, q=moritaModulus(p) is 4 for p=2 and p otherwise, r=‖q‖ in ℤ_p, f>0 and N_n=lcm(f,q)q^n. Ω, α, angular samples S and angular finite means M are the preceding native constructions.",
+        "K is a normed field. For the mean estimates it is an ultrametric normed ℚ_p-algebra of characteristic zero, so its scalar norm agrees with the normalized ℚ_p norm; no completeness is required for these finite estimates. χ is a native Dirichlet character at level f, not necessarily primitive.",
+        "A is an ordinary function ℤ_p→K, used only on D={x:‖x−1‖≤r}. B,L are nonnegative real numbers. Whenever invoked, the value bound is ‖A(x)‖≤B on D and the Lipschitz bound is ‖A(x)−A(y)‖≤L‖x−y‖ for x,y∈D. These are explicit hypotheses, not a replacement definition of an analytic function.",
+        "The closed-disc analytic carrier and its Gauss, derivative and Taylor bounds belong to LAD L0. Their missing typed interface is requested precisely below. The arithmetic estimate does not prove convergence of the means or boundedness on all continuous functions."
+      ],
+      "proofSteps": [
+        "Apply the preceding uniform theorem with L=B/r. Nonnegativity of this number follows from B≥0 and the scalar norm.",
+        "Use the native coefficient-norm comparison to identify ‖q⁻¹‖(B/r)=‖q⁻¹‖²B. Distribute the nonnegative common factor B through the real maximum.",
+        "The complete gauss_uniform_norm probe proves this implication with explicit ordinary pointwise hypotheses. The suggested signature retains those hypotheses; it neither invents LAD’s carrier nor inserts a proposition-valued analytic substitute.",
+        "In the source application, import LAD’s actual closed-disc carrier and the requested coefficient/Gauss estimates. For coefficients c_m with ‖c_m‖r^m→0 and Gauss bound B, the requested supplier proves the value bound and Lipschitz estimate by the polynomial difference identity and passage to the convergent sums. The same owner supplies derivative and recentered Taylor bounds needed by the remaining convergence argument.",
+        "At f=1 this gives C=16 at p=2 and C=9 at p=3. The indicator of x≡1 modulo16 on the dyadic principal disc has sup norm one and mean norm eight at N=16, but violates the required Gauss-scaled Lipschitz bound at x=1,y=9. Continuity and a value bound alone cannot supply the imported hypothesis."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/morita-angular-mean-uniform-norm",
+        "mathlib:norm_algebraMap'",
+        "LocallyAnalyticDistributions:L0/disc-analytic-functions",
+        "LocallyAnalyticDistributions:L0"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/AnalyticBounds",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.moritaAngularMean_gauss_uniform_norm"
+      },
+      "sources": [
+        {
+          "sourceId": "KubotaLeopoldt-1964",
+          "locator": "Section 1 pp.329–330, principal-disc coefficient/Gauss bounds; Section 2 p.332, equations (3)–(7) and Hilfssatz 1.",
+          "excerpt": "die gleichmäßige Beschränktheit",
+          "match": "A source-motivated, deliberately coarse version of the finite uniform-bound argument: use the first-order Gauss Lipschitz estimate and the exact existing blocks. It holds at every level with explicit C=max(‖lcm(f,q)⁻¹‖,‖q⁻¹‖²); it is not the source’s sharper eventual constant ‖pq⁻²‖ or its convergence theorem."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedAnalyticBoundTests.scaled_quadratic_two",
+          "kind": "computation",
+          "statement": "For p=2,f=1,A(x)=((x−1)/4)², every finite mean has norm at most 16."
+        },
+        {
+          "name": "SuggestedAnalyticBoundTests.scaled_quadratic_three",
+          "kind": "computation",
+          "statement": "For p=3,f=1,A(x)=((x−1)/3)², every finite mean has norm at most 9."
+        },
+        {
+          "name": "SuggestedAnalyticBoundTests.bounded_indicator_large_mean",
+          "kind": "non-example",
+          "statement": "At p=2,f=1,n=1 the indicator of x≡1 modulo16 has mean norm 8 despite its value bound one."
+        },
+        {
+          "name": "SuggestedAnalyticBoundTests.bounded_indicator_fails_gauss_lipschitz",
+          "kind": "non-example",
+          "statement": "For that indicator at x=1,y=9 the output distance 1 is strictly greater than 4‖1−9‖=1/2, so the scaled Lipschitz hypothesis fails."
+        }
+      ],
+      "acceptance": [
+        "The arithmetic implication is checked; the analytic specialization remains conditional on the stated LAD request. C_f is a valid explicit coarse constant, not an assertion that the source prints this particular constant."
+      ]
     }
   ],
   "requests": [
@@ -56378,6 +56747,13 @@
       "neededBy": [
         "DirichletPadicLFunctions:L3/principal-numerator-logarithmic-series"
       ]
+    },
+    {
+      "supplier": "LocallyAnalyticDistributions:L0",
+      "need": "For the owned closed-disc analytic space An({u:‖u−1‖≤r},K), K a complete finite normed extension of ℚ_p with its normalized scalar norm and r=‖q‖>0 (q=4 at p=2, q=p otherwise), export the actual typed function/coefficient interface and Gauss norm B. From the restricted coefficient condition ‖c_m‖r^m→0 prove the value bound ‖A(x)‖≤B and the closed-disc Lipschitz estimate ‖A(x)−A(y)‖≤(B/r)‖x−y‖, including boundary points. Supply divided derivatives D^[m]A=A^(m)/m!, their Gauss bound ‖D^[m]A‖r^m≤B, the exact convergent Taylor identity at every x in the disc for ‖h‖<r, and compatibility with evaluation and ordinary extension to ℤ_p. These are general closed-disc analytic operations, not Dirichlet constructions. Existing disc-analytic-functions provides the carrier and Gauss valuation but no derivative, Taylor or Lipschitz API; the suggested L0–L2 interface is comment-only. The consumer keeps explicit value/Lipschitz hypotheses until the real typed supplier interface exists. Source: KL1964 §1 pp.329–330 and §2 p.332; Morita1975 §2 pp.257–259.",
+      "neededBy": [
+        "DirichletPadicLFunctions:L3/morita-angular-mean-gauss-uniform-norm"
+      ]
     }
   ],
   "coverage": [
@@ -56408,7 +56784,7 @@
       "stageId": "DirichletPadicLFunctions:L3",
       "status": "partial",
       "remaining": [
-        "The finite KL/Morita means now evaluate the actual all-prime source angular samples, independently of extension outside the principal disc. Their exact block argument, finite twist period and elementary norm estimate are in place. Next import the LAD analytic/Taylor carrier, prove the source derivative/block bound, obtain a uniform finite-mean bound over the finite twist family, prove the Cauchy estimate and construct the limit. Then identify Morita Gamma analyticity on pℤ_p at odd p and 8ℤ₂ at p=2 using Coleman logarithm/exponential input. Gross–Koblitz and Ferrero–Greenberg still need complete proof reading and their recorded normalization/ownership checks. All fifteen gaps and eleven requests remain open.",
+        "The actual angular means now have a uniform arithmetic bound independent of n under explicit disc value/Lipschitz hypotheses. The precise LAD L0 request must supply their source Gauss-norm interpretation and the divided derivative/Taylor interface. Convergence still requires a decay estimate using the finite torsion-twist family (or a fully justified source-compatible polynomial-density argument), and then a complete-field limit. The translated analytic functional and Gamma analyticity on pℤ_p for odd p and 8ℤ₂ remain open, as do the complete Gross–Koblitz and Ferrero–Greenberg proof readings and normalization checks. Sixteen gaps and twelve requests remain open.",
         "The actual tame integral and analytic transfer from supplied C(U,K)-valued families remain supplied. Actual odd/dyadic principal-unit families belong to PMIA L0a and scalar Mellin theory to LAD L3; instantiate the corrected Teichmüller twist when those interfaces are supplied."
       ]
     },
@@ -56440,7 +56816,7 @@
     {
       "title": "L3 remaining source decomposition and interfaces",
       "neededBy": [],
-      "detail": "The finite KL/Morita means now evaluate the actual all-prime source angular samples, independently of extension outside the principal disc. Their exact block argument, finite twist period and elementary norm estimate are in place. Next import the LAD analytic/Taylor carrier, prove the source derivative/block bound, obtain a uniform finite-mean bound over the finite twist family, prove the Cauchy estimate and construct the limit. Then identify Morita Gamma analyticity on pℤ_p at odd p and 8ℤ₂ at p=2 using Coleman logarithm/exponential input. Gross–Koblitz and Ferrero–Greenberg still need complete proof reading and their recorded normalization/ownership checks. All fifteen gaps and eleven requests remain open. The actual tame integral and analytic transfer from supplied C(U,K)-valued families remain supplied. Actual odd/dyadic principal-unit families belong to PMIA L0a and scalar Mellin theory to LAD L3; instantiate the corrected Teichmüller twist when those interfaces are supplied."
+      "detail": "The actual angular means now have a uniform arithmetic bound independent of n under explicit disc value/Lipschitz hypotheses. The precise LAD L0 request must supply their source Gauss-norm interpretation and the divided derivative/Taylor interface. Convergence still requires a decay estimate using the finite torsion-twist family (or a fully justified source-compatible polynomial-density argument), and then a complete-field limit. The translated analytic functional and Gamma analyticity on pℤ_p for odd p and 8ℤ₂ remain open, as do the complete Gross–Koblitz and Ferrero–Greenberg proof readings and normalization checks. Sixteen gaps and twelve requests remain open. The actual tame integral and analytic transfer from supplied C(U,K)-valued families remain supplied. Actual odd/dyadic principal-unit families belong to PMIA L0a and scalar Mellin theory to LAD L3; instantiate the corrected Teichmüller twist when those interfaces are supplied."
     },
     {
       "title": "L4 completed-algebra, twisted localized constant coefficient and tame-family comparisons",
@@ -56519,6 +56895,13 @@
       "neededBy": [
         "DirichletPadicLFunctions:L3/principal-numerator-logarithmic-series"
       ]
+    },
+    {
+      "title": "L3 Morita closed-disc analytic estimates require the owned typed supplier",
+      "neededBy": [
+        "DirichletPadicLFunctions:L3/morita-angular-mean-gauss-uniform-norm"
+      ],
+      "detail": "The uniform arithmetic estimate is proved under explicit pointwise value and Lipschitz hypotheses. Its Gauss-norm specialization and the derivative/Taylor operations for convergence require the precise LAD L0 request. No new analytic carrier, unproved proposition field, or bounded functional on all continuous functions is introduced."
     }
   ],
   "sourceIssues": [
@@ -56804,39 +57187,40 @@
   "checks": {
     "blueprint": "Zero errors and warnings with the unmodified pinned index.",
     "intake": "Exactly four authorized deliverables; zero problems.",
-    "sourceIssues": "All 16 predecessor source findings, all sources and sourceVersions remain whole. No new source issue or independent verification verdict is asserted; the separate unverified KL interpolation question is unused.",
+    "sourceIssues": "All 16 existing findings, all sources and sourceVersions remain whole. No new source error or independent verification verdict is claimed. The source’s sharper bound is retained with its level restriction; the new arithmetic estimate is explicitly coarser.",
     "validation": {
-      "nodes": 831,
+      "nodes": 837,
       "kinds": {
         "definition": 2,
-        "lemma": 329,
+        "lemma": 332,
         "construction": 90,
-        "theorem": 240,
-        "comparison": 170
+        "theorem": 242,
+        "comparison": 171
       },
       "api": 698,
-      "packetTests": 1521,
+      "packetTests": 1537,
       "definitionConstructionTests": 384,
-      "typedExamples": 1524,
+      "typedExamples": 1540,
       "planets": 24,
-      "baseline": 692,
-      "preservedWholeNodes": 819,
-      "preservedBaseline": 690,
+      "baseline": 693,
+      "preservedWholeNodes": 831,
+      "preservedBaseline": 692,
       "preservedSourceIssues": 16,
       "newSourceIssues": 0,
-      "newNodes": 12,
-      "newNamedDeclarations": 34,
-      "newTypedTests": 29,
-      "requests": 11,
-      "gaps": 15,
+      "newNodes": 6,
+      "newNamedDeclarations": 6,
+      "newTypedTests": 16,
+      "requests": 12,
+      "gaps": 16,
       "closedStages": 0,
-      "reachableNodes": 1090,
-      "dependencyEdges": 5536,
+      "reachableNodes": 1097,
+      "dependencyEdges": 5560,
       "acyclic": true,
-      "baselineLeaves": 866,
+      "baselineLeaves": 867,
       "stageRequestLeaves": [
         "AdicSpacesPartII:F1",
         "AdicSpacesPartII:R2",
+        "LocallyAnalyticDistributions:L0",
         "LocallyAnalyticDistributions:L1",
         "PadicDifferentialEquationsAndRigidCohomology:RD.0",
         "PadicDifferentialEquationsAndRigidCohomology:RD.4",
@@ -56845,7 +57229,7 @@
         "PadicMeasuresIwasawaAlgebras:L2",
         "PadicMeasuresIwasawaAlgebras:L3"
       ],
-      "readerWords": 418800,
+      "readerWords": 422475,
       "scopedMutationCheck": true,
       "correctedPredecessorNodes": 0,
       "fullSuggestedCompiled": false,
@@ -56872,32 +57256,33 @@
         "TauCeti.NumberTheory.ArithmeticFunction.TwistedDivisorSum"
       ],
       "scratchCompleteDefinitions": 12,
-      "scratchCompleteLemmas": 83,
+      "scratchCompleteLemmas": 90,
       "scratchMathlibModules": 2825,
       "scratchTauModules": 7,
       "scratchErrors": 0,
       "scratchWarnings": 0,
       "scratchPlaceholders": 0,
       "finiteControls": {
-        "coordinateValues": 760,
-        "translations": 6840,
-        "inversePeriods": 9120,
-        "sampleSupport": 130,
-        "sampleTranslations": 3012,
-        "angularMeans": 72,
-        "constantMeans": 8,
-        "linearMeanNormalizations": 8,
-        "normBounds": 72
+        "pointwiseLip": 3150,
+        "sampleShifts": 57603,
+        "shiftedMeans": 588,
+        "stepBounds": 168,
+        "uniformMeans": 224,
+        "scaledBounds": 224,
+        "initialDominates": 56,
+        "continuousCounterexamples": 8
       },
       "numericalControlsCertified": false,
-      "newRoutesStageLeaves": [],
+      "newRoutesStageLeaves": [
+        "LocallyAnalyticDistributions:L0"
+      ],
       "partialSignatures": {
         "exitCode": 0,
-        "sourceSha256": "953e0abd5f326239fb611619b96d3fa195194b88b18b5ec7d9eda44049d46eeb",
+        "sourceSha256": "0d4a5f46bcb67e1f36cab66a5489e33442112ecd63584ee540e8ec4fc9e846f7",
         "modules": 3600,
-        "warnings": 2622,
+        "warnings": 2644,
         "errors": 0,
-        "scope": "The separate partial signature file also compiled with zero errors and 2,622 expected placeholder warnings across 3,600 pinned source modules. It includes all 34 new named declarations and 29 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 953e0abd5f326239fb611619b96d3fa195194b88b18b5ec7d9eda44049d46eeb.",
+        "scope": "The separate partial signature file also compiled with zero errors and 2,644 expected placeholder warnings across 3,600 pinned source modules. It includes all 6 new named declarations and 16 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 0d4a5f46bcb67e1f36cab66a5489e33442112ecd63584ee540e8ec4fc9e846f7.",
         "fullSuggestedFile": false,
         "documentedOmissionsRetained": true
       }
@@ -56907,7 +57292,7 @@
       "compiled": false,
       "errors": null,
       "warnings": null,
-      "sha256": "9c178ca1fcaac5a04096617ca7b063b3e5001ab4871c34015e05d3552cac2b2b",
+      "sha256": "6ddf99f51ec4c77dc2ed80c9f5afad5c8631d31d8ea7acc96a70051556ced2f1",
       "missingNativeArtifacts": [
         "TauCeti.NumberTheory.ArithmeticFunction.TwistedDivisorSum"
       ],
@@ -56922,11 +57307,11 @@
         }
       },
       "nativeProbe": {
-        "completeLemmas": 83,
+        "completeLemmas": 90,
         "errors": 0,
         "warnings": 0,
         "placeholders": 0,
-        "sha256": "9f3c7827045fe1ae1fe4554f15bc232801697b0a6b8f2364279b914cb62eca46"
+        "sha256": "3ee15516ebff25795d487687b920f53113c071449b63c63e2543129b2a812a2f"
       },
       "sourceAndAvailableArtifactAudit": {
         "compiledSupplierNodes": 332,
@@ -57064,17 +57449,17 @@
       },
       "partialSignatures": {
         "exitCode": 0,
-        "sourceSha256": "953e0abd5f326239fb611619b96d3fa195194b88b18b5ec7d9eda44049d46eeb",
+        "sourceSha256": "0d4a5f46bcb67e1f36cab66a5489e33442112ecd63584ee540e8ec4fc9e846f7",
         "modules": 3600,
-        "warnings": 2622,
+        "warnings": 2644,
         "errors": 0,
-        "scope": "The separate partial signature file also compiled with zero errors and 2,622 expected placeholder warnings across 3,600 pinned source modules. It includes all 34 new named declarations and 29 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 953e0abd5f326239fb611619b96d3fa195194b88b18b5ec7d9eda44049d46eeb.",
+        "scope": "The separate partial signature file also compiled with zero errors and 2,644 expected placeholder warnings across 3,600 pinned source modules. It includes all 6 new named declarations and 16 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 0d4a5f46bcb67e1f36cab66a5489e33442112ecd63584ee540e8ec4fc9e846f7.",
         "fullSuggestedFile": false,
         "documentedOmissionsRetained": true
       }
     },
     "publication": {
-      "base": "915ccd76ba763b66eab776bbd3888614b51ee335",
+      "base": "a49b81b9aee5e26f603d4b56500f5fff9ce6bdb5",
       "unchangedInputs": 72,
       "unchangedOutputs": 4,
       "sameSessionFollowupAfterMerge": true,
@@ -57082,7 +57467,7 @@
       "reviewIssue": 390,
       "reviewUnclaimed": true
     },
-    "closure": "Partial: 15 gaps, 11 requests (PadicMeasuresIwasawaAlgebras:L1, PadicMeasuresIwasawaAlgebras:L3, PadicMeasuresIwasawaAlgebras:L3, LocallyAnalyticDistributions:L1, AdicSpacesPartII:F1, AdicSpacesPartII:R2, PadicDifferentialEquationsAndRigidCohomology:RD.0, PadicDifferentialEquationsAndRigidCohomology:RD.4, PadicHodgeTheory:P7:annulus-foundations, PadicMeasuresIwasawaAlgebras:L2, LocallyAnalyticDistributions:L1), zero closed stages; every implementation status unchecked."
+    "closure": "Partial: 16 gaps, 12 requests (PadicMeasuresIwasawaAlgebras:L1, PadicMeasuresIwasawaAlgebras:L3, PadicMeasuresIwasawaAlgebras:L3, LocallyAnalyticDistributions:L1, AdicSpacesPartII:F1, AdicSpacesPartII:R2, PadicDifferentialEquationsAndRigidCohomology:RD.0, PadicDifferentialEquationsAndRigidCohomology:RD.4, PadicHodgeTheory:P7:annulus-foundations, PadicMeasuresIwasawaAlgebras:L2, LocallyAnalyticDistributions:L1, LocallyAnalyticDistributions:L0), zero closed stages; every implementation status unchecked."
   },
   "provenance": {
     "smoothingFollowup": {
@@ -65182,6 +65567,56 @@
         "warnings": 2622,
         "errors": 0,
         "scope": "The separate partial signature file also compiled with zero errors and 2,622 expected placeholder warnings across 3,600 pinned source modules. It includes all 34 new named declarations and 29 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 953e0abd5f326239fb611619b96d3fa195194b88b18b5ec7d9eda44049d46eeb.",
+        "fullSuggestedFile": false,
+        "documentedOmissionsRetained": true
+      }
+    },
+    "moritaAnalyticBounds": {
+      "agent": "Codex",
+      "session": "codex-7e92bd",
+      "issue": 713,
+      "claimComment": 5854790528,
+      "winningBot": 5854791937,
+      "previousPR": 5254,
+      "previousHead": "4e930ac570554a09c3aaa7bf5311068d0161b241",
+      "previousMerge": "f34d2b4ef5172f503169170d5a5c4c6d92488bcf",
+      "preservedWholeNodes": 831,
+      "preservedBaseline": 692,
+      "preservedFindings": 16,
+      "newNodes": 6,
+      "reading": "KL1964 and Morita1975 remain completely read. KL p.332 was re-read directly for equations (3)–(7), the level restriction and Hilfssatz1. The new explicit coarse constant is derived from the exact preceding arithmetic blocks and does not impersonate the source’s sharper eventual estimate. The reviewed Dirichlet L0–L4 and LAD L0 library audits, actual LAD closed-disc node, comment-only suggested L0–L2 interface and catalogue-wide Taylor/derivative search were checked. The native normed-algebra comparison, unit norms and ultrametric norm inequality were read at the pin.",
+      "boundary": "The actual angular means now have a uniform arithmetic bound independent of n under explicit disc value/Lipschitz hypotheses. The precise LAD L0 request must supply their source Gauss-norm interpretation and the divided derivative/Taylor interface. Convergence still requires a decay estimate using the finite torsion-twist family (or a fully justified source-compatible polynomial-density argument), and then a complete-field limit. The translated analytic functional and Gamma analyticity on pℤ_p for odd p and 8ℤ₂ remain open, as do the complete Gross–Koblitz and Ferrero–Greenberg proof readings and normalization checks. Sixteen gaps and twelve requests remain open.",
+      "inputBase": "a49b81b9aee5e26f603d4b56500f5fff9ce6bdb5",
+      "sourceBoundary": "All 16 existing findings, all sources and sourceVersions remain whole. No new source error or independent verification verdict is claimed. The source’s sharper bound is retained with its level restriction; the new arithmetic estimate is explicitly coarser.",
+      "sourceRefresh": "Publication refresh at a49b81b9 reads the DKV extraction FIX4986 changes: the arXiv page count becomes38; source-version and pending-fix receipts are added; generic GMA/extension modules and qualified closed-subring/Frobenius-density inputs are assigned to IHG.1/.4, with IHG.6 only a separate residual-coincidence comparison; Teichmuller ownership is solely Dirichlet L3 and retains the dyadic sign; Deligne–Ribet and a new dedicated two-character Hilbert Eisenstein route belong to Automorphic L3. The full changed route brief, all eight changed items, summary and fix metadata were read. Its Gamma/Gross–Koblitz/Ferrero–Greenberg route and three items are identical, as are its35 findings. The fix awaits independent review; this is a routing assessment, not a fresh full-paper read. No consumed analytic supplier or owned finding changes.",
+      "publication": {
+        "base": "a49b81b9aee5e26f603d4b56500f5fff9ce6bdb5",
+        "unchangedInputs": 72,
+        "unchangedOutputs": 4,
+        "sameSessionFollowupAfterMerge": true,
+        "lastClaimConfirmation": 5854791937,
+        "reviewIssue": 390,
+        "reviewUnclaimed": true
+      },
+      "finiteControls": {
+        "pointwiseLip": 3150,
+        "sampleShifts": 57603,
+        "shiftedMeans": 588,
+        "stepBounds": 168,
+        "uniformMeans": 224,
+        "scaledBounds": 224,
+        "initialDominates": 56,
+        "continuousCounterexamples": 8
+      },
+      "numericalMethod": "Exact rational evaluation and exact p-adic norms for p=2,3, whose source torsion values are ±1. Seven polynomials in (x−1)/q, four character levels including a deep p-power level, four averaging levels, every block shift at the first three levels, and fifteen-residue pointwise tests. Indicator functions of progressively smaller principal-disc residue classes test why the Lipschitz factor cannot be removed. No floating-point or asymptotic computation.",
+      "fullSuggestedCompiled": false,
+      "partialSignatures": {
+        "exitCode": 0,
+        "sourceSha256": "0d4a5f46bcb67e1f36cab66a5489e33442112ecd63584ee540e8ec4fc9e846f7",
+        "modules": 3600,
+        "warnings": 2644,
+        "errors": 0,
+        "scope": "The separate partial signature file also compiled with zero errors and 2,644 expected placeholder warnings across 3,600 pinned source modules. It includes all 6 new named declarations and 16 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 0d4a5f46bcb67e1f36cab66a5489e33442112ecd63584ee540e8ec4fc9e846f7.",
         "fullSuggestedFile": false,
         "documentedOmissionsRetained": true
       }
