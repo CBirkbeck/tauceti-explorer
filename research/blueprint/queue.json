@@ -33958,8 +33958,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-BROWNING-LEBOUDEC-SAWIN-23.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4977"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4977",
+   "finishedAt": "2026-09-30T16:34:21Z"
   },
   {
    "id": "REV-FIX-RT-PAPER-BROWNING-LEBOUDEC-SAWIN-23",
@@ -39322,7 +39323,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-MERKURJEV-SCAVIA-26.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #5004"
   },
   {
    "id": "RT-PAPER-SCHOLZE-26",
@@ -41989,8 +41991,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-KHARE-WINTENBERGER-09-I.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5027"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #5027",
+   "finishedAt": "2026-09-30T16:34:26Z"
   },
   {
    "id": "REV-FIX-RT-PAPER-KHARE-WINTENBERGER-09-I",
