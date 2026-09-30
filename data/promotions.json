@@ -569,6 +569,17 @@
     "data/restructure/RS-11.md"
    ]
   },
+  "research/blueprint/restructure/RS-12.result.json": {
+   "promotedAt": "2026-09-30T15:29:19Z",
+   "review": "28f03990c5f15152",
+   "reviewDate": "2026-09-29",
+   "reviewer": "independent-review-REV-RS-12~3",
+   "sha256": "d42a1b1577649392607a9e1565fa7ddea3ab30f853ff82540954699d75ef0b18",
+   "to": [
+    "data/restructure/RS-12.result.json",
+    "data/restructure/RS-12.md"
+   ]
+  },
   "research/blueprint/restructure/RS-13.result.json": {
    "promotedAt": "2026-09-23T12:23:19Z",
    "review": "b4686d1c18162521",
@@ -646,6 +657,17 @@
     "data/restructure/RS-19.md"
    ]
   },
+  "research/blueprint/restructure/RS-20.result.json": {
+   "promotedAt": "2026-09-30T15:29:19Z",
+   "review": "1675f72dcf362866",
+   "reviewDate": "2026-09-29",
+   "reviewer": "independent-review-REV-RS-20~3",
+   "sha256": "94b054ac2d67c1ebac0d28b357257dd45c5982a846242f0366d876f024e28974",
+   "to": [
+    "data/restructure/RS-20.result.json",
+    "data/restructure/RS-20.md"
+   ]
+  },
   "research/blueprint/restructure/RS-21.result.json": {
    "promotedAt": "2026-09-29T20:00:16Z",
    "review": "2b3a2628d659695c",
@@ -712,6 +734,17 @@
     "data/restructure/RS-26.md"
    ]
   },
+  "research/blueprint/restructure/RS-27.result.json": {
+   "promotedAt": "2026-09-30T15:29:19Z",
+   "review": "99adda31eac602a9",
+   "reviewDate": "2026-09-29",
+   "reviewer": "independent-review-REV-RS-27",
+   "sha256": "b9139d1012b7d39c1c7f5d630f2d231c3387a3ae247e14966966c6ab9e72bdf2",
+   "to": [
+    "data/restructure/RS-27.result.json",
+    "data/restructure/RS-27.md"
+   ]
+  },
   "research/blueprint/restructure/RS-28.result.json": {
    "promotedAt": "2026-09-21T17:38:22Z",
    "review": "3ad9a87d930780ff",
@@ -765,6 +798,17 @@
    "to": [
     "data/restructure/RS-32.result.json",
     "data/restructure/RS-32.md"
+   ]
+  },
+  "research/blueprint/restructure/RS-33.result.json": {
+   "promotedAt": "2026-09-30T15:29:19Z",
+   "review": "951019e1a00e0076",
+   "reviewDate": "2026-09-29",
+   "reviewer": "independent-review-REV-RS-33",
+   "sha256": "f9e95d0edcb3f28b9821335eb9d879a57466bed358835b428b338deb97b4369f",
+   "to": [
+    "data/restructure/RS-33.result.json",
+    "data/restructure/RS-33.md"
    ]
   }
  },
