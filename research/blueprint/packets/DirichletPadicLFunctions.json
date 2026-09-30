@@ -10,7 +10,7 @@
     "DirichletPadicLFunctions:L4"
   ],
   "status": "partial",
-  "summary": "Seven L2 nodes construct the actual character-generated native intermediate field and its restricted character, with minimality, algebraicity, finite-dimensionality, completeness and exact recovery. Two arithmetic constructions receive eleven API entries and ten tests. All671 predecessor nodes remain whole; actual measure descent remains the next step.",
+  "summary": "Nine L2 nodes supply the compatible integer scalar tower, bounded action and norm-valuation extension for the actual character field, then specialize all six existing field/integer measure comparisons to it. All678 predecessor nodes remain whole. Thirteen tests include scalar compatibility, divisibility at zero, Mahler moments and both modulus-one boundaries.",
   "baseline": {
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
@@ -4046,6 +4046,48 @@
         "module": "Mathlib/Topology/Algebra/Module/FiniteDimension.lean",
         "provides": "Finite-dimensional Hausdorff uniform modules over a complete nontrivially normed field are complete under continuous scalar action.",
         "checked": "Whole declaration and ambient hypotheses read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on30September2026; exercised by the complete native field/character probe where applicable and checked against the unchanged declaration index."
+      },
+      {
+        "ref": "mathlib:Algebra.charZero_of_charZero",
+        "kind": "lemma",
+        "module": "Mathlib/Algebra/Algebra/Basic.lean",
+        "provides": "The faithful algebra map transports characteristic zero from the actual p-adic base field.",
+        "checked": "Read the complete declaration and its ambient hypotheses at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on30September2026; native compatibility probe or actual typed descent signatures check its use. No declaration-index entry is fabricated for unnamed native structural instances."
+      },
+      {
+        "ref": "mathlib:IntermediateField.algebra'",
+        "kind": "instance",
+        "module": "Mathlib/FieldTheory/IntermediateField/Basic.lean",
+        "provides": "Native algebra on an intermediate field restricted from a compatible scalar tower.",
+        "checked": "Read the complete declaration and its ambient hypotheses at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on30September2026; native compatibility probe or actual typed descent signatures check its use. No declaration-index entry is fabricated for unnamed native structural instances."
+      },
+      {
+        "ref": "mathlib:IsScalarTower.of_algebraMap_eq",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Algebra/Tower.lean",
+        "provides": "Pointwise composition of actual algebra maps supplies the scalar-tower law.",
+        "checked": "Read the complete declaration and its ambient hypotheses at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on30September2026; native compatibility probe or actual typed descent signatures check its use. No declaration-index entry is fabricated for unnamed native structural instances."
+      },
+      {
+        "ref": "mathlib:IsBoundedSMul.of_norm_smul_le",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/Normed/MulAction.lean",
+        "provides": "The actual norm bound on every scalar product supplies IsBoundedSMul.",
+        "checked": "Read the complete declaration and its ambient hypotheses at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on30September2026; native compatibility probe or actual typed descent signatures check its use. No declaration-index entry is fabricated for unnamed native structural instances."
+      },
+      {
+        "ref": "mathlib:IsUltrametricDist.subtype",
+        "kind": "instance",
+        "module": "Mathlib/Topology/MetricSpace/Ultra/Basic.lean",
+        "provides": "The inherited subtype metric of an ultrametric space is ultrametric.",
+        "checked": "Read the complete declaration and its ambient hypotheses at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on30September2026; native compatibility probe or actual typed descent signatures check its use. No declaration-index entry is fabricated for unnamed native structural instances."
+      },
+      {
+        "ref": "mathlib:IntermediateField.continuousSMul",
+        "kind": "instance",
+        "module": "Mathlib/Topology/Algebra/IntermediateField.lean",
+        "provides": "Restricting a continuous ambient scalar action to an intermediate field gives a continuous action.",
+        "checked": "Read the complete declaration and its ambient hypotheses at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on30September2026; native compatibility probe or actual typed descent signatures check its use. No declaration-index entry is fabricated for unnamed native structural instances."
       }
     ]
   },
@@ -44493,6 +44535,513 @@
       "acceptance": [
         "Recovery is equality of native bundled characters at the same level. All measure and integral-ring descent still requires the actual coefficient-field structures in the subsequent comparison."
       ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L2/tame-character-field-integer-tower",
+      "parentStageId": "DirichletPadicLFunctions:L2",
+      "realises": [
+        "DirichletPadicLFunctions:L2"
+      ],
+      "title": "The compatible integer scalar tower on the character field",
+      "kind": "lemma",
+      "statement": "IsScalarTower ℤ_p Fη K for the native restricted algebra on Fη and the displayed algebra on K.",
+      "hypotheses": [
+        "p is prime, K is a normed field with NormedAlgebra ℚ_p K and Algebra ℤ_p K, and IsScalarTower ℤ_p ℚ_p K holds. D>0 and η is a native character. No completeness, bounded action or ultrametric hypothesis is needed.",
+        "Fη is the actual previously constructed intermediate field, with the native IntermediateField.algebra' restriction from the given tower."
+      ],
+      "proofSteps": [
+        "Use native IntermediateField.algebra' to restrict the given ℤ_p-algebra to Fη; its carrier is closed under the given scalars because it contains the ℚ_p image.",
+        "For x∈ℤ_p, the value in K of algebraMap ℤ_p Fη x is definitionally algebraMap ℤ_p K x. The field inclusion is the native subtype map.",
+        "Apply native IsScalarTower.of_algebraMap_eq to this exact pointwise equality. This gives the compatibility needed by the earlier all-test comparison, including its Mahler scalar action.",
+        "The complete integer_scalar_tower and integer_map_coe proofs check these statements for any native intermediate field in the given normed ℚ_p-algebra. This node is their specialization to the existing arithmetic field, not a new general scalar-tower construction."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L2/tame-character-field",
+        "mathlib:IntermediateField.algebra'",
+        "mathlib:IsScalarTower.of_algebraMap_eq"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/TameCoefficientFields",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.tameCharacterField_integerScalarTower"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Theorem5.7 and Remark5.8(2), published143/PDF44, and the entire coefficient-field/integer-ring discussion following equation(5-3), published144/PDF45; both complete pages freshly read30September2026.",
+          "match": "The source uses a finite coefficient extension containing the character values. These worker-derived specializations of the existing all-test comparisons realize the actual measures over the native character-generated field and its valuation integers. No new Gauss-sum identity or unproved assertion about a cyclotomic splitting field is imported from the sketch."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedTameCharacterDescentTests.scalar_tower_on_integer",
+          "kind": "compatibility",
+          "statement": "For every x∈ℤ_p, inclusion of its native image in Fη is exactly its displayed image in K."
+        }
+      ],
+      "acceptance": [
+        "The two maps of ℤ_p agree on every integer. An arbitrary unrelated Algebra ℤ_p K without the stated ℚ_p tower is not silently accepted."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L2/tame-character-field-bounded-action",
+      "parentStageId": "DirichletPadicLFunctions:L2",
+      "realises": [
+        "DirichletPadicLFunctions:L2"
+      ],
+      "title": "The bounded integer action on the character field",
+      "kind": "lemma",
+      "statement": "IsBoundedSMul ℤ_p Fη for its inherited scalar action and norm.",
+      "hypotheses": [
+        "Use the normed ℚ_p-algebra and compatible ℤ_p algebra hypotheses of the integer-tower node, together with IsBoundedSMul ℤ_p K. D>0. Completeness and the ultrametric property are not required."
+      ],
+      "proofSteps": [
+        "The native restricted action includes to r•(x:K), and the norm of a subtype element is its ambient norm.",
+        "For every r∈ℤ_p and x∈Fη, native norm_smul_le in K therefore gives ‖r•x‖≤‖r‖‖x‖ for the actual restricted action.",
+        "Apply native IsBoundedSMul.of_norm_smul_le to obtain the bounded-action structure on Fη. The complete integer_action_bounded proof checks precisely this norm inequality and the native constructor.",
+        "No unit-ball normalization is substituted for the field norm, and no separate scalar action on OF is needed by this result."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L2/tame-character-field",
+        "mathlib:IntermediateField.algebra'",
+        "mathlib:IsBoundedSMul.of_norm_smul_le",
+        "mathlib:norm_smul_le"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/TameCoefficientFields",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.tameCharacterField_isBoundedSMul"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Theorem5.7 and Remark5.8(2), published143/PDF44, and the entire coefficient-field/integer-ring discussion following equation(5-3), published144/PDF45; both complete pages freshly read30September2026.",
+          "match": "The source uses a finite coefficient extension containing the character values. These worker-derived specializations of the existing all-test comparisons realize the actual measures over the native character-generated field and its valuation integers. No new Gauss-sum identity or unproved assertion about a cyclotomic splitting field is imported from the sketch."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedTameCharacterDescentTests.bounded_integer_scalar_action",
+          "kind": "compatibility",
+          "statement": "For every r∈ℤ_p and x∈Fη, the actual inherited action satisfies ‖r•x‖≤‖r‖‖x‖."
+        }
+      ],
+      "acceptance": [
+        "This proves the bounded action that the native p-adic measure constructors require. It does not assert that arbitrary scalar structures are compatible."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L2/tame-character-field-valuation-extension",
+      "parentStageId": "DirichletPadicLFunctions:L2",
+      "realises": [
+        "DirichletPadicLFunctions:L2"
+      ],
+      "title": "The norm valuation on the character field",
+      "kind": "lemma",
+      "statement": "Valuation.HasExtension (NormedField.valuation on Fη) (NormedField.valuation on K).",
+      "hypotheses": [
+        "p is prime. K is a normed ultrametric field with NormedAlgebra ℚ_p K. D>0 and η is native. No completeness or ℤ_p scalar-action hypotheses are imposed.",
+        "Fη has its inherited normed-field structure and the native subtype ultrametric structure. Both valuations are the actual native norm valuations."
+      ],
+      "proofSteps": [
+        "The inclusion Fη→K is the subtype map, so it preserves the norm and the nonnegative norm exactly. Thus the norm valuation on Fη is pointwise the comap of the norm valuation on K.",
+        "Native Valuation.IsEquiv asks for equivalence of the two order comparisons on each pair x,y∈Fη. Both comparisons are definitionally the same in this case; supply them to the HasExtension constructor. The complete valuation_extension proof checks that exact instance.",
+        "The existing native instAlgebraInteger now supplies OF→OK by restriction of the field inclusion. Its included value is the original subtype value, and the double-subtype inclusion is continuous. The complete integer_inclusion_coe and integer_inclusion_continuous proofs check this data without any new carrier.",
+        "For x,y∈OF, the native integer divisibility criterion and equality of the norm valuations give j(x)∣j(y) iff x∣y, including x=0. The complete integer_divisibility proof checks this; zero divisibility is equality, not a vacuous assertion. No claim that arbitrary extensions have equal numerical norm valuations is made."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L2/tame-character-field",
+        "mathlib:SubfieldClass.toNormedField",
+        "mathlib:IsUltrametricDist.subtype",
+        "mathlib:NormedField.valuation",
+        "mathlib:Valuation.HasExtension",
+        "mathlib:Valuation.HasExtension.instAlgebraInteger",
+        "mathlib:Valuation.Integers.dvd_iff_le"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/TameCoefficientFields",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.tameCharacterField_valuationExtension"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Theorem5.7 and Remark5.8(2), published143/PDF44, and the entire coefficient-field/integer-ring discussion following equation(5-3), published144/PDF45; both complete pages freshly read30September2026.",
+          "match": "The source uses a finite coefficient extension containing the character values. These worker-derived specializations of the existing all-test comparisons realize the actual measures over the native character-generated field and its valuation integers. No new Gauss-sum identity or unproved assertion about a cyclotomic splitting field is imported from the sketch."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedTameCharacterDescentTests.integer_inclusion_reflects_divisibility",
+          "kind": "compatibility",
+          "statement": "The actual integer-ring inclusion preserves and reflects x∣y, for all x,y including0."
+        },
+        {
+          "name": "SuggestedTameCharacterDescentTests.zero_ideal_is_not_vacuous",
+          "kind": "non-example",
+          "statement": "j(0) divides j(x−y) if and only if x=y."
+        }
+      ],
+      "acceptance": [
+        "The integer-ring map is native and uses the displayed field inclusion. It is not an independent map chosen only on roots of unity."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L2/tame-measure-character-field-descent",
+      "parentStageId": "DirichletPadicLFunctions:L2",
+      "realises": [
+        "DirichletPadicLFunctions:L2"
+      ],
+      "title": "Descent of the tame measure to its character field",
+      "kind": "comparison",
+      "statement": "For every f∈C(ℤ_p,Fη), i(tameMeasure(ηF)(f))=tameMeasure(η)(i∘f), with the actual canonical D-unit certificates and p∤D.",
+      "hypotheses": [
+        "p is any prime, including2. K is a complete nontrivially normed ultrametric field with the actual NormedAlgebra ℚ_p K, Algebra ℤ_p K, compatible IsScalarTower ℤ_p ℚ_p K and IsBoundedSMul ℤ_p K. D>0, NeZero D and p∤D; η:DirichletCharacter K D is native. Primitivity and nonprincipality are not needed for these constructor comparisons.",
+        "Fη=tameCharacterField p η is the existing native IntermediateField.adjoin ℚ_p (Set.range η) with its inherited field and norm. ηF=tameCharacterInField p η is the actual restricted character. Its finite dimension and completeness are the preceding results. The native intermediate-field instance supplies a nontrivial norm from the normed ℚ_p-algebra, not from a separately chosen topology.",
+        "Use the native restricted ℤ_p algebra, the bounded-action and scalar-tower lemmas below, and native inherited ultrametric and continuous Fη-action structures. The characteristic-zero field structures give canonical IsUnit(D:Fη) and IsUnit(D:K) certificates from D>0; these certificates are proof-irrelevant. Coprimality p∤D remains a separate arithmetic hypothesis of each measure constructor."
+      ],
+      "proofSteps": [
+        "Install the preceding completeness, bounded action and compatible ℤ_p scalar tower for the actual Fη. Its nontrivial norm is the native intermediate-field instance from the normed ℚ_p-algebra. Native subtype ultrametric and IntermediateField.continuousSMul provide the remaining structural hypotheses.",
+        "Use native Algebra.charZero_of_charZero for the actual ℚ_p-algebra to supply CharZero K; the intermediate field inherits characteristic zero. Both D-unit certificates then follow from D>0. This uses only the actual field structures; p∤D is retained separately for the arithmetic constructor. The complete positive_level_unit probe checks this certificate for a native intermediate field.",
+        "Apply the existing tame-measure-field-comparison comparison with smaller coefficient field Fη, larger field K, original smaller-field character ηF, and the given continuous test f. The output maps the whole test by the actual continuous field inclusion; no generic measure-extension operation is introduced.",
+        "Use tame-character-field-recovery to replace the included bundled character by exactly η. Proof irrelevance identifies its D-unit certificate with the displayed one. The resulting identity is the stated equality of actual constructor evaluations.",
+        "This gives a measure genuinely defined over Fη and recovers its values in K on transported tests. It does not claim every K-valued test has an Fη-valued integral. For intrinsic moments with an additional wild character, that character must also take values in Fη or one must enlarge the coefficient field."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L2/tame-character-field-complete",
+        "DirichletPadicLFunctions:L2/tame-character-field-integer-tower",
+        "DirichletPadicLFunctions:L2/tame-character-field-bounded-action",
+        "DirichletPadicLFunctions:L2/tame-character-field-recovery",
+        "mathlib:IntermediateField.continuousSMul",
+        "mathlib:IsUltrametricDist.subtype",
+        "mathlib:Algebra.charZero_of_charZero",
+        "DirichletPadicLFunctions:L2/tame-measure-field-comparison"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/TameCoefficientFields",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.tameMeasure_characterField_apply"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Theorem5.7 and Remark5.8(2), published143/PDF44, and the entire coefficient-field/integer-ring discussion following equation(5-3), published144/PDF45; both complete pages freshly read30September2026.",
+          "match": "The source uses a finite coefficient extension containing the character values. These worker-derived specializations of the existing all-test comparisons realize the actual measures over the native character-generated field and its valuation integers. No new Gauss-sum identity or unproved assertion about a cyclotomic splitting field is imported from the sketch."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedTameCharacterDescentTests.tame_mass_in_character_field",
+          "kind": "compatibility",
+          "statement": "The smaller-field mass includes to the original tame mass."
+        },
+        {
+          "name": "SuggestedTameCharacterDescentTests.tame_mahler_in_character_field",
+          "kind": "compatibility",
+          "statement": "Every native Mahler-basis moment over Fη includes to the corresponding K-valued moment with its actual compatible ℤ_p action."
+        },
+        {
+          "name": "SuggestedTameCharacterDescentTests.modulus_one_tame_descent_is_zero",
+          "kind": "degenerate",
+          "statement": "At D=1 both actual tame measures give0 on every transported continuous test."
+        }
+      ],
+      "acceptance": [
+        "Both sides use the actual existing arithmetic measure constructors. There is no fresh character-field measure wrapper or duplicate Amice inverse. Principal and modulus-one constructors are included; this does not identify their zero tame measure with the principal p-adic zeta pseudomeasure."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L2/tame-zeta-character-field-descent",
+      "parentStageId": "DirichletPadicLFunctions:L2",
+      "realises": [
+        "DirichletPadicLFunctions:L2"
+      ],
+      "title": "Descent of the tame zeta measure to its character field",
+      "kind": "comparison",
+      "statement": "For every f∈C(ℤ_p,Fη), i(tameZetaMeasure(ηF)(f))=tameZetaMeasure(η)(i∘f), with the actual canonical D-unit certificates and p∤D.",
+      "hypotheses": [
+        "p is any prime, including2. K is a complete nontrivially normed ultrametric field with the actual NormedAlgebra ℚ_p K, Algebra ℤ_p K, compatible IsScalarTower ℤ_p ℚ_p K and IsBoundedSMul ℤ_p K. D>0, NeZero D and p∤D; η:DirichletCharacter K D is native. Primitivity and nonprincipality are not needed for these constructor comparisons.",
+        "Fη=tameCharacterField p η is the existing native IntermediateField.adjoin ℚ_p (Set.range η) with its inherited field and norm. ηF=tameCharacterInField p η is the actual restricted character. Its finite dimension and completeness are the preceding results. The native intermediate-field instance supplies a nontrivial norm from the normed ℚ_p-algebra, not from a separately chosen topology.",
+        "Use the native restricted ℤ_p algebra, the bounded-action and scalar-tower lemmas below, and native inherited ultrametric and continuous Fη-action structures. The characteristic-zero field structures give canonical IsUnit(D:Fη) and IsUnit(D:K) certificates from D>0; these certificates are proof-irrelevant. Coprimality p∤D remains a separate arithmetic hypothesis of each measure constructor."
+      ],
+      "proofSteps": [
+        "Install the preceding completeness, bounded action and compatible ℤ_p scalar tower for the actual Fη. Its nontrivial norm is the native intermediate-field instance from the normed ℚ_p-algebra. Native subtype ultrametric and IntermediateField.continuousSMul provide the remaining structural hypotheses.",
+        "Use native Algebra.charZero_of_charZero for the actual ℚ_p-algebra to supply CharZero K; the intermediate field inherits characteristic zero. Both D-unit certificates then follow from D>0. This uses only the actual field structures; p∤D is retained separately for the arithmetic constructor. The complete positive_level_unit probe checks this certificate for a native intermediate field.",
+        "Apply the existing tame-zeta-field-comparison comparison with smaller coefficient field Fη, larger field K, original smaller-field character ηF, and the given continuous test f. The output maps the whole test by the actual continuous field inclusion; no generic measure-extension operation is introduced.",
+        "Use tame-character-field-recovery to replace the included bundled character by exactly η. Proof irrelevance identifies its D-unit certificate with the displayed one. The resulting identity is the stated equality of actual constructor evaluations.",
+        "This gives a measure genuinely defined over Fη and recovers its values in K on transported tests. It does not claim every K-valued test has an Fη-valued integral. For intrinsic moments with an additional wild character, that character must also take values in Fη or one must enlarge the coefficient field."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L2/tame-character-field-complete",
+        "DirichletPadicLFunctions:L2/tame-character-field-integer-tower",
+        "DirichletPadicLFunctions:L2/tame-character-field-bounded-action",
+        "DirichletPadicLFunctions:L2/tame-character-field-recovery",
+        "mathlib:IntermediateField.continuousSMul",
+        "mathlib:IsUltrametricDist.subtype",
+        "mathlib:Algebra.charZero_of_charZero",
+        "DirichletPadicLFunctions:L2/tame-zeta-field-comparison"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/TameCoefficientFields",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.tameZetaMeasure_characterField_apply"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Theorem5.7 and Remark5.8(2), published143/PDF44, and the entire coefficient-field/integer-ring discussion following equation(5-3), published144/PDF45; both complete pages freshly read30September2026.",
+          "match": "The source uses a finite coefficient extension containing the character values. These worker-derived specializations of the existing all-test comparisons realize the actual measures over the native character-generated field and its valuation integers. No new Gauss-sum identity or unproved assertion about a cyclotomic splitting field is imported from the sketch."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedTameCharacterDescentTests.zeta_mass_in_character_field",
+          "kind": "compatibility",
+          "statement": "The smaller-field zeta mass includes to the original zeta mass."
+        }
+      ],
+      "acceptance": [
+        "Both sides use the actual existing arithmetic measure constructors. There is no fresh character-field measure wrapper or duplicate Amice inverse. Principal and modulus-one constructors are included; this does not identify their zero tame measure with the principal p-adic zeta pseudomeasure."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L2/intrinsic-tame-character-field-descent",
+      "parentStageId": "DirichletPadicLFunctions:L2",
+      "realises": [
+        "DirichletPadicLFunctions:L2"
+      ],
+      "title": "Descent of the intrinsic tame zeta measure",
+      "kind": "comparison",
+      "statement": "For every f∈C(ℤ_pˣ,Fη), i(intrinsicTameZetaMeasure(ηF)(f))=intrinsicTameZetaMeasure(η)(i∘f), with the actual canonical D-unit certificates and p∤D.",
+      "hypotheses": [
+        "p is any prime, including2. K is a complete nontrivially normed ultrametric field with the actual NormedAlgebra ℚ_p K, Algebra ℤ_p K, compatible IsScalarTower ℤ_p ℚ_p K and IsBoundedSMul ℤ_p K. D>0, NeZero D and p∤D; η:DirichletCharacter K D is native. Primitivity and nonprincipality are not needed for these constructor comparisons.",
+        "Fη=tameCharacterField p η is the existing native IntermediateField.adjoin ℚ_p (Set.range η) with its inherited field and norm. ηF=tameCharacterInField p η is the actual restricted character. Its finite dimension and completeness are the preceding results. The native intermediate-field instance supplies a nontrivial norm from the normed ℚ_p-algebra, not from a separately chosen topology.",
+        "Use the native restricted ℤ_p algebra, the bounded-action and scalar-tower lemmas below, and native inherited ultrametric and continuous Fη-action structures. The characteristic-zero field structures give canonical IsUnit(D:Fη) and IsUnit(D:K) certificates from D>0; these certificates are proof-irrelevant. Coprimality p∤D remains a separate arithmetic hypothesis of each measure constructor."
+      ],
+      "proofSteps": [
+        "Install the preceding completeness, bounded action and compatible ℤ_p scalar tower for the actual Fη. Its nontrivial norm is the native intermediate-field instance from the normed ℚ_p-algebra. Native subtype ultrametric and IntermediateField.continuousSMul provide the remaining structural hypotheses.",
+        "Use native Algebra.charZero_of_charZero for the actual ℚ_p-algebra to supply CharZero K; the intermediate field inherits characteristic zero. Both D-unit certificates then follow from D>0. This uses only the actual field structures; p∤D is retained separately for the arithmetic constructor. The complete positive_level_unit probe checks this certificate for a native intermediate field.",
+        "Apply the existing intrinsic-tame-zeta-field-comparison comparison with smaller coefficient field Fη, larger field K, original smaller-field character ηF, and the given continuous test f. The output maps the whole test by the actual continuous field inclusion; no generic measure-extension operation is introduced.",
+        "Use tame-character-field-recovery to replace the included bundled character by exactly η. Proof irrelevance identifies its D-unit certificate with the displayed one. The resulting identity is the stated equality of actual constructor evaluations.",
+        "This gives a measure genuinely defined over Fη and recovers its values in K on transported tests. It does not claim every K-valued test has an Fη-valued integral. For intrinsic moments with an additional wild character, that character must also take values in Fη or one must enlarge the coefficient field."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L2/tame-character-field-complete",
+        "DirichletPadicLFunctions:L2/tame-character-field-integer-tower",
+        "DirichletPadicLFunctions:L2/tame-character-field-bounded-action",
+        "DirichletPadicLFunctions:L2/tame-character-field-recovery",
+        "mathlib:IntermediateField.continuousSMul",
+        "mathlib:IsUltrametricDist.subtype",
+        "mathlib:Algebra.charZero_of_charZero",
+        "DirichletPadicLFunctions:L2/intrinsic-tame-zeta-field-comparison"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/TameCoefficientFields",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.intrinsicTameZetaMeasure_characterField_apply"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Theorem5.7 and Remark5.8(2), published143/PDF44, and the entire coefficient-field/integer-ring discussion following equation(5-3), published144/PDF45; both complete pages freshly read30September2026.",
+          "match": "The source uses a finite coefficient extension containing the character values. These worker-derived specializations of the existing all-test comparisons realize the actual measures over the native character-generated field and its valuation integers. No new Gauss-sum identity or unproved assertion about a cyclotomic splitting field is imported from the sketch."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedTameCharacterDescentTests.intrinsic_positive_moment_in_character_field",
+          "kind": "compatibility",
+          "statement": "For every w≥0, the native trivial finite character times x^(w+1) has the same intrinsic moment after inclusion from Fη to K."
+        }
+      ],
+      "acceptance": [
+        "Both sides use the actual existing arithmetic measure constructors. There is no fresh character-field measure wrapper or duplicate Amice inverse. Principal and modulus-one constructors are included; this does not identify their zero tame measure with the principal p-adic zeta pseudomeasure."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L2/integral-tame-character-field-descent",
+      "parentStageId": "DirichletPadicLFunctions:L2",
+      "realises": [
+        "DirichletPadicLFunctions:L2"
+      ],
+      "title": "Integral descent of the tame measure",
+      "kind": "comparison",
+      "statement": "For every f∈C(ℤ_p,OF), j(integralTameMeasure(ηF)(f))=integralTameMeasure(η)(j∘f), using the actual native integer-ring inclusion.",
+      "hypotheses": [
+        "p is any prime, including2. K is a complete nontrivially normed ultrametric field with the actual NormedAlgebra ℚ_p K, Algebra ℤ_p K, compatible IsScalarTower ℤ_p ℚ_p K and IsBoundedSMul ℤ_p K. D>0, NeZero D and p∤D; η:DirichletCharacter K D is native. Primitivity and nonprincipality are not needed for these constructor comparisons.",
+        "Fη=tameCharacterField p η is the existing native IntermediateField.adjoin ℚ_p (Set.range η) with its inherited field and norm. ηF=tameCharacterInField p η is the actual restricted character. Its finite dimension and completeness are the preceding results. The native intermediate-field instance supplies a nontrivial norm from the normed ℚ_p-algebra, not from a separately chosen topology.",
+        "Use the native restricted ℤ_p algebra, the bounded-action and scalar-tower lemmas below, and native inherited ultrametric and continuous Fη-action structures. The characteristic-zero field structures give canonical IsUnit(D:Fη) and IsUnit(D:K) certificates from D>0; these certificates are proof-irrelevant. Coprimality p∤D remains a separate arithmetic hypothesis of each measure constructor.",
+        "OF and OK mean exactly Valuation.integer of the norm valuations on Fη and K. The lemma tameCharacterField_valuationExtension installs the native HasExtension instance; its native instAlgebraInteger supplies j:OF→+*OK. No independent ℤ_p algebra is chosen on either integer subring. Both j and the field inclusion i:Fη→+*K are continuous in the inherited topologies."
+      ],
+      "proofSteps": [
+        "Use the same complete, nontrivially normed, bounded and ultrametric Fη, its canonical D-unit certificate, and the compatible ℤ_p tower as for field-valued descent.",
+        "Install tame-character-field-valuation-extension. Native instAlgebraInteger supplies exactly the ring homomorphism OF→OK; the complete double-subtype continuity proof gives the continuous map used to transport every test.",
+        "Apply the existing integral-tame-measure-field-comparison all-test comparison to ηF over Fη and the inclusion into K. Its hypotheses are now provided by preceding fine nodes or native structures, not left as extra unproved existence assumptions.",
+        "Replace the coefficient-mapped character by η using the exact recovery theorem and identify D-unit certificates by proof irrelevance. The integer-valued equality is retained as an equality in OK, rather than merely equality after forgetting integrality.",
+        "The native inclusion preserves and reflects divisibility, including the zero ideal. Nevertheless descent here is asserted only for transported OF-valued tests. Arbitrary OK-valued tests or wild characters outside the smaller field are not silently restricted."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L2/tame-character-field-complete",
+        "DirichletPadicLFunctions:L2/tame-character-field-integer-tower",
+        "DirichletPadicLFunctions:L2/tame-character-field-bounded-action",
+        "DirichletPadicLFunctions:L2/tame-character-field-recovery",
+        "mathlib:IntermediateField.continuousSMul",
+        "mathlib:IsUltrametricDist.subtype",
+        "mathlib:Algebra.charZero_of_charZero",
+        "DirichletPadicLFunctions:L2/tame-character-field-valuation-extension",
+        "DirichletPadicLFunctions:L2/integral-tame-measure-field-comparison",
+        "mathlib:Valuation.HasExtension.instAlgebraInteger"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/TameCoefficientFields",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.integralTameMeasure_characterField_apply"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Theorem5.7 and Remark5.8(2), published143/PDF44, and the entire coefficient-field/integer-ring discussion following equation(5-3), published144/PDF45; both complete pages freshly read30September2026.",
+          "match": "The source uses a finite coefficient extension containing the character values. These worker-derived specializations of the existing all-test comparisons realize the actual measures over the native character-generated field and its valuation integers. No new Gauss-sum identity or unproved assertion about a cyclotomic splitting field is imported from the sketch."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedTameCharacterDescentTests.integral_tame_mass_in_character_field",
+          "kind": "compatibility",
+          "statement": "The integral tame mass over OF maps to the original mass over OK."
+        }
+      ],
+      "acceptance": [
+        "The source and target are the existing actual integral measure constructors. Their integer-ring structures come from the native norm valuation; no alternative integer ring or measure carrier is introduced."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L2/integral-tame-zeta-character-field-descent",
+      "parentStageId": "DirichletPadicLFunctions:L2",
+      "realises": [
+        "DirichletPadicLFunctions:L2"
+      ],
+      "title": "Integral descent of the tame zeta measure",
+      "kind": "comparison",
+      "statement": "For every f∈C(ℤ_p,OF), j(integralTameZetaMeasure(ηF)(f))=integralTameZetaMeasure(η)(j∘f), using the actual native integer-ring inclusion.",
+      "hypotheses": [
+        "p is any prime, including2. K is a complete nontrivially normed ultrametric field with the actual NormedAlgebra ℚ_p K, Algebra ℤ_p K, compatible IsScalarTower ℤ_p ℚ_p K and IsBoundedSMul ℤ_p K. D>0, NeZero D and p∤D; η:DirichletCharacter K D is native. Primitivity and nonprincipality are not needed for these constructor comparisons.",
+        "Fη=tameCharacterField p η is the existing native IntermediateField.adjoin ℚ_p (Set.range η) with its inherited field and norm. ηF=tameCharacterInField p η is the actual restricted character. Its finite dimension and completeness are the preceding results. The native intermediate-field instance supplies a nontrivial norm from the normed ℚ_p-algebra, not from a separately chosen topology.",
+        "Use the native restricted ℤ_p algebra, the bounded-action and scalar-tower lemmas below, and native inherited ultrametric and continuous Fη-action structures. The characteristic-zero field structures give canonical IsUnit(D:Fη) and IsUnit(D:K) certificates from D>0; these certificates are proof-irrelevant. Coprimality p∤D remains a separate arithmetic hypothesis of each measure constructor.",
+        "OF and OK mean exactly Valuation.integer of the norm valuations on Fη and K. The lemma tameCharacterField_valuationExtension installs the native HasExtension instance; its native instAlgebraInteger supplies j:OF→+*OK. No independent ℤ_p algebra is chosen on either integer subring. Both j and the field inclusion i:Fη→+*K are continuous in the inherited topologies."
+      ],
+      "proofSteps": [
+        "Use the same complete, nontrivially normed, bounded and ultrametric Fη, its canonical D-unit certificate, and the compatible ℤ_p tower as for field-valued descent.",
+        "Install tame-character-field-valuation-extension. Native instAlgebraInteger supplies exactly the ring homomorphism OF→OK; the complete double-subtype continuity proof gives the continuous map used to transport every test.",
+        "Apply the existing integral-tame-zeta-field-comparison all-test comparison to ηF over Fη and the inclusion into K. Its hypotheses are now provided by preceding fine nodes or native structures, not left as extra unproved existence assumptions.",
+        "Replace the coefficient-mapped character by η using the exact recovery theorem and identify D-unit certificates by proof irrelevance. The integer-valued equality is retained as an equality in OK, rather than merely equality after forgetting integrality.",
+        "The native inclusion preserves and reflects divisibility, including the zero ideal. Nevertheless descent here is asserted only for transported OF-valued tests. Arbitrary OK-valued tests or wild characters outside the smaller field are not silently restricted."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L2/tame-character-field-complete",
+        "DirichletPadicLFunctions:L2/tame-character-field-integer-tower",
+        "DirichletPadicLFunctions:L2/tame-character-field-bounded-action",
+        "DirichletPadicLFunctions:L2/tame-character-field-recovery",
+        "mathlib:IntermediateField.continuousSMul",
+        "mathlib:IsUltrametricDist.subtype",
+        "mathlib:Algebra.charZero_of_charZero",
+        "DirichletPadicLFunctions:L2/tame-character-field-valuation-extension",
+        "DirichletPadicLFunctions:L2/integral-tame-zeta-field-comparison",
+        "mathlib:Valuation.HasExtension.instAlgebraInteger"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/TameCoefficientFields",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.integralTameZetaMeasure_characterField_apply"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Theorem5.7 and Remark5.8(2), published143/PDF44, and the entire coefficient-field/integer-ring discussion following equation(5-3), published144/PDF45; both complete pages freshly read30September2026.",
+          "match": "The source uses a finite coefficient extension containing the character values. These worker-derived specializations of the existing all-test comparisons realize the actual measures over the native character-generated field and its valuation integers. No new Gauss-sum identity or unproved assertion about a cyclotomic splitting field is imported from the sketch."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedTameCharacterDescentTests.integral_zeta_mass_in_character_field",
+          "kind": "compatibility",
+          "statement": "The integral ambient zeta mass over OF maps to the original mass over OK."
+        }
+      ],
+      "acceptance": [
+        "The source and target are the existing actual integral measure constructors. Their integer-ring structures come from the native norm valuation; no alternative integer ring or measure carrier is introduced."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L2/intrinsic-integral-character-field-descent",
+      "parentStageId": "DirichletPadicLFunctions:L2",
+      "realises": [
+        "DirichletPadicLFunctions:L2"
+      ],
+      "title": "Integral descent of the intrinsic tame zeta measure",
+      "kind": "comparison",
+      "statement": "For every f∈C(ℤ_pˣ,OF), j(intrinsicIntegralTameZetaMeasure(ηF)(f))=intrinsicIntegralTameZetaMeasure(η)(j∘f), using the actual native integer-ring inclusion.",
+      "hypotheses": [
+        "p is any prime, including2. K is a complete nontrivially normed ultrametric field with the actual NormedAlgebra ℚ_p K, Algebra ℤ_p K, compatible IsScalarTower ℤ_p ℚ_p K and IsBoundedSMul ℤ_p K. D>0, NeZero D and p∤D; η:DirichletCharacter K D is native. Primitivity and nonprincipality are not needed for these constructor comparisons.",
+        "Fη=tameCharacterField p η is the existing native IntermediateField.adjoin ℚ_p (Set.range η) with its inherited field and norm. ηF=tameCharacterInField p η is the actual restricted character. Its finite dimension and completeness are the preceding results. The native intermediate-field instance supplies a nontrivial norm from the normed ℚ_p-algebra, not from a separately chosen topology.",
+        "Use the native restricted ℤ_p algebra, the bounded-action and scalar-tower lemmas below, and native inherited ultrametric and continuous Fη-action structures. The characteristic-zero field structures give canonical IsUnit(D:Fη) and IsUnit(D:K) certificates from D>0; these certificates are proof-irrelevant. Coprimality p∤D remains a separate arithmetic hypothesis of each measure constructor.",
+        "OF and OK mean exactly Valuation.integer of the norm valuations on Fη and K. The lemma tameCharacterField_valuationExtension installs the native HasExtension instance; its native instAlgebraInteger supplies j:OF→+*OK. No independent ℤ_p algebra is chosen on either integer subring. Both j and the field inclusion i:Fη→+*K are continuous in the inherited topologies."
+      ],
+      "proofSteps": [
+        "Use the same complete, nontrivially normed, bounded and ultrametric Fη, its canonical D-unit certificate, and the compatible ℤ_p tower as for field-valued descent.",
+        "Install tame-character-field-valuation-extension. Native instAlgebraInteger supplies exactly the ring homomorphism OF→OK; the complete double-subtype continuity proof gives the continuous map used to transport every test.",
+        "Apply the existing intrinsic-integral-tame-field-comparison all-test comparison to ηF over Fη and the inclusion into K. Its hypotheses are now provided by preceding fine nodes or native structures, not left as extra unproved existence assumptions.",
+        "Replace the coefficient-mapped character by η using the exact recovery theorem and identify D-unit certificates by proof irrelevance. The integer-valued equality is retained as an equality in OK, rather than merely equality after forgetting integrality.",
+        "The native inclusion preserves and reflects divisibility, including the zero ideal. Nevertheless descent here is asserted only for transported OF-valued tests. Arbitrary OK-valued tests or wild characters outside the smaller field are not silently restricted."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L2/tame-character-field-complete",
+        "DirichletPadicLFunctions:L2/tame-character-field-integer-tower",
+        "DirichletPadicLFunctions:L2/tame-character-field-bounded-action",
+        "DirichletPadicLFunctions:L2/tame-character-field-recovery",
+        "mathlib:IntermediateField.continuousSMul",
+        "mathlib:IsUltrametricDist.subtype",
+        "mathlib:Algebra.charZero_of_charZero",
+        "DirichletPadicLFunctions:L2/tame-character-field-valuation-extension",
+        "DirichletPadicLFunctions:L2/intrinsic-integral-tame-field-comparison",
+        "mathlib:Valuation.HasExtension.instAlgebraInteger"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/TameCoefficientFields",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.intrinsicIntegralTameZetaMeasure_characterField_apply"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Theorem5.7 and Remark5.8(2), published143/PDF44, and the entire coefficient-field/integer-ring discussion following equation(5-3), published144/PDF45; both complete pages freshly read30September2026.",
+          "match": "The source uses a finite coefficient extension containing the character values. These worker-derived specializations of the existing all-test comparisons realize the actual measures over the native character-generated field and its valuation integers. No new Gauss-sum identity or unproved assertion about a cyclotomic splitting field is imported from the sketch."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedTameCharacterDescentTests.intrinsic_integral_mass_in_character_field",
+          "kind": "compatibility",
+          "statement": "The intrinsic integral mass over OF maps to the original mass over OK."
+        },
+        {
+          "name": "SuggestedTameCharacterDescentTests.modulus_one_intrinsic_integral_descent_is_zero",
+          "kind": "degenerate",
+          "statement": "At D=1 both intrinsic integral tame constructors evaluate to0 on every transported OF-valued continuous test."
+        }
+      ],
+      "acceptance": [
+        "The source and target are the existing actual integral measure constructors. Their integer-ring structures come from the native norm valuation; no alternative integer ring or measure carrier is introduced."
+      ]
     }
   ],
   "requests": [
@@ -44596,7 +45145,7 @@
       "stageId": "DirichletPadicLFunctions:L2",
       "status": "partial",
       "remaining": [
-        "The minimal character field inside the displayed ℚ_p-algebra is now constructed, finite-dimensional and complete in the inherited norm under NormedAlgebra ℚ_p K, with the exact character over it and recovery after inclusion. Next instantiate its compatible ℤ_p scalar structure and bounded action, identify the relevant D-unit certificate and valuation-extension map, and apply the preceding all-test comparisons to obtain actual field-valued and integral measure descent. None of these remaining arithmetic instantiations is silently assumed here. Primitive Gauss nonvanishing, exact primitive-conductor comparisons, analytic branches, degree-zero/logarithmic values, full source extraction and the PMIA completed-algebra/coefficient-field pseudomeasure requests remain open."
+        "The actual tame, ambient zeta and intrinsic zeta constructors now descend to the finite complete character-generated field, and all three integral constructors descend to its native valuation integers, on every transported smaller-field test. Next make explicit the equivalent range statement for ambient continuous tests whose pointwise values lie in that field, and its integral analogue; a wild character outside the smaller field requires enlargement. Primitive Gauss nonvanishing, exact primitive-conductor comparisons, analytic branches, degree-zero/logarithmic values, full source extraction and the PMIA completed-algebra/coefficient-field pseudomeasure requests remain open."
       ]
     },
     {
@@ -44630,7 +45179,7 @@
     {
       "title": "L2 remaining source decomposition and interfaces",
       "neededBy": [],
-      "detail": "The minimal character field inside the displayed ℚ_p-algebra is now constructed, finite-dimensional and complete in the inherited norm under NormedAlgebra ℚ_p K, with the exact character over it and recovery after inclusion. Next instantiate its compatible ℤ_p scalar structure and bounded action, identify the relevant D-unit certificate and valuation-extension map, and apply the preceding all-test comparisons to obtain actual field-valued and integral measure descent. None of these remaining arithmetic instantiations is silently assumed here. Primitive Gauss nonvanishing, exact primitive-conductor comparisons, analytic branches, degree-zero/logarithmic values, full source extraction and the PMIA completed-algebra/coefficient-field pseudomeasure requests remain open."
+      "detail": "The actual tame, ambient zeta and intrinsic zeta constructors now descend to the finite complete character-generated field, and all three integral constructors descend to its native valuation integers, on every transported smaller-field test. Next make explicit the equivalent range statement for ambient continuous tests whose pointwise values lie in that field, and its integral analogue; a wild character outside the smaller field requires enlargement. Primitive Gauss nonvanishing, exact primitive-conductor comparisons, analytic branches, degree-zero/logarithmic values, full source extraction and the PMIA completed-algebra/coefficient-field pseudomeasure requests remain open."
     },
     {
       "title": "L3 remaining source decomposition and interfaces",
@@ -44999,36 +45548,36 @@
   "checks": {
     "blueprint": "Zero errors and warnings with the unmodified pinned index.",
     "intake": "Exactly four authorized deliverables; zero problems.",
-    "sourceIssues": "All16 findings, three source records, sourceVersions, eleven requests and fifteen gaps remain whole. No new source mistake or independent verdict.",
+    "sourceIssues": "All16 source findings, three source records, sourceVersions, eleven requests and fifteen gaps are preserved whole. No new source mistake or independent review verdict.",
     "validation": {
-      "nodes": 678,
+      "nodes": 687,
       "kinds": {
         "definition": 2,
-        "lemma": 261,
+        "lemma": 264,
         "construction": 72,
         "theorem": 211,
-        "comparison": 132
+        "comparison": 138
       },
       "api": 549,
-      "packetTests": 1153,
+      "packetTests": 1166,
       "definitionConstructionTests": 309,
-      "typedExamples": 1156,
+      "typedExamples": 1169,
       "planets": 24,
-      "baseline": 576,
-      "preservedWholeNodes": 671,
-      "preservedBaseline": 565,
+      "baseline": 582,
+      "preservedWholeNodes": 678,
+      "preservedBaseline": 576,
       "preservedSourceIssues": 16,
       "newSourceIssues": 0,
-      "newNodes": 7,
-      "newNamedDeclarations": 14,
-      "newTypedTests": 10,
+      "newNodes": 9,
+      "newNamedDeclarations": 9,
+      "newTypedTests": 13,
       "requests": 11,
       "gaps": 15,
       "closedStages": 0,
-      "reachableNodes": 934,
-      "dependencyEdges": 4656,
+      "reachableNodes": 943,
+      "dependencyEdges": 4724,
       "acyclic": true,
-      "baselineLeaves": 753,
+      "baselineLeaves": 758,
       "stageRequestLeaves": [
         "AdicSpacesPartII:F1",
         "AdicSpacesPartII:R2",
@@ -45040,7 +45589,7 @@
         "PadicMeasuresIwasawaAlgebras:L2",
         "PadicMeasuresIwasawaAlgebras:L3"
       ],
-      "readerWords": 335417,
+      "readerWords": 340308,
       "scopedMutationCheck": true,
       "correctedPredecessorNodes": 0,
       "fullSuggestedCompiled": false,
@@ -45060,33 +45609,36 @@
       "currentSupplierNodes": 369,
       "supplierArtifactAvailable": true,
       "supplierArtifactUsedForCurrentCompile": false,
-      "pinnedMathlibSourceModules": 3601,
+      "pinnedMathlibSourceModules": 3603,
       "requiredPinnedTauSourceModules": 22,
       "availablePinnedTauArtifacts": 21,
       "missingPinnedTauArtifacts": [
         "TauCeti.NumberTheory.ArithmeticFunction.TwistedDivisorSum"
       ],
-      "scratchCompleteDefinitions": 1,
-      "scratchCompleteLemmas": 9,
-      "scratchMathlibModules": 2882,
+      "scratchCompleteDefinitions": 0,
+      "scratchCompleteLemmas": 10,
+      "scratchMathlibModules": 2889,
       "scratchTauModules": 0,
       "scratchErrors": 0,
       "scratchWarnings": 0,
       "scratchPlaceholders": 0,
       "finiteControls": {
-        "profiles": 13,
-        "characterMultiplicationChecks": 500,
-        "nonunitZeroChecks": 19,
-        "finiteUnitExponentChecks": 55,
-        "restrictedCharacterRecoveryChecks": 74,
-        "restrictedCharacterUniquenessChecks": 74,
-        "fieldSpanProductChecks": 28,
-        "rationalCharacterFields": 8,
-        "quadraticRationalDegreeFields": 5,
-        "nonbaseValueControls": 5,
-        "incorrectPrincipalReplacementFailures": 24,
-        "modulusOneChecks": 1,
-        "coefficientMapChecks": 74
+        "characterProfiles": 13,
+        "localProfiles": 32,
+        "fieldTests": 384,
+        "integralTests": 192,
+        "tameAtomicDescent": 384,
+        "zetaAtomicDescent": 384,
+        "intrinsicAtomicDescent": 384,
+        "integerAtomicDescent": 576,
+        "valuationRestrictions": 224,
+        "integerDivisibility": 1568,
+        "zeroDivisibility": 1568,
+        "scalarTower": 1120,
+        "boundedScalarAction": 1120,
+        "wrongTestCoordinateFailures": 60,
+        "outsideFieldTestCounterexamples": 19,
+        "modulusOneZeroChecks": 108
       },
       "numericalControlsCertified": false,
       "newRoutesStageLeaves": []
@@ -45096,7 +45648,7 @@
       "compiled": false,
       "errors": null,
       "warnings": null,
-      "sha256": "659ecb76dc4ac45cc4dd6b02299e96d8b122cf0907413c9b6cd22856e0584d17",
+      "sha256": "655094147134d8faa259c472be55a83267cbf86d7f2af2148535711d037246bb",
       "missingNativeArtifacts": [
         "TauCeti.NumberTheory.ArithmeticFunction.TwistedDivisorSum"
       ],
@@ -45111,11 +45663,11 @@
         }
       },
       "nativeProbe": {
-        "completeLemmas": 9,
+        "completeLemmas": 10,
         "errors": 0,
         "warnings": 0,
         "placeholders": 0,
-        "sha256": "62012e597ccd5dd38dd12582f1c17b731131bf86a4fbbf0627bb3416e7414cd1"
+        "sha256": "f8befe485978759a287fc3e3b31384aaed3dfe93109ef48c26a9796c517db908"
       },
       "sourceAndAvailableArtifactAudit": {
         "compiledSupplierNodes": 332,
@@ -45130,7 +45682,7 @@
         "wholeOldBodyPreserved": true,
         "currentSupplierSourceSha256": "e3779c11b149f5e5b14b11ba3b95e881d2ccd9b0e5fd61bdbae3dfaaf896a6cf",
         "nativeTauModules": 22,
-        "nativeMathlibModules": 3601,
+        "nativeMathlibModules": 3603,
         "artifactSha256": {
           "TauCeti.NumberTheory.ModularForms.Degeneracy": "2016655e67266e5582e3bddcd93a5ed68af362af30b64c88734ec2e748764d72",
           "TauCeti.Data.ZMod.Divisibility": "8751616831392059bebd4351279bc07fc8a02b3687d28d1c815d0b904473ecfb",
@@ -45202,7 +45754,7 @@
       }
     },
     "publication": {
-      "base": "85e2007caa1fdec37e6e68da5c5c453c276da235",
+      "base": "4c3ef31c6f7a8471b16963d682d3e16c754cc801",
       "unchangedInputs": 66,
       "unchangedOutputs": 4,
       "sameSessionFollowupAfterMerge": true,
@@ -52075,6 +52627,53 @@
         "coefficientMapChecks": 74
       },
       "numericalMethod": "Exact character tables in Q(i) and Q(omega), using Fraction pairs and the quadratic relations i²=−1 and omega²+omega+1=0. Check all residue products, nonunit zeros, the positive finite-unit exponent, explicit rational bases of the generated field, subtype-style recovery and uniqueness, and conjugation. The dimensions here are over Q, not over Q_p; no local p-adic degree, completeness or splitting assertion is inferred from these finite controls.",
+      "fullSuggestedCompiled": false
+    },
+    "tameCharacterDescent": {
+      "agent": "Codex",
+      "session": "codex-7e92bd",
+      "issue": 713,
+      "claimComment": 5854790528,
+      "winningBot": 5854791937,
+      "previousPR": 4883,
+      "previousHead": "2a02ae3f0e0371ff7b1203b0432499e9f0ff69c0",
+      "previousMerge": "4498f42f61f2fab1fb0f0299904faeac0ae15443",
+      "preservedWholeNodes": 678,
+      "preservedBaseline": 576,
+      "preservedFindings": 16,
+      "newNodes": 9,
+      "reading": "Freshly read both complete RJW pages143–144, the reviewed AUDIT-24 L2 library coverage and the preceding all-test field/integer comparisons. Read native restricted intermediate-field algebra and norm structures, the unnamed nontrivially normed intermediate-field instance in Analysis.Normed.Algebra.Basic, continuous restricted action, bounded-action constructor, scalar-tower criterion, subtype ultrametric, norm valuation and HasExtension/integer-ring declarations with their full ambient hypotheses. Searched packet/decomposition node titles for character-field or measure-descent plans; reuse the existing character-field nodes and comparison nodes. Re-read PROTOCOL closure, API, tests and suggested-file requirements. No general scalar/valuation infrastructure is replanned.",
+      "boundary": "The actual tame, ambient zeta and intrinsic zeta constructors now descend to the finite complete character-generated field, and all three integral constructors descend to its native valuation integers, on every transported smaller-field test. Next make explicit the equivalent range statement for ambient continuous tests whose pointwise values lie in that field, and its integral analogue; a wild character outside the smaller field requires enlargement. Primitive Gauss nonvanishing, exact primitive-conductor comparisons, analytic branches, degree-zero/logarithmic values, full source extraction and the PMIA completed-algebra/coefficient-field pseudomeasure requests remain open.",
+      "inputBase": "15a7adf64cd502872225d25c2db7b0d823cd887a",
+      "sourceBoundary": "All16 source findings, three source records, sourceVersions, eleven requests and fifteen gaps are preserved whole. No new source mistake or independent review verdict.",
+      "publication": {
+        "base": "4c3ef31c6f7a8471b16963d682d3e16c754cc801",
+        "unchangedInputs": 66,
+        "unchangedOutputs": 4,
+        "sameSessionFollowupAfterMerge": true,
+        "lastClaimConfirmation": 5854791937,
+        "reviewIssue": 390,
+        "reviewUnclaimed": true
+      },
+      "finiteControls": {
+        "characterProfiles": 13,
+        "localProfiles": 32,
+        "fieldTests": 384,
+        "integralTests": 192,
+        "tameAtomicDescent": 384,
+        "zetaAtomicDescent": 384,
+        "intrinsicAtomicDescent": 384,
+        "integerAtomicDescent": 576,
+        "valuationRestrictions": 224,
+        "integerDivisibility": 1568,
+        "zeroDivisibility": 1568,
+        "scalarTower": 1120,
+        "boundedScalarAction": 1120,
+        "wrongTestCoordinateFailures": 60,
+        "outsideFieldTestCounterexamples": 19,
+        "modulusOneZeroChecks": 108
+      },
+      "numericalMethod": "Exact Fraction arithmetic in Q(i) and Q(omega), actual character-generated subfields with explicit bases and coefficient inclusion. Only inert or ramified local models are used: in the ramified prime use half the rational valuation of the quadratic norm, at inert primes use the minimum coefficient valuation. Finite atomic measures check all six comparison operations, including inverse weights zero on nonunits and restriction to unit atoms. These are structural test models, not evaluations of the arithmetic tame measures. Wrong field-basis coordinates and unrestricted ambient tests provide negative controls.",
       "fullSuggestedCompiled": false
     }
   },
