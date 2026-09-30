@@ -2,7 +2,7 @@
   "roadmapId": "tauceti:TauCetiRoadmap/EllipticCurves",
   "protocol": "links-v1",
   "status": "complete",
-  "summary": "Catalogue-wide screen inherited from the original worker (218 examined entries); independently reviewed against the current mathematical snapshot on 2026-09-21. Corrected packet: 82 links, ten overlaps; five retired integration edges and one unsupported exact height-convention match removed, twenty-one evidenced supplier/consumer links added. All original link endpoints and overlaps checked, with completeness searches across nine elliptic layers. Existing independent AlgebraicCurves/ModularCurves packet edges are not repeated. Anchors remain unchanged; generic discrete Selmer ownership stays with EllipticCurves Layer 7, and continuous nonabelian H1 is explicitly Layer 5's prerequisite lane, not unowned. The forced-discrete wrapper remains distinct from ofDiscreteModule's existing-discrete input. Height/pairing normalization, rational-period scope and all-degree versus low-degree colimits are explicit.",
+  "summary": "Catalogue-wide screen inherited from the original worker (218 examined entries); independently reviewed against the current mathematical snapshot on 2026-09-21. Corrected packet: 82 links, ten overlaps (eleven after the red-team fix RT-LINK-tauceti_TauCetiRoadmap_EllipticCurves/1, which adds Layer 4 ↔ TB.7, 29 September 2026); five retired integration edges and one unsupported exact height-convention match removed, twenty-one evidenced supplier/consumer links added. All original link endpoints and overlaps checked, with completeness searches across nine elliptic layers. Existing independent AlgebraicCurves/ModularCurves packet edges are not repeated. Anchors remain unchanged; generic discrete Selmer ownership stays with EllipticCurves Layer 7, and continuous nonabelian H1 is explicitly Layer 5's prerequisite lane, not unowned. The forced-discrete wrapper remains distinct from ofDiscreteModule's existing-discrete input. Height/pairing normalization, rational-period scope and all-degree versus low-degree colimits are explicit.",
   "links": [
     {
       "source": "tauceti:TauCetiRoadmap/EllipticCurves#layer-5-twists-aec-x2-x5",
@@ -1651,6 +1651,15 @@
       "detail": "Both define the BSD statement for elliptic curves over ℚ. Elliptic curves Layer 7 carries a statement-only BSD milestone with a pinned analytic hypothesis: a continuation analytic on a connected open set containing s = 1 and part of the half-plane of convergence, agreeing with the Dirichlet series there. It defines the order of vanishing r and the leading coefficient L^{(r)}(1)/r!, and states the rank and leading-term identities against the BSD quotient. BSD.0 defines analytic rank as the order at 1 of the actual continuation from EllipticCurveModularity, with uniqueness from agreement on a connected convergence domain. BSD.9 gives public signatures for analytic-rank equality and the full leading-term formula.",
       "recommendation": "rescope",
       "proposal": "Keep one BSD statement. BSD.0 proves that EllipticCurveModularity's continuation satisfies Layer 7's pinned analytic hypothesis, so Layer 7's order of vanishing and leading coefficient are instantiated, not redefined. BSD.9 states its rank-equality and leading-term signatures as Layer 7's statement specialised to that continuation, in rank at most one and with its certificate."
+    },
+    {
+      "stages": [
+        "tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv",
+        "TropicalAndBerkovichArithmetic:TB.7"
+      ],
+      "detail": "Both construct the Tate curve and its uniformization, at different levels. Elliptic curves Layer 4's analytic strand constructs E_q over a complete rank-one valued field K for a unit q with |q| < 1, from explicit q-series coefficients defined over ℤ⟦q⟧. It pins the uniformization as a point-level, Galois-equivariant statement: for each finite extension L/K, a group isomorphism L^× / q^ℤ ≅ E_q(L), compatible in L, with the subgroup q^ℤ, the map, its kernel and surjectivity as named milestones, and no rigid-space quotient in scope. TB.7 ('Construction and export') constructs Tate uniformization and the Schottky/Mumford-curve quotient in its totally degenerate range, recording descent and the period lattice; its acceptance compares the q-period, skeleton length and logarithm branch for a Tate elliptic curve. The only recorded link between the roadmaps is Layer 4 → TB.6, for the Tate-circle measure example, which does not cover this repeated construction.",
+      "recommendation": "keep",
+      "proposal": "Keep both. Layer 4 is an immutable Tau Ceti anchor and owns the equation-level Tate curve and its point-level uniformization. TB.7 keeps its analytic quotient, the Schottky/Mumford generalization, descent, the period lattice, skeleton and integration work, none of which Layer 4 supplies. TB.7 should state one explicit comparison in their common scope: its Tate curve and q-parameter agree with Layer 4's E_q and q, and on finite extensions L/K the point-uniformization map induced by its analytic quotient agrees with Layer 4's isomorphism L^× / q^ℤ ≅ E_q(L), including the kernel q^ℤ and the Galois action. Do not replace TB.7's analytic theorem by the point-set group isomorphism, and assert no direction beyond this comparison. A dependency edge Layer 4 → TB.7 may be added once TB.7's blueprint fixes the precise supplier contract; none is added here."
     }
   ],
   "examined": [
@@ -1907,7 +1916,7 @@
     {
       "roadmapId": "EffectiveDiophantineMethods",
       "result": "links",
-      "note": "README and ED.0–ED.6 read in full. ED.3 turns the isogeny and Selmer constructions of its declared dependency, HeightsRationalPoints RP.1, into algorithms; the elliptic rank computation is an acceptance test only. No stage uses or develops an Elliptic curves object.",
+      "note": "README and ED.0–ED.6 read in full. ED.3 turns the isogeny and Selmer constructions of its declared dependency, HeightsRationalPoints RP.1, into algorithms; its elliptic rank computation is an acceptance case, and for it ED.3 imports actual Elliptic curves objects: Layer 7's cohomological descent sequence and Layer 6's finitely generated point group and descent bound (links Layer 7 → ED.3 and Layer 6 → ED.3, added by the review). ED.3 still certifies local images, index and saturation. No stage develops an Elliptic curves object. Final decisions corrected by RT-LINK-tauceti_TauCetiRoadmap_EllipticCurves/2.",
       "reviewNote": "This independent review read the stages named in its addedBy links and added the evidenced handoffs recorded in review.added; the original catalogue-screen read scope is inherited, not claimed as a fresh full re-screen."
     },
     {
@@ -1980,7 +1989,7 @@
     {
       "roadmapId": "FiniteFlatGroupsAndIntegralPadicHodgeTheory",
       "result": "links",
-      "note": "Summary, stage titles and a keyword-context screen of the README and every stage description. The screen covered Elliptic curves objects and synonyms: Weierstrass curves, isogenies, Weil pairing, Tate module, Hasse bound, point counts and Frobenius trace, ordinary and supersingular, reduction types, Tate's algorithm and Kodaira symbols, conductors, Tate curve, minimal models and discriminants, semistability, twists, Mordell–Weil, heights, Selmer, Sha, BSD, Nagell–Lutz, Frey, Szpiro, abc and integral points. It also covered the roadmap's inputs: places and completions, continuous and nonabelian Galois cohomology, Kummer theory, local and global duality, orders, and finite approximation. R07.5's ordinary and supersingular elliptic torsion is scheme-level; ModularCurves #81 is the named owner. No stage uses or develops an Elliptic curves object.",
+      "note": "Summary, stage titles and a keyword-context screen of the README and every stage description. The screen covered Elliptic curves objects and synonyms: Weierstrass curves, isogenies, Weil pairing, Tate module, Hasse bound, point counts and Frobenius trace, ordinary and supersingular, reduction types, Tate's algorithm and Kodaira symbols, conductors, Tate curve, minimal models and discriminants, semistability, twists, Mordell–Weil, heights, Selmer, Sha, BSD, Nagell–Lutz, Frey, Szpiro, abc and integral points. It also covered the roadmap's inputs: places and completions, continuous and nonabelian Galois cohomology, Kummer theory, local and global duality, orders, and finite approximation. R07.5's ordinary and supersingular elliptic torsion is scheme-level; ModularCurves #81 is the named owner. R07.5 does use two Elliptic curves objects in its elliptic local-type computation: the generic-fibre torsion and Galois carrier of Layer 2 and the good ordinary/supersingular reduction predicates of Layer 4 (links Layer 2 → R07.5 and Layer 4 → R07.5, added by the review); finite-flat extension criteria remain R07 work. No stage develops an Elliptic curves object. Final decisions corrected by RT-LINK-tauceti_TauCetiRoadmap_EllipticCurves/2.",
       "reviewNote": "This independent review read the stages named in its addedBy links and added the evidenced handoffs recorded in review.added; the original catalogue-screen read scope is inherited, not claimed as a fresh full re-screen."
     },
     {
@@ -2314,7 +2323,7 @@
     {
       "roadmapId": "RankZeroOneBSD",
       "result": "links",
-      "note": "README and all 12 stages read in full. It names EllipticCurves Layers 4, 5, 6 and 7 as owners of Tamagawa factors, twists, Mordell–Weil and the regulator, Selmer groups, Sha, the real period and the BSD quotient. Explicit links: Layer 5 → BSD.0; Layers 4, 5, 6 and 7 → BSD.1; Layer 7 → BSD.5; Layers 4, 6 and 7 → BSD.8; Layer 6 → BSD.9 (acceptance examples). Inferred: Layer 4 and Layer 4.5a → BSD.6 (reduction-type and semistability hypotheses). Overlap with Layer 7's statement-only BSD (BSD.0 and BSD.9; rescope). BSD.6a and BSD.7a repeat the BSD.6 and BSD.7 text and are not linked separately.",
+      "note": "README and all 12 stages read in full. It names EllipticCurves Layers 4, 5, 6 and 7 as owners of Tamagawa factors, twists, Mordell–Weil and the regulator, Selmer groups, Sha, the real period and the BSD quotient. Explicit links: Layer 5 → BSD.0; Layers 4, 5, 6 and 7 → BSD.1; Layer 7 → BSD.5; Layers 4, 6 and 7 → BSD.8; Layer 6 → BSD.9 (acceptance examples). Inferred: Layer 4 and Layer 4.5a → BSD.6 (reduction-type and semistability hypotheses). Overlap with Layer 7's statement-only BSD (BSD.0 and BSD.9; rescope). BSD.6a is linked separately by the review: Layer 5 → BSD.6a (its supersingular twist branch consumes the quadratic-twist carrier) and Layer 4.5a → BSD.6a (global semistability for the BSTW endpoint). BSD.7a has no separate link, and none is inferred from the earlier note. Final decisions corrected by RT-LINK-tauceti_TauCetiRoadmap_EllipticCurves/2.",
       "reviewNote": "This independent review read the stages named in its addedBy links and added the evidenced handoffs recorded in review.added; the original catalogue-screen read scope is inherited, not claimed as a fresh full re-screen."
     },
     {
@@ -2401,7 +2410,7 @@
     {
       "roadmapId": "TropicalAndBerkovichArithmetic",
       "result": "links",
-      "note": "Summary, stage titles and a keyword-context screen of the README and every stage description. The screen covered Elliptic curves objects and synonyms: Weierstrass curves, isogenies, Weil pairing, Tate module, Hasse bound, point counts and Frobenius trace, ordinary and supersingular, reduction types, Tate's algorithm and Kodaira symbols, conductors, Tate curve, minimal models and discriminants, semistability, twists, Mordell–Weil, heights, Selmer, Sha, BSD, Nagell–Lutz, Frey, Szpiro, abc and integral points. It also covered the roadmap's inputs: places and completions, continuous and nonabelian Galois cohomology, Kummer theory, local and global duality, orders, and finite approximation. The Tate elliptic curve appears only in TB.2, TB.5 and TB.7 acceptance tests. No stage uses or develops an Elliptic curves object.",
+      "note": "Summary, stage titles and a keyword-context screen of the README and every stage description. The screen covered Elliptic curves objects and synonyms: Weierstrass curves, isogenies, Weil pairing, Tate module, Hasse bound, point counts and Frobenius trace, ordinary and supersingular, reduction types, Tate's algorithm and Kodaira symbols, conductors, Tate curve, minimal models and discriminants, semistability, twists, Mordell–Weil, heights, Selmer, Sha, BSD, Nagell–Lutz, Frey, Szpiro, abc and integral points. It also covered the roadmap's inputs: places and completions, continuous and nonabelian Galois cohomology, Kummer theory, local and global duality, orders, and finite approximation. The Tate elliptic curve appears in the TB.2 and TB.5 acceptance tests. TB.7 also constructs Tate uniformization (with the Schottky/Mumford quotient, descent and the period lattice), which repeats Layer 4's Tate curve at the analytic level; this is recorded as a keep overlap with a comparison requirement. TB.6 imports Layer 4's actual Tate curve for its Tate-circle measure example (link Layer 4 → TB.6). Final decisions corrected by RT-LINK-tauceti_TauCetiRoadmap_EllipticCurves/1–2.",
       "reviewNote": "This independent review read the stages named in its addedBy links and added the evidenced handoffs recorded in review.added; the original catalogue-screen read scope is inherited, not claimed as a fresh full re-screen."
     },
     {
@@ -2768,9 +2777,9 @@
   },
   "review": {
     "status": "accepted",
-    "reviewer": "independent-review-REV-LINK-tauceti_TauCetiRoadmap_EllipticCurves",
-    "date": "2026-09-21",
-    "notes": "Read all original endpoints and ten overlaps; reviewed AUDIT-11; spot-checked Layers 0/1/2/4/4.5a/5/6/7/8 across the atlas. Removed five retired integration edges and one unestablished height-convention match; added twenty-one evidenced dependencies. Corrected immutable-anchor recommendations, forced-discrete wrapper distinction, nonabelian-H1 ownership, current zeta scope, period/height normalization and low-degree cohomology scope. Evidence retains literal source whitespace. Acceptance is for dependencies and recommendations, not proof closure or a fresh complete catalogue screen.",
+    "reviewer": "independent-review-REV-FIX-RT-LINK-tauceti_TauCetiRoadmap_EllipticCurves",
+    "date": "2026-09-30",
+    "notes": "Independent scoped fix review by Codex codex-5ebb6f of Claude Code cc-39fac3’s FIX-RT-LINK-tauceti_TauCetiRoadmap_EllipticCurves (#3991), following independent-review-REV-LINK-tauceti_TauCetiRoadmap_EllipticCurves (2026-09-21), preserved verbatim in reviewHistory. Both confirmed findings /1 and /2 are correctly repaired: the keep overlap compares the Tate curve, nonzero q-parameter, finite-extension point map, kernel and Galois action while retaining TB.7’s analytic quotient, Schottky/Mumford, descent, lattice and integration scope; the four affected screening notes agree with the final ED.3, R07.5, BSD.6a and TB.6 decisions. No BSD.7a or TB.7 edge is inferred. The 82 link payloads and ten earlier overlaps are verbatim equal to the promoted predecessor. Its eleven historical Tau Ceti-to-Tau Ceti pairs are preserved outside this review’s scope under PROTOCOL section 10. Read the affected roadmap contracts and AUDIT-11 entries; pinned Tau Ceti finite-generation and quadratic-twist statements independently checked. All 189 exact quotations on the 71 eligible links still match their stage or roadmap text mechanically; this is not a fresh mathematical review of all 71 links or a catalogue re-screen. check_links reports zero errors and zero warnings; the current accepted assembled graph is acyclic (2919 vertices,8297 edges). No mathematical correction was required. The added/removed lists below are inherited original-review provenance, retained for existing reviewNote references; they are not new decisions by this reviewer. No Lean build or proof-closure certification is claimed.",
     "removed": [
       {
         "source": "tauceti:TauCetiRoadmap/EllipticCurves#layer-8-selected-ℚ-specific-database-adapters",
@@ -2910,5 +2919,152 @@
         "reason": "Ownership handoff for the overlapping finite/discrete Selmer specialization: use Layer 7's Selmer structure and kernel carrier, and prove the comparison with L2's local-condition maps and H0-qualified mapping-fibre cohomology. Compact/rational coefficients, topology, duals and Greenberg/lattice formulas remain L2 work."
       }
     ]
-  }
+  },
+  "reviewHistory": [
+    {
+      "status": "accepted",
+      "reviewer": "independent-review-REV-LINK-tauceti_TauCetiRoadmap_EllipticCurves",
+      "date": "2026-09-21",
+      "notes": "Read all original endpoints and ten overlaps; reviewed AUDIT-11; spot-checked Layers 0/1/2/4/4.5a/5/6/7/8 across the atlas. Removed five retired integration edges and one unestablished height-convention match; added twenty-one evidenced dependencies. Corrected immutable-anchor recommendations, forced-discrete wrapper distinction, nonabelian-H1 ownership, current zeta scope, period/height normalization and low-degree cohomology scope. Evidence retains literal source whitespace. Acceptance is for dependencies and recommendations, not proof closure or a fresh complete catalogue screen.",
+      "removed": [
+        {
+          "source": "tauceti:TauCetiRoadmap/EllipticCurves#layer-8-selected-ℚ-specific-database-adapters",
+          "target": "ArithmeticStatistics:ST.4",
+          "reason": "The consumer has not selected its precise height convention; the asserted minimal-pair height match is not established by its text."
+        },
+        {
+          "source": "tauceti:TauCetiRoadmap/EllipticCurves#layer-3-elliptic-curves-over-finite-fields--the-hasse-bound-aec-v1",
+          "target": "FoundationsAndLibraryIntegration:LI.4",
+          "reason": "Retired nonmathematical integration roadmap; retain the direct mathematical consumer links instead."
+        },
+        {
+          "source": "tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv",
+          "target": "FoundationsAndLibraryIntegration:LI.4",
+          "reason": "Retired nonmathematical integration roadmap; retain the direct mathematical consumer links instead."
+        },
+        {
+          "source": "tauceti:TauCetiRoadmap/EllipticCurves#layer-5-twists-aec-x2-x5",
+          "target": "FoundationsAndLibraryIntegration:LI.4",
+          "reason": "Retired nonmathematical integration roadmap; retain the direct mathematical consumer links instead."
+        },
+        {
+          "source": "tauceti:TauCetiRoadmap/EllipticCurves#layer-6-the-mordellweil-theorem-aec-viii",
+          "target": "FoundationsAndLibraryIntegration:LI.4",
+          "reason": "Retired nonmathematical integration roadmap; retain the direct mathematical consumer links instead."
+        },
+        {
+          "source": "tauceti:TauCetiRoadmap/EllipticCurves#layer-7-selmer-groups-and-sha-aec-x4",
+          "target": "FoundationsAndLibraryIntegration:LI.4",
+          "reason": "Retired nonmathematical integration roadmap; retain the direct mathematical consumer links instead."
+        }
+      ],
+      "added": [
+        {
+          "source": "tauceti:TauCetiRoadmap/EllipticCurves#layer-0-the-function-field-places-and-divisors",
+          "target": "EllipticKTheory:E.1",
+          "reason": "The elliptic point-place/function-field interface is an input to the project's scheme/function-field and point comparison, not a construction of a smooth projective scheme."
+        },
+        {
+          "source": "tauceti:TauCetiRoadmap/EllipticCurves#layer-1-isogenies-the-dual-the-invariant-differential-and-formal-groups-aec-ii2-iii46-iv",
+          "target": "EllipticRegulators:ER.1",
+          "reason": "The existing algebraic invariant differential supplies the algebraic side of ER.1's analytic differential/de Rham comparison. It does not supply complex uniformisation or periods."
+        },
+        {
+          "source": "tauceti:TauCetiRoadmap/EllipticCurves#layer-2-torsion-the-weil-pairing-and-the-tate-module-aec-iii68",
+          "target": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.5",
+          "reason": "Import the generic-fibre elliptic torsion/Galois carrier for the local inertia computation; finite-flat extension criteria are additional R07 work. In mixed characteristic p is invertible in the generic field, not in its residue field."
+        },
+        {
+          "source": "tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv",
+          "target": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.5",
+          "reason": "Import the exact good ordinary/supersingular reduction predicates for R07.5's elliptic local-type computation."
+        },
+        {
+          "source": "tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv",
+          "target": "HeegnerPointEulerSystems:HE.3",
+          "reason": "The elliptic reduction filtration and component index are inputs to the bad-place Kummer-image comparison; they do not replace the required finite-flat or local-duality proof."
+        },
+        {
+          "source": "tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv",
+          "target": "TropicalAndBerkovichArithmetic:TB.6",
+          "reason": "Supply the actual Tate elliptic curve and its multiplicative uniformisation for the Tate-circle measure acceptance example; Berkovich analytification, skeleton and measure comparisons remain TB work."
+        },
+        {
+          "source": "tauceti:TauCetiRoadmap/EllipticCurves#layer-5-twists-aec-x2-x5",
+          "target": "RankZeroOneBSD:BSD.2",
+          "reason": "BSD.2 selects twists with local conditions and nonvanishing using the existing twist object; the nonvanishing proof is not supplied by the object."
+        },
+        {
+          "source": "tauceti:TauCetiRoadmap/EllipticCurves#layer-5-twists-aec-x2-x5",
+          "target": "RankZeroOneBSD:BSD.4",
+          "reason": "Use the existing quadratic twist in the independent rank-zero argument; retain BSD.2's derivative nonvanishing and the sign/descent proof."
+        },
+        {
+          "source": "tauceti:TauCetiRoadmap/EllipticCurves#layer-5-twists-aec-x2-x5",
+          "target": "RankZeroOneBSD:BSD.6a",
+          "reason": "The source-qualified supersingular twist branch consumes the quadratic-twist carrier, without broadening its discriminant or ordinary-support restrictions."
+        },
+        {
+          "source": "tauceti:TauCetiRoadmap/EllipticCurves#layer-6-the-mordellweil-theorem-aec-viii",
+          "target": "RankZeroOneBSD:BSD.5",
+          "reason": "The Heegner height/index calculation uses the existing height and regulator. Basis independence is not the proper finite-index theorem, and GZ.0 must transport normalization."
+        },
+        {
+          "source": "tauceti:TauCetiRoadmap/EllipticCurves#layer-6-the-mordellweil-theorem-aec-viii",
+          "target": "HeightsRationalPointsAndObstructions:RP.1",
+          "reason": "The general abelian descent roadmap's elliptic acceptance case uses the existing explicit 2-descent/rank-bound theory; it retains the required actual local-condition and finite-generation certificates."
+        },
+        {
+          "source": "tauceti:TauCetiRoadmap/EllipticCurves#layer-7-selmer-groups-and-sha-aec-x4",
+          "target": "HeightsRationalPointsAndObstructions:RP.1",
+          "reason": "The general isogeny-Selmer construction must compare its elliptic specialization with the existing Kummer/Selmer/Sha exact sequence. No elliptic construction supplies the higher-dimensional or fppf generalization."
+        },
+        {
+          "source": "tauceti:TauCetiRoadmap/EllipticCurves#layer-7-selmer-groups-and-sha-aec-x4",
+          "target": "EffectiveDiophantineMethods:ED.3",
+          "reason": "For the elliptic acceptance case, import the actual cohomological descent sequence into the certified algorithms; finiteness alone is not an algorithm or a Sha-order certificate."
+        },
+        {
+          "source": "tauceti:TauCetiRoadmap/EllipticCurves#layer-6-the-mordellweil-theorem-aec-viii",
+          "target": "EffectiveDiophantineMethods:ED.3",
+          "reason": "The elliptic rank/saturation acceptance case uses the existing finitely generated point group and descent bound. ED.3 must still certify local images, index and saturation."
+        },
+        {
+          "source": "tauceti:TauCetiRoadmap/EllipticCurves#layer-7-selmer-groups-and-sha-aec-x4",
+          "target": "RankZeroOneBSD:BSD.0",
+          "reason": "Instantiate the anchor's statement-only analytic order/leading coefficient using the actual continuation; BSD.0 proves finiteness, uniqueness and quadratic comparisons rather than constructing another BSD statement."
+        },
+        {
+          "source": "tauceti:TauCetiRoadmap/EllipticCurves#layer-7-selmer-groups-and-sha-aec-x4",
+          "target": "RankZeroOneBSD:BSD.9",
+          "reason": "The public elliptic BSD signatures specialize the anchor's conditional statement/arithmetic expression, keeping rank, whole-Sha, named-prime and full-certificate endpoints separate."
+        },
+        {
+          "source": "tauceti:TauCetiRoadmap/EllipticCurves#layer-45a-invariant-theory-over-a-dedekind-domain-aec-viii8",
+          "target": "RankZeroOneBSD:BSD.6a",
+          "reason": "The BSTW endpoint uses global semistability, distinct from good reduction at the coefficient prime."
+        },
+        {
+          "source": "tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv",
+          "target": "RankZeroOneBSD:BSD.7",
+          "reason": "The Eisenstein-prime branch uses the good-reduction predicate and proves ordinarity under its residual hypotheses; the supplier defines the predicates but does not supply that implication."
+        },
+        {
+          "source": "tauceti:TauCetiRoadmap/EllipticCurves#layer-2-torsion-the-weil-pairing-and-the-tate-module-aec-iii68",
+          "target": "ModularIwasawaMainConjectures:L3",
+          "reason": "Use the existing elliptic Tate representation in the integral rank-one-quotient hypothesis, keeping bare residual irreducibility distinct from that stronger condition."
+        },
+        {
+          "source": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees",
+          "target": "tauceti:TauCetiRoadmap/EllipticCurves#layer-7-selmer-groups-and-sha-aec-x4",
+          "reason": "Supply the all-degree finite-quotient colimit promised by the general H^i forced-discrete interface. Layer 4 supplies only degrees 0, 1 and 2; the ordinary Selmer application uses H1."
+        },
+        {
+          "source": "tauceti:TauCetiRoadmap/EllipticCurves#layer-7-selmer-groups-and-sha-aec-x4",
+          "target": "SelmerIwasawaCohomology:L2",
+          "reason": "Ownership handoff for the overlapping finite/discrete Selmer specialization: use Layer 7's Selmer structure and kernel carrier, and prove the comparison with L2's local-condition maps and H0-qualified mapping-fibre cohomology. Compact/rational coefficients, topology, duals and Greenberg/lattice formulas remain L2 work."
+        }
+      ]
+    }
+  ]
 }

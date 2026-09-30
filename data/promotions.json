@@ -81,11 +81,11 @@
    ]
   },
   "research/blueprint/links/tauceti_TauCetiRoadmap_EllipticCurves.json": {
-   "promotedAt": "2026-09-21T18:15:41Z",
-   "review": "9c96cb4c14c10829",
-   "reviewDate": "2026-09-21",
-   "reviewer": "independent-review-REV-LINK-tauceti_TauCetiRoadmap_EllipticCurves",
-   "sha256": "b674679a2cb220121617e8d4dcb192c4a1b14557ce1d32c61be2ccf4da73f438",
+   "promotedAt": "2026-09-30T22:03:16Z",
+   "review": "2ee3aa06e8ea8033",
+   "reviewDate": "2026-09-30",
+   "reviewer": "independent-review-REV-FIX-RT-LINK-tauceti_TauCetiRoadmap_EllipticCurves",
+   "sha256": "2ae144cdedb20a3f6bf6b5b248111c8044d666139573af9772012c3275a7c9cc",
    "to": [
     "data/links/tauceti_TauCetiRoadmap_EllipticCurves.json"
    ]
@@ -131,11 +131,11 @@
    ]
   },
   "research/blueprint/links/tauceti_TauCetiRoadmap_NumberFieldArithmetic.json": {
-   "promotedAt": "2026-09-23T20:18:27Z",
-   "review": "5f032687ba34e94d",
-   "reviewDate": "2026-09-23",
-   "reviewer": "independent-review-REV-LINK-tauceti_TauCetiRoadmap_NumberFieldArithmetic",
-   "sha256": "28eda9a75a209959ed2575f52d6da5c8ceaecf4396477ff19dd82fb5fde18647",
+   "promotedAt": "2026-09-30T22:03:16Z",
+   "review": "67346e0af218e89b",
+   "reviewDate": "2026-09-30",
+   "reviewer": "independent-review-REV-FIX-RT-LINK-tauceti_TauCetiRoadmap_NumberFieldArithmetic",
+   "sha256": "c80f798705168c36347cd76fd5ee5f263eac49754c693eb1b726b230ecdf7469",
    "to": [
     "data/links/tauceti_TauCetiRoadmap_NumberFieldArithmetic.json"
    ]
