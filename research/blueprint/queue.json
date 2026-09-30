@@ -34472,7 +34472,8 @@
     "REV-PAPER-TSIMERMAN-18"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-TSIMERMAN-18.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4099"
   },
   {
    "id": "RT-PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18",
@@ -40321,7 +40322,8 @@
     "REV-LINK-tauceti_TauCetiRoadmap_ModularCurves"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-LINK-tauceti_TauCetiRoadmap_ModularCurves.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4339"
   },
   {
    "id": "RT-LINK-tauceti_TauCetiRoadmap_EllipticCurves",
