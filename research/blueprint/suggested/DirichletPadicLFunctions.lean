@@ -15995,3 +15995,144 @@ example (z : ℤ_[2]) : Tendsto (fun n => moritaShiftedMean 2 (1 : DirichletChar
 -- translated_limit_constant_odd
 example (z : ℤ_[3]) : Tendsto (fun n => moritaShiftedMean 3 (1 : DirichletCharacter ℚ_[3] 1) n z (fun _ => 1)) atTop (𝓝 (2/3)) := by sorry
 end DirichletPadic.SuggestedMoritaTranslatedTests
+
+/- Uniform shift series, quantitative tails and the actual translated difference function. -/
+
+namespace DirichletPadic
+noncomputable section
+open Filter
+open scoped Topology
+open scoped Classical
+variable (p : ℕ) [Fact p.Prime]
+variable {K : Type*} [NormedField K]
+
+lemma moritaCoefficientEmbedding_isometry (ι : ℤ_[p] →+* K) (hι : ∀ x : ℤ_[p], ‖ι x‖=‖x‖) : Isometry ι := by sorry
+
+lemma moritaDerivativeLimit_norm [NormedAlgebra ℚ_[p] K] [IsUltrametricDist K] [CharZero K]
+    (ι : ℤ_[p] →+* K) {f : ℕ} (χ : DirichletCharacter K f) (hf : 0<f)
+    (D : ℕ → ℤ_[p] → K) (B R : ℝ) (hB : 0≤B) (hR : ‖(moritaModulus p : ℤ_[p])‖<R)
+    (hval : ∀ m x, ‖x-1‖ ≤ ‖(moritaModulus p : ℤ_[p])‖ → ‖D m x‖ ≤ B/R^m)
+    (hLip : ∀ m x y, ‖x-1‖ ≤ ‖(moritaModulus p : ℤ_[p])‖ → ‖y-1‖ ≤ ‖(moritaModulus p : ℤ_[p])‖ →
+      ‖D m x-D m y‖ ≤ (B/R^m/‖(moritaModulus p : ℤ_[p])‖)*‖x-y‖)
+    (v : ℕ → K) (hv : ∀ m, Tendsto (fun n => moritaAngularMean p (moritaCharacterTwist p ι χ m) n (D m)) atTop (𝓝 (v m)))
+    (m : ℕ) : ‖v m‖ ≤ (moritaMeanBoundConstant (K:=K) p f * B)/R^m := by sorry
+
+def moritaTranslatedDifference (ι : ℤ_[p] →+* K) (v : ℕ → K) (z : ℤ_[p]) : K := (∑' m, (ι z)^m * v m) - v 0
+lemma moritaTranslatedDifference_apply (ι : ℤ_[p] →+* K) (v : ℕ → K) (z : ℤ_[p]) :
+    moritaTranslatedDifference p ι v z = (∑' m, (ι z)^m * v m) - v 0 := by sorry
+
+lemma moritaTranslatedDifference_zero (ι : ℤ_[p] →+* K) (v : ℕ → K) : moritaTranslatedDifference p ι v 0 = 0 := by sorry
+
+lemma moritaTranslatedDifference_constant (ι : ℤ_[p] →+* K) (c : K) (z : ℤ_[p]) :
+    moritaTranslatedDifference p ι (fun m => if m=0 then c else 0) z = 0 := by sorry
+
+lemma moritaTranslatedDifference_linear (ι : ℤ_[p] →+* K) (c : K) (z : ℤ_[p]) :
+    moritaTranslatedDifference p ι (fun m => if m=1 then c else 0) z = ι z*c := by sorry
+
+lemma moritaTranslatedDifference_geometric (ι : ℤ_[p] →+* K) (hι : ∀ x : ℤ_[p], ‖ι x‖=‖x‖)
+    (z : ℤ_[p]) (hz : ‖z‖ ≤ ‖(moritaModulus p : ℤ_[p])‖) :
+    moritaTranslatedDifference p ι (fun _ => 1) z = (1-ι z)⁻¹-1 := by sorry
+
+section Series
+variable [CompleteSpace K]
+variable (ι : ℤ_[p] →+* K) (hι : ∀ x : ℤ_[p], ‖ι x‖=‖x‖)
+variable (v : ℕ → K) (C R : ℝ) (hC : 0≤C) (hR : ‖(moritaModulus p : ℤ_[p])‖<R)
+variable (hv : ∀ m, ‖v m‖ ≤ C/R^m)
+include hι hC hR hv
+omit hC in
+lemma moritaShiftedSeries_tendstoUniformlyOn :
+    TendstoUniformlyOn (fun (N : ℕ) (z : ℤ_[p]) => ∑ m ∈ Finset.range N, (ι z)^m*v m)
+      (fun z => ∑' m, (ι z)^m*v m) atTop {z : ℤ_[p] | ‖z‖ ≤ ‖(moritaModulus p : ℤ_[p])‖} := by sorry
+
+omit hC in
+lemma moritaShiftedSeries_continuousOn :
+    ContinuousOn (fun z : ℤ_[p] => ∑' m, (ι z)^m*v m) {z : ℤ_[p] | ‖z‖ ≤ ‖(moritaModulus p : ℤ_[p])‖} := by sorry
+
+lemma moritaShiftedSeries_tail_norm [IsUltrametricDist K] (z : ℤ_[p]) (hz : ‖z‖ ≤ ‖(moritaModulus p : ℤ_[p])‖) (N : ℕ) :
+    ‖(∑' m, (ι z)^m*v m) - ∑ m ∈ Finset.range N, (ι z)^m*v m‖ ≤
+      C*(‖(moritaModulus p : ℤ_[p])‖/R)^N := by sorry
+
+omit hC in
+lemma moritaTranslatedDifference_positive_series (z : ℤ_[p]) (hz : ‖z‖ ≤ ‖(moritaModulus p : ℤ_[p])‖) :
+    moritaTranslatedDifference p ι v z = ∑' m, (ι z)^(m+1)*v (m+1) := by sorry
+
+omit hC in
+lemma moritaTranslatedDifference_continuousOn :
+    ContinuousOn (moritaTranslatedDifference p ι v) {z : ℤ_[p] | ‖z‖ ≤ ‖(moritaModulus p : ℤ_[p])‖} := by sorry
+
+lemma moritaTranslatedDifference_norm [IsUltrametricDist K] (z : ℤ_[p]) (hz : ‖z‖ ≤ ‖(moritaModulus p : ℤ_[p])‖) :
+    ‖moritaTranslatedDifference p ι v z‖ ≤ (C/R)*‖z‖ := by sorry
+
+end Series
+
+lemma moritaTranslatedDifference_limit [NormedAlgebra ℚ_[p] K] [IsUltrametricDist K] [CharZero K] [CompleteSpace K]
+    (ι : ℤ_[p] →+* K) (hι : ∀ x : ℤ_[p], ‖ι x‖=‖x‖)
+    {f : ℕ} (χ : DirichletCharacter K f) (hf : 0<f)
+    (A : ℤ_[p] → K) (D : ℕ → ℤ_[p] → K) (hD : D 0=A) (B R : ℝ) (hB : 0≤B) (hR : ‖(moritaModulus p : ℤ_[p])‖<R)
+    (hval : ∀ m x, ‖x-1‖ ≤ ‖(moritaModulus p : ℤ_[p])‖ → ‖D m x‖ ≤ B/R^m)
+    (hLip : ∀ m x y, ‖x-1‖ ≤ ‖(moritaModulus p : ℤ_[p])‖ → ‖y-1‖ ≤ ‖(moritaModulus p : ℤ_[p])‖ →
+      ‖D m x-D m y‖ ≤ (B/R^m/‖(moritaModulus p : ℤ_[p])‖)*‖x-y‖)
+    (hT : ∀ x h : ℤ_[p], ‖x-1‖ ≤ ‖(moritaModulus p : ℤ_[p])‖ → ‖h‖<R →
+      HasSum (fun m => (ι h)^m*D m x) (A (x+h)))
+    (v : ℕ → K) (hv : ∀ m, Tendsto (fun n => moritaAngularMean p (moritaCharacterTwist p ι χ m) n (D m)) atTop (𝓝 (v m)))
+    (z : ℤ_[p]) (hz : ‖z‖ ≤ ‖(moritaModulus p : ℤ_[p])‖) :
+    Tendsto (fun n => moritaShiftedMean p χ n z A-moritaAngularMean p χ n A)
+      atTop (𝓝 (moritaTranslatedDifference p ι v z)) := by sorry
+
+end
+end DirichletPadic
+
+namespace DirichletPadic.SuggestedMoritaShiftContinuityTests
+open Filter
+open scoped Topology
+-- embedding_isometric_dyadic
+example : Isometry (PadicInt.Coe.ringHom : ℤ_[2] →+* ℚ_[2]) := by sorry
+-- embedding_distance_odd
+example (x y : ℤ_[3]) : dist (x : ℚ_[3]) (y : ℚ_[3]) = dist x y := by sorry
+-- coefficient_limit_constant
+example (v : ℚ_[2]) (h : Tendsto (fun n => moritaAngularMean 2 (1 : DirichletCharacter ℚ_[2] 1) n (fun _ => 1)) atTop (𝓝 v)) : ‖v‖=2 := by sorry
+-- series_uniform_constant
+example : TendstoUniformlyOn
+    (fun (N : ℕ) (z : ℤ_[2]) => ∑ m ∈ Finset.range N, (z : ℚ_[2])^m*(if m=0 then 1/2 else 0))
+    (fun _ => (1/2 : ℚ_[2])) atTop {z : ℤ_[2] | ‖z‖≤(1/4 : ℝ)} := by sorry
+-- series_continuous_geometric
+example : ContinuousOn (fun z : ℤ_[2] => ∑' m : ℕ, (z : ℚ_[2])^m)
+    {z : ℤ_[2] | ‖z‖≤(1/4 : ℝ)} := by sorry
+-- tail_geometric_dyadic
+example (N : ℕ) : ‖(∑' m : ℕ, (4 : ℚ_[2])^m) - ∑ m ∈ Finset.range N, (4 : ℚ_[2])^m‖ ≤
+    (1/4 : ℝ)^N := by sorry
+-- tail_zero_cutoff
+example : ‖(∑' m : ℕ, (4 : ℚ_[2])^m) - ∑ m ∈ Finset.range 0, (4 : ℚ_[2])^m‖ = 1 := by sorry
+-- tail_geometric_odd
+example (N : ℕ) : ‖(∑' m : ℕ, (3 : ℚ_[3])^m) - ∑ m ∈ Finset.range N, (3 : ℚ_[3])^m‖ ≤
+    (1/3 : ℝ)^N := by sorry
+-- difference_zero
+example (v : ℕ → ℚ_[2]) : moritaTranslatedDifference 2 PadicInt.Coe.ringHom v 0 = 0 := by sorry
+-- difference_constant
+example (z : ℤ_[2]) : moritaTranslatedDifference 2 PadicInt.Coe.ringHom (fun m => if m=0 then (7 : ℚ_[2]) else 0) z = 0 := by sorry
+-- difference_linear
+example : moritaTranslatedDifference 2 PadicInt.Coe.ringHom (fun m => if m=1 then (3 : ℚ_[2]) else 0) 4 = 12 := by sorry
+-- difference_negative_shift
+example : moritaTranslatedDifference 2 PadicInt.Coe.ringHom (fun m => if m=1 then (3 : ℚ_[2]) else 0) (-4) = -12 := by sorry
+-- difference_geometric_dyadic
+example : moritaTranslatedDifference 2 PadicInt.Coe.ringHom (fun _ => (1 : ℚ_[2])) 4 = -4/3 := by sorry
+-- difference_geometric_odd
+example : moritaTranslatedDifference 3 PadicInt.Coe.ringHom (fun _ => (1 : ℚ_[3])) 3 = -3/2 := by sorry
+-- positive_series_linear
+example (z : ℤ_[2]) : moritaTranslatedDifference 2 PadicInt.Coe.ringHom
+    (fun m => if m=1 then (3 : ℚ_[2]) else 0) z = (z : ℚ_[2])*3 := by sorry
+-- difference_continuous_geometric
+example : ContinuousOn (moritaTranslatedDifference 2 PadicInt.Coe.ringHom (fun _ => (1 : ℚ_[2])))
+    {z : ℤ_[2] | ‖z‖≤(1/4 : ℝ)} := by sorry
+-- difference_norm_geometric
+example (z : ℤ_[2]) (hz : ‖z‖≤(1/4 : ℝ)) :
+    ‖moritaTranslatedDifference 2 PadicInt.Coe.ringHom (fun _ => (1 : ℚ_[2])) z‖≤‖z‖ := by sorry
+-- difference_norm_boundary
+example : ‖moritaTranslatedDifference 2 PadicInt.Coe.ringHom (fun _ => (1 : ℚ_[2])) 4‖ = 1/4 := by sorry
+-- difference_limit_constant
+example (z : ℤ_[2]) : Tendsto (fun n => moritaShiftedMean 2 (1 : DirichletCharacter ℚ_[2] 1) n z (fun _ => 1) -
+    moritaAngularMean 2 (1 : DirichletCharacter ℚ_[2] 1) n (fun _ => 1)) atTop (𝓝 0) := by sorry
+-- difference_limit_actual_linear
+example (z : ℤ_[3]) : Tendsto (fun n => moritaShiftedMean 3 (1 : DirichletCharacter ℚ_[3] 1) n z (fun x => (x : ℚ_[3])) -
+    moritaAngularMean 3 (1 : DirichletCharacter ℚ_[3] 1) n (fun x => (x : ℚ_[3]))) atTop (𝓝 0) := by sorry
+end DirichletPadic.SuggestedMoritaShiftContinuityTests

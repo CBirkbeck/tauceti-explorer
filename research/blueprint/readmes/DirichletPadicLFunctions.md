@@ -28990,3 +28990,293 @@ Exact rational controls pass700 shifted-disc and pointwise Taylor cases,900 fini
 Post-merge capture d0016c724086c2c81dd20f6512fbcc0815b4f4dc changes only the NumberFieldArithmetic and EllipticCurves link review metadata/history. Read both complete diffs: NFA accepts the prior three scoped links while retaining its restricted-ramification/discriminant gap; EllipticCurves accepts the prior Tate-curve/screening repairs and preserves the old review verbatim. All link payloads, overlaps and screening records are byte-for-byte equal as JSON values. No new mathematical route or independent source verification is inferred from those reviews. The72 captured inputs otherwise remain unchanged; own16 findings, supplier bodies, policies and pinned baseline are unchanged.
 
 The separate partial signature file also compiled with zero errors and 2,834 expected placeholder warnings across 3,600 pinned source modules. It includes all 23 new named declarations and 22 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 32209269f06675fa406ca9c1cbaf682ae894fca6cd4e4872fd07c166516da908.
+
+
+## Uniform translated series and the continuous mean difference
+
+Ten L3 nodes establish the continuous part of Morita’s translated difference function, with native uniform convergence and quantitative tails. All893 predecessor nodes,715 baseline records and16 findings remain whole; no new request, source finding or closed stage is introduced.
+
+Retains the full Morita1975/KL1964 readings and the immediately preceding direct reread of Morita pp.258–260. Reads the native isometry criterion/continuity, uniform-series and continuousOn_tsum statements and proofs, full product-to-sum tail generators with their topological-group hypotheses, and the existing norm/ geometric-series controls.
+
+### The norm-preserving coefficient embedding is an isometry
+
+`DirichletPadicLFunctions:L3/morita-coefficient-embedding-isometry` — `DirichletPadic.moritaCoefficientEmbedding_isometry`
+
+If ‖ι(x)‖=‖x‖ for every x∈ℤ_p, then the ring homomorphism ι is an isometry.
+
+**Hypotheses:** p is prime, q=4 at p=2 and q=p otherwise, and r=‖q‖. K is a normed field; ι:ℤ_p→K preserves norms whenever isometry, continuity or the series bound is invoked. For the series statements, K is complete, R>r and actual coefficients v:ℕ→K satisfy ‖v_m‖≤C/R^m. Tail and difference norm estimates additionally assume the ultrametric norm and C≥0. The coefficient condition at m=0 itself implies C≥0, but the bounds retain it as an explicit input. In the source application v_m is the actual limit of the common-level inverse-twisted divided-derivative mean, and C=C_f B. The preceding radius-R derivative bounds and actual Tendsto witnesses give this coefficient bound. These are actual functions and limits, not an invented analytic carrier. The final comparison with finite mean differences also assumes D_0=A, the previous larger-radius Taylor HasSum, derivative value and Lipschitz bounds, normalized ℚ_p coefficient norm, characteristic zero, f>0 and the actual coefficient-limit witnesses. The precise existing LAD L0 requests remain open. The ordinary difference function is defined by the displayed series minus v_0. Its source convergence and continuity claims concern the closed shift disc ‖z‖≤r. No convergence outside that disc or analytic differentiability is inferred from a total Lean tsum.
+
+**Proof:**
+
+1. Write each distance as the norm of a difference. A ring homomorphism preserves subtraction.
+2. Apply the supplied norm equality to x−y and use the native isometry_iff_dist_eq criterion. The complete embedding_isometry proof verifies this for the actual topologies.
+3. The native Isometry.continuous theorem will then supply coefficient continuity for the series application. No continuity is asserted for an arbitrary algebraic embedding.
+
+**Prerequisites:** `mathlib:isometry_iff_dist_eq`.
+
+**Tests:**
+
+- `SuggestedMoritaShiftContinuityTests.embedding_isometric_dyadic` (compatibility): The canonical ℤ₂→ℚ₂ embedding is an isometry.
+- `SuggestedMoritaShiftContinuityTests.embedding_distance_odd` (compatibility): The canonical ℤ₃→ℚ₃ embedding preserves every distance.
+
+**Acceptance:** The norm-preserving hypothesis is the one retained in the preceding translated-mean comparison.
+
+**Source:** Section2 pp.258–260: the summable derivative majorant, limiting translated Taylor expansion, definition of F_(A,χ) and Theorem2; beginning of §3 p.260. The source defines the difference between the translated and original mean as a series with the constant term removed. This checkpoint establishes its continuous part and an explicit geometric tail bound from the already recorded larger-radius hypotheses. Analyticity, integer boundary sums and the logarithmic/Gamma identity are not yet established.
+
+### The actual limiting coefficients retain the radius bound
+
+`DirichletPadicLFunctions:L3/morita-derivative-limit-coefficient-norm` — `DirichletPadic.moritaDerivativeLimit_norm`
+
+For the actual limits v_m of the inverse-twisted divided-derivative means, ‖v_m‖≤C_f B/R^m.
+
+**Hypotheses:** p is prime, q=4 at p=2 and q=p otherwise, and r=‖q‖. K is a normed field; ι:ℤ_p→K preserves norms whenever isometry, continuity or the series bound is invoked. For the series statements, K is complete, R>r and actual coefficients v:ℕ→K satisfy ‖v_m‖≤C/R^m. Tail and difference norm estimates additionally assume the ultrametric norm and C≥0. The coefficient condition at m=0 itself implies C≥0, but the bounds retain it as an explicit input. In the source application v_m is the actual limit of the common-level inverse-twisted divided-derivative mean, and C=C_f B. The preceding radius-R derivative bounds and actual Tendsto witnesses give this coefficient bound. These are actual functions and limits, not an invented analytic carrier. The final comparison with finite mean differences also assumes D_0=A, the previous larger-radius Taylor HasSum, derivative value and Lipschitz bounds, normalized ℚ_p coefficient norm, characteristic zero, f>0 and the actual coefficient-limit witnesses. The precise existing LAD L0 requests remain open. The ordinary difference function is defined by the displayed series minus v_0. Its source convergence and continuity claims concern the closed shift disc ‖z‖≤r. No convergence outside that disc or analytic differentiability is inferred from a total Lean tsum.
+
+**Proof:**
+
+1. The preceding larger-radius mean estimate bounds each finite mean by C_f(B/R^m), uniformly in its depth.
+2. Apply norm continuity to the actual Tendsto witness for each m, then the native real closed-order limit theorem le_of_tendsto'.
+3. Reassociate the real quotient. The complete coefficient_limit_norm proof gives the explicit coefficient input used by the following native series theorems.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/morita-overconvergent-derivative-mean-norm`, `mathlib:le_of_tendsto'`.
+
+**Tests:**
+
+- `SuggestedMoritaShiftContinuityTests.coefficient_limit_constant` (computation): The dyadic constant-one mean limit has norm2, so its zeroth coefficient is controlled by C_1=16.
+
+**Acceptance:** No formal coefficient is silently identified with a limit; every v_m has an actual Tendsto witness.
+
+**Source:** Section2 pp.258–260: the summable derivative majorant, limiting translated Taylor expansion, definition of F_(A,χ) and Theorem2; beginning of §3 p.260. The source defines the difference between the translated and original mean as a series with the constant term removed. This checkpoint establishes its continuous part and an explicit geometric tail bound from the already recorded larger-radius hypotheses. Analyticity, integer boundary sums and the logarithmic/Gamma identity are not yet established.
+
+### Uniform convergence of the translated coefficient series
+
+`DirichletPadicLFunctions:L3/morita-shift-series-uniform` — `DirichletPadic.moritaShiftedSeries_tendstoUniformlyOn`
+
+The partial sums Σ_(m<N)(ιz)^m v_m converge uniformly on ‖z‖≤r to Σ_m(ιz)^m v_m.
+
+**Hypotheses:** p is prime, q=4 at p=2 and q=p otherwise, and r=‖q‖. K is a normed field; ι:ℤ_p→K preserves norms whenever isometry, continuity or the series bound is invoked. For the series statements, K is complete, R>r and actual coefficients v:ℕ→K satisfy ‖v_m‖≤C/R^m. Tail and difference norm estimates additionally assume the ultrametric norm and C≥0. The coefficient condition at m=0 itself implies C≥0, but the bounds retain it as an explicit input. In the source application v_m is the actual limit of the common-level inverse-twisted divided-derivative mean, and C=C_f B. The preceding radius-R derivative bounds and actual Tendsto witnesses give this coefficient bound. These are actual functions and limits, not an invented analytic carrier. The final comparison with finite mean differences also assumes D_0=A, the previous larger-radius Taylor HasSum, derivative value and Lipschitz bounds, normalized ℚ_p coefficient norm, characteristic zero, f>0 and the actual coefficient-limit witnesses. The precise existing LAD L0 requests remain open. The ordinary difference function is defined by the displayed series minus v_0. Its source convergence and continuity claims concern the closed shift disc ‖z‖≤r. No convergence outside that disc or analytic differentiability is inferred from a total Lean tsum.
+
+**Proof:**
+
+1. The coefficient bound and norm-preserving embedding give ‖(ιz)^m v_m‖≤C(r/R)^m simultaneously for every z in the closed shift disc.
+2. Since0≤r/R<1, the native geometric series theorem and scalar multiplication give a real summable majorant.
+3. Apply the native tendstoUniformlyOn_tsum_nat theorem for a complete normed additive group. The complete series_uniform proof includes the boundary ‖z‖=r; no new generic uniform-convergence theory is planned.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/morita-derivative-limit-coefficient-norm`, `DirichletPadicLFunctions:L3/morita-coefficient-embedding-isometry`, `DirichletPadicLFunctions:L3/morita-radius-positive`, `mathlib:summable_geometric_of_lt_one`, `mathlib:Summable.mul_left`, `mathlib:tendstoUniformlyOn_tsum_nat`.
+
+**Tests:**
+
+- `SuggestedMoritaShiftContinuityTests.series_uniform_constant` (degenerate): A series with sole dyadic coefficient v_0=1/2 stabilizes after its first term, uniformly over the whole closed shift disc.
+
+**Acceptance:** The limiting sum is justified by the majorant; a total tsum alone is not evidence of convergence.
+
+**Source:** Section2 pp.258–260: the summable derivative majorant, limiting translated Taylor expansion, definition of F_(A,χ) and Theorem2; beginning of §3 p.260. The source defines the difference between the translated and original mean as a series with the constant term removed. This checkpoint establishes its continuous part and an explicit geometric tail bound from the already recorded larger-radius hypotheses. Analyticity, integer boundary sums and the logarithmic/Gamma identity are not yet established.
+
+### The translated coefficient series is continuous on the closed shift disc
+
+`DirichletPadicLFunctions:L3/morita-shift-series-continuous` — `DirichletPadic.moritaShiftedSeries_continuousOn`
+
+The map z↦Σ_m(ιz)^m v_m is continuous on {z:‖z‖≤r}.
+
+**Hypotheses:** p is prime, q=4 at p=2 and q=p otherwise, and r=‖q‖. K is a normed field; ι:ℤ_p→K preserves norms whenever isometry, continuity or the series bound is invoked. For the series statements, K is complete, R>r and actual coefficients v:ℕ→K satisfy ‖v_m‖≤C/R^m. Tail and difference norm estimates additionally assume the ultrametric norm and C≥0. The coefficient condition at m=0 itself implies C≥0, but the bounds retain it as an explicit input. In the source application v_m is the actual limit of the common-level inverse-twisted divided-derivative mean, and C=C_f B. The preceding radius-R derivative bounds and actual Tendsto witnesses give this coefficient bound. These are actual functions and limits, not an invented analytic carrier. The final comparison with finite mean differences also assumes D_0=A, the previous larger-radius Taylor HasSum, derivative value and Lipschitz bounds, normalized ℚ_p coefficient norm, characteristic zero, f>0 and the actual coefficient-limit witnesses. The precise existing LAD L0 requests remain open. The ordinary difference function is defined by the displayed series minus v_0. Its source convergence and continuity claims concern the closed shift disc ‖z‖≤r. No convergence outside that disc or analytic differentiability is inferred from a total Lean tsum.
+
+**Proof:**
+
+1. The norm-preserving coefficient embedding is an isometry, hence continuous by the native theorem. Powers and multiplication by each fixed v_m are continuous.
+2. Use the same real summable majorant C(r/R)^m as in the uniform-convergence proof.
+3. Apply native continuousOn_tsum, whose complete statement and uniform-limit proof were read. The complete series_continuous proof uses the actual inherited metric on ℤ_p.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/morita-shift-series-uniform`, `DirichletPadicLFunctions:L3/morita-coefficient-embedding-isometry`, `mathlib:Isometry.continuous`, `mathlib:continuousOn_tsum`.
+
+**Tests:**
+
+- `SuggestedMoritaShiftContinuityTests.series_continuous_geometric` (computation): The geometric series Σz^m is continuous on the closed dyadic disc ‖z‖≤1/4.
+
+**Acceptance:** Continuity is established here; differentiability and an analytic-space structure still require the existing analytic owner.
+
+**Source:** Section2 pp.258–260: the summable derivative majorant, limiting translated Taylor expansion, definition of F_(A,χ) and Theorem2; beginning of §3 p.260. The source defines the difference between the translated and original mean as a series with the constant term removed. This checkpoint establishes its continuous part and an explicit geometric tail bound from the already recorded larger-radius hypotheses. Analyticity, integer boundary sums and the logarithmic/Gamma identity are not yet established.
+
+### A quantitative ultrametric tail bound
+
+`DirichletPadicLFunctions:L3/morita-shift-series-tail-bound` — `DirichletPadic.moritaShiftedSeries_tail_norm`
+
+For every cutoff N≥0 and ‖z‖≤r, ‖Σ_m(ιz)^m v_m−Σ_(m<N)(ιz)^m v_m‖≤C(r/R)^N.
+
+**Hypotheses:** p is prime, q=4 at p=2 and q=p otherwise, and r=‖q‖. K is a normed field; ι:ℤ_p→K preserves norms whenever isometry, continuity or the series bound is invoked. For the series statements, K is complete, R>r and actual coefficients v:ℕ→K satisfy ‖v_m‖≤C/R^m. Tail and difference norm estimates additionally assume the ultrametric norm and C≥0. The coefficient condition at m=0 itself implies C≥0, but the bounds retain it as an explicit input. In the source application v_m is the actual limit of the common-level inverse-twisted divided-derivative mean, and C=C_f B. The preceding radius-R derivative bounds and actual Tendsto witnesses give this coefficient bound. These are actual functions and limits, not an invented analytic carrier. The final comparison with finite mean differences also assumes D_0=A, the previous larger-radius Taylor HasSum, derivative value and Lipschitz bounds, normalized ℚ_p coefficient norm, characteristic zero, f>0 and the actual coefficient-limit witnesses. The precise existing LAD L0 requests remain open. The ordinary difference function is defined by the displayed series minus v_0. Its source convergence and continuity claims concern the closed shift disc ‖z‖≤r. No convergence outside that disc or analytic differentiability is inferred from a total Lean tsum.
+
+**Proof:**
+
+1. The geometric majorant gives actual summability by the native complete-space comparison test.
+2. Split the convergent series into its first N terms and the reindexed tail using the additive theorem generated by Multipliable.prod_mul_tprod_nat_add. The full generator and its topological-group hypotheses were read.
+3. Each tail term at m+N has norm≤C(r/R)^(m+N)≤C(r/R)^N. Apply the native ultrametric norm bound for a tsum, generated by the recorded norm_tprod_le_of_forall_le theorem.
+4. The complete series_tail proof covers N=0 and zero coefficients, not only positive cutoffs.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/morita-shift-series-uniform`, `mathlib:Summable.of_norm_bounded`, `mathlib:Multipliable.prod_mul_tprod_nat_add`, `mathlib:IsUltrametricDist.norm_tprod_le_of_forall_le`.
+
+**Tests:**
+
+- `SuggestedMoritaShiftContinuityTests.tail_geometric_dyadic` (computation): For z=4 the geometric tail after N terms has norm≤(1/4)^N.
+- `SuggestedMoritaShiftContinuityTests.tail_zero_cutoff` (boundary): At N=0 the dyadic geometric sum has norm1, matching the initial bound.
+- `SuggestedMoritaShiftContinuityTests.tail_geometric_odd` (computation): For z=3 the geometric tail has norm≤(1/3)^N.
+
+**Acceptance:** There is no unnecessary Archimedean factor1/(1−r/R); the ultrametric maximum controls the entire tail.
+
+**Source:** Section2 pp.258–260: the summable derivative majorant, limiting translated Taylor expansion, definition of F_(A,χ) and Theorem2; beginning of §3 p.260. The source defines the difference between the translated and original mean as a series with the constant term removed. This checkpoint establishes its continuous part and an explicit geometric tail bound from the already recorded larger-radius hypotheses. Analyticity, integer boundary sums and the logarithmic/Gamma identity are not yet established.
+
+### The actual translated mean difference function
+
+`DirichletPadicLFunctions:L3/morita-translated-difference-function` — `DirichletPadic.moritaTranslatedDifference`
+
+For actual coefficients v_m define F_v(z)=(Σ_m(ιz)^m v_m)−v_0 as an ordinary K-valued function. Under the source coefficient hypotheses its value on ‖z‖≤r is the convergent translated series with its constant value removed.
+
+**Hypotheses:** p is prime, q=4 at p=2 and q=p otherwise, and r=‖q‖. K is a normed field; ι:ℤ_p→K preserves norms whenever isometry, continuity or the series bound is invoked. For the series statements, K is complete, R>r and actual coefficients v:ℕ→K satisfy ‖v_m‖≤C/R^m. Tail and difference norm estimates additionally assume the ultrametric norm and C≥0. The coefficient condition at m=0 itself implies C≥0, but the bounds retain it as an explicit input. In the source application v_m is the actual limit of the common-level inverse-twisted divided-derivative mean, and C=C_f B. The preceding radius-R derivative bounds and actual Tendsto witnesses give this coefficient bound. These are actual functions and limits, not an invented analytic carrier. The final comparison with finite mean differences also assumes D_0=A, the previous larger-radius Taylor HasSum, derivative value and Lipschitz bounds, normalized ℚ_p coefficient norm, characteristic zero, f>0 and the actual coefficient-limit witnesses. The precise existing LAD L0 requests remain open. The ordinary difference function is defined by the displayed series minus v_0. Its source convergence and continuity claims concern the closed shift disc ‖z‖≤r. No convergence outside that disc or analytic differentiability is inferred from a total Lean tsum.
+
+**Proof:**
+
+1. Use the native tsum of the actual coefficient terms and subtract the actual coefficient v_0. The source application uses the limiting coefficients from the previous node.
+2. At z=0 all positive terms vanish and the zeroth term is v_0, so F_v(0)=0. A coefficient sequence supported at0 gives the zero function; support at1 with value c gives z↦ι(z)c.
+3. As an independent normalization control, for all coefficients equal to1 and ‖z‖≤r<1 the native geometric-series formula gives F_v(z)=(1−ιz)^(−1)−1.
+4. The complete difference definition and five API lemmas prove these formulas. This is an ordinary function, not a substitute definition for the missing analytic carrier.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/morita-derivative-limit-coefficient-norm`, `DirichletPadicLFunctions:L3/morita-shifted-limit-summable`, `DirichletPadicLFunctions:L3/morita-radius-contracting`, `mathlib:hasSum_geometric_of_norm_lt_one`.
+
+**Uses:**
+
+- Morita1975 §2 p.259, definition of F_(A,χ): The function subtracts the zero-shift mean before the integer boundary sum and derivative comparison.
+- Morita1975 Theorem2 and §3 pp.259–260: The continuous difference function is later compared by density with the logarithm of the appropriately signed and shifted p-adic Gamma function.
+
+**API:**
+
+- `moritaTranslatedDifference_apply` (projection): Evaluate as the actual coefficient tsum minus v_0.
+- `moritaTranslatedDifference_zero` (simp): F_v(0)=0, including the convention0^0=1 in the zeroth term.
+- `moritaTranslatedDifference_constant` (example): A sequence supported at0 defines the zero difference function.
+- `moritaTranslatedDifference_linear` (example): A sequence supported at1 with value c defines z↦ι(z)c.
+- `moritaTranslatedDifference_geometric` (example): For coefficients all1 and ‖z‖≤r, F_v(z)=(1−ιz)^(−1)−1.
+
+**Tests:**
+
+- `SuggestedMoritaShiftContinuityTests.difference_zero` (degenerate): F_v(0)=0 for every coefficient sequence.
+- `SuggestedMoritaShiftContinuityTests.difference_constant` (degenerate): A sole constant coefficient7 contributes zero after subtraction.
+- `SuggestedMoritaShiftContinuityTests.difference_linear` (computation): A sole coefficient v_1=3 gives F(4)=12 in ℚ₂.
+- `SuggestedMoritaShiftContinuityTests.difference_negative_shift` (computation): The same linear coefficient gives F(−4)=−12, retaining the shift sign.
+- `SuggestedMoritaShiftContinuityTests.difference_geometric_dyadic` (computation): All coefficients1 give F(4)=−4/3 in ℚ₂.
+- `SuggestedMoritaShiftContinuityTests.difference_geometric_odd` (computation): All coefficients1 give F(3)=−3/2 in ℚ₃.
+
+**Acceptance:** Subtract v_0 exactly once; the constant-one coefficient test detects a missing subtraction.
+
+**Source:** Section2 pp.258–260: the summable derivative majorant, limiting translated Taylor expansion, definition of F_(A,χ) and Theorem2; beginning of §3 p.260. The source defines the difference between the translated and original mean as a series with the constant term removed. This checkpoint establishes its continuous part and an explicit geometric tail bound from the already recorded larger-radius hypotheses. Analyticity, integer boundary sums and the logarithmic/Gamma identity are not yet established.
+
+### Remove the constant term from the convergent series
+
+`DirichletPadicLFunctions:L3/morita-translated-difference-positive-series` — `DirichletPadic.moritaTranslatedDifference_positive_series`
+
+On ‖z‖≤r, F_v(z)=Σ_(m≥0)(ιz)^(m+1)v_(m+1).
+
+**Hypotheses:** p is prime, q=4 at p=2 and q=p otherwise, and r=‖q‖. K is a normed field; ι:ℤ_p→K preserves norms whenever isometry, continuity or the series bound is invoked. For the series statements, K is complete, R>r and actual coefficients v:ℕ→K satisfy ‖v_m‖≤C/R^m. Tail and difference norm estimates additionally assume the ultrametric norm and C≥0. The coefficient condition at m=0 itself implies C≥0, but the bounds retain it as an explicit input. In the source application v_m is the actual limit of the common-level inverse-twisted divided-derivative mean, and C=C_f B. The preceding radius-R derivative bounds and actual Tendsto witnesses give this coefficient bound. These are actual functions and limits, not an invented analytic carrier. The final comparison with finite mean differences also assumes D_0=A, the previous larger-radius Taylor HasSum, derivative value and Lipschitz bounds, normalized ℚ_p coefficient norm, characteristic zero, f>0 and the actual coefficient-limit witnesses. The precise existing LAD L0 requests remain open. The ordinary difference function is defined by the displayed series minus v_0. Its source convergence and continuity claims concern the closed shift disc ‖z‖≤r. No convergence outside that disc or analytic differentiability is inferred from a total Lean tsum.
+
+**Proof:**
+
+1. The geometric majorant gives actual summability of the full coefficient series.
+2. Use the additive companion generated by Multipliable.tprod_eq_zero_mul to separate its zeroth term. Its native topological-group statement and proof were read.
+3. The zeroth scalar is1, including z=0, so subtracting v_0 cancels that term. The complete difference_positive_series proof checks the index shift.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/morita-translated-difference-function`, `DirichletPadicLFunctions:L3/morita-shift-series-uniform`, `mathlib:Summable.of_norm_bounded`, `mathlib:Multipliable.tprod_eq_zero_mul`.
+
+**Tests:**
+
+- `SuggestedMoritaShiftContinuityTests.positive_series_linear` (computation): For sole coefficient v_1=3, the positive series is exactly3ι(z).
+
+**Acceptance:** The reindexed series starts at exponent1; its coefficient is v_(m+1), not v_m.
+
+**Source:** Section2 pp.258–260: the summable derivative majorant, limiting translated Taylor expansion, definition of F_(A,χ) and Theorem2; beginning of §3 p.260. The source defines the difference between the translated and original mean as a series with the constant term removed. This checkpoint establishes its continuous part and an explicit geometric tail bound from the already recorded larger-radius hypotheses. Analyticity, integer boundary sums and the logarithmic/Gamma identity are not yet established.
+
+### Continuity of the actual difference function
+
+`DirichletPadicLFunctions:L3/morita-translated-difference-continuity` — `DirichletPadic.moritaTranslatedDifference_continuousOn`
+
+F_v is continuous on the closed shift disc ‖z‖≤r.
+
+**Hypotheses:** p is prime, q=4 at p=2 and q=p otherwise, and r=‖q‖. K is a normed field; ι:ℤ_p→K preserves norms whenever isometry, continuity or the series bound is invoked. For the series statements, K is complete, R>r and actual coefficients v:ℕ→K satisfy ‖v_m‖≤C/R^m. Tail and difference norm estimates additionally assume the ultrametric norm and C≥0. The coefficient condition at m=0 itself implies C≥0, but the bounds retain it as an explicit input. In the source application v_m is the actual limit of the common-level inverse-twisted divided-derivative mean, and C=C_f B. The preceding radius-R derivative bounds and actual Tendsto witnesses give this coefficient bound. These are actual functions and limits, not an invented analytic carrier. The final comparison with finite mean differences also assumes D_0=A, the previous larger-radius Taylor HasSum, derivative value and Lipschitz bounds, normalized ℚ_p coefficient norm, characteristic zero, f>0 and the actual coefficient-limit witnesses. The precise existing LAD L0 requests remain open. The ordinary difference function is defined by the displayed series minus v_0. Its source convergence and continuity claims concern the closed shift disc ‖z‖≤r. No convergence outside that disc or analytic differentiability is inferred from a total Lean tsum.
+
+**Proof:**
+
+1. The full coefficient series is continuous there by the previous native uniform-series argument.
+2. Subtract the fixed value v_0 using native continuous subtraction. The complete difference_continuous proof uses the actual defined function.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/morita-translated-difference-function`, `DirichletPadicLFunctions:L3/morita-shift-series-continuous`.
+
+**Tests:**
+
+- `SuggestedMoritaShiftContinuityTests.difference_continuous_geometric` (computation): The geometric difference function is continuous on the dyadic closed shift disc, including its boundary.
+
+**Acceptance:** This is the continuity needed for a later density argument; the logarithmic comparison has not yet been supplied.
+
+**Source:** Section2 pp.258–260: the summable derivative majorant, limiting translated Taylor expansion, definition of F_(A,χ) and Theorem2; beginning of §3 p.260. The source defines the difference between the translated and original mean as a series with the constant term removed. This checkpoint establishes its continuous part and an explicit geometric tail bound from the already recorded larger-radius hypotheses. Analyticity, integer boundary sums and the logarithmic/Gamma identity are not yet established.
+
+### The difference vanishes at least linearly in the shift
+
+`DirichletPadicLFunctions:L3/morita-translated-difference-norm` — `DirichletPadic.moritaTranslatedDifference_norm`
+
+For ‖z‖≤r, ‖F_v(z)‖≤(C/R)‖z‖.
+
+**Hypotheses:** p is prime, q=4 at p=2 and q=p otherwise, and r=‖q‖. K is a normed field; ι:ℤ_p→K preserves norms whenever isometry, continuity or the series bound is invoked. For the series statements, K is complete, R>r and actual coefficients v:ℕ→K satisfy ‖v_m‖≤C/R^m. Tail and difference norm estimates additionally assume the ultrametric norm and C≥0. The coefficient condition at m=0 itself implies C≥0, but the bounds retain it as an explicit input. In the source application v_m is the actual limit of the common-level inverse-twisted divided-derivative mean, and C=C_f B. The preceding radius-R derivative bounds and actual Tendsto witnesses give this coefficient bound. These are actual functions and limits, not an invented analytic carrier. The final comparison with finite mean differences also assumes D_0=A, the previous larger-radius Taylor HasSum, derivative value and Lipschitz bounds, normalized ℚ_p coefficient norm, characteristic zero, f>0 and the actual coefficient-limit witnesses. The precise existing LAD L0 requests remain open. The ordinary difference function is defined by the displayed series minus v_0. Its source convergence and continuity claims concern the closed shift disc ‖z‖≤r. No convergence outside that disc or analytic differentiability is inferred from a total Lean tsum.
+
+**Proof:**
+
+1. Use the positive-exponent series. Its m-th term has norm≤C(‖z‖/R)^(m+1).
+2. Because0≤‖z‖/R≤r/R<1, each term is bounded by C‖z‖/R.
+3. Apply the native ultrametric norm bound for the sum and rearrange the real scalar. The complete difference_norm proof also gives zero at z=0 and includes the closed boundary.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/morita-translated-difference-positive-series`, `mathlib:IsUltrametricDist.norm_tprod_le_of_forall_le`.
+
+**Tests:**
+
+- `SuggestedMoritaShiftContinuityTests.difference_norm_geometric` (computation): The geometric difference with C=R=1 satisfies ‖F(z)‖≤‖z‖ throughout the dyadic shift disc.
+- `SuggestedMoritaShiftContinuityTests.difference_norm_boundary` (boundary): At z=4 the geometric difference has norm1/4, attaining that bound.
+
+**Acceptance:** This is a bound relative to zero; it does not assert a two-point Lipschitz or differentiability theorem without its proof.
+
+**Source:** Section2 pp.258–260: the summable derivative majorant, limiting translated Taylor expansion, definition of F_(A,χ) and Theorem2; beginning of §3 p.260. The source defines the difference between the translated and original mean as a series with the constant term removed. This checkpoint establishes its continuous part and an explicit geometric tail bound from the already recorded larger-radius hypotheses. Analyticity, integer boundary sums and the logarithmic/Gamma identity are not yet established.
+
+### Identify the function with the limit of actual mean differences
+
+`DirichletPadicLFunctions:L3/morita-translated-difference-limit` — `DirichletPadic.moritaTranslatedDifference_limit`
+
+For the actual derivative-limit coefficients and D_0=A, the sequence M^n_(χ,z)(A)−M^n_(χ,ang)(A) tends to F_v(z) for every ‖z‖≤r.
+
+**Hypotheses:** p is prime, q=4 at p=2 and q=p otherwise, and r=‖q‖. K is a normed field; ι:ℤ_p→K preserves norms whenever isometry, continuity or the series bound is invoked. For the series statements, K is complete, R>r and actual coefficients v:ℕ→K satisfy ‖v_m‖≤C/R^m. Tail and difference norm estimates additionally assume the ultrametric norm and C≥0. The coefficient condition at m=0 itself implies C≥0, but the bounds retain it as an explicit input. In the source application v_m is the actual limit of the common-level inverse-twisted divided-derivative mean, and C=C_f B. The preceding radius-R derivative bounds and actual Tendsto witnesses give this coefficient bound. These are actual functions and limits, not an invented analytic carrier. The final comparison with finite mean differences also assumes D_0=A, the previous larger-radius Taylor HasSum, derivative value and Lipschitz bounds, normalized ℚ_p coefficient norm, characteristic zero, f>0 and the actual coefficient-limit witnesses. The precise existing LAD L0 requests remain open. The ordinary difference function is defined by the displayed series minus v_0. Its source convergence and continuity claims concern the closed shift disc ‖z‖≤r. No convergence outside that disc or analytic differentiability is inferred from a total Lean tsum.
+
+**Proof:**
+
+1. The preceding translated-mean theorem gives convergence of the first term to the full coefficient series.
+2. For m=0 use the exact inverse-twist mean identity and D_0=A to identify the coefficient mean sequence with the original angular mean. This keeps the inflated common-level support correct; it does not assert equality of the original and inflated characters on all integers.
+3. The actual supplied v_0 witness therefore gives the limit of the second term. Subtract the two Tendsto witnesses using the native continuous-subtraction law.
+4. The complete difference_limit proof identifies the target with the actual difference definition. The remaining source work is the integer boundary formula, its logarithmic application and the Gamma identity.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/morita-translated-difference-function`, `DirichletPadicLFunctions:L3/morita-shifted-mean-limit`, `DirichletPadicLFunctions:L3/morita-angular-mean-twist`, `mathlib:Filter.Tendsto.div'`.
+
+**Tests:**
+
+- `SuggestedMoritaShiftContinuityTests.difference_limit_constant` (degenerate): Translated and untranslated constant-one means have difference0 at every depth.
+- `SuggestedMoritaShiftContinuityTests.difference_limit_actual_linear` (computation): For p=3,f=1,A(u)=u the two actual finite means are equal, so their difference tends to0 for every shift.
+
+**Acceptance:** Distinguish a linear coefficient sequence from the coefficients obtained by applying the character mean to A(u)=u.
+
+**Source:** Section2 pp.258–260: the summable derivative majorant, limiting translated Taylor expansion, definition of F_(A,χ) and Theorem2; beginning of §3 p.260. The source defines the difference between the translated and original mean as a series with the constant term removed. This checkpoint establishes its continuous part and an explicit geometric tail bound from the already recorded larger-radius hypotheses. Analyticity, integer boundary sums and the logarithmic/Gamma identity are not yet established.
+
+**Remaining:** The translated coefficient series now has native uniform convergence, continuity and a quantitative ultrametric tail bound on the entire closed shift disc. The actual difference function has zero/constant/linear/geometric normalization, its positive-power series and norm bound, and is identified with the limit of the real finite mean differences. The actual LAD analytic carrier, larger-radius derivative compatibility and coefficient convergence witnesses remain open. Next establish the finite integer boundary identity and its logarithmic/Gamma comparison on pℤ_p at odd p and8ℤ₂; analyticity is not inferred from continuity. Gross–Koblitz and Ferrero–Greenberg retain the recorded source-reading and normalization work. All17 gaps and13 requests remain open.
+
+### Uniform translated series and the continuous mean difference validation
+
+All 893 predecessor nodes, 715 baseline records, 16 findings, requests and sourceVersions remain whole. This checkpoint adds 10 nodes, 15 named suggested declarations and 20 typed examples. The indexed blueprint, four-file intake, whitespace, preservation, API/test parity and versioned-source checks pass. The graph has 1163 reachable nodes, 5770 edges and 894 native leaves and is acyclic. Its stage request leaves are PadicMeasuresIwasawaAlgebras:L1, PadicMeasuresIwasawaAlgebras:L3, PadicMeasuresIwasawaAlgebras:L3, LocallyAnalyticDistributions:L1, AdicSpacesPartII:F1, AdicSpacesPartII:R2, PadicDifferentialEquationsAndRigidCohomology:RD.0, PadicDifferentialEquationsAndRigidCohomology:RD.4, PadicHodgeTheory:P7:annulus-foundations, PadicMeasuresIwasawaAlgebras:L2, LocallyAnalyticDistributions:L1, LocallyAnalyticDistributions:L0, LocallyAnalyticDistributions:L0. The embedding criterion routes directly to native Mathlib. The remaining nine application nodes inherit the existing LAD L0 leaf through the source coefficient-limit inputs; existing precise requests remain whole, with no new owner or cycle.
+
+**The full current suggested module was NOT COMPILED.** Its real native import requires TauCeti.NumberTheory.ArithmeticFunction.TwistedDivisorSum. No matching existing artifact was found; WORKERS.md prohibits building the native library. Current compiler exit code, error count and warning count are unavailable, not zero. The exact named signatures and native source were reviewed. PR4773 remains the last compiled full predecessor, with zero errors and1,803 expected placeholder warnings; that receipt does not validate this new module.
+
+The current source closure covers 3604 pinned Mathlib modules and 29 pinned Tau Ceti modules. Only 28 Tau module artifacts are available and hash-verified. The 140 available artifact files and the previously compiled332-node PMIA artifact are checked as partial dependencies. The current369-node supplier source preserves the older interface; no current-module compilation against either revision is claimed. Existing builds only were inspected; no setup, update, cache fetch or native build occurred.
+
+The complete composite probe preserves19 definitions and163 lemmas from PR5293, adds an explicit native FunctionSeries import and proves1 actual function definition and16 lemmas. Two native helper lemmas supply routine coefficient norm and summability steps; the fifteen suggested named declarations comprise the ten new nodes and five function APIs. The separate probe compiles against 2826 pinned Mathlib modules and 7 pinned Tau Ceti modules with zero errors, warnings or placeholders. The separate complete probe retains the explicit PMIA integer-ring equivalence and seven verified existing Teichmuller artifacts. It constructs no analytic carrier and rebuilds no native module. The full suggested file remains NOT COMPILED because its pinned TwistedDivisorSum artifact is missing. General roadmap declarations remain unchecked.
+
+Exact rational checks pass50 embedding-distance cases,42 coefficient bounds,330 polynomial tails,60 zero-term-removal identities,70 difference norm bounds,100 geometric tails and40 actual linear-mean differences, including zero/negative/boundary shifts and cutoffN=0. Exact rational tests at p=2,3 on the closed shift disc, including positive/negative boundary, zero, interior and q/5 shifts. Six finitely supported coefficient families have C=R=1 and verify all tail cutoffs through two beyond their degree. Geometric closed forms independently check ten tail cutoffs including N=0. The actual angular finite mean of A(u)=u is unchanged by these shifts at four depths. These controls check formulas and normalization; uniform convergence and continuity are established in the complete native probe. The largest observed discrepancy is 0 (all exact identities and inequalities).
+
+Post-merge capture ed5dbe0e3ffbfbc83fe8b250553caa54d0abdd63 changes four tracked inputs; all complete diffs were read. The registry adds only awaiting-review ArithmeticStatistics/E675, concerning the independent-pair probability proof in Higher Rédei reciprocity AppendixA: the identity is retained while an invariant weighted average replaces the incomplete partition argument (m=1 gives1/6 versus1/3). Its register rendering agrees. No Dirichlet source finding changes. AlgebraicCodingTheory changes only accepted review/history metadata, retaining its rootless-rank24 ownership gap. Chebotarev CH-L16 clarifies the surrounding Theorem5.2 prime-selection proof and the detection condition ζ∉F̃(ζ+ζ^-1), keeping the extra w₂(F) coprimality assumption separate; its pairs and other links remain unchanged. Neither adjustment supplies a new Dirichlet dependency. These are read input records, not independently verified source corrections. Policies, upstream analytic suppliers and native baseline remain unchanged. Publication refresh reads the full registry/register change to EllipticRegulators/E7: the explanation now keeps the Lecture10 finite Fourier transform normalization C^(-2), equal to C^(-1) times the corrected Lecture11 transform, rather than the formerly conflated C^(-1) sum. The recorded sign correction, status and all other fields are unchanged. This is an input-record correction, not a fresh independent source verification. Own Dirichlet findings, analytic suppliers, policies and proof sources are unchanged.
+
+The separate partial signature file also compiled with zero errors and 2,868 expected placeholder warnings across 3,600 pinned source modules. It includes all 15 new named declarations and 20 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: c4285e2da7cc2989ff20129c81f2b9f8211f0ea2477ffefb1b3787de0adec11b.
