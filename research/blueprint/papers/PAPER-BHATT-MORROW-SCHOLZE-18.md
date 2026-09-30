@@ -206,3 +206,33 @@ after it closes and is correctly cited bare. Ten of the fourteen routed layers n
 descriptions, and the other four own exactly the constructions their items need. All **18 findings are
 confirmed**, most of them by the paper contradicting itself; E3 carries a second slip in the same
 sentence ("a Breuil–Kisin–Fargues **modules**") that its correction does not mention.
+
+## Fixes (FIX-RT-PAPER-BHATT-MORROW-SCHOLZE-18, 30 September 2026)
+
+Claude Code, session `cc-c2c06b`, issue #5012. This fix applies the eight medium findings of
+`RT-PAPER-BHATT-MORROW-SCHOLZE-18`, with the corrections of its verifier (Claude Code, cc-48533a). The full record is
+`research/blueprint/redteam/RT-PAPER-BHATT-MORROW-SCHOLZE-18.fixes.md`. Where the sections above disagree with this one,
+this one is current.
+
+- **Coherence and §4.2 (/1).** The coherence of W_r(O) (items 051–056) moves from AI.3 to AI.0, which is upstream of
+  AI.2, AI.3, AI.5 and CP.0. The §4.2 algebra behind Proposition 4.13 stays at AI.2, because Lemma 4.26 uses
+  Proposition 4.13 and AI.5 requires AI.2.
+- **Proposition 13.21 (/2)** (item 189) is no longer planned at CP.2, which requires AI.5, while Theorem 14.3 at AI.5
+  uses it. A new route 15 sends it to CrystallineCohomology:CR.3:Frobenius-isogeny, with the link
+  CR.3:Frobenius-isogeny → AI.5.
+- **The primitive comparison (/3).** Route 14 now targets PadicHodgeTheory:P8:local-rational instead of P8. It carries
+  Scholze's finiteness theorem (085) and the B_dR^+ comparison (new item 197), which Theorem 14.3 and Theorem 13.1 use
+  upstream of P8. AI.4 needs the link P8:local-rational → AI.4 for Theorem 5.7.
+- **Witt vectors (/4).** Lemma 9.8, Lemma 10.1, Corollary 10.2 and Theorem 10.4 (138, 146, 147, 149) move from CR.4 to
+  AI.0, with the link AI.0 → CR.4, since both AI.3 and CR.4 use them.
+- **The §2 examples (/5)** (024–028) move from AI.5 to CP.5, and Theorems 2.1 and 2.10 are planned at CP.5 first. Their
+  cited inputs are new items: Illusie's Proposition 7.3.5 (191), Bertini over finite fields (192) and Lang's lifting
+  (193).
+- **Almost purity (/6).** Faltings' almost purity and its identifications are new planned items 194 (AI.3 with P3) and
+  195 (the W_r, A_inf and mod p forms, AI.3). The almost-mathematics vocabulary is item 196 (P0), relative to idempotent
+  ideals only; W(𝔪^♭) is not one. Item 121 keeps only the definition.
+- **Source issues (/7, /8).** Two corrections to the statements above:
+  - **E19:** the converse of Lemma 3.20 needs p to be topologically nilpotent in R (item 047).
+  - **E20–E22:** Lemma 11.11's normalization is λ_r([T_i]) = U_i^{p^r} (item 162). There are two further slips in the
+    same passage.
+- **Result:** 197 items (2 library, 94 planned, 101 missing), 15 routes, source issues E1–E22.
