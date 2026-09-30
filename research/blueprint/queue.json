@@ -3718,8 +3718,9 @@
    ],
    "avoidAccountOf": "PAPER-HEUER-25",
    "prompt": "research/blueprint/prompts/REV-PAPER-HEUER-25.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1221"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1221",
+   "finishedAt": "2026-09-30T00:58:59Z"
   },
   {
    "id": "PAPER-IYENGAR-KHARE-MANNING-24",
