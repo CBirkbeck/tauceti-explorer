@@ -598,3 +598,29 @@ converge locally uniformly to0 on Re A>−1/2, yet all have residue1 at the boun
 The exact diagnostics passed **2842 rational/integer assertions**: four-coset matrices, shifted cusp indices, projection polynomial, j coefficients and order regression, invertible Fourier certificates with a nontrivial invisible kernel, normalization scalars and the one-point counterexample. Separately,140 floating-point principal-phase comparisons had maximum error1.088×10⁻¹³. The finite calculations are diagnostics; the all-parameter arguments and conditional boundaries are written above and in the JSON. Historical checks were not relabeled as newly rerun.
 
 S5 still needs the Maass Hilbert-domain proof and Poincaré extension; S6 needs full trace and boundary suppliers, nonvanishing, all sign cases, the Maass multiplicity comparison and Baruch–Mao. S1/S2/S3/S4/S7 and residual S8 remain as previously recorded. The norm and Appendix work must be preserved. No Lean file is authorized for this paper issue and no compilation or formalization is claimed.
+
+## Fixes (FIX-RT-PAPER-DUKE-IMAMOGLU-TOTH-16, 30 September 2026)
+
+Claude Code, session `cc-c2c06b`, issue #4990. This fix applies the six medium findings of
+`RT-PAPER-DUKE-IMAMOGLU-TOTH-16`, with the verifier's corrections. The full record is
+`research/blueprint/redteam/RT-PAPER-DUKE-IMAMOGLU-TOTH-16.fixes.md`.
+
+- **/1:** item 141's hypothesis is restored: D > 1 fundamental, and D = d′d with fundamental factors.
+- **/2:** item 151, the Rankin–Selberg norm ⟨φ,φ⟩ = 2L(1, sym²φ)/cosh(πr) with a polynomial bound on L(1, sym²φ), is
+  restored and routed to AL.3. Items 150, 153 and E6 point to it again.
+- **/3:** the form character χ_d(Q) (items 101–102) has one owner, GN.2 (route 1). BRUINIER-EHLEN-YANG-21/11 routes
+  the same function there. MultiquadraticPartII keeps only the comparison with the ideal-class character (new item
+  `form-character-ideal-comparison`).
+- **/4:** Tau Ceti FuchsianOrbifolds already plans three things, which are now imported rather than routed:
+  - the area of F (item 17, Layers 2 and 4);
+  - the signature of PSL(2,Z) (Layers 6 and 2);
+  - SL(2,Z) generation, which is in Mathlib (new library item `sl2z-generators`).
+
+  Items 22 and 23 are restated as the extension to groups of the second kind.
+- **/5:** the Bessel functions, the hyperbolic Laplacian and the Kloosterman sum are planned at QSeriesPartitionsAndMockModularForms
+  QM.2 and QM.3 (items 111, 56, 87). The Liouville form of Bessel's equation is routed to QM.2 as an adapter (route
+  11). Item 74 records the corrected relation Δ_{1/2} = y^{1/4}Δ_hol,1/2 y^{−1/4} + 3/16.
+- **/6:** one active record per mistake. The errata file's 14 records are superseded and attached to the
+  extraction's E1–E11, E15, E16 and E21 as errataRecord. E5, E6 and E11 are reconciled on their merits. After
+  `scripts/errata.py` is rerun, the register lists 34 entries for this paper instead of 48.
+- **Result:** 191 items (17 library, 11 planned, 163 missing) and eleven routes.

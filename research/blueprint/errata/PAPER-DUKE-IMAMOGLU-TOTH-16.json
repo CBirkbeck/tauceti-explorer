@@ -1,7 +1,14 @@
 {
   "paper": "PAPER-DUKE-IMAMOGLU-TOTH-16",
   "protocol": "errata-v1",
-  "sourceIssues": [
+  "sourceIssues": [],
+  "supersededBy": {
+    "file": "research/blueprint/papers/PAPER-DUKE-IMAMOGLU-TOTH-16.result.json",
+    "by": "FIX-RT-PAPER-DUKE-IMAMOGLU-TOTH-16",
+    "date": "2026-09-30",
+    "reason": "RT-PAPER-DUKE-IMAMOGLU-TOTH-16/6: this file and the extraction used the same ids for different mistakes (this file's E12–E14 are the extraction's E15, E16, E21) and gave conflicting verdicts for E5, E6 and E11, so the register listed 48 entries for 34 mistakes. The extraction's records are now the single active records, each with this file's record attached as errataRecord; this file's records are kept below as history, each with sameAs naming its active record. scripts/errata.py collects only sourceIssues, so after it is rerun each mistake is listed once."
+  },
+  "supersededRecords": [
     {
       "id": "PAPER-DUKE-IMAMOGLU-TOTH-16/E1",
       "kind": "misprint",
@@ -21,7 +28,8 @@
         "verdict": "confirmed",
         "reason": "Confirmed on the publisher image and author p.11. Applying the printed operator to y^s gives s(1−s)y^(s−4); the corrected operator gives s(1−s)y^s. The paper itself uses the correct operator in (7.10).",
         "by": "REV-ERRATA-PAPER-DUKE-IMAMOGLU-TOTH-16"
-      }
+      },
+      "sameAs": "PAPER-DUKE-IMAMOGLU-TOTH-16/E1"
     },
     {
       "id": "PAPER-DUKE-IMAMOGLU-TOTH-16/E2",
@@ -42,7 +50,8 @@
         "verdict": "confirmed",
         "reason": "Confirmed by phase invariance of every displayed condition, including the conjugated coefficient in (5.16), inspected on the image. The chosen basis in Proposition 6 selects a representative but is not part of the uniqueness conditions in Theorem 4. Taking −F already disproves literal uniqueness.",
         "by": "REV-ERRATA-PAPER-DUKE-IMAMOGLU-TOTH-16"
-      }
+      },
+      "sameAs": "PAPER-DUKE-IMAMOGLU-TOTH-16/E2"
     },
     {
       "id": "PAPER-DUKE-IMAMOGLU-TOTH-16/E3",
@@ -63,7 +72,8 @@
         "verdict": "confirmed",
         "reason": "Confirmed all five appearances: the numerical example, the proposition, the line after (10.4), and twice on p.982. With r=13.77975135 the correct expression is approximately 190.13154727; the printed half-shift gives approximately 190.38154727.",
         "by": "REV-ERRATA-PAPER-DUKE-IMAMOGLU-TOTH-16"
-      }
+      },
+      "sameAs": "PAPER-DUKE-IMAMOGLU-TOTH-16/E3"
     },
     {
       "id": "PAPER-DUKE-IMAMOGLU-TOTH-16/E4",
@@ -84,7 +94,8 @@
         "verdict": "confirmed",
         "reason": "Confirmed by comparing (6.2) with (3.3). Restoring π leaves the lower bound up to an implied constant unchanged.",
         "by": "REV-ERRATA-PAPER-DUKE-IMAMOGLU-TOTH-16"
-      }
+      },
+      "sameAs": "PAPER-DUKE-IMAMOGLU-TOTH-16/E4"
     },
     {
       "id": "PAPER-DUKE-IMAMOGLU-TOTH-16/E5",
@@ -105,7 +116,8 @@
         "verdict": "confirmed",
         "reason": "Confirmed analytically using the primitive minus cycle and its exact monodromy, with an independent squarefree-value input to justify an unbounded fundamental-discriminant family. Nine exact cycle/unit computations supplement the argument. Changed affects to a stated result: the unnumbered upper-bound assertion is false, although it is unused in the equidistribution proof. Removed the unverified assertion of global novelty for the counterexample family.",
         "by": "REV-ERRATA-PAPER-DUKE-IMAMOGLU-TOTH-16"
-      }
+      },
+      "sameAs": "PAPER-DUKE-IMAMOGLU-TOTH-16/E5"
     },
     {
       "id": "PAPER-DUKE-IMAMOGLU-TOTH-16/E6",
@@ -126,7 +138,8 @@
         "verdict": "confirmed",
         "reason": "Confirmed as a gap in the cited deduction, not as a proved counterexample to the printed estimate. Independently read Duke 1988 pp.77–79 and 85, including unit normalization and the hyperbolic-cosine factor. Checked the norm identity in Humphries–Nordentoft (4.5). Corrected the old explanation: rapid polynomial decay of c(φ) can hold for Hecke-normalized φ too; the stronger norm factor is what restores the argument. Only a polynomial upper bound for the adjoint L-value is needed.",
         "by": "REV-ERRATA-PAPER-DUKE-IMAMOGLU-TOTH-16"
-      }
+      },
+      "sameAs": "PAPER-DUKE-IMAMOGLU-TOTH-16/E6"
     },
     {
       "id": "PAPER-DUKE-IMAMOGLU-TOTH-16/E7",
@@ -147,7 +160,8 @@
         "verdict": "confirmed",
         "reason": "Confirmed on the publisher image and author p.18. Expanding an Euler factor gives the coefficient χ(𝔭) at N(𝔭)⁻ˢ, which the printed expression omits.",
         "by": "REV-ERRATA-PAPER-DUKE-IMAMOGLU-TOTH-16"
-      }
+      },
+      "sameAs": "PAPER-DUKE-IMAMOGLU-TOTH-16/E7"
     },
     {
       "id": "PAPER-DUKE-IMAMOGLU-TOTH-16/E8",
@@ -168,7 +182,8 @@
         "verdict": "confirmed",
         "reason": "Confirmed by the negative-discriminant cases in the definition of T and by the absolute value in (5.16). Extended the locator to the p.982 continuation, which asserts the same identities for all permitted signs.",
         "by": "REV-ERRATA-PAPER-DUKE-IMAMOGLU-TOTH-16"
-      }
+      },
+      "sameAs": "PAPER-DUKE-IMAMOGLU-TOTH-16/E8"
     },
     {
       "id": "PAPER-DUKE-IMAMOGLU-TOTH-16/E9",
@@ -189,7 +204,8 @@
         "verdict": "confirmed",
         "reason": "Confirmed at ν=3, β=0 and from DLMF 5.12.6 after expanding its beta function. Checked that inserting the factor yields the existing (A.2). No assertion of having consulted the physical Gradshteyn–Ryzhik edition is made.",
         "by": "REV-ERRATA-PAPER-DUKE-IMAMOGLU-TOTH-16"
-      }
+      },
+      "sameAs": "PAPER-DUKE-IMAMOGLU-TOTH-16/E9"
     },
     {
       "id": "PAPER-DUKE-IMAMOGLU-TOTH-16/E10",
@@ -210,7 +226,8 @@
         "verdict": "confirmed",
         "reason": "Confirmed from DLMF 10.2.2 and direct multiplication by t^(1/2). Checked that (A.3) already has the correct factor, so the intermediate misprint does not change Lemma 7.",
         "by": "REV-ERRATA-PAPER-DUKE-IMAMOGLU-TOTH-16"
-      }
+      },
+      "sameAs": "PAPER-DUKE-IMAMOGLU-TOTH-16/E10"
     },
     {
       "id": "PAPER-DUKE-IMAMOGLU-TOTH-16/E11",
@@ -231,7 +248,8 @@
         "verdict": "rejected",
         "reason": "Rejected as a substantive source gap after reading the whole Appendix. The intended Frobenius series and the necessary coefficients are already displayed; the omitted recurrence is an elementary consequence, not an extra hypothesis. Recorded this rejected candidate to distinguish the review from the extraction’s earlier assessment. This does not reject the genuine coefficient misprints E9–E10.",
         "by": "REV-ERRATA-PAPER-DUKE-IMAMOGLU-TOTH-16"
-      }
+      },
+      "sameAs": "PAPER-DUKE-IMAMOGLU-TOTH-16/E11"
     },
     {
       "id": "PAPER-DUKE-IMAMOGLU-TOTH-16/E12",
@@ -252,7 +270,8 @@
         "verdict": "confirmed",
         "reason": "Confirmed independently on the published image and in the author preprint; added the previously omitted finding as errata E12.",
         "by": "REV-ERRATA-PAPER-DUKE-IMAMOGLU-TOTH-16"
-      }
+      },
+      "sameAs": "PAPER-DUKE-IMAMOGLU-TOTH-16/E15"
     },
     {
       "id": "PAPER-DUKE-IMAMOGLU-TOTH-16/E13",
@@ -273,7 +292,8 @@
         "verdict": "confirmed",
         "reason": "Confirmed on the published image and in the author preprint; added the omitted finding as errata E13.",
         "by": "REV-ERRATA-PAPER-DUKE-IMAMOGLU-TOTH-16"
-      }
+      },
+      "sameAs": "PAPER-DUKE-IMAMOGLU-TOTH-16/E16"
     },
     {
       "id": "PAPER-DUKE-IMAMOGLU-TOTH-16/E14",
@@ -294,7 +314,8 @@
         "verdict": "confirmed",
         "reason": "Added during the independent review. Both the publisher p.963 and author p.12 images display the mixed indices. The divisor-sum calculation identifies the intended expression.",
         "by": "REV-ERRATA-PAPER-DUKE-IMAMOGLU-TOTH-16"
-      }
+      },
+      "sameAs": "PAPER-DUKE-IMAMOGLU-TOTH-16/E21"
     }
   ]
 }
