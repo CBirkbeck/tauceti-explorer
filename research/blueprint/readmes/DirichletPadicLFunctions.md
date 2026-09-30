@@ -19222,3 +19222,159 @@ Eleven complete native lemmas check continuity and injectivity of the actual int
 Exact finite polynomial-quotient controls check nonrational character weights, coefficient and finite-group maps, truncated-series naturality and coordinatewise p-power precision through an extension with π²=3. Controls reject discarding imaginary character components and replacing p² precision by π² precision. Exact arithmetic in A_r=(ℤ/3^rℤ)[i]/(i²+1) and B_r=A_r[π]/(π²−3), r=0–4, with explicit coefficient bases. Every ordered level1/4/quartic5 character pair is tested on q-indices0–48 and exponents0–3. Ring operations, mapped polynomial tests, finite group coordinates, direct/two-step coefficient embeddings and coordinatewise ideals(3^s),s≤r, are checked. These are explicitly defined finite polynomial-quotient models; no local-field realization is certified. The largest observed discrepancy is 0.
 
 The63-input capture at 58d74b77e1717f2c6418bfd76bad27260e946dbd has an empty predecessor delta. The existing pinned Mathlib Valuation.Extension artifact is newly imported ahead of the unchanged predecessor Lean body; no native module is built. The actual compiled332-node PMIA artifact is reused with no added369-node supplier declaration called. The native twisted-divisor module remains source-checked only.
+
+
+## Native twisted-divisor Euler comparison
+
+Partial continuation preserving all587 predecessor nodes whole. Five L4 nodes connect actual integral weighted moments and positive series with TauCeti’s native twistedDivisorSum and Mathlib’s native expansion map. The right Euler factor, wild-character specialization and bad right level are explicit. All16 findings, nine requests and13 gaps remain; zero closed stages. The full suggested file is uncompiled for lack of the required pinned native artifact.
+
+Whole RJW published159–161 was freshly read, including Definition8.1, all of Theorem8.2 and its proof, and Remark8.3. Whole native TauCeti TwistedDivisorSum and Mathlib PowerSeries.Expand18–121 were read at the pins, together with native divisor membership/zero identities and the actual preserved coefficient/series/arithmetic-twist interfaces. The new character comparison is explicitly a derivation, not a quotation of a two-character theorem from RJW. Native library ownership is retained.
+
+### Euler deletion for native twisted divisor sums
+
+`DirichletPadicLFunctions:L4/twisted-divisor-euler-deletion` — `DirichletPadic.twistedDivisorSum_euler_deletion`
+
+Σ_(d|n,p∤d)ψ(n/d)φ(d)d^e=σ(e,ψ,φ)(n)−[φ(p)p^e σ(e,ψ,φ)(n/p) if p∣n; 0 otherwise], including n=0 and e=0.
+
+**Hypotheses:** p is any prime, including2. For the algebraic divisor identity R is an arbitrary commutative ring, n and e are natural numbers, and ψ and φ are native Dirichlet characters at levels D and E, with their given zero extensions. For integral measure and series comparisons K is a normed ultrametric field with Algebra ℤ_p K and IsBoundedSMul ℤ_p K. O is the native integer subring of its norm valuation, and ι:O→K is its native subtype ring map. Write σ(e,ψ,φ) for the existing native DirichletCharacter.twistedDivisorSum, never for a newly defined arithmetic function. Its native formula is Σ_(d|n)ψ(n/d)φ(d)d^e and σ(0)=0. Write F_(e,ψ,φ)=PowerSeries.mk(n↦σ(e,ψ,φ)(n)); F is notation for this expression, not a proposed new constructor. A^O_(ψ,φ,n) and E^+_(ψ,φ) are the existing integral coefficient and positive-series measures. The principal arithmetic test is the existing κ^O_(0,1,e). Finite-character arithmetic tests use χ of level p^t and the existing κ^O_(t,χ,e). V_p is the actual native PowerSeries.expand p with p≠0; it substitutes q^p. The correction factor is the right character φ(p)p^e. The existing p-index scaling factor ψ(p) is a different quantity. No primitive replacement or implicit removal of level primes is allowed.
+
+**Proof:**
+
+1. Rewrite the actual native arithmetic function with twistedDivisorSum_apply. Partition the finite divisor sum into p-prime divisors and divisors divisible by p; subtraction is in R. No character value or natural coefficient is divided in R.
+2. When n=p m>0, multiplication by p is a bijection from divisors of m to divisors of p m divisible by p. In the reverse direction write d=p a and cancel p in the divisibility relation. Positivity of p and m verifies both native Nat.mem_divisors conditions; injectivity is natural-number cancellation.
+3. Under d=p a, the left argument is (p m)/(p a)=m/a, whereas φ(p a)(p a)^e=φ(p)p^e φ(a)a^e. Factor the constant out of the finite sum. Complete removed_divisors and removed_weighted_sum proofs check this bijection and transformation.
+4. If p∤n, no divisor of n is divisible by p. If n=0, native Nat.divisors_zero makes both divisor sums empty and native twistedDivisorSum_apply gives σ(0)=0. Complete literal_euler_deletion proves the resulting literal finite-sum equality at every n.
+5. Only the final rewriting uses the native Tau Ceti declaration. Its source and exact signature were read at the pin; the full suggested file importing it is uncompiled because no matching existing artifact is available. The separate native probe contains no replacement for this arithmetic function.
+
+**Prerequisites:** `tauceti:DirichletCharacter.twistedDivisorSum`, `tauceti:DirichletCharacter.twistedDivisorSum_apply`, `mathlib:Nat.mem_divisors`, `mathlib:Nat.divisors_zero`.
+
+**Tests:**
+
+- `SuggestedTwistedEulerTests.native_zero_index` (degenerate): At n=0 the native σ value and its correction are both zero, even though p divides0.
+- `SuggestedTwistedEulerTests.exponent_zero_keeps_right_factor` (degenerate): At exponent0 and indexp, σ_0(p)−φ(p)σ_0(1)=ψ(p).
+
+**Acceptance:** The statement holds in a commutative ring with arbitrary native character levels. The existing native arithmetic-function constructor, multiplicativity and prime-power API are not re-planned.
+
+**Source:** Definition8.1, Theorem8.2 and its whole proof, Remark8.3, published159–161/PDF60–62; all three pages freshly read30September2026. Native TauCeti twisted-divisor module at f790474 read in full. The source motivates removing divisors divisible by p in the positive coefficients. This is the worker-derived two-character extension using the exact native twistedDivisorSum convention. The source does not state this general two-character comparison. Its constant-term and weight-space assertions keep all previously recorded qualifications.
+
+### Native divisor-sum comparison of integral moments
+
+`DirichletPadicLFunctions:L4/integral-twisted-coefficient-native-moment` — `DirichletPadic.integralTwistedPositiveEisensteinMeasure_native_moment`
+
+For n>0, ι(A^O_(ψ,φ,n)(κ^O_(0,1,e)))=σ(e,ψ,φ)(n)−[φ(p)p^e σ(e,ψ,φ)(n/p) if p∣n; 0 otherwise].
+
+**Hypotheses:** p is any prime, including2. For the algebraic divisor identity R is an arbitrary commutative ring, n and e are natural numbers, and ψ and φ are native Dirichlet characters at levels D and E, with their given zero extensions. For integral measure and series comparisons K is a normed ultrametric field with Algebra ℤ_p K and IsBoundedSMul ℤ_p K. O is the native integer subring of its norm valuation, and ι:O→K is its native subtype ring map. Write σ(e,ψ,φ) for the existing native DirichletCharacter.twistedDivisorSum, never for a newly defined arithmetic function. Its native formula is Σ_(d|n)ψ(n/d)φ(d)d^e and σ(0)=0. Write F_(e,ψ,φ)=PowerSeries.mk(n↦σ(e,ψ,φ)(n)); F is notation for this expression, not a proposed new constructor. A^O_(ψ,φ,n) and E^+_(ψ,φ) are the existing integral coefficient and positive-series measures. The principal arithmetic test is the existing κ^O_(0,1,e). Finite-character arithmetic tests use χ of level p^t and the existing κ^O_(t,χ,e). V_p is the actual native PowerSeries.expand p with p≠0; it substitutes q^p. The correction factor is the right character φ(p)p^e. The existing p-index scaling factor ψ(p) is a different quantity. No primitive replacement or implicit removal of level primes is allowed.
+
+**Proof:**
+
+1. Apply the existing integral principal arithmetic-moment identity, which includes the actual O-valued measure evaluation into K and gives the p-prime divisor sum.
+2. Apply the promoted twisted-divisor Euler-deletion identity in K. Its character order agrees literally with the existing weighted measure: ψ is evaluated at n/d, and φ at d.
+3. At indices prime to p the correction is absent. At p, the existing native prime formula σ(p)=ψ(p)+φ(p)p^e leaves ψ(p). Thus this agrees with the preserved p-index scaling theorem, without interchanging its left factor and the right Euler factor.
+4. For p=2, ψ the quadratic character modulo3 and φ of level1, e=1 gives σ(2)=1 and correction2, hence the retained coefficient−1. Using ψ(2)2=−2 instead would give3. At n=10, σ(10)=4 and σ(5)=4 give4−2·4=−4: deleting all coefficients at indices divisible by p is false.
+
+**Prerequisites:** `DirichletPadicLFunctions:L4/integral-twisted-positive-eisenstein-moment`, `DirichletPadicLFunctions:L4/twisted-divisor-euler-deletion`, `tauceti:DirichletCharacter.twistedDivisorSum_apply_prime`.
+
+**Tests:**
+
+- `SuggestedTwistedEulerTests.away_index_equals_native` (compatibility): At every positive index prime to p the integral moment includes as the actual native σ coefficient.
+- `SuggestedTwistedEulerTests.left_character_prime_coefficient` (computation): At p=2, ψ modulo3 with ψ(2)=−1, φ of level1 and e=1, the actual integral coefficient at2 includes as−1.
+- `SuggestedTwistedEulerTests.left_factor_would_be_wrong` (non-example): In that example subtracting ψ(2)2σ(1) from native σ(2) does not give−1.
+- `SuggestedTwistedEulerTests.divisible_index_is_not_deleted` (non-example): The actual coefficient at10 in the same example is−4, not0.
+
+**Acceptance:** The comparison states equality after the native integer-ring inclusion; no unjustified cast of a nonintegral field element into O is introduced.
+
+**Source:** Definition8.1, Theorem8.2 and its whole proof, Remark8.3, published159–161/PDF60–62; all three pages freshly read30September2026. Native TauCeti twisted-divisor module at f790474 read in full. The source motivates removing divisors divisible by p in the positive coefficients. This is the worker-derived two-character extension using the exact native twistedDivisorSum convention. The source does not state this general two-character comparison. Its constant-term and weight-space assertions keep all previously recorded qualifications.
+
+### Native Euler comparison of the whole positive series
+
+`DirichletPadicLFunctions:L4/integral-twisted-series-native-moment` — `DirichletPadic.integralTwistedPositiveEisensteinSeries_native_moment`
+
+PowerSeries.map ι(E^+_(ψ,φ)(κ^O_(0,1,e)))=F_(e,ψ,φ)−C(φ(p)p^e)V_p(F_(e,ψ,φ)).
+
+**Hypotheses:** p is any prime, including2. For the algebraic divisor identity R is an arbitrary commutative ring, n and e are natural numbers, and ψ and φ are native Dirichlet characters at levels D and E, with their given zero extensions. For integral measure and series comparisons K is a normed ultrametric field with Algebra ℤ_p K and IsBoundedSMul ℤ_p K. O is the native integer subring of its norm valuation, and ι:O→K is its native subtype ring map. Write σ(e,ψ,φ) for the existing native DirichletCharacter.twistedDivisorSum, never for a newly defined arithmetic function. Its native formula is Σ_(d|n)ψ(n/d)φ(d)d^e and σ(0)=0. Write F_(e,ψ,φ)=PowerSeries.mk(n↦σ(e,ψ,φ)(n)); F is notation for this expression, not a proposed new constructor. A^O_(ψ,φ,n) and E^+_(ψ,φ) are the existing integral coefficient and positive-series measures. The principal arithmetic test is the existing κ^O_(0,1,e). Finite-character arithmetic tests use χ of level p^t and the existing κ^O_(t,χ,e). V_p is the actual native PowerSeries.expand p with p≠0; it substitutes q^p. The correction factor is the right character φ(p)p^e. The existing p-index scaling factor ψ(p) is a different quantity. No primitive replacement or implicit removal of level primes is allowed.
+
+**Proof:**
+
+1. Apply native PowerSeries.ext and coeff_map. At every positive coefficient use the promoted actual integral coefficient comparison.
+2. Native coeff_expand gives σ(n/p) when p∣n and0 otherwise; coeff_C_mul multiplies that coefficient by φ(p)p^e. Complete whole_series_euler proves this whole formal-series assembly from its literal coefficient premise.
+3. At coefficient0, both positive series have zero constant because the existing integral series is a positive truncation and σ(0)=0. This boundary must be checked rather than inferred from n>0.
+4. For both character levels1, the existing native twistedDivisorSum_modOne_eq_sigma identifies F with Mathlib’s σ_e series and φ(p)=1. This recovers the earlier unweighted Euler-deletion formula. No new ordinary divisor sum or Eisenstein modular form is defined.
+5. This is a formal positive q-expansion identity. It does not supply the generalized constant coefficient, its denominator or pseudomeasure qualification, classical modularity or weight-space geometry.
+
+**Prerequisites:** `DirichletPadicLFunctions:L4/integral-twisted-coefficient-native-moment`, `DirichletPadicLFunctions:L4/integral-twisted-positive-series-coeff`, `mathlib:PowerSeries.expand`, `mathlib:PowerSeries.coeff_expand`, `mathlib:PowerSeries.coeff_C_mul`, `mathlib:PowerSeries.coeff_map`, `mathlib:PowerSeries.ext`, `mathlib:PowerSeries.mk`, `tauceti:DirichletCharacter.twistedDivisorSum_modOne_eq_sigma`.
+
+**Tests:**
+
+- `SuggestedTwistedEulerTests.principal_levels_recover_sigma` (compatibility): Both level-one characters give the actual Mathlib σ_e series minus p^e times its q^p expansion.
+- `SuggestedTwistedEulerTests.native_comparison_zero_constant` (degenerate): The native Euler-comparison right side has coefficient0 equal to0.
+
+**Acceptance:** The series operator is the existing native expansion map and is applied to the actual native twisted divisor coefficients. No private series-substitution operator or surrogate arithmetic function appears.
+
+**Source:** Definition8.1, Theorem8.2 and its whole proof, Remark8.3, published159–161/PDF60–62; all three pages freshly read30September2026. Native TauCeti twisted-divisor module at f790474 read in full. The source motivates removing divisors divisible by p in the positive coefficients. This is the worker-derived two-character extension using the exact native twistedDivisorSum convention. The source does not state this general two-character comparison. Its constant-term and weight-space assertions keep all previously recorded qualifications.
+
+### Native comparison at finite-character arithmetic points
+
+`DirichletPadicLFunctions:L4/integral-twisted-series-native-arithmetic-moment` — `DirichletPadic.integralTwistedPositiveEisensteinSeries_native_arithmetic_moment`
+
+PowerSeries.map ι(E^+_(ψ,φ)(κ^O_(t,χ,e)))=F_(e,ψ,φ.mul χ)−C((φ.mul χ)(p)p^e)V_p(F_(e,ψ,φ.mul χ)).
+
+**Hypotheses:** p is any prime, including2. For the algebraic divisor identity R is an arbitrary commutative ring, n and e are natural numbers, and ψ and φ are native Dirichlet characters at levels D and E, with their given zero extensions. For integral measure and series comparisons K is a normed ultrametric field with Algebra ℤ_p K and IsBoundedSMul ℤ_p K. O is the native integer subring of its norm valuation, and ι:O→K is its native subtype ring map. Write σ(e,ψ,φ) for the existing native DirichletCharacter.twistedDivisorSum, never for a newly defined arithmetic function. Its native formula is Σ_(d|n)ψ(n/d)φ(d)d^e and σ(0)=0. Write F_(e,ψ,φ)=PowerSeries.mk(n↦σ(e,ψ,φ)(n)); F is notation for this expression, not a proposed new constructor. A^O_(ψ,φ,n) and E^+_(ψ,φ) are the existing integral coefficient and positive-series measures. The principal arithmetic test is the existing κ^O_(0,1,e). Finite-character arithmetic tests use χ of level p^t and the existing κ^O_(t,χ,e). V_p is the actual native PowerSeries.expand p with p≠0; it substitutes q^p. The correction factor is the right character φ(p)p^e. The existing p-index scaling factor ψ(p) is a different quantity. No primitive replacement or implicit removal of level primes is allowed.
+
+**Proof:**
+
+1. Use the preserved integral whole-series arithmetic twist to move χ into the right character. Its native DirichletCharacter.mul has level lcm(E,p^t) and retains the zero extension of both factors.
+2. Apply the promoted native whole-series comparison to ψ and the actual native product φ.mul χ. Do not multiply the left character or replace the right product by its primitive inducing character.
+3. For t=0 the character has level1 and its natural values are1; the native divisor formula then recovers the principal comparison. For t>0 the product’s level is divisible by p, so its value at p is0 and the Euler correction vanishes.
+4. Vanishing of the correction does not delete coefficients with p-divisible indices. With p=2 and right character modulo4 the first prime coefficient still equals the left value at2. The right-zero extension has already suppressed precisely the unwanted divisor terms.
+
+**Prerequisites:** `DirichletPadicLFunctions:L4/integral-twisted-series-arithmetic-twist`, `DirichletPadicLFunctions:L4/integral-twisted-series-native-moment`, `DirichletPadicLFunctions:L4/integral-twisted-series-native-bad-right-level`, `mathlib:DirichletCharacter.mul`.
+
+**Tests:**
+
+- `SuggestedTwistedEulerTests.positive_wild_level_removes_euler_correction` (compatibility): At positive finite-character level the actual arithmetic specialization equals the full native σ(e,ψ,φ.mulχ) positive series.
+- `SuggestedTwistedEulerTests.zero_level_wild_character_recovers_principal` (degenerate): At t=0 the native divisor sum with right product φ.mulχ equals the original native divisor sum.
+
+**Acceptance:** The correct native lcm-level product appears explicitly, including imprimitive characters. Primitive modular-form specialization remains with its existing owner.
+
+**Source:** Definition8.1, Theorem8.2 and its whole proof, Remark8.3, published159–161/PDF60–62; all three pages freshly read30September2026. Native TauCeti twisted-divisor module at f790474 read in full. The source motivates removing divisors divisible by p in the positive coefficients. This is the worker-derived two-character extension using the exact native twistedDivisorSum convention. The source does not state this general two-character comparison. Its constant-term and weight-space assertions keep all previously recorded qualifications.
+
+### Bad right level removes the Euler correction
+
+`DirichletPadicLFunctions:L4/integral-twisted-series-native-bad-right-level` — `DirichletPadic.integralTwistedPositiveEisensteinSeries_native_bad_right_level`
+
+If p∣E, then PowerSeries.map ι(E^+_(ψ,φ)(κ^O_(0,1,e)))=F_(e,ψ,φ).
+
+**Hypotheses:** p is any prime, including2. For the algebraic divisor identity R is an arbitrary commutative ring, n and e are natural numbers, and ψ and φ are native Dirichlet characters at levels D and E, with their given zero extensions. For integral measure and series comparisons K is a normed ultrametric field with Algebra ℤ_p K and IsBoundedSMul ℤ_p K. O is the native integer subring of its norm valuation, and ι:O→K is its native subtype ring map. Write σ(e,ψ,φ) for the existing native DirichletCharacter.twistedDivisorSum, never for a newly defined arithmetic function. Its native formula is Σ_(d|n)ψ(n/d)φ(d)d^e and σ(0)=0. Write F_(e,ψ,φ)=PowerSeries.mk(n↦σ(e,ψ,φ)(n)); F is notation for this expression, not a proposed new constructor. A^O_(ψ,φ,n) and E^+_(ψ,φ) are the existing integral coefficient and positive-series measures. The principal arithmetic test is the existing κ^O_(0,1,e). Finite-character arithmetic tests use χ of level p^t and the existing κ^O_(t,χ,e). V_p is the actual native PowerSeries.expand p with p≠0; it substitutes q^p. The correction factor is the right character φ(p)p^e. The existing p-index scaling factor ψ(p) is a different quantity. No primitive replacement or implicit removal of level primes is allowed.
+
+**Proof:**
+
+1. Since p divides E, the natural image of p in ZMod E is not a unit by native ZMod.isUnit_iff_coprime. Native MulChar.map_nonunit gives φ(p)=0. The complete right_bad_level_zero proof checks this argument with precisely the native character carrier.
+2. Substitute φ(p)=0 in the promoted native whole-series comparison. The constant-series factor is0, so the expansion term vanishes.
+3. At p=2, any right character modulo4 and left level1 yield coefficient2 equal to1. In contrast, a left character modulo4 and right level1 give retained coefficient2 equal to0. These tests distinguish bad right level from bad left level and from deletion of indices.
+
+**Prerequisites:** `DirichletPadicLFunctions:L4/integral-twisted-series-native-moment`, `mathlib:MulChar.map_nonunit`, `mathlib:ZMod.isUnit_iff_coprime`.
+
+**Tests:**
+
+- `SuggestedTwistedEulerTests.right_bad_level_prime_survives` (non-example): With left level1 and any right character modulo4, the actual p=2 integral prime coefficient is1.
+- `SuggestedTwistedEulerTests.left_bad_level_prime_vanishes` (computation): With any left character modulo4 and right level1, that retained prime coefficient is0.
+
+**Acceptance:** Only the correction is zero. The full native coefficient series need not vanish at indices divisible by p.
+
+**Source:** Definition8.1, Theorem8.2 and its whole proof, Remark8.3, published159–161/PDF60–62; all three pages freshly read30September2026. Native TauCeti twisted-divisor module at f790474 read in full. The source motivates removing divisors divisible by p in the positive coefficients. This is the worker-derived two-character extension using the exact native twistedDivisorSum convention. The source does not state this general two-character comparison. Its constant-term and weight-space assertions keep all previously recorded qualifications.
+
+**Remaining:** The actual integral weighted coefficients and finite-character positive series now have exact native twisted-divisor and right Euler-deletion comparison statements. The new full suggested module is not compiled because the required pinned TwistedDivisorSum artifact is unavailable; final native-name elaboration remains to be checked when such an existing build is supplied. Shared primitive-character modular-form specialization, the generalized constant coefficient and denominator qualifications remain open. General completed-algebra, coefficient-extension and weight-space geometry remain with their owners and requests. All source corrections, analytic pole/residue questions and complete source extraction remain open.
+
+### Native twisted-divisor Euler comparison validation
+
+All 587 predecessor nodes, 507 baseline records, 16 findings, requests and sourceVersions remain whole. This checkpoint adds 5 nodes, 5 named suggested declarations and 12 typed examples. The indexed blueprint, four-file intake, whitespace, preservation, API/test parity and versioned-source checks pass. The graph has 834 reachable nodes, 3997 edges and 684 native leaves and is acyclic. Its stage request leaves are PadicMeasuresIwasawaAlgebras:L1, PadicMeasuresIwasawaAlgebras:L3, PadicMeasuresIwasawaAlgebras:L3, LocallyAnalyticDistributions:L1, AdicSpacesPartII:F1, AdicSpacesPartII:R2, PadicDifferentialEquationsAndRigidCohomology:RD.0, PadicDifferentialEquationsAndRigidCohomology:RD.4, PadicHodgeTheory:P7:annulus-foundations. All five new routes end in native declarations through existing coefficient interfaces, with no stage-request leaf.
+
+**The full current suggested module was NOT COMPILED.** Its real native import requires TauCeti.NumberTheory.ArithmeticFunction.TwistedDivisorSum. No matching existing artifact was found; WORKERS.md prohibits building the native library. Current compiler exit code, error count and warning count are unavailable, not zero. The exact named signatures and native source were reviewed. PR4773 remains the last compiled full predecessor, with zero errors and1,803 expected placeholder warnings; that receipt does not validate this new module.
+
+The current source closure covers 3601 pinned Mathlib modules and 22 pinned Tau Ceti modules. Only 21 Tau module artifacts are available and hash-verified. The105 available artifact files and the previously compiled332-node PMIA artifact are checked as partial dependencies. The current369-node supplier source preserves the older interface; no current-module compilation against either revision is claimed. Existing builds only were inspected; no setup, update, cache fetch or native build occurred.
+
+Eight complete native lemmas prove the removed-divisor bijection, weighted removed sum, finite partition, all-index literal Euler deletion, whole-series assembly with native expand, bad-level character vanishing and two concrete sign/index checks. The separate Mathlib-only probe compiles against 2832 pinned Mathlib modules with zero errors, warnings or placeholders. It does not import, replace or compile the missing native Tau module. General roadmap declarations remain unchecked.
+
+Exact Gaussian-integer finite controls compare native-form divisor sums with retained divisor sums, right Euler subtraction and q^p coefficient expansion; they include quartic character values, nonprimitive zero extensions, n=0, e=0, wild right products and counterexamples to the left-factor or index-deletion alternatives. Exact unbounded integer arithmetic in Gaussian-integer pairs; explicit multiplicative character tables with native-style zero extensions. Every truncated coefficient is computed directly from finite divisors and compared with an independently assembled q^p expansion. No floating-point arithmetic or interval approximation is used; these finite checks do not prove the infinite identity or elaborate the native TauCeti module. The largest observed discrepancy is 0.
+
+The63-input capture has an empty predecessor delta. The real native TauCeti twisted-divisor import is prepended to the unchanged predecessor Lean body. The current full module was not compiled; the previously compiled332-node PMIA artifact and21 available Tau artifacts are checked only as partial available dependencies. No native library build is attempted.

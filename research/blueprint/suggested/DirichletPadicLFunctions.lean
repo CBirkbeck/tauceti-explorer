@@ -1,3 +1,4 @@
+import TauCeti.NumberTheory.ArithmeticFunction.TwistedDivisorSum
 import Mathlib.RingTheory.Valuation.Extension
 import Mathlib.RingTheory.PowerSeries.Restricted
 import Mathlib.RingTheory.PowerSeries.Log
@@ -10026,3 +10027,140 @@ example : (9 : L)∣3 ∧ ¬(9 : OL)∣3 := sorry
 end Ramification
 end
 end SuggestedEisensteinCoefficientChangeTests
+
+/-! Comparison with the actual native two-character divisor sum.
+This extension imports TauCeti.NumberTheory.ArithmeticFunction.TwistedDivisorSum.
+The full suggested module is NOT COMPILED: no compatible existing artifact for
+that pinned module was available. Separate complete Mathlib-only proofs check
+the divisor bijection, finite-sum algebra and native PowerSeries.expand step. -/
+namespace DirichletPadic
+noncomputable section
+open scoped BigOperators AbstractMeasure PowerSeries.WithPiTopology
+variable (p : ℕ) [Fact p.Prime]
+
+theorem twistedDivisorSum_euler_deletion {R : Type*} [CommRing R] {D E : ℕ}
+    (ψ : DirichletCharacter R D) (φ : DirichletCharacter R E) (n e : ℕ) :
+    (∑ d∈n.divisors, if ¬p∣d then ψ (n/d)*φ d*(d : R)^e else 0)=
+      DirichletCharacter.twistedDivisorSum e ψ φ n-
+        if p∣n then φ p*(p : R)^e*DirichletCharacter.twistedDivisorSum e ψ φ (n/p)
+        else 0 := sorry
+
+variable {K : Type*} [NormedField K] [IsUltrametricDist K]
+  [Algebra ℤ_[p] K] [IsBoundedSMul ℤ_[p] K] {D E : ℕ}
+local notation "O" => Valuation.integer (NormedField.valuation (K := K))
+
+theorem integralTwistedPositiveEisensteinMeasure_native_moment
+    (ψ : DirichletCharacter K D) (φ : DirichletCharacter K E) (n : ℕ+) (e : ℕ) :
+    (integralTwistedPositiveEisensteinMeasure p ψ φ n
+      (integralPrimePowerArithmeticCharacter p 0 (1 : DirichletCharacter K (p^0)) e).toContinuousMap : K)=
+      DirichletCharacter.twistedDivisorSum e ψ φ (n : ℕ)-
+        if p∣(n : ℕ) then φ p*(p : K)^e*
+          DirichletCharacter.twistedDivisorSum e ψ φ ((n : ℕ)/p) else 0 := sorry
+
+theorem integralTwistedPositiveEisensteinSeries_native_moment
+    (ψ : DirichletCharacter K D) (φ : DirichletCharacter K E) (e : ℕ) :
+    PowerSeries.map (Valuation.integer (NormedField.valuation (K := K))).subtype
+      (integralTwistedPositiveEisensteinSeries p ψ φ
+        (integralPrimePowerArithmeticCharacter p 0 (1 : DirichletCharacter K (p^0)) e).toContinuousMap)=
+      PowerSeries.mk (fun n => DirichletCharacter.twistedDivisorSum e ψ φ n)-
+        PowerSeries.C (φ p*(p : K)^e)*
+          PowerSeries.expand p (Fact.out : p.Prime).ne_zero
+            (PowerSeries.mk (fun n => DirichletCharacter.twistedDivisorSum e ψ φ n)) := sorry
+
+theorem integralTwistedPositiveEisensteinSeries_native_arithmetic_moment
+    (ψ : DirichletCharacter K D) (φ : DirichletCharacter K E)
+    (t : ℕ) (χ : DirichletCharacter K (p^t)) (e : ℕ) :
+    PowerSeries.map (Valuation.integer (NormedField.valuation (K := K))).subtype
+      (integralTwistedPositiveEisensteinSeries p ψ φ
+        (integralPrimePowerArithmeticCharacter p t χ e).toContinuousMap)=
+      PowerSeries.mk (fun n => DirichletCharacter.twistedDivisorSum e ψ (φ.mul χ) n)-
+        PowerSeries.C ((φ.mul χ) p*(p : K)^e)*
+          PowerSeries.expand p (Fact.out : p.Prime).ne_zero
+            (PowerSeries.mk (fun n => DirichletCharacter.twistedDivisorSum e ψ (φ.mul χ) n)) := sorry
+
+theorem integralTwistedPositiveEisensteinSeries_native_bad_right_level
+    (ψ : DirichletCharacter K D) (φ : DirichletCharacter K E) (h : p∣E) (e : ℕ) :
+    PowerSeries.map (Valuation.integer (NormedField.valuation (K := K))).subtype
+      (integralTwistedPositiveEisensteinSeries p ψ φ
+        (integralPrimePowerArithmeticCharacter p 0 (1 : DirichletCharacter K (p^0)) e).toContinuousMap)=
+      PowerSeries.mk (fun n => DirichletCharacter.twistedDivisorSum e ψ φ n) := sorry
+end
+end DirichletPadic
+
+namespace SuggestedTwistedEulerTests
+noncomputable section
+open scoped BigOperators AbstractMeasure PowerSeries.WithPiTopology
+open DirichletPadic
+section General
+variable {p : ℕ} [Fact p.Prime] {K : Type*} [NormedField K]
+  [IsUltrametricDist K] [Algebra ℤ_[p] K] [IsBoundedSMul ℤ_[p] K] {D E : ℕ}
+local notation "O" => Valuation.integer (NormedField.valuation (K := K))
+-- native_zero_index
+example (ψ : DirichletCharacter K D) (φ : DirichletCharacter K E) (e : ℕ) :
+    DirichletCharacter.twistedDivisorSum e ψ φ 0-
+      φ p*(p : K)^e*DirichletCharacter.twistedDivisorSum e ψ φ (0/p)=0 := sorry
+-- exponent_zero_keeps_right_factor
+example (ψ : DirichletCharacter K D) (φ : DirichletCharacter K E) :
+    DirichletCharacter.twistedDivisorSum 0 ψ φ p-
+      φ p*DirichletCharacter.twistedDivisorSum 0 ψ φ 1=ψ p := sorry
+-- away_index_equals_native
+example (ψ : DirichletCharacter K D) (φ : DirichletCharacter K E)
+    (n : ℕ+) (hn : ¬p∣(n : ℕ)) (e : ℕ) :
+    (integralTwistedPositiveEisensteinMeasure p ψ φ n
+      (integralPrimePowerArithmeticCharacter p 0 (1 : DirichletCharacter K (p^0)) e).toContinuousMap : K)=
+      DirichletCharacter.twistedDivisorSum e ψ φ (n : ℕ) := sorry
+-- principal_levels_recover_sigma
+example (ψ φ : DirichletCharacter K 1) (e : ℕ) :
+    PowerSeries.map (Valuation.integer (NormedField.valuation (K := K))).subtype
+      (integralTwistedPositiveEisensteinSeries p ψ φ
+        (integralPrimePowerArithmeticCharacter p 0 (1 : DirichletCharacter K (p^0)) e).toContinuousMap)=
+      PowerSeries.mk (fun n => (ArithmeticFunction.sigma e : ArithmeticFunction K) n)-
+        PowerSeries.C ((p : K)^e)*PowerSeries.expand p (Fact.out : p.Prime).ne_zero
+          (PowerSeries.mk (fun n => (ArithmeticFunction.sigma e : ArithmeticFunction K) n)) := sorry
+-- native_comparison_zero_constant
+example (ψ : DirichletCharacter K D) (φ : DirichletCharacter K E) (e : ℕ) :
+    PowerSeries.coeff 0 (PowerSeries.mk (fun n => DirichletCharacter.twistedDivisorSum e ψ φ n)-
+      PowerSeries.C (φ p*(p : K)^e)*PowerSeries.expand p (Fact.out : p.Prime).ne_zero
+        (PowerSeries.mk (fun n => DirichletCharacter.twistedDivisorSum e ψ φ n)))=0 := sorry
+-- positive_wild_level_removes_euler_correction
+example (ψ : DirichletCharacter K D) (φ : DirichletCharacter K E)
+    (t : ℕ) (ht : 0<t) (χ : DirichletCharacter K (p^t)) (e : ℕ) :
+    PowerSeries.map (Valuation.integer (NormedField.valuation (K := K))).subtype
+      (integralTwistedPositiveEisensteinSeries p ψ φ
+        (integralPrimePowerArithmeticCharacter p t χ e).toContinuousMap)=
+      PowerSeries.mk (fun n => DirichletCharacter.twistedDivisorSum e ψ (φ.mul χ) n) := sorry
+-- zero_level_wild_character_recovers_principal
+example (ψ : DirichletCharacter K D) (φ : DirichletCharacter K E)
+    (χ : DirichletCharacter K (p^0)) (e n : ℕ) :
+    DirichletCharacter.twistedDivisorSum e ψ (φ.mul χ) n=
+      DirichletCharacter.twistedDivisorSum e ψ φ n := sorry
+end General
+
+section DyadicLeft
+variable [IsBoundedSMul ℤ_[2] ℚ_[2]]
+variable (ψ : DirichletCharacter ℚ_[2] 3) (hψ : ψ 2=-1)
+include hψ
+-- left_character_prime_coefficient
+example : (integralTwistedPositiveEisensteinMeasure 2 ψ (1 : DirichletCharacter ℚ_[2] 1) 2
+    (integralPrimePowerArithmeticCharacter 2 0 (1 : DirichletCharacter ℚ_[2] (2^0)) 1).toContinuousMap : ℚ_[2])=-1 := sorry
+-- left_factor_would_be_wrong
+example : DirichletCharacter.twistedDivisorSum 1 ψ (1 : DirichletCharacter ℚ_[2] 1) 2-
+    ψ 2*2*DirichletCharacter.twistedDivisorSum 1 ψ (1 : DirichletCharacter ℚ_[2] 1) 1≠(-1 : ℚ_[2]) := sorry
+-- divisible_index_is_not_deleted
+example : (integralTwistedPositiveEisensteinMeasure 2 ψ (1 : DirichletCharacter ℚ_[2] 1) 10
+    (integralPrimePowerArithmeticCharacter 2 0 (1 : DirichletCharacter ℚ_[2] (2^0)) 1).toContinuousMap : ℚ_[2])=-4 := sorry
+end DyadicLeft
+
+section DyadicBadLevel
+variable [IsBoundedSMul ℤ_[2] ℚ_[2]]
+-- right_bad_level_prime_survives
+example (φ : DirichletCharacter ℚ_[2] 4) (e : ℕ) :
+    (integralTwistedPositiveEisensteinMeasure 2 (1 : DirichletCharacter ℚ_[2] 1) φ 2
+      (integralPrimePowerArithmeticCharacter 2 0 (1 : DirichletCharacter ℚ_[2] (2^0)) e).toContinuousMap : ℚ_[2])=1 := sorry
+-- left_bad_level_prime_vanishes
+example (ψ : DirichletCharacter ℚ_[2] 4) (e : ℕ) :
+    (integralTwistedPositiveEisensteinMeasure 2 ψ (1 : DirichletCharacter ℚ_[2] 1) 2
+      (integralPrimePowerArithmeticCharacter 2 0 (1 : DirichletCharacter ℚ_[2] (2^0)) e).toContinuousMap : ℚ_[2])=0 := sorry
+end DyadicBadLevel
+end
+end SuggestedTwistedEulerTests
