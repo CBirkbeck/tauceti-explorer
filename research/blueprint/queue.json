@@ -38694,7 +38694,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-DOR-23.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #5001"
   },
   {
    "id": "RT-PAPER-ICHINO-PRASANNA-23",
@@ -38844,8 +38845,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-CHANG-CHEN-MISHIBA-23.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5002"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #5002",
+   "finishedAt": "2026-09-30T19:43:29Z"
   },
   {
    "id": "RT-PAPER-BOCKLE-IYENGAR-PASKUNAS-23",
@@ -40788,8 +40790,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-BOCKLE-HARRIS-KHARE-ETAL-19.md",
-   "state": "pending",
-   "note": "released on GitHub issue #5014"
+   "state": "external",
+   "note": "claimed on GitHub issue #5014"
   },
   {
    "id": "RT-PAPER-LAWRENCE-VENKATESH-20",
@@ -51815,7 +51817,8 @@
     "FIX-RT-AREA-etale"
    ],
    "prompt": "research/blueprint/prompts/FIX-RT-AREA-etale~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #5155"
   },
   {
    "id": "REV-FIX-RT-AREA-etale~2",
