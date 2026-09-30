@@ -643,8 +643,9 @@
    ],
    "avoidAccountOf": "PAPER-CIUBOTARU-HARRIS-26",
    "prompt": "research/blueprint/prompts/REV-PAPER-CIUBOTARU-HARRIS-26.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1058"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1058",
+   "finishedAt": "2026-09-30T02:17:53Z"
   },
   {
    "id": "PAPER-BHARGAVA-25",
@@ -23473,12 +23474,12 @@
     "REV-RS-14"
    ],
    "prompt": "research/blueprint/prompts/BP-DirichletPadicLFunctions.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [
     "BP-LocallyAnalyticDistributions",
     "BP-PadicMeasuresIwasawaAlgebras"
    ],
-   "note": "released on GitHub issue #713"
+   "note": "claimed on GitHub issue #713"
   },
   {
    "id": "REV-DirichletPadicLFunctions",
@@ -39730,7 +39731,8 @@
     "REV-PAPER-LAND-MATHEW-MEIER-ETAL-24"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-LAND-MATHEW-MEIER-ETAL-24.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4329"
   },
   {
    "id": "RT-PAPER-ANDRE-18-B",
