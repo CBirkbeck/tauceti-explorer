@@ -2,7 +2,7 @@
 
 Laura DeMarco, Holly Krieger and Hexi Ye, *Uniform Manin–Mumford for a family of genus 2 curves*, [Annals of Mathematics 191 (2020), 949–1001](https://doi.org/10.4007/annals.2020.191.3.5); arXiv [1901.09945](https://arxiv.org/abs/1901.09945).
 
-Extraction by Claude Code, session `cc-fb70e5`, 22 September 2026 (issue #1127). Status: **complete**. The whole of arXiv v2 was read and every missing item is routed once. The machine-readable extraction is [PAPER-DEMARCO-KRIEGER-YE-20.result.json](PAPER-DEMARCO-KRIEGER-YE-20.result.json): 53 items (3 library, 10 planned, 40 missing), 3 routes, 12 prerequisite entries and 13 recorded source issues. The independent review (REV-PAPER-DEMARCO-KRIEGER-YE-20) corrected it in place; its changes are listed at the end.
+Extraction by Claude Code, session `cc-fb70e5`, 22 September 2026 (issue #1127). Status: **complete**. The whole of arXiv v2 was read and every missing item is routed once. The machine-readable extraction is [PAPER-DEMARCO-KRIEGER-YE-20.result.json](PAPER-DEMARCO-KRIEGER-YE-20.result.json): 54 items (4 library, 10 planned, 40 missing), 3 routes, 13 prerequisite entries and 16 recorded source issues. The independent review (REV-PAPER-DEMARCO-KRIEGER-YE-20) corrected it in place; its changes are listed at the end.
 
 **Source.** arXiv v2 (3 December 2019, the latest and post-referee version; 49 pages), [PDF](https://arxiv.org/pdf/1901.09945v2), SHA-256 `8fc51ac36f9fc4b406c7bb44cdeccf31386e81e0a471176a69e80a1a0766bab8`, read in full on 2026-09-22. Locators refer to v2. The review later read the published Annals version, which is freely available from the journal site; its differences are listed at the end.
 
@@ -24,8 +24,8 @@ The method treats the Lattès heights ĥ_t (the Néron–Tate height pushed down
 ## What the atlas already has
 
 - **Library.**
-  - Mathlib has Weierstrass curves (the Legendre family is an instance), division polynomials `WeierstrassCurve.ψ`, and the Weil height `Projectivization.logHeight`.
-  - Tau Ceti has the Néron–Tate height on elliptic curves, `WeierstrassCurve.Affine.Point.canonicalHeight`, which vanishes exactly on torsion.
+  - Mathlib has Weierstrass curves (the Legendre family is an instance), bivariate division polynomials `WeierstrassCurve.ψ`, their univariate squares `WeierstrassCurve.ΨSq`, and the absolute scalar heights `NumberField.absMulHeight₁` and `NumberField.absLogHeight₁`. Use h(∞)=0. The fixed-field projective-height API is separate; its absolute comparison remains planned.
+  - Tau Ceti has the fixed-field Néron–Tate height `WeierstrassCurve.Affine.Point.canonicalHeight`, quadratic for elliptic curves and zero exactly on torsion under Northcott. For the standard number-field absolute values it is [K:ℚ] times the paper’s absolute height. The accepted DY.6 Lattès comparison node supplies that planned normalization adapter. Tau Ceti also has both division-polynomial vanishing/annihilation directions for nonsingular affine points, with n≠0 needed to infer torsion, and the order-two characterization.
 - **Planned.**
   - ArithmeticDynamics DY.1 (canonical heights of polarized maps, which includes ĥ_t) and DY.4 (equidistribution).
   - TropicalAndBerkovichArithmetic TB.0–TB.1 (the Berkovich line).
@@ -46,9 +46,9 @@ The method treats the Lattès heights ĥ_t (the Néron–Tate height pushed down
 
 No new roadmap id is minted.
 
-## Source issues (`sourceIssues` E1–E13)
+## Source issues (`sourceIssues` E1–E16)
 
-E9–E13 were added by the review, and the corrections of E5 and E7 were revised; see the end.
+E9–E13 were added by the review, and the corrections of E5 and E7 were revised. The confirmed red-team fix adds E14–E16 below; their red-team verification is recorded separately from the original source-issue review.
 
 - **E7** (error, affects the proof of Theorem 7.1).
   - **Claim.** The proof asserts that at every finite place the potentials of µ_{t_i,v} are constant on disks of radius η_v = min{1, |t₁(t₁−1)|_v, |t₂(t₂−1)|_v}, so a non-archimedean term of Proposition 7.3 vanishes.
@@ -70,6 +70,7 @@ The Theorem 3.1 energy integrals, the constant α = 1/512, the Lemma 6.1 case an
 ## Prerequisites not yet covered
 
 - Favre–Rivera-Letelier 2006, and the Baker–Rumely book.
+- Favre–Rivera-Letelier 2010, [Théorie ergodique des fractions rationnelles sur un corps ultramétrique](https://arxiv.org/abs/0709.0092), §5.1: the invariant interval and tent map used in Propositions 3.2 and 3.5; distinct from the 2006 source.
 - Zhang 1995 (adelic metrics), and Fili.
 - Petsche–Szpiro–Tucker.
 - Favre on the hybrid space, Boucksom–Jonsson, and DeMarco–Faber.
@@ -138,9 +139,21 @@ The locators of the main items now also give the published numbering and pages.
 
 **Noted but not registered:**
 - the Diag in (2.14) must be the diagonal of ℂ_v × ℂ_v;
-- the curve C after Conjecture 1.3 is singular only when the branch sets meet;
 - "Néron-Tate canonical height on ĥ_{E_t}" (p.47);
-- the missing weights r_v in "2h(x) = Σ_v |log|x|_v|" (p.41);
 - the bound 16|S| in §9.3, which is true but loose (the exact count is 4|S| − 2|S ∩ branch values|).
 
-**Post-review correction (cc-442dc5, 23 September 2026).** Item 10, the logarithmic Weil height on ℙ¹(Q̄) and 𝔸²(Q̄), moves from library to planned by HeightsRationalPointsAndObstructions RP.0. Mathlib's `Projectivization.logHeight` is the height relative to a field with admissible absolute values (for a number field, not normalized by the degree) and has no Q̄ version; RP.0 plans the normalized absolute height. The review had accepted the library status.
+**Correction to the 23 September post-review height note (confirmed red-team fix, 30 September 2026).** The claim that Mathlib has no absolute height on algebraic numbers in ℚ̄ is false. Item 54 now cites `NumberField.absLogHeight₁` and `NumberField.absMulHeight₁`. Item 10 imports that scalar construction and keeps only the absolute tuple-height comparison and weighted scalar identity planned at RP.0, using the existing DY.4/DT.0 comparison suppliers. The same false absence note is corrected in DeMarco–Mavraki–Ye 2026 item 7. No completed projective comparison API is claimed.
+
+## Confirmed red-team fixes (30 September 2026)
+
+All eight verified findings are applied; see [the fixes report](../redteam/RT-PAPER-DEMARCO-KRIEGER-YE-20.fixes.md). In addition to the scalar-height split:
+
+- Items 3 and 44 now cite the relevant two-torsion, univariate-square and vanishing/annihilation results, retaining nonsingularity and index restrictions. Two-torsion alone is not the entire branch-cover or j-invariant proof.
+- Item 11 states the fixed-field library contract. For the paper’s absolute normalization, use c_K=[K:ℚ]·ĥ_E=([K:ℚ]/2)·ĥ_t∘π from the planned `ArithmeticDynamics:DY.6/lattes-map-canonical-height` comparison.
+- **E14 (misprint, affects nothing):** p.990 (v2 p.41) omits the local-degree weights r_v in the scalar-height identity. Over ℚ(√2), x=2, the weighted sum is 2log2 and the unweighted sum is 3log2. Item 10 uses the corrected identity.
+- **E15 (misprint, affects nothing):** p.951 (v2 p.2) calls the fiber product singular without qualification. Disjoint branch sets give a smooth genus-five curve; with m common values the normalization has genus 5−m. The genus bound and genus-two application stand.
+- **E16 (gap, affects the proof):** Proposition 9.2, p.997, must choose its lift on j_Q(X). Proposition 9.1 guarantees such a lift of the torsion pair; a finite isogeny kernel makes it torsion and its image order divides its order. The corrected choice is now explicit in item 53. This proposition is absent from v2.
+- The distinct Favre–Rivera-Letelier 2010 prerequisite is added, with consumers /26 and /27.
+- `sourceVersions` now records the original extraction/review reading history. Both PDFs were downloaded and their hashes rechecked on 30 September: published `7a4bd817bc7cc561363c68c3941b449af55fbf4cb1b3481bd0d601e84b9307df`; v2 `8fc51ac36f9fc4b406c7bb44cdeccf31386e81e0a471176a69e80a1a0766bab8`. This fix checked selected passages and page images, not the whole paper anew.
+
+The new issues list the actual 30 September correction searches: Annals, Crossref, the arXiv record/v2 passages, DeMarco’s publication list and a targeted erratum search. No correction was found; v1 was not separately collated. Earlier review documents are outside this fix’s listed deliverables; the fixes report records the precise corrections they need.
