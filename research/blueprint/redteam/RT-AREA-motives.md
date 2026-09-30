@@ -89,7 +89,7 @@ The suggested point test does not catch it: that example takes `h : IsVeryGood H
 
 Both versions quantify over a representation `T` of the very-good-pair diagram in an abelian category `A`, together with a faithful exact functor `f_A` to finite-dimensional vector spaces. Neither requires an isomorphism from `f_A` composed with `T` to the specified singular-cohomology representation. The packet's proposed proof then compares through that functor as if the identification had been supplied.
 
-There is a direct counterexample to the generic contract that does not depend on the faulty point predicate in finding 2. Take genuine singular homology for `Hs`. Let `A` be the zero rational-linear abelian category: it has one object and one morphism. Its unique functor
+There is a direct counterexample to the generic contract that does not depend on the faulty point predicate in finding 2. Take genuine singular homology for `Hs`. Let `A` be the zero rational-linear abelian category: it has one object and one morphism. Consider the functor
 
 \[
 f_A:A\longrightarrow\operatorname{Vect}_{\mathbb Q}^{\mathrm{fd}}
