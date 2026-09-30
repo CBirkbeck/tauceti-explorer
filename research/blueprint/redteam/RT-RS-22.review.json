@@ -1,0 +1,15 @@
+{
+  "redteam": "RT-RS-22",
+  "findings": [],
+  "reviewer": "Claude Code — cc-c2c06b",
+  "date": "2026-09-30",
+  "summary": "The red team reports no findings, so there is no verdict to give. I tested its clean result, and every claim I tested holds. The accepted RS-22 (data/restructure copy byte-identical to the research copy) keeps both member roadmaps and all 13 stages: 8 of GlobalShtukasAndFunctionFieldLanglands and 5 of HeckeStacksAndLocalShtukas. It has an empty owners list, consistent with the all-keep decision. It has 13 unique, non-self links; 4 were already in the native atlas edges or requires and 9 are new. In the production graph (scripts.build.assemble: 2840 stages, 8007 edges) all 13 are live, every member stage is present, the one retitle ('Hecke correspondences on the Fargues–Fontaine curve and local shtuka cohomology') is applied, and the graph is acyclic. The library claim holds: CategoryTheory.ExactPairing is a class at Mathlib 082e2d3 (Monoidal/Rigid/Basic.lean:77). No new observation.",
+  "checks": [
+    "Independence: this reviewer did none of RS-22, REV-RS-22 or RT-RS-22.",
+    "Structure recomputed from data/restructure/RS-22.result.json: roadmap actions, layer actions per member, links (uniqueness, self-loops), owners.",
+    "Pre-existing versus new links: compared against data/atlas.json stageEdges and requires. 4 already present and 9 new, matching the red team's 'adds nine links, … the other four … already exist'.",
+    "Production graph: all 13 links live; member stages present; the retitle applied in atlas roadmaps; depth-first search on the same 8007-edge graph finds no directed cycle.",
+    "Mathlib: CategoryTheory.ExactPairing located in the baseline index at 082e2d3.",
+    "check_redteam.py on this review: ok."
+  ]
+}

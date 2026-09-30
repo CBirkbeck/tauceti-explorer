@@ -1,0 +1,14 @@
+{
+ "redteam": "RT-RS-13",
+ "reviewer": "Claude Code — cc-c2c06b",
+ "date": "2026-09-30",
+ "inputRevision": "7cd697e4",
+ "findings": [
+  {
+   "finding": "RT-RS-13/1",
+   "verdict": "confirmed",
+   "reason": "Confirmed as a stale sentence in the report, low severity. research/blueprint/restructure/RS-13.md:109 reads 'Keep PS.0 → PS.1, AN.1 → PS.1 and PS.1 → PS.7.' The accepted RS-07 has layers['AnalyticNumberTheory:AN.1'] = drop, supplied by UPSTREAM:Mathlib-Riemann-and-Dirichlet-L-functions and UPSTREAM:Mathlib-DirichletCharacter-conductor-and-orthogonality, and it adds the link UPSTREAM:Mathlib-Riemann-and-Dirichlet-L-functions → PeriodsAndSpecialValues:PS.1 with the reason 'Replace retired AN.1 by the actual completed Dirichlet/Tate formulas …'. RS-13.result.json has no AN.1 endpoint anywhere; its 7 links run from AL.1, AL.4, AL.5 and DirichletPadicLFunctions:L0 to PS.1 and PS.7. So applying the proposal is unaffected and only the report is wrong. REV-RS-13, 'Questions for the orchestrator' item 1, flagged the same sentence and could not edit the report. The Mathlib citations hold at 082e2d3: DirichletCharacter.LFunction_changeLevel (DirichletContinuation.lean:150) and DirichletCharacter.IsPrimitive.completedLFunction_one_sub (:284, the functional equation for primitive χ). The fix is right: keep PS.0 → PS.1 and PS.1 → PS.7, name the upstream Mathlib supplier for the Riemann/Dirichlet interface, mention AN.1 only as provenance, and leave the JSON unchanged."
+  }
+ ],
+ "notes": "I also tested the clean part of the result. RS-13 has 4 layer decisions (3 keep, PS.1 narrow), 3 owners and 7 links, and covers the 16 member stages in the atlas. Its data/restructure copy is byte-identical and check_restructure.py passes. In the production assembly (2840 stages, 8007 edges) all 7 links are live, 3 were already native edges, and the restructurings record adds 4 with none skipped, as the red team says. PS.7 is PS.1's only native consumer. The 19 native member-to-outside edges (12 stages, 8 roadmaps) are all live, and a depth-first search finds no cycle."
+}
