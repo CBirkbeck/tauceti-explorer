@@ -9249,3 +9249,147 @@ Fresh main reading: published PDF78–80 and33,52,172,184 with retained PDF hash
 Final submission checks: **PASS**. Paper checker; three-file intake with0 problems;768 unique items,744-edge internal DAG,575 missing items each routed once; external stage prerequisites resolve; exact three authorized files and no extras. All745 inherited IDs,91 source findings and sourceData preserved. Twelve pinned library files byte-verified. Eighteen input/deliverable blobs unchanged at publication base `aa8623ba4aadb4ae82e1f429386a30d48eca6fa6`. No Lean file compiled.
 
 </details>
+
+## Nonzero characteristic-p formal fibres — Codex, codex-rtOQ9t, 30 September 2026
+
+This continuation adds L152–L153 and Z171–Z182: the full product of local
+completions, the finite complete-local order used in scalar extension, and the
+nonzero-prime branch of the G-ring argument. The extraction remains **partial**:
+847 items (156 library, 48 planned, 643 missing), 27 routes, 124 unreviewed
+source findings and 11 gaps. All 833 inherited item statements, statuses and
+locators, all 123 previous findings and all earlier `sourceData` are preserved.
+Z79 now names Z182; Z164 retains its single-prime proof and points to Z174 for
+the full product. These are source-level plans and existing library imports,
+not Lean implementations or an independent review.
+
+### The completion product is a canonical algebra comparison
+
+L152 imports the pinned Artinian nilradical-power quotient equivalence and
+nilpotence of the nilradical. It retains nonreduced factors. Z171 identifies
+those local factors with the actual localizations using their canonical maps.
+For a finite algebra S over a Noetherian local (R,m), Z172 applies this to
+S/m^nS with a fixed index set: the primes q_i above m. Each component is
+S_{q_i}/m^nS_{q_i}; the maps commute with every reduction in n.
+
+Z173 constructs the inverse maps on compatible tuples, respecting products,
+scalars and finite projections. Z174 then combines this with existing L112 and
+cofinality of mS_{q_i} and q_iS_{q_i} powers to obtain
+
+\[
+ \widehat{R_p}\otimes_R S\;\simeq\;
+ \prod_{q_i\mid p}\widehat{S_{q_i}}.
+\]
+
+This expands the [Stacks 07N9](https://stacks.math.columbia.edu/tag/07N9)
+argument, including its [Artinian decomposition](https://stacks.math.columbia.edu/tag/00JB)
+and [adic-topology comparison](https://stacks.math.columbia.edu/tag/0394).
+The existing `AdicCompletion.piEquivOfFintype` is a linear comparison for a
+fixed finite product of modules. The new assembly identifies the relevant
+finite quotients and their algebra structures; it does not infer that arbitrary
+localization commutes with inverse limits.
+
+Z175 clears denominators in finitely many monic equations to build a finite
+A-order B in any finite extension of Frac(A). When A is complete local and B
+is a domain, Z176 proves B is complete local: the completion product for B
+cannot have two nonzero factors, since that would produce a nontrivial
+idempotent in a domain. This explains why locality is justified for the chosen
+order. A general finite algebra, such as A×A, is not local.
+
+### Retain the polynomial variable in the ambient regularity argument
+
+The ambient ring needed for the nonzero-prime fibre in
+[Stacks 07PU](https://stacks.math.columbia.edu/tag/07PU) is
+`completion(A[x]_q) tensor_A Frac(A)`. The scalar extension inverts nonzero
+coefficients. It does not invert all nonzero polynomials. Thus the earlier
+Z170 generic-polynomial fibre cannot simply be substituted here.
+
+Z177 supplies the needed specialization over A0=k[[X_1,…,X_d]]. First the
+completed polynomial local ring C is regular, using Z166, Z96 and the existing
+regular-local localization argument. For a finite purely inseparable extension
+M/Frac(A0), choose Z165's finite Frobenius-bounded order B. The same power bound
+holds for B[x]/A0[x], so Z163–Z164 identify C tensor_A0 B with a single
+completion of B[x]. For a next pth-root step rescale the generator so its pth
+power g belongs to B. Z160 gives an absolute derivation detecting g; L147
+extends it coefficientwise to B[x], and Z161/Z97 extend it through localization
+and completion. After tensoring with M, D(g) is a unit. The regular hypersurface
+criterion Z162 completes the induction; Z169 gives every finite field test.
+
+This is a derived specialization of the source's derivation method. In
+particular, it keeps x throughout, does not require the detecting derivation
+to kill k, and does not assume the nonzero-prime theorem it is intended to
+supply. The general formal-smoothness/regularity equivalence of
+[07PM](https://stacks.math.columbia.edu/tag/07PM) is not certified by this proof.
+
+For general complete local A of characteristic p, Z178 isolates the shared
+finite power-series normalization A0⊂A from
+[032D, Case I](https://stacks.math.columbia.edu/tag/032D). Z179 uses the full
+completion product for A0[x]→A[x] and then tensors with Frac(A). The resulting
+product is regular by Z177. Each factor is regular because a direct factor is
+a localization at an idempotent. This step keeps every prime over the
+contracted prime, even though only one chosen factor is ultimately needed.
+
+### The fibre is a quotient, and some scalar-extension factors vanish
+
+When K=κ(r), the nonzero prime r becomes (x−f) in K[x]. Z180 identifies the
+fibre with the quotient of the ambient ring by x−f. The coefficient-killing
+derivation d/dx extends through the relevant localizations and completion and
+sends x−f to 1. Existing Z98 therefore proves the quotient regular.
+
+For an arbitrary finite L/κ(r), Z181 uses a finite complete-local order B⊂L,
+with Frac(B)=L, and the evaluation kernel r′⊂B[x]. The completion product
+formula gives the scalar-extended fibre as a product indexed by q_i above q.
+If r′ is not contained in q_i, an element of r′ outside q_i is both zero and
+invertible in the tensor factor: that factor is zero. All remaining factors
+are Z180's linear-prime fibres over B. Z182 concludes regularity for every
+finite L, including inseparable extensions, by the local-ring description of
+a finite product. No assumption that every q_i contains r′ is inserted.
+
+### Scope still open, ownership and verification
+
+Z178 has an exact statement and an outer proof, with the remaining inputs
+explicit: coefficient-field existence from
+[032A](https://stacks.math.columbia.edu/tag/032A), parameter ideals, equivalent
+adic completeness, finite generation from the residue quotient, and the
+injectivity argument using dimension. Their deeper source and declaration
+closure remains in `analytic-regularity-suppliers`; mixed-characteristic Cohen
+structure remains there too. The outer 032A proof was read, but its Cohen-ring
+and arbitrary-field formal-smoothness suppliers were not closed here. At the
+pin, `Algebra.FormallySmooth.of_perfectField` has an `EssFiniteType` hypothesis;
+it cannot settle arbitrary residue fields merely by omitting that argument.
+
+E124 records one source misprint found during the comparator reading: 07PM's
+last paragraph cites 15.38.9 for base change. The intended reference is
+[15.38.8, tag 07EG](https://stacks.math.columbia.edu/tag/07EG);
+[07EH](https://stacks.math.columbia.edu/tag/07EH) is a descent statement with a
+split-module hypothesis. The intended theorem is unaffected. The current
+statement, proof, comments, displayed history and targeted correction searches
+were checked; the finding awaits independent verification.
+
+The generic completion and order adapters Z171–Z176 refine existing R03.1.
+Z177–Z182 refine the existing SF.0/SF.4 direction. No route or roadmap is added.
+Fresh catalogue discovery also read the KTheoryFiniteLocalFields L.7 semilocal
+comparison consumers and AdicSpacesPartII R2's smooth diagram lifting. The
+number-field specialization retains NumberFieldArithmetic Layer 5 as its
+supplier; topologically finitely presented formal schemes retain the adic
+owner. Neither is silently recast as the general Noetherian algebra result.
+The reviewed SF.0/SF.4 and R03.1/R03.3 library audit rows were consulted, and
+Z96 still imports the upstream ModularCurves §4D completion-regularity atom.
+
+At Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174`, actual statements and
+parameters were read for L152 (Artinian/Ring.lean:63 and
+Artinian/Module.lean:625), L153 (TensorProduct/Pi.lean:55), the existing L112
+finite-completion equivalence, the finite-product completion linear
+equivalence, Artinian localization and the smooth/adic-completion lifting
+lemmas. Searches also covered Tau Ceti
+`f790474821cf4256814db967cb154e7af3d0c369`. Search scope and nearby rejected
+matches are recorded in `libraryAudit.codexRtOQ9tNonzeroCharP`. This is not an
+exhaustive theorem-absence claim.
+
+The published LLHLM PDF was re-fetched with the unchanged recorded SHA-256
+`e56478796d15c938b864447d4b48d928ee749b95644df15e1e9055bdf9a142dd`.
+Fresh auxiliary HTML hashes are in `sourceVersions`; no fresh whole-paper read
+is claimed. Paper/intake validation, inherited-data preservation, exactly-once
+routing of all 643 missing items, and acyclicity of 1,875 internal prerequisite
+edges pass. Finite CRT/projection and Frobenius arithmetic diagnostics support
+the examples; they do not replace the general arguments. There is no Lean
+file or compilation, library build, cache download or language server.
