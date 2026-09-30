@@ -24586,8 +24586,9 @@
    ],
    "avoidAccountOf": "BP-GL2ModularityLifting--R22.1",
    "prompt": "research/blueprint/prompts/REV-GL2ModularityLifting--R22.1.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #412"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #412",
+   "finishedAt": "2026-09-30T10:59:45Z"
   },
   {
    "id": "BP-GL2ModularityLifting--R32.3",
@@ -33132,7 +33133,8 @@
     "REV-PAPER-CHEN-24"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-CHEN-24.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4045"
   },
   {
    "id": "RT-PAPER-CARAIANI-SCHOLZE-24",
@@ -34964,8 +34966,9 @@
     "REV-PAPER-DUKE-IMAMOGLU-TOTH-16"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-DUKE-IMAMOGLU-TOTH-16.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4117"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4117",
+   "finishedAt": "2026-09-30T10:59:48Z"
   },
   {
    "id": "RT-PAPER-KOENIGSMANN-16",
@@ -40714,8 +40717,9 @@
     "REV-LINK-tauceti_TauCetiRoadmap_ProfiniteProPGroups"
    ],
    "prompt": "research/blueprint/prompts/RT-LINK-tauceti_TauCetiRoadmap_ProfiniteProPGroups.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4355"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4355",
+   "finishedAt": "2026-09-30T10:59:52Z"
   },
   {
    "id": "REV-RT-LINK-tauceti_TauCetiRoadmap_ProfiniteProPGroups",
@@ -40809,8 +40813,9 @@
     "REV-LINK-tauceti_Completed_OrthogonalL2Bases"
    ],
    "prompt": "research/blueprint/prompts/RT-LINK-tauceti_Completed_OrthogonalL2Bases.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4359"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4359",
+   "finishedAt": "2026-09-30T10:59:57Z"
   },
   {
    "id": "REV-RT-LINK-tauceti_Completed_OrthogonalL2Bases",
@@ -41335,7 +41340,8 @@
     "REV-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SemisimpleAlgebras"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SemisimpleAlgebras.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4375"
   },
   {
    "id": "RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SpinRepresentations",
@@ -46247,7 +46253,8 @@
     "REV-AUDIT-39"
    ],
    "prompt": "research/blueprint/prompts/RT-AUDIT-39.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4458"
   },
   {
    "id": "REV-RT-AUDIT-39",
