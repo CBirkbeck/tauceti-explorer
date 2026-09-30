@@ -20488,3 +20488,179 @@ Ten complete native lemmas prove valuation-ring divisibility via norms, formal-s
 Exact rational controls check 243 residue-test constant divisibilities and normalized integral quotients, 7,776 positive coefficient divisibilities, 534 unit-power and 534 weighted-power congruences, 90 arithmetic constant congruences and 2,880 arithmetic positive coefficient congruences. Six arithmetic profiles have character level above precision. They detect 1,588 omitted-totient failures and verify 21 exact sharp dyadic precisions with 21 omitted-normalization-factor failures. Exact rational finite residue sums for locally constant tests, exact Bernoulli-polynomial constants at fixed finite character, and integer divisor coefficients. Pointwise powers are checked on every unit residue in the tested range. All normalized quotient and dyadic valuation checks use exact fractions. Finite checks do not prove the infinite measure statements; the complete native probe supplies the general norm and divisibility arguments. The largest observed discrepancy is 0 in asserted exact identities; no divisibility violation; no floating-point arithmetic.
 
 All 66 captured inputs are guarded. The complete predecessor Lean body is preserved. The separate signature check consists of the exact fully compiled #4773 body plus only #4793, #4796 and current additions. It excludes #4777 through #4791 and does not validate the current full module. Four new declarations and twelve typed examples elaborate with zero errors and 1,857 expected placeholder warnings in the combined signature file.
+
+
+## Integral normalization of the tame Eisenstein family
+
+Partial continuation preserving all625 predecessor nodes whole. Five L4 nodes construct the integral normalized tame series when two is a unit, identify its field coefficient image, bound every coefficient and prove full test and weight congruences without loss of precision. Every odd prime supplies the unit certificate.
+
+Read the whole existing doubled constructor/API, full coefficient/bound and congruence nodes and the complete normalization/denominator node search across this packet. No integral normalized tame measure already exists. Read the native AbstractMeasure definition and inherited scalar-module/evaluation interfaces, p-adic integer unit and natural-norm criteria, bounded algebra-image proof, codomain restriction, coprimality of distinct primes and certified unit inverse identity at the pins. Source passages and the reviewed L4 audit remain those of the preceding full tame-series work; no new whole-paper review or generic supplier operation is claimed.
+
+### The integral normalized tame Eisenstein measure
+
+`DirichletPadicLFunctions:L4/integral-normalized-tame-series` — `DirichletPadic.integralTameEisensteinSeries`
+
+Given h2:IsUnit(2:O), construct Nη:AbstractMeasure U O (PowerSeries O) by Nη=(↑h2.unit⁻¹:O)•Gη. In particular, every odd prime admits this integral normalized family.
+
+**Hypotheses:** p is prime. K is a complete nontrivially normed ultrametric field with Algebra ℤ_p K and IsBoundedSMul ℤ_p K. D>0, η:DirichletCharacter K D, hD:IsUnit(D:K) and p∤D. U=(ℤ_p)ˣ and O=Valuation.integer(NormedField.valuation(K)) are the actual native objects. Supply h2:IsUnit(2:O), and write v=(h2.unit)⁻¹∈Oˣ. The existing doubled tame measure is Gη. Define Nη=v•Gη using the inherited scalar action on AbstractMeasure U O (PowerSeries O), with the native coefficientwise topology. Every odd prime supplies h2: restrict the bounded coefficient algebra map ℤ_p→K to the existing integer subring and map the native unit 2∈ℤ_p. No separate ℤ_p-algebra structure on O is assumed or defined. Characteristic zero is not needed for this constructor or its coefficient-image comparison: h2 itself ensures 2≠0 in K. The p=2, K=ℚ₂ case cannot supply h2. The existing indicator counterexample shows that an integral normalized family is not automatic there. The unit criterion is sufficient, not claimed necessary for every individual tame character. All evaluations are on actual O-valued continuous tests. No extension to arbitrary K-valued tests, generic measure operation, classical modularity or analytic character family is constructed. The level-one tame constant remains zero.
+
+**Proof:**
+
+1. Use the native inherited O-module structure on AbstractMeasure. The existing continuous O-linear Gη can be multiplied by the fixed integral scalar v without a new continuity argument or new measure constructor. Complete normalized and normalized_apply check the actual native measure type and its evaluation.
+2. For odd-prime availability, native PadicInt.isUnit_iff, norm_natCast_eq_one_iff and Nat.coprime_primes give IsUnit(2:ℤ_p). The coefficient algebra map has image in O since ‖algebraMap(z)‖=‖z•1‖≤‖z‖≤1. Native RingHom.codRestrict packages this existing map with the restricted codomain; IsUnit.map sends the unit certificate to O. Complete algebra_image_integral and odd_prime_two_isUnit verify this routine certificate construction. No second integer-ring definition or separately chosen algebra on O is introduced.
+3. Zero, addition, scalar compatibility and continuity are inherited from the native measure. The two certificates for the same proposition give the same normalized object by proof irrelevance. Native IsUnit.mul_val_inv gives 2v=1, so 2•Nη=Gη. Conversely any M satisfying 2•M=Gη equals Nη after acting by v. Complete two_mul_inverse and normalized_double check the central identity.
+4. Use the existing promoted doubled coefficient formula and native coeff_smul. For n>0 cancel v·2 inside O to recover the actual integral twisted positive coefficient; in degree zero the coefficient is v·ζO^U(xO f). At tame level one the promoted intrinsic-integral-tame-one-level node makes this constant zero. Compare all coefficients with the promoted positive-series coefficient formula to obtain Nη equal to that positive series. This uses no unpromoted one-level API as a new prerequisite.
+5. The constructor is governed by h2, not by a blanket assertion of dyadic integrality. At p=2,K=ℚ₂, the norm of two is 1/2, so it cannot be a unit in the norm-valuation integer ring. The earlier all-test residue obstruction remains valid; special dyadic characters are not classified here.
+
+**Prerequisites:** `DirichletPadicLFunctions:L4/integral-doubled-tame-eisenstein-series`, `DirichletPadicLFunctions:L4/integral-doubled-tame-eisenstein-coeff`, `DirichletPadicLFunctions:L2/intrinsic-integral-tame-one-level`, `DirichletPadicLFunctions:L4/integral-twisted-positive-series-coeff`, `DirichletPadicLFunctions:L4/dyadic-tame-no-integral-normalization`, `mathlib:AbstractMeasure.toCLMEquiv`, `mathlib:PadicInt.isUnit_iff`, `mathlib:PadicInt.norm_natCast_eq_one_iff`, `mathlib:Nat.coprime_primes`, `mathlib:RingHom.codRestrict`, `mathlib:IsUnit.map`, `mathlib:IsUnit.mul_val_inv`, `mathlib:norm_smul_le`, `mathlib:PadicInt.norm_le_one`, `mathlib:Valuation.mem_integer_iff`, `mathlib:NormedField.valuation_apply`, `mathlib:PowerSeries.coeff_smul`, `mathlib:Padic.norm_p`.
+
+**Uses:**
+
+- Full normalized coefficient and field comparison below: Expose the actual integral coefficients and identify their image with the existing field half.
+- Integral test and fixed-character weight congruences below: Use scalar evaluation and the doubled congruence witness without losing precision.
+- Boundary and uniqueness tests: Recover the doubled measure, prove certificate independence, and retain the zero tame constant at modulus one.
+
+**API:**
+
+- `DirichletPadic.integralTameEisensteinSeries_apply` (simp): Nη(f)=v•Gη(f).
+- `DirichletPadic.integralTameEisensteinSeries_zero` (simp): Nη(0)=0.
+- `DirichletPadic.integralTameEisensteinSeries_add` (simp): Nη(f+g)=Nη(f)+Nη(g).
+- `DirichletPadic.integralTameEisensteinSeries_smul` (compatibility): Nη(a•f)=a•Nη(f) for a∈O.
+- `DirichletPadic.integralTameEisensteinSeries_continuous` (structure): Nη is continuous on the native continuous-test space.
+- `DirichletPadic.integralTameEisensteinSeries_double` (compatibility): 2•Nη=Gη as actual measures.
+- `DirichletPadic.integralTameEisensteinSeries_coeff` (projection): The positive coefficient is the existing integral twisted positive coefficient, and coefficient zero is v·ζO^U(xO f).
+- `DirichletPadic.integralTameEisensteinSeries_certificate_independent` (characterisation): The normalized measure is independent of the proof h2.
+- `DirichletPadic.integralTameEisensteinSeries_one_level` (example): For D=1 it equals the existing integral positive series.
+- `DirichletPadic.integralTameEisensteinSeries_unique` (characterisation): Any native measure M with 2•M=Gη equals Nη.
+
+**Tests:**
+
+- `SuggestedTameNormalizationTests.odd_prime_certificate` (compatibility): For any p≠2 the actual bounded coefficient algebra map supplies IsUnit(2:O).
+- `SuggestedTameNormalizationTests.normalized_zero` (degenerate): The normalized measure sends the zero test to zero.
+- `SuggestedTameNormalizationTests.normalized_one_level` (degenerate): At tame modulus one, the normalized measure is exactly the existing positive series, with zero constant.
+- `SuggestedTameNormalizationTests.positive_first` (computation): The q¹ coefficient at every test f is f(1).
+- `SuggestedTameNormalizationTests.dyadic_two_not_unit` (non-example): Two is not a unit in the native integer ring of ℚ₂, so the constructor cannot be invoked with a nonexistent certificate.
+
+**Acceptance:** An actual continuous O-linear measure with native power-series coefficients is produced, using only existing scalar multiplication. Odd-prime availability is established from the actual algebra map. The criterion is sufficient and no classification at p=2 is claimed.
+
+**Source:** Theorem 5.7 and Remark 5.8, published 143–144 / PDF 44–45; Definition 8.1, Theorem 8.2 and Remark 8.3, published 159–161 / PDF 60–62. Whole passages read in the doubled tame-series checkpoint and retained through the two following congruence/residue checkpoints. Worker normalization of the already planned actual doubled tame formal-series measure. A certificate that two is a unit in the native coefficient ring permits integral normalization. Odd primes supply that certificate by the native p-adic integer unit criterion. This tame extension is derived here, not attributed as a verbatim RJW statement; all existing source corrections and classical ModularForms ownership remain.
+
+### The integral lift of the field normalization
+
+`DirichletPadicLFunctions:L4/integral-normalized-tame-map` — `DirichletPadic.integralTameEisensteinSeries_map`
+
+For every f∈C(U,O), map_ι(Nη(f))=(2:K)⁻¹•map_ι(Gη(f)). No CharZero K hypothesis is required in addition to h2.
+
+**Hypotheses:** p is prime. K is a complete nontrivially normed ultrametric field with Algebra ℤ_p K and IsBoundedSMul ℤ_p K. D>0, η:DirichletCharacter K D, hD:IsUnit(D:K) and p∤D. U=(ℤ_p)ˣ and O=Valuation.integer(NormedField.valuation(K)) are the actual native objects. Supply h2:IsUnit(2:O), and write v=(h2.unit)⁻¹∈Oˣ. The existing doubled tame measure is Gη. Define Nη=v•Gη using the inherited scalar action on AbstractMeasure U O (PowerSeries O), with the native coefficientwise topology. Every odd prime supplies h2: restrict the bounded coefficient algebra map ℤ_p→K to the existing integer subring and map the native unit 2∈ℤ_p. No separate ℤ_p-algebra structure on O is assumed or defined. Characteristic zero is not needed for this constructor or its coefficient-image comparison: h2 itself ensures 2≠0 in K. The p=2, K=ℚ₂ case cannot supply h2. The existing indicator counterexample shows that an integral normalized family is not automatic there. The unit criterion is sufficient, not claimed necessary for every individual tame character. All evaluations are on actual O-valued continuous tests. No extension to arbitrary K-valued tests, generic measure operation, classical modularity or analytic character family is constructed. The level-one tame constant remains zero.
+
+**Proof:**
+
+1. Map the native unit identity 2v=1 under O↪K. In the field K it implies ι(v)=2⁻¹, and also ensures 2≠0. Complete inverse_image verifies this implication without a characteristic-zero assumption.
+2. Extract every coefficient after native PowerSeries.map. Apply the constructor evaluation, coeff_map and coeff_smul. The coefficient equality is ι(v a_n)=2⁻¹ι(a_n), which follows from multiplicativity and the preceding inverse identity. Complete normalized_map proves this for every actual native measure.
+3. The comparison shows that the earlier field-valued half has an actual integral measure lift under h2. The field half still takes the original integral tests as input; no coefficient-extension functor or measure on all K-valued tests is inferred.
+4. At p=3, D=4 and η(3)=−1, the actual unit mass of the tame measure is one. The previous constant restriction/residue formula gives included Gη(1) constant one and hence included Nη(1) constant 1/2. This is integral at p=3 and supplies a nonzero constant test.
+
+**Prerequisites:** `DirichletPadicLFunctions:L4/integral-normalized-tame-series`, `DirichletPadicLFunctions:L4/integral-tame-constant-restriction`, `DirichletPadicLFunctions:L4/integral-tame-constant-residue`, `mathlib:IsUnit.mul_val_inv`, `mathlib:PowerSeries.coeff_map`, `mathlib:PowerSeries.coeff_smul`.
+
+**Tests:**
+
+- `SuggestedTameNormalizationTests.map_double` (compatibility): Doubling the coefficient image of Nη(f) recovers the image of Gη(f).
+- `SuggestedTameNormalizationTests.map_zero` (degenerate): The coefficient image at the zero test is zero.
+- `SuggestedTameNormalizationTests.triadic_constant_half` (computation): At p=3 with the quadratic tame character modulo 4, the included constant at test one is 1/2.
+
+**Acceptance:** The equality is between actual formal series over K and identifies an actual O-valued lift on every integral test. The unit hypothesis itself supplies nonvanishing of two.
+
+**Source:** Theorem 5.7 and Remark 5.8, published 143–144 / PDF 44–45; Definition 8.1, Theorem 8.2 and Remark 8.3, published 159–161 / PDF 60–62. Whole passages read in the doubled tame-series checkpoint and retained through the two following congruence/residue checkpoints. Worker normalization of the already planned actual doubled tame formal-series measure. A certificate that two is a unit in the native coefficient ring permits integral normalization. Odd primes supply that certificate by the native p-adic integer unit criterion. This tame extension is derived here, not attributed as a verbatim RJW statement; all existing source corrections and classical ModularForms ownership remain.
+
+### The normalized tame coefficient bound
+
+`DirichletPadicLFunctions:L4/integral-normalized-tame-bound` — `DirichletPadic.integralTameEisensteinSeries_coeff_norm_le`
+
+For every f∈C(U,O) and n≥0, ‖coeff_n Nη(f)‖≤‖f‖.
+
+**Hypotheses:** p is prime. K is a complete nontrivially normed ultrametric field with Algebra ℤ_p K and IsBoundedSMul ℤ_p K. D>0, η:DirichletCharacter K D, hD:IsUnit(D:K) and p∤D. U=(ℤ_p)ˣ and O=Valuation.integer(NormedField.valuation(K)) are the actual native objects. Supply h2:IsUnit(2:O), and write v=(h2.unit)⁻¹∈Oˣ. The existing doubled tame measure is Gη. Define Nη=v•Gη using the inherited scalar action on AbstractMeasure U O (PowerSeries O), with the native coefficientwise topology. Every odd prime supplies h2: restrict the bounded coefficient algebra map ℤ_p→K to the existing integer subring and map the native unit 2∈ℤ_p. No separate ℤ_p-algebra structure on O is assumed or defined. Characteristic zero is not needed for this constructor or its coefficient-image comparison: h2 itself ensures 2≠0 in K. The p=2, K=ℚ₂ case cannot supply h2. The existing indicator counterexample shows that an integral normalized family is not automatic there. The unit criterion is sufficient, not claimed necessary for every individual tame character. All evaluations are on actual O-valued continuous tests. No extension to arbitrary K-valued tests, generic measure operation, classical modularity or analytic character family is constructed. The level-one tame constant remains zero.
+
+**Proof:**
+
+1. The constructor evaluation and coeff_smul give coeff_n Nη(f)=v·coeff_n Gη(f). Since v is an actual element of O, its norm is at most one by the defining norm valuation. No norm on the power-series ring is used.
+2. Multiplicativity bounds the norm of this coefficient by that of the doubled coefficient, which is at most ‖f‖ by the existing full doubled bound. Complete integer_norm_le_one and normalized_bound check the native normed subtype and the inequality.
+3. In particular the estimate includes degree zero. For the constant test one it gives a bound of one on every coefficient. It is uniform in the fixed tame character and does not assert a normed structure on formal series.
+
+**Prerequisites:** `DirichletPadicLFunctions:L4/integral-normalized-tame-series`, `DirichletPadicLFunctions:L4/integral-doubled-tame-eisenstein-bound`, `mathlib:PowerSeries.coeff_smul`, `mathlib:Valuation.mem_integer_iff`, `mathlib:NormedField.valuation_apply`.
+
+**Tests:**
+
+- `SuggestedTameNormalizationTests.constant_norm_bound` (compatibility): The degree-zero coefficient satisfies the same sup-norm bound.
+- `SuggestedTameNormalizationTests.one_test_bound` (computation): Every coefficient at the constant test one has norm at most one.
+
+**Acceptance:** The norm is the native coefficient norm and the native compact-domain sup norm, not an invented power-series norm.
+
+**Source:** Theorem 5.7 and Remark 5.8, published 143–144 / PDF 44–45; Definition 8.1, Theorem 8.2 and Remark 8.3, published 159–161 / PDF 60–62. Whole passages read in the doubled tame-series checkpoint and retained through the two following congruence/residue checkpoints. Worker normalization of the already planned actual doubled tame formal-series measure. A certificate that two is a unit in the native coefficient ring permits integral normalization. Odd primes supply that certificate by the native p-adic integer unit criterion. This tame extension is derived here, not attributed as a verbatim RJW statement; all existing source corrections and classical ModularForms ownership remain.
+
+### Normalized tame congruences without precision loss
+
+`DirichletPadicLFunctions:L4/integral-normalized-tame-test-congruence` — `DirichletPadic.integralTameEisensteinSeries_test_congruence`
+
+For b∈O and f,g∈C(U,O), if b∣g(u)−f(u) for every u, then C(b)∣Nη(g)−Nη(f) in PowerSeries O.
+
+**Hypotheses:** p is prime. K is a complete nontrivially normed ultrametric field with Algebra ℤ_p K and IsBoundedSMul ℤ_p K. D>0, η:DirichletCharacter K D, hD:IsUnit(D:K) and p∤D. U=(ℤ_p)ˣ and O=Valuation.integer(NormedField.valuation(K)) are the actual native objects. Supply h2:IsUnit(2:O), and write v=(h2.unit)⁻¹∈Oˣ. The existing doubled tame measure is Gη. Define Nη=v•Gη using the inherited scalar action on AbstractMeasure U O (PowerSeries O), with the native coefficientwise topology. Every odd prime supplies h2: restrict the bounded coefficient algebra map ℤ_p→K to the existing integer subring and map the native unit 2∈ℤ_p. No separate ℤ_p-algebra structure on O is assumed or defined. Characteristic zero is not needed for this constructor or its coefficient-image comparison: h2 itself ensures 2≠0 in K. The p=2, K=ℚ₂ case cannot supply h2. The existing indicator counterexample shows that an integral normalized family is not automatic there. The unit criterion is sufficient, not claimed necessary for every individual tame character. All evaluations are on actual O-valued continuous tests. No extension to arbitrary K-valued tests, generic measure operation, classical modularity or analytic character family is constructed. The level-one tame constant remains zero.
+
+**Proof:**
+
+1. The existing full doubled test-congruence theorem supplies H∈PowerSeries O with Gη(g)−Gη(f)=C(b)H.
+2. Scalar evaluation of the normalized measure gives Nη(g)−Nη(f)=v•(C(b)H)=C(b)(v•H). This identity follows coefficientwise from coeff_smul and coeff_C_mul and routine commutative ring algebra. Complete normalized_congruence proves it on the actual native formal series.
+3. The quotient v•H remains integral because v∈O. There is no extra factor two in the hypothesis and no loss of precision; this applies at every odd prime. It does not contradict the preceding dyadic obstruction, since that case lacks h2.
+4. For b=0 the hypothesis gives f=g and equality of normalized series. Extracting coefficient zero gives the same modulus for the normalized tame constants.
+
+**Prerequisites:** `DirichletPadicLFunctions:L4/integral-normalized-tame-series`, `DirichletPadicLFunctions:L4/integral-doubled-tame-test-congruence`, `mathlib:PowerSeries.coeff_smul`, `mathlib:PowerSeries.coeff_C_mul`.
+
+**Tests:**
+
+- `SuggestedTameNormalizationTests.zero_modulus` (degenerate): The zero-modulus condition implies equality of normalized series.
+- `SuggestedTameNormalizationTests.normalized_constant_congruence` (compatibility): The normalized constant difference is divisible by exactly b in O.
+
+**Acceptance:** The quotient is an actual integral power series. The same arbitrary modulus, including zero, is preserved.
+
+**Source:** Theorem 5.7 and Remark 5.8, published 143–144 / PDF 44–45; Definition 8.1, Theorem 8.2 and Remark 8.3, published 159–161 / PDF 60–62. Whole passages read in the doubled tame-series checkpoint and retained through the two following congruence/residue checkpoints. Worker normalization of the already planned actual doubled tame formal-series measure. A certificate that two is a unit in the native coefficient ring permits integral normalization. Odd primes supply that certificate by the native p-adic integer unit criterion. This tame extension is derived here, not attributed as a verbatim RJW statement; all existing source corrections and classical ModularForms ownership remain.
+
+### Integral weight congruences for the normalized family
+
+`DirichletPadicLFunctions:L4/integral-normalized-tame-weight-congruence` — `DirichletPadic.integralTameEisensteinSeries_weight_congruence`
+
+For fixed χ:DirichletCharacter K(p^t), r≥1 and e≡e′ modulo p^(r−1)(p−1), C((p:O)^r) divides Nη(κO_(t,χ,e′))−Nη(κO_(t,χ,e)) in PowerSeries O.
+
+**Hypotheses:** p is prime. K is a complete nontrivially normed ultrametric field with Algebra ℤ_p K and IsBoundedSMul ℤ_p K. D>0, η:DirichletCharacter K D, hD:IsUnit(D:K) and p∤D. U=(ℤ_p)ˣ and O=Valuation.integer(NormedField.valuation(K)) are the actual native objects. Supply h2:IsUnit(2:O), and write v=(h2.unit)⁻¹∈Oˣ. The existing doubled tame measure is Gη. Define Nη=v•Gη using the inherited scalar action on AbstractMeasure U O (PowerSeries O), with the native coefficientwise topology. Every odd prime supplies h2: restrict the bounded coefficient algebra map ℤ_p→K to the existing integer subring and map the native unit 2∈ℤ_p. No separate ℤ_p-algebra structure on O is assumed or defined. Characteristic zero is not needed for this constructor or its coefficient-image comparison: h2 itself ensures 2≠0 in K. The p=2, K=ℚ₂ case cannot supply h2. The existing indicator counterexample shows that an integral normalized family is not automatic there. The unit criterion is sufficient, not claimed necessary for every individual tame character. All evaluations are on actual O-valued continuous tests. No extension to arbitrary K-valued tests, generic measure operation, classical modularity or analytic character family is constructed. The level-one tame constant remains zero.
+
+**Proof:**
+
+1. Use the native continuous maps underlying the existing integral arithmetic characters as the two tests in the preceding normalized congruence.
+2. The already established integral arithmetic-character weight congruence gives pointwise divisibility by (p:O)^r at every actual unit. It holds for any fixed finite level t, without t≤r. The conclusion includes the constant coefficient.
+3. For p=3, r=2 the period is six. At any character of level 27, exponents one and seven therefore give a full normalized congruence modulo nine. This simultaneously tests the period and the absence of a finite-level restriction.
+4. Identical exponents give a zero difference divisible by any modulus. No classical modular form at these weights or analytic weight-space interpolation is asserted by this formal-series theorem.
+
+**Prerequisites:** `DirichletPadicLFunctions:L4/integral-normalized-tame-test-congruence`, `DirichletPadicLFunctions:L2/integral-arithmetic-character-weight-congruence`.
+
+**Tests:**
+
+- `SuggestedTameNormalizationTests.equal_weights` (degenerate): Equal exponents give a difference divisible by every p-power constant series.
+- `SuggestedTameNormalizationTests.triadic_weights_mod_nine` (computation): At p=3, fixed characters at level 27 have normalized weights one and seven congruent modulo nine.
+
+**Acceptance:** The p-power modulus is unchanged after normalization, with every coefficient covered. Classical ownership and all existing analytic requests remain explicit.
+
+**Source:** Theorem 5.7 and Remark 5.8, published 143–144 / PDF 44–45; Definition 8.1, Theorem 8.2 and Remark 8.3, published 159–161 / PDF 60–62. Whole passages read in the doubled tame-series checkpoint and retained through the two following congruence/residue checkpoints. Worker normalization of the already planned actual doubled tame formal-series measure. A certificate that two is a unit in the native coefficient ring permits integral normalization. Odd primes supply that certificate by the native p-adic integer unit criterion. This tame extension is derived here, not attributed as a verbatim RJW statement; all existing source corrections and classical ModularForms ownership remain.
+
+**Remaining:** The normalized tame full series now has an actual integral measure when two is a unit, including every odd prime, with its coefficient image, norm bound and congruences at unchanged precision. A necessary-and-sufficient all-test scalar-denominator criterion and the special dyadic tame cases remain open, along with general character-pair constants, classical character Eisenstein existence/normalization and analytic weight-space comparisons. The principal tame level-one zero-constant construction remains separate from localized principal theory. Eleven requests, fifteen gaps and zero closed stages remain, as does the missing pinned TwistedDivisorSum artifact.
+
+### Integral normalization of the tame Eisenstein family validation
+
+All 625 predecessor nodes, 536 baseline records, 16 findings, requests and sourceVersions remain whole. This checkpoint adds 5 nodes, 15 named suggested declarations and 14 typed examples. The indexed blueprint, four-file intake, whitespace, preservation, API/test parity and versioned-source checks pass. The graph has 886 reachable nodes, 4357 edges and 717 native leaves and is acyclic. Its stage request leaves are PadicMeasuresIwasawaAlgebras:L1, PadicMeasuresIwasawaAlgebras:L3, PadicMeasuresIwasawaAlgebras:L3, LocallyAnalyticDistributions:L1, AdicSpacesPartII:F1, AdicSpacesPartII:R2, PadicDifferentialEquationsAndRigidCohomology:RD.0, PadicDifferentialEquationsAndRigidCohomology:RD.4, PadicHodgeTheory:P7:annulus-foundations, PadicMeasuresIwasawaAlgebras:L2, LocallyAnalyticDistributions:L1. All five new routes end in existing fine-grained owner nodes and native declarations, with no stage-only leaves and no new supplier request.
+
+**The full current suggested module was NOT COMPILED.** Its real native import requires TauCeti.NumberTheory.ArithmeticFunction.TwistedDivisorSum. No matching existing artifact was found; WORKERS.md prohibits building the native library. Current compiler exit code, error count and warning count are unavailable, not zero. The exact named signatures and native source were reviewed. PR4773 remains the last compiled full predecessor, with zero errors and1,803 expected placeholder warnings; that receipt does not validate this new module.
+
+The current source closure covers 3601 pinned Mathlib modules and 22 pinned Tau Ceti modules. Only 21 Tau module artifacts are available and hash-verified. The105 available artifact files and the previously compiled332-node PMIA artifact are checked as partial dependencies. The current369-node supplier source preserves the older interface; no current-module compilation against either revision is claimed. Existing builds only were inspected; no setup, update, cache fetch or native build occurred.
+
+One complete native constructor and ten complete native lemmas verify scalar normalization on the actual measure type, the odd-prime unit certificate without an extra algebra on O, doubling, field coefficient transport, coefficient bounds and preservation of integral congruence witnesses. The separate probe compiles against 2816 pinned Mathlib modules and 0 pinned Tau Ceti modules with zero errors, warnings or placeholders. The separate Mathlib-only probe does not import, replace or compile the missing native Tau module. General roadmap declarations remain unchecked.
+
+Exact finite controls check odd-prime unit residues, normalized constants and positive coefficients, their congruences at unchanged precision, odd-prime half inverses at finite quotients, and the triadic nonzero constant. The dyadic witness remains nonintegral and is tested as a negative boundary. Exact rational residue masses and Bernoulli-polynomial constants, with integer divisor sums and modular inverses of two. Fixed quadratic finite characters may be presented at higher p-power level without changing their values; calculations use their level-one representatives. These finite checks do not establish infinite measure construction or analytic interpolation. The separate complete native probe proves the scalar constructor, certificate, coefficient-image, bound and congruence arguments. The largest observed discrepancy is 0 in asserted exact identities; no odd-prime integrality or congruence violation; no floating-point arithmetic.
+
+All66 inputs are guarded. The only predecessor input changes are26 unrelated Bhargava registry records and the generated errata register; all16 Dirichlet records and every consumed mathematical input remain exact. Changed owners, statuses and locators were inspected without claiming an independent review. The separate signature check uses exact4773 plus only4793,4796,4799 and the current additions; it excludes4777–4791 and is not the current full module. Fifteen new declarations and fourteen typed examples give1886 expected placeholder warnings and zero errors in that signature check.
