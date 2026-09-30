@@ -1,5 +1,17 @@
 # REV-PAPER-BENOIST-19 — review of the extraction of Benoist, "The period-index problem for real surfaces"
 
+## Correction note from FIX-RT-PAPER-BENOIST-19 (30 September 2026)
+
+Codex, session `codex-rtOQ9t`, applies the independently confirmed red-team findings in issue #5008. This note corrects the explanations below and records the existing independent errata review; it supplies no new independent acceptance verdict. The [fix report](../redteam/RT-PAPER-BENOIST-19.fixes.md) records all 60 dispositions. The original review and completion metadata are preserved as history in the extraction, including the superseded source-issue review reasons.
+
+The current inventory has 202 items (14 library, 13 planned, 175 missing) and 12 routes. Its first ten route positions are unchanged, but their contents have been corrected; new routes 11–12 await explicit review. The acceptance below applies to the earlier 187-item version, not this fix.
+
+The current source inventory adopts the existing `REV-ERRATA-PAPER-BENOIST-19` verdicts: 17 confirmed records and two rejected records, E16 and E19. E19 imposed a scalar normalization the source never fixed. The anti-invariant summand may instead be identified through `rv/(√a₁w)`, giving `(1,rg)` with g unchanged. E7 and E8 are misprint/nothing; corestriction proves the even restricted period exactly n/2. E10 uses the same explicit w′ repair in both records. Newly written E20–E24 await independent errata review. Copies in the two JSON files agree, while the register generator still requires maintainer deduplication and file-valid review handling.
+
+In particular, the earlier explanation of E3 reversed the evaluation locus. The corrected section below uses Θ={x:α_x≠0}, not a zero locus. The main half-period evaluation is t=n/2 mod 2 and includes both t=0 and t=1. The source's final deformation step also needs the Kummer compatibility and relative-pair transport now recorded as E21/G13. This is an additional concrete proof obligation, so the earlier blanket assurances about downstream proofs do not apply.
+
+## Historical independent review (23 September 2026)
+
 Job: #1455. Reviewer: Claude Code, session cc-d67081, 23 September 2026.
 Extraction under review: `research/blueprint/papers/PAPER-BENOIST-19.result.json`, by session cc-442dc5.
 
@@ -51,26 +63,28 @@ does not contain `[0:−1:1:1]` (1 ≠ 0). Corrected.
 With the quotation repaired the finding stands. The proof fixes that one explicit point and
 asserts the signs of `f₀, g₀` are constant near it, without checking it avoids the zeros and
 poles of the specialised functions — which came from `f, g` chosen earlier and are not
-controlled at a pre-selected point. Tellingly, the paper *does* take this care at the second
-point a few lines later ("such that x does not belong to any divisor of poles of f₀ or g₀
-distinct of D"), which makes the omission at the first point the more clearly an oversight.
+controlled at a pre-selected point. **FIX correction (finding /8):** the second point also
+needs care: the printed exclusion mentions poles, but not zeros, of the unit parts after
+factoring the order along D. Choose general points on both sign-test arcs avoiding both
+zeros and poles, and use punctured neighbourhoods. The earlier claim that the source had
+already taken all the needed care at the second point is superseded.
 
 **E10's locator was wrong.** It attributed the passage to the proof of Theorem 0.13. The
 passage ("To prove the easier inequality u(R(S)) ≥ 4…") is in the proof of Theorem **0.12**,
 and no proof of Theorem 0.13 appears on p. 96. Corrected.
 
-## The eighteen confirmed
+## The eighteen originally confirmed (see current corrections above)
 
 | id | kind | locator | how confirmed |
 |----|------|---------|---------------|
 | E1 | error | §3.1, p. 76 | fibre computation + the paper's own p. 77 |
 | E2 | gap | Lemma 1.4, p. 70 | two Kummer lifts differ by a Picard class |
-| E3 | gap | Prop. 4.4, p. 84 | the printed formula, plus Ψ ⊇ Ξ from p. 79 |
+| E3 | gap | Prop. 4.4, p. 84 | the printed formula; corrected locus is Ψ ⊇ Θ from p.79 |
 | E4 | gap | Prop. 4.5, p. 84 | coefficient type mismatch |
 | E5 | gap | Prop. 4.5, p. 85 | the paper does it correctly on p. 82 |
 | E6 | misprint | Lemma 7.3, p. 98; (7.13), p. 103 | composed from Lemma 7.2 and (7.4) |
-| E7 | gap | Lemma 7.3 proof, p. 99 | source vs target of the unit map |
-| E8 | gap | Prop. 6.7, p. 95 | (n/2)α undefined for odd n |
+| E7 | misprint (corrected classification) | Lemma 7.3 proof, p. 99 | source vs target of the unit map |
+| E8 | misprint (corrected classification) | Prop. 6.7, p. 95 | (n/2)α undefined for odd n |
 | E9 | gap | Thm 0.12 proof, p. 95 | K/K₀ need not be algebraic |
 | E10 | gap | Thm 0.12 proof, p. 96 | **direct computation in m/m²** |
 | E11 | misprint | (2.1), p. 72 | Gysin twist must be geometric |
@@ -80,7 +94,7 @@ and no proof of Theorem 0.13 appears on p. 96. Corrected.
 | E15 | misprint | Thm 0.6 proof, p. 107 | p. 106 says "non-zero" |
 | E17 | misprint | Thm 1.5 proof, p. 71 | `l` undefined; family is `|dnH|` |
 | E18 | misprint | §3.1, p. 77 | r = 0, s a unit ⟹ w = 0 |
-| E19 | misprint | (5.5), p. 87 | the graph is v = √a₁ g w |
+| E19 | rejected by the subsequent independent errata review | (5.5), p.87 | scalar identification was not fixed; see correction note above |
 
 Four are worth setting out, because I settled them by computation rather than by reading.
 
@@ -110,8 +124,10 @@ choose the parameters jointly so `det(dy₁, dy₂) ≠ 0` — is the right one.
 The paper concedes this on the next page, defining "`S⁰ := S ∖ Sing(Δ)` the locus over which
 `p` is finite flat", with `Sing(Δ) = Sing(R) ⊔ (R ∩ D)`. Over `Sing(R)` the map is still
 finite — there `r = 0` but `s` is a unit, so the equation reads `w² = 0`, the ordinary
-double point the paper describes. So the failure is exactly over `R ∩ D`. Nothing downstream
-breaks, because §3.2 onwards works over `S*` and `S⁰`.
+double point the paper describes. So the incidence model fails to be finite over `R ∩ D`. **FIX correction (finding /10):**
+the later Proposition 4.2 proof on p.80 must also treat those P1 fibres, which are not
+exceptional for the resolution of the incidence model. Item 64 and E20 supply the missing
+case. The original blanket statement about downstream safety is superseded.
 
 ### E3, and what it does and does not say
 
@@ -121,11 +137,16 @@ concludes `([ζ]₁)|_Ψ = ([e]₁)|_Ψ` "by our hypothesis that `([α̃]₁)|_�
 
     ([ζ]₁)|_Ψ = ([α̃]₁ + [α̃]₀ ⌣ [e]₁)|_Ψ = ([α̃]₀ ⌣ [e]₁)|_Ψ,
 
-not `[e]₁`. The hypothesis kills `b` and says nothing about `a` — and `a` is not 1: p. 79
-defines `Ξ := {x ∈ U(R) : α|_x = 0}` and fixes `Ψ` open and closed **containing Ξ**, while
-`[α̃]₀` evaluates `α` at each real point, so `[α̃]₀ = 0` on `Ξ ⊆ Ψ`. The step holds on
-`Ψ ∖ Ξ` and fails on `Ξ` whenever `Ξ ≠ ∅` and `[e]₁|_Ξ ≠ 0`. I confirm this as a gap in the
-printed justification and, like the extraction, **do not claim Proposition 4.4 false**.
+not `[e]₁`. **FIX correction (finding /7):** the hypothesis kills b, but it does not force
+`a=1` throughout Ψ. Page 79 defines **Θ={x∈U(R):α_x≠0}** and takes Θ⊂Ψ. Thus a=1 on Θ
+and a=0 on Ψ∖Θ; the displayed equality holds on Θ and can fail on Ψ∖Θ where `[e]₁` is
+nonzero. Nonconstancy alone is not a counterexample. Ξ in §6 denotes the complement of Ψ.
+
+For Proposition 6.7, write a=(n/2)α for the half-period Brauer class. Its degree-zero
+component on Ψ=Θ(α) is the constant t=n/2 mod 2. The uniform repair uses t=1 when
+n≡2 mod 4 and t=0 when 4 divides n. The unrestricted propositions retain a proof gap;
+the uniform branch also retains the precise Jannsen contract G10 and the new
+relative-pair transport verification G13. No proposition is declared false here.
 
 ### E5, where the paper contradicts itself
 

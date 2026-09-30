@@ -8,21 +8,43 @@
       "locator": "Published §3.1 p.76",
       "printed": "finite double cover",
       "correction": "Call the incidence model proper and generically of degree two, finite flat over S0. Distinguish the finite flat model Spec_S(O_S ⊕ L^(-1)(-R)), with multiplication given by rs, from the incidence model and its resolution.",
-      "reason": "At r=s=0 the incidence equation imposes no condition on [v:w], so the fibre is P1. The same finite wording recurs on p.86. That page already correctly uses the strict transform of C; the inherited accusation about its full inverse image is withdrawn.",
+      "reason": "At r=s=0 the incidence equation imposes no condition on [v:w], so the fibre is P1. The same finite wording recurs on p.86. That page already correctly uses the strict transform of C; the inherited accusation about its full inverse image is withdrawn. The downstream p.80 proof also omits the smooth incidence-model P1 fibres over R∩D; E20 records that separate case, so a blanket claim that no later proof uses the omitted fibres is superseded.",
       "affects": "a stated result",
       "known": "new",
       "searched": [
         "Independent review, 2026-09-23: published Numdam PDF https://www.numdam.org/item/10.1007/s10240-019-00108-7.pdf, SHA-256 8dfc0f221ab510ba1ecfe7c5b5fde12c217019f33d704ea89ce1a0c144398d3b; compared all finding passages with the current author PDF and arXiv 1804.03642v2.",
         "Numdam https://numdam.org/articles/10.1007/s10240-019-00108-7/ and journal https://pmihes.centre-mersenne.org/articles/10.1007/s10240-019-00108-7/: no correction identified in the article records; Crossref https://api.crossref.org/works/10.1007/s10240-019-00108-7 has empty relation and no update-to.",
         "Author https://www.math.ens.psl.eu/~benoist/ lists this paper without an erratum; arXiv https://arxiv.org/abs/1804.03642 lists v2, 15 May 2019, as latest. Checked 2026-09-23.",
-        "Exact-title searches with erratum and correction on 2026-09-23 located no matching correction. This is a bounded search, not proof of absence."
+        "Exact-title searches with erratum and correction on 2026-09-23 located no matching correction. This is a bounded search, not proof of absence.",
+        "2026-09-30: freshly fetched the published Numdam PDF, arXiv 1804.03642v2 and current author PDF; hashes and targeted comparisons are in sourceVersions. The five newly recorded passages persist in the compared copies.",
+        "2026-09-30: author publication page https://www.math.ens.psl.eu/~benoist/ links this paper without a correction; its linked erratum belongs to a different paper. Journal record https://pmihes.centre-mersenne.org/articles/10.1007/s10240-019-00108-7/ and arXiv https://arxiv.org/abs/1804.03642 checked; arXiv still lists v2, 15 May 2019.",
+        "2026-09-30: Crossref https://api.crossref.org/works/10.1007/s10240-019-00108-7 returned empty relation and no update-to. Exact-title erratum/corrigendum searches located no matching correction. Bounded search only; no claim that all citing literature was read."
       ],
       "extraction": "PAPER-BENOIST-19/E1",
       "review": {
         "verdict": "confirmed",
         "reason": "At r=s=0 the incidence equation imposes no condition on [v:w], so the fibre is P1. The same finite wording recurs on p.86. That page already correctly uses the strict transform of C; the inherited accusation about its full inverse image is withdrawn. Independently checked in the published source and compared with the current author copy and arXiv v2; see the review for calculations and scope.",
         "by": "REV-ERRATA-PAPER-BENOIST-19"
-      }
+      },
+      "reviewHistory": [
+        {
+          "source": "paper extraction before FIX-RT-PAPER-BENOIST-19",
+          "review": {
+            "verdict": "confirmed",
+            "reason": "Confirmed at published p. 76, printed as quoted: 'To a section s ∈ B, we associate the surface T := {rv² = sw²} ⊂ X with projection p : T → S. It is a finite double cover of S ramified over Δ.' It is not finite. Over a point x ∈ S the fibre equation is r(x)v² − s(x)w² = 0 on the fibre P¹ of X = P_S(O_S ⊕ L); this is a nonzero binary quadric, hence cuts out a finite scheme, unless r(x) = s(x) = 0, in which case it vanishes identically and the whole P¹ lies in T. Since D = {s = 0} meets R = {r = 0} (B consists of sections whose zero locus meets R transversally in its smooth locus), that locus R ∩ D is non-empty in general. The paper itself confirms the correction one page later: on p. 77 it defines 'S⁰ := S ∖ Sing(Δ) the locus over which p is finite flat', and Sing(Δ) = Sing(R) ⊔ (R ∩ D). Over Sing(R) the map is still finite — there r = 0 but s is a unit, so the fibre equation is w² = 0, the ordinary double point the paper describes. So the non-finiteness is exactly over R ∩ D. The classification 'affects a stated result' is right for the sentence itself, while nothing downstream breaks, because §3.2 onwards works over S* and S⁰ throughout. No later version or erratum corrects it: arXiv 1804.03642 stops at v2, Crossref's record of doi:10.1007/s10240-019-00108-7 carries no update-to, updated-by or relation entry, and the IHES volume lists no corrigendum (checked 23 September 2026). Verified against the published text (SHA-256 8dfc0f22…98d3b), whose page n is PDF page n−62.",
+            "by": "REV-PAPER-BENOIST-19"
+          }
+        },
+        {
+          "source": "errata file before FIX-RT-PAPER-BENOIST-19",
+          "review": {
+            "verdict": "confirmed",
+            "reason": "At r=s=0 the incidence equation imposes no condition on [v:w], so the fibre is P1. The same finite wording recurs on p.86. That page already correctly uses the strict transform of C; the inherited accusation about its full inverse image is withdrawn. Independently checked in the published source and compared with the current author copy and arXiv v2; see the review for calculations and scope.",
+            "by": "REV-ERRATA-PAPER-BENOIST-19"
+          }
+        }
+      ],
+      "reconciliation": "FIX-RT-PAPER-BENOIST-19 adopts the existing independent REV-ERRATA-PAPER-BENOIST-19 verdict and corrected reasoning; historical reviews retained above. This fixer creates no independent review verdict."
     },
     {
       "id": "PAPER-BENOIST-19/E2",
@@ -37,14 +59,36 @@
         "Independent review, 2026-09-23: published Numdam PDF https://www.numdam.org/item/10.1007/s10240-019-00108-7.pdf, SHA-256 8dfc0f221ab510ba1ecfe7c5b5fde12c217019f33d704ea89ce1a0c144398d3b; compared all finding passages with the current author PDF and arXiv 1804.03642v2.",
         "Numdam https://numdam.org/articles/10.1007/s10240-019-00108-7/ and journal https://pmihes.centre-mersenne.org/articles/10.1007/s10240-019-00108-7/: no correction identified in the article records; Crossref https://api.crossref.org/works/10.1007/s10240-019-00108-7 has empty relation and no update-to.",
         "Author https://www.math.ens.psl.eu/~benoist/ lists this paper without an erratum; arXiv https://arxiv.org/abs/1804.03642 lists v2, 15 May 2019, as latest. Checked 2026-09-23.",
-        "Exact-title searches with erratum and correction on 2026-09-23 located no matching correction. This is a bounded search, not proof of absence."
+        "Exact-title searches with erratum and correction on 2026-09-23 located no matching correction. This is a bounded search, not proof of absence.",
+        "2026-09-30: freshly fetched the published Numdam PDF, arXiv 1804.03642v2 and current author PDF; hashes and targeted comparisons are in sourceVersions. The five newly recorded passages persist in the compared copies.",
+        "2026-09-30: author publication page https://www.math.ens.psl.eu/~benoist/ links this paper without a correction; its linked erratum belongs to a different paper. Journal record https://pmihes.centre-mersenne.org/articles/10.1007/s10240-019-00108-7/ and arXiv https://arxiv.org/abs/1804.03642 checked; arXiv still lists v2, 15 May 2019.",
+        "2026-09-30: Crossref https://api.crossref.org/works/10.1007/s10240-019-00108-7 returned empty relation and no update-to. Exact-title erratum/corrigendum searches located no matching correction. Bounded search only; no claim that all citing literature was read."
       ],
       "extraction": "PAPER-BENOIST-19/E2",
       "review": {
         "verdict": "confirmed",
         "reason": "An arbitrary integral representative of the pulled-back Brauer class can differ modulo n by a Picard class. The trace congruence does not follow for such an arbitrary choice. A compatible choice gives p_*beta mod n = dn alphaTilde = 0, and the rest of the proof works. Independently checked in the published source and compared with the current author copy and arXiv v2; see the review for calculations and scope.",
         "by": "REV-ERRATA-PAPER-BENOIST-19"
-      }
+      },
+      "reviewHistory": [
+        {
+          "source": "paper extraction before FIX-RT-PAPER-BENOIST-19",
+          "review": {
+            "verdict": "confirmed",
+            "reason": "Confirmed at published p. 70. The proof of Lemma 1.4 prints 'the image of p_*β ∈ H²(S(C),Z) in H²(S(C),Z/n) is p_*p*α̃ = dn·α̃ = 0'. The second and third equalities are fine — p has degree dn, and n·α̃ = 0 — but the first needs β mod n = p*α̃ in H²(T(C),Z/n), which is not established. β is any lift of p*α under (1.2) and α̃ any lift of α under (1.1); by the exact sequence (1.1) for T, β mod n and p*α̃ are two lifts of the same class p*α ∈ Br(T)[n], so they differ by an element of Pic(T)/n, and p_* of that difference need not vanish. The extraction's repair — choose β compatibly with the fixed Kummer lift before taking its trace — is the right shape. I did not verify that Lemma 1.3 supplies the compatible choice, so that part rests on the extraction. No later version or erratum corrects it: arXiv 1804.03642 stops at v2, Crossref's record of doi:10.1007/s10240-019-00108-7 carries no update-to, updated-by or relation entry, and the IHES volume lists no corrigendum (checked 23 September 2026). Verified against the published text (SHA-256 8dfc0f22…98d3b), whose page n is PDF page n−62.",
+            "by": "REV-PAPER-BENOIST-19"
+          }
+        },
+        {
+          "source": "errata file before FIX-RT-PAPER-BENOIST-19",
+          "review": {
+            "verdict": "confirmed",
+            "reason": "An arbitrary integral representative of the pulled-back Brauer class can differ modulo n by a Picard class. The trace congruence does not follow for such an arbitrary choice. A compatible choice gives p_*beta mod n = dn alphaTilde = 0, and the rest of the proof works. Independently checked in the published source and compared with the current author copy and arXiv v2; see the review for calculations and scope.",
+            "by": "REV-ERRATA-PAPER-BENOIST-19"
+          }
+        }
+      ],
+      "reconciliation": "FIX-RT-PAPER-BENOIST-19 adopts the existing independent REV-ERRATA-PAPER-BENOIST-19 verdict and corrected reasoning; historical reviews retained above. This fixer creates no independent review verdict."
     },
     {
       "id": "PAPER-BENOIST-19/E3",
@@ -52,21 +96,44 @@
       "locator": "Proposition4.4 p.84, after(4.8)",
       "printed": "([ζ]₁)|Ψ=([e]₁)|Ψ",
       "correction": "Write a=[alphaTilde]_0 on Psi. The computation gives [zeta]_1=a[e]_1, and the printed adjustment leaves (1+a)[e]_1. For constant a=t, multiply the Picard correction by t. A repair for unrestricted a is not established here.",
-      "reason": "The degree-one component of the displayed Bockstein is b+a[e]_1; b=0 does not remove a. Nonconstant a does not by itself imply a nonzero residual. Theta is the NONZERO evaluation locus. In Proposition 6.7, a=(n/2) mod 2 on Psi=Theta of the original class, so the uniform repair applies for either value of t. No counterexample to Propositions 4.4, 4.5 or 6.6 is asserted.",
-      "affects": "the proof",
+      "reason": "Θ={x:α_x≠0}, with Θ⊂Ψ. For period 2, [α̃]0 is 1 on Θ and 0 on Ψ∖Θ. The printed identity holds on Θ and can fail on Ψ∖Θ when [e]1 there is nonzero; nonconstancy alone does not force failure. In Proposition 6.7 one applies the repair to a=(n/2)α on Ψ=Θ(α), with uniform t=n/2 mod 2. The t=0 branch is essential when 4|n. The unrestricted proofs of 4.4/4.5/6.6 remain unestablished, not disproved; the main uniform branch additionally retains G10 and G13.",
+      "affects": "a stated result",
       "known": "new",
       "searched": [
         "Independent review, 2026-09-23: published Numdam PDF https://www.numdam.org/item/10.1007/s10240-019-00108-7.pdf, SHA-256 8dfc0f221ab510ba1ecfe7c5b5fde12c217019f33d704ea89ce1a0c144398d3b; compared all finding passages with the current author PDF and arXiv 1804.03642v2.",
         "Numdam https://numdam.org/articles/10.1007/s10240-019-00108-7/ and journal https://pmihes.centre-mersenne.org/articles/10.1007/s10240-019-00108-7/: no correction identified in the article records; Crossref https://api.crossref.org/works/10.1007/s10240-019-00108-7 has empty relation and no update-to.",
         "Author https://www.math.ens.psl.eu/~benoist/ lists this paper without an erratum; arXiv https://arxiv.org/abs/1804.03642 lists v2, 15 May 2019, as latest. Checked 2026-09-23.",
-        "Exact-title searches with erratum and correction on 2026-09-23 located no matching correction. This is a bounded search, not proof of absence."
+        "Exact-title searches with erratum and correction on 2026-09-23 located no matching correction. This is a bounded search, not proof of absence.",
+        "2026-09-30: freshly fetched the published Numdam PDF, arXiv 1804.03642v2 and current author PDF; hashes and targeted comparisons are in sourceVersions. The five newly recorded passages persist in the compared copies.",
+        "2026-09-30: author publication page https://www.math.ens.psl.eu/~benoist/ links this paper without a correction; its linked erratum belongs to a different paper. Journal record https://pmihes.centre-mersenne.org/articles/10.1007/s10240-019-00108-7/ and arXiv https://arxiv.org/abs/1804.03642 checked; arXiv still lists v2, 15 May 2019.",
+        "2026-09-30: Crossref https://api.crossref.org/works/10.1007/s10240-019-00108-7 returned empty relation and no update-to. Exact-title erratum/corrigendum searches located no matching correction. Bounded search only; no claim that all citing literature was read."
       ],
       "extraction": "PAPER-BENOIST-19/E3",
       "review": {
         "verdict": "confirmed",
         "reason": "The degree-one component of the displayed Bockstein is b+a[e]_1; b=0 does not remove a. Nonconstant a does not by itself imply a nonzero residual. Theta is the NONZERO evaluation locus. In Proposition 6.7, a=(n/2) mod 2 on Psi=Theta of the original class, so the uniform repair applies for either value of t. No counterexample to Propositions 4.4, 4.5 or 6.6 is asserted. Independently checked in the published source and compared with the current author copy and arXiv v2; see the review for calculations and scope.",
         "by": "REV-ERRATA-PAPER-BENOIST-19"
-      }
+      },
+      "reviewHistory": [
+        {
+          "source": "paper extraction before FIX-RT-PAPER-BENOIST-19",
+          "review": {
+            "verdict": "confirmed",
+            "reason": "Confirmed at published p. 84, and the mechanism is exactly as the extraction states. The page prints the diagonal arrow of (4.8) as '(a, b, c) ↦ (0, b + a ⌣ [e]₁, β_Z(b) + b ⌣ [e]₁)', and then concludes '([ζ]₁)|_Ψ = ([e]₁)|_Ψ, by our hypothesis that ([α̃]₁)|_Ψ = 0 ∈ H¹(Ψ)'. Feeding α̃|_{S*}, whose restriction decomposes as ([α̃]₀, [α̃]₁, [α̃]₂), through that formula gives ([ζ]₁)|_Ψ = ([α̃]₁ + [α̃]₀ ⌣ [e]₁)|_Ψ, so with the hypothesis [α̃]₁|_Ψ = 0 it gives [α̃]₀ ⌣ [e]₁, not [e]₁. The stated hypothesis kills b but says nothing about a, and a is not 1: p. 79 defines Ξ := {x ∈ U(R) : α|_x = 0} and fixes Ψ ⊂ U(R) open and closed *containing Ξ*, and [α̃]₀ evaluates α at each real point, so [α̃]₀ = 0 on Ξ ⊆ Ψ. The step therefore holds on Ψ ∖ Ξ and fails on Ξ whenever Ξ ≠ ∅ and [e]₁|_Ξ ≠ 0. I confirm this as a gap in the printed justification and, like the extraction, do not claim Proposition 4.4 false. No later version or erratum corrects it: arXiv 1804.03642 stops at v2, Crossref's record of doi:10.1007/s10240-019-00108-7 carries no update-to, updated-by or relation entry, and the IHES volume lists no corrigendum (checked 23 September 2026). Verified against the published text (SHA-256 8dfc0f22…98d3b), whose page n is PDF page n−62.",
+            "by": "REV-PAPER-BENOIST-19"
+          }
+        },
+        {
+          "source": "errata file before FIX-RT-PAPER-BENOIST-19",
+          "review": {
+            "verdict": "confirmed",
+            "reason": "The degree-one component of the displayed Bockstein is b+a[e]_1; b=0 does not remove a. Nonconstant a does not by itself imply a nonzero residual. Theta is the NONZERO evaluation locus. In Proposition 6.7, a=(n/2) mod 2 on Psi=Theta of the original class, so the uniform repair applies for either value of t. No counterexample to Propositions 4.4, 4.5 or 6.6 is asserted. Independently checked in the published source and compared with the current author copy and arXiv v2; see the review for calculations and scope.",
+            "by": "REV-ERRATA-PAPER-BENOIST-19"
+          }
+        }
+      ],
+      "reconciliation": "FIX-RT-PAPER-BENOIST-19 adopts the existing independent REV-ERRATA-PAPER-BENOIST-19 verdict and corrected reasoning; historical reviews retained above. This fixer creates no independent review verdict.",
+      "classificationNote": "The current affects field retains the extraction’s conservative stated-result scope for the unrestricted propositions; the inherited independent review confirms a proof gap, not falsity. The uniform proof branch remains conditional."
     },
     {
       "id": "PAPER-BENOIST-19/E4",
@@ -74,21 +141,44 @@
       "locator": "Proposition4.5 pp.84–85",
       "printed": "β|TU=p*α̃+2ε+cl(ϕ)",
       "correction": "Replace the mod-2 summand by an integral class constructed from (7.2): alphaTilde=eta mod 2-phi(zeta), b=p*eta-psi(zeta), b mod 2=p*alphaTilde, p_*b=2eta. Compare beta with b, divide the resulting integral Picard equality using primitivity, and include the real-component and curve corrections described in the report. The checked repair assumes constant evaluation t on Psi.",
-      "reason": "The displayed alphaTilde has F2 coefficients, while beta, epsilon and cl(varphi) have Z(1) coefficients. No integral lift downstairs is supplied. Equations (7.1)-(7.2) need only vanishing of the pulled-back Bockstein and provide a typed replacement. The uniform case has eta_1=t[e]_1 by (2.12); general evaluation needs a further argument. This is a proof gap, not a demonstrated false proposition.",
-      "affects": "the proof",
+      "reason": "The displayed alphaTilde has F2 coefficients, while beta, epsilon and cl(varphi) have Z(1) coefficients. No integral lift downstairs is supplied. Equations (7.1)-(7.2) need only vanishing of the pulled-back Bockstein and provide a typed replacement. The uniform case has eta_1=t[e]_1 by (2.12); general evaluation needs a further argument. This is a proof gap, not a demonstrated false proposition. For the precise nonzero-locus convention and t=n/2 mod 2, see E3. The unrestricted stated result remains unestablished; this is not a counterexample. Pair transport at the later deformation step is separately E21/G13.",
+      "affects": "a stated result",
       "known": "new",
       "searched": [
         "Independent review, 2026-09-23: published Numdam PDF https://www.numdam.org/item/10.1007/s10240-019-00108-7.pdf, SHA-256 8dfc0f221ab510ba1ecfe7c5b5fde12c217019f33d704ea89ce1a0c144398d3b; compared all finding passages with the current author PDF and arXiv 1804.03642v2.",
         "Numdam https://numdam.org/articles/10.1007/s10240-019-00108-7/ and journal https://pmihes.centre-mersenne.org/articles/10.1007/s10240-019-00108-7/: no correction identified in the article records; Crossref https://api.crossref.org/works/10.1007/s10240-019-00108-7 has empty relation and no update-to.",
         "Author https://www.math.ens.psl.eu/~benoist/ lists this paper without an erratum; arXiv https://arxiv.org/abs/1804.03642 lists v2, 15 May 2019, as latest. Checked 2026-09-23.",
-        "Exact-title searches with erratum and correction on 2026-09-23 located no matching correction. This is a bounded search, not proof of absence."
+        "Exact-title searches with erratum and correction on 2026-09-23 located no matching correction. This is a bounded search, not proof of absence.",
+        "2026-09-30: freshly fetched the published Numdam PDF, arXiv 1804.03642v2 and current author PDF; hashes and targeted comparisons are in sourceVersions. The five newly recorded passages persist in the compared copies.",
+        "2026-09-30: author publication page https://www.math.ens.psl.eu/~benoist/ links this paper without a correction; its linked erratum belongs to a different paper. Journal record https://pmihes.centre-mersenne.org/articles/10.1007/s10240-019-00108-7/ and arXiv https://arxiv.org/abs/1804.03642 checked; arXiv still lists v2, 15 May 2019.",
+        "2026-09-30: Crossref https://api.crossref.org/works/10.1007/s10240-019-00108-7 returned empty relation and no update-to. Exact-title erratum/corrigendum searches located no matching correction. Bounded search only; no claim that all citing literature was read."
       ],
       "extraction": "PAPER-BENOIST-19/E4",
       "review": {
         "verdict": "confirmed",
         "reason": "The displayed alphaTilde has F2 coefficients, while beta, epsilon and cl(varphi) have Z(1) coefficients. No integral lift downstairs is supplied. Equations (7.1)-(7.2) need only vanishing of the pulled-back Bockstein and provide a typed replacement. The uniform case has eta_1=t[e]_1 by (2.12); general evaluation needs a further argument. This is a proof gap, not a demonstrated false proposition. Independently checked in the published source and compared with the current author copy and arXiv v2; see the review for calculations and scope.",
         "by": "REV-ERRATA-PAPER-BENOIST-19"
-      }
+      },
+      "reviewHistory": [
+        {
+          "source": "paper extraction before FIX-RT-PAPER-BENOIST-19",
+          "review": {
+            "verdict": "confirmed",
+            "reason": "Confirmed at published p. 84, where the proof of Proposition 4.5 prints 'β|_{T_U} = p*α̃ + 2ε + cl(ϕ)'. The identity does not typecheck as written: the hypothesis of the proposition takes α̃ ∈ H²_G(U(C), Z/2), so p*α̃ has Z/2 coefficients, while β, ε and cl(ϕ) are classes in H²_G(−, Z(1)) — and the exact sequence (2.17) invoked to produce ε and ϕ has Z(1) coefficients in its left-hand term. An integral lift of p*α̃ on T_U is needed, and its existence is exactly what is at issue, since the obstruction downstairs need not vanish. Confirmed as a gap in the printed argument; I do not claim the proposition false. No later version or erratum corrects it: arXiv 1804.03642 stops at v2, Crossref's record of doi:10.1007/s10240-019-00108-7 carries no update-to, updated-by or relation entry, and the IHES volume lists no corrigendum (checked 23 September 2026). Verified against the published text (SHA-256 8dfc0f22…98d3b), whose page n is PDF page n−62.",
+            "by": "REV-PAPER-BENOIST-19"
+          }
+        },
+        {
+          "source": "errata file before FIX-RT-PAPER-BENOIST-19",
+          "review": {
+            "verdict": "confirmed",
+            "reason": "The displayed alphaTilde has F2 coefficients, while beta, epsilon and cl(varphi) have Z(1) coefficients. No integral lift downstairs is supplied. Equations (7.1)-(7.2) need only vanishing of the pulled-back Bockstein and provide a typed replacement. The uniform case has eta_1=t[e]_1 by (2.12); general evaluation needs a further argument. This is a proof gap, not a demonstrated false proposition. Independently checked in the published source and compared with the current author copy and arXiv v2; see the review for calculations and scope.",
+            "by": "REV-ERRATA-PAPER-BENOIST-19"
+          }
+        }
+      ],
+      "reconciliation": "FIX-RT-PAPER-BENOIST-19 adopts the existing independent REV-ERRATA-PAPER-BENOIST-19 verdict and corrected reasoning; historical reviews retained above. This fixer creates no independent review verdict.",
+      "classificationNote": "The current affects field retains the extraction’s conservative stated-result scope for the unrestricted propositions; the inherited independent review confirms a proof gap, not falsity. The uniform proof branch remains conditional."
     },
     {
       "id": "PAPER-BENOIST-19/E5",
@@ -103,14 +193,36 @@
         "Independent review, 2026-09-23: published Numdam PDF https://www.numdam.org/item/10.1007/s10240-019-00108-7.pdf, SHA-256 8dfc0f221ab510ba1ecfe7c5b5fde12c217019f33d704ea89ce1a0c144398d3b; compared all finding passages with the current author PDF and arXiv 1804.03642v2.",
         "Numdam https://numdam.org/articles/10.1007/s10240-019-00108-7/ and journal https://pmihes.centre-mersenne.org/articles/10.1007/s10240-019-00108-7/: no correction identified in the article records; Crossref https://api.crossref.org/works/10.1007/s10240-019-00108-7 has empty relation and no update-to.",
         "Author https://www.math.ens.psl.eu/~benoist/ lists this paper without an erratum; arXiv https://arxiv.org/abs/1804.03642 lists v2, 15 May 2019, as latest. Checked 2026-09-23.",
-        "Exact-title searches with erratum and correction on 2026-09-23 located no matching correction. This is a bounded search, not proof of absence."
+        "Exact-title searches with erratum and correction on 2026-09-23 located no matching correction. This is a bounded search, not proof of absence.",
+        "2026-09-30: freshly fetched the published Numdam PDF, arXiv 1804.03642v2 and current author PDF; hashes and targeted comparisons are in sourceVersions. The five newly recorded passages persist in the compared copies.",
+        "2026-09-30: author publication page https://www.math.ens.psl.eu/~benoist/ links this paper without a correction; its linked erratum belongs to a different paper. Journal record https://pmihes.centre-mersenne.org/articles/10.1007/s10240-019-00108-7/ and arXiv https://arxiv.org/abs/1804.03642 checked; arXiv still lists v2, 15 May 2019.",
+        "2026-09-30: Crossref https://api.crossref.org/works/10.1007/s10240-019-00108-7 returned empty relation and no update-to. Exact-title erratum/corrigendum searches located no matching correction. Bounded search only; no claim that all citing literature was read."
       ],
       "extraction": "PAPER-BENOIST-19/E5",
       "review": {
         "verdict": "confirmed",
         "reason": "The restriction kernel is generated by a pushforward subspace together with curve classes. Kernel membership alone is not membership in the pushforward subspace. The curve adjustment is already handled correctly in the analogous argument on p.82. Independently checked in the published source and compared with the current author copy and arXiv v2; see the review for calculations and scope.",
         "by": "REV-ERRATA-PAPER-BENOIST-19"
-      }
+      },
+      "reviewHistory": [
+        {
+          "source": "paper extraction before FIX-RT-PAPER-BENOIST-19",
+          "review": {
+            "verdict": "confirmed",
+            "reason": "Confirmed at published p. 85, and the paper contradicts itself three pages earlier. Assumption 4.1(ii), on p. 80, reads: 'The kernel of the restriction map H¹(S(R)) → H¹(Ψ) is generated by the image of the push-forward p_* : H¹(T(R)) → H¹(S(R)) AND by the Borel–Haefliger classes of curves on S whose real locus does not meet Ψ.' The proof of Proposition 4.5 on p. 85, having obtained ([δ − cl(θ₂)]₁)|_Ψ = 0, concludes 'from Proposition 3.3 and Assumption 4.1 (ii) that there exists γ with p*γ = δ − cl(θ₂)', which uses only the first generator and silently drops the curve classes. The proof of Proposition 4.4, on p. 82, does the same step correctly: 'By Assumption 4.1 (ii), this claim implies that there exists θ ∈ Pic(S) such that [δ]₁ − clR(θ) is in the image of p_*.' The extraction's repair — subtract a Picard class built from the allowed curves first, and carry 2ν into the final θ — matches what p. 82 does. No later version or erratum corrects it: arXiv 1804.03642 stops at v2, Crossref's record of doi:10.1007/s10240-019-00108-7 carries no update-to, updated-by or relation entry, and the IHES volume lists no corrigendum (checked 23 September 2026). Verified against the published text (SHA-256 8dfc0f22…98d3b), whose page n is PDF page n−62.",
+            "by": "REV-PAPER-BENOIST-19"
+          }
+        },
+        {
+          "source": "errata file before FIX-RT-PAPER-BENOIST-19",
+          "review": {
+            "verdict": "confirmed",
+            "reason": "The restriction kernel is generated by a pushforward subspace together with curve classes. Kernel membership alone is not membership in the pushforward subspace. The curve adjustment is already handled correctly in the analogous argument on p.82. Independently checked in the published source and compared with the current author copy and arXiv v2; see the review for calculations and scope.",
+            "by": "REV-ERRATA-PAPER-BENOIST-19"
+          }
+        }
+      ],
+      "reconciliation": "FIX-RT-PAPER-BENOIST-19 adopts the existing independent REV-ERRATA-PAPER-BENOIST-19 verdict and corrected reasoning; historical reviews retained above. This fixer creates no independent review verdict."
     },
     {
       "id": "PAPER-BENOIST-19/E6",
@@ -125,14 +237,36 @@
         "Independent review, 2026-09-23: published Numdam PDF https://www.numdam.org/item/10.1007/s10240-019-00108-7.pdf, SHA-256 8dfc0f221ab510ba1ecfe7c5b5fde12c217019f33d704ea89ce1a0c144398d3b; compared all finding passages with the current author PDF and arXiv 1804.03642v2.",
         "Numdam https://numdam.org/articles/10.1007/s10240-019-00108-7/ and journal https://pmihes.centre-mersenne.org/articles/10.1007/s10240-019-00108-7/: no correction identified in the article records; Crossref https://api.crossref.org/works/10.1007/s10240-019-00108-7 has empty relation and no update-to.",
         "Author https://www.math.ens.psl.eu/~benoist/ lists this paper without an erratum; arXiv https://arxiv.org/abs/1804.03642 lists v2, 15 May 2019, as latest. Checked 2026-09-23.",
-        "Exact-title searches with erratum and correction on 2026-09-23 located no matching correction. This is a bounded search, not proof of absence."
+        "Exact-title searches with erratum and correction on 2026-09-23 located no matching correction. This is a bounded search, not proof of absence.",
+        "2026-09-30: freshly fetched the published Numdam PDF, arXiv 1804.03642v2 and current author PDF; hashes and targeted comparisons are in sourceVersions. The five newly recorded passages persist in the compared copies.",
+        "2026-09-30: author publication page https://www.math.ens.psl.eu/~benoist/ links this paper without a correction; its linked erratum belongs to a different paper. Journal record https://pmihes.centre-mersenne.org/articles/10.1007/s10240-019-00108-7/ and arXiv https://arxiv.org/abs/1804.03642 checked; arXiv still lists v2, 15 May 2019.",
+        "2026-09-30: Crossref https://api.crossref.org/works/10.1007/s10240-019-00108-7 returned empty relation and no update-to. Exact-title erratum/corrigendum searches located no matching correction. Bounded search only; no claim that all citing literature was read."
       ],
       "extraction": "PAPER-BENOIST-19/E6",
       "review": {
         "verdict": "confirmed",
         "reason": "Modulo n, psi equals p*phi, whereas alphaTilde=eta mod n-phi(zeta). For n=4 the sheet vector (1,0,0,0) gives psi=(−3,1,1,1), detecting the sign difference. Its trace is zero, so subsequent traced equations are unaffected. Independently checked in the published source and compared with the current author copy and arXiv v2; see the review for calculations and scope.",
         "by": "REV-ERRATA-PAPER-BENOIST-19"
-      }
+      },
+      "reviewHistory": [
+        {
+          "source": "paper extraction before FIX-RT-PAPER-BENOIST-19",
+          "review": {
+            "verdict": "confirmed",
+            "reason": "Confirmed, and forced by the paper's own conventions. Lemma 7.2 (p. 98) states that α̃|_{U⁰} is the image 'under the morphism (1, −φ)' of (η, ζ), i.e. α̃|_{U⁰} = η̄ − φ(ζ). Diagram (7.4) on p. 99 gives p*∘φ = (ψ mod n). Hence p*α̃|_{U⁰} = p*η̄ − p*φ(ζ) = reduction mod n of p*η − ψ(ζ). Lemma 7.3 (p. 98) instead prints 'the reduction modulo n of p*η + ψ(ζ)', and (7.13) on p. 103 repeats the same sign. 'Affects nothing' is right: the only later use pushes (7.13) forward by p, and p_*ψ(ζ) = 0 because Tr∘ψ = 0, so (7.14) is unchanged under either sign. No later version or erratum corrects it: arXiv 1804.03642 stops at v2, Crossref's record of doi:10.1007/s10240-019-00108-7 carries no update-to, updated-by or relation entry, and the IHES volume lists no corrigendum (checked 23 September 2026). Verified against the published text (SHA-256 8dfc0f22…98d3b), whose page n is PDF page n−62.",
+            "by": "REV-PAPER-BENOIST-19"
+          }
+        },
+        {
+          "source": "errata file before FIX-RT-PAPER-BENOIST-19",
+          "review": {
+            "verdict": "confirmed",
+            "reason": "Modulo n, psi equals p*phi, whereas alphaTilde=eta mod n-phi(zeta). For n=4 the sheet vector (1,0,0,0) gives psi=(−3,1,1,1), detecting the sign difference. Its trace is zero, so subsequent traced equations are unaffected. Independently checked in the published source and compared with the current author copy and arXiv v2; see the review for calculations and scope.",
+            "by": "REV-ERRATA-PAPER-BENOIST-19"
+          }
+        }
+      ],
+      "reconciliation": "FIX-RT-PAPER-BENOIST-19 adopts the existing independent REV-ERRATA-PAPER-BENOIST-19 verdict and corrected reasoning; historical reviews retained above. This fixer creates no independent review verdict."
     },
     {
       "id": "PAPER-BENOIST-19/E7",
@@ -147,14 +281,36 @@
         "Independent review, 2026-09-23: published Numdam PDF https://www.numdam.org/item/10.1007/s10240-019-00108-7.pdf, SHA-256 8dfc0f221ab510ba1ecfe7c5b5fde12c217019f33d704ea89ce1a0c144398d3b; compared all finding passages with the current author PDF and arXiv 1804.03642v2.",
         "Numdam https://numdam.org/articles/10.1007/s10240-019-00108-7/ and journal https://pmihes.centre-mersenne.org/articles/10.1007/s10240-019-00108-7/: no correction identified in the article records; Crossref https://api.crossref.org/works/10.1007/s10240-019-00108-7 has empty relation and no update-to.",
         "Author https://www.math.ens.psl.eu/~benoist/ lists this paper without an erratum; arXiv https://arxiv.org/abs/1804.03642 lists v2, 15 May 2019, as latest. Checked 2026-09-23.",
-        "Exact-title searches with erratum and correction on 2026-09-23 located no matching correction. This is a bounded search, not proof of absence."
+        "Exact-title searches with erratum and correction on 2026-09-23 located no matching correction. This is a bounded search, not proof of absence.",
+        "2026-09-30: freshly fetched the published Numdam PDF, arXiv 1804.03642v2 and current author PDF; hashes and targeted comparisons are in sourceVersions. The five newly recorded passages persist in the compared copies.",
+        "2026-09-30: author publication page https://www.math.ens.psl.eu/~benoist/ links this paper without a correction; its linked erratum belongs to a different paper. Journal record https://pmihes.centre-mersenne.org/articles/10.1007/s10240-019-00108-7/ and arXiv https://arxiv.org/abs/1804.03642 checked; arXiv still lists v2, 15 May 2019.",
+        "2026-09-30: Crossref https://api.crossref.org/works/10.1007/s10240-019-00108-7 returned empty relation and no update-to. Exact-title erratum/corrigendum searches located no matching correction. Bounded search only; no claim that all citing literature was read."
       ],
       "extraction": "PAPER-BENOIST-19/E7",
       "review": {
         "verdict": "confirmed",
         "reason": "Restriction equality is detected by a target monomorphism. Here p^(-1)(S*) is dense in smooth T, and a locally constant section of Z/n vanishing there vanishes everywhere. Thus the required target monomorphism is immediate; replace the incorrectly named source rather than leave an unresolved sheaf-theoretic gap. Independently checked in the published source and compared with the current author copy and arXiv v2; see the review for calculations and scope.",
         "by": "REV-ERRATA-PAPER-BENOIST-19"
-      }
+      },
+      "reviewHistory": [
+        {
+          "source": "paper extraction before FIX-RT-PAPER-BENOIST-19",
+          "review": {
+            "verdict": "confirmed",
+            "reason": "Confirmed at published p. 99. To show that p*∘φ and (ψ mod n), two morphisms Q → p_*(Z/n) that agree on S*(C), agree on S(C), the paper prints 'Since Q → j_*j*Q is injective, they coincide over S(C).' That is injectivity on the source, and it does not license the cancellation. The correct argument sets h := p*∘φ − (ψ mod n), notes h|_{S*} = 0, and uses the naturality square Q → p_*(Z/n) → j_*j*p_*(Z/n): the composite is j_*(h|_{S*}) = 0, so h = 0 provided the TARGET unit map p_*(Z/n) → j_*j*p_*(Z/n) is injective. Injectivity of Q → j_*j*Q gives nothing here. The extraction's correction names exactly the right map. No later version or erratum corrects it: arXiv 1804.03642 stops at v2, Crossref's record of doi:10.1007/s10240-019-00108-7 carries no update-to, updated-by or relation entry, and the IHES volume lists no corrigendum (checked 23 September 2026). Verified against the published text (SHA-256 8dfc0f22…98d3b), whose page n is PDF page n−62.",
+            "by": "REV-PAPER-BENOIST-19"
+          }
+        },
+        {
+          "source": "errata file before FIX-RT-PAPER-BENOIST-19",
+          "review": {
+            "verdict": "confirmed",
+            "reason": "Restriction equality is detected by a target monomorphism. Here p^(-1)(S*) is dense in smooth T, and a locally constant section of Z/n vanishing there vanishes everywhere. Thus the required target monomorphism is immediate; replace the incorrectly named source rather than leave an unresolved sheaf-theoretic gap. Independently checked in the published source and compared with the current author copy and arXiv v2; see the review for calculations and scope.",
+            "by": "REV-ERRATA-PAPER-BENOIST-19"
+          }
+        }
+      ],
+      "reconciliation": "FIX-RT-PAPER-BENOIST-19 adopts the existing independent REV-ERRATA-PAPER-BENOIST-19 verdict and corrected reasoning; historical reviews retained above. This fixer creates no independent review verdict."
     },
     {
       "id": "PAPER-BENOIST-19/E8",
@@ -169,14 +325,36 @@
         "Independent review, 2026-09-23: published Numdam PDF https://www.numdam.org/item/10.1007/s10240-019-00108-7.pdf, SHA-256 8dfc0f221ab510ba1ecfe7c5b5fde12c217019f33d704ea89ce1a0c144398d3b; compared all finding passages with the current author PDF and arXiv 1804.03642v2.",
         "Numdam https://numdam.org/articles/10.1007/s10240-019-00108-7/ and journal https://pmihes.centre-mersenne.org/articles/10.1007/s10240-019-00108-7/: no correction identified in the article records; Crossref https://api.crossref.org/works/10.1007/s10240-019-00108-7 has empty relation and no update-to.",
         "Author https://www.math.ens.psl.eu/~benoist/ lists this paper without an erratum; arXiv https://arxiv.org/abs/1804.03642 lists v2, 15 May 2019, as latest. Checked 2026-09-23.",
-        "Exact-title searches with erratum and correction on 2026-09-23 located no matching correction. This is a bounded search, not proof of absence."
+        "Exact-title searches with erratum and correction on 2026-09-23 located no matching correction. This is a bounded search, not proof of absence.",
+        "2026-09-30: freshly fetched the published Numdam PDF, arXiv 1804.03642v2 and current author PDF; hashes and targeted comparisons are in sourceVersions. The five newly recorded passages persist in the compared copies.",
+        "2026-09-30: author publication page https://www.math.ens.psl.eu/~benoist/ links this paper without a correction; its linked erratum belongs to a different paper. Journal record https://pmihes.centre-mersenne.org/articles/10.1007/s10240-019-00108-7/ and arXiv https://arxiv.org/abs/1804.03642 checked; arXiv still lists v2, 15 May 2019.",
+        "2026-09-30: Crossref https://api.crossref.org/works/10.1007/s10240-019-00108-7 returned empty relation and no update-to. Exact-title erratum/corrigendum searches located no matching correction. Bounded search only; no claim that all citing literature was read."
       ],
       "extraction": "PAPER-BENOIST-19/E8",
       "review": {
         "verdict": "confirmed",
         "reason": "The odd case is already treated separately in the proof, but the statement asks for (n/2)alpha without restricting n. For even n, if m is the restricted period then m divides n/2; corestriction of restriction is 2alpha, of order n/2, so n/2 divides m. The inherited concern about the exact restricted period is withdrawn. Independently checked in the published source and compared with the current author copy and arXiv v2; see the review for calculations and scope.",
         "by": "REV-ERRATA-PAPER-BENOIST-19"
-      }
+      },
+      "reviewHistory": [
+        {
+          "source": "paper extraction before FIX-RT-PAPER-BENOIST-19",
+          "review": {
+            "verdict": "confirmed",
+            "reason": "Confirmed at published p. 95. Proposition 6.7 is stated for α ∈ Br(R(S))[n] 'of period n' with no parity restriction, yet its hypothesis reads 'let ξ ∈ H²_G(U(C), Z/2) be a lift of (n/2)α in (2.16)' — and (n/2)α is undefined when n is odd, so the hypothesis cannot even be stated in the generality claimed. The proof does dispose of odd n first ('If n is odd, that ind(α) = n follows from de Jong's theorem and a norm argument'), which is why this is a defect of statement rather than of mathematics. The second half of the correction is also sound: the proof asserts that α_{R(T)} 'has period n/2', whereas applying Proposition 6.6 to the period-2 class (n/2)α only kills it, giving period dividing n/2; the induction still closes, since ind(α) | 2·ind(α_{R(T)}) | n and per(α) = n | ind(α) force equality. No later version or erratum corrects it: arXiv 1804.03642 stops at v2, Crossref's record of doi:10.1007/s10240-019-00108-7 carries no update-to, updated-by or relation entry, and the IHES volume lists no corrigendum (checked 23 September 2026). Verified against the published text (SHA-256 8dfc0f22…98d3b), whose page n is PDF page n−62.",
+            "by": "REV-PAPER-BENOIST-19"
+          }
+        },
+        {
+          "source": "errata file before FIX-RT-PAPER-BENOIST-19",
+          "review": {
+            "verdict": "confirmed",
+            "reason": "The odd case is already treated separately in the proof, but the statement asks for (n/2)alpha without restricting n. For even n, if m is the restricted period then m divides n/2; corestriction of restriction is 2alpha, of order n/2, so n/2 divides m. The inherited concern about the exact restricted period is withdrawn. Independently checked in the published source and compared with the current author copy and arXiv v2; see the review for calculations and scope.",
+            "by": "REV-ERRATA-PAPER-BENOIST-19"
+          }
+        }
+      ],
+      "reconciliation": "FIX-RT-PAPER-BENOIST-19 adopts the existing independent REV-ERRATA-PAPER-BENOIST-19 verdict and corrected reasoning; historical reviews retained above. This fixer creates no independent review verdict."
     },
     {
       "id": "PAPER-BENOIST-19/E9",
@@ -191,14 +369,36 @@
         "Independent review, 2026-09-23: published Numdam PDF https://www.numdam.org/item/10.1007/s10240-019-00108-7.pdf, SHA-256 8dfc0f221ab510ba1ecfe7c5b5fde12c217019f33d704ea89ce1a0c144398d3b; compared all finding passages with the current author PDF and arXiv 1804.03642v2.",
         "Numdam https://numdam.org/articles/10.1007/s10240-019-00108-7/ and journal https://pmihes.centre-mersenne.org/articles/10.1007/s10240-019-00108-7/: no correction identified in the article records; Crossref https://api.crossref.org/works/10.1007/s10240-019-00108-7 has empty relation and no update-to.",
         "Author https://www.math.ens.psl.eu/~benoist/ lists this paper without an erratum; arXiv https://arxiv.org/abs/1804.03642 lists v2, 15 May 2019, as latest. Checked 2026-09-23.",
-        "Exact-title searches with erratum and correction on 2026-09-23 located no matching correction. This is a bounded search, not proof of absence."
+        "Exact-title searches with erratum and correction on 2026-09-23 located no matching correction. This is a bounded search, not proof of absence.",
+        "2026-09-30: freshly fetched the published Numdam PDF, arXiv 1804.03642v2 and current author PDF; hashes and targeted comparisons are in sourceVersions. The five newly recorded passages persist in the compared copies.",
+        "2026-09-30: author publication page https://www.math.ens.psl.eu/~benoist/ links this paper without a correction; its linked erratum belongs to a different paper. Journal record https://pmihes.centre-mersenne.org/articles/10.1007/s10240-019-00108-7/ and arXiv https://arxiv.org/abs/1804.03642 checked; arXiv still lists v2, 15 May 2019.",
+        "2026-09-30: Crossref https://api.crossref.org/works/10.1007/s10240-019-00108-7 returned empty relation and no update-to. Exact-title erratum/corrigendum searches located no matching correction. Bounded search only; no claim that all citing literature was read."
       ],
       "extraction": "PAPER-BENOIST-19/E9",
       "review": {
         "verdict": "confirmed",
         "reason": "Descent of a Brauer class alone does not ensure K/K0 is algebraic. Adding two transcendence-basis elements preserves finite generation and the descended class, makes K/K0 algebraic, and justifies the directed union and the subsequent surface reduction. Independently checked in the published source and compared with the current author copy and arXiv v2; see the review for calculations and scope.",
         "by": "REV-ERRATA-PAPER-BENOIST-19"
-      }
+      },
+      "reviewHistory": [
+        {
+          "source": "paper extraction before FIX-RT-PAPER-BENOIST-19",
+          "review": {
+            "verdict": "confirmed",
+            "reason": "Confirmed at published p. 95. The proof of Theorem 0.12 picks 'R ⊂ K₀ ⊂ K a subfield of K finitely generated over R such that α is the image of a class α₀ ∈ Br(K₀)[2]', then writes 'K = ∪ᵢKᵢ as the union of all finite extensions of K₀'. The second step needs K/K₀ algebraic, which descending the Brauer class alone does not give: K₀ is only required to carry α, and K has transcendence degree 2 over R, so ∪ᵢKᵢ is in general the relative algebraic closure of K₀ in K and not K. Enlarging K₀ to contain a transcendence basis of K/R — still finitely generated — repairs it, exactly as the correction says. A small gap with an easy fix, but the printed step does not stand. No later version or erratum corrects it: arXiv 1804.03642 stops at v2, Crossref's record of doi:10.1007/s10240-019-00108-7 carries no update-to, updated-by or relation entry, and the IHES volume lists no corrigendum (checked 23 September 2026). Verified against the published text (SHA-256 8dfc0f22…98d3b), whose page n is PDF page n−62.",
+            "by": "REV-PAPER-BENOIST-19"
+          }
+        },
+        {
+          "source": "errata file before FIX-RT-PAPER-BENOIST-19",
+          "review": {
+            "verdict": "confirmed",
+            "reason": "Descent of a Brauer class alone does not ensure K/K0 is algebraic. Adding two transcendence-basis elements preserves finite generation and the descended class, makes K/K0 algebraic, and justifies the directed union and the subsequent surface reduction. Independently checked in the published source and compared with the current author copy and arXiv v2; see the review for calculations and scope.",
+            "by": "REV-ERRATA-PAPER-BENOIST-19"
+          }
+        }
+      ],
+      "reconciliation": "FIX-RT-PAPER-BENOIST-19 adopts the existing independent REV-ERRATA-PAPER-BENOIST-19 verdict and corrected reasoning; historical reviews retained above. This fixer creates no independent review verdict."
     },
     {
       "id": "PAPER-BENOIST-19/E10",
@@ -213,14 +413,36 @@
         "Independent review, 2026-09-23: published Numdam PDF https://www.numdam.org/item/10.1007/s10240-019-00108-7.pdf, SHA-256 8dfc0f221ab510ba1ecfe7c5b5fde12c217019f33d704ea89ce1a0c144398d3b; compared all finding passages with the current author PDF and arXiv 1804.03642v2.",
         "Numdam https://numdam.org/articles/10.1007/s10240-019-00108-7/ and journal https://pmihes.centre-mersenne.org/articles/10.1007/s10240-019-00108-7/: no correction identified in the article records; Crossref https://api.crossref.org/works/10.1007/s10240-019-00108-7 has empty relation and no update-to.",
         "Author https://www.math.ens.psl.eu/~benoist/ lists this paper without an erratum; arXiv https://arxiv.org/abs/1804.03642 lists v2, 15 May 2019, as latest. Checked 2026-09-23.",
-        "Exact-title searches with erratum and correction on 2026-09-23 located no matching correction. This is a bounded search, not proof of absence."
+        "Exact-title searches with erratum and correction on 2026-09-23 located no matching correction. This is a bounded search, not proof of absence.",
+        "2026-09-30: freshly fetched the published Numdam PDF, arXiv 1804.03642v2 and current author PDF; hashes and targeted comparisons are in sourceVersions. The five newly recorded passages persist in the compared copies.",
+        "2026-09-30: author publication page https://www.math.ens.psl.eu/~benoist/ links this paper without a correction; its linked erratum belongs to a different paper. Journal record https://pmihes.centre-mersenne.org/articles/10.1007/s10240-019-00108-7/ and arXiv https://arxiv.org/abs/1804.03642 checked; arXiv still lists v2, 15 May 2019.",
+        "2026-09-30: Crossref https://api.crossref.org/works/10.1007/s10240-019-00108-7 returned empty relation and no update-to. Exact-title erratum/corrigendum searches located no matching correction. Bounded search only; no claim that all citing literature was read."
       ],
       "extraction": "PAPER-BENOIST-19/E10",
       "review": {
         "verdict": "confirmed",
         "reason": "Writing a=[w^2+1] and c=2(1+i), the original construction gives [yj]=a+c[zj]. With a nonzero, z1=e2 and z2=−2a/c−e2 are independent and individually not proportional to a, but their y-images are opposite. The repair follows from wPrime^2+1=(w^2+1)^2/(4w^2), giving [yj]=c[zj]. Both yj remain sums of two squares. The inherited locator incorrectly called this the proof of Theorem 0.13. Independently checked in the published source and compared with the current author copy and arXiv v2; see the review for calculations and scope.",
         "by": "REV-ERRATA-PAPER-BENOIST-19"
-      }
+      },
+      "reviewHistory": [
+        {
+          "source": "paper extraction before FIX-RT-PAPER-BENOIST-19",
+          "review": {
+            "verdict": "confirmed",
+            "reason": "Confirmed at published p. 96, and I checked it by direct computation. The text chooses local parameters z₁, z₂ at x 'such that neither z₁ nor z₂ is proportional to w²+1 in m/m²' and sets y_j := (1+z_j)² + (w+z_j)², asserting that y₁, y₂ 'also forms a local system of parameters at x'. Expanding modulo m² and using that w is a unit with w(x) = √−1 gives y_j ≡ a + c·z_j where a := [w²+1] and c := 2(1+√−1) ≠ 0. Writing a = α z₁ + β z₂ in the basis (z₁, z₂) of m/m², the printed hypothesis says exactly α ≠ 0 and β ≠ 0, while y₁, y₂ are dependent precisely when α + β = −c. Those are compatible: take α = β = −c/2 = −(1+√−1), both non-zero, with α + β = −c. So the stated condition does not imply the conclusion, and the correction — choose the parameters jointly so that det(dy₁, dy₂) ≠ 0 — is the right one. The locator was wrong and the review corrected it: this passage is in the proof of Theorem 0.12 (the u(R(S)) ≥ 4 half), not Theorem 0.13; no proof of Theorem 0.13 appears on p. 96. No later version or erratum corrects it: arXiv 1804.03642 stops at v2, Crossref's record of doi:10.1007/s10240-019-00108-7 carries no update-to, updated-by or relation entry, and the IHES volume lists no corrigendum (checked 23 September 2026). Verified against the published text (SHA-256 8dfc0f22…98d3b), whose page n is PDF page n−62.",
+            "by": "REV-PAPER-BENOIST-19"
+          }
+        },
+        {
+          "source": "errata file before FIX-RT-PAPER-BENOIST-19",
+          "review": {
+            "verdict": "confirmed",
+            "reason": "Writing a=[w^2+1] and c=2(1+i), the original construction gives [yj]=a+c[zj]. With a nonzero, z1=e2 and z2=−2a/c−e2 are independent and individually not proportional to a, but their y-images are opposite. The repair follows from wPrime^2+1=(w^2+1)^2/(4w^2), giving [yj]=c[zj]. Both yj remain sums of two squares. The inherited locator incorrectly called this the proof of Theorem 0.13. Independently checked in the published source and compared with the current author copy and arXiv v2; see the review for calculations and scope.",
+            "by": "REV-ERRATA-PAPER-BENOIST-19"
+          }
+        }
+      ],
+      "reconciliation": "FIX-RT-PAPER-BENOIST-19 adopts the existing independent REV-ERRATA-PAPER-BENOIST-19 verdict and corrected reasoning; historical reviews retained above. This fixer creates no independent review verdict."
     },
     {
       "id": "PAPER-BENOIST-19/E11",
@@ -235,14 +457,36 @@
         "Independent review, 2026-09-23: published Numdam PDF https://www.numdam.org/item/10.1007/s10240-019-00108-7.pdf, SHA-256 8dfc0f221ab510ba1ecfe7c5b5fde12c217019f33d704ea89ce1a0c144398d3b; compared all finding passages with the current author PDF and arXiv 1804.03642v2.",
         "Numdam https://numdam.org/articles/10.1007/s10240-019-00108-7/ and journal https://pmihes.centre-mersenne.org/articles/10.1007/s10240-019-00108-7/: no correction identified in the article records; Crossref https://api.crossref.org/works/10.1007/s10240-019-00108-7 has empty relation and no update-to.",
         "Author https://www.math.ens.psl.eu/~benoist/ lists this paper without an erratum; arXiv https://arxiv.org/abs/1804.03642 lists v2, 15 May 2019, as latest. Checked 2026-09-23.",
-        "Exact-title searches with erratum and correction on 2026-09-23 located no matching correction. This is a bounded search, not proof of absence."
+        "Exact-title searches with erratum and correction on 2026-09-23 located no matching correction. This is a bounded search, not proof of absence.",
+        "2026-09-30: freshly fetched the published Numdam PDF, arXiv 1804.03642v2 and current author PDF; hashes and targeted comparisons are in sourceVersions. The five newly recorded passages persist in the compared copies.",
+        "2026-09-30: author publication page https://www.math.ens.psl.eu/~benoist/ links this paper without a correction; its linked erratum belongs to a different paper. Journal record https://pmihes.centre-mersenne.org/articles/10.1007/s10240-019-00108-7/ and arXiv https://arxiv.org/abs/1804.03642 checked; arXiv still lists v2, 15 May 2019.",
+        "2026-09-30: Crossref https://api.crossref.org/works/10.1007/s10240-019-00108-7 returned empty relation and no update-to. Exact-title erratum/corrigendum searches located no matching correction. Bounded search only; no claim that all citing literature was read."
       ],
       "extraction": "PAPER-BENOIST-19/E11",
       "review": {
         "verdict": "confirmed",
         "reason": "For f:Xprime→X with dimensions dprime,d, the relative orientation twist is dprime−d, independent of cohomological degree k. The cited BW arXiv v2 (1.22), p.13, uses minus the codimension. An identity morphism must preserve coefficients even in odd degree. This is a notation slip with a uniquely determined intended formula. Independently checked in the published source and compared with the current author copy and arXiv v2; see the review for calculations and scope.",
         "by": "REV-ERRATA-PAPER-BENOIST-19"
-      }
+      },
+      "reviewHistory": [
+        {
+          "source": "paper extraction before FIX-RT-PAPER-BENOIST-19",
+          "review": {
+            "verdict": "confirmed",
+            "reason": "Confirmed at published p. 72. Equation (2.1) prints the push-forward for a proper f : X′ → X of smooth equidimensional varieties of dimensions d′ and d as f_* : H_G^{k+2(d′−d)}(X′(C), M(−k)) → H_G^k(X(C), M). The twist on the source is wrong: a Gysin map shifts degree by 2(d′−d) and the twist by the same geometric amount, so a source of degree k+2(d′−d) landing in H^k(X, M) = H^k(X, M(0)) must carry M(d′−d). The printed M(−k) makes the twist depend on the cohomological degree, which no push-forward does. 'Affects nothing' is right: the cited [9, (1.22)] has the correct twist and the paper's own uses are equal-dimensional. Worth noting that route 6's brief already instructs builders to use 'the dimension twist M(d′−d), not the degree twist printed in Benoist (2.1)'. No later version or erratum corrects it: arXiv 1804.03642 stops at v2, Crossref's record of doi:10.1007/s10240-019-00108-7 carries no update-to, updated-by or relation entry, and the IHES volume lists no corrigendum (checked 23 September 2026). Verified against the published text (SHA-256 8dfc0f22…98d3b), whose page n is PDF page n−62.",
+            "by": "REV-PAPER-BENOIST-19"
+          }
+        },
+        {
+          "source": "errata file before FIX-RT-PAPER-BENOIST-19",
+          "review": {
+            "verdict": "confirmed",
+            "reason": "For f:Xprime→X with dimensions dprime,d, the relative orientation twist is dprime−d, independent of cohomological degree k. The cited BW arXiv v2 (1.22), p.13, uses minus the codimension. An identity morphism must preserve coefficients even in odd degree. This is a notation slip with a uniquely determined intended formula. Independently checked in the published source and compared with the current author copy and arXiv v2; see the review for calculations and scope.",
+            "by": "REV-ERRATA-PAPER-BENOIST-19"
+          }
+        }
+      ],
+      "reconciliation": "FIX-RT-PAPER-BENOIST-19 adopts the existing independent REV-ERRATA-PAPER-BENOIST-19 verdict and corrected reasoning; historical reviews retained above. This fixer creates no independent review verdict."
     },
     {
       "id": "PAPER-BENOIST-19/E12",
@@ -257,21 +501,43 @@
         "Independent review, 2026-09-23: published Numdam PDF https://www.numdam.org/item/10.1007/s10240-019-00108-7.pdf, SHA-256 8dfc0f221ab510ba1ecfe7c5b5fde12c217019f33d704ea89ce1a0c144398d3b; compared all finding passages with the current author PDF and arXiv 1804.03642v2.",
         "Numdam https://numdam.org/articles/10.1007/s10240-019-00108-7/ and journal https://pmihes.centre-mersenne.org/articles/10.1007/s10240-019-00108-7/: no correction identified in the article records; Crossref https://api.crossref.org/works/10.1007/s10240-019-00108-7 has empty relation and no update-to.",
         "Author https://www.math.ens.psl.eu/~benoist/ lists this paper without an erratum; arXiv https://arxiv.org/abs/1804.03642 lists v2, 15 May 2019, as latest. Checked 2026-09-23.",
-        "Exact-title searches with erratum and correction on 2026-09-23 located no matching correction. This is a bounded search, not proof of absence."
+        "Exact-title searches with erratum and correction on 2026-09-23 located no matching correction. This is a bounded search, not proof of absence.",
+        "2026-09-30: freshly fetched the published Numdam PDF, arXiv 1804.03642v2 and current author PDF; hashes and targeted comparisons are in sourceVersions. The five newly recorded passages persist in the compared copies.",
+        "2026-09-30: author publication page https://www.math.ens.psl.eu/~benoist/ links this paper without a correction; its linked erratum belongs to a different paper. Journal record https://pmihes.centre-mersenne.org/articles/10.1007/s10240-019-00108-7/ and arXiv https://arxiv.org/abs/1804.03642 checked; arXiv still lists v2, 15 May 2019.",
+        "2026-09-30: Crossref https://api.crossref.org/works/10.1007/s10240-019-00108-7 returned empty relation and no update-to. Exact-title erratum/corrigendum searches located no matching correction. Bounded search only; no claim that all citing literature was read."
       ],
       "extraction": "PAPER-BENOIST-19/E12",
       "review": {
         "verdict": "confirmed",
         "reason": "The boundary from the normal-bundle sequence (5.8) sends H0(C,N_T/X|C) to H1(C,N_C/T); the following boundary sends this H1 to H2(T,O_T). Thus the H0 printed in the middle of (5.7) has the wrong degree. The correction follows directly from the two displayed exact sequences. Independently checked in the published source and compared with the current author copy and arXiv v2; see the review for calculations and scope.",
         "by": "REV-ERRATA-PAPER-BENOIST-19"
-      }
+      },
+      "reviewHistory": [
+        {
+          "source": "paper extraction before FIX-RT-PAPER-BENOIST-19",
+          "review": {
+            "verdict": "confirmed",
+            "reason": "Confirmed at published p. 88, and the degree is forced internally. Equation (5.7) prints the chain '… → H⁰(C, N_{T/X}|_C) → H⁰(C, N_{C/T}) → H²(T, O_T)', whose last two arrows are said to be the boundary maps of (5.8) 0 → N_{C/T} → N_{C/X} → N_{T/X}|_C → 0 and (5.9) 0 → O_T → O_T(C) → N_{C/T} → 0. The boundary of (5.8) sends H⁰(C, N_{T/X}|_C) to H¹(C, N_{C/T}), and only from H¹ does the boundary of (5.9) reach H²(T, O_T); from H⁰ it would land in H¹(T, O_T), contradicting the printed target. So the third term must be H¹(C, N_{C/T}). Typographical, and 'affects nothing' is right. No later version or erratum corrects it: arXiv 1804.03642 stops at v2, Crossref's record of doi:10.1007/s10240-019-00108-7 carries no update-to, updated-by or relation entry, and the IHES volume lists no corrigendum (checked 23 September 2026). Verified against the published text (SHA-256 8dfc0f22…98d3b), whose page n is PDF page n−62.",
+            "by": "REV-PAPER-BENOIST-19"
+          }
+        },
+        {
+          "source": "errata file before FIX-RT-PAPER-BENOIST-19",
+          "review": {
+            "verdict": "confirmed",
+            "reason": "The boundary from the normal-bundle sequence (5.8) sends H0(C,N_T/X|C) to H1(C,N_C/T); the following boundary sends this H1 to H2(T,O_T). Thus the H0 printed in the middle of (5.7) has the wrong degree. The correction follows directly from the two displayed exact sequences. Independently checked in the published source and compared with the current author copy and arXiv v2; see the review for calculations and scope.",
+            "by": "REV-ERRATA-PAPER-BENOIST-19"
+          }
+        }
+      ],
+      "reconciliation": "FIX-RT-PAPER-BENOIST-19 adopts the existing independent REV-ERRATA-PAPER-BENOIST-19 verdict and corrected reasoning; historical reviews retained above. This fixer creates no independent review verdict."
     },
     {
       "id": "PAPER-BENOIST-19/E13",
       "kind": "gap",
       "locator": "Proof of Proposition0.7 p.108",
-      "printed": "[0:−1:1:0]",
-      "correction": "Use general real points of D={u=0} on each of the arcs v/w<0 and v/w>0, avoiding zeros and poles of the unit parts of f0 and g0. Interpret sign constancy on punctured neighbourhoods and specialize only away from zeros and poles.",
+      "printed": "[0 : −1 : 1 : 0]; “divisor of poles”",
+      "correction": "At BOTH arcs v/w<0 and v/w>0 of D={u=0}, choose general real points avoiding zeros and poles of the unit parts after factoring the D-orders of f0 and g0. On punctured neighbourhoods those units have constant signs; the negative arc forces even D-orders, making the required sign jump on the positive arc impossible. Specialize only away from zeros and poles. The printed second-point condition excludes poles alone and also needs zeros excluded.",
       "reason": "The printed fixed point is [0:−1:1:0], not the point transcribed in the inherited entry. Factoring f0=u^m h and g0=u^n k at general points of D, with h,k units, the negative-v arc forces m,n even. On the positive-v arc their punctured signs then cannot change across u=0, contrary to the quadrant condition. Integer powers of the positive Puiseux parameter do not change signs; smooth points away from uv=0 lift, justifying the specialization on a dense open set. This repairs the omitted generic-point argument.",
       "affects": "the proof",
       "known": "new",
@@ -279,14 +545,36 @@
         "Independent review, 2026-09-23: published Numdam PDF https://www.numdam.org/item/10.1007/s10240-019-00108-7.pdf, SHA-256 8dfc0f221ab510ba1ecfe7c5b5fde12c217019f33d704ea89ce1a0c144398d3b; compared all finding passages with the current author PDF and arXiv 1804.03642v2.",
         "Numdam https://numdam.org/articles/10.1007/s10240-019-00108-7/ and journal https://pmihes.centre-mersenne.org/articles/10.1007/s10240-019-00108-7/: no correction identified in the article records; Crossref https://api.crossref.org/works/10.1007/s10240-019-00108-7 has empty relation and no update-to.",
         "Author https://www.math.ens.psl.eu/~benoist/ lists this paper without an erratum; arXiv https://arxiv.org/abs/1804.03642 lists v2, 15 May 2019, as latest. Checked 2026-09-23.",
-        "Exact-title searches with erratum and correction on 2026-09-23 located no matching correction. This is a bounded search, not proof of absence."
+        "Exact-title searches with erratum and correction on 2026-09-23 located no matching correction. This is a bounded search, not proof of absence.",
+        "2026-09-30: freshly fetched the published Numdam PDF, arXiv 1804.03642v2 and current author PDF; hashes and targeted comparisons are in sourceVersions. The five newly recorded passages persist in the compared copies.",
+        "2026-09-30: author publication page https://www.math.ens.psl.eu/~benoist/ links this paper without a correction; its linked erratum belongs to a different paper. Journal record https://pmihes.centre-mersenne.org/articles/10.1007/s10240-019-00108-7/ and arXiv https://arxiv.org/abs/1804.03642 checked; arXiv still lists v2, 15 May 2019.",
+        "2026-09-30: Crossref https://api.crossref.org/works/10.1007/s10240-019-00108-7 returned empty relation and no update-to. Exact-title erratum/corrigendum searches located no matching correction. Bounded search only; no claim that all citing literature was read."
       ],
       "extraction": "PAPER-BENOIST-19/E13",
       "review": {
         "verdict": "confirmed",
         "reason": "The printed fixed point is [0:−1:1:0], not the point transcribed in the inherited entry. Factoring f0=u^m h and g0=u^n k at general points of D, with h,k units, the negative-v arc forces m,n even. On the positive-v arc their punctured signs then cannot change across u=0, contrary to the quadrant condition. Integer powers of the positive Puiseux parameter do not change signs; smooth points away from uv=0 lift, justifying the specialization on a dense open set. This repairs the omitted generic-point argument. Independently checked in the published source and compared with the current author copy and arXiv v2; see the review for calculations and scope.",
         "by": "REV-ERRATA-PAPER-BENOIST-19"
-      }
+      },
+      "reviewHistory": [
+        {
+          "source": "paper extraction before FIX-RT-PAPER-BENOIST-19",
+          "review": {
+            "verdict": "confirmed",
+            "reason": "Confirmed in substance at published p. 108, but the extraction's quotation was wrong and the review corrected it. The paper prints '[u : v : w : z] = [0 : −1 : 1 : 0] ∈ Q(R)', not the '(0:−1:1:1)' the finding recorded; I checked this on the page image, and the arithmetic settles it too, since Q = {z² = w² − u² − v²} contains [0:−1:1:0] (0 = 1 − 0 − 1) and does not contain [0:−1:1:1] (1 ≠ 0). With the quotation repaired the finding stands: the proof fixes that one explicit point and asserts that 'the signs of f₀ and g₀ are constant in a neighbourhood' of it, without checking that the point avoids the zeros and poles of the specialised f₀, g₀ — which were produced from f, g chosen earlier and are not controlled at a pre-selected point. The repair is the extraction's: take a general real point of {u = 0} away from the zeros and poles, with the required sign, and justify the simultaneous specialisation. Note the paper does take this care at the *second* point, a few lines later ('such that x does not belong to any divisor of poles of f₀ or g₀ distinct of D'), which makes the omission at the first point the more clearly an oversight. No later version or erratum corrects it: arXiv 1804.03642 stops at v2, Crossref's record of doi:10.1007/s10240-019-00108-7 carries no update-to, updated-by or relation entry, and the IHES volume lists no corrigendum (checked 23 September 2026). Verified against the published text (SHA-256 8dfc0f22…98d3b), whose page n is PDF page n−62.",
+            "by": "REV-PAPER-BENOIST-19"
+          }
+        },
+        {
+          "source": "errata file before FIX-RT-PAPER-BENOIST-19",
+          "review": {
+            "verdict": "confirmed",
+            "reason": "The printed fixed point is [0:−1:1:0], not the point transcribed in the inherited entry. Factoring f0=u^m h and g0=u^n k at general points of D, with h,k units, the negative-v arc forces m,n even. On the positive-v arc their punctured signs then cannot change across u=0, contrary to the quadrant condition. Integer powers of the positive Puiseux parameter do not change signs; smooth points away from uv=0 lift, justifying the specialization on a dense open set. This repairs the omitted generic-point argument. Independently checked in the published source and compared with the current author copy and arXiv v2; see the review for calculations and scope.",
+            "by": "REV-ERRATA-PAPER-BENOIST-19"
+          }
+        }
+      ],
+      "reconciliation": "FIX-RT-PAPER-BENOIST-19 adopts the existing independent REV-ERRATA-PAPER-BENOIST-19 verdict and corrected reasoning; historical reviews retained above. This fixer creates no independent review verdict."
     },
     {
       "id": "PAPER-BENOIST-19/E14",
@@ -301,14 +589,36 @@
         "Independent review, 2026-09-23: published Numdam PDF https://www.numdam.org/item/10.1007/s10240-019-00108-7.pdf, SHA-256 8dfc0f221ab510ba1ecfe7c5b5fde12c217019f33d704ea89ce1a0c144398d3b; compared all finding passages with the current author PDF and arXiv 1804.03642v2.",
         "Numdam https://numdam.org/articles/10.1007/s10240-019-00108-7/ and journal https://pmihes.centre-mersenne.org/articles/10.1007/s10240-019-00108-7/: no correction identified in the article records; Crossref https://api.crossref.org/works/10.1007/s10240-019-00108-7 has empty relation and no update-to.",
         "Author https://www.math.ens.psl.eu/~benoist/ lists this paper without an erratum; arXiv https://arxiv.org/abs/1804.03642 lists v2, 15 May 2019, as latest. Checked 2026-09-23.",
-        "Exact-title searches with erratum and correction on 2026-09-23 located no matching correction. This is a bounded search, not proof of absence."
+        "Exact-title searches with erratum and correction on 2026-09-23 located no matching correction. This is a bounded search, not proof of absence.",
+        "2026-09-30: freshly fetched the published Numdam PDF, arXiv 1804.03642v2 and current author PDF; hashes and targeted comparisons are in sourceVersions. The five newly recorded passages persist in the compared copies.",
+        "2026-09-30: author publication page https://www.math.ens.psl.eu/~benoist/ links this paper without a correction; its linked erratum belongs to a different paper. Journal record https://pmihes.centre-mersenne.org/articles/10.1007/s10240-019-00108-7/ and arXiv https://arxiv.org/abs/1804.03642 checked; arXiv still lists v2, 15 May 2019.",
+        "2026-09-30: Crossref https://api.crossref.org/works/10.1007/s10240-019-00108-7 returned empty relation and no update-to. Exact-title erratum/corrigendum searches located no matching correction. Bounded search only; no claim that all citing literature was read."
       ],
       "extraction": "PAPER-BENOIST-19/E14",
       "review": {
         "verdict": "confirmed",
         "reason": "The surface, its two rational functions and the quaternion class are over the Puiseux field K in this proof. The field inside Br must consequently be K(S). Independently checked in the published source and compared with the current author copy and arXiv v2; see the review for calculations and scope.",
         "by": "REV-ERRATA-PAPER-BENOIST-19"
-      }
+      },
+      "reviewHistory": [
+        {
+          "source": "paper extraction before FIX-RT-PAPER-BENOIST-19",
+          "review": {
+            "verdict": "confirmed",
+            "reason": "Confirmed at published p. 107. The proof of Proposition 0.7 works throughout over the real closed Puiseux field K := ∪_n R((t^{1/n})) — 'Let [u : v : w] be coordinates on P²_K, where K is the real closed field ∪_n R((t^{1/n}))' — and S is a K3 surface over K. The sentence 'there exist f, g ∈ K(S)* such that α = (f, g) ∈ Br(R(S))' then names the wrong field: with f, g ∈ K(S)* the quaternion class lies in Br(K(S)). Pure notation; 'affects nothing' is right. No later version or erratum corrects it: arXiv 1804.03642 stops at v2, Crossref's record of doi:10.1007/s10240-019-00108-7 carries no update-to, updated-by or relation entry, and the IHES volume lists no corrigendum (checked 23 September 2026). Verified against the published text (SHA-256 8dfc0f22…98d3b), whose page n is PDF page n−62.",
+            "by": "REV-PAPER-BENOIST-19"
+          }
+        },
+        {
+          "source": "errata file before FIX-RT-PAPER-BENOIST-19",
+          "review": {
+            "verdict": "confirmed",
+            "reason": "The surface, its two rational functions and the quaternion class are over the Puiseux field K in this proof. The field inside Br must consequently be K(S). Independently checked in the published source and compared with the current author copy and arXiv v2; see the review for calculations and scope.",
+            "by": "REV-ERRATA-PAPER-BENOIST-19"
+          }
+        }
+      ],
+      "reconciliation": "FIX-RT-PAPER-BENOIST-19 adopts the existing independent REV-ERRATA-PAPER-BENOIST-19 verdict and corrected reasoning; historical reviews retained above. This fixer creates no independent review verdict."
     },
     {
       "id": "PAPER-BENOIST-19/E15",
@@ -323,14 +633,36 @@
         "Independent review, 2026-09-23: published Numdam PDF https://www.numdam.org/item/10.1007/s10240-019-00108-7.pdf, SHA-256 8dfc0f221ab510ba1ecfe7c5b5fde12c217019f33d704ea89ce1a0c144398d3b; compared all finding passages with the current author PDF and arXiv 1804.03642v2.",
         "Numdam https://numdam.org/articles/10.1007/s10240-019-00108-7/ and journal https://pmihes.centre-mersenne.org/articles/10.1007/s10240-019-00108-7/: no correction identified in the article records; Crossref https://api.crossref.org/works/10.1007/s10240-019-00108-7 has empty relation and no update-to.",
         "Author https://www.math.ens.psl.eu/~benoist/ lists this paper without an erratum; arXiv https://arxiv.org/abs/1804.03642 lists v2, 15 May 2019, as latest. Checked 2026-09-23.",
-        "Exact-title searches with erratum and correction on 2026-09-23 located no matching correction. This is a bounded search, not proof of absence."
+        "Exact-title searches with erratum and correction on 2026-09-23 located no matching correction. This is a bounded search, not proof of absence.",
+        "2026-09-30: freshly fetched the published Numdam PDF, arXiv 1804.03642v2 and current author PDF; hashes and targeted comparisons are in sourceVersions. The five newly recorded passages persist in the compared copies.",
+        "2026-09-30: author publication page https://www.math.ens.psl.eu/~benoist/ links this paper without a correction; its linked erratum belongs to a different paper. Journal record https://pmihes.centre-mersenne.org/articles/10.1007/s10240-019-00108-7/ and arXiv https://arxiv.org/abs/1804.03642 checked; arXiv still lists v2, 15 May 2019.",
+        "2026-09-30: Crossref https://api.crossref.org/works/10.1007/s10240-019-00108-7 returned empty relation and no update-to. Exact-title erratum/corrigendum searches located no matching correction. Bounded search only; no claim that all citing literature was read."
       ],
       "extraction": "PAPER-BENOIST-19/E15",
       "review": {
         "verdict": "confirmed",
         "reason": "The preceding paragraph on p.106 explicitly supplies a unique nonzero class with this property. Zero also has component zero equal to zero, so the repeated uniqueness sentence on p.107 must retain nonzero. Independently checked in the published source and compared with the current author copy and arXiv v2; see the review for calculations and scope.",
         "by": "REV-ERRATA-PAPER-BENOIST-19"
-      }
+      },
+      "reviewHistory": [
+        {
+          "source": "paper extraction before FIX-RT-PAPER-BENOIST-19",
+          "review": {
+            "verdict": "confirmed",
+            "reason": "Confirmed at published p. 107, and the paper supplies its own correction. The proof of Theorem 0.6 prints 'Then there is a unique δ ∈ H¹_G(S(C), Z/2) with [δ]₀ = 0', but the zero class also satisfies [δ]₀ = 0, so uniqueness is false as stated. The preceding paragraph on p. 106 has it right: 'there exists a non-zero class δ ∈ H¹_G(S(C), Z/2) with [δ]₀ = 0 if and only if one of the two halves of S is empty, and that this class is unique.' The word 'non-zero' has simply been dropped. No later version or erratum corrects it: arXiv 1804.03642 stops at v2, Crossref's record of doi:10.1007/s10240-019-00108-7 carries no update-to, updated-by or relation entry, and the IHES volume lists no corrigendum (checked 23 September 2026). Verified against the published text (SHA-256 8dfc0f22…98d3b), whose page n is PDF page n−62.",
+            "by": "REV-PAPER-BENOIST-19"
+          }
+        },
+        {
+          "source": "errata file before FIX-RT-PAPER-BENOIST-19",
+          "review": {
+            "verdict": "confirmed",
+            "reason": "The preceding paragraph on p.106 explicitly supplies a unique nonzero class with this property. Zero also has component zero equal to zero, so the repeated uniqueness sentence on p.107 must retain nonzero. Independently checked in the published source and compared with the current author copy and arXiv v2; see the review for calculations and scope.",
+            "by": "REV-ERRATA-PAPER-BENOIST-19"
+          }
+        }
+      ],
+      "reconciliation": "FIX-RT-PAPER-BENOIST-19 adopts the existing independent REV-ERRATA-PAPER-BENOIST-19 verdict and corrected reasoning; historical reviews retained above. This fixer creates no independent review verdict."
     },
     {
       "id": "PAPER-BENOIST-19/E16",
@@ -345,14 +677,36 @@
         "Independent review, 2026-09-23: published Numdam PDF https://www.numdam.org/item/10.1007/s10240-019-00108-7.pdf, SHA-256 8dfc0f221ab510ba1ecfe7c5b5fde12c217019f33d704ea89ce1a0c144398d3b; compared all finding passages with the current author PDF and arXiv 1804.03642v2.",
         "Numdam https://numdam.org/articles/10.1007/s10240-019-00108-7/ and journal https://pmihes.centre-mersenne.org/articles/10.1007/s10240-019-00108-7/: no correction identified in the article records; Crossref https://api.crossref.org/works/10.1007/s10240-019-00108-7 has empty relation and no update-to.",
         "Author https://www.math.ens.psl.eu/~benoist/ lists this paper without an erratum; arXiv https://arxiv.org/abs/1804.03642 lists v2, 15 May 2019, as latest. Checked 2026-09-23.",
-        "Exact-title searches with erratum and correction on 2026-09-23 located no matching correction. This is a bounded search, not proof of absence."
+        "Exact-title searches with erratum and correction on 2026-09-23 located no matching correction. This is a bounded search, not proof of absence.",
+        "2026-09-30: freshly fetched the published Numdam PDF, arXiv 1804.03642v2 and current author PDF; hashes and targeted comparisons are in sourceVersions. The five newly recorded passages persist in the compared copies.",
+        "2026-09-30: author publication page https://www.math.ens.psl.eu/~benoist/ links this paper without a correction; its linked erratum belongs to a different paper. Journal record https://pmihes.centre-mersenne.org/articles/10.1007/s10240-019-00108-7/ and arXiv https://arxiv.org/abs/1804.03642 checked; arXiv still lists v2, 15 May 2019.",
+        "2026-09-30: Crossref https://api.crossref.org/works/10.1007/s10240-019-00108-7 returned empty relation and no update-to. Exact-title erratum/corrigendum searches located no matching correction. Bounded search only; no claim that all citing literature was read."
       ],
       "extraction": "PAPER-BENOIST-19/E16",
       "review": {
         "verdict": "rejected",
         "reason": "The inherited printed quotation kernel is inaccurate. The published p.103 image visibly says cokernel after (7.14), as does arXiv v2 p.33. BW v2 Proposition 2.9, p.34, confirms that this is exactly the primitivity statement used. Independently checked in the published source and compared with the current author copy and arXiv v2; see the review for calculations and scope.",
         "by": "REV-ERRATA-PAPER-BENOIST-19"
-      }
+      },
+      "reviewHistory": [
+        {
+          "source": "paper extraction before FIX-RT-PAPER-BENOIST-19",
+          "review": {
+            "verdict": "rejected",
+            "reason": "Rejected: the paper does not contain this mistake. The finding records 'kernel' as printed in the proof of Proposition 7.1 following (7.14) and asks that it be replaced by torsion-freeness of the COKERNEL of the Picard cycle class map. But p. 103 already prints exactly that: 'Since the cokernel of Krasnov's cycle class map cl : Pic(U⁰) → H²_G(U⁰(C), Z(1)) is torsion-free [9, Proposition 2.9], and since the restriction map Pic(S) → Pic(U⁰) is surjective, there exists μ ∈ Pic(S) such that η − p_*γ = cl(μ|_{U⁰}).' I searched every occurrence of 'kernel' in the published text: they are the two Ker[…] definitions on pp. 70 and 71, and Assumption 4.1(ii) on p. 80 ('the kernel of the restriction map H¹(S(R)) → H¹(Ψ)'), none of which concerns the cycle class map. Both places where the paper invokes [9, Proposition 2.9] — p. 85 and p. 103 — say 'cokernel' and say 'torsion-free'. The finding's own correction is therefore already the printed text, and recording it would put a non-existent mistake into the public errata register. The extraction had already softened it to 'affects nothing' with the note that 'the cited BW1 Proposition 2.9 is the cokernel statement that the argument uses', which is the same observation stopping one step short of withdrawal.",
+            "by": "REV-PAPER-BENOIST-19"
+          }
+        },
+        {
+          "source": "errata file before FIX-RT-PAPER-BENOIST-19",
+          "review": {
+            "verdict": "rejected",
+            "reason": "The inherited printed quotation kernel is inaccurate. The published p.103 image visibly says cokernel after (7.14), as does arXiv v2 p.33. BW v2 Proposition 2.9, p.34, confirms that this is exactly the primitivity statement used. Independently checked in the published source and compared with the current author copy and arXiv v2; see the review for calculations and scope.",
+            "by": "REV-ERRATA-PAPER-BENOIST-19"
+          }
+        }
+      ],
+      "reconciliation": "FIX-RT-PAPER-BENOIST-19 adopts the existing independent REV-ERRATA-PAPER-BENOIST-19 verdict and corrected reasoning; historical reviews retained above. This fixer creates no independent review verdict."
     },
     {
       "id": "PAPER-BENOIST-19/E17",
@@ -367,14 +721,36 @@
         "Independent review, 2026-09-23: published Numdam PDF https://www.numdam.org/item/10.1007/s10240-019-00108-7.pdf, SHA-256 8dfc0f221ab510ba1ecfe7c5b5fde12c217019f33d704ea89ce1a0c144398d3b; compared all finding passages with the current author PDF and arXiv 1804.03642v2.",
         "Numdam https://numdam.org/articles/10.1007/s10240-019-00108-7/ and journal https://pmihes.centre-mersenne.org/articles/10.1007/s10240-019-00108-7/: no correction identified in the article records; Crossref https://api.crossref.org/works/10.1007/s10240-019-00108-7 has empty relation and no update-to.",
         "Author https://www.math.ens.psl.eu/~benoist/ lists this paper without an erratum; arXiv https://arxiv.org/abs/1804.03642 lists v2, 15 May 2019, as latest. Checked 2026-09-23.",
-        "Exact-title searches with erratum and correction on 2026-09-23 located no matching correction. This is a bounded search, not proof of absence."
+        "Exact-title searches with erratum and correction on 2026-09-23 located no matching correction. This is a bounded search, not proof of absence.",
+        "2026-09-30: freshly fetched the published Numdam PDF, arXiv 1804.03642v2 and current author PDF; hashes and targeted comparisons are in sourceVersions. The five newly recorded passages persist in the compared copies.",
+        "2026-09-30: author publication page https://www.math.ens.psl.eu/~benoist/ links this paper without a correction; its linked erratum belongs to a different paper. Journal record https://pmihes.centre-mersenne.org/articles/10.1007/s10240-019-00108-7/ and arXiv https://arxiv.org/abs/1804.03642 checked; arXiv still lists v2, 15 May 2019.",
+        "2026-09-30: Crossref https://api.crossref.org/works/10.1007/s10240-019-00108-7 returned empty relation and no update-to. Exact-title erratum/corrigendum searches located no matching correction. Bounded search only; no claim that all citing literature was read."
       ],
       "extraction": "PAPER-BENOIST-19/E17",
       "review": {
         "verdict": "confirmed",
         "reason": "The family in this section is |dnH|, with n the Brauer period. The symbol l in this parameter substitution has not been defined. Renaming the external degree parameter m avoids collision and gives m=dn; this is a parameter-concordance slip. Independently checked in the published source and compared with the current author copy and arXiv v2; see the review for calculations and scope.",
         "by": "REV-ERRATA-PAPER-BENOIST-19"
-      }
+      },
+      "reviewHistory": [
+        {
+          "source": "paper extraction before FIX-RT-PAPER-BENOIST-19",
+          "review": {
+            "verdict": "confirmed",
+            "reason": "Confirmed at published p. 71: 'we may apply [57, Proposition 9] for n = dl'. The letter l is defined nowhere in §1 — I checked every occurrence of a standalone l on pp. 68–72 and this is the only one. The family was fixed on p. 69 as B ⊂ |dnH|, so the hypersurface-degree parameter of Voisin's proposition is dn; the paper's own n is the period of α, which is what makes the collision. A parameter concordance, affecting nothing. No later version or erratum corrects it: arXiv 1804.03642 stops at v2, Crossref's record of doi:10.1007/s10240-019-00108-7 carries no update-to, updated-by or relation entry, and the IHES volume lists no corrigendum (checked 23 September 2026). Verified against the published text (SHA-256 8dfc0f22…98d3b), whose page n is PDF page n−62.",
+            "by": "REV-PAPER-BENOIST-19"
+          }
+        },
+        {
+          "source": "errata file before FIX-RT-PAPER-BENOIST-19",
+          "review": {
+            "verdict": "confirmed",
+            "reason": "The family in this section is |dnH|, with n the Brauer period. The symbol l in this parameter substitution has not been defined. Renaming the external degree parameter m avoids collision and gives m=dn; this is a parameter-concordance slip. Independently checked in the published source and compared with the current author copy and arXiv v2; see the review for calculations and scope.",
+            "by": "REV-ERRATA-PAPER-BENOIST-19"
+          }
+        }
+      ],
+      "reconciliation": "FIX-RT-PAPER-BENOIST-19 adopts the existing independent REV-ERRATA-PAPER-BENOIST-19 verdict and corrected reasoning; historical reviews retained above. This fixer creates no independent review verdict."
     },
     {
       "id": "PAPER-BENOIST-19/E18",
@@ -389,14 +765,36 @@
         "Independent review, 2026-09-23: published Numdam PDF https://www.numdam.org/item/10.1007/s10240-019-00108-7.pdf, SHA-256 8dfc0f221ab510ba1ecfe7c5b5fde12c217019f33d704ea89ce1a0c144398d3b; compared all finding passages with the current author PDF and arXiv 1804.03642v2.",
         "Numdam https://numdam.org/articles/10.1007/s10240-019-00108-7/ and journal https://pmihes.centre-mersenne.org/articles/10.1007/s10240-019-00108-7/: no correction identified in the article records; Crossref https://api.crossref.org/works/10.1007/s10240-019-00108-7 has empty relation and no update-to.",
         "Author https://www.math.ens.psl.eu/~benoist/ lists this paper without an erratum; arXiv https://arxiv.org/abs/1804.03642 lists v2, 15 May 2019, as latest. Checked 2026-09-23.",
-        "Exact-title searches with erratum and correction on 2026-09-23 located no matching correction. This is a bounded search, not proof of absence."
+        "Exact-title searches with erratum and correction on 2026-09-23 located no matching correction. This is a bounded search, not proof of absence.",
+        "2026-09-30: freshly fetched the published Numdam PDF, arXiv 1804.03642v2 and current author PDF; hashes and targeted comparisons are in sourceVersions. The five newly recorded passages persist in the compared copies.",
+        "2026-09-30: author publication page https://www.math.ens.psl.eu/~benoist/ links this paper without a correction; its linked erratum belongs to a different paper. Journal record https://pmihes.centre-mersenne.org/articles/10.1007/s10240-019-00108-7/ and arXiv https://arxiv.org/abs/1804.03642 checked; arXiv still lists v2, 15 May 2019.",
+        "2026-09-30: Crossref https://api.crossref.org/works/10.1007/s10240-019-00108-7 returned empty relation and no update-to. Exact-title erratum/corrigendum searches located no matching correction. Bounded search only; no claim that all citing literature was read."
       ],
       "extraction": "PAPER-BENOIST-19/E18",
       "review": {
         "verdict": "confirmed",
         "reason": "Over Sing R, r=0 and s is a unit, so rv^2=sw^2 forces w=0 and v≠0. The point v=0 would force both projective coordinates to vanish. The same word is in all three copies; the equation unambiguously determines the intended blow-up centre. Independently checked in the published source and compared with the current author copy and arXiv v2; see the review for calculations and scope.",
         "by": "REV-ERRATA-PAPER-BENOIST-19"
-      }
+      },
+      "reviewHistory": [
+        {
+          "source": "paper extraction before FIX-RT-PAPER-BENOIST-19",
+          "review": {
+            "verdict": "confirmed",
+            "reason": "Confirmed at published p. 77, first line. The sentence spanning pp. 76–77 reads that the singular points of T 'are exactly the points lying above the singular locus of R where v vanishes'. It is w that vanishes there: at x ∈ Sing(R) one has r(x) = 0, while s(x) ≠ 0 because D meets R only in its smooth locus, so the fibre equation r(x)v² = s(x)w² becomes s(x)w² = 0 and forces w = 0, with v ≠ 0 — the point (v : w) = (1 : 0). Setting v = 0 instead would force w = 0 as well and leave no point of P¹. 'Affects nothing' is right, since the centre of the blow-up is determined either way. No later version or erratum corrects it: arXiv 1804.03642 stops at v2, Crossref's record of doi:10.1007/s10240-019-00108-7 carries no update-to, updated-by or relation entry, and the IHES volume lists no corrigendum (checked 23 September 2026). Verified against the published text (SHA-256 8dfc0f22…98d3b), whose page n is PDF page n−62.",
+            "by": "REV-PAPER-BENOIST-19"
+          }
+        },
+        {
+          "source": "errata file before FIX-RT-PAPER-BENOIST-19",
+          "review": {
+            "verdict": "confirmed",
+            "reason": "Over Sing R, r=0 and s is a unit, so rv^2=sw^2 forces w=0 and v≠0. The point v=0 would force both projective coordinates to vanish. The same word is in all three copies; the equation unambiguously determines the intended blow-up centre. Independently checked in the published source and compared with the current author copy and arXiv v2; see the review for calculations and scope.",
+            "by": "REV-ERRATA-PAPER-BENOIST-19"
+          }
+        }
+      ],
+      "reconciliation": "FIX-RT-PAPER-BENOIST-19 adopts the existing independent REV-ERRATA-PAPER-BENOIST-19 verdict and corrected reasoning; historical reviews retained above. This fixer creates no independent review verdict."
     },
     {
       "id": "PAPER-BENOIST-19/E19",
@@ -411,14 +809,152 @@
         "Independent review, 2026-09-23: published Numdam PDF https://www.numdam.org/item/10.1007/s10240-019-00108-7.pdf, SHA-256 8dfc0f221ab510ba1ecfe7c5b5fde12c217019f33d704ea89ce1a0c144398d3b; compared all finding passages with the current author PDF and arXiv 1804.03642v2.",
         "Numdam https://numdam.org/articles/10.1007/s10240-019-00108-7/ and journal https://pmihes.centre-mersenne.org/articles/10.1007/s10240-019-00108-7/: no correction identified in the article records; Crossref https://api.crossref.org/works/10.1007/s10240-019-00108-7 has empty relation and no update-to.",
         "Author https://www.math.ens.psl.eu/~benoist/ lists this paper without an erratum; arXiv https://arxiv.org/abs/1804.03642 lists v2, 15 May 2019, as latest. Checked 2026-09-23.",
-        "Exact-title searches with erratum and correction on 2026-09-23 located no matching correction. This is a bounded search, not proof of absence."
+        "Exact-title searches with erratum and correction on 2026-09-23 located no matching correction. This is a bounded search, not proof of absence.",
+        "2026-09-30: freshly fetched the published Numdam PDF, arXiv 1804.03642v2 and current author PDF; hashes and targeted comparisons are in sourceVersions. The five newly recorded passages persist in the compared copies.",
+        "2026-09-30: author publication page https://www.math.ens.psl.eu/~benoist/ links this paper without a correction; its linked erratum belongs to a different paper. Journal record https://pmihes.centre-mersenne.org/articles/10.1007/s10240-019-00108-7/ and arXiv https://arxiv.org/abs/1804.03642 checked; arXiv still lists v2, 15 May 2019.",
+        "2026-09-30: Crossref https://api.crossref.org/works/10.1007/s10240-019-00108-7 returned empty relation and no update-to. Exact-title erratum/corrigendum searches located no matching correction. Bounded search only; no claim that all citing literature was read."
       ],
       "extraction": "PAPER-BENOIST-19/E19",
       "review": {
         "verdict": "rejected",
         "reason": "The involution specifies an eigensummand, but does not fix its scalar identification with L^(-1)(-R). The source does not stipulate z=rv/w. Scaling the anti-invariant identification by 1/sqrt(a1) is permitted and gives the printed map (1,rg), with g unchanged. The inherited finding imposed an unstated normalization; either choice gives the same injectivity argument. Independently checked in the published source and compared with the current author copy and arXiv v2; see the review for calculations and scope.",
         "by": "REV-ERRATA-PAPER-BENOIST-19"
-      }
+      },
+      "reviewHistory": [
+        {
+          "source": "paper extraction before FIX-RT-PAPER-BENOIST-19",
+          "review": {
+            "verdict": "confirmed",
+            "reason": "Confirmed at published p. 87, given the normalisation fixed on p. 86. Section 5.1 chooses the component of the strict transform 'where v = √a₁ g w', so on C the trace-zero root is z = rv/w = √a₁ rg. The map in (5.5), 0 → p_*O_T(−C) → O_S ⊕ L^{⊗−1}(−R) → O_C, is therefore (1, √a₁ rg), while the paper prints (1, rg); the same coefficient recurs in (5.6) on p. 88. Harmless, and the extraction says why: s was chosen with a₁ > 0, so √a₁ is a non-zero real scalar and may be absorbed by renormalising g, and the later step only needs injectivity of cup-product with ∂(rg), which a non-zero scalar does not affect. No later version or erratum corrects it: arXiv 1804.03642 stops at v2, Crossref's record of doi:10.1007/s10240-019-00108-7 carries no update-to, updated-by or relation entry, and the IHES volume lists no corrigendum (checked 23 September 2026). Verified against the published text (SHA-256 8dfc0f22…98d3b), whose page n is PDF page n−62.",
+            "by": "REV-PAPER-BENOIST-19"
+          }
+        },
+        {
+          "source": "errata file before FIX-RT-PAPER-BENOIST-19",
+          "review": {
+            "verdict": "rejected",
+            "reason": "The involution specifies an eigensummand, but does not fix its scalar identification with L^(-1)(-R). The source does not stipulate z=rv/w. Scaling the anti-invariant identification by 1/sqrt(a1) is permitted and gives the printed map (1,rg), with g unchanged. The inherited finding imposed an unstated normalization; either choice gives the same injectivity argument. Independently checked in the published source and compared with the current author copy and arXiv v2; see the review for calculations and scope.",
+            "by": "REV-ERRATA-PAPER-BENOIST-19"
+          }
+        }
+      ],
+      "reconciliation": "FIX-RT-PAPER-BENOIST-19 adopts the existing independent REV-ERRATA-PAPER-BENOIST-19 verdict and corrected reasoning; historical reviews retained above. This fixer creates no independent review verdict."
+    },
+    {
+      "id": "PAPER-BENOIST-19/E20",
+      "kind": "gap",
+      "locator": "Published Proposition 4.2, p.80; arXiv v2 pp.14–15; author PDF p.18",
+      "printed": "Otherwise",
+      "correction": "After curves dominating R, handle both P1 curves exceptional over Sing R and P1 fibres over R∩D. Use Gersten and the Witt transverse-curve argument in both cases.",
+      "reason": "The incidence model rv²=sw² is smooth at a general R∩D fibre, so its P1 is not exceptional for the resolution T→Tbar. The printed exhaustive-case claim misses it. Item 64 supplies the additional case using the possibly ramified Witt input 141; linked to E1.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "2026-09-30: freshly fetched the published Numdam PDF, arXiv 1804.03642v2 and current author PDF; hashes and targeted comparisons are in sourceVersions. The five newly recorded passages persist in the compared copies.",
+        "2026-09-30: author publication page https://www.math.ens.psl.eu/~benoist/ links this paper without a correction; its linked erratum belongs to a different paper. Journal record https://pmihes.centre-mersenne.org/articles/10.1007/s10240-019-00108-7/ and arXiv https://arxiv.org/abs/1804.03642 checked; arXiv still lists v2, 15 May 2019.",
+        "2026-09-30: Crossref https://api.crossref.org/works/10.1007/s10240-019-00108-7 returned empty relation and no update-to. Exact-title erratum/corrigendum searches located no matching correction. Bounded search only; no claim that all citing literature was read."
+      ],
+      "reportedBy": "FIX-RT-PAPER-BENOIST-19; confirmed red-team finding applied, independent errata review pending"
+    },
+    {
+      "id": "PAPER-BENOIST-19/E21",
+      "kind": "gap",
+      "locator": "Published Proposition 6.6, pp.94–95 (compare Proposition 1.2, p.71); arXiv v2 p.26; author PDF pp.32–33",
+      "printed": "replacing T with Tx proves the proposition",
+      "correction": "Normalize the integral representative so its reduction on T_U equals p*α̃, then transport the pair (T,p⁻¹R), retaining that equality on each fibre. Verify the stratified-isotopy hypotheses for the relative pair. Only then infer generic splitting from algebraicity modulo 2.",
+      "reason": "Ordinary equivariant Ehresmann identifies cohomology of compact fibres, but does not by itself preserve the complement T_U or show that the transported representative still represents p_x*α on it. Extending/subtracting a Picard class normalizes the initial lift; item 202 states the needed square, and G13 retains the unverified relative-pair construction. E2 supplies the analogous compatible choice for the complex proof.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "2026-09-30: freshly fetched the published Numdam PDF, arXiv 1804.03642v2 and current author PDF; hashes and targeted comparisons are in sourceVersions. The five newly recorded passages persist in the compared copies.",
+        "2026-09-30: author publication page https://www.math.ens.psl.eu/~benoist/ links this paper without a correction; its linked erratum belongs to a different paper. Journal record https://pmihes.centre-mersenne.org/articles/10.1007/s10240-019-00108-7/ and arXiv https://arxiv.org/abs/1804.03642 checked; arXiv still lists v2, 15 May 2019.",
+        "2026-09-30: Crossref https://api.crossref.org/works/10.1007/s10240-019-00108-7 returned empty relation and no update-to. Exact-title erratum/corrigendum searches located no matching correction. Bounded search only; no claim that all citing literature was read."
+      ],
+      "reportedBy": "FIX-RT-PAPER-BENOIST-19; confirmed red-team finding applied, independent errata review pending"
+    },
+    {
+      "id": "PAPER-BENOIST-19/E22",
+      "kind": "error",
+      "locator": "Published Lemma 6.4, p.92; arXiv v2 p.24; author PDF p.30",
+      "printed": "Then t := −h1h2ru works.",
+      "correction": "Choose h1 with real divisor H−R: a simple pole on R and simple zero on H. Clear its other polar divisor D away from the real locus with the stated sum of squares, then t=−h1h2ru has the required real divisor H.",
+      "reason": "The printed choice gives h1 a simple zero on R. With u a section of A^lN²(−2R), multiplication by r to reach A^lN²(−R) leaves order_R(h1)+order_R(r)=2 in the target-line trivialization. Thus t has an unwanted double zero on R and cannot have the asserted smooth real zero locus. Reversing that real divisor coefficient gives −1+1=0 and preserves the prescribed sign argument; item 83 records the repair.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "2026-09-30: freshly fetched the published Numdam PDF, arXiv 1804.03642v2 and current author PDF; hashes and targeted comparisons are in sourceVersions. The five newly recorded passages persist in the compared copies.",
+        "2026-09-30: author publication page https://www.math.ens.psl.eu/~benoist/ links this paper without a correction; its linked erratum belongs to a different paper. Journal record https://pmihes.centre-mersenne.org/articles/10.1007/s10240-019-00108-7/ and arXiv https://arxiv.org/abs/1804.03642 checked; arXiv still lists v2, 15 May 2019.",
+        "2026-09-30: Crossref https://api.crossref.org/works/10.1007/s10240-019-00108-7 returned empty relation and no update-to. Exact-title erratum/corrigendum searches located no matching correction. Bounded search only; no claim that all citing literature was read."
+      ],
+      "reportedBy": "FIX-RT-PAPER-BENOIST-19; confirmed red-team finding applied, independent errata review pending"
+    },
+    {
+      "id": "PAPER-BENOIST-19/E23",
+      "kind": "misprint",
+      "locator": "Published Proposition 4.5 proof, p.85; arXiv v2 p.18; author PDF p.23",
+      "printed": "[p_*ε]₁=0∈H¹(S(R))",
+      "correction": "The class lies in H¹(U(R)); only its restriction to Ψ is zero, because Ψ has no real preimages.",
+      "reason": "Here ε is a class on T_U, so its pushforward is on U. Assumption 4.1(i) says the real preimage of Ψ is empty, giving the restricted vanishing actually used by the next sentence, not global vanishing on S(R). Items 163–165 retain this restriction.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "2026-09-30: freshly fetched the published Numdam PDF, arXiv 1804.03642v2 and current author PDF; hashes and targeted comparisons are in sourceVersions. The five newly recorded passages persist in the compared copies.",
+        "2026-09-30: author publication page https://www.math.ens.psl.eu/~benoist/ links this paper without a correction; its linked erratum belongs to a different paper. Journal record https://pmihes.centre-mersenne.org/articles/10.1007/s10240-019-00108-7/ and arXiv https://arxiv.org/abs/1804.03642 checked; arXiv still lists v2, 15 May 2019.",
+        "2026-09-30: Crossref https://api.crossref.org/works/10.1007/s10240-019-00108-7 returned empty relation and no update-to. Exact-title erratum/corrigendum searches located no matching correction. Bounded search only; no claim that all citing literature was read."
+      ],
+      "reportedBy": "FIX-RT-PAPER-BENOIST-19; confirmed red-team finding applied, independent errata review pending"
+    },
+    {
+      "id": "PAPER-BENOIST-19/E24",
+      "kind": "misprint",
+      "locator": "Published Lemma 6.5 proof, p.92; arXiv v2 p.24; author PDF p.30",
+      "printed": "disjoint from Θ",
+      "correction": "Use Ψ=S(R)∖Ξ, the clopen subset to avoid in Assumption 4.1.",
+      "reason": "Section 6.1 specifies Ξ; Θ is not the required datum there. The preceding inclusion p(T(R))⊂Ξ gives disjointness from its complement Ψ. Item 84 already uses this complement and now records the correction.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "2026-09-30: freshly fetched the published Numdam PDF, arXiv 1804.03642v2 and current author PDF; hashes and targeted comparisons are in sourceVersions. The five newly recorded passages persist in the compared copies.",
+        "2026-09-30: author publication page https://www.math.ens.psl.eu/~benoist/ links this paper without a correction; its linked erratum belongs to a different paper. Journal record https://pmihes.centre-mersenne.org/articles/10.1007/s10240-019-00108-7/ and arXiv https://arxiv.org/abs/1804.03642 checked; arXiv still lists v2, 15 May 2019.",
+        "2026-09-30: Crossref https://api.crossref.org/works/10.1007/s10240-019-00108-7 returned empty relation and no update-to. Exact-title erratum/corrigendum searches located no matching correction. Bounded search only; no claim that all citing literature was read."
+      ],
+      "reportedBy": "FIX-RT-PAPER-BENOIST-19; confirmed red-team finding applied, independent errata review pending"
     }
-  ]
+  ],
+  "sourceVersions": [
+    {
+      "kind": "published",
+      "url": "https://www.numdam.org/item/10.1007/s10240-019-00108-7.pdf",
+      "read": "2026-09-30",
+      "sha256": "8dfc0f221ab510ba1ecfe7c5b5fde12c217019f33d704ea89ce1a0c144398d3b",
+      "scope": "Fresh targeted reading of printed pp.63–66,69–71,79–80,84–96,99–100,103,106–110; page images 79,84,92,95 inspected. Not a new full reading. Complete earlier reading remains attributed to PR2016 and REV-PAPER-BENOIST-19.",
+      "by": "Codex, codex-rtOQ9t, FIX-RT-PAPER-BENOIST-19"
+    },
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/1804.03642v2",
+      "read": "2026-09-30",
+      "sha256": "5dc12ae78790cfc5f2fb3ce9921269cbf593c38022a41a0c7da798795c9c3cda",
+      "scope": "Targeted comparisons: Proposition 4.2 PDF pp.14–15; Proposition 4.5 p.18; Lemmas 6.4–6.5 p.24; Proposition 6.6 p.26. No full-preprint reading claimed.",
+      "by": "Codex, codex-rtOQ9t, FIX-RT-PAPER-BENOIST-19"
+    },
+    {
+      "kind": "author copy",
+      "url": "https://www.math.ens.psl.eu/~benoist/articles/realperiodindex.pdf",
+      "read": "2026-09-30",
+      "sha256": "e4c90a314c6d9ea38d3bd8498a6ec050aa763c4150890c98cc295390ef4ece2a",
+      "scope": "Targeted comparisons: PDF p.18 (Prop.4.2), p.23 (Prop.4.5), p.27 (Prop.5.5), p.30 (Lemmas6.4–6.5), pp.32–33 (Prop.6.6/6.7). No full-author-copy reading claimed.",
+      "by": "Codex, codex-rtOQ9t, FIX-RT-PAPER-BENOIST-19"
+    }
+  ],
+  "reconciliation": {
+    "job": "FIX-RT-PAPER-BENOIST-19",
+    "date": "2026-09-30",
+    "agent": "Codex",
+    "session": "codex-rtOQ9t",
+    "scope": "55 confirmed findings applied; 5 rejected findings retained without the requested changes. Source records reconciled by id using the existing independent errata review; five new records E20–E24 await independent errata review.",
+    "routeReview": "Historical route positions 1–10 preserved. New routes 11 (SF.6) and 12 (IG.0/IG.1) require independent route-review entries before accepted_routes includes them. Existing review JSON is outside this issue’s edit scope.",
+    "closure": "Cited proof interiors are not paper-extraction gates. Concrete mathematical gaps G4a/G4b, exact-contract G10 and pair-transport G13 remain visible.",
+    "historicalMetadata": "completion and verification describe the September 23 extraction and review, not this fix; priorCheckpointMetadata retains earlier checks. This fix awaits independent REV-FIX and route/errata integration as stated above."
+  }
 }
