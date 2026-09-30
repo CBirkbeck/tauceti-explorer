@@ -22,9 +22,24 @@ Two naming decisions are fixed here.
 
 Everything this layer needs from homotopy theory is a `variable`: neither pinned
 library has spectra, homotopy colimits or connective covers. So is the K-theory
-functor itself in positive degrees, which GeneralAlgebraicKTheory K.3 owns, and
-so is the first K-group, which is absent from both trees and which
+functor of rings itself, which the early ring node of GeneralAlgebraicKTheory
+K.2:plus owns (`K.2/functorial-K-theory-of-a-ring`, with scalar extension, finite
+products and filtered colimits) and which K.6 and K.7 import rather than restate;
+and so is the first K-group, which is absent from both trees and which
 K2SymbolsBrauer T.6 is asked for.
+
+Revision (FIX-RT-AREA-ktheory-1, findings RT-AREA-ktheory-1/4, /17, /18, /19;
+awaiting independent review; not compiled). The declarations this revision adds
+are written as signature comments, in the form the K.1–K.5 file uses: the
+objects they are stated about (the gluing category of the projective line over
+a ring, the Nil category, the Bass spectrum, the K-theoretic pairing) are not in
+either pinned library, and a statement that cannot yet be written is left as a
+typed comment rather than replaced by a proposition. The older `True`-valued
+placeholders below are kept only where this revision did not touch the node.
+The scheme forms (Thomason's groups, the Fundamental Theorem for schemes,
+negative G-theory of noetherian schemes, products of schemes) are
+SchemeKTheoryOperations S.2, S.5 and S.6's, which import this file's ring
+statements; nothing here depends on them.
 -/
 import Mathlib.Algebra.Polynomial.Basic
 import Mathlib.Algebra.Polynomial.Laurent
@@ -110,27 +125,117 @@ theorem negativeK_functor (n : ℕ) (f : R →+* S) : True := by sorry
 /-- The first negative group IS the contraction of `K₀`. -/
 theorem negativeK_one_eq_contraction : True := by sorry
 
-/-- The four-term decomposition
-`K₀ R[t,t⁻¹] ≅ K₀ R ⊕ K₋₁ R ⊕ NK₀ R ⊕ NK₀ R`. Dropping the two `NK₀` summands is
-only legitimate when `R` is regular noetherian. -/
-theorem K0_laurent_decomposition : True := by sorry
+/-
+`negativeK_eq_contraction_iterate` (K.6/negative-k-groups):
+  theorem negativeK_eq_contraction_iterate (n : ℕ) :
+    negativeK n ≅ contractionIterate n K₀   -- K₋ₙ = Lⁿ K₀, as functors on rings
+The four-term decomposition `K₀ R[t,t⁻¹] ≅ K₀ R ⊕ K₋₁ R ⊕ NK₀ R ⊕ NK₀ R`
+(III.3.7) moved to K.6/negative-k-groups-are-contracted below.
+-/
 
 theorem negativeK_flasque (h : IsFlasqueRing R) (n : ℕ) : True := by sorry
 
 theorem negativeK_prod (n : ℕ) : True := by sorry
 
+/-! ### The ring-level inputs of the Fundamental Theorem
+
+Signature comments. `KSpace`, `KGroup`, `P R` (the finitely generated projective
+right `R`-modules, `TauCeti.finiteProjectiveModules R` with its split exact
+structure) and scalar extension are the early ring node's
+(`GeneralAlgebraicKTheory:K.2/functorial-K-theory-of-a-ring`); the additivity,
+resolution, approximation and fibration theorems are K.3's and K.4's.
+
+K.6/projective-line-over-a-ring (construction). NOT a scheme: for a
+noncommutative ring there is no scheme `ℙ¹` over `Spec R`.
+
+  structure ProjectiveLine.Module (R : Type u) [Ring R] where
+    plus  : ModuleCat.{u} R[X]                      -- M₊, a right R[t]-module
+    minus : ModuleCat.{u} R[X]                      -- M₋, over R[t⁻¹] (a second copy)
+    glue  : (M₊ ⊗ R[T;T⁻¹]) ≅ (M₋ ⊗ R[T;T⁻¹])       -- α, over the Laurent ring
+  instance : Abelian (ProjectiveLine.Module R)       -- componentwise kernels/cokernels
+  def ProjectiveLine.VectorBundle (R) : ObjectProperty (ProjectiveLine.Module R)
+                                                     -- M₊, M₋ finitely generated projective
+  def ProjectiveLine.KSpace (R) : BasedSpace         -- K of VB(ℙ¹_R), via K.1
+  def ProjectiveLine.twist (n : ℤ) : ProjectiveLine.Module R ⥤ ProjectiveLine.Module R
+                                                     -- F(n) = (M₊, M₋, t⁻ⁿ α), with X₀, X₁
+  def ProjectiveLine.u (i : ℤ) : P R ⥤ VB(ℙ¹_R)      -- P ↦ (P[t], P[t⁻¹], tⁱ), exact
+  theorem ProjectiveLine.u_twist (i n : ℤ) : u i ⋙ twist n ≅ u (i - n)
+  theorem ProjectiveLine.koszul (F) : ShortExact (F(-2) ⟶ F(-1) ⊞ F(-1) ⟶ F)
+  def ProjectiveLine.directImage : ProjectiveLine.Module R ⥤ ModuleCat R   -- π_*, and R¹π_*
+  def ProjectiveLine.map (f : R →+* R') : ProjectiveLine.Module R ⥤ ProjectiveLine.Module R'
+  -- unit tests
+  example : π_* (u 0 R) ≅ R ∧ R¹π_* (u 0 R) = 0          -- pi_u0
+  example : π_* (u 1 R) = 0 ∧ R¹π_* (u 1 R) = 0          -- pi_u1 (so u 0 R ≇ u 1 R)
+  example : R¹π_* (u 2 R) ≅ R ∧ π_* (u 2 R) = 0          -- R1pi_u2
+  example : Contractible (ProjectiveLine.KSpace (0 : Type)) -- zero_ring
+  example (i n : ℤ) : u i ⋙ twist n ≅ u (i - n)          -- u_twist_shift
+
+K.6/projective-line-splitting (theorem, V.1.5.4):
+  theorem ProjectiveLine.KSpace_equiv (R) :
+    BasedHomotopyEquiv (KSpace.ofRing R ×ˢ KSpace.ofRing R) (ProjectiveLine.KSpace R)
+                                                     -- induced by (u 0, u 1), natural in R
+  theorem ProjectiveLine.u_relation (i : ℤ) :
+    (u (i+1))_* + (u (i+1))_* = (u i)_* + (u (i+2))_*
+
+K.6/nil-category-and-nil-groups (definition):
+  structure NilCat (R) where
+    obj : P R
+    ν   : Module.End R obj
+    nil : IsNilpotent ν
+  instance : ExactStructure (NilCat R)               -- conflations exact on modules
+  def NilCat.forget : NilCat R ⥤ P R                 -- exact
+  def NilCat.zero   : P R ⥤ NilCat R                 -- exact, forget ∘ zero = id
+  def nilGroup (R) (n : ℕ) : AddCommGroup           -- πₙ of hofib (K Nil R → K R)
+  theorem KGroup.nilCat_decomposition (n : ℕ) : KGroup (NilCat R) n ≃+ KGroup R n × nilGroup R n
+  def NilCat.equivTorsion : NilCat R ≌ H_{1,T}(R[t])  -- (P, ν) ↦ P with t acting by ν
+  def nilGroup_map (f : R →+* R') (n : ℕ) : nilGroup R n →+ nilGroup R' n
+  -- unit tests
+  example (F) [Field F] : nilGroup F 0 = 0                         -- nil0_field
+  example (k) [Field k] : nilGroup k[ε] 0 ≃+ Additive (1 + εt·k[t])ˣ  -- nil0_dual_numbers
+  example : KGroup (NilCat R) 0 ≃+ KGroup R 0 × nilGroup R 0       -- K0_nil_split
+  -- nilpotent_required: the class of (ℤ, 2) in the endomorphism group of ℤ is
+  -- 1 − 2t ≠ 0, while nilGroup ℤ 0 = 0.
+
+K.6/t-torsion-localisation-sequences (theorem, V.7.1 and Ex. V.7.5):
+  theorem tTorsion_fibration (R) :
+    HomotopyFibration (K H_{1,T}(R[t])) (KSpace.ofRing R[X]) (KSpace.ofRing R[T;T⁻¹])
+  theorem tTorsion_projectiveLine_fibration (R) :
+    HomotopyFibration (K H_{1,T}(R[t])) (ProjectiveLine.KSpace R) (KSpace.ofRing R[t⁻¹])
+  -- the chart restriction maps the second to the first, identically on fibres
+
+K.6/nil-groups-are-NK (theorem, V.8.1):
+  theorem nilGroup_equiv_NK (R) (n : ℕ) : nilGroup R n ≃+ NK (n+1) R   -- natural in R
+
+K.6/fundamental-theorem-positive-degrees (theorem, V.8.2 for n ≥ 1):
+  theorem fundamental_theorem_pos (R) (n : ℕ) (hn : 1 ≤ n) :
+    Exact [0, K_n R, K_n R[t] ⊕ K_n R[t⁻¹], K_n R[t,t⁻¹], K_{n-1} R, 0]
+
+K.6/multiplication-by-t-splits-the-boundary (lemma, Ex. V.8.1). The product is
+K.7's external pairing with the class of the unit `t` over ℤ:
+  theorem boundary_mul_t (R) (n : ℕ) (x : K_n R) : ∂ ({t, x}) = x
+
+K.6/negative-k-groups-are-contracted (theorem, III.3.6, III.3.7, III.4.1.2):
+  theorem K1_isContracted : IsContracted K₁      -- L K₁ = K₀
+  theorem K0_isContracted : IsContracted K₀      -- L K₀ = K₋₁
+  theorem K0_laurent_decomposition (R) :
+    K₀ R[t,t⁻¹] ≃+ K₀ R × K₋₁ R × NK₀ R × NK₀ R  -- dropping the NK₀ summands is only
+                                                 -- legitimate when they vanish
+  theorem negativeK_isContracted (n : ℕ) : IsContracted (negativeK n)
+-/
+
 /-! ### The Fundamental Theorem -/
 
-/-- K.6/fundamental-theorem-with-nil-terms. The splitting is multiplication by
-the class of `t` in `K₁ (ℤ[t,t⁻¹])`; a different splitting changes the
-identification of the boundary. -/
+/-- K.6/fundamental-theorem-with-nil-terms, assembled from the nodes above. The
+splitting is multiplication by the class of `t` in `K₁ (ℤ[t,t⁻¹])`; a different
+splitting changes the identification of the boundary. -/
 theorem fundamental_theorem (n : ℤ) : True := by sorry
 
-/-- `Nilₙ R ≅ NK_{n+1} R`. -/
+/-- `Nilₙ R ≅ NK_{n+1} R` for `n ≥ 0`: `nilGroup_equiv_NK` above
+(K.6/nil-groups-are-NK). -/
 theorem nil_eq_NK (n : ℕ) : True := by sorry
 
-/-- The scheme form is `SchemeKTheoryOperations:S.5`'s, not this roadmap's. -/
-theorem fundamental_theorem_scheme : True := by sorry
+/- The scheme form (V.8.3) is SchemeKTheoryOperations S.5's, which imports this
+ring theorem; the former placeholder `fundamental_theorem_scheme` is removed. -/
 
 /-! ### The axioms -/
 
@@ -150,8 +255,10 @@ def bassTheory : NegativeKTheory := by sorry
 
 /-! ### Mayer–Vietoris and the spectrum -/
 
-/-- K.6/mayer-vietoris-for-negative-k. The sequence does not terminate; that is
-what distinguishes the negative groups from the connective theory. -/
+/-- K.6/mayer-vietoris-for-negative-k: for a Milnor square (a ring map carrying
+an ideal bijectively onto an ideal), the K₁–K₀ sequence of K.5 continues through
+every negative degree. The sequence does not terminate below; nothing is
+asserted from K₂ up. -/
 theorem mayer_vietoris_negative : True := by sorry
 
 /-- Spectra are a `variable`: neither pinned library has them. -/
@@ -180,9 +287,31 @@ theorem deloop_connective_cover : True := by sorry
 /-- The homotopy colimit of the iterated desuspensions. -/
 def bassSpectrum : Spectrum := by sorry
 
+/-- K.6/bass-spectrum-homotopy-groups (promoted from the API of
+K.6/nonconnective-spectrum): `πₙ K^B R ≅ Kₙ R` for `n ≥ 0`, naturally in `R`. -/
 theorem bassSpectrum_pi_nonneg (n : ℕ) : True := by sorry
 
+/-- K.6/bass-spectrum-homotopy-groups: `π₋ₙ K^B R ≅ K₋ₙ R = Lⁿ K₀ R`, naturally in
+`R`, through multiplication by `x` as in Corollary IV.10.3. -/
 theorem bassSpectrum_pi_neg (n : ℕ) : True := by sorry
+
+/-
+K.6/milnor-square-excision-in-nonpositive-degrees (theorem; the non-positive part
+of Bass XII.8.3, which is what Clausen–Mathew–Morrow's Proposition 4.34 uses):
+  structure MilnorSquare where
+    f : R →+* S
+    I : TwoSidedIdeal R
+    bij : Set.BijOn f I (f '' I)        -- and f '' I is a two-sided ideal J of S
+  def bassSpectrum.relative (R) (I) : Spectrum   -- hofib (K^B R → K^B (R ⧸ I))
+  theorem milnorSquare_excision_nonpos (σ : MilnorSquare) (n : ℤ) (hn : n ≤ 0) :
+    IsIso (π_ n (bassSpectrum.relative σ.R σ.I ⟶ bassSpectrum.relative σ.S σ.J))
+  -- Degree one: only the CLASSICAL surjectivity K₁(R, I) → K₁(S, J) (GL/E relative
+  -- groups) is recorded, from K.5/milnor-square-mayer-vietoris. The spectrum form
+  --   Function.Surjective (π_ 1 (bassSpectrum.relative σ.R σ.I ⟶ bassSpectrum.relative σ.S σ.J))
+  -- is KTheoryLowDegrees U.6's (handed over by request): it needs U.6's comparison
+  -- of π₁ of the relative fibre with GL(I)/E(R, I), which lies downstream of K.6.
+  -- Injectivity in degree one is NOT claimed (Swan's square), nor anything in degrees ≥ 2.
+-/
 
 theorem bassSpectrum_natural : True := by sorry
 
@@ -309,7 +438,11 @@ theorem IKSpectrum_localization : True := by sorry
 in the same groups, and in Bass's, Karoubi's, Pedersen–Weibel's and Thomason's. -/
 theorem IK_eq_bass : True := by sorry
 
-theorem IK_eq_thomason : True := by sorry
+/- Agreement with Thomason's groups of a quasi-compact quasi-separated scheme,
+and the vanishing of negative G-theory of a noetherian scheme, are
+SchemeKTheoryOperations S.5's and S.2's (RT-AREA-ktheory-1/17); the former
+placeholder `IK_eq_thomason` is removed. The ring clause `IK_eq_bass` is proved
+through the additive-category clause and Karoubi's comparison with Bass's groups. -/
 
 /-- `IK₋₁ E` is the monoid of idempotents of `D(E)` modulo the split ones. -/
 theorem IK_neg_one_presentation : True := by sorry
@@ -382,7 +515,10 @@ theorem K0_invariant_under_equivalence : True := by sorry
 
 /-! ### Colimits and products -/
 
-/-- K.7/invariance-under-filtered-colimits-and-products. -/
+/-- K.7/invariance-under-filtered-colimits-and-products: the NONCONNECTIVE
+refinements (Bass's groups, `K^B`, Schlichting's `IK`). The connective statements
+for rings, `n ≥ 0`, are the early ring node's `KGroup.ofRing_prod` and
+`KGroup.ofRing_colimit` (K.2:plus) and are imported, not restated. -/
 theorem KTheory.of_filtered_colimit (n : ℤ) : True := by sorry
 
 theorem KTheory.of_prod (n : ℤ) : True := by sorry
@@ -393,8 +529,19 @@ theorem KTheory.not_of_infinite_prod : True := by sorry
 /-! ### Products -/
 
 /-- K.7/products-from-biexact-functors. A functor exact in each variable
-separately induces a pairing. -/
+separately induces a pairing. This node is the only owner of the K-theoretic
+pairing `K A ∧ K B → K C` and of its coherence; the smash product of spectra is
+StableHomotopyKTheory H.5:spectra's, and spectrum assembly (H.5:S-delooping)
+needs no product. -/
 def KTheory.biexactPairing : True := by sorry
+
+/-
+  theorem KTheory.biexactPairing_natural :   -- natural in exact functors and natural
+    ...                                      -- transformations of each variable, so it
+                                             -- maps fibration sequences to fibration sequences
+  theorem KTheory.biexactPairing_K0 (F : A × B ⥤ C) (a : A) (b : B) :
+    biexactPairing F ([a], [b]) = [F.obj (a, b)]   -- in degree zero
+-/
 
 def KTheory.externalProduct : True := by sorry
 
@@ -418,7 +565,9 @@ is absent from both pinned trees; `K2SymbolsBrauer:T.6` is asked for it. -/
 theorem symbol_anticomm : True := by sorry
 
 /-- The link back to K.6: multiplication by the class of `t` in `K₁ (ℤ[t,t⁻¹])`
-is the splitting of the Fundamental Theorem. -/
+is the splitting of the Fundamental Theorem (`boundary_mul_t`,
+K.6/multiplication-by-t-splits-the-boundary). The scheme form of graded
+commutativity is SchemeKTheoryOperations S.6's, which imports this node. -/
 theorem mul_t_eq_splitting : True := by sorry
 
 /-! ### Compatibilities and the two unit tests -/
@@ -436,8 +585,10 @@ theorem KTheory.transfer_mul : True := by sorry
 the split model with the exact-category model is still needed. -/
 theorem K0_mul_eq_tensor : True := by sorry
 
-/-- Second test: multiplication by the class of a unit is an automorphism, with
-inverse multiplication by the inverse unit. -/
-theorem mul_unit_bijective (u : Aˣ) : True := by sorry
+/-- Second test: multiplication by the class `[u]` of a unit raises degree by one,
+and since `[u⁻¹] = -[u]` in `K₁`, multiplication by `[u⁻¹]` is the NEGATIVE of
+multiplication by `[u]` — not its inverse; neither is an automorphism of a
+K-group. (Renamed from `mul_unit_bijective`, whose statement was false.) -/
+theorem mul_unit_inv_eq_neg (u : Aˣ) : True := by sorry
 
 end TauCeti.NonconnectiveK

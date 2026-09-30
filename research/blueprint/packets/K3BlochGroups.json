@@ -68,16 +68,9 @@
    {
     "ref": "mathlib:groupHomology.H2",
     "module": "Mathlib/RepresentationTheory/Homological/GroupHomology/LowDegree.lean",
-    "provides": "H2 A := groupHomology A 2 (abbreviation); for A = Rep.trivial ℤ G ℤ it is the Schur multiplier H_2(G, ℤ) that superperfection makes vanish. Mathlib has no Hopf formula and no link between H2 and central extensions; V.1/split-extensions-kill-h2 supplies that link.",
+    "provides": "H2 A := groupHomology A 2 (abbreviation); for A = Rep.trivial ℤ G ℤ it is the Schur multiplier H_2(G, ℤ) that superperfection makes vanish. Mathlib has no Hopf formula and no link between H2 and central extensions; K2SymbolsBrauer:T.1:classical/split-extensions-kill-h2 (formerly V.1/split-extensions-kill-h2) supplies that link, and V.1 imports it.",
     "kind": "abbrev",
     "checked": "statement read at the pinned commit (Mathlib/RepresentationTheory/Homological/GroupHomology/LowDegree.lean:1063)"
-   },
-   {
-    "ref": "mathlib:Group.IsPerfect",
-    "module": "Mathlib/GroupTheory/IsPerfect.lean",
-    "provides": "The class commutator G = ⊤: perfectness, the first half of superperfection.",
-    "kind": "class",
-    "checked": "statement read at the pinned commit (Mathlib/GroupTheory/IsPerfect.lean:41)"
    },
    {
     "ref": "mathlib:FreeAbelianGroup",
@@ -218,66 +211,6 @@
     "provides": "With [Invertible (2 : R)], symmetricTensors R M and antisymmetricTensors R M are complementary; over ℤ, 2 is not invertible, so this gives the comparison only after inverting 2.",
     "kind": "theorem",
     "checked": "statement read at the pinned commit (TauCeti/LinearAlgebra/TensorProduct/Symmetric.lean:145)"
-   },
-   {
-    "ref": "mathlib:groupHomology.H1AddEquivOfIsTrivial",
-    "module": "Mathlib/RepresentationTheory/Homological/GroupHomology/LowDegree.lean",
-    "provides": "For a trivial representation, H_1(G, A) ≃+ Gᵃᵇ ⊗[ℤ] A; with A = Z, H_1 is the abelianisation.",
-    "checked": "statement read at the pinned commit (Mathlib/RepresentationTheory/Homological/GroupHomology/LowDegree.lean:1023)"
-   },
-   {
-    "ref": "mathlib:GroupExtension",
-    "module": "Mathlib/GroupTheory/GroupExtension/Defs.lean",
-    "provides": "A short exact sequence of groups 1 → N → E → G → 1, the carrier of the (central) extensions of V.1.",
-    "checked": "statement read at the pinned commit (Mathlib/GroupTheory/GroupExtension/Defs.lean:74)"
-   },
-   {
-    "ref": "mathlib:Subgroup.center",
-    "module": "Mathlib/GroupTheory/Subgroup/Center.lean",
-    "provides": "The centre of a group, in which the kernel of a central extension lies.",
-    "checked": "statement read at the pinned commit (Mathlib/GroupTheory/Subgroup/Center.lean:30)"
-   },
-   {
-    "ref": "mathlib:groupCohomology.H2",
-    "module": "Mathlib/RepresentationTheory/Homological/GroupCohomology/LowDegree.lean",
-    "provides": "Second group cohomology, the classifying group of extensions with abelian kernel.",
-    "checked": "statement read at the pinned commit (Mathlib/RepresentationTheory/Homological/GroupCohomology/LowDegree.lean:1042)"
-   },
-   {
-    "ref": "mathlib:CharacterModule",
-    "module": "Mathlib/Algebra/Module/CharacterModule.lean",
-    "provides": "Characters A →+ AddCircle (1 : ℚ), i.e. homomorphisms to Q/Z.",
-    "checked": "statement read at the pinned commit (Mathlib/Algebra/Module/CharacterModule.lean:44)"
-   },
-   {
-    "ref": "mathlib:CharacterModule.dual_surjective_of_injective",
-    "module": "Mathlib/Algebra/Module/CharacterModule.lean",
-    "provides": "Characters extend along injective maps (Q/Z is injective).",
-    "checked": "statement read at the pinned commit (Mathlib/Algebra/Module/CharacterModule.lean:101)"
-   },
-   {
-    "ref": "mathlib:CharacterModule.eq_zero_of_character_apply",
-    "module": "Mathlib/Algebra/Module/CharacterModule.lean",
-    "provides": "An element killed by every character is zero.",
-    "checked": "statement read at the pinned commit (Mathlib/Algebra/Module/CharacterModule.lean:223)"
-   },
-   {
-    "ref": "tauceti:TauCeti.FactorSet.exists_cohomologyClass_eq",
-    "module": "TauCeti/GroupTheory/GroupExtension/Cohomology.lean",
-    "provides": "Every class of H²(G, M) is the class of a factor set.",
-    "checked": "statement read at the pinned commit (TauCeti/GroupTheory/GroupExtension/Cohomology.lean:187)"
-   },
-   {
-    "ref": "tauceti:TauCeti.FactorSet.nonempty_splitting_iff_cohomologyClass_eq_zero",
-    "module": "TauCeti/GroupTheory/GroupExtension/Cohomology.lean",
-    "provides": "The extension of a factor set splits exactly when its class in H² vanishes.",
-    "checked": "statement read at the pinned commit (TauCeti/GroupTheory/GroupExtension/Cohomology.lean:245)"
-   },
-   {
-    "ref": "tauceti:TauCeti.FactorSet.groupExtension",
-    "module": "TauCeti/GroupTheory/GroupExtension/Of/FactorSet.lean",
-    "provides": "The group extension 1 → M → E_α → G → 1 determined by a factor set.",
-    "checked": "statement read at the pinned commit (TauCeti/GroupTheory/GroupExtension/Of/FactorSet.lean:257)"
    },
    {
     "ref": "mathlib:groupHomology.inhomogeneousChains.d",
@@ -631,48 +564,6 @@
  ],
  "nodes": [
   {
-   "id": "K3BlochGroups:V.1/uce-superperfect",
-   "parentStageId": "K3BlochGroups:V.1",
-   "realises": [
-    "K3BlochGroups:V.1"
-   ],
-   "title": "A group carrying a universal central extension is superperfect",
-   "kind": "lemma",
-   "statement": "Let 1 → A → S → P → 1 be a universal central extension of groups. Then S is superperfect: H_1(S, Z) = 0 (S is perfect) and H_2(S, Z) = 0. Only the universal property is used; no property of the elementary or Steinberg groups enters.",
-   "hypotheses": [
-    "S → P is a central extension with kernel A that is universal among central extensions of P (for every central extension Y → P there is exactly one homomorphism S → Y over P).",
-    "S is a group in Type (the universe in which the Tau Ceti classification of extensions by H^2 is stated)."
-   ],
-   "proofSteps": [
-    "S is perfect (K-book Lemma III.5.3.2): otherwise B = S/[S,S] is nonzero and (0, π) and (pr, π) are two distinct homomorphisms over P from S to the split central extension B × P → P.",
-    "H_1(S, Z) is isomorphic to the abelianisation of S tensored with Z (groupHomology.H1AddEquivOfIsTrivial), hence 0.",
-    "Every central extension ρ: E → S splits: S is perfect, so the composite πρ: E → P is a central extension (V.1/central-extension-comp); universality gives σ: S → E over P; ρσ: S → S is a homomorphism over P, so ρσ is the identity by the uniqueness clause of universality, and σ is a section of ρ.",
-    "By the previous step every central extension of S by the circle group Q/Z with trivial action splits, so V.1/split-extensions-kill-h2 gives H_2(S, Z) = 0."
-   ],
-   "acceptance": [
-    "For S = P = the trivial group both homology groups vanish.",
-    "The alternating group A_5 is perfect with H_2(A_5, Z) ≅ Z/2, so by the lemma it is the source of no universal central extension; its universal central extension SL_2(F_5) → A_5 has superperfect source."
-   ],
-   "prerequisites": [
-    "K2SymbolsBrauer:T.1:classical",
-    "mathlib:GroupExtension",
-    "mathlib:Group.IsPerfect",
-    "mathlib:groupHomology.H1AddEquivOfIsTrivial",
-    "mathlib:groupHomology.H2",
-    "K3BlochGroups:V.1/central-extension-comp",
-    "K3BlochGroups:V.1/split-extensions-kill-h2"
-   ],
-   "sources": [
-    {
-     "sourceId": "Kbook.2013",
-     "locator": "Lemma III.5.3.2 and Recognition Theorem III.5.4 (PDF pp. 227–228)",
-     "excerpt": "Let X be any central extension of G, the following are equivalent: (1) X is a universal central extension; (2) X is perfect, and every central extension of X splits; (3) H1(X; Z) = H2(X; Z) = 0.",
-     "match": "The implication (1) ⇒ (3); perfectness is Lemma III.5.3.2, and the route (1) ⇒ (2) ⇒ (3) is the one the K-book indicates ('(1)⇒(2) is Lemma 5.3.2 and Ex. 5.7')."
-    }
-   ],
-   "implementationStatus": "unchecked"
-  },
-  {
    "id": "K3BlochGroups:V.1/steinberg-superperfect",
    "parentStageId": "K3BlochGroups:V.1",
    "realises": [
@@ -680,14 +571,14 @@
    ],
    "title": "The stable Steinberg group is superperfect",
    "kind": "theorem",
-   "statement": "For every associative unital ring A the stable Steinberg group St(A) satisfies H_1(St(A), Z) = 0 and H_2(St(A), Z) = 0. The statement is about the stable group, with no stable-range hypothesis on A; no claim is made for the finite-rank groups St_n(A), whose kernels K2SymbolsBrauer T.1 keeps separate.",
+   "statement": "For every associative unital ring A the stable Steinberg group St(A) satisfies H_1(St(A), Z) = 0 and H_2(St(A), Z) = 0, i.e. it is superperfect in the sense of K2SymbolsBrauer:T.1:classical/superperfect. The statement is about the stable group, with no stable-range hypothesis on A; no claim is made for the finite-rank groups St_n(A), whose kernels K2SymbolsBrauer T.1 keeps separate. It is a corollary of two imported theorems and is not proved here: St(A) → E(A) is a universal central extension (K2SymbolsBrauer:T.1/steinberg-is-uce), and the source of a universal central extension is superperfect (K2SymbolsBrauer:T.1:classical/uce-source-superperfect, the Recognition Theorem's (1) ⇒ (3)).",
    "hypotheses": [
-    "A is an associative unital ring.",
-    "St(A) is the stable Steinberg group, the colimit of the St_n(A)."
+    "A is an associative unital ring in Type (Mathlib's integral group homology needs St(A) in the universe of ℤ).",
+    "St(A) is the stable Steinberg group of K2SymbolsBrauer:T.1/stabilisation, the colimit of the St_n(A)."
    ],
    "proofSteps": [
-    "Import from K2SymbolsBrauer T.1:classical that the stable map St(A) → E(A) is a universal central extension with kernel K_2(A), for every ring (K-book Theorem III.5.5 has no hypothesis on A).",
-    "Apply V.1/uce-superperfect to that universal central extension.",
+    "Import from K2SymbolsBrauer:T.1/steinberg-is-uce that St(A) → E(A) is a universal central extension with kernel K_2(A), for every ring (K-book Theorem III.5.5 has no hypothesis on A).",
+    "Apply K2SymbolsBrauer:T.1:classical/uce-source-superperfect to it. The group-theoretic argument (perfectness, splitting of central extensions of a universal source, and the vanishing of H_2 when central extensions by Q/Z split) is owned there; this layer formerly planned it as V.1/uce-superperfect, V.1/central-extension-comp and V.1/split-extensions-kill-h2, which moved to K2SymbolsBrauer T.1:classical under RT-AREA-ktheory-1/29.",
     "Record explicitly that no finite-rank statement is asserted."
    ],
    "acceptance": [
@@ -695,8 +586,10 @@
     "For A = Z, H_2(E(Z), Z) ≅ K_2(Z) ≅ Z/2 (K-book III.5.5; K2SymbolsBrauer T.5) while H_2(St(Z), Z) = 0: superperfection is a property of St(A), not of E(A)."
    ],
    "prerequisites": [
-    "K3BlochGroups:V.1/uce-superperfect",
-    "K2SymbolsBrauer:T.1:classical",
+    "K2SymbolsBrauer:T.1/stabilisation",
+    "K2SymbolsBrauer:T.1/steinberg-is-uce",
+    "K2SymbolsBrauer:T.1:classical/uce-source-superperfect",
+    "K2SymbolsBrauer:T.1:classical/superperfect",
     "mathlib:groupHomology.H1",
     "mathlib:groupHomology.H2"
    ],
@@ -705,7 +598,7 @@
      "sourceId": "Kbook.2013",
      "locator": "Theorem III.5.5 (PDF p. 228)",
      "excerpt": "Theorem 5.5. (Kervaire, Steinberg) The Steinberg group St(R) is the universal central extension of E(R). Hence K2(R) ≅ H2(E(R); Z).",
-     "match": "The universal central extension to which V.1/uce-superperfect is applied."
+     "match": "The universal central extension, imported from K2SymbolsBrauer:T.1/steinberg-is-uce, to which K2SymbolsBrauer:T.1:classical/uce-source-superperfect is applied."
     },
     {
      "sourceId": "Kbook.2013",
@@ -733,7 +626,7 @@
     "The plus construction is the one of StableHomotopyKTheory H.3, taken relative to the named perfect normal subgroup."
    ],
    "proofSteps": [
-    "Apply H.3 to the connected space B St(A) (StableHomotopyKTheory H.1) and the perfect normal subgroup St(A) of its fundamental group (perfect by V.1/steinberg-superperfect).",
+    "Apply H.3 to the connected space B St(A) (StableHomotopyKTheory H.1) and the perfect normal subgroup St(A) of its fundamental group (perfect by V.1/steinberg-superperfect, that is, by K2SymbolsBrauer:T.1:classical/stable-steinberg-perfect).",
     "H.3 gives π_1(BSt(A)⁺) = 1 and the homology isomorphism ι; H.1 identifies H_*(B St(A); Z) with Mathlib group homology of St(A) with coefficients Rep.trivial Z (St A) Z.",
     "St(A) → E(A) (K2SymbolsBrauer T.1:classical) followed by E(A) ⊂ GL(A) (KTheoryLowDegrees U.1) carries St(A) into E(A), the perfect subgroup selected for BGL(A)⁺ (GeneralAlgebraicKTheory K.2:plus), so H.3's functoriality gives q.",
     "A ring map A → B induces St(A) → St(B) (T.1:classical), hence BSt(A)⁺ → BSt(B)⁺ compatible with ι and q up to homotopy.",
@@ -1155,94 +1048,6 @@
    }
   },
   {
-   "id": "K3BlochGroups:V.1/central-extension-comp",
-   "parentStageId": "K3BlochGroups:V.1",
-   "realises": [
-    "K3BlochGroups:V.1"
-   ],
-   "title": "Composite of central extensions with perfect middle term",
-   "kind": "lemma",
-   "statement": "Let ρ: Y → X and π: X → G be central extensions of groups (surjections with central kernels). If X is perfect, then πρ: Y → G is a central extension.",
-   "hypotheses": [
-    "ker ρ is contained in the centre of Y and ker π in the centre of X.",
-    "X is perfect."
-   ],
-   "proofSteps": [
-    "For z in ker(πρ), ρ(z) is central in X, so [y, z] lies in ker ρ, which is central in Y, for every y in Y.",
-    "Hence y ↦ [y, z] is a homomorphism from Y to the centre of Y, since [yy', z] = [y', z][y, z] when the values are central.",
-    "Its target is abelian, so it kills [Y, Y]; it kills ker ρ, which is central. As X is perfect, Y = [Y, Y]·ker ρ, so the homomorphism is trivial and z is central."
-   ],
-   "acceptance": [
-    "Non-example without perfectness: D_8 → D_8/Z(D_8) ≅ (Z/2)² and (Z/2)² → Z/2 are central extensions, but the composite has kernel {1, r², s, sr²}, which contains the non-central reflection s.",
-    "With X a universal central extension (perfect by Lemma III.5.3.2) this is the first sentence of Ex. III.5.7 as used in the Recognition Theorem."
-   ],
-   "prerequisites": [
-    "mathlib:GroupExtension",
-    "mathlib:Subgroup.center",
-    "mathlib:Group.IsPerfect"
-   ],
-   "sources": [
-    {
-     "sourceId": "Kbook.2013",
-     "locator": "Ex. III.5.7 (PDF p. 237)",
-     "excerpt": "If Y →ρ X and X →π G are central extensions, show that the “composition” Y →πρ G is also a central extension. If X is a universal central extension of G, conclude that every central extension Y →ρ X splits.",
-     "match": "The first sentence, with the perfectness hypothesis the printed exercise omits (source issue); the second sentence is step 3 of V.1/uce-superperfect."
-    }
-   ],
-   "implementationStatus": "unchecked",
-   "addedBy": "REV-K3BlochGroups"
-  },
-  {
-   "id": "K3BlochGroups:V.1/split-extensions-kill-h2",
-   "parentStageId": "K3BlochGroups:V.1",
-   "realises": [
-    "K3BlochGroups:V.1"
-   ],
-   "title": "Split central extensions force vanishing Schur multiplier",
-   "kind": "lemma",
-   "statement": "Let G be a group (in Type). If every central extension of G by the circle group T = Q/Z (AddCircle (1 : ℚ), with trivial G-action) splits, then H_2(G, Z) = 0. More precisely, the evaluation map H²(G; T) → Hom(H_2(G, Z), T) is surjective, and H²(G; T) = 0 under the hypothesis.",
-   "hypotheses": [
-    "G : Type; T carries the trivial G-action."
-   ],
-   "proofSteps": [
-    "Pair inhomogeneous 2-cocycles G × G → T with 2-cycles; the pairing kills coboundaries against cycles and cocycles against boundaries, so it descends to ev: H²(G; T) → Hom(H_2(G, Z), T).",
-    "ev is surjective: a character φ of H_2(G, Z), composed with the projection from 2-cycles, extends along the inclusion of 2-cycles into the 2-chains G × G →₀ Z (CharacterModule.dual_surjective_of_injective) to a function f : G × G → T; f vanishes on boundaries, so it is a 2-cocycle with ev[f] = φ.",
-    "H²(G; T) = 0: every class is the class of a factor set (TauCeti.FactorSet.exists_cohomologyClass_eq), whose extension (TauCeti.FactorSet.groupExtension) is central because the action is trivial, hence splits by hypothesis, so its class is 0 (TauCeti.FactorSet.nonempty_splitting_iff_cohomologyClass_eq_zero).",
-    "So every character of H_2(G, Z) vanishes, and H_2(G, Z) = 0 by CharacterModule.eq_zero_of_character_apply."
-   ],
-   "acceptance": [
-    "For G = A_5, H_2 ≅ Z/2 and the non-split central extension SL_2(F_5) → A_5 realises the nonzero character's class, so the hypothesis fails as it must."
-   ],
-   "prerequisites": [
-    "mathlib:groupHomology.H2",
-    "mathlib:groupCohomology.H2",
-    "mathlib:groupHomology.inhomogeneousChains",
-    "mathlib:groupHomology.d₃₂",
-    "mathlib:CharacterModule",
-    "mathlib:CharacterModule.dual_surjective_of_injective",
-    "mathlib:CharacterModule.eq_zero_of_character_apply",
-    "tauceti:TauCeti.FactorSet.exists_cohomologyClass_eq",
-    "tauceti:TauCeti.FactorSet.nonempty_splitting_iff_cohomologyClass_eq_zero",
-    "tauceti:TauCeti.FactorSet.groupExtension"
-   ],
-   "sources": [
-    {
-     "sourceId": "Kbook.2013",
-     "locator": "III.5.3 (PDF p. 227)",
-     "excerpt": "It is well-known that the equivalence classes of central extensions of G by a fixed group A are in 1–1 correspondence with the elements of the cohomology group H2(G; A)",
-     "match": "The classification of central extensions by H² used in the third step."
-    },
-    {
-     "sourceId": "Kbook.2013",
-     "locator": "Recognition Theorem III.5.4 (PDF p. 228)",
-     "excerpt": "Let X be any central extension of G, the following are equivalent: (1) X is a universal central extension; (2) X is perfect, and every central extension of X splits; (3) H1(X; Z) = H2(X; Z) = 0.",
-     "match": "The implication (2) ⇒ (3) that this lemma supplies."
-    }
-   ],
-   "implementationStatus": "unchecked",
-   "addedBy": "REV-K3BlochGroups"
-  },
-  {
    "id": "K3BlochGroups:V.1/uce-plus-fibration",
    "parentStageId": "K3BlochGroups:V.1",
    "realises": [
@@ -1252,7 +1057,7 @@
    "kind": "lemma",
    "statement": "For a universal central extension 1 → A → S → P → 1, with plus constructions taken relative to S and to P (both perfect), the induced sequence BA → BS⁺ → BP⁺ is a homotopy fibration. Consequently π_n(BS⁺) → π_n(BP⁺) is an isomorphism for every n ≥ 3.",
    "hypotheses": [
-    "S → P is a universal central extension; S and P are perfect (Lemma III.5.3.2)."
+    "S → P is a universal central extension; S and P are perfect (K-book Lemma III.5.3.2, imported as K2SymbolsBrauer:T.1/uce-perfect)."
    ],
    "proofSteps": [
     "BA → BS → BP is a fibration with fibre the K(A, 1) space BA (StableHomotopyKTheory H.1 and H.2).",
@@ -1264,7 +1069,8 @@
     "For S = St(A) and P = E(A) the fibre is B K_2(A), and π_2(BE(A)⁺) ≅ K_2(A)."
    ],
    "prerequisites": [
-    "K3BlochGroups:V.1/uce-superperfect",
+    "K2SymbolsBrauer:T.1/universal-central-extension",
+    "K2SymbolsBrauer:T.1/uce-perfect",
     "StableHomotopyKTheory:H.1",
     "StableHomotopyKTheory:H.2",
     "StableHomotopyKTheory:H.3"
@@ -7431,7 +7237,7 @@
   {
    "stageId": "K3BlochGroups:V.1",
    "status": "partial",
-   "note": "Every target of the layer has a node: superperfection (with the Recognition-theorem lemmas it rests on), the plus construction BSt(A)⁺ with its two-connectedness, the fibration over BE(A)⁺ and the comparison with the two-connected cover of BGL(A)⁺, the Hurewicz identification of K_3 with H_3(St(A), Z), the bar model with its evaluation on representatives, naturality and stabilisation, and the [−1]-product sequence with Suslin's degree-three Hurewicz lemma. The Steinberg group is imported from K2SymbolsBrauer T.1:classical and the plus construction from StableHomotopyKTheory H.3.",
+   "note": "Every target of the layer has a node: superperfection of St(A) (a corollary of K2SymbolsBrauer T.1:classical's universal-central-extension theorem and of its theorem that the source of a universal central extension is superperfect), the plus construction BSt(A)⁺ with its two-connectedness, the fibration over BE(A)⁺ and the comparison with the two-connected cover of BGL(A)⁺, the Hurewicz identification of K_3 with H_3(St(A), Z), the bar model with its evaluation on representatives, naturality and stabilisation, and the [−1]-product sequence with Suslin's degree-three Hurewicz lemma. The Steinberg group and the recognition-theorem lemmas are imported from K2SymbolsBrauer T.1:classical and the plus construction from StableHomotopyKTheory H.3. Under RT-AREA-ktheory-1/29 the nodes V.1/uce-superperfect, V.1/central-extension-comp and V.1/split-extensions-kill-h2 moved to K2SymbolsBrauer:T.1:classical (as uce-source-superperfect, central-extension-comp and split-extensions-kill-h2), which owns the recognition theorem; their dependants here now cite the moved nodes.",
    "remaining": [
     "Hilton–Milnor and Whitehead-product inputs to V.1/eta-hurewicz-sequence (gap).",
     "Ex. IV.1.12(a),(e), the Hopf element and the product with [−1] (gap).",
@@ -7763,10 +7569,10 @@
   },
   {
    "supplier": "K2SymbolsBrauer:T.1:classical",
-   "need": "The stable Steinberg group St(A) as the colimit of the St_n(A) with its stabilisation maps, functorial in ring maps; the surjection onto E(A); the general definition of a universal central extension; and the theorem that St(A) → E(A) is a universal central extension with kernel K_2(A), for every associative unital ring with no stable-range hypothesis (K-book III.5.2.1 and III.5.5 have none). V.1 imports these and proves only superperfection and the homotopy-theoretic consequences.",
+   "need": "The stable Steinberg group St(A) as the colimit of the St_n(A) with its stabilisation maps, functorial in ring maps; the surjection onto E(A); the general definition of a universal central extension; and the theorem that St(A) → E(A) is a universal central extension with kernel K_2(A), for every associative unital ring with no stable-range hypothesis (K-book III.5.2.1 and III.5.5 have none). Also the universal-central-extension package that the superperfection of St(A) and Ex. IV.1.9 rest on: the perfectness of both ends of a universal central extension (T.1/uce-perfect), superperfect groups, and the theorem that the source of a universal central extension is superperfect (T.1:classical/uce-source-superperfect with central-extension-comp, uce-extensions-split, split-extensions-kill-h2 and h1-trivial-perfect), which this layer formerly planned as V.1/uce-superperfect, V.1/central-extension-comp and V.1/split-extensions-kill-h2 (RT-AREA-ktheory-1/29 and /30). V.1 imports these, deduces the superperfection of St(A) as a corollary, and proves only the homotopy-theoretic consequences: the plus construction BSt(A)⁺, the connected-cover comparison, the Hurewicz step and the bar-cycle model of K_3. The stage-level edge K2SymbolsBrauer:T.1:classical → K3BlochGroups:V.1 is requested of the atlas maintainer.",
    "neededBy": [
-    "K3BlochGroups:V.1/uce-superperfect",
     "K3BlochGroups:V.1/steinberg-superperfect",
+    "K3BlochGroups:V.1/uce-plus-fibration",
     "K3BlochGroups:V.1/bst-plus",
     "K3BlochGroups:V.1/bst-plus-connected-cover",
     "K3BlochGroups:V.1/k3-naturality",
@@ -8012,7 +7818,7 @@
    "locator": "Ex. III.5.7, PDF p. 237 (printed p. 229), author-hosted draft of 29 August 2013",
    "printed": "If Y →ρ X and X →π G are central extensions, show that the “composition” Y →πρ G is also a central extension.",
    "correction": "Add the hypothesis that X is perfect (as when X is a universal central extension, by Lemma III.5.3.2).",
-   "reason": "D_8 → D_8/Z(D_8) ≅ (Z/2)² and (Z/2)² → Z/2 are central extensions, but the composite D_8 → Z/2 has kernel {1, r², s, sr²}, which contains the reflection s, not central because srs⁻¹ = r⁻¹ ≠ r. With X perfect the proof of V.1/central-extension-comp goes through.",
+   "reason": "D_8 → D_8/Z(D_8) ≅ (Z/2)² and (Z/2)² → Z/2 are central extensions, but the composite D_8 → Z/2 has kernel {1, r², s, sr²}, which contains the reflection s, not central because srs⁻¹ = r⁻¹ ≠ r. With X perfect the proof of K2SymbolsBrauer:T.1:classical/central-extension-comp (formerly V.1/central-extension-comp) goes through.",
    "affects": "nothing",
    "known": "new",
    "searched": [

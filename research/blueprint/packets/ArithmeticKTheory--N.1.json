@@ -13,7 +13,7 @@
   "ArithmeticKTheory:N.5",
   "ArithmeticKTheory:N.6"
  ],
- "summary": "The blueprint for the first six layers of the K-theory of number fields and S-integers, planned from Weibel's K-book (author-hosted combined draft of 29 August 2013): N.1, the arithmetic carriers in degrees zero and one; N.2, localisation and finite support; N.3, finite generation and the ranks; N.4, the numbers w_i(F); N.5, the odd groups with their integral structure; and N.6, the even groups and arithmetic cohomology. N.1 builds on Mathlib's S-integers (Set.integer) and Tau Ceti's S-integer API: it proves when a localisation presents O_{F,S}, monotonicity in S, the finite-extension statement and the transfer on units, and imports K₀ and K₁ from KTheoryLowDegrees Z.4, U.3–U.5. N.2 constructs the localisation sequence for a Dedekind domain from GeneralAlgebraicKTheory K.1, K.3 and K.7, with finite support, the transfer morphism, the identification of its end with the divisor, unit and class-group sequences, and even-degree injectivity from K_{2j}(𝔽_q) = 0 (KTheoryFiniteLocalFields L.1); the tame-kernel sequence and the tame-symbol identification of the degree-two boundary are K2SymbolsBrauer T.5's and T.3's, which import N.2. N.3 proves Quillen's finiteness criterion and his theorem for rings of integers, with the arithmetic-group input from BorelRegulators R.1, passes to S-integers by localisation, and obtains the ranks from Borel's theorem (R.3). N.4 defines w_i(F) through the Tate twists of MotivicEtaleKTheory M.1 and computes it from the cyclotomic character, with the exponent criterion, finiteness, the exceptional fields and the 2-primary formulas (w₂(ℚ) = 24, w₁₀(ℚ) = 264). N.5 proves Soulé's theorem (moved from N.2, since its proof needs finite generation) and the integral structure of the odd groups, the totally imaginary row and the four rows modulo eight for real fields, with the e-invariant and the Harris–Segal summand; the 2-adic extension data are imported from M.7 and the Chern maps from M.8. N.6 treats the even groups at odd primes and their 2-primary corrections, the signature defect and the order ratio for totally real fields, the wild kernel and the divisible subgroup, and the cohomological lower bound for T.5's order certificates. Nothing here is formalised; implementationStatus is unchecked throughout.",
+ "summary": "The blueprint for the first six layers of the K-theory of number fields and S-integers, planned from Weibel's K-book (author-hosted combined draft of 29 August 2013), with Kahn's 'Around Quillen's theorem A' (arXiv:1108.2441v3) for Quillen's rank filtration and Putman–Studenmund (arXiv:1909.01217v4) for the dualizing module of GL_n(O): N.1, the arithmetic carriers in degrees zero and one; N.2, localisation and finite support; N.3, finite generation and the ranks; N.4, the numbers w_i(F); N.5, the odd groups with their integral structure; and N.6, the even groups and arithmetic cohomology. N.1 builds on Mathlib's S-integers (Set.integer) and Tau Ceti's S-integer API: it proves when a localisation presents O_{F,S}, monotonicity in S, the finite-extension statement and the transfer on units, and imports K₀ and K₁ from KTheoryLowDegrees Z.4, U.3–U.5. N.2 constructs the localisation sequence for a Dedekind domain from GeneralAlgebraicKTheory K.1, K.3 and K.7, with finite support, the transfer morphism, the identification of its end with the divisor, unit and class-group sequences, and even-degree injectivity from K_{2j}(𝔽_q) = 0 (KTheoryFiniteLocalFields L.1); its degree-two row, the tame-kernel sequence with its injectivity and surjectivity, is imported from K2SymbolsBrauer T.5, which proves it from T.3's boundary comparison and U.4. N.3 constructs Quillen's rank filtration of Q(P(A)) for a Dedekind domain A, identifies its strata and the fibres of its inclusions, and obtains the rank spectral sequence E¹_{p,q} = ⊕_{rank P = p} H_q(Aut P; St(P ⊗ F)); it imports from BorelRegulators R.1 the Tits building, the Solomon–Tits theorem, the Steinberg module and the integral finiteness of the Steinberg homology of arithmetic groups (through the twisted dualizing module St_n(F) ⊗ ℤ_χ^{⊗(n−1)}, χ = N_{F/ℚ}∘det), shows that the groups Aut(P), nonfree P included, are arithmetic, assembles Quillen's theorem for 𝓞_F with Serre's passage from homology to homotopy, and passes to S-integers by localisation; N.3:ranks imports Borel's rank theorem for 𝓞_F from R.3 and owns the passage to 𝓞_{F,S}, the degree-one S-unit exception and the finiteness of the positive even groups. N.4 defines w_i(F) through the Tate twists of MotivicEtaleKTheory M.1 and computes it from the cyclotomic character, with the exponent criterion, finiteness, the exceptional fields and the 2-primary formulas (w₂(ℚ) = 24, w₁₀(ℚ) = 264); SpecialValuesBirchTate B.1 is to import W₂ with its finiteness from it, and the finiteness of K₂(𝓞_F) from N.3:ranks. N.5 proves Soulé's theorem (moved from N.2, since its proof needs finite generation) and the integral structure of the odd groups, the totally imaginary row and the four rows modulo eight for real fields, with the e-invariant and the Harris–Segal summand; the dyadic real-place calculation and its extension data are imported from M.7, which owns it, and the Chern maps from M.8. N.6 treats the even groups at odd primes and their 2-primary corrections, the signature defect and the order ratio for totally real fields, the wild kernel and the divisible subgroup, and owns the certificate engine: the order-certificate format with independent upper and lower bounds and its cohomological lower bound in every even degree, which ArithmeticKTheory N.8 instantiates; the tame kernel and its sequence are imported from K2SymbolsBrauer T.5, and Tate's theorem K₂/m ≅ H² from MotivicEtaleKTheory M.3. Nothing here is formalised; implementationStatus is unchecked throughout.",
  "baseline": {
   "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
   "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -455,6 +455,76 @@
     "module": "TauCeti/NumberTheory/ClassGroup/ElementaryTwoQuotient.lean",
     "provides": "dim_{ZMod 2} Cl(R)/Cl(R)², the t of Definition VI.9.6.1.",
     "checked": "statement read at the pinned commit (TauCeti/NumberTheory/ClassGroup/ElementaryTwoQuotient.lean:177)"
+   },
+   {
+    "ref": "mathlib:groupHomology",
+    "kind": "def",
+    "module": "Mathlib/RepresentationTheory/Homological/GroupHomology/Basic.lean",
+    "provides": "groupHomology A n : ModuleCat k, the homology of the inhomogeneous chains of a k-linear G-representation A (line 230); with k = ℤ and A the Steinberg module of Aut(P) it is the E¹ term of the rank spectral sequence.",
+    "checked": "statement read at the pinned commit (fix of RT-AREA-ktheory-1, 2026-09-30)"
+   },
+   {
+    "ref": "mathlib:Submodule",
+    "kind": "structure",
+    "module": "Mathlib/Algebra/Module/Submodule/Defs.lean",
+    "provides": "Submodules (for a field, subspaces), the carrier of the layer poset J(V) and of the flags of the Tits building (line 41).",
+    "checked": "statement read at the pinned commit (fix of RT-AREA-ktheory-1, 2026-09-30)"
+   },
+   {
+    "ref": "mathlib:Module.Relations.Solution",
+    "kind": "structure",
+    "module": "Mathlib/Algebra/Module/Presentation/Basic.lean",
+    "provides": "Solutions in a module M of the equations of relations : Relations A (line 127).",
+    "checked": "statement read at the pinned commit (fix of RT-AREA-ktheory-1, 2026-09-30)"
+   },
+   {
+    "ref": "mathlib:Module.Relations.Quotient",
+    "kind": "def",
+    "module": "Mathlib/Algebra/Module/Presentation/Basic.lean",
+    "provides": "The module presented by generators and relations, (G →₀ A) ⧸ span(range relation) (line 70).",
+    "checked": "statement read at the pinned commit (fix of RT-AREA-ktheory-1, 2026-09-30)"
+   },
+   {
+    "ref": "mathlib:Module.Relations.Solution.fromQuotient",
+    "kind": "def",
+    "module": "Mathlib/Algebra/Module/Presentation/Basic.lean",
+    "provides": "The linear map relations.Quotient →ₗ M induced by a solution (line 172).",
+    "checked": "statement read at the pinned commit (fix of RT-AREA-ktheory-1, 2026-09-30)"
+   },
+   {
+    "ref": "mathlib:Module.Relations.Solution.surjective_fromQuotient_iff_surjective_π",
+    "kind": "lemma",
+    "module": "Mathlib/Algebra/Module/Presentation/Basic.lean",
+    "provides": "fromQuotient is onto iff the map π from the free module is onto (line 268).",
+    "checked": "statement read at the pinned commit (fix of RT-AREA-ktheory-1, 2026-09-30)"
+   },
+   {
+    "ref": "mathlib:Module.Relations.Solution.surjective_π_iff_span_eq_top",
+    "kind": "lemma",
+    "module": "Mathlib/Algebra/Module/Presentation/Basic.lean",
+    "provides": "π is onto iff the values of the generators span (line 274).",
+    "checked": "statement read at the pinned commit (fix of RT-AREA-ktheory-1, 2026-09-30)"
+   },
+   {
+    "ref": "mathlib:Module.Relations.Solution.IsPresentation",
+    "kind": "structure",
+    "module": "Mathlib/Algebra/Module/Presentation/Basic.lean",
+    "provides": "The solution is a presentation: fromQuotient is bijective (line 283).",
+    "checked": "statement read at the pinned commit (fix of RT-AREA-ktheory-1, 2026-09-30)"
+   },
+   {
+    "ref": "mathlib:Module.Presentation.ofIsPresentation",
+    "kind": "def",
+    "module": "Mathlib/Algebra/Module/Presentation/Basic.lean",
+    "provides": "The Module.Presentation built from a solution with IsPresentation (line 501).",
+    "checked": "statement read at the pinned commit (fix of RT-AREA-ktheory-1, 2026-09-30)"
+   },
+   {
+    "ref": "mathlib:Function.Surjective.bijective_of_nat_card_le",
+    "kind": "theorem",
+    "module": "Mathlib/SetTheory/Cardinal/Finite.lean",
+    "provides": "A surjection f : α → β with α finite and Nat.card α ≤ Nat.card β is bijective (line 132).",
+    "checked": "statement read at the pinned commit (fix of RT-AREA-ktheory-1, 2026-09-30)"
    }
   ]
  },
@@ -484,7 +554,50 @@
     "VI.8 (PDF pp. 521–524; book pp. 513–516), read by the review's checker C3: Classical Data 8.1 with (8.1.1), Theorem 8.2 with its whole proof, Corollary 8.3 and Examples 8.3.1–8.3.2, Theorem 8.4 with its proof and the preceding remark, 8.6–8.8 with the proof of 8.8, Exercises 8.1–8.6. The packet's earlier 'PDF pp. 512 to 514' are book pages.",
     "VI.9 (PDF pp. 525–534; book pp. 517–526): Theorem 9.1 with Variants 9.1.2–9.1.3, (9.2), Lemma 9.3, Theorem 9.4 with its proof, Theorem 9.5 with its proof and Example 9.5.1, 9.6 to Lemma 9.6.3, Theorem 9.7 (statement), Corollaries 9.8–9.10 with Examples 9.9.1–9.10.1 and Question 9.10.2, Theorem 9.11 with its proof, Theorem 9.12 with its proof, Exercises 9.1–9.6.",
     "Bibliography (PDF p. 576): [161] Rognes–Weibel, J. AMS 13 (2000); [225] Weibel, 'Higher wild kernels and divisibility in the K-theory of number fields', J. Pure Appl. Algebra 206 (2006) 222–244.",
-    "Page convention: PDF page = book page + 8. The packet's locators labelled 'PDF p.' were book pages, some one page low (VI.8.4 is on book p. 514, VI.8.7–8.8 on p. 515, VI.9.5 on p. 519, VI.9.11 on p. 524, VI.9.12 on p. 525, V.6.8.2 on p. 413); the corrected locators give both."
+    "Page convention: PDF page = book page + 8. The packet's locators labelled 'PDF p.' were book pages, some one page low (VI.8.4 is on book p. 514, VI.8.7–8.8 on p. 515, VI.9.5 on p. 519, VI.9.11 on p. 524, VI.9.12 on p. 525, V.6.8.2 on p. 413); the corrected locators give both.",
+    "Re-read 2026-09-30 for the fix of RT-AREA-ktheory-1 (same file, SHA-256 a04f53c9…): IV.6.8–6.9 (PDF p. 333; book p. 325), Quillen's criterion and Theorem 6.9; VI.3.1 (PDF p. 483; book p. 475), Suslin's theorem on K_*(ℝ) with finite coefficients; VI.9.1–9.4 (PDF pp. 525–527; book pp. 517–519), the use of Suslin's calculation in the real-place spectral sequences; III.5.2.2 (PDF p. 226), III.6.2.1 (PDF p. 240) and Ex. III.6.4 (PDF p. 251; book p. 243), the order-two computation of K₂(ℤ), the real symbol and the surjection K₂(F) → {±1}^{r_1}."
+   ]
+  },
+  {
+   "id": "Kahn.2014",
+   "title": "Around Quillen's theorem A",
+   "authors": "Bruno Kahn",
+   "edition": "arXiv:1108.2441v3 [math.KT], dated 2 July 2014",
+   "url": "https://arxiv.org/pdf/1108.2441",
+   "sha256": "71b5da651ba9feca4c1abcc58f566afbf11019dda465cbc3a95aace7cb1e2406",
+   "accessed": "2026-09-30",
+   "readSections": [
+    "Introduction (pp. 1–2): the exact sequences of Quillen's Theorem 3 assemble into the rank spectral sequence.",
+    "1.3.5, 1.4.2–1.4.6 (pp. 5–7): homology with coefficients, the Grothendieck construction, Thomason's theorem, the spectral sequence E²_{p,q} = H_p(D, H_q(F_T)) ⇒ H_{p+q}(C).",
+    "2.1.4, 2.2.1–2.2.3, 2.3.1–2.3.7, 2.4.1 (pp. 8–12): reduced homology with coefficients, cellular functors, the homotopy cocartesian square and long exact sequence, the spectral sequence of a cellular filtration.",
+    "3.1–3.2 (pp. 13–14) in outline: Quillen's decomposition of T(V) and the Solomon–Tits theorem.",
+    "4.1–4.3.4 (pp. 15–18) in full: the rank filtration Q_n of Q(X), the groupoids Q_n − Q_{n−1}, pure subsheaves and subspaces (4.2.4), the comma categories as posets of proper layers (4.2.6), the Dedekind case (4.2.7), the fibres as suspended buildings (4.3.1–4.3.2), the E¹ term (4.3.3) and the comparison with Quillen's Theorem 3 (4.3.4)."
+   ]
+  },
+  {
+   "id": "PutmanStudenmund.2021",
+   "title": "The dualizing module and top-dimensional cohomology group of GL_n(O)",
+   "authors": "Andrew Putman and Daniel Studenmund",
+   "edition": "arXiv:1909.01217v4 [math.NT], dated 23 April 2021",
+   "url": "https://arxiv.org/pdf/1909.01217v4",
+   "sha256": "3421bcfaffc1e05198ae8323971872ca3774bd73c067077e94f46ed5d073d7ad",
+   "accessed": "2026-09-30",
+   "readSections": [
+    "§1 (pp. 2–5): the vcd of GL_n(O), the virtual duality H^{vcd−i}(G; M) ≅ H_i(G; M ⊗ D) for finite-index G (integral coefficients when G is torsion-free), the Tits building and Steinberg module, Example 1.4 (the untwisted Steinberg module is not the dualizing module of GL_2(ℤ)) and Theorem C.",
+    "§2 (pp. 7–10): Proposition 2.1 (the Borel–Serre bordification of GL_n(O), its boundary ≃ T_n(K), its dimension, and orientation reversal exactly when n is even and χ(g) = −1), Lemmas 2.2–2.3 and the start of the proof of Theorem C.",
+    "§4.1 (p. 17): intersections of subspaces of Q ⊗ K with a projective O-module Q are direct summands; Lemma 4.1, det(GL(P)) ⊂ O^× through an embedding GL(P) ↪ GL(O^m)."
+   ]
+  },
+  {
+   "id": "Sun.2016",
+   "title": "Algebraic K-theory and modular symbols",
+   "authors": "Fei Sun",
+   "edition": "arXiv:1604.04700v1 [math.AT], dated 16 April 2016",
+   "url": "https://arxiv.org/pdf/1604.04700",
+   "sha256": "c0585949df902e30b7368c235210e8b20a0dea344ed88a9e7a65577ec681e793",
+   "accessed": "2026-09-30",
+   "readSections": [
+    "pp. 4–7: the rank spectral sequence for torsion-free modules over an integral noetherian domain, the suspension model of the Tits building, the reduced Steinberg module (Definition 0.2) and the remark that unreduced homology is wrong in dimension two, and Quillen's conditions (1)–(2) with the Hochschild–Serre passage through a normal subgroup of finite index."
    ]
   }
  ],
@@ -506,6 +619,24 @@
    "url": "https://sites.math.rutgers.edu/~weibel/archive/papers-dir/wildkernel.pdf",
    "read": "2026-09-25",
    "sha256": "2675756fe4e03556dac1b26538eeca0fd1b8bf0ae7d800433a3c708812f3478b"
+  },
+  {
+   "kind": "preprint",
+   "url": "https://arxiv.org/pdf/1108.2441",
+   "read": "2026-09-30",
+   "sha256": "71b5da651ba9feca4c1abcc58f566afbf11019dda465cbc3a95aace7cb1e2406"
+  },
+  {
+   "kind": "preprint",
+   "url": "https://arxiv.org/pdf/1909.01217v4",
+   "read": "2026-09-30",
+   "sha256": "3421bcfaffc1e05198ae8323971872ca3774bd73c067077e94f46ed5d073d7ad"
+  },
+  {
+   "kind": "preprint",
+   "url": "https://arxiv.org/pdf/1604.04700",
+   "read": "2026-09-30",
+   "sha256": "c0585949df902e30b7368c235210e8b20a0dea344ed88a9e7a65577ec681e793"
   }
  ],
  "nodes": [
@@ -996,10 +1127,10 @@
    ],
    "title": "The low-degree end of the localisation sequence: divisors, Picard group and tame symbols",
    "kind": "comparison",
-   "statement": "For a Dedekind domain R with fraction field F, the end of (6.6) is identified with the classical sequences. (a) Degrees one and zero: with K₁(R) = R^× ⊕ SK₁(R) and K₁(F) = F^× (determinant, KTheoryLowDegrees U.3), K₀(R/𝔭) = ℤ·[R/𝔭], K₀(R) ≅ ℤ ⊕ Pic(R) and K₀(F) = ℤ (Z.4), the boundary K₁(F) → ⊕_𝔭 ℤ is the divisor f ↦ (ord_𝔭 f)_𝔭, and ⊕_𝔭 ℤ → K₀(R) sends e_𝔭 to [R/𝔭] = [R] − [𝔭], which is (0, [𝔭]⁻¹); restricting K₁(R) to R^× (SK₁(R) is the kernel of K₁(R) → K₁(F)) this is the exact sequence 1 → R^× → F^× →div ⊕_𝔭 ℤ → K₀(R) → ℤ → 0 of I.3.6, and in particular the ideal-class-group sequence F^× → ⊕_𝔭 ℤ → Pic(R) → 0, whose class map is e_𝔭 ↦ [𝔭]⁻¹. (b) Degrees two and one: the exact sequence (6.6.1) ⊕_𝔭 K₂(R/𝔭) → K₂(R) → K₂(F) →∂ ⊕_𝔭 (R/𝔭)^× → SK₁(R) → 1, with ∂ the boundary of (6.6). The source identifies the 𝔭-component of ∂ with the tame symbol at 𝔭; that identification, with its sign, is K2SymbolsBrauer T.3/localization-boundary's, and K2SymbolsBrauer T.5 combines it with (b). For R = O_{F,S} the sums run over 𝔭 ∉ S. The tame-kernel exact sequence is derived from (b) in K2SymbolsBrauer T.5 (T.5/tame-kernel-sequence and T.5/s-integer-tame-kernel-sequence, which import this node) and is not planned here.",
+   "statement": "For a Dedekind domain R with fraction field F, the end of (6.6) is identified with the classical sequences. (a) Degrees one and zero: with K₁(R) = R^× ⊕ SK₁(R) and K₁(F) = F^× (determinant, KTheoryLowDegrees U.3), K₀(R/𝔭) = ℤ·[R/𝔭], K₀(R) ≅ ℤ ⊕ Pic(R) and K₀(F) = ℤ (Z.4), the boundary K₁(F) → ⊕_𝔭 ℤ is the divisor f ↦ (ord_𝔭 f)_𝔭, and ⊕_𝔭 ℤ → K₀(R) sends e_𝔭 to [R/𝔭] = [R] − [𝔭], which is (0, [𝔭]⁻¹); restricting K₁(R) to R^× (SK₁(R) is the kernel of K₁(R) → K₁(F)) this is the exact sequence 1 → R^× → F^× →div ⊕_𝔭 ℤ → K₀(R) → ℤ → 0 of I.3.6, and in particular the ideal-class-group sequence F^× → ⊕_𝔭 ℤ → Pic(R) → 0, whose class map is e_𝔭 ↦ [𝔭]⁻¹. (b) Degrees two and one, for R = O_{F,S} with F a number field and S finite: the segment ⊕_{𝔭∉S} K₂(k(𝔭)) → K₂(O_{F,S}) → K₂(F) →∂ ⊕_{𝔭∉S} k(𝔭)^× → SK₁(O_{F,S}) → 1 of (6.6) is the tame-kernel sequence 0 → K₂(O_{F,S}) → K₂(F) → ⊕_{𝔭∉S} k(𝔭)^× → 0, which N.2 imports from K2SymbolsBrauer T.5 with its injectivity and its surjectivity (T.5/tame-kernel-sequence for S = ∅, T.5/s-integer-tame-kernel-sequence for finite S) and does not re-prove: in degrees at most two (6.6) is the Dedekind localisation sequence of K2SymbolsBrauer T.3/dedekind-localization-boundary (the same instance of GeneralAlgebraicKTheory K.3's theorem), whose boundary is the residue sum of the tame symbols with the sign fixed in T.3/localization-boundary, and T.5 states its third map that way. The relative sequence 0 → K₂(𝓞_F) → K₂(O_{F,S}) → ⊕_{𝔭∈S} k(𝔭)^× → 0, with residues at the primes in S, is T.5/relative-s-integer-sequence. Consequently ⊕_{𝔭∉S} K₂(k(𝔭)) → K₂(O_{F,S}) is zero and ∂ is onto in (6.6). For a general Dedekind domain only the exactness of this segment is claimed here.",
    "hypotheses": [
-    "R is a Dedekind domain with fraction field F; for the number-field case R = O_{F,S}.",
-    "The degree-two identification of ∂ with the tame symbol is K2SymbolsBrauer T.3's and is not imported here: T.5 imports this node and T.3/localization-boundary and combines them. Importing either T.3/localization-boundary or T.5 into N.2 would close a stage cycle (N.2 → T.5 → N.2, and N.2 → T.3:localization-comparison → T.2:graded-map → K3BlochGroups V.2 → N.3:finite-generation → N.2 through the other packets).",
+    "R is a Dedekind domain with fraction field F; in (b), R = O_{F,S} with F a number field and S a finite set of finite places, which is the generality of T.5's sequence.",
+    "The degree-two row is K2SymbolsBrauer T.5's (RT-AREA-ktheory-1/9): T.5 derives it from the comparison of tame residues with the localisation boundary (K2SymbolsBrauer T.3/dedekind-localization-boundary and T.3/localization-boundary, built on GeneralAlgebraicKTheory K.3) and from SK₁(O_{F,S}) = 0 (KTheoryLowDegrees U.4), not from N.2 (RT-AREA-ktheory-1/26). The import is acyclic because T.5's nodes do not list ArithmeticKTheory:N.2 as a prerequisite (checked against the K2SymbolsBrauer packet revised for the same findings).",
     "The sign in (a) is a convention the node fixes: with ∂ = div, the map to Pic is e_𝔭 ↦ [𝔭]⁻¹."
    ],
    "proofSteps": [
@@ -1007,14 +1138,14 @@
     "∂ on K₁(F): ∂[s] = [R/sR] for 0 ≠ s ∈ R (V.6.1.2), which by dévissage is Σ ord_𝔭(s)[R/𝔭]; extend multiplicatively to F^× (U.5 records the valuation convention for the boundary of a discrete valuation field).",
     "The class of R/𝔭 in K₀(R) is [R] − [𝔭] by 0 → 𝔭 → R → R/𝔭 → 0; its determinant is [𝔭]⁻¹.",
     "Extract (a) using R^× ↪ F^×; compare with I.3.6.",
-    "Extract (b) the same way, from the part of (6.6) in degrees two and one.",
-    "Specialise to O_{F,S} by N.2/localisation-sequence-for-a-dedekind-domain."
+    "(b): import T.5/tame-kernel-sequence and T.5/s-integer-tame-kernel-sequence; match the maps with the segment of (6.6) for O_{F,S} (N.2/localisation-sequence-for-a-dedekind-domain), which in degrees at most two is the sequence of T.3/dedekind-localization-boundary; exactness of T.5's sequence then says that ⊕_{𝔭∉S} K₂(k(𝔭)) → K₂(O_{F,S}) is zero and that ∂ is onto.",
+    "Specialise (a) to O_{F,S} by N.2/localisation-sequence-for-a-dedekind-domain."
    ],
    "acceptance": [
     "R = ℤ: (a) reads 1 → {±1} → ℚ^× → ⊕_p ℤ → ℤ → ℤ → 0, with Pic(ℤ) = 0.",
     "R = 𝓞 of ℚ(√−5): e_{𝔭₂} ↦ (0, [𝔭₂]⁻¹) = (0, [𝔭₂]), the non-trivial class (Tau Ceti's classNumber_eq_two_of_minpoly_eq_X_sq_add_five), so ⊕_𝔭 ℤ → K₀(R) is not zero.",
     "Sign: a formalisation with class map e_𝔭 ↦ [𝔭] must also replace div by −div.",
-    "For F = ℚ, (b) with K₂(𝔽_p) = 0 and SK₁(ℤ) = 1 gives Application III.6.5.1, 1 → K₂(ℤ) → K₂(ℚ) → ⊕_p 𝔽_p^× → 1, which K2SymbolsBrauer T.5 proves."
+    "For F = ℚ, (b) is T.5's 1 → K₂(ℤ) → K₂(ℚ) → ⊕_p 𝔽_p^× → 1 (Application III.6.5.1), imported, not proved again: the degree-two segment of (6.6) for ℤ agrees with it."
    ],
    "prerequisites": [
     "ArithmeticKTheory:N.2/localisation-sequence-for-a-dedekind-domain",
@@ -1022,6 +1153,10 @@
     "KTheoryLowDegrees:U.3",
     "KTheoryLowDegrees:U.5",
     "GeneralAlgebraicKTheory:K.1",
+    "K2SymbolsBrauer:T.5/tame-kernel-sequence",
+    "K2SymbolsBrauer:T.5/s-integer-tame-kernel-sequence",
+    "K2SymbolsBrauer:T.3/dedekind-localization-boundary",
+    "K2SymbolsBrauer:T.3/localization-boundary",
     "mathlib:ClassGroup.equivPic"
    ],
    "sources": [
@@ -1035,7 +1170,7 @@
      "sourceId": "Kbook.2013",
      "locator": "V.6.6.1 (PDF p. 417; book p. 409)",
      "excerpt": "We claim that ∂ is the tame symbol of III.6.3 and that the above continues the sequence of III.6.5.",
-     "match": "The exact sequence (6.6.1) of (b); the source's identification of ∂ with the tame symbol is imported on the K2SymbolsBrauer side."
+     "match": "The segment (6.6.1) of (b), whose identification with the tame symbol and whose exactness (the tame-kernel sequence) are imported from K2SymbolsBrauer T.3 and T.5."
     },
     {
      "sourceId": "Kbook.2013",
@@ -1146,24 +1281,28 @@
    ],
    "title": "Injectivity into the field in even degrees, and why exactness alone does not give it",
    "kind": "theorem",
-   "statement": "Let R be a Dedekind domain with fraction field F all of whose residue fields are finite (for instance R = O_{F,S}). Then K_n(R) → K_n(F) is injective for every even n ≥ 2. By exactness of (6.6) its kernel is the image of ⊕_𝔭 K_n(R/𝔭), and this vanishes here only because K_n(𝔽_q) = 0 for even n ≥ 2 (Quillen; KTheoryFiniteLocalFields L.1). In the other degrees the kernel is not zero for formal reasons: in degree zero it is Pic(R); in degree one it is SK₁(R), which vanishes for O_{F,S} by the Bass–Milnor–Serre theorem (KTheoryLowDegrees U.4); in odd degrees n ≥ 3 its vanishing is Soulé's theorem (N.5/soule-theorem), whose proof uses finite generation.",
+   "statement": "Let R be a Dedekind domain with fraction field F all of whose residue fields are finite (for instance R = O_{F,S}). Then K_n(R) → K_n(F) is injective for every even n ≥ 4, and for n = 2 when R = O_{F,S}. By exactness of (6.6) its kernel is the image of ⊕_𝔭 K_n(R/𝔭), and for n ≥ 4 this vanishes here only because K_n(𝔽_q) = 0 for even n ≥ 2 (Quillen; KTheoryFiniteLocalFields L.1). In degree two the injectivity is the left half of K2SymbolsBrauer T.5's tame-kernel sequence, imported through N.2/the-three-classical-rows (b) and not proved again. In the other degrees the kernel is not zero for formal reasons: in degree zero it is Pic(R); in degree one it is SK₁(R), which vanishes for O_{F,S} by the Bass–Milnor–Serre theorem (KTheoryLowDegrees U.4); in odd degrees n ≥ 3 its vanishing is Soulé's theorem (N.5/soule-theorem), whose proof uses finite generation.",
    "hypotheses": [
     "All residue fields R/𝔭 are finite.",
+    "Degree two is imported from K2SymbolsBrauer T.5 (RT-AREA-ktheory-1/9), which proves it for rings of S-integers of number fields from K₂(𝔽_q) = 0; the argument for n ≥ 4 is the same shape, with Quillen's K_{2j}(𝔽_q) = 0.",
     "This is the injectivity N.2 can prove from its own inputs; the odd-degree isomorphism needs N.3:finite-generation, which the atlas places after N.2."
    ],
    "proofSteps": [
     "Exactness of (6.6) at K_n(R): ker(K_n(R) → K_n(F)) = image of ⊕_𝔭 K_n(R/𝔭).",
-    "K_n(𝔽_q) = 0 for even n ≥ 2 (L.1).",
-    "Hence the kernel is zero."
+    "K_n(𝔽_q) = 0 for even n ≥ 2 (L.1); hence the kernel is zero for even n ≥ 4.",
+    "n = 2, R = O_{F,S}: the injectivity in T.5/tame-kernel-sequence (S = ∅) and T.5/s-integer-tame-kernel-sequence, matched with (6.6) by N.2/the-three-classical-rows (b)."
    ],
    "acceptance": [
-    "n = 2, R = ℤ: K₂(ℤ) → K₂(ℚ) is injective, as in Application III.6.5.1.",
+    "n = 2, R = ℤ: K₂(ℤ) → K₂(ℚ) is injective, as in Application III.6.5.1 (T.5's sequence, imported).",
+    "n = 4, R = ℤ[1/p]: K₄(ℤ[1/p]) → K₄(ℚ) is injective, since K₄(𝔽_ℓ) = 0 for every prime ℓ ≠ p.",
     "Degree zero: for R = 𝓞 of ℚ(√−5), ker(K₀(R) → K₀(F)) = Pic(R) ≅ ℤ/2, containing [R/𝔭₂] = [R] − [𝔭₂].",
     "Degree one without the arithmetic input fails: for the Dedekind domain ℝ[x, y]/(x² + y² − 1) (infinite residue fields), SK₁ ≠ 0 (Example III.1.5.4), so K₁(R) → K₁(F) is not injective.",
     "No statement of injectivity in odd degrees follows from this node."
    ],
    "prerequisites": [
     "ArithmeticKTheory:N.2/localisation-sequence-for-a-dedekind-domain",
+    "ArithmeticKTheory:N.2/the-three-classical-rows",
+    "K2SymbolsBrauer:T.5/tame-kernel-sequence",
     "KTheoryFiniteLocalFields:L.1",
     "KTheoryLowDegrees:U.4",
     "KTheoryLowDegrees:Z.4/rank-pic-equivalence"
@@ -1179,7 +1318,7 @@
      "sourceId": "Kbook.2013",
      "locator": "V.6.6 (PDF p. 417; book p. 409)",
      "excerpt": "First, if all of the residue fields R/𝔭 are finite, then K2(R/𝔭) = 0 and we obtain the exact sequence:",
-     "match": "The case n = 2."
+     "match": "The case n = 2, which the source derives from K₂(R/𝔭) = 0; here it is imported from K2SymbolsBrauer T.5."
     },
     {
      "sourceId": "Kbook.2013",
@@ -1203,7 +1342,8 @@
    "hypotheses": [
     "F is a number field and S a finite set of finite primes; 𝓞_{F,S} = 𝓞_F[1/s] for an s ∈ 𝓞_F whose prime divisors are exactly the primes of S (N.1/S-integers-as-a-localisation, which uses the finiteness of the class group).",
     "S finite is used: for infinite S the residue term ⊕_{𝔭∈S} K_0(k(𝔭)) is free of infinite rank, and inverting every prime gives K_1 = F^×, which is not finitely generated.",
-    "The source's Theorem IV.6.9 does not cover 𝓞_{F,S} directly when S ≠ ∅ (it is not finite over Z); the passage is the stage's own route: 'Obtain finite generation for S-integers using localisation and the finite-field calculation'."
+    "The source's Theorem IV.6.9 does not cover 𝓞_{F,S} directly when S ≠ ∅ (it is not finite over Z); the passage is the stage's own route: 'Obtain finite generation for S-integers using localisation and the finite-field calculation'.",
+    "Finite generation is integral: K_n(𝓞_{F,S}) is a finitely generated abelian group, not merely of finite rank."
    ],
    "proofSteps": [
     "Write 𝓞_{F,S} = 𝓞_F[1/s] (N.1/S-integers-as-a-localisation).",
@@ -1250,6 +1390,482 @@
    "implementationStatus": "unchecked"
   },
   {
+   "id": "ArithmeticKTheory:N.3:finite-generation/rank-filtration",
+   "parentStageId": "ArithmeticKTheory:N.3:finite-generation",
+   "realises": [
+    "ArithmeticKTheory:N.3:finite-generation"
+   ],
+   "title": "Quillen's rank filtration of the Q-construction of a Dedekind domain",
+   "kind": "construction",
+   "statement": "Let A be a Dedekind domain with fraction field F, P(A) the exact category of finitely generated projective A-modules and Q = Q(P(A)) its Q-construction (GeneralAlgebraicKTheory K.1: a morphism M → N is an admissible subobject N₂ ↣ N with an admissible epimorphism N₂ ↠ M, i.e. an isomorphism of M with an admissible subquotient N₂/N₁ of N). For P ∈ P(A) put rank P = dim_F(P ⊗_A F). For m ≥ 0 let Q_m ⊂ Q be the full subcategory on the modules of rank ≤ m. Then: (a) a morphism M → N of Q has rank M ≤ rank N, with equality only when it is an isomorphism; hence Q_{m−1} ⊂ Q_m is fully faithful and Q_m has no morphism from an object of rank m to an object of Q_{m−1} (the inclusion is cellular in the sense of Kahn, Definition 2.3.2); (b) the full subcategory Q_m − Q_{m−1} of the objects of rank exactly m is a groupoid, equivalent to the disjoint union over the isomorphism classes [P] of rank-m projectives of the one-object groupoids Aut_A(P); (c) Q is the union of the Q_m, so the nerve of Q is the union of the nerves of the Q_m and H_*(BQ) = colim_m H_*(BQ_m); (d) Q_0 has one object, 0, and only its identity, so BQ_0 is a point; (e) if Pic(A) is finite, each rank m ≥ 1 has exactly #Pic(A) isomorphism classes of projectives (Steinitz: P ≅ A^{m−1} ⊕ I, determined by rank and det P ∈ Pic(A)).",
+   "hypotheses": [
+    "A is a Dedekind domain with fraction field F; P(A) carries its split exact structure (all short exact sequences of projectives), imported as GeneralAlgebraicKTheory K.2's P(R) = finiteProjectiveModules.",
+    "Rank is additive on short exact sequences of projectives and a finitely generated projective module of rank zero over a domain is zero; these two facts give (a).",
+    "The filtration is taken on P(A), not on all finitely generated modules: in Q(M(A)) the rank-zero objects are the torsion modules and Q_0 is not a point (see the non-example test)."
+   ],
+   "proofSteps": [
+    "Define Q_m as the full subcategory of GeneralAlgebraicKTheory:K.1/exact-categories-and-Q-construction on the objects of rank ≤ m.",
+    "(a) If M ≅ N₂/N₁ with N₁ ↣ N₂ ↣ N admissible, rank M = rank N₂ − rank N₁ ≤ rank N₂ ≤ rank N. Equality forces rank N₁ = 0 and rank N/N₂ = 0, so N₁ = 0 and N₂ = N (projectives of rank zero vanish), and the morphism is the image of an isomorphism M ≅ N of P(A), an isomorphism of Q (K.1: the isomorphisms of Q(A) are those of A).",
+    "Cellularity: Q_{m−1} ⊂ Q_m is full by definition, and a morphism from an object of rank m to one of rank < m would contradict (a).",
+    "(b) By (a) every morphism between objects of rank m is an isomorphism; choosing one object in each isomorphism class gives the equivalence with ⊔_{[P]} Aut_A(P).",
+    "(c) Every simplex of the nerve of Q involves finitely many objects, hence lies in the nerve of some Q_m; homology of simplicial sets commutes with this filtered union (StableHomotopyKTheory H.1).",
+    "(d) A morphism 0 → 0 is an admissible subquotient of 0, so it is the identity.",
+    "(e) Steinitz's classification (KTheoryLowDegrees Z.4/steinitz and Z.4/projective-classification)."
+   ],
+   "acceptance": [
+    "A = ℤ: Q_m − Q_{m−1} is equivalent to the one-object groupoid of GL_m(ℤ).",
+    "A = 𝓞 of ℚ(√−5) (class number two): the rank-one stratum has two isomorphism classes, 𝓞 and 𝔭₂ = (2, 1 + √−5), each with automorphism group 𝓞^× = {±1}.",
+    "BQ_0 is a point, while π₁ BQ(P(ℤ)) = K₀(ℤ) = ℤ (GeneralAlgebraicKTheory K.1/pi1-BQ-equals-K0): the filtration is not constant from rank one on."
+   ],
+   "uses": [
+    {
+     "where": "K-book IV.6.8–6.9 (PDF p. 333)",
+     "how": "'Quillen used a filtration of the Q–construction' to prove finite generation"
+    },
+    {
+     "where": "Kahn, 'Around Quillen's theorem A', 4.1 and 2.4.1",
+     "how": "the filtration by rank is a sequence of cellular functors, which gives the rank spectral sequence"
+    },
+    {
+     "where": "N.3:finite-generation/comma-category-is-the-layer-poset",
+     "how": "the comma categories Q_{m−1} ↓ P of the cellular inclusions"
+    },
+    {
+     "where": "N.3:finite-generation/rank-spectral-sequence",
+     "how": "the strata Q_m − Q_{m−1} give the E¹ terms"
+    },
+    {
+     "where": "N.3:finite-generation/quillen-finiteness-criterion",
+     "how": "finitely many components per rank when Pic(A) is finite, and the exhaustion Q = ⋃ Q_m"
+    }
+   ],
+   "api": [
+    {
+     "name": "QCat.rankFiltration",
+     "role": "data",
+     "statement": "For a Dedekind domain A and m : ℕ, the full subcategory Q_m of QCat (P(A)) on the modules of rank ≤ m."
+    },
+    {
+     "name": "QCat.rankFiltration_mono",
+     "role": "structure",
+     "statement": "m ≤ m' → Q_m ⊆ Q_{m'}."
+    },
+    {
+     "name": "QCat.rank_le_of_hom",
+     "role": "characterisation",
+     "statement": "For a morphism M ⟶ N of QCat (P(A)), rank M ≤ rank N, and if rank M = rank N the morphism is an isomorphism."
+    },
+    {
+     "name": "QCat.rankFiltration_cellular",
+     "role": "other",
+     "statement": "The inclusion Q_{m−1} ⥤ Q_m is fully faithful and there is no morphism from an object of rank m to an object of Q_{m−1}."
+    },
+    {
+     "name": "QCat.rankStratum",
+     "role": "data",
+     "statement": "Q_m − Q_{m−1}, the full subcategory on the objects of rank exactly m, as a groupoid."
+    },
+    {
+     "name": "QCat.rankStratumEquiv",
+     "role": "equivalence",
+     "statement": "Q_m − Q_{m−1} is equivalent to the disjoint union, over the isomorphism classes [P] of rank-m projectives, of the one-object groupoids of Aut_A(P)."
+    },
+    {
+     "name": "QCat.iSup_rankFiltration",
+     "role": "characterisation",
+     "statement": "Q = ⋃_m Q_m; the nerve of Q is the union of the nerves of the Q_m."
+    },
+    {
+     "name": "QCat.rankFiltration_zero",
+     "role": "simp",
+     "statement": "Q_0 is the category with the single object 0 and its identity."
+    },
+    {
+     "name": "QCat.finite_rankStratum_classes",
+     "role": "other",
+     "statement": "If Pic(A) is finite, for m ≥ 1 the rank-m stratum has exactly Nat.card (ClassGroup A) isomorphism classes."
+    }
+   ],
+   "tests": [
+    {
+     "name": "rankFiltration_zero_isPoint",
+     "kind": "degenerate",
+     "statement": "Q_0 (P(A)) is the one-object one-morphism category, for every Dedekind domain A."
+    },
+    {
+     "name": "rankStratum_int",
+     "kind": "computation",
+     "statement": "For A = ℤ the stratum Q_m − Q_{m−1} is equivalent to the one-object groupoid of GL_m(ℤ): one isomorphism class, ℤ^m."
+    },
+    {
+     "name": "rankStratum_one_sqrt_neg_five",
+     "kind": "computation",
+     "statement": "For A = 𝓞 of ℚ(√−5) the rank-one stratum has two isomorphism classes (Pic(A) ≅ ℤ/2), each with automorphism group {±1}."
+    },
+    {
+     "name": "rankFiltration_allModules_not_cellular",
+     "kind": "non-example",
+     "statement": "On Q(M(A)) for all finitely generated A-modules the rank-zero part contains every torsion module, e.g. A/𝔭, so it is not a point; the construction must be made on P(A) (equivalently on torsion-free modules, Kahn 4.2.7)."
+    },
+    {
+     "name": "rank_le_of_hom_zero",
+     "kind": "characterisation",
+     "statement": "For every P, the morphisms 0 → P of Q(P(A)) are the admissible subobjects of P (K.1's QCat.hom_zero), and rank 0 ≤ rank P."
+    }
+   ],
+   "prerequisites": [
+    "GeneralAlgebraicKTheory:K.1/exact-categories-and-Q-construction",
+    "GeneralAlgebraicKTheory:K.2/functorial-K-theory-of-a-ring",
+    "KTheoryLowDegrees:Z.4/steinitz",
+    "KTheoryLowDegrees:Z.4/projective-classification",
+    "StableHomotopyKTheory:H.1",
+    "mathlib:ClassGroup"
+   ],
+   "library": {
+    "module": "TauCeti/KTheory/Arithmetic/RankFiltration",
+    "namespace": "TauCeti.QCat"
+   },
+   "sources": [
+    {
+     "sourceId": "Kbook.2013",
+     "locator": "IV.6.8–6.9, the paragraph between Bass' Conjecture 6.8 and Theorem 6.9 (PDF p. 333; book p. 325)",
+     "excerpt": "Quillen used a filtration of the Q–construction to prove in [154] that the groups K_n(R) are finitely generated for any Dedekind domain R such that (1) Pic(R) is finite and (2) the homology groups H_n(Aut(P), st(P ⊗_R F)) are finitely generated.",
+     "match": "The filtration of the Q-construction that Quillen uses; the source does not give it."
+    },
+    {
+     "sourceId": "Kahn.2014",
+     "locator": "4.1 (arXiv:1108.2441v3, p. 15)",
+     "excerpt": "Let Qn = Qn(X) be the full subcategory of Q(X) consisting of locally free sheaves of rank ≤n. Then the assumptions of Theorem 2.4.1 are satisfied because, in Q(X), there are no morphisms from a locally free sheaf of rank n to a locally free sheaf of rank < n.",
+     "match": "The filtration by rank, and the property (a) that makes the inclusions cellular; Kahn states it for locally free sheaves on a scheme, of which P(A) is the affine case."
+    },
+    {
+     "sourceId": "Kahn.2014",
+     "locator": "4.1, after (4.1) is introduced (arXiv:1108.2441v3, p. 15)",
+     "excerpt": "Note that Qn −Qn−1 is a groupoid",
+     "match": "Property (b)."
+    },
+    {
+     "sourceId": "Kahn.2014",
+     "locator": "2.3.2, Definition (arXiv:1108.2441v3, p. 10)",
+     "excerpt": "Let T : C →D be a functor. We say that T is cellular if • T is fully faithful. • For any d ∈D −C and any c ∈C, D(d, c) = ∅.",
+     "match": "The notion of cellular functor used in (a)."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "addedBy": "FIX-RT-AREA-ktheory-1"
+  },
+  {
+   "id": "ArithmeticKTheory:N.3:finite-generation/layer-poset",
+   "parentStageId": "ArithmeticKTheory:N.3:finite-generation",
+   "realises": [
+    "ArithmeticKTheory:N.3:finite-generation"
+   ],
+   "title": "The poset of proper layers of a vector space",
+   "kind": "definition",
+   "statement": "Let V be a finite-dimensional vector space over a field F. The poset J(V) of proper layers of V has as elements the pairs (W₀, W₁) of subspaces with W₀ ⊆ W₁ ⊆ V and (W₀, W₁) ≠ (0, V), ordered by (W₀, W₁) ≤ (W₀', W₁') if and only if W₀' ⊆ W₀ ⊆ W₁ ⊆ W₁' (a layer is below the layers that contain it as a subquotient). GL(V) acts on J(V) by order automorphisms, and a linear isomorphism V ≅ V' induces an isomorphism J(V) ≅ J(V'). The subposets J₀(V) = {W₀ ≠ 0} and J₁(V) = {W₁ ≠ V} cover J(V), no chain of J(V) meets both J(V) ∖ J₀(V) and J(V) ∖ J₁(V), and J₀(V) ∩ J₁(V) = {0 ≠ W₀ ⊆ W₁ ≠ V}. For dim V = 1, J(V) = {(0, 0), (V, V)} is two incomparable points; for V = 0 it is empty.",
+   "hypotheses": [
+    "V is finite-dimensional over a field F; subspaces are Mathlib's Submodule F V.",
+    "The excluded pair (0, V) is the largest element of the full poset of layers; including it makes the poset contractible, which is why it is excluded."
+   ],
+   "proofSteps": [
+    "Define J(V) as a subtype of Submodule F V × Submodule F V with the stated order; check reflexivity, transitivity and antisymmetry from those of ⊆.",
+    "The action of g ∈ GL(V) is (W₀, W₁) ↦ (gW₀, gW₁); functoriality in linear isomorphisms likewise.",
+    "Covering: (W₀, W₁) ∉ J₀ ∪ J₁ would mean W₀ = 0 and W₁ = V.",
+    "No chain meets both complements: (0, W₁) ≤ (W₀', V) forces W₀' = 0 and so (0, V); (W₀', V) ≤ (0, W₁) forces W₁ = V and so (0, V); both are excluded.",
+    "dim V = 1: the only subspaces are 0 and V."
+   ],
+   "acceptance": [
+    "dim V = 1: J(V) has exactly the two incomparable elements (0, 0) and (V, V).",
+    "dim V = 2: the elements are (0, 0), (V, V), and for each line L the three layers (0, L), (L, L), (L, V), with (0, 0) ≤ (0, L) ≥ (L, L) ≤ (L, V) ≥ (V, V): one path from (0, 0) to (V, V) through each line, the suspension of the discrete set of lines.",
+    "Adding (0, V) back gives a poset with a largest element, hence contractible."
+   ],
+   "uses": [
+    {
+     "where": "Kahn, 'Around Quillen's theorem A', 4.2.6 and 4.3.1",
+     "how": "the comma categories of the rank filtration are equivalent to the posets of proper layers"
+    },
+    {
+     "where": "N.3:finite-generation/comma-category-is-the-layer-poset",
+     "how": "target of the equivalence Q_{n−1} ↓ P ≃ J(P ⊗ F)"
+    },
+    {
+     "where": "N.3:finite-generation/layer-poset-is-the-suspended-building",
+     "how": "J(V) ≃ ΣT(V)"
+    }
+   ],
+   "api": [
+    {
+     "name": "LayerPoset",
+     "role": "data",
+     "statement": "For a finite-dimensional F-vector space V, the poset of pairs (W₀, W₁) of subspaces with W₀ ≤ W₁ and (W₀, W₁) ≠ (⊥, ⊤)."
+    },
+    {
+     "name": "LayerPoset.le_iff",
+     "role": "characterisation",
+     "statement": "(W₀, W₁) ≤ (W₀', W₁') ↔ W₀' ≤ W₀ ∧ W₁ ≤ W₁'."
+    },
+    {
+     "name": "LayerPoset.map",
+     "role": "functoriality",
+     "statement": "A linear equivalence e : V ≃ₗ[F] V' induces an order isomorphism LayerPoset V ≃o LayerPoset V'; map_refl and map_trans hold."
+    },
+    {
+     "name": "LayerPoset.glAction",
+     "role": "instance",
+     "statement": "The action of GL(V) = (V ≃ₗ[F] V) on LayerPoset V by order automorphisms, (W₀, W₁) ↦ (gW₀, gW₁)."
+    },
+    {
+     "name": "LayerPoset.lowerPart",
+     "role": "data",
+     "statement": "J₀(V), the subposet of layers with W₀ ≠ ⊥."
+    },
+    {
+     "name": "LayerPoset.upperPart",
+     "role": "data",
+     "statement": "J₁(V), the subposet of layers with W₁ ≠ ⊤."
+    },
+    {
+     "name": "LayerPoset.lowerPart_sup_upperPart",
+     "role": "relation",
+     "statement": "J₀(V) ∪ J₁(V) = J(V), and no chain of J(V) meets both complements."
+    },
+    {
+     "name": "LayerPoset.of_finrank_eq_one",
+     "role": "simp",
+     "statement": "If finrank F V = 1, LayerPoset V is the two-element antichain {(⊥, ⊥), (⊤, ⊤)}."
+    }
+   ],
+   "tests": [
+    {
+     "name": "layerPoset_zero",
+     "kind": "degenerate",
+     "statement": "LayerPoset (0 : F-vector space) is empty: the only pair (⊥, ⊥) equals (⊥, ⊤)."
+    },
+    {
+     "name": "layerPoset_dim_one",
+     "kind": "computation",
+     "statement": "For finrank F V = 1, LayerPoset V has two elements and they are incomparable."
+    },
+    {
+     "name": "layerPoset_dim_two_card",
+     "kind": "computation",
+     "statement": "For V = 𝔽₂², LayerPoset V has 2 + 3·3 = 11 elements (three lines, three layers through each)."
+    },
+    {
+     "name": "layerPoset_with_top_contractible",
+     "kind": "non-example",
+     "statement": "The poset of all layers, (⊥, ⊤) included, has a largest element, so its nerve is contractible; a definition that forgot to exclude (⊥, ⊤) would make every fibre of the rank filtration trivial."
+    },
+    {
+     "name": "layerPoset_map_gl",
+     "kind": "compatibility",
+     "statement": "For g ∈ GL(V), LayerPoset.map g sends (W₀, W₁) to (W₀.map g, W₁.map g) (Mathlib's Submodule.map)."
+    }
+   ],
+   "prerequisites": [
+    "mathlib:Submodule"
+   ],
+   "library": {
+    "module": "TauCeti/KTheory/Arithmetic/RankFiltration",
+    "namespace": "TauCeti"
+   },
+   "sources": [
+    {
+     "sourceId": "Sun.2016",
+     "locator": "p. 5 (arXiv:1604.04700v1)",
+     "excerpt": "We denote by J(V ) the ordered set of proper layers in V . This consists of pairs (W0, W1) of subspaces of V , with W0 ⊂W1, excluding the pair (0, V ), and where (W0, W1) ≤(W ′ 0, W ′ 1) if W ′ 0 ⊂W0 ⊂W1 ⊂W ′ 1.",
+     "match": "The definition of J(V) with its order, verbatim (spacing of the text layer kept)."
+    },
+    {
+     "sourceId": "Kahn.2014",
+     "locator": "4.3.2 (arXiv:1108.2441v3, p. 17)",
+     "excerpt": "In Corollary 4.2.6, suppose n = 1. Then Qn−1(K) ↓EK has two elements: 0 →EK and EK →0.",
+     "match": "The dimension-one case."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "addedBy": "FIX-RT-AREA-ktheory-1"
+  },
+  {
+   "id": "ArithmeticKTheory:N.3:finite-generation/comma-category-is-the-layer-poset",
+   "parentStageId": "ArithmeticKTheory:N.3:finite-generation",
+   "realises": [
+    "ArithmeticKTheory:N.3:finite-generation"
+   ],
+   "title": "The comma categories of the rank filtration are posets of layers",
+   "kind": "lemma",
+   "statement": "Let A be a Dedekind domain with fraction field F, P a finitely generated projective A-module of rank n ≥ 1 and V = P ⊗_A F. The comma category Q_{n−1} ↓ P of the inclusion Q_{n−1} ⊂ Q(P(A)) (objects: morphisms M → P of Q with rank M ≤ n − 1) is equivalent, Aut_A(P)-equivariantly, to the poset J(V) of proper layers of V: a morphism M → P is an admissible layer P₁ ↣ P₂ ↣ P with P₂/P₁ ≅ M, it is sent to (P₁ ⊗ F, P₂ ⊗ F), and rank M ≤ n − 1 says exactly that (P₁ ⊗ F, P₂ ⊗ F) ≠ (0, V). The inverse sends a subspace W ⊆ V to the pure submodule W ∩ P, which is a direct summand of P.",
+   "hypotheses": [
+    "A is a Dedekind domain; P ∈ P(A) has rank n ≥ 1; Aut_A(P) acts on V = P ⊗ F and on both sides.",
+    "The admissible monomorphisms of P(A) into P are the injections with projective cokernel, i.e. the pure submodules of P (a finitely generated torsion-free module over a Dedekind domain is projective)."
+   ],
+   "proofSteps": [
+    "A morphism M → P of Q is an admissible layer P₁ ⊆ P₂ ⊆ P with an isomorphism P₂/P₁ ≅ M (GeneralAlgebraicKTheory:K.1/exact-categories-and-Q-construction); morphisms of the comma category are inclusions of layers, so Q_{n−1} ↓ P is equivalent to the poset of admissible layers with rank P₂/P₁ < n (Kahn 4.2.6, proof).",
+    "Pure submodules of P correspond to subspaces of V: W ↦ W ∩ P and N ↦ N ⊗ F are inverse (Kahn 4.2.4); P/(W ∩ P) embeds in V/W, so it is finitely generated and torsion-free, hence flat (mathlib:IsDedekindDomain.flat_iff_torsion_eq_bot) and finitely presented, hence projective (mathlib:Module.Flat.projective_of_finitePresentation), and W ∩ P is a direct summand (Putman–Studenmund §4.1).",
+    "A layer has rank P₂/P₁ = n exactly when P₁ = 0 and P₂ = P, i.e. when its image is (0, V).",
+    "Equivariance: g ∈ Aut_A(P) acts on layers and on J(V) through g ⊗ F, and the bijection commutes with it."
+   ],
+   "acceptance": [
+    "n = 1: Q_0 ↓ P has two objects, 0 ↣ P (the subobject 0) and P ↠ 0 (the quotient of P onto 0), matching J(V) = {(0, 0), (V, V)}.",
+    "A = ℤ, P = ℤ²: the lines of ℚ² correspond to the rank-one direct summands of ℤ², i.e. to primitive vectors up to sign.",
+    "A non-pure submodule such as 2ℤ ⊂ ℤ is not an admissible subobject of ℤ in P(ℤ): its cokernel ℤ/2 is not projective."
+   ],
+   "prerequisites": [
+    "ArithmeticKTheory:N.3:finite-generation/rank-filtration",
+    "ArithmeticKTheory:N.3:finite-generation/layer-poset",
+    "GeneralAlgebraicKTheory:K.1/exact-categories-and-Q-construction",
+    "mathlib:IsDedekindDomain.flat_iff_torsion_eq_bot",
+    "mathlib:Module.Flat.projective_of_finitePresentation"
+   ],
+   "sources": [
+    {
+     "sourceId": "Kahn.2014",
+     "locator": "4.2.4, Proposition (arXiv:1108.2441v3, p. 16)",
+     "excerpt": "Let E be a (coherent) torsion-free sheaf on X, with generic ﬁbre EK. Then the map F 7→FK deﬁnes a bijection from the set Gr(E) of pure subsheaves of E to the set Gr(EK) of subvector spaces of EK.",
+     "match": "Pure submodules of P ↔ subspaces of V (for X = Spec A); the text layer renders ↦ as '7→'."
+    },
+    {
+     "sourceId": "Kahn.2014",
+     "locator": "4.2.6, Corollary, with its proof (arXiv:1108.2441v3, p. 16)",
+     "excerpt": "Then the functor j∗: Qtf n−1(X) ↓E →Qn−1(K) ↓EK is an equivalence of categories. Proof. These categories are equivalent to the ordered sets of proper layers of torsion-free subsheaves of E and j∗E",
+     "match": "The equivalence of the comma category with the poset of proper layers."
+    },
+    {
+     "sourceId": "Kahn.2014",
+     "locator": "4.2.7, Example (arXiv:1108.2441v3, p. 17)",
+     "excerpt": "As is well-known, a coherent sheaf F over a Dedekind scheme is torsion-free if and only if it is locally free.",
+     "match": "For a Dedekind domain the torsion-free and the projective versions agree."
+    },
+    {
+     "sourceId": "PutmanStudenmund.2021",
+     "locator": "§4.1, 'Subspace stabilizers and projective modules' (arXiv:1909.01217v4, p. 17)",
+     "excerpt": "For a subspace V of Kn = Q ⊗K, the intersection V ∩Q is a direct summand of Q.",
+     "match": "W ∩ P is a direct summand, with the same one-line proof."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "addedBy": "FIX-RT-AREA-ktheory-1"
+  },
+  {
+   "id": "ArithmeticKTheory:N.3:finite-generation/layer-poset-is-the-suspended-building",
+   "parentStageId": "ArithmeticKTheory:N.3:finite-generation",
+   "realises": [
+    "ArithmeticKTheory:N.3:finite-generation"
+   ],
+   "title": "The layer poset is the suspension of the Tits building",
+   "kind": "lemma",
+   "statement": "Let V be an F-vector space of dimension n ≥ 1 and T(V) its Tits building, the poset of proper non-zero subspaces (empty for n = 1), imported from BorelRegulators R.1. Then the nerve of J(V) is GL(V)-equivariantly homotopy equivalent to the unreduced suspension ΣT(V) (two points for n = 1). Consequently J(V) has the homotopy type of a wedge of (n − 1)-spheres, its reduced integral homology is concentrated in degree n − 1, and H̃_{n−1}(J(V); ℤ) ≅ St(V) := H̃_{n−2}(T(V); ℤ) as ℤ[GL(V)]-modules, with St(V) = ℤ (trivial action) for n = 1. For n = 2, T(V) is the discrete set of lines and St(V) is the kernel of the augmentation ℤ[lines] → ℤ, the reduced homology, not H₀(T(V)).",
+   "hypotheses": [
+    "n = dim V ≥ 1. The building T(V), the Solomon–Tits theorem (T(V) is a wedge of (n − 2)-spheres for n ≥ 2) and the Steinberg module St(V) with its GL(V)-action are BorelRegulators R.1's (RT-AREA-ktheory-1/1); this node uses them and proves only the comparison with J(V).",
+    "Homology is reduced homology: with unreduced H₀ the rank-two term would be wrong (Sun's remark on Ash–Rudolph)."
+   ],
+   "proofSteps": [
+    "J₀(V) is contractible: (W₀, W₁) ≤ (W₀, V) ≥ (V, V) in J₀(V), a zigzag of monotone maps to a constant (StableHomotopyKTheory H.1: comparable monotone maps induce homotopic maps of nerves); likewise J₁(V) through (W₀, W₁) ≤ (0, W₁) ≥ (0, 0).",
+    "J₀(V) ∩ J₁(V) = {0 ≠ W₀ ⊆ W₁ ≠ V} is the poset of closed intervals [W₀, W₁] of T(V) ordered by inclusion; the map (W₀, W₁) ↦ W₁ to T(V) is order-preserving, and the preimage of T(V)_{≤W} is contractible, since (W₀, W₁) ≤ (W₀, W) ≥ (W, W) there; by Quillen's Theorem A (StableHomotopyKTheory H.2) it is a homotopy equivalence.",
+    "Since no chain of J(V) meets both complements (N.3:finite-generation/layer-poset), the nerve of J(V) is the union of the nerves of J₀(V) and J₁(V) along that of their intersection: two cones on T(V), i.e. ΣT(V). Every step is GL(V)-equivariant.",
+    "Apply the Solomon–Tits theorem (R.1): ΣT(V) is a wedge of (n − 1)-spheres, so H̃_*(J(V)) is St(V) in degree n − 1 and zero elsewhere; for n = 1 the two points give H̃₀ = ℤ with trivial action."
+   ],
+   "acceptance": [
+    "n = 1: J(V) is two points, H̃₀ = ℤ = St(V).",
+    "n = 2, F = ℚ: H̃₁(J(V)) ≅ St(V) = ker(ℤ[ℙ¹(ℚ)] → ℤ), a free abelian group of infinite rank.",
+    "n = 3, F = 𝔽₂ (a finite field, as a check of the building side): T(V) is the incidence graph of the Fano plane, a wedge of 2³ = 8 circles, and J(V) ≃ a wedge of eight 2-spheres."
+   ],
+   "prerequisites": [
+    "ArithmeticKTheory:N.3:finite-generation/layer-poset",
+    "BorelRegulators:R.1",
+    "StableHomotopyKTheory:H.1",
+    "StableHomotopyKTheory:H.2"
+   ],
+   "sources": [
+    {
+     "sourceId": "Kahn.2014",
+     "locator": "4.3.1 (arXiv:1108.2441v3, p. 17)",
+     "excerpt": "By [12, Prop. p. 188], the classifying space of the poset Qn−1(K) ↓EK = J(EK) is GL(EK)-weakly equivalent to the suspension of nerve of the Tits building of EK, which in turn is weakly equivalent to a wedge of (n −2)-spheres by the Solomon-Tits theorem",
+     "match": "The statement, with Quillen's proposition as Kahn cites it (Quillen's paper itself was not read; the proof steps are this packet's)."
+    },
+    {
+     "sourceId": "Sun.2016",
+     "locator": "p. 6 (arXiv:1604.04700v1)",
+     "excerpt": "However, their deﬁnition takes the homology of Tits buildings rather than reduced homologies. So there is a slight mistake in the paper [1] in the case of n = dim(V ) = 2.",
+     "match": "Why the Steinberg module in rank two must be reduced homology."
+    },
+    {
+     "sourceId": "PutmanStudenmund.2021",
+     "locator": "§1, 'Special linear group and the Steinberg module' (arXiv:1909.01217v4, p. 3)",
+     "excerpt": "The Solomon–Tits theorem [18, 6] says that Tn(K) is homotopy equivalent to a wedge of (n−2)-spheres. The Steinberg module Stn(K) is eHn−2(Tn(K)).",
+     "match": "Solomon–Tits and the definition of the Steinberg module ('eH' is the text layer's H̃), which R.1 supplies."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "addedBy": "FIX-RT-AREA-ktheory-1"
+  },
+  {
+   "id": "ArithmeticKTheory:N.3:finite-generation/rank-spectral-sequence",
+   "parentStageId": "ArithmeticKTheory:N.3:finite-generation",
+   "realises": [
+    "ArithmeticKTheory:N.3:finite-generation"
+   ],
+   "title": "Quillen's rank spectral sequence",
+   "kind": "theorem",
+   "statement": "Let A be a Dedekind domain with fraction field F. There is a spectral sequence of homological type E¹_{p,q} = ⊕_{[P], rank P = p} H_q(Aut_A(P); St(P ⊗_A F)) ⇒ H_{p+q}(BQ(P(A)); ℤ) for p ≥ 1, with E¹_{0,q} = H_q(BQ_0) = ℤ for q = 0 and 0 otherwise, where [P] runs over the isomorphism classes of projectives of rank p and H_q is group homology (Mathlib's groupHomology of the ℤ-linear representation St(P ⊗ F)). Equivalently, for each n ≥ 1 there is a long exact sequence ⋯ → H_i(BQ_{n−1}) → H_i(BQ_n) → ⊕_{[P], rank P = n} H_{i−n}(Aut_A(P); St(P ⊗ F)) → H_{i−1}(BQ_{n−1}) → ⋯, which is Quillen's Theorem 3 (1973). The E¹ term vanishes for q < 0, and in total degree i only the columns 0 ≤ p ≤ i contribute.",
+   "hypotheses": [
+    "A is a Dedekind domain; the coefficients are integral. No finiteness of Pic(A) is needed for the spectral sequence itself.",
+    "St(P ⊗ F) is the reduced Steinberg module of N.3:finite-generation/layer-poset-is-the-suspended-building, with St = ℤ in rank one; Aut_A(P) acts through Aut_A(P) ⊂ GL(P ⊗ F).",
+    "The homotopy theory of categories used, Thomason's homotopy-colimit theorem and the cofibre sequence of a cellular functor, is requested from StableHomotopyKTheory H.2; the comparison of the homology of a one-object groupoid with local coefficients with group homology is H.1's."
+   ],
+   "proofSteps": [
+    "The inclusions Q_{n−1} ⊂ Q_n are cellular and Q = ⋃ Q_n (N.3:finite-generation/rank-filtration), so the cellular-filtration spectral sequence (Kahn, Theorem 2.4.1, from Corollary 2.3.7) gives E¹_{p,q} = H_{p+q−1}(Q_p − Q_{p−1}, F̃_p) ⇒ H_{p+q}(BQ), with F̃_p the reduced coefficient system P ↦ C_*(Q_{p−1} ↓ P) on the groupoid Q_p − Q_{p−1}.",
+    "Q_p − Q_{p−1} ≃ ⊔_{[P]} Aut_A(P) (rank-filtration (b)), so the homology with coefficients splits as a direct sum over [P] of the homology of the one-object groupoid Aut_A(P) with coefficients in the reduced chains of Q_{p−1} ↓ P (H.1).",
+    "Q_{p−1} ↓ P ≃ J(P ⊗ F) (N.3:finite-generation/comma-category-is-the-layer-poset), whose reduced homology is St(P ⊗ F) concentrated in degree p − 1 (N.3:finite-generation/layer-poset-is-the-suspended-building). The hyperhomology spectral sequence (Kahn, Lemma 1.3.5) collapses: H_{p+q−1}(Aut P, C̃_*(J)) ≅ H_q(Aut P; St).",
+    "The long exact sequences are the exact couple of the filtration; Kahn's Remark 4.3.4 (Vogel's argument) shows that they agree with Quillen's."
+   ],
+   "acceptance": [
+    "A = ℤ, total degree one: E¹_{0,1} = 0 and E¹_{1,0} = H₀(GL₁(ℤ); ℤ) = ℤ, and H₁(BQ(P(ℤ))) = π₁(BQ)^{ab} = K₀(ℤ) = ℤ; so the differential d¹ : E¹_{2,0} → E¹_{1,0} vanishes.",
+    "Rank two over ℤ, rationally: by virtual duality with Putman–Studenmund's dualizing module St₂(ℚ) ⊗ ℤ_det (Theorem C; vcd GL₂(ℤ) = 1), H_q(GL₂(ℤ); St₂(ℚ) ⊗ ℚ) ≅ H^{1−q}(GL₂(ℤ); ℚ_det), which vanishes for q = 0, 1 (H¹(SL₂(ℤ); ℚ) = 0 and det is non-trivial); with the untwisted module the identification would be wrong (their Example 1.4).",
+    "In total degree i only p ≤ i contributes: H_i(BQ_n) → H_i(BQ) is onto for n ≥ i and bijective for n ≥ i + 1."
+   ],
+   "planet": {
+    "name": "Quillen's rank spectral sequence"
+   },
+   "prerequisites": [
+    "ArithmeticKTheory:N.3:finite-generation/rank-filtration",
+    "ArithmeticKTheory:N.3:finite-generation/comma-category-is-the-layer-poset",
+    "ArithmeticKTheory:N.3:finite-generation/layer-poset-is-the-suspended-building",
+    "GeneralAlgebraicKTheory:K.1/K-groups-of-exact-categories",
+    "StableHomotopyKTheory:H.1",
+    "StableHomotopyKTheory:H.2",
+    "mathlib:groupHomology"
+   ],
+   "sources": [
+    {
+     "sourceId": "Kahn.2014",
+     "locator": "4.3.3, Theorem (arXiv:1108.2441v3, p. 17)",
+     "excerpt": "If X is an integral scheme, then the E1-terms of the rank spectral sequence (4.2) (with Z-coeﬃcients) are E1 p,q = ⊕ Eα Hq(Aut(Eα), st(Eα)) where Eα runs through the isomorphism classes of torsion-free sheaves of rank p, and st(Eα) = ˜Hp−1((Fp)|Eα) is the [reduced] Steinberg module",
+     "match": "The E¹ term, verbatim up to the typesetting of the direct sum; for X = Spec A with A Dedekind the torsion-free sheaves are the projectives (4.2.7)."
+    },
+    {
+     "sourceId": "Kahn.2014",
+     "locator": "2.4.1, Theorem (arXiv:1108.2441v3, p. 12)",
+     "excerpt": "The functors Tn : Qn−1 →Qn are cellular (2.3.2). • Q = lim −→Qn. Write Fn for FTn. Then, for any abelian group A, there is a spectral sequence of homological type E1 p,q = Hp+q−1(Qp −Qp−1, ˜Fp; A) ⇒Hp+q(Q, A).",
+     "match": "The spectral sequence of a cellular filtration (step 1)."
+    },
+    {
+     "sourceId": "Kahn.2014",
+     "locator": "4.3.4, Remark (arXiv:1108.2441v3, p. 17)",
+     "excerpt": "By an argument of Vogel, the exact sequences from Corollary 2.3.7 then coincide with those of Quillen in [12, Th. 3 p. 181].",
+     "match": "Identification with Quillen's Theorem 3."
+    },
+    {
+     "sourceId": "Kahn.2014",
+     "locator": "Introduction (arXiv:1108.2441v3, p. 1)",
+     "excerpt": "Inspection shows immediately that the exact sequences of [12, Th. 3], used by Quillen to prove that the K-groups of A are finitely generated when A is a ring of S-integers in a global field, assemble to define an exact couple, hence a spectral sequence converging to the homology of KA.",
+     "match": "Quillen's exact sequences assemble into this spectral sequence."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "addedBy": "FIX-RT-AREA-ktheory-1"
+  },
+  {
    "id": "ArithmeticKTheory:N.3:finite-generation/quillen-finiteness-criterion",
    "parentStageId": "ArithmeticKTheory:N.3:finite-generation",
    "realises": [
@@ -1257,38 +1873,116 @@
    ],
    "title": "Quillen's finiteness criterion for a Dedekind domain",
    "kind": "theorem",
-   "statement": "Let R be a Dedekind domain with fraction field F. Suppose that (1) the class group Pic(R) is finite, and (2) for every finitely generated projective R-module P of positive rank and every n ≥ 0 the homology group H_n(Aut_R(P); St(P ⊗_R F)) is finitely generated, where St(V) is the Steinberg module of the F-vector space V (the top reduced homology of the Tits building of proper non-zero subspaces of V) and Aut_R(P) acts on it through Aut_R(P) ⊂ GL_F(P ⊗_R F). Then K_n(R) is a finitely generated abelian group for every n ≥ 0. This is the form in which the arithmetic-group input enters Quillen's proof: Aut_R(P) is the general linear group of the lattice P, and the input is the finiteness of its homology with Steinberg coefficients.",
+   "statement": "Let R be a Dedekind domain with fraction field F. Suppose that (1) Pic(R) is finite, and (2) for every finitely generated projective R-module P of positive rank and every q ≥ 0 the group H_q(Aut_R(P); St(P ⊗_R F)) is a finitely generated abelian group. Then H_i(BQ(P(R)); ℤ) is finitely generated for every i, and K_n(R) is a finitely generated abelian group for every n ≥ 0. This node is the assembly: it combines the rank spectral sequence with the two hypotheses and passes from homology to homotopy; hypothesis (2) for R = 𝓞_F is N.3:finite-generation/steinberg-homology-of-automorphism-groups.",
    "hypotheses": [
-    "R is a Dedekind domain with fraction field F; K_n(R) is Quillen's K-theory of the exact category P(R) of finitely generated projective R-modules (GeneralAlgebraicKTheory K.1).",
+    "R is a Dedekind domain with fraction field F; K_n(R) = π_{n+1} BQ(P(R)) (GeneralAlgebraicKTheory K.1/K-groups-of-exact-categories).",
     "Pic(R) is finite (hypothesis (1) of the source).",
-    "For every finitely generated projective P of positive rank and every n, H_n(Aut_R(P); St(P ⊗_R F)) is finitely generated (hypothesis (2) of the source, written st(P ⊗_R F) there)."
+    "For every finitely generated projective P of positive rank and every q, H_q(Aut_R(P); St(P ⊗_R F)) is finitely generated (hypothesis (2), written st(P ⊗_R F) in the source), with integral coefficients.",
+    "The passage from homology to homotopy is Serre's theorem for simple spaces, requested from StableHomotopyKTheory H.6; BQ(P(R)) is simple because direct sum makes it a connected H-space."
    ],
    "proofSteps": [
-    "Filter the Q-construction Q(P(R)) by the full subcategories of projectives of rank at most m; the source names this filtration as Quillen's method ('Quillen used a filtration of the Q–construction').",
-    "Compare consecutive stages of the filtration by Quillen's Theorem B (StableHomotopyKTheory H.2); the relative terms are governed by the homology of the groups Aut_R(P) with coefficients in the Steinberg modules, and there are finitely many isomorphism classes of projectives of each rank because Pic(R) is finite (Steinitz classification, KTheoryLowDegrees Z.4).",
-    "Deduce that each homology group of BQ(P(R)) is finitely generated, and pass to homotopy groups, BQ(P(R)) being an infinite loop space; K_n(R) = π_{n+1} BQ(P(R)).",
-    "The source states the criterion and attributes it to Quillen without proof; steps 2 and 3 are to be decomposed from Quillen's paper (gap 'The arithmetic-group input to finite generation has no source here')."
+    "Total degree i of the rank spectral sequence (N.3:finite-generation/rank-spectral-sequence): E¹_{p,q} with p + q = i, q ≥ 0 and p ≥ 0, so 0 ≤ p ≤ i — finitely many columns.",
+    "Each E¹_{p,q} is a finite direct sum (by (1), finitely many isomorphism classes of each rank, N.3:finite-generation/rank-filtration (e)) of groups that are finitely generated by (2); E¹_{0,q} is ℤ or 0.",
+    "The filtration of H_i(BQ) is finite and exhaustive (rank-filtration (c)), with subquotients subquotients of E¹ terms of total degree i; so H_i(BQ; ℤ) is finitely generated.",
+    "Direct sum ⊕ : P(R) × P(R) → P(R) is exact, so it induces Q(P(R)) × Q(P(R)) → Q(P(R)) and, since the nerve and realisation preserve finite products (StableHomotopyKTheory H.1), a multiplication BQ × BQ → BQ with unit 0 up to the homotopy given by the natural isomorphism 0 ⊕ M ≅ M; BQ is connected (π₀ is one point), so it is a connected H-space, hence simple.",
+    "Serre's theorem (StableHomotopyKTheory H.6, request): for a simple space with finitely generated integral homology in every degree, every homotopy group is finitely generated. Hence K_n(R) = π_{n+1} BQ is finitely generated."
    ],
    "acceptance": [
-    "For R = Z both hypotheses hold (Pic(Z) = 0; hypothesis (2) for GL_m(Z) is the Borel–Serre finiteness), so K_n(Z) is finitely generated for every n.",
-    "A finiteness hypothesis on Pic(R) cannot be dropped: K_0(R) = Z ⊕ Pic(R) (KTheoryLowDegrees Z.4), and for the coordinate ring R of an elliptic curve over C with one point removed Pic(R) ≅ E(C) is not finitely generated, so neither is K_0(R).",
-    "The criterion says nothing about a ring until hypothesis (2) is verified for it; this packet verifies it only for rings of integers (quillen-finite-generation-theorem) and reaches S-integers by localisation."
+    "For R = ℤ both hypotheses hold (Pic(ℤ) = 0; hypothesis (2) for GL_m(ℤ) by N.3:finite-generation/steinberg-homology-of-automorphism-groups), so K_n(ℤ) is finitely generated for every n.",
+    "A finiteness hypothesis on Pic(R) cannot be dropped: K_0(R) = ℤ ⊕ Pic(R) (KTheoryLowDegrees Z.4), and for the coordinate ring R of an elliptic curve over ℂ with one point removed Pic(R) ≅ E(ℂ) is not finitely generated, so neither is K_0(R).",
+    "Rational finiteness of (2) would give only finite-dimensionality of H_i(BQ) ⊗ ℚ and so of K_n(R) ⊗ ℚ; integral finite generation needs (2) integrally."
    ],
    "prerequisites": [
-    "GeneralAlgebraicKTheory:K.1",
-    "StableHomotopyKTheory:H.2",
-    "KTheoryLowDegrees:Z.4"
+    "ArithmeticKTheory:N.3:finite-generation/rank-spectral-sequence",
+    "ArithmeticKTheory:N.3:finite-generation/rank-filtration",
+    "KTheoryLowDegrees:Z.4/projective-classification",
+    "GeneralAlgebraicKTheory:K.1/K-groups-of-exact-categories",
+    "StableHomotopyKTheory:H.1",
+    "StableHomotopyKTheory:H.6"
    ],
    "sources": [
     {
      "sourceId": "Kbook.2013",
      "locator": "IV.6.8–6.9, the paragraph between Bass' Conjecture 6.8 and Theorem 6.9 (PDF p. 333; book p. 325)",
      "excerpt": "Quillen used a filtration of the Q–construction to prove in [154] that the groups K_n(R) are finitely generated for any Dedekind domain R such that (1) Pic(R) is finite and (2) the homology groups H_n(Aut(P), st(P ⊗_R F)) are finitely generated.",
-     "match": "The criterion with both hypotheses, verbatim (reference numbers kept, cross-reference tags dropped); the source gives no proof."
+     "match": "The criterion with both hypotheses, verbatim (reference numbers kept, cross-reference tags dropped); the source gives no proof, which is decomposed here from Kahn's rank spectral sequence."
+    },
+    {
+     "sourceId": "Kahn.2014",
+     "locator": "Introduction (arXiv:1108.2441v3, p. 1)",
+     "excerpt": "Inspection shows immediately that the exact sequences of [12, Th. 3], used by Quillen to prove that the K-groups of A are finitely generated when A is a ring of S-integers in a global field, assemble to define an exact couple, hence a spectral sequence converging to the homology of KA.",
+     "match": "Quillen's proof runs through these exact sequences."
+    },
+    {
+     "sourceId": "Sun.2016",
+     "locator": "p. 7 (arXiv:1604.04700v1)",
+     "excerpt": "Actually, Quillen showed that A satisﬁes (1) Pic(A) is ﬁnite (this is actually a classical result). (2) If d is a ﬁnitely generated projective A-module and V = d ⊗A K, then Hi(Aut(d), St(V )) is a ﬁnitely generated Abelian group for every i.",
+     "match": "The two hypotheses in the form used here."
     }
    ],
    "implementationStatus": "unchecked",
    "addedBy": "REV-ArithmeticKTheory--N.1"
+  },
+  {
+   "id": "ArithmeticKTheory:N.3:finite-generation/steinberg-homology-of-automorphism-groups",
+   "parentStageId": "ArithmeticKTheory:N.3:finite-generation",
+   "realises": [
+    "ArithmeticKTheory:N.3:finite-generation"
+   ],
+   "title": "Finite generation of the Steinberg homology of Aut(P), nonfree P included",
+   "kind": "lemma",
+   "statement": "Let F be a number field, A = 𝓞_F and P a finitely generated projective A-module of rank n ≥ 1 (free or not), V = P ⊗_A F. Choosing an F-basis V ≅ Fⁿ, the group Aut_A(P) ⊂ GL(V) ≅ GL_n(F) is commensurable with GL_n(𝓞_F): Aut_A(P) ∩ GL_n(𝓞_F) has finite index in both. Hence, by BorelRegulators R.1's finiteness of the Steinberg homology of arithmetic groups, H_i(Aut_A(P); St(V)) is a finitely generated abelian group for every i ≥ 0 — integrally, not only after ⊗ ℚ. In rank one Aut_A(P) = 𝓞_F^× and St(V) = ℤ. This is hypothesis (2) of Quillen's criterion for A = 𝓞_F.",
+   "hypotheses": [
+    "F a number field, A = 𝓞_F, n = rank P ≥ 1; the identification St(V) ≅ St_n(F) is induced by the chosen basis and is equivariant for Aut_A(P) → GL_n(F).",
+    "R.1 supplies (request): for every n ≥ 1 and every subgroup Γ ⊂ GL_n(F) commensurable with GL_n(𝓞_F), H_i(Γ; St_n(F)) is finitely generated for all i, proved from the duality of torsion-free finite-index subgroups with the twisted dualizing module St_n(F) ⊗ ℤ_χ^{⊗(n−1)}, χ = N_{F/ℚ} ∘ det (Putman–Studenmund, Theorem C), and descent through a normal subgroup of finite index. Rational duality alone would give only finite-dimensionality of H_i ⊗ ℚ, which does not suffice.",
+    "The node owns the passage from GL_n(𝓞_F) to Aut_A(P) for nonfree P and the low ranks; it does not re-prove the arithmetic finiteness."
+   ],
+   "proofSteps": [
+    "Under V ≅ Fⁿ, L = 𝓞_Fⁿ and P are two 𝓞_F-lattices spanning V; there is a nonzero N ∈ ℤ with N·L ⊆ P ⊆ N⁻¹·L (both are finitely generated and span V).",
+    "The principal congruence subgroup Γ_L(N²) = ker(GL(L) → GL(L/N²L)) preserves P: for x ∈ P ⊆ N⁻¹L and g ∈ Γ_L(N²), (g − 1)x ∈ N²·N⁻¹L = N·L ⊆ P, and likewise for g⁻¹; it has finite index in GL(L) = GL_n(𝓞_F) because L/N²L is finite. Symmetrically Γ_P(N²) ⊆ GL(L) has finite index in Aut_A(P). So the two groups are commensurable.",
+    "Apply R.1's finiteness of H_i(Γ; St_n(F)) to Γ = Aut_A(P), transported along the equivariant identification St(V) ≅ St_n(F).",
+    "Rank one: End_A(P) = A for an invertible module P, so Aut_A(P) = 𝓞_F^× = GL₁(𝓞_F), and St(V) = ℤ (N.3:finite-generation/layer-poset-is-the-suspended-building); this is R.1's case n = 1, the homology of the finitely generated abelian group 𝓞_F^×."
+   ],
+   "acceptance": [
+    "A = ℤ, P = ℤⁿ: Aut(P) = GL_n(ℤ) itself.",
+    "A = 𝓞 of ℚ(√−5), P = 𝓞 ⊕ 𝔭₂ (rank two, not free, since det P = [𝔭₂] is the non-trivial class): Aut(P) is an arithmetic group commensurable with GL₂(𝓞), containing the principal congruence subgroup of level N² of GL₂(𝓞) for N = 2 (since 2·𝓞² ⊆ P ⊆ 𝓞²).",
+    "Rank one: H_i(𝓞_F^×; ℤ) is finitely generated for every i because 𝓞_F^× ≅ μ(F) × ℤ^{r_1+r_2−1}.",
+    "The untwisted Steinberg module is not the dualizing module of GL₂(ℤ) (Putman–Studenmund, Example 1.4); the finiteness statement imported from R.1 is insensitive to the twist, but its proof must use the right module."
+   ],
+   "prerequisites": [
+    "ArithmeticKTheory:N.3:finite-generation/layer-poset-is-the-suspended-building",
+    "BorelRegulators:R.1",
+    "KTheoryLowDegrees:Z.4/steinitz",
+    "mathlib:NumberField.RingOfIntegers"
+   ],
+   "sources": [
+    {
+     "sourceId": "Kbook.2013",
+     "locator": "IV.6.8–6.9, the paragraph between Bass' Conjecture 6.8 and Theorem 6.9 (PDF p. 333; book p. 325)",
+     "excerpt": "Quillen used a filtration of the Q–construction to prove in [154] that the groups K_n(R) are finitely generated for any Dedekind domain R such that (1) Pic(R) is finite and (2) the homology groups H_n(Aut(P), st(P ⊗_R F)) are finitely generated.",
+     "match": "Hypothesis (2), whose verification for rings of integers this node assembles from R.1."
+    },
+    {
+     "sourceId": "Kbook.2013",
+     "locator": "IV.6.8–6.9, the sentence before Theorem 6.9 (PDF p. 333; book p. 325)",
+     "excerpt": "He then veriﬁed (2) in [154] (number ﬁeld case) and [75] (aﬃne curves).",
+     "match": "Quillen's verification of (2) for number fields, which the source does not reproduce."
+    },
+    {
+     "sourceId": "Sun.2016",
+     "locator": "p. 7 (arXiv:1604.04700v1)",
+     "excerpt": "(2) If d is a ﬁnitely generated projective A-module and V = d ⊗A K, then Hi(Aut(d), St(V )) is a ﬁnitely generated Abelian group for every i. In particular, for Γ = Aut(d) and d ∈D −C we may ﬁnd a normal subgroup Γ′ of Γ of ﬁnite index so that there is a Hochschild-Serre spectral sequence",
+     "match": "The statement for every projective d, and the descent through a normal subgroup of finite index that R.1's proof uses."
+    },
+    {
+     "sourceId": "PutmanStudenmund.2021",
+     "locator": "Theorem C (arXiv:1909.01217v4, p. 4)",
+     "excerpt": "Letting χ: GLn(O) →{±1} be the composition of the determinant homomorphism with the norm map O× →{±1}, we then have D ∼= Stn(K) ⊗(Zχ)⊗(n−1).",
+     "match": "The correctly twisted dualizing module on which R.1's finiteness rests (RT-AREA-ktheory-1/1, verifier)."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "addedBy": "FIX-RT-AREA-ktheory-1"
   },
   {
    "id": "ArithmeticKTheory:N.3:finite-generation/quillen-finite-generation-theorem",
@@ -1305,7 +1999,7 @@
    ],
    "proofSteps": [
     "Hypothesis (1) of quillen-finiteness-criterion: the class group of a ring of integers is finite (mathlib:NumberField.RingOfIntegers.instFintypeClassGroup).",
-    "Hypothesis (2): for a finitely generated projective 𝓞_F-module P, Aut(P) is an arithmetic subgroup of GL(P ⊗ F), and the finiteness of H_n(Aut(P); St(P ⊗ F)) is the Borel–Serre finite-type consequence imported from BorelRegulators R.1 (the source: 'He then verified (2) in [154] (number field case)').",
+    "Hypothesis (2): for every finitely generated projective 𝓞_F-module P of positive rank, H_q(Aut(P); St(P ⊗ F)) is finitely generated (N.3:finite-generation/steinberg-homology-of-automorphism-groups, which imports the arithmetic finiteness from BorelRegulators R.1; the source: 'He then verified (2) in [154] (number field case)').",
     "Apply quillen-finiteness-criterion."
    ],
    "acceptance": [
@@ -1318,7 +2012,7 @@
    },
    "prerequisites": [
     "ArithmeticKTheory:N.3:finite-generation/quillen-finiteness-criterion",
-    "BorelRegulators:R.1",
+    "ArithmeticKTheory:N.3:finite-generation/steinberg-homology-of-automorphism-groups",
     "mathlib:NumberField.RingOfIntegers.instFintypeClassGroup"
    ],
    "sources": [
@@ -1332,7 +2026,7 @@
      "sourceId": "Kbook.2013",
      "locator": "IV.6.8–6.9, the sentence before Theorem 6.9 (PDF p. 333)",
      "excerpt": "He then verified (2) in [154] (number field case) and [75] (affine curves).",
-     "match": "The verification of hypothesis (2) for rings of integers, which is the arithmetic-group input imported from BorelRegulators R.1."
+     "match": "The verification of hypothesis (2) for rings of integers, assembled in N.3:finite-generation/steinberg-homology-of-automorphism-groups from BorelRegulators R.1."
     }
    ],
    "implementationStatus": "unchecked",
@@ -1344,35 +2038,43 @@
    "realises": [
     "ArithmeticKTheory:N.3:ranks"
    ],
-   "title": "Borel's rank theorem for rings of S-integers",
+   "title": "Ranks of the K-groups of S-integers: the passage from the ring of integers, and the degree-one exception",
    "kind": "theorem",
-   "statement": "Let F be a number field with r_1 real and r_2 complex places (Mathlib's nrRealPlaces and nrComplexPlaces) and S a finite set of finite primes. For every n ≥ 2, K_n(𝓞_{F,S}) ⊗ Q ≅ K_n(F) ⊗ Q, and rank K_n(𝓞_{F,S}) = r_1 + r_2 if n ≡ 1 (mod 4), r_2 if n ≡ 3 (mod 4), and 0 if n is even. Borel's theorem supplies the field and the order 𝓞_F (BorelRegulators R.3; K-book IV.1.17–1.18); this node deduces the S-integer form from the localisation sequence, whose residue terms are torsion.",
+   "statement": "Let F be a number field with r_1 real and r_2 complex places (Mathlib's nrRealPlaces and nrComplexPlaces), S a finite set of nonzero primes of 𝓞_F and 𝓞_{F,S} = S.integer F. (a) For every n ≥ 2 the maps K_n(𝓞_F) → K_n(𝓞_{F,S}) → K_n(F) become isomorphisms after ⊗ ℚ; hence rank K_n(𝓞_{F,S}) = rank K_n(𝓞_F), which by Borel's theorem for the order 𝓞_F (imported from BorelRegulators R.3; K-book IV.1.17–1.18) is r_1 + r_2 if n ≡ 1 (mod 4), r_2 if n ≡ 3 (mod 4) and 0 if n is even. (b) In degree one the passage fails: K_1(𝓞_F) → K_1(𝓞_{F,S}) is injective with cokernel of rank |S|, because the residue terms K_0(k(𝔭)) = ℤ are not torsion, and rank K_1(𝓞_{F,S}) = r_1 + r_2 + |S| − 1, the rank of Dirichlet's S-unit theorem (KTheoryLowDegrees U.4), not the n ≡ 1 value r_1 + r_2. This node owns only the passage from 𝓞_F to 𝓞_{F,S} and to F; the rank theorem for 𝓞_F and for orders is R.3's.",
    "hypotheses": [
-    "n ≥ 2. The formula is not asserted in degree one; see the acceptance.",
-    "The rank is dim_Q K_n ⊗ Q; since K_n(𝓞_{F,S}) is finitely generated (N.3:finite-generation) it is the rank of a finitely generated abelian group.",
-    "𝓞_{F,S} with S ≠ ∅ is not an order in the source's sense ('a subring of A which is finitely generated over Z and has R ⊗ Q = A'), so Theorem IV.1.17 does not apply to it; the passage from F is by localisation."
+    "n ≥ 2 in (a). The rank is dim_ℚ K_n ⊗ ℚ; since K_n(𝓞_{F,S}) is finitely generated (N.3:finite-generation) it is the rank of a finitely generated abelian group.",
+    "𝓞_{F,S} with S ≠ ∅ is not an order in the source's sense ('a subring of A which is finitely generated over Z and has R ⊗ Q = A'), so Borel's Theorem IV.1.17 does not apply to it; the passage from 𝓞_F is this node's (RT-AREA-ktheory-1/7), by the localisation sequence of 𝓞_F ⊂ 𝓞_{F,S} = 𝓞_F[1/s] with the finitely many residue fields k(𝔭), 𝔭 ∈ S.",
+    "The finiteness of the positive even groups is for the ring, not for the field: K_{2i}(F) is infinite (N.3:ranks/even-K-groups-of-the-field-are-infinite-torsion), and the K-book's Classical Data VI.8.1 prints K_n(F) there by mistake (sourceIssues ArithmeticKTheory/E15)."
    ],
    "proofSteps": [
-    "Import Theorem IV.1.18 with A = F from BorelRegulators R.3: for n ≥ 2, dim_Q K_n(F) ⊗ Q is r_2 if n ≡ 3 (mod 4), r_1 + r_2 if n ≡ 1 (mod 4) and 0 otherwise. (The source derives it from H^*(SL(F ⊗ R); R) being a tensor product of r_1 exterior algebras on generators of degrees 4i + 1 and r_2 on generators of degrees 2j + 1, i, j ≥ 1: in degree n ≥ 2 there are r_1 + r_2 primitive generators when n ≡ 1 (mod 4), r_2 when n ≡ 3 (mod 4) and none when n is even.)",
-    "Tensor the localisation sequence … → ⊕_{𝔭∉S} K_n(k(𝔭)) → K_n(𝓞_{F,S}) → K_n(F) → ⊕_{𝔭∉S} K_{n−1}(k(𝔭)) → … of N.2 with Q, which is exact. For n ≥ 2 both residue terms are torsion (K_m(F_q) is finite for m ≥ 1, KTheoryFiniteLocalFields L.1), so K_n(𝓞_{F,S}) ⊗ Q ≅ K_n(F) ⊗ Q.",
-    "Conclude with finite generation: the rank of the finitely generated group K_n(𝓞_{F,S}) is dim_Q K_n(𝓞_{F,S}) ⊗ Q."
+    "Import from BorelRegulators R.3 Borel's theorem for the order 𝓞_F of the number field F (K-book IV.1.17 with A = F, R = 𝓞_F, and IV.1.18 with A = F): for n ≥ 2, K_n(𝓞_F) ⊗ ℚ ≅ K_n(F) ⊗ ℚ has dimension r_1 + r_2, r_2 or 0 according as n ≡ 1 (mod 4), n ≡ 3 (mod 4) or n is even.",
+    "Write 𝓞_{F,S} = 𝓞_F[1/s] with the primes dividing s exactly those of S (N.1/S-integers-as-a-localisation). The localisation sequence of 𝓞_F → 𝓞_F[1/s] (N.2/finite-support: its fibre term is ⊕_{𝔭∈S} K_*(k(𝔭))) reads ⋯ → ⊕_{𝔭∈S} K_n(k(𝔭)) → K_n(𝓞_F) → K_n(𝓞_{F,S}) → ⊕_{𝔭∈S} K_{n−1}(k(𝔭)) → ⋯.",
+    "For n ≥ 2 both residue terms are finite (K_m(𝔽_q) is finite for m ≥ 1, KTheoryFiniteLocalFields L.1); ⊗ ℚ is exact, so K_n(𝓞_F) ⊗ ℚ ≅ K_n(𝓞_{F,S}) ⊗ ℚ.",
+    "The same argument with the sequence (6.6) of 𝓞_{F,S} ⊂ F (N.2/localisation-sequence-for-a-dedekind-domain), whose residue terms are torsion in the relevant degrees, gives K_n(𝓞_{F,S}) ⊗ ℚ ≅ K_n(F) ⊗ ℚ, compatibly with step 1.",
+    "Conclude with finite generation (N.3:finite-generation/finite-generation-of-K-of-S-integers): the rank of the finitely generated group K_n(𝓞_{F,S}) is dim_ℚ K_n(𝓞_{F,S}) ⊗ ℚ.",
+    "(b) Degree one: K_1 = units (N.1/K1-of-S-integers-and-the-determinant), and the degree-one end of the relative sequence is the S-unit sequence 1 → 𝓞_F^× → 𝓞_{F,S}^× → ⊕_{𝔭∈S} ℤ → Cl(𝓞_F) (N.2/S-unit-and-class-group-sequence); Cl(𝓞_F) is finite, so the image in ⊕_{𝔭∈S} ℤ has finite index and the cokernel of K_1(𝓞_F) → K_1(𝓞_{F,S}) has rank |S|. With Dirichlet's S-unit theorem (KTheoryLowDegrees U.4) this is rank r_1 + r_2 + |S| − 1."
    ],
    "acceptance": [
-    "K_3(Z), K_7(Z) and every K_{2j}(Z), j ≥ 1, have rank 0, while K_5(Z) and K_9(Z) have rank 1 (r_1 = 1, r_2 = 0).",
-    "For F = Q(√−1) (r_1 = 0, r_2 = 1) every K_n(Z[√−1]) with n odd and n ≥ 3 has rank 1.",
+    "K_3(ℤ), K_7(ℤ) and every K_{2j}(ℤ), j ≥ 1, have rank 0, while K_5(ℤ) and K_9(ℤ) have rank 1 (r_1 = 1, r_2 = 0); the same holds for ℤ[1/p], since K_n(ℤ) → K_n(ℤ[1/p]) is a rational isomorphism for n ≥ 2.",
+    "For F = ℚ(√−1) (r_1 = 0, r_2 = 1) every K_n(ℤ[√−1]) with n odd and n ≥ 3 has rank 1.",
     "For a real quadratic field (r_1 = 2, r_2 = 0), rank K_5 = 2 and rank K_3 = 0; for an imaginary quadratic field rank K_3 = rank K_5 = 1.",
     "For n ≥ 2 the rank does not depend on S.",
-    "Degree one is excluded, and must be excluded by the hypothesis n ≥ 2 rather than by a check of values: rank K_1(𝓞_{F,S}) = r_1 + r_2 + |S| − 1 (KTheoryLowDegrees U.4, through N.1/K1-of-S-integers-and-the-determinant), which equals the n ≡ 1 value r_1 + r_2 exactly when |S| = 1. For Z it is 0 against 1, for Z[1/6] it is 2 against 1, and for Z[1/2] both are 1.",
-    "The source's own degree-one warning: for the group ring Z[C_p] of a cyclic group of prime order p ≥ 3, r_1 + r_2 = (p + 1)/2 while K_1(Z[C_p]) has rank (p − 3)/2."
+    "Degree one is excluded, and must be excluded by the hypothesis n ≥ 2 rather than by a check of values: rank K_1(𝓞_{F,S}) = r_1 + r_2 + |S| − 1, which equals the n ≡ 1 value r_1 + r_2 exactly when |S| = 1. For ℤ it is 0 against 1, for ℤ[1/6] it is 2 against 1, and for ℤ[1/2] both are 1; K_1(ℤ) = {±1} → K_1(ℤ[1/2]) = {±1} × 2^ℤ has cokernel ℤ, of rank |S| = 1.",
+    "The source's own degree-one warning: for the group ring ℤ[C_p] of a cyclic group of prime order p ≥ 3, r_1 + r_2 = (p + 1)/2 while K_1(ℤ[C_p]) has rank (p − 3)/2."
    ],
    "planet": {
-    "name": "Borel's rank theorem"
+    "name": "Ranks of K-groups of S-integers"
    },
    "prerequisites": [
     "ArithmeticKTheory:N.3:finite-generation/finite-generation-of-K-of-S-integers",
+    "ArithmeticKTheory:N.1/S-integers-as-a-localisation",
+    "ArithmeticKTheory:N.1/K1-of-S-integers-and-the-determinant",
+    "ArithmeticKTheory:N.2/finite-support",
     "ArithmeticKTheory:N.2/localisation-sequence-for-a-dedekind-domain",
+    "ArithmeticKTheory:N.2/S-unit-and-class-group-sequence",
     "BorelRegulators:R.3",
     "KTheoryFiniteLocalFields:L.1",
+    "KTheoryLowDegrees:U.4",
     "mathlib:NumberField.InfinitePlace.nrRealPlaces",
     "mathlib:NumberField.InfinitePlace.nrComplexPlaces"
    ],
@@ -1381,13 +2083,13 @@
      "sourceId": "Kbook.2013",
      "locator": "IV.1.18 (PDF p. 279; book p. 271)",
      "excerpt": "Theorem 1.18. (Borel) Let F be a number field, and A a central simple F-algebra. Then for n ≥ 2 we have K_n(A) ⊗ Q ≅ K_n(F) ⊗ Q and rank K_n(A) ⊗ Q = r_2, n ≡ 3 (mod 4); r_1 + r_2, n ≡ 1 (mod 4); 0, else.",
-     "match": "Borel's theorem, verbatim with its cases display written on one line; this node applies it with A = F."
+     "match": "Borel's theorem, verbatim with its cases display written on one line; imported from R.3 with A = F."
     },
     {
      "sourceId": "Kbook.2013",
      "locator": "IV.1.17 (PDF p. 279; book p. 271)",
      "excerpt": "Theorem 1.17. (Borel) Let A be a finite dimensional semisimple Q-algebra. Then for every order R in A we have K_n(R) ⊗ Q ≅ K_n(A) ⊗ Q for all n ≥ 2.",
-     "match": "Borel's comparison for orders; 𝓞_F is an order, 𝓞_{F,S} with S ≠ ∅ is not."
+     "match": "Borel's comparison for orders, imported from R.3 for the order 𝓞_F; 𝓞_{F,S} with S ≠ ∅ is not an order, which is why this node passes from 𝓞_F to 𝓞_{F,S} itself."
     },
     {
      "sourceId": "Kbook.2013",
@@ -1411,6 +2113,51 @@
    "implementationStatus": "unchecked"
   },
   {
+   "id": "ArithmeticKTheory:N.3:ranks/even-K-groups-of-S-integers-are-finite",
+   "parentStageId": "ArithmeticKTheory:N.3:ranks",
+   "realises": [
+    "ArithmeticKTheory:N.3:ranks"
+   ],
+   "title": "The positive even K-groups of rings of S-integers are finite",
+   "kind": "theorem",
+   "statement": "Let F be a number field and S a finite set of nonzero primes of 𝓞_F. For every i ≥ 1 the group K_{2i}(𝓞_{F,S}) is finite; in particular K_2(𝓞_F) is finite. The statement is about the ring: the corresponding groups K_{2i}(F) of the field are infinite torsion groups (N.3:ranks/even-K-groups-of-the-field-are-infinite-torsion), and the K-book's Classical Data VI.8.1, which prints the finiteness for K_n(F), is misprinted there (sourceIssues ArithmeticKTheory/E15).",
+   "hypotheses": [
+    "F a number field, S finite (S = ∅ allowed), i ≥ 1.",
+    "This is the finiteness theorem for K_2(𝓞_F) that SpecialValuesBirchTate B.1 uses (RT-AREA-ktheory-1/10); it is exported from this stage, N.3:ranks."
+   ],
+   "proofSteps": [
+    "K_{2i}(𝓞_{F,S}) is finitely generated (N.3:finite-generation/finite-generation-of-K-of-S-integers).",
+    "Its rank is 0 (N.3:ranks/borel-rank-theorem (a), n = 2i even).",
+    "A finitely generated abelian group of rank 0 is finite (mathlib:AddCommGroup.equiv_free_prod_directSum_zmod)."
+   ],
+   "acceptance": [
+    "K_2(ℤ) has order two (K2SymbolsBrauer T.5/k2-of-the-integers) and K_2(ℤ[1/p]) has order 2(p − 1) (T.5/s-integer-tame-kernel-sequence); both are finite, as they must be.",
+    "K_4(ℤ) and K_6(ℤ) are finite.",
+    "Non-example: K_2(ℚ) is infinite (T.5/k2-of-the-rationals); the theorem is false for the field."
+   ],
+   "prerequisites": [
+    "ArithmeticKTheory:N.3:finite-generation/finite-generation-of-K-of-S-integers",
+    "ArithmeticKTheory:N.3:ranks/borel-rank-theorem",
+    "mathlib:AddCommGroup.equiv_free_prod_directSum_zmod"
+   ],
+   "sources": [
+    {
+     "sourceId": "Kbook.2013",
+     "locator": "IV.1.18, last sentence (PDF p. 279; book p. 271)",
+     "excerpt": "By Theorem 1.17, this also gives the rank of K_n(R) for every order R. In particular, these groups are torsion for every even n ≥ 2.",
+     "match": "Torsion of the even groups of an order; with finite generation and the passage to 𝓞_{F,S} this gives finiteness."
+    },
+    {
+     "sourceId": "Kbook.2013",
+     "locator": "VI.8.1, Classical Data 8.1 (PDF p. 521; book p. 513)",
+     "excerpt": "By Chapter IV, 1.18 and 6.9, the groups K_n(F) are finite when n is even and nonzero",
+     "match": "The finiteness statement with the misprint K_n(F) for K_n(O_S) (sourceIssues ArithmeticKTheory/E15); this node states it for the ring."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "addedBy": "FIX-RT-AREA-ktheory-1"
+  },
+  {
    "id": "ArithmeticKTheory:N.3:ranks/even-K-groups-of-the-field-are-infinite-torsion",
    "parentStageId": "ArithmeticKTheory:N.3:ranks",
    "realises": [
@@ -1418,13 +2165,13 @@
    ],
    "title": "The positive even K-groups of a number field are infinite torsion groups",
    "kind": "theorem",
-   "statement": "Let F be a number field and i ≥ 1. Then K_{2i}(F) is a torsion group, and it is infinite. Torsion: K_{2i}(F) ⊗ Q ≅ K_{2i}(𝓞_F) ⊗ Q = 0 by Borel's theorem. Infinite: in the localisation sequence of 𝓞_F the boundary K_{2i}(F) → ⊕_𝔭 K_{2i−1}(k(𝔭)) ≅ ⊕_𝔭 Z/(N𝔭^i − 1) has infinite image, because the next map lands in the finitely generated group K_{2i−1}(𝓞_F). By contrast K_{2i}(𝓞_{F,S}) is finite for every finite S (N.3/finiteness-and-ranks-combined).",
+   "statement": "Let F be a number field and i ≥ 1. Then K_{2i}(F) is a torsion group, and it is infinite. Torsion: in the localisation sequence K_{2i}(𝓞_F) → K_{2i}(F) → ⊕_𝔭 K_{2i−1}(k(𝔭)) the left term is finite (N.3:ranks/even-K-groups-of-S-integers-are-finite) and the right term is torsion. Infinite: in the localisation sequence of 𝓞_F the boundary K_{2i}(F) → ⊕_𝔭 K_{2i−1}(k(𝔭)) ≅ ⊕_𝔭 Z/(N𝔭^i − 1) has infinite image, because the next map lands in the finitely generated group K_{2i−1}(𝓞_F). By contrast K_{2i}(𝓞_{F,S}) is finite for every finite S (N.3/finiteness-and-ranks-combined).",
    "hypotheses": [
     "F is a number field and i ≥ 1; the direct sum runs over all non-zero primes 𝔭 of 𝓞_F, and N𝔭 = #k(𝔭).",
     "The argument does not use Soulé's theorem, which would give the sharper exact sequence 0 → K_{2i}(𝓞_F) → K_{2i}(F) → ⊕_𝔭 K_{2i−1}(k(𝔭)) → 0; Soulé's proof itself uses finite generation (see restructure), so this node avoids it."
    ],
    "proofSteps": [
-    "Torsion: by borel-rank-theorem with S = ∅ and n = 2i even, K_{2i}(F) ⊗ Q ≅ K_{2i}(𝓞_F) ⊗ Q = 0.",
+    "Torsion: the localisation sequence of 𝓞_F (N.2) gives an exact segment K_{2i}(𝓞_F) → K_{2i}(F) → ⊕_𝔭 K_{2i−1}(k(𝔭)); K_{2i}(𝓞_F) is finite (N.3:ranks/even-K-groups-of-S-integers-are-finite) and the direct sum is torsion (KTheoryFiniteLocalFields L.1), so K_{2i}(F) is torsion.",
     "The localisation sequence of 𝓞_F (N.2) gives an exact segment K_{2i}(F) → ⊕_𝔭 K_{2i−1}(k(𝔭)) → K_{2i−1}(𝓞_F).",
     "Each K_{2i−1}(k(𝔭)) ≅ Z/(N𝔭^i − 1) (KTheoryFiniteLocalFields L.1) is non-zero as soon as N𝔭^i > 2, which excludes only the primes of norm 2 when i = 1; infinitely many 𝔭 remain, so the direct sum is an infinite torsion group.",
     "Its image in the finitely generated group K_{2i−1}(𝓞_F) (N.3:finite-generation) is a finitely generated torsion group, hence finite; so the kernel, which is the image of the boundary, is infinite, and K_{2i}(F) is infinite."
@@ -1435,7 +2182,7 @@
     "The contrast is special to even degrees: for odd n ≥ 3 the groups of the ring and of the field agree (Soulé) and are finitely generated."
    ],
    "prerequisites": [
-    "ArithmeticKTheory:N.3:ranks/borel-rank-theorem",
+    "ArithmeticKTheory:N.3:ranks/even-K-groups-of-S-integers-are-finite",
     "ArithmeticKTheory:N.3:finite-generation/finite-generation-of-K-of-S-integers",
     "ArithmeticKTheory:N.2/localisation-sequence-for-a-dedekind-domain",
     "KTheoryFiniteLocalFields:L.1"
@@ -1469,12 +2216,12 @@
    "statement": "For a number field F, a finite set S of finite primes and n ≥ 2, K_n(𝓞_{F,S}) is a finitely generated abelian group of rank ρ(n), where ρ(n) = r_1 + r_2, r_2 or 0 according as n ≡ 1 (mod 4), n ≡ 3 (mod 4) or n is even. Hence K_n(𝓞_{F,S}) ≅ Z^{ρ(n)} ⊕ T_n with T_n = K_n(𝓞_{F,S})_tors finite; in particular every positive even K-group of 𝓞_{F,S} is finite, and every odd one in degree at least three is Z^{ρ(n)} plus a finite group. The torsion subgroup T_n is canonical; a complement to it is not.",
    "hypotheses": [
     "F a number field, S a finite set of finite primes, n ≥ 2.",
-    "Degrees zero and one are K_0 = Z ⊕ Pic(𝓞_{F,S}) and K_1 = 𝓞_{F,S}^× ≅ µ(F) ⊕ Z^{r_1+r_2+|S|−1} (N.1, from KTheoryLowDegrees Z.4 and U.4) and are not covered by ρ.",
+    "Degrees zero and one are K_0 = Z ⊕ Pic(𝓞_{F,S}) and K_1 = 𝓞_{F,S}^× ≅ µ(F) ⊕ Z^{r_1+r_2+|S|−1} (N.1, from KTheoryLowDegrees Z.4 and U.4's Dirichlet S-unit theorem) and are not covered by ρ.",
     "The decomposition is the structure theorem for finitely generated abelian groups and is not natural."
    ],
    "proofSteps": [
     "K_n(𝓞_{F,S}) is finitely generated (N.3:finite-generation/finite-generation-of-K-of-S-integers) of rank ρ(n) (N.3:ranks/borel-rank-theorem).",
-    "Apply Mathlib's structure theorem (AddCommGroup.equiv_free_prod_directSum_zmod) to obtain Z^{ρ(n)} ⊕ T_n with T_n finite; for n even ρ(n) = 0, so the group is finite.",
+    "Apply Mathlib's structure theorem (AddCommGroup.equiv_free_prod_directSum_zmod) to obtain Z^{ρ(n)} ⊕ T_n with T_n finite; for n even ρ(n) = 0 and the group is finite (N.3:ranks/even-K-groups-of-S-integers-are-finite).",
     "Record that only T_n is canonical: no later statement may depend on a chosen splitting."
    ],
    "acceptance": [
@@ -1485,6 +2232,7 @@
    "prerequisites": [
     "ArithmeticKTheory:N.3:finite-generation/finite-generation-of-K-of-S-integers",
     "ArithmeticKTheory:N.3:ranks/borel-rank-theorem",
+    "ArithmeticKTheory:N.3:ranks/even-K-groups-of-S-integers-are-finite",
     "mathlib:AddCommGroup.equiv_free_prod_directSum_zmod"
    ],
    "sources": [
@@ -1545,8 +2293,8 @@
      "how": "the cohomological descriptions are stated at the same twists ℤ_ℓ(i + 1)."
     },
     {
-     "where": "SpecialValuesBirchTate B.1-B.3",
-     "how": "the Birch-Tate formula ζ_F(−1) = (−1)^{[F:Q]} #K_2(𝓞_F)/w_2(F) uses w_2(F); B.3 uses w_2(Q) = 24."
+     "where": "SpecialValuesBirchTate B.1–B.3",
+     "how": "B.1 imports W_2(F) = H⁰(F, ℚ/ℤ(2)) — the invariants of the twist ℚ/ℤ(2), not the roots of unity of F — from this node, with its finiteness and positivity from N.4/finiteness-of-the-w-invariant and the cyclotomic computation from N.4/computing-w-from-the-cyclotomic-character (RT-AREA-ktheory-1/10; atlas edge N.4 → B.1); the Birch-Tate formula ζ_F(−1) = (−1)^{[F:Q]} #K_2(𝓞_F)/w_2(F) uses w_2(F), and B.3 uses w_2(Q) = 24."
     }
    ],
    "api": [
@@ -2010,7 +2758,7 @@
    ],
    "title": "Finiteness of W_i(F) for a number field",
    "kind": "theorem",
-   "statement": "Let F be a number field and i ≠ 0. Then W_i(F) is finite. More precisely, every W_i^{(ℓ)}(F) is finite, and W_i^{(ℓ)}(F) = 0 whenever ℓ − 1 > |i|·[F : Q]; hence w_i(F) = ∏_{ℓ ≤ |i|[F:Q] + 1} w_i^{(ℓ)}(F) is a positive integer. This is the stage's 'prove finiteness for positive j', for all non-zero j.",
+   "statement": "Let F be a number field and i ≠ 0. Then W_i(F) is finite. More precisely, every W_i^{(ℓ)}(F) is finite, and W_i^{(ℓ)}(F) = 0 whenever ℓ − 1 > |i|·[F : Q]; hence w_i(F) = ∏_{ℓ ≤ |i|[F:Q] + 1} w_i^{(ℓ)}(F) is a positive integer. This is the stage's 'prove finiteness for positive j', for all non-zero j. Positivity is part of the statement: w_i(F) ≥ 1 because W_i(F) is a finite group. SpecialValuesBirchTate B.1 imports this node for the finiteness and positivity of w_2(F) (RT-AREA-ktheory-1/10) and does not re-prove them.",
    "hypotheses": [
     "F is a number field (finite over Q) and i ≠ 0.",
     "For i = 0, or for F of infinite degree such as Q(µ_{ℓ^∞}), the statement fails."
@@ -2198,13 +2946,14 @@
    "hypotheses": [
     "r_1 = nrRealPlaces F > 0. The hypothesis is essential: for a totally imaginary field the classes n ≡ 3 and n ≡ 5 (mod 8) have torsion ℤ/w_i(F) (N.5/totally-imaginary-integral-structure), and (ℤ/2)^{r_1−1} is undefined for r_1 = 0.",
     "O_S is any ring of S-integers; since n is odd, K_n(O_S) ≅ K_n(F) ≅ K_n(O_S[1/2]) (N.5/soule-theorem), so one may assume 1/2 ∈ O_S, which Theorem VI.9.4 requires.",
-    "w_i(F) = ∏_ℓ w_i^{(ℓ)}(F). Every real number field is exceptional and does not contain √−1, so w_i^{(2)}(F) = 2 for odd i (Proposition VI.2.3(b), N.4/exceptional-fields-at-two)."
+    "w_i(F) = ∏_ℓ w_i^{(ℓ)}(F). Every real number field is exceptional and does not contain √−1, so w_i^{(2)}(F) = 2 for odd i (Proposition VI.2.3(b), N.4/exceptional-fields-at-two).",
+    "The dyadic calculation is MotivicEtaleKTheory M.7's and is imported, not repeated (RT-AREA-ktheory-1/3): Theorem VI.9.4 with Lemma VI.9.3, the spectral sequences of ℝ (Theorem VI.9.1, Variant VI.9.1.2), whose differentials M.7 fixes from Suslin's K_n(ℝ; ℤ/m) ≅ π_n(BO; ℤ/m) for n ≥ 1 (K-book VI.3.1) and real topological K-theory, and the real-place maps α^n_S(i) with the extension data they detect. This node uses only that output: the groups K_{n+1}(R; ℚ_2/ℤ_2), the maps to ⊕_{real} K_*(ℝ; ℚ_2/ℤ_2) and the extensions, and performs no second spectral-sequence computation."
    ],
    "proofSteps": [
     "Replace O_S by R = O_S[1/2], which contains O_F[1/2] (N.5/soule-theorem).",
     "Rank: r_1 + r_2 for n ≡ 1 (mod 4) and r_2 for n ≡ 3 (mod 4) (N.3/finiteness-and-ranks-combined), so K_n(R) ≅ ℤ^r ⊕ T with T finite (mathlib:AddCommGroup.equiv_free_prod_directSum_zmod).",
     "Odd torsion: T{ℓ} ≅ ℤ/w_i^{(ℓ)}(F) for every odd ℓ (N.5/odd-torsion-at-a-prime-where-cd-is-two).",
-    "Two-primary torsion: K_{n+1}(R) is finite, so T{2} ≅ K_{n+1}(R; ℚ_2/ℤ_2) by the universal coefficient sequence (StableHomotopyKTheory H.6). Read it off from Theorem VI.9.4 (imported from MotivicEtaleKTheory M.7) in degree n + 1 ≡ 2, 4, 6, 0 (mod 8): ℤ/2 = ℤ/w_i^{(2)}(F) for i = 4k + 1; ℤ/2w_{4k+2}^{(2)}(F) ⊕ (ℤ/2)^{r_1−1}; 0; and ℤ/w_{4k+4}^{(2)}(F) (the row n + 1 = 8(k + 1) of Theorem VI.9.4, where the source's w_{4k}(F) is the two-primary w^{(2)}), using w_i^{(2)}(F) = 2 for odd i (N.4/exceptional-fields-at-two).",
+    "Two-primary torsion: K_{n+1}(R) is finite, so T{2} ≅ K_{n+1}(R; ℚ_2/ℤ_2) by the universal coefficient sequence (StableHomotopyKTheory H.6). Read it off from Theorem VI.9.4, imported from MotivicEtaleKTheory M.7 together with its real-place maps and extension data (no spectral-sequence computation here) in degree n + 1 ≡ 2, 4, 6, 0 (mod 8): ℤ/2 = ℤ/w_i^{(2)}(F) for i = 4k + 1; ℤ/2w_{4k+2}^{(2)}(F) ⊕ (ℤ/2)^{r_1−1}; 0; and ℤ/w_{4k+4}^{(2)}(F) (the row n + 1 = 8(k + 1) of Theorem VI.9.4, where the source's w_{4k}(F) is the two-primary w^{(2)}), using w_i^{(2)}(F) = 2 for odd i (N.4/exceptional-fields-at-two).",
     "Assemble T = T{2} ⊕ ⊕_{ℓ odd} T{ℓ} with the Chinese remainder theorem: for n ≡ 3 (mod 8) the factor ℤ/2w_i^{(2)} combines with the odd parts to ℤ/2w_i(F); for n ≡ 5 (mod 8) the two-primary part is 0 and the odd part is ℤ/(w_i(F)/2), an integer because w_i^{(2)}(F) = 2."
    ],
    "acceptance": [
@@ -2736,7 +3485,7 @@
    ],
    "proofSteps": [
     "Odd n = 2i − 1: the two-primary part of N.5/the-real-case-modulo-eight, using w_i^{(2)}(F) = 2 for n ≡ 1 (mod 4) (Proposition VI.2.3(b), N.4/exceptional-fields-at-two).",
-    "n = 2: K_2(O_S){2} ≅ H^2(R; ℤ_2(2)) by Tate's theorem K_2(O_S)/2^ν ≅ H^2(R; μ_{2^ν}^{⊗2}) (MotivicEtaleKTheory M.3, through K2SymbolsBrauer T.7) and finiteness of K_2(O_S). (The source cites III.6.9.3 here.)",
+    "n = 2: K_2(O_S){2} ≅ H^2(R; ℤ_2(2)) by Tate's theorem K_2(O_S)/2^ν ≅ H^2(R; μ_{2^ν}^{⊗2}) for rings of S-integers with 2 inverted, which MotivicEtaleKTheory M.3 owns (RT-AREA-ktheory-1/8; not K2SymbolsBrauer T.7), and finiteness of K_2(O_S). (The source cites III.6.9.3 here.)",
     "Even n = 2m ≥ 4: K_{n+1}(O_S) has rank r = r_1 + r_2 or r_2 (N.3/finiteness-and-ranks-combined), and the universal coefficient sequence 0 → (ℚ_2/ℤ_2)^r → K_{n+1}(O_S; ℚ_2/ℤ_2) → K_n(O_S){2} → 0 (StableHomotopyKTheory H.6) identifies K_n(O_S){2} with the finite part of K_{n+1}(O_S; ℚ_2/ℤ_2).",
     "Import Theorem VI.9.4 from MotivicEtaleKTheory M.7: K_{n+1}(O_S; ℚ_2/ℤ_2) is H^1(R; ℚ_2/ℤ_2(m+1)) for n + 1 ≡ 1, 3 (mod 8), its subgroup H̃^1 for n + 1 ≡ 7 (mod 8), and an extension of H^1(R; ℚ_2/ℤ_2(4k+3)) by (ℤ/2)^{r_1−1} for n + 1 = 8k + 5. The finite part of H^1(R; ℚ_2/ℤ_2(m+1)) is H^2(R; ℤ_2(m+1)); α^1 vanishes on the divisible part and induces α^2, so the finite part of H̃^1 is H̃^2 (MotivicEtaleKTheory M.2). (The source writes the twist as i although n = 2i + 2; the twist of the row n = 2m is m + 1.)",
     "n = 8k + 4: by mod-2 periodicity the image of H^4(O_S; ℤ/2(4)) ≅ (ℤ/2)^{r_1} in Hom(ℤ/2, K_n(O_S)) has rank ρ, which gives the (ℤ/2)^ρ; the bounds j(O_S) ≤ ρ ≤ r_1 − 1 are Corollary VI.9.10, whose proof uses {−1, −1, −1, −1} = 0 in K_4(F) and the edge map of the motivic spectral sequence (imported with MotivicEtaleKTheory M.7)."
@@ -2759,7 +3508,6 @@
     "MotivicEtaleKTheory:M.7",
     "MotivicEtaleKTheory:M.2",
     "MotivicEtaleKTheory:M.3",
-    "K2SymbolsBrauer:T.7",
     "StableHomotopyKTheory:H.6"
    ],
    "sources": [
@@ -2955,28 +3703,168 @@
    "implementationStatus": "unchecked"
   },
   {
+   "id": "ArithmeticKTheory:N.6/order-certificate",
+   "parentStageId": "ArithmeticKTheory:N.6",
+   "realises": [
+    "ArithmeticKTheory:N.6"
+   ],
+   "title": "Order certificates: a finite presentation with independent upper and lower bounds",
+   "kind": "definition",
+   "statement": "For an abelian group A (a ℤ-module), an order certificate consists of: relations rel : Module.Relations ℤ with finitely many generators and relations and finite presented group rel.Quotient; a solution s : rel.Solution A whose values span A, so that s.fromQuotient : rel.Quotient → A is onto (the upper bound Nat.card A ≤ Nat.card rel.Quotient); and a lower bound, a surjective homomorphism φ : A → B onto a finite group B with Nat.card B = Nat.card rel.Quotient. Soundness: s is then a presentation (Mathlib's IsPresentation), A ≃ rel.Quotient and Nat.card A = Nat.card B. The two bounds are independent obligations: without the lower bound, or a complete kernel argument (IsPresentation itself), only the upper bound holds, and an upper bound with a surjective presentation is never reported as an isomorphism. This is the certificate engine of N.6's text ('supply a finite presentation, verify relations and surjectivity, and certify the kernel/order through cohomology or a second independently proved bound'); the lower bound may come from symbols (the real sign, tame or Hilbert symbols), from cohomology (N.6/certificate-driven-computation) or from another proved order statement, but never from a formula for which the certified group is to serve as the independent test (RT-AREA-ktheory-1/9, /11). The format moves here from K2SymbolsBrauer T.5/certified-presentation, whose competing certificate obligation T.5 drops.",
+   "hypotheses": [
+    "A is an abelian group; the intended instances are tame kernels K_2(O_F), the K_2 of rings of S-integers and the finite even K-groups K_{2i}(O_S).",
+    "Generation (span) and the lower bound are separate fields carried with their proofs; neither may be inferred from the other or from a numerical coincidence."
+   ],
+   "proofSteps": [
+    "Define the certificate as a structure on top of Mathlib's Module.Relations and Module.Relations.Solution; do not introduce a second presentation type.",
+    "Upper bound: surjectivity of s.fromQuotient from the span condition (mathlib:Module.Relations.Solution.surjective_π_iff_span_eq_top and mathlib:Module.Relations.Solution.surjective_fromQuotient_iff_surjective_π).",
+    "Soundness: the composite rel.Quotient → A → B is a surjection between finite sets of equal cardinality, hence bijective (mathlib:Function.Surjective.bijective_of_nat_card_le), so s.fromQuotient is injective and s is a presentation.",
+    "Package a certificate as a Mathlib Module.Presentation ℤ A (mathlib:Module.Presentation.ofIsPresentation), and a complete kernel argument (IsPresentation with finite quotient) as a certificate with B = A and φ = id."
+   ],
+   "acceptance": [
+    "A certificate without its lower bound gives Nat.card A ≤ Nat.card rel.Quotient and nothing more.",
+    "K_2(ℤ): one generator {−1, −1}, the relation 2g = 0, span by Milnor's bound and lower bound the real sign symbol onto ℤˣ (both K2SymbolsBrauer T.5's) — the model instance, used by N.8.",
+    "For a tame kernel with a claimed order the certificate carries both bounds, which is N.6's and N.8's acceptance condition."
+   ],
+   "uses": [
+    {
+     "where": "N.6's text",
+     "how": "'Construct certificate-driven computations: supply a finite presentation, verify relations and surjectivity, and certify the kernel/order through cohomology or a second independently proved bound'"
+    },
+    {
+     "where": "N.6/certificate-driven-computation",
+     "how": "the cohomological lower bound completes a certificate of this format"
+    },
+    {
+     "where": "ArithmeticKTheory N.8, the certified examples",
+     "how": "K₂(ℤ[i]) = 0 and the real quadratic tame kernel are certificates of this format, exported to SpecialValuesBirchTate B.3"
+    },
+    {
+     "where": "K2SymbolsBrauer T.5/k2-of-the-integers",
+     "how": "its proof of K₂(ℤ) ≅ ℤ/2 (Milnor's bound and the sign symbol) is the model instance; T.5 is upstream of N.6 and does not import the format"
+    }
+   ],
+   "api": [
+    {
+     "name": "OrderCertificate",
+     "role": "structure",
+     "statement": "For an abelian group A: rel : Module.Relations ℤ with Finite rel.G and Finite rel.R, s : rel.Solution A with span_eq_top, a finite group B in the universe of A with a surjective φ : A →+ B, and card_quotient_eq : Nat.card B = Nat.card rel.Quotient with rel.Quotient finite."
+    },
+    {
+     "name": "OrderCertificate.fromQuotient_surjective",
+     "role": "projection",
+     "statement": "The upper bound: s.fromQuotient is surjective, so Nat.card A ≤ Nat.card rel.Quotient."
+    },
+    {
+     "name": "OrderCertificate.isPresentation",
+     "role": "characterisation",
+     "statement": "Soundness: s.IsPresentation."
+    },
+    {
+     "name": "OrderCertificate.toPresentation",
+     "role": "compatibility",
+     "statement": "The Mathlib Module.Presentation ℤ A with relations rel and solution s."
+    },
+    {
+     "name": "OrderCertificate.card_eq",
+     "role": "simp",
+     "statement": "Nat.card A = Nat.card B = Nat.card rel.Quotient."
+    },
+    {
+     "name": "OrderCertificate.linearEquiv",
+     "role": "equivalence",
+     "statement": "rel.Quotient ≃ₗ[ℤ] A, from IsPresentation.linearEquiv."
+    },
+    {
+     "name": "OrderCertificate.ofIsPresentation",
+     "role": "constructor",
+     "statement": "A complete kernel argument (s.IsPresentation with rel.Quotient finite) gives a certificate with B = A and φ = id."
+    }
+   ],
+   "tests": [
+    {
+     "name": "orderCertificate_k2_int",
+     "kind": "computation",
+     "statement": "For K_2(ℤ): one generator g ↦ {−1, −1}, one relation 2g = 0, span from Milnor's bound (K2SymbolsBrauer T.5's recorded gap), lower bound the real sign symbol onto ℤˣ; the certificate gives K_2(ℤ) ≃ ℤ/2."
+    },
+    {
+     "name": "orderCertificate_trivial",
+     "kind": "degenerate",
+     "statement": "No generators and no relations certify the trivial group: rel.Quotient = 0, span_eq_top forces A = 0 (for instance K_2(𝔽_q)), and B = 0."
+    },
+    {
+     "name": "upper_bound_not_iso",
+     "kind": "non-example",
+     "statement": "One generator with the relation 4g = 0, sent to the generator of ℤ/2, spans and satisfies the relation, but ℤ/4 → ℤ/2 is not injective, and no surjection from ℤ/2 onto a group of order 4 exists: the certificate cannot be completed."
+    },
+    {
+     "name": "orderCertificate_isPresentation",
+     "kind": "characterisation",
+     "statement": "From any certificate, Mathlib's predicate s.IsPresentation holds, so A ≃ rel.Quotient."
+    },
+    {
+     "name": "orderCertificate_toPresentation",
+     "kind": "compatibility",
+     "statement": "toPresentation.toRelations = rel and toPresentation.toSolution = s."
+    }
+   ],
+   "prerequisites": [
+    "mathlib:Module.Relations",
+    "mathlib:Module.Relations.Solution",
+    "mathlib:Module.Relations.Quotient",
+    "mathlib:Module.Relations.Solution.fromQuotient",
+    "mathlib:Module.Relations.Solution.surjective_fromQuotient_iff_surjective_π",
+    "mathlib:Module.Relations.Solution.surjective_π_iff_span_eq_top",
+    "mathlib:Module.Relations.Solution.IsPresentation",
+    "mathlib:Module.Presentation",
+    "mathlib:Module.Presentation.ofIsPresentation",
+    "mathlib:Function.Surjective.bijective_of_nat_card_le"
+   ],
+   "library": {
+    "module": "TauCeti/Algebra/Module/OrderCertificate",
+    "namespace": "TauCeti"
+   },
+   "sources": [
+    {
+     "sourceId": "Kbook.2013",
+     "locator": "III.5.2.2, Example 5.2.2 (PDF p. 226; book p. 218)",
+     "excerpt": "Example 5.2.2. The group K2(Z) is cyclic of order 2. This calculation uses the Euclidean algorithm to rewrite elements of St(Z), and is given in §10 of Milnor [131].",
+     "match": "The model upper bound: the order-two statement comes from a computation in the Steinberg group, which the source cites."
+    },
+    {
+     "sourceId": "Kbook.2013",
+     "locator": "III.6.2.1, Example 6.2.1 (PDF p. 240; book p. 232)",
+     "excerpt": "The resulting map K2(R) →{±1} is onto because (−1, −1)∞= −1.",
+     "match": "The model lower bound: a surjection onto a group of known order."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "addedBy": "FIX-RT-AREA-ktheory-1"
+  },
+  {
    "id": "ArithmeticKTheory:N.6/certificate-driven-computation",
    "parentStageId": "ArithmeticKTheory:N.6",
    "realises": [
     "ArithmeticKTheory:N.6"
    ],
-   "title": "Order certificates for even K-groups with a cohomological lower bound",
+   "title": "The cohomological lower bound for order certificates of even K-groups, in every even degree",
    "kind": "construction",
-   "statement": "The certificate format is K2SymbolsBrauer T.5's order certificate (T.5/certified-presentation) on Mathlib's Module.Relations and Module.Presentation: finitely many generators and relations, a solution in A whose values span A (the upper bound), and a surjection of A onto a finite group B with Nat.card B equal to the order of the presented group (the lower bound). N.6 does not define a second format. What N.6 constructs is the cohomological lower bound for A = K_{2i}(O_S), i ≥ 1: given such a presentation, a finite set L of primes containing every prime factor of the order of the presented group, and for each ℓ ∈ L a certified value h_ℓ = Nat.card H^2_et(O_S[1/ℓ]; ℤ_ℓ(i+1)) with ∏_{ℓ∈L} h_ℓ equal to that order, the projection K_{2i}(O_S) → ⊕_{ℓ∈L} K_{2i}(O_S){ℓ} followed by the isomorphisms of N.6/even-groups-at-odd-primes is a surjection onto a group of order ∏ h_ℓ, and so completes an order certificate. Each ℓ ∈ L must be odd, or ℓ = 2 with F totally imaginary; for F with a real embedding the two-primary factor is taken from N.6/the-two-primary-corrections in degrees 2i ≡ 0, 2 (mod 8) (H^2) and 2i ≡ 6 (mod 8) (H̃^2), and is not available in degree 2i ≡ 4 (mod 8) without a separately certified ρ. A zeta value is never an input: Theorems VI.8.7 and VI.8.8 enter only through a proved theorem of SpecialValuesBirchTate supplying the order, and a match of orders between an unproved formula and a presentation certifies nothing.",
+   "statement": "Let F be a number field, O_S a ring of S-integers and i ≥ 1, so that A = K_{2i}(O_S) is finite. Given the upper half of an order certificate for A (a finite presentation with span, N.6/order-certificate), a finite set L of primes containing every prime factor of the order of the presented group, and for each ℓ ∈ L a certified value h_ℓ of #K_{2i}(O_S){ℓ} computed from cohomology — h_ℓ = #H²_et(O_S[1/ℓ]; ℤ_ℓ(i+1)) when ℓ is odd, or ℓ = 2 and F is totally imaginary (N.6/even-groups-at-odd-primes); and, for ℓ = 2 and r_1 > 0 with R = O_S[1/2], h_2 = #H²_et(R; ℤ_2(i+1)) for 2i ≡ 0, 2 (mod 8), #H̃²_et(R; ℤ_2(i+1)) for 2i ≡ 6 (mod 8), and 2^ρ · #H²_et(R; ℤ_2(4k+3)) for 2i = 8k + 4, with ρ a separately certified input, j(R) ≤ ρ ≤ r_1 − 1 (N.6/the-two-primary-corrections) — with ∏_{ℓ∈L} h_ℓ equal to that order, the projection φ : K_{2i}(O_S) → ⊕_{ℓ∈L} K_{2i}(O_S){ℓ} is onto a group of order ∏ h_ℓ and completes the certificate. So the cohomological order computation is available in every even degree; in degree 8k + 4 with real places it needs ρ, which neither r_1 nor j determines. A zeta value is never an input: Theorems VI.8.7 and VI.8.8 enter only through a proved theorem supplying the order, and a match of orders between an unproved formula and a presentation certifies nothing.",
    "hypotheses": [
-    "F is a number field, O_S a ring of S-integers and i ≥ 1; K_{2i}(O_S) is finite (N.3/finiteness-and-ranks-combined).",
-    "The upper-bound half (presentation, relations, span) is exactly T.5's; the lower-bound half is supplied here from cohomology, or from a second proved bound in the T.5 format.",
-    "The cohomology orders h_ℓ are inputs to be certified (by the class-group and unit data of N.6/l-rank-from-class-group-data and the Brauer group, or otherwise); the construction does not compute them."
+    "F is a number field, O_S a ring of S-integers and i ≥ 1; K_{2i}(O_S) is finite (N.3:ranks/even-K-groups-of-S-integers-are-finite).",
+    "The format, with its upper-bound half (presentation, relations, span), is N.6/order-certificate; this node supplies a lower bound from cohomology.",
+    "The cohomology orders h_ℓ, and ρ in degree 8k + 4, are inputs to be certified (by the class-group and unit data of N.6/l-rank-from-class-group-data and the Brauer group, or otherwise); the construction does not compute them."
    ],
    "proofSteps": [
-    "Import OrderCertificate from K2SymbolsBrauer T.5/certified-presentation, with its soundness lemma (a surjection between finite sets of equal cardinality is a bijection, mathlib:Function.Surjective.bijective_of_nat_card_le) and its packaging as mathlib:Module.Presentation.",
-    "For ℓ ∈ L the projection of the finite group K_{2i}(O_S) onto its ℓ-primary component is surjective, and N.6/even-groups-at-odd-primes (or N.6/the-two-primary-corrections at ℓ = 2 with real places, in the admissible degrees) identifies that component with H^2 (or H̃^2).",
-    "Since the presented group surjects onto K_{2i}(O_S), which surjects onto ⊕_{ℓ∈L} K_{2i}(O_S){ℓ}, equality of orders makes both maps bijective: the lower-bound field is filled by B = ⊕_{ℓ∈L} H^2_et(O_S[1/ℓ]; ℤ_ℓ(i+1)).",
-    "Record why ℓ = 2 in degree 2i ≡ 4 (mod 8) is excluded: the two-primary part is an extension of H^2(R; ℤ_2(4k+3)) by (ℤ/2)^ρ, so its order needs ρ."
+    "Import OrderCertificate from N.6/order-certificate, with its soundness lemma and its packaging as mathlib:Module.Presentation.",
+    "For ℓ ∈ L the projection of the finite group K_{2i}(O_S) onto its ℓ-primary component is surjective; N.6/even-groups-at-odd-primes (or N.6/the-two-primary-corrections at ℓ = 2 with real places) gives its order h_ℓ: H² or H̃² in the rows 2i ≡ 0, 2, 6 (mod 8), and 2^ρ · #H²(R; ℤ_2(4k+3)) in the row 2i = 8k + 4, the extension of H² by (ℤ/2)^ρ having that order whatever its class.",
+    "The presented group surjects onto K_{2i}(O_S), which surjects onto B = ⊕_{ℓ∈L} K_{2i}(O_S){ℓ} of order ∏ h_ℓ; equality with the presented order fills the lower-bound field, and soundness makes both maps bijective.",
+    "Record why ρ is an input in degree 8k + 4: Theorem VI.9.11 determines only j ≤ ρ ≤ r_1 − 1, and ρ is 0 for ℚ(√2) and 1 for ℚ(√7) with the same r_1 = 2."
    ],
    "acceptance": [
-    "The certificate for K_2(ℤ) of T.5 (one generator {−1, −1}, relation 2g = 0) is completed equally by the real sign symbol and by the cohomological bound with L = {2}, h_2 = |H^2(ℤ[1/2]; ℤ_2(2))| = 2 (degree 2 ≡ 2 mod 8, Theorem VI.9.11); both give order 2.",
+    "The certificate for K_2(ℤ) (one generator {−1, −1}, relation 2g = 0) is completed equally by the real sign symbol and by the cohomological bound with L = {2}, h_2 = #H²(ℤ[1/2]; ℤ_2(2)) = 2 (degree 2 ≡ 2 mod 8, Theorem VI.9.11); both give order 2.",
     "Without the lower bound only Nat.card K_{2i}(O_S) ≤ Nat.card of the presented group follows.",
+    "For ℚ(√7), 2i = 4: h_2 = 2^ρ · #H²(ℤ[√7, 1/2]; ℤ_2(3)) = 2 · 1 with ρ = 1 (Example VI.9.10.1); taking h_2 = #H² alone would undercount by 2^ρ.",
     "A zeta value alone certifies nothing: ζ(−1) = −1/12 gives |K_2(ℤ)| = 2 only through the proved Theorem VI.8.8 for abelian fields (for ℚ, k = 1: −1/12 = −2 · |K_2(ℤ)|/|K_3(ℤ)| with |K_3(ℤ)| = 48)."
    ],
    "uses": [
@@ -2985,12 +3873,12 @@
      "how": "'certify the kernel/order through cohomology or a second independently proved bound. This is a reusable calculation method, not an oracle defining the group order from a zeta value'"
     },
     {
-     "where": "K2SymbolsBrauer T.5/certified-presentation",
-     "how": "the format, imported; T.5's restructure: 'N.6 imports it for its instances'"
+     "where": "N.6/order-certificate",
+     "how": "the format, now owned by N.6 (RT-AREA-ktheory-1/9); K2SymbolsBrauer T.5 drops its competing certificate obligation"
     },
     {
      "where": "N.8, the certified examples",
-     "how": "its tame-kernel and even-group certificates are built with this lower bound or T.5's symbol bounds"
+     "how": "its even-group and tame-kernel certificates are built with this lower bound or with symbol bounds, and exported to SpecialValuesBirchTate B.3"
     },
     {
      "where": "SpecialValuesBirchTate",
@@ -3001,34 +3889,34 @@
     {
      "name": "OrderCertificate.ofCohomology",
      "role": "constructor",
-     "statement": "For a presentation of K_{2i}(O_S) with span, a finite set L of admissible primes containing the prime factors of its order, and certified h_ℓ = Nat.card H^2_et(O_S[1/ℓ]; ℤ_ℓ(i+1)) with ∏_{ℓ∈L} h_ℓ equal to that order, the K2SymbolsBrauer OrderCertificate whose lower bound is the projection onto ⊕_{ℓ∈L} H^2."
+     "statement": "For a presentation of K_{2i}(O_S) with span, a finite set L of primes containing the prime factors of its order, and certified orders h_ℓ of the ℓ-primary parts computed from cohomology with ∏_{ℓ∈L} h_ℓ equal to that order, the OrderCertificate (N.6/order-certificate) whose lower bound is the projection onto ⊕_{ℓ∈L} K_{2i}(O_S){ℓ}."
     },
     {
      "name": "evenK_toPrimaryCohomology_surjective",
      "role": "projection",
-     "statement": "K_{2i}(O_S) → ⊕_{ℓ∈L} H^2_et(O_S[1/ℓ]; ℤ_ℓ(i+1)), the ℓ-primary projections followed by N.6/even-groups-at-odd-primes, is surjective."
+     "statement": "K_{2i}(O_S) → ⊕_{ℓ∈L} K_{2i}(O_S){ℓ}, the ℓ-primary projections, is surjective, and for ℓ odd (or F totally imaginary) its ℓ-component is identified with H²_et(O_S[1/ℓ]; ℤ_ℓ(i+1)) by N.6/even-groups-at-odd-primes."
     },
     {
      "name": "OrderCertificate.ofCohomology_card",
      "role": "simp",
-     "statement": "Nat.card K_{2i}(O_S) = ∏_{ℓ∈L} Nat.card H^2_et(O_S[1/ℓ]; ℤ_ℓ(i+1))."
+     "statement": "Nat.card K_{2i}(O_S) = ∏_{ℓ∈L} h_ℓ."
     },
     {
      "name": "OrderCertificate.ofCohomology_two_real",
      "role": "constructor",
-     "statement": "For F with a real embedding and 2 ∈ L: the variant whose two-primary factor is H^2_et(R; ℤ_2(i+1)) for 2i ≡ 0, 2 (mod 8) and H̃^2_et(R; ℤ_2(i+1)) for 2i ≡ 6 (mod 8), by N.6/the-two-primary-corrections; no variant exists for 2i ≡ 4 (mod 8)."
+     "statement": "For F with a real embedding and 2 ∈ L: the two-primary factor is h_2 = #H²_et(R; ℤ_2(i+1)) for 2i ≡ 0, 2 (mod 8), #H̃²_et(R; ℤ_2(i+1)) for 2i ≡ 6 (mod 8), and 2^ρ · #H²_et(R; ℤ_2(4k+3)) for 2i = 8k + 4 with ρ a certified input (N.6/the-two-primary-corrections)."
     },
     {
      "name": "OrderCertificate.ofCohomology_toPresentation",
      "role": "compatibility",
-     "statement": "The Mathlib Module.Presentation of the resulting certificate has the given relations and solution (K2SymbolsBrauer OrderCertificate.toPresentation)."
+     "statement": "The Mathlib Module.Presentation of the resulting certificate has the given relations and solution (OrderCertificate.toPresentation of N.6/order-certificate)."
     }
    ],
    "tests": [
     {
      "name": "ofCohomology_K2_int",
      "kind": "compatibility",
-     "statement": "For K_2(ℤ) the cohomological certificate (L = {2}, h_2 = 2) and T.5's sign-symbol certificate give the same Nat.card = 2."
+     "statement": "For K_2(ℤ) the cohomological certificate (L = {2}, h_2 = 2) and the sign-symbol certificate (N.6/order-certificate's test orderCertificate_k2_int) give the same Nat.card = 2."
     },
     {
      "name": "ofCohomology_trivial",
@@ -3042,8 +3930,8 @@
     },
     {
      "name": "ofCohomology_two_row_four",
-     "kind": "non-example",
-     "statement": "For F = ℚ(√7), R = ℤ[√7, 1/2] and 2i = 4, the two-primary part of K_4(ℤ[√7]) is ℤ/2 while H^2(R; ℤ_2(3)) = 0 (Example VI.9.10.1, ρ = 1): a variant using |H^2(R; ℤ_2(3))| as the two-primary order would undercount by 2^ρ, which is why ofCohomology_two_real has no degree ≡ 4 (mod 8) case."
+     "kind": "characterisation",
+     "statement": "For F = ℚ(√7), R = ℤ[√7, 1/2] and 2i = 4, the two-primary part of K_4(ℤ[√7]) is ℤ/2 while H²(R; ℤ_2(3)) = 0 (Example VI.9.10.1, ρ = 1): ofCohomology_two_real with ρ = 1 gives h_2 = 2, while a variant using #H²(R; ℤ_2(3)) alone would give 1 and undercount by 2^ρ."
     },
     {
      "name": "ofCohomology_isPresentation",
@@ -3052,10 +3940,11 @@
     }
    ],
    "prerequisites": [
-    "K2SymbolsBrauer:T.5/certified-presentation",
+    "ArithmeticKTheory:N.6/order-certificate",
     "ArithmeticKTheory:N.6/even-groups-at-odd-primes",
     "ArithmeticKTheory:N.6/the-two-primary-corrections",
-    "ArithmeticKTheory:N.3/finiteness-and-ranks-combined",
+    "ArithmeticKTheory:N.6/signature-defect",
+    "ArithmeticKTheory:N.3:ranks/even-K-groups-of-S-integers-are-finite",
     "mathlib:Module.Relations",
     "mathlib:Module.Presentation"
    ],
@@ -3650,12 +4539,12 @@
     "The contravariant compatibility of the localisation sequence with base change along a finite extension (ramification indices on the residue terms) is not in the source read (gap).",
     "Gap: 'Compatibility of the localisation sequence with base change along a finite extension'."
    ],
-   "note": "Six nodes. Finite support first (N.2/finite-support), by dévissage for each s and a colimit over rings; then the sequence (N.2/localisation-sequence-for-a-dedekind-domain) with its specialisation to the primes outside S; its compatibility with finite extensions through transfers (N.2/localisation-sequence-and-finite-extensions); the interpretation in degrees 0–2 (N.2/the-three-classical-rows); and the S-unit valuation and class-group sequences derived from it (N.2/S-unit-and-class-group-sequence). The tame-kernel sequence is derived from N.2 in K2SymbolsBrauer T.5, which owns it. Of the injectivity theorems the text asks for, N.2 proves the even-degree one from K_{2j}(𝔽_q) = 0 (N.2/even-degree-injectivity), which replaces the note N.2/exactness-gives-no-injectivity; the odd-degree isomorphism is Soulé's theorem, moved to N.5 (N.5/soule-theorem) because its proof needs N.3:finite-generation."
+   "note": "Six nodes. Finite support first (N.2/finite-support), by dévissage for each s and a colimit over rings; then the sequence (N.2/localisation-sequence-for-a-dedekind-domain) with its specialisation to the primes outside S; its compatibility with finite extensions through transfers (N.2/localisation-sequence-and-finite-extensions); the interpretation in degrees 0–2 (N.2/the-three-classical-rows); and the S-unit valuation and class-group sequences derived from it (N.2/S-unit-and-class-group-sequence). The degree-two row, the tame-kernel exact sequence with its injectivity and surjectivity, is K2SymbolsBrauer T.5's and is imported, not derived here (RT-AREA-ktheory-1/9): T.5 proves it from T.3's comparison of the localisation boundary with the tame symbols and U.4's SK₁(O_{F,S}) = 0 (RT-AREA-ktheory-1/26), and N.2/the-three-classical-rows identifies it with the degree-two segment of (6.6); the stage text's 'Derive the tame-kernel exact sequence ... from this one construction' is met by that identification. Of the injectivity theorems the text asks for, N.2 proves the even-degree one for n ≥ 4 from K_{2j}(𝔽_q) = 0 and imports degree two from T.5 (N.2/even-degree-injectivity), which replaces the note N.2/exactness-gives-no-injectivity; the odd-degree isomorphism is Soulé's theorem, moved to N.5 (N.5/soule-theorem) because its proof needs N.3:finite-generation."
   },
   {
    "stageId": "ArithmeticKTheory:N.3",
    "status": "partial",
-   "note": "One node of its own, finiteness-and-ranks-combined: for n ≥ 2, K_n(𝓞_{F,S}) ≅ Z^{ρ(n)} ⊕ (finite), with the positive even groups finite, which is the form N.5 and N.6 consume. The rank does not determine the torsion or the extension data: N.4 computes the numbers w_i(F), N.5 the odd groups (e.g. Z^{r_2} ⊕ Z/2w_i(F) ⊕ (Z/2)^{r_1−1} for n ≡ 3 (mod 8), Theorem VI.9.5), N.6 the even groups. The former note node what-the-combination-does-not-give is deleted; this paragraph carries its content.",
+   "note": "One node of its own, finiteness-and-ranks-combined: for n ≥ 2, K_n(𝓞_{F,S}) ≅ Z^{ρ(n)} ⊕ (finite), with the positive even groups finite (N.3:ranks/even-K-groups-of-S-integers-are-finite), which is the form N.5 and N.6 consume. The rank does not determine the torsion or the extension data: N.4 computes the numbers w_i(F), N.5 the odd groups (e.g. Z^{r_2} ⊕ Z/2w_i(F) ⊕ (Z/2)^{r_1−1} for n ≡ 3 (mod 8), Theorem VI.9.5), N.6 the even groups. The former note node what-the-combination-does-not-give is deleted; this paragraph carries its content.",
    "remaining": [
     "The remaining items of the sub-stages N.3:finite-generation and N.3:ranks."
    ]
@@ -3663,28 +4552,28 @@
   {
    "stageId": "ArithmeticKTheory:N.3:finite-generation",
    "status": "partial",
-   "note": "Three nodes. Quillen's finiteness criterion for a Dedekind domain (finite Pic and finitely generated homology of Aut(P) with Steinberg coefficients), as the source states it on PDF p. 333, with its proof a gap; Quillen's theorem IV.6.9 for rings of integers — 'finite over Z' makes R a ring of integers, and the curve half is outside this roadmap — with hypothesis (1) from Mathlib and hypothesis (2) imported from BorelRegulators R.1; and finite generation for 𝓞_{F,S} from the localisation sequence of 𝓞_F ⊂ 𝓞_{F,S} and Quillen's finite-field calculation (KTheoryFiniteLocalFields L.1). Stage targets: 'Prove finite generation of K_n(O_{F,S}) for every n≥1' and 'Obtain finite generation for S-integers using localisation and the finite-field calculation' are finite-generation-of-K-of-S-integers; 'Develop the arithmetic-group finiteness and finite-type homotopy input in Quillen's proof, with the relation to stable general linear groups' is quillen-finiteness-criterion (the input as it enters the proof, Aut(P) being the general linear group of the lattice P) together with the R.1 import, whose text owns 'the finite-type homotopy consequences needed by K-theory'. The former register node the-two-inputs-and-their-owners is deleted; its content is in the requests to R.1, H.2, K.1 and L.1 and in the gap on the arithmetic-group input.",
+   "note": "Nine nodes (RT-AREA-ktheory-1/1). N.3:finite-generation keeps Quillen's Q-construction rank filtration and the assembly, and imports the arithmetic-group input. The filtration Q_m of Q(P(A)) by rank for a Dedekind domain A (rank-filtration: cellular inclusions, strata the groupoids ⊔ Aut(P), finitely many classes per rank when Pic(A) is finite, nonfree projectives included); the poset J(V) of proper layers (layer-poset); the comma categories Q_{n−1} ↓ P ≃ J(P ⊗ F) (comma-category-is-the-layer-poset); J(V) ≃ ΣT(V), with the low ranks n = 1 (two points, St = ℤ) and n = 2 (reduced homology) made explicit (layer-poset-is-the-suspended-building); the rank spectral sequence E¹_{p,q} = ⊕ H_q(Aut P; St(P ⊗ F)) ⇒ H_{p+q}(BQ), which is Quillen's Theorem 3 in Kahn's form (rank-spectral-sequence); the criterion, now decomposed (quillen-finiteness-criterion: finitely many columns in each total degree, then Serre's theorem for the H-space BQ); the arithmetic hypothesis for 𝓞_F, where Aut(P) is shown commensurable with GL_n(𝓞_F) and the integral finiteness of Steinberg homology is imported from BorelRegulators R.1 with its twisted dualizing module St_n(F) ⊗ ℤ_χ^{⊗(n−1)} (steinberg-homology-of-automorphism-groups); Quillen's theorem for rings of integers (quillen-finite-generation-theorem); and the finite-S localisation step (finite-generation-of-K-of-S-integers). R.1 owns the building, the Solomon–Tits theorem, the Steinberg module and the arithmetic duality/finiteness interface (request); the stage's clause 'Develop the arithmetic-group finiteness and finite-type homotopy input in Quillen's proof' is R.1's and is not planned here, and 'the relation to stable general linear groups' (plus = Q) is not used by the Q-construction route. The former gap 'The arithmetic-group input to finite generation has no source here' is closed: the rank filtration is decomposed from Kahn (arXiv:1108.2441v3, §4) and the arithmetic input is requested from R.1 with the dualizing module read in Putman–Studenmund (arXiv:1909.01217v4, Theorem C).",
    "remaining": [
-    "Decompose the proof of Quillen's criterion from Quillen, LNM 341 (1973): gap 'The arithmetic-group input to finite generation has no source here'.",
-    "Receive from BorelRegulators R.1 the finiteness of H_n(Aut_R(P); St(P ⊗_R F)) for rings of integers (request)."
+    "Receive from BorelRegulators R.1 the building, the Solomon–Tits theorem, the Steinberg module and the integral finiteness of H_i(Γ; St_n(F)) for arithmetic Γ (request).",
+    "Receive from StableHomotopyKTheory H.2 the cellular-functor spectral sequence and from H.6 Serre's theorem for simple spaces (requests); from H.1 the nerve and local-coefficient comparisons (request)."
    ]
   },
   {
    "stageId": "ArithmeticKTheory:N.3:ranks",
    "status": "source_decomposed",
-   "note": "Two nodes, and the aggregate N.3/finiteness-and-ranks-combined also realises this sub-stage's 'Thus positive even groups of S-integers are finite'. borel-rank-theorem deduces the ranks of K_n(𝓞_{F,S}), n ≥ 2, from Borel's theorem for F (BorelRegulators R.3; K-book IV.1.17–1.18) through the localisation sequence with torsion residue terms; its acceptance carries the stage's 'The rank of K₁ is the S-unit rank, not the n≡1 formula': rank K_1(𝓞_{F,S}) = r_1 + r_2 + |S| − 1 (KTheoryLowDegrees U.4), which equals r_1 + r_2 exactly when |S| = 1. even-K-groups-of-the-field-are-infinite-torsion proves 'The positive even groups of the field itself are generally infinite torsion groups, as N.2 makes visible' (in fact for every i ≥ 1) without Soulé's theorem. The former non-example node the-first-K-group-is-not-covered is deleted: it restated U.4's rank, and its claims that the two ranks disagree whenever S is non-empty and differ by one plus |S| were wrong (they agree for |S| = 1 and differ by |S| − 1).",
+   "note": "Three nodes (RT-AREA-ktheory-1/7). borel-rank-theorem is narrowed to the passage from 𝓞_F to 𝓞_{F,S}: for n ≥ 2, K_n(𝓞_F) → K_n(𝓞_{F,S}) → K_n(F) are rational isomorphisms by the localisation sequences of N.2 and the finiteness of K_m(𝔽_q) (L.1), so rank K_n(𝓞_{F,S}) = rank K_n(𝓞_F), which is imported from BorelRegulators R.3 (Borel's theorem for orders, 𝓞_F included); in degree one the passage fails and the rank is the S-unit rank r_1 + r_2 + |S| − 1 of KTheoryLowDegrees U.4's Dirichlet S-unit theorem (RT-AREA-ktheory-1/24), which carries the stage's 'The rank of K₁ is the S-unit rank, not the n≡1 formula'. even-K-groups-of-S-integers-are-finite states 'Thus positive even groups of S-integers are finite' for the ring (not for the field, where the K-book's VI.8.1 misprints it, E15); SpecialValuesBirchTate B.1 imports it for the finiteness of K₂(𝓞_F) (RT-AREA-ktheory-1/10). even-K-groups-of-the-field-are-infinite-torsion proves 'The positive even groups of the field itself are generally infinite torsion groups, as N.2 makes visible' (in fact for every i ≥ 1) without Soulé's theorem. The former non-example node the-first-K-group-is-not-covered is deleted: it restated U.4's rank.",
    "remaining": []
   },
   {
    "stageId": "ArithmeticKTheory:N.4",
    "status": "source_decomposed",
-   "note": "Seven nodes, none using K-theory, matching the stage's single requirement MotivicEtaleKTheory M.1, from which the twists ℚ/ℤ(j) are requested (K2SymbolsBrauer T.7 is not their owner). The definition W_i(F) = H⁰(F, ℚ/ℤ(i)) with its primary decomposition, cyclicity, w_i(F) only under finiteness, and restriction and transfer on Tau Ceti's degree-zero restriction and corestriction ('prove restriction/transfer formulas'); the exponent criterion, Lemma VI.2.2.1, which is 'the general cyclotomic-subfield tests for divisibility by prime powers'; Proposition VI.2.2 ('Compute it from the cyclotomic character'); finiteness for number fields and i ≠ 0 ('prove finiteness for positive j'); exceptional fields and Proposition VI.2.3 ('At 2 retain the exceptional-field and real-embedding distinctions'); and w_i(Q) with w_2(Q) = 24. 'Distinguish this invariant from |μ(F)|' is a non-example test of the definition (orders 24 and 2 over Q), replacing the deleted note node the-invariant-is-not-the-roots-of-unity. The e-invariant and the Harris–Segal summand moved to N.5. SpecialValuesBirchTate B.3 consumes w₂(ℚ) = 24 from N.4/w2-of-the-rationals-and-the-divisibility-tests; it lies downstream (B.3 → B.2 → N.4), so it is not a supplier.",
+   "note": "Seven nodes, none using K-theory, matching the stage's single requirement MotivicEtaleKTheory M.1, from which the twists ℚ/ℤ(j) are requested (K2SymbolsBrauer T.7 is not their owner). The definition W_i(F) = H⁰(F, ℚ/ℤ(i)) with its primary decomposition, cyclicity, w_i(F) only under finiteness, and restriction and transfer on Tau Ceti's degree-zero restriction and corestriction ('prove restriction/transfer formulas'); the exponent criterion, Lemma VI.2.2.1, which is 'the general cyclotomic-subfield tests for divisibility by prime powers'; Proposition VI.2.2 ('Compute it from the cyclotomic character'); finiteness for number fields and i ≠ 0 ('prove finiteness for positive j'); exceptional fields and Proposition VI.2.3 ('At 2 retain the exceptional-field and real-embedding distinctions'); and w_i(Q) with w_2(Q) = 24. 'Distinguish this invariant from |μ(F)|' is a non-example test of the definition (orders 24 and 2 over Q), replacing the deleted note node the-invariant-is-not-the-roots-of-unity. The e-invariant and the Harris–Segal summand moved to N.5. SpecialValuesBirchTate B.3 consumes w₂(ℚ) = 24 from N.4/w2-of-the-rationals-and-the-divisibility-tests; it lies downstream (B.3 → B.2 → N.4), so it is not a supplier. The nodes are exportable as they stand (RT-AREA-ktheory-1/10): SpecialValuesBirchTate B.1 should import N.4/the-w-invariant for W₂(F) = H⁰(F, ℚ/ℤ(2)) — the invariants of the twist, not the roots of unity of F — N.4/finiteness-of-the-w-invariant for finiteness and positivity of w₂(F), and N.4/computing-w-from-the-cyclotomic-character with N.4/two-primary-w-invariant for the cyclotomic computation, instead of re-planning them; that needs the atlas edge N.4 → B.1 (maintainer).",
    "remaining": []
   },
   {
    "stageId": "ArithmeticKTheory:N.5",
    "status": "partial",
-   "note": "K_{2j−1}(O_{F,S}) ≅ K_{2j−1}(F) for j ≥ 2 is N.5/soule-theorem, with its finite-coefficient input N.5/soule-mod-l-surjectivity; both moved from N.2, since the proof needs finite generation (restructure). The former restatement of it in N.5 is deleted. The odd rows of Theorem VI.8.2 at a prime where the cohomological dimension is two, with the identification of the ℓ-primary torsion with W_i(F){ℓ} through the natural comparison maps of MotivicEtaleKTheory M.7/M.8; the table for a totally imaginary field, ℤ^{r_2} ⊕ ℤ/w_j(F), covering ℓ = 2 and exceptional fields; and the four rows modulo eight for r_1 > 0, with the divisibility in the class n ≡ 5 from w_i^{(2)}(F) = 2 for odd i, the two-primary part read off from Theorem VI.9.4 (imported from M.7, which AUDIT-27 names as owner of the real two-primary calculation), and the rule that orders alone prove nothing. The former node 'what is natural and what is not' was a rule, not a declaration, and is deleted: the non-naturality of the splittings and the cardinality warning are in the-real-case-modulo-eight, the naturality of the identifications in odd-torsion-at-a-prime-where-cd-is-two and the M.7/M.8 requests, the extension data in Theorem VI.9.4 (M.7) and N.6/the-two-primary-corrections.",
+   "note": "K_{2j−1}(O_{F,S}) ≅ K_{2j−1}(F) for j ≥ 2 is N.5/soule-theorem, with its finite-coefficient input N.5/soule-mod-l-surjectivity; both moved from N.2, since the proof needs finite generation (restructure). The former restatement of it in N.5 is deleted. The odd rows of Theorem VI.8.2 at a prime where the cohomological dimension is two, with the identification of the ℓ-primary torsion with W_i(F){ℓ} through the natural comparison maps of MotivicEtaleKTheory M.7/M.8; the table for a totally imaginary field, ℤ^{r_2} ⊕ ℤ/w_j(F), covering ℓ = 2 and exceptional fields; and the four rows modulo eight for r_1 > 0, with the divisibility in the class n ≡ 5 from w_i^{(2)}(F) = 2 for odd i, the two-primary part read off from Theorem VI.9.4 (imported from M.7, which AUDIT-27 names as owner of the real two-primary calculation), and the rule that orders alone prove nothing. The former node 'what is natural and what is not' was a rule, not a declaration, and is deleted: the non-naturality of the splittings and the cardinality warning are in the-real-case-modulo-eight, the naturality of the identifications in odd-torsion-at-a-prime-where-cd-is-two and the M.7/M.8 requests, the extension data in Theorem VI.9.4 (M.7) and N.6/the-two-primary-corrections. The dyadic real-place calculation is imported from MotivicEtaleKTheory M.7, not repeated (RT-AREA-ktheory-1/3): M.7 owns Theorem VI.9.4 with the spectral sequences of ℝ, whose differentials it fixes from Suslin's theorem K_n(ℝ; ℤ/m) ≅ π_n(BO; ℤ/m) (K-book VI.3.1) and real topological K-theory; N.5/the-real-case-modulo-eight uses only its output, the real-place maps and the extension data.",
    "remaining": [
     "The real two-primary calculation, Theorem VI.9.4 with Lemma VI.9.3, is imported from MotivicEtaleKTheory M.7 (open request).",
     "The comparison of N.4's e-invariant with the identification K_{2i−1}(O_S){ℓ} ≅ W_i(F){ℓ}, and its kernel on the two-primary torsion in the class n ≡ 3 (mod 8), are not decomposed; the source shows only that e : K_3(ℚ) → ℤ/24 and e : K_{8k+3}(ℚ) → ℤ/w_{4k+2}(ℚ) are not injective (Example VI.2.1.2, Remark VI.2.1.3).",
@@ -3696,7 +4585,7 @@
   {
    "stageId": "ArithmeticKTheory:N.6",
    "status": "partial",
-   "note": "Ten nodes. The even row of Theorem VI.8.2 with its ℤ_ℓ-coefficient passage; the even row of Theorem VI.8.4 for totally imaginary fields; Corollary VI.8.3 and Example VI.8.3.1, the ℓ-ranks of the even groups from the class group and |S|; the signature defect; Theorem VI.9.11, the two-primary table with real places, its extension in degree 8k+4 and the integer ρ that r_1 does not determine; Theorem VI.9.12, the order formula for totally real fields (the packet's previous 'divisibility companion' misquoted it); the wild kernel, with the tame kernel imported from K2SymbolsBrauer T.5; the subgroup of divisible elements; the comparison of the two, which corrects the K-book by the exception of Weibel 2006 for special fields and odd i; and the certificate construction, re-scoped to the cohomological lower bound for K2SymbolsBrauer T.5's order-certificate format, with zeta values admitted only through proved theorems.",
+   "note": "Eleven nodes. The even row of Theorem VI.8.2 with its ℤ_ℓ-coefficient passage; the even row of Theorem VI.8.4 for totally imaginary fields; Corollary VI.8.3 and Example VI.8.3.1, the ℓ-ranks of the even groups from the class group and |S|; the signature defect; Theorem VI.9.11, the two-primary table with real places, its extension in degree 8k+4 and the integer ρ that r_1 does not determine, with Tate's theorem K₂/2^ν ≅ H² imported from MotivicEtaleKTheory M.3, not K2SymbolsBrauer T.7 (RT-AREA-ktheory-1/8); Theorem VI.9.12, the order formula for totally real fields; the wild kernel, with the tame kernel group and its sequence imported from K2SymbolsBrauer T.5; the subgroup of divisible elements; the comparison of the two, which corrects the K-book by the exception of Weibel 2006 for special fields and odd i; and the certificate engine, which N.6 owns (RT-AREA-ktheory-1/9): the order-certificate format with independent upper and lower bounds (N.6/order-certificate, moved from K2SymbolsBrauer T.5/certified-presentation) and its cohomological lower bound in every even degree, with ρ as an input in degree 8k+4 (N.6/certificate-driven-computation), zeta values admitted only through proved theorems. ArithmeticKTheory N.8 instantiates the engine. N.6 also keeps the comparisons of the wild kernel with divisible subgroups and with Selmer/cohomological kernels (the latter still to be decomposed, below).",
    "remaining": [
     "Corollary VI.9.9 (the 2-ranks r_1+s+t−1, j+s+t−1, j+s+t−1 and s+t−1 of K_n(O_S) for n ≡ 2, 4, 6, 8 mod 8) with Theorem VI.9.7 and Lemma VI.9.6.3, the source's computation of the even groups at 2 from class-group and unit data, are not yet nodes.",
     "Local norm groups, named in N.6's text, are not used by any node.",
@@ -3712,14 +4601,6 @@
    "neededBy": [
     "ArithmeticKTheory:N.5/soule-mod-l-surjectivity",
     "ArithmeticKTheory:N.5/soule-theorem"
-   ]
-  },
-  {
-   "title": "The arithmetic-group input to finite generation has no source here",
-   "detail": "The K-book states Quillen's criterion (PDF p. 333: a Dedekind domain with finite Pic and finitely generated H_n(Aut(P), st(P ⊗_R F)) has finitely generated K-groups) and Theorem IV.6.9, and proves neither. Two inputs are undecomposed: (i) the proof of the criterion by the rank filtration of Q(P(R)), which uses Quillen's Theorem B (StableHomotopyKTheory H.2) and the Solomon–Tits description of the Tits building; (ii) the finiteness of H_n(Aut(P); St(P ⊗ F)) for rings of integers, a Borel–Serre consequence requested from BorelRegulators R.1. NEXT SOURCE ACTION: read Quillen, 'Finite generation of the groups K_i of rings of algebraic integers', Lecture Notes in Math. 341 (1973), and Borel–Serre, 'Corners and arithmetic groups', Comment. Math. Helv. 48 (1973); decompose (i) in quillen-finiteness-criterion and leave (ii) to R.1.",
-   "neededBy": [
-    "ArithmeticKTheory:N.3:finite-generation/quillen-finiteness-criterion",
-    "ArithmeticKTheory:N.3:finite-generation/quillen-finite-generation-theorem"
    ]
   },
   {
@@ -3755,42 +4636,45 @@
  "requests": [
   {
    "supplier": "KTheoryLowDegrees:Z.4",
-   "need": "(1) K₀(A) ≅ ℤ ⊕ Pic(A) by rank and determinant for a Dedekind domain A (KTheoryLowDegrees:Z.4/rank-pic-equivalence), used for A = S.integer F, with Pic compared to the class group (Mathlib's ClassGroup.equivPic) and Cl(O_{F,S}) ≅ Cl(𝓞_F)/⟨[𝔭] : 𝔭 ∈ S⟩ taken from Tau Ceti's IsDedekindDomain.integerClassGroupEquiv; this is N.1's target 'Import Z ... to obtain K₀(O_{F,S}) ≅ Z ⊕ Cl(O_{F,S})', and the former node N.1/K0-of-S-integers is deleted in its favour. (2) The restriction-of-scalars formula det_R(Res P) = Norm(det P)·det_R(R′)^{rank P} for the finite projective extension O_{F,S} ⊂ O_{F′,S′}. Z.4: 'Specialise to O_F and O_{F,S}, using the actual localised ring and the quotient of the class group by classes of primes in S. Compute the induced maps under localisation, extension of number fields and finite-flat restriction of scalars. The transfer of an ideal class requires the determinant/norm formula'. Z.4 is upstream of N.1, so its specialisation should be stated for Mathlib's Set.integer, which Tau Ceti already makes a Dedekind domain; the presentation of O_{F,S} as a localisation and its independence are N.1's ('Prove independence of a chosen presentation of O_{F,S} as a localisation') and must not be re-planned in Z.4's remaining item 'the number-field S-integer ring identification'.",
+   "need": "(1) K₀(A) ≅ ℤ ⊕ Pic(A) by rank and determinant for a Dedekind domain A (KTheoryLowDegrees:Z.4/rank-pic-equivalence), used for A = S.integer F, with Pic compared to the class group (Mathlib's ClassGroup.equivPic) and Cl(O_{F,S}) ≅ Cl(𝓞_F)/⟨[𝔭] : 𝔭 ∈ S⟩ taken from Tau Ceti's IsDedekindDomain.integerClassGroupEquiv; this is N.1's target 'Import Z ... to obtain K₀(O_{F,S}) ≅ Z ⊕ Cl(O_{F,S})', and the former node N.1/K0-of-S-integers is deleted in its favour. (2) The restriction-of-scalars formula det_R(Res P) = Norm(det P)·det_R(R′)^{rank P} for the finite projective extension O_{F,S} ⊂ O_{F′,S′}. Z.4: 'Specialise to O_F and O_{F,S}, using the actual localised ring and the quotient of the class group by classes of primes in S. Compute the induced maps under localisation, extension of number fields and finite-flat restriction of scalars. The transfer of an ideal class requires the determinant/norm formula'. Z.4 is upstream of N.1, so its specialisation should be stated for Mathlib's Set.integer, which Tau Ceti already makes a Dedekind domain; the presentation of O_{F,S} as a localisation and its independence are N.1's ('Prove independence of a chosen presentation of O_{F,S} as a localisation') and must not be re-planned in Z.4's remaining item 'the number-field S-integer ring identification'. (3) The Steinitz classification P ≅ A^{n−1} ⊕ I, with P determined by rank and det P (Z.4/steinitz, Z.4/projective-classification), which counts the components of the strata of Quillen's rank filtration (N.3:finite-generation/rank-filtration) and the classes used in N.3:finite-generation/steinberg-homology-of-automorphism-groups.",
    "neededBy": [
     "ArithmeticKTheory:N.1/norms-transfers-and-pullbacks",
     "ArithmeticKTheory:N.2/the-three-classical-rows",
     "ArithmeticKTheory:N.2/even-degree-injectivity",
-    "ArithmeticKTheory:N.3:finite-generation/quillen-finiteness-criterion"
+    "ArithmeticKTheory:N.3:finite-generation/quillen-finiteness-criterion",
+    "ArithmeticKTheory:N.3:finite-generation/rank-filtration",
+    "ArithmeticKTheory:N.3:finite-generation/steinberg-homology-of-automorphism-groups"
    ]
   },
   {
    "supplier": "KTheoryLowDegrees:U.4",
-   "need": "SK₁(O_{F,S}) = 0 (Bass–Milnor–Serre), K₁(O_{F,S}) ≅ O_{F,S}^× by the determinant, O_{F,S}^× ≅ μ(F) ⊕ ℤ^{r₁+r₂+|S|−1}, and the comparison with the unit inclusion into K₁(F). U.4: 'Prove the Bass–Milnor–Serre result needed for SK₁(O_{F,S})=0, with F a number field and S finite ... Combine determinant with Dirichlet's S-unit theorem to identify K₁(O_{F,S}) ≅ O_{F,S}^×, O_{F,S}^× ≅ μ(F)⊕ℤ^{r₁+r₂+|S|−1} ... Compare finite-field and local-ring specialisations and the unit inclusion into K₁(F).' U.4 is upstream of N.1 through U.5, which the atlas lists.",
+   "need": "SK₁(O_{F,S}) = 0 (Bass–Milnor–Serre), K₁(O_{F,S}) ≅ O_{F,S}^× by the determinant, O_{F,S}^× ≅ μ(F) ⊕ ℤ^{r₁+r₂+|S|−1}, and the comparison with the unit inclusion into K₁(F). U.4: 'Prove the Bass–Milnor–Serre result needed for SK₁(O_{F,S})=0, with F a number field and S finite ... Combine determinant with Dirichlet's S-unit theorem to identify K₁(O_{F,S}) ≅ O_{F,S}^×, O_{F,S}^× ≅ μ(F)⊕ℤ^{r₁+r₂+|S|−1} ... Compare finite-field and local-ring specialisations and the unit inclusion into K₁(F).' U.4 is upstream of N.1 through U.5, which the atlas lists. N.3:ranks cites U.4's Dirichlet S-unit theorem for the rank r₁ + r₂ + |S| − 1 of K₁(O_{F,S}), the degree-one exception to the period-four pattern (RT-AREA-ktheory-1/24 and /7); the checkpointed KTheoryLowDegrees U.1 packet plans it as U.4/s-unit-theorem, which this packet will cite by id once that packet is accepted.",
    "neededBy": [
     "ArithmeticKTheory:N.1/K1-of-S-integers-and-the-determinant",
     "ArithmeticKTheory:N.5/soule-theorem",
     "ArithmeticKTheory:N.1/transfer-and-norm-on-units",
-    "ArithmeticKTheory:N.2/even-degree-injectivity"
+    "ArithmeticKTheory:N.2/even-degree-injectivity",
+    "ArithmeticKTheory:N.3:ranks/borel-rank-theorem"
    ]
   },
   {
    "supplier": "BorelRegulators:R.1",
-   "need": "For R = 𝓞_F (F a number field) and each finitely generated projective R-module P of positive rank, the homology H_n(Aut_R(P); St(P ⊗_R F)) of the arithmetic group Aut_R(P) ⊂ GL(P ⊗_R F) with coefficients in the Steinberg module is finitely generated for every n: hypothesis (2) of Quillen's criterion, which the K-book (PDF p. 333) says Quillen verified in the number-field case; it is a Borel–Serre finite-type consequence. R.1's text: 'Import ... Borel–Serre compactification, finite-complex models and torsion-stabilizer descent ... Prove the finite-type homotopy consequences needed by K-theory; keep finite generation separate from stable rational cohomology.' Atlas edge R.1 → N.3:finite-generation exists; no cycle.",
+   "need": "The arithmetic-group input to Quillen's finite generation theorem, with R.1 as its single owner (RT-AREA-ktheory-1/1): (i) the Tits building T(V) of a finite-dimensional F-vector space V (the poset of proper non-zero subspaces, empty when dim V = 1), functorial in linear isomorphisms and GL(V)-equivariant; (ii) the Solomon–Tits theorem, T(V) ≃ a wedge of (dim V − 2)-spheres for dim V ≥ 2; (iii) the Steinberg module St(V) = H̃_{dim V−2}(T(V); ℤ), a free abelian group with its GL(V)-action (St(V) = ℤ for dim V = 1; reduced homology in dimension two); (iv) the correctly twisted arithmetic duality: for a number field F with r₁ real and r₂ complex places and a torsion-free subgroup G of finite index in GL_n(𝓞_F), H^{vcd−i}(G; M) ≅ H_i(G; M ⊗ D) with vcd = r₁·n(n+1)/2 + r₂·n² − n and integral coefficients, where D = St_n(F) ⊗ ℤ_χ^{⊗(n−1)} and χ = N_{F/ℚ} ∘ det : GL_n(𝓞_F) → {±1} (Putman–Studenmund, arXiv:1909.01217v4, Theorem C, p. 4, and the duality display, p. 2; the untwisted St_n(F) is wrong when n is even and 𝓞_F^× has an element of norm −1, their Example 1.4), or equivalently the untwisted duality for G ⊂ ker χ followed by descent; built on the Borel–Serre bordification from ArithmeticLocallySymmetricSpaces ALS.2 and its finite-level cohomology, with boundary ≃ T_n(F) and the orientation behaviour of their Proposition 2.1; (v) the finiteness consequence that N.3 imports: for every n ≥ 1 and every subgroup Γ ⊂ GL_n(F) commensurable with GL_n(𝓞_F), H_i(Γ; St_n(F)) is a finitely generated abelian group for every i ≥ 0 — integrally, not only after ⊗ ℚ — by (iv) for a torsion-free normal subgroup G ⊂ Γ ∩ GL_n(𝓞_F) of finite index (a finite K(G, 1) from the compact Borel–Serre quotient makes H^*(G; M) finitely generated for finitely generated M) and the Hochschild–Serre spectral sequence H_p(Γ/G; H_q(G; St)) ⇒ H_{p+q}(Γ; St) for the finite group Γ/G; n = 1 is the elementary case Γ ⊂ F^× commensurable with 𝓞_F^×. N.3 keeps the rank filtration, the commensurability of Aut_A(P) with GL_n(𝓞_F) for nonfree P, the low ranks and the assembly, and does not re-prove (i)–(v). R.1's text claims 'the finite-type homotopy consequences needed by K-theory'; what K-theory needs is exactly (v), and N.3's stage text should drop its clause 'Develop the arithmetic-group finiteness and finite-type homotopy input' (maintainer). Atlas edge R.1 → N.3:finite-generation exists; no cycle.",
    "neededBy": [
-    "ArithmeticKTheory:N.3:finite-generation/finite-generation-of-K-of-S-integers",
-    "ArithmeticKTheory:N.3:finite-generation/quillen-finite-generation-theorem"
+    "ArithmeticKTheory:N.3:finite-generation/layer-poset-is-the-suspended-building",
+    "ArithmeticKTheory:N.3:finite-generation/steinberg-homology-of-automorphism-groups"
    ]
   },
   {
    "supplier": "BorelRegulators:R.3",
-   "need": "K-book Theorems IV.1.17 and IV.1.18 (Borel): for an order R in a finite-dimensional semisimple Q-algebra A, K_n(R) ⊗ Q ≅ K_n(A) ⊗ Q for n ≥ 2; for a number field F with r_1 real and r_2 complex places, dim_Q K_n(F) ⊗ Q = r_1 + r_2, r_2 or 0 for n ≥ 2 according as n ≡ 1 (mod 4), n ≡ 3 (mod 4) or n even. Used with A = F and R = 𝓞_F; the S-integer case is deduced in N.3:ranks by localisation (see restructure). R.3's text: 'Prove Borel's Proposition 12.2 ... for i≥2 the ranks have the period-four pattern 0, r₁+r₂, 0, r₂ according to i modulo 4.' The higher regulator is not needed here; it is R.4's. Atlas edge R.3 → N.3:ranks exists; no cycle.",
+   "need": "Borel's rank theorem for orders, 𝓞_F included (K-book IV.1.17 and IV.1.18): for an order R in a finite-dimensional semisimple ℚ-algebra A, K_n(R) ⊗ ℚ ≅ K_n(A) ⊗ ℚ for n ≥ 2; for a number field F with r_1 real and r_2 complex places, dim_ℚ K_n(𝓞_F) ⊗ ℚ = dim_ℚ K_n(F) ⊗ ℚ = r_1 + r_2, r_2 or 0 for n ≥ 2 according as n ≡ 1 (mod 4), n ≡ 3 (mod 4) or n even. Used with A = F and R = 𝓞_F. The S-integer case is N.3:ranks's (RT-AREA-ktheory-1/7): 𝓞_{F,S} with S ≠ ∅ is not an order, and the passage uses N.2's localisation sequence and L.1, which are not R.3's ancestors; R.3's text should drop 'Include the commutative order and S-integer cases via the appropriate comparison/localisation results' for the S-integer part (maintainer; BorelRegulators' blueprint job). The higher regulator is not needed here; it is R.4's. Atlas edge R.3 → N.3:ranks exists; no cycle.",
    "neededBy": [
     "ArithmeticKTheory:N.3:ranks/borel-rank-theorem"
    ]
   },
   {
    "supplier": "GeneralAlgebraicKTheory:K.1",
-   "need": "The K-groups K_n(C) = π_{n+1}(|NQ(C)|, 0) of an exact category, natural in exact functors, with π₁NQ(C) identified with ExactK0 and K_n(R) = K_n(P(R)) for a ring: used by N.2's localisation sequences and finite support, by Quillen's finiteness criterion (whose proof filters Q(P(R)) by rank) and by the e-invariant. K.1: 'Define K_n(C)=π_(n+1)(|NQ(C)|,0) for every natural number ... natural in exact functors ... Prove that π₁ NQ(C) is the existing ExactK0'. Two things the earlier request asked of K.1 are not in its text: Quillen's computation of K_*(𝔽_q) is KTheoryFiniteLocalFields L.1's, and compatibility with filtered colimits is GeneralAlgebraicKTheory K.7's.",
+   "need": "The K-groups K_n(C) = π_{n+1}(|NQ(C)|, 0) of an exact category, natural in exact functors, with π₁NQ(C) identified with ExactK0 and K_n(R) = K_n(P(R)) for a ring: used by N.2's localisation sequences and finite support, by Quillen's finiteness criterion (whose proof filters Q(P(R)) by rank) and by the e-invariant. K.1: 'Define K_n(C)=π_(n+1)(|NQ(C)|,0) for every natural number ... natural in exact functors ... Prove that π₁ NQ(C) is the existing ExactK0'. Two things the earlier request asked of K.1 are not in its text: Quillen's computation of K_*(𝔽_q) is KTheoryFiniteLocalFields L.1's, and compatibility with filtered colimits is GeneralAlgebraicKTheory K.7's. The rank filtration also uses the node K.1/exact-categories-and-Q-construction (morphisms of Q(A) as admissible layers, the isomorphisms of Q(A) as those of A, QCat.hom_zero) and K.1/K-groups-of-exact-categories (K_n = π_{n+1} BQ), cited by id.",
    "neededBy": [
     "ArithmeticKTheory:N.2/finite-support",
     "ArithmeticKTheory:N.3:finite-generation/finite-generation-of-K-of-S-integers",
@@ -3798,7 +4682,10 @@
     "ArithmeticKTheory:N.2/the-three-classical-rows",
     "ArithmeticKTheory:N.2/localisation-sequence-and-finite-extensions",
     "ArithmeticKTheory:N.3:finite-generation/quillen-finiteness-criterion",
-    "ArithmeticKTheory:N.5/e-invariant"
+    "ArithmeticKTheory:N.5/e-invariant",
+    "ArithmeticKTheory:N.3:finite-generation/rank-filtration",
+    "ArithmeticKTheory:N.3:finite-generation/comma-category-is-the-layer-poset",
+    "ArithmeticKTheory:N.3:finite-generation/rank-spectral-sequence"
    ]
   },
   {
@@ -3814,24 +4701,24 @@
   },
   {
    "supplier": "K2SymbolsBrauer:T.5",
-   "need": "T.5/unramified-subgroup (the tame kernel, defined by the vanishing of the tame symbols) and T.5/tame-kernel-sequence (its identification with K_2(O_F)), which N.6's wild kernel is compared with, and T.5/certified-presentation (the OrderCertificate format on Mathlib's Module.Relations and Module.Presentation), which N.6 imports rather than redefining. T.5's text: 'Give certified finite presentations ... An upper bound and a surjective presentation must not be reported as an isomorphism without a matching lower bound or complete kernel argument.' N.2 does not import T.5: T.5 derives the tame-kernel sequence from N.2's localisation sequence (reviewed packet, PR #2893), so the degree-two row flows N.2 → T.5 and an import in the other direction is a stage cycle.",
+   "need": "The tame kernel as a group and its exact sequences, which N.2 and N.6 import (RT-AREA-ktheory-1/9): T.5/unramified-subgroup (the tame kernel, defined by the vanishing of the tame symbols), T.5/tame-kernel-sequence (0 → K_2(O_F) → K_2(F) → ⊕_𝔭 k(𝔭)^× → 0, with injectivity from K_2(𝔽_q) = 0 and surjectivity from SK_1(O_F) = 0) T.5/s-integer-tame-kernel-sequence (0 → K_2(O_{F,S}) → K_2(F) → ⊕_{𝔭∉S} k(𝔭)^× → 0, residues at the primes outside S) and T.5/relative-s-integer-sequence (0 → K_2(O_F) → K_2(O_{F,S}) → ⊕_{𝔭∈S} k(𝔭)^× → 0, residues at the primes in S), stated separately. N.2/the-three-classical-rows identifies the degree-two segment of its localisation sequence with these sequences and does not re-prove them; the import is acyclic because T.5 derives them from K2SymbolsBrauer T.3/dedekind-localization-boundary and KTheoryLowDegrees U.4 (RT-AREA-ktheory-1/26) and lists no ArithmeticKTheory:N.2 prerequisite (the K2SymbolsBrauer packet revised for the same findings; its request to N.2 is withdrawn). The certificate format is no longer requested: it is N.6/order-certificate, and T.5 drops its competing certificate paragraph and T.5/certified-presentation (RT-AREA-ktheory-1/9).",
    "neededBy": [
-    "ArithmeticKTheory:N.6/tame-and-wild-kernels",
-    "ArithmeticKTheory:N.6/certificate-driven-computation"
+    "ArithmeticKTheory:N.2/the-three-classical-rows",
+    "ArithmeticKTheory:N.2/even-degree-injectivity",
+    "ArithmeticKTheory:N.6/tame-and-wild-kernels"
    ]
   },
   {
    "supplier": "K2SymbolsBrauer:T.7",
-   "need": "T.7/classical-local-symbols (the Hilbert symbols of local fields), T.7/twisted-roots-of-unity (the trivialisation of μ_ℓ^{⊗i} by a root of unity in F), and Tate's comparison extended to S-integers (T.7's text: 'For local and global fields prove the applicable Tate comparison, and extend it to S-integers with primes dividing m inverted'). The twisted coefficient modules themselves are MotivicEtaleKTheory M.1's (reviewed T.7/twisted-roots-of-unity: 'The twists themselves are M.1's'), so N.4 imports them from M.1 (a separate request), which its atlas entry already requires; no N.4 node depends on T.7.",
+   "need": "T.7/classical-local-symbols (the Hilbert symbols of local fields, with their normalisation) and T.7/twisted-roots-of-unity (the trivialisation of μ_ℓ^{⊗i} by a root of unity in F). Tate's comparison K_2/m ≅ H² and its S-integer extension are no longer requested from T.7: MotivicEtaleKTheory M.3 owns them (RT-AREA-ktheory-1/8; request to M.3). The twisted coefficient modules themselves are MotivicEtaleKTheory M.1's (reviewed T.7/twisted-roots-of-unity: 'The twists themselves are M.1's'), so N.4 imports them from M.1 (a separate request); no N.4 node depends on T.7.",
    "neededBy": [
     "ArithmeticKTheory:N.6/tame-and-wild-kernels",
-    "ArithmeticKTheory:N.6/the-two-primary-corrections",
     "ArithmeticKTheory:N.6/l-rank-from-class-group-data"
    ]
   },
   {
    "supplier": "MotivicEtaleKTheory:M.7",
-   "need": "(a) For ℓ odd, or ℓ = 2 with F totally imaginary, and R = O_S[1/ℓ], i ≥ 1: K_{2i}(R; ℚ_ℓ/ℤ_ℓ) ≅ H^0(R; ℚ_ℓ/ℤ_ℓ(i)), K_{2i−1}(R; ℚ_ℓ/ℤ_ℓ) ≅ H^1(R; ℚ_ℓ/ℤ_ℓ(i)), K_{2i−1}(R; ℤ_ℓ) ≅ H^1(R; ℤ_ℓ(i)) and K_{2i}(R; ℤ_ℓ) ≅ H^2(R; ℤ_ℓ(i+1)), natural in R, with the vanishing and finiteness statements of the source's Exercises VI.8.1–8.3 (proof of VI.8.2). M.7's text: 'At odd ℓ and j≥2 the expected arithmetic outputs identify K_{2j−1} with H¹ of twist j and K_{2j−2} with H² of twist j after the stated ℓ-adic passage.' (b) At 2 with real places, Theorem VI.9.4: for O_S ⊇ O_F[1/2], α^1_S(4k) is onto for k > 0 and K_n(O_S; ℚ_2/ℤ_2) is given by the eight-row table, with the non-split extension in degree 8k+4 detected by comparison with ℝ and the undetermined extension in degree 8k+5, all induced by the natural morphism of descent spectral sequences to r_1 copies of that of ℝ (with Lemma VI.9.3 and the spectral sequences of ℝ, Theorem VI.9.1 and Variant VI.9.1.2); M.7's text: 'At 2 with real places, prove the corrected long exact sequences and extension data'. AUDIT-27 records M.7 as the owner of N.5's real two-primary calculation. (c) The bounds j(O_F[1/2]) ≤ ρ ≤ r_1 − 1 of Corollary VI.9.10 from the edge map of the mod-2 spectral sequence.",
+   "need": "(a) For ℓ odd, or ℓ = 2 with F totally imaginary, and R = O_S[1/ℓ], i ≥ 1: K_{2i}(R; ℚ_ℓ/ℤ_ℓ) ≅ H^0(R; ℚ_ℓ/ℤ_ℓ(i)), K_{2i−1}(R; ℚ_ℓ/ℤ_ℓ) ≅ H^1(R; ℚ_ℓ/ℤ_ℓ(i)), K_{2i−1}(R; ℤ_ℓ) ≅ H^1(R; ℤ_ℓ(i)) and K_{2i}(R; ℤ_ℓ) ≅ H^2(R; ℤ_ℓ(i+1)), natural in R, with the vanishing and finiteness statements of the source's Exercises VI.8.1–8.3 (proof of VI.8.2). M.7's text: 'At odd ℓ and j≥2 the expected arithmetic outputs identify K_{2j−1} with H¹ of twist j and K_{2j−2} with H² of twist j after the stated ℓ-adic passage.' (b) At 2 with real places, Theorem VI.9.4: for O_S ⊇ O_F[1/2], α^1_S(4k) is onto for k > 0 and K_n(O_S; ℚ_2/ℤ_2) is given by the eight-row table, with the non-split extension in degree 8k+4 detected by comparison with ℝ and the undetermined extension in degree 8k+5, all induced by the natural morphism of descent spectral sequences to r_1 copies of that of ℝ (with Lemma VI.9.3 and the spectral sequences of ℝ, Theorem VI.9.1 and Variant VI.9.1.2); M.7's text: 'At 2 with real places, prove the corrected long exact sequences and extension data'. AUDIT-27 records M.7 as the owner of N.5's real two-primary calculation. (c) The bounds j(O_F[1/2]) ≤ ρ ≤ r_1 − 1 of Corollary VI.9.10 from the edge map of the mod-2 spectral sequence. M.7 owns the whole dyadic calculation (RT-AREA-ktheory-1/3): the real-place spectral sequences whose differentials are fixed by Suslin's theorem K_n(ℝ; ℤ/m) ≅ π_n(BO; ℤ/m) for n ≥ 1 (K-book VI.3.1, PDF p. 483; degree zero identified separately) and real topological K-theory, as used in VI.9.1–9.4; N.5 and N.6 import its output — the groups of Theorem VI.9.4, the real-place maps α^n_S(i) to ⊕_{real} H^n(ℝ; −) and to K_*(ℝ; ℚ_2/ℤ_2), and the extension data, with their naturality — and perform no second dyadic calculation.",
    "neededBy": [
     "ArithmeticKTheory:N.5/odd-torsion-at-a-prime-where-cd-is-two",
     "ArithmeticKTheory:N.5/the-real-case-modulo-eight",
@@ -3904,9 +4791,10 @@
   },
   {
    "supplier": "StableHomotopyKTheory:H.2",
-   "need": "Quillen's Theorems A and B and the long exact homotopy sequence of a homotopy fibre, used in the proof of Quillen's finiteness criterion by the rank filtration of Q(P(R)). H.2's text: 'Prove Quillen's Theorem A from contractible comma categories. Prove Theorem B with its homotopy-fibre hypothesis on transition functors'. Atlas edge H.2 → N.3:finite-generation exists; no cycle.",
+   "need": "Quillen's Theorems A and B and the long exact homotopy sequence of a homotopy fibre, and the homotopy theory of categories that the rank spectral sequence of N.3:finite-generation uses: (a) Theorem A for maps of posets, applied to the poset of layers J(V) and to the interval poset of the Tits building; (b) Thomason's theorem δN(D, F) ≃ N(D ∫ F) for a functor F : D → Cat and the resulting spectral sequence E²_{p,q} = H_p(D, H_q(T ↓ −)) ⇒ H_{p+q}(C) for a functor T : C → D (Kahn, arXiv:1108.2441v3, 1.4.3–1.4.6); (c) for a cellular functor T : C → D (fully faithful, no morphism from D − C to C) the homotopy cocartesian square and long exact sequence ⋯ → H_i(D − C, F̃_T) → H_i(C) → H_i(D) → H_{i−1}(D − C, F̃_T) → ⋯, and the spectral sequence of a sequence of cellular functors with Q = colim Q_n (Kahn 2.3.6, 2.3.7, 2.4.1). H.2's text: 'Prove Quillen's Theorem A from contractible comma categories. Prove Theorem B with its homotopy-fibre hypothesis on transition functors ... Develop the bisimplicial diagonal/iterated-realisation comparison and the levelwise-equivalence theorem'. Atlas edge H.2 → N.3:finite-generation exists; no cycle.",
    "neededBy": [
-    "ArithmeticKTheory:N.3:finite-generation/quillen-finiteness-criterion"
+    "ArithmeticKTheory:N.3:finite-generation/layer-poset-is-the-suspended-building",
+    "ArithmeticKTheory:N.3:finite-generation/rank-spectral-sequence"
    ]
   },
   {
@@ -3943,19 +4831,30 @@
   },
   {
    "supplier": "MotivicEtaleKTheory:M.3",
-   "need": "Tate's theorem K_2(O_{F,S})/ℓ^r ≅ H^2_et(O_{F,S}; μ_{ℓ^r}^{⊗2}) when ℓ is invertible (M.3's text), used at ℓ = 2 for the row n = 2 of Theorem VI.9.11.",
+   "need": "The Galois symbol K_2(F)/m → H²(F; μ_m^{⊗2}) with its symbol formula, and Tate's theorems: the local and global cases and the S-integer form K_2(O_{F,S})/ℓ^r ≅ H²_et(O_{F,S}; μ_{ℓ^r}^{⊗2}) when ℓ is invertible in O_{F,S} (M.3's text), used at ℓ = 2 for the row n = 2 of Theorem VI.9.11. M.3 is the single owner (RT-AREA-ktheory-1/8); N.6 cites it and not K2SymbolsBrauer T.7 for this theorem.",
    "neededBy": [
     "ArithmeticKTheory:N.6/the-two-primary-corrections"
    ]
   },
   {
    "supplier": "StableHomotopyKTheory:H.6",
-   "need": "The universal coefficient sequence 0 → π_n(E)/m → π_n(E/m) → π_{n−1}(E)[m] → 0 and its ℚ_ℓ/ℤ_ℓ and ℤ_ℓ limits (H.6's text), applied to K(R): if K_{n+1}(R) is finite then K_n(R){ℓ} ≅ K_{n+1}(R; ℚ_ℓ/ℤ_ℓ), and if K_n(R) is finite then K_n(R){ℓ} ≅ K_n(R; ℤ_ℓ) (the source's Ex. IV.2.6 and IV.2.9).",
+   "need": "The universal coefficient sequence 0 → π_n(E)/m → π_n(E/m) → π_{n−1}(E)[m] → 0 and its ℚ_ℓ/ℤ_ℓ and ℤ_ℓ limits (H.6's text), applied to K(R): if K_{n+1}(R) is finite then K_n(R){ℓ} ≅ K_{n+1}(R; ℚ_ℓ/ℤ_ℓ), and if K_n(R) is finite then K_n(R){ℓ} ≅ K_n(R; ℤ_ℓ) (the source's Ex. IV.2.6 and IV.2.9). Also Serre's theorem for the class of finitely generated abelian groups: for a simple space X (in particular a connected H-space) the integral homology groups H_i(X; ℤ), i ≥ 1, are all finitely generated if and only if the homotopy groups π_i(X), i ≥ 1, are; used to pass from the finitely generated homology of BQ(P(R)) to K_n(R) = π_{n+1} BQ(P(R)) in N.3:finite-generation/quillen-finiteness-criterion (with the rational Hurewicz theory of the same owner, RT-AREA-ktheory-1/33). H.6 → N.3:finite-generation is a new atlas edge; it is acyclic.",
    "neededBy": [
     "ArithmeticKTheory:N.5/odd-torsion-at-a-prime-where-cd-is-two",
     "ArithmeticKTheory:N.5/the-real-case-modulo-eight",
     "ArithmeticKTheory:N.6/even-groups-at-odd-primes",
-    "ArithmeticKTheory:N.6/the-two-primary-corrections"
+    "ArithmeticKTheory:N.6/the-two-primary-corrections",
+    "ArithmeticKTheory:N.3:finite-generation/quillen-finiteness-criterion"
+   ]
+  },
+  {
+   "supplier": "StableHomotopyKTheory:H.1",
+   "need": "Nerves of small categories and posets with their realisations, homotopies from comparable monotone maps, compatibility with finite products and with increasing unions of subcategories (homology commuting with the union), and the comparison of the homology of a one-object groupoid with local coefficients with group homology (H.1's text: 'Construct local coefficient systems and the comparison of bar homology with singular homology of BG'). Used by Quillen's rank filtration and its spectral sequence, and for the H-space structure on BQ(P(R)) given by direct sum. H.1 → N.3:finite-generation is a new atlas edge; it is acyclic.",
+   "neededBy": [
+    "ArithmeticKTheory:N.3:finite-generation/rank-filtration",
+    "ArithmeticKTheory:N.3:finite-generation/layer-poset-is-the-suspended-building",
+    "ArithmeticKTheory:N.3:finite-generation/rank-spectral-sequence",
+    "ArithmeticKTheory:N.3:finite-generation/quillen-finiteness-criterion"
    ]
   }
  ],
@@ -3977,8 +4876,8 @@
   },
   {
    "kind": "ownership",
-   "title": "The tame-kernel sequence is K2SymbolsBrauer T.5's; N.2 supplies the sequence it is derived from",
-   "detail": "N.2's text ('Derive the tame-kernel exact sequence ... from this one construction') and T.5's ('Prove 0 → K₂(O_F) → K₂(F) → ⊕ k(𝔭)^× → 0 ... For S-integers allow residues at S') both name it. The reviewed K2SymbolsBrauer packet (PR #2893) derives it in T.5/tame-kernel-sequence and T.5/s-integer-tame-kernel-sequence from N.2; N.2 supplies (6.6.1) with ∂ the tame symbol (N.2/the-three-classical-rows, importing the sign from K2SymbolsBrauer T.3/localization-boundary). An N.2 node depending on T.5 closes the stage cycle N.2 → T.5 → N.2; this packet's former prerequisite did."
+   "title": "The tame-kernel sequence is K2SymbolsBrauer T.5's, and N.2 imports it",
+   "detail": "N.2's text ('Derive the tame-kernel exact sequence ... from this one construction') and T.5's ('Prove 0 → K₂(O_F) → K₂(F) → ⊕ k(𝔭)^× → 0 ... For S-integers allow residues at S') both name it. RT-AREA-ktheory-1/9 (confirmed) makes T.5 the single owner of the degree-two tame-kernel sequences with their injectivity and surjectivity, and RT-AREA-ktheory-1/26 makes T.5 derive them from K2SymbolsBrauer T.3:localization-comparison and KTheoryLowDegrees U.4 rather than from N.2. N.2/the-three-classical-rows and N.2/even-degree-injectivity now import T.5/tame-kernel-sequence and T.5/s-integer-tame-kernel-sequence (edge T.5 → N.2). This reverses the earlier direction N.2 → T.5; it is acyclic because T.5's nodes no longer list ArithmeticKTheory:N.2 as a prerequisite (the K2SymbolsBrauer side of the same findings, which also adds T.3/dedekind-localization-boundary and T.5/relative-s-integer-sequence)."
   },
   {
    "kind": "ownership",
@@ -3988,12 +4887,12 @@
   {
    "kind": "note-duplicate-boundary",
    "title": "BorelRegulators R.3 and N.3:ranks both claim the S-integer rank formula",
-   "detail": "R.3's text: 'Include the commutative order and S-integer cases via the appropriate comparison/localisation results.' N.3:ranks's text: 'Apply R's independent stable cohomology theorem to deduce, for n≥2, rank K_n(O_{F,S}) = ...'. The localisation input is upstream of N.3:ranks (N.2, through N.3:finite-generation) and is not among R.3's requirements (R.2, K.2:plus, H.6). Proposal: R.3 keeps orders, including 𝓞_F (K-book IV.1.17–1.18); N.3:ranks owns the passage to 𝓞_{F,S} (N.3:ranks/borel-rank-theorem). AUDIT-27 lists the same pair as a duplicate."
+   "detail": "R.3's text: 'Include the commutative order and S-integer cases via the appropriate comparison/localisation results.' N.3:ranks's text: 'Apply R's independent stable cohomology theorem to deduce, for n≥2, rank K_n(O_{F,S}) = ...'. Confirmed as RT-AREA-ktheory-1/7: R.3 keeps Borel's rank theorem for orders, 𝓞_F included (K-book IV.1.17–1.18), and drops the S-integer case; N.3:ranks/borel-rank-theorem owns the passage from 𝓞_F to 𝓞_{F,S} through N.2's localisation sequence and L.1, with the degree-one S-unit exception (U.4). The localisation input is upstream of N.3:ranks and not among R.3's requirements, so no edge is added backwards into R.3."
   },
   {
    "kind": "note-duplicate-boundary",
    "title": "SpecialValuesBirchTate B.1 re-plans W_2(F) and its finiteness",
-   "detail": "B.1's text: 'define W_2(F)=H^0(F,Q/Z(2)), w_2(F)=#W_2(F). Use N's actual cyclotomic Galois module ... Prove finiteness and positivity of w₂.' The owner is N.4 ('Define W_j(F)=H⁰(F,Q/Z(j)) and prove finiteness for positive j'); B.1 does not require N.4 in the atlas. Proposal: add the edge ArithmeticKTheory:N.4 → SpecialValuesBirchTate:B.1 (acyclic: B.1's upstream contains no stage downstream of N.4) and have B.1 import N.4/the-w-invariant and N.4/finiteness-of-the-w-invariant. B.3 already lies downstream of N.4 and consumes w_2(Q) = 24."
+   "detail": "B.1's text: 'define W_2(F)=H^0(F,Q/Z(2)), w_2(F)=#W_2(F). Use N's actual cyclotomic Galois module ... Prove finiteness and positivity of w₂. Use ... K₂(O_F) ... and its finiteness theorem.' Confirmed as RT-AREA-ktheory-1/10. The owners are N.4 (N.4/the-w-invariant, N.4/finiteness-of-the-w-invariant — finiteness and positivity —, N.4/computing-w-from-the-cyclotomic-character, N.4/two-primary-w-invariant) and N.3:ranks for the finiteness of K₂(𝓞_F) (N.3:ranks/even-K-groups-of-S-integers-are-finite). Proposal: add the atlas edges ArithmeticKTheory:N.4 → SpecialValuesBirchTate:B.1 and ArithmeticKTheory:N.3:ranks → B.1 (both acyclic) and have B.1 import those nodes instead of re-planning them. W₂ is the invariants of ℚ/ℤ(2), not the roots of unity of F."
   },
   {
    "kind": "note-move",
@@ -4012,23 +4911,28 @@
   },
   {
    "kind": "ownership",
-   "title": "The order-certificate format is K2SymbolsBrauer T.5's; N.6 supplies the cohomological lower bound",
-   "detail": "The packet's KCertificate (four fields: presentation, relations, generation, certified order) duplicated K2SymbolsBrauer T.5/certified-presentation's OrderCertificate on Mathlib's Module.Relations and Module.Presentation, and the reviewed T.5 packet's restructure says 'N.6 imports it for its instances'. N.6/certificate-driven-computation is re-scoped, keeping its id, to the construction OrderCertificate.ofCohomology, the lower bound from the cohomological descriptions of the even groups, with the rule that ℓ = 2 in degree ≡ 4 (mod 8) needs ρ. Tau Ceti's ExactK0 presentation is no longer cited: it presents a Grothendieck group, not an arbitrary abelian group."
+   "title": "The certificate engine is N.6's; K2SymbolsBrauer T.5 supplies the tame kernel it is applied to",
+   "detail": "RT-AREA-ktheory-1/9 (confirmed, with the verifier's correction 'Keep the certificate engine and its independent upper/lower bounds in N.6, and remove the competing certificate-proof obligation from T.5') reverses the earlier arrangement, in which the format was T.5/certified-presentation and N.6 only added the cohomological lower bound. N.6 now owns the format (N.6/order-certificate, with the API and tests of the former T.5 node, on Mathlib's Module.Relations and Module.Presentation) and its cohomological lower bound in every even degree (N.6/certificate-driven-computation); T.5 → N.6 supplies the tame kernel group and sequence, not a second certificate engine; N.8 instantiates N.6's engine. T.5's paragraph 'Give certified finite presentations ...' and the node T.5/certified-presentation should be removed on the K2SymbolsBrauer side. Tau Ceti's ExactK0 presentation is not cited: it presents a Grothendieck group, not an arbitrary abelian group."
   },
   {
    "kind": "ownership",
    "title": "The tame kernel is K2SymbolsBrauer T.5's; N.6 owns the wild kernel and the divisible subgroup",
-   "detail": "N.6/tame-and-wild-kernels bundled the tame kernel, the wild kernel, the divisible subgroup and the comparison theorem in one definition node. The tame kernel is T.5/unramified-subgroup with T.5/tame-kernel-sequence and is imported; the node is re-scoped to the wild kernel (id kept), and the divisible subgroup (N.6/divisible-subgroup) and the comparison (N.6/divisible-subgroup-and-the-wild-kernel) are separate nodes. The subgroup of divisible elements of an abelian group is a general notion absent from Mathlib (which has only DivisibleBy); it is planned in its general form and could move to a foundational owner."
+   "detail": "N.6/tame-and-wild-kernels bundled the tame kernel, the wild kernel, the divisible subgroup and the comparison theorem in one definition node. The tame kernel is T.5/unramified-subgroup with T.5/tame-kernel-sequence and is imported; the node is re-scoped to the wild kernel (id kept), and the divisible subgroup (N.6/divisible-subgroup) and the comparison (N.6/divisible-subgroup-and-the-wild-kernel) are separate nodes. The subgroup of divisible elements of an abelian group is a general notion absent from Mathlib (which has only DivisibleBy); it is planned in its general form and could move to a foundational owner. RT-AREA-ktheory-1/9 confirms the split: N.6 keeps the wild kernel, the comparisons with divisible subgroups and Selmer/cohomological kernels, and the cohomological order computations in every even degree."
   },
   {
    "kind": "ownership",
    "title": "Two stage cycles removed: N.2 ↔ K2SymbolsBrauer T.5, and N.4 ↔ SpecialValuesBirchTate B.2/B.3",
-   "detail": "N.2/the-three-classical-rows listed K2SymbolsBrauer:T.5 as a prerequisite while the reviewed T.5 (PR #2893) imports N.2's localisation sequence (T.5/tame-kernel-sequence, T.5/s-integer-tame-kernel-sequence): the cycle N.2 → T.5 → N.2, which in the atlas-plus-packet graph also passed through N.3, N.5 and N.6. The prerequisite is dropped; the degree-two row is exported to T.5 (if the boundary–tame-symbol identification is wanted in N.2, K2SymbolsBrauer T.3/localization-boundary is upstream and acyclic). N.4/w2-of-the-rationals-and-the-divisibility-tests listed SpecialValuesBirchTate:B.3, but the atlas has N.4 → B.2 → B.3; the prerequisite and the B.3 request are dropped, and B.3 consumes N.4's w_2(ℚ) = 24."
+   "detail": "N.2/the-three-classical-rows listed K2SymbolsBrauer:T.5 as a prerequisite while the reviewed T.5 (PR #2893) imports N.2's localisation sequence (T.5/tame-kernel-sequence, T.5/s-integer-tame-kernel-sequence): the cycle N.2 → T.5 → N.2, which in the atlas-plus-packet graph also passed through N.3, N.5 and N.6. The prerequisite is dropped; the degree-two row is exported to T.5 (if the boundary–tame-symbol identification is wanted in N.2, K2SymbolsBrauer T.3/localization-boundary is upstream and acyclic). N.4/w2-of-the-rationals-and-the-divisibility-tests listed SpecialValuesBirchTate:B.3, but the atlas has N.4 → B.2 → B.3; the prerequisite and the B.3 request are dropped, and B.3 consumes N.4's w_2(ℚ) = 24. Update (fix of RT-AREA-ktheory-1/9 and /26): the N.2–T.5 pair is now resolved the other way, with T.5 → N.2 (see 'The tame-kernel sequence is K2SymbolsBrauer T.5's, and N.2 imports it'); T.5 no longer imports N.2, so it is acyclic. With the current node prerequisites of the K2SymbolsBrauer packet, T.3:localization-comparison → N.2 closes no cycle either: T.2/graded-map-degree-three no longer imports K3BlochGroups V.2."
   },
   {
    "kind": "note-external-cycle",
    "title": "K3BlochGroups V.2 imports N.3 and N.5, which closes cycles with other packets",
-   "detail": "K3BlochGroups:V.2/k3-rank-borel lists ArithmeticKTheory:N.5 (for K_3(O_F) ≅ K_3(F)), N.3:ranks and N.3:finite-generation as prerequisites, although the atlas has N.5 → K3BlochGroups V.6, not V.2. With all packets on main this closes two loops. (1) N.5 → MotivicEtaleKTheory M.8 (this packet's import for the natural Chern maps) → BorelRegulators R.7 → Polylogarithms P.2 → K3BlochGroups V.3 → V.2 → N.5. (2) Through K2SymbolsBrauer's T.1 packet, where T.2/graded-map-degree-three uses V.2: N.2 → K2SymbolsBrauer T.3:localization-comparison → T.2:graded-map → V.2 → N.3:finite-generation → N.2. This packet removed its edge of (2): N.2/the-three-classical-rows no longer imports T.3/localization-boundary. The rest lies in the K3BlochGroups packet. V.2 needs only the rank of K_3 of the field, which Borel's theorem for fields (K-book IV.1.18 with A = F; BorelRegulators R.3) gives without N.3 or N.5, so re-routing V.2/k3-rank-borel to R.3 breaks both loops."
+   "detail": "K3BlochGroups:V.2/k3-rank-borel lists ArithmeticKTheory:N.5 (for K_3(O_F) ≅ K_3(F)), N.3:ranks and N.3:finite-generation as prerequisites, although the atlas has N.5 → K3BlochGroups V.6, not V.2. With all packets on main this closes two loops. (1) N.5 → MotivicEtaleKTheory M.8 (this packet's import for the natural Chern maps) → BorelRegulators R.7 → Polylogarithms P.2 → K3BlochGroups V.3 → V.2 → N.5. (2) Through K2SymbolsBrauer's T.1 packet, where T.2/graded-map-degree-three uses V.2: N.2 → K2SymbolsBrauer T.3:localization-comparison → T.2:graded-map → V.2 → N.3:finite-generation → N.2. This packet removed its edge of (2): N.2/the-three-classical-rows no longer imports T.3/localization-boundary. The rest lies in the K3BlochGroups packet. V.2 needs only the rank of K_3 of the field, which Borel's theorem for fields (K-book IV.1.18 with A = F; BorelRegulators R.3) gives without N.3 or N.5, so re-routing V.2/k3-rank-borel to R.3 breaks both loops. Update 2026-09-30: loop (2) no longer closes, since K2SymbolsBrauer T.2/graded-map-degree-three now imports only T.2/graded-map; loop (1) still does."
+  },
+  {
+   "kind": "ownership",
+   "title": "The arithmetic-group input to Quillen's theorem is BorelRegulators R.1's",
+   "detail": "RT-AREA-ktheory-1/1 (confirmed, with the verifier's essential correction): Quillen's proof needs the Tits building, the Solomon–Tits theorem, the Steinberg module and the integral finiteness of the Steinberg homology of arithmetic groups, which comes from Borel–Serre duality with the correctly twisted dualizing module St_n(F) ⊗ ℤ_χ^{⊗(n−1)}, χ = N_{F/ℚ} ∘ det (Putman–Studenmund, Theorem C), or from descent from a torsion-free subgroup in ker χ — not from a 'finite-type homotopy' of arithmetic groups, St_n(F) being free of infinite rank. R.1 is the single owner of that package (request); N.3:finite-generation keeps the rank filtration of Q(P(A)), its spectral sequence, the commensurability of Aut(P) with GL_n(𝓞_F) for nonfree P, the low ranks, the assembly and the finite-S localisation step. Proposal for the stage texts: delete N.3's clause 'Develop the arithmetic-group finiteness and finite-type homotopy input in Quillen's proof, with the relation to stable general linear groups' and let R.1's 'Prove the finite-type homotopy consequences needed by K-theory' read 'Prove the integral finiteness of the Steinberg homology of arithmetic subgroups of GL_n needed by K-theory'."
   }
  ],
  "sourceIssues": [

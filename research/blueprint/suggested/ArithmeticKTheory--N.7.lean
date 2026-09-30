@@ -36,8 +36,9 @@ Imported and never re-planned: the tame kernel and the computations of K₂ (fro
 K2SymbolsBrauer T.5), the twisted coefficient modules (T.7), K₃ of the integers
 and of the Gaussian rationals (K3BlochGroups V.5), the norm residue map
 (MotivicEtaleKTheory M.3), the localisation theorem (ArithmeticKTheory N.2) and
-the Birch-Tate formula (SpecialValuesBirchTate B.3). These appear as `variable`s
-or as `True` placeholders, never as invented definitions.
+the Birch-Tate formula (SpecialValuesBirchTate B.3, which since the fix of RT-AREA-ktheory-1 imports
+N.8's real-quadratic certificate rather than being imported by N.8). In the N.7 section these appear
+as `True` placeholders; the N.8 section records them as `not stated here` comments.
 -/
 import Mathlib.NumberTheory.Bernoulli
 import Mathlib.Algebra.Squarefree.Basic
@@ -163,40 +164,63 @@ def VandiverConjecture (l : ℕ) [Fact (Nat.Prime l)] : Prop := by sorry
 
 theorem vandiver_iff_K4i_vanishes : True := by sorry
 
-/-! ## N.8 Certified examples -/
+/-! ## N.8 Certified examples
 
-/-- N.8/certified-example-format: arithmetic data, tame-kernel certificate, and the
-labelling that keeps a Birch-Tate corollary from being cited as its test. -/
-structure ArithmeticData where
-  dummy : Unit
+Revision for FIX-RT-AREA-ktheory-1 (30 September 2026), findings 9 and 11 of RT-AREA-ktheory-1: the
+certificate format is ArithmeticKTheory N.6's `OrderCertificate` (see the N.1–N.6 suggested file);
+K₀(ℤ), K₁(ℤ), K₂(ℤ) and K₂(ℚ) are imported (KTheoryLowDegrees Z.6, U.6; K2SymbolsBrauer T.5); N.8 owns
+the certificates K₂(ℤ[i]) = 0 and K₂(𝓞_{ℚ(√5)}) ≅ (ℤ/2)², the latter exported to
+SpecialValuesBirchTate B.3, and the localisation sequence of ℤ ⊂ ℤ[1/p] in every degree. The former
+`True` placeholders of this section are replaced by the `not stated here` comments of the N.1–N.6
+file's convention, since every statement below needs a K-group above degree zero. This revision was
+not compiled. -/
 
-structure CertifiedExample where
-  dummy : Unit
+/-! ### `ArithmeticKTheory:N.8/certified-example-format` (definition) -/
 
-theorem certifiedExample_no_circularity : True := by sorry
+-- ArithmeticData: not stated here as a structure with fields; suggested fields: the degree
+--   `Module.finrank ℚ F`, the signature `(nrRealPlaces F, nrComplexPlaces F)`, `NumberField.classNumber F`,
+--   `NumberField.Units.rank F` and the invariants `w_i(F)` (ArithmeticKTheory N.4), each with its proof
+-- CertifiedExample: not stated here; needs ArithmeticData, an `OrderCertificate` (ArithmeticKTheory
+--   N.6/order-certificate) for the tame kernel K₂(𝓞_F) and the labelling (supplier: K2SymbolsBrauer T.1
+--   for K₂; ArithmeticKTheory N.6)
+-- CertifiedExample.tag: not stated here; needs CertifiedExample (the tag is computed | imported |
+--   deduced, with its origin)
+-- CertifiedExample.no_circularity: not stated here; needs CertifiedExample
+-- CertifiedExample.admissible: not stated here; needs CertifiedExample
+-- test deduced_not_evidence (non-example): not stated here; needs CertifiedExample
+-- test upper_bound_only (degenerate): not stated here; needs OrderCertificate without its lower bound
+-- test rationals_admissible (computation): not stated here; needs K₂(ℤ) (K2SymbolsBrauer T.5)
+-- test data_from_libraries (compatibility): not stated here; the arithmetic data of ℚ, ℚ(i) and
+--   ℚ(√5) are to be discharged from Mathlib's `NumberField.classNumber` and `NumberField.Units.rank`
 
-/-- N.8/k-groups-of-the-integers: `ℤ, ℤ/2, ℤ/2, ℤ/48, 0`. Each imported. -/
-theorem K_of_Z_table : True := by sorry
+/- `ArithmeticKTheory:N.8/k-groups-of-the-integers`: `K₀(ℤ) = ℤ`, `K₁(ℤ) = ℤ/2`, `K₂(ℤ) = ℤ/2`,
+`K₃(ℤ) = ℤ/48`, `K₄(ℤ) = 0`, each imported: not stated here; needs `K_n` (supplier: KTheoryLowDegrees
+Z.6, U.6; K2SymbolsBrauer T.5/k2-of-the-integers; K3BlochGroups V.5). -/
 
-/-- N.8/gaussian-and-imaginary-quadratic: `K₂(ℤ[i]) = 0` (Tate) and
-`K₃(ℚ(i)) ≅ ℤ ⊕ ℤ/24` (structure theorem with `w₂ = 24`). -/
-theorem K2_gaussianInt_trivial : True := by sorry
+/- `ArithmeticKTheory:N.8/gaussian-and-imaginary-quadratic`: the certificate `K₂(ℤ[i]) = 0` (empty
+presentation; its span obligation, Tate's vanishing, is a recorded gap) and `K₃(ℚ(i)) ≅ ℤ ⊕ ℤ/24`:
+not stated here; needs `K₂`, `K₃` and `OrderCertificate` (supplier: K2SymbolsBrauer T.5;
+K3BlochGroups V.5; ArithmeticKTheory N.6). -/
 
-theorem K3_gaussianRat : True := by sorry
+/- `ArithmeticKTheory:N.8/s-integer-sequence-for-one-inverted-prime`: for every `n ≥ 1`,
+`0 → K_n(ℤ) → K_n(ℤ[1/p]) → K_{n-1}(𝔽_p) → 0`, and `K₀(ℤ) ≅ K₀(ℤ[1/p])`; in degree two it is
+K2SymbolsBrauer T.5's relative sequence and splits: not stated here; needs `K_n` and the localisation
+sequence (supplier: ArithmeticKTheory N.2, N.5; KTheoryFiniteLocalFields L.1; K2SymbolsBrauer
+T.5/relative-s-integer-sequence; KTheoryLowDegrees U.6). -/
 
-/-- N.8/s-integer-sequence-for-one-inverted-prime: comparing two tame-kernel
-sequences gives `0 → K₂(ℤ) → K₂(ℤ[1/p]) → 𝔽_p^× → 0`. The extension class is not
-determined here. -/
-theorem s_integer_sequence (p : ℕ) [Fact (Nat.Prime p)] : True := by sorry
+/- `ArithmeticKTheory:N.8/the-rationals-infinite-against-finite`: `K₂(ℚ)` is infinite while the tame
+kernel `K₂(ℤ)` has order two: not stated here; needs `K₂` (supplier: K2SymbolsBrauer
+T.5/k2-of-the-integers, T.5/k2-of-the-rationals). -/
 
-/-- N.8/the-rationals-infinite-against-finite. -/
-theorem K2_rat_infinite_tame_kernel_two : True := by sorry
+/- `ArithmeticKTheory:N.8/real-quadratic-example-and-birch-tate`: the certified tame kernel
+`K₂(𝓞_{ℚ(√5)}) ≅ (ℤ/2)²`, generated by `{-1, -1}` and `{-1, ε}`, `ε = (1 + √5)/2`, with the two
+real sign symbols as lower bound and a generation argument (recorded gap) as upper bound; the
+Birch–Tate check `1/30 = 4/120` is SpecialValuesBirchTate B.3's, which imports this certificate:
+not stated here; needs `K₂` and `OrderCertificate` (supplier: K2SymbolsBrauer T.5/real-sign-symbol,
+T.5/tame-kernel-sequence; ArithmeticKTheory N.6/order-certificate). -/
 
-/-- N.8/real-quadratic-example-and-birch-tate, and N.8/birch-tate-status: the odd
-part is Wiles's theorem for totally real abelian fields; the two-primary part is
-open in general and known for abelian extensions of `ℚ`. -/
-theorem birch_tate_rat : True := by sorry
-
-theorem birch_tate_status : True := by sorry
+/- The former `N.8/birch-tate-status` is deleted (RT-AREA-ktheory-1/11): the status of the
+Birch–Tate formula is SpecialValuesBirchTate's, and what an example may claim is the labelling rule
+of `N.8/certified-example-format`. -/
 
 end TauCeti.ArithKTheory

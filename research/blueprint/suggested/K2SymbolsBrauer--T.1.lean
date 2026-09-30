@@ -9,15 +9,30 @@ Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174;
 Tau Ceti f790474821cf4256814db967cb154e7af3d0c369.
 No existing build at both pins was available; elaboration was not attempted.
 
+FIX-RT-AREA-ktheory-1 (2026-09-30, findings RT-AREA-ktheory-1/29 and /30)
+added the universal-central-extension package of T.1:classical: pullbacks and
+composites of central extensions, superperfect groups, existence for perfect
+groups, Hopf's formula through the four-term sequence, the kernel as H2, the
+four implications of the Recognition Theorem and the lift of homomorphisms.
+The file was then elaborated with `lake env lean` against Mathlib 082e2d3 (a
+build at that pin): the additions produce only `sorry` warnings. Five errors
+remain, all older than this fix and not touched by it: the commutator bracket on
+the presented Steinberg group (`Bracket (Steinberg n hn R) _` is not found) in
+commutator_nonchaining/forward/reverse and the first two tests. Homological
+statements put the groups in Type, as Mathlib's integral group homology requires.
+
 Signatures needing missing carriers are comments below. They do not use a
 vacuous proposition, a self-map, or an arbitrary type to stand for that carrier.
 Group homology uses trivial integral representation coefficients. Natural-number
 homotopy degree n is represented by the coordinate type Fin n at this baseline.
 -/
 import Mathlib.Algebra.Group.Commutator
+import Mathlib.Algebra.Module.CharacterModule
+import Mathlib.GroupTheory.FreeGroup.IsFreeGroup
 import Mathlib.GroupTheory.IsPerfect
 import Mathlib.GroupTheory.PresentedGroup
 import Mathlib.GroupTheory.Subgroup.Center
+import Mathlib.RepresentationTheory.Homological.GroupHomology.Functoriality
 
 noncomputable section
 universe u v
@@ -153,10 +168,20 @@ models, rather than an invented carrier:
   commutatorProjection : [F,F]/[S,F] →* [G,G]
   hopf : H2(trivial integral representation of G) ≃+
          Additive ((S ∩ [F,F])/[S,F])
-  recognition (hp_surj) (hp_central) :
-    IsUniversalCentralExtension p ↔
-      (H1(trivial integral representation of X) = 0 ∧
-       H2(trivial integral representation of X) = 0)
+  -- T.1:classical/hopf-extension-perfect
+  hopfExtension_isPerfect [Group.IsPerfect G] (hπ : surjective π) :
+    Group.IsPerfect ([F,F]/[ker π,F])
+  -- T.1:classical/perfect-uce-exists (the Hopf model; the bare existence
+  -- statement is `exists_isUniversalCentralExtension` below)
+  commutatorProjection_isUniversal [Group.IsPerfect G] (π : FreeGroup S →* G)
+    (hπ : surjective π) : IsUniversalCentralExtension (commutatorProjection π)
+  -- T.1:classical/hopf-four-term-sequence (F free, N normal, G = F/N)
+  hopfFourTerm : an injection H2(G) →+ N/[F,N] whose range is the kernel of
+    N/[F,N] → F_ab, with F_ab → G_ab surjective and exact at F_ab
+    (the last two are groupHomology.H1CoresCoinfOfTrivial_exact / _g_epi)
+  -- T.1:classical/hopf-formula-natural
+  hopf_naturality (φ : F →* F') (hφ : π'.comp φ = f.comp π) :
+    hopf' ∘ (map of Hopf quotients induced by φ) = intHomologyMap f 2 ∘ hopf
   finite_split (hn : 5 ≤ n) (q : Y →* Steinberg n (...) R)
     (hq_surj) (hq_central) : ∃ s, q.comp s = MonoidHom.id _
   finite_kernel_central (injective on finite kernel under stabilization) :
@@ -167,6 +192,254 @@ The full classification uses H2 COHOMOLOGY with trivial action on a fixed
 abelian kernel, whereas hopf uses H2 HOMOLOGY with integral coefficients.
 -/
 end CentralExtensions
+
+/-! ### Pullbacks, composites and lifts (T.1:classical) -/
+
+section UniversalCentralExtensions
+variable {X G Y : Type u} [Group X] [Group G] [Group Y]
+
+namespace CentralExtension
+
+variable {H : Type u} [Group H]
+
+/-- T.1:classical/central-extension-pullback: `H ×_G Y` as a subgroup of `H × Y`. -/
+def pullback (q : Y →* G) (f : H →* G) : Subgroup (H × Y) :=
+  (f.comp (MonoidHom.fst H Y)).eqLocus (q.comp (MonoidHom.snd H Y))
+
+/-- The first projection `H ×_G Y → H`. -/
+def pullbackFst (q : Y →* G) (f : H →* G) : pullback q f →* H :=
+  (MonoidHom.fst H Y).comp (pullback q f).subtype
+
+/-- The second projection `H ×_G Y → Y`. -/
+def pullbackSnd (q : Y →* G) (f : H →* G) : pullback q f →* Y :=
+  (MonoidHom.snd H Y).comp (pullback q f).subtype
+
+theorem pullbackFst_surjective (q : Y →* G) (f : H →* G) (hq : Function.Surjective q) :
+    Function.Surjective (pullbackFst q f) := by
+  sorry
+
+theorem pullbackFst_isCentral (q : Y →* G) (f : H →* G) (hq : IsCentral q) :
+    IsCentral (pullbackFst q f) := by
+  sorry
+
+theorem comp_pullbackSnd (q : Y →* G) (f : H →* G) :
+    q.comp (pullbackSnd q f) = f.comp (pullbackFst q f) := by
+  sorry
+
+/-- The factorisation of a commuting pair through the pullback. -/
+def pullbackLift (q : Y →* G) (f : H →* G) (a : X →* H) (b : X →* Y)
+    (h : f.comp a = q.comp b) : X →* pullback q f := by
+  sorry
+
+/-- The kernel of the first projection is the kernel of `q`. -/
+def pullbackKerEquiv (q : Y →* G) (f : H →* G) : (pullbackFst q f).ker ≃* q.ker := by
+  sorry
+
+/-- Along the identity the pullback is `Y` again. -/
+def pullbackId (q : Y →* G) : pullback q (MonoidHom.id G) ≃* Y := by
+  sorry
+
+end CentralExtension
+
+/-- T.1:classical/central-extension-comp (Ex. III.5.7 with the perfectness
+hypothesis the printed exercise omits). -/
+theorem isCentral_comp_of_isPerfect (ρ : Y →* X) (π : X →* G) (hρ : Function.Surjective ρ)
+    (hπ : Function.Surjective π) (hρc : IsCentral ρ) (hπc : IsCentral π) [Group.IsPerfect X] :
+    Function.Surjective (π.comp ρ) ∧ IsCentral (π.comp ρ) := by
+  sorry
+
+/-- T.1:classical/uce-extensions-split. -/
+theorem IsUniversalCentralExtension.exists_section {p : X →* G}
+    (hp : IsUniversalCentralExtension p) (ρ : Y →* X) (hρ : Function.Surjective ρ)
+    (hρc : IsCentral ρ) : ∃ s : X →* Y, ρ.comp s = MonoidHom.id X := by
+  sorry
+
+/-- T.1:classical/split-central-extension-universal: Recognition (2) ⇒ (1). -/
+theorem isUniversalCentralExtension_of_forall_split {p : X →* G}
+    (hp : Function.Surjective p) (hpc : IsCentral p) [Group.IsPerfect X]
+    (hsplit : ∀ (Y : Type u) [Group Y] (ρ : Y →* X), Function.Surjective ρ → IsCentral ρ →
+      ∃ s : X →* Y, ρ.comp s = MonoidHom.id X) :
+    IsUniversalCentralExtension p := by
+  sorry
+
+/-- T.1:classical/perfect-uce-exists, bare form. -/
+theorem exists_isUniversalCentralExtension [Group.IsPerfect G] :
+    ∃ (X : Type u) (_ : Group X) (p : X →* G), IsUniversalCentralExtension p := by
+  sorry
+
+namespace IsUniversalCentralExtension
+
+variable {X' G' : Type u} [Group X'] [Group G'] {p : X →* G} {p' : X' →* G'}
+
+/-- T.1:classical/uce-lift: the lift of `f : G →* G'` to universal central extensions. -/
+def lift (hp : IsUniversalCentralExtension p) (hp' : IsUniversalCentralExtension p')
+    (f : G →* G') : X →* X' := by
+  sorry
+
+theorem proj_comp_lift (hp : IsUniversalCentralExtension p)
+    (hp' : IsUniversalCentralExtension p') (f : G →* G') :
+    p'.comp (lift hp hp' f) = f.comp p := by
+  sorry
+
+theorem lift_unique (hp : IsUniversalCentralExtension p)
+    (hp' : IsUniversalCentralExtension p') (f : G →* G') (h : X →* X')
+    (hh : p'.comp h = f.comp p) : h = lift hp hp' f := by
+  sorry
+
+theorem lift_id (hp : IsUniversalCentralExtension p) :
+    lift hp hp (MonoidHom.id G) = MonoidHom.id X := by
+  sorry
+
+theorem lift_comp {X'' G'' : Type u} [Group X''] [Group G''] {p'' : X'' →* G''}
+    (hp : IsUniversalCentralExtension p) (hp' : IsUniversalCentralExtension p')
+    (hp'' : IsUniversalCentralExtension p'') (f : G →* G') (g : G' →* G'') :
+    lift hp hp'' (g.comp f) = (lift hp' hp'' g).comp (lift hp hp' f) := by
+  sorry
+
+/-- The lift restricted to kernels. -/
+def kerMap (hp : IsUniversalCentralExtension p) (hp' : IsUniversalCentralExtension p')
+    (f : G →* G') : p.ker →* p'.ker := by
+  sorry
+
+/-- Test `lift_trivial_hom`. -/
+example (hp : IsUniversalCentralExtension p) (hp' : IsUniversalCentralExtension p') :
+    lift hp hp' (1 : G →* G') = 1 := by
+  sorry
+
+end IsUniversalCentralExtension
+
+end UniversalCentralExtensions
+
+/-! ### Superperfect groups and the Recognition Theorem (T.1:classical)
+
+Mathlib's integral group homology `groupHomology (Rep.trivial ℤ G ℤ) n` fixes the
+group in the universe of `ℤ`, so this section works with `G : Type`. -/
+
+section Recognition
+
+open CategoryTheory
+
+/-- `H_n(G, ℤ)` with trivial coefficients. -/
+abbrev intHomology (G : Type) [Group G] (n : ℕ) : ModuleCat ℤ :=
+  groupHomology (Rep.trivial ℤ G ℤ) n
+
+/-- `H_n(f; ℤ)`, the map of integral homology induced by a homomorphism. -/
+abbrev intHomologyMap {G H : Type} [Group G] [Group H] (f : G →* H) (n : ℕ) :
+    intHomology G n →+ intHomology H n :=
+  (groupHomology.map (A := Rep.trivial ℤ G ℤ) (B := Rep.trivial ℤ H ℤ) f (𝟙 _) n).hom.toAddMonoidHom
+
+/-- T.1:classical/h1-trivial-perfect: `H₁(G, ℤ) ≅ Gᵃᵇ`, from
+`groupHomology.H1AddEquivOfIsTrivial` and `TensorProduct.rid`. -/
+def h1EquivAbelianization (G : Type) [Group G] :
+    intHomology G 1 ≃+ Additive (Abelianization G) := by
+  sorry
+
+theorem subsingleton_h1_iff_isPerfect (G : Type) [Group G] :
+    Subsingleton (intHomology G 1) ↔ Group.IsPerfect G := by
+  sorry
+
+/-- T.1:classical/superperfect: `H₁(G, ℤ) = H₂(G, ℤ) = 0`. -/
+def Group.IsSuperperfect (G : Type) [Group G] : Prop :=
+  Subsingleton (intHomology G 1) ∧ Subsingleton (intHomology G 2)
+
+theorem Group.isSuperperfect_iff (G : Type) [Group G] :
+    Group.IsSuperperfect G ↔ Group.IsPerfect G ∧ Subsingleton (intHomology G 2) := by
+  sorry
+
+theorem Group.IsSuperperfect.isPerfect {G : Type} [Group G] (h : Group.IsSuperperfect G) :
+    Group.IsPerfect G := by
+  sorry
+
+theorem Group.IsSuperperfect.of_mulEquiv {G H : Type} [Group G] [Group H] (e : G ≃* H)
+    (h : Group.IsSuperperfect G) : Group.IsSuperperfect H := by
+  sorry
+
+theorem Group.IsSuperperfect.of_subsingleton (G : Type) [Group G] [Subsingleton G] :
+    Group.IsSuperperfect G := by
+  sorry
+
+/-- Test `isSuperperfect_trivial`. -/
+example : Group.IsSuperperfect Unit := by
+  sorry
+
+/-- Test `not_isSuperperfect_free`: `H₂` of a free group vanishes, `H₁` does not. -/
+example : ¬ Group.IsSuperperfect (FreeGroup Unit) := by
+  sorry
+
+/-- Test `isSuperperfect_iff_perfect`. -/
+example (G : Type) [Group G] :
+    Group.IsSuperperfect G ↔ Group.IsPerfect G ∧ Subsingleton (intHomology G 2) :=
+  Group.isSuperperfect_iff G
+
+/-- T.1:classical/free-group-higher-homology. -/
+theorem subsingleton_intHomology_of_isFreeGroup (F : Type) [Group F] [IsFreeGroup F]
+    (k : ℕ) (hk : 2 ≤ k) : Subsingleton (intHomology F k) := by
+  sorry
+
+/-- T.1:classical/split-extensions-kill-h2: if every central extension of `G` by
+`ℚ/ℤ` splits then `H₂(G, ℤ) = 0`. -/
+theorem schurMultiplier_eq_zero_of_split (G : Type) [Group G]
+    (h : ∀ (E : Type) [Group E] (i : Multiplicative (AddCircle (1 : ℚ)) →* E)
+      (π : E →* G), Function.Injective i → Function.Surjective π → i.range = π.ker →
+        i.range ≤ Subgroup.center E → ∃ s : G →* E, π.comp s = MonoidHom.id G) :
+    Subsingleton (intHomology G 2) := by
+  sorry
+
+variable {X G : Type} [Group X] [Group G]
+
+/-- T.1:classical/uce-source-superperfect: Recognition (1) ⇒ (3). -/
+theorem IsUniversalCentralExtension.isSuperperfect {p : X →* G}
+    (hp : IsUniversalCentralExtension p) : Group.IsSuperperfect X := by
+  sorry
+
+/-- T.1:classical/superperfect-extensions-split: Recognition (3) ⇒ (2), through the
+universality of the identity. -/
+theorem Group.IsSuperperfect.isUniversalCentralExtension_id (hX : Group.IsSuperperfect X) :
+    IsUniversalCentralExtension (MonoidHom.id X) := by
+  sorry
+
+/-- T.1/recognition-theorem (K-book III.5.4), for a central extension of a perfect group. -/
+theorem recognition {p : X →* G} [Group.IsPerfect G] (hp : Function.Surjective p)
+    (hpc : IsCentral p) :
+    (IsUniversalCentralExtension p ↔ Group.IsSuperperfect X) ∧
+      (IsUniversalCentralExtension p ↔ (Group.IsPerfect X ∧
+        ∀ (Y : Type) [Group Y] (ρ : Y →* X), Function.Surjective ρ → IsCentral ρ →
+          ∃ s : X →* Y, ρ.comp s = MonoidHom.id X)) := by
+  sorry
+
+/-- T.1:classical/uce-kernel-h2: the kernel of a universal central extension of a
+perfect group is `H₂(G, ℤ)`. -/
+def uceKernelEquivH2 {p : X →* G} [Group.IsPerfect G] (hp : IsUniversalCentralExtension p) :
+    Additive p.ker ≃+ intHomology G 2 := by
+  sorry
+
+/-- T.1:classical/uce-kernel-h2-natural. -/
+theorem uceKernelEquivH2_naturality {X' G' : Type} [Group X'] [Group G'] {p : X →* G}
+    {p' : X' →* G'} [Group.IsPerfect G] [Group.IsPerfect G']
+    (hp : IsUniversalCentralExtension p) (hp' : IsUniversalCentralExtension p') (f : G →* G')
+    (x : p.ker) :
+    uceKernelEquivH2 hp' (Additive.ofMul (IsUniversalCentralExtension.kerMap hp hp' f x)) =
+      intHomologyMap f 2 (uceKernelEquivH2 hp (Additive.ofMul x)) := by
+  sorry
+
+end Recognition
+
+/-
+Tests of the recognition package kept as statements (their carriers need concrete
+finite groups or the Steinberg owner interfaces):
+* pullback_id: y ↦ (q y, y) is an isomorphism Y ≃* pullback q id over G (pullbackId).
+* pullback_trivial_subgroup: for C4 → C2 and the inclusion of the trivial group,
+  the pullback is C2 → 1.
+* pullback_split: the pullback of A × G → G along f is A × H → H.
+* pullback_noncentral: for the sign map S3 → C2 and f = id the kernel A3 of the
+  first projection is not central.
+* not_isSuperperfect_cyclic: H1(Z/2, Z) ≅ Z/2.
+* not_isSuperperfect_alternating: A5 is perfect with H2(A5, Z) ≅ Z/2.
+* lift_id_self: lift hp hp (MonoidHom.id G) = MonoidHom.id X (lift_id).
+* lift_steinberg: the lift of E(φ) along the Steinberg extensions sends x_ij(r)
+  to x_ij(φ r).
+* lift_not_unique_nonuniversal: id : C2 → C2 has two lifts to C2 × C2 → C2.
+-/
 
 /-
 Stable comparison interfaces (all require missing carriers/maps):

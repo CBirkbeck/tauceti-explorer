@@ -10,6 +10,12 @@ Tau Ceti f790474821cf4256814db967cb154e7af3d0c369.
 Synced with the corrected packet (102 nodes) in review REV-K3BlochGroups and
 elaborated with `lake env lean` against Mathlib 082e2d3: `sorry` is the only
 warning. The file imports only Mathlib.
+FIX-RT-AREA-ktheory-1 (2026-09-30, RT-AREA-ktheory-1/29): the three V.1
+declarations for uce-superperfect, central-extension-comp and
+split-extensions-kill-h2 moved with their nodes to K2SymbolsBrauer T.1:classical
+(suggested file K2SymbolsBrauer--T.1.lean); the packet now has 99 nodes and
+`steinberg_superperfect` is stated as the corollary V.1 draws from them. Re-elaborated
+after this edit against the same Mathlib: `sorry` is still the only warning.
 
 Objects that another roadmap owns appear as `variable`s, never as invented
 definitions: Quillen K-groups, their functoriality and products, the K₁-class of a
@@ -148,28 +154,18 @@ abbrev intHomologyMap {G H : Type} [Group G] [Group H] (f : G →* H) (n : ℕ) 
 abbrev singularH (n : ℕ) (X : TopCat) : ModuleCat ℤ :=
   ((AlgebraicTopology.singularHomologyFunctor (ModuleCat ℤ) n).obj (ModuleCat.of ℤ ℤ)).obj X
 
-/-- V.1/uce-superperfect: the source of a universal central extension is superperfect. -/
-theorem superperfect_of_universal {S P : Type} [Group S] [Group P] (φ : S →* P)
-    (hsurj : Function.Surjective φ) (hcen : φ.ker ≤ Subgroup.center S)
-    (huniv : ∀ (Y : Type) [Group Y] (ψ : Y →* P), Function.Surjective ψ →
-      ψ.ker ≤ Subgroup.center Y → ∃! h : S →* Y, ψ.comp h = φ) :
-    Subsingleton (intHomology S 1) ∧ Subsingleton (intHomology S 2) := by sorry
+-- Moved to K2SymbolsBrauer T.1:classical (RT-AREA-ktheory-1/29), which owns the
+-- Recognition Theorem; V.1 imports them and does not restate them:
+--   V.1/uce-superperfect → K2SymbolsBrauer:T.1:classical/uce-source-superperfect
+--     (`IsUniversalCentralExtension.isSuperperfect` in K2SymbolsBrauer--T.1.lean);
+--   V.1/central-extension-comp → K2SymbolsBrauer:T.1:classical/central-extension-comp
+--     (`isCentral_comp_of_isPerfect`);
+--   V.1/split-extensions-kill-h2 → K2SymbolsBrauer:T.1:classical/split-extensions-kill-h2
+--     (`schurMultiplier_eq_zero_of_split`).
 
-/-- V.1/central-extension-comp. -/
-theorem centralExtension_comp {Y X G : Type} [Group Y] [Group X] [Group G] (ρ : Y →* X)
-    (π : X →* G) (hρ : Function.Surjective ρ) (hπ : Function.Surjective π)
-    (hρc : ρ.ker ≤ Subgroup.center Y) (hπc : π.ker ≤ Subgroup.center X) (hX : Group.IsPerfect X) :
-    Function.Surjective (π.comp ρ) ∧ (π.comp ρ).ker ≤ Subgroup.center Y := by sorry
-
-/-- V.1/split-extensions-kill-h2: if every central extension of `G` by `ℚ/ℤ` splits then
-`H₂(G, ℤ) = 0`. The sharper surjectivity of `H²(G; ℚ/ℤ) → Hom(H₂(G), ℚ/ℤ)` is not stated. -/
-theorem schurMultiplier_eq_zero_of_split (G : Type) [Group G]
-    (h : ∀ (E : Type) [Group E] (i : Multiplicative (ℚ ⧸ AddSubgroup.zmultiples (1 : ℚ)) →* E)
-      (π : E →* G), Function.Injective i → Function.Surjective π → i.range = π.ker →
-        i.range ≤ Subgroup.center E → ∃ s : G →* E, π.comp s = MonoidHom.id G) :
-    Subsingleton (intHomology G 2) := by sorry
-
-/-- V.1/steinberg-superperfect. -/
+/-- V.1/steinberg-superperfect: the corollary of K2SymbolsBrauer T.1's `St(A) → E(A)` universal
+central extension and its theorem that the source of a universal central extension is
+superperfect. -/
 theorem steinberg_superperfect (A : Type) [Ring A] :
     Subsingleton (intHomology (St A) 1) ∧ Subsingleton (intHomology (St A) 2) := by sorry
 

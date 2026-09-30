@@ -2,7 +2,7 @@
 
 Blueprint packet for the roadmap `K2SymbolsBrauer`, stages T.1 and T.2 with their sub-stages (`research/blueprint/packets/K2SymbolsBrauer--T.1.json`). Written for job `BP-K2SymbolsBrauer--T.1`, issue #761, by Claude Code, session `cc-7b31c4`, 24 September 2026. Nothing here is formalised: every node carries `implementationStatus: "unchecked"`, and the suggested Lean file is signatures only.
 
-**Source.** Weibel, *The K-book: An Introduction to Algebraic K-theory* (Graduate Studies in Mathematics 145), read in the author-hosted combined draft of 29 August 2013, SHA-256 `a04f53c9393b20672fab2a6818279b2f9996dbc7cf74735789ed13804b058845`: III.5.1–5.5.1, III.5.10–5.11.1, III.6.1–6.1.3, III.7.1–7.3.1, and IV.1.20 with Exercise IV.1.9. **Not obtained:** Milnor's 1971 book, to which the source refers for the proof of Matsumoto's theorem, and the papers of Bass–Tate, Dennis–Stein, and Maazen–Stienstra–van der Kallen/Keune; the four statements taken on their authority are listed as gaps.
+**Source.** Weibel, *The K-book: An Introduction to Algebraic K-theory* (Graduate Studies in Mathematics 145), read in the author-hosted combined draft of 29 August 2013, SHA-256 `a04f53c9393b20672fab2a6818279b2f9996dbc7cf74735789ed13804b058845`: III.5.1–5.5.1, III.5.10–5.11.1, III.6.1–6.1.3, III.7.1–7.3.1, and IV.1.20 with Exercise IV.1.9. **Not obtained:** Milnor's 1971 book, to which the source refers for the proof of Matsumoto's theorem, and the papers of Bass–Tate, Dennis–Stein, and Maazen–Stienstra–van der Kallen/Keune; the four statements taken on their authority are listed as gaps. **Added for the recognition package (2026-09-30):** Clara Löh, *Group Cohomology*, lecture notes, Universität Regensburg, Sommersemester 2019 (https://loeh.app.uni-regensburg.de/teaching/grouphom_ss19/lecture_notes.pdf, SHA-256 `d4f2d819bfa85c57277db74bf749d05f03e85833c76e89eab99127f077d2cd76`): Theorem 1.4.1, Corollary 1.4.6, Theorem 1.5.1, Proposition 1.6.21–Corollary 1.6.23, Theorem 3.2.12, Remark 3.2.14 and Theorem 3.2.18 with its proof; and the K-book re-read at III.5.3–5.5.1, Exercise III.5.7, IV.1.7–1.7.1 and Exercises IV.1.8–1.9.
 
 **Library baseline.** Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174`, Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369`. The reviewed audit `AUDIT-29` records every layer in scope as not built, and 23 pinned declarations are cited as baseline. Three are worth naming: Tau Ceti's `commutatorElement_transvectionUnit` **is** the Steinberg relations, proved for transvections, which is exactly what the map out of the presented group needs; `Matrix.diag2_decompose` writes `diag(a, a⁻¹)` as a product of six transvections, the matrix identity behind the lift `h_ij(a)`; and `GroupExtension` has **no** centrality predicate, so this layer adds one rather than pretending the pinned notion is central. The audit's warning is also respected: every Tau Ceti declaration whose name contains *Steinberg* is a Frobenius endomorphism of a group of Lie type, a representation of `GL₂`, or the quaternion relation — none of them is this group.
 
@@ -27,6 +27,19 @@ needs — Hopf's formula for `H₂`, and the equivalence of universality with `H
 is the superperfection criterion `K3BlochGroups:V.1` uses — and `St(R)` is identified as the
 universal central extension of `E(R)`. A node is spent on what the **stable** theorem does not
 give in finite rank, because the proof lets the rank grow.
+
+The universal-central-extension package is planned here in full, as the earliest purely
+algebraic consumer of it (red-team findings RT-AREA-ktheory-1/29 and /30): pullbacks and
+composites of central extensions, splitting over a universal extension, H₁ as the
+abelianisation, superperfect groups, existence of a universal central extension for every
+perfect group, Hopf's formula through its four-term exact sequence, the kernel as H₂(G; ℤ), the
+four implications of the Recognition Theorem, and the lift of a homomorphism of perfect groups
+to their universal central extensions with its naturality on kernels. Three of these nodes
+(`central-extension-comp`, `split-extensions-kill-h2`, `uce-source-superperfect`) were first
+planned in `K3BlochGroups:V.1` and moved here; V.1 now deduces the superperfection of St(A) as a
+corollary. `StableHomotopyKTheory:H.3` should import the Recognition Theorem and the kernel
+identification for its plus-construction node instead of citing K-book III.5.4 unread. The one
+open input is the Hochschild–Serre low-degree sequence behind Hopf's formula (gap below).
 
 ### `steinberg-group-finite-rank` — The Steinberg group of a ring in finite rank ★
 
@@ -267,27 +280,20 @@ For every ring R the group K_2(R) is abelian; in fact it is precisely the centre
 
 *definition*
 
-A central extension of a group G by an abelian group A is a short exact sequence from the
-trivial group to A to X to G to the trivial group in which A lies in the centre of X. It is
-split when it is isomorphic to the projection from the product. Two extensions of G by A are
-equivalent when there is an isomorphism between them that is the identity on A and induces the
-identity on G, and the equivalence classes correspond to the elements of the second cohomology
-group of G with coefficients in A. A homomorphism over G between two central extensions is a
-group map commuting with the projections.
+A central extension of G by an abelian group A is a GroupExtension A G whose included kernel
+lies in the centre of the total group. It is split if it admits a section, equivalently if it is
+equivalent, with identity on A and G, to the product extension. Equivalence retains the kernel
+and quotient identifications.
 
 **Hypotheses.** G is a group; A is an abelian group.
 
 **Construction and proof.**
 
-1. Define a central extension as the pinned notion of a group extension together with the
-   condition that the image of the kernel lies in the centre; the pinned extension API has no
-   centrality predicate, so it is added here.
-1. Define splitness and equivalence.
-1. State the correspondence with the second cohomology group, importing the pinned
-   classification of extensions with abelian kernel by the cohomology class of their factor
-   sets.
-1. Define a homomorphism over G and prove that composition and identities make central
-   extensions of G into a category.
+1. Add the central-kernel predicate to GroupExtension; exactness identifies the image of its
+   inclusion with the projection kernel.
+1. Use the product construction and the displayed section formula to characterize splitness.
+1. Use existing extension equivalences, with fixed kernel and quotient maps; no classification
+   is asserted in this definition.
 
 **API.**
 
@@ -296,17 +302,19 @@ group map commuting with the projections.
 | `IsCentralExtension` | characterisation | The predicate that an extension is central. |
 | `CentralExtension.split` | characterisation | Splitness. |
 | `CentralExtension.Equiv` | structure | Equivalence of two extensions of G by A. |
-| `CentralExtension.classify` | characterisation | The correspondence of equivalence classes with the second cohomology group. |
-| `CentralExtension.homOver` | structure | A homomorphism over G, with composition and identities. |
+| `CentralExtension.product` | constructor | The inclusion A -> A x G and projection A x G -> G form a split central extension. |
+| `CentralExtension.section_equiv` | equivalence | A homomorphic section gives an extension equivalence to A x G, with formula (a,g) -> inl(a)*section(g). |
 
-**Used by.** *T.1's universal central extension*: the universal object is defined in this category. *T.1's Recognition Theorem*: the characterisation by splitting of central extensions is stated here. *K3BlochGroups V.1*: the superperfection argument there is about this notion.
+**Used by.** *T.1's universal central extension*: the universal object is defined in this category. *T.1's Recognition Theorem*: the characterisation by splitting of central extensions is stated here. *K3BlochGroups:V.1/steinberg-superperfect*: superperfection of St(A) is the corollary of T.1:classical/uce-source-superperfect for this notion of central extension. *StableHomotopyKTheory:H.3/plus-pi2-universal-central-extension*: π_2(BG⁺) is central in π_1 F(f), which is a central extension of P (K-book IV.1.7).
 
 **Unit tests.**
 
-- `split_is_trivial_class` — A split extension has the zero class.
-- `trivial_action_central` — An extension from a trivial-action factor set is central.
-- `equivalence_finer` — Two inequivalent extensions can have isomorphic total groups: a non-
-  example.
+- `product_extension` — For A=C2 and G=C2, the product projection is central and split.
+- `cyclic_nonsplit` — The quotient C4 -> C2 modulo two is central but has no homomorphic
+  section.
+- `marked_kernel` — For C9 -> C3 modulo three, kernel inclusions C3 -> C9 given by 1 -> 3 and 1
+  -> 6 give inequivalent extensions although both total groups are C9: a map over C3 has
+  multiplier 1 mod 3, whereas preserving these marked kernels would require multiplier 2 mod 3.
 
 **Acceptance.**
 
@@ -315,7 +323,7 @@ group map commuting with the projections.
 - Equivalence is finer than isomorphism of groups: two inequivalent extensions can have
   isomorphic total groups.
 
-**Depends on.** **baseline** `mathlib:GroupExtension`, `tauceti:TauCeti.FactorSet.inl_range_le_center`, `tauceti:TauCeti.GroupExtension.nonempty_equiv_iff_cohomologyClass_factorSet_eq`, `mathlib:Subgroup.center`.
+**Depends on.** **baseline** `mathlib:GroupExtension`, `tauceti:TauCeti.FactorSet.inl_range_le_center`, `mathlib:Subgroup.center`.
 
 **Source.** Kbook.2013, III.5.3 (PDF p. 226): “Let G be a group and A an abelian group. A central extension of G by A is a short exact sequence of groups 1 -> A -> X -> G -> 1 such that A is in the center of X. We say that a central extension is split if it is isomorphic to an extension of the form 1 -> A -> A x G -> G -> 1.” — The definitions, as displayed.
 
@@ -333,7 +341,8 @@ when it exists.
 
 1. Define the universal property in the category of central extensions of G.
 1. Prove uniqueness up to isomorphism over G by the usual argument with the two composites.
-1. Record that existence is not automatic and is the content of the Recognition Theorem.
+1. Record that existence is not automatic; for perfect groups it is perfect-uce-exists, and a
+   group that is not perfect has none (uce-perfect).
 
 **API.**
 
@@ -343,15 +352,18 @@ when it exists.
 | `uce_unique` | characterisation | Uniqueness up to isomorphism over G. |
 | `uce_hom` | constructor | The unique homomorphism to any central extension. |
 | `uce_hom_unique` | characterisation | Its uniqueness. |
+| `UCE.equiv_over` | equivalence | Two universal central extensions of G have a unique equivalence commuting with their projections. |
 
-**Used by.** *T.1's identification of the Steinberg group*: St(R) is the universal central extension of E(R). *K3BlochGroups V.1*: superperfection is deduced from this property. *T.1:plus*: the comparison with H_2 runs through the universal property.
+**Used by.** *T.1's identification of the Steinberg group*: St(R) is the universal central extension of E(R). *K3BlochGroups:V.1/steinberg-superperfect*: the source of a universal central extension is superperfect (T.1:classical/uce-source-superperfect), applied to St(A) → E(A). *T.1:plus*: the comparison with H_2 runs through the universal property. *StableHomotopyKTheory:H.3/plus-pi2-universal-central-extension*: π_1 of the homotopy fibre of the plus construction relative to a perfect normal subgroup P is the universal central extension of P (K-book IV.1.7).
 
 **Unit tests.**
 
-- `unique` — Two universal central extensions of the same group are isomorphic over it.
-- `nonperfect_has_none` — A group with nontrivial abelianisation has no universal central
-  extension.
-- `existence_is_a_theorem` — Existence is not part of the definition.
+- `trivial_uce` — The identity extension of the trivial group is universal: its unique map to
+  any group is over the trivial quotient.
+- `cyclic_obstruction` — The identity C2 -> C2 is not universal; it has two different lifts to
+  C2 x C2 -> C2, given by the zero and identity first coordinates.
+- `split_target` — For a universal extension X -> G and abelian A, its map to A x G -> G is
+  (1,p(x)); perfectness forces every map X -> A to be trivial.
 
 **Acceptance.**
 
@@ -359,7 +371,7 @@ when it exists.
 - A group with a nontrivial abelianisation has none, which is the next lemma.
 - Existence is a theorem, not part of the definition.
 
-**Depends on.** **inside this roadmap** `central-extension`.
+**Depends on.** **inside this roadmap** `central-extension`, `central-extension-hom`.
 
 **Source.** Kbook.2013, III.5.3.1 (PDF p. 227): “Definition 5.3.1. A universal central extension of G is a central extension X -> G such that for every other central extension Y -> G there is a unique homomorphism f over G from X to Y. Clearly a universal central extension is unique up to isomorphism over G, provided it exists.” — The definition, as displayed.
 
@@ -393,74 +405,758 @@ extensions of G and X is perfect, there is at most one homomorphism over G from 
 
 **Source.** Kbook.2013, III.5.3.2 and III.5.3.3 (PDF p. 227): “Lemma 5.3.2. If G has a universal central extension X -> G, then both G and X must be perfect groups. ... Lemma 5.3.3. If X and Y are central extensions of G, and X is a perfect group, there is at most one homomorphism over G from X to Y.” — The two lemmas, with the proofs of the source.
 
+### `central-extension-pullback` — Pulling a central extension back along a homomorphism
+
+*construction*
+
+Let q : Y → G be a surjective homomorphism whose kernel lies in the centre of Y, and let f : H →
+G be any homomorphism. The pullback P = {(h, y) ∈ H × Y : f(h) = q(y)} is a subgroup of H × Y,
+and its first projection pr_H : P → H is a central extension of H: it is surjective, and its
+kernel {(1, y) : y ∈ ker q} is central in P and isomorphic to ker q. The second projection pr_Y
+: P → Y satisfies q ∘ pr_Y = f ∘ pr_H, and a pair of homomorphisms a : X → H, b : X → Y with f ∘
+a = q ∘ b factors uniquely through P.
+
+**Hypotheses.** G, H and Y are groups; q : Y → G is surjective and ker q is contained in the centre of Y; f : H → G is a homomorphism.
+
+**Construction and proof.**
+
+1. P is the subgroup of H × Y on which the homomorphisms f ∘ fst and q ∘ snd agree
+   (MonoidHom.eqLocus), so it is a group.
+1. pr_H is surjective: for h in H choose y with q(y) = f(h), using that q is surjective.
+1. ker pr_H = {(1, y) : q(y) = 1}. For (h', y') in P, (h', y')(1, y)(h', y')⁻¹ = (1, y'yy'⁻¹) =
+   (1, y) because y is central in Y; so the kernel is central, and y ↦ (1, y) identifies ker q
+   with it.
+1. For a, b with f ∘ a = q ∘ b, the product homomorphism X → H × Y lands in P; it is the unique
+   factorisation because P → H × Y is injective.
+
+**API.**
+
+| name | role | statement |
+| --- | --- | --- |
+| `CentralExtension.pullback` | constructor | The subgroup P = {(h, y) : f(h) = q(y)} of H × Y, for q : Y → G central and surjective and f : H → G. |
+| `CentralExtension.pullbackFst` | projection | pr_H : P → H; it is surjective and its kernel is central. |
+| `CentralExtension.pullbackSnd` | projection | pr_Y : P → Y, with q ∘ pr_Y = f ∘ pr_H. |
+| `CentralExtension.pullbackLift` | universal-property | For a : X → H and b : X → Y with f ∘ a = q ∘ b, the unique homomorphism X → P with pr_H ∘ lift = a and pr_Y ∘ lift = b. |
+| `CentralExtension.pullbackKerEquiv` | characterisation | ker pr_H ≅ ker q, by y ↦ (1, y). |
+| `CentralExtension.pullbackId` | compatibility | Along the identity of G the pullback is isomorphic to Y over G, by y ↦ (q(y), y). |
+
+**Used by.** *K2SymbolsBrauer:T.1:classical/split-central-extension-universal*: a central extension of G is pulled back along X → G, where condition (2) of the Recognition Theorem splits it (K-book III.5.4, '(2) ⇒ (1) is immediate'). *K2SymbolsBrauer:T.1:classical/uce-lift*: the lift of a homomorphism of bases to universal central extensions factors through the pullback of the target extension.
+
+**Unit tests.**
+
+- `pullback_id` (degenerate) — For f = id_G, y ↦ (q(y), y) is an isomorphism from Y onto P
+  commuting with the projections to G.
+- `pullback_trivial_subgroup` (computation) — For q : C_4 → C_2 reduction modulo two and f the
+  inclusion of the trivial group, P ≅ C_2 and pr_H : C_2 → 1.
+- `pullback_split` (characterisation) — The pullback of the product projection A × G → G along f
+  : H → G is isomorphic over H to the product projection A × H → H.
+- `pullback_noncentral` (non-example) — For q the sign map S_3 → C_2, whose kernel A_3 is not
+  central, and f = id, the kernel of pr_H is not central in P ≅ S_3: the centrality hypothesis
+  is used.
+
+**Acceptance.**
+
+- Along the identity of G the pullback is isomorphic over G to Y, by y ↦ (q(y), y).
+- The pullback of the product projection A × G → G along f is isomorphic over H to A × H → H.
+- Centrality is inherited but universality is not: along the inclusion of the trivial group the
+  pullback is ker q → 1, which is universal only when ker q is trivial, since a universal
+  central extension has a perfect source and ker q is abelian.
+
+**Depends on.** **inside this roadmap** `central-extension`, `central-extension-hom`; **baseline** `mathlib:MonoidHom.eqLocus`, `mathlib:MonoidHom.ker`, `mathlib:Subgroup.center`.
+
+**Source.** Kbook.2013, III.5.4, equivalent conditions and proof (PDF p. 228, printed p. 220): “The implication (1)⇒(2) is Lemma 5.3.2 and Ex. 5.7, and (2) ⇒ (1) is immediate.” — The source calls (2) ⇒ (1) immediate: a central extension Y → G is pulled back along X → G to a central extension of X, which condition (2) splits. The pullback is not displayed in the source; this node makes it a declaration.
+
+
+### `central-extension-comp` — Composite of central extensions with perfect middle term
+
+*lemma*
+
+Let ρ : Y → X and π : X → G be surjective homomorphisms whose kernels are central in Y and in X.
+If X is perfect, then πρ : Y → G is surjective with central kernel.
+
+**Hypotheses.** ker ρ is contained in the centre of Y and ker π in the centre of X; ρ and π are surjective. X is perfect.
+
+**Construction and proof.**
+
+1. Surjectivity of πρ is the composite of two surjections.
+1. For z in ker(πρ), ρ(z) is central in X, so [y, z] lies in ker ρ, which is central in Y, for
+   every y in Y.
+1. Hence y ↦ [y, z] is a homomorphism from Y to the centre of Y, since [yy', z] = [y', z][y, z]
+   when the values are central.
+1. Its target is abelian, so it kills [Y, Y]; it kills ker ρ, which is central. As X is perfect,
+   Y = [Y, Y]·ker ρ, so the homomorphism is trivial and z is central.
+
+**Acceptance.**
+
+- Non-example without perfectness: D_8 → D_8/Z(D_8) ≅ (Z/2)² and (Z/2)² → Z/2 are central
+  extensions, but the composite has kernel {1, r², s, sr²}, which contains the non-central
+  reflection s.
+- With X a universal central extension (perfect by Lemma III.5.3.2) this is the first sentence
+  of Exercise III.5.7 as the Recognition Theorem uses it.
+
+**Depends on.** **inside this roadmap** `central-extension`; **baseline** `mathlib:Subgroup.center`, `mathlib:Group.IsPerfect`.
+
+**Source.** Kbook.2013, Exercise III.5.7 (PDF p. 237, printed p. 229): “If Y →ρ X and X →π G are central extensions, show that the “composition” Y →πρ G is also a central extension. If X is a universal central extension of G, conclude that every central extension Y →ρ X splits.” — The first sentence, with the perfectness hypothesis the printed exercise omits: the D_8 example shows the printed statement is false without it (recorded as K3BlochGroups/E2 in the K3BlochGroups packet, where this lemma was first planned as V.1/central-extension-comp). The second sentence is uce-extensions-split.
+
+
+### `uce-extensions-split` — Central extensions of a universal central extension split
+
+*lemma*
+
+If p : X → G is a universal central extension, then every central extension ρ : Y → X (ρ
+surjective with central kernel, Y in the universe of X) has a homomorphic section s : X → Y with
+ρ ∘ s = id_X.
+
+**Hypotheses.** p : X → G is a universal central extension. ρ : Y → X is surjective and ker ρ lies in the centre of Y.
+
+**Construction and proof.**
+
+1. X is perfect (K2SymbolsBrauer:T.1/uce-perfect), so p ∘ ρ : Y → G is a central extension
+   (central-extension-comp).
+1. Universality of p gives σ : X → Y with p ∘ ρ ∘ σ = p.
+1. Both ρ ∘ σ and id_X are homomorphisms X → X over G from p to p, so the uniqueness clause of
+   universality gives ρ ∘ σ = id_X; σ is the required section.
+
+**Acceptance.**
+
+- For X = G trivial, every central extension A → 1 is split by the trivial homomorphism.
+- Universality cannot be dropped: id : C_2 → C_2 is a central extension, and the central
+  extension C_4 → C_2 of its source does not split.
+
+**Depends on.** **inside this roadmap** `universal-central-extension`, `uce-perfect`, `central-extension-hom`, `central-extension-comp`.
+
+**Source.** Kbook.2013, Exercise III.5.7 (PDF p. 237, printed p. 229): “If Y →ρ X and X →π G are central extensions, show that the “composition” Y →πρ G is also a central extension. If X is a universal central extension of G, conclude that every central extension Y →ρ X splits.” — The second sentence; the proof steps are the intended solution, using the first sentence with the perfectness of X that Lemma III.5.3.2 supplies.
+
+
+### `split-extensions-kill-h2` — Split central extensions force vanishing Schur multiplier
+
+*lemma*
+
+Let G be a group in Type. If every central extension of G by the circle group T = Q/Z (AddCircle
+(1 : ℚ), written multiplicatively, with trivial G-action) splits, then H_2(G, Z) = 0, integral
+homology with trivial coefficients. More precisely, the evaluation map H²(G; T) → Hom(H_2(G, Z),
+T) is surjective, and H²(G; T) = 0 under the hypothesis.
+
+**Hypotheses.** G is a group in Type (Mathlib's integral group homology and the Tau Ceti factor-set classification are stated there); T carries the trivial G-action.
+
+**Construction and proof.**
+
+1. Pair inhomogeneous 2-cocycles G × G → T with 2-cycles; the pairing kills coboundaries against
+   cycles and cocycles against boundaries, so it descends to ev : H²(G; T) → Hom(H_2(G, Z), T).
+1. ev is surjective: a character φ of H_2(G, Z), composed with the projection from 2-cycles,
+   extends along the inclusion of 2-cycles into the 2-chains G × G →₀ Z
+   (CharacterModule.dual_surjective_of_injective) to a function f : G × G → T; f vanishes on
+   boundaries, so it is a 2-cocycle with ev[f] = φ.
+1. H²(G; T) = 0: every class is the class of a factor set
+   (TauCeti.FactorSet.exists_cohomologyClass_eq), whose extension
+   (TauCeti.FactorSet.groupExtension) is central because the action is trivial, hence splits by
+   hypothesis, so its class is 0
+   (TauCeti.FactorSet.nonempty_splitting_iff_cohomologyClass_eq_zero).
+1. So every character of H_2(G, Z) vanishes, and H_2(G, Z) = 0 by
+   CharacterModule.eq_zero_of_character_apply.
+
+**Acceptance.**
+
+- For G = A_5, H_2 ≅ Z/2 and the non-split central extension SL_2(F_5) → A_5 realises the class
+  of the nonzero character, so the hypothesis fails as it must.
+- The lemma is Recognition (2) ⇒ (3) in degree two; it uses only extensions by Q/Z, not all
+  central extensions.
+
+**Depends on.** **inside this roadmap** `central-extension`; **baseline** `mathlib:groupHomology.H2`, `mathlib:Rep.trivial`, `mathlib:groupCohomology.H2`, `mathlib:groupHomology.inhomogeneousChains`, `mathlib:groupHomology.d₃₂`, `mathlib:AddCircle`, `mathlib:CharacterModule`, `mathlib:CharacterModule.dual_surjective_of_injective`, `mathlib:CharacterModule.eq_zero_of_character_apply`, `tauceti:TauCeti.FactorSet.exists_cohomologyClass_eq`, `tauceti:TauCeti.FactorSet.nonempty_splitting_iff_cohomologyClass_eq_zero`, `tauceti:TauCeti.FactorSet.groupExtension`.
+
+**Sources.**
+
+- Kbook.2013, III.5.3 (PDF p. 227, printed p. 219): “It is well-known that the equivalence classes of central extensions of G by a fixed group A are in 1–1 correspondence with the elements of the cohomology group H2(G; A)” — The classification of central extensions by H² used in the third step, with the trivial action on T.
+- Kbook.2013, III.5.4, equivalent conditions and proof (PDF p. 228, printed p. 220): “Let X be any central extension of G, the following are equivalent: (1) X is a universal central extension; (2) X is perfect, and every central extension of X splits; (3) H1(X; Z) = H2(X; Z) = 0.” — The implication (2) ⇒ (3) in degree two that this lemma supplies. First planned as K3BlochGroups:V.1/split-extensions-kill-h2 (review REV-K3BlochGroups); moved here by FIX-RT-AREA-ktheory-1.
+
+
+### `h1-trivial-perfect` — First integral homology is the abelianisation; vanishing is perfectness
+
+*lemma*
+
+For a group G in Type, groupHomology.H1AddEquivOfIsTrivial for the trivial representation Z,
+followed by the unit isomorphism Additive(G_ab) ⊗_Z Z ≅ Additive(G_ab) (TensorProduct.rid), is
+an isomorphism H_1(G, Z) ≅ Additive(G_ab), natural in G: for f : G → H it carries
+groupHomology.map f to Abelianization.map f. Consequently H_1(G, Z) = 0 if and only if G is
+perfect.
+
+**Hypotheses.** G is a group in Type; Z carries the trivial action (Rep.trivial ℤ G ℤ).
+
+**Construction and proof.**
+
+1. Apply groupHomology.H1AddEquivOfIsTrivial to A = Rep.trivial ℤ G ℤ and compose with
+   TensorProduct.rid ℤ.
+1. Naturality: both composites send the class of the 1-cycle single g 1 to the class of f(g)
+   (H1AddEquivOfIsTrivial_single and groupHomology.H1π_comp_map); such classes generate H_1.
+1. G_ab = G/[G, G] is trivial exactly when commutator G = ⊤, which is Group.isPerfect_def.
+
+**Acceptance.**
+
+- H_1(Z/2, Z) ≅ Z/2 ≠ 0, and Z/2 is not perfect.
+- H_1(A_5, Z) = 0 because A_5 is perfect.
+- The identification uses the trivial action: with a nontrivial coefficient module H_1 is not
+  the abelianisation.
+
+**Depends on.** **baseline** `mathlib:groupHomology.H1`, `mathlib:groupHomology.H1AddEquivOfIsTrivial`, `mathlib:groupHomology.map`, `mathlib:groupHomology.H1π_comp_map`, `mathlib:Rep.trivial`, `mathlib:TensorProduct.rid`, `mathlib:Abelianization`, `mathlib:Abelianization.map`, `mathlib:Group.IsPerfect`, `mathlib:Group.isPerfect_def`.
+
+**Sources.**
+
+- Loeh.GroupCohomology.2019, Corollary 1.4.6 (printed p. 23; PDF p. 31): “Corollary 1.4.6 (homological characterisation of perfect groups). Let G be a group. Then G is perfect if and only if H1(G; Z) ≅ 0.” — The characterisation of perfectness, which is what the Recognition Theorem's H_1 = 0 means.
+- Loeh.GroupCohomology.2019, Theorem 1.4.1 (printed p. 20; PDF p. 28): “Theorem 1.4.1 (group homology in degree 1). Let G be a group. Then (where Z carries the trivial G-action) there is a canonical isomorphism H1(G; Z) ≅ Gab.” — The natural isomorphism with the abelianisation; at the pin Mathlib supplies it as H1AddEquivOfIsTrivial up to the unit isomorphism of the tensor product.
+
+
+### `superperfect` — Superperfect groups
+
+*definition*
+
+A group G in Type is superperfect if H_1(G, Z) = 0 and H_2(G, Z) = 0, where H_n(G, Z) =
+groupHomology (Rep.trivial ℤ G ℤ) n is Mathlib's integral group homology with trivial
+coefficients. Equivalently (h1-trivial-perfect), G is perfect and H_2(G, Z) = 0. This is
+condition (3) of the Recognition Theorem.
+
+**Hypotheses.** G is a group in Type: Mathlib's group homology over ℤ puts the group in the universe of ℤ.
+
+**Construction and proof.**
+
+1. Define the predicate as the conjunction of the two vanishing statements, each as
+   subsingleton-ness of the ModuleCat ℤ object.
+1. Prove the characterisation by perfectness with h1-trivial-perfect.
+1. Prove invariance under group isomorphisms with groupHomology.mapIso.
+
+**API.**
+
+| name | role | statement |
+| --- | --- | --- |
+| `Group.IsSuperperfect` | characterisation | The predicate H_1(G, Z) = 0 ∧ H_2(G, Z) = 0 for a group G in Type, with trivial integral coefficients. |
+| `Group.isSuperperfect_iff` | characterisation | IsSuperperfect G ↔ Group.IsPerfect G ∧ H_2(G, Z) = 0. |
+| `Group.IsSuperperfect.isPerfect` | compatibility | A superperfect group is perfect in Mathlib's sense (Group.IsPerfect). |
+| `Group.IsSuperperfect.of_mulEquiv` | functoriality | Superperfectness is invariant under group isomorphisms. |
+| `Group.IsSuperperfect.of_subsingleton` | example | The trivial group is superperfect. |
+
+**Used by.** *K2SymbolsBrauer:T.1/recognition-theorem*: condition (3) of Recognition Theorem III.5.4, H_1(X; Z) = H_2(X; Z) = 0. *K3BlochGroups:V.1/steinberg-superperfect*: the stable Steinberg group is superperfect, which makes BSt(A)⁺ two-connected. *StableHomotopyKTheory:H.3/plus-pi2-universal-central-extension*: π_1 of the acyclic homotopy fibre of a plus construction is perfect with H_2 = 0, hence the universal central extension (K-book IV.1.7).
+
+**Unit tests.**
+
+- `isSuperperfect_trivial` (degenerate) — The trivial group is superperfect.
+- `not_isSuperperfect_cyclic` (non-example) — Z/2 is not superperfect: H_1(Z/2, Z) ≅ Z/2.
+- `not_isSuperperfect_free` (non-example) — The free group on one generator is not superperfect
+  although its H_2 vanishes (free-group-higher-homology): a definition asking only for H_2 = 0
+  fails this test.
+- `not_isSuperperfect_alternating` (non-example) — A_5 is perfect but not superperfect (H_2(A_5,
+  Z) ≅ Z/2): a definition asking only for perfectness fails this test.
+- `isSuperperfect_iff_perfect` (compatibility) — For every group G in Type, IsSuperperfect G ↔
+  Group.IsPerfect G ∧ H_2(G, Z) = 0.
+
+**Acceptance.**
+
+- The trivial group is superperfect; Z/2 and every nontrivial free group are not.
+- A_5 is perfect but not superperfect, so the predicate is strictly stronger than
+  Group.IsPerfect.
+
+**Depends on.** **inside this roadmap** `h1-trivial-perfect`; **baseline** `mathlib:groupHomology`, `mathlib:Rep.trivial`, `mathlib:groupHomology.H1`, `mathlib:groupHomology.H2`, `mathlib:groupHomology.mapIso`, `mathlib:Group.IsPerfect`.
+
+**Source.** Kbook.2013, III.5.4, equivalent conditions and proof (PDF p. 228, printed p. 220): “Let X be any central extension of G, the following are equivalent: (1) X is a universal central extension; (2) X is perfect, and every central extension of X splits; (3) H1(X; Z) = H2(X; Z) = 0.” — Condition (3). The source does not use the word 'superperfect'; it is the standard name for this condition and the one the consuming roadmaps use.
+
+
+### `hopf-extension-perfect` — The Hopf extension of a perfect group is perfect
+
+*lemma*
+
+Let π : F → G be a surjective homomorphism with kernel R. If G is perfect, then F = [F, F]·R and
+[F, F] = [[F, F], [F, F]]·[R, F]; hence [F, F]/[R, F] is a perfect group.
+
+**Hypotheses.** F is a group and π : F → G is surjective with kernel R (F need not be free). G is perfect.
+
+**Construction and proof.**
+
+1. π maps [F, F] onto [G, G] = G (Subgroup.map_commutator and surjectivity), so every f in F is
+   c·r with c in [F, F] and r in R.
+1. For f = cr and f' = c'r', the commutator [f, f'] is congruent to [c, c'] modulo [R, F],
+   because R is normal in F and its elements are central modulo [R, F].
+1. Hence the commutator generators of [F, F] lie in [[F, F], [F, F]]·[R, F]; since [R, F] ⊆ [F,
+   F], the quotient [F, F]/[R, F] equals its own commutator subgroup.
+
+**Acceptance.**
+
+- For F free on one generator and R = F (G trivial), [F, F]/[R, F] is trivial, hence perfect.
+- Perfectness of G is needed: for F free on a, b and R = [F, F] (G = Z²), [F, F]/[[F, F], F] is
+  a nontrivial abelian group, detected by [a, b] in the integral Heisenberg quotient, so it is
+  not perfect.
+
+**Depends on.** **inside this roadmap** `commutator-central-extension`; **baseline** `mathlib:Group.IsPerfect`, `mathlib:commutator`, `mathlib:Subgroup.map_commutator`.
+
+**Source.** Kbook.2013, III.5.4, equivalent conditions and proof (PDF p. 228, printed p. 220): “Given any central extension X of G, the map F → G lifts to a map h : F → X because F is free. Since h(R) is in the center of X, h([R, F]) = 1. Thus h induces a map from [F, F]/[R, F] to X over G. This map is unique by Lemma 5.3.3.” — Lemma 5.3.3 applies only to a perfect source, here [F, F]/[R, F]; the source uses its perfectness without comment, and this node supplies it.
+
+
+### `perfect-uce-exists` — Every perfect group has a universal central extension
+
+*theorem*
+
+Let G be a perfect group and π : F → G a surjection from a free group F = FreeGroup S, with
+kernel R. The restricted projection [F, F]/[R, F] → G (commutator-central-extension, whose
+target [G, G] is G) is a universal central extension of G. In particular every perfect group G
+has a universal central extension in its own universe, from the canonical presentation FreeGroup
+G → G.
+
+**Hypotheses.** G is perfect. π : FreeGroup S → G is surjective with kernel R.
+
+**Construction and proof.**
+
+1. [F, F]/[R, F] → G is surjective with central kernel (R ∩ [F, F])/[R, F]
+   (commutator-central-extension, G perfect).
+1. Given a central extension q : Y → G, choose for each generator s in S a preimage in Y of
+   π(s); FreeGroup.lift gives h : F → Y with q ∘ h = π.
+1. h(R) ⊆ ker q, which is central in Y, so h([R, F]) = 1; restrict h to [F, F] and descend to a
+   homomorphism [F, F]/[R, F] → Y over G.
+1. Uniqueness: [F, F]/[R, F] is perfect (hopf-extension-perfect) and ker q is central, so
+   perfect-extension-rigidity allows at most one homomorphism over G.
+1. For existence in general take S = G and π = FreeGroup.lift id.
+
+**Acceptance.**
+
+- For G trivial and S empty the universal central extension is the trivial group.
+- Its kernel is the Hopf quotient (R ∩ [F, F])/[R, F], which uce-kernel-h2 identifies with
+  H_2(G, Z).
+- Perfectness of G cannot be dropped: a group that is not perfect has no universal central
+  extension (K2SymbolsBrauer:T.1/uce-perfect).
+
+**Depends on.** **inside this roadmap** `commutator-central-extension`, `relation-central-extension`, `hopf-extension-perfect`, `perfect-extension-rigidity`, `universal-central-extension`; **baseline** `mathlib:FreeGroup`, `mathlib:FreeGroup.lift`, `mathlib:Group.IsPerfect`.
+
+**Sources.**
+
+- Kbook.2013, III.5.4, statement (PDF p. 227, printed p. 219): “Recognition Theorem 5.4. Every perfect group G has a universal central extension, namely the extension (5.3.5): 1 → H2(G; Z) → [F, F]/[R, F] → G → 1.” — The existence half of the theorem, with the extension (5.3.5).
+- Kbook.2013, III.5.4, equivalent conditions and proof (PDF p. 228, printed p. 220): “Given any central extension X of G, the map F → G lifts to a map h : F → X because F is free. Since h(R) is in the center of X, h([R, F]) = 1. Thus h induces a map from [F, F]/[R, F] to X over G. This map is unique by Lemma 5.3.3.” — The proof, followed step by step; the perfectness that Lemma 5.3.3 needs is hopf-extension-perfect.
+
+
+### `free-group-higher-homology` — Integral homology of a free group vanishes above degree one
+
+*lemma*
+
+Let F be a free group in Type (IsFreeGroup F; for example FreeGroup S). Then H_k(F, Z) = 0 for
+every k ≥ 2, with trivial integral coefficients, and H_1(F, Z) is free abelian on a basis of F.
+
+**Hypotheses.** F is a group in Type with IsFreeGroup F.
+
+**Construction and proof.**
+
+1. For F = FreeGroup S, the complex 0 → ZF^(S) → ZF → Z → 0 with e_s ↦ s − 1 followed by the
+   augmentation is exact (Löh, Proposition 1.6.21: the image of ∂ is the augmentation ideal, and
+   ∂ is injective by a reduced-word support argument).
+1. Its two nonzero terms are free, hence projective, representations, so it is a projective
+   resolution of Rep.trivial ℤ F ℤ of length one (CategoryTheory.ProjectiveResolution).
+1. groupHomologyIso computes H_k(F, Z) as the homology of the coinvariants of this resolution,
+   which vanishes for k ≥ 2; in degree one ∂ becomes zero after coinvariants and leaves Z^(S).
+1. For a general free group transport along the isomorphism with FreeGroup of a basis
+   (groupHomology.mapIso).
+
+**Acceptance.**
+
+- H_2(Z, Z) = 0 for the free group of rank one.
+- H_1 of the free group on two generators is Z².
+- With Nielsen-Schreier (subgroupIsFreeOfIsFree) the lemma applies to every subgroup of a free
+  group, as Hopf's formula needs for the relator subgroup.
+
+**Depends on.** **baseline** `mathlib:groupHomology`, `mathlib:groupHomologyIso`, `mathlib:CategoryTheory.ProjectiveResolution`, `mathlib:Rep.trivial`, `mathlib:FreeGroup`, `mathlib:IsFreeGroup`, `mathlib:groupHomology.mapIso`.
+
+**Source.** Loeh.GroupCohomology.2019, Corollary 1.6.23 with Proposition 1.6.21 (printed pp. 56-57; PDF pp. 64-65): “Corollary 1.6.23 ((co)homology of free groups). Let S be a set, let F be the free group freely generated by S, and let A be a ZF-module. Then, for all k ∈ N≥2, Hk(F; A) ≅ 0 and H^k(F; A) ≅ 0.” — The vanishing statement with the length-one free resolution of Proposition 1.6.21 that proves it; the proof steps follow Löh's.
+
+
+### `hopf-four-term-sequence` — Hopf's four-term exact sequence
+
+*theorem*
+
+Let F be a free group in Type, N a normal subgroup and G = F/N. There is an exact sequence 0 →
+H_2(G, Z) → N/[F, N] → F/[F, F] → G_ab → 0 of abelian groups, in which N/[F, N] → F/[F, F] is
+induced by the inclusion N ⊆ F and F/[F, F] → G_ab by the projection.
+
+**Hypotheses.** F is a free group in Type; N is normal in F; G = F/N; homology has trivial integral coefficients.
+
+**Construction and proof.**
+
+1. N is free (Nielsen-Schreier, subgroupIsFreeOfIsFree), so H_k(F, Z) = H_k(N, Z) = 0 for k ≥ 2
+   (free-group-higher-homology).
+1. Exactness at F/[F, F] and surjectivity onto G_ab: this is the Mathlib
+   corestriction-coinflation sequence H_1(N, Z) → H_1(F, Z) → H_1(G, Z)
+   (groupHomology.H1CoresCoinfOfTrivial_exact, with groupHomology.H1CoresCoinfOfTrivial_g_epi),
+   read through h1-trivial-perfect, since H_1(N, Z) = N_ab maps onto N/[F, N].
+1. Identify the coinvariants H_1(N; Z)_G with N/[F, N]: H_1(N, Z) = N_ab (h1-trivial-perfect),
+   and the coinvariants of the conjugation action of G on N_ab kill exactly the classes of f n
+   f⁻¹ n⁻¹.
+1. The injection H_2(G, Z) → N/[F, N] with image the kernel of N/[F, N] → F/[F, F]: in the
+   Hochschild-Serre spectral sequence E²_pq = H_p(G; H_q(N; Z)) ⇒ H_p+q(F; Z) the rows q ≥ 2
+   vanish, H_2(F) = 0 forces d²: E²_20 = H_2(G) → E²_01 = H_1(N)_G to be injective, and
+   convergence gives 0 → E²_01/im d² → H_1(F) → H_1(G) → 0 (Löh, proof of Theorem 3.2.18); the
+   maps on H_1 are identified, up to sign, with those induced by inclusion and projection
+   through naturality of the spectral sequence (Löh, Remark 3.2.14).
+1. Gap G-Hopf: the Hochschild-Serre spectral sequence of a group extension, or its low-degree
+   exact sequence, is not in Mathlib at the pin, and no atlas stage plans it for discrete
+   groups.
+
+**Acceptance.**
+
+- For N = 1 the sequence reads 0 → H_2(F, Z) → 0 → F_ab → F_ab → 0, consistent with H_2(F, Z) =
+  0.
+- For F free on a and N generated by a^m (G = Z/m): N/[F, N] = N ≅ mZ maps injectively to F_ab =
+  Z, so H_2(Z/m, Z) = 0 and G_ab = Z/m.
+- Exactness at N/[F, N] identifies H_2(G, Z) with (N ∩ [F, F])/[F, N], which is Hopf's formula.
+
+**Depends on.** **inside this roadmap** `free-group-higher-homology`, `h1-trivial-perfect`; **baseline** `mathlib:subgroupIsFreeOfIsFree`, `mathlib:groupHomology.H1CoresCoinfOfTrivial_exact`, `mathlib:groupHomology.H1CoresCoinfOfTrivial_g_epi`, `mathlib:groupHomology.H2`, `mathlib:Rep.trivial`.
+
+**Sources.**
+
+- Loeh.GroupCohomology.2019, Theorem 3.2.18 (printed p. 129; PDF p. 137): “Theorem 3.2.18 (Hopf's formula). Let F be a free group, let N ⊂ F be a normal subgroup, and let G := F/N. Then there is an exact sequence 0 → H2(G; Z) → H1(N; Z)G → H1(F; Z) → H1(G; Z) → 0” — The four-term sequence, with H1(N; Z)_G rewritten as N/[F, N] as Löh does at the start of the proof.
+- Loeh.GroupCohomology.2019, Proof of Theorem 3.2.18 (printed pp. 130-131; PDF pp. 138-139): “As subgroup of the free group F, also N is a free group (Theorem AT.2.3.52). Therefore, by Corollary 1.6.23, for all k ∈ N≥2, Hk(F; Z) ≅ 0 and Hk(N; Z) ≅ 0.” — The vanishing input of the first step; the spectral-sequence argument of the fourth step follows the same proof.
+
 ### `hopf-formula` — The Hopf formula and the two extensions attached to a presentation
 
 *theorem*
 
-A presentation of G as a free group F modulo a normal subgroup S gives two central extensions:
-one with kernel S modulo the commutator of S with F, and one with kernel the intersection of S
-with the commutator subgroup of F, modulo the same commutator. The second kernel is the second
-integral homology of G, which is Hopf's formula.
+For a presentation G = F/S with F free and S normal, H_2(G; Z) is isomorphic to (S ∩ [F, F])/[S,
+F], the kernel of the commutator extension [F, F]/[S, F] → [G, G]; its naturality in the
+presentation is hopf-formula-natural. The coefficients are the trivial integral representation,
+and G is a group in Type.
 
 **Hypotheses.** G is a group presented as a quotient of a free group F by a normal subgroup S.
 
 **Construction and proof.**
 
-1. Form the two displayed quotients and prove that both are central extensions, of G and of its
-   commutator subgroup respectively.
-1. Prove Hopf's formula identifying the second kernel with the second integral homology of G, by
-   comparing the two with the bar resolution.
-1. Record that when G is perfect the second extension is again an extension of G, which is the
-   case the Recognition Theorem uses.
+1. Form the separate relation central extension F/[S, F] → G and its restricted commutator
+   extension (relation-central-extension, commutator-central-extension).
+1. Apply the four-term exact sequence 0 → H_2(G, Z) → S/[F, S] → F_ab → G_ab → 0
+   (hopf-four-term-sequence): exactness at S/[F, S] identifies H_2(G, Z) with the kernel of
+   S/[F, S] → F/[F, F], which is (S ∩ [F, F])/[S, F].
+1. For a perfect G the restricted extension is onto G and its kernel is this intersection
+   quotient, which is how uce-kernel-h2 uses the formula.
+1. The remaining input is gap G-Hopf, carried by hopf-four-term-sequence: the Hochschild-Serre
+   low-degree sequence. The K-book states the formula without proof (citing Weibel's homological
+   algebra book, 6.8.8, not obtained); the decomposition follows Löh, Theorem 3.2.18.
 
 **Acceptance.**
 
-- For a free group both kernels vanish and the second homology is trivial.
-- For a perfect group the second extension is an extension of G itself.
-- The formula computes the second homology from any presentation, so the answer does not depend
-  on the presentation, which is the content.
+- H_2 of a free group is zero, for any presentation.
+- The larger relation-module kernel S/[S, F] need not vanish for a free quotient G. Example F =
+  Free(a, b), G = Z, a ↦ 1 and b ↦ 0: the class of b survives, detected by the b-exponent sum.
+- For perfect G the restricted commutator extension has quotient G, and its kernel is H_2(G; Z)
+  (uce-kernel-h2).
 
-**Depends on.** **inside this roadmap** `central-extension`; **baseline** `mathlib:groupHomology.H2`, `mathlib:groupHomology`.
+**Depends on.** **inside this roadmap** `central-extension`, `relation-central-extension`, `commutator-central-extension`, `hopf-four-term-sequence`; **baseline** `mathlib:groupHomology.H2`, `mathlib:groupHomology`, `mathlib:Rep.trivial`.
 
-**Source.** Kbook.2013, III.5.3.4 and III.5.3.5 (PDF p. 227): “The group (R intersect [F, F]) / [R, F] in (5.3.5) is the homology group H_2(G; Z); this identity was discovered in 1941 by Hopf.” — Hopf's formula and the two extensions, as displayed.
+**Sources.**
+
+- Kbook.2013, III.5.3.4 and III.5.3.5 (PDF p. 227): “The group (R intersect [F, F]) / [R, F] in (5.3.5) is the homology group H_2(G; Z); this identity was discovered in 1941 by Hopf.” — Hopf's formula and the two extensions, as displayed.
+- Loeh.GroupCohomology.2019, Theorem 3.2.18 (printed p. 129; PDF p. 137): “Theorem 3.2.18 (Hopf's formula). Let F be a free group, let N ⊂ F be a normal subgroup, and let G := F/N. Then there is an exact sequence 0 → H2(G; Z) → H1(N; Z)G → H1(F; Z) → H1(G; Z) → 0” — The route from the four-term sequence to the formula, followed in the proof steps.
+
+### `hopf-formula-natural` — Naturality of Hopf's formula
+
+*theorem*
+
+Let π : F → G and π' : F' → G' be surjections from free groups in Type with kernels R and R', f
+: G → G' a homomorphism and φ : F → F' a homomorphism with π' ∘ φ = f ∘ π. Then φ(R) ⊆ R', φ
+induces a homomorphism (R ∩ [F, F])/[R, F] → (R' ∩ [F', F'])/[R', F'], and under the Hopf
+isomorphisms of K2SymbolsBrauer:T.1/hopf-formula this homomorphism is H_2(f; Z) =
+groupHomology.map f (id) 2. In particular it does not depend on φ, and for f = id the Hopf
+isomorphisms of two presentations of G agree.
+
+**Hypotheses.** F, F' are free groups in Type; π, π' are surjective with kernels R, R'; π' ∘ φ = f ∘ π; homology has trivial integral coefficients.
+
+**Construction and proof.**
+
+1. From π' ∘ φ = f ∘ π, φ(R) ⊆ R'; then φ([R, F]) ⊆ [R', F'] and φ([F, F]) ⊆ [F', F'], so the
+   map of Hopf quotients is defined.
+1. The morphism (φ restricted to R, φ, f) from 1 → R → F → G → 1 to 1 → R' → F' → G' → 1 induces
+   a morphism of Hochschild-Serre spectral sequences (Löh, Remark 3.2.14), hence a morphism of
+   the four-term sequences of hopf-four-term-sequence whose H_2 component is H_2(f; Z) and whose
+   middle component is induced by φ.
+1. Restricting to the kernels of R/[F, R] → F_ab and R'/[F', R'] → F'_ab gives the statement;
+   independence of φ follows because H_2(f; Z) does not involve φ.
+1. Gap G-natural-Hopf: this rests on the naturality of the same missing Hochschild-Serre input
+   as hopf-four-term-sequence.
+
+**Acceptance.**
+
+- For G' = G, F' = F and φ = id the induced map is the identity.
+- Different lifts can differ on the larger relation module: for F free on a, b → Z (a ↦ 1, b ↦
+  0) the lifts id and b ↦ b² of the identity differ on the class of b in R/[R, F] (b-exponent
+  sums 1 and 2), but they agree on the Hopf quotient, which is zero here since H_2(Z, Z) = 0.
+- It makes the kernel identification of uce-kernel-h2 independent of the presentation.
+
+**Depends on.** **inside this roadmap** `hopf-formula`, `hopf-four-term-sequence`, `relation-central-extension`, `commutator-central-extension`; **baseline** `mathlib:groupHomology.map`, `mathlib:Rep.trivial`.
+
+**Sources.**
+
+- Kbook.2013, III.5.3.4 (PDF p. 227, printed p. 219): “Example 5.3.4. Every presentation of G gives rise to two natural central extensions as follows.” — The source calls the two extensions natural but does not prove the naturality of the Hopf identification.
+- Loeh.GroupCohomology.2019, Proof of Theorem 3.2.18 (printed p. 131; PDF p. 139): “By the naturality of the Hochschild-Serre spectral sequence (Remark 3.2.14), this leads to a corresponding transformation between the associated Hochschild-Serre spectral sequences” — Löh uses this naturality to identify the maps on H_1; the same morphism of spectral sequences for a morphism of presentations gives the H_2 statement of this node.
+
+
+### `uce-kernel-h2` — The kernel of a universal central extension is the second homology
+
+*theorem*
+
+Let G be a perfect group in Type and p : X → G a universal central extension with X in Type.
+Then ker p ≅ H_2(G, Z) as abelian groups (trivial integral coefficients): the unique isomorphism
+over G from X to the Hopf extension [F, F]/[R, F] of the canonical presentation F = FreeGroup G
+→ G restricts to an isomorphism of kernels, and Hopf's formula identifies the Hopf kernel (R ∩
+[F, F])/[R, F] with H_2(G, Z). That the identification does not depend on the presentation is
+uce-kernel-h2-natural.
+
+**Hypotheses.** G is a perfect group in Type; p : X → G is a universal central extension, X in Type (universality quantifies over central extensions in that universe, which contains the Hopf model FreeGroup G).
+
+**Construction and proof.**
+
+1. perfect-uce-exists gives the Hopf universal central extension U = [F, F]/[R, F] → G.
+1. Two universal central extensions of G are isomorphic over G by a unique isomorphism
+   (UCE.equiv_over of K2SymbolsBrauer:T.1/universal-central-extension); it maps ker p onto ker(U
+   → G).
+1. ker(U → G) = (R ∩ [F, F])/[R, F] (commutator-central-extension), which is H_2(G, Z) by
+   K2SymbolsBrauer:T.1/hopf-formula.
+
+**Acceptance.**
+
+- For G = E(R) and X = St(R) this is K_2(R) ≅ H_2(E(R), Z), which
+  K2SymbolsBrauer:T.1/k2-h2-elementary consumes.
+- For G trivial both sides are zero.
+- The statement is about perfect groups: Z² has H_2 = Z but no universal central extension.
+
+**Depends on.** **inside this roadmap** `perfect-uce-exists`, `universal-central-extension`, `commutator-central-extension`, `hopf-formula`; **baseline** `mathlib:groupHomology.H2`, `mathlib:Rep.trivial`.
+
+**Sources.**
+
+- Kbook.2013, III.5.4, statement (PDF p. 227, printed p. 219): “Recognition Theorem 5.4. Every perfect group G has a universal central extension, namely the extension (5.3.5): 1 → H2(G; Z) → [F, F]/[R, F] → G → 1.” — The kernel of the displayed universal central extension is H_2(G; Z).
+- Kbook.2013, Before Proposition IV.1.7 (PDF p. 272, printed p. 264): “Recall from III.5.4 that every perfect group P has a universal central extension E → P, and that the kernel of this extension is the abelian group H2(P; Z).” — The form in which the plus-construction chapter uses the statement, for an arbitrary universal central extension of a perfect group.
+
+
+### `uce-lift` — Lifting homomorphisms to universal central extensions
+
+*construction*
+
+Let p : X → G and p' : X' → G' be universal central extensions (groups in one universe) and f :
+G → G' a homomorphism. There is a unique homomorphism f̃ : X → X' with p' ∘ f̃ = f ∘ p. The lift
+of the identity of G along p itself is the identity of X, the lift of a composite is the
+composite of the lifts, and f̃ maps ker p into ker p', giving a homomorphism of abelian groups
+ker p → ker p'.
+
+**Hypotheses.** p : X → G and p' : X' → G' are universal central extensions; f : G → G' is a homomorphism.
+
+**Construction and proof.**
+
+1. Pull p' back along f: P = G ×_G' X' → G is a central extension of G
+   (central-extension-pullback).
+1. Universality of p gives a homomorphism X → P over G; compose with pr_X' to obtain f̃ with p'
+   ∘ f̃ = f ∘ p.
+1. Uniqueness: if h and k both satisfy p' ∘ h = f ∘ p = p' ∘ k, then (p, h) and (p, k) are
+   homomorphisms X → P over G (pullback lift), equal by universality of p; so h = k.
+1. Functoriality: the identity satisfies the defining equation for id_G, and lift(g) ∘ lift(f)
+   satisfies it for g ∘ f; uniqueness gives both laws.
+1. If p(x) = 1 then p'(f̃(x)) = f(1) = 1; kernels are central, hence abelian.
+
+**API.**
+
+| name | role | statement |
+| --- | --- | --- |
+| `IsUniversalCentralExtension.lift` | constructor | The lift f̃ : X → X' of f : G → G' between universal central extensions p and p'. |
+| `IsUniversalCentralExtension.proj_comp_lift` | universal-property | p' ∘ f̃ = f ∘ p. |
+| `IsUniversalCentralExtension.lift_unique` | characterisation | Any homomorphism h : X → X' with p' ∘ h = f ∘ p equals f̃. |
+| `IsUniversalCentralExtension.lift_id` | functoriality | The lift of id_G along p itself is id_X. |
+| `IsUniversalCentralExtension.lift_comp` | functoriality | The lift of g ∘ f is the lift of g composed with the lift of f. |
+| `IsUniversalCentralExtension.kerMap` | projection | The restriction of f̃ to kernels, a homomorphism of abelian groups ker p → ker p'. |
+
+**Used by.** *K2SymbolsBrauer:T.1/k2-h2-elementary*: naturality of K_2(R) ≅ H_2(E(R), Z) in the ring: St(R) → St(S) is the lift of E(R) → E(S). *K2SymbolsBrauer:T.1:classical/uce-kernel-h2-natural*: its kernel map is compared with H_2(f; Z). *StableHomotopyKTheory:H.3/plus-pi2-universal-central-extension*: the naturality in R that the node's acceptance asks to check on representatives.
+
+**Unit tests.**
+
+- `lift_id_self` (degenerate) — For G' = G, p' = p and f = id_G, the lift is id_X.
+- `lift_trivial_hom` (characterisation) — For the trivial homomorphism f : G → G', the lift is
+  the trivial homomorphism X → X'.
+- `lift_steinberg` (compatibility) — For a ring map φ : R → S, the lift of E(φ) along St(R) →
+  E(R) and St(S) → E(S) sends x_ij(r) to x_ij(φ(r)).
+- `lift_not_unique_nonuniversal` (non-example) — For the central extension id : C_2 → C_2, which
+  is not universal, the identity of C_2 has two different lifts to the split extension C_2 × C_2
+  → C_2 (first coordinate trivial or the identity).
+
+**Acceptance.**
+
+- The lift of the trivial homomorphism is trivial: it maps X into the abelian group ker p', and
+  X is perfect.
+- For a ring map R → S the lift of E(R) → E(S) along the Steinberg extensions is the
+  functoriality map St(R) → St(S), by uniqueness.
+- Uniqueness needs a universal source: for id : C_2 → C_2, the identity of C_2 has two lifts to
+  the split extension C_2 × C_2 → C_2.
+
+**Depends on.** **inside this roadmap** `universal-central-extension`, `uce-perfect`, `central-extension-pullback`, `central-extension-hom`.
+
+**Source.** Kbook.2013, III.5.3.1 (PDF p. 227, printed p. 219): “Definition 5.3.1. A universal central extension of G is a central extension X → G such that for every other central extension Y → G there is a unique homomorphism f over G from X to Y.” — The universal property from which the lift is derived. The source states uniqueness up to isomorphism over G but not the lift along a homomorphism of bases or its functoriality; they are derived here through the pullback.
+
+
+### `uce-kernel-h2-natural` — Naturality of the kernel of the universal central extension
+
+*theorem*
+
+Let f : G → G' be a homomorphism of perfect groups in Type with universal central extensions p :
+X → G and p' : X' → G'. Under the isomorphisms ker p ≅ H_2(G, Z) and ker p' ≅ H_2(G', Z) of
+uce-kernel-h2, the kernel map of the lift f̃ (uce-lift) is H_2(f; Z) = groupHomology.map f (id)
+2. Taking f = id_G shows that the isomorphism of uce-kernel-h2 does not depend on the
+presentation used to build it.
+
+**Hypotheses.** G, G' are perfect groups in Type with universal central extensions p, p'; f : G → G' is a homomorphism.
+
+**Construction and proof.**
+
+1. Reduce to the Hopf models of the canonical presentations F = FreeGroup G → G and F' =
+   FreeGroup G' → G': the isomorphisms over G and G' commute with the lifts, by the uniqueness
+   clause of uce-lift.
+1. φ = FreeGroup.map f satisfies π' ∘ φ = f ∘ π; the map it induces [F, F]/[R, F] → [F',
+   F']/[R', F'] lies over f, so it is the lift by uniqueness.
+1. Its restriction to kernels is the map of Hopf quotients, which is H_2(f; Z) by
+   hopf-formula-natural.
+
+**Acceptance.**
+
+- For f = id_G the kernel map is the identity, whatever presentations are used.
+- For a ring map R → S it gives the naturality of K_2(R) ≅ H_2(E(R), Z) that
+  K2SymbolsBrauer:T.1/k2-h2-elementary asserts.
+
+**Depends on.** **inside this roadmap** `uce-kernel-h2`, `uce-lift`, `hopf-formula-natural`; **baseline** `mathlib:FreeGroup.map`, `mathlib:groupHomology.map`.
+
+**Source.** Kbook.2013, Theorem III.5.5 (PDF p. 228, printed p. 220): “Theorem 5.5. (Kervaire, Steinberg) The Steinberg group St(R) is the universal central extension of E(R). Hence K2(R) ≅ H2(E(R); Z).” — The identification whose naturality in the ring the later chapters use; the source does not state the naturality, which is derived here from uce-lift and hopf-formula-natural.
+
+
+### `uce-source-superperfect` — The source of a universal central extension is superperfect
+
+*theorem*
+
+Let p : X → G be a universal central extension of groups in Type. Then X is superperfect: H_1(X,
+Z) = 0 and H_2(X, Z) = 0. Only the universal property is used. This is Recognition (1) ⇒ (3).
+
+**Hypotheses.** p : X → G is a universal central extension; X and G are groups in Type.
+
+**Construction and proof.**
+
+1. X is perfect (K2SymbolsBrauer:T.1/uce-perfect, K-book Lemma III.5.3.2), so H_1(X, Z) = 0
+   (h1-trivial-perfect).
+1. Every central extension of X splits (uce-extensions-split), in particular every central
+   extension of X by Q/Z with trivial action.
+1. split-extensions-kill-h2 gives H_2(X, Z) = 0.
+
+**Acceptance.**
+
+- For the Steinberg extension St(R) → E(R) (K2SymbolsBrauer:T.1/steinberg-is-uce) it gives
+  H_1(St(R), Z) = H_2(St(R), Z) = 0, the corollary K3BlochGroups V.1 draws.
+- Universality, not merely a perfect source, is used: the identity of A_5 is a central extension
+  with perfect source, but H_2(A_5, Z) ≠ 0.
+- For X = G trivial both homology groups vanish.
+
+**Depends on.** **inside this roadmap** `uce-perfect`, `uce-extensions-split`, `split-extensions-kill-h2`, `h1-trivial-perfect`, `superperfect`.
+
+**Sources.**
+
+- Kbook.2013, III.5.4, equivalent conditions and proof (PDF p. 228, printed p. 220): “Let X be any central extension of G, the following are equivalent: (1) X is a universal central extension; (2) X is perfect, and every central extension of X splits; (3) H1(X; Z) = H2(X; Z) = 0.” — The implication (1) ⇒ (3), by the route (1) ⇒ (2) ⇒ (3) the source indicates. First planned as K3BlochGroups:V.1/uce-superperfect; moved here by FIX-RT-AREA-ktheory-1 so that V.1 imports it.
+- Kbook.2013, Exercise IV.1.9 (PDF p. 282, printed p. 274): “Suppose that A → S → P is a universal central extension (III.5.3.1). In particular, S and P are perfect groups.” — The perfectness half, in the form the plus-construction exercise uses.
+
+
+### `superperfect-extensions-split` — A superperfect group is its own universal central extension
+
+*lemma*
+
+Let X be a superperfect group in Type. Then the identity X → X is a universal central extension
+of X, and every central extension ρ : Y → X (Y in Type) splits. This is Recognition (3) ⇒ (2).
+
+**Hypotheses.** X is a superperfect group in Type.
+
+**Construction and proof.**
+
+1. X is perfect (h1-trivial-perfect), so perfect-uce-exists gives the universal central
+   extension U = [F, F]/[R, F] → X for F = FreeGroup X.
+1. Its kernel (R ∩ [F, F])/[R, F] (commutator-central-extension) is H_2(X, Z) = 0 by
+   K2SymbolsBrauer:T.1/hopf-formula, so U → X is an isomorphism and the identity of X is a
+   universal central extension.
+1. For a central extension ρ : Y → X, universality of the identity gives s : X → Y with ρ ∘ s =
+   id_X.
+
+**Acceptance.**
+
+- For X trivial, every central extension A → 1 is split by the trivial homomorphism.
+- Both vanishing conditions are needed: Z/2 has H_2 = 0 but H_1 ≠ 0, and C_4 → Z/2 does not
+  split; A_5 is perfect with H_2 ≠ 0, and SL_2(F_5) → A_5 does not split.
+
+**Depends on.** **inside this roadmap** `superperfect`, `h1-trivial-perfect`, `perfect-uce-exists`, `commutator-central-extension`, `hopf-formula`, `universal-central-extension`.
+
+**Source.** Kbook.2013, III.5.4, equivalent conditions and proof (PDF p. 228, printed p. 220): “Let X be any central extension of G, the following are equivalent: (1) X is a universal central extension; (2) X is perfect, and every central extension of X splits; (3) H1(X; Z) = H2(X; Z) = 0.” — The implication (3) ⇒ (2), which the source obtains from the existence half and the identification of the kernel with H_2.
+
+
+### `split-central-extension-universal` — A perfect central extension whose central extensions split is universal
+
+*lemma*
+
+Let p : X → G be surjective with central kernel. If X is perfect and every central extension of
+X splits, then p is a universal central extension of G. This is Recognition (2) ⇒ (1); no
+homology enters and there is no universe restriction beyond the one in the definition of
+universality.
+
+**Hypotheses.** p : X → G is surjective and ker p lies in the centre of X. X is perfect, and every central extension of X (in the universe over which universality quantifies) splits.
+
+**Construction and proof.**
+
+1. Given a central extension q : Y → G, pull it back along p (central-extension-pullback): P = X
+   ×_G Y → X is a central extension of X.
+1. By hypothesis it has a section s : X → P; then pr_Y ∘ s : X → Y satisfies q ∘ pr_Y ∘ s = p ∘
+   pr_X ∘ s = p, a homomorphism over G.
+1. Uniqueness: X is perfect and ker q is central, so perfect-extension-rigidity.
+
+**Acceptance.**
+
+- The Steinberg application: St(R) is perfect and every central extension of St(R) splits (glued
+  from finite-rank splitting), so St(R) → E(R) is universal;
+  K2SymbolsBrauer:T.1/steinberg-is-uce uses the lemma in this form.
+- Perfectness of X is needed: every central extension of a nontrivial free group F splits, but
+  the identity of F is not universal, since F is not perfect.
+
+**Depends on.** **inside this roadmap** `central-extension-pullback`, `perfect-extension-rigidity`, `central-extension-hom`, `universal-central-extension`; **baseline** `mathlib:Group.IsPerfect`.
+
+**Source.** Kbook.2013, III.5.4, equivalent conditions and proof (PDF p. 228, printed p. 220): “The implication (1)⇒(2) is Lemma 5.3.2 and Ex. 5.7, and (2) ⇒ (1) is immediate.” — The implication (2) ⇒ (1), which the source calls immediate; the proof steps make the pullback explicit.
 
 ### `recognition-theorem` — The Recognition Theorem ★
 
 *theorem* · planet **Recognition Theorem**
 
-Every perfect group G has a universal central extension, namely the extension with kernel the
-second integral homology of G coming from any presentation. Moreover, for a central extension X
-of G the following are equivalent: X is a universal central extension; X is perfect and every
-central extension of X splits; the first and second integral homology groups of X vanish.
+Let G be a perfect group and p : X → G a central extension (p surjective, ker p central), X in
+Type. The following are equivalent: (1) p is a universal central extension; (2) X is perfect and
+every central extension of X splits; (3) H_1(X; Z) = H_2(X; Z) = 0, that is, X is superperfect.
+Every perfect group has a universal central extension, the Hopf extension of any free
+presentation (perfect-uce-exists), and its kernel is H_2(G; Z) (uce-kernel-h2).
 
-**Hypotheses.** G is a perfect group; X is a central extension of G.
+**Hypotheses.** G is a perfect group; p : X → G is surjective with ker p in the centre of X; X is a group in Type, as Mathlib's integral group homology requires.
 
 **Construction and proof.**
 
-1. Given any central extension X of G, lift the map from the free group to X, which is possible
-   because the free group is free.
-1. The image of the relation subgroup is central in X, so the commutator of the relation
-   subgroup with the free group dies, and the lift induces a map over G from the Hopf extension
-   to X; it is unique by the rigidity lemma.
-1. This proves both that the Hopf extension is universal and the equivalence of the first and
-   third conditions.
-1. The implication from the first to the second is the perfectness lemma together with the
-   splitting of central extensions of a universal object; the converse is immediate.
-1. Record the third condition in the form used downstream: a group is the source of a universal
-   central extension exactly when it is superperfect.
+1. (1) ⇒ (2): X is perfect (uce-perfect) and every central extension of X splits
+   (uce-extensions-split).
+1. (2) ⇒ (3): H_1(X; Z) = 0 by h1-trivial-perfect and H_2(X; Z) = 0 by split-extensions-kill-h2.
+1. (3) ⇒ (2): superperfect-extensions-split.
+1. (2) ⇒ (1): split-central-extension-universal.
+1. Assemble the four implications as one equivalence of three conditions; the existence and
+   kernel statements are the separate nodes perfect-uce-exists and uce-kernel-h2, restated here
+   for reference.
+1. The composite (1) ⇒ (3) is also the named theorem uce-source-superperfect, which
+   K3BlochGroups V.1 imports; StableHomotopyKTheory H.3 uses (3) ⇒ (1) for π_1 of the homotopy
+   fibre of a plus construction (K-book IV.1.7).
 
 **Acceptance.**
 
 - For a free group the theorem is vacuous, since a free group is perfect only when trivial.
-- The third condition is the one K3BlochGroups V.1 uses to prove superperfection of the
-  Steinberg group.
-- Perfectness alone does not make a group superperfect: the alternating group on five letters is
-  perfect with nonvanishing second homology, and is not the source of a universal central
-  extension of itself.
+- Condition (3) is the one K3BlochGroups V.1 uses for the Steinberg group and
+  StableHomotopyKTheory H.3 uses for π_1 of an acyclic homotopy fibre.
+- Perfectness of a central-extension source alone does not imply universality; the recognition
+  criterion also requires H_2 of that source to vanish.
+- The hypotheses that p is surjective with central kernel are kept: universality is recognised
+  on central extensions of a perfect group, not on arbitrary extensions.
 
-**Depends on.** **inside this roadmap** `hopf-formula`, `uce-perfect`, `universal-central-extension`; **baseline** `mathlib:groupHomology.H1`, `mathlib:groupHomology.H2`.
+**Depends on.** **inside this roadmap** `uce-perfect`, `universal-central-extension`, `uce-extensions-split`, `h1-trivial-perfect`, `split-extensions-kill-h2`, `superperfect-extensions-split`, `split-central-extension-universal`, `superperfect`, `perfect-uce-exists`, `uce-kernel-h2`; **baseline** `mathlib:groupHomology.H1`, `mathlib:groupHomology.H2`.
 
-**Source.** Kbook.2013, III.5.4 (PDF p. 227): “Recognition Theorem 5.4. Every perfect group G has a universal central extension, namely the extension (5.3.5): 1 -> H_2(G; Z) -> [F, F] / [R, F] -> G -> 1. Let X be any central extension of G, the following are equivalent: (1) X is a universal central extension; (2) X is perfect, and every central extension of X splits; (3) H_1(X; Z) = H_2(X; Z) = 0.” — The theorem and its three equivalent conditions, as displayed.
+**Sources.**
+
+- Kbook.2013, III.5.4, statement (PDF p. 227, printed p. 219): “Recognition Theorem 5.4. Every perfect group G has a universal central extension, namely the extension (5.3.5): 1 → H2(G; Z) → [F, F]/[R, F] → G → 1.” — The existence statement and the extension (5.3.5).
+- Kbook.2013, III.5.4, equivalent conditions and proof (PDF p. 228, printed p. 220): “Let X be any central extension of G, the following are equivalent: (1) X is a universal central extension; (2) X is perfect, and every central extension of X splits; (3) H1(X; Z) = H2(X; Z) = 0.” — The three equivalent conditions.
+- Kbook.2013, III.5.4, equivalent conditions and proof (PDF p. 228, printed p. 220): “The implication (1)⇒(2) is Lemma 5.3.2 and Ex. 5.7, and (2) ⇒ (1) is immediate.” — The source's own division of the implications, which the proof steps refine into separate nodes.
 
 ### `steinberg-is-uce` — The Steinberg group is the universal central extension of the elementary group ★
 
@@ -475,19 +1171,20 @@ Consequently K_2(R) is isomorphic to the second integral homology of E(R).
 
 1. Observe that E(R) is perfect, so the Recognition Theorem applies.
 1. Prove that St(R) is a central extension of E(R), which is Steinberg's centre theorem.
-1. Apply the Recognition Theorem together with the finite-rank splitting result below: every
-   central extension of St(R) splits, so St(R) is universal.
-1. Read off the identification of K_2(R) with the second homology of E(R) from the uniqueness of
-   the universal object and the Hopf formula.
+1. Pull a central extension of St(R) back to St_n(R) for each n >= 5. Finite splitting gives a
+   section; perfectness and rigidity make the sections compatible. The group-colimit universal
+   property glues them to a section.
+1. Apply split-central-extension-universal (Recognition (2) ⇒ (1)) using stable centrality,
+   Steinberg perfectness and the glued splitting; the separate T.1:plus node makes the H2
+   comparison.
 
 **Acceptance.**
 
 - The identification of K_2 with the second homology is the statement T.1:plus starts from.
 - For the ring of integers both sides are cyclic of order two.
-- The theorem is about the stable group; the finite-rank analogue needs n at least five and is
-  stated separately.
+- No finite-rank UCE conclusion is drawn without a separate centrality hypothesis.
 
-**Depends on.** **inside this roadmap** `recognition-theorem`, `k2-is-centre`, `finite-rank-splitting`.
+**Depends on.** **inside this roadmap** `recognition-theorem`, `k2-is-centre`, `finite-rank-splitting`, `steinberg-perfect`, `perfect-extension-rigidity`, `stable-steinberg-perfect`, `split-central-extension-universal`; **other roadmaps** `KTheoryLowDegrees:U.1`.
 
 **Source.** Kbook.2013, III.5.5 (PDF p. 228): “Theorem 5.5. (Kervaire, Steinberg) The Steinberg group St(R) is the universal central extension of E(R). Hence K_2(R) = H_2(E(R); Z).” — The theorem, as displayed.
 
@@ -576,12 +1273,14 @@ kernel given by the Hopf formula.
 
 **Construction and proof.**
 
-1. Import that St(R) is the universal central extension of E(R).
-1. Import the Hopf extension of E(R) with kernel the second homology, which is also universal by
-   the Recognition Theorem.
-1. Compare the two by the uniqueness of the universal object over E(R); the resulting
-   isomorphism over E(R) restricts to an isomorphism of kernels.
-1. Prove naturality in the ring, using functoriality of both constructions.
+1. Import that St(R) is the universal central extension of E(R) (steinberg-is-uce); E(R) is
+   perfect.
+1. uce-kernel-h2 applied to St(R) → E(R), with kernel K_2(R) (k2-definition), gives K_2(R) ≅
+   H_2(E(R), Z); the isomorphism is of kernels, compatible with the projections to E(R).
+1. Naturality in the ring: for φ : R → S the functoriality map St(R) → St(S) is the lift of E(φ)
+   (uce-lift, by uniqueness), and uce-kernel-h2-natural identifies its kernel map with H_2(E(φ);
+   Z).
+1. Gap G-natural-Hopf enters through hopf-formula-natural.
 
 **Acceptance.**
 
@@ -590,7 +1289,7 @@ kernel given by the Hopf formula.
 - The identification is of kernels, not merely an abstract isomorphism of abelian groups; the
   acceptance test is the compatibility with the two projections.
 
-**Depends on.** **inside this roadmap** `steinberg-is-uce`, `hopf-formula`, `k2-definition`; **baseline** `mathlib:groupHomology.H2`.
+**Depends on.** **inside this roadmap** `steinberg-is-uce`, `hopf-formula`, `k2-definition`, `uce-kernel-h2`, `uce-lift`, `uce-kernel-h2-natural`; **baseline** `mathlib:groupHomology.H2`.
 
 **Source.** Kbook.2013, III.5.5 (PDF p. 228): “Hence K_2(R) = H_2(E(R); Z).” — The identification, as displayed.
 
@@ -1219,6 +1918,17 @@ characteristic, and the isomorphism with the elementary abelian two-group of ran
 at least three for a number field, are both attributed by the source to Bass and Tate. That
 paper was not obtained; the node states the results with the attribution.
 
+**Hopf's formula rests on the Hochschild–Serre low-degree sequence.** Hopf's formula is decomposed as in Löh's Theorem 3.2.18: free groups, and by Nielsen–Schreier
+their subgroups, have no integral homology above degree one, and the four-term exact sequence 0
+→ H₂(G) → N/[F, N] → F_ab → G_ab → 0 gives the formula. Mathlib supplies exactness at F_ab and
+surjectivity onto G_ab (groupHomology.H1CoresCoinfOfTrivial_exact and _g_epi) but no map H₂(F/N)
+→ H₁(N)_{F/N}: the Hochschild–Serre spectral sequence of a group extension, or its low-degree
+exact sequence, is missing at the pin and no atlas stage plans it for discrete groups. The same
+input gives the naturality of Hopf's formula (gap G-natural-Hopf). Löh points to
+Hilton–Stammbach VI.9 for a proof by basic homological algebra; that book was not obtained. The
+recognition-theorem implications that do not pass through Hopf's formula ((1) ⇒ (2) ⇒ (3) and
+(2) ⇒ (1)) do not depend on this gap.
+
 ## Structure
 
 ## Mistakes found in the sources
@@ -1228,3 +1938,9 @@ paper was not obtained; the node states the results with the attribution.
     python3 scripts/check_blueprint.py research/blueprint/packets/K2SymbolsBrauer--T.1.json
 
 reports 0 errors and 0 warnings against the pinned declaration index. The suggested Lean file was not compiled: no Lean toolchain at the pinned commits was available in this session, and the file is signatures and `example` statements only.
+
+FIX-RT-AREA-ktheory-1 (2026-09-30, findings /29 and /30): after the recognition-package nodes
+were added the checker still reports 0 errors and 0 warnings (62 nodes). The suggested file was
+then elaborated with `lake env lean` against a build of Mathlib 082e2d3: the new declarations
+give only `sorry` warnings; five errors older than this fix remain (the commutator bracket on
+the presented Steinberg group).
