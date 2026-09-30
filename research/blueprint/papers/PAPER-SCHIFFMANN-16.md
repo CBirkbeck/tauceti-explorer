@@ -215,3 +215,62 @@ routes accepted.
   imported from ET.2b rather than re-planned.
 
 Full report: `research/blueprint/reviews/REV-PAPER-SCHIFFMANN-16.md`.
+
+## Fixes (FIX-RT-PAPER-SCHIFFMANN-16, 30 September 2026)
+
+Claude Code, session `cc-c2c06b`, issue #4993. This fix applies the three high and five medium findings of
+`RT-PAPER-SCHIFFMANN-16`, with the corrections of its verifier. It also applies the edits to this extraction that
+`FIX-RT-AREA-etale` proposed in its sections 1.3, 1.5, 1.6 and 1.7. The full record is
+`research/blueprint/redteam/RT-PAPER-SCHIFFMANN-16.fixes.md`. Where the sections above disagree with this one,
+this one is current.
+
+- **/1: the stable global nilpotent cone.** Corollary 1.4 (v2 Corollary 1.9) gets both exponents wrong, in both
+  versions. The corrected statement is `|Λ^st_{r,d}(F_q)| = q^{1+(g−1)r²}·A_{g,r,d}(σ_X^{−1})`, with
+  `dim H^{2(1+(g−1)r²)} = A_{g,r,d}(0)` in (ii). Item 12 now states it, with the `r = 1` and `(g,r,d) = (1,2,1)`
+  checks as acceptance tests.
+  - This is new source issue **E8**, an error affecting a stated result.
+  - **E4** keeps only its two index slips. Its old third part, the "unmatched parenthesis", would have repaired the
+    exponent to `q^{2(1+(g−1)r²)}`, which is still wrong, so it is withdrawn.
+- **/2: the Poincaré polynomial.** v2's Corollaries 1.6–1.7 lack the sign `(−1)^n`, which the published
+  Corollary 1.3 has. Item 11 now carries the sign. Two new misprints record the v2 slips, both corrected in print:
+  the sign (**E9**) and `dim Higgs^st = 1+(g−1)r²` for `2(1+(g−1)r²)` (**E10**).
+- **/3: one owner for each statement shared with PAPER-YU-23.**
+  - Route 1 owns the counting theorems, Mellit's theorem, Krull–Schmidt for `Coh(X)` and the stable Higgs moduli.
+    Yu's route 12 imports them.
+  - Plethystic Exp and Log (item 5) go to **QM.0**, joining Yu's route 7 and Bergström–Faber–Payne's route 9
+    (new route 5).
+  - The density of Weil numbers (item 36) goes to the **LefschetzPencilsAndVanishingCycles Part II**, joining
+    Browning–Sawin route 6, as `FIX-RT-AREA-etale` 1.3 proposed. Route 3 is replaced, and its brief follows
+    Katz–Sarnak Chapter 10 and the published Appendix B.
+  - `R_g = Q[T_g]^{W_g}` is identified with the rationalised `GSp_{2g}` character ring of ClassicalGroupsPartII.
+- **/4: Mellit's theorem.** For `g ≥ 1` and every `d`, `A_{g,r,d} = H_{g,r}(q, 1, α)` is a Laurent polynomial
+  independent of `d` (Invent. Math. 221 (2020), Theorem 1.1).
+  - Item 8 is kept as the paper states it but is now recorded as proved.
+  - Item 3 notes that the localisation is not needed for the untruncated counts.
+  - Mellit's paper is added to the prerequisites.
+- **/5: Theorem 7.1 and Corollary 8.1 are stated in `K_g`.**
+  - v2's `Q[T_g]^{W_g}` in Corollary 8.1 was corrected in print (**E11**).
+  - Theorem 7.1 asserts `Q[T_g]^{W_g}` in both versions, but its proof only gives `K_g`. This gap is recorded as
+    **E12**. For `N = 0`, Mellit's theorem closes it.
+- **/6: the Higgs moduli.** Item 9 is now missing and routed to route 1.
+  - ET.2b's "sufficiently positive" twist is not shown to include `Ω_X`.
+  - Neither ET.2b nor GS.0 plans stability, the coprime moduli space or the properness of its Hitchin map.
+  - The stable stack is a `G_m`-gerbe over the smooth connected scheme, not the scheme itself.
+- **/7: Krull–Schmidt.** Items 15 and 16 cite the Tau Ceti Krull–Schmidt and Fitting declarations and Mathlib's
+  Artinian-radical results. They stay missing: only the transfer from modules to `Coh(X)` is planned.
+- **/8: the derivation of Theorem 1.6.**
+  - Seven items are added to route 1:
+    - the residue formula in arbitrary ranks;
+    - the Jordan-type sum `Ξ_r̲`;
+    - the generating identity with the torsion count;
+    - periodicity and residue extraction;
+    - dependence on `d mod r`;
+    - the Galois descent of indecomposables, with both its H¹ and H² inputs;
+    - absolute indecomposability in the coprime case.
+  - Lang's theorem is requested from RG2.3, alongside Lipnowski–Tsimerman and Treumann–Venkatesh (new route 6).
+  - Item 7 states the rank-two formula, which gives 0 at `g = 0` and `|E(F_q)|` at `g = 1`.
+- **Source issues.**
+  - `FIX-RT-AREA-etale`'s **E5–E7** are added: the Weil I/Weil II reference, the half twist and the monodromy family
+    of Appendix B.
+  - The file gains `sourceVersions`: the v2 source archive, the v2 PDF and the Annals PDF.
+- **Result:** 67 items (1 library, 2 planned, 64 missing), six routes, 14 prerequisites and 12 source issues.
