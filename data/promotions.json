@@ -171,11 +171,11 @@
    ]
   },
   "research/blueprint/links/tauceti_TauCetiRoadmap_RepresentationTheory_ClassicalGroups.json": {
-   "promotedAt": "2026-09-23T20:18:27Z",
-   "review": "56a38ab89a68face",
+   "promotedAt": "2026-09-30T16:16:50Z",
+   "review": "fa53def65c51b7ba",
    "reviewDate": "2026-09-23",
    "reviewer": "independent-review-REV-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_ClassicalGroups",
-   "sha256": "8448d80d5d72f622db4bb519e64dc02263c2095ec43dcfb4669b2432dd4346dc",
+   "sha256": "92f67f07979dacb613750589bcdf3dc43f62fa87a08c261036dff3e13849d75f",
    "to": [
     "data/links/tauceti_TauCetiRoadmap_RepresentationTheory_ClassicalGroups.json"
    ]

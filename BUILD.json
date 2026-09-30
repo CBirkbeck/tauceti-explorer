@@ -367,8 +367,8 @@
   "mappedStageStatuses": 350,
   "libraryAuditStatuses": 58,
   "bibliographicSources": 46,
-  "roadmapEdges": 1715,
-  "stageEdges": 8304,
+  "roadmapEdges": 1716,
+  "stageEdges": 8305,
   "reviewedLinkPackets": 25,
   "promotedBlueprints": [
     {
@@ -493,8 +493,8 @@
     }
   ],
   "sourceDocuments": 296,
-  "htmlBytes": 30275787,
-  "htmlSha256": "efbbdcfaa5eaa86805e27158489d5a9f864f55667900800f853f92cbbba638ee",
+  "htmlBytes": 30279699,
+  "htmlSha256": "b6d77964d8e3ec4b3dac9301a743658afd1541ea037ee668af1ae71038eb695c",
   "networkDependencies": 0,
   "localProgressOverridesIncluded": false,
   "assets": {
@@ -640,7 +640,7 @@
     "data/links/tauceti_TauCetiRoadmap_OneParameterSemigroups.json": "d948a78f97a63bdc35786f237e0ecf76d3b25645d5622bb27b23ac7f537e69dd",
     "data/links/tauceti_TauCetiRoadmap_ProfiniteProPGroups.json": "5257102d6493feb70a585e0ad03eb44acafa986e12e2e21db4c7c81d4e56f1ba",
     "data/links/tauceti_TauCetiRoadmap_RepresentationTheory.json": "25465cbe6da416772ffe36bd3acebeb50aad1a9f6095a73080b5f84dd62c16f9",
-    "data/links/tauceti_TauCetiRoadmap_RepresentationTheory_ClassicalGroups.json": "8448d80d5d72f622db4bb519e64dc02263c2095ec43dcfb4669b2432dd4346dc",
+    "data/links/tauceti_TauCetiRoadmap_RepresentationTheory_ClassicalGroups.json": "92f67f07979dacb613750589bcdf3dc43f62fa87a08c261036dff3e13849d75f",
     "data/links/tauceti_TauCetiRoadmap_RepresentationTheory_LieGroups.json": "eee20df0852e22579519a2f142d0df8bcccb9d158912745a18c66ec72d316f30",
     "data/links/tauceti_TauCetiRoadmap_RepresentationTheory_RootSystems.json": "81428ee5abd4b1b98ef5fe5f6c8f72303fcb4e67219b03fb64c1ac1d089f6d67",
     "data/links/tauceti_TauCetiRoadmap_RepresentationTheory_SchurWeyl.json": "d86b01675ad9213460ea78a0c02f29da4586d8775d3ba302e8a6922a1adee5f5",
