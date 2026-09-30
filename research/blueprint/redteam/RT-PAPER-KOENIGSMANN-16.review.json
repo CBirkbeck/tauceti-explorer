@@ -1,0 +1,50 @@
+{
+ "redteam": "RT-PAPER-KOENIGSMANN-16",
+ "findings": [
+  {
+   "finding": "RT-PAPER-KOENIGSMANN-16/1",
+   "verdict": "confirmed",
+   "reason": "Checked the files. In research/blueprint/atlas/roadmaps/LogicAndDefinabilityInNumberTheory.json, LD.4 requires only ClassicalArithmeticCompletion:CA.4 and LD.0, and the stage edges into LD.4 are exactly those two. The roadmap's prerequisites are ClassicalArithmeticCompletion, DiophantineApproximationAndTranscendence, MotivesAndAlgebraicCycles and SchemeAndStackFoundations. The GlobalQuadraticForms link map records LogicAndDefinabilityInNumberTheory as 'none … Summary only', and there is no link map for QuadraticFormInvariants. Yet route 1's reason says LD.4's inputs are 'already planned or built' in QuadraticFormInvariants (layer 2 and 6C), GlobalQuadraticForms (layers 4 and 6) and Tau Ceti's weak approximation, and the report (PAPER-KOENIGSMANN-16.md:89) says the route 'records the stage's dependencies'. Nothing in the JSON or the atlas carries them. The four stage ids in the fix exist on the assembled atlas, and the fix is right: list them in the route's reason, leave the maintainer a note asking for the stage links into LD.4, and correct the report's sentence. Medium is right, because the imports would otherwise cross a roadmap boundary with no link."
+  },
+  {
+   "finding": "RT-PAPER-KOENIGSMANN-16/2",
+   "verdict": "confirmed",
+   "reason": "Published p. 92 defines model completeness and existential closedness, and the proof of Remark 24 ends 'So not every definable subset of Q is diophantine in Q, and hence Q is not model complete', which uses the fact that a model-complete theory makes every definable set existentially definable. No item states these notions or that fact: item 41 uses them, and item 39 is the Z-in-Q preservation criterion only. LD.0's description ('languages, structures, formulas, definable sets and interpretation …; ultraproducts … Łoś …; an explicit elementary extension') does not plan them. At Mathlib 082e2d3, Mathlib/ModelTheory has no 'model complete' or 'existentially closed'; its only similar names are model_completeTheory and realize_iff_of_model_completeTheory (Semantics.lean:784, 789), which concern a structure's complete theory. One adjustment to the fix: check_paper.py allows one kind per item, so the fixer should make a definition item (existentially closed substructure, model complete theory) and a theorem item (model complete implies every formula is equivalent to an existential one, so every definable set is existentially definable), both missing and both in route 2 (LD.0). LD.0 → LD.4 is an existing edge, so item 41 in LD.4 can depend on them."
+  },
+  {
+   "finding": "RT-PAPER-KOENIGSMANN-16/3",
+   "verdict": "confirmed",
+   "reason": "Published p. 90: 'It has recently been generalized in [CTVG14] to all n-th powers: for any natural number n, the set of non-n-th powers is diophantine in Q.' The proof of Proposition 23(c), pp. 91–92, rests on it alone: 'the property of not being an n-th power is, by the main result in [CTVG14], diophantine in Q.' In the extraction, [CTVG14] appears only in prerequisites and in item 40's statement ('via [CTVG14]') and note ('(c) needs Colliot-Thélène–Van Geel'). Other external inputs are items (Dirichlet, item 4; Poonen's local facts, item 17; [PD11, Lemma 3.1.6], item 39). Neither library has the theorem, and Mathlib's Dioph (NumberTheory/Dioph.lean:245) is over ℕ only. The fix is right: add the item, missing, routed with item 40 to LD.4 (LD.4 records 'other-field variants individually'), with [CTVG14] as its source and its Brauer–Manin inputs left to the LD.4 blueprint's imports."
+  },
+  {
+   "finding": "RT-PAPER-KOENIGSMANN-16/4",
+   "verdict": "confirmed",
+   "reason": "Item 42 plans the closure properties of diophantine sets for Qⁿ only, in LD.4. PAPER-ALPOGE-BHARGAVA-SHNIDMAN-26 plans the same notion for an arbitrary commutative ring: items /1 (Diophantine subsets of a ring), /3 (transfer of undecidability), /46 (transitivity) and /47 (finite intersections). It routes them to a Part II whose brief begins 'Start after LD.4's negative solution of Hilbert's tenth problem over Z', and its review rejected that route (route 5) pending revision. LD.4 is upstream of that Part II, so the general form belongs in LD.4 and the Part II should import it; medium is right, since it changes what LD.4 builds. One correction to the fix's wording on the field-specific clauses: the reduction of a finite system to one equation by f² + g² = 0 needs a formally real field such as Q (more generally, any field that is not algebraically closed, via an anisotropic form), and it fails over algebraically closed fields. So state it for Q, not 'over a field'. The other clauses ({x ≠ 0} over a field, {x ≥ 0} over Q, and the r.e. property over a computable ring) are right."
+  },
+  {
+   "finding": "RT-PAPER-KOENIGSMANN-16/5",
+   "verdict": "confirmed",
+   "reason": "Item 8 states Observation 5 including (a,b)_∞ = −1 iff a < 0 and b < 0, and its note says QuadraticFormInvariants 6C 'plans exactly these statements'. But 6C's symbol is over a nonarchimedean local field (6A's scope: 'K is a nonarchimedean local field with 2 invertible'). GlobalQuadraticForms layer 4 (4.4) says: 'At a real place (a,b) = -1 exactly when both a < 0 and b < 0 … proved here, because Quadratic Form Invariants' Layer 6C carries IsNonarchimedeanLocalField on every theorem about the symbol.' CA.1 only says 'Record residue symbols at 2 and at infinite places.' The fix is right: add GlobalQuadraticForms layer 4 to item 8's planned list, and say in the note that 6C supplies only the finite places. Low is right."
+  },
+  {
+   "finding": "RT-PAPER-KOENIGSMANN-16/6",
+   "verdict": "confirmed",
+   "reason": "At Tau Ceti f790474, TauCeti/Algebra/Quaternion/NormForm.lean (namespace QuaternionAlgebra) defines normForm, the reduced norm as a QuadraticForm on ℍ[R,c₁,c₂,c₃]. It also proves normForm_mul, equivalent_normForm_weightedSumSquares ('The norm form of ℍ[R,a,b] is ⟨1, -a, -b, ab⟩') and equivalent_pureNormForm_weightedSumSquares. data/library-coverage.json records QuadraticFormInvariants layer 2 as 'partly built' (AUDIT-05), with this target in the library tauceti and the split-or-division dichotomy still missing. S_{a,b} is the set of 2·re(x) for x ∈ ℍ[ℚ,a,b] of reduced norm 1, so this is the base a blueprint of item 16 builds on. Item 6 cites only Mathlib's QuaternionAlgebra, and item 16's note is empty. The fix is right as stated; the declarations' full names are QuaternionAlgebra.normForm and QuaternionAlgebra.equivalent_normForm_weightedSumSquares. Low is right: item 16 stays missing."
+  },
+  {
+   "finding": "RT-PAPER-KOENIGSMANN-16/7",
+   "verdict": "confirmed",
+   "reason": "The omission is real. Published p. 78: 'Multiplying x₂², x₃², x₄² by a suitable common element from 1 + 8Z₂ ⊆ (Q₂^×)²'. p. 88, proof of Proposition 21(b): 'J(R_p) ⊆ lZ_l. Thus x ∈ 2(Q_l^×)².' No item states the local square criterion. The fix's status is wrong, though: neither library has the statement. Mathlib 082e2d3 has only the general hensels_lemma (Padics/Hensel.lean:461), and Tau Ceti f790474 has no unitFiltration_le_range_powMonoidHom_two or other square criterion. Tau Ceti LocalFieldsRamification layer 1 plans it: 'Deep units are squares, in mixed characteristic … U(K, 2e+1) ⊆ (Kˣ)², named unitFiltration_le_range_powMonoidHom_two', with 'At K = ℚ_2 … U(K,3) = 1 + 8ℤ_2 consists of squares', together with the square-class counts. QuadraticFormInvariants 6A consumes it. The right fix is the finding's item with status planned, planned ['tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-1-units-the-filtration-and-the-multiplicative-group'], and a note that Mathlib's hensels_lemma is the base and QuadraticFormInvariants 6A consumes the sharp form. Low is right."
+  },
+  {
+   "finding": "RT-PAPER-KOENIGSMANN-16/8",
+   "verdict": "confirmed",
+   "reason": "Both misprints are on the page images. p. 90 prints 'Let p = l. Then R_p^{[k]} = Z_l' (the subscript has no parentheses), but R_p^{[k]} is a subring of Q, and Proposition 10(b) (p. 79) says 'if p is a prime and p ≡ k mod 8, then Z_(p) = R_p^{[k]}'. The paper otherwise writes Z_(l) for the localization, so Z_(l) is meant. p. 91 prints 'p ∉ Z_(2)^× or (p ∈ k + Z_(2) and p ∉ Φ_k)', while the same sentence's assumption is 'p ∈ Q²·(k + 8Z_(2))' and Proposition 21(c) is about 'x ≡ k (mod 8Z_(2)) and x ∉ Φ_k', so k + 8Z_(2) is meant. Both are also in arXiv v2 (its text layer: 'Then Rp = Zl'; '(p ∈ k + Z(2) and p ∉ Φk)', with 'k + 8Z(2)' in the assumption). As the finding says, neither affects anything. The E8/E9 entries it gives are in the section 18 shape."
+  },
+  {
+   "finding": "RT-PAPER-KOENIGSMANN-16/9",
+   "verdict": "confirmed",
+   "reason": "Published p. 73: 'If one had an existential (or diophantine) definition of Z in Q …, then Th∃(Z) would be interpretable in Th∃(Q), and the answer would, by Matiyasevich's Theorem, again be no.' No item states this implication. Item 2 is MRDP over Z, item 12 is Observation 0 (existential implies universal definability) and item 15 is the ∀∃ undecidability. LD.4's acceptance requires that 'each transfer needs its own interpretation theorem'. The paper states the implication precisely and uses it as the frame for Observation 0 and Question 25, so an item for the rational case, missing and routed to LD.4 with items 12 and 15, is right. Low is right: nothing downstream depends on it."
+  }
+ ]
+}
