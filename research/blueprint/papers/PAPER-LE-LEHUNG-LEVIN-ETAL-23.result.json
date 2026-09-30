@@ -1404,6 +1404,47 @@
           }
         ],
         "scope": "K60/K61 are directly proved scalar adapters. A primary finite-DVR existence input was located, but its recursive Kisin suppliers and the second-projection integral family comparison remain unfinished."
+      },
+      {
+        "agent": "Codex",
+        "session": "codex-rtOQ9t",
+        "date": "2026-09-30",
+        "main": "Fresh author-hosted published LLHLM23 PDF matches inherited SHA-256 e56478796d15c938b864447d4b48d928ee749b95644df15e1e9055bdf9a142dd. Text read: PDF141–149 and bibliography PDF209–212. Earlier whole-paper attribution is unchanged.",
+        "sources": [
+          {
+            "title": "Caraiani–Levin, Kisin modules with descent data and parahoric local models",
+            "url": "https://www.numdam.org/item/10.24033/asens.2354.pdf",
+            "sha256": "a06ac548c71f588bb5a3d58ac63e82a0a93addb184f028f54835dcb543c79a94",
+            "readSections": "PDF7,29–34; Proposition5.17 on PDF31 visually checked. The duality conversion follows LLHLM PDF148, not the mixed covariant/contravariant notation of the supplier. The original Kisin DVI/PDF fetches failed with HTTP403; no fresh original Kisin reading is claimed."
+          },
+          {
+            "title": "Brian Conrad, Survey of Kisin’s paper Crystalline representations and F-crystals",
+            "url": "https://math.stanford.edu/~conrad/papers/luminy.pdf",
+            "sha256": "a25bfbc39f9e6b95445d8e915e7caa4d60fe7d6514868baf914e11ff42725ea1",
+            "readSections": "PDF21,28–31: Corollary2.4.9; Corollary3.2.4, Lemmas3.2.6/3.2.8/3.2.9 and Proposition3.2.7, plus Corollary3.3.1. Proposition3.2.7’s proof is only sketched in this survey; the corrected Kisin E.4 supplier remains explicitly imported from the existing R07.4 packet."
+          },
+          {
+            "title": "Olivier Brinon and Brian Conrad, CMI Summer School Notes on p-adic Hodge Theory",
+            "url": "https://math.stanford.edu/~conrad/papers/notes.pdf",
+            "sha256": "f27d508bc64b3c9e2e9de5041429b2cb6a909b2cd72ff8096c20493f27b5a187",
+            "readSections": "PDF81,118–120,127,143–148. Proposition8.3.5 and its proof (119–120) supply the nonsemisimple Q_p weight-zero case. The unramified K extension in Z146 is a derived induction argument, not a quotation from that proposition."
+          },
+          {
+            "title": "Robin Bartlett, On the irreducible components of some crystalline deformation rings",
+            "url": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/F38BA20B2A1972B0EC81857A3F2B5FF7/S2050509420000122a.pdf/on_the_irreducible_components_of_some_crystalline_deformation_rings.pdf",
+            "sha256": "621997228f22ade928f556f2b90f65c2a17b381e4e8e59d71965b67fad116ee2",
+            "bytes": 604417,
+            "retrieved": "2026-09-30T09:40:27.138897+00:00",
+            "readSections": "Published PDF7–9,16–18,29–30: covariant/sign conventions, Proposition2.1.10, Theorem2.1.12 statement, Remark2.2.16, Lemma4.1.2 and its proof, and (4.2.2). Theorem2.1.12’s subsequent proof was not read or used."
+          },
+          {
+            "title": "Brian Conrad, Lifting global representations with local properties",
+            "url": "https://math.stanford.edu/~conrad/papers/locchar.pdf",
+            "sha256": "782fe71a3c7f26ccd67943d468f73540d384e2de5d474bf8369475b8b631d9bd",
+            "readSections": "PDF32–37, AppendixB and bibliography. Exploratory field-valued character approach; the final proof instead obtains the reference character from an existing scalar Kisin point and G02/G70, avoiding an unproved family extension of PropositionB.4."
+          }
+        ],
+        "scope": "Six derived theorem adapters. No new source finding, no claimed whole-supplier reading, and no closure of all recursive obligations. The preserved source findings remain unreviewed."
       }
     ],
     "smoothLocusContinuation": {
@@ -1426,7 +1467,7 @@
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369"
   },
-  "summary": "Partial extraction of LLHLM23: universal and differential local models, tame Breuil–Kisin moduli, monodromy comparisons, generic Breuil–Mézard cycles, Serre-weight applications and arbitrary-level patching. The 783 items comprise 146 library, 48 planned and 589 missing items; every missing item is assigned once among 26 existing-owner routes. There are 120 unreviewed source findings and 12 explicit gaps. All non-library theorem items have source-level proof outlines, but the graph is not recursively closed. The scalar adapters G69–G71/K59 now prove analytic monodromy and identity true/truncated/naive comparison on fixed-Hodge Kisin charts without a height-dependent prime bound. The integral rank-one Galois comparison, dyadic scalar patching, external source suppliers, definition APIs and library/owner audits remain explicit obligations. No formal implementation or independent acceptance is asserted.",
+  "summary": "Partial extraction of LLHLM23: universal and differential local models, tame Breuil–Kisin moduli, monodromy comparisons, generic Breuil–Mézard cycles, Serre-weight applications and arbitrary-level patching. The 791 items comprise 146 library, 48 planned and 597 missing items; every missing item is assigned once among 27 existing-owner routes. There are 120 unreviewed source findings and 12 explicit gaps. All non-library theorem items have source-level outlines, but the graph is not recursively closed. K62/G72–G75 now supply the scalar fixed-Hodge integral Galois–Kisin comparison at every prime, using Z146, finite-flat coefficient algebras with nilpotents and the finite-Artinian/formal-stack passage. Scalar lifting/component labelling, finite bounds, dyadic patching, external source suppliers, definition APIs and library/owner audits remain obligations. No formal implementation or independent acceptance is asserted.",
   "items": [
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/N01",
@@ -11543,6 +11584,17 @@
           "PAPER-LE-LEHUNG-LEVIN-ETAL-23/K61"
         ],
         "detail": "K61 gives the fixed-Hodge analogue’s closed-immersion step independently of K29’s interval bound. Next establish essential surjectivity on finite-DVR points with the exact fixed λ, then G15/G47 identify the first projection. The second projection to the Kisin stack is separate. This does not change G21’s statement or prime bound."
+      },
+      "scalarIntegralContinuation": {
+        "items": [
+          "PAPER-LE-LEHUNG-LEVIN-ETAL-23/K62",
+          "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G72",
+          "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G73",
+          "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G74",
+          "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G75",
+          "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z146"
+        ],
+        "detail": "K62/G72 identify the first projection; G73 handles finite-flat integral extension by unramified twisting, and G74 proves formal full faithfulness via finite-Artinian approximation. G75 identifies the second projection and gives the integral fixed-Hodge equivalence for every p≥2. Original whole-height statements, their guards and E102 are unchanged. Component labelling, lifting and global patching still require their own arguments. General suppliers remain in the recursive closure audit."
       }
     },
     {
@@ -11770,7 +11822,18 @@
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G50",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G19"
       ],
-      "proofProvenance": "Codex — codex-c83e7a, 24 September 2026. Fresh LLHLM23 published PDF129,131–132,142–148; PDF146 checked as a page image. Source-level outline, not a formal proof or independent review."
+      "proofProvenance": "Codex — codex-c83e7a, 24 September 2026. Fresh LLHLM23 published PDF129,131–132,142–148; PDF146 checked as a page image. Source-level outline, not a formal proof or independent review.",
+      "scalarIntegralContinuation": {
+        "items": [
+          "PAPER-LE-LEHUNG-LEVIN-ETAL-23/K62",
+          "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G72",
+          "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G73",
+          "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G74",
+          "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G75",
+          "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z146"
+        ],
+        "detail": "K62/G72 identify the first projection; G73 handles finite-flat integral extension by unramified twisting, and G74 proves formal full faithfulness via finite-Artinian approximation. G75 identifies the second projection and gives the integral fixed-Hodge equivalence for every p≥2. Original whole-height statements, their guards and E102 are unchanged. Component labelling, lifting and global patching still require their own arguments. General suppliers remain in the recursive closure audit."
+      }
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G25",
@@ -11794,7 +11857,18 @@
         "Use G21 to choose a smooth affine formal chart Spf R of K with R flat and reduced. G02 identifies its potentially crystalline O′-points with vanishing true monodromy. Thus the monodromy ideal vanishes in every finite residue-field quotient of the Jacobson algebra R[1/p], so it vanishes because that algebra is reduced and R is O-flat.",
         "This factors K→Y through the reduced formal substack Z of the true-monodromy locus. G24 makes the resulting maps monomorphisms. For every finite flat coefficient algebra Λ, the monodromy criterion G02 extends the rational representation to G_K, and G52 makes its integral lattice stable; hence K(Λ)→Y^{[0,h],τ,∇∞}(Λ) is essentially surjective.",
         "Apply point criterion G20 to K→Z and G48 to Z→Y^{[0,h],τ,∇∞}. The target flatness is the true-monodromy flat-closure construction G07. These are different criteria: reducedness alone cannot be substituted for the finite-flat-point condition."
-      ]
+      ],
+      "scalarIntegralContinuation": {
+        "items": [
+          "PAPER-LE-LEHUNG-LEVIN-ETAL-23/K62",
+          "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G72",
+          "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G73",
+          "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G74",
+          "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G75",
+          "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z146"
+        ],
+        "detail": "K62/G72 identify the first projection; G73 handles finite-flat integral extension by unramified twisting, and G74 proves formal full faithfulness via finite-Artinian approximation. G75 identifies the second projection and gives the integral fixed-Hodge equivalence for every p≥2. Original whole-height statements, their guards and E102 are unchanged. Component labelling, lifting and global patching still require their own arguments. General suppliers remain in the recursive closure audit."
+      }
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G52",
@@ -11821,7 +11895,18 @@
         "Reduce to local Λ with residue field F′. K44 identifies the unique semisimple G_K-extension ρ̄ of the residual restriction and makes it 2-generic. G49 gives cyclotomic freeness of ad(ρ̄), with the recorded rank-one odd-prime guard.",
         "Choose a G_K-stable O-lattice in the extended p-adic representation by compactness of the image. Taking its Λ-span preserves G_K-stability and finite generation; scaling yields a Λ[G_K]-stable lattice W containing V. The residual semisimplification of W is the same as that of V on restriction, hence is a finite direct sum of ρ̄ over G_K by the tame semisimple restriction equivalence.",
         "Choose N with p^N W⊂V⊂W. The quotient V/p^N W is a G_K∞-submodule of W/p^N W. Apply G51 and pull back to W to obtain G_K-stability of V."
-      ]
+      ],
+      "scalarIntegralContinuation": {
+        "items": [
+          "PAPER-LE-LEHUNG-LEVIN-ETAL-23/K62",
+          "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G72",
+          "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G73",
+          "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G74",
+          "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G75",
+          "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z146"
+        ],
+        "detail": "K62/G72 identify the first projection; G73 handles finite-flat integral extension by unramified twisting, and G74 proves formal full faithfulness via finite-Artinian approximation. G75 identifies the second projection and gives the integral fixed-Hodge equivalence for every p≥2. Original whole-height statements, their guards and E102 are unchanged. Component labelling, lifting and global patching still require their own arguments. General suppliers remain in the recursive closure audit."
+      }
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G62",
@@ -12026,6 +12111,17 @@
         "gap": "rank-one-downstream-boundaries",
         "detail": "G69–G71 now supply the missing scalar monodromy/precision calculation on the fixed-Hodge Kisin gauge charts of K59: both ideals vanish and the comparison is the identity, with no Elkik or prime threshold. The remaining rank-one step for the stated Galois chart is an integral fixed-Hodge comparison X^{λ,τ}≅Y^{≤λ,τ}. G18’s proof passes through a whole height interval and retains its actual prime bound; do not remove that bound from it using the new calculation. A scalar character classification/integral restriction argument must supply this fixed-Hodge equivalence separately. The earlier K21/K22 flat-closure suppliers remain within the inherited closure audit. K60/K61 now supply the fixed-Hodge forgetful monomorphism and closed immersion, including the first-projection closed immersion after base change. The integral equivalence still needs finite-DVR lifting and the second-projection arguments in the handoff.",
         "provenance": "Codex — codex-rtOQ9t, 29 September 2026; downstream rank-one scope audit, not an independent review or formal proof."
+      },
+      "scalarIntegralContinuation": {
+        "items": [
+          "PAPER-LE-LEHUNG-LEVIN-ETAL-23/K62",
+          "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G72",
+          "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G73",
+          "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G74",
+          "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G75",
+          "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z146"
+        ],
+        "detail": "K62/G72 identify the first projection; G73 handles finite-flat integral extension by unramified twisting, and G74 proves formal full faithfulness via finite-Artinian approximation. G75 identifies the second projection and gives the integral fixed-Hodge equivalence for every p≥2. Original whole-height statements, their guards and E102 are unchanged. Component labelling, lifting and global patching still require their own arguments. General suppliers remain in the recursive closure audit."
       }
     },
     {
@@ -12059,6 +12155,17 @@
         "gap": "rank-one-downstream-boundaries",
         "detail": "An existential polynomial can be enlarged without changing the form of this theorem: once a finite prime threshold B depending only on the fixed Hodge data and e is established, replace P by B!·P. Nonvanishing modulo p then gives both P-genericity and p>B. This elementary observation does not by itself establish the rank-one G28/G31 inputs or determine B. Record those inputs first, including their height normalization and precision, then absorb their finitely many bounds. Do not replace a polynomial condition by a root-depth condition in rank one. The new G71 calculation removes the scalar monodromy/Elkik threshold on the fixed-Hodge Kisin side. The unresolved input is now the integral Galois-to-Kisin identification, not analyticity of scalar monodromy. K60/K61 now supply the fixed-Hodge forgetful monomorphism and closed immersion, including the first-projection closed immersion after base change. The integral equivalence still needs finite-DVR lifting and the second-projection arguments in the handoff.",
         "provenance": "Codex — codex-rtOQ9t, 29 September 2026; downstream rank-one scope audit, not an independent review or formal proof."
+      },
+      "scalarIntegralContinuation": {
+        "items": [
+          "PAPER-LE-LEHUNG-LEVIN-ETAL-23/K62",
+          "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G72",
+          "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G73",
+          "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G74",
+          "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G75",
+          "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z146"
+        ],
+        "detail": "K62/G72 identify the first projection; G73 handles finite-flat integral extension by unramified twisting, and G74 proves formal full faithfulness via finite-Artinian approximation. G75 identifies the second projection and gives the integral fixed-Hodge equivalence for every p≥2. Original whole-height statements, their guards and E102 are unchanged. Component labelling, lifting and global patching still require their own arguments. General suppliers remain in the recursive closure audit."
       }
     },
     {
@@ -12210,6 +12317,17 @@
         "gap": "rank-one-downstream-boundaries",
         "detail": "G71 proves that the scalar fixed-Hodge naive and true-monodromy equations vanish identically, so this part of the rank-one factorization no longer needs an m-depth precision estimate. What remains is the integral map from the Galois stack to this Kisin chart: G18 only supplies its stated height/prime range. Supply the fixed-Hodge scalar comparison before exporting the unqualified rank-one Galois factorization. K60/K61 now supply the fixed-Hodge forgetful monomorphism and closed immersion, including the first-projection closed immersion after base change. The integral equivalence still needs finite-DVR lifting and the second-projection arguments in the handoff.",
         "provenance": "Codex — codex-rtOQ9t, 29 September 2026; downstream rank-one scope audit, not an independent review or formal proof."
+      },
+      "scalarIntegralContinuation": {
+        "items": [
+          "PAPER-LE-LEHUNG-LEVIN-ETAL-23/K62",
+          "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G72",
+          "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G73",
+          "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G74",
+          "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G75",
+          "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z146"
+        ],
+        "detail": "K62/G72 identify the first projection; G73 handles finite-flat integral extension by unramified twisting, and G74 proves formal full faithfulness via finite-Artinian approximation. G75 identifies the second projection and gives the integral fixed-Hodge equivalence for every p≥2. Original whole-height statements, their guards and E102 are unchanged. Component labelling, lifting and global patching still require their own arguments. General suppliers remain in the recursive closure audit."
       }
     },
     {
@@ -27215,7 +27333,18 @@
           "statement": "The matrices 1 and E^(p−1) both satisfy monodromy. Modulo p their bounded-height lattices still collide in the étale category as in E102. Monodromy does not imply interval uniqueness."
         }
       ],
-      "implementationStatus": "unchecked"
+      "implementationStatus": "unchecked",
+      "scalarIntegralContinuation": {
+        "items": [
+          "PAPER-LE-LEHUNG-LEVIN-ETAL-23/K62",
+          "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G72",
+          "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G73",
+          "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G74",
+          "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G75",
+          "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z146"
+        ],
+        "detail": "K62/G72 identify the first projection; G73 handles finite-flat integral extension by unramified twisting, and G74 proves formal full faithfulness via finite-Artinian approximation. G75 identifies the second projection and gives the integral fixed-Hodge equivalence for every p≥2. Original whole-height statements, their guards and E102 are unchanged. Component labelling, lifting and global patching still require their own arguments. General suppliers remain in the recursive closure audit."
+      }
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/K59",
@@ -27383,7 +27512,262 @@
           "kind": "non-example",
           "statement": "At h=p−1, the different Hodge types in E102 still collide after inverting v. The fixed-Hodge conclusion leaves K29/G18/G35’s guarded interval statements intact."
         }
-      ]
+      ],
+      "scalarIntegralContinuation": {
+        "items": [
+          "PAPER-LE-LEHUNG-LEVIN-ETAL-23/K62",
+          "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G72",
+          "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G73",
+          "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G74",
+          "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G75",
+          "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z146"
+        ],
+        "detail": "K62/G72 identify the first projection; G73 handles finite-flat integral extension by unramified twisting, and G74 proves formal full faithfulness via finite-Artinian approximation. G75 identifies the second projection and gives the integral fixed-Hodge equivalence for every p≥2. Original whole-height statements, their guards and E102 are unchanged. Component labelling, lifting and global patching still require their own arguments. General suppliers remain in the recursive closure audit."
+      }
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/K62",
+      "kind": "theorem",
+      "name": "Finite-DVR lifting at one scalar Hodge tuple",
+      "statement": "Let K/Q_p be finite unramified, p≥2, τ a tame rank-one inertial type, λ=(k_j) with 0≤k_j≤h and h≥1, and use the coefficient field and split descent conventions of K59. For every finite extension E′/E with ring of integers O′ and every V∈X^{λ,τ}(O′), its étale φ-module with descent contains a projective Breuil–Kisin lattice M∈Y^{≤λ,τ}(O′) whose étale image is V restricted to G_{K∞}. Thus K^{λ,τ}(O′)→X^{λ,τ}(O′) is essentially surjective. This is a finite-DVR assertion; no projectivity theorem over an arbitrary finite flat coefficient algebra is inferred.",
+      "locator": "LLHLM23 Proposition7.2.7, PDF145, and fixed-Hodge comparison PDF148–149; Caraiani–Levin Proposition5.17, published PDF31/printed209; Bartlett Proposition2.1.10 and Remark2.2.16(2), published PDF8–9,17.",
+      "status": "missing",
+      "note": "Owner: LocalGaloisDeformationRings:L7. Derived adapter, not a claim that the numbered source states this refinement. Existing general suppliers are imported; recursive source closure remains partial.",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/K05",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/K21",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/K59",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G13",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4/finite-height-lattices",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4/kisin-etale-full-faithfulness",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4/semistable-finite-height",
+        "PadicHodgeTheory:R06.2"
+      ],
+      "proofSteps": [
+        "Apply the existing finite-height lattice and semistable comparison suppliers to V on G_{L′∞}. Their integral full faithfulness transports the O′-action and the semilinear Δ′-action to the unique finite-height lattice. The full-faithfulness supplier explicitly uses Kisin2008 Errata(E.4), not the unrepaired proof of Kisin2006 Proposition2.1.12. The current session read its packet and Conrad §3.2, not the unavailable original Kisin DVI.",
+        "Coefficient projectivity can be checked directly in this DVR case. After a finite unramified coefficient extension splitting W(k′)⊗O′, work in a factor O′[[u′]]. The lattice is finite and free over W(k′)[[u′]]. Write p=c·ϖ′^e with c a unit. If u′m=ϖ′n, multiplication by ϖ′^(e−1), followed by reduction modulo p, shows ϖ′^(e−1)m=pz, since u′ is injective on M/pM. Cancelling p in u′pz=c⁻¹pn gives n=c·u′z, hence m=c·ϖ′z. Thus M/ϖ′M is u′-torsion-free and finite over the residue-field power-series DVR, so free. Lift a basis and use ϖ′-adic completeness and torsion-freeness to obtain an O′[[u′]]-basis. Projectivity descends from the finite faithfully flat coefficient extension. This is the property asserted in Bartlett Remark2.2.16(2); it does not use G66.",
+        "The period comparison (M/u′M)[1/p]≅D_pst(V∨) gives the Δ-inertial character τ∨. Because Δ has prime-to-p order, its character idempotents act integrally; the unwanted character summands of M/u′M vanish after inverting p and hence vanish by O′-torsion-freeness. This is exactly LLHLM descent type τ in K05, with inverse characters in its eigenbasis convention.",
+        "For each embedding, identify (φ*M/E(u′)φ*M)[1/p] with D_dR(V∨), preserving the filtration defined by φ*M∩E(u′)^iM. Bartlett Proposition2.1.10 is covariant with cyclotomic weight −1, so apply it to V∨ to match LLHLM cyclotomic weight +1; functoriality carries the coefficient action. The sole elementary divisor is k_j. Caraiani–Levin §5.2/Proposition5.17 and LLHLM PDF148 identify this with membership in Y^{≤λ,τ}(O′). In GL_1 dominance permits only equality, not an interval of integers."
+      ],
+      "tests": [
+        {
+          "name": "ScalarDVRLift.duality",
+          "kind": "compatibility",
+          "statement": "For K=Q_p and V=O′(1), the LLHLM Hodge exponent is 1; the period object used is D_dR(V∨), not D_dR(V)."
+        },
+        {
+          "name": "ScalarDVRLift.ramified_coefficients",
+          "kind": "characterisation",
+          "statement": "For p=c·ϖ′^e and u′m=ϖ′n, the cancellation argument proves m∈ϖ′M for every e≥1, including p=2."
+        },
+        {
+          "name": "ScalarDVRLift.fixed_not_interval",
+          "kind": "non-example",
+          "statement": "At h=p−1, E102 still gives two different Hodge components with the same étale image; the theorem specifies the chosen λ."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "proofProvenance": "Codex — codex-rtOQ9t, 30 September 2026. Source-level derivation with the selected readings recorded in continuationReadings. Not a Lean proof or independent review."
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G72",
+      "kind": "theorem",
+      "name": "The first scalar fixed-Hodge projection is an isomorphism",
+      "statement": "In the setup of K62, at every p≥2, the first projection K^{λ,τ}:=X^{λ,τ}×_{Φ-Mod_K^{ét,1}}Y^{≤λ,τ}→X^{λ,τ} is an isomorphism of p-adic formal algebraic stacks. This assertion by itself does not identify the second projection to Y^{≤λ,τ}.",
+      "locator": "Derived fixed-Hodge refinement of LLHLM23 Proposition7.2.7 using Lemma7.2.6(2), PDF144–145.",
+      "status": "missing",
+      "note": "Owner: LocalGaloisDeformationRings:L7. Derived adapter, not a claim that the numbered source states this refinement. Existing general suppliers are imported; recursive source closure remains partial.",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/K61",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/K62",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G15",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G47"
+      ],
+      "proofSteps": [
+        "K61 proves that this first projection is a closed immersion, independently of the whole-height K29/G21 range.",
+        "G15 makes its target O-flat, analytically unramified and topologically of finite type. K62 gives essential surjectivity for every ring of integers O′ of a finite extension E′/E.",
+        "Apply G47. On a smooth formal affine chart the defining ideal J has J[1/p]=0 by the Jacobson/reduced generic-fibre point criterion, and J=0 by flatness. No integral finite-flat coefficient projectivity is presumed in obtaining this isomorphism."
+      ],
+      "tests": [
+        {
+          "name": "ScalarFirstProjection.dyadic",
+          "kind": "degenerate",
+          "statement": "For p=2, λ=(k_j) with arbitrarily large nonnegative k_j still satisfies the fixed-Hodge first-projection conclusion."
+        },
+        {
+          "name": "ScalarFirstProjection.stabilizers",
+          "kind": "compatibility",
+          "statement": "The isomorphism retains all scalar automorphisms of each rank-one object."
+        },
+        {
+          "name": "ScalarFirstProjection.mixed_height",
+          "kind": "non-example",
+          "statement": "Taking a union over λ does not turn the false unrestricted height forgetful map into a monomorphism."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "proofProvenance": "Codex — codex-rtOQ9t, 30 September 2026. Source-level derivation with the selected readings recorded in continuationReadings. Not a Lean proof or independent review."
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z146",
+      "kind": "theorem",
+      "name": "Weight-zero crystalline representations over an unramified local field are unramified",
+      "statement": "Let K/Q_p be finite unramified and V a finite-dimensional Q_p-representation of G_K. Then V is crystalline with every Hodge–Tate weight zero if and only if I_K acts trivially. No semisimplicity assumption is imposed. In particular, this applies to the underlying Q_p-representation of a finite module over any finite-dimensional Q_p-algebra, including a nonreduced algebra.",
+      "locator": "Brinon–Conrad, CMI Summer School Notes on p-adic Hodge theory, Proposition8.3.5 and proof, PDF119–120, combined with unramified induction and the period formalism; Proposition9.3.1, PDF146.",
+      "status": "missing",
+      "note": "Owner: PadicHodgeTheory:R06.2. Derived adapter, not a claim that the numbered source states this refinement. Existing general suppliers are imported; recursive source closure remains partial.",
+      "prerequisites": [
+        "PadicHodgeTheory:R06.2"
+      ],
+      "proofSteps": [
+        "For K=Q_p, trivial filtration and weak admissibility force all Newton slopes to be zero. Frobenius admits a stable Z_p-lattice on which it is invertible (generalized eigenvectors suffice). Such an automorphism gives a continuous representation of the procyclic unramified quotient; its filtered φ-module is the original one. Full faithfulness of D_cris identifies the representations. This is Brinon–Conrad Proposition8.3.5, including nonsemisimple Frobenius.",
+        "For unramified K/Q_p, put W=Ind_{G_K}^{G_Qp}V. Shapiro applied to the period tensor gives D_cris,Qp(W)≅D_cris,K(V) as Q_p-vector spaces. The dimension is [K:Q_p]·dim_Qp V=dim_Qp W; the corresponding D_dR identification gives only filtration jump zero. Thus W is crystalline of weight zero and unramified by the Q_p case. Its restriction contains V as a summand and I_K=I_Qp, so V is unramified.",
+        "Conversely an unramified representation is crystalline with trivial filtration by the unramified period construction/Proposition9.3.1. Forgetting an extra finite Q_p-algebra action does not take a semisimplification and does not discard nilpotents."
+      ],
+      "tests": [
+        {
+          "name": "WeightZeroUnramified.jordan",
+          "kind": "non-example",
+          "statement": "The continuous unramified two-dimensional representation with arithmetic Frobenius [[1,1],[0,1]] is crystalline of weight zero although not semisimple."
+        },
+        {
+          "name": "WeightZeroUnramified.ramified_finite",
+          "kind": "non-example",
+          "statement": "The nontrivial character of Q_2(√−2)/Q_2 has Hodge–Tate weight zero but is not crystalline; potentially crystalline cannot replace crystalline."
+        },
+        {
+          "name": "WeightZeroUnramified.coefficient_nilpotent",
+          "kind": "compatibility",
+          "statement": "A character with values in E[ε]/(ε²) is tested on its full underlying Q_p-representation, retaining the ε-direction."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "proofProvenance": "Codex — codex-rtOQ9t, 30 September 2026. Source-level derivation with the selected readings recorded in continuationReadings. Not a Lean proof or independent review."
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G73",
+      "kind": "theorem",
+      "name": "Scalar integral extension by an unramified twist over finite flat coefficients",
+      "statement": "Use the K59 fixed-(λ,τ) setup. There exists a continuous O×-valued potentially crystalline reference character ψ of type (λ,τ), after a finite coefficient extension if necessary. For every finite flat O-algebra Λ, any Λ[1/p]×-valued potentially crystalline character χ of that fixed type has χψ⁻¹ unramified, even when Λ has nilpotents. If χ|G_{K∞} preserves a rank-one projective Λ-lattice, then χ preserves that lattice. Its fixed-type G_K-extension is unique. Consequently every M∈Y^{≤λ,τ}(Λ) yields such an integral extension of T_dd*(M), at every p≥2.",
+      "locator": "Derived scalar replacement for LLHLM23 Lemma7.2.13, PDF149; fixed-Hodge period comparison PDF148–149; Bartlett Proposition2.1.10 and (4.2.2); G69–G71 and Z146.",
+      "status": "missing",
+      "note": "Owner: LocalGaloisDeformationRings:L7. Derived adapter, not a claim that the numbered source states this refinement. Existing general suppliers are imported; recursive source closure remains partial.",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/K59",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/K62",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G02",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G70",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G71",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z146",
+        "PadicHodgeTheory:R06.2"
+      ],
+      "proofSteps": [
+        "Choose the scalar K59 chart with d_j=1 over O. G70/G02 gives a potentially crystalline E-valued extension of its rank-one T_dd*. The filtered period comparison gives exactly λ: use the intersections φ*M∩E^iM as in K62, not only the height bound. A continuous character into E× has compact image, so its valuation is zero; it preserves every O-lattice. This gives ψ without assuming the integral family theorem that is being proved. A finite coefficient extension is harmless because preservation of lattices and equality of morphisms descend faithfully flatly.",
+        "For a finite-dimensional algebra B=Λ[1/p], tensor χ with ψ⁻¹ over the coefficient field. Period functors with coefficients and finite Galois descent give crystalline type 1 and Hodge tuple zero: inertia on the potential period module is now trivial, and the original monodromy is zero. This is a statement about the full B-module, not merely its field-valued specializations. Its underlying Q_p-representation is finite-dimensional with all weights zero, so Z146 makes δ=χψ⁻¹ unramified. This includes nontrivial unipotent Frobenius on a nonreduced coefficient algebra.",
+        "The Kummer tower K∞/K is totally ramified. Therefore G_{K∞}→G_k is surjective: each finite unramified extension is disjoint from each finite level, and the image in the profinite G_k is closed. For every g∈G_K choose h∈G_{K∞} with the same image in G_k. Then δ(g)=δ(h). In local trivializations the latter lies in Λ× because χ(h) and ψ(h) do. Thus χ(g)=ψ(g)δ(h) preserves the lattice. The same argument identifies equivariant maps for two ψ-twisted unramified characters, so gives uniqueness, without cyclotomic freeness or a bound on p.",
+        "For M over Λ, G71/G02 supplies the rational potentially crystalline extension. The filtered period comparison is coefficient-linear (forget Λ to obtain a finite Z_p-lattice over a field where the representation is crystalline, then retain its commuting Λ-action). The monomial exponents k_j give λ over B. Equivalently its projective Hodge graded pieces may be tested after B_red as in LLHLM PDF148–149; zero rank forces a finite projective module to vanish even over nilpotents. Apply the preceding argument to its integral G_{K∞}-lattice. G13 then identifies the extension as a point of X^{λ,τ}(Λ)."
+      ],
+      "tests": [
+        {
+          "name": "ScalarIntegralExtension.dyadic",
+          "kind": "degenerate",
+          "statement": "The argument works for p=2 even when the residual adjoint character equals the mod-2 cyclotomic character."
+        },
+        {
+          "name": "ScalarIntegralExtension.nilpotent",
+          "kind": "compatibility",
+          "statement": "For Λ=O[ε]/(ε²), ψ times the unramified character with Frobenius 1+ε extends integrally; replacing Λ by Λ_red would lose this deformation."
+        },
+        {
+          "name": "ScalarIntegralExtension.fixed_type",
+          "kind": "non-example",
+          "statement": "Twisting by the ramified quadratic character killed by G_{Q_2(√−2)} can preserve a restricted character but changes the inertial type; uniqueness is asserted only within (λ,τ)."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "proofProvenance": "Codex — codex-rtOQ9t, 30 September 2026. Source-level derivation with the selected readings recorded in continuationReadings. Not a Lean proof or independent review."
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G74",
+      "kind": "theorem",
+      "name": "Full faithfulness of scalar fixed-Hodge Galois restriction over the formal coefficient category",
+      "statement": "At every p≥2 in the K59 setup, X^{λ,τ}→Φ-Mod_K^{ét,1} is a monomorphism of p-adic formal algebraic stacks. In particular its isomorphism sheaves agree on all finite type O/ϖ^a-algebras, including nonreduced ones. Ordinary continuous characters are used only over finite flat O-algebras or local Artinian algebras with finite residue field, not over the global polynomial parameter ring.",
+      "locator": "Derived fixed-Hodge variant of LLHLM23 Proposition7.2.11, PDF146–147; Lemmas7.2.5–7.2.6, PDF144; Bartlett Lemma4.1.2, PDF29–30.",
+      "status": "missing",
+      "note": "Owner: LocalGaloisDeformationRings:L7. Derived adapter, not a claim that the numbered source states this refinement. Existing general suppliers are imported; recursive source closure remains partial.",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G15",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G19",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G20",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G73"
+      ],
+      "proofSteps": [
+        "Fix the reference ψ of G73. For a local Artinian O-algebra A with finite residue field and x∈X^{λ,τ}(A), take a smooth formal affine cover of X through x after a finite residue extension if needed. A chart Spf R has R flat, reduced and topologically finite type by G15. Localize at the point and use the finite-flat approximation of Bartlett Lemma4.1.2, as in G20: every sufficiently deep R/m^j quotient factors through a finite flat O-algebra Λ. Thus x lifts to a Λ-point, locally for descent.",
+        "G73 applied to this Λ-point shows that its ψ-untwist is unramified. Therefore every A-point has the same property after reduction and descent. For two A-points, any G_{K∞}-equivariant A-linear isomorphism is then G_K-equivariant, since the unramified quotient of G_{K∞} surjects onto that of G_K. This argument keeps the entire A-module, including nilpotent directions, and applies to scalar automorphisms as well.",
+        "For a general finite type O/ϖ^a-algebra A, use the finite-type scheme representability of the two Isom functors ([24, Proposition5.4.8], the EG supplier already used in G24). Their comparison is a bijection on every finite-residue-field local Artinian test ring by the preceding step. G19 identifies the two schemes. Take the fibre over the identity A-point and pass compatibly through all a. This is the formal-stack passage; it does not assign a continuous Galois character to a universal d∈O[d,d⁻¹]."
+      ],
+      "tests": [
+        {
+          "name": "ScalarRestriction.artinian",
+          "kind": "compatibility",
+          "statement": "The isomorphism sheaf comparison applies to F′[ε]/(ε²) at p=2, as well as to F′-points."
+        },
+        {
+          "name": "ScalarRestriction.stabilizer",
+          "kind": "compatibility",
+          "statement": "The scalar G_m automorphism group survives on both sides; the assertion is full faithfulness of groupoids."
+        },
+        {
+          "name": "ScalarRestriction.topology",
+          "kind": "non-example",
+          "statement": "An indeterminate d in F_p(d)× has infinite order; sending a topological Frobenius to d is not a continuous character of the profinite unramified quotient into this discrete group."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "proofProvenance": "Codex — codex-rtOQ9t, 30 September 2026. Source-level derivation with the selected readings recorded in continuationReadings. Not a Lean proof or independent review."
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G75",
+      "kind": "theorem",
+      "name": "Integral scalar fixed-Hodge Galois–Kisin equivalence",
+      "statement": "In the K59 setup, for all p≥2 and effective λ, both projections from K^{λ,τ} are isomorphisms, giving X^{λ,τ}≅Y^{≤λ,τ}=Y^{≤λ,τ,∇∞}. Combined with K59/G71 this identifies the integral fixed-Hodge Galois stack with the p-adic completion of the scalar torus quotient, retaining its G_m stabilizer. This conclusion is for a single λ; it neither restores the unrestricted height hooks disproved by E102 nor supplies the global patching functor.",
+      "locator": "Derived scalar fixed-Hodge refinement of LLHLM23 Proposition7.2.12, PDF147–149, using G20 rather than its bounded-height proof.",
+      "status": "missing",
+      "note": "Owner: LocalGaloisDeformationRings:L7. Derived adapter, not a claim that the numbered source states this refinement. Existing general suppliers are imported; recursive source closure remains partial.",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G72",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G73",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G74",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/K21",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/K59",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G20",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G71"
+      ],
+      "proofSteps": [
+        "G72 identifies the first projection. The second projection K^{λ,τ}→Y^{≤λ,τ} is a monomorphism, being the base change of G74.",
+        "For every finite flat O-algebra Λ, G73 extends T_dd*(M) integrally for every M∈Y^{≤λ,τ}(Λ), with exactly (λ,τ). The extension and its identification over G_{K∞} give a Λ-point of the fibre product. Hence the second projection is essentially surjective on all such Λ-points.",
+        "The target is O-flat, topologically of finite type and analytically unramified by K21 (also by the scalar torus chart K59). Apply G20 to conclude that the second projection is an isomorphism. G71 says the actual true monodromy ideal is zero here, so its equality with Y^{≤λ,τ} is scheme-theoretic, including infinitesimal structure.",
+        "All general period-functor, finite-flat approximation, Isom-representability and Kisin foundations retain their existing owners. This closes the scalar integral-comparison adapter conditional on those recorded suppliers; it is not recursive proof closure of the paper or a formal implementation."
+      ],
+      "tests": [
+        {
+          "name": "ScalarComparison.nilpotents",
+          "kind": "compatibility",
+          "statement": "The equivalence holds on every O/ϖ^a[ε]/(ε²)-point and its isomorphisms, not only after reduction."
+        },
+        {
+          "name": "ScalarComparison.zero_weight",
+          "kind": "degenerate",
+          "statement": "For λ=0 and τ=1, its finite-residue complete local charts give ordinary unramified rank-one deformations with a scalar automorphism group."
+        },
+        {
+          "name": "ScalarComparison.interval_collision",
+          "kind": "non-example",
+          "statement": "At p=2 the weight-0 and weight-1 components can collide after étale restriction modulo 2; the equivalence for each fixed component does not assert injectivity of their union."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "proofProvenance": "Codex — codex-rtOQ9t, 30 September 2026. Source-level derivation with the selected readings recorded in continuationReadings. Not a Lean proof or independent review."
     }
   ],
   "prerequisites": [
@@ -27675,9 +28059,14 @@
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/K58",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/K59",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/K60",
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/K61"
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/K61",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/K62",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G72",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G73",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G74",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G75"
       ],
-      "reason": "L7 owns arbitrary-rank bounded-height Frobenius lattice moduli and their maps to fixed Hodge/inertial-type deformation rings. Add these explicit tame-descent, gauge and residual local-model source obligations there; reserve the true-monodromy polynomial comparison and generic domain theorem for the distinct Part II below. Ordinary lifts use the existing local ordinary infrastructure.",
+      "reason": "L7 owns arbitrary-rank bounded-height Frobenius lattice moduli and their maps to fixed Hodge/inertial-type deformation rings. Add these explicit tame-descent, gauge and residual local-model source obligations there; reserve the true-monodromy polynomial comparison and generic domain theorem for the distinct Part II below. Ordinary lifts use the existing local ordinary infrastructure. K62 and G72–G75 add the scalar fixed-Hodge integral comparison, with finite-DVR lifting, finite-flat unramified twisting and the finite-Artinian-to-formal-stack passage. This refines the existing L7 comparison; it does not create a second owner.",
       "stages": [
         "LocalGaloisDeformationRings:L7",
         "LocalGaloisDeformationRings:R08.1",
@@ -28164,7 +28553,7 @@
       "parent": "LocalGaloisDeformationRings",
       "title": "Local Galois deformation rings and their components, Part II: monodromy local models and generic components",
       "area": "langlands",
-      "brief": "Build on LocalGaloisDeformationRings L7, importing its bounded-height Kisin stacks, tame descent, gauge bases and fixed-type lifting rings. Import integral PZ/loop geometry from GeometricSatakeLocalModelsPartII, affine admissibility from RootSystemsPartIIDominanceAndDemazure, modular finite-group theory from ModularRepresentationsOfFiniteReductiveGroups, scheme normalization/Elkik lemmas from SchemeAndStackFoundations, completed-tensor algebra from DeformationAndDerivedPatchingAlgebra and the common Emerton–Gee foundation from WeightZeroCrystallineLiftingRings. Construct the universal differential locus, naive intersections and flat closures separately. Prove flag generic fibres, contracting chart actions, spreading of normality and product unibranchness with the ramification-index bound; give the Type A affine Springer fixed-point input its own source-bound leaf. Develop residual differential cells, intrinsic C_(w,omega), Serre labels and torus lifts with all genericity bounds, including the corrected Theorem4.6.2 bound max(2n,h_lambda+n-1). Construct analytic monodromy, the convergent recurrence, true flat-closure ideal and basis-dependent truncated ideal; prove the precision containment before Elkik comparison. The exact endpoint is Theorem7.3.2 for regular lambda_j in [0,h]^n and unramified local fields: numerical N_sing gives a noncanonical closed immersion, and a nonzero integral polynomial depending on the Hodge set and coefficient ramification gives the completed regular chart isomorphism and domain-or-zero versal rings at semisimple residual points. Do not claim global canonical gluing or wild-point domains. Prove Theorem7.4.2 component support under max{2(h+1),4n+h}-depth and Proposition7.4.7 with its separate fixed-point polynomial hypothesis. Include the rank-three AppendixB chart, localized equations, normalization and dense branching locus as concrete tests; uniform CAS identities need certificates. Suggested files: TauCeti/NumberTheory/Galois/LocalModels/Differential.lean, Monodromy.lean and GenericComparison.lean. Planets: Differential local model; True monodromy; Generic local-model comparison; Serre-labelled component; Rank-three normalization. Theorem3.7.1 uses two distinct tensor topologies: import the complete-local domain adapter from DeformationAndDerivedPatchingAlgebra and the completed affinoid product from AdicSpacesPartII R0/F0. Elkik precision is now extracted through Z03–Z07, retaining N=2r+1 and the t^(m−r) agreement. For cyclotomic-free restriction use G67–G68 with the finite-length Hom module, importing the discrete cohomology carrier and exactness/transfer from upstream ProfiniteCohomology layers5–6. These local Kummer-tower comparisons do not re-plan the generic cohomology theory. Rank-one scope: carry the actual height/prime conditions of E102 through §7, keep the corrected G35 interval diagram separate from the fixed-Hodge component assertion, and discharge rankOneProofBoundary before restoring unrestricted scalar targets. Existential polynomial genericity may absorb a proved finite prime threshold by a constant factorial factor; vacuous scalar root depth may not. Use G69–G71 for the scalar analytic recurrence, zero true ideal and identity comparison on fixed-Hodge Kisin charts, importing their scalar torus normal form K59 from L7. These have no height-dependent prime bound. Keep the fixed-Hodge integral Galois comparison and the false unrestricted interval hook distinct. K60–K61 prove full faithfulness and closed immersion of the scalar fixed-Hodge forgetful map, importing L7. Its pullback K^{λ,τ}→X^{λ,τ} is a closed immersion. Prove finite-DVR lifting and the distinct integral extension/uniqueness step before identifying the two projections as equivalences."
+      "brief": "Build on LocalGaloisDeformationRings L7, importing its bounded-height Kisin stacks, tame descent, gauge bases and fixed-type lifting rings. Import integral PZ/loop geometry from GeometricSatakeLocalModelsPartII, affine admissibility from RootSystemsPartIIDominanceAndDemazure, modular finite-group theory from ModularRepresentationsOfFiniteReductiveGroups, scheme normalization/Elkik lemmas from SchemeAndStackFoundations, completed-tensor algebra from DeformationAndDerivedPatchingAlgebra and the common Emerton–Gee foundation from WeightZeroCrystallineLiftingRings. Construct the universal differential locus, naive intersections and flat closures separately. Prove flag generic fibres, contracting chart actions, spreading of normality and product unibranchness with the ramification-index bound; give the Type A affine Springer fixed-point input its own source-bound leaf. Develop residual differential cells, intrinsic C_(w,omega), Serre labels and torus lifts with all genericity bounds, including the corrected Theorem4.6.2 bound max(2n,h_lambda+n-1). Construct analytic monodromy, the convergent recurrence, true flat-closure ideal and basis-dependent truncated ideal; prove the precision containment before Elkik comparison. The exact endpoint is Theorem7.3.2 for regular lambda_j in [0,h]^n and unramified local fields: numerical N_sing gives a noncanonical closed immersion, and a nonzero integral polynomial depending on the Hodge set and coefficient ramification gives the completed regular chart isomorphism and domain-or-zero versal rings at semisimple residual points. Do not claim global canonical gluing or wild-point domains. Prove Theorem7.4.2 component support under max{2(h+1),4n+h}-depth and Proposition7.4.7 with its separate fixed-point polynomial hypothesis. Include the rank-three AppendixB chart, localized equations, normalization and dense branching locus as concrete tests; uniform CAS identities need certificates. Suggested files: TauCeti/NumberTheory/Galois/LocalModels/Differential.lean, Monodromy.lean and GenericComparison.lean. Planets: Differential local model; True monodromy; Generic local-model comparison; Serre-labelled component; Rank-three normalization. Theorem3.7.1 uses two distinct tensor topologies: import the complete-local domain adapter from DeformationAndDerivedPatchingAlgebra and the completed affinoid product from AdicSpacesPartII R0/F0. Elkik precision is now extracted through Z03–Z07, retaining N=2r+1 and the t^(m−r) agreement. For cyclotomic-free restriction use G67–G68 with the finite-length Hom module, importing the discrete cohomology carrier and exactness/transfer from upstream ProfiniteCohomology layers5–6. These local Kummer-tower comparisons do not re-plan the generic cohomology theory. Rank-one scope: carry the actual height/prime conditions of E102 through §7, keep the corrected G35 interval diagram separate from the fixed-Hodge component assertion, and discharge rankOneProofBoundary before restoring unrestricted scalar targets. Existential polynomial genericity may absorb a proved finite prime threshold by a constant factorial factor; vacuous scalar root depth may not. Use G69–G71 for the scalar analytic recurrence, zero true ideal and identity comparison on fixed-Hodge Kisin charts, importing their scalar torus normal form K59 from L7. These have no height-dependent prime bound. Keep the fixed-Hodge integral Galois comparison and the false unrestricted interval hook distinct. K60–K61 prove full faithfulness and closed immersion of the scalar fixed-Hodge forgetful map, importing L7. Its pullback K^{λ,τ}→X^{λ,τ} is a closed immersion. Prove finite-DVR lifting and the distinct integral extension/uniqueness step before identifying the two projections as equivalences. The later K62/G72–G75 continuation now supplies both scalar fixed-Hodge integral projections, including finite-flat nilpotents and the formal coefficient passage, importing L7 and the period theorem Z146 from PadicHodgeTheory R06.2. Use this fixed-Hodge equivalence for the remaining scalar lifting/component arguments; do not extend it to the unrestricted height interval or claim that it constructs dyadic patching."
     },
     {
       "route": "source",
@@ -28387,6 +28776,17 @@
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z145"
       ],
       "reason": "The Kummer-tower field structure is shared local-field infrastructure of Breuil–Kisin and (φ, Ĝ)-module theory. It covers the Galois closure K̂ = K∞(μ_{p^∞}), the intersection K∞ ∩ K(μ_{p^∞}) = K, the semidirect product G_0 ⋊ H_K with G_0 ≅ Z_p(1), the cyclotomic Z_p-quotient, and the absence of degree-p Galois subextensions without ζ_p. R07.4 builds that theory for the base fields used in KW and Kisin. These are elementary field-theoretic consequences of Kummer theory (tauceti ProfiniteCohomology Layer 9) and the cyclotomic character (Mathlib), all for p > 2. The LLHLM consumers G68, G67 and G50 import them rather than building a second Kummer-tower theory in the monodromy-model Part II."
+    },
+    {
+      "route": "source",
+      "roadmap": "PadicHodgeTheory",
+      "stages": [
+        "PadicHodgeTheory:R06.2"
+      ],
+      "items": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z146"
+      ],
+      "reason": "The weight-zero crystalline/unramified equivalence is a period-functor theorem, including nonsemisimple representations and finite coefficient algebras. R06.2 owns its weak-admissibility, full-faithfulness, coefficient and unramified-induction inputs. G73 imports it into the local deformation comparison; no second period theory is planned there."
     }
   ],
   "sourceIssues": [
@@ -30758,7 +31158,7 @@
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B26",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B42"
       ],
-      "detail": "The downstream audit now reaches §§7.3–9. P17’s statement and B24’s use are corrected; E88 reaches the patching-existence proof. E102 gives an explicit counterexample to the whole bounded-height hook in (7.17), so G35 has conservative corrected scope n≥2. The original statement is retained as sourceStatement with the rank-one target and its false unrestricted interval portion distinguished. Each affected G/B proof names its remaining scalar comparison, lifting, flag or precision obligation in rankOneProofBoundary. Remaining: (1) scalar fixed-Hodge/true-monodromy and local-model comparison, including a convention for h_λ on the empty root set and the actual Elkik/contraction bounds; (2) a compatible rank-one version of the component diagram with a valid interval restriction; (3) dyadic scalar patching satisfying the full functor axioms, or retention of p>2; (4) propagate the resulting finite bounds into the existential polynomials. P_m=(-1)^m m! at n=1 is already proved in N80: the explicit P_4 factors in the §8/§9 applications exclude p=2,3, but do not prove arbitrary-height comparisons. No unrestricted rank-one main theorem or recursive closure is asserted. Scalar continuation: G69 proves an explicit analytic solution for C_j=g_jE^{k_j} over the full O-flat coefficient category, including nilpotents; G70 proves the actual true ideal zero. K59 and G71 compute the fixed-Hodge Kisin gauge charts and show true, truncated and naive monodromy agree there at every prime, without using h_λ or an empty-root maximum. The remaining local step is the integral fixed-Hodge Galois-to-Kisin equivalence (for example via locally algebraic rank-one characters and their residual deformation families); characteristic-zero extension from G02 is insufficient. The earlier bounded-height counterexample and dyadic patching boundary remain. K21/K22’s general flat-closure suppliers still belong to the inherited recursive closure audit. Continuation codex-5ebb6f: K60 kills nonconstant Laurent coefficients by finite p-divisibility recursion, including nilpotents; K61 proves the fixed-Hodge ε_τ is a closed immersion at every prime. Its pullback K^{λ,τ}→X^{λ,τ} is therefore a closed immersion. Remaining: establish finite-DVR lifting with exact source hypotheses, then the second projection/integral G_K extension and uniqueness for coefficient families. A universal parameter d over O[d,d^{-1}] is not automatically a continuous ordinary G_K character when its reduction has infinite order. No unqualified equivalence is claimed."
+      "detail": "The downstream audit now reaches §§7.3–9. P17’s statement and B24’s use are corrected; E88 reaches the patching-existence proof. E102 gives an explicit counterexample to the whole bounded-height hook in (7.17), so G35 has conservative corrected scope n≥2. The original statement is retained as sourceStatement with the rank-one target and its false unrestricted interval portion distinguished. Each affected G/B proof names its remaining scalar comparison, lifting, flag or precision obligation in rankOneProofBoundary. Remaining: (1) scalar fixed-Hodge/true-monodromy and local-model comparison, including a convention for h_λ on the empty root set and the actual Elkik/contraction bounds; (2) a compatible rank-one version of the component diagram with a valid interval restriction; (3) dyadic scalar patching satisfying the full functor axioms, or retention of p>2; (4) propagate the resulting finite bounds into the existential polynomials. P_m=(-1)^m m! at n=1 is already proved in N80: the explicit P_4 factors in the §8/§9 applications exclude p=2,3, but do not prove arbitrary-height comparisons. No unrestricted rank-one main theorem or recursive closure is asserted. Scalar continuation: G69 proves an explicit analytic solution for C_j=g_jE^{k_j} over the full O-flat coefficient category, including nilpotents; G70 proves the actual true ideal zero. K59 and G71 compute the fixed-Hodge Kisin gauge charts and show true, truncated and naive monodromy agree there at every prime, without using h_λ or an empty-root maximum. The remaining local step is the integral fixed-Hodge Galois-to-Kisin equivalence (for example via locally algebraic rank-one characters and their residual deformation families); characteristic-zero extension from G02 is insufficient. The earlier bounded-height counterexample and dyadic patching boundary remain. K21/K22’s general flat-closure suppliers still belong to the inherited recursive closure audit. Continuation codex-5ebb6f: K60 kills nonconstant Laurent coefficients by finite p-divisibility recursion, including nilpotents; K61 proves the fixed-Hodge ε_τ is a closed immersion at every prime. Its pullback K^{λ,τ}→X^{λ,τ} is therefore a closed immersion. Remaining: establish finite-DVR lifting with exact source hypotheses, then the second projection/integral G_K extension and uniqueness for coefficient families. A universal parameter d over O[d,d^{-1}] is not automatically a continuous ordinary G_K character when its reduction has infinite order. No unqualified equivalence is claimed. Continuation codex-rtOQ9t (30 September): K62/G72 supply finite-DVR lifting and the first-projection isomorphism; Z146/G73 prove finite-flat integral extension with nilpotents through a weight-zero unramified twist; G74 supplies the finite-Artinian/full formal coefficient passage; G75 proves the scalar fixed-Hodge integral equivalence using the existing general suppliers. The next scalar work is lifting and component labelling (G31/G33/G53), followed by actual polynomial bounds and dyadic patching. The preceding sentences describe historical checkpoints; the new adapters resolve their integral-comparison boundary, not the twelve-gap recursive audit."
     }
   ],
   "sourceData": {
@@ -34079,6 +34479,13 @@
       "date": "2026-09-30",
       "scope": "K60/K61 only; no inherited item status changed",
       "evidence": "Read current L7/R08.3 descriptions and reviewed SF.0/SF.1/SF.4 coverage. No separate LocalGaloisDeformationRings coverage entry; SF.1 records absent algebraic spaces/geometric stacks and SF.4 absent formal schemes. The new statements refine existing missing Kisin carriers K59/K21. Inherited pinned Section5 search evidence is retained, not represented as a new search run. Laurent coefficient algebra and the scheme closed-immersion criterion are imported, not replanned."
+    },
+    "codexRtOQ9tIntegralComparison": {
+      "date": "2026-09-30",
+      "base": "2bbf269",
+      "read": "Read the full L7/R08.1/R08.3, R06.2 and R07.3 stage descriptions, R07.4 finite-height/full-faithfulness/semistable/coefficient packet statements, L7 finite-height and lattice-moduli nodes, and reviewed SF.0/SF.1/SF.4 and R09.3 audit rows. Direct reviewed audit rows for LocalGaloisDeformationRings and FiniteFlatGroupsAndIntegralPadicHodgeTheory are still absent from the layers map; the inherited audit gap remains.",
+      "pinnedSearch": "git grep at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 in Mathlib/NumberTheory, Mathlib/RepresentationTheory and WittVector/Isocrystal.lean, and TauCeti f790474821cf4256814db967cb154e7af3d0c369 in TauCeti, for Kisin|D_cris|crystalline|semistable.*representation returned no matches. This bounded negative search is not a whole-library audit and changes no earlier library classification.",
+      "ownership": "Five scalar application adapters join the existing LocalGaloisDeformationRings source route. Z146 opens one source route to the existing PadicHodgeTheory:R06.2 owner; it does not propose a new roadmap. Existing period, lattice, scheme and formal-stack foundations are imported."
     }
   },
   "validation": {
@@ -35585,6 +35992,26 @@
       "checks": "JavaScript translation of the paper/source-issue validators, IDs, routing and DAG passed before saving. After the session permission repair, the actual Python paper and three-file intake validators and git diff --check were run successfully; the report records the checks. No new source mistake asserted.",
       "lean": "No Lean deliverable or compilation; no implementation claim.",
       "inherited": "Earlier CAS, finite-series and other diagnostics are historical evidence and were not rerun here."
+    },
+    "codexRtOQ9tIntegralComparison": {
+      "session": "codex-rtOQ9t",
+      "date": "2026-09-30",
+      "items": 791,
+      "statuses": {
+        "missing": 597,
+        "planned": 48,
+        "library": 146
+      },
+      "routes": 27,
+      "internalEdges": 1666,
+      "internalDAG": true,
+      "oneRoutePerMissing": true,
+      "earlierStatementsStatusesLocatorsPreserved": true,
+      "sourceFindingsPreserved": 120,
+      "gapsRetained": 12,
+      "checks": "Actual Python paper and three-file intake validators; exact IDs, all prior statements/statuses/locators, source-finding preservation, missing-item routing and dependency acyclicity; git diff --check. Mathematical proof outlines manually checked against the stated coefficient categories. No finite diagnostic is substituted for a general proof.",
+      "lean": "No Lean deliverable required or compiled.",
+      "inherited": "Earlier CAS and finite-series diagnostics are historical evidence and were not rerun."
     }
   },
   "definitionApiGroups": [
