@@ -251,3 +251,54 @@ The independent review (REV-PAPER-BURUNGALE-KOBAYASHI-OTA-21, `research/blueprin
 - **New items:** five were added.
 
 Where the text above counts items, the corrected JSON is authoritative. It has 115 items: 6 library, 10 planned and 99 missing.
+
+## Fixes (FIX-RT-PAPER-BURUNGALE-KOBAYASHI-OTA-21, 30 September 2026)
+
+Claude Code, session `cc-c2c06b`, issue #4979. This fix applies the fourteen high and medium findings of
+`RT-PAPER-BURUNGALE-KOBAYASHI-OTA-21` that the verifier confirmed, following the verifier's corrections.
+The full record is `research/blueprint/redteam/RT-PAPER-BURUNGALE-KOBAYASHI-OTA-21.fixes.md`.
+
+**Supersessions.** Parts of "Ownership and routes" above are superseded:
+- **The late Rubin-function branch moved to route 5.** primitive-elliptic-unit, rubin-lfunction and
+  rubin-interpolation now sit there, and route 4 is retitled "…, Part II: nonordinary CM special values".
+  The roadmap graph is 4 → 3 → 5 and 4 → 5, which is acyclic. Route 3 lists NonordinaryCMSpecialValues
+  as a prerequisite.
+- **CMAllPrimeMainConjectures is an accepted proposal** (PAPER-BURUNGALE-TIAN-26 route 7). A new route 6
+  joins it with the integral inert-prime units form of Rubin's two-variable main conjecture
+  (rubin-two-variable-main-conjecture), which Agboola–Howard II need and which no layer owned.
+- **A new route 7**, "Elliptic curves, Part II: supersingular curves over finite fields", takes the
+  supersingular mass and twist counts from route 3.
+
+| Route | Missing items | Scope |
+| --- | ---: | --- |
+| CM.4 source addition | 2 | Canonical character and Gross Q-curve specialization |
+| Finite-flat Part II | 12 | Lubin–Tate modules, Honda, the elliptic-lift identification, quasi-canonical lifts for finite F_0/Q_p |
+| Coleman Part II | 57 | Local units, formal Kummer duality, optimal formal-CM points |
+| Automorphic-L Part II | 10 | Early CM special values |
+| Main-conjectures Part II | 23 | Rubin's L_p over Λ_R, the three Agboola–Howard steps, the signed main conjecture and rank bounds |
+| CMAllPrimeMainConjectures (joined) | 1 | Rubin 1991 Theorem 4.1(ii), integral, at inert p |
+| Elliptic curves Part II | 1 | Supersingular mass and F_(p²) twist counts |
+
+**The dependency graph** now reads:
+
+$$
+\text{LT foundation}\to\text{local units/Coleman/Kummer}\to\text{optimal unit}\to\text{local decomposition},
+$$
+$$
+\text{early CM special values (route 4)}\to\text{route 3},\qquad
+\text{routes 3, 4}\to\text{Rubin }L_p\in\Lambda_R\to\text{signed main conjecture (route 5)}.
+$$
+
+**Other changes.**
+- **honda-lift** follows erratum E9: parameter ±p for a_(p²) = ±2p.
+- **ξ(E,Ω)** is ξ_ν at ν = 1, in U_∞* ⊗_O R, and L_p ∈ Λ_R.
+- **New items.**
+  - formal-kummer-duality (route 3).
+  - lt-lift-identification (route 2).
+  - Three Agboola–Howard steps on route 5: ah-local-dictionary, ah-conditional-equality and
+    ah-elliptic-unit-generator.
+  - Two planned items for Hecke L-functions and root numbers.
+- **Library citation.** adic-elliptic-points now cites Tau Ceti's unconditional
+  formalPointHomAdicCompletion.
+- **Prerequisites.** Agboola–Howard I and Pollack–Rubin are added.
+- **Result:** 123 items (6 library, 12 planned, 105 missing).
