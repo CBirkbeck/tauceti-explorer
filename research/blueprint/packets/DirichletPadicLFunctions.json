@@ -10,7 +10,7 @@
     "DirichletPadicLFunctions:L4"
   ],
   "status": "partial",
-  "summary": "Four L2 nodes transport the arbitrary-level finite formulas to the existing intrinsic field-valued zeta measure, integral tame measure, integral ambient zeta measure and intrinsic integral zeta measure. All 722 predecessor nodes remain whole. Four signatures and fifteen examples expose actual existence and independence of the unit/coefficient families and equality on all continuous integral tests.",
+  "summary": "Four L2 comparisons specialize the preceding intrinsic and integral arbitrary-level formulas to the actual native primitive character. The four suggested declarations have complete transport proofs against the existing planned statements; fifteen tests cover all continuous tests, mass, equal support, constructor certificates and primitive coefficients. All726 predecessor nodes remain whole.",
   "baseline": {
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
@@ -4368,6 +4368,13 @@
         "module": "Mathlib/Data/Nat/PrimeFin.lean",
         "provides": "Every member of the native prime-support finite set divides the original natural number.",
         "checked": "Complete declaration and ambient hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 30 September 2026, with native IsUnit.unit/unit_spec and finite-product laws. Complete native probes verify the unit-family, product and finite inclusion calculations."
+      },
+      {
+        "ref": "mathlib:Nat.Prime.not_dvd_mul",
+        "kind": "lemma",
+        "module": "Mathlib/Data/Nat/Prime/Basic.lean",
+        "provides": "A prime dividing neither natural factor does not divide their product.",
+        "checked": "Full declaration and ambient hypotheses read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on30 September2026. The current complete native probe checks their exact use for primitive values and tame subset products."
       }
     ]
   },
@@ -47739,6 +47746,326 @@
       "acceptance": [
         "The finite atomic intrinsic models preserve the actual unit support and inverse-weight factor. Their mass checks do not claim values for the arithmetic zeta mass."
       ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L2/intrinsic-tame-zeta-primitive-conductor",
+      "parentStageId": "DirichletPadicLFunctions:L2",
+      "realises": [
+        "DirichletPadicLFunctions:L2"
+      ],
+      "title": "Primitive conductor comparison on the native unit group",
+      "kind": "comparison",
+      "statement": "ζU_η=Σ_(t⊆S) ε_t η₀(d_t)/d_t • map(v↦u_t*v)(ζU_η₀).",
+      "hypotheses": [
+        "p is any prime, including2. N>0, η:DirichletCharacter K N is nonprincipal, K is a complete nontrivially normed ultrametric field with Algebra ℤ_p K and IsBoundedSMul ℤ_p K. The given constructor certificates are hN:IsUnit(N:K) and hpN:p∤N.",
+        "f=η.conductor and η₀=η.primitiveCharacter are the actual native objects, with f∣N, f≠0, η₀ primitive and changeLevel(η₀)=η. The named hF:IsUnit(f:K) and hpF:p∤f are derived from hN,hpN and f∣N. No choice of a second primitive character or conductor carrier occurs.",
+        "S=N.primeFactors\\f.primeFactors, d_t=Π_(q∈t)q and ε_t=(−1)^|t|. U=ℤ_pˣ is the native unit group. O is the existing norm-valuation integer ring Valuation.integer(NormedField.valuation K), with its inherited norm and subtype inclusion i:O→K. No separate ℤ_p-algebra or completeness instance on O is assumed.",
+        "u:ℕ→U has value q on q∈S; this whole family exists by the earlier native unit construction, since q∣N implies p∤q. Put u_t=Π_(q∈t)u(q), with underlying value d_t. Units.ext gives independence on every used subset."
+      ],
+      "proofSteps": [
+        "Use native conductor_ne_zero for the local NeZero f instance and conductor_dvd_level for f∣N. If p∣f, transitivity would imply p∣N; write N=f*k and apply IsUnit.mul_iff after casting to obtain the unit certificate hF. The combined conductor_certificates native probe checks the actual hypotheses together.",
+        "Derive η₀≠1: otherwise native changeLevel_primitiveCharacter and preservation of1 would imply η=1. PrimitiveCharacter_isPrimitive is already native. All constructor witness arguments are proofs, so proof irrelevance removes any dependence on their presentation.",
+        "Reuse intrinsic-tame-zeta-arbitrary-level, including its proved existence and independence of the unit family and its inclusion/retraction route. Applying it at the native conductor requires no new restriction, convolution identification or coefficient-field descent.",
+        "The intrinsic carrier is the same U at both tame levels; changing the finite Dirichlet modulus does not change the p-adic domain. The rewrite by native recovery therefore has no hidden carrier equivalence.",
+        "Apply the exact preceding arbitrary-level comparison at M=f, base character η₀, and hMN=conductor_dvd_level. Rewrite only changeLevel_primitiveCharacter. The suggested declaration includes the complete transport proof, verified in the partial signature file against the prior planned statements. This checks the reduction, not the implementation of the arithmetic constructors or of the comparison it imports.",
+        "The indexing set consists of new prime divisors only. For q∈S, η(q)=0 whereas η₀(q)≠0: the first follows from q∣N and the native ZMod nonunit criterion; the second from q∤f and MulChar.apply_ne_zero_iff. The complete new_prime_values probe checks both statements. Substituting the original imprimitive value would incorrectly erase each correction.",
+        "Evaluate on any continuous test to obtain the corresponding finite sum of pullback evaluations. On the constant test1 all dilations preserve the test, yielding the finite signed scalar mass factor. If N and f have equal prime support, S is empty and the sole empty-subset term is the identity. This remains valid when N has higher powers of conductor primes.",
+        "All conclusions concern the existing bounded arithmetic measure constructors. The source special-value identification via primitive Gauss sums, common coefficient embeddings, analytic branches and logarithmic weight-zero interpolation remains separate. Finite atomic zeta masses are not used as arithmetic mass values."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L2/intrinsic-tame-zeta-arbitrary-level",
+        "DirichletPadicLFunctions:L2/tame-zeta-primitive-conductor",
+        "mathlib:DirichletCharacter.conductor",
+        "mathlib:DirichletCharacter.conductor_dvd_level",
+        "mathlib:DirichletCharacter.conductor_ne_zero",
+        "mathlib:DirichletCharacter.primitiveCharacter",
+        "mathlib:DirichletCharacter.changeLevel_primitiveCharacter",
+        "mathlib:DirichletCharacter.primitiveCharacter_isPrimitive",
+        "mathlib:IsUnit.mul_iff",
+        "mathlib:MulChar.apply_ne_zero_iff",
+        "mathlib:MulChar.map_nonunit",
+        "mathlib:ZMod.isUnit_prime_iff_not_dvd",
+        "mathlib:AbstractMeasure.map_apply",
+        "mathlib:AbstractMeasure.map_id"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/TameLevelChange",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.intrinsicTameZetaMeasure_primitiveCharacter"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Theorem5.7, Remark5.8(2), integral-coefficient construction after(5-3), Lemmas5.9–5.12 and Definition5.13, published143–146/PDF44–47, freshly reread completely on30 September2026.",
+          "match": "Worker specialization of the preceding actual arbitrary-level comparisons to the native primitive character. The source motivates the primitive tame measure; these finite imprimitive correction formulas are deductions, not verbatim assertions. No composite Gauss nonvanishing or complex-to-p-adic identification is assumed."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedTamePrimitiveIntegralTests.intrinsic_field_primitive_all_tests",
+          "kind": "compatibility",
+          "statement": "Every continuous test on the actual carrier satisfies the finite primitive-conductor formula."
+        },
+        {
+          "name": "SuggestedTamePrimitiveIntegralTests.intrinsic_field_primitive_mass",
+          "kind": "computation",
+          "statement": "The actual measure mass is the primitive mass multiplied by the finite signed coefficient sum."
+        },
+        {
+          "name": "SuggestedTamePrimitiveIntegralTests.intrinsic_field_primitive_same_support",
+          "kind": "degenerate",
+          "statement": "Equal prime support gives equality with the primitive measure, including repeated conductor prime powers."
+        },
+        {
+          "name": "SuggestedTamePrimitiveIntegralTests.primitive_constructor_certificates",
+          "kind": "characterisation",
+          "statement": "Conductor positivity, unit image, tameness and primitive nonprincipality follow simultaneously from the original level hypotheses."
+        }
+      ],
+      "acceptance": [
+        "All auxiliary unit and integral coefficient families exist from the given hypotheses and are unique on used indices. All previous native objects and fine comparison nodes are reused. Complete conditional transport proofs do not change unchecked status."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L2/integral-tame-measure-primitive-conductor",
+      "parentStageId": "DirichletPadicLFunctions:L2",
+      "realises": [
+        "DirichletPadicLFunctions:L2"
+      ],
+      "title": "Primitive conductor comparison for integral tame measures",
+      "kind": "comparison",
+      "statement": "μO_η=Σ_(t⊆S) ε_t a(d_t) • D_(d_t)(μO_η₀).",
+      "hypotheses": [
+        "p is any prime, including2. N>0, η:DirichletCharacter K N is nonprincipal, K is a complete nontrivially normed ultrametric field with Algebra ℤ_p K and IsBoundedSMul ℤ_p K. The given constructor certificates are hN:IsUnit(N:K) and hpN:p∤N.",
+        "f=η.conductor and η₀=η.primitiveCharacter are the actual native objects, with f∣N, f≠0, η₀ primitive and changeLevel(η₀)=η. The named hF:IsUnit(f:K) and hpF:p∤f are derived from hN,hpN and f∣N. No choice of a second primitive character or conductor carrier occurs.",
+        "S=N.primeFactors\\f.primeFactors, d_t=Π_(q∈t)q and ε_t=(−1)^|t|. U=ℤ_pˣ is the native unit group. O is the existing norm-valuation integer ring Valuation.integer(NormedField.valuation K), with its inherited norm and subtype inclusion i:O→K. No separate ℤ_p-algebra or completeness instance on O is assumed.",
+        "a:ZMod f→O satisfies i(a(x))=η₀(x); it is an ordinary subtype-valued function, with existence from the native character norm bound and pointwise uniqueness from Subtype.ext."
+      ],
+      "proofSteps": [
+        "Use native conductor_ne_zero for the local NeZero f instance and conductor_dvd_level for f∣N. If p∣f, transitivity would imply p∣N; write N=f*k and apply IsUnit.mul_iff after casting to obtain the unit certificate hF. The combined conductor_certificates native probe checks the actual hypotheses together.",
+        "Derive η₀≠1: otherwise native changeLevel_primitiveCharacter and preservation of1 would imply η=1. PrimitiveCharacter_isPrimitive is already native. All constructor witness arguments are proofs, so proof irrelevance removes any dependence on their presentation.",
+        "Apply integral-tame-measure-arbitrary-level using the primitive character coefficient function a. Native DirichletCharacter.norm_le_one supplies every value of a, including zero on nonunits; it is not an extra integral character carrier.",
+        "The native probe primitive_integral_families produces a and the zeta coefficient function together from the actual primitive character. The ordinary measure formula uses a(d_t) without the inverse d_t factor; all tests and mass factors preserve this distinction.",
+        "Apply the exact preceding arbitrary-level comparison at M=f, base character η₀, and hMN=conductor_dvd_level. Rewrite only changeLevel_primitiveCharacter. The suggested declaration includes the complete transport proof, verified in the partial signature file against the prior planned statements. This checks the reduction, not the implementation of the arithmetic constructors or of the comparison it imports.",
+        "The indexing set consists of new prime divisors only. For q∈S, η(q)=0 whereas η₀(q)≠0: the first follows from q∣N and the native ZMod nonunit criterion; the second from q∤f and MulChar.apply_ne_zero_iff. The complete new_prime_values probe checks both statements. Substituting the original imprimitive value would incorrectly erase each correction.",
+        "Evaluate on any continuous test to obtain the corresponding finite sum of pullback evaluations. On the constant test1 all dilations preserve the test, yielding the finite signed scalar mass factor. If N and f have equal prime support, S is empty and the sole empty-subset term is the identity. This remains valid when N has higher powers of conductor primes.",
+        "All conclusions concern the existing bounded arithmetic measure constructors. The source special-value identification via primitive Gauss sums, common coefficient embeddings, analytic branches and logarithmic weight-zero interpolation remains separate. Finite atomic zeta masses are not used as arithmetic mass values."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L2/integral-tame-measure-arbitrary-level",
+        "DirichletPadicLFunctions:L2/tame-measure-primitive-conductor",
+        "mathlib:DirichletCharacter.conductor",
+        "mathlib:DirichletCharacter.conductor_dvd_level",
+        "mathlib:DirichletCharacter.conductor_ne_zero",
+        "mathlib:DirichletCharacter.primitiveCharacter",
+        "mathlib:DirichletCharacter.changeLevel_primitiveCharacter",
+        "mathlib:DirichletCharacter.primitiveCharacter_isPrimitive",
+        "mathlib:IsUnit.mul_iff",
+        "mathlib:MulChar.apply_ne_zero_iff",
+        "mathlib:MulChar.map_nonunit",
+        "mathlib:ZMod.isUnit_prime_iff_not_dvd",
+        "mathlib:AbstractMeasure.map_apply",
+        "mathlib:AbstractMeasure.map_id"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/TameLevelChange",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.integralTameMeasure_primitiveCharacter"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Theorem5.7, Remark5.8(2), integral-coefficient construction after(5-3), Lemmas5.9–5.12 and Definition5.13, published143–146/PDF44–47, freshly reread completely on30 September2026.",
+          "match": "Worker specialization of the preceding actual arbitrary-level comparisons to the native primitive character. The source motivates the primitive tame measure; these finite imprimitive correction formulas are deductions, not verbatim assertions. No composite Gauss nonvanishing or complex-to-p-adic identification is assumed."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedTamePrimitiveIntegralTests.integral_measure_primitive_all_tests",
+          "kind": "compatibility",
+          "statement": "Every continuous test on the actual carrier satisfies the finite primitive-conductor formula."
+        },
+        {
+          "name": "SuggestedTamePrimitiveIntegralTests.integral_measure_primitive_mass",
+          "kind": "computation",
+          "statement": "The actual measure mass is the primitive mass multiplied by the finite signed coefficient sum."
+        },
+        {
+          "name": "SuggestedTamePrimitiveIntegralTests.integral_measure_primitive_same_support",
+          "kind": "degenerate",
+          "statement": "Equal prime support gives equality with the primitive measure, including repeated conductor prime powers."
+        },
+        {
+          "name": "SuggestedTamePrimitiveIntegralTests.primitive_bad_prime_values",
+          "kind": "computation",
+          "statement": "At every new bad prime the original character is zero and its actual primitive character is nonzero."
+        }
+      ],
+      "acceptance": [
+        "All auxiliary unit and integral coefficient families exist from the given hypotheses and are unique on used indices. All previous native objects and fine comparison nodes are reused. Complete conditional transport proofs do not change unchecked status."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L2/integral-tame-zeta-primitive-conductor",
+      "parentStageId": "DirichletPadicLFunctions:L2",
+      "realises": [
+        "DirichletPadicLFunctions:L2"
+      ],
+      "title": "Primitive conductor comparison for integral tame zeta measures",
+      "kind": "comparison",
+      "statement": "ζO_η=Σ_(t⊆S) ε_t c(t) • D_(d_t)(ζO_η₀).",
+      "hypotheses": [
+        "p is any prime, including2. N>0, η:DirichletCharacter K N is nonprincipal, K is a complete nontrivially normed ultrametric field with Algebra ℤ_p K and IsBoundedSMul ℤ_p K. The given constructor certificates are hN:IsUnit(N:K) and hpN:p∤N.",
+        "f=η.conductor and η₀=η.primitiveCharacter are the actual native objects, with f∣N, f≠0, η₀ primitive and changeLevel(η₀)=η. The named hF:IsUnit(f:K) and hpF:p∤f are derived from hN,hpN and f∣N. No choice of a second primitive character or conductor carrier occurs.",
+        "S=N.primeFactors\\f.primeFactors, d_t=Π_(q∈t)q and ε_t=(−1)^|t|. U=ℤ_pˣ is the native unit group. O is the existing norm-valuation integer ring Valuation.integer(NormedField.valuation K), with its inherited norm and subtype inclusion i:O→K. No separate ℤ_p-algebra or completeness instance on O is assumed.",
+        "c:Finset ℕ→O satisfies i(c(t))=η₀(d_t)/d_t for t⊆S. Existence follows from p∤d_t and the already general prime-to-p denominator integrality theorem. Values outside S.powerset are irrelevant and can be zero. No division is introduced on O."
+      ],
+      "proofSteps": [
+        "Use native conductor_ne_zero for the local NeZero f instance and conductor_dvd_level for f∣N. If p∣f, transitivity would imply p∣N; write N=f*k and apply IsUnit.mul_iff after casting to obtain the unit certificate hF. The combined conductor_certificates native probe checks the actual hypotheses together.",
+        "Derive η₀≠1: otherwise native changeLevel_primitiveCharacter and preservation of1 would imply η=1. PrimitiveCharacter_isPrimitive is already native. All constructor witness arguments are proofs, so proof irrelevance removes any dependence on their presentation.",
+        "Every q∈t⊆S divides N; p∤N gives p∤q. Native Prime.not_dvd_mul and finite induction give p∤d_t. Reuse tame-prime-correction-integrality at d_t, whose statement already permits every natural denominator prime to p.",
+        "The complete primitive_integral_families proof constructs the whole c function in O, using zero off the used subsets. Its four integrality ingredients are the complete native proofs from #4958, explicitly reused and recompiled; no membership hypothesis is left conditional.",
+        "Apply integral-tame-zeta-arbitrary-level. The included coefficient is η₀(d_t)/d_t, so the integral statement retains the inverse-dilation factor at weight zero as well as at positive polynomial tests.",
+        "Apply the exact preceding arbitrary-level comparison at M=f, base character η₀, and hMN=conductor_dvd_level. Rewrite only changeLevel_primitiveCharacter. The suggested declaration includes the complete transport proof, verified in the partial signature file against the prior planned statements. This checks the reduction, not the implementation of the arithmetic constructors or of the comparison it imports.",
+        "The indexing set consists of new prime divisors only. For q∈S, η(q)=0 whereas η₀(q)≠0: the first follows from q∣N and the native ZMod nonunit criterion; the second from q∤f and MulChar.apply_ne_zero_iff. The complete new_prime_values probe checks both statements. Substituting the original imprimitive value would incorrectly erase each correction.",
+        "Evaluate on any continuous test to obtain the corresponding finite sum of pullback evaluations. On the constant test1 all dilations preserve the test, yielding the finite signed scalar mass factor. If N and f have equal prime support, S is empty and the sole empty-subset term is the identity. This remains valid when N has higher powers of conductor primes.",
+        "All conclusions concern the existing bounded arithmetic measure constructors. The source special-value identification via primitive Gauss sums, common coefficient embeddings, analytic branches and logarithmic weight-zero interpolation remains separate. Finite atomic zeta masses are not used as arithmetic mass values."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L2/integral-tame-zeta-arbitrary-level",
+        "DirichletPadicLFunctions:L2/tame-zeta-primitive-conductor",
+        "DirichletPadicLFunctions:L2/tame-prime-correction-integrality",
+        "mathlib:DirichletCharacter.conductor",
+        "mathlib:DirichletCharacter.conductor_dvd_level",
+        "mathlib:DirichletCharacter.conductor_ne_zero",
+        "mathlib:DirichletCharacter.primitiveCharacter",
+        "mathlib:DirichletCharacter.changeLevel_primitiveCharacter",
+        "mathlib:DirichletCharacter.primitiveCharacter_isPrimitive",
+        "mathlib:IsUnit.mul_iff",
+        "mathlib:MulChar.apply_ne_zero_iff",
+        "mathlib:MulChar.map_nonunit",
+        "mathlib:ZMod.isUnit_prime_iff_not_dvd",
+        "mathlib:AbstractMeasure.map_apply",
+        "mathlib:AbstractMeasure.map_id",
+        "mathlib:Nat.Prime.not_dvd_mul"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/TameLevelChange",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.integralTameZetaMeasure_primitiveCharacter"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Theorem5.7, Remark5.8(2), integral-coefficient construction after(5-3), Lemmas5.9–5.12 and Definition5.13, published143–146/PDF44–47, freshly reread completely on30 September2026.",
+          "match": "Worker specialization of the preceding actual arbitrary-level comparisons to the native primitive character. The source motivates the primitive tame measure; these finite imprimitive correction formulas are deductions, not verbatim assertions. No composite Gauss nonvanishing or complex-to-p-adic identification is assumed."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedTamePrimitiveIntegralTests.integral_zeta_primitive_all_tests",
+          "kind": "compatibility",
+          "statement": "Every continuous test on the actual carrier satisfies the finite primitive-conductor formula."
+        },
+        {
+          "name": "SuggestedTamePrimitiveIntegralTests.integral_zeta_primitive_mass",
+          "kind": "computation",
+          "statement": "The actual measure mass is the primitive mass multiplied by the finite signed coefficient sum."
+        },
+        {
+          "name": "SuggestedTamePrimitiveIntegralTests.integral_zeta_primitive_same_support",
+          "kind": "degenerate",
+          "statement": "Equal prime support gives equality with the primitive measure, including repeated conductor prime powers."
+        },
+        {
+          "name": "SuggestedTamePrimitiveIntegralTests.primitive_coefficient_families",
+          "kind": "characterisation",
+          "statement": "The ordinary primitive coefficient function and every used integral inverse-product coefficient exist together from the original tame level hypothesis."
+        }
+      ],
+      "acceptance": [
+        "All auxiliary unit and integral coefficient families exist from the given hypotheses and are unique on used indices. All previous native objects and fine comparison nodes are reused. Complete conditional transport proofs do not change unchecked status."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L2/intrinsic-integral-tame-primitive-conductor",
+      "parentStageId": "DirichletPadicLFunctions:L2",
+      "realises": [
+        "DirichletPadicLFunctions:L2"
+      ],
+      "title": "Primitive conductor comparison for integral zeta measures on units",
+      "kind": "comparison",
+      "statement": "ζO,U_η=Σ_(t⊆S) ε_t c(t) • map(v↦u_t*v)(ζO,U_η₀).",
+      "hypotheses": [
+        "p is any prime, including2. N>0, η:DirichletCharacter K N is nonprincipal, K is a complete nontrivially normed ultrametric field with Algebra ℤ_p K and IsBoundedSMul ℤ_p K. The given constructor certificates are hN:IsUnit(N:K) and hpN:p∤N.",
+        "f=η.conductor and η₀=η.primitiveCharacter are the actual native objects, with f∣N, f≠0, η₀ primitive and changeLevel(η₀)=η. The named hF:IsUnit(f:K) and hpF:p∤f are derived from hN,hpN and f∣N. No choice of a second primitive character or conductor carrier occurs.",
+        "S=N.primeFactors\\f.primeFactors, d_t=Π_(q∈t)q and ε_t=(−1)^|t|. U=ℤ_pˣ is the native unit group. O is the existing norm-valuation integer ring Valuation.integer(NormedField.valuation K), with its inherited norm and subtype inclusion i:O→K. No separate ℤ_p-algebra or completeness instance on O is assumed.",
+        "u:ℕ→U has value q on q∈S; this whole family exists by the earlier native unit construction, since q∣N implies p∤q. Put u_t=Π_(q∈t)u(q), with underlying value d_t. Units.ext gives independence on every used subset.",
+        "c:Finset ℕ→O satisfies i(c(t))=η₀(d_t)/d_t for t⊆S. Existence follows from p∤d_t and the already general prime-to-p denominator integrality theorem. Values outside S.powerset are irrelevant and can be zero. No division is introduced on O."
+      ],
+      "proofSteps": [
+        "Use native conductor_ne_zero for the local NeZero f instance and conductor_dvd_level for f∣N. If p∣f, transitivity would imply p∣N; write N=f*k and apply IsUnit.mul_iff after casting to obtain the unit certificate hF. The combined conductor_certificates native probe checks the actual hypotheses together.",
+        "Derive η₀≠1: otherwise native changeLevel_primitiveCharacter and preservation of1 would imply η=1. PrimitiveCharacter_isPrimitive is already native. All constructor witness arguments are proofs, so proof irrelevance removes any dependence on their presentation.",
+        "Apply intrinsic-integral-tame-arbitrary-level at f and η₀, using the same actual unit and integral coefficient families as above. Native recovery rewrites the left character to η; no integral field structure, lifted arbitrary field test or extra generic measure functor is needed.",
+        "The all-test statement ranges over every continuous O-valued function on U. It follows from equality of the actual intrinsic integral measures, not just from finitely many moments or finite residue checks. The mass relation is valid as a constructor comparison without asserting a logarithmic special-value formula.",
+        "Apply the exact preceding arbitrary-level comparison at M=f, base character η₀, and hMN=conductor_dvd_level. Rewrite only changeLevel_primitiveCharacter. The suggested declaration includes the complete transport proof, verified in the partial signature file against the prior planned statements. This checks the reduction, not the implementation of the arithmetic constructors or of the comparison it imports.",
+        "The indexing set consists of new prime divisors only. For q∈S, η(q)=0 whereas η₀(q)≠0: the first follows from q∣N and the native ZMod nonunit criterion; the second from q∤f and MulChar.apply_ne_zero_iff. The complete new_prime_values probe checks both statements. Substituting the original imprimitive value would incorrectly erase each correction.",
+        "Evaluate on any continuous test to obtain the corresponding finite sum of pullback evaluations. On the constant test1 all dilations preserve the test, yielding the finite signed scalar mass factor. If N and f have equal prime support, S is empty and the sole empty-subset term is the identity. This remains valid when N has higher powers of conductor primes.",
+        "All conclusions concern the existing bounded arithmetic measure constructors. The source special-value identification via primitive Gauss sums, common coefficient embeddings, analytic branches and logarithmic weight-zero interpolation remains separate. Finite atomic zeta masses are not used as arithmetic mass values."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L2/intrinsic-integral-tame-arbitrary-level",
+        "DirichletPadicLFunctions:L2/intrinsic-tame-zeta-primitive-conductor",
+        "DirichletPadicLFunctions:L2/integral-tame-zeta-primitive-conductor",
+        "mathlib:DirichletCharacter.conductor",
+        "mathlib:DirichletCharacter.conductor_dvd_level",
+        "mathlib:DirichletCharacter.conductor_ne_zero",
+        "mathlib:DirichletCharacter.primitiveCharacter",
+        "mathlib:DirichletCharacter.changeLevel_primitiveCharacter",
+        "mathlib:DirichletCharacter.primitiveCharacter_isPrimitive",
+        "mathlib:IsUnit.mul_iff",
+        "mathlib:MulChar.apply_ne_zero_iff",
+        "mathlib:MulChar.map_nonunit",
+        "mathlib:ZMod.isUnit_prime_iff_not_dvd",
+        "mathlib:AbstractMeasure.map_apply",
+        "mathlib:AbstractMeasure.map_id"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/TameLevelChange",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.intrinsicIntegralTameZetaMeasure_primitiveCharacter"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Theorem5.7, Remark5.8(2), integral-coefficient construction after(5-3), Lemmas5.9–5.12 and Definition5.13, published143–146/PDF44–47, freshly reread completely on30 September2026.",
+          "match": "Worker specialization of the preceding actual arbitrary-level comparisons to the native primitive character. The source motivates the primitive tame measure; these finite imprimitive correction formulas are deductions, not verbatim assertions. No composite Gauss nonvanishing or complex-to-p-adic identification is assumed."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedTamePrimitiveIntegralTests.intrinsic_integral_primitive_all_tests",
+          "kind": "compatibility",
+          "statement": "Every continuous test on the actual carrier satisfies the finite primitive-conductor formula."
+        },
+        {
+          "name": "SuggestedTamePrimitiveIntegralTests.intrinsic_integral_primitive_mass",
+          "kind": "computation",
+          "statement": "The actual measure mass is the primitive mass multiplied by the finite signed coefficient sum."
+        },
+        {
+          "name": "SuggestedTamePrimitiveIntegralTests.intrinsic_integral_primitive_same_support",
+          "kind": "degenerate",
+          "statement": "Equal prime support gives equality with the primitive measure, including repeated conductor prime powers."
+        }
+      ],
+      "acceptance": [
+        "All auxiliary unit and integral coefficient families exist from the given hypotheses and are unique on used indices. All previous native objects and fine comparison nodes are reused. Complete conditional transport proofs do not change unchecked status."
+      ]
     }
   ],
   "requests": [
@@ -47842,7 +48169,7 @@
       "stageId": "DirichletPadicLFunctions:L2",
       "status": "partial",
       "remaining": [
-        "The arbitrary-level finite formulas now hold for the native intrinsic field-valued zeta measure and all three existing integral tame realizations, with actual unit and coefficient families derived from the tame hypotheses. Next state their primitive-conductor specializations using the already verified native conductor certificates. Primitive Gauss nonvanishing, common-field primitive special-value identifications, analytic branches, logarithmic/degree-zero interpolation, full source extraction and supplier pseudomeasure requests remain open."
+        "All six existing tame measure realizations now have explicit arbitrary-level and primitive-conductor comparisons, with actual native conductor certificates and derived integral/unit presentation data. Next extract the arithmetic-character moment Euler factors, including weight zero in the integral unit carrier and the dyadic cases, from these actual all-test equalities. Primitive Gauss nonvanishing, common-field special values, analytic branches, logarithmic degree zero, full extraction and supplier pseudomeasure requests remain open."
       ]
     },
     {
@@ -47876,7 +48203,7 @@
     {
       "title": "L2 remaining source decomposition and interfaces",
       "neededBy": [],
-      "detail": "The arbitrary-level finite formulas now hold for the native intrinsic field-valued zeta measure and all three existing integral tame realizations, with actual unit and coefficient families derived from the tame hypotheses. Next state their primitive-conductor specializations using the already verified native conductor certificates. Primitive Gauss nonvanishing, common-field primitive special-value identifications, analytic branches, logarithmic/degree-zero interpolation, full source extraction and supplier pseudomeasure requests remain open."
+      "detail": "All six existing tame measure realizations now have explicit arbitrary-level and primitive-conductor comparisons, with actual native conductor certificates and derived integral/unit presentation data. Next extract the arithmetic-character moment Euler factors, including weight zero in the integral unit carrier and the dyadic cases, from these actual all-test equalities. Primitive Gauss nonvanishing, common-field special values, analytic branches, logarithmic degree zero, full extraction and supplier pseudomeasure requests remain open."
     },
     {
       "title": "L3 remaining source decomposition and interfaces",
@@ -48245,24 +48572,24 @@
   "checks": {
     "blueprint": "Zero errors and warnings with the unmodified pinned index.",
     "intake": "Exactly four authorized deliverables; zero problems.",
-    "sourceIssues": "All 16 findings, three source records, sourceVersions, eleven requests and fifteen gaps remain whole. No new source mistake or independent review verdict.",
+    "sourceIssues": "All16findings, three source records, sourceVersions, eleven requests and fifteen gaps remain whole. No new source finding or independent review verdict.",
     "validation": {
-      "nodes": 726,
+      "nodes": 730,
       "kinds": {
         "definition": 2,
         "lemma": 272,
         "construction": 72,
         "theorem": 224,
-        "comparison": 156
+        "comparison": 160
       },
       "api": 549,
-      "packetTests": 1260,
+      "packetTests": 1275,
       "definitionConstructionTests": 309,
-      "typedExamples": 1263,
+      "typedExamples": 1278,
       "planets": 24,
-      "baseline": 622,
-      "preservedWholeNodes": 722,
-      "preservedBaseline": 620,
+      "baseline": 623,
+      "preservedWholeNodes": 726,
+      "preservedBaseline": 622,
       "preservedSourceIssues": 16,
       "newSourceIssues": 0,
       "newNodes": 4,
@@ -48271,10 +48598,10 @@
       "requests": 11,
       "gaps": 15,
       "closedStages": 0,
-      "reachableNodes": 984,
-      "dependencyEdges": 5037,
+      "reachableNodes": 988,
+      "dependencyEdges": 5096,
       "acyclic": true,
-      "baselineLeaves": 797,
+      "baselineLeaves": 798,
       "stageRequestLeaves": [
         "AdicSpacesPartII:F1",
         "AdicSpacesPartII:R2",
@@ -48286,7 +48613,7 @@
         "PadicMeasuresIwasawaAlgebras:L2",
         "PadicMeasuresIwasawaAlgebras:L3"
       ],
-      "readerWords": 366431,
+      "readerWords": 370160,
       "scopedMutationCheck": true,
       "correctedPredecessorNodes": 0,
       "fullSuggestedCompiled": false,
@@ -48313,7 +48640,7 @@
         "TauCeti.NumberTheory.ArithmeticFunction.TwistedDivisorSum"
       ],
       "scratchCompleteDefinitions": 0,
-      "scratchCompleteLemmas": 10,
+      "scratchCompleteLemmas": 8,
       "scratchMathlibModules": 2824,
       "scratchTauModules": 0,
       "scratchErrors": 0,
@@ -48342,7 +48669,10 @@
         "integralPositiveMomentValues": 10724,
         "intrinsicAtomicTests": 3830,
         "integralAtomicValues": 7660,
-        "finiteRingReductionChecks": 11490
+        "finiteRingReductionChecks": 11490,
+        "primitiveBadPrimePairs": 343,
+        "primitiveIntegralUnitCoefficients": 792,
+        "primitiveIntegralReductions": 2376
       },
       "numericalControlsCertified": false,
       "newRoutesStageLeaves": []
@@ -48352,7 +48682,7 @@
       "compiled": false,
       "errors": null,
       "warnings": null,
-      "sha256": "b3dd334de1f4dd3b40f801297a5cb2c2c4e0e2d20703667a7481cf1e59e8fc3a",
+      "sha256": "42f6e115a1560c5b55714351067263b1814babbb6a51cbd53115cf230000bde4",
       "missingNativeArtifacts": [
         "TauCeti.NumberTheory.ArithmeticFunction.TwistedDivisorSum"
       ],
@@ -48367,11 +48697,11 @@
         }
       },
       "nativeProbe": {
-        "completeLemmas": 10,
+        "completeLemmas": 8,
         "errors": 0,
         "warnings": 0,
         "placeholders": 0,
-        "sha256": "27ff36e8bb7ef49d3200be0d546fd661c8f94eade31f1a5b249276646a4dee0f"
+        "sha256": "778c7352b3c5f09b08dc9d65fcda128aeb270f37afc1e086ba1be9a28f27b7d5"
       },
       "sourceAndAvailableArtifactAudit": {
         "compiledSupplierNodes": 332,
@@ -48458,7 +48788,7 @@
       }
     },
     "publication": {
-      "base": "e7374e70f6c6a3ba9c3b7b92f5fda302259dd34d",
+      "base": "26e13733c29ab3a2f00b9fa01568983da663f30f",
       "unchangedInputs": 66,
       "unchangedOutputs": 4,
       "sameSessionFollowupAfterMerge": true,
@@ -55861,6 +56191,136 @@
           }
         }
       }
+    },
+    "tamePrimitiveIntegral": {
+      "agent": "Codex",
+      "session": "codex-7e92bd",
+      "issue": 713,
+      "claimComment": 5854790528,
+      "winningBot": 5854791937,
+      "previousPR": 5124,
+      "previousHead": "1ede6be633e3e1b3d70aae19aaac183705cce074",
+      "previousMerge": "ecbbcc0b74038d6f94ad52b6163dff9daefa2b76",
+      "preservedWholeNodes": 726,
+      "preservedBaseline": 622,
+      "preservedFindings": 16,
+      "newNodes": 4,
+      "reading": "Freshly reread all five reviewed AUDIT-24 library-coverage layers, native conductor and primitive-character Basic230–335, native MulChar unit/nonzero statements, and complete RJW published143–146/PDF44–47. Read both preceding primitive ambient nodes and all four intrinsic/integral arbitrary-level nodes with their exact signatures. The source primitive Gauss and positive-weight interpolation boundaries remain unchanged.",
+      "boundary": "All six existing tame measure realizations now have explicit arbitrary-level and primitive-conductor comparisons, with actual native conductor certificates and derived integral/unit presentation data. Next extract the arithmetic-character moment Euler factors, including weight zero in the integral unit carrier and the dyadic cases, from these actual all-test equalities. Primitive Gauss nonvanishing, common-field special values, analytic branches, logarithmic degree zero, full extraction and supplier pseudomeasure requests remain open.",
+      "inputBase": "d89fa4a3a244aabcc0359ca8b0749546da58c87a",
+      "sourceBoundary": "All16findings, three source records, sourceVersions, eleven requests and fifteen gaps remain whole. No new source finding or independent review verdict.",
+      "inputRefresh": {
+        "base": "8984cbb929a023398a752d00e5660a5c5e1dcb70",
+        "delta": {
+          "data/source-issues.json": {
+            "old": "620b0cc1f84dd7059af27f30a4ad1d4ca1106886",
+            "new": "b441a84e7a048672b27cd0ea4a1418506a75d0c4"
+          },
+          "research/errata/REGISTER.md": {
+            "old": "60815dfcb0c35184b7b70308158f4ac86d3ba00f",
+            "new": "fa3a2d3564ce1c6d50811bfc2f7239a2bf3888ce"
+          },
+          "research/blueprint/links/tauceti_TauCetiRoadmap_RepresentationTheory_SemisimpleAlgebras.json": {
+            "old": "5a9421ba8a8b6ca8477f27ca6d98daf11adac2c2",
+            "new": "df72eb59901cff620c54c57247dc3a701e5edb81"
+          }
+        },
+        "assessment": "Publication refresh: SemisimpleAlgebras restores one research-only Wedderburn input into Quiver3, preserving the five previous links and three overlaps; neither endpoint is used here. Registry changes are exactly Fu E1–E10: seven earlier findings receive the published-edition provenance and revised descriptions, while E8–E10 add unreviewed radius-noetherianity, small-weight-strip and arbitrary-level passage gaps. All changed printed/corrected mathematical statements and reasons were read. These concern Bianchi forms and noncommutative distributions, not the tame Dirichlet measure identities or their unchanged supplier interfaces. All16Dirichlet findings and63other captured inputs remain unchanged; no independent validation of Fu is claimed.",
+        "allOtherCapturedMathematicalInputsUnchanged": true,
+        "preservedDirichletFindings": 16,
+        "previousRefresh": {
+          "previousRefresh": {
+            "base": "91d6892cade626a773ba65f5da796aa77539eb78",
+            "delta": {
+              "research/blueprint/links/tauceti_TauCetiRoadmap_ProfiniteProPGroups.json": {
+                "old": "95d450f0c8c79a7f3fae94985230fb57f36aada6",
+                "new": "17d826907d1107afc8118329e04796cd597eae9c"
+              },
+              "research/blueprint/links/tauceti_TauCetiRoadmap_StablePeriodicCurved.json": {
+                "old": "25c7feaa7c08bfb2d06eeadbe9df1eab91d27c62",
+                "new": "8f4c58211cd7514e2f6efa5c52dafaefeb468def"
+              }
+            },
+            "assessment": "Read both complete captured-input diffs. StablePeriodicCurved restores a research-only additive-quotient link into Quiver6; neither endpoint is in this Dirichlet closure. ProfiniteProPGroups preserves all directed links, corrects continuous-section and algebraic Weierstrass reuse, and records two ProfiniteCohomology text corrections. PMIA already separates native algebraic Weierstrass from continuity and comparison work; the current primitive-level transports use its earlier measure inclusion/section APIs, none changed. No new local section/Weierstrass/conductor carrier is planned; supplier continuity and existing requests remain open. All64 other inputs, all16 Dirichlet findings and four predecessor outputs are unchanged.",
+            "preservedDirichletFindings": 16
+          },
+          "base": "d89fa4a3a244aabcc0359ca8b0749546da58c87a",
+          "delta": {
+            "data/source-issues.json": {
+              "old": "326b61fee545cc67f1c39c405e5832a74ff3be86",
+              "new": "620b0cc1f84dd7059af27f30a4ad1d4ca1106886"
+            },
+            "research/errata/REGISTER.md": {
+              "old": "1fd372e66d6c11ce42f157bdabf29838c93ae954",
+              "new": "60815dfcb0c35184b7b70308158f4ac86d3ba00f"
+            }
+          },
+          "changedOwners": [
+            "PAPER-DEMARCO-KRIEGER-YE-20"
+          ],
+          "changedRecords": [
+            "PAPER-DEMARCO-KRIEGER-YE-20/E14",
+            "PAPER-DEMARCO-KRIEGER-YE-20/E15",
+            "PAPER-DEMARCO-KRIEGER-YE-20/E16"
+          ],
+          "preservedDirichletFindings": 16,
+          "allOtherCapturedMathematicalInputsUnchanged": true,
+          "assessment": "Registry-only refresh adds three unreviewed DeMarco–Krieger–Ye findings about height weights, possibly singular fiber products and the choice of a Jacobian lift; none changes a Dirichlet source or supplier. The full changed records and register additions were read. The additions remain awaiting review.  All changed records and owner labels compared; all other captured mathematical inputs and four predecessor outputs are unchanged. No independent review of unrelated findings is claimed."
+        }
+      },
+      "partialSignatureCheck": {
+        "prefixPR": 5124,
+        "omits": "PR4777–4791 signatures as in the retained prefix",
+        "newDeclarations": 4,
+        "completeConditionalTransportProofs": 4,
+        "newExamples": 15,
+        "result": {
+          "exitCode": 0,
+          "sourceSha256": "761de10bbc201e18a5376e27d2dfd0132b9a4bb13e62c750e35a1e3cb43e878f",
+          "modules": 3582,
+          "warnings": 2203,
+          "errors": 0
+        }
+      },
+      "publication": {
+        "base": "26e13733c29ab3a2f00b9fa01568983da663f30f",
+        "unchangedInputs": 66,
+        "unchangedOutputs": 4,
+        "sameSessionFollowupAfterMerge": true,
+        "lastClaimConfirmation": 5854791937,
+        "reviewIssue": 390,
+        "reviewUnclaimed": true
+      },
+      "finiteControls": {
+        "profiles": 13,
+        "levelPairs": 130,
+        "primePlacePairs": 383,
+        "dyadicPairs": 55,
+        "primitiveRecoveryValues": 11049,
+        "relativeResidueChecks": 3578,
+        "primitiveResidueChecks": 3578,
+        "ordinaryMomentChecks": 5362,
+        "positiveZetaMomentChecks": 5362,
+        "finiteTestChecks": 5136,
+        "atomicZetaTests": 3830,
+        "atomicZetaMasses": 766,
+        "sameSupportChecks": 2102,
+        "wrongRepeatedFactorFailures": 784,
+        "wrongMissingInverseFailures": 2570,
+        "wrongPrimitiveValueFailures": 1047,
+        "principalCounterexamples": 13,
+        "integralCoefficientTerms": 1512,
+        "integralResidueValues": 14312,
+        "integralPositiveMomentValues": 10724,
+        "intrinsicAtomicTests": 3830,
+        "integralAtomicValues": 7660,
+        "finiteRingReductionChecks": 11490,
+        "primitiveBadPrimePairs": 343,
+        "primitiveIntegralUnitCoefficients": 792,
+        "primitiveIntegralReductions": 2376
+      },
+      "numericalMethod": "New primitive checks distinguish the zero imprimitive value from the nonzero primitive coefficient at each new bad prime and verify integral inverse coefficients, including reductions modulo p, p² and p³. Exact Q(i)/Q(omega) arithmetic with sufficient coefficientwise p-integrality (rational coordinate denominators prime to p). Finite reductions use (Z/p^r Z)[i] and (Z/p^r Z)[omega] at r=1,2,3; no identification with the full local integer ring is asserted. Intrinsic atomic checks restrict to the actual p-unit support and compare the same product dilations.  Native-style finite character tables determine the least positive inducing modulus by testing every divisor and unit fibre, then verify recovery of the actual imprimitive table. Actual residue formulas and quotient/Stirling moment formulas independently check the relative-level and primitive-conductor subset sums. Separately labelled finite atomic inverse-weight models check the zeta subset coefficients and mass factors; their masses are not arithmetic zeta masses. Controls detect repeated Euler factors, a missing inverse dilation factor, and evaluating the imprimitive character at a new bad prime. The principal modulus-one to modulus-three counterexample remains excluded by the nonprincipal hypothesis.",
+      "fullSuggestedCompiled": false
     }
   },
   "requestResolutions": [
