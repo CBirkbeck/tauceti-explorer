@@ -34347,8 +34347,9 @@
     "REV-PAPER-GAO-HABEGGER-19"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-GAO-HABEGGER-19.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4092"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4092",
+   "finishedAt": "2026-09-30T15:00:40Z"
   },
   {
    "id": "RT-PAPER-MOK-PILA-TSIMERMAN-19",
@@ -37208,8 +37209,9 @@
     "REV-PAPER-LEMKEOLIVER-WANG-WOOD-25"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-LEMKEOLIVER-WANG-WOOD-25.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4210"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4210",
+   "finishedAt": "2026-09-30T15:00:45Z"
   },
   {
    "id": "REV-RT-PAPER-LEMKEOLIVER-WANG-WOOD-25",
@@ -38910,7 +38912,8 @@
     "REV-PAPER-RICHARD-YAFAEV-25"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-RICHARD-YAFAEV-25.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4289"
   },
   {
    "id": "REV-RT-PAPER-RICHARD-YAFAEV-25",
@@ -39681,7 +39684,8 @@
     "REV-PAPER-SKINNER-20"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-SKINNER-20.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4322"
   },
   {
    "id": "REV-RT-PAPER-SKINNER-20",
@@ -42241,8 +42245,9 @@
     "REV-RS-14"
    ],
    "prompt": "research/blueprint/prompts/RT-RS-14.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4401"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4401",
+   "finishedAt": "2026-09-30T15:00:52Z"
   },
   {
    "id": "REV-RT-RS-14",
