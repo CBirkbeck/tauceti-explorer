@@ -10,6 +10,28 @@ The machine-readable extraction is [PAPER-MASSER-ZANNIER-20.result.json](PAPER-M
 - 16 prerequisite entries;
 - 5 recorded misprints.
 
+After the independent review (REV-PAPER-MASSER-ZANNIER-20, research/blueprint/reviews/REV-PAPER-MASSER-ZANNIER-20.md), the extraction has 72 items (3 library, 13 planned, 56 missing), 8 routes, 19 prerequisite entries and 12 recorded mistakes, all confirmed. The review corrected it in place:
+- **Routes 2 and 3 are reshaped.**
+  - Weakly special subvarieties (items 22, 23) need A_g, which is downstream of ShimuraData D4, so they moved to LD.6. The Mumford–Tate definition (item 4) stays in D1.
+  - Serre's open image, Deligne's monodromy and the Cadoret–Pink implications (items 24, 25, 6) need layers downstream of R01.6, so they moved to route 7. The definition of Galois genericity (item 5) stays in R01.6.
+- **Two status changes.**
+  - Item 21, Ax–Lindemann for A_g, is planned in LD.6, as the accepted review of PAPER-TSIMERMAN-18 classes it.
+  - Item 65, the Galois-orbit bound for CM points, is missing and joins the accepted Part II "Complex multiplication and explicit reciprocity, Part II: CM heights and Galois-orbit bounds" (new route 8).
+- **Four items added.**
+  - Quotients by finite subgroups (item 69, planned in A3).
+  - The degree and Rosati-length inequalities behind Lemma 4.2 (item 70, route 6).
+  - Degrees under generic projections (item 71).
+  - Fields of definition of bounded degree over the field of moduli (item 72).
+
+  Items 71 and 72 go to route 7.
+- **Seven new findings, E6–E12.**
+  - A gap in the §3.3 sketch (E10).
+  - The strict inequality Lemma 5.5 needs (E11).
+  - The D(A) display, which repeats E1 in a worse form (E9).
+  - Four other misprints.
+
+The sections below describe the extraction as submitted; the review's changes are listed in its report.
+
 ## Sources read
 
 - **The published version**, freely available from the Annals site, read in full: 40 pages (pp. 635–674), with every proof and the references. SHA-256 8b76bfac88374180701992e242d88f5d38fbe0b0cdb39c6c40c3c3fbbb874b60, fetched 29 September 2026.
@@ -113,6 +135,8 @@ The machine-readable extraction is [PAPER-MASSER-ZANNIER-20.result.json](PAPER-M
    - **Why a new roadmap:** nothing in the atlas studies isogeny classes in A_g against a hypersurface. It imports the suppliers of routes 1–6, the heights, PELModuli and the Tau Ceti JacobianChallenge, and does not re-plan them.
 
 ## Source issues (`sourceIssues` E1–E5, all misprints)
+
+(The independent review confirmed all five and added E6–E12; see its report.)
 
 None affects a stated result.
 
