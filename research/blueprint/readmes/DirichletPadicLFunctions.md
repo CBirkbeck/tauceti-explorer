@@ -20664,3 +20664,137 @@ One complete native constructor and ten complete native lemmas verify scalar nor
 Exact finite controls check odd-prime unit residues, normalized constants and positive coefficients, their congruences at unchanged precision, odd-prime half inverses at finite quotients, and the triadic nonzero constant. The dyadic witness remains nonintegral and is tested as a negative boundary. Exact rational residue masses and Bernoulli-polynomial constants, with integer divisor sums and modular inverses of two. Fixed quadratic finite characters may be presented at higher p-power level without changing their values; calculations use their level-one representatives. These finite checks do not establish infinite measure construction or analytic interpolation. The separate complete native probe proves the scalar constructor, certificate, coefficient-image, bound and congruence arguments. The largest observed discrepancy is 0 in asserted exact identities; no odd-prime integrality or congruence violation; no floating-point arithmetic.
 
 All66 inputs are guarded. The only predecessor input changes are26 unrelated Bhargava registry records and the generated errata register; all16 Dirichlet records and every consumed mathematical input remain exact. Changed owners, statuses and locators were inspected without claiming an independent review. The separate signature check uses exact4773 plus only4793,4796,4799 and the current additions; it excludes4777–4791 and is not the current full module. Fifteen new declarations and fourteen typed examples give1886 expected placeholder warnings and zero errors in that signature check.
+
+
+## Exact tame scalar integrality and the general dyadic obstruction
+
+Partial continuation preserving all630 predecessor nodes whole. One L2 lemma and three L4 theorems give an actual residue-shift identity, an explicit unit-constant test, the exact criterion for scalar multiples to admit an integral measure lift, and the dyadic obstruction for every nonprincipal tame character.
+
+Freshly read the whole actual tame-residue node with its finite cyclic proof, characteristic-zero uniqueness boundary and all prerequisites, and the existing doubled constant-residue and normalized-congruence interfaces. Read native character-sum vanishing, unit multiplication and additive translation permutations, finite range splittings, Fin/range equivalence, canonical residue values, unit/coprimality criteria, unbounded natural powers and p-adic scalar norms with their ambient hypotheses. Fourteen complete native lemmas check the finite algebra, representative construction, scalar lift criterion and dyadic norm bound. Source passages and the reviewed L4 audit remain the retained basis; no new whole-paper or independent review is claimed.
+
+### A cyclic shift of the actual tame residue masses
+
+`DirichletPadicLFunctions:L2/tame-residue-cyclic-shift` — `DirichletPadic.tameMeasure_residue_shift`
+
+For n≥0 and a,b∈ZMod(p^n) with b.val≡a.val+p^n modulo D, finiteProjection(red_n)(μ_η)(b)−finiteProjection(red_n)(μ_η)(a)=−η(a.val).
+
+**Hypotheses:** p is prime. K is a complete nontrivially normed ultrametric field of characteristic zero, with Algebra ℤ_p K and IsBoundedSMul ℤ_p K. D>0, η:DirichletCharacter K D is nonprincipal, hD:IsUnit(D:K) and p∤D. U=(ℤ_p)ˣ, O=Valuation.integer(NormedField.valuation(K)), ι:O↪K and the actual μ_η=tameMeasure(η,hD,hpD) are reused. Gη is integralDoubledTameEisensteinSeries. All formal series use the native coefficientwise topology. The finite shift compares canonical representatives modulo D: b.val≡a.val+p^n modD, for a,b∈ZMod(p^n). It is not the operation of adding p^n inside ZMod(p^n), which is the identity. For the unit-residue witness take n≥1 and 2D≤p^n. Such a level exists. Indicators are the existing native discrete continuous maps Function.update(0,a,1) composed with unit reduction; no new generic indicator constructor is defined. The scalar criterion concerns an actual O-linear continuous formal-series-valued measure on every O-valued continuous test. No arbitrary K-valued test extension, character-density assertion, classical modular form or analytic family is introduced. Nonprincipal η is essential; the tame level-one constructor has zero constant and is a separate case.
+
+**Proof:**
+
+1. Set q=p^n and apply the existing exact finite-residue formula at a and b. Since η is evaluated modulo D, the assumed congruence replaces b.val by a.val+q inside its weighted finite sum. The canonical representatives in the original formula remain unchanged; only the character arguments are reduced modulo D.
+2. The scalar q is a unit in ZMod D by primality, p∤D and native ZMod.isUnit_iff_coprime. Multiplication by this unit followed by addition of a.val permutes ZMod D. Native MulChar.sum_eq_zero_of_ne_one therefore gives Σ_jη(a.val+qj)=0. Complete tame_step_unit and character_progression_sum verify these exact statements.
+3. For f(j)=η(a.val+qj), one has f(D)=f(0). Compare the sums over ranges D and D+1 first for f, then for j↦f(j)j. Splitting off the last or the first term gives Σ_(j<D)f(j+1)=0 and Σ_(j<D)f(j+1)(j+1)=Σ_(j<D)f(j)j+D f(0). Subtract the first equality to obtain Σf(j+1)j−Σf(j)j=D f(0). Complete weighted_shift proves this finite identity over every commutative ring.
+4. Transfer finite ZMod sums to range sums using the native Fin/range equivalence and canonical-value bounds. Complete sum_zmod_range, weighted_zmod_range and weighted_character_shift verify the transfer and cyclic identity. The indexed product splitting/equivalence declarations carry native generated additive versions, used by the probe; equivalently apply their commutative-monoid statements to Multiplicative(F,+). No absent declaration is invented or added to the index.
+5. Multiplication by −hD.unit⁻¹ cancels D and yields −η(a.val). Complete residue_shift verifies the field algebra. The existing characteristic-zero assumption is retained from the actual residue formula, rather than inferred from a bounded coefficient action.
+6. Adding q to a within ZMod q returns a, so its mass difference is zero. The hypothesis instead compares two canonical representatives modulo the independent tame modulus D; the negative control keeps this distinction explicit.
+
+**Prerequisites:** `DirichletPadicLFunctions:L2/tame-residue-coefficients`, `mathlib:MulChar.sum_eq_zero_of_ne_one`, `mathlib:ZMod.isUnit_iff_coprime`, `mathlib:Nat.Prime.coprime_iff_not_dvd`, `mathlib:Units.mulLeft`, `mathlib:Equiv.mulLeft`, `mathlib:Finset.prod_range_succ`, `mathlib:Finset.prod_range_succ'`, `mathlib:Fin.prod_univ_eq_prod_range`, `mathlib:ZMod.val_natCast_of_lt`.
+
+**Tests:**
+
+- `SuggestedTameScalarTests.dyadic_residue_shift` (computation): At p=2,D=3,n=3 the masses of residues3 and1 differ by−1.
+- `SuggestedTameScalarTests.triadic_residue_shift` (computation): At p=3,D=4,n=2 the masses of residues2 and1 differ by−1.
+- `SuggestedTameScalarTests.adding_quotient_is_not_shift` (non-example): Adding the quotient modulus inside ZMod(p^n) gives zero mass difference, not the claimed cyclic shift.
+
+**Acceptance:** The equality is for finite projections of the actual measure. The tame congruence of canonical representatives is explicit, with no carry or index ambiguity.
+
+**Source:** Restriction and zero extension in §3.5.3, published127–129/PDF28–30; Lemmas5.10–5.12 and Definition5.13, published145–146/PDF46–47; Definition8.1, Theorem8.2 and Remark8.3, published159–161/PDF60–62. Whole passages read in the preceding constant-residue and doubled tame-series checkpoints; retained source corrections apply. Worker consequences of the existing actual finite-residue formula and integral doubled tame series. The two-unit-residue witness, exact scalar criterion and general dyadic obstruction are derived here, not quoted as source theorems. The proof uses finite cyclic sums, avoiding the previously recorded invalid geometric expansion. No new source erratum, independent review or classical modularity assertion is made.
+
+### A unit constant detected by two residue tests
+
+`DirichletPadicLFunctions:L4/integral-tame-unit-constant-witness` — `DirichletPadic.integralDoubledTameEisensteinSeries_unit_constant_witness`
+
+For n≥1 and 2D≤p^n there is a unit b∈ZMod(p^n) such that, for the actual unit-residue indicators e_b and e_1, ι(coeff₀Gη(e_b−e_1))=−1.
+
+**Hypotheses:** p is prime. K is a complete nontrivially normed ultrametric field of characteristic zero, with Algebra ℤ_p K and IsBoundedSMul ℤ_p K. D>0, η:DirichletCharacter K D is nonprincipal, hD:IsUnit(D:K) and p∤D. U=(ℤ_p)ˣ, O=Valuation.integer(NormedField.valuation(K)), ι:O↪K and the actual μ_η=tameMeasure(η,hD,hpD) are reused. Gη is integralDoubledTameEisensteinSeries. All formal series use the native coefficientwise topology. The finite shift compares canonical representatives modulo D: b.val≡a.val+p^n modD, for a,b∈ZMod(p^n). It is not the operation of adding p^n inside ZMod(p^n), which is the identity. For the unit-residue witness take n≥1 and 2D≤p^n. Such a level exists. Indicators are the existing native discrete continuous maps Function.update(0,a,1) composed with unit reduction; no new generic indicator constructor is defined. The scalar criterion concerns an actual O-linear continuous formal-series-valued measure on every O-valued continuous test. No arbitrary K-valued test extension, character-density assertion, classical modular form or analytic family is introduced. Nonprincipal η is essential; the tame level-one constructor has zero constant and is a separate case.
+
+**Proof:**
+
+1. Put q=p^n and b0=(1+q) modD. If p does not divide b0 choose b=b0; otherwise choose b=b0+D. Since p∤D, the second choice is not divisible by p. In both cases b<2D≤q and b≡1+q modD. Complete unit_representative proves this construction without restricting p to2.
+2. The natural b gives a native element of ZMod q whose canonical value is exactly b. Native unit/coprimality criteria and complete unit_residue make it a unit. Since n≥1 and p is prime, q>1, so the canonical representative of1 is1 and it too is a unit.
+3. The preceding actual residue-shift theorem with a=1 gives the ambient mass difference −η(1)=−1. For these two unit residues at a positive quotient level, the existing integral-tame-constant-residue comparison identifies each ambient mass with the included doubled constant of its unit indicator.
+4. The inherited linearity of the actual Gη identifies the difference with the constant on e_b−e_1. Both tests are continuous O-valued native finite indicators. Their difference is a legitimate test even if no scalar extension to all K-valued tests is available.
+5. For an existential test independent of the quotient level, native pow_unbounded_of_one_lt supplies n with2D<p^n; D>0 ensures n≥1. Complete large_residue_level verifies this selection. The modulus-five dyadic example uses n=4,b=7 and gives exactly−1, without Gauss sums or character primitivity.
+
+**Prerequisites:** `DirichletPadicLFunctions:L2/tame-residue-cyclic-shift`, `DirichletPadicLFunctions:L4/integral-tame-constant-residue`, `DirichletPadicLFunctions:L4/integral-doubled-tame-eisenstein-series`, `mathlib:ContinuousMap.equivFnOfDiscrete`, `mathlib:ZMod.val_natCast_of_lt`, `mathlib:ZMod.isUnit_iff_coprime`, `mathlib:Nat.Prime.coprime_iff_not_dvd`, `mathlib:pow_unbounded_of_one_lt`.
+
+**Tests:**
+
+- `SuggestedTameScalarTests.actual_test_witness` (compatibility): For every eligible nonprincipal tame family there exists an actual integral continuous test whose included doubled constant is−1.
+- `SuggestedTameScalarTests.modulus_five_unit_witness` (computation): At p=2,D=5,n=4, the difference of indicators at residues7 and1 has doubled constant−1.
+
+**Acceptance:** The witness is explicit at every sufficiently large finite quotient and is a test on the actual unit group. Nonprincipal η, positive level and the size bound remain stated.
+
+**Source:** Restriction and zero extension in §3.5.3, published127–129/PDF28–30; Lemmas5.10–5.12 and Definition5.13, published145–146/PDF46–47; Definition8.1, Theorem8.2 and Remark8.3, published159–161/PDF60–62. Whole passages read in the preceding constant-residue and doubled tame-series checkpoints; retained source corrections apply. Worker consequences of the existing actual finite-residue formula and integral doubled tame series. The two-unit-residue witness, exact scalar criterion and general dyadic obstruction are derived here, not quoted as source theorems. The proof uses finite cyclic sums, avoiding the previously recorded invalid geometric expansion. No new source erratum, independent review or classical modularity assertion is made.
+
+### The exact scalar integrality criterion
+
+`DirichletPadicLFunctions:L4/tame-full-series-scalar-integrality` — `DirichletPadic.integralDoubledTameEisensteinSeries_scalar_lift_iff`
+
+For every s∈K, there exists M:AbstractMeasure U O (PowerSeries O) with map_ι(M(f))=s•map_ι(Gη(f)) for every f∈C(U,O) if and only if ‖s‖≤1.
+
+**Hypotheses:** p is prime. K is a complete nontrivially normed ultrametric field of characteristic zero, with Algebra ℤ_p K and IsBoundedSMul ℤ_p K. D>0, η:DirichletCharacter K D is nonprincipal, hD:IsUnit(D:K) and p∤D. U=(ℤ_p)ˣ, O=Valuation.integer(NormedField.valuation(K)), ι:O↪K and the actual μ_η=tameMeasure(η,hD,hpD) are reused. Gη is integralDoubledTameEisensteinSeries. All formal series use the native coefficientwise topology. The finite shift compares canonical representatives modulo D: b.val≡a.val+p^n modD, for a,b∈ZMod(p^n). It is not the operation of adding p^n inside ZMod(p^n), which is the identity. For the unit-residue witness take n≥1 and 2D≤p^n. Such a level exists. Indicators are the existing native discrete continuous maps Function.update(0,a,1) composed with unit reduction; no new generic indicator constructor is defined. The scalar criterion concerns an actual O-linear continuous formal-series-valued measure on every O-valued continuous test. No arbitrary K-valued test extension, character-density assertion, classical modular form or analytic family is introduced. Nonprincipal η is essential; the tame level-one constructor has zero constant and is a separate case.
+
+**Proof:**
+
+1. If ‖s‖≤1, the defining norm valuation gives the actual subtype element sO∈O. Let M=sO•Gη using the native scalar action on measures. Extract coefficients after PowerSeries.map; multiplicativity of the subtype hom gives the required all-test equality. Complete scalar_integral_lift constructs precisely this native measure and proves the comparison.
+2. Conversely use the preceding explicit residue-difference test f0 with included doubled constant−1. Extract coefficient zero from a proposed all-test equality. The image of the integral coefficient of M(f0) is then−s.
+3. Every coefficient of M(f0) belongs to the actual norm-valuation integer ring, hence has image of norm at most one. Since ‖−s‖=‖s‖, this gives the necessary bound. Complete scalar_lift_necessity checks this argument against the actual measure and PowerSeries.map interfaces.
+4. Necessity needs only the single integral series value at f0, so the result is not a consequence of a vacuous divisibility assertion over K. Sufficiency genuinely supplies an O-linear continuous measure on all integral tests. The scalar can be zero; no inverse of s is used.
+5. Nonprincipal η is essential. At tame level one the promoted intrinsic integral tame measure is zero, so Gη has zero constant and is twice the existing positive integral series. In characteristic zero that positive series provides a half-normalized integral lift, including the dyadic case where the scalar1/2 is not integral. This boundary does not identify the zero tame constructor with the principal zeta family.
+
+**Prerequisites:** `DirichletPadicLFunctions:L4/integral-tame-unit-constant-witness`, `DirichletPadicLFunctions:L4/integral-doubled-tame-eisenstein-series`, `DirichletPadicLFunctions:L4/integral-doubled-tame-eisenstein-coeff`, `DirichletPadicLFunctions:L2/intrinsic-integral-tame-one-level`, `DirichletPadicLFunctions:L4/integral-twisted-positive-series-coeff`, `mathlib:AbstractMeasure.toCLMEquiv`, `mathlib:PowerSeries.coeff_map`, `mathlib:PowerSeries.coeff_smul`, `mathlib:Valuation.mem_integer_iff`, `mathlib:NormedField.valuation_apply`.
+
+**Tests:**
+
+- `SuggestedTameScalarTests.scalar_zero` (degenerate): The zero scalar has the actual zero measure as an integral lift.
+- `SuggestedTameScalarTests.scalar_negative_one` (computation): The scalar−1 has an actual integral measure lift.
+- `SuggestedTameScalarTests.principal_one_level_exception` (non-example): At tame modulus one the positive integral series gives a half-normalized lift; therefore the nonprincipal hypothesis cannot be dropped.
+
+**Acceptance:** The quantifier is over actual native integral measures and all actual integral tests. Both directions are proved with native coefficient inclusion; no generic extension functor is assumed.
+
+**Source:** Restriction and zero extension in §3.5.3, published127–129/PDF28–30; Lemmas5.10–5.12 and Definition5.13, published145–146/PDF46–47; Definition8.1, Theorem8.2 and Remark8.3, published159–161/PDF60–62. Whole passages read in the preceding constant-residue and doubled tame-series checkpoints; retained source corrections apply. Worker consequences of the existing actual finite-residue formula and integral doubled tame series. The two-unit-residue witness, exact scalar criterion and general dyadic obstruction are derived here, not quoted as source theorems. The proof uses finite cyclic sums, avoiding the previously recorded invalid geometric expansion. No new source erratum, independent review or classical modularity assertion is made.
+
+### The dyadic obstruction for every nonprincipal tame character
+
+`DirichletPadicLFunctions:L4/dyadic-nonprincipal-tame-no-normalization` — `DirichletPadic.integralDoubledTameEisensteinSeries_dyadic_no_normalization`
+
+For p=2 and every eligible nonprincipal η of odd tame modulus, no M:AbstractMeasure U O (PowerSeries O) has map_ι(M(f))=(2:K)⁻¹•map_ι(Gη(f)) for every integral continuous test f.
+
+**Hypotheses:** p is prime. K is a complete nontrivially normed ultrametric field of characteristic zero, with Algebra ℤ_p K and IsBoundedSMul ℤ_p K. D>0, η:DirichletCharacter K D is nonprincipal, hD:IsUnit(D:K) and p∤D. U=(ℤ_p)ˣ, O=Valuation.integer(NormedField.valuation(K)), ι:O↪K and the actual μ_η=tameMeasure(η,hD,hpD) are reused. Gη is integralDoubledTameEisensteinSeries. All formal series use the native coefficientwise topology. The finite shift compares canonical representatives modulo D: b.val≡a.val+p^n modD, for a,b∈ZMod(p^n). It is not the operation of adding p^n inside ZMod(p^n), which is the identity. For the unit-residue witness take n≥1 and 2D≤p^n. Such a level exists. Indicators are the existing native discrete continuous maps Function.update(0,a,1) composed with unit reduction; no new generic indicator constructor is defined. The scalar criterion concerns an actual O-linear continuous formal-series-valued measure on every O-valued continuous test. No arbitrary K-valued test extension, character-density assertion, classical modular form or analytic family is introduced. Nonprincipal η is essential; the tame level-one constructor has zero constant and is a separate case.
+
+**Proof:**
+
+1. The bounded ℤ₂ scalar action gives ‖2:K‖=‖(2:ℤ₂)•1‖≤‖2:ℤ₂‖=1/2. Complete dyadic_two_norm checks the exact native algebra map, numeral casts and p-adic scalar norm.
+2. Characteristic zero ensures2≠0. Multiplicativity and the inverse norm identity give ‖(2:K)⁻¹‖≥2>1; complete dyadic_half_norm proves the inequality. An isometric coefficient embedding is not assumed, so equality with2 is not claimed for general K.
+3. Apply the exact scalar integrality criterion with s=(2:K)⁻¹. Its necessary norm bound is impossible. Equivalently the explicit residue-difference test has normalized constant−1/2 outside O, ruling out even an arbitrary integral series value there.
+4. The argument uses only nonprincipality, not primitivity. It applies to the quadratic character modulo5 and to the explicit character obtained by raising the nontrivial character modulo3 to modulus9. The old quadratic-modulo3 obstruction is retained whole as a concrete earlier special case.
+5. The theorem does not cover principal η; the tame level-one half has an integral lift as tested above. At odd primes the prior two-unit construction supplies the normalized integral measure, consistent with the scalar criterion.
+
+**Prerequisites:** `DirichletPadicLFunctions:L4/tame-full-series-scalar-integrality`, `mathlib:norm_smul_le`, `mathlib:PadicInt.norm_p`.
+
+**Tests:**
+
+- `SuggestedTameScalarTests.modulus_five_no_normalization` (non-example): The quadratic tame character modulo5 also has no all-test integral half at p=2.
+- `SuggestedTameScalarTests.imprimitive_nine_no_normalization` (non-example): The explicit changeLevel lift from modulus3 to9 has the same obstruction; primitivity is unnecessary.
+
+**Acceptance:** All nonprincipal tame characters are covered over the stated characteristic-zero coefficient fields. The proof only needs a norm lower bound for1/2 and retains the principal exception.
+
+**Source:** Restriction and zero extension in §3.5.3, published127–129/PDF28–30; Lemmas5.10–5.12 and Definition5.13, published145–146/PDF46–47; Definition8.1, Theorem8.2 and Remark8.3, published159–161/PDF60–62. Whole passages read in the preceding constant-residue and doubled tame-series checkpoints; retained source corrections apply. Worker consequences of the existing actual finite-residue formula and integral doubled tame series. The two-unit-residue witness, exact scalar criterion and general dyadic obstruction are derived here, not quoted as source theorems. The proof uses finite cyclic sums, avoiding the previously recorded invalid geometric expansion. No new source erratum, independent review or classical modularity assertion is made.
+
+**Remaining:** For every nonprincipal tame character, a concrete difference of two unit-residue tests now detects exact scalar integrality of the full doubled family. The all-test half-normalization obstruction is proved for every such character at p=2, including imprimitive ones; odd-prime normalization was supplied previously. Principal tame characters beyond the level-one boundary, general character-pair constants, classical character Eisenstein existence/normalization and analytic weight-space comparisons remain open. The localized principal zeta theory stays separate. Eleven requests, fifteen gaps and zero closed stages remain; the missing pinned TwistedDivisorSum artifact still prevents full-module compilation.
+
+### Exact tame scalar integrality and the general dyadic obstruction validation
+
+All 630 predecessor nodes, 539 baseline records, 16 findings, requests and sourceVersions remain whole. This checkpoint adds 4 nodes, 4 named suggested declarations and 10 typed examples. The indexed blueprint, four-file intake, whitespace, preservation, API/test parity and versioned-source checks pass. The graph has 890 reachable nodes, 4388 edges and 723 native leaves and is acyclic. Its stage request leaves are PadicMeasuresIwasawaAlgebras:L1, PadicMeasuresIwasawaAlgebras:L3, PadicMeasuresIwasawaAlgebras:L3, LocallyAnalyticDistributions:L1, AdicSpacesPartII:F1, AdicSpacesPartII:R2, PadicDifferentialEquationsAndRigidCohomology:RD.0, PadicDifferentialEquationsAndRigidCohomology:RD.4, PadicHodgeTheory:P7:annulus-foundations, PadicMeasuresIwasawaAlgebras:L2, LocallyAnalyticDistributions:L1. All four new routes end in existing fine-grained owner nodes and native declarations, with no stage-only leaves or new supplier requests.
+
+**The full current suggested module was NOT COMPILED.** Its real native import requires TauCeti.NumberTheory.ArithmeticFunction.TwistedDivisorSum. No matching existing artifact was found; WORKERS.md prohibits building the native library. Current compiler exit code, error count and warning count are unavailable, not zero. The exact named signatures and native source were reviewed. PR4773 remains the last compiled full predecessor, with zero errors and1,803 expected placeholder warnings; that receipt does not validate this new module.
+
+The current source closure covers 3601 pinned Mathlib modules and 22 pinned Tau Ceti modules. Only 21 Tau module artifacts are available and hash-verified. The105 available artifact files and the previously compiled332-node PMIA artifact are checked as partial dependencies. The current369-node supplier source preserves the older interface; no current-module compilation against either revision is claimed. Existing builds only were inspected; no setup, update, cache fetch or native build occurred.
+
+Fourteen complete native lemmas verify finite cyclic weighted sums, canonical residue conversion and character reindexing, the unit representative and quotient certificates, existence of a sufficiently large level, scalar lift sufficiency and necessity on actual measures, and the general dyadic inverse-norm bound. The separate probe compiles against 2817 pinned Mathlib modules and 0 pinned Tau Ceti modules with zero errors, warnings or placeholders. The separate Mathlib-only probe does not import, replace or compile the missing native Tau module. General roadmap declarations remain unchecked.
+
+Exact finite controls verify cyclic residue shifts and explicit unit-residue pairs at several primes, including imprimitive tame characters. They test scalar norms on the unit-constant witness and the failure of half-normalization at p=2, with the zero-constant principal level-one exception retained. Exact rational weighted character sums, canonical unit representatives and rational scalar valuations for quadratic and imprimitive tame characters at several primes. Exact Gaussian rational arithmetic independently checks a nonreal quartic character and its level25 lift. Every cyclic identity and unit-constant witness is exact. The principal level-one control concerns the existing zero-constant doubled positive series. Finite controls supplement, rather than prove, the infinite all-test measure criterion. The largest observed discrepancy is 0 in every asserted identity; no unit-representative or scalar-valuation violation; no floating-point arithmetic.
+
+All66 captured inputs have an empty predecessor delta and are guarded. The complete old Lean body is preserved. The separate signature check consists of exact4773 plus only4793,4796,4799,4803 and current additions. It excludes4777–4791 and is not the full current module. Four new declarations and ten typed examples give1900 expected placeholder warnings and zero errors. The existential test explicitly retains its nonprincipal hypothesis; the imprimitive test uses the literal changeLevel lift from3 to9.
