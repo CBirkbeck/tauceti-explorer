@@ -1,0 +1,37 @@
+{
+  "paper": "PAPER-BHARGAVA-25",
+  "verdict": "revise",
+  "routes": [
+    {
+      "route": 1,
+      "verdict": "accept",
+      "reason": "ST.3 owns the number-field counts. Corrected item 34 separates small trace-zero elements from primitive generators; item 70 retains |G|>4 and removes the unsupported low-degree pure-power claim. These are precise source additions, not a claim that their recursive proofs are already formalized."
+    },
+    {
+      "route": 2,
+      "verdict": "accept",
+      "reason": "The height/density form of Hilbert irreducibility extends IG.2's stated owner, consistently with the earlier BSW22 source route. It remains missing in the pinned baseline."
+    },
+    {
+      "route": 3,
+      "verdict": "accept",
+      "reason": "The zero-dimensional projective Bézout bound is an intersection-theory input owned by SF.5; its algebraic-closure and proper zero-dimensional hypotheses are explicit."
+    },
+    {
+      "route": 4,
+      "verdict": "reject",
+      "reason": "The Part II direction is distinct from the upstream roadmap and growing-degree random-polynomial work, but it is not ready to become a design job. E10's elimination step remains open; its proposed projection repair was overclaimed. The extraction lacks recursive supplier closure and declaration-sized splitting/API/tests. Several principal targets required transitivity, low-degree, monicity and application restrictions, now corrected. Complete the named review gaps before activation."
+    },
+    {
+      "route": 5,
+      "verdict": "accept",
+      "reason": "Move generic positive k-powerful integers and weighted tails to AN.5's multiplicative-function owner. Require k≥2, c a fixed positive integer, and keep general divisor estimates as imported inputs."
+    },
+    {
+      "route": 6,
+      "verdict": "accept",
+      "reason": "Move generic multidimensional periodic Poisson summation to AL.0. The pinned theorem supplies only the one-dimensional lattice case. Item 43 states the corrected zero-residue contribution, with a proof outline that justifies the upper bound needed by the polynomial boxes."
+    }
+  ],
+  "notes": "Independent review by Codex, codex-rtOQ9t, of Claude Code cc-fb70e5's extraction. Read arXiv v3 in full and checked all original library claims at the pinned commits, all planned/route owners and all 15 source findings. Reviewed 74 items and corrected clear errors in place; 10 library, 3 planned, 61 missing, six routes. Added 11 findings (26 total) and explicitly scoped every verdict to v3; the published PDF was not obtained. E11 and E13 establish proof failures, not false counting theorems. Paper status is partial with seven explicit gaps. Structural checks were first run in the orchestration runtime; restored terminal access allows the actual repository Python checks before submission. No Lean compilation or formalization claimed."
+}
