@@ -24,7 +24,7 @@
    "References [1]–[69]"
   ]
  },
- "summary": "KW II proves the two technical theorems stated in KW I: Theorem 4.1 (modularity lifting for odd lifts of modular residual representations, including the new 2-adic case) and Theorem 5.1 (existence of p-adic lifts of four prescribed types, placed in almost strictly compatible systems). The route is Kisin's framed deformation theory: §2 builds the algebra of framed and unframed deformation rings, quotients by diagonalisable groups and inertia-rigid deformations; §3 computes the local deformation rings at ∞, above p and away from p (domains or flat with regular generic fibre, of the right dimension); §4 gives global presentations and the lower bound on dimension from Wiles' formula with fixed determinant; §5 constructs Taylor–Wiles auxiliary primes, with the new twisting and class-group argument for p = 2; §6 extends Taylor's potential modularity (Theorem 6.1); §7 develops forms on definite quaternion algebras over totally real fields with ∆_Q-freeness in the presence of isotropy; §8 constructs modular lifts with prescribed local properties after allowable base change (Theorems 8.2, 8.4); §9 proves R = T by Taylor–Wiles–Kisin patching, with determinants fixed only locally for p = 2 (Propositions 9.2, 9.3, Theorem 9.7); §10 deduces finiteness of deformation rings from potential modularity (Theorem 10.1) and Theorems 4.1 and 5.1 of KW I, with compatible systems by Brauer induction. Almost all of this is planned in the atlas, node by node, across LocalGaloisDeformationRings R08, GlobalGaloisDeformations R04, DeformationAndDerivedPatchingAlgebra R03, GL2ModularityLifting R22, PotentialModularityAndCompatibleSystems R23–R24, HilbertModularVarietiesAndShimuraCurves R18 and AutomorphicGaloisRepresentations R19. The missing items are general inputs these layers use without stating them (commutative algebra of CNL algebras and regularity, Grunwald–Wang, cohomology of SL₂ in characteristic 2, Khare's lemmas, Taylor's neatness lemma) and the totally real level-lowering and lifting theorems of §8; all go to existing layers as sources. The extraction records 32 source issues, among them four gaps that affect proofs: the comparison maps in the proof of Theorem 10.1 exist only modulo p; the §3.3.3 construction for p = 2 needs ε^{q+1} = 1; Lemma 7.2(i) misses the case N(v) ≡ −1 mod p; and Theorem 6.1(iii)(b) is proved only for ℓ_i ≠ 2.",
+ "summary": "KW II proves the two technical theorems stated in KW I: Theorem 4.1 (modularity lifting for odd lifts of modular residual representations, including the new 2-adic case) and Theorem 5.1 (existence of p-adic lifts of four prescribed types, placed in almost strictly compatible systems). The route is Kisin's framed deformation theory: §2 builds the algebra of framed and unframed deformation rings, quotients by diagonalisable groups and inertia-rigid deformations; §3 computes the local deformation rings at ∞, above p and away from p (domains or flat with regular generic fibre, of the right dimension); §4 gives global presentations and the lower bound on dimension from Wiles' formula with fixed determinant; §5 constructs Taylor–Wiles auxiliary primes, with the new twisting and class-group argument for p = 2; §6 extends Taylor's potential modularity (Theorem 6.1); §7 develops forms on definite quaternion algebras over totally real fields with ∆_Q-freeness in the presence of isotropy; §8 constructs modular lifts with prescribed local properties after allowable base change (Theorems 8.2, 8.4); §9 proves R = T by Taylor–Wiles–Kisin patching, with determinants fixed only locally for p = 2 (Propositions 9.2, 9.3, Theorem 9.7); §10 deduces finiteness of deformation rings from potential modularity (Theorem 10.1) and Theorems 4.1 and 5.1 of KW I, with compatible systems by Brauer induction. Almost all of this is planned in the atlas, node by node, across LocalGaloisDeformationRings R08, GlobalGaloisDeformations R04, DeformationAndDerivedPatchingAlgebra R03, GL2ModularityLifting R22, PotentialModularityAndCompatibleSystems R23–R24, HilbertModularVarietiesAndShimuraCurves R18 and AutomorphicGaloisRepresentations R19. The missing items are general inputs these layers use without stating them (commutative algebra of CNL algebras and regularity, Grunwald–Wang, cohomology of SL₂ in characteristic 2, Khare's lemmas, Taylor's neatness lemma) and the totally real level-lowering and lifting theorems of §8; all go to existing layers as sources. The extraction records 33 source issues, among them four gaps that affect proofs: the comparison maps in the proof of Theorem 10.1 exist only modulo p; the §3.3.3 construction for p = 2 needs ε^{q+1} = 1; Lemma 7.2(i) misses the case N(v) ≡ −1 mod p; and Theorem 6.1(iii)(b) is proved only for ℓ_i ≠ 2.",
  "items": [
   {
    "id": "PAPER-KHARE-WINTENBERGER-09-II/1",
@@ -442,12 +442,10 @@
    "name": "Proposition 2.2(ii): completed tensor products of flat domains with regular generic fibre",
    "statement": "Let I be a finite set and R_i (i ∈ I) CNL_𝒪-algebras which have a point with values in 𝒪, are domains (hence flat over 𝒪), and have R_i[1/p] regular. Then the completed tensor product ⊗̂_{i∈I} R_i has the same properties.",
    "locator": "§2.3, Proposition 2.2(ii), p. 9, author copy proofs.pdf (98 pp., PDF dated 30 May 2009)",
-   "status": "planned",
+   "status": "missing",
    "library": [],
-   "planned": [
-    "LocalGaloisDeformationRings:R08.6"
-   ],
-   "note": "Cited in the proof steps and hypotheses of LocalGaloisDeformationRings:R08.6/export-completed-tensor-product, which assign it to DeformationAndDerivedPatchingAlgebra R03.1/R03.3; no R03 node states it yet (R03.1 plans only Noetherian/local-ness of completed tensor products)."
+   "planned": [],
+   "note": "Missing: no node states it. It is consumed, not stated, by LocalGaloisDeformationRings:R08.6/export-completed-tensor-product and GlobalGaloisDeformations:R04.6/kw-deformation-data, which assign it to DeformationAndDerivedPatchingAlgebra R03.1/R03.3. But R03.1 plans only when completed tensor products 'remain Noetherian and local'. It is routed to R03.1 on route 1 (RT-PAPER-KHARE-WINTENBERGER-09-II/7); R03.1 precedes R08.6."
   },
   {
    "id": "PAPER-KHARE-WINTENBERGER-09-II/33",
@@ -463,13 +461,13 @@
   {
    "id": "PAPER-KHARE-WINTENBERGER-09-II/34",
    "kind": "theorem",
-   "name": "External (Matsumura [41] 28.M, 24.B, 33.B): regularity via completions and flat local maps",
-   "statement": "A Noetherian ring whose completions at all maximal ideals are regular (power series over a field) is regular; a Noetherian local ring is regular if it admits a faithfully flat local homomorphism to a regular local ring.",
-   "locator": "§2.3 proof of Proposition 2.2(ii), p. 9; §2.8 proof of Proposition 2.12, p. 17, author copy proofs.pdf (98 pp., PDF dated 30 May 2009)",
+   "name": "External (Matsumura [41] 33.B, with 24.B): descent of regularity along faithfully flat local maps",
+   "statement": "A Noetherian local ring is regular if it admits a faithfully flat local homomorphism to a regular local ring. (In §2.8 it is applied to the local ring of R_X[1/p] at ℘ and the local ring of the completion at a prime ℘̂ above ℘, which exists by 24.B. The completion half of the former item is /342.)",
+   "locator": "§2.8 proof of Proposition 2.12, p. 17, author copy proofs.pdf (98 pp., PDF dated 30 May 2009)",
    "status": "missing",
    "library": [],
    "planned": [],
-   "note": "Mathlib has IsRegularLocalRing (Mathlib/RingTheory/RegularLocalRing/Defs.lean) but no descent along flat maps or comparison with the completion; no atlas node states these."
+   "note": "Missing. General descent of regularity along flat local maps (Matsumura 23.7, 33.B) is planned nowhere. Tau Ceti ModularCurves Layer 4D plans descent only 'along the finite faithfully flat covers occurring in KM's Notes Added in Proof', and Mathlib has IsRegularLocalRing (Mathlib/RingTheory/RegularLocalRing/Defs.lean) without flat descent. The completion half, which Layer 4D does plan, is split off as /342 (RT-PAPER-KHARE-WINTENBERGER-09-II/10). Route 1."
   },
   {
    "id": "PAPER-KHARE-WINTENBERGER-09-II/35",
@@ -801,12 +799,10 @@
    "name": "External (Grothendieck; Matsumura [41] §34 and Thm 79, [42] Thm 31.6): excellence and equidimensionality",
    "statement": "A finitely generated 𝒪-algebra is excellent, so the completion morphism at a maximal ideal is regular (regularity of the generic fibre passes to the completion); if all irreducible components of a local ring essentially of finite type over 𝒪 have the same dimension, its completion is equidimensional.",
    "locator": "§2.7, proof of Proposition 2.10, p. 15, author copy proofs.pdf (98 pp., PDF dated 30 May 2009)",
-   "status": "planned",
+   "status": "missing",
    "library": [],
-   "planned": [
-    "DeformationAndDerivedPatchingAlgebra:R03.3"
-   ],
-   "note": "Requested from DeformationAndDerivedPatchingAlgebra R03.3 in the hypotheses of GlobalGaloisDeformations:R04.4/inertia-rigid-deformations; the R03.3 stage text asks to state hypotheses on catenarity and excellence, but no R03.3 node states these results yet."
+   "planned": [],
+   "note": "Missing. GlobalGaloisDeformations:R04.4/inertia-rigid-deformations requests it from DeformationAndDerivedPatchingAlgebra R03.3 in its hypotheses. But R03.3's text plans only to 'State hypotheses on catenarity and excellence', and no node proves that finitely generated 𝒪-algebras are excellent, or that the completion of an equidimensional local ring essentially of finite type is equidimensional. It is routed to R03.3 on route 1 (RT-PAPER-KHARE-WINTENBERGER-09-II/7)."
   },
   {
    "id": "PAPER-KHARE-WINTENBERGER-09-II/61",
@@ -1113,9 +1109,9 @@
    "status": "planned",
    "library": [],
    "planned": [
-    "LocalGaloisDeformationRings:R08.6"
+    "PadicHodgeTheory:R06.4"
    ],
-   "note": "Acceptance item of LocalGaloisDeformationRings:R08.6/kw-local-conditions ('A lift that is crystalline of weight k but not ordinary with ρ̄_v ordinary does not occur for 2 ≤ k ≤ p (KW II Lemma 3.5)') and hypotheses of R08.6/export-ordinary. The printed proof (via Fontaine–Laffaille, strongly divisible lattices and the unit-root summand [46]) has a duplicated sentence (sourceIssues E7)."
+   "note": "Owner: PadicHodgeTheory R06.4, whose text asks to 'State separately p=2 and modular weights p and p+1 … Include the ordinary and crystalline criteria actually invoked in those branches'. R06.4/two-dimensional-ordinarity-criterion proves the criteria for F = ℚ_p only, and no node states them for unramified F ≠ ℚ_p. Lemma 3.5(i), first part, (ii) and (iii) (/83, /85, /86) take one status and one route (route 3) (RT-PAPER-KHARE-WINTENBERGER-09-II/7). Consumers: LocalGaloisDeformationRings:R08.6/kw-local-conditions (acceptance: 'A lift that is crystalline of weight k but not ordinary with ρ̄_v ordinary does not occur for 2 ≤ k ≤ p (KW II Lemma 3.5)') and the hypotheses of R08.6/export-ordinary. The printed proof (via Fontaine–Laffaille, strongly divisible lattices and the unit-root summand [46]) has a duplicated sentence (sourceIssues E7)."
   },
   {
    "id": "PAPER-KHARE-WINTENBERGER-09-II/84",
@@ -1137,10 +1133,12 @@
    "name": "Lemma 3.5(ii): semistable non-crystalline weight 2 is ordinary",
    "statement": "Let F be an unramified extension of ℚ_p and ρ : G_F → Aut(V) lifting ρ̄ as in Lemma 3.5. If V is semistable non-crystalline of weight 2, then V is ordinary.",
    "locator": "§3.2.1, Lemma 3.5(ii), p. 22, author copy proofs.pdf (98 pp., PDF dated 30 May 2009)",
-   "status": "missing",
+   "status": "planned",
    "library": [],
-   "planned": [],
-   "note": "Planned only for F = ℚ_p: PadicHodgeTheory:R06.4/two-dimensional-ordinarity-criterion (c). No node states it for unramified F ≠ ℚ_p, which KW need in §3.2.2(i) (k(ρ̄_v) = p + 1) and §3.2.6. KW call it 'an easy exercise on filtered Dieudonné modules'."
+   "planned": [
+    "PadicHodgeTheory:R06.4"
+   ],
+   "note": "Owner: PadicHodgeTheory R06.4, whose text asks to 'State separately p=2 and modular weights p and p+1 … Include the ordinary and crystalline criteria actually invoked in those branches'. R06.4/two-dimensional-ordinarity-criterion proves the criteria for F = ℚ_p only, and no node states them for unramified F ≠ ℚ_p. Lemma 3.5(i), first part, (ii) and (iii) (/83, /85, /86) take one status and one route (route 3) (RT-PAPER-KHARE-WINTENBERGER-09-II/7). R06.4/two-dimensional-ordinarity-criterion (c) is the case F = ℚ_p. KW need unramified F ≠ ℚ_p in §3.2.2(i) (k(ρ̄_v) = p + 1) and §3.2.6, and call it 'an easy exercise on filtered Dieudonné modules'. Consumer: LocalGaloisDeformationRings R08.6."
   },
   {
    "id": "PAPER-KHARE-WINTENBERGER-09-II/86",
@@ -1151,10 +1149,9 @@
    "status": "planned",
    "library": [],
    "planned": [
-    "LocalGaloisDeformationRings:R08.6",
-    "ClassicalSerreModularity:R26.4"
+    "PadicHodgeTheory:R06.4"
    ],
-   "note": "LocalGaloisDeformationRings:R08.6/export-ordinary states the resulting shape (χ₁η₁ ∗; 0 η₂) of every weight-two lift and names [13] Lemma 2.1.2 as input; ClassicalSerreModularity:R26.4/local-reducibility-ordinary covers F = ℚ_p only."
+   "note": "Owner: PadicHodgeTheory R06.4, whose text asks to 'State separately p=2 and modular weights p and p+1 … Include the ordinary and crystalline criteria actually invoked in those branches'. R06.4/two-dimensional-ordinarity-criterion proves the criteria for F = ℚ_p only, and no node states them for unramified F ≠ ℚ_p. Lemma 3.5(i), first part, (ii) and (iii) (/83, /85, /86) take one status and one route (route 3) (RT-PAPER-KHARE-WINTENBERGER-09-II/7). Consumers: LocalGaloisDeformationRings:R08.6/export-ordinary, which states the resulting shape (χ₁η₁ ∗; 0 η₂) of every weight-two lift and names [13] Lemma 2.1.2 as input, and ClassicalSerreModularity:R26.4/local-reducibility-ordinary, which covers F = ℚ_p only."
   },
   {
    "id": "PAPER-KHARE-WINTENBERGER-09-II/87",
@@ -1222,33 +1219,33 @@
     "LocalGaloisDeformationRings:R08.6",
     "LocalGaloisDeformationRings:L7"
    ],
-   "note": "LocalGaloisDeformationRings:R08.6/export-fontaine-laffaille-irreducible; general Fontaine–Laffaille deformation smoothness is L7/fontaine-laffaille-tangent-space-and-smoothness (Ramakrishna [49], Diamond–Flach–Guo [20], CHT)."
+   "note": "LocalGaloisDeformationRings:R08.6/export-fontaine-laffaille-irreducible states the item as written, including k = p and p = 2. But its only inputs are L7 and R08.1/local-forget-framing, and they cover less. L7/fontaine-laffaille-deformation-condition has Fil^{l−1}M = 0, i.e. Hodge–Tate weights in [0, p − 2]; general smoothness is L7/fontaine-laffaille-tangent-space-and-smoothness (Ramakrishna [49], Diamond–Flach–Guo [20], CHT). So L7 covers k ≤ p − 1 for odd p only. For k = p the weights {0, p − 1} lie in the range of FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.3/fl-full-faithfulness, which is fully faithful on MF′, and irreducibility of ρ̄_p keeps every deformation in MF′. For p = 2 (k = 2) R07.3's safe interval is [0, 0]; the weight-one objects go to FiniteFlatGroupsAndIntegralPadicHodgeTheory R07.4 and to the 2-adic Barsotti–Tate rings of LocalGaloisDeformationRings R08.5. The paper gives no argument for these two cases (p. 24: 'There the case k(ρ̄p) = p and the case p = 2 is excluded, but as ρ̄p is irreducible the argument extends'). The item stays planned at R08.6, whose node states it; the node's missing inputs are a note for the maintainer (RT-PAPER-KHARE-WINTENBERGER-09-II/6). For odd p and k(ρ̄_p) = 2 this is also the weight-two ring (/92, sourceIssues E33)."
   },
   {
    "id": "PAPER-KHARE-WINTENBERGER-09-II/92",
    "kind": "theorem",
    "name": "External (Savitt [54], Thm 6.22(3) and Thm 6.24): weight-two rings for irreducible ρ̄_p",
-   "statement": "For p ≠ 2 and ρ̄_p irreducible, provided 𝒪 is sufficiently big, the quotient R̄_v^ψ of the fixed-determinant universal deformation ring by the intersection of the kernels of 𝒪′-points of the required weight-two type (inertial parameter (ω_p^{k−2} ⊕ 1, 0)) is isomorphic to 𝒪[[T₁, T₂]]/(T₁T₂ − p), and every 𝒪′-point of R̄_v^ψ is of the required type.",
+   "statement": "For p ≠ 2 and ρ̄_p irreducible with 3 ≤ k(ρ̄_p) ≤ p (hypothesis added, sourceIssues E33), provided 𝒪 is sufficiently big, the quotient R̄_v^ψ of the fixed-determinant universal deformation ring by the intersection of the kernels of 𝒪′-points of the required weight-two type (inertial parameter (ω_p^{k−2} ⊕ 1, 0)) is isomorphic to 𝒪[[T₁, T₂]]/(T₁T₂ − p), and every 𝒪′-point of R̄_v^ψ is of the required type.",
    "locator": "§3.2.4, p. 24 (cites [54]), author copy proofs.pdf (98 pp., PDF dated 30 May 2009)",
    "status": "planned",
    "library": [],
    "planned": [
     "LocalGaloisDeformationRings:R08.4"
    ],
-   "note": "LocalGaloisDeformationRings:R08.4/savitt-weight-two-rings (𝒪_E⟦X₁, X₂⟧/(X₁X₂ − pw), w a unit, in the irreducible case)."
+   "note": "LocalGaloisDeformationRings:R08.4/savitt-weight-two-rings (𝒪_E⟦X₁, X₂⟧/(X₁X₂ − pw), w a unit, in the irreducible case). Savitt's irreducible case needs a principal-series type ω̃^i ⊕ ω̃^j with i ≢ j mod p − 1. KW's type (ω_p^{k(ρ̄)−2} ⊕ 1, 0) has i = k(ρ̄_p) − 2 and j = 0, so the paper's statement holds exactly when 3 ≤ k(ρ̄_p) ≤ p (for irreducible ρ̄_p and odd p, k(ρ̄_p) ≤ p). When k(ρ̄_p) = 2 (e.g. ρ̄_p|I_p ≅ ω₂ ⊕ ω₂^p) the type is trivial and the lifts are crystalline of weight 2. The ring is then the formally smooth ring 𝒪[[T]] of §3.2.3 (/91), not 𝒪[[T₁, T₂]]/(T₁T₂ − p) (RT-PAPER-KHARE-WINTENBERGER-09-II/5)."
   },
   {
    "id": "PAPER-KHARE-WINTENBERGER-09-II/93",
    "kind": "theorem",
    "name": "§3.2.4: framed weight-two ring for irreducible ρ̄_p",
-   "statement": "For p ≠ 2 and ρ̄_v irreducible (F_v = ℚ_p), the framed weight-2 deformation ring R̄_v^{□,ψ} is isomorphic to 𝒪[[T₁, T₂, T₃, T₄, T₅]]/(T₁T₂ − p) (by the obvious case of Proposition 2.1).",
+   "statement": "For p ≠ 2 and ρ̄_v irreducible (F_v = ℚ_p) with 3 ≤ k(ρ̄_v) ≤ p (hypothesis added, sourceIssues E33), the framed weight-2 deformation ring R̄_v^{□,ψ} is isomorphic to 𝒪[[T₁, T₂, T₃, T₄, T₅]]/(T₁T₂ − p) (by the obvious case of Proposition 2.1).",
    "locator": "§3.2.4, p. 24, author copy proofs.pdf (98 pp., PDF dated 30 May 2009)",
    "status": "planned",
    "library": [],
    "planned": [
     "LocalGaloisDeformationRings:R08.6"
    ],
-   "note": "LocalGaloisDeformationRings:R08.6/export-weight-two-irreducible."
+   "note": "LocalGaloisDeformationRings:R08.6/export-weight-two-irreducible, which states the unrestricted form. For k(ρ̄_v) = 2 the framed weight-two ring is the formally smooth ring 𝒪[[T₁, …, T₄]] of §3.2.3 (/91); see /92 and sourceIssues E33 (RT-PAPER-KHARE-WINTENBERGER-09-II/5)."
   },
   {
    "id": "PAPER-KHARE-WINTENBERGER-09-II/94",
@@ -1305,13 +1302,13 @@
   {
    "id": "PAPER-KHARE-WINTENBERGER-09-II/98",
    "kind": "theorem",
-   "name": "External: Kummer theory over F^{nr}",
+   "name": "Kummer theory over F^{nr} with 𝒪-module coefficients (§3.2.5, Lemma 3.7)",
    "statement": "For N a finite 𝒪-module, H¹_cont(I_v, N(χ_p)) ≅ (F^{nr×} ⊗ N)^∧ (m_B-adic completion), F^{nr} the maximal unramified extension of F_v, compatibly with the action of D_v/I_v; as a Galois module F^{nr×} ≅ ℤ × U (U the units, p a Galois-fixed uniformiser), so ((F^{nr×} ⊗ N)(η̃))^{D_v} → (N(η̃))^{D_v} is surjective.",
    "locator": "§3.2.5, definition of Z¹_f and proof of Lemma 3.7, pp. 25–26, author copy proofs.pdf (98 pp., PDF dated 30 May 2009)",
    "status": "missing",
    "library": [],
    "planned": [],
-   "note": "Tau Ceti ClassFieldTheory Layer 5 plans the Kummer isomorphism kummerEquiv_mixed for finite extensions F/ℚ_p, not for the inertia group / maximal unramified extension used here."
+   "note": "Missing. Its μ_{p^n} core, the Kummer isomorphism for the field F^{nr} with G_{F^{nr}} = I_v, is /343, planned at Tau Ceti ProfiniteCohomology Layer 9. What remains is specific to KW: the passage to the coefficients N(χ_p), N a finitely generated B-module, with the m_B-adic completion; the D_v/I_v-equivariance; and the structure F^{nr×} ≅ ℤ × U used for the surjectivity. It belongs with Lemma 3.7 in LocalGaloisDeformationRings R08.6, which owns the deformation-specific calculations (ArithmeticGaloisDuality R02.5's text: 'the deformation-specific calculations are owned by R08'). So it is routed there (route 2), not to R02.5 (RT-PAPER-KHARE-WINTENBERGER-09-II/10). Tau Ceti ClassFieldTheory Layer 5 plans the Kummer isomorphism kummerEquiv_mixed only for finite extensions F/ℚ_p."
   },
   {
    "id": "PAPER-KHARE-WINTENBERGER-09-II/99",
@@ -1907,7 +1904,7 @@
     "GlobalGaloisDeformations:R04.3",
     "GlobalGaloisDeformations:R04.5"
    ],
-   "note": "Proved \"by arguments as in the proof of Lemma 3.2.2 of [36]\" (Kisin): the relative tangent space is computed and the count follows. Planned in GlobalGaloisDeformations:R04.3/relative-tangent-space (with KW II conventions in its acceptance) and used in R04.5/taylor-wiles-generator-count (\"the number of generators as the dimension of the relative tangent space (KW II Lemma 4.4)\")."
+   "note": "Proved \"by arguments as in the proof of Lemma 3.2.2 of [36]\" (Kisin): the relative tangent space is computed and the count follows. Planned in GlobalGaloisDeformations:R04.3/relative-tangent-space (with KW II conventions in its acceptance) and used in R04.5/taylor-wiles-generator-count (\"the number of generators as the dimension of the relative tangent space (KW II Lemma 4.4)\"). For p = 2 these R04.3 nodes do not apply as written: they are stated for p > 2 in Gee's conventions, with ad⁰ρ̄ and dual module ad⁰ρ̄(1), and frame only finite places. KW II §4 covers p = 2, with the correction δ₂ = 1, the dual (Ad⁰)*(1), where (Ad⁰)* ≅ Ad/Z (p. 39), and framed infinite places. That all-p form is stated by DeformationAndDerivedPatchingAlgebra:R03.2/presentation-relations-and-dual-selmer-bound (\"KW II treats all p\"). R04.3's text plans the bounds 'in the form of KW II §4, particularly Proposition 4.5 and Corollary 4.7', so the item stays planned there (RT-PAPER-KHARE-WINTENBERGER-09-II/3)."
   },
   {
    "id": "PAPER-KHARE-WINTENBERGER-09-II/144",
@@ -1918,10 +1915,9 @@
    "status": "planned",
    "library": [],
    "planned": [
-    "GlobalGaloisDeformations:R04.5",
-    "GlobalGaloisDeformations:R04.4"
+    "GlobalGaloisDeformations:R04.3"
    ],
-   "note": "Stated without proof (\"2. is similar\"). Used for Lemma 5.10(e) (p = 2); GlobalGaloisDeformations:R04.5/dyadic-taylor-wiles-primes proof step \"(e) follows by Lemma 4.4\" and R04.4/determinant-fixed-on-S (the ring R^□_{S∪V}). No node states the Ad/S-split count on its own."
+   "note": "Stated without proof (\"2. is similar\"). Planned at its owner, GlobalGaloisDeformations R04.3, whose text plans the tangent and obstruction descriptions and the bound on relations 'in the form of KW II §4'. No node states this count, with the determinant fixed only on S and coefficients Ad. Its consumers are R04.4/determinant-fixed-on-S, which defines the ring R^□_{S∪V}, and R04.5/dyadic-taylor-wiles-primes, whose proof step \"(e) follows by Lemma 4.4\" uses it for Lemma 5.10(e) at p = 2. They were formerly listed as planning it (RT-PAPER-KHARE-WINTENBERGER-09-II/3)."
   },
   {
    "id": "PAPER-KHARE-WINTENBERGER-09-II/145",
@@ -2002,7 +1998,7 @@
    "planned": [
     "GlobalGaloisDeformations:R04.3"
    ],
-   "note": "GlobalGaloisDeformations:R04.3/relative-tangent-space (acceptance: \"g = h¹_{L^⊥}(S, (ad⁰)^*(1)) + |S| − 1\" in KW II conventions) and R04.3/local-to-global-presentation (presentation with g variables)."
+   "note": "GlobalGaloisDeformations:R04.3/relative-tangent-space (acceptance: \"g = h¹_{L^⊥}(S, (ad⁰)^*(1)) + |S| − 1\" in KW II conventions) and R04.3/local-to-global-presentation (presentation with g variables). For p = 2 these R04.3 nodes do not apply as written: they are stated for p > 2 in Gee's conventions, with ad⁰ρ̄ and dual module ad⁰ρ̄(1), and frame only finite places. KW II §4 covers p = 2, with the correction δ₂ = 1, the dual (Ad⁰)*(1), where (Ad⁰)* ≅ Ad/Z (p. 39), and framed infinite places. That all-p form is stated by DeformationAndDerivedPatchingAlgebra:R03.2/presentation-relations-and-dual-selmer-bound (\"KW II treats all p\"). R04.3's text plans the bounds 'in the form of KW II §4, particularly Proposition 4.5 and Corollary 4.7', so the item stays planned there (RT-PAPER-KHARE-WINTENBERGER-09-II/3)."
   },
   {
    "id": "PAPER-KHARE-WINTENBERGER-09-II/151",
@@ -2015,7 +2011,7 @@
    "planned": [
     "GlobalGaloisDeformations:R04.3"
    ],
-   "note": "GlobalGaloisDeformations:R04.3/local-to-global-presentation proof steps reproduce this pairing (\"Pair with x ∈ H¹_{L^⊥}(S, ad⁰(1)) by Σ_v inv(x_v ∪ a_v + z_v), where ∂z = x ∪ c\"). The independence-of-g̃_v step is incomplete as written for p = 2 (see sourceIssues)."
+   "note": "GlobalGaloisDeformations:R04.3/local-to-global-presentation proof steps reproduce this pairing (\"Pair with x ∈ H¹_{L^⊥}(S, ad⁰(1)) by Σ_v inv(x_v ∪ a_v + z_v), where ∂z = x ∪ c\"). The independence-of-g̃_v step is incomplete as written for p = 2 (see sourceIssues). For p = 2 these R04.3 nodes do not apply as written: they are stated for p > 2 in Gee's conventions, with ad⁰ρ̄ and dual module ad⁰ρ̄(1), and frame only finite places. KW II §4 covers p = 2, with the correction δ₂ = 1, the dual (Ad⁰)*(1), where (Ad⁰)* ≅ Ad/Z (p. 39), and framed infinite places. That all-p form is stated by DeformationAndDerivedPatchingAlgebra:R03.2/presentation-relations-and-dual-selmer-bound (\"KW II treats all p\"). R04.3's text plans the bounds 'in the form of KW II §4, particularly Proposition 4.5 and Corollary 4.7', so the item stays planned there (RT-PAPER-KHARE-WINTENBERGER-09-II/3)."
   },
   {
    "id": "PAPER-KHARE-WINTENBERGER-09-II/152",
@@ -2042,7 +2038,7 @@
    "planned": [
     "GlobalGaloisDeformations:R04.3"
    ],
-   "note": "GlobalGaloisDeformations:R04.3/global-dimension-lower-bound proof steps (dim R^□ ≥ dim R^loc + g − r(J); forgetting framing removes n²#T − 1 dimensions)."
+   "note": "GlobalGaloisDeformations:R04.3/global-dimension-lower-bound proof steps (dim R^□ ≥ dim R^loc + g − r(J); forgetting framing removes n²#T − 1 dimensions). For p = 2 these R04.3 nodes do not apply as written: they are stated for p > 2 in Gee's conventions, with ad⁰ρ̄ and dual module ad⁰ρ̄(1), and frame only finite places. KW II §4 covers p = 2, with the correction δ₂ = 1, the dual (Ad⁰)*(1), where (Ad⁰)* ≅ Ad/Z (p. 39), and framed infinite places. That all-p form is stated by DeformationAndDerivedPatchingAlgebra:R03.2/presentation-relations-and-dual-selmer-bound (\"KW II treats all p\"). R04.3's text plans the bounds 'in the form of KW II §4, particularly Proposition 4.5 and Corollary 4.7', so the item stays planned there (RT-PAPER-KHARE-WINTENBERGER-09-II/3)."
   },
   {
    "id": "PAPER-KHARE-WINTENBERGER-09-II/154",
@@ -2468,7 +2464,7 @@
    "planned": [
     "PotentialModularityAndCompatibleSystems:R23.3"
    ],
-   "note": "PotentialModularityAndCompatibleSystems:R23.3/kw-ii-theorem-6-1-potential-modularity-of-rho-bar-over-a-controlled-F (states (i)–(ii) verbatim). Inputs: Taylor [58], [59]; Khare [33] Theorem 2.1; Moret-Bailly; Langlands–Tunnell; Theorem 8.2 for solvable image."
+   "note": "PotentialModularityAndCompatibleSystems:R23.3/kw-ii-theorem-6-1-potential-modularity-of-rho-bar-over-a-controlled-F (states (i)–(ii) verbatim). Inputs: Taylor [58], [59]; Khare [33] Theorem 2.1; Moret-Bailly; Langlands–Tunnell; Theorem 8.2 for solvable image. Its p = 2 cases also depend on the local points of Taylor's moduli problem at 2 and at the auxiliary primes (/341). No node states those in residual characteristic 2 (RT-PAPER-KHARE-WINTENBERGER-09-II/4)."
   },
   {
    "id": "PAPER-KHARE-WINTENBERGER-09-II/186",
@@ -2481,7 +2477,7 @@
    "planned": [
     "PotentialModularityAndCompatibleSystems:R23.3"
    ],
-   "note": "PotentialModularityAndCompatibleSystems:R23.3/kw-ii-theorem-6-1-potential-modularity-of-rho-bar-over-a-controlled-F. Same F as in (i)."
+   "note": "PotentialModularityAndCompatibleSystems:R23.3/kw-ii-theorem-6-1-potential-modularity-of-rho-bar-over-a-controlled-F. Same F as in (i). Its p = 2 cases also depend on the local points of Taylor's moduli problem at 2 and at the auxiliary primes (/341). No node states those in residual characteristic 2 (RT-PAPER-KHARE-WINTENBERGER-09-II/4)."
   },
   {
    "id": "PAPER-KHARE-WINTENBERGER-09-II/187",
@@ -2722,7 +2718,7 @@
    "planned": [
     "PotentialModularityAndCompatibleSystems:R23.3"
    ],
-   "note": "PotentialModularityAndCompatibleSystems:R23.3/taylor-theorem-1-6-potential-residual-modularity-ordinary-at-l, R23.3/taylor-2006-potential-modularity-when-residually-irreducible-at-l, R23.3/taylor-2006-theorem-5-7-serre-weight-at-level-one; Khare [33] Theorem 2.1 has no node of its own (it is subsumed by R23.3/kw-ii-theorem-6-1-potential-modularity-of-rho-bar-over-a-controlled-F)."
+   "note": "PotentialModularityAndCompatibleSystems:R23.3/taylor-theorem-1-6-potential-residual-modularity-ordinary-at-l, R23.3/taylor-2006-potential-modularity-when-residually-irreducible-at-l, R23.3/taylor-2006-theorem-5-7-serre-weight-at-level-one; Khare [33] Theorem 2.1 has no node of its own (it is subsumed by R23.3/kw-ii-theorem-6-1-potential-modularity-of-rho-bar-over-a-controlled-F). These Taylor results are stated for odd residual characteristic. KW's p = 2 cases also depend on the local points of Taylor's moduli problem at 2 and at the auxiliary primes (/341), which no node states in residual characteristic 2 (RT-PAPER-KHARE-WINTENBERGER-09-II/4)."
   },
   {
    "id": "PAPER-KHARE-WINTENBERGER-09-II/205",
@@ -2781,22 +2777,22 @@
    "kind": "theorem",
    "name": "External: Khare [33] Lemma 2.2 (removing p = 3 and neatness restrictions)",
    "statement": "Lemma 2.2 of Khare, \"Serre's modularity conjecture: the level one case\" (Duke 2006), as used by KW: it allows one to lift the restriction p ≠ 3 in [59] §5 and to avoid the neatness hypothesis in Hida [30] §8.",
-   "locator": "§6, proof of Theorem 6.1, pp. 56–57, author copy proofs.pdf (98 pp., PDF dated 30 May 2009)",
+   "locator": "§6, proof of Theorem 6.1, pp. 56–57; §8.2, proof of Theorem 8.2 (via Lemma 8.3), p. 73, author copy proofs.pdf (98 pp., PDF dated 30 May 2009)",
    "status": "missing",
    "library": [],
    "planned": [],
-   "note": "Not stated in the atlas: PotentialModularityAndCompatibleSystems:R23.3/kw-ii-theorem-6-1-potential-modularity-of-rho-bar-over-a-controlled-F lists \"Lemma 2.2 of [33]\" among its imports and R23.3/taylor-2006-theorem-5-7-serre-weight-at-level-one records it as unread (a gap); ClassicalSerreModularity:R26.x nodes cite Khare's level-one paper but not this lemma. The statement was not read here (only KW's description of its use)."
+   "note": "Not stated in the atlas. It is used twice. (1) In the proof of Theorem 6.1 (pp. 56–57): PotentialModularityAndCompatibleSystems:R23.3/kw-ii-theorem-6-1-potential-modularity-of-rho-bar-over-a-controlled-F lists \"Lemma 2.2 of [33]\" among its imports, and R23.3/taylor-2006-theorem-5-7-serre-weight-at-level-one records it as unread (a gap). (2) In the proof of Theorem 8.2 (p. 73), to take the level U of Lemma 8.3 neat in the sense of Taylor [59] Lemma 1.1. This use concerns only the weight-(p + 1) variant (/258–/259), which the Remark after Theorem 8.2 (p. 71) says is not used in the paper. The item is routed with Taylor's neatness lemma (/272) to HilbertModularVarietiesAndShimuraCurves R18.3 (route 8). There it closes no cycle with its consumers SerreWeightAndLevelOptimisation R20.6 and R23.3; at R23.3 it closed one, through the R23.3 node's import of Theorem 8.2 (RT-PAPER-KHARE-WINTENBERGER-09-II/1). Also: ClassicalSerreModularity:R26.x nodes cite Khare's level-one paper but not this lemma. The statement was not read here (only KW's description of its use)."
   },
   {
    "id": "PAPER-KHARE-WINTENBERGER-09-II/210",
    "kind": "theorem",
    "name": "External: the Grunwald–Wang theorem",
    "statement": "For a number field K, a finite set of places Σ and cyclic local extensions L_v/K_v (v ∈ Σ) of degrees dividing n, there is a cyclic global extension L/K of degree n realising them, outside the special case (8 | n and places above 2).",
-   "locator": "§6, proof of Theorem 6.1(iii)(b), p. 57, author copy proofs.pdf (98 pp., PDF dated 30 May 2009)",
+   "locator": "§6, proof of Theorem 6.1(iii)(b), p. 57; §7.6.3, proof of Lemma 7.10, p. 69, author copy proofs.pdf (98 pp., PDF dated 30 May 2009)",
    "status": "missing",
    "library": [],
    "planned": [],
-   "note": "Tau Ceti ClassFieldTheory Layer 12 says explicitly that \"The Grunwald–Wang theorem is not used and is outside this roadmap\". GlobalGaloisDeformations:R04.4/change-of-determinant says it \"is planned under InverseGaloisAndArithmeticFundamentalGroups IG.4\", but the IG.4 stage text (embedding problems, Shafarevich) does not state it."
+   "note": "Routed to ArithmeticGaloisDuality R02.2/R02.4 (route 4). Three accepted extractions route the same theorem there: PAPER-BOXER-CALEGARI-GEE-ETAL-25/84 (the same Artin–Tate, Chapter X, Theorem 5), PAPER-BOXER-CALEGARI-GEE-PILLONI-21/189 and PAPER-ALLEN-ETAL-23/328. KW use it twice: for the local conditions of Theorem 6.1(iii)(b) (p. 57), and for p = 2 in the proof of Lemma 7.10 (p. 69, /252). Tau Ceti ClassFieldTheory Layer 12 says explicitly that \"The Grunwald–Wang theorem is not used and is outside this roadmap\". The former route to InverseGaloisAndArithmeticFundamentalGroups IG.4 followed GlobalGaloisDeformations:R04.4/change-of-determinant, which says it \"is planned under InverseGaloisAndArithmeticFundamentalGroups IG.4\", but the IG.4 stage text (embedding problems, Shafarevich) does not state it. The InverseGalois packet's coverage and PAPER-HARPAZ-WITTENBERG-23/130 also place it at IG.4, so the choice of a single owner is left to the maintainer (RT-PAPER-KHARE-WINTENBERGER-09-II/2)."
   },
   {
    "id": "PAPER-KHARE-WINTENBERGER-09-II/211",
@@ -3360,7 +3356,7 @@
    "status": "missing",
    "library": [],
    "planned": [],
-   "note": "GlobalGaloisDeformations:R04.4/change-of-determinant states the p > 2 content (a residually trivial character is the square of a residually trivial one), and the GlobalGaloisDeformations README says 'KW II Lemma 7.10 … stays with its consumer'; the consumer, Theorem 8.2, is not planned. The p = 2 case needs Grunwald–Wang (excluded from the ClassFieldTheory roadmap) and a Chebotarev choice of places w (TauCeti's Chebotarev roadmap, in progress)."
+   "note": "Routed to ArithmeticGaloisDuality R02.2/R02.4 (route 4), beside the square-root-after-base-change arguments of PAPER-BOXER-CALEGARI-GEE-PILLONI-21/189, PAPER-BOXER-CALEGARI-GEE-ETAL-25/84 and PAPER-ALLEN-ETAL-23/328. Their local conditions differ from KW's, but the Grunwald–Wang input (/210) is the same (RT-PAPER-KHARE-WINTENBERGER-09-II/2). GlobalGaloisDeformations:R04.4/change-of-determinant states the p > 2 content (a residually trivial character is the square of a residually trivial one). Its hypothesis says that Lemma 7.10 'stays with its consumer (GL2ModularityLifting)', but the consumer is Theorem 8.2 (p. 73, /257) at SerreWeightAndLevelOptimisation R20.6. R02.2 precedes R20.6, and R02.4 → R20.6 closes no cycle. The former route to GL2ModularityLifting R22.1, downstream of R20.6, closed one (RT-PAPER-KHARE-WINTENBERGER-09-II/1). The p = 2 case needs Grunwald–Wang (/210; excluded from the Tau Ceti ClassFieldTheory roadmap) and a Chebotarev choice of places w (TauCeti's Chebotarev roadmap, in progress)."
   },
   {
    "id": "PAPER-KHARE-WINTENBERGER-09-II/253",
@@ -3385,7 +3381,7 @@
    "status": "missing",
    "library": [],
    "planned": [],
-   "note": "GlobalGaloisDeformations:R04.6/kw-deformation-data and PotentialModularityAndCompatibleSystems:R24.1/auxiliary-totally-real-field-for-the-finiteness-argument take 'ψ as in KW II §8(.1)' by reference; no stage or node states the kinds (i)–(iii)."
+   "note": "GlobalGaloisDeformations:R04.6/kw-deformation-data and PotentialModularityAndCompatibleSystems:R24.1/auxiliary-totally-real-field-for-the-finiteness-argument take 'ψ as in KW II §8(.1)' by reference; no stage or node states the kinds (i)–(iii). Its consumers are Theorems 8.2 and 8.4 (SerreWeightAndLevelOptimisation R20.6), the GL2ModularityLifting R22 nodes and R24.1. It is routed to GlobalGaloisDeformations R04.6 (route 6), which supplies the deformation data of KW II §§8–10 and precedes R22.1 and R24.1; R04.6 → R20.6 closes no cycle. The former route to GL2ModularityLifting R22.1 lay downstream of its consumer R20.6 (RT-PAPER-KHARE-WINTENBERGER-09-II/1)."
   },
   {
    "id": "PAPER-KHARE-WINTENBERGER-09-II/255",
@@ -3621,12 +3617,12 @@
    "id": "PAPER-KHARE-WINTENBERGER-09-II/273",
    "kind": "theorem",
    "name": "External: Kisin [36], Corollary 3.1.11 (Ribet's level raising via Ihara's lemma) and Lemma 3.5.3 (quadratic towers and Jacquet–Langlands)",
-   "statement": "KW prove Theorem 8.4 by the method of proof of Corollary 3.1.11 of [36] (Ribet's method of raising levels using Ihara's lemma: when the p-torsion of the cokernel of the degeneracy map S_{k,ψ}(U_i, 𝒪)² → S_{k,ψ}(U′_i, 𝒪) has only Eisenstein maximal ideals in its support, ρ̄ arises from a π_i with U′_i-invariants that is Steinberg at the new place) and Lemma 3.5.3 of [36] (a tower F = F₀ ⊂ F₁ ⊂ … ⊂ F_r of quadratic totally real extensions in which the places above v_j are inert except at step j, used with Jacquet–Langlands to add Steinberg places in pairs). KW assert that in 3.1.11 Σ may contain the places above p in case (C) with k(ρ̄) = 2, and that the restriction to weight 2 may be replaced by 2 ≤ k ≤ p + 1.",
+   "statement": "KW prove Theorem 8.4 by the method of proof of Corollary 3.1.11 of [36] (Ribet's method of raising levels using Ihara's lemma) and of Lemma 3.5.3 of [36] (use of base change and Jacquet–Langlands). (1) Kisin [36], Corollary 3.1.11. Hypotheses: 𝔪 ⊂ 𝕋^univ_{S_p,𝒪} is a non-Eisenstein maximal ideal; S_{σ,ψ}(U, 𝒪)_𝔪 ≠ 0; and the level-raising congruence (T_λ² − (N(λ) + 1)²ψ(λ))S_{σ,ψ}(U, 𝒪) ⊂ 𝔪S_{σ,ψ}(U, 𝒪) holds at the new place λ. The set-up is that of Kisin §3.1: forms on a definite quaternion algebra, U′ ⊂ U with U′_λ = U₀(λ), and levels small enough for the spaces of forms to have their perfect pairings (KW secure this with the level U(r₀) at an auxiliary place r₀, p. 77). Conclusion: S_{σ,ψ}(U′, 𝒪)_𝔪 / i(S_{σ,ψ}(U, 𝒪)²_𝔪) is a non-zero free 𝒪-module, i being the degeneracy map. So ρ̄ arises from a π with U′-invariants that is Steinberg at λ. The Ihara input is separate: it is Kisin's (3.1.8), which gives the torsion-freeness, and for KW it is Lemma 7.1 (/222). That lemma shows that the p-torsion of the cokernel of S_{k,ψ}(U_i, 𝒪)² → S_{k,ψ}(U′_i, 𝒪) has only Eisenstein maximal ideals in its support (p. 77). KW leave the congruence at the place w_{i+1} of F_i above v_{i+1} (v_{i+1} not above p) implicit. It holds because ρ̄_F is unramified at the places not above p (Lemma 8.1, p. 70), and the lifting data at v_{i+1} have the form (γ_vχ_p ∗; 0 γ_v) with γ_v unramified. So ρ̄(Frob_w) has eigenvalues γ̄_v(Frob_w)N(w) and γ̄_v(Frob_w), with γ̄_v(Frob_w)² = ψ̄(w) since det ρ̄ = ψ̄χ̄_p. (2) Kisin [36], Lemma 3.5.3: a tower F = F₀ ⊂ F₁ ⊂ … ⊂ F_r of quadratic totally real extensions, in which the places above v_j are inert except at step j, where they split; with Jacquet–Langlands it adds Steinberg places in pairs. KW assert that in 3.1.11 Σ may contain the places above p in case (C) with k(ρ̄) = 2, and that the restriction to weight 2 may be replaced by 2 ≤ k ≤ p + 1.",
    "locator": "§8.4, proof of Theorem 8.4, pp. 76–77, author copy proofs.pdf (98 pp., PDF dated 30 May 2009)",
    "status": "missing",
    "library": [],
    "planned": [],
-   "note": "The GL2ModularityLifting--R22.1 packet requests Kisin's Annals (3.1.6), (3.5.2), (3.5.3) level/type changes from SerreWeightAndLevelOptimisation R20.6 (open); Corollary 3.1.11 is in no node. The classical analogue is SerreWeightAndLevelOptimisation:R20.2/level-raising-diamond (over ℚ)."
+   "note": "Routed with Theorem 8.4 to SerreWeightAndLevelOptimisation R20.6 (route 9). The former route to GL2ModularityLifting R22.4 lay downstream of R20.6 (R20.6 → R22.1 → R22.2 → R22.3 → R22.4) and closed a cycle (RT-PAPER-KHARE-WINTENBERGER-09-II/1). The GL2ModularityLifting--R22.1 packet requests Kisin's Annals (3.1.6), (3.5.2), (3.5.3) level/type changes from R20.6 (open); Corollary 3.1.11 is in no node. Its Ihara input, Lemma 7.1 (/222), is planned at HilbertModularVarietiesAndShimuraCurves R18.3–R18.6, upstream of R20.6. The classical analogue is SerreWeightAndLevelOptimisation:R20.2/level-raising-diamond (over ℚ). The statement was corrected by RT-PAPER-KHARE-WINTENBERGER-09-II/8. Kisin's hypotheses and conclusion follow the verifier's reading of Annals 170 (2009), p. 1151, and KW's use was re-read on pp. 76–77."
   },
   {
    "id": "PAPER-KHARE-WINTENBERGER-09-II/274",
@@ -3873,7 +3869,7 @@
     "GL2ModularityLifting:R22.3",
     "GL2ModularityLifting:R22.6"
    ],
-   "note": "GL2ModularityLifting:R22.3/arithmetic-patching-data states the level-m datum only in the odd-p form (D_m, L_m) and cites these pages; R22.6/dyadic-patched-ring patches (D_m, L_m, D′_m) but no node spells out condition (2) (truncation level r′_m, the T_{2^m} chunk action, ker(D″_m → D_m) ⊂ 𝔪^m)."
+   "note": "GL2ModularityLifting:R22.3/arithmetic-patching-data states the level-m datum only in the odd-p form (D_m, L_m) and cites these pages. GL2ModularityLifting:R22.6/dyadic-patched-ring patches (D_m, L_m, D′_m). Its first proof step, as corrected by that packet's review (#4823), states the paper's condition (2): the determinant-one quotient D″_m surjects onto D_m with kernel in 𝔪^m_{D″_m}, and D_m is not identified with D″_m at finite level. Its third step uses the same condition. The red team read the earlier text, which set D_m = D′_m/(d_m − 1). No node spells out the truncation level r′_m. R22.6's layer plans the 2-adic patching, so the item stays planned there (RT-PAPER-KHARE-WINTENBERGER-09-II/7)."
   },
   {
    "id": "PAPER-KHARE-WINTENBERGER-09-II/292",
@@ -4124,16 +4120,15 @@
   {
    "id": "PAPER-KHARE-WINTENBERGER-09-II/310",
    "kind": "construction",
-   "name": "Proof of Theorem 10.1: the restriction morphism γ : R̄^{ψ_F}_F → R̄^ψ_{ℚ,S}",
-   "statement": "As printed: since ρ̄ and ρ̄|_{G_F} are absolutely irreducible, functoriality gives CNL_𝒪-morphisms π₁ : R^{ψ_F}_F → R̄^{□,ψ_F}_F, π₂ : R^ψ_{ℚ,S} → R̄^{□,ψ}_{ℚ,S}, β : R^{ψ_F}_F → R^ψ_{ℚ,S} and α : R̄^{□,ψ_F}_F → R̄^{□,ψ}_{ℚ,S} with απ₁ = π₂β; as π₁(R^{ψ_F}_F) = R̄^{ψ_F}_F and π₂(R^ψ_{ℚ,S}) = R̄^ψ_{ℚ,S}, β induces γ : R̄^{ψ_F}_F → R̄^ψ_{ℚ,S}, taking the universal mod-p representation G_F → GL₂(R̄^{ψ_F}_F/(p)) to the restriction to G_F of ρ̄^univ_{ℚ,S} : G_ℚ → GL₂(R̄^ψ_{ℚ,S}/(p)). (Only the reduction γ̄ : R̄^{ψ_F}_F → R̄^ψ_{ℚ,S}/(p) exists in general; see sourceIssues.)",
+   "name": "Proof of Theorem 10.1: the restriction morphism γ̄ : R̄^{ψ_F}_F → R̄^ψ_{ℚ,S}/(p) (printed integrally as γ; corrected by E29)",
+   "statement": "As corrected by sourceIssues E29 (PROTOCOL §18). Let τ : G_ℚ → GL₂(R̄^ψ_{ℚ,S}/(p)) be the universal mod-p representation. By the choice of F (fourth bullet of the proof), τ|_{G_F} is unramified outside the places above p and ∞, so it is classified by β̄ : R^{ψ_F}_F → R̄^ψ_{ℚ,S}/(p). In framed form (R^{□,ψ_F}_F → R̄^{□,ψ}_{ℚ,S}/(p), the frames at w | p, ∞ taken from those at p, ∞) it factors through R̄^{□,ψ_F}_w at each w | p. This is because every 𝒪′-point of R̄^{□,ψ}_p restricts to a lift of the same type (A), (B) or (C) over the unramified F_w (Corollary 2.3), and oddness is preserved at the infinite places. Hence β̄ induces a CNL_𝒪-algebra morphism γ̄ : R̄^{ψ_F}_F → R̄^ψ_{ℚ,S}/(p), carrying the universal mod-p representation of G_F to τ|_{G_F}. That is all the finiteness argument uses. Printed: CNL_𝒪-morphisms π₁ : R^{ψ_F}_F → R̄^{□,ψ_F}_F, π₂ : R^ψ_{ℚ,S} → R̄^{□,ψ}_{ℚ,S}, β : R^{ψ_F}_F → R^ψ_{ℚ,S} and α : R̄^{□,ψ_F}_F → R̄^{□,ψ}_{ℚ,S} with απ₁ = π₂β, and 'β induces a CNL_O-algebra morphism γ : R̄^{ψ_F}_F → R̄^ψ_{Q,S}'. These integral maps do not exist in general (E29).",
    "locator": "§10.1, proof of Theorem 10.1, pp. 91–92, author copy proofs.pdf (98 pp., PDF dated 30 May 2009)",
    "status": "planned",
    "library": [],
    "planned": [
-    "GlobalGaloisDeformations:R04.4",
     "PotentialModularityAndCompatibleSystems:R24.1"
    ],
-   "note": "GlobalGaloisDeformations:R04.4/restriction-ring-map ('res descends to the rings with local conditions … (KW II's γ)' under a local-containment hypothesis, which fails at places above ℓ ≠ p here); PotentialModularityAndCompatibleSystems:R24.1/kw-ii-theorem-10-1-finiteness-of-the-unframed-global-ring repeats the integral β, α. The mod-p version needed is not stated by any node."
+   "note": "Planned at PotentialModularityAndCompatibleSystems R24.1, whose layer plans Theorem 10.1's restriction argument ('comparison with the modular deformation problem', 'the finiteness of the restriction map'). No node states γ̄. R24.1/kw-ii-theorem-10-1-finiteness-of-the-unframed-global-ring repeats the printed integral β, α. GlobalGaloisDeformations:R04.4/restriction-ring-map ('res descends to the rings with local conditions … (KW II's γ)') gives the integral map only under a local-containment hypothesis, which fails here at the places above ℓ ≠ p (E29), so R04.4 is no longer listed as planning it. The item takes E29's corrected map, as §18 requires (RT-PAPER-KHARE-WINTENBERGER-09-II/7)."
   },
   {
    "id": "PAPER-KHARE-WINTENBERGER-09-II/311",
@@ -4183,9 +4178,11 @@
    "library": [],
    "planned": [
     "PotentialModularityAndCompatibleSystems:R24.4",
-    "GL2ModularityLifting:R22.5"
+    "GL2ModularityLifting:R22.5",
+    "OrdinaryAutomorphicFormsAndModularityLifting:R21.4",
+    "OrdinaryAutomorphicFormsAndModularityLifting:R21.5"
    ],
-   "note": "PotentialModularityAndCompatibleSystems:R24.4/kw-theorem-4-1; GL2ModularityLifting:R22.5/kw-odd-prime-lifting and /kisin-potentially-bt-lifting. §10.2 cites [20] (k ≤ p − 1), [38] with [3] (k = p + 1 non-ordinary), [16] (k = p + 1 ordinary), [36] ((ii), potentially Barsotti–Tate), [66], [64], [16] ((ii), semistable weight 2), and proves k = p via Theorem 9.7."
+   "note": "PotentialModularityAndCompatibleSystems:R24.4/kw-theorem-4-1 states all of Theorem 4.1(2). But its proof goes only through Theorem 9.7 after an allowable base change F/ℚ, which needs F unramified at p and lifting data of type (A), (B) or (C); (A) allows weight p + 1 only when F is split at p and k(ρ̄) = p + 1 (p. 75). So the planned coverage is split by case, as in §10.2 (p. 92) and its Remark: (2)(i), 2 ≤ k ≤ p − 1: /316 (GL2ModularityLifting R22.5; Theorem 9.7 covers it too). (2)(i), k = p, and the weight-two lifts of (2)(ii) that are of type (B) or (C) up to twist: Theorem 9.7, i.e. GL2ModularityLifting:R22.5/kw-odd-prime-lifting through R24.4/kw-theorem-4-1. (2)(i), k = p + 1 and ordinary: /318 (R22.5/ordinary-overlap and OrdinaryAutomorphicFormsAndModularityLifting R21.4). (2)(i), k = p + 1 and non-ordinary, including k(ρ̄) = 2: /317 (OrdinaryAutomorphicFormsAndModularityLifting:R21.5/blz-reduction-theorem, with GL2ModularityLifting:R32.2/odd-prime-de-rham-lifting standing in for Kisin [38], which no node states). (2)(ii), potentially Barsotti–Tate: /319 (GL2ModularityLifting:R22.5/kisin-potentially-bt-lifting, part (3)). (2)(ii), potentially semistable but not potentially crystalline: a finite-order twist makes it semistable of weight 2, which is /318. R22.5, R21.4 and R21.5 precede R24.4 on the atlas. R32.2 is unrelated to R24.4 on the atlas and its links, but once packet prerequisites are counted R24.4 already reaches R32.2 (through ClassicalSerreModularity R26.6, R27.1 and R33.3). So R32.2 is not listed here: the k = p + 1 non-ordinary case rests on /317, and the R24.4 node's prerequisites are a note for the maintainer (RT-PAPER-KHARE-WINTENBERGER-09-II/9). §10.2 cites [20] (k ≤ p − 1), [38] with [3] (k = p + 1 non-ordinary), [16] (k = p + 1 ordinary), [36] ((ii), potentially Barsotti–Tate), and [66], [64], [16] ((ii), semistable weight 2), and proves k = p via Theorem 9.7."
   },
   {
    "id": "PAPER-KHARE-WINTENBERGER-09-II/315",
@@ -4537,7 +4534,51 @@
    "status": "missing",
    "library": [],
    "planned": [],
-   "note": "GL2ModularityLifting:R22.6/dyadic-patched-torsor states the conclusion (R_∞[1/2], R^inv_∞[1/2] regular) but no node states these commutative-algebra facts; DeformationAndDerivedPatchingAlgebra:R03.3 has regular local rings, global dimension and localisation, not descent of regularity or regularity of B[[x]][1/2]. Mathlib has only the definitions IsRegularLocalRing, IsRegularRing (Mathlib/RingTheory/RegularLocalRing/Defs.lean)."
+   "note": "GL2ModularityLifting:R22.6/dyadic-patched-torsor states the conclusion (R_∞[1/2], R^inv_∞[1/2] regular) but no node states these commutative-algebra facts; DeformationAndDerivedPatchingAlgebra:R03.3 has regular local rings, global dimension and localisation, not descent of regularity or regularity of B[[x]][1/2]. Mathlib has IsRegularLocalRing and IsRegularRing (Mathlib/RingTheory/RegularLocalRing/Defs.lean) and polynomial ascent, Polynomial.isRegularRing_of_isRegularRing and MvPolynomial.isRegularRing_of_isRegularRing (Mathlib/RingTheory/RegularLocalRing/Polynomial.lean:78, :108). It lacks the power-series case (i) and the flat descent (ii) (RT-PAPER-KHARE-WINTENBERGER-09-II/10)."
+  },
+  {
+   "id": "PAPER-KHARE-WINTENBERGER-09-II/341",
+   "kind": "theorem",
+   "name": "Proof of Theorem 6.1: local points of Taylor's moduli problem X at 2 and at the auxiliary primes for p = 2",
+   "statement": "For p = 2, Taylor's moduli problem X has points with values in ℚ₂ and in ℚ_{p_i}, p_i the auxiliary primes, as for p ≠ 2. Together with the real points (/193), these are the local points from which Moret-Bailly's theorem gives F and a point x ∈ X(F).",
+   "locator": "§6, proof of Theorem 6.1, p. 55, author copy proofs.pdf (98 pp., PDF dated 30 May 2009)",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "PotentialModularityAndCompatibleSystems:R23.2",
+    "HilbertModularVarietiesAndShimuraCurves:H6"
+   ],
+   "note": "KW assert this without argument (p. 55: 'For p = 2 one proves the existence of points with values in Q2 or Qpi, pi auxiliary prime, as for p ≠ 2'). R23.2's text plans 'every prescribed finite local point', and HilbertModularVarietiesAndShimuraCurves H6 plans 'nonempty real and finite local open loci by explicit abelian varieties'. So the item takes the status of the parallel real-point step /193. But every node that states Taylor's local points assumes an odd residual characteristic: R23.2/taylor-auxiliary-data-p-L-psi-N-M ('l an odd prime'), R23.2/taylor-lemmas-1-3-1-4-local-points-at-p-and-at-infinity ('for l, p odd') and R23.2/taylor-2006-lemmas-4-4-4-5-descent-and-the-cm-point ('l > 2'). And R23.3/kw-ii-theorem-6-1-potential-modularity-of-rho-bar-over-a-controlled-F has proof steps for the p = 2 real points and for k(ρ̄) = 4, but none for these points. So no node states the residual-characteristic-2 versions of Taylor's Lemmas 1.2–1.3. The p = 2 cases of Theorem 6.1(i)–(ii) (/185, /186) and of the Taylor results behind them (/204) depend on them (RT-PAPER-KHARE-WINTENBERGER-09-II/4)."
+  },
+  {
+   "id": "PAPER-KHARE-WINTENBERGER-09-II/342",
+   "kind": "theorem",
+   "name": "External (Matsumura [41] 28.M): regularity is detected on completions",
+   "statement": "A Noetherian ring whose completions at all maximal ideals are regular is regular. In KW's use, the completions of R̂[1/p] at its maximal ideals are power series rings E′[[X₁, …, X_d]] over finite extensions E′ of E.",
+   "locator": "§2.3 proof of Proposition 2.2(ii), p. 9, author copy proofs.pdf (98 pp., PDF dated 30 May 2009)",
+   "status": "planned",
+   "library": [],
+   "planned": [
+    "tauceti:TauCetiRoadmap/ModularCurves#4d-regularity-of-a-moduli-problem",
+    "DeformationAndDerivedPatchingAlgebra:R03.3"
+   ],
+   "note": "Split from /34 (RT-PAPER-KHARE-WINTENBERGER-09-II/10). Tau Ceti ModularCurves Layer 4D plans 'preservation and reflection of regularity and dimension under completion of noetherian local rings', and a Noetherian ring is regular when its localisations at maximal ideals are. The accepted PAPER-BOCKLE-IYENGAR-PASKUNAS-23/052 plans the same statement at Layer 4D and DeformationAndDerivedPatchingAlgebra R03.3. Mathlib has IsRegularLocalRing (Mathlib/RingTheory/RegularLocalRing/Defs.lean) without the completion theorem."
+  },
+  {
+   "id": "PAPER-KHARE-WINTENBERGER-09-II/343",
+   "kind": "theorem",
+   "name": "External: Kummer theory for a field, applied to F^{nr}",
+   "statement": "For a field K and an integer n invertible in K, the Kummer map K^×/(K^×)^n → H¹(G_K, μ_n) is an isomorphism: it is injective with kernel (K^×)^n, and surjective by Hilbert 90. KW apply it with K = F^{nr}, the maximal unramified extension of F_v (so G_K = I_v), and n a power of p.",
+   "locator": "§3.2.5, definition of Z¹_f and proof of Lemma 3.7, pp. 25–26, author copy proofs.pdf (98 pp., PDF dated 30 May 2009)",
+   "status": "planned",
+   "library": [
+    "tauceti:TauCeti.kummerMap",
+    "tauceti:TauCeti.ker_kummerMap"
+   ],
+   "planned": [
+    "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-9-the-galois-interface-hilbert-90-and-kummer-theory"
+   ],
+   "note": "Split from /98 (RT-PAPER-KHARE-WINTENBERGER-09-II/10). Tau Ceti ProfiniteCohomology Layer 9 plans the Kummer isomorphism with coefficients KummerCoeff K n = μ_n for any field K with n invertible, which covers K = F^{nr}. Tau Ceti at f790474 already has the Kummer map and its kernel for any field: TauCeti.kummerMap (TauCeti/FieldTheory/GaloisCohomology/Kummer.lean:187) and TauCeti.ker_kummerMap (:260, kernel (K^×)^n). Only surjectivity, which is Hilbert 90, is absent, as that file says. The coefficient change and completion that KW need are /98."
   }
  ],
  "prerequisites": [
@@ -4582,17 +4623,19 @@
     "DeformationAndDerivedPatchingAlgebra:R03.3",
     "DeformationAndDerivedPatchingAlgebra:R03.4"
    ],
-   "reason": "§2 of KW II is the commutative algebra of complete Noetherian local 𝒪-algebras that the deformation theory rests on, and DeformationAndDerivedPatchingAlgebra R03.1–R03.4 owns exactly that: coefficient categories and completed tensor products (R03.1), representability, hulls and obstructions (R03.2), dimension, regularity and complete intersections (R03.3), finiteness and characteristic-zero points (R03.4). The missing items are general facts these layers need but do not yet state: relative tangent spaces and the tangent space of a completed tensor product (R03.1); Proposition 2.1 for a non-Schur ρ̄ (framed rings formally smooth over the hull) and its use for deformation conditions (R03.2); the regularity descent along flat local maps and completions (Matsumura 28.M, 33.B), including regularity of R^inv_∞[1/2] in Lemma 9.6(a), and Chevalley's comparison of ideal topologies (R03.3); the maximal ideals of R[1/p], the Jacobson property of R′[1/p] (EGA IV 10.5.8) and Corollary 2.3, that a flat reduced quotient is determined by its 𝒪′-points (R03.4). Corollary 2.3 is already invoked, unstated, by LocalGaloisDeformationRings:R08.6/kw-local-conditions and GlobalGaloisDeformations:R04.6/factorization-through-local-conditions.",
+   "reason": "§2 of KW II is the commutative algebra of complete Noetherian local 𝒪-algebras that the deformation theory rests on, and DeformationAndDerivedPatchingAlgebra R03.1–R03.4 owns exactly that: coefficient categories and completed tensor products (R03.1), representability, hulls and obstructions (R03.2), dimension, regularity and complete intersections (R03.3), finiteness and characteristic-zero points (R03.4). The missing items are general facts these layers need but do not yet state: relative tangent spaces, the tangent space of a completed tensor product, and Proposition 2.2(ii), that a completed tensor product of domains with an 𝒪-point and regular generic fibre is again one (R03.1); Proposition 2.1 for a non-Schur ρ̄ (framed rings formally smooth over the hull) and its use for deformation conditions (R03.2); the regularity descent along faithfully flat local maps (Matsumura 33.B; the completion half, 28.M, is planned at Tau Ceti ModularCurves Layer 4D, /342), including regularity of R^inv_∞[1/2] in Lemma 9.6(a), Chevalley's comparison of ideal topologies, and the excellence of finitely generated 𝒪-algebras with the equidimensionality of completions (Grothendieck; Matsumura §34) (R03.3); the maximal ideals of R[1/p], the Jacobson property of R′[1/p] (EGA IV 10.5.8) and Corollary 2.3, that a flat reduced quotient is determined by its 𝒪′-points (R03.4). Corollary 2.3 is already invoked, unstated, by LocalGaloisDeformationRings:R08.6/kw-local-conditions and GlobalGaloisDeformations:R04.6/factorization-through-local-conditions.",
    "items": [
     "PAPER-KHARE-WINTENBERGER-09-II/18",
     "PAPER-KHARE-WINTENBERGER-09-II/20",
     "PAPER-KHARE-WINTENBERGER-09-II/27",
     "PAPER-KHARE-WINTENBERGER-09-II/29",
     "PAPER-KHARE-WINTENBERGER-09-II/31",
+    "PAPER-KHARE-WINTENBERGER-09-II/32",
     "PAPER-KHARE-WINTENBERGER-09-II/33",
     "PAPER-KHARE-WINTENBERGER-09-II/34",
     "PAPER-KHARE-WINTENBERGER-09-II/35",
     "PAPER-KHARE-WINTENBERGER-09-II/36",
+    "PAPER-KHARE-WINTENBERGER-09-II/60",
     "PAPER-KHARE-WINTENBERGER-09-II/340"
    ]
   },
@@ -4603,8 +4646,9 @@
     "LocalGaloisDeformationRings:R08.4",
     "LocalGaloisDeformationRings:R08.6"
    ],
-   "reason": "Lemma 3.8 is the algebraisation step in the proof of Proposition 3.6 (ordinary deformation rings, §3.2.5); R08.6/export-ordinary asserts the smooth resolution without it. Its inputs, Weierstrass preparation and division over 𝒪[[T]], are in Mathlib, so it belongs with the local ring it serves.",
+   "reason": "Lemma 3.8 is the algebraisation step in the proof of Proposition 3.6 (ordinary deformation rings, §3.2.5); R08.6/export-ordinary asserts the smooth resolution without it. Its inputs, Weierstrass preparation and division over 𝒪[[T]], are in Mathlib, so it belongs with the local ring it serves. Kummer theory over F^{nr} with 𝒪-module coefficients (/98), which defines the finite cocycles Z¹_f of §3.2.5, is the other deformation-specific input of Lemma 3.7 and R08.6/export-ordinary. It comes here from ArithmeticGaloisDuality R02.5, whose text leaves 'the deformation-specific calculations' to R08; its μ_n core (/343) is planned at Tau Ceti ProfiniteCohomology Layer 9 (RT-PAPER-KHARE-WINTENBERGER-09-II/10).",
    "items": [
+    "PAPER-KHARE-WINTENBERGER-09-II/98",
     "PAPER-KHARE-WINTENBERGER-09-II/102"
    ]
   },
@@ -4614,20 +4658,24 @@
    "stages": [
     "PadicHodgeTheory:R06.4"
    ],
-   "reason": "PadicHodgeTheory:R06.4/two-dimensional-ordinarity-criterion proves this for ℚ_p only; KW II need it for unramified F_v/ℚ_p (§3.2.2(i), k(ρ̄_v) = p + 1, and §3.2.6). It is the same filtered-module computation, so the layer that owns the ℚ_p case should state it for unramified F.",
+   "reason": "Lemma 3.5 is the ordinarity of three kinds of lift over an unramified F: (i) crystalline of weight 2 ≤ k ≤ p with ordinary reduction, (ii) semistable non-crystalline of weight 2, and (iii) weight 2 and crystalline over ℚ_p^{nr}(μ_p) with ordinary reduction. It belongs to PadicHodgeTheory R06.4, whose text asks for 'the ordinary and crystalline criteria actually invoked in those branches', with p = 2 and the modular weights p and p + 1 stated separately. PadicHodgeTheory:R06.4/two-dimensional-ordinarity-criterion proves the criteria for ℚ_p only; KW II need them for unramified F_v/ℚ_p (§3.2.2(i), k(ρ̄_v) = p + 1, and §3.2.6). They are the same filtered-module computations, so the paper is a source for stating them over unramified F. All three parts are planned at R06.4 and consumed by LocalGaloisDeformationRings R08.6 (kw-local-conditions, export-ordinary); R06.4 → R08.6 closes no cycle (RT-PAPER-KHARE-WINTENBERGER-09-II/7).",
    "items": [
-    "PAPER-KHARE-WINTENBERGER-09-II/85"
+    "PAPER-KHARE-WINTENBERGER-09-II/83",
+    "PAPER-KHARE-WINTENBERGER-09-II/85",
+    "PAPER-KHARE-WINTENBERGER-09-II/86"
    ]
   },
   {
    "route": "source",
    "roadmap": "ArithmeticGaloisDuality",
    "stages": [
-    "ArithmeticGaloisDuality:R02.5"
+    "ArithmeticGaloisDuality:R02.2",
+    "ArithmeticGaloisDuality:R02.4"
    ],
-   "reason": "Kummer theory over the maximal unramified extension defines the 'finite' cocycles Z¹_f of §3.2.5 (the peu ramifié local condition). R02.5 owns local conditions and Selmer structures; Tau Ceti ClassFieldTheory Layer 5 has Kummer theory only over finite extensions of ℚ_p.",
+   "reason": "The Grunwald–Wang theorem (/210) and Lemma 7.10 (/252), whose p = 2 case finds a square root of a character after a solvable totally real base change, go where three accepted extractions send the same theorem and the same kind of argument (roots of characters and local–global obstructions): PAPER-BOXER-CALEGARI-GEE-ETAL-25/84 (Lemma 5.3.1, from Artin–Tate, Chapter X, Theorem 5, as here), PAPER-BOXER-CALEGARI-GEE-PILLONI-21/189 and PAPER-ALLEN-ETAL-23/328, all at ArithmeticGaloisDuality R02.2/R02.4. KW use Grunwald–Wang for the local conditions of Theorem 6.1(iii)(b) (p. 57) and, for p = 2, in the proof of Lemma 7.10 (p. 69), whose consumer is Theorem 8.2 (p. 73). R02.2 and R02.4 close no cycle with the consumers, PotentialModularityAndCompatibleSystems R23.3 and SerreWeightAndLevelOptimisation R20.6. This replaces the earlier routes of /210 to InverseGaloisAndArithmeticFundamentalGroups IG.4 and of /252 to GL2ModularityLifting R22.1 (RT-PAPER-KHARE-WINTENBERGER-09-II/1, /2). The InverseGalois packet and PAPER-HARPAZ-WITTENBERG-23/130 still place Grunwald–Wang at IG.4, so the choice of a single owner is left to the maintainer. This route formerly took Kummer theory over F^{nr} (/98) to R02.5; that item now goes to LocalGaloisDeformationRings R08.6 (route 2, RT-PAPER-KHARE-WINTENBERGER-09-II/10).",
    "items": [
-    "PAPER-KHARE-WINTENBERGER-09-II/98"
+    "PAPER-KHARE-WINTENBERGER-09-II/210",
+    "PAPER-KHARE-WINTENBERGER-09-II/252"
    ]
   },
   {
@@ -4646,11 +4694,13 @@
    "route": "source",
    "roadmap": "GlobalGaloisDeformations",
    "stages": [
-    "GlobalGaloisDeformations:R04.5"
+    "GlobalGaloisDeformations:R04.5",
+    "GlobalGaloisDeformations:R04.6"
    ],
-   "reason": "Used in Lemma 5.10(g) to count Taylor–Wiles primes for p = 2 (t = h¹_{S−split}(Q_n, 𝔽)); R04.5/dyadic-taylor-wiles-primes uses it implicitly. For p = 2 it follows from H⁰(G_F, Ad/Z) = 0.",
+   "reason": "Used in Lemma 5.10(g) to count Taylor–Wiles primes for p = 2 (t = h¹_{S−split}(Q_n, 𝔽)); R04.5/dyadic-taylor-wiles-primes uses it implicitly. For p = 2 it follows from H⁰(G_F, Ad/Z) = 0. The arithmetic character ψ of §8.1 with its kinds (i)–(iii) (/254) is a datum of the deformation problems of KW II §§8–10, which R04.6 supplies ('Supply the deformation problems used in KW II §§9–10'); R04.6/kw-deformation-data already takes 'ψ as in KW II §8.1' by reference. R04.6 precedes GL2ModularityLifting R22.1 and PotentialModularityAndCompatibleSystems R24.1, and R04.6 → SerreWeightAndLevelOptimisation R20.6 (Theorems 8.2 and 8.4) closes no cycle. The earlier route of /254 to GL2ModularityLifting R22.1 lay downstream of R20.6 (RT-PAPER-KHARE-WINTENBERGER-09-II/1).",
    "items": [
-    "PAPER-KHARE-WINTENBERGER-09-II/140"
+    "PAPER-KHARE-WINTENBERGER-09-II/140",
+    "PAPER-KHARE-WINTENBERGER-09-II/254"
    ]
   },
   {
@@ -4661,22 +4711,10 @@
     "PotentialModularityAndCompatibleSystems:R23.5",
     "PotentialModularityAndCompatibleSystems:R24.1"
    ],
-   "reason": "Three inputs of the potential-modularity and finiteness arguments that R23–R24 use without stating them. Khare's Lemma 2.2 (removing Taylor's p ≠ 3 and Hida's neatness restrictions) is listed among the imports of R23.3/kw-ii-theorem-6-1-potential-modularity-of-rho-bar-over-a-controlled-F and recorded there as unread. The dihedral-image step keeps ρ̄|_{F(μ_p)} irreducible along the field choices, which is R23.5's 'control of the extension'. Khare's Lemma 4.2 (a representation of G_{ℚ_ℓ}, ℓ ≠ p, into GL₂ of a characteristic-p ring becomes unramified over a finite extension) is a hypothesis of R24.1/auxiliary-totally-real-field-for-the-finiteness-argument, which notes it could not be located.",
+   "reason": "Two inputs of the potential-modularity and finiteness arguments that R23–R24 use without stating them. The dihedral-image step keeps ρ̄|_{F(μ_p)} irreducible along the field choices, which is R23.5's 'control of the extension'. Khare's Lemma 4.2 (a representation of G_{ℚ_ℓ}, ℓ ≠ p, into GL₂ of a characteristic-p ring becomes unramified over a finite extension) is a hypothesis of R24.1/auxiliary-totally-real-field-for-the-finiteness-argument, which notes it could not be located. Khare's Lemma 2.2 (/209), which the R23.3 node kw-ii-theorem-6-1-potential-modularity-of-rho-bar-over-a-controlled-F imports, was routed here. It is also used in the proof of Theorem 8.2 (p. 73) at SerreWeightAndLevelOptimisation R20.6, which that node imports, so here it closed a cycle. It now goes to HilbertModularVarietiesAndShimuraCurves R18.3 (route 8) (RT-PAPER-KHARE-WINTENBERGER-09-II/1).",
    "items": [
     "PAPER-KHARE-WINTENBERGER-09-II/192",
-    "PAPER-KHARE-WINTENBERGER-09-II/209",
     "PAPER-KHARE-WINTENBERGER-09-II/312"
-   ]
-  },
-  {
-   "route": "source",
-   "roadmap": "InverseGaloisAndArithmeticFundamentalGroups",
-   "stages": [
-    "InverseGaloisAndArithmeticFundamentalGroups:IG.4"
-   ],
-   "reason": "Grunwald–Wang is used for p = 2 in Lemma 7.10 and for the local conditions of Theorem 6.1(iii)(b). Tau Ceti ClassFieldTheory Layer 12 excludes it explicitly, and GlobalGaloisDeformations:R04.4/change-of-determinant already assigns it to InverseGaloisAndArithmeticFundamentalGroups IG.4 (embedding problems and solvable realizations), whose text does not yet state it. IG.4 is its natural owner: Grunwald–Wang is the local-global statement for cyclic embedding problems.",
-   "items": [
-    "PAPER-KHARE-WINTENBERGER-09-II/210"
    ]
   },
   {
@@ -4685,23 +4723,10 @@
    "stages": [
     "HilbertModularVarietiesAndShimuraCurves:R18.3"
    ],
-   "reason": "R18.3 owns definite quaternionic forms and their stabilisers; Taylor's neatness lemma (reduction S_{k,ψ}(U, 𝒪) → S_{k,ψ}(U, 𝔽) surjective, perfect pairings) is the property of those spaces that §§7–8 use.",
+   "reason": "R18.3 owns definite quaternionic forms and their stabilisers; Taylor's neatness lemma (reduction S_{k,ψ}(U, 𝒪) → S_{k,ψ}(U, 𝔽) surjective, perfect pairings) is the property of those spaces that §§7–8 use. Khare's Lemma 2.2 (/209) goes with it. KW use it to take the level of Lemma 8.3 neat in the sense of Taylor's Lemma 1.1 (p. 73), and to lift the restriction p ≠ 3 of [59] §5 in the proof of Theorem 6.1 (pp. 56–57). R18.3 precedes SerreWeightAndLevelOptimisation R20.6, and R18.3 → PotentialModularityAndCompatibleSystems R23.3 closes no cycle; at R23.3 the lemma closed one, through the R23.3 node's import of Theorem 8.2 (RT-PAPER-KHARE-WINTENBERGER-09-II/1).",
    "items": [
+    "PAPER-KHARE-WINTENBERGER-09-II/209",
     "PAPER-KHARE-WINTENBERGER-09-II/272"
-   ]
-  },
-  {
-   "route": "source",
-   "roadmap": "GL2ModularityLifting",
-   "stages": [
-    "GL2ModularityLifting:R22.1",
-    "GL2ModularityLifting:R22.4"
-   ],
-   "reason": "GL2ModularityLifting follows KW II §§7–9. R22.1 constructs the Hecke modules 'with the required local type and determinant', which is where the arithmetic characters ψ of §8.1 and the determinant matching of Lemma 7.10 belong; R22.4 adds and removes ramification 'under the exact level-change theorems', which is Kisin's level raising via Ihara's lemma and his quadratic-tower lemma.",
-   "items": [
-    "PAPER-KHARE-WINTENBERGER-09-II/252",
-    "PAPER-KHARE-WINTENBERGER-09-II/254",
-    "PAPER-KHARE-WINTENBERGER-09-II/273"
    ]
   },
   {
@@ -4710,13 +4735,14 @@
    "stages": [
     "SerreWeightAndLevelOptimisation:R20.6"
    ],
-   "reason": "R20.6 is to 'supply the optimisation inputs used inside KW', and the GL2ModularityLifting--R22.1 packet has an open request to R20.6 for Theorems 8.2 and 8.4. Its nodes so far work over ℚ; these results are the totally real versions after an allowable base change (level lowering, minimal-at-p lifts, the weight-2 to weight-(p + 1) passage of Lemma 8.3 through 𝔽[ℙ¹(k_w)] ≅ 𝟙 ⊕ V, and lifts with prescribed local types).",
+   "reason": "R20.6 is to 'supply the optimisation inputs used inside KW', and the GL2ModularityLifting--R22.1 packet has an open request to R20.6 for Theorems 8.2 and 8.4. Its nodes so far work over ℚ; these results are the totally real versions after an allowable base change (level lowering, minimal-at-p lifts, the weight-2 to weight-(p + 1) passage of Lemma 8.3 through 𝔽[ℙ¹(k_w)] ≅ 𝟙 ⊕ V, and lifts with prescribed local types). Kisin's Corollary 3.1.11 and Lemma 3.5.3 (/273), the method of proof of Theorem 8.4, come here too; at GL2ModularityLifting R22.4, downstream of R20.6, they closed a cycle (RT-PAPER-KHARE-WINTENBERGER-09-II/1). The other inputs of Theorems 8.2 and 8.4 come from layers that close no cycle with R20.6: ψ (/254) from GlobalGaloisDeformations R04.6; Lemma 7.10 (/252) and Grunwald–Wang (/210) from ArithmeticGaloisDuality R02.2/R02.4; Khare's Lemma 2.2 (/209) and Taylor's neatness lemma (/272) from HilbertModularVarietiesAndShimuraCurves R18.3; and Lemma 7.1 (/222) from R18.3–R18.6.",
    "items": [
     "PAPER-KHARE-WINTENBERGER-09-II/257",
     "PAPER-KHARE-WINTENBERGER-09-II/258",
     "PAPER-KHARE-WINTENBERGER-09-II/259",
     "PAPER-KHARE-WINTENBERGER-09-II/260",
-    "PAPER-KHARE-WINTENBERGER-09-II/264"
+    "PAPER-KHARE-WINTENBERGER-09-II/264",
+    "PAPER-KHARE-WINTENBERGER-09-II/273"
    ]
   }
  ],
@@ -5328,6 +5354,20 @@
     "reason": "Confirmed on the authors' own citation: KW I, reference [24] (Invent. Math. 178, 485–504), gives Duke Math. J. 134 (2006), 557–589; Crossref has no page range for doi:10.1215/S0012-7094-06-13434-8 and Project Euclid served a challenge page.",
     "by": "REV-PAPER-KHARE-WINTENBERGER-09-II"
    }
+  },
+  {
+   "id": "PAPER-KHARE-WINTENBERGER-09-II/E33",
+   "kind": "error",
+   "locator": "§3.2.4, p. 24 of the author copy proofs.pdf (Invent. Math. 178 (2009) not compared)",
+   "printed": "Section 3.2.4 treats irreducible ρ̄v and weight 2 deformations. It sends p = 2, k(ρ̄v) = 2 to the preceding crystalline case, then assumes p ≠ 2. Citing Savitt, item 3 of th. 6.22 of [54], it identifies the ring as O[[T1, T2]]/(T1T2 − p) when O is sufficiently big.",
+   "correction": "Add the hypothesis 3 ≤ k(ρ̄_p) ≤ p. When p ≠ 2 and k(ρ̄_p) = 2, the required type (ω_p^{k(ρ̄)−2} ⊕ 1, 0) is trivial, so the weight-two lifts are the crystalline weight-2 lifts of §3.2.3. Their fixed-determinant ring is formally smooth, 𝒪[[T]] (framed: 𝒪[[T₁, …, T₄]]), as in the case p = 2 that §3.2.4 already sends to §3.2.3.",
+   "reason": "For p odd, §3.2.2(i) (p. 23) gives the weight-two lifts the inertial Weil–Deligne parameter (ω_p^{k(ρ̄)−2} ⊕ 1, 0). At k(ρ̄_p) = 2 this is the trivial type with N = 0, so the lifts are crystalline of weight 2. The case occurs for irreducible ρ̄_p: ρ̄_p|I_p ≅ ω₂ ⊕ ω₂^p, for instance E[p] for an elliptic curve with supersingular reduction at p, has Serre weight 2. Savitt's Theorem 6.22(3) concerns a principal-series type ω̃^i ⊕ ω̃^j with i ≢ j mod p − 1 (as the node LocalGaloisDeformationRings:R08.4/savitt-weight-two-rings records). Here i = k(ρ̄_p) − 2 and j = 0, and k(ρ̄_p) ≤ p for irreducible ρ̄_p, so it applies exactly when 3 ≤ k(ρ̄_p) ≤ p. The two rings differ. The special fibre of 𝒪[[T]] is 𝔽[[T]], a regular domain, while that of 𝒪[[T₁, T₂]]/(T₁T₂ − p) is 𝔽[[T₁, T₂]]/(T₁T₂), which is not a domain. Both are flat domains over 𝒪 of relative dimension 1 with regular generic fibre, which is all Theorem 3.1 asserts, and the paper uses Savitt's explicit form nowhere else. So nothing downstream is affected.",
+   "affects": "nothing",
+   "known": "new: no published correction found and not recorded in the atlas",
+   "searched": [
+    "the Crossref 'updates' filter for doi:10.1007/s00222-009-0206-6, 30 September 2026: no erratum or correction registered",
+    "the sourceIssues of every atlas packet, decomposition and paper extraction, searched for §3.2.4 and Savitt: LocalGaloisDeformationRings/E1 concerns Savitt's own Theorem 6.12(4), not KW's use of Theorem 6.22(3)"
+   ]
   }
  ],
  "sourceVersions": [
