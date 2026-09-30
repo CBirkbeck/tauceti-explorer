@@ -1420,7 +1420,8 @@
    ],
    "avoidAccountOf": "PAPER-DADDEZIO-23",
    "prompt": "research/blueprint/prompts/REV-PAPER-DADDEZIO-23.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1098"
   },
   {
    "id": "PAPER-DITTMANN-POP-23",
@@ -34960,8 +34961,9 @@
     "REV-PAPER-KOENIGSMANN-16"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-KOENIGSMANN-16.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4523"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4523",
+   "finishedAt": "2026-09-30T00:04:34Z"
   },
   {
    "id": "RT-PAPER-TREUMANN-VENKATESH-16",
