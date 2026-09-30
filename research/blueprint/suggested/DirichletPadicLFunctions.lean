@@ -15034,3 +15034,155 @@ example (F : ℕ → ℚ_[2]) (h : ∀ a < 4, ¬2 ∣ a → ‖F a‖ ≤ 1) :
 -- mean_norm_not_uniform_unit_bound
 example : ‖moritaFiniteMean 2 (1 : DirichletCharacter ℚ_[2] 1) 0 (fun _ => 1)‖ = 2 := by sorry
 end SuggestedMoritaFiniteMeanTests
+
+/-! The source angular coordinate and its natural samples. Functions may be
+extended arbitrarily outside the principal disc; the samples ignore those values. -/
+namespace DirichletPadic
+noncomputable section
+open scoped Classical
+
+def moritaOmega (p : ℕ) [Fact p.Prime] : ℤ_[p]ˣ →* ℤ_[p]ˣ :=
+  if h : p=2 then by subst p; exact dyadicOmega else teichmullerOmega p
+lemma moritaOmega_two : moritaOmega 2 = dyadicOmega := by sorry
+lemma moritaOmega_odd (p : ℕ) [Fact p.Prime] (hp : p≠2) : moritaOmega p = teichmullerOmega p := by sorry
+lemma moritaOmega_one (p : ℕ) [Fact p.Prime] : moritaOmega p 1 = 1 := by sorry
+lemma moritaOmega_mul (p : ℕ) [Fact p.Prime] (u v : ℤ_[p]ˣ) :
+    moritaOmega p (u*v) = moritaOmega p u * moritaOmega p v := by sorry
+lemma moritaOmega_order (p : ℕ) [Fact p.Prime] (u : ℤ_[p]ˣ) :
+    moritaOmega p u ^ (moritaModulus p).totient = 1 := by sorry
+lemma moritaOmega_inverse_power_period (p : ℕ) [Fact p.Prime] (u : ℤ_[p]ˣ) (m : ℕ) :
+    (moritaOmega p u)⁻¹ ^ m = (moritaOmega p u)⁻¹ ^ (m % (moritaModulus p).totient) := by sorry
+lemma moritaOmega_translate (p : ℕ) [Fact p.Prime] (u v : ℤ_[p]ˣ) (z : ℤ_[p])
+    (h : (v : ℤ_[p]) = (u : ℤ_[p]) + moritaModulus p * z) :
+    moritaOmega p v = moritaOmega p u := by sorry
+
+def moritaAngular (p : ℕ) [Fact p.Prime] : ℤ_[p]ˣ →* ℤ_[p]ˣ :=
+  (MonoidHom.id _) / moritaOmega p
+lemma moritaAngular_two : moritaAngular 2 = dyadicAngular := by sorry
+lemma moritaAngular_odd (p : ℕ) [Fact p.Prime] (hp : p≠2) : moritaAngular p = teichmullerAngular p := by sorry
+lemma moritaAngular_one (p : ℕ) [Fact p.Prime] : moritaAngular p 1 = 1 := by sorry
+lemma moritaAngular_mul (p : ℕ) [Fact p.Prime] (u v : ℤ_[p]ˣ) :
+    moritaAngular p (u*v) = moritaAngular p u * moritaAngular p v := by sorry
+lemma moritaAngular_inv (p : ℕ) [Fact p.Prime] (u : ℤ_[p]ˣ) :
+    moritaAngular p u⁻¹ = (moritaAngular p u)⁻¹ := by sorry
+lemma moritaAngular_factorization (p : ℕ) [Fact p.Prime] (u : ℤ_[p]ˣ) :
+    moritaOmega p u * moritaAngular p u = u := by sorry
+lemma moritaAngular_norm (p : ℕ) [Fact p.Prime] (u : ℤ_[p]ˣ) :
+    ‖(moritaAngular p u : ℤ_[p])-1‖ ≤ ‖(moritaModulus p : ℤ_[p])‖ := by sorry
+lemma moritaAngular_translate (p : ℕ) [Fact p.Prime] (u v : ℤ_[p]ˣ) (z : ℤ_[p])
+    (h : (v : ℤ_[p]) = (u : ℤ_[p]) + moritaModulus p * z) :
+    (moritaAngular p v : ℤ_[p]) = (moritaAngular p u : ℤ_[p]) +
+      (↑((moritaOmega p u)⁻¹) : ℤ_[p]) * (moritaModulus p * z) := by sorry
+
+variable {K : Type*} [Field K]
+def moritaAngularSamples (p : ℕ) [Fact p.Prime] : (ℤ_[p] → K) →ₗ[K] (ℕ → K) := by sorry
+lemma moritaAngularSamples_unit (p : ℕ) [Fact p.Prime] (A : ℤ_[p] → K) (a : ℕ)
+    (h : IsUnit (a : ℤ_[p])) :
+    moritaAngularSamples p A a = A (moritaAngular p h.unit : ℤ_[p]) := by sorry
+lemma moritaAngularSamples_nonunit (p : ℕ) [Fact p.Prime] (A : ℤ_[p] → K) (a : ℕ)
+    (h : p ∣ a) : moritaAngularSamples p A a = 0 := by sorry
+lemma moritaAngularSamples_zero (p : ℕ) [Fact p.Prime] : moritaAngularSamples p (0 : ℤ_[p] → K) = 0 := by sorry
+lemma moritaAngularSamples_add (p : ℕ) [Fact p.Prime] (A B : ℤ_[p] → K) :
+    moritaAngularSamples p (A+B) = moritaAngularSamples p A + moritaAngularSamples p B := by sorry
+lemma moritaAngularSamples_smul (p : ℕ) [Fact p.Prime] (A : ℤ_[p] → K) (c : K) :
+    moritaAngularSamples p (c • A) = c • moritaAngularSamples p A := by sorry
+lemma moritaAngularSamples_congr (p : ℕ) [Fact p.Prime] (A B : ℤ_[p] → K)
+    (h : ∀ x : ℤ_[p], ‖x-1‖ ≤ ‖(moritaModulus p : ℤ_[p])‖ → A x = B x) :
+    moritaAngularSamples p A = moritaAngularSamples p B := by sorry
+lemma moritaAngularSamples_translate (p : ℕ) [Fact p.Prime] (A : ℤ_[p] → K) (f n a z : ℕ)
+    (h : IsUnit (a : ℤ_[p])) :
+    moritaAngularSamples p A (a + moritaLevel p f n * z) =
+      A ((moritaAngular p h.unit : ℤ_[p]) + (↑((moritaOmega p h.unit)⁻¹) : ℤ_[p]) *
+        ((moritaLevel p f n : ℤ_[p]) * z)) := by sorry
+lemma moritaAngularSamples_norm {L : Type*} [NormedField L] (p : ℕ) [Fact p.Prime]
+    (A : ℤ_[p] → L) (B : ℝ) (hB : 0 ≤ B)
+    (hA : ∀ x : ℤ_[p], ‖x-1‖ ≤ ‖(moritaModulus p : ℤ_[p])‖ → ‖A x‖ ≤ B)
+    (a : ℕ) : ‖moritaAngularSamples p A a‖ ≤ B := by sorry
+
+variable {f : ℕ}
+def moritaAngularMean (p : ℕ) [Fact p.Prime] (χ : DirichletCharacter K f) (n : ℕ) :
+    (ℤ_[p] → K) →ₗ[K] K := (moritaFiniteMean p χ n).comp (moritaAngularSamples p)
+lemma moritaAngularMean_apply (p : ℕ) [Fact p.Prime] (χ : DirichletCharacter K f) (n : ℕ) (A : ℤ_[p] → K) :
+    moritaAngularMean p χ n A = moritaFiniteMean p χ n (moritaAngularSamples p A) := by sorry
+lemma moritaAngularMean_zero (p : ℕ) [Fact p.Prime] (χ : DirichletCharacter K f) (n : ℕ) :
+    moritaAngularMean p χ n 0 = 0 := by sorry
+lemma moritaAngularMean_add (p : ℕ) [Fact p.Prime] (χ : DirichletCharacter K f) (n : ℕ) (A B : ℤ_[p] → K) :
+    moritaAngularMean p χ n (A+B) = moritaAngularMean p χ n A + moritaAngularMean p χ n B := by sorry
+lemma moritaAngularMean_smul (p : ℕ) [Fact p.Prime] (χ : DirichletCharacter K f) (n : ℕ) (A : ℤ_[p] → K) (c : K) :
+    moritaAngularMean p χ n (c • A) = c * moritaAngularMean p χ n A := by sorry
+lemma moritaAngularMean_congr (p : ℕ) [Fact p.Prime] (χ : DirichletCharacter K f) (n : ℕ) (A B : ℤ_[p] → K)
+    (h : ∀ x : ℤ_[p], ‖x-1‖ ≤ ‖(moritaModulus p : ℤ_[p])‖ → A x = B x) :
+    moritaAngularMean p χ n A = moritaAngularMean p χ n B := by sorry
+lemma moritaAngularMean_constant [CharZero K] (p : ℕ) [Fact p.Prime] (n : ℕ) (c : K) :
+    moritaAngularMean p (1 : DirichletCharacter K 1) n (fun _ => c) = c * (1-(p : K)⁻¹) := by sorry
+lemma moritaAngularMean_norm {L : Type*} [NormedField L] [IsUltrametricDist L] (p : ℕ) [Fact p.Prime]
+    (χ : DirichletCharacter L f) (n : ℕ) (A : ℤ_[p] → L) (B : ℝ) (hB : 0 ≤ B)
+    (hA : ∀ x : ℤ_[p], ‖x-1‖ ≤ ‖(moritaModulus p : ℤ_[p])‖ → ‖A x‖ ≤ B) :
+    ‖moritaAngularMean p χ n A‖ ≤ ‖(moritaLevel p f n : L)⁻¹‖ * B := by sorry
+end
+end DirichletPadic
+namespace SuggestedAngularSampleTests
+open DirichletPadic
+-- source_omega_identity
+example : moritaOmega 2 1 = 1 := by sorry
+-- source_omega_dyadic_sign
+example : moritaOmega 2 (-1) = -1 := by sorry
+-- source_omega_odd_sign
+example : moritaOmega 3 (-1) = -1 := by sorry
+-- source_omega_not_dyadic_teichmuller
+example : moritaOmega 2 (-1) ≠ teichmullerOmega 2 (-1) := by sorry
+-- source_angular_dyadic_sign
+example : moritaAngular 2 (-1) = 1 := by sorry
+-- source_angular_odd_sign
+example : moritaAngular 3 (-1) = 1 := by sorry
+-- source_angular_factorization
+example (u : ℤ_[2]ˣ) : moritaOmega 2 u * moritaAngular 2 u = u := by sorry
+-- source_angular_not_native_dyadic
+example : moritaAngular 2 (-1) ≠ teichmullerAngular 2 (-1) := by sorry
+-- source_dyadic_order
+example (u : ℤ_[2]ˣ) : moritaOmega 2 u ^ 2 = 1 := by sorry
+-- source_dyadic_inverse_period
+example (u : ℤ_[2]ˣ) : (moritaOmega 2 u)⁻¹ ^ 3 = (moritaOmega 2 u)⁻¹ := by sorry
+-- source_dyadic_radius
+example (u : ℤ_[2]ˣ) : ‖(moritaAngular 2 u : ℤ_[2])-1‖ ≤ (4 : ℝ)⁻¹ := by sorry
+-- source_odd_radius
+example (u : ℤ_[3]ˣ) : ‖(moritaAngular 3 u : ℤ_[3])-1‖ ≤ (3 : ℝ)⁻¹ := by sorry
+-- source_omega_shift
+example (u v : ℤ_[2]ˣ) (h : (u : ℤ_[2]) = 3) (hv : (v : ℤ_[2]) = 7) : moritaOmega 2 v = moritaOmega 2 u := by sorry
+-- source_angular_shift_sign
+example (u v : ℤ_[2]ˣ) (h : (u : ℤ_[2]) = 3) (hv : (v : ℤ_[2]) = 7) :
+    (moritaAngular 2 v : ℤ_[2]) - (moritaAngular 2 u : ℤ_[2]) = -4 := by sorry
+-- sample_zero
+example : moritaAngularSamples 2 (fun _ : ℤ_[2] => (0 : ℚ_[2])) = 0 := by sorry
+-- sample_identity_one
+example : moritaAngularSamples 2 (fun x : ℤ_[2] => (x : ℚ_[2])) 1 = 1 := by sorry
+-- sample_identity_three
+example : moritaAngularSamples 2 (fun x : ℤ_[2] => (x : ℚ_[2])) 3 = -3 := by sorry
+-- sample_nonunit_two
+example (A : ℤ_[2] → ℚ_[2]) : moritaAngularSamples 2 A 2 = 0 := by sorry
+-- sample_not_raw_integer
+example : moritaAngularSamples 2 (fun x : ℤ_[2] => (x : ℚ_[2])) 3 ≠ 3 := by sorry
+-- sample_outside_disc_ignored
+example (A B : ℤ_[2] → ℚ_[2]) (h : ∀ x, ‖x-1‖ ≤ (4 : ℝ)⁻¹ → A x=B x) :
+    moritaAngularSamples 2 A = moritaAngularSamples 2 B := by sorry
+-- sample_translation_seven
+example : moritaAngularSamples 2 (fun x : ℤ_[2] => (x : ℚ_[2])) 7 = -7 := by sorry
+-- angular_mean_zero
+example : moritaAngularMean 2 (1 : DirichletCharacter ℚ_[2] 1) 0 (fun _ => 0) = 0 := by sorry
+-- angular_mean_constant
+example : moritaAngularMean 2 (1 : DirichletCharacter ℚ_[2] 1) 0 (fun _ => 1) = 1/2 := by sorry
+-- angular_mean_linear_dyadic
+example (n : ℕ) : moritaAngularMean 2 (1 : DirichletCharacter ℚ_[2] 1) n (fun x => (x : ℚ_[2])) = -1/2 := by sorry
+-- angular_mean_linear_odd
+example (n : ℕ) : moritaAngularMean 3 (1 : DirichletCharacter ℚ_[3] 1) n (fun x => (x : ℚ_[3])) = -1/3 := by sorry
+-- angular_mean_not_raw_mean
+example : moritaAngularMean 2 (1 : DirichletCharacter ℚ_[2] 1) 0 (fun x => (x : ℚ_[2])) ≠
+    moritaFiniteMean 2 (1 : DirichletCharacter ℚ_[2] 1) 0 (fun a => a) := by sorry
+-- angular_mean_constant_three
+example (n : ℕ) : moritaAngularMean 3 (1 : DirichletCharacter ℚ_[3] 1) n (fun _ => 3) = 2 := by sorry
+-- angular_mean_norm_bound
+example (A : ℤ_[2] → ℚ_[2]) (h : ∀ x, ‖x-1‖ ≤ (4 : ℝ)⁻¹ → ‖A x‖ ≤ 1) :
+    ‖moritaAngularMean 2 (1 : DirichletCharacter ℚ_[2] 1) 0 A‖ ≤ 4 := by sorry
+-- angular_mean_norm_exceeds_one
+example : ‖moritaAngularMean 2 (1 : DirichletCharacter ℚ_[2] 1) 0 (fun x => (x : ℚ_[2]))‖ = 2 := by sorry
+end SuggestedAngularSampleTests

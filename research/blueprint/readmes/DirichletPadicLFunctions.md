@@ -26764,3 +26764,406 @@ Exact rational controls cover 60 levels, 360 checks each of endpoint conversion,
 Capture at 10b68f90 differs only in the source registry and generated register. Four changed records were read: EVW E20 retains the congruence exclusion q not congruent to 1 modulo ell in its proved positive-proportion statement; EG E10 expands type/index slips, E11 replaces an unsupported forward-Cartier rigidity step with full-faithfulness and finite permutation, and E12 retains a possibly nontrivial finite self-twist in the constant-moduli argument. All four await review; no independent verdict is asserted. All 16 Dirichlet findings, registry metadata and consumed supplier inputs remain unchanged. Publication refresh at b4b15bfe reads six changed registry records. Chang–Chen–Mishiba E5–8 correct the coefficient-field dimension convention and three source/type locators. Dor E7 retains the unproved global counit and restricted-product compatibility obligations; E8 replaces the full additive-character kernel by its conductor lattice, since the former need not be compact. All new findings await review; this records their existing registry content, not an independent verification. Registry metadata, all Dirichlet findings and every consumed supplier input are unchanged.
 
 The separate partial signature file also compiled with zero errors and 2,562 expected placeholder warnings across 3,600 pinned source modules. It includes all 26 new named declarations and 24 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 91d0f1c899a11a319aff7c1a0e85d01678446020bad0ccb9396afc1d7fd5703b.
+
+
+## Source angular samples and finite means
+
+Twelve L3 nodes connect the established odd-prime and dyadic coordinates to the finite character means through actual angular sampling. They retain the exact principal-disc norm, inverse translation factor and finite twist order. All 819 predecessor nodes, 690 baseline records and 16 source findings remain whole.
+
+The complete KL1964 and Morita1975 readings are retained, with KL Section 2 pp.331–332 providing the exact angular sample and block translation. The preceding full native Teichmuller, dyadic sign and finite-mean proofs were replayed from their retained sources. Native unit/natural-norm criteria, normalized p-power norms, totient_prime and LinearMap.comp were read at the pin. A function on the source disc enters through ordinary extension and a proved independence statement; generic analytic spaces and Taylor estimates remain with LAD.
+
+### The source torsion coordinate at every prime
+
+`DirichletPadicLFunctions:L3/morita-omega` — `DirichletPadic.moritaOmega`
+
+Define Ω_p:U→U by the preceding dyadicOmega if p=2 and teichmullerOmega if p≠2. Both branches are native monoid homomorphisms. This is the single coordinate used in KL and Morita.
+
+**Hypotheses:** p is prime, U=ℤ_pˣ is the native unit group, q=moritaModulus(p), and d=φ(q). Thus q=4,d=2 at p=2, while q=p,d=p−1 at odd p. The source torsion map Ω uses the preceding dyadicOmega at p=2 and teichmullerOmega otherwise. Its angular quotient is α(u)=u/Ω(u). These are the existing maps with a single prime-case interface, not another construction of either coordinate. A is an ordinary function ℤ_p→K, where K is a field. A function initially given only on the source principal disc may be extended by zero outside it. The sample-congruence theorem makes every such extension immaterial. This uses ordinary function extension, not a new analytic-function carrier. χ is a native Dirichlet character at positive level f in source applications, N_n=lcm(f,q)q^n, and the already planned finite arithmetic mean is reused. Characteristic zero and an ultrametric norm are assumed only in the statements that need them.
+
+**Proof:**
+
+1. Split on the decidable equality p=2. In that branch substitute the prime equality and reuse the preceding dyadic homomorphism; in the other branch reuse the transported Teichmüller homomorphism.
+2. The two branch identities are exact equalities of native homomorphisms. One and multiplication follow from their bundled structure.
+3. The complete omega, omega_two and omega_odd probe verifies the dependent prime substitution, reusing both complete coordinate proofs. There is no second residue, Hensel or dyadic character construction.
+4. Its finite order and translation identity are promoted below. In particular Ω_2(−1)=−1, whereas the native prime-to-p Teichmüller coordinate at p=2 would be 1.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/dyadic-omega`, `DirichletPadicLFunctions:L3/teichmuller-omega`, `DirichletPadicLFunctions:L3/morita-modulus`.
+
+**Uses:**
+
+- KL Section 2 finite means: Supplies the common all-prime torsion coordinate without a wrong dyadic specialization.
+- KL Taylor translations: Supplies the inverse factor in every translated derivative term.
+- Finite character twist family: Its finite order bounds the number of inverse-power twists independently of derivative degree.
+
+**API:**
+
+- `DirichletPadic.moritaOmega_two` (compatibility): At p=2 it equals dyadicOmega.
+- `DirichletPadic.moritaOmega_odd` (compatibility): At p≠2 it equals teichmullerOmega.
+- `DirichletPadic.moritaOmega_one` (simp): Ω_p(1)=1.
+- `DirichletPadic.moritaOmega_mul` (structure): Ω_p(uv)=Ω_p(u)Ω_p(v).
+- `DirichletPadic.moritaOmega_order` (relation): Ω_p(u)^φ(q)=1; promoted below.
+- `DirichletPadic.moritaOmega_inverse_power_period` (relation): Ω_p(u)^(−m) depends only on m modulo φ(q).
+- `DirichletPadic.moritaOmega_translate` (relation): Adding a scalar multiple of q preserves Ω; promoted below.
+
+**Tests:**
+
+- `SuggestedAngularSampleTests.source_omega_identity` (degenerate): Ω_2(1)=1.
+- `SuggestedAngularSampleTests.source_omega_dyadic_sign` (computation): Ω_2(−1)=−1.
+- `SuggestedAngularSampleTests.source_omega_odd_sign` (computation): Ω_3(−1)=−1.
+- `SuggestedAngularSampleTests.source_omega_not_dyadic_teichmuller` (non-example): Ω_2(−1) differs from teichmullerOmega 2 (−1).
+
+**Acceptance:** The dyadic branch is the source conductor-four character, not the native order-one Teichmüller coordinate.
+
+**Source:** Section 2, published pp.331–332: x=ω(x)⟨x⟩, finite mean (0), translated Taylor argument and block identity (5); Section 1 principal disc. The actual source samples use the conductor-four sign for p=2 and the already compared Teichmüller limit for odd p. This checkpoint connects those coordinates to the finite arithmetic mean. Generic analytic spaces, Taylor estimates and limiting functionals are not reconstructed.
+
+### The source principal coordinate at every prime
+
+`DirichletPadicLFunctions:L3/morita-angular` — `DirichletPadic.moritaAngular`
+
+Define α_p:U→U as the quotient of the native identity homomorphism by Ω_p. It equals dyadicAngular at p=2 and teichmullerAngular at odd p.
+
+**Hypotheses:** p is prime, U=ℤ_pˣ is the native unit group, q=moritaModulus(p), and d=φ(q). Thus q=4,d=2 at p=2, while q=p,d=p−1 at odd p. The source torsion map Ω uses the preceding dyadicOmega at p=2 and teichmullerOmega otherwise. Its angular quotient is α(u)=u/Ω(u). These are the existing maps with a single prime-case interface, not another construction of either coordinate. A is an ordinary function ℤ_p→K, where K is a field. A function initially given only on the source principal disc may be extended by zero outside it. The sample-congruence theorem makes every such extension immaterial. This uses ordinary function extension, not a new analytic-function carrier. χ is a native Dirichlet character at positive level f in source applications, N_n=lcm(f,q)q^n, and the already planned finite arithmetic mean is reused. Characteristic zero and an ultrametric norm are assumed only in the statements that need them.
+
+**Proof:**
+
+1. Use the existing commutative unit-group homomorphism division. Substitute the two branch identities for Ω to identify α with the already planned angular maps.
+2. One, multiplication and inverse come from the homomorphism structure. Native group cancellation gives Ω_p(u)α_p(u)=u.
+3. The complete angular, angular_two, angular_odd and factorization probe verifies the exact map comparisons. This introduces no generic product decomposition or analytic character space.
+4. The principal-disc bound and scalar translation are separately promoted. At both p=2 and p=3 the value at −1 is one, because the corresponding torsion coordinate is −1.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/morita-omega`, `DirichletPadicLFunctions:L3/dyadic-angular`, `DirichletPadicLFunctions:L3/teichmuller-angular`, `mathlib:MonoidHom.div_apply`.
+
+**Uses:**
+
+- KL/Morita sampled analytic values: Supplies the actual argument ⟨a⟩ of each p-unit sample.
+- Source disc comparison: Places every sample in the radius |q| principal disc.
+- Block Taylor argument: Turns an integer block shift into its explicit angular increment.
+
+**API:**
+
+- `DirichletPadic.moritaAngular_two` (compatibility): At p=2 it equals dyadicAngular.
+- `DirichletPadic.moritaAngular_odd` (compatibility): At odd p it equals teichmullerAngular.
+- `DirichletPadic.moritaAngular_one` (simp): α_p(1)=1.
+- `DirichletPadic.moritaAngular_mul` (structure): α_p(uv)=α_p(u)α_p(v).
+- `DirichletPadic.moritaAngular_inv` (structure): α_p(u⁻¹)=α_p(u)⁻¹.
+- `DirichletPadic.moritaAngular_factorization` (relation): Ω_p(u)α_p(u)=u.
+- `DirichletPadic.moritaAngular_norm` (compatibility): ‖α_p(u)−1‖≤‖q‖; promoted below.
+- `DirichletPadic.moritaAngular_translate` (relation): The angular increment for a q-shift is its product with Ω_p(u)⁻¹; promoted below.
+
+**Tests:**
+
+- `SuggestedAngularSampleTests.source_angular_dyadic_sign` (computation): α_2(−1)=1.
+- `SuggestedAngularSampleTests.source_angular_odd_sign` (computation): α_3(−1)=1.
+- `SuggestedAngularSampleTests.source_angular_factorization` (compatibility): The torsion and principal factors multiply to every dyadic unit.
+- `SuggestedAngularSampleTests.source_angular_not_native_dyadic` (non-example): α_2(−1) differs from the all-prime native Teichmüller quotient at −1.
+
+**Acceptance:** The exact dyadic principal subgroup is retained; this map does not weaken its radius to 1/2.
+
+**Source:** Section 2, published pp.331–332: x=ω(x)⟨x⟩, finite mean (0), translated Taylor argument and block identity (5); Section 1 principal disc. The actual source samples use the conductor-four sign for p=2 and the already compared Teichmüller limit for odd p. This checkpoint connects those coordinates to the finite arithmetic mean. Generic analytic spaces, Taylor estimates and limiting functionals are not reconstructed.
+
+### The finite order of the source torsion coordinate
+
+`DirichletPadicLFunctions:L3/morita-omega-order` — `DirichletPadic.moritaOmega_order`
+
+For every unit u, Ω_p(u)^d=1 with d=φ(q). Consequently (Ω_p(u)⁻¹)^m=(Ω_p(u)⁻¹)^(m mod d) for every natural m.
+
+**Hypotheses:** p is prime, U=ℤ_pˣ is the native unit group, q=moritaModulus(p), and d=φ(q). Thus q=4,d=2 at p=2, while q=p,d=p−1 at odd p. The source torsion map Ω uses the preceding dyadicOmega at p=2 and teichmullerOmega otherwise. Its angular quotient is α(u)=u/Ω(u). These are the existing maps with a single prime-case interface, not another construction of either coordinate. A is an ordinary function ℤ_p→K, where K is a field. A function initially given only on the source principal disc may be extended by zero outside it. The sample-congruence theorem makes every such extension immaterial. This uses ordinary function extension, not a new analytic-function carrier. χ is a native Dirichlet character at positive level f in source applications, N_n=lcm(f,q)q^n, and the already planned finite arithmetic mean is reused. Characteristic zero and an ultrametric norm are assumed only in the statements that need them.
+
+**Proof:**
+
+1. At p=2, q=4 and φ(4)=2. The preceding dyadic sign theorem gives Ω=1 or −1, whose squares are one.
+2. At odd p, apply the existing Teichmüller torsion theorem and the native totient_prime identity φ(p)=p−1.
+3. For the inverse-power API, invert the torsion equation and write m=(m mod d)+d(m div d). Native power addition and multiplication eliminate the d-multiple.
+4. The complete omega_order and omega_inverse_power_period probes check both branches and the power identity. There are at most d inverse-power functions, so later twist bounds use a finite family.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/morita-omega`, `DirichletPadicLFunctions:L3/morita-modulus`, `DirichletPadicLFunctions:L3/dyadic-omega-sign`, `DirichletPadicLFunctions:L3/teichmuller-omega-torsion`, `mathlib:Nat.totient_prime`.
+
+**Tests:**
+
+- `SuggestedAngularSampleTests.source_dyadic_order` (compatibility): Every dyadic source coordinate has square one.
+- `SuggestedAngularSampleTests.source_dyadic_inverse_period` (computation): The third inverse power equals the first inverse power at p=2.
+
+**Acceptance:** For p=2 the period is two, not p−1=1. This finite-family statement supplies no analytic bound by itself.
+
+**Source:** Section 2, published pp.331–332: x=ω(x)⟨x⟩, finite mean (0), translated Taylor argument and block identity (5); Section 1 principal disc. The actual source samples use the conductor-four sign for p=2 and the already compared Teichmüller limit for odd p. This checkpoint connects those coordinates to the finite arithmetic mean. Generic analytic spaces, Taylor estimates and limiting functionals are not reconstructed.
+
+### The uniform notation for the principal-disc bound
+
+`DirichletPadicLFunctions:L3/morita-angular-norm` — `DirichletPadic.moritaAngular_norm`
+
+For every u∈U, ‖α_p(u)−1‖≤‖q‖ in the native norm on ℤ_p.
+
+**Hypotheses:** p is prime, U=ℤ_pˣ is the native unit group, q=moritaModulus(p), and d=φ(q). Thus q=4,d=2 at p=2, while q=p,d=p−1 at odd p. The source torsion map Ω uses the preceding dyadicOmega at p=2 and teichmullerOmega otherwise. Its angular quotient is α(u)=u/Ω(u). These are the existing maps with a single prime-case interface, not another construction of either coordinate. A is an ordinary function ℤ_p→K, where K is a field. A function initially given only on the source principal disc may be extended by zero outside it. The sample-congruence theorem makes every such extension immaterial. This uses ordinary function extension, not a new analytic-function carrier. χ is a native Dirichlet character at positive level f in source applications, N_n=lcm(f,q)q^n, and the already planned finite arithmetic mean is reused. Characteristic zero and an ultrametric norm are assumed only in the statements that need them.
+
+**Proof:**
+
+1. At p=2, use the preceding dyadic angular estimate 2^(−2). Rewrite q=4 as p² and apply the native norm_p_pow identity.
+2. At odd p, use the preceding Teichmüller angular estimate p^(−1) and native norm_p, with q=p.
+3. The complete angular_norm probe checks both scalar norm normalizations, so every sample lies in the source principal disc without a new disc carrier.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/morita-angular`, `DirichletPadicLFunctions:L3/morita-modulus`, `DirichletPadicLFunctions:L3/dyadic-angular-norm`, `DirichletPadicLFunctions:L3/teichmuller-angular-norm`, `mathlib:PadicInt.norm_p`, `mathlib:PadicInt.norm_p_pow`.
+
+**Tests:**
+
+- `SuggestedAngularSampleTests.source_dyadic_radius` (compatibility): At p=2 the bound is 1/4.
+- `SuggestedAngularSampleTests.source_odd_radius` (compatibility): At p=3 the bound is 1/3.
+
+**Acceptance:** The norm is the normalized p-adic scalar norm, not an arbitrary real radius attached to a carrier.
+
+**Source:** Section 2, published pp.331–332: x=ω(x)⟨x⟩, finite mean (0), translated Taylor argument and block identity (5); Section 1 principal disc. The actual source samples use the conductor-four sign for p=2 and the already compared Teichmüller limit for odd p. This checkpoint connects those coordinates to the finite arithmetic mean. Generic analytic spaces, Taylor estimates and limiting functionals are not reconstructed.
+
+### The source torsion coordinate is fixed by q-translations
+
+`DirichletPadicLFunctions:L3/morita-omega-translation` — `DirichletPadic.moritaOmega_translate`
+
+If u,v∈U and z∈ℤ_p satisfy scalar v=u+qz, then Ω_p(v)=Ω_p(u).
+
+**Hypotheses:** p is prime, U=ℤ_pˣ is the native unit group, q=moritaModulus(p), and d=φ(q). Thus q=4,d=2 at p=2, while q=p,d=p−1 at odd p. The source torsion map Ω uses the preceding dyadicOmega at p=2 and teichmullerOmega otherwise. Its angular quotient is α(u)=u/Ω(u). These are the existing maps with a single prime-case interface, not another construction of either coordinate. A is an ordinary function ℤ_p→K, where K is a field. A function initially given only on the source principal disc may be extended by zero outside it. The sample-congruence theorem makes every such extension immaterial. This uses ordinary function extension, not a new analytic-function carrier. χ is a native Dirichlet character at positive level f in source applications, N_n=lcm(f,q)q^n, and the already planned finite arithmetic mean is reused. Characteristic zero and an ultrametric norm are assumed only in the statements that need them.
+
+**Proof:**
+
+1. Split into p=2 and p≠2 and substitute q and the corresponding coordinate branch.
+2. Apply the existing dyadic translation theorem for shifts by 4, or the existing Teichmüller translation theorem for shifts by p.
+3. The complete omega_translate probe checks the scalar casts and dependent branch substitution. No new periodicity theorem for a character is assumed.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/morita-omega`, `DirichletPadicLFunctions:L3/morita-modulus`, `DirichletPadicLFunctions:L3/dyadic-omega-translation`, `DirichletPadicLFunctions:L3/teichmuller-omega-translation`.
+
+**Tests:**
+
+- `SuggestedAngularSampleTests.source_omega_shift` (computation): The source coordinates of scalar dyadic units 3 and 7 agree.
+
+**Acceptance:** Both units are explicit. A scalar outside the unit group is never passed to Ω.
+
+**Source:** Section 2, published pp.331–332: x=ω(x)⟨x⟩, finite mean (0), translated Taylor argument and block identity (5); Section 1 principal disc. The actual source samples use the conductor-four sign for p=2 and the already compared Teichmüller limit for odd p. This checkpoint connects those coordinates to the finite arithmetic mean. Generic analytic spaces, Taylor estimates and limiting functionals are not reconstructed.
+
+### The source angular increment for a q-translation
+
+`DirichletPadicLFunctions:L3/morita-angular-translation` — `DirichletPadic.moritaAngular_translate`
+
+If scalar v=u+qz for units u,v, then scalar α_p(v)=α_p(u)+Ω_p(u)⁻¹qz.
+
+**Hypotheses:** p is prime, U=ℤ_pˣ is the native unit group, q=moritaModulus(p), and d=φ(q). Thus q=4,d=2 at p=2, while q=p,d=p−1 at odd p. The source torsion map Ω uses the preceding dyadicOmega at p=2 and teichmullerOmega otherwise. Its angular quotient is α(u)=u/Ω(u). These are the existing maps with a single prime-case interface, not another construction of either coordinate. A is an ordinary function ℤ_p→K, where K is a field. A function initially given only on the source principal disc may be extended by zero outside it. The sample-congruence theorem makes every such extension immaterial. This uses ordinary function extension, not a new analytic-function carrier. χ is a native Dirichlet character at positive level f in source applications, N_n=lcm(f,q)q^n, and the already planned finite arithmetic mean is reused. Characteristic zero and an ultrametric norm are assumed only in the statements that need them.
+
+**Proof:**
+
+1. Project the native unit quotient defining α to ℤ_p, keeping the inverse as the projection of a unit inverse.
+2. Use the preceding torsion translation theorem to replace Ω_p(v) by Ω_p(u), then distribute the scalar equality v=u+qz.
+3. The complete angular_translate probe proves the ring identity. For p=2, scalar 3 and 7 have common torsion coordinate −1, and their angular difference is −4.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/morita-angular`, `DirichletPadicLFunctions:L3/morita-omega-translation`.
+
+**Tests:**
+
+- `SuggestedAngularSampleTests.source_angular_shift_sign` (computation): The angular difference from scalar 3 to 7 in ℤ₂ is −4, not +4.
+
+**Acceptance:** The inverse torsion factor is indispensable in the subsequent Taylor powers.
+
+**Source:** Section 2, published pp.331–332: x=ω(x)⟨x⟩, finite mean (0), translated Taylor argument and block identity (5); Section 1 principal disc. The actual source samples use the conductor-four sign for p=2 and the already compared Teichmüller limit for odd p. This checkpoint connects those coordinates to the finite arithmetic mean. Generic analytic spaces, Taylor estimates and limiting functionals are not reconstructed.
+
+### Natural samples of the source angular argument
+
+`DirichletPadicLFunctions:L3/morita-angular-samples` — `DirichletPadic.moritaAngularSamples`
+
+Define the native K-linear map S_p:(ℤ_p→K)→(ℕ→K) by S_p(A)(a)=A(α_p(u_a)) if a is a p-unit, with u_a the native unit witnessing the scalar a, and S_p(A)(a)=0 otherwise.
+
+**Hypotheses:** p is prime, U=ℤ_pˣ is the native unit group, q=moritaModulus(p), and d=φ(q). Thus q=4,d=2 at p=2, while q=p,d=p−1 at odd p. The source torsion map Ω uses the preceding dyadicOmega at p=2 and teichmullerOmega otherwise. Its angular quotient is α(u)=u/Ω(u). These are the existing maps with a single prime-case interface, not another construction of either coordinate. A is an ordinary function ℤ_p→K, where K is a field. A function initially given only on the source principal disc may be extended by zero outside it. The sample-congruence theorem makes every such extension immaterial. This uses ordinary function extension, not a new analytic-function carrier. χ is a native Dirichlet character at positive level f in source applications, N_n=lcm(f,q)q^n, and the already planned finite arithmetic mean is reused. Characteristic zero and an ultrametric norm are assumed only in the statements that need them.
+
+**Proof:**
+
+1. The native p-adic unit criterion and natural-cast norm theorem identify IsUnit(a) with p∤a, using the native prime coprimality criterion.
+2. Use the native IsUnit.unit witness in the surviving branch. Its scalar is exactly a; two such witnesses agree by native unit extensionality, so the expression does not depend on a proof choice.
+3. The nonunit branch is zero and never evaluates A. Pointwise addition and scalar multiplication are preserved in either branch, giving the native linear map.
+4. The complete samples, samples_unit and samples_nonunit probes verify this construction. The norm API follows because each surviving angular argument lies in the principal disc, while the excluded value is zero.
+5. For a source function given only on the principal disc, choose its ordinary zero extension to ℤ_p. The next congruence lemma proves that any other extension gives the same samples; this is not a construction of LAD’s analytic carrier.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/morita-angular`, `DirichletPadicLFunctions:L3/morita-angular-norm`, `mathlib:PadicInt.isUnit_iff`, `mathlib:PadicInt.norm_natCast_eq_one_iff`, `mathlib:Nat.Prime.coprime_iff_not_dvd`, `mathlib:IsUnit.unit`, `mathlib:LinearMap`.
+
+**Uses:**
+
+- KL/Morita finite mean (0): Provides the exact natural sequence accepted by the already planned finite arithmetic mean.
+- Analytic source domain: Allows ordinary function extension while ignoring all values outside the source disc.
+- KL translated blocks: Retains the native unit witness and exact inverse-torsion increment for every surviving index.
+
+**API:**
+
+- `DirichletPadic.moritaAngularSamples_unit` (projection): At a scalar unit, the sample evaluates A at the source angular coordinate of the native unit witness.
+- `DirichletPadic.moritaAngularSamples_nonunit` (simp): If p divides a, the sample is zero.
+- `DirichletPadic.moritaAngularSamples_zero` (simp): S(0)=0.
+- `DirichletPadic.moritaAngularSamples_add` (structure): S(A+B)=S(A)+S(B).
+- `DirichletPadic.moritaAngularSamples_smul` (structure): S(cA)=cS(A).
+- `DirichletPadic.moritaAngularSamples_congr` (characterisation): Agreement on the principal disc gives identical samples; promoted below.
+- `DirichletPadic.moritaAngularSamples_translate` (relation): A level shift samples A at the exact translated angular argument; promoted below.
+- `DirichletPadic.moritaAngularSamples_norm` (compatibility): If B≥0 bounds A on the principal disc, B bounds every sample in a normed coefficient field.
+
+**Tests:**
+
+- `SuggestedAngularSampleTests.sample_zero` (degenerate): The zero function gives the zero sample sequence.
+- `SuggestedAngularSampleTests.sample_identity_one` (computation): For p=2 and scalar A(x)=x in ℚ₂, the sample at 1 is 1.
+- `SuggestedAngularSampleTests.sample_identity_three` (computation): For the same function the sample at 3 is −3.
+- `SuggestedAngularSampleTests.sample_nonunit_two` (degenerate): The sample at 2 is zero for every dyadic A.
+- `SuggestedAngularSampleTests.sample_not_raw_integer` (non-example): The scalar sample at 3 is not the raw integer 3.
+
+**Acceptance:** Sampling follows the actual source coordinate. It is not evaluation of A at the original integer a.
+
+**Source:** Section 2, published pp.331–332: x=ω(x)⟨x⟩, finite mean (0), translated Taylor argument and block identity (5); Section 1 principal disc. The actual source samples use the conductor-four sign for p=2 and the already compared Teichmüller limit for odd p. This checkpoint connects those coordinates to the finite arithmetic mean. Generic analytic spaces, Taylor estimates and limiting functionals are not reconstructed.
+
+### Samples depend only on the source disc
+
+`DirichletPadicLFunctions:L3/morita-angular-samples-congr` — `DirichletPadic.moritaAngularSamples_congr`
+
+If A and B agree at every x∈ℤ_p with ‖x−1‖≤‖q‖, then S_p(A)=S_p(B).
+
+**Hypotheses:** p is prime, U=ℤ_pˣ is the native unit group, q=moritaModulus(p), and d=φ(q). Thus q=4,d=2 at p=2, while q=p,d=p−1 at odd p. The source torsion map Ω uses the preceding dyadicOmega at p=2 and teichmullerOmega otherwise. Its angular quotient is α(u)=u/Ω(u). These are the existing maps with a single prime-case interface, not another construction of either coordinate. A is an ordinary function ℤ_p→K, where K is a field. A function initially given only on the source principal disc may be extended by zero outside it. The sample-congruence theorem makes every such extension immaterial. This uses ordinary function extension, not a new analytic-function carrier. χ is a native Dirichlet character at positive level f in source applications, N_n=lcm(f,q)q^n, and the already planned finite arithmetic mean is reused. Characteristic zero and an ultrametric norm are assumed only in the statements that need them.
+
+**Proof:**
+
+1. At a nonunit natural number both samples are zero.
+2. At a unit a, apply the preceding sample projection and the angular norm bound to put its argument in the agreement set.
+3. Function extensionality gives equality of the sample sequences. The complete samples_congr probe proves this without continuity or analyticity assumptions.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/morita-angular-samples`, `DirichletPadicLFunctions:L3/morita-angular-norm`.
+
+**Tests:**
+
+- `SuggestedAngularSampleTests.sample_outside_disc_ignored` (characterisation): Agreement on the dyadic radius-1/4 principal disc suffices for equality of all natural samples.
+
+**Acceptance:** In particular the finite mean below is independent of the chosen extension of a disc function.
+
+**Source:** Section 2, published pp.331–332: x=ω(x)⟨x⟩, finite mean (0), translated Taylor argument and block identity (5); Section 1 principal disc. The actual source samples use the conductor-four sign for p=2 and the already compared Teichmüller limit for odd p. This checkpoint connects those coordinates to the finite arithmetic mean. Generic analytic spaces, Taylor estimates and limiting functionals are not reconstructed.
+
+### The exact angular sample in an averaging block
+
+`DirichletPadicLFunctions:L3/morita-angular-samples-translation` — `DirichletPadic.moritaAngularSamples_translate`
+
+For a p-unit natural number a, its native unit witness u_a, and natural z, S_p(A)(a+N_nz)=A(α_p(u_a)+Ω_p(u_a)⁻¹N_nz), with scalar arithmetic in ℤ_p.
+
+**Hypotheses:** p is prime, U=ℤ_pˣ is the native unit group, q=moritaModulus(p), and d=φ(q). Thus q=4,d=2 at p=2, while q=p,d=p−1 at odd p. The source torsion map Ω uses the preceding dyadicOmega at p=2 and teichmullerOmega otherwise. Its angular quotient is α(u)=u/Ω(u). These are the existing maps with a single prime-case interface, not another construction of either coordinate. A is an ordinary function ℤ_p→K, where K is a field. A function initially given only on the source principal disc may be extended by zero outside it. The sample-congruence theorem makes every such extension immaterial. This uses ordinary function extension, not a new analytic-function carrier. χ is a native Dirichlet character at positive level f in source applications, N_n=lcm(f,q)q^n, and the already planned finite arithmetic mean is reused. Characteristic zero and an ultrametric norm are assumed only in the statements that need them.
+
+**Proof:**
+
+1. The existing support-period lemma shows a+N_nz remains a p-unit. Construct its native unit witness and use the sample projection at that unit.
+2. Since q divides N_n, write N_n=qk in the native natural numbers and cast the equality into ℤ_p. The new scalar witness equals u_a+q(kz).
+3. Apply the preceding angular q-translation theorem, then substitute N_n=qk back into its scalar increment. Unit proof irrelevance and scalar projection identify the original witness.
+4. The complete samples_translate probe checks this exact argument, including both divisibility equivalences and all casts. This supplies the argument to which LAD’s Taylor theorem will be applied; no Taylor expansion or interchange is asserted here.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/morita-angular-samples`, `DirichletPadicLFunctions:L3/morita-angular-translation`, `DirichletPadicLFunctions:L3/morita-mean-level`, `DirichletPadicLFunctions:L3/morita-mean-support-period`.
+
+**Tests:**
+
+- `SuggestedAngularSampleTests.sample_translation_seven` (computation): The dyadic scalar sample at 7 is −7, obtained from the sample −3 with angular increment −4.
+
+**Acceptance:** The full level N_n and the inverse coordinate are both retained in the translated argument.
+
+**Source:** Section 2, published pp.331–332: x=ω(x)⟨x⟩, finite mean (0), translated Taylor argument and block identity (5); Section 1 principal disc. The actual source samples use the conductor-four sign for p=2 and the already compared Teichmüller limit for odd p. This checkpoint connects those coordinates to the finite arithmetic mean. Generic analytic spaces, Taylor estimates and limiting functionals are not reconstructed.
+
+### Finite character means of the actual angular samples
+
+`DirichletPadicLFunctions:L3/morita-angular-mean` — `DirichletPadic.moritaAngularMean`
+
+Define the native K-linear functional M^n_{χ,ang} on functions ℤ_p→K by composing the existing finite mean M^n_χ with S_p. For source A this is exactly N_n⁻¹ ∑*_(1≤a≤N_n) χ(a)A(⟨a⟩).
+
+**Hypotheses:** p is prime, U=ℤ_pˣ is the native unit group, q=moritaModulus(p), and d=φ(q). Thus q=4,d=2 at p=2, while q=p,d=p−1 at odd p. The source torsion map Ω uses the preceding dyadicOmega at p=2 and teichmullerOmega otherwise. Its angular quotient is α(u)=u/Ω(u). These are the existing maps with a single prime-case interface, not another construction of either coordinate. A is an ordinary function ℤ_p→K, where K is a field. A function initially given only on the source principal disc may be extended by zero outside it. The sample-congruence theorem makes every such extension immaterial. This uses ordinary function extension, not a new analytic-function carrier. χ is a native Dirichlet character at positive level f in source applications, N_n=lcm(f,q)q^n, and the already planned finite arithmetic mean is reused. Characteristic zero and an ultrametric norm are assumed only in the statements that need them.
+
+**Proof:**
+
+1. Compose the two existing native linear maps using LinearMap.comp. Its evaluation is definitionally M^n_χ(S_p(A)); zero, addition and scalar multiplication follow from linearity.
+2. The finite source-interval comparison and the sample unit/nonunit formulas give the displayed KL/Morita expression. The zero endpoint and nonunit branches never require an angular value.
+3. The sample-congruence lemma implies the mean depends only on A restricted to the principal disc. Thus an analytic source function may enter through any ordinary extension of its values, leaving its analytic carrier and topology with LAD.
+4. The complete angularMean, angularMean_apply and angularMean_congr probe checks the exact composition and extension independence. The constant and finite-norm conclusions are separately promoted.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/morita-finite-mean`, `DirichletPadicLFunctions:L3/morita-mean-source-interval`, `DirichletPadicLFunctions:L3/morita-angular-samples`, `DirichletPadicLFunctions:L3/morita-angular-samples-congr`, `mathlib:LinearMap.comp`.
+
+**Uses:**
+
+- KL Section 2 Satz 1: Provides its actual finite functionals before analytic uniformity and convergence.
+- Morita Section 2 translated functions: Combines the exact finite blocks with the just-established translated angular samples.
+- Morita Section 3 Gamma identity: Will evaluate the imported logarithmic analytic function after its analytic bounds and limit are proved.
+
+**API:**
+
+- `DirichletPadic.moritaAngularMean_apply` (projection): M_ang(A)=M(S(A)).
+- `DirichletPadic.moritaAngularMean_zero` (simp): M_ang(0)=0.
+- `DirichletPadic.moritaAngularMean_add` (structure): M_ang(A+B)=M_ang(A)+M_ang(B).
+- `DirichletPadic.moritaAngularMean_smul` (structure): M_ang(cA)=cM_ang(A).
+- `DirichletPadic.moritaAngularMean_congr` (characterisation): Agreement on the principal disc gives equal means.
+- `DirichletPadic.moritaAngularMean_constant` (simp): For conductor one and constant c, the value is c(1−1/p); promoted below.
+- `DirichletPadic.moritaAngularMean_norm` (compatibility): The principal-disc bound yields the finite inverse-denominator norm estimate; promoted below.
+
+**Tests:**
+
+- `SuggestedAngularSampleTests.angular_mean_zero` (degenerate): The zero function has zero dyadic angular mean.
+- `SuggestedAngularSampleTests.angular_mean_constant` (computation): At p=2,f=1,n=0 the constant-one angular mean is 1/2.
+- `SuggestedAngularSampleTests.angular_mean_linear_dyadic` (computation): For p=2,f=1 and scalar A(x)=x, every finite angular mean is −1/2.
+- `SuggestedAngularSampleTests.angular_mean_linear_odd` (computation): For p=3,f=1 and scalar A(x)=x, every finite angular mean is −1/3.
+- `SuggestedAngularSampleTests.angular_mean_not_raw_mean` (non-example): At p=2,n=0 the angular linear mean −1/2 differs from the raw integer mean 1.
+
+**Acceptance:** These are finite means of actual source arguments. Their existence establishes no limiting distribution or Gamma analyticity.
+
+**Source:** Section 2, published pp.331–332: x=ω(x)⟨x⟩, finite mean (0), translated Taylor argument and block identity (5); Section 1 principal disc. The actual source samples use the conductor-four sign for p=2 and the already compared Teichmüller limit for odd p. This checkpoint connects those coordinates to the finite arithmetic mean. Generic analytic spaces, Taylor estimates and limiting functionals are not reconstructed.
+
+### The exact constant mass after angular sampling
+
+`DirichletPadicLFunctions:L3/morita-angular-mean-constant` — `DirichletPadic.moritaAngularMean_constant`
+
+Assume K has characteristic zero. For the conductor-one character and constant function c, M^n_{1,ang}(c)=c(1−1/p).
+
+**Hypotheses:** p is prime, U=ℤ_pˣ is the native unit group, q=moritaModulus(p), and d=φ(q). Thus q=4,d=2 at p=2, while q=p,d=p−1 at odd p. The source torsion map Ω uses the preceding dyadicOmega at p=2 and teichmullerOmega otherwise. Its angular quotient is α(u)=u/Ω(u). These are the existing maps with a single prime-case interface, not another construction of either coordinate. A is an ordinary function ℤ_p→K, where K is a field. A function initially given only on the source principal disc may be extended by zero outside it. The sample-congruence theorem makes every such extension immaterial. This uses ordinary function extension, not a new analytic-function carrier. χ is a native Dirichlet character at positive level f in source applications, N_n=lcm(f,q)q^n, and the already planned finite arithmetic mean is reused. Characteristic zero and an ultrametric norm are assumed only in the statements that need them.
+
+**Proof:**
+
+1. On each surviving finite index the constant function’s angular sample is c. The finite-support congruence theorem therefore replaces its sample sequence by the constant natural sequence c.
+2. Use linearity to extract c and apply the already proved trivial-character constant mass of the finite arithmetic mean.
+3. The complete angularMean_constant probe checks this comparison and scalar extraction. It does not incorrectly identify the zero-extended sample sequence with a globally constant sequence.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/morita-angular-mean`, `DirichletPadicLFunctions:L3/morita-angular-samples`, `DirichletPadicLFunctions:L3/morita-finite-mean`, `DirichletPadicLFunctions:L3/morita-mean-trivial-constant`.
+
+**Tests:**
+
+- `SuggestedAngularSampleTests.angular_mean_constant_three` (computation): At p=3 a constant value 3 gives angular mean 2 at every level.
+
+**Acceptance:** The ignored nonunit samples are zero; the constant comparison is only on the finite p-unit support.
+
+**Source:** Section 2, published pp.331–332: x=ω(x)⟨x⟩, finite mean (0), translated Taylor argument and block identity (5); Section 1 principal disc. The actual source samples use the conductor-four sign for p=2 and the already compared Teichmüller limit for odd p. This checkpoint connects those coordinates to the finite arithmetic mean. Generic analytic spaces, Taylor estimates and limiting functionals are not reconstructed.
+
+### The finite norm bound from the principal disc
+
+`DirichletPadicLFunctions:L3/morita-angular-mean-norm` — `DirichletPadic.moritaAngularMean_norm`
+
+For a normed coefficient field with an ultrametric norm, if B≥0 bounds ‖A(x)‖ throughout the principal disc ‖x−1‖≤‖q‖, then ‖M^n_{χ,ang}(A)‖≤‖N_n⁻¹‖B.
+
+**Hypotheses:** p is prime, U=ℤ_pˣ is the native unit group, q=moritaModulus(p), and d=φ(q). Thus q=4,d=2 at p=2, while q=p,d=p−1 at odd p. The source torsion map Ω uses the preceding dyadicOmega at p=2 and teichmullerOmega otherwise. Its angular quotient is α(u)=u/Ω(u). These are the existing maps with a single prime-case interface, not another construction of either coordinate. A is an ordinary function ℤ_p→K, where K is a field. A function initially given only on the source principal disc may be extended by zero outside it. The sample-congruence theorem makes every such extension immaterial. This uses ordinary function extension, not a new analytic-function carrier. χ is a native Dirichlet character at positive level f in source applications, N_n=lcm(f,q)q^n, and the already planned finite arithmetic mean is reused. Characteristic zero and an ultrametric norm are assumed only in the statements that need them.
+
+**Proof:**
+
+1. The sample norm API bounds all angular samples by B, using the principal-disc range and the zero nonunit branch.
+2. Apply the preceding finite arithmetic mean norm theorem to this sequence and unfold the linear composition.
+3. The complete angularMean_norm probe verifies this application. At p=2 the scalar linear function has norm at most one on the principal disc, while its finite mean −1/2 has norm two; the denominator factor cannot be discarded.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/morita-angular-mean`, `DirichletPadicLFunctions:L3/morita-angular-samples`, `DirichletPadicLFunctions:L3/morita-angular-norm`, `DirichletPadicLFunctions:L3/morita-mean-finite-norm`.
+
+**Tests:**
+
+- `SuggestedAngularSampleTests.angular_mean_norm_bound` (compatibility): At p=2,f=1,n=0, a bound of one on the principal disc gives mean norm at most four.
+- `SuggestedAngularSampleTests.angular_mean_norm_exceeds_one` (non-example): The dyadic scalar linear mean has norm two, exceeding one.
+
+**Acceptance:** A uniform bound independent of n still requires the analytic block argument. No bounded measure on all continuous functions is constructed.
+
+**Source:** Section 2, published pp.331–332: x=ω(x)⟨x⟩, finite mean (0), translated Taylor argument and block identity (5); Section 1 principal disc. The actual source samples use the conductor-four sign for p=2 and the already compared Teichmüller limit for odd p. This checkpoint connects those coordinates to the finite arithmetic mean. Generic analytic spaces, Taylor estimates and limiting functionals are not reconstructed.
+
+**Remaining:** The finite KL/Morita means now evaluate the actual all-prime source angular samples, independently of extension outside the principal disc. Their exact block argument, finite twist period and elementary norm estimate are in place. Next import the LAD analytic/Taylor carrier, prove the source derivative/block bound, obtain a uniform finite-mean bound over the finite twist family, prove the Cauchy estimate and construct the limit. Then identify Morita Gamma analyticity on pℤ_p at odd p and 8ℤ₂ at p=2 using Coleman logarithm/exponential input. Gross–Koblitz and Ferrero–Greenberg still need complete proof reading and their recorded normalization/ownership checks. All fifteen gaps and eleven requests remain open.
+
+### Source angular samples and finite means validation
+
+All 819 predecessor nodes, 690 baseline records, 16 findings, requests and sourceVersions remain whole. This checkpoint adds 12 nodes, 34 named suggested declarations and 29 typed examples. The indexed blueprint, four-file intake, whitespace, preservation, API/test parity and versioned-source checks pass. The graph has 1090 reachable nodes, 5536 edges and 866 native leaves and is acyclic. Its stage request leaves are PadicMeasuresIwasawaAlgebras:L1, PadicMeasuresIwasawaAlgebras:L3, PadicMeasuresIwasawaAlgebras:L3, LocallyAnalyticDistributions:L1, AdicSpacesPartII:F1, AdicSpacesPartII:R2, PadicDifferentialEquationsAndRigidCohomology:RD.0, PadicDifferentialEquationsAndRigidCohomology:RD.4, PadicHodgeTheory:P7:annulus-foundations, PadicMeasuresIwasawaAlgebras:L2, LocallyAnalyticDistributions:L1. The new routes use exact existing coordinate/mean nodes and native declarations, with no new stage-request leaf. Generic analytic carriers, Taylor estimates and logarithm/exponential operations remain with their owners.
+
+**The full current suggested module was NOT COMPILED.** Its real native import requires TauCeti.NumberTheory.ArithmeticFunction.TwistedDivisorSum. No matching existing artifact was found; WORKERS.md prohibits building the native library. Current compiler exit code, error count and warning count are unavailable, not zero. The exact named signatures and native source were reviewed. PR4773 remains the last compiled full predecessor, with zero errors and1,803 expected placeholder warnings; that receipt does not validate this new module.
+
+The current source closure covers 3604 pinned Mathlib modules and 29 pinned Tau Ceti modules. Only 28 Tau module artifacts are available and hash-verified. The 140 available artifact files and the previously compiled332-node PMIA artifact are checked as partial dependencies. The current369-node supplier source preserves the older interface; no current-module compilation against either revision is claimed. Existing builds only were inspected; no setup, update, cache fetch or native build occurred.
+
+The composite native probe has 12 complete definitions and 83 complete lemmas: it replays 8 definitions and 63 lemmas from the retained coordinate/finite-mean probes and adds 4 definitions and 20 lemmas for source sampling. The earlier PMIA integer-ring equivalence and reduction-continuity inputs remain explicit; no source coordinate, finite mean or sample identity is assumed. The separate probe compiles against 2825 pinned Mathlib modules and 7 pinned Tau Ceti modules with zero errors, warnings or placeholders. The probe imports the actual pinned Tau Teichmuller module through existing hash-verified artifacts. It replays the complete native proofs from PRs5238,5246,5251 and adds the sampling proof; it is not the full suggested file and does not replace the missing TwistedDivisorSum module. General roadmap declarations remain unchecked.
+
+Exact finite controls cover 760 coordinate values, 6,840 coordinate translations, 9,120 inverse-power reductions, 130 support values, 3,012 sample translations, 72 angular means and norm bounds, and eight checks each of constant mass and linear-mean normalization. Exact integer modular arithmetic for five primes and exact rational angular samples/means for p=2,3, whose torsion coordinates are signs. No floating-point approximation or analytic convergence claim. The largest observed discrepancy is 0.
+
+All 72 captured inputs at fd618d7e agree with the merged finite-means checkpoint. The full issue text is unchanged. All 16 own source findings and all consumed supplier inputs remain whole; no new source issue or independent verdict is asserted. Publication refresh at 915ccd76 reads Tsimerman E9–12: the Cauchy estimate needs a justified entire-function input, full level-three rigidity needs a chosen polarization, the lower-height constant need not be positive, and the period-coordinate degree requires a dimension-dependent reflex-field bound. All four are awaiting review. This records the changed registry content without independently verifying the paper. Registry metadata, the 16 Dirichlet findings and every consumed supplier input remain unchanged; none supplies the present angular-sampling construction.
+
+The separate partial signature file also compiled with zero errors and 2,622 expected placeholder warnings across 3,600 pinned source modules. It includes all 34 new named declarations and 29 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 953e0abd5f326239fb611619b96d3fa195194b88b18b5ec7d9eda44049d46eeb.
