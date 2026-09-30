@@ -294,6 +294,17 @@
     "data/blueprints/ArithmeticKTheory--N.7.md"
    ]
   },
+  "research/blueprint/packets/ArithmeticStatistics.json": {
+   "promotedAt": "2026-09-30T21:12:14Z",
+   "review": "f8c6c809e1576224",
+   "reviewDate": "2026-09-30",
+   "reviewer": "independent-review-REV-FIX-RT-PAPER-BROWNING-LEBOUDEC-SAWIN-23",
+   "sha256": "91eec9b4dd7122a64ca5d7f44fe60d747a615e534ab8c0637f606ef5640622c1",
+   "to": [
+    "data/blueprints/ArithmeticStatistics.json",
+    "data/blueprints/ArithmeticStatistics.md"
+   ]
+  },
   "research/blueprint/packets/ClassicalSerreModularity--R27.3.json": {
    "promotedAt": "2026-09-29T01:08:10Z",
    "review": "35c322bf8f5b9499",
