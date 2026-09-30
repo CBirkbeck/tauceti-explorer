@@ -33107,7 +33107,8 @@
     "REV-PAPER-CHEN-24"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-CHEN-24.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4046"
   },
   {
    "id": "REV-RT-PAPER-CHEN-24",
@@ -37540,8 +37541,9 @@
     "REV-PAPER-DOR-23"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-DOR-23.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4228"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4228",
+   "finishedAt": "2026-09-30T10:30:11Z"
   },
   {
    "id": "REV-RT-PAPER-DOR-23",
