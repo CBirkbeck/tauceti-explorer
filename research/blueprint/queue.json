@@ -4323,8 +4323,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-LE-LEHUNG-LEVIN-ETAL-23.md",
-   "state": "pending",
-   "note": "released on GitHub issue #1254"
+   "state": "external",
+   "note": "claimed on GitHub issue #1254"
   },
   {
    "id": "REV-PAPER-LE-LEHUNG-LEVIN-ETAL-23",
@@ -34406,8 +34406,9 @@
     "REV-PAPER-GAMBURD-MAGEE-RONAN-19"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-GAMBURD-MAGEE-RONAN-19.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4097"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4097",
+   "finishedAt": "2026-09-30T09:28:04Z"
   },
   {
    "id": "RT-PAPER-TSIMERMAN-18",
