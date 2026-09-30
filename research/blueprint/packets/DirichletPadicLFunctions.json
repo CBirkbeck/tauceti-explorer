@@ -10,7 +10,7 @@
     "DirichletPadicLFunctions:L4"
   ],
   "status": "partial",
-  "summary": "Four L2 nodes prove integrality of the prime-level zeta correction and compare all three existing integral tame measures under a prime level change. All 714 predecessor nodes remain whole. Four signatures and twelve examples retain the exact coefficient lifts, all-test comparisons, repeated-prime and dyadic boundaries.",
+  "summary": "Four L2 comparison nodes give finite subset-sum formulas for arbitrary tame level changes of the existing ambient μ and ζ measures, then specialize them to the native primitive character at its conductor. All 718 predecessor nodes remain whole. Four declarations and ten tests retain nonprincipality, the inverse product scalar and the exact genuinely-new-prime set.",
   "baseline": {
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
@@ -4235,6 +4235,125 @@
         "module": "Mathlib/Algebra/Group/Units/Defs.lean",
         "provides": "Native units are equal when their underlying values agree.",
         "checked": "Complete declaration and ambient hypotheses read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on30September2026, together with the native norm/unit criterion and inverse multiplication law. Native probe verifies the exact unit and inverse-weight calculations."
+      },
+      {
+        "ref": "mathlib:Nat.primeFactors",
+        "kind": "definition",
+        "module": "Mathlib/Data/Nat/PrimeFin.lean",
+        "provides": "The existing finite set of prime divisors, with multiplicities removed.",
+        "checked": "Complete declaration and ambient hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 30 September 2026. Native proofs verify the finite iteration, prime support, level-value and conductor-certificate uses. Generated additive powerset theorem is tracked through its indexed multiplicative parent."
+      },
+      {
+        "ref": "mathlib:Nat.mem_primeFactors",
+        "kind": "lemma",
+        "module": "Mathlib/Data/Nat/PrimeFin.lean",
+        "provides": "Membership is primality, divisibility and nonzero level.",
+        "checked": "Complete declaration and ambient hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 30 September 2026. Native proofs verify the finite iteration, prime support, level-value and conductor-certificate uses. Generated additive powerset theorem is tracked through its indexed multiplicative parent."
+      },
+      {
+        "ref": "mathlib:Nat.primeFactors_mul",
+        "kind": "lemma",
+        "module": "Mathlib/Data/Nat/PrimeFin.lean",
+        "provides": "Prime support of a product of nonzero naturals is the union of their prime supports.",
+        "checked": "Complete declaration and ambient hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 30 September 2026. Native proofs verify the finite iteration, prime support, level-value and conductor-certificate uses. Generated additive powerset theorem is tracked through its indexed multiplicative parent."
+      },
+      {
+        "ref": "mathlib:Nat.Prime.primeFactors",
+        "kind": "lemma",
+        "module": "Mathlib/Data/Nat/PrimeFin.lean",
+        "provides": "The prime support of a prime is its singleton.",
+        "checked": "Complete declaration and ambient hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 30 September 2026. Native proofs verify the finite iteration, prime support, level-value and conductor-certificate uses. Generated additive powerset theorem is tracked through its indexed multiplicative parent."
+      },
+      {
+        "ref": "mathlib:induction_on_primes",
+        "kind": "lemma",
+        "module": "Mathlib/Data/Nat/Factorization/Induction.lean",
+        "provides": "Induct on zero, one and multiplication by a prime; used with an explicit admissibility predicate.",
+        "checked": "Complete declaration and ambient hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 30 September 2026. Native proofs verify the finite iteration, prime support, level-value and conductor-certificate uses. Generated additive powerset theorem is tracked through its indexed multiplicative parent."
+      },
+      {
+        "ref": "mathlib:Finset.prod_powerset_insert",
+        "kind": "lemma",
+        "module": "Mathlib/Algebra/BigOperators/Group/Finset/Powerset.lean",
+        "provides": "Indexed multiplicative parent generates sum_powerset_insert, splitting subsets according to membership of a newly inserted element.",
+        "checked": "Complete declaration and ambient hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 30 September 2026. Native proofs verify the finite iteration, prime support, level-value and conductor-certificate uses. Generated additive powerset theorem is tracked through its indexed multiplicative parent."
+      },
+      {
+        "ref": "mathlib:Finset.prod_sub",
+        "kind": "lemma",
+        "module": "Mathlib/Algebra/BigOperators/Ring/Finset.lean",
+        "provides": "A finite product of differences expands as a signed powerset sum.",
+        "checked": "Complete declaration and ambient hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 30 September 2026. Native proofs verify the finite iteration, prime support, level-value and conductor-certificate uses. Generated additive powerset theorem is tracked through its indexed multiplicative parent."
+      },
+      {
+        "ref": "mathlib:DirichletCharacter.changeLevel_self",
+        "kind": "lemma",
+        "module": "Mathlib/NumberTheory/DirichletCharacter/Basic.lean",
+        "provides": "Changing to the same level preserves the actual character.",
+        "checked": "Complete declaration and ambient hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 30 September 2026. Native proofs verify the finite iteration, prime support, level-value and conductor-certificate uses. Generated additive powerset theorem is tracked through its indexed multiplicative parent."
+      },
+      {
+        "ref": "mathlib:DirichletCharacter.changeLevel_trans",
+        "kind": "lemma",
+        "module": "Mathlib/NumberTheory/DirichletCharacter/Basic.lean",
+        "provides": "Successive native level changes equal the direct change.",
+        "checked": "Complete declaration and ambient hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 30 September 2026. Native proofs verify the finite iteration, prime support, level-value and conductor-certificate uses. Generated additive powerset theorem is tracked through its indexed multiplicative parent."
+      },
+      {
+        "ref": "mathlib:DirichletCharacter.conductor",
+        "kind": "definition",
+        "module": "Mathlib/NumberTheory/DirichletCharacter/Basic.lean",
+        "provides": "The existing least inducing level of a Dirichlet character.",
+        "checked": "Complete declaration and ambient hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 30 September 2026. Native proofs verify the finite iteration, prime support, level-value and conductor-certificate uses. Generated additive powerset theorem is tracked through its indexed multiplicative parent."
+      },
+      {
+        "ref": "mathlib:DirichletCharacter.conductor_dvd_level",
+        "kind": "lemma",
+        "module": "Mathlib/NumberTheory/DirichletCharacter/Basic.lean",
+        "provides": "The native conductor divides the actual level.",
+        "checked": "Complete declaration and ambient hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 30 September 2026. Native proofs verify the finite iteration, prime support, level-value and conductor-certificate uses. Generated additive powerset theorem is tracked through its indexed multiplicative parent."
+      },
+      {
+        "ref": "mathlib:DirichletCharacter.conductor_ne_zero",
+        "kind": "lemma",
+        "module": "Mathlib/NumberTheory/DirichletCharacter/Basic.lean",
+        "provides": "The native conductor is nonzero at a nonzero level.",
+        "checked": "Complete declaration and ambient hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 30 September 2026. Native proofs verify the finite iteration, prime support, level-value and conductor-certificate uses. Generated additive powerset theorem is tracked through its indexed multiplicative parent."
+      },
+      {
+        "ref": "mathlib:DirichletCharacter.primitiveCharacter",
+        "kind": "definition",
+        "module": "Mathlib/NumberTheory/DirichletCharacter/Basic.lean",
+        "provides": "The existing native character at the conductor that induces the given character.",
+        "checked": "Complete declaration and ambient hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 30 September 2026. Native proofs verify the finite iteration, prime support, level-value and conductor-certificate uses. Generated additive powerset theorem is tracked through its indexed multiplicative parent."
+      },
+      {
+        "ref": "mathlib:DirichletCharacter.changeLevel_primitiveCharacter",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/DirichletCharacter/Basic.lean",
+        "provides": "Changing the native primitive character back to the original level recovers the original character.",
+        "checked": "Complete declaration and ambient hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 30 September 2026. Native proofs verify the finite iteration, prime support, level-value and conductor-certificate uses. Generated additive powerset theorem is tracked through its indexed multiplicative parent."
+      },
+      {
+        "ref": "mathlib:DirichletCharacter.primitiveCharacter_isPrimitive",
+        "kind": "lemma",
+        "module": "Mathlib/NumberTheory/DirichletCharacter/Basic.lean",
+        "provides": "The existing primitive character is primitive at its native conductor.",
+        "checked": "Complete declaration and ambient hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 30 September 2026. Native proofs verify the finite iteration, prime support, level-value and conductor-certificate uses. Generated additive powerset theorem is tracked through its indexed multiplicative parent."
+      },
+      {
+        "ref": "mathlib:IsUnit.mul_iff",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Group/Units/Defs.lean",
+        "provides": "A product in a Dedekind-finite monoid is a unit exactly when both factors are; applies to the commutative coefficient field.",
+        "checked": "Complete declaration and ambient hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 30 September 2026. Native proofs verify the finite iteration, prime support, level-value and conductor-certificate uses. Generated additive powerset theorem is tracked through its indexed multiplicative parent."
+      },
+      {
+        "ref": "mathlib:AbstractMeasure.map_id",
+        "kind": "lemma",
+        "module": "Mathlib/NumberTheory/Padics/Measure/Basic.lean",
+        "provides": "Native pushforward along the identity preserves the measure.",
+        "checked": "Complete declaration and ambient hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 30 September 2026. Native proofs verify the finite iteration, prime support, level-value and conductor-certificate uses. Generated additive powerset theorem is tracked through its indexed multiplicative parent."
       }
     ]
   },
@@ -47022,6 +47141,297 @@
       "acceptance": [
         "All p=2 and imprimitive nonprincipal cases remain included. Principal regularized constructors do not satisfy the earlier nonprincipal field identity and are not substituted here."
       ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L2/tame-measure-arbitrary-level",
+      "parentStageId": "DirichletPadicLFunctions:L2",
+      "realises": [
+        "DirichletPadicLFunctions:L2"
+      ],
+      "title": "Tame measure comparison at arbitrary larger levels",
+      "kind": "comparison",
+      "statement": "μ_(changeLevel η)=Σ_(t⊆S) ((−1)^|t| η(d_t))•D_(d_t)(μ_η).",
+      "hypotheses": [
+        "p is any prime, including 2. K is a complete nontrivially normed ultrametric field with Algebra ℤ_p K and IsBoundedSMul ℤ_p K. M and N are positive natural numbers with hMN:M∣N. η:DirichletCharacter K M is nonprincipal and may be imprimitive.",
+        "hM and hN are the existing constructor certificates IsUnit(M:K) and IsUnit(N:K); hpM:p∤M and hpN:p∤N are the tame hypotheses. Intermediate levels divide N, so their positivity, unit image and prime-to-p condition are derived. No independent ℚ_p-algebra or characteristic-zero hypothesis is introduced.",
+        "S=N.primeFactors\\M.primeFactors is the native finite set of primes dividing N but not M. For t⊆S, d_t is the ordinary finite product of its natural primes, with d_empty=1. Write D_d for native pushforward along the continuous map x↦d*x of ℤ_p."
+      ],
+      "proofSteps": [
+        "Choose the positive multiplier n with N=n*M and induct using the native induction_on_primes. Retain only intermediate a with a*M∣N. This admissibility predicate descends from r*a to a. If a*M divides N, its image is a unit because a factor of a unit is a unit by native IsUnit.mul_iff; p∤a*M follows by divisibility, and positivity follows from N>0. Thus every actual constructor called in the induction has its required certificates.",
+        "At multiplier 1, native changeLevel_self identifies the character, S is empty, and its powerset has just the empty subset. Its coefficient is 1 and native map_id identifies dilation by 1. Nonprincipality is preserved at every positive intermediate level by native changeLevel_eq_one_iff.",
+        "For a prime r and current level a*M, let θ=changeLevel η. Native changeLevel_trans identifies its next lift with the direct lift from M. If r divides a*M, the native character nonunit rule gives θ(r)=0, the earlier repeated-prime measure identity applies, and Nat.primeFactors_mul shows the new-prime set is unchanged.",
+        "If r does not divide a*M, then r is coprime to that level. Native changeLevel_eq_cast_of_dvd' applied to the integer r gives θ(r)=η(r). The new-prime set is insert r S, with r absent from S. This is the exact coefficient to use: evaluating the final imprimitive character at r would instead give zero and lose the Euler correction.",
+        "Apply the existing one-prime measure comparison to θ. Expand the two finite subset sums using the additive theorem generated by the indexed Finset.prod_powerset_insert. For t⊆S, insertion increases its cardinal by one and multiplies d_t by r. Character multiplicativity and native pushforward composition combine the correction term into precisely the subset containing r.",
+        "The complete signed_subset_insert and signed_level_induction probes verify this finite algebra for any module with the multiplicative dilation action, including an explicit downward-closed admissibility predicate. Native map_map and multiplication associativity verify that the actual pushforward action satisfies D_r∘D_d=D_(r*d). The probe assumes the exact prime recurrence; the roadmap supplies it through the named preceding arithmetic nodes. It is not a claim that those arithmetic constructors are implemented.",
+        "This is a finite sum in the existing measure module, not a commutative product of endomorphisms. Only genuinely new prime divisors occur, once each; increasing an existing prime exponent contributes no extra Euler factor. If M and N have the same prime support, the empty-subset formula gives exact equality on all continuous tests.",
+        "Here the action is the existing K-linear pushforward and the scalar character is d↦η(d mod M), an ordinary multiplicative map on natural numbers. Use tame-measure-prime-level-comparison for the new-prime branch and tame-measure-repeated-prime-level for the repeated branch.",
+        "Evaluating on x^k gives the ordinary moment factor Π_(q∈S)(1−η(q)q^k), for every k≥0. Native map_apply and the previous complete ordinary_dilation calculation extract d_t^k. Native Finset.prod_sub identifies the resulting scalar subset sum with the displayed product; the complete scalar_subset_product probe checks this finite identity. At k=0 this is the actual tame mass factor."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L2/tame-measure-prime-level-comparison",
+        "DirichletPadicLFunctions:L2/tame-measure-repeated-prime-level",
+        "mathlib:Nat.primeFactors",
+        "mathlib:Nat.mem_primeFactors",
+        "mathlib:Nat.primeFactors_mul",
+        "mathlib:Nat.Prime.primeFactors",
+        "mathlib:induction_on_primes",
+        "mathlib:Finset.prod_powerset_insert",
+        "mathlib:DirichletCharacter.changeLevel_trans",
+        "mathlib:DirichletCharacter.changeLevel_self",
+        "mathlib:DirichletCharacter.changeLevel_eq_one_iff",
+        "mathlib:DirichletCharacter.changeLevel_eq_cast_of_dvd'",
+        "mathlib:Nat.isCoprime_iff_coprime",
+        "mathlib:ZMod.isUnit_prime_iff_not_dvd",
+        "mathlib:MulChar.map_nonunit",
+        "mathlib:AbstractMeasure.map_map",
+        "mathlib:AbstractMeasure.map_id",
+        "mathlib:AbstractMeasure.map_apply",
+        "mathlib:IsUnit.mul_iff",
+        "mathlib:Finset.prod_sub"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/TameLevelChange",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.tameMeasure_changeLevel"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Section 5.2, Theorem 5.7, Remark 5.8 and Definition 5.13, published 143–146 / PDF 44–47. The complete four pages were freshly read in the immediately preceding integral checkpoint during this uninterrupted continuation.",
+          "match": "Worker deduction comparing the actual finite-kernel tame measures at an arbitrary imprimitive level with the native primitive character at its conductor. The source motivates the primitive tame construction; the finite subset-sum comparisons are explicit deductions from the preceding prime-level nodes, not verbatim source assertions. No complex-to-p-adic coefficient embedding, composite Gauss nonvanishing or analytic continuation is assumed."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedTameLevelComparisonTests.level_measure_all_tests",
+          "kind": "compatibility",
+          "statement": "The finite subset sum gives the equality on every continuous K-valued test."
+        },
+        {
+          "name": "SuggestedTameLevelComparisonTests.level_measure_empty_new_primes",
+          "kind": "degenerate",
+          "statement": "Equal prime support at M and N gives equality of the actual measures even when prime exponents increase."
+        },
+        {
+          "name": "SuggestedTameLevelComparisonTests.level_measure_moment_product",
+          "kind": "computation",
+          "statement": "Every ordinary moment has the product of the genuinely new Euler factors."
+        }
+      ],
+      "acceptance": [
+        "Do not multiply the same correction repeatedly along a prime factor list. Exact controls detect this false formula for higher prime powers. Principal regularized constructors remain excluded."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L2/tame-zeta-arbitrary-level",
+      "parentStageId": "DirichletPadicLFunctions:L2",
+      "realises": [
+        "DirichletPadicLFunctions:L2"
+      ],
+      "title": "Tame zeta comparison at arbitrary larger levels",
+      "kind": "comparison",
+      "statement": "ζ_(changeLevel η)=Σ_(t⊆S) ((−1)^|t| η(d_t)/d_t)•D_(d_t)(ζ_η).",
+      "hypotheses": [
+        "p is any prime, including 2. K is a complete nontrivially normed ultrametric field with Algebra ℤ_p K and IsBoundedSMul ℤ_p K. M and N are positive natural numbers with hMN:M∣N. η:DirichletCharacter K M is nonprincipal and may be imprimitive.",
+        "hM and hN are the existing constructor certificates IsUnit(M:K) and IsUnit(N:K); hpM:p∤M and hpN:p∤N are the tame hypotheses. Intermediate levels divide N, so their positivity, unit image and prime-to-p condition are derived. No independent ℚ_p-algebra or characteristic-zero hypothesis is introduced.",
+        "S=N.primeFactors\\M.primeFactors is the native finite set of primes dividing N but not M. For t⊆S, d_t is the ordinary finite product of its natural primes, with d_empty=1. Write D_d for native pushforward along the continuous map x↦d*x of ℤ_p."
+      ],
+      "proofSteps": [
+        "Choose the positive multiplier n with N=n*M and induct using the native induction_on_primes. Retain only intermediate a with a*M∣N. This admissibility predicate descends from r*a to a. If a*M divides N, its image is a unit because a factor of a unit is a unit by native IsUnit.mul_iff; p∤a*M follows by divisibility, and positivity follows from N>0. Thus every actual constructor called in the induction has its required certificates.",
+        "At multiplier 1, native changeLevel_self identifies the character, S is empty, and its powerset has just the empty subset. Its coefficient is 1 and native map_id identifies dilation by 1. Nonprincipality is preserved at every positive intermediate level by native changeLevel_eq_one_iff.",
+        "For a prime r and current level a*M, let θ=changeLevel η. Native changeLevel_trans identifies its next lift with the direct lift from M. If r divides a*M, the native character nonunit rule gives θ(r)=0, the earlier repeated-prime measure identity applies, and Nat.primeFactors_mul shows the new-prime set is unchanged.",
+        "If r does not divide a*M, then r is coprime to that level. Native changeLevel_eq_cast_of_dvd' applied to the integer r gives θ(r)=η(r). The new-prime set is insert r S, with r absent from S. This is the exact coefficient to use: evaluating the final imprimitive character at r would instead give zero and lose the Euler correction.",
+        "Apply the existing one-prime measure comparison to θ. Expand the two finite subset sums using the additive theorem generated by the indexed Finset.prod_powerset_insert. For t⊆S, insertion increases its cardinal by one and multiplies d_t by r. Character multiplicativity and native pushforward composition combine the correction term into precisely the subset containing r.",
+        "The complete signed_subset_insert and signed_level_induction probes verify this finite algebra for any module with the multiplicative dilation action, including an explicit downward-closed admissibility predicate. Native map_map and multiplication associativity verify that the actual pushforward action satisfies D_r∘D_d=D_(r*d). The probe assumes the exact prime recurrence; the roadmap supplies it through the named preceding arithmetic nodes. It is not a claim that those arithmetic constructors are implemented.",
+        "This is a finite sum in the existing measure module, not a commutative product of endomorphisms. Only genuinely new prime divisors occur, once each; increasing an existing prime exponent contributes no extra Euler factor. If M and N have the same prime support, the empty-subset formula gives exact equality on all continuous tests.",
+        "Use the existing tame-zeta-prime-level-comparison and tame-zeta-repeated-prime-level. The scalar multiplicative map is now d↦η(d)/d in K. Field division preserves multiplication, as the complete quotient_character_mul probe verifies; its value at 1 is 1. The prime recurrence has coefficient η(r)/r exactly when r is a new prime.",
+        "Every q∈S divides N and therefore differs from p; native p-adic unit criteria show q and each d_t are units in ℤ_p and after mapping to K. The finite formula keeps division in K, without choosing a division operation on an integral subring.",
+        "The constant test gives the actual mass factor Π_(q∈S)(1−η(q)/q). The positive test x^(k+1), k≥0, gives Π_(q∈S)(1−η(q)q^k), using q≠0 and native Finset.prod_sub. The actual degree-zero mass is not a logarithmic or analytic special-value identification.",
+        "For verification, actual arithmetic residue and positive-moment formulas are kept distinct from finite atomic inverse-weight models. The latter check the 1/d_t transport and arbitrary test pullbacks but do not compute the arithmetic zeta mass."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L2/tame-zeta-prime-level-comparison",
+        "DirichletPadicLFunctions:L2/tame-zeta-repeated-prime-level",
+        "mathlib:Nat.primeFactors",
+        "mathlib:Nat.mem_primeFactors",
+        "mathlib:Nat.primeFactors_mul",
+        "mathlib:Nat.Prime.primeFactors",
+        "mathlib:induction_on_primes",
+        "mathlib:Finset.prod_powerset_insert",
+        "mathlib:DirichletCharacter.changeLevel_trans",
+        "mathlib:DirichletCharacter.changeLevel_self",
+        "mathlib:DirichletCharacter.changeLevel_eq_one_iff",
+        "mathlib:DirichletCharacter.changeLevel_eq_cast_of_dvd'",
+        "mathlib:Nat.isCoprime_iff_coprime",
+        "mathlib:ZMod.isUnit_prime_iff_not_dvd",
+        "mathlib:MulChar.map_nonunit",
+        "mathlib:AbstractMeasure.map_map",
+        "mathlib:AbstractMeasure.map_id",
+        "mathlib:AbstractMeasure.map_apply",
+        "mathlib:IsUnit.mul_iff",
+        "mathlib:Finset.prod_sub",
+        "mathlib:PadicInt.isUnit_iff",
+        "mathlib:PadicInt.norm_natCast_eq_one_iff",
+        "mathlib:Nat.Prime.coprime_iff_not_dvd"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/TameLevelChange",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.tameZetaMeasure_changeLevel"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Section 5.2, Theorem 5.7, Remark 5.8 and Definition 5.13, published 143–146 / PDF 44–47. The complete four pages were freshly read in the immediately preceding integral checkpoint during this uninterrupted continuation.",
+          "match": "Worker deduction comparing the actual finite-kernel tame measures at an arbitrary imprimitive level with the native primitive character at its conductor. The source motivates the primitive tame construction; the finite subset-sum comparisons are explicit deductions from the preceding prime-level nodes, not verbatim source assertions. No complex-to-p-adic coefficient embedding, composite Gauss nonvanishing or analytic continuation is assumed."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedTameLevelComparisonTests.level_zeta_all_tests",
+          "kind": "compatibility",
+          "statement": "The all-test comparison has the inverse product d_t in each subset coefficient."
+        },
+        {
+          "name": "SuggestedTameLevelComparisonTests.level_zeta_mass_product",
+          "kind": "degenerate",
+          "statement": "The existing zeta mass changes by the product of 1−η(q)/q."
+        },
+        {
+          "name": "SuggestedTameLevelComparisonTests.level_zeta_positive_moment_product",
+          "kind": "computation",
+          "statement": "The moment at exponent k+1 has product factor 1−η(q)q^k."
+        }
+      ],
+      "acceptance": [
+        "The inverse scalar occurs before evaluating on monomials. No primitive Gauss formula, analytic continuation or principal-character extension is assumed."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L2/tame-measure-primitive-conductor",
+      "parentStageId": "DirichletPadicLFunctions:L2",
+      "realises": [
+        "DirichletPadicLFunctions:L2"
+      ],
+      "title": "Tame measure comparison with the primitive conductor",
+      "kind": "comparison",
+      "statement": "μ_η=Σ_(t⊆N.primeFactors\\f.primeFactors) ((−1)^|t| η₀(d_t))•D_(d_t)(μ_η₀), using the actual native primitiveCharacter.",
+      "hypotheses": [
+        "p and K satisfy the preceding field hypotheses, N>0, and η:DirichletCharacter K N is nonprincipal. Let f be the existing native conductor η.conductor and η₀ its existing primitiveCharacter. No new primitive character or conductor carrier is defined.",
+        "hN:IsUnit(N:K) and hpN:p∤N are given. The signature names hF:IsUnit(f:K) and hpF:p∤f for the existing constructor; both are derived from native conductor_dvd_level. The local NeZero f instance is supplied directly by native conductor_ne_zero. These are not additional existence gaps."
+      ],
+      "proofSteps": [
+        "Read and use the native conductor and primitiveCharacter declarations directly. Native conductor_dvd_level gives f∣N, conductor_ne_zero supplies positivity, and primitiveCharacter_isPrimitive states that the chosen character is primitive. Native changeLevel_primitiveCharacter says its lift to level N is exactly η.",
+        "Nonprincipality of η₀ follows without an extra assumption: if η₀=1 then changeLevel_primitiveCharacter and preservation of 1 would give η=1, contrary to hη. The complete primitive_nonprincipal probe verifies this argument.",
+        "Write N=f*k using conductor_dvd_level. After natural casting, native IsUnit.mul_iff derives hF from hN. If p divided f it would divide N, so hpF follows from hpN. The complete conductor_unit and conductor_prime_to_p probes verify precisely these deductions. Constructor proof arguments are propositions, so equality does not depend on choices of the derived witnesses.",
+        "Apply the arbitrary-level comparison with base level f, native base character η₀ and level map f∣N. Rewrite the changed character using changeLevel_primitiveCharacter. The resulting prime set is exactly N.primeFactors\\f.primeFactors, not a multiset of primes in N/f.",
+        "If N and f have the same prime support, even with larger exponents in N, the subset set is empty and the actual measures are equal. If a new prime divides N but not f, evaluate η₀ at that prime. Evaluating η itself there would give zero and erase a necessary correction.",
+        "This comparison concerns the existing bounded arithmetic constructors. Composite-modulus primitive Gauss nonvanishing, complex/p-adic common-field special values and analytic interpolation remain separate work; none is needed merely to recover these actual measures from the primitive one."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L2/tame-measure-arbitrary-level",
+        "mathlib:DirichletCharacter.conductor",
+        "mathlib:DirichletCharacter.conductor_dvd_level",
+        "mathlib:DirichletCharacter.conductor_ne_zero",
+        "mathlib:DirichletCharacter.primitiveCharacter",
+        "mathlib:DirichletCharacter.changeLevel_primitiveCharacter",
+        "mathlib:DirichletCharacter.primitiveCharacter_isPrimitive",
+        "mathlib:IsUnit.mul_iff",
+        "mathlib:AbstractMeasure.map_id"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/TameLevelChange",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.tameMeasure_primitiveCharacter"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Section 5.2, Theorem 5.7, Remark 5.8 and Definition 5.13, published 143–146 / PDF 44–47. The complete four pages were freshly read in the immediately preceding integral checkpoint during this uninterrupted continuation.",
+          "match": "Worker deduction comparing the actual finite-kernel tame measures at an arbitrary imprimitive level with the native primitive character at its conductor. The source motivates the primitive tame construction; the finite subset-sum comparisons are explicit deductions from the preceding prime-level nodes, not verbatim source assertions. No complex-to-p-adic coefficient embedding, composite Gauss nonvanishing or analytic continuation is assumed."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedTameLevelComparisonTests.actual_primitive_is_nonprincipal",
+          "kind": "characterisation",
+          "statement": "The actual native primitive character of a nonprincipal character is nonprincipal."
+        },
+        {
+          "name": "SuggestedTameLevelComparisonTests.conductor_constructor_certificates",
+          "kind": "compatibility",
+          "statement": "Positivity, unit image and the prime-to-p condition at the conductor are derived from the actual level hypotheses."
+        },
+        {
+          "name": "SuggestedTameLevelComparisonTests.native_primitive_recovers_character",
+          "kind": "compatibility",
+          "statement": "Native changeLevel_primitiveCharacter recovers the original character exactly."
+        }
+      ],
+      "acceptance": [
+        "The three boundary tests exercise native interfaces already in Mathlib, not proposed new conductor theorems. Exact finite controls independently identify the least inducing modulus by testing every divisor and its unit fibres."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L2/tame-zeta-primitive-conductor",
+      "parentStageId": "DirichletPadicLFunctions:L2",
+      "realises": [
+        "DirichletPadicLFunctions:L2"
+      ],
+      "title": "Tame zeta comparison with the primitive conductor",
+      "kind": "comparison",
+      "statement": "ζ_η=Σ_(t⊆N.primeFactors\\f.primeFactors) ((−1)^|t| η₀(d_t)/d_t)•D_(d_t)(ζ_η₀), with the existing native primitive character.",
+      "hypotheses": [
+        "p and K satisfy the preceding field hypotheses, N>0, and η:DirichletCharacter K N is nonprincipal. Let f be the existing native conductor η.conductor and η₀ its existing primitiveCharacter. No new primitive character or conductor carrier is defined.",
+        "hN:IsUnit(N:K) and hpN:p∤N are given. The signature names hF:IsUnit(f:K) and hpF:p∤f for the existing constructor; both are derived from native conductor_dvd_level. The local NeZero f instance is supplied directly by native conductor_ne_zero. These are not additional existence gaps."
+      ],
+      "proofSteps": [
+        "Read and use the native conductor and primitiveCharacter declarations directly. Native conductor_dvd_level gives f∣N, conductor_ne_zero supplies positivity, and primitiveCharacter_isPrimitive states that the chosen character is primitive. Native changeLevel_primitiveCharacter says its lift to level N is exactly η.",
+        "Nonprincipality of η₀ follows without an extra assumption: if η₀=1 then changeLevel_primitiveCharacter and preservation of 1 would give η=1, contrary to hη. The complete primitive_nonprincipal probe verifies this argument.",
+        "Write N=f*k using conductor_dvd_level. After natural casting, native IsUnit.mul_iff derives hF from hN. If p divided f it would divide N, so hpF follows from hpN. The complete conductor_unit and conductor_prime_to_p probes verify precisely these deductions. Constructor proof arguments are propositions, so equality does not depend on choices of the derived witnesses.",
+        "Apply the arbitrary-level comparison with base level f, native base character η₀ and level map f∣N. Rewrite the changed character using changeLevel_primitiveCharacter. The resulting prime set is exactly N.primeFactors\\f.primeFactors, not a multiset of primes in N/f.",
+        "If N and f have the same prime support, even with larger exponents in N, the subset set is empty and the actual measures are equal. If a new prime divides N but not f, evaluate η₀ at that prime. Evaluating η itself there would give zero and erase a necessary correction.",
+        "This comparison concerns the existing bounded arithmetic constructors. Composite-modulus primitive Gauss nonvanishing, complex/p-adic common-field special values and analytic interpolation remain separate work; none is needed merely to recover these actual measures from the primitive one.",
+        "Use tame-zeta-arbitrary-level, retaining its inverse dilation scalar. All subsets consist of primes dividing N, so each denominator is prime to p and nonzero in K. At equal prime support the original and primitive zeta measures coincide, including their actual mass.",
+        "The native primitive character exists without any choice of a complex embedding or Gauss-sum nonvanishing witness. The preceding proof therefore gives a genuine roadmap comparison for all nonprincipal tame levels, while the source primitive interpolation identification retains its separate outstanding prerequisites."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L2/tame-zeta-arbitrary-level",
+        "mathlib:DirichletCharacter.conductor",
+        "mathlib:DirichletCharacter.conductor_dvd_level",
+        "mathlib:DirichletCharacter.conductor_ne_zero",
+        "mathlib:DirichletCharacter.primitiveCharacter",
+        "mathlib:DirichletCharacter.changeLevel_primitiveCharacter",
+        "mathlib:DirichletCharacter.primitiveCharacter_isPrimitive",
+        "mathlib:IsUnit.mul_iff",
+        "mathlib:AbstractMeasure.map_id"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/TameLevelChange",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.tameZetaMeasure_primitiveCharacter"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Section 5.2, Theorem 5.7, Remark 5.8 and Definition 5.13, published 143–146 / PDF 44–47. The complete four pages were freshly read in the immediately preceding integral checkpoint during this uninterrupted continuation.",
+          "match": "Worker deduction comparing the actual finite-kernel tame measures at an arbitrary imprimitive level with the native primitive character at its conductor. The source motivates the primitive tame construction; the finite subset-sum comparisons are explicit deductions from the preceding prime-level nodes, not verbatim source assertions. No complex-to-p-adic coefficient embedding, composite Gauss nonvanishing or analytic continuation is assumed."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedTameLevelComparisonTests.primitive_zeta_no_new_prime_factor",
+          "kind": "degenerate",
+          "statement": "If level and conductor have equal prime support, the actual ambient zeta measures coincide."
+        }
+      ],
+      "acceptance": [
+        "Integral and intrinsic arbitrary-level comparisons are the next transport step. This node does not silently assert them or close the remaining source-extraction gaps."
+      ]
     }
   ],
   "requests": [
@@ -47125,7 +47535,7 @@
       "stageId": "DirichletPadicLFunctions:L2",
       "status": "partial",
       "remaining": [
-        "The one-prime comparisons now hold for the actual field-valued and integral tame measures, ambient zeta measures and native unit-group zeta measures. The unique correction coefficients are established in the existing integer ring. Next iterate genuinely new primes and compare the actual measures with the native primitive character at its conductor. Primitive Gauss nonvanishing, analytic branches, logarithmic/degree-zero special-value identification, full source extraction and the PMIA completed-algebra/coefficient-field pseudomeasure requests remain open."
+        "The ambient field-valued tame measure and zeta measure now have arbitrary-level finite subset formulas and comparisons with the actual native primitive character at its conductor. Genuinely new primes occur exactly once; higher prime powers contribute no further factor. Next transport the finite formulas to the intrinsic unit-group and integral realizations. Primitive Gauss nonvanishing, common-field primitive special-value identifications, analytic branches, logarithmic/degree-zero interpolation, full source extraction and the supplier pseudomeasure requests remain open."
       ]
     },
     {
@@ -47159,7 +47569,7 @@
     {
       "title": "L2 remaining source decomposition and interfaces",
       "neededBy": [],
-      "detail": "The one-prime comparisons now hold for the actual field-valued and integral tame measures, ambient zeta measures and native unit-group zeta measures. The unique correction coefficients are established in the existing integer ring. Next iterate genuinely new primes and compare the actual measures with the native primitive character at its conductor. Primitive Gauss nonvanishing, analytic branches, logarithmic/degree-zero special-value identification, full source extraction and the PMIA completed-algebra/coefficient-field pseudomeasure requests remain open."
+      "detail": "The ambient field-valued tame measure and zeta measure now have arbitrary-level finite subset formulas and comparisons with the actual native primitive character at its conductor. Genuinely new primes occur exactly once; higher prime powers contribute no further factor. Next transport the finite formulas to the intrinsic unit-group and integral realizations. Primitive Gauss nonvanishing, common-field primitive special-value identifications, analytic branches, logarithmic/degree-zero interpolation, full source extraction and the supplier pseudomeasure requests remain open."
     },
     {
       "title": "L3 remaining source decomposition and interfaces",
@@ -47530,34 +47940,34 @@
     "intake": "Exactly four authorized deliverables; zero problems.",
     "sourceIssues": "All 16 findings, three source records, sourceVersions, eleven requests and fifteen gaps remain whole. No new source mistake or independent review verdict.",
     "validation": {
-      "nodes": 718,
+      "nodes": 722,
       "kinds": {
         "definition": 2,
         "lemma": 272,
         "construction": 72,
         "theorem": 224,
-        "comparison": 148
+        "comparison": 152
       },
       "api": 549,
-      "packetTests": 1235,
+      "packetTests": 1245,
       "definitionConstructionTests": 309,
-      "typedExamples": 1238,
+      "typedExamples": 1248,
       "planets": 24,
-      "baseline": 603,
-      "preservedWholeNodes": 714,
+      "baseline": 620,
+      "preservedWholeNodes": 718,
       "preservedBaseline": 603,
       "preservedSourceIssues": 16,
       "newSourceIssues": 0,
       "newNodes": 4,
       "newNamedDeclarations": 4,
-      "newTypedTests": 12,
+      "newTypedTests": 10,
       "requests": 11,
       "gaps": 15,
       "closedStages": 0,
-      "reachableNodes": 976,
-      "dependencyEdges": 4941,
+      "reachableNodes": 980,
+      "dependencyEdges": 5002,
       "acyclic": true,
-      "baselineLeaves": 779,
+      "baselineLeaves": 795,
       "stageRequestLeaves": [
         "AdicSpacesPartII:F1",
         "AdicSpacesPartII:R2",
@@ -47569,7 +47979,7 @@
         "PadicMeasuresIwasawaAlgebras:L2",
         "PadicMeasuresIwasawaAlgebras:L3"
       ],
-      "readerWords": 358929,
+      "readerWords": 362531,
       "scopedMutationCheck": true,
       "correctedPredecessorNodes": 0,
       "fullSuggestedCompiled": false,
@@ -47596,36 +48006,30 @@
         "TauCeti.NumberTheory.ArithmeticFunction.TwistedDivisorSum"
       ],
       "scratchCompleteDefinitions": 0,
-      "scratchCompleteLemmas": 8,
-      "scratchMathlibModules": 2824,
+      "scratchCompleteLemmas": 11,
+      "scratchMathlibModules": 2820,
       "scratchTauModules": 0,
       "scratchErrors": 0,
       "scratchWarnings": 0,
       "scratchPlaceholders": 0,
       "finiteControls": {
-        "nonprincipalProfiles": 13,
-        "primeLevelPairs": 52,
-        "primePlacePairs": 163,
-        "dyadicPlacePairs": 33,
-        "positiveZetaMomentChecks": 1467,
-        "firstZetaMomentChecks": 163,
-        "unitResidueChecks": 9804,
-        "unitRestrictionTestChecks": 978,
-        "atomicWeightedTestChecks": 978,
-        "atomicIntrinsicTestChecks": 978,
-        "atomicMassChecks": 163,
-        "repeatedPrimeChecks": 112,
-        "wrongInverseFactorFailures": 1089,
-        "wrongConjugateFailures": 300,
-        "wrongSignFailures": 600,
-        "wrongUnrestrictedInverseFailures": 163,
-        "integralCoefficientPairs": 163,
-        "integralResidueValues": 19608,
-        "integralPositiveMoments": 2934,
-        "integralAtomicValues": 2934,
-        "integralMuMasses": 163,
-        "finiteRingReductionChecks": 2934,
-        "excludedPrimeDenominators": 163
+        "profiles": 13,
+        "levelPairs": 130,
+        "primePlacePairs": 383,
+        "dyadicPairs": 55,
+        "primitiveRecoveryValues": 11049,
+        "relativeResidueChecks": 3578,
+        "primitiveResidueChecks": 3578,
+        "ordinaryMomentChecks": 5362,
+        "positiveZetaMomentChecks": 5362,
+        "atomicZetaTests": 3830,
+        "atomicZetaMasses": 766,
+        "sameSupportChecks": 2102,
+        "wrongRepeatedFactorFailures": 784,
+        "wrongMissingInverseFailures": 2570,
+        "wrongPrimitiveValueFailures": 1047,
+        "principalCounterexamples": 13,
+        "finiteTestChecks": 5136
       },
       "numericalControlsCertified": false,
       "newRoutesStageLeaves": []
@@ -47635,7 +48039,7 @@
       "compiled": false,
       "errors": null,
       "warnings": null,
-      "sha256": "ff5c211abb7f14bc31651e75fd4c890dde159d9df868f563833827179988a293",
+      "sha256": "841ea85a9f24e23eee779b50246b964cdd137f7a2a9fd4b8a74e330d810dfaac",
       "missingNativeArtifacts": [
         "TauCeti.NumberTheory.ArithmeticFunction.TwistedDivisorSum"
       ],
@@ -47650,11 +48054,11 @@
         }
       },
       "nativeProbe": {
-        "completeLemmas": 8,
+        "completeLemmas": 11,
         "errors": 0,
         "warnings": 0,
         "placeholders": 0,
-        "sha256": "3486b45dcb5e23b7c23a53b55a51945dcea32b123e6dd70456199d95bb0ebe9a"
+        "sha256": "d96e140869eade8a761e9905d43bafbe0c0b25ceed1bfe19e86e42ed9a376b97"
       },
       "sourceAndAvailableArtifactAudit": {
         "compiledSupplierNodes": 332,
@@ -47741,7 +48145,7 @@
       }
     },
     "publication": {
-      "base": "3e309a536054c6f20fd68c2dfc3e460f7057fed1",
+      "base": "e83b682d97634408551eba0bb3c3a33fdc2f3e86",
       "unchangedInputs": 66,
       "unchangedOutputs": 4,
       "sameSessionFollowupAfterMerge": true,
@@ -54964,6 +55368,67 @@
       },
       "numericalMethod": "Exact Q(i)/Q(omega) arithmetic with the sufficient p-integrality check that both rational coordinates have p-unit denominators. Known arithmetic residue formulas test the actual tame measure and unit restriction; quotient/Stirling formulas and the unit-moment identity independently test positive arithmetic zeta moments. Separately labelled finite atomic measures test integral inverse weighting, intrinsic unit tests and mass factors. Reductions modulo p, p squared and p cubed take place in the finite coefficient models (Z/p^r Z)[i] or (Z/p^r Z)[omega], not an asserted identification with the full local integer ring. Atomic zeta masses are not arithmetic zeta masses. No cell representative inverse is used as the inverse on an entire p-adic residue cell.",
       "fullSuggestedCompiled": false
+    },
+    "tameLevelComparison": {
+      "agent": "Codex",
+      "session": "codex-7e92bd",
+      "issue": 713,
+      "claimComment": 5854790528,
+      "winningBot": 5854791937,
+      "previousPR": 4958,
+      "previousHead": "ae9638ce0f2bd261e8e95c6814a924e827a4e2f0",
+      "previousMerge": "28897d3bcb5f1372ecce66585b51df94c655a45e",
+      "preservedWholeNodes": 718,
+      "preservedBaseline": 603,
+      "preservedFindings": 16,
+      "newNodes": 4,
+      "reading": "Read the complete existing fine one-prime and repeated-prime nodes and their actual signatures. Read native DirichletCharacter.Basic level and conductor declarations, native prime support and multiplication, full factorization induction, powerset insertion and product-of-differences identities, unit-factor criterion and native measure pushforward. The reviewed library audit already marks conductors, primitive characters and complex LFunction_changeLevel as present; none is replanned. Complete source pages 143–146 were freshly read in the immediately preceding integral checkpoint during this uninterrupted continuation.",
+      "boundary": "The ambient field-valued tame measure and zeta measure now have arbitrary-level finite subset formulas and comparisons with the actual native primitive character at its conductor. Genuinely new primes occur exactly once; higher prime powers contribute no further factor. Next transport the finite formulas to the intrinsic unit-group and integral realizations. Primitive Gauss nonvanishing, common-field primitive special-value identifications, analytic branches, logarithmic/degree-zero interpolation, full source extraction and the supplier pseudomeasure requests remain open.",
+      "inputBase": "944ded40b8dc05314fb46cc0f78c1018b79a06b1",
+      "sourceBoundary": "All 16 findings, three source records, sourceVersions, eleven requests and fifteen gaps remain whole. No new source mistake or independent review verdict.",
+      "publication": {
+        "base": "e83b682d97634408551eba0bb3c3a33fdc2f3e86",
+        "unchangedInputs": 66,
+        "unchangedOutputs": 4,
+        "sameSessionFollowupAfterMerge": true,
+        "lastClaimConfirmation": 5854791937,
+        "reviewIssue": 390,
+        "reviewUnclaimed": true
+      },
+      "finiteControls": {
+        "profiles": 13,
+        "levelPairs": 130,
+        "primePlacePairs": 383,
+        "dyadicPairs": 55,
+        "primitiveRecoveryValues": 11049,
+        "relativeResidueChecks": 3578,
+        "primitiveResidueChecks": 3578,
+        "ordinaryMomentChecks": 5362,
+        "positiveZetaMomentChecks": 5362,
+        "atomicZetaTests": 3830,
+        "atomicZetaMasses": 766,
+        "sameSupportChecks": 2102,
+        "wrongRepeatedFactorFailures": 784,
+        "wrongMissingInverseFailures": 2570,
+        "wrongPrimitiveValueFailures": 1047,
+        "principalCounterexamples": 13,
+        "finiteTestChecks": 5136
+      },
+      "numericalMethod": "Exact Q(i)/Q(omega) arithmetic. Native-style finite character tables determine the least positive inducing modulus by testing every divisor and unit fibre, then verify recovery of the actual imprimitive table. Actual residue formulas and quotient/Stirling moment formulas independently check the relative-level and primitive-conductor subset sums. Separately labelled finite atomic inverse-weight models check the zeta subset coefficients and mass factors; their masses are not arithmetic zeta masses. Controls detect repeated Euler factors, a missing inverse dilation factor, and evaluating the imprimitive character at a new bad prime. The principal modulus-one to modulus-three counterexample remains excluded by the nonprincipal hypothesis.",
+      "fullSuggestedCompiled": false,
+      "protocolRefresh": {
+        "base": "944ded40b8dc05314fb46cc0f78c1018b79a06b1",
+        "delta": {
+          "research/blueprint/PROTOCOL.md": {
+            "old": "aa7191562aec431d14fb4add435dc5609d30f094",
+            "new": "bf0da9269eb5fd8bc62e134d3e00ad029f7cc774"
+          }
+        },
+        "protocolAddition": "- A result the paper cites from elsewhere is one item, with its status and\n  route. The extraction does not decompose or prove it. Proving missing items\n  and closing their prerequisites (section 3) is the work of the blueprint of\n  the roadmap each item is routed to. Open proof closure, API outlines or\n  supplier audits never keep an extraction `partial`.\n",
+        "assessment": "Read the complete changed Section16 and its surrounding context. This change applies to kind:paper extraction jobs. Issue713 is kind:blueprint: proof closure remains its assigned work under Section3, so this checkpoint and its partial status remain appropriate. No source extraction status is changed. All65 other captured inputs and all4 predecessor outputs are unchanged.",
+        "allOtherCapturedMathematicalInputsUnchanged": true,
+        "preservedDirichletFindings": 16
+      }
     }
   },
   "requestResolutions": [
