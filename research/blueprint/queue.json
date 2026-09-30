@@ -40725,8 +40725,9 @@
     "REV-LINK-tauceti_TauCetiRoadmap_ArithmeticDirichletSeries"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-LINK-tauceti_TauCetiRoadmap_ArithmeticDirichletSeries.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4352"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4352",
+   "finishedAt": "2026-09-30T12:47:04Z"
   },
   {
    "id": "RT-LINK-tauceti_TauCetiRoadmap_ProfiniteProPGroups",
@@ -41505,8 +41506,9 @@
     "REV-LINK-tauceti_TauCetiRoadmap_StablePeriodicCurved"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-LINK-tauceti_TauCetiRoadmap_StablePeriodicCurved.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4377"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4377",
+   "finishedAt": "2026-09-30T12:47:08Z"
   },
   {
    "id": "RT-LINK-tauceti_TauCetiRoadmap_ZigzagPreprojective",
@@ -41555,7 +41557,8 @@
     "REV-LINK-tauceti_TauCetiRoadmap_ZigzagPreprojective"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-LINK-tauceti_TauCetiRoadmap_ZigzagPreprojective.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4379"
   },
   {
    "id": "RT-BP-K3BlochGroups",
@@ -42566,8 +42569,9 @@
     "REV-RS-24"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-RS-24.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4413"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4413",
+   "finishedAt": "2026-09-30T12:47:11Z"
   },
   {
    "id": "RT-RS-25",
@@ -43372,7 +43376,8 @@
     "REV-EllipticCurveModularity"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-BP-EllipticCurveModularity.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4434"
   },
   {
    "id": "RT-BP-EllipticKTheory",
