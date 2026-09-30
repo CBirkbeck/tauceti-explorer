@@ -10,7 +10,7 @@
     "DirichletPadicLFunctions:L4"
   ],
   "status": "partial",
-  "summary": "Four L2 comparison nodes give finite subset-sum formulas for arbitrary tame level changes of the existing ambient μ and ζ measures, then specialize them to the native primitive character at its conductor. All 718 predecessor nodes remain whole. Four declarations and ten tests retain nonprincipality, the inverse product scalar and the exact genuinely-new-prime set.",
+  "summary": "Four L2 nodes transport the arbitrary-level finite formulas to the existing intrinsic field-valued zeta measure, integral tame measure, integral ambient zeta measure and intrinsic integral zeta measure. All 722 predecessor nodes remain whole. Four signatures and fifteen examples expose actual existence and independence of the unit/coefficient families and equality on all continuous integral tests.",
   "baseline": {
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
@@ -4354,6 +4354,20 @@
         "module": "Mathlib/NumberTheory/Padics/Measure/Basic.lean",
         "provides": "Native pushforward along the identity preserves the measure.",
         "checked": "Complete declaration and ambient hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 30 September 2026. Native proofs verify the finite iteration, prime support, level-value and conductor-certificate uses. Generated additive powerset theorem is tracked through its indexed multiplicative parent."
+      },
+      {
+        "ref": "mathlib:Units.coeHom",
+        "kind": "definition",
+        "module": "Mathlib/Algebra/Group/Units/Hom.lean",
+        "provides": "The native multiplicative inclusion of units transports finite products to products of underlying values.",
+        "checked": "Complete declaration and ambient hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 30 September 2026, with native IsUnit.unit/unit_spec and finite-product laws. Complete native probes verify the unit-family, product and finite inclusion calculations."
+      },
+      {
+        "ref": "mathlib:Nat.dvd_of_mem_primeFactors",
+        "kind": "lemma",
+        "module": "Mathlib/Data/Nat/PrimeFin.lean",
+        "provides": "Every member of the native prime-support finite set divides the original natural number.",
+        "checked": "Complete declaration and ambient hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 30 September 2026, with native IsUnit.unit/unit_spec and finite-product laws. Complete native probes verify the unit-family, product and finite inclusion calculations."
       }
     ]
   },
@@ -48155,6 +48169,303 @@
       "acceptance": [
         "Integral and intrinsic arbitrary-level comparisons are the next transport step. This node does not silently assert them or close the remaining source-extraction gaps."
       ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L2/intrinsic-tame-zeta-arbitrary-level",
+      "parentStageId": "DirichletPadicLFunctions:L2",
+      "realises": [
+        "DirichletPadicLFunctions:L2"
+      ],
+      "title": "Arbitrary tame level changes on the native unit group",
+      "kind": "comparison",
+      "statement": "ζU_(changeLevel η)=Σ_(t⊆S) (ε_t η(d_t)/d_t)•map(v↦u_t*v)(ζU_η), as actual K-valued measures on U.",
+      "hypotheses": [
+        "p is any prime, including 2; M,N>0 with hMN:M∣N; η:DirichletCharacter K M is nonprincipal, without a primitivity requirement. K is a complete nontrivially normed ultrametric field with Algebra ℤ_p K and IsBoundedSMul ℤ_p K.",
+        "hM and hN certify that M and N map to units in K; hpM:p∤M and hpN:p∤N are the exact tame constructor hypotheses. S is the native finite set N.primeFactors\\M.primeFactors. For t⊆S, d_t=Π_(q∈t)q and ε_t=(−1)^|t|, with d_empty=1.",
+        "U is the existing native units type ℤ_pˣ with its existing topology. O is exactly Valuation.integer(NormedField.valuation K), with inherited norm/topology and the native continuous subtype inclusion i:O→K. No separate ℤ_p-algebra, field structure or completeness hypothesis on O is assumed.",
+        "The signature names a function u:ℕ→U with underlying value q for q∈S. Such a function exists: q∈S divides N, so p∤q, and the native p-adic norm/unit criterion supplies its unit; use 1 outside S. For t⊆S put u_t=Π_(q∈t)u(q). This finite product has underlying value d_t, and Units.ext proves independence of all choices on the used indices."
+      ],
+      "proofSteps": [
+        "For each q∈S, divisibility q∣N implies p∤q from hpN. Native Nat.Prime.coprime_iff_not_dvd, PadicInt.norm_natCast_eq_one_iff and PadicInt.isUnit_iff give the actual unit certificate. Choose its native IsUnit.unit, whose value is q by unit_spec, and choose 1 outside S. The complete unit_family_exists probe supplies the whole function, not just a separate unproved witness for each subset.",
+        "Native Units.coeHom transports a finite product of units to the product of their underlying values. On every t⊆S this is exactly the natural cast of d_t, by the finite-product law for Nat.castRingHom. Hence d_t is a p-adic unit, p∤d_t, and any two permitted unit functions give the same u_t. Complete probes verify product values, the prime-to-p deduction and independence of unused values.",
+        "Use native map_map to commute inclusion j_U along Units.val with multiplication by u_t: j_U(map(v↦u_t*v)ν)=map(x↦d_t*x)(j_Uν). The underlying continuous maps agree because Units.val preserves products and u_t has value d_t. The complete subset_inclusion_dilation proof works over any normed commutative coefficient ring.",
+        "Apply j_U to the claimed equality. The exact supplier fine node intrinsic-unit-restriction-section states r_U∘j_U=id and therefore gives injectivity. This retraction was already planned and its typed interface is supplied by the retained PMIA artifact; no new carrier equivalence or restriction map is introduced.",
+        "Native pushforward is K-linear, so it preserves this finite sum and each scalar. Use intrinsic-tame-zeta-inclusion at both levels and the preceding product-dilation square on each term. The included equality is exactly tame-zeta-arbitrary-level. Injectivity concludes equality on the native unit carrier, and native map_apply gives the all-continuous-unit-test formula.",
+        "The preceding complete native injectivity-from-retraction proof from #4952 remains evidence for the exact reflection argument; it is not recompiled or counted in the current ten lemmas. The retraction condition is supplied by the named PMIA fine node. If M,N have the same prime support, only the empty subset remains and the actual intrinsic measures are equal."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L2/tame-zeta-arbitrary-level",
+        "DirichletPadicLFunctions:L2/intrinsic-tame-zeta-inclusion",
+        "PadicMeasuresIwasawaAlgebras:L2/intrinsic-unit-restriction-section",
+        "mathlib:AbstractMeasure.map_apply",
+        "mathlib:AbstractMeasure.map_id",
+        "mathlib:Nat.dvd_of_mem_primeFactors",
+        "mathlib:PadicInt.isUnit_iff",
+        "mathlib:PadicInt.norm_natCast_eq_one_iff",
+        "mathlib:Nat.Prime.coprime_iff_not_dvd",
+        "mathlib:IsUnit.unit_spec",
+        "mathlib:Units.coeHom",
+        "mathlib:Units.ext",
+        "mathlib:AbstractMeasure.map_map"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/TameLevelChange",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.intrinsicTameZetaMeasure_changeLevel"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Remark 3.33 and its inclusion/retraction discussion, published 129 / PDF30, freshly read in full on 30 September 2026. Theorem 5.7, Remark 5.8(2), integral coefficients after (5-3), and Definition 5.13, published143–146/PDF44–47, read completely in the preceding integral checkpoint during this uninterrupted continuation.",
+          "excerpt": "not a subalgebra",
+          "match": "Worker transport of the existing arbitrary-level ambient formulas to the native unit carrier and the actual norm-valuation integer ring. The source inclusion is linear and does not identify the additive and multiplicative convolution products. Existing constructors, retraction and all-test coefficient inclusions are imported, not replanned."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedTameLevelIntegralTests.actual_unit_family_exists",
+          "kind": "characterisation",
+          "statement": "The actual tame hypothesis provides a whole family of native units over the new-prime set."
+        },
+        {
+          "name": "SuggestedTameLevelIntegralTests.unit_family_irrelevant_outside_support",
+          "kind": "compatibility",
+          "statement": "Products over the used subsets agree for any two valid unit families."
+        },
+        {
+          "name": "SuggestedTameLevelIntegralTests.intrinsic_field_all_tests",
+          "kind": "compatibility",
+          "statement": "Every continuous unit-group test satisfies the finite subset formula."
+        },
+        {
+          "name": "SuggestedTameLevelIntegralTests.intrinsic_field_same_prime_support",
+          "kind": "degenerate",
+          "statement": "Equal prime support gives equality of the actual intrinsic field-valued measures."
+        }
+      ],
+      "acceptance": [
+        "The unit functions are presentation data with proved existence and uniqueness on used indices. Native inclusion is linear; the two convolution products remain distinct."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L2/integral-tame-measure-arbitrary-level",
+      "parentStageId": "DirichletPadicLFunctions:L2",
+      "realises": [
+        "DirichletPadicLFunctions:L2"
+      ],
+      "title": "Arbitrary level changes of integral tame measures",
+      "kind": "comparison",
+      "statement": "For any a:ZMod M→O with i(a(x))=η(x), μO_(changeLevel η)=Σ_(t⊆S) ε_t a(d_t)•D_(d_t)(μO_η).",
+      "hypotheses": [
+        "p is any prime, including 2; M,N>0 with hMN:M∣N; η:DirichletCharacter K M is nonprincipal, without a primitivity requirement. K is a complete nontrivially normed ultrametric field with Algebra ℤ_p K and IsBoundedSMul ℤ_p K.",
+        "hM and hN certify that M and N map to units in K; hpM:p∤M and hpN:p∤N are the exact tame constructor hypotheses. S is the native finite set N.primeFactors\\M.primeFactors. For t⊆S, d_t=Π_(q∈t)q and ε_t=(−1)^|t|, with d_empty=1.",
+        "U is the existing native units type ℤ_pˣ with its existing topology. O is exactly Valuation.integer(NormedField.valuation K), with inherited norm/topology and the native continuous subtype inclusion i:O→K. No separate ℤ_p-algebra, field structure or completeness hypothesis on O is assumed.",
+        "The coefficient function a is an ordinary function into the existing subtype, not a new bundled character. It exists on every x by native DirichletCharacter.norm_le_one and valuation-integer membership. Subtype.ext makes it pointwise unique."
+      ],
+      "proofSteps": [
+        "For every x, native character boundedness gives η(x)∈O. Taking the ordinary subtype pair defines a(x) with the required coefficient image. The complete character_coefficient_family_exists probe supplies this family without a separate O-algebra structure or coefficient-field descent assumption.",
+        "Evaluate the desired equality on an arbitrary continuous O-valued test f and use Subtype.ext on its values. Rewrite both included integral constructor values with the exact existing all-test coefficient-inclusion nodes. No assertion that an arbitrary K-valued test admits an O-valued lift is needed.",
+        "Evaluation of a finite sum of native measures is the finite sum of their evaluations. The complete measure_sum_eval probe proves this directly from their native continuous-linear-functional definition, using the additive evaluation homomorphism. Native map_apply then replaces every pushforward by the pullback f∘d.",
+        "The subtype ring inclusion preserves the finite sum, multiplication, −1 and natural powers. The complete signed_coefficient_inclusion probe checks the signed scalar specifically. Included pullback tests agree with pullbacks of the included test by continuous-map associativity.",
+        "The remaining equality is the existing K-valued level comparison evaluated on i∘f. Native DFunLike.ext concludes equality of the integral measures. The complete finite_coefficient_reflection probe proves exactly this general finite deduction, conditional on the existing coefficient-inclusion laws and field equality; those hypotheses are supplied by named fine nodes, not left open.",
+        "Use tame-measure-arbitrary-level for the actual ambient K-valued μ and tame-integral-measure-inclusion for the actual integralTameMeasure. The included signed coefficient ε_t a(d_t) is ε_t η(d_t), exactly the field formula coefficient.",
+        "At the constant test 1, every pullback is 1 and the mass is multiplied by Σ_t ε_t a(d_t). If S is empty, a(1)=1 by its inclusion equation and the native character law, so the whole integral measures agree."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L2/tame-measure-arbitrary-level",
+        "DirichletPadicLFunctions:L2/tame-integral-measure-inclusion",
+        "mathlib:DirichletCharacter.norm_le_one",
+        "mathlib:NormedField.valuation_apply",
+        "mathlib:Valuation.mem_integer_iff",
+        "mathlib:AbstractMeasure.toCLMEquiv",
+        "mathlib:AbstractMeasure.map_apply",
+        "mathlib:DFunLike.ext"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/TameLevelChange",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.integralTameMeasure_changeLevel"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Remark 3.33 and its inclusion/retraction discussion, published 129 / PDF30, freshly read in full on 30 September 2026. Theorem 5.7, Remark 5.8(2), integral coefficients after (5-3), and Definition 5.13, published143–146/PDF44–47, read completely in the preceding integral checkpoint during this uninterrupted continuation.",
+          "excerpt": "not a subalgebra",
+          "match": "Worker transport of the existing arbitrary-level ambient formulas to the native unit carrier and the actual norm-valuation integer ring. The source inclusion is linear and does not identify the additive and multiplicative convolution products. Existing constructors, retraction and all-test coefficient inclusions are imported, not replanned."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedTameLevelIntegralTests.actual_character_coefficient_family_exists",
+          "kind": "characterisation",
+          "statement": "The complete ordinary character-value lift into O exists."
+        },
+        {
+          "name": "SuggestedTameLevelIntegralTests.integral_measure_all_tests",
+          "kind": "compatibility",
+          "statement": "Every O-valued continuous test has the integral finite subset formula."
+        },
+        {
+          "name": "SuggestedTameLevelIntegralTests.integral_measure_mass_sum",
+          "kind": "computation",
+          "statement": "The actual integral tame mass has the signed finite scalar-sum factor."
+        },
+        {
+          "name": "SuggestedTameLevelIntegralTests.integral_measure_same_prime_support",
+          "kind": "degenerate",
+          "statement": "Increasing only existing prime exponents preserves the full integral tame measure."
+        }
+      ],
+      "acceptance": [
+        "All sums and scalar products are taken in the existing integral measure module. No field-style operator norm or generic coefficient-extension functor on O-measures is introduced."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L2/integral-tame-zeta-arbitrary-level",
+      "parentStageId": "DirichletPadicLFunctions:L2",
+      "realises": [
+        "DirichletPadicLFunctions:L2"
+      ],
+      "title": "Arbitrary level changes of integral tame zeta measures",
+      "kind": "comparison",
+      "statement": "For c(t)∈O with i(c(t))=η(d_t)/d_t on t⊆S, ζO_(changeLevel η)=Σ_(t⊆S) ε_t c(t)•D_(d_t)(ζO_η).",
+      "hypotheses": [
+        "p is any prime, including 2; M,N>0 with hMN:M∣N; η:DirichletCharacter K M is nonprincipal, without a primitivity requirement. K is a complete nontrivially normed ultrametric field with Algebra ℤ_p K and IsBoundedSMul ℤ_p K.",
+        "hM and hN certify that M and N map to units in K; hpM:p∤M and hpN:p∤N are the exact tame constructor hypotheses. S is the native finite set N.primeFactors\\M.primeFactors. For t⊆S, d_t=Π_(q∈t)q and ε_t=(−1)^|t|, with d_empty=1.",
+        "U is the existing native units type ℤ_pˣ with its existing topology. O is exactly Valuation.integer(NormedField.valuation K), with inherited norm/topology and the native continuous subtype inclusion i:O→K. No separate ℤ_p-algebra, field structure or completeness hypothesis on O is assumed.",
+        "The c function is explicitly supplied solely to name existing integral coefficients. Its existence on all used subsets is proved from the tame hypothesis and the earlier generic prime-to-p denominator integrality lemma. No division operation on O is used."
+      ],
+      "proofSteps": [
+        "For every t⊆S derive p∤d_t from the actual product of native p-adic units, as above. The existing tame-prime-correction-integrality theorem is already stated for every natural denominator prime to p, despite its historical name: it therefore gives η(d_t)/d_t∈O directly, without another integrality theorem.",
+        "Define the ordinary function c:Finset ℕ→O by this subtype pair for t∈S.powerset and by zero outside. The complete subset_coefficient_family_exists probe checks the finite conditional construction under precisely that supplied membership condition. The signature requires the coefficient equation only on used subsets. Subtype.ext makes all allowed choices agree there; outside values do not enter any sum.",
+        "Evaluate the desired equality on an arbitrary continuous O-valued test f and use Subtype.ext on its values. Rewrite both included integral constructor values with the exact existing all-test coefficient-inclusion nodes. No assertion that an arbitrary K-valued test admits an O-valued lift is needed.",
+        "Evaluation of a finite sum of native measures is the finite sum of their evaluations. The complete measure_sum_eval probe proves this directly from their native continuous-linear-functional definition, using the additive evaluation homomorphism. Native map_apply then replaces every pushforward by the pullback f∘d.",
+        "The subtype ring inclusion preserves the finite sum, multiplication, −1 and natural powers. The complete signed_coefficient_inclusion probe checks the signed scalar specifically. Included pullback tests agree with pullbacks of the included test by continuous-map associativity.",
+        "The remaining equality is the existing K-valued level comparison evaluated on i∘f. Native DFunLike.ext concludes equality of the integral measures. The complete finite_coefficient_reflection probe proves exactly this general finite deduction, conditional on the existing coefficient-inclusion laws and field equality; those hypotheses are supplied by named fine nodes, not left open.",
+        "Use tame-zeta-arbitrary-level and tame-integral-zeta-inclusion. Each included coefficient is ε_t η(d_t)/d_t, preserving the inverse product factor from the actual inverse-weighted measure comparison.",
+        "The constant test yields the actual integral mass factor Σ_t ε_t c(t); it is not a logarithmic special value. At empty S, c(empty)=1 by inclusion, so the entire integral ambient zeta measures agree. Tests include imprimitive nonprincipal characters and p=2.",
+        "Exact arithmetic residue and positive-moment controls are distinct from the finite atomic inverse-weight models. For finite coefficient models, coordinatewise p-integrality is a sufficient check; it is not asserted to characterize the full local integer ring."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L2/tame-zeta-arbitrary-level",
+        "DirichletPadicLFunctions:L2/tame-integral-zeta-inclusion",
+        "DirichletPadicLFunctions:L2/tame-prime-correction-integrality",
+        "DirichletPadicLFunctions:L2/intrinsic-tame-zeta-arbitrary-level",
+        "mathlib:AbstractMeasure.toCLMEquiv",
+        "mathlib:AbstractMeasure.map_apply",
+        "mathlib:DFunLike.ext"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/TameLevelChange",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.integralTameZetaMeasure_changeLevel"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Remark 3.33 and its inclusion/retraction discussion, published 129 / PDF30, freshly read in full on 30 September 2026. Theorem 5.7, Remark 5.8(2), integral coefficients after (5-3), and Definition 5.13, published143–146/PDF44–47, read completely in the preceding integral checkpoint during this uninterrupted continuation.",
+          "excerpt": "not a subalgebra",
+          "match": "Worker transport of the existing arbitrary-level ambient formulas to the native unit carrier and the actual norm-valuation integer ring. The source inclusion is linear and does not identify the additive and multiplicative convolution products. Existing constructors, retraction and all-test coefficient inclusions are imported, not replanned."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedTameLevelIntegralTests.actual_subset_coefficient_family_exists",
+          "kind": "characterisation",
+          "statement": "All used inverse-product coefficients lift simultaneously into O from the actual tame hypothesis."
+        },
+        {
+          "name": "SuggestedTameLevelIntegralTests.integral_zeta_all_tests",
+          "kind": "compatibility",
+          "statement": "Every continuous O-valued ambient test has the finite formula with its integral inverse-product coefficients."
+        },
+        {
+          "name": "SuggestedTameLevelIntegralTests.integral_zeta_mass_sum",
+          "kind": "degenerate",
+          "statement": "The actual integral ambient zeta mass has the finite signed scalar-sum factor."
+        },
+        {
+          "name": "SuggestedTameLevelIntegralTests.integral_zeta_same_prime_support",
+          "kind": "degenerate",
+          "statement": "Equal prime support gives equality of the actual integral ambient zeta measures."
+        }
+      ],
+      "acceptance": [
+        "The integrality lemma is reused at d_t; its denominator was deliberately generalized beyond primes in #4958. Principal regularized constructors remain excluded by the field identity."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L2/intrinsic-integral-tame-arbitrary-level",
+      "parentStageId": "DirichletPadicLFunctions:L2",
+      "realises": [
+        "DirichletPadicLFunctions:L2"
+      ],
+      "title": "Arbitrary level changes of integral zeta measures on units",
+      "kind": "comparison",
+      "statement": "ζO,U_(changeLevel η)=Σ_(t⊆S) ε_t c(t)•map(v↦u_t*v)(ζO,U_η), using the derived unit and integral coefficient families.",
+      "hypotheses": [
+        "p is any prime, including 2; M,N>0 with hMN:M∣N; η:DirichletCharacter K M is nonprincipal, without a primitivity requirement. K is a complete nontrivially normed ultrametric field with Algebra ℤ_p K and IsBoundedSMul ℤ_p K.",
+        "hM and hN certify that M and N map to units in K; hpM:p∤M and hpN:p∤N are the exact tame constructor hypotheses. S is the native finite set N.primeFactors\\M.primeFactors. For t⊆S, d_t=Π_(q∈t)q and ε_t=(−1)^|t|, with d_empty=1.",
+        "U is the existing native units type ℤ_pˣ with its existing topology. O is exactly Valuation.integer(NormedField.valuation K), with inherited norm/topology and the native continuous subtype inclusion i:O→K. No separate ℤ_p-algebra, field structure or completeness hypothesis on O is assumed.",
+        "The signature names a function u:ℕ→U with underlying value q for q∈S. Such a function exists: q∈S divides N, so p∤q, and the native p-adic norm/unit criterion supplies its unit; use 1 outside S. For t⊆S put u_t=Π_(q∈t)u(q). This finite product has underlying value d_t, and Units.ext proves independence of all choices on the used indices.",
+        "c:Finset ℕ→O has the defining coefficient image η(d_t)/d_t on the used subsets. Its existence and independence are supplied by the preceding integral ambient comparison."
+      ],
+      "proofSteps": [
+        "Evaluate the desired equality on an arbitrary continuous O-valued test f and use Subtype.ext on its values. Rewrite both included integral constructor values with the exact existing all-test coefficient-inclusion nodes. No assertion that an arbitrary K-valued test admits an O-valued lift is needed.",
+        "Evaluation of a finite sum of native measures is the finite sum of their evaluations. The complete measure_sum_eval probe proves this directly from their native continuous-linear-functional definition, using the additive evaluation homomorphism. Native map_apply then replaces every pushforward by the pullback f∘d.",
+        "The subtype ring inclusion preserves the finite sum, multiplication, −1 and natural powers. The complete signed_coefficient_inclusion probe checks the signed scalar specifically. Included pullback tests agree with pullbacks of the included test by continuous-map associativity.",
+        "The remaining equality is the existing K-valued level comparison evaluated on i∘f. Native DFunLike.ext concludes equality of the integral measures. The complete finite_coefficient_reflection probe proves exactly this general finite deduction, conditional on the existing coefficient-inclusion laws and field equality; those hypotheses are supplied by named fine nodes, not left open.",
+        "Take the test domain to be U. Use intrinsic-tame-zeta-arbitrary-level for the actual field-valued comparison and intrinsic-integral-tame-coefficients for all O-valued unit tests. The finite reflection proof applies without a new unit-restriction theorem, carrier identification or integral algebra action.",
+        "At the constant test, multiplication by any u_t leaves the test unchanged; the mass factor is Σ_t ε_t c(t). This formula does not depend on a named unit family because one always exists. At equal prime support, the empty-subset term is the identity and the two actual intrinsic integral measures agree.",
+        "Changing either presentation function outside its valid finite set changes no term. Within that set unit products agree by Units.ext and coefficient values agree by Subtype.ext. Thus the result belongs to the original arithmetic measures, not to an arbitrary choice of representatives.",
+        "Primitive-conductor specializations of these intrinsic and integral equalities are the next explicit declarations: their native conductor and nonprincipality certificates were already checked in #4998. No primitive Gauss formula, analytic family or logarithmic mass identification is inferred here."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L2/intrinsic-tame-zeta-arbitrary-level",
+        "DirichletPadicLFunctions:L2/integral-tame-zeta-arbitrary-level",
+        "DirichletPadicLFunctions:L2/intrinsic-integral-tame-coefficients",
+        "mathlib:AbstractMeasure.toCLMEquiv",
+        "mathlib:AbstractMeasure.map_apply",
+        "mathlib:DFunLike.ext",
+        "mathlib:Units.ext"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/TameLevelChange",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.intrinsicIntegralTameZetaMeasure_changeLevel"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Remark 3.33 and its inclusion/retraction discussion, published 129 / PDF30, freshly read in full on 30 September 2026. Theorem 5.7, Remark 5.8(2), integral coefficients after (5-3), and Definition 5.13, published143–146/PDF44–47, read completely in the preceding integral checkpoint during this uninterrupted continuation.",
+          "excerpt": "not a subalgebra",
+          "match": "Worker transport of the existing arbitrary-level ambient formulas to the native unit carrier and the actual norm-valuation integer ring. The source inclusion is linear and does not identify the additive and multiplicative convolution products. Existing constructors, retraction and all-test coefficient inclusions are imported, not replanned."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedTameLevelIntegralTests.intrinsic_integral_all_tests",
+          "kind": "compatibility",
+          "statement": "Every continuous O-valued unit test has the finite integral formula."
+        },
+        {
+          "name": "SuggestedTameLevelIntegralTests.intrinsic_integral_mass_sum",
+          "kind": "degenerate",
+          "statement": "The actual intrinsic integral mass has the same signed scalar-sum factor."
+        },
+        {
+          "name": "SuggestedTameLevelIntegralTests.intrinsic_integral_same_prime_support",
+          "kind": "degenerate",
+          "statement": "Equal prime support gives equality on the native integral unit-group carrier."
+        }
+      ],
+      "acceptance": [
+        "The finite atomic intrinsic models preserve the actual unit support and inverse-weight factor. Their mass checks do not claim values for the arithmetic zeta mass."
+      ]
     }
   ],
   "requests": [
@@ -48258,7 +48569,7 @@
       "stageId": "DirichletPadicLFunctions:L2",
       "status": "partial",
       "remaining": [
-        "The ambient field-valued tame measure and zeta measure now have arbitrary-level finite subset formulas and comparisons with the actual native primitive character at its conductor. Genuinely new primes occur exactly once; higher prime powers contribute no further factor. Next transport the finite formulas to the intrinsic unit-group and integral realizations. Primitive Gauss nonvanishing, common-field primitive special-value identifications, analytic branches, logarithmic/degree-zero interpolation, full source extraction and the supplier pseudomeasure requests remain open."
+        "The arbitrary-level finite formulas now hold for the native intrinsic field-valued zeta measure and all three existing integral tame realizations, with actual unit and coefficient families derived from the tame hypotheses. Next state their primitive-conductor specializations using the already verified native conductor certificates. Primitive Gauss nonvanishing, common-field primitive special-value identifications, analytic branches, logarithmic/degree-zero interpolation, full source extraction and supplier pseudomeasure requests remain open."
       ]
     },
     {
@@ -48292,7 +48603,7 @@
     {
       "title": "L2 remaining source decomposition and interfaces",
       "neededBy": [],
-      "detail": "The ambient field-valued tame measure and zeta measure now have arbitrary-level finite subset formulas and comparisons with the actual native primitive character at its conductor. Genuinely new primes occur exactly once; higher prime powers contribute no further factor. Next transport the finite formulas to the intrinsic unit-group and integral realizations. Primitive Gauss nonvanishing, common-field primitive special-value identifications, analytic branches, logarithmic/degree-zero interpolation, full source extraction and the supplier pseudomeasure requests remain open."
+      "detail": "The arbitrary-level finite formulas now hold for the native intrinsic field-valued zeta measure and all three existing integral tame realizations, with actual unit and coefficient families derived from the tame hypotheses. Next state their primitive-conductor specializations using the already verified native conductor certificates. Primitive Gauss nonvanishing, common-field primitive special-value identifications, analytic branches, logarithmic/degree-zero interpolation, full source extraction and supplier pseudomeasure requests remain open."
     },
     {
       "title": "L3 remaining source decomposition and interfaces",
@@ -48663,34 +48974,34 @@
     "intake": "Exactly four authorized deliverables; zero problems.",
     "sourceIssues": "All 16 findings, three source records, sourceVersions, eleven requests and fifteen gaps remain whole. No new source mistake or independent review verdict.",
     "validation": {
-      "nodes": 722,
+      "nodes": 726,
       "kinds": {
         "definition": 2,
         "lemma": 272,
         "construction": 72,
         "theorem": 224,
-        "comparison": 152
+        "comparison": 156
       },
       "api": 549,
-      "packetTests": 1245,
+      "packetTests": 1260,
       "definitionConstructionTests": 309,
-      "typedExamples": 1248,
+      "typedExamples": 1263,
       "planets": 24,
-      "baseline": 620,
-      "preservedWholeNodes": 718,
-      "preservedBaseline": 603,
+      "baseline": 622,
+      "preservedWholeNodes": 722,
+      "preservedBaseline": 620,
       "preservedSourceIssues": 16,
       "newSourceIssues": 0,
       "newNodes": 4,
       "newNamedDeclarations": 4,
-      "newTypedTests": 10,
+      "newTypedTests": 15,
       "requests": 11,
       "gaps": 15,
       "closedStages": 0,
-      "reachableNodes": 980,
-      "dependencyEdges": 5002,
+      "reachableNodes": 984,
+      "dependencyEdges": 5037,
       "acyclic": true,
-      "baselineLeaves": 795,
+      "baselineLeaves": 797,
       "stageRequestLeaves": [
         "AdicSpacesPartII:F1",
         "AdicSpacesPartII:R2",
@@ -48702,7 +49013,7 @@
         "PadicMeasuresIwasawaAlgebras:L2",
         "PadicMeasuresIwasawaAlgebras:L3"
       ],
-      "readerWords": 362531,
+      "readerWords": 366431,
       "scopedMutationCheck": true,
       "correctedPredecessorNodes": 0,
       "fullSuggestedCompiled": false,
@@ -48729,8 +49040,8 @@
         "TauCeti.NumberTheory.ArithmeticFunction.TwistedDivisorSum"
       ],
       "scratchCompleteDefinitions": 0,
-      "scratchCompleteLemmas": 11,
-      "scratchMathlibModules": 2820,
+      "scratchCompleteLemmas": 10,
+      "scratchMathlibModules": 2824,
       "scratchTauModules": 0,
       "scratchErrors": 0,
       "scratchWarnings": 0,
@@ -48745,6 +49056,7 @@
         "primitiveResidueChecks": 3578,
         "ordinaryMomentChecks": 5362,
         "positiveZetaMomentChecks": 5362,
+        "finiteTestChecks": 5136,
         "atomicZetaTests": 3830,
         "atomicZetaMasses": 766,
         "sameSupportChecks": 2102,
@@ -48752,7 +49064,12 @@
         "wrongMissingInverseFailures": 2570,
         "wrongPrimitiveValueFailures": 1047,
         "principalCounterexamples": 13,
-        "finiteTestChecks": 5136
+        "integralCoefficientTerms": 1512,
+        "integralResidueValues": 14312,
+        "integralPositiveMomentValues": 10724,
+        "intrinsicAtomicTests": 3830,
+        "integralAtomicValues": 7660,
+        "finiteRingReductionChecks": 11490
       },
       "numericalControlsCertified": false,
       "newRoutesStageLeaves": []
@@ -48762,7 +49079,7 @@
       "compiled": false,
       "errors": null,
       "warnings": null,
-      "sha256": "841ea85a9f24e23eee779b50246b964cdd137f7a2a9fd4b8a74e330d810dfaac",
+      "sha256": "b3dd334de1f4dd3b40f801297a5cb2c2c4e0e2d20703667a7481cf1e59e8fc3a",
       "missingNativeArtifacts": [
         "TauCeti.NumberTheory.ArithmeticFunction.TwistedDivisorSum"
       ],
@@ -48777,11 +49094,11 @@
         }
       },
       "nativeProbe": {
-        "completeLemmas": 11,
+        "completeLemmas": 10,
         "errors": 0,
         "warnings": 0,
         "placeholders": 0,
-        "sha256": "d96e140869eade8a761e9905d43bafbe0c0b25ceed1bfe19e86e42ed9a376b97"
+        "sha256": "27ff36e8bb7ef49d3200be0d546fd661c8f94eade31f1a5b249276646a4dee0f"
       },
       "sourceAndAvailableArtifactAudit": {
         "compiledSupplierNodes": 332,
@@ -48868,7 +49185,7 @@
       }
     },
     "publication": {
-      "base": "e83b682d97634408551eba0bb3c3a33fdc2f3e86",
+      "base": "e7374e70f6c6a3ba9c3b7b92f5fda302259dd34d",
       "unchangedInputs": 66,
       "unchangedOutputs": 4,
       "sameSessionFollowupAfterMerge": true,
@@ -56151,6 +56468,125 @@
         "assessment": "Read the complete changed Section16 and its surrounding context. This change applies to kind:paper extraction jobs. Issue713 is kind:blueprint: proof closure remains its assigned work under Section3, so this checkpoint and its partial status remain appropriate. No source extraction status is changed. All65 other captured inputs and all4 predecessor outputs are unchanged.",
         "allOtherCapturedMathematicalInputsUnchanged": true,
         "preservedDirichletFindings": 16
+      }
+    },
+    "tameLevelIntegral": {
+      "agent": "Codex",
+      "session": "codex-7e92bd",
+      "issue": 713,
+      "claimComment": 5854790528,
+      "winningBot": 5854791937,
+      "previousPR": 4998,
+      "previousHead": "a62ad3f11e81e073e68c48188834d88653dd8b61",
+      "previousMerge": "58d2f3bd562f2d80cb31464d8c4c672aa427c22d",
+      "preservedWholeNodes": 722,
+      "preservedBaseline": 620,
+      "preservedFindings": 16,
+      "newNodes": 4,
+      "reading": "Freshly read complete source page 129, including the inclusion/retraction identity and distinction between the two convolution products. Source pages 143–146 were read completely during the preceding integral checkpoint in this uninterrupted continuation. Read the whole exact PMIA intrinsic restriction section node and own intrinsic inclusion, integral coefficient inclusions and denominator-integrality node, together with their signatures. Read native Units.coeHom, IsUnit.unit/unit_spec, prime-support membership and finite functional evaluation context. No new generic measure carrier or coefficient-extension API is planned.",
+      "boundary": "The arbitrary-level finite formulas now hold for the native intrinsic field-valued zeta measure and all three existing integral tame realizations, with actual unit and coefficient families derived from the tame hypotheses. Next state their primitive-conductor specializations using the already verified native conductor certificates. Primitive Gauss nonvanishing, common-field primitive special-value identifications, analytic branches, logarithmic/degree-zero interpolation, full source extraction and supplier pseudomeasure requests remain open.",
+      "inputBase": "a3ed75a4ec6f55197da29a95e2ccc5e0e66dfa71",
+      "sourceBoundary": "All 16 findings, three source records, sourceVersions, eleven requests and fifteen gaps remain whole. No new source mistake or independent review verdict.",
+      "partialSignatureCheck": {
+        "prefixPR": 4998,
+        "omits": "PR4777–4791 signatures, as in the exact retained prefix",
+        "newDeclarations": 4,
+        "newExamples": 15,
+        "result": {
+          "exitCode": 0,
+          "sourceSha256": "0f171af78b67896082885536f1eb31a6a3cc64d004d58ae497aa64eb08b55e82",
+          "modules": 3582,
+          "warnings": 2188,
+          "errors": 0
+        }
+      },
+      "publication": {
+        "base": "e7374e70f6c6a3ba9c3b7b92f5fda302259dd34d",
+        "unchangedInputs": 66,
+        "unchangedOutputs": 4,
+        "sameSessionFollowupAfterMerge": true,
+        "lastClaimConfirmation": 5854791937,
+        "reviewIssue": 390,
+        "reviewUnclaimed": true
+      },
+      "finiteControls": {
+        "profiles": 13,
+        "levelPairs": 130,
+        "primePlacePairs": 383,
+        "dyadicPairs": 55,
+        "primitiveRecoveryValues": 11049,
+        "relativeResidueChecks": 3578,
+        "primitiveResidueChecks": 3578,
+        "ordinaryMomentChecks": 5362,
+        "positiveZetaMomentChecks": 5362,
+        "finiteTestChecks": 5136,
+        "atomicZetaTests": 3830,
+        "atomicZetaMasses": 766,
+        "sameSupportChecks": 2102,
+        "wrongRepeatedFactorFailures": 784,
+        "wrongMissingInverseFailures": 2570,
+        "wrongPrimitiveValueFailures": 1047,
+        "principalCounterexamples": 13,
+        "integralCoefficientTerms": 1512,
+        "integralResidueValues": 14312,
+        "integralPositiveMomentValues": 10724,
+        "intrinsicAtomicTests": 3830,
+        "integralAtomicValues": 7660,
+        "finiteRingReductionChecks": 11490
+      },
+      "numericalMethod": "Exact Q(i)/Q(omega) arithmetic with sufficient coefficientwise p-integrality (rational coordinate denominators prime to p). Finite reductions use (Z/p^r Z)[i] and (Z/p^r Z)[omega] at r=1,2,3; no identification with the full local integer ring is asserted. Intrinsic atomic checks restrict to the actual p-unit support and compare the same product dilations.  Native-style finite character tables determine the least positive inducing modulus by testing every divisor and unit fibre, then verify recovery of the actual imprimitive table. Actual residue formulas and quotient/Stirling moment formulas independently check the relative-level and primitive-conductor subset sums. Separately labelled finite atomic inverse-weight models check the zeta subset coefficients and mass factors; their masses are not arithmetic zeta masses. Controls detect repeated Euler factors, a missing inverse dilation factor, and evaluating the imprimitive character at a new bad prime. The principal modulus-one to modulus-three counterexample remains excluded by the nonprincipal hypothesis.",
+      "fullSuggestedCompiled": false,
+      "linkRefresh": {
+        "base": "e7374e70f6c6a3ba9c3b7b92f5fda302259dd34d",
+        "delta": {
+          "data/source-issues.json": {
+            "old": "c9662764dbb2b9960f31a258ac4c6c52c5ba5847",
+            "new": "326b61fee545cc67f1c39c405e5832a74ff3be86"
+          },
+          "research/errata/REGISTER.md": {
+            "old": "658f0a6bc19487f24f01493d09fa25c688d254e5",
+            "new": "1fd372e66d6c11ce42f157bdabf29838c93ae954"
+          },
+          "research/blueprint/links/tauceti_TauCetiRoadmap_ZigzagPreprojective.json": {
+            "old": "ab4f05b609802c1df270350e88d03aeea9d39cb0",
+            "new": "75f616809b4e69dd5890c145cf98e04a80d4f638"
+          }
+        },
+        "assessment": "Third refresh: Zigzag adds one previously research-only Quiver projective-cover input and corrects historical promotion prose; its thirteen old links, seven overlaps and examined ledger are preserved. Neither endpoint family is in this Dirichlet closure. Registry changes are exactly PAPER-CESNAVICIUS-21/E1–E9 locator and search provenance, narrowing the cited edition to author manuscript/arXiv and recording unavailable Duke access; mathematical corrections and all16 Dirichlet findings are unchanged. The Markdown register changes only the matching paper section. No independent review of these unrelated findings or links is claimed. All63 other captured inputs and four predecessor outputs are unchanged.",
+        "allOtherCapturedMathematicalInputsUnchanged": true,
+        "preservedDirichletFindings": 16,
+        "previousRefresh": {
+          "base": "6ed4283ef84ede0a21a1bcbb0874266aad426cfb",
+          "delta": {
+            "research/blueprint/links/tauceti_TauCetiRoadmap_OneParameterSemigroups.json": {
+              "old": "ed7472c0930323893f36266eb13c4e138f70ce73",
+              "new": "0eeb3669e258e4bd0eb1e1f6791144fefea6152c"
+            },
+            "research/blueprint/links/tauceti_TauCetiRoadmap_RepresentationTheory_SchurWeyl.json": {
+              "old": "191bd03c9afd3af1b5f8b9cee9e78604ccfa044b",
+              "new": "c7edc5d5d3709431b9e414d2f05d6ced36463ee6"
+            },
+            "research/blueprint/links/tauceti_TauCetiRoadmap_AlgebraicCodingTheory.json": {
+              "old": "8a2dd7b93e98541c7150ebcc814da52eb2a692a6",
+              "new": "d7ad13f9976d0b2baeb4fc8131f7b5b6ffc750a0"
+            }
+          },
+          "assessment": "Read the full diff of three additional link fixes. SchurWeyl adds the ClassicalGroups orthogonal-action input and corrects the bilinear carrier warning; old ten links and six other overlaps stay unchanged. AlgebraicCodingTheory adds unresolved ACT-R06 for the unowned Leech-lattice construction requested by QSeries QM.6, preserving all links and overlaps. None of SchurWeyl, AlgebraicCodingTheory or QM.6 occurs in this Dirichlet closure. Existing QSeries dependencies use other nodes. OneParameterSemigroups adds an OptimalTransport kernel-positivity overlap and six native reuse records, preserving all three links; neither endpoint family occurs in this closure. These changes neither supply nor alter a theorem used here, and do not close any gap. All63 other captured inputs and four predecessor outputs are unchanged.",
+          "allOtherCapturedMathematicalInputsUnchanged": true,
+          "preservedDirichletFindings": 16,
+          "previousRefresh": {
+            "base": "6b4761f04cd50c01460da2f2ab5c1219d28d8553",
+            "delta": {
+              "research/blueprint/links/tauceti_TauCetiRoadmap_GrothendieckEulerForms.json": {
+                "old": "f34ce2e3712b645ee2a9594fa12bc9d6b7819d93",
+                "new": "96bec0771a1f05d181d25797d453e25476ab1070"
+              }
+            },
+            "assessment": "Read the full upstream diff. This confirmed red-team fix appends three incoming QuiverRepresentations prerequisites for GrothendieckEulerForms and corrects promotion/provenance descriptions. Its fifteen previous links, all overlaps and requests remain unchanged. None of the new endpoints is in the Dirichlet dependency closure; no mathematical statement, native baseline or supplier route used here changes. No independent acceptance of that packet is claimed. All65 other captured inputs and all4 predecessor outputs are unchanged.",
+            "allOtherCapturedMathematicalInputsUnchanged": true,
+            "preservedDirichletFindings": 16
+          }
+        }
       }
     }
   },
