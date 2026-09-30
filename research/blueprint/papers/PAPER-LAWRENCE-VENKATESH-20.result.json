@@ -18,7 +18,7 @@
    "2026-09-29 (REV-PAPER-LAWRENCE-VENKATESH-20): the published article (public PDF at bimsa.net, SHA-256 588e450a…) collated at E1–E3 on its page images; all three persist."
   ]
  },
- "summary": "Lawrence and Venkatesh give a new proof of Faltings's theorem: a curve of genus ≥ 2 over a number field has finitely many rational points. Families with good reduction have finitely many possible Galois representations (Faltings's finiteness lemma); p-adic Hodge theory turns them into filtered φ-modules, whose variation is a p-adic period map that has the same power series as the complex one, so big monodromy forces Zariski density. Frobenius centralizers are kept small by semilinearity over large unramified extensions, obtained from an abelian-by-finite Kodaira–Parshin family of Aff(q)-covers, and semisimplicity is controlled by purity of Hodge weights at friendly places. The S-unit theorem is a warm-up. In higher dimension, with the Bakker–Tsimerman Ax–Schanuel theorem, integral points on bases of families with large monodromy and spread-out adjoint Hodge numbers are not Zariski dense (Theorem 10.1), which applies to hypersurfaces in P^n of large dimension and degree. The draft roadmap MordellLawrenceVenkatesh plans the whole curve case (LV.0–LV.11); the higher-dimensional part is routed to the Part II that Lawrence–Sawin's extraction proposes.",
+ "summary": "Lawrence and Venkatesh give a new proof of Faltings's theorem: a curve of genus ≥ 2 over a number field has finitely many rational points. Families with good reduction have finitely many possible Galois representations (Faltings's finiteness lemma); p-adic Hodge theory turns them into filtered φ-modules, whose variation is a p-adic period map that has the same power series as the complex one, so big monodromy forces Zariski density. Frobenius centralizers are kept small by semilinearity over large unramified extensions, obtained from an abelian-by-finite Kodaira–Parshin family of Aff(q)-covers, and semisimplicity is controlled by purity of Hodge weights at friendly places. The S-unit theorem is a warm-up. In higher dimension, with the Bakker–Tsimerman Ax–Schanuel theorem, integral points on bases of families with large monodromy and spread-out adjoint Hodge numbers are not Zariski dense (Theorem 10.1), which applies to hypersurfaces in P^n of large dimension and degree. The draft roadmap MordellLawrenceVenkatesh plans the whole curve case (LV.0–LV.11); the higher-dimensional part is routed to the Part II that Lawrence–Sawin's extraction proposes. After the red team (FIX-RT-PAPER-LAWRENCE-VENKATESH-20, 30 September 2026), the general §3 period-map material goes to LV.2–LV.4 (route 3), Bakker–Tsimerman's theorem to the Part II of LogicAndDefinabilityInNumberTheory (route 4), and Lemma 2.6 with Serre's G-notions to LV.1 (route 2).",
  "items": [
   {
    "id": "PAPER-LAWRENCE-VENKATESH-20/hermite-minkowski",
@@ -73,7 +73,8 @@
    "status": "planned",
    "planned": [
     "MordellLawrenceVenkatesh:LV.1"
-   ]
+   ],
+   "note": "MordellLawrenceVenkatesh/E2 (confirmed), cited by FIX-RT-PAPER-LAWRENCE-VENKATESH-20, 30 September 2026 (RT-PAPER-LAWRENCE-VENKATESH-20/3). The lemma is true for any finite set S. But the paper's standing S contains no place above p, and the p-adic cohomology of a fibre with good reduction is in general ramified at p: H²_et(P¹, Q_p) = Q_p(−1) is. So every application uses T = S ∪ {places above p}, with conditions (b) and (c) imposed outside T. LV.1/faltings-finiteness states it that way."
   },
   {
    "id": "PAPER-LAWRENCE-VENKATESH-20/friendly-places",
@@ -90,12 +91,13 @@
    "id": "PAPER-LAWRENCE-VENKATESH-20/lemma-2-8",
    "kind": "theorem",
    "name": "Lemma 2.8: pure characters at friendly places",
-   "statement": "For v friendly above p and η: G_K → Q_p^× finitely ramified, pure of weight w and locally algebraic above p, η²|_{K_v^×} = χ·Norm^w_{K_v/Q_p} with χ of finite order; w is even and the Hodge–Tate weight of η at v is w/2.",
+   "statement": "For v friendly above p and η: G_K → Q_p^× finitely ramified, pure of weight w and locally algebraic above p, η²|_{O_{K_v}^×} = χ·Norm^w_{K_v/Q_p} on the local units, with χ of finite order (η restricted through local class field theory); w is even and the Hodge–Tate weight of η at v is w/2. The printed identity on all of K_v^× is false (MordellLawrenceVenkatesh/E3).",
    "locator": "arXiv:1807.02721v3, §2.4, Lemma 2.8 and proof, pp. 12–13",
    "status": "planned",
    "planned": [
     "MordellLawrenceVenkatesh:LV.1"
-   ]
+   ],
+   "note": "Corrected statement of MordellLawrenceVenkatesh/E3 (confirmed), applied by FIX-RT-PAPER-LAWRENCE-VENKATESH-20, 30 September 2026 (RT-PAPER-LAWRENCE-VENKATESH-20/3). Counterexample to the printed form: K = Q (no CM subfield, so v = p is friendly) and η = χ_cyc^{±1}, with the sign that makes η pure of weight w = 2 for the Frobenius the purity condition uses. η is ramified only at p and locally algebraic there. The reciprocity map sends the uniformizer p to an element acting trivially on Q_p(μ_{p^∞}) (Lubin–Tate theory for the uniformizer p, under either normalisation), so η²(p) = 1 while Norm(p)^w = p². Hence χ(p) = p^{−2}, of infinite order. On the units, with matching normalisations, the identity holds, and so does the conclusion about w and the Hodge–Tate weight, which is all that Lemmas 2.9 and 2.10 use. LV.1/pure-character-friendly states the corrected form."
   },
   {
    "id": "PAPER-LAWRENCE-VENKATESH-20/lemma-2-9",
@@ -134,13 +136,14 @@
    "id": "PAPER-LAWRENCE-VENKATESH-20/lemma-2-12",
    "kind": "theorem",
    "name": "Lemma 2.12: algebraic Goursat for products of symplectic groups",
-   "statement": "An algebraic subgroup G ≤ Sp(V)^N surjecting onto each factor, such that for all i, j some g ∈ G has π_i(g), π_j(g) unipotent with fixed spaces of different dimensions, is all of Sp(V)^N.",
+   "statement": "An algebraic subgroup G ≤ Sp(V)^N surjecting onto each factor, such that for all i ≠ j some g ∈ G has π_i(g), π_j(g) unipotent with fixed spaces of different dimensions, is all of Sp(V)^N.",
    "locator": "arXiv:1807.02721v3, §2.7, Lemma 2.12, p. 14",
    "status": "planned",
    "planned": [
     "MordellLawrenceVenkatesh:LV.0",
     "MordellLawrenceVenkatesh:LV.10"
-   ]
+   ],
+   "note": "Corrected by MordellLawrenceVenkatesh/E22 (confirmed), applied by FIX-RT-PAPER-LAWRENCE-VENKATESH-20, 30 September 2026 (RT-PAPER-LAWRENCE-VENKATESH-20/3). The paper prints 'for 1 ⩽ i, j ⩽ N'. For i = j the two projections are the same operator and cannot have fixed spaces of different dimensions, so the printed hypothesis never holds and the lemma is vacuous. Lemma 8.7 needs the i ≠ j form."
   },
   {
    "id": "PAPER-LAWRENCE-VENKATESH-20/lemmas-2-13-2-14",
@@ -156,35 +159,38 @@
   {
    "id": "PAPER-LAWRENCE-VENKATESH-20/good-model-gm",
    "kind": "construction",
-   "name": "Good models and Gauss–Manin transport on residue disks",
-   "statement": "For π: X → Y smooth proper over O with locally free Hodge and de Rham sheaves and Gauss–Manin connection (after enlarging S), formal horizontal sections have coefficients in O_(v) and converge v-adically for |z_i|_v < |p|^{1/(p−1)} and complexly near y₀; they identify H^q_dR of nearby fibres over K_v (3.7) and over C (3.8), compatibly with crystalline cohomology of the reduction (3.9) and its Frobenius.",
-   "locator": "arXiv:1807.02721v3, §§3.1–3.3, (3.1)–(3.9), pp. 15–17",
+   "name": "Good models and Gauss–Manin transport on residue disks (abelian-by-finite families, H¹)",
+   "statement": "For an abelian-by-finite family X → Y′ → Y (Definition 5.1) over a smooth K-variety Y of any dimension, with a good model over O, and degree q = 1: the de Rham bundle π_*H¹_dR(𝒳/𝒴′) over π_*O_{𝒴′} carries its Hodge sub-bundle and the Gauss–Manin connection (after enlarging S); formal horizontal sections have coefficients in O_(v) and converge v-adically for |z_i|_v < |p|^{1/(p−1)} and complexly near y₀; they identify H¹_dR of nearby fibres over K_v (3.7) and over C (3.8), compatibly with crystalline cohomology of the reduction (3.9) and its Frobenius.",
+   "locator": "arXiv:1807.02721v3, §§3.1–3.3, (3.1)–(3.9), pp. 15–17; §5, Definition 5.1, p. 25",
    "status": "planned",
    "planned": [
     "MordellLawrenceVenkatesh:LV.2"
-   ]
+   ],
+   "note": "Restricted to the abelian-by-finite H¹ case by FIX-RT-PAPER-LAWRENCE-VENKATESH-20, 30 September 2026 (RT-PAPER-LAWRENCE-VENKATESH-20/1). The paper states §§3.1–3.3 for H^q of any smooth proper X → Y over a smooth base of any dimension; LV.2 plans them only for H¹ of polarized abelian-by-finite families. The general statement is item /good-model-gm-general, routed to LV.2 by route 3. The LV.2 nodes on formal horizontal sections, their v-adic and complex convergence, and residue disks are already stated in general and serve both items."
   },
   {
    "id": "PAPER-LAWRENCE-VENKATESH-20/monodromy-group",
    "kind": "definition",
    "name": "Algebraic monodromy group Γ and full monodromy",
-   "statement": "Γ is the Zariski closure of the image of π₁(Y_C, y₀) in GL(V_C) (3.5). An abelian-by-finite family has full monodromy if the closure contains Π Sp(H¹_B(X_ỹ), ω) over the points ỹ above y₀ (5.1).",
+   "statement": "For an abelian-by-finite family X → Y′ → Y, Γ is the Zariski closure of the image of π₁(Y_C, y₀) in GL(V_C), where V_C = ⊕_{ỹ ↦ y₀} H¹_B(X_ỹ, C) (3.5). The family has full monodromy if the closure contains Π Sp(H¹_B(X_ỹ), ω) over the points ỹ above y₀ (5.1).",
    "locator": "arXiv:1807.02721v3, §3.2 (3.5); §5 (5.1), pp. 16, 25",
    "status": "planned",
    "planned": [
     "MordellLawrenceVenkatesh:LV.3"
-   ]
+   ],
+   "note": "Restricted to H¹ of abelian-by-finite families by FIX-RT-PAPER-LAWRENCE-VENKATESH-20, 30 September 2026 (RT-PAPER-LAWRENCE-VENKATESH-20/1): LV.3 plans Γ only in that case. Γ for H^q of a general smooth proper family, as (3.5) defines it, is item /monodromy-group-general (route 3)."
   },
   {
    "id": "PAPER-LAWRENCE-VENKATESH-20/lemma-3-1",
    "kind": "theorem",
    "name": "Lemma 3.1: monodromy orbit in the complex period image",
-   "statement": "Γ · h₀^ι is contained in the Zariski closure of Φ_C(Ω_C) in H_C.",
+   "statement": "For H¹ of an abelian-by-finite family, with H the Lagrangian period variety LGr_E(V, ω) of LV.3: Γ · h₀^ι is contained in the Zariski closure of Φ_C(Ω_C) in H_C.",
    "locator": "arXiv:1807.02721v3, §3.4, Lemma 3.1, p. 18",
    "status": "planned",
    "planned": [
     "MordellLawrenceVenkatesh:LV.3"
-   ]
+   ],
+   "note": "Restricted to the abelian-by-finite H¹ case by FIX-RT-PAPER-LAWRENCE-VENKATESH-20, 30 September 2026 (RT-PAPER-LAWRENCE-VENKATESH-20/1): LV.3 plans Lemma 3.1 in that setting, over a base of any dimension. The paper states it for any smooth proper family and any degree q, with H the flag variety of §3.4; that form is item /lemma-3-1-general (route 3)."
   },
   {
    "id": "PAPER-LAWRENCE-VENKATESH-20/lemma-3-2",
@@ -201,34 +207,37 @@
    "id": "PAPER-LAWRENCE-VENKATESH-20/lemma-3-3",
    "kind": "theorem",
    "name": "Lemma 3.3: dimension of the p-adic period image",
-   "statement": "dim of the Zariski closure of Φ_v(Ω_v) ≥ dim_C Γ·h₀^ι; hence the preimage of a Zariski closed set of smaller dimension is contained in a proper K_v-analytic subset of the residue disk.",
+   "statement": "For H¹ of an abelian-by-finite family, with H the Lagrangian period variety LGr_E(V, ω) of LV.3 and a base of any dimension: dim of the Zariski closure of Φ_v(Ω_v) ≥ dim_C Γ·h₀^ι; hence the preimage of a Zariski closed set of smaller dimension is contained in a proper K_v-analytic subset of the residue disk.",
    "locator": "arXiv:1807.02721v3, §3.4, Lemma 3.3, p. 19",
    "status": "planned",
    "planned": [
     "MordellLawrenceVenkatesh:LV.3"
-   ]
+   ],
+   "note": "Restricted to the abelian-by-finite H¹ case by FIX-RT-PAPER-LAWRENCE-VENKATESH-20, 30 September 2026 (RT-PAPER-LAWRENCE-VENKATESH-20/1), which LV.3 plans. The general form, for H^q of any smooth proper family with H the flag variety of §3.4, is item /lemma-3-3-general (route 3). Lemma 3.2 (item /lemma-3-2) is general and needs no split."
   },
   {
    "id": "PAPER-LAWRENCE-VENKATESH-20/crystalline-transport",
    "kind": "theorem",
-   "name": "Crystalline comparison on the residue disk",
-   "statement": "For y in the residue disk of y₀, ρ_y|_{G_{K_v}} is crystalline and corresponds to (H^q_dR(X_y/K_v), φ_v, Hodge filtration) ≅ (V_v, φ_v, Φ_v(y)) in the category of filtered φ-modules (Faltings's comparison, [8, 9.1.9]).",
+   "name": "Crystalline transport on the residue disk (abelian-by-finite families, H¹)",
+   "statement": "For H¹ of an abelian-by-finite family and y in the residue disk of y₀: ρ_y|_{G_{K_v}} is crystalline, and its filtered φ-module (H¹_dR(X_y/K_v), φ_v, Hodge filtration), given by Faltings's comparison (item /faltings-crystalline-comparison) and the functor of [8, 9.1.9] (item /dcris-fully-faithful), is identified by Gauss–Manin transport with (V_v, φ_v, Φ_v(y)). LV.4 plans this factor by factor over the points y′ above y and the places w above v ((6.6)–(6.7)).",
    "locator": "arXiv:1807.02721v3, §3.5, (3.12) and following, p. 19",
    "status": "planned",
    "planned": [
     "MordellLawrenceVenkatesh:LV.4"
-   ]
+   ],
+   "note": "Split and restricted by FIX-RT-PAPER-LAWRENCE-VENKATESH-20, 30 September 2026. RT-PAPER-LAWRENCE-VENKATESH-20/5 separates the comparison theorem (item /faltings-crystalline-comparison, planned at CohomologyComparisons CP.2 with PadicHodgeTheory R06.2) from the transport identification. RT-PAPER-LAWRENCE-VENKATESH-20/1 restricts the item to the H¹ case that LV.4 plans. The transport identification for H^q of a general family is item /crystalline-transport-general (route 3)."
   },
   {
    "id": "PAPER-LAWRENCE-VENKATESH-20/prop-3-4",
    "kind": "theorem",
    "name": "Proposition 3.4: preliminary finiteness criterion",
-   "statement": "If dim_{K_v} Z(φ_v^{[K_v:Q_p]}) < dim_C Γ·h₀^ι, then {y ∈ Y(O) : y ≡ y₀ mod v, ρ_y semisimple} lies in a proper K_v-analytic subvariety of the residue disk.",
+   "statement": "For a polarized abelian scheme X → Y over a smooth curve Y (q = 1, H = LGr(V, ω)): if dim_{K_v} Z(φ_v^{[K_v:Q_p]}) < dim_C Γ·h₀^ι, then {y ∈ Y(O) : y ≡ y₀ mod v, ρ_y semisimple} lies in a proper K_v-analytic subvariety of the residue disk, and so is finite.",
    "locator": "arXiv:1807.02721v3, §3.5, Proposition 3.4 and proof, pp. 19–20",
    "status": "planned",
    "planned": [
     "MordellLawrenceVenkatesh:LV.4"
-   ]
+   ],
+   "note": "Restricted by FIX-RT-PAPER-LAWRENCE-VENKATESH-20, 30 September 2026 (RT-PAPER-LAWRENCE-VENKATESH-20/1) to the case LV.4 plans: node LV.4/proposition-3-4 assumes a polarized abelian scheme (π = id) over a curve and concludes finiteness, by Strassmann's theorem (item /strassmann). The paper's Proposition 3.4, for H^q of any smooth proper family over a base of any dimension, is item /prop-3-4-general (route 3)."
   },
   {
    "id": "PAPER-LAWRENCE-VENKATESH-20/s-unit-theorem",
@@ -316,7 +325,8 @@
    "status": "planned",
    "planned": [
     "MordellLawrenceVenkatesh:LV.7"
-   ]
+   ],
+   "note": "MordellLawrenceVenkatesh/E7 (confirmed as a gap in the proof), cited by FIX-RT-PAPER-LAWRENCE-VENKATESH-20, 30 September 2026 (RT-PAPER-LAWRENCE-VENKATESH-20/3). A friendly v may lie above p = 2. §3 fixes p > 2, and at p = 2 the convergence radius |p|^{1/(p−1)} does not cover the whole residue disk that §6 uses. The written proof therefore needs v of odd residue characteristic with the good-reduction setup of §3.1; excluding 2 and the primes below S is enough for Theorem 5.4. The statement is kept in full: at p = 2 the argument can be run on the finitely many smaller congruence disks, and no counterexample is known. The E7 review adds that without good reduction at the other places above p, the averaging step needs the de Rham form of Lemma 2.10."
   },
   {
    "id": "PAPER-LAWRENCE-VENKATESH-20/lemma-6-1",
@@ -344,12 +354,13 @@
    "id": "PAPER-LAWRENCE-VENKATESH-20/lemma-6-3",
    "kind": "theorem",
    "name": "Lemma 6.3: Frobenius-stable subspaces avoid a generic Lagrangian",
-   "statement": "For L_w/K_v unramified of degree r ≥ 8, (V, ω) symplectic of dimension 2d and φ semilinear bijective, there is a Zariski open A ⊆ Res LGr(V, ω) whose K_v-points F admit no φ-invariant W with dim(F ∩ W) ≥ dim W/2.",
+   "statement": "For L_w/K_v unramified of degree r ≥ 8, (V, ω) a symplectic L_w-space of dimension 2d and φ: V → V a bijective Frobenius-semilinear similitude (ω(φx, φy) = c·σ(ω(x, y)) for some c ≠ 0), there is a nonempty Zariski open A ⊆ Res LGr(V, ω) whose K_v-points F admit no φ-invariant L_w-subspace W with 0 ≠ W ≠ V and dim(F ∩ W) ≥ dim W/2.",
    "locator": "arXiv:1807.02721v3, §6, Lemma 6.3 and proof, p. 33",
    "status": "planned",
    "planned": [
     "MordellLawrenceVenkatesh:LV.7"
-   ]
+   ],
+   "note": "Corrected by MordellLawrenceVenkatesh/E10 and E25 (both confirmed), applied by FIX-RT-PAPER-LAWRENCE-VENKATESH-20, 30 September 2026 (RT-PAPER-LAWRENCE-VENKATESH-20/3). W = 0 and W = V are φ-stable and satisfy the inequality for every Lagrangian F. So the printed lemma forces A = ∅, which it allows, and is vacuous. The printed proof also needs φ to be a similitude: E25 gives a bijective semilinear φ for which the transported Lagrangians are not Lagrangian for one common form. The geometric Frobenius in the application respects the polarization up to its Tate factor, so the corrected hypothesis holds there."
   },
   {
    "id": "PAPER-LAWRENCE-VENKATESH-20/lemma-6-4",
@@ -421,12 +432,13 @@
    "id": "PAPER-LAWRENCE-VENKATESH-20/lemmas-8-2-8-3",
    "kind": "theorem",
    "name": "Lemmas 8.2–8.3: preimage classes and cycle type",
-   "statement": "The preimages of a simple closed curve e are linearly independent with span of dimension k − 1 in primitive homology; the rank of Mon(D_e^M) − Id determines the cycle type of Cov(e).",
+   "statement": "Lemma 8.2: for a nonseparating simple closed curve e in Y − {y} (equivalently [e] ≠ 0 in H₁(Y; Q)), the preimages e₁, …, e_k of e in Z have linearly independent classes, whose projections span a (k − 1)-dimensional subspace of primitive homology H₁^Pr(Z, Y). Lemma 8.3: for such e and a positive, sufficiently divisible M with D_e^M ∈ MCG(Y)_Z (for example a positive multiple of the order of Cov(e) and of the relevant stabilizer indices), rank(Mon(D_e^M) − Id) on H₁^Pr(Z, Y) equals k − 1, where k is the number of cycles of Cov(e). The cycle types (1^q), (q) and (1, r, …, r) of Aff(q) have k = q, 1 and 1 + (q − 1)/r, all different, so the rank determines the cycle type of Cov(e).",
    "locator": "arXiv:1807.02721v3, §8.3, Lemmas 8.2–8.3 and proofs, p. 42",
    "status": "planned",
    "planned": [
     "MordellLawrenceVenkatesh:LV.9"
-   ]
+   ],
+   "note": "Corrected by MordellLawrenceVenkatesh/E13 and E14 (both confirmed), applied by FIX-RT-PAPER-LAWRENCE-VENKATESH-20, 30 September 2026 (RT-PAPER-LAWRENCE-VENKATESH-20/3). As printed, both lemmas fail for a curve e that bounds a disk in Y − {y}: every preimage then bounds a disk in Z, so all their classes vanish, and Mon(D_e^M) = Id. A nonseparating curve whose Cov(e) is a q-cycle also has rank 0, like the identity, so without the hypothesis the rank does not determine the class. The printed Lemma 8.3 also allows M = 0. The proof of Lemma 8.9 applies the lemmas only to nonseparating curves."
   },
   {
    "id": "PAPER-LAWRENCE-VENKATESH-20/liftable-curves",
@@ -500,11 +512,8 @@
    "name": "Theorem 9.1 (Bakker–Tsimerman): Ax–Schanuel for period maps",
    "statement": "For V ⊂ Y × H* algebraic, W the image of Ỹ in Y × H and U ⊂ V ∩ W irreducible analytic with codim U < codim V + codim W in Y × H*, the projection of U to Y lies in a proper weak Mumford–Tate subvariety.",
    "locator": "arXiv:1807.02721v3, §9.1, Theorem 9.1, p. 52",
-   "status": "planned",
-   "planned": [
-    "LogicAndDefinabilityInNumberTheory:LD.6"
-   ],
-   "note": "LD.6 plans o-minimality and takes Ax–Schanuel theorems as independently acquired functional-transcendence inputs; PAPER-LAWRENCE-SAWIN-25 records the same status for this input."
+   "status": "missing",
+   "note": "Marked missing by FIX-RT-PAPER-LAWRENCE-VENKATESH-20, 30 September 2026 (RT-PAPER-LAWRENCE-VENKATESH-20/2); it was planned at LogicAndDefinabilityInNumberTheory LD.6. LD.6 plans o-minimal structures, Pila–Wilkie counting and Pila–Zannier applications. It treats Ax–Schanuel theorems as independent inputs that an application 'must provide', and none of its packet nodes states one. The Part II LogicAndDefinabilityPartII (PAPER-MOK-PILA-TSIMERMAN-19 route 1) plans Ax–Schanuel for Shimura varieties only. Route 4 sends this theorem there, as a second final theorem. Bakker–Tsimerman's own statement (Invent. Math. 217 (2019), Theorem 1.1; arXiv:1712.05088v1, p. 2) is for any pure polarized integral variation of Hodge structure, with target the compact dual Ď of the weak Mumford–Tate domain. The statement above is the paper's, for families whose monodromy is Zariski dense in the full orthogonal or symplectic group, where Ď = H*. PAPER-LAWRENCE-SAWIN-25/44 (their Lemma 6.3, routed to LD.6) and /76 (planned at LD.6) rest on the same theorem and should follow it to the same owner; that change is for the maintainer."
   },
   {
    "id": "PAPER-LAWRENCE-VENKATESH-20/lemma-2-2",
@@ -520,7 +529,8 @@
    "name": "G-irreducible, G-completely reducible and G-semisimplification",
    "statement": "For G reductive over K of characteristic 0 and ρ: Γ → G(K): G-ir means the image lies in no proper K-parabolic; G-c.r. means every K-parabolic containing the image has a K-Levi containing it; ρ^ss is the projection to a Levi of a minimal parabolic containing the image, well defined up to G-conjugacy, with reductive Zariski closure (Serre).",
    "locator": "arXiv:1807.02721v3, §2.3, p. 10",
-   "status": "missing"
+   "status": "missing",
+   "note": "Moved from route 1 to route 2 (MordellLawrenceVenkatesh LV.1) by FIX-RT-PAPER-LAWRENCE-VENKATESH-20, 30 September 2026 (RT-PAPER-LAWRENCE-VENKATESH-20/4). LV.1 becomes the one owner of Serre's G-irreducibility, G-complete reducibility and G-semisimplification for reductive G over a field of characteristic 0. PAPER-BETTS-STIX-25/12 (GSp-irreducibility, its route 2 to LV.1) is the case G = GSp. The disconnected-group notions of PAPER-LAWRENCE-SAWIN-25/37 stay in the Part II only as an extension of LV.1's statement."
   },
   {
    "id": "PAPER-LAWRENCE-VENKATESH-20/lemmas-2-4-2-5",
@@ -534,9 +544,10 @@
    "id": "PAPER-LAWRENCE-VENKATESH-20/lemma-2-6",
    "kind": "theorem",
    "name": "Lemma 2.6: Faltings finiteness with reductive target",
-   "statement": "For G ⊂ GL_n reductive, there are finitely many G(Q_p)-conjugacy classes of ρ^ss for ρ: G_K → G(Q_p) S-unramified, pure of weight w and integral; indeed finitely many pairs (Q, ρ) with Q a parabolic and ρ irreducible in its Levi quotient. Uses Richardson's theorem and finiteness of H¹(Q_p, S).",
+   "statement": "Let G ⊂ GL_n be a reductive group over Q_p, K a number field and S a finite set of places. Among continuous ρ: G_K → G(Q_p) that, as representations into GL_n(Q_p), satisfy (a)–(c) of Lemma 2.3 (unramified outside S, pure of weight w, integral), there are only finitely many G(Q_p)-conjugacy classes of G-semisimplifications ρ^ss. Refinement: up to G(Q_p)-conjugacy there are finitely many pairs (Q, ρ: G_K → L_Q(Q_p)) with Q a Q_p-parabolic subgroup of G with Levi quotient L_Q, ρ irreducible in L_Q and satisfying the same conditions. (The printed domain G_Q of ρ in the refinement is a misprint for G_K, MordellLawrenceVenkatesh/E27.)",
    "locator": "arXiv:1807.02721v3, §2.3, Lemma 2.6 and proof, p. 11",
-   "status": "missing"
+   "status": "missing",
+   "note": "Restated and moved to route 2 (LV.1) by FIX-RT-PAPER-LAWRENCE-VENKATESH-20, 30 September 2026 (RT-PAPER-LAWRENCE-VENKATESH-20/4). LV.1 is its one owner. Betts–Stix's symplectic lemma (PAPER-BETTS-STIX-25/13, its route 2 to LV.1) is the case G = GSp_{2d}. The printed proof is incomplete (MordellLawrenceVenkatesh/E28, confirmed). It claims that {g ∈ GL_n(Q_p) : Ad(g)L ⊂ G} is a finite union of (G(Q_p), L(Q_p)) double cosets, which fails for G = SL₂ ⊂ GL₂ and the trivial representation (L = {1}, and SL₂(Q_p)\\GL₂(Q_p) ≅ Q_p^×). Conjugated representations are parametrized modulo the right action of the centralizer Z_{GL_n}(L)(Q_p). A complete proof then needs finiteness of the G(Q_p)-orbits on {g : Ad(g)L ⊂ G}/Z_{GL_n}(L), from Richardson's theorem over Q̄_p (item /richardson) and finiteness of H¹(Q_p, −) for linear algebraic groups (item /h1-finiteness-padic), with the component and rational-descent arguments E28 names. PAPER-LAWRENCE-SAWIN-25/41 (their Lemma 5.49, the G-valued form for possibly disconnected G) gives a corrected argument: it reduces to connected Zariski closure and controls extensions by a vanishing H¹ of a finite group in characteristic 0. E28's review disproves the intermediate step, not the lemma, and no review has yet checked a complete replacement proof. The Part II (route 1) keeps Lawrence–Sawin's disconnected form only as an extension of LV.1's statement."
   },
   {
    "id": "PAPER-LAWRENCE-VENKATESH-20/transcendence-corollary",
@@ -689,6 +700,312 @@
    "statement": "For a smooth hypersurface of degree d and dimension n ≥ 2 over F_q with b = dim H^n_prim, the centralizer of the semisimplified Frobenius has dimension ≤ 3b²/N, where N is the largest integer with q^{(n/2+1)·2N} < b/3 (corrected; the source prints q^{(n/2+1)N} < b/3, see E2).",
    "locator": "arXiv:1807.02721v3, §12, Lemma 12.1 and proof, pp. 73–74 (corrected by E2)",
    "status": "missing"
+  },
+  {
+   "id": "PAPER-LAWRENCE-VENKATESH-20/good-model-gm-general",
+   "kind": "construction",
+   "name": "Good models and Gauss–Manin transport on residue disks (general smooth proper families, H^q)",
+   "statement": "Let π: X → Y be smooth proper over a smooth K-variety Y of any dimension m, q ≥ 0 a degree, and 𝒳 → 𝒴 a good model over O: a proper smooth morphism of smooth O-schemes extending π. Enlarging S, assume that every R^qπ_*Ω^p_{𝒳/𝒴} and H^q = R^qπ_*Ω^•_{𝒳/𝒴} is locally free, and that the Gauss–Manin connection of the generic fibre extends to ∇: H^q → H^q ⊗ Ω¹_{𝒴/O} (3.1). Let v be a place with p > 2, K_v/Q_p unramified and no place of S above p, and y₀ ∈ 𝒴(O). In a basis of H^q near y₀ adapted to the Hodge filtration at y₀, the connection coefficients lie in O_(v)[[z₁, …, z_m]], and the formal horizontal sections, power series in K[[z₁, …, z_m]], converge for |z_i|_v < |p|_v^{1/(p−1)} and for |z_i|_C small. They give GM: H^q_dR(X_{y₀}/K_v) ≅ H^q_dR(X_y/K_v) for y ≡ y₀ mod v (3.7), and H^q_dR(X_{y₀,C}/C) ≅ H^q_dR(X_{y,C}/C) for y near y₀ (3.8). GM is compatible with the identification of both sides with H^q_cris of the reduction of the O-model X₀ of the fibre over y₀, and with its crystalline Frobenius φ_v (3.9).",
+   "locator": "arXiv:1807.02721v3, §§3.1–3.3, (3.1)–(3.9), pp. 15–17",
+   "status": "missing",
+   "note": "Added by FIX-RT-PAPER-LAWRENCE-VENKATESH-20, 30 September 2026 (RT-PAPER-LAWRENCE-VENKATESH-20/1), split from /good-model-gm. No layer plans H^q of a general smooth proper family: LV.2 plans H¹ of abelian-by-finite families. Planned inputs are the Gauss–Manin connection and its de Rham–Betti compatibility (/gauss-manin-katz-oda, ComplexComparisonPartII C5) and the Berthelot–Ogus comparison with crystalline Frobenius (/berthelot-ogus, CrystallineCohomology CR.2–CR.3). The general formal-solution and convergence nodes of LV.2 apply unchanged. Routed to LV.2–LV.4 by route 3, beside PAPER-BETTS-STIX-25 route 4."
+  },
+  {
+   "id": "PAPER-LAWRENCE-VENKATESH-20/monodromy-group-general",
+   "kind": "definition",
+   "name": "Algebraic monodromy group Γ of a general smooth proper family",
+   "statement": "For π: X → Y smooth proper over a smooth K-variety Y, an embedding ι: K → C, y₀ ∈ Y(K) and a degree q, put V = H^q_dR(X₀/K) and V_C = V ⊗_{K,ι} C ≅ H^q_sing(X_{0,C}, C) (comparison theorem). Monodromy defines μ: π₁(Y_C(C), y₀) → GL(V_C), and Γ, the Zariski closure of its image, is an algebraic subgroup of GL(V_C) (3.5). V_C and Γ depend on ι.",
+   "locator": "arXiv:1807.02721v3, §3.2, (3.4)–(3.5), p. 16",
+   "status": "missing",
+   "note": "Added by FIX-RT-PAPER-LAWRENCE-VENKATESH-20, 30 September 2026 (RT-PAPER-LAWRENCE-VENKATESH-20/1), split from /monodromy-group. LV.3/algebraic-monodromy-group plans Γ only for H¹ of abelian-by-finite families. The de Rham–Betti comparison is ComplexComparisonPartII C5. Routed to LV.3 by route 3."
+  },
+  {
+   "id": "PAPER-LAWRENCE-VENKATESH-20/period-maps-general",
+   "kind": "construction",
+   "name": "The complex and v-adic period maps of a general smooth proper family",
+   "statement": "In the setting of /good-model-gm-general, let H be the K-variety of flags in V = H^q_dR(X₀/K) with the dimension data of the Hodge filtration (3.10) (item /flag-variety-H), and h₀ ∈ H(K) the Hodge filtration. The complex period map Φ_C: Ω_C → H_C(C) sends t in a contractible neighbourhood Ω_C of y₀ to the Hodge filtration of X_t, moved to V_C by Gauss–Manin transport. It extends to the universal cover of Y_C^an, equivariantly for π₁(Y_C^an, y₀). The v-adic period map Φ_v: Ω_v = {y ∈ 𝒴(O_v) : y ≡ y₀ mod v} → H(K_v) sends y to the Hodge filtration of H^q_dR(X_y/K_v), moved to V_v by (3.7). It is K_v-analytic, and in Plücker coordinates it is given by power series over K that also give Φ_C. For the primitive middle cohomology with its intersection form, the same construction gives the p-adic period map Φ_p: U_p → H*_{Q_p} of (9.2) into the compact dual (item /compact-dual-H-star).",
+   "locator": "arXiv:1807.02721v3, §3.4, pp. 18–19; §9.2, (9.2), p. 52",
+   "status": "missing",
+   "note": "Added by FIX-RT-PAPER-LAWRENCE-VENKATESH-20, 30 September 2026 (RT-PAPER-LAWRENCE-VENKATESH-20/1). LV.3 plans Φ_C and Φ_v only for H¹ of abelian-by-finite families, into Lagrangian period varieties (LV.3/padic-period-map, /complex-period-map, /period-maps-common-series). §§9–10 need them for primitive H^d of general families, such as universal hypersurface families, into orthogonal or symplectic flag varieties. PAPER-BETTS-STIX-25 route 4 already sends a general v-adic period map (its /28) to LV.3. Routed to LV.3 by route 3."
+  },
+  {
+   "id": "PAPER-LAWRENCE-VENKATESH-20/lemma-3-1-general",
+   "kind": "theorem",
+   "name": "Lemma 3.1 for a general smooth proper family",
+   "statement": "For π: X → Y smooth proper over a smooth K-variety Y and a degree q, with Γ as in /monodromy-group-general, H the flag variety of §3.4 and Φ_C the complex period map: Γ · h₀^ι ⊂ the Zariski closure of Φ_C(Ω_C) inside H_C (3.11).",
+   "locator": "arXiv:1807.02721v3, §3.4, Lemma 3.1 and proof, p. 18",
+   "status": "missing",
+   "note": "Added by FIX-RT-PAPER-LAWRENCE-VENKATESH-20, 30 September 2026 (RT-PAPER-LAWRENCE-VENKATESH-20/1), split from /lemma-3-1. LV.3 plans only the abelian-by-finite H¹ case. Routed to LV.3 by route 3."
+  },
+  {
+   "id": "PAPER-LAWRENCE-VENKATESH-20/lemma-3-3-general",
+   "kind": "theorem",
+   "name": "Lemma 3.3 for a general smooth proper family",
+   "statement": "For π: X → Y smooth proper over a smooth K-variety Y of any dimension, a degree q, H the flag variety of §3.4 and Φ_v the v-adic period map: the dimension of the Zariski closure of Φ_v(Ω_v) in H_{K_v} is at least dim_C Γ·h₀^ι. Hence, if H_v^bad ⊂ H_v is Zariski closed of dimension less than dim_C Γ·h₀^ι, then Φ_v^{−1}(H_v^bad) lies in a proper K_v-analytic subset of Ω_v.",
+   "locator": "arXiv:1807.02721v3, §3.4, Lemma 3.3, p. 19",
+   "status": "missing",
+   "note": "Added by FIX-RT-PAPER-LAWRENCE-VENKATESH-20, 30 September 2026 (RT-PAPER-LAWRENCE-VENKATESH-20/1), split from /lemma-3-3. It follows from Lemma 3.2 (item /lemma-3-2, planned and already general) and /lemma-3-1-general after embedding H in a projective space. Routed to LV.3 by route 3."
+  },
+  {
+   "id": "PAPER-LAWRENCE-VENKATESH-20/crystalline-transport-general",
+   "kind": "theorem",
+   "name": "Crystalline transport on the residue disk for a general smooth proper family",
+   "statement": "For π: X → Y smooth proper with a good model and v as in §3.1, a degree q and y ∈ 𝒴(O) in the residue disk of y₀: ρ_y|_{G_{K_v}} = H^q_et(X_{y,K̄}, Q_p)|_{G_{K_v}} is crystalline, and D_cris carries it to (H^q_dR(X_y/K_v), φ_v, Hodge filtration) (item /faltings-crystalline-comparison). The identifications (3.9) give an isomorphism of filtered φ-modules (H^q_dR(X_y/K_v), φ_v, Hodge filtration) ≅ (V_v, φ_v, Φ_v(y)).",
+   "locator": "arXiv:1807.02721v3, §3.5, (3.12) and following, p. 19",
+   "status": "missing",
+   "note": "Added by FIX-RT-PAPER-LAWRENCE-VENKATESH-20, 30 September 2026 (RT-PAPER-LAWRENCE-VENKATESH-20/1) and RT-PAPER-LAWRENCE-VENKATESH-20/5, split from /crystalline-transport. LV.4 plans the transport identification only for H¹ of abelian-by-finite families. The comparison theorem is planned (/faltings-crystalline-comparison). Routed to LV.4 by route 3."
+  },
+  {
+   "id": "PAPER-LAWRENCE-VENKATESH-20/prop-3-4-general",
+   "kind": "theorem",
+   "name": "Proposition 3.4 for a general smooth proper family",
+   "statement": "Let π: X → Y be smooth proper over a smooth K-variety Y of any dimension, with a good model and v as in §3.1, q a degree, V = H^q_dR(X₀/K), H the flag variety of §3.4, Φ_v the v-adic period map and Γ ⊂ GL(V_C) the Zariski closure of monodromy. If dim_{K_v} Z(φ_v^{[K_v:Q_p]}) < dim_C Γ·h₀^ι (3.13), then {y ∈ Y(O) : y ≡ y₀ mod v, ρ_y semisimple} lies in a proper K_v-analytic subvariety of the residue disk of Y(K_v) at y₀ (3.14).",
+   "locator": "arXiv:1807.02721v3, §3.5, Proposition 3.4 and proof, pp. 19–20",
+   "status": "missing",
+   "note": "Added by FIX-RT-PAPER-LAWRENCE-VENKATESH-20, 30 September 2026 (RT-PAPER-LAWRENCE-VENKATESH-20/1), split from /prop-3-4. LV.4 plans only polarized abelian schemes over a curve. The proof applies Lemma 2.3 to ρ_y, with ramification set S ∪ {places above p} (MordellLawrenceVenkatesh/E2), purity and integrality (/deligne-purity) and unramifiedness (/good-reduction-unramified). Routed to LV.4 by route 3."
+  },
+  {
+   "id": "PAPER-LAWRENCE-VENKATESH-20/flag-variety-H",
+   "kind": "definition",
+   "name": "The flag variety H of §3.4",
+   "statement": "For V = H^q_dR(X₀/K) with its Hodge filtration V = F⁰V ⊃ F¹V ⊃ … (3.10), H is the K-variety parametrizing flags in V with the same dimension data (a partial flag variety of V), h₀ ∈ H(K) is the point given by the Hodge filtration, and H_v, H_C are its base changes along v and ι.",
+   "locator": "arXiv:1807.02721v3, §3.4, (3.10), p. 18",
+   "status": "planned",
+   "planned": [
+    "AlgebraicModuliForArithmeticGeometry:R09.1"
+   ],
+   "note": "Added by FIX-RT-PAPER-LAWRENCE-VENKATESH-20, 30 September 2026 (RT-PAPER-LAWRENCE-VENKATESH-20/1), as the verifier corrected it. AlgebraicModuliForArithmeticGeometry R09.1 constructs Grassmannians and flag schemes with their universal properties. LV.3 plans the Lagrangian period varieties used for H¹ of abelian-by-finite families. Tau Ceti HodgeStructures L3 plans period-domain points (Hodge filtrations of a fixed type polarized by a fixed form), not the flag variety."
+  },
+  {
+   "id": "PAPER-LAWRENCE-VENKATESH-20/compact-dual-H-star",
+   "kind": "definition",
+   "name": "The compact dual H* of the period domain",
+   "statement": "Let V be a finite-dimensional vector space with a nondegenerate form ⟨,⟩, symmetric or alternating, and fix Hodge numbers of weight d: V = H^d(X_y, C)_prim with the intersection form, or its de Rham analogue over Q_p in (9.2). H* is the variety of isotropic (self-dual) filtrations F^• of V with these dimensions, (F^p)^⊥ = F^{d+1−p}. It is a projective homogeneous variety of Aut(V, ⟨,⟩), and it contains the period domain H of polarized Hodge structures of this type as an open subset in the analytic topology. H*_{Q_p} is the target of the p-adic period map Φ_p (9.2), and the self-dual filtrations of §§10.5–11 are its points.",
+   "locator": "arXiv:1807.02721v3, §9.1, p. 51; §9.2, (9.2), p. 52; §10.5, pp. 63–64",
+   "status": "missing",
+   "note": "Added by FIX-RT-PAPER-LAWRENCE-VENKATESH-20, 30 September 2026 (RT-PAPER-LAWRENCE-VENKATESH-20/1). No item or layer defines it. LV.3 plans its Lagrangian case LGr (H¹ of abelian varieties, two-step filtrations). AlgebraicModuliForArithmeticGeometry R09.1 plans the flag schemes of which it is a closed subscheme, and Tau Ceti HodgeStructures L3 plans period-domain points. Routed to LV.3 by route 3, with the general period maps."
+  },
+  {
+   "id": "PAPER-LAWRENCE-VENKATESH-20/chebotarev",
+   "kind": "theorem",
+   "name": "The Chebotarev density theorem",
+   "statement": "For a finite Galois extension L/K of number fields with group G and a conjugacy class C ⊆ G, the set of finite places of K unramified in L whose Frobenius class is C has Dirichlet density #C/#G; in particular it is infinite.",
+   "locator": "arXiv:1807.02721v3, §4.1 (a place v whose Frobenius generates the cyclic group Gal(L/K)), p. 21; proof of Theorem 5.4, p. 27; proof of Lemma 10.4, (10.18), p. 61",
+   "status": "planned",
+   "planned": [
+    "tauceti:TauCetiRoadmap/Chebotarev#layer-10-dirichlet-density-chebotarev"
+   ],
+   "note": "Added by FIX-RT-PAPER-LAWRENCE-VENKATESH-20, 30 September 2026 (RT-PAPER-LAWRENCE-VENKATESH-20/5). Tau Ceti's Chebotarev roadmap proves it at Layer 10 (hasDirichletDensity_frobeniusPrimeSet). At the pinned Tau Ceti f790474 the library has only the preparatory declarations under NumberField.Chebotarev (frobeniusPrimeSet and its membership lemmas), and Mathlib 082e2d3 has only the notion NumberField.Set.HasDirichletDensity, so the item is planned, not library. LV.1 already lists this layer among its inputs."
+  },
+  {
+   "id": "PAPER-LAWRENCE-VENKATESH-20/weil-abelian-varieties",
+   "kind": "theorem",
+   "name": "Weil's theorem for abelian varieties over finite fields",
+   "statement": "For an abelian variety A over F_q and ℓ ∤ q, the characteristic polynomial of Frobenius on H¹_et(A_{F̄_q}, Q_ℓ) has integer coefficients independent of ℓ, and its complex roots have absolute value q^{1/2}. So for an abelian variety over a number field with good reduction outside S, H¹_et(A_K̄, Q_p) is pure of weight 1 with integral Frobenius polynomials outside S ∪ {places above p}, as Lemma 2.3 requires.",
+   "locator": "Used implicitly wherever Lemma 2.3 is applied to the fibres of abelian-by-finite families: arXiv:1807.02721v3, proof of Proposition 3.4, p. 20; §6, proof of Proposition 5.3, p. 31",
+   "status": "planned",
+   "planned": [
+    "DeligneWeightsAndPurity:DWP.1"
+   ],
+   "note": "Added by FIX-RT-PAPER-LAWRENCE-VENKATESH-20, 30 September 2026 (RT-PAPER-LAWRENCE-VENKATESH-20/5). The paper states hypotheses (b)–(c) of Lemma 2.3 but never cites the theorem that the fibres satisfy them. DeligneWeightsAndPurity DWP.1 proves Weil's estimate for abelian varieties with the finite-field characteristic-polynomial comparisons."
+  },
+  {
+   "id": "PAPER-LAWRENCE-VENKATESH-20/deligne-purity",
+   "kind": "theorem",
+   "name": "Deligne's purity theorem (Weil I and II)",
+   "statement": "For X smooth projective over F_q (Weil I), and more generally smooth proper (Weil II, 3.3.9), and ℓ ∤ q, the eigenvalues of geometric Frobenius on H^i_et(X_{F̄_q}, Q_ℓ) are algebraic numbers all of whose complex conjugates have absolute value q^{i/2}, and the characteristic polynomial has integer coefficients independent of ℓ. So ρ_y is pure of weight i with integral Frobenius polynomials at the places of good reduction not above p, and Lemmas 2.3 and 2.6 apply to it.",
+   "locator": "Used implicitly in §§10–12: arXiv:1807.02721v3, §10.3 (Lemma 2.6 applied to G₀ ⊂ GL(V₀)), p. 59; proof of Lemma 10.5 (purity of weight d), p. 63; proof of Lemma 12.1 (λ_s = q^{n/2}e(θ_s)), pp. 73–74",
+   "status": "planned",
+   "planned": [
+    "DeligneWeightsAndPurity:DWP.4",
+    "WeightsInEtaleCohomology:R34.5",
+    "DeligneWeightsAndPurity:DWP.7"
+   ],
+   "note": "Added by FIX-RT-PAPER-LAWRENCE-VENKATESH-20, 30 September 2026 (RT-PAPER-LAWRENCE-VENKATESH-20/5). DeligneWeightsAndPurity DWP.4 exports Weil I for every smooth projective variety, which covers the hypersurfaces of Proposition 10.2 and Lemma 12.1; WeightsInEtaleCohomology R34.5 imports it. Theorem 10.1 allows any smooth proper family, and DWP.7 plans the smooth proper extension, with SGA 7 XXI 5 for integrality. PAPER-DELIGNE-80 routes the smooth proper form to DWP.7."
+  },
+  {
+   "id": "PAPER-LAWRENCE-VENKATESH-20/good-reduction-unramified",
+   "kind": "theorem",
+   "name": "Good reduction makes étale cohomology unramified",
+   "statement": "If X is smooth proper over a number field K with a smooth proper model over the local ring at a finite place ℘ not above p, then H^q_et(X_K̄, Q_p) is unramified at ℘ (smooth and proper base change). So for a family with a good model over O = O_S, ρ_y is unramified outside S ∪ {places above p} for every y ∈ 𝒴(O). For abelian varieties the converse also holds (Néron–Ogg–Shafarevich).",
+   "locator": "Used implicitly wherever Lemma 2.3 or 2.6 is applied to ρ_y: arXiv:1807.02721v3, proof of Proposition 3.4, p. 20; §6, p. 31; §10.3, p. 59",
+   "status": "planned",
+   "planned": [
+    "SchemeAndStackFoundations:SF.2",
+    "NeronModelsAndSemistableAbelianVarieties:R11.5"
+   ],
+   "note": "Added by FIX-RT-PAPER-LAWRENCE-VENKATESH-20, 30 September 2026 (RT-PAPER-LAWRENCE-VENKATESH-20/5), as the verifier corrected it. SchemeAndStackFoundations SF.2 plans proper and smooth base change for étale cohomology, which gives the general statement. NeronModelsAndSemistableAbelianVarieties R11.5 plans Néron–Ogg–Shafarevich, which covers abelian varieties only. The ramification set includes the places above p (MordellLawrenceVenkatesh/E2)."
+  },
+  {
+   "id": "PAPER-LAWRENCE-VENKATESH-20/dcris-fully-faithful",
+   "kind": "theorem",
+   "name": "D_cris is fully faithful on crystalline representations",
+   "statement": "For K_v/Q_p finite unramified, D_cris is a fully faithful exact tensor functor from crystalline representations of G_{K_v} on finite-dimensional Q_p-spaces to filtered φ-modules over K_v ([8, Proposition 9.1.9]). Its image consists of weakly admissible modules; in particular the Newton and Hodge polygons of each object have the same endpoints.",
+   "locator": "arXiv:1807.02721v3, §2 (filtered φ-modules and admissibility), p. 8; §3.5, (3.12), p. 19; proof of Lemma 4.4 (Newton and Hodge polygons of a one-dimensional subobject), p. 24; §6",
+   "status": "planned",
+   "planned": [
+    "PadicHodgeTheory:R06.2"
+   ],
+   "note": "Added by FIX-RT-PAPER-LAWRENCE-VENKATESH-20, 30 September 2026 (RT-PAPER-LAWRENCE-VENKATESH-20/5). PadicHodgeTheory R06.2 defines D_cris and proves its full faithfulness and admissibility, and weak admissibility versus admissibility."
+  },
+  {
+   "id": "PAPER-LAWRENCE-VENKATESH-20/faltings-crystalline-comparison",
+   "kind": "theorem",
+   "name": "Faltings's crystalline comparison theorem",
+   "statement": "For 𝒳 smooth proper over O_{K_v}, with K_v/Q_p unramified, and each q, the representation H^q_et(𝒳_{K̄_v}, Q_p) of G_{K_v} is crystalline, and D_cris of it is (H^q_cris(𝒳_k/W(k))[1/p] ≅ H^q_dR(𝒳_{K_v}/K_v), crystalline Frobenius, Hodge filtration) (Faltings [16]).",
+   "locator": "arXiv:1807.02721v3, §3.5, p. 19 ([16]); footnote 10, p. 61",
+   "status": "planned",
+   "planned": [
+    "CohomologyComparisons:CP.2",
+    "PadicHodgeTheory:R06.2"
+   ],
+   "note": "Added by FIX-RT-PAPER-LAWRENCE-VENKATESH-20, 30 September 2026 (RT-PAPER-LAWRENCE-VENKATESH-20/5), split from /crystalline-transport. CohomologyComparisons CP.2 plans the rational crystalline comparison for smooth proper formal models, with the Hodge filtration through CP.3. PadicHodgeTheory R06.2 owns the period invariants that identify D_cris with crystalline cohomology. R06.5 applies both to abelian varieties and Shimura-type families only, so the general statement is CP.2 with R06.2, as the verifier corrected (RT-PAPER-LAWRENCE-VENKATESH-20/1)."
+  },
+  {
+   "id": "PAPER-LAWRENCE-VENKATESH-20/berthelot-ogus",
+   "kind": "theorem",
+   "name": "Crystalline cohomology of a smooth lift and its Frobenius",
+   "statement": "For a smooth proper scheme 𝒳 over W(k) (here O_v with v unramified) with special fibre 𝒳_k, H^q_cris(𝒳_k/W(k)) ≅ H^q_dR(𝒳/W(k)) canonically ([6, Corollary 7.4]). Crystalline Frobenius makes H^q_dR(𝒳_{K_v}/K_v) a φ-module, with φ a σ-semilinear bijection after inverting p.",
+   "locator": "arXiv:1807.02721v3, §3.3, (3.9) and the paragraph after it, p. 17 ([5], [6, Corollary 7.4])",
+   "status": "planned",
+   "planned": [
+    "CrystallineCohomology:CR.2",
+    "CrystallineCohomology:CR.3"
+   ],
+   "note": "Added by FIX-RT-PAPER-LAWRENCE-VENKATESH-20, 30 September 2026 (RT-PAPER-LAWRENCE-VENKATESH-20/5). CrystallineCohomology CR.2 identifies crystalline cohomology with the de Rham cohomology of a smooth lift. CR.3 constructs Frobenius on crystalline cohomology of proper smooth schemes, and its rational-isogeny conclusion is a later substage there. The compatibility with Gauss–Manin transport (3.9) belongs to /good-model-gm-general."
+  },
+  {
+   "id": "PAPER-LAWRENCE-VENKATESH-20/gauss-manin-katz-oda",
+   "kind": "construction",
+   "name": "The Gauss–Manin connection",
+   "statement": "For a smooth proper morphism X → Y of smooth varieties over a field of characteristic 0, the relative de Rham cohomology sheaves H^q_dR(X/Y) carry an integrable connection, the Gauss–Manin connection ([23, Theorem 1]). Over C its horizontal sections are the local system R^qπ_*C, compatibly with the de Rham–Betti comparison.",
+   "locator": "arXiv:1807.02721v3, §3.1, (3.1), p. 15 ([23, Theorem 1]); §3.3, (3.8), p. 17; §9.2, (9.4), p. 54",
+   "status": "planned",
+   "planned": [
+    "ComplexComparisonPartII:C5"
+   ],
+   "note": "Added by FIX-RT-PAPER-LAWRENCE-VENKATESH-20, 30 September 2026 (RT-PAPER-LAWRENCE-VENKATESH-20/5). ComplexComparisonPartII C5 plans the algebraic de Rham–Betti comparison with relative Gauss–Manin compatibility for proper smooth families. The extension of the connection over O_S after enlarging S belongs to /good-model-gm-general (route 3)."
+  },
+  {
+   "id": "PAPER-LAWRENCE-VENKATESH-20/fontaine-laffaille",
+   "kind": "theorem",
+   "name": "Fontaine–Laffaille theory",
+   "statement": "For an absolutely unramified base K = W(k)[1/p], Fontaine–Laffaille theory relates crystalline representations with Hodge–Tate weights in its valid range to Fontaine–Laffaille modules, by an exact, fully faithful functor. Wintenberger's functorial splitting of the Hodge filtration [45] is defined on these modules. Footnote 10 uses the theory to give the Tannakian category of G_{Q_p}-modules generated by V_y ⊗ Q_p a second fibre functor, to filtered φ-modules.",
+   "locator": "arXiv:1807.02721v3, proof of Lemma 10.4 and footnote 10, pp. 61–62 ([45], [32, §2])",
+   "status": "planned",
+   "planned": [
+    "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.3"
+   ],
+   "note": "Added by FIX-RT-PAPER-LAWRENCE-VENKATESH-20, 30 September 2026 (RT-PAPER-LAWRENCE-VENKATESH-20/5). FiniteFlatGroupsAndIntegralPadicHodgeTheory R07.3 plans Fontaine–Laffaille theory with its exact range. It does not plan the comparison of the two fibre functors (/fibre-functor-comparison)."
+  },
+  {
+   "id": "PAPER-LAWRENCE-VENKATESH-20/fibre-functor-comparison",
+   "kind": "theorem",
+   "name": "Comparison of the two fibre functors in footnote 10",
+   "statement": "On the neutral Tannakian category of G_{Q_p}-modules generated by V_y ⊗ Q_p, the forgetful fibre functor and the filtered-φ-module fibre functor of /fontaine-laffaille become isomorphic over Q̄_p. The tensor isomorphism can be chosen to respect the intersection forms, and it carries the Zariski closure Z of the Galois image to the Tannakian group Z′ of the second fibre functor, which acts on the primitive de Rham cohomology of X_y ⊗ Q_p ([12, §3]).",
+   "locator": "arXiv:1807.02721v3, footnote 10, p. 61",
+   "status": "missing",
+   "note": "Added by FIX-RT-PAPER-LAWRENCE-VENKATESH-20, 30 September 2026 (RT-PAPER-LAWRENCE-VENKATESH-20/5). The step is Deligne's theorem that two fibre functors of a neutral Tannakian category become isomorphic over an algebraically closed field ([12, §3]). MotivesAndAlgebraicCycles MC.6 constructs tensor-isomorphism torsors between fibre functors of proven neutral Tannakian categories and is the candidate supplier. No layer plans this comparison for crystalline representations, or its compatibility with the forms. Routed to route 1 with /hodge-torus-in-galois-image; the design should import MC.6's torsor or ask MC.6 for it."
+  },
+  {
+   "id": "PAPER-LAWRENCE-VENKATESH-20/strassmann",
+   "kind": "theorem",
+   "name": "Strassmann's theorem",
+   "statement": "Let F be a complete nonarchimedean valued field and f = Σ a_n x^n ∈ F[[x]] nonzero with a_n → 0. Then f has at most N(f) zeros in O_F, where N(f) is the largest n with |a_n| = max_k |a_k|. So a proper K_v-analytic subset of a one-dimensional residue disk is finite.",
+   "locator": "Used implicitly wherever a proper K_v-analytic subset of a residue disk of a curve is concluded to be finite: arXiv:1807.02721v3, §1 (the curve case), p. 3; §6, proof of Lemma 6.2 (by Lemma 3.3), p. 31",
+   "status": "planned",
+   "planned": [
+    "MordellLawrenceVenkatesh:LV.3"
+   ],
+   "note": "Added by FIX-RT-PAPER-LAWRENCE-VENKATESH-20, 30 September 2026 (RT-PAPER-LAWRENCE-VENKATESH-20/5). Planned as the node MordellLawrenceVenkatesh:LV.3/strassmann."
+  },
+  {
+   "id": "PAPER-LAWRENCE-VENKATESH-20/riemann-existence-gaga",
+   "kind": "theorem",
+   "name": "Riemann existence, GAGA and the fundamental group of a punctured curve",
+   "statement": "Finite étale covers of a smooth complex curve correspond to finite topological covers of the associated Riemann surface. So the geometric étale fundamental group of a punctured curve of genus g is the profinite completion of its topological fundamental group, a free group on 2g generators. GAGA identifies the analytic covers, coherent sheaves and algebra structures built in §7.3 with algebraic ones.",
+   "locator": "arXiv:1807.02721v3, §5, p. 26 (π₁^geom as a profinite completion); §7.3, pp. 36–38 (Riemann existence, and GAGA [39, Theorem 3])",
+   "status": "planned",
+   "planned": [
+    "InverseGaloisAndArithmeticFundamentalGroups:IG.3",
+    "ComplexComparisonPartII:C2"
+   ],
+   "note": "Added by FIX-RT-PAPER-LAWRENCE-VENKATESH-20, 30 September 2026 (RT-PAPER-LAWRENCE-VENKATESH-20/5). InverseGaloisAndArithmeticFundamentalGroups IG.3 constructs branched covers from generating tuples by Riemann existence. ComplexComparisonPartII C2 plans projective coherent GAGA."
+  },
+  {
+   "id": "PAPER-LAWRENCE-VENKATESH-20/weil-pairing-curves",
+   "kind": "theorem",
+   "name": "The Weil pairing on H¹ of a curve",
+   "statement": "For a smooth proper geometrically connected curve Y over K and N = q − 1, cup product and the trace give a perfect Galois-equivariant pairing H¹_et(Y_K̄, Z/N) × H¹_et(Y_K̄, Z/N) → Hom(μ_N, Z/N). So the Frobenius T at v satisfies ⟨Tv₁, Tv₂⟩ = q_v^{−1}⟨v₁, v₂⟩.",
+   "locator": "arXiv:1807.02721v3, proof of Theorem 5.4, (5.5) and the Weil pairing, p. 27",
+   "status": "planned",
+   "planned": [
+    "EtaleDualityAndPerverseSheaves:EDC.2"
+   ],
+   "note": "Added by FIX-RT-PAPER-LAWRENCE-VENKATESH-20, 30 September 2026 (RT-PAPER-LAWRENCE-VENKATESH-20/5). EtaleDualityAndPerverseSheaves EDC.2 plans the trace for smooth curves and the Poincaré duality pairings."
+  },
+  {
+   "id": "PAPER-LAWRENCE-VENKATESH-20/lefschetz-trace-formula",
+   "kind": "theorem",
+   "name": "The Grothendieck–Lefschetz trace formula",
+   "statement": "For a smooth projective variety Y over F_q and the extension k′ of degree j, #Y(k′) = Σ_i (−1)^i Tr(Frob^j | H^i_et(Y_{F̄_q}, Q_ℓ)). For a smooth hypersurface of dimension n this is |Y(k′)| = Σ_{i=0}^{n} q^{ij} + (−1)^n Tr(Frob^j | H^n_prim), the form used in Lemma 12.1.",
+   "locator": "arXiv:1807.02721v3, proof of Lemma 12.1, p. 74",
+   "status": "planned",
+   "planned": [
+    "WeilConjectures:WC.2"
+   ],
+   "note": "Added by FIX-RT-PAPER-LAWRENCE-VENKATESH-20, 30 September 2026 (RT-PAPER-LAWRENCE-VENKATESH-20/5), as the verifier corrected it: it is planned. The node WeilConjectures:WC.2/lefschetz-trace-formula-proper-smooth-via-duality (data/decompositions/WeilConjectures.json) states the Lefschetz formula for endomorphisms of proper smooth varieties with isolated fixed points, applied to Frobenius."
+  },
+  {
+   "id": "PAPER-LAWRENCE-VENKATESH-20/richardson",
+   "kind": "theorem",
+   "name": "Richardson's conjugacy theorem (cited in Lemma 2.6)",
+   "statement": "In the form the corrected proof of Lemma 2.6 needs (MordellLawrenceVenkatesh/E28): over an algebraically closed field of characteristic 0, for a reductive group G ⊂ GL_n and a reductive Lie subalgebra l ⊂ gl_n, the set {g ∈ GL_n : Ad(g)l ⊂ Lie G} is a finite union of double cosets G·g·Z_{GL_n}(l). Equivalently, the GL_n-conjugates of the embedding l ⊂ gl_n that land in Lie G fall into finitely many G-conjugacy classes ([34, Theorem 7.1]).",
+   "locator": "arXiv:1807.02721v3, proof of Lemma 2.6, p. 11 ([34, Theorem 7.1])",
+   "status": "missing",
+   "note": "Added by FIX-RT-PAPER-LAWRENCE-VENKATESH-20, 30 September 2026 (RT-PAPER-LAWRENCE-VENKATESH-20/5). No layer plans it (the atlas stage texts were searched). The paper states it without the centralizer, which E28 shows is needed; the statement of [34, Theorem 7.1] (Ann. of Math. 86 (1967), 1–15) was not read for this fix. LV.1's design must state it from the source. Routed with /lemma-2-6 to route 2 (LV.1)."
+  },
+  {
+   "id": "PAPER-LAWRENCE-VENKATESH-20/h1-finiteness-padic",
+   "kind": "theorem",
+   "name": "Finiteness of H¹ of a linear algebraic group over a p-adic field",
+   "statement": "For a finite extension k of Q_p and a linear algebraic group L over k, the Galois cohomology set H¹(k, L) is finite ([41, III §4, Theorem 4]).",
+   "locator": "arXiv:1807.02721v3, proof of Lemma 2.6, p. 11 ([41, III §4, Theorem 4])",
+   "status": "missing",
+   "note": "Added by FIX-RT-PAPER-LAWRENCE-VENKATESH-20, 30 September 2026 (RT-PAPER-LAWRENCE-VENKATESH-20/5). No layer plans nonabelian Galois cohomology of linear algebraic groups over p-adic fields (the atlas stage texts were searched). Routed with /lemma-2-6 to route 2 (LV.1)."
+  },
+  {
+   "id": "PAPER-LAWRENCE-VENKATESH-20/analytic-nullstellensatz",
+   "kind": "theorem",
+   "name": "The local analytic Nullstellensatz",
+   "statement": "For an ideal I of the ring C{x₁, …, x_n} of convergent power series, the ideal of germs vanishing on the germ V(I) at 0 is the radical √I ([10, §3.4]).",
+   "locator": "arXiv:1807.02721v3, proof of Lemma 9.3, p. 54",
+   "status": "missing",
+   "note": "Added by FIX-RT-PAPER-LAWRENCE-VENKATESH-20, 30 September 2026 (RT-PAPER-LAWRENCE-VENKATESH-20/5). ComplexComparisonPartII C0 plans Weierstrass preparation and division and the coherence of the holomorphic structure sheaf, but not the Nullstellensatz. Routed with /padic-transcendence to route 1."
+  },
+  {
+   "id": "PAPER-LAWRENCE-VENKATESH-20/tate-algebra-noetherian",
+   "kind": "theorem",
+   "name": "Noetherianity of the Tate algebra",
+   "statement": "For a complete nonarchimedean field K (here Q_p), the Tate algebra K⟨X₁, …, X_N⟩ is Noetherian, and so is its rescaling Q_p⟨x₁/p, …, x_N/p⟩ ≅ Q_p⟨X₁, …, X_N⟩ and every quotient R/𝔭 of it.",
+   "locator": "arXiv:1807.02721v3, proof of Lemma 9.3 (R/𝔭 a Noetherian integral domain), pp. 53–55",
+   "status": "planned",
+   "planned": [
+    "tauceti:TauCetiRoadmap/AdicSpaces#layer-0-topological-algebra-huber-rings-and-tate-algebras"
+   ],
+   "note": "Added by FIX-RT-PAPER-LAWRENCE-VENKATESH-20, 30 September 2026 (RT-PAPER-LAWRENCE-VENKATESH-20/5). The red team and the verifier recorded it as unplanned. Tau Ceti's AdicSpaces roadmap plans it, at Layer 0, §0.5, milestone 4 (\"Noetherianity of K⟨X₁,…,Xₙ⟩\" for a complete rank-one nonarchimedean field, with BGR 5.2.6), so it is marked planned; see the fixes report. At the pinned commits Tau Ceti has restricted power series and the notion IsStronglyNoetherian, but no theorem that a complete nonarchimedean field is strongly Noetherian."
+  },
+  {
+   "id": "PAPER-LAWRENCE-VENKATESH-20/krull-intersection",
+   "kind": "theorem",
+   "name": "Krull's intersection theorem",
+   "statement": "For a Noetherian integral domain R and a proper ideal I, ⋂_{t ≥ 1} I^t = 0.",
+   "locator": "arXiv:1807.02721v3, proof of Lemma 9.3, p. 55",
+   "status": "library",
+   "library": [
+    "mathlib:Ideal.iInf_pow_eq_bot_of_isDomain"
+   ],
+   "note": "Added by FIX-RT-PAPER-LAWRENCE-VENKATESH-20, 30 September 2026 (RT-PAPER-LAWRENCE-VENKATESH-20/5), as the verifier corrected it. Mathlib 082e2d3, Mathlib/RingTheory/Filtration.lean:463: Ideal.iInf_pow_eq_bot_of_isDomain [IsNoetherianRing R] [IsDomain R] (h : I ≠ ⊤) : ⨅ i : ℕ, I ^ i = ⊥. The paper applies it to R/𝔭 and the image of the maximal ideal of the point y₀."
   }
  ],
  "prerequisites": [
@@ -736,6 +1053,21 @@
    "citation": "J.-P. Serre, Complète réductibilité, Séminaire Bourbaki 932 (2003/04), Astérisque 299",
    "link": "http://www.numdam.org/item/SB_2003-2004__46__195_0/",
    "why": "G-irreducibility, G-complete reducibility and G-semisimplification (§2.3)."
+  },
+  {
+   "citation": "G. Faltings, Crystalline cohomology and p-adic Galois-representations, in Algebraic analysis, geometry, and number theory (Baltimore, MD, 1988), Johns Hopkins Univ. Press, 1989, 25–80",
+   "link": "https://zbmath.org/?q=an%3A0805.14008",
+   "why": "The crystalline comparison theorem of §3.5 (item /faltings-crystalline-comparison)."
+  },
+  {
+   "citation": "N. Katz and T. Oda, On the differentiation of de Rham cohomology classes with respect to parameters, J. Math. Kyoto Univ. 8 (1968), 199–213",
+   "link": "https://doi.org/10.1215/kjm/1250524135",
+   "why": "The Gauss–Manin connection (3.1) ([23, Theorem 1]; item /gauss-manin-katz-oda)."
+  },
+  {
+   "citation": "R. W. Richardson, Conjugacy classes in Lie algebras and algebraic groups, Ann. of Math. (2) 86 (1967), 1–15",
+   "link": "https://doi.org/10.2307/1970359",
+   "why": "Theorem 7.1, the conjugacy-finiteness step of Lemma 2.6 (item /richardson; MordellLawrenceVenkatesh/E28)."
   }
  ],
  "routes": [
@@ -746,11 +1078,10 @@
    "title": "The Mordell conjecture after Lawrence and Venkatesh, Part II: non-density of integral points in higher dimension",
    "area": "arithmeticgeometry",
    "items": [
-    "PAPER-LAWRENCE-VENKATESH-20/g-semisimplification",
     "PAPER-LAWRENCE-VENKATESH-20/lemmas-2-4-2-5",
-    "PAPER-LAWRENCE-VENKATESH-20/lemma-2-6",
     "PAPER-LAWRENCE-VENKATESH-20/transcendence-corollary",
     "PAPER-LAWRENCE-VENKATESH-20/padic-transcendence",
+    "PAPER-LAWRENCE-VENKATESH-20/analytic-nullstellensatz",
     "PAPER-LAWRENCE-VENKATESH-20/adjoint-hodge-numbers",
     "PAPER-LAWRENCE-VENKATESH-20/theorem-10-1",
     "PAPER-LAWRENCE-VENKATESH-20/hypersurface-application",
@@ -759,6 +1090,7 @@
     "PAPER-LAWRENCE-VENKATESH-20/hypersurface-monodromy",
     "PAPER-LAWRENCE-VENKATESH-20/katz-messing",
     "PAPER-LAWRENCE-VENKATESH-20/hodge-torus-in-galois-image",
+    "PAPER-LAWRENCE-VENKATESH-20/fibre-functor-comparison",
     "PAPER-LAWRENCE-VENKATESH-20/lemma-10-4",
     "PAPER-LAWRENCE-VENKATESH-20/lemma-10-5",
     "PAPER-LAWRENCE-VENKATESH-20/prop-10-6",
@@ -769,8 +1101,8 @@
     "PAPER-LAWRENCE-VENKATESH-20/prop-10-6-proof",
     "PAPER-LAWRENCE-VENKATESH-20/lemma-12-1"
    ],
-   "brief": "Coalesce with MordellLawrenceVenkateshPartII, proposed by PAPER-LAWRENCE-SAWIN-25 (design DESIGN-MordellLawrenceVenkateshPartII); do not open a second Part II. Lawrence–Sawin's non-density theorem (their Theorem 8.17) and p-adic Bakker–Tsimerman theorem (their Theorem 6.4) generalize the higher-dimensional half of this paper, which the Part II should contain as its first instance. Final theorems from this paper: Theorem 10.1 (for X → Y smooth proper over Z[S^{-1}] with monodromy dense in the identity component of Aut(V₀, ⟨,⟩), Σ_{p>0} h^p ≥ h⁰ + dim Y and Σ_{p>0} p h^p > T(h⁰ + dim Y) + T(3h⁰/2 + dim Y) imply Y(Z[S^{-1}]) not Zariski dense), and Proposition 10.2 (the universal family of degree-d hypersurfaces in P^n satisfies both inequalities for n ≥ n₀, d ≥ D₀(n)). Layers: G-irreducibility, G-complete reducibility and G-semisimplification with Lemmas 2.4–2.5 and Faltings finiteness for reductive targets (Lemma 2.6), shared with Lawrence–Sawin's disconnected-group version; Corollary 9.2 and the p-adic transfer Lemma 9.3, importing Bakker–Tsimerman from LogicAndDefinabilityInNumberTheory LD.6 and period maps and Gauss–Manin transport from MordellLawrenceVenkatesh LV.2–LV.3; adjoint Hodge numbers and T; the Frobenius-centralizer Lemma 10.4 (very regular elements, Chebotarev from Tau Ceti's Chebotarev roadmap, the Hodge torus in the Galois image after Sen, Wintenberger and Pink, and Katz–Messing); Lemma 10.5 and Proposition 10.6 with the reductive-group combinatorics of §11 (filtrations as cocharacter classes, induced filtrations on Levi quotients, balanced filtrations, Proposition 11.3 and Lemma 11.4); and for the hypersurface application, Beauville's monodromy theorem, the Eulerian asymptotics of Hodge numbers (whose proof the source omits), the variance and central limit statements for ascents, log-concavity and Lemma 10.3. Include §12's point-count bound in its corrected form (E2) as an alternative supplier to Lemma 10.4. Use the corrected parameter-space dimension C(n+d, d) − 1 (E1).",
-   "reason": "MordellLawrenceVenkatesh plans exactly the curve case (§§2–8, Theorem 5.4) and the S-unit warm-up; the higher-dimensional method of §§9–12 is beyond it but in its direction, and Lawrence–Sawin's accepted Part II proposal already develops the same machinery in greater generality. Routing to the same roadmap id lets the design job merge the two sources, with this paper's Theorem 10.1 and Proposition 10.2 as the first applications and Lawrence–Sawin's as the general version."
+   "brief": "Coalesce with MordellLawrenceVenkateshPartII, proposed by PAPER-LAWRENCE-SAWIN-25 (design DESIGN-MordellLawrenceVenkateshPartII); do not open a second Part II. Lawrence–Sawin's non-density theorem (their Theorem 8.17) and p-adic Bakker–Tsimerman theorem (their Theorem 6.4) generalize the higher-dimensional half of this paper, which the Part II should contain as its first instance. Final theorems from this paper: Theorem 10.1 (for X → Y smooth proper over Z[S^{-1}] with monodromy dense in the identity component of Aut(V₀, ⟨,⟩), Σ_{p>0} h^p ≥ h⁰ + dim Y and Σ_{p>0} p h^p > T(h⁰ + dim Y) + T(3h⁰/2 + dim Y) imply Y(Z[S^{-1}]) not Zariski dense), and Proposition 10.2 (the universal family of degree-d hypersurfaces in P^n satisfies both inequalities for n ≥ n₀, d ≥ D₀(n)). Layers: Lemmas 2.4–2.5, importing G-irreducibility, G-complete reducibility, G-semisimplification and Faltings finiteness for reductive targets (Lemma 2.6) from MordellLawrenceVenkatesh LV.1, to which route 2 of this extraction sends them; the printed proof of Lemma 2.6 is incomplete (MordellLawrenceVenkatesh/E28, item /lemma-2-6). Lawrence–Sawin's disconnected-group version (their Lemma 5.49) is planned here only as an extension of LV.1's statement, not as a second finiteness lemma. Corollary 9.2 and the p-adic transfer Lemma 9.3, importing Bakker–Tsimerman's Ax–Schanuel theorem for variations of Hodge structure from LogicAndDefinabilityPartII, the Part II of LogicAndDefinabilityInNumberTheory to which route 4 of this extraction sends it. Also import Gauss–Manin transport and the complex and p-adic period maps for H^q of general smooth proper families over a base of any dimension, into the flag variety H (AlgebraicModuliForArithmeticGeometry R09.1) and the compact dual H* (LV §3 in full generality, §9.2 (9.2)), from MordellLawrenceVenkatesh LV.2–LV.4. Those layers plan only the abelian-by-finite H¹ case today, and route 3 of this extraction sends the general case to them, as PAPER-BETTS-STIX-25 route 4 sends the general v-adic period map to LV.3; adjoint Hodge numbers and T; the Frobenius-centralizer Lemma 10.4 (very regular elements, Chebotarev from Tau Ceti's Chebotarev roadmap, the Hodge torus in the Galois image after Sen, Wintenberger and Pink, and Katz–Messing); Lemma 10.5 and Proposition 10.6 with the reductive-group combinatorics of §11 (filtrations as cocharacter classes, induced filtrations on Levi quotients, balanced filtrations, Proposition 11.3 and Lemma 11.4); and for the hypersurface application, Beauville's monodromy theorem, the Eulerian asymptotics of Hodge numbers (whose proof the source omits), the variance and central limit statements for ascents, log-concavity and Lemma 10.3. Include §12's point-count bound in its corrected form (E2) as an alternative supplier to Lemma 10.4. Use the corrected parameter-space dimension C(n+d, d) − 1 (E1). Inputs recorded by FIX-RT-PAPER-LAWRENCE-VENKATESH-20, 30 September 2026 (RT-PAPER-LAWRENCE-VENKATESH-20/5), to be imported rather than planned here: Chebotarev (Tau Ceti Chebotarev Layer 10); Deligne's purity for the fibres (DeligneWeightsAndPurity DWP.4 and DWP.7, WeightsInEtaleCohomology R34.5); unramifiedness from smooth proper base change (SchemeAndStackFoundations SF.2); Faltings's comparison and D_cris (CohomologyComparisons CP.2, PadicHodgeTheory R06.2); Fontaine–Laffaille theory (FiniteFlatGroupsAndIntegralPadicHodgeTheory R07.3); the trace formula for Lemma 12.1 (WeilConjectures WC.2); Noetherianity of Tate algebras (Tau Ceti AdicSpaces Layer 0); and Krull's intersection theorem (Mathlib). Plan here the local analytic Nullstellensatz used in Lemma 9.3, and the comparison of the two fibre functors in footnote 10, importing the torsor of tensor isomorphisms from MotivesAndAlgebraicCycles MC.6 or asking MC.6 for it.",
+   "reason": "MordellLawrenceVenkatesh plans exactly the curve case (§§2–8, Theorem 5.4) and the S-unit warm-up; the higher-dimensional method of §§9–12 is beyond it but in its direction, and Lawrence–Sawin's accepted Part II proposal already develops the same machinery in greater generality. Routing to the same roadmap id lets the design job merge the two sources, with this paper's Theorem 10.1 and Proposition 10.2 as the first applications and Lawrence–Sawin's as the general version. Changed by FIX-RT-PAPER-LAWRENCE-VENKATESH-20, 30 September 2026: /g-semisimplification and /lemma-2-6 moved to route 2 (RT-PAPER-LAWRENCE-VENKATESH-20/4). The new items /analytic-nullstellensatz and /fibre-functor-comparison joined this route (RT-PAPER-LAWRENCE-VENKATESH-20/5); they have no review verdict yet. The brief now imports Lemma 2.6, Bakker–Tsimerman and the general period maps from their owners (findings 1, 2 and 4). The route's roadmap and kind are unchanged."
   },
   {
    "route": "source",
@@ -779,9 +1111,45 @@
     "MordellLawrenceVenkatesh:LV.1"
    ],
    "items": [
-    "PAPER-LAWRENCE-VENKATESH-20/lemma-2-2"
+    "PAPER-LAWRENCE-VENKATESH-20/lemma-2-2",
+    "PAPER-LAWRENCE-VENKATESH-20/g-semisimplification",
+    "PAPER-LAWRENCE-VENKATESH-20/lemma-2-6",
+    "PAPER-LAWRENCE-VENKATESH-20/richardson",
+    "PAPER-LAWRENCE-VENKATESH-20/h1-finiteness-padic"
    ],
-   "reason": "LV.1 plans the Galois-representation inputs of §2.3–2.5 (Faltings's finiteness lemma, friendly places, Hodge weights of induced representations) but not Lemma 2.2, the elementary fact that induction from a finite-index subgroup preserves semisimplicity in characteristic 0. It belongs beside those inputs; the paper is its source."
+   "reason": "LV.1 plans the Galois-representation inputs of §2.3–2.5 (Faltings's finiteness lemma, friendly places, Hodge weights of induced representations) but not Lemma 2.2, the elementary fact that induction from a finite-index subgroup preserves semisimplicity in characteristic 0. It belongs beside those inputs; the paper is its source. Changed by FIX-RT-PAPER-LAWRENCE-VENKATESH-20, 30 September 2026 (RT-PAPER-LAWRENCE-VENKATESH-20/4 and /5): LV.1 becomes the one owner of Serre's G-irreducibility, G-complete reducibility and G-semisimplification and of Lemma 2.6 for reductive G ⊂ GL_n. PAPER-BETTS-STIX-25's symplectic form (its route 2, items /12–/13) is the case G = GSp. /g-semisimplification and /lemma-2-6 moved here from route 1, and /richardson and /h1-finiteness-padic, the inputs of Lemma 2.6's corrected proof, were added. The review verdict of this route was given when it held /lemma-2-2 alone; these four items have no verdict yet. The route's roadmap and stage are unchanged."
+  },
+  {
+   "route": "source",
+   "roadmap": "MordellLawrenceVenkatesh",
+   "stages": [
+    "MordellLawrenceVenkatesh:LV.2",
+    "MordellLawrenceVenkatesh:LV.3",
+    "MordellLawrenceVenkatesh:LV.4"
+   ],
+   "items": [
+    "PAPER-LAWRENCE-VENKATESH-20/good-model-gm-general",
+    "PAPER-LAWRENCE-VENKATESH-20/monodromy-group-general",
+    "PAPER-LAWRENCE-VENKATESH-20/period-maps-general",
+    "PAPER-LAWRENCE-VENKATESH-20/lemma-3-1-general",
+    "PAPER-LAWRENCE-VENKATESH-20/lemma-3-3-general",
+    "PAPER-LAWRENCE-VENKATESH-20/crystalline-transport-general",
+    "PAPER-LAWRENCE-VENKATESH-20/prop-3-4-general",
+    "PAPER-LAWRENCE-VENKATESH-20/compact-dual-H-star"
+   ],
+   "reason": "Added by FIX-RT-PAPER-LAWRENCE-VENKATESH-20, 30 September 2026 (RT-PAPER-LAWRENCE-VENKATESH-20/1, in the verifier's version). §3 states Gauss–Manin transport, the monodromy group, the complex and v-adic period maps, Lemmas 3.1 and 3.3 and Proposition 3.4 for H^q of any smooth proper family over a smooth base of any dimension. §9.2 uses them for primitive H^d with target the compact dual H*. LV.2–LV.4 plan them only for H¹ of abelian-by-finite families; the items /good-model-gm, /monodromy-group, /lemma-3-1, /lemma-3-3, /crystalline-transport and /prop-3-4 are now restricted to that case and stay planned there. The general case belongs in the same layers, not in the Part II of route 1: LV.2–LV.4 are upstream of that Part II, and PAPER-BETTS-STIX-25 route 4 (accepted) already sends the general v-adic transport and the analytified flag variety to LV.3. A Part II owner would be a second owner, and moving it there would need Betts–Stix's LV.3 items to move too, which is for the maintainer. This route is appended, so that the verdicts of routes 1 and 2 stay with their routes; it has no review verdict yet. Its imports (ComplexComparisonPartII C5, CrystallineCohomology CR.2–CR.3, CohomologyComparisons CP.2, PadicHodgeTheory R06.2, AlgebraicModuliForArithmeticGeometry R09.1, DeligneWeightsAndPurity DWP.4 and DWP.7, SchemeAndStackFoundations SF.2) close no cycle in the stage graph."
+  },
+  {
+   "route": "part-ii",
+   "parent": "LogicAndDefinabilityInNumberTheory",
+   "roadmap": "LogicAndDefinabilityPartII",
+   "title": "Logic, definability, valued fields and motivic integration, Part II: functional transcendence and Ax–Schanuel for Shimura varieties and variations of Hodge structure",
+   "area": "modeltheory",
+   "items": [
+    "PAPER-LAWRENCE-VENKATESH-20/bakker-tsimerman"
+   ],
+   "brief": "Coalesce with LogicAndDefinabilityPartII, proposed by PAPER-MOK-PILA-TSIMERMAN-19 route 1 (design DESIGN-LogicAndDefinabilityInNumberTheoryPartII); do not open a second Part II. Add as a second final theorem, generalizing that route's Ax–Schanuel theorem for Shimura varieties, the Ax–Schanuel theorem for variations of Hodge structure of Bakker and Tsimerman (Invent. Math. 217 (2019), 77–94, Theorem 1.1; arXiv:1712.05088v1, Theorem 1.1), as LV quote it in their Theorem 9.1. Its statement: let X be a smooth complex algebraic variety supporting a pure polarized integral variation of Hodge structure H_Z, Γ the image of monodromy after possibly passing to a finite cover, G the identity component of the Q-Zariski closure of Γ, D = D(G) the associated weak Mumford–Tate domain with compact dual Ď, φ: X → Γ\\D the period map, and W = X ×_{Γ\\D} D ⊂ X × D. If V ⊂ X × Ď is an algebraic subvariety and U is an irreducible analytic component of V ∩ W with codim_{X×Ď} U < codim_{X×Ď} V + codim_{X×Ď} W, then the projection of U to X is contained in a proper weak Mumford–Tate subvariety. Plan with it: weak Mumford–Tate domains, and weak Mumford–Tate subvarieties of X, which are algebraic by Cattani–Deligne–Kaplan; a fundamental set for Γ in D definable in R_{an,exp}, built from Schmid's theory of degenerations of Hodge structures; the volume bound for Griffiths-transverse subvarieties of D (Bakker–Tsimerman, Theorem 1.2); and, as the export that MordellLawrenceVenkateshPartII consumes, LV's Corollary 9.2: an algebraic Z ⊂ Ď with codim Z ≥ dim X pulls back under the period map to a set contained in the preimage of a proper subvariety of X. Lawrence–Sawin's Lemma 6.3 (PAPER-LAWRENCE-SAWIN-25/44) is the same corollary. Import period domains and their compact duals from Tau Ceti HodgeStructures (L3, period-domain points, and its successor), and o-minimality, definable Chow and the Pila–Wilkie theorem from LD.0 and LD.6, under the design constraint that MPT-19 route 1 records (import only LD.6's counting half). The Shimura and variation-of-Hodge-structure Ax–Schanuel theorems should have one owner. This Part II is the choice here; a HodgeStructures Part II, which would plan period maps, is the alternative the verifier named, and the choice is the maintainer's.",
+   "reason": "Added by FIX-RT-PAPER-LAWRENCE-VENKATESH-20, 30 September 2026 (RT-PAPER-LAWRENCE-VENKATESH-20/2). Theorem 9.1 was marked planned at LD.6, but LD.6 takes Ax–Schanuel theorems as independent inputs an application 'must provide'. The accepted Part II of PAPER-MOK-PILA-TSIMERMAN-19 (route 1) supplies those inputs for Shimura varieties only. So Theorem 9.1, on which Corollary 9.2, Lemma 9.3, Theorem 10.1 and Proposition 10.2 rest, had no owner. This route uses route 1's roadmap id and parent, so it joins the pending design job DESIGN-LogicAndDefinabilityInNumberTheoryPartII, which make_queue.py groups by parent. The title adds variations of Hodge structure; the design job settles the final title. The route is appended, so it has no review verdict yet. The edge from this Part II to MordellLawrenceVenkateshPartII closes no cycle. For the maintainer: PAPER-LAWRENCE-SAWIN-25/44 (routed to LD.6) and /76 (planned at LD.6) should follow Theorem 9.1 here, or else that corollary would sit at LD.6, upstream of the theorem it needs."
   }
  ],
  "sourceIssues": [
@@ -866,14 +1234,18 @@
   {
    "id": "roadmap-errata",
    "title": "further mistakes recorded for the roadmap",
-   "remaining": "research/blueprint/errata/MordellLawrenceVenkatesh.json (the roadmap's errata job) records 28 further mistakes in this paper in §§1–8 (MordellLawrenceVenkatesh/E1–E28, against arXiv v3 and the published text), for example the range 1 ⩽ i ⩽ 8 in the proof of Theorem 5.4 (its E8, also found independently by REV-PAPER-LAWRENCE-VENKATESH-20) and gaps in Lemmas 2.12, 6.3 and 8.6. They are not duplicated in this file, whose E1–E3 (§§7.2, 10.2, 12) are distinct from them. The items planned in MordellLawrenceVenkatesh use that roadmap's corrected statements; a follow-up should reconcile the two lists.",
+   "remaining": "research/blueprint/errata/MordellLawrenceVenkatesh.json (the roadmap's errata job) records 28 further mistakes in this paper in §§1–8 (MordellLawrenceVenkatesh/E1–E28, against arXiv v3 and the published text), for example the range 1 ⩽ i ⩽ 8 in the proof of Theorem 5.4 (its E8, also found independently by REV-PAPER-LAWRENCE-VENKATESH-20) and gaps in Lemmas 2.12, 6.3 and 8.6. They are not duplicated in this file, whose E1–E3 (§§7.2, 10.2, 12) are distinct from them. The packet nodes of MordellLawrenceVenkatesh use that roadmap's corrected statements, and since FIX-RT-PAPER-LAWRENCE-VENKATESH-20, 30 September 2026 (RT-PAPER-LAWRENCE-VENKATESH-20/3) so do this file's items. /lemma-2-8 (E3), /lemma-2-12 (E22), /lemma-6-3 (E10, E25) and /lemmas-8-2-8-3 (E13, E14) are restated. /lemma-2-6 carries E27 and E28, and /lemma-2-3 (E2) and /prop-5-3 (E7) carry notes. A follow-up should still reconcile the two lists of source issues.",
    "items": [
     "PAPER-LAWRENCE-VENKATESH-20/theorem-5-4",
     "PAPER-LAWRENCE-VENKATESH-20/lemma-2-12",
     "PAPER-LAWRENCE-VENKATESH-20/lemma-6-1",
     "PAPER-LAWRENCE-VENKATESH-20/lemma-6-3",
     "PAPER-LAWRENCE-VENKATESH-20/prop-5-3",
-    "PAPER-LAWRENCE-VENKATESH-20/lemmas-8-6-8-10"
+    "PAPER-LAWRENCE-VENKATESH-20/lemmas-8-6-8-10",
+    "PAPER-LAWRENCE-VENKATESH-20/lemma-2-3",
+    "PAPER-LAWRENCE-VENKATESH-20/lemma-2-8",
+    "PAPER-LAWRENCE-VENKATESH-20/lemmas-8-2-8-3",
+    "PAPER-LAWRENCE-VENKATESH-20/lemma-2-6"
    ]
   }
  ]
