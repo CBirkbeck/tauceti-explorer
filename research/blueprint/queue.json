@@ -4323,8 +4323,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-LE-LEHUNG-LEVIN-ETAL-23.md",
-   "state": "pending",
-   "note": "released on GitHub issue #1254"
+   "state": "external",
+   "note": "claimed on GitHub issue #1254"
   },
   {
    "id": "REV-PAPER-LE-LEHUNG-LEVIN-ETAL-23",
@@ -41308,8 +41308,9 @@
     "REV-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SemisimpleAlgebras"
    ],
    "prompt": "research/blueprint/prompts/RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SemisimpleAlgebras.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4376"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4376",
+   "finishedAt": "2026-09-30T10:56:19Z"
   },
   {
    "id": "REV-RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SemisimpleAlgebras",
