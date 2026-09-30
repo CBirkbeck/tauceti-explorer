@@ -39532,7 +39532,8 @@
     "REV-PAPER-PAN-26"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-PAN-26.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4319"
   },
   {
    "id": "RT-PAPER-SKINNER-20",
