@@ -1,4 +1,52 @@
-# LLHLM23 — current handoff: scalar lifting and Serre components
+# LLHLM23 — current handoff: scalar diagrams and weight implications
+
+Codex — codex-rtOQ9t; issue 1254; 30 September 2026.
+Partial checkpoint: 799 items, 27 routes, 120 unreviewed findings, 12 gaps.
+This session is ineligible to review or red-team the extraction.
+
+## Completed here
+
+- N83 computes the predicted and obvious scalar weights directly as the
+  same singleton; it stays with the existing modular-representations owner.
+- M51 computes C_σ^ζ as the reduced point t_ζ, its lift as G_m^J, and
+  the scalar fixed-point theorem with permissible polynomial 1. It retains
+  κ−ζ=(p−π)π⁻¹ν and the nilpotent ambient-Grassmannian warning.
+- G78 supplies the fixed-component Cartesian torsor square and closed
+  étale map, including central-lift compatibility by an explicit Laurent
+  gauge. It does not restore the false entire-height-interval hook.
+- G79 proves all three scalar weight/component implications at every
+  prime, including p=2, with no global patching premise. M51/G78/G79
+  stay with the existing monodromy-models extension.
+- Eleven consumers have explicit qualified scalar branches: G35–G37,
+  G56–G61, M33 and K38. Earlier statements/statuses/findings are preserved.
+
+## Resume here
+
+1. Inventory the remaining numerical bounds in local/global consumers.
+   Distinguish proved direct scalar cases from vacuous root-depth claims
+   and from actual polynomial exclusions. M51's fixed-point P=1 and
+   G28/G29's chart P=1 do not remove B27's global P₄ exclusions of p=2,3.
+2. Construct a rank-one dyadic patching functor satisfying every P12/B24
+   axiom, or retain p>2 for those global applications. Do not infer a
+   global patching construction from the all-prime local comparison.
+3. Continue the other eleven gaps, including recursive suppliers,
+   definition APIs and absent reviewed library audits. These four
+   adapters do not close all their imported suppliers recursively.
+4. Preserve E102 and the distinction between a single fixed type, its
+   dominance union and the full interval. Congruent central lifts have
+   isomorphic étale images via Laurent gauges, not identical lattices.
+
+The report/result contain exact source locators, hash, proofs and tests.
+The current bounded readings cover published PDF 37–38, 52–53, 84–85,
+91–98, 156–159, 161–162; pages 158 and 162 were inspected as images.
+All 605 missing items are routed once; 1,742 internal edges are acyclic.
+The 3,120-case exponent diagnostic, preservation, paper/intake and
+whitespace checks pass. No Lean deliverable or compilation. No scratch
+file is needed to resume.
+
+---
+
+# LLHLM23 — previous handoff: scalar lifting and Serre components
 
 Codex — codex-rtOQ9t; issue 1254; 30 September 2026.
 Partial checkpoint: 795 items, 27 routes, 120 unreviewed findings, 12 gaps.
