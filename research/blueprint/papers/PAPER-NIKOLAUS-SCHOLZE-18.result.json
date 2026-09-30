@@ -23,7 +23,7 @@
       "the Acta correction"
     ]
   },
-  "summary": "Nikolaus and Scholze define a cyclotomic spectrum as a spectrum with T-action and T-equivariant Frobenius maps X → X^{tC_p}, with no genuine equivariant homotopy theory, prove that on bounded below spectra this ∞-category is equivalent to the classical genuine one (Theorem II.6.9) and that TC(X) = fib(X^{hT} → ∏_p (X^{tC_p})^{hT}) (Theorems II.4.10–II.4.11), and construct the Frobenius of THH(A) from the Tate diagonal X → (X^{⊗p})^{tC_p}, which they show is a p-completion for bounded below X (Theorem III.1.7). The tools are the Tate orbit lemma, a unique multiplicative structure on Tate constructions via Verdier quotients, a coalgebra argument for endofunctors, and Appendices on symmetric monoidal Dwyer–Kan localisation and cyclic objects; Chapter IV treats the Tate-valued Frobenius (Steenrod and Adams operations), E_∞-rings, loop spaces and TC(F_p). The atlas plans the subject in RefinedTraceMethods RT.2, and neither library has spectra. Routes: RT.2 as the main source (107 items), RT.1 for the HKR filtration, EnhancedDerivedSheaves E5 for the ∞-categorical appendix and Verdier quotients, StableHomotopyKTheory H.1–H.2 for realisations of spaces, KTheoryFiniteLocalFields L.5 for THH and TC of F_p, and a Part II of StableHomotopyKTheory for the Segal conjecture and power operations. Complete (cc-442dc5). New findings: Proposition II.3.4's identification of Cyc Sp with a fibre product is false in general; the covering argument for Theorem B.3 has a gap (the statement holds); and a number of misprints, including the Steenrod degree shifts of Theorem IV.1.15 and the p-series of Example I.2.3. The Acta correction's entries are recorded as known. Not formalised.",
+  "summary": "Nikolaus and Scholze define a cyclotomic spectrum as a spectrum with T-action and T-equivariant Frobenius maps X → X^{tC_p}, with no genuine equivariant homotopy theory, prove that on bounded below spectra this ∞-category is equivalent to the classical genuine one (Theorem II.6.9) and that TC(X) = fib(X^{hT} → ∏_p (X^{tC_p})^{hT}) (Theorems II.4.10–II.4.11), and construct the Frobenius of THH(A) from the Tate diagonal X → (X^{⊗p})^{tC_p}, which they show is a p-completion for bounded below X (Theorem III.1.7). The tools are the Tate orbit lemma, a unique multiplicative structure on Tate constructions via Verdier quotients, a coalgebra argument for endofunctors, and Appendices on symmetric monoidal Dwyer–Kan localisation and cyclic objects; Chapter IV treats the Tate-valued Frobenius (Steenrod and Adams operations), E_∞-rings, loop spaces and TC(F_p). The atlas plans the subject in RefinedTraceMethods RT.2, and neither library has spectra; the ∞-category of spectra and its basic structure are planned items (/164–/167) of StableHomotopyKTheory H.5:spectra and H.6 and EnhancedDerivedSheaves E5:spectra-comparison. Routes: RT.2 as the main source (108 items), RT.1 for the HKR filtration, EnhancedDerivedSheaves E5 for the ∞-categorical appendix and Verdier quotients, StableHomotopyKTheory H.1–H.2 for realisations of spaces, KTheoryFiniteLocalFields L.5 for THH and TC of F_p, and a Part II of StableHomotopyKTheory for the Segal conjecture and power operations. Complete (cc-442dc5). New findings: Proposition II.3.4's identification of Cyc Sp with a fibre product is false in general; Proposition IV.3.4 and Lemma IV.3.5, stated for p-cyclotomic spectra, need a T-action and a T-equivariant Frobenius lift (E26, after the red team); the covering argument for Theorem B.3 has a gap (the statement holds); and a number of misprints, including the Steenrod degree shifts of Theorem IV.1.15 and the p-series of Example I.2.3. The Acta correction's entries are recorded as known. Not formalised.",
   "items": [
     {
       "id": "PAPER-NIKOLAUS-SCHOLZE-18/1",
@@ -679,13 +679,14 @@
       "id": "PAPER-NIKOLAUS-SCHOLZE-18/60",
       "kind": "definition",
       "name": "TR and genuine TC (Bökstedt–Hsiang–Madsen)",
-      "statement": "For a genuine p-cyclotomic X with restriction R: X^{C_{p^n}} → (Φ^{C_p}X)^{C_{p^{n−1}}} ≃ X^{C_{p^{n−1}}} and inclusion F: X^{C_{p^n}} → X^{C_{p^{n−1}}}, TR(X, p) = lim_R X^{C_{p^n}} and TC^gen(X, p) = Eq(TR(X, p) ⇉ TR(X, p)) (id, F) ≃ lim Eq(X^{C_{p^n}} ⇉ X^{C_{p^{n−1}}}) (R, F); TC^gen(X) for genuine cyclotomic X is defined by diagram (1) over all n.",
-      "locator": "§II.4, Definition II.4.4, p. 263",
+      "statement": "For a genuine p-cyclotomic X with restriction R: X^{C_{p^n}} → (Φ^{C_p}X)^{C_{p^{n−1}}} ≃ X^{C_{p^{n−1}}} and inclusion F: X^{C_{p^n}} → X^{C_{p^{n−1}}}, TR(X, p) = lim_R X^{C_{p^n}} and TC^gen(X, p) = Eq(TR(X, p) ⇉ TR(X, p)) (id, F) ≃ lim Eq(X^{C_{p^n}} ⇉ X^{C_{p^{n−1}}}) (R, F). For a genuine cyclotomic X (Definition II.3.3), TC^gen(X) is defined (Goodwillie, [32, Lemma 6.4.3.2]) by the pullback (1), p. 266: TC^gen(X) = X^{hT} ×_{∏_{p∈P} (X_p^∧)^{hT}} ∏_{p∈P} TC^gen(X, p)_p^∧.",
+      "locator": "§II.4, Definition II.4.4, p. 263; diagram (1) and footnote 22, p. 266",
       "status": "planned",
       "library": [],
       "planned": [
         "RefinedTraceMethods:RT.2"
-      ]
+      ],
+      "note": "Footnote 22 (p. 266): the pullback (1) is not the definition Goodwillie first gave, but it is equivalent to the corrected version of his definition, as the authors learned from B. Dundas, and the paper takes it as the definition. [32] is Dundas–Goodwillie–McCarthy, The Local Structure of Algebraic K-Theory. Integral TC^gen is a pullback over primes, not a limit over n. The facts about (1) that the paper proves and uses later are item /163."
     },
     {
       "id": "PAPER-NIKOLAUS-SCHOLZE-18/61",
@@ -767,7 +768,7 @@
       "id": "PAPER-NIKOLAUS-SCHOLZE-18/68",
       "kind": "construction",
       "name": "The shifted coalgebra and its right adjoint",
-      "statement": "F̄: CoAlg_F → CoAlg_F sends (X → FX) to (FX → F²X), with µ: id → F̄. If C is presentable and F preserves colimits, Fix_F ⊆ CoAlg_F preserves colimits and has a right adjoint R_ι, and F̄ has a right adjoint R_F with ν: R_F → id.",
+      "statement": "F̄: CoAlg_F → CoAlg_F sends (X → FX) to (FX → F²X), with µ: id → F̄. If C is presentable and F preserves colimits, Fix_F ⊆ CoAlg_F preserves colimits and has a right adjoint R_ι, and F̄ has a right adjoint R_{F̄}: CoAlg_F → CoAlg_F with ν: R_{F̄} → id (adjoint to µ).",
       "locator": "§II.5, Construction II.5.2, p. 268",
       "status": "missing",
       "library": [],
@@ -777,7 +778,7 @@
       "id": "PAPER-NIKOLAUS-SCHOLZE-18/69",
       "kind": "theorem",
       "name": "The coreflection onto fixed points",
-      "statement": "ιR_ι: CoAlg_F → CoAlg_F is the limit of … → R_F³ → R_F² → R_F → id (maps R_F^kν).",
+      "statement": "ιR_ι: CoAlg_F → CoAlg_F is the limit, in endofunctors of CoAlg_F, of … → R_{F̄}³ → R_{F̄}² → R_{F̄} → id (maps R_{F̄}²ν, R_{F̄}ν, ν), where R_{F̄} is the right adjoint of F̄ (/68), not the right adjoint R_F: C → C of F.",
       "locator": "§II.5, Proposition II.5.3, p. 269",
       "status": "missing",
       "library": [],
@@ -786,13 +787,13 @@
     {
       "id": "PAPER-NIKOLAUS-SCHOLZE-18/70",
       "kind": "theorem",
-      "name": "Formula for R_F",
-      "statement": "If F has a fully faithful right adjoint R_F (unit η), R_F sends a coalgebra φ: X → FX to Y = X ×_{R_F F X} R_F X (along η_X and R_Fφ) with structure Y → X ≃ F R_F X ≅ FY; the counit F R_F → id is an equivalence. The k-fold iterate has underlying object R_F^k X ×_{R_F^k F X} R_F^{k−1}X ×_{R_F^{k−1}FX} … ×_{R_F F X} X.",
+      "name": "Formula for R_{F̄}",
+      "statement": "Let C be presentable and let F: C → C have a right adjoint R_F: C → C whose counit F R_F → id is an equivalence (equivalently, R_F is fully faithful), with unit η: id → R_F F, and let F preserve pullbacks. Then the right adjoint R_{F̄}: CoAlg_F → CoAlg_F of F̄ (/68) sends a coalgebra φ: X → FX to the coalgebra Y → FY whose underlying object is the pullback Y = X ×_{R_F F X} R_F X in C (along η_X and R_Fφ), with structure map the projection Y → X followed by X ≃ F R_F X ≃ FY (F applied to Y → R_F X is an equivalence, because F preserves this pullback and Fη_X is an equivalence by the triangle identity); and the counit F̄R_{F̄} → id is an equivalence. Corollary II.5.5: the underlying object of R_{F̄}^k X is R_F^k X ×_{R_F^k F X} R_F^{k−1}X ×_{R_F^{k−1}FX} … ×_{R_F F X} X, and R_{F̄}^k X → R_{F̄}^{k−1}X forgets the first factor.",
       "locator": "§II.5, Lemma II.5.4, p. 270",
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "With Corollary II.5.5."
+      "note": "With Corollary II.5.5. The counit F R_F → id is the standing hypothesis (p. 270), not the conclusion; the lemma's conclusion F̄R_{F̄} ≃ id is what the proof of Theorem II.5.6 uses (p. 272). The pullback hypothesis is needed for the structure map and for the induction of Corollary II.5.5."
     },
     {
       "id": "PAPER-NIKOLAUS-SCHOLZE-18/71",
@@ -828,12 +829,12 @@
       "id": "PAPER-NIKOLAUS-SCHOLZE-18/74",
       "kind": "theorem",
       "name": "Coreflection one prime at a time",
-      "statement": "ι_n: Fix_{F_1..F_n}(CoAlg_{F_{n+1},…}) ⊆ Fix_{F_1..F_{n−1}}(CoAlg_{F_n,…}) has ι_nR_{ι_n} = lim(… → R_{F_n}² → R_{F_n} → id); if each F_n has a fully faithful right adjoint with F_iR_{F_n} ≃ R_{F_n}F_i (i ≠ n) and all F_i preserve pullbacks, R_{F_n}^k X has the iterated-pullback formula of Lemma II.5.4.",
+      "statement": "ι_n: Fix_{F_1..F_n}(CoAlg_{F_{n+1},…}) ⊆ Fix_{F_1..F_{n−1}}(CoAlg_{F_n,…}) has ι_nR_{ι_n} = lim(… → R_{F̄_n}² → R_{F̄_n} → id), where R_{F̄_n} is the right adjoint of the shifted-coalgebra functor F̄_n on CoAlg_{F_n} (Lemma II.5.10). If each F_n: C → C has a fully faithful right adjoint R_{F_n} such that the canonical map F_iR_{F_n} → R_{F_n}F_i is an equivalence for i ≠ n, and all F_i preserve pullbacks, then for X ∈ Fix_{F_1,…,F_{n−1}}(CoAlg_{F_n,F_{n+1},…}) the underlying object of R_{F̄_n}^k X is R_{F_n}^k X ×_{R_{F_n}^k F_n X} R_{F_n}^{k−1}X ×_{R_{F_n}^{k−1}F_n X} … ×_{R_{F_n}F_n X} X, the iterated-pullback formula of Corollary II.5.5, and R_{F̄_n}^k X → R_{F̄_n}^{k−1}X forgets the first factor (Lemma II.5.11).",
       "locator": "§II.5, Lemma II.5.10, p. 276",
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "Lemmas II.5.10 and II.5.11."
+      "note": "Lemmas II.5.10 and II.5.11. R_{F_n}: C → C is the fully faithful right adjoint of F_n, and R_{F̄_n} the right adjoint on coalgebras. The printed display of Lemma II.5.11 has R^k_{F_n}FX where R^k_{F_n}F_nX is meant (a misprint that affects nothing)."
     },
     {
       "id": "PAPER-NIKOLAUS-SCHOLZE-18/75",
@@ -1362,12 +1363,12 @@
       "id": "PAPER-NIKOLAUS-SCHOLZE-18/124",
       "kind": "theorem",
       "name": "TC with a Frobenius lift",
-      "statement": "For a bounded below p-complete p-cyclotomic X with a C_{p^∞}-equivariant Frobenius lift φ̃_p: X → X^{hC_p}, TC(X) is the pullback of ΣX_{hT} → X (tr) along id − φ̃_p: X → X; for p-complete X the square X^{hT} → X^{hT} (id − φ̃_p^{hT}) over X → X (id − φ̃_p) is a pullback.",
+      "statement": "(Proposition IV.3.4) Let X be a bounded below p-complete cyclotomic spectrum, that is, a p-complete bounded below spectrum with T-action and a T ≅ T/C_p-equivariant φ_p: X → X^{tC_p} (the φ_ℓ for ℓ ≠ p are 0, since X^{tC_ℓ} = 0), with a T ≅ T/C_p-equivariant Frobenius lift φ̃_p: X → X^{hC_p} of φ_p. Then TC(X, p) ≃ TC(X), and TC(X) is the pullback of tr: ΣX_{hT} → X along id − φ̃_p: X → X. (Lemma IV.3.5) For a p-complete spectrum X with T-action and a T ≅ T/C_p-equivariant map φ̃_p: X → X^{hC_p}, the square X^{hT} → X^{hT} (id − φ̃_p^{hT}) over X → X (id − φ̃_p) is a pullback.",
       "locator": "§IV.3, Proposition IV.3.4, p. 352",
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "Proposition IV.3.4 and Lemma IV.3.5."
+      "note": "Proposition IV.3.4 and Lemma IV.3.5, with the hypotheses corrected (sourceIssue E26): the paper states both for p-cyclotomic spectra with a C_{p^∞}-equivariant lift, but uses X^{hT}, ΣX_{hT} and a T-equivariant lift. For X as in IV.3.4, a C_{p^∞}-equivariant lift is automatically T-equivariant, because the mapping spectra into the p-complete X^{hC_p} and X^{tC_p} are p-complete and Z^{hT} ≃ Z^{hC_{p^∞}} for p-complete Z (/163). Lemma IV.3.5 uses neither bounded below nor φ_p. TC(X, p) ≃ TC(X) is /163(b). Theorem IV.3.6 (/125) is unaffected: (Σ^∞_+LY)_p^∧ has a T-action and Corollary IV.3.3 gives a T-equivariant lift."
     },
     {
       "id": "PAPER-NIKOLAUS-SCHOLZE-18/125",
@@ -1497,11 +1498,12 @@
       "id": "PAPER-NIKOLAUS-SCHOLZE-18/136",
       "kind": "theorem",
       "name": "Trivial cyclotomic structures are left adjoint to TC",
-      "statement": "X ↦ X^triv (trivial T-action, Frobenius X → X^{hC_p} → X^{tC_p}) is left adjoint to TC: Cyc Sp → Sp.",
+      "statement": "The functor −^triv: Sp → Cyc Sp, X ↦ X^triv (X with trivial T-action and Frobenius the T-equivariant composite X → X^{hC_p} → X^{tC_p}, the first map pullback along BC_p → pt), is the unique symmetric monoidal colimit-preserving functor Sp → Cyc Sp; it sends S to the cyclotomic sphere S^triv, the unit of Cyc Sp (/35), and it is left adjoint to TC = map_{Cyc Sp}(S^triv, −): Cyc Sp → Sp (/40).",
       "locator": "§IV.4, Proposition IV.4.14, p. 363",
       "status": "missing",
       "library": [],
-      "planned": []
+      "planned": [],
+      "note": "The paper proves the adjunction by writing X^triv as the X-indexed colimit of the constant diagram at S^triv (p. 363). Symmetric monoidality is used by Corollary IV.4.16 (/137), which treats HZ_p^triv as an E_∞-cyclotomic spectrum, and is stated in Clausen–Mathew–Morrow, Definition 2.9. PAPER-CLAUSEN-MATHEW-MORROW-21/021 states the same functor and adjunction; RefinedTraceMethods:RT.2 is the single owner (PROTOCOL §15), through this item, and that extraction's Part II (RefinedTraceMethodsPartIIHenselianPairs) imports it, with its symmetric monoidal structure and its adjunction with TC, from RT.2."
     },
     {
       "id": "PAPER-NIKOLAUS-SCHOLZE-18/137",
@@ -1512,7 +1514,7 @@
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "Construction IV.4.15 and Corollary IV.4.16; Remark IV.4.17 notes three different E_∞-maps HZ_p → HZ_p^{tC_p}."
+      "note": "Construction IV.4.15 and Corollary IV.4.16; Remark IV.4.17 notes three different E_∞-maps HZ_p → HZ_p^{tC_p}. The 'in other words' form of Corollary IV.4.16 (a map Z^triv → THH(F_p) in Cyc Sp, and THH(F_p) ≃ τ_{≥0}(Z^{tC_p}) in Fun(BS¹, Sp)) is PAPER-ANTIEAU-MATHEW-MORROW-ETAL-22/8, in that extraction's route 2 (a source route to RefinedTraceMethods stages including RT.2). That route is accepted, but the extraction's verdict is 'revise', so it is not applied yet. When it is revised, THH(F_p) ≃ τ_{≥0}HZ_p^{tC_p} keeps a single owner, KTheoryFiniteLocalFields:L.5, where route 5 puts this item."
     },
     {
       "id": "PAPER-NIKOLAUS-SCHOLZE-18/138",
@@ -1787,13 +1789,78 @@
       "library": [],
       "planned": [],
       "note": "Lemma C.12, Lemma C.13, Proposition C.14."
+    },
+    {
+      "id": "PAPER-NIKOLAUS-SCHOLZE-18/163",
+      "kind": "theorem",
+      "name": "p-completion of TC",
+      "statement": "(a) For a p-complete spectrum Z with T-action, Z^{hT} ≃ Z^{hC_{p^∞}}, since C_{p^∞} → T is a p-adic equivalence; homotopy fixed points commute with p-completion, since S/p is finite. Hence, for a genuine cyclotomic X, the right vertical map X^{hT} → ∏_p (X_p^∧)^{hT} of the pullback (1) is a profinite completion, and so is the left vertical map TC^gen(X) → ∏_p TC^gen(X, p)_p^∧. (b) For a bounded below cyclotomic spectrum X, X_p^∧ is a cyclotomic spectrum with φ_ℓ = 0 for ℓ ≠ p, and TC(X)_p^∧ ≃ TC(X_p^∧) ≃ TC(X_p^∧, p).",
+      "locator": "§II.4, after diagram (1), p. 266; §IV.3, pp. 351–352",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "The paper proves (a) on p. 266, and says on p. 352 that (b) 'follows from the discussion in §II.4'. The proof of Theorem II.4.11 (/66) uses Z^{hT} ≃ Z^{hC_{p^∞}} and the commutation of fixed points with completion; Proposition IV.3.4 (/124) uses (b) ('As TC(X)=TC(X, p)'). Proof of (b): each (X^{tC_ℓ})^{hT} is ℓ-complete (Lemma II.4.2, /59), so p-completion, which is exact and commutes with products, kills the factors ℓ ≠ p; X^{tC_p} ≃ (X_p^∧)^{tC_p} (Lemma I.2.9, /21); (X_p^∧)^{tC_ℓ} = 0 for ℓ ≠ p; and (a) identifies T- with C_{p^∞}-fixed points. The paper writes 'p-cyclotomic' on p. 351, but TC(X) is defined only for cyclotomic spectra (Definition II.1.8), so (b) is stated for cyclotomic X (see sourceIssue E26). KTheoryFiniteLocalFields:L.4/integral-and-p-typical-tc-agree-after-completion states the Hesselholt–Madsen form of (b) and should cite this item, but it is a node of a draft packet (no accepted decomposition of KTheoryFiniteLocalFields; packet status partial), so it does not yet plan it."
+    },
+    {
+      "id": "PAPER-NIKOLAUS-SCHOLZE-18/164",
+      "kind": "definition",
+      "name": "The ∞-category of spectra",
+      "statement": "Sp, the stable presentable ∞-category of spectra of [71], with its presentably symmetric monoidal structure: the tensor (smash) product ⊗_S, commuting with colimits in each variable, with unit the sphere spectrum S; and the adjunction Σ^∞_+ ⊣ Ω^∞ between spaces and spectra, with Σ^∞_+ symmetric monoidal.",
+      "locator": "Introduction, p. 205 ('an E_1-algebra in the ∞-category of spectra Sp in the language of [71]'; 'we write ⊗_S for the symmetric monoidal tensor product of spectra … the base S ∈ Sp denotes the sphere spectrum'); used throughout",
+      "status": "planned",
+      "library": [],
+      "planned": [
+        "StableHomotopyKTheory:H.5:spectra",
+        "EnhancedDerivedSheaves:E5:spectra-comparison"
+      ],
+      "note": "The paper uses the ∞-categorical Sp throughout: Sp^{BG}, limits and colimits over BG, the lax symmetric monoidal Tate construction (/10, /22, /29), and /84 and /97 are stated in it. H.5:spectra plans a concrete spectrum model with its stable homotopy category and, after RS-33, the generic smash product; E5:spectra-comparison compares it with the abstract stable symmetric monoidal construction of E5:abstract. The presentably symmetric monoidal ∞-category Sp itself is no layer's explicit target, and E5:spectra-comparison is a late return, not a prerequisite. Request, for the maintainer: that H.5:spectra export the symmetric monoidal presentable ∞-category of its model early (for example by the symmetric monoidal Dwyer–Kan localisation of /140), and that the RT.2 blueprint import it from the start, with an edge E5:presentability → RT.2. Neither library has spectra in any model at Mathlib 082e2d3 or Tau Ceti f790474."
+    },
+    {
+      "id": "PAPER-NIKOLAUS-SCHOLZE-18/165",
+      "kind": "definition",
+      "name": "Eilenberg–MacLane spectra and Postnikov truncations",
+      "statement": "The Eilenberg–MacLane spectrum HM of an abelian group M (π_0HM = M, π_iHM = 0 otherwise), and HA for a ring A with its ring structure; the Postnikov truncations τ_{≥n}, τ_{≤n} of the t-structure on Sp, with fibre sequences τ_{≥n+1}Y → Y → τ_{≤n}Y; and Postnikov convergence: Y ≃ lim_n τ_{≤n}Y and colim_n τ_{≥−n}Y ≃ Y.",
+      "locator": "Used throughout, e.g. §I.2, Example I.2.3 and Lemmas I.2.4–I.2.6, pp. 219–222",
+      "status": "planned",
+      "library": [],
+      "planned": [
+        "StableHomotopyKTheory:H.5:spectra",
+        "StableHomotopyKTheory:H.6"
+      ],
+      "note": "NS18 uses the ∞-categorical versions. H.5:spectra keeps, after the accepted RS-33, Eilenberg–MacLane spectra from chain complexes, their homotopy/cohomology comparison and functorial truncations; H.6 owns spectrum towers, Milnor sequences and convergence, so Postnikov convergence (the input to Lemma I.2.6, /18) is planned there. EnhancedDerivedSheaves:E2 plans truncations of derived categories of sheaves, not of spectra. Items /16 and /18 use these. Mathlib's only truncation is the canonical t-structure DerivedCategory.TStructure.t on the 1-categorical derived category (Mathlib/Algebra/Homology/DerivedCategory/TStructure.lean:34), which is not what the paper uses."
+    },
+    {
+      "id": "PAPER-NIKOLAUS-SCHOLZE-18/166",
+      "kind": "definition",
+      "name": "Bounded below spectra and p-completion",
+      "statement": "A spectrum X is bounded below if π_iX = 0 for i < n, for some n ∈ Z. The p-completion of X is X_p^∧ = lim_k X/p^k, the Bousfield localisation at S/p; X is p-complete if X → X_p^∧ is an equivalence. p-completion is exact, commutes with products, and preserves bounded below spectra.",
+      "locator": "Introduction, Theorem 1.7, p. 211 ('if X is bounded below, i.e. there is some n ∈ Z such that π_iX = 0 for i < n … identifies T_p(X) with the p-completion of X'); §I.2, Lemma I.2.9, p. 224; used throughout",
+      "status": "planned",
+      "library": [],
+      "planned": [
+        "StableHomotopyKTheory:H.6"
+      ],
+      "note": "NS18 uses the ∞-categorical versions. H.6 plans E/m, the E/p^r tower and its homotopy limit (p-completion), the Milnor sequence and the bounded-below arithmetic fracture comparisons. Items /12, /21, /88 and /163 are stated in these terms."
+    },
+    {
+      "id": "PAPER-NIKOLAUS-SCHOLZE-18/167",
+      "kind": "definition",
+      "name": "HZ-modules are chain complexes",
+      "statement": "The ∞-category Mod_{HZ}(Sp) of HZ-module spectra is equivalent to the derived ∞-category D(Z), compatibly with homotopy and homology groups, and likewise Mod_{HZ_p}(Sp) ≃ D(Z_p); in particular D(Z)^{BG} ≃ Mod_{HZ}(Sp)^{BG} for a group G, and the Tate constructions agree.",
+      "locator": "Footnote 9, p. 219; §IV.4, Lemma IV.4.12, p. 362; §IV.4 (end), p. 364",
+      "status": "planned",
+      "library": [],
+      "planned": [
+        "EnhancedDerivedSheaves:E5:spectra-comparison"
+      ],
+      "note": "Used by /134 ('X ∈ D(Z)^{BT}'), /138 and footnote 9 ('for all chain complexes'). E5:spectra-comparison plans the Eilenberg–MacLane comparison between H.5's concrete spectral module categories and the abstract construction. Mathlib's DerivedCategory is 1-categorical and has no comparison with spectra."
     }
   ],
   "coverage": {
     "counts": {
       "library": 0,
-      "planned": 32,
-      "missing": 130
+      "planned": 36,
+      "missing": 131
     },
     "policy": "Every definition, construction, theorem, proposition, lemma and corollary is an item, with closely linked statements merged and named in the note (for example Definitions II.2.2–II.2.3 and Proposition II.2.4). Remarks and examples are items when they state mathematics used later (Examples I.1.12, I.2.3, II.1.2, IV.1.2; Remark III.1.6); purely expository remarks are not."
   },
@@ -2014,7 +2081,8 @@
         "PAPER-NIKOLAUS-SCHOLZE-18/155",
         "PAPER-NIKOLAUS-SCHOLZE-18/156",
         "PAPER-NIKOLAUS-SCHOLZE-18/161",
-        "PAPER-NIKOLAUS-SCHOLZE-18/162"
+        "PAPER-NIKOLAUS-SCHOLZE-18/162",
+        "PAPER-NIKOLAUS-SCHOLZE-18/163"
       ]
     },
     {
@@ -2566,6 +2634,21 @@
         "Scholze's homepage copy CyclotomicSpectra.pdf (6 July 2017, the arXiv v1 text)",
         "Crossref: no update or erratum registered for 10.4310/ACTA.2018.v221.n2.a1 other than the Acta correction",
         "web search for errata to the paper (23 September 2026): only the Acta correction"
+      ]
+    },
+    {
+      "id": "PAPER-NIKOLAUS-SCHOLZE-18/E26",
+      "kind": "error",
+      "locator": "p. 351 (definition of a Frobenius lift, and the sentence on TC(X)_p^∧), p. 352 (Proposition IV.3.4 and the sentence before it), p. 353 (Lemma IV.3.5 and its proof); also arXiv v2",
+      "printed": "we say that a Frobenius lift on a p-cyclotomic spectrum (X, ϕ_p) is a C_{p^∞}-equivariant factorization of the morphism ϕ_p: X → X^{tC_p} as the composite of a map ϕ̃_p: X → X^{hC_p} and the projection X^{hC_p} → X^{tC_p}. Recall that if X is a p-cyclotomic spectrum which is bounded below, then TC(X)_p^∧ = TC(X_p^∧) = TC(X_p^∧, p). … Note also that in this case the C_{p^∞}-action on X_p^∧ extends automatically to a T-action. Proposition IV.3.4. For a bounded below p-complete p-cyclotomic spectrum X with a Frobenius lift ϕ̃_p: X → X^{hC_p}, we obtain a pullback square [TC(X) → ΣX_{hT} over X → X, with tr and id − ϕ̃_p] … Lemma IV.3.5. For every p-complete p-cyclotomic spectrum X with a Frobenius lift ϕ̃_p: X → X^{hC_p}, the commutative square [X^{hT} → X^{hT} over X → X] is a pullback of spectra.",
+      "correction": "Assume a T-action and a T-equivariant lift. Proposition IV.3.4: X p-complete and bounded below, with a T-action and a T ≅ T/C_p-equivariant φ_p: X → X^{tC_p} (equivalently, a p-complete bounded below cyclotomic spectrum, since X^{tC_ℓ} = 0 for ℓ ≠ p by Lemma I.2.9; equivalently, a p-cyclotomic spectrum whose C_{p^∞}-action extends to T), with a Frobenius lift φ̃_p: X → X^{hC_p}, which may be taken C_{p^∞}-equivariant and is then automatically T ≅ T/C_p-equivariant; the conclusion is the pullback with tr: ΣX_{hT} → X, and TC(X) ≃ TC(X, p). Lemma IV.3.5: X p-complete with a T-action and a T ≅ T/C_p-equivariant φ̃_p: X → X^{hC_p}; neither bounded below nor φ_p is used. On p. 351 read 'cyclotomic' for 'p-cyclotomic'; under that reading the sentence that the action 'extends automatically' is vacuous.",
+      "reason": "Definition II.1.1(ii) gives a p-cyclotomic spectrum only a C_{p^∞}-action, and the Frobenius lift of p. 351 is only C_{p^∞}-equivariant, yet both statements use X^{hT}, ΣX_{hT} and the transfer, and the proof of Lemma IV.3.5 starts from 'the T ≅ T/C_p-equivariant map ϕ̃_p'. TC(X) is defined only for cyclotomic spectra (Definition II.1.8), which suggests that 'cyclotomic' was meant on p. 351. The bridging claim that the C_{p^∞}-action extends automatically to a T-action is false for p-cyclotomic spectra, as the paper's own Remark II.1.3 (pp. 240–241) says: 'not every C_{p^∞}-action on a p-complete spectrum extends to a T-action, since a C_{p^∞}-action can act non-trivially on homotopy groups'. Example: X = H(F_p[C_{p^∞}]) with C_{p^∞} acting by translation is bounded below and p-complete (an HF_p-module, so p·id = 0). F_p[C_{p^∞}] is free over F_p[C_p], so X^{tC_p} = 0, φ_p = 0 is forced, and φ̃_p = 0 is a C_{p^∞}-equivariant Frobenius lift. A T-action acts trivially on π_* (BT is simply connected), so its restriction to C_{p^∞} would act trivially on π_0 = F_p[C_{p^∞}], but translation does not; no T-action extends the given one. The two results are therefore ill-posed on their stated hypothesis class, where X^{hT} and X_{hT} are undefined; the example does not make a conclusion false. The corrected forms hold: a C_{p^∞}-equivariant lift of a T-equivariant φ_p is automatically T-equivariant, because the mapping spectra into the p-complete X^{hC_p} and X^{tC_p} are p-complete and Z^{hT} ≃ Z^{hC_{p^∞}} for p-complete Z (p. 266). Theorem IV.3.6 and the rest of the paper are unaffected: (Σ^∞_+LY)_p^∧ has a T-action, and Corollary IV.3.3 gives a T-equivariant lift. Found by the red team RT-PAPER-NIKOLAUS-SCHOLZE-18 (finding 3) and confirmed by its verifier, who checked the page images of pp. 240–241 and 351–353.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "Correction to 'On topological cyclic homology', Acta Math. 222 (2019), 215–218, DOI 10.4310/ACTA.2019.v222.n1.a2 (intlpress PDF, read on 30 September 2026): its entries touch none of pp. 351–354",
+        "arXiv 1707.01799 v2 (7 September 2018, the latest version), read on 30 September 2026: the same text on the corresponding pages",
+        "Crossref, 30 September 2026: no update or erratum registered for 10.4310/ACTA.2018.v221.n2.a1"
       ]
     }
   ],
