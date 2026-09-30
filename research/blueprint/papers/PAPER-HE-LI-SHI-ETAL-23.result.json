@@ -604,7 +604,8 @@
         "verdict": "confirmed",
         "reason": "Confirmed on p. 80 and against Li–Zhang, where Theorem 10.5.1 is preceded by \"Note that the result is conditional on Conjecture 10.4.1\". Li–Rapoport–Zhang v2 Theorem 14.6.2 (i)–(v) matches Conjecture 10.4.1 (i)–(iv) item by item, but the loci were not compared, so the dependence stands. The paper's \"[LZ22a, Theorem 13.6]\" is Li–Zhang Theorem 13.6.1.",
         "by": "REV-PAPER-HE-LI-SHI-ETAL-23"
-      }
+      },
+      "versionScope": "Authors' final copy Kramer.pdf (SHA-256 a29d282011c4972663376d1dd86c40d8dc494d259c82d6d652e23bd1fffc8623), with historical arXiv 2208.07988v2 comparison; not collated against Invent. Math. version of record. Existing review verdict concerns those copies only."
     },
     {
       "id": "PAPER-HE-LI-SHI-ETAL-23/E2",
@@ -623,7 +624,8 @@
         "verdict": "confirmed",
         "reason": "Confirmed at the page image of p. 27. Affects is changed to \"a stated result\": the second sentence of Proposition 3.20 is a stated result that is false as printed, although nothing downstream uses the false direction. The reason is extended with the proof slip.",
         "by": "REV-PAPER-HE-LI-SHI-ETAL-23"
-      }
+      },
+      "versionScope": "Authors' final copy Kramer.pdf (SHA-256 a29d282011c4972663376d1dd86c40d8dc494d259c82d6d652e23bd1fffc8623), with historical arXiv 2208.07988v2 comparison; not collated against Invent. Math. version of record. Existing review verdict concerns those copies only."
     },
     {
       "id": "PAPER-HE-LI-SHI-ETAL-23/E3",
@@ -720,7 +722,8 @@
         "verdict": "confirmed",
         "reason": "Found by a helper agent of this review and checked by the reviewer at the page images of pp. 74–75. The reviewer re-derived the parity argument and the n = 2 example.",
         "by": "REV-PAPER-HE-LI-SHI-ETAL-23"
-      }
+      },
+      "versionScope": "Authors' final copy Kramer.pdf (SHA-256 a29d282011c4972663376d1dd86c40d8dc494d259c82d6d652e23bd1fffc8623), with historical arXiv 2208.07988v2 comparison; not collated against Invent. Math. version of record. Existing review verdict concerns those copies only."
     },
     {
       "id": "PAPER-HE-LI-SHI-ETAL-23/E8",
@@ -762,7 +765,8 @@
         "verdict": "confirmed",
         "reason": "Found by a helper agent of this review and checked by the reviewer at the page image of p. 64, with the brute-force count.",
         "by": "REV-PAPER-HE-LI-SHI-ETAL-23"
-      }
+      },
+      "versionScope": "Authors' final copy Kramer.pdf (SHA-256 a29d282011c4972663376d1dd86c40d8dc494d259c82d6d652e23bd1fffc8623), with historical arXiv 2208.07988v2 comparison; not collated against Invent. Math. version of record. Existing review verdict concerns those copies only."
     },
     {
       "id": "PAPER-HE-LI-SHI-ETAL-23/E10",
@@ -867,7 +871,8 @@
         "verdict": "confirmed",
         "reason": "Found by a helper agent of this review and checked by the reviewer in the text of p. 26 and Corollary 3.6.",
         "by": "REV-PAPER-HE-LI-SHI-ETAL-23"
-      }
+      },
+      "versionScope": "Authors' final copy Kramer.pdf (SHA-256 a29d282011c4972663376d1dd86c40d8dc494d259c82d6d652e23bd1fffc8623), with historical arXiv 2208.07988v2 comparison; not collated against Invent. Math. version of record. Existing review verdict concerns those copies only."
     },
     {
       "id": "PAPER-HE-LI-SHI-ETAL-23/E15",
@@ -1056,7 +1061,8 @@
         "verdict": "confirmed",
         "reason": "Found by a helper agent of this review and checked by the reviewer in the text of p. 34, with direct counts.",
         "by": "REV-PAPER-HE-LI-SHI-ETAL-23"
-      }
+      },
+      "versionScope": "Authors' final copy Kramer.pdf (SHA-256 a29d282011c4972663376d1dd86c40d8dc494d259c82d6d652e23bd1fffc8623), with historical arXiv 2208.07988v2 comparison; not collated against Invent. Math. version of record. Existing review verdict concerns those copies only."
     },
     {
       "id": "PAPER-HE-LI-SHI-ETAL-23/E24",
@@ -1077,7 +1083,8 @@
         "verdict": "confirmed",
         "reason": "Found by a helper agent of this review and checked by the reviewer in the text of pp. 37 and 42, with brute-force counts.",
         "by": "REV-PAPER-HE-LI-SHI-ETAL-23"
-      }
+      },
+      "versionScope": "Authors' final copy Kramer.pdf (SHA-256 a29d282011c4972663376d1dd86c40d8dc494d259c82d6d652e23bd1fffc8623), with historical arXiv 2208.07988v2 comparison; not collated against Invent. Math. version of record. Existing review verdict concerns those copies only."
     },
     {
       "id": "PAPER-HE-LI-SHI-ETAL-23/E25",
@@ -1205,5 +1212,67 @@
         "by": "REV-PAPER-HE-LI-SHI-ETAL-23"
       }
     }
-  ]
+  ],
+  "sourceVersions": [
+    {
+      "kind": "author copy",
+      "url": "https://www.math.columbia.edu/~chaoli/Kramer.pdf",
+      "read": "2026-09-22",
+      "sha256": "a29d282011c4972663376d1dd86c40d8dc494d259c82d6d652e23bd1fffc8623",
+      "readExtent": "Inherited full read by Claude Code cc-fb70e5; independently reread in full by cc-442dc5 on 23 September. Locators use this 82-page author copy. This is not a published-version reading or a fresh full read by the fixer."
+    },
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/2208.07988v2",
+      "read": "2026-09-22",
+      "sha256": "00e096d6e9b511934382db1e41dc4cf22419a021df06af58d2689dfb60b98b17",
+      "readExtent": "Inherited arXiv v2 comparison by Claude Code cc-fb70e5, with later full review by cc-442dc5. Preserve its historical date and hash; no version-of-record collation is claimed."
+    },
+    {
+      "kind": "author copy",
+      "url": "https://www.math.columbia.edu/~chaoli/Kramer.pdf",
+      "read": "2026-09-30",
+      "sha256": "a29d282011c4972663376d1dd86c40d8dc494d259c82d6d652e23bd1fffc8623",
+      "readExtent": "Fix: freshly hashed the same PDF, checked 82 pages and selected source-issue locators/first and final pages. No new full-proof read or independent mathematical source-issue verification."
+    },
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/2208.07988v2",
+      "read": "2026-09-30",
+      "sha256": "00e096d6e9b511934382db1e41dc4cf22419a021df06af58d2689dfb60b98b17",
+      "readExtent": "Fix: freshly hashed the same PDF and checked first/final-page version and 82-page metadata. No new full comparison or published-text collation."
+    }
+  ],
+  "sourceIssueScope": {
+    "statedResultFindings": [
+      "PAPER-HE-LI-SHI-ETAL-23/E1",
+      "PAPER-HE-LI-SHI-ETAL-23/E2",
+      "PAPER-HE-LI-SHI-ETAL-23/E7",
+      "PAPER-HE-LI-SHI-ETAL-23/E9",
+      "PAPER-HE-LI-SHI-ETAL-23/E14",
+      "PAPER-HE-LI-SHI-ETAL-23/E23",
+      "PAPER-HE-LI-SHI-ETAL-23/E24"
+    ],
+    "scope": "Authors' final copy Kramer.pdf (SHA-256 a29d282011c4972663376d1dd86c40d8dc494d259c82d6d652e23bd1fffc8623), with historical arXiv 2208.07988v2 comparison; not collated against Invent. Math. version of record. Existing review verdict concerns those copies only.",
+    "otherFindings": "The inherited sourceIssues refer to the author-copy pages, except E6 which explicitly concerns the arXiv v2 exponent corrected in the author copy. All original printed/correction/reason/searched/review fields are retained.",
+    "publishedCollation": "Pending. The failed historical publisher access is an access note, not a sourceVersions reading."
+  },
+  "publisherAccess": {
+    "url": "https://link.springer.com/content/pdf/10.1007/s00222-023-01209-1.pdf",
+    "attempted": "2026-09-30",
+    "outcome": "HTTP 200 text/html (329945 bytes), not a PDF. The version of record was not read. The extraction also records unsuccessful scripted access on 22 September.",
+    "note": "No kind=published entry is added: current collation.provenance treats it as a completed published reading, even if its citation says not read."
+  },
+  "fixes": {
+    "job": "FIX-RT-PAPER-HE-LI-SHI-ETAL-23",
+    "issue": 4996,
+    "worker": "Codex — codex-5ebb6f",
+    "date": "2026-09-30",
+    "inputRevision": "6daead3a85ff31d2f06e629f82e46b6cfd0408ef",
+    "review": {
+      "status": "pending",
+      "notes": "Independent REV-FIX required. Existing mathematical/source-issue review verdicts remain historical; this fixer does not independently reverify all 30 findings."
+    },
+    "notes": "All 46 items, 13 prerequisites, three routes and 30 original source-issue payloads are preserved; seven source issues gain explicit author/preprint-only scope. Tooling repair is handed to the maintainer in the fixes report, outside the four deliverables."
+  }
 }

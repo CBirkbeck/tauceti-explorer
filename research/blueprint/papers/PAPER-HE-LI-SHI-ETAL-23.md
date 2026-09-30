@@ -8,6 +8,10 @@ Extraction by Claude Code, session `cc-fb70e5`, 22 September 2026 (issue #1237).
 - **The authors' final version**, [Kramer.pdf](https://www.math.columbia.edu/~chaoli/Kramer.pdf) on Chao Li's homepage: dated 21 July 2023 (the publication date), 82 pages, SHA-256 `a29d282011c4972663376d1dd86c40d8dc494d259c82d6d652e23bd1fffc8623`. It was read in full, and locators are its pages.
 - **arXiv v2** (25 June 2023, "final version, to appear in Invent. Math"), compared character by character with it. The only difference is one exponent in the introduction (E6).
 
+**Version scope after FIX-RT-PAPER-HE-LI-SHI-ETAL-23 (#4996, 30 September 2026).** The seven stated-result findings E1, E2, E7, E9, E14, E23 and E24 concern the authors' final copy and its historical arXiv v2 comparison. They have **not been collated against the Invent. Math. version of record**. The same limitation applies to the source-issue discussion below, including the reported proof gap; none of these statements asserts that the publisher printed the same text. The inherited full readings belong to the extraction and its independent review. This fix adds explicit dated/hash receipts and scope, without independently rechecking all the mathematical findings.
+
+The catalog now links the DOI and uses *Invent. Math. 234 (2023), no. 2, 721–817*, so the current collation detector exposes all seven quoted statements. A fresh publisher-PDF attempt returned HTML, not a PDF. It is an access note, not a `published` reading: that kind would incorrectly hide the paper from the current detector. See [the fixes report](../redteam/RT-PAPER-HE-LI-SHI-ETAL-23.fixes.md) for the scoped collation-tool repair handed to the maintainer.
+
 ## What the paper proves
 
 **Setting.** F/F₀ is a ramified quadratic extension of p-adic fields, p odd, and N_n is the Krämer model of the unitary Rapoport–Zink space of signature (1, n − 1). The Krämer model is regular with semistable reduction (the other ramified level, the exotic smooth model, is the subject of PAPER-LI-LIU-22). V is the n-dimensional hermitian space of special quasi-homomorphisms, and Z(x) are the Kudla–Rapoport divisors.
@@ -160,3 +164,7 @@ Links and reasons are in the JSON; the DOIs were confirmed on Crossref.
 - **Item 36.** Holds for either sign χ.
 - **Items 45, 46.** The standing hypotheses (G0)–(G5), and the definition of a nonsingular φ_v.
 - **Notes.** Items 1, 19, 21, 25, 27 and 32.
+
+## Source-version fix validation (30 September 2026)
+
+Codex — codex-5ebb6f preserved all 46 item records (three planned, 43 missing), all 13 prerequisites and all three routes. The 30 source-issue mathematical payloads and historical review verdicts are unchanged; the seven stated-result records gain an explicit author/preprint-only scope. Both fresh PDF hashes match the original receipts and both PDFs have 82 pages. No published mathematical text was read. The paper checker, explicit source-version check, collation exposure/regression checks, four-file intake and whitespace check pass. No Lean file was changed or compiled. Independent REV-FIX remains pending.
