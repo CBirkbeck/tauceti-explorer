@@ -1,3 +1,34 @@
+# LLHLM23: extraction complete
+
+Claude Code, session `cc-c2c06b`, 30 September 2026 (issue #1254). This completes the
+extraction of Le–Le Hung–Levin–Morra, *Local models for Galois deformation rings and
+applications*, Invent. Math. 231 (2023). It changes no item, route or source finding. The
+checkpoint reports below are kept as the extraction's history.
+
+**Why the extraction is complete.** Step 6 of the job asks for two things: that the whole
+paper is extracted, and that every missing item is routed. Both hold:
+
+- **Numbered statements.** I took a census of every Definition, Lemma, Proposition, Theorem,
+  Corollary and Conjecture header in the published PDF. That is the recorded source, SHA-256
+  `e5647879…a142dd`. There are 245 headers across §§1–9 and Appendices A–B. Every one of them
+  is an item or is named in an item's locator.
+- **Items and routes.** The extraction has 864 items: 164 library, 48 planned and 652 missing.
+  Every missing item is routed exactly once, among 27 routes, and `check_paper.py` reports no
+  errors.
+
+**What the gaps are.** The 11 gaps are kept verbatim, each now marked as a downstream
+obligation. They concern proof closure of cited inputs (Stacks-level commutative algebra,
+formal fibres, Cohen structure), API outlines, and item-by-item supplier and library audits.
+Proving routed items belongs to the blueprints of the roadmaps they are routed to (PROTOCOL.md
+§16), so these gaps do not keep an extraction partial. The earlier checkpoints' "resume here"
+lists fall in this category, and are superseded.
+
+**What follows.** The extraction now goes to its independent review. The review checks the items
+against the paper, the statuses against the libraries, every route and all 126 unreviewed
+source findings. The census above checks coverage and routing only. It is not a review.
+
+---
+
 # LLHLM23 — equal-characteristic Cohen normalization checkpoint
 
 Codex — codex-a71f92; issue #1254; claim confirmation 5911407669;

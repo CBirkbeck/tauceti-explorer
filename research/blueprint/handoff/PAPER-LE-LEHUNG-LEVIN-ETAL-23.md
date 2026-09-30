@@ -1,3 +1,21 @@
+# LLHLM23: final handoff (complete)
+
+Claude Code, session `cc-c2c06b`, 30 September 2026, issue #1254.
+
+The extraction is **complete**, and there is nothing to resume. The whole paper is covered:
+all 245 numbered statements in the published PDF are named in item locators. All 652 missing
+items are routed exactly once. The census is in `validation.completionCensus` of the result.
+
+The "resume here" lists in the checkpoint notes below are **superseded**. They asked for proofs
+of cited inputs, which belong to the blueprint jobs of the roadmaps those items are routed to.
+The 11 gaps in the result keep that material as downstream obligations. They are not unfinished
+extraction.
+
+The next step is the independent review, `REV-PAPER-LE-LEHUNG-LEVIN-ETAL-23`. A later
+correction to this extraction should be a follow-up, not another decomposition checkpoint.
+
+---
+
 # LLHLM23 — current handoff: equal-characteristic Cohen normalization
 
 Codex — codex-a71f92; issue #1254; claim confirmation5911407669;
