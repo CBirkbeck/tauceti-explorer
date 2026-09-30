@@ -23359,3 +23359,142 @@ Eight complete native lemmas verify zero extension, agreement of the two existin
 Thirteen nonprincipal character profiles and163prime-place pairs check1467positive arithmeticζ moments and9804actual unit-restricted residue masses. There are33dyadic pairs. Separately labelled finite atomic models test978inverse-weighted and978intrinsic test values plus163masses. Controls detect missing1/q, wrong sign, conjugated character value and assigning nonzero inverse weight to a nonunit. Exact Q(i)/Q(omega) arithmetic. Actual known quotient/Stirling and unit-moment formulas check all positive zeta moments of weights1 through9. Actual finite residue-mass formulas independently check unit restriction at p andp². Separately labelled finite atomic measures on integer points test the zero-extended inverse, its1/q transport, the native unit-subcarrier inclusion and total-mass factor; those atomic zeta values are not asserted to be the arithmetic zeta measure. No inverse of a canonical residue representative is treated as the exact inverse on an entire p-adic cell. The largest observed discrepancy is 0 in every asserted exact identity.
 
 All66 inputs and four predecessor outputs are unchanged at capture and guarded. The partial signature file is the exact4938prefix plus five declarations/twelve examples, still omitting4777–4791. It elaborates with zero errors and2139expected placeholder warnings only. No new import is added. The full module remains NOT COMPILED because the compatible native TwistedDivisorSum artifact is absent; no library build occurs.
+
+
+## Integral prime-level comparisons of tame measures
+
+Four L2 nodes prove integrality of the prime-level zeta correction and compare all three existing integral tame measures under a prime level change. All 714 predecessor nodes remain whole. Four signatures and twelve examples retain the exact coefficient lifts, all-test comparisons, repeated-prime and dyadic boundaries.
+
+Read the complete reviewed library audit for this roadmap, the four existing fine nodes and signatures for the actual integral constructors and coefficient inclusions, and the preceding field-level prime comparisons. Freshly read the complete source pages 143–146, native DirichletCharacter.Bounds, norm-valuation and integer-subring definitions, inherited subring norm structures, p-adic unit inverse identities and native measure pushforward. The proof uses the bounded scalar action rather than assuming an isometric embedding.
+
+### Integral prime-level correction coefficients
+
+`DirichletPadicLFunctions:L2/tame-prime-correction-integrality` — `DirichletPadic.tamePrimeCorrection_mem_integer`
+
+If p∤q, then η(q)/q belongs to the actual norm-valuation integer ring O.
+
+**Hypotheses:** p is prime and K is a nontrivially normed ultrametric field with Algebra ℤ_p K and bounded scalar action. The displayed lemma does not need completeness, nonprincipality, primitivity, q prime or M positive. It applies to every native Dirichlet character η modulo M and every natural q with p∤q. O is the existing norm-valuation integer subring.
+
+**Proof:**
+
+1. The native DirichletCharacter.norm_le_one gives ‖η(q)‖≤1, hence membership in O by the actual definition of the norm valuation and Valuation.mem_integer_iff. This existing character-bound theorem is used directly, not planned again.
+2. The native natural-cast norm criterion, together with Nat.Prime.coprime_iff_not_dvd, gives ‖(q:ℤ_p)‖=1. Thus PadicInt.mul_inv gives q*PadicInt.inv(q)=1. Mapping to K proves that q is nonzero and that the coefficient image of the p-adic unit inverse is (q:K)⁻¹.
+3. Bound the image of every x∈ℤ_p using algebraMap(x)=x•1, norm_smul_le and PadicInt.norm_le_one. In particular the mapped inverse has norm at most one. Multiplying its O-membership by that of η(q) proves the required quotient membership. This does not require an isometric coefficient embedding or an independent ℚ_p-algebra structure.
+4. Consequently the two scalar parameters used below exist uniquely: a∈O with i(a)=η(q), and c∈O with i(c)=η(q)/q. Choose their ordinary subtype pairs from the membership proofs; Subtype.ext proves uniqueness. They are presentation parameters of existing coefficients, not new wrappers or unproved coefficient-existence assumptions.
+5. In each level comparison derive p∤q from p∤qM. At p=2 every allowed q is odd, so the same argument applies. The excluded denominator p has inverse of norm greater than one in ℚ_p; the concrete 1/2 test prevents removing the tame hypothesis.
+
+**Prerequisites:** `mathlib:DirichletCharacter.norm_le_one`, `mathlib:NormedField.valuation_apply`, `mathlib:Valuation.mem_integer_iff`, `mathlib:PadicInt.norm_natCast_eq_one_iff`, `mathlib:Nat.Prime.coprime_iff_not_dvd`, `mathlib:PadicInt.mul_inv`, `mathlib:PadicInt.norm_le_one`, `mathlib:norm_smul_le`.
+
+**Tests:**
+
+- `SuggestedTamePrimeIntegralTests.actual_integral_coefficients_exist` (characterisation): Both a and c exist uniquely under the actual tame hypothesis p∤qM.
+- `SuggestedTamePrimeIntegralTests.dyadic_inverse_coefficient_is_integral` (computation): The concrete correction −1/3 lies in the norm-valuation integer ring of ℚ₂.
+- `SuggestedTamePrimeIntegralTests.nonunit_denominator_is_excluded` (non-example): The inverse 1/2 does not lie in the integer ring of ℚ₂.
+
+**Acceptance:** No division operation on O is introduced. The quotient is formed in K and proved to lie in its existing integer subring.
+
+**Source:** Theorem 5.7, Remark 5.8(2), the integral coefficient discussion after equation (5-3), and Definition 5.13; published 143–146 / PDF 44–47. All four complete pages freshly read on 30 September 2026. Worker deduction transferring the preceding prime-level identities for the actual tame measures to their existing valuation-integer realizations. The source specifies the integral coefficient ring; these all-test level comparisons use the existing constructors and are not claimed as verbatim source theorems. Existing source findings remain unchanged.
+
+### Prime level changes of integral tame measures
+
+`DirichletPadicLFunctions:L2/tame-integral-measure-prime-level` — `DirichletPadic.integralTameMeasure_changeLevel_prime`
+
+For the unique a∈O with i(a)=η(q), μO_(changeLevel η)=μO_η−a•map(d_q)(μO_η), where d_q(x)=q*x.
+
+**Hypotheses:** p and q are primes, M>0, and η:DirichletCharacter K M is nonprincipal, with no primitivity assumption. K is a complete nontrivially normed ultrametric field with Algebra ℤ_p K and IsBoundedSMul ℤ_p K. hM and hN certify that M and qM map to units in K. The exact tame hypotheses are hpM:p∤M and hpN:p∤qM. In particular hpN implies p∤q, so multiplication by q preserves the native p-adic unit group. O is precisely Valuation.integer(NormedField.valuation K), with its inherited norm and topology and the native continuous subtype inclusion i:O→K. No field structure, separate completeness assumption, or independently chosen ℤ_p-algebra on O is used. Every comparison is on all actual continuous O-valued tests. The explicit subtype coefficient a and its inclusion equation name the correction inside O. Existence follows directly from the native character bound and uniqueness from Subtype.ext.
+
+**Proof:**
+
+1. Evaluate the desired equality on an arbitrary continuous O-valued test f. Apply Subtype.ext to its values, so the remaining equality is in K. This uses injectivity of the actual subtype inclusion on outputs, not any assertion that every K-valued test comes from O.
+2. Rewrite each included integral value with its existing all-test coefficient-inclusion theorem. The included pullback satisfies i∘(f∘d)=(i∘f)∘d by continuous-map extensionality, so exactly the same field-valued test occurs on both sides.
+3. Evaluate the existing field-level measure comparison on i∘f, use native map_apply, and rewrite the correction coefficient through its displayed subtype equation. The inclusion preserves subtraction and multiplication. Native DFunLike.ext then concludes equality of the O-valued measures.
+4. The complete native reflect_measure_comparison probe checks this deduction for arbitrary topological X, continuous self-map d, and native O- and K-valued measures, conditional on precisely the existing all-test inclusion laws and field comparison. These conditions are supplied by the named fine roadmap nodes below; no generic coefficient-extension map is defined.
+5. Here the inclusion law is tame-integral-measure-inclusion and the field equality is tame-measure-prime-level-comparison. Both are about the same existing constructors at the two levels, with the exact unit certificates hM and hN.
+6. At the constant test 1, pullback is again 1, so the total mass changes by 1−a. If q divides M then η(q)=0 by the native character nonunit rule; inclusion injectivity gives a=0 and the entire integral measures agree, not only their moments.
+
+**Prerequisites:** `DirichletPadicLFunctions:L2/tame-measure-prime-level-comparison`, `DirichletPadicLFunctions:L2/tame-integral-measure-inclusion`, `mathlib:DirichletCharacter.norm_le_one`, `mathlib:Valuation.mem_integer_iff`, `mathlib:NormedField.valuation_apply`, `mathlib:AbstractMeasure.map_apply`, `mathlib:DFunLike.ext`, `mathlib:MulChar.map_nonunit`.
+
+**Tests:**
+
+- `SuggestedTamePrimeIntegralTests.integral_measure_all_tests` (compatibility): Every continuous O-test has the correction a times its q-dilated pullback integral.
+- `SuggestedTamePrimeIntegralTests.integral_measure_mass_factor` (computation): The actual integral tame mass has factor 1−a.
+- `SuggestedTamePrimeIntegralTests.integral_measure_repeated_prime` (degenerate): If q∣M, the two actual integral tame measures are equal.
+
+**Acceptance:** The coefficient is a, the lift of η(q). The inverse denominator belongs only to the inverse-weighted zeta comparisons.
+
+**Source:** Theorem 5.7, Remark 5.8(2), the integral coefficient discussion after equation (5-3), and Definition 5.13; published 143–146 / PDF 44–47. All four complete pages freshly read on 30 September 2026. Worker deduction transferring the preceding prime-level identities for the actual tame measures to their existing valuation-integer realizations. The source specifies the integral coefficient ring; these all-test level comparisons use the existing constructors and are not claimed as verbatim source theorems. Existing source findings remain unchanged.
+
+### Prime level changes of integral tame zeta measures
+
+`DirichletPadicLFunctions:L2/tame-integral-zeta-prime-level` — `DirichletPadic.integralTameZetaMeasure_changeLevel_prime`
+
+For the unique c∈O with i(c)=η(q)/q, ζO_(changeLevel η)=ζO_η−c•map(d_q)(ζO_η).
+
+**Hypotheses:** p and q are primes, M>0, and η:DirichletCharacter K M is nonprincipal, with no primitivity assumption. K is a complete nontrivially normed ultrametric field with Algebra ℤ_p K and IsBoundedSMul ℤ_p K. hM and hN certify that M and qM map to units in K. The exact tame hypotheses are hpM:p∤M and hpN:p∤qM. In particular hpN implies p∤q, so multiplication by q preserves the native p-adic unit group. O is precisely Valuation.integer(NormedField.valuation K), with its inherited norm and topology and the native continuous subtype inclusion i:O→K. No field structure, separate completeness assumption, or independently chosen ℤ_p-algebra on O is used. Every comparison is on all actual continuous O-valued tests. The explicit c is the unique ordinary subtype lift supplied by tame-prime-correction-integrality; its existence is not an additional assumption.
+
+**Proof:**
+
+1. Evaluate the desired equality on an arbitrary continuous O-valued test f. Apply Subtype.ext to its values, so the remaining equality is in K. This uses injectivity of the actual subtype inclusion on outputs, not any assertion that every K-valued test comes from O.
+2. Rewrite each included integral value with its existing all-test coefficient-inclusion theorem. The included pullback satisfies i∘(f∘d)=(i∘f)∘d by continuous-map extensionality, so exactly the same field-valued test occurs on both sides.
+3. Evaluate the existing field-level measure comparison on i∘f, use native map_apply, and rewrite the correction coefficient through its displayed subtype equation. The inclusion preserves subtraction and multiplication. Native DFunLike.ext then concludes equality of the O-valued measures.
+4. The complete native reflect_measure_comparison probe checks this deduction for arbitrary topological X, continuous self-map d, and native O- and K-valued measures, conditional on precisely the existing all-test inclusion laws and field comparison. These conditions are supplied by the named fine roadmap nodes below; no generic coefficient-extension map is defined.
+5. Use tame-integral-zeta-inclusion for the actual integralTameZetaMeasure constructor and tame-zeta-prime-level-comparison for its ambient K-valued realization. The 1/q factor has already been proved by the zero-extended inverse-weight calculation and is retained after inclusion.
+6. The constant test gives the actual mass factor 1−c. No logarithmic formula or weight-zero analytic interpolation is inferred from this equality. If q∣M, the included correction η(q)/q is zero; hence c=0 and the full O-valued zeta measures agree.
+
+**Prerequisites:** `DirichletPadicLFunctions:L2/tame-prime-correction-integrality`, `DirichletPadicLFunctions:L2/tame-zeta-prime-level-comparison`, `DirichletPadicLFunctions:L2/tame-integral-zeta-inclusion`, `mathlib:AbstractMeasure.map_apply`, `mathlib:DFunLike.ext`, `mathlib:MulChar.map_nonunit`.
+
+**Tests:**
+
+- `SuggestedTamePrimeIntegralTests.integral_zeta_all_tests` (compatibility): Every O-valued continuous test has the correction with the integral lift of η(q)/q.
+- `SuggestedTamePrimeIntegralTests.integral_zeta_mass_factor` (computation): The actual integral zeta mass has factor 1−c.
+- `SuggestedTamePrimeIntegralTests.integral_zeta_repeated_prime` (degenerate): Adding a repeated prime leaves the full integral zeta measure unchanged.
+
+**Acceptance:** No inverseWeight theorem with only ℤ_p coefficients is applied to K or O. The actual existing field comparison and coefficient inclusion suffice.
+
+**Source:** Theorem 5.7, Remark 5.8(2), the integral coefficient discussion after equation (5-3), and Definition 5.13; published 143–146 / PDF 44–47. All four complete pages freshly read on 30 September 2026. Worker deduction transferring the preceding prime-level identities for the actual tame measures to their existing valuation-integer realizations. The source specifies the integral coefficient ring; these all-test level comparisons use the existing constructors and are not claimed as verbatim source theorems. Existing source findings remain unchanged.
+
+### Prime level changes of integral zeta measures on units
+
+`DirichletPadicLFunctions:L2/intrinsic-integral-tame-prime-level` — `DirichletPadic.intrinsicIntegralTameZetaMeasure_changeLevel_prime`
+
+For c∈O with i(c)=η(q)/q and u∈ℤ_pˣ with underlying value q, ζO,U_(changeLevel η)=ζO,U_η−c•map(v↦u*v)(ζO,U_η).
+
+**Hypotheses:** p and q are primes, M>0, and η:DirichletCharacter K M is nonprincipal, with no primitivity assumption. K is a complete nontrivially normed ultrametric field with Algebra ℤ_p K and IsBoundedSMul ℤ_p K. hM and hN certify that M and qM map to units in K. The exact tame hypotheses are hpM:p∤M and hpN:p∤qM. In particular hpN implies p∤q, so multiplication by q preserves the native p-adic unit group. O is precisely Valuation.integer(NormedField.valuation K), with its inherited norm and topology and the native continuous subtype inclusion i:O→K. No field structure, separate completeness assumption, or independently chosen ℤ_p-algebra on O is used. Every comparison is on all actual continuous O-valued tests. U is the existing native units type with its existing topology. The signature names a native u with value q. Existence follows from p∤qM and the native unit criterion, as established in intrinsic-tame-zeta-prime-level; Units.ext makes this choice unique. The scalar c likewise exists uniquely by tame-prime-correction-integrality.
+
+**Proof:**
+
+1. Evaluate the desired equality on an arbitrary continuous O-valued test f. Apply Subtype.ext to its values, so the remaining equality is in K. This uses injectivity of the actual subtype inclusion on outputs, not any assertion that every K-valued test comes from O.
+2. Rewrite each included integral value with its existing all-test coefficient-inclusion theorem. The included pullback satisfies i∘(f∘d)=(i∘f)∘d by continuous-map extensionality, so exactly the same field-valued test occurs on both sides.
+3. Evaluate the existing field-level measure comparison on i∘f, use native map_apply, and rewrite the correction coefficient through its displayed subtype equation. The inclusion preserves subtraction and multiplication. Native DFunLike.ext then concludes equality of the O-valued measures.
+4. The complete native reflect_measure_comparison probe checks this deduction for arbitrary topological X, continuous self-map d, and native O- and K-valued measures, conditional on precisely the existing all-test inclusion laws and field comparison. These conditions are supplied by the named fine roadmap nodes below; no generic coefficient-extension map is defined.
+5. Take X=U and d(v)=u*v. Use intrinsic-integral-tame-coefficients on every actual O-valued unit test, and intrinsic-tame-zeta-prime-level for the K-valued measures. This comparison is directly on the native unit carrier and needs no new carrier equivalence or restriction theorem.
+6. Its mass factor is 1−c. A unit witness is still needed to state the full pushforward, but the mass formula is independent of it and the witness is always derivable. Repeated primes have c=0, so the actual intrinsic integral measures agree.
+7. Finite controls distinguish actual arithmetic μ residue masses and positive ζ moments from separately labelled integral atomic models of inverse weighting and unit tests. Finite models do not identify the unknown arithmetic ζ mass and do not prove equality on all continuous tests.
+
+**Prerequisites:** `DirichletPadicLFunctions:L2/tame-prime-correction-integrality`, `DirichletPadicLFunctions:L2/intrinsic-tame-zeta-prime-level`, `DirichletPadicLFunctions:L2/intrinsic-integral-tame-coefficients`, `mathlib:AbstractMeasure.map_apply`, `mathlib:DFunLike.ext`, `mathlib:Units.ext`, `mathlib:MulChar.map_nonunit`.
+
+**Tests:**
+
+- `SuggestedTamePrimeIntegralTests.intrinsic_integral_all_tests` (compatibility): Every continuous O-valued unit test has the explicit pullback-by-u correction.
+- `SuggestedTamePrimeIntegralTests.intrinsic_integral_mass_factor` (computation): The actual integral intrinsic mass has factor 1−c.
+- `SuggestedTamePrimeIntegralTests.intrinsic_integral_repeated_prime` (degenerate): Repeated primes leave the intrinsic integral measure unchanged.
+
+**Acceptance:** All p=2 and imprimitive nonprincipal cases remain included. Principal regularized constructors do not satisfy the earlier nonprincipal field identity and are not substituted here.
+
+**Source:** Theorem 5.7, Remark 5.8(2), the integral coefficient discussion after equation (5-3), and Definition 5.13; published 143–146 / PDF 44–47. All four complete pages freshly read on 30 September 2026. Worker deduction transferring the preceding prime-level identities for the actual tame measures to their existing valuation-integer realizations. The source specifies the integral coefficient ring; these all-test level comparisons use the existing constructors and are not claimed as verbatim source theorems. Existing source findings remain unchanged.
+
+**Remaining:** The one-prime comparisons now hold for the actual field-valued and integral tame measures, ambient zeta measures and native unit-group zeta measures. The unique correction coefficients are established in the existing integer ring. Next iterate genuinely new primes and compare the actual measures with the native primitive character at its conductor. Primitive Gauss nonvanishing, analytic branches, logarithmic/degree-zero special-value identification, full source extraction and the PMIA completed-algebra/coefficient-field pseudomeasure requests remain open.
+
+### Integral prime-level comparisons of tame measures validation
+
+All 714 predecessor nodes, 603 baseline records, 16 findings, requests and sourceVersions remain whole. This checkpoint adds 4 nodes, 4 named suggested declarations and 12 typed examples. The indexed blueprint, four-file intake, whitespace, preservation, API/test parity and versioned-source checks pass. The graph has 976 reachable nodes, 4941 edges and 779 native leaves and is acyclic. Its stage request leaves are PadicMeasuresIwasawaAlgebras:L1, PadicMeasuresIwasawaAlgebras:L3, PadicMeasuresIwasawaAlgebras:L3, LocallyAnalyticDistributions:L1, AdicSpacesPartII:F1, AdicSpacesPartII:R2, PadicDifferentialEquationsAndRigidCohomology:RD.0, PadicDifferentialEquationsAndRigidCohomology:RD.4, PadicHodgeTheory:P7:annulus-foundations, PadicMeasuresIwasawaAlgebras:L2, LocallyAnalyticDistributions:L1. All four new routes use native declarations and existing fine nodes, with no new stage-request leaf. Existing requests remain open.
+
+**The full current suggested module was NOT COMPILED.** Its real native import requires TauCeti.NumberTheory.ArithmeticFunction.TwistedDivisorSum. No matching existing artifact was found; WORKERS.md prohibits building the native library. Current compiler exit code, error count and warning count are unavailable, not zero. The exact named signatures and native source were reviewed. PR4773 remains the last compiled full predecessor, with zero errors and1,803 expected placeholder warnings; that receipt does not validate this new module.
+
+The current source closure covers 3603 pinned Mathlib modules and 22 pinned Tau Ceti modules. Only 21 Tau module artifacts are available and hash-verified. The105 available artifact files and the previously compiled332-node PMIA artifact are checked as partial dependencies. The current369-node supplier source preserves the older interface; no current-module compilation against either revision is claimed. Existing builds only were inspected; no setup, update, cache fetch or native build occurred.
+
+Eight complete native lemmas verify the bounded coefficient image, the native character bound as integer membership, the mapped prime-to-p inverse, correction integrality, its unique subtype lift, reflection of an actual measure comparison from the field, the mass factor and the zero-correction case. The reflection lemma assumes precisely the existing coefficient-inclusion and field-comparison statements, which the roadmap supplies through fine nodes. It does not prove the arithmetic constructors themselves. The separate probe compiles against 2824 pinned Mathlib modules and 0 pinned Tau Ceti modules with zero errors, warnings or placeholders. The separate Mathlib-only probe does not import, replace or compile the missing native Tau module. General roadmap declarations remain unchecked.
+
+Exact p-integral coefficient models independently check the actual arithmetic residue and positive-moment formulas and the prime-level corrections. Separately labelled integral atomic models test inverse weighting on ambient and intrinsic unit tests, reduction modulo p powers and mass factors. All model counts are recorded with the finite control receipt. Exact Q(i)/Q(omega) arithmetic with the sufficient p-integrality check that both rational coordinates have p-unit denominators. Known arithmetic residue formulas test the actual tame measure and unit restriction; quotient/Stirling formulas and the unit-moment identity independently test positive arithmetic zeta moments. Separately labelled finite atomic measures test integral inverse weighting, intrinsic unit tests and mass factors. Reductions modulo p, p squared and p cubed take place in the finite coefficient models (Z/p^r Z)[i] or (Z/p^r Z)[omega], not an asserted identification with the full local integer ring. Atomic zeta masses are not arithmetic zeta masses. No cell representative inverse is used as the inverse on an entire p-adic residue cell. The largest observed discrepancy is 0 in every asserted exact identity.
+
+All 66 inputs and four predecessor outputs are unchanged at capture and guarded. The partial signature file is the exact 4952 prefix plus four declarations and twelve examples, still omitting 4777–4791. No new import is added. The full module remains NOT COMPILED because the compatible native TwistedDivisorSum artifact is absent; no library build occurs. The partial file elaborates with zero errors and 2,155 expected sorry warnings only.

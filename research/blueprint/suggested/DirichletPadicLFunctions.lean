@@ -13140,3 +13140,124 @@ example (η : DirichletCharacter K M) (hη : η ≠ 1)
       (1-η (q : ZMod M)*(q : K))*tameZetaMeasure η hM hpM
         (⟨fun x : ℤ_[p] => (algebraMap ℤ_[p] K x)^2, by fun_prop⟩ : C(ℤ_[p],K)) := sorry
 end SuggestedTamePrimeZetaTests
+
+/-! Prime-level comparisons for the existing integral tame measures.
+The subtype coefficients are uniquely specified by their images in K.
+Their existence follows from the native character bound and the tame unit condition. -/
+namespace DirichletPadic
+section TamePrimeIntegral
+variable {p q M : ℕ} [Fact p.Prime]
+  {K : Type*} [NontriviallyNormedField K] [IsUltrametricDist K]
+  [Algebra ℤ_[p] K] [IsBoundedSMul ℤ_[p] K]
+local notation "O" => Valuation.integer (NormedField.valuation (K := K))
+
+theorem tamePrimeCorrection_mem_integer (η : DirichletCharacter K M) (hpq : ¬p ∣ q) :
+    η (q : ZMod M) / (q : K) ∈ O := sorry
+
+variable [Fact q.Prime] [NeZero M] [CompleteSpace K]
+theorem integralTameMeasure_changeLevel_prime (η : DirichletCharacter K M) (hη : η ≠ 1)
+    (hM : IsUnit (M : K)) (hN : IsUnit ((q*M : ℕ) : K))
+    (hpM : ¬p ∣ M) (hpN : ¬p ∣ q*M) (a : O) (ha : (a : K) = η (q : ZMod M)) :
+    integralTameMeasure (η.changeLevel (dvd_mul_left M q)) hN hpN =
+      integralTameMeasure η hM hpM - a • AbstractMeasure.map
+        (⟨fun x : ℤ_[p] => (q : ℤ_[p])*x, by fun_prop⟩ : C(ℤ_[p],ℤ_[p]))
+        (integralTameMeasure η hM hpM) := sorry
+
+theorem integralTameZetaMeasure_changeLevel_prime (η : DirichletCharacter K M) (hη : η ≠ 1)
+    (hM : IsUnit (M : K)) (hN : IsUnit ((q*M : ℕ) : K))
+    (hpM : ¬p ∣ M) (hpN : ¬p ∣ q*M) (c : O)
+    (hc : (c : K) = η (q : ZMod M)/(q : K)) :
+    integralTameZetaMeasure (η.changeLevel (dvd_mul_left M q)) hN hpN =
+      integralTameZetaMeasure η hM hpM - c • AbstractMeasure.map
+        (⟨fun x : ℤ_[p] => (q : ℤ_[p])*x, by fun_prop⟩ : C(ℤ_[p],ℤ_[p]))
+        (integralTameZetaMeasure η hM hpM) := sorry
+
+theorem intrinsicIntegralTameZetaMeasure_changeLevel_prime (η : DirichletCharacter K M)
+    (hη : η ≠ 1) (hM : IsUnit (M : K)) (hN : IsUnit ((q*M : ℕ) : K))
+    (hpM : ¬p ∣ M) (hpN : ¬p ∣ q*M) (c : O)
+    (hc : (c : K) = η (q : ZMod M)/(q : K)) (u : (ℤ_[p])ˣ)
+    (hu : (u : ℤ_[p]) = (q : ℤ_[p])) :
+    intrinsicIntegralTameZetaMeasure (η.changeLevel (dvd_mul_left M q)) hN hpN =
+      intrinsicIntegralTameZetaMeasure η hM hpM - c • AbstractMeasure.map
+        (⟨fun x : (ℤ_[p])ˣ => u*x, by fun_prop⟩ : C((ℤ_[p])ˣ,(ℤ_[p])ˣ))
+        (intrinsicIntegralTameZetaMeasure η hM hpM) := sorry
+end TamePrimeIntegral
+end DirichletPadic
+
+namespace SuggestedTamePrimeIntegralTests
+open DirichletPadic
+variable {p q M : ℕ} [Fact p.Prime] [Fact q.Prime] [NeZero M]
+  {K : Type*} [NontriviallyNormedField K] [IsUltrametricDist K]
+  [Algebra ℤ_[p] K] [IsBoundedSMul ℤ_[p] K] [CompleteSpace K]
+local notation "O" => Valuation.integer (NormedField.valuation (K := K))
+local notation "dMap" => (ContinuousMap.mk (fun x : ℤ_[p] => (q : ℤ_[p])*x) (by fun_prop) : C(ℤ_[p],ℤ_[p]))
+-- actual_integral_coefficients_exist
+example (η : DirichletCharacter K M) (hpN : ¬p ∣ q*M) :
+    (∃! a : O, (a : K) = η (q : ZMod M)) ∧
+      (∃! c : O, (c : K) = η (q : ZMod M)/(q : K)) := sorry
+-- dyadic_inverse_coefficient_is_integral
+example : (-1/(3 : ℚ_[2])) ∈ Valuation.integer (NormedField.valuation (K := ℚ_[2])) := sorry
+-- nonunit_denominator_is_excluded
+example : ¬ (1/(2 : ℚ_[2])) ∈ Valuation.integer (NormedField.valuation (K := ℚ_[2])) := sorry
+-- integral_measure_all_tests
+example (η : DirichletCharacter K M) (hη : η ≠ 1)
+    (hM : IsUnit (M : K)) (hN : IsUnit ((q*M : ℕ) : K))
+    (hpM : ¬p ∣ M) (hpN : ¬p ∣ q*M) (a : O) (ha : (a : K) = η (q : ZMod M))
+    (f : C(ℤ_[p],O)) :
+    integralTameMeasure (η.changeLevel (dvd_mul_left M q)) hN hpN f =
+      integralTameMeasure η hM hpM f - a * integralTameMeasure η hM hpM (f.comp (dMap)) := sorry
+-- integral_measure_mass_factor
+example (η : DirichletCharacter K M) (hη : η ≠ 1)
+    (hM : IsUnit (M : K)) (hN : IsUnit ((q*M : ℕ) : K))
+    (hpM : ¬p ∣ M) (hpN : ¬p ∣ q*M) (a : O) (ha : (a : K) = η (q : ZMod M)) :
+    integralTameMeasure (η.changeLevel (dvd_mul_left M q)) hN hpN 1 =
+      (1-a) * integralTameMeasure η hM hpM 1 := sorry
+-- integral_measure_repeated_prime
+example (η : DirichletCharacter K M) (hη : η ≠ 1)
+    (hM : IsUnit (M : K)) (hN : IsUnit ((q*M : ℕ) : K))
+    (hpM : ¬p ∣ M) (hpN : ¬p ∣ q*M) (hqM : q ∣ M) :
+    integralTameMeasure (η.changeLevel (dvd_mul_left M q)) hN hpN =
+      integralTameMeasure η hM hpM := sorry
+-- integral_zeta_all_tests
+example (η : DirichletCharacter K M) (hη : η ≠ 1)
+    (hM : IsUnit (M : K)) (hN : IsUnit ((q*M : ℕ) : K))
+    (hpM : ¬p ∣ M) (hpN : ¬p ∣ q*M) (c : O)
+    (hc : (c : K) = η (q : ZMod M)/(q : K)) (f : C(ℤ_[p],O)) :
+    integralTameZetaMeasure (η.changeLevel (dvd_mul_left M q)) hN hpN f =
+      integralTameZetaMeasure η hM hpM f - c * integralTameZetaMeasure η hM hpM (f.comp (dMap)) := sorry
+-- integral_zeta_mass_factor
+example (η : DirichletCharacter K M) (hη : η ≠ 1)
+    (hM : IsUnit (M : K)) (hN : IsUnit ((q*M : ℕ) : K))
+    (hpM : ¬p ∣ M) (hpN : ¬p ∣ q*M) (c : O)
+    (hc : (c : K) = η (q : ZMod M)/(q : K)) :
+    integralTameZetaMeasure (η.changeLevel (dvd_mul_left M q)) hN hpN 1 =
+      (1-c) * integralTameZetaMeasure η hM hpM 1 := sorry
+-- integral_zeta_repeated_prime
+example (η : DirichletCharacter K M) (hη : η ≠ 1)
+    (hM : IsUnit (M : K)) (hN : IsUnit ((q*M : ℕ) : K))
+    (hpM : ¬p ∣ M) (hpN : ¬p ∣ q*M) (hqM : q ∣ M) :
+    integralTameZetaMeasure (η.changeLevel (dvd_mul_left M q)) hN hpN =
+      integralTameZetaMeasure η hM hpM := sorry
+-- intrinsic_integral_all_tests
+example (η : DirichletCharacter K M) (hη : η ≠ 1)
+    (hM : IsUnit (M : K)) (hN : IsUnit ((q*M : ℕ) : K))
+    (hpM : ¬p ∣ M) (hpN : ¬p ∣ q*M) (c : O)
+    (hc : (c : K) = η (q : ZMod M)/(q : K)) (u : (ℤ_[p])ˣ)
+    (hu : (u : ℤ_[p]) = (q : ℤ_[p])) (f : C((ℤ_[p])ˣ,O)) :
+    intrinsicIntegralTameZetaMeasure (η.changeLevel (dvd_mul_left M q)) hN hpN f =
+      intrinsicIntegralTameZetaMeasure η hM hpM f - c * intrinsicIntegralTameZetaMeasure η hM hpM
+        (f.comp (⟨fun x : (ℤ_[p])ˣ => u*x, by fun_prop⟩ : C((ℤ_[p])ˣ,(ℤ_[p])ˣ))) := sorry
+-- intrinsic_integral_mass_factor
+example (η : DirichletCharacter K M) (hη : η ≠ 1)
+    (hM : IsUnit (M : K)) (hN : IsUnit ((q*M : ℕ) : K))
+    (hpM : ¬p ∣ M) (hpN : ¬p ∣ q*M) (c : O)
+    (hc : (c : K) = η (q : ZMod M)/(q : K)) :
+    intrinsicIntegralTameZetaMeasure (η.changeLevel (dvd_mul_left M q)) hN hpN 1 =
+      (1-c) * intrinsicIntegralTameZetaMeasure η hM hpM 1 := sorry
+-- intrinsic_integral_repeated_prime
+example (η : DirichletCharacter K M) (hη : η ≠ 1)
+    (hM : IsUnit (M : K)) (hN : IsUnit ((q*M : ℕ) : K))
+    (hpM : ¬p ∣ M) (hpN : ¬p ∣ q*M) (hqM : q ∣ M) :
+    intrinsicIntegralTameZetaMeasure (η.changeLevel (dvd_mul_left M q)) hN hpN =
+      intrinsicIntegralTameZetaMeasure η hM hpM := sorry
+end SuggestedTamePrimeIntegralTests
