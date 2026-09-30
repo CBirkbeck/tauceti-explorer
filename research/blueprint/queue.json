@@ -643,7 +643,8 @@
    ],
    "avoidAccountOf": "PAPER-CIUBOTARU-HARRIS-26",
    "prompt": "research/blueprint/prompts/REV-PAPER-CIUBOTARU-HARRIS-26.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1058"
   },
   {
    "id": "PAPER-BHARGAVA-25",
@@ -38123,8 +38124,9 @@
     "REV-PAPER-MERKURJEV-SCAVIA-26"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-MERKURJEV-SCAVIA-26.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4529"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4529",
+   "finishedAt": "2026-09-30T01:54:32Z"
   },
   {
    "id": "RT-PAPER-SCHOLZE-26",
@@ -39201,8 +39203,9 @@
     "REV-PAPER-KISIN-PAPPAS-18"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-KISIN-PAPPAS-18.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4307"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4307",
+   "finishedAt": "2026-09-30T01:54:35Z"
   },
   {
    "id": "RT-PAPER-BHATT-MORROW-SCHOLZE-18",
@@ -39856,7 +39859,8 @@
     "REV-PAPER-NIKOLAUS-SCHOLZE-18"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-NIKOLAUS-SCHOLZE-18.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4335"
   },
   {
    "id": "RT-PAPER-KOYMANS-PAGANO",
