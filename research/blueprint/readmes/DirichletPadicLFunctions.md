@@ -19019,3 +19019,206 @@ Eleven complete native lemmas check changeLevel on natural units, the actual nat
 Exact finite arithmetic controls compare finite-character test moments with native product-level arithmetic, whole-truncation weight congruences and finite reduction after twisting, including group levels below the character level. Counterexamples distinguish left from right twisting and show the loss of signed character values when untwisted coordinates are projected too early. Exact integer and modular arithmetic for q-indices0–48, primes2/3/5/7, all ordered base-level pairs from0/1/3/4/5/7, principal and inflated quadratic p-power characters through level exponent3, arithmetic exponents0–4, group levels0–3 and every s≤r. Native lcm-level zero extensions are compared on all natural inputs. Separate tests change character position and reverse the projection/twisting order. The largest observed discrepancy is 0.
 
 The63-input capture at 246b5eaec3f6e1fc91e3719d14cc30ead571588d has an empty predecessor delta. Live GitHub capture and guards use authenticated reads to avoid stale public API cache results. The actual compiled332-node PMIA artifact is reused; no declaration added in the current369-node source is called. The native twisted-divisor module remains source-checked only, without mismatched artifacts or a native build.
+
+
+## Coefficient fields of integral weighted Eisenstein series
+
+Partial continuation preserving all580 predecessor nodes whole. Seven L4 nodes compare actual integral weighted coefficients, finite coordinates, whole series and arithmetic moments under coefficient-field extension; equality and integral precision reflect through the native valuation-compatible map. All16 findings, nine requests and13 gaps remain; zero closed stages.
+
+Whole native Valuation.Extension1–205, its exact integer-ring algebra map and comparison/injectivity APIs, native valuation-integer divisibility criterion and integer realization, and native character coefficient maps were read. The PMIA coefficient-extension interface was checked for ownership; no general measure extension is re-planned. Whole RJW143–146 was read in4769 and159–161 in4764. Actual integral coefficient/finite-coordinate/series and arithmetic-moment interfaces are the inputs. All63 captured inputs are unchanged.
+
+### Coefficient-field change for weighted integral measures
+
+`DirichletPadicLFunctions:L4/integral-twisted-coefficient-base-change` — `DirichletPadic.integralTwistedPositiveEisensteinMeasure_baseChange`
+
+c(A^K_(ψ,φ,n)(f))=A^L_(ψ_L,φ_L,n)(c_*f) for every integral continuous test f.
+
+**Hypotheses:** p is any prime. K and L are normed ultrametric fields with Algebra K L. Their norm valuations v_K and v_L satisfy the native Valuation.HasExtension condition: v_K is equivalent to the pullback of v_L, not necessarily numerically equal to it. O_K=v_K.integer and O_L=v_L.integer are the existing native integer subrings. Use exactly the algebraMap c:O_K→O_L supplied by native Valuation.HasExtension.instAlgebraInteger. Its underlying field value is algebraMap K L. No new integral coefficient map or replacement carrier is constructed. For statements involving continuous tests assume ContinuousSMul K L. The field algebra map is then continuous, and native Continuous.subtype_mk gives continuity of c. Write c_*f for this actual continuous-map composite. The finite-coordinate and divisibility arguments themselves are algebraic. Let ψ:DirichletCharacter K D and φ:DirichletCharacter K E. Transport each character with native MulChar.ringHomComp(algebraMap K L), retaining its level and zero extension. The actual integral coefficient measures, finite group coordinates and continuous positive-series measures on U=(ℤ_p)ˣ are reused. For arithmetic moments additionally assume Algebra ℤ_p K and Algebra ℤ_p L with their bounded scalar actions. The proof uses only natural-cast divisor units and preservation of natural casts by the field map; no compatibility of arbitrary unit tests is assumed. The finite character χ has level p^t and exponent e≥0. Precision reflection uses an arbitrary b∈O_K and its exact image c(b), including b=0. For b=p^r the modulus remains p^r upstairs, even in a ramified extension. Replacing it by the r-th power of a uniformizer is not part of this statement.
+
+**Proof:**
+
+1. Use the existing native valuation-extension integer-ring algebra map. Native val_algebraMap identifies its underlying field map; the complete integer_map_continuous proof checks the actual continuous subtype lift. This reuses the library construction instead of defining another coefficient carrier or map.
+2. Apply the existing actual integral finite divisor evaluation and commute c through the finite sum and products. The retained divisor set and the actual p-adic unit at d are independent of the coefficient field.
+3. Each integral atomic weight maps to the target weight: after inclusion into L this says algebraMap(ψ(n/d)φ(d))=ψ_L(n/d)φ_L(d). Native ringHomComp and map_mul prove the equality, then native subtype injectivity returns to O_L. The complete character_weight_change proof checks the field equality.
+4. The complete atomic_coefficient_change proof checks the whole comparison for native finite Dirac sums, an actual continuous ring map and the actual composite test. This is a comparison of the specific finite-atom measures on included tests, not a new generic extension of arbitrary measures.
+5. At n=1 both sides give c(f(1)). With the identity field extension, c is the native identity algebra map and the original measure evaluation is recovered.
+
+**Prerequisites:** `DirichletPadicLFunctions:L4/integral-twisted-positive-eisenstein-evaluation`, `mathlib:Valuation.HasExtension`, `mathlib:Valuation.HasExtension.instAlgebraInteger`, `mathlib:Valuation.HasExtension.val_algebraMap`, `mathlib:continuous_algebraMap`, `mathlib:Continuous.subtype_mk`, `mathlib:MulChar.ringHomComp`.
+
+**Tests:**
+
+- `SuggestedEisensteinCoefficientChangeTests.first_coefficient_base_change` (computation): The extended first coefficient on c_*f is c(f(1)).
+- `SuggestedEisensteinCoefficientChangeTests.identity_coefficient_change` (compatibility): The identity coefficient extension preserves the actual integral coefficient evaluation.
+
+**Acceptance:** Continuity is proved for the actual native integer-ring map. No general O_K-to-O_L measure extension or unproved density criterion is introduced.
+
+**Source:** Remark5.8(2) and the integral coefficient discussion, published143–144/PDF44–45, read with whole143–146 in predecessor4769. Theorem8.2 and its entire proof, Remark8.3, published159–161/PDF60–62, read in4764. Worker coefficient-field comparisons for the actual integral character-weighted positive coefficients and series. The source fixes a coefficient field containing the character values; the explicit naturality, injective descent and integral-precision reflection are derived from the finite divisor formulas and native valuation-extension theory. This does not construct a general measure coefficient-extension functor, a constant coefficient or a geometric family.
+
+### Coefficient-field change in finite unit-group coordinates
+
+`DirichletPadicLFunctions:L4/integral-twisted-finite-base-change` — `DirichletPadic.integralTwistedEisensteinFinite_baseChange`
+
+MonoidAlgebra.mapRingHom(U_r,c)(E^K_(ψ,φ,n;r))=E^L_(ψ_L,φ_L,n;r) at every group level r≥0.
+
+**Hypotheses:** p is any prime. K and L are normed ultrametric fields with Algebra K L. Their norm valuations v_K and v_L satisfy the native Valuation.HasExtension condition: v_K is equivalent to the pullback of v_L, not necessarily numerically equal to it. O_K=v_K.integer and O_L=v_L.integer are the existing native integer subrings. Use exactly the algebraMap c:O_K→O_L supplied by native Valuation.HasExtension.instAlgebraInteger. Its underlying field value is algebraMap K L. No new integral coefficient map or replacement carrier is constructed. For statements involving continuous tests assume ContinuousSMul K L. The field algebra map is then continuous, and native Continuous.subtype_mk gives continuity of c. Write c_*f for this actual continuous-map composite. The finite-coordinate and divisibility arguments themselves are algebraic. Let ψ:DirichletCharacter K D and φ:DirichletCharacter K E. Transport each character with native MulChar.ringHomComp(algebraMap K L), retaining its level and zero extension. The actual integral coefficient measures, finite group coordinates and continuous positive-series measures on U=(ℤ_p)ˣ are reused. For arithmetic moments additionally assume Algebra ℤ_p K and Algebra ℤ_p L with their bounded scalar actions. The proof uses only natural-cast divisor units and preservation of natural casts by the field map; no compatibility of arbitrary unit tests is assumed. The finite character χ has level p^t and exponent e≥0. Precision reflection uses an arbitrary b∈O_K and its exact image c(b), including b=0. For b=p^r the modulus remains p^r upstairs, even in a ramified extension. Replacing it by the r-th power of a uniformizer is not part of this statement.
+
+**Proof:**
+
+1. Expand the actual finite coordinate by the promoted weighted divisor formula. Its group indices are the same native reductions of the same p-adic units on both sides.
+2. Native mapRingHom_single maps each scalar coefficient by c and leaves its unit-group index unchanged. The atomic weight identity from coefficient base change identifies the resulting scalar with the target character weight. Commute the map through the finite sum.
+3. The complete finite_coefficient_change proof verifies exactly this native group-algebra map. It includes signed or nonrational character values and residue collisions; no scalar is replaced by its rational or real component.
+4. The first coefficient maps to[1]. In a compatible tower K→L→M, the native integer-ring maps compose by their field inclusions and subtype extensionality; native group-algebra coefficient maps then compose. The typed tower test retains this functoriality.
+
+**Prerequisites:** `DirichletPadicLFunctions:L4/integral-twisted-eisenstein-finite-divisors`, `DirichletPadicLFunctions:L4/integral-twisted-coefficient-base-change`, `mathlib:MonoidAlgebra.mapRingHom`, `mathlib:MonoidAlgebra.mapRingHom_single`.
+
+**Tests:**
+
+- `SuggestedEisensteinCoefficientChangeTests.finite_first_atom_base_change` (computation): Every group level sends the first finite coefficient to the basis element[1].
+- `SuggestedEisensteinCoefficientChangeTests.finite_coordinate_change_composes` (compatibility): Finite coefficient maps through a compatible field tower equal the direct coefficient map.
+
+**Acceptance:** The group level is unchanged. Coefficient-field change does not assert finiteness of the integer rings or their residue quotients.
+
+**Source:** Remark5.8(2) and the integral coefficient discussion, published143–144/PDF44–45, read with whole143–146 in predecessor4769. Theorem8.2 and its entire proof, Remark8.3, published159–161/PDF60–62, read in4764. Worker coefficient-field comparisons for the actual integral character-weighted positive coefficients and series. The source fixes a coefficient field containing the character values; the explicit naturality, injective descent and integral-precision reflection are derived from the finite divisor formulas and native valuation-extension theory. This does not construct a general measure coefficient-extension functor, a constant coefficient or a geometric family.
+
+### Coefficient-field change for the whole positive series
+
+`DirichletPadicLFunctions:L4/integral-twisted-series-base-change` — `DirichletPadic.integralTwistedPositiveEisensteinSeries_baseChange`
+
+PowerSeries.map c(E^K_(ψ,φ)(f))=E^L_(ψ_L,φ_L)(c_*f).
+
+**Hypotheses:** p is any prime. K and L are normed ultrametric fields with Algebra K L. Their norm valuations v_K and v_L satisfy the native Valuation.HasExtension condition: v_K is equivalent to the pullback of v_L, not necessarily numerically equal to it. O_K=v_K.integer and O_L=v_L.integer are the existing native integer subrings. Use exactly the algebraMap c:O_K→O_L supplied by native Valuation.HasExtension.instAlgebraInteger. Its underlying field value is algebraMap K L. No new integral coefficient map or replacement carrier is constructed. For statements involving continuous tests assume ContinuousSMul K L. The field algebra map is then continuous, and native Continuous.subtype_mk gives continuity of c. Write c_*f for this actual continuous-map composite. The finite-coordinate and divisibility arguments themselves are algebraic. Let ψ:DirichletCharacter K D and φ:DirichletCharacter K E. Transport each character with native MulChar.ringHomComp(algebraMap K L), retaining its level and zero extension. The actual integral coefficient measures, finite group coordinates and continuous positive-series measures on U=(ℤ_p)ˣ are reused. For arithmetic moments additionally assume Algebra ℤ_p K and Algebra ℤ_p L with their bounded scalar actions. The proof uses only natural-cast divisor units and preservation of natural casts by the field map; no compatibility of arbitrary unit tests is assumed. The finite character χ has level p^t and exponent e≥0. Precision reflection uses an arbitrary b∈O_K and its exact image c(b), including b=0. For b=p^r the modulus remains p^r upstairs, even in a ramified extension. Replacing it by the r-th power of a uniformizer is not part of this statement.
+
+**Proof:**
+
+1. Use native PowerSeries.ext and coeff_map. At every positive index the actual series coefficient formula reduces the claim to the promoted integral coefficient base-change theorem.
+2. Both zero coefficients are zero, and c preserves zero. The complete power_series_change proof checks that these coefficient equalities identify the whole formal series.
+3. Native PowerSeries.map_comp and equality of the integer-ring maps on underlying field values give composition in a compatible field tower. Native self-algebra maps give the identity case. Both appear as typed tests on the actual series.
+4. The series target keeps its existing native coefficientwise topology. The equality is a formal-series comparison and uses no analytic convergence or completed-algebra equivalence.
+
+**Prerequisites:** `DirichletPadicLFunctions:L4/integral-twisted-positive-series-coeff`, `DirichletPadicLFunctions:L4/integral-twisted-coefficient-base-change`, `mathlib:PowerSeries.ext`, `mathlib:PowerSeries.coeff_map`, `mathlib:PowerSeries.map_comp`.
+
+**Tests:**
+
+- `SuggestedEisensteinCoefficientChangeTests.identity_series_change` (compatibility): The native self coefficient map preserves the whole series.
+- `SuggestedEisensteinCoefficientChangeTests.extension_preserves_zero_constant` (degenerate): The extended positive series still has zero constant coefficient.
+- `SuggestedEisensteinCoefficientChangeTests.series_change_composes` (compatibility): Mapping the whole actual series through K→L→M equals mapping it directly to M.
+
+**Acceptance:** The zero constant is still only positive truncation. No constant-term descent or modular-form scalar extension is supplied.
+
+**Source:** Remark5.8(2) and the integral coefficient discussion, published143–144/PDF44–45, read with whole143–146 in predecessor4769. Theorem8.2 and its entire proof, Remark8.3, published159–161/PDF60–62, read in4764. Worker coefficient-field comparisons for the actual integral character-weighted positive coefficients and series. The source fixes a coefficient field containing the character values; the explicit naturality, injective descent and integral-precision reflection are derived from the finite divisor formulas and native valuation-extension theory. This does not construct a general measure coefficient-extension functor, a constant coefficient or a geometric family.
+
+### Equality of positive series descends through coefficient extension
+
+`DirichletPadicLFunctions:L4/integral-twisted-series-base-change-equality` — `DirichletPadic.integralTwistedPositiveEisensteinSeries_baseChange_eq_iff`
+
+Two extended actual positive series on c_*f and c_*g are equal if and only if their original O_K-valued positive series are equal.
+
+**Hypotheses:** p is any prime. K and L are normed ultrametric fields with Algebra K L. Their norm valuations v_K and v_L satisfy the native Valuation.HasExtension condition: v_K is equivalent to the pullback of v_L, not necessarily numerically equal to it. O_K=v_K.integer and O_L=v_L.integer are the existing native integer subrings. Use exactly the algebraMap c:O_K→O_L supplied by native Valuation.HasExtension.instAlgebraInteger. Its underlying field value is algebraMap K L. No new integral coefficient map or replacement carrier is constructed. For statements involving continuous tests assume ContinuousSMul K L. The field algebra map is then continuous, and native Continuous.subtype_mk gives continuity of c. Write c_*f for this actual continuous-map composite. The finite-coordinate and divisibility arguments themselves are algebraic. Let ψ:DirichletCharacter K D and φ:DirichletCharacter K E. Transport each character with native MulChar.ringHomComp(algebraMap K L), retaining its level and zero extension. The actual integral coefficient measures, finite group coordinates and continuous positive-series measures on U=(ℤ_p)ˣ are reused. For arithmetic moments additionally assume Algebra ℤ_p K and Algebra ℤ_p L with their bounded scalar actions. The proof uses only natural-cast divisor units and preservation of natural casts by the field map; no compatibility of arbitrary unit tests is assumed. The finite character χ has level p^t and exponent e≥0. Precision reflection uses an arbitrary b∈O_K and its exact image c(b), including b=0. For b=p^r the modulus remains p^r upstairs, even in a ramified extension. Replacing it by the r-th power of a uniformizer is not part of this statement.
+
+**Proof:**
+
+1. Rewrite both extended series using the promoted whole-series base-change equality. The native integer-ring algebra map is injective because the underlying coefficient map is a homomorphism from the field K to the nontrivial field L.
+2. Apply native PowerSeries.map_injective using native Valuation.HasExtension.algebraMap_injective. The complete integer_map_injective proof checks the exact native map used in the suggested signatures.
+3. Taking g=0 shows that vanishing of the extended positive series descends. This compares values of the series-valued measure; it does not assert that the map from arbitrary continuous tests to series is injective.
+4. The theorem gives faithful comparison of these already integral objects. It does not state that every arbitrary O_L-valued measure or series descends to O_K.
+
+**Prerequisites:** `DirichletPadicLFunctions:L4/integral-twisted-series-base-change`, `mathlib:Valuation.HasExtension.algebraMap_injective`, `mathlib:PowerSeries.map_injective`.
+
+**Tests:**
+
+- `SuggestedEisensteinCoefficientChangeTests.zero_series_descends` (characterisation): If the actual series on the included test vanishes after extension, the original series vanishes.
+
+**Acceptance:** The quantified objects on both sides are the existing series evaluations. No essential-surjectivity or arbitrary-measure descent claim is made.
+
+**Source:** Remark5.8(2) and the integral coefficient discussion, published143–144/PDF44–45, read with whole143–146 in predecessor4769. Theorem8.2 and its entire proof, Remark8.3, published159–161/PDF60–62, read in4764. Worker coefficient-field comparisons for the actual integral character-weighted positive coefficients and series. The source fixes a coefficient field containing the character values; the explicit naturality, injective descent and integral-precision reflection are derived from the finite divisor formulas and native valuation-extension theory. This does not construct a general measure coefficient-extension functor, a constant coefficient or a geometric family.
+
+### Integral congruence precision is reflected by coefficient extension
+
+`DirichletPadicLFunctions:L4/integral-twisted-series-base-change-precision` — `DirichletPadic.integralTwistedPositiveEisensteinSeries_baseChange_dvd_iff`
+
+C(c(b)) divides E^L(c_*g)−E^L(c_*f) if and only if C(b) divides E^K(g)−E^K(f), for every b∈O_K.
+
+**Hypotheses:** p is any prime. K and L are normed ultrametric fields with Algebra K L. Their norm valuations v_K and v_L satisfy the native Valuation.HasExtension condition: v_K is equivalent to the pullback of v_L, not necessarily numerically equal to it. O_K=v_K.integer and O_L=v_L.integer are the existing native integer subrings. Use exactly the algebraMap c:O_K→O_L supplied by native Valuation.HasExtension.instAlgebraInteger. Its underlying field value is algebraMap K L. No new integral coefficient map or replacement carrier is constructed. For statements involving continuous tests assume ContinuousSMul K L. The field algebra map is then continuous, and native Continuous.subtype_mk gives continuity of c. Write c_*f for this actual continuous-map composite. The finite-coordinate and divisibility arguments themselves are algebraic. Let ψ:DirichletCharacter K D and φ:DirichletCharacter K E. Transport each character with native MulChar.ringHomComp(algebraMap K L), retaining its level and zero extension. The actual integral coefficient measures, finite group coordinates and continuous positive-series measures on U=(ℤ_p)ˣ are reused. For arithmetic moments additionally assume Algebra ℤ_p K and Algebra ℤ_p L with their bounded scalar actions. The proof uses only natural-cast divisor units and preservation of natural casts by the field map; no compatibility of arbitrary unit tests is assumed. The finite character χ has level p^t and exponent e≥0. Precision reflection uses an arbitrary b∈O_K and its exact image c(b), including b=0. For b=p^r the modulus remains p^r upstairs, even in a ramified extension. Replacing it by the r-th power of a uniformizer is not part of this statement.
+
+**Proof:**
+
+1. Native Valuation.integer.integers realizes each actual integer ring. Its native dvd_iff_le says x divides y precisely when v(y)≤v(x), including x=0. Native HasExtension.val_map_le_iff identifies that inequality upstairs and downstairs.
+2. The complete integer_divisibility_iff proof verifies c(x)∣c(y) iff x∣y directly from those native declarations. It assumes equivalence of valuations, not equality of their numerical normalizations, and needs no finite-degree or completeness hypothesis.
+3. Constant-series divisibility is equivalent to scalar divisibility of every coefficient: one direction applies coeff_C_mul, and the other chooses integral quotient coefficients and assembles them with native mk. The complete constant_divisibility_iff proof checks both directions without field division.
+4. Rewrite the extended series difference using whole-series base change and preservation of subtraction. Apply the preceding two equivalences coefficientwise. The complete whole_series_divisibility_reflect proof checks this exact formal-series argument, and integral_nondivisibility_preserved records its contrapositive.
+5. At b=0 this reduces to descent of equality. At b=p^r the same p-power modulus is retained in a ramified extension. If π²=3 in O_L over ℚ_3, then9 does not divide π²: replacing3² byπ² would incorrectly weaken the modulus. In the field L,9 does divide3, so field divisibility cannot serve as the integral precision statement.
+
+**Prerequisites:** `DirichletPadicLFunctions:L4/integral-twisted-series-base-change`, `mathlib:Valuation.integer.integers`, `mathlib:Valuation.Integers.dvd_iff_le`, `mathlib:Valuation.HasExtension.val_map_le_iff`, `mathlib:PowerSeries.coeff_C_mul`, `mathlib:PowerSeries.coeff_map`, `mathlib:PowerSeries.mk`, `mathlib:PowerSeries.coeff_mk`, `mathlib:PowerSeries.ext`.
+
+**Tests:**
+
+- `SuggestedEisensteinCoefficientChangeTests.zero_modulus_reflects_equality` (degenerate): C(0)-divisibility of the extended difference forces equality of the original series.
+- `SuggestedEisensteinCoefficientChangeTests.ramified_parameter_does_not_change_p_precision` (non-example): For any compatible coefficient extension of ℚ_3 and π∈O_L withπ²=3,9 does not divideπ² in O_L.
+- `SuggestedEisensteinCoefficientChangeTests.field_divisibility_is_not_integral_precision` (non-example): In the same extension9 divides3 in L but not in O_L.
+
+**Acceptance:** The theorem reflects the exact integral ideal generated by b. It neither changes a p-power modulus into a uniformizer-power modulus nor treats nonzero field scalars as meaningful precision ideals.
+
+**Source:** Remark5.8(2) and the integral coefficient discussion, published143–144/PDF44–45, read with whole143–146 in predecessor4769. Theorem8.2 and its entire proof, Remark8.3, published159–161/PDF60–62, read in4764. Worker coefficient-field comparisons for the actual integral character-weighted positive coefficients and series. The source fixes a coefficient field containing the character values; the explicit naturality, injective descent and integral-precision reflection are derived from the finite divisor formulas and native valuation-extension theory. This does not construct a general measure coefficient-extension functor, a constant coefficient or a geometric family.
+
+### Coefficient-field compatibility of arithmetic moments
+
+`DirichletPadicLFunctions:L4/integral-twisted-arithmetic-coefficient-base-change` — `DirichletPadic.integralTwistedPositiveEisensteinMeasure_arithmetic_baseChange`
+
+c(A^K_(ψ,φ,n)(κ^K_(t,χ,e)))=A^L_(ψ_L,φ_L,n)(κ^L_(t,χ_L,e)).
+
+**Hypotheses:** p is any prime. K and L are normed ultrametric fields with Algebra K L. Their norm valuations v_K and v_L satisfy the native Valuation.HasExtension condition: v_K is equivalent to the pullback of v_L, not necessarily numerically equal to it. O_K=v_K.integer and O_L=v_L.integer are the existing native integer subrings. Use exactly the algebraMap c:O_K→O_L supplied by native Valuation.HasExtension.instAlgebraInteger. Its underlying field value is algebraMap K L. No new integral coefficient map or replacement carrier is constructed. For statements involving continuous tests assume ContinuousSMul K L. The field algebra map is then continuous, and native Continuous.subtype_mk gives continuity of c. Write c_*f for this actual continuous-map composite. The finite-coordinate and divisibility arguments themselves are algebraic. Let ψ:DirichletCharacter K D and φ:DirichletCharacter K E. Transport each character with native MulChar.ringHomComp(algebraMap K L), retaining its level and zero extension. The actual integral coefficient measures, finite group coordinates and continuous positive-series measures on U=(ℤ_p)ˣ are reused. For arithmetic moments additionally assume Algebra ℤ_p K and Algebra ℤ_p L with their bounded scalar actions. The proof uses only natural-cast divisor units and preservation of natural casts by the field map; no compatibility of arbitrary unit tests is assumed. The finite character χ has level p^t and exponent e≥0. Precision reflection uses an arbitrary b∈O_K and its exact image c(b), including b=0. For b=p^r the modulus remains p^r upstairs, even in a ramified extension. Replacing it by the r-th power of a uniformizer is not part of this statement.
+
+**Proof:**
+
+1. Include both O_L-valued expressions into L. Native val_algebraMap identifies the left inclusion with the image under algebraMap K L of the actual K-valued arithmetic moment.
+2. Apply the existing finite-character moment formula in each field. Ring homomorphisms preserve the finite divisor sums, products, natural casts and natural powers, while native ringHomComp gives the transported values of ψ,φ andχ.
+3. The two finite expressions therefore agree in L. Native subtype injectivity yields equality in O_L. The argument uses natural-cast divisor units, so no unstated commutative scalar tower for arbitrary p-adic unit evaluations is required.
+4. At n=1 both actual arithmetic moments are1. The proof includes t=0, e=0 and imprimitive finite characters, retaining their native zero extensions.
+
+**Prerequisites:** `DirichletPadicLFunctions:L4/integral-twisted-coefficient-arithmetic-moment`, `DirichletPadicLFunctions:L4/integral-twisted-coefficient-base-change`, `mathlib:Valuation.HasExtension.val_algebraMap`, `mathlib:MulChar.ringHomComp`.
+
+**Tests:**
+
+- `SuggestedEisensteinCoefficientChangeTests.first_arithmetic_coefficient_base_change` (computation): The image of the first actual arithmetic coefficient is1 for every finite character and exponent.
+
+**Acceptance:** Each field carries the explicitly stated p-adic algebra and bounded action needed by its existing arithmetic character. No general comparison of arbitrary K-valued continuous characters is assumed.
+
+**Source:** Remark5.8(2) and the integral coefficient discussion, published143–144/PDF44–45, read with whole143–146 in predecessor4769. Theorem8.2 and its entire proof, Remark8.3, published159–161/PDF60–62, read in4764. Worker coefficient-field comparisons for the actual integral character-weighted positive coefficients and series. The source fixes a coefficient field containing the character values; the explicit naturality, injective descent and integral-precision reflection are derived from the finite divisor formulas and native valuation-extension theory. This does not construct a general measure coefficient-extension functor, a constant coefficient or a geometric family.
+
+### Coefficient-field compatibility of arithmetic positive series
+
+`DirichletPadicLFunctions:L4/integral-twisted-arithmetic-series-base-change` — `DirichletPadic.integralTwistedPositiveEisensteinSeries_arithmetic_baseChange`
+
+PowerSeries.map c(E^K_(ψ,φ)(κ^K_(t,χ,e)))=E^L_(ψ_L,φ_L)(κ^L_(t,χ_L,e)).
+
+**Hypotheses:** p is any prime. K and L are normed ultrametric fields with Algebra K L. Their norm valuations v_K and v_L satisfy the native Valuation.HasExtension condition: v_K is equivalent to the pullback of v_L, not necessarily numerically equal to it. O_K=v_K.integer and O_L=v_L.integer are the existing native integer subrings. Use exactly the algebraMap c:O_K→O_L supplied by native Valuation.HasExtension.instAlgebraInteger. Its underlying field value is algebraMap K L. No new integral coefficient map or replacement carrier is constructed. For statements involving continuous tests assume ContinuousSMul K L. The field algebra map is then continuous, and native Continuous.subtype_mk gives continuity of c. Write c_*f for this actual continuous-map composite. The finite-coordinate and divisibility arguments themselves are algebraic. Let ψ:DirichletCharacter K D and φ:DirichletCharacter K E. Transport each character with native MulChar.ringHomComp(algebraMap K L), retaining its level and zero extension. The actual integral coefficient measures, finite group coordinates and continuous positive-series measures on U=(ℤ_p)ˣ are reused. For arithmetic moments additionally assume Algebra ℤ_p K and Algebra ℤ_p L with their bounded scalar actions. The proof uses only natural-cast divisor units and preservation of natural casts by the field map; no compatibility of arbitrary unit tests is assumed. The finite character χ has level p^t and exponent e≥0. Precision reflection uses an arbitrary b∈O_K and its exact image c(b), including b=0. For b=p^r the modulus remains p^r upstairs, even in a ramified extension. Replacing it by the r-th power of a uniformizer is not part of this statement.
+
+**Proof:**
+
+1. Apply native coefficient extensionality to the actual mapped series and the target arithmetic specialization. At each positive index use the promoted arithmetic coefficient base-change equality.
+2. At index0 both positive truncations vanish. Native coeff_map and coeff_mk/series coefficient formulas complete the equality.
+3. This specializes coefficient-field naturality to the source’s finite-character arithmetic tests, including nonrational character values. Its integral form can be combined with the precision-reflection argument coefficientwise; no classical Eisenstein form or analytic family is inferred.
+
+**Prerequisites:** `DirichletPadicLFunctions:L4/integral-twisted-arithmetic-coefficient-base-change`, `DirichletPadicLFunctions:L4/integral-twisted-positive-series-coeff`, `mathlib:PowerSeries.ext`, `mathlib:PowerSeries.coeff_map`.
+
+**Tests:**
+
+
+
+**Acceptance:** The output remains in the actual integer-ring power series before any field inclusion, and keeps the same character levels and arithmetic exponent.
+
+**Source:** Remark5.8(2) and the integral coefficient discussion, published143–144/PDF44–45, read with whole143–146 in predecessor4769. Theorem8.2 and its entire proof, Remark8.3, published159–161/PDF60–62, read in4764. Worker coefficient-field comparisons for the actual integral character-weighted positive coefficients and series. The source fixes a coefficient field containing the character values; the explicit naturality, injective descent and integral-precision reflection are derived from the finite divisor formulas and native valuation-extension theory. This does not construct a general measure coefficient-extension functor, a constant coefficient or a geometric family.
+
+**Remaining:** The actual weighted integral coefficients, finite coordinates, whole positive series and arithmetic moments now have coefficient-field comparison statements through native valuation-compatible integer-ring maps; equality and exact integral precision reflect back to the original series. This is faithful comparison of existing objects, not arbitrary measure descent. The native twisted-divisor/Euler-deletion comparison, shared primitive-character modular-form specialization, generalized constant coefficient and denominator qualifications remain open. General completed-algebra, coefficient-extension and weight-space geometry stay with their owners and requests. All source corrections, analytic pole/residue questions and full source extraction remain open.
+
+### Coefficient fields of integral weighted Eisenstein series validation
+
+All 580 predecessor nodes, 500 baseline records, 16 findings, requests and sourceVersions remain whole. This checkpoint adds 7 nodes, 7 named suggested declarations and 12 typed examples. The indexed blueprint, four-file intake, whitespace, preservation, API/test parity and versioned-source checks pass. The graph has 829 reachable nodes, 3974 edges and 680 native leaves and is acyclic. Its stage request leaves are PadicMeasuresIwasawaAlgebras:L1, PadicMeasuresIwasawaAlgebras:L3, PadicMeasuresIwasawaAlgebras:L3, LocallyAnalyticDistributions:L1, AdicSpacesPartII:F1, AdicSpacesPartII:R2, PadicDifferentialEquationsAndRigidCohomology:RD.0, PadicDifferentialEquationsAndRigidCohomology:RD.4, PadicHodgeTheory:P7:annulus-foundations. All seven new routes end in existing native declarations through preserved coefficient interfaces. The shared general coefficient-extension and completed-algebra requests remain open.
+
+The full suggested module elaborates with zero errors and 1803 expected placeholder warnings. Source and artifact audits cover 3601 pinned Mathlib modules, 21 pinned Tau Ceti modules and the verified actual 332-node PMIA artifact. The current 369-node PMIA source preserves the compiled 332-node artifact's source in order; no new supplier declaration is called and no compilation against the current supplier revision is claimed. Source, olean and original compiler-log hashes were rechecked. Existing builds only were used.
+
+Eleven complete native lemmas check continuity and injectivity of the actual integer-ring algebra map, reflection of scalar divisibility through native valuations, actual Dirac evaluation and coefficient change, transported character weights, native group-algebra and power-series maps, both directions of constant-series divisibility, whole-series precision reflection and preservation of nondivisibility. The probe elaborates against 2815 pinned Mathlib modules with zero errors, warnings or placeholders. General roadmap declarations remain unchecked.
+
+Exact finite polynomial-quotient controls check nonrational character weights, coefficient and finite-group maps, truncated-series naturality and coordinatewise p-power precision through an extension with π²=3. Controls reject discarding imaginary character components and replacing p² precision by π² precision. Exact arithmetic in A_r=(ℤ/3^rℤ)[i]/(i²+1) and B_r=A_r[π]/(π²−3), r=0–4, with explicit coefficient bases. Every ordered level1/4/quartic5 character pair is tested on q-indices0–48 and exponents0–3. Ring operations, mapped polynomial tests, finite group coordinates, direct/two-step coefficient embeddings and coordinatewise ideals(3^s),s≤r, are checked. These are explicitly defined finite polynomial-quotient models; no local-field realization is certified. The largest observed discrepancy is 0.
+
+The63-input capture at 58d74b77e1717f2c6418bfd76bad27260e946dbd has an empty predecessor delta. The existing pinned Mathlib Valuation.Extension artifact is newly imported ahead of the unchanged predecessor Lean body; no native module is built. The actual compiled332-node PMIA artifact is reused with no added369-node supplier declaration called. The native twisted-divisor module remains source-checked only.
