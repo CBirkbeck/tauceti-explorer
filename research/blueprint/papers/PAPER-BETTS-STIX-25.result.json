@@ -16,7 +16,7 @@
       "arXiv v1: §1 (1.1–1.2), §2 (2.1–2.3), §3 (3.1–3.5), §4 (4.1–4.2.1), §5 (5.1–5.3), §6 (6.1–6.5), §7 (7.1–7.2), Appendix A, references."
     ]
   },
-  "summary": "Betts and Stix prove that for a number field K with no CM subfield and a curve Y/K of genus ≥ 2, the image of the Selmer sections in Y(K_v) is finite for every finite place v (Theorem A), and hence that each local projection of the finite descent locus is finite (Theorem B). The method recasts Lawrence–Venkatesh as an obstruction. A Selmer section restricts the cohomology local systems of an abelian-by-finite family to a global symplectic pair interpolating the local ones (Theorem 7.1). For every self-conjugate v, a Kodaira–Parshin family has finite Lawrence–Venkatesh locus (Theorem 6.5); this rests on model-free v-adic period maps, which control D_pst via Scholze's relative comparison and Shimizu's horizontal semistability, and on a symplectic principal trichotomy. As the maintainer routed it, the new mathematics goes to a Part II of the anabelian roadmap (GaloisSectionsPadicPeriodMaps); Lawrence–Venkatesh machinery is sourced into LV.1, LV.2, LV.3 and LV.7, relative p-adic Hodge theory into PadicHodgeTheory P8, and the Chern-class compatibility into CohomologyComparisons CP.6. Complete (cc-442dc5): every numbered statement is an item, and every missing item is routed exactly once. Six findings are recorded, including a counterexample to Proposition 6.7(c) as printed for non-reduced A (not used), and two proof gaps with easy repairs. The published revision was not available for comparison. Not formalised.",
+  "summary": "Betts and Stix prove that for a number field K with no CM subfield and a curve Y/K of genus ≥ 2, the image of the Selmer sections in Y(K_v) is finite for every finite place v (Theorem A), and hence that each local projection of the finite descent locus is finite (Theorem B). The method recasts Lawrence–Venkatesh as an obstruction. A Selmer section restricts the cohomology local systems of an abelian-by-finite family to a global symplectic pair interpolating the local ones (Theorem 7.1). For every self-conjugate v, a Kodaira–Parshin family has finite Lawrence–Venkatesh locus (Theorem 6.5); this rests on model-free v-adic period maps, which control D_pst via Scholze's relative comparison and Shimizu's horizontal semistability, and on a symplectic principal trichotomy. As the maintainer routed it, the new mathematics goes to a Part II of the anabelian roadmap (GaloisSectionsPadicPeriodMaps); Lawrence–Venkatesh machinery is sourced into LV.1, LV.2, LV.3 and LV.7, relative p-adic Hodge theory into PadicHodgeTheory P8, and the Chern-class compatibility into CohomologyComparisons CP.6. Complete (cc-442dc5): every numbered statement is an item, and every missing item is routed exactly once. Eight findings are recorded, including a counterexample to Proposition 6.7(c) as printed for non-reduced or non-split A (not used), two proof gaps with easy repairs, and a gap in the proof of Theorem 3.12(2) around Lemma A.2 (E7). Corrected after the red team RT-PAPER-BETTS-STIX-25 by FIX-RT-PAPER-BETTS-STIX-25 (30 September 2026): Proposition 2.19 and Σ_A are restored to the paper's Q_p-valued forms, and three cited inputs are added as items (/101–/103). The published revision was not available for comparison. Not formalised.",
   "items": [
     {
       "id": "PAPER-BETTS-STIX-25/1",
@@ -285,22 +285,23 @@
       "id": "PAPER-BETTS-STIX-25/24",
       "kind": "theorem",
       "name": "Proposition 2.19: Hodge–Tate weights of pure characters",
-      "statement": "Let χ: G_K → Q̄_p^× be unramified and pure of weight n outside a finite set and de Rham at all p-adic places, and let r_v be its Hodge–Tate weight at v | p. If v and v′ are conjugate, r_v + r_{v′} = n; in particular for self-conjugate v, n is even and r_v = n/2.",
+      "statement": "Let χ: G_K → Q_p^× be unramified and pure of weight n outside a finite set and de Rham at all p-adic places, and let r_v be its Hodge–Tate weight at v | p. If v and v′ are conjugate, r_v + r_{v′} = n; in particular for self-conjugate v, n is even and r_v = n/2.",
       "locator": "arXiv v1 Proposition 2.19, pp.13–14",
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "Proof via class field theory and the Serre torus [Ser89, II-34]: N_{K/Q}: S_K → G_m is an isogeny when K has no CM subfield, and N_{K/E}, N_{E^+/Q} otherwise. Hodge–Tate weight convention: r with (C_p(r) ⊗ V)^{G_v} ≠ 0."
+      "note": "Proof via class field theory and the Serre torus [Ser89, II-34]: N_{K/Q}: S_K → G_m is an isogeny when K has no CM subfield, and N_{K/E}, N_{E^+/Q} otherwise. Hodge–Tate weight convention: r with (C_p(r) ⊗ V)^{G_v} ≠ 0. Correction (30 September 2026, FIX-RT-PAPER-BETTS-STIX-25): the character is Q_p^×-valued, as the paper states (reps.tex l.329, p.13); the proof uses this, since η_p^alg is a product of local norms with values in Q_p^× and so is Galois-invariant on the Serre torus. With Q̄_p^×-values the statement is false when K has a CM subfield: for K = Q(i), p ≡ 3 mod 4 and v = (p) (inert, so self-conjugate), the character of G_K on V_p of y² = x³ − x (CM by Z[i] over K) composed with an embedding Q_{p²} → Q̄_p is pure of odd weight and de Rham at v, where it is a Lubin–Tate character with Hodge–Tate weights 0 and 1 at the two embeddings, so 'n even, r_v = n/2' fails (RT-PAPER-BETTS-STIX-25/2). When K has no CM subfield the Q̄_p^×-valued version also holds."
     },
     {
       "id": "PAPER-BETTS-STIX-25/25",
       "kind": "theorem",
       "name": "Remark 2.20: pure characters at self-conjugate places",
-      "statement": "Under Proposition 2.19's hypotheses, if v is self-conjugate then χ|G_v = χ_0·χ_cyc^{−n/2} with χ_0 of finite order.",
+      "statement": "For χ: G_K → Q_p^× as in Proposition 2.19 (Q_p^×-valued, unramified and pure of weight n outside a finite set, de Rham at all p-adic places), if v is self-conjugate then χ|G_v = χ_0·χ_cyc^{−n/2} with χ_0 of finite order.",
       "locator": "arXiv v1 Remark 2.20, p.14",
       "status": "missing",
       "library": [],
-      "planned": []
+      "planned": [],
+      "note": "Correction (30 September 2026, FIX-RT-PAPER-BETTS-STIX-25): the character must be Q_p^×-valued, as in the paper. For the Q̄_p^×-valued CM character of item /24's note, χ|G_v is Lubin–Tate, not a finite-order character times a power of χ_cyc, and n is odd (RT-PAPER-BETTS-STIX-25/2)."
     },
     {
       "id": "PAPER-BETTS-STIX-25/26",
@@ -446,7 +447,7 @@
       "planned": [
         "PadicHodgeTheory:P8"
       ],
-      "note": "[Sch13, Theorems 1.10 and 8.8]; P8 plans the proper-smooth comparison with connection. Remark 3.13: whether η are isomorphisms before completing is left open."
+      "note": "[Sch13, Theorems 1.10 and 8.8]; P8 plans the proper-smooth comparison with connection. Remark 3.13: whether η are isomorphisms before completing is left open. The printed proof of (2) has a gap (E7); its E_1-degeneration input is item /103."
     },
     {
       "id": "PAPER-BETTS-STIX-25/39",
@@ -530,7 +531,7 @@
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "Theorem 3.3 is the special case of the de Rham pair (R^iπ^an_* Ẑ_p, R^iπ^an_dR* O, c_dR). Also in [Bet22, Theorem 6.1]."
+      "note": "Theorem 3.3 is the special case of the de Rham pair (R^iπ^an_* Ẑ_p, R^iπ^an_dR* O, c_dR). Also in [Bet22, Theorem 6.1]. Its proof uses Shimizu's relative p-adic monodromy theorem (item /101) and [Shi20, Proposition 4.9] (item /102)."
     },
     {
       "id": "PAPER-BETTS-STIX-25/47",
@@ -853,22 +854,23 @@
       "id": "PAPER-BETTS-STIX-25/77",
       "kind": "theorem",
       "name": "Remark 6.6: the algebra of a fibre",
-      "statement": "H^0_ét(X_{y_v,K̄_v}, Q_p) = ∏_{Y′_{y_v}(K̄_v)} Q_p, so Q̄_p-algebra maps ψ from it are the K̄_v-points of Y′_{y_v}, i.e. a closed point y′_v with a K_v-embedding of K_v(y′_v); [G_v : G_{w_ψ}] ≥ 4 means [K_v(y′_v) : K_v] ≥ 4.",
+      "statement": "H^0_ét(X_{y_v,K̄_v}, Q_p) = ∏_{Y′_{y_v}(K̄_v)} Q_p, so Q_p-algebra maps ψ from it to Q_p are the K̄_v-points of Y′_{y_v}, i.e. a closed point y′_v with a K_v-embedding of K_v(y′_v); [G_v : G_{w_ψ}] ≥ 4 means [K_v(y′_v) : K_v] ≥ 4.",
       "locator": "arXiv v1 Remark 6.6, p.46",
       "status": "missing",
       "library": [],
-      "planned": []
+      "planned": [],
+      "note": "Correction (30 September 2026, FIX-RT-PAPER-BETTS-STIX-25): Q_p-algebra maps to Q_p, as in the paper (Σ_A = Hom_{Q_p-alg}(A, Q_p), locus.tex l.108, p.45). This algebra is split (a product of copies of Q_p), so #Σ_A = dim_{Q_p}(A) for it (RT-PAPER-BETTS-STIX-25/3)."
     },
     {
       "id": "PAPER-BETTS-STIX-25/78",
       "kind": "theorem",
       "name": "Proposition 6.7: the principal trichotomy (corrected)",
-      "statement": "Let v be self-conjugate and (A, V) a symplectic pair of G_K-representations, V of rank 2d > 0 over A, de Rham above p with Hodge–Tate weights in {0, 1} at v, unramified and pure of weight 1 outside a finite set; Σ = Σ_A the Q̄_p-points of A. Then (a) some ψ ∈ Σ has [G_v : G_{w_ψ}] ≥ 4 and V_ψ GSp-irreducible for G_ψ; or (b) some ψ with [G_v : G_{w_ψ}] ≥ 4 has a non-zero isotropic G_ψ-stable W ≤ V_ψ with dim F¹D_dR,w_ψ(W) ≥ ½ dim W; or (c) the number of ψ ∈ Σ with [G_v : G_{w_ψ}] < 4 is ≥ #Σ/(d + 1), which is ≥ dim_{Q_p}(A)/(d + 1) when A is étale.",
+      "statement": "Let v be self-conjugate and (A, V) a symplectic pair of G_K-representations, V of rank 2d > 0 over A, de Rham above p with Hodge–Tate weights in {0, 1} at v, unramified and pure of weight 1 outside a finite set; Σ = Σ_A = Hom_{Q_p-alg}(A, Q_p), and V_ψ = Q_p ⊗_{A,ψ} V. Then (a) some ψ ∈ Σ has [G_v : G_{w_ψ}] ≥ 4 and V_ψ GSp-irreducible for G_ψ; or (b) some ψ with [G_v : G_{w_ψ}] ≥ 4 has a non-zero isotropic G_ψ-stable W ≤ V_ψ with dim F¹D_dR,w_ψ(W) ≥ ½ dim W; or (c) the number of ψ ∈ Σ with [G_v : G_{w_ψ}] < 4 is ≥ #Σ/(d + 1), which is ≥ dim_{Q_p}(A)/(d + 1) when A is split (A ≅ Q_p^n as a Q_p-algebra).",
       "locator": "arXiv v1 Proposition 6.7, pp.46–47; Proposition 1.8, pp.5–6; Remark 1.9, p.6",
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "Corrected statement: as printed, (c) has dim_{Q_p}(A), which fails for non-reduced A (E1). Every use has A étale. Proposition 1.8 states (b) with a local G_{w_ψ}-subrepresentation, a weaker conclusion."
+      "note": "Corrected statement: as printed, (c) has dim_{Q_p}(A), which fails for non-reduced A and for non-split A such as Q_{p²}, where Σ_A = ∅ (E1). Every use has A split: A|G_v ≅ H^0_ét(X_{y_v,K̄_v}, Q_p) = ∏ Q_p (Remark 6.6). Proposition 1.8 states (b) with a local G_{w_ψ}-subrepresentation, a weaker conclusion. Correction (30 September 2026, FIX-RT-PAPER-BETTS-STIX-25): Σ_A is the set of Q_p-points of A, as the paper defines it, not the Q̄_p-points; the étale clause is replaced by 'A split', since an étale Q_p-algebra need not be split (RT-PAPER-BETTS-STIX-25/3)."
     },
     {
       "id": "PAPER-BETTS-STIX-25/79",
@@ -878,7 +880,8 @@
       "locator": "arXiv v1 Definition 6.8, p.47",
       "status": "missing",
       "library": [],
-      "planned": []
+      "planned": [],
+      "note": "Kept as the paper prints it (FIX-RT-PAPER-BETTS-STIX-25, following the verifier of RT-PAPER-BETTS-STIX-25/3): type (c) is a definition and is evaluated only on algebras A ≅ H^0_ét(X_{y_v,K̄_v}, Q_p), which are split, so there dim_{Q_p}(A) = #Σ_A and type (c) agrees with the corrected Proposition 6.7(c) (item /78, E1)."
     },
     {
       "id": "PAPER-BETTS-STIX-25/80",
@@ -1087,11 +1090,12 @@
       "id": "PAPER-BETTS-STIX-25/99",
       "kind": "theorem",
       "name": "Lemma A.2 (Deligne)",
-      "statement": "If A is a filtered complex with filtration bounded below in each degree and its spectral sequence degenerates at the first page, then each H^j(A) is filtered [Del71, Prop. 1.3.2].",
+      "statement": "If A is a filtered complex of sheaves of modules whose filtration satisfies F^pA^n = 0 for p ≫ 0 in each degree (for instance a finite filtration: F^pA^n = A^n for p ≪ 0 and F^pA^n = 0 for p ≫ 0), and its spectral sequence degenerates at the first page, then each H^j(A) is filtered, i.e. every H^j(F^{p+1}A) → H^j(F^pA) is injective [Del71, Prop. 1.3.2].",
       "locator": "arXiv v1 Lemma A.2, p.57",
       "status": "missing",
       "library": [],
-      "planned": []
+      "planned": [],
+      "note": "Correction (30 September 2026, FIX-RT-PAPER-BETTS-STIX-25): the paper's hypothesis 'bounded below in every degree' is ambiguous. Read as F^pA^n = A^n for p ≪ 0 the lemma is false (E7); read as F^pA^n = 0 for p ≫ 0, as stated here, it is true and the printed proof works (RT-PAPER-BETTS-STIX-25/5)."
     },
     {
       "id": "PAPER-BETTS-STIX-25/100",
@@ -1102,20 +1106,53 @@
       "status": "missing",
       "library": [],
       "planned": []
+    },
+    {
+      "id": "PAPER-BETTS-STIX-25/101",
+      "kind": "theorem",
+      "name": "Shimizu's relative p-adic monodromy theorem on polyannuli (cited)",
+      "statement": "Let R_v = O_v⟨t_1^{±1}, …, t_n^{±1}⟩, which satisfies Shimizu's Set-up 3.1 and Condition (BR), and U = Sp(R_v[p^{-1}]) the spherical polyannulus. A de Rham Ẑ_p-local system E on U whose flat bundle has a full basis of horizontal sections corresponds (Lemma 3.27; [Shi20, Lemma 8.9]) to a horizontal de Rham representation of G_{R_v}, and by [Shi20, Theorem 7.4] its restriction to G_{R_w} is horizontal semistable for some finite extension L_w/K_v. Hence E is potentially horizontal semistable: dim D^∇_pst(E) = rank E, the rank of E ⊗_{Ẑ_p} Q_p.",
+      "locator": "arXiv v1 proof of Theorem 3.22, p.31 (cited there as [Shi20, Lemma 8.9]); Shimizu arXiv:2003.10951v2 Theorem 7.4, Lemma 8.9, Definition 5.6, §9.4",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Added by FIX-RT-PAPER-BETTS-STIX-25 (RT-PAPER-BETTS-STIX-25/4, with the verifier's citation). Lemma 8.9 of [Shi20] v2 only identifies D_dR of a local system with D_dR of the corresponding representation, compatibly with connection and filtration; the monodromy content is Theorem 7.4, which rests on Ohkubo's horizontal monodromy theorem ([Shi20, Theorem 7.1]) and the purity theorem ([Shi20, Theorem 6.1]). Shimizu's own proof of his Theorem 9.2 (§9.4) makes this deduction in the same way. Theorem 9.7 is not used here; it is item /27's input. No atlas stage plans a relative (horizontal) p-adic monodromy theorem: PadicHodgeTheory:R06.3 is the absolute one, and P8 plans period sheaves, the Poincaré lemma and the proper-smooth comparison. Its owner is a maintainer decision (route 6's reason). See E8 for the citation."
+    },
+    {
+      "id": "PAPER-BETTS-STIX-25/102",
+      "kind": "theorem",
+      "name": "Shimizu's Proposition 4.9: horizontal Galois-invariant de Rham periods (cited)",
+      "statement": "For R_v = O_v⟨t_1^{±1}, …, t_n^{±1}⟩: (B^∇_dR(R_v))^{G_{R_v}} = K_v [Shi20, Proposition 4.9, after Brinon, Corollaire 5.3.7]. In the paper's notation B_dR(R_v) := H^0(Ū, OB_dR,U) (as in [Shi20, p.47]), whose horizontal part is B^∇_dR(R_v), this reads B_dR(R_v)^{G_{R_v}, ∇=0} = K_v.",
+      "locator": "arXiv v1 proof of Theorem 3.22, pp.31–32; Shimizu arXiv:2003.10951v2 Proposition 4.9",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Added by FIX-RT-PAPER-BETTS-STIX-25 (RT-PAPER-BETTS-STIX-25/4). The proof of Theorem 3.22 uses it to show that the diagram (†) of G_{R_v}-equivariant isomorphisms of B_dR(R_v)-modules with connection commutes up to GL_n(K_v). Owner as for item /101."
+    },
+    {
+      "id": "PAPER-BETTS-STIX-25/103",
+      "kind": "theorem",
+      "name": "Relative Hodge–de Rham degeneration (Scholze, cited)",
+      "statement": "Let π: V → U be a proper smooth morphism of smooth rigid-analytic spaces over K_v and (𝔼, E, c) a de Rham pair on V, with R^iπ_*𝔼 a local system ([DLLZ19, Corollary 6.3.5]). Then every relative Hodge cohomology sheaf R^{i−j,j}π_Hodge*(E) is a locally free O_U-module of finite rank, the relative Hodge–de Rham spectral sequence R^{i−j,j}π_Hodge*(E) ⇒ R^iπ_dR*(E) degenerates at the first page, and R^iπ_*𝔼 is de Rham with associated filtered bundle with flat connection R^iπ_dR*(E) [Sch13, Theorem 8.8(ii)].",
+      "locator": "arXiv v1 proof of Theorem 3.12, p.22 ('the relative Hodge–de Rham spectral sequence for E degenerates at the first page'), citing [Sch13, Theorem 8.8]",
+      "status": "missing",
+      "library": [],
+      "planned": [],
+      "note": "Added by FIX-RT-PAPER-BETTS-STIX-25 (RT-PAPER-BETTS-STIX-25/5). It is part (ii) of the theorem item /38 cites (Scholze, arXiv:1205.3463v2, Theorem 8.8(ii)); P8's text names the proper-smooth comparison with connection but not this degeneration or the local freeness of relative Hodge cohomology, so route 6 takes it for P8's blueprint to state. The repaired proof of Theorem 3.12(2) applies item /99 to Rπ_dR*E through it (E7)."
     }
   ],
   "coverage": {
     "counts": {
       "library": 1,
       "planned": 19,
-      "missing": 80
+      "missing": 83
     }
   },
   "prerequisites": [
     {
       "citation": "K. Shimizu, A p-adic monodromy theorem for de Rham local systems, Compositio Math. 158 (2022), 2157–2205",
       "link": "https://doi.org/10.1112/s0010437x2200776x",
-      "why": "[Shi20]: full bases of horizontal sections (Theorem 9.7), horizontal semistable periods and potentially horizontal semistable local systems (Definitions 4.7, 4.15, Lemmas 4.4, 8.9, Proposition 4.9), behind Theorem 3.22."
+      "why": "[Shi20], cited by the paper as arXiv:2003.10951v2, whose numbering is used: full bases of horizontal sections (Theorem 9.7), horizontal semistable periods and potentially horizontal semistable local systems (Definition 4.7, Definition 5.6 (cited as 4.15), Lemmas 4.4, 8.9, Proposition 4.9), and the relative p-adic monodromy theorem (Theorem 7.4, items /101 and /102), behind Theorem 3.22."
     },
     {
       "citation": "D. Harari and J. Stix, Descent obstruction and fundamental exact sequence, in The Arithmetic of Fundamental Groups (PIA 2010), Springer 2012, 147–166",
@@ -1150,8 +1187,8 @@
       "roadmap": "GaloisSectionsPadicPeriodMaps",
       "title": "Anabelian geometry and nonabelian Chabauty, Part II: Galois sections and p-adic period mappings",
       "area": "arithmeticgeometry",
-      "brief": "Design GaloisSectionsPadicPeriodMaps, the Part II of Anabelian geometry and nonabelian Chabauty (AnabelianGeometryAndNonabelianChabauty) following Betts and Stix. Final theorems, exactly as the paper states them: Theorem A — for a number field K with no CM subfield and a smooth projective curve Y/K of genus ≥ 2, the image of loc_v: Sec^Sel(Y/K) → Y(K_v) is finite for every finite place v; Theorem B — the projection of the finite descent locus Y(A_K)_•^{f-cov} to Y(K_v) is finite; Theorem 6.5 — for self-conjugate v some abelian-by-finite family has finite Lawrence–Venkatesh locus Y(K_v)^LV_{X,S}; Theorem 7.1 — Selmer sections localise into Y(K_v)^LV_X. Cover: Selmer sections and the attached symplectic pairs (A_s, V_s) (§7); symplectic pairs, S-good pairs and the adelic, local and period-domain Lawrence–Venkatesh loci (§§1, 4, 6); self-conjugate places and the average Hodge–Tate weight (Proposition 2.19, Corollary 2.21); filtered discrete (ϕ, N, G_v)-modules with restriction, induction and automorphism groups (Lemma 2.15, Proposition 2.16, proved with Frobenius as well as G_v); the model-free control of D_pst by period maps (Theorems 3.3, 3.22, Proposition 3.5, Proposition 4.11); the principal trichotomy with #Σ_A in (c); the finiteness of types (a) and (b) and the emptiness of type (c) for Kodaira–Parshin families (Propositions 6.9, 6.15, 6.20). Import rather than re-plan: from The Mordell conjecture after Lawrence and Venkatesh (MordellLawrenceVenkatesh) the Faltings lemmas (LV.1), abelian-by-finite families and their cohomology (LV.2), Lagrangian period domains, period maps and the complex–v-adic comparison extended to K_v-points (LV.3), the Lagrangian general-position lemma (LV.7), and Kodaira–Parshin families with full monodromy (LV.8–LV.10); from p-adic Hodge theory (PadicHodgeTheory) D_pst, filtered (ϕ, N)-modules and Berger's theorem (R06.2, R06.3) and Scholze's relative comparison with Shimizu's horizontal semistability (P8); from Cohomology comparisons (CohomologyComparisons) the Chern-class compatibility (CP.6); from Anabelian geometry and nonabelian Chabauty the Galois sections of NC.0; from Heights, rational points and obstructions (HeightsRationalPointsAndObstructions) the finite descent locus (RP.3) together with the Harari–Stix theorem; purity from Deligne's weights (DeligneWeightsAndPurity DWP.4). Keep the Section Conjecture a conjecture and Theorem A's no-CM hypothesis visible.",
-      "reason": "The maintainer routed the paper to a new Part II, GaloisSectionsPadicPeriodMaps (DESIGN-BETTS-STIX), of the anabelian roadmap. Its new mathematics is the obstruction-theoretic reading of Lawrence–Venkatesh applied to Selmer sections. The Lawrence–Venkatesh method is extended to every self-conjugate place: no good reduction is needed, which requires (ϕ, N, G_v)-modules and relative p-adic Hodge theory in place of crystalline cohomology. The route also covers the symplectic principal trichotomy. NC.0–NC.6 do not go there, and the Lawrence–Venkatesh roadmap plans only the good-reduction, friendly-place argument for K-points.",
+      "brief": "Design GaloisSectionsPadicPeriodMaps, the Part II of Anabelian geometry and nonabelian Chabauty (AnabelianGeometryAndNonabelianChabauty) following Betts and Stix. Final theorems, exactly as the paper states them: Theorem A — for a number field K with no CM subfield and a smooth projective curve Y/K of genus ≥ 2, the image of loc_v: Sec^Sel(Y/K) → Y(K_v) is finite for every finite place v; Theorem B — the projection of the finite descent locus Y(A_K)_•^{f-cov} to Y(K_v) is finite; Theorem 6.5 — for self-conjugate v some abelian-by-finite family has finite Lawrence–Venkatesh locus Y(K_v)^LV_{X,S}; Theorem 7.1 — Selmer sections localise into Y(K_v)^LV_X. Cover: Selmer sections and the attached symplectic pairs (A_s, V_s) (§7); symplectic pairs, S-good pairs and the adelic, local and period-domain Lawrence–Venkatesh loci (§§1, 4, 6); self-conjugate places and the average Hodge–Tate weight (Proposition 2.19 for Q_p^×-valued characters, as the paper states it: the Q̄_p^×-valued version is false when K has a CM subfield, see item /24; Corollary 2.21); filtered discrete (ϕ, N, G_v)-modules with restriction, induction and automorphism groups (Lemma 2.15, Proposition 2.16, proved with Frobenius as well as G_v); the model-free control of D_pst by period maps (Theorems 3.3, 3.22, Proposition 3.5, Proposition 4.11); the principal trichotomy with Σ_A = Hom_{Q_p-alg}(A, Q_p), the Q_p-points of A, and #Σ_A in (c), which equals dim_{Q_p}(A) when A is split (A ≅ Q_p^n), as in every application; the finiteness of types (a) and (b) and the emptiness of type (c) for Kodaira–Parshin families (Propositions 6.9, 6.15, 6.20). Import rather than re-plan: from The Mordell conjecture after Lawrence and Venkatesh (MordellLawrenceVenkatesh) the Faltings lemmas (LV.1), abelian-by-finite families and their cohomology (LV.2), Lagrangian period domains, period maps and the complex–v-adic comparison extended to K_v-points (LV.3), the Lagrangian general-position lemma (LV.7), and Kodaira–Parshin families with full monodromy (LV.8–LV.10); from p-adic Hodge theory (PadicHodgeTheory) D_pst, filtered (ϕ, N)-modules and Berger's theorem (R06.2, R06.3) and Scholze's relative comparison with Shimizu's horizontal semistability (P8); from Cohomology comparisons (CohomologyComparisons) the Chern-class compatibility (CP.6); from Anabelian geometry and nonabelian Chabauty the Galois sections of NC.0; from Heights, rational points and obstructions (HeightsRationalPointsAndObstructions) the finite descent locus (RP.3) together with the Harari–Stix theorem; purity from Deligne's weights (DeligneWeightsAndPurity DWP.4). Keep the Section Conjecture a conjecture and Theorem A's no-CM hypothesis visible.",
+      "reason": "The maintainer routed the paper to a new Part II, GaloisSectionsPadicPeriodMaps (DESIGN-BETTS-STIX), of the anabelian roadmap. Its new mathematics is the obstruction-theoretic reading of Lawrence–Venkatesh applied to Selmer sections. The Lawrence–Venkatesh method is extended to every self-conjugate place: no good reduction is needed, which requires (ϕ, N, G_v)-modules and relative p-adic Hodge theory in place of crystalline cohomology. The route also covers the symplectic principal trichotomy. NC.0–NC.6 do not go there, and the Lawrence–Venkatesh roadmap plans only the good-reduction, friendly-place argument for K-points. Correction (30 September 2026, FIX-RT-PAPER-BETTS-STIX-25): this route's design job is DESIGN-BETTS-STIX (roadmap GaloisSectionsPadicPeriodMaps), the maintainer's fixed job. The queue also generates DESIGN-AnabelianGeometryAndNonabelianChabautyPartII from this route, a duplicate; the maintainer is asked to fold this route into DESIGN-BETTS-STIX and retire the generated job (RT-PAPER-BETTS-STIX-25/1; see RT-PAPER-BETTS-STIX-25.fixes.md). Its design must plan Proposition 2.19 for Q_p^×-valued characters and the trichotomy with Σ_A the Q_p-points of A (items /24, /25, /77, /78).",
       "items": [
         "PAPER-BETTS-STIX-25/2",
         "PAPER-BETTS-STIX-25/3",
@@ -1270,7 +1307,7 @@
       "stages": [
         "PadicHodgeTheory:P8"
       ],
-      "reason": "P8 owns the relative period sheaves on the pro-étale site and the proper-smooth comparison with connection and tensor compatibility. The paper's relative p-adic Hodge theory belongs there, not in a Diophantine roadmap: de Rham pairs and their full faithfulness, pullback and pushforward, completion, cup-product and base-change compatibilities, and algebraic versus analytic pushforwards. So do the resulting comparison isomorphism c_dR, Shimizu's horizontal semistable period ring with its specialisation lemmas, and the filtered-derived-category lemmas. Theorem 3.12 itself is planned there.",
+      "reason": "P8 owns the relative period sheaves on the pro-étale site and the proper-smooth comparison with connection and tensor compatibility. The paper's relative p-adic Hodge theory belongs there, not in a Diophantine roadmap: de Rham pairs and their full faithfulness, pullback and pushforward, completion, cup-product and base-change compatibilities, and algebraic versus analytic pushforwards. So do the resulting comparison isomorphism c_dR, Shimizu's horizontal semistable period ring with its specialisation lemmas, and the filtered-derived-category lemmas. Theorem 3.12 itself is planned there. Correction (30 September 2026, FIX-RT-PAPER-BETTS-STIX-25): items /101 and /102 (Shimizu's relative p-adic monodromy theorem, [Shi20 v2, Theorem 7.4 via Lemma 8.9], and [Shi20, Proposition 4.9]) and /103 (the relative Hodge–de Rham degeneration of [Sch13, Theorem 8.8(ii)]) are added here beside /48–/50 and /99. P8's text does not plan a relative (horizontal) p-adic monodromy theorem; the absolute one is R06.3. Whether P8's contract is extended to it, or /48–/50 with /101–/102 move to the Part II of route 1 (which owns Theorem 3.22) or to PadicHodgeTheoryPartII (DESIGN-PadicHodgeTheoryPartII, pending), is a maintainer decision (RT-PAPER-BETTS-STIX-25/4). Until then this route carries them, and it has no review verdict for the three new items.",
       "items": [
         "PAPER-BETTS-STIX-25/34",
         "PAPER-BETTS-STIX-25/35",
@@ -1287,7 +1324,10 @@
         "PAPER-BETTS-STIX-25/50",
         "PAPER-BETTS-STIX-25/98",
         "PAPER-BETTS-STIX-25/99",
-        "PAPER-BETTS-STIX-25/100"
+        "PAPER-BETTS-STIX-25/100",
+        "PAPER-BETTS-STIX-25/101",
+        "PAPER-BETTS-STIX-25/102",
+        "PAPER-BETTS-STIX-25/103"
       ]
     },
     {
@@ -1308,8 +1348,8 @@
       "kind": "error",
       "locator": "arXiv v1 Proposition 6.7(c) and its proof, pp.46–47; Proposition 1.8(c), p.6",
       "printed": "c) the number of ψ ∈ Σ satisfying [G_v : G_{w_ψ}] < 4 is ≥ (1/(d+1)) dim_{Q_p}(A). … So A would also satisfy (c) because #Σ ≤ dim_{Q_p}(A).",
-      "correction": "Replace dim_{Q_p}(A) by #Σ_A in (c), or assume A reduced (hence étale over Q_p), where #Σ_A = dim_{Q_p}(A). This is what the proof shows, and every application has A ≅ H^0_ét(X_{y_v,K̄_v}, Q_p), which is étale.",
-      "reason": "The reduction step needs #Σ ≥ dim A, the opposite of what it cites. A counterexample to (c) as printed: K = Q (every place self-conjugate), E/Q an elliptic curve, A = Q_p[ε]/(ε³) with trivial Galois action, V = A ⊗_{Q_p} H^1_ét(E_Q̄, Q_p), L = A(−1), and ω the A-linear extension of the Weil pairing. This is a symplectic pair with V of rank 2 (d = 1), de Rham with Hodge–Tate weights {0, 1} and pure of weight 1 outside a finite set. Σ_A has one point, fixed by G_v, so (a) and (b) fail, and (c) asks 1 ≥ 3/2. The pair is also S-good, so Proposition 1.8 fails in the same way.",
+      "correction": "Replace dim_{Q_p}(A) by #Σ_A in (c), or assume A split (A ≅ Q_p^n as a Q_p-algebra), where #Σ_A = dim_{Q_p}(A). Reduced or étale is not enough: A = Q_{p²} gives Σ_A = ∅. This is what the proof shows, and every application has A|G_v ≅ H^0_ét(X_{y_v,K̄_v}, Q_p) = ∏ Q_p, which is split.",
+      "reason": "The reduction step needs #Σ ≥ dim A, the opposite of what it cites. A counterexample to (c) as printed: K = Q (every place self-conjugate), E/Q an elliptic curve, A = Q_p[ε]/(ε³) with trivial Galois action, V = A ⊗_{Q_p} H^1_ét(E_Q̄, Q_p), L = A(−1), and ω the A-linear extension of the Weil pairing. This is a symplectic pair with V of rank 2 (d = 1), de Rham with Hodge–Tate weights {0, 1} and pure of weight 1 outside a finite set. Σ_A has one point, fixed by G_v, so (a) and (b) fail, and (c) asks 1 ≥ 3/2. The pair is also S-good, so Proposition 1.8 fails in the same way. A reduced (étale) but non-split A fails too, since Σ_A = Hom_{Q_p-alg}(A, Q_p) consists of Q_p-points: take the same K, E and d = 1, but A = Q_{p²} with trivial action, V = A ⊗_{Q_p} H^1_ét(E_Q̄, Q_p), L = A(−1) and ω the A-linear Weil pairing. The pair is S-good, but Σ_A = ∅, so (a) and (b) fail and (c) as printed asks 0 ≥ 2/2 = 1. (Correction (30 September 2026, FIX-RT-PAPER-BETTS-STIX-25), after RT-PAPER-BETTS-STIX-25/3; the earlier alternative 'A reduced (hence étale)' was wrong.)",
       "affects": "a stated result",
       "known": "new",
       "searched": [
@@ -1380,6 +1420,32 @@
       "searched": [
         "Searched by cc-442dc5 on 23 September 2026: the Annals article page https://annals.math.princeton.edu/2025/201-1/p02 (received 20 July 2022, revised 24 May 2024, accepted 28 May 2024, published online 9 January 2025; no erratum linked; its PDF links return HTML); Crossref, which registers no update for 10.4007/annals.2025.201.1.2; Unpaywall, which lists no open copy of the published text; arXiv 2204.13674, whose only version is v1 (28 April 2022); Stix's publication page, whose preprint (29 April 2022) has the same text as arXiv v1; and Betts's page, which links arXiv. The published version was revised after v1 and could not be compared."
       ]
+    },
+    {
+      "id": "PAPER-BETTS-STIX-25/E7",
+      "kind": "gap",
+      "locator": "arXiv v1 Lemma A.2, p.57, and its use in the proof of Theorem 3.12(2), p.22",
+      "printed": "Lemma A.2. Suppose that A is a filtered complex of sheaves of A-modules whose filtration is bounded below in every degree. If the spectral sequence associated to A degenerates at the first page, then H^j(A) is a filtered A-module for all j. Proof. It suffices to prove this under the additional assumption that the filtration is degreewise bounded above. … (p.22) Both OB_dR,U ⊗_{Ẑ_p,U} Rπ_*𝔼 and OB_dR,U ⊗_{O_U} Rπ_dR*E have filtered cohomology objects in the sense of §A.1 in the appendix; the second of these follows from the fact that the relative Hodge–de Rham spectral sequence for E degenerates at the first page using Lemma A.2.",
+      "correction": "State Lemma A.2 for filtrations with F^pA^n = 0 for p ≫ 0 in each degree (a finite filtration is a special case). Then the printed proof is valid: replace A by F^pA filtered by F^{max(k,p)}A, which is finite, and apply [Del71, Proposition 1.3.2]. In the proof of Theorem 3.12(2), apply Lemma A.2 to Rπ_dR*E, whose filtration is finite and whose Hodge–de Rham spectral sequence degenerates at the first page by [Sch13, Theorem 8.8(ii)]; so its cohomology sheaves R^iπ_dR*E are filtered, with locally free graded pieces (Theorem 3.12(1)). Then compute the cohomology of OB_dR,U ⊗_{O_U} Rπ_dR*E as OB_dR,U ⊗_{O_U} R^iπ_dR*E with the tensor filtration. This step needs every quotient Fil^a/Fil^b OB_dR,U (a < b) to be flat over O_U, not only OB_dR,U. [Sch13] does not state that flatness, and it is the missing ingredient. Its Proposition 6.10 and Corollary 6.15 describe gr^i OB_dR locally as ξ^i Ô_X[X_1/ξ, …, X_n/ξ], a free Ô_X-module, so the flatness follows from flatness of Ô_X over O_X on the pro-étale site.",
+      "reason": "Lemma A.2 does not define 'bounded below'. Read as F^pA^n = A^n for p ≪ 0, it is false: take A^0 = A^1 = K with d = id, F^pA^0 = K for p ≤ 0 and 0 for p ≥ 1, and F^pA^1 = K for all p. Every gr^pA^1 is 0, so the only non-zero E_1 term is E_1^{0,0} = gr^0A^0 = K and the spectral sequence degenerates at E_1, but H^1(F^1A) = K → H^1(F^0A) = 0 is not injective. Read as F^pA^n = 0 for p ≫ 0, it is true and the printed proof works. The one application, on p.22, fits neither reading. The filtration of OB_dR,U ⊗_{O_U} Rπ_dR*E is never 0 and never everything in any degree, because Fil^a OB_dR,U is neither (Remark 3.13), and it is not complete. Applied instead to Rπ_dR*E, which fits, the lemma says nothing about the tensor product, and the passage to it is not argued. So the claim that OB_dR,U ⊗_{O_U} Rπ_dR*E has filtered cohomology objects, which the proof of Theorem 3.12(2) (η_E^∧ an isomorphism) needs, is not justified as printed. Found by RT-PAPER-BETTS-STIX-25 (finding 5) and confirmed, with the corrected reading, by REV-RT-PAPER-BETTS-STIX-25.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "Searched by cc-f805bf on 30 September 2026: arXiv 2204.13674, whose only version is still v1 (abstract page); the Annals text is not openly readable, and the search of 23 September 2026 recorded under E1 (Annals article page, Crossref, Unpaywall, Stix's and Betts's pages) found no erratum. The published version was revised after v1 and could not be compared."
+      ]
+    },
+    {
+      "id": "PAPER-BETTS-STIX-25/E8",
+      "kind": "misprint",
+      "locator": "arXiv v1 proof of Theorem 3.22, p.31; Definition 3.24, p.30",
+      "printed": "Since E has a full basis of horizontal sections, we have that E is potentially horizontal semistable [Shi20, Lemma 8.9]. … Definition 3.24 (Potentially horizontal semistable representations [Shi20, Definition 4.15]).",
+      "correction": "… potentially horizontal semistable [Shi20, Lemma 8.9 and Theorem 7.4]. … Definition 3.24 (… [Shi20, Definition 5.6]).",
+      "reason": "The bibliography cites Shimizu as arXiv:2003.10951v2. There, Lemma 8.9 identifies D_dR of a local system on an affinoid with D_dR of the corresponding G_A-representation, compatibly with connection and filtration, and says that one is de Rham exactly when the other is; it says nothing about semistability. The step needs Theorem 7.4: under Condition (BR), a horizontal de Rham representation becomes horizontal semistable over a finite extension. Shimizu's §9.4 combines Lemma 8.9 and Theorem 7.4 in the same way. In v2, 4.15 is a lemma, and D^∇_pst and the potentially horizontal semistable representations are Definition 5.6. The paper's other citations of [Shi20] (Definition 4.7, Lemma 4.4, Proposition 4.9, Corollary 4.10, Lemma 4.12, Theorem 9.7) match v2. Recorded by FIX-RT-PAPER-BETTS-STIX-25, as the verifier of RT-PAPER-BETTS-STIX-25/4 suggested.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Searched by cc-f805bf on 30 September 2026: arXiv 2204.13674, whose only version is still v1 (abstract page); the Annals text is not openly readable, and the search of 23 September 2026 recorded under E1 (Annals article page, Crossref, Unpaywall, Stix's and Betts's pages) found no erratum. The published version was revised after v1 and could not be compared. Shimizu's arXiv:2003.10951 has versions v1 and v2; v2 is the one cited and read."
+      ]
     }
   ],
   "gaps": [
@@ -1387,13 +1453,13 @@
       "id": "G-source",
       "detail": "The published Annals text (revised May 2024) could not be read.",
       "status": "unavailable",
-      "resolution": "Locators and findings are for arXiv v1 and Stix's identical preprint; the review, or a later reader with access, should compare the published numbering and check whether E1–E6 persist."
+      "resolution": "Locators and findings are for arXiv v1 and Stix's identical preprint; the review, or a later reader with access, should compare the published numbering and check whether E1–E8 persist."
     },
     {
       "id": "G-inputs",
       "detail": "Cited theorems — [LV20] Lemmas 2.3, 2.6, §§7–8, [Sch13] Theorems 7.6, 8.8, 9.1, 9.3, [Shi20], [HS12, Theorem 11], [Fon94b], [Ber02], [KO68], [Del74] — were read only as the paper states them.",
       "status": "deferred",
-      "resolution": "Suppliers named in the routes; prerequisites list the ones the atlas lacks."
+      "resolution": "Suppliers named in the routes; prerequisites list the ones the atlas lacks. For FIX-RT-PAPER-BETTS-STIX-25, [Shi20] v2 (Lemma 8.9, Theorem 7.4, Proposition 4.9, Definition 5.6) and [Sch13] Theorem 8.8, Proposition 6.10 and Corollary 6.15 were read."
     }
   ]
 }
