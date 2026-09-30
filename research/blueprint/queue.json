@@ -32859,7 +32859,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/KEYDEF-algebraicnt.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #5273"
   },
   {
    "id": "REV-KEYDEF-algebraicnt",
@@ -34059,8 +34060,9 @@
     "FIX-RT-PAPER-BROWNING-LEBOUDEC-SAWIN-23"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-PAPER-BROWNING-LEBOUDEC-SAWIN-23.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5134"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #5134",
+   "finishedAt": "2026-09-30T21:11:59Z"
   },
   {
    "id": "RT-PAPER-DADDEZIO-23",
@@ -40884,8 +40886,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-BOCKLE-HARRIS-KHARE-ETAL-19.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5014"
+   "state": "pending",
+   "note": "released on GitHub issue #5014"
   },
   {
    "id": "RT-PAPER-LAWRENCE-VENKATESH-20",
@@ -42180,7 +42182,8 @@
     "FIX-RT-PAPER-KHARE-WINTENBERGER-09-I"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-PAPER-KHARE-WINTENBERGER-09-I.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #5149"
   },
   {
    "id": "RT-PAPER-KHARE-WINTENBERGER-09-II",
@@ -51522,8 +51525,9 @@
     "FIX-RT-AREA-padic-1"
    ],
    "prompt": "research/blueprint/prompts/FIX-RT-AREA-padic-1~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5150"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #5150",
+   "finishedAt": "2026-09-30T21:12:02Z"
   },
   {
    "id": "REV-FIX-RT-AREA-padic-1~2",
