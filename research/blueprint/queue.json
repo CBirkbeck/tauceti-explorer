@@ -4323,8 +4323,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-LE-LEHUNG-LEVIN-ETAL-23.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1254"
+   "state": "pending",
+   "note": "released on GitHub issue #1254"
   },
   {
    "id": "REV-PAPER-LE-LEHUNG-LEVIN-ETAL-23",
@@ -35177,7 +35177,8 @@
     "REV-PAPER-KALETHA-16"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-KALETHA-16.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4126"
   },
   {
    "id": "REV-RT-PAPER-KALETHA-16",
@@ -38144,8 +38145,9 @@
     "REV-PAPER-HE-18"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-HE-18.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4253"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4253",
+   "finishedAt": "2026-09-30T12:02:58Z"
   },
   {
    "id": "RT-PAPER-MERKURJEV-SCAVIA-26",
@@ -41081,8 +41083,9 @@
     "REV-LINK-tauceti_TauCetiRoadmap_OneParameterSemigroups"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-LINK-tauceti_TauCetiRoadmap_OneParameterSemigroups.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4365"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4365",
+   "finishedAt": "2026-09-30T12:03:03Z"
   },
   {
    "id": "RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory",
@@ -41151,7 +41154,8 @@
     "REV-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_ClassicalGroups"
    ],
    "prompt": "research/blueprint/prompts/RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_ClassicalGroups.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4370"
   },
   {
    "id": "REV-RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_ClassicalGroups",
@@ -41198,7 +41202,8 @@
     "REV-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_LieGroups"
    ],
    "prompt": "research/blueprint/prompts/RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_LieGroups.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4372"
   },
   {
    "id": "REV-RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_LieGroups",
@@ -46234,7 +46239,8 @@
     "REV-AUDIT-34"
    ],
    "prompt": "research/blueprint/prompts/RT-AUDIT-34.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4456"
   },
   {
    "id": "REV-RT-AUDIT-34",
