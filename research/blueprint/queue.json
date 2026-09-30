@@ -35605,8 +35605,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-YUN-ZHANG-17.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5135"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #5135",
+   "finishedAt": "2026-09-30T20:16:35Z"
   },
   {
    "id": "RT-PAPER-BAKKER-TSIMERMAN-16",
@@ -40477,8 +40478,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-BREUIL-HELLMANN-SCHRAEN-19.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5009"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #5009",
+   "finishedAt": "2026-09-30T20:16:40Z"
   },
   {
    "id": "RT-PAPER-BHATT-MORROW-SCHOLZE-19",
@@ -40800,8 +40802,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-BOCKLE-HARRIS-KHARE-ETAL-19.md",
-   "state": "pending",
-   "note": "released on GitHub issue #5014"
+   "state": "external",
+   "note": "claimed on GitHub issue #5014"
   },
   {
    "id": "RT-PAPER-LAWRENCE-VENKATESH-20",
@@ -51827,8 +51829,9 @@
     "FIX-RT-AREA-etale"
    ],
    "prompt": "research/blueprint/prompts/FIX-RT-AREA-etale~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5155"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #5155",
+   "finishedAt": "2026-09-30T20:16:44Z"
   },
   {
    "id": "REV-FIX-RT-AREA-etale~2",
