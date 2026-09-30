@@ -40886,8 +40886,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-BOCKLE-HARRIS-KHARE-ETAL-19.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5014"
+   "state": "pending",
+   "note": "released on GitHub issue #5014"
   },
   {
    "id": "RT-PAPER-LAWRENCE-VENKATESH-20",
@@ -46586,8 +46586,9 @@
     "FIX-RT-BP-ClassicalSerreModularity--R33.5"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-BP-ClassicalSerreModularity--R33.5.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5190"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #5190",
+   "finishedAt": "2026-09-30T21:23:06Z"
   },
   {
    "id": "RT-BP-EllipticCurveModularity",
