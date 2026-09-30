@@ -40906,8 +40906,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-BOCKLE-HARRIS-KHARE-ETAL-19.md",
-   "state": "pending",
-   "note": "released on GitHub issue #5014"
+   "state": "external",
+   "note": "claimed on GitHub issue #5014"
   },
   {
    "id": "RT-PAPER-LAWRENCE-VENKATESH-20",
@@ -44936,8 +44936,9 @@
     "REV-RS-11"
    ],
    "prompt": "research/blueprint/prompts/RT-RS-11.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5107"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #5107",
+   "finishedAt": "2026-09-30T23:49:56Z"
   },
   {
    "id": "REV-RT-RS-11",
@@ -45464,7 +45465,8 @@
     "REV-RS-20~3"
    ],
    "prompt": "research/blueprint/prompts/RT-RS-20~3.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #5112"
   },
   {
    "id": "REV-RT-RS-20~3",
@@ -45513,7 +45515,8 @@
     "REV-RS-21"
    ],
    "prompt": "research/blueprint/prompts/RT-RS-21.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #5115"
   },
   {
    "id": "REV-RT-RS-21",
