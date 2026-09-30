@@ -3975,8 +3975,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-CARO-PASTEN-23.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1235"
+   "state": "pending",
+   "note": "released on GitHub issue #1235"
   },
   {
    "id": "REV-PAPER-CARO-PASTEN-23",
@@ -23653,12 +23653,12 @@
     "REV-RS-14"
    ],
    "prompt": "research/blueprint/prompts/BP-DirichletPadicLFunctions.md",
-   "state": "external",
+   "state": "pending",
    "suppliers": [
     "BP-LocallyAnalyticDistributions",
     "BP-PadicMeasuresIwasawaAlgebras"
    ],
-   "note": "claimed on GitHub issue #713"
+   "note": "released on GitHub issue #713"
   },
   {
    "id": "REV-DirichletPadicLFunctions",
@@ -33958,7 +33958,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-BROWNING-LEBOUDEC-SAWIN-23.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4977"
   },
   {
    "id": "REV-FIX-RT-PAPER-BROWNING-LEBOUDEC-SAWIN-23",
@@ -34451,7 +34452,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-BURUNGALE-KOBAYASHI-OTA-21.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4979",
+   "finishedAt": "2026-09-30T16:28:01Z"
   },
   {
    "id": "RT-PAPER-BENNETT-SIKSEK-20",
@@ -35774,8 +35777,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-KOENIGSMANN-16.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4991"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4991",
+   "finishedAt": "2026-09-30T16:28:05Z"
   },
   {
    "id": "RT-PAPER-TREUMANN-VENKATESH-16",
@@ -37890,7 +37894,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-WOOD-19.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #5137"
   },
   {
    "id": "RT-PAPER-LIPNOWSKI-TSIMERMAN-18",
@@ -42070,7 +42075,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-KHARE-WINTENBERGER-09-II.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #5028"
   },
   {
    "id": "RT-PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01",
@@ -42633,8 +42639,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-LINK-tauceti_TauCetiRoadmap_ModularCurves.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5030"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #5030",
+   "finishedAt": "2026-09-30T16:28:09Z"
   },
   {
    "id": "REV-FIX-RT-LINK-tauceti_TauCetiRoadmap_ModularCurves",
@@ -42967,8 +42974,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-LINK-tauceti_TauCetiRoadmap_NumberFieldArithmetic.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5032"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #5032",
+   "finishedAt": "2026-09-30T16:28:15Z"
   },
   {
    "id": "REV-FIX-RT-LINK-tauceti_TauCetiRoadmap_NumberFieldArithmetic",
@@ -44910,7 +44918,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-RS-06.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #5044"
   },
   {
    "id": "REV-FIX-RT-RS-06",
@@ -46945,7 +46954,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-BP-EllipticCurveModularity.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #5045"
   },
   {
    "id": "REV-FIX-RT-BP-EllipticCurveModularity",
@@ -51654,8 +51664,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-AREA-algebraicgeometry.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #3974"
+   "state": "pending",
+   "note": "released on GitHub issue #3974"
   },
   {
    "id": "REV-FIX-RT-AREA-algebraicgeometry",
@@ -52382,8 +52392,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-AREA-ktheory-1.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #3979"
+   "state": "pending",
+   "note": "released on GitHub issue #3979"
   },
   {
    "id": "REV-FIX-RT-AREA-ktheory-1",
