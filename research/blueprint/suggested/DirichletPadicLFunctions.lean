@@ -1,3 +1,4 @@
+import Mathlib.Analysis.SpecificLimits.Normed
 import Mathlib.Topology.Algebra.InfiniteSum.Ring
 import Mathlib.Topology.Algebra.InfiniteSum.NatInt
 import Mathlib.NumberTheory.DirichletCharacter.Bounds
@@ -15545,3 +15546,178 @@ example : (4*(3/4+7/4) : ℚ_[2]) ≠ 5/2 := by sorry
 -- difference_raw_derivative_error
 example : (3/4+2*(7/4) : ℚ_[2]) ≠ 5/2 := by sorry
 end DirichletPadic.SuggestedMoritaTaylorTests
+
+/- Geometric bounds and the complete-field limit under actual Taylor and divided-derivative bounds. -/
+namespace DirichletPadic
+noncomputable section
+open Filter
+open scoped Topology Classical
+variable (p : ℕ) [Fact p.Prime]
+variable {K : Type*} [NormedField K] [NormedAlgebra ℚ_[p] K] [IsUltrametricDist K] [CharZero K]
+variable {f : ℕ}
+
+def moritaMeanBoundConstant (f : ℕ) : ℝ := max ‖(Nat.lcm f (moritaModulus p) : K)⁻¹‖ (‖(moritaModulus p : K)⁻¹‖ ^ 2)
+omit [Fact p.Prime] [NormedAlgebra ℚ_[p] K] [IsUltrametricDist K] [CharZero K] in
+lemma moritaMeanBoundConstant_nonneg (f : ℕ) : 0 ≤ moritaMeanBoundConstant (K:=K) p f := by sorry
+lemma moritaRadius_pos : 0 < ‖(moritaModulus p : ℤ_[p])‖ := by sorry
+
+lemma moritaRadius_lt_one : ‖(moritaModulus p : ℤ_[p])‖ < 1 := by sorry
+
+lemma moritaLevel_norm (f n : ℕ) : ‖(moritaLevel p f n : ℤ_[p])‖ =
+    ‖(Nat.lcm f (moritaModulus p) : ℤ_[p])‖ * ‖(moritaModulus p : ℤ_[p])‖^n := by sorry
+
+lemma moritaLevel_norm_le (f n : ℕ) : ‖(moritaLevel p f n : ℤ_[p])‖ ≤ ‖(moritaModulus p : ℤ_[p])‖^(n+1) := by sorry
+
+lemma moritaLevel_inside (f n : ℕ) : ‖(moritaLevel p f (n+1) : ℤ_[p])‖ < ‖(moritaModulus p : ℤ_[p])‖ := by sorry
+
+lemma moritaLevel_norm_tendsto (f : ℕ) : Tendsto (fun n => ‖(moritaLevel p f n : ℤ_[p])‖) atTop (𝓝 0) := by sorry
+
+lemma moritaDividedDerivativeMean_norm (ι : ℤ_[p] →+* K) (χ : DirichletCharacter K f) (hf : 0 < f)
+    (D : ℕ → ℤ_[p] → K) (B : ℝ) (hB : 0 ≤ B)
+    (hval : ∀ m x, ‖x-1‖ ≤ ‖(moritaModulus p : ℤ_[p])‖ → ‖D m x‖ ≤ B / ‖(moritaModulus p : ℤ_[p])‖^m)
+    (hLip : ∀ m x y, ‖x-1‖ ≤ ‖(moritaModulus p : ℤ_[p])‖ → ‖y-1‖ ≤ ‖(moritaModulus p : ℤ_[p])‖ →
+      ‖D m x-D m y‖ ≤ (B / ‖(moritaModulus p : ℤ_[p])‖^m / ‖(moritaModulus p : ℤ_[p])‖) * ‖x-y‖)
+    (m n : ℕ) : ‖moritaAngularMean p (moritaCharacterTwist p ι χ m) n (D m)‖ ≤
+      moritaMeanBoundConstant (K:=K) p f * (B / ‖(moritaModulus p : ℤ_[p])‖^m) := by sorry
+
+lemma moritaTaylorCoefficient_norm (ι : ℤ_[p] →+* K) (χ : DirichletCharacter K f) (hf : 0 < f)
+    (D : ℕ → ℤ_[p] → K) (B : ℝ) (hB : 0 ≤ B)
+    (hval : ∀ m x, ‖x-1‖ ≤ ‖(moritaModulus p : ℤ_[p])‖ → ‖D m x‖ ≤ B / ‖(moritaModulus p : ℤ_[p])‖^m)
+    (hLip : ∀ m x y, ‖x-1‖ ≤ ‖(moritaModulus p : ℤ_[p])‖ → ‖y-1‖ ≤ ‖(moritaModulus p : ℤ_[p])‖ →
+      ‖D m x-D m y‖ ≤ (B / ‖(moritaModulus p : ℤ_[p])‖^m / ‖(moritaModulus p : ℤ_[p])‖) * ‖x-y‖)
+    (m n : ℕ) :
+    ‖(moritaModulus p : K)⁻¹ * moritaPowerSum p m * (moritaLevel p f n : K)^m *
+      moritaAngularMean p (moritaCharacterTwist p ι χ m) n (D m)‖ ≤
+      moritaMeanBoundConstant (K:=K) p f * B * ‖(moritaModulus p : K)⁻¹‖ *
+        (‖(moritaLevel p f n : ℤ_[p])‖ / ‖(moritaModulus p : ℤ_[p])‖)^m := by sorry
+
+lemma moritaAngularMean_difference_norm (ι : ℤ_[p] →+* K) (χ : DirichletCharacter K f) (hf : 0 < f)
+    (A : ℤ_[p] → K) (D : ℕ → ℤ_[p] → K) (hD : D 0 = A) (B : ℝ) (hB : 0 ≤ B)
+    (hT : ∀ x h : ℤ_[p], ‖x-1‖ ≤ ‖(moritaModulus p : ℤ_[p])‖ →
+      ‖h‖ < ‖(moritaModulus p : ℤ_[p])‖ → HasSum (fun m => (ι h)^m * D m x) (A (x+h)))
+    (hval : ∀ m x, ‖x-1‖ ≤ ‖(moritaModulus p : ℤ_[p])‖ → ‖D m x‖ ≤ B / ‖(moritaModulus p : ℤ_[p])‖^m)
+    (hLip : ∀ m x y, ‖x-1‖ ≤ ‖(moritaModulus p : ℤ_[p])‖ → ‖y-1‖ ≤ ‖(moritaModulus p : ℤ_[p])‖ →
+      ‖D m x-D m y‖ ≤ (B / ‖(moritaModulus p : ℤ_[p])‖^m / ‖(moritaModulus p : ℤ_[p])‖) * ‖x-y‖)
+    (n : ℕ) (hN : ‖(moritaLevel p f n : ℤ_[p])‖ < ‖(moritaModulus p : ℤ_[p])‖) :
+    ‖moritaAngularMean p χ (n+1) A-moritaAngularMean p χ n A‖ ≤
+      moritaMeanBoundConstant (K:=K) p f * B * ‖(moritaModulus p : K)⁻¹‖ *
+        (‖(moritaLevel p f n : ℤ_[p])‖ / ‖(moritaModulus p : ℤ_[p])‖) := by sorry
+
+lemma moritaLevel_ratio_le (f n : ℕ) : ‖(moritaLevel p f (n+1) : ℤ_[p])‖ / ‖(moritaModulus p : ℤ_[p])‖ ≤
+    ‖(moritaModulus p : ℤ_[p])‖^n := by sorry
+
+lemma moritaAngularMean_difference_geometric (ι : ℤ_[p] →+* K) (χ : DirichletCharacter K f) (hf : 0 < f)
+    (A : ℤ_[p] → K) (D : ℕ → ℤ_[p] → K) (hD : D 0 = A) (B : ℝ) (hB : 0 ≤ B)
+    (hT : ∀ x h : ℤ_[p], ‖x-1‖ ≤ ‖(moritaModulus p : ℤ_[p])‖ →
+      ‖h‖ < ‖(moritaModulus p : ℤ_[p])‖ → HasSum (fun m => (ι h)^m * D m x) (A (x+h)))
+    (hval : ∀ m x, ‖x-1‖ ≤ ‖(moritaModulus p : ℤ_[p])‖ → ‖D m x‖ ≤ B / ‖(moritaModulus p : ℤ_[p])‖^m)
+    (hLip : ∀ m x y, ‖x-1‖ ≤ ‖(moritaModulus p : ℤ_[p])‖ → ‖y-1‖ ≤ ‖(moritaModulus p : ℤ_[p])‖ →
+      ‖D m x-D m y‖ ≤ (B / ‖(moritaModulus p : ℤ_[p])‖^m / ‖(moritaModulus p : ℤ_[p])‖) * ‖x-y‖)
+    (n : ℕ) : ‖moritaAngularMean p χ (n+1+1) A-moritaAngularMean p χ (n+1) A‖ ≤
+      (moritaMeanBoundConstant (K:=K) p f * B * ‖(moritaModulus p : K)⁻¹‖) * ‖(moritaModulus p : ℤ_[p])‖^n := by sorry
+
+lemma moritaAngularMean_cauchy (ι : ℤ_[p] →+* K) (χ : DirichletCharacter K f) (hf : 0 < f)
+    (A : ℤ_[p] → K) (D : ℕ → ℤ_[p] → K) (hD : D 0 = A) (B : ℝ) (hB : 0 ≤ B)
+    (hT : ∀ x h : ℤ_[p], ‖x-1‖ ≤ ‖(moritaModulus p : ℤ_[p])‖ →
+      ‖h‖ < ‖(moritaModulus p : ℤ_[p])‖ → HasSum (fun m => (ι h)^m * D m x) (A (x+h)))
+    (hval : ∀ m x, ‖x-1‖ ≤ ‖(moritaModulus p : ℤ_[p])‖ → ‖D m x‖ ≤ B / ‖(moritaModulus p : ℤ_[p])‖^m)
+    (hLip : ∀ m x y, ‖x-1‖ ≤ ‖(moritaModulus p : ℤ_[p])‖ → ‖y-1‖ ≤ ‖(moritaModulus p : ℤ_[p])‖ →
+      ‖D m x-D m y‖ ≤ (B / ‖(moritaModulus p : ℤ_[p])‖^m / ‖(moritaModulus p : ℤ_[p])‖) * ‖x-y‖) :
+    CauchySeq (fun n => moritaAngularMean p χ n A) := by sorry
+
+lemma moritaAngularMean_exists_limit [CompleteSpace K] (ι : ℤ_[p] →+* K) (χ : DirichletCharacter K f) (hf : 0 < f)
+    (A : ℤ_[p] → K) (D : ℕ → ℤ_[p] → K) (hD : D 0 = A) (B : ℝ) (hB : 0 ≤ B)
+    (hT : ∀ x h : ℤ_[p], ‖x-1‖ ≤ ‖(moritaModulus p : ℤ_[p])‖ →
+      ‖h‖ < ‖(moritaModulus p : ℤ_[p])‖ → HasSum (fun m => (ι h)^m * D m x) (A (x+h)))
+    (hval : ∀ m x, ‖x-1‖ ≤ ‖(moritaModulus p : ℤ_[p])‖ → ‖D m x‖ ≤ B / ‖(moritaModulus p : ℤ_[p])‖^m)
+    (hLip : ∀ m x y, ‖x-1‖ ≤ ‖(moritaModulus p : ℤ_[p])‖ → ‖y-1‖ ≤ ‖(moritaModulus p : ℤ_[p])‖ →
+      ‖D m x-D m y‖ ≤ (B / ‖(moritaModulus p : ℤ_[p])‖^m / ‖(moritaModulus p : ℤ_[p])‖) * ‖x-y‖) :
+    ∃ v : K, Tendsto (fun n => moritaAngularMean p χ n A) atTop (𝓝 v) := by sorry
+
+lemma moritaAngularMean_limit_norm (χ : DirichletCharacter K f) (hf : 0 < f)
+    (A : ℤ_[p] → K) (B : ℝ) (hB : 0 ≤ B)
+    (hval : ∀ x, ‖x-1‖ ≤ ‖(moritaModulus p : ℤ_[p])‖ → ‖A x‖ ≤ B)
+    (hLip : ∀ x y, ‖x-1‖ ≤ ‖(moritaModulus p : ℤ_[p])‖ → ‖y-1‖ ≤ ‖(moritaModulus p : ℤ_[p])‖ →
+      ‖A x-A y‖ ≤ (B / ‖(moritaModulus p : ℤ_[p])‖) * ‖x-y‖)
+    (v : K) (hv : Tendsto (fun n => moritaAngularMean p χ n A) atTop (𝓝 v)) :
+    ‖v‖ ≤ moritaMeanBoundConstant (K:=K) p f * B := by sorry
+
+omit [Fact p.Prime] [NormedAlgebra ℚ_[p] K] [IsUltrametricDist K] [CharZero K] in
+lemma moritaMeanBoundConstant_initial (f : ℕ) : ‖(Nat.lcm f (moritaModulus p) : K)⁻¹‖ ≤ moritaMeanBoundConstant (K:=K) p f := by sorry
+omit [Fact p.Prime] [NormedAlgebra ℚ_[p] K] [IsUltrametricDist K] [CharZero K] in
+lemma moritaMeanBoundConstant_radius (f : ℕ) : ‖(moritaModulus p : K)⁻¹‖^2 ≤ moritaMeanBoundConstant (K:=K) p f := by sorry
+end
+end DirichletPadic
+
+namespace DirichletPadic.SuggestedMoritaDecayTests
+open scoped Topology
+-- bound_constant_dyadic
+example : moritaMeanBoundConstant (K:=ℚ_[2]) 2 1 = 16 := by sorry
+-- bound_constant_odd
+example : moritaMeanBoundConstant (K:=ℚ_[3]) 3 1 = 9 := by sorry
+-- bound_constant_initial_dominates
+example : moritaMeanBoundConstant (K:=ℚ_[2]) 2 128 = 128 := by sorry
+-- bound_constant_zero_level
+example : moritaMeanBoundConstant (K:=ℚ_[2]) 2 0 = 16 := by sorry
+-- radius_positive_dyadic
+example : 0 < ‖(moritaModulus 2 : ℤ_[2])‖ := by sorry
+-- radius_positive_odd
+example : 0 < ‖(moritaModulus 3 : ℤ_[3])‖ := by sorry
+-- radius_dyadic
+example : ‖(moritaModulus 2 : ℤ_[2])‖ = 1/4 := by sorry
+-- radius_odd
+example : ‖(moritaModulus 3 : ℤ_[3])‖ = 1/3 := by sorry
+-- level_norm_tame
+example : ‖(moritaLevel 2 3 1 : ℤ_[2])‖ = 1/16 := by sorry
+-- level_norm_extra_prime
+example : ‖(moritaLevel 2 8 0 : ℤ_[2])‖ = 1/8 := by sorry
+-- level_norm_bound_sharp
+example (n : ℕ) : ‖(moritaLevel 2 1 n : ℤ_[2])‖ = (1/4 : ℝ)^(n+1) := by sorry
+-- level_inside_dyadic
+example (n : ℕ) : ‖(moritaLevel 2 1 (n+1) : ℤ_[2])‖ < 1/4 := by sorry
+-- level_inside_odd
+example (n : ℕ) : ‖(moritaLevel 3 1 (n+1) : ℤ_[3])‖ < 1/3 := by sorry
+-- level_tends_zero_dyadic
+example : Filter.Tendsto (fun n => ‖(moritaLevel 2 3 n : ℤ_[2])‖) Filter.atTop (𝓝 0) := by sorry
+-- derivative_mean_dyadic
+example : ‖moritaAngularMean 2 (moritaCharacterTwist 2 PadicInt.Coe.ringHom
+    (1 : DirichletCharacter ℚ_[2] 1) 1) 0 (fun x => ((x : ℚ_[2])-1)/8)‖ = 8 := by sorry
+-- derivative_mean_odd
+example : ‖moritaAngularMean 3 (moritaCharacterTwist 3 PadicInt.Coe.ringHom
+    (1 : DirichletCharacter ℚ_[3] 1) 2) 0 (fun _ => 1/9)‖ = 27 := by sorry
+-- coefficient_dyadic_quadratic
+example : ‖(moritaModulus 2 : ℚ_[2])⁻¹ * moritaPowerSum 2 2 * (moritaLevel 2 1 0 : ℚ_[2])^2 *
+    moritaAngularMean 2 (moritaCharacterTwist 2 PadicInt.Coe.ringHom
+      (1 : DirichletCharacter ℚ_[2] 1) 2) 0 (fun _ => 1/16)‖ = 4 := by sorry
+-- difference_bound_square_dyadic
+example : ‖moritaAngularMean 2 (1 : DirichletCharacter ℚ_[2] 1) 2 (fun x => (((x : ℚ_[2])-1)/4)^2) -
+    moritaAngularMean 2 (1 : DirichletCharacter ℚ_[2] 1) 1 (fun x => (((x : ℚ_[2])-1)/4)^2)‖ = 1/8 := by sorry
+-- difference_bound_square_odd
+example : ‖moritaAngularMean 3 (1 : DirichletCharacter ℚ_[3] 1) 2 (fun x => (((x : ℚ_[3])-1)/3)^2) -
+    moritaAngularMean 3 (1 : DirichletCharacter ℚ_[3] 1) 1 (fun x => (((x : ℚ_[3])-1)/3)^2)‖ = 1 := by sorry
+-- ratio_extra_depth
+example (n : ℕ) : ‖(moritaLevel 2 1 (n+1) : ℤ_[2])‖ / ‖(moritaModulus 2 : ℤ_[2])‖ =
+    (1/4 : ℝ)^(n+1) := by sorry
+-- geometric_difference_dyadic
+example (n : ℕ) : ‖moritaAngularMean 2 (1 : DirichletCharacter ℚ_[2] 1) (n+2) (fun x => (((x : ℚ_[2])-1)/4)^2) -
+    moritaAngularMean 2 (1 : DirichletCharacter ℚ_[2] 1) (n+1) (fun x => (((x : ℚ_[2])-1)/4)^2)‖ ≤
+      64*(1/4 : ℝ)^n := by sorry
+-- geometric_difference_odd
+example (n : ℕ) : ‖moritaAngularMean 3 (1 : DirichletCharacter ℚ_[3] 1) (n+2) (fun x => (((x : ℚ_[3])-1)/3)^2) -
+    moritaAngularMean 3 (1 : DirichletCharacter ℚ_[3] 1) (n+1) (fun x => (((x : ℚ_[3])-1)/3)^2)‖ ≤
+      27*(1/3 : ℝ)^n := by sorry
+-- cauchy_constant
+example : CauchySeq (fun n => moritaAngularMean 2 (1 : DirichletCharacter ℚ_[2] 1) n (fun _ => 1)) := by sorry
+-- cauchy_square
+example : CauchySeq (fun n => moritaAngularMean 3 (1 : DirichletCharacter ℚ_[3] 1) n (fun x => (((x : ℚ_[3])-1)/3)^2)) := by sorry
+-- limit_constant_dyadic
+example : Filter.Tendsto (fun n => moritaAngularMean 2 (1 : DirichletCharacter ℚ_[2] 1) n (fun _ => 1))
+    Filter.atTop (𝓝 (1/2)) := by sorry
+-- limit_linear_dyadic
+example : Filter.Tendsto (fun n => moritaAngularMean 2 (1 : DirichletCharacter ℚ_[2] 1) n (fun x => (x : ℚ_[2])))
+    Filter.atTop (𝓝 (-1/2)) := by sorry
+-- limit_norm_dyadic_constant
+example : ‖(1/2 : ℚ_[2])‖ ≤ moritaMeanBoundConstant (K:=ℚ_[2]) 2 1 := by sorry
+-- limit_norm_odd_constant
+example : ‖(2/3 : ℚ_[3])‖ ≤ moritaMeanBoundConstant (K:=ℚ_[3]) 3 1 := by sorry
+end DirichletPadic.SuggestedMoritaDecayTests

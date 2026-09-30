@@ -10,7 +10,7 @@
     "DirichletPadicLFunctions:L4"
   ],
   "status": "partial",
-  "summary": "Eight L3 nodes derive the exact Taylor series of the next finite angular mean and its consecutive difference from pointwise Taylor sums. They preserve the strict radius, inverse character, fixed averaging level, power sum and factorial normalization. All848 predecessor nodes,700 baseline records and16 source findings remain whole.",
+  "summary": "Fifteen L3 nodes turn the exact Taylor formula and uniform twist estimate into a geometric majorant, Cauchy property, complete-field limit and limit norm bound. All856 predecessor nodes,700 baseline records and16 findings remain whole. The analytic supplier hypotheses remain explicit and open.",
   "baseline": {
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
@@ -4914,6 +4914,34 @@
         "module": "Mathlib/NumberTheory/Padics/PadicIntegers.lean",
         "provides": "The native scalar coercion ℤ_p→ℚ_p as a ring homomorphism, fixing the source coefficient embedding.",
         "checked": "Full statement and ambient hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 30 September 2026. The complete MoritaTwistProbe checks the real character extension, mapped order, common-level evaluation, inverse-power support and weighted mean comparison; no new native module is built."
+      },
+      {
+        "ref": "mathlib:IsUltrametricDist.norm_tprod_le_of_forall_le",
+        "kind": "lemma",
+        "module": "Mathlib/Analysis/Normed/Group/Ultra.lean",
+        "provides": "The native ultrametric infinite-product norm bound, whose explicit to_additive generator provides norm_tsum_le_of_forall_le used here. For a nonempty index type, a uniform bound on every term bounds the actual sum.",
+        "checked": "Full statement, ambient hypotheses and relevant additive generator read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on30September2026. The complete MoritaDecayProbe checks the norm estimate, shifted geometric Cauchy criterion and actual complete-field limit with these native declarations."
+      },
+      {
+        "ref": "mathlib:SeminormedAddCommGroup.cauchySeq_of_le_geometric",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/SpecificLimits/Normed.lean",
+        "provides": "A sequence with consecutive norm differences bounded by C r^n, r<1, is Cauchy in a seminormed additive commutative group.",
+        "checked": "Full statement, ambient hypotheses and relevant additive generator read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on30September2026. The complete MoritaDecayProbe checks the norm estimate, shifted geometric Cauchy criterion and actual complete-field limit with these native declarations."
+      },
+      {
+        "ref": "mathlib:cauchySeq_shift",
+        "kind": "theorem",
+        "module": "Mathlib/Topology/UniformSpace/Cauchy.lean",
+        "provides": "Removing or adding a fixed finite natural index shift preserves the Cauchy-sequence property.",
+        "checked": "Full statement, ambient hypotheses and relevant additive generator read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on30September2026. The complete MoritaDecayProbe checks the norm estimate, shifted geometric Cauchy criterion and actual complete-field limit with these native declarations."
+      },
+      {
+        "ref": "mathlib:cauchySeq_tendsto_of_complete",
+        "kind": "theorem",
+        "module": "Mathlib/Topology/UniformSpace/Cauchy.lean",
+        "provides": "A Cauchy sequence in a complete uniform space has a limit in that space.",
+        "checked": "Full statement, ambient hypotheses and relevant additive generator read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on30September2026. The complete MoritaDecayProbe checks the norm estimate, shifted geometric Cauchy criterion and actual complete-field limit with these native declarations."
       }
     ]
   },
@@ -57162,6 +57190,841 @@
       "acceptance": [
         "The source factorial, inverse character, common level and1/q normalization must all survive. This is not yet convergence of the sequence indexed by n."
       ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/morita-mean-bound-constant",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The common bound constant for finite angular means",
+      "kind": "construction",
+      "statement": "Define C_f=max(‖b⁻¹:K‖,‖q⁻¹:K‖²). It is nonnegative and dominates both the initial-level contribution and the source-scaled increment contribution. It is defined even at f=0, although the mean estimates require f>0.",
+      "hypotheses": [
+        "p is prime, q=4 at p=2 and q=p otherwise, r=‖q:ℤ_p‖, b=lcm(f,q), N_n=bq^n. All means, native inverse twists χ_m and angular samples are the preceding constructions at their fixed levels.",
+        "For the coefficient, difference, Cauchy and limit statements, f>0 and K is a characteristic-zero ultrametric normed ℚ_p-algebra. The coefficient map ι:ℤ_p→K is explicit. Only existence of the limit requires CompleteSpace K. The arithmetic radius and level identities are in ℤ_p.",
+        "A:ℤ_p→K and D_m:ℤ_p→K are actual ordinary functions with D_0=A and B≥0. At every x with ‖x−1‖≤r and h with ‖h‖<r, Σ_(m≥0)ι(h)^m D_m(x) has sum A(x+h).",
+        "For every m and x,y in that closed disc, ‖D_m(x)‖≤B/r^m and ‖D_m(x)−D_m(y)‖≤(B/r^(m+1))‖x−y‖. These value and Lipschitz inequalities and the pointwise Taylor HasSum are explicit hypotheses. Their source analytic instantiation with D_m=A^(m)/m! remains the existing LAD L0 request.",
+        "The limit norm theorem only needs the value and Lipschitz bounds on A itself, plus an actual Tendsto witness for a limit v. It does not require a derivative family, completeness or the Taylor hypothesis again. This checkpoint does not construct a continuous linear functional on a placeholder analytic carrier or all continuous functions."
+      ],
+      "proofSteps": [
+        "Name the explicit real constant already appearing in the preceding uniform estimate. It uses the original fixed common level b.",
+        "Nonnegativity follows from nonnegativity of norms. The two projection inequalities are the native maximum inequalities.",
+        "The complete bound definition and bound_nonneg, bound_initial and bound_radius lemmas verify this interface. This is arithmetic bookkeeping for the existing estimate, not a new analytic norm."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/morita-modulus"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/MoritaConvergence",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.moritaMeanBoundConstant"
+      },
+      "sources": [
+        {
+          "sourceId": "KubotaLeopoldt-1964",
+          "locator": "Section 2 pp.332–333, uniform finite-mean estimate (7), Hilfssatz2 (8), geometric improvement (9), convergence and the limit norm immediately below (9).",
+          "match": "The preceding exact Taylor formula and uniform twist bound give a coarse explicit geometric majorant and the complete-field limit. The proof preserves the source derivative scaling and the strict Taylor radius. C_f=max(‖b⁻¹‖,‖q⁻¹‖²) is the already proved coarse constant, not a claim about the optimal printed constant."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedMoritaDecayTests.bound_constant_dyadic",
+          "kind": "computation",
+          "statement": "At p=2,f=1 the constant is16."
+        },
+        {
+          "name": "SuggestedMoritaDecayTests.bound_constant_odd",
+          "kind": "computation",
+          "statement": "At p=3,f=1 it is9."
+        },
+        {
+          "name": "SuggestedMoritaDecayTests.bound_constant_initial_dominates",
+          "kind": "non-example",
+          "statement": "At p=2,f=128 it is128, so the initial-level term cannot always be omitted."
+        },
+        {
+          "name": "SuggestedMoritaDecayTests.bound_constant_zero_level",
+          "kind": "degenerate",
+          "statement": "At p=2,f=0 the formula still equals16, but this does not extend the positive-level estimate to arbitrary degenerate data."
+        }
+      ],
+      "acceptance": [
+        "Keep the characteristic, positivity and normalized coefficient-norm hypotheses on every application of the constant."
+      ],
+      "uses": [
+        {
+          "where": "Twisted divided derivatives",
+          "how": "One constant bounds all derivative orders and averaging depths."
+        },
+        {
+          "where": "Geometric difference estimate",
+          "how": "Combines with B and ‖q⁻¹‖ to give a fixed geometric coefficient."
+        },
+        {
+          "where": "Limit norm",
+          "how": "The same C_f bounds the resulting limit."
+        }
+      ],
+      "api": [
+        {
+          "name": "DirichletPadic.moritaMeanBoundConstant_nonneg",
+          "role": "relation",
+          "statement": "0≤C_f."
+        },
+        {
+          "name": "DirichletPadic.moritaMeanBoundConstant_initial",
+          "role": "relation",
+          "statement": "‖b⁻¹‖≤C_f."
+        },
+        {
+          "name": "DirichletPadic.moritaMeanBoundConstant_radius",
+          "role": "relation",
+          "statement": "‖q⁻¹‖²≤C_f."
+        }
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/morita-radius-positive",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The principal angular radius is positive",
+      "kind": "lemma",
+      "statement": "The real radius r=‖q:ℤ_p‖ is strictly positive.",
+      "hypotheses": [
+        "p is prime, q=4 at p=2 and q=p otherwise, r=‖q:ℤ_p‖, b=lcm(f,q), N_n=bq^n. All means, native inverse twists χ_m and angular samples are the preceding constructions at their fixed levels.",
+        "For the coefficient, difference, Cauchy and limit statements, f>0 and K is a characteristic-zero ultrametric normed ℚ_p-algebra. The coefficient map ι:ℤ_p→K is explicit. Only existence of the limit requires CompleteSpace K. The arithmetic radius and level identities are in ℤ_p.",
+        "A:ℤ_p→K and D_m:ℤ_p→K are actual ordinary functions with D_0=A and B≥0. At every x with ‖x−1‖≤r and h with ‖h‖<r, Σ_(m≥0)ι(h)^m D_m(x) has sum A(x+h).",
+        "For every m and x,y in that closed disc, ‖D_m(x)‖≤B/r^m and ‖D_m(x)−D_m(y)‖≤(B/r^(m+1))‖x−y‖. These value and Lipschitz inequalities and the pointwise Taylor HasSum are explicit hypotheses. Their source analytic instantiation with D_m=A^(m)/m! remains the existing LAD L0 request.",
+        "The limit norm theorem only needs the value and Lipschitz bounds on A itself, plus an actual Tendsto witness for a limit v. It does not require a derivative family, completeness or the Taylor hypothesis again. This checkpoint does not construct a continuous linear functional on a placeholder analytic carrier or all continuous functions."
+      ],
+      "proofSteps": [
+        "The preceding modulus q is a positive natural number. Its cast in the characteristic-zero domain ℤ_p is nonzero.",
+        "Apply the norm positivity criterion. The complete radius_pos proof checks the native natural cast rather than assuming the radius is invertible."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/morita-modulus"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/MoritaConvergence",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.moritaRadius_pos"
+      },
+      "sources": [
+        {
+          "sourceId": "KubotaLeopoldt-1964",
+          "locator": "Section 2 pp.332–333, uniform finite-mean estimate (7), Hilfssatz2 (8), geometric improvement (9), convergence and the limit norm immediately below (9).",
+          "match": "The preceding exact Taylor formula and uniform twist bound give a coarse explicit geometric majorant and the complete-field limit. The proof preserves the source derivative scaling and the strict Taylor radius. C_f=max(‖b⁻¹‖,‖q⁻¹‖²) is the already proved coarse constant, not a claim about the optimal printed constant."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedMoritaDecayTests.radius_positive_dyadic",
+          "kind": "degenerate",
+          "statement": "The dyadic radius is positive."
+        },
+        {
+          "name": "SuggestedMoritaDecayTests.radius_positive_odd",
+          "kind": "degenerate",
+          "statement": "The ternary radius is positive."
+        }
+      ],
+      "acceptance": [
+        "This justifies every division by r in subsequent estimates."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/morita-radius-contracting",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The principal angular radius is smaller than one",
+      "kind": "lemma",
+      "statement": "The real radius r satisfies r<1, including the dyadic choice q=4.",
+      "hypotheses": [
+        "p is prime, q=4 at p=2 and q=p otherwise, r=‖q:ℤ_p‖, b=lcm(f,q), N_n=bq^n. All means, native inverse twists χ_m and angular samples are the preceding constructions at their fixed levels.",
+        "For the coefficient, difference, Cauchy and limit statements, f>0 and K is a characteristic-zero ultrametric normed ℚ_p-algebra. The coefficient map ι:ℤ_p→K is explicit. Only existence of the limit requires CompleteSpace K. The arithmetic radius and level identities are in ℤ_p.",
+        "A:ℤ_p→K and D_m:ℤ_p→K are actual ordinary functions with D_0=A and B≥0. At every x with ‖x−1‖≤r and h with ‖h‖<r, Σ_(m≥0)ι(h)^m D_m(x) has sum A(x+h).",
+        "For every m and x,y in that closed disc, ‖D_m(x)‖≤B/r^m and ‖D_m(x)−D_m(y)‖≤(B/r^(m+1))‖x−y‖. These value and Lipschitz inequalities and the pointwise Taylor HasSum are explicit hypotheses. Their source analytic instantiation with D_m=A^(m)/m! remains the existing LAD L0 request.",
+        "The limit norm theorem only needs the value and Lipschitz bounds on A itself, plus an actual Tendsto witness for a limit v. It does not require a derivative family, completeness or the Taylor hypothesis again. This checkpoint does not construct a continuous linear functional on a placeholder analytic carrier or all continuous functions."
+      ],
+      "proofSteps": [
+        "The prime p divides q by the existing modulus API.",
+        "Use the pinned equivalence between norm of a natural p-adic integer being below one and divisibility by p. The complete radius_lt_one proof checks this equivalence."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/morita-modulus",
+        "mathlib:PadicInt.norm_natCast_lt_one_iff"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/MoritaConvergence",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.moritaRadius_lt_one"
+      },
+      "sources": [
+        {
+          "sourceId": "KubotaLeopoldt-1964",
+          "locator": "Section 2 pp.332–333, uniform finite-mean estimate (7), Hilfssatz2 (8), geometric improvement (9), convergence and the limit norm immediately below (9).",
+          "match": "The preceding exact Taylor formula and uniform twist bound give a coarse explicit geometric majorant and the complete-field limit. The proof preserves the source derivative scaling and the strict Taylor radius. C_f=max(‖b⁻¹‖,‖q⁻¹‖²) is the already proved coarse constant, not a claim about the optimal printed constant."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedMoritaDecayTests.radius_dyadic",
+          "kind": "computation",
+          "statement": "At p=2,r=1/4."
+        },
+        {
+          "name": "SuggestedMoritaDecayTests.radius_odd",
+          "kind": "computation",
+          "statement": "At p=3,r=1/3."
+        }
+      ],
+      "acceptance": [
+        "Do not replace the dyadic radius by1/2."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/morita-level-norm",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The exact norm of an averaging level",
+      "kind": "lemma",
+      "statement": "For every natural f,n, ‖N_n:ℤ_p‖=‖b:ℤ_p‖r^n.",
+      "hypotheses": [
+        "p is prime, q=4 at p=2 and q=p otherwise, r=‖q:ℤ_p‖, b=lcm(f,q), N_n=bq^n. All means, native inverse twists χ_m and angular samples are the preceding constructions at their fixed levels.",
+        "For the coefficient, difference, Cauchy and limit statements, f>0 and K is a characteristic-zero ultrametric normed ℚ_p-algebra. The coefficient map ι:ℤ_p→K is explicit. Only existence of the limit requires CompleteSpace K. The arithmetic radius and level identities are in ℤ_p.",
+        "A:ℤ_p→K and D_m:ℤ_p→K are actual ordinary functions with D_0=A and B≥0. At every x with ‖x−1‖≤r and h with ‖h‖<r, Σ_(m≥0)ι(h)^m D_m(x) has sum A(x+h).",
+        "For every m and x,y in that closed disc, ‖D_m(x)‖≤B/r^m and ‖D_m(x)−D_m(y)‖≤(B/r^(m+1))‖x−y‖. These value and Lipschitz inequalities and the pointwise Taylor HasSum are explicit hypotheses. Their source analytic instantiation with D_m=A^(m)/m! remains the existing LAD L0 request.",
+        "The limit norm theorem only needs the value and Lipschitz bounds on A itself, plus an actual Tendsto witness for a limit v. It does not require a derivative family, completeness or the Taylor hypothesis again. This checkpoint does not construct a continuous linear functional on a placeholder analytic carrier or all continuous functions."
+      ],
+      "proofSteps": [
+        "Unfold the actual level N_n=bq^n. Move natural casts through multiplication and powers.",
+        "Apply multiplicativity of the p-adic norm and its power identity. The complete level_norm proof keeps the factor‖b‖, including additional p-divisibility in f."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/morita-mean-level"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/MoritaConvergence",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.moritaLevel_norm"
+      },
+      "sources": [
+        {
+          "sourceId": "KubotaLeopoldt-1964",
+          "locator": "Section 2 pp.332–333, uniform finite-mean estimate (7), Hilfssatz2 (8), geometric improvement (9), convergence and the limit norm immediately below (9).",
+          "match": "The preceding exact Taylor formula and uniform twist bound give a coarse explicit geometric majorant and the complete-field limit. The proof preserves the source derivative scaling and the strict Taylor radius. C_f=max(‖b⁻¹‖,‖q⁻¹‖²) is the already proved coarse constant, not a claim about the optimal printed constant."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedMoritaDecayTests.level_norm_tame",
+          "kind": "computation",
+          "statement": "At p=2,f=3,n=1 the norm is1/16."
+        },
+        {
+          "name": "SuggestedMoritaDecayTests.level_norm_extra_prime",
+          "kind": "computation",
+          "statement": "At p=2,f=8,n=0 the norm is1/8."
+        }
+      ],
+      "acceptance": [
+        "The estimate cannot assume that the common level has exactly one source-radius factor."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/morita-level-norm-bound",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Every averaging level carries the source-radius factor",
+      "kind": "lemma",
+      "statement": "For all f,n, ‖N_n‖≤r^(n+1).",
+      "hypotheses": [
+        "p is prime, q=4 at p=2 and q=p otherwise, r=‖q:ℤ_p‖, b=lcm(f,q), N_n=bq^n. All means, native inverse twists χ_m and angular samples are the preceding constructions at their fixed levels.",
+        "For the coefficient, difference, Cauchy and limit statements, f>0 and K is a characteristic-zero ultrametric normed ℚ_p-algebra. The coefficient map ι:ℤ_p→K is explicit. Only existence of the limit requires CompleteSpace K. The arithmetic radius and level identities are in ℤ_p.",
+        "A:ℤ_p→K and D_m:ℤ_p→K are actual ordinary functions with D_0=A and B≥0. At every x with ‖x−1‖≤r and h with ‖h‖<r, Σ_(m≥0)ι(h)^m D_m(x) has sum A(x+h).",
+        "For every m and x,y in that closed disc, ‖D_m(x)‖≤B/r^m and ‖D_m(x)−D_m(y)‖≤(B/r^(m+1))‖x−y‖. These value and Lipschitz inequalities and the pointwise Taylor HasSum are explicit hypotheses. Their source analytic instantiation with D_m=A^(m)/m! remains the existing LAD L0 request.",
+        "The limit norm theorem only needs the value and Lipschitz bounds on A itself, plus an actual Tendsto witness for a limit v. It does not require a derivative family, completeness or the Taylor hypothesis again. This checkpoint does not construct a continuous linear functional on a placeholder analytic carrier or all continuous functions."
+      ],
+      "proofSteps": [
+        "The native divisibility q∣lcm(f,q) gives b=qk with k natural. Its p-adic norm is at most r because ‖k‖≤1.",
+        "Insert this into the preceding exact level norm and multiply by the nonnegative r^n. The complete level_norm_le proof uses actual divisibility and normalized integer norms."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/morita-level-norm",
+        "mathlib:PadicInt.norm_le_one"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/MoritaConvergence",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.moritaLevel_norm_le"
+      },
+      "sources": [
+        {
+          "sourceId": "KubotaLeopoldt-1964",
+          "locator": "Section 2 pp.332–333, uniform finite-mean estimate (7), Hilfssatz2 (8), geometric improvement (9), convergence and the limit norm immediately below (9).",
+          "match": "The preceding exact Taylor formula and uniform twist bound give a coarse explicit geometric majorant and the complete-field limit. The proof preserves the source derivative scaling and the strict Taylor radius. C_f=max(‖b⁻¹‖,‖q⁻¹‖²) is the already proved coarse constant, not a claim about the optimal printed constant."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedMoritaDecayTests.level_norm_bound_sharp",
+          "kind": "computation",
+          "statement": "For p=2,f=1 equality holds: ‖N_n‖=(1/4)^(n+1)."
+        }
+      ],
+      "acceptance": [
+        "The bound includes f=0 as a valid arithmetic identity without asserting a nondegenerate mean."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/morita-level-inside-radius",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Every positive averaging depth permits Taylor expansion",
+      "kind": "lemma",
+      "statement": "For every n≥0, ‖N_(n+1)‖<r.",
+      "hypotheses": [
+        "p is prime, q=4 at p=2 and q=p otherwise, r=‖q:ℤ_p‖, b=lcm(f,q), N_n=bq^n. All means, native inverse twists χ_m and angular samples are the preceding constructions at their fixed levels.",
+        "For the coefficient, difference, Cauchy and limit statements, f>0 and K is a characteristic-zero ultrametric normed ℚ_p-algebra. The coefficient map ι:ℤ_p→K is explicit. Only existence of the limit requires CompleteSpace K. The arithmetic radius and level identities are in ℤ_p.",
+        "A:ℤ_p→K and D_m:ℤ_p→K are actual ordinary functions with D_0=A and B≥0. At every x with ‖x−1‖≤r and h with ‖h‖<r, Σ_(m≥0)ι(h)^m D_m(x) has sum A(x+h).",
+        "For every m and x,y in that closed disc, ‖D_m(x)‖≤B/r^m and ‖D_m(x)−D_m(y)‖≤(B/r^(m+1))‖x−y‖. These value and Lipschitz inequalities and the pointwise Taylor HasSum are explicit hypotheses. Their source analytic instantiation with D_m=A^(m)/m! remains the existing LAD L0 request.",
+        "The limit norm theorem only needs the value and Lipschitz bounds on A itself, plus an actual Tendsto witness for a limit v. It does not require a derivative family, completeness or the Taylor hypothesis again. This checkpoint does not construct a continuous linear functional on a placeholder analytic carrier or all continuous functions."
+      ],
+      "proofSteps": [
+        "The preceding estimate gives ‖N_(n+1)‖≤r^(n+2).",
+        "Because0<r<1, the positive power r^(n+1) is strictly below one. Multiplying by r proves r^(n+2)<r.",
+        "The complete level_inside proof supplies the strict-radius input used by the preceding Taylor identity. The index shift is retained instead of asserting the condition at depth zero."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/morita-level-norm-bound",
+        "DirichletPadicLFunctions:L3/morita-radius-positive",
+        "DirichletPadicLFunctions:L3/morita-radius-contracting"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/MoritaConvergence",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.moritaLevel_inside"
+      },
+      "sources": [
+        {
+          "sourceId": "KubotaLeopoldt-1964",
+          "locator": "Section 2 pp.332–333, uniform finite-mean estimate (7), Hilfssatz2 (8), geometric improvement (9), convergence and the limit norm immediately below (9).",
+          "match": "The preceding exact Taylor formula and uniform twist bound give a coarse explicit geometric majorant and the complete-field limit. The proof preserves the source derivative scaling and the strict Taylor radius. C_f=max(‖b⁻¹‖,‖q⁻¹‖²) is the already proved coarse constant, not a claim about the optimal printed constant."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedMoritaDecayTests.level_inside_dyadic",
+          "kind": "compatibility",
+          "statement": "For every n, the dyadic depth n+1 lies strictly inside radius1/4."
+        },
+        {
+          "name": "SuggestedMoritaDecayTests.level_inside_odd",
+          "kind": "compatibility",
+          "statement": "The corresponding ternary radius is1/3."
+        }
+      ],
+      "acceptance": [
+        "The initial depth is handled by the existing uniform bound, not this strict-radius assertion."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/morita-level-norm-tends-zero",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The averaging levels tend to zero p-adically",
+      "kind": "lemma",
+      "statement": "The real sequence ‖N_n‖ tends to zero as n tends to infinity.",
+      "hypotheses": [
+        "p is prime, q=4 at p=2 and q=p otherwise, r=‖q:ℤ_p‖, b=lcm(f,q), N_n=bq^n. All means, native inverse twists χ_m and angular samples are the preceding constructions at their fixed levels.",
+        "For the coefficient, difference, Cauchy and limit statements, f>0 and K is a characteristic-zero ultrametric normed ℚ_p-algebra. The coefficient map ι:ℤ_p→K is explicit. Only existence of the limit requires CompleteSpace K. The arithmetic radius and level identities are in ℤ_p.",
+        "A:ℤ_p→K and D_m:ℤ_p→K are actual ordinary functions with D_0=A and B≥0. At every x with ‖x−1‖≤r and h with ‖h‖<r, Σ_(m≥0)ι(h)^m D_m(x) has sum A(x+h).",
+        "For every m and x,y in that closed disc, ‖D_m(x)‖≤B/r^m and ‖D_m(x)−D_m(y)‖≤(B/r^(m+1))‖x−y‖. These value and Lipschitz inequalities and the pointwise Taylor HasSum are explicit hypotheses. Their source analytic instantiation with D_m=A^(m)/m! remains the existing LAD L0 request.",
+        "The limit norm theorem only needs the value and Lipschitz bounds on A itself, plus an actual Tendsto witness for a limit v. It does not require a derivative family, completeness or the Taylor hypothesis again. This checkpoint does not construct a continuous linear functional on a placeholder analytic carrier or all continuous functions."
+      ],
+      "proofSteps": [
+        "Use the exact factorization ‖N_n‖=‖b‖r^n.",
+        "The native geometric limit theorem applies because0≤r<1. Multiply that real limit by the fixed scalar‖b‖.",
+        "The complete level_tendsto proof checks the actual normalized p-adic levels. This concerns the levels, not yet convergence of their character means."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/morita-level-norm",
+        "DirichletPadicLFunctions:L3/morita-radius-contracting",
+        "mathlib:tendsto_pow_atTop_nhds_zero_of_lt_one"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/MoritaConvergence",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.moritaLevel_norm_tendsto"
+      },
+      "sources": [
+        {
+          "sourceId": "KubotaLeopoldt-1964",
+          "locator": "Section 2 pp.332–333, uniform finite-mean estimate (7), Hilfssatz2 (8), geometric improvement (9), convergence and the limit norm immediately below (9).",
+          "match": "The preceding exact Taylor formula and uniform twist bound give a coarse explicit geometric majorant and the complete-field limit. The proof preserves the source derivative scaling and the strict Taylor radius. C_f=max(‖b⁻¹‖,‖q⁻¹‖²) is the already proved coarse constant, not a claim about the optimal printed constant."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedMoritaDecayTests.level_tends_zero_dyadic",
+          "kind": "compatibility",
+          "statement": "For p=2,f=3 the norm sequence tends to zero."
+        }
+      ],
+      "acceptance": [
+        "Use the p-adic norm limit; the ordinary natural sizes of N_n grow."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/morita-divided-derivative-mean-norm",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Uniform bounds for the twisted divided-derivative means",
+      "kind": "lemma",
+      "statement": "Under the explicit derivative value and Lipschitz bounds, ‖M^n_(χ_m,ang)(D_m)‖≤C_f B/r^m for every m,n.",
+      "hypotheses": [
+        "p is prime, q=4 at p=2 and q=p otherwise, r=‖q:ℤ_p‖, b=lcm(f,q), N_n=bq^n. All means, native inverse twists χ_m and angular samples are the preceding constructions at their fixed levels.",
+        "For the coefficient, difference, Cauchy and limit statements, f>0 and K is a characteristic-zero ultrametric normed ℚ_p-algebra. The coefficient map ι:ℤ_p→K is explicit. Only existence of the limit requires CompleteSpace K. The arithmetic radius and level identities are in ℤ_p.",
+        "A:ℤ_p→K and D_m:ℤ_p→K are actual ordinary functions with D_0=A and B≥0. At every x with ‖x−1‖≤r and h with ‖h‖<r, Σ_(m≥0)ι(h)^m D_m(x) has sum A(x+h).",
+        "For every m and x,y in that closed disc, ‖D_m(x)‖≤B/r^m and ‖D_m(x)−D_m(y)‖≤(B/r^(m+1))‖x−y‖. These value and Lipschitz inequalities and the pointwise Taylor HasSum are explicit hypotheses. Their source analytic instantiation with D_m=A^(m)/m! remains the existing LAD L0 request.",
+        "The limit norm theorem only needs the value and Lipschitz bounds on A itself, plus an actual Tendsto witness for a limit v. It does not require a derivative family, completeness or the Taylor hypothesis again. This checkpoint does not construct a continuous linear functional on a placeholder analytic carrier or all continuous functions."
+      ],
+      "proofSteps": [
+        "For fixed m use the nonnegative bound B_m=B/r^m. Its pointwise value and source-scaled Lipschitz hypotheses are exactly the assumed derivative bounds.",
+        "Apply the preceding uniform twist theorem to the actual function D_m. Its constant is C_f, independent of m and n.",
+        "The complete derivative_mean_norm proof performs this substitution. Obtaining D_m and its bounds from the source analytic Gauss norm remains the existing LAD L0 request; no arbitrary function is silently assumed to satisfy it."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/morita-mean-bound-constant",
+        "DirichletPadicLFunctions:L3/morita-radius-positive",
+        "DirichletPadicLFunctions:L3/morita-character-twist-uniform"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/MoritaConvergence",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.moritaDividedDerivativeMean_norm"
+      },
+      "sources": [
+        {
+          "sourceId": "KubotaLeopoldt-1964",
+          "locator": "Section 2 pp.332–333, uniform finite-mean estimate (7), Hilfssatz2 (8), geometric improvement (9), convergence and the limit norm immediately below (9).",
+          "match": "The preceding exact Taylor formula and uniform twist bound give a coarse explicit geometric majorant and the complete-field limit. The proof preserves the source derivative scaling and the strict Taylor radius. C_f=max(‖b⁻¹‖,‖q⁻¹‖²) is the already proved coarse constant, not a claim about the optimal printed constant."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedMoritaDecayTests.derivative_mean_dyadic",
+          "kind": "computation",
+          "statement": "At p=2,n=0 the first twisted mean of D_1=((x−1)/8) for A=((x−1)/4)² has norm8."
+        },
+        {
+          "name": "SuggestedMoritaDecayTests.derivative_mean_odd",
+          "kind": "computation",
+          "statement": "At p=3,n=0 the second twisted mean of D_2=1/9 has norm27."
+        }
+      ],
+      "acceptance": [
+        "D_m means the divided derivative. Replacing it by a raw derivative changes the Taylor normalization."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/morita-taylor-coefficient-norm",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Geometric norm bound for each Taylor coefficient",
+      "kind": "lemma",
+      "statement": "Let R_n=‖N_n‖/r. The m-th term (s_m/q)N_n^m M^n_(χ_m,ang)(D_m) has norm at most C_f B‖q⁻¹‖R_n^m, for every m,n.",
+      "hypotheses": [
+        "p is prime, q=4 at p=2 and q=p otherwise, r=‖q:ℤ_p‖, b=lcm(f,q), N_n=bq^n. All means, native inverse twists χ_m and angular samples are the preceding constructions at their fixed levels.",
+        "For the coefficient, difference, Cauchy and limit statements, f>0 and K is a characteristic-zero ultrametric normed ℚ_p-algebra. The coefficient map ι:ℤ_p→K is explicit. Only existence of the limit requires CompleteSpace K. The arithmetic radius and level identities are in ℤ_p.",
+        "A:ℤ_p→K and D_m:ℤ_p→K are actual ordinary functions with D_0=A and B≥0. At every x with ‖x−1‖≤r and h with ‖h‖<r, Σ_(m≥0)ι(h)^m D_m(x) has sum A(x+h).",
+        "For every m and x,y in that closed disc, ‖D_m(x)‖≤B/r^m and ‖D_m(x)−D_m(y)‖≤(B/r^(m+1))‖x−y‖. These value and Lipschitz inequalities and the pointwise Taylor HasSum are explicit hypotheses. Their source analytic instantiation with D_m=A^(m)/m! remains the existing LAD L0 request.",
+        "The limit norm theorem only needs the value and Lipschitz bounds on A itself, plus an actual Tendsto witness for a limit v. It does not require a derivative family, completeness or the Taylor hypothesis again. This checkpoint does not construct a continuous linear functional on a placeholder analytic carrier or all continuous functions."
+      ],
+      "proofSteps": [
+        "Expand the norm of the four scalar factors and the twisted mean. Use ‖s_m‖≤1 and the preceding derivative-mean bound.",
+        "The normalized normed ℚ_p-algebra identifies ‖N_n:K‖ with ‖N_n:ℤ_p‖; this compatibility is essential.",
+        "Collect ‖N_n‖^m/r^m as R_n^m, retaining the factor‖q⁻¹‖. The complete coefficient_norm proof verifies the product inequality and rearrangement."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/morita-divided-derivative-mean-norm",
+        "DirichletPadicLFunctions:L3/morita-block-power-sum-norm",
+        "mathlib:norm_algebraMap'"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/MoritaConvergence",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.moritaTaylorCoefficient_norm"
+      },
+      "sources": [
+        {
+          "sourceId": "KubotaLeopoldt-1964",
+          "locator": "Section 2 pp.332–333, uniform finite-mean estimate (7), Hilfssatz2 (8), geometric improvement (9), convergence and the limit norm immediately below (9).",
+          "match": "The preceding exact Taylor formula and uniform twist bound give a coarse explicit geometric majorant and the complete-field limit. The proof preserves the source derivative scaling and the strict Taylor radius. C_f=max(‖b⁻¹‖,‖q⁻¹‖²) is the already proved coarse constant, not a claim about the optimal printed constant."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedMoritaDecayTests.coefficient_dyadic_quadratic",
+          "kind": "computation",
+          "statement": "For the normalized dyadic square at depth zero the quadratic Taylor coefficient has norm4."
+        }
+      ],
+      "acceptance": [
+        "The estimate is an upper bound; it does not claim the source optimal constant or a false bound on all continuous functions."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/morita-mean-difference-norm",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "A decaying bound for one consecutive difference",
+      "kind": "theorem",
+      "statement": "If ‖N_n‖<r and the stated Taylor/derivative hypotheses hold, then ‖M^(n+1)_(χ,ang)(A)−M^n_(χ,ang)(A)‖≤C_f B‖q⁻¹‖R_n.",
+      "hypotheses": [
+        "p is prime, q=4 at p=2 and q=p otherwise, r=‖q:ℤ_p‖, b=lcm(f,q), N_n=bq^n. All means, native inverse twists χ_m and angular samples are the preceding constructions at their fixed levels.",
+        "For the coefficient, difference, Cauchy and limit statements, f>0 and K is a characteristic-zero ultrametric normed ℚ_p-algebra. The coefficient map ι:ℤ_p→K is explicit. Only existence of the limit requires CompleteSpace K. The arithmetic radius and level identities are in ℤ_p.",
+        "A:ℤ_p→K and D_m:ℤ_p→K are actual ordinary functions with D_0=A and B≥0. At every x with ‖x−1‖≤r and h with ‖h‖<r, Σ_(m≥0)ι(h)^m D_m(x) has sum A(x+h).",
+        "For every m and x,y in that closed disc, ‖D_m(x)‖≤B/r^m and ‖D_m(x)−D_m(y)‖≤(B/r^(m+1))‖x−y‖. These value and Lipschitz inequalities and the pointwise Taylor HasSum are explicit hypotheses. Their source analytic instantiation with D_m=A^(m)/m! remains the existing LAD L0 request.",
+        "The limit norm theorem only needs the value and Lipschitz bounds on A itself, plus an actual Tendsto witness for a limit v. It does not require a derivative family, completeness or the Taylor hypothesis again. This checkpoint does not construct a continuous linear functional on a placeholder analytic carrier or all continuous functions."
+      ],
+      "proofSteps": [
+        "The preceding exact Taylor HasSum identifies the difference with the series of positive-degree terms.",
+        "Since0≤R_n<1, every R_n^(m+1) is at most R_n. The preceding coefficient estimate therefore bounds every term by the same nonnegative C_f B‖q⁻¹‖R_n.",
+        "Apply the native ultrametric infinite-sum norm bound. The indexed norm_tprod_le_of_forall_le generates its additive companion; the full statement and generator were read.",
+        "The complete difference_norm proof uses the actual HasSum target and norm bound, without postulating decay of the mean differences."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/morita-mean-difference-taylor",
+        "DirichletPadicLFunctions:L3/morita-taylor-coefficient-norm",
+        "DirichletPadicLFunctions:L3/morita-radius-positive",
+        "mathlib:IsUltrametricDist.norm_tprod_le_of_forall_le"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/MoritaConvergence",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.moritaAngularMean_difference_norm"
+      },
+      "sources": [
+        {
+          "sourceId": "KubotaLeopoldt-1964",
+          "locator": "Section 2 pp.332–333, uniform finite-mean estimate (7), Hilfssatz2 (8), geometric improvement (9), convergence and the limit norm immediately below (9).",
+          "match": "The preceding exact Taylor formula and uniform twist bound give a coarse explicit geometric majorant and the complete-field limit. The proof preserves the source derivative scaling and the strict Taylor radius. C_f=max(‖b⁻¹‖,‖q⁻¹‖²) is the already proved coarse constant, not a claim about the optimal printed constant."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedMoritaDecayTests.difference_bound_square_dyadic",
+          "kind": "computation",
+          "statement": "For the dyadic square the difference from depth1 to2 is40, of norm1/8."
+        },
+        {
+          "name": "SuggestedMoritaDecayTests.difference_bound_square_odd",
+          "kind": "computation",
+          "statement": "For the ternary square that difference is16, of norm1."
+        }
+      ],
+      "acceptance": [
+        "Completeness is unnecessary here: the explicit Taylor HasSum already supplies the sum."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/morita-level-ratio-bound",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "A uniform geometric bound for the shifted level ratio",
+      "kind": "lemma",
+      "statement": "For every f,n, ‖N_(n+1)‖/r≤r^n.",
+      "hypotheses": [
+        "p is prime, q=4 at p=2 and q=p otherwise, r=‖q:ℤ_p‖, b=lcm(f,q), N_n=bq^n. All means, native inverse twists χ_m and angular samples are the preceding constructions at their fixed levels.",
+        "For the coefficient, difference, Cauchy and limit statements, f>0 and K is a characteristic-zero ultrametric normed ℚ_p-algebra. The coefficient map ι:ℤ_p→K is explicit. Only existence of the limit requires CompleteSpace K. The arithmetic radius and level identities are in ℤ_p.",
+        "A:ℤ_p→K and D_m:ℤ_p→K are actual ordinary functions with D_0=A and B≥0. At every x with ‖x−1‖≤r and h with ‖h‖<r, Σ_(m≥0)ι(h)^m D_m(x) has sum A(x+h).",
+        "For every m and x,y in that closed disc, ‖D_m(x)‖≤B/r^m and ‖D_m(x)−D_m(y)‖≤(B/r^(m+1))‖x−y‖. These value and Lipschitz inequalities and the pointwise Taylor HasSum are explicit hypotheses. Their source analytic instantiation with D_m=A^(m)/m! remains the existing LAD L0 request.",
+        "The limit norm theorem only needs the value and Lipschitz bounds on A itself, plus an actual Tendsto witness for a limit v. It does not require a derivative family, completeness or the Taylor hypothesis again. This checkpoint does not construct a continuous linear functional on a placeholder analytic carrier or all continuous functions."
+      ],
+      "proofSteps": [
+        "Use the exact norm formula and cancel the positive r: ‖N_(n+1)‖/r=‖b‖r^n.",
+        "The p-adic integer b has norm at most one. Multiply by the nonnegative r^n. The complete level_ratio_le proof checks the cancellation."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/morita-level-norm",
+        "DirichletPadicLFunctions:L3/morita-radius-positive",
+        "mathlib:PadicInt.norm_le_one"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/MoritaConvergence",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.moritaLevel_ratio_le"
+      },
+      "sources": [
+        {
+          "sourceId": "KubotaLeopoldt-1964",
+          "locator": "Section 2 pp.332–333, uniform finite-mean estimate (7), Hilfssatz2 (8), geometric improvement (9), convergence and the limit norm immediately below (9).",
+          "match": "The preceding exact Taylor formula and uniform twist bound give a coarse explicit geometric majorant and the complete-field limit. The proof preserves the source derivative scaling and the strict Taylor radius. C_f=max(‖b⁻¹‖,‖q⁻¹‖²) is the already proved coarse constant, not a claim about the optimal printed constant."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedMoritaDecayTests.ratio_extra_depth",
+          "kind": "computation",
+          "statement": "For p=2,f=1 the ratio is exactly(1/4)^(n+1), a sharper value than the general bound."
+        }
+      ],
+      "acceptance": [
+        "The index n+1 aligns this ratio with the strict-radius Taylor application."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/morita-mean-difference-geometric",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "A geometric majorant for every positive-depth difference",
+      "kind": "theorem",
+      "statement": "For all n≥0, ‖M^(n+2)_(χ,ang)(A)−M^(n+1)_(χ,ang)(A)‖≤P_f r^n, where P_f=C_f B‖q⁻¹‖ is fixed and nonnegative.",
+      "hypotheses": [
+        "p is prime, q=4 at p=2 and q=p otherwise, r=‖q:ℤ_p‖, b=lcm(f,q), N_n=bq^n. All means, native inverse twists χ_m and angular samples are the preceding constructions at their fixed levels.",
+        "For the coefficient, difference, Cauchy and limit statements, f>0 and K is a characteristic-zero ultrametric normed ℚ_p-algebra. The coefficient map ι:ℤ_p→K is explicit. Only existence of the limit requires CompleteSpace K. The arithmetic radius and level identities are in ℤ_p.",
+        "A:ℤ_p→K and D_m:ℤ_p→K are actual ordinary functions with D_0=A and B≥0. At every x with ‖x−1‖≤r and h with ‖h‖<r, Σ_(m≥0)ι(h)^m D_m(x) has sum A(x+h).",
+        "For every m and x,y in that closed disc, ‖D_m(x)‖≤B/r^m and ‖D_m(x)−D_m(y)‖≤(B/r^(m+1))‖x−y‖. These value and Lipschitz inequalities and the pointwise Taylor HasSum are explicit hypotheses. Their source analytic instantiation with D_m=A^(m)/m! remains the existing LAD L0 request.",
+        "The limit norm theorem only needs the value and Lipschitz bounds on A itself, plus an actual Tendsto witness for a limit v. It does not require a derivative family, completeness or the Taylor hypothesis again. This checkpoint does not construct a continuous linear functional on a placeholder analytic carrier or all continuous functions."
+      ],
+      "proofSteps": [
+        "Apply the consecutive-difference norm theorem at depth n+1. The preceding inside-radius theorem supplies its strict inequality.",
+        "Insert the shifted level-ratio bound and multiply by the nonnegative P_f. The complete difference_geometric proof gives one majorant independent of n.",
+        "The finitely many initial terms play no role in the Cauchy criterion; their uniform norm bound is already available."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/morita-mean-difference-norm",
+        "DirichletPadicLFunctions:L3/morita-level-inside-radius",
+        "DirichletPadicLFunctions:L3/morita-level-ratio-bound"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/MoritaConvergence",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.moritaAngularMean_difference_geometric"
+      },
+      "sources": [
+        {
+          "sourceId": "KubotaLeopoldt-1964",
+          "locator": "Section 2 pp.332–333, uniform finite-mean estimate (7), Hilfssatz2 (8), geometric improvement (9), convergence and the limit norm immediately below (9).",
+          "match": "The preceding exact Taylor formula and uniform twist bound give a coarse explicit geometric majorant and the complete-field limit. The proof preserves the source derivative scaling and the strict Taylor radius. C_f=max(‖b⁻¹‖,‖q⁻¹‖²) is the already proved coarse constant, not a claim about the optimal printed constant."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedMoritaDecayTests.geometric_difference_dyadic",
+          "kind": "compatibility",
+          "statement": "For the normalized dyadic square,64·(1/4)^n bounds the depth n+1 to n+2 difference."
+        },
+        {
+          "name": "SuggestedMoritaDecayTests.geometric_difference_odd",
+          "kind": "compatibility",
+          "statement": "For the normalized ternary square,27·(1/3)^n is a valid majorant."
+        }
+      ],
+      "acceptance": [
+        "The constant is explicit and coarse; no unverified sharper source estimate is substituted."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/morita-angular-mean-cauchy",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The finite angular character means form a Cauchy sequence",
+      "kind": "theorem",
+      "statement": "Under the stated pointwise Taylor and derivative bounds, the sequence n↦M^n_(χ,ang)(A) is Cauchy in K.",
+      "hypotheses": [
+        "p is prime, q=4 at p=2 and q=p otherwise, r=‖q:ℤ_p‖, b=lcm(f,q), N_n=bq^n. All means, native inverse twists χ_m and angular samples are the preceding constructions at their fixed levels.",
+        "For the coefficient, difference, Cauchy and limit statements, f>0 and K is a characteristic-zero ultrametric normed ℚ_p-algebra. The coefficient map ι:ℤ_p→K is explicit. Only existence of the limit requires CompleteSpace K. The arithmetic radius and level identities are in ℤ_p.",
+        "A:ℤ_p→K and D_m:ℤ_p→K are actual ordinary functions with D_0=A and B≥0. At every x with ‖x−1‖≤r and h with ‖h‖<r, Σ_(m≥0)ι(h)^m D_m(x) has sum A(x+h).",
+        "For every m and x,y in that closed disc, ‖D_m(x)‖≤B/r^m and ‖D_m(x)−D_m(y)‖≤(B/r^(m+1))‖x−y‖. These value and Lipschitz inequalities and the pointwise Taylor HasSum are explicit hypotheses. Their source analytic instantiation with D_m=A^(m)/m! remains the existing LAD L0 request.",
+        "The limit norm theorem only needs the value and Lipschitz bounds on A itself, plus an actual Tendsto witness for a limit v. It does not require a derivative family, completeness or the Taylor hypothesis again. This checkpoint does not construct a continuous linear functional on a placeholder analytic carrier or all continuous functions."
+      ],
+      "proofSteps": [
+        "Apply the native seminormed additive-group geometric Cauchy theorem to the shifted sequence n↦M^(n+1)_(χ,ang)(A), using r<1 and the preceding majorant.",
+        "Reverse the subtraction inside the norm to match the native theorem convention.",
+        "Remove the finite index shift with native cauchySeq_shift. The complete mean_cauchy proof makes this reduction explicit. It does not need completeness of K."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/morita-mean-difference-geometric",
+        "DirichletPadicLFunctions:L3/morita-radius-contracting",
+        "mathlib:SeminormedAddCommGroup.cauchySeq_of_le_geometric",
+        "mathlib:cauchySeq_shift"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/MoritaConvergence",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.moritaAngularMean_cauchy"
+      },
+      "sources": [
+        {
+          "sourceId": "KubotaLeopoldt-1964",
+          "locator": "Section 2 pp.332–333, uniform finite-mean estimate (7), Hilfssatz2 (8), geometric improvement (9), convergence and the limit norm immediately below (9).",
+          "match": "The preceding exact Taylor formula and uniform twist bound give a coarse explicit geometric majorant and the complete-field limit. The proof preserves the source derivative scaling and the strict Taylor radius. C_f=max(‖b⁻¹‖,‖q⁻¹‖²) is the already proved coarse constant, not a claim about the optimal printed constant."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedMoritaDecayTests.cauchy_constant",
+          "kind": "degenerate",
+          "statement": "The dyadic constant-one angular means are Cauchy."
+        },
+        {
+          "name": "SuggestedMoritaDecayTests.cauchy_square",
+          "kind": "computation",
+          "statement": "The normalized ternary square means are Cauchy even though their ordinary rational sizes grow."
+        }
+      ],
+      "acceptance": [
+        "The geometric Cauchy theorem is imported from Mathlib rather than planned again."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/morita-angular-mean-exists-limit",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Existence of the complete-field angular mean",
+      "kind": "theorem",
+      "statement": "If K is complete, then under the same hypotheses there exists v∈K such that M^n_(χ,ang)(A) tends to v.",
+      "hypotheses": [
+        "p is prime, q=4 at p=2 and q=p otherwise, r=‖q:ℤ_p‖, b=lcm(f,q), N_n=bq^n. All means, native inverse twists χ_m and angular samples are the preceding constructions at their fixed levels.",
+        "For the coefficient, difference, Cauchy and limit statements, f>0 and K is a characteristic-zero ultrametric normed ℚ_p-algebra. The coefficient map ι:ℤ_p→K is explicit. Only existence of the limit requires CompleteSpace K. The arithmetic radius and level identities are in ℤ_p.",
+        "A:ℤ_p→K and D_m:ℤ_p→K are actual ordinary functions with D_0=A and B≥0. At every x with ‖x−1‖≤r and h with ‖h‖<r, Σ_(m≥0)ι(h)^m D_m(x) has sum A(x+h).",
+        "For every m and x,y in that closed disc, ‖D_m(x)‖≤B/r^m and ‖D_m(x)−D_m(y)‖≤(B/r^(m+1))‖x−y‖. These value and Lipschitz inequalities and the pointwise Taylor HasSum are explicit hypotheses. Their source analytic instantiation with D_m=A^(m)/m! remains the existing LAD L0 request.",
+        "The limit norm theorem only needs the value and Lipschitz bounds on A itself, plus an actual Tendsto witness for a limit v. It does not require a derivative family, completeness or the Taylor hypothesis again. This checkpoint does not construct a continuous linear functional on a placeholder analytic carrier or all continuous functions."
+      ],
+      "proofSteps": [
+        "Use the preceding Cauchy result for the actual finite means.",
+        "Apply the native complete-space theorem that every Cauchy sequence converges. The complete mean_limit proof checks this direct application.",
+        "This is existence of a value for the particular function A satisfying the explicit inputs. Constructing a bounded linear functional on the supplier’s actual analytic space remains subsequent work."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/morita-angular-mean-cauchy",
+        "mathlib:cauchySeq_tendsto_of_complete"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/MoritaConvergence",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.moritaAngularMean_exists_limit"
+      },
+      "sources": [
+        {
+          "sourceId": "KubotaLeopoldt-1964",
+          "locator": "Section 2 pp.332–333, uniform finite-mean estimate (7), Hilfssatz2 (8), geometric improvement (9), convergence and the limit norm immediately below (9).",
+          "match": "The preceding exact Taylor formula and uniform twist bound give a coarse explicit geometric majorant and the complete-field limit. The proof preserves the source derivative scaling and the strict Taylor radius. C_f=max(‖b⁻¹‖,‖q⁻¹‖²) is the already proved coarse constant, not a claim about the optimal printed constant."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedMoritaDecayTests.limit_constant_dyadic",
+          "kind": "computation",
+          "statement": "The dyadic constant-one means tend to1/2."
+        },
+        {
+          "name": "SuggestedMoritaDecayTests.limit_linear_dyadic",
+          "kind": "computation",
+          "statement": "The dyadic means of A(x)=x tend to−1/2, retaining the angular-coordinate normalization."
+        }
+      ],
+      "acceptance": [
+        "Completeness is an explicit hypothesis; Cauchy alone does not supply an element of an incomplete coefficient field."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/morita-angular-mean-limit-norm",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The angular mean limit retains the uniform norm bound",
+      "kind": "lemma",
+      "statement": "If A satisfies ‖A(x)‖≤B and the source-scaled Lipschitz bound B/r on the principal disc, and M^n_(χ,ang)(A) tends to v, then ‖v‖≤C_f B.",
+      "hypotheses": [
+        "p is prime, q=4 at p=2 and q=p otherwise, r=‖q:ℤ_p‖, b=lcm(f,q), N_n=bq^n. All means, native inverse twists χ_m and angular samples are the preceding constructions at their fixed levels.",
+        "For the coefficient, difference, Cauchy and limit statements, f>0 and K is a characteristic-zero ultrametric normed ℚ_p-algebra. The coefficient map ι:ℤ_p→K is explicit. Only existence of the limit requires CompleteSpace K. The arithmetic radius and level identities are in ℤ_p.",
+        "A:ℤ_p→K and D_m:ℤ_p→K are actual ordinary functions with D_0=A and B≥0. At every x with ‖x−1‖≤r and h with ‖h‖<r, Σ_(m≥0)ι(h)^m D_m(x) has sum A(x+h).",
+        "For every m and x,y in that closed disc, ‖D_m(x)‖≤B/r^m and ‖D_m(x)−D_m(y)‖≤(B/r^(m+1))‖x−y‖. These value and Lipschitz inequalities and the pointwise Taylor HasSum are explicit hypotheses. Their source analytic instantiation with D_m=A^(m)/m! remains the existing LAD L0 request.",
+        "The limit norm theorem only needs the value and Lipschitz bounds on A itself, plus an actual Tendsto witness for a limit v. It does not require a derivative family, completeness or the Taylor hypothesis again. This checkpoint does not construct a continuous linear functional on a placeholder analytic carrier or all continuous functions."
+      ],
+      "proofSteps": [
+        "The preceding uniform finite-mean estimate bounds every ‖M^n_(χ,ang)(A)‖ by C_f B.",
+        "Norm is continuous, so these real norms tend to‖v‖. Apply the native closed-order limit inequality le_of_tendsto'.",
+        "The complete limit_norm proof only takes an actual Tendsto witness and the ordinary value/Lipschitz data. It neither re-assumes the derivative family nor invents an analytic norm."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/morita-mean-bound-constant",
+        "DirichletPadicLFunctions:L3/morita-angular-mean-gauss-uniform-norm",
+        "mathlib:le_of_tendsto'"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/MoritaConvergence",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.moritaAngularMean_limit_norm"
+      },
+      "sources": [
+        {
+          "sourceId": "KubotaLeopoldt-1964",
+          "locator": "Section 2 pp.332–333, uniform finite-mean estimate (7), Hilfssatz2 (8), geometric improvement (9), convergence and the limit norm immediately below (9).",
+          "match": "The preceding exact Taylor formula and uniform twist bound give a coarse explicit geometric majorant and the complete-field limit. The proof preserves the source derivative scaling and the strict Taylor radius. C_f=max(‖b⁻¹‖,‖q⁻¹‖²) is the already proved coarse constant, not a claim about the optimal printed constant."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedMoritaDecayTests.limit_norm_dyadic_constant",
+          "kind": "computation",
+          "statement": "The dyadic constant limit1/2 has norm2≤16."
+        },
+        {
+          "name": "SuggestedMoritaDecayTests.limit_norm_odd_constant",
+          "kind": "computation",
+          "statement": "The ternary constant limit2/3 has norm3≤9."
+        }
+      ],
+      "acceptance": [
+        "This is the value bound needed for the later actual analytic linear functional; it is not a bounded measure assertion on all continuous functions."
+      ]
     }
   ],
   "requests": [
@@ -57279,7 +58142,7 @@
       "stageId": "DirichletPadicLFunctions:L3",
       "status": "partial",
       "remaining": [
-        "The source finite Taylor identity is now derived from actual pointwise HasSum data: translated samples, finite-mean interchange, block power sums, next-level means and the positive-degree difference series. Next combine the preceding uniform twist estimate with the divided-derivative bounds from the existing LAD L0 request, prove a geometric difference bound tending to zero and construct the complete-field limit. The source analytic instantiation of the pointwise Taylor hypothesis is still open. Gamma analyticity on pℤ_p at odd p and8ℤ₂, Gross–Koblitz and Ferrero–Greenberg remain open with their recorded source and normalization work. All16 gaps and12 requests remain open.",
+        "The arithmetic convergence route is now planned: actual Taylor sums plus explicit divided-derivative value/Lipschitz bounds give a geometric difference majorant, a Cauchy sequence, a complete-field limit and its norm bound. The precise LAD L0 request still must provide those inputs on its actual closed-disc analytic space; a bounded linear functional there and its translated Taylor/derivative API are not yet constructed. Next compare that source mean with Morita’s translated logarithmic functional and the local Gamma identity on pℤ_p at odd p and8ℤ₂. Gross–Koblitz and Ferrero–Greenberg retain their full-proof reading and normalization work. All16 gaps and12 requests remain open.",
         "The actual tame integral and analytic transfer from supplied C(U,K)-valued families remain supplied. Actual odd/dyadic principal-unit families belong to PMIA L0a and scalar Mellin theory to LAD L3; instantiate the corrected Teichmüller twist when those interfaces are supplied."
       ]
     },
@@ -57311,7 +58174,7 @@
     {
       "title": "L3 remaining source decomposition and interfaces",
       "neededBy": [],
-      "detail": "The source finite Taylor identity is now derived from actual pointwise HasSum data: translated samples, finite-mean interchange, block power sums, next-level means and the positive-degree difference series. Next combine the preceding uniform twist estimate with the divided-derivative bounds from the existing LAD L0 request, prove a geometric difference bound tending to zero and construct the complete-field limit. The source analytic instantiation of the pointwise Taylor hypothesis is still open. Gamma analyticity on pℤ_p at odd p and8ℤ₂, Gross–Koblitz and Ferrero–Greenberg remain open with their recorded source and normalization work. All16 gaps and12 requests remain open. The actual tame integral and analytic transfer from supplied C(U,K)-valued families remain supplied. Actual odd/dyadic principal-unit families belong to PMIA L0a and scalar Mellin theory to LAD L3; instantiate the corrected Teichmüller twist when those interfaces are supplied."
+      "detail": "The arithmetic convergence route is now planned: actual Taylor sums plus explicit divided-derivative value/Lipschitz bounds give a geometric difference majorant, a Cauchy sequence, a complete-field limit and its norm bound. The precise LAD L0 request still must provide those inputs on its actual closed-disc analytic space; a bounded linear functional there and its translated Taylor/derivative API are not yet constructed. Next compare that source mean with Morita’s translated logarithmic functional and the local Gamma identity on pℤ_p at odd p and8ℤ₂. Gross–Koblitz and Ferrero–Greenberg retain their full-proof reading and normalization work. All16 gaps and12 requests remain open. The actual tame integral and analytic transfer from supplied C(U,K)-valued families remain supplied. Actual odd/dyadic principal-unit families belong to PMIA L0a and scalar Mellin theory to LAD L3; instantiate the corrected Teichmüller twist when those interfaces are supplied."
     },
     {
       "title": "L4 completed-algebra, twisted localized constant coefficient and tame-family comparisons",
@@ -57682,36 +58545,36 @@
   "checks": {
     "blueprint": "Zero errors and warnings with the unmodified pinned index.",
     "intake": "Exactly four authorized deliverables; zero problems.",
-    "sourceIssues": "All16 source findings, sources and sourceVersions remain whole. No new error or independent source-review verdict is claimed.",
+    "sourceIssues": "All16 source findings, sources and sourceVersions remain whole. No new source error or independent review verdict is claimed.",
     "validation": {
-      "nodes": 856,
+      "nodes": 871,
       "kinds": {
         "definition": 2,
-        "lemma": 341,
-        "construction": 94,
-        "theorem": 246,
+        "lemma": 351,
+        "construction": 95,
+        "theorem": 250,
         "comparison": 173
       },
-      "api": 720,
-      "packetTests": 1584,
-      "definitionConstructionTests": 399,
-      "typedExamples": 1587,
+      "api": 723,
+      "packetTests": 1612,
+      "definitionConstructionTests": 403,
+      "typedExamples": 1615,
       "planets": 24,
-      "baseline": 700,
-      "preservedWholeNodes": 848,
+      "baseline": 704,
+      "preservedWholeNodes": 856,
       "preservedBaseline": 700,
       "preservedSourceIssues": 16,
       "newSourceIssues": 0,
-      "newNodes": 8,
-      "newNamedDeclarations": 11,
-      "newTypedTests": 21,
+      "newNodes": 15,
+      "newNamedDeclarations": 18,
+      "newTypedTests": 28,
       "requests": 12,
       "gaps": 16,
       "closedStages": 0,
-      "reachableNodes": 1116,
-      "dependencyEdges": 5638,
+      "reachableNodes": 1131,
+      "dependencyEdges": 5676,
       "acyclic": true,
-      "baselineLeaves": 874,
+      "baselineLeaves": 877,
       "stageRequestLeaves": [
         "AdicSpacesPartII:F1",
         "AdicSpacesPartII:R2",
@@ -57724,7 +58587,7 @@
         "PadicMeasuresIwasawaAlgebras:L2",
         "PadicMeasuresIwasawaAlgebras:L3"
       ],
-      "readerWords": 432210,
+      "readerWords": 438567,
       "scopedMutationCheck": true,
       "correctedPredecessorNodes": 0,
       "fullSuggestedCompiled": false,
@@ -57750,8 +58613,8 @@
       "missingPinnedTauArtifacts": [
         "TauCeti.NumberTheory.ArithmeticFunction.TwistedDivisorSum"
       ],
-      "scratchCompleteDefinitions": 16,
-      "scratchCompleteLemmas": 117,
+      "scratchCompleteDefinitions": 17,
+      "scratchCompleteLemmas": 134,
       "scratchMathlibModules": 2825,
       "scratchTauModules": 7,
       "scratchErrors": 0,
@@ -57763,17 +58626,26 @@
         "nextMeans": 180,
         "differenceSeries": 180,
         "zerothTerms": 180,
-        "powerSumBounds": 18
+        "powerSumBounds": 18,
+        "radiusChecks": 2,
+        "levelBounds": 48,
+        "derivativeValues": 600,
+        "derivativeLipschitz": 6000,
+        "coefficientBounds": 720,
+        "differenceBounds": 190,
+        "geometricDifferences": 180
       },
       "numericalControlsCertified": false,
-      "newRoutesStageLeaves": [],
+      "newRoutesStageLeaves": [
+        "LocallyAnalyticDistributions:L0"
+      ],
       "partialSignatures": {
         "exitCode": 0,
-        "sourceSha256": "43076180832f57e8c8dcafca7e40bdb3d33a9e0f7bdace665a750c4a8ad061a0",
+        "sourceSha256": "66ea44afda521d81e758723ed0d58a1fb912d9d372a477858f3d2995a371c8d9",
         "modules": 3600,
-        "warnings": 2720,
+        "warnings": 2765,
         "errors": 0,
-        "scope": "The separate partial signature file also compiled with zero errors and 2,720 expected placeholder warnings across 3,600 pinned source modules. It includes all 11 new named declarations and 21 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 43076180832f57e8c8dcafca7e40bdb3d33a9e0f7bdace665a750c4a8ad061a0.",
+        "scope": "The separate partial signature file also compiled with zero errors and 2,765 expected placeholder warnings across 3,600 pinned source modules. It includes all 18 new named declarations and 28 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 66ea44afda521d81e758723ed0d58a1fb912d9d372a477858f3d2995a371c8d9.",
         "fullSuggestedFile": false,
         "documentedOmissionsRetained": true
       }
@@ -57783,7 +58655,7 @@
       "compiled": false,
       "errors": null,
       "warnings": null,
-      "sha256": "19cfae6ad2b1f21d187e85781df7138caaa7c281db4c79393a0d5fdcf3301097",
+      "sha256": "b7a9844c1bf0de51551a941b4ee28b6be9841d98d6de37e4ed4c60a413fb2c2f",
       "missingNativeArtifacts": [
         "TauCeti.NumberTheory.ArithmeticFunction.TwistedDivisorSum"
       ],
@@ -57798,11 +58670,11 @@
         }
       },
       "nativeProbe": {
-        "completeLemmas": 117,
+        "completeLemmas": 134,
         "errors": 0,
         "warnings": 0,
         "placeholders": 0,
-        "sha256": "ad6dd452509608b29cc0e23aa7e61eb7bdc5a8917eb2a7097c4ac9de7ebb81a8"
+        "sha256": "dda932ba8a75c1215987b261bd70e26d380a3bd36b6662fd670c1dcb9ec35769"
       },
       "sourceAndAvailableArtifactAudit": {
         "compiledSupplierNodes": 332,
@@ -57940,17 +58812,17 @@
       },
       "partialSignatures": {
         "exitCode": 0,
-        "sourceSha256": "43076180832f57e8c8dcafca7e40bdb3d33a9e0f7bdace665a750c4a8ad061a0",
+        "sourceSha256": "66ea44afda521d81e758723ed0d58a1fb912d9d372a477858f3d2995a371c8d9",
         "modules": 3600,
-        "warnings": 2720,
+        "warnings": 2765,
         "errors": 0,
-        "scope": "The separate partial signature file also compiled with zero errors and 2,720 expected placeholder warnings across 3,600 pinned source modules. It includes all 11 new named declarations and 21 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 43076180832f57e8c8dcafca7e40bdb3d33a9e0f7bdace665a750c4a8ad061a0.",
+        "scope": "The separate partial signature file also compiled with zero errors and 2,765 expected placeholder warnings across 3,600 pinned source modules. It includes all 18 new named declarations and 28 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 66ea44afda521d81e758723ed0d58a1fb912d9d372a477858f3d2995a371c8d9.",
         "fullSuggestedFile": false,
         "documentedOmissionsRetained": true
       }
     },
     "publication": {
-      "base": "428d22d2ba00e007c14948d1d71c4a2ade394825",
+      "base": "fc73fe64e3dadce9a1432f023801ce79a1f1aa23",
       "unchangedInputs": 72,
       "unchangedOutputs": 4,
       "sameSessionFollowupAfterMerge": true,
@@ -66210,6 +67082,60 @@
         "documentedOmissionsRetained": true
       },
       "sourceRefresh": "Publication refresh reads the complete changed WORKERS/PROTOCOL/intake content introducing key-definition surveys: kind:keydef follows paper jobs and precedes fixes, PROTOCOL section19 specifies the five survey criteria and review format, and intake allows keydefs deliverables. No existing blueprint or same-worker continuation rule changes. This current four-file checkpoint remains in scope. All mathematical source, registry and supplier inputs remain unchanged."
+    },
+    "moritaMeanConvergence": {
+      "agent": "Codex",
+      "session": "codex-7e92bd",
+      "issue": 713,
+      "claimComment": 5854790528,
+      "winningBot": 5854791937,
+      "previousPR": 5276,
+      "previousHead": "d7bad3bc7d3ffbb8cc08d661d8a47381396c860a",
+      "previousMerge": "b1cd007e236aace30645ca9b9eee9d6e3c05626e",
+      "preservedWholeNodes": 856,
+      "preservedBaseline": 700,
+      "preservedFindings": 16,
+      "newNodes": 15,
+      "reading": "Retains the full KL1964 and Morita1975 readings, especially KL p333 equations(8)–(9) and the convergence/norm argument. Read the pinned native ultrametric infinite-sum generator, geometric Cauchy theorem, shift equivalence, completeness theorem, normalized scalar norm, p-adic natural-cast criterion and closed-order limit inequality. The proof uses the already verified coarse constant without claiming the sharper printed constant.",
+      "boundary": "The arithmetic convergence route is now planned: actual Taylor sums plus explicit divided-derivative value/Lipschitz bounds give a geometric difference majorant, a Cauchy sequence, a complete-field limit and its norm bound. The precise LAD L0 request still must provide those inputs on its actual closed-disc analytic space; a bounded linear functional there and its translated Taylor/derivative API are not yet constructed. Next compare that source mean with Morita’s translated logarithmic functional and the local Gamma identity on pℤ_p at odd p and8ℤ₂. Gross–Koblitz and Ferrero–Greenberg retain their full-proof reading and normalization work. All16 gaps and12 requests remain open.",
+      "inputBase": "0a80cafbe82e8057d43aeb214371a2d61fd998db",
+      "sourceBoundary": "All16 source findings, sources and sourceVersions remain whole. No new source error or independent review verdict is claimed.",
+      "publication": {
+        "base": "fc73fe64e3dadce9a1432f023801ce79a1f1aa23",
+        "unchangedInputs": 72,
+        "unchangedOutputs": 4,
+        "sameSessionFollowupAfterMerge": true,
+        "lastClaimConfirmation": 5854791937,
+        "reviewIssue": 390,
+        "reviewUnclaimed": true
+      },
+      "finiteControls": {
+        "pointwiseTaylor": 10800,
+        "translatedMeans": 630,
+        "nextMeans": 180,
+        "differenceSeries": 180,
+        "zerothTerms": 180,
+        "powerSumBounds": 18,
+        "radiusChecks": 2,
+        "levelBounds": 48,
+        "derivativeValues": 600,
+        "derivativeLipschitz": 6000,
+        "coefficientBounds": 720,
+        "differenceBounds": 190,
+        "geometricDifferences": 180
+      },
+      "numericalMethod": "Exact rational controls at p=2,3 on normalized monomials of degrees0–4 and their divided derivatives, finite mean depths0–4 and levels1,3,4,5,8,9. Pointwise derivative and Lipschitz tests sample ten points of the closed disc. These finite controls do not replace the analytic hypotheses or prove a general infinite limit.",
+      "fullSuggestedCompiled": false,
+      "partialSignatures": {
+        "exitCode": 0,
+        "sourceSha256": "66ea44afda521d81e758723ed0d58a1fb912d9d372a477858f3d2995a371c8d9",
+        "modules": 3600,
+        "warnings": 2765,
+        "errors": 0,
+        "scope": "The separate partial signature file also compiled with zero errors and 2,765 expected placeholder warnings across 3,600 pinned source modules. It includes all 18 new named declarations and 28 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 66ea44afda521d81e758723ed0d58a1fb912d9d372a477858f3d2995a371c8d9.",
+        "fullSuggestedFile": false,
+        "documentedOmissionsRetained": true
+      }
     }
   },
   "requestResolutions": [
