@@ -1420,8 +1420,9 @@
    ],
    "avoidAccountOf": "PAPER-DADDEZIO-23",
    "prompt": "research/blueprint/prompts/REV-PAPER-DADDEZIO-23.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1098"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1098",
+   "finishedAt": "2026-09-30T00:20:58Z"
   },
   {
    "id": "PAPER-DITTMANN-POP-23",
@@ -34678,7 +34679,8 @@
     "REV-PAPER-TEMKIN-17"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-TEMKIN-17.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4520"
   },
   {
    "id": "RT-PAPER-DOSPINESCU-LEBRAS-17",
@@ -39634,7 +39636,8 @@
     "REV-PAPER-CESNAVICIUS-21"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-CESNAVICIUS-21.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4328"
   },
   {
    "id": "REV-RT-PAPER-CESNAVICIUS-21",
@@ -39806,8 +39809,9 @@
     "REV-PAPER-NIKOLAUS-SCHOLZE-18"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-NIKOLAUS-SCHOLZE-18.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4336"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4336",
+   "finishedAt": "2026-09-30T00:21:01Z"
   },
   {
    "id": "REV-RT-PAPER-NIKOLAUS-SCHOLZE-18",
