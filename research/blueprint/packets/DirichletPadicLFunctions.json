@@ -10,7 +10,7 @@
     "DirichletPadicLFunctions:L4"
   ],
   "status": "partial",
-  "summary": "Partial continuation preserving all518 predecessor nodes whole. Four L3 theorems give the exact trace inversion correction, its cancellation in the complement for every character, odd fixed-point zeros and the inverted coefficient HasSum. All16 findings, nine requests and13 gaps remain; zero stages are closed.",
+  "summary": "Partial continuation preserving all522 predecessor nodes whole. Four L3 nodes give the actual negative-weight measure shift, continuous-character comparison, parity obstruction and corrected positive-integer branch normalization. All16 findings, nine requests and13 gaps remain; zero stages are closed.",
   "baseline": {
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
@@ -3353,6 +3353,20 @@
         "module": "Mathlib/Data/ZMod/Defs.lean",
         "provides": "When ZMod n has a Fintype instance, its cardinality is exactly n. Applied with n>0 to normalize the concrete cyclic root sum.",
         "checked": "Complete statement, ambient hypotheses and proof read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on30September2026 and matched to the unchanged declaration index. The complete native probe instantiates the required additive or finite-index form."
+      },
+      {
+        "ref": "mathlib:map_units_inv",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Group/Units/Hom.lean",
+        "provides": "A native monoid homomorphism from a monoid to a division monoid maps the inverse of a unit to the inverse of its value; applied to the actual coefficient ring homomorphism.",
+        "checked": "Full declaration, ambient hypotheses and proof read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on30September2026 and matched to the unchanged index. The complete native probe applies this statement to the actual unit or inverse-power calculation."
+      },
+      {
+        "ref": "mathlib:dist_inv_inv₀",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/Normed/Field/Basic.lean",
+        "provides": "For nonzero elements of a normed division ring, distance of inverses is the original distance divided by the product of their norms. On the unit sphere this preserves distance; the complete probe extends the estimate to all natural inverse powers.",
+        "checked": "Full declaration, ambient hypotheses and proof read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on30September2026 and matched to the unchanged index. The complete native probe applies this statement to the actual unit or inverse-power calculation."
       }
     ]
   },
@@ -33947,6 +33961,226 @@
       "acceptance": [
         "The existing coefficient HasSum and disc geometry are reused; no new generic inversion or analytic-function object is planned."
       ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/tame-negative-moment-shift",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The inverse-weight shift for actual tame measures",
+      "kind": "theorem",
+      "statement": "For k≥1, ζ(wχ·I^(k−1))=E(μχ)(I^k).",
+      "hypotheses": [
+        "p is any prime, including2. K is a complete nontrivially normed ultrametric field with Algebra ℤ_p K and IsBoundedSMul ℤ_p K. D>0 with NeZero D, η:DirichletCharacter K D, hD:IsUnit(D:K), and p∤D. μ=tameMeasure η hD hpD, ζ=tameZetaMeasure η hD hpD, and E=AbstractMeasure.unitRestriction p K are the actual preceding objects.",
+        "Let n≥0 and χ:DirichletCharacter K(p^n). Write wχ=primePowerCharacter p n χ and μχ=twistedTameMeasure n χ η hD hpD=weight(wχ)μ. Let I∈C(ℤ_p,K) be the actual map x↦algebraMap ℤ_p K(PadicInt.inv x), with continuity from PMIA. The native inverse equals the unit inverse on units and0 on all nonunits; ℤ_p is never treated as a field.",
+        "Every negative-weight statement has k≥1. The intrinsic character comparison uses a native κ:(ℤ_p)ˣ→ₜ*K with the stated exact pointwise formula. The parity theorem additionally assumes CharZero K, η≠1 and η(−1)χ(−1)=(−1)^k.",
+        "The branch comparison takes supplied functions ω,α on the native unit group with ω(u)α(u)=algebraMap(u), and a native continuous character κ whose displayed finite/principal factors are exact. It neither constructs these factors nor asserts that arbitrary functions are Teichmüller or analytic character families. For the source application, ω is the existing odd-p Teichmüller character and α=⟨u⟩; those general constructions remain owned by PMIA L0a."
+      ],
+      "proofSteps": [
+        "The actual definition is ζ=weight(I)(Eμ). Apply the existing weight-evaluation API and the existing unit-restriction evaluation Eμ(f)=μ(e·f), where e is the already defined unit indicator.",
+        "The left side becomes μ(e·I·wχ·I^(k−1)). On the right, μχ=weight(wχ)μ gives μ(wχ·e·I^k).",
+        "Since(k−1)+1=k for k≥1, these are equal continuous tests by commutative multiplication. The complete native negative_weight_product and negative_weight_evaluation lemmas check the pointwise algebra and its evaluation by the actual native AbstractMeasure carrier.",
+        "At k=1 this reads ζ(wχ)=E(μχ)(I). At k=2 the test on ζ is wχ·I, while the test on μχ is I². The source shift is therefore one inverse power, with its direction fixed.",
+        "The theorem needs neither η≠1 nor a logarithm, formal primitive or finite trace law. The bound k≥1 is essential: natural subtraction at k=0 would give an incorrect identity, detected by the finite residue controls."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L2/tame-zeta-measure",
+        "DirichletPadicLFunctions:L2/twisted-tame-measure",
+        "PadicMeasuresIwasawaAlgebras:L2/weight-evaluation",
+        "PadicMeasuresIwasawaAlgebras:L2/unit-restriction-evaluation"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/TameCharacterIntegrals",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.tameZetaMeasure_negative_moment_shift"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Definition5.18 and Remark5.19, equation(5-7), published147/PDF48; equation(6-2) and its negative-weight application, published150–151/PDF51–52; Theorem6.7(ii), published154/PDF55, with the retained E49 Teichmüller correction.",
+          "match": "Concrete arithmetic-measure inputs to the already owned Coleman negative-moment argument. Whole published151–158 freshly read and whole146–149 reading retained from the existing character checkpoint. ColemanIntegration:L3/padic-value-as-negative-moment already owns the high-level L-value identity and depends on Dirichlet L2/L3; this checkpoint supplies actual measure comparisons without importing that stage-level backedge or reconstructing polylogarithms or L-values."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedNegativeMomentTests.first_negative_shift",
+          "kind": "compatibility",
+          "statement": "At k=1, the actual finite-character zeta value is the first inverse moment of the unit-restricted twisted tame measure."
+        },
+        {
+          "name": "SuggestedNegativeMomentTests.second_negative_shift",
+          "kind": "computation",
+          "statement": "At k=2, ζ(wχ·I)=E(μχ)(I²); the exponent on ζ is1, not2."
+        }
+      ],
+      "acceptance": [
+        "All objects and evaluation APIs are existing typed declarations. No general weighting or negative-moment carrier is defined."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/tame-character-negative-moment",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Negative moments as actual continuous-character values",
+      "kind": "comparison",
+      "statement": "If κ(u)=wχ(u)·algebraMap(u⁻¹)^(k−1) on the native unit group, then tameCharacterValue η hD hpD κ=E(μχ)(I^k).",
+      "hypotheses": [
+        "p is any prime, including2. K is a complete nontrivially normed ultrametric field with Algebra ℤ_p K and IsBoundedSMul ℤ_p K. D>0 with NeZero D, η:DirichletCharacter K D, hD:IsUnit(D:K), and p∤D. μ=tameMeasure η hD hpD, ζ=tameZetaMeasure η hD hpD, and E=AbstractMeasure.unitRestriction p K are the actual preceding objects.",
+        "Let n≥0 and χ:DirichletCharacter K(p^n). Write wχ=primePowerCharacter p n χ and μχ=twistedTameMeasure n χ η hD hpD=weight(wχ)μ. Let I∈C(ℤ_p,K) be the actual map x↦algebraMap ℤ_p K(PadicInt.inv x), with continuity from PMIA. The native inverse equals the unit inverse on units and0 on all nonunits; ℤ_p is never treated as a field.",
+        "Every negative-weight statement has k≥1. The intrinsic character comparison uses a native κ:(ℤ_p)ˣ→ₜ*K with the stated exact pointwise formula. The parity theorem additionally assumes CharZero K, η≠1 and η(−1)χ(−1)=(−1)^k.",
+        "The branch comparison takes supplied functions ω,α on the native unit group with ω(u)α(u)=algebraMap(u), and a native continuous character κ whose displayed finite/principal factors are exact. It neither constructs these factors nor asserts that arbitrary functions are Teichmüller or analytic character families. For the source application, ω is the existing odd-p Teichmüller character and α=⟨u⟩; those general constructions remain owned by PMIA L0a."
+      ],
+      "proofSteps": [
+        "For a native unit u, PadicInt.inv(u)=↑(u⁻¹). Use the native norm-one unit theorem and inv_mul to prove uniqueness of its inverse. The complete inverse_unit lemma verifies this without asserting field inversion on ℤ_p.",
+        "Thus the existing continuous ambient function wχ·I^(k−1) restricts to κ. The promoted tame-character ambient comparison identifies the character value with ζ of this exact test.",
+        "Apply the new negative-moment shift. This supplies a concrete K-valued coefficient-field comparison for the existing arithmetic measures, including p=2; it does not identify the value with a scalar analytic L-function.",
+        "At n=0 the finite character lift is the ambient constant1 and μχ=μ, so the inverse unit character has value Eμ(I²). A principal character at a positive level still vanishes off the units; no ambient equality with1 is substituted.",
+        "For arithmetic validation, use the existing exact tameMeasure_residue formula and norm-at-most1 estimate. On each sufficiently fine unit cylinder, wχ is constant and inverse powers are1-Lipschitz. Hence the residue sum at level m approximates the actual moment with error at most p^(−m); the complete native inverse_power_distance lemma checks the required inverse-power estimate. No new residue-mass formula is planned."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/tame-negative-moment-shift",
+        "DirichletPadicLFunctions:L3/tame-character-ambient",
+        "DirichletPadicLFunctions:L2/prime-power-character-level",
+        "DirichletPadicLFunctions:L2/tame-residue-coefficients",
+        "DirichletPadicLFunctions:L2/tame-measure-norm",
+        "mathlib:PadicInt.inv_mul",
+        "mathlib:PadicInt.norm_units",
+        "mathlib:dist_inv_inv₀"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/TameCharacterIntegrals",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.tameCharacterValue_negative_moment"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Definition5.18 and Remark5.19, equation(5-7), published147/PDF48; equation(6-2) and its negative-weight application, published150–151/PDF51–52; Theorem6.7(ii), published154/PDF55, with the retained E49 Teichmüller correction.",
+          "match": "Concrete arithmetic-measure inputs to the already owned Coleman negative-moment argument. Whole published151–158 freshly read and whole146–149 reading retained from the existing character checkpoint. ColemanIntegration:L3/padic-value-as-negative-moment already owns the high-level L-value identity and depends on Dirichlet L2/L3; this checkpoint supplies actual measure comparisons without importing that stage-level backedge or reconstructing polylogarithms or L-values."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedNegativeMomentTests.untwisted_inverse_character",
+          "kind": "compatibility",
+          "statement": "The inverse unit character evaluates on the actual tame zeta measure to the second inverse moment of Eμ."
+        }
+      ],
+      "acceptance": [
+        "The finite-sum validation keeps the actual cylinder masses and checks refinement; it is not a new projective measure construction."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/tame-negative-moment-parity",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The parity obstruction for negative tame moments",
+      "kind": "lemma",
+      "statement": "If η≠1 and η(−1)χ(−1)=(−1)^k, then E(μχ)(I^k)=0.",
+      "hypotheses": [
+        "p is any prime, including2. K is a complete nontrivially normed ultrametric field with Algebra ℤ_p K and IsBoundedSMul ℤ_p K. D>0 with NeZero D, η:DirichletCharacter K D, hD:IsUnit(D:K), and p∤D. μ=tameMeasure η hD hpD, ζ=tameZetaMeasure η hD hpD, and E=AbstractMeasure.unitRestriction p K are the actual preceding objects.",
+        "Let n≥0 and χ:DirichletCharacter K(p^n). Write wχ=primePowerCharacter p n χ and μχ=twistedTameMeasure n χ η hD hpD=weight(wχ)μ. Let I∈C(ℤ_p,K) be the actual map x↦algebraMap ℤ_p K(PadicInt.inv x), with continuity from PMIA. The native inverse equals the unit inverse on units and0 on all nonunits; ℤ_p is never treated as a field.",
+        "Every negative-weight statement has k≥1. The intrinsic character comparison uses a native κ:(ℤ_p)ˣ→ₜ*K with the stated exact pointwise formula. The parity theorem additionally assumes CharZero K, η≠1 and η(−1)χ(−1)=(−1)^k.",
+        "The branch comparison takes supplied functions ω,α on the native unit group with ω(u)α(u)=algebraMap(u), and a native continuous character κ whose displayed finite/principal factors are exact. It neither constructs these factors nor asserts that arbitrary functions are Teichmüller or analytic character families. For the source application, ω is the existing odd-p Teichmüller character and α=⟨u⟩; those general constructions remain owned by PMIA L0a."
+      ],
+      "proofSteps": [
+        "The native zero-extended inverse satisfies PadicInt.inv(−x)=−PadicInt.inv(x), including nonunits. The complete native inverse_neg proof checks both branches of its actual norm-defined implementation; the coefficient map preserves negation.",
+        "Therefore I(−x)^(k−1)=(−1)^(k−1)I(x)^(k−1). The complete native inverse_power_parity lemma checks this sign.",
+        "Apply the existing general parity test for weight(wχ)ζ to f=I^(k−1). Its measure parity is η(−1)χ(−1)=(−1)^k. Characteristic zero and k≥1 imply(−1)^(k−1)≠(−1)^k; the complete adjacent_signs_ne proof checks that cancellation of2.",
+        "The resulting zero is ζ(wχ·I^(k−1)). The new negative-moment shift transfers it to E(μχ)(I^k).",
+        "For p=2, quadratic η modulo3 and trivial χ, the first inverse moment vanishes. With odd χ modulo4, the second inverse moment vanishes. These are arithmetic measure statements and do not presume an odd-p analytic branch definition."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/tame-negative-moment-shift",
+        "DirichletPadicLFunctions:L2/tame-character-parity-test",
+        "mathlib:PadicInt.inv"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/TameCharacterIntegrals",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.twistedTameMeasure_negative_moment_eq_zero"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Definition5.18 and Remark5.19, equation(5-7), published147/PDF48; equation(6-2) and its negative-weight application, published150–151/PDF51–52; Theorem6.7(ii), published154/PDF55, with the retained E49 Teichmüller correction.",
+          "match": "Concrete arithmetic-measure inputs to the already owned Coleman negative-moment argument. Whole published151–158 freshly read and whole146–149 reading retained from the existing character checkpoint. ColemanIntegration:L3/padic-value-as-negative-moment already owns the high-level L-value identity and depends on Dirichlet L2/L3; this checkpoint supplies actual measure comparisons without importing that stage-level backedge or reconstructing polylogarithms or L-values."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedNegativeMomentTests.odd_first_negative_moment",
+          "kind": "computation",
+          "statement": "At p=2 and quadratic η modulo3, the first inverse moment of Eμ is0."
+        },
+        {
+          "name": "SuggestedNegativeMomentTests.even_twist_second_negative_moment",
+          "kind": "computation",
+          "statement": "Twisting by the odd character modulo4 makes the second inverse moment vanish."
+        }
+      ],
+      "acceptance": [
+        "The sign is η(−1)χ(−1)=(−1)^k, not the opposite parity. Matching the complementary sign does not force a nonzero value."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/tame-positive-integer-branch-comparison",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The corrected branch factor at a positive integer",
+      "kind": "comparison",
+      "statement": "If ω(u)α(u)=algebraMap(u) and κ(u)=wχ(u)·ω(u)^(1−k)·α(u)^(1−k), then tameCharacterValue η hD hpD κ=E(μχ)(I^k). Negative powers are stated as inverse powers with exponent k−1.",
+      "hypotheses": [
+        "p is any prime, including2. K is a complete nontrivially normed ultrametric field with Algebra ℤ_p K and IsBoundedSMul ℤ_p K. D>0 with NeZero D, η:DirichletCharacter K D, hD:IsUnit(D:K), and p∤D. μ=tameMeasure η hD hpD, ζ=tameZetaMeasure η hD hpD, and E=AbstractMeasure.unitRestriction p K are the actual preceding objects.",
+        "Let n≥0 and χ:DirichletCharacter K(p^n). Write wχ=primePowerCharacter p n χ and μχ=twistedTameMeasure n χ η hD hpD=weight(wχ)μ. Let I∈C(ℤ_p,K) be the actual map x↦algebraMap ℤ_p K(PadicInt.inv x), with continuity from PMIA. The native inverse equals the unit inverse on units and0 on all nonunits; ℤ_p is never treated as a field.",
+        "Every negative-weight statement has k≥1. The intrinsic character comparison uses a native κ:(ℤ_p)ˣ→ₜ*K with the stated exact pointwise formula. The parity theorem additionally assumes CharZero K, η≠1 and η(−1)χ(−1)=(−1)^k.",
+        "The branch comparison takes supplied functions ω,α on the native unit group with ω(u)α(u)=algebraMap(u), and a native continuous character κ whose displayed finite/principal factors are exact. It neither constructs these factors nor asserts that arbitrary functions are Teichmüller or analytic character families. For the source application, ω is the existing odd-p Teichmüller character and α=⟨u⟩; those general constructions remain owned by PMIA L0a."
+      ],
+      "proofSteps": [
+        "For each u, combine the two inverse powers using multiplication and inversion in the coefficient field: ω(u)^(1−k)α(u)^(1−k)=(ω(u)α(u))^(1−k)=algebraMap(u)^(1−k). The complete branch_factor proof checks the exact natural-exponent formulation.",
+        "Native map_units_inv identifies algebraMap(↑u⁻¹) with(algebraMap(↑u))⁻¹. Thus the displayed κ satisfies the pointwise hypothesis of the preceding actual negative-moment comparison.",
+        "In the source’s odd-p decomposition ω(u)⟨u⟩=u, the finite part must be χ·ω^(1−k), paired with⟨u⟩^(1−k). The resulting character is χ·u^(1−k), so its actual tame zeta evaluation is the negative kth moment.",
+        "This is the concrete character calculation behind the corrected L_p((χη)ω^(1−k),k) convention, where the total character is formed from the given finite p-part and tame part; no new L_p object or analytic family is introduced. The existing Coleman formula retains ownership of the higher polylogarithm identity.",
+        "At k=1 the extra factor is1. At k=2 both ω⁻¹ and α⁻¹ are needed. Exact finite Teichmüller lifts for p=3 and5 check the corrected identity and detect the missing-ω formula.",
+        "The theorem is conditional on the stated native character and factorization. It does not assert analyticity from pointwise formulas or construct the PMIA principal-unit family, and it does not import the Coleman endpoint that currently depends on these Dirichlet stages."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/tame-character-negative-moment",
+        "mathlib:map_units_inv"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/TameCharacterIntegrals",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.tameCharacterValue_positive_integer_branch"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Definition5.18 and Remark5.19, equation(5-7), published147/PDF48; equation(6-2) and its negative-weight application, published150–151/PDF51–52; Theorem6.7(ii), published154/PDF55, with the retained E49 Teichmüller correction.",
+          "match": "Concrete arithmetic-measure inputs to the already owned Coleman negative-moment argument. Whole published151–158 freshly read and whole146–149 reading retained from the existing character checkpoint. ColemanIntegration:L3/padic-value-as-negative-moment already owns the high-level L-value identity and depends on Dirichlet L2/L3; this checkpoint supplies actual measure comparisons without importing that stage-level backedge or reconstructing polylogarithms or L-values."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedNegativeMomentTests.corrected_second_branch",
+          "kind": "compatibility",
+          "statement": "The character wχ·ω⁻¹·α⁻¹ at k=2 evaluates to E(μχ)(I²) under the supplied factorization."
+        }
+      ],
+      "acceptance": [
+        "The source E49 and existing normalization findings remain whole. The higher-value theorem and its polylogarithms are imported only through their existing ownership, not reconstructed here."
+      ]
     }
   ],
   "requests": [
@@ -34043,7 +34277,7 @@
       "stageId": "DirichletPadicLFunctions:L3",
       "status": "partial",
       "remaining": [
-        "The logarithmic complement now satisfies inversion parity for every character, including principal characters: its trace and point value have the same correction, which cancels. Odd complements vanish at0 and−2, and the exact inverted coefficient series has the parity value throughout the tame disc. Next retain this concrete finite/series package for the owned LAD operator, unit-support and distribution-to-L-value comparisons once the typed distribution/Amice/disc-evaluation interfaces are available. Do not introduce substitute carriers. All nine requests and13 gaps remain. The smoothed pure-p-power route, positive-weight comparisons with the corrected Teichmüller twist, pole/residue analysis and complete source extraction remain open. Preserve E44–E49 and the existing source corrections.",
+        "Four actual arithmetic comparison paths now give the negative inverse-weight shift, native continuous-character realization, exact parity zeros and corrected positive-integer branch factorization. They reach existing native declarations through the typed measure APIs without new supplier requests. The generic principal-unit character families and scalar analytic L-function still belong to PMIA L0a and LAD L3; do not infer their construction from the supplied pointwise factorization. The concrete logarithm/trace/complement package remains ready for the owned LAD distribution, support and L-value comparisons when its typed interfaces are supplied. All nine requests and13 gaps remain. Higher Coleman polylogarithm and Euler-factor formulas are already owned; do not replan them or introduce stage-level dependency backedges. Pure-p-power smoothing, pole/residue analysis, remaining coefficient-field pseudomeasure evaluation and full source extraction remain open. Preserve E44–E49.",
         "The actual tame integral and analytic transfer from supplied C(U,K)-valued families remain supplied. Actual odd/dyadic principal-unit families belong to PMIA L0a and scalar Mellin theory to LAD L3; instantiate the corrected Teichmüller twist when those interfaces are supplied."
       ]
     },
@@ -34075,7 +34309,7 @@
     {
       "title": "L3 remaining source decomposition and interfaces",
       "neededBy": [],
-      "detail": "The logarithmic complement now satisfies inversion parity for every character, including principal characters: its trace and point value have the same correction, which cancels. Odd complements vanish at0 and−2, and the exact inverted coefficient series has the parity value throughout the tame disc. Next retain this concrete finite/series package for the owned LAD operator, unit-support and distribution-to-L-value comparisons once the typed distribution/Amice/disc-evaluation interfaces are available. Do not introduce substitute carriers. All nine requests and13 gaps remain. The smoothed pure-p-power route, positive-weight comparisons with the corrected Teichmüller twist, pole/residue analysis and complete source extraction remain open. Preserve E44–E49 and the existing source corrections. The actual tame integral and analytic transfer from supplied C(U,K)-valued families remain supplied. Actual odd/dyadic principal-unit families belong to PMIA L0a and scalar Mellin theory to LAD L3; instantiate the corrected Teichmüller twist when those interfaces are supplied."
+      "detail": "Four actual arithmetic comparison paths now give the negative inverse-weight shift, native continuous-character realization, exact parity zeros and corrected positive-integer branch factorization. They reach existing native declarations through the typed measure APIs without new supplier requests. The generic principal-unit character families and scalar analytic L-function still belong to PMIA L0a and LAD L3; do not infer their construction from the supplied pointwise factorization. The concrete logarithm/trace/complement package remains ready for the owned LAD distribution, support and L-value comparisons when its typed interfaces are supplied. All nine requests and13 gaps remain. Higher Coleman polylogarithm and Euler-factor formulas are already owned; do not replan them or introduce stage-level dependency backedges. Pure-p-power smoothing, pole/residue analysis, remaining coefficient-field pseudomeasure evaluation and full source extraction remain open. Preserve E44–E49. The actual tame integral and analytic transfer from supplied C(U,K)-valued families remain supplied. Actual odd/dyadic principal-unit families belong to PMIA L0a and scalar Mellin theory to LAD L3; instantiate the corrected Teichmüller twist when those interfaces are supplied."
     },
     {
       "title": "L4 completed-algebra, twisted localized constant coefficient and tame-family comparisons",
@@ -34425,36 +34659,36 @@
   "checks": {
     "blueprint": "Zero errors and warnings with the unmodified pinned index.",
     "intake": "Exactly four authorized deliverables; zero problems.",
-    "sourceIssues": "All16 source findings, sourceVersions and all nine previous requests remain whole. All13 gaps and confirmed external source corrections, including E44–E49, are retained. No new finding, request or independent-review verdict is added.",
+    "sourceIssues": "All16 source findings, sourceVersions and all nine previous requests remain whole. All13 gaps and source corrections including E44–E49 remain. No new finding, request or independent verdict is added.",
     "validation": {
-      "nodes": 522,
+      "nodes": 526,
       "kinds": {
         "definition": 1,
-        "lemma": 219,
+        "lemma": 220,
         "construction": 64,
-        "theorem": 152,
-        "comparison": 86
+        "theorem": 153,
+        "comparison": 88
       },
       "api": 471,
-      "packetTests": 819,
+      "packetTests": 825,
       "definitionConstructionTests": 270,
-      "typedExamples": 822,
+      "typedExamples": 828,
       "planets": 24,
-      "baseline": 477,
-      "preservedWholeNodes": 518,
+      "baseline": 479,
+      "preservedWholeNodes": 522,
       "preservedBaseline": 477,
       "preservedSourceIssues": 16,
       "newSourceIssues": 0,
       "newNodes": 4,
       "newNamedDeclarations": 4,
-      "newTypedTests": 5,
+      "newTypedTests": 6,
       "requests": 9,
       "gaps": 13,
       "closedStages": 0,
-      "reachableNodes": 758,
-      "dependencyEdges": 3599,
+      "reachableNodes": 762,
+      "dependencyEdges": 3616,
       "acyclic": true,
-      "baselineLeaves": 648,
+      "baselineLeaves": 650,
       "stageRequestLeaves": [
         "AdicSpacesPartII:F1",
         "AdicSpacesPartII:R2",
@@ -34465,11 +34699,11 @@
         "PadicMeasuresIwasawaAlgebras:L1",
         "PadicMeasuresIwasawaAlgebras:L3"
       ],
-      "readerWords": 231194,
+      "readerWords": 233951,
       "scopedMutationCheck": true,
       "correctedPredecessorNodes": 0,
       "compilerErrors": 0,
-      "compilerWarnings": 1602,
+      "compilerWarnings": 1612,
       "allWarningsPlaceholders": true,
       "supplierNodes": 332,
       "currentSupplierNodes": 369,
@@ -34479,41 +34713,38 @@
       "pinnedTauCetiModules": 21,
       "actualSupplierModules": 1,
       "scratchCompleteDefinitions": 0,
-      "scratchCompleteLemmas": 6,
-      "scratchMathlibModules": 2792,
+      "scratchCompleteLemmas": 10,
+      "scratchMathlibModules": 2803,
       "scratchErrors": 0,
       "scratchWarnings": 0,
       "scratchPlaceholders": 0,
       "finiteControls": {
-        "characterPrimeCases": 5,
-        "inversionInputs": 21,
-        "traceDefectComparisons": 21,
-        "complementParities": 21,
-        "higherPrecisionComparisons": 333,
-        "singularFiniteProfileChecks": 3,
-        "localLogExpansions": 608,
-        "coefficientEvaluationComparisons": 228,
-        "rootLogarithmZeros": 228,
-        "pairedOrbitPointComparisons": 114,
-        "principalTraceCorrectionCounterexamples": 3,
-        "oddFixedPointZeros": 4
+        "characterPrimeCases": 6,
+        "negativeMomentComparisons": 36,
+        "higherLevelComparisons": 36,
+        "higherPrecisionComparisons": 36,
+        "refinedMassComparisons": 2248,
+        "parityZeros": 18,
+        "wrongShiftCounterexamples": 36,
+        "omittedTeichmullerCounterexamples": 12,
+        "degreeZeroCounterexamples": 6,
+        "dyadicMassChecks": 6,
+        "teichmullerComparisons": 24
       },
       "numericalControlsCertified": true,
-      "newRoutesStageLeaves": [
-        "LocallyAnalyticDistributions:L1"
-      ]
+      "newRoutesStageLeaves": []
     },
     "lean": {
       "status": "compiled with only expected placeholder warnings",
       "errors": 0,
-      "warnings": 1602,
-      "sha256": "a7a815411b43e6c53e7e41108235d478d67db7717f7de1309a7dd8a4e1770e30",
+      "warnings": 1612,
+      "sha256": "5edb5125cc3c276256a83554014f7a95b593ef1992c1bab023473fb877e2c1f7",
       "nativeProbe": {
-        "completeLemmas": 6,
+        "completeLemmas": 10,
         "errors": 0,
         "warnings": 0,
         "placeholders": 0,
-        "sha256": "2e30101c1dc1a3ac4e2e97dbd9d3985f589b023a2d74d4e9dab730cb313bc3a6"
+        "sha256": "2a6541a84756107ad0638d85c01ecde49b148ce28a66e7357b84a22adae862cb"
       },
       "artifactReuse": {
         "compiledSupplierNodes": 332,
@@ -34582,16 +34813,16 @@
         "nativeArtifactFileCount": 105,
         "predecessorAgainstCurrentSupplier": {
           "exitCode": 0,
-          "sourceSha256": "295ec30ca7ec9d15cdce94c3376b067654e85ec46682302e3f0561bf4df2fb89",
+          "sourceSha256": "a7a815411b43e6c53e7e41108235d478d67db7717f7de1309a7dd8a4e1770e30",
           "modules": 3572,
-          "warnings": 1593,
+          "warnings": 1602,
           "errors": 0
         },
         "scope": "The actual332-node PMIA artifact compiled at PR3303 is reused. The current369-node PMIA source preserves all its lines in order, and all332 old packet nodes are unchanged; added residue restrictions and L4 declarations are not called. No compilation against the369-node source is claimed. The full new Dirichlet file uses that exact332-node artifact with21 pinned Tau modules,105 native artifact files and the audited pinned Mathlib closure. Existing native artifacts and original zero-warning logs are verified; no Lake setup, update, cache fetch or native library build occurs."
       }
     },
     "publication": {
-      "base": "1ad47772341e0e3801e576d64e1de974517d4582",
+      "base": "19f7cd63e6c1fe0a2f07be1675451219936a8c42",
       "unchangedInputs": 62,
       "unchangedOutputs": 4,
       "sameSessionFollowupAfterMerge": true,
@@ -40075,6 +40306,47 @@
         "oddFixedPointZeros": 4
       },
       "numericalMethod": "Exact cyclotomic modular logarithms in five tame character/prime cases, with four usual disc inputs and the extra dyadic fixed point−2. Input precision p^20, output p^8 plus one averaging digit, and an independent three-digit increase use the retained certified logarithm truncation from4726/4729. Direct finite values and local coefficient evaluations are computed at every root-shifted point and its inverse partner. Root logarithms vanish and the exact trace correction agrees with the point correction; subtraction cancels them for all characters. The principal conductor2,p3 case detects omission of the trace correction. Odd fixed points vanish. A separate exact D=p=3 model with ell(0)=1 and ell(nonzero)=0 checks singular finite complement pairing without a local expansion law or analytic claim. No LAD parity operator, formal substitution or L-value is identified."
+    },
+    "negativeCharacterMoments": {
+      "agent": "Codex",
+      "session": "codex-7e92bd",
+      "issue": 713,
+      "claimComment": 5854790528,
+      "winningBot": 5854791937,
+      "previousPR": 4737,
+      "previousHead": "1f5bb1f8208707b7ab38af83f67d50dd9123bb6f",
+      "previousMerge": "b5491b67495f42a31ce7b8ecc195ac5ab6440eb7",
+      "preservedWholeNodes": 522,
+      "preservedBaseline": 477,
+      "preservedFindings": 16,
+      "newNodes": 4,
+      "reading": "Whole published151–158 was freshly read, with the existing whole146–149 character-normalization reading retained. Whole Coleman L2 polylogarithm/distribution nodes and the L3 Euler-factor, negative-moment, smoothed-negative-moment, Coleman-formula, recovered-Leopoldt and RJW comparison nodes were read: those general results already exist and their negative-moment inputs depend on Dirichlet stages. This checkpoint supplies concrete arithmetic comparisons without a circular endpoint import. Whole seven existing tame-character nodes, the exact tame residue formula, PMIA inverse-continuity and restriction-evaluation nodes and signatures were read. Native PadicInt.inv, inv_mul, isUnit_iff, norm_units, map_units_inv and dist_inv_inv₀ were read at the pin. PadicInt.continuous_inv is correctly treated as the existing PMIA interface, not as Mathlib.",
+      "boundary": "Four actual arithmetic comparison paths now give the negative inverse-weight shift, native continuous-character realization, exact parity zeros and corrected positive-integer branch factorization. They reach existing native declarations through the typed measure APIs without new supplier requests. The generic principal-unit character families and scalar analytic L-function still belong to PMIA L0a and LAD L3; do not infer their construction from the supplied pointwise factorization. The concrete logarithm/trace/complement package remains ready for the owned LAD distribution, support and L-value comparisons when its typed interfaces are supplied. All nine requests and13 gaps remain. Higher Coleman polylogarithm and Euler-factor formulas are already owned; do not replan them or introduce stage-level dependency backedges. Pure-p-power smoothing, pole/residue analysis, remaining coefficient-field pseudomeasure evaluation and full source extraction remain open. Preserve E44–E49.",
+      "inputBase": "c7c4fdddb29c8101110783bcadbce4b8e6d53e5c",
+      "sourceBoundary": "All16 source findings, sourceVersions and all nine previous requests remain whole. All13 gaps and source corrections including E44–E49 remain. No new finding, request or independent verdict is added.",
+      "publication": {
+        "base": "19f7cd63e6c1fe0a2f07be1675451219936a8c42",
+        "unchangedInputs": 62,
+        "unchangedOutputs": 4,
+        "sameSessionFollowupAfterMerge": true,
+        "lastClaimConfirmation": 5854791937,
+        "reviewIssue": 390,
+        "reviewUnclaimed": true
+      },
+      "finiteControls": {
+        "characterPrimeCases": 6,
+        "negativeMomentComparisons": 36,
+        "higherLevelComparisons": 36,
+        "higherPrecisionComparisons": 36,
+        "refinedMassComparisons": 2248,
+        "parityZeros": 18,
+        "wrongShiftCounterexamples": 36,
+        "omittedTeichmullerCounterexamples": 12,
+        "degreeZeroCounterexamples": 6,
+        "dyadicMassChecks": 6,
+        "teichmullerComparisons": 24
+      },
+      "numericalMethod": "Exact rational cylinder masses are the preceding tameMeasure_residue formula, with nonprincipal quadratic eta modulo3 or4. At levels m=r and m=r+1, unit representatives are evaluated using modular inverses, with character levels at most2. The complete native inverse-power distance proof gives a1-Lipschitz bound on unit inverse powers; the finite character is constant on every chosen cylinder. Combined with the existing norm-at-most1 measure estimate and finite-projection evaluation, this bounds the Riemann approximation error by p^(-m), certifying every output modulo p^r. Rational mass refinement is checked exactly, and the six old dyadic cell masses are recovered. Negative moments are independently recomputed at higher level and one digit higher precision; parity zeros and counterexamples to an off-by-one inverse weight are checked. For odd p=3,5, finite Teichmueller lifts and their principal factors test the corrected chi*omega^(1-k) normalization and detect omission of that factor. This does not construct analytic principal-unit families or identify an L-value."
     }
   },
   "requestResolutions": [
