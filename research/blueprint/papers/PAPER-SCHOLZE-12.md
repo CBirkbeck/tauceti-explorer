@@ -5,8 +5,8 @@ Peter Scholze, *Perfectoid spaces*, [Publications mathématiques de l'IHÉS 116 
 Extraction by Claude Code, session `cc-39fac3`, 29 September 2026 (issue #4544). Status: **complete**. Every missing item is routed once.
 
 The machine-readable extraction is [PAPER-SCHOLZE-12.result.json](PAPER-SCHOLZE-12.result.json). It has:
-- 153 items: 13 library, 112 planned, 28 missing (after the independent review; the extraction had 106 planned and 34 missing);
-- 6 routes: four sources of existing layers and two Part IIs, one of which coalesces with a pending candidate;
+- 154 items: 13 library, 112 planned, 29 missing (after the independent review and the fix of its red team; the extraction had 153 items, 106 planned and 34 missing);
+- 7 routes: five sources of existing layers and two Part IIs, each a continuation beside a parent's existing Part II;
 - 15 prerequisite entries;
 - 11 recorded mistakes (8 misprints, 3 gaps), four of them already in the atlas; the review confirmed 9 and rejected E5 and E9.
 
@@ -104,15 +104,16 @@ The comparison of adic spectra with Berkovich spectra by rank-one points is Trop
    - Huber's equivalence between quasiseparated rigid-analytic varieties and adic spaces locally of finite type (Theorem 2.21);
    - the specialisation map and X ≅ lim_𝔛 𝔛 over formal models (Theorem 2.22). AdicEtaleGeometry A2 already warns that a Raynaud equivalence must not be assumed; this makes it a task.
 3. **Source of TropicalAndBerkovichArithmetic TB.0** (1 missing). Tautness and the global equivalence between Hausdorff strictly analytic Berkovich spaces and taut adic spaces of locally finite type (Theorem 2.24). TB.0 already plans the affinoid comparison. The review rejected this route: ClassicalAdicEtaleCohomology H3 plans the item.
-4. **Source of AdicEtaleGeometry A1** (2 missing). A1 owns points of adic étale sites as field pairs (K, K⁺). It receives the description of points of Spa as maps to complete affinoid fields (Proposition 2.27) and of specialisation by inclusion of valuation rings (Proposition 2.29).
-5. **Part II `AnalyticToricGeometryNonarchimedeanPartII`** (16 missing), coalescing with the candidate of the same id proposed by PAPER-BINDA-KATO-VEZZANI-25.
-   - That route was held by its review for lacking construction leaves (BKV gap G12): generic-base toric gluing, invariant divisors, integral models and the approximation argument.
-   - Sch12 §8 is exactly the source of those leaves. The brief keeps the candidate's id, title, parent (the Tau Ceti roadmap Analytic toric geometry) and area, and states Theorem 8.5, Proposition 8.6, Proposition 8.7 and Corollary 8.8.
-   - It lays out the eight construction steps, including the explicit induction of the approximation lemma for the graded ring of a toric divisor.
+4. **Source of AdicSpacesPartII R0** (2 missing; retargeted from AdicEtaleGeometry A1 by the red-team fix). The description of points of Spa as maps to complete affinoid fields (Proposition 2.27) and of specialisation by inclusion of valuation rings (Proposition 2.29). These are point-set facts about Spa, and R0's nodes already cite them from Huber without stating them; A1 concerns étale sites.
+   - The AdicSpacesPartII blueprint was finished and promoted before this extraction, and a source route does not re-run it. The route records the owner only: the two items become planned only after a packet amendment adds R0 nodes.
+5. **Part II `AnalyticToricGeometryNonarchimedeanPartII`** (16 missing), designed by the queue as `AnalyticToricGeometryPartII`.
+   - The parent already has a Part II: the accepted RS-32 makes ShimuraCompactifications "Analytic toric geometry, Part II: arithmetic toroidal compactifications". This route builds beside it, imports its C0 toric charts over base rings, and plans only what C0 lacks. Part II or Part III is the maintainer's choice.
+   - PAPER-BINDA-KATO-VEZZANI-25 proposed a toric Part II with the same title. That extraction is under revision, so nothing coalesces; its resubmission should import this roadmap. The brief states the construction leaves its review found missing (gap G12) and BKV's tests itself.
+   - The brief states Theorem 8.5, Proposition 8.6, Proposition 8.7 and Corollary 8.8, and lays out the eight construction steps. The approximation lemma for the graded ring of a toric divisor is imported from PerfectoidSpaces P2, which is asked to state it for perfected monoid algebras of rational cones.
    - It also covers Theorem 1.5 for the affine line.
    - The upstream Tau Ceti roadmap builds only complex toric manifolds, so this extends it rather than re-planning it.
 6. **Part II `DeligneWeightsPartIIWeightMonodromy`** of Deligne weights, purity and the Weil bounds (9 missing): the ℓ-adic weight-monodromy theorem for toric complete intersections (Theorem 9.6), with its specific inputs:
-   - the weight-monodromy predicate and its stability;
+   - the conjecture for a variety, and the stability of the weight-monodromy predicate, which it imports from DWP.5 (route 7);
    - the tilting identification of Galois groups compatibly with weights and N;
    - Huber's neighbourhood theorem [Hub98, 3.6(a)];
    - the equivariant comparison map;
@@ -120,7 +121,9 @@ The comparison of adic spectra with Berkovich spectra by rank-one points is Trop
    - the top-degree isomorphism;
    - the direct-summand argument.
 
-   DWP.5 states that its local weight theory is not the mixed-characteristic conjecture, and WeightsInEtaleCohomology R34.6 forbids assuming it. So this is a Part II of DWP, not a new roadmap. It imports the toric approximation from route 5. BKV's `PadicWeightMonodromyPartII` is the p-adic (Hyodo–Kato) analogue, a different statement.
+   DWP.5 states that its local weight theory is not the mixed-characteristic conjecture, and WeightsInEtaleCohomology R34.6 forbids assuming it. So this is a continuation of DWP, not a new roadmap. The accepted RS-17 already makes WeightsInEtaleCohomology the Part II of DWP; this route builds beside it, and R34.6 may consume Theorem 9.6. The queue designs it as `DeligneWeightsAndPurityPartII`. It imports the toric approximation from route 5. BKV's p-adic (Hyodo–Kato) analogue is a different statement, in an extraction under revision.
+7. **Source of DeligneWeightsAndPurity DWP.5** (1 missing), added by the red-team fix. Weight–monodromy purity of a Weil–Deligne or local Galois representation (item 154, the definitional half of Conjecture 9.3). DWP.5 owns the weights of the monodromy graded pieces, and several layers use the predicate without defining it: R24.5, R19.3, AG2.5, AG2.6 and R34.6.
+   - The extraction's review has no verdict for this route, so the queue does not apply it until the next review of the extraction accepts it.
 
 ## Mistakes recorded
 
@@ -170,3 +173,13 @@ REV-PAPER-SCHOLZE-12 (Claude Code, session `cc-fb70e5`, 29 September 2026) made 
   - Route 6 now says the Galois-group invariance is planned in P3.
 - **Notes.** Items 4, 120 and 145 have updated notes.
 - **Mistakes.** Every source issue has a review verdict. E5 and E9 are rejected; the other nine are confirmed.
+
+## Fixes after the red team
+
+FIX-RT-PAPER-SCHOLZE-12 (Claude Code, session `cc-f805bf`, 30 September 2026) applied the confirmed high and medium findings of RT-PAPER-SCHOLZE-12, as corrected by the independent verifier. Details: `research/blueprint/redteam/RT-PAPER-SCHOLZE-12.fixes.md`.
+
+- **/1.** The two Part II routes now name the parents' existing Part IIs, ShimuraCompactifications (RS-32) and WeightsInEtaleCohomology (RS-17), and plan beside them. Each keeps its parent as first prerequisite.
+- **/2.** Routes 5 and 6 name each other by title and by the ids the queue generates. The BKV coalescence is withdrawn, BKV's gap and tests are stated in the brief, and the motives export points at the queued MotivesAndAlgebraicCyclesPartII.
+- **/4.** Route 4 now takes items 31 and 33 to AdicSpacesPartII R0 instead of AdicEtaleGeometry A1. Planning them needs a packet amendment.
+- **/6.** Route 5 imports the approximation lemma from PerfectoidSpaces P2, and its toric schemes over ℂ must agree with Analytic toric geometry Layer 0.
+- **/7.** Item 140 is split. The predicate for a representation is the new item 154, routed to DWP.5 by the new route 7, which awaits a review verdict. Route 6 imports it.
