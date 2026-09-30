@@ -12920,3 +12920,96 @@ example [IsDomain R] (η : DirichletCharacter R M) (hη : η ≠ 1)
     coeff n (tameSeries (η.changeLevel (dvd_mul_left M q)) hN) =
       coeff n (tameSeries η hM) := sorry
 end SuggestedTamePrimeLevelTests
+
+/-! The prime-level Euler correction on the existing field-valued tame measure.
+The proof transports the finite Z_p-valued Mahler dilation identity through the
+coefficient algebra and then uses native Amice injectivity. It does not apply the
+integral-only Amice equivalence to field coefficients. -/
+namespace DirichletPadic
+section TamePrimeMeasure
+variable {p q M : ℕ} [Fact p.Prime] [Fact q.Prime] [NeZero M]
+  {K : Type*} [NormedField K] [Algebra ℤ_[p] K] [IsBoundedSMul ℤ_[p] K]
+  [IsUltrametricDist K] [CompleteSpace K]
+
+theorem tameMeasure_changeLevel_prime (η : DirichletCharacter K M) (hη : η ≠ 1)
+    (hM : IsUnit (M : K)) (hN : IsUnit ((q*M : ℕ) : K))
+    (hpM : ¬p ∣ M) (hpN : ¬p ∣ q*M) :
+    tameMeasure (η.changeLevel (dvd_mul_left M q)) hN hpN =
+      tameMeasure η hM hpM - η (q : ZMod M) • AbstractMeasure.map
+        (⟨fun x : ℤ_[p] => (q : ℤ_[p])*x, by fun_prop⟩ : C(ℤ_[p],ℤ_[p]))
+        (tameMeasure η hM hpM) := sorry
+
+theorem tameMeasure_changeLevel_prime_dvd (η : DirichletCharacter K M) (hη : η ≠ 1)
+    (hM : IsUnit (M : K)) (hN : IsUnit ((q*M : ℕ) : K))
+    (hpM : ¬p ∣ M) (hpN : ¬p ∣ q*M) (hqM : q ∣ M) :
+    tameMeasure (η.changeLevel (dvd_mul_left M q)) hN hpN =
+      tameMeasure η hM hpM := sorry
+
+theorem tameMeasure_changeLevel_prime_moment (η : DirichletCharacter K M) (hη : η ≠ 1)
+    (hM : IsUnit (M : K)) (hN : IsUnit ((q*M : ℕ) : K))
+    (hpM : ¬p ∣ M) (hpN : ¬p ∣ q*M) (k : ℕ) :
+    tameMeasure (η.changeLevel (dvd_mul_left M q)) hN hpN
+      (⟨fun x : ℤ_[p] => (algebraMap ℤ_[p] K x)^k, by fun_prop⟩ : C(ℤ_[p],K)) =
+      (1-η (q : ZMod M)*(q : K)^k) * tameMeasure η hM hpM
+        (⟨fun x : ℤ_[p] => (algebraMap ℤ_[p] K x)^k, by fun_prop⟩ : C(ℤ_[p],K)) := sorry
+end TamePrimeMeasure
+end DirichletPadic
+
+namespace SuggestedTamePrimeMeasureTests
+open DirichletPadic
+variable {p q M : ℕ} [Fact p.Prime] [Fact q.Prime] [NeZero M]
+  {K : Type*} [NormedField K] [Algebra ℤ_[p] K] [IsBoundedSMul ℤ_[p] K]
+  [IsUltrametricDist K] [CompleteSpace K]
+-- all_continuous_test_comparison
+example (η : DirichletCharacter K M) (hη : η ≠ 1)
+    (hM : IsUnit (M : K)) (hN : IsUnit ((q*M : ℕ) : K))
+    (hpM : ¬p ∣ M) (hpN : ¬p ∣ q*M) (f : C(ℤ_[p],K)) :
+    tameMeasure (η.changeLevel (dvd_mul_left M q)) hN hpN f =
+      tameMeasure η hM hpM f - η (q : ZMod M) * tameMeasure η hM hpM
+        (f.comp (⟨fun x : ℤ_[p] => (q : ℤ_[p])*x, by fun_prop⟩ : C(ℤ_[p],ℤ_[p]))) := sorry
+-- mass_euler_factor
+example (η : DirichletCharacter K M) (hη : η ≠ 1)
+    (hM : IsUnit (M : K)) (hN : IsUnit ((q*M : ℕ) : K))
+    (hpM : ¬p ∣ M) (hpN : ¬p ∣ q*M) :
+    tameMeasure (η.changeLevel (dvd_mul_left M q)) hN hpN (1 : C(ℤ_[p],K)) =
+      (1-η (q : ZMod M))*tameMeasure η hM hpM (1 : C(ℤ_[p],K)) := sorry
+-- characteristic_prime_excluded
+example (h : ¬p ∣ q*M) : p ≠ q := sorry
+-- repeated_prime_all_tests
+example (η : DirichletCharacter K M) (hη : η ≠ 1)
+    (hM : IsUnit (M : K)) (hN : IsUnit ((q*M : ℕ) : K))
+    (hpM : ¬p ∣ M) (hpN : ¬p ∣ q*M) (hqM : q ∣ M) (f : C(ℤ_[p],K)) :
+    tameMeasure (η.changeLevel (dvd_mul_left M q)) hN hpN f =
+      tameMeasure η hM hpM f := sorry
+-- repeated_prime_zero_test
+example (η : DirichletCharacter K M)
+    (hN : IsUnit ((q*M : ℕ) : K)) (hpN : ¬p ∣ q*M) :
+    tameMeasure (η.changeLevel (dvd_mul_left M q)) hN hpN (0 : C(ℤ_[p],K)) = 0 := sorry
+-- dyadic_repeated_prime
+example [IsBoundedSMul ℤ_[2] ℚ_[2]] (η : DirichletCharacter ℚ_[2] 3) (hη : η ≠ 1)
+    (hM : IsUnit ((3 : ℕ) : ℚ_[2])) (hN : IsUnit ((9 : ℕ) : ℚ_[2]))
+    (hpM : ¬2 ∣ 3) (hpN : ¬2 ∣ 9) :
+    tameMeasure (η.changeLevel (dvd_mul_left 3 3)) hN hpN =
+      tameMeasure η hM hpM := sorry
+-- weight_zero_is_mass
+example (η : DirichletCharacter K M) (hM : IsUnit (M : K)) (hpM : ¬p ∣ M) :
+    tameMeasure η hM hpM
+      (⟨fun x : ℤ_[p] => (algebraMap ℤ_[p] K x)^0, by fun_prop⟩ : C(ℤ_[p],K)) =
+      tameMeasure η hM hpM (1 : C(ℤ_[p],K)) := sorry
+-- first_moment_euler_factor
+example (η : DirichletCharacter K M) (hη : η ≠ 1)
+    (hM : IsUnit (M : K)) (hN : IsUnit ((q*M : ℕ) : K))
+    (hpM : ¬p ∣ M) (hpN : ¬p ∣ q*M) :
+    tameMeasure (η.changeLevel (dvd_mul_left M q)) hN hpN
+      (⟨algebraMap ℤ_[p] K, by fun_prop⟩ : C(ℤ_[p],K)) =
+      (1-η (q : ZMod M)*(q : K))*tameMeasure η hM hpM
+        (⟨algebraMap ℤ_[p] K, by fun_prop⟩ : C(ℤ_[p],K)) := sorry
+-- repeated_prime_all_moments
+example (η : DirichletCharacter K M) (hη : η ≠ 1)
+    (hM : IsUnit (M : K)) (hN : IsUnit ((q*M : ℕ) : K))
+    (hpM : ¬p ∣ M) (hpN : ¬p ∣ q*M) (hqM : q ∣ M) (k : ℕ) :
+    tameMeasure (η.changeLevel (dvd_mul_left M q)) hN hpN
+      (⟨fun x : ℤ_[p] => (algebraMap ℤ_[p] K x)^k, by fun_prop⟩ : C(ℤ_[p],K)) =
+      tameMeasure η hM hpM
+        (⟨fun x : ℤ_[p] => (algebraMap ℤ_[p] K x)^k, by fun_prop⟩ : C(ℤ_[p],K)) := sorry
+end SuggestedTamePrimeMeasureTests
