@@ -299,6 +299,8 @@ def title(job, roadmaps):
             return f"[Review] Paper: {job.get('name') or target}"[:240]
         if target.startswith("RT-"):
             return f"[Review] Red-team findings on the {job.get('name') or target}"[:240]
+        if target.startswith("FIX-"):
+            return f"[Review] Fixes for the {job.get('name') or target}"[:240]
         if target.startswith("DESIGN-") and job.get("name"):
             return f"[Review] New roadmap: {job['name']}"[:240]
         if target.startswith("LINK-"):
@@ -422,7 +424,9 @@ def main():
     if args.command == "refresh":
         # One request per issue sets its body and its state label together, so a
         # full refresh stays within GitHub's limit of about 500 edits an hour.
-        open_issues = {item["number"]: item["body"] for item in list_issues("swarm", "open", body=True)}
+        listed = list_issues("swarm", "open", body=True)
+        open_issues = {item["number"]: item["body"] for item in listed}
+        open_titles = {item["number"]: item["title"] for item in listed}
         repo = GITHUB.split("github.com/")[1]
         unchanged = 0
         for job in jobs:
@@ -433,6 +437,9 @@ def main():
             if re.search(r"/Users/|/private/|/home/|mcu22seu", text):
                 print("skipped (private path)", job["id"]); continue
             payload = refresh_payload(job, open_issues[number], text)
+            wanted = title(job, roadmaps)
+            if open_titles.get(number) != wanted and job.get("state") != "superseded":
+                payload = dict(payload or {}, title=wanted)
             if payload is None:
                 unchanged += 1
                 continue
