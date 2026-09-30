@@ -1,0 +1,40 @@
+{
+  "redteam": "RT-PAPER-SCHROER-23",
+  "findings": [
+    {
+      "finding": "RT-PAPER-SCHROER-23/1",
+      "verdict": "confirmed",
+      "reason": "At base 1b75b3376bbaca6bf692a0a341d4f8085e43063b, items 119, 130, 146 and 47 and the report overview do not consistently propagate accepted sourceIssues E34/E44. Independently checked the three displayed equations: their discriminants are t^10, t^11 and t^8(t^2+t+1); Tate's original algorithm, pp.47-51, gives split I2*, I3* and IV* at zero and nonsplit I2, I1 and I2 at infinity; their rational-fibre point sums are 25. Read v3 pp.28-33, 37-38 and 49: the elliptic table comes from Theorem 10.4, and the IV* exclusion uses an additional multiple fibre of type III or IV, which does not cover the new E4 case. Correct fix: make the classification-dependent items explicitly conditional on a missing exclusion/completeness gate and propagate that gate to both endpoints and the overview. Preserve the main theorem as a target. These Jacobians are not Enriques counterexamples. I did not independently reproduce the earlier exhaustive fourteen-class computation, so simply declaring a corrected table exhaustive is not a verified repair; retain that computation's separate completeness obligation."
+    },
+    {
+      "finding": "RT-PAPER-SCHROER-23/2",
+      "verdict": "confirmed",
+      "reason": "R07.1/oort-tate-classification already plans item 52, including p=2 over arbitrary bases, and R07.1/oort-tate-over-number-rings(iii) plans item 54. Oort-Tate's primary introduction confirms the arbitrary-base rank-two classification and the minus-sign coordinate law. Items 51 and 53 still need the explicit coordinate specialisation and general-invertible-module duality adapter from that owner. Mark 52/54 planned with the exact node references and remove their duplicate missing route; record a supplier request for the residual adapters while preserving source attribution. Qualification: closed packet coverage means planning closure, not implementation or a prohibition on later source additions. make_queue.py lines 910-914 adds accepted source routes without checking stage closure, so 'will not be acted on' is not established. Do not relocate general rank-two theory to the Enriques consumer as a fallback, or add an unsupported requests field to paper-v1; communicate the contract in its brief/notes and the maintainer handoff."
+    },
+    {
+      "finding": "RT-PAPER-SCHROER-23/3",
+      "verdict": "confirmed",
+      "reason": "The finite-cover/pi1 clause of item 181 is explicitly planned by SmallRamificationAndAbelianVarietyBaseCases:R25.3/etale-group-schemes-over-integers-are-constant. Its cited Mathlib declarations at 082e2d3 provide the number-field unramified/discriminant inputs, not the scheme/local-system theorem itself. Split off and import this planned finite clause. Retain the finite-monodromy/Isom-torsor adapter for locally constant sheaves with infinite stalk Z^10 as a missing general normal-base input, requested from the fundamental-group owner and consumed by Enriques. The packet's simple-two-group result is an application depending on R07.1; it is not a reason to create a second independent owner for item 54. Use the direct R07.1 rank-two classification supplier identified in finding 2."
+    },
+    {
+      "finding": "RT-PAPER-SCHROER-23/4",
+      "verdict": "confirmed",
+      "reason": "Read the current Schroer, Benoist, Charles and Shankar-Shankar-Tang route contracts and queue: the Enriques definition/canonical-cover overlap has no explicit common supplier, and Schroer routes 3/6 do not name the proposed K3 supplier. Schroer v3 pp.12-13 separates the characteristic-two types and states Proposition 4.2's classical equivalences. Choose EnriquesSurfacesAndIntegralNonexistence for the arbitrary-field definition and canonical torsor, and make the real/characteristic-zero formulation an imported specialisation plus its own halves API. Import the shared K3 definition for items 148/188 from the Charles/Shankar proposed direction, preserving the smoothness and characteristic restrictions on canonical covers. Qualification: K3SurfacesAndSymplecticBoundedness is an accepted extraction proposal with a pending design and no packet/stage in this checkout. Record a requested supplier contract and an open design gate, not an existing planned layer or implemented definition. The same integration request must reach the other consumers."
+    },
+    {
+      "finding": "RT-PAPER-SCHROER-23/5",
+      "verdict": "confirmed",
+      "reason": "The missing dependencies are real: v3 Proposition 8.1, p.22, invokes EGA IV4 18.5.11, Raynaud 8.2.1, a dominating normal model and Lemma 8.4, while item 81 and route 2 do not expose those proof leaves. The proposed EGA statement is wrong as an attribution: the actual theorem, printed pp.130-131, characterises henselian local rings, including the finite local component of a separated locally finite-type morphism quasi-finite at a closed-fibre point. It is not the claimed general Cartier-divisor-lifting theorem. Import that exact henselian result and separately plan the regular relative-curve transverse-divisor/finite-DVR adapter used here. Raynaud's theorem, printed p.66, is for proper flat relative curves over a trait satisfying (N)*; a section gives a degree-one generic divisor, so (ii)->(iii)->(iv) supplies cohomological flatness. Record the no-embedded-special-fibre condition, normality at its maximal points and f_*O_X=O_S from 6.1.4, or prove them using the normal model. h1=1 additionally uses the genus-one Euler characteristic. Request general suppliers from SchemeAndStackFoundations/coherent-cohomology owners; route only their application and model-comparison leaves to the genus-one continuation."
+    },
+    {
+      "finding": "RT-PAPER-SCHROER-23/6",
+      "verdict": "confirmed",
+      "reason": "At the reviewed base the register has 55 Schroer entries and each id E1-E11 occurs twice; after E1 these collisions include different subjects. The sourceIssues correspondence in the red team checks out, with E16 covering two separate errata slips and E17 also containing a correction beyond errata E10. Both source files lack top-level sourceVersions; check_errata.py reproduces its stated-result provenance error. v3 Lemma 1.1 with d=0 is vacuous, and Proposition 3.1 fails on E x P1 at a rational smooth fibre, so both extraction E1 and E4 must say 'a stated result', matching the errata review. Correct fix: assign canonical unambiguous identifiers and keep one active record per mistake, with file-qualified historical aliases; notes alone cannot deduplicate scripts/errata.py, which appends every entry. Add actual read-version records to both files, retaining preprint/author-copy hashes and dates and explicitly leaving the published Annals text unverified. Do not put an unread published text in a list of texts read. No independent confirmation of the red team's historical ordering of the two jobs is needed for this current collision finding."
+    },
+    {
+      "finding": "RT-PAPER-SCHROER-23/7",
+      "verdict": "confirmed",
+      "reason": "Read the full JacobianChallenge Layer D contract: it records fppf Picard sheafification and the Brauer obstruction for proper flat finitely presented morphisms with geometrically integral fibres before introducing a section to rigidify the functor. It also names a projective-variety representability route. Item 215's section-only description is false. Correct it and make route 1 explicitly import that layer through its exact stage id. Schroer Lemma 1.4, v3 p.7, treats arbitrary proper schemes via Br(X_aff), so the broader continuation remains necessary. Import the overlapping Picard/Brauer prefix only; Layer D does not thereby supply all of item 213's Pic^tau, numerical quotient and finite-generation package."
+    }
+  ]
+}
