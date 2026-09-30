@@ -3975,8 +3975,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-CARO-PASTEN-23.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1235"
+   "state": "pending",
+   "note": "released on GitHub issue #1235"
   },
   {
    "id": "REV-PAPER-CARO-PASTEN-23",
@@ -33589,7 +33589,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-SMITH-24.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4974"
   },
   {
    "id": "RT-PAPER-FU-24",
@@ -41045,7 +41046,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-SKINNER-20.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #5144"
   },
   {
    "id": "RT-PAPER-BALAKRISHNAN-DOGRA-MULLER-ETAL-19",
@@ -42082,8 +42084,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-KHARE-WINTENBERGER-09-II.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5028"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #5028",
+   "finishedAt": "2026-09-30T16:44:44Z"
   },
   {
    "id": "RT-PAPER-BREUIL-CONRAD-DIAMOND-ETAL-01",
@@ -42362,7 +42365,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-SCHOLZE-12.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #5029"
   },
   {
    "id": "RT-PAPER-KEDLAYA-LIU-15",
