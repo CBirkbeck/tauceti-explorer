@@ -35207,8 +35207,9 @@
     "REV-PAPER-KALETHA-16"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-KALETHA-16.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4125"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4125",
+   "finishedAt": "2026-09-30T13:06:33Z"
   },
   {
    "id": "RT-PAPER-HOWE-KLEVDAL-26",
