@@ -2,7 +2,9 @@
 
 **Status: complete. The whole paper has been read and every missing item is routed once. The deduction of the CM height estimate is explicit at the imported-theorem level; recursive proof closure of the cited sources is prerequisite work (§10).**
 
-Issue #1141. Codex, session `codex-c83e7a`, 21 September 2026, continuing PRs #1263 and #1639. The 84 existing item IDs and both previous contributors are preserved. There are now **101 items: 5 library, 30 planned and 66 missing**, with **11 routes**. The four mixed-Shimura items, left unrouted by the Codex pass, were routed by Claude Code (session `cc-fb70e5`, 22 September 2026; §10). Following the independent review on 23 September, all **23 definitions/constructions** have 69 structured API entries (names, roles and statements), use records and **69 proposed acceptance tests** in the JSON.
+Fix #4985, Codex session `codex-5ebb6f`, 30 September 2026: **106 items: 6 library, 25 planned, 75 missing; 12 routes**. All 101 incoming IDs are preserved. Functional-transcendence foundations share the existing pending LogicAndDefinabilityPartII; general mixed geometry has a new ShimuraVarietiesPartII supplier. Only the restricted mixed arithmetic application remains at LD.6. Source findings E9–E12 now record the Artin-contour, unpolarized-rigidity, positive-constant and numerical-degree defects. This revision awaits independent `REV-FIX-RT-PAPER-TSIMERMAN-18`; the older eleven-route review is historical.
+
+The initial extraction and continuations were issue #1141, including Codex `codex-c83e7a` (21 September) and Claude Code `cc-fb70e5` (22 September). The 23 September independent paper review recorded 101 items, 5 library/30 planned/66 missing and 11 routes, with 69 proposed API tests. Those counts and checks describe that earlier revision.
 
 The new work supplies the quadratic-Hecke height argument, including the uniform convexity/Cauchy estimates, residue quotient, gamma and metric constants; imports Mathlib's existing discriminant tower identity; decomposes the uniform ideal count; and activates two proposed quantitative Part II briefs. None of this claims a new formal proof or complete recursive extraction of the source literature.
 
@@ -48,7 +50,7 @@ The pins remain mathlib **`082e2d37e8b0463410cdb532e111cd43d5a66174`** and Tau C
 
 The aggregate contains accepted AUDIT-06, AUDIT-08, AUDIT-09, AUDIT-10 and AUDIT-14 records for the relevant analytic, abelian, height, CM and Faltings interfaces. **AUDIT-34 is in `pendingReview`; LD has no accepted aggregate record.** Its draft may guide a search but cannot certify a reviewed absence. The independent review completed the item-level search and supplier check; its ledger records the scope of those checks. No absence claim relies on pending AUDIT-34.
 
-### Five directly checked library items
+### Existing library items and the coordinate-height import
 
 The original direct check of `Mathlib/NumberTheory/NumberField/CMField.lean`, blob `6c7067617742aae433a648031822e84a41746b4f`, verifies `NumberField.IsCMField` and:
 
@@ -88,15 +90,17 @@ D_E = absNorm(differentIdeal(O_F,O_E)) * D_F^[E:F].
 
 The statement carries the fraction-field, Dedekind-domain, finite-module and scalar-tower hypotheses. Rings of integers specialize these, and the CM extension has degree two. Thus `D_E >= D_F^2`. The source's norm of the relative discriminant is the same integer as this absolute norm of the relative different; this import does not invent a new library relative-discriminant carrier. The four earlier library signatures were also reread at their pins.
 
+The fix reads `Mathlib/NumberTheory/Height/NumberField.lean:137,146` at the pin: `NumberField.absMulHeight₁` defines the absolute height through Q(x), and `NumberField.absLogHeight₁` is its logarithm. This sixth library item supplies coordinate heights. The tuple counting height is their maximum. RP.0 supplies the remaining extension and complex-to-real comparisons, plus the separate bounded-degree Northcott theorem. The nonalgebraic junk branch is 1 in the code, despite the docstring saying 0; every coordinate used here is algebraic.
+
 ### Existing owners and source routes
 
-**LogicAndDefinabilityInNumberTheory:LD.6** owns the source-scoped Pila–Zannier/André–Oort assembly. The section-7 refinement belongs in this existing application branch. Generic reductive-group and canonical-model facts must remain imports in its eventual blueprint; attaching a source-specific lemma here does not transfer ownership of the general theory to logic.
+**LogicAndDefinabilityInNumberTheory:LD.6** owns the source-scoped Pila–Zannier/André–Oort assembly. The arithmetic section-7 refinement belongs in this existing application branch. LogicAndDefinabilityPartII owns the shared special/weakly-special definitions and promotion, definable Siegel uniformization, Ax–Lindemann and countable weakly-special families, coalescing with MPT19/2 and /8. Rational counting stays planned at LD.6; Pila 2009 Theorem 1.6 is a separate missing bounded-coordinatewise-degree refinement in its early counting prefix. Generic reductive-group and canonical-model facts must remain imports in its eventual blueprint; attaching a source-specific lemma here does not transfer ownership of the general theory to logic.
 
 **ArakelovGeometryAndAbelianHeights:R35.1–R35.3** owns the metrized Hodge determinant and stable height, including basis/field independence. R35.5–R35.6 receives the Bost lower-bound source. R35.4 is a height-variation formula, not a polynomial bound for the degree of an isogeny.
 
 **ComplexMultiplicationAndExplicitReciprocity:CM.0/CM.2** owns CM-type/reflex algebra and the explicit reciprocity dictionary. CM.2 imports the main general CM theorem from **ShimuraVarieties:V5**. CM.1 is elliptic and cannot substitute for arbitrary-dimensional CM classification. Preserve the V5-to-CM.2 direction.
 
-**HeightsRationalPointsAndObstructions:RP.0** supplies normalized absolute heights, field-extension comparisons and bounded-degree Northcott. The accepted audit distinguishes the needed statement from existing fixed-number-field element Northcott and polynomial Mahler-measure finiteness. These two items have been removed from the ambiguous ordinary-height part of the LD source route and explicitly attached here.
+**HeightsRationalPointsAndObstructions:RP.0** imports Mathlib’s absolute coordinate heights and supplies field-extension/complex-to-real comparisons and bounded-degree Northcott. The accepted audit distinguishes the needed statement from existing fixed-number-field element Northcott and polynomial Mahler-measure finiteness. These two items have been removed from the ambiguous ordinary-height part of the LD source route and explicitly attached here.
 
 **AnalyticNumberTheory:AN.4** explicitly includes completed Hecke/Dedekind/Artin interfaces and distinguishes meromorphic continuation from Artin holomorphy. The earlier report's suggestion that this roadmap was only classical zeta/Dirichlet theory was too narrow. Its general Hecke functional-equation supplier is **AutomorphicLFunctionsAndLocalFactors:AL.1**; its character carrier comes from **GlobalNumberFields**, not a new analytic spelling. The Artin functional-equation item is now planned/source-routed to AN.4. The uniform quadratic-Hecke estimates are now decomposed below; the stronger original Artin-route interfaces remain separately unverified.
 
@@ -128,7 +132,7 @@ In characteristic zero, full A[3] and mu_3 give full A-dual[3] by the perfect We
 
 ### The quadratic-Hecke deduction of the CM height bound
 
-This supplies a checked deduction from named imported contracts. It does **not** claim that the original proofs of Brauer–Siegel, Rademacher convexity, Bost or averaged Colmez have been recursively extracted. Those remain explicit prerequisites. The original Artin-route items are preserved for source fidelity; the height consumer now depends on the quadratic route instead.
+This supplies a checked deduction from named imported contracts. It does **not** claim that the original proofs of Brauer–Siegel, Rademacher convexity, Bost or averaged Colmez have been recursively extracted. Those remain explicit prerequisites. E9 records the unavailable arbitrary-Artin contour. The separate missing Artin derivative item now asks for factorwise logarithmic derivatives with pole cancellation/regularization, not fixed-radius Cauchy on an arbitrary Artin function. The height consumer continues to use the quadratic route.
 
 Let $E/F$ be CM, $[F:\mathbf Q]=g$, $D=D_E$, and $\eta=\eta_{E/F}$ its nontrivial quadratic character. Its primitive conductor gives
 
@@ -153,7 +157,7 @@ GlobalNumberFields supplies the character dictionary; ClassFieldTheory layers 11
 
 For the near-linear ideal count, the local norm-counting Euler series is coefficientwise dominated by $(1-T)^{-n}$, $n=[K:\mathbf Q]$. Hence the coefficient at an integer $m$ is at most $d_n(m)$. For large primes use $\binom{a+n-1}{n-1}\le n^a\le p^{\epsilon a}$; for the finitely many smaller primes, the quotient of that polynomial in $a$ by $p^{\epsilon a}$ has bounded supremum. The resulting bound $d_n(m)\ll_{n,\epsilon}m^\epsilon$ is uniform in $K$, and summing yields $O_{n,\epsilon}(X^{1+\epsilon})$. The pinned quadratic ideal bound and fixed-field linear asymptotic remain different statements.
 
-The retained general-Artin branch still requires its own induction/pole-cancellation and conductor estimates. None is inferred merely because the quadratic deduction works.
+The retained general-Artin branch still requires its own induction, regularized pole cancellation, nonzero values at one and factorwise logarithmic-derivative bounds. E9 records why the printed contour cannot supply these. None is inferred merely because the quadratic deduction works.
 
 ### Primitive reciprocity and arbitrary centre orders
 
@@ -188,7 +192,7 @@ Pila–Tsimerman 2013 §3 proves polynomial height in the discriminant of the **
 
 Some arXiv intermediate expressions use `disc(O_A)` despite the lattice-index dependence, and one displayed matrix size uses the simple-factor dimension where the multiplicity is required. The final Theorem 3.1 depends on disc(R); before transcribing intermediate lemmas, reconcile the published version and preserve the order index. This report does not claim to have checked an erratum or established a defect in the final theorem.
 
-The numerical degree convention is also unresolved: the inspected 2013 text gives `4g` for entries in the simple-case construction, whereas the 2014 Lemma 7.4 uses `2g`. The consumer only needs a bound depending on g. Keep that sufficient statement, distinguish coordinatewise from joint-field degree, and explicitly pass from complex entries to real/imaginary coordinates before bounded-degree counting. Do not manufacture an exact `2g` field-degree theorem.
+E12 now explicitly records the numerical degree defect. The earlier comparison was: the inspected 2013 text gives `4g` for entries in the simple-case construction, whereas the 2014 Lemma 7.4 uses `2g`. The consumer only needs a bound depending on g. Keep that sufficient statement, distinguish coordinatewise from joint-field degree, and explicitly pass from complex entries to real/imaginary coordinates before bounded-degree counting. The complex CM-field period coordinates lie in the reflex field, of degree at most `2^g`; integer symplectic reduction preserves that field. A generic sextic type can have reflex degree 8, exceeding 6. Keep `d_g`, with a separate real/imaginary adapter (the coarse `2^(g+1)` bound suffices), rather than an exact `2g` theorem.
 
 ## 5. The corrected finite-family argument
 
@@ -234,7 +238,7 @@ where E is the reflex field and the datum/level is fixed. The compact-torus inde
 
 Theorem 13.6 then assumes the appropriate **pure Galois-orbit bound**, not merely pure André–Oort. Its proof additionally uses mixed Ax–Lindemann (Theorem 1.2), the quotient/dimension reduction of Theorem 12.2, definability, height bounds and algebraic-point counting. Tsimerman's all-CM orbit bound supplies the previously conditional pure input for the pure parts stated in the 2018 introduction. Accordingly `mixed-application-interface` now depends on the orbit theorem and the conditional mixed theorem, not just `andre-oort-ag`.
 
-This checks the restricted implication and §13 proof, not the whole Gao paper. The mixed foundational constructions are prerequisite work (§10). The statement has not been broadened to all mixed Shimura varieties.
+This checks the restricted implication and §13 proof, not the whole Gao paper. The mixed foundational constructions are explicit missing items for ShimuraVarietiesPartII. Mixed Ax–Lindemann is an explicit missing item for LogicAndDefinabilityPartII. Their recursive proofs remain prerequisite work for those blueprints (§12). The statement has not been broadened to all mixed Shimura varieties.
 
 ## 7. Proposed quantitative extensions and remaining mixed routing
 
@@ -244,21 +248,27 @@ The machine-readable routes contain the complete design briefs, imports, exact t
 
 **FaltingsFinitenessAndIsogenyTheoremsPartII — Quantitative isogeny estimates.** Prove the dimension-uniform polynomial bound for minimum geometric degree in `max(1,h_F(A),[k:Q])`. The common field must define both varieties. Polarization removal, field-degree dependence and the geometric-versus-rational distinction must be proved from the full Masser–Wüstholz source. The existing accepted R28 decomposition supplies qualitative ingredients but does not supply this estimate.
 
-**Uniform analytic work refines AN.0/AN.4/AN.5.** It does not need a second Hecke carrier or another analytic roadmap. General continuation and the completed equation are source-routed to AL.1; the quadratic character imports GlobalNumberFields layers 9–10 **and ClassFieldTheory layer 11**; its conductor-discriminant identity imports **ClassFieldTheory layer 13**. These upstream constructions are not replanned in AN. The height metric adapter belongs to R35.1/R35.3. The current AN source decomposition is reused, including its explicit distinction between Artin continuation and the holomorphy conjecture.
+**Uniform analytic work refines AN.4/AN.5.** AN.0 was dropped by accepted RS-07. The `a_K(m)<=d_n(m)` coefficient majorant belongs beside the divisor estimates in AN.5 and imports the existing ArithmeticDirichletSeries Layer 3 Euler-factor carrier. It does not need a second Hecke carrier or another analytic roadmap. General continuation and the completed equation are source-routed to AL.1; the quadratic character imports GlobalNumberFields layers 9–10 **and ClassFieldTheory layer 11**; its conductor-discriminant identity imports **ClassFieldTheory layer 13**. These upstream constructions are not replanned in AN. The height metric adapter has the single owner R35.2. Its stable-height ingredients remain imported. Quantitative CM and the AGHMP/Yuan–Zhang consumer branches import that comparison, including its additive constants; they do not prove it a second time. The current AN source decomposition is reused, including its explicit distinction between Artin continuation and the holomorphy conjecture.
 
-The four mixed-Shimura items are routed to LD.6 (§10). They are not assigned to the pure CM extension by analogy.
+**LogicAndDefinabilityPartII — functional transcendence.** Use the exact existing MPT19 route-1 identity and pending design. Share /2’s special/weakly-special definitions and /8’s Siegel definability; derive PT2014 Theorem 6.1 from the shared Ax–Schanuel target. Own PT2014 Lemma 7.5’s countable algebraic decomposition. Add Gao’s distinct mixed Ax–Lindemann Theorem 1.2 with the mixed geometry imported from its early supplier. Import only the early o-minimal/counting part of LD.6; LD.6 applications consume the exports.
+
+**ShimuraVarietiesPartII — mixed Shimura varieties.** Extend the pure roadmap with Pink data/quotients, lattices, levels, pure projection and special/weakly-special subvarieties; build on C1’s boundary instances. General definitions, denominator, Gao relative orbit Theorem 13.3, quotient reduction Theorem 12.2 and conditional André–Oort Theorem 13.6 live here. Share the concrete universal abelian-family datum of DGH21/17 by importing an early uniformization prefix of AbelianSchemesBettiMapsPartII, leaving its Betti-form and non-degeneracy applications downstream. Import mixed functional transcendence from LogicAndDefinabilityPartII. Only `mixed-application-interface` is merged into route 1 at LD.6. The briefs require actual acyclic stage separation before promotion; these prefixes are design constraints, not invented stage IDs.
 
 ## 8. Regression obligations
 
-The JSON now records three discriminating tests for every definition/construction (69 total) together with its planning API. These are proposed blueprint tests, not executed Lean tests. Include: a non-Galois CM field in the regulator comparison; a product with repeated isomorphic CM fields but inequivalent types; a nonmaximal centre order and its squared index; fixed-field versus bounded-degree Northcott; the existing quadratic versus required near-linear ideal count; a coarse moduli point without a chosen model; dual 3-torsion without silently dropping mu_3; a negative stable height; the trivial Artin pole; a weakly special fibre with nonspecial fixed parameter; Galois transport of the conjugate supplied by counting; the whole-fibre condition in the parameter locus; and a mixed special point whose pure projection alone does not control its denominator.
+The inherited JSON records 69 proposed tests for 23 definitions/constructions; the new mixed-data carrier adds three API entries, use records and three proposed tests. The new coordinate-height library item cites the existing API directly. These are proposed blueprint tests, not executed Lean tests. Include: a non-Galois CM field in the regulator comparison; a product with repeated isomorphic CM fields but inequivalent types; a nonmaximal centre order and its squared index; fixed-field versus bounded-degree Northcott; the existing quadratic versus required near-linear ideal count; a coarse moduli point without a chosen model; dual 3-torsion without silently dropping mu_3; a negative stable height; the trivial Artin pole; a weakly special fibre with nonspecial fixed parameter; Galois transport of the conjugate supplied by counting; the whole-fibre condition in the parameter locus; and a mixed special point whose pure projection alone does not control its denominator.
 
-## 9. Validation and resumption
+## 9. Historical validation before fix #4985
+
+The following paragraph describes the earlier continuation. Fresh checks of the current revision are in §12 and the fixes report; the old 2412 regression assertions were not rerun.
 
 Run the repository paper validator and deliverable-path checker against all three deliverables. Additional checks preserve all 84 earlier IDs, resolve the dependency graph, reject cycles and duplicate missing-item routes, check each planned stage and new parent/area, and require an API with at least three tests for all 23 definitions/constructions. The Codex pass counted four deliberately unrouted mixed nodes; they are now routed (§10). Mathematical regression calculations check the local Euler coefficient majorant, contour exponent allocation, metric sign and height-average algebra; they are sanity checks, not analytic proofs.
 
 No Lean file is required for this paper intake, and no Lean compilation was run. The handoff lists the remaining original-proof, polarized-reciprocity, source-edition and mixed-owner work. The exact validator and regression results are recorded in the JSON and handoff.
 
-## 10. Completion: routing the mixed items (Claude Code, `cc-fb70e5`)
+## 10. Historical completion: routing the mixed items (Claude Code, `cc-fb70e5`)
+
+The 22 September four-item LD.6 decision below is superseded by fix #4985; current ownership is in §§6–7 and §12.
 
 **Owner screen.** The atlas was searched for an owner of general mixed Shimura theory: mixed Shimura data, their special points and the unipotent denominator, and mixed Ax–Lindemann. Only ShimuraCompactifications C1 touches mixed data, and it constructs just the mixed Shimura data at the boundary of toroidal compactifications, saying so explicitly. No layer or Part II owns the general theory.
 
@@ -270,13 +280,13 @@ No Lean file is required for this paper intake, and no Lean compilation was run.
   - Theorem 13.6, mixed André–Oort for abelian type under the pure orbit bound (13.8);
   - the fact that Tsimerman's Theorem 4.2 is exactly (13.8) when the pure part lies in A_g.
 
-**What stays outside this paper.** The mixed Shimura foundations and Gao's mixed Ax–Lindemann theorem are Gao's work (J. reine angew. Math. 732 (2017)), which is already in the prerequisites list. They are not items of this paper.
+**Superseded prerequisite-only decision.** This continuation left the mixed foundations and Gao’s mixed Ax–Lindemann in the prerequisites list. Fix #4985 adds them as cited items and routes them explicitly, leaving only their recursive proof closure to the supplier blueprints.
 
 **Gaps.** G5 (the unrouted mixed items) is resolved. At that completion checkpoint G1–G4 and G6 stayed open. The independent review below resolves G1 and G6; G2–G4 retain the specified recursive source obligations. They concern recursive proof closure of cited sources, audit refreshes and review of the proposed Part IIs. PROTOCOL §16 handles these through the prerequisites list, so they do not block completeness.
 
 **Check.** `python3 scripts/check_paper.py research/blueprint/papers/PAPER-TSIMERMAN-18.result.json` passes with status `complete` and no unrouted or doubly routed missing item. That completion pass recorded no new source errors; the independent review below adds E6–E8.
 
-## 11. Independent review, 23 September 2026
+## 11. Historical independent review, 23 September 2026
 
 Codex, session `codex-hjdg0j`, job **REV-PAPER-TSIMERMAN-18 (#1142)**: accept the corrected extraction and all eleven routes. The review ledger is [REV-PAPER-TSIMERMAN-18.md](../reviews/REV-PAPER-TSIMERMAN-18.md). There are 101 preserved item IDs, now 5 library, 30 planned and 66 missing; every missing item has exactly one route.
 
@@ -287,3 +297,25 @@ The independent repository snapshot is `85e12faced69f184b09205c0a5abed1cabdd7594
 Existing source findings **E1–E5** remain in their [independently reviewed errata file](../errata/PAPER-TSIMERMAN-18.json). They were rechecked but are not copied into this extraction, because the register collector would duplicate them. The extraction's `sourceIssueReferences` links them. New `sourceIssues` **E6–E8** record the bound-variable slip in the definition of the lift set, the missing weakly-special/CM-point distinction in §6.4, and the missing positive-dimension qualification for parameter loci in §6.5. Published images, arXiv v5, the journal page, author publication page and correction searches were compared. These corrections do not change the main André–Oort theorem. The full 2014 proof supplies the two geometric qualifications.
 
 The review independently read the published main paper in full as text and pages 381–388 as images, selected auxiliary passages recorded in its report, and the actual pinned declarations. This does not upgrade the earlier sources to complete proof reads. G2–G4 remain prerequisite obligations for original Silverberg/CM stabilizer conventions, the general Artin branch, and full primary-source/edition reconciliation. G1 (status refresh) and G6 (Part II/API review) are resolved. No Lean file was required or compiled.
+
+
+## 12. Fix #4985, 30 September 2026
+
+All eleven confirmed findings are addressed in the [fixes report](../redteam/RT-PAPER-TSIMERMAN-18.fixes.md). All 101 incoming IDs remain; the five added items are coordinate-height definitions (library), bounded-coordinate-degree counting, mixed data, mixed Ax–Lindemann and the cited mixed quotient reduction. Every one of the 75 missing items is routed exactly once. The twelve routes preserve the first ten route positions, retire the duplicate old route 11, and append the shared logic supplier and general mixed supplier.
+
+Four source records are added without fabricating their independent verdicts:
+
+| Record | Corrected obligation | Effect |
+| --- | --- | --- |
+| E9 | The arbitrary-Artin Cauchy disc is not justified uniformly; the entire quadratic-Hecke chain remains the height argument. | Proof |
+| E10 | Polarized level-three descent; the ideal quotient receives a defined pullback polarization. Unpolarized CM units congruent to 1 modulo 3 disprove rigidity. | Proof |
+| E11 | The Bost lower constant is real, not required positive; the j=0 example is negative in both relevant normalizations. | No change to the theorem |
+| E12 | A bound in g suffices; the CM-type/reflex-field argument supplies exponential bounds, while the printed 2g is unsupported. | No change to the theorem |
+
+E9 is present in the published argument and v5’s Corollary 3.2. E10 is a published Lemma 4.1 problem; that lemma is absent from v5. E11’s word “positive” is in the published lower-bound sentence, but absent from v5’s corresponding proof, despite the verifier’s edition claim. E12’s degree sentence occurs in published §6.2 and v5; the cited PT2014 Lemma 7.4 repeats the unsupported numerical bound. E1–E5 remain in the independently reviewed errata file; E6–E8 and their real historical verdicts remain unchanged here. E9–E12 await independent review.
+
+Fresh primary reads are selected passages: published pp.380–381,383–385,387–388 (381/384/385/387 also images); v5’s Cauchy/counting passages and v1–v4’s corresponding text/searches; PT2014 Lemmas 7.4–7.5; Pila’s 2009 article author copy §1 pp.1–2; and Gao v6 pp.2–3,6–8,16,42–43,46–50. Nine PDF hashes and their read extents are in `sourceVersions`. These are not new full-proof reads. The inherited complete main-paper reads retain their original attribution. Annals, Crossref, arXiv versions and the author’s publications were checked for existing corrections; none applicable was found in this bounded search.
+
+Prerequisite links now identify the actual MSJ book record, MPIM report 96-51 record, and Rademacher’s publisher record, rather than citing PDFs of other papers. Pila 2009 is added explicitly. The separately owned errata file is outside this fix’s deliverables; the maintainer handoff in the fixes report requests its own `sourceVersions` update.
+
+Checks cover the paper schema, source-version and source-issue fields, declared library references and actual pinned definitions, stable IDs and unchanged records, item dependencies, one route per missing item, and proposed stage directions against the assembled atlas. Temporary vertices model only the required early/late splits; no stage IDs, packets, atlas data or upstream roadmaps are edited. Whole LD.6/Betti-Part-II back imports are rejected as cycle-producing negative controls. Historical regression counts are retained as history. No Lean was compiled, and independent `REV-FIX-RT-PAPER-TSIMERMAN-18` is pending.
