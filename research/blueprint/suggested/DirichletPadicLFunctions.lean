@@ -13261,3 +13261,128 @@ example (η : DirichletCharacter K M) (hη : η ≠ 1)
     intrinsicIntegralTameZetaMeasure (η.changeLevel (dvd_mul_left M q)) hN hpN =
       intrinsicIntegralTameZetaMeasure η hM hpM := sorry
 end SuggestedTamePrimeIntegralTests
+
+/-! Arbitrary tame level changes are finite sums over the genuinely new primes.
+Repeated prime powers contribute no additional Euler factor. The native primitive
+character is used at its actual conductor without introducing another character. -/
+namespace DirichletPadic
+section TameLevelComparison
+variable {p M N : ℕ} [Fact p.Prime] [NeZero M] [NeZero N]
+  {K : Type*} [NontriviallyNormedField K] [IsUltrametricDist K] [CompleteSpace K]
+  [Algebra ℤ_[p] K] [IsBoundedSMul ℤ_[p] K]
+
+theorem tameMeasure_changeLevel (η : DirichletCharacter K M) (hη : η ≠ 1) (hMN : M ∣ N)
+    (hM : IsUnit (M : K)) (hN : IsUnit (N : K)) (hpM : ¬p ∣ M) (hpN : ¬p ∣ N) :
+    tameMeasure (η.changeLevel hMN) hN hpN =
+      ∑ t ∈ (N.primeFactors \ M.primeFactors).powerset,
+        ((-1 : K)^t.card * η ((∏ q ∈ t, q : ℕ) : ZMod M)) •
+          AbstractMeasure.map
+            (⟨fun x : ℤ_[p] => ((∏ q ∈ t, q : ℕ) : ℤ_[p])*x, by fun_prop⟩ : C(ℤ_[p],ℤ_[p]))
+            (tameMeasure η hM hpM) := sorry
+
+theorem tameZetaMeasure_changeLevel (η : DirichletCharacter K M) (hη : η ≠ 1) (hMN : M ∣ N)
+    (hM : IsUnit (M : K)) (hN : IsUnit (N : K)) (hpM : ¬p ∣ M) (hpN : ¬p ∣ N) :
+    tameZetaMeasure (η.changeLevel hMN) hN hpN =
+      ∑ t ∈ (N.primeFactors \ M.primeFactors).powerset,
+        ((-1 : K)^t.card * (η ((∏ q ∈ t, q : ℕ) : ZMod M) / ((∏ q ∈ t, q : ℕ) : K))) •
+          AbstractMeasure.map
+            (⟨fun x : ℤ_[p] => ((∏ q ∈ t, q : ℕ) : ℤ_[p])*x, by fun_prop⟩ : C(ℤ_[p],ℤ_[p]))
+            (tameZetaMeasure η hM hpM) := sorry
+end TameLevelComparison
+
+section PrimitiveTameComparison
+variable {p N : ℕ} [Fact p.Prime] [NeZero N]
+  {K : Type*} [NontriviallyNormedField K] [IsUltrametricDist K] [CompleteSpace K]
+  [Algebra ℤ_[p] K] [IsBoundedSMul ℤ_[p] K]
+variable (η : DirichletCharacter K N)
+local instance : NeZero η.conductor := ⟨η.conductor_ne_zero⟩
+
+theorem tameMeasure_primitiveCharacter (hη : η ≠ 1)
+    (hN : IsUnit (N : K)) (hpN : ¬p ∣ N)
+    (hF : IsUnit (η.conductor : K)) (hpF : ¬p ∣ η.conductor) :
+    tameMeasure η hN hpN =
+      ∑ t ∈ (N.primeFactors \ η.conductor.primeFactors).powerset,
+        ((-1 : K)^t.card * η.primitiveCharacter ((∏ q ∈ t, q : ℕ) : ZMod η.conductor)) •
+          AbstractMeasure.map
+            (⟨fun x : ℤ_[p] => ((∏ q ∈ t, q : ℕ) : ℤ_[p])*x, by fun_prop⟩ : C(ℤ_[p],ℤ_[p]))
+            (tameMeasure η.primitiveCharacter hF hpF) := sorry
+
+theorem tameZetaMeasure_primitiveCharacter (hη : η ≠ 1)
+    (hN : IsUnit (N : K)) (hpN : ¬p ∣ N)
+    (hF : IsUnit (η.conductor : K)) (hpF : ¬p ∣ η.conductor) :
+    tameZetaMeasure η hN hpN =
+      ∑ t ∈ (N.primeFactors \ η.conductor.primeFactors).powerset,
+        ((-1 : K)^t.card * (η.primitiveCharacter ((∏ q ∈ t, q : ℕ) : ZMod η.conductor) /
+          ((∏ q ∈ t, q : ℕ) : K))) •
+          AbstractMeasure.map
+            (⟨fun x : ℤ_[p] => ((∏ q ∈ t, q : ℕ) : ℤ_[p])*x, by fun_prop⟩ : C(ℤ_[p],ℤ_[p]))
+            (tameZetaMeasure η.primitiveCharacter hF hpF) := sorry
+end PrimitiveTameComparison
+end DirichletPadic
+
+namespace SuggestedTameLevelComparisonTests
+open DirichletPadic
+variable {p M N : ℕ} [Fact p.Prime] [NeZero M] [NeZero N]
+  {K : Type*} [NontriviallyNormedField K] [IsUltrametricDist K] [CompleteSpace K]
+  [Algebra ℤ_[p] K] [IsBoundedSMul ℤ_[p] K]
+-- level_measure_all_tests
+example (η : DirichletCharacter K M) (hη : η ≠ 1) (hMN : M ∣ N)
+    (hM : IsUnit (M : K)) (hN : IsUnit (N : K)) (hpM : ¬p ∣ M) (hpN : ¬p ∣ N)
+    (f : C(ℤ_[p],K)) :
+    tameMeasure (η.changeLevel hMN) hN hpN f =
+      ∑ t ∈ (N.primeFactors \ M.primeFactors).powerset,
+        ((-1 : K)^t.card * η ((∏ q ∈ t, q : ℕ) : ZMod M)) *
+          tameMeasure η hM hpM (f.comp
+            (⟨fun x : ℤ_[p] => ((∏ q ∈ t, q : ℕ) : ℤ_[p])*x, by fun_prop⟩ : C(ℤ_[p],ℤ_[p]))) := sorry
+-- level_measure_empty_new_primes
+example (η : DirichletCharacter K M) (hη : η ≠ 1) (hMN : M ∣ N)
+    (hM : IsUnit (M : K)) (hN : IsUnit (N : K)) (hpM : ¬p ∣ M) (hpN : ¬p ∣ N)
+    (hs : N.primeFactors = M.primeFactors) :
+    tameMeasure (η.changeLevel hMN) hN hpN = tameMeasure η hM hpM := sorry
+-- level_measure_moment_product
+example (η : DirichletCharacter K M) (hη : η ≠ 1) (hMN : M ∣ N)
+    (hM : IsUnit (M : K)) (hN : IsUnit (N : K)) (hpM : ¬p ∣ M) (hpN : ¬p ∣ N) (k : ℕ) :
+    tameMeasure (η.changeLevel hMN) hN hpN
+      (⟨fun x : ℤ_[p] => (algebraMap ℤ_[p] K x)^k, by fun_prop⟩ : C(ℤ_[p],K)) =
+      (∏ q ∈ N.primeFactors \ M.primeFactors, (1-η (q : ZMod M)*(q : K)^k)) *
+        tameMeasure η hM hpM
+          (⟨fun x : ℤ_[p] => (algebraMap ℤ_[p] K x)^k, by fun_prop⟩ : C(ℤ_[p],K)) := sorry
+-- level_zeta_all_tests
+example (η : DirichletCharacter K M) (hη : η ≠ 1) (hMN : M ∣ N)
+    (hM : IsUnit (M : K)) (hN : IsUnit (N : K)) (hpM : ¬p ∣ M) (hpN : ¬p ∣ N)
+    (f : C(ℤ_[p],K)) :
+    tameZetaMeasure (η.changeLevel hMN) hN hpN f =
+      ∑ t ∈ (N.primeFactors \ M.primeFactors).powerset,
+        ((-1 : K)^t.card * (η ((∏ q ∈ t, q : ℕ) : ZMod M)/((∏ q ∈ t, q : ℕ) : K))) *
+          tameZetaMeasure η hM hpM (f.comp
+            (⟨fun x : ℤ_[p] => ((∏ q ∈ t, q : ℕ) : ℤ_[p])*x, by fun_prop⟩ : C(ℤ_[p],ℤ_[p]))) := sorry
+-- level_zeta_mass_product
+example (η : DirichletCharacter K M) (hη : η ≠ 1) (hMN : M ∣ N)
+    (hM : IsUnit (M : K)) (hN : IsUnit (N : K)) (hpM : ¬p ∣ M) (hpN : ¬p ∣ N) :
+    tameZetaMeasure (η.changeLevel hMN) hN hpN 1 =
+      (∏ q ∈ N.primeFactors \ M.primeFactors, (1-η (q : ZMod M)/(q : K))) *
+        tameZetaMeasure η hM hpM 1 := sorry
+-- level_zeta_positive_moment_product
+example (η : DirichletCharacter K M) (hη : η ≠ 1) (hMN : M ∣ N)
+    (hM : IsUnit (M : K)) (hN : IsUnit (N : K)) (hpM : ¬p ∣ M) (hpN : ¬p ∣ N) (k : ℕ) :
+    tameZetaMeasure (η.changeLevel hMN) hN hpN
+      (⟨fun x : ℤ_[p] => (algebraMap ℤ_[p] K x)^(k+1), by fun_prop⟩ : C(ℤ_[p],K)) =
+      (∏ q ∈ N.primeFactors \ M.primeFactors, (1-η (q : ZMod M)*(q : K)^k)) *
+        tameZetaMeasure η hM hpM
+          (⟨fun x : ℤ_[p] => (algebraMap ℤ_[p] K x)^(k+1), by fun_prop⟩ : C(ℤ_[p],K)) := sorry
+-- actual_primitive_is_nonprincipal
+example (η : DirichletCharacter K N) (hη : η ≠ 1) : η.primitiveCharacter ≠ 1 := sorry
+-- conductor_constructor_certificates
+example (η : DirichletCharacter K N) (hN : IsUnit (N : K)) (hpN : ¬p ∣ N) :
+    η.conductor ≠ 0 ∧ IsUnit (η.conductor : K) ∧ ¬p ∣ η.conductor := sorry
+-- native_primitive_recovers_character
+example (η : DirichletCharacter K N) :
+    η.primitiveCharacter.changeLevel η.conductor_dvd_level = η := sorry
+-- primitive_zeta_no_new_prime_factor
+example (η : DirichletCharacter K N) (hη : η ≠ 1)
+    (hN : IsUnit (N : K)) (hpN : ¬p ∣ N)
+    (hF : IsUnit (η.conductor : K)) (hpF : ¬p ∣ η.conductor)
+    (hs : N.primeFactors = η.conductor.primeFactors) :
+    letI : NeZero η.conductor := ⟨η.conductor_ne_zero⟩
+    tameZetaMeasure η hN hpN = tameZetaMeasure η.primitiveCharacter hF hpF := sorry
+end SuggestedTameLevelComparisonTests
