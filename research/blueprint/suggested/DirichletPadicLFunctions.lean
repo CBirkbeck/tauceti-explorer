@@ -13013,3 +13013,130 @@ example (η : DirichletCharacter K M) (hη : η ≠ 1)
       tameMeasure η hM hpM
         (⟨fun x : ℤ_[p] => (algebraMap ℤ_[p] K x)^k, by fun_prop⟩ : C(ℤ_[p],K)) := sorry
 end SuggestedTamePrimeMeasureTests
+
+/-! Prime level changes of the existing inverse-weighted tame zeta measures.
+Unit dilation contributes the inverse scalar 1/q before passage to the native
+unit-group carrier. Weight zero below concerns the actual measure mass only. -/
+namespace DirichletPadic
+section TamePrimeZeta
+variable {p q M : ℕ} [Fact p.Prime] [Fact q.Prime] [NeZero M]
+  {K : Type*} [NontriviallyNormedField K] [Algebra ℤ_[p] K] [IsBoundedSMul ℤ_[p] K]
+  [IsUltrametricDist K] [CompleteSpace K]
+
+theorem unitRestriction_tameMeasure_changeLevel_prime (η : DirichletCharacter K M)
+    (hη : η ≠ 1) (hM : IsUnit (M : K)) (hN : IsUnit ((q*M : ℕ) : K))
+    (hpM : ¬p ∣ M) (hpN : ¬p ∣ q*M) :
+    AbstractMeasure.unitRestriction p K
+      (tameMeasure (η.changeLevel (dvd_mul_left M q)) hN hpN) =
+      AbstractMeasure.unitRestriction p K (tameMeasure η hM hpM) -
+        η (q : ZMod M) • AbstractMeasure.map
+          (⟨fun x : ℤ_[p] => (q : ℤ_[p])*x, by fun_prop⟩ : C(ℤ_[p],ℤ_[p]))
+          (AbstractMeasure.unitRestriction p K (tameMeasure η hM hpM)) := sorry
+
+theorem tameZetaMeasure_changeLevel_prime (η : DirichletCharacter K M) (hη : η ≠ 1)
+    (hM : IsUnit (M : K)) (hN : IsUnit ((q*M : ℕ) : K))
+    (hpM : ¬p ∣ M) (hpN : ¬p ∣ q*M) :
+    tameZetaMeasure (η.changeLevel (dvd_mul_left M q)) hN hpN =
+      tameZetaMeasure η hM hpM - (η (q : ZMod M)/(q : K)) • AbstractMeasure.map
+        (⟨fun x : ℤ_[p] => (q : ℤ_[p])*x, by fun_prop⟩ : C(ℤ_[p],ℤ_[p]))
+        (tameZetaMeasure η hM hpM) := sorry
+
+theorem tameZetaMeasure_changeLevel_prime_dvd (η : DirichletCharacter K M) (hη : η ≠ 1)
+    (hM : IsUnit (M : K)) (hN : IsUnit ((q*M : ℕ) : K))
+    (hpM : ¬p ∣ M) (hpN : ¬p ∣ q*M) (hqM : q ∣ M) :
+    tameZetaMeasure (η.changeLevel (dvd_mul_left M q)) hN hpN =
+      tameZetaMeasure η hM hpM := sorry
+
+theorem intrinsicTameZetaMeasure_changeLevel_prime (η : DirichletCharacter K M)
+    (hη : η ≠ 1) (hM : IsUnit (M : K)) (hN : IsUnit ((q*M : ℕ) : K))
+    (hpM : ¬p ∣ M) (hpN : ¬p ∣ q*M) (u : (ℤ_[p])ˣ)
+    (hu : (u : ℤ_[p]) = (q : ℤ_[p])) :
+    intrinsicTameZetaMeasure (η.changeLevel (dvd_mul_left M q)) hN hpN =
+      intrinsicTameZetaMeasure η hM hpM - (η (q : ZMod M)/(q : K)) • AbstractMeasure.map
+        (⟨fun x : (ℤ_[p])ˣ => u*x, by fun_prop⟩ : C((ℤ_[p])ˣ,(ℤ_[p])ˣ))
+        (intrinsicTameZetaMeasure η hM hpM) := sorry
+
+theorem tameZetaMeasure_changeLevel_prime_positive_moment (η : DirichletCharacter K M)
+    (hη : η ≠ 1) (hM : IsUnit (M : K)) (hN : IsUnit ((q*M : ℕ) : K))
+    (hpM : ¬p ∣ M) (hpN : ¬p ∣ q*M) (k : ℕ) :
+    tameZetaMeasure (η.changeLevel (dvd_mul_left M q)) hN hpN
+      (⟨fun x : ℤ_[p] => (algebraMap ℤ_[p] K x)^(k+1), by fun_prop⟩ : C(ℤ_[p],K)) =
+      (1-η (q : ZMod M)*(q : K)^k) * tameZetaMeasure η hM hpM
+        (⟨fun x : ℤ_[p] => (algebraMap ℤ_[p] K x)^(k+1), by fun_prop⟩ : C(ℤ_[p],K)) := sorry
+end TamePrimeZeta
+end DirichletPadic
+
+namespace SuggestedTamePrimeZetaTests
+open DirichletPadic
+variable {p q M : ℕ} [Fact p.Prime] [Fact q.Prime] [NeZero M]
+  {K : Type*} [NontriviallyNormedField K] [Algebra ℤ_[p] K] [IsBoundedSMul ℤ_[p] K]
+  [IsUltrametricDist K] [CompleteSpace K]
+-- unit_restriction_mass_factor
+example (η : DirichletCharacter K M) (hη : η ≠ 1)
+    (hM : IsUnit (M : K)) (hN : IsUnit ((q*M : ℕ) : K))
+    (hpM : ¬p ∣ M) (hpN : ¬p ∣ q*M) :
+    AbstractMeasure.unitRestriction p K
+      (tameMeasure (η.changeLevel (dvd_mul_left M q)) hN hpN) (1 : C(ℤ_[p],K)) =
+      (1-η (q : ZMod M))*AbstractMeasure.unitRestriction p K
+        (tameMeasure η hM hpM) (1 : C(ℤ_[p],K)) := sorry
+-- unit_restriction_zero_test
+example (η : DirichletCharacter K M) (hM : IsUnit (M : K)) (hpM : ¬p ∣ M) :
+    AbstractMeasure.unitRestriction p K (tameMeasure η hM hpM) (0 : C(ℤ_[p],K)) = 0 := sorry
+-- zeta_all_continuous_tests
+example (η : DirichletCharacter K M) (hη : η ≠ 1)
+    (hM : IsUnit (M : K)) (hN : IsUnit ((q*M : ℕ) : K))
+    (hpM : ¬p ∣ M) (hpN : ¬p ∣ q*M) (f : C(ℤ_[p],K)) :
+    tameZetaMeasure (η.changeLevel (dvd_mul_left M q)) hN hpN f =
+      tameZetaMeasure η hM hpM f - (η (q : ZMod M)/(q : K))*tameZetaMeasure η hM hpM
+        (f.comp (⟨fun x : ℤ_[p] => (q : ℤ_[p])*x, by fun_prop⟩ : C(ℤ_[p],ℤ_[p]))) := sorry
+-- zeta_mass_inverse_factor
+example (η : DirichletCharacter K M) (hη : η ≠ 1)
+    (hM : IsUnit (M : K)) (hN : IsUnit ((q*M : ℕ) : K))
+    (hpM : ¬p ∣ M) (hpN : ¬p ∣ q*M) :
+    tameZetaMeasure (η.changeLevel (dvd_mul_left M q)) hN hpN (1 : C(ℤ_[p],K)) =
+      (1-η (q : ZMod M)/(q : K))*tameZetaMeasure η hM hpM (1 : C(ℤ_[p],K)) := sorry
+-- inverse_weight_stays_zero
+example (x : ℤ_[p]) (hx : ¬ IsUnit x) : algebraMap ℤ_[p] K (PadicInt.inv x) = 0 := sorry
+-- repeated_prime_zeta_all_tests
+example (η : DirichletCharacter K M) (hη : η ≠ 1)
+    (hM : IsUnit (M : K)) (hN : IsUnit ((q*M : ℕ) : K))
+    (hpM : ¬p ∣ M) (hpN : ¬p ∣ q*M) (hqM : q ∣ M) (f : C(ℤ_[p],K)) :
+    tameZetaMeasure (η.changeLevel (dvd_mul_left M q)) hN hpN f =
+      tameZetaMeasure η hM hpM f := sorry
+-- dyadic_repeated_prime_zeta
+example [IsBoundedSMul ℤ_[2] ℚ_[2]] (η : DirichletCharacter ℚ_[2] 3) (hη : η ≠ 1)
+    (hM : IsUnit ((3 : ℕ) : ℚ_[2])) (hN : IsUnit ((9 : ℕ) : ℚ_[2]))
+    (hpM : ¬2 ∣ 3) (hpN : ¬2 ∣ 9) :
+    tameZetaMeasure (η.changeLevel (dvd_mul_left 3 3)) hN hpN =
+      tameZetaMeasure η hM hpM := sorry
+-- actual_dilation_unit_exists
+example (hpN : ¬p ∣ q*M) : ∃ u : (ℤ_[p])ˣ, (u : ℤ_[p]) = (q : ℤ_[p]) := sorry
+-- unit_choice_is_unique
+example (u v : (ℤ_[p])ˣ) (hu : (u : ℤ_[p]) = (q : ℤ_[p]))
+    (hv : (v : ℤ_[p]) = (q : ℤ_[p])) : u = v := sorry
+-- intrinsic_zeta_all_tests
+example (η : DirichletCharacter K M) (hη : η ≠ 1)
+    (hM : IsUnit (M : K)) (hN : IsUnit ((q*M : ℕ) : K))
+    (hpM : ¬p ∣ M) (hpN : ¬p ∣ q*M) (u : (ℤ_[p])ˣ)
+    (hu : (u : ℤ_[p]) = (q : ℤ_[p])) (f : C((ℤ_[p])ˣ,K)) :
+    intrinsicTameZetaMeasure (η.changeLevel (dvd_mul_left M q)) hN hpN f =
+      intrinsicTameZetaMeasure η hM hpM f - (η (q : ZMod M)/(q : K))*
+        intrinsicTameZetaMeasure η hM hpM
+          (f.comp (⟨fun x : (ℤ_[p])ˣ => u*x, by fun_prop⟩ : C((ℤ_[p])ˣ,(ℤ_[p])ˣ))) := sorry
+-- first_zeta_moment_factor
+example (η : DirichletCharacter K M) (hη : η ≠ 1)
+    (hM : IsUnit (M : K)) (hN : IsUnit ((q*M : ℕ) : K))
+    (hpM : ¬p ∣ M) (hpN : ¬p ∣ q*M) :
+    tameZetaMeasure (η.changeLevel (dvd_mul_left M q)) hN hpN
+      (⟨algebraMap ℤ_[p] K, by fun_prop⟩ : C(ℤ_[p],K)) =
+      (1-η (q : ZMod M))*tameZetaMeasure η hM hpM
+        (⟨algebraMap ℤ_[p] K, by fun_prop⟩ : C(ℤ_[p],K)) := sorry
+-- second_zeta_moment_factor
+example (η : DirichletCharacter K M) (hη : η ≠ 1)
+    (hM : IsUnit (M : K)) (hN : IsUnit ((q*M : ℕ) : K))
+    (hpM : ¬p ∣ M) (hpN : ¬p ∣ q*M) :
+    tameZetaMeasure (η.changeLevel (dvd_mul_left M q)) hN hpN
+      (⟨fun x : ℤ_[p] => (algebraMap ℤ_[p] K x)^2, by fun_prop⟩ : C(ℤ_[p],K)) =
+      (1-η (q : ZMod M)*(q : K))*tameZetaMeasure η hM hpM
+        (⟨fun x : ℤ_[p] => (algebraMap ℤ_[p] K x)^2, by fun_prop⟩ : C(ℤ_[p],K)) := sorry
+end SuggestedTamePrimeZetaTests

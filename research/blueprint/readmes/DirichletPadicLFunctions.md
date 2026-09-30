@@ -23202,3 +23202,160 @@ Seven complete native lemmas prove coefficient truncation, coefficient-map compa
 Thirteen nonprincipal character profiles give52prime-level pairs and163eligible p-adic prime-place pairs. Exact known residue formulas check9967masses,2445residue-constant tests,2418refinements and978total masses over489finite levels;33dyadic pairs are included. Independent quotient-series/Stirling calculations check520ordinary moments, including52zero-weight cases. Wrong pushforward direction, sign, conjugate character value and missingq^k are detected. Exact Fraction-pair arithmetic in Q(i) and Q(omega). Independently evaluate the existing weighted residue-mass formula at levels p^0,p^1,p^2, with p=2,3,5,7,11 when prime to both character levels. Compare every new mass with the inverse-indexed dilation of the old mass, five residue-constant tests per level, total mass and refinement. Independently derive ten ordinary moments from quotient-series coefficients via Stirling numbers. These are controls of existing exact constructor formulas; finitely many levels do not prove equality of measures on all continuous tests. The largest observed discrepancy is 0 in every asserted exact identity.
 
 All66 inputs and four predecessor outputs are unchanged at capture and guarded. The partial signature file is the exact4927prefix plus three declarations/nine examples, still omitting4777–4791. This exact partial file elaborates with zero errors and2122expected placeholder warnings only; no new import is added. The full module remains NOT COMPILED because the compatible native TwistedDivisorSum artifact is absent; no library build occurs.
+
+
+## Prime level changes of tame zeta measures
+
+Five L2 nodes compare unit-restricted tame measures, ambient inverse-weightedζ, repeated-primeζ, intrinsicζ on the native unit group and positive ordinaryζ moments. All709 predecessor nodes remain whole. Five new signatures and twelve tests retain the1/q factor, actual unit existence, zero-extended inverse and weight-zero mass boundary.
+
+Read the complete existing PMIA fine nodes and signatures for coefficient-general unit-restriction dilation, p-adic inverse identification/continuity, weight evaluation and intrinsic inclusion retraction. Read the whole own unrestrictedζweight and intrinsic inclusion nodes. Freshly read the native p-adic inverse definition, unit/norm criteria, natural-cast norm criterion, unit inverse multiplication, native pushforward composition and unit extensionality. The source complete pages128,143–146 and179–180 were freshly read in this uninterrupted continuation. Native PadicInt.continuous_inv was not found; the exact supplied fine continuity node is used.
+
+### Prime level changes of unit-restricted tame measures
+
+`DirichletPadicLFunctions:L2/tame-unit-restriction-prime-level` — `DirichletPadic.unitRestriction_tameMeasure_changeLevel_prime`
+
+Eμ_(changeLevel η)=Eμ_η−η(q)•map(d_q)(Eμ_η), whereE is the existing ambient unitRestriction.
+
+**Hypotheses:** p andq are primes, M>0 with NeZero M, and η:DirichletCharacter K M is nonprincipal; primitivity is not required. K is a complete nontrivially normed ultrametric field with Algebra ℤ_p K and IsBoundedSMul ℤ_p K. hM andhN are the unit certificates for the images ofM andqM inK. hpM:p∤M andhpN:p∤qM are the exact tame hypotheses of the two constructors. Derivep∤q fromhpN. The native norm/unit and natural-cast norm criteria then show(q:ℤ_p) is a unit; mapping that unit shows(q:K)≠0. Use the existing native character changeLevel, tameMeasure μ, ambient tameZetaMeasure ζ and intrinsicTameZetaMeasure ζU on the native units typeU=ℤ_pˣ. Native pushforward alongd_q:x↦q*x evaluates a testf by pullbackf(qx). The existing inverse weight uses PadicInt.inv, which is zero on all nonunits.
+
+**Proof:**
+
+1. FromhpN derivep∤q, becausep∣q would implyp∣qM. Native Nat.Prime.coprime_iff_not_dvd, PadicInt.norm_natCast_eq_one_iff andPadicInt.isUnit_iff supply the actual unit certificate forq inℤ_p. The complete prime_to_p_nat_unit probe checks this implication without restrictingp to an odd prime.
+2. Apply the existingK-linear unitRestriction map to tame-measure-prime-level-comparison. Its linearity distributes over the difference and the scalarη(q).
+3. Use the exact supplier fine node unit-restriction-dilation, which applies to any normed commutative coefficient ring, on the actual unit certificate forq. This commutesE with the native pushforward and yields the displayed equality.
+4. The unit requirement is essential: multiplication byq must preserve both the units and their complement. The supplied coefficient-general restriction theorem is used directly; its neighboring integral-only inverseWeight theorem is not used here.
+
+**Prerequisites:** `DirichletPadicLFunctions:L2/tame-measure-prime-level-comparison`, `PadicMeasuresIwasawaAlgebras:L2/unit-restriction-dilation`, `mathlib:PadicInt.isUnit_iff`, `mathlib:PadicInt.norm_natCast_eq_one_iff`, `mathlib:Nat.Prime.coprime_iff_not_dvd`.
+
+**Tests:**
+
+- `SuggestedTamePrimeZetaTests.unit_restriction_mass_factor` (compatibility): The total mass of the actual unit-restricted measure changes by1−η(q).
+- `SuggestedTamePrimeZetaTests.unit_restriction_zero_test` (degenerate): The existing unit-restricted measure sends the zero test to zero.
+
+**Acceptance:** Includesp=2 with oddq and all repeated primes inM. Exact finite residue controls verify the unit mask and the inverse residue index of pushforward.
+
+**Source:** Section3.5.5, published128/PDF29; Definition5.13 and its displayed moment shift, published146/PDF47; Proposition12.5, especially equation(12-3) and its measure calculation, published179–180/PDF80–81. Complete pages freshly read on30September2026, with complete tame construction143–146 read in the preceding continuation. Worker prime-level comparison of the existing inverse-weighted tame measure, using the source inverse-dilation factor and the preceding actual tame-measure identity. The intrinsic comparison uses the existing native unit-group inclusion and retraction. No new Galois action or coefficient-general inverseWeight operator is planned, and the actual mass formula is not an analytic logarithmic interpolation claim.
+
+### Prime level changes of tame zeta measures
+
+`DirichletPadicLFunctions:L2/tame-zeta-prime-level-comparison` — `DirichletPadic.tameZetaMeasure_changeLevel_prime`
+
+ζ_(changeLevel η)=ζ_η−(η(q)/q)•map(d_q)(ζ_η) as actualK-valued measures onℤ_p.
+
+**Hypotheses:** p andq are primes, M>0 with NeZero M, and η:DirichletCharacter K M is nonprincipal; primitivity is not required. K is a complete nontrivially normed ultrametric field with Algebra ℤ_p K and IsBoundedSMul ℤ_p K. hM andhN are the unit certificates for the images ofM andqM inK. hpM:p∤M andhpN:p∤qM are the exact tame hypotheses of the two constructors. Derivep∤q fromhpN. The native norm/unit and natural-cast norm criteria then show(q:ℤ_p) is a unit; mapping that unit shows(q:K)≠0. Use the existing native character changeLevel, tameMeasure μ, ambient tameZetaMeasure ζ and intrinsicTameZetaMeasure ζU on the native units typeU=ℤ_pˣ. Native pushforward alongd_q:x↦q*x evaluates a testf by pullbackf(qx). The existing inverse weight uses PadicInt.inv, which is zero on all nonunits.
+
+**Proof:**
+
+1. Use the existing tame-zeta-unrestricted-weight identity at both levels: ζ=weight(gK)μ, wheregK(x)=algebraMap ℤ_p K(PadicInt.inv x). Its continuity comes from the existing PMIA padic-unit-inverse-continuity fine node, not a native continuity theorem for field inversion at zero.
+2. Apply this existingK-linear weighting map to tame-measure-prime-level-comparison. The remaining comparison concerns its value on the actual pushed measure. The supplied padic-unit-inverse-identification identifies PadicInt.inv with native Ring.inverse at every point, including nonunits.
+3. The native unit criterion suppliesq as an actual unit ofℤ_p. Native Ring.inverse_mul with that unit factor gives inv(q*x)=inv(q)*inv(x), with the reversed order harmless in the commutative ring. Map through the given coefficient algebra. Mappingq*inv(q)=1, using native PadicInt.mul_inv, shows that the mapped inverse equals(q:K)^{-1}. This proof requires no separate characteristic-zero or ℚ_p-algebra assumption.
+4. ThusgK(qx)=q^{-1}gK(x). For any continuousf, native map_apply and the supplier weight-evaluation identify weight(gK)(map(d_q)μ)(f) withμ(gK(qx)f(qx))=q^{-1}μ(gK(x)f(qx)). This isq^{-1}map(d_q)(weight(gK)μ)(f). The complete inverse_weighted_dilation probe proves precisely this actual native functional calculation for a bundledgK with its defining pointwise values.
+5. Native measure extensionality and scalar associativity now combineη(q) withq^{-1} to giveη(q)/q. The zero branch on nonunits is preserved throughout; the argument neither replaces it by field inversion nor applies the supplier integral-only inverseWeight_map_unit theorem toK-valued measures.
+6. On the constant test1 this gives the actual mass factor1−η(q)/q. This remains a statement about already defined bounded measures; no degree-zero analytic special value or logarithmic formula is added.
+
+**Prerequisites:** `DirichletPadicLFunctions:L2/tame-measure-prime-level-comparison`, `DirichletPadicLFunctions:L2/tame-zeta-unrestricted-weight`, `PadicMeasuresIwasawaAlgebras:L2/weight-evaluation`, `PadicMeasuresIwasawaAlgebras:L2/padic-unit-inverse-identification`, `PadicMeasuresIwasawaAlgebras:L2/padic-unit-inverse-continuity`, `mathlib:Ring.inverse_mul`, `mathlib:PadicInt.mul_inv`, `mathlib:AbstractMeasure.map_apply`, `mathlib:DFunLike.ext`, `mathlib:PadicInt.isUnit_iff`, `mathlib:PadicInt.norm_natCast_eq_one_iff`, `mathlib:Nat.Prime.coprime_iff_not_dvd`.
+
+**Tests:**
+
+- `SuggestedTamePrimeZetaTests.zeta_all_continuous_tests` (compatibility): For every continuous testf, the new actualζ integral is ζ(f)−(η(q)/q)ζ(f∘d_q).
+- `SuggestedTamePrimeZetaTests.zeta_mass_inverse_factor` (degenerate): The actual weight-zero mass changes by1−η(q)/q.
+- `SuggestedTamePrimeZetaTests.inverse_weight_stays_zero` (non-example): For every nonunitx, its coefficient image of PadicInt.inv is zero, even ifx has an inverse in the ambient field.
+
+**Acceptance:** The coefficient isη(q)/q, notη(q). Exact positive arithmetic moments and separately labelled finite atomic inverse-weight controls detect the missing inverse scalar, reversed sign and conjugated character value.
+
+**Source:** Section3.5.5, published128/PDF29; Definition5.13 and its displayed moment shift, published146/PDF47; Proposition12.5, especially equation(12-3) and its measure calculation, published179–180/PDF80–81. Complete pages freshly read on30September2026, with complete tame construction143–146 read in the preceding continuation. Worker prime-level comparison of the existing inverse-weighted tame measure, using the source inverse-dilation factor and the preceding actual tame-measure identity. The intrinsic comparison uses the existing native unit-group inclusion and retraction. No new Galois action or coefficient-general inverseWeight operator is planned, and the actual mass formula is not an analytic logarithmic interpolation claim.
+
+### Tame zeta measures at repeated prime levels
+
+`DirichletPadicLFunctions:L2/tame-zeta-repeated-prime-level` — `DirichletPadic.tameZetaMeasure_changeLevel_prime_dvd`
+
+Ifq∣M, thenζ_(changeLevel η)=ζ_η as actual ambient measures.
+
+**Hypotheses:** p andq are primes, M>0 with NeZero M, and η:DirichletCharacter K M is nonprincipal; primitivity is not required. K is a complete nontrivially normed ultrametric field with Algebra ℤ_p K and IsBoundedSMul ℤ_p K. hM andhN are the unit certificates for the images ofM andqM inK. hpM:p∤M andhpN:p∤qM are the exact tame hypotheses of the two constructors. Derivep∤q fromhpN. The native norm/unit and natural-cast norm criteria then show(q:ℤ_p) is a unit; mapping that unit shows(q:K)≠0. Use the existing native character changeLevel, tameMeasure μ, ambient tameZetaMeasure ζ and intrinsicTameZetaMeasure ζU on the native units typeU=ℤ_pˣ. Native pushforward alongd_q:x↦q*x evaluates a testf by pullbackf(qx). The existing inverse weight uses PadicInt.inv, which is zero on all nonunits. q dividesM.
+
+**Proof:**
+
+1. The preceding tame-measure-repeated-prime-level gives exact equality of the two actualμ measures, under the displayed nonprincipal and tame hypotheses.
+2. Apply the same existing inverse-weight map to both sides and rewrite both results with tame-zeta-unrestricted-weight. The weight depends only onp and the coefficient algebra, not on the character level.
+3. Alternatively the prime-levelζ formula hasη(q)=0 becauseq is a nonunit moduloM. No new logarithmic value or principal-character continuation is needed. The equality may be evaluated on every continuous test, including1.
+
+**Prerequisites:** `DirichletPadicLFunctions:L2/tame-measure-repeated-prime-level`, `DirichletPadicLFunctions:L2/tame-zeta-unrestricted-weight`.
+
+**Tests:**
+
+- `SuggestedTamePrimeZetaTests.repeated_prime_zeta_all_tests` (compatibility): All continuous test integrals are unchanged on adding a repeated prime.
+- `SuggestedTamePrimeZetaTests.dyadic_repeated_prime_zeta` (computation): Atp=2, the actual ambientζ measures for a nonprincipal character modulo3 and its lift to9 agree.
+
+**Acceptance:** Keeps the nonprincipal condition of the earlier measure equality. The principal regularized finite constructor is not substituted into the argument.
+
+**Source:** Section3.5.5, published128/PDF29; Definition5.13 and its displayed moment shift, published146/PDF47; Proposition12.5, especially equation(12-3) and its measure calculation, published179–180/PDF80–81. Complete pages freshly read on30September2026, with complete tame construction143–146 read in the preceding continuation. Worker prime-level comparison of the existing inverse-weighted tame measure, using the source inverse-dilation factor and the preceding actual tame-measure identity. The intrinsic comparison uses the existing native unit-group inclusion and retraction. No new Galois action or coefficient-general inverseWeight operator is planned, and the actual mass formula is not an analytic logarithmic interpolation claim.
+
+### Prime level changes on the native unit group
+
+`DirichletPadicLFunctions:L2/intrinsic-tame-zeta-prime-level` — `DirichletPadic.intrinsicTameZetaMeasure_changeLevel_prime`
+
+For any u∈ℤ_pˣ whose underlying value isq, ζU_(changeLevel η)=ζU_η−(η(q)/q)•map(v↦u*v)(ζU_η).
+
+**Hypotheses:** p andq are primes, M>0 with NeZero M, and η:DirichletCharacter K M is nonprincipal; primitivity is not required. K is a complete nontrivially normed ultrametric field with Algebra ℤ_p K and IsBoundedSMul ℤ_p K. hM andhN are the unit certificates for the images ofM andqM inK. hpM:p∤M andhpN:p∤qM are the exact tame hypotheses of the two constructors. Derivep∤q fromhpN. The native norm/unit and natural-cast norm criteria then show(q:ℤ_p) is a unit; mapping that unit shows(q:K)≠0. Use the existing native character changeLevel, tameMeasure μ, ambient tameZetaMeasure ζ and intrinsicTameZetaMeasure ζU on the native units typeU=ℤ_pˣ. Native pushforward alongd_q:x↦q*x evaluates a testf by pullbackf(qx). The existing inverse weight uses PadicInt.inv, which is zero on all nonunits. The suggested signature explicitly supplies a native unitu withhu:(u:ℤ_p)=(q:ℤ_p), solely to name its multiplication map on the existing unit group. Its existence follows fromhpN by the native unit criterion, and Units.ext makes the choice unique. No unit-existence or carrier-identification assumption is left open.
+
+**Proof:**
+
+1. Derive the actual unit certificate forq as above and take its native IsUnit.unit. Its value isq by the native unit certificate. If another native unit has the same value, Units.ext identifies it; hence the theorem is independent of this presentation choice.
+2. Apply the native pushforwardj_U along Units.val to the proposed equality. The existing supplier intrinsic-unit-restriction-section saysrestrictUnits∘j_U=id, soj_U is injective. Use exactly that fine node, rather than assuming equality of unit-domain measures from ambient test samples.
+3. The existing intrinsic-tame-zeta-inclusion identifiesj_U of each intrinsicζ with its actual ambientζ. Native map_map and Units.val(u*v)=(u:ℤ_p)*(v:ℤ_p) commute unit multiplication with ambient dilation;hu rewrites the multiplier asq. The complete unit_inclusion_dilation probe verifies this square for every native unit and measure.
+4. Native linearity of pushforward carries the difference and scalarη(q)/q throughj_U. The resulting equality is precisely tame-zeta-prime-level-comparison. Injectivity concludes the intrinsic equality, and native map_apply gives the all-continuous-unit-test formula.
+5. The complete injective_inclusion_from_retraction probe checks the exact generic injectivity argument conditional on the supplied retraction. The roadmap supplies that condition via the already existing fine section node. No new homeomorphism, restriction functor or convolution comparison is defined.
+
+**Prerequisites:** `DirichletPadicLFunctions:L2/tame-zeta-prime-level-comparison`, `DirichletPadicLFunctions:L2/intrinsic-tame-zeta-inclusion`, `PadicMeasuresIwasawaAlgebras:L2/intrinsic-unit-restriction-section`, `mathlib:AbstractMeasure.map_map`, `mathlib:AbstractMeasure.map_apply`, `mathlib:Units.ext`, `mathlib:PadicInt.isUnit_iff`, `mathlib:PadicInt.norm_natCast_eq_one_iff`, `mathlib:Nat.Prime.coprime_iff_not_dvd`.
+
+**Tests:**
+
+- `SuggestedTamePrimeZetaTests.actual_dilation_unit_exists` (characterisation): The exact tame hypothesisp∤qM supplies a native unit ofℤ_p with underlying valueq.
+- `SuggestedTamePrimeZetaTests.unit_choice_is_unique` (compatibility): Any two native units with underlying valueq coincide.
+- `SuggestedTamePrimeZetaTests.intrinsic_zeta_all_tests` (compatibility): Every continuous unit-group test has the explicit pullback-by-multiplication formula with coefficientη(q)/q.
+
+**Acceptance:** Equality lives on the existing native unit group with its existing topology. It does not identify multiplicative convolution there with additive convolution onℤ_p.
+
+**Source:** Section3.5.5, published128/PDF29; Definition5.13 and its displayed moment shift, published146/PDF47; Proposition12.5, especially equation(12-3) and its measure calculation, published179–180/PDF80–81. Complete pages freshly read on30September2026, with complete tame construction143–146 read in the preceding continuation. Worker prime-level comparison of the existing inverse-weighted tame measure, using the source inverse-dilation factor and the preceding actual tame-measure identity. The intrinsic comparison uses the existing native unit-group inclusion and retraction. No new Galois action or coefficient-general inverseWeight operator is planned, and the actual mass formula is not an analytic logarithmic interpolation claim.
+
+### Prime level factors of positive tame zeta moments
+
+`DirichletPadicLFunctions:L2/tame-zeta-prime-level-positive-moments` — `DirichletPadic.tameZetaMeasure_changeLevel_prime_positive_moment`
+
+For every k≥0, ζ_(changeLevel η)(x^(k+1))=(1−η(q)q^k)·ζ_η(x^(k+1)), withx sent toK through the actual coefficient algebra.
+
+**Hypotheses:** p andq are primes, M>0 with NeZero M, and η:DirichletCharacter K M is nonprincipal; primitivity is not required. K is a complete nontrivially normed ultrametric field with Algebra ℤ_p K and IsBoundedSMul ℤ_p K. hM andhN are the unit certificates for the images ofM andqM inK. hpM:p∤M andhpN:p∤qM are the exact tame hypotheses of the two constructors. Derivep∤q fromhpN. The native norm/unit and natural-cast norm criteria then show(q:ℤ_p) is a unit; mapping that unit shows(q:K)≠0. Use the existing native character changeLevel, tameMeasure μ, ambient tameZetaMeasure ζ and intrinsicTameZetaMeasure ζU on the native units typeU=ℤ_pˣ. Native pushforward alongd_q:x↦q*x evaluates a testf by pullbackf(qx). The existing inverse weight uses PadicInt.inv, which is zero on all nonunits. The exponent is writtenk+1 to expose the positive ordinary moment and avoid a truncated natural subtraction. This is an identity of actual constructor integrals; source special-value interpolation retains its separate hypotheses.
+
+**Proof:**
+
+1. Evaluate the ambientζ measure comparison on the continuous testx↦(algebraMap ℤ_p K x)^(k+1). Native map_apply pulls it back alongd_q.
+2. The algebra map and natural-power laws identify the pulled-back test withq^(k+1) times the original test. Continuous-map extensionality and measureK-linearity extract that scalar, exactly as in the complete ordinary_dilation native proof retained withPR4938.
+3. The existing native unit certificate forq inℤ_p maps to a unit inK, soq is nonzero there. Thus(η(q)/q)q^(k+1)=η(q)q^k. Combine the two terms by ring algebra to obtain the displayed factor.
+4. At exponent1 the factor is1−η(q), in agreement with the unit-restrictedμ mass. At exponent2 the factor is1−η(q)q. The actualζ mass, which has exponent0, instead has factor1−η(q)/q from the all-test comparison; it is not covered by an incorrectly truncated exponentk−1.
+
+**Prerequisites:** `DirichletPadicLFunctions:L2/tame-zeta-prime-level-comparison`, `mathlib:AbstractMeasure.map_apply`, `mathlib:PadicInt.isUnit_iff`, `mathlib:PadicInt.norm_natCast_eq_one_iff`, `mathlib:Nat.Prime.coprime_iff_not_dvd`.
+
+**Tests:**
+
+- `SuggestedTamePrimeZetaTests.first_zeta_moment_factor` (computation): The first ordinaryζ moment changes by1−η(q).
+- `SuggestedTamePrimeZetaTests.second_zeta_moment_factor` (computation): The second ordinaryζ moment changes by1−η(q)q.
+
+**Acceptance:** Exact existing unit-moment and quotient-coefficient formulas independently test1467positive arithmeticζ moments. No logarithmic mass computation, primitive Gauss formula or analytic weight family is introduced.
+
+**Source:** Section3.5.5, published128/PDF29; Definition5.13 and its displayed moment shift, published146/PDF47; Proposition12.5, especially equation(12-3) and its measure calculation, published179–180/PDF80–81. Complete pages freshly read on30September2026, with complete tame construction143–146 read in the preceding continuation. Worker prime-level comparison of the existing inverse-weighted tame measure, using the source inverse-dilation factor and the preceding actual tame-measure identity. The intrinsic comparison uses the existing native unit-group inclusion and retraction. No new Galois action or coefficient-general inverseWeight operator is planned, and the actual mass formula is not an analytic logarithmic interpolation claim.
+
+**Remaining:** The one-prime comparison now reaches unit-restrictedμ, ambientζ and intrinsicζ onℤ_pˣ, with the correctη(q)/q coefficient, repeated-prime equality and positive ordinary-moment factors. Next transport the comparison to the actual integral coefficient rings, iterate only genuinely new primes and compare the actual measures with the native primitive character at its conductor. Primitive Gauss nonvanishing, analytic branches, logarithmic/degree-zero special-value identification, full source extraction and the PMIA completed-algebra/coefficient-field pseudomeasure requests remain open.
+
+### Prime level changes of tame zeta measures validation
+
+All 709 predecessor nodes, 601 baseline records, 16 findings, requests and sourceVersions remain whole. This checkpoint adds 5 nodes, 5 named suggested declarations and 12 typed examples. The indexed blueprint, four-file intake, whitespace, preservation, API/test parity and versioned-source checks pass. The graph has 972 reachable nodes, 4912 edges and 779 native leaves and is acyclic. Its stage request leaves are PadicMeasuresIwasawaAlgebras:L1, PadicMeasuresIwasawaAlgebras:L3, PadicMeasuresIwasawaAlgebras:L3, LocallyAnalyticDistributions:L1, AdicSpacesPartII:F1, AdicSpacesPartII:R2, PadicDifferentialEquationsAndRigidCohomology:RD.0, PadicDifferentialEquationsAndRigidCohomology:RD.4, PadicHodgeTheory:P7:annulus-foundations, PadicMeasuresIwasawaAlgebras:L2, LocallyAnalyticDistributions:L1. All five new routes use native declarations and existing fine supplier/own nodes, with no new stage-request leaf. Existing requests remain open.
+
+**The full current suggested module was NOT COMPILED.** Its real native import requires TauCeti.NumberTheory.ArithmeticFunction.TwistedDivisorSum. No matching existing artifact was found; WORKERS.md prohibits building the native library. Current compiler exit code, error count and warning count are unavailable, not zero. The exact named signatures and native source were reviewed. PR4773 remains the last compiled full predecessor, with zero errors and1,803 expected placeholder warnings; that receipt does not validate this new module.
+
+The current source closure covers 3603 pinned Mathlib modules and 22 pinned Tau Ceti modules. Only 21 Tau module artifacts are available and hash-verified. The105 available artifact files and the previously compiled332-node PMIA artifact are checked as partial dependencies. The current369-node supplier source preserves the older interface; no current-module compilation against either revision is claimed. Existing builds only were inspected; no setup, update, cache fetch or native build occurred.
+
+Eight complete native lemmas verify zero extension, agreement of the two existing inverse functions, inverse multiplication by a unit, the actual natural-number unit criterion, mapped unit inverses, the inverse-weighted native functional identity, the unit-inclusion dilation square, and injectivity conditional on the exact supplied retraction. The bundled weight in the functional check has its defining inverse values as an explicit hypothesis; its continuity is supplied in the roadmap by the existing PMIA fine node. The previous complete ordinary_dilation proof from4938 is reused as evidence for the elementary positive-moment step, not recompiled or counted among these eight. The separate probe compiles against 2819 pinned Mathlib modules and 0 pinned Tau Ceti modules with zero errors, warnings or placeholders. The separate Mathlib-only probe does not import, replace or compile the missing native Tau module. General roadmap declarations remain unchecked.
+
+Thirteen nonprincipal character profiles and163prime-place pairs check1467positive arithmeticζ moments and9804actual unit-restricted residue masses. There are33dyadic pairs. Separately labelled finite atomic models test978inverse-weighted and978intrinsic test values plus163masses. Controls detect missing1/q, wrong sign, conjugated character value and assigning nonzero inverse weight to a nonunit. Exact Q(i)/Q(omega) arithmetic. Actual known quotient/Stirling and unit-moment formulas check all positive zeta moments of weights1 through9. Actual finite residue-mass formulas independently check unit restriction at p andp². Separately labelled finite atomic measures on integer points test the zero-extended inverse, its1/q transport, the native unit-subcarrier inclusion and total-mass factor; those atomic zeta values are not asserted to be the arithmetic zeta measure. No inverse of a canonical residue representative is treated as the exact inverse on an entire p-adic cell. The largest observed discrepancy is 0 in every asserted exact identity.
+
+All66 inputs and four predecessor outputs are unchanged at capture and guarded. The partial signature file is the exact4938prefix plus five declarations/twelve examples, still omitting4777–4791. It elaborates with zero errors and2139expected placeholder warnings only. No new import is added. The full module remains NOT COMPILED because the compatible native TwistedDivisorSum artifact is absent; no library build occurs.
