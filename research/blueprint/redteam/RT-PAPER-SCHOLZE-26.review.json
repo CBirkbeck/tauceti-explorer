@@ -1,0 +1,55 @@
+{
+  "redteam": "RT-PAPER-SCHOLZE-26",
+  "findings": [
+    {
+      "finding": "RT-PAPER-SCHOLZE-26/1",
+      "verdict": "confirmed",
+      "reason": "BKV's current review has verdict revise and rejects route 13. make_queue.accepted_routes excludes it. I also opened issue #3463: its one continuation is Scholze's 42-item route, including the instruction to preserve BKV's absent brief. This is a real broken design dependency, independently of the historical timestamps. Replace the coalescence premise and the five inherited-layer notes with a self-contained Berkovich continuation of MotivesAndAlgebraicCycles; retain the actual Berkovich endpoints and remove the unsupported logarithmic scope. Future reuse of RigDA requires an accepted supplier and a stated comparison, not an assumption that BKV's rejected route supplies either. Regenerate the pending design through the normal queue process."
+    },
+    {
+      "finding": "RT-PAPER-SCHOLZE-26/2",
+      "verdict": "confirmed",
+      "reason": "AnalyticStacks AS.0 explicitly owns Scholze Theorem 5.19 / Heyer-Mann Theorem 3.4.11, the extension invoked on v3 p.52; AS.1 supplies the topological formalism used on pp.23 and 50. Its README excludes the motivic lectures, so these are imports, not ownership of the Berkovich application. Correct item 42, item 14 and the brief accordingly, retaining the missing arc-stack comparison/application. PAPER-BHATT-MATHEW-21 has an accepting review and accepted ArcTopologyAndDescent route; cite its existing scheme-side owner and remove the redundant uncovered-prerequisite entry. Do not identify the scheme arc-site with the Banach-ring arc-site or delete an actually unplanned comparison merely because the antecedent paper was extracted."
+    },
+    {
+      "finding": "RT-PAPER-SCHOLZE-26/3",
+      "verdict": "confirmed",
+      "reason": "Remark 11.2 on v3 p.57 requires the presentable stable infinity-category with etale descent, A1-invariance and Gm-stability. M.5a supplies Nisnevich sheaves with transfers, and MC.4/effective-geometric-motives starts inside bounded-above Nisnevich DM. Neither supplies that target. Mark item 49 missing and give its exact universal category a single owner in the continuation, or request that explicit extension from the existing motivic owner. Retain MC.4/M.5a as partial inputs only: neither changing a topology label nor passing to the triangulated category proves the presentable enhancement or the comparison with transfers. Preserve the field and coefficient hypotheses of Proposition 1.13 / Theorem 11.1; any general-field extension must retain the paper's descent versus hyperdescent qualification."
+    },
+    {
+      "finding": "RT-PAPER-SCHOLZE-26/4",
+      "verdict": "confirmed",
+      "reason": "The separate inputs occur on v3 pp.47-50. S.3 can receive completion/excision with supports, but S.5's homotopy-invariance statement remains regular noetherian. At base 141668a S.5 has 34 nodes, not the single node quoted by the red team; its additional projective-bundle and blow-up material still does not supply cdh/pro-cdh descent, nonnoetherian valuation-ring invariance or Gabber-Suslin rigidity. Split item 37 and correct route 4. LMMT's accepted item 93 note assigns KH excision/descent to its GeneralAlgebraicKTheory continuation, but item 90's theorem statement is about K(1)-local K, not KH: make the general KH input explicit at that shared supplier rather than treating the two theories as interchangeable. Request the remaining inputs in the scheme K-theory continuation with the source's hypotheses. The cdh and pro-cdh arguments on p.49 are alternatives; do not make both mandatory dependencies of one proof."
+    },
+    {
+      "finding": "RT-PAPER-SCHOLZE-26/5",
+      "verdict": "confirmed",
+      "reason": "Definition 2.7 / Remark 2.8, Proposition 10.3 and its proof, and p.63 explicitly require compactly assembled categories and compact morphisms beyond compact generation. E5:presentability and its current six nodes give useful presentability/Ind groundwork but no such theory; the red team's one-node count is stale. Split item 47 and request a general categorical supplier at E5 for the dualizability, local rigidity, trace-class generation and compatible filtered-colimit results, with RT.5 and the Berkovich continuation importing it. RT.5's compact/dualizable objects are not by themselves a declaration of dualizability of presentable categories, so merely routing everything there does not close the gap. Likewise identify or request precise E5 nodes for the other split categorical inputs rather than assuming a broad layer title proves them."
+    },
+    {
+      "finding": "RT-PAPER-SCHOLZE-26/6",
+      "verdict": "confirmed",
+      "reason": "The cited inputs are used on v3 pp.24, 37 and 53 but have no separate items. L5 explicitly owns de Jong Theorem 4.1; add the planned alteration input with proper, dominant, generically finite and boundary hypotheses, not resolution. For Lemma 6.4 retain the shrinking of U around x and x': van der Put Corollary 1.3 concerns a normal connected affinoid and its reduction, and does not directly assert a finite-disc compactification of every entire smooth curve. Record that bridge and the marked-point generalized Jacobian / p-divisibility input separately. Correct the generic routing in the proposed fix: EnhancedDerivedSheaves E2 already owns repleteness and derived Postnikov convergence; add/request the precise Mondal-Reinecke Theorem A extension there, importing the existing E2 nodes, while the Berkovich continuation proves repleteness for its own arc-site. The hypercomplete infinity-topos qualification is essential. Coordinate the generalized-Jacobian supplier with the existing Jacobian and R11.4 scope rather than duplicating their covered results."
+    },
+    {
+      "finding": "RT-PAPER-SCHOLZE-26/7",
+      "verdict": "confirmed",
+      "reason": "I checked the rendered v3 p.34. The characteristic-polynomial isomorphism is Sym^n(G_m) = A^(n-1) x G_m, with no bars. The barred groups occur in the lower row; its multiplication map becomes an isomorphism when mapping into ball-invariant sheaves. Item 22 places the bars on the characteristic-polynomial row and is false as written: coefficients change on replacing a root by a nontrivial 1-unit multiple. Correct the row, retain the vertical ball-homotopy equivalences and distinguish the localized lower map from an unlocalized characteristic-polynomial isomorphism. The conclusion about the reduced free motivic sheaf survives."
+    },
+    {
+      "finding": "RT-PAPER-SCHOLZE-26/8",
+      "verdict": "confirmed",
+      "reason": "The rendered v3 p.35 prints max, and sourceIssues has no entry for it. Both outer and inner root bounds are necessary, hence their minimum. Independently, choose alpha of norm 2^(3/2) and use (X-alpha)(X-alpha^(-1)), r1=1/2 and r2=4: a0=1 and |a1|=2^(3/2)<4 satisfy the printed condition, while alpha^(-1) is outside the annulus. The corrected fiber remains an open polydisc, so this is a proof misprint with no change to the stated result. Record the exact v3 locator and the search actually performed; do not copy an assertion of having compared v1/v2. The author-hosted copy also retains max. Crossref and the author's list yielded no correction; the journal text was inaccessible, so no claim is made about its typeset formula."
+    },
+    {
+      "finding": "RT-PAPER-SCHOLZE-26/9",
+      "verdict": "confirmed",
+      "reason": "All four slips are present on the rendered v3 p.38 and absent from sourceIssues. At the outer boundary use |T|>=r2>1 and product norm |T|^n>=r2^n. At the i-th deleted disc, distinct residues give |T-a_j|=|a_i-a_j|=1 for j!=i, so the product is bounded by r1^(k_i), not r1^n. Taking every k_i sufficiently large gives the intended contradiction and preserves the lemma. Record the corrected paragraph as a v3 proof misprint with no change to the stated result. The author-hosted copy retains it. Scope the correction/search record as in /8; I have not verified the journal's formula or the earlier arXiv texts."
+    },
+    {
+      "finding": "RT-PAPER-SCHOLZE-26/10",
+      "verdict": "confirmed",
+      "reason": "I read all cited declarations at Mathlib 082e2d3. They are useful missing partial-baseline pointers, with four qualifications. The bound norm(1)<=1 is required for both SeminormedCommRing and NormedCommRing plus CompleteSpace; do not impose norm(1)=1 since the zero Banach ring is allowed. smoothingFun, its limit theorem and isPowMul_smoothingFun require no nonarchimedean hypothesis, but the bundled smoothingSeminorm does, so no general spectral-seminorm package follows from that bundle. Condensed/CondensedSet and CompHaus.effectiveEpiFamily_tfae supply the ordinary coherent site, not the infinity-categorical Morita equivalence. continuousCohomology is degree-n homogeneous-cochain cohomology of TopRep, not Proposition 4.15's derived condensed homotopy fixed points; record the classical comparison still needed. Add the pointers without upgrading whole items to library. Item 4 is already planned at TB.0 and must remain planned; the proposed blanket instruction that status stays missing applies only to the other four items."
+    }
+  ]
+}
