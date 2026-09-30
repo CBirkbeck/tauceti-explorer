@@ -23477,12 +23477,12 @@
     "REV-RS-14"
    ],
    "prompt": "research/blueprint/prompts/BP-DirichletPadicLFunctions.md",
-   "state": "external",
+   "state": "pending",
    "suppliers": [
     "BP-LocallyAnalyticDistributions",
     "BP-PadicMeasuresIwasawaAlgebras"
    ],
-   "note": "claimed on GitHub issue #713"
+   "note": "released on GitHub issue #713"
   },
   {
    "id": "REV-DirichletPadicLFunctions",
@@ -34862,8 +34862,9 @@
     "REV-PAPER-YUN-ZHANG-17"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-YUN-ZHANG-17.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4116"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4116",
+   "finishedAt": "2026-09-30T15:21:49Z"
   },
   {
    "id": "REV-RT-PAPER-YUN-ZHANG-17",
@@ -35647,7 +35648,8 @@
     "REV-PAPER-FENG-YUN-ZHANG-24"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-FENG-YUN-ZHANG-24.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4141"
   },
   {
    "id": "RT-PAPER-HE-LI-SHI-ETAL-23",
@@ -35692,7 +35694,8 @@
     "REV-PAPER-HE-LI-SHI-ETAL-23"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-HE-LI-SHI-ETAL-23.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4143"
   },
   {
    "id": "RT-PAPER-BREUIL-ETAL-23",
@@ -36865,8 +36868,9 @@
     "REV-PAPER-WOOD-19"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-WOOD-19.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4196"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4196",
+   "finishedAt": "2026-09-30T15:21:55Z"
   },
   {
    "id": "REV-RT-PAPER-WOOD-19",
@@ -37239,8 +37243,9 @@
     "REV-PAPER-LEMKEOLIVER-WANG-WOOD-25"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-LEMKEOLIVER-WANG-WOOD-25.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4209"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4209",
+   "finishedAt": "2026-09-30T15:22:01Z"
   },
   {
    "id": "RT-PAPER-FENG-24",
