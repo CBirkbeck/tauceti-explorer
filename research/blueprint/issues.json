@@ -3078,5 +3078,9 @@
  "REV-FIX-RT-RS-28": 5188,
  "FIX-RT-BP-ClassicalSerreModularity--R33.5": 5189,
  "REV-FIX-RT-BP-ClassicalSerreModularity--R33.5": 5190,
- "REV-FIX-RT-BP-EllipticCurveModularity": 5191
+ "REV-FIX-RT-BP-EllipticCurveModularity": 5191,
+ "KEYDEF-algebraicgeometry": 5271,
+ "REV-KEYDEF-algebraicgeometry": 5272,
+ "KEYDEF-algebraicnt": 5273,
+ "REV-KEYDEF-algebraicnt": 5274
 }
