@@ -33356,8 +33356,9 @@
     "REV-PAPER-FU-24"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-FU-24.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4053"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4053",
+   "finishedAt": "2026-09-30T10:45:04Z"
   },
   {
    "id": "RT-PAPER-CAI-FRIEDBERG-KAPLAN-24",
@@ -37568,8 +37569,9 @@
     "REV-PAPER-DOR-23"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-DOR-23.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4227"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4227",
+   "finishedAt": "2026-09-30T10:45:07Z"
   },
   {
    "id": "RT-PAPER-ICHINO-PRASANNA-23",
@@ -40710,7 +40712,8 @@
     "REV-LINK-tauceti_TauCetiRoadmap_ProfiniteProPGroups"
    ],
    "prompt": "research/blueprint/prompts/RT-LINK-tauceti_TauCetiRoadmap_ProfiniteProPGroups.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4355"
   },
   {
    "id": "REV-RT-LINK-tauceti_TauCetiRoadmap_ProfiniteProPGroups",
@@ -41302,7 +41305,8 @@
     "REV-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SemisimpleAlgebras"
    ],
    "prompt": "research/blueprint/prompts/RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SemisimpleAlgebras.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4376"
   },
   {
    "id": "REV-RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SemisimpleAlgebras",
