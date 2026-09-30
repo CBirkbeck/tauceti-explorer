@@ -2,7 +2,7 @@
   "roadmapId": "tauceti:TauCetiRoadmap/AlgebraicCodingTheory",
   "protocol": "links-v1",
   "status": "complete",
-  "summary": "Catalogue-wide screen of 217 active roadmaps including the focal roadmap, independently spot-checked against 2007 stage records. Ten prerequisite links: the original seven IntegralLattices inputs and two FF.4 outputs, plus the reviewer-added orthogonal-lattice-sum input to coding Layer 7. Three scoped overlaps preserve coordinate-power reuse, common finite Fourier foundations and the unresolved GN.4 lattice-code handoff. Baseline constructors are reuse inputs; code-specific comparisons and consumer proof obligations remain open.",
+  "summary": "Catalogue-wide screen of 217 active roadmaps including the focal roadmap, independently spot-checked against 2007 stage records. Ten prerequisite links: the original seven IntegralLattices inputs and two FF.4 outputs, plus the reviewer-added orthogonal-lattice-sum input to coding Layer 7. Three scoped overlaps preserve coordinate-power reuse, common finite Fourier foundations and the unresolved GN.4 lattice-code handoff. Baseline constructors are reuse inputs; code-specific comparisons and consumer proof obligations remain open. ACT-R06 records the later partial QSeries packet's pending Golay/Construction-A consumer and requests ownership of the intermediate Leech-lattice construction; it adds no link or overlap.",
   "worker": "ChatGPT Pro — cgp-f522e092da3e",
   "jobId": "LINK-tauceti_TauCetiRoadmap_AlgebraicCodingTheory",
   "issueNumber": 38,
@@ -1050,7 +1050,7 @@
     {
       "roadmapId": "QSeriesPartitionsAndMockModularForms",
       "result": "none",
-      "note": "Theta/partition and moonshine applications do not state a code-stage input; the coding roadmap excludes theta-series development."
+      "note": "The QM.6 stage text states no code input. The partial, unreviewed QSeries packet gap titled “The Frenkel–Lepowsky–Meurman moonshine module V♮ and its Monster action” now names coding Layers 5–6 (Golay code and Construction A) as inputs to an unowned Leech-lattice construction. This is a planned consumer handoff, not an accepted supplier or completed construction; no directed link or overlap is recorded. See ACT-R06."
     },
     {
       "roadmapId": "RankZeroOneBSD",
@@ -1590,6 +1590,50 @@
       ],
       "request": "Preserve m >= 2, half-norm Q/Z values, the separate odd/even hypotheses, actual subtype quotients, and the trace-Hermitian D4 convention. The binary Golay Construction-A acceptance is not a rootless or Leech-lattice identification.",
       "status": "normalization_guard"
+    },
+    {
+      "id": "ACT-R06",
+      "owner": "QSeriesPartitionsAndMockModularForms",
+      "stages": [
+        "tauceti:TauCetiRoadmap/AlgebraicCodingTheory#layer-5-tetracode-hexacode-and-the-extended-golay-codes",
+        "tauceti:TauCetiRoadmap/AlgebraicCodingTheory#layer-6-construction-a-with-exact-hypotheses",
+        "QSeriesPartitionsAndMockModularForms:QM.6"
+      ],
+      "request": "Resolve the pending QM.6 FLM moonshine-module gap through a maintainer ownership decision under PROTOCOL §15: a construction of the positive-definite rank-24 even unimodular rootless Leech lattice has no current atlas owner. Assign an explicit supplier without expanding the completed IntegralLattices roadmap or the coding roadmap in place. A Golay-based construction imports the named binary Golay code and Construction A from coding Layers 5–6, then supplies the additional lattice construction and its rootlessness proof. It is not plain P_2(G24): for every binary code C, 2e_i lies in P_2(C) and B_2(2e_i,2e_i)=2; retain ACT-R05. Specify the rational-to-real form-preserving comparison required by the chosen consumer. Lattice-VOA, twisted-module and Monster constructions remain QM.6 work outside coding; this request supplies none of their missing proofs. Add a directed prerequisite into the chosen Leech owner or QM.6 only after the owner and construction/comparison contract are established and the QSeries packet has been independently reviewed.",
+      "status": "unresolved_consumer_contract",
+      "neededBy": [
+        "QSeriesPartitionsAndMockModularForms:QM.6/monster-head-characters",
+        "QSeriesPartitionsAndMockModularForms:QM.6/monstrous-moonshine-theorem"
+      ],
+      "evidence": [
+        {
+          "path": "research/blueprint/packets/QSeriesPartitionsAndMockModularForms.json",
+          "locator": "gaps[title=\"The Frenkel–Lepowsky–Meurman moonshine module V♮ and its Monster action\"].detail",
+          "quote": "The construction needs the Leech lattice (no roadmap of the atlas constructs it; AlgebraicCodingTheory Layers 5–6 supply the Golay code and Construction A)",
+          "packetStatus": "partial",
+          "reviewStatus": "unreviewed"
+        },
+        {
+          "path": "research/blueprint/readmes/QSeriesPartitionsAndMockModularForms.md",
+          "locator": "QM.6, Gaps and remaining work, FLM moonshine-module gap",
+          "quote": "the Leech lattice (no roadmap of the atlas constructs it; AlgebraicCodingTheory Layers 5–6 supply the Golay code and Construction A)"
+        },
+        {
+          "stageId": "tauceti:TauCetiRoadmap/AlgebraicCodingTheory#layer-6-construction-a-with-exact-hypotheses",
+          "path": "content/tau-ceti/AlgebraicCodingTheory/README.md",
+          "quote": "Apply this\n  to the explicit `G₂₄`; this end-to-end theorem is an acceptance test, without identifying or\n  classifying the resulting rank-24 lattice."
+        }
+      ],
+      "provenance": {
+        "finding": "RT-LINK-tauceti_TauCetiRoadmap_AlgebraicCodingTheory/1",
+        "verifiedBy": "research/blueprint/redteam/RT-LINK-tauceti_TauCetiRoadmap_AlgebraicCodingTheory.review.json",
+        "fixJob": "FIX-RT-LINK-tauceti_TauCetiRoadmap_AlgebraicCodingTheory",
+        "agent": "Codex",
+        "session": "codex-J6LwjP",
+        "date": "2026-09-30",
+        "inputRevision": "4965fe182433f5499363e9535ec13e8dc7d3ade7",
+        "qseriesPacketSha256": "177eaefe4959449edd431e5809be13685e231ddfcb082ca631704ca61e7050bc"
+      }
     }
   ],
   "restructure": [
@@ -1630,13 +1674,9 @@
   },
   "review": {
     "status": "accepted",
-    "reviewer": "independent-review-REV-LINK-tauceti_TauCetiRoadmap_AlgebraicCodingTheory",
-    "date": "2026-09-23",
-    "notes": "Codex codex-c83e7a read every full link/overlap endpoint and all seven own layers, confirmed all nine original arrows and three recommendations, verified all 28 original quotes and line locators, and checked the three cited pinned source files directly. Added ACT-L10 for the lattice-side orthogonal sum in the final discriminant-coordinate interface, retaining the missing finite-family and named-alphabet comparisons. No original link removed. Reviewed AUDIT-16 coverage is inherited evidence; this is not a whole-library or Lean compilation certification.",
-    "removed": [],
-    "added": [
-      "ACT-L10"
-    ]
+    "reviewer": "independent-review-REV-FIX-RT-LINK-tauceti_TauCetiRoadmap_AlgebraicCodingTheory",
+    "date": "2026-09-30",
+    "notes": "Independent scoped fix review by Codex codex-5ebb6f of FIX-RT-LINK-tauceti_TauCetiRoadmap_AlgebraicCodingTheory by Codex codex-J6LwjP (#5035), following independent-review-REV-LINK-tauceti_TauCetiRoadmap_AlgebraicCodingTheory (2026-09-23), preserved verbatim in reviewHistory. Finding /1 is correctly fixed to the verifier’s narrower scope: rewritten QSeries screening note retains result none; ACT-R06 records an unresolved consumer/owner contract and the summary identifies it; no link or overlap is added. Read coding Layers5–6/conventions/scope, IntegralLattices exclusion, QM.6, the entire FLM gap and its rendered counterpart and consumer statements, plus relevant AUDIT-16/AUDIT-15 records. The QSeries packet is still partial/unreviewed and its recorded SHA256 177eaefe...050bc is reproduced. Request evidence and neededBy match exactly. Rootlessness guard independently checked from the form: signed 2e_i reduce to zero and B2 norm is 2 (48 exact-rational witnesses); Shimada arXiv2311.18309v1 §§2.1/3 supplies root/rootless terminology only, not a newly read construction proof. Rational-to-real comparison and actual rootless rank24 construction require a maintainer-selected owner under §15; VOA/twisted/Monster work stays QM.6. Ten historical links,three overlaps,five earlier requests and all other screening/metadata are preserved. Read-only accepted assembly has2919 vertices/8298 edges, acyclic; production merge of the predecessor and revised map produces identical edge sets. check_links:0errors/0warnings; intake and whitespace checks pass. No mathematical correction was required. Historical Tau Ceti-to-Tau Ceti links are unchanged/outside scope. No new Lean/library claim, compilation, catalogue re-screen or proof-closure certification is made."
   },
   "reviewBaseline": {
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -1672,5 +1712,17 @@
     "catalogue": "all active IDs, including focal roadmap; retired FoundationsAndLibraryIntegration excluded",
     "ownStagesSearched": 7,
     "lean": "not compiled"
-  }
+  },
+  "reviewHistory": [
+    {
+      "status": "accepted",
+      "reviewer": "independent-review-REV-LINK-tauceti_TauCetiRoadmap_AlgebraicCodingTheory",
+      "date": "2026-09-23",
+      "notes": "Codex codex-c83e7a read every full link/overlap endpoint and all seven own layers, confirmed all nine original arrows and three recommendations, verified all 28 original quotes and line locators, and checked the three cited pinned source files directly. Added ACT-L10 for the lattice-side orthogonal sum in the final discriminant-coordinate interface, retaining the missing finite-family and named-alphabet comparisons. No original link removed. Reviewed AUDIT-16 coverage is inherited evidence; this is not a whole-library or Lean compilation certification.",
+      "removed": [],
+      "added": [
+        "ACT-L10"
+      ]
+    }
+  ]
 }
