@@ -48104,7 +48104,7 @@
    "after": [],
    "independentOf": [],
    "prompt": "research/blueprint/prompts/RT-AREA-motives.md",
-   "state": "pending",
+   "state": "external",
    "note": "claimed on GitHub issue #1519"
   },
   {
