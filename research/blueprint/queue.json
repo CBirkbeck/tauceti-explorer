@@ -4323,8 +4323,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-LE-LEHUNG-LEVIN-ETAL-23.md",
-   "state": "pending",
-   "note": "released on GitHub issue #1254"
+   "state": "external",
+   "note": "claimed on GitHub issue #1254"
   },
   {
    "id": "REV-PAPER-LE-LEHUNG-LEVIN-ETAL-23",
@@ -42599,7 +42599,8 @@
     "REV-RS-25"
    ],
    "prompt": "research/blueprint/prompts/RT-RS-25.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4416"
   },
   {
    "id": "REV-RT-RS-25",
