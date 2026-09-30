@@ -20021,3 +20021,205 @@ Eleven complete native lemmas specialize the existing Bernoulli valuation, verif
 Exact rational controls check24 prime-and-weight pairs,24 Bernoulli valuations,18 exact Euler-removal errors,17 denominator norms,17 bounds for each residue sequence and46 precision cutoffs. They detect18 omitted Bernoulli denominator factors and16 wrong limiting signs, and retain the excluded dyadic first-weight case. Exact rational Bernoulli recurrence through B_294, exact integer clearing factors and prime-adic valuations. The Euler-removal error is checked as an equality, while both residue errors are checked against r−ell and every supported precision cutoff. These finite checks do not prove the infinite actual mass/logarithm comparison or a character-space pole theorem. The largest observed discrepancy is 0 in every exact valuation equality; no violation of any stated bound; no floating-point arithmetic.
 
 All66 captured inputs have an empty predecessor delta. The whole predecessor Lean body is preserved. The full suggested module remains uncompiled because the matching native TwistedDivisorSum artifact is missing. A separate signature check uses the exact4773 body plus only the three new statements and nine examples: zero errors and1,815 expected placeholder warnings against3,573 audited source modules. It excludes4777/4780/4786/4788/4790 additions and does not validate the current full module. The prime-dependent precision threshold is written directly to avoid Lean local-notation quotation precheck failure.
+
+
+## Integral doubled tame Eisenstein series
+
+Partial continuation preserving all 611 predecessor nodes whole. Five L4 nodes construct the doubled integral tame formal-series measure, identify and bound every coefficient, normalize over the coefficient field on integral tests, and compute its arithmetic constant at weight e+1. One existing L2 modulus-one API is promoted without duplicating its Lean declaration. All findings, requests and gaps remain open.
+
+Read the whole RJW published pages 143–146 and 159–161 from the retained hash-verified published PDF. Read the reviewed L4 library audit and the whole ModularForms owner discussion of character Eisenstein forms, parity, level raising and exceptional weights. Read the exact existing integral tame constructors, coefficient comparison, common-value theorem, integral arithmetic characters, positive-series constructor and promoted coefficient/bound nodes. Read native AbstractMeasure.toCLMEquiv, PowerSeries.C, its coefficient, map and continuity laws, and the ultrametric natural-scalar norm theorem at the pins. The owner remains responsible for classical character Eisenstein existence and normalization; the new result is the specific arithmetic measure and its formal coefficients.
+
+### The modulus-one integral tame boundary
+
+`DirichletPadicLFunctions:L2/intrinsic-integral-tame-one-level` — `DirichletPadic.intrinsicIntegralTameZetaMeasure_one_level`
+
+For η:DirichletCharacter K 1, the actual intrinsic integral tame zeta measure is zero.
+
+**Hypotheses:** p is any prime, including 2. K is a complete nontrivially normed ultrametric field with Algebra ℤ_p K and IsBoundedSMul ℤ_p K. D=1, η:DirichletCharacter K 1, hD:IsUnit(D:K), and p∤D. The measure constructor also permits principal η; the common-value comparison requires η≠1. U=(ℤ_p)ˣ and O=Valuation.integer(NormedField.valuation(K)) are the existing native carriers. Let ζO be intrinsicIntegralTameZetaMeasure(η,hD,hpD), and let E⁺ be integralTwistedPositiveEisensteinSeries(p,1,η), where the left character is exactly the principal character modulo one. Let xO be the continuous map underlying integralPrimePowerArithmeticCharacter(p,0,1,1). No new coordinate character, coefficient subring, convolution structure or coefficient-extension functor is defined. At D=1 the existing tame arithmetic construction is zero, so Gη=2·E⁺. This boundary does not recover the ordinary principal zeta constant or the principal Eisenstein family. No nonprincipal assumption is silently removed from a Dirichlet special-value theorem.
+
+**Proof:**
+
+1. Promote the existing one-level API because the doubled-series construction consumes it. Its original suggested declaration and all preceding records remain unchanged; no second Lean declaration is appended.
+2. Unfold the finite tame numerator at D=1. The only residue has canonical representative zero, and the defining finite sum for smoothingDenominator at index zero is empty. Hence the tame numerator and its product with the inverse unit denominator are zero.
+3. The coefficient sequence is zero. In the existing bounded inverse construction every term of the defining Mahler pairing is zero, so the K-valued tame measure is zero on every continuous test. Unfolding the integral subtype construction gives the zero O-valued measure by subtype extensionality.
+4. The ambient unit restriction, inverse weighting and intrinsic unit restriction are linear in the measure. They send this zero measure to zero. These are the existing constructors, with no new generic zero-transport operation. The preserved SuggestedIntegralUnitTests.integral_tame_modulus_one already tests the exact promoted signature.
+
+**Prerequisites:** `DirichletPadicLFunctions:L2/intrinsic-integral-tame-zeta-measure`, `DirichletPadicLFunctions:L2/tame-integral-zeta-measure`, `DirichletPadicLFunctions:L2/tame-integral-measure`, `DirichletPadicLFunctions:L2/tame-measure`, `DirichletPadicLFunctions:L2/tame-series`, `DirichletPadicLFunctions:L2/tame-numerator`, `DirichletPadicLFunctions:L1/smoothing-denominator`.
+
+**Tests:**
+
+
+
+**Acceptance:** The zero is a property of the actual finite-kernel constructor. It is not the source convention identifying a modulus-one tame symbol with the principal pseudomeasure.
+
+**Source:** Theorem 5.7, Remark 5.8, the integral coefficient discussion, and Definition 5.13, published 143–146 / PDF 44–47; Definition 8.1, Theorem 8.2 and Remark 8.3, published 159–161 / PDF 60–62. These whole pages were freshly read during preparation of this checkpoint. Worker tame-character extension of the source constant-coefficient pattern xζ/2, assembled from the already planned actual integral tame zeta measure and integral positive coefficients. The doubled series clears the factor two inside the existing integer subring. This specific tame formal-series construction is a derived extension, not a theorem quoted verbatim from RJW. The source corrections, the modulus-one zero-construction boundary and the ModularForms owner of classical character Eisenstein series remain explicit.
+
+### Integral doubled tame Eisenstein series
+
+`DirichletPadicLFunctions:L4/integral-doubled-tame-eisenstein-series` — `DirichletPadic.integralDoubledTameEisensteinSeries`
+
+Construct Gη:AbstractMeasure U O (PowerSeries O) with Gη(f)=C(ζO(xO·f))+2·E⁺(f).
+
+**Hypotheses:** p is any prime, including 2. K is a complete nontrivially normed ultrametric field with Algebra ℤ_p K and IsBoundedSMul ℤ_p K. D>0 with NeZero D, η:DirichletCharacter K D, hD:IsUnit(D:K), and p∤D. The measure constructor also permits principal η; the common-value comparison requires η≠1. U=(ℤ_p)ˣ and O=Valuation.integer(NormedField.valuation(K)) are the existing native carriers. Let ζO be intrinsicIntegralTameZetaMeasure(η,hD,hpD), and let E⁺ be integralTwistedPositiveEisensteinSeries(p,1,η), where the left character is exactly the principal character modulo one. Let xO be the continuous map underlying integralPrimePowerArithmeticCharacter(p,0,1,1). No new coordinate character, coefficient subring, convolution structure or coefficient-extension functor is defined. The target PowerSeries O has its native coefficientwise topology. Set Gη(f)=C(ζO(xO·f))+2·E⁺(f), as a continuous O-linear map on C(U,O). Coefficient bounds use the native norm of O and the compact-domain sup norm of f; no norm on PowerSeries O is asserted. At D=1 the existing tame arithmetic construction is zero, so Gη=2·E⁺. This boundary does not recover the ordinary principal zeta constant or the principal Eisenstein family. No nonprincipal assumption is silently removed from a Dirichlet special-value theorem. Field normalization assumes CharZero K, so 2 is nonzero. It is a comparison on the actual O-valued tests under the native inclusion O↪K, not an extension of arbitrary O-valued measures to all K-valued tests. Classical modularity, parity restrictions, exceptional weights and the existence of character Eisenstein forms remain with their existing ModularForms owner.
+
+**Proof:**
+
+1. Use the already constructed integral arithmetic character to supply xO, the existing intrinsic integral tame measure for ζO, and the existing positive series for E⁺. The defining function uses only their actual native carriers.
+2. Multiplication by the fixed continuous function xO is continuous and O-linear. Compose it with the continuous linear functional ζO and with native PowerSeries.C. The latter is continuous for the coefficientwise topology. Add twice E⁺ and bundle the result using AbstractMeasure.toCLMEquiv.symm. Complete doubleSeries verifies the full constructor, including additivity, scalar compatibility and continuity.
+3. Evaluation is the defining formula; zero, addition and scalar APIs are the inherited continuous-linear laws. At D=1 use the promoted exact zero-measure boundary. Complete doubleSeries_zero_measure then gives Gη=2·E⁺.
+4. The coefficient formula, uniform coefficient bound, normalized comparison and common arithmetic constant are promoted below. For uniqueness use equality of all coefficients for every test, followed by extensionality of the continuous linear functionals; complete doubleSeries_unique checks that no finite set of moments is substituted for all-test equality.
+5. At the constant test one, coefficient q¹ is 2 because the only retained divisor is 1. Together with the zero test and the level-one boundary, this checks the factor two, the linear structure and the exceptional tame convention.
+
+**Prerequisites:** `DirichletPadicLFunctions:L2/intrinsic-integral-tame-zeta-measure`, `DirichletPadicLFunctions:L2/intrinsic-integral-tame-one-level`, `DirichletPadicLFunctions:L2/integral-arithmetic-character`, `DirichletPadicLFunctions:L4/integral-twisted-positive-series`, `DirichletPadicLFunctions:L4/integral-twisted-positive-series-coeff`, `mathlib:AbstractMeasure.toCLMEquiv`, `mathlib:PowerSeries.C`, `mathlib:PowerSeries.WithPiTopology.continuous_C`, `mathlib:PowerSeries.ext`.
+
+**Uses:**
+
+- RJW Theorem 8.2 and the existing L4 generalized constant gap: Assembles the source pattern xζ/2 with the already owned positive coefficients in the nonprincipal tame setting, after multiplying the entire series by two.
+- Arithmetic specialization at χ(x)x^e: Its constant uses the positive zeta weight e+1, while its positive coefficients retain divisor exponent e and the right-character product ηχ.
+- Integral coefficient bounds and later congruences: Supplies an actual O-valued measure in every coefficient, including degree zero, with all-test linearity and continuity.
+
+**API:**
+
+- `DirichletPadic.integralDoubledTameEisensteinSeries_apply` (characterisation): Gη(f)=C(ζO(xO·f))+2·E⁺(f), the defining evaluation.
+- `DirichletPadic.integralDoubledTameEisensteinSeries_zero` (simp): Gη(0)=0.
+- `DirichletPadic.integralDoubledTameEisensteinSeries_add` (simp): Gη(f+g)=Gη(f)+Gη(g).
+- `DirichletPadic.integralDoubledTameEisensteinSeries_smul` (structure): Gη(a·f)=a·Gη(f) for a∈O.
+- `DirichletPadic.integralDoubledTameEisensteinSeries_continuous` (structure): The map C(U,O)→PowerSeries O is continuous for the native coefficientwise topology.
+- `DirichletPadic.integralDoubledTameEisensteinSeries_one_level` (simp): At D=1, Gη=2·E⁺ as measures; it has zero constant coefficient.
+- `DirichletPadic.integralDoubledTameEisensteinSeries_coeff` (data): The constant is ζO(xO·f), and every positive coefficient is twice the actual integral weighted coefficient; promoted below.
+- `DirichletPadic.integralDoubledTameEisensteinSeries_unique` (extensionality): All-test equality with these constant and positive coefficient formulas uniquely specifies Gη.
+- `DirichletPadic.integralDoubledTameEisensteinSeries_coeff_norm_le` (compatibility): Every coefficient value has norm at most the sup norm of its test; promoted below.
+- `DirichletPadic.integralDoubledTameEisensteinSeries_normalize` (compatibility): On O-valued tests, half the included Gη is the half-weighted field-valued constant plus the included positive series; promoted below.
+- `DirichletPadic.integralDoubledTameEisensteinSeries_common_constant` (compatibility): At an arithmetic test of exponent e, the constant is the p-adic image of the existing common Euler–Bernoulli value at weight e+1; promoted below.
+
+**Tests:**
+
+- `SuggestedTameFullSeriesTests.zero_test` (degenerate): Gη applied to the zero test is the zero power series.
+- `SuggestedTameFullSeriesTests.first_positive_coefficient` (computation): At the constant test one, coefficient q¹ of Gη is exactly 2 in O.
+- `SuggestedTameFullSeriesTests.level_one_positive_only` (compatibility): For tame level one, Gη equals twice the existing positive series as an actual formal-series-valued measure.
+
+**Acceptance:** This constructs an integral formal-series-valued measure. It does not supply a classical modular form, arbitrary coefficient extension or an analytic family on weight space.
+
+**Source:** Theorem 5.7, Remark 5.8, the integral coefficient discussion, and Definition 5.13, published 143–146 / PDF 44–47; Definition 8.1, Theorem 8.2 and Remark 8.3, published 159–161 / PDF 60–62. These whole pages were freshly read during preparation of this checkpoint. Worker tame-character extension of the source constant-coefficient pattern xζ/2, assembled from the already planned actual integral tame zeta measure and integral positive coefficients. The doubled series clears the factor two inside the existing integer subring. This specific tame formal-series construction is a derived extension, not a theorem quoted verbatim from RJW. The source corrections, the modulus-one zero-construction boundary and the ModularForms owner of classical character Eisenstein series remain explicit.
+
+### Coefficients of the doubled tame series
+
+`DirichletPadicLFunctions:L4/integral-doubled-tame-eisenstein-coeff` — `DirichletPadic.integralDoubledTameEisensteinSeries_coeff`
+
+For every f∈C(U,O), coeff₀ Gη(f)=ζO(xO·f), and coeff_n Gη(f)=2·A^O_(1,η,n)(f) for n>0.
+
+**Hypotheses:** p is any prime, including 2. K is a complete nontrivially normed ultrametric field with Algebra ℤ_p K and IsBoundedSMul ℤ_p K. D>0 with NeZero D, η:DirichletCharacter K D, hD:IsUnit(D:K), and p∤D. The measure constructor also permits principal η; the common-value comparison requires η≠1. U=(ℤ_p)ˣ and O=Valuation.integer(NormedField.valuation(K)) are the existing native carriers. Let ζO be intrinsicIntegralTameZetaMeasure(η,hD,hpD), and let E⁺ be integralTwistedPositiveEisensteinSeries(p,1,η), where the left character is exactly the principal character modulo one. Let xO be the continuous map underlying integralPrimePowerArithmeticCharacter(p,0,1,1). No new coordinate character, coefficient subring, convolution structure or coefficient-extension functor is defined. The target PowerSeries O has its native coefficientwise topology. Set Gη(f)=C(ζO(xO·f))+2·E⁺(f), as a continuous O-linear map on C(U,O). Coefficient bounds use the native norm of O and the compact-domain sup norm of f; no norm on PowerSeries O is asserted. At D=1 the existing tame arithmetic construction is zero, so Gη=2·E⁺. This boundary does not recover the ordinary principal zeta constant or the principal Eisenstein family. No nonprincipal assumption is silently removed from a Dirichlet special-value theorem. Field normalization assumes CharZero K, so 2 is nonzero. It is a comparison on the actual O-valued tests under the native inclusion O↪K, not an extension of arbitrary O-valued measures to all K-valued tests. Classical modularity, parity restrictions, exceptional weights and the existence of character Eisenstein forms remain with their existing ModularForms owner.
+
+**Proof:**
+
+1. Unfold Gη. Native coeff_C is zero in positive degree and the identity in degree zero; native coeff_smul commutes coefficient extraction with the scalar 2.
+2. Apply the existing promoted positive-series coefficient formula, whose degree-zero coefficient is zero and whose positive coefficients are the actual weighted divisor measures. Split n=0 from n>0. Complete doubleSeries_zero_coefficient and doubleSeries_positive_coefficient verify this algebra on native PowerSeries.
+3. At p=2, η quadratic modulo 3, coefficient q² evaluated on the principal exponent-one test is 2: among divisors of 2 only 1 is retained. Thus deleting the entire q² coefficient would be incorrect even though the right finite character later can vanish at p.
+4. At D=1 the promoted zero-measure boundary makes the displayed constant vanish for every test. This is a boundary of this tame construction, not a calculation of the principal Eisenstein constant.
+
+**Prerequisites:** `DirichletPadicLFunctions:L4/integral-doubled-tame-eisenstein-series`, `DirichletPadicLFunctions:L4/integral-twisted-positive-series-coeff`, `DirichletPadicLFunctions:L2/intrinsic-integral-tame-one-level`, `mathlib:PowerSeries.coeff_C`, `mathlib:PowerSeries.coeff_smul`.
+
+**Tests:**
+
+- `SuggestedTameFullSeriesTests.level_one_constant_zero` (degenerate): For tame level one, coefficient zero vanishes on every O-valued test.
+- `SuggestedTameFullSeriesTests.dyadic_prime_coefficient_survives` (non-example): At p=2, η quadratic modulo 3 and exponent one, coefficient q² is 2 in O.
+
+**Acceptance:** Both scalar factors are retained: the constant is undivided ζO(xO·f), while the positive coefficients are doubled.
+
+**Source:** Theorem 5.7, Remark 5.8, the integral coefficient discussion, and Definition 5.13, published 143–146 / PDF 44–47; Definition 8.1, Theorem 8.2 and Remark 8.3, published 159–161 / PDF 60–62. These whole pages were freshly read during preparation of this checkpoint. Worker tame-character extension of the source constant-coefficient pattern xζ/2, assembled from the already planned actual integral tame zeta measure and integral positive coefficients. The doubled series clears the factor two inside the existing integer subring. This specific tame formal-series construction is a derived extension, not a theorem quoted verbatim from RJW. The source corrections, the modulus-one zero-construction boundary and the ModularForms owner of classical character Eisenstein series remain explicit.
+
+### Uniform bounds including the tame constant
+
+`DirichletPadicLFunctions:L4/integral-doubled-tame-eisenstein-bound` — `DirichletPadic.integralDoubledTameEisensteinSeries_coeff_norm_le`
+
+For every n≥0 and f∈C(U,O), ‖coeff_n Gη(f)‖≤‖f‖.
+
+**Hypotheses:** p is any prime, including 2. K is a complete nontrivially normed ultrametric field with Algebra ℤ_p K and IsBoundedSMul ℤ_p K. D>0 with NeZero D, η:DirichletCharacter K D, hD:IsUnit(D:K), and p∤D. The measure constructor also permits principal η; the common-value comparison requires η≠1. U=(ℤ_p)ˣ and O=Valuation.integer(NormedField.valuation(K)) are the existing native carriers. Let ζO be intrinsicIntegralTameZetaMeasure(η,hD,hpD), and let E⁺ be integralTwistedPositiveEisensteinSeries(p,1,η), where the left character is exactly the principal character modulo one. Let xO be the continuous map underlying integralPrimePowerArithmeticCharacter(p,0,1,1). No new coordinate character, coefficient subring, convolution structure or coefficient-extension functor is defined. The target PowerSeries O has its native coefficientwise topology. Set Gη(f)=C(ζO(xO·f))+2·E⁺(f), as a continuous O-linear map on C(U,O). Coefficient bounds use the native norm of O and the compact-domain sup norm of f; no norm on PowerSeries O is asserted. At D=1 the existing tame arithmetic construction is zero, so Gη=2·E⁺. This boundary does not recover the ordinary principal zeta constant or the principal Eisenstein family. No nonprincipal assumption is silently removed from a Dirichlet special-value theorem. Field normalization assumes CharZero K, so 2 is nonzero. It is a comparison on the actual O-valued tests under the native inclusion O↪K, not an extension of arbitrary O-valued measures to all K-valued tests. Classical modularity, parity restrictions, exceptional weights and the existence of character Eisenstein forms remain with their existing ModularForms owner.
+
+**Proof:**
+
+1. Use the preceding promoted coefficient formula. In degree zero, the all-test integral coefficient comparison identifies the included ζO value with the existing K-valued intrinsic tame zeta measure on the included product test.
+2. The native subring inclusion preserves norms. The existing intrinsic-tame-zeta-norm and native continuous-linear operator inequality bound the scalar integral by the sup norm of xO·f. Every value of xO lies in O and therefore has norm at most one; native ContinuousMap.norm_le bounds ‖xO·f‖ by ‖f‖. Complete weighted_test_bound checks the compact-domain step.
+3. For positive n use the existing promoted integral weighted-coefficient bound. In the ultrametric ring O, native IsUltrametricDist.norm_natCast_le_one gives ‖2‖≤1. Multiplicativity/submultiplicativity then bounds twice the coefficient by the same ‖f‖. Complete doubleSeries_coefficient_bound combines both cases.
+4. This derivation does not consume an unpromoted integral-zeta bound API or assume an operator norm over the ring O. All bounds concern scalar evaluations and the native sup norm; they are uniform in n and include p=2.
+
+**Prerequisites:** `DirichletPadicLFunctions:L4/integral-doubled-tame-eisenstein-coeff`, `DirichletPadicLFunctions:L2/intrinsic-integral-tame-coefficients`, `DirichletPadicLFunctions:L2/intrinsic-tame-zeta-norm`, `DirichletPadicLFunctions:L4/integral-twisted-positive-eisenstein-bound`, `mathlib:ContinuousLinearMap.le_opNorm`, `mathlib:ContinuousMap.norm_le`, `mathlib:ContinuousMap.norm_coe_le_norm`, `mathlib:SubringClass.toNormedCommRing`, `mathlib:Valuation.mem_integer_iff`, `mathlib:NormedField.valuation_apply`, `mathlib:IsUltrametricDist.norm_natCast_le_one`.
+
+**Tests:**
+
+- `SuggestedTameFullSeriesTests.all_coefficients_bounded` (compatibility): The same bound holds for every coefficient and every continuous O-valued test, including degree zero.
+
+**Acceptance:** No factor counting divisors and no norm on the power-series target enters this bound.
+
+**Source:** Theorem 5.7, Remark 5.8, the integral coefficient discussion, and Definition 5.13, published 143–146 / PDF 44–47; Definition 8.1, Theorem 8.2 and Remark 8.3, published 159–161 / PDF 60–62. These whole pages were freshly read during preparation of this checkpoint. Worker tame-character extension of the source constant-coefficient pattern xζ/2, assembled from the already planned actual integral tame zeta measure and integral positive coefficients. The doubled series clears the factor two inside the existing integer subring. This specific tame formal-series construction is a derived extension, not a theorem quoted verbatim from RJW. The source corrections, the modulus-one zero-construction boundary and the ModularForms owner of classical character Eisenstein series remain explicit.
+
+### Field normalization of the tame full series
+
+`DirichletPadicLFunctions:L4/integral-doubled-tame-eisenstein-normalize` — `DirichletPadic.integralDoubledTameEisensteinSeries_normalize`
+
+Assume CharZero K. For every actual O-valued test f, ½·map_ι(Gη(f))=C(½·ζK^U(xK·(ι∘f)))+map_ι(E⁺(f)), where xK is the existing principal level-zero weight-one character.
+
+**Hypotheses:** p is any prime, including 2. K is a complete nontrivially normed ultrametric field with Algebra ℤ_p K and IsBoundedSMul ℤ_p K. D>0 with NeZero D, η:DirichletCharacter K D, hD:IsUnit(D:K), and p∤D. The measure constructor also permits principal η; the common-value comparison requires η≠1. U=(ℤ_p)ˣ and O=Valuation.integer(NormedField.valuation(K)) are the existing native carriers. Let ζO be intrinsicIntegralTameZetaMeasure(η,hD,hpD), and let E⁺ be integralTwistedPositiveEisensteinSeries(p,1,η), where the left character is exactly the principal character modulo one. Let xO be the continuous map underlying integralPrimePowerArithmeticCharacter(p,0,1,1). No new coordinate character, coefficient subring, convolution structure or coefficient-extension functor is defined. The target PowerSeries O has its native coefficientwise topology. Set Gη(f)=C(ζO(xO·f))+2·E⁺(f), as a continuous O-linear map on C(U,O). Coefficient bounds use the native norm of O and the compact-domain sup norm of f; no norm on PowerSeries O is asserted. At D=1 the existing tame arithmetic construction is zero, so Gη=2·E⁺. This boundary does not recover the ordinary principal zeta constant or the principal Eisenstein family. No nonprincipal assumption is silently removed from a Dirichlet special-value theorem. Field normalization assumes CharZero K, so 2 is nonzero. It is a comparison on the actual O-valued tests under the native inclusion O↪K, not an extension of arbitrary O-valued measures to all K-valued tests. Classical modularity, parity restrictions, exceptional weights and the existence of character Eisenstein forms remain with their existing ModularForms owner.
+
+**Proof:**
+
+1. Unfold the new constructor and apply native PowerSeries.map to the defining sum. Native map_C, coefficient-map laws and preservation of the natural scalar 2 give C(ι(ζO(xO·f)))+2·map_ι(E⁺(f)).
+2. The existing promoted inclusion of the integral arithmetic character gives ι∘xO=xK. The promoted all-test intrinsic integral tame coefficient comparison then identifies the constant with ζK^U(xK·(ι∘f)). This is a comparison on the displayed tests and does not require defining a field-valued measure on every K-valued test.
+3. Since K has characteristic zero, 2≠0. Divide the whole included series by 2, extracting coefficientwise and cancelling 2 in K. Complete normalize_doubled_series proves the entire native formal-series identity for a ring inclusion into any characteristic-zero field.
+4. Every positive coefficient becomes exactly the old included weighted coefficient. For the dyadic quadratic example at exponent zero, the constant becomes 1/3, while the doubled value was 2/3. Division occurs only in K; no inverse of 2 in O is postulated.
+
+**Prerequisites:** `DirichletPadicLFunctions:L4/integral-doubled-tame-eisenstein-series`, `DirichletPadicLFunctions:L2/intrinsic-integral-tame-coefficients`, `DirichletPadicLFunctions:L2/integral-arithmetic-character-coefficient`, `mathlib:PowerSeries.map_C`, `mathlib:PowerSeries.coeff_map`, `mathlib:PowerSeries.coeff_smul`, `mathlib:PowerSeries.ext`.
+
+**Tests:**
+
+- `SuggestedTameFullSeriesTests.normalized_positive_coefficient` (compatibility): Each positive coefficient of half the included Gη equals the included old integral weighted coefficient.
+- `SuggestedTameFullSeriesTests.dyadic_normalized_constant` (computation): At p=2, η quadratic modulo 3 and the principal exponent-zero test, the normalized constant is 1/3 in ℚ₂.
+
+**Acceptance:** CharZero K is explicit. A ℤ_p-algebra structure alone is not used to infer it. No classical modularity or arbitrary coefficient extension is claimed.
+
+**Source:** Theorem 5.7, Remark 5.8, the integral coefficient discussion, and Definition 5.13, published 143–146 / PDF 44–47; Definition 8.1, Theorem 8.2 and Remark 8.3, published 159–161 / PDF 60–62. These whole pages were freshly read during preparation of this checkpoint. Worker tame-character extension of the source constant-coefficient pattern xζ/2, assembled from the already planned actual integral tame zeta measure and integral positive coefficients. The doubled series clears the factor two inside the existing integer subring. This specific tame formal-series construction is a derived extension, not a theorem quoted verbatim from RJW. The source corrections, the modulus-one zero-construction boundary and the ModularForms owner of classical character Eisenstein series remain explicit.
+
+### Common arithmetic constant at the shifted weight
+
+`DirichletPadicLFunctions:L4/integral-doubled-tame-eisenstein-common-constant` — `DirichletPadic.integralDoubledTameEisensteinSeries_common_constant`
+
+For η≠1 over a common characteristic-zero field E, exponent e≥0 and χ modulo p^n, let N=D p^n and θ=η.changeLevel(D∣N)·χ.changeLevel(p^n∣N). Put b=(1−θ(p)p^e)(−N^e/(e+1))Σ_a θ(a)B_(e+1)(a.val/N) in E. Its complex image is (1−θC(p)p^e)L(θC,−e), and its K-image is the included constant of G_(ηK)(κO_(n,χK,e)).
+
+**Hypotheses:** p is any prime, including 2. K is a complete nontrivially normed ultrametric field with Algebra ℤ_p K and IsBoundedSMul ℤ_p K. D>0 with NeZero D, η:DirichletCharacter K D, hD:IsUnit(D:K), and p∤D. The measure constructor also permits principal η; the common-value comparison requires η≠1. U=(ℤ_p)ˣ and O=Valuation.integer(NormedField.valuation(K)) are the existing native carriers. Let ζO be intrinsicIntegralTameZetaMeasure(η,hD,hpD), and let E⁺ be integralTwistedPositiveEisensteinSeries(p,1,η), where the left character is exactly the principal character modulo one. Let xO be the continuous map underlying integralPrimePowerArithmeticCharacter(p,0,1,1). No new coordinate character, coefficient subring, convolution structure or coefficient-extension functor is defined. The target PowerSeries O has its native coefficientwise topology. Set Gη(f)=C(ζO(xO·f))+2·E⁺(f), as a continuous O-linear map on C(U,O). Coefficient bounds use the native norm of O and the compact-domain sup norm of f; no norm on PowerSeries O is asserted. At D=1 the existing tame arithmetic construction is zero, so Gη=2·E⁺. This boundary does not recover the ordinary principal zeta constant or the principal Eisenstein family. No nonprincipal assumption is silently removed from a Dirichlet special-value theorem. Field normalization assumes CharZero K, so 2 is nonzero. It is a comparison on the actual O-valued tests under the native inclusion O↪K, not an extension of arbitrary O-valued measures to all K-valued tests. Classical modularity, parity restrictions, exceptional weights and the existence of character Eisenstein forms remain with their existing ModularForms owner. For this comparison, K has CharZero and Algebra ℚ K. E is a field with CharZero and Algebra ℚ E, ιC:E→+*ℂ and ιK:E→+*K are separate embeddings, and η and χ are E-valued characters with η≠1. The actual measure and integral arithmetic test use their ιK-images. Rational Bernoulli-polynomial values are formed over ℚ before mapping to E.
+
+**Proof:**
+
+1. Use the promoted coefficient formula in degree zero. The relevant test is xO·κO_(n,χK,e), not κO_(n,χK,e) alone.
+2. Include into K and use the promoted integral-character coefficient, arithmetic pointwise-value and arithmetic zero-level formulas. Pointwise the product is x·(χ(x)x^e)=χ(x)x^(e+1). Subtype and continuous-map extensionality bring the equality back to O-valued tests. Complete character_exponent_shift and doubleSeries_constant_shift verify the exact exponent arithmetic.
+3. Apply the existing intrinsic-integral-tame-common-value theorem at w=e+1, which is positive even for e=0. Simplify w−1=e and 1−w=−e in the respective fields. This gives both images of exactly the displayed b without identifying the complex and p-adic fields.
+4. Retain the full product level N and native zero extensions. At n=0 the tame Euler factor remains explicit. At n>0, even for principal χ, the product character vanishes at p and its imprimitive L-value already carries that Euler deletion. Do not replace θ by its primitive inducing character.
+5. For p=2 and quadratic η modulo 3, the constants at exponents 0,1,2 are 2/3,0,−10/9. With quadratic χ modulo 4 and e=1 the constant is −2. Exact finite residue moment controls and Bernoulli-polynomial evaluations check these signs and the shift. The positive arithmetic coefficients are twice the already owned divisor moments with χ multiplying the right character; no separate classical form is inferred.
+
+**Prerequisites:** `DirichletPadicLFunctions:L4/integral-doubled-tame-eisenstein-coeff`, `DirichletPadicLFunctions:L2/intrinsic-integral-tame-common-value`, `DirichletPadicLFunctions:L2/integral-arithmetic-character-coefficient`, `DirichletPadicLFunctions:L2/arithmetic-character-pointwise-value`, `DirichletPadicLFunctions:L2/arithmetic-character-zero-level`.
+
+**Tests:**
+
+- `SuggestedTameFullSeriesTests.dyadic_constant_at_exponent_zero` (computation): At p=2, η quadratic modulo 3 and principal χ, exponent zero gives included constant 2/3.
+- `SuggestedTameFullSeriesTests.dyadic_constant_at_exponent_one` (non-example): For the same character, exponent one gives constant zero; the unshifted first zeta moment would incorrectly give 2/3.
+- `SuggestedTameFullSeriesTests.dyadic_constant_at_exponent_two` (computation): For the same character, exponent two gives included constant −10/9.
+- `SuggestedTameFullSeriesTests.dyadic_wild_constant` (computation): With quadratic χ modulo 4 and exponent one, the included constant is −2.
+
+**Acceptance:** The comparison requires η≠1, K of characteristic zero with its rational algebra, and E a characteristic-zero field with rational algebra and separate ring embeddings into ℂ and K. It computes a formal-series constant, not a classical modular form or a branch at all weights.
+
+**Source:** Theorem 5.7, Remark 5.8, the integral coefficient discussion, and Definition 5.13, published 143–146 / PDF 44–47; Definition 8.1, Theorem 8.2 and Remark 8.3, published 159–161 / PDF 60–62. These whole pages were freshly read during preparation of this checkpoint. Worker tame-character extension of the source constant-coefficient pattern xζ/2, assembled from the already planned actual integral tame zeta measure and integral positive coefficients. The doubled series clears the factor two inside the existing integer subring. This specific tame formal-series construction is a derived extension, not a theorem quoted verbatim from RJW. The source corrections, the modulus-one zero-construction boundary and the ModularForms owner of classical character Eisenstein series remain explicit.
+
+**Remaining:** The nonprincipal tame case now has an actual doubled integral formal-series measure with its constant and a separate field normalization on O-valued tests. The principal level-one construction still has zero tame constant and does not replace the existing localized principal theory. General character-pair constants, classical character Eisenstein existence and exact normalization, parity and exceptional-weight comparisons, arbitrary coefficient extension, analytic weight-space families and the global source decomposition remain open. The missing pinned TwistedDivisorSum artifact still prevents full-module compilation. All eleven requests and fifteen gaps remain; no stage is closed.
+
+### Integral doubled tame Eisenstein series validation
+
+All 611 predecessor nodes, 532 baseline records, 16 findings, requests and sourceVersions remain whole. This checkpoint adds 6 nodes, 12 named suggested declarations and 12 typed examples. The indexed blueprint, four-file intake, whitespace, preservation, API/test parity and versioned-source checks pass. The graph has 873 reachable nodes, 4257 edges and 713 native leaves and is acyclic. Its stage request leaves are PadicMeasuresIwasawaAlgebras:L1, PadicMeasuresIwasawaAlgebras:L3, PadicMeasuresIwasawaAlgebras:L3, LocallyAnalyticDistributions:L1, AdicSpacesPartII:F1, AdicSpacesPartII:R2, PadicDifferentialEquationsAndRigidCohomology:RD.0, PadicDifferentialEquationsAndRigidCohomology:RD.4, PadicHodgeTheory:P7:annulus-foundations, PadicMeasuresIwasawaAlgebras:L2, LocallyAnalyticDistributions:L1. Each new node ends in existing fine-grained owner nodes and native declarations, with no stage-only leaves. The global packet still retains its eleven existing supplier requests and fifteen gaps.
+
+**The full current suggested module was NOT COMPILED.** Its real native import requires TauCeti.NumberTheory.ArithmeticFunction.TwistedDivisorSum. No matching existing artifact was found; WORKERS.md prohibits building the native library. Current compiler exit code, error count and warning count are unavailable, not zero. The exact named signatures and native source were reviewed. PR4773 remains the last compiled full predecessor, with zero errors and1,803 expected placeholder warnings; that receipt does not validate this new module.
+
+The current source closure covers 3601 pinned Mathlib modules and 22 pinned Tau Ceti modules. Only 21 Tau module artifacts are available and hash-verified. The105 available artifact files and the previously compiled332-node PMIA artifact are checked as partial dependencies. The current369-node supplier source preserves the older interface; no current-module compilation against either revision is claimed. Existing builds only were inspected; no setup, update, cache fetch or native build occurred.
+
+One complete native continuous-measure constructor and ten complete lemmas prove its defining value, zero and positive coefficients, zero-measure boundary, weighted-test and coefficient bounds, uniqueness, the exponent shift and the whole-series normalization. The separate probe compiles against 2810 pinned Mathlib modules and 0 pinned Tau Ceti modules with zero errors, warnings or placeholders. The separate Mathlib-only probe does not import, replace or compile the missing native Tau module. General roadmap declarations remain unchecked.
+
+Exact controls check 27 character profiles, 162 arithmetic constants, 486 finite residue moment bounds, 1,613 refinement equalities, 2,916 divisor Euler identities and normalizations, 54 principal-level equalities and six named dyadic values. They detect omitted Euler factors, missing weight shifts and omitted doubling. Exact rational Bernoulli-polynomial arithmetic and the existing finite residue formula. At group levels r at least the finite-character level, the actual residue sums satisfy the expected valuation bound r from the Euler–Bernoulli value. Finite refinement, retained product-level characters, divisor Euler deletion and factor-two normalization are checked exactly. These controls do not prove the measure construction, the infinite interpolation theorem or classical modularity. The largest observed discrepancy is 0 in every asserted exact equality; no valuation-bound violation; no floating-point arithmetic.
+
+All 66 captured inputs have an empty predecessor delta and remain guarded. The complete predecessor Lean body is preserved. A separate signature check uses exactly the last fully compiled #4773 body plus the twelve new declarations and twelve tests: zero errors and 1,827 expected placeholder warnings against 3,573 audited source modules. It excludes all additions from #4777 through #4791 and does not validate the current full module. Explicit integer-subring coefficient arguments prevent Lean from inferring field-valued series before the intended scalar inclusion.
