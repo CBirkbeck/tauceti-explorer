@@ -1885,8 +1885,9 @@
    ],
    "avoidAccountOf": "PAPER-MASSER-ZANNIER-20",
    "prompt": "research/blueprint/prompts/REV-PAPER-MASSER-ZANNIER-20.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1122"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1122",
+   "finishedAt": "2026-09-30T00:01:21Z"
   },
   {
    "id": "PAPER-JIANG-ZHANG-20",
@@ -39803,7 +39804,8 @@
     "REV-PAPER-NIKOLAUS-SCHOLZE-18"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-NIKOLAUS-SCHOLZE-18.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4336"
   },
   {
    "id": "REV-RT-PAPER-NIKOLAUS-SCHOLZE-18",
@@ -39846,8 +39848,9 @@
     "REV-PAPER-KOYMANS-PAGANO"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-KOYMANS-PAGANO.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4338"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4338",
+   "finishedAt": "2026-09-30T00:01:25Z"
   },
   {
    "id": "REV-RT-PAPER-KOYMANS-PAGANO",
