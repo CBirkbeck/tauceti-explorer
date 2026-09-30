@@ -1,48 +1,48 @@
-# BP-DirichletPadicLFunctions: Complete dyadic tame scalar classification
+# BP-DirichletPadicLFunctions: All-prime tame scalar and half-normalization criteria
 
-Codex / codex-7e92bd same-worker issue #713 continuation after PR #4813,
-merged fbe7df6b312d6b9b9e1ec8c811f3c6d686916706 with head fd45d292e111fd9f57ed68c40b47ffadb21f37bf.
+Codex / codex-7e92bd same-worker issue #713 continuation after PR #4816,
+merged bc1bc5724658e32e670946d203688d84bbc13fcd with head 783a71148675f8d20f08195f0325d5a3ec150aca.
 Original claim5854790528, winning bot5854791937; no additional claim.
 Review #390 remains unclaimed.
 
 ## Delivered and remaining
 
-The dyadic scalar criterion now covers all principal, nonprincipal and imprimitive tame characters without a supplied reference character. For D>1 it is ‖s‖≤1. For D=1 the exact criterion is ‖2s‖≤1 at every prime. Consequently the dyadic doubled tame family has an integral half on all integral continuous tests exactly at D=1.
+All primes and positive tame levels now have a single exact scalar criterion for the doubled family: ‖s‖≤1 at D>1, and ‖2s‖≤1 at D=1. The normalized family under its two-unit certificate has criterion ‖s‖≤1. An integral half on all integral tests exists exactly for odd primes or tame modulus one.
 
-Totals: 642 unchecked nodes (1 definitions, 249 lemmas, 71 constructions, 200 theorems, 121 comparisons), 538 API entries,
-1083 packet tests (303 on definitions/constructions),
-1086 typed examples, 24 planets and 556 baseline records.
+Totals: 645 unchecked nodes (1 definitions, 249 lemmas, 71 constructions, 203 theorems, 121 comparisons), 538 API entries,
+1093 packet tests (303 on definitions/constructions),
+1096 typed examples, 24 planets and 557 baseline records.
 16 findings, 15 gaps, 11 requests and zero closed stages.
-All16 findings, sourceVersions, eleven requests and fifteen open gaps remain whole. These classifications are worker consequences, not source errata or independent review verdicts.
+All16 findings, sourceVersions, eleven requests and fifteen gaps remain whole. These are worker consequences, not source errata or independent-review verdicts.
 
-Scalar integrality of the dyadic doubled tame family is now classified at every positive odd modulus and every character: at D>1 the criterion is ‖s‖≤1; at D=1 it is ‖2s‖≤1, the latter at every prime. A dyadic all-test integral half exists exactly when D=1. Further work includes exact scalar integrality for principal characters at odd p, general character-pair constants, classical character Eisenstein existence and normalization, and analytic weight-space comparisons. The tame zero constructor remains distinct from the localized principal zeta theory. Eleven requests, fifteen gaps and zero closed stages remain; missing pinned TwistedDivisorSum still prevents current full-module compilation.
+The scalar-integrality and half-normalization questions for the actual full tame family are now classified at every prime and positive tame level, including principal and imprimitive characters and the precise D=1 exception. The normalized family under h2 also has its exact scalar criterion. Continue with the general two-character constant term and its compatibility with the existing positive coefficients, classical character Eisenstein existence/normalization, and analytic weight-space comparison; these are not supplied by the scalar classification. The tame zero constructor remains distinct from the localized principal zeta theory. Eleven requests, fifteen gaps and zero closed stages remain, and the missing pinned TwistedDivisorSum artifact still prevents full-module compilation.
 
 ## Reading and validation
 
-Freshly read the pinned finite-field quadratic-character definition, quadratic-value and nonprincipality theorems; native integer cast, character postcomposition, level change, injectivity and unit/nonunit evaluation; prime-divisor existence and the characteristic of ZMod. Read the complete preceding near-character scalar criterion and the modulus-one zero-measure node with its proof and prerequisites. Existing promoted doubled/positive coefficient interfaces and retained source passages provide the measure context. Eight complete native proofs check the full quadratic-reference construction and both directions of the doubled scalar criterion. No new whole-paper or independent review is claimed.
+Freshly read the complete normalized tame constructor and promoted coefficient-image comparison, the completed dyadic half and modulus-one scalar criteria, and the existing doubled/positive coefficient interfaces. Read native valuation-integer unit lemmas with their ambient hypotheses and actual integer-subring realization. Rechecked the bounded coefficient algebra image, native odd-prime unit criterion and codomain restriction used in the normalization proof. Eight complete native lemmas verify these norm and certificate facts, arbitrary unit-coefficient scalar necessity and sufficiency, and the normalized first coefficient. Retained whole RJW passages remain the source basis; no new whole-paper or independent review is claimed.
 
-All 638 predecessor nodes, 546 baseline records, 16 findings, requests and sourceVersions remain whole. This checkpoint adds 4 nodes, 4 named suggested declarations and 11 typed examples. The indexed blueprint, four-file intake, whitespace, preservation, API/test parity and versioned-source checks pass. The graph has 898 reachable nodes, 4464 edges and 734 native leaves and is acyclic. Its stage request leaves are PadicMeasuresIwasawaAlgebras:L1, PadicMeasuresIwasawaAlgebras:L3, PadicMeasuresIwasawaAlgebras:L3, LocallyAnalyticDistributions:L1, AdicSpacesPartII:F1, AdicSpacesPartII:R2, PadicDifferentialEquationsAndRigidCohomology:RD.0, PadicDifferentialEquationsAndRigidCohomology:RD.4, PadicHodgeTheory:P7:annulus-foundations, PadicMeasuresIwasawaAlgebras:L2, LocallyAnalyticDistributions:L1. All four new routes end in native declarations and existing fine-grained owner nodes, with no stage-only leaves or new supplier requests.
+All 642 predecessor nodes, 556 baseline records, 16 findings, requests and sourceVersions remain whole. This checkpoint adds 3 nodes, 3 named suggested declarations and 10 typed examples. The indexed blueprint, four-file intake, whitespace, preservation, API/test parity and versioned-source checks pass. The graph has 901 reachable nodes, 4495 edges and 735 native leaves and is acyclic. Its stage request leaves are PadicMeasuresIwasawaAlgebras:L1, PadicMeasuresIwasawaAlgebras:L3, PadicMeasuresIwasawaAlgebras:L3, LocallyAnalyticDistributions:L1, AdicSpacesPartII:F1, AdicSpacesPartII:R2, PadicDifferentialEquationsAndRigidCohomology:RD.0, PadicDifferentialEquationsAndRigidCohomology:RD.4, PadicHodgeTheory:P7:annulus-foundations, PadicMeasuresIwasawaAlgebras:L2, LocallyAnalyticDistributions:L1. All three new routes end in existing fine-grained owner nodes and native declarations, with no stage-only leaves or new supplier requests.
 
 **The full current suggested module was NOT COMPILED.** Its real native import requires TauCeti.NumberTheory.ArithmeticFunction.TwistedDivisorSum. No matching existing artifact was found; WORKERS.md prohibits building the native library. Current compiler exit code, error count and warning count are unavailable, not zero. The exact named signatures and native source were reviewed. PR4773 remains the last compiled full predecessor, with zero errors and1,803 expected placeholder warnings; that receipt does not validate this new module.
 
 The current source closure covers 3601 pinned Mathlib modules and 22 pinned Tau Ceti modules. Only 21 Tau module artifacts are available and hash-verified. The105 available artifact files and the previously compiled332-node PMIA artifact are checked as partial dependencies. The current369-node supplier source preserves the older interface; no current-module compilation against either revision is claimed. Existing builds only were inspected; no setup, update, cache fetch or native build occurred.
 
-Eight complete native lemmas verify quadratic values under level change, existence of a nonprincipal reference at every odd level greater than one, its distance from the principal character, the bounded dyadic norm, the combined nearby reference, both directions of the doubled scalar lift criterion on actual measures, and the inverse-two norm lower bound. The separate probe compiles against 2817 pinned Mathlib modules and 0 pinned Tau Ceti modules with zero errors, warnings or placeholders. The separate Mathlib-only probe does not import, replace or compile the missing native Tau module. General roadmap declarations remain unchecked.
+Eight complete native lemmas verify the norm of an integer-ring unit, the bounded algebra image and odd-prime two-unit certificate, the norm of two, scalar lift construction, necessity from an arbitrary norm-one coefficient and their equivalence, and the normalized first coefficient. The separate probe compiles against 2816 pinned Mathlib modules and 0 pinned Tau Ceti modules with zero errors, warnings or placeholders. The separate Mathlib-only probe does not import, replace or compile the missing native Tau module. General roadmap declarations remain unchecked.
 
-Exact finite controls cover32 odd moduli,47904 multiplicativity equations,1088 character distances,1024 kernel coefficients,8952 residue differences,17904 convolution identities,64 unit witnesses,1152 scalar tests and128 half obstructions. The modulus-one criterion has44 scalar tests and2176 positive-coefficient checks at four primes, including an allowed nonintegral half and a rejected quarter. Exact rational arithmetic and p-adic valuations for all32 odd moduli from3 through65. The reference is the Legendre character at a prime divisor, extended by zero on nonunits at the larger modulus. Multiplicativity, nonprincipality and distance are checked exhaustively on finite residues. Principal/reference masses independently solve the finite kernel equation and mass and satisfy every convolution equation. These finite controls do not prove the infinite all-test measure statements. The largest observed discrepancy is 0.
+Exact controls cover27 prime/level pairs and52 character families,520 scalar criteria and necessary-coefficient checks,52 half classifications,420 normalized scalar checks,2898 finite convolution equations,19536 integral constant values and19104 positive values. Nine dyadic unit witnesses retain the exceptional branch. Exact rational finite-residue convolution and p-adic valuations at primes2,3,5,7,11, including principal and imprimitive characters at seven tame levels. Scalar necessity is tested on the first positive coefficient at odd primes and modulus one, and on an independently computed unit-constant difference for dyadic D>1. Admissible scalar multiples are checked on every finite unit-residue constant and48 positive coefficient tests. These controls do not replace the infinite all-test proofs. The largest observed discrepancy is 0.
 
-All66 captured inputs have an empty predecessor delta and remain guarded. The complete prior Lean body is preserved. The separate signature check uses exact4773 plus only4793,4796,4799,4803,4808,4813 and current additions;4777–4791 remain excluded. Four new declarations and eleven typed examples pass with zero errors and1931 expected placeholder warnings. This does not compile the full current module.
+All66 captured inputs have an empty predecessor delta and remain guarded. The complete old Lean body is preserved. The separate signature check uses exact4773 plus only4793,4796,4799,4803,4808,4813,4816 and current additions;4777–4791 remain excluded. Three declarations and ten typed examples give1944 expected placeholder warnings and zero errors. This is not the current full module.
 
-The publication guard at 171b5a519c5ccec0668c377e49c4eb42e15f140d checks 66 inputs,
+The publication guard at cc9d0f2a873a9ab218ad1b9474623364271aedb8 checks 66 inputs,
 four predecessor outputs, unchanged issue text, the original winning claim
 and unclaimed review #390.
-Suggested SHA256: `09382aaa0c4977baf5e489867f08a9d6877e7c6ed31a71a7161c87710eaa3616`.
-Native probe SHA256: `24c2e0b76b26b2d0bc87a88a27f9a73856747919cedcbb300b7e8c93df26cd18`.
+Suggested SHA256: `6e8d049373c00de1c45f6cf44633f9c6f6ae3cc416312a258c680d8648fc0b7e`.
+Native probe SHA256: `ff1229151c524641036304bd91134aa9ec063dfa871d6a6d32d0673c5b131646`.
 
 One reusable worktree and one Lean process at a time were used. All compiler
 processes have ended. Exactly the four authorized deliverables change.
 
-Retain DyadicClassificationProbe.lean and its compiler/result/source audit, finite
+Retain AllPrimeScalarProbe.lean and its compiler/result/source audit, finite
 control code and results, the full-module NOT-COMPILED receipt and source
 audit, artifact-availability and source-review assessment, dependency and
 preservation receipts, captured inputs and guard, and exact submitted files
