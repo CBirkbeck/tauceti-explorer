@@ -8978,8 +8978,9 @@
    ],
    "avoidAccountOf": "PAPER-FARGUES-SCHOLZE-21",
    "prompt": "research/blueprint/prompts/REV-PAPER-FARGUES-SCHOLZE-21.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4488"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4488",
+   "finishedAt": "2026-09-30T01:40:01Z"
   },
   {
    "id": "PAPER-CARAIANI-NEWTON-23",
@@ -38121,7 +38122,8 @@
     "REV-PAPER-MERKURJEV-SCAVIA-26"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-MERKURJEV-SCAVIA-26.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4529"
   },
   {
    "id": "RT-PAPER-SCHOLZE-26",
