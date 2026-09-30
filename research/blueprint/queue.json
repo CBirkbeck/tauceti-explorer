@@ -33652,7 +33652,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-FU-24.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4975"
   },
   {
    "id": "RT-PAPER-CAI-FRIEDBERG-KAPLAN-24",
@@ -34688,7 +34689,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-DEMARCO-KRIEGER-YE-20.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4981"
   },
   {
    "id": "RT-PAPER-COUVEIGNES-20",
@@ -41168,8 +41170,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-CESNAVICIUS-21.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5020"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #5020",
+   "finishedAt": "2026-09-30T15:57:46Z"
   },
   {
    "id": "RT-PAPER-LAND-MATHEW-MEIER-ETAL-24",
@@ -42679,7 +42682,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-LINK-tauceti_TauCetiRoadmap_AlgebraicCurves.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #5031"
   },
   {
    "id": "RT-LINK-tauceti_TauCetiRoadmap_NumberFieldArithmetic",
@@ -43039,7 +43043,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-LINK-tauceti_TauCetiRoadmap_ProfiniteProPGroups.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #5034"
   },
   {
    "id": "RT-LINK-tauceti_Completed_EffectiveBounds",
@@ -43210,8 +43215,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-LINK-tauceti_TauCetiRoadmap_AlgebraicCodingTheory.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5035"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #5035",
+   "finishedAt": "2026-09-30T15:57:51Z"
   },
   {
    "id": "RT-LINK-tauceti_TauCetiRoadmap_GrothendieckEulerForms",
@@ -43422,8 +43428,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-LINK-tauceti_TauCetiRoadmap_OneParameterSemigroups.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5037"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #5037",
+   "finishedAt": "2026-09-30T15:57:55Z"
   },
   {
    "id": "RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory",
@@ -43714,8 +43721,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SchurWeyl.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5039"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #5039",
+   "finishedAt": "2026-09-30T15:58:00Z"
   },
   {
    "id": "RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SemisimpleAlgebras",
@@ -43905,7 +43913,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-LINK-tauceti_TauCetiRoadmap_StablePeriodicCurved.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #5041"
   },
   {
    "id": "RT-LINK-tauceti_TauCetiRoadmap_ZigzagPreprojective",
@@ -43974,7 +43983,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-LINK-tauceti_TauCetiRoadmap_ZigzagPreprojective.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #5042",
+   "finishedAt": "2026-09-30T15:58:03Z"
   },
   {
    "id": "RT-BP-K3BlochGroups",
@@ -49246,8 +49257,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-AUDIT-34.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5047"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #5047",
+   "finishedAt": "2026-09-30T15:58:07Z"
   },
   {
    "id": "RT-AUDIT-39",
