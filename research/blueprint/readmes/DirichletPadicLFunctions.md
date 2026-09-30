@@ -22521,3 +22521,214 @@ Ten complete native lemmas establish the actual restricted scalar tower and scal
 Thirteen exact character profiles in32 local models pass384 comparisons for each of the three field-valued atomic measures and576 integer comparisons,224 valuation restrictions,1568 divisibility checks including1568 zero-ideal checks, and1120 scalar-tower and bounded-action checks each. Sixty wrong-coordinate comparisons fail and nineteen ambient-test counterexamples show why descent requires tests valued in the smaller field. There are108 modulus-one zero checks. These are finite structural controls, not computations of the actual arithmetic measures. Exact Fraction arithmetic in Q(i) and Q(omega), actual character-generated subfields with explicit bases and coefficient inclusion. Only inert or ramified local models are used: in the ramified prime use half the rational valuation of the quadratic norm, at inert primes use the minimum coefficient valuation. Finite atomic measures check all six comparison operations, including inverse weights zero on nonunits and restriction to unit atoms. These are structural test models, not evaluations of the arithmetic tame measures. Wrong field-basis coordinates and unrestricted ambient tests provide negative controls. The largest observed discrepancy is 0 in every asserted exact identity.
 
 Initial capture15a7adf64cd502872225d25c2db7b0d823cd887a changes only the two global source-issue registries from the prior capture: new other-owner PAPER-LE-LEHUNG-LEVIN-ETAL-23/E125 and E126. All16 own findings remain whole; no independent verdict on unrelated records. All66 inputs and four predecessor outputs are guarded. Two individual native Mathlib imports followed by the exact4883 partial prefix and nine declarations/thirteen examples compile against3582 pinned modules with2058 expected placeholder warnings and zero errors; the prefix still omits4777–4791. The full previous suggested body remains contiguous. Full-module compilation is unavailable because the compatible native TwistedDivisorSum artifact is absent. The ten complete native lemmas compile against2889 Mathlib modules with no errors, warnings or placeholders.
+
+
+## Character-field ranges of continuous tame test integrals
+
+Seven L2 nodes identify the image of the character-field integer ring and show that six actual ambient tame integrals lie in the smaller field or integer-ring image when every test value does. All687 predecessor nodes remain whole; fourteen tests retain constants, zero and an explicit Dirac counterexample to an unrestricted range assertion.
+
+The complete RJW coefficient-field pages143–144 were freshly read in the immediately preceding checkpoint. Read the exact native ContinuousMap structure, composition and extensionality, Continuous.subtype_mk with its ambient topological hypotheses, native valuation-integer membership and inclusion, AbstractMeasure definition/FunLike structure and Dirac evaluation. Searched the pinned continuous-map APIs: do not invent a ContinuousMap.codRestrict declaration; use native subtype continuity and bundling. Reuse the exact character field, scalar structures, reviewed L2 library audit and all six preceding arithmetic descent comparisons. Search packet/decomposition node titles for existing test-range plans before adding these arithmetic specializations.
+
+### The integer-ring image of the character field
+
+`DirichletPadicLFunctions:L2/tame-character-integer-range` — `DirichletPadic.tameCharacterField_integer_range`
+
+For x∈OK, x∈Set.range(algebraMap OF OK) if and only if (x:K)∈Fη.
+
+**Hypotheses:** p is prime, K is a nontrivially normed ultrametric field with NormedAlgebra ℚ_p K. D>0 and η is native. Fη has its inherited norm; OF and OK are the native norm-valuation integer rings. No completeness, p∤D, or ℤ_p scalar-action hypothesis is needed. Use exactly the preceding tame-character-field-valuation-extension instance and its native algebra map OF→OK.
+
+**Proof:**
+
+1. If x=j(y) for y∈OF, its underlying K value is the inclusion of the field element (y:Fη). Its membership in Fη is therefore the native subtype property.
+2. Conversely suppose (x:K)∈Fη. Form the actual element z=⟨(x:K),membership⟩ of the native intermediate field. Since the norm on Fη is inherited, its norm valuation on z is definitionally the ambient norm valuation on x.
+3. The existing integer membership proof attached to x∈OK thus also proves z∈OF. The double subtype element y=⟨z,x.property⟩ is a witness, and the native integer-ring map j(y)=x by subtype extensionality.
+4. This is the equality of the integer ring of Fη with the pullback of OK along its inclusion. The complete integer_coefficient_range proof checks both implications using the native integer rings and map. Zero and one are in the image; an integral ambient element outside Fη is not.
+
+**Prerequisites:** `DirichletPadicLFunctions:L2/tame-character-field-valuation-extension`, `mathlib:Valuation.integer`, `mathlib:Valuation.mem_integer_iff`, `mathlib:Valuation.HasExtension.instAlgebraInteger`.
+
+**Tests:**
+
+- `SuggestedTameCharacterRangeTests.integer_range_contains_zero` (degenerate): The ambient integer0 lies in the image of OF.
+- `SuggestedTameCharacterRangeTests.integer_range_contains_one` (computation): The ambient integer1 lies in the image of OF.
+- `SuggestedTameCharacterRangeTests.integral_element_outside_character_field` (non-example): An element of OK whose K value lies outside Fη does not lie in the image of OF.
+
+**Acceptance:** This is a concrete image criterion for the actual native integer-ring map. It neither identifies every ambient integer with an element of OF nor needs a chosen uniformizer.
+
+**Source:** Remark5.8(2), published143/PDF44, and the complete coefficient-field/integer-ring discussion following equation(5-3), published144/PDF45. Both complete pages freshly read in the immediately preceding descent checkpoint on30September2026. Worker-derived range formulation of the actual coefficient-field descent: an ambient continuous test whose pointwise values lie in the character field has its integral there. This follows by native continuous subtype lifting and the preceding all-test comparisons, with no additional claim about Gauss sums or arbitrary ambient-valued tests.
+
+### Character-field values of tame test integrals
+
+`DirichletPadicLFunctions:L2/tame-measure-character-field-range` — `DirichletPadic.tameMeasure_mem_characterField`
+
+If f∈C(ℤ_p,K) satisfies f(x)∈Fη for every x, then tameMeasure(η)(f)∈Fη.
+
+**Hypotheses:** p is any prime, including2. K is a complete nontrivially normed ultrametric field with the actual NormedAlgebra ℚ_p K, Algebra ℤ_p K, IsScalarTower ℤ_p ℚ_p K and IsBoundedSMul ℤ_p K. D>0 with NeZero D and p∤D. η:DirichletCharacter K D is native; no primitivity or nonprincipality is required. Fη is the existing character-generated intermediate field. Use precisely the native inherited structures, canonical D-unit certificates and restricted character established in the preceding field-descent checkpoint. The inclusion i:Fη→K is continuous and injective. The pointwise field-membership hypothesis is on every value of this particular continuous test. A wild character test is covered only when those character values, multiplied by its scalar weight, actually lie in Fη.
+
+**Proof:**
+
+1. Define g(x)=⟨f(x),the displayed membership proof⟩ in the existing subtype Fη. Native Continuous.subtype_mk applied to f.continuous proves continuity; bundle it with native ContinuousMap. The subtype topology is the inherited one, so no extra closedness or compactness argument is needed.
+2. Native ContinuousMap.ext identifies i∘g=f pointwise. The same subtype extensionality shows that this lift is unique, independently of the membership proofs. The complete field_test_lift_unique proof checks existence, continuity and uniqueness for arbitrary source topological spaces.
+3. Apply tame-measure-character-field-descent to the actual smaller-field test g. It gives i(tameMeasure(ηF)(g))=tameMeasure(η)(i∘g). Replace i∘g by f.
+4. The smaller-field integral is an actual element of Fη. Its subtype property and the comparison equality establish the claimed membership of the original ambient integral. The complete field_integral_mem proof verifies this deduction for actual native abstract measures under their displayed all-test comparison hypothesis; it does not prove the arithmetic comparison afresh.
+5. For mass and constant tests, the pointwise membership is one_mem or the subtype property of the constant. An ambient constant outside the field is excluded: native Dirac evaluation returns that constant. This explicit complete counterexample prevents dropping the range hypothesis.
+
+**Prerequisites:** `DirichletPadicLFunctions:L2/tame-measure-character-field-descent`, `mathlib:ContinuousMap`, `mathlib:Continuous.subtype_mk`, `mathlib:ContinuousMap.ext`, `mathlib:AbstractMeasure.dirac_apply`.
+
+**Tests:**
+
+- `SuggestedTameCharacterRangeTests.tame_mass_range` (compatibility): The actual mass belongs to Fη, using the constant-one test.
+- `SuggestedTameCharacterRangeTests.tame_constant_test_range` (compatibility): For every b∈Fη, the integral of the ambient constant test with value i(b) belongs to Fη.
+- `SuggestedTameCharacterRangeTests.zero_tame_test_range` (degenerate): The zero test has integral0, which belongs to Fη.
+- `SuggestedTameCharacterRangeTests.outside_constant_dirac_control` (non-example): If b∈K lies outside Fη, native Dirac evaluation of the constant-b test lies outside Fη. Thus field descent alone cannot imply an unrestricted ambient-test range claim.
+
+**Acceptance:** The conclusion is membership of the actual ambient measure value in its specified native intermediate field. It is not merely a scalar-extension identity, and it does not assert that all K-valued continuous tests satisfy the pointwise hypothesis.
+
+**Source:** Remark5.8(2), published143/PDF44, and the complete coefficient-field/integer-ring discussion following equation(5-3), published144/PDF45. Both complete pages freshly read in the immediately preceding descent checkpoint on30September2026. Worker-derived range formulation of the actual coefficient-field descent: an ambient continuous test whose pointwise values lie in the character field has its integral there. This follows by native continuous subtype lifting and the preceding all-test comparisons, with no additional claim about Gauss sums or arbitrary ambient-valued tests.
+
+### Character-field values of tame zeta test integrals
+
+`DirichletPadicLFunctions:L2/tame-zeta-character-field-range` — `DirichletPadic.tameZetaMeasure_mem_characterField`
+
+If f∈C(ℤ_p,K) satisfies f(x)∈Fη for every x, then tameZetaMeasure(η)(f)∈Fη.
+
+**Hypotheses:** p is any prime, including2. K is a complete nontrivially normed ultrametric field with the actual NormedAlgebra ℚ_p K, Algebra ℤ_p K, IsScalarTower ℤ_p ℚ_p K and IsBoundedSMul ℤ_p K. D>0 with NeZero D and p∤D. η:DirichletCharacter K D is native; no primitivity or nonprincipality is required. Fη is the existing character-generated intermediate field. Use precisely the native inherited structures, canonical D-unit certificates and restricted character established in the preceding field-descent checkpoint. The inclusion i:Fη→K is continuous and injective. The pointwise field-membership hypothesis is on every value of this particular continuous test. A wild character test is covered only when those character values, multiplied by its scalar weight, actually lie in Fη.
+
+**Proof:**
+
+1. Define g(x)=⟨f(x),the displayed membership proof⟩ in the existing subtype Fη. Native Continuous.subtype_mk applied to f.continuous proves continuity; bundle it with native ContinuousMap. The subtype topology is the inherited one, so no extra closedness or compactness argument is needed.
+2. Native ContinuousMap.ext identifies i∘g=f pointwise. The same subtype extensionality shows that this lift is unique, independently of the membership proofs. The complete field_test_lift_unique proof checks existence, continuity and uniqueness for arbitrary source topological spaces.
+3. Apply tame-zeta-character-field-descent to the actual smaller-field test g. It gives i(tameZetaMeasure(ηF)(g))=tameZetaMeasure(η)(i∘g). Replace i∘g by f.
+4. The smaller-field integral is an actual element of Fη. Its subtype property and the comparison equality establish the claimed membership of the original ambient integral. The complete field_integral_mem proof verifies this deduction for actual native abstract measures under their displayed all-test comparison hypothesis; it does not prove the arithmetic comparison afresh.
+5. For mass and constant tests, the pointwise membership is one_mem or the subtype property of the constant. An ambient constant outside the field is excluded: native Dirac evaluation returns that constant. This explicit complete counterexample prevents dropping the range hypothesis.
+
+**Prerequisites:** `DirichletPadicLFunctions:L2/tame-zeta-character-field-descent`, `mathlib:ContinuousMap`, `mathlib:Continuous.subtype_mk`, `mathlib:ContinuousMap.ext`.
+
+**Tests:**
+
+- `SuggestedTameCharacterRangeTests.zeta_mass_range` (compatibility): The actual mass belongs to Fη, using the constant-one test.
+- `SuggestedTameCharacterRangeTests.zeta_constant_test_range` (compatibility): For every b∈Fη, the integral of the ambient constant test with value i(b) belongs to Fη.
+
+**Acceptance:** The conclusion is membership of the actual ambient measure value in its specified native intermediate field. It is not merely a scalar-extension identity, and it does not assert that all K-valued continuous tests satisfy the pointwise hypothesis.
+
+**Source:** Remark5.8(2), published143/PDF44, and the complete coefficient-field/integer-ring discussion following equation(5-3), published144/PDF45. Both complete pages freshly read in the immediately preceding descent checkpoint on30September2026. Worker-derived range formulation of the actual coefficient-field descent: an ambient continuous test whose pointwise values lie in the character field has its integral there. This follows by native continuous subtype lifting and the preceding all-test comparisons, with no additional claim about Gauss sums or arbitrary ambient-valued tests.
+
+### Character-field values of intrinsic tame integrals
+
+`DirichletPadicLFunctions:L2/intrinsic-tame-character-field-range` — `DirichletPadic.intrinsicTameZetaMeasure_mem_characterField`
+
+If f∈C(ℤ_pˣ,K) satisfies f(x)∈Fη for every x, then intrinsicTameZetaMeasure(η)(f)∈Fη.
+
+**Hypotheses:** p is any prime, including2. K is a complete nontrivially normed ultrametric field with the actual NormedAlgebra ℚ_p K, Algebra ℤ_p K, IsScalarTower ℤ_p ℚ_p K and IsBoundedSMul ℤ_p K. D>0 with NeZero D and p∤D. η:DirichletCharacter K D is native; no primitivity or nonprincipality is required. Fη is the existing character-generated intermediate field. Use precisely the native inherited structures, canonical D-unit certificates and restricted character established in the preceding field-descent checkpoint. The inclusion i:Fη→K is continuous and injective. The pointwise field-membership hypothesis is on every value of this particular continuous test. A wild character test is covered only when those character values, multiplied by its scalar weight, actually lie in Fη.
+
+**Proof:**
+
+1. Define g(x)=⟨f(x),the displayed membership proof⟩ in the existing subtype Fη. Native Continuous.subtype_mk applied to f.continuous proves continuity; bundle it with native ContinuousMap. The subtype topology is the inherited one, so no extra closedness or compactness argument is needed.
+2. Native ContinuousMap.ext identifies i∘g=f pointwise. The same subtype extensionality shows that this lift is unique, independently of the membership proofs. The complete field_test_lift_unique proof checks existence, continuity and uniqueness for arbitrary source topological spaces.
+3. Apply intrinsic-tame-character-field-descent to the actual smaller-field test g. It gives i(intrinsicTameZetaMeasure(ηF)(g))=intrinsicTameZetaMeasure(η)(i∘g). Replace i∘g by f.
+4. The smaller-field integral is an actual element of Fη. Its subtype property and the comparison equality establish the claimed membership of the original ambient integral. The complete field_integral_mem proof verifies this deduction for actual native abstract measures under their displayed all-test comparison hypothesis; it does not prove the arithmetic comparison afresh.
+5. For mass and constant tests, the pointwise membership is one_mem or the subtype property of the constant. An ambient constant outside the field is excluded: native Dirac evaluation returns that constant. This explicit complete counterexample prevents dropping the range hypothesis.
+
+**Prerequisites:** `DirichletPadicLFunctions:L2/intrinsic-tame-character-field-descent`, `mathlib:ContinuousMap`, `mathlib:Continuous.subtype_mk`, `mathlib:ContinuousMap.ext`.
+
+**Tests:**
+
+- `SuggestedTameCharacterRangeTests.intrinsic_mass_range` (compatibility): The actual mass belongs to Fη, using the constant-one test.
+- `SuggestedTameCharacterRangeTests.intrinsic_constant_test_range` (compatibility): For every b∈Fη, the integral of the ambient constant test with value i(b) belongs to Fη.
+
+**Acceptance:** The conclusion is membership of the actual ambient measure value in its specified native intermediate field. It is not merely a scalar-extension identity, and it does not assert that all K-valued continuous tests satisfy the pointwise hypothesis.
+
+**Source:** Remark5.8(2), published143/PDF44, and the complete coefficient-field/integer-ring discussion following equation(5-3), published144/PDF45. Both complete pages freshly read in the immediately preceding descent checkpoint on30September2026. Worker-derived range formulation of the actual coefficient-field descent: an ambient continuous test whose pointwise values lie in the character field has its integral there. This follows by native continuous subtype lifting and the preceding all-test comparisons, with no additional claim about Gauss sums or arbitrary ambient-valued tests.
+
+### Character-integer values of tame integrals
+
+`DirichletPadicLFunctions:L2/integral-tame-character-integer-range` — `DirichletPadic.integralTameMeasure_mem_characterIntegerRange`
+
+If f∈C(ℤ_p,OK) satisfies (f(x):K)∈Fη for every x, then integralTameMeasure(η)(f) lies in Set.range(algebraMap OF OK).
+
+**Hypotheses:** p is any prime, including2. K is a complete nontrivially normed ultrametric field with the actual NormedAlgebra ℚ_p K, Algebra ℤ_p K, IsScalarTower ℤ_p ℚ_p K and IsBoundedSMul ℤ_p K. D>0 with NeZero D and p∤D. η:DirichletCharacter K D is native; no primitivity or nonprincipality is required. Fη is the existing character-generated intermediate field. Use precisely the native inherited structures, canonical D-unit certificates and restricted character established in the preceding field-descent checkpoint. The inclusion i:Fη→K is continuous and injective. OF and OK are the native integer subrings of the norm valuations on Fη and K. The native valuation-extension instance gives j:OF→OK. Its underlying K value is the double subtype inclusion. The test is OK-valued, and the hypothesis concerns its actual underlying K values lying in Fη, not a choice of an unrelated abstract integer ring.
+
+**Proof:**
+
+1. For each x use tame-character-integer-range: the ambient integer f(x), whose K value lies in Fη, has the concrete double-subtype representative in OF. Its valuation bound is exactly the one already attached to f(x), because the norm on Fη is inherited.
+2. Define g(x)=⟨⟨(f(x):K),the pointwise field-membership proof⟩,the same valuation bound⟩. Twice apply native Continuous.subtype_mk to the continuous underlying K-valued map. This supplies a genuine continuous OF-valued test without choosing preimages noncontinuously.
+3. The native integer inclusion satisfies j∘g=f pointwise, hence as continuous maps by ContinuousMap.ext. Two such lifts agree by double subtype extensionality. The complete integer_test_lift_unique proof checks this construction and uniqueness.
+4. Apply the preceding integral-tame-character-field-descent all-test comparison to g and replace j∘g by f. The actual smaller integral integralTameMeasure(ηF)(g) is now an OF witness in the asserted range. The complete integer_integral_mem proof checks this argument for actual native measures, conditional only on their displayed comparison.
+5. The integer-range criterion also identifies the result with membership of the underlying K value in Fη. The range statement retains integrality and the actual native integer inclusion, including zero; it is not weakened to existence of an arbitrary field-valued representative.
+
+**Prerequisites:** `DirichletPadicLFunctions:L2/integral-tame-character-field-descent`, `DirichletPadicLFunctions:L2/tame-character-integer-range`, `mathlib:ContinuousMap`, `mathlib:Continuous.subtype_mk`, `mathlib:ContinuousMap.ext`.
+
+**Tests:**
+
+- `SuggestedTameCharacterRangeTests.integral_tame_mass_range` (compatibility): The actual integral mass lies in the image of OF in OK, by applying the theorem to the constant-one test.
+
+**Acceptance:** The witness is the existing smaller-field integral evaluated on a continuous lifted test. No replacement measure, integer ring or choice of scalar algebra is introduced.
+
+**Source:** Remark5.8(2), published143/PDF44, and the complete coefficient-field/integer-ring discussion following equation(5-3), published144/PDF45. Both complete pages freshly read in the immediately preceding descent checkpoint on30September2026. Worker-derived range formulation of the actual coefficient-field descent: an ambient continuous test whose pointwise values lie in the character field has its integral there. This follows by native continuous subtype lifting and the preceding all-test comparisons, with no additional claim about Gauss sums or arbitrary ambient-valued tests.
+
+### Character-integer values of tame zeta integrals
+
+`DirichletPadicLFunctions:L2/integral-tame-zeta-character-integer-range` — `DirichletPadic.integralTameZetaMeasure_mem_characterIntegerRange`
+
+If f∈C(ℤ_p,OK) satisfies (f(x):K)∈Fη for every x, then integralTameZetaMeasure(η)(f) lies in Set.range(algebraMap OF OK).
+
+**Hypotheses:** p is any prime, including2. K is a complete nontrivially normed ultrametric field with the actual NormedAlgebra ℚ_p K, Algebra ℤ_p K, IsScalarTower ℤ_p ℚ_p K and IsBoundedSMul ℤ_p K. D>0 with NeZero D and p∤D. η:DirichletCharacter K D is native; no primitivity or nonprincipality is required. Fη is the existing character-generated intermediate field. Use precisely the native inherited structures, canonical D-unit certificates and restricted character established in the preceding field-descent checkpoint. The inclusion i:Fη→K is continuous and injective. OF and OK are the native integer subrings of the norm valuations on Fη and K. The native valuation-extension instance gives j:OF→OK. Its underlying K value is the double subtype inclusion. The test is OK-valued, and the hypothesis concerns its actual underlying K values lying in Fη, not a choice of an unrelated abstract integer ring.
+
+**Proof:**
+
+1. For each x use tame-character-integer-range: the ambient integer f(x), whose K value lies in Fη, has the concrete double-subtype representative in OF. Its valuation bound is exactly the one already attached to f(x), because the norm on Fη is inherited.
+2. Define g(x)=⟨⟨(f(x):K),the pointwise field-membership proof⟩,the same valuation bound⟩. Twice apply native Continuous.subtype_mk to the continuous underlying K-valued map. This supplies a genuine continuous OF-valued test without choosing preimages noncontinuously.
+3. The native integer inclusion satisfies j∘g=f pointwise, hence as continuous maps by ContinuousMap.ext. Two such lifts agree by double subtype extensionality. The complete integer_test_lift_unique proof checks this construction and uniqueness.
+4. Apply the preceding integral-tame-zeta-character-field-descent all-test comparison to g and replace j∘g by f. The actual smaller integral integralTameZetaMeasure(ηF)(g) is now an OF witness in the asserted range. The complete integer_integral_mem proof checks this argument for actual native measures, conditional only on their displayed comparison.
+5. The integer-range criterion also identifies the result with membership of the underlying K value in Fη. The range statement retains integrality and the actual native integer inclusion, including zero; it is not weakened to existence of an arbitrary field-valued representative.
+
+**Prerequisites:** `DirichletPadicLFunctions:L2/integral-tame-zeta-character-field-descent`, `DirichletPadicLFunctions:L2/tame-character-integer-range`, `mathlib:ContinuousMap`, `mathlib:Continuous.subtype_mk`, `mathlib:ContinuousMap.ext`.
+
+**Tests:**
+
+- `SuggestedTameCharacterRangeTests.integral_zeta_mass_range` (compatibility): The actual integral mass lies in the image of OF in OK, by applying the theorem to the constant-one test.
+
+**Acceptance:** The witness is the existing smaller-field integral evaluated on a continuous lifted test. No replacement measure, integer ring or choice of scalar algebra is introduced.
+
+**Source:** Remark5.8(2), published143/PDF44, and the complete coefficient-field/integer-ring discussion following equation(5-3), published144/PDF45. Both complete pages freshly read in the immediately preceding descent checkpoint on30September2026. Worker-derived range formulation of the actual coefficient-field descent: an ambient continuous test whose pointwise values lie in the character field has its integral there. This follows by native continuous subtype lifting and the preceding all-test comparisons, with no additional claim about Gauss sums or arbitrary ambient-valued tests.
+
+### Character-integer values of intrinsic tame integrals
+
+`DirichletPadicLFunctions:L2/intrinsic-integral-character-integer-range` — `DirichletPadic.intrinsicIntegralTameZetaMeasure_mem_characterIntegerRange`
+
+If f∈C(ℤ_pˣ,OK) satisfies (f(x):K)∈Fη for every x, then intrinsicIntegralTameZetaMeasure(η)(f) lies in Set.range(algebraMap OF OK).
+
+**Hypotheses:** p is any prime, including2. K is a complete nontrivially normed ultrametric field with the actual NormedAlgebra ℚ_p K, Algebra ℤ_p K, IsScalarTower ℤ_p ℚ_p K and IsBoundedSMul ℤ_p K. D>0 with NeZero D and p∤D. η:DirichletCharacter K D is native; no primitivity or nonprincipality is required. Fη is the existing character-generated intermediate field. Use precisely the native inherited structures, canonical D-unit certificates and restricted character established in the preceding field-descent checkpoint. The inclusion i:Fη→K is continuous and injective. OF and OK are the native integer subrings of the norm valuations on Fη and K. The native valuation-extension instance gives j:OF→OK. Its underlying K value is the double subtype inclusion. The test is OK-valued, and the hypothesis concerns its actual underlying K values lying in Fη, not a choice of an unrelated abstract integer ring.
+
+**Proof:**
+
+1. For each x use tame-character-integer-range: the ambient integer f(x), whose K value lies in Fη, has the concrete double-subtype representative in OF. Its valuation bound is exactly the one already attached to f(x), because the norm on Fη is inherited.
+2. Define g(x)=⟨⟨(f(x):K),the pointwise field-membership proof⟩,the same valuation bound⟩. Twice apply native Continuous.subtype_mk to the continuous underlying K-valued map. This supplies a genuine continuous OF-valued test without choosing preimages noncontinuously.
+3. The native integer inclusion satisfies j∘g=f pointwise, hence as continuous maps by ContinuousMap.ext. Two such lifts agree by double subtype extensionality. The complete integer_test_lift_unique proof checks this construction and uniqueness.
+4. Apply the preceding intrinsic-integral-character-field-descent all-test comparison to g and replace j∘g by f. The actual smaller integral intrinsicIntegralTameZetaMeasure(ηF)(g) is now an OF witness in the asserted range. The complete integer_integral_mem proof checks this argument for actual native measures, conditional only on their displayed comparison.
+5. The integer-range criterion also identifies the result with membership of the underlying K value in Fη. The range statement retains integrality and the actual native integer inclusion, including zero; it is not weakened to existence of an arbitrary field-valued representative.
+
+**Prerequisites:** `DirichletPadicLFunctions:L2/intrinsic-integral-character-field-descent`, `DirichletPadicLFunctions:L2/tame-character-integer-range`, `mathlib:ContinuousMap`, `mathlib:Continuous.subtype_mk`, `mathlib:ContinuousMap.ext`.
+
+**Tests:**
+
+- `SuggestedTameCharacterRangeTests.intrinsic_integral_mass_range` (compatibility): The actual integral mass lies in the image of OF in OK, by applying the theorem to the constant-one test.
+
+**Acceptance:** The witness is the existing smaller-field integral evaluated on a continuous lifted test. No replacement measure, integer ring or choice of scalar algebra is introduced.
+
+**Source:** Remark5.8(2), published143/PDF44, and the complete coefficient-field/integer-ring discussion following equation(5-3), published144/PDF45. Both complete pages freshly read in the immediately preceding descent checkpoint on30September2026. Worker-derived range formulation of the actual coefficient-field descent: an ambient continuous test whose pointwise values lie in the character field has its integral there. This follows by native continuous subtype lifting and the preceding all-test comparisons, with no additional claim about Gauss sums or arbitrary ambient-valued tests.
+
+**Remaining:** Both all-test coefficient descent and its ambient-test range formulation are now explicit for the tame, zeta and intrinsic measures and their integral versions. A test involving an additional wild character still needs its values in the coefficient field; the next arithmetic step is to specify a common finite coefficient field containing both characters and transport their weighted moments, rather than silently assuming the tame field contains all wild values. Primitive Gauss nonvanishing, exact primitive-conductor comparisons, analytic branches, degree-zero/logarithmic values, full source extraction and the PMIA completed-algebra/coefficient-field pseudomeasure requests remain open.
+
+### Character-field ranges of continuous tame test integrals validation
+
+All 687 predecessor nodes, 582 baseline records, 16 findings, requests and sourceVersions remain whole. This checkpoint adds 7 nodes, 7 named suggested declarations and 14 typed examples. The indexed blueprint, four-file intake, whitespace, preservation, API/test parity and versioned-source checks pass. The graph has 950 reachable nodes, 4756 edges and 760 native leaves and is acyclic. Its stage request leaves are PadicMeasuresIwasawaAlgebras:L1, PadicMeasuresIwasawaAlgebras:L3, PadicMeasuresIwasawaAlgebras:L3, LocallyAnalyticDistributions:L1, AdicSpacesPartII:F1, AdicSpacesPartII:R2, PadicDifferentialEquationsAndRigidCohomology:RD.0, PadicDifferentialEquationsAndRigidCohomology:RD.4, PadicHodgeTheory:P7:annulus-foundations, PadicMeasuresIwasawaAlgebras:L2, LocallyAnalyticDistributions:L1. All seven new routes use native declarations and existing fine nodes, with no new stage-request leaf. Existing requests remain open.
+
+**The full current suggested module was NOT COMPILED.** Its real native import requires TauCeti.NumberTheory.ArithmeticFunction.TwistedDivisorSum. No matching existing artifact was found; WORKERS.md prohibits building the native library. Current compiler exit code, error count and warning count are unavailable, not zero. The exact named signatures and native source were reviewed. PR4773 remains the last compiled full predecessor, with zero errors and1,803 expected placeholder warnings; that receipt does not validate this new module.
+
+The current source closure covers 3603 pinned Mathlib modules and 22 pinned Tau Ceti modules. Only 21 Tau module artifacts are available and hash-verified. The105 available artifact files and the previously compiled332-node PMIA artifact are checked as partial dependencies. The current369-node supplier source preserves the older interface; no current-module compilation against either revision is claimed. Existing builds only were inspected; no setup, update, cache fetch or native build occurred.
+
+Nine complete native lemmas prove unique continuous field/integer test lifts, the actual norm-valuation extension and integer image criterion, range consequences for actual abstract measures under their all-test comparison hypotheses, uniqueness under those comparisons, and a Dirac counterexample for a constant outside the field. The arithmetic constructor identities remain planned dependencies, not completed native proofs. The separate probe compiles against 2891 pinned Mathlib modules and 0 pinned Tau Ceti modules with zero errors, warnings or placeholders. The separate Mathlib-only probe does not import, replace or compile the missing native Tau module. General roadmap declarations remain unchecked.
+
+Fresh exact controls use13 character profiles and32 local models, with384 unique test lifts and3072 pointwise recovery/uniqueness checks,928 integer-image criteria including422 excluded ambient integers,1152 field-integral range checks and576 integer-integral range witnesses. The predecessor scalar/atomic controls are rerun, retaining60 wrong-coordinate failures,19 outside-field constant controls and108 modulus-one zero checks. These finite atomic models do not compute the actual arithmetic measures. Freshly rerun the predecessor finite structural controls and add unique pointwise test-lift, integer-image criterion and integral-range checks. Exact Fraction arithmetic in Q(i) and Q(omega), actual character-generated subfields with explicit bases and coefficient inclusion. Only inert or ramified local models are used: in the ramified prime use half the rational valuation of the quadratic norm, at inert primes use the minimum coefficient valuation. Finite atomic measures check all six comparison operations, including inverse weights zero on nonunits and restriction to unit atoms. These are structural test models, not evaluations of the arithmetic tame measures. Wrong field-basis coordinates and unrestricted ambient tests provide negative controls. The largest observed discrepancy is 0 in every asserted exact identity.
+
+All66 captured inputs and four predecessor outputs are unchanged at capture6480cbe61a8cc144b1e67a6d23a8faad23a5aa39 and remain guarded. The exact4895 partial prefix plus seven declarations/fourteen examples compiles against3582 pinned modules with2079 expected placeholder warnings and zero errors; the prefix still omits4777–4791. No import changes. The full previous suggested body remains contiguous. Full-module compilation is unavailable because the compatible native TwistedDivisorSum artifact is absent. The nine complete native lemmas compile against2891 Mathlib modules with no errors, warnings or placeholders.
