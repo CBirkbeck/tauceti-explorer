@@ -34069,8 +34069,9 @@
     "REV-PAPER-BROWNING-SAWIN-20"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-BROWNING-SAWIN-20.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4085"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4085",
+   "finishedAt": "2026-09-30T08:15:53Z"
   },
   {
    "id": "REV-RT-PAPER-BROWNING-SAWIN-20",
@@ -34922,7 +34923,8 @@
     "REV-PAPER-DUKE-IMAMOGLU-TOTH-16"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-DUKE-IMAMOGLU-TOTH-16.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4118"
   },
   {
    "id": "REV-RT-PAPER-DUKE-IMAMOGLU-TOTH-16",
