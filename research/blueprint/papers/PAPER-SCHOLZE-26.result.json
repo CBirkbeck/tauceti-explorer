@@ -15,7 +15,7 @@
       "Cited inputs were not read; items resting on Voevodsky, Ayoub, Vezzani, Binda–Gallauer–Vezzani, Suslin, Thomason–Trobaugh, Cisinski, Morrow, Kerz–Strunk–Tamme, Efimov, Ramzi, Gaitsgory–Rozenblyum, Heyer–Mann, Scholze's Six-Functor Formalisms and Étale cohomology of diamonds state them as the paper uses them."
     ]
   },
-  "summary": "The paper builds étale motives on Berkovich spaces from scratch, uniformly for archimedean and nonarchimedean Banach rings. Banach rings carry the arc-topology (finitely many maps jointly surjective on Berkovich spectra), whose basis of strictly totally disconnected rings makes finitary functors hypercomplete arc-sheaves; D^eff_mot(X) is the category of finitary, ball-invariant arc-sheaves, and D_mot(X) inverts ℤ(1) = Ḡ_m[−1]. Main results: the cancellation theorem over any base (Theorem 1.9); rational motivic cohomology equals the Adams eigenspaces of rational K-theory, with explicit descriptions via cofib(K(A_{<1}) → K(A)) (Theorem 1.7); a six-functor formalism with smooth maps cohomologically smooth and D_mot(X) rigid dualizable for analytic X of finite cohomological dimension (Theorem 1.12); D_mot(k) is Voevodsky's étale motives for discrete algebraically closed k (Proposition 1.13); motives over C = completed k((T))^alg are pairs (A, N) over k via motivic nearby cycles (Theorem 1.14); torsion motives are overconvergent étale sheaves on v-stacks (§12). The atlas has a pending Part II of MotivesAndAlgebraicCycles for rigid-analytic motives (from Binda–Kato–Vezzani) carrying the same tilting, good-reduction and nearby-cycles theorems for Ayoub's RigDA, so the Berkovich construction coalesces with it; Banach rings go to TropicalAndBerkovichArithmetic TB.0–TB.1, K-theory inputs to GeneralAlgebraicKTheory K.5, SchemeKTheoryOperations S.3/S.5 and RefinedTraceMethods RT.5, dualizable and rigid categories to EnhancedDerivedSheaves E5. Three misprints are recorded.",
+  "summary": "The paper builds étale motives on Berkovich spaces from scratch, uniformly for archimedean and nonarchimedean Banach rings. Banach rings carry the arc-topology (finitely many maps jointly surjective on Berkovich spectra), whose basis of strictly totally disconnected rings makes finitary functors hypercomplete arc-sheaves; D^eff_mot(X) is the category of finitary, ball-invariant arc-sheaves, and D_mot(X) inverts ℤ(1) = Ḡ_m[−1]. Main results: the cancellation theorem over any base (Theorem 1.9); rational motivic cohomology equals the Adams eigenspaces of rational K-theory, with explicit descriptions via cofib(K(A_{<1}) → K(A)) (Theorem 1.7); a six-functor formalism with smooth maps cohomologically smooth and D_mot(X) rigid dualizable for analytic X of finite cohomological dimension (Theorem 1.12); D_mot(k) is Voevodsky's étale motives for discrete algebraically closed k (Proposition 1.13); motives over C = completed k((T))^alg are pairs (A, N) over k via motivic nearby cycles (Theorem 1.14); torsion motives are overconvergent étale sheaves on v-stacks (§12). The atlas has a pending Part II of MotivesAndAlgebraicCycles for rigid-analytic motives (from Binda–Kato–Vezzani) carrying the same tilting, good-reduction and nearby-cycles theorems for Ayoub's RigDA, so the Berkovich construction coalesces with it; Banach rings go to TropicalAndBerkovichArithmetic TB.0–TB.1, K-theory inputs to GeneralAlgebraicKTheory K.5, SchemeKTheoryOperations S.3/S.5 and RefinedTraceMethods RT.5, dualizable and rigid categories to EnhancedDerivedSheaves E5. Three misprints are recorded. FIX-RT-PAPER-SCHOLZE-26 (30 September 2026) made route 1 a self-contained Part II of MotivesAndAlgebraicCycles for Berkovich motives, since Binda–Kato–Vezzani's rigid-analytic route was rejected. It split the K-theory and categorical inputs to their owners and added de Jong's alterations, van der Put's compactification, the marked-point generalised Jacobian and Postnikov completeness as items.",
   "items": [
     {
       "id": "PAPER-SCHOLZE-26/1",
@@ -84,7 +84,7 @@
       "statement": "{A → B_i} is an arc-cover if for some finite J ⊂ I the map ⊔_{i∈J} M(B_i) → M(A) is surjective — equivalently every A → K to a Banach field lifts to some B_i after a field extension (Definition 3.1). M_arc(A) is the arc-sheafification of Hom(A, −); κ-small Banach rings and small arc-sheaves (small colimits of M_arc(A)'s); objects of the arc-site are qcqs (Proposition 3.3).",
       "locator": "§1, Definition 1.1, p. 3; §3, Definition 3.1, Proposition 3.3, pp. 14–15",
       "status": "missing",
-      "note": "The Banach-ring analogue of the scheme-theoretic arc-topology of Bhatt–Mathew (the proposed ArcTopologyAndDescent roadmap, which is for qcqs schemes) and of the v-topology on perfectoid spaces (DiamondsAndVStacks)."
+      "note": "The Banach-ring analogue of the scheme-theoretic arc-topology of Bhatt–Mathew, which ArcTopologyAndDescent (the accepted route 1 of PAPER-BHATT-MATHEW-21) plans for qcqs schemes, and of the v-topology on perfectoid spaces (DiamondsAndVStacks). The scheme arc-site and the Banach-ring arc-site are different sites; their comparison is not planned (RT-PAPER-SCHOLZE-26/2)."
     },
     {
       "id": "PAPER-SCHOLZE-26/8",
@@ -147,7 +147,7 @@
       "statement": "For a Banach ℂ-algebra A, pullback identifies the left-complete derived category of sheaves on M(A) with D_fin(M_arc(A), ℤ) (Theorem 4.14). For a non-discrete Banach field K with completed algebraic closure C, M(K) ≅ M(C)^{hG_K} (continuous, i.e. condensed, group cohomology; Proposition 4.15); for M ∈ D⁺_fin(M_arc(A)), Rν_*M on M(A) has stalks M(K(x)) (Proposition 4.16). Cohomological dimension d(X) (Definition 4.17) is bounded by dim M(A) + sup cd G_{K(x)} (Corollary 4.18).",
       "locator": "§4, Theorem 4.14, Propositions 4.15, 4.16, Definition 4.17, Corollary 4.18, pp. 23–24",
       "status": "missing",
-      "note": ""
+      "note": "Sheaves on locally compact Hausdorff spaces with their six functors, X ↦ Shv(X, D(ℤ)), are planned by the proposed AnalyticStacks AS.1; Theorem 4.14 and the proof of Theorem 9.2 ('the usual projection formula in topology') use that formalism over ℂ (RT-PAPER-SCHOLZE-26/2)."
     },
     {
       "id": "PAPER-SCHOLZE-26/15",
@@ -156,7 +156,7 @@
       "statement": "Proper maps are 0-truncated qcqs maps of small arc-stacks, with cohomological dimension d(f) (Definition 4.19). For f proper of finite cohomological dimension, f_* preserves finitary sheaves with finite cohomological dimension and commutes with any base change; for f quasi-pro-étale it satisfies the projection formula. Example 4.26: the projection formula fails for P¹_X → X (the sheaf Ḡ_m has H¹(P¹_C, Ḡ_m) ≠ 0).",
       "locator": "§4, Definition 4.19, Theorem 4.20, Example 4.26, pp. 24, 26",
       "status": "missing",
-      "note": "Uses repleteness of the arc-topos and Postnikov completeness (Mondal–Reinecke [MR25])."
+      "note": "Uses repleteness of the arc-topos and Postnikov completeness (Mondal–Reinecke [MR25]). The Postnikov completeness input is item 64 (RT-PAPER-SCHOLZE-26/6)."
     },
     {
       "id": "PAPER-SCHOLZE-26/16",
@@ -174,7 +174,7 @@
       "statement": "Y is ball-invariant if Y(A) → Y(A⟨T⟩_1) is an isomorphism for all Banach rings A over X (Definition 5.1). D^eff_mot(X) ⊂ D_fin(X, ℤ) is the full subcategory of ball-invariant finitary arc-sheaves ('étale motives' with ℤ-coefficients; the sphere spectrum would work equally, Definition 5.2 and footnote 3).",
       "locator": "§1, Definition 1.2, p. 3; §5, Definitions 5.1, 5.2, p. 26",
       "status": "missing",
-      "note": "The Berkovich analogue of Ayoub's rigid-analytic motives RigDA (the coalesced Part II's rigid-motive layer) and of Voevodsky's étale motives."
+      "note": "The Berkovich analogue of Voevodsky's étale motives and of Ayoub's rigid-analytic motives RigDA. RigDA is prior work in the literature, not a layer the atlas plans: the only route proposing it (PAPER-BINDA-KATO-VEZZANI-25 route 13) was rejected (RT-PAPER-SCHOLZE-26/1)."
     },
     {
       "id": "PAPER-SCHOLZE-26/18",
@@ -216,10 +216,10 @@
       "id": "PAPER-SCHOLZE-26/22",
       "kind": "theorem",
       "name": "Theorem 5.16 and Proposition 5.17 (= Proposition 1.6): the reduced multiplicative group",
-      "statement": "On the nonarchimedean locus, Ḡ_m := G_m/(1 + O_{<1}) is finitary and ball-invariant (Theorem 5.16; modulo ℓ via Proposition 5.9, rationally via Pic(C⟨T⟩_1) = 0 and harmonicity of norm functions on trees), and ℤ_mot[G_m]/ℤ_mot[∗] ≅ Ḡ_m via characteristic polynomials Symⁿ(Ḡ_m) ≅ 𝔸^{n−1} × Ḡ_m (Proposition 5.17).",
+      "statement": "On the nonarchimedean locus, Ḡ_m := G_m/(1 + O_{<1}) is finitary and ball-invariant (Theorem 5.16; modulo ℓ via Proposition 5.9, rationally via Pic(C⟨T⟩_1) = 0 and harmonicity of norm functions on trees), and ℤ_mot[G_m]/ℤ_mot[∗] ≅ Ḡ_m (Proposition 5.17): by ball-invariance the left side is ℤ_mot[Ḡ_m]/ℤ_mot[∗] = colim_n Symⁿ(Ḡ_m); the characteristic polynomial gives an isomorphism of arc-sheaves Symⁿ(G_m) ≅ 𝔸^{n−1} × G_m for the unreduced G_m; the maps Symⁿ(G_m) → Symⁿ(Ḡ_m) (writing Ḡ_m as the geometric realisation |G_m × (1 + O_{<1})^•|) and 𝔸^{n−1} × G_m → Ḡ_m are colimits of 𝔹-homotopy equivalences, so Symⁿ(Ḡ_m) → Ḡ_m becomes an isomorphism after mapping into ball-invariant sheaves. There is no characteristic-polynomial isomorphism for Ḡ_m itself.",
       "locator": "§1, Proposition 1.6, p. 5; §5.2, Definition 5.15, Theorem 5.16, Proposition 5.17, pp. 32–34",
       "status": "missing",
-      "note": ""
+      "note": "Corrected by FIX-RT-PAPER-SCHOLZE-26 (RT-PAPER-SCHOLZE-26/7): the characteristic-polynomial isomorphism is for G_m, not Ḡ_m (published v3 p. 34). The coefficients of ∏(X − x_i) are not defined when the x_i are known only up to 1-units."
     },
     {
       "id": "PAPER-SCHOLZE-26/23",
@@ -255,7 +255,7 @@
       "statement": "For a smooth connected curve U over an algebraically closed nonarchimedean C and a prime p, any two points x, x′ ∈ U(C) satisfy x + p x_1 + … + p x_n ~_𝔹 x′ + p x′_1 + … + p x′_n in ℕ[U] for suitable points (Lemma 6.4; divisibility of the generalised Jacobian with trivialisations on boundary discs, van der Put [vdP80]). For U, V ⊂ 𝔸¹_C with complements finite unions of closed discs, ℚ_mot[U] ≅ ℚ ⊕ Ḡ_m^d and its value on V is the cokernel of ℕ[U](V × 𝔹) ⊗ ℚ → ℕ[U](V) ⊗ ℚ, in degree 0 (Lemma 6.5).",
       "locator": "§6, Lemmas 6.4, 6.5, pp. 36–39",
       "status": "missing",
-      "note": "Misprint P¹_A for P¹_C in Lemma 6.5 and the proof of Theorem 6.3 (source issue E2)."
+      "note": "Misprint P¹_A for P¹_C in Lemma 6.5 and the proof of Theorem 6.3 (source issue E2). Its inputs are items 62 (van der Put's compactification, after shrinking U) and 63 (the generalised Jacobian with trivialisations is semiabelian, hence p-divisible) (RT-PAPER-SCHOLZE-26/6)."
     },
     {
       "id": "PAPER-SCHOLZE-26/27",
@@ -264,7 +264,7 @@
       "statement": "If |p|_A < 1 then p is invertible in D^eff_mot(M(A)) (after tilting, Artin–Schreier 0 → 𝔽_p → 𝔹 → 𝔹 → 0); if |p| ≥ 1 on M(A), the p-power torsion part of D^eff_mot(M(A)) is the left-completed derived category of p-power torsion étale sheaves (Theorem 6.7). For X with |p| < 1 everywhere, tilting gives D^eff_mot(X) ≅ D^eff_mot(X^♭), both ℤ[1/p]-linear (Proposition 6.8; Vezzani's motivic Fontaine–Wintenberger theorem [Vez19]).",
       "locator": "§1, Proposition 1.5(iii), (iv), p. 4; §6, Theorem 6.7, Proposition 6.8, pp. 39–40",
       "status": "missing",
-      "note": "The coalesced Part II already carries the motivic Fontaine–Wintenberger equivalence for RigDA (from the Binda–Kato–Vezzani extraction)."
+      "note": "Vezzani's motivic Fontaine–Wintenberger theorem for RigDA ([Vez19]) is prior work in the literature; no layer of the atlas plans it (RT-PAPER-SCHOLZE-26/1). This item is the atlas's tilting statement."
     },
     {
       "id": "PAPER-SCHOLZE-26/28",
@@ -353,11 +353,11 @@
     {
       "id": "PAPER-SCHOLZE-26/37",
       "kind": "theorem",
-      "name": "K-theory inputs: Thomason–Trobaugh, cdh and pro-cdh descent, 𝔸¹-invariance over valuation rings",
-      "statement": "K-theory with supports is unchanged under T-adic completion (Thomason–Trobaugh [TT90, Prop. 3.19]); KH satisfies cdh-descent (Cisinski [Cis13]); K-theory satisfies pro-cdh descent (Morrow [Mor16, Thm 3.7] in equal characteristic 0, Kerz–Strunk–Tamme [KST18, Thm A]); algebraic K-theory is 𝔸¹-invariant over valuation rings; with torsion coefficients, Gabber–Suslin rigidity under change of algebraically closed field.",
-      "locator": "§1, p. 6; §8, proofs of Proposition 8.8, Theorems 8.9, 8.13, Corollary 8.12, pp. 47–50 (cited)",
+      "name": "Thomason–Trobaugh: K-theory with supports is unchanged under T-adic completion",
+      "statement": "K-theory with supports is unchanged under T-adic completion (Thomason–Trobaugh [TT90, Prop. 3.19]); §8 uses it to replace A_{<1} by its T-adic completion.",
+      "locator": "§8, p. 47 (cited as [TT90, Proposition 3.19])",
       "status": "missing",
-      "note": "SchemeKTheoryOperations S.3 (supports and localisation) and S.5 (homotopy invariance, homotopy K-theory for singular schemes) are their owners in the atlas; these descent theorems belong there."
+      "note": "Split by FIX-RT-PAPER-SCHOLZE-26 (RT-PAPER-SCHOLZE-26/4). SchemeKTheoryOperations S.3 (supports and localisation) owns it (route 4). The other K-theory inputs are items 56–59: cdh descent for KH (route 7), and pro-cdh descent, 𝔸¹-invariance over valuation rings and Gabber–Suslin rigidity (route 8)."
     },
     {
       "id": "PAPER-SCHOLZE-26/38",
@@ -366,7 +366,7 @@
       "statement": "Localising invariants such as K-theory extend to dualizable presentable stable ∞-categories and send Verdier sequences to fibre sequences; the category D(B^a) of almost modules for an idempotent ideal is dualizable, so K(D(B^a)) = fib(K(B) → K(B/A_{<1})) depends only on A_{<1} [Efi24]; compact objects of a filtered colimit of dualizable categories are the colimit of compact objects [Efi24, Prop. 1.72].",
       "locator": "§8, pp. 46, 48; §10, Lemma 10.5, p. 55 (cited)",
       "status": "missing",
-      "note": "RefinedTraceMethods RT.5 plans compact/dualizable objects and continuous extensions of localizing invariants (the Efimov–Scholze refinement); Efimov's K-theory of dualizable categories belongs there."
+      "note": "RefinedTraceMethods RT.5 plans compact/dualizable objects and continuous extensions of localizing invariants (the Efimov–Scholze refinement); Efimov's K-theory of dualizable categories belongs there. It imports the theory of dualizable and compactly assembled presentable categories from item 60, requested at E5 by route 6 (RT-PAPER-SCHOLZE-26/5)."
     },
     {
       "id": "PAPER-SCHOLZE-26/39",
@@ -405,7 +405,7 @@
       "statement": "Starting from affine arc-sheaves with maps of finite cohomological dimension as !-able and proper maps, the extension theorems [Sch25b, Thm 5.19], [HM24, Thm 3.4.11] give a six-functor formalism on small arc-stacks; open immersions are !-able with j_! left adjoint to j^* (Proposition 9.4); étale maps (finitary with finite geometric fibres) are !-able and cohomologically étale (Proposition 9.5); smooth K-analytic spaces without boundary are cohomologically smooth (Corollary 9.6); proper 0-truncated maps of locally finite cohomological dimension satisfy the projection formula (Corollary 10.2).",
       "locator": "§1, p. 6; §9, Propositions 9.4, 9.5, Corollary 9.6, pp. 52; §10, Corollary 10.2, pp. 53–54",
       "status": "missing",
-      "note": "The abstract extension theorems of Scholze's Six-Functor Formalisms notes and Heyer–Mann are prerequisites; the atlas has six operations only for diamonds (DiamondSixOperations) and étale sheaves."
+      "note": "The abstract machinery is planned by the proposed AnalyticStacks roadmap, AS.0: Mann's construction principle, the extension to stacks (Scholze, Six-Functor Formalisms, Theorem 5.19 = Heyer–Mann Theorem 3.4.11), and cohomologically smooth, proper and étale maps; import it (RT-PAPER-SCHOLZE-26/2). AnalyticStacks excludes the motivic Lectures XI–XII, so the application to small arc-stacks (Propositions 9.4, 9.5, Corollaries 9.6, 10.2) stays missing here. Beyond this, the atlas has six operations for diamonds (DiamondSixOperations) and étale sheaves."
     },
     {
       "id": "PAPER-SCHOLZE-26/43",
@@ -423,7 +423,7 @@
       "statement": "For an algebraically closed Banach field C, D_mot(C) is compactly generated with compact unit and compact = dualizable objects, hence rigid; in equal characteristic with a splitting k → C of the residue field, it is generated by ℤ_mot[X_C](−j) for X smooth projective over k and j ≥ 0 (motives of smooth projective varieties with good reduction).",
       "locator": "§1, Theorem 1.12, p. 6; §10, Proposition 10.1, p. 53",
       "status": "missing",
-      "note": "Proof by induction on topological transcendence degree through points of types (2)–(4), with de Jong's alterations; cf. the coalesced Part II's 'good-reduction-generated rigid motives'."
+      "note": "Proof by induction on topological transcendence degree through points of types (2)–(4); 'using alterations' (p. 53) is de Jong's theorem, item 61, planned at AdicCoefficientsAndComparisons L5 (RT-PAPER-SCHOLZE-26/6). Generation of rigid-analytic motives by good reduction is prior work in Ayoub's and Vezzani's setting, not a planned layer (RT-PAPER-SCHOLZE-26/1)."
     },
     {
       "id": "PAPER-SCHOLZE-26/45",
@@ -446,11 +446,11 @@
     {
       "id": "PAPER-SCHOLZE-26/47",
       "kind": "theorem",
-      "name": "∞-categorical inputs: dualizable, compactly assembled and rigid categories",
-      "statement": "Presentable stable ∞-categories that are compactly assembled (colim : Ind(C) → C has a left adjoint; Ramzi [Ram24a, Thm 2.39]) are exactly the dualizable ones; rigid symmetric monoidal categories (Gaitsgory–Rozenblyum [GR17, I.9.1.2]) and their characterisation by generation along trace-class maps (Ramzi [Ram24b]); relative tensor products of rigid categories are rigid; adjoining a ⊗-inverse of a symmetric object (Robalo); symmetric monoidal Verdier quotients by ⊗-ideals (Nikolaus–Scholze [NS18, Thm I.3.6]); Barr–Beck–Lurie; descendable algebras (Mathew [Mat16, Def. 3.18]).",
-      "locator": "§2, Definition 2.7, Remark 2.8; §§5, 9–11 (cited)",
+      "name": "∞-categorical inputs: Robalo's inversion, symmetric monoidal Verdier quotients, Barr–Beck–Lurie and descendable algebras",
+      "statement": "Adjoining a ⊗-inverse of a symmetric object (Robalo [Rob15]); symmetric monoidal Verdier quotients by ⊗-ideals (Nikolaus–Scholze [NS18, Thm I.3.6]); the Barr–Beck–Lurie theorem; descendable algebras (Mathew [Mat16, Def. 3.18]).",
+      "locator": "§§5, 9–11 (cited)",
       "status": "missing",
-      "note": "EnhancedDerivedSheaves E5:presentability plans Ind-completion, compact objects and extension of exact functors for the shared enhancement; dualizable and rigid presentable categories belong there."
+      "note": "Split by FIX-RT-PAPER-SCHOLZE-26 (RT-PAPER-SCHOLZE-26/5). None of the six nodes of EnhancedDerivedSheaves E5:presentability (compact objects, Ind-completion and its universal property, stability of Ind, presentable categories, coherent group actions) states these, so route 6 requests precise nodes for them at E5:abstract and E5:presentability rather than relying on the layer titles. The dualizable, compactly assembled and rigid theory is item 60."
     },
     {
       "id": "PAPER-SCHOLZE-26/48",
@@ -459,7 +459,7 @@
       "statement": "For an algebraically closed discrete field k, D_mot(k) is generated by the compact dualizable ℤ_mot[X](−j), X smooth projective, j ∈ ℤ; Hom(ℤ_mot[X](−j), ℤ) is rationally the weight-j Adams piece of K(X) and, profinitely (prime to p), pro-étale cohomology with Ẑ_{p′}(j). Hence the comparison functor from Voevodsky's étale motives (étale descent, 𝔸¹-invariance, G_m-stability) is an equivalence (Remark 11.2).",
       "locator": "§1, Proposition 1.13, p. 7; §11, Theorem 11.1, Remark 11.2, pp. 57–58",
       "status": "missing",
-      "note": "Proof through K = k((T))_{1/2}: f_♯ exists and f_♯ℤ = (f_*ℤ)^∨ splits off ℤ; K(X_C)_ℚ via excision on regular schemes."
+      "note": "Proof through K = k((T))_{1/2}: f_♯ exists and f_♯ℤ = (f_*ℤ)^∨ splits off ℤ; K(X_C)_ℚ via excision on regular schemes. The comparison target DM_ét(k, ℤ) is item 49, owned by route 1 (RT-PAPER-SCHOLZE-26/3); MC.4 and M.5a are only partial inputs. The generation statement depends on de Jong's alterations through Proposition 10.1 (item 61, RT-PAPER-SCHOLZE-26/6)."
     },
     {
       "id": "PAPER-SCHOLZE-26/49",
@@ -467,12 +467,8 @@
       "name": "Voevodsky's category of étale motives over a field",
       "statement": "The presentable stable ∞-category of étale motives over a field k: generated by smooth k-schemes, subject to étale descent, 𝔸¹-invariance and G_m-stability, with cancellation and rational Hom groups governed by K-theory.",
       "locator": "§1, pp. 1–2, 7; §11, Remark 11.2, p. 57 (cited)",
-      "status": "planned",
-      "planned": [
-        "MotivesAndAlgebraicCycles:MC.4",
-        "MotivicEtaleKTheory:M.5a"
-      ],
-      "note": "MotivesAndAlgebraicCycles MC.4 plans geometric mixed motives with A¹-invariance and Tate stabilisation, and MotivicEtaleKTheory M.5a finite correspondences, effective motivic complexes and cancellation."
+      "status": "missing",
+      "note": "Changed by FIX-RT-PAPER-SCHOLZE-26 (RT-PAPER-SCHOLZE-26/3): missing. MotivesAndAlgebraicCycles MC.4 plans Voevodsky's Nisnevich DM, which its accepted packet builds as the triangulated DM^eff,-_Nis(k, R) with transfers, and MotivicEtaleKTheory M.5a plans Nisnevich sheaves with transfers and cancellation. Neither plans étale descent, the presentable stable ∞-category of Remark 11.2 or the comparison with transfers, so they are partial inputs only. Route 1 owns this category as a layer of the continuation. Keep Proposition 1.13's field and coefficient hypotheses; an extension to general fields must keep the paper's descent versus hyperdescent qualification."
     },
     {
       "id": "PAPER-SCHOLZE-26/50",
@@ -481,7 +477,7 @@
       "statement": "For C the completed algebraic closure of k((T))_{1/2} and f : M_arc(C) → M_arc(k), D_mot(C) = Mod_{f_*ℤ}(D_mot(k)); a pseudouniformiser π with compatible roots π^{1/n} (n prime to p) gives f_*ℤ ≅ g_*ℤ → ℤ (g : G̃_m,k → M_arc(k), G̃_m = lim G_m), and Ψ = Ψ(π^{1/n}) : D_mot(C) → D_mot(k) is base change along it (Definition 11.3); f_*ℤ → ℤ is descendable, so Ψ is conservative ('neutral Tannakian', Proposition 11.4).",
       "locator": "§1, Theorem 1.14, p. 7; §11, Definition 11.3, Proposition 11.4, pp. 58–59",
       "status": "missing",
-      "note": "The coalesced Part II carries 'Chosen augmentation and motivic nearby cycles' for RigDA (Binda–Kato–Vezzani, BGV)."
+      "note": "Motivic nearby cycles for rigid-analytic motives are due to Ayoub and to Binda–Gallauer–Vezzani, prior work in the literature; the atlas plans no RigDA version (RT-PAPER-SCHOLZE-26/1). This item is the atlas's nearby-cycles statement."
     },
     {
       "id": "PAPER-SCHOLZE-26/51",
@@ -499,7 +495,7 @@
       "statement": "The gerbe MG_C → MG_k banded by Hom(ℚ, L) gives D_qc(MG_C) ≅ D_MT(C) and D_mot(C) ≅ D_mot(k) ⊗_{D_qc(MG_k)} D_qc(MG_C) (Theorem 11.9); a choice of π^{1/n} makes Ψ a symmetric monoidal equivalence D_mot(C) ≅ {(A, N) : A ∈ D_mot(k), N : A → A ⊗ ℚ(−1) locally nilpotent}, and rationally the choice of π suffices (Corollary 11.10).",
       "locator": "§1, Theorem 1.14, p. 7; §11, Theorem 11.9, Corollary 11.10, pp. 61–62",
       "status": "missing",
-      "note": "Previously proved rationally by Binda–Gallauer–Vezzani [BGV23]; the coalesced Part II imports BGV for its log-free comparison."
+      "note": "Previously proved rationally by Binda–Gallauer–Vezzani [BGV23] for rigid-analytic motives; that is prior literature, not a planned layer (RT-PAPER-SCHOLZE-26/1)."
     },
     {
       "id": "PAPER-SCHOLZE-26/53",
@@ -527,14 +523,93 @@
       "locator": "§1, Proposition 1.5, p. 4",
       "status": "missing",
       "note": "Assembled from Theorem 4.14, Proposition 5.9, Corollary 6.6, Theorem 6.7 and Proposition 6.8."
+    },
+    {
+      "id": "PAPER-SCHOLZE-26/56",
+      "kind": "theorem",
+      "name": "Cisinski: cdh descent for homotopy K-theory",
+      "statement": "Weibel's homotopy K-theory KH satisfies cdh descent (Cisinski [Cis13]) on the noetherian schemes of finite dimension to which §8 reduces by noetherian approximation.",
+      "locator": "§8, p. 49 ('We can either cite directly Cisinski's cdh-descent for KH, [Cis13]')",
+      "status": "missing",
+      "note": "Added by FIX-RT-PAPER-SCHOLZE-26 (RT-PAPER-SCHOLZE-26/4). PAPER-LAND-MATHEW-MEIER-ETAL-24 assigns cdh descent for KH to its GeneralAlgebraicKTheory Part II (the note of its item 93), so this item joins that Part II (route 7) for one owner. That extraction's item 90 is about K(1)-local K-theory, not KH, so the general KH statement is made explicit here. The paper's cdh and pro-cdh arguments (p. 49) are alternatives: this item and item 57 are not both needed for the same proof."
+    },
+    {
+      "id": "PAPER-SCHOLZE-26/57",
+      "kind": "theorem",
+      "name": "Pro-cdh descent for algebraic K-theory",
+      "statement": "Algebraic K-theory satisfies pro-cdh descent for abstract blow-up squares of noetherian schemes: Morrow [Mor16, Theorem 3.7] in equal characteristic 0, which is the case §8 needs, and Kerz–Strunk–Tamme [KST18, Theorem A] in general; §8 applies it to the pro-spectrum {cofib(K(A_{<r}) → K(A))}_r after noetherian approximation, and then makes things ball-invariant.",
+      "locator": "§8, p. 49 ('it follows from pro-cdh descent [Mor16, Theorem 3.7] … and [KST18, Theorem A] … upon making things ball-invariant')",
+      "status": "missing",
+      "note": "Added by FIX-RT-PAPER-SCHOLZE-26 (RT-PAPER-SCHOLZE-26/4). No stage plans pro-cdh descent; requested from the SchemeKTheoryOperations Part II (route 8). It is the alternative to item 56 that the paper prefers, since it is independent of the existing motivic formalism."
+    },
+    {
+      "id": "PAPER-SCHOLZE-26/58",
+      "kind": "theorem",
+      "name": "𝔸¹-invariance of K-theory over valuation rings",
+      "statement": "For a valuation ring V, not necessarily noetherian (for example O_C), algebraic K-theory is 𝔸¹-invariant: K(V) → K(V[T]) is an equivalence, and more generally for the valuation rings K, O_K and residue fields k that §8 uses, K-theory agrees with nonconnective K-theory and is 𝔸¹-invariant.",
+      "locator": "§8, pp. 47 and 49 ('usual 𝔸¹-invariance for K-theory (over valuation rings)')",
+      "status": "missing",
+      "note": "Added by FIX-RT-PAPER-SCHOLZE-26 (RT-PAPER-SCHOLZE-26/4). SchemeKTheoryOperations S.5 plans homotopy invariance only for regular noetherian schemes, and O_C is not noetherian; requested from the SchemeKTheoryOperations Part II (route 8)."
+    },
+    {
+      "id": "PAPER-SCHOLZE-26/59",
+      "kind": "theorem",
+      "name": "Gabber–Suslin rigidity",
+      "statement": "For an extension of algebraically closed fields k ⊂ K and n invertible in k, K(k; ℤ/n) → K(K; ℤ/n) is an equivalence (Gabber–Suslin rigidity); §8 uses it for invariance under change of algebraically closed field with torsion coefficients.",
+      "locator": "§8, proof of Theorem 8.9, p. 48",
+      "status": "missing",
+      "note": "Added by FIX-RT-PAPER-SCHOLZE-26 (RT-PAPER-SCHOLZE-26/4). No stage plans it; requested from the SchemeKTheoryOperations Part II (route 8)."
+    },
+    {
+      "id": "PAPER-SCHOLZE-26/60",
+      "kind": "theorem",
+      "name": "Dualizable, compactly assembled and rigid presentable categories",
+      "statement": "A presentable stable ∞-category C is compactly assembled (colim : Ind(C) → C has a left adjoint) if and only if it is dualizable (Ramzi [Ram24a, Thm 2.39]). Compact objects of a filtered colimit of dualizable categories along compact functors are the colimit of the compact objects (Efimov [Efi24, Prop. 1.72]). Locally rigid and rigid symmetric monoidal categories (Gaitsgory–Rozenblyum [GR17, I.9.1.2]) are characterised by generation along trace-class maps (Ramzi [Ram24b, Cor. 4.57]), and relative tensor products of rigid categories are rigid. These are needed without compact generation: D_mot is usually not compactly generated, but compactly assembled (p. 63).",
+      "locator": "§2, Definition 2.7, Remark 2.8; §10, Proposition 10.3 and its proof, pp. 54–55; p. 63",
+      "status": "missing",
+      "note": "Added by FIX-RT-PAPER-SCHOLZE-26 (RT-PAPER-SCHOLZE-26/5), split from item 47. E5:presentability's text works 'under the appropriate compact-generation hypotheses', and its packet has no node on dualizable or compactly assembled categories. Route 6 requests this theory from E5, with the compact-generation restriction dropped for it; RefinedTraceMethods RT.5 (item 38) and route 1 import it. RT.5's compact and dualizable objects are not by themselves the dualizability of presentable categories."
+    },
+    {
+      "id": "PAPER-SCHOLZE-26/61",
+      "kind": "theorem",
+      "name": "de Jong's alterations",
+      "statement": "For an integral variety X over an algebraically closed field there is an alteration X′ → X (proper, dominant and generically finite) with X′ smooth and admitting an open immersion into a smooth projective variety whose boundary is a strict normal crossings divisor (de Jong, Smoothness, semi-stability and alterations, Theorem 4.1). This is an alteration, not a resolution of singularities.",
+      "locator": "§10, proof of Proposition 10.1, p. 53 ('Using alterations, we can arrange …'); through it Theorem 1.12 and Theorem 11.1",
+      "status": "planned",
+      "planned": [
+        "AdicCoefficientsAndComparisons:L5"
+      ],
+      "note": "Added by FIX-RT-PAPER-SCHOLZE-26 (RT-PAPER-SCHOLZE-26/6). AdicCoefficientsAndComparisons L5 plans de Jong's Theorems 4.1 and 6.5. Used in items 44 and 48."
+    },
+    {
+      "id": "PAPER-SCHOLZE-26/62",
+      "kind": "theorem",
+      "name": "Compactifying a shrunken affinoid curve by discs (van der Put)",
+      "statement": "Let C be a non-discrete algebraically closed nonarchimedean field, U a smooth connected curve over C and x, x′ ∈ U(C). After shrinking U, still containing x and x′, U has a smooth projective compactification X with X ∖ U a finite union of closed discs. The input is van der Put's Corollary 1.3, which concerns a normal connected one-dimensional affinoid and its reduction; it does not assert such a compactification for every smooth curve without shrinking.",
+      "locator": "§6, proof of Lemma 6.4, p. 37, citing [vdP80, Corollary 1.3]",
+      "status": "missing",
+      "note": "Added by FIX-RT-PAPER-SCHOLZE-26 (RT-PAPER-SCHOLZE-26/6). The bridge from van der Put's affinoid statement to the compactification Lemma 6.4 uses; routed with route 1."
+    },
+    {
+      "id": "PAPER-SCHOLZE-26/63",
+      "kind": "theorem",
+      "name": "The generalised Jacobian with marked points is semiabelian and p-divisible",
+      "statement": "Let X be a smooth projective curve over an algebraically closed field and z_1, …, z_r ∈ X points. The moduli space of degree-0 line bundles on X with trivialisations at all z_i is a semiabelian variety (an extension of Jac(X) by a torus); in particular multiplication by p is surjective on it. Lemma 6.4 uses this to divide O([x] − [x′]) by p compatibly with the trivialisations.",
+      "locator": "§6, proof of Lemma 6.4, p. 37",
+      "status": "missing",
+      "note": "Added by FIX-RT-PAPER-SCHOLZE-26 (RT-PAPER-SCHOLZE-26/6). JacobianChallenge owns smooth proper Jacobians, and NeronModelsAndSemistableAbelianVarieties R11.4 generalised Jacobians of semistable curves; neither plans the generalised Jacobian of a curve with marked points. Import both rather than duplicate them; routed with route 1."
+    },
+    {
+      "id": "PAPER-SCHOLZE-26/64",
+      "kind": "theorem",
+      "name": "Postnikov completeness of replete hypercomplete ∞-topoi (Mondal–Reinecke)",
+      "statement": "A replete hypercomplete ∞-topos is Postnikov complete (Mondal–Reinecke, Theorem A). The hypercomplete qualification is essential. Theorem 4.20 uses this for the arc-topos, which is replete, to pass from D⁺ to D.",
+      "locator": "§4, proof of Theorem 4.20, p. 24 ('We use that all hypercomplete arc-sheaves are Postnikov complete, as the arc-topos is replete, see [MR25]')",
+      "status": "missing",
+      "note": "Added by FIX-RT-PAPER-SCHOLZE-26 (RT-PAPER-SCHOLZE-26/6). EnhancedDerivedSheaves E2 owns repleteness and derived Postnikov convergence (nodes E2/replete-topoi, E2/replete-postnikov-unit, E2/postnikov-left-completion); this ∞-topos statement is requested there (route 9), importing those nodes. The repleteness of the arc-site itself is proved in route 1. Used in item 15."
     }
   ],
   "prerequisites": [
-    {
-      "citation": "P. Scholze, Six-Functor Formalisms, arXiv:2510.26269; C. Heyer, L. Mann, 6-Functor Formalisms and Smooth Representations, arXiv:2410.13038",
-      "link": "https://arxiv.org/abs/2510.26269",
-      "why": "Theorem 5.19 and Theorem 3.4.11: extending six-functor formalisms from affine arc-sheaves (§9)."
-    },
     {
       "citation": "P. Scholze, Étale cohomology of diamonds, arXiv:1709.07343 (to appear in Astérisque)",
       "link": "https://arxiv.org/abs/1709.07343",
@@ -586,9 +661,14 @@
       "why": "cdh and pro-cdh descent in Theorem 8.13."
     },
     {
-      "citation": "B. Bhatt, A. Mathew, The arc-topology, Duke Math. J. 170 (2021), 1899–1988",
-      "link": "10.1215/00127094-2020-0088",
-      "why": "The scheme arc-topology the Berkovich arc-topology is modelled on (extracted as PAPER-BHATT-MATHEW-21)."
+      "citation": "M. van der Put, The class group of a one-dimensional affinoid space, Ann. Inst. Fourier (Grenoble) 30 (1980), no. 4, 155–164",
+      "link": "https://doi.org/10.5802/aif.812",
+      "why": "Corollary 1.3, the input of Lemma 6.4's compactification by discs after shrinking (item 62)."
+    },
+    {
+      "citation": "S. Mondal and E. Reinecke, On Postnikov completeness for replete topoi, Homology Homotopy Appl. 27 (2025), no. 1, 179–196; arXiv:2210.14146",
+      "link": "https://doi.org/10.4310/HHA.2025.v27.n1.a10",
+      "why": "Theorem A, Postnikov completeness of replete hypercomplete ∞-topoi, used in Theorem 4.20 (item 64)."
     }
   ],
   "routes": [
@@ -596,7 +676,7 @@
       "route": "part-ii",
       "parent": "MotivesAndAlgebraicCycles",
       "roadmap": "MotivesRigidAnalyticPartII",
-      "title": "Algebraic cycles, pure and mixed motives, Part II: rigid analytic and logarithmic motives",
+      "title": "Algebraic cycles, pure and mixed motives, Part II: rigid analytic motives",
       "area": "motives",
       "items": [
         "PAPER-SCHOLZE-26/2",
@@ -640,10 +720,13 @@
         "PAPER-SCHOLZE-26/52",
         "PAPER-SCHOLZE-26/53",
         "PAPER-SCHOLZE-26/54",
-        "PAPER-SCHOLZE-26/55"
+        "PAPER-SCHOLZE-26/55",
+        "PAPER-SCHOLZE-26/49",
+        "PAPER-SCHOLZE-26/62",
+        "PAPER-SCHOLZE-26/63"
       ],
-      "brief": "This route coalesces with MotivesRigidAnalyticPartII, proposed by PAPER-BINDA-KATO-VEZZANI-25; keep its id, title, parent, area and brief. Scholze's Berkovich motives (J. Amer. Math. Soc. 39 (2026)) give a second, self-contained construction of the rigid-analytic motives that Part II plans through Ayoub's RigDA, uniform in archimedean and nonarchimedean Banach rings, with integral (étale) coefficients, and reprove several of its planned endpoints in that setting: the motivic Fontaine–Wintenberger (tilting) equivalence (Propositions 6.8, 9.7), generation by motives with good reduction (Proposition 10.1) and motivic nearby cycles with monodromy (Theorem 1.14, after Binda–Gallauer–Vezzani).\n\nAdd, as a Berkovich branch reusing the Part II's formal layers: (1) the arc-topology on Banach rings, strictly totally disconnected rings, subcanonicity (§3) and finitary arc-sheaves with Theorem 4.1, proper base change and excision (§4) — the Banach-ring toolkit itself is routed to TropicalAndBerkovichArithmetic TB.0–TB.1; (2) effective motives D^eff_mot as finitary ball-invariant sheaves, L_B, the homotopy t-structure, free motivic sheaves and f_♯, Ḡ_m and ℤ(1) (§5); (3) presheaves with transfer, torsion comparison with étale sheaves, p-invertibility and tilting (§6); (4) the cancellation theorem over any base (§7); (5) the K-theory comparison 𝒦 ⊗ ℚ ≅ ⊕ ℚ(n)[2n] and the 1-unit cofibre descriptions (§8); (6) D_mot, the six-functor formalism on small arc-stacks and tilting (§9); (7) rigidity, mixed Tate motives and Künneth (§10); (8) D_mot(k) = Voevodsky's étale motives, the motivic Galois stacks MG_k, MG_C and nearby cycles Ψ (§11); (9) the comparison with v-stacks and overconvergent étale sheaves (§12). A comparison layer relating D_mot(X) to Ayoub's RigDA on smooth rigid spaces (not proved in the paper; Ayoub–Gallauer–Vezzani is the adic parallel) should be stated as a separate target.\n\nImport, never re-plan: TropicalAndBerkovichArithmetic TB.0–TB.1 (Berkovich spectra, the disc); MotivesAndAlgebraicCycles MC.4 and MotivicEtaleKTheory M.5a (Voevodsky's motives, transfers, algebraic cancellation); GeneralAlgebraicKTheory K.5, SchemeKTheoryOperations S.3, S.5, S.6 and RefinedTraceMethods RT.5 (Suslin excision, Thomason–Trobaugh, cdh descent, Adams operations, Efimov's K-theory of dualizable categories); KTheoryFiniteLocalFields L.1 (Quillen); EnhancedDerivedSheaves E5 (dualizable, compactly assembled and rigid categories); DiamondsAndVStacks, DiamondEtaleCohomology and DiamondSixOperations (v-stacks, D_et, canonical compactifications); the proposed ArcTopologyAndDescent (the scheme arc-topology) for comparison. Prerequisites: Scholze's Six-Functor Formalisms and Heyer–Mann (extension of six-functor formalisms), Efimov, Ramzi, Aoki. Tests: X = M_arc(ℂ) (Betti sheaves), torsion coefficients (étale sheaves), Ḡ_m and P¹ (Example 4.26), K(𝔽̄_p)_ℚ = ℚ, the pair (A, N) description over C.",
-      "reason": "The pending Part II owns rigid-analytic motives (Ayoub's RigDA, tilting, good-reduction generation, nearby cycles); Berkovich motives are an alternative foundation for the same objects and theorems, so a separate roadmap would duplicate its endpoints."
+      "brief": "Plan Berkovich motives as Scholze builds them (Berkovich motives, J. Amer. Math. Soc. 39 (2026), 697–764; arXiv 2412.03382v3): motivic sheaves on Banach rings, archimedean and nonarchimedean alike, and on small arc-stacks, with integral (étale) coefficients. Final theorems. Theorem 1.7: the universal ball-invariant arc-sheaf 𝒦 under connective K-theory is a finitary E_∞-ring with 𝒦 ⊗ ℚ ≅ ⊕_{n≥0} ℚ(n)[2n], split canonically by Adams operations; for C algebraically closed nonarchimedean of residue characteristic p, 𝒦(C) ≅ cofib(K(C_{<1}) → K(C))[1/p]. Theorem 1.9: for every small arc-stack X, − ⊗ ℤ(1) : D^eff_mot(X) → D^eff_mot(X) is fully faithful (cancellation over any base, not only over fields). Theorem 1.12: for an algebraically closed Banach field C, D_mot(C) is compactly generated with compact unit and compact = dualizable objects, hence rigid, and in equal characteristic with a splitting k → C it is generated by the ℤ_mot[X_C](−j) with X smooth projective over k and j ≥ 0; for A analytic of finite cohomological dimension, D_mot(M_arc(A)) is rigid. Proposition 1.13: for an algebraically closed discrete field k, D_mot(k) is equivalent to Voevodsky's category of étale motives DM_ét(k, ℤ), the presentable stable ∞-category generated by smooth k-schemes subject to étale descent, 𝔸¹-invariance and G_m-stability. Theorem 1.14: for C the completed algebraic closure of k((T)), a choice of compatible roots π^{1/n} (n prime to p) makes motivic nearby cycles a symmetric monoidal equivalence D_mot(C) ≅ {(A, N) : A ∈ D_mot(k), N : A → A ⊗ ℚ(−1) locally nilpotent}; rationally the choice of π suffices.\n\nCover, in order: (1) the arc-topology on Banach rings, strictly totally disconnected rings, subcanonicity (§3) and finitary arc-sheaves with Theorem 4.1, proper base change and excision (§4) — the Banach-ring toolkit itself is routed to TropicalAndBerkovichArithmetic TB.0–TB.1; (2) effective motives D^eff_mot as finitary ball-invariant sheaves, L_B, the homotopy t-structure, free motivic sheaves and f_♯, Ḡ_m and ℤ(1) (§5); (3) presheaves with transfer, torsion comparison with étale sheaves, p-invertibility and tilting (§6); (4) the cancellation theorem over any base (§7); (5) the K-theory comparison 𝒦 ⊗ ℚ ≅ ⊕ ℚ(n)[2n] and the 1-unit cofibre descriptions (§8); (6) D_mot, the six-functor formalism on small arc-stacks and tilting (§9); (7) rigidity, mixed Tate motives and Künneth (§10); (8) D_mot(k) = Voevodsky's étale motives, the motivic Galois stacks MG_k, MG_C and nearby cycles Ψ (§11); (9) the comparison with v-stacks and overconvergent étale sheaves (§12). Add a layer for DM_ét(k, ℤ) itself (item 49), the target of Proposition 1.13: étale descent, 𝔸¹-invariance and G_m-stability as in Remark 11.2, keeping the paper's field and coefficient hypotheses and, for any extension to general fields, its descent versus hyperdescent qualification; MotivesAndAlgebraicCycles MC.4 (Nisnevich DM, triangulated, with transfers) and MotivicEtaleKTheory M.5a (Nisnevich sheaves with transfers, cancellation) are partial inputs only. Add the inputs of Lemma 6.4 (items 62 and 63): van der Put's compactification after shrinking U around the two points, and the p-divisibility of the generalised Jacobian with trivialisations at marked boundary points. The repleteness of the arc-site is proved here and feeds the Postnikov completeness requested from EnhancedDerivedSheaves E2 (item 64).\n\nBinda–Kato–Vezzani's rigid-analytic and logarithmic proposal (PAPER-BINDA-KATO-VEZZANI-25, route 13) is under revision; when it is resubmitted it should coalesce into this roadmap and import from it the arc-topology, D_mot, tilting and nearby-cycles layers. No roadmap plans Ayoub's RigDA, so the comparison of D_mot(X) with RigDA on smooth rigid spaces, which the paper does not prove (Ayoub–Gallauer–Vezzani is the adic parallel), is recorded as a gap and not as a target.\n\nImport, never re-plan: TropicalAndBerkovichArithmetic TB.0–TB.1 (Berkovich spectra, the disc); six-functor formalisms and analytic stacks from the proposed AnalyticStacks AS.0 (Mann's construction principle, the extension theorem Scholze Theorem 5.19 = Heyer–Mann Theorem 3.4.11, cohomologically smooth, proper and étale maps) and AS.1 (sheaves on compact Hausdorff spaces and their six functors), whose non-goals exclude the motivic application; MotivesAndAlgebraicCycles MC.4 and MotivicEtaleKTheory M.5a as partial inputs to the DM_ét layer; GeneralAlgebraicKTheory K.5, SchemeKTheoryOperations S.3 and S.6 and RefinedTraceMethods RT.5 (Suslin excision, Thomason–Trobaugh, Adams operations, Efimov's K-theory of dualizable categories); cdh descent for KH from GeneralAlgebraicKTheoryPartIITelescopicLocalization (route 7); pro-cdh descent, 𝔸¹-invariance of K-theory over valuation rings and Gabber–Suslin rigidity from the SchemeKTheoryOperations Part II of route 8; KTheoryFiniteLocalFields L.1 (Quillen); EnhancedDerivedSheaves E5 (presentability, and the dualizable, compactly assembled and rigid theory requested by route 6) and E2 (repleteness and Postnikov completeness, route 9); AdicCoefficientsAndComparisons L5 (de Jong's alterations, item 61); DiamondsAndVStacks, DiamondEtaleCohomology and DiamondSixOperations (v-stacks, D_et, canonical compactifications); and ArcTopologyAndDescent (PAPER-BHATT-MATHEW-21, the scheme arc-topology), for comparison only: the scheme arc-site is not the Banach-ring arc-site. Prerequisites: Efimov, Ramzi, Aoki, van der Put, Mondal–Reinecke. Tests: X = M_arc(ℂ) (Betti sheaves), torsion coefficients (étale sheaves), Ḡ_m and P¹ (Example 4.26), K(𝔽̄_p)_ℚ = ℚ, the pair (A, N) description over C.",
+      "reason": "Nothing in the atlas plans motives of Banach rings or of rigid-analytic spaces. MotivesAndAlgebraicCycles plans algebraic motives (MC.4, Nisnevich DM). The only proposal for rigid-analytic motives, PAPER-BINDA-KATO-VEZZANI-25 route 13 (Ayoub's RigDA and logarithmic motives), was rejected by its review, whose verdict is revise, so the queue carries no route of it (RT-PAPER-SCHOLZE-26/1). Berkovich motives continue MotivesAndAlgebraicCycles in its own direction, from schemes to Banach rings and small arc-stacks. Ayoub's RigDA, Vezzani's motivic tilting and Binda–Gallauer–Vezzani's nearby cycles are prior work in the literature, not layers the atlas plans."
     },
     {
       "route": "source",
@@ -677,13 +760,12 @@
       "route": "source",
       "roadmap": "SchemeKTheoryOperations",
       "stages": [
-        "SchemeKTheoryOperations:S.3",
-        "SchemeKTheoryOperations:S.5"
+        "SchemeKTheoryOperations:S.3"
       ],
       "items": [
         "PAPER-SCHOLZE-26/37"
       ],
-      "reason": "S.3 (supports and localisation) and S.5 (homotopy invariance, homotopy K-theory for singular schemes) own the Thomason–Trobaugh completion invariance, cdh and pro-cdh descent for KH and K, and 𝔸¹-invariance over valuation rings that §8 uses."
+      "reason": "S.3 (supports and localisation) owns the Thomason–Trobaugh completion invariance of K-theory with supports that §8 uses. The other K-theory inputs once bundled in item 37 were split off (RT-PAPER-SCHOLZE-26/4): S.5 plans homotopy invariance only for regular noetherian schemes, and neither S.3 nor S.5 plans cdh or pro-cdh descent, 𝔸¹-invariance over non-noetherian valuation rings or Gabber–Suslin rigidity."
     },
     {
       "route": "source",
@@ -700,12 +782,51 @@
       "route": "source",
       "roadmap": "EnhancedDerivedSheaves",
       "stages": [
-        "EnhancedDerivedSheaves:E5:presentability"
+        "EnhancedDerivedSheaves:E5:presentability",
+        "EnhancedDerivedSheaves:E5:abstract"
       ],
       "items": [
-        "PAPER-SCHOLZE-26/47"
+        "PAPER-SCHOLZE-26/47",
+        "PAPER-SCHOLZE-26/60"
       ],
-      "reason": "E5:presentability plans Ind-completion, compact objects and colimit-preserving extensions for the shared enhancement; compactly assembled and dualizable presentable categories, rigidity, Robalo's inversion and symmetric monoidal Verdier quotients are the presentable-category statements the paper uses."
+      "reason": "E5:presentability plans Ind-completion, compact objects and colimit-preserving extensions under compact-generation hypotheses, and E5:abstract the monoidal stable baseline. The paper needs more (RT-PAPER-SCHOLZE-26/5): the theory of dualizable, compactly assembled and rigid presentable categories without compact generation (item 60), and Robalo's inversion, Nikolaus–Scholze Verdier quotients, Barr–Beck–Lurie and descendable algebras (item 47). None of E5:presentability's six packet nodes states them, so this route requests precise nodes from E5, which should drop its compact-generation restriction for item 60; RefinedTraceMethods RT.5 (item 38) and the Berkovich continuation import them."
+    },
+    {
+      "route": "part-ii",
+      "parent": "GeneralAlgebraicKTheory",
+      "roadmap": "GeneralAlgebraicKTheoryPartIITelescopicLocalization",
+      "title": "General algebraic K-theory, Part II: telescopic localizations and the purity theorem",
+      "area": "ktheory",
+      "items": [
+        "PAPER-SCHOLZE-26/56"
+      ],
+      "reason": "Cisinski's cdh descent for KH has one owner: PAPER-LAND-MATHEW-MEIER-ETAL-24 assigns it to this Part II (the note of its item 93), and SchemeKTheoryOperations S.5 does not plan it (RT-PAPER-SCHOLZE-26/4).",
+      "brief": "This route coalesces with GeneralAlgebraicKTheoryPartIITelescopicLocalization, proposed by PAPER-LAND-MATHEW-MEIER-ETAL-24; keep its id, title, parent, area and brief. It adds the general homotopy-K-theory input: Weibel's KH satisfies cdh descent on noetherian schemes of finite dimension (Cisinski, Ann. of Math. 177 (2013), 425–448). Land–Mathew–Meier–Tamme's item 90 is the K(1)-local statement for discrete rings, and their item 93's note records that cdh descent for KH is not planned in SchemeKTheoryOperations S.5; make the KH statement an explicit node here, distinct from the K(1)-local one. Consumer: the Berkovich continuation of MotivesAndAlgebraicCycles (Scholze, Berkovich motives, §8, p. 49), where it is one of two alternative inputs; the other, pro-cdh descent, is requested from the SchemeKTheoryOperations Part II."
+    },
+    {
+      "route": "part-ii",
+      "parent": "SchemeKTheoryOperations",
+      "roadmap": "SchemeKTheoryOperationsPartIIDescentAndRigidity",
+      "title": "K-theory of schemes, localisation and operations, Part II: pro-cdh descent, valuation rings and rigidity",
+      "area": "ktheory",
+      "items": [
+        "PAPER-SCHOLZE-26/57",
+        "PAPER-SCHOLZE-26/58",
+        "PAPER-SCHOLZE-26/59"
+      ],
+      "reason": "SchemeKTheoryOperations S.5 plans homotopy invariance only for regular noetherian schemes and defines KH only where used; no stage plans pro-cdh descent, 𝔸¹-invariance of K-theory over non-noetherian valuation rings or Gabber–Suslin rigidity (RT-PAPER-SCHOLZE-26/4). They extend the scheme K-theory roadmap in its own direction.",
+      "brief": "Extend SchemeKTheoryOperations with three K-theory theorems used by Scholze's Berkovich motives (§8, pp. 47–49), stated with the hypotheses the paper uses. (1) Pro-cdh descent: K-theory satisfies pro-cdh descent for abstract blow-up squares of noetherian schemes (Morrow, J. Inst. Math. Jussieu 15 (2016), Theorem 3.7, in equal characteristic 0; Kerz–Strunk–Tamme, Invent. Math. 211 (2018), Theorem A, in general), applied after noetherian approximation. (2) 𝔸¹-invariance of algebraic K-theory over valuation rings, not necessarily noetherian (O_C for C algebraically closed nonarchimedean), with the agreement of K-theory and nonconnective K-theory there. (3) Gabber–Suslin rigidity: for algebraically closed k ⊂ K and n invertible, K(k; ℤ/n) ≅ K(K; ℤ/n). Import SchemeKTheoryOperations S.3 and S.5 and GeneralAlgebraicKTheory. This joins the pending DESIGN-SchemeKTheoryOperationsPartII, which also carries PAPER-ZHANG-21's supported formal K-theory. Tests: K of O_C against K of its residue field; pro-cdh descent for the blow-up of a point in 𝔸²; K(𝔽̄_p; ℤ/ℓ) against K(𝔽̄_p(t)^alg; ℤ/ℓ)."
+    },
+    {
+      "route": "source",
+      "roadmap": "EnhancedDerivedSheaves",
+      "stages": [
+        "EnhancedDerivedSheaves:E2"
+      ],
+      "items": [
+        "PAPER-SCHOLZE-26/64"
+      ],
+      "reason": "E2 owns repleteness and derived Postnikov convergence (nodes E2/replete-topoi, E2/replete-postnikov-unit, E2/postnikov-left-completion). Mondal–Reinecke's Postnikov completeness of replete hypercomplete ∞-topoi is the ∞-topos extension of those nodes, requested here; the Berkovich continuation proves repleteness of its own arc-site (RT-PAPER-SCHOLZE-26/6)."
     }
   ],
   "sourceIssues": [
