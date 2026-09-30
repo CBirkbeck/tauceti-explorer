@@ -33602,7 +33602,8 @@
     "REV-PAPER-BROWNING-LEBOUDEC-SAWIN-23"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-BROWNING-LEBOUDEC-SAWIN-23.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4067"
   },
   {
    "id": "REV-RT-PAPER-BROWNING-LEBOUDEC-SAWIN-23",
@@ -38230,8 +38231,9 @@
     "REV-PAPER-SCHOLZE-26"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-SCHOLZE-26.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4256"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4256",
+   "finishedAt": "2026-09-30T13:53:17Z"
   },
   {
    "id": "REV-RT-PAPER-SCHOLZE-26",
@@ -40620,8 +40622,9 @@
     "REV-LINK-tauceti_TauCetiRoadmap_ClassFieldTheory"
    ],
    "prompt": "research/blueprint/prompts/RT-LINK-tauceti_TauCetiRoadmap_ClassFieldTheory.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4349"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4349",
+   "finishedAt": "2026-09-30T13:53:23Z"
   },
   {
    "id": "REV-RT-LINK-tauceti_TauCetiRoadmap_ClassFieldTheory",
