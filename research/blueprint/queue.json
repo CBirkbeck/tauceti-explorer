@@ -39119,7 +39119,8 @@
     "REV-PAPER-BREUIL-HELLMANN-SCHRAEN-19"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-BREUIL-HELLMANN-SCHRAEN-19.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4303"
   },
   {
    "id": "RT-PAPER-BHATT-MORROW-SCHOLZE-19",
@@ -40121,8 +40122,9 @@
     "REV-PAPER-KHARE-WINTENBERGER-09-II"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-KHARE-WINTENBERGER-09-II.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4601"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4601",
+   "finishedAt": "2026-09-30T05:22:17Z"
   },
   {
    "id": "RT-PAPER-SCHOLZE-12",
