@@ -38116,8 +38116,9 @@
     "REV-PAPER-HE-18"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-HE-18.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4254"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4254",
+   "finishedAt": "2026-09-30T11:34:26Z"
   },
   {
    "id": "REV-RT-PAPER-HE-18",
@@ -40773,8 +40774,9 @@
     "REV-LINK-tauceti_Completed_EffectiveBounds"
    ],
    "prompt": "research/blueprint/prompts/RT-LINK-tauceti_Completed_EffectiveBounds.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4357"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4357",
+   "finishedAt": "2026-09-30T11:34:31Z"
   },
   {
    "id": "REV-RT-LINK-tauceti_Completed_EffectiveBounds",
@@ -40899,7 +40901,8 @@
     "REV-LINK-tauceti_TauCetiRoadmap_AlgebraicCodingTheory"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-LINK-tauceti_TauCetiRoadmap_AlgebraicCodingTheory.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4360"
   },
   {
    "id": "RT-LINK-tauceti_TauCetiRoadmap_GrothendieckEulerForms",
@@ -40921,7 +40924,8 @@
     "REV-LINK-tauceti_TauCetiRoadmap_GrothendieckEulerForms"
    ],
    "prompt": "research/blueprint/prompts/RT-LINK-tauceti_TauCetiRoadmap_GrothendieckEulerForms.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4364"
   },
   {
    "id": "REV-RT-LINK-tauceti_TauCetiRoadmap_GrothendieckEulerForms",
@@ -41039,7 +41043,8 @@
     "REV-LINK-tauceti_TauCetiRoadmap_OneParameterSemigroups"
    ],
    "prompt": "research/blueprint/prompts/RT-LINK-tauceti_TauCetiRoadmap_OneParameterSemigroups.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4366"
   },
   {
    "id": "REV-RT-LINK-tauceti_TauCetiRoadmap_OneParameterSemigroups",
@@ -41278,8 +41283,9 @@
     "REV-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SchurWeyl"
    ],
    "prompt": "research/blueprint/prompts/RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SchurWeyl.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4374"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4374",
+   "finishedAt": "2026-09-30T11:34:35Z"
   },
   {
    "id": "REV-RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SchurWeyl",
