@@ -23476,12 +23476,12 @@
     "REV-RS-14"
    ],
    "prompt": "research/blueprint/prompts/BP-DirichletPadicLFunctions.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [
     "BP-LocallyAnalyticDistributions",
     "BP-PadicMeasuresIwasawaAlgebras"
    ],
-   "note": "released on GitHub issue #713"
+   "note": "claimed on GitHub issue #713"
   },
   {
    "id": "REV-DirichletPadicLFunctions",
@@ -33644,8 +33644,9 @@
     "REV-PAPER-DITTMANN-POP-23"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-DITTMANN-POP-23.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4069"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4069",
+   "finishedAt": "2026-09-30T12:25:45Z"
   },
   {
    "id": "REV-RT-PAPER-DITTMANN-POP-23",
@@ -35178,8 +35179,9 @@
     "REV-PAPER-KALETHA-16"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-KALETHA-16.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4126"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4126",
+   "finishedAt": "2026-09-30T12:25:51Z"
   },
   {
    "id": "REV-RT-PAPER-KALETHA-16",
@@ -41189,7 +41191,8 @@
     "REV-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_ClassicalGroups"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_ClassicalGroups.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4369"
   },
   {
    "id": "RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_LieGroups",
@@ -41238,7 +41241,8 @@
     "REV-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_LieGroups"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_LieGroups.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4371"
   },
   {
    "id": "RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_RootSystems",
@@ -43323,7 +43327,8 @@
     "REV-EllipticCurveModularity"
    ],
    "prompt": "research/blueprint/prompts/RT-BP-EllipticCurveModularity.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4435"
   },
   {
    "id": "REV-RT-BP-EllipticCurveModularity",
