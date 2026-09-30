@@ -2965,12 +2965,12 @@ Nine nodes, decomposed from GSWZ Section 4 read in full and from Garoufalidis-Za
 
 *application* — **The knot matrices, and the boundary between a formal series and a topological invariant**
 
-**Statement.** Three formal Nahm data reproduce the perturbative series of the three simplest hyperbolic knots: A = (1 1; 1 1) for the figure-eight knot, A = (2 1 1; 1 1 0; 1 0 1) for the knot 5_2, and A = (1 0 1; 0 1 2; 1 2 4) for the (-2,3,7) pretzel knot. More generally, from a triangulation with Neumann-Zagier matrices (A|B) such that B inverse times A is integral, one takes A_Nahm = I - B^{-1}A. What the theorems of this roadmap give for these data is membership of an explicit series in an explicit Habiro module. They do NOT give that the series is a topological invariant of the knot, that it is independent of the triangulation, that it computes a Chern-Simons quantity, or that the knot invariant is quantum modular; each of those is a separate theorem with its own source, and none is planned here.
+**Statement.** Record the three knot-derived matrices of GSWZ Remark 4.2 as formal Nahm data. Their identification with knot perturbative series is a QT.6 consumer theorem. A_{4_1} = (1 1; 1 1): the Nahm equations force z_1 = z_2 = z with z² − z + 1 = 0, so z = ζ_6, K = Q(√−3), δ = (2 − z)/z = −√−3 and ξ = 2[ζ_6], with Bloch–Wigner value approximately 2.0298832128; its comparison with vol(4_1) belongs to QT.5. A_{5_2} = (2 1 1; 1 1 0; 1 0 1): the solution field is the cubic field of discriminant −23 (with u = 1 − z_1, u³ − u² + 2u − 1 = 0). A_{(−2,3,7)} = (1 0 1; 0 1 2; 1 2 4): the solution scheme has a component over the same cubic field (v³ − v + 1 = 0) and one over Q(2cos(2π/7)) (v³ − 2v² − v + 1 = 0, discriminant 49). From an ideal triangulation with Neumann–Zagier matrices (A|B) and B^{-1}A integral, A_Nahm = I − B^{-1}A. For these data the theorems of this roadmap give membership of an explicit series in an explicit Habiro module. They do NOT give that the series is a topological invariant, that it is independent of the triangulation, that it computes a Chern–Simons quantity, or that the knot invariant is quantum modular. QT.5 supplies the underlying ideal triangulations and gluing equations and owns manifold volume. QT.6 owns the full Neumann-Zagier datum, the knot-series comparison and its independence of the triangulation and auxiliary choices, including the state-integral identification; QT.7 owns quantum modularity. QT.6 and QT.7 consume this roadmap and are not prerequisites of HB.10.
 
 **Hypotheses and conventions.**
 
 - The three matrices are those recorded by the source; the general recipe requires the integrality of B inverse times A, which may fail for a given triangulation.
-- The corresponding solutions of the Nahm equations come from solutions of the gluing equations of the triangulation, which is where the geometry enters.
+- HB.3 supplies a chosen non-degenerate solution of the formal Nahm equations. Relating it to a gluing-equation solution and identifying the resulting series with the topological series are QT.6 obligations; the matrix recipe here does not prove them.
 - The boundary statement is the one the layer's own text insists on and is recorded as a node so that no later work can elide it.
 
 **Proof outline.**
@@ -2978,7 +2978,7 @@ Nine nodes, decomposed from GSWZ Section 4 read in full and from Garoufalidis-Za
 1. Record the three matrices and check that each is symmetric and integral.
 2. Record the recipe from a Neumann-Zagier datum, with its integrality condition.
 3. Apply the membership theorem to obtain the module statement for each of the three.
-4. State explicitly the four assertions that are NOT obtained, and for each name the kind of theorem that would be needed: invariance under the Pachner moves for triangulation independence, a comparison with the state integral for the Chern-Simons identification, and a quantum-modularity theorem for the asymptotic statement.
+4. Keep the four additional assertions with their owners: QT.6 proves knot-series identification and invariance under changes of triangulation and auxiliary choices, and handles the state-integral/Chern-Simons comparison with its own hypotheses; QT.7 proves any quantum-modularity statement.
 5. Record that ArithmeticQuantumTopology is the consumer of these series and must prove those statements itself.
 
 **Acceptance.**
@@ -2986,8 +2986,9 @@ Nine nodes, decomposed from GSWZ Section 4 read in full and from Garoufalidis-Za
 - The figure-eight matrix is not positive definite, so it is a formal and not an analytic datum; the corresponding solution comes from the geometry and not from the cube.
 - The integrality condition on the Neumann-Zagier datum can fail, in which case the recipe gives nothing and a different quad type must be chosen.
 - Membership in a Habiro module is compatible with the series being a topological invariant and does not prove it; the two statements have different content.
+- The singular figure-eight matrix has the nonzero kernel vector (1,-1). HB.4/radial-asymptotic-expansion cannot be applied to it; HB.8 formal Gaussian data use the non-degenerate Hessian at the chosen solution instead.
 
-**Prerequisites.** `HabiroNahmSeries:HB.9/module-membership`, `HabiroNahmSeries:HB.3/general-nondegenerate-class`, `ArithmeticQuantumTopology:QT.5`, `ArithmeticQuantumTopology:QT.7`
+**Prerequisites.** `HabiroNahmSeries:HB.9/module-membership`, `HabiroNahmSeries:HB.3/general-nondegenerate-class`, `ArithmeticQuantumTopology:QT.5`
 
 **Sources.**
 
@@ -3064,7 +3065,7 @@ Nine nodes, decomposed from GSWZ Section 4 read in full and from Garoufalidis-Za
 
 *application* — **What this roadmap exports, and what does not follow from it**
 
-**Statement.** The objects this roadmap produces and exports are: the coefficient rings S, S^{(m)} and their specialisations; the collections attached to a formal Nahm datum and a non-degenerate solution, with their descendants; the Frobenius congruence; the Bloch class and its order; and the explicit identities checked in the examples. They are consumed by HabiroRings HR.6, which is the coefficient and cohomology interface, and by HabiroCohomologyFoundations HQ.5 to HQ.8. What does NOT follow, and must be proved by its owner with its own foundations, is: the q-Hodge complex, the crystalline, A-inf and prismatic comparisons, and any Fargues-Fontaine geometry; and in particular membership of a series in a K-three-indexed Habiro module does not by itself produce a cohomology class on an arbitrary scheme.
+**Statement.** This roadmap exports: the coefficient rings S and S^{(m)}[z^{1/m}] with their Frobenius lifts (HB.9/frobenius-on-the-coefficient-ring) and the t = 1 specialisation (HB.9/specialisation-at-one); the collections f_A(t, q), f_{A,z} and the descendants; Theorem 4 (HB.9/frobenius-congruence); the potential identity (HB.9/potential-and-the-p-adic-dilogarithm); the Bloch class and its torsion order; and the identities of the examples. The consumers are HabiroRings HR.5–HR.6 (the relative Habiro ring of the étale map Z[t][1/2] → S[1/2] and the coefficient interface), HabiroCohomologyFoundations HQ.5–HQ.8 and ArithmeticQuantumTopology QT.6. They cite this packet's node ids; this packet does not depend on them. No comparison map is constructed here. GSWZ §1.9 describes the Habiro ring of Z[t] → S and a relative-Bloch-graded module containing f_A(t, q) as future work, so the comparison with HR.5 is a gap. What does NOT follow, and must be proved by its owner: the q-Hodge complex; the crystalline, A_inf and prismatic comparisons; Fargues–Fontaine geometry; and, in particular, a cohomology class on an arbitrary scheme from membership in a K_3-indexed Habiro module. QT.6 specifically imports HB.4/euler-maclaurin-with-remainder, HB.4/formal-gaussian-integration and HB.4/radial-asymptotic-expansion, and HB.8/fgi-collection and HB.8/identification-theorem, followed by HB.9/module-membership. The radial theorem is restricted to positive-definite analytic Nahm data and its root-order hypotheses; the formal HB.8 route instead requires a non-degenerate chosen solution and permits matrices that are not positive definite. QT.6 keeps the Neumann-Zagier construction, Dimofte-Garoufalidis series, topological invariance, contours, Faddeev quantum dilogarithm and state-integral 2-3 move; none is a consequence of membership alone.
 
 **Hypotheses and conventions.**
 
@@ -3084,8 +3085,9 @@ Nine nodes, decomposed from GSWZ Section 4 read in full and from Garoufalidis-Za
 - The coefficient ring S is exported and is used by the relative Habiro ring of HabiroRings HR.5.
 - The Frobenius congruence is exported as the arithmetic gluing statement that the modules of HB.7 are defined by.
 - A statement of the form the Nahm series gives a class in q-de Rham cohomology is not a consequence of anything in this packet.
+- A QT.6 application names the exact HB.4 or HB.8 input and verifies its hypotheses; no QT.6 or QT.7 theorem is required to construct the exported formal data.
 
-**Prerequisites.** `HabiroNahmSeries:HB.9/module-membership`, `HabiroNahmSeries:HB.9/descendants-by-specialisation`, `HabiroNahmSeries:HB.8/t-deformed-nahm-equations`, `HabiroRings:HR.6`, `HabiroCohomologyFoundations:HQ.5`, `HabiroCohomologyFoundations:HQ.8`
+**Prerequisites.** `HabiroNahmSeries:HB.9/module-membership`, `HabiroNahmSeries:HB.9/descendants-by-specialisation`, `HabiroNahmSeries:HB.9/frobenius-on-the-coefficient-ring`, `HabiroNahmSeries:HB.9/specialisation-at-one`, `HabiroNahmSeries:HB.8/t-deformed-nahm-equations`, `HabiroNahmSeries:HB.4/euler-maclaurin-with-remainder`, `HabiroNahmSeries:HB.4/formal-gaussian-integration`, `HabiroNahmSeries:HB.4/radial-asymptotic-expansion`, `HabiroNahmSeries:HB.8/fgi-collection`, `HabiroNahmSeries:HB.8/identification-theorem`
 
 **Sources.**
 
@@ -3155,8 +3157,17 @@ Nine nodes, decomposed from GSWZ Section 4 read in full and from Garoufalidis-Za
 | `QSeriesPartitionsAndMockModularForms:QM.0` | Formal q-series and partitions: coefficientwise finiteness of infinite products in formal power series rings, which is the existence half of HB.8's product expansion. |
 | `QSeriesPartitionsAndMockModularForms:QM.1` | Theta and eta functions and their transformation behaviour, used in HB.4's Andrews-Gordon acceptance case to see that the product is modular up to a power of q. |
 | `QSeriesPartitionsAndMockModularForms:QM.2` | Partition asymptotics and exact formulas, the classical setting of the coefficient asymptotics that HB.4's final node relates to the radial asymptotics. |
-| `ArithmeticQuantumTopology:QT.5` | Ideal triangulations, gluing equations, combinatorial flattenings and the extended Bloch element of a hyperbolic three-manifold, which is where the Neumann-Zagier data of HB.10's knot node come from. |
-| `ArithmeticQuantumTopology:QT.7` | The quantum-modularity and example ledger that separates proved statements from conjectural ones. HB.10 records that membership of a series in a Habiro module proves neither topological invariance nor quantum modularity, and QT.7 is the owner of those statements. |
+| `ArithmeticQuantumTopology:QT.5` | Ideal triangulations and gluing equations give geometric context for HB.10's formal matrix examples. QT.6 constructs the full Neumann-Zagier datum and owns the topological interpretation of the conditional matrix recipe. |
+
+**Exports to knot theory.** ArithmeticQuantumTopology QT.6 imports HB.4's
+Euler-Maclaurin remainder theorem, formal Gaussian integration and corrected radial
+asymptotic theorem, and HB.8's formal Gaussian collection and algebraic identification.
+HB.4's analytic theorem requires positive-definite Nahm data and its stated root-order
+and branch hypotheses. HB.8 applies to general symmetric integral matrices at a chosen
+non-degenerate solution. QT.6 then imports HB.9's module-membership theorem with all
+its coefficient-ring and excluded-prime restrictions. QT.6 owns the knot interpretation,
+topological invariance and analytic state-integral comparisons; QT.7 owns quantum
+modularity. These consumers are not prerequisites of HB.10.
 
 ## Gaps
 
