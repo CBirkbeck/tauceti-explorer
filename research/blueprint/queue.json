@@ -19520,8 +19520,9 @@
     "REV-RS-09"
    ],
    "prompt": "research/blueprint/prompts/RS-09~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4968"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4968",
+   "finishedAt": "2026-09-30T15:48:27Z"
   },
   {
    "id": "REV-RS-09~2",
@@ -35530,8 +35531,9 @@
     "REV-PAPER-YUN-ZHANG-17"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-YUN-ZHANG-17.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4115"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4115",
+   "finishedAt": "2026-09-30T15:48:33Z"
   },
   {
    "id": "RT-PAPER-BAKKER-TSIMERMAN-16",
@@ -41166,7 +41168,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-CESNAVICIUS-21.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #5020"
   },
   {
    "id": "RT-PAPER-LAND-MATHEW-MEIER-ETAL-24",
@@ -43276,7 +43279,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-LINK-tauceti_TauCetiRoadmap_GrothendieckEulerForms.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #5036"
   },
   {
    "id": "RT-LINK-tauceti_TauCetiRoadmap_Multiquadratic",
@@ -43416,7 +43420,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-LINK-tauceti_TauCetiRoadmap_OneParameterSemigroups.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #5037"
   },
   {
    "id": "RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory",
@@ -43707,7 +43712,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SchurWeyl.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #5039"
   },
   {
    "id": "RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SemisimpleAlgebras",
@@ -49316,7 +49322,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-AUDIT-39.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #5048"
   },
   {
    "id": "RT-AREA-elementary",
