@@ -4323,8 +4323,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-LE-LEHUNG-LEVIN-ETAL-23.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1254"
+   "state": "pending",
+   "note": "released on GitHub issue #1254"
   },
   {
    "id": "REV-PAPER-LE-LEHUNG-LEVIN-ETAL-23",
@@ -40533,7 +40533,8 @@
     "REV-LINK-tauceti_TauCetiRoadmap_NumberFieldArithmetic"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-LINK-tauceti_TauCetiRoadmap_NumberFieldArithmetic.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4344"
   },
   {
    "id": "RT-LINK-tauceti_TauCetiRoadmap_LocalFieldsRamification",
@@ -40555,7 +40556,8 @@
     "REV-LINK-tauceti_TauCetiRoadmap_LocalFieldsRamification"
    ],
    "prompt": "research/blueprint/prompts/RT-LINK-tauceti_TauCetiRoadmap_LocalFieldsRamification.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4347"
   },
   {
    "id": "REV-RT-LINK-tauceti_TauCetiRoadmap_LocalFieldsRamification",
@@ -43379,8 +43381,9 @@
     "REV-EllipticCurveModularity"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-BP-EllipticCurveModularity.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4434"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4434",
+   "finishedAt": "2026-09-30T13:00:58Z"
   },
   {
    "id": "RT-BP-EllipticKTheory",
