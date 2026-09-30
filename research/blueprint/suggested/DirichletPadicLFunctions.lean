@@ -14121,3 +14121,172 @@ example (η : DirichletCharacter K 3) (hη : η.IsPrimitive)
 
 end SuggestedLogIntegralTests
 end
+
+/-! Prime-level normalized logarithmic primitives. This is the finite Euler
+pullback of the primitive-conductor logarithm. It does not assert equality with
+the Gauss-log constructor of the inflated, usually imprimitive character. -/
+noncomputable section
+namespace DirichletPadic
+open PowerSeries
+variable {K : Type*} [Field K] [CharZero K] {M : ℕ} [NeZero M]
+
+def tamePrimeLogPrimitive (η : DirichletCharacter K M) (ε : K)
+    (hε : IsPrimitiveRoot ε M) (q : ℕ) : K⟦X⟧ :=
+  tameNormalizedLogPrimitive η ε hε - C (η (q : ZMod M)/(q : K)) *
+    PowerSeries.subst ((1+X : K⟦X⟧)^q-1) (tameNormalizedLogPrimitive η ε hε)
+
+lemma tamePrimeLogPrimitive_def (η : DirichletCharacter K M) (ε : K)
+    (hε : IsPrimitiveRoot ε M) (q : ℕ) :
+    tamePrimeLogPrimitive η ε hε q =
+      tameNormalizedLogPrimitive η ε hε - C (η (q : ZMod M)/(q : K)) *
+        PowerSeries.subst ((1+X : K⟦X⟧)^q-1) (tameNormalizedLogPrimitive η ε hε) := by sorry
+
+lemma tamePrimeLogPrimitive_constantCoeff (η : DirichletCharacter K M) (ε : K)
+    (hε : IsPrimitiveRoot ε M) (q : ℕ) :
+    constantCoeff (tamePrimeLogPrimitive η ε hε q) = 0 := by sorry
+
+variable {q : ℕ} [Fact q.Prime]
+
+theorem tamePrimeLogPrimitive_mahler (η : DirichletCharacter K M) (hη : η.IsPrimitive)
+    (hM : 1 < M) (hMK : IsUnit (M : K)) (hNK : IsUnit ((q*M : ℕ) : K))
+    (ε : K) (hε : IsPrimitiveRoot ε M)
+    (hG : gaussSum η⁻¹ (AddChar.zmodChar M hε.pow_eq_one) ≠ 0) :
+    mahlerDerivation K (tamePrimeLogPrimitive η ε hε q) = tameSeries (η.changeLevel (dvd_mul_left M q)) hNK := by sorry
+
+theorem tamePrimeLogPrimitive_unique (η : DirichletCharacter K M) (hη : η.IsPrimitive)
+    (hM : 1 < M) (hMK : IsUnit (M : K)) (hNK : IsUnit ((q*M : ℕ) : K))
+    (ε : K) (hε : IsPrimitiveRoot ε M)
+    (hG : gaussSum η⁻¹ (AddChar.zmodChar M hε.pow_eq_one) ≠ 0)
+    (J : K⟦X⟧) (hJ : mahlerDerivation K J = tameSeries (η.changeLevel (dvd_mul_left M q)) hNK)
+    (h0 : constantCoeff J = 0) : J = tamePrimeLogPrimitive η ε hε q := by sorry
+
+lemma tamePrimeLogPrimitive_of_dvd (η : DirichletCharacter K M)
+    (ε : K) (hε : IsPrimitiveRoot ε M) (hqM : q ∣ M) :
+    tamePrimeLogPrimitive η ε hε q = tameNormalizedLogPrimitive η ε hε := by sorry
+end DirichletPadic
+
+namespace DirichletPadic
+open PowerSeries
+variable {p q M : ℕ} [Fact p.Prime] [Fact q.Prime] [NeZero M]
+  {K : Type*} [NontriviallyNormedField K] [IsUltrametricDist K]
+  [Algebra ℤ_[p] K] [IsBoundedSMul ℤ_[p] K] [CharZero K]
+local notation "O" => Valuation.integer (NormedField.valuation (K := K))
+
+theorem tamePrimeLogPrimitive_nat_mul_coeff_mem (η : DirichletCharacter K M)
+    (hη : η.IsPrimitive) (hM : 1 < M) (hMK : IsUnit (M : K))
+    (hNK : IsUnit ((q*M : ℕ) : K)) (hpN : ¬p ∣ q*M)
+    (ε : K) (hε : IsPrimitiveRoot ε M) (n : ℕ) :
+    (n : K) * coeff n (tamePrimeLogPrimitive η ε hε q) ∈ O := by sorry
+end DirichletPadic
+
+namespace SuggestedLogPrimeTests
+open DirichletPadic PowerSeries
+variable {K : Type*} [Field K] [CharZero K] {M : ℕ} [NeZero M]
+
+-- zero_parameter_boundary
+example (η : DirichletCharacter K M) (ε : K) (hε : IsPrimitiveRoot ε M) :
+    tamePrimeLogPrimitive η ε hε 0 = tameNormalizedLogPrimitive η ε hε := by sorry
+
+-- one_parameter_boundary
+example (η : DirichletCharacter K M) (ε : K) (hε : IsPrimitiveRoot ε M) :
+    tamePrimeLogPrimitive η ε hε 1 = 0 := by sorry
+
+-- quadratic_first_pullback
+example (η : DirichletCharacter K 3) (hη : η.IsPrimitive) (h2 : η 2 = -1) (ε : K) (hε : IsPrimitiveRoot ε 3) (hG : gaussSum η⁻¹ (AddChar.zmodChar 3 hε.pow_eq_one) ≠ 0) :
+    coeff 1 (tamePrimeLogPrimitive η ε hε 2) = 2/3 := by sorry
+
+-- zero_constant
+example (η : DirichletCharacter K M) (ε : K) (hε : IsPrimitiveRoot ε M) (q : ℕ) :
+    constantCoeff (tamePrimeLogPrimitive η ε hε q) = 0 := by sorry
+
+-- shift_breaks_normalization
+example (η : DirichletCharacter K M) (ε : K) (hε : IsPrimitiveRoot ε M) (q : ℕ) :
+    constantCoeff (C 1 + tamePrimeLogPrimitive η ε hε q) = 1 := by sorry
+
+variable {q : ℕ} [Fact q.Prime]
+
+-- changed_level_mahler
+example (η : DirichletCharacter K M) (hη : η.IsPrimitive)
+    (hM : 1 < M) (hMK : IsUnit (M : K)) (hNK : IsUnit ((q*M : ℕ) : K))
+    (ε : K) (hε : IsPrimitiveRoot ε M)
+    (hG : gaussSum η⁻¹ (AddChar.zmodChar M hε.pow_eq_one) ≠ 0) :
+    mahlerDerivation K (tamePrimeLogPrimitive η ε hε q) = tameSeries (η.changeLevel (dvd_mul_left M q)) hNK := by sorry
+
+-- first_coefficient_euler
+example (η : DirichletCharacter K M) (hη : η.IsPrimitive)
+    (hM : 1 < M) (hMK : IsUnit (M : K)) (hNK : IsUnit ((q*M : ℕ) : K))
+    (ε : K) (hε : IsPrimitiveRoot ε M)
+    (hG : gaussSum η⁻¹ (AddChar.zmodChar M hε.pow_eq_one) ≠ 0) :
+    coeff 1 (tamePrimeLogPrimitive η ε hε q) = (1-η (q : ZMod M))*coeff 1 (tameNormalizedLogPrimitive η ε hε) := by sorry
+
+-- quadratic_second_pullback
+example (η : DirichletCharacter K 3) (hη : η.IsPrimitive) (h2 : η 2 = -1) (ε : K) (hε : IsPrimitiveRoot ε 3) (hG : gaussSum η⁻¹ (AddChar.zmodChar 3 hε.pow_eq_one) ≠ 0) :
+    coeff 2 (tamePrimeLogPrimitive η ε hε 2) = -1/3 := by sorry
+
+-- normalized_solution_unique
+example (η : DirichletCharacter K M) (hη : η.IsPrimitive)
+    (hM : 1 < M) (hMK : IsUnit (M : K)) (hNK : IsUnit ((q*M : ℕ) : K))
+    (ε : K) (hε : IsPrimitiveRoot ε M)
+    (hG : gaussSum η⁻¹ (AddChar.zmodChar M hε.pow_eq_one) ≠ 0) (J : K⟦X⟧) (hJ : mahlerDerivation K J = tameSeries (η.changeLevel (dvd_mul_left M q)) hNK) (h0 : constantCoeff J = 0) :
+    J = tamePrimeLogPrimitive η ε hε q := by sorry
+
+-- primitive_root_independent
+example (η : DirichletCharacter K M) (hη : η.IsPrimitive)
+    (hM : 1 < M) (hMK : IsUnit (M : K)) (hNK : IsUnit ((q*M : ℕ) : K))
+    (ε : K) (hε : IsPrimitiveRoot ε M)
+    (hG : gaussSum η⁻¹ (AddChar.zmodChar M hε.pow_eq_one) ≠ 0) (ε' : K) (hε' : IsPrimitiveRoot ε' M) (hG' : gaussSum η⁻¹ (AddChar.zmodChar M hε'.pow_eq_one) ≠ 0) :
+    tamePrimeLogPrimitive η ε hε q = tamePrimeLogPrimitive η ε' hε' q := by sorry
+
+-- shifted_solution_stays_distinct
+example (η : DirichletCharacter K M) (hη : η.IsPrimitive)
+    (hM : 1 < M) (hMK : IsUnit (M : K)) (hNK : IsUnit ((q*M : ℕ) : K))
+    (ε : K) (hε : IsPrimitiveRoot ε M)
+    (hG : gaussSum η⁻¹ (AddChar.zmodChar M hε.pow_eq_one) ≠ 0) :
+    C 1 + tamePrimeLogPrimitive η ε hε q ≠ tamePrimeLogPrimitive η ε hε q := by sorry
+
+-- repeated_prime_equality
+example (η : DirichletCharacter K M) (ε : K) (hε : IsPrimitiveRoot ε M) (hqM : q ∣ M) :
+    tamePrimeLogPrimitive η ε hε q = tameNormalizedLogPrimitive η ε hε := by sorry
+
+-- repeated_prime_coefficient
+example (η : DirichletCharacter K M) (ε : K) (hε : IsPrimitiveRoot ε M) (hqM : q ∣ M) (n : ℕ) :
+    coeff n (tamePrimeLogPrimitive η ε hε q) = coeff n (tameNormalizedLogPrimitive η ε hε) := by sorry
+
+-- inflated_quadratic_gauss_zero
+example (η : DirichletCharacter K 3) (hη : η.IsPrimitive) (h2 : η 2 = -1) (ε : K) (hε : IsPrimitiveRoot ε 9) :
+    gaussSum ((η.changeLevel (by decide : 3 ∣ 9))⁻¹) (AddChar.zmodChar 9 hε.pow_eq_one) = 0 := by sorry
+
+end SuggestedLogPrimeTests
+namespace SuggestedLogPrimeTests
+open DirichletPadic PowerSeries
+variable {p q M : ℕ} [Fact p.Prime] [Fact q.Prime] [NeZero M]
+  {K : Type*} [NontriviallyNormedField K] [IsUltrametricDist K]
+  [Algebra ℤ_[p] K] [IsBoundedSMul ℤ_[p] K] [CharZero K]
+local notation "O" => Valuation.integer (NormedField.valuation (K := K))
+
+-- weighted_degree_zero
+example (η : DirichletCharacter K M) (hη : η.IsPrimitive) (hM : 1 < M)
+    (hMK : IsUnit (M : K)) (hNK : IsUnit ((q*M : ℕ) : K)) (hpN : ¬p ∣ q*M)
+    (ε : K) (hε : IsPrimitiveRoot ε M) :
+    (0 : K) * coeff 0 (tamePrimeLogPrimitive η ε hε q) = 0 := by sorry
+
+-- weighted_positive_degree
+example (η : DirichletCharacter K M) (hη : η.IsPrimitive) (hM : 1 < M)
+    (hMK : IsUnit (M : K)) (hNK : IsUnit ((q*M : ℕ) : K)) (hpN : ¬p ∣ q*M)
+    (ε : K) (hε : IsPrimitiveRoot ε M) (n : ℕ) (hn : 0 < n) :
+    (n : K) * coeff n (tamePrimeLogPrimitive η ε hε q) ∈ O := by sorry
+
+-- dyadic_tame_pullback
+example (η : DirichletCharacter K M) (hη : η.IsPrimitive) (hM : 1 < M)
+    (hMK : IsUnit (M : K)) (hNK : IsUnit ((q*M : ℕ) : K)) (hpN : ¬p ∣ q*M)
+    (ε : K) (hε : IsPrimitiveRoot ε M) (hp : p = 2) (n : ℕ) :
+    (n : K) * coeff n (tamePrimeLogPrimitive η ε hε q) ∈ O := by sorry
+
+-- ordinary_derivative_integral
+example (η : DirichletCharacter K M) (hη : η.IsPrimitive) (hM : 1 < M)
+    (hMK : IsUnit (M : K)) (hNK : IsUnit ((q*M : ℕ) : K)) (hpN : ¬p ∣ q*M)
+    (ε : K) (hε : IsPrimitiveRoot ε M) (n : ℕ) :
+    coeff n (derivative K (tamePrimeLogPrimitive η ε hε q)) ∈ O := by sorry
+
+end SuggestedLogPrimeTests
+end

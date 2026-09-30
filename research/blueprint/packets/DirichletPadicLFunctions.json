@@ -10,7 +10,7 @@
     "DirichletPadicLFunctions:L4"
   ],
   "status": "partial",
-  "summary": "Four fine arithmetic logarithmic nodes and fifteen typed tests discharge the Gauss factor, clear the coefficient denominator by its degree, identify p-unit-degree integral coefficients and give an explicit integral preimage of the ordinary derivative. All739predecessor nodes and629baseline declarations remain whole.",
+  "summary": "Six fine nodes give the explicit prime-level Euler pullback of the existing normalized logarithm, its zero constant, changed-level Mahler derivative, uniqueness, repeated-prime identity and tame degree-weighted integrality. Seven suggested declarations, six API items and eighteen tests preserve all743predecessor nodes and629baselines.",
   "baseline": {
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
@@ -4417,6 +4417,20 @@
         "module": "Mathlib/RingTheory/Valuation/Integers.lean",
         "provides": "For an integer ring of a valuation on a field, a subtype element is a unit exactly when its field image has valuation1.",
         "checked": "Complete native statement and ambient hypotheses freshly read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on30September2026; exact uses checked in the complete GaussProbe."
+      },
+      {
+        "ref": "mathlib:PowerSeries.derivative_subst",
+        "kind": "lemma",
+        "module": "Mathlib/RingTheory/PowerSeries/Derivative.lean",
+        "provides": "Native chain rule for formal power series over a commutative ring with an actual HasSubst certificate.",
+        "checked": "Complete statement and ambient hypotheses freshly read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on30September2026; exact applications checked in LogPrimeProbe."
+      },
+      {
+        "ref": "mathlib:PowerSeries.derivative_pow",
+        "kind": "lemma",
+        "module": "Mathlib/RingTheory/PowerSeries/Derivative.lean",
+        "provides": "Native power rule for a formal series over a commutative semiring, with the n factor and n−1 exponent.",
+        "checked": "Complete statement and ambient hypotheses freshly read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on30September2026; exact applications checked in LogPrimeProbe."
       }
     ]
   },
@@ -49735,6 +49749,432 @@
       "acceptance": [
         "Only existing integral series and native ring operations occur. Generic analytic integration and logarithm branches retain Coleman ownership, and locally analytic distribution theory retains LAD ownership."
       ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/tame-prime-logarithmic-primitive",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The prime-level Euler pullback of the logarithm",
+      "kind": "construction",
+      "statement": "Define E_q=H−C(η(q)/q)·subst((1+T)^q−1,H).",
+      "hypotheses": [
+        "K is a field of characteristic zero. M>0 with NeZero M, η:DirichletCharacter K M, ε∈K and hε:IsPrimitiveRoot ε M. H=tameNormalizedLogPrimitive(η,ε) is the existing normalized formal Gauss-log construction. Put B_q=(1+T)^q−1 and E_q=H−C(η(q)/q)·subst(B_q,H). All inverses are field inverses, with their native totalization.",
+        "The construction and its zero-constant theorem allow every natural q and every η. The conductor comparison and uniqueness require q prime, η primitive, M>1, units hMK of M and hNK of qM in K, and G=gaussSum(η⁻¹,AddChar.zmodChar M hε.pow_eq_one) nonzero. These are the exact hypotheses of the existing base logarithmic derivative and nonprincipal prime-level series comparison.",
+        "The target character is the actual native changeLevel of η along M∣qM. It is usually imprimitive. E_q is the finite Euler pullback of the base logarithm, not a claim that tameNormalizedLogPrimitive of that target character and a new root equals E_q. No topology, measure carrier or generic formal-integration operator is constructed."
+      ],
+      "proofSteps": [
+        "Use only the actual existing H, native coefficient map C and native formal substitution. The substituent has constant coefficient0 for every natural q, so HasSubst.of_constantCoeff_zero supplies a valid substitution. No new coefficient field, logarithm branch or integration carrier is introduced.",
+        "The scalar isη(q)/q, withη evaluated at the prime in the original residue ring. The derivative of the binomial substitution contributes q; the following Mahler theorem proves that this scalar cancels it. The target character value at q is0 and would give the wrong scalar.",
+        "The q=0 and q=1 formulas are meaningful boundary values of the finite construction, even though neither is a prime-level comparison. At q=0 it is H; at q=1 it is0. These cases prevent using the conductor theorem without its prime hypothesis.",
+        "Generic formal integration and its normalized primitive remain owned by ColemanIntegration L0/formal-primitive. This arithmetic finite combination of an existing H neither duplicates that operator nor imports the Coleman suggested module in the reverse direction. The PMIA inverse-Mahler covariance is integral ℤ_p-valued and is not applied to this coefficient-field formal series."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/normalized-tame-logarithmic-primitive",
+        "mathlib:PowerSeries.HasSubst.of_constantCoeff_zero'",
+        "mathlib:PowerSeries.substAlgHom",
+        "mathlib:PowerSeries.coe_substAlgHom"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/LogarithmicLevelChange",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.tamePrimeLogPrimitive"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Section5.2, Theorem5.7, equation(5-3), Lemmas5.9–5.12 and Definition5.13, published143–146/PDF44–47; Section6.2, display(6-2) and Lemmas6.4–6.5, published149–153/PDF50–54. Complete pages read during this continuous30September2026 continuation.",
+          "excerpt": "formally",
+          "match": "Worker-derived prime-level comparison for the existing normalized logarithmic primitive, combining the finite tame-series conductor correction with the formal Mahler derivative. The inverse prime factor follows from the native chain rule. No imprimitive Gauss presentation, analytic logarithm constant or distribution comparison is inferred."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedLogPrimeTests.zero_parameter_boundary",
+          "kind": "degenerate",
+          "statement": "At the nonprime parameter q=0 the finite construction equals H."
+        },
+        {
+          "name": "SuggestedLogPrimeTests.one_parameter_boundary",
+          "kind": "degenerate",
+          "statement": "At q=1 the finite construction is0."
+        },
+        {
+          "name": "SuggestedLogPrimeTests.quadratic_first_pullback",
+          "kind": "computation",
+          "statement": "For the primitive quadratic character modulo3 withη(2)=−1, the q=2 pullback has first coefficient2/3."
+        }
+      ],
+      "acceptance": [
+        "The suggested definition is the displayed finite expression. Generic analytic integration, logarithm branches and locally analytic distribution ownership are unchanged."
+      ],
+      "uses": [
+        {
+          "where": "RJW Lemma6.5 and the existing prime-level tame series comparison",
+          "how": "Provides a concrete normalized formal primitive of the changed-level tame series, with the inverse prime scalar forced by differentiation."
+        },
+        {
+          "where": "The tame integer-ring coefficient comparison",
+          "how": "Its Mahler derivative identifies an actual integral derivative preimage at the new modulus."
+        },
+        {
+          "where": "Repeated prime levels",
+          "how": "Shows directly that primes already dividing M make no further logarithmic correction."
+        }
+      ],
+      "api": [
+        {
+          "name": "DirichletPadic.tamePrimeLogPrimitive_def",
+          "role": "constructor",
+          "statement": "The exact displayed finite Euler pullback."
+        },
+        {
+          "name": "DirichletPadic.tamePrimeLogPrimitive_constantCoeff",
+          "role": "simp",
+          "statement": "Its constant coefficient is0; promoted below."
+        },
+        {
+          "name": "DirichletPadic.tamePrimeLogPrimitive_mahler",
+          "role": "compatibility",
+          "statement": "Under the primitive-base and prime-level hypotheses, its Mahler derivative is the actual changed-level tameSeries; promoted below."
+        },
+        {
+          "name": "DirichletPadic.tamePrimeLogPrimitive_unique",
+          "role": "universal-property",
+          "statement": "It is the unique zero-constant formal Mahler primitive of that tameSeries; promoted below."
+        },
+        {
+          "name": "DirichletPadic.tamePrimeLogPrimitive_of_dvd",
+          "role": "compatibility",
+          "statement": "If q divides M, it equals the base H; promoted below."
+        },
+        {
+          "name": "DirichletPadic.tamePrimeLogPrimitive_nat_mul_coeff_mem",
+          "role": "data",
+          "statement": "Under tame p-adic hypotheses, multiplication by the degree makes every coefficient integral; promoted below."
+        }
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/tame-prime-logarithmic-zero-constant",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The prime-level logarithm has zero constant",
+      "kind": "lemma",
+      "statement": "For every natural q, constantCoeff(E_q)=0.",
+      "hypotheses": [
+        "K is a field of characteristic zero. M>0 with NeZero M, η:DirichletCharacter K M, ε∈K and hε:IsPrimitiveRoot ε M. H=tameNormalizedLogPrimitive(η,ε) is the existing normalized formal Gauss-log construction. Put B_q=(1+T)^q−1 and E_q=H−C(η(q)/q)·subst(B_q,H). All inverses are field inverses, with their native totalization.",
+        "The construction and its zero-constant theorem allow every natural q and every η. The conductor comparison and uniqueness require q prime, η primitive, M>1, units hMK of M and hNK of qM in K, and G=gaussSum(η⁻¹,AddChar.zmodChar M hε.pow_eq_one) nonzero. These are the exact hypotheses of the existing base logarithmic derivative and nonprincipal prime-level series comparison.",
+        "The target character is the actual native changeLevel of η along M∣qM. It is usually imprimitive. E_q is the finite Euler pullback of the base logarithm, not a claim that tameNormalizedLogPrimitive of that target character and a new root equals E_q. No topology, measure carrier or generic formal-integration operator is constructed."
+      ],
+      "proofSteps": [
+        "Unfold the existing finite rescaled-log expression for H. Native constantCoeff_log is0 and coefficient rescaling preserves that constant, so every summand has constant0. This uses the existing construction and native logarithm laws directly, without commissioning a generic integration result.",
+        "The binomial substituent B_q has constant0. Native constantCoeff_subst_of_constantCoeff_zero therefore identifies the substituted constant with the original one.",
+        "Apply the constant-coefficient ring homomorphism to the finite difference. Both terms vanish. The complete euler_constant probe checks this exact reduction for an arbitrary formal H with constant0.",
+        "Adding the constant series1 gives constant1. The normalization does not allow the branch-dependent constants of an analytic logarithm to be silently inserted."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/tame-prime-logarithmic-primitive",
+        "DirichletPadicLFunctions:L3/normalized-tame-logarithmic-primitive",
+        "mathlib:PowerSeries.constantCoeff_log",
+        "mathlib:PowerSeries.coeff_rescale",
+        "mathlib:PowerSeries.constantCoeff_subst_of_constantCoeff_zero"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/LogarithmicLevelChange",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.tamePrimeLogPrimitive_constantCoeff"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Section5.2, Theorem5.7, equation(5-3), Lemmas5.9–5.12 and Definition5.13, published143–146/PDF44–47; Section6.2, display(6-2) and Lemmas6.4–6.5, published149–153/PDF50–54. Complete pages read during this continuous30September2026 continuation.",
+          "excerpt": "formally",
+          "match": "Worker-derived prime-level comparison for the existing normalized logarithmic primitive, combining the finite tame-series conductor correction with the formal Mahler derivative. The inverse prime factor follows from the native chain rule. No imprimitive Gauss presentation, analytic logarithm constant or distribution comparison is inferred."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedLogPrimeTests.zero_constant",
+          "kind": "degenerate",
+          "statement": "The constant coefficient is0 for every natural parameter q."
+        },
+        {
+          "name": "SuggestedLogPrimeTests.shift_breaks_normalization",
+          "kind": "non-example",
+          "statement": "Adding C(1) changes the constant coefficient to1."
+        }
+      ],
+      "acceptance": [
+        "No primitive-character, Gauss nonvanishing or prime assumption is used in this normalization identity."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/tame-prime-logarithmic-mahler",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The prime-level logarithm differentiates to the tame kernel",
+      "kind": "comparison",
+      "statement": "Under the comparison hypotheses, the Mahler derivative of E_q is tameSeries(changeLevel η).",
+      "hypotheses": [
+        "K is a field of characteristic zero. M>0 with NeZero M, η:DirichletCharacter K M, ε∈K and hε:IsPrimitiveRoot ε M. H=tameNormalizedLogPrimitive(η,ε) is the existing normalized formal Gauss-log construction. Put B_q=(1+T)^q−1 and E_q=H−C(η(q)/q)·subst(B_q,H). All inverses are field inverses, with their native totalization.",
+        "The construction and its zero-constant theorem allow every natural q and every η. The conductor comparison and uniqueness require q prime, η primitive, M>1, units hMK of M and hNK of qM in K, and G=gaussSum(η⁻¹,AddChar.zmodChar M hε.pow_eq_one) nonzero. These are the exact hypotheses of the existing base logarithmic derivative and nonprincipal prime-level series comparison.",
+        "The target character is the actual native changeLevel of η along M∣qM. It is usually imprimitive. E_q is the finite Euler pullback of the base logarithm, not a claim that tameNormalizedLogPrimitive of that target character and a new root equals E_q. No topology, measure carrier or generic formal-integration operator is constructed."
+      ],
+      "proofSteps": [
+        "The base normalized-tame-logarithmic-derivative node identifies ∂H with tameSeries η hMK. Primitive η and M>1 implyη≠1: otherwise conductor_one would make its conductor1, contradicting primitivity. The complete primitive_nonprincipal probe checks this native step.",
+        "Use the native chain rule derivative_subst with constantCoeff(B_q)=0. Native derivative_pow gives B_q′=C(q)(1+T)^(q−1). Multiplying by1+T and using q>0 gives(1+T)B_q′=C(q)(1+T)^q.",
+        "The actual substitution algebra homomorphism sends1+T to(1+T)^q. Multiplicativity then rewrites the chain rule as ∂subst(B_q,H)=C(q)subst(B_q,∂H). The complete subst_one_add and binomial_mahler probes verify this purely formal calculation. It is a short native chain-rule manipulation inside this arithmetic proof, not a new generic operator node.",
+        "Derivation additivity and its product rule on a constant scalar give ∂E_q=∂H−C(η(q)/q)C(q)subst(B_q,∂H). Characteristic zero and q>0 cancel q, leaving ∂H−C(η(q))subst(B_q,∂H). The complete euler_mahler probe checks the scalar cancellation.",
+        "Substitute the base derivative identity. The existing tame-series-prime-level-comparison theorem identifies the remaining expression with the actual tameSeries of the changed character. Both unit certificates and the nonprincipal condition are retained.",
+        "Taking constant coefficients gives coeff_1 E_q=(1−η(q))coeff_1 H. For quadratic modulus3 and q=2 the first two coefficients are2/3 and−1/3. Replacing1/q by1 or B_q by T^q fails the exact finite controls."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/tame-prime-logarithmic-primitive",
+        "DirichletPadicLFunctions:L3/normalized-tame-logarithmic-derivative",
+        "DirichletPadicLFunctions:L2/tame-series-prime-level-comparison",
+        "PadicMeasuresIwasawaAlgebras:L2/mahler-derivation-value",
+        "mathlib:DirichletCharacter.conductor_one",
+        "mathlib:PowerSeries.derivative_subst",
+        "mathlib:PowerSeries.derivative_pow",
+        "mathlib:PowerSeries.substAlgHom",
+        "mathlib:PowerSeries.coe_substAlgHom",
+        "mathlib:PowerSeries.substAlgHom_X",
+        "mathlib:PowerSeries.subst_C"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/LogarithmicLevelChange",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.tamePrimeLogPrimitive_mahler"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Section5.2, Theorem5.7, equation(5-3), Lemmas5.9–5.12 and Definition5.13, published143–146/PDF44–47; Section6.2, display(6-2) and Lemmas6.4–6.5, published149–153/PDF50–54. Complete pages read during this continuous30September2026 continuation.",
+          "excerpt": "formally",
+          "match": "Worker-derived prime-level comparison for the existing normalized logarithmic primitive, combining the finite tame-series conductor correction with the formal Mahler derivative. The inverse prime factor follows from the native chain rule. No imprimitive Gauss presentation, analytic logarithm constant or distribution comparison is inferred."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedLogPrimeTests.changed_level_mahler",
+          "kind": "compatibility",
+          "statement": "The Mahler derivative equals the actual changed-level tameSeries."
+        },
+        {
+          "name": "SuggestedLogPrimeTests.first_coefficient_euler",
+          "kind": "computation",
+          "statement": "The first coefficient acquires the factor1−η(q), using the original character value."
+        },
+        {
+          "name": "SuggestedLogPrimeTests.quadratic_second_pullback",
+          "kind": "computation",
+          "statement": "For quadratic conductor3 at q=2 the second coefficient is−1/3."
+        }
+      ],
+      "acceptance": [
+        "This is formal algebra over a characteristic-zero field; it permits q equal to a p-adic prime when a field application exists, but integral coefficient claims separately require p∤qM. The target imprimitive Gauss constructor is not substituted for E_q."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/tame-prime-logarithmic-unique",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The changed-level normalized primitive is unique",
+      "kind": "theorem",
+      "statement": "If ∂J=tameSeries(changeLevel η) and constantCoeff J=0, then J=E_q.",
+      "hypotheses": [
+        "K is a field of characteristic zero. M>0 with NeZero M, η:DirichletCharacter K M, ε∈K and hε:IsPrimitiveRoot ε M. H=tameNormalizedLogPrimitive(η,ε) is the existing normalized formal Gauss-log construction. Put B_q=(1+T)^q−1 and E_q=H−C(η(q)/q)·subst(B_q,H). All inverses are field inverses, with their native totalization.",
+        "The construction and its zero-constant theorem allow every natural q and every η. The conductor comparison and uniqueness require q prime, η primitive, M>1, units hMK of M and hNK of qM in K, and G=gaussSum(η⁻¹,AddChar.zmodChar M hε.pow_eq_one) nonzero. These are the exact hypotheses of the existing base logarithmic derivative and nonprincipal prime-level series comparison.",
+        "The target character is the actual native changeLevel of η along M∣qM. It is usually imprimitive. E_q is the finite Euler pullback of the base logarithm, not a claim that tameNormalizedLogPrimitive of that target character and a new root equals E_q. No topology, measure carrier or generic formal-integration operator is constructed."
+      ],
+      "proofSteps": [
+        "The previous two fine nodes give the same derivative and constant for the actual E_q. Subtract the two derivative identities using the supplier Mahler-derivation-value formula.",
+        "Native isUnit_iff_constantCoeff makes1+T a unit. Its unit cancellation gives equality of the ordinary derivatives of J and E_q.",
+        "Apply native PowerSeries.derivative.ext with their equal zero constants. Characteristic zero supplies additive torsion freedom. The complete normalized_unique probe checks the unit cancellation and exact native extensionality theorem.",
+        "For two primitive root choices satisfying their respective Gauss nonvanishing hypotheses, both candidates have the same normalized derivative, hence agree. A nonzero added constant cannot satisfy the zero-constant premise."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/tame-prime-logarithmic-mahler",
+        "DirichletPadicLFunctions:L3/tame-prime-logarithmic-zero-constant",
+        "PadicMeasuresIwasawaAlgebras:L2/mahler-derivation-value",
+        "mathlib:PowerSeries.isUnit_iff_constantCoeff",
+        "mathlib:IsUnit.mul_right_inj",
+        "mathlib:PowerSeries.derivative.ext"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/LogarithmicLevelChange",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.tamePrimeLogPrimitive_unique"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Section5.2, Theorem5.7, equation(5-3), Lemmas5.9–5.12 and Definition5.13, published143–146/PDF44–47; Section6.2, display(6-2) and Lemmas6.4–6.5, published149–153/PDF50–54. Complete pages read during this continuous30September2026 continuation.",
+          "excerpt": "formally",
+          "match": "Worker-derived prime-level comparison for the existing normalized logarithmic primitive, combining the finite tame-series conductor correction with the formal Mahler derivative. The inverse prime factor follows from the native chain rule. No imprimitive Gauss presentation, analytic logarithm constant or distribution comparison is inferred."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedLogPrimeTests.normalized_solution_unique",
+          "kind": "characterisation",
+          "statement": "Every zero-constant solution of the exact Mahler equation is E_q."
+        },
+        {
+          "name": "SuggestedLogPrimeTests.primitive_root_independent",
+          "kind": "compatibility",
+          "statement": "Two primitive-root presentations with nonzero Gauss normalizations give the same candidate."
+        },
+        {
+          "name": "SuggestedLogPrimeTests.shifted_solution_stays_distinct",
+          "kind": "non-example",
+          "statement": "The series C(1)+E_q is different from E_q."
+        }
+      ],
+      "acceptance": [
+        "Uniqueness uses the native derivative extensionality theorem. No generic formal primitive operator is re-planned."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/tame-prime-logarithmic-repeated",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Repeated prime levels preserve the logarithm",
+      "kind": "lemma",
+      "statement": "If q is prime and q∣M, then E_q=H.",
+      "hypotheses": [
+        "K is a field of characteristic zero. M>0 with NeZero M, η:DirichletCharacter K M, ε∈K and hε:IsPrimitiveRoot ε M. H=tameNormalizedLogPrimitive(η,ε) is the existing normalized formal Gauss-log construction. Put B_q=(1+T)^q−1 and E_q=H−C(η(q)/q)·subst(B_q,H). All inverses are field inverses, with their native totalization.",
+        "q is prime and q∣M. No primitivity ofη, nonvanishing Gauss sum or field-unit level certificate is needed for this identity of the finite construction."
+      ],
+      "proofSteps": [
+        "Native ZMod.isUnit_prime_iff_not_dvd shows that q is a nonunit modulo M. Native MulChar.map_nonunit makesη(q)=0.",
+        "The scalarη(q)/q is0, so its constant-series multiplier vanishes and the finite difference defining E_q reduces to H. The complete repeated_prime_value_zero and repeated_euler probes check these two steps.",
+        "This repeated-level identity is not an equality with a new Gauss-log presentation at modulusqM. For the quadratic character modulo3 inflated to9 the primitive ninth-root Gauss sum is0, whereas this q=3 Euler pullback is the original nonzero normalized H with first coefficient1/3."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/tame-prime-logarithmic-primitive",
+        "mathlib:ZMod.isUnit_prime_iff_not_dvd",
+        "mathlib:MulChar.map_nonunit"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/LogarithmicLevelChange",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.tamePrimeLogPrimitive_of_dvd"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Section5.2, Theorem5.7, equation(5-3), Lemmas5.9–5.12 and Definition5.13, published143–146/PDF44–47; Section6.2, display(6-2) and Lemmas6.4–6.5, published149–153/PDF50–54. Complete pages read during this continuous30September2026 continuation.",
+          "excerpt": "formally",
+          "match": "Worker-derived prime-level comparison for the existing normalized logarithmic primitive, combining the finite tame-series conductor correction with the formal Mahler derivative. The inverse prime factor follows from the native chain rule. No imprimitive Gauss presentation, analytic logarithm constant or distribution comparison is inferred."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedLogPrimeTests.repeated_prime_equality",
+          "kind": "compatibility",
+          "statement": "The entire series remains H when q divides M."
+        },
+        {
+          "name": "SuggestedLogPrimeTests.repeated_prime_coefficient",
+          "kind": "compatibility",
+          "statement": "Every coefficient remains that of H when q divides M."
+        },
+        {
+          "name": "SuggestedLogPrimeTests.inflated_quadratic_gauss_zero",
+          "kind": "non-example",
+          "statement": "The quadratic character modulo3 inflated to9 has Gauss sum0 for a primitive ninth-root additive character."
+        }
+      ],
+      "acceptance": [
+        "The zero Gauss sum at the imprimitive target is a counterexample to identifying two different constructions, not an obstruction to the finite Euler pullback."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/tame-prime-logarithmic-weighted-integrality",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Degree-weighted integrality after adding a tame prime",
+      "kind": "lemma",
+      "statement": "At every tame target level qM, (n:K)coeff_n E_q belongs to O for every n≥0.",
+      "hypotheses": [
+        "p and q are primes, including p=2. K is a nontrivially normed ultrametric characteristic-zero field with Algebra ℤ_p K and IsBoundedSMul ℤ_p K. O is its native norm-valuation integer ring. No completeness or independent ℤ_p action on O is required.",
+        "M>1, η is primitive modulo M, ε is a primitive Mth root and hMK,hNK are the actual tameSeries constructor unit certificates at M andqM. Assume p∤qM. This implies p∤M and q≠p. E_q is the finite Euler pullback above; no separate Gauss nonzero hypothesis is supplied."
+      ],
+      "proofSteps": [
+        "Derive p∤M from M∣qM. The existing tame-primitive-gauss-norm fine node gives ‖G‖=1 and therefore G≠0. Apply tame-prime-logarithmic-mahler to get(1+T)E_q′=F_(changeLevel η).",
+        "The existing tame-integral-series-map fine node realizes this right-hand side as the inclusion of integralTameSeries of the actual changed character atqM. It allows imprimitive characters and requires exactly the supplied tame target condition.",
+        "Inside O[[T]], native invOfUnit(1+T,1) is an inverse because the constant coefficient is1. Mapping its product identity and multiplying the displayed Mahler identity identifies E_q′ with the image of integralTameSeries(changeLevel η) times this inverse. This is the same finite native ring manipulation checked in the preceding derivative-lift probe, explicitly reused here.",
+        "Native coeff_map and coeff_derivative identify the included nth coefficient with(n+1)coeff_(n+1)E_q. Membership follows from the native subtype property. At degree0 the weighted coefficient is0. The reused derivative_lift_coefficient and derivative_integral_coefficients probes verify both cases.",
+        "The assertion keeps the degree multiplier. The candidate need not be an O-valued logarithmic series. If q=p the target is not tame and this integral theorem is inapplicable, even though the preceding formal derivative theorem still makes sense."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/tame-prime-logarithmic-mahler",
+        "DirichletPadicLFunctions:L2/tame-primitive-gauss-norm",
+        "DirichletPadicLFunctions:L2/tame-integral-series-map",
+        "PadicMeasuresIwasawaAlgebras:L2/mahler-derivation-value",
+        "mathlib:PowerSeries.invOfUnit",
+        "mathlib:PowerSeries.mul_invOfUnit",
+        "mathlib:PowerSeries.map_X",
+        "mathlib:PowerSeries.coeff_map",
+        "mathlib:PowerSeries.coeff_derivative"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/LogarithmicLevelChange",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.tamePrimeLogPrimitive_nat_mul_coeff_mem"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Section5.2, Theorem5.7, equation(5-3), Lemmas5.9–5.12 and Definition5.13, published143–146/PDF44–47; Section6.2, display(6-2) and Lemmas6.4–6.5, published149–153/PDF50–54. Complete pages read during this continuous30September2026 continuation.",
+          "excerpt": "formally",
+          "match": "Worker-derived prime-level comparison for the existing normalized logarithmic primitive, combining the finite tame-series conductor correction with the formal Mahler derivative. The inverse prime factor follows from the native chain rule. No imprimitive Gauss presentation, analytic logarithm constant or distribution comparison is inferred."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedLogPrimeTests.weighted_degree_zero",
+          "kind": "degenerate",
+          "statement": "At n=0 the degree-weighted coefficient is0."
+        },
+        {
+          "name": "SuggestedLogPrimeTests.weighted_positive_degree",
+          "kind": "compatibility",
+          "statement": "Every positive degree-weighted coefficient belongs to O at tame target level."
+        },
+        {
+          "name": "SuggestedLogPrimeTests.dyadic_tame_pullback",
+          "kind": "computation",
+          "statement": "The same weighted integrality holds at p=2 for every odd tame targetqM."
+        },
+        {
+          "name": "SuggestedLogPrimeTests.ordinary_derivative_integral",
+          "kind": "compatibility",
+          "statement": "Every coefficient of the ordinary derivative E_q′ belongs to O."
+        }
+      ],
+      "acceptance": [
+        "The prime-level operation is applied to the existing normalized field series. No integral logarithm, O-valued Amice comparison or special-value identity is asserted."
+      ]
     }
   ],
   "requests": [
@@ -49845,7 +50285,7 @@
       "stageId": "DirichletPadicLFunctions:L3",
       "status": "partial",
       "remaining": [
-        "The tame normalized logarithmic coefficients now have an exact inverse-degree norm bound, degree-weighted integrality, p-unit-degree integrality and an explicit ordinary derivative in the image of the existing integral series. Next assess the normalized formal primitive under conductor changes, retaining its zero constant and the ordinary-versus-Mahler derivative distinction. The canonical character family, scalar Mellin/derivative comparisons, analytic branch identification, logarithm constant, distribution-to-L-value comparison and meromorphic pole order remain open with their existing PMIA, LAD and Coleman owners. The seven mass-comparison supplier boundaries, eleven requests, fifteen gaps, full source extraction and missing pinned TwistedDivisorSum artifact remain separate work.",
+        "Updated issue713 instructions were read in full against the unchanged earlier body. The new source assignments and confirmed RT-AREA-iwasawa-2/1–2 are explicit outstanding L3 obligations, not resolved by this formal prime-level checkpoint. Finding1: L3 owns Morita Gamma into ℤ_p units, its continuous extension/uniqueness and unit/nonunit recurrences, and Gross–Koblitz with a fixed additive character, compatible π, finite-field degree and the original odd-prime scope; the sign convention must be reconciled. Finding2: L3 owns the Ferrero–Greenberg exceptional derivative formula after Gamma, with odd primitive character, conductor prime to p, χ(p)=1, compatible embeddings and the exact character/derivative coordinate. Formula and nonvanishing remain separate. The DKV cited-result extraction is not a decomposition of the original proofs. Source extraction for these two findings takes priority at the next continuation. The newly assigned RJW items retain their existing source corrections; the remaining transcendence/idèle/class-number/branch/pole/Eisenstein obligations must still be matched individually, importing Baker from DT.3 and retaining the corrected weight congruence for the p^k obstruction. The one-prime finite Euler pullback now has an exact definition, zero constant, changed-level Mahler derivative, normalized uniqueness, repeated-prime identity and tame degree-weighted integrality. After the assigned Gamma/Gross–Koblitz/Ferrero–Greenberg source work, iterate this finite pullback over the set of new prime divisors, keeping inverse products and native conductor recovery explicit. The imprimitive Gauss-log constructor is not identified with the normalized target primitive. Generic formal integration remains Coleman-owned; analytic logarithm constants/branches, scalar Mellin comparisons, distribution-to-L-value identification, poles, eleven requests and fifteen gaps remain open as previously recorded.",
         "The actual tame integral and analytic transfer from supplied C(U,K)-valued families remain supplied. Actual odd/dyadic principal-unit families belong to PMIA L0a and scalar Mellin theory to LAD L3; instantiate the corrected Teichmüller twist when those interfaces are supplied."
       ]
     },
@@ -49877,7 +50317,7 @@
     {
       "title": "L3 remaining source decomposition and interfaces",
       "neededBy": [],
-      "detail": "The tame normalized logarithmic coefficients now have an exact inverse-degree norm bound, degree-weighted integrality, p-unit-degree integrality and an explicit ordinary derivative in the image of the existing integral series. Next assess the normalized formal primitive under conductor changes, retaining its zero constant and the ordinary-versus-Mahler derivative distinction. The canonical character family, scalar Mellin/derivative comparisons, analytic branch identification, logarithm constant, distribution-to-L-value comparison and meromorphic pole order remain open with their existing PMIA, LAD and Coleman owners. The seven mass-comparison supplier boundaries, eleven requests, fifteen gaps, full source extraction and missing pinned TwistedDivisorSum artifact remain separate work. The actual tame integral and analytic transfer from supplied C(U,K)-valued families remain supplied. Actual odd/dyadic principal-unit families belong to PMIA L0a and scalar Mellin theory to LAD L3; instantiate the corrected Teichmüller twist when those interfaces are supplied."
+      "detail": "Updated issue713 instructions were read in full against the unchanged earlier body. The new source assignments and confirmed RT-AREA-iwasawa-2/1–2 are explicit outstanding L3 obligations, not resolved by this formal prime-level checkpoint. Finding1: L3 owns Morita Gamma into ℤ_p units, its continuous extension/uniqueness and unit/nonunit recurrences, and Gross–Koblitz with a fixed additive character, compatible π, finite-field degree and the original odd-prime scope; the sign convention must be reconciled. Finding2: L3 owns the Ferrero–Greenberg exceptional derivative formula after Gamma, with odd primitive character, conductor prime to p, χ(p)=1, compatible embeddings and the exact character/derivative coordinate. Formula and nonvanishing remain separate. The DKV cited-result extraction is not a decomposition of the original proofs. Source extraction for these two findings takes priority at the next continuation. The newly assigned RJW items retain their existing source corrections; the remaining transcendence/idèle/class-number/branch/pole/Eisenstein obligations must still be matched individually, importing Baker from DT.3 and retaining the corrected weight congruence for the p^k obstruction. The one-prime finite Euler pullback now has an exact definition, zero constant, changed-level Mahler derivative, normalized uniqueness, repeated-prime identity and tame degree-weighted integrality. After the assigned Gamma/Gross–Koblitz/Ferrero–Greenberg source work, iterate this finite pullback over the set of new prime divisors, keeping inverse products and native conductor recovery explicit. The imprimitive Gauss-log constructor is not identified with the normalized target primitive. Generic formal integration remains Coleman-owned; analytic logarithm constants/branches, scalar Mellin comparisons, distribution-to-L-value identification, poles, eleven requests and fifteen gaps remain open as previously recorded. The actual tame integral and analytic transfer from supplied C(U,K)-valued families remain supplied. Actual odd/dyadic principal-unit families belong to PMIA L0a and scalar Mellin theory to LAD L3; instantiate the corrected Teichmüller twist when those interfaces are supplied."
     },
     {
       "title": "L4 completed-algebra, twisted localized constant coefficient and tame-family comparisons",
@@ -50243,34 +50683,34 @@
     "intake": "Exactly four authorized deliverables; zero problems.",
     "sourceIssues": "All16findings, three source records, sourceVersions, eleven requests and fifteen gaps remain whole; no new source finding or independent verdict.",
     "validation": {
-      "nodes": 743,
+      "nodes": 749,
       "kinds": {
         "definition": 2,
-        "lemma": 278,
-        "construction": 72,
-        "theorem": 224,
-        "comparison": 167
+        "lemma": 281,
+        "construction": 73,
+        "theorem": 225,
+        "comparison": 168
       },
-      "api": 549,
-      "packetTests": 1323,
-      "definitionConstructionTests": 309,
-      "typedExamples": 1326,
+      "api": 555,
+      "packetTests": 1341,
+      "definitionConstructionTests": 312,
+      "typedExamples": 1344,
       "planets": 24,
-      "baseline": 629,
-      "preservedWholeNodes": 739,
+      "baseline": 631,
+      "preservedWholeNodes": 743,
       "preservedBaseline": 629,
       "preservedSourceIssues": 16,
       "newSourceIssues": 0,
-      "newNodes": 4,
-      "newNamedDeclarations": 4,
-      "newTypedTests": 15,
+      "newNodes": 6,
+      "newNamedDeclarations": 7,
+      "newTypedTests": 18,
       "requests": 11,
       "gaps": 15,
       "closedStages": 0,
-      "reachableNodes": 1001,
-      "dependencyEdges": 5193,
+      "reachableNodes": 1007,
+      "dependencyEdges": 5231,
       "acyclic": true,
-      "baselineLeaves": 804,
+      "baselineLeaves": 805,
       "stageRequestLeaves": [
         "AdicSpacesPartII:F1",
         "AdicSpacesPartII:R2",
@@ -50282,7 +50722,7 @@
         "PadicMeasuresIwasawaAlgebras:L2",
         "PadicMeasuresIwasawaAlgebras:L3"
       ],
-      "readerWords": 378631,
+      "readerWords": 382550,
       "scopedMutationCheck": true,
       "correctedPredecessorNodes": 0,
       "fullSuggestedCompiled": false,
@@ -50309,8 +50749,8 @@
         "TauCeti.NumberTheory.ArithmeticFunction.TwistedDivisorSum"
       ],
       "scratchCompleteDefinitions": 0,
-      "scratchCompleteLemmas": 10,
-      "scratchMathlibModules": 2856,
+      "scratchCompleteLemmas": 11,
+      "scratchMathlibModules": 2857,
       "scratchTauModules": 0,
       "scratchErrors": 0,
       "scratchWarnings": 0,
@@ -50343,7 +50783,17 @@
         "finiteRingDerivativeChecks": 2952,
         "wrongDerivativeFailures": 288,
         "missingDegreeDivisionFailures": 298,
-        "coefficientCoordinateDenominatorCases": 178
+        "coefficientCoordinateDenominatorCases": 178,
+        "primeLevelPairs": 116,
+        "primeLevelCoefficients": 1508,
+        "primeLevelMahlerCoefficients": 1392,
+        "repeatedPrimeCoefficients": 494,
+        "primeLevelWeightedIntegral": 3042,
+        "primeLevelUnitDegreeIntegral": 2112,
+        "primeLevelFiniteRingChecks": 8424,
+        "wrongPullbackScalarFailures": 894,
+        "wrongSubstitutionFailures": 897,
+        "imprimitiveGaussZeroBoundary": 1
       },
       "numericalControlsCertified": false,
       "newRoutesStageLeaves": []
@@ -50353,7 +50803,7 @@
       "compiled": false,
       "errors": null,
       "warnings": null,
-      "sha256": "9678f42f5943b5214f47998d9ca90990c00a009384e5589379af8755b0241372",
+      "sha256": "ca8f73992eaf921953417c0b24fb2bba767b3e4f786c54d6a5af4216aa4dd9cb",
       "missingNativeArtifacts": [
         "TauCeti.NumberTheory.ArithmeticFunction.TwistedDivisorSum"
       ],
@@ -50368,11 +50818,11 @@
         }
       },
       "nativeProbe": {
-        "completeLemmas": 10,
+        "completeLemmas": 11,
         "errors": 0,
         "warnings": 0,
         "placeholders": 0,
-        "sha256": "e9ffa33dc2f6ba934d12dc859375864146a95b0352850870bda38426368b245e"
+        "sha256": "e51c2c72f3f210fa060c1788824ed4f4d28e82fe85eadcfc862a047e3783e327"
       },
       "sourceAndAvailableArtifactAudit": {
         "compiledSupplierNodes": 332,
@@ -50459,8 +50909,8 @@
       }
     },
     "publication": {
-      "base": "ac05b983af3d9cb88bc163fb68ba35f2b0ddee8d",
-      "unchangedInputs": 66,
+      "base": "8ed2baaae3a6f1b6f415d92016131be0283ad41f",
+      "unchangedInputs": 70,
       "unchangedOutputs": 4,
       "sameSessionFollowupAfterMerge": true,
       "lastClaimConfirmation": 5854791937,
@@ -58161,6 +58611,87 @@
       },
       "numericalMethod": "Current logarithmic coefficients through degree12 are independently checked from the explicit Gauss logarithm and the recursion (1+T)derivative(H)=F with H0=0; multiplication by n, p-unit degree integrality, and derivative convolution are tested at all tame prime/place pairs including2. Coordinate denominator cases are failures of that sufficient coordinate test only. The rational quadratic-conductor3 coefficient H2=-1/6 gives the genuine dyadic nonintegrality example, with2H2=-1/3 integral. Exact rational cyclotomic quotient rings Q[z]/Phi_l for all characters at twelve moduli, with least-conductor primitivity checked independently. Gauss products, all-residue shifts and same-additive-character parity are exact. Source Gauss coefficients through degree11 are compared with an independent root-free finite numerator/divisor recurrence. Tame inverse integrality is checked by rational coordinates and reduction modulo p,p²,p³; this is sufficient only and does not identify the quotient with the full local integer ring or prove the general theorem.",
       "fullSuggestedCompiled": false
+    },
+    "tameLogPrimeLevel": {
+      "agent": "Codex",
+      "session": "codex-7e92bd",
+      "issue": 713,
+      "claimComment": 5854790528,
+      "winningBot": 5854791937,
+      "previousPR": 5207,
+      "previousHead": "b875c076c7097780f495bb4cc8924c27f907470c",
+      "previousMerge": "ff8307e74de29d85f824c0d4736333f3ea0a1272",
+      "preservedWholeNodes": 743,
+      "preservedBaseline": 629,
+      "preservedFindings": 16,
+      "newNodes": 6,
+      "reading": "Read the complete existing prime-level formal-series and repeated-prime nodes, the supplier inverse-Mahler covariance scope, and Coleman formal-primitive/derivative/uniqueness nodes. Reused the full RJW143–146 and149–153 readings in this uninterrupted continuation. Native derivative_subst, derivative_pow, derivative.ext, substitution algebra laws and constant-coefficient statements were freshly read with full ambient hypotheses. The reviewed AUDIT-24 L3 read immediately before this checkpoint remains unchanged.",
+      "boundary": "Updated issue713 instructions were read in full against the unchanged earlier body. The new source assignments and confirmed RT-AREA-iwasawa-2/1–2 are explicit outstanding L3 obligations, not resolved by this formal prime-level checkpoint. Finding1: L3 owns Morita Gamma into ℤ_p units, its continuous extension/uniqueness and unit/nonunit recurrences, and Gross–Koblitz with a fixed additive character, compatible π, finite-field degree and the original odd-prime scope; the sign convention must be reconciled. Finding2: L3 owns the Ferrero–Greenberg exceptional derivative formula after Gamma, with odd primitive character, conductor prime to p, χ(p)=1, compatible embeddings and the exact character/derivative coordinate. Formula and nonvanishing remain separate. The DKV cited-result extraction is not a decomposition of the original proofs. Source extraction for these two findings takes priority at the next continuation. The newly assigned RJW items retain their existing source corrections; the remaining transcendence/idèle/class-number/branch/pole/Eisenstein obligations must still be matched individually, importing Baker from DT.3 and retaining the corrected weight congruence for the p^k obstruction. The one-prime finite Euler pullback now has an exact definition, zero constant, changed-level Mahler derivative, normalized uniqueness, repeated-prime identity and tame degree-weighted integrality. After the assigned Gamma/Gross–Koblitz/Ferrero–Greenberg source work, iterate this finite pullback over the set of new prime divisors, keeping inverse products and native conductor recovery explicit. The imprimitive Gauss-log constructor is not identified with the normalized target primitive. Generic formal integration remains Coleman-owned; analytic logarithm constants/branches, scalar Mellin comparisons, distribution-to-L-value identification, poles, eleven requests and fifteen gaps remain open as previously recorded.",
+      "inputBase": "8ed2baaae3a6f1b6f415d92016131be0283ad41f",
+      "sourceBoundary": "All16findings, three source records, sourceVersions, eleven requests and fifteen gaps remain whole; no new source finding or independent verdict.",
+      "publication": {
+        "base": "8ed2baaae3a6f1b6f415d92016131be0283ad41f",
+        "unchangedInputs": 70,
+        "unchangedOutputs": 4,
+        "sameSessionFollowupAfterMerge": true,
+        "lastClaimConfirmation": 5854791937,
+        "reviewIssue": 390,
+        "reviewUnclaimed": true
+      },
+      "finiteControls": {
+        "moduli": 12,
+        "characters": 61,
+        "primitiveCharacters": 30,
+        "compositePrimitiveCharacters": 20,
+        "gaussProductChecks": 30,
+        "sameAdditiveParityChecks": 30,
+        "allResidueShiftChecks": 339,
+        "nonunitShiftChecks": 160,
+        "primePlacePairs": 82,
+        "dyadicPlaces": 17,
+        "integralInverseChecks": 164,
+        "finiteRingInverseChecks": 492,
+        "gaussSeriesCoefficients": 348,
+        "integralSeriesCoefficients": 936,
+        "wrongInverseCharacterFailures": 18,
+        "wrongCoefficientSignFailures": 147,
+        "imprimitiveProductFailures": 31,
+        "principalCompositeZeroGauss": 7,
+        "modulusOneChecks": 1,
+        "logCoefficients": 348,
+        "weightedIntegralCoefficients": 1066,
+        "primeUnitIntegralCoefficients": 739,
+        "dyadicWeightedCoefficients": 221,
+        "derivativeCoefficientChecks": 348,
+        "finiteRingDerivativeChecks": 2952,
+        "wrongDerivativeFailures": 288,
+        "missingDegreeDivisionFailures": 298,
+        "coefficientCoordinateDenominatorCases": 178,
+        "primeLevelPairs": 116,
+        "primeLevelCoefficients": 1508,
+        "primeLevelMahlerCoefficients": 1392,
+        "repeatedPrimeCoefficients": 494,
+        "primeLevelWeightedIntegral": 3042,
+        "primeLevelUnitDegreeIntegral": 2112,
+        "primeLevelFiniteRingChecks": 8424,
+        "wrongPullbackScalarFailures": 894,
+        "wrongSubstitutionFailures": 897,
+        "imprimitiveGaussZeroBoundary": 1
+      },
+      "numericalMethod": "Current prime-level controls compare the finite Euler pullback H-eta(q)/q H((1+T)^q-1) with an independent rootfree tame kernel at qN and its normalized Mahler recurrence. They check repeated primes, every derivative coefficient, denominator-weighted and p-unit-degree integrality, and reductions modulo p,p²,p³. No identification with the imprimitive Gauss-log constructor is made; its vanishing Gauss sum at the level3-to9 boundary is checked separately. Reused base controls: Current logarithmic coefficients through degree12 are independently checked from the explicit Gauss logarithm and the recursion (1+T)derivative(H)=F with H0=0; multiplication by n, p-unit degree integrality, and derivative convolution are tested at all tame prime/place pairs including2. Coordinate denominator cases are failures of that sufficient coordinate test only. The rational quadratic-conductor3 coefficient H2=-1/6 gives the genuine dyadic nonintegrality example, with2H2=-1/3 integral. Exact rational cyclotomic quotient rings Q[z]/Phi_l for all characters at twelve moduli, with least-conductor primitivity checked independently. Gauss products, all-residue shifts and same-additive-character parity are exact. Source Gauss coefficients through degree11 are compared with an independent root-free finite numerator/divisor recurrence. Tame inverse integrality is checked by rational coordinates and reduction modulo p,p²,p³; this is sufficient only and does not identify the quotient with the full local integer ring or prove the general theorem.",
+      "fullSuggestedCompiled": false,
+      "issueInstructionRefresh": {
+        "oldSha256": "5c2608719ab1013a194927135fb5386bbbd72132741557b267505d56c8a4f2f8",
+        "newSha256": "50f3daab385023ae731f61c1c8495e805f02f36c5e8f0d73b029afbd2c5af2b5",
+        "addedInstructions": "The maintainer added these sources to this roadmap. Cover them completely, like its own sources (PROTOCOL.md section 0), within the stages they belong to; what belongs to another roadmap is requested from it:\n- Dasgupta–Kakde–Ventullo, \"On the Gross–Stark Conjecture\", Annals of Mathematics 188 (2018), no. 3 (https://annals.math.princeton.edu/2018/188-3/p03), for DirichletPadicLFunctions:L3: The p-adic Gamma function, the Gross–Koblitz formula and the Ferrero–Greenberg theorem are the inputs to the case F = Q, which motivated the conjecture. They belong with the Kubota–Leopoldt p-adic L-functions of a rational base; L3 already owns the branches, Iwasawa's logarithm and Leopoldt's p-adic formula, and Ferrero–Greenberg is the companion statement about the derivative at s = 0. (from the extraction of Dasgupta–Kakde–Ventullo, \"On the Gross–Stark Conjecture\", Annals of Mathematics 188 (2018), no. 3, PAPER-DASGUPTA-KAKDE-VENTULLO-18: research/blueprint/papers/PAPER-DASGUPTA-KAKDE-VENTULLO-18.result.json, items PAPER-DASGUPTA-KAKDE-VENTULLO-18/padic-gamma, PAPER-DASGUPTA-KAKDE-VENTULLO-18/gross-koblitz, PAPER-DASGUPTA-KAKDE-VENTULLO-18/ferrero-greenberg)\n- Rodrigues Jacinto and Williams, \"An introduction to p-adic L-functions\" (arXiv:2309.15692) (https://arxiv.org/abs/2309.15692), for DirichletPadicLFunctions:L0, DirichletPadicLFunctions:L2, DirichletPadicLFunctions:L3, DirichletPadicLFunctions:L4: This roadmap's layer texts are written against the notes. L0 cites RJW Theorem 2.2, 2.4 and Propositions 2.9/2.11, and L4's acceptance is 'all named results in RJW §§2–8 except Theorem 6.7'. Two missing items fall inside its layers. The transcendence of L(θ,1) (§6, footnote 10) is a corollary in L0 ('complex special values and algebraicity'): it uses Leopoldt's formula (Theorem 6.1(i)), Mathlib's nonvanishing DirichletCharacter.LFunction_apply_one_ne_zero and Baker's theorem, imported from DiophantineApproximationAndTranscendence:DT.3. The observation of §8 that k ↦ p^k is interpolated by no measure on ℤ_p^× is L4's motivating obstruction for the Eisenstein family; it is stated with the corrected hypothesis k_n ≡ k mod (p − 1). The planned items named here are the §§2, 5, 7–8 results that the layer texts list but the packet has not yet decomposed into nodes. They include the class number formula of Theorem 2.2, the idelic dictionary of Propositions 2.9 and 2.11, Theorems 2.15–2.16, 5.1, 5.7 and 5.20's branches, Gauss-sum identities, the residue computation of §7, and Theorem 8.2(a) with A_0 = xζ_p/2. The paper becomes the source for those nodes, with the corrections recorded in sourceIssues. (from the extraction of Rodrigues Jacinto and Williams, \"An introduction to p-adic L-functions\" (arXiv:2309.15692), PAPER-RODRIGUES-JACINTO-WILLIAMS-23: research/blueprint/papers/PAPER-RODRIGUES-JACINTO-WILLIAMS-23.result.json, items PAPER-RODRIGUES-JACINTO-WILLIAMS-23/2, PAPER-RODRIGUES-JACINTO-WILLIAMS-23/29, PAPER-RODRIGUES-JACINTO-WILLIAMS-23/48, PAPER-RODRIGUES-JACINTO-WILLIAMS-23/49, PAPER-RODRIGUES-JACINTO-WILLIAMS-23/50, PAPER-RODRIGUES-JACINTO-WILLIAMS-23/51, PAPER-RODRIGUES-JACINTO-WILLIAMS-23/54, PAPER-RODRIGUES-JACINTO-WILLIAMS-23/57, PAPER-RODRIGUES-JACINTO-WILLIAMS-23/59, PAPER-RODRIGUES-JACINTO-WILLIAMS-23/60, PAPER-RODRIGUES-JACINTO-WILLIAMS-23/193, PAPER-RODRIGUES-JACINTO-WILLIAMS-23/196, PAPER-RODRIGUES-JACINTO-WILLIAMS-23/204, PAPER-RODRIGUES-JACINTO-WILLIAMS-23/205, PAPER-RODRIGUES-JACINTO-WILLIAMS-23/207, PAPER-RODRIGUES-JACINTO-WILLIAMS-23/220, PAPER-RODRIGUES-JACINTO-WILLIAMS-23/228, PAPER-RODRIGUES-JACINTO-WILLIAMS-23/230, PAPER-RODRIGUES-JACINTO-WILLIAMS-23/231, PAPER-RODRIGUES-JACINTO-WILLIAMS-23/240, PAPER-RODRIGUES-JACINTO-WILLIAMS-23/246, PAPER-RODRIGUES-JACINTO-WILLIAMS-23/250, PAPER-RODRIGUES-JACINTO-WILLIAMS-23/270, PAPER-RODRIGUES-JACINTO-WILLIAMS-23/272, PAPER-RODRIGUES-JACINTO-WILLIAMS-23/273, PAPER-RODRIGUES-JACINTO-WILLIAMS-23/275, PAPER-RODRIGUES-JACINTO-WILLIAMS-23/285, PAPER-RODRIGUES-JACINTO-WILLIAMS-23/290, PAPER-RODRIGUES-JACINTO-WILLIAMS-23/291)\n\nConfirmed red-team findings about this roadmap (PROTOCOL.md section 17), handed to this job because its blueprint was not written when they were verified. Get each of them right in the packet and the document, and say in the handoff note how each is handled:\n- RT-AREA-iwasawa-2/1 (medium, missing) at DirichletPadicLFunctions:L3 (and the roadmap as a whole): Morita's p-adic Gamma function and the Gross-Koblitz formula are planned by no layer of the atlas and are absent from both pinned libraries, although an accepted, reviewed paper route asks this roadmap to own them. Fix: Give DirichletPadicLFunctions L3 ownership of Morita's Gamma_p (existence, uniqueness by continuity, the two functional equations Gamma_p(x+1) = -x Gamma_p(x) on units and -Gamma_p(x) on pZ_p) and of the Gross-Koblitz formula in the form the source states it, with the choice of pi with pi^{p-1} = -p and zeta_pi = 1 + pi mod pi^2; L3 already owns the Gauss sums and the branch/logarithm theory that Gross-Koblitz relates. If L3 is judged full, add a sixth layer L5 to the same roadmap with L3 as its prerequisite.\n- RT-AREA-iwasawa-2/2 (medium, missing) at DirichletPadicLFunctions:L3 (and the roadmap as a whole): The Ferrero-Greenberg theorem, the derivative formula for the Kubota-Leopoldt p-adic L-function at s = 0, is planned by no layer of the atlas, although the same accepted route asks this roadmap to own it. Fix: Own the Ferrero-Greenberg formula in DirichletPadicLFunctions L3, immediately after Leopoldt's formula for L_p(1,chi), which is the analogous explicit evaluation and which L3 already plans; it depends on finding 1, since its right-hand side is a sum of log_p Gamma_p(a/f). State the exceptional hypothesis chi(p) = 1 explicitly, and keep the nonvanishing consequence separate from the formula.\n",
+        "addedInputs": [
+          "research/blueprint/papers/PAPER-DASGUPTA-KAKDE-VENTULLO-18.result.json",
+          "research/blueprint/papers/PAPER-DASGUPTA-KAKDE-VENTULLO-18.review.json",
+          "research/blueprint/redteam/RT-AREA-iwasawa-2.result.json",
+          "research/blueprint/redteam/RT-AREA-iwasawa-2.review.json"
+        ]
+      },
+      "inputRefresh": "Final registry refresh adds only André direct-summand E26, awaiting review: the printed nonaffinoid flatness sketch is replaced by complete-module flatness of the torsion-free integral model with free reduction, followed by inverting p. Its full record was read; the theorem statement is unchanged. It supplies no current Dirichlet input. The other68captured files,16Dirichlet findings and four predecessor outputs are unchanged."
     }
   },
   "requestResolutions": [
