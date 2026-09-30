@@ -13,7 +13,7 @@
   "HabiroCohomologyFoundations:HQ.6",
   "HabiroCohomologyFoundations:HQ.7"
  ],
- "summary": "Part one of the blueprint for the cohomology owner of the standalone Habiro family: the global q-de Rham complex and its derived form, q-Hodge filtrations and the q-Hodge complex, Habiro descent, the positive-degree q-de Rham-Witt theory and the Nygaard filtration, the two existence theorems and the trace-theoretic import, the algebraic-against-analytic boundary, and the acceptance suite. Sixty-six nodes across the eight layers in scope. The main source is Wagner's paper on q-Hodge complexes over the Habiro ring, read as LaTeX; its companion papers on q-Witt vectors and on connective complex K-theory were obtained and read for the layers that consume them. Neither pinned library contains any of this: the only baseline citations are the q-integer identities in Mathlib's geometric sum and cyclotomic files, the polynomial and Witt vector interfaces, and the underived filtration and regular-sequence APIs, all recorded as the ancestors of what has to be built. Three misprints in the source are recorded. The restructuring proposal for this family has not been accepted, so the packet follows the current atlas structure and says so.",
+ "summary": "Part one of the Habiro cohomology blueprint, with 122 nodes across eight stage IDs including the separate HQ.5-trace anchor. Retains global q-de Rham gluing, q-Hodge filtrations, Habiro descent, the interim positive-degree q-de Rham–Witt supplier, general existence and coefficient export, the separate trace import, and comparison/acceptance boundaries. Adds framed q-connections, modified semilinear torus modules, their explicitly unresolved derived descent comparison, and an independent uncompleted framed Habiro Koszul construction. RS-10 round 2 is accepted (review dated 2026-09-29), but QWittVectors and AnalyticHabiroStack still have no stages in the assembled atlas at base 10b68f9. Acceptance is not promotion. Keep the current HR.1/HR.4/HQ.1/HQ.4 suppliers until an atomic promotion transfers their nodes, requests and consumers. No second implementation and no dependency on an absent QW stage is introduced. No new formalization or independent review acceptance is claimed; existing gaps and source issues remain visible.",
  "baseline": {
   "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
   "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
@@ -153,6 +153,21 @@
     "ref": "mathlib:geom_sum_mul",
     "module": "Mathlib/Algebra/Ring/GeomSum.lean",
     "provides": "The identity that the geometric sum of the first n powers of x, multiplied by x-1, is x^n-1, in any ring. This is the q-integer identity that [n]_q times (q-1) is q^n-1."
+   },
+   {
+    "ref": "mathlib:LinearEquiv",
+    "module": "Mathlib/Algebra/Module/Equiv/Defs.lean",
+    "provides": "Semilinear equivalences; use this existing carrier for the automorphisms in modified q-connections, with inverse ring-hom instances."
+   },
+   {
+    "ref": "mathlib:Module.Projective",
+    "module": "Mathlib/Algebra/Module/Projective.lean",
+    "provides": "Projective modules, via splitting of the free-module surjection; do not rebuild finite-projective module theory."
+   },
+   {
+    "ref": "mathlib:Module.Finite",
+    "module": "Mathlib/RingTheory/Finiteness/Defs.lean",
+    "provides": "Finitely generated modules, expressed by finite generation of the top submodule; paired with Module.Projective for q-connection inputs."
    }
   ]
  },
@@ -224,6 +239,18 @@
     "Section 3.2: paragraph 3.15 and Lemmas 3.16 and 3.17 with proofs",
     "NOT read: the rest of the preprint"
    ]
+  },
+  {
+   "id": "scholze-q-de-rham",
+   "title": "Canonical q-deformations in arithmetic geometry",
+   "authors": "Peter Scholze",
+   "edition": "arXiv:1606.01796v1, PDF; targeted reading of §7 only",
+   "url": "https://arxiv.org/pdf/1606.01796",
+   "sha256": "ce060b41e28fef16c011d3d3455c53a8bdc11cd8c98dc4dc6c2be178e1567273",
+   "accessed": "2026-09-30",
+   "readSections": [
+    "§7, PDF pp. 15–16: Definition 7.3, Remark 7.4 and Conjecture 7.5. No claim to have read the whole paper. Definition 7.3 supports the framed finite-projective q-connection. The modified Habiro-torus and quotient-stack comparisons below are explicit additional planning obligations, not theorems proved by this source."
+   ]
   }
  ],
  "nodes": [
@@ -235,7 +262,7 @@
     "HabiroCohomologyFoundations:HQ.1"
    ],
    "parentStageId": "HabiroCohomologyFoundations:HQ.1",
-   "statement": "The local theory of the q-de Rham complex at a single prime is not constructed here. Fix a prime p and a Λ-ring A that is p-torsion free, so that (Â_p⟦q−1⟧, (q−1)) is a q-PD pair. For a p-completely smooth Â_p-algebra S, the q-crystalline cohomology of S relative to that q-PD pair is the (p, q−1)-complete q-de Rham complex qΩ_{S/Â_p}. For a p-completely étale framing it is computed by the coordinate-dependent q-difference complex, whose differential sends the n-th power of a coordinate to [n]_q times its (n−1)-st power times the differential of the coordinate, obeys the twisted Leibniz rule and squares to zero. And qΩ_{S/Â_p} is prismatic cohomology of the Frobenius twist S^{(p)}[ζ_p], where S^{(p)} is the p-completed base change of S along ψ^p, relative to the q-de Rham prism (Â_p⟦q−1⟧, [p]_q). All of this belongs to the prismatic roadmap and is imported. What this layer owns is the gluing of those p-complete objects with rational de Rham data into one global object over A⟦q−1⟧, together with the comparisons that make the gluing well posed. The ideal (q−1) is the ideal of the q-PD pair relative to which q-crystalline cohomology is taken. It is not a prism ideal, because q−1 is not a distinguished element. The prism ideal is ([p]_q), a different ideal: Â_p⟦q−1⟧/([p]_q) is Â_p[ζ_p], while Â_p⟦q−1⟧/(q−1) is Â_p.",
+   "statement": "The local theory of the q-de Rham complex at a single prime is not constructed here. Fix a prime p and a Λ-ring A that is p-torsion free, so that (Â_p⟦q−1⟧, (q−1)) is a q-PD pair. For a p-completely smooth Â_p-algebra S, the q-crystalline cohomology of S relative to that q-PD pair is the (p, q−1)-complete q-de Rham complex qΩ_{S/Â_p}. For a p-completely étale framing it is computed by the coordinate-dependent q-difference complex, whose differential sends the n-th power of a coordinate to [n]_q times its (n−1)-st power times the differential of the coordinate, obeys the twisted Leibniz rule and squares to zero. And qΩ_{S/Â_p} is prismatic cohomology of the Frobenius twist S^{(p)}[ζ_p], where S^{(p)} is the p-completed base change of S along ψ^p, relative to the q-de Rham prism (Â_p⟦q−1⟧, [p]_q). All of this belongs to the prismatic roadmap and is imported. What this layer owns is the gluing of those p-complete objects with rational de Rham data into one global object over A⟦q−1⟧, together with the comparisons that make the gluing well posed. The ideal (q−1) is the ideal of the q-PD pair relative to which q-crystalline cohomology is taken. It is not a prism ideal, because q−1 is not a distinguished element. The prism ideal is ([p]_q), a different ideal: Â_p⟦q−1⟧/([p]_q) is Â_p[ζ_p], while Â_p⟦q−1⟧/(q−1) is Â_p. Ownership refinement under accepted RS-10: the independent complete framed difference calculus is shared, temporarily at HQ.1 and later QW.6:framings. PR.6 owns the local q-crystalline calculation and its comparison, not a duplicate generic q-derivative prefix. HQ.1 also owns the framed q-connection/module applications.",
    "hypotheses": [
     "A is a Λ-ring that is p-torsion free for every prime p (the hypothesis of Theorem A.1). This layer needs no perfect-covering assumption.",
     "For each prime p, PrismaticCohomology:PR.6 (Bhatt–Scholze §16) supplies the local q-crystalline site, its q-PD envelopes, the framed complexes and the comparison with prismatic cohomology; none of them is re-derived here.",
@@ -3682,7 +3709,7 @@
     "HabiroCohomologyFoundations:HQ.3"
    ],
    "parentStageId": "HabiroCohomologyFoundations:HQ.3",
-   "statement": "Let S be smooth over A with an etale framing A[x_1, ..., x_n] -> S. The filtration of the coordinate-dependent q-de Rham complex whose n-th step is (q-1)^{max(n - *, 0)} times the complex, pulled back along the map from the derived complex, is a q-Hodge filtration once the data of the definition are constructed at the level of complexes and pulled back; the framed pair is an E_0-algebra in the category of pairs (the source announces an E-infinity refinement in its companion paper). Its q-Hodge complex is the coordinate-dependent q-Hodge complex, in which every q-differential is multiplied by q-1, because the framed filtration is already complete. The source asserts, without proof, an explicit model for its Habiro-Hodge complex: equip A[x_1, ..., x_n] with the toric Lambda-structure psi^m(x_i) = x_i^m, form the relative Habiro ring of S over A[x_1, ..., x_n], extend the endomorphism gamma_i scaling x_i by q to it factor by factor on the equaliser presentation (by the infinitesimal lifting property of the formally etale framing, on each factor completed at q - zeta_m), note gamma_i is congruent to the identity modulo x_i, and take the Koszul complex of the commuting operators (gamma_i - id)/x_i. Combined with Theorem 3.11(b) and Corollary 3.31 this gives H^*(Habiro-Hodge complex modulo q^m-1) = qW_m Omega_{S/A} as graded A[q]/(q^m-1)-modules.",
+   "statement": "Let S be smooth over A with an etale framing A[x_1, ..., x_n] -> S. The filtration of the coordinate-dependent q-de Rham complex whose n-th step is (q-1)^{max(n - *, 0)} times the complex, pulled back along the map from the derived complex, is a q-Hodge filtration once the data of the definition are constructed at the level of complexes and pulled back; the framed pair is an E_0-algebra in the category of pairs (the source announces an E-infinity refinement in its companion paper). Its q-Hodge complex is the coordinate-dependent q-Hodge complex, in which every q-differential is multiplied by q-1, because the framed filtration is already complete.  Import the raw uncompleted framed Habiro Koszul complex from HQ.4 and compare it to this pair's Habiro–Hodge descent object. The source asserts that comparison without proof; it remains a gap. Theorem 3.11(b) and Corollary 3.31 give the cohomology of the uncompleted Habiro–Hodge reduction modulo q^m−1; Corollary 3.54 identifies its differential as the Bockstein. None of these replaces the object by its q−1 completion.",
    "hypotheses": [
     "S is smooth over A with a chosen etale framing; the filtration and the Koszul model depend on the framing, although the cohomology of the reduction modulo q^m-1 does not.",
     "The toric Lambda-structure is the one with psi^m(x_i) = x_i^m.",
@@ -3692,8 +3719,7 @@
     "Define the framed filtration by the displayed formula and construct the data of the four clauses on the level of complexes, then pull back along the map from the derived complex.",
     "Identify the associated q-Hodge complex with the coordinate-dependent one, using that the framed filtration is complete and that the q-Hodge complex does not see completion.",
     "Deduce the cohomology of the reduction modulo q^m-1 from Theorem 3.11(b) and Corollary 3.31.",
-    "Construct the scaling automorphisms of the relative Habiro ring factor by factor through the equaliser presentation and the infinitesimal lifting property, and check congruence to the identity modulo x_i.",
-    "Identify the Koszul complex of (gamma_i - id)/x_i with the Habiro-Hodge complex by unravelling the descent; the source omits this step, recorded as a gap."
+    "Import HQ.4/the-uncompleted-framed-habiro-koszul-complex, then construct and verify its comparison map with the descent object. The source omits this step; the gap remains."
    ],
    "acceptance": [
     "The framed filtration is given by an explicit formula and the pair is an E_0-algebra.",
@@ -3710,7 +3736,8 @@
     "HabiroRings:HR.5/the-relative-habiro-ring",
     "HabiroRings:HR.5/the-equaliser-presentation",
     "HabiroCyclotomicCompletions:HC.3",
-    "HabiroCohomologyFoundations:HQ.1/the-coordinate-dependent-q-de-rham-complex"
+    "HabiroCohomologyFoundations:HQ.1/the-coordinate-dependent-q-de-rham-complex",
+    "HabiroCohomologyFoundations:HQ.4/the-uncompleted-framed-habiro-koszul-complex"
    ],
    "sources": [
     {
@@ -5905,7 +5932,8 @@
    "hypotheses": [
     "The framing is étale; no Λ-structure on S is used. The complex is defined over any base ring A, and is used with A a p-torsion free Λ-ring.",
     "γ_i ≡ id modulo x_i, because the induced automorphism of S⟦q−1⟧/x_i is the identity by uniqueness of étale lifts. Also x_i and q−1 form a regular sequence on S⟦q−1⟧, since S is flat over A[x_1, …, x_d]. Together these give divisibility by (q−1)x_i.",
-    "The p-completion of this complex is the p-complete framed complex imported from PR.6."
+    "The p-completion of this complex is the p-complete framed complex imported from PR.6.",
+    "The common formal prefix must cover I-completely étale framings for I=(q−1) and I=(p,q−1), with I-completeness/separatedness and complete flatness ensuring the regularity needed to divide by (q−1)T_i. Ordinary étaleness is the algebraic input before completion; it must not be substituted for the completed hypotheses."
    ],
    "proofSteps": [
     "Construct γ_i by the infinitesimal lifting property of the étale map A[x_1, …, x_d] → S along the thickenings S⟦q−1⟧/(q−1)^n → S, and pass to the limit.",
@@ -5917,7 +5945,8 @@
    "acceptance": [
     "The automorphisms γ_i are constructed and not assumed.",
     "The divisibility by (q−1)x_i is proved.",
-    "The dependence on the framing is stated."
+    "The dependence on the framing is stated.",
+    "Compare formation of γ_i and D_i with the specified completed base change. Keep the future QW.6:framings prefix independent of positive-degree QW.5; its p-complete q-crystalline comparison stays at PR.6."
    ],
    "prerequisites": [
     "HabiroCohomologyFoundations:HQ.1/what-this-layer-imports-and-what-it-owns",
@@ -8096,9 +8125,11 @@
     "The source states this in its introduction as an example and gives no proof in the body (source issue E303); the node is planned with that status recorded as a gap."
    ],
    "proofSteps": [
-    "Reduce modulo q^m − 1 for every m: by the filtration of the previous node the reduction has a finite filtration whose i-th graded piece is RΓ(X, q-W_m Ω^i_{X/Z}) shifted to cohomological degree i; these must be shown perfect over Z[1/N][q]/(q^m − 1), a finiteness statement for the cohomology of q-de Rham–Witt complexes of smooth proper schemes that neither the source nor this packet supplies.",
-    "Deduce perfectness of the Habiro-complete object RΓ(X, q-Hdg_{X/Z}) from perfectness of all its reductions, by a Nakayama-type criterion for Habiro-complete modules; Appendix B supplies conservativity and degree detection (HR.2) but not a perfectness criterion, which also has to be supplied.",
-    "Both missing inputs are recorded in the gap 'Perfectness of algebraic Habiro cohomology is asserted in the source without proof'."
+    "Supply compatibility of derived global sections with reduction/base change along the cyclotomic quotients of the Habiro completion of H[1/N]; without it one cannot identify the reductions of RΓ with RΓ of the reduced sheaf.",
+    "Prove finite-level perfectness using the filtration and proper cohomology of the relevant q-de Rham–Witt sheaves. This finiteness theorem is not supplied by the cited source.",
+    "Prove uniform Tor-amplitude and the finite-presentation/compatibility control required across the quotient tower. Perfectness separately at each finite level is insufficient.",
+    "Apply a genuinely applicable perfectness/reconstruction criterion for the Habiro-complete coefficient ring, with all its hypotheses checked. Appendix B.2–B.4 detect completeness and vanishing; they are not a perfectness criterion.",
+    "All four inputs remain the explicit perfectness gap. Paragraph 1.16 is a source assertion without a body proof, not a confirmed false statement."
    ],
    "acceptance": [
     "The coefficient ring is named exactly, with both hypotheses on N.",
@@ -8395,6 +8426,308 @@
    ],
    "implementationStatus": "unchecked",
    "addedBy": "REV-HabiroCohomologyFoundations--HQ.1"
+  },
+  {
+   "id": "HabiroCohomologyFoundations:HQ.1/modules-with-framed-q-connection",
+   "title": "Modules with framed flat q-connection",
+   "kind": "definition",
+   "realises": [
+    "HabiroCohomologyFoundations:HQ.1"
+   ],
+   "parentStageId": "HabiroCohomologyFoundations:HQ.1",
+   "statement": "Let C=R⟦h⟧, h=q−1, for an étale-framed smooth A-algebra R with coordinates T_i. Use the commuting coefficient-linear automorphisms σ_i(T_j)=q^{δij}T_j and operators D_i=(σ_i−id)/(hT_i) of the framed differential prefix. A flat q-connection on a finite projective C-module M is a family of commuting A⟦h⟧-linear operators ∇_i satisfying ∇_i(fm)=σ_i(f)∇_i(m)+D_i(f)m. Morphisms are C-linear maps commuting with every ∇_i. This relative definition specializes to Scholze Definition 7.3 over A=Z. Framing independence is Conjecture 7.5, not a proved target.",
+   "hypotheses": [
+    "The frame supplies existence, uniqueness and coefficient-linearity of D_i; division requires the complete/flat étale lifting hypotheses of the prefix.",
+    "Finite projectivity is over C, not merely over A. Integrability means ∇_i∇_j=∇_j∇_i."
+   ],
+   "proofSteps": [
+    "Import the coefficient operators and finite-projective module interface. Package the twisted Leibniz and integrability equations.",
+    "Define horizontal morphisms as C-linear maps commuting with the operators, and check identities and composition.",
+    "For the unit object M=C take ∇_i=D_i; recover the coefficient twisted Leibniz and commuting-operator laws.",
+    "Record Remark 7.4: the naive tensor formula need not descend to a balanced tensor product, and the functor to modules over the E∞ q-de Rham algebra is not fully faithful. No framing-independent or naive Tannakian category is asserted."
+   ],
+   "acceptance": [
+    "All hypotheses and the distinction between construction, comparison and unresolved source claims are explicit."
+   ],
+   "prerequisites": [
+    "HabiroCohomologyFoundations:HQ.1/the-coordinate-dependent-q-de-rham-complex",
+    "mathlib:Module.Projective"
+   ],
+   "sources": [
+    {
+     "sourceId": "scholze-q-de-rham",
+     "locator": "Definition 7.3 and Remark 7.4, pp.15–16",
+     "match": "The framed definition and its tensor/full-faithfulness limitations; the relative A-version is a stated generalization with the same equations."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "FramedQConnection",
+     "role": "constructor",
+     "statement": "The finite-projective module with coefficient-linear ∇, twisted Leibniz and pairwise commutation."
+    },
+    {
+     "name": "FramedQConnection.Hom",
+     "role": "data",
+     "statement": "C-linear maps f with f∇_i=∇′_if for every i; identity and composition."
+    },
+    {
+     "name": "FramedQConnection.unit",
+     "role": "constructor",
+     "statement": "M=C, ∇_i=D_i."
+    },
+    {
+     "name": "FramedQConnection.modH",
+     "role": "compatibility",
+     "statement": "For the framed formal parameter h, reduction of the equations gives an integrable ordinary connection on M/hM; D_i mod h is ∂/∂T_i."
+    }
+   ],
+   "tests": [
+    {
+     "name": "qConnection_unit",
+     "kind": "computation",
+     "statement": "On Z[T]⟦h⟧, ∇(T³)=(1+q+q²)T²."
+    },
+    {
+     "name": "qConnection_empty_frame",
+     "kind": "degenerate",
+     "statement": "An empty frame gives finite-projective C-modules with no extra operators."
+    },
+    {
+     "name": "qConnection_specialization",
+     "kind": "compatibility",
+     "statement": "The equation at q=1 becomes ∇(fm)=f∇(m)+(∂f)m."
+    },
+    {
+     "name": "qConnection_not_linear_over_C",
+     "kind": "non-example",
+     "statement": "For M=C and ∇=D, D(T)=1 but T·D(1)=0; a C-linear connection field would be wrong."
+    }
+   ],
+   "uses": [
+    {
+     "where": "AnalyticHabiroStack HS.1 (draft); PLAN-HABIRO §6.5",
+     "how": "Supplies the framed module language; comparison with modified torus objects requires the next nodes and is not automatic."
+    }
+   ],
+   "planet": {
+    "name": "Framed q-connections"
+   }
+  },
+  {
+   "id": "HabiroCohomologyFoundations:HQ.1/modified-q-connections-on-a-torus",
+   "title": "Modified q-connections on a Habiro torus",
+   "kind": "definition",
+   "realises": [
+    "HabiroCohomologyFoundations:HQ.1"
+   ],
+   "parentStageId": "HabiroCohomologyFoundations:HQ.1",
+   "statement": "Let B be a commutative coefficient ring with q∈B× and C=B[x_1±1,…,x_d±1]. The commuting B-automorphisms σ_i scale x_i by q. A modified q-connection is a C-module M with commuting invertible σ_i-semilinear maps Γ_i. Put ∇̃_i=x_i⁻¹(Γ_i−id), so Γ_i=id+x_i∇̃_i. Then ∇̃_i(fm)=σ_i(f)∇̃_i(m)+x_i⁻¹(σ_i(f)−f)m. Tensor products use Γ_i(m⊗n)=Γ_i(m)⊗Γ_i(n). Invertibility is part of this torus-descent definition. All modules form the descent heart; its finite-projective subcategory describes vector bundles. This does not identify an unread V5A4 definition.",
+   "hypotheses": [
+    "q and each x_i are units; σ_i fixes B.",
+    "No congruence Γ_i≡id modulo h=q−1 is imposed. The construction has no division by h.",
+    "Ordinary framed q-connections yield Γ_i=id+h x_i∇_i only after h-completeness/continuity and regularity are supplied. Conversely, divisibility by h and uniqueness of division must be imposed; arbitrary modified connections need not come from ordinary ones."
+   ],
+   "proofSteps": [
+    "Reuse native semilinear equivalences, keeping the inverse map and semilinearity. Define ∇̃ from Γ and recover Γ from ∇̃.",
+    "Expand Γ_i(fm) to prove the displayed twisted Leibniz equation. Distinct σ_i fix x_j; commutation of Γ_i then implies commutation of ∇̃_i.",
+    "Check the balanced tensor relation using σ_i(f) on both factors, and form the inverse from Γ_i⁻¹ on each factor. Do not use a naive sum of connection operators.",
+    "For an h-complete finite-projective formal module, prove invertibility of id+h x_i∇_i by the h-adic geometric series. Recover an ordinary connection only on the congruent-to-identity subcategory with h-torsion-free division."
+   ],
+   "acceptance": [
+    "All hypotheses and the distinction between construction, comparison and unresolved source claims are explicit."
+   ],
+   "prerequisites": [
+    "HabiroCohomologyFoundations:HQ.1/modules-with-framed-q-connection",
+    "mathlib:LinearEquiv"
+   ],
+   "sources": [
+    {
+     "sourceId": "scholze-q-de-rham",
+     "locator": "Remark 7.4, pp.15–16",
+     "match": "Motivates the tensor warning only. The modified semilinear construction and torus comparison are additional proof obligations, not attributed to Scholze."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "ModifiedQConnection",
+     "role": "constructor",
+     "statement": "Commuting invertible σ_i-semilinear automorphisms of a C-module."
+    },
+    {
+     "name": "ModifiedQConnection.partial",
+     "role": "data",
+     "statement": "∇̃_i(m)=x_i⁻¹·(Γ_i(m)−m)."
+    },
+    {
+     "name": "ModifiedQConnection.recoverGamma",
+     "role": "relation",
+     "statement": "Γ_i(m)=m+x_i·∇̃_i(m)."
+    },
+    {
+     "name": "ModifiedQConnection.tensor",
+     "role": "constructor",
+     "statement": "Balanced semilinear tensor action with inverse; target on M⊗_C N."
+    },
+    {
+     "name": "ModifiedQConnection.fromOrdinary",
+     "role": "compatibility",
+     "statement": "On complete formal modules Γ_i=id+h x_i∇_i; ∇̃=h∇, subject to the stated completeness and regularity hypotheses."
+    }
+   ],
+   "tests": [
+    {
+     "name": "modified_unit",
+     "kind": "computation",
+     "statement": "On M=C with Γ=σ, ∇̃(x^n)=(q^n−1)x^(n−1); no q−1 denominator."
+    },
+    {
+     "name": "modified_recover",
+     "kind": "compatibility",
+     "statement": "id+x_i∇̃_i returns Γ_i, including on negative Laurent exponents."
+    },
+    {
+     "name": "modified_tensor_balance",
+     "kind": "compatibility",
+     "statement": "Γ((fm)⊗n)=σ(f)Γ(m)⊗Γ(n)=Γ(m)⊗σ(f)Γ(n)."
+    },
+    {
+     "name": "modified_not_ordinary",
+     "kind": "non-example",
+     "statement": "On C=Q[x±1]⟦h⟧ with q=1+h, Γ(f)=2σ(f) is invertible but Γ(1)−1=1 is not divisible by h; it is not from an ordinary q-connection."
+    }
+   ],
+   "uses": [
+    {
+     "where": "AnalyticHabiroStack HS.1 (draft)",
+     "how": "The algebraic torus action supplies the heart of the quotient comparison. The full derived comparison remains a separate gap."
+    }
+   ]
+  },
+  {
+   "id": "HabiroCohomologyFoundations:HQ.1/torus-descent-for-modified-q-connections",
+   "title": "Torus descent for modified q-connections",
+   "kind": "theorem",
+   "realises": [
+    "HabiroCohomologyFoundations:HQ.1"
+   ],
+   "parentStageId": "HabiroCohomologyFoundations:HQ.1",
+   "statement": "For C=B[x±1] and the coordinate-scaling Z^d-action above, equivariant C-modules are exactly modules with the commuting invertible semilinear Γ_i, equivalently modules over the skew group ring C⋊Z^d. The desired derived comparison is D_qc([Spec C/Z^d]) ≃ D(C)^{hZ^d}. Its right side requires homotopy-coherent equivariance, not merely commuting maps in the homotopy category. The heart construction is specified below; the quotient-stack and derived descent theorem are unresolved imports, and no analytic Habiro equivalence follows.",
+   "hypotheses": [
+    "Use the action groupoid/quotient stack, not a coarse orbit space and not a claim that the action is free.",
+    "Use all modules for the heart, and then restrict to finite projectives for vector bundles.",
+    "Higher coherence and the relevant QCoh descent theorem are prerequisites of the derived comparison."
+   ],
+   "proofSteps": [
+    "For a∈Z^d set Γ^a=∏Γ_i^{a_i}; use inverses for negative powers and commutation for the group law. This satisfies Γ^a(fm)=σ^a(f)Γ^a(m).",
+    "Send an equivariant module to its d generator actions. The two constructions are inverse on objects and on C-linear horizontal maps.",
+    "Construct the skew group action (f[a])m=fΓ^a(m); multiplication is (f[a])(g[b])=fσ^a(g)[a+b]. Verify associativity and the inverse correspondence.",
+    "Build QCoh descent for the action groupoid and identify its totalization with the homotopy fixed points. This last step is a gap until the stack/derived owner supplies its precise hypotheses. The ordinary-module argument does not prove it."
+   ],
+   "acceptance": [
+    "All hypotheses and the distinction between construction, comparison and unresolved source claims are explicit.",
+    "Check identity and negative generators, skew multiplication and morphisms. Reject the replacement of coherent derived equivariance by commutation only in the homotopy category."
+   ],
+   "prerequisites": [
+    "HabiroCohomologyFoundations:HQ.1/modified-q-connections-on-a-torus"
+   ],
+   "sources": [
+    {
+     "sourceId": "scholze-q-de-rham",
+     "locator": "§7, scope boundary",
+     "match": "No quotient-stack or modified-connection descent theorem is asserted in this source."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "HabiroCohomologyFoundations:HQ.4/the-uncompleted-framed-habiro-koszul-complex",
+   "title": "Uncompleted framed Habiro Koszul complex",
+   "kind": "definition",
+   "realises": [
+    "HabiroCohomologyFoundations:HQ.4"
+   ],
+   "parentStageId": "HabiroCohomologyFoundations:HQ.4",
+   "statement": "For a perfectly covered torsion-free Λ-base A and an étale framing A[x_1,…,x_d]→S, put the toric Λ-structure on A[x] and import the relative Habiro ring H_{S/A[x]} from HR.5. Extend coordinate scaling to commuting A-linear automorphisms γ_i on its complete equaliser factors and check descent to the equaliser. Under the divisibility and regularity checks below, define D̃_i=(γ_i−id)/x_i and the uncompleted framed complex K(H_{S/A[x]};D̃_1,…,D̃_d). No q−1 is divided out. For a toric framing the coordinates are units, and rescaling gives the Koszul complex of γ_i−id. The identification with the cohomological Habiro–Hodge descent object is a separate HQ.3 comparison gap.",
+   "hypotheses": [
+    "The finite/completed coefficient rings, Taylor equaliser and formally étale lift are imported from HR.4/HR.5.",
+    "For polynomial coordinates prove (γ_i−id)(f)∈x_iH and x_i-regularity on the relevant factors and equaliser before declaring the quotient unique. For Laurent coordinates division by x_i is literal.",
+    "Commutation of the divided operators must be checked, using that γ_i fixes x_j for i≠j and the requisite regularity."
+   ],
+   "proofSteps": [
+    "Use the existing HR.5 relative ring, with no second coefficient-ring construction. Lift the scaling maps on each completed factor through the formally étale framing.",
+    "Check compatibility with the equaliser transition maps, invertibility, commutation and congruence modulo x_i. Establish regularity and divisibility rather than treating division as notation.",
+    "Apply the existing Koszul interface to D̃_i. For units x_i rescale the wedge basis by products of x_i to compare to γ_i−id.",
+    "Send the raw model to HQ.3 for its comparison with descent. This construction never imports HQ.3, Corollary 3.54 or a proof of the desired identification."
+   ],
+   "acceptance": [
+    "All hypotheses and the distinction between construction, comparison and unresolved source claims are explicit."
+   ],
+   "prerequisites": [
+    "HabiroRings:HR.5",
+    "HabiroCohomologyFoundations:HQ.1/the-coordinate-dependent-q-de-rham-complex",
+    "HabiroCohomologyFoundations:HQ.1/the-koszul-twist-isomorphism"
+   ],
+   "sources": [
+    {
+     "sourceId": "wagner-q-hodge-habiro",
+     "locator": "Example 3.12, pp.25–26",
+     "match": "The relative Habiro ring, coordinate scalings and asserted Koszul model. The source omits the full identification proof."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "FramedHabiroKoszul",
+     "role": "constructor",
+     "statement": "Koszul complex on the imported relative Habiro ring and divided commuting scaling operators."
+    },
+    {
+     "name": "FramedHabiroKoszul.gamma",
+     "role": "data",
+     "statement": "Equaliser-compatible lifted scaling automorphisms."
+    },
+    {
+     "name": "FramedHabiroKoszul.partial_spec",
+     "role": "relation",
+     "statement": "x_i D̃_i(f)=γ_i(f)−f, with uniqueness conditional on x_i-regularity."
+    },
+    {
+     "name": "FramedHabiroKoszul.toricRescale",
+     "role": "equivalence",
+     "statement": "For Laurent coordinates compare K(D̃_i) with K(γ_i−id) by an invertible basis change."
+    }
+   ],
+   "tests": [
+    {
+     "name": "framedHabiro_empty",
+     "kind": "degenerate",
+     "statement": "The empty-frame complex is H_{S/A} in degree zero."
+    },
+    {
+     "name": "framedHabiro_monomial",
+     "kind": "computation",
+     "statement": "For a coordinate x_i, D̃_i(x_i^n)=(q^n−1)x_i^(n−1), with no q−1 denominator."
+    },
+    {
+     "name": "framedHabiro_toric_rescale",
+     "kind": "compatibility",
+     "statement": "In rank one multiplication by x on degree one intertwines D̃ and γ−id; use the corresponding wedge factors in higher rank."
+    },
+    {
+     "name": "framedHabiro_not_completed",
+     "kind": "non-example",
+     "statement": "The carrier remains the full relative Habiro ring; substituting its q−1 completion silently discards other cyclotomic directions."
+    }
+   ],
+   "uses": [
+    {
+     "where": "HabiroCohomologyFoundations:HQ.3/the-coordinate-model-and-the-etale-case",
+     "how": "Imports the raw framed complex for the asserted identification with Habiro descent; construction is independent of that comparison."
+    }
+   ]
   }
  ],
  "coverage": [
@@ -8402,14 +8735,15 @@
    "stageId": "HabiroCohomologyFoundations:HQ.1",
    "status": "partial",
    "remaining": [
-    "Étale (or Zariski) descent of the global q-de Rham complex on smooth A-algebras. The stage text asks for it ('prove descent including the cocycle identities'); the source does not state it. See the gap 'Étale descent for the global q-de Rham complex'."
+    "Étale (or Zariski) descent of the global q-de Rham complex on smooth A-algebras. The stage text asks for it ('prove descent including the cocycle identities'); the source does not state it. See the gap 'Étale descent for the global q-de Rham complex'.",
+    "Derived quotient-stack comparison for modified q-connections; framing independence is expressly excluded as an unproved conjecture, and unpublished V5A4 claims remain unread."
    ],
-   "note": "Eight nodes. The division of labour with the prismatic roadmap, which owns the local q-crystalline site, the framed complex and the p-complete comparison over the q-de Rham prism whose ideal is generated by the p-th q-integer; then the appendix's gluing in full: the coordinate-free rationalised q-crystalline comparison, the two denominator estimates for the delta-map, the q-divided power and the iterated ordinary divided power, the bound uniform in the prime that makes the product over all primes converge, the framed comparison with the logarithmic formula for the partial q-derivative and its compatibility square, the global complex as a pullback, its four properties with base change, and its lift to a derived commutative algebra through cosimplicial divided-power realisations."
+   "note": "21 packet nodes at this stage. The division of labour with the prismatic roadmap, which owns the local q-crystalline site, the framed complex and the p-complete comparison over the q-de Rham prism whose ideal is generated by the p-th q-integer; then the appendix's gluing in full: the coordinate-free rationalised q-crystalline comparison, the two denominator estimates for the delta-map, the q-divided power and the iterated ordinary divided power, the bound uniform in the prime that makes the product over all primes converge, the framed comparison with the logarithmic formula for the partial q-derivative and its compatibility square, the global complex as a pullback, its four properties with base change, and its lift to a derived commutative algebra through cosimplicial divided-power realisations."
   },
   {
    "stageId": "HabiroCohomologyFoundations:HQ.2",
    "status": "source_decomposed",
-   "note": "Nine nodes. The filtered, graded, derived-quotient and completion conventions the whole roadmap uses, with the detection principle; the graded presentation of the filtered coefficient ring by two generators whose product is the deformation parameter, which is the device that produces both the conjugate and the q-Witt filtrations; the quotient convention that places the deformation parameter in filtration degree one; the derived q-de Rham complex by animation, with the explicit record of where animation changes the answer and where it does not; base change with its completion hypothesis; the two rational comparisons with the source's statement that the p-completed one is a separate axiom; what the decalage import supplies and what is owned; and the smooth comparison identifying the underived complex with the q-Hodge completion of the derived one."
+   "note": "11 packet nodes at this stage. The filtered, graded, derived-quotient and completion conventions the whole roadmap uses, with the detection principle; the graded presentation of the filtered coefficient ring by two generators whose product is the deformation parameter, which is the device that produces both the conjugate and the q-Witt filtrations; the quotient convention that places the deformation parameter in filtration degree one; the derived q-de Rham complex by animation, with the explicit record of where animation changes the answer and where it does not; base change with its completion hypothesis; the two rational comparisons with the source's statement that the p-completed one is a separate axiom; what the decalage import supplies and what is owned; and the smooth comparison identifying the underived complex with the q-Hodge completion of the derived one."
   },
   {
    "stageId": "HabiroCohomologyFoundations:HQ.3",
@@ -8417,32 +8751,32 @@
    "remaining": [
     "Base-change maps of the Habiro-Hodge complex along maps of perfectly covered Lambda-rings, which the stage text asks for and the source does not provide (see the gap 'Base change of the Habiro-Hodge complex along maps of Lambda-rings is not in the source'); finite products are realised by the strict monoidality node and its Kuenneth API item."
    ],
-   "note": "Thirteen nodes. The definition of a q-Hodge filtration with all four clauses and every coherence datum; the no-go lemma; the q-Hodge complex with the interchangeability of a filtration and its completion; the symmetric monoidal structure on pairs and on the q-Hodge complex functor; the conjugate filtration and the abstract graded colimit lemma that computes it; the twisted q-Hodge filtration p-adically by recursion and globally by gluing, with the independence of the auxiliary integer; the partial descents with the denominator lemma; the Habiro-Hodge complex and the descent theorem in both clauses; the coordinate model with its explicit Koszul complex over the relative Habiro ring and the etale specialisation; and the operadic and derived commutative upgrades with the Bockstein identification."
+   "note": "24 packet nodes at this stage. The definition of a q-Hodge filtration with all four clauses and every coherence datum; the no-go lemma; the q-Hodge complex with the interchangeability of a filtration and its completion; the symmetric monoidal structure on pairs and on the q-Hodge complex functor; the conjugate filtration and the abstract graded colimit lemma that computes it; the twisted q-Hodge filtration p-adically by recursion and globally by gluing, with the independence of the auxiliary integer; the partial descents with the denominator lemma; the Habiro-Hodge complex and the descent theorem in both clauses; the coordinate model with its explicit Koszul complex over the relative Habiro ring and the etale specialisation; and the operadic and derived commutative upgrades with the Bockstein identification."
   },
   {
    "stageId": "HabiroCohomologyFoundations:HQ.4",
    "status": "source_decomposed",
-   "note": "Thirteen nodes, decomposed from the companion q-Witt paper together with the Nygaard subsection of the main source. The three categories of systems of differential graded algebras with all their axioms; the proof that no restriction operator exists and the observation that Langer and Zink's universal property survives the deletion of restrictions, which is what produces the comparison with ordinary de Rham-Witt complexes; the q-de Rham-Witt complex as the initial object with its two universal properties; the ghost maps with the exact torsion hypotheses their injectivity needs; etale base change and the sheaf property; the p-completion; the twisted q-de Rham complexes with their fracture square and transition maps; their reduction modulo the deformation parameter; the Nygaard filtration with its comparison, its fibre sequences and its descent; the Hodge-against-Nygaard square with the smooth derived-to-underived comparison; the cyclotomic descent with the distinction between a descended complex and a family of cohomology groups; and the discipline that multiplicative structure is carried and never created."
+   "note": "31 packet nodes at this stage. Thirteen nodes, decomposed from the companion q-Witt paper together with the Nygaard subsection of the main source. The three categories of systems of differential graded algebras with all their axioms; the proof that no restriction operator exists and the observation that Langer and Zink's universal property survives the deletion of restrictions, which is what produces the comparison with ordinary de Rham-Witt complexes; the q-de Rham-Witt complex as the initial object with its two universal properties; the ghost maps with the exact torsion hypotheses their injectivity needs; etale base change and the sheaf property; the p-completion; the twisted q-de Rham complexes with their fracture square and transition maps; their reduction modulo the deformation parameter; the Nygaard filtration with its comparison, its fibre sequences and its descent; the Hodge-against-Nygaard square with the smooth derived-to-underived comparison; the cyclotomic descent with the distinction between a descended complex and a family of cohomology groups; and the discipline that multiplicative structure is carried and never created."
   },
   {
    "stageId": "HabiroCohomologyFoundations:HQ.5",
    "status": "source_decomposed",
-   "note": "Fourteen nodes. The truncation adjunction with its projection formula; the canonical smooth filtration with the two-regime factorisation argument; the framed and fixed-point descriptions; the functoriality across dimensions through a pushout of categories; the smooth existence theorem with both the base and the dimension bound; the partial-operad multiplicativity with the doubled and the r-fold bounds and the explicit statement that inverting up to the dimension gives no multiplication; algebraic Habiro cohomology of a scheme with perfectness over the Habiro completion of the localised ring; condition (R) and the quasi-lci inputs with the counterexample showing relative semiperfectness is not automatic; the naive filtration with its unconditional injectivity; the well-behavedness theorem with both conditions and the prime-two restriction on the implication between them; flat base change; the global quasi-regular section with its monoidality; the two uniqueness statements with the extra datum the smooth case needs; and the export to the coefficient roadmap with its boundary."
+   "note": "25 packet nodes at this stage. The truncation adjunction with its projection formula; the canonical smooth filtration with the two-regime factorisation argument; the framed and fixed-point descriptions; the functoriality across dimensions through a pushout of categories; the smooth existence theorem with both the base and the dimension bound; the partial-operad multiplicativity with the doubled and the r-fold bounds and the explicit statement that inverting up to the dimension gives no multiplication; algebraic Habiro cohomology of a scheme with perfectness over the Habiro completion of the localised ring; condition (R) and the quasi-lci inputs with the counterexample showing relative semiperfectness is not automatic; the naive filtration with its unconditional injectivity; the well-behavedness theorem with both conditions and the prime-two restriction on the implication between them; flat base change; the global quasi-regular section with its monoidality; the two uniqueness statements with the extra datum the smooth case needs; and the export to the coefficient roadmap with its boundary."
   },
   {
    "stageId": "HabiroCohomologyFoundations:HQ.5-trace",
    "status": "source_decomposed",
-   "note": "Four nodes. The trace-theoretic existence theorem in both the imported introductory form and the body form with its full hypothesis list and its addendum at the prime two; the counterexample showing that a lift over connective complex K-theory does not suffice, together with the expectation about the image-of-J spectrum and its named obstruction; the one-disc refinement with the even-resolution hypotheses it carries in place of the two-discs assumption and the independence of the chosen lift; and the identification of the number-field Habiro ring as a limit of genuine fixed points."
+   "note": "5 packet nodes at this stage. The trace-theoretic existence theorem in both the imported introductory form and the body form with its full hypothesis list and its addendum at the prime two; the counterexample showing that a lift over connective complex K-theory does not suffice, together with the expectation about the image-of-J spectrum and its named obstruction; the one-disc refinement with the even-resolution hypotheses it carries in place of the two-discs assumption and the independence of the chosen lift; and the identification of the number-field Habiro ring as a limit of genuine fixed points."
   },
   {
    "stageId": "HabiroCohomologyFoundations:HQ.6",
    "status": "source_decomposed",
-   "note": "Three nodes. The comparison problem stated with its domain, its coefficient change and the transformation to be constructed, recorded as an expectation and not as a theorem; the three differences the source records, with the root-of-unity difference tied to the second clause of the descent theorem and the absence of a coherent commutative structure tied to the proved arity bounds; and the discipline that the analytic machinery supplies a language and not a comparison, with the one condensed statement this roadmap actually uses named and attributed."
+   "note": "3 packet nodes at this stage. The comparison problem stated with its domain, its coefficient change and the transformation to be constructed, recorded as an expectation and not as a theorem; the three differences the source records, with the root-of-unity difference tied to the second clause of the descent theorem and the absence of a coherent commutative structure tied to the proved arity bounds; and the discipline that the analytic machinery supplies a language and not a comparison, with the one condensed statement this roadmap actually uses named and attributed."
   },
   {
    "stageId": "HabiroCohomologyFoundations:HQ.7",
    "status": "source_decomposed",
-   "note": "Two nodes. The acceptance suite, with five examples each tested against the specialisation at the parameter value one and the p-adic comparison, four structural checks each with a concrete witness, and the prohibition on assuming the algebraic-against-analytic comparison; and the executable boundary, which separates the elementary q-difference layer that can be stated against the pinned Mathlib polynomial API from the signature-only layer and names, for each item of the latter, the machinery whose absence prevents an executable statement."
+   "note": "2 packet nodes at this stage. The acceptance suite, with five examples each tested against the specialisation at the parameter value one and the p-adic comparison, four structural checks each with a concrete witness, and the prohibition on assuming the algebraic-against-analytic comparison; and the executable boundary, which separates the elementary q-difference layer that can be stated against the pinned Mathlib polynomial API from the signature-only layer and names, for each item of the latter, the machinery whose absence prevents an executable statement."
   }
  ],
  "sourceIssues": [
@@ -9081,7 +9415,7 @@
    "neededBy": [
     "HabiroCohomologyFoundations:HQ.3/the-coordinate-model-and-the-etale-case"
    ],
-   "detail": "Example 3.12 of the main source states that the Koszul complex of the operators (gamma_i - id)/x_i on the relative Habiro ring of S over A[x_1, ..., x_n] represents the Habiro-Hodge complex of the framed pair, and says it 'can be shown by unravelling the proof of Theorem 3.11'; the model is attributed to Scholze's lecture series, which was not obtained. No other node uses the model. NEXT SOURCE ACTION: unravel the construction (twisted q-Hodge filtrations of the framed filtration, partial descents, limit) for the framed filtration, or obtain the lecture."
+   "detail": "The raw uncompleted ring and Koszul operator construction is now HQ.4/the-uncompleted-framed-habiro-koszul-complex. HQ.3/the-coordinate-model-and-the-etale-case consumes it for the identification with Habiro–Hodge descent. Example 3.12 omits that identification proof. Unravel twisted filtrations, partial descents and the limit, or obtain the lecture/V5A4. Do not put the comparison back into the raw HQ.4 constructor or introduce HQ.3 → HQ.4."
   },
   {
    "title": "Base change of the Habiro-Hodge complex along maps of Lambda-rings is not in the source",
@@ -9118,7 +9452,7 @@
    "neededBy": [
     "HabiroCohomologyFoundations:HQ.5/perfectness-for-smooth-proper-schemes"
    ],
-   "detail": "Paragraph 1.16 of the q-Hodge paper states that for X smooth and proper over Z[1/N], N divisible by every prime at most dim X, RΓ(X, q-Hdg_{X/Z}) is a perfect complex over the Habiro completion of H[1/N]; the body contains no proof (source issue E303). A proof needs (i) perfectness over Z[1/N][q]/(q^m − 1) of the cohomology of the q-de Rham–Witt complexes q-W_m Ω^i of a smooth proper scheme, which neither the source nor this packet supplies, and (ii) a Nakayama-type criterion deducing perfectness of a Habiro-complete object from perfectness of all its reductions modulo q^m − 1, which Appendix B does not state (it gives conservativity and degree detection only). NEXT SOURCE ACTION: ask the author or find a written proof; otherwise supply (i) from the q-Witt paper and (ii) in HabiroRings HR.2."
+   "detail": "Open proof obligations: derived RΓ/reduction base change; finite-level proper-cohomology perfectness; uniform Tor-amplitude and finite presentation across the tower; and an applicable Habiro-complete perfectness reconstruction theorem. Appendix B conservativity/degree detection does not imply this. Retain the source statement over the completion of H[1/N], with all primes ≤dim inverted, and its introduction-only status."
   },
   {
    "title": "Structured ring spectra inputs of the trace-theoretic remarks have no owner",
@@ -9127,6 +9461,13 @@
     "HabiroCohomologyFoundations:HQ.5-trace/a-lift-over-connective-complex-k-theory-is-not-enough"
    ],
    "detail": "Remark 4.23 of the q-Hodge paper (relation between the two conditions of Theorem 4.22) uses Burklund's theorem on E_n-structures on quotients of ring spectra (Theorem 1.5 and Remark 5.5 of his paper) and the unique lift of a perfect δ-ring to a connective p-complete E∞-ring (spherical Witt vectors); paragraph 1.11 of the ku paper uses Angeltveit's theorem on A∞-structures on quotients (Corollary 3.2). No atlas stage plans these. They enter only a remark and a counterexample, not a construction. NEXT ACTION: assign them to RefinedTraceMethods RT.4 or to StableHomotopyKTheory."
+  },
+  {
+   "title": "Derived torus descent and the modified q-connection comparison",
+   "neededBy": [
+    "HabiroCohomologyFoundations:HQ.1/torus-descent-for-modified-q-connections"
+   ],
+   "detail": "The module-level semilinear/skew-group construction is outlined, but the derived quotient-stack descent theorem with homotopy-coherent equivariance still needs its supplier and proof. V5A4 is not obtained and its definition numbers are not treated as verified. Scholze §7 proves neither this comparison nor framing independence; Conjecture 7.5 remains conjectural."
   }
  ],
  "requests": [
@@ -9278,7 +9619,7 @@
   },
   {
    "supplier": "RefinedTraceMethods:RT.4:q-Hodge",
-   "need": "The ku paper's Theorems 1.2 and 4.27 with their exact hypotheses (a perfectly covered base satisfying 3.1(tCp) at every prime; a quasi-lci input with bounded p^∞-torsion satisfying at each prime 3.2(E_2) or 3.2(E_1), the latter including p-torsion-freeness, a p-quasi-syntomic cover with relatively semiperfect reduction and an E_1-lift of the Čech nerve in S_{Â_p}-modules; the addendum (R2)), with the output as an object of AniAlg^{q-Hdg}_A; the p-complete comparisons Theorems 4.8 (p > 2) and 4.14 (p = 2, (E_1)); and Theorem 4.17: for R p-quasi-lci with R/p relatively semiperfect and a p-complete connective E_1-lift of R itself (p = 2 allowed), the q-Hodge filtration is the 1-categorical preimage of the combined filtration, independent of the lift.",
+   "need": "The ku paper's Theorems 1.2 and 4.27 with their exact hypotheses (a perfectly covered base satisfying 3.1(tCp) at every prime; a quasi-lci input with bounded p^∞-torsion satisfying at each prime 3.2(E_2) or 3.2(E_1), the latter including p-torsion-freeness, a p-quasi-syntomic cover with relatively semiperfect reduction and an E_1-lift of the Čech nerve in S_{Â_p}-modules; the addendum (R2)), with the output as an object of AniAlg^{q-Hdg}_A; the p-complete comparisons Theorems 4.8 (p > 2) and 4.14 (p = 2, (E_1)); and Theorem 4.17: for R p-quasi-lci with R/p relatively semiperfect and a p-complete connective E_1-lift of R itself (p = 2 allowed), the q-Hodge filtration is the 1-categorical preimage of the combined filtration, independent of the lift. Explicit E1 chain: ku v1 Theorem 4.17, using 4.14 and 4.16 (pp.43–45), includes p=2 under its lift hypotheses. Preserve the separately scoped 2-inverted E2 theorem; no weakening or unrestricted E2 claim.",
    "neededBy": [
     "HabiroCohomologyFoundations:HQ.5-trace/the-one-disc-refinement-and-the-prime-two",
     "HabiroCohomologyFoundations:HQ.5-trace/the-spherical-e1-lift-case-of-the-well-behavedness-theorem",
@@ -9340,7 +9681,7 @@
   },
   {
    "supplier": "AnalyticHabiroStack:HS.3",
-   "need": "The analytic Habiro stack, its sheaf cohomology, the analytic Habiro ring and the completed localisation along which the comparison of HQ.6 is expected, together with the six-functor formalism in which the comparison would be stated. This supplier is a draft roadmap that is not yet in the atlas; until it is accepted HQ.6 has no owner for its analytic side.",
+   "need": "The analytic Habiro stack, its sheaf cohomology, the analytic Habiro ring and the completed localisation along which the comparison of HQ.6 is expected, together with the six-functor formalism in which the comparison would be stated. This supplier is a draft roadmap that is not yet in the atlas; until it is accepted HQ.6 has no owner for its analytic side. The draft suppliers SolidAnalyticRings, AnalyticStacks and RingStacksAndTransmutation are prerequisites of HS.3; none is an installed supplier here. Add HS.3 → HQ.6 only on promotion. Aoki Theorem 1.7 supplies a realization functor, not the algebraic–analytic comparison; Wagner thesis §1.45 reports that comparison as future work (inherited verification, not a fresh thesis reading).",
    "neededBy": [
     "HabiroCohomologyFoundations:HQ.6/the-algebraic-against-analytic-comparison-problem"
    ]
@@ -9458,13 +9799,20 @@
     "HabiroCohomologyFoundations:HQ.1/the-local-derived-q-de-rham-complex",
     "HabiroCohomologyFoundations:HQ.5/staticity-for-quasi-lci-inputs"
    ]
+  },
+  {
+   "supplier": "AnalyticStacks:AS.3",
+   "neededBy": [
+    "HabiroCohomologyFoundations:HQ.1/torus-descent-for-modified-q-connections"
+   ],
+   "need": "Uninstalled draft supplier: algebraic QCoh descent for the action groupoid of Z^d on an affine torus, with the precise derived hypotheses and homotopy-coherent totalization. The downstream consumer is AnalyticHabiroStack HS.1, which imports HQ.1, and is not made a prerequisite of HQ.1. Coordinate this ordinary algebraic theorem with the analytic/solid realization; neither realization nor the heart argument by itself proves the derived equivalence."
   }
  ],
  "restructure": [
   {
-   "kind": "note-structure-not-accepted",
-   "title": "The restructuring proposal for this family has not been accepted, so this packet follows the current atlas",
-   "detail": "The proposal RS-10 assigns this roadmap a narrowed HQ.1 and HQ.4 and moves the positive-degree q-de Rham-Witt theory to a draft roadmap on q-Witt vectors. Its recorded review status is that changes are needed: the report requires removing seven existing atlas edges, sixty-five supplier links for the narrowed layers are missing, and three of its target roadmaps, including the q-Witt one and the analytic Habiro stack, are not in the atlas at all. The job instruction is then to work with the current structure and say so, which is what this packet does: HQ.4 plans the positive-degree q-de Rham-Witt complex, its Frobenii, its ghost maps and its etale base change, and HQ.1 plans the whole global gluing. A worker who picks up this roadmap after RS-10 is accepted must not plan that material a second time in the q-Witt roadmap; the thirteen nodes of HQ.4 and the first six of HQ.1 are exactly what would move."
+   "kind": "ownership",
+   "title": "Accepted RS-10; conditional transfers await installation of their destinations",
+   "detail": "RS-10 round 2 is accepted (review dated 2026-09-29), but QWittVectors and AnalyticHabiroStack still have no stages in the assembled atlas at base 10b68f9. Acceptance is not promotion. Keep the current HR.1/HR.4/HQ.1/HQ.4 suppliers until an atomic promotion transfers their nodes, requests and consumers. No second implementation and no dependency on an absent QW stage is introduced. HR.1 keeps étale p-completed Frobenius and temporarily supplies Λ-rings/Adams operations/perfect covers (future QW.1). HR.4 keeps finite Habiro quotients, complete étale lifts and their naturality; its degree-zero big/q-Witt theory, ghosts, F/V, no-restriction obstruction and étale base change move to QW.2–4. HQ.1 keeps global q-de Rham gluing, comparisons and q-connections; its generic complete framed differential prefix moves to QW.6:framings. HQ.4 keeps the uncompleted framed Habiro ring and Koszul construction; its positive-degree q-de Rham–Witt, smooth animation, ghost and ordinary CR.4 comparison move to QW.5/QW.7. Move the twisted q-de Rham branch from HQ.4 to HQ.2 with those imports in the same transaction. Keep HQ.4 → HQ.3: HQ.3 compares the raw model with its descent and owns Corollary 3.54. Do not add HQ.3 → HQ.4. PR.6 keeps q-PD sites/envelopes and its p-complete q-crystalline/prismatic comparison, using the framed prefix rather than owning a second generic difference calculus."
   },
   {
    "kind": "propose-link",
@@ -9480,6 +9828,11 @@
    "kind": "note-audit-verdict",
    "title": "HQ.7 is audited as a process layer but is planned here as two nodes",
    "detail": "The reviewed library audit gives HQ.7 the verdict that it is a process layer, and the job instruction says that such a layer is not mathematics and should get no nodes. This packet nevertheless plans two nodes for it, as the packet for the coefficient roadmap did for its own acceptance layer: the acceptance suite is a list of statements with concrete witnesses, each naming the node it exercises, and the executable boundary is a statement about what the suggested Lean file does and does not prove. Both are checkable claims rather than process. The alternative would be to close HQ.7 with no nodes and to move the acceptance tests into the acceptance lists of the nodes they exercise, where most of them already appear; that would be a reasonable restructuring but would lose the four structural checks, which are about the roadmap as a whole and belong to no single node."
+  },
+  {
+   "kind": "propose-link",
+   "title": "Scoped maintainer handoffs from verified /33–34",
+   "detail": "HQ.5-trace supplies HQ.7 acceptance without depending on HQ.7; the algebraic acceptance suite must not wait for the unresolved analytic HQ.6 comparison. HQ.2 imports generic complete filtered objects from DD.1 and ordinary derived de Rham from DD.2; remove its blanket logarithmic DD.6 prerequisite only while preserving the real DD.3 inputs to HQ.1 local derived q-de Rham and HQ.5 staticity. The packet already requests those DD.3 results. Atlas-edge edits are outside this issue; do not remove an edge merely to hide a dependency."
   }
  ],
  "sourceVersions": [
@@ -9510,6 +9863,41 @@
    "read": "2026-09-25",
    "sha256": "4479788e04da71cfb76596b4375b6b1e4c9bcd940ad92e1ab7c8ededba446dd4",
    "citation": "meyer-wagner-q-hodge-refined-tc: Samuel Meyer and Ferdinand Wagner, q-Hodge complexes and refined TC^− (no published version)"
+  },
+  {
+   "kind": "preprint",
+   "url": "https://arxiv.org/pdf/1606.01796",
+   "read": "2026-09-30",
+   "sha256": "ce060b41e28fef16c011d3d3455c53a8bdc11cd8c98dc4dc6c2be178e1567273",
+   "citation": "FIX-RT-AREA-etale~2 targeted PDF recheck: §7 pp.15–16, Definition 7.3 / Remark 7.4 / Conjecture 7.5. Earlier source/archive records are preserved."
+  },
+  {
+   "kind": "preprint",
+   "url": "https://arxiv.org/pdf/2510.04782v2",
+   "read": "2026-09-30",
+   "sha256": "591d0bdf2c48d12f91d6c9a4beec32978bc1e9a9448b04ef0efdc4a84315373b",
+   "citation": "FIX-RT-AREA-etale~2 targeted PDF recheck: §1.16–1.17 p.8; Theorem 3.11 and Example 3.12 pp.25–26; Corollary 3.54 pp.51–52. Earlier source/archive records are preserved."
+  },
+  {
+   "kind": "preprint",
+   "url": "https://arxiv.org/pdf/2410.23078v5",
+   "read": "2026-09-30",
+   "sha256": "c1c7426f374a9f56d5ad6fb743f6cfc95e74ba9c35a96babd7ae5101a9dded01",
+   "citation": "FIX-RT-AREA-etale~2 targeted PDF recheck: Targeted version/locator verification only; no new full-paper reading claimed. Earlier source/archive records are preserved."
+  },
+  {
+   "kind": "preprint",
+   "url": "https://arxiv.org/pdf/2510.06057v1",
+   "read": "2026-09-30",
+   "sha256": "fe9d7d71478eb546f89784f2eabdb15ec4f1e5ff8870c6c84909896c1543ea7d",
+   "citation": "FIX-RT-AREA-etale~2 targeted PDF recheck: Theorems 4.14/4.16/4.17 pp.43–45, E1 comparison including p=2. Earlier source/archive records are preserved."
+  },
+  {
+   "kind": "preprint",
+   "url": "https://arxiv.org/pdf/2410.23115v4",
+   "read": "2026-09-30",
+   "sha256": "4479788e04da71cfb76596b4375b6b1e4c9bcd940ad92e1ab7c8ededba446dd4",
+   "citation": "FIX-RT-AREA-etale~2 targeted PDF recheck: §3.2 pp.38–40, Lemma 3.16 and auxiliary Lemma 3.17. Earlier source/archive records are preserved."
   }
  ],
  "review": {

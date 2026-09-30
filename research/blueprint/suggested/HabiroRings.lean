@@ -1,3 +1,15 @@
+/- FIX-RT-AREA-etale~2 ownership update (2026-09-30).
+RS-10 round 2 is accepted, while QWittVectors is uninstalled. The HR.1 Λ/Adams
+interfaces and HR.4 degree-zero big/q-Witt, ghost and no-restriction interfaces
+below remain the interim suppliers. Transfer them atomically to QW.1–4 on
+promotion; no duplicate owner is installed by this proposal. HR.1 retains its
+étale p-complete Frobenius lifts and HR.4 its finite Habiro rings and complete
+étale lifting. HQ.4 imports HR.4's restriction obstruction. HR.6 retains the
+degree-zero identification of the independent coefficient ring, consuming HQ.5's
+generic cohomology/completion export; the rejected duplicate finding /36 is not
+applied. The previous review's elaboration result is historical. This change was
+not compiled against the pinned libraries; all current suggestions are unchecked.
+-/
 import Mathlib.Algebra.Category.Ring.Constructions
 import Mathlib.Algebra.CharP.Lemmas
 import Mathlib.Algebra.Colimit.Ring
