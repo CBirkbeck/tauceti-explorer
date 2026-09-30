@@ -151,7 +151,8 @@
    "name": "Telescopes T(n) and Bousfield classes",
    "statement": "For a fixed pair (V_n,v_n), T(n) := Σ^∞V_n[v_n^{−1}] is the telescope of v_n, with the convention T(0) = S[1/p]. The Bousfield class of a spectrum E is the full subcategory of Sp of E-acyclic spectra. L_{T(n)} is called telescopic localization at height n and the implicit prime p; for n = 1 it agrees with L_{K(1)} by theorems of Miller and Mahowald.",
    "locator": "§2.1, Land–Mathew–Meier–Tamme, Purity in chromatically localized algebraic K-theory, read in arXiv:2001.10425v5, the accepted version; J. Amer. Math. Soc. 37 (2024), no. 4, doi:10.1090/jams/1043",
-   "status": "missing"
+   "status": "missing",
+   "note": "Convention (FIX-RT-PAPER-LAND-MATHEW-MEIER-ETAL-24, RT-PAPER-LAND-MATHEW-MEIER-ETAL-24/3). CLAUSEN-MATHEW-21/118 writes T(0) = HQ, as Bousfield does (the paper says so in the proof of Proposition 2.11). The two Bousfield classes differ, since S[1/p] ⊗ S/ℓ ≠ 0 for a prime ℓ ≠ p, and agree on p-local spectra, where X ⊗ S[1/p] ≃ X ⊗ HQ. ChromaticHomotopyTheory adopts this item's T(0) = S[1/p], writes HQ where CLAUSEN-MATHEW-21 writes T(0), and states the comparison as item /24. CLAUSEN-MATHEW-21/118 names only 'a telescope'; this item fixes a pair (V_n, v_n), and Lemma 2.2(vii) (item /17) makes the Bousfield class independent of the choice."
   },
   {
    "id": "PAPER-LAND-MATHEW-MEIER-ETAL-24/17",
@@ -159,7 +160,8 @@
    "name": "Lemma 2.2: basic properties of telescopic localization",
    "statement": "Lemma 2.2. For a spectrum X and a pointed space Y: (i) v_n^{−1}π_*(X;V_n) ≅ v_n^{−1}π_*(Ω^∞X;V_n); (ii) τ_{≥k}X → X and τ_{≥k}Y → Y are v_n-periodic equivalences for all k and all n ≥ 1; (iii) K(m) is T(n)-acyclic for n ≠ m; (iv) any T(n)-acyclic spectrum is K(n)-acyclic; (v) an S/p-acyclic spectrum is T(n)-acyclic for all n ≥ 1; (vi) X → X^∧_p is a T(n)-equivalence for all n ≥ 1; (vii) the Bousfield class of T(n) does not depend on the choice of (V_n,v_n); (viii) a spectrum is T(n)-acyclic if and only if its v_n-periodic homotopy groups vanish.",
    "locator": "Lemma 2.2, Land–Mathew–Meier–Tamme, Purity in chromatically localized algebraic K-theory, read in arXiv:2001.10425v5, the accepted version; J. Amer. Math. Soc. 37 (2024), no. 4, doi:10.1090/jams/1043",
-   "status": "missing"
+   "status": "missing",
+   "note": "The proof of (vii) follows Mahowald–Sadofsky [MS95, Lemma 2.1] and uses Hopkins–Smith [HS98, Corollary 3.8 and Theorem 7] (items /110 and /109); the proof of (viii) reduces to (vii) (FIX-RT-PAPER-LAND-MATHEW-MEIER-ETAL-24, RT-PAPER-LAND-MATHEW-MEIER-ETAL-24/5(e))."
   },
   {
    "id": "PAPER-LAND-MATHEW-MEIER-ETAL-24/18",
@@ -183,7 +185,8 @@
    "name": "The localizations L_n^f and L_n^{p,f}",
    "statement": "L_n^f is the Bousfield localization at HQ ⊕ T(1) ⊕ ⋯ ⊕ T(n). Definition 2.5: L_n^{p,f} is the Bousfield localization at T(0) ⊕ T(1) ⊕ ⋯ ⊕ T(n). A Bousfield localization L is smashing if it preserves colimits, equivalently if LX ≃ X ⊗ LS, and finite if every L-acyclic spectrum is a colimit of compact L-acyclic spectra; a finite localization is smashing.",
    "locator": "§2.2 with Definition 2.5, Land–Mathew–Meier–Tamme, Purity in chromatically localized algebraic K-theory, read in arXiv:2001.10425v5, the accepted version; J. Amer. Math. Soc. 37 (2024), no. 4, doi:10.1090/jams/1043",
-   "status": "missing"
+   "status": "missing",
+   "note": "Convention (FIX-RT-PAPER-LAND-MATHEW-MEIER-ETAL-24, RT-PAPER-LAND-MATHEW-MEIER-ETAL-24/3). CLAUSEN-MATHEW-21/118 defines L_n^f : Sp → Sp_(p) as p-localization followed by finite localization away from a type-(n+1) p-local finite spectrum. That is this item's L_n^f, the localization at the p-local spectrum HQ ⊕ T(1) ⊕ ⋯ ⊕ T(n), so the two agree. What differs is only the symbol T(0) (item /16) and the non-p-local L_n^{p,f}; item /24 is the comparison lemma. CLAUSEN-MATHEW-21 also uses L_1 = L_{KU}, localization at complex K-theory, which ChromaticHomotopyTheory plans with these."
   },
   {
    "id": "PAPER-LAND-MATHEW-MEIER-ETAL-24/21",
@@ -191,7 +194,8 @@
    "name": "Lemma 2.6: L_n^{p,f} is a finite, hence smashing, localization",
    "statement": "Lemma 2.6. Writing 𝒞_{>n} for the ∞-category of p-local finite spectra of type greater than n, that is those which are K(0) ⊕ ⋯ ⊕ K(n)-acyclic, the category of L_n^{p,f}-acyclic spectra coincides with Ind(𝒞_{>n}); in particular L_n^{p,f} is a smashing localization.",
    "locator": "Lemma 2.6, Land–Mathew–Meier–Tamme, Purity in chromatically localized algebraic K-theory, read in arXiv:2001.10425v5, the accepted version; J. Amer. Math. Soc. 37 (2024), no. 4, doi:10.1090/jams/1043",
-   "status": "missing"
+   "status": "missing",
+   "note": "The proof uses Mahowald–Sadofsky [MS95, Proposition 3.3], that every L_n^{p,f}-acyclic spectrum is a colimit of finite L_n^{p,f}-acyclic spectra, and the thick subcategory theorem (item /109), which identifies the finite L_n^{p,f}-acyclic spectra with 𝒞_{>n} (FIX-RT-PAPER-LAND-MATHEW-MEIER-ETAL-24, RT-PAPER-LAND-MATHEW-MEIER-ETAL-24/5(e))."
   },
   {
    "id": "PAPER-LAND-MATHEW-MEIER-ETAL-24/22",
@@ -247,7 +251,8 @@
    "name": "Localizing invariants, Cat_∞^perf and K-theory of ring spectra",
    "statement": "A localizing invariant is a functor Cat_∞^perf → Sp sending exact sequences to fibre sequences, where Cat_∞^perf is the ∞-category of small, idempotent complete, stable ∞-categories and exact sequences are those which are both fibre and cofibre sequences there. Non-connective K-theory, THH and TC are localizing invariants. For a localizing invariant E and a ring spectrum A one writes E(A) for E(Perf(A)), where Perf(A) — the compact objects of RMod(A) — is the ∞-category of perfect A-modules.",
    "locator": "§2.3, Land–Mathew–Meier–Tamme, Purity in chromatically localized algebraic K-theory, read in arXiv:2001.10425v5, the accepted version; J. Amer. Math. Soc. 37 (2024), no. 4, doi:10.1090/jams/1043 (Blumberg–Gepner–Tabuada, A universal characterization of higher algebraic K-theory, §§5, 9)",
-   "status": "missing"
+   "status": "missing",
+   "note": "Moved from the deleted GeneralAlgebraicKTheory source route to route 1 by FIX-RT-PAPER-LAND-MATHEW-MEIER-ETAL-24 (RT-PAPER-LAND-MATHEW-MEIER-ETAL-24/1): GeneralAlgebraicKTheory K.4, K.6 and K.7 plan classical Waldhausen, Bass and Schlichting K-theory, and none of them plans small stable ∞-categories, Cat_∞^perf or localizing invariants. Route 1's first layer plans them. CLAUSEN-MATHEW-21/127 (nonconnective K, THH and TC of small stable ∞-categories, marked planned at K.6, RT.2 and RT.3) and /128–/130 (Perf(X)-linear categories and weakly localizing invariants, on a route its review rejected) need the same owner, and RefinedTraceMethods RT.5, which builds localizing motives 'from enhanced small stable categories', should import this layer."
   },
   {
    "id": "PAPER-LAND-MATHEW-MEIER-ETAL-24/29",
@@ -279,7 +284,8 @@
    "name": "The Land–Tamme pullback theorem and the ring spectrum A' ⊗~_A B",
    "statement": "For a pullback square of ring spectra with corners A, B, A', B' there is a ring spectrum A' ⊗~_{A,B'} B, functorial in the square, together with maps from A' and B, such that applying any localizing invariant E to the square with A' ⊗~_{A,B'} B in place of B' gives a pullback square of spectra; moreover fib(A' ⊗~_{A,B'}B → B') ≃ Σ fib(I ⊗_A B → I), where I is the common fibre of the vertical maps and the map is induced by the right B-module structure on I.",
    "locator": "Used throughout §3, Land–Mathew–Meier–Tamme, Purity in chromatically localized algebraic K-theory, read in arXiv:2001.10425v5, the accepted version; J. Amer. Math. Soc. 37 (2024), no. 4, doi:10.1090/jams/1043 (Land–Tamme, On the K-theory of pullbacks, Ann. of Math. 190 (2019), 877–930, Main Theorem and Remark 1.16)",
-   "status": "missing"
+   "status": "missing",
+   "note": "Moved to route 1's first layer by FIX-RT-PAPER-LAND-MATHEW-MEIER-ETAL-24 (RT-PAPER-LAND-MATHEW-MEIER-ETAL-24/1). CLAUSEN-MATHEW-MORROW-21/074, excision for K^inv 'in general Land–Tamme', is on that paper's accepted source route to RefinedTraceMethods RT.3; it is the excision corollary of this theorem, and the two should have one owner, this layer, which RT.3 then imports. The same holds for CLAUSEN-MATHEW-21/127–/130 (see /28). The classical cousin, relative K-theory and excision for rings, is GeneralAlgebraicKTheory K.5, which the layer imports."
   },
   {
    "id": "PAPER-LAND-MATHEW-MEIER-ETAL-24/33",
@@ -408,10 +414,11 @@
   {
    "id": "PAPER-LAND-MATHEW-MEIER-ETAL-24/48",
    "kind": "theorem",
-   "name": "Kuhn's blueshift theorem",
-   "statement": "For a T(n)-local spectrum X the Tate construction X^{tC_p} vanishes; consequently (L_n^{p,f}S)^{tC_p} is an algebra over L_{n−1}^{p,f}S, which is the blueshift used to run the induction of Remark 3.9.",
+   "name": "Kuhn's theorem: T(n)-local vanishing of Tate constructions, and blueshift",
+   "statement": "Kuhn [Kuh04]: for a finite group G and a T(n)-local spectrum X with G-action, L_{T(n)}(X^{tG}) = 0, equivalently the T(n)-local norm L_{T(n)}(X_{hG}) → X^{hG} is an equivalence; in blueshift form, if X is L_n^{p,f}-local then X^{tC_p} is L_{n−1}^{p,f}-local, so (L_n^{p,f}S)^{tC_p} is an algebra over L_{n−1}^{p,f}S, which is the blueshift used to run the induction of Remark 3.9. The Tate construction itself need not vanish: (KU_p^∧)^{tC_p} has π_0 = Q_p(ζ_p).",
    "locator": "Used in Remark 3.9, Land–Mathew–Meier–Tamme, Purity in chromatically localized algebraic K-theory, read in arXiv:2001.10425v5, the accepted version; J. Amer. Math. Soc. 37 (2024), no. 4, doi:10.1090/jams/1043 (Kuhn, Tate cohomology and periodic localization of polynomial functors, Invent. math. 157 (2004), 345–370)",
-   "status": "missing"
+   "status": "missing",
+   "note": "Corrected by FIX-RT-PAPER-LAND-MATHEW-MEIER-ETAL-24 (RT-PAPER-LAND-MATHEW-MEIER-ETAL-24/2, in the verifier's wording). The earlier statement, 'for a T(n)-local spectrum X the Tate construction X^{tC_p} vanishes', was the extraction's paraphrase and is false. KU_p^∧ with trivial C_p-action is K(1)-local, hence T(1)-local; for a complex-oriented E with trivial action π_{−*}E^{tC_p} = E^*((x))/[p]_F(x), and for KU_p^∧ the p-series is (1+x)^p − 1 = x·Φ_p(1+x), so π_0 = (Z_p[[x]]/Φ_p(1+x))[1/x] = Z_p[ζ_p][1/(ζ_p − 1)] = Q_p(ζ_p) ≠ 0. That Tate spectrum is rational, hence T(1)-acyclic, as the theorem predicts. The hypothesis that X is T(n)-local cannot be dropped: for X = S with trivial action the Segal conjecture for C_p (Lin, Gunawardena; Nikolaus–Scholze, Theorem III.1.7) gives S^{tC_p} ≃ S_p^∧, and L_{T(n)}S_p^∧ = L_{T(n)}S ≠ 0 for n ≥ 1. The paper states only the blueshift form (Remark 3.9, p. 16)."
   },
   {
    "id": "PAPER-LAND-MATHEW-MEIER-ETAL-24/49",
@@ -573,16 +580,14 @@
   {
    "id": "PAPER-LAND-MATHEW-MEIER-ETAL-24/68",
    "kind": "theorem",
-   "name": "K_0 and the fundamental theorem for quotients by nilpotent ideals",
-   "statement": "For a discrete ring and a nilpotent ideal, K_0 is invariant under the quotient, and by an induction with the fundamental theorem of K-theory the map K_n(R) → K_n(R/I) is an isomorphism for all n ≤ 0.",
+   "name": "Negative K-groups of quotients by nilpotent ideals",
+   "statement": "For a discrete ring R and a nilpotent two-sided ideal I, the map K_n(R) → K_n(R/I) is an isomorphism for all n ≤ 0. The case n = 0 is the nilpotent invariance of K_0 (item /103); the negative degrees follow by induction with the fundamental theorem of K-theory, since I[t], I[t^{−1}] and I[t,t^{−1}] are nilpotent ideals of R[t], R[t^{−1}] and R[t,t^{−1}] with quotients (R/I)[t], (R/I)[t^{−1}] and (R/I)[t,t^{−1}].",
    "locator": "Used in Example 4.8, Land–Mathew–Meier–Tamme, Purity in chromatically localized algebraic K-theory, read in arXiv:2001.10425v5, the accepted version; J. Amer. Math. Soc. 37 (2024), no. 4, doi:10.1090/jams/1043 (Weibel, The K-book, Ch. II, Lemma 2.2 and Ch. IV, Corollary 8.4.1)",
    "status": "planned",
    "planned": [
-    "GeneralAlgebraicKTheory:K.3",
-    "GeneralAlgebraicKTheory:K.6",
-    "SchemeKTheoryOperations:S.5"
+    "GeneralAlgebraicKTheory:K.6"
    ],
-   "note": "K.3 plans the fundamental theorems for exact categories with dévissage and resolution; K.6 plans Bass's negative K-groups and the fundamental theorem with its Nil terms, which is what the induction into non-positive degrees needs; S.5 plans the fundamental theorem for Laurent polynomial rings. The nilpotent-ideal invariance of K_0 is the degree-zero input and belongs with them."
+   "note": "Split by FIX-RT-PAPER-LAND-MATHEW-MEIER-ETAL-24 (RT-PAPER-LAND-MATHEW-MEIER-ETAL-24/6). K.6 plans Bass's negative K-groups (node K.6/negative-k-groups) and the fundamental theorem with its Nil terms (node K.6/fundamental-theorem-with-nil-terms); the induction into negative degrees is routine from that node and the degree-zero case. The degree-zero case is planned by no layer, so it is now item /103, routed to KTheoryLowDegrees Z.1 (route 4). K.3 and S.5 are no longer cited: K.3's dévissage theorem is about G-theory, whose standing instance is the G-theory of a ring modulo a nilpotent ideal, not K_0 of projectives, and S.5 plans the fundamental theorem for Laurent polynomial rings, which this induction takes from K.6."
   },
   {
    "id": "PAPER-LAND-MATHEW-MEIER-ETAL-24/69",
@@ -691,10 +696,11 @@
   {
    "id": "PAPER-LAND-MATHEW-MEIER-ETAL-24/82",
    "kind": "definition",
-   "name": "Connective real and complex K-theory and the Bott elements",
-   "statement": "ko and ku are the connective covers of the periodic real and complex topological K-theory spectra KO and KU; β ∈ π_8ko and the Bott class of π_2ku invert to give ko[1/β] ≃ KO and ku[1/β] ≃ KU. For a ko-algebra A, A[1/β] is the corresponding localization.",
+   "name": "Connective real K-theory ko and its Bott element",
+   "statement": "ko is the connective cover of the periodic real topological K-theory spectrum KO, and the Bott element β ∈ π_8ko inverts to give ko[1/β] ≃ KO. For a ko-algebra A, A[1/β] is the corresponding localization. The complex analogues ku, KU and β ∈ π_2ku are item /102.",
    "locator": "§4.3, Corollary 4.19 and Remark 4.20, Land–Mathew–Meier–Tamme, Purity in chromatically localized algebraic K-theory, read in arXiv:2001.10425v5, the accepted version; J. Amer. Math. Soc. 37 (2024), no. 4, doi:10.1090/jams/1043",
-   "status": "missing"
+   "status": "missing",
+   "note": "Split by FIX-RT-PAPER-LAND-MATHEW-MEIER-ETAL-24 (RT-PAPER-LAND-MATHEW-MEIER-ETAL-24/4). RefinedTraceMethods:RT.4:topological plans the complex half, now item /102 ('Construct topological complex K-theory from vector bundles, prove Bott periodicity and its spectrum-level multiplication, and define ku as the connective cover of KU. Identify π_*ku=ℤ[β] and π_*KU=ℤ[β,β⁻¹] with |β|=2'). No stage plans ko, KO or β ∈ π_8ko, so this real half stays missing on the chromatic route, which imports RT.4:topological for the complex half. The paper uses both halves (Corollary 4.19 and Remark 4.20, pp. 21–22)."
   },
   {
    "id": "PAPER-LAND-MATHEW-MEIER-ETAL-24/83",
@@ -832,15 +838,16 @@
    "id": "PAPER-LAND-MATHEW-MEIER-ETAL-24/99",
    "kind": "definition",
    "name": "The orbit category on cyclic subgroups and the assembly map",
-   "statement": "For a group G, 𝒪_𝒞yc(G) is the full subcategory of the orbit category of G spanned by the G-sets G/H with H ⊆ G cyclic; for a ring spectrum A, AG = A ⊗ Σ^∞_+G is the group ring. The assembly map of a functor F is colim_{G/H ∈ 𝒪_𝒞yc(G)} F(AH) → F(AG). The Farrell–Jones conjecture asserts such assembly maps are equivalences for suitable families of subgroups.",
+   "statement": "For a group G, 𝒪_𝒞(G) is the full subcategory of the orbit category of G spanned by the G-sets G/H with H ⊆ G cyclic; for a ring spectrum A, AG = A ⊗ Σ^∞_+G is the group ring. The assembly map of a functor F is colim_{G/H ∈ 𝒪_𝒞(G)} F(AH) → F(AG). The Farrell–Jones conjecture asserts such assembly maps are equivalences for suitable families of subgroups.",
    "locator": "§1 before Corollary F and §4.5 before Proposition 4.33, Land–Mathew–Meier–Tamme, Purity in chromatically localized algebraic K-theory, read in arXiv:2001.10425v5, the accepted version; J. Amer. Math. Soc. 37 (2024), no. 4, doi:10.1090/jams/1043 (Lück–Reich, The Baum–Connes and the Farrell–Jones conjectures; Lück)",
-   "status": "missing"
+   "status": "missing",
+   "note": "Written as printed (FIX-RT-PAPER-LAND-MATHEW-MEIER-ETAL-24, RT-PAPER-LAND-MATHEW-MEIER-ETAL-24/7). The LaTeX source of §4.5 writes \\mathcal{O}_{\\mathscr{Cyc}}(G), but the preamble loads \\usepackage[mathscr]{euscript}, whose script alphabet has capitals only, so the lower-case 'yc' typesets as nothing: the v5 PDF prints 𝒪_𝒞(G) in Proposition 4.33 and throughout Corollary 4.34, with the same subscript 𝒞 as the introduction before Corollary F. Items /100 and /101 use the printed symbol too. E2, which recorded the source-only difference as a misprint, is withdrawn."
   },
   {
    "id": "PAPER-LAND-MATHEW-MEIER-ETAL-24/100",
    "kind": "theorem",
    "name": "Proposition 4.33: the p-adic TC assembly map for cyclic subgroups",
-   "statement": "Proposition 4.33. For any connective ring spectrum R and any group G the assembly map colim_{G/H ∈ 𝒪_𝒞yc(G)} TC(R[H]) → TC(R[G]) is a p-adic equivalence. It combines a result of Lück–Reich–Rognes–Varisco with the finiteness properties of TC of Clausen–Mathew–Morrow. The assembly map from non-p-completed p-typical TC need not be an equivalence for the family of cyclic subgroups.",
+   "statement": "Proposition 4.33. For any connective ring spectrum R and any group G the assembly map colim_{G/H ∈ 𝒪_𝒞(G)} TC(R[H]) → TC(R[G]) is a p-adic equivalence. It combines a result of Lück–Reich–Rognes–Varisco with the finiteness properties of TC of Clausen–Mathew–Morrow. The assembly map from non-p-completed p-typical TC need not be an equivalence for the family of cyclic subgroups.",
    "locator": "Proposition 4.33 with the paragraph before it, Land–Mathew–Meier–Tamme, Purity in chromatically localized algebraic K-theory, read in arXiv:2001.10425v5, the accepted version; J. Amer. Math. Soc. 37 (2024), no. 4, doi:10.1090/jams/1043 (Lück–Reich–Rognes–Varisco, Algebraic K-theory of group rings and the cyclotomic trace map, and its §6; Clausen–Mathew–Morrow)",
    "status": "missing"
   },
@@ -848,9 +855,156 @@
    "id": "PAPER-LAND-MATHEW-MEIER-ETAL-24/101",
    "kind": "theorem",
    "name": "Corollary 4.34: the Farrell–Jones equivalence at heights ≥ 2",
-   "statement": "Corollary 4.34. For any ring spectrum R, any group G and n ≥ 2, the assembly map colim_{G/H ∈ 𝒪_𝒞yc(G)} K(R[H]) → K(R[G]) is a T(n)-equivalence. This is the T(n)-local analogue of the Farrell–Jones conjecture, and was also observed by Marco Varisco for connective ring spectra.",
+   "statement": "Corollary 4.34. For any ring spectrum R, any group G and n ≥ 2, the assembly map colim_{G/H ∈ 𝒪_𝒞(G)} K(R[H]) → K(R[G]) is a T(n)-equivalence. This is the T(n)-local analogue of the Farrell–Jones conjecture, and was also observed by Marco Varisco for connective ring spectra.",
    "locator": "Corollary 4.34, Land–Mathew–Meier–Tamme, Purity in chromatically localized algebraic K-theory, read in arXiv:2001.10425v5, the accepted version; J. Amer. Math. Soc. 37 (2024), no. 4, doi:10.1090/jams/1043",
    "status": "missing"
+  },
+  {
+   "id": "PAPER-LAND-MATHEW-MEIER-ETAL-24/102",
+   "kind": "definition",
+   "name": "Connective and periodic complex K-theory and the Bott class",
+   "statement": "ku is the connective cover of the periodic complex topological K-theory spectrum KU, and the Bott class β ∈ π_2ku gives π_*ku = Z[β], π_*KU = Z[β^{±1}] and ku[1/β] ≃ KU.",
+   "locator": "§4.3, Corollary 4.19 and Remark 4.20, pp. 21–22, Land–Mathew–Meier–Tamme, Purity in chromatically localized algebraic K-theory, read in arXiv:2001.10425v5, the accepted version; J. Amer. Math. Soc. 37 (2024), no. 4, doi:10.1090/jams/1043",
+   "status": "planned",
+   "planned": [
+    "RefinedTraceMethods:RT.4:topological"
+   ],
+   "note": "Added by FIX-RT-PAPER-LAND-MATHEW-MEIER-ETAL-24 (RT-PAPER-LAND-MATHEW-MEIER-ETAL-24/4). Split off item /82. RefinedTraceMethods:RT.4:topological reads 'Construct topological complex K-theory from vector bundles, prove Bott periodicity and its spectrum-level multiplication, and define ku as the connective cover of KU. Identify π_*ku=ℤ[β] and π_*KU=ℤ[β,β⁻¹] with |β|=2, proving the localization comparison.'"
+  },
+  {
+   "id": "PAPER-LAND-MATHEW-MEIER-ETAL-24/103",
+   "kind": "theorem",
+   "name": "Nilpotent invariance of K_0",
+   "statement": "For a ring R (associative and unital) and a nilpotent two-sided ideal I, P ↦ P/IP is a bijection from isomorphism classes of finitely generated projective R-modules to those of R/I, so K_0(R) → K_0(R/I) is an isomorphism. Equivalently: every idempotent matrix over R/I lifts to an idempotent matrix over R, because the kernel M_n(I) of M_n(R) → M_n(R/I) is a nilpotent ideal, and two finitely generated projective R-modules are isomorphic as soon as their reductions modulo I are.",
+   "locator": "Example 4.8, p. 19, Land–Mathew–Meier–Tamme, Purity in chromatically localized algebraic K-theory, read in arXiv:2001.10425v5, the accepted version; J. Amer. Math. Soc. 37 (2024), no. 4, doi:10.1090/jams/1043 (Weibel, The K-book, Ch. II, Lemma 2.2)",
+   "status": "missing",
+   "note": "Added by FIX-RT-PAPER-LAND-MATHEW-MEIER-ETAL-24 (RT-PAPER-LAND-MATHEW-MEIER-ETAL-24/6). Split off item /68. No layer plans it: KTheoryLowDegrees Z.1 plans idempotent matrices and ring K_0, but its blueprint packet lists nilpotent-ideal invariance (Weibel II.2.2) as not a target; GeneralAlgebraicKTheory K.6 has no nil-invariance node. It is routed to KTheoryLowDegrees Z.1 (route 4), whose blueprint job is still pending. Mathlib 082e2d3 has the lifting lemmas for rings that need not be commutative, which idempotent matrices need: mathlib:exists_isIdempotentElem_eq_of_ker_isNilpotent (Mathlib/RingTheory/Idempotents.lean:249), mathlib:OrthogonalIdempotents.lift_of_isNilpotent_ker (:274) and mathlib:CompleteOrthogonalIdempotents.lift_of_isNilpotent_ker (:325)."
+  },
+  {
+   "id": "PAPER-LAND-MATHEW-MEIER-ETAL-24/104",
+   "kind": "theorem",
+   "name": "Waldhausen's rational and p-adic truncation theorems",
+   "statement": "Waldhausen [Wal78, Propositions 1.1, 2.2]; Land–Tamme [LT19, Lemma 2.4]. T(0)-local K-theory, K(−)[1/p], is truncating on T(0)-acyclic ring spectra, and p-adic K-theory, K(−)^∧_p, is truncating on S[1/p]-algebras, that is on S/p-acyclic ring spectra. The paper also uses the form: a map of connective ring spectra which is an isomorphism on π_0 and an equivalence after rationalization (respectively after inverting p) induces a rational equivalence (respectively a T(0)-equivalence) on K-theory.",
+   "locator": "Used in the proofs of Proposition 3.1 (p. 11), Corollary 4.4 (p. 18), Corollary 4.7 (p. 19), Remark 4.10 (p. 19), Corollary 4.16 (p. 21) and Corollary 4.23 (p. 23), Land–Mathew–Meier–Tamme, Purity in chromatically localized algebraic K-theory, read in arXiv:2001.10425v5, the accepted version; J. Amer. Math. Soc. 37 (2024), no. 4, doi:10.1090/jams/1043 (Waldhausen, Algebraic K-theory of topological spaces. I, Proc. Sympos. Pure Math. XXXII (1978), 35–60, Propositions 1.1, 2.2; Land–Tamme, On the K-theory of pullbacks, Ann. of Math. 190 (2019), Lemma 2.4)",
+   "status": "missing",
+   "note": "Added by FIX-RT-PAPER-LAND-MATHEW-MEIER-ETAL-24 (RT-PAPER-LAND-MATHEW-MEIER-ETAL-24/5(a)). Planned in route 1's first layer beside truncating invariants (item /34). Item /31 mentions the T(0) statement only in passing."
+  },
+  {
+   "id": "PAPER-LAND-MATHEW-MEIER-ETAL-24/105",
+   "kind": "theorem",
+   "name": "The Bousfield–Kuhn functor",
+   "statement": "For each i ≥ 1 and the implicit prime p there is a functor Φ_i from pointed spaces to spectra with a natural equivalence Φ_i ∘ Ω^∞ ≃ L_{T(i)} of functors Sp → Sp (Bousfield; Kuhn [Kuh08, Theorem 1.1]). Applied to the composite Ω^∞ → Ω^∞Σ^∞Ω^∞ → Ω^∞, which is an equivalence, it exhibits L_{T(i)}(f) as a retract of L_{T(i)}(Σ^∞Ω^∞f); this is the whole proof of Proposition 2.9.",
+   "locator": "Used in the proof of Proposition 2.9, p. 9, Land–Mathew–Meier–Tamme, Purity in chromatically localized algebraic K-theory, read in arXiv:2001.10425v5, the accepted version; J. Amer. Math. Soc. 37 (2024), no. 4, doi:10.1090/jams/1043 (Kuhn, A guide to telescopic functors, Homology Homotopy Appl. 10 (2008), Theorem 1.1)",
+   "status": "missing",
+   "note": "Added by FIX-RT-PAPER-LAND-MATHEW-MEIER-ETAL-24 (RT-PAPER-LAND-MATHEW-MEIER-ETAL-24/5(b)). Item /25 states only the corollary."
+  },
+  {
+   "id": "PAPER-LAND-MATHEW-MEIER-ETAL-24/106",
+   "kind": "theorem",
+   "name": "Bousfield's vanishing theorem for v_i-periodic homotopy",
+   "statement": "For n ≥ 1 there is an integer m such that every m-connective pointed space whose v_i-periodic homotopy groups vanish for 0 ≤ i ≤ n has trivial T(i)-homology for 0 ≤ i ≤ n (Bousfield [Bou01, Corollary 4.8], in the form of Barthel–Heuts–Meier [BHM21, Theorem 3.1 and Lemma 3.3]). Bousfield's convention is T(0) = HQ; a simply connected space whose homotopy groups vanish after inverting p is also HZ[1/p]-acyclic, hence acyclic for T(0) = S[1/p].",
+   "locator": "Used in the proof of Proposition 2.11(i), pp. 9–10, Land–Mathew–Meier–Tamme, Purity in chromatically localized algebraic K-theory, read in arXiv:2001.10425v5, the accepted version; J. Amer. Math. Soc. 37 (2024), no. 4, doi:10.1090/jams/1043 (Bousfield, On the telescopic homotopy theory of spaces, Trans. Amer. Math. Soc. 353 (2001), Corollary 4.8; Barthel–Heuts–Meier, A Whitehead theorem for periodic homotopy groups, Israel J. Math. 241 (2021), Theorem 3.1, Lemma 3.3)",
+   "status": "missing",
+   "note": "Added by FIX-RT-PAPER-LAND-MATHEW-MEIER-ETAL-24 (RT-PAPER-LAND-MATHEW-MEIER-ETAL-24/5(c))."
+  },
+  {
+   "id": "PAPER-LAND-MATHEW-MEIER-ETAL-24/107",
+   "kind": "theorem",
+   "name": "The Serre spectral sequence in generalized homology",
+   "statement": "For a map of spaces f : X → Y, with homotopy fibre F_y over each point y, and a spectrum E, there is a Serre spectral sequence E^2_{s,t} = H_s(Y; E_t(F)) ⇒ E_{s+t}(X), with local coefficients in the E-homology of the fibres. In particular, if every homotopy fibre of f is E-acyclic then f induces an isomorphism on E-homology. The proof of Proposition 2.11(ii) uses it for E = T(i).",
+   "locator": "Used in the proof of Proposition 2.11(ii), p. 10, Land–Mathew–Meier–Tamme, Purity in chromatically localized algebraic K-theory, read in arXiv:2001.10425v5, the accepted version; J. Amer. Math. Soc. 37 (2024), no. 4, doi:10.1090/jams/1043",
+   "status": "missing",
+   "note": "Added by FIX-RT-PAPER-LAND-MATHEW-MEIER-ETAL-24 (RT-PAPER-LAND-MATHEW-MEIER-ETAL-24/5(c)). Tau Ceti AlgebraicTopology Stage 5 plans only the ordinary-homology Serre spectral sequence for a Serre fibration over a path-connected finite CW base ('Construct the first-quadrant homology Serre spectral sequence with monodromy local system H_q(F;R) and identify E^2_(p,q) = H_p(B;H_q(F;R))'). The generalized-homology form over arbitrary bases is planned on the chromatic route, importing that stage."
+  },
+  {
+   "id": "PAPER-LAND-MATHEW-MEIER-ETAL-24/108",
+   "kind": "theorem",
+   "name": "The nilpotence theorem",
+   "statement": "Hopkins–Smith [HS98, Theorem 3]: for a p-local ring spectrum R, an element of π_*R is nilpotent if and only if its image in K(m)_*R is nilpotent for every 0 ≤ m ≤ ∞, where K(∞) = HF_p. In particular R = 0 if and only if K(m) ⊗ R = 0 for all 0 ≤ m ≤ ∞. As Remark 2.4 notes, it suffices that R be a unital magma in the homotopy category of spectra.",
+   "locator": "Used in the proof of Lemma 2.3, p. 7, Land–Mathew–Meier–Tamme, Purity in chromatically localized algebraic K-theory, read in arXiv:2001.10425v5, the accepted version; J. Amer. Math. Soc. 37 (2024), no. 4, doi:10.1090/jams/1043 (Hopkins–Smith, Nilpotence and stable homotopy theory II, Ann. of Math. 148 (1998), Theorem 3)",
+   "status": "missing",
+   "note": "Added by FIX-RT-PAPER-LAND-MATHEW-MEIER-ETAL-24 (RT-PAPER-LAND-MATHEW-MEIER-ETAL-24/5(d)). The chromatic route's brief named it but no item carried it."
+  },
+  {
+   "id": "PAPER-LAND-MATHEW-MEIER-ETAL-24/109",
+   "kind": "theorem",
+   "name": "The thick subcategory theorem",
+   "statement": "Hopkins–Smith [HS98, Theorem 7]: every thick subcategory of the ∞-category of p-local finite spectra is one of the 𝒞_{≥n}, 0 ≤ n ≤ ∞, where 𝒞_{≥n} consists of the p-local finite spectra X with K(i) ⊗ X = 0 for all i < n (the finite spectra of type at least n). The paper uses it in Lemma 2.2(vii) and, in Lemma 2.6, to identify the finite L_n^{p,f}-acyclic spectra with 𝒞_{>n}.",
+   "locator": "Used in the proofs of Lemma 2.2(vii) (p. 7) and Lemma 2.6 (p. 8), Land–Mathew–Meier–Tamme, Purity in chromatically localized algebraic K-theory, read in arXiv:2001.10425v5, the accepted version; J. Amer. Math. Soc. 37 (2024), no. 4, doi:10.1090/jams/1043 (Hopkins–Smith, Theorem 7)",
+   "status": "missing",
+   "note": "Added by FIX-RT-PAPER-LAND-MATHEW-MEIER-ETAL-24 (RT-PAPER-LAND-MATHEW-MEIER-ETAL-24/5(d))."
+  },
+  {
+   "id": "PAPER-LAND-MATHEW-MEIER-ETAL-24/110",
+   "kind": "theorem",
+   "name": "Centrality and naturality of v_n self-maps",
+   "statement": "Hopkins–Smith [HS98, Theorem 11]: if W is a p-local finite ring spectrum of type n, for instance W_n = V_n ⊗ DV_n ≃ End(Σ^∞V_n), and w ∈ π_*W is a v_n element, then some power of w lies in the centre of π_*W; hence W[w^{−1}] admits the structure of an E_1-ring, which is how the proof of Lemma 2.3 makes T(n) a ring spectrum. With [HS98, Corollary 3.8] the paper also deduces, in Lemma 2.2(vii), that the p-local finite spectra Y admitting a v_n self-map y such that T(n) ⊗ Z = 0 implies Y[y^{−1}] ⊗ Z = 0 form a thick subcategory.",
+   "locator": "Used in the proofs of Lemma 2.2(vii) and Lemma 2.3, p. 7, Land–Mathew–Meier–Tamme, Purity in chromatically localized algebraic K-theory, read in arXiv:2001.10425v5, the accepted version; J. Amer. Math. Soc. 37 (2024), no. 4, doi:10.1090/jams/1043 (Hopkins–Smith, Theorem 11 and Corollary 3.8)",
+   "status": "missing",
+   "note": "Added by FIX-RT-PAPER-LAND-MATHEW-MEIER-ETAL-24 (RT-PAPER-LAND-MATHEW-MEIER-ETAL-24/5(d))."
+  },
+  {
+   "id": "PAPER-LAND-MATHEW-MEIER-ETAL-24/111",
+   "kind": "theorem",
+   "name": "Non-positive K-groups of a connective ring spectrum",
+   "statement": "Blumberg–Gepner–Tabuada [BGT13, Theorem 9.53]: for a connective ring spectrum R, K_i(R) ≅ K_i(π_0R) for all i ≤ 0, where π_0R is the discrete ring.",
+   "locator": "Used in the proof of Corollary 4.7, p. 19, Land–Mathew–Meier–Tamme, Purity in chromatically localized algebraic K-theory, read in arXiv:2001.10425v5, the accepted version; J. Amer. Math. Soc. 37 (2024), no. 4, doi:10.1090/jams/1043 (Blumberg–Gepner–Tabuada, A universal characterization of higher algebraic K-theory, Geom. Topol. 17 (2013), Theorem 9.53)",
+   "status": "missing",
+   "note": "Added by FIX-RT-PAPER-LAND-MATHEW-MEIER-ETAL-24 (RT-PAPER-LAND-MATHEW-MEIER-ETAL-24/5(f)). Planned in route 1's first layer with K-theory of connective ring spectra (items /28 and /29)."
+  },
+  {
+   "id": "PAPER-LAND-MATHEW-MEIER-ETAL-24/112",
+   "kind": "theorem",
+   "name": "Weibel: NK_* is a Z[1/p]-module when p is invertible",
+   "statement": "Weibel [Wei81]: for a discrete ring A in which p is invertible, p acts invertibly on NK_*(A), where NK(A) = fib(K(A[x]) → K(A)); hence NK(A)^∧_p = 0 and L_{K(1)}NK(A) = 0. This is the whole proof of Corollary 4.25 once A is reduced to a discrete ring with p invertible. The paper also cites [Wei81, Corollary 5.4] in Example 4.8 for the rational equivalence K(Z/p^kZ) ⊗ Q ≃ K(F_p) ⊗ Q.",
+   "locator": "Used in the proof of Corollary 4.25, p. 23, and in Example 4.8, p. 19, Land–Mathew–Meier–Tamme, Purity in chromatically localized algebraic K-theory, read in arXiv:2001.10425v5, the accepted version; J. Amer. Math. Soc. 37 (2024), no. 4, doi:10.1090/jams/1043 (Weibel, Mayer–Vietoris sequences and module structures on NK_*, Lecture Notes in Math. 854 (1981), 466–493, and its Corollary 5.4)",
+   "status": "missing",
+   "note": "Added by FIX-RT-PAPER-LAND-MATHEW-MEIER-ETAL-24 (RT-PAPER-LAND-MATHEW-MEIER-ETAL-24/5(g)). Route 1 imports the Nil terms from GeneralAlgebraicKTheory:K.6, whose node K.6/fundamental-theorem-with-nil-terms defines the N-groups; their module structure is not planned there."
+  },
+  {
+   "id": "PAPER-LAND-MATHEW-MEIER-ETAL-24/113",
+   "kind": "theorem",
+   "name": "Ravenel: complex-oriented rings of height at most n are L_n-local",
+   "statement": "Ravenel [Rav84, Theorem 2.1]: BP[v_n^{−1}] has the Bousfield class of K(0) ⊕ ⋯ ⊕ K(n) and is therefore L_n-local, where L_n = L_{K(0)⊕⋯⊕K(n)}. Consequently every p-local complex-oriented ring spectrum whose formal group law has height at most n is L_n-local, and so is every limit of such spectra; this is how the proof of Corollary 4.21 shows Tmf_(p) to be L_2-local.",
+   "locator": "Used in the proof of Corollary 4.21, p. 22, Land–Mathew–Meier–Tamme, Purity in chromatically localized algebraic K-theory, read in arXiv:2001.10425v5, the accepted version; J. Amer. Math. Soc. 37 (2024), no. 4, doi:10.1090/jams/1043 (Ravenel, Localization with respect to certain periodic homology theories, Amer. J. Math. 106 (1984), Theorem 2.1)",
+   "status": "missing",
+   "note": "Added by FIX-RT-PAPER-LAND-MATHEW-MEIER-ETAL-24 (RT-PAPER-LAND-MATHEW-MEIER-ETAL-24/5(h))."
+  },
+  {
+   "id": "PAPER-LAND-MATHEW-MEIER-ETAL-24/114",
+   "kind": "theorem",
+   "name": "K(n)- and T(n)-localization agree on L_n-local spectra",
+   "statement": "L_{n−1}-local spectra are T(n)-acyclic, because L_{n−1} is smashing (Hopkins–Ravenel) and T(n) is K(0) ⊕ ⋯ ⊕ K(n−1)-acyclic. Consequently, for an L_n-local spectrum X, L_{T(n)}X ≃ L_{K(n)}X: the fibre of X → L_{K(n)}X is L_n-local and K(n)-acyclic, hence L_{n−1}-local and so T(n)-acyclic, while L_{K(n)}X is T(n)-local. The paper proves the second statement in-line.",
+   "locator": "Proof of Corollary 4.21, p. 22, Land–Mathew–Meier–Tamme, Purity in chromatically localized algebraic K-theory, read in arXiv:2001.10425v5, the accepted version; J. Amer. Math. Soc. 37 (2024), no. 4, doi:10.1090/jams/1043",
+   "status": "missing",
+   "note": "Added by FIX-RT-PAPER-LAND-MATHEW-MEIER-ETAL-24 (RT-PAPER-LAND-MATHEW-MEIER-ETAL-24/5(h))."
+  },
+  {
+   "id": "PAPER-LAND-MATHEW-MEIER-ETAL-24/115",
+   "kind": "theorem",
+   "name": "TMF with level-3 structure and the K(2)-local Galois extension",
+   "statement": "At p = 2, TMF_(2) → TMF(3)_(2) is a faithful GL_2(F_3)-Galois extension [MM15, Theorem 7.6]; it localizes to the Galois extension L_{K(2)}TMF → L_{K(2)}TMF(3) ≃ E_2, with E_2 the Lubin–Tate spectrum of a supersingular elliptic curve over F_4 [Beh20, Proposition 6.6.10; Heard–Mathew–Stojanoska, Proposition 3.6]. At p = 3, L_{K(2)}TMF ≃ E_2^{hG_24}, with E_2 the Lubin–Tate spectrum of a supersingular elliptic curve C over F_9 and G_24 its automorphism group over F_3.",
+   "locator": "Used in the proof of Corollary 4.21(iv), p. 22, Land–Mathew–Meier–Tamme, Purity in chromatically localized algebraic K-theory, read in arXiv:2001.10425v5, the accepted version; J. Amer. Math. Soc. 37 (2024), no. 4, doi:10.1090/jams/1043 (Mathew–Meier, Affineness and chromatic homotopy theory, J. Topol. 8 (2015), Theorem 7.6; Behrens, Topological modular and automorphic forms, Handbook of Homotopy Theory (2020), Proposition 6.6.10)",
+   "status": "missing",
+   "note": "Added by FIX-RT-PAPER-LAND-MATHEW-MEIER-ETAL-24 (RT-PAPER-LAND-MATHEW-MEIER-ETAL-24/5(h))."
+  },
+  {
+   "id": "PAPER-LAND-MATHEW-MEIER-ETAL-24/116",
+   "kind": "theorem",
+   "name": "Galois descent for telescopically localized K-theory",
+   "statement": "Clausen–Mathew–Naumann–Noel [CMNN20, Theorem 5.6]: let A → B be a G-Galois extension of E_∞-rings with G finite, such that the image of the transfer K_0(B) ⊗ Q → K_0(A) ⊗ Q contains the unit. Then for every n ≥ 0 the maps L_n^fK(A) → L_n^f(K(B)^{hG}) → (L_n^fK(B))^{hG} are equivalences; in particular K(A) → K(B)^{hG} is a T(i)-local equivalence for every i ≥ 1. By [CMNN20, Corollary B.4] the transfer condition holds for E(𝔾,k)^{hH} → E(𝔾,k) with H a finite group of automorphisms of (𝔾,k); the paper applies this to L_{K(2)}TMF → E_2 to get K(L_{K(2)}TMF) ≃ K(E_2)^{hGL_2(F_3)} after every telescopic localization.",
+   "locator": "Used in the proof of Corollary 4.21(iv), p. 22, Land–Mathew–Meier–Tamme, Purity in chromatically localized algebraic K-theory, read in arXiv:2001.10425v5, the accepted version; J. Amer. Math. Soc. 37 (2024), no. 4, doi:10.1090/jams/1043 (Clausen–Mathew–Naumann–Noel, Descent in algebraic K-theory and a conjecture of Ausoni–Rognes, J. Eur. Math. Soc. 22 (2020), 1149–1200, Theorem 5.6 and Corollary B.4; read in arXiv:1606.03328v2)",
+   "status": "missing",
+   "note": "Added by FIX-RT-PAPER-LAND-MATHEW-MEIER-ETAL-24 (RT-PAPER-LAND-MATHEW-MEIER-ETAL-24/5(h)). CLAUSEN-MATHEW-21/142 (finite étale descent for L_n^fK_{≥0} of commutative rings) comes from the same source but is a different statement, so the two are not coalesced; a single owner of CMNN's descent theorems should state both."
+  },
+  {
+   "id": "PAPER-LAND-MATHEW-MEIER-ETAL-24/117",
+   "kind": "theorem",
+   "name": "The James splitting",
+   "statement": "For a connected pointed space W, Σ^∞ΩΣW ≃ Σ^∞⋁_{k≥1}W^{∧k} (James; [Ada72, Chapter 10, Theorem 5]). In Corollary 4.14 it shows that Σ^∞ΩΣW is T(n) ⊕ T(n−1)-acyclic when Σ^∞W is.",
+   "locator": "Used in the proof of Corollary 4.14, p. 20, Land–Mathew–Meier–Tamme, Purity in chromatically localized algebraic K-theory, read in arXiv:2001.10425v5, the accepted version; J. Amer. Math. Soc. 37 (2024), no. 4, doi:10.1090/jams/1043 (Adams, Algebraic topology — a student's guide, London Math. Soc. Lecture Note Ser. 4 (1972), Chapter 10, Theorem 5)",
+   "status": "missing",
+   "note": "Added by FIX-RT-PAPER-LAND-MATHEW-MEIER-ETAL-24 (RT-PAPER-LAND-MATHEW-MEIER-ETAL-24/5(j)). No stage of the atlas plans the James construction or its splitting, and Tau Ceti AlgebraicTopology has none, so it is planned on the chromatic route."
   }
  ],
  "prerequisites": [
@@ -963,6 +1117,41 @@
    "citation": "Bhargav Bhatt, Dustin Clausen and Akhil Mathew, \"Remarks on K(1)-local K-theory\", Selecta Math. (N.S.) 26 (2020), no. 3, Paper No. 39",
    "link": "https://doi.org/10.1007/s00029-020-00566-6",
    "why": "Their results for HZ-algebras — that a T(0)-equivalence induces an equivalence on K(1)-local K-theory, and that L_{T(1)}K(A[1/p]) ≃ L_{T(1)}TC(A) for a commutative p-adically complete ring — are the height-one shadow that Corollary C, Corollary 4.23 and Corollary 4.30 generalise to arbitrary ring spectra by purely homotopy-theoretic means."
+  },
+  {
+   "citation": "Dustin Clausen, Akhil Mathew, Niko Naumann and Justin Noel, \"Descent in algebraic K-theory and a conjecture of Ausoni–Rognes\", J. Eur. Math. Soc. (JEMS) 22 (2020), no. 4, 1149–1200",
+   "link": "https://doi.org/10.4171/jems/942",
+   "why": "Theorem 5.6, Galois descent for L_n^f-localized K-theory along a G-Galois extension of E_∞-rings whose rationalized transfer hits the unit, and Corollary B.4, which verifies that condition for Lubin–Tate spectra, give the equivalence K(L_{K(2)}TMF) ≃ K(E_2)^{hGL_2(F_3)} after every telescopic localization in Corollary 4.21(iv). This is the paper's [CMNN20], distinct from the [CMNN23] listed above."
+  },
+  {
+   "citation": "Douglas C. Ravenel, \"Localization with respect to certain periodic homology theories\", Amer. J. Math. 106 (1984), no. 2, 351–414",
+   "link": "https://doi.org/10.2307/2374308",
+   "why": "Theorem 2.1, that BP[v_n^{−1}] has the Bousfield class of K(0) ⊕ ⋯ ⊕ K(n), makes complex-oriented rings of height at most n L_n-local; this is how Corollary 4.21 shows Tmf_(p) to be L_2-local and hence T(n)-acyclic for n ≥ 3."
+  },
+  {
+   "citation": "Fabian Hebestreit and Wolfgang Steimle, \"Stable moduli spaces of hermitian forms\", arXiv:2103.13911",
+   "link": "https://arxiv.org/abs/2103.13911",
+   "why": "The stable envelope Stab(𝒞) of an additive ∞-category and the identification of τ_{≥0}K(Stab(𝒞)) with the group completion of 𝒞^≃ (Corollary 8.1.3 as the paper cites it), on which Ishan Levy's Proposition 3.12 is built."
+  },
+  {
+   "citation": "Irakli Patchkoria and Piotr Pstrągowski, \"Adams spectral sequences and Franke's algebraicity conjecture\", arXiv:2110.03669",
+   "link": "https://arxiv.org/abs/2110.03669",
+   "why": "Theorem 4.26 restricts the t-structure on Fun^add(𝒞^op, Sp) to the fibre 𝒟 of Proposition 3.12, which is what gives 𝒟 a bounded t-structure and lets the theorem of the heart apply."
+  },
+  {
+   "citation": "Lars Hesselholt and Thomas Nikolaus, \"Topological cyclic homology\", in Handbook of Homotopy Theory, CRC Press (2020), 619–656",
+   "link": "https://doi.org/10.1201/9781351251624-15",
+   "why": "Theorem 1.4.1, that the cofibre of the TC assembly map for C_p lies in the localizing subcategory generated by the coefficient ring, is the step of Remark 3.9 that makes the first map of the Clausen–Mathew–Naumann–Noel argument a T(n+1)-local equivalence."
+  },
+  {
+   "citation": "Charles A. Weibel, \"Mayer–Vietoris sequences and module structures on NK_*\", in Algebraic K-theory, Evanston 1980, Lecture Notes in Math. 854, Springer (1981), 466–493",
+   "link": "https://doi.org/10.1007/BFb0089534",
+   "why": "That NK_*(A) is a Z[1/p]-module when p is invertible in A is the whole proof of Corollary 4.25, homotopy invariance of K(1)-local K-theory; its Corollary 5.4 is used in Example 4.8."
+  },
+  {
+   "citation": "Mark Mahowald, Douglas Ravenel and Paul Shick, \"The triple loop space approach to the telescope conjecture\", in Homotopy methods in algebraic topology (Boulder, 1999), Contemp. Math. 271, Amer. Math. Soc. (2001), 217–284",
+   "link": "https://doi.org/10.1090/conm/271/04358",
+   "why": "Section 3 constructs the Thom spectra y(m) from the James filtration of ΩS^3 = ΩΣS^2, which §4.2 uses for Lemma 4.15 and Corollaries 4.16 and 4.18, and supplies π_0y(m) = F_p for odd p."
   }
  ],
  "routes": [
@@ -972,7 +1161,7 @@
    "roadmap": "GeneralAlgebraicKTheoryPartIITelescopicLocalization",
    "title": "General algebraic K-theory, Part II: telescopic localizations and the purity theorem",
    "area": "ktheory",
-   "brief": "Land-Mathew-Meier-Tamme prove that for any E_1-ring A and any n >= 1 the map A -> L_{T(n-1) + T(n)}A is an equivalence on T(n)-local K-theory: the T(n)-local K-theory of a ring spectrum sees only two adjacent chromatic heights. GeneralAlgebraicKTheory plans algebraic K-theory of exact and Waldhausen categories through the Q- and S-constructions, the fundamental theorems, the nonconnective extension and Morita invariance, and it plans no localization of K-theory at a Morava K-theory or a telescope; nothing anywhere in the atlas does. This Part II is where the chromatic behaviour of K-theory is planned, on top of the general theory its parent owns and the chromatic homotopy theory proposed alongside it.\n\nFinal theorems. Theorem A in its two halves and their common reformulation Theorem 3.8: A -> L_n^{p,f}A is an equivalence on L_{T(i)}K(-) for 1 <= i <= n, and for n >= 2 so is A -> L_{T(1) + ... + T(n)}A on L_{T(n)}K(-). The Purity Theorem itself, obtained from Theorem A and the Clausen-Mathew-Naumann-Noel vanishing of L_{T(n)}K(L_{n-2}^{p,f}S), whose argument Remark 3.9 reproduces and which uses Theorem A but not the Purity Theorem, so that there is no circularity. Theorem B, the redshift inequality hgt(K(R)) <= hgt(R)+1 for an E_infty-ring, and the Redshift Theorem hgt(K(R)) = hgt(R)+1 for hgt(R) >= 0 once Yuan's and Burklund-Schlank-Yuan's converse is imported. Proposition 3.1, the highly connective case, and Proposition 3.4, that L_{T(n)}K is truncating on L_n^{p,f}-acyclic ring spectra, with Lemma 3.3 reducing truncation to a single Postnikov stage. Proposition 3.6 and Lemma 3.7, the passage from connective to arbitrary ring spectra through the S_. construction and the Thomason-Neeman localization sequence. Proposition 3.12, Ishan Levy's second proof through a stable category with a bounded t-structure. Remark 3.11, that purity is optimal because A -> L_{T(n)}K(A) factors through neither L_{T(n)} nor L_{T(n-1)}. Then the consequences of section 4: the vanishing results for K(K(n)), K(BP<n>) -> K(E(n)), K(tau_{<= n}S), K(y(m)) and K(z(m)); the purity statements for ko-algebras and tmf-algebras, including the T(3)-local identification of K(tmf) with K(E_2)^{hGL_2(F_3)} at the prime 2; at height one, that K(1)-local K-theory is truncating on K(1)-acyclic ring spectra, satisfies nilinvariance, Milnor excision, cdh-descent and homotopy invariance and agrees with K(1)-local KH; and at heights at least two, Corollary 4.30 identifying L_{T(n)}K(A), L_{T(n)}K(tau_{>= 0}A) and L_{T(n)}TC(tau_{>= 0}A), Corollary 4.31 comparing group-completion and Waldhausen K-theory, Corollary 4.32 on sifted colimits, and the T(n)-local Farrell-Jones equivalence of Proposition 4.33 and Corollary 4.34 for the family of cyclic subgroups.\n\nImport, never re-plan: the parent roadmap's K.1-K.7 for algebraic K-theory itself, together with the spectral and infinity-categorical extensions this paper's extraction routes into K.4, K.6 and K.7 as a source - localizing invariants on Cat_infty^perf, nonconnective K-theory of a small stable category, Perf(A) for a ring spectrum, the S_. construction with S_n(C) = Fun(Delta^{n-1}, C), the plus-construction description of tau_{>= 1}K(A), group-completion K-theory and the stable envelope, the Land-Tamme pullback theorem and truncating invariants, the Thomason-Neeman localization theorem, the theorem of the heart and devissage for stable categories, and Waldhausen A-theory. Import RefinedTraceMethods RT.2 and RT.3 for THH, TC and the cyclotomic trace and the Dundas-Goodwillie-McCarthy theorem, and the two facts routed there as a source: the identification of stable K-theory with THH, and the Nikolaus-Scholze description of the Verdier quotient by Perf(R[C_p]). Import KTheoryFiniteLocalFields L.1 for Quillen's computation of the K-theory of a finite field and SchemeKTheoryOperations S.5 for homotopy invariance and homotopy K-theory. Import the whole of the chromatic roadmap proposed alongside this one: telescopes, Morava K-theories, L_n^{p,f}, the Bousfield-Kuhn functor, Hahn's theorem, Kuhn's blueshift, ko, tmf, Lubin-Tate theory and the Thom spectra y(m).\n\nThree things must not be blurred. Theorem A and the Purity Theorem are different statements: Theorem A alone does not give the lower half, which comes from Clausen-Mathew-Naumann-Noel, and the proof of that input uses Theorem A, so the order of the two must be kept. The redshift inequality of Theorem B is one half of the Redshift Theorem; the other half is not proved here and its restriction to non-negative height is necessary, as K(F_p^{tC_p}) shows. And the statements at height one and at heights at least two are genuinely different: Corollary 4.30 fails for n = 1, as the nonvanishing of L_{K(1)}TC(Z) against the vanishing of L_{K(1)}TC(Z[1/p]) shows.",
+   "brief": "Land-Mathew-Meier-Tamme prove that for any E_1-ring A and any n >= 1 the map A -> L_{T(n-1) + T(n)}A is an equivalence on T(n)-local K-theory: the T(n)-local K-theory of a ring spectrum sees only two adjacent chromatic heights. GeneralAlgebraicKTheory plans algebraic K-theory of exact and Waldhausen categories through the Q- and S-constructions, the fundamental theorems, the nonconnective extension and Morita invariance, and it plans no localization of K-theory at a Morava K-theory or a telescope; nothing anywhere in the atlas does. This Part II is where the chromatic behaviour of K-theory is planned, on top of the general theory its parent owns and the chromatic homotopy theory proposed alongside it.\n\nFinal theorems. Theorem A in its two halves and their common reformulation Theorem 3.8: A -> L_n^{p,f}A is an equivalence on L_{T(i)}K(-) for 1 <= i <= n, and for n >= 2 so is A -> L_{T(1) + ... + T(n)}A on L_{T(n)}K(-). The Purity Theorem itself, obtained from Theorem A and the Clausen-Mathew-Naumann-Noel vanishing of L_{T(n)}K(L_{n-2}^{p,f}S), whose argument Remark 3.9 reproduces and which uses Theorem A but not the Purity Theorem, so that there is no circularity. Theorem B, the redshift inequality hgt(K(R)) <= hgt(R)+1 for an E_infty-ring, and the Redshift Theorem hgt(K(R)) = hgt(R)+1 for hgt(R) >= 0 once Yuan's and Burklund-Schlank-Yuan's converse is imported. Proposition 3.1, the highly connective case, and Proposition 3.4, that L_{T(n)}K is truncating on L_n^{p,f}-acyclic ring spectra, with Lemma 3.3 reducing truncation to a single Postnikov stage. Proposition 3.6 and Lemma 3.7, the passage from connective to arbitrary ring spectra through the S_. construction and the Thomason-Neeman localization sequence. Proposition 3.12, Ishan Levy's second proof through a stable category with a bounded t-structure. Remark 3.11, that purity is optimal because A -> L_{T(n)}K(A) factors through neither L_{T(n)} nor L_{T(n-1)}. Then the consequences of section 4: the vanishing results for K(K(n)), K(BP<n>) -> K(E(n)), K(tau_{<= n}S), K(y(m)) and K(z(m)); the purity statements for ko-algebras and tmf-algebras, including the T(3)-local identification of K(tmf) with K(E_2)^{hGL_2(F_3)} at the prime 2; at height one, that K(1)-local K-theory is truncating on K(1)-acyclic ring spectra, satisfies nilinvariance, Milnor excision, cdh-descent and homotopy invariance and agrees with K(1)-local KH; and at heights at least two, Corollary 4.30 identifying L_{T(n)}K(A), L_{T(n)}K(tau_{>= 0}A) and L_{T(n)}TC(tau_{>= 0}A), Corollary 4.31 comparing group-completion and Waldhausen K-theory, Corollary 4.32 on sifted colimits, and the T(n)-local Farrell-Jones equivalence of Proposition 4.33 and Corollary 4.34 for the family of cyclic subgroups.\n\nFirst layer: K-theory of small stable infinity-categories and localizing invariants (Blumberg-Gepner-Tabuada sections 5-9, Land-Tamme, Barwick, Hebestreit-Steimle). GeneralAlgebraicKTheory's K.1-K.7 plan classical Waldhausen, Bass and Schlichting K-theory; none of them plans stable infinity-categories, Cat_infty^perf, localizing invariants, K-theory of ring spectra or t-structures, so this Part II plans them first, as the foundation every later theorem rests on: localizing invariants on Cat_infty^perf and K(A) = K(Perf(A)) for a ring spectrum; nonconnective K-theory of a small stable infinity-category; BGL(A)^+ and the plus-construction description of tau_{>= 1}K(A) for a connective ring spectrum A; the S_. construction with S_n(C) = Fun(Delta^{n-1}, C) and its delooping; group-completion K-theory K^add of an additive infinity-category and the additive Schwede-Shipley theorem; the Thomason-Neeman localization theorem; the Land-Tamme pullback theorem, truncating invariants, and Waldhausen's rational and p-adic truncation theorems (Land-Tamme Lemma 2.4); K_i(R) = K_i(pi_0 R) for i <= 0 and R connective (Blumberg-Gepner-Tabuada Theorem 9.53); the stable envelope Stab(C) and nonconnective additive K-theory (Hebestreit-Steimle); Barwick's theorem of the heart; Antieau-Gepner-Heller devissage; and Waldhausen's A-theory A(X) = K(S[Omega X]). It compares these with the classical theories it imports on Perf of a discrete ring. This layer imports only EnhancedDerivedSheaves E0, E5:abstract and E5:presentability, StableHomotopyKTheory H.3, H.5:spectra and H.5:S-delooping, and GeneralAlgebraicKTheory K.1-K.6; it imports nothing from RefinedTraceMethods, so that RefinedTraceMethods RT.3 and RT.5 can import it without a cycle. It is the owner the atlas lacks for this material: CLAUSEN-MATHEW-21/127-/130 (K, THH and TC of small stable infinity-categories, Perf(X)-linear categories and weakly localizing invariants) and CLAUSEN-MATHEW-MORROW-21/074 (Land-Tamme excision, on its accepted source route to RT.3) need this same owner, and RT.5, which builds localizing motives from enhanced small stable categories, should import it.\n\nImport, never re-plan, from the parent GeneralAlgebraicKTheory what its layers do plan: K.2:plus with StableHomotopyKTheory H.3 for the plus construction and BGL(A)^+ of a discrete ring, which the first layer extends to connective ring spectra; K.3 (node K.3/devissage-theorem) for Quillen's devissage for abelian categories, the abelian half of the theorem of the heart; K.4 for Waldhausen's S-construction, additivity and delooping; K.5 for relative K-theory and excision, the classical cousin of the Land-Tamme theorem; and K.6 for Bass's and Schlichting's nonconnective K-theory, and the fundamental theorem with its Nil terms (node K.6/fundamental-theorem-with-nil-terms), from which the induction making K_n(R) -> K_n(R/I) an isomorphism for n <= 0 and I nilpotent (item /68) is routine. Import the nilpotent invariance of K_0, which the paper uses in Example 4.8, from KTheoryLowDegrees Z.1, to which it is routed (route 4). Plan here, besides the first layer, the other cited inputs no layer plans: Weibel's theorem that NK_*(A) is a Z[1/p]-module when p is invertible in A, the whole proof of Corollary 4.25, and Clausen-Mathew-Naumann-Noel's Galois descent for telescopically localized K-theory (JEMS 2020, Theorem 5.6 and Corollary B.4), which Corollary 4.21(iv) uses. In the layers after the first, import RefinedTraceMethods RT.2 and RT.3 for THH, TC and the cyclotomic trace and the Dundas-Goodwillie-McCarthy theorem, and the two facts routed there as a source: the identification of stable K-theory with THH, and the Nikolaus-Scholze description of the Verdier quotient by Perf(R[C_p]). Import KTheoryFiniteLocalFields L.1 for Quillen's computation of the K-theory of a finite field and SchemeKTheoryOperations S.5 for homotopy invariance and homotopy K-theory. Import the whole of the chromatic roadmap proposed alongside this one: telescopes, Morava K-theories, L_n^{p,f}, the Bousfield-Kuhn functor, Hahn's theorem, Kuhn's blueshift, ko, tmf, Lubin-Tate theory and the Thom spectra y(m).\n\nThree things must not be blurred. Theorem A and the Purity Theorem are different statements: Theorem A alone does not give the lower half, which comes from Clausen-Mathew-Naumann-Noel, and the proof of that input uses Theorem A, so the order of the two must be kept. The redshift inequality of Theorem B is one half of the Redshift Theorem; the other half is not proved here and its restriction to non-negative height is necessary, as K(F_p^{tC_p}) shows. And the statements at height one and at heights at least two are genuinely different: Corollary 4.30 fails for n = 1, as the nonvanishing of L_{K(1)}TC(Z) against the vanishing of L_{K(1)}TC(Z[1/p]) shows.",
    "prerequisites": [
     "GeneralAlgebraicKTheory",
     "ChromaticHomotopyTheory",
@@ -980,9 +1169,10 @@
     "StableHomotopyKTheory",
     "EnhancedDerivedSheaves",
     "KTheoryFiniteLocalFields",
-    "SchemeKTheoryOperations"
+    "SchemeKTheoryOperations",
+    "KTheoryLowDegrees"
    ],
-   "reason": "GeneralAlgebraicKTheory owns algebraic K-theory: K.1-K.5 the Q- and S-constructions, the fundamental theorems and relative theory, K.6 the nonconnective extension, K.7 Morita invariance, products, filtered colimits and the universal interfaces. Every theorem of this paper is a statement about that functor, so the work belongs in its direction; but none of its seven stages mentions a Morava K-theory, a telescope or any localization of K-theory at one, and no other roadmap of the atlas does either. The nearest neighbours are RefinedTraceMethods, whose RT.2, RT.3 and RT.5 plan THH, TC, the cyclotomic trace and localizing motives with no chromatic content, and MotivicEtaleKTheory with its Part II on Selmer and etale K-theory, which is about etale descent rather than chromatic height. The layers needed here - purity, redshift, the truncating property of L_{T(n)}K, and the height-one and height-at-least-two consequences - are new layers in the parent's direction, which is what a Part II is for.",
+   "reason": "GeneralAlgebraicKTheory owns algebraic K-theory: K.1-K.5 the Q- and S-constructions, the fundamental theorems and relative theory, K.6 the nonconnective extension, K.7 Morita invariance, products, filtered colimits and the universal interfaces. Every theorem of this paper is a statement about that functor, so the work belongs in its direction; but none of its seven stages mentions a Morava K-theory, a telescope or any localization of K-theory at one, and no other roadmap of the atlas does either. The nearest neighbours are RefinedTraceMethods, whose RT.2, RT.3 and RT.5 plan THH, TC, the cyclotomic trace and localizing motives with no chromatic content, and MotivicEtaleKTheory with its Part II on Selmer and etale K-theory, which is about etale descent rather than chromatic height. The layers needed here - purity, redshift, the truncating property of L_{T(n)}K, and the height-one and height-at-least-two consequences - are new layers in the parent's direction, which is what a Part II is for. Corrected on 30 September 2026 by FIX-RT-PAPER-LAND-MATHEW-MEIER-ETAL-24 (RT-PAPER-LAND-MATHEW-MEIER-ETAL-24/1): K.4, K.6 and K.7 plan only classical Waldhausen, Bass and Schlichting K-theory, and 'the universal interfaces' of K.7 are Morita invariance, products and filtered colimits, not localizing invariants of stable infinity-categories. The twelve infinity-categorical items that the extraction sent to those layers as a source (items /28, /29, /30, /32, /34, /40, /41, /43, /55, /56, /70 and /76) are planned by no layer, and the GeneralAlgebraicKTheory blueprints were accepted without them, so they now form this Part II's first layer, together with four further cited inputs (items /104, /111, /112 and /116). The first layer imports only EnhancedDerivedSheaves E0/E5, StableHomotopyKTheory H.3/H.5 and GeneralAlgebraicKTheory K.1-K.6, so that RefinedTraceMethods RT.3 and RT.5 can import it.",
    "items": [
     "PAPER-LAND-MATHEW-MEIER-ETAL-24/3",
     "PAPER-LAND-MATHEW-MEIER-ETAL-24/4",
@@ -1040,7 +1230,23 @@
     "PAPER-LAND-MATHEW-MEIER-ETAL-24/98",
     "PAPER-LAND-MATHEW-MEIER-ETAL-24/99",
     "PAPER-LAND-MATHEW-MEIER-ETAL-24/100",
-    "PAPER-LAND-MATHEW-MEIER-ETAL-24/101"
+    "PAPER-LAND-MATHEW-MEIER-ETAL-24/101",
+    "PAPER-LAND-MATHEW-MEIER-ETAL-24/28",
+    "PAPER-LAND-MATHEW-MEIER-ETAL-24/29",
+    "PAPER-LAND-MATHEW-MEIER-ETAL-24/30",
+    "PAPER-LAND-MATHEW-MEIER-ETAL-24/40",
+    "PAPER-LAND-MATHEW-MEIER-ETAL-24/41",
+    "PAPER-LAND-MATHEW-MEIER-ETAL-24/55",
+    "PAPER-LAND-MATHEW-MEIER-ETAL-24/56",
+    "PAPER-LAND-MATHEW-MEIER-ETAL-24/43",
+    "PAPER-LAND-MATHEW-MEIER-ETAL-24/32",
+    "PAPER-LAND-MATHEW-MEIER-ETAL-24/34",
+    "PAPER-LAND-MATHEW-MEIER-ETAL-24/70",
+    "PAPER-LAND-MATHEW-MEIER-ETAL-24/76",
+    "PAPER-LAND-MATHEW-MEIER-ETAL-24/104",
+    "PAPER-LAND-MATHEW-MEIER-ETAL-24/111",
+    "PAPER-LAND-MATHEW-MEIER-ETAL-24/112",
+    "PAPER-LAND-MATHEW-MEIER-ETAL-24/116"
    ]
   },
   {
@@ -1048,14 +1254,16 @@
    "roadmap": "ChromaticHomotopyTheory",
    "title": "Chromatic homotopy theory: telescopes, Morava K-theories and finite localizations",
    "area": "topology",
-   "brief": "The atlas has no chromatic homotopy theory at all: a search of every layer description for Morava K-theory, Bousfield localization, telescopes, redshift, topological modular forms, the nilpotence theorem and ring spectra returns nothing, and no paper routed so far proposes a roadmap in this direction. Land-Mathew-Meier-Tamme's purity theorem is stated entirely in this language, and so are the theorems of Clausen-Mathew-Naumann-Noel, Hahn, Kuhn, Yuan and Burklund-Schlank-Yuan that it uses and feeds; the chromatic material is therefore planned once, here, and imported by the K-theoretic Part II proposed alongside it rather than re-planned there.\n\nFinal theorems. The periodicity theorem of Hopkins and Smith, giving a v_n self-map on every type n complex, with the thick subcategory theorem and the nilpotence theorem it rests on. The independence of the Bousfield class of T(n) from the choice of (V_n, v_n), and the characterisation of T(n)-acyclicity by the vanishing of v_n-periodic homotopy groups (Lemma 2.2 of the paper, all eight parts). The telescope conjecture for ring spectra: a ring spectrum is K(n)-acyclic if and only if it is T(n)-acyclic (Lemma 2.3), together with the record that the conjecture itself is a theorem at height one by Mahowald and Miller and is false at every greater height and every prime by Burklund-Hahn-Levy-Schlank. That L_n^f and L_n^{p,f} are finite, hence smashing, localizations, with the identification of their acyclics as Ind(C_{>n}) and the fracture squares of Lemmas 2.7 and 2.8. The Bousfield-Kuhn functor and its consequence that Sigma^infty Omega^infty detects T(i)-local equivalences (Proposition 2.9), and Bousfield's vanishing theorem giving that it preserves sufficiently connective L_n^{p,f}-equivalences (Proposition 2.11), with the sharpening m = n+1 from Carmeli-Schlank-Yanovski's ambidexterity criterion. Hahn's theorem that a T(n)-acyclic E_infty-ring is T(n+1)-acyclic, with the definition of the height of an E_infty-ring it makes possible and the Tate-construction strengthening used by Clausen-Mathew-Naumann-Noel. Kuhn's blueshift theorem for the Tate construction.\n\nConstruct here, as the objects all of this is about: type n complexes and v_n self-maps; v_n-periodic homotopy groups of spaces and spectra; Morava K-theories K(n), connective Morava K-theory k(n), truncated Brown-Peterson spectra BP<n> and Johnson-Wilson theories E(n) with the fibre sequences relating them; telescopes T(n) with the convention T(0) = S[1/p]; Bousfield localization at a spectrum, Bousfield classes, smashing and finite localizations; L_n, L_n^f and L_n^{p,f} with the chromatic and telescopic filtrations; connective and periodic real and complex topological K-theory with their Bott elements; Lubin-Tate theories E_n with their Morava stabilizer actions; topological modular forms tmf, Tmf and TMF as the connective cover and the global sections of the sheaf O^top on the compactified moduli stack of generalized elliptic curves, with the height bound on the formal groups of elliptic curves that makes Tmf L_2-local; and the Thom spectra y(m) and z(m) of the James-filtered maps into BGL_1(S^p), with Mahowald's and Hopkins's theorem identifying the colimit as HF_p.\n\nImport, never re-plan: StableHomotopyKTheory H.5:spectra for a concrete model of spectra with suspension spectra, loops, shift, integer-graded stable homotopy groups and fibre sequences, and H.6 for mod-m coefficients, the Bockstein sequence, p-completion and the Milnor lim^1 sequence, which is what Lemma 2.2(v) and (vi) are about; EnhancedDerivedSheaves E0 and E5 for quasicategories, stable and symmetric monoidal infinity categories, Ind-completion and compact objects; RefinedTraceMethods RT.4:topological for topological K-theory and Bott periodicity. Mathlib has quasicategories and nothing else of this: no spectra, no smash product, no Bousfield localization, no Morava K-theory.\n\nTwo things must not be blurred. K(n)-acyclicity and T(n)-acyclicity are different conditions on a general spectrum and the telescope conjecture is now known to be false; every statement must say which one it uses, and Lemma 2.3 is what licenses passing between them for ring spectra. And L_n^{p,f} is not L_n^f: they differ at the bottom of the tower, agree on p-local spectra, and the p-local comparison is a lemma, not a convention.",
+   "brief": "The atlas has no chromatic homotopy theory at all: a search of every layer description for Morava K-theory, Bousfield localization, telescopes, redshift, topological modular forms, the nilpotence theorem and ring spectra returns nothing, and no paper routed so far proposes a roadmap in this direction; but PAPER-CLAUSEN-MATHEW-21, merged a day before this extraction, routes chromatic basics to MotivicEtaleKTheoryPartIISelmerAndEtaleKTheory, a route its review rejected because generic chromatic spectra must come from their owning roadmap (see the paragraph on Clausen-Mathew below). Land-Mathew-Meier-Tamme's purity theorem is stated entirely in this language, and so are the theorems of Clausen-Mathew-Naumann-Noel, Hahn, Kuhn, Yuan and Burklund-Schlank-Yuan that it uses and feeds; the chromatic material is therefore planned once, here, and imported by the K-theoretic Part II proposed alongside it rather than re-planned there.\n\nFinal theorems. The periodicity theorem of Hopkins and Smith, giving a v_n self-map on every type n complex, with the thick subcategory theorem and the nilpotence theorem it rests on. The independence of the Bousfield class of T(n) from the choice of (V_n, v_n), and the characterisation of T(n)-acyclicity by the vanishing of v_n-periodic homotopy groups (Lemma 2.2 of the paper, all eight parts). The telescope conjecture for ring spectra: a ring spectrum is K(n)-acyclic if and only if it is T(n)-acyclic (Lemma 2.3), together with the record that the conjecture itself is a theorem at height one by Mahowald and Miller and is false at every greater height and every prime by Burklund-Hahn-Levy-Schlank. That L_n^f and L_n^{p,f} are finite, hence smashing, localizations, with the identification of their acyclics as Ind(C_{>n}) and the fracture squares of Lemmas 2.7 and 2.8. The Bousfield-Kuhn functor and its consequence that Sigma^infty Omega^infty detects T(i)-local equivalences (Proposition 2.9), and Bousfield's vanishing theorem giving that it preserves sufficiently connective L_n^{p,f}-equivalences (Proposition 2.11), with the sharpening m = n+1 from Carmeli-Schlank-Yanovski's ambidexterity criterion. Hahn's theorem that a T(n)-acyclic E_infty-ring is T(n+1)-acyclic, with the definition of the height of an E_infty-ring it makes possible and the Tate-construction strengthening used by Clausen-Mathew-Naumann-Noel. Kuhn's theorem [Kuh04]: for a finite group G and a T(n)-local spectrum X with G-action, L_{T(n)}(X^{tG}) = 0, equivalently the T(n)-local norm L_{T(n)}(X_{hG}) -> X^{hG} is an equivalence; in blueshift form, if X is L_n^{p,f}-local then X^{tC_p} is L_{n-1}^{p,f}-local, so (L_n^{p,f}S)^{tC_p} is an algebra over L_{n-1}^{p,f}S. The Tate construction itself need not vanish: (KU_p)^{tC_p} has pi_0 = Q_p(zeta_p), and the hypothesis that X is T(n)-local cannot be dropped, since S^{tC_p} is the p-completed sphere by the Segal conjecture for C_p. The cited inputs of the proofs, each an item: the Bousfield-Kuhn functor Phi_i with Phi_i Omega^infty = L_{T(i)} (Kuhn 2008, Theorem 1.1); Bousfield's theorem that highly connective spaces with vanishing v_i-periodic homotopy are T(i)-acyclic (Bousfield 2001, Corollary 4.8, with Barthel-Heuts-Meier); the Serre spectral sequence in T(i)-homology, and more generally in E-homology over an arbitrary base; Hopkins-Smith's nilpotence theorem, thick subcategory theorem and centrality of v_n self-maps (their Theorems 3, 7 and 11 and Corollary 3.8), with Mahowald-Sadofsky's Lemma 2.1 and Proposition 3.3 as the steps of Lemmas 2.2(vii) and 2.6; Ravenel's theorem that BP[v_n^{-1}] has the Bousfield class of K(0) + ... + K(n), so that complex-oriented rings of height at most n are L_n-local; that L_{n-1}-local spectra are T(n)-acyclic because L_n is smashing (Hopkins-Ravenel), and that K(n)- and T(n)-localization agree on L_n-local spectra; the James splitting of Sigma^infty Omega Sigma W; and, for tmf, the faithful GL_2(F_3)-Galois extension TMF_(2) -> TMF(3)_(2) (Mathew-Meier Theorem 7.6) with L_{K(2)}TMF(3) = E_2 at p = 2 and L_{K(2)}TMF = E_2^{hG_24} at p = 3.\n\nConstruct here, as the objects all of this is about: type n complexes and v_n self-maps; v_n-periodic homotopy groups of spaces and spectra; Morava K-theories K(n), connective Morava K-theory k(n), truncated Brown-Peterson spectra BP<n> and Johnson-Wilson theories E(n) with the fibre sequences relating them; telescopes T(n) with the convention T(0) = S[1/p]; Bousfield localization at a spectrum, Bousfield classes, smashing and finite localizations; L_1 = L_{KU}, L_n, L_n^f and L_n^{p,f} with the chromatic and telescopic filtrations; connective and periodic real topological K-theory ko and KO with the Bott element beta in pi_8 ko (the complex ku and KU are imported); formal groups of arbitrary height and their heights; Lubin-Tate theories E_n with their Morava stabilizer actions, through the Goerss-Hopkins-Miller theorem that E_n = E(k, G) is an E_infty-ring functorial in the pair (k, G), so that the automorphisms of (k, G) act on it by E_infty-maps; topological modular forms tmf, Tmf and TMF as the connective cover and the global sections of the sheaf O^top on the compactified moduli stack of generalized elliptic curves, through the Goerss-Hopkins-Miller-Lurie theorem constructing O^top as a sheaf of E_infty-rings on the etale site of that stack, as in Douglas-Francis-Henriques-Hill and Behrens, with the height bound on the formal groups of elliptic curves that makes Tmf L_2-local; Postnikov towers of spaces; and the Thom spectra y(m) and z(m) of the James-filtered maps into BGL_1(S^p), with Mahowald's and Hopkins's theorem identifying the colimit as HF_p.\n\nImport, never re-plan: StableHomotopyKTheory H.5:spectra for a concrete model of spectra with suspension spectra, loops, shift, integer-graded stable homotopy groups and fibre sequences, and H.6 for mod-m coefficients, the Bockstein sequence, p-completion and the Milnor lim^1 sequence, which is what Lemma 2.2(v) and (vi) are about; EnhancedDerivedSheaves E0 and E5 for quasicategories, stable and symmetric monoidal infinity categories, Ind-completion and compact objects; RefinedTraceMethods RT.4:topological for complex topological K-theory ku and KU, the Bott class in pi_2 ku and Bott periodicity; Eilenberg-MacLane spectra from StableHomotopyKTheory H.5:spectra; from Tau Ceti AlgebraicTopology (tauceti:TauCetiRoadmap/AlgebraicTopology) finite CW complexes and cofibrations (Stage 4), the ordinary homology Serre spectral sequence over a finite CW base (Stage 5) and Hurewicz and Whitehead (Stage 8); from Tau Ceti ModularCurves (tauceti:TauCetiRoadmap/ModularCurves) layer 7E (PD-5) the height of the formal group of an elliptic curve in the supersingular case, the one-dimensional formal group of height 2, unique up to isomorphism by Lazard's classification, citing tauceti:WeierstrassCurve.formalAdd for the formal group law of a Weierstrass curve. Plan here only the generalized-homology Serre spectral sequence over arbitrary bases and formal groups of arbitrary height. Mathlib has quasicategories and nothing else of this: no spectra, no smash product, no Bousfield localization, no Morava K-theory.\n\nTwo things must not be blurred. K(n)-acyclicity and T(n)-acyclicity are different conditions on a general spectrum and the telescope conjecture is now known to be false; every statement must say which one it uses, and Lemma 2.3 is what licenses passing between them for ring spectra. And L_n^{p,f} is not L_n^f: they differ at the bottom of the tower, agree on p-local spectra, and the p-local comparison is a lemma, not a convention.\n\nOne convention, fixed here for every consumer. T(0) = S[1/p], as in Land-Mathew-Meier-Tamme, and L_n^{p,f} = L_{T(0) + T(1) + ... + T(n)}; L_n^f is the localization at the p-local HQ + T(1) + ... + T(n), which is Clausen-Mathew's 'p-localization followed by finite localization away from a type-(n+1) complex', so the two L_n^f agree. Clausen-Mathew and Bousfield write T(0) = HQ; this roadmap writes HQ there. The Bousfield classes of S[1/p] and HQ differ (S[1/p] tensor S/l is nonzero for a prime l other than p) and agree on p-local spectra, and item /24 of this extraction, L_n^{p,f}X = L_n^fX for p-local X, is the comparison lemma. The telescopes T(n) are those of a fixed pair (V_n, v_n), whose Bousfield class does not depend on the choice.\n\nClausen-Mathew is a second source and consumer. PAPER-CLAUSEN-MATHEW-21 item /118 (L_1 = L_{KU}, L_{K(1)}, L_n^f, Morava K-theory and telescopes) is chromatic basics that this roadmap owns; that paper's route to MotivicEtaleKTheoryPartIISelmerAndEtaleKTheory was rejected by its review for exactly this reason, and its revision should import /118 from here. Its items /150 (L_n^f-localized noncommutative motives), /024 (K(1)-acyclic connective spectra) and /142 (finite etale descent for L_n^f-localized K-theory) are consumers: they stay with their K-theory or motivic owners, which import this roadmap.",
    "prerequisites": [
     "StableHomotopyKTheory",
     "EnhancedDerivedSheaves",
     "RefinedTraceMethods",
-    "FoundationsAndLibraryIntegration"
+    "FoundationsAndLibraryIntegration",
+    "tauceti:TauCetiRoadmap/AlgebraicTopology",
+    "tauceti:TauCetiRoadmap/ModularCurves"
    ],
-   "reason": "The atlas has no chromatic homotopy theory. Regular-expression searches of every layer description in data/atlas.json for 'chromatic', 'Morava', 'Bousfield', 'telescop', 'redshift', 'tmf', 'nilpotence theorem', 'ring spectr', 'Thom spectrum', 'elliptic cohomology' and 'stable infinity' return nothing relevant, and a scan of the routes of every paper extracted so far finds no chromatic roadmap proposed anywhere. StableHomotopyKTheory is not the owner: its summary says in as many words that it is a Part II to AlgebraicTopology supplying group completion, the plus construction and concrete spectra, and that it 'is not a demand for all of stable homotopy theory before K_0 can be calculated'. These notions - type n complexes, v_n self-maps, Morava K-theories, telescopes, Bousfield classes, the finite localizations L_n^f and L_n^{p,f}, the Bousfield-Kuhn functor, Hahn's theorem, Kuhn's blueshift, ko, tmf and Lubin-Tate theory - are general notions used far beyond this paper, so by PROTOCOL section 15 they are planned once, in a roadmap that owns them, rather than inside the K-theoretic Part II that consumes them.",
+   "reason": "The atlas has no chromatic homotopy theory. Regular-expression searches of every layer description in data/atlas.json for 'chromatic', 'Morava', 'Bousfield', 'telescop', 'redshift', 'tmf', 'nilpotence theorem', 'ring spectr', 'Thom spectrum', 'elliptic cohomology' and 'stable infinity' return nothing relevant, and a scan of the routes of every paper extracted so far finds no chromatic roadmap proposed anywhere. StableHomotopyKTheory is not the owner: its summary says in as many words that it is a Part II to AlgebraicTopology supplying group completion, the plus construction and concrete spectra, and that it 'is not a demand for all of stable homotopy theory before K_0 can be calculated'. These notions - type n complexes, v_n self-maps, Morava K-theories, telescopes, Bousfield classes, the finite localizations L_n^f and L_n^{p,f}, the Bousfield-Kuhn functor, Hahn's theorem, Kuhn's blueshift, ko, tmf and Lubin-Tate theory - are general notions used far beyond this paper, so by PROTOCOL section 15 they are planned once, in a roadmap that owns them, rather than inside the K-theoretic Part II that consumes them. Corrected on 30 September 2026 by FIX-RT-PAPER-LAND-MATHEW-MEIER-ETAL-24 (RT-PAPER-LAND-MATHEW-MEIER-ETAL-24/3 and /8): the scan of other papers matched roadmap titles and layer text only. PAPER-CLAUSEN-MATHEW-21, merged on 22 September 2026, routes its chromatic basics (/118) and the consumers /150, /024 and /142 to MotivicEtaleKTheoryPartIISelmerAndEtaleKTheory, a route its review rejected because generic chromatic spectra must come from their owning roadmap; this roadmap is that owner for /118, and the brief now fixes one convention for T(0) and L_n^f against Clausen-Mathew's. Under PROTOCOL section 15 two Tau Ceti roadmaps are prerequisites: AlgebraicTopology (finite CW complexes, the ordinary Serre spectral sequence, Hurewicz and Whitehead, Stages 4, 5 and 8) and ModularCurves (the supersingular height-2 formal group, layer 7E).",
    "items": [
     "PAPER-LAND-MATHEW-MEIER-ETAL-24/2",
     "PAPER-LAND-MATHEW-MEIER-ETAL-24/14",
@@ -1080,31 +1288,17 @@
     "PAPER-LAND-MATHEW-MEIER-ETAL-24/79",
     "PAPER-LAND-MATHEW-MEIER-ETAL-24/82",
     "PAPER-LAND-MATHEW-MEIER-ETAL-24/85",
-    "PAPER-LAND-MATHEW-MEIER-ETAL-24/86"
-   ]
-  },
-  {
-   "route": "source",
-   "roadmap": "GeneralAlgebraicKTheory",
-   "stages": [
-    "GeneralAlgebraicKTheory:K.4",
-    "GeneralAlgebraicKTheory:K.6",
-    "GeneralAlgebraicKTheory:K.7"
-   ],
-   "reason": "These are the general K-theoretic notions the paper works with, none of them chromatic, all of them the spectral or infinity-categorical form of something these three layers already own. K.4 plans Waldhausen's S_. construction with additivity and the delooping theorem for Waldhausen categories; the paper uses it for a small stable infinity category, with S_n(C) = Fun(Delta^{n-1}, C) and the delooped form Omega^infty(tau_{>= 0}K(C)[1]) = |S_.(C)^simeq|, which is the same theorem in the enhanced setting K.4 is already obliged to reach through E5. K.6 plans nonconnective K-theory and localisation in the nonconnective formulation; the paper needs nonconnective K-theory of a small stable infinity category, localizing invariants on Cat_infty^perf sending exact sequences to fibre sequences, Perf(A) for a ring spectrum, the Thomason-Neeman localization theorem that produces its exact sequences, and devissage for stable infinity categories after Antieau-Gepner-Heller and Barwick-Lawson. K.7 plans Morita invariance, filtered-colimit compatibility and the universal interfaces; the plus-construction description of tau_{>= 1}K(A) for a connective ring spectrum, group-completion K-theory of an additive infinity category with the additive Schwede-Shipley theorem, the stable envelope and its nonconnective additive K-theory, the theorem of the heart, the Land-Tamme pullback theorem with truncating invariants and their nilinvariance, and Waldhausen A-theory of a space all belong with it. Planning any of these inside the proposed Part II would duplicate what the parent must own for every other consumer.",
-   "items": [
-    "PAPER-LAND-MATHEW-MEIER-ETAL-24/28",
-    "PAPER-LAND-MATHEW-MEIER-ETAL-24/29",
-    "PAPER-LAND-MATHEW-MEIER-ETAL-24/30",
-    "PAPER-LAND-MATHEW-MEIER-ETAL-24/40",
-    "PAPER-LAND-MATHEW-MEIER-ETAL-24/41",
-    "PAPER-LAND-MATHEW-MEIER-ETAL-24/55",
-    "PAPER-LAND-MATHEW-MEIER-ETAL-24/56",
-    "PAPER-LAND-MATHEW-MEIER-ETAL-24/43",
-    "PAPER-LAND-MATHEW-MEIER-ETAL-24/32",
-    "PAPER-LAND-MATHEW-MEIER-ETAL-24/34",
-    "PAPER-LAND-MATHEW-MEIER-ETAL-24/70",
-    "PAPER-LAND-MATHEW-MEIER-ETAL-24/76"
+    "PAPER-LAND-MATHEW-MEIER-ETAL-24/86",
+    "PAPER-LAND-MATHEW-MEIER-ETAL-24/105",
+    "PAPER-LAND-MATHEW-MEIER-ETAL-24/106",
+    "PAPER-LAND-MATHEW-MEIER-ETAL-24/107",
+    "PAPER-LAND-MATHEW-MEIER-ETAL-24/108",
+    "PAPER-LAND-MATHEW-MEIER-ETAL-24/109",
+    "PAPER-LAND-MATHEW-MEIER-ETAL-24/110",
+    "PAPER-LAND-MATHEW-MEIER-ETAL-24/113",
+    "PAPER-LAND-MATHEW-MEIER-ETAL-24/114",
+    "PAPER-LAND-MATHEW-MEIER-ETAL-24/115",
+    "PAPER-LAND-MATHEW-MEIER-ETAL-24/117"
    ]
   },
   {
@@ -1119,6 +1313,17 @@
     "PAPER-LAND-MATHEW-MEIER-ETAL-24/49",
     "PAPER-LAND-MATHEW-MEIER-ETAL-24/50",
     "PAPER-LAND-MATHEW-MEIER-ETAL-24/53"
+   ]
+  },
+  {
+   "route": "source",
+   "roadmap": "KTheoryLowDegrees",
+   "stages": [
+    "KTheoryLowDegrees:Z.1"
+   ],
+   "reason": "Appended on 30 September 2026 by FIX-RT-PAPER-LAND-MATHEW-MEIER-ETAL-24 (RT-PAPER-LAND-MATHEW-MEIER-ETAL-24/6); it has no review verdict yet and is applied only once a review accepts it. Item /103, the nilpotent invariance of K_0, is the degree-zero input of the paper's Example 4.8, and no layer plans it. Z.1 plans finitely generated projectives as direct summands of free modules, idempotent matrices and ring K_0 ('Prove the correspondence between idempotent matrices up to stabilised equivalence and projective isomorphism classes'), so lifting idempotents modulo a nilpotent ideal belongs there. The KTheoryLowDegrees--U.1 packet currently lists nilpotent-ideal invariance (Weibel II.2.2) as not a target of Z.1; its blueprint job, BP-KTheoryLowDegrees--U.1, is still pending, so a source route can still reach it. Mathlib 082e2d3 has the lifting lemmas exists_isIdempotentElem_eq_of_ker_isNilpotent, OrthogonalIdempotents.lift_of_isNilpotent_ker and CompleteOrthogonalIdempotents.lift_of_isNilpotent_ker (Mathlib/RingTheory/Idempotents.lean:249, :274, :325), stated for rings that need not be commutative, as idempotent matrices need. The negative-degree induction of item /68, planned at GeneralAlgebraicKTheory K.6, uses this case; Z.1 requires nothing from GeneralAlgebraicKTheory, so K.6 can import it without a cycle.",
+   "items": [
+    "PAPER-LAND-MATHEW-MEIER-ETAL-24/103"
    ]
   }
  ],
@@ -1158,9 +1363,9 @@
     "the LaTeX source of v5, in which \\mathscr{Cyc} occurs at lines 1558, 1562 and 1580 and \\mathscr{C} at line 1578"
    ],
    "review": {
-    "verdict": "confirmed",
-    "reason": "Confirmed at the source. Corollary 4.34 (line 1576) opens \"let $\\mathcal{O}_{\\mathscr{C}}(G)$ be as in \\Cref{TCpassembly}\", and TCpassembly is Proposition 4.33 (line 1555), which introduces $\\mathcal{O}_{\\mathscr{Cyc}}(G)$; the assembly map displayed inside Corollary 4.34 itself uses Cyc (line 1580), so only the introducing sentence differs. The entry's qualification is right too: §1 separately defines $\\mathscr{O}_{\\mathscr{C}}(G)$ for the same orbit category (line 427), so the clash is between the two sections' notations and the meaning is not in doubt.",
-    "by": "REV-PAPER-LAND-MATHEW-MEIER-ETAL-24"
+    "verdict": "rejected",
+    "reason": "Withdrawn on 30 September 2026 by FIX-RT-PAPER-LAND-MATHEW-MEIER-ETAL-24, applying RT-PAPER-LAND-MATHEW-MEIER-ETAL-24/7 as confirmed by REV-RT-PAPER-LAND-MATHEW-MEIER-ETAL-24: the \\mathscr{Cyc}/\\mathscr{C} difference exists only in the LaTeX source; the typeset v5 prints 𝒪_𝒞(G) in Proposition 4.33 and throughout Corollary 4.34. The preamble loads \\usepackage[mathscr]{euscript}, whose script letters are capitals only, so the lower-case 'yc' of \\mathscr{Cyc} prints nothing, and the verifier found the same glyph with the same spacing in all three places on 400 dpi page images of pp. 25–26. A difference no reader can see is not a misprint (PROTOCOL section 18). The earlier verdict, 'confirmed' by REV-PAPER-LAND-MATHEW-MEIER-ETAL-24, was reached from the LaTeX source alone; its reason was: “Confirmed at the source. Corollary 4.34 (line 1576) opens \"let $\\mathcal{O}_{\\mathscr{C}}(G)$ be as in \\Cref{TCpassembly}\", and TCpassembly is Proposition 4.33 (line 1555), which introduces $\\mathcal{O}_{\\mathscr{Cyc}}(G)$; the assembly map displayed inside Corollary 4.34 itself uses Cyc (line 1580), so only the introducing sentence differs. The entry's qualification is right too: §1 separately defines $\\mathscr{O}_{\\mathscr{C}}(G)$ for the same orbit category (line 427), so the clash is between the two sections' notations and the meaning is not in doubt.”",
+    "by": "REV-RT-PAPER-LAND-MATHEW-MEIER-ETAL-24"
    }
   }
  ]

@@ -61,3 +61,16 @@ git diff --check
 ~~~
 
 No Lean file is a deliverable of this review and no formalisation is claimed. Both findings enter the register as new confirmed mistakes, against arXiv v5.
+
+## Correction by FIX-RT-PAPER-LAND-MATHEW-MEIER-ETAL-24 (30 September 2026)
+
+This review's text above is kept as history. The red team RT-PAPER-LAND-MATHEW-MEIER-ETAL-24, whose findings REV-RT-PAPER-LAND-MATHEW-MEIER-ETAL-24 confirmed, shows that six of its statements are wrong or incomplete:
+
+- **"All four routes accepted" and §4's "Routes 3 and 4 send only non-chromatic material to layers that already own it"** (finding /1). Route 3 sent twelve ∞-categorical items (localizing invariants, K-theory of ring spectra, the S_•-construction for stable ∞-categories, Land–Tamme, truncating invariants, K^add, additive Schwede–Shipley, Thomason–Neeman, the stable envelope, the theorem of the heart, Antieau–Gepner–Heller dévissage and A-theory) to GeneralAlgebraicKTheory K.4, K.6 and K.7. Those layers plan classical Waldhausen, Bass and Schlichting K-theory. Their stage texts mention none of this material, and both GeneralAlgebraicKTheory blueprints were accepted without it. The fix deletes route 3 and moves its items into route 1 as a first layer. That layer imports only EnhancedDerivedSheaves E0/E5, StableHomotopyKTheory H.3/H.5 and GeneralAlgebraicKTheory K.1–K.6, so that RefinedTraceMethods RT.3 and RT.5 can import it. Route 4 (RefinedTraceMethods) keeps its verdict as the new route 3. The appended route 4 (KTheoryLowDegrees Z.1) has no verdict.
+- **§3's "The five `planned` items cite layers that exist and that plan them"** (finding /6). No layer plans the nilpotent invariance of K₀ that item /68 included. /68 is now the negative-degree induction, planned at K.6. The K₀ case is the new item /103, routed to KTheoryLowDegrees Z.1.
+- **§4's "No other paper's routes propose `ChromaticHomotopyTheory` either"** (finding /3). That is literally true, but the check matched roadmap titles and layer text only. PAPER-CLAUSEN-MATHEW-21, merged the day before the extraction, routes the chromatic basics (/118, with T(0) = Hℚ) to a Part II that its review rejected for want of a chromatic owner. The fix names that paper in route 2's brief and fixes one convention for T(0) and L_n^f.
+- **§5's "E2 confirmed"** and the closing "Both findings enter the register as new confirmed mistakes" (finding /7). The confirmation was made from the LaTeX source. Under `\usepackage[mathscr]{euscript}`, whose script letters are capitals only, `\mathscr{Cyc}` prints as 𝒞. So the v5 PDF prints 𝒪_𝒞(G) in Proposition 4.33 and throughout Corollary 4.34, and no reader sees a misprint. E2's review block now reads "rejected", and item /99 writes 𝒪_𝒞(G) as printed. E1 stands.
+
+Findings /2, /4, /5 and /8 correct the extraction's items, briefs and prerequisites, not statements of this review. They cover Kuhn's theorem, ko against ku, the cited inputs without items, and the Tau Ceti prerequisites. [The fixes report](../redteam/RT-PAPER-LAND-MATHEW-MEIER-ETAL-24.fixes.md) describes every change. `PAPER-LAND-MATHEW-MEIER-ETAL-24.review.json` carries the same corrections as dated notes.
+
+This review's verdict and date are unchanged. They do not cover the revised routes 1 and 2 or the new route 4, which need the independent review of this fix.
