@@ -21854,3 +21854,182 @@ Six complete Mathlib-only proofs check the native inverse tower identity, its no
 Exact finite controls pass for48 profiles and96 coefficient maps:384 weighted-value and384 restriction comparisons,8432 zero-extension point comparisons,2108 inverse-point comparisons,524 nonunit-zero checks and72 D=1 checks. Negative controls detect156 omitted-test-map,208 nonunit-inverse and248 omitted-weight errors. Two independent Euler–Bernoulli evaluations give the known dyadic moments2/3 and−10/9. Exact Gaussian-rational pairs with Fraction components on synthetic finite atomic measures over residue representatives, under identity and conjugation maps. Inverse weights are reciprocal representatives only on p-units and zero elsewhere; these finite weighted measures are not asserted to approximate the arithmetic tame measure. Independent Euler–Bernoulli calculations check the actual known dyadic positive moments2/3 and−10/9. Negative controls omit test transport, use nonzero field inverses on nonunits, or omit inverse weighting. The largest observed discrepancy is 0 in every asserted exact identity.
 
 All66 captured inputs and four predecessor outputs are guarded. The partial signature check appends exactly two new theorems and eight examples to the retained4858 prefix; the two promoted signatures already appear once. The prefix continues to omit4777–4791. Full-module compilation remains unavailable because the pinned native TwistedDivisorSum artifact is absent; no library build is performed. The separate partial signature run has1998 expected placeholder warnings and zero errors against3573 pinned modules. Six complete native proofs compile against2819 Mathlib modules with zero errors, warnings or placeholders.
+
+
+## Integral tame values and congruences under coefficient-field extension
+
+Six L2 nodes promote one existing integral inclusion API and compare the three actual integral tame measures, integral arithmetic characters and evaluated intrinsic congruences under a native valuation extension. Five new declarations and ten tests use the existing integer-ring algebra map. All665 predecessor nodes remain whole; no new generic operator, finding, request or stage closure.
+
+Freshly read complete RJW published143–144 and its coefficient-ring discussion; published129 and145–146 were freshly read in the preceding checkpoint. Read whole existing integral tame constructor and inclusion APIs, intrinsic integral coefficients, arithmetic characters and all-test congruence nodes, and both existing L4 coefficient-change nodes to avoid replanning the native integer map. Read native Valuation.HasExtension with ambient assumptions, its integer algebra instance, value and order comparison, injectivity, Valuation.integer.integers, dvd_iff_le and the norm-valuation definition at the pins.
+
+### Inclusion of integral tame measure values
+
+`DirichletPadicLFunctions:L2/tame-integral-measure-inclusion` — `DirichletPadic.coe_integralTameMeasure_apply`
+
+For every f∈C(ℤ_p,OK), (μ_η^OK(f):K)=μ_η,K(iK∘f), where iK is the native subtype inclusion.
+
+**Hypotheses:** p is prime; K is a complete nontrivially normed ultrametric ℤ_p-algebra with bounded scalar action. D>0, η:DirichletCharacter K D, hD:IsUnit(D:K), p∤D, and OK is the actual integer ring of the norm valuation. No second field is required.
+
+**Proof:**
+
+1. Promote the existing coe_integralTameMeasure_apply API without adding or changing its suggested signature.
+2. Unfold the existing integralTameMeasure construction through AbstractMeasure.toCLMEquiv.symm and its continuous O-linear functional. The value is the subtype whose first component is precisely tameMeasure applied to the included continuous test.
+3. Taking the native subtype inclusion discards only the norm-at-most-one proof. Thus equality holds on every actual integral continuous test, without a general integral-coefficient extension theorem.
+
+**Prerequisites:** `DirichletPadicLFunctions:L2/tame-integral-measure`, `mathlib:AbstractMeasure.toCLMEquiv`.
+
+**Tests:**
+
+
+
+**Acceptance:** The existing dyadic mass1/3, D=1 zero, zero test and scalar test examples remain unchanged.
+
+**Source:** Remark5.8(2) and the full integral coefficient discussion after equation(5-3), published143–144/PDF44–45, freshly read on30September2026. Definition5.13 and its following interpolation identity, published146/PDF47, and intrinsic Remark3.33, published129/PDF30, were freshly read in the immediately preceding continuation. Worker comparisons of the actual integral tame measures under the native valuation-extension integer-ring map, derived from their existing coefficient-inclusion laws and the field comparisons. The source fixes a coefficient field containing character values; the all-integral-test equalities and reflected divisibility are explicit deductions. No generic measure-extension functor, new coefficient map or character-field existence theorem is introduced.
+
+### Integral arithmetic characters under coefficient extension
+
+`DirichletPadicLFunctions:L2/integral-arithmetic-character-field-comparison` — `DirichletPadic.algebraMap_integralPrimePowerArithmeticCharacter`
+
+For every n,w≥0, χ:DirichletCharacter K (p^n), and u∈U, c(κOK_n,χ,w(u))=κOL_n,(χ.ringHomComp ι),w(u).
+
+**Hypotheses:** K and L are normed ultrametric fields with Algebra ℤ_p and bounded scalar action, an actual K-algebra on L, IsScalarTower ℤ_p K L and Valuation.HasExtension vK vL. Use exactly the native integer rings and map c as above. For this pointwise identity completeness, nontrivial norms and ContinuousSMul K L are not required. The native unit group U, level n≥0 and exponent w≥0 are unchanged by coefficient extension. The integral arithmetic characters are the existing continuous monoid homomorphisms into the respective integer rings.
+
+**Proof:**
+
+1. Include both sides into L and use native val_algebraMap to identify the left side with ι of the K-valued character.
+2. Apply integral-arithmetic-character-coefficient and arithmetic-character-pointwise-value in both fields. The identity reduces to ι(χ(red_n u)·xK(u)^w)=χL(red_n u)·xL(u)^w.
+3. Native ringHomComp gives the mapped finite-character value; map_mul and map_pow preserve the product and power, and the actual scalar tower identifies the coordinate. The complete arithmetic_value_transport proof checks this exact field expression.
+4. Native subtype injectivity proves equality in OL. This includes level zero and weight zero on actual units. At level zero the principal weight-one character sends−1 to−1 after extension, so the coordinate power is not discarded.
+
+**Prerequisites:** `DirichletPadicLFunctions:L2/integral-arithmetic-character-coefficient`, `DirichletPadicLFunctions:L2/arithmetic-character-pointwise-value`, `mathlib:Valuation.HasExtension`, `mathlib:Valuation.HasExtension.instAlgebraInteger`, `mathlib:Valuation.HasExtension.val_algebraMap`, `mathlib:MulChar.ringHomComp`, `mathlib:IsScalarTower.algebraMap_apply`.
+
+**Tests:**
+
+- `SuggestedTameIntegralFieldComparisonTests.trivial_arithmetic_character_transport` (degenerate): The level-zero, weight-zero principal character maps to1 on every actual unit.
+- `SuggestedTameIntegralFieldComparisonTests.arithmetic_sign_after_extension` (non-example): The level-zero principal character of weight one still takes value−1 at−1 after coefficient extension.
+
+**Acceptance:** The equality is in the actual native integer ring, independent of membership proofs. No character-field descent or p-adic algebra structure on OK is assumed.
+
+**Source:** Remark5.8(2) and the full integral coefficient discussion after equation(5-3), published143–144/PDF44–45, freshly read on30September2026. Definition5.13 and its following interpolation identity, published146/PDF47, and intrinsic Remark3.33, published129/PDF30, were freshly read in the immediately preceding continuation. Worker comparisons of the actual integral tame measures under the native valuation-extension integer-ring map, derived from their existing coefficient-inclusion laws and the field comparisons. The source fixes a coefficient field containing character values; the all-integral-test equalities and reflected divisibility are explicit deductions. No generic measure-extension functor, new coefficient map or character-field existence theorem is introduced.
+
+### Integral tame measure values under field extension
+
+`DirichletPadicLFunctions:L2/integral-tame-measure-field-comparison` — `DirichletPadic.algebraMap_integralTameMeasure_apply`
+
+For every f∈C(ℤ_p,OK), c(μ_η^OK(f))=μ_(ηL)^OL(c_*f).
+
+**Hypotheses:** p is any prime, including2. K and L are complete nontrivially normed ultrametric fields with their displayed ℤ_p-algebra structures and bounded ℤ_p scalar actions. L is a K-algebra with ContinuousSMul K L and IsScalarTower ℤ_p K L. D>0 with NeZero D, η:DirichletCharacter K D, hDK:IsUnit(D:K), hDL:IsUnit(D:L), and p∤D. Let vK=NormedField.valuation(K) and vL=NormedField.valuation(L). Assume the native Valuation.HasExtension vK vL: vK is equivalent to the pullback of vL. Numerical equality of valuations or an isometry is not required. OK=vK.integer and OL=vL.integer are exactly the native subrings with inherited norm and topology. Use the native algebra map c:OK→OL from Valuation.HasExtension.instAlgebraInteger. Its underlying field value is ι=algebraMap K L, by val_algebraMap. Its continuity is the subtype lift of the continuous field map. Write c_*f=c∘f on actual continuous OK-valued tests. No independent ℤ_p-algebra on either integer subring is chosen. All measures are the existing μO, ζO and ζO^U constructors, with U=ℤ_pˣ in its native topology. Map character values to ηL=η.ringHomComp ι. Neither primitivity nor nonprincipality is assumed; the D=1 constructors remain zero. No claim that every OL-test descends to OK is made.
+
+**Proof:**
+
+1. The native HasExtension integer-ring map has underlying value ι and is continuous by Continuous.subtype_mk applied to continuous_algebraMap composed with continuous_subtype_val. This is the existing library map, also used by the earlier Eisenstein coefficient comparison; no new generic map is defined.
+2. Include the proposed equality into L. Use tame-integral-measure-inclusion on both sides, obtaining ι(μ_η,K(iK∘f)) and μ_(ηL),L(iL∘c_*f).
+3. Apply tame-measure-field-comparison to the actual continuous K-test iK∘f. The native val_algebraMap gives ι∘iK=iL∘c pointwise, so continuous-map extensionality identifies the two L-tests.
+4. Subtype injectivity returns the equality in OL. The complete native_integer_measure_comparison verifies this commuting-square argument for actual native measures with the exact all-test inclusion and field-comparison hypotheses; it does not prove those arithmetic hypotheses independently.
+5. The comparison includes total mass and the D=1 zero constructor. No Mahler expansion or separately chosen ℤ_p-action on OK or OL is needed in this integral step.
+
+**Prerequisites:** `DirichletPadicLFunctions:L2/tame-integral-measure-inclusion`, `DirichletPadicLFunctions:L2/tame-measure-field-comparison`, `mathlib:Valuation.HasExtension`, `mathlib:Valuation.HasExtension.instAlgebraInteger`, `mathlib:Valuation.HasExtension.val_algebraMap`, `mathlib:Continuous.subtype_mk`, `mathlib:continuous_algebraMap`.
+
+**Tests:**
+
+- `SuggestedTameIntegralFieldComparisonTests.integral_tame_mass_transport` (compatibility): The actual integral tame total mass maps by c to the target integral mass.
+- `SuggestedTameIntegralFieldComparisonTests.integral_tame_modulus_one` (degenerate): At D=1 the original and mapped integral tame values are zero on every original and mapped test.
+
+**Acceptance:** This compares actual values in OL on all OK-tests. It is not a coefficient-extension functor for arbitrary measures.
+
+**Source:** Remark5.8(2) and the full integral coefficient discussion after equation(5-3), published143–144/PDF44–45, freshly read on30September2026. Definition5.13 and its following interpolation identity, published146/PDF47, and intrinsic Remark3.33, published129/PDF30, were freshly read in the immediately preceding continuation. Worker comparisons of the actual integral tame measures under the native valuation-extension integer-ring map, derived from their existing coefficient-inclusion laws and the field comparisons. The source fixes a coefficient field containing character values; the all-integral-test equalities and reflected divisibility are explicit deductions. No generic measure-extension functor, new coefficient map or character-field existence theorem is introduced.
+
+### Integral tame zeta values under field extension
+
+`DirichletPadicLFunctions:L2/integral-tame-zeta-field-comparison` — `DirichletPadic.algebraMap_integralTameZetaMeasure_apply`
+
+For every f∈C(ℤ_p,OK), c(ζ_η^OK(f))=ζ_(ηL)^OL(c_*f).
+
+**Hypotheses:** p is any prime, including2. K and L are complete nontrivially normed ultrametric fields with their displayed ℤ_p-algebra structures and bounded ℤ_p scalar actions. L is a K-algebra with ContinuousSMul K L and IsScalarTower ℤ_p K L. D>0 with NeZero D, η:DirichletCharacter K D, hDK:IsUnit(D:K), hDL:IsUnit(D:L), and p∤D. Let vK=NormedField.valuation(K) and vL=NormedField.valuation(L). Assume the native Valuation.HasExtension vK vL: vK is equivalent to the pullback of vL. Numerical equality of valuations or an isometry is not required. OK=vK.integer and OL=vL.integer are exactly the native subrings with inherited norm and topology. Use the native algebra map c:OK→OL from Valuation.HasExtension.instAlgebraInteger. Its underlying field value is ι=algebraMap K L, by val_algebraMap. Its continuity is the subtype lift of the continuous field map. Write c_*f=c∘f on actual continuous OK-valued tests. No independent ℤ_p-algebra on either integer subring is chosen. All measures are the existing μO, ζO and ζO^U constructors, with U=ℤ_pˣ in its native topology. Map character values to ηL=η.ringHomComp ι. Neither primitivity nor nonprincipality is assumed; the D=1 constructors remain zero. No claim that every OL-test descends to OK is made.
+
+**Proof:**
+
+1. Use the same native continuous integer-ring map and coefficient-inclusion square as in integral-tame-measure-field-comparison.
+2. Include into L and apply tame-integral-zeta-inclusion in each field. Then apply tame-zeta-field-comparison to iK∘f. Native val_algebraMap again identifies the two actual L-valued tests.
+3. Use subtype injectivity to conclude in OL. The same complete native comparison lemma applies with the actual zeta measures and their distinct owned inclusion identities; no generic inverseWeight map is added.
+4. Both inverse-weighted arithmetic constructors retain the native inverse extended by zero on nonunits. Mass transport compares actual masses only; the D=1 zero constructor and all positive-moment source qualifications remain.
+
+**Prerequisites:** `DirichletPadicLFunctions:L2/integral-tame-measure-field-comparison`, `DirichletPadicLFunctions:L2/tame-integral-zeta-inclusion`, `DirichletPadicLFunctions:L2/tame-zeta-field-comparison`, `mathlib:Valuation.HasExtension.val_algebraMap`.
+
+**Tests:**
+
+- `SuggestedTameIntegralFieldComparisonTests.integral_zeta_mass_transport` (compatibility): Actual integral ambient zeta total masses compare through c, without a degree-zero L-value formula.
+- `SuggestedTameIntegralFieldComparisonTests.integral_zeta_modulus_one` (degenerate): At D=1 every original and mapped ambient integral zeta test gives zero.
+
+**Acceptance:** The proof uses the existing all-integral-test inclusion laws. It does not infer a p-adic algebra on the integer rings or an unrestricted inverse in them.
+
+**Source:** Remark5.8(2) and the full integral coefficient discussion after equation(5-3), published143–144/PDF44–45, freshly read on30September2026. Definition5.13 and its following interpolation identity, published146/PDF47, and intrinsic Remark3.33, published129/PDF30, were freshly read in the immediately preceding continuation. Worker comparisons of the actual integral tame measures under the native valuation-extension integer-ring map, derived from their existing coefficient-inclusion laws and the field comparisons. The source fixes a coefficient field containing character values; the all-integral-test equalities and reflected divisibility are explicit deductions. No generic measure-extension functor, new coefficient map or character-field existence theorem is introduced.
+
+### Integral unit-group zeta values under field extension
+
+`DirichletPadicLFunctions:L2/intrinsic-integral-tame-field-comparison` — `DirichletPadic.algebraMap_intrinsicIntegralTameZetaMeasure_apply`
+
+For every f∈C(U,OK), c(ζ_η^OK,U(f))=ζ_(ηL)^OL,U(c_*f).
+
+**Hypotheses:** p is any prime, including2. K and L are complete nontrivially normed ultrametric fields with their displayed ℤ_p-algebra structures and bounded ℤ_p scalar actions. L is a K-algebra with ContinuousSMul K L and IsScalarTower ℤ_p K L. D>0 with NeZero D, η:DirichletCharacter K D, hDK:IsUnit(D:K), hDL:IsUnit(D:L), and p∤D. Let vK=NormedField.valuation(K) and vL=NormedField.valuation(L). Assume the native Valuation.HasExtension vK vL: vK is equivalent to the pullback of vL. Numerical equality of valuations or an isometry is not required. OK=vK.integer and OL=vL.integer are exactly the native subrings with inherited norm and topology. Use the native algebra map c:OK→OL from Valuation.HasExtension.instAlgebraInteger. Its underlying field value is ι=algebraMap K L, by val_algebraMap. Its continuity is the subtype lift of the continuous field map. Write c_*f=c∘f on actual continuous OK-valued tests. No independent ℤ_p-algebra on either integer subring is chosen. All measures are the existing μO, ζO and ζO^U constructors, with U=ℤ_pˣ in its native topology. Map character values to ηL=η.ringHomComp ι. Neither primitivity nor nonprincipality is assumed; the D=1 constructors remain zero. No claim that every OL-test descends to OK is made.
+
+**Proof:**
+
+1. Include both proposed values into L and apply intrinsic-integral-tame-coefficients to the two actual intrinsic measures.
+2. Apply intrinsic-tame-zeta-field-comparison to iK∘f. The same native coefficient square identifies the included target test, and subtype injectivity yields the equality in OL.
+3. This argument uses the all-test intrinsic field theorem and the already owned integral inclusion; it does not recreate clopen restriction or identify additive and multiplicative convolution.
+4. For the arithmetic tests use integral-arithmetic-character-field-comparison pointwise and continuous-map extensionality. Hence integral arithmetic moments compare at every level and every w≥0, with no L-value interpretation asserted at w=0. At D=1 the intrinsic integral constructors are zero.
+
+**Prerequisites:** `DirichletPadicLFunctions:L2/integral-tame-measure-field-comparison`, `DirichletPadicLFunctions:L2/intrinsic-integral-tame-coefficients`, `DirichletPadicLFunctions:L2/intrinsic-tame-zeta-field-comparison`, `DirichletPadicLFunctions:L2/integral-arithmetic-character-field-comparison`, `mathlib:Valuation.HasExtension.val_algebraMap`.
+
+**Tests:**
+
+- `SuggestedTameIntegralFieldComparisonTests.integral_arithmetic_moment_transport` (compatibility): Actual integral unit-character values compare with both tame and wild character values mapped; n=0 and w=0 are included.
+- `SuggestedTameIntegralFieldComparisonTests.intrinsic_integral_modulus_one` (degenerate): At D=1 every original and mapped intrinsic integral evaluation is zero.
+
+**Acceptance:** This covers every OK-valued continuous unit test. No claim that every OL-valued test has an OK-valued lift is needed.
+
+**Source:** Remark5.8(2) and the full integral coefficient discussion after equation(5-3), published143–144/PDF44–45, freshly read on30September2026. Definition5.13 and its following interpolation identity, published146/PDF47, and intrinsic Remark3.33, published129/PDF30, were freshly read in the immediately preceding continuation. Worker comparisons of the actual integral tame measures under the native valuation-extension integer-ring map, derived from their existing coefficient-inclusion laws and the field comparisons. The source fixes a coefficient field containing character values; the all-integral-test equalities and reflected divisibility are explicit deductions. No generic measure-extension functor, new coefficient map or character-field existence theorem is introduced.
+
+### Integral zeta congruences reflected by coefficient extension
+
+`DirichletPadicLFunctions:L2/intrinsic-integral-tame-field-congruence` — `DirichletPadic.intrinsicIntegralTameZetaMeasure_baseChange_dvd_iff`
+
+For every f,g∈C(U,OK) and b∈OK, c(b) divides ζ_(ηL)^OL,U(c_*g)−ζ_(ηL)^OL,U(c_*f) if and only if b divides ζ_η^OK,U(g)−ζ_η^OK,U(f).
+
+**Hypotheses:** p is any prime, including2. K and L are complete nontrivially normed ultrametric fields with their displayed ℤ_p-algebra structures and bounded ℤ_p scalar actions. L is a K-algebra with ContinuousSMul K L and IsScalarTower ℤ_p K L. D>0 with NeZero D, η:DirichletCharacter K D, hDK:IsUnit(D:K), hDL:IsUnit(D:L), and p∤D. Let vK=NormedField.valuation(K) and vL=NormedField.valuation(L). Assume the native Valuation.HasExtension vK vL: vK is equivalent to the pullback of vL. Numerical equality of valuations or an isometry is not required. OK=vK.integer and OL=vL.integer are exactly the native subrings with inherited norm and topology. Use the native algebra map c:OK→OL from Valuation.HasExtension.instAlgebraInteger. Its underlying field value is ι=algebraMap K L, by val_algebraMap. Its continuity is the subtype lift of the continuous field map. Write c_*f=c∘f on actual continuous OK-valued tests. No independent ℤ_p-algebra on either integer subring is chosen. All measures are the existing μO, ζO and ζO^U constructors, with U=ℤ_pˣ in its native topology. Map character values to ηL=η.ringHomComp ι. Neither primitivity nor nonprincipality is assumed; the D=1 constructors remain zero. No claim that every OL-test descends to OK is made. The divisor b is an arbitrary element of OK, including0 and units. The statement compares congruences of the actual evaluated values; it does not assume or infer pointwise congruence of f and g. For b=p^r the target divisor is the same rational prime power p^r, including r=0, rather than the r-th power of a target uniformizer.
+
+**Proof:**
+
+1. Use intrinsic-integral-tame-field-comparison on f and g. The target difference is exactly c(ζOK(g)−ζOK(f)) because the native ring map preserves subtraction.
+2. Apply Valuation.integer.integers and native Valuation.Integers.dvd_iff_le in both integer rings. The target divisibility is vL(ι(a))≤vL(ι(b)), where a is the original difference.
+3. Native Valuation.HasExtension.val_map_le_iff reflects this order relation to vK(a)≤vK(b), precisely the original divisibility. The native integer_divisibility_iff and mapped_evaluation_congruence_iff proofs check these steps, including b=0; no field division cancels the integral condition.
+4. For b=0 this gives equality of target evaluations exactly when the original evaluations are equal; native injectivity also checks this boundary independently. For b=p^r use preservation of natural casts and powers. Ramification does not justify replacing c(b) by a differently normalized uniformizer power.
+5. Together with the already proved intrinsic-integral-tame-test-congruence, a pointwise b-congruence yields the original evaluated congruence and therefore the mapped one. The new equivalence also reflects failures of evaluated divisibility; it does not claim a converse from evaluated to pointwise congruence.
+
+**Prerequisites:** `DirichletPadicLFunctions:L2/intrinsic-integral-tame-field-comparison`, `DirichletPadicLFunctions:L2/intrinsic-integral-tame-test-congruence`, `mathlib:Valuation.integer.integers`, `mathlib:Valuation.Integers.dvd_iff_le`, `mathlib:Valuation.HasExtension.val_map_le_iff`, `mathlib:Valuation.HasExtension.algebraMap_injective`.
+
+**Tests:**
+
+- `SuggestedTameIntegralFieldComparisonTests.zero_ideal_reflects_equality` (degenerate): Equality of the target evaluations on mapped tests is equivalent to equality of the original evaluations.
+- `SuggestedTameIntegralFieldComparisonTests.same_rational_prime_precision` (compatibility): Divisibility by p^r of the evaluation difference is equivalent before and after extension, retaining exactly p^r on both sides.
+
+**Acceptance:** This is divisibility in the actual integer rings. Equivalent norm valuations suffice; no isometry, uniformizer choice or independent p-adic normalization is silently assumed.
+
+**Source:** Remark5.8(2) and the full integral coefficient discussion after equation(5-3), published143–144/PDF44–45, freshly read on30September2026. Definition5.13 and its following interpolation identity, published146/PDF47, and intrinsic Remark3.33, published129/PDF30, were freshly read in the immediately preceding continuation. Worker comparisons of the actual integral tame measures under the native valuation-extension integer-ring map, derived from their existing coefficient-inclusion laws and the field comparisons. The source fixes a coefficient field containing character values; the all-integral-test equalities and reflected divisibility are explicit deductions. No generic measure-extension functor, new coefficient map or character-field existence theorem is introduced.
+
+**Remaining:** The actual tame measure μ and ambient/intrinsic zeta measures now compare on every original-field test, and their integral realizations compare on every original-integer-ring test under the explicit native valuation-extension hypothesis. Arithmetic integral unit characters map pointwise, and evaluated intrinsic congruences are preserved and reflected at the exact image divisor. Next establish descent to the character field with its required algebraic and topological existence hypotheses; the current compatibility theorems do not supply that field or prove finite-dimensionality/completeness. The separate coefficient-field pseudomeasure evaluator remains a PMIA L3 request. Primitive Gauss nonvanishing, primitive-conductor comparisons, analytic branches, logarithmic/degree-zero values, full source extraction and the PMIA L1 completed-algebra comparison remain open.
+
+### Integral tame values and congruences under coefficient-field extension validation
+
+All 665 predecessor nodes, 565 baseline records, 16 findings, requests and sourceVersions remain whole. This checkpoint adds 6 nodes, 5 named suggested declarations and 10 typed examples. The indexed blueprint, four-file intake, whitespace, preservation, API/test parity and versioned-source checks pass. The graph has 927 reachable nodes, 4628 edges and 743 native leaves and is acyclic. Its stage request leaves are PadicMeasuresIwasawaAlgebras:L1, PadicMeasuresIwasawaAlgebras:L3, PadicMeasuresIwasawaAlgebras:L3, LocallyAnalyticDistributions:L1, AdicSpacesPartII:F1, AdicSpacesPartII:R2, PadicDifferentialEquationsAndRigidCohomology:RD.0, PadicDifferentialEquationsAndRigidCohomology:RD.4, PadicHodgeTheory:P7:annulus-foundations, PadicMeasuresIwasawaAlgebras:L2, LocallyAnalyticDistributions:L1. All six new routes use existing fine nodes and native declarations, with no new stage-request leaf. Existing whole-packet requests remain open.
+
+**The full current suggested module was NOT COMPILED.** Its real native import requires TauCeti.NumberTheory.ArithmeticFunction.TwistedDivisorSum. No matching existing artifact was found; WORKERS.md prohibits building the native library. Current compiler exit code, error count and warning count are unavailable, not zero. The exact named signatures and native source were reviewed. PR4773 remains the last compiled full predecessor, with zero errors and1,803 expected placeholder warnings; that receipt does not validate this new module.
+
+The current source closure covers 3601 pinned Mathlib modules and 22 pinned Tau Ceti modules. Only 21 Tau module artifacts are available and hash-verified. The105 available artifact files and the previously compiled332-node PMIA artifact are checked as partial dependencies. The current369-node supplier source preserves the older interface; no current-module compilation against either revision is claimed. Existing builds only were inspected; no setup, update, cache fetch or native build occurred.
+
+Seven complete Mathlib-only proofs check continuity of the native integer map, integral divisibility reflection, the included-test square, an all-test comparison of actual native integral measures from their field comparisons and inclusion hypotheses, equality and congruence reflection, and the arithmetic character-value expression. These prove the transport implications, not the unchecked arithmetic constructors. The separate probe compiles against 2807 pinned Mathlib modules and 0 pinned Tau Ceti modules with zero errors, warnings or placeholders. The separate Mathlib-only probe does not import, replace or compile the missing native Tau module. General roadmap declarations remain unchecked.
+
+Exact finite controls pass for24 profiles and48 coefficient maps:384 comparisons for each of μ, ambient ζ and intrinsic ζ,8792 arithmetic values,3456 congruence reflections,576 zero-divisor and576 equality cases,2304 prime-power precision checks and216 D=1 cases. There are615 rational-embedding divisibility checks,180 omitted-test-map negative controls and four controls distinguishing2^r from a ramified uniformizer power. Exact Gaussian-rational finite atomic models with Fraction arithmetic. At inert primes3 and7 use the minimum coefficient valuation; at2 use half the rational valuation of a²+b², the normalized valuation on Q_2(i). Identity/conjugation maps preserve integral weights and tests; rational embeddings are checked separately. These are finite algebraic controls, not constructed complete fields or approximations to the arithmetic tame measures. Four ramified controls distinguish the exact divisor2^r from (1+i)^r. The largest observed discrepancy is 0 in every asserted exact identity.
+
+All66 captured inputs and four predecessor outputs are guarded. The partial signature check appends exactly five declarations and ten examples to the retained4868 prefix; the promoted inclusion signature already occurs once. The prefix continues to omit4777–4791. Full-module compilation remains unavailable because the pinned native TwistedDivisorSum artifact is absent; no library build is performed. The separate partial signature run has2013 expected placeholder warnings and zero errors against3573 pinned modules. Seven complete native proofs compile against2807 Mathlib modules with zero errors, warnings or placeholders. Registry-only refresh at41aae02f4f7e71af9618970b0dcce57888f0872d changes PAPER-LE-LEHUNG-LEVIN-ETAL-23/E124. All16 Dirichlet findings, all other captured mathematical inputs and four predecessor outputs are unchanged. No independent verdict on the unrelated record is claimed.
