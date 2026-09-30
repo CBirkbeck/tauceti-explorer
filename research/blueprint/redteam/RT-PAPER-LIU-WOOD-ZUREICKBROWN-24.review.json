@@ -1,0 +1,28 @@
+{
+  "redteam": "RT-PAPER-LIU-WOOD-ZUREICKBROWN-24",
+  "status": "complete",
+  "reviewer": "Codex — codex-a71f92",
+  "date": "2026-09-30",
+  "findings": [
+    {
+      "finding": "RT-PAPER-LIU-WOOD-ZUREICKBROWN-24/1",
+      "verdict": "confirmed",
+      "reason": "Confirmed as a dependency-note error, not a counterexample to Schur–Zassenhaus. Item /10 says a pro-odd normal group avoids Feit–Thompson; oddness alone instead supplies solvability through the odd-order theorem. Solvability of the normal finite quotients or of Γ, established independently, is the appropriate restricted hypothesis. The arXiv v2 PDF, independently acquired with matching SHA-256, says at p.17 that odd |Γ| does not force the random groups to be pro-solvable. Personally read Mathlib 082e2d3 SchurZassenhaus.lean:277 and :103 including the standing IsMulCommutative H, FiniteIndex H and Normal H assumptions: the former supplies complement existence and the latter is transitivity on QuotientDiff in the abelian case, not general nonabelian complement conjugacy. ArithmeticStatistics ST.5's complement lemma is abelian, and its Lemma 9.3 and Theorem 1.4 nodes explicitly assume (SZ). Replace the note by the independently-solvable-normal-or-quotient alternatives, keep the full theorem owned by the random-group Part II and retain (SZ) where not discharged. Avoid the absolute wording 'only by Feit–Thompson': the issue is which dependency the proposed proof uses, not impossibility of every other proof."
+    },
+    {
+      "finding": "RT-PAPER-LIU-WOOD-ZUREICKBROWN-24/2",
+      "verdict": "confirmed",
+      "reason": "Confirmed as an overbroad supplier description. Personally read upstream ProfiniteProPGroups Layer 4: proCCompletion and freeProC are for its extension-closed FiniteGroupClass of ordinary finite groups; Layers 4–5 supply the free pro-|Γ|′ and pro-p carriers and pro-p presentation/rank interfaces. LWZ v2 p.15 (3.11) instead closes a family of finite Γ-groups under finite products, Γ-subgroups and Γ-quotients, with no extension-closure axiom. P.27's order-bounded family and p.36's p-class-bounded family show the distinction. For example, with trivial Γ-action the exponent-p abelian class (p-class ≤1) contains C_p but not its extension C_{p²}; the closure operations cannot introduce exponent p². Item /1 already records level-𝒞 completion as missing on route 7. Restrict /43's planned statement to the upstream free carriers and pro-p presentation/rank results; its Γ permutation action follows by functoriality on generators. Refer all general equivariant level-𝒞 completion to /1, not to upstream Layer 4; no upstream edit or second owner is needed."
+    },
+    {
+      "finding": "RT-PAPER-LIU-WOOD-ZUREICKBROWN-24/3",
+      "verdict": "confirmed",
+      "reason": "Confirmed for the missing LWZ prerequisite entries, with an important qualification to the evidence. V2 p.41 cites BR11 for general Hurwitz facts and Proposition 3.1.1 for the étale branch locus; p.44 explicitly models the topological Hurwitz construction on RW06 §3. The extraction's entire prerequisites list includes neither. The bibliography at pp.55 and 58 and primary Numdam/SMF records identify Bertin–Romagny, Champs de Hurwitz (2011), DOI 10.24033/msmf.437, and Romagny–Wewers, Hurwitz spaces, Séminaires et Congrès 13 (2006), 313–341. However, the claim of no Romagny citations elsewhere is false at audit revision a442192b: CHEN-24 already lists BR11, and EVW16 and WOOD-19 list RW06; these are prerequisite references, not independent catalogue entries covering these LWZ supplier passages. Neither work has its own papers.json entry, and the focused packet/roadmap search finds no citation. Add the two precise dependencies for /30 and /31 and coalesce future source work with those existing references rather than queue duplicate inventories."
+    },
+    {
+      "finding": "RT-PAPER-LIU-WOOD-ZUREICKBROWN-24/4",
+      "verdict": "confirmed",
+      "reason": "Confirmed as missing structured reading provenance, but the proposed fix must be corrected. The extraction has no sourceVersions and its source.readSections explicitly records only arXiv v2 as the main paper read, plus a separately read Publisher Correction; the six stated-result entries are E5, E6, E7, E8, E12 and E25. Independently fetched v2 has SHA-256 7f1e85da49b23f80fc7abe9a68dbc5384ab216dfa5d55cd5e3223ba3268abed9. Executing current collation.py's actual provenance/exposure functions in memory produces preprint / six stated findings / publisher blocked. Adding the suggested unread kind:published entry changes provenance to published and removes exposure entirely, because the classifier does not distinguish not-read citations. Correct fix: sourceVersions must list only the actually read main-paper preprint, preserving its historical 2026-09-22 reading date and exact version/hash; keep the unread journal article and the distinct Publisher Correction in explicit separate descriptive provenance, not a published main-paper reading. Keep all six findings scoped to v2 and on the collation worklist until the main version of record is genuinely acquired and collated. I have not re-audited those six mathematical findings or read the main journal paper."
+    }
+  ]
+}
