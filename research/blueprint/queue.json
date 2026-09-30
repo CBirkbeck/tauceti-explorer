@@ -23653,12 +23653,12 @@
     "REV-RS-14"
    ],
    "prompt": "research/blueprint/prompts/BP-DirichletPadicLFunctions.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [
     "BP-LocallyAnalyticDistributions",
     "BP-PadicMeasuresIwasawaAlgebras"
    ],
-   "note": "released on GitHub issue #713"
+   "note": "claimed on GitHub issue #713"
   },
   {
    "id": "REV-DirichletPadicLFunctions",
@@ -33373,8 +33373,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-CHEN-24.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4972"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4972",
+   "finishedAt": "2026-09-30T16:16:14Z"
   },
   {
    "id": "RT-PAPER-CARAIANI-SCHOLZE-24",
@@ -35734,7 +35735,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-KOENIGSMANN-16.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4991"
   },
   {
    "id": "RT-PAPER-TREUMANN-VENKATESH-16",
@@ -41866,7 +41868,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-KHARE-WINTENBERGER-09-I.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #5027"
   },
   {
    "id": "RT-PAPER-KHARE-WINTENBERGER-09-II",
@@ -42493,7 +42496,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-LINK-tauceti_TauCetiRoadmap_ModularCurves.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #5030"
   },
   {
    "id": "RT-LINK-tauceti_TauCetiRoadmap_EllipticCurves",
@@ -42685,8 +42689,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-LINK-tauceti_TauCetiRoadmap_AlgebraicCurves.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5031"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #5031",
+   "finishedAt": "2026-09-30T16:16:19Z"
   },
   {
    "id": "RT-LINK-tauceti_TauCetiRoadmap_NumberFieldArithmetic",
@@ -42927,8 +42932,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-LINK-tauceti_TauCetiRoadmap_Chebotarev.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5033"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #5033",
+   "finishedAt": "2026-09-30T16:16:23Z"
   },
   {
    "id": "RT-LINK-tauceti_TauCetiRoadmap_ArithmeticDirichletSeries",
@@ -43556,8 +43562,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_ClassicalGroups.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5038"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #5038",
+   "finishedAt": "2026-09-30T16:16:27Z"
   },
   {
    "id": "RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_LieGroups",
@@ -51362,8 +51369,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-AREA-ktheory-2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #3980"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #3980",
+   "finishedAt": "2026-09-30T16:16:30Z"
   },
   {
    "id": "RT-AREA-geomlanglands",
@@ -51441,8 +51449,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-AREA-geomlanglands.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #3981"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #3981",
+   "finishedAt": "2026-09-30T16:16:35Z"
   },
   {
    "id": "RT-AREA-commutative",
