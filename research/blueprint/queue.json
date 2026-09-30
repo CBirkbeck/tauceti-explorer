@@ -35053,8 +35053,9 @@
     "REV-PAPER-MOK-PILA-TSIMERMAN-19"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-MOK-PILA-TSIMERMAN-19.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4095"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4095",
+   "finishedAt": "2026-09-30T23:11:33Z"
   },
   {
    "id": "REV-RT-PAPER-MOK-PILA-TSIMERMAN-19",
@@ -40899,8 +40900,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-BOCKLE-HARRIS-KHARE-ETAL-19.md",
-   "state": "pending",
-   "note": "released on GitHub issue #5014"
+   "state": "external",
+   "note": "claimed on GitHub issue #5014"
   },
   {
    "id": "RT-PAPER-LAWRENCE-VENKATESH-20",
@@ -45814,7 +45815,8 @@
     "REV-RS-27"
    ],
    "prompt": "research/blueprint/prompts/RT-RS-27.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #5119"
   },
   {
    "id": "REV-RT-RS-27",
