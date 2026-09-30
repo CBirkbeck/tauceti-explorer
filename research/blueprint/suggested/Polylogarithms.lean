@@ -479,9 +479,11 @@ example {a b : ℂ} (ha0 : a ≠ 0) (ha1 : a ≠ 1) (hb0 : b ≠ 0) (hb1 : b ≠
 example (z : ℂ) : blochWigner z⁻¹ = -blochWigner z := by sorry
 
 -- P.2/hyperbolic-volume: P.2 is the sole owner of the ideal-tetrahedron identity vol I = D(r).
--- GeometricTopology layer 7 supplies curvature -1 hyperbolic 3-space, its Riemannian volume,
--- ideal boundary and oriented tetrahedra. Milnor's Lobachevsky-volume formula is P.2's own
--- remaining proof gap, not an upstream request. The geometric theorem is therefore not stated.
+-- GeometricTopology layer 7 supplies metric/volume foundations; layer 8 supplies the model.
+-- The ideal boundary, oriented ideal tetrahedra and finite-region-volume interface require
+-- an early GeometricTopology Part II extension (packet gap), before P.2 and QT.5.
+-- Milnor's Lobachevsky-volume formula is P.2's own separate proof gap. The geometric theorem
+-- is therefore not stated. Neither missing interface is claimed as an existing supplier result.
 -- ArithmeticQuantumTopology QT.5 imports this identity for the manifold volume sum; it is
 -- not an input here. Keep r(infinity, 0, 1, z) = z, so D(r) = -D(V.4.crossRatio).
 
