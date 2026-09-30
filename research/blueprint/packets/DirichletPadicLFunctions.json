@@ -10,7 +10,7 @@
     "DirichletPadicLFunctions:L4"
   ],
   "status": "partial",
-  "summary": "Partial continuation preserving all630 predecessor nodes whole. One L2 lemma and three L4 theorems give an actual residue-shift identity, an explicit unit-constant test, the exact criterion for scalar multiples to admit an integral measure lift, and the dyadic obstruction for every nonprincipal tame character.",
+  "summary": "Partial continuation preserving all634 predecessor nodes whole. Two L2 lemmas and two L4 theorems bound fixed-level character variation in the actual tame coefficients, measure and full doubled series, and transfer exact scalar integrality to every sufficiently close character, including a principal target.",
   "baseline": {
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
@@ -3829,6 +3829,13 @@
         "module": "Mathlib/NumberTheory/Padics/PadicIntegers.lean",
         "provides": "The norm of p in ℤ_p is p⁻¹; at p=2 it gives the scalar bound used for every bounded coefficient algebra.",
         "checked": "Whole pinned statement, ambient hypotheses and proof read on30September2026 at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174; unchanged declaration index matched. Generated additive interfaces were checked by the complete native probe; references retain their actual indexed source declarations."
+      },
+      {
+        "ref": "mathlib:IsUltrametricDist.norm_eq_of_mul_norm_lt_max",
+        "kind": "lemma",
+        "module": "Mathlib/Analysis/Normed/Group/Ultra.lean",
+        "provides": "In an ultrametric seminormed group, a product of norm strictly less than the maximum of the factor norms forces equal factor norms. Its native generated additive counterpart applies to a difference; equivalently use the indexed statement on Multiplicative(K,+).",
+        "checked": "Whole pinned statement, ambient seminormed-group hypotheses and proof read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on30September2026 and matched to the unchanged declaration index. The complete unit_norm_stable probe checks the native generated additive interface."
       }
     ]
   },
@@ -42274,6 +42281,280 @@
       "acceptance": [
         "All nonprincipal tame characters are covered over the stated characteristic-zero coefficient fields. The proof only needs a norm lower bound for1/2 and retains the principal exception."
       ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L2/tame-character-coefficient-variation",
+      "parentStageId": "DirichletPadicLFunctions:L2",
+      "realises": [
+        "DirichletPadicLFunctions:L2"
+      ],
+      "title": "Variation of the tame formal coefficients",
+      "kind": "lemma",
+      "statement": "For every n≥0, ‖coeff_n(Fη0)−coeff_n(Fη1)‖≤B.",
+      "hypotheses": [
+        "p is prime, D>0 with NeZero D, p∤D, and η0,η1 are native DirichletCharacter K D at the same tame modulus. hD:IsUnit(D:K). The real bound B satisfies B≥0 and ‖η0(a)−η1(a)‖≤B for every a∈ZMod D, including nonunits. Both characters may be principal in the three variation bounds.",
+        "For formal coefficients K is a normed ultrametric field with Algebra ℤ_p K and IsBoundedSMul ℤ_p K. For actual measure and doubled-series statements K is additionally complete and nontrivially normed. No characteristic-zero hypothesis is needed for these bounds.",
+        "The existing Fη=tameSeries, bounded coefficient sequence and μη=tameMeasure are reused. O is exactly the native norm-valuation integer subring of K, U=(ℤ_p)ˣ, and Gη is the actual integralDoubledTameEisensteinSeries with coefficientwise topology on PowerSeries O. Norms of measures are taken only after AbstractMeasure.toCLMEquiv; no norm on a formal-series ring is introduced."
+      ],
+      "proofSteps": [
+        "Use the same finite integral-kernel decomposition as the existing tame coefficient bound: Fη=−Σ_a C(η(a)) map(q_(a.val)·q_D⁻¹), where each kernel lies in ℤ_p[[T]]. The unit certificate for D over ℤ_p exists because p∤D; mapping its native inverse agrees with the supplied hD by uniqueness.",
+        "Subtract the two finite expressions before estimating. The common kernel at a has every included coefficient of norm at most one by the exact supplier integral-coefficient-image-bound. Multiplicativity bounds each difference term by ‖η0(a)−η1(a)‖≤B.",
+        "Apply the native ultrametric finite-sum inequality to these differences; its nonnegative bound hypothesis is hB. The complete finite_weighted_difference and finite_series_difference proofs verify subtraction, negative sums, coefficient extraction and the norm estimate. Merely subtracting two separate norm-one bounds would lose the sharper B.",
+        "The indexed multiplicative ultrametric source has a native generated additive finite-sum statement, which the probe uses. No additional inverse-transform construction, norm on unrestricted formal series, primitivity or nonprincipal assumption is needed.",
+        "At modulus three and p=2, a supplied character χ with χ(2)=−1 differs from the principal character by zero or two. The complete principal_three_difference proof verifies the finite character values, giving B=1/2 over ℚ₂. At modulus one both native tame kernels are zero."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L2/tame-series",
+        "DirichletPadicLFunctions:L2/tame-coefficient-bound",
+        "PadicMeasuresIwasawaAlgebras:L2/integral-coefficient-image-bound",
+        "mathlib:PowerSeries.coeff_map",
+        "mathlib:PowerSeries.coeff_C_mul",
+        "mathlib:IsUltrametricDist.norm_prod_le_of_forall_le_of_nonneg",
+        "mathlib:MulChar.one_apply"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/TameCharacterVariation",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.tameSeries_coeff_sub_norm_le"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Restriction and zero extension, §3.5.3, published127–129/PDF28–30; tame kernel and integral coefficients, §5.2, published143–146/PDF44–47; Theorem8.2 and Remark8.3, published159–161/PDF60–62. Whole passages read in the retained tame-series and constant-residue checkpoints.",
+          "excerpt": "Eisenstein series vary p-adically continuously",
+          "match": "Worker quantitative variation of the existing tame character and full doubled integral formal series. The fixed-level Lipschitz estimates and stability of scalar integrality are derived consequences, not statements quoted from RJW. The source motivates integral coefficient variation; classical modularity and analytic weight-space existence remain with their owners. Retained source corrections apply, including the invalid geometric expansion avoided by the finite-kernel proof."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedTameVariationTests.coefficient_self",
+          "kind": "degenerate",
+          "statement": "Identical characters have zero coefficient difference."
+        },
+        {
+          "name": "SuggestedTameVariationTests.coefficient_level_one",
+          "kind": "degenerate",
+          "statement": "At tame modulus one the two actual tame series have zero difference in every degree."
+        },
+        {
+          "name": "SuggestedTameVariationTests.principal_three_coefficient_bound",
+          "kind": "computation",
+          "statement": "At p=2,D=3 a supplied χ with χ(2)=−1 and the principal character have all coefficient differences bounded by1/2."
+        }
+      ],
+      "acceptance": [
+        "The bound is on each actual formal coefficient and retains the pointwise character distance B. The same modulus and p∤D remain explicit."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L2/tame-character-measure-variation",
+      "parentStageId": "DirichletPadicLFunctions:L2",
+      "realises": [
+        "DirichletPadicLFunctions:L2"
+      ],
+      "title": "Variation of the actual tame measure",
+      "kind": "lemma",
+      "statement": "The continuous-dual operator norm satisfies ‖toCLM(μη0−μη1)‖≤B.",
+      "hypotheses": [
+        "p is prime, D>0 with NeZero D, p∤D, and η0,η1 are native DirichletCharacter K D at the same tame modulus. hD:IsUnit(D:K). The real bound B satisfies B≥0 and ‖η0(a)−η1(a)‖≤B for every a∈ZMod D, including nonunits. Both characters may be principal in the three variation bounds.",
+        "For formal coefficients K is a normed ultrametric field with Algebra ℤ_p K and IsBoundedSMul ℤ_p K. For actual measure and doubled-series statements K is additionally complete and nontrivially normed. No characteristic-zero hypothesis is needed for these bounds.",
+        "The existing Fη=tameSeries, bounded coefficient sequence and μη=tameMeasure are reused. O is exactly the native norm-valuation integer subring of K, U=(ℤ_p)ˣ, and Gη is the actual integralDoubledTameEisensteinSeries with coefficientwise topology on PowerSeries O. Norms of measures are taken only after AbstractMeasure.toCLMEquiv; no norm on a formal-series ring is introduced."
+      ],
+      "proofSteps": [
+        "The native bounded coefficient sequences cη0 and cη1 have pointwise difference equal to the preceding formal coefficient difference. Apply BoundedContinuousFunction.norm_le with hB to obtain ‖cη0−cη1‖≤B.",
+        "The supplier bounded inverse Amice transform is itself a linear map. Its inherited map_sub law identifies μη0−μη1 with boundedInvTransform(cη0−cη1). Apply the exact supplier norm_boundedInvTransform equality after toCLMEquiv.",
+        "The complete inverse_difference_bound proof checks this linear-isometry argument on the native bounded-sequence and continuous-dual carriers. It does not assume or construct a new normed measure space.",
+        "Evaluation on any actual K-valued continuous test f gives ‖μη0(f)−μη1(f)‖≤B‖f‖ by the native continuous-linear-map operator norm bound. The complete evaluation_difference_bound proof checks precisely this consequence."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L2/tame-character-coefficient-variation",
+        "DirichletPadicLFunctions:L2/tame-coefficient-sequence",
+        "DirichletPadicLFunctions:L2/tame-measure",
+        "PadicMeasuresIwasawaAlgebras:L2/bounded-inverse",
+        "PadicMeasuresIwasawaAlgebras:L2/bounded-inverse-norm",
+        "mathlib:BoundedContinuousFunction.norm_le",
+        "mathlib:AbstractMeasure.toCLMEquiv",
+        "mathlib:ContinuousLinearMap.le_opNorm"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/TameCharacterVariation",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.tameMeasure_sub_norm_le"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Restriction and zero extension, §3.5.3, published127–129/PDF28–30; tame kernel and integral coefficients, §5.2, published143–146/PDF44–47; Theorem8.2 and Remark8.3, published159–161/PDF60–62. Whole passages read in the retained tame-series and constant-residue checkpoints.",
+          "excerpt": "Eisenstein series vary p-adically continuously",
+          "match": "Worker quantitative variation of the existing tame character and full doubled integral formal series. The fixed-level Lipschitz estimates and stability of scalar integrality are derived consequences, not statements quoted from RJW. The source motivates integral coefficient variation; classical modularity and analytic weight-space existence remain with their owners. Retained source corrections apply, including the invalid geometric expansion avoided by the finite-kernel proof."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedTameVariationTests.measure_self",
+          "kind": "degenerate",
+          "statement": "The operator norm of the difference of a tame measure from itself is zero."
+        },
+        {
+          "name": "SuggestedTameVariationTests.measure_evaluation",
+          "kind": "compatibility",
+          "statement": "The difference on every actual K-valued continuous test f is bounded by B times its supremum norm."
+        }
+      ],
+      "acceptance": [
+        "Actual measures and the native continuous-dual norm are used. The inherited linearity of the existing inverse transform is sufficient; no planned duplicate supplier operator is introduced."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L4/tame-full-series-character-variation",
+      "parentStageId": "DirichletPadicLFunctions:L4",
+      "realises": [
+        "DirichletPadicLFunctions:L4"
+      ],
+      "title": "Character variation of the full doubled tame series",
+      "kind": "theorem",
+      "statement": "For every f∈C(U,O) and n≥0, ‖ι(coeff_n Gη0(f))−ι(coeff_n Gη1(f))‖≤B‖f‖, including the constant coefficient.",
+      "hypotheses": [
+        "p is prime, D>0 with NeZero D, p∤D, and η0,η1 are native DirichletCharacter K D at the same tame modulus. hD:IsUnit(D:K). The real bound B satisfies B≥0 and ‖η0(a)−η1(a)‖≤B for every a∈ZMod D, including nonunits. Both characters may be principal in the three variation bounds.",
+        "For formal coefficients K is a normed ultrametric field with Algebra ℤ_p K and IsBoundedSMul ℤ_p K. For actual measure and doubled-series statements K is additionally complete and nontrivially normed. No characteristic-zero hypothesis is needed for these bounds.",
+        "The existing Fη=tameSeries, bounded coefficient sequence and μη=tameMeasure are reused. O is exactly the native norm-valuation integer subring of K, U=(ℤ_p)ˣ, and Gη is the actual integralDoubledTameEisensteinSeries with coefficientwise topology on PowerSeries O. Norms of measures are taken only after AbstractMeasure.toCLMEquiv; no norm on a formal-series ring is introduced."
+      ],
+      "proofSteps": [
+        "In degree zero, apply the existing all-test constant-restriction comparison to each character. The two included constants become evaluations of the actual tame measures on the same extended unit test.",
+        "The exact supplier restriction-evaluation formula first precomposes ι∘f with the inverse homeomorphism from the clopen unit locus to U and then extends by zero. The promoted zero-extension-norm theorem preserves the supremum norm. Precomposition cannot increase it, by native ContinuousMap.norm_le and norm_coe_le_norm. The native integer-subring norm makes ‖ι∘f‖=‖f‖; complete included_test_norm and precomposition_bound verify these two routine estimates.",
+        "Use the preceding actual measure-difference bound and native le_opNorm on this common extended test. This yields the constant-coefficient bound without a principal-character residue formula or any density argument.",
+        "For n>0 use the doubled coefficient formula, coefficient inclusion and the existing finite divisor-Dirac evaluation. The included coefficient is 2Σ_(d|n,p∤d)η(d)ι(f(u_d)), since the left character is principal modulo one.",
+        "Subtract the two finite sums and apply the complete finite_weighted_difference estimate with A=‖f‖. Native pointwise-to-sup norm bounds control each f(u_d); the ultrametric natural-cast bound gives ‖2:K‖≤1. Thus multiplication by two preserves the desired B‖f‖ bound. At n=1 both characters take the value one, so that coefficient difference is exactly zero.",
+        "Every assertion is coefficientwise on all actual integral continuous tests. No scalar extension to arbitrary K-valued tests or analytic character family is inferred."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L2/tame-character-measure-variation",
+        "DirichletPadicLFunctions:L4/integral-tame-constant-restriction",
+        "PadicMeasuresIwasawaAlgebras:L2/intrinsic-unit-restriction-evaluation",
+        "PadicMeasuresIwasawaAlgebras:L0/clopen-zero-extension-norm",
+        "DirichletPadicLFunctions:L4/integral-doubled-tame-eisenstein-coeff",
+        "DirichletPadicLFunctions:L4/integral-twisted-positive-eisenstein-coefficient",
+        "DirichletPadicLFunctions:L4/twisted-positive-eisenstein-evaluation",
+        "mathlib:ContinuousMap.norm_le",
+        "mathlib:ContinuousMap.norm_coe_le_norm",
+        "mathlib:ContinuousLinearMap.le_opNorm",
+        "mathlib:IsUltrametricDist.norm_prod_le_of_forall_le_of_nonneg",
+        "mathlib:IsUltrametricDist.norm_natCast_le_one"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/TameCharacterVariation",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.integralDoubledTameEisensteinSeries_character_bound"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Restriction and zero extension, §3.5.3, published127–129/PDF28–30; tame kernel and integral coefficients, §5.2, published143–146/PDF44–47; Theorem8.2 and Remark8.3, published159–161/PDF60–62. Whole passages read in the retained tame-series and constant-residue checkpoints.",
+          "excerpt": "Eisenstein series vary p-adically continuously",
+          "match": "Worker quantitative variation of the existing tame character and full doubled integral formal series. The fixed-level Lipschitz estimates and stability of scalar integrality are derived consequences, not statements quoted from RJW. The source motivates integral coefficient variation; classical modularity and analytic weight-space existence remain with their owners. Retained source corrections apply, including the invalid geometric expansion avoided by the finite-kernel proof."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedTameVariationTests.constant_variation",
+          "kind": "compatibility",
+          "statement": "The character-distance estimate includes coefficient zero on every integral test."
+        },
+        {
+          "name": "SuggestedTameVariationTests.first_coefficient_independent",
+          "kind": "computation",
+          "statement": "Coefficient one is2f(1), hence independent of the tame character."
+        },
+        {
+          "name": "SuggestedTameVariationTests.zero_test",
+          "kind": "degenerate",
+          "statement": "Every coefficient difference vanishes on the zero test."
+        }
+      ],
+      "acceptance": [
+        "The degree-zero estimate is proved using actual restriction and the general norm-preserving zero extension, not the rational-only restriction bound. Positive degrees retain the factor two and the correct divisor support."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L4/tame-near-character-scalar-integrality",
+      "parentStageId": "DirichletPadicLFunctions:L4",
+      "realises": [
+        "DirichletPadicLFunctions:L4"
+      ],
+      "title": "Scalar integrality near a nonprincipal tame character",
+      "kind": "theorem",
+      "statement": "Assume additionally CharZero K, η1≠1 and B<1. For every s∈K there exists M:AbstractMeasure U O (PowerSeries O) with map_ι(M(f))=s•map_ι(Gη0(f)) for every integral test f if and only if ‖s‖≤1. The target character η0 may be principal.",
+      "hypotheses": [
+        "p is prime, D>0 with NeZero D, p∤D, and η0,η1 are native DirichletCharacter K D at the same tame modulus. hD:IsUnit(D:K). The real bound B satisfies B≥0 and ‖η0(a)−η1(a)‖≤B for every a∈ZMod D, including nonunits. Both characters may be principal in the three variation bounds.",
+        "For formal coefficients K is a normed ultrametric field with Algebra ℤ_p K and IsBoundedSMul ℤ_p K. For actual measure and doubled-series statements K is additionally complete and nontrivially normed. No characteristic-zero hypothesis is needed for these bounds.",
+        "The existing Fη=tameSeries, bounded coefficient sequence and μη=tameMeasure are reused. O is exactly the native norm-valuation integer subring of K, U=(ℤ_p)ˣ, and Gη is the actual integralDoubledTameEisensteinSeries with coefficientwise topology on PowerSeries O. Norms of measures are taken only after AbstractMeasure.toCLMEquiv; no norm on a formal-series ring is introduced.",
+        "For this stability theorem only, K has characteristic zero, η1 is nonprincipal and0≤B<1. No nonprincipal assumption is imposed on η0. All character comparisons are at the same positive tame modulus."
+      ],
+      "proofSteps": [
+        "Apply the existing unit-constant witness to the nonprincipal reference character η1. Choose a sufficiently large positive residue level as in that theorem; its difference of two unit indicators is an actual O-valued continuous test f0 with ι(coeff₀Gη1(f0))=−1.",
+        "Every O-valued continuous test has supremum norm at most one. This follows from the defining norm valuation and native ContinuousMap.norm_le; complete integral_test_norm proves it on every compact domain. The full character-variation theorem therefore bounds the two constants at f0 by B<1.",
+        "In an ultrametric field, two elements at distance less than one have the same norm if either has norm one. Apply the native generated additive counterpart of the indexed norm_eq_of_mul_norm_lt_max. Complete unit_norm_stable and transfer_unit_constant verify that the target constant has norm one. Its exact value need not be−1.",
+        "If an all-test integral lift M exists, extract its coefficient zero at f0. Its included coefficient has norm at most one, while multiplicativity gives norm equal to ‖s‖ times the unit norm of the target constant. Complete scalar_lift_necessity_norm_one proves this argument on native AbstractMeasure and PowerSeries.map.",
+        "If ‖s‖≤1, package s as its actual integer-subring element and multiply the existing integral measure Gη0 by it. The scalar-lift construction from the prior criterion uses only native linearity and coefficient inclusion and never used nonprincipality; this same construction proves sufficiency here.",
+        "For p=2,D=3, a supplied χ with χ(2)=−1 is nonprincipal in characteristic zero and differs from the principal character by norm at most1/2. Hence the principal modulus-three doubled tame family also has the exact scalar criterion and no all-test integral half. These typed tests explicitly supply χ; no general existence theorem for quadratic characters at all tame moduli is asserted in this checkpoint.",
+        "The strict inequality B<1 is necessary for the norm-stability step: zero and−1 have distance one but unequal norms. The modulus-one zero tame constructor remains outside the hypothesis since no nonprincipal reference character exists at that modulus. No identification with the principal zeta family follows."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L4/tame-full-series-character-variation",
+        "DirichletPadicLFunctions:L4/integral-tame-unit-constant-witness",
+        "DirichletPadicLFunctions:L4/tame-full-series-scalar-integrality",
+        "mathlib:pow_unbounded_of_one_lt",
+        "mathlib:ContinuousMap.norm_le",
+        "mathlib:Valuation.mem_integer_iff",
+        "mathlib:NormedField.valuation_apply",
+        "mathlib:IsUltrametricDist.norm_eq_of_mul_norm_lt_max",
+        "mathlib:PowerSeries.coeff_map",
+        "mathlib:PowerSeries.coeff_smul",
+        "mathlib:MulChar.one_apply",
+        "mathlib:PadicInt.norm_p"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/TameCharacterVariation",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.integralDoubledTameEisensteinSeries_near_scalar_lift_iff"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Restriction and zero extension, §3.5.3, published127–129/PDF28–30; tame kernel and integral coefficients, §5.2, published143–146/PDF44–47; Theorem8.2 and Remark8.3, published159–161/PDF60–62. Whole passages read in the retained tame-series and constant-residue checkpoints.",
+          "excerpt": "Eisenstein series vary p-adically continuously",
+          "match": "Worker quantitative variation of the existing tame character and full doubled integral formal series. The fixed-level Lipschitz estimates and stability of scalar integrality are derived consequences, not statements quoted from RJW. The source motivates integral coefficient variation; classical modularity and analytic weight-space existence remain with their owners. Retained source corrections apply, including the invalid geometric expansion avoided by the finite-kernel proof."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedTameVariationTests.stable_unit_constant",
+          "kind": "compatibility",
+          "statement": "A nearby target character has an actual integral test with included doubled constant of norm one."
+        },
+        {
+          "name": "SuggestedTameVariationTests.principal_three_scalar_criterion",
+          "kind": "computation",
+          "statement": "Given the actual modulus-three character χ with χ(2)=−1, the principal character at that modulus has the exact scalar lift criterion over ℚ₂."
+        },
+        {
+          "name": "SuggestedTameVariationTests.principal_three_no_half",
+          "kind": "non-example",
+          "statement": "The same principal modulus-three family has no integral half on all integral tests."
+        },
+        {
+          "name": "SuggestedTameVariationTests.radius_one_not_enough",
+          "kind": "non-example",
+          "statement": "Zero and−1 have distance one but different norms, so a closed radius-one estimate cannot transfer unit norm."
+        }
+      ],
+      "acceptance": [
+        "Only the reference character is required to be nonprincipal. The strict distance hypothesis, actual test witness and native integral measure quantifier remain explicit."
+      ]
     }
   ],
   "requests": [
@@ -42392,7 +42673,7 @@
       "stageId": "DirichletPadicLFunctions:L4",
       "status": "partial",
       "remaining": [
-        "For every nonprincipal tame character, a concrete difference of two unit-residue tests now detects exact scalar integrality of the full doubled family. The all-test half-normalization obstruction is proved for every such character at p=2, including imprimitive ones; odd-prime normalization was supplied previously. Principal tame characters beyond the level-one boundary, general character-pair constants, classical character Eisenstein existence/normalization and analytic weight-space comparisons remain open. The localized principal zeta theory stays separate. Eleven requests, fifteen gaps and zero closed stages remain; the missing pinned TwistedDivisorSum artifact still prevents full-module compilation.",
+        "Fixed-modulus character variation now controls the tame series, actual measure and every coefficient of the full doubled integral series. Exact scalar integrality transfers from a nonprincipal reference character across a distance strictly less than one, including the tested principal modulus-three dyadic case. The next principal-character task is to supply native quadratic-character existence and level-change comparisons at general odd tame modulus, or another direct principal witness argument. General character-pair constants, classical character Eisenstein existence/normalization and analytic weight-space comparisons remain open. The tame level-one zero constructor and localized principal zeta theory remain distinct. Eleven requests, fifteen gaps and zero closed stages remain; the missing pinned TwistedDivisorSum artifact prevents full-module compilation.",
         "The positive part now has a native continuous power-series-valued measure, uniform coefficient bounds, test and weight congruences, and whole-series comparison with the actual p-stabilized modular form after removing its constant coefficient. Assemble the full family with the actual localized A₀ coefficient, prove constant-term congruences with denominator qualifications, and decompose the tame-character extension. Geometric affinoid realization and Hida–Coleman control belong to PadicFamilies; retain the weight shift recorded in E9."
       ]
     }
@@ -42423,7 +42704,7 @@
       "neededBy": [
         "DirichletPadicLFunctions:L4/positive-eisenstein-completed-coordinates"
       ],
-      "detail": "For every nonprincipal tame character, a concrete difference of two unit-residue tests now detects exact scalar integrality of the full doubled family. The all-test half-normalization obstruction is proved for every such character at p=2, including imprimitive ones; odd-prime normalization was supplied previously. Principal tame characters beyond the level-one boundary, general character-pair constants, classical character Eisenstein existence/normalization and analytic weight-space comparisons remain open. The localized principal zeta theory stays separate. Eleven requests, fifteen gaps and zero closed stages remain; the missing pinned TwistedDivisorSum artifact still prevents full-module compilation. The positive part now has a native continuous power-series-valued measure, uniform coefficient bounds, test and weight congruences, and whole-series comparison with the actual p-stabilized modular form after removing its constant coefficient. Assemble the full family with the actual localized A₀ coefficient, prove constant-term congruences with denominator qualifications, and decompose the tame-character extension. Geometric affinoid realization and Hida–Coleman control belong to PadicFamilies; retain the weight shift recorded in E9."
+      "detail": "Fixed-modulus character variation now controls the tame series, actual measure and every coefficient of the full doubled integral series. Exact scalar integrality transfers from a nonprincipal reference character across a distance strictly less than one, including the tested principal modulus-three dyadic case. The next principal-character task is to supply native quadratic-character existence and level-change comparisons at general odd tame modulus, or another direct principal witness argument. General character-pair constants, classical character Eisenstein existence/normalization and analytic weight-space comparisons remain open. The tame level-one zero constructor and localized principal zeta theory remain distinct. Eleven requests, fifteen gaps and zero closed stages remain; the missing pinned TwistedDivisorSum artifact prevents full-module compilation. The positive part now has a native continuous power-series-valued measure, uniform coefficient bounds, test and weight congruences, and whole-series comparison with the actual p-stabilized modular form after removing its constant coefficient. Assemble the full family with the actual localized A₀ coefficient, prove constant-term congruences with denominator qualifications, and decompose the tame-character extension. Geometric affinoid realization and Hida–Coleman control belong to PadicFamilies; retain the weight shift recorded in E9."
     },
     {
       "title": "Canonical coefficient-field character evaluation of actual pseudomeasures",
@@ -42780,36 +43061,36 @@
   "checks": {
     "blueprint": "Zero errors and warnings with the unmodified pinned index.",
     "intake": "Exactly four authorized deliverables; zero problems.",
-    "sourceIssues": "All16 findings, sourceVersions and eleven requests remain whole; all fifteen gaps remain open. The new obstruction is a worker consequence, not a source erratum or independent verdict.",
+    "sourceIssues": "All16 findings, sourceVersions, eleven requests and fifteen open gaps remain whole. The character-variation and stability results are worker consequences, not source errata or independent verdicts.",
     "validation": {
-      "nodes": 634,
+      "nodes": 638,
       "kinds": {
         "definition": 1,
-        "lemma": 246,
+        "lemma": 248,
         "construction": 71,
-        "theorem": 195,
+        "theorem": 197,
         "comparison": 121
       },
       "api": 538,
-      "packetTests": 1060,
+      "packetTests": 1072,
       "definitionConstructionTests": 303,
-      "typedExamples": 1063,
+      "typedExamples": 1075,
       "planets": 24,
-      "baseline": 545,
-      "preservedWholeNodes": 630,
-      "preservedBaseline": 539,
+      "baseline": 546,
+      "preservedWholeNodes": 634,
+      "preservedBaseline": 545,
       "preservedSourceIssues": 16,
       "newSourceIssues": 0,
       "newNodes": 4,
       "newNamedDeclarations": 4,
-      "newTypedTests": 10,
+      "newTypedTests": 12,
       "requests": 11,
       "gaps": 15,
       "closedStages": 0,
-      "reachableNodes": 890,
-      "dependencyEdges": 4388,
+      "reachableNodes": 894,
+      "dependencyEdges": 4427,
       "acyclic": true,
-      "baselineLeaves": 723,
+      "baselineLeaves": 724,
       "stageRequestLeaves": [
         "AdicSpacesPartII:F1",
         "AdicSpacesPartII:R2",
@@ -42821,7 +43102,7 @@
         "PadicMeasuresIwasawaAlgebras:L2",
         "PadicMeasuresIwasawaAlgebras:L3"
       ],
-      "readerWords": 306865,
+      "readerWords": 309855,
       "scopedMutationCheck": true,
       "correctedPredecessorNodes": 0,
       "fullSuggestedCompiled": false,
@@ -42848,25 +43129,25 @@
         "TauCeti.NumberTheory.ArithmeticFunction.TwistedDivisorSum"
       ],
       "scratchCompleteDefinitions": 0,
-      "scratchCompleteLemmas": 14,
+      "scratchCompleteLemmas": 11,
       "scratchMathlibModules": 2817,
       "scratchTauModules": 0,
       "scratchErrors": 0,
       "scratchWarnings": 0,
       "scratchPlaceholders": 0,
       "finiteControls": {
-        "primeCharacterPairs": 53,
-        "cyclicShiftIdentities": 36346,
-        "unitWitnesses": 106,
-        "scalarWitnessChecks": 848,
-        "integralScalarChecks": 608,
-        "nonintegralScalarDetections": 240,
-        "dyadicHalfObstructions": 28,
-        "naiveQuotientAdditionFailures": 106,
-        "nonrealCharacterPairs": 8,
-        "nonrealCyclicShifts": 712,
-        "nonrealUnitWitnesses": 8,
-        "principalLevelOneChecks": 64
+        "characterTables": 22,
+        "characterPairs": 139,
+        "formalCoefficients": 4448,
+        "residueDifferences": 26011,
+        "residueConvolutionChecks": 55328,
+        "fullConstants": 1668,
+        "positiveCoefficients": 40032,
+        "stableUnitWitnesses": 41,
+        "scalarTests": 328,
+        "nonintegralScalarTests": 82,
+        "falsePrincipalResidueFormula": 8750,
+        "zeroBounds": 61
       },
       "numericalControlsCertified": false,
       "newRoutesStageLeaves": []
@@ -42876,7 +43157,7 @@
       "compiled": false,
       "errors": null,
       "warnings": null,
-      "sha256": "5ce1c41d38273c786ae06cc65c407b2cbcab759ad1464728faff4fe6876461e7",
+      "sha256": "ac86111e8efb6ff92ffc511f4dd4c015e438fdf17ca0f6ac91b89d6cf7608961",
       "missingNativeArtifacts": [
         "TauCeti.NumberTheory.ArithmeticFunction.TwistedDivisorSum"
       ],
@@ -42891,11 +43172,11 @@
         }
       },
       "nativeProbe": {
-        "completeLemmas": 14,
+        "completeLemmas": 11,
         "errors": 0,
         "warnings": 0,
         "placeholders": 0,
-        "sha256": "43b984da28fba5db78e5d41a338675ce7434dbfafc4f9529ff06029f184e542c"
+        "sha256": "600e380448976738efc4220005b119d517944f3b5f9dbc64e9acbd35dbef2f1b"
       },
       "sourceAndAvailableArtifactAudit": {
         "compiledSupplierNodes": 332,
@@ -42982,7 +43263,7 @@
       }
     },
     "publication": {
-      "base": "b8f21724739bc5c38de0fce0529b984f067f2e56",
+      "base": "81057a7276655282914bba3ef1fb2e669c343651",
       "unchangedInputs": 66,
       "unchangedOutputs": 4,
       "sameSessionFollowupAfterMerge": true,
@@ -49368,6 +49649,49 @@
         "principalLevelOneChecks": 64
       },
       "numericalMethod": "Exact rational weighted character sums, canonical unit representatives and rational scalar valuations for quadratic and imprimitive tame characters at several primes. Exact Gaussian rational arithmetic independently checks a nonreal quartic character and its level25 lift. Every cyclic identity and unit-constant witness is exact. The principal level-one control concerns the existing zero-constant doubled positive series. Finite controls supplement, rather than prove, the infinite all-test measure criterion.",
+      "fullSuggestedCompiled": false
+    },
+    "tameCharacterVariation": {
+      "agent": "Codex",
+      "session": "codex-7e92bd",
+      "issue": 713,
+      "claimComment": 5854790528,
+      "winningBot": 5854791937,
+      "previousPR": 4808,
+      "previousHead": "8b773a81c71a323a078ce7c03ef18e227e428fcb",
+      "previousMerge": "56acf684707b321b8e35e2dc38450ef3e585f93d",
+      "preservedWholeNodes": 634,
+      "preservedBaseline": 545,
+      "preservedFindings": 16,
+      "newNodes": 4,
+      "reading": "Freshly read the whole tame-series, coefficient-bound, measure and continuous-dual norm nodes; the supplier linear bounded inverse transform, inverse norm equality, intrinsic restriction evaluation and general zero-extension-norm nodes with their actual suggested signatures; and the full doubled-series coefficient and integral inclusion nodes. Rechecked the reviewed L2/L4 library audit. Read pinned bounded-continuous-function and continuous-map norm criteria, native ultrametric norm comparison and finite-sum statements with ambient hypotheses, and principal-character evaluation. Eleven complete native proofs check the critical finite, norm and integer-subring steps. Retained whole RJW passages remain the source basis; no new whole-paper or independent review is claimed.",
+      "boundary": "Fixed-modulus character variation now controls the tame series, actual measure and every coefficient of the full doubled integral series. Exact scalar integrality transfers from a nonprincipal reference character across a distance strictly less than one, including the tested principal modulus-three dyadic case. The next principal-character task is to supply native quadratic-character existence and level-change comparisons at general odd tame modulus, or another direct principal witness argument. General character-pair constants, classical character Eisenstein existence/normalization and analytic weight-space comparisons remain open. The tame level-one zero constructor and localized principal zeta theory remain distinct. Eleven requests, fifteen gaps and zero closed stages remain; the missing pinned TwistedDivisorSum artifact prevents full-module compilation.",
+      "inputBase": "29e3a85891b640a19e777ec133f613df6de31811",
+      "sourceBoundary": "All16 findings, sourceVersions, eleven requests and fifteen open gaps remain whole. The character-variation and stability results are worker consequences, not source errata or independent verdicts.",
+      "publication": {
+        "base": "81057a7276655282914bba3ef1fb2e669c343651",
+        "unchangedInputs": 66,
+        "unchangedOutputs": 4,
+        "sameSessionFollowupAfterMerge": true,
+        "lastClaimConfirmation": 5854791937,
+        "reviewIssue": 390,
+        "reviewUnclaimed": true
+      },
+      "finiteControls": {
+        "characterTables": 22,
+        "characterPairs": 139,
+        "formalCoefficients": 4448,
+        "residueDifferences": 26011,
+        "residueConvolutionChecks": 55328,
+        "fullConstants": 1668,
+        "positiveCoefficients": 40032,
+        "stableUnitWitnesses": 41,
+        "scalarTests": 328,
+        "nonintegralScalarTests": 82,
+        "falsePrincipalResidueFormula": 8750,
+        "zeroBounds": 61
+      },
+      "numericalMethod": "Exact rational arithmetic and p-adic valuations. Native rational kernels are expanded recursively. Finite residues are solved independently from the cyclic kernel equation and mass, then checked against every coefficient of the finite convolution equation; the nonprincipal weighted formula is never applied to a principal character. These finite controls are not a proof of the infinite measure assertions.",
       "fullSuggestedCompiled": false
     }
   },
