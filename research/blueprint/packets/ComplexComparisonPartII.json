@@ -1,0 +1,851 @@
+{
+ "roadmapId": "ComplexComparisonPartII",
+ "protocol": "blueprint-v1",
+ "part": null,
+ "scope": [
+  "ComplexComparisonPartII:C0",
+  "ComplexComparisonPartII:C1",
+  "ComplexComparisonPartII:C2",
+  "ComplexComparisonPartII:C3",
+  "ComplexComparisonPartII:C4",
+  "ComplexComparisonPartII:C5",
+  "ComplexComparisonPartII:C6"
+ ],
+ "status": "partial",
+ "summary": "Partial source and interface repair for FIX-RT-AREA-algebraicgeometry. It corrects GAGA scope, separates additive sheaf–singular comparison from finite coefficients, and imports affine-curve models. Requests and gaps are explicit; this is neither a complete blueprint nor an applied atlas restructuring.",
+ "baseline": {
+  "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+  "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+  "declarations": [
+   {
+    "ref": "mathlib:AlgebraicGeometry.LocallyRingedSpace",
+    "kind": "structure",
+    "module": "Mathlib/Geometry/RingedSpace/LocallyRingedSpace.lean",
+    "provides": "A ringed-space carrier with local stalks and local morphisms; no analytic local-model, nilpotent quotient or gluing theorem.",
+    "checked": "Statement read at pinned commit, 2026-09-29."
+   },
+   {
+    "ref": "mathlib:CategoryTheory.Sheaf.H",
+    "kind": "abbrev",
+    "module": "Mathlib/CategoryTheory/Sites/SheafCohomology/Basic.lean",
+    "provides": "Sheaf cohomology as Ext from the constant integral sheaf; reuse this carrier.",
+    "checked": "Definition and degree-zero/map interfaces read at pinned commit, 2026-09-29."
+   },
+   {
+    "ref": "tauceti:TauCeti.Topology.subsingleton_H_succ_of_isFlasque",
+    "kind": "instance",
+    "module": "TauCeti/Topology/Sheaves/Flasque.lean",
+    "provides": "For a flasque abelian sheaf on any topological space, Sheaf.H in every positive degree is a subsingleton.",
+    "checked": "Full statement and the preceding open-subset result read at pinned commit, 2026-09-29."
+   }
+  ]
+ },
+ "sources": [
+  {
+   "id": "SGA1-XII",
+   "title": "SGA 1, Expose XII: Geometrie algebrique et geometrie analytique",
+   "authors": "Michele Raynaud, from unpublished notes of A. Grothendieck",
+   "edition": "Freely readable re-typeset arXiv math/0206203v2; original LNM 224 edition not checked",
+   "url": "https://arxiv.org/pdf/math/0206203v2",
+   "sha256": "8e64218d356456c534eebf996940f0f957e43b54f1a080241debe12cbaf60d3c",
+   "accessed": "2026-09-29",
+   "readSections": [
+    "XII 1.1–1.3, PDF pp. 255–257",
+    "XII section 4, PDF pp. 263–267"
+   ]
+  },
+  {
+   "id": "SELLA",
+   "title": "Comparison of sheaf cohomology and singular cohomology",
+   "authors": "Yehonatan Sella",
+   "edition": "arXiv:1602.06674v3",
+   "url": "https://arxiv.org/pdf/1602.06674v3",
+   "sha256": "3956e28d596b8461827d899cbfbdf0b73fc738b74e09fecff714c136f564c871",
+   "accessed": "2026-09-29",
+   "readSections": [
+    "pp. 1–8: theorem, Lemma 0.1, Proposition 0.2, Example 0.3 and Step 1; Steps 2–3 not fully decomposed"
+   ]
+  },
+  {
+   "id": "GROTH1966",
+   "title": "On the de Rham cohomology of algebraic varieties",
+   "authors": "A. Grothendieck",
+   "edition": "Published PMIHES 29 (1966), pp. 95–103",
+   "url": "https://www.numdam.org/article/PMIHES_1966__29__95_0.pdf",
+   "sha256": "f76706281f40b3c43c878bbd7c00c7520751d7b356a9da02004613ba5097e33a",
+   "accessed": "2026-09-29",
+   "readSections": [
+    "pp. 95–97 (PDF pp. 2–4): Theorems 1, 1′ and 2, including the proper proof on p. 96"
+   ]
+  },
+  {
+   "id": "CURVE-CONTRACT",
+   "title": "Algebraic curves — function fields, divisors, and Riemann–Roch",
+   "authors": "Tau Ceti roadmap authors",
+   "edition": "Atlas origin/main 82bf2e7, imported upstream roadmap contract",
+   "url": "https://github.com/CBirkbeck/tauceti-explorer/blob/82bf2e7/content/tau-ceti/AlgebraicCurves/README.md",
+   "readSections": [
+    "Layer 12B–12C",
+    "Layer 6 holomorphy-ring interface"
+   ]
+  }
+ ],
+ "nodes": [
+  {
+   "id": "ComplexComparisonPartII:C0/repair-analytification",
+   "parentStageId": "ComplexComparisonPartII:C0",
+   "realises": [
+    "ComplexComparisonPartII:C0"
+   ],
+   "title": "Analytification of complex schemes",
+   "kind": "construction",
+   "statement": "For a C-scheme X locally of finite type, construct an analytic space X^an and a local C-ringed-space morphism phi_X : X^an → X representing T ↦ Hom_C(T, X) on complex analytic spaces. This representation specifies a functor, without imposing reducedness on X.",
+   "hypotheses": [
+    "The complex analytic-space category, its closed-subspace, open-gluing and finite-limit interfaces are supplied by the external PR196 contract; integration remains a recorded gap."
+   ],
+   "proofSteps": [
+    "Use the analytic affine line and finite products to represent affine space.",
+    "For an affine presentation X in affine space, take the analytic closed subspace defined by the extended coherent ideal; retain the quotient sheaf, including nilpotents.",
+    "Restrict to algebraic opens and glue affine presentations using the representing property.",
+    "Define the map on morphisms by the representing property; verify the functor and finite-limit maps. The analytic foundation and coherence facts used in these steps are unresolved inputs, not baseline assertions."
+   ],
+   "acceptance": [
+    "The closed analytic dual-number point has one point and local ring C[e]/(e^2), not the reduced ring C."
+   ],
+   "prerequisites": [
+    "mathlib:AlgebraicGeometry.LocallyRingedSpace"
+   ],
+   "sources": [
+    {
+     "sourceId": "SGA1-XII",
+     "locator": "1.1–1.2, PDF pp. 255–257 (modern pp. 239–241)",
+     "match": "The construction uses closed quotients, affine opens and representing objects and proves compatibility with fibre products."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "Analytification.map",
+     "role": "functoriality",
+     "statement": "For f : X → Y, define f^an : X^an → Y^an with phi_Y ∘ f^an = f ∘ phi_X; map_id and map_comp follow from uniqueness."
+    },
+    {
+     "name": "Analytification.homEquiv",
+     "role": "universal-property",
+     "statement": "Naturally in analytic T, Hom(T, X^an) ≅ Hom_C(T, X) as locally C-ringed spaces."
+    },
+    {
+     "name": "Analytification.closedSubspace",
+     "role": "compatibility",
+     "statement": "For a coherent closed ideal I of X, analytification of V(I) has structure sheaf O_(X^an)/I O_(X^an), including nilpotents."
+    },
+    {
+     "name": "Analytification.fiberProductIso",
+     "role": "compatibility",
+     "statement": "(X ×_Z Y)^an ≅ X^an ×_(Z^an) Y^an, naturally in the finite-type complex diagrams."
+    }
+   ],
+   "uses": [
+    {
+     "where": "SGA 1 XII 4.5; C4",
+     "how": "Analytify products and retain coherent graph ideals."
+    },
+    {
+     "where": "PELModuli:M3 and ModularCurvesPartII:R12.3",
+     "how": "Retain infinitesimal thickenings in moduli comparisons."
+    }
+   ],
+   "tests": [
+    {
+     "name": "Analytification.affineLine",
+     "kind": "example",
+     "statement": "The analytic affine line has carrier C and its holomorphic structure sheaf."
+    },
+    {
+     "name": "Analytification.dualNumbers",
+     "kind": "example",
+     "statement": "Analytification of Spec C[e]/(e^2) has local ring C[e]/(e^2)."
+    },
+    {
+     "name": "Analytification.emptyClosedSubspace",
+     "kind": "example",
+     "statement": "The unit ideal gives the empty analytic closed subspace; the zero ideal preserves the original scheme analytification."
+    }
+   ],
+   "planet": {
+    "name": "Complex analytification"
+   }
+  },
+  {
+   "id": "ComplexComparisonPartII:C0/repair-local-faithful-flatness",
+   "parentStageId": "ComplexComparisonPartII:C0",
+   "realises": [
+    "ComplexComparisonPartII:C0"
+   ],
+   "title": "Faithfully flat analytification at closed points",
+   "kind": "theorem",
+   "statement": "For X locally of finite type over C and x in X^an, O_(X,phi_X(x)) → O_(X^an,x) is a local faithfully flat homomorphism and induces an isomorphism on maximal-ideal completions.",
+   "hypotheses": [],
+   "proofSteps": [
+    "Use the polynomial-to-convergent local comparison for affine space.",
+    "Pass to closed quotient ideals, then affine opens, as in 1.1.",
+    "Apply the Noetherian completion criterion to obtain flatness; the local map is faithfully flat. The convergent-ring and completion criteria are recorded gaps."
+   ],
+   "acceptance": [
+    "For the dual-number point the local comparison retains the nonzero nilpotent."
+   ],
+   "prerequisites": [
+    "ComplexComparisonPartII:C0/repair-analytification"
+   ],
+   "sources": [
+    {
+     "sourceId": "SGA1-XII",
+     "locator": "1.1, PDF pp. 255–257",
+     "match": "Local comparison is stated for general locally finite-type schemes, including nonreduced quotients."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "ComplexComparisonPartII:C0/repair-coherent-pullback",
+   "parentStageId": "ComplexComparisonPartII:C0",
+   "realises": [
+    "ComplexComparisonPartII:C0"
+   ],
+   "title": "Coherent analytification functor",
+   "kind": "construction",
+   "statement": "For X locally of finite type over C, send a coherent O_X-module F to phi_X^*F = O_(X^an) tensor_(phi_X^(-1)O_X) phi_X^(-1)F, and send a module map to its induced pullback map. The result is coherent.",
+   "hypotheses": [
+    "Coherence of the analytic structure sheaf and the coherent-module categories are C0 construction obligations, not supplied by smooth-manifold functions."
+   ],
+   "proofSteps": [
+    "Use the sheaf-module inverse-image and tensor interfaces on the locally ringed morphism.",
+    "Pull back a local finite presentation and use coherence of O_(X^an).",
+    "Obtain identity and composition laws from module pullback; local-ring flatness proves exactness in the separate node."
+   ],
+   "acceptance": [
+    "For a locally free sheaf of rank r the analytification is locally free of rank r."
+   ],
+   "prerequisites": [
+    "ComplexComparisonPartII:C0/repair-analytification"
+   ],
+   "sources": [
+    {
+     "sourceId": "SGA1-XII",
+     "locator": "1.3, PDF p. 257",
+     "match": "The source defines analytification of modules by inverse image and explains preservation of coherence."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "CoherentAnalytification.obj",
+     "role": "data",
+     "statement": "Object map is phi_X^*F with its O_(X^an)-module structure."
+    },
+    {
+     "name": "CoherentAnalytification.map",
+     "role": "functoriality",
+     "statement": "Maps pull back through the same module functor; identity and composition are preserved."
+    },
+    {
+     "name": "CoherentAnalytification.tensorIso",
+     "role": "compatibility",
+     "statement": "(F tensor G)^an ≅ F^an tensor G^an."
+    },
+    {
+     "name": "CoherentAnalytification.idealQuotientIso",
+     "role": "compatibility",
+     "statement": "(O_X/I)^an ≅ O_(X^an)/I O_(X^an) for coherent I."
+    }
+   ],
+   "uses": [
+    {
+     "where": "SGA 1 XII 4.2–4.5",
+     "how": "Compares higher images and algebraizes coherent ideals of graphs."
+    },
+    {
+     "where": "C6 infinitesimal point test",
+     "how": "Preserves the length-two structure sheaf, rather than reducing its carrier."
+    }
+   ],
+   "tests": [
+    {
+     "name": "CoherentAnalytification.structureSheaf",
+     "kind": "example",
+     "statement": "O_X analytifies to O_(X^an)."
+    },
+    {
+     "name": "CoherentAnalytification.freeModule",
+     "kind": "example",
+     "statement": "O_X^r analytifies to O_(X^an)^r, including r=0."
+    },
+    {
+     "name": "CoherentAnalytification.dualNumberQuotient",
+     "kind": "example",
+     "statement": "The quotient by e^2 in the affine-line model yields the length-two analytic local module."
+    }
+   ]
+  },
+  {
+   "id": "ComplexComparisonPartII:C0/repair-exact-faithful-pullback",
+   "parentStageId": "ComplexComparisonPartII:C0",
+   "realises": [
+    "ComplexComparisonPartII:C0"
+   ],
+   "title": "Exact and conservative coherent analytification",
+   "kind": "theorem",
+   "statement": "For X locally of finite type over C, coherent analytification is exact and faithful and reflects isomorphisms.",
+   "hypotheses": [],
+   "proofSteps": [
+    "Exactness follows stalkwise from flatness.",
+    "If F^an=0, faithful flatness gives zero stalks at closed points; a coherent support on a Jacobson scheme with no closed point is empty.",
+    "Apply exactness to kernels, cokernels and images to deduce faithfulness and reflection of isomorphisms. The Jacobson/coherent-support criterion is a recorded input."
+   ],
+   "acceptance": [
+    "Reflection of isomorphisms applies to coherent module maps, not arbitrary topological maps."
+   ],
+   "prerequisites": [
+    "ComplexComparisonPartII:C0/repair-coherent-pullback",
+    "ComplexComparisonPartII:C0/repair-local-faithful-flatness"
+   ],
+   "sources": [
+    {
+     "sourceId": "SGA1-XII",
+     "locator": "Proposition 1.3.1, PDF p. 257",
+     "match": "The proof uses the local maps and the Jacobson closed-point criterion."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "ComplexComparisonPartII:C3/repair-higher-image-comparison-map",
+   "parentStageId": "ComplexComparisonPartII:C3",
+   "realises": [
+    "ComplexComparisonPartII:C3"
+   ],
+   "title": "Relative coherent comparison map",
+   "kind": "construction",
+   "statement": "For f : X → Y between C-schemes locally of finite type, coherent F and q ≥ 0, construct theta^q_(f,F) : (R^q f_*F)^an → R^q f^an_*F^an whenever the coherent higher-image source is defined. It is the map induced by F → phi_X,*F^an and the derived comparison of the commuting ringed-space square.",
+   "hypotheses": [
+    "Higher direct images, their comparison transformation and coherent source are supplied in the stated proper/projective scope."
+   ],
+   "proofSteps": [
+    "Use the adjunction unit F → phi_X,*F^an and the commuting analytification square.",
+    "Construct the comparison of higher images and its edge transformation, then pull back to Y^an.",
+    "Prove naturality by naturality of the unit and derived comparison, rather than identifying groups merely by dimension. The required derived-comparison construction is a gap."
+   ],
+   "acceptance": [
+    "In degree zero this is the canonical analytification-to-pushforward comparison."
+   ],
+   "prerequisites": [
+    "ComplexComparisonPartII:C0/repair-coherent-pullback",
+    "mathlib:CategoryTheory.Sheaf.H"
+   ],
+   "sources": [
+    {
+     "sourceId": "SGA1-XII",
+     "locator": "§4 before Theorem 4.2, PDF pp. 263–264",
+     "match": "The source defines the comparison before proving it is an isomorphism."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "CoherentComparison.map",
+     "role": "data",
+     "statement": "Degree-q component is theta^q_(f,F) with the stated coherent source and analytic target."
+    },
+    {
+     "name": "CoherentComparison.naturality",
+     "role": "functoriality",
+     "statement": "For a coherent map F → G, the square with theta and the two induced higher-image maps commutes."
+    },
+    {
+     "name": "CoherentComparison.degreeZero",
+     "role": "characterisation",
+     "statement": "Degree zero is the adjunction comparison (f_*F)^an → f^an_*F^an."
+    },
+    {
+     "name": "CoherentComparison.composition",
+     "role": "compatibility",
+     "statement": "For composable proper maps the comparison agrees with their Leray comparison diagram; no unrestricted base-change is asserted."
+    }
+   ],
+   "uses": [
+    {
+     "where": "SGA 1 XII Theorem 4.2",
+     "how": "The theorem proves this particular transformation is an isomorphism."
+    },
+    {
+     "where": "C5 relative Gauss–Manin",
+     "how": "Its components feed comparison of the relative de Rham hypercohomology spectral sequences."
+    }
+   ],
+   "tests": [
+    {
+     "name": "CoherentComparison.identity",
+     "kind": "example",
+     "statement": "For f=id, theta^0 is the identity under canonical identifications."
+    },
+    {
+     "name": "CoherentComparison.dualNumberPoint",
+     "kind": "example",
+     "statement": "For the proper dual-number point over Spec C and F=O, theta^0 identifies both length-two C-algebras."
+    },
+    {
+     "name": "CoherentComparison.projectiveTwist",
+     "kind": "example",
+     "statement": "For P^r_C → Spec C and F=O(n), theta is the named map between the algebraic and analytic twist cohomology groups."
+    }
+   ]
+  },
+  {
+   "id": "ComplexComparisonPartII:C3/repair-relative-proper-gaga",
+   "parentStageId": "ComplexComparisonPartII:C3",
+   "realises": [
+    "ComplexComparisonPartII:C3"
+   ],
+   "title": "Relative proper coherent GAGA",
+   "kind": "theorem",
+   "statement": "For proper f : X → Y of C-schemes locally of finite type and coherent F on X, theta^q_(f,F) is an isomorphism for every q ≥ 0. X and Y need not be reduced and f need not be projective.",
+   "hypotheses": [],
+   "proofSteps": [
+    "Use C2 to establish the relative projective comparison by projective twists over local analytic base charts.",
+    "Use R09.2–R09.3 for a projective Chow cover g : X′ → X and the coherent devissage criterion.",
+    "Choose a sufficiently high relative twist on X′, so higher R^p g_* vanish and g_*O_(X′)(n) has the required nonzero generic stalks.",
+    "Compare the algebraic and analytic Leray diagrams for f∘g and deduce the proper case by devissage. Serre vanishing, Chow cover, devissage and Leray are requested inputs, not established by this packet."
+   ],
+   "acceptance": [
+    "For Y=Spec C this specializes to the absolute coherent cohomology comparison of Corollary 4.3."
+   ],
+   "prerequisites": [
+    "ComplexComparisonPartII:C3/repair-higher-image-comparison-map",
+    "ComplexComparisonPartII:C2",
+    "AlgebraicModuliForArithmeticGeometry:R09.1",
+    "AlgebraicModuliForArithmeticGeometry:R09.2",
+    "AlgebraicModuliForArithmeticGeometry:R09.3"
+   ],
+   "sources": [
+    {
+     "sourceId": "SGA1-XII",
+     "locator": "Theorem 4.2, PDF pp. 264–265 (modern pp. 248–249)",
+     "match": "The proof explicitly treats the projective case first and then the proper case via Chow and devissage."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "ComplexComparisonPartII:C3/repair-proper-coherent-full-faithfulness",
+   "parentStageId": "ComplexComparisonPartII:C3",
+   "realises": [
+    "ComplexComparisonPartII:C3"
+   ],
+   "title": "Full faithfulness for proper coherent modules",
+   "kind": "lemma",
+   "statement": "For a proper C-scheme X and coherent O_X-modules F,G, the natural map Hom_(O_X)(F,G) → Hom_(O_(X^an))(F^an,G^an) is a bijection.",
+   "hypotheses": [],
+   "proofSteps": [
+    "Use coherence and analytification compatibility of the finite-presentation sheaf Hom.",
+    "Apply the degree-zero proper cohomology comparison to sheaf Hom. Its coherence and Hom comparison remain C0 inputs."
+   ],
+   "acceptance": [
+    "For F=G=O_X this identifies algebraic and analytic global functions for proper X."
+   ],
+   "prerequisites": [
+    "ComplexComparisonPartII:C3/repair-relative-proper-gaga",
+    "ComplexComparisonPartII:C0/repair-coherent-pullback"
+   ],
+   "sources": [
+    {
+     "sourceId": "SGA1-XII",
+     "locator": "Theorem 4.4, full faithfulness, PDF p. 265",
+     "match": "The proof reduces morphisms to global sections of coherent sheaf Hom."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "ComplexComparisonPartII:C3/repair-proper-coherent-essential-surjectivity",
+   "parentStageId": "ComplexComparisonPartII:C3",
+   "realises": [
+    "ComplexComparisonPartII:C3"
+   ],
+   "title": "Algebraization of proper coherent modules",
+   "kind": "theorem",
+   "statement": "For a proper C-scheme X and coherent analytic O_(X^an)-module G, there is a coherent algebraic O_X-module F and an isomorphism F^an ≅ G.",
+   "hypotheses": [],
+   "proofSteps": [
+    "Use the projective essential-surjectivity theorem from C2 on a projective Chow cover.",
+    "Use Noetherian induction on the proper closed locus where the cover is not an isomorphism.",
+    "Algebraize the coherent kernels and cokernels supported on that locus.",
+    "Use the local Ext comparison, the local-to-global Ext spectral sequence and proper cohomology comparison to algebraize the extension, then its coherent cokernel. These Ext/devissage inputs remain gaps."
+   ],
+   "acceptance": [
+    "Nonreduced proper X is included; no algebraic-space version is inferred from this scheme theorem."
+   ],
+   "prerequisites": [
+    "ComplexComparisonPartII:C3/repair-relative-proper-gaga",
+    "ComplexComparisonPartII:C3/repair-proper-coherent-full-faithfulness",
+    "ComplexComparisonPartII:C2",
+    "AlgebraicModuliForArithmeticGeometry:R09.2",
+    "AlgebraicModuliForArithmeticGeometry:R09.3"
+   ],
+   "sources": [
+    {
+     "sourceId": "SGA1-XII",
+     "locator": "Theorem 4.4, statement and essential surjectivity, PDF pp. 265–266",
+     "match": "The proper extension uses Chow, induction and Ext; it does not assert projectivity of X."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "ComplexComparisonPartII:C4/repair-proper-morphism-algebraicity",
+   "parentStageId": "ComplexComparisonPartII:C4",
+   "realises": [
+    "ComplexComparisonPartII:C4"
+   ],
+   "title": "Algebraicity of maps between proper schemes",
+   "kind": "theorem",
+   "statement": "For proper C-schemes X and Y, Hom_C(X,Y) → Hom_an(X^an,Y^an) is a bijection.",
+   "hypotheses": [],
+   "proofSteps": [
+    "For an analytic map, take its closed analytic graph in (X×Y)^an, using that Y^an is separated.",
+    "Algebraize its coherent ideal by proper coherent GAGA on X×Y, preserving the closed subscheme structure.",
+    "Use the analytification criterion for an algebraic projection to be an isomorphism (SGA 1 XII 3.2), and obtain the unique algebraic map. The graph/coherent-ideal and 3.2 criteria still need decomposition."
+   ],
+   "acceptance": [
+    "Both domain and codomain must satisfy the sourced properness hypothesis."
+   ],
+   "prerequisites": [
+    "ComplexComparisonPartII:C0/repair-analytification",
+    "ComplexComparisonPartII:C3/repair-proper-coherent-essential-surjectivity",
+    "ComplexComparisonPartII:C3/repair-proper-coherent-full-faithfulness"
+   ],
+   "sources": [
+    {
+     "sourceId": "SGA1-XII",
+     "locator": "Corollary 4.5, PDF pp. 266–267",
+     "match": "The source corollary concerns the category of proper C-schemes. A separated nonproper target and relative/spaces versions require more proof."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "ComplexComparisonPartII:C4/repair-affine-curve-completion-interface",
+   "parentStageId": "ComplexComparisonPartII:C4",
+   "realises": [
+    "ComplexComparisonPartII:C4"
+   ],
+   "title": "Affine curve in its projective model",
+   "kind": "theorem",
+   "statement": "For a smooth connected affine curve U of finite type over C, the regular projective model of C(U) from AlgebraicCurves Layer 12 contains U as an open subscheme with finite complement; the model is smooth over C.",
+   "hypotheses": [],
+   "proofSteps": [
+    "Import the unique regular projective function-field model from Layer 12B–12C.",
+    "Use Layer 6 holomorphy rings and regular curve local rings to construct the open immersion inducing identity on the function field.",
+    "Show the proper closed complement has dimension zero and is finite; smoothness follows from regularity over the perfect field C. The immersion and finiteness arguments remain to be supplied through the request."
+   ],
+   "acceptance": [
+    "For U=A^1_C the imported model is P^1_C and the complement is the infinity point."
+   ],
+   "prerequisites": [],
+   "sources": [
+    {
+     "sourceId": "CURVE-CONTRACT",
+     "locator": "AlgebraicCurves README, Layer 12B–12C and Layer 6",
+     "match": "Existing upstream owns the model and function-field dictionary. This interface imports them, instead of constructing a projective closure in C4."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "ComplexComparisonPartII:C5/repair-sheaf-singular-comparison",
+   "parentStageId": "ComplexComparisonPartII:C5",
+   "realises": [
+    "ComplexComparisonPartII:C5"
+   ],
+   "title": "Sheaf and singular cohomology comparison",
+   "kind": "theorem",
+   "statement": "For a semi-locally contractible topological space T, an abelian group A and q ≥ 0, sheaf cohomology H^q(T,constant A) and singular cohomology H^q_sing(T;A) are naturally additively isomorphic. Semi-local contractibility means every open U admits an open cover whose inclusions into U are nullhomotopic. There is no paracompactness hypothesis in this theorem.",
+   "hypotheses": [],
+   "proofSteps": [
+    "Import singular cochains, homotopies and cohomology from AlgebraicTopology Stage 6.",
+    "Use Sella’s complex formed from nesting-controlled small cochains, and the proof that it is a sheaf (Step 1).",
+    "Prove the small-chain quasi-isomorphisms and use Lemma 0.1 to obtain a flasque resolution of the constant sheaf.",
+    "Apply the pinned flasque acyclicity result and the comparison from an acyclic resolution to Ext-defined sheaf cohomology.",
+    "Record the nesting/small-chain and resolution-to-Ext proofs as unresolved leaves; do not replace them by naive sheafification on an arbitrary locally contractible space."
+   ],
+   "acceptance": [
+    "Specialize to A=Z, Q, C; comparison must commute with the coefficient maps Z→Q→C."
+   ],
+   "prerequisites": [
+    "mathlib:CategoryTheory.Sheaf.H",
+    "tauceti:TauCeti.Topology.subsingleton_H_succ_of_isFlasque"
+   ],
+   "sources": [
+    {
+     "sourceId": "SELLA",
+     "locator": "Unnumbered theorem p. 2; Lemma 0.1; Step 1 pp. 6–8",
+     "match": "The source proves additive comparison for any abelian coefficient group. Product compatibility is a separate gap."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "ComplexComparisonPartII:C5/repair-proper-de-rham-betti",
+   "parentStageId": "ComplexComparisonPartII:C5",
+   "realises": [
+    "ComplexComparisonPartII:C5"
+   ],
+   "title": "Proper algebraic de Rham comparison",
+   "kind": "theorem",
+   "statement": "For smooth proper X over C and q ≥ 0, the natural comparison from algebraic de Rham hypercohomology H^q(X,Omega^bullet_(X/C)) to H^q_sing(X^an;C) is an isomorphism.",
+   "hypotheses": [],
+   "proofSteps": [
+    "Construct the algebraic and holomorphic differential complexes and their analytification comparison; full complexes and hypercohomology are recorded gaps beyond the pinned degree-one Poincare result.",
+    "Use C3 degreewise coherent cohomology comparison in the bounded de Rham spectral sequences.",
+    "Use the holomorphic Poincare lemma to identify analytic hypercohomology with cohomology of the constant complex sheaf.",
+    "Use the additive sheaf–singular comparison to obtain the claimed Betti isomorphism. Cup products, trace and the relative connection are additional unresolved compatibilities."
+   ],
+   "acceptance": [
+    "G_m is not proper and is excluded from this proof; its logarithmic comparison remains a separate C5 target."
+   ],
+   "prerequisites": [
+    "ComplexComparisonPartII:C3/repair-relative-proper-gaga",
+    "ComplexComparisonPartII:C5/repair-sheaf-singular-comparison"
+   ],
+   "sources": [
+    {
+     "sourceId": "GROTH1966",
+     "locator": "Theorem 1′ and the proper argument, p. 96, PDF p. 3",
+     "match": "The proper case uses GAGA and analytic Poincare; the nonproper theorem requires additional arguments outside this node."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  }
+ ],
+ "requests": [
+  {
+   "supplier": "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity",
+   "need": "Relative Proj and O(1); coherence of proper higher direct images in the contract’s precise scope, the projection formula and Leray maps. Proper flat cohomology-and-base-change is imported from JacobianChallenge Layer C, and must not be duplicated here. Export the generality actually required for locally finite-type complex proper maps, or record the extension explicitly.",
+   "neededBy": [
+    "ComplexComparisonPartII:C3/repair-higher-image-comparison-map",
+    "ComplexComparisonPartII:C3/repair-relative-proper-gaga"
+   ]
+  },
+  {
+   "supplier": "AlgebraicModuliForArithmeticGeometry:R09.1",
+   "need": "Algebraic projective-space twists O(n), their cohomology in all degrees, Serre vanishing and generation for coherent sheaves on projective schemes over locally Noetherian bases. Import the existing relative Proj carrier; these are the algebraic inputs to analytic GAGA.",
+   "neededBy": [
+    "ComplexComparisonPartII:C3/repair-relative-proper-gaga"
+   ]
+  },
+  {
+   "supplier": "AlgebraicModuliForArithmeticGeometry:R09.2",
+   "need": "The projective Chow cover and the coherent devissage criterion used in SGA 1 XII Theorem 4.2 for a proper scheme over a locally finite-type complex base.",
+   "neededBy": [
+    "ComplexComparisonPartII:C3/repair-relative-proper-gaga",
+    "ComplexComparisonPartII:C3/repair-proper-coherent-essential-surjectivity"
+   ]
+  },
+  {
+   "supplier": "AlgebraicModuliForArithmeticGeometry:R09.3",
+   "need": "The stated Chow/descent interface, and effective descent of coherent sheaves through etale presentations for proper algebraic spaces; the source scheme theorem does not establish this extension.",
+   "neededBy": [
+    "ComplexComparisonPartII:C3/repair-relative-proper-gaga",
+    "ComplexComparisonPartII:C3/repair-proper-coherent-essential-surjectivity"
+   ]
+  },
+  {
+   "supplier": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-12-the-dictionary--function-fields--curves-and-the-comparison-contracts",
+   "need": "Import the unique regular projective model of the function field of a smooth integral affine complex curve. Together with Layer 6 holomorphy rings provide its open immersion with finite complement, and transport to the smooth model over the perfect field C; do not normalize a second closure in C4.",
+   "neededBy": [
+    "ComplexComparisonPartII:C4/repair-affine-curve-completion-interface"
+   ]
+  },
+  {
+   "supplier": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-6-extensions-of-function-fields",
+   "need": "The holomorphy-ring and valuation/local-ring dictionary identifying the given affine curve with an open of its Layer 12 regular projective function-field model.",
+   "neededBy": [
+    "ComplexComparisonPartII:C4/repair-affine-curve-completion-interface"
+   ]
+  },
+  {
+   "supplier": "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-6-cohomology-products-and-manifold-duality",
+   "need": "Singular cochain complexes for abelian coefficients, induced coefficient and pullback maps, small-chain/homotopy interfaces and cohomology. C5 owns the sheaf-resolution bridge; Stage 6 supplies cohomology products to a separately proved product-compatible bridge.",
+   "neededBy": [
+    "ComplexComparisonPartII:C5/repair-sheaf-singular-comparison"
+   ]
+  }
+ ],
+ "coverage": [
+  {
+   "stageId": "ComplexComparisonPartII:C0",
+   "status": "partial",
+   "remaining": [
+    "Analytic-space and PR279 integration, convergent local algebra, coherent-module construction and exact proof leaves."
+   ]
+  },
+  {
+   "stageId": "ComplexComparisonPartII:C1",
+   "status": "partial",
+   "remaining": [
+    "Analytic Stein/Cech/twist proofs and separate algebraic O(n)/Serre supplier nodes; no C1 declaration is supplied here."
+   ]
+  },
+  {
+   "stageId": "ComplexComparisonPartII:C2",
+   "status": "partial",
+   "remaining": [
+    "Projective equivalence and relative projective comparison need complete source decomposition; this repair uses them only as explicit prerequisites."
+   ]
+  },
+  {
+   "stageId": "ComplexComparisonPartII:C3",
+   "status": "partial",
+   "remaining": [
+    "Chow/devissage/Ext/derived maps and proper algebraic-space descent remain open."
+   ]
+  },
+  {
+   "stageId": "ComplexComparisonPartII:C4",
+   "status": "partial",
+   "remaining": [
+    "Completion interface, punctured-surface proof, graph reflection and broader target/family versions remain open."
+   ]
+  },
+  {
+   "stageId": "ComplexComparisonPartII:C5",
+   "status": "partial",
+   "remaining": [
+    "Nesting resolution, products, all-degree Poincare, hypercohomology, logarithmic/nonproper and relative Gauss–Manin proofs remain open."
+   ]
+  },
+  {
+   "stageId": "ComplexComparisonPartII:C6",
+   "status": "partial",
+   "remaining": [
+    "Execute the arithmetic comparisons against constructed interfaces; no implementation or new arithmetic acceptance proof is supplied."
+   ]
+  }
+ ],
+ "gaps": [
+  {
+   "title": "Upstream stage prerequisite checker defect",
+   "neededBy": [
+    "ComplexComparisonPartII:C3/repair-higher-image-comparison-map",
+    "ComplexComparisonPartII:C3/repair-relative-proper-gaga",
+    "ComplexComparisonPartII:C4/repair-affine-curve-completion-interface",
+    "ComplexComparisonPartII:C5/repair-sheaf-singular-comparison"
+   ],
+   "detail": "check_blueprint.py tests the baseline-name pattern before known-stage membership and misclassifies valid tauceti:TauCetiRoadmap/... ids. To retain a checker-valid partial checkpoint, these supplier ids appear in requests rather than prerequisites. This does not meet the final cross-roadmap closure rule: restore the exact omitted pairs recorded in the handoff once the checker is repaired. No upstream stage is represented as a baseline declaration."
+  },
+  {
+   "title": "Tracked analytic-space supplier",
+   "neededBy": [
+    "ComplexComparisonPartII:C0/repair-analytification",
+    "ComplexComparisonPartII:C0/repair-coherent-pullback"
+   ],
+   "detail": "PR196 is an external proposal, not a stage or baseline implementation. Integrate its analytic local models, nonreduced quotients, gluing, fibre products and finite-type scheme analytification once, with supplier edges to C0, ShimuraVarieties V2, ShimuraCompactifications C2, PELModuli M3 and ModularCurvesPartII R12.3. Do not invent an accepted stage id."
+  },
+  {
+   "title": "Tracked holomorphic bundle supplier",
+   "neededBy": [
+    "ComplexComparisonPartII:C0/repair-coherent-pullback"
+   ],
+   "detail": "PR279 Milestones 5–7 require tracked supplier stages for analytic open gluing, topology/proper maps and holomorphic vector bundles. C0 consumes Milestone 7; AnalyticToricGeometry Layer 3 and ShimuraVarieties V1 consume gluing. No second atlas/gluing carrier is planned in this packet."
+  },
+  {
+   "title": "Analytic local algebra and coherent-module API",
+   "neededBy": [
+    "ComplexComparisonPartII:C0/repair-analytification",
+    "ComplexComparisonPartII:C0/repair-local-faithful-flatness",
+    "ComplexComparisonPartII:C0/repair-coherent-pullback"
+   ],
+   "detail": "Convergent rather than formal Weierstrass division, Noetherian coherent local rings, completion flatness criteria, sheaf-module pullback/tensor, coherent kernels/cokernels and finite-presentation Hom compatibility still require source decomposition. Smooth or one-variable holomorphic function sheaves do not supply nonreduced analytic spaces."
+  },
+  {
+   "title": "Jacobson support criterion",
+   "neededBy": [
+    "ComplexComparisonPartII:C0/repair-exact-faithful-pullback"
+   ],
+   "detail": "Verify the exact pinned closed-point/coherent-support lemmas or decompose the Jacobson argument used by SGA 1 XII Proposition 1.3.1."
+  },
+  {
+   "title": "Relative projective GAGA and derived maps",
+   "neededBy": [
+    "ComplexComparisonPartII:C3/repair-higher-image-comparison-map",
+    "ComplexComparisonPartII:C3/repair-relative-proper-gaga"
+   ],
+   "detail": "C1–C2 analytic O(n), Stein vanishing and generation, projective GAGA and the relative projective comparison still need proof-sized nodes, together with derived adjunction/edge maps and Leray diagrams."
+  },
+  {
+   "title": "Proper coherent devissage and Ext",
+   "neededBy": [
+    "ComplexComparisonPartII:C3/repair-proper-coherent-essential-surjectivity"
+   ],
+   "detail": "Decompose SGA 1 XII Theorem 4.4’s Noetherian induction, support restriction, coherent kernel/cokernel algebraization, local Ext comparison and local-to-global Ext spectral sequence."
+  },
+  {
+   "title": "Graph reflection and broader targets",
+   "neededBy": [
+    "ComplexComparisonPartII:C4/repair-proper-morphism-algebraicity"
+   ],
+   "detail": "Decompose SGA 1 XII 3.2 and coherent graph algebraization. Corollary 4.5 supplies proper schemes as both source and target; a separated nonproper target, a relative family and proper algebraic spaces need separate proofs, not a widened citation."
+  },
+  {
+   "title": "Connected punctured Riemann surface",
+   "neededBy": [
+    "ComplexComparisonPartII:C4/repair-affine-curve-completion-interface"
+   ],
+   "detail": "After the algebraic completion import, prove analytic connectedness of the proper model via GAGA and idempotents; then prove that removing finitely many points from a connected Riemann surface preserves connectedness. Existing Euclidean chart connectedness alone is insufficient."
+  },
+  {
+   "title": "Nesting resolution and Ext comparison",
+   "neededBy": [
+    "ComplexComparisonPartII:C5/repair-sheaf-singular-comparison"
+   ],
+   "detail": "Sella pp. 2–8 were read for the theorem, Lemma 0.1, the naive-sheafification counterexample and Step 1. The small-chain proof in Steps 2–3 has not been fully decomposed. Add proof-sized nodes for nestings, face-controlled chains, chain homotopy equivalence, the flasque resolution and its comparison to the existing Ext-defined Sheaf.H."
+  },
+  {
+   "title": "Product-compatible Betti bridge",
+   "neededBy": [
+    "ComplexComparisonPartII:C5/repair-sheaf-singular-comparison",
+    "ComplexComparisonPartII:C5/repair-proper-de-rham-betti"
+   ],
+   "detail": "The additive source theorem is insufficient for cup products. Supply a compatible cochain product and chain comparison with AlgebraicTopology Stage 6 products, as well as Z→Q→C and pullback naturality."
+  },
+  {
+   "title": "Differential complexes and hypercohomology",
+   "neededBy": [
+    "ComplexComparisonPartII:C5/repair-proper-de-rham-betti"
+   ],
+   "detail": "Build the full differential on Kahler exterior powers, holomorphic Poincare in all degrees, hypercohomology and its bounded spectral-sequence comparison. Trace and nonproper logarithmic comparisons are separate C5 obligations."
+  },
+  {
+   "title": "Relative Gauss–Manin comparison",
+   "neededBy": [
+    "ComplexComparisonPartII:C3/repair-relative-proper-gaga",
+    "ComplexComparisonPartII:C5/repair-proper-de-rham-betti"
+   ],
+   "detail": "For proper smooth f with smooth complex source and base, source and decompose Ehresmann local triviality, the relative holomorphic Poincare lemma resolving f^(-1)O_S, relative hypercohomology and base-change criteria, and the Gauss–Manin connection. A singular base needs a further argument. Integral Betti stalks are finitely generated and complex stalks finite dimensional; arbitrary A must not be assigned those finiteness properties."
+  },
+  {
+   "title": "Geometric Hodge theory owner",
+   "neededBy": [
+    "ComplexComparisonPartII:C5/repair-proper-de-rham-betti"
+   ],
+   "detail": "Finding 4 requires a single tracked owner for geometric Hodge decomposition/degeneration and the relative variation theorem after C5. Reconcile the Qian extraction and proposed DegeneratingHodgeStructures route. Abstract HodgeStructures supplies carriers, not geometric Hodge theorems. No unverified new theorem or accepted owner is asserted here."
+  }
+ ],
+ "review": {
+  "status": "pending",
+  "note": "New partial fix packet; requires independent source, scope and interface review."
+ },
+ "audit": {
+  "reviewedCoverage": "data/library-coverage.json, ComplexComparisonPartII C0–C6, read 2026-09-29",
+  "limitations": "The pinned smooth-manifold locally ringed space and the one-variable holomorphic sheaf are narrower than complex analytic spaces. No baseline build was available for elaboration."
+ }
+}
