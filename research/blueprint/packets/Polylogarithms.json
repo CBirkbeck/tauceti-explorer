@@ -1754,16 +1754,16 @@
    ],
    "title": "The cross-ratio cocycle and the volume of an ideal tetrahedron",
    "kind": "theorem",
-   "statement": "For distinct points z_1, ..., z_4 of the complex projective line, the boundary of hyperbolic 3-space, the ideal tetrahedron I(z_1, ..., z_4) has oriented volume vol I(z_1, ..., z_4) = D(r(z_1, ..., z_4)), with Goncharov's cross-ratio r(infinity, 0, 1, x) = x, oriented so that (infinity, 0, 1, z) with Im z > 0 has positive volume D(z). Equivalently it is -D(cr(z_1, ..., z_4)) with K3BlochGroups V.4's cr(0, infinity, 1, x) = x, and -D([z_1, ..., z_4]) with GR's cross-ratio (3). The five-term relation is additivity of volume: the two triangulations, into 2 and into 3 ideal tetrahedra, of the convex hull of five ideal points give sum_i (-1)^i I(z_1, ..., z_i-hat, ..., z_5) = 0 as chains. Hyperbolic 3-space and its volume are imported from the Tau Ceti roadmap GeometricTopology, layer 7, and the manifold-level comparison is ArithmeticQuantumTopology QT.5's. P.2 is the sole owner of this ideal-tetrahedron identity, including the Milnor/Lobachevsky formula needed in its proof; QT.5 imports the result for its manifold-level volume sum.",
+   "statement": "For distinct points z_1, ..., z_4 of the complex projective line, the boundary of hyperbolic 3-space, the ideal tetrahedron I(z_1, ..., z_4) has oriented volume vol I(z_1, ..., z_4) = D(r(z_1, ..., z_4)), with Goncharov's cross-ratio r(infinity, 0, 1, x) = x, oriented so that (infinity, 0, 1, z) with Im z > 0 has positive volume D(z). Equivalently it is -D(cr(z_1, ..., z_4)) with K3BlochGroups V.4's cr(0, infinity, 1, x) = x, and -D([z_1, ..., z_4]) with GR's cross-ratio (3). The five-term relation is additivity of volume: the two triangulations, into 2 and into 3 ideal tetrahedra, of the convex hull of five ideal points give sum_i (-1)^i I(z_1, ..., z_i-hat, ..., z_5) = 0 as chains. The Riemannian metric/volume foundations and the model hyperbolic geometry are requested from GeometricTopology layers 7 and 8. The ideal-boundary identification with the complex projective line, oriented ideal tetrahedra and their finite-volume geometry require an early extension of those suppliers, recorded as a gap and a GeometricTopology Part II proposal. The manifold-level comparison is ArithmeticQuantumTopology QT.5's. P.2 is the sole owner of this ideal-tetrahedron identity, including the Milnor/Lobachevsky formula needed in its proof; QT.5 imports the result for its manifold-level volume sum.",
    "hypotheses": [
     "The four points are distinct points of the complex projective line.",
-    "The volume is the Riemannian volume of hyperbolic 3-space of the GeometricTopology roadmap; Milnor's formula for the volume of an ideal tetrahedron through Lobachevsky's function is not in any source read and is recorded as a gap."
+    "The ambient volume is the Riemannian volume for the curvature -1 metric. GeometricTopology layers 7 and 8 supply the metric/measure foundations and model geometry, but do not state the ideal-boundary, ideal-tetrahedron and finite-region-volume interface. That early geometric extension and P.2's Milnor/Lobachevsky comparison proof are separate recorded gaps; closed-manifold Mostow invariance is not used to fill either gap."
    ],
    "proofSteps": [
     "Import the cross-ratio from K3BlochGroups:V.4/cross-ratio and record the conversions r = 1/cr and [a, b, c, d] = 1 - 1/cr(a, b, c, d), so that D o r = -D o cr = -D o [ , , , ] (checked numerically).",
     "By invariance, reduce to (infinity, 0, 1, z) with Im z > 0; by Milnor's formula (gap) its volume is L(alpha) + L(beta) + L(gamma) over the angles of the triangle (0, 1, z), which is D(z) by P.2/lobachevsky-identity.",
     "Identify the five-term relation with the two triangulations, into 2 and into 3 ideal tetrahedra, of the convex hull of five ideal points.",
-    "Import hyperbolic 3-space, its Riemannian volume and ideal-tetrahedron geometry from GeometricTopology layer 7. Prove the tetrahedron volume identity only in P.2, retaining the Milnor/Lobachevsky proof gap here. ArithmeticQuantumTopology QT.5 consumes this identity to compare its manifold Bloch class with the sum of tetrahedron volumes; it is not an input to P.2."
+    "Import the Riemannian metric and volume foundations from GeometricTopology layer 7 and the hyperbolic model geometry from layer 8. Obtain the ideal-boundary/oriented-tetrahedron/finite-region-volume interface from an early GeometricTopology Part II extension (gap), independent of QT.5's manifold Bloch and volume comparisons. Prove the Milnor/Lobachevsky tetrahedron identity only in P.2, retaining its proof gap. ArithmeticQuantumTopology QT.5 consumes the identity; it is not an input to P.2."
    ],
    "acceptance": [
     "The volume is positive for a positively oriented tetrahedron (P.1/bloch-wigner-positivity) and changes sign under an odd permutation of the vertices.",
@@ -5903,8 +5903,9 @@
    "note": "Descent through V.3's convention, the embedding-wise regulator, the Bloch-Wigner cocycle, the Borel comparison up to some q in Q^x, the volume formula with Lobachevsky's identity, and the certified numerics with their error theorem.",
    "remaining": [
     "The exact scalar and sign of the Borel comparison (Goncharov Sections 5.4 and 5.5; BorelRegulators R.7)",
-    "Goncharov Section 7 and Milnor's volume formula (GeometricTopology layer 7)",
-    "The expansion of Li_2 near the unit circle (gap)"
+    "Goncharov Section 7 and the proof of Milnor's volume formula, owned by P.2",
+    "The expansion of Li_2 near the unit circle (gap)",
+    "The ideal-boundary/oriented-tetrahedron/finite-region-volume interface, beyond the stated GeometricTopology layers 7 and 8; early Part II supplier requested."
    ]
   },
   {
@@ -6011,7 +6012,7 @@
    "neededBy": [
     "Polylogarithms:P.2/hyperbolic-volume"
    ],
-   "detail": "The volume of an ideal tetrahedron is L(alpha) + L(beta) + L(gamma). P.2 owns this comparison and its missing proof; none of the sources read for the packet proves it (Goncharov Section 7 remains unread). GeometricTopology layer 7 supplies the ambient hyperbolic geometry and Riemannian volume, not this formula. QT.5 imports the completed P.2 identity when available and does not close this gap."
+   "detail": "The volume of an ideal tetrahedron is L(alpha) + L(beta) + L(gamma). P.2 owns this comparison and its missing proof; none of the sources read for the packet proves it (Goncharov Section 7 remains unread). GeometricTopology layers 7 and 8 supply the ambient metric/measure foundations and model geometry, not this formula; the separate ideal-geometry extension is recorded below. QT.5 imports the completed P.2 identity when available and does not close this gap."
   },
   {
    "title": "A minimum principle for superharmonic functions",
@@ -6104,6 +6105,13 @@
     "Polylogarithms:P.5/regulator-induces-beilinson",
     "Polylogarithms:P.5/unramified-weight-two-class"
    ]
+  },
+  {
+   "title": "Ideal-boundary and oriented ideal-tetrahedron geometry beyond GeometricTopology layers 7 and 8",
+   "neededBy": [
+    "Polylogarithms:P.2/hyperbolic-volume"
+   ],
+   "detail": "The stated upstream contracts provide Riemannian volume, curvature -1 metric structures and the homogeneous hyperbolic model, but do not construct its ideal boundary as the complex projective line, oriented geodesic ideal tetrahedra from distinct boundary points, finite Riemannian volume of those regions, or the geometric isometry/permutation/subdivision rules used by the volume identity. These inputs need an early geometric prefix of GeometricTopology, Part II: cusped hyperbolic 3-manifolds and ideal triangulations (RT-AREA-topology/8). The prefix must precede P.2 and QT.5's manifold-volume comparison, so importing all of QT.5 would be circular. P.2 still owns Milnor/Lobachevsky's comparison with D; this gap is not an upstream mathematical finding or a claim that the extension already exists."
   }
  ],
  "requests": [
@@ -6265,7 +6273,7 @@
   },
   {
    "supplier": "tauceti:TauCetiRoadmap/GeometricTopology#layer-7-riemannian-geometric-structures-and-volume",
-   "need": "Hyperbolic 3-space with its curvature -1 Riemannian metric and volume, its ideal boundary and oriented ideal tetrahedra. P.2 owns the comparison of tetrahedron volume with the Lobachevsky function and Bloch-Wigner dilogarithm; that comparison is not requested from GeometricTopology.",
+   "need": "The curvature -1 Riemannian metric and volume-measure foundations stated in layer 7, for use with the hyperbolic model of layer 8. The ideal-boundary/oriented-ideal-tetrahedron interface is an additional early Part II extension recorded as a gap, not an existing layer-7 result. P.2 owns the Milnor/Lobachevsky comparison of tetrahedron volume with the Bloch-Wigner dilogarithm; that comparison is not requested from GeometricTopology.",
    "neededBy": [
     "Polylogarithms:P.2/hyperbolic-volume"
    ]
@@ -6276,6 +6284,13 @@
    "neededBy": [
     "Polylogarithms:P.6/leopoldt-statement",
     "Polylogarithms:P.6/leopoldt-equivalence"
+   ]
+  },
+  {
+   "supplier": "tauceti:TauCetiRoadmap/GeometricTopology#layer-8-thurston-geometries-and-the-jsj--geometric-decomposition",
+   "need": "The model hyperbolic 3-geometry and its isometry action stated in layer 8, built on layer 7's metric/volume foundations. This does not supply the ideal boundary, oriented ideal tetrahedra or their finite-region-volume interface; the separate Part II proposal/gap states that extension. The tetrahedron-volume identity stays in P.2.",
+   "neededBy": [
+    "Polylogarithms:P.2/hyperbolic-volume"
    ]
   }
  ],
@@ -6356,6 +6371,18 @@
    "kind": "note-duplicate-boundary",
    "title": "RT-AREA-ktheory-2/23–27: retained mathematics and common foundations",
    "detail": "P.2 retains oriented ideal-tetrahedron volume and Bloch–Wigner comparison, importing the Tau Ceti geometric carrier; QT.5 applies this theorem. P.5 retains Goncharov’s distinct current-complex model and its comparison to the requested early Deligne interface. P.6 imports the early I.2 completed-unit proposition while retaining regulator equivalence, the abelian theorem and tests; no weak/strong Leopoldt theorem is deleted. The V.3 analytic reserved-ID correction is maintainer work; actual P.1/P.2 analytic owners already exist."
+  },
+  {
+   "kind": "propose-early-geometric-extension",
+   "action": "rescope",
+   "roadmaps": [
+    "Polylogarithms",
+    "ArithmeticQuantumTopology",
+    "tauceti:TauCetiRoadmap/GeometricTopology"
+   ],
+   "title": "Early ideal-tetrahedron geometry in GeometricTopology, Part II",
+   "detail": "REV-FIX-RT-AREA-topology~2 checks the supplier contract, not upstream mathematics. Layers 7 and 8 state the metric/measure foundations and homogeneous model but not ideal-boundary or ideal-tetrahedron geometry. P.2 needs that geometry before its Milnor/Lobachevsky theorem, which QT.5 consumes; assigning it to the whole QT.5 stage would create a cycle.",
+   "proposal": "Coordinate with the GeometricTopology Part II extension of RT-AREA-topology/8. Put the ideal boundary, oriented geodesic tetrahedra, finite-region-volume and isometry/subdivision interface in an early geometric prefix importing layers 7 and 8, before Polylogarithms P.2 and QT.5 manifold-level comparisons. P.2 owns the formula vol I = D(r); QT.5 owns manifold Bloch/volume comparisons. A maintainer/design job must assign the extension's actual ids; none is invented here."
   }
  ],
  "sourceIssues": [
@@ -6813,386 +6840,394 @@
   }
  ],
  "review": {
-  "status": "accepted",
-  "reviewer": "independent-review-REV-Polylogarithms",
-  "date": "2026-09-24",
-  "notes": "Independent review of all 37 nodes, the baseline, the requests, gaps, coverage and restructure entries, and the suggested Lean file, against GR arXiv v3 (the packet's text) and v5 (the final version, accepted by the Annals, added as GR.2026), Goncharov 2004 (arXiv v3 from the e-print TeX, compared with JAMS 2005 at every source issue), the K-book, Burgos Gil-Feliu-Takeda (IMRN 2011) and Neukirch-Schmidt-Wingberg (electronic edition 2.3). Identities used as tests were checked numerically (mpmath, 30 to 50 digits; quadrature for the Chow dilogarithm). Outcome: 33 nodes corrected, 42 added, 4 deleted and replaced; 7 baseline citations removed or replaced (one near miss: hasSum_taylorSeries_log is the alternating series of log(1 + z), and Li_1 is hasSum_taylorSeries_neg_log), 42 added, all confirmed at the pinned commits; every test now has a kind; 21 source issues recorded (the packet had none). Main corrections: (1) stage cycles removed: P.1 five-term -> K3BlochGroups V.3, P.2 -> BorelRegulators R.7, P.2 -> ArithmeticQuantumTopology QT.5, P.3 -> P.4 (the explicit weight <= 3 complexes now live in P.3 on K3BlochGroups V.3's B_2 and a new trilogarithm group, the inductive groups and the general complex in P.4), P.5 -> EllipticRegulators ER.2/ER.3, and the request to SpecialValuesBirchTate B.8; (2) false statements corrected: L_1 = log|z| (it is -log|1 - z|), L_n(1) = 0 (it is zeta(n) for odd n), inversion at n = 1, the Bernoulli coefficients 'forced' by single-valuedness, the monodromy formula, the discontinuity of D on the negative axis, c of order six in B(C) (c = 0), 'nonzero rational multiple for every family' in Zagier's statement, the weight-four comparison called a theorem, the delta-map sign against V.3, the p-adic regulator at the places above p, the Chow dilogarithm normalisation (2 pi i)^{-1} (imaginary), the Chow trilogarithm offered as the curve regulator; (3) status corrections: the comparison of Goncharov's regulator with Beilinson's is a theorem (Burgos Gil-Feliu-Takeda, Theorem 6.18), Goncharov's strong reciprocity law is Conjecture 6.2 with three proved cases, the weight-four extension of GR Theorem 1.14(c) is proved, GR's condition is *_n not 'o_n'; (4) closure: 42 nodes added for missing lemmas, split nodes and the stage targets that were not realised (the cocycle of P.2, the unramified classes of P.5, the explicit B_3 of P.3), each justified in its note. Coverage: P.1 source_decomposed; P.2 to P.6 partial, with 17 gaps named. The packet is accepted as partial: every node is verified, corrected or added, every baseline citation is confirmed, and the remaining open points are recorded as gaps and requests. Deleted nodes: Polylogarithms:P.5/chow-dilogarithm-reciprocity: Deleted: it stated Goncharov's Conjecture 6.2 as a theorem for every complex curve (proved only for P^1, elliptic curves and curves over Q-bar), described Weil-type local terms that are not Goncharov's law, cited only the abstract (which overstates the paper, source issue E16), and constructed an object without API or tests. Replaced by P.5/chow-dilogarithm, P.5/strong-reciprocity-conjecture and P.5/strong-reciprocity-implies-suslin.; Polylogarithms:P.5/deligne-target-request: Deleted: bookkeeping, not a declaration (PROTOCOL sections 2 and 14), and its proof step contradicted the packet's own claim about the comparison; its content is the M.8 request and the gaps, and its stage target is realised by P.5/unramified-weight-two-class.; Polylogarithms:P.5/chern-character-comparison-problem: Replaced by P.5/regulator-induces-beilinson: the comparison it recorded as open was proved by Burgos Gil, Feliu and Takeda (IMRN 2011, Theorem 6.18); its supplier MotivicEtaleKTheory:M.7 was wrong (M.6 owns the rational Chern character isomorphism).; Polylogarithms:P.5/strong-reciprocity-law: Replaced: a theorem node headlined by Conjecture 6.2, spanning pp. 53-61; its analytic condition (2 pi i)^{-1} integral r_2 = L_2(h) equates an imaginary number with a real one (source issue E12); its target K3BlochGroups:V.3/bloch-group is the kernel of the boundary, which would force Res = 0; conventions were not pinned. Split into P.5/strong-reciprocity-conjecture, P.5/reciprocity-second-triangle, P.5/chow-dilogarithm-steinberg, P.5/chow-dilogarithm-projective-line, P.5/reciprocity-projective-line, P.5/chow-dilogarithm-families and P.5/reciprocity-algebraic-numbers.",
-  "checked": [
-   {
-    "nodeId": "Polylogarithms:P.1/classical-polylogarithm",
-    "verdict": "corrected",
-    "note": "Hypothesis 3 was inconsistent (a path from 0 inside C - {0,1}); the continuation step relied on homotopy invariance, which the pinned Mathlib lacks, and is replaced by the segment integral on the star-shaped domain; hasSum_taylorSeries_log was a near miss for Li_1 and is replaced by hasSum_taylorSeries_neg_log; value on the cut pinned; index extended to n <= 0 for HabiroNahmSeries HB.4; API completed (conj, zeta values, continuity on the closed disc, formal series); the distribution relation and the inversion formula promoted to lemma nodes; tests given kinds, not_single_valued replaced by jump_across_cut, three tests added."
-   },
-   {
-    "nodeId": "Polylogarithms:P.1/classical-distribution",
-    "verdict": "added",
-    "note": "Promoted from the API of classical-polylogarithm (PROTOCOL section 4): consumed by distribution-and-inversion and by HabiroNahmSeries HB.4."
-   },
-   {
-    "nodeId": "Polylogarithms:P.1/classical-inversion",
-    "verdict": "added",
-    "note": "Needed by distribution-and-inversion (inversion of L_n) and absent from the packet; verified numerically."
-   },
-   {
-    "nodeId": "Polylogarithms:P.1/single-valued-polylogarithm",
-    "verdict": "corrected",
-    "note": "The excerpt misquoted the source ('n >= 1'; GR prints 'n > 1'), and the weight-one API, acceptance and test (L_1 = log|z|) were false: the formula at n = 1 gives -log|1 - z|; the projection pi_n was paraphrased wrongly; the API item saying L_n vanishes at 1 was false for odd n (L_3(1) = zeta(3)); the claim that single-valuedness forces the Bernoulli coefficients was false (Ramakrishnan's coefficients); continuity moved to a lemma node so that the dependency on inversion is acyclic; branch-change-and-monodromy made a prerequisite; Polynomial.bernoulli removed (unused); tests given kinds, with three added."
-   },
-   {
-    "nodeId": "Polylogarithms:P.1/bloch-wigner-dilogarithm",
-    "verdict": "corrected",
-    "note": "The only source (GR) does not state the formula: Goncharov's display added; the discontinuity was placed on the negative real axis, but it is on (1, infinity); the differential formula promoted to a lemma node; API completed (one_sub, continuity, limit at infinity, values at 0 and 1, positivity); value_at_i restated (Mathlib has no Catalan constant); tests given kinds, not_global_arg replaced by im_li2_jump; branch-change-and-monodromy and continuousAt_arg added as prerequisites."
-   },
-   {
-    "nodeId": "Polylogarithms:P.1/bloch-wigner-differential",
-    "verdict": "added",
-    "note": "Promoted from bloch-wigner-dilogarithm proof step 6 (PROTOCOL section 4): consumed by the five-term proof and by P.5."
-   },
-   {
-    "nodeId": "Polylogarithms:P.1/bloch-wigner-positivity",
-    "verdict": "added",
-    "note": "Positivity is used by P.2 (hyperbolic volume, the nonzero test); the Laplacian formula was verified numerically; the minimum principle is recorded as a gap."
-   },
-   {
-    "nodeId": "Polylogarithms:P.1/bloch-wigner-five-term",
-    "verdict": "corrected",
-    "note": "The prerequisite K3BlochGroups:V.3 closed the stage cycle P.1 -> V.3 -> P.1 (V.3/bloch-wigner-dilogarithm imports P.1) and is removed with the descent sentence, which is P.2's; the constant-fixing step was impossible for five distinct points and is replaced by a connectedness argument; the cross-ratio identity and the differential formula are lemma nodes; the cross-ratio is written explicitly because K3BlochGroups V.4 owns the cross-ratio with another normalisation; the K-book two-variable form K3BlochGroups requests is added; exact instances replace the numerical acceptance."
-   },
-   {
-    "nodeId": "Polylogarithms:P.1/five-cross-ratio-identity",
-    "verdict": "added",
-    "note": "The vanishing of the one-form in the five-term proof rests on this identity, which was not listed."
-   },
-   {
-    "nodeId": "Polylogarithms:P.1/branch-change-and-monodromy",
-    "verdict": "corrected",
-    "note": "The monodromy statement was wrong (it named Li_{n-1} and a loop around 0 that adds a term); replaced by the exact jump formula across (1, infinity), verified numerically; proof step 1 invoked a residue that does not exist; acceptance 2 (the coefficients are forced) was false; the prerequisite on single-valued-polylogarithm inverted the dependency and is removed, and this node now precedes the definition of L_n."
-   },
-   {
-    "nodeId": "Polylogarithms:P.1/distribution-and-inversion",
-    "verdict": "corrected",
-    "note": "Inversion was stated for every n >= 1 but fails at n = 1; the inversion and conjugation facts it uses were absent and are the new lemma nodes classical-inversion and classical-distribution plus polylog_conj; acceptance 2 was a non sequitur; the claim that these relations lie in the relation subgroup of P.4 is unsourced and is withdrawn."
-   },
-   {
-    "nodeId": "Polylogarithms:P.1/single-valued-continuity",
-    "verdict": "added",
-    "note": "Split from single-valued-polylogarithm: continuity at infinity needs inversion, which depends on the definition, so it cannot be part of the definition node without a cycle."
-   },
-   {
-    "nodeId": "Polylogarithms:P.2/bloch-wigner-descent",
-    "verdict": "corrected",
-    "note": "The stage prerequisite K3BlochGroups:V.3 replaced by the V.3 node ids (PROTOCOL section 3); acceptance 1 was false for C, where c = 0 (K-book Cor. VI.5.4.1 as corrected in K3BlochGroups/E10), and is restated; the pre-Bloch homomorphism added to the API for HabiroNahmSeries HB.3; natural_in_embedding renamed to what it states; the nonzero test given an explicit element; tests given kinds."
-   },
-   {
-    "nodeId": "Polylogarithms:P.2/weight-two-regulator",
-    "verdict": "corrected",
-    "note": "Prerequisites completed with Mathlib's embedding, IsReal, IsComplex, conjugate and isReal_iff, and the V.3 stage replaced by V.3/bloch-group; the transfer in proof step 5 had no supplier and is replaced by naturality with signs; the excerpt misquoted the condition *_4 as 'o_4'; the tests imaginary_quadratic and not_the_unit_regulator passed for the zero map and are replaced by an explicit Eisenstein-field computation (verified numerically) and the conjugation test."
-   },
-   {
-    "nodeId": "Polylogarithms:P.2/borel-comparison",
-    "verdict": "corrected",
-    "note": "The prerequisite BorelRegulators:R.7 closed a stage cycle (R.7 requires P.2) and is replaced by the reserved R.4/borel-regulator; the source was GR Theorem 1.3(iv), a weight-four statement, with a false match, and is replaced by Goncharov's Theorem 1.1 with (11); the promised explicit scalar and sign cannot come from what was read, so the statement now asserts q in Q^x and a gap records the exact value against R.7; the cocycle and the V.4 node ids are the prerequisites."
-   },
-   {
-    "nodeId": "Polylogarithms:P.2/bloch-wigner-cocycle",
-    "verdict": "added",
-    "note": "The stage asks for the configuration and cross-ratio cocycle; the Borel comparison rests on it and it was missing."
-   },
-   {
-    "nodeId": "Polylogarithms:P.2/hyperbolic-volume",
-    "verdict": "corrected",
-    "note": "The prerequisite ArithmeticQuantumTopology:QT.5 would close a cycle (QT.5 requests this identity from P.2) and moves to uses; hyperbolic space and volume are cited from Tau Ceti GeometricTopology layer 7; the sign depends on the cross-ratio convention, which was not fixed, and is now fixed with the three conversions (verified numerically); the analytic three-angle identity is a lemma node and Milnor's formula a gap; stage prerequisite V.4 replaced by V.4/cross-ratio; Goncharov's display added as a source; planet added."
-   },
-   {
-    "nodeId": "Polylogarithms:P.2/lobachevsky-identity",
-    "verdict": "added",
-    "note": "The analytic input of the volume formula, missing from the packet; verified numerically."
-   },
-   {
-    "nodeId": "Polylogarithms:P.2/certified-numerics",
-    "verdict": "corrected",
-    "note": "The truncation step converges only like 1/N at the sixth roots of unity, and a geometric expansion near the circle is added (recorded as a gap); the input is made exact and the output rational, since otherwise the error theorem is satisfied by D itself; known_value claimed an exact value that is not exact; the error theorem is split into its own node (PROTOCOL section 2); tests given kinds."
-   },
-   {
-    "nodeId": "Polylogarithms:P.2/certified-numerics-error",
-    "verdict": "added",
-    "note": "Split from certified-numerics: the error theorem is what P.6 consumes."
-   },
-   {
-    "nodeId": "Polylogarithms:P.3/polylogarithmic-complex",
-    "verdict": "corrected",
-    "note": "Its prerequisites P.4/higher-bloch-group and P.4/delta-map created the stage cycle P.3 <-> P.4 (P.4 requires P.3), and the reserved id is for n <= 3; the node now builds the weight <= 3 complexes on GR v5's explicit groups (B_2 from K3BlochGroups V.3, B_3 from the new node trilogarithm-group), which is what GR's weight-three and weight-four proofs use and what the stage asks for; the general weight moves to P.4/general-polylog-complex; the wedge product (ExteriorAlgebra.gradedAlgebra) and the V.3 node ids are cited; the weight-two identification had the sign of V.3's boundary wrong; API and tests completed."
-   },
-   {
-    "nodeId": "Polylogarithms:P.3/trilogarithm-group",
-    "verdict": "added",
-    "note": "The stage asks for 'the weight-three polylogarithmic groups and relations of the adopted Goncharov model', which the packet never constructed; GR's weight-three and weight-four arguments use this explicit group."
-   },
-   {
-    "nodeId": "Polylogarithms:P.3/weight-three-complex",
-    "verdict": "corrected",
-    "note": "Proof step 3 and acceptance 2 located the vanishing in rationality, but x wedge x = 0 in Lambda^2 of any abelian group; acceptance 3 confused well-definedness with d^2 = 0 and is removed; the P.4 prerequisites (a stage cycle) are replaced; the planet is dropped, since the node is a check (PROTOCOL section 14)."
-   },
-   {
-    "nodeId": "Polylogarithms:P.3/exterior-residue",
-    "verdict": "added",
-    "note": "The residue on Lambda^n of the units is needed by the weight-three residue and by P.5; K2SymbolsBrauer T.3 builds residues on K_2 and Milnor K-theory, not on exterior powers, so the old request was a near miss."
-   },
-   {
-    "nodeId": "Polylogarithms:P.3/residues-and-transfers",
-    "verdict": "corrected",
-    "note": "The source cited (the GR sentence on R_n) states neither residues nor transfers, and Goncharov (75) is cited instead; the transfer recipe was wrong (Lambda^3 of the norm composed with restriction is [L:F]^3, not [L:F]) and no source read constructs a transfer on these complexes, so it is a gap; 'projection formula' named the degree formula; the vacuous test unramified_first_term is replaced; the integral 2-torsion defect recorded."
-   },
-   {
-    "nodeId": "Polylogarithms:P.3/k-theory-comparison-weight-three",
-    "verdict": "corrected",
-    "note": "The statement mapped from the Adams graded piece, but the source's maps vanish on the rank filtration and gr^rk = gr_gamma is Suslin's conjecture; the 'proven degree range' was never stated; the excerpt misquoted 'i > 0' as 'i >= 0' and was over 300 characters; MotivicEtaleKTheory:M.7 was the wrong supplier (S.6 and M.6); the node is split into the maps, the regulator compatibility and the Milnor-degree comparison."
-   },
-   {
-    "nodeId": "Polylogarithms:P.3/trilogarithm-regulator-borel",
-    "verdict": "added",
-    "note": "Split from k-theory-comparison-weight-three (PROTOCOL section 2)."
-   },
-   {
-    "nodeId": "Polylogarithms:P.3/milnor-degree-comparison",
-    "verdict": "added",
-    "note": "Split from k-theory-comparison-weight-three: the proved degree of the comparison."
-   },
-   {
-    "nodeId": "Polylogarithms:P.3/weight-three-special-value",
-    "verdict": "corrected",
-    "note": "The normalisation was left as 'an explicit power of pi' and the proof step invited pi^{3(r_1+r_2)}, which is wrong: it is pi^{3 r_2} (checked on Q and Q(i)); Borel's theorem relating zeta values to the regulator is BorelRegulators R.5, not R.3 (ranks), and R.3 is cited by its reserved id; the 'for any family' half is recorded as not established; a concrete instance added; planet renamed from the source ('proving Zagier's conjecture for zeta_F(3)', GR v5 p. 10)."
-   },
-   {
-    "nodeId": "Polylogarithms:P.4/delta-map",
-    "verdict": "corrected",
-    "note": "Its content used B_{n-1} and B_n without listing them, while higher-bloch-group listed it: a hidden cycle; the descent ('prove by induction ...') is a non-routine theorem, now the lemma specialization-and-delta; the weight-two comparison with V.3 had the wrong sign; the claim that the source fixes delta_n{0} for n >= 3 is false (source issue E3); the stage prerequisite K3BlochGroups:V.3 is replaced by node ids in the comparison node."
-   },
-   {
-    "nodeId": "Polylogarithms:P.4/specialization-and-delta",
-    "verdict": "added",
-    "note": "The descent of delta_n was asserted as a routine step; it is the specialisation argument, with a gap for Goncharov 1995."
-   },
-   {
-    "nodeId": "Polylogarithms:P.4/explicit-to-inductive-comparison",
-    "verdict": "added",
-    "note": "The identification of the explicit and inductive groups is a theorem, not a definition, and was missing; it carries the sign against V.3."
-   },
-   {
-    "nodeId": "Polylogarithms:P.4/general-polylog-complex",
-    "verdict": "added",
-    "note": "The general-weight complex moves here from P.3, which restores the atlas order P.3 -> P.4."
-   },
-   {
-    "nodeId": "Polylogarithms:P.4/goncharov-comparison-conjecture",
-    "verdict": "added",
-    "note": "The comparison proposition of Zagier's statement needs its own statement with its proved cases."
-   },
-   {
-    "nodeId": "Polylogarithms:P.4/polylog-on-higher-bloch",
-    "verdict": "added",
-    "note": "Consumed by the Zagier determinant, the weight-four theorem and the higher Bloch group tests; it was an acceptance line of higher-bloch-group with no node."
-   },
-   {
-    "nodeId": "Polylogarithms:P.4/higher-bloch-group",
-    "verdict": "corrected",
-    "note": "The weight-two group was identified with the rationalised Bloch group of V.3, which is a kernel; GR's B_2 is the rationalised pre-Bloch group, and the identification is a theorem for infinite fields (Suslin), not a definition; delta-map and this node listed each other in content, and the definition is recast as one recursion producing R_n and delta_n on Q[F], with the descent in delta-map; the excerpt was 394 characters and is split; the P.1 prerequisites belong to polylog-on-higher-bloch; API (module structure, mk_zero, mk_inv with its proof, map_id, map_comp) and tests completed."
-   },
-   {
-    "nodeId": "Polylogarithms:P.4/condition-o-n",
-    "verdict": "corrected",
-    "note": "The name is the glyph *_n (checked on the page image), not 'o_n'; the claim 'decidable against a presentation' is unsupported for n >= 3 and is withdrawn; the unsourced claim that Zagier's beta_n are 'compared' is withdrawn; the API predicate is renamed; tests made concrete."
-   },
-   {
-    "nodeId": "Polylogarithms:P.4/zagier-determinant",
-    "verdict": "corrected",
-    "note": "The normalisation was claimed 'exactly as displayed' but only weight four is displayed; the general-weight normalisation (pi^{n r_2} for odd n, pi^{n(r_1+r_2)} for even n) is now stated and checked on Q and Q(i), with a gap for Zagier 1990; the index type depends on the parity; NumberField.Units.regulator (a 'pattern') is dropped; the weight-one proof step contradicted n >= 2; tests replaced by concrete computations."
-   },
-   {
-    "nodeId": "Polylogarithms:P.4/zagier-statement",
-    "verdict": "corrected",
-    "note": "The third proposition claimed a nonzero rational multiple for every family, which is false (dependent families; GR Theorem 1.2 says q in Q); the acceptances claimed all three propositions are theorems in weights two, three and four, but the weight-four comparison is GR Conjecture 1.4 and weight three is unsourced beyond existence; the weight-two comparison is Suslin's, not Zagier's; the match named the wrong proposition; the excerpt misquoted *_4; planet renamed from the source ('Zagier's conjecture')."
-   },
-   {
-    "nodeId": "Polylogarithms:P.4/weight-four-theorem",
-    "verdict": "corrected",
-    "note": "The statement ('up to a nonzero rational') was not the source's exact equality, and the exact equality is false when r_2 = 0 (source issue E2); normalisation and numbering added; Borel's theorem (R.5), the descended L_4 and the zeta and discriminant declarations added as prerequisites; the circular dependence on zagier-statement removed; part (b)'s dependence on the conjectural B_3 = B_3^ind recorded as a gap; a concrete instance for Q(i) added (verified numerically); the sources now cite the version of record."
-   },
-   {
-    "nodeId": "Polylogarithms:P.4/freeness-extension",
-    "verdict": "corrected",
-    "note": "The node said the sequence is not proved in the source, but GR Theorem 1.14(c) proves it for the combinatorial L_4 with B_4 in L_4; only the motivic version is a prediction; the weight-two acceptance confused the two versions."
-   },
-   {
-    "nodeId": "Polylogarithms:P.5/curve-polylogarithmic-complex",
-    "verdict": "corrected",
-    "note": "The only source was the abstract; Goncharov Section 6.1 and (75) now cited; the weight-two residue on Lambda^2 is supplied by P.3/exterior-residue with its tame-symbol comparison; the integral 2-torsion defect recorded; the audited Tau Ceti place API (Place, ord, ResidueField, residueUnit, finite_setOf_ord_ne_zero), read at the pinned commit, is cited; transfers removed (gap); the weak tests replaced by computations."
-   },
-   {
-    "nodeId": "Polylogarithms:P.5/weight-two-regulator-form",
-    "verdict": "corrected",
-    "note": "The only source (GR, on D) does not state the form: Goncharov (13) and (85) cited; the Steinberg relation 'up to an exact form' is vacuous and is replaced by the exact identity; the residue behaviour made the exact current identity with the tame symbol; API completed (bilinearity, constants, conjugation, relation to r_1); EllipticRegulators:ER.2 removed from the prerequisites (it reversed the confirmed fix RT-AREA-ktheory-2/7 and closed a cycle); the use 'zero-dimensional case' was false; tests with kinds."
-   },
-   {
-    "nodeId": "Polylogarithms:P.5/unramified-weight-two-class",
-    "verdict": "added",
-    "note": "The stage asks to 'prove that unramified classes define the relevant global motivic/Deligne classes', which no node realised; the Deligne identification is conditional on M.8."
-   },
-   {
-    "nodeId": "Polylogarithms:P.5/chow-dilogarithm",
-    "verdict": "added",
-    "note": "The Chow dilogarithm was constructed inside a theorem node with no API or tests; the normalisation is corrected (source issue E12, verified by quadrature)."
-   },
-   {
-    "nodeId": "Polylogarithms:P.5/strong-reciprocity-implies-suslin",
-    "verdict": "added",
-    "note": "The comparison with Suslin's law claimed by the deleted node, stated as the lemma it is."
-   },
-   {
-    "nodeId": "Polylogarithms:P.5/r-form",
-    "verdict": "added",
-    "note": "Split from r-forms-and-distributions (a definition, a theorem and a lemma in one node)."
-   },
-   {
-    "nodeId": "Polylogarithms:P.5/r-forms-and-distributions",
-    "verdict": "corrected",
-    "note": "Proof step 4 (the form kills Steinberg-type relations) is false: r_1((1 - z) wedge z) = -i dD(z) != 0, and Lambda^m needs only multilinearity and alternation; the acceptance 'for a constant function the form vanishes' is false (r_1(c wedge f) = i log|c| d arg f); the definition is split into P.5/r-form; the locator was a TeX label; exteriorPower.map (functoriality) replaced by the universal property; the resolution input (R09.7) and the currents gap recorded."
-   },
-   {
-    "nodeId": "Polylogarithms:P.5/residue-map",
-    "verdict": "added",
-    "note": "Goncharov's Res on a normal variety was used by the regulator but not planned."
-   },
-   {
-    "nodeId": "Polylogarithms:P.5/r-form-differential",
-    "verdict": "added",
-    "note": "Proposition 2.8 was used by the chain-map proof but not planned; its sign is source issue E21."
-   },
-   {
-    "nodeId": "Polylogarithms:P.5/simplex-form",
-    "verdict": "added",
-    "note": "The form r_{m-1}(L; H) and Corollary 2.9 are used by the regulator and the Chow polylogarithm."
-   },
-   {
-    "nodeId": "Polylogarithms:P.5/goncharov-deligne-complex",
-    "verdict": "added",
-    "note": "The target of Goncharov's regulator is his explicit complex, not tau_{<=2n} of Deligne's complex; it is P.5's own object."
-   },
-   {
-    "nodeId": "Polylogarithms:P.5/goncharov-deligne-complex-comparison",
-    "verdict": "added",
-    "note": "Proposition 2.1, the only place M.8's Deligne complex is needed."
-   },
-   {
-    "nodeId": "Polylogarithms:P.5/regulator-map-on-higher-chow",
-    "verdict": "corrected",
-    "note": "The domain's owner MotivicEtaleKTheory:M.4 was neither a prerequisite nor requested; the target is Goncharov's C_D(X; n), only quasi-isomorphic to tau_{<=2n} (new nodes goncharov-deligne-complex and its comparison); the residue map, Proposition 2.8, the simplex form and resolution were missing (new nodes); Definition 2.11, Theorem 2.12 (a two-page proof) and the real statement are split; normalisations added; the spurious prerequisite curve-polylogarithmic-complex removed; tests with kinds."
-   },
-   {
-    "nodeId": "Polylogarithms:P.5/regulator-map-chain-map",
-    "verdict": "added",
-    "note": "Split from regulator-map-on-higher-chow (Theorem 2.12 has a two-page proof)."
-   },
-   {
-    "nodeId": "Polylogarithms:P.5/regulator-map-real",
-    "verdict": "added",
-    "note": "Split from regulator-map-on-higher-chow; the stage asks to retain real/complex conjugation."
-   },
-   {
-    "nodeId": "Polylogarithms:P.5/chow-polylogarithm-forms",
-    "verdict": "corrected",
-    "note": "The locator 'Theorem 3.2' is Lemma 3.2; torus invariance is Theorem 3.3 and the excerpt changed the source's wording; acceptance 3 said identity (iii) fails below the top, but it is torus invariance that fails; proof step 2 copied the misprinted index r_{p+q} (source issue E13); spurious prerequisites (P.3's complex, the regulator map) removed and the simplex form added; Theorem 3.4 added; the Chow varieties recorded as a gap; tests with kinds."
-   },
-   {
-    "nodeId": "Polylogarithms:P.5/arakelov-motivic-complex",
-    "verdict": "corrected",
-    "note": "Wrong numbering (Definition 2.11 and Proposition 2.12 are 2.13 and 2.14) in the node and in readSections; 'the arithmetic Chow group of Gillet and Soule' over-claims: the source has (a version of) it for a complex variety; the cone is CochainComplex.mappingCone, not HomologicalComplex; the degree-zero identification split off with its unproved Gersten step as a gap; TeX-label locators replaced; a computed test added."
-   },
-   {
-    "nodeId": "Polylogarithms:P.5/higher-arakelov-chow-degree-zero",
-    "verdict": "added",
-    "note": "Split from arakelov-motivic-complex (Proposition 2.14) with its two gaps."
-   },
-   {
-    "nodeId": "Polylogarithms:P.5/regulator-induces-beilinson",
-    "verdict": "added",
-    "note": "Replaces chern-character-comparison-problem: the comparison is a published theorem (Burgos Gil-Feliu-Takeda, IMRN 2011, Theorem 6.18, read), and its suppliers are M.4, M.6 and M.8, not M.7."
-   },
-   {
-    "nodeId": "Polylogarithms:P.5/strong-reciprocity-conjecture",
-    "verdict": "added",
-    "note": "The conjecture as a Prop-valued statement, never a theorem; conventions pinned."
-   },
-   {
-    "nodeId": "Polylogarithms:P.5/reciprocity-second-triangle",
-    "verdict": "added",
-    "note": "Lemma 6.4, used by the proved cases."
-   },
-   {
-    "nodeId": "Polylogarithms:P.5/chow-dilogarithm-steinberg",
-    "verdict": "added",
-    "note": "Lemma 6.9, corrected (source issue E11, checked by quadrature)."
-   },
-   {
-    "nodeId": "Polylogarithms:P.5/chow-dilogarithm-projective-line",
-    "verdict": "added",
-    "note": "Proposition 6.8, which had no node."
-   },
-   {
-    "nodeId": "Polylogarithms:P.5/reciprocity-projective-line",
-    "verdict": "added",
-    "note": "Theorem 6.5 with Proposition 6.6 and Lemma 6.7."
-   },
-   {
-    "nodeId": "Polylogarithms:P.5/chow-dilogarithm-families",
-    "verdict": "added",
-    "note": "Theorem 6.10 with Lemma 6.11."
-   },
-   {
-    "nodeId": "Polylogarithms:P.5/reciprocity-algebraic-numbers",
-    "verdict": "added",
-    "note": "Theorem 6.12 with Lemma 6.13; Borel injectivity requested from R.4."
-   },
-   {
-    "nodeId": "Polylogarithms:P.5/chow-dilogarithm-on-elliptic-curves",
-    "verdict": "corrected",
-    "note": "EllipticRegulators ER.2 and ER.3 were prerequisites, reversing the confirmed fix RT-AREA-ktheory-2/7 (a cycle) and used by no proof; acceptance 3 (the formula is the input for the elliptic dilogarithm) is not in the source; the analytic statement inherited the imaginary normalisation (E12); 'any linear functions' needs general position (E18); the plane-curve integral formula is split off; the unproved generation claim of Proposition 6.17 is source issue E17; TeX-label locators replaced."
-   },
-   {
-    "nodeId": "Polylogarithms:P.5/chow-dilogarithm-plane-curves",
-    "verdict": "added",
-    "note": "Split from chow-dilogarithm-on-elliptic-curves (Theorem 6.14 spans about three pages)."
-   },
-   {
-    "nodeId": "Polylogarithms:P.5/weight-three-curve-regulator",
-    "verdict": "corrected",
-    "note": "It built the wrong object (the Chow trilogarithm lives on codimension-3 cycles of P^5, the weight-three regulator of a point); the curve regulator is the pair (rho_2, rho_3) of (83)-(84); Conjecture 6.3 in weight three is proved in the three cases, not open; the Eisenstein-Kronecker target was conditioned on EllipticRegulators ER.3, which owns only weight two, and is now a gap; unused prerequisites (the elliptic node, ER.3) removed; M.8 not needed."
-   },
-   {
-    "nodeId": "Polylogarithms:P.5/general-weight-reciprocity-conjecture",
-    "verdict": "added",
-    "note": "Conjecture 6.3 for n >= 4, stated separately as the stage's weight-three node demands."
-   },
-   {
-    "nodeId": "Polylogarithms:P.6/leopoldt-statement",
-    "verdict": "corrected",
-    "note": "The regulator was taken at the embeddings into the completions above p, whose number is unrelated to r = r_1 + r_2 - 1 (Q(sqrt 2) with 7 split gives a 2 x 1 matrix); the node also proved the equivalence (split into padic-regulator and leopoldt-equivalence); the p-adic logarithm belongs to PadicHodgeRegulators D.1, not D.3 (the unramified p > 3 theorem); the GR excerpt does not state Leopoldt, and Neukirch-Schmidt-Wingberg Section X.3, freely available and read, is cited; the archimedean regulator was not used and is replaced by the unit-group declarations; tests restated as tests."
-   },
-   {
-    "nodeId": "Polylogarithms:P.6/padic-regulator",
-    "verdict": "added",
-    "note": "The p-adic regulator as the source defines it, split from leopoldt-statement."
-   },
-   {
-    "nodeId": "Polylogarithms:P.6/leopoldt-equivalence",
-    "verdict": "added",
-    "note": "The equivalence the stage asks to prove, split from the definition node."
-   },
-   {
-    "nodeId": "Polylogarithms:P.6/tests",
-    "verdict": "corrected",
-    "note": "'The weight-three differential identity' was never stated and no P.3 or P.5 node was a prerequisite; the five-term test 'with the error bound smaller than the claimed gap' is incoherent for an identity equal to 0; explicit points given (verified); the V.6 node ids replace the stage."
-   }
-  ]
- }
+  "status": "needs_changes",
+  "reviewer": "independent-review-REV-FIX-RT-AREA-topology~2",
+  "date": "2026-09-30",
+  "notes": "Independent supplier review of FIX-RT-AREA-topology~2 (#5166, PR #5232, 95281ad), following independent-review-REV-Polylogarithms (archived verbatim in reviewHistory). Corrected /7: P.2 coverage no longer assigns Milnor's formula to GeometricTopology; narrowed layer-7 imports, added the stated layer-8 model request and recorded the missing ideal-boundary/tetrahedron interface as a separate early Part II gap/proposal; synchronized the suggested comments. Goncharov v3 pp.7,53 and the upstream supplier contracts support these boundaries; no Milnor proof gap is closed. Remaining correction: research/blueprint/readmes/Polylogarithms.md (outside this issue's deliverables), especially lines 243,1379,1388,1395,4478,4819-4821, must be synchronized with these packet corrections and new gap/request/proposal before acceptance. The known tauceti-stage prerequisite checker limitation still requires maintainer handling; structured supplier requests remain exact. Preserved concurrent PR #5265 P.5/P.6 changes for their separate review. Both packets remain partial and all nodes unchecked. Checker with the pinned declaration index: zero errors, four existing reserved-node warnings. No matching pre-existing Lean build exists; no compilation performed."
+ },
+ "reviewHistory": [
+  {
+   "status": "accepted",
+   "reviewer": "independent-review-REV-Polylogarithms",
+   "date": "2026-09-24",
+   "notes": "Independent review of all 37 nodes, the baseline, the requests, gaps, coverage and restructure entries, and the suggested Lean file, against GR arXiv v3 (the packet's text) and v5 (the final version, accepted by the Annals, added as GR.2026), Goncharov 2004 (arXiv v3 from the e-print TeX, compared with JAMS 2005 at every source issue), the K-book, Burgos Gil-Feliu-Takeda (IMRN 2011) and Neukirch-Schmidt-Wingberg (electronic edition 2.3). Identities used as tests were checked numerically (mpmath, 30 to 50 digits; quadrature for the Chow dilogarithm). Outcome: 33 nodes corrected, 42 added, 4 deleted and replaced; 7 baseline citations removed or replaced (one near miss: hasSum_taylorSeries_log is the alternating series of log(1 + z), and Li_1 is hasSum_taylorSeries_neg_log), 42 added, all confirmed at the pinned commits; every test now has a kind; 21 source issues recorded (the packet had none). Main corrections: (1) stage cycles removed: P.1 five-term -> K3BlochGroups V.3, P.2 -> BorelRegulators R.7, P.2 -> ArithmeticQuantumTopology QT.5, P.3 -> P.4 (the explicit weight <= 3 complexes now live in P.3 on K3BlochGroups V.3's B_2 and a new trilogarithm group, the inductive groups and the general complex in P.4), P.5 -> EllipticRegulators ER.2/ER.3, and the request to SpecialValuesBirchTate B.8; (2) false statements corrected: L_1 = log|z| (it is -log|1 - z|), L_n(1) = 0 (it is zeta(n) for odd n), inversion at n = 1, the Bernoulli coefficients 'forced' by single-valuedness, the monodromy formula, the discontinuity of D on the negative axis, c of order six in B(C) (c = 0), 'nonzero rational multiple for every family' in Zagier's statement, the weight-four comparison called a theorem, the delta-map sign against V.3, the p-adic regulator at the places above p, the Chow dilogarithm normalisation (2 pi i)^{-1} (imaginary), the Chow trilogarithm offered as the curve regulator; (3) status corrections: the comparison of Goncharov's regulator with Beilinson's is a theorem (Burgos Gil-Feliu-Takeda, Theorem 6.18), Goncharov's strong reciprocity law is Conjecture 6.2 with three proved cases, the weight-four extension of GR Theorem 1.14(c) is proved, GR's condition is *_n not 'o_n'; (4) closure: 42 nodes added for missing lemmas, split nodes and the stage targets that were not realised (the cocycle of P.2, the unramified classes of P.5, the explicit B_3 of P.3), each justified in its note. Coverage: P.1 source_decomposed; P.2 to P.6 partial, with 17 gaps named. The packet is accepted as partial: every node is verified, corrected or added, every baseline citation is confirmed, and the remaining open points are recorded as gaps and requests. Deleted nodes: Polylogarithms:P.5/chow-dilogarithm-reciprocity: Deleted: it stated Goncharov's Conjecture 6.2 as a theorem for every complex curve (proved only for P^1, elliptic curves and curves over Q-bar), described Weil-type local terms that are not Goncharov's law, cited only the abstract (which overstates the paper, source issue E16), and constructed an object without API or tests. Replaced by P.5/chow-dilogarithm, P.5/strong-reciprocity-conjecture and P.5/strong-reciprocity-implies-suslin.; Polylogarithms:P.5/deligne-target-request: Deleted: bookkeeping, not a declaration (PROTOCOL sections 2 and 14), and its proof step contradicted the packet's own claim about the comparison; its content is the M.8 request and the gaps, and its stage target is realised by P.5/unramified-weight-two-class.; Polylogarithms:P.5/chern-character-comparison-problem: Replaced by P.5/regulator-induces-beilinson: the comparison it recorded as open was proved by Burgos Gil, Feliu and Takeda (IMRN 2011, Theorem 6.18); its supplier MotivicEtaleKTheory:M.7 was wrong (M.6 owns the rational Chern character isomorphism).; Polylogarithms:P.5/strong-reciprocity-law: Replaced: a theorem node headlined by Conjecture 6.2, spanning pp. 53-61; its analytic condition (2 pi i)^{-1} integral r_2 = L_2(h) equates an imaginary number with a real one (source issue E12); its target K3BlochGroups:V.3/bloch-group is the kernel of the boundary, which would force Res = 0; conventions were not pinned. Split into P.5/strong-reciprocity-conjecture, P.5/reciprocity-second-triangle, P.5/chow-dilogarithm-steinberg, P.5/chow-dilogarithm-projective-line, P.5/reciprocity-projective-line, P.5/chow-dilogarithm-families and P.5/reciprocity-algebraic-numbers.",
+   "checked": [
+    {
+     "nodeId": "Polylogarithms:P.1/classical-polylogarithm",
+     "verdict": "corrected",
+     "note": "Hypothesis 3 was inconsistent (a path from 0 inside C - {0,1}); the continuation step relied on homotopy invariance, which the pinned Mathlib lacks, and is replaced by the segment integral on the star-shaped domain; hasSum_taylorSeries_log was a near miss for Li_1 and is replaced by hasSum_taylorSeries_neg_log; value on the cut pinned; index extended to n <= 0 for HabiroNahmSeries HB.4; API completed (conj, zeta values, continuity on the closed disc, formal series); the distribution relation and the inversion formula promoted to lemma nodes; tests given kinds, not_single_valued replaced by jump_across_cut, three tests added."
+    },
+    {
+     "nodeId": "Polylogarithms:P.1/classical-distribution",
+     "verdict": "added",
+     "note": "Promoted from the API of classical-polylogarithm (PROTOCOL section 4): consumed by distribution-and-inversion and by HabiroNahmSeries HB.4."
+    },
+    {
+     "nodeId": "Polylogarithms:P.1/classical-inversion",
+     "verdict": "added",
+     "note": "Needed by distribution-and-inversion (inversion of L_n) and absent from the packet; verified numerically."
+    },
+    {
+     "nodeId": "Polylogarithms:P.1/single-valued-polylogarithm",
+     "verdict": "corrected",
+     "note": "The excerpt misquoted the source ('n >= 1'; GR prints 'n > 1'), and the weight-one API, acceptance and test (L_1 = log|z|) were false: the formula at n = 1 gives -log|1 - z|; the projection pi_n was paraphrased wrongly; the API item saying L_n vanishes at 1 was false for odd n (L_3(1) = zeta(3)); the claim that single-valuedness forces the Bernoulli coefficients was false (Ramakrishnan's coefficients); continuity moved to a lemma node so that the dependency on inversion is acyclic; branch-change-and-monodromy made a prerequisite; Polynomial.bernoulli removed (unused); tests given kinds, with three added."
+    },
+    {
+     "nodeId": "Polylogarithms:P.1/bloch-wigner-dilogarithm",
+     "verdict": "corrected",
+     "note": "The only source (GR) does not state the formula: Goncharov's display added; the discontinuity was placed on the negative real axis, but it is on (1, infinity); the differential formula promoted to a lemma node; API completed (one_sub, continuity, limit at infinity, values at 0 and 1, positivity); value_at_i restated (Mathlib has no Catalan constant); tests given kinds, not_global_arg replaced by im_li2_jump; branch-change-and-monodromy and continuousAt_arg added as prerequisites."
+    },
+    {
+     "nodeId": "Polylogarithms:P.1/bloch-wigner-differential",
+     "verdict": "added",
+     "note": "Promoted from bloch-wigner-dilogarithm proof step 6 (PROTOCOL section 4): consumed by the five-term proof and by P.5."
+    },
+    {
+     "nodeId": "Polylogarithms:P.1/bloch-wigner-positivity",
+     "verdict": "added",
+     "note": "Positivity is used by P.2 (hyperbolic volume, the nonzero test); the Laplacian formula was verified numerically; the minimum principle is recorded as a gap."
+    },
+    {
+     "nodeId": "Polylogarithms:P.1/bloch-wigner-five-term",
+     "verdict": "corrected",
+     "note": "The prerequisite K3BlochGroups:V.3 closed the stage cycle P.1 -> V.3 -> P.1 (V.3/bloch-wigner-dilogarithm imports P.1) and is removed with the descent sentence, which is P.2's; the constant-fixing step was impossible for five distinct points and is replaced by a connectedness argument; the cross-ratio identity and the differential formula are lemma nodes; the cross-ratio is written explicitly because K3BlochGroups V.4 owns the cross-ratio with another normalisation; the K-book two-variable form K3BlochGroups requests is added; exact instances replace the numerical acceptance."
+    },
+    {
+     "nodeId": "Polylogarithms:P.1/five-cross-ratio-identity",
+     "verdict": "added",
+     "note": "The vanishing of the one-form in the five-term proof rests on this identity, which was not listed."
+    },
+    {
+     "nodeId": "Polylogarithms:P.1/branch-change-and-monodromy",
+     "verdict": "corrected",
+     "note": "The monodromy statement was wrong (it named Li_{n-1} and a loop around 0 that adds a term); replaced by the exact jump formula across (1, infinity), verified numerically; proof step 1 invoked a residue that does not exist; acceptance 2 (the coefficients are forced) was false; the prerequisite on single-valued-polylogarithm inverted the dependency and is removed, and this node now precedes the definition of L_n."
+    },
+    {
+     "nodeId": "Polylogarithms:P.1/distribution-and-inversion",
+     "verdict": "corrected",
+     "note": "Inversion was stated for every n >= 1 but fails at n = 1; the inversion and conjugation facts it uses were absent and are the new lemma nodes classical-inversion and classical-distribution plus polylog_conj; acceptance 2 was a non sequitur; the claim that these relations lie in the relation subgroup of P.4 is unsourced and is withdrawn."
+    },
+    {
+     "nodeId": "Polylogarithms:P.1/single-valued-continuity",
+     "verdict": "added",
+     "note": "Split from single-valued-polylogarithm: continuity at infinity needs inversion, which depends on the definition, so it cannot be part of the definition node without a cycle."
+    },
+    {
+     "nodeId": "Polylogarithms:P.2/bloch-wigner-descent",
+     "verdict": "corrected",
+     "note": "The stage prerequisite K3BlochGroups:V.3 replaced by the V.3 node ids (PROTOCOL section 3); acceptance 1 was false for C, where c = 0 (K-book Cor. VI.5.4.1 as corrected in K3BlochGroups/E10), and is restated; the pre-Bloch homomorphism added to the API for HabiroNahmSeries HB.3; natural_in_embedding renamed to what it states; the nonzero test given an explicit element; tests given kinds."
+    },
+    {
+     "nodeId": "Polylogarithms:P.2/weight-two-regulator",
+     "verdict": "corrected",
+     "note": "Prerequisites completed with Mathlib's embedding, IsReal, IsComplex, conjugate and isReal_iff, and the V.3 stage replaced by V.3/bloch-group; the transfer in proof step 5 had no supplier and is replaced by naturality with signs; the excerpt misquoted the condition *_4 as 'o_4'; the tests imaginary_quadratic and not_the_unit_regulator passed for the zero map and are replaced by an explicit Eisenstein-field computation (verified numerically) and the conjugation test."
+    },
+    {
+     "nodeId": "Polylogarithms:P.2/borel-comparison",
+     "verdict": "corrected",
+     "note": "The prerequisite BorelRegulators:R.7 closed a stage cycle (R.7 requires P.2) and is replaced by the reserved R.4/borel-regulator; the source was GR Theorem 1.3(iv), a weight-four statement, with a false match, and is replaced by Goncharov's Theorem 1.1 with (11); the promised explicit scalar and sign cannot come from what was read, so the statement now asserts q in Q^x and a gap records the exact value against R.7; the cocycle and the V.4 node ids are the prerequisites."
+    },
+    {
+     "nodeId": "Polylogarithms:P.2/bloch-wigner-cocycle",
+     "verdict": "added",
+     "note": "The stage asks for the configuration and cross-ratio cocycle; the Borel comparison rests on it and it was missing."
+    },
+    {
+     "nodeId": "Polylogarithms:P.2/hyperbolic-volume",
+     "verdict": "corrected",
+     "note": "The prerequisite ArithmeticQuantumTopology:QT.5 would close a cycle (QT.5 requests this identity from P.2) and moves to uses; hyperbolic space and volume are cited from Tau Ceti GeometricTopology layer 7; the sign depends on the cross-ratio convention, which was not fixed, and is now fixed with the three conversions (verified numerically); the analytic three-angle identity is a lemma node and Milnor's formula a gap; stage prerequisite V.4 replaced by V.4/cross-ratio; Goncharov's display added as a source; planet added."
+    },
+    {
+     "nodeId": "Polylogarithms:P.2/lobachevsky-identity",
+     "verdict": "added",
+     "note": "The analytic input of the volume formula, missing from the packet; verified numerically."
+    },
+    {
+     "nodeId": "Polylogarithms:P.2/certified-numerics",
+     "verdict": "corrected",
+     "note": "The truncation step converges only like 1/N at the sixth roots of unity, and a geometric expansion near the circle is added (recorded as a gap); the input is made exact and the output rational, since otherwise the error theorem is satisfied by D itself; known_value claimed an exact value that is not exact; the error theorem is split into its own node (PROTOCOL section 2); tests given kinds."
+    },
+    {
+     "nodeId": "Polylogarithms:P.2/certified-numerics-error",
+     "verdict": "added",
+     "note": "Split from certified-numerics: the error theorem is what P.6 consumes."
+    },
+    {
+     "nodeId": "Polylogarithms:P.3/polylogarithmic-complex",
+     "verdict": "corrected",
+     "note": "Its prerequisites P.4/higher-bloch-group and P.4/delta-map created the stage cycle P.3 <-> P.4 (P.4 requires P.3), and the reserved id is for n <= 3; the node now builds the weight <= 3 complexes on GR v5's explicit groups (B_2 from K3BlochGroups V.3, B_3 from the new node trilogarithm-group), which is what GR's weight-three and weight-four proofs use and what the stage asks for; the general weight moves to P.4/general-polylog-complex; the wedge product (ExteriorAlgebra.gradedAlgebra) and the V.3 node ids are cited; the weight-two identification had the sign of V.3's boundary wrong; API and tests completed."
+    },
+    {
+     "nodeId": "Polylogarithms:P.3/trilogarithm-group",
+     "verdict": "added",
+     "note": "The stage asks for 'the weight-three polylogarithmic groups and relations of the adopted Goncharov model', which the packet never constructed; GR's weight-three and weight-four arguments use this explicit group."
+    },
+    {
+     "nodeId": "Polylogarithms:P.3/weight-three-complex",
+     "verdict": "corrected",
+     "note": "Proof step 3 and acceptance 2 located the vanishing in rationality, but x wedge x = 0 in Lambda^2 of any abelian group; acceptance 3 confused well-definedness with d^2 = 0 and is removed; the P.4 prerequisites (a stage cycle) are replaced; the planet is dropped, since the node is a check (PROTOCOL section 14)."
+    },
+    {
+     "nodeId": "Polylogarithms:P.3/exterior-residue",
+     "verdict": "added",
+     "note": "The residue on Lambda^n of the units is needed by the weight-three residue and by P.5; K2SymbolsBrauer T.3 builds residues on K_2 and Milnor K-theory, not on exterior powers, so the old request was a near miss."
+    },
+    {
+     "nodeId": "Polylogarithms:P.3/residues-and-transfers",
+     "verdict": "corrected",
+     "note": "The source cited (the GR sentence on R_n) states neither residues nor transfers, and Goncharov (75) is cited instead; the transfer recipe was wrong (Lambda^3 of the norm composed with restriction is [L:F]^3, not [L:F]) and no source read constructs a transfer on these complexes, so it is a gap; 'projection formula' named the degree formula; the vacuous test unramified_first_term is replaced; the integral 2-torsion defect recorded."
+    },
+    {
+     "nodeId": "Polylogarithms:P.3/k-theory-comparison-weight-three",
+     "verdict": "corrected",
+     "note": "The statement mapped from the Adams graded piece, but the source's maps vanish on the rank filtration and gr^rk = gr_gamma is Suslin's conjecture; the 'proven degree range' was never stated; the excerpt misquoted 'i > 0' as 'i >= 0' and was over 300 characters; MotivicEtaleKTheory:M.7 was the wrong supplier (S.6 and M.6); the node is split into the maps, the regulator compatibility and the Milnor-degree comparison."
+    },
+    {
+     "nodeId": "Polylogarithms:P.3/trilogarithm-regulator-borel",
+     "verdict": "added",
+     "note": "Split from k-theory-comparison-weight-three (PROTOCOL section 2)."
+    },
+    {
+     "nodeId": "Polylogarithms:P.3/milnor-degree-comparison",
+     "verdict": "added",
+     "note": "Split from k-theory-comparison-weight-three: the proved degree of the comparison."
+    },
+    {
+     "nodeId": "Polylogarithms:P.3/weight-three-special-value",
+     "verdict": "corrected",
+     "note": "The normalisation was left as 'an explicit power of pi' and the proof step invited pi^{3(r_1+r_2)}, which is wrong: it is pi^{3 r_2} (checked on Q and Q(i)); Borel's theorem relating zeta values to the regulator is BorelRegulators R.5, not R.3 (ranks), and R.3 is cited by its reserved id; the 'for any family' half is recorded as not established; a concrete instance added; planet renamed from the source ('proving Zagier's conjecture for zeta_F(3)', GR v5 p. 10)."
+    },
+    {
+     "nodeId": "Polylogarithms:P.4/delta-map",
+     "verdict": "corrected",
+     "note": "Its content used B_{n-1} and B_n without listing them, while higher-bloch-group listed it: a hidden cycle; the descent ('prove by induction ...') is a non-routine theorem, now the lemma specialization-and-delta; the weight-two comparison with V.3 had the wrong sign; the claim that the source fixes delta_n{0} for n >= 3 is false (source issue E3); the stage prerequisite K3BlochGroups:V.3 is replaced by node ids in the comparison node."
+    },
+    {
+     "nodeId": "Polylogarithms:P.4/specialization-and-delta",
+     "verdict": "added",
+     "note": "The descent of delta_n was asserted as a routine step; it is the specialisation argument, with a gap for Goncharov 1995."
+    },
+    {
+     "nodeId": "Polylogarithms:P.4/explicit-to-inductive-comparison",
+     "verdict": "added",
+     "note": "The identification of the explicit and inductive groups is a theorem, not a definition, and was missing; it carries the sign against V.3."
+    },
+    {
+     "nodeId": "Polylogarithms:P.4/general-polylog-complex",
+     "verdict": "added",
+     "note": "The general-weight complex moves here from P.3, which restores the atlas order P.3 -> P.4."
+    },
+    {
+     "nodeId": "Polylogarithms:P.4/goncharov-comparison-conjecture",
+     "verdict": "added",
+     "note": "The comparison proposition of Zagier's statement needs its own statement with its proved cases."
+    },
+    {
+     "nodeId": "Polylogarithms:P.4/polylog-on-higher-bloch",
+     "verdict": "added",
+     "note": "Consumed by the Zagier determinant, the weight-four theorem and the higher Bloch group tests; it was an acceptance line of higher-bloch-group with no node."
+    },
+    {
+     "nodeId": "Polylogarithms:P.4/higher-bloch-group",
+     "verdict": "corrected",
+     "note": "The weight-two group was identified with the rationalised Bloch group of V.3, which is a kernel; GR's B_2 is the rationalised pre-Bloch group, and the identification is a theorem for infinite fields (Suslin), not a definition; delta-map and this node listed each other in content, and the definition is recast as one recursion producing R_n and delta_n on Q[F], with the descent in delta-map; the excerpt was 394 characters and is split; the P.1 prerequisites belong to polylog-on-higher-bloch; API (module structure, mk_zero, mk_inv with its proof, map_id, map_comp) and tests completed."
+    },
+    {
+     "nodeId": "Polylogarithms:P.4/condition-o-n",
+     "verdict": "corrected",
+     "note": "The name is the glyph *_n (checked on the page image), not 'o_n'; the claim 'decidable against a presentation' is unsupported for n >= 3 and is withdrawn; the unsourced claim that Zagier's beta_n are 'compared' is withdrawn; the API predicate is renamed; tests made concrete."
+    },
+    {
+     "nodeId": "Polylogarithms:P.4/zagier-determinant",
+     "verdict": "corrected",
+     "note": "The normalisation was claimed 'exactly as displayed' but only weight four is displayed; the general-weight normalisation (pi^{n r_2} for odd n, pi^{n(r_1+r_2)} for even n) is now stated and checked on Q and Q(i), with a gap for Zagier 1990; the index type depends on the parity; NumberField.Units.regulator (a 'pattern') is dropped; the weight-one proof step contradicted n >= 2; tests replaced by concrete computations."
+    },
+    {
+     "nodeId": "Polylogarithms:P.4/zagier-statement",
+     "verdict": "corrected",
+     "note": "The third proposition claimed a nonzero rational multiple for every family, which is false (dependent families; GR Theorem 1.2 says q in Q); the acceptances claimed all three propositions are theorems in weights two, three and four, but the weight-four comparison is GR Conjecture 1.4 and weight three is unsourced beyond existence; the weight-two comparison is Suslin's, not Zagier's; the match named the wrong proposition; the excerpt misquoted *_4; planet renamed from the source ('Zagier's conjecture')."
+    },
+    {
+     "nodeId": "Polylogarithms:P.4/weight-four-theorem",
+     "verdict": "corrected",
+     "note": "The statement ('up to a nonzero rational') was not the source's exact equality, and the exact equality is false when r_2 = 0 (source issue E2); normalisation and numbering added; Borel's theorem (R.5), the descended L_4 and the zeta and discriminant declarations added as prerequisites; the circular dependence on zagier-statement removed; part (b)'s dependence on the conjectural B_3 = B_3^ind recorded as a gap; a concrete instance for Q(i) added (verified numerically); the sources now cite the version of record."
+    },
+    {
+     "nodeId": "Polylogarithms:P.4/freeness-extension",
+     "verdict": "corrected",
+     "note": "The node said the sequence is not proved in the source, but GR Theorem 1.14(c) proves it for the combinatorial L_4 with B_4 in L_4; only the motivic version is a prediction; the weight-two acceptance confused the two versions."
+    },
+    {
+     "nodeId": "Polylogarithms:P.5/curve-polylogarithmic-complex",
+     "verdict": "corrected",
+     "note": "The only source was the abstract; Goncharov Section 6.1 and (75) now cited; the weight-two residue on Lambda^2 is supplied by P.3/exterior-residue with its tame-symbol comparison; the integral 2-torsion defect recorded; the audited Tau Ceti place API (Place, ord, ResidueField, residueUnit, finite_setOf_ord_ne_zero), read at the pinned commit, is cited; transfers removed (gap); the weak tests replaced by computations."
+    },
+    {
+     "nodeId": "Polylogarithms:P.5/weight-two-regulator-form",
+     "verdict": "corrected",
+     "note": "The only source (GR, on D) does not state the form: Goncharov (13) and (85) cited; the Steinberg relation 'up to an exact form' is vacuous and is replaced by the exact identity; the residue behaviour made the exact current identity with the tame symbol; API completed (bilinearity, constants, conjugation, relation to r_1); EllipticRegulators:ER.2 removed from the prerequisites (it reversed the confirmed fix RT-AREA-ktheory-2/7 and closed a cycle); the use 'zero-dimensional case' was false; tests with kinds."
+    },
+    {
+     "nodeId": "Polylogarithms:P.5/unramified-weight-two-class",
+     "verdict": "added",
+     "note": "The stage asks to 'prove that unramified classes define the relevant global motivic/Deligne classes', which no node realised; the Deligne identification is conditional on M.8."
+    },
+    {
+     "nodeId": "Polylogarithms:P.5/chow-dilogarithm",
+     "verdict": "added",
+     "note": "The Chow dilogarithm was constructed inside a theorem node with no API or tests; the normalisation is corrected (source issue E12, verified by quadrature)."
+    },
+    {
+     "nodeId": "Polylogarithms:P.5/strong-reciprocity-implies-suslin",
+     "verdict": "added",
+     "note": "The comparison with Suslin's law claimed by the deleted node, stated as the lemma it is."
+    },
+    {
+     "nodeId": "Polylogarithms:P.5/r-form",
+     "verdict": "added",
+     "note": "Split from r-forms-and-distributions (a definition, a theorem and a lemma in one node)."
+    },
+    {
+     "nodeId": "Polylogarithms:P.5/r-forms-and-distributions",
+     "verdict": "corrected",
+     "note": "Proof step 4 (the form kills Steinberg-type relations) is false: r_1((1 - z) wedge z) = -i dD(z) != 0, and Lambda^m needs only multilinearity and alternation; the acceptance 'for a constant function the form vanishes' is false (r_1(c wedge f) = i log|c| d arg f); the definition is split into P.5/r-form; the locator was a TeX label; exteriorPower.map (functoriality) replaced by the universal property; the resolution input (R09.7) and the currents gap recorded."
+    },
+    {
+     "nodeId": "Polylogarithms:P.5/residue-map",
+     "verdict": "added",
+     "note": "Goncharov's Res on a normal variety was used by the regulator but not planned."
+    },
+    {
+     "nodeId": "Polylogarithms:P.5/r-form-differential",
+     "verdict": "added",
+     "note": "Proposition 2.8 was used by the chain-map proof but not planned; its sign is source issue E21."
+    },
+    {
+     "nodeId": "Polylogarithms:P.5/simplex-form",
+     "verdict": "added",
+     "note": "The form r_{m-1}(L; H) and Corollary 2.9 are used by the regulator and the Chow polylogarithm."
+    },
+    {
+     "nodeId": "Polylogarithms:P.5/goncharov-deligne-complex",
+     "verdict": "added",
+     "note": "The target of Goncharov's regulator is his explicit complex, not tau_{<=2n} of Deligne's complex; it is P.5's own object."
+    },
+    {
+     "nodeId": "Polylogarithms:P.5/goncharov-deligne-complex-comparison",
+     "verdict": "added",
+     "note": "Proposition 2.1, the only place M.8's Deligne complex is needed."
+    },
+    {
+     "nodeId": "Polylogarithms:P.5/regulator-map-on-higher-chow",
+     "verdict": "corrected",
+     "note": "The domain's owner MotivicEtaleKTheory:M.4 was neither a prerequisite nor requested; the target is Goncharov's C_D(X; n), only quasi-isomorphic to tau_{<=2n} (new nodes goncharov-deligne-complex and its comparison); the residue map, Proposition 2.8, the simplex form and resolution were missing (new nodes); Definition 2.11, Theorem 2.12 (a two-page proof) and the real statement are split; normalisations added; the spurious prerequisite curve-polylogarithmic-complex removed; tests with kinds."
+    },
+    {
+     "nodeId": "Polylogarithms:P.5/regulator-map-chain-map",
+     "verdict": "added",
+     "note": "Split from regulator-map-on-higher-chow (Theorem 2.12 has a two-page proof)."
+    },
+    {
+     "nodeId": "Polylogarithms:P.5/regulator-map-real",
+     "verdict": "added",
+     "note": "Split from regulator-map-on-higher-chow; the stage asks to retain real/complex conjugation."
+    },
+    {
+     "nodeId": "Polylogarithms:P.5/chow-polylogarithm-forms",
+     "verdict": "corrected",
+     "note": "The locator 'Theorem 3.2' is Lemma 3.2; torus invariance is Theorem 3.3 and the excerpt changed the source's wording; acceptance 3 said identity (iii) fails below the top, but it is torus invariance that fails; proof step 2 copied the misprinted index r_{p+q} (source issue E13); spurious prerequisites (P.3's complex, the regulator map) removed and the simplex form added; Theorem 3.4 added; the Chow varieties recorded as a gap; tests with kinds."
+    },
+    {
+     "nodeId": "Polylogarithms:P.5/arakelov-motivic-complex",
+     "verdict": "corrected",
+     "note": "Wrong numbering (Definition 2.11 and Proposition 2.12 are 2.13 and 2.14) in the node and in readSections; 'the arithmetic Chow group of Gillet and Soule' over-claims: the source has (a version of) it for a complex variety; the cone is CochainComplex.mappingCone, not HomologicalComplex; the degree-zero identification split off with its unproved Gersten step as a gap; TeX-label locators replaced; a computed test added."
+    },
+    {
+     "nodeId": "Polylogarithms:P.5/higher-arakelov-chow-degree-zero",
+     "verdict": "added",
+     "note": "Split from arakelov-motivic-complex (Proposition 2.14) with its two gaps."
+    },
+    {
+     "nodeId": "Polylogarithms:P.5/regulator-induces-beilinson",
+     "verdict": "added",
+     "note": "Replaces chern-character-comparison-problem: the comparison is a published theorem (Burgos Gil-Feliu-Takeda, IMRN 2011, Theorem 6.18, read), and its suppliers are M.4, M.6 and M.8, not M.7."
+    },
+    {
+     "nodeId": "Polylogarithms:P.5/strong-reciprocity-conjecture",
+     "verdict": "added",
+     "note": "The conjecture as a Prop-valued statement, never a theorem; conventions pinned."
+    },
+    {
+     "nodeId": "Polylogarithms:P.5/reciprocity-second-triangle",
+     "verdict": "added",
+     "note": "Lemma 6.4, used by the proved cases."
+    },
+    {
+     "nodeId": "Polylogarithms:P.5/chow-dilogarithm-steinberg",
+     "verdict": "added",
+     "note": "Lemma 6.9, corrected (source issue E11, checked by quadrature)."
+    },
+    {
+     "nodeId": "Polylogarithms:P.5/chow-dilogarithm-projective-line",
+     "verdict": "added",
+     "note": "Proposition 6.8, which had no node."
+    },
+    {
+     "nodeId": "Polylogarithms:P.5/reciprocity-projective-line",
+     "verdict": "added",
+     "note": "Theorem 6.5 with Proposition 6.6 and Lemma 6.7."
+    },
+    {
+     "nodeId": "Polylogarithms:P.5/chow-dilogarithm-families",
+     "verdict": "added",
+     "note": "Theorem 6.10 with Lemma 6.11."
+    },
+    {
+     "nodeId": "Polylogarithms:P.5/reciprocity-algebraic-numbers",
+     "verdict": "added",
+     "note": "Theorem 6.12 with Lemma 6.13; Borel injectivity requested from R.4."
+    },
+    {
+     "nodeId": "Polylogarithms:P.5/chow-dilogarithm-on-elliptic-curves",
+     "verdict": "corrected",
+     "note": "EllipticRegulators ER.2 and ER.3 were prerequisites, reversing the confirmed fix RT-AREA-ktheory-2/7 (a cycle) and used by no proof; acceptance 3 (the formula is the input for the elliptic dilogarithm) is not in the source; the analytic statement inherited the imaginary normalisation (E12); 'any linear functions' needs general position (E18); the plane-curve integral formula is split off; the unproved generation claim of Proposition 6.17 is source issue E17; TeX-label locators replaced."
+    },
+    {
+     "nodeId": "Polylogarithms:P.5/chow-dilogarithm-plane-curves",
+     "verdict": "added",
+     "note": "Split from chow-dilogarithm-on-elliptic-curves (Theorem 6.14 spans about three pages)."
+    },
+    {
+     "nodeId": "Polylogarithms:P.5/weight-three-curve-regulator",
+     "verdict": "corrected",
+     "note": "It built the wrong object (the Chow trilogarithm lives on codimension-3 cycles of P^5, the weight-three regulator of a point); the curve regulator is the pair (rho_2, rho_3) of (83)-(84); Conjecture 6.3 in weight three is proved in the three cases, not open; the Eisenstein-Kronecker target was conditioned on EllipticRegulators ER.3, which owns only weight two, and is now a gap; unused prerequisites (the elliptic node, ER.3) removed; M.8 not needed."
+    },
+    {
+     "nodeId": "Polylogarithms:P.5/general-weight-reciprocity-conjecture",
+     "verdict": "added",
+     "note": "Conjecture 6.3 for n >= 4, stated separately as the stage's weight-three node demands."
+    },
+    {
+     "nodeId": "Polylogarithms:P.6/leopoldt-statement",
+     "verdict": "corrected",
+     "note": "The regulator was taken at the embeddings into the completions above p, whose number is unrelated to r = r_1 + r_2 - 1 (Q(sqrt 2) with 7 split gives a 2 x 1 matrix); the node also proved the equivalence (split into padic-regulator and leopoldt-equivalence); the p-adic logarithm belongs to PadicHodgeRegulators D.1, not D.3 (the unramified p > 3 theorem); the GR excerpt does not state Leopoldt, and Neukirch-Schmidt-Wingberg Section X.3, freely available and read, is cited; the archimedean regulator was not used and is replaced by the unit-group declarations; tests restated as tests."
+    },
+    {
+     "nodeId": "Polylogarithms:P.6/padic-regulator",
+     "verdict": "added",
+     "note": "The p-adic regulator as the source defines it, split from leopoldt-statement."
+    },
+    {
+     "nodeId": "Polylogarithms:P.6/leopoldt-equivalence",
+     "verdict": "added",
+     "note": "The equivalence the stage asks to prove, split from the definition node."
+    },
+    {
+     "nodeId": "Polylogarithms:P.6/tests",
+     "verdict": "corrected",
+     "note": "'The weight-three differential identity' was never stated and no P.3 or P.5 node was a prerequisite; the five-term test 'with the error bound smaller than the claimed gap' is incoherent for an identity equal to 0; explicit points given (verified); the V.6 node ids replace the stage."
+    }
+   ]
+  }
+ ]
 }
