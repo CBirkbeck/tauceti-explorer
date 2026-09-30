@@ -1,6 +1,8 @@
 /-
 This file is not the roadmap and is not exhaustive. The roadmap document
-`research/blueprint/readmes/GeneralAlgebraicKTheory--K.6.md` is definitive. These
+`research/blueprint/readmes/GeneralAlgebraicKTheory--K.6.md` is definitive.
+Review corrections are recorded in the packet and review report; the reader
+document requires synchronization before the revised plan is accepted. These
 statements suggest Lean forms so that contributors and reviewers can converge on
 names and signatures. They claim no implementation.
 
@@ -34,8 +36,9 @@ are written as signature comments, in the form the K.1–K.5 file uses: the
 objects they are stated about (the gluing category of the projective line over
 a ring, the Nil category, the Bass spectrum, the K-theoretic pairing) are not in
 either pinned library, and a statement that cannot yet be written is left as a
-typed comment rather than replaced by a proposition. The older `True`-valued
-placeholders below are kept only where this revision did not touch the node.
+typed comment rather than replaced by a proposition. Older `True`-valued placeholders remain below, including in changed nodes;
+they do not meet PROTOCOL §13 and are a recorded reason for needs_changes.
+The Morita block is replaced by actual proposed signature comments below.
 The scheme forms (Thomason's groups, the Fundamental Theorem for schemes,
 negative G-theory of noetherian schemes, products of schemes) are
 SchemeKTheoryOperations S.2, S.5 and S.6's, which import this file's ring
@@ -140,7 +143,7 @@ theorem negativeK_prod (n : ℕ) : True := by sorry
 /-! ### The ring-level inputs of the Fundamental Theorem
 
 Signature comments. `KSpace`, `KGroup`, `P R` (the finitely generated projective
-right `R`-modules, `TauCeti.finiteProjectiveModules R` with its split exact
+right `R`-modules, `TauCeti.finiteProjectiveModules Rᵐᵒᵖ` with its split exact
 structure) and scalar extension are the early ring node's
 (`GeneralAlgebraicKTheory:K.2/functorial-K-theory-of-a-ring`); the additivity,
 resolution, approximation and fibration theorems are K.3's and K.4's.
@@ -149,8 +152,8 @@ K.6/projective-line-over-a-ring (construction). NOT a scheme: for a
 noncommutative ring there is no scheme `ℙ¹` over `Spec R`.
 
   structure ProjectiveLine.Module (R : Type u) [Ring R] where
-    plus  : ModuleCat.{u} R[X]                      -- M₊, a right R[t]-module
-    minus : ModuleCat.{u} R[X]                      -- M₋, over R[t⁻¹] (a second copy)
+    plus  : ModuleCat.{u} (R[X])ᵐᵒᵖ                      -- M₊, a right R[t]-module
+    minus : ModuleCat.{u} (R[X])ᵐᵒᵖ                      -- M₋, over R[t⁻¹] (a second copy)
     glue  : (M₊ ⊗ R[T;T⁻¹]) ≅ (M₋ ⊗ R[T;T⁻¹])       -- α, over the Laurent ring
   instance : Abelian (ProjectiveLine.Module R)       -- componentwise kernels/cokernels
   def ProjectiveLine.VectorBundle (R) : ObjectProperty (ProjectiveLine.Module R)
@@ -161,11 +164,11 @@ noncommutative ring there is no scheme `ℙ¹` over `Spec R`.
   def ProjectiveLine.u (i : ℤ) : P R ⥤ VB(ℙ¹_R)      -- P ↦ (P[t], P[t⁻¹], tⁱ), exact
   theorem ProjectiveLine.u_twist (i n : ℤ) : u i ⋙ twist n ≅ u (i - n)
   theorem ProjectiveLine.koszul (F) : ShortExact (F(-2) ⟶ F(-1) ⊞ F(-1) ⟶ F)
-  def ProjectiveLine.directImage : ProjectiveLine.Module R ⥤ ModuleCat R   -- π_*, and R¹π_*
+  def ProjectiveLine.directImage : ProjectiveLine.Module R ⥤ ModuleCat Rᵐᵒᵖ   -- π_*, and R¹π_*
   def ProjectiveLine.map (f : R →+* R') : ProjectiveLine.Module R ⥤ ProjectiveLine.Module R'
   -- unit tests
   example : π_* (u 0 R) ≅ R ∧ R¹π_* (u 0 R) = 0          -- pi_u0
-  example : π_* (u 1 R) = 0 ∧ R¹π_* (u 1 R) = 0          -- pi_u1 (so u 0 R ≇ u 1 R)
+  example : π_* (u 1 R) = 0 ∧ R¹π_* (u 1 R) = 0          -- pi_u1 (so u 0 R ≇ u 1 R if Nontrivial R)
   example : R¹π_* (u 2 R) ≅ R ∧ π_* (u 2 R) = 0          -- R1pi_u2
   example : Contractible (ProjectiveLine.KSpace (0 : Type)) -- zero_ring
   example (i n : ℤ) : u i ⋙ twist n ≅ u (i - n)          -- u_twist_shift
@@ -176,6 +179,11 @@ K.6/projective-line-splitting (theorem, V.1.5.4):
                                                      -- induced by (u 0, u 1), natural in R
   theorem ProjectiveLine.u_relation (i : ℤ) :
     (u (i+1))_* + (u (i+1))_* = (u i)_* + (u (i+2))_*
+
+The right-module convention above uses the opposite-ring duality of K.2 to compare
+with the early left-module ring model. In the splitting proof, u_1(P) need not lie in MR:
+for a nonzero field, H¹(O(−2)) is nonzero. Extend v_0,v_1 from K(MR) along its
+equivalence with K(VB); compute on u_0,u_{−1}, then use u_1 = 2u_0 − u_{−1}.
 
 K.6/nil-category-and-nil-groups (definition):
   structure NilCat (R) where
@@ -229,6 +237,14 @@ K.6/negative-k-groups-are-contracted (theorem, III.3.6, III.3.7, III.4.1.2):
 splitting is multiplication by the class of `t` in `K₁ (ℤ[t,t⁻¹])`; a different
 splitting changes the identification of the boundary. -/
 theorem fundamental_theorem (n : ℤ) : True := by sorry
+
+/- `K.6/nil-inclusion-is-forgetful`: intended signature, pending the gluing/Nil carriers:
+  theorem NilCat.inclusion_map :
+    KMap inclusion ≃ₕ (KMap (u 0) - KMap (u 1)) ∘ KMap forget
+The natural resolution has chart maps t − ν and 1 − t⁻¹ν; the latter is invertible
+by the finite geometric series. For ν = 0 this is the standard resolution; for ν² = 0
+its inverse is 1 + t⁻¹ν. Nilpotence cannot be dropped (ν = 1 over ℤ).
+This, rather than split injectivity alone, makes the reduced Nil map zero. -/
 
 /-- `Nilₙ R ≅ NK_{n+1} R` for `n ≥ 0`: `nilGroup_equiv_NK` above
 (K.6/nil-groups-are-NK). -/
@@ -472,24 +488,28 @@ theorem not_vanishing_from_connective : True := by sorry
 
 /-! ## K.7 -/
 
-/-- K.7/morita-invariance. The pinned `IsMoritaEquivalent` and
-`IsMoritaEquivalent.matrix` are the hypothesis; the K-theoretic consequence is
-what is missing. -/
-def KTheory.moritaEquiv (h : IsMoritaEquivalent R S) (n : ℤ) : True := by sorry
+/- K.7/morita-invariance — proposed signatures; KGroup and the ring-spectrum
+model are suppliers' future interfaces, not declarations in the pinned libraries.
 
-theorem KTheory.moritaEquiv_matrix (n : ℕ) : True := by sorry
+KTheory.moritaEquiv (h : IsMoritaEquivalent R S) (q : ℤ) :
+  KGroup R q ≃+ KGroup S q
+KTheory.moritaEquiv_matrix (n : ℕ) (hn : 0 < n) (q : ℤ) :
+  KGroup (Matrix (Fin n) (Fin n) R) q ≃+ KGroup R q
 
-theorem KTheory.moritaEquiv_negative : True := by sorry
+For q < 0, derive this using Bass suspension and the comparison with the
+nonconnective spectrum. For right modules use ModuleCat Rᵐᵒᵖ and the opposite
+ring bridge, with compatible choices under corner embeddings.
 
-theorem KTheory.moritaEquiv_mul : True := by sorry
-
-/-- The Structure Theorem: the equivalence is tensoring against a finitely
-generated projective generator whose endomorphism ring is the other ring. -/
-theorem moritaStructure : True := by sorry
-
-/-- Morita equivalent rings need not be isomorphic, so the invariance is not
-vacuous. -/
-theorem morita_not_iso : True := by sorry
+A product comparison takes Morita equivalences on both inputs and the target,
+and a natural isomorphism identifying their biexact pairing functors. It then
+asserts eTarget (x * y) = eLeft x * eRight y with these typed pairings.
+A unital internal ring equivalence requires unit-preserving monoidal data;
+a bare Morita equivalence is insufficient. Regression: tensoring with a
+nontrivial line bundle sends [R] to [L] and need not preserve the ring unit.
+The matrix statement excludes n = 0. The underlying equivalence restricts to
+finitely generated projectives; pinned Morita module statements alone are not
+the missing spectrum-level theorem.
+-/
 
 /-! ### Derived invariance -/
 
@@ -592,3 +612,11 @@ K-group. (Renamed from `mul_unit_bijective`, whose statement was false.) -/
 theorem mul_unit_inv_eq_neg (u : Aˣ) : True := by sorry
 
 end TauCeti.NonconnectiveK
+
+/- REV-FIX-RT-AREA-ktheory-1: matrix Morita invariance requires n ≥ 1.
+Arbitrary Morita equivalences are additive, not automatically monoidal;
+product compatibility needs a natural isomorphism of the relevant biexact
+functors, and an internal unital ring comparison needs compatible unit data.
+Infinite-matrix corner embeddings are nonunital. Their continuity argument
+requires the K.5 unitisation/fibre adapter and compatibility of the Morita
+isomorphisms with those embeddings (packet gap), not unital continuity alone. -/

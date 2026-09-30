@@ -2836,7 +2836,7 @@
         "So every character of H_2(G, Z) vanishes, and H_2(G, Z) = 0 by CharacterModule.eq_zero_of_character_apply."
       ],
       "acceptance": [
-        "For G = A_5, H_2 ≅ Z/2 and the non-split central extension SL_2(F_5) → A_5 realises the class of the nonzero character, so the hypothesis fails as it must.",
+        "For the standard Schur cover SL₂(𝔽₅) → A₅ with kernel C₂ = H₂(A₅, ℤ), push out the kernel along C₂ → ℚ/ℤ, 1 ↦ 1/2 mod ℤ. This is the central extension by ℚ/ℤ whose evaluation is the nonzero character and hence cannot split. The original C₂-extension itself does not have the coefficient group of this lemma.",
         "The lemma is Recognition (2) ⇒ (3) in degree two; it uses only extensions by Q/Z, not all central extensions."
       ],
       "prerequisites": [
@@ -4359,235 +4359,243 @@
   ],
   "review": {
     "status": "needs_changes",
-    "reviewer": "independent-review-REV-K2SymbolsBrauer--T.1",
-    "date": "2026-09-29",
-    "notes": "Every original node and baseline statement was inspected. Corrected false tests, source locators, coefficients and producer-consumer edges; separated bundled declarations and exposed closure gaps. External Matsumoto, generation, Hopf and recognition proofs remain unverifiable, so this is a completed review requesting revision, not acceptance.",
-    "checked": [
-      {
-        "nodeId": "K2SymbolsBrauer:T.1/steinberg-group-finite-rank",
-        "verdict": "corrected",
-        "note": "III.5.1 PDF 225 checked; corrected false exhaustiveness/rank-two explanation and added a noncommutative product-order test."
-      },
-      {
-        "nodeId": "K2SymbolsBrauer:T.1/elementary-matrices-satisfy",
-        "verdict": "corrected",
-        "note": "III.5.1.1 checked; split the quotient map into an added construction and exposed the missing general-ring bridge."
-      },
-      {
-        "nodeId": "K2SymbolsBrauer:T.1/stabilisation",
-        "verdict": "corrected",
-        "note": "III.5.1.2 checked; elementary groups are imported from their actual U.1 owner and the missing group-colimit API is explicit."
-      },
-      {
-        "nodeId": "K2SymbolsBrauer:T.1/k2-definition",
-        "verdict": "corrected",
-        "note": "III.5.2 checked; removed the late K.2 comparison dependency and separated the exact sequence. The Z computation is a deferred T.5 test."
-      },
-      {
-        "nodeId": "K2SymbolsBrauer:T.1/k2-is-centre",
-        "verdict": "unverifiable",
-        "note": "III.5.2.1 checked; the statement is stable and correct, but the column and centre inputs remain undecomposed."
-      },
-      {
-        "nodeId": "K2SymbolsBrauer:T.1/central-extension",
-        "verdict": "corrected",
-        "note": "III.5.3 checked; separated morphisms and classification, narrowed the pinned classification claim and replaced policy-only tests by C2/C4/C9 examples."
-      },
-      {
-        "nodeId": "K2SymbolsBrauer:T.1/universal-central-extension",
-        "verdict": "corrected",
-        "note": "III.5.3.1 checked; universality is over all central extensions of G, not fixed A; supplied counterexample-sensitive tests."
-      },
-      {
-        "nodeId": "K2SymbolsBrauer:T.1/uce-perfect",
-        "verdict": "corrected",
-        "note": "Split Lemmas III.5.3.2 and 5.3.3 into perfectness and rigidity nodes; arguments checked."
-      },
-      {
-        "nodeId": "K2SymbolsBrauer:T.1/hopf-formula",
-        "verdict": "unverifiable",
-        "note": "III.5.3.4-.5 checked; separated both extension constructions and corrected the false free-target kernel test. Hopf-to-bar comparison remains unverified."
-      },
-      {
-        "nodeId": "K2SymbolsBrauer:T.1/recognition-theorem",
-        "verdict": "unverifiable",
-        "note": "The equivalence of III.5.4 checked, but its Hopf/perfectness and central-composition inputs remain undecomposed. Removed an unverified A5 computation."
-      },
-      {
-        "nodeId": "K2SymbolsBrauer:T.1/steinberg-is-uce",
-        "verdict": "corrected",
-        "note": "III.5.5 checked; supplied missing perfectness and the compatibility/gluing argument from finite splitting to stable splitting."
-      },
-      {
-        "nodeId": "K2SymbolsBrauer:T.1/finite-rank-splitting",
-        "verdict": "corrected",
-        "note": "III.5.5.1 checked; removed the unjustified finite-rank UCE deduction and recognition dependency. Expanded-lift calculations still need a proof decomposition."
-      },
-      {
-        "nodeId": "K2SymbolsBrauer:T.1/finite-rank-caveat",
-        "verdict": "corrected",
-        "note": "Replaced a policy-only lemma with a precise conditional centrality result; proof is a kernel commutator argument. No general finite-rank injectivity claim added."
-      },
-      {
-        "nodeId": "K2SymbolsBrauer:T.1/k2-h2-elementary",
-        "verdict": "corrected",
-        "note": "III.5.5 checked; corrected coefficients and recorded the missing map-level naturality bridge, rather than a self-equivalence."
-      },
-      {
-        "nodeId": "K2SymbolsBrauer:T.1/k2-pi2",
-        "verdict": "corrected",
-        "note": "Corrected wrong K3 locator IV.1.20/Ex.1.9 to IV.1.7.1/Ex.1.8. Read H.3 and K.2:plus; their covering/Hurewicz interfaces remain requested."
-      },
-      {
-        "nodeId": "K2SymbolsBrauer:T.2/star-product",
-        "verdict": "corrected",
-        "note": "Star-product passage PDF 233 checked; restricted the domain to E, made commutation hypotheses explicit and retained the U.1 block-factorization dependency."
-      },
-      {
-        "nodeId": "K2SymbolsBrauer:T.2/steinberg-symbol",
-        "verdict": "corrected",
-        "note": "III.5.10 and .1 checked; retained associative-ring commuting units, split the indexed w/h words and qualified general-ring matrix and bilinearity interfaces."
-      },
-      {
-        "nodeId": "K2SymbolsBrauer:T.2/steinberg-identity",
-        "verdict": "corrected",
-        "note": "Separated the two different hypotheses of III.5.10.2-.4. The arbitrary-unit extension is a new node with its universal-localization proof gap."
-      },
-      {
-        "nodeId": "K2SymbolsBrauer:T.2/symbol-consequences",
-        "verdict": "corrected",
-        "note": "III.5.10 and .3-.4 checked; {-,-} is skew, and {a,a}={a,-1} may be nonzero. The negative-unit input is now explicit."
-      },
-      {
-        "nodeId": "K2SymbolsBrauer:T.2/symbols-generate",
-        "verdict": "unverifiable",
-        "note": "III.5.10.5 and its preceding prose checked; narrowed the local/semilocal scope to the documented commutative case. Original generation proofs remain unverified."
-      },
-      {
-        "nodeId": "K2SymbolsBrauer:T.2/matsumoto",
-        "verdict": "unverifiable",
-        "note": "III.6.1 PDF 239 states the theorem and refers out for its proof; the missing normal forms are now explicitly unverified."
-      },
-      {
-        "nodeId": "K2SymbolsBrauer:T.2/k2-finite-field",
-        "verdict": "corrected",
-        "note": "III.6.1.1 proof checked including the even/odd cases and nonsquare counting; cyclicity is an exposed prerequisite, not supplied by ZMod."
-      },
-      {
-        "nodeId": "K2SymbolsBrauer:T.2/rational-function-field",
-        "verdict": "corrected",
-        "note": "Split III.6.1.2 from .3, removed the irrelevant finite-field prerequisite and covered leading-coefficient cancellation."
-      },
-      {
-        "nodeId": "K2SymbolsBrauer:T.2/milnor-k-theory",
-        "verdict": "corrected",
-        "note": "III.7.1 checked; quotient grading and Matsumoto comparison are separate inputs; added the generator extensionality/universal property used by the graded comparison."
-      },
-      {
-        "nodeId": "K2SymbolsBrauer:T.2/milnor-alternating",
-        "verdict": "corrected",
-        "note": "III.7.1 uses alternating to mean sign under permutation. Corrected the false square-root-of-minus-one test with the C(t) residue counterexample; no strict integral alternation is asserted."
-      },
-      {
-        "nodeId": "K2SymbolsBrauer:T.2/milnor-examples",
-        "verdict": "corrected",
-        "note": "Separated the finite, algebraically closed, real, number-field and positive-characteristic global computations; corrected degree restrictions. External computations remain explicit gaps."
-      },
-      {
-        "nodeId": "K2SymbolsBrauer:T.2/graded-map",
-        "verdict": "corrected",
-        "note": "Corrected the false noninjectivity and real-place/rank tests. Read IV.1.10.1 and VI.4.3.2; moved products to K.7 and exposed product-symbol compatibility."
-      },
-      {
-        "nodeId": "K2SymbolsBrauer:T.2/graded-map-degree-three",
-        "verdict": "corrected",
-        "note": "Replaced the irrelevant definition-only locator with the product map and injectivity statement. Removed the V.2 incoming prerequisite to avoid reversing the consumer edge."
-      },
-      {
-        "nodeId": "K2SymbolsBrauer:T.1:classical/to-elementary",
-        "verdict": "added",
-        "note": "Split from K2SymbolsBrauer:T.1/elementary-matrices-satisfy; III.5.1.1 (PDF p. 225). The generator assignment x_ij(r) -> e_ij(r) descends to a surjective homomorphism St_n(R) -> E_n(R), where E_n is the subgroup generated by elementary matrices imported from KTheoryLowDegrees:U.1."
-      },
-      {
-        "nodeId": "K2SymbolsBrauer:T.1:classical/k2-k1-exact",
-        "verdict": "added",
-        "note": "Split from K2SymbolsBrauer:T.1/k2-definition; III.5.2 (PDF p. 225). The sequence 1 -> K2(R) -> St(R) -> GL(R) -> K1(R) -> 1 is exact, using the inclusion E(R) <= GL(R) and the quotient GL(R)/E(R) imported from U.1-U.2."
-      },
-      {
-        "nodeId": "K2SymbolsBrauer:T.1:classical/central-extension-hom",
-        "verdict": "added",
-        "note": "Split from K2SymbolsBrauer:T.1/central-extension; III.5.3.1 (PDF p. 226). For central extensions p:X->G and q:Y->G define a morphism over G to be a homomorphism h:X->Y with q composed with h equal to p. Such morphisms do not require a fixed map of chosen kernel groups."
-      },
-      {
-        "nodeId": "K2SymbolsBrauer:T.1:classical/central-extension-classification",
-        "verdict": "added",
-        "note": "Split from K2SymbolsBrauer:T.1/central-extension; III.5.3 (PDF pp. 226-227). Equivalence classes of central extensions of G by a fixed abelian group A correspond to H^2(G;A) with the trivial G-action."
-      },
-      {
-        "nodeId": "K2SymbolsBrauer:T.1:classical/perfect-extension-rigidity",
-        "verdict": "added",
-        "note": "Split from K2SymbolsBrauer:T.1/uce-perfect; III.5.3.3 (PDF p. 227). If p:X->G is surjective and X is perfect, and q:Y->G has central kernel, any two homomorphisms h,k:X->Y with qh=p=qk are equal."
-      },
-      {
-        "nodeId": "K2SymbolsBrauer:T.1:classical/relation-central-extension",
-        "verdict": "added",
-        "note": "Split from K2SymbolsBrauer:T.1/hopf-formula; III.5.3.4 (PDF p. 227). For F free and S normal, the projection F/[S,F] -> F/S is a central extension with kernel S/[S,F]."
-      },
-      {
-        "nodeId": "K2SymbolsBrauer:T.1:classical/commutator-central-extension",
-        "verdict": "added",
-        "note": "Split from K2SymbolsBrauer:T.1/hopf-formula; III.5.3.5 (PDF p. 227). The restriction [F,F]/[S,F] -> [G,G] is a central extension with kernel (S intersect [F,F])/[S,F]. If G is perfect its quotient is G."
-      },
-      {
-        "nodeId": "K2SymbolsBrauer:T.1:classical/steinberg-perfect",
-        "verdict": "added",
-        "note": "Split from K2SymbolsBrauer:T.1/steinberg-group-finite-rank; III.5.1 relations and III.5.5 (PDF pp. 225, 228). For n >= 3, St_n(R) is perfect, and its stable colimit St(R) is perfect."
-      },
-      {
-        "nodeId": "K2SymbolsBrauer:T.2:symbols/diagonal-lift-words",
-        "verdict": "added",
-        "note": "Split from K2SymbolsBrauer:T.2/steinberg-symbol; III.5.10.1 (PDF p. 233). For i != j and a unit r in an associative unital ring, define w_ij(r)=x_ij(r)x_ji(-r^-1)x_ij(r) and h_ij(r)=w_ij(r)w_ij(-1). Their images are respectively the two-coordinate monomial matrix and diag(r,r^-1)."
-      },
-      {
-        "nodeId": "K2SymbolsBrauer:T.2:symbols/symbol-negative-unit",
-        "verdict": "added",
-        "note": "Split from K2SymbolsBrauer:T.2/steinberg-identity; III.5.10.3-.4 (PDF p. 234). For every unit r of an associative unital ring R, {r,-r}=1, without requiring 1-r to be invertible."
-      },
-      {
-        "nodeId": "K2SymbolsBrauer:T.2:symbols/extension-kernel-torsion",
-        "verdict": "added",
-        "note": "Split from K2SymbolsBrauer:T.2/rational-function-field; III.6.1.3 (PDF p. 239). For every field extension F <= L, the kernel of K2(F) -> K2(L) is torsion."
-      },
-      {
-        "nodeId": "K2SymbolsBrauer:T.2:symbols/milnor-algebraically-closed",
-        "verdict": "added",
-        "note": "Split from K2SymbolsBrauer:T.2/milnor-examples; III.7.2(b) and Exercise III.7.3 (PDF pp. 253, 258). For an algebraically closed field F and n >= 2, K_n^M(F) is uniquely divisible. In degree one F× is divisible but need not be uniquely divisible; degree zero is Z."
-      },
-      {
-        "nodeId": "K2SymbolsBrauer:T.2:symbols/milnor-real",
-        "verdict": "added",
-        "note": "Split from K2SymbolsBrauer:T.2/milnor-examples; III.7.2(c) (PDF p. 253). For n >= 1, K_n^M(R) is Z/2 generated by {-1,...,-1}, direct sum a divisible subgroup. As a graded ring, K_*^M(R)/2 is F2[epsilon], with epsilon of degree one."
-      },
-      {
-        "nodeId": "K2SymbolsBrauer:T.2:symbols/milnor-number-field",
-        "verdict": "added",
-        "note": "Split from K2SymbolsBrauer:T.2/milnor-examples; III.7.2(d) (PDF p. 254). For a number field F with r1 real embeddings and n >= 3, K_n^M(F) is (Z/2)^r1 via the symbols at its real places."
-      },
-      {
-        "nodeId": "K2SymbolsBrauer:T.2:symbols/milnor-global-positive-characteristic",
-        "verdict": "added",
-        "note": "Split from K2SymbolsBrauer:T.2/milnor-examples; III.7.2(a) (PDF p. 253). If F has transcendence degree one over a finite field and n >= 3, K_n^M(F)=0."
-      },
-      {
-        "nodeId": "K2SymbolsBrauer:T.2:symbols/diagonal-lift",
-        "verdict": "added",
-        "note": "Separated the h definition from the w definition in III.5.10.1 (PDF p.233); its two-word product has the stated diagonal image."
-      },
-      {
-        "nodeId": "K2SymbolsBrauer:T.1:classical/stable-steinberg-perfect",
-        "verdict": "added",
-        "note": "Separated stable perfectness from finite perfectness; generator commutators pass through the colimit (III.5.1 relations/5.5)."
-      }
-    ]
-  }
+    "reviewer": "independent-review-REV-FIX-RT-AREA-ktheory-1",
+    "date": "2026-09-30",
+    "notes": "Codex session codex-J6LwjP; follows independent-review-REV-K2SymbolsBrauer--T.1. The 17 added nodes correctly separate the UCE/Hopf route, but /30 still leaves G-Hopf and G-natural-Hopf without the discrete Hochschild–Serre low-degree sequence and its map-level comparison. Prior review gaps remain. Corrected the A₅/Q/ℤ test by pushout and opened the pinned commutatorElement notation scope; not compiled. Report: research/blueprint/reviews/REV-FIX-RT-AREA-ktheory-1.md. Pinned-index checker: 0 errors, 0 warnings. Suggested Lean not compiled; implementation remains unchecked."
+  },
+  "reviewHistory": [
+    {
+      "status": "needs_changes",
+      "reviewer": "independent-review-REV-K2SymbolsBrauer--T.1",
+      "date": "2026-09-29",
+      "notes": "Every original node and baseline statement was inspected. Corrected false tests, source locators, coefficients and producer-consumer edges; separated bundled declarations and exposed closure gaps. External Matsumoto, generation, Hopf and recognition proofs remain unverifiable, so this is a completed review requesting revision, not acceptance.",
+      "checked": [
+        {
+          "nodeId": "K2SymbolsBrauer:T.1/steinberg-group-finite-rank",
+          "verdict": "corrected",
+          "note": "III.5.1 PDF 225 checked; corrected false exhaustiveness/rank-two explanation and added a noncommutative product-order test."
+        },
+        {
+          "nodeId": "K2SymbolsBrauer:T.1/elementary-matrices-satisfy",
+          "verdict": "corrected",
+          "note": "III.5.1.1 checked; split the quotient map into an added construction and exposed the missing general-ring bridge."
+        },
+        {
+          "nodeId": "K2SymbolsBrauer:T.1/stabilisation",
+          "verdict": "corrected",
+          "note": "III.5.1.2 checked; elementary groups are imported from their actual U.1 owner and the missing group-colimit API is explicit."
+        },
+        {
+          "nodeId": "K2SymbolsBrauer:T.1/k2-definition",
+          "verdict": "corrected",
+          "note": "III.5.2 checked; removed the late K.2 comparison dependency and separated the exact sequence. The Z computation is a deferred T.5 test."
+        },
+        {
+          "nodeId": "K2SymbolsBrauer:T.1/k2-is-centre",
+          "verdict": "unverifiable",
+          "note": "III.5.2.1 checked; the statement is stable and correct, but the column and centre inputs remain undecomposed."
+        },
+        {
+          "nodeId": "K2SymbolsBrauer:T.1/central-extension",
+          "verdict": "corrected",
+          "note": "III.5.3 checked; separated morphisms and classification, narrowed the pinned classification claim and replaced policy-only tests by C2/C4/C9 examples."
+        },
+        {
+          "nodeId": "K2SymbolsBrauer:T.1/universal-central-extension",
+          "verdict": "corrected",
+          "note": "III.5.3.1 checked; universality is over all central extensions of G, not fixed A; supplied counterexample-sensitive tests."
+        },
+        {
+          "nodeId": "K2SymbolsBrauer:T.1/uce-perfect",
+          "verdict": "corrected",
+          "note": "Split Lemmas III.5.3.2 and 5.3.3 into perfectness and rigidity nodes; arguments checked."
+        },
+        {
+          "nodeId": "K2SymbolsBrauer:T.1/hopf-formula",
+          "verdict": "unverifiable",
+          "note": "III.5.3.4-.5 checked; separated both extension constructions and corrected the false free-target kernel test. Hopf-to-bar comparison remains unverified."
+        },
+        {
+          "nodeId": "K2SymbolsBrauer:T.1/recognition-theorem",
+          "verdict": "unverifiable",
+          "note": "The equivalence of III.5.4 checked, but its Hopf/perfectness and central-composition inputs remain undecomposed. Removed an unverified A5 computation."
+        },
+        {
+          "nodeId": "K2SymbolsBrauer:T.1/steinberg-is-uce",
+          "verdict": "corrected",
+          "note": "III.5.5 checked; supplied missing perfectness and the compatibility/gluing argument from finite splitting to stable splitting."
+        },
+        {
+          "nodeId": "K2SymbolsBrauer:T.1/finite-rank-splitting",
+          "verdict": "corrected",
+          "note": "III.5.5.1 checked; removed the unjustified finite-rank UCE deduction and recognition dependency. Expanded-lift calculations still need a proof decomposition."
+        },
+        {
+          "nodeId": "K2SymbolsBrauer:T.1/finite-rank-caveat",
+          "verdict": "corrected",
+          "note": "Replaced a policy-only lemma with a precise conditional centrality result; proof is a kernel commutator argument. No general finite-rank injectivity claim added."
+        },
+        {
+          "nodeId": "K2SymbolsBrauer:T.1/k2-h2-elementary",
+          "verdict": "corrected",
+          "note": "III.5.5 checked; corrected coefficients and recorded the missing map-level naturality bridge, rather than a self-equivalence."
+        },
+        {
+          "nodeId": "K2SymbolsBrauer:T.1/k2-pi2",
+          "verdict": "corrected",
+          "note": "Corrected wrong K3 locator IV.1.20/Ex.1.9 to IV.1.7.1/Ex.1.8. Read H.3 and K.2:plus; their covering/Hurewicz interfaces remain requested."
+        },
+        {
+          "nodeId": "K2SymbolsBrauer:T.2/star-product",
+          "verdict": "corrected",
+          "note": "Star-product passage PDF 233 checked; restricted the domain to E, made commutation hypotheses explicit and retained the U.1 block-factorization dependency."
+        },
+        {
+          "nodeId": "K2SymbolsBrauer:T.2/steinberg-symbol",
+          "verdict": "corrected",
+          "note": "III.5.10 and .1 checked; retained associative-ring commuting units, split the indexed w/h words and qualified general-ring matrix and bilinearity interfaces."
+        },
+        {
+          "nodeId": "K2SymbolsBrauer:T.2/steinberg-identity",
+          "verdict": "corrected",
+          "note": "Separated the two different hypotheses of III.5.10.2-.4. The arbitrary-unit extension is a new node with its universal-localization proof gap."
+        },
+        {
+          "nodeId": "K2SymbolsBrauer:T.2/symbol-consequences",
+          "verdict": "corrected",
+          "note": "III.5.10 and .3-.4 checked; {-,-} is skew, and {a,a}={a,-1} may be nonzero. The negative-unit input is now explicit."
+        },
+        {
+          "nodeId": "K2SymbolsBrauer:T.2/symbols-generate",
+          "verdict": "unverifiable",
+          "note": "III.5.10.5 and its preceding prose checked; narrowed the local/semilocal scope to the documented commutative case. Original generation proofs remain unverified."
+        },
+        {
+          "nodeId": "K2SymbolsBrauer:T.2/matsumoto",
+          "verdict": "unverifiable",
+          "note": "III.6.1 PDF 239 states the theorem and refers out for its proof; the missing normal forms are now explicitly unverified."
+        },
+        {
+          "nodeId": "K2SymbolsBrauer:T.2/k2-finite-field",
+          "verdict": "corrected",
+          "note": "III.6.1.1 proof checked including the even/odd cases and nonsquare counting; cyclicity is an exposed prerequisite, not supplied by ZMod."
+        },
+        {
+          "nodeId": "K2SymbolsBrauer:T.2/rational-function-field",
+          "verdict": "corrected",
+          "note": "Split III.6.1.2 from .3, removed the irrelevant finite-field prerequisite and covered leading-coefficient cancellation."
+        },
+        {
+          "nodeId": "K2SymbolsBrauer:T.2/milnor-k-theory",
+          "verdict": "corrected",
+          "note": "III.7.1 checked; quotient grading and Matsumoto comparison are separate inputs; added the generator extensionality/universal property used by the graded comparison."
+        },
+        {
+          "nodeId": "K2SymbolsBrauer:T.2/milnor-alternating",
+          "verdict": "corrected",
+          "note": "III.7.1 uses alternating to mean sign under permutation. Corrected the false square-root-of-minus-one test with the C(t) residue counterexample; no strict integral alternation is asserted."
+        },
+        {
+          "nodeId": "K2SymbolsBrauer:T.2/milnor-examples",
+          "verdict": "corrected",
+          "note": "Separated the finite, algebraically closed, real, number-field and positive-characteristic global computations; corrected degree restrictions. External computations remain explicit gaps."
+        },
+        {
+          "nodeId": "K2SymbolsBrauer:T.2/graded-map",
+          "verdict": "corrected",
+          "note": "Corrected the false noninjectivity and real-place/rank tests. Read IV.1.10.1 and VI.4.3.2; moved products to K.7 and exposed product-symbol compatibility."
+        },
+        {
+          "nodeId": "K2SymbolsBrauer:T.2/graded-map-degree-three",
+          "verdict": "corrected",
+          "note": "Replaced the irrelevant definition-only locator with the product map and injectivity statement. Removed the V.2 incoming prerequisite to avoid reversing the consumer edge."
+        },
+        {
+          "nodeId": "K2SymbolsBrauer:T.1:classical/to-elementary",
+          "verdict": "added",
+          "note": "Split from K2SymbolsBrauer:T.1/elementary-matrices-satisfy; III.5.1.1 (PDF p. 225). The generator assignment x_ij(r) -> e_ij(r) descends to a surjective homomorphism St_n(R) -> E_n(R), where E_n is the subgroup generated by elementary matrices imported from KTheoryLowDegrees:U.1."
+        },
+        {
+          "nodeId": "K2SymbolsBrauer:T.1:classical/k2-k1-exact",
+          "verdict": "added",
+          "note": "Split from K2SymbolsBrauer:T.1/k2-definition; III.5.2 (PDF p. 225). The sequence 1 -> K2(R) -> St(R) -> GL(R) -> K1(R) -> 1 is exact, using the inclusion E(R) <= GL(R) and the quotient GL(R)/E(R) imported from U.1-U.2."
+        },
+        {
+          "nodeId": "K2SymbolsBrauer:T.1:classical/central-extension-hom",
+          "verdict": "added",
+          "note": "Split from K2SymbolsBrauer:T.1/central-extension; III.5.3.1 (PDF p. 226). For central extensions p:X->G and q:Y->G define a morphism over G to be a homomorphism h:X->Y with q composed with h equal to p. Such morphisms do not require a fixed map of chosen kernel groups."
+        },
+        {
+          "nodeId": "K2SymbolsBrauer:T.1:classical/central-extension-classification",
+          "verdict": "added",
+          "note": "Split from K2SymbolsBrauer:T.1/central-extension; III.5.3 (PDF pp. 226-227). Equivalence classes of central extensions of G by a fixed abelian group A correspond to H^2(G;A) with the trivial G-action."
+        },
+        {
+          "nodeId": "K2SymbolsBrauer:T.1:classical/perfect-extension-rigidity",
+          "verdict": "added",
+          "note": "Split from K2SymbolsBrauer:T.1/uce-perfect; III.5.3.3 (PDF p. 227). If p:X->G is surjective and X is perfect, and q:Y->G has central kernel, any two homomorphisms h,k:X->Y with qh=p=qk are equal."
+        },
+        {
+          "nodeId": "K2SymbolsBrauer:T.1:classical/relation-central-extension",
+          "verdict": "added",
+          "note": "Split from K2SymbolsBrauer:T.1/hopf-formula; III.5.3.4 (PDF p. 227). For F free and S normal, the projection F/[S,F] -> F/S is a central extension with kernel S/[S,F]."
+        },
+        {
+          "nodeId": "K2SymbolsBrauer:T.1:classical/commutator-central-extension",
+          "verdict": "added",
+          "note": "Split from K2SymbolsBrauer:T.1/hopf-formula; III.5.3.5 (PDF p. 227). The restriction [F,F]/[S,F] -> [G,G] is a central extension with kernel (S intersect [F,F])/[S,F]. If G is perfect its quotient is G."
+        },
+        {
+          "nodeId": "K2SymbolsBrauer:T.1:classical/steinberg-perfect",
+          "verdict": "added",
+          "note": "Split from K2SymbolsBrauer:T.1/steinberg-group-finite-rank; III.5.1 relations and III.5.5 (PDF pp. 225, 228). For n >= 3, St_n(R) is perfect, and its stable colimit St(R) is perfect."
+        },
+        {
+          "nodeId": "K2SymbolsBrauer:T.2:symbols/diagonal-lift-words",
+          "verdict": "added",
+          "note": "Split from K2SymbolsBrauer:T.2/steinberg-symbol; III.5.10.1 (PDF p. 233). For i != j and a unit r in an associative unital ring, define w_ij(r)=x_ij(r)x_ji(-r^-1)x_ij(r) and h_ij(r)=w_ij(r)w_ij(-1). Their images are respectively the two-coordinate monomial matrix and diag(r,r^-1)."
+        },
+        {
+          "nodeId": "K2SymbolsBrauer:T.2:symbols/symbol-negative-unit",
+          "verdict": "added",
+          "note": "Split from K2SymbolsBrauer:T.2/steinberg-identity; III.5.10.3-.4 (PDF p. 234). For every unit r of an associative unital ring R, {r,-r}=1, without requiring 1-r to be invertible."
+        },
+        {
+          "nodeId": "K2SymbolsBrauer:T.2:symbols/extension-kernel-torsion",
+          "verdict": "added",
+          "note": "Split from K2SymbolsBrauer:T.2/rational-function-field; III.6.1.3 (PDF p. 239). For every field extension F <= L, the kernel of K2(F) -> K2(L) is torsion."
+        },
+        {
+          "nodeId": "K2SymbolsBrauer:T.2:symbols/milnor-algebraically-closed",
+          "verdict": "added",
+          "note": "Split from K2SymbolsBrauer:T.2/milnor-examples; III.7.2(b) and Exercise III.7.3 (PDF pp. 253, 258). For an algebraically closed field F and n >= 2, K_n^M(F) is uniquely divisible. In degree one F× is divisible but need not be uniquely divisible; degree zero is Z."
+        },
+        {
+          "nodeId": "K2SymbolsBrauer:T.2:symbols/milnor-real",
+          "verdict": "added",
+          "note": "Split from K2SymbolsBrauer:T.2/milnor-examples; III.7.2(c) (PDF p. 253). For n >= 1, K_n^M(R) is Z/2 generated by {-1,...,-1}, direct sum a divisible subgroup. As a graded ring, K_*^M(R)/2 is F2[epsilon], with epsilon of degree one."
+        },
+        {
+          "nodeId": "K2SymbolsBrauer:T.2:symbols/milnor-number-field",
+          "verdict": "added",
+          "note": "Split from K2SymbolsBrauer:T.2/milnor-examples; III.7.2(d) (PDF p. 254). For a number field F with r1 real embeddings and n >= 3, K_n^M(F) is (Z/2)^r1 via the symbols at its real places."
+        },
+        {
+          "nodeId": "K2SymbolsBrauer:T.2:symbols/milnor-global-positive-characteristic",
+          "verdict": "added",
+          "note": "Split from K2SymbolsBrauer:T.2/milnor-examples; III.7.2(a) (PDF p. 253). If F has transcendence degree one over a finite field and n >= 3, K_n^M(F)=0."
+        },
+        {
+          "nodeId": "K2SymbolsBrauer:T.2:symbols/diagonal-lift",
+          "verdict": "added",
+          "note": "Separated the h definition from the w definition in III.5.10.1 (PDF p.233); its two-word product has the stated diagonal image."
+        },
+        {
+          "nodeId": "K2SymbolsBrauer:T.1:classical/stable-steinberg-perfect",
+          "verdict": "added",
+          "note": "Separated stable perfectness from finite perfectness; generator commutators pass through the colimit (III.5.1 relations/5.5)."
+        }
+      ]
+    }
+  ]
 }
