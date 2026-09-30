@@ -1,47 +1,47 @@
-# BP-DirichletPadicLFunctions: Finite-character moments of integral weighted series
+# BP-DirichletPadicLFunctions: Coefficient fields of integral weighted Eisenstein series
 
-Codex / codex-7e92bd same-worker issue #713 continuation after PR #4764,
-merged 7e77e73eba62d4363f3085a9a7434e21958d6cf5 with head
-146307e078defa589cfce2adbb5f6f8271c8e671. Original claim 5854790528,
+Codex / codex-7e92bd same-worker issue #713 continuation after PR #4769,
+merged bbeb1476aaeff49bce936496326127850b126997 with head
+2a438d7366e187aee6448fa6ab5d0cf2582febb9. Original claim 5854790528,
 winning bot 5854791937; no additional claim. Review #390 remains unclaimed.
 
 ## Delivered and remaining
 
-Eight nodes give exact finite-character coefficient and whole-series specializations, using native DirichletCharacter.mul for the right character. Fixed-character weight congruences retain integral precision, and finite moments allow group level below character level when the character is inserted before projection. The consumed natural-input arithmetic-character API is promoted without duplicating its definition or signature.
+Seven L4 nodes give coefficient-field naturality for actual integral weighted measures, finite group coordinates, whole positive series and finite-character arithmetic moments. Native valuation-extension maps supply the coefficient morphism; equality and C(b)-divisibility are reflected, retaining p-power precision in ramified extensions.
 
-Totals: 580 unchecked nodes (1 definitions, 234 lemmas, 69 constructions, 175 theorems, 101 comparisons), 517 API entries,
-920 packet tests (295 on definitions/constructions),
-923 typed examples, 24 planets and 500 baseline records.
+Totals: 587 unchecked nodes (1 definitions, 234 lemmas, 69 constructions, 177 theorems, 106 comparisons), 517 API entries,
+932 packet tests (295 on definitions/constructions),
+935 typed examples, 24 planets and 507 baseline records.
 16 findings, 13 gaps, 9 requests (PadicMeasuresIwasawaAlgebras:L1, PadicMeasuresIwasawaAlgebras:L3, PadicMeasuresIwasawaAlgebras:L3, LocallyAnalyticDistributions:L1, AdicSpacesPartII:F1, AdicSpacesPartII:R2, PadicDifferentialEquationsAndRigidCohomology:RD.0, PadicDifferentialEquationsAndRigidCohomology:RD.4, PadicHodgeTheory:P7:annulus-foundations), zero closed stages.
-All16 source findings, sourceVersions, nine requests and13 gaps remain. No source finding, request or independent verdict is added. The known invalid geometric expansion in Lemma5.10 is not used.
+All16 source findings, sourceVersions, nine requests and13 gaps remain. No source finding, request or independent verdict is added.
 
-Finite-character arithmetic tests now specialize the actual weighted integral coefficients and whole positive series, with the character inserted into the native right product, fixed-character weight congruences and finite reduction after twisting. The native twisted-divisor/Euler-deletion comparison and shared primitive-character modular-form specialization still require treatment. The character-pair constant coefficient, denominator qualifications and scalar/analytic specializations remain open. Generic completed-algebra and weight-space geometry stay with their existing owners and requests. All source corrections, analytic pole/residue questions and full source extraction remain open.
+The actual weighted integral coefficients, finite coordinates, whole positive series and arithmetic moments now have coefficient-field comparison statements through native valuation-compatible integer-ring maps; equality and exact integral precision reflect back to the original series. This is faithful comparison of existing objects, not arbitrary measure descent. The native twisted-divisor/Euler-deletion comparison, shared primitive-character modular-form specialization, generalized constant coefficient and denominator qualifications remain open. General completed-algebra, coefficient-extension and weight-space geometry stay with their owners and requests. All source corrections, analytic pole/residue questions and full source extraction remain open.
 
 ## Reading and validation
 
-Whole published RJW143–146 freshly read, including the finite-character test and integral coefficient discussion, and159–161 in predecessor4764. Whole existing L2 arithmetic-character and integral-character constructor/API/test nodes, coefficient inclusion and pointwise-value nodes were read, with their exact suggested signatures. The existing integral coefficient, whole-series and finite-coordinate interfaces are used directly. Native character product, changeLevel, unit and nonunit evaluation and residue cast statements were read at the pins. All63 captured inputs are unchanged.
+Whole native Valuation.Extension1–205, its exact integer-ring algebra map and comparison/injectivity APIs, native valuation-integer divisibility criterion and integer realization, and native character coefficient maps were read. The PMIA coefficient-extension interface was checked for ownership; no general measure extension is re-planned. Whole RJW143–146 was read in4769 and159–161 in4764. Actual integral coefficient/finite-coordinate/series and arithmetic-moment interfaces are the inputs. All63 captured inputs are unchanged.
 
-All 572 predecessor nodes, 499 baseline records, 16 findings, requests and sourceVersions remain whole. This checkpoint adds 8 nodes, 7 named suggested declarations and 13 typed examples. The indexed blueprint, four-file intake, whitespace, preservation, API/test parity and versioned-source checks pass. The graph has 822 reachable nodes, 3938 edges and 673 native leaves and is acyclic. Its stage request leaves are PadicMeasuresIwasawaAlgebras:L1, PadicMeasuresIwasawaAlgebras:L3, PadicMeasuresIwasawaAlgebras:L3, LocallyAnalyticDistributions:L1, AdicSpacesPartII:F1, AdicSpacesPartII:R2, PadicDifferentialEquationsAndRigidCohomology:RD.0, PadicDifferentialEquationsAndRigidCohomology:RD.4, PadicHodgeTheory:P7:annulus-foundations. All eight new routes end in existing native declarations through the exact preserved coefficient and arithmetic-character interfaces. Shared completed-algebra and general character-evaluation requests remain open.
+All 580 predecessor nodes, 500 baseline records, 16 findings, requests and sourceVersions remain whole. This checkpoint adds 7 nodes, 7 named suggested declarations and 12 typed examples. The indexed blueprint, four-file intake, whitespace, preservation, API/test parity and versioned-source checks pass. The graph has 829 reachable nodes, 3974 edges and 680 native leaves and is acyclic. Its stage request leaves are PadicMeasuresIwasawaAlgebras:L1, PadicMeasuresIwasawaAlgebras:L3, PadicMeasuresIwasawaAlgebras:L3, LocallyAnalyticDistributions:L1, AdicSpacesPartII:F1, AdicSpacesPartII:R2, PadicDifferentialEquationsAndRigidCohomology:RD.0, PadicDifferentialEquationsAndRigidCohomology:RD.4, PadicHodgeTheory:P7:annulus-foundations. All seven new routes end in existing native declarations through preserved coefficient interfaces. The shared general coefficient-extension and completed-algebra requests remain open.
 
-The full suggested module elaborates with zero errors and 1784 expected placeholder warnings. Source and artifact audits cover 3600 pinned Mathlib modules, 21 pinned Tau Ceti modules and the verified actual 332-node PMIA artifact. The current 369-node PMIA source preserves the compiled 332-node artifact's source in order; no new supplier declaration is called and no compilation against the current supplier revision is claimed. Source, olean and original compiler-log hashes were rechecked. Existing builds only were used.
+The full suggested module elaborates with zero errors and 1803 expected placeholder warnings. Source and artifact audits cover 3601 pinned Mathlib modules, 21 pinned Tau Ceti modules and the verified actual 332-node PMIA artifact. The current 369-node PMIA source preserves the compiled 332-node artifact's source in order; no new supplier declaration is called and no compilation against the current supplier revision is claimed. Source, olean and original compiler-log hashes were rechecked. Existing builds only were used.
 
-Eleven complete native lemmas check changeLevel on natural units, the actual native character product on all natural inputs including nonunits, the ordered weighted summand, actual finite Dirac evaluation and test twisting, coefficientwise and mapped whole-series equality, integral weighted divisibility, dyadic prime/third coefficients and signed cancellation in the actual coarse group algebra. The probe elaborates against 2808 pinned Mathlib modules with zero errors, warnings or placeholders. General roadmap declarations remain unchecked.
+Eleven complete native lemmas check continuity and injectivity of the actual integer-ring algebra map, reflection of scalar divisibility through native valuations, actual Dirac evaluation and coefficient change, transported character weights, native group-algebra and power-series maps, both directions of constant-series divisibility, whole-series precision reflection and preservation of nondivisibility. The probe elaborates against 2815 pinned Mathlib modules with zero errors, warnings or placeholders. General roadmap declarations remain unchecked.
 
-Exact finite arithmetic controls compare finite-character test moments with native product-level arithmetic, whole-truncation weight congruences and finite reduction after twisting, including group levels below the character level. Counterexamples distinguish left from right twisting and show the loss of signed character values when untwisted coordinates are projected too early. Exact integer and modular arithmetic for q-indices0–48, primes2/3/5/7, all ordered base-level pairs from0/1/3/4/5/7, principal and inflated quadratic p-power characters through level exponent3, arithmetic exponents0–4, group levels0–3 and every s≤r. Native lcm-level zero extensions are compared on all natural inputs. Separate tests change character position and reverse the projection/twisting order. The largest observed discrepancy is 0.
+Exact finite polynomial-quotient controls check nonrational character weights, coefficient and finite-group maps, truncated-series naturality and coordinatewise p-power precision through an extension with π²=3. Controls reject discarding imaginary character components and replacing p² precision by π² precision. Exact arithmetic in A_r=(ℤ/3^rℤ)[i]/(i²+1) and B_r=A_r[π]/(π²−3), r=0–4, with explicit coefficient bases. Every ordered level1/4/quartic5 character pair is tested on q-indices0–48 and exponents0–3. Ring operations, mapped polynomial tests, finite group coordinates, direct/two-step coefficient embeddings and coordinatewise ideals(3^s),s≤r, are checked. These are explicitly defined finite polynomial-quotient models; no local-field realization is certified. The largest observed discrepancy is 0.
 
-The63-input capture at 246b5eaec3f6e1fc91e3719d14cc30ead571588d has an empty predecessor delta. Live GitHub capture and guards use authenticated reads to avoid stale public API cache results. The actual compiled332-node PMIA artifact is reused; no declaration added in the current369-node source is called. The native twisted-divisor module remains source-checked only, without mismatched artifacts or a native build.
+The63-input capture at 58d74b77e1717f2c6418bfd76bad27260e946dbd has an empty predecessor delta. The existing pinned Mathlib Valuation.Extension artifact is newly imported ahead of the unchanged predecessor Lean body; no native module is built. The actual compiled332-node PMIA artifact is reused with no added369-node supplier declaration called. The native twisted-divisor module remains source-checked only.
 
-The publication guard at f8608e6bf29537ef8735f45fa624ab83c1618118 checks 63 inputs, four
+The publication guard at 38767fbd3995abde248a9221d0a469ee2aebc58f checks 63 inputs, four
 predecessor outputs, unchanged issue text, the original winning claim and
 unclaimed review #390.
-The63-input capture at 246b5eaec3f6e1fc91e3719d14cc30ead571588d has an empty predecessor delta. Live GitHub capture and guards use authenticated reads to avoid stale public API cache results. The actual compiled332-node PMIA artifact is reused; no declaration added in the current369-node source is called. The native twisted-divisor module remains source-checked only, without mismatched artifacts or a native build.
-Suggested SHA256: `133f4dc68625216f8e6c227cec383829fc942483fd188f3a7cacf714780ccfa9`.
-Native probe SHA256: `d145cf515b146fc1b283ffa5b9811921250d3076c81550ceaa7f3ccfeb77af17`.
+The63-input capture at 58d74b77e1717f2c6418bfd76bad27260e946dbd has an empty predecessor delta. The existing pinned Mathlib Valuation.Extension artifact is newly imported ahead of the unchanged predecessor Lean body; no native module is built. The actual compiled332-node PMIA artifact is reused with no added369-node supplier declaration called. The native twisted-divisor module remains source-checked only.
+Suggested SHA256: `b94dc075211b100a37fbc4af775dc518cfcf92b90d0aa2a40a3ad7a5ad8a73ef`.
+Native probe SHA256: `d31842da06cab900d2b3ca6ffc3ca3fc3577b7c8ded7bcf5d91e03b8b4f75f26`.
 
 One reusable worktree and one Lean process at a time were used. All compiler
 processes have ended. Exactly the four authorized deliverables change.
 
-Retain WildMomentsProbe.lean and its compiler/result/source audit, numerical
+Retain CoefficientChangeProbe.lean and its compiler/result/source audit, numerical
 control code and results, the full suggested compiler/result/source audit,
 artifact hashes, graph/preservation/API receipts, captured inputs and guard,
 and exact submitted files with remote receipts. Retire scratch after opening
