@@ -4323,8 +4323,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PAPER-LE-LEHUNG-LEVIN-ETAL-23.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1254"
+   "state": "pending",
+   "note": "released on GitHub issue #1254"
   },
   {
    "id": "REV-PAPER-LE-LEHUNG-LEVIN-ETAL-23",
@@ -33329,8 +33329,9 @@
     "REV-PAPER-FU-24"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-FU-24.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4054"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4054",
+   "finishedAt": "2026-09-30T09:52:25Z"
   },
   {
    "id": "REV-RT-PAPER-FU-24",
@@ -34234,7 +34235,8 @@
     "REV-PAPER-KHAYUTIN-19"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-KHAYUTIN-19.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4088"
   },
   {
    "id": "RT-PAPER-YUN-ZHANG-19",
@@ -35047,7 +35049,8 @@
     "REV-PAPER-TREUMANN-VENKATESH-16"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-TREUMANN-VENKATESH-16.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4119"
   },
   {
    "id": "RT-PAPER-SCHIFFMANN-16",
@@ -35092,8 +35095,9 @@
     "REV-PAPER-SCHIFFMANN-16"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-SCHIFFMANN-16.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4121"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4121",
+   "finishedAt": "2026-09-30T09:52:30Z"
   },
   {
    "id": "RT-PAPER-ELLENBERG-VENKATESH-WESTERLAND-16",
@@ -35113,7 +35117,8 @@
     "REV-PAPER-ELLENBERG-VENKATESH-WESTERLAND-16"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-ELLENBERG-VENKATESH-WESTERLAND-16.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4124"
   },
   {
    "id": "REV-RT-PAPER-ELLENBERG-VENKATESH-WESTERLAND-16",
