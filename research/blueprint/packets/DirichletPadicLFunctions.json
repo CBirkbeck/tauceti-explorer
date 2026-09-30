@@ -10,7 +10,7 @@
     "DirichletPadicLFunctions:L4"
   ],
   "status": "partial",
-  "summary": "Partial continuation preserving all598 predecessor nodes whole. Four L3 nodes give continuity of the actual numerator under an explicitly supplied character family, local denominator admissibility, the conditional weighted limit1−p⁻¹ with no continuous extension, and the reciprocal coordinate factor. The canonical family and its derivative remain explicit hypotheses. All16 findings, eleven requests and fifteen gaps remain; zero closed stages.",
+  "summary": "Partial continuation preserving all602 predecessor nodes whole. Six L3 nodes give uniform convergence of the actual integer-weight moments, the owned logarithm identity for their clearing factor, normalized denominator precision, exact Bernoulli rescaling and the two resulting residue sequence limits. The weights are w_r=(p−1)p^r, including the dyadic initial weight1. All16 findings, eleven requests and fifteen gaps remain; zero closed stages.",
   "baseline": {
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
@@ -3710,6 +3710,20 @@
         "module": "Mathlib/Analysis/Calculus/Deriv/Pow.lean",
         "provides": "The native scalar power rule, including the critical quadratic coordinate at0.",
         "checked": "Full pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 statement, ambient hypotheses and proof read on30September2026 and matched to the index. The measure functional, derivative slope, nonzero limit, chain rule and continuous-extension argument are exercised in the complete native probe."
+      },
+      {
+        "ref": "mathlib:Nat.totient_prime_pow_succ",
+        "kind": "theorem",
+        "module": "Mathlib/Data/Nat/Totient.lean",
+        "provides": "The exact finite unit-group exponent φ(p^(r+1))=p^r(p−1).",
+        "checked": "Full pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 statement, ambient hypotheses and proof read on30September2026, matched to the unchanged index and exercised in the complete native probe."
+      },
+      {
+        "ref": "mathlib:squeeze_one_norm",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/Normed/Group/Continuity.lean",
+        "provides": "Indexed multiplicative parent of the generated squeeze_zero_norm theorem; the additive form transfers a real norm bound tending to0 into convergence to0.",
+        "checked": "Full pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 statement, ambient hypotheses and proof read on30September2026, matched to the unchanged index and exercised in the complete native probe."
       }
     ]
   },
@@ -39337,6 +39351,396 @@
       "acceptance": [
         "The new coordinate derivative appears in the denominator. No global coordinate isomorphism or branch construction is claimed."
       ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/integer-principal-numerator-limit",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Integer-weight moments approaching the principal mass",
+      "kind": "lemma",
+      "statement": "For every r≥0, ‖N_r−M‖≤p^(−r−1), and N_r tends to M as r tends to infinity.",
+      "hypotheses": [
+        "p is any prime, including2. Write Z=ℤ_p, Q=ℚ_p, U=Zˣ and a=p+1. Put w_r=(p−1)p^r>0 and δ_r=a^(w_r)−1. Every δ_r is nonzero: it is the image in the characteristic-zero field Q of the positive integer a^(w_r)−1.",
+        "For the actual arithmetic numerator λ=intrinsicSmoothedNumerator p a ha, with ha:p∤a, let μ be its existing Q-valued integral unit coefficient extension. Retain the bounded Z-action on Q when this extension is used. M=algebraMap Z Q(λ(1)) and N_r=μ(u↦u^(w_r)); these are evaluations of existing objects, not new measure or evaluator constructors.",
+        "Let L be the native sum over n≥0 of (−1)^(n+1)p^n/n in Q, with totalized zero term0. The logarithm and its multiplication law are imported from ColemanIntegration L0. The actual mass comparison M=−(1−p⁻¹)L and L≠0 are the preceding principal logarithmic results, with all their open supplier inputs retained.",
+        "The weight sequence approaches0 p-adically and the arithmetic s-coordinate is1−w_r. The factor for a residue in that coordinate is−w_r, not+w_r and not1. At p=2, w_0=1 and the first numerator and Bernoulli expression are0; this exceptional initial term is retained.",
+        "All limits below are sequences at the native natural-number atTop filter. No passage from this sequence to a full punctured limit, analytic continuation, canonical character family or meromorphic pole is asserted. Generic character-space and Mellin constructions remain with PMIA L0a and LAD L3."
+      ],
+      "proofSteps": [
+        "Reduce an arbitrary unit u modulo p^(r+1), using native Units.map of PadicInt.toZModPow. Its finite unit group has cardinality φ(p^(r+1))=p^r(p−1)=w_r. Native pow_card_eq_one gives u^(w_r)=1 in that quotient. This is the same native Euler argument already used for the full-cleared Eisenstein weight congruence, not another generic unit-power construction.",
+        "Use ker_toZModPow and norm_le_pow_iff_mem_span_pow to turn the kernel membership into ‖u^(w_r)−1‖≤p^(−r−1) in Z. Native inclusion into Q preserves this norm. Complete unit_power_precision and unit_power_precision_field verify the actual quotient, exponent and coercion.",
+        "Apply ContinuousMap.norm_le on the native compact unit group to the difference of the power test and1. The actual μ has operator norm at most1 by intrinsic-numerator-norm; ContinuousLinearMap.le_opNorm then gives the same bound for μ(power)−μ(1). The imported integral-unit-extension test identifies μ(1) with M. Complete functional_precision checks this continuous-functional step.",
+        "The real error bound is (p⁻¹)^(r+1), which tends to0 because p>1. The native squeeze_zero_norm theorem and translation by M give the sequence limit. Complete precision_tends_zero and limit_of_precision verify the filter argument. At p=2,r=0 the bound is1/2, consistent with N_0=0 and ‖M‖=1/2."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L1/intrinsic-numerator-norm",
+        "PadicMeasuresIwasawaAlgebras:L2/integral-unit-extension-test-function",
+        "mathlib:PadicInt.toZModPow",
+        "mathlib:PadicInt.ker_toZModPow",
+        "mathlib:PadicInt.norm_le_pow_iff_mem_span_pow",
+        "mathlib:pow_card_eq_one",
+        "mathlib:ZMod.card_units_eq_totient",
+        "mathlib:Nat.totient_prime_pow_succ",
+        "mathlib:ContinuousMap.norm_le",
+        "mathlib:ContinuousLinearMap.le_opNorm",
+        "mathlib:squeeze_one_norm",
+        "mathlib:tendsto_pow_atTop_nhds_zero_of_lt_one"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/IntegerResidue",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.intrinsicSmoothedNumerator_integer_weight_limit"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Proposition4.8, equations4-2/4-3 and Proposition4.11, published138–139/PDF39–40; Theorem7.1 and equations7-1 through7-8 with proofs, published154–158/PDF55–59. These pages and published153 were freshly reread.",
+          "match": "Worker deduction along the concrete weights w_r=(p−1)p^r, combining the source numerator moments and principal mass with the existing owned logarithm homomorphism. The exact sequence and precision bounds are not separately stated in RJW. No analytic character family, meromorphic branch or pole order is constructed. Existing source qualifications, including E7, remain."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedIntegerResidueTests.initial_dyadic_numerator_zero",
+          "kind": "degenerate",
+          "statement": "At p=2,r=0, the actual first numerator moment N_0 is0."
+        },
+        {
+          "name": "SuggestedIntegerResidueTests.second_dyadic_numerator",
+          "kind": "computation",
+          "statement": "At p=2,r=1, the actual numerator moment N_1 is2/3."
+        },
+        {
+          "name": "SuggestedIntegerResidueTests.dyadic_numerator_precision",
+          "kind": "compatibility",
+          "statement": "At p=2 every actual moment differs from the included principal mass by norm at most2^(−r−1)."
+        }
+      ],
+      "acceptance": [
+        "The pointwise congruence is uniform over all units and is transferred to the actual measure. Pointwise convergence alone is not used to exchange integration and limit."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/integer-principal-denominator-logarithm",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The logarithm of the powered clearing factor",
+      "kind": "comparison",
+      "statement": "For every r≥0, the logarithm series ∑n (−1)^(n+1)δ_r^n/n has sum w_r L.",
+      "hypotheses": [
+        "p is any prime, including2. Write Z=ℤ_p, Q=ℚ_p, U=Zˣ and a=p+1. Put w_r=(p−1)p^r>0 and δ_r=a^(w_r)−1. Every δ_r is nonzero: it is the image in the characteristic-zero field Q of the positive integer a^(w_r)−1.",
+        "For the actual arithmetic numerator λ=intrinsicSmoothedNumerator p a ha, with ha:p∤a, let μ be its existing Q-valued integral unit coefficient extension. Retain the bounded Z-action on Q when this extension is used. M=algebraMap Z Q(λ(1)) and N_r=μ(u↦u^(w_r)); these are evaluations of existing objects, not new measure or evaluator constructors.",
+        "Let L be the native sum over n≥0 of (−1)^(n+1)p^n/n in Q, with totalized zero term0. The logarithm and its multiplication law are imported from ColemanIntegration L0. The actual mass comparison M=−(1−p⁻¹)L and L≠0 are the preceding principal logarithmic results, with all their open supplier inputs retained.",
+        "The weight sequence approaches0 p-adically and the arithmetic s-coordinate is1−w_r. The factor for a residue in that coordinate is−w_r, not+w_r and not1. At p=2, w_0=1 and the first numerator and Bernoulli expression are0; this exceptional initial term is retained.",
+        "All limits below are sequences at the native natural-number atTop filter. No passage from this sequence to a full punctured limit, analytic continuation, canonical character family or meromorphic pole is asserted. Generic character-space and Mellin constructions remain with PMIA L0a and LAD L3."
+      ],
+      "proofSteps": [
+        "The same native finite-unit argument gives ‖δ_r‖≤p^(−r−1)<1. The canonical integer a is a unit, and a−1=p has norm less than1. All positive powers of a remain in the principal-unit group; this can also be proved directly by induction using its multiplication law.",
+        "Import ColemanIntegration:L0/log-one-add-mul for the actual complete ultrametric field Q. Iterating that existing homomorphism on a yields log(a^(w_r))=w_r log(a). Its input is a genuine principal unit; no all-unit topological-generator assumption is used.",
+        "Use the owner’s log-one-add-convergence at p and at δ_r to identify both logarithms with their actual HasSum values. Since a^(w_r)=1+δ_r, the result is the displayed sum. The r=0 dyadic case uses log3 at |2|=1/2, within the owner’s open unit disc; it does not require a p-adic exponential.",
+        "The owner route has the existing LAD L1 analytic stage boundary. It remains explicit. No general logarithm multiplication theorem, analytic-radius theorem or surrogate logarithm is re-planned here."
+      ],
+      "prerequisites": [
+        "ColemanIntegration:L0/log-one-add-mul",
+        "ColemanIntegration:L0/log-one-add-convergence",
+        "mathlib:PadicInt.ker_toZModPow",
+        "mathlib:PadicInt.norm_le_pow_iff_mem_span_pow",
+        "mathlib:pow_card_eq_one",
+        "mathlib:ZMod.card_units_eq_totient",
+        "mathlib:Nat.totient_prime_pow_succ",
+        "mathlib:Padic.norm_p"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/IntegerResidue",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.canonicalClearingFactor_integer_logarithm"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Proposition4.8, equations4-2/4-3 and Proposition4.11, published138–139/PDF39–40; Theorem7.1 and equations7-1 through7-8 with proofs, published154–158/PDF55–59. These pages and published153 were freshly reread.",
+          "match": "Worker deduction along the concrete weights w_r=(p−1)p^r, combining the source numerator moments and principal mass with the existing owned logarithm homomorphism. The exact sequence and precision bounds are not separately stated in RJW. No analytic character family, meromorphic branch or pole order is constructed. Existing source qualifications, including E7, remain."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedIntegerResidueTests.initial_dyadic_power_logarithm",
+          "kind": "degenerate",
+          "statement": "At p=2,r=0 the logarithm series at2 has sum L."
+        },
+        {
+          "name": "SuggestedIntegerResidueTests.second_dyadic_power_logarithm",
+          "kind": "compatibility",
+          "statement": "At p=2,r=1, δ_r=8 and the logarithm series at8 has sum2L."
+        },
+        {
+          "name": "SuggestedIntegerResidueTests.initial_ternary_power_logarithm",
+          "kind": "compatibility",
+          "statement": "At p=3,r=0, δ_r=15 and the logarithm series at15 has sum2L."
+        }
+      ],
+      "acceptance": [
+        "The source homomorphism is applied only within its stated principal-unit domain. The infinite logarithm identity is an owned dependency, not a result of the finite numerical controls."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/integer-principal-denominator-precision",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Precision of the normalized integer clearing factor",
+      "kind": "lemma",
+      "statement": "For every r≥0, ‖δ_r/w_r−L‖≤p^(−r−1), and δ_r/w_r tends to L.",
+      "hypotheses": [
+        "p is any prime, including2. Write Z=ℤ_p, Q=ℚ_p, U=Zˣ and a=p+1. Put w_r=(p−1)p^r>0 and δ_r=a^(w_r)−1. Every δ_r is nonzero: it is the image in the characteristic-zero field Q of the positive integer a^(w_r)−1.",
+        "For the actual arithmetic numerator λ=intrinsicSmoothedNumerator p a ha, with ha:p∤a, let μ be its existing Q-valued integral unit coefficient extension. Retain the bounded Z-action on Q when this extension is used. M=algebraMap Z Q(λ(1)) and N_r=μ(u↦u^(w_r)); these are evaluations of existing objects, not new measure or evaluator constructors.",
+        "Let L be the native sum over n≥0 of (−1)^(n+1)p^n/n in Q, with totalized zero term0. The logarithm and its multiplication law are imported from ColemanIntegration L0. The actual mass comparison M=−(1−p⁻¹)L and L≠0 are the preceding principal logarithmic results, with all their open supplier inputs retained.",
+        "The weight sequence approaches0 p-adically and the arithmetic s-coordinate is1−w_r. The factor for a residue in that coordinate is−w_r, not+w_r and not1. At p=2, w_0=1 and the first numerator and Bernoulli expression are0; this exceptional initial term is retained.",
+        "All limits below are sequences at the native natural-number atTop filter. No passage from this sequence to a full punctured limit, analytic continuation, canonical character family or meromorphic pole is asserted. Generic character-space and Mellin constructions remain with PMIA L0a and LAD L3."
+      ],
+      "proofSteps": [
+        "For each n≥2, the native valuation bound p^v_p(n)≤n and2v≤2^v imply2v_p(n)≤n. Combined with ‖δ_r‖≤p^(−r−1), this bounds the nth logarithm term by p^(v_p(n)−(r+1)n)≤p^(−2r−1). Complete logarithmic_power_term_bound checks the integer-exponent inequality, including p=2,n=2.",
+        "The preceding HasSum has terms0 andδ_r at indices0 and1. Apply the native ultrametric finite-sum norm bound to the tail beginning at2, then pass to its limit. Thus ‖δ_r−w_r L‖≤p^(−2r−1). Complete logarithmic_power_error checks the shifted HasSum and exact first-two-term sum.",
+        "Native norm_natCast_p_sub_one and norm_p give ‖w_r‖=p^(−r), and w_r≠0. Divide the error by this exact norm to obtain p^(−r−1); do not omit the loss of r digits. Complete weight_positive, weight_norm and normalized_error verify the division and exponent arithmetic.",
+        "Apply the same native real geometric limit and squeeze argument as for the numerator. The bound at p=2,r=0 is1/2 and permits D_0=2, even though ‖L‖=1/4. Complete clearing_factor_nonzero proves every δ_r is nonzero by characteristic zero; no eventual nonvanishing is substituted for this exact arithmetic fact."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/integer-principal-denominator-logarithm",
+        "mathlib:pow_padicValNat_dvd",
+        "mathlib:Padic.valuation_natCast",
+        "mathlib:Padic.norm_natCast_p_sub_one",
+        "mathlib:Padic.norm_p",
+        "mathlib:zpow_le_zpow_right₀",
+        "mathlib:IsUltrametricDist.norm_prod_le_of_forall_le_of_nonneg",
+        "mathlib:hasProd_nat_add_iff'",
+        "mathlib:HasProd.tendsto_prod_nat",
+        "mathlib:le_of_tendsto'",
+        "mathlib:squeeze_one_norm",
+        "mathlib:tendsto_pow_atTop_nhds_zero_of_lt_one"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/IntegerResidue",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.canonicalClearingFactor_integer_precision"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Proposition4.8, equations4-2/4-3 and Proposition4.11, published138–139/PDF39–40; Theorem7.1 and equations7-1 through7-8 with proofs, published154–158/PDF55–59. These pages and published153 were freshly reread.",
+          "match": "Worker deduction along the concrete weights w_r=(p−1)p^r, combining the source numerator moments and principal mass with the existing owned logarithm homomorphism. The exact sequence and precision bounds are not separately stated in RJW. No analytic character family, meromorphic branch or pole order is constructed. Existing source qualifications, including E7, remain."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedIntegerResidueTests.initial_dyadic_denominator",
+          "kind": "computation",
+          "statement": "At p=2,r=0, δ_r/w_r=2."
+        },
+        {
+          "name": "SuggestedIntegerResidueTests.second_dyadic_denominator",
+          "kind": "computation",
+          "statement": "At p=2,r=1, δ_r/w_r=4."
+        },
+        {
+          "name": "SuggestedIntegerResidueTests.every_integer_clearing_factor_nonzero",
+          "kind": "non-example",
+          "statement": "The actual clearing factor is nonzero at every finite index, including the dyadic first weight."
+        }
+      ],
+      "acceptance": [
+        "The precision loss from division by w_r is explicit. The series bound uses the ultrametric maximum, not a real absolute-summability claim."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/integer-principal-rescaled-moment",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Bernoulli values of the rescaled integer moments",
+      "kind": "comparison",
+      "statement": "For every r≥0, −w_r N_r/δ_r=(1−p^(w_r−1))B_(w_r), with the native Bernoulli number embedded from ℚ into Q.",
+      "hypotheses": [
+        "p is any prime, including2. Write Z=ℤ_p, Q=ℚ_p, U=Zˣ and a=p+1. Put w_r=(p−1)p^r>0 and δ_r=a^(w_r)−1. Every δ_r is nonzero: it is the image in the characteristic-zero field Q of the positive integer a^(w_r)−1.",
+        "For the actual arithmetic numerator λ=intrinsicSmoothedNumerator p a ha, with ha:p∤a, let μ be its existing Q-valued integral unit coefficient extension. Retain the bounded Z-action on Q when this extension is used. M=algebraMap Z Q(λ(1)) and N_r=μ(u↦u^(w_r)); these are evaluations of existing objects, not new measure or evaluator constructors.",
+        "Let L be the native sum over n≥0 of (−1)^(n+1)p^n/n in Q, with totalized zero term0. The logarithm and its multiplication law are imported from ColemanIntegration L0. The actual mass comparison M=−(1−p⁻¹)L and L≠0 are the preceding principal logarithmic results, with all their open supplier inputs retained.",
+        "The weight sequence approaches0 p-adically and the arithmetic s-coordinate is1−w_r. The factor for a residue in that coordinate is−w_r, not+w_r and not1. At p=2, w_0=1 and the first numerator and Bernoulli expression are0; this exceptional initial term is retained.",
+        "All limits below are sequences at the native natural-number atTop filter. No passage from this sequence to a full punctured limit, analytic continuation, canonical character family or meromorphic pole is asserted. Generic character-space and Mellin constructions remain with PMIA L0a and LAD L3."
+      ],
+      "proofSteps": [
+        "The positive exponent w_r is at least1. Apply the existing exact intrinsic-numerator-extension-moment theorem at a=p+1,k=w_r. This gives N_r=(1−p^(w_r−1))(1−a^(w_r))B_(w_r)/w_r.",
+        "Since δ_r=a^(w_r)−1 and both δ_r and w_r are nonzero, multiply by−w_r/δ_r and cancel. The two minus signs cancel. Complete bernoulli_rescaling checks the field identity without an evaluation map on the whole pseudomeasure quotient.",
+        "At p=2,r=0, w_r=1 and the Euler factor1−p^0 is0, so both sides vanish irrespective of B_1=−1/2. At r=1, N_r=2/3 and the rescaled value is−1/6. Complete dyadic_initial_values checks the rational normalization.",
+        "The minus sign records s_r−1=−w_r. Removing this factor changes the arithmetic values. This is a comparison of existing actual measure evaluations and native Bernoulli numbers; no Bernoulli or character constructor is added."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L1/intrinsic-numerator-extension-moment",
+        "mathlib:bernoulli_one",
+        "mathlib:bernoulli_two"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/IntegerResidue",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.intrinsicSmoothedNumerator_integer_rescaling"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Proposition4.8, equations4-2/4-3 and Proposition4.11, published138–139/PDF39–40; Theorem7.1 and equations7-1 through7-8 with proofs, published154–158/PDF55–59. These pages and published153 were freshly reread.",
+          "match": "Worker deduction along the concrete weights w_r=(p−1)p^r, combining the source numerator moments and principal mass with the existing owned logarithm homomorphism. The exact sequence and precision bounds are not separately stated in RJW. No analytic character family, meromorphic branch or pole order is constructed. Existing source qualifications, including E7, remain."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedIntegerResidueTests.initial_dyadic_bernoulli_rescaling",
+          "kind": "degenerate",
+          "statement": "At p=2,r=0 the rescaled Bernoulli value is0."
+        },
+        {
+          "name": "SuggestedIntegerResidueTests.second_dyadic_bernoulli_rescaling",
+          "kind": "computation",
+          "statement": "At p=2,r=1 the rescaled Bernoulli value is−1/6."
+        },
+        {
+          "name": "SuggestedIntegerResidueTests.missing_weight_changes_rescaling",
+          "kind": "non-example",
+          "statement": "At p=2,r=1, the unweighted quotient−N_r/δ_r=−1/12 differs from−1/6."
+        }
+      ],
+      "acceptance": [
+        "All finite indices are included. No use of the complex zeta function or an embedding of ℂ into Q is needed."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/integer-principal-residue-limit",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The principal residue along integer weights",
+      "kind": "theorem",
+      "statement": "The sequence −w_r N_r/δ_r tends to1−p⁻¹ in Q.",
+      "hypotheses": [
+        "p is any prime, including2. Write Z=ℤ_p, Q=ℚ_p, U=Zˣ and a=p+1. Put w_r=(p−1)p^r>0 and δ_r=a^(w_r)−1. Every δ_r is nonzero: it is the image in the characteristic-zero field Q of the positive integer a^(w_r)−1.",
+        "For the actual arithmetic numerator λ=intrinsicSmoothedNumerator p a ha, with ha:p∤a, let μ be its existing Q-valued integral unit coefficient extension. Retain the bounded Z-action on Q when this extension is used. M=algebraMap Z Q(λ(1)) and N_r=μ(u↦u^(w_r)); these are evaluations of existing objects, not new measure or evaluator constructors.",
+        "Let L be the native sum over n≥0 of (−1)^(n+1)p^n/n in Q, with totalized zero term0. The logarithm and its multiplication law are imported from ColemanIntegration L0. The actual mass comparison M=−(1−p⁻¹)L and L≠0 are the preceding principal logarithmic results, with all their open supplier inputs retained.",
+        "The weight sequence approaches0 p-adically and the arithmetic s-coordinate is1−w_r. The factor for a residue in that coordinate is−w_r, not+w_r and not1. At p=2, w_0=1 and the first numerator and Bernoulli expression are0; this exceptional initial term is retained.",
+        "All limits below are sequences at the native natural-number atTop filter. No passage from this sequence to a full punctured limit, analytic continuation, canonical character family or meromorphic pole is asserted. Generic character-space and Mellin constructions remain with PMIA L0a and LAD L3."
+      ],
+      "proofSteps": [
+        "Use integer-principal-numerator-limit for N_r→M and integer-principal-denominator-precision for δ_r/w_r→L. The preceding principal-logarithmic-series-norm gives L≠0, including its dyadic norm1/4.",
+        "Native Tendsto.div therefore gives −N_r/(δ_r/w_r)→−M/L. Rewrite the term as−w_r N_r/δ_r using the field identity; complete rescaled_ratio_limit proves this transfer for arbitrary convergent sequences with nonzero limiting denominator.",
+        "The actual mass comparison says M=−(1−p⁻¹)L. Cancel nonzero L to obtain the positive coefficient1−p⁻¹. The two signs arise separately from the mass and from s_r−1.",
+        "This establishes the residue value along the specified arithmetic sequence. It cannot establish a full neighbourhood limit or the existence of a meromorphic function. The predecessor’s conditional-family theorem and the PMIA/LAD family-construction boundary remain separate."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/integer-principal-numerator-limit",
+        "DirichletPadicLFunctions:L3/integer-principal-denominator-precision",
+        "DirichletPadicLFunctions:L3/principal-numerator-logarithmic-series",
+        "DirichletPadicLFunctions:L3/principal-logarithmic-series-norm",
+        "mathlib:Filter.Tendsto.div"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/IntegerResidue",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.intrinsicSmoothedNumerator_integer_residue_limit"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Proposition4.8, equations4-2/4-3 and Proposition4.11, published138–139/PDF39–40; Theorem7.1 and equations7-1 through7-8 with proofs, published154–158/PDF55–59. These pages and published153 were freshly reread.",
+          "match": "Worker deduction along the concrete weights w_r=(p−1)p^r, combining the source numerator moments and principal mass with the existing owned logarithm homomorphism. The exact sequence and precision bounds are not separately stated in RJW. No analytic character family, meromorphic branch or pole order is constructed. Existing source qualifications, including E7, remain."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedIntegerResidueTests.dyadic_rescaled_numerator_limit",
+          "kind": "computation",
+          "statement": "The actual rescaled dyadic numerator sequence tends to+1/2."
+        },
+        {
+          "name": "SuggestedIntegerResidueTests.residue_sign_is_positive",
+          "kind": "non-example",
+          "statement": "The dyadic residue coefficient+1/2 is distinct from−1/2."
+        },
+        {
+          "name": "SuggestedIntegerResidueTests.dyadic_initial_value_is_not_limit",
+          "kind": "degenerate",
+          "statement": "The initial dyadic value0 is not the limiting coefficient+1/2."
+        }
+      ],
+      "acceptance": [
+        "There is no supplied-family or derivative hypothesis. The existing owner-dependent mass and logarithm route, with seven analytic stage leaves, remains visible."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/principal-bernoulli-residue-limit",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The Bernoulli residue sequence",
+      "kind": "theorem",
+      "statement": "The sequence (1−p^(w_r−1))B_(w_r) tends to1−p⁻¹ in Q for every prime p, including2.",
+      "hypotheses": [
+        "p is any prime, including2. Write Z=ℤ_p, Q=ℚ_p, U=Zˣ and a=p+1. Put w_r=(p−1)p^r>0 and δ_r=a^(w_r)−1. Every δ_r is nonzero: it is the image in the characteristic-zero field Q of the positive integer a^(w_r)−1.",
+        "For the actual arithmetic numerator λ=intrinsicSmoothedNumerator p a ha, with ha:p∤a, let μ be its existing Q-valued integral unit coefficient extension. Retain the bounded Z-action on Q when this extension is used. M=algebraMap Z Q(λ(1)) and N_r=μ(u↦u^(w_r)); these are evaluations of existing objects, not new measure or evaluator constructors.",
+        "Let L be the native sum over n≥0 of (−1)^(n+1)p^n/n in Q, with totalized zero term0. The logarithm and its multiplication law are imported from ColemanIntegration L0. The actual mass comparison M=−(1−p⁻¹)L and L≠0 are the preceding principal logarithmic results, with all their open supplier inputs retained.",
+        "The weight sequence approaches0 p-adically and the arithmetic s-coordinate is1−w_r. The factor for a residue in that coordinate is−w_r, not+w_r and not1. At p=2, w_0=1 and the first numerator and Bernoulli expression are0; this exceptional initial term is retained.",
+        "All limits below are sequences at the native natural-number atTop filter. No passage from this sequence to a full punctured limit, analytic continuation, canonical character family or meromorphic pole is asserted. Generic character-space and Mellin constructions remain with PMIA L0a and LAD L3."
+      ],
+      "proofSteps": [
+        "Choose the canonical arithmetic parameter a=p+1; p∤a is elementary. The actual integer-rescaling comparison identifies every Bernoulli term with the actual rescaled numerator term.",
+        "Transfer the preceding sequence limit along this pointwise equality. This uses no interpolation outside the concrete positive integer weights and does not construct the canonical analytic branch.",
+        "The dyadic weight1 term is0, the weight2 term is−1/6, and the limiting value is+1/2. At p=3 the limit is2/3. Omitting the Euler factor already changes the dyadic weight2 value from−1/6 to+1/6.",
+        "The exact rational controls compute native-convention Bernoulli values independently via their recurrence and compare the displayed rescaling and precision identities. They test normalization and finite arithmetic; the infinite limit uses the explicit preceding proof chain."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/integer-principal-rescaled-moment",
+        "DirichletPadicLFunctions:L3/integer-principal-residue-limit"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/IntegerResidue",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.principal_bernoulli_residue_limit"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Proposition4.8, equations4-2/4-3 and Proposition4.11, published138–139/PDF39–40; Theorem7.1 and equations7-1 through7-8 with proofs, published154–158/PDF55–59. These pages and published153 were freshly reread.",
+          "match": "Worker deduction along the concrete weights w_r=(p−1)p^r, combining the source numerator moments and principal mass with the existing owned logarithm homomorphism. The exact sequence and precision bounds are not separately stated in RJW. No analytic character family, meromorphic branch or pole order is constructed. Existing source qualifications, including E7, remain."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedIntegerResidueTests.dyadic_bernoulli_residue_limit",
+          "kind": "computation",
+          "statement": "For p=2, (1−2^(2^r−1))B_(2^r) tends to1/2."
+        },
+        {
+          "name": "SuggestedIntegerResidueTests.ternary_bernoulli_residue_limit",
+          "kind": "computation",
+          "statement": "For p=3, (1−3^(2·3^r−1))B_(2·3^r) tends to2/3."
+        },
+        {
+          "name": "SuggestedIntegerResidueTests.omission_of_euler_factor_changes_weight_two",
+          "kind": "non-example",
+          "statement": "At p=2 and weight2, B_2=1/6 differs from the required−1/6."
+        }
+      ],
+      "acceptance": [
+        "This is a p-adic sequence limit of native rational Bernoulli values. It neither supplies a general von Staudt–Clausen theorem nor claims the analytic zeta branch is constructed."
+      ]
     }
   ],
   "requests": [
@@ -39447,7 +39851,7 @@
       "stageId": "DirichletPadicLFunctions:L3",
       "status": "partial",
       "remaining": [
-        "The principal arithmetic quotient now has a conditional punctured limit1−p⁻¹, eventual admissibility, a continuous-extension obstruction and reciprocal coordinate change, for an explicitly supplied family with the required C(U,Q_p)-continuity and derivative. Constructing that family and proving its derivative remain with PMIA L0a and LAD L3; their current packets have no finer nodes for them. The analytic ζ branch, canonical evaluator comparison and meromorphic pole order remain open. The seven inherited mass-comparison stage leaves, all eleven requests and fifteen gaps remain; no stage closes. Generalized Eisenstein constants, tame distribution-to-L-value identification, full source extraction and availability of the missing pinned TwistedDivisorSum artifact remain separate work.",
+        "The concrete integer-weight numerator, normalized clearing factor, rescaling and Bernoulli residue sequence are now decomposed. A sequence limit is not a full principal-branch construction: canonical character families and charts remain PMIA L0a, scalar Mellin and derivative comparisons remain LAD L3, and analytic regularity and meromorphic pole order remain open. The general local logarithm remains Coleman-owned. All eleven requests and fifteen gaps remain open, with zero closed stages. Generalized Eisenstein constants, tame distribution-to-L-value identification, full source extraction and the missing pinned native TwistedDivisorSum artifact remain separate work.",
         "The actual tame integral and analytic transfer from supplied C(U,K)-valued families remain supplied. Actual odd/dyadic principal-unit families belong to PMIA L0a and scalar Mellin theory to LAD L3; instantiate the corrected Teichmüller twist when those interfaces are supplied."
       ]
     },
@@ -39479,7 +39883,7 @@
     {
       "title": "L3 remaining source decomposition and interfaces",
       "neededBy": [],
-      "detail": "The principal arithmetic quotient now has a conditional punctured limit1−p⁻¹, eventual admissibility, a continuous-extension obstruction and reciprocal coordinate change, for an explicitly supplied family with the required C(U,Q_p)-continuity and derivative. Constructing that family and proving its derivative remain with PMIA L0a and LAD L3; their current packets have no finer nodes for them. The analytic ζ branch, canonical evaluator comparison and meromorphic pole order remain open. The seven inherited mass-comparison stage leaves, all eleven requests and fifteen gaps remain; no stage closes. Generalized Eisenstein constants, tame distribution-to-L-value identification, full source extraction and availability of the missing pinned TwistedDivisorSum artifact remain separate work. The actual tame integral and analytic transfer from supplied C(U,K)-valued families remain supplied. Actual odd/dyadic principal-unit families belong to PMIA L0a and scalar Mellin theory to LAD L3; instantiate the corrected Teichmüller twist when those interfaces are supplied."
+      "detail": "The concrete integer-weight numerator, normalized clearing factor, rescaling and Bernoulli residue sequence are now decomposed. A sequence limit is not a full principal-branch construction: canonical character families and charts remain PMIA L0a, scalar Mellin and derivative comparisons remain LAD L3, and analytic regularity and meromorphic pole order remain open. The general local logarithm remains Coleman-owned. All eleven requests and fifteen gaps remain open, with zero closed stages. Generalized Eisenstein constants, tame distribution-to-L-value identification, full source extraction and the missing pinned native TwistedDivisorSum artifact remain separate work. The actual tame integral and analytic transfer from supplied C(U,K)-valued families remain supplied. Actual odd/dyadic principal-unit families belong to PMIA L0a and scalar Mellin theory to LAD L3; instantiate the corrected Teichmüller twist when those interfaces are supplied."
     },
     {
       "title": "L4 completed-algebra, twisted localized constant coefficient and tame-family comparisons",
@@ -39843,36 +40247,36 @@
   "checks": {
     "blueprint": "Zero errors and warnings with the unmodified pinned index.",
     "intake": "Exactly four authorized deliverables; zero problems.",
-    "sourceIssues": "All16 source findings, sourceVersions and eleven requests remain whole; all fifteen gaps remain open. No new finding, supplier existence result, family construction or independent verdict is claimed.",
+    "sourceIssues": "All16 source findings, sourceVersions and eleven requests remain whole; all fifteen gaps remain open. No new finding, supplier construction or independent-review verdict is claimed.",
     "validation": {
-      "nodes": 602,
+      "nodes": 608,
       "kinds": {
         "definition": 1,
-        "lemma": 238,
+        "lemma": 240,
         "construction": 69,
-        "theorem": 180,
-        "comparison": 114
+        "theorem": 182,
+        "comparison": 116
       },
       "api": 517,
-      "packetTests": 975,
+      "packetTests": 993,
       "definitionConstructionTests": 295,
-      "typedExamples": 978,
+      "typedExamples": 996,
       "planets": 24,
-      "baseline": 528,
-      "preservedWholeNodes": 598,
-      "preservedBaseline": 523,
+      "baseline": 530,
+      "preservedWholeNodes": 602,
+      "preservedBaseline": 528,
       "preservedSourceIssues": 16,
       "newSourceIssues": 0,
-      "newNodes": 4,
-      "newNamedDeclarations": 4,
-      "newTypedTests": 12,
+      "newNodes": 6,
+      "newNamedDeclarations": 6,
+      "newTypedTests": 18,
       "requests": 11,
       "gaps": 15,
       "closedStages": 0,
-      "reachableNodes": 858,
-      "dependencyEdges": 4150,
+      "reachableNodes": 864,
+      "dependencyEdges": 4192,
       "acyclic": true,
-      "baselineLeaves": 707,
+      "baselineLeaves": 709,
       "stageRequestLeaves": [
         "AdicSpacesPartII:F1",
         "AdicSpacesPartII:R2",
@@ -39884,7 +40288,7 @@
         "PadicMeasuresIwasawaAlgebras:L2",
         "PadicMeasuresIwasawaAlgebras:L3"
       ],
-      "readerWords": 283344,
+      "readerWords": 287187,
       "scopedMutationCheck": true,
       "correctedPredecessorNodes": 0,
       "fullSuggestedCompiled": false,
@@ -39911,20 +40315,24 @@
         "TauCeti.NumberTheory.ArithmeticFunction.TwistedDivisorSum"
       ],
       "scratchCompleteDefinitions": 0,
-      "scratchCompleteLemmas": 10,
-      "scratchMathlibModules": 2868,
+      "scratchCompleteLemmas": 16,
+      "scratchMathlibModules": 2802,
       "scratchTauModules": 0,
       "scratchErrors": 0,
       "scratchWarnings": 0,
       "scratchPlaceholders": 0,
       "finiteControls": {
-        "profiles": 192,
-        "sampledPoints": 960,
-        "exactRemainderIdentities": 960,
-        "reciprocalCoordinateChecks": 192,
-        "wrongCoordinateFactorDetected": 96,
-        "wrongDenominatorSignDetected": 4,
-        "dyadicScaledLimits": 1
+        "primeWeightPairs": 24,
+        "unitResidues": 1507,
+        "logTerms": 228,
+        "logPowerTerms": 228,
+        "numeratorPrecisionChecks": 24,
+        "denominatorPrecisionChecks": 24,
+        "bernoulliIdentities": 24,
+        "residuePrecisionChecks": 17,
+        "wrongRescalingSignDetected": 23,
+        "missingWeightDetected": 23,
+        "dyadicInitialZero": 1
       },
       "numericalControlsCertified": false,
       "newRoutesStageLeaves": [
@@ -39942,7 +40350,7 @@
       "compiled": false,
       "errors": null,
       "warnings": null,
-      "sha256": "41094b9ec7daf61b6a063d543c82f70ec617e3ddcd1b11274e288cd80f83f6ca",
+      "sha256": "304f314ccf43c26212382652bc1012f0e48e122d357351ad76a8df2edd4e13ff",
       "missingNativeArtifacts": [
         "TauCeti.NumberTheory.ArithmeticFunction.TwistedDivisorSum"
       ],
@@ -39957,11 +40365,11 @@
         }
       },
       "nativeProbe": {
-        "completeLemmas": 10,
+        "completeLemmas": 16,
         "errors": 0,
         "warnings": 0,
         "placeholders": 0,
-        "sha256": "17d5d364e266cfea1fd86dc9bde6ddc61798095d0c11ef00733cd44f210e7c48"
+        "sha256": "9d3eddba2ca517dcd86c6c0e65554d663005db636d40c1b8b717216b9950f59e"
       },
       "sourceAndAvailableArtifactAudit": {
         "compiledSupplierNodes": 332,
@@ -40048,7 +40456,7 @@
       }
     },
     "publication": {
-      "base": "5a85ea2ff2792d81f15cd4edc6d528c16bf12673",
+      "base": "8c42bc8bacdce0998627ad4f92965e9bc70208d5",
       "unchangedInputs": 66,
       "unchangedOutputs": 4,
       "sameSessionFollowupAfterMerge": true,
@@ -46137,6 +46545,48 @@
         "dyadicScaledLimits": 1
       },
       "numericalMethod": "Exact rational polynomial numerator/denominator profiles with M=−(1−p^(-1))L, denominator derivative−L, and linear coordinate derivative c. These profiles test scalar normalization and the reciprocal coordinate factor; they are not asserted to arise from measures or continuous characters. At sampled t=p^m the regularized quotient error agrees with its exact rational remainder formula. Infinite limit and continuous-extension claims are checked separately by complete native proofs under their explicit hypotheses.",
+      "fullSuggestedCompiled": false
+    },
+    "principalIntegerResidue": {
+      "agent": "Codex",
+      "session": "codex-7e92bd",
+      "issue": 713,
+      "claimComment": 5854790528,
+      "winningBot": 5854791937,
+      "previousPR": 4788,
+      "previousHead": "c3bc93cd9cf0d2c041774becee90e5afa2ce3561",
+      "previousMerge": "8c42bc8bacdce0998627ad4f92965e9bc70208d5",
+      "preservedWholeNodes": 602,
+      "preservedBaseline": 528,
+      "preservedFindings": 16,
+      "newNodes": 6,
+      "reading": "Freshly reread the whole source pages published138–139 and153–158, the reviewed Dirichlet L3 and PMIA L2 audits, the exact existing arithmetic numerator norm and moment nodes, and the whole Coleman local-log convergence and multiplication nodes. Read native finite-unit cardinality and Euler exponent, p-adic reduction kernel and norm ball, continuous-map supremum and operator norms, p-adic natural-cast norms, logarithm-tail valuation bounds, shifted sums, geometric convergence, squeeze and division limits, and native Bernoulli1/2 conventions. Searched the pinned p-adic/native arithmetic sources for an existing logarithmic or Bernoulli sequence result; no matching supplied declaration was located in that search.",
+      "boundary": "The concrete integer-weight numerator, normalized clearing factor, rescaling and Bernoulli residue sequence are now decomposed. A sequence limit is not a full principal-branch construction: canonical character families and charts remain PMIA L0a, scalar Mellin and derivative comparisons remain LAD L3, and analytic regularity and meromorphic pole order remain open. The general local logarithm remains Coleman-owned. All eleven requests and fifteen gaps remain open, with zero closed stages. Generalized Eisenstein constants, tame distribution-to-L-value identification, full source extraction and the missing pinned native TwistedDivisorSum artifact remain separate work.",
+      "inputBase": "8c42bc8bacdce0998627ad4f92965e9bc70208d5",
+      "sourceBoundary": "All16 source findings, sourceVersions and eleven requests remain whole; all fifteen gaps remain open. No new finding, supplier construction or independent-review verdict is claimed.",
+      "publication": {
+        "base": "8c42bc8bacdce0998627ad4f92965e9bc70208d5",
+        "unchangedInputs": 66,
+        "unchangedOutputs": 4,
+        "sameSessionFollowupAfterMerge": true,
+        "lastClaimConfirmation": 5854791937,
+        "reviewIssue": 390,
+        "reviewUnclaimed": true
+      },
+      "finiteControls": {
+        "primeWeightPairs": 24,
+        "unitResidues": 1507,
+        "logTerms": 228,
+        "logPowerTerms": 228,
+        "numeratorPrecisionChecks": 24,
+        "denominatorPrecisionChecks": 24,
+        "bernoulliIdentities": 24,
+        "residuePrecisionChecks": 17,
+        "wrongRescalingSignDetected": 23,
+        "missingWeightDetected": 23,
+        "dyadicInitialZero": 1
+      },
+      "numericalMethod": "Exact rational Bernoulli recurrence through B_294, exact integer powers and finite unit residues, and logarithm truncations of length2(r+3). The actual moment formula supplies the rational N_r, while the planned mass/logarithm comparison identifies the infinite mass. Finite checks verify all displayed congruences and rescaling identities; they do not prove infinite logarithm multiplicativity or convergence of the actual measures.",
       "fullSuggestedCompiled": false
     }
   },
