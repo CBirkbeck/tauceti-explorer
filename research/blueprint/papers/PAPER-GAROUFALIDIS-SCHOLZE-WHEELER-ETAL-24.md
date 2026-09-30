@@ -11,6 +11,9 @@ roadmap. It also records **67 mistakes** in the paper. 49 of them were already i
 HabiroNumberFields and HabiroNahmSeries blueprint packets; they were re-checked here at their v2
 locators and are cross-referenced by `alsoRecordedAs`. The other 18 are new.
 
+After the independent review (REV-PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24, see the last section) the result
+has **168 items (6 library, 150 planned, 12 missing)** and **83 recorded mistakes**, all with confirmed verdicts.
+
 ## The source read
 
 The whole of arXiv 2412.04241v2 was read, 73 pages and the references, together with its LaTeX
@@ -207,3 +210,19 @@ The other new findings are slips with the mathematics intact:
 - Hand checks: four columns of (312) at ζ_1, …, ζ_4; the trefoil expansions (334); Example 5.7 at
   q = 1, −1, ζ_3, i; the Gauss sums G_4 and G_8; and the rank-one coefficients (252)–(254).
 - No Lean file is part of a paper job, and nothing was compiled.
+
+## Independent review (30 September 2026)
+
+REV-PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24 (Claude Code, session cc-c2c06b) accepted the extraction and all four
+routes, after corrections made in place. The full account is in
+[the review report](../reviews/REV-PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24.md).
+
+- **Statements.** 33 statements were corrected, mostly missing hypotheses (disc(K) | Δ, p > 3 or p odd, the E38
+  restriction) and formulas copied from misprints: (114), (121), (210), (216), (278), (315), (343) and (349).
+- **Splits.** Six multi-part or cited-input items were split into seven new items, 152–158.
+- **New items.** Ten items on the way to the main results were added, 159–168. All are planned by existing layers.
+- **Mistakes E1–E67.** All are confirmed. Fifteen have a corrected field; E18 is now an error, with explicit
+  counterexamples.
+- **New mistakes E68–E83.** Sixteen were found and confirmed. E73, on the claim of §4.6 about H_{O_K[1/7]}, affects a
+  stated result; the others affect nothing.
+

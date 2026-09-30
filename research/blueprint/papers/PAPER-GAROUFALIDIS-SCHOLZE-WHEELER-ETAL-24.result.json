@@ -37,7 +37,7 @@
    "note": "prologue, §1.2 and §1.8 reworded; otherwise the v2 text up to layout, and every quoted passage is unchanged"
   }
  ],
- "summary": "Garoufalidis, Scholze, Wheeler and Zagier attach to a number field K and R = O_K[1/Δ] (disc(K)·6 | Δ) a Habiro ring H_R of families of power series at the roots of unity that glue p-adically after a Frobenius twist (Definition 1.1), and invertible H_R-modules H_{R,ξ} indexed by ξ ∈ K_3(K), built from the units ε_m(ξ) of Calegari–Garoufalidis–Zagier and Coleman’s p-adic dilogarithm (Definitions 1.3–1.4). They prove that the local modules are free of rank one (Theorem 1), from the unramified computation D_p : K_3(K_p; Z_p) ≅ p²O_{K_p} for p > 3 (Theorem 9) and explicit Pochhammer sections (Theorem 10), and that H_{R,0} = H_R (Theorem 2). Through the Kontsevich–Soibelman admissibility of the Nahm sums F_A (Theorem 6), its level-m refinement (Theorem 7), the identification with formal Gaussian integration (Theorems 3 and 8) and a Dwork-type Frobenius congruence (Theorem 4), they show that the perturbative series f_{A,z} of a non-degenerate Nahm solution lie in H_{R[δ^{−1/2}],ξ}|_Δ (Theorem 5), with symmetrisations and torsion powers in the Habiro ring (Corollary 1.11, Theorems 11–12). Section 4 works out examples (A = (3), the matrix (8 5; 5 4), 4_1, 5_2 and the (−2,3,7)-pretzel knot, a 5-adic instance of Theorem 9) and Section 5 describes the naive Habiro ring by explicit congruences with index D(N) (Propositions 5.1–5.2) and the number-field ring by Frobenius-twisted congruences (Propositions 5.3–5.4). Neither Mathlib nor Tau Ceti has Habiro rings, q-Pochhammer symbols, polylogarithms, Bloch groups, higher K-theory or Coleman integration; only tools (Bernoulli polynomials, Picard groups, Teichmüller lifts, completions, CRT, cyclotomic discriminants) are library items. The atlas plans almost everything in HabiroNumberFields HB.1–HB.7, HabiroNahmSeries HB.3–HB.10, HabiroCyclotomicCompletions, HabiroRings and PadicHodgeRegulators D.1–D.4. What is missing (the congruence description of §5, Proposition 5.4, Remarks 3.8 and 5.5, and the Habiro-like series of §5.4) goes as sources to HabiroCyclotomicCompletions, HabiroNumberFields and HabiroNahmSeries, and a fourth source route gives D.3 the corrections to Theorem 9. 67 mistakes are recorded: 49 already in the HabiroNumberFields and HabiroNahmSeries packets, re-checked here, and 18 new ones, among them the false index in Proposition 5.1 (|det M_N| = D(N − 1)), a gap in the proof of Theorem 9, a failing step in the proof of Dwork’s lemma, the hypothesis δ ∈ R^× missing from Corollary 3.12, and sign or index slips in (109), (166), (253), (254), (273), (285), (287), (323) and (353)–(359). As printed, Definition 1.3 makes Theorem 1 false, and the isomorphism of Theorem 2 is unproved.",
+ "summary": "Garoufalidis, Scholze, Wheeler and Zagier attach to a number field K and R = O_K[1/Δ] (disc(K)·6 | Δ) a Habiro ring H_R of families of power series at the roots of unity that glue p-adically after a Frobenius twist (Definition 1.1), and invertible H_R-modules H_{R,ξ} indexed by ξ ∈ K_3(K), built from the units ε_m(ξ) of Calegari–Garoufalidis–Zagier and Coleman’s p-adic dilogarithm (Definitions 1.3–1.4). They prove that the local modules are free of rank one (Theorem 1), from the unramified computation D_p : K_3(K_p; Z_p) ≅ p²O_{K_p} for p > 3 (Theorem 9) and explicit Pochhammer sections (Theorem 10), and that H_{R,0} = H_R (Theorem 2). Through the Kontsevich–Soibelman admissibility of the Nahm sums F_A (Theorem 6), its level-m refinement (Theorem 7), the identification with formal Gaussian integration (Theorems 3 and 8) and a Dwork-type Frobenius congruence (Theorem 4), they show that the perturbative series f_{A,z} of a non-degenerate Nahm solution lie in H_{R[δ^{−1/2}],ξ}|_Δ (Theorem 5), with symmetrisations and torsion powers in the Habiro ring (Corollary 1.11, Theorems 11–12). Section 4 works out examples (A = (3), the matrix (8 5; 5 4), 4_1, 5_2 and the (−2,3,7)-pretzel knot, a 5-adic instance of Theorem 9) and Section 5 describes the naive Habiro ring by explicit congruences with index D(N) (Propositions 5.1–5.2) and the number-field ring by Frobenius-twisted congruences (Propositions 5.3–5.4). Neither Mathlib nor Tau Ceti has Habiro rings, q-Pochhammer symbols, polylogarithms, Bloch groups, higher K-theory or Coleman integration; only tools (Bernoulli polynomials, Picard groups, Teichmüller lifts, completions, CRT, cyclotomic discriminants) are library items. The atlas plans almost everything in HabiroNumberFields HB.1–HB.7, HabiroNahmSeries HB.3–HB.10, HabiroCyclotomicCompletions, HabiroRings and PadicHodgeRegulators D.1–D.4. What is missing (the congruence description of §5, Proposition 5.4, Remarks 3.8 and 5.5, and the Habiro-like series of §5.4) goes as sources to HabiroCyclotomicCompletions, HabiroNumberFields and HabiroNahmSeries, and a fourth source route gives D.3 the corrections to Theorem 9. 83 mistakes are recorded: 49 already in the HabiroNumberFields and HabiroNahmSeries packets, re-checked here, 18 new ones found by the extraction and 16 found by its review, among them the false index in Proposition 5.1 (|det M_N| = D(N − 1)), a gap in the proof of Theorem 9, a failing step in the proof of Dwork’s lemma, the hypothesis δ ∈ R^× missing from Corollary 3.12, and sign or index slips in (109), (166), (253), (254), (273), (285), (287), (323) and (353)–(359). As printed, Definition 1.3 makes Theorem 1 false, and the isomorphism of Theorem 2 is unproved.",
  "items": [
   {
    "id": "PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24/1",
@@ -133,7 +133,8 @@
    "status": "planned",
    "planned": [
     "HabiroNumberFields:HB.6"
-   ]
+   ],
+   "note": "Review: Remark 1.8 (p. 13) assumes throughout that only primes p > 3 are considered and that 2 and 3 divide Δ; the items on the modules and on Theorem 5 use this silently."
   },
   {
    "id": "PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24/9",
@@ -164,7 +165,7 @@
    "id": "PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24/11",
    "kind": "theorem",
    "name": "Adelic description of H_R",
-   "statement": "For each prime p there is a commutative square H_R → H_{R^∧_p} over P_R → P_{R^∧_p}, the bottom map being the inclusion followed by φ_p^{v_p(m)} on R^∧_p[ζ_m][[x]]. With R̂ = lim_M R/MR ≅ ∏_p R^∧_p one has H_{R̂} ≅ ∏_p H_{R^∧_p} ≅ H_{Z[1/Δ]} ⊗_Z R̂, and H_R is the intersection of P_R and H_{R̂} inside P_{R̂}.",
+   "statement": "For each prime p there is a commutative square H_R → H_{R^∧_p} over P_R → P_{R^∧_p}, the bottom map being the inclusion followed by φ_p^{v_p(m)} on R^∧_p[ζ_m][[x]]. With R̂ = lim_M R/MR ≅ ∏_p R^∧_p one has H_{R̂} ≅ ∏_p H_{R^∧_p} ≅ H_{Z[1/Δ]} ⊗_Z R̂, and H_R = {f ∈ P_R : φ(f) ∈ H_{R̂}}, i.e. the intersection of φ(P_R) and H_{R̂} inside P_{R̂}, where (φf)_m = φ_m(f_m) with φ_m = ∏_p φ_p^{v_p(m)}.",
    "locator": "§1.4, (15) and the following sentence, p. 7",
    "status": "planned",
    "planned": [
@@ -239,13 +240,14 @@
    "id": "PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24/17",
    "kind": "construction",
    "name": "Coleman's p-adic dilogarithm D_p",
-   "statement": "After choosing a branch of the logarithm on C_p^× (for example the Iwasawa logarithm, log p = 0), Coleman's analytic continuation along Frobenius gives Li_2 : C_p ∖ {1} → C_p, and D_p(z) = Li_2(z) + ½ log(z) log(1 − z) on C_p ∖ {0,1} satisfies the five-term relation. For p unramified in K the embeddings K → C_p combine into D_p : B(K) → K_p = K ⊗ Q_p, written D_p : K_3(K_p) → K_p, with K_p = R^∧_p[1/p] for p ∤ Δ.",
+   "statement": "After choosing a branch of the logarithm on C_p^× (for example the Iwasawa logarithm, log p = 0), Coleman's analytic continuation along Frobenius gives Li_2 : C_p ∖ {1} → C_p, and D_p(z) = Li_2(z) + ½ log(z) log(1 − z) on C_p ∖ {0,1} satisfies the five-term relation.",
    "locator": "§1.5, (19), p. 9; §3.1, (172)–(174) and the following paragraph, pp. 37–38",
    "status": "planned",
    "planned": [
     "PadicHodgeRegulators:D.1",
     "ColemanIntegration:L2"
-   ]
+   ],
+   "note": "Review: the combined map D_p : B(K) → K_p is item 91; this item is the function on C_p ∖ {0,1}."
   },
   {
    "id": "PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24/18",
@@ -310,14 +312,14 @@
   {
    "id": "PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24/23",
    "kind": "theorem",
-   "name": "Theorem 2: H_{R,0} = H_R and the K_3-graded Picard homomorphism",
-   "statement": "H_{R,0} = H_R. Multiplication gives a canonical isomorphism H_{R,ξ} ⊗_{H_R} H_{R,ξ′} ≅ H_{R,ξ+ξ′}; in particular each H_{R,ξ} is an invertible H_R-module, and ξ ↦ H_{R,ξ} is a homomorphism K_3(K) → Pic(H_R), realised at the level of groupoids.",
-   "locator": "§1.5, Theorem 2, (25)–(26), pp. 10–11; proof §3.3, p. 43",
+   "name": "Theorem 2(i): H_{R,0} = H_R",
+   "statement": "H_{R,0} = H_R.",
+   "locator": "§1.5, Theorem 2, p. 10; proof §3.3, p. 43",
    "status": "planned",
    "planned": [
     "HabiroNumberFields:HB.7"
    ],
-   "note": "The printed proof establishes H_{R,0} = H_R and that multiplication lands in H_{R,ξ+ξ′}; the isomorphism is not proved (finding E41)."
+   "note": "Proved in §3.3. Part (ii), the multiplicative structure, is item 152 (finding E41)."
   },
   {
    "id": "PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24/24",
@@ -543,7 +545,7 @@
    "id": "PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24/43",
    "kind": "theorem",
    "name": "Theorem 5: perturbative series lie in the Habiro modules",
-   "statement": "Let A be a symmetric integral matrix and z a non-degenerate solution of the Nahm equations with associated ξ. Then f_{A,z}(q) ∈ H_{R[δ^{−1/2}],ξ}|_Δ.",
+   "statement": "Let A be a symmetric integral N×N matrix and z a non-degenerate solution of the Nahm equations (41) (isolated, δ ≠ 0); let K = Q(z), ξ = Σ_j [z_j] ∈ B(K), and R = O_K[1/Δ] with Δ divisible by disc(K), by 6, by the finitely many exceptional primes of Calegari–Garoufalidis–Zagier Theorem 1.6 for K, and such that every z_j ∈ R^×. Then f_{A,z}(q) ∈ H_{R[δ^{−1/2}],ξ}|_Δ.",
    "locator": "§1.7, Theorem 5, (42), p. 14; proof §3.3, pp. 43–44",
    "status": "planned",
    "planned": [
@@ -602,7 +604,7 @@
    "id": "PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24/48",
    "kind": "theorem",
    "name": "Bloch-torsion criterion",
-   "statement": "If ξ is torsion of order r, then f_{A,z}(q)^{2r} lies in the Habiro ring (Corollary 1.11). Conversely, if some power f_{A,z}^n lies in H_{R[δ^{−1}]} and f_{A,z,ℓ}(0) ≠ 0 for infinitely many primes ℓ ∤ Δ, then ξ is torsion.",
+   "statement": "If ξ is torsion of order r, then f_{A,z}(q)^r ∈ H_{R[δ^{−1/2}]} (Corollary 1.11(b)), so f_{A,z}(q)^{2r} ∈ H_{R[δ^{−1/2}]} (the paper writes H_R, which needs δ ∈ R^×; finding E18). Conversely, if some power f_{A,z}^n lies in H_{R[δ^{−1}]} and f_{A,z,ℓ}(0) ≠ 0 for infinitely many primes ℓ ∤ Δ, then ξ is torsion.",
    "locator": "§1.7, paragraph after Corollary 1.11, p. 15",
    "status": "planned",
    "planned": [
@@ -614,14 +616,15 @@
    "id": "PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24/49",
    "kind": "definition",
    "name": "Neumann–Zagier data and their Nahm matrices",
-   "statement": "A Neumann–Zagier datum of an ideal triangulation consists of the upper half (A|B) of a symplectic integral N×N matrix, a vector ν ∈ Z^N and a solution z of ∏_j z_j^{A_{ij}}(1 − 1/z_j)^{B_{ij}} = (−1)^{ν_i}. When B is invertible over Z, I − B^{−1}A is a symmetric integral matrix, the Neumann–Zagier equations are equivalent to the Nahm equations, and the perturbative series of complex Chern–Simons theory defined by formal Gaussian integration match those of Theorem 5; such a choice of quads exists for all knots with at most 14 crossings (SnapPy triangulations).",
+   "statement": "A Neumann–Zagier datum of an ideal triangulation consists of the upper half (A|B) (A, B ∈ M_N(Z)) of a symplectic integral 2N×2N matrix, a vector ν ∈ Z^N and a solution z of ∏_j z_j^{A_{ij}}(1 − 1/z_j)^{B_{ij}} = (−1)^{ν_i}. When B is invertible over Z, I − B^{−1}A is a symmetric integral matrix, the Neumann–Zagier equations are equivalent to the Nahm equations, and the perturbative series of complex Chern–Simons theory defined by formal Gaussian integration match those of Theorem 5; such a choice of quads exists for all knots with at most 14 crossings (SnapPy triangulations).",
    "locator": "§1.8, (45) and the following paragraphs, pp. 15–17; Remark 4.2, p. 48",
    "status": "planned",
    "planned": [
     "ArithmeticQuantumTopology:QT.5",
     "ArithmeticQuantumTopology:QT.6",
     "HabiroNahmSeries:HB.10"
-   ]
+   ],
+   "note": "See finding E75."
   },
   {
    "id": "PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24/50",
@@ -771,9 +774,9 @@
   {
    "id": "PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24/62",
    "kind": "theorem",
-   "name": "Corollary 2.4: V, δ and the U_m determine an admissible series",
-   "statement": "For admissible F^{(1)}, F^{(2)} in the same variables: (a) V^{(1)} = V^{(2)} iff L^{(1)}_n(1) = L^{(2)}_n(1) for all n; (b) F^{(1)} = F^{(2)} iff V, δ and all U_m agree; (c) F^{(1)} = F^{(2)} iff f^{(1)}_m = f^{(2)}_m for some (hence every) m.",
-   "locator": "§2.2, Corollary 2.4, p. 22",
+   "name": "Corollary 2.4(a): V is determined by the values L_n(1)",
+   "statement": "For admissible F^{(1)}, F^{(2)} in the same variables t: V^{(1)} = V^{(2)} if and only if L^{(1)}_n(1) = L^{(2)}_n(1) for all n.",
+   "locator": "§2.2, Corollary 2.4(a), p. 22",
    "status": "planned",
    "planned": [
     "HabiroNahmSeries:HB.8"
@@ -784,7 +787,7 @@
    "kind": "theorem",
    "name": "Lemma 2.5: the Dwork quotient of an admissible series",
    "statement": "If F is admissible, then log(F(t^p,q^p)/F(t,q)^p) = pΣ_n Σ_{(p,ℓ)=1} L_n(q^ℓ)t^{ℓn}/(ℓ(1 − q^ℓ)), and for all primes p and m prime to p, log F(t^{p/m}, q^p) − p log F(t^{1/m}, q) ∈ (p/x) Z_(p)[t^{1/m}, ζ_m][[t, x]], q = ζ_m + x.",
-   "locator": "§2.2, (74)–(75), p. 22",
+   "locator": "§2.2, (74) and Lemma 2.5, (75), p. 22",
    "status": "planned",
    "planned": [
     "HabiroNahmSeries:HB.9"
@@ -817,7 +820,7 @@
    "id": "PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24/66",
    "kind": "theorem",
    "name": "Lemma 2.6: the polar part of log F_A",
-   "statement": "For every symmetric integral A there is V_A(t) ∈ Q[[t]] with log F_A(t, ζ_m + x) = ζ_m V(t^m)/(m²x) + O(x⁰) for all m ≥ 1; for A ∈ Z, V_A(t) = −Li_2(1 − z(t)) − (A/2)log(z(t))² = Σ_{k≥1} (−1)^{(A+1)k} binom(Ak,k) t^k/(Ak²).",
+   "statement": "For every symmetric integral N×N matrix A there is V_A(t) ∈ Q[[t]] with log F_A(t, ζ_m + x) = ζ_m V_A(t^m)/(m²x) + O(x⁰) for all m ≥ 1; for N = 1 and A a positive integer, V_A(t) = −Li_2(1 − z(t)) − (A/2)log(z(t))² = Σ_{k≥1} (−1)^{(A+1)k} binom(Ak,k) t^k/(Ak²).",
    "locator": "§2.3, Lemma 2.6, (79)–(80), p. 23; proof p. 36",
    "status": "planned",
    "planned": [
@@ -910,7 +913,7 @@
    "id": "PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24/74",
    "kind": "definition",
    "name": "Formal Gaussian integration",
-   "statement": "For a symmetric N×N matrix Λ and a Q-algebra R, ⟨f(w,h)⟩_Λ := exp((h/2)Σ_{i,j}(Λ^{−1})_{ij}∂_{w_i}∂_{w_j}) f(w,h)|_{w=0} ∈ R[[h]] for f ∈ R[[w, w³h^{−1}, h]], formally the normalised integral of e^{−wᵀΛw/(2h)}f.",
+   "statement": "For a Q-algebra R and a symmetric N×N matrix Λ over R that is invertible over R (the paper says 'with integer entries', but applies the bracket to Λ(t^m) over S^{(m)}_Q), ⟨f(w,h)⟩_Λ := exp((h/2)Σ_{i,j}(Λ^{−1})_{ij}∂_{w_i}∂_{w_j}) f(w,h)|_{w=0} ∈ R[[h]] for f ∈ R[[w, w³h^{−1}, h]]; formally it is the normalised integral ∫e^{−wᵀΛw/(2h)} f dw / ∫e^{−wᵀΛw/(2h)} dw.",
    "locator": "§2.5, (110)–(111), p. 28",
    "status": "planned",
    "planned": [
@@ -922,12 +925,13 @@
    "id": "PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24/75",
    "kind": "construction",
    "name": "The modified Pochhammer factor ψ_{k,z,ζ_m} and the critical value V^{FGI}",
-   "statement": "ψ_{k,z,ζ_m}(w,x) = ((ζ_m+x)^{k+1}ze^w; ζ_m+x)_∞ · exp(−Li_2(z^m)/(m² log(1+x/ζ_m)) − Li_1(z^m)w/(m² log(1+x/ζ_m)) − Li_0(z^m)w²/(m² log(1+x/ζ_m)) + Σ_{ℓ=0}^{m−1}(½ − (k+ℓ+1)/m) log(1 − ζ_m^{k+ℓ+1}z)) ∈ 1 + xQ(z,ζ_m)[[w, w³x^{−1}, x]]; the critical points of the phase (115) are (1/m)log z(t), with critical value V^{FGI}(t) = −Σ_j Li_2(1 − z_j(t)) − ½Σ_{i,j}A_{ij} log z_i(t) log z_j(t).",
+   "statement": "With h = log(1 + x/ζ_m): ψ_{k,z,ζ_m}(w,x) = ((ζ_m+x)^{k+1}ze^w; ζ_m+x)_∞ · exp(−Li_2(z^m)/(m²h) − Li_1(z^m)w/(mh) − Li_0(z^m)w²/(2h) − Σ_{ℓ=0}^{m−1}(½ − (k+ℓ+1)/m) log(1 − ζ_m^{k+ℓ+1}z)). This removes from the logarithm the w⁰, w¹, w² parts of the h^{−1} term and the constant h⁰ term, so ψ ∈ Q(z,ζ_m)[[w, w³x^{−1}, x]] with constant term 1. (114) as printed has m² in the w and w² denominators and the opposite sign on the last sum. The phase (115) has critical points w = (1/m)log z(t^m) and critical value V^{FGI}(t^m)/m², where V^{FGI}(t) = −Σ_j Li_2(1 − z_j(t)) − ½Σ_{i,j}A_{ij} log z_i(t) log z_j(t) (116).",
    "locator": "§2.5, (112)–(116), pp. 28–29",
    "status": "planned",
    "planned": [
     "HabiroNahmSeries:HB.8"
-   ]
+   ],
+   "note": "Review: the statement uses the corrected (114); the printed version is finding E76. Checked numerically for m = 1, 2, 3."
   },
   {
    "id": "PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24/76",
@@ -945,7 +949,7 @@
    "id": "PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24/77",
    "kind": "definition",
    "name": "δ^{FGI}, U^{FGI}_m and the cyclic dilogarithm D_{ζ_m}",
-   "statement": "δ^{FGI}(t) = ∏_j z_j^{−A_{jj}}(1 − z_j) det(−Λ(t)); U^{FGI}_m(t) = m^{−N}∏_j ((1 − z_j)D_{ζ_m}(1)/((1 − z_j^{1/m})D_{ζ_m}(z_j^{1/m}))) Σ_{k∈(Z/mZ)^N} (−1)^{diag(A)·k} ζ_m^{(kᵀAk + diag(A)·k)/2} z^{Ak/m + diag(A)(1/(2m) − ½)}/∏_j(ζ_m z_j^{1/m}; ζ_m)_{k_j}, and D_{ζ_m}(z) = ∏_{ℓ=1}^{m−1}(1 − ζ_m^ℓ z)^{ℓ/m}.",
+   "statement": "δ^{FGI}(t) = ∏_j z_j^{−A_{jj}}(1 − z_j) det(−Λ(t)); U^{FGI}_m(t) = m^{−N}∏_j ((1 − z_j)D_{ζ_m}(1)/((1 − z_j^{1/m})D_{ζ_m}(z_j^{1/m}))) Σ_{k∈(Z/mZ)^N} (−1)^{diag(A)·k} ζ_m^{(kᵀAk + diag(A)·k)/2} t^{k/m} z^{Ak/m + diag(A)(1/(2m) − ½)}/∏_j(ζ_m z_j^{1/m}; ζ_m)_{k_j}, with z_j = z_j(t); and D_{ζ_m}(z) = ∏_{ℓ=1}^{m−1}(1 − ζ_m^ℓ z)^{ℓ/m}.",
    "locator": "§2.5, (120)–(122), p. 30",
    "status": "planned",
    "planned": [
@@ -1027,7 +1031,7 @@
    "id": "PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24/84",
    "kind": "theorem",
    "name": "Lemma 2.16: the WKB coefficients are algebraic (rank one)",
-   "statement": "For A ∈ Z, with z defined by 1 − z = tz^A, X = (z − 1)/((1 − A)z + A) and ∆ = X(AX + 1)((A − 1)X + 1), the coefficients b_k(t) of G(t;h) = F(e^h t;h)/F(t;h) = z(t)exp(Σ_{k≥1}b_k(t)h^k) exist, b_1 = (A(A − 1)/2)X² and b_k ∈ X∆Q[X] for k > 1.",
+   "statement": "For a 1×1 integer matrix A, let F(t;h) ∈ Q((h))[[t]] be the unique solution with F(0;h) = 1 of F(t;h) − F(e^h t;h) = tF(e^{Ah}t;h). Let z ∈ Z[[t]] solve 1 − z = tz^A with z(0) = 1, and set X = (z − 1)/((1 − A)z + A) and ∆ = X(AX + 1)((A − 1)X + 1). Then the coefficients b_k(t) defined by G(t;h) = F(e^h t;h)/F(t;h) = z(t)exp(Σ_{k≥1}b_k(t)h^k) exist, b_1 = (A(A − 1)/2)X², and b_k ∈ X∆Q[X] for k > 1.",
    "locator": "§2.6, (140)–(159), Lemma 2.16, pp. 33–34",
    "status": "planned",
    "planned": [
@@ -1062,7 +1066,7 @@
    "id": "PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24/87",
    "kind": "theorem",
    "name": "The admissible and formal-Gaussian invariants coincide",
-   "statement": "δ = δ^{FGI}, V = V^{FGI} and U_m = U^{FGI}_m.",
+   "statement": "For every symmetric integral A, the invariants of the admissible series F_A ((65)–(67)) coincide with the formal-Gaussian ones ((116), (120), (121)): δ_A = δ^{FGI}, V_A = V^{FGI} and U_{A,m} = U^{FGI}_m for all m ≥ 1 (with (67) and (121) corrected).",
    "locator": "§2.7, (167), p. 36",
    "status": "planned",
    "planned": [
@@ -1086,7 +1090,7 @@
    "id": "PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24/89",
    "kind": "theorem",
    "name": "The integrality step in the proof of Theorem 4",
-   "statement": "Z[t^{1/m}, ζ_m][[t]] ∩ S^{(m)}_p[1/p, z^{1/m}] ⊆ S^{(m)}_p[z^{1/m}], using z(t)^{±1/m} ∈ 1 + tZ[1/m][[t]] from (−1)^{diag(A)}z^{−A}(1 − z) = t and δ^{±1} ∈ 1 + tZ[[t]].",
+   "statement": "Z_(p)[t^{1/m}, ζ_m][[t]] ∩ S^{(m)}_p[1/p, z^{1/m}] ⊆ S^{(m)}_p[z^{1/m}] (the paper prints Z[t^{1/m}, ζ_m][[t]]), using z(t)^{±1/m} ∈ 1 + tZ[1/m][[t]] from (−1)^{diag(A)}z^{−A}(1 − z) = t and δ^{±1} ∈ 1 + tZ[[t]].",
    "locator": "§2.7, proof of Theorem 4, (170)–(171), pp. 36–37",
    "status": "planned",
    "planned": [
@@ -1097,15 +1101,16 @@
   {
    "id": "PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24/90",
    "kind": "definition",
-   "name": "The dilogarithm, the five-term relation and the Bloch–Wigner function",
-   "statement": "Li_2(x) = Σ_{k≥1}x^k/k² for |x| < 1; the Bloch–Wigner dilogarithm D(z) = Im Li_2(z) + arg(1 − z) log|z| is continuous on C and satisfies D(x) + D(y) = D(xy) + D((1 − y)/(1 − x^{−1})) + D((1 − x)/(1 − y^{−1})); for an embedding σ : K → C this gives D_σ : B(K) → R, [z] ↦ D(σ(z)).",
+   "name": "The dilogarithm and the Bloch–Wigner function",
+   "statement": "Li_2(x) = Σ_{k≥1}x^k/k² for |x| < 1; the Bloch–Wigner dilogarithm is D(z) = Im Li_2(z) + arg(1 − z) log|z|; for an embedding σ : K → C, D_σ : B(K) → R is the linear extension of [z] ↦ D(σ(z)).",
    "locator": "§3.1, (172)–(173), p. 37",
    "status": "planned",
    "planned": [
     "Polylogarithms:P.1",
     "Polylogarithms:P.2",
     "K3BlochGroups:V.3"
-   ]
+   ],
+   "note": "The continuity of D and the five-term relation, which make D_σ well defined on B(K), are item 156."
   },
   {
    "id": "PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24/91",
@@ -1117,19 +1122,20 @@
    "planned": [
     "PadicHodgeRegulators:D.1",
     "PadicHodgeRegulators:D.4"
-   ]
+   ],
+   "note": "Review: distinct from item 17, which is the function D_p on C_p ∖ {0,1}; defined only for p unramified in K (p ∤ Δ)."
   },
   {
    "id": "PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24/92",
    "kind": "theorem",
    "name": "Lemma 3.1: p²-integrality of the p-adic dilogarithm",
-   "statement": "Let p > 3 be unramified (p ∤ Δ). If z ∈ R^∧_p, |z|_p = 1 and |z − 1|_p ≥ 1, then D_p(z) ∈ p²R^∧_p; in particular Li_2(ζ) ∈ p²Z_p[ζ] and Li_1(ζ) ∈ pZ_p[ζ] for roots of unity ζ ≠ 1 of order prime to p (Besser–de Jeu 2008, Corollary 4.9).",
+   "statement": "Let p > 3 with p ∤ Δ (so p is unramified in K). If z ∈ R^∧_p with |z|_p = 1 and |z − 1|_p ≥ 1 in every factor of R^∧_p, then D_p(z) ∈ p²R^∧_p.",
    "locator": "§3.1, Lemma 3.1, (175), p. 38",
    "status": "planned",
    "planned": [
     "PadicHodgeRegulators:D.3"
    ],
-   "note": "The hypotheses p > 3 unramified are used in the proof; the Taylor expansion step was rechecked."
+   "note": "The hypotheses p > 3 unramified are used in the proof; the Taylor expansion step was rechecked. The proof rests on the cited (175), item 157; the extraction had stated (175) as an 'in particular' consequence, which reverses the logic."
   },
   {
    "id": "PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24/93",
@@ -1146,12 +1152,13 @@
    "id": "PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24/94",
    "kind": "theorem",
    "name": "Proposition 3.2: reduction of the p-adic dilogarithm (Besser)",
-   "statement": "For a prime p and ζ ∈ μ(Q_{p^s}) with ζ ≠ 1: p^{−2}D_p(ζ^p) ≡ li_{2,p}(ζ)/(ζ − 1)^p (mod p).",
+   "statement": "For a prime p and ζ ∈ μ(Q_{p^s}) of order prime to p with ζ ≠ 1: p^{−2}D_p(ζ^p) ≡ li_{2,p}(ζ)/(ζ − 1)^p (mod p) (Besser, Compositio Math. 130 (2002), Cor. 2.2).",
    "locator": "§3.1, Proposition 3.2, (178), p. 38",
    "status": "planned",
    "planned": [
     "PadicHodgeRegulators:D.3"
-   ]
+   ],
+   "note": "Review: The printed statement allows p = 2, ζ = −1, where D_p(ζ^p) = D_p(1) is undefined; for odd p every element of μ(Q_{p^s}) has order prime to p. Only p > 3 is used (Proposition 3.3). See finding E80."
   },
   {
    "id": "PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24/95",
@@ -1163,43 +1170,45 @@
    "planned": [
     "PadicHodgeRegulators:D.3"
    ],
-   "note": "ζ = 1 excluded (finding E38)."
+   "note": "ζ = 1 excluded (finding E38). The printed statement has no condition on p; p > 3 is needed in the proof (li_{2,p}(1) ≡ 0 (mod p) fails for p = 3, where li_{2,3}(1) ≡ 2) and is the only case used (Theorem 9)."
   },
   {
    "id": "PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24/96",
    "kind": "theorem",
    "name": "Roots of unity of an unramified extension (Teichmüller)",
-   "statement": "Reduction gives μ(Q_{p^s}) ≅ F_{p^s}^×: every element of the residue field has a unique (p^s − 1)-th root of unity lifting it.",
+   "statement": "For p odd, reduction modulo p gives an isomorphism μ(Q_{p^s}) ≅ F_{p^s}^×, μ(Q_{p^s}) = μ_{p^s−1}: every non-zero element of F_{p^s} has a unique lift to Z_{p^s} that is a (p^s − 1)-th root of unity (its Teichmüller lift). (For p = 2, μ(Q_{2^s}) = {±1} × μ_{2^s−1}.)",
    "locator": "§3.1, proof of Proposition 3.3, p. 39; (272), p. 54",
    "status": "library",
    "library": [
     "tauceti:TauCeti.teichmuller",
     "tauceti:TauCeti.rootsOfUnityEquivResidueField"
-   ]
+   ],
+   "note": "Review: the Tau Ceti declarations give μ_{q−1}(O_K) ≅ k^× for a nonarchimedean local field; that an unramified extension of Q_p, p odd, has no further roots of unity (Q_{p^s}(ζ_p)/Q_{p^s} is ramified) is a one-line addition."
   },
   {
    "id": "PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24/97",
    "kind": "theorem",
    "name": "Local K-theory of an unramified product",
-   "statement": "If p is unramified in K with p = ∏ p_i, N(p_i) = p^{s_i}, then K_p ≅ ∏_i Q_{p^{s_i}} and K_n(K_p) ≅ ∏_i K_n(Q_{p^{s_i}}); for p > 3, K_3(K_p; Z_p) ≅ H¹(K_p, Z_p(2)) is a free Z_p-module of rank [K:Q], torsion-free because H⁰(K_p, F_p(2)) = 0.",
-   "locator": "§3.1, paragraph before Theorem 9 and proof of Theorem 9, p. 39",
+   "statement": "If p is unramified in K, p = ∏_i p_i with N(p_i) = p^{s_i}, then K_p ≅ ∏_i Q_{p^{s_i}} and K_n(K_p) ≅ ∏_i K_n(Q_{p^{s_i}}) for every n.",
+   "locator": "§3.1, paragraph before Theorem 9, p. 39",
    "status": "planned",
    "planned": [
     "PadicHodgeRegulators:D.3",
     "MotivicEtaleKTheory:M.7"
-   ]
+   ],
+   "note": "The cited computation of K_3(K_p; Z_p) is item 158."
   },
   {
    "id": "PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24/98",
    "kind": "theorem",
-   "name": "Theorem 9: the local K_3 calculation",
-   "statement": "Assume p > 3 unramified in K. D_p : K_3(K_p; Z_p) → p²O_{K_p} is a Z_p-linear isomorphism, and K_3(K_p; Z_p) is generated as a Z_p-module by the classes [ζ], ζ ∈ μ(K_p) with every component ≠ 1 (the class of ord(ζ)[ζ] divided by ord(ζ), which is prime to p).",
+   "name": "Theorem 9(a): the local K_3 calculation",
+   "statement": "Assume p > 3 and p unramified in K. Then D_p : K_3(K_p; Z_p) → p²O_{K_p} is a Z_p-linear isomorphism.",
    "locator": "§3.1, Theorem 9, (183), p. 39",
    "status": "planned",
    "planned": [
     "PadicHodgeRegulators:D.3"
    ],
-   "note": "Findings E38 and E39 concern the statement and the proof."
+   "note": "The printed theorem says only 'Assume p > 3'; p unramified is implicit, since D_p : B(K) → K_p is defined only for unramified p (p. 38). Part (b), generation by roots of unity, is item 155. Finding E39 concerns the proof of this part."
   },
   {
    "id": "PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24/99",
@@ -1217,34 +1226,37 @@
    "id": "PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24/100",
    "kind": "theorem",
    "name": "Corollary 3.5: exponentials of Dwork-integral logarithms",
-   "statement": "Let S be p-complete and torsion-free and g = (g_m)_{(m,p)=1}, g_m ∈ S[1/p, ζ_m][[x]], with φ_p g(q^p) − p g(q) ∈ ∏_{(m,p)=1} pS[ζ_m][[q − ζ_m]]. Then f = exp(g) is defined, and if f(ζ_m + x) ∈ (1 + pS[ζ_m]) + xS[ζ_m] + O(x²) then f ∈ ∏_{(m,p)=1} S[ζ_m][[q − ζ_m]].",
+   "statement": "Fix an odd prime p and a p-complete torsion-free ring S with a Frobenius lift φ_p (φ_p(ζ_m) = ζ_m^p). Let g = (g_m)_{(m,p)=1}, g_m ∈ S[1/p, ζ_m][[x]], with φ_p g(q^p) − p g(q) ∈ ∏_{(m,p)=1} pS[ζ_m][[q − ζ_m]]. Then f = exp(g) is defined, and if f(ζ_m + x) ∈ (1 + pS[ζ_m]) + xS[ζ_m] + O(x²) then f ∈ ∏_{(m,p)=1} S[ζ_m][[q − ζ_m]].",
    "locator": "§3.2, Corollary 3.5, (191)–(194), p. 40",
    "status": "planned",
    "planned": [
     "HabiroNumberFields:HB.7"
-   ]
+   ],
+   "note": "Review: Printed for every prime p; for p = 2 exp(g) need not converge (S = Z_2, m = 1, g = 2), so p odd is required (only p > 3 is used). The proof's step 'g_m(0) ∈ pS[ζ_m]' uses that φ_p(a) ∈ pS forces a ∈ pS, true for S = R^∧_p with p unramified (the case used). See finding E79."
   },
   {
    "id": "PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24/101",
    "kind": "theorem",
    "name": "Lemma 3.6: normalising the extension to all roots of unity",
-   "statement": "Let p > 3 and f = (f_m)_{m≥1} with f_m ∈ ε_m(ξ)^{1/m}(R^∧_p[ζ_m]^× + xR^∧_p[ζ_m] + x²K_p[ζ_m][[x]]) and φ_p f̂(q^p)/f̂(q)^p ∈ ∏_{(m,p)=1} exp((p/x)R^∧_p[ζ_m][[x]]). Then for each m prime to p there is a unique β_m ∈ Z_p such that f̃_{mp^d}(x) = ζ_{p^d}^{β_m}f_{mp^d}(x) satisfies f̃(q^σ)/f̃(q)^{σ^{−1}} ∈ ∏_{(m,p)=1} R^∧_p[ζ_m][[x]] for all σ ∈ Z_p^×; β_m = −α_ω/(ω − ω^{−1}) for a generator ω of μ_{p−1}.",
+   "statement": "Let p > 3 be a prime with p ∤ Δ, ξ ∈ K_3(K), and f = (f_m)_{m≥1} with f_m ∈ ε_m(ξ)^{1/m}(R^∧_p[ζ_m]^× + xR^∧_p[ζ_m] + x²K_p[ζ_m][[x]]) such that φ_p f̂(q^p)/f̂(q)^p ∈ ∏_{(m,p)=1} exp((p/x)R^∧_p[ζ_m][[x]]), with f̂ as in (22). Then for each m prime to p there is a unique β_m ∈ Z_p such that f̃_{mp^d}(x) = ζ_{p^d}^{β_m}f_{mp^d}(x) satisfies f̃(q^σ)/f̃(q)^{σ^{−1}} ∈ ∏_{(m,p)=1} R^∧_p[ζ_m][[x]] for all σ ∈ Z_p^×.",
    "locator": "§3.2, Lemma 3.6, (195)–(202), p. 41",
    "status": "planned",
    "planned": [
     "HabiroNumberFields:HB.7"
-   ]
+   ],
+   "note": "Review: The printed lemma says 'Fix a prime p'; the proof needs p ≠ 2, 3 (ω − ω^{−1} ∈ Z_p^× for a generator ω of μ_{p−1}). In the proof, β_m = −α_ω/(ω − ω^{−1}), where α_σ is the exponent in (199)."
   },
   {
    "id": "PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24/102",
    "kind": "theorem",
    "name": "Corollary 3.7: unique extension of a local section to all roots of unity",
-   "statement": "An invertible L_p(ξ)-section has a unique lift to a family (f_m)_{m≥1} at all roots of unity satisfying φ_p f̂(q^p)/f̂(q)^p ∈ ∏ exp((p/x)R^∧_p[ζ_m][[x]]) and f(q^σ)/f(q)^{σ^{−1}} ∈ ∏ R^∧_p[ζ_m][[x]] for σ ∈ Z_p^×.",
+   "statement": "Let p > 3 with p ∤ Δ. An invertible L_p(ξ)-section f (Definition 1.3) has a unique lift to a family f = (f_m(x))_{m≥1} with f_m(x) ∈ R^∧_p[ζ_m]^{×/m} + xK_p[ζ_m][[x]] (203) satisfying φ_p f̂(q^p)/f̂(q)^p ∈ ∏_{(m,p)=1} exp((p/x)R^∧_p[ζ_m][[x]]) and f(q^σ)/f(q)^{σ^{−1}} ∈ ∏_{(m,p)=1} R^∧_p[ζ_m][[x]] for all σ ∈ Z_p^×, with f̂ as in (22).",
    "locator": "§3.2, Corollary 3.7, (203)–(204), pp. 41–42",
    "status": "planned",
    "planned": [
     "HabiroNumberFields:HB.7"
-   ]
+   ],
+   "note": "Review: No proof is printed; it follows from Corollary 3.5 and Lemma 3.6 and so inherits p > 3. The notation R^∧_p[ζ_m]^{×/m} is the paper's (presumably ε_m(ξ)^{1/m}R^∧_p[ζ_m]^× as in (195))."
   },
   {
    "id": "PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24/103",
@@ -1259,7 +1271,7 @@
    "id": "PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24/104",
    "kind": "definition",
    "name": "Local classes and their root-of-unity presentations",
-   "statement": "Locally the modules are indexed by ξ̂ ∈ Im(K_3(K) → K_3(K_p; Z_p) ⊗ Z_p), presented as ξ̂ = Σ_{ζ∈μ(K_p)} a_ζ[ζ] with a_ζ ∈ Z_p by Theorem 9.",
+   "statement": "Locally the modules are indexed by ξ̂ ∈ Im(K_3(K) → K_3(K_p; Z_p) ⊗ Z_p), presented by Theorem 9 as ξ̂ = Σ_ζ a_ζ[ζ] ∈ K_3(K_p) ⊗ Z_p with a_ζ ∈ Z_p, ζ running over the ζ ∈ μ(K_p) with every component ≠ 1 (finding E38).",
    "locator": "§3.2, (205)–(206), p. 42",
    "status": "planned",
    "planned": [
@@ -1271,7 +1283,7 @@
    "id": "PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24/105",
    "kind": "definition",
    "name": "The Pochhammer sections Ψ_{[ζ],p} and Ψ_{ξ̂,p} (Definition 3.9)",
-   "statement": "For ζ ∈ μ(K_p): Ψ_{[ζ],p,m}(x) = exp(−Li_2(ζ)/(m² log q)) ε_m([ζ])^{1/m}(q^{m/2}ζ; q^m)_∞^{1/m} ∈ ε_m([ζ])^{1/m}(1 + xK_p[ζ_m][[x]]), q = ζ_m + x, (m, p) = 1; and Ψ_{ξ̂,p} = ∏_ζ Ψ_{[ζ],p}^{a_ζ} for ξ̂ as in (206).",
+   "statement": "For a prime p and ζ ∈ μ(K_p) with every component ≠ 1 (finding E38): Ψ_{[ζ],p,m}(x) = exp(−Li_2(ζ)/(m² log q)) ε_m([ζ])^{1/m}(q^{m/2}ζ; q^m)_∞^{1/m} ∈ ε_m([ζ])^{1/m}(1 + xK_p[ζ_m][[x]]), q = ζ_m + x, (m, p) = 1; and Ψ_{ξ̂,p} = ∏_ζ Ψ_{[ζ],p}^{a_ζ} for ξ̂ as in (206).",
    "locator": "§3.2, Definition 3.9, (207)–(208), p. 42",
    "status": "planned",
    "planned": [
@@ -1294,18 +1306,19 @@
    "id": "PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24/107",
    "kind": "construction",
    "name": "Local sections by telescoping sums",
-   "statement": "For h ∈ ∏_{(m,p)=1}(1/x)R^∧_p[ζ_m][[x]] with h(ζ_m + x) = (φ_pD_p(ξ) − p²D_p(ξ))/(m²p² log q) + (1/(mp))log((σ_pε(ξ))^p/ε(ξ)) + O(x²), the series log f(q) = (1/m)log ε(ξ) + Σ_{k≥0} (φ_p^k/p^k)[(φ_pD_p(ξ) − p²D_p(ξ))/(m²p^{2+k}log q) + (1/(mp))log(φ_pε(ξ)/ε(ξ))^{p^k} − h(q^{p^k})] converges and defines an L_p(ξ)-section.",
+   "statement": "For h ∈ ∏_{(m,p)=1}(1/x)R^∧_p[ζ_m][[x]] with h(ζ_m + x) = (φ_pD_p(ξ) − p²D_p(ξ))/(m²p² log q) + (1/(mp))log((σ_pε(ξ))^p/ε(ξ)) + O(x²) (209), the series log f(q) = (1/m)log ε(ξ) + Σ_{k≥0} (φ_p^k/p^k)[(φ_pD_p(ξ) − p²D_p(ξ))/(m²p^{2+k}log q) + (1/(mp))log(φ_pε(ξ)/ε(ξ)) − h(q^{p^k})] (210) converges and defines an L_p(ξ)-section.",
    "locator": "§3.2, proof of Theorem 1, (209)–(210), pp. 42–43",
    "status": "planned",
    "planned": [
     "HabiroNumberFields:HB.7"
-   ]
+   ],
+   "note": "Review: As printed, (209) has log((σ_pε(ξ))^p/ε(ξ)) and (210) has log(φ_pε(ξ)/ε(ξ)); this alternative proof of Theorem 1 is only sketched ('which is a convergent sum')."
   },
   {
    "id": "PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24/108",
    "kind": "theorem",
    "name": "Corollary 3.10: the Pochhammer section is independent of the presentation",
-   "statement": "The class of Ψ_{ξ̂,p} in H^×_{R^∧_p,ξ̂}/H^×_{R^∧_p} depends only on ξ̂, not on the presentation (206).",
+   "statement": "For p > 3 with p ∤ Δ, the class of Ψ_{ξ̂,p} in H^×_{R^∧_p,ξ̂}/H^×_{R^∧_p} depends only on ξ̂, not on the presentation (206).",
    "locator": "§3.2, Corollary 3.10, p. 43",
    "status": "planned",
    "planned": [
@@ -1340,7 +1353,7 @@
    "id": "PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24/111",
    "kind": "construction",
    "name": "The residue formula for the symmetrisation",
-   "statement": "J_A(t,w,q) = Σ_{n∈Z_{≥0}^N} (−q^{1/2})^{nᵀAn}q^{½diag(A)·n}w^{An}t^n/(qw;q)_n expands at q = ζ_m + x into Z[ζ_m][t, w_i^{±1}, (1 − t_i^mP_i(w)^m)^{−1}][[x]] with P_i(z) = (−1)^{A_{ii}}(1 − z_i)^{−1}∏_j z_j^{A_{ij}}; Ψ_{A,m}(t,x) = Res_{w^m=z} t^{−1/m}J_A(t^{1/m}, w, ζ_m + x) dw/w, where t_iP_i(z) = 1, and Ψ_{A,m}(t,0) = (1/(δ_A(t)m^N))Σ_{w^m=z}Σ_{n∈(Z/mZ)^N}(−ζ_m^{1/2})^{nᵀAn}ζ_m^{½diag(A)·n}w^{An}t^n/(qw;q)_n.",
+   "statement": "J_A(t,w,q) = Σ_{n∈Z_{≥0}^N} (−q^{1/2})^{nᵀAn}q^{½diag(A)·n}w^{An}t^n/(qw;q)_n expands at q = ζ_m + x into Z[ζ_m][t, w_i^{±1}, (1 − t_i^mP_i(w^m))^{−1}][[x]] with P_i(z) = (−1)^{A_{ii}}(1 − z_i)^{−1}∏_j z_j^{A_{ij}}; Ψ_{A,m}(t,x) = Res_{w^m=z} t^{−1/m}J_A(t^{1/m}, w, ζ_m + x) dw/w, where t_iP_i(z) = 1, and Ψ_{A,m}(t,0) = (1/(δ_A(t)m^N))Σ_{w^m=z}Σ_{n∈(Z/mZ)^N}(−ζ_m^{1/2})^{nᵀAn}ζ_m^{½diag(A)·n}w^{An}t^n/(qw;q)_n, δ_A as in (120).",
    "locator": "§4.1, (215)–(220), pp. 45–46",
    "status": "planned",
    "planned": [
@@ -1363,7 +1376,7 @@
    "id": "PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24/113",
    "kind": "theorem",
    "name": "Theorem 12: descendants of the symmetrisation lie in a Habiro ring",
-   "statement": "If the equations t_iP_i(z) = 1 define a reduced zero-dimensional scheme and z is a solution generating K, then Ψ_{A,μ,ν,z}(q) ∈ H_{R[δ^{−1}]} for all μ, ν ∈ Z^N, with R = O_K[1/Δ] and 6 | Δ; this is H_R when δ ∈ R^×.",
+   "statement": "Let A be a symmetric integral N×N matrix such that the equations P_i(z) = 1 (i.e. (219) at t = 1) define a reduced zero-dimensional scheme over Q, let z be a solution, K = Q(z), and R = O_K[1/Δ] with Δ as in Theorem 5 (divisible by 6 and disc(K), by the primes of the exceptional integer of Calegari–Garoufalidis–Zagier Theorem 1.6, and such that every z_j is a unit of R). Then Ψ_{A,μ,ν,z}(q) ∈ H_{R[δ^{−1}]} for all μ, ν ∈ Z^N; this is H_R when δ ∈ R^×.",
    "locator": "§4.1, Theorem 12, p. 47",
    "status": "planned",
    "planned": [
@@ -1446,14 +1459,15 @@
   },
   {
    "id": "PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24/120",
-   "kind": "construction",
+   "kind": "theorem",
    "name": "A relative Habiro ring for the rank-one example",
    "statement": "F^{sym}(t,q) and G(t,q) are elements of the Habiro ring of the étale map Z[t^{±1}, 1/δ] → Z[t^{±1}, 1/δ][z]/(1 − z + tz³).",
    "locator": "§4.2, (250), p. 50",
    "status": "planned",
    "planned": [
     "HabiroRings:HR.5"
-   ]
+   ],
+   "note": "Review: Stated without proof. The Habiro ring of the étale map Z[t^{±1}, 1/δ] → Z[t^{±1}, 1/δ][z]/(1 − z + tz³) is not defined in the paper, and as in finding E50 nothing is proved at 2 and 3."
   },
   {
    "id": "PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24/121",
@@ -1483,14 +1497,14 @@
    "id": "PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24/123",
    "kind": "construction",
    "name": "Computing the Frobenius of R^∧_p by Hensel lifting",
-   "statement": "For p unramified and ξ a generator of K with minimal polynomial P, the Frobenius φ_p(ξ) ∈ R^∧_p is the unique root of P congruent to ξ^p modulo p, computed by the Newton iteration β = −P(ξ^p + αp)/(p^d P′(ξ^p)).",
+   "statement": "Let p ∤ Δ and let ξ ∈ R be a generator of K whose minimal polynomial P satisfies p ∤ disc(P) (equivalently P′(ξ) ∈ (R/pR)^×). Then φ_p(ξ) ∈ R^∧_p is the unique root of P congruent to ξ^p modulo p, computed by Newton iteration: if P(ξ^p + αp) ≡ 0 (mod p^d), then β = −P(ξ^p + αp)/(p^d P′(ξ^p)) ∈ R/pR gives P(ξ^p + αp + βp^d) ≡ 0 (mod p^{d+1}).",
    "locator": "§4.4, (263)–(267), pp. 52–53; §5.2, p. 64",
    "status": "planned",
    "planned": [
     "HabiroNumberFields:HB.6",
     "PadicHodgeRegulators:D.4"
    ],
-   "note": "Hensel's lemma itself is mathlib:hensels_lemma; the Frobenius of R^∧_p as a ring automorphism is planned in HB.6."
+   "note": "Hensel's lemma itself is mathlib:hensels_lemma; the Frobenius of R^∧_p as a ring automorphism (which exists for every unramified p) is planned in HB.6. Review: the paper derives P′(ξ^p) ∈ (R/pR)^× from 'p unramified' (p. 53), which also needs p ∤ [O_K : Z[ξ]]; counterexample ξ = 5√2 in Q(√2) at p = 5 (finding E78)."
   },
   {
    "id": "PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24/124",
@@ -1509,19 +1523,19 @@
    "id": "PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24/125",
    "kind": "theorem",
    "name": "Example 4.3: Theorem 9 for the cubic field of discriminant −23 at p = 5",
-   "statement": "For K = Q(α), α³ − α² + 1 = 0, z_1 = z_3 = 1 − α², z_2 = z_1² − z_1 + 2 and ξ = [z_1] + [z_2] + [z_3] (the class of 5_2), K_5 ≅ Q_{25} × Q_5, μ(K_5) is generated by ζ_{24} = lim α^{5^{2s}}, and D_5(ξ) = c_1D_5(ζ_{24}) + c_2D_5(ζ_{24}²) + c_3D_5(ζ_{24}⁶) with c_1 = 1 + 4·5 + 3·5² + ⋯, c_2 = 3 + 5 + ⋯, c_3 = 1 + 5 + 4·5² + ⋯, so ξ = c_1[ζ_{24}] + c_2[ζ_{24}²] + c_3[ζ_{24}⁶] in K_3(K_5) ⊗ Z_5.",
+   "statement": "For K = Q(α), α³ − α² + 1 = 0, z_1 = z_3 = 1 − α², z_2 = z_1² − z_1 + 2 and ξ = [z_1] + [z_2] + [z_3] (the class of 5_2): K_5 ≅ Q_{25} × Q_5, μ(K_5) ≅ μ_{24} × μ_4, and ζ_{24} = lim_s α^{5^{2s}} generates a subgroup of order 24. D_5(ξ) = c_1D_5(ζ_{24}) + c_2D_5(ζ_{24}²) + c_3D_5(ζ_{24}⁶) with c_1 = 1 + 4·5 + 3·5² + ⋯, c_2 = 3 + 5 + ⋯, c_3 = 1 + 5 + 4·5² + ⋯, so ξ = c_1[ζ_{24}] + c_2[ζ_{24}²] + c_3[ζ_{24}⁶] in B(K_5) ⊗ Q_5 (as printed in (275); by the injectivity of D_5 in Theorem 9, an identity in K_3(K_5; Z_5)).",
    "locator": "§4.4, Example 4.3, (270)–(275), p. 54",
    "status": "planned",
    "planned": [
     "PadicHodgeRegulators:D.3"
    ],
-   "note": "Recomputed 5-adically in PARI/GP (to 5^12): (271), (274) and the values in (273) are right; the label of the second line of (273) is not (finding E56)."
+   "note": "Recomputed 5-adically in PARI/GP (to 5^12): (271), (274) and the values in (273) are right; the label of the second line of (273) is not (finding E56). The powers ζ_24, ζ_24², ζ_24⁶ have both components ≠ 1 (finding E38)."
   },
   {
    "id": "PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24/126",
    "kind": "theorem",
    "name": "The figure-eight knot: series, symmetrisation and a global generator",
-   "statement": "For 4_1 the series Φ(h) = (−3)^{−1/4}(1 + 11h/(24·3√−3) + 697h²/(1152(3√−3)²) + ⋯) (q = e^h) has factorially growing denominators, while Φ(h)Φ(−h) = (−3)^{−1/2}(1 − (q − 1)²/3³ + (q − 1)³/3³ − ⋯) is integral away from 3; the constant terms of the series at ζ_p match the 3-integral value of the symmetrised series up to the Legendre symbol (p/3); f^{4_1}_1(x) = (1 + x)^{1/8}⟨ψ_{0,ζ_6,1}(w_1,x)ψ_{0,ζ_6,1}(w_2,x)⟩_{Λ_{4_1}}; and ⁴√−3 f̂^{4_1}_1(x)(1 + x)^{−1/24}(ζ_6²; 1 + x)_∞^3(1 − ζ_6)^{−3/2} = 1 + (5ζ_6 − 7)x/3 + ⋯ is integral away from 3.",
+   "statement": "For 4_1 the series Φ(h) = (−3)^{−1/4}(1 + 11h/(24·3√−3) + 697h²/(1152(3√−3)²) + ⋯) (q = e^h) has factorially growing denominators, while Φ(h)Φ(−h) = (−3)^{−1/2}(1 − (q − 1)²/3³ + (q − 1)³/3³ − ⋯) is integral away from 3; the constant terms of the series at ζ_p match the 3-integral value of the symmetrised series up to the Legendre symbol (p/3); f^{4_1}_1(x) = (1 + x)^{1/8}⟨ψ_{0,ζ_6,1}(w_1,x)ψ_{0,ζ_6,1}(w_2,x)⟩_{Λ_{4_1}}; and ⁴√−3 f̂^{4_1}_1(x)(1 + x)^{−1/24}(ζ_6²; 1 + x)_∞^3(1 − ζ_6)^{−3/2} = 1 + (5ζ_6 − 7)x/3³ + (31 − 30ζ_6)x²/3⁵ + (1565ζ_6 − 1444)x³/3⁹ + ⋯ is integral away from 3.",
    "locator": "§1.2, (1)–(2), pp. 2–3; §4.5, (276)–(278), pp. 54–55",
    "status": "planned",
    "planned": [
@@ -1534,7 +1548,7 @@
    "id": "PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24/127",
    "kind": "theorem",
    "name": "The 5_2 and (−2,3,7)-pretzel knots: products and symmetrisations",
-   "statement": "The series of 5_2 and of the (−2,3,7)-pretzel knot (common trace field of discriminant −23, scissors congruent) satisfy f^{(5_2)}_1(x)f^{(−2,3,7)}_1(−x/(1 + x)) = c(1 + (−7α² + 20α + 33)x/(2⁴·23) + ⋯) with denominators powers of 2 and 23, c² = ±1/((−6α² + 10α − 4)(−24α² + 32α − 26)); f^{5_2}_1(x) = δ^{−1/2}⟨e^wψ_{0,z,1}(w,x)³⟩_{3α−2}, δ = 3α − 2; δ f^{5_2}_1(x)f^{5_2}_1(−x/(1 + x)) = 1 + (465α² − 465α + 54)(x² − x³)/23³ + ⋯; and the 5-adic gluing check (α² + 4α)^5 ≡ α² + 3α + 2 (mod 5) between the constant terms at ζ_5.",
+   "statement": "The series of 5_2 and of the (−2,3,7)-pretzel knot (common trace field of discriminant −23, scissors congruent) satisfy f^{(5_2)}_1(x)f^{(−2,3,7)}_1(−x/(1 + x)) = c(1 + (−7α² + 20α + 33)x/(2⁴·23) + ⋯) with denominators powers of 2 and 23, where c = 1/√(−6α² + 10α − 4) · 1/√(−24α² + 32α − 26), so c² = 1/((−6α² + 10α − 4)(−24α² + 32α − 26)); f^{5_2}_1(x) = δ^{−1/2}⟨e^wψ_{0,z,1}(w,x)³⟩_{3α−2}, δ = 3α − 2; δ f^{5_2}_1(x)f^{5_2}_1(−x/(1 + x)) = 1 + (465α² − 465α + 54)(x² − x³)/23³ + ⋯; and the 5-adic gluing check (α² + 4α)^5 ≡ α² + 3α + 2 (mod 5) between the constant terms at ζ_5.",
    "locator": "§4.6, (279)–(286), pp. 55–56",
    "status": "planned",
    "planned": [
@@ -1566,7 +1580,7 @@
    "planned": [
     "HabiroNahmSeries:HB.10"
    ],
-   "note": "A numerical observation; the word “denominator” is missing (finding E60)."
+   "note": "A numerical observation; the word “denominator” is missing (finding E60). Review: 'H_{O_K[1/7]}' does not fit the paper's own figures: the x^400 coefficient has 3^596 in its denominator before cubing and the cube keeps 2^1997, so the series is a section of the module twisted by the 3-torsion class and only its cube lies in a Habiro ring, with 2 and 3 inverted (finding E73; compare E50)."
   },
   {
    "id": "PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24/130",
@@ -1639,10 +1653,10 @@
    "id": "PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24/136",
    "kind": "theorem",
    "name": "Proposition 5.1: the index of the naive Habiro ring",
-   "statement": "Let M_N be the integral matrix of ι^N : 𝓗^N_Z → P^N_Z in the bases {q^k(q;q)_{n−1}} and {ζ_m^ju^{ℓ−1}} (block lower triangular; (312) shows M_5). Then |det M_N| = D(N − 1), where D(N) := ∏_{n=1}^N D_1(n)D_2(n), D_1(n) = ∏_{mℓ=n}D_{m,ℓ}^{ϕ(m)} = ∏_{mℓ=n}m^{(2ℓ−1)ϕ(m)}(ℓ − 1)!^{ϕ(m)} and D_2(n) = n^{n/2}∏_{m|n}|disc Φ_m|^{−1/2} = ∏_{m|n}(∏_{p|m}p^{1/(p−1)})^{ϕ(m)/2} ∈ Z. The values D(N) for N ≤ 9 and the factorisations of D(25) and D(100) are as tabulated.",
+   "statement": "Let M_N be the integral matrix of ι^N : 𝓗^N_Z → P^N_Z in the bases {q^k(q;q)_{n−1}} and {ζ_m^ju^{ℓ−1}} (block lower triangular, independent of R; (312) shows M_5). Then |det M_N| = D(N − 1), where D(N) := ∏_{n=1}^N D_1(n)D_2(n), D_1(n) = ∏_{mℓ=n}D_{m,ℓ}^{ϕ(m)} = ∏_{mℓ=n}m^{(2ℓ−1)ϕ(m)}(ℓ − 1)!^{ϕ(m)} and D_2(n) = n^{n/2}∏_{m|n}|disc Φ_m|^{−1/2} = ∏_{m|n}((n/m)∏_{p|m}p^{1/(p−1)})^{ϕ(m)/2} ∈ Z. The values D(N) for N ≤ 9 and the factorisations of D(25) and D(100) are as tabulated.",
    "locator": "§5.1, (312)–(316), Proposition 5.1, pp. 61–62; p. 63",
    "status": "missing",
-   "note": "Corrected index (finding E62); the table and (316) were recomputed in PARI/GP."
+   "note": "Corrected index (finding E62); the table and (316) were recomputed in PARI/GP. See finding E83."
   },
   {
    "id": "PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24/137",
@@ -1700,19 +1714,20 @@
    "id": "PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24/142",
    "kind": "theorem",
    "name": "p-adic completion of a finite Z-algebra",
-   "statement": "R_p := lim_n R/p^nR ≅ R ⊗ Z_p for R finite over Z (or a localisation of such), and it is the zero ring when p | Δ.",
+   "statement": "R^∧_p := lim_n R/p^nR. If R is a finitely generated Z-module (e.g. Z[ζ_m] or O_K), then R^∧_p ≅ R ⊗_Z Z_p. For R = O_K[1/Δ], R^∧_p ≅ O_K ⊗_Z Z_p when p ∤ Δ, and R^∧_p = 0 when p | Δ (whereas R ⊗_Z Z_p = K ⊗_Q Q_p ≠ 0 then).",
    "locator": "§1.3, p. 5; §5.2, (329), p. 65",
    "status": "library",
    "library": [
     "mathlib:AdicCompletion",
     "mathlib:AdicCompletion.ofTensorProductEquivOfFiniteNoetherian"
-   ]
+   ],
+   "note": "Review: the Mathlib declaration covers finite modules over a Noetherian ring (O_K); the localisation R = O_K[1/Δ] needs the one-line argument R/p^nR = O_K/p^n (p ∤ Δ) or 0 (p | Δ). Finding E77 records the paper's slip."
   },
   {
    "id": "PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24/143",
    "kind": "theorem",
    "name": "Proposition 5.3: the Habiro ring of R through the naive ring of R̂",
-   "statement": "H_R = {H ∈ P_R | φ(H) ∈ ι(𝓗_{R̂})}; equivalently H_R = P_R ∩ φ^{−1}(ι(𝓗_{R̂})).",
+   "statement": "Let R = O_K[1/Δ] with disc(K) | Δ. Then H_R = {H ∈ P_R | φ(H) ∈ ι(𝓗_{R̂})}, where 𝓗_{R̂} is the naive Habiro ring (296) of R̂ = lim_M R/MR and φ is the composite P_R ↪ P_{R̂} → P_{R̂}, (φf)_m = φ_m(f_m); equivalently H_R = P_R ∩ φ^{−1}(ι(𝓗_{R̂})).",
    "locator": "§5.2, Proposition 5.3, (332), p. 65",
    "status": "planned",
    "planned": [
@@ -1724,7 +1739,7 @@
    "id": "PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24/144",
    "kind": "theorem",
    "name": "Proposition 5.4: membership in H_R by twisted congruences",
-   "statement": "H ∈ P_R with coordinates γ_{m,ℓ,j} ∈ R lies in H_R iff M*_N(φ_mγ_{m,ℓ,j})_{mℓ<N, 0≤j<ϕ(m)} ≡ 0 (mod D(N)) in R̂ for all N.",
+   "statement": "Let R = O_K[1/Δ] with disc(K) | Δ, and let H ∈ P_R have coordinates γ_{m,ℓ,j} ∈ R (m, ℓ ≥ 1, 0 ≤ j < ϕ(m)). Then H ∈ H_R if and only if M*_N(φ_mγ_{m,ℓ,j})_{mℓ<N, 0≤j<ϕ(m)} ≡ 0 (mod D(N)) in R̂ for all N ∈ Z_{>0}, with M*_N as in Proposition 5.2.",
    "locator": "§5.2, Proposition 5.4, (333), p. 65",
    "status": "missing",
    "note": "An explicit test for the number-field Habiro ring; no layer plans it."
@@ -1755,7 +1770,7 @@
    "id": "PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24/147",
    "kind": "theorem",
    "name": "Example 5.8: the 5_2 element of the Habiro ring of the cubic field of discriminant −23",
-   "statement": "With J_{5_2}(t,w,q) = Σ_k q^{k(k+1)}w^{2k}t^k/(qw;q)_{3k}, z = 1 − α² (z²(1 − z)^{−3} = 1) and Ψ_{5_2,m}(u) = Res_{w^m=z}J_{5_2}(1,w,ζ_m(1 − u))dw/w, one has (3α − 2)Ψ_{5_2,1}(−x) = δf^{5_2}_1(x)f^{5_2}_1(−x/(1 + x)) of (283); the coordinates (345) are not in the image of the naive ring (M_5^{−1} gives denominators 2⁵·3·23⁴), but after applying the Frobenius twists φ_m they satisfy the congruences of Proposition 5.4 for N = 5, integrally away from 23.",
+   "statement": "With J_{5_2}(t,w,q) = Σ_k q^{k(k+1)}w^{2k}t^k/(qw;q)_k³, z = 1 − α² (so z²(1 − z)^{−3} = 1) and Ψ_{5_2,m}(u) = Res_{w^m=z}J_{5_2}(1,w,ζ_m(1 − u))dw/w, one has (3α − 2)Ψ_{5_2,1}(−x) = δf^{5_2}_1(x)f^{5_2}_1(−x/(1 + x)) of (283). The coordinates (345) are not in the image of the naive ring (M_5^{−1} gives denominators 2⁵·3·23⁴), but after the Frobenius twists φ_m they satisfy the congruences of Proposition 5.4 for N = 5, integrally away from 23.",
    "locator": "§5.3, Example 5.8, (342)–(347), pp. 66–68",
    "status": "planned",
    "planned": [
@@ -1767,10 +1782,10 @@
    "id": "PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24/148",
    "kind": "construction",
    "name": "Habiro-like series from a polynomial P",
-   "statement": "For P(X) ∈ Z[X], f_P(w,t;q) = Σ_{k≥0}∏_{j=0}^{k−1}P(q^jw)t^k has x-expansions with coefficients rational in t and w, which can be specialised at t = 1: f_P(w,1;1 + x) = 1/(1 − P(w)) + P′(w)x/(1 − P(w))³ + O(x²) and f_P(w,1;ζ_m + x) = Σ_k A_{k,m}(w)x^k/(1 − P_m(w^m))^{2k+1} with A_{k,m} ∈ Z[ζ_m, w] and P_m(w) = ∏_{u^m=w}P(u); P_m = P for all m exactly when P(w) = (−w)^a(1 − w)^b, the case of Section 4.1.",
+   "statement": "For P(X) ∈ Z[X], f_P(w,t;q) = Σ_{k≥0}∏_{j=0}^{k−1}P(q^jw)t^k has x-expansions at q = ζ + x whose coefficients are rational functions of t and w, which can be specialised at t = 1: f_P(w,t;1 + x) = 1/(1 − tP(w)) + t²wP(w)P′(w)x/(1 − tP(w))³ + O(x²), so f_P(w,1;1 + x) = 1/(1 − P(w)) + wP(w)P′(w)x/(1 − P(w))³ + O(x²); and f_P(w,1;ζ_m + x) = Σ_k A_{k,m}(w)x^k/(1 − P_m(w^m))^{2k+1} with A_{k,m} ∈ Z[ζ_m, w] and P_m(w) = ∏_{u^m=w}P(u). P_m = P for all m exactly when P(w) = (−w)^a(1 − w)^b, the case of Section 4.1.",
    "locator": "§5.4, (348)–(354), p. 69",
    "status": "missing",
-   "note": "Corrected special form (finding E64)."
+   "note": "Corrected special form (finding E64). The printed x-coefficients in (349)–(350), tP′(w)/(1 − tP(w))³ and P′(w)/(1 − P(w))³, are wrong: the middle line of (349) drops the factor w, and Σ_k binom(k,2)t^kP^{k−1} = t²P/(1 − tP)³. The correct coefficient is t²wP(w)P′(w)/(1 − tP(w))³, checked for P = w and numerically. See finding E81."
   },
   {
    "id": "PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24/149",
@@ -1797,6 +1812,214 @@
    "locator": "§5.4, Example 5.10, (361)–(363), pp. 70–71",
    "status": "missing",
    "note": "Not rechecked in this extraction."
+  },
+  {
+   "id": "PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24/152",
+   "kind": "theorem",
+   "name": "Theorem 2(ii): the K_3-graded Picard homomorphism",
+   "statement": "Multiplication gives a canonical isomorphism H_{R,ξ} ⊗_{H_R} H_{R,ξ′} ≅ H_{R,ξ+ξ′}; in particular each H_{R,ξ} is an invertible H_R-module, and ξ ↦ H_{R,ξ} is a homomorphism K_3(K) → Pic(H_R), realised at the level of groupoids.",
+   "locator": "§1.5, Theorem 2, (25)–(26), pp. 10–11; proof §3.3, p. 43",
+   "status": "planned",
+   "planned": [
+    "HabiroNumberFields:HB.7"
+   ],
+   "note": "Split from item 23. The printed proof shows only that products land in H_{R,ξ+ξ′}; the isomorphism, invertibility and the homomorphism to Pic(H_R) are not proved (finding E41)."
+  },
+  {
+   "id": "PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24/153",
+   "kind": "theorem",
+   "name": "Corollary 2.4(b): V, δ and the U_m determine an admissible series",
+   "statement": "For admissible F^{(1)}, F^{(2)} in the same variables t: F^{(1)} = F^{(2)} if and only if V^{(1)} = V^{(2)}, δ^{(1)} = δ^{(2)} and U^{(1)}_m = U^{(2)}_m for all m ≥ 1.",
+   "locator": "§2.2, Corollary 2.4(b), p. 22",
+   "status": "planned",
+   "planned": [
+    "HabiroNahmSeries:HB.8"
+   ],
+   "note": "Split from item 62."
+  },
+  {
+   "id": "PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24/154",
+   "kind": "theorem",
+   "name": "Corollary 2.4(c): one expansion determines an admissible series",
+   "statement": "For admissible F^{(1)}, F^{(2)} in the same variables t: F^{(1)} = F^{(2)} if and only if f^{(1)}_m = f^{(2)}_m for some (hence every) m ≥ 1.",
+   "locator": "§2.2, Corollary 2.4(c), p. 22",
+   "status": "planned",
+   "planned": [
+    "HabiroNahmSeries:HB.8"
+   ],
+   "note": "Split from item 62."
+  },
+  {
+   "id": "PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24/155",
+   "kind": "theorem",
+   "name": "Theorem 9(b): K_3(K_p; Z_p) is generated by roots of unity",
+   "statement": "Assume p > 3 and p unramified in K. Then K_3(K_p; Z_p) is generated as a Z_p-module by the classes [ζ], ζ ∈ μ(K_p) with every component ≠ 1.",
+   "locator": "§3.1, Theorem 9, (183), p. 39",
+   "status": "planned",
+   "planned": [
+    "PadicHodgeRegulators:D.3"
+   ],
+   "note": "Split from item 98 and deduced there from part (a) and Proposition 3.3. In each factor Q_{p^s}, ζ ∧ (1 − ζ) = 0 for ζ ∈ μ ∖ {1}, so [ζ] is a Bloch-group element; ζ = 1 is excluded (finding E38)."
+  },
+  {
+   "id": "PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24/156",
+   "kind": "theorem",
+   "name": "Continuity and the five-term relation of the Bloch–Wigner function",
+   "statement": "D is continuous on C and satisfies D(x) + D(y) = D(xy) + D((1 − y)/(1 − x^{−1})) + D((1 − x)/(1 − y^{−1})) (173); hence D_σ is well defined on B(K).",
+   "locator": "§3.1, (173), p. 37",
+   "status": "planned",
+   "planned": [
+    "Polylogarithms:P.1"
+   ],
+   "note": "Split from item 90. Cited from Bloch and Zagier ([9], [50])."
+  },
+  {
+   "id": "PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24/157",
+   "kind": "theorem",
+   "name": "Integrality of Li_2 and Li_1 at roots of unity (Besser–de Jeu)",
+   "statement": "For a prime p and a root of unity ζ ≠ 1 of order prime to p: Li_2(ζ) ∈ p²Z_p[ζ] and Li_1(ζ) ∈ pZ_p[ζ].",
+   "locator": "§3.1, proof of Lemma 3.1, (175), p. 38",
+   "status": "planned",
+   "planned": [
+    "PadicHodgeRegulators:D.3",
+    "ColemanIntegration:L2"
+   ],
+   "note": "Cited from Besser–de Jeu, Math. Comp. 77 (2008), Corollary 4.9. The input of Lemma 3.1 (item 92), and through it of Theorem 9."
+  },
+  {
+   "id": "PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24/158",
+   "kind": "theorem",
+   "name": "K_3 of an unramified p-adic field (Weibel)",
+   "statement": "For p > 3 unramified in K, K_3(K_p; Z_p) ≅ H¹(K_p, Z_p(2)), a free Z_p-module of rank [K:Q]; it is torsion-free because H⁰(K_p, F_p(2)) = 0 for p > 3.",
+   "locator": "§3.1, proof of Theorem 9, p. 39",
+   "status": "planned",
+   "planned": [
+    "PadicHodgeRegulators:D.3",
+    "MotivicEtaleKTheory:M.7"
+   ],
+   "note": "Cited from Weibel's K-book [46, Thm. 7.4]. The paper writes 'rank r' without defining r; r = [K:Q] is the local Euler characteristic count."
+  },
+  {
+   "id": "PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24/159",
+   "kind": "theorem",
+   "name": "Balanced products do not see the polar part of the formal completion",
+   "statement": "Let f = (f_m) satisfy Definition 1.3 locally (formal completion f̂ as in (22)), and let γ_1, …, γ_n, γ′_1, …, γ′_{n′} be positive integers with Σ_k γ_k^{−1} = Σ_k γ′_k^{−1}. At roots of unity of order m prime to ∏_k γ_k ∏_k γ′_k, the product f(q^{γ_1})⋯f(q^{γ_n}) f(q^{−γ′_1})⋯f(q^{−γ′_{n′}}) is unchanged when f is replaced by f̂; in particular f(q^γ)^γ f(q^{−1}) = f̂(q^γ)^γ f̂(q^{−1}) at q = ζ_m + x with (m, γ) = 1. As γ ranges over Z_{>0}, the products f(q^γ)^γ f(q^{−1}) determine f near every root of unity of order prime to 6.",
+   "locator": "§1.5, paragraph after Definition 1.4, p. 10",
+   "status": "planned",
+   "planned": [
+    "HabiroNumberFields:HB.7"
+   ],
+   "note": "Used in the proofs of Proposition 1.5(e) and Theorem 2; HB.7 plans multiplication of the modules."
+  },
+  {
+   "id": "PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24/160",
+   "kind": "theorem",
+   "name": "The level-m q-difference equation of the congruence sums and uniqueness of its solution",
+   "statement": "For A ∈ Z (N = 1; the paper says general N is analogous), m ≥ 1 and 0 ≤ k < m: t^k F_{A,m,k}(t,q), equivalently H_{A,m,k}(t,q) = (−1)^{Ak}q^{Ak(k+1)/2} t^k F_{A,m,k}(t,q)/(q;q)_k, satisfies Σ_{ℓ=0}^m (−1)^ℓ q^{−ℓ(ℓ−1)/2} binom(m,ℓ)_{q^{−1}} σ^ℓ(t^k F) = (−1)^{Am} q^{Am(m+1)/2} t^m σ^{Am}(t^k F), with σt = qt (sign corrected as in finding E30). For q = ζ_{mm′} + x this equation has a unique solution Σ_{j≥0} a_j(x) t^{k+mj} in t^k Q[ζ_{mm′}]((x))[[t^m]] with a_0 = 1: for j ≥ 1, (q^{k+mj+1−m};q)_m a_j = (−1)^{Am} q^{Am(m+1)/2 + Am(k+m(j−1))} a_{j−1}, and (q^{k+mj+1−m};q)_m ≠ 0 (finding E35).",
+   "locator": "§2.4, proof of Theorem 7, (97)–(98), p. 26; §2.7, proof of Theorem 8, (165)–(166), p. 35",
+   "status": "planned",
+   "planned": [
+    "HabiroNahmSeries:HB.8",
+    "HabiroNahmSeries:HB.9"
+   ],
+   "note": "The step behind Theorems 7 and 8 (items 72, 86); signs as corrected by findings E30 and E35."
+  },
+  {
+   "id": "PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24/161",
+   "kind": "theorem",
+   "name": "Galois shift of the formal Gaussian integrals",
+   "statement": "Let γ_j be the automorphism of Z[ζ_m, t^{±1/m}, z^{±1/m}, 1/δ]/(1 − z − (−1)^A t z^A) sending z_j(t)^{1/m} to ζ_m z_j(t)^{1/m} and fixing S^{(m)}. Then γ_j I_{A,m,k}(t,x) = I_{A,m,k+δ_j}(t,x) (apply γ_j and change variables w ↦ w + h). Hence f^{FGI}_{A,m} = Σ_k I_{A,m,k}(t^{1/m},x) is invariant under every γ_j, and the x-coefficients of its logarithm lie in S^{(m)}_Q.",
+   "locator": "§2.5, proof of Lemma 2.12, (124), p. 30",
+   "status": "planned",
+   "planned": [
+    "HabiroNahmSeries:HB.8"
+   ],
+   "note": "Used for Lemma 2.12 (item 78) and in the proof of Theorem 5."
+  },
+  {
+   "id": "PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24/162",
+   "kind": "theorem",
+   "name": "Integrality of the shift ratios of F_A (proof of Theorem 6)",
+   "statement": "For a symmetric integral N×N matrix A, G_j(t,q) = F_A(σ_j t,q)/F_A(t,q) = ∏_{n≠0}∏_{i∈Z}(q^i t^n;q)_{n_j}^{−c_{n,i}} lies in Z[q^{±1}][[t]] for j = 1, …, N. The G_j satisfy together the system obtained by dividing (33) by F_A (the corrected form of (89), finding E27), which determines them by induction on the t-degree. Consequently log F_A = −Σ_n Σ_ℓ L_n(q^ℓ)t^{ℓn}/(ℓ(1 − q^ℓ)) with L_n(q) ∈ ∩_{i: n_i ≠ 0} ((1 − q)/(1 − q^{n_i}))Z[q^{±1}].",
+   "locator": "§2.3, proof of Theorem 6, (82)–(89), pp. 24–25",
+   "status": "planned",
+   "planned": [
+    "HabiroNahmSeries:HB.8"
+   ],
+   "note": "The integrality input of Theorem 6 (item 67); the system is the corrected (89) of finding E27."
+  },
+  {
+   "id": "PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24/163",
+   "kind": "theorem",
+   "name": "The intersection identity (57)",
+   "statement": "Inside Q_p[[t]]: Z[t, 1/(1 − t)]^∧_p[1/p] ∩ Z_(p)[[t]] ⊆ Z[t, 1/(1 − t)]^∧_p.",
+   "locator": "§2.1, proof of Proposition 2.2, (57), p. 19",
+   "status": "planned",
+   "planned": [
+    "HabiroNahmSeries:HB.9"
+   ],
+   "note": "The step from Lemma 2.1 to Proposition 2.2(a) (item 54)."
+  },
+  {
+   "id": "PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24/164",
+   "kind": "theorem",
+   "name": "First-order q-difference equation of the formal Gaussian integrals",
+   "statement": "For ℓ ∈ (Z/mm′Z)^N and j = 1, …, N: I_{A,mm′,ℓ}(t,x) − I_{A,mm′,ℓ}(σ_j t,x) = (−1)^{A_{jj}} t_j q^{A_{jj}} I_{A,mm′,ℓ−δ_j}(∏_i σ_i^{A_{ij}} t, x), where σ_j t = (t_1, …, q t_j, …, t_N), q = ζ_{mm′} + x.",
+   "locator": "§2.5, proof of Lemma 2.15, (138), p. 32",
+   "status": "planned",
+   "planned": [
+    "HabiroNahmSeries:HB.8"
+   ],
+   "note": "Lemma 2.15 (item 83), and through it Theorems 8 and 3, rest on it; asserted with references to Bar-Natan–Garoufalidis–Rozansky–Thurston and Garoufalidis–Storzer–Wheeler."
+  },
+  {
+   "id": "PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24/165",
+   "kind": "theorem",
+   "name": "The products ψ^{(γ)}_{A,μ,ν} and the uniqueness of their q-difference system",
+   "statement": "Let N = 1 (the paper omits N > 1 as analogous), A ∈ Z, and ψ_{A,μ}(t,q) = F_A(q^μt, q) (211). For γ ∈ Z_{>0}, μ = (μ_1,…,μ_γ) ∈ Z^γ and ν ∈ Z put ψ^{(γ)}_{A,μ,ν}(t,q) = ψ_{A,μ_1}(t^γ,q^γ)⋯ψ_{A,μ_γ}(t^γ,q^γ)ψ_{A,ν}(t,q^{−1}) ((212), corrected by finding E43). Then ψ^{(γ)}_{A,μ,ν} − ψ^{(γ)}_{A,μ+δ_i,ν} = (−1)^A q^{γ(A+μ_i)}t^γψ^{(γ)}_{A,μ+Aδ_i,ν} (i = 1,…,γ), ψ^{(γ)}_{A,μ,ν} − ψ^{(γ)}_{A,μ,ν+1} = (−1)^A q^{−(A+ν)}tψ^{(γ)}_{A,μ,ν+A}, and ψ^{(γ)}_{A,μ,ν}(qt,q) = ψ^{(γ)}_{A,μ+(1,…,1),ν−1}(t,q) ((213), corrected by E43). This system has a unique solution among families of power series in t of the form 1 + O(t).",
+   "locator": "§3.3, proof of Theorem 5, (211)–(213) and the paragraph after them, pp. 43–44",
+   "status": "planned",
+   "planned": [
+    "HabiroNahmSeries:HB.9"
+   ],
+   "note": "How the proof of Theorem 5 obtains the gluing (24); corrected by finding E43."
+  },
+  {
+   "id": "PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24/166",
+   "kind": "theorem",
+   "name": "Constant terms of the Nahm-sum series (Calegari–Garoufalidis–Zagier Theorem 1.6, with Hutchinson)",
+   "statement": "For a non-degenerate solution z of the Nahm equations of A with Bloch element ξ ∈ B(K), and m prime to Δ (Δ containing 2, 3 and the primes of the exceptional integer of CGZ Theorem 1.6 for K), the constant term of f_{A,z,m}(x) is δ^{−1/2}ε_m(ξ)^{1/m} times an element of K[ζ_m]. Cited from Calegari–Garoufalidis–Zagier, Ann. Sci. ÉNS 56 (2023), Theorem 1.6 with their displays (12)–(13); (13) is proved by Hutchinson, J. Algebra 649 (2024).",
+   "locator": "§3.3, proof of Theorem 5, first paragraph, p. 43",
+   "status": "planned",
+   "planned": [
+    "HabiroNumberFields:HB.2",
+    "HabiroNahmSeries:HB.9"
+   ],
+   "note": "Cited; HB.2 plans CGZ Theorem 1.6 and Hutchinson's refinement (finding E42 corrects the attribution)."
+  },
+  {
+   "id": "PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24/167",
+   "kind": "theorem",
+   "name": "The Kashaev–Mangazeev–Stroganov identity as used in Calegari–Garoufalidis–Zagier",
+   "statement": "If rξ = 0 in K_3(K), then (by Suslin's surjection K_3(K) → B(K)) the image of ξ in B(K) is a sum of five-term relations. The five-term identity of Kashaev–Mangazeev–Stroganov (Int. J. Modern Phys. A 8 (1993)) for the cyclic quantum dilogarithm, as used in Calegari–Garoufalidis–Zagier, then shows that the constant term of f_{A,z}(q)^r at ζ_m lies in S^{(m)} for every m, not only for m prime to Δ.",
+   "locator": "§3.3, proof of Corollary 1.11, last paragraph, p. 44",
+   "status": "planned",
+   "planned": [
+    "HabiroNumberFields:HB.2"
+   ],
+   "note": "Cited. HB.2 plans the five-term identity of the cyclic quantum dilogarithm; the accepted HabiroNahmSeries packet already uses the identity for Corollary 1.11(b)."
+  },
+  {
+   "id": "PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24/168",
+   "kind": "definition",
+   "name": "The families f_{A,μ,ν} and Ψ_{A,μ,ν} and their common q-difference system",
+   "statement": "For μ, ν ∈ Z^N: f_{A,μ,ν}(t,q) = f_A(q^{mμ}t, q)f_A(q^{−mν}t, q^{−1}) and Ψ_{A,μ,ν}(t,q) = Res_{w^m=z} q^ν w^{μ+ν} t_1^{−1/m}⋯t_N^{−1/m} J_A(q^μt^{1/m}, w, ζ_m + x) dw/w (222); Ψ_{A,μ,ν,z}(q) is Ψ_{A,μ,ν} at t = 1 along a solution z of (219). For N = 1 both families satisfy f_{A,μ,ν} − f_{A,μ+1,ν} = (−1)^A q^{A+μ}t^{1/m}f_{A,μ+A,ν}, f_{A,μ,ν} − f_{A,μ,ν+1} = (−1)^A q^{−(A+ν)}t^{1/m}f_{A,μ,ν+A} and f_{A,μ,ν}(q^mt,q) = f_{A,μ+1,ν−1}(t,q) ((223) with the coefficients corrected by finding E48; for Ψ via the J_A-equations (224)). A solution Σ_k a_{μ,ν,k}(q)t^{k/m} ∈ Z[ζ_m][[x]][[t^{1/m}]] (225) is determined by a_{0,0,0} through (226).",
+   "locator": "§4.1, proof of Theorem 11, (222)–(226), pp. 46–47",
+   "status": "planned",
+   "planned": [
+    "HabiroNahmSeries:HB.9"
+   ],
+   "note": "Theorem 12 (item 113) is stated for Ψ_{A,μ,ν,z}, which only (222) defines; coefficients corrected by finding E48."
   }
  ],
  "prerequisites": [
@@ -1896,6 +2119,7 @@
     "PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24/20",
     "PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24/21",
     "PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24/23",
+    "PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24/152",
     "PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24/24",
     "PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24/99",
     "PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24/102",
@@ -1945,11 +2169,14 @@
     "PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24/17",
     "PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24/91",
     "PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24/92",
+    "PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24/157",
     "PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24/93",
     "PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24/94",
     "PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24/95",
     "PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24/97",
+    "PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24/158",
     "PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24/98",
+    "PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24/155",
     "PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24/125"
    ],
    "reason": "D.3 is GSWZ Theorem 9 and follows its four-step proof. The paper is its source, and this route records what the layer has to supply beyond the printed argument: the containment D_p(K_3(K_p; Z_p)) ⊆ p²O and the extension of D_p to the p-completed group are asserted, not proved (E39); the spanning set must exclude ζ = 1 and use ord(ζ)[ζ] (E38); and Example 4.3, recomputed here 5-adically, is a ready acceptance test once the label in (273) is corrected (E56)."
@@ -1961,7 +2188,7 @@
    "kind": "gap",
    "locator": "§1.3, p. 5 (arXiv 2412.04241v2; the same text is in v1)",
    "printed": "The source credits Habiro [27] with proving injectivity of (6), including every factor ιm : HZ → Z[ζm][[x]], and characterizing its image as families fm(x) = (ιm f)(x) satisfying arithmetic gluing. It presents this as an extension of Ohtsuki’s earlier work [39].",
-   "correction": "Habiro [27] proves the injectivity (Theorems 5.2 and 6.1 there). The description of the image by the gluing (9) is not in [27] and needs a proof, for instance from the p-adic splitting (14) for Z together with the congruence description of §5.1 (Proposition 5.2).",
+   "correction": "Habiro [27] proves the injectivity (Theorems 5.2 and 6.1 there). The description of the image by the gluing (9) is not in [27] and needs a proof. One route is the p-adic splitting ℍ_{Z_p} ≅ ∏_{(m,p)=1} Z_p[ζm][[x]] of the naive Habiro ring, which (14) presupposes but does not prove (finding E6), together with the congruence description of §5.1 (Proposition 5.2).",
    "reason": "[27] is Habiro, Cyclotomic completions of polynomial rings, Publ. RIMS 40 (2004). Its results are the injectivity of restriction, expansion and evaluation maps (Theorems 4.1, 5.2, 6.1–6.3, 7.1), localisation (Propositions 7.2–7.3) and non-surjectivity (§7.4); it says nothing about the image of the Taylor maps or about p-adic re-expansion. The identification of HZ with the families satisfying (9) is used for HZ[1/∆] in §1.4 and in Proposition 5.3.",
    "affects": "the proof",
    "known": "new",
@@ -1973,7 +2200,12 @@
     "P. Scholze’s announcement of the Bonn course on the paper (Winter 2024/25): no corrections",
     "the atlas blueprint packet research/blueprint/packets/HabiroNumberFields.json, which records this finding as HabiroNumberFields/E22; re-checked here at the v2 locator"
    ],
-   "alsoRecordedAs": "HabiroNumberFields/E22"
+   "alsoRecordedAs": "HabiroNumberFields/E22",
+   "review": {
+    "verdict": "confirmed",
+    "reason": "The quoted sentence is on p. 5 of v2 (LaTeX line 595) and is unchanged from v1 (a diff of the v1 and v2 LaTeX changes only the abstract, the prologue, the re-indexing of (4), the new §1.8 and one sentence of §4.2, none of which touches the passages of E1–E22). I read Habiro's arXiv preprint math/0209324 and the published Publ. RIMS 40 (2004) version. Both prove only injectivity and related results: published Theorem 4.1 (ρ), Theorem 5.2 (expansion at ζ), Corollary 5.1 (integral domain), Theorems 6.1–6.3 (values), §7. Neither contains any description of the image or any p-adic re-expansion, and GSWZ never prove it either: §5.1 only proves that ι is injective and gives the congruences of Proposition 5.2, while §5 just asserts that ℍ_Z and 𝓗_Z 'can be identified canonically'. The theorem numbers quoted in the finding match the published version, which numbers theorems, lemmas and corollaries separately.",
+    "by": "REV-PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24"
+   }
   },
   {
    "id": "PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24/E2",
@@ -1992,7 +2224,12 @@
     "P. Scholze’s announcement of the Bonn course on the paper (Winter 2024/25): no corrections",
     "the atlas blueprint packet research/blueprint/packets/HabiroNumberFields.json, which records this finding as HabiroNumberFields/E20; re-checked here at the v2 locator"
    ],
-   "alsoRecordedAs": "HabiroNumberFields/E20"
+   "alsoRecordedAs": "HabiroNumberFields/E20",
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Footnote 1 on p. 6 reads a ↦ (φm a)m with φm = ∏p φp^{vp(m)}, and v1 has the same text. For a constant family (cm), gluing (13) says cm = φp(cpm). With cm = φm(a) this becomes φm(a) = φp²φm(a). For K = Q(ζ5), a = ζ5 and (p,m) = (2,1) I get c1 = ζ5 but φ2(c2) = φ2(ζ5²) = ζ5^4, so the family does not glue. With cm = φm^{−1}(a) we get φp(φ_{pm}^{−1}a) = φm^{−1}a, so it glues for every p. The corrected family is also the one that (15) and Proposition 5.3 need, since φm(Hm) must be the constant a. The restriction to p ∤ ∆ is harmless, because (13) is empty for p | ∆.",
+    "by": "REV-PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24"
+   }
   },
   {
    "id": "PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24/E3",
@@ -2000,7 +2237,7 @@
    "locator": "§1.4, paragraph after Definition 1.1, p. 7 (arXiv 2412.04241v2; the same text is in v1)",
    "printed": "It claims HR has an equivalent construction: glue R[ζm][[q−ζm]] over Z[ζm][[q−ζm]] with Frobenius twists after p-adic completion to obtain a finite étale algebra over HZ[1/∆]. It concludes HR is finitely generated and projective over HZ[1/∆], with rank r = [K : Q]. It justifies this via p-completion and the rank r of Rp[ζm]JxK over Zp[ζm]JxK.",
    "correction": "A claim that needs a proof or a reference: that the gluing construction agrees with Definition 1.1, and that finite projectivity of rank r descends from the p-completions to the non-Noetherian ring HZ[1/∆]. The atlas plans both in HabiroRings HR.4–HR.5 through the relative Habiro ring of an étale map (F. Wagner, arXiv:2510.04782v2, §2, whose Corollary 2.13 the atlas cites for the comparison; not checked here).",
-   "reason": "No proof or reference is given. Projectivity cannot be read off from the p-completions alone: one needs that HR is recovered from them (the square (15)) and descent of finite projective modules along it, and the equivalence of the two definitions rests on the unproved last isomorphism of (14) (finding E6). The rank statement is used in the remark after Corollary 1.11 (“the above constructions presumably give a spanning set for HR”).",
+   "reason": "No proof or reference is given. Projectivity cannot be read off from the p-completions alone: one needs that 𝓗_R is recovered from them (the square (15)) and descent of finite projective modules along it. The equivalence of the two definitions also rests on the unproved identification of the p-adically glued families with the naive Habiro ring (finding E6). The rank statement is used in the remark after Corollary 1.11 ('the above constructions presumably give a spanning set for HR').",
    "affects": "a stated result",
    "known": "new",
    "searched": [
@@ -2009,7 +2246,12 @@
     "MPIM preprint 2024-31 (archive.mpim-bonn.mpg.de/id/eprint/5146), the v1 text",
     "Crossref and a web search for the title and for an erratum, 29 September 2026: no journal version, erratum or corrigendum",
     "P. Scholze’s announcement of the Bonn course on the paper (Winter 2024/25): no corrections"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "The passage is on p. 7 of v2, and v1 has the same text. The paper asserts that the gluing construction is equivalent to Definition 1.1 and that 𝓗_R is finitely generated projective of rank r over 𝓗_{Z[1/∆]}. Its only support is the one-line parenthetical about p-completions, and I found no proof or reference anywhere in the paper (§5.2 treats only the congruence form). Deducing projectivity of a module over a non-Noetherian ring from its p-completions needs a descent argument that is not given. The rank statement is used after Corollary 1.11 on p. 15. One cross-reference in the reason should follow the fix to E6.",
+    "by": "REV-PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24"
+   }
   },
   {
    "id": "PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24/E4",
@@ -2028,7 +2270,12 @@
     "P. Scholze’s announcement of the Bonn course on the paper (Winter 2024/25): no corrections",
     "the atlas blueprint packet research/blueprint/packets/HabiroNumberFields.json, which records this finding as HabiroNumberFields/E29; re-checked here at the v2 locator"
    ],
-   "alsoRecordedAs": "HabiroNumberFields/E29"
+   "alsoRecordedAs": "HabiroNumberFields/E29",
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Remark 1.2 on p. 7 says unconditionally that 𝓗_R is not an integral domain, and v1 has the same text. For K = Q, disc K = 1, so ∆ = 1 is allowed by the definition on p. 6. Then 𝓗_R = 𝓗_Z is Habiro's ring, an integral domain by published Corollary 5.1 of Habiro 2004, which I checked. For ∆ > 1 a prime p | ∆ separates the class of 1 from the class of p, so the ring splits and the remark holds. The introduction to §1.4 states the intended condition 'if ∆ ≠ 1', so misprint is the right kind.",
+    "by": "REV-PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24"
+   }
   },
   {
    "id": "PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24/E5",
@@ -2047,15 +2294,20 @@
     "P. Scholze’s announcement of the Bonn course on the paper (Winter 2024/25): no corrections",
     "the atlas blueprint packet research/blueprint/packets/HabiroNumberFields.json, which records this finding as HabiroNumberFields/E21; re-checked here at the v2 locator"
    ],
-   "alsoRecordedAs": "HabiroNumberFields/E21"
+   "alsoRecordedAs": "HabiroNumberFields/E21",
+   "review": {
+    "verdict": "confirmed",
+    "reason": "The sentence is on p. 7, and v1 has the same text. R[ζm] has to mean R ⊗_Z Z[ζm]: the Galois-invariance in (8), the Frobenius in (13) (which must fix ζpm while acting on R) and the rank-r statement on p. 7 all require this. For K = Q(i), ∆ = 12 and R = Z[i,1/6], the class of 4 is {4m′ : (m′,6) = 1}. For odd m′, u = i^{m′}⊗ζ4 satisfies u² = (−1)^{m′+1} = 1, so e = (1−u)/2 is an idempotent other than 0 and 1. Since φp(i) = i^p and p² ≡ 1 (mod 4) for p ≥ 5, φp(e_{4pm′}) = e_{4m′}, so this constant family satisfies (13). The factor on that class is therefore not a domain. I also checked the correction's positive claim: ι1 is injective on the class of 1 by induction along the gluing, and R⊗Z[ζm] is a domain there, so 𝓗_R|∆ is a domain.",
+    "by": "REV-PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24"
+   }
   },
   {
    "id": "PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24/E6",
    "kind": "gap",
    "locator": "(14), §1.4, p. 7 (arXiv 2412.04241v2; the same text is in v1)",
    "printed": "It asserts (14): (HR)p ≅ {families of R∧p[ζm][[x]]-series, m ≥ 1, glued by re-expansion using x ↦ x + ζmp − ζm} ≅ ∏_{m≥1,(m,p)=1} R∧p[ζm][[x]] ≅ HRp. Its justification is that expansions at distinct roots with orders prime to p have no gluing conditions between them.",
-   "correction": "The stated reason proves only the middle isomorphism. The first (the p-adic completion of the non-Noetherian ring HR) and the last (with the naive Habiro ring lim Rp[q]/(q;q)n of (296)) need proofs; for the last, the Chinese remainder splitting of the completion of Zp[q] over the classes {mp^k} and its identification with Zp[ζm][[q − ζm]] ((p, Φm)-adic completion and Hensel’s lemma).",
-   "reason": "Proposition 5.3, which restates Definition 1.1 as HR = PR ∩ φ^{−1}(ι(H_R̂)), and the identification of HZ with Habiro’s ring both rest on the last isomorphism; no proof or reference is given.",
+   "correction": "The stated reason proves only the middle isomorphism. The first (the p-adic completion of the non-Noetherian ring 𝓗_R) needs a proof. The last term is the calligraphic 𝓗_{R_p} of Definition 1.1 over R_p, so as printed the last isomorphism restates the middle one. What is used but never proved is that these glued families are exactly ι(ℍ_{R_p}) for the naive Habiro ring ℍ_{R_p} = lim R_p[q]/(q;q)_n of (296), i.e. ℍ_{R_p} ≅ ∏_{(m,p)=1} R∧p[ζm][[x]]. This can be proved from the Chinese remainder splitting of the completion of Z_p[q] over the classes {mp^k} and its identification with Z_p[ζm][[q − ζm]] ((p, Φm)-adic completion and Hensel's lemma).",
+   "reason": "Several statements rest on identifying the glued families over R∧p with ι(ℍ_{R∧p}): Proposition 5.3, which restates Definition 1.1 as 𝓗_R = P_R ∩ φ^{−1}(ι(ℍ_R̂)); the claim after (15) that 𝓗_R̂ ≅ 𝓗_{Z[1/∆]} ⊗ R̂; and the identification of 𝓗_Z with Habiro's ring. No proof or reference is given for this identification, and the first isomorphism of (14) is likewise unproved.",
    "affects": "the proof",
    "known": "new",
    "searched": [
@@ -2066,7 +2318,12 @@
     "P. Scholze’s announcement of the Bonn course on the paper (Winter 2024/25): no corrections",
     "the atlas blueprint packet research/blueprint/packets/HabiroNumberFields.json, which records this finding as HabiroNumberFields/E30; re-checked here at the v2 locator"
    ],
-   "alsoRecordedAs": "HabiroNumberFields/E30"
+   "alsoRecordedAs": "HabiroNumberFields/E30",
+   "review": {
+    "verdict": "confirmed",
+    "reason": "The display is (14) on p. 7, and v1 has the same text. The stated reason ('no gluing constraints …') justifies only the middle isomorphism. The first isomorphism, the p-adic completion of the non-Noetherian ring 𝓗_R, is not proved anywhere. The finding misreads the last term, however. The rendered PDF and the LaTeX (\\calH_{R_p}) show the calligraphic 𝓗_{R_p}, i.e. Definition 1.1 over R_p, where only p glues, not the naive ring ℍ_{R_p} of (296). As printed, the last isomorphism therefore restates the middle one. The genuinely missing step is that the glued families over R_p are exactly ι(ℍ_{R_p}). Proposition 5.3 (𝓗_R̂ = φ^{−1}(ι(ℍ_R̂))), the claim after (15) and the identification 𝓗_Z = Habiro's ring all use this step.",
+    "by": "REV-PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24"
+   }
   },
   {
    "id": "PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24/E7",
@@ -2085,7 +2342,12 @@
     "P. Scholze’s announcement of the Bonn course on the paper (Winter 2024/25): no corrections",
     "the atlas blueprint packet research/blueprint/packets/HabiroNumberFields.json, which records this finding as HabiroNumberFields/E17; re-checked here at the v2 locator"
    ],
-   "alsoRecordedAs": "HabiroNumberFields/E17"
+   "alsoRecordedAs": "HabiroNumberFields/E17",
+   "review": {
+    "verdict": "confirmed",
+    "reason": "The LaTeX (line 874) reads (\\s_\\gamma \\ve_m(\\xi))^\\gamma/\\ve_m(\\gamma), exactly as quoted, and v1 has the same text. εm is defined on K3(K), so εm(γ) for an integer γ has no meaning. I checked CGZ (arXiv 1712.04887), Remark 1.3: R_ζ(ξ) = R_{ζ^k}(ξ)^k together with σ(R_ζ) = R_{σζ} gives (σγ ε)^γ/ε ≡ 1 modulo m-th powers. That confirms the corrected expression (σγ εm(ξ))^γ/εm(ξ).",
+    "by": "REV-PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24"
+   }
   },
   {
    "id": "PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24/E8",
@@ -2104,7 +2366,12 @@
     "P. Scholze’s announcement of the Bonn course on the paper (Winter 2024/25): no corrections",
     "the atlas blueprint packet research/blueprint/packets/HabiroNumberFields.json, which records this finding as HabiroNumberFields/E18; re-checked here at the v2 locator"
    ],
-   "alsoRecordedAs": "HabiroNumberFields/E18"
+   "alsoRecordedAs": "HabiroNumberFields/E18",
+   "review": {
+    "verdict": "confirmed",
+    "reason": "The claim is at (17) on p. 8, and v1 has the same text. The map uses H^1(O_K, Z/m(2)) and an isomorphism with H^1(O_K[ζm], µm)^{χ^{-1}} obtained by cup product with ζm. For m not invertible on O_K, neither the coefficient sheaf nor that isomorphism is defined or justified. In CGZ (arXiv 1712.04887) I checked Lemma 3.4, which gives only S-units, and Lemma 3.5, which gives units only when every p | m is odd and prime to ∆_F|K2(O_F)|. So the extension across the primes above m is unproved. Definitions 1.3 and 1.4 only need integrality at p ∤ m, so affects 'nothing' is right.",
+    "by": "REV-PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24"
+   }
   },
   {
    "id": "PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24/E9",
@@ -2123,7 +2390,12 @@
     "P. Scholze’s announcement of the Bonn course on the paper (Winter 2024/25): no corrections",
     "the atlas blueprint packet research/blueprint/packets/HabiroNumberFields.json, which records this finding as HabiroNumberFields/E24; re-checked here at the v2 locator"
    ],
-   "alsoRecordedAs": "HabiroNumberFields/E24"
+   "alsoRecordedAs": "HabiroNumberFields/E24",
+   "review": {
+    "verdict": "confirmed",
+    "reason": "(20) on p. 9 allows an arbitrary coefficient in K_p[ζm] from x^1 on, and v1 has the same text. For K = Q, ξ = 0, p = 5, take fm = (1 + x/ζm)^{1/5}. The constant term is 1, and φp f(q^p)/f(q)^p = (1+x/ζm)^{5/5}/(1+x/ζm)^{5/5} = 1, so (21) holds. But f1 = 1 + x/5 − 2x²/25 + … (I recomputed the binomial coefficients) is not 5-integral. Since Z5[[x]] is normal and f1^5 = 1 + x, f1 is not in its fraction field, so 1 and f cannot both be multiples of one generator, and 𝓗_{Z5,0} is not free of rank one. The proof of Theorem 1 uses Corollary 3.5, which assumes f ∈ (1+pS) + xS[ζm] + O(x²) and relies on Dwork's Lemma 3.4, which needs the x-coefficient to be integral. Lemma 3.6, (195) on p. 41, uses exactly the corrected shape.",
+    "by": "REV-PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24"
+   }
   },
   {
    "id": "PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24/E10",
@@ -2131,7 +2403,7 @@
    "locator": "Definition 1.4 and (19), §1.5, pp. 9–10 (arXiv 2412.04241v2; the same text is in v1)",
    "printed": "It requires that the canonical map K → Kp carry the family to (fm(x))m≥1,(m,p)=1 ∈ HR∧p,ξ.",
    "correction": "“… for every prime p not dividing ∆”; and in (19), Kp = R∧p[1/p] = K ⊗Q Qp holds only for p ∤ ∆.",
-   "reason": "p is not quantified. For p | ∆, R∧p = 0, so R∧p[1/p] = 0 while K ⊗ Qp ≠ 0; the local module would be a module over the zero ring inside a non-zero space, forcing fm = 0 for all m prime to p. Theorem 1 is stated for (p, ∆) = 1, the intended range.",
+   "reason": "p is not quantified. For p | ∆, R∧p = 0, so R∧p[1/p] = 0 while K ⊗ Qp ≠ 0, and (19) fails. Reading Kp as K ⊗ Qp, the local condition at such p would force fm = 0 for all m prime to p; reading Kp as R∧p[1/p] = 0, it is vacuous. Theorem 1 is stated for (p, ∆) = 1, the intended range.",
    "affects": "nothing",
    "known": "new",
    "searched": [
@@ -2142,7 +2414,12 @@
     "P. Scholze’s announcement of the Bonn course on the paper (Winter 2024/25): no corrections",
     "the atlas blueprint packet research/blueprint/packets/HabiroNumberFields.json, which records this finding as HabiroNumberFields/E28; re-checked here at the v2 locator"
    ],
-   "alsoRecordedAs": "HabiroNumberFields/E28"
+   "alsoRecordedAs": "HabiroNumberFields/E28",
+   "review": {
+    "verdict": "confirmed",
+    "reason": "In Definition 1.4 (LaTeX lines 1013–1025, p. 10) the prime p is not quantified, and v1 has the same text. (19) on p. 9 says K_p = R∧p[1/p] = K ⊗ Q_p, which fails for p | ∆: there R∧p = 0 and K ⊗ Q_p ≠ 0. Theorem 1 is stated for (p,∆) = 1, so 'for every prime p not dividing ∆' is the intended reading. The consequence stated in the reason depends on how K_p is read, so the reason needs a small precision fix.",
+    "by": "REV-PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24"
+   }
   },
   {
    "id": "PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24/E11",
@@ -2161,7 +2438,12 @@
     "P. Scholze’s announcement of the Bonn course on the paper (Winter 2024/25): no corrections",
     "the atlas blueprint packet research/blueprint/packets/HabiroNumberFields.json, which records this finding as HabiroNumberFields/E26; re-checked here at the v2 locator"
    ],
-   "alsoRecordedAs": "HabiroNumberFields/E26"
+   "alsoRecordedAs": "HabiroNumberFields/E26",
+   "review": {
+    "verdict": "confirmed",
+    "reason": "The claim is on p. 11 (LaTeX line 1099), and v1 has the same text. I read §3.2 and §3.3. Theorem 10 (LaTeX line 3870) only says that Ψ is an L_p(ξ̂)-section for unramified p > 3, which is a local statement about orders prime to p. No argument anywhere shows that the global product lies in 𝓗_{R,ξ}: that needs integrality at p | m and the gluing (24). No argument shows either that it generates 𝓗_{R,ξ} freely over 𝓗_R. So the claim is unproved.",
+    "by": "REV-PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24"
+   }
   },
   {
    "id": "PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24/E12",
@@ -2180,7 +2462,12 @@
     "P. Scholze’s announcement of the Bonn course on the paper (Winter 2024/25): no corrections",
     "the atlas blueprint packet research/blueprint/packets/HabiroNumberFields.json, which records this finding as HabiroNumberFields/E27; re-checked here at the v2 locator"
    ],
-   "alsoRecordedAs": "HabiroNumberFields/E27"
+   "alsoRecordedAs": "HabiroNumberFields/E27",
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Proposition 1.5(e) on p. 11 reads 'not diving ∆' in both v2 (LaTeX line 1135) and v1 (line 1099). It is a spelling slip for 'dividing'.",
+    "by": "REV-PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24"
+   }
   },
   {
    "id": "PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24/E13",
@@ -2199,14 +2486,19 @@
     "P. Scholze’s announcement of the Bonn course on the paper (Winter 2024/25): no corrections",
     "the atlas blueprint packet research/blueprint/packets/HabiroNahmSeries.json, which records this finding as HabiroNahmSeries/E36; re-checked here at the v2 locator"
    ],
-   "alsoRecordedAs": "HabiroNahmSeries/E36"
+   "alsoRecordedAs": "HabiroNahmSeries/E36",
+   "review": {
+    "verdict": "confirmed",
+    "reason": "The LaTeX has \\prod_{i} z_j(t)^{A_{i,j}} in (34) (line 1300) and \\prod_i z_j^{A_{i,j}} in (41), and v1 has the same text. Setting q = 1 and σi ↦ zi in (33) gives ∏_i zi^{A_ij}, and the paper's own example 1 − z1 = z1^8 z2^5 for A = (8 5;5 4) in §4.3 uses zi. I checked this in sympy for A = (1 2;2 3) and (2 1;1 1). V(t) = −lim_{q→1}(1−q) log F_A equals V^FGI of (116) to total degree 4 when z solves the corrected system. With the printed zj they already differ at order t², e.g. 13/4 against 5/4 at t2² for (1 2;2 3).",
+    "by": "REV-PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24"
+   }
   },
   {
    "id": "PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24/E14",
    "kind": "gap",
    "locator": "§1.7, paragraph after (41), p. 14 (arXiv 2412.04241v2; the same text is in v1)",
    "printed": "For a prime p coprime to ∆, it asserts that setting t = 1 specializes V(t) to Dp(ξ). It also says V(t^p) = φpV(t) at t = 1 specializes to Dp(φpξ) = φpDp(ξ).",
-   "correction": "Needs a proof: the t = 1 specialisation of V(t^p)/p − pV(t) ∈ pSp (Lemma 2.13, (130)–(135)) equals φpDp(ξ)/p − pDp(ξ) modulo pR∧p, by Coleman’s Frobenius relations for Li2 and log.",
+   "correction": "Needs a proof: the t = 1 specialisation of V(t^p)/p − pV(t) ∈ pSp (Lemma 2.13, (130)–(135)) must equal φpDp(ξ)/p − pDp(ξ) exactly, as elements of R∧p, by Coleman's Frobenius relations for Li2 and log. Agreement modulo pR∧p would not suffice, since a non-zero constant c changes the left side of (21) by c/(m² log q), and x/log(1 + x/ζm) has p-adically unbounded coefficients.",
    "reason": "V(t) is a formal power series that does not converge at t = 1; the identity is what turns the specialisation of (39) into condition (21) for the formal completion (22), and no argument is given.",
    "affects": "the proof",
    "known": "new",
@@ -2218,7 +2510,12 @@
     "P. Scholze’s announcement of the Bonn course on the paper (Winter 2024/25): no corrections",
     "the atlas blueprint packet research/blueprint/packets/HabiroNahmSeries.json, which records this finding as HabiroNahmSeries/E54; re-checked here at the v2 locator"
    ],
-   "alsoRecordedAs": "HabiroNahmSeries/E54"
+   "alsoRecordedAs": "HabiroNahmSeries/E54",
+   "review": {
+    "verdict": "confirmed",
+    "reason": "The sentence is on p. 14 (LaTeX line 1393), and v1 has the same text. V(t) ∈ Q[[t]] does not converge p-adically at t = 1. The only link used is (130), V(t^p)/p − pV(t) ∈ pS_p, and nowhere is its value at t = 1 identified with φpDp(ξ)/p − pDp(ξ). The proof of Theorem 5 in §3.3 calls (39) 'essentially (21)' without that identity. The correction's modulus is too weak, though. Condition (21) needs the polar coefficients to agree exactly: a non-zero constant c adds c/(m² log q) to the left side, and x/log(1+x/ζm) has p-adically unbounded coefficients. I computed v5 of the coefficients of y/log(1+y) reaching −32 by degree 130, and v7 reaching −21.",
+    "by": "REV-PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24"
+   }
   },
   {
    "id": "PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24/E15",
@@ -2237,7 +2534,12 @@
     "P. Scholze’s announcement of the Bonn course on the paper (Winter 2024/25): no corrections",
     "the atlas blueprint packet research/blueprint/packets/HabiroNumberFields.json, which records this finding as HabiroNumberFields/E25; re-checked here at the v2 locator"
    ],
-   "alsoRecordedAs": "HabiroNumberFields/E25"
+   "alsoRecordedAs": "HabiroNumberFields/E25",
+   "review": {
+    "verdict": "confirmed",
+    "reason": "On p. 14 the LaTeX (line 1407) defines 𝓗_{R,ξ}|∆ by '\\eqref{gluef}', which is (13), the gluing of the ring, and v1 has the same text. For ξ ≠ 0 the components lie in εm(ξ)^{1/m}K[ζm][[x]] with different Kummer factors at m and pm, and their coefficients are not integral. The re-expansion in (13) is then undefined, and elements of 𝓗_{R,ξ} satisfy (21) and (24), not (13). The next sentence, '𝓗_{R,0}|∆ = 𝓗_R|∆', and the proof of Theorem 5 show that the conditions of Definition 1.4 are meant.",
+    "by": "REV-PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24"
+   }
   },
   {
    "id": "PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24/E16",
@@ -2256,7 +2558,12 @@
     "P. Scholze’s announcement of the Bonn course on the paper (Winter 2024/25): no corrections",
     "the atlas blueprint packet research/blueprint/packets/HabiroNahmSeries.json, which records this finding as HabiroNahmSeries/E44; re-checked here at the v2 locator"
    ],
-   "alsoRecordedAs": "HabiroNahmSeries/E44"
+   "alsoRecordedAs": "HabiroNahmSeries/E44",
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Corollary 1.10 on p. 15 puts the constant term in R[ζm], and v1 has the same text. Theorem 5 gives only 𝓗_{R[δ^{−1/2}],ξ}|∆, and Proposition 1.5(f) gives fm(0) ∈ R[ζm, εm^{1/m}]. For 4_1, A = (1 1;1 1) and z = (ζ6, ζ6), I computed δ = z^{−2}det(diag(1−z)A + diag z) = −√−3. The constant term at m = 1 is 1/∜(−3) by (1), consistent with the δ^{−1/2} normalisation in Definition 2.11. This number is not in Q(√−3), because √−3 has norm 3 and so is not a square there, and hence it is not in R = Z[ζ6,1/6]. The corollary as printed is false, and the correction is what Theorem 5 and Proposition 1.5(f) actually give.",
+    "by": "REV-PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24"
+   }
   },
   {
    "id": "PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24/E17",
@@ -2275,15 +2582,20 @@
     "P. Scholze’s announcement of the Bonn course on the paper (Winter 2024/25): no corrections",
     "the atlas blueprint packet research/blueprint/packets/HabiroNahmSeries.json, which records this finding as HabiroNahmSeries/E45; re-checked here at the v2 locator"
    ],
-   "alsoRecordedAs": "HabiroNahmSeries/E45"
+   "alsoRecordedAs": "HabiroNahmSeries/E45",
+   "review": {
+    "verdict": "confirmed",
+    "reason": "The display is (43) on p. 15, and v1 has the same text. [26] (arXiv 2111.06645) only says the sums are 'divisible by √c'. I computed S = Σ_{k mod m} (ζmθ;ζm)_k(ζm^{−1}θ^{−1};ζm^{−1})_k exactly in Q(ζ6m) with θ = ζ6m, for m = 5, 7, 11, 13, 17, 19, 23, 25 and 35. In each case S is periodic in k, S ≠ 0 and S²/m is integral. S lies in Q(ζ6m), and √m lies in Q(ζ6m) only when m ≡ 1 (mod 4), since the quadratic subfields of Q(ζ3m) have discriminants dividing 3m. So S/√m ∉ Q(ζ6m) for m ≡ 3 (mod 4). With √(m*), m* = (−1)^{(m−1)/2}m, the value lies in Q(ζ6m) and is integral. Changing θ multiplies S by a unit, so the conclusion does not depend on the choice of θ.",
+    "by": "REV-PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24"
+   }
   },
   {
    "id": "PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24/E18",
-   "kind": "gap",
+   "kind": "error",
    "locator": "Corollary 1.11(a), (44), p. 15, and Theorem 12, p. 47, with the ∆ of Theorem 5 (arXiv 2412.04241v2; the same text is in v1)",
    "printed": "Part (a) asserts fA,z(q) fA,z(q^{−1}) ∈ HR.",
    "correction": "∈ HR[δ^{−1}], which is HR when δ ∈ R^×; the same applies to Theorem 12. ∆ must also contain the primes of the exceptional integer of Calegari–Garoufalidis–Zagier Theorem 1.6 and make every zj a unit of R.",
-   "reason": "The constant term of the product is δ^{−1} times a unit (1/δ = (2z² + 3z − 9)/23 for A = (3), Example 4.1), and nothing in the hypotheses makes δ a unit of OK[1/∆]. In the paper’s examples N(δ) is supported on disc(K), so they are unaffected. For A = (2 −1; −1 2) the solution is z = (1/2, 1/2), which is not integral.",
+   "reason": "The constant term of the product at m = 1 is a unit times δ^{−1}. This follows from the δ^{−1/2} normalisation in Definition 2.11 and Lemma 2.3, and Example 4.1 shows it for A = (3), where 1/δ = (2z² + 3z − 9)/23. Nothing in the hypotheses makes δ a unit of OK[1/∆]. For A = (3 −1; −1 3) and z = (ζ6, ζ6), δ = (3 − 7√−3)/2 has norm 39, so the constant term is not in Z[ζ6, 1/6], although ∆ = 6 meets all the paper's conditions on ∆ for Q(√−3). For A = (1 2; 2 1) and the cubic field of discriminant −23, N(δ) = −115. In the paper's own examples (4_1 and A = (3)), N(δ) is supported on disc(K). For A = (2 −1; −1 2) the solution is z = (1/2, 1/2), which is not integral.",
    "affects": "a stated result",
    "known": "new",
    "searched": [
@@ -2294,7 +2606,12 @@
     "P. Scholze’s announcement of the Bonn course on the paper (Winter 2024/25): no corrections",
     "the atlas blueprint packet research/blueprint/packets/HabiroNahmSeries.json, which records this finding as HabiroNahmSeries/E55; re-checked here at the v2 locator"
    ],
-   "alsoRecordedAs": "HabiroNahmSeries/E55"
+   "alsoRecordedAs": "HabiroNahmSeries/E55",
+   "review": {
+    "verdict": "confirmed",
+    "reason": "(44) on p. 15 and Theorem 12 on p. 47 put the symmetrised series in 𝓗_R, and v1 has the same text. By Definition 2.11 and Lemma 2.3, the constant term at m = 1 is a unit times 1/δ, and Example 4.1 confirms this: for A = (3), 1/δ = (2z²+3z−9)/23, which I verified modulo z³ − z + 1. Nothing forces δ ∈ R^×, and I found explicit failures. For A = (3 −1;−1 3) and z = (ζ6, ζ6), δ = (3 − 7√−3)/2 has norm 39, so 1/δ ∉ Z[ζ6,1/6]. Yet ∆ = 6 meets every stated requirement for K = Q(√−3): 6 | ∆, disc | ∆, and CGZ's M_F = 18. For A = (1 2;2 1), with z1 = z2 a root of z³ − z + 1, N(δ) = −115. So (a) is false as stated, and 'error' fits better than 'gap'. I also checked that z = (1/2,1/2) solves the system for A = (2 −1;−1 2).",
+    "by": "REV-PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24"
+   }
   },
   {
    "id": "PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24/E19",
@@ -2313,14 +2630,19 @@
     "P. Scholze’s announcement of the Bonn course on the paper (Winter 2024/25): no corrections",
     "the atlas blueprint packet research/blueprint/packets/HabiroNahmSeries.json, which records this finding as HabiroNahmSeries/E56; re-checked here at the v2 locator"
    ],
-   "alsoRecordedAs": "HabiroNahmSeries/E56"
+   "alsoRecordedAs": "HabiroNahmSeries/E56",
+   "review": {
+    "verdict": "confirmed",
+    "reason": "The paragraph is on p. 15, and v1 has the same text. In the converse, r ('the order of the torsion element') is undefined because torsion is what is to be proved. Membership of f^n in 𝓗_R gives information on εℓ(nξ) only where the constant terms fℓ(0) are non-zero, and non-vanishing is nowhere proved. The Bloch–Wigner route has no stated link to Habiro-ring membership. In CGZ (arXiv 1712.04887) I checked Theorem 1.5: c_ζ is injective on K3(F)/n for n prime to M_F, which with finite generation gives the corrected argument. The target ring also needs δ^{−1}, as in E18.",
+    "by": "REV-PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24"
+   }
   },
   {
    "id": "PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24/E20",
    "kind": "misprint",
    "locator": "Proof of Lemma 2.1, (54), p. 19 (arXiv 2412.04241v2; the same text is in v1)",
    "printed": "Li^{(p)}_n(t) ≡ Σ_{r=1}^{p−1} Σ_{k=0}^{p^N−1} Σ_{ℓ=0}^∞ t^{r+pk+p^Nℓ}/(r + pk)^n = 1/(1 − t^{p^N}) Σ_{r=1}^{p−1} Σ_{k=0}^{p^N−1} t^{r+pk}/(r + pk)^n (mod p^N)",
-   "correction": "t^{r+pk+p^{N+1}ℓ} and 1/(1 − t^{p^{N+1}}): the residues r + pk, 1 ≤ r < p, 0 ≤ k < p^N, run over the classes modulo p^{N+1} prime to p, as in (53).",
+   "correction": "t^{r+pk+p^{N+1}ℓ} and 1/(1 − t^{p^{N+1}}): the residues r + pk, 1 ≤ r < p, 0 ≤ k < p^N, run over the classes modulo p^{N+1} prime to p, as in (53). Likewise 'congruence classes modulo p^N' in the sentence before (54) should read 'modulo p^{N+1}'.",
    "reason": "(53) compares r + pk with r + p(k + p^N), a period of p^{N+1}. PARI/GP for p = 3, 5, N = 1, 2, n = 2, 3 and coefficients up to t^{200}: with period p^N the difference from Li^{(p)}_n has valuation 0, with p^{N+1} it has valuation at least N + 1.",
    "affects": "nothing",
    "known": "new",
@@ -2332,7 +2654,12 @@
     "P. Scholze’s announcement of the Bonn course on the paper (Winter 2024/25): no corrections",
     "the atlas blueprint packet research/blueprint/packets/HabiroNahmSeries.json, which records this finding as HabiroNahmSeries/E42; re-checked here at the v2 locator"
    ],
-   "alsoRecordedAs": "HabiroNahmSeries/E42"
+   "alsoRecordedAs": "HabiroNahmSeries/E42",
+   "review": {
+    "verdict": "confirmed",
+    "reason": "(54) on p. 19 (LaTeX lines 1720–1731) uses the period p^N, and v1 has the same text. The residues r + pk with 1 ≤ r < p and 0 ≤ k < p^N are the classes modulo p^{N+1} prime to p, which is also the shift in (53). I recomputed the sums up to t^200 for p = 3, 5, N = 1, 2 and n = 2, 3. With period p^N the difference from Li^{(p)}_n has valuation 0. With p^{N+1} it has valuation at least N+1 (the minima were 2, 3, 3, 4 for p = 3 and 2, 2, 3, 3 for p = 5). The sentence just before (54), 'congruence classes modulo p^N', has the same slip.",
+    "by": "REV-PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24"
+   }
   },
   {
    "id": "PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24/E21",
@@ -2351,7 +2678,12 @@
     "P. Scholze’s announcement of the Bonn course on the paper (Winter 2024/25): no corrections",
     "the atlas blueprint packet research/blueprint/packets/HabiroNahmSeries.json, which records this finding as HabiroNahmSeries/E43; re-checked here at the v2 locator"
    ],
-   "alsoRecordedAs": "HabiroNahmSeries/E43"
+   "alsoRecordedAs": "HabiroNahmSeries/E43",
+   "review": {
+    "verdict": "confirmed",
+    "reason": "The LaTeX of (56) (lines 1749–1756) reads p Li_2^{(p)}(ζ)/x + pZ_(p)[ζ][[x]], and v1 has the same text. Using (48) and the expansion 1/(1−(1+x)^n) = −1/(nx) + (n−1)/(2n) + O(x), I checked in sympy for p = 5 up to t^30 two things. The x^{−1} coefficient is exactly −p·Li2^{(p)}(t), which is also the k = 0 term of (49). The x^0 coefficient is (p/2)(Li1^{(p)}(t) − Li2^{(p)}(t)). At t = ζ the latter involves p-adic logarithms of cyclotomic units, and the only justification offered, via (58), lands in Z_p[ζ]. So both the sign and the ring need the stated correction.",
+    "by": "REV-PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24"
+   }
   },
   {
    "id": "PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24/E22",
@@ -2370,7 +2702,12 @@
     "P. Scholze’s announcement of the Bonn course on the paper (Winter 2024/25): no corrections",
     "the atlas blueprint packet research/blueprint/packets/HabiroNahmSeries.json, which records this finding as HabiroNahmSeries/E29; re-checked here at the v2 locator"
    ],
-   "alsoRecordedAs": "HabiroNahmSeries/E29"
+   "alsoRecordedAs": "HabiroNahmSeries/E29",
+   "review": {
+    "verdict": "confirmed",
+    "reason": "(67) on p. 21 has −(m−1)/(2m) and the ring tQ[[t]], and v1 has the same text. From (71) I derived the constant term of the m | ℓ part as V/(2m²) − (1/2m)ΣLn(1)Li1 + (1/m)ΣL′n(1)Li1. Removing V/(2m²), which comes from exp(V/(m² log q)), and log δ^{−1/2} from (66) leaves +(m−1)/(2m)ΣLn(1)Li1 + ((1−m)/m)ΣL′n(1)Li1. As an independent check I took (t;q)∞ with m = 2 and computed the constant term directly from (59). That gives U2 = (1 + t^{1/2})^{−1/2}, matching the corrected sign, whereas the printed sign gives (1 − t^{1/2})^{1/2}. The j-sum makes um lie in t^{1/m}Q(ζm)[[t^{1/m}]]: for (t;q)∞ and m = 3 the coefficient of t^{1/3} is −1/(1−ζ3).",
+    "by": "REV-PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24"
+   }
   },
   {
    "id": "PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24/E23",
@@ -2389,7 +2726,12 @@
     "P. Scholze’s announcement of the Bonn course on the paper (Winter 2024/25): no corrections",
     "the atlas blueprint packet research/blueprint/packets/HabiroNahmSeries.json, which records this finding as HabiroNahmSeries/E37; re-checked here at the v2 locator"
    ],
-   "alsoRecordedAs": "HabiroNahmSeries/E37"
+   "alsoRecordedAs": "HabiroNahmSeries/E37",
+   "review": {
+    "verdict": "confirmed",
+    "reason": "At p. 21, (69) gives the residue −Ln(1)ζm/ℓ², and the left side of (70) keeps the factor ζm, but the middle and right-hand expressions drop it; summing over ℓ = mr gives (ζm/m²)ΣLn(1)Li2(t^{nm}) = ζmV(t^m)/m², which matches (68) (1/log(1 + x/ζm) = ζm/x + 1/2 + …) and Lemma 2.6, (79). The sentence after (71) treats the case m | ℓ, so the substitution is ℓ = mr, as in the sentence before (70); “m = rℓ” is a slip. The v1 and v2 LaTeX sources are identical throughout §§2–3 (a full diff shows changes only in §1 and one sentence of §4), so the v1 claim holds.",
+    "by": "REV-PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24"
+   }
   },
   {
    "id": "PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24/E24",
@@ -2408,7 +2750,12 @@
     "P. Scholze’s announcement of the Bonn course on the paper (Winter 2024/25): no corrections",
     "the atlas blueprint packet research/blueprint/packets/HabiroNahmSeries.json, which records this finding as HabiroNahmSeries/E35; re-checked here at the v2 locator"
    ],
-   "alsoRecordedAs": "HabiroNahmSeries/E35"
+   "alsoRecordedAs": "HabiroNahmSeries/E35",
+   "review": {
+    "verdict": "confirmed",
+    "reason": "The sentence after (77) on p. 23 is quoted correctly. From 1 − z = (−1)^A t z^A, t(z) = (−1)^A(1 − z)z^{−A}, and dt/dz = (−1)^A z^{−A−1}((A − 1)z − A) vanishes at z = A/(A − 1), where t = (−1)^{A+1}(A − 1)^{A−1}/A^A. Checks: for A = 2, (76) gives z = Σ(−1)^k C_k t^k (Catalan numbers), which is singular at t = −1/4, and for A = 3 the coefficients binom(3k,k)/(2k + 1) are positive with radius 4/27. Both agree with the corrected sign and contradict the printed one (the corrected formula also works for A = 1 and A = −1). The v1 and v2 LaTeX sources are identical throughout §§2–3 (a full diff shows changes only in §1 and one sentence of §4), so the v1 claim holds.",
+    "by": "REV-PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24"
+   }
   },
   {
    "id": "PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24/E25",
@@ -2427,7 +2774,12 @@
     "P. Scholze’s announcement of the Bonn course on the paper (Winter 2024/25): no corrections",
     "the atlas blueprint packet research/blueprint/packets/HabiroNahmSeries.json, which records this finding as HabiroNahmSeries/E40; re-checked here at the v2 locator"
    ],
-   "alsoRecordedAs": "HabiroNahmSeries/E40"
+   "alsoRecordedAs": "HabiroNahmSeries/E40",
+   "review": {
+    "verdict": "confirmed",
+    "reason": "On p. 24 the proof asserts that the expansion (28) of any F ∈ Z((q))[[t]] with F(0,q) = 1 follows “by induction on the total degree of q^i t^n”. For A = −1 the t^n coefficient of FA is (−1)^n q^{−n(n+1)/2}/(q;q)n, so the total degrees i + n of the monomials of F are unbounded below, and an induction on total degree has no starting point. Inducting on the t-degree works: once the factors of lower t-degree are removed, the t^n coefficient of log F is −Σi cn,i q^i/(1 − q), which determines the cn,i uniquely, with cn,i = 0 for i ≪ 0. The statement is true and easy, so kind gap and affects nothing are right. The v1 and v2 LaTeX sources are identical throughout §§2–3 (a full diff shows changes only in §1 and one sentence of §4), so the v1 claim holds.",
+    "by": "REV-PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24"
+   }
   },
   {
    "id": "PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24/E26",
@@ -2446,7 +2798,12 @@
     "P. Scholze’s announcement of the Bonn course on the paper (Winter 2024/25): no corrections",
     "the atlas blueprint packet research/blueprint/packets/HabiroNahmSeries.json, which records this finding as HabiroNahmSeries/E34; re-checked here at the v2 locator"
    ],
-   "alsoRecordedAs": "HabiroNahmSeries/E34"
+   "alsoRecordedAs": "HabiroNahmSeries/E34",
+   "review": {
+    "verdict": "confirmed",
+    "reason": "By (27), log F contains the term −LN(q)t^N/(1 − q). If LN has a simple pole at ζa with residue α, then near q = ζa + x this term contributes −α t^N/((1 − ζa)x), and N = ab. So the second term of (87) on p. 24 should carry a minus sign. The contradiction with Lemma 2.6 needs only that the term is non-zero, so nothing else is affected. In the proof N is used both for the matrix size (Theorem 6) and as the induction index. The v1 and v2 LaTeX sources are identical throughout §§2–3 (a full diff shows changes only in §1 and one sentence of §4), so the v1 claim holds.",
+    "by": "REV-PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24"
+   }
   },
   {
    "id": "PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24/E27",
@@ -2465,7 +2822,12 @@
     "P. Scholze’s announcement of the Bonn course on the paper (Winter 2024/25): no corrections",
     "the atlas blueprint packet research/blueprint/packets/HabiroNahmSeries.json, which records this finding as HabiroNahmSeries/E31; re-checked here at the v2 locator"
    ],
-   "alsoRecordedAs": "HabiroNahmSeries/E31"
+   "alsoRecordedAs": "HabiroNahmSeries/E31",
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Dividing (33) by F(t) gives 1 − Gj(t) = (−q)^{Ajj} tj F(σj^{Ajj}st)/F(t) with s = ∏_{i≠j}σi^{Aij}. The printed product ∏k Gj(σj^k s t) telescopes to F(σj^{Ajj}st)/F(st), so the factor F(st)/F(t) is missing; it is a product of shifted Gi, i ≠ j. I recomputed this with sympy for A = [[2,1],[1,1]] to total t-degree 4. The printed (89) leaves the residual q³t1t2 for both j, while the corrected system holds exactly (and (33) itself checks out). Integrality by induction still works for the coupled system, so error / the proof is right. The v1 and v2 LaTeX sources are identical throughout §§2–3 (a full diff shows changes only in §1 and one sentence of §4), so the v1 claim holds.",
+    "by": "REV-PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24"
+   }
   },
   {
    "id": "PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24/E28",
@@ -2484,7 +2846,12 @@
     "P. Scholze’s announcement of the Bonn course on the paper (Winter 2024/25): no corrections",
     "the atlas blueprint packet research/blueprint/packets/HabiroNahmSeries.json, which records this finding as HabiroNahmSeries/E28; re-checked here at the v2 locator"
    ],
-   "alsoRecordedAs": "HabiroNahmSeries/E28"
+   "alsoRecordedAs": "HabiroNahmSeries/E28",
+   "review": {
+    "verdict": "confirmed",
+    "reason": "I recomputed the level-m exponents Ln of (90) for Fk := FA,m,k(t^{1/m},q) using sympy rational functions. For A = 0, m = 2, k = 0: L1 = −1/(1 − q) and L2 = −(q³ + 2q − 1)/(2(q − 1)³(q² + 1)(q² + q + 1)), so L2 has a pole at Φ4, which (93) forbids; L4 has poles at Φ4 and Φ8. The same forbidden poles appear for every A ∈ {−2,…,3} and every k: Φ4 and Φ8 (m = 2, n ≤ 4) and Φ9 (m = 3, n ≤ 4); also Φ8 and Φ16 (m = 4, A ∈ {−1,…,2}) and Φ12 and Φ18 (m = 6, A ∈ {0,1,2}, n ≤ 3). There are never poles at Φam with gcd(a,m) = 1, and Ln(−1) ∈ Z[1/2] in every m = 2 case I evaluated (A ∈ {−2,…,3}). Such poles are forced: at ζam with gcd(a,m) > 1, no 1/(1 − q^{mℓ}) with (ℓ,m) = 1 has a pole, yet the residue of log F0,2,0(t,q) at ζ4 (coefficient −i/16 of t^4) equals ζ4V(t^4)/16 with V = −Li2. So Theorem 7 is false as stated, and the corrected ring fits all data. With the corrected ring, the case m′ = 1 of Lemma 2.10 used for Theorem 4 survives, because Φam(ζm) is a p-unit when gcd(a,m) > 1 and p ∤ m. The v1 and v2 LaTeX sources are identical throughout §§2–3 (a full diff shows changes only in §1 and one sentence of §4), so the v1 claim holds.",
+    "by": "REV-PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24"
+   }
   },
   {
    "id": "PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24/E29",
@@ -2503,13 +2870,19 @@
     "P. Scholze’s announcement of the Bonn course on the paper (Winter 2024/25): no corrections",
     "the atlas blueprint packet research/blueprint/packets/HabiroNahmSeries.json, which records this finding as HabiroNahmSeries/E38; re-checked here at the v2 locator"
    ],
-   "alsoRecordedAs": "HabiroNahmSeries/E38"
+   "alsoRecordedAs": "HabiroNahmSeries/E38",
+   "review": {
+    "verdict": "confirmed",
+    "reason": "At q = ζm + x, 1 − q^{mℓ} ≈ −mℓx/ζm, so the polar part of (90) is (ζm/x)Σ Ln(ζm^ℓ)t^{nℓ}/(mℓ²) = ζmV(t)/(m²x), with V as in (94). At ζam with gcd(a,m) = 1 only the ℓ = aℓ′ terms have poles, which gives ζamV(t^a)/(a²m²x). At ζam with gcd(a,m) > 1 no denominator 1/(1 − q^{mℓ}), (ℓ,m) = 1, vanishes, so any pole must come from the Ln; under (93) there is none. So the sentence before (94) on p. 26, which asserts a polar part “given by V(t)/m²” at every ζmn, is wrong. The proof of Theorem 7 relies on the same universal claim at ζc, c ∈ mZ, so affects: the proof is appropriate. The v1 and v2 LaTeX sources are identical throughout §§2–3 (a full diff shows changes only in §1 and one sentence of §4), so the v1 claim holds.",
+    "by": "REV-PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24"
+   }
   },
   {
    "id": "PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24/E30",
    "kind": "error",
-   "locator": "Proof of Theorem 7, (98), p. 26; Lemma 2.15, (137) and (139), pp. 32–33; proof of Theorem 8, (165)–(166), p. 35 (arXiv 2412.04241v2; the same text is in v1)",
-   "correction": "The factor is (−1)^{Aj,j m} q^{Aj,j m(m+1)/2} tj^m, and in (98) (−1)^{Am} q^{Am(m+1)/2} t^m; in (139) also tj^m and IA,mm′,ℓ−mδj.",
+   "locator": "Proof of Theorem 7, (98) and (100), p. 26; Lemma 2.15, (137) and (139), p. 32; proof of Theorem 8, (165)–(166), p. 35 (arXiv 2412.04241v2; the same text is in v1)",
+   "printed": "(98): … = q^{Am(m+1)/2} t^m HA,m,k(q^{Am}t, q); (137), (139): (−1)^{Aj,j m(m+1)/2} q^{Aj,j m(m+1)/2} ti^m …; (165): (−1)^{Am(m+1)/2} q^{Am(m+1)/2} t^m σ^{Am}(t^k FA,m,k(t, q))",
+   "correction": "The factor is (−1)^{Aj,j m} q^{Aj,j m(m+1)/2} tj^m in (137) and (139), and (−1)^{Am} q^{Am(m+1)/2} t^m in (98), (100) and (165); in (139) also IA,mm′,ℓ−mδj.",
    "reason": "From Σℓ (−1)^ℓ q^{−ℓ(ℓ−1)/2} binom(m,ℓ)_{q^{−1}} q^{nℓ} = (q;q)n/(q;q)n−m, the ratio of the t^n coefficients of the two sides is (−1)^{Am}q^{Am(m+1)/2}; (−1)^{Am(m+1)/2} agrees with it only when Am(m − 1)/2 is even. PARI/GP for A ∈ {−2, …, 3}, m ≤ 4 and all k: the printed (98) fails for A = 1, m = 3 and the printed (165) for A = 3, m = 2, while the corrected forms hold.",
    "affects": "the proof",
    "known": "new",
@@ -2521,7 +2894,12 @@
     "P. Scholze’s announcement of the Bonn course on the paper (Winter 2024/25): no corrections",
     "the atlas blueprint packet research/blueprint/packets/HabiroNahmSeries.json, which records this finding as HabiroNahmSeries/E33; re-checked here at the v2 locator"
    ],
-   "alsoRecordedAs": "HabiroNahmSeries/E33"
+   "alsoRecordedAs": "HabiroNahmSeries/E33",
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Via the q-binomial theorem, Σℓ(−1)^ℓq^{−ℓ(ℓ−1)/2}binom(m,ℓ)_{q^{−1}}q^{nℓ} = (q;q)n/(q;q)n−m, and comparing t^n coefficients shows the right side of (98) needs the factor (−1)^{Am}q^{Am(m+1)/2}; the same holds for (137), (139) and (165) with A → Ajj. I checked this with sympy for (A,m,k) = (1,3,0), (1,3,1), (3,2,0), (3,2,1), (2,3,2), (1,2,1), (−1,3,1), (2,2,0), j ≤ 4. The corrected factor always holds. Printed (98) (no sign) fails exactly when Am is odd, and the printed sign (−1)^{Am(m+1)/2} fails when Am(m − 1)/2 is odd (e.g. (1,3), (3,2), (1,2), (−1,3)). The nonlinear equation (100), obtained from (98) by dividing by H, inherits the missing (−1)^{Am}. Lemma 2.15 with (137) and (139) lies entirely on p. 32. Also, (165) is the rank-one version, with (−1)^{Am(m+1)/2}q^{Am(m+1)/2}t^m, not Ajj and ti. The v1 and v2 LaTeX sources are identical throughout §§2–3 (a full diff shows changes only in §1 and one sentence of §4), so the v1 claim holds.",
+    "by": "REV-PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24"
+   }
   },
   {
    "id": "PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24/E31",
@@ -2538,7 +2916,12 @@
     "MPIM preprint 2024-31 (archive.mpim-bonn.mpg.de/id/eprint/5146), the v1 text",
     "Crossref and a web search for the title and for an erratum, 29 September 2026: no journal version, erratum or corrigendum",
     "P. Scholze’s announcement of the Bonn course on the paper (Winter 2024/25): no corrections"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "In (109) on p. 28, the index j is not defined anywhere in Lemma 2.10 or its proof. By (90), log F(t^p,q^p) has t^{npℓ} and p log F(t,q) has t^{nℓ}. With n in place of j, the terms with p | ℓ in the first sum are exactly the second sum (ℓ = pℓ′, and (pℓ′,m) = 1 iff (ℓ′,m) = 1 as p ∤ m), so they cancel and the last expression, with (ℓ,mp) = 1, follows. The v1 and v2 LaTeX sources are identical throughout §§2–3 (a full diff shows changes only in §1 and one sentence of §4), so the v1 claim holds.",
+    "by": "REV-PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24"
+   }
   },
   {
    "id": "PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24/E32",
@@ -2557,7 +2940,12 @@
     "P. Scholze’s announcement of the Bonn course on the paper (Winter 2024/25): no corrections",
     "the atlas blueprint packet research/blueprint/packets/HabiroNahmSeries.json, which records this finding as HabiroNahmSeries/E30; re-checked here at the v2 locator"
    ],
-   "alsoRecordedAs": "HabiroNahmSeries/E30"
+   "alsoRecordedAs": "HabiroNahmSeries/E30",
+   "review": {
+    "verdict": "confirmed",
+    "reason": "At q = ζm the Nahm summand's sign and q-power give (−1)^{diag(A)·k}ζm^{(k^tAk + diag(A)·k)/2}, which is also the x = 0 value of the prefactor of IA,m,k in (118). The printed phase ζm^{diag(A)·k/2}(−ζm)^{k^tAk/2} differs from this by (−1)^{k^tAk/2}, a square root of −1 when k^tAk is odd. I computed Um independently of (67): exp of the x^0 coefficient of log FA(t^{1/m}, ζm + x), minus V/(2m²), plus ½log δ, using (66) (which I checked equals δ^FGI). I compared this with (121) to order t^{8/m} for (A,m) = (2,3), (3,2), (3,3), (1,4), (2,5), (−1,3), (1,2), (2,2), (1,3). The corrected phase agrees to rounding (≤1e−16) in every case, while the printed phase fails already at t^{1/m} (for A = 2, m = 3, k = 1 it gives −ζ3² instead of ζ3²). So (167), Um = Um^FGI, fails with (121) as printed. The v1 and v2 LaTeX sources are identical throughout §§2–3 (a full diff shows changes only in §1 and one sentence of §4), so the v1 claim holds.",
+    "by": "REV-PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24"
+   }
   },
   {
    "id": "PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24/E33",
@@ -2576,7 +2964,12 @@
     "P. Scholze’s announcement of the Bonn course on the paper (Winter 2024/25): no corrections",
     "the atlas blueprint packet research/blueprint/packets/HabiroNahmSeries.json, which records this finding as HabiroNahmSeries/E60; re-checked here at the v2 locator"
    ],
-   "alsoRecordedAs": "HabiroNahmSeries/E60"
+   "alsoRecordedAs": "HabiroNahmSeries/E60",
+   "review": {
+    "verdict": "confirmed",
+    "reason": "By (116) and the corrected Nahm system, V = −ΣLi2(1 − zj) − ½log(z)^tA log(z) with 1 − zj = (−1)^{Ajj}tj∏zi^{Aij}. So V(t^p)/p − pV(t) has −(1/p)φpLi2 + pLi2, the opposite of the signs in (132); the log terms of (132) are right. With Li^{(p)}_n(y) = Lin(y) − p^{−n}Lin(y^p) (the paper uses Li^{(p)} without defining it), Li2(y^p) − p²Li2(y) = −p²Li^{(p)}_2(y) and Li1(y^p) − pLi1(y) = −pLi^{(p)}_1(y), so (133) and (135) have the wrong argument, sign and power of p. Membership in S^{(1)}_p is unaffected, so misprint / nothing is right; (132)–(133) are on p. 31 and (134)–(135) on p. 32. The v1 and v2 LaTeX sources are identical throughout §§2–3 (a full diff shows changes only in §1 and one sentence of §4), so the v1 claim holds.",
+    "by": "REV-PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24"
+   }
   },
   {
    "id": "PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24/E34",
@@ -2595,7 +2988,12 @@
     "P. Scholze’s announcement of the Bonn course on the paper (Winter 2024/25): no corrections",
     "the atlas blueprint packet research/blueprint/packets/HabiroNahmSeries.json, which records this finding as HabiroNahmSeries/E39; re-checked here at the v2 locator"
    ],
-   "alsoRecordedAs": "HabiroNahmSeries/E39"
+   "alsoRecordedAs": "HabiroNahmSeries/E39",
+   "review": {
+    "verdict": "confirmed",
+    "reason": "(126) on p. 31 defines Ω^{FGI}_{A,m,k} only “for m, m′ ∈ Z>0 with m′ prime to m”. Theorem 8 and (163)–(164) on p. 35 state the identity “for any positive integer m′”. Nothing in the formula (126) actually needs gcd(m,m′) = 1, so the definition could be extended, but the paper neither does so nor proves anything for those m′. This matters: the proof of Theorem 7 uses residues at ζc for every c ∈ mZ, which is exactly where finding E28's counterexamples live. The v1 and v2 LaTeX sources are identical throughout §§2–3 (a full diff shows changes only in §1 and one sentence of §4), so the v1 claim holds.",
+    "by": "REV-PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24"
+   }
   },
   {
    "id": "PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24/E35",
@@ -2612,7 +3010,12 @@
     "MPIM preprint 2024-31 (archive.mpim-bonn.mpg.de/id/eprint/5146), the v1 text",
     "Crossref and a web search for the title and for an erratum, 29 September 2026: no journal version, erratum or corrigendum",
     "P. Scholze’s announcement of the Bonn course on the paper (Winter 2024/25): no corrections"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "With t^kF = Σ aj t^{k+mj}, the right side of (165) is c·t^mσ^{Am}(t^kF), and σ^{Am} multiplies t^{k+m(j−1)} by q^{Am(k+m(j−1))}. The a_{j−1} term therefore carries q^{Am(m+1)/2 + Am(k+m(j−1))}, not q^{Am(m+1)/2 + Am(j−1)}. I checked with sympy, using the explicit coefficients of FA,m,k, for (A,m,k) = (1,2,1), (2,3,2), (3,2,1), (1,1,0) and j = 1…4: the corrected recursion holds in every case. The printed one fails in all cases except (1,1,0), including (2,3,2), where both signs agree, so the exponent is wrong independently of the sign. Uniqueness only needs (q^{k+mj+1−m};q)m ≠ 0, so nothing else is affected. The v1 and v2 LaTeX sources are identical throughout §§2–3 (a full diff shows changes only in §1 and one sentence of §4), so the v1 claim holds.",
+    "by": "REV-PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24"
+   }
   },
   {
    "id": "PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24/E36",
@@ -2631,7 +3034,12 @@
     "P. Scholze’s announcement of the Bonn course on the paper (Winter 2024/25): no corrections",
     "the atlas blueprint packet research/blueprint/packets/HabiroNahmSeries.json, which records this finding as HabiroNahmSeries/E32; re-checked here at the v2 locator"
    ],
-   "alsoRecordedAs": "HabiroNahmSeries/E32"
+   "alsoRecordedAs": "HabiroNahmSeries/E32",
+   "review": {
+    "verdict": "confirmed",
+    "reason": "For A = 3, t = (z − 1)/z³ and V = Σ binom(3k,k)t^k/(3k²), so V is analytic in z at z = 1. From the truncated series, d²V/dz² at z = 1 is −7/2, whereas −3 − z/(1 − z) is singular there, so (169) on p. 36 is false. Differentiating log(1 − zj) = log tj + ΣiAij log zi with respect to log tk gives ΛJ = I with J = (∂log zj/∂log tk) and Λ = −A − diag(z/(1 − z)), hence (ti∂ti)(tj∂tj)V = (Λ^{−1})ij. I checked this with sympy for A = 3 through t^9. The conclusion that V determines A still follows from (168) and the Nahm equations. The v1 and v2 LaTeX sources are identical throughout §§2–3 (a full diff shows changes only in §1 and one sentence of §4), so the v1 claim holds.",
+    "by": "REV-PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24"
+   }
   },
   {
    "id": "PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24/E37",
@@ -2650,15 +3058,20 @@
     "P. Scholze’s announcement of the Bonn course on the paper (Winter 2024/25): no corrections",
     "the atlas blueprint packet research/blueprint/packets/HabiroNahmSeries.json, which records this finding as HabiroNahmSeries/E59; re-checked here at the v2 locator"
    ],
-   "alsoRecordedAs": "HabiroNahmSeries/E59"
+   "alsoRecordedAs": "HabiroNahmSeries/E59",
+   "review": {
+    "verdict": "confirmed",
+    "reason": "On pp. 36–37, Lemma 2.10 (108) gives Z(p)[t^{1/m},ζm][[t]], not Z[…]. S^{(m)}_p is a p-adic completion, whose elements are limits rather than the polynomials in z^{±1/m}, t^{±1}, δ^{−1} the proof describes, and S also contains δ^{−1/2}. So the representation argument applies only to the uncompleted ring. (170) is equivalent to the reduction map S^{(m)}[z^{1/m}]/p → Fp[ζm]((t^{1/m})) being injective. That needs proof, for example it could fail if the Nahm variety has several components modulo p, since a non-trivial idempotent would lift. I did not re-check the numerical support attributed to the atlas packet. The v1 and v2 LaTeX sources are identical throughout §§2–3 (a full diff shows changes only in §1 and one sentence of §4), so the v1 claim holds.",
+    "by": "REV-PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24"
+   }
   },
   {
    "id": "PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24/E38",
    "kind": "misprint",
    "locator": "Proposition 3.3, (179), p. 38, and Theorem 9, p. 39 (arXiv 2412.04241v2; the same text is in v1)",
    "printed": "Proposition 3.3 gives SpanZp{p^{−2}Dp(ζ) | ζ ∈ µ(Qps)} = Zps (179). … Theorem 9 asserts that {[ζ] | ζ ∈ µ(Kp)} generates K3(Kp; Zp) over Zp.",
-   "correction": "ζ ∈ µ(Qps) ∖ {1} in (179), as in Proposition 3.2 and in the proof (fp on Fps ∖ {1}); in Theorem 9, ζ ∈ µ(Kp) with every component ≠ 1, and [ζ] the class ord(ζ)^{−1}·(ord(ζ)[ζ]), ord(ζ) being prime to p.",
-   "reason": "Dp is defined on Cp ∖ {0, 1} (174), and [1] is not a Bloch-group symbol. In Example 4.3 (K5 ≅ Q25 × Q5) the Q5-component of ζ24^k is 1 when 4 | k, since the Teichmüller lift of α ≡ 2 (mod 5) has order 4, so D5(ζ24^k) is undefined for those k (PARI/GP). Also ζ ∧ (1 − ζ) is torsion but not zero in ∧²Kp^×, so only ord(ζ)[ζ] lies in the Bloch group, as the proof of Theorem 9 implicitly uses (“the elements ord(ζ)Dp(ζ) ∈ Kp generate the image”).",
+   "correction": "ζ ∈ µ(Qps) ∖ {1} in (179), as in Proposition 3.2 and in the proof (fp on Fps ∖ {1}); in Theorem 9, ζ ∈ µ(Kp) with every component ≠ 1.",
+   "reason": "Dp is defined on Cp ∖ {0, 1} (174), and [1] is not a Bloch-group symbol. In Example 4.3 (K5 ≅ Q25 × Q5) the Q5-component of ζ24^k is 1 when 4 | k, since the Teichmüller lift of α ≡ 2 (mod 5) has order 4, so D5(ζ24^k) is undefined for those k. (In each factor Q_{p^s}, ζ ∧ (1 − ζ) = 0 for ζ ∈ µ ∖ {1}, so no ord(ζ) correction is needed; the factor ord(ζ) in the proof of Theorem 9 is a p-adic unit.)",
    "affects": "nothing",
    "known": "new",
    "searched": [
@@ -2667,7 +3080,12 @@
     "MPIM preprint 2024-31 (archive.mpim-bonn.mpg.de/id/eprint/5146), the v1 text",
     "Crossref and a web search for the title and for an erratum, 29 September 2026: no journal version, erratum or corrigendum",
     "P. Scholze’s announcement of the Bonn course on the paper (Winter 2024/25): no corrections"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Dp in (174) is defined on Cp ∖ {0,1}, and Proposition 3.2 and the proof of (179) (fp on F_{p^s} ∖ {1}) exclude ζ = 1, so (179) on p. 38 should range over µ(Q_{p^s}) ∖ {1}. In Theorem 9 (p. 39), Kp = ∏Q_{p^{si}} and a ζ ∈ µ(Kp) may have a component equal to 1. In Example 4.3 (K5 ≅ Q25 × Q5), x³ − x² + 1 ≡ (x − 2)(x² + x + 2) mod 5, and I checked that the Q5 component of ζ24 is the Teichmüller lift of 2, of order 4, while the Q25 component has order 24. So ζ24^k has Q5 component 1 when 4 | k. However, the part of the finding about ord(ζ) is not right componentwise. In Q_{p^s}, µ is cyclic of order p^s − 1 and the principal units are uniquely divisible by that order, so ζ ∧ (1 − ζ) = 0 in ∧²Q_{p^s}^× for ζ ≠ 1. Hence [ζ] is already a Bloch-group element of each factor, and the factor ord(ζ) in the proof is just a p-adic unit. The v1 and v2 LaTeX sources are identical throughout §§2–3 (a full diff shows changes only in §1 and one sentence of §4), so the v1 claim holds.",
+    "by": "REV-PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24"
+   }
   },
   {
    "id": "PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24/E39",
@@ -2684,7 +3102,12 @@
     "MPIM preprint 2024-31 (archive.mpim-bonn.mpg.de/id/eprint/5146), the v1 text",
     "Crossref and a web search for the title and for an erratum, 29 September 2026: no journal version, erratum or corrigendum",
     "P. Scholze’s announcement of the Bonn course on the paper (Winter 2024/25): no corrections"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Lemma 3.1 (p. 37) covers only symbols [z] with |z|p = 1 and |1 − z|p = 1, while a class in B(Kp) is a combination of [z] with arbitrary z ∈ Kp ∖ {0,1}. The proof on p. 39 gives no argument for reducing to such symbols, nor for extending Dp from B(Kp) to the p-completed group K3(Kp;Zp). Proposition 3.3 only gives image ⊇ p²O_{Kp}, which already forces injectivity (both sides are free of rank r). But the isomorphism onto p²O_{Kp} and generation by the [ζ] both need the missing inclusion image ⊆ p²O_{Kp}. So gap / the proof is right. The v1 and v2 LaTeX sources are identical throughout §§2–3 (a full diff shows changes only in §1 and one sentence of §4), so the v1 claim holds.",
+    "by": "REV-PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24"
+   }
   },
   {
    "id": "PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24/E40",
@@ -2701,7 +3124,12 @@
     "MPIM preprint 2024-31 (archive.mpim-bonn.mpg.de/id/eprint/5146), the v1 text",
     "Crossref and a web search for the title and for an erratum, 29 September 2026: no journal version, erratum or corrigendum",
     "P. Scholze’s announcement of the Bonn course on the paper (Winter 2024/25): no corrections"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "In (187), (x^p + pxδp,m)^k has lowest term (pxδp,m(0))^n = p^nζm^{n(p−1)}x^n at k = n, so (188)–(189) should have ζm^{n(p−1)}, not ζm^{p−1}. The other terms are integral multiples of p, and a_{n/p}^p ≡ φp(a_{n/p}) mod p. So an − c·φp(an) ∈ S[ζm] with c = ζm^{n(p−1)}p^{n−1}. The summands in (190) are not φp^k of (189), because φp moves ζm, so the printed telescoping is unjustified. The twisted version Σk(∏_{i<k}φp^i(c))φp^k(an − cφp(an)) = (1 − ∏_{i<s}φp^i(c))an = (1 − p^{s(n−1)})an works, using ζm^{p^s} = ζm; for n ≥ 2 this factor is a unit. The lemma itself is true; a direct valuation argument (cφp(y) ∈ pS for n ≥ 2) even avoids needing φp of finite order. The v1 and v2 LaTeX sources are identical throughout §§2–3 (a full diff shows changes only in §1 and one sentence of §4), so the v1 claim holds.",
+    "by": "REV-PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24"
+   }
   },
   {
    "id": "PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24/E41",
@@ -2720,14 +3148,19 @@
     "P. Scholze’s announcement of the Bonn course on the paper (Winter 2024/25): no corrections",
     "the atlas blueprint packet research/blueprint/packets/HabiroNumberFields.json, which records this finding as HabiroNumberFields/E23; re-checked here at the v2 locator"
    ],
-   "alsoRecordedAs": "HabiroNumberFields/E23"
+   "alsoRecordedAs": "HabiroNumberFields/E23",
+   "review": {
+    "verdict": "confirmed",
+    "reason": "On p. 43 the proof of Theorem 2 derives the isomorphism HR,ξ ⊗ HR,ξ′ ≅ HR,ξ+ξ′ only from multiplicativity of εm, additivity of Dp, and the multiplicativity of (21) and (24). That shows only that products land in HR,ξ+ξ′. Condition (24), f(q^γ)^γ f(q^{−1}) ∈ HR[1/γ]|γ, has degree γ + 1 in f, so even closure of HR,ξ under addition is not addressed. Surjectivity for ξ′ = −ξ needs Σ figi = 1 with global fi ∈ HR,ξ and gi ∈ HR,−ξ, but Theorem 1 is local, and Theorem 5 produces global elements only for Nahm data, in HR[δ^{−1/2}],ξ|∆. So invertibility and the map K3(K) → Pic(HR) rest on unproved steps. The v1 and v2 LaTeX sources are identical throughout §§2–3 (a full diff shows changes only in §1 and one sentence of §4), so the v1 claim holds.",
+    "by": "REV-PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24"
+   }
   },
   {
    "id": "PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24/E42",
    "kind": "error",
    "locator": "Proof of Theorem 5, first paragraph, §3.3, p. 43 (arXiv 2412.04241v2; the same text is in v1)",
    "printed": "The proof claims that fA,z,m(x) has constant term εm(ξ)^{1/m} multiplied by an element of K[ζm]. When m is prime to ∆ …, it invokes Theorem 1.6 and equation (14) in [10, Thm.1.6], together with Hutchinson [31].",
-   "correction": "… is δ^{−1/2}εm(ξ)^{1/m} times an element of K[ζm] …; this follows from Theorem 1.6 and equations (12)–(13) of [10], with (13) proved by Hutchinson.",
+   "correction": "… is δ^{−1/2}εm(ξ)^{1/m} times an element of K[ζm] …; this follows from Theorem 1.6 and displays (12)–(13) of [10], together with Hutchinson's proof that Rζ = cζ² (the constant γ of [10, Thm. 1.6] equals 2).",
    "reason": "By (123) the constant term is δ^{−1/2}U^{FGI}_m(1); for the figure-eight datum at m = 1 it is (−3)^{−1/4} ∉ Q(√−3). Display (14) of [10] is the étale Bloch group B(F; Z/nZ) in arXiv v1, v2 and v3 of [10]; the relevant displays are (12), Rζ(ηζ) = ζ², and (13), cζ(ηζ) = ζ.",
    "affects": "the proof",
    "known": "new",
@@ -2739,7 +3172,12 @@
     "P. Scholze’s announcement of the Bonn course on the paper (Winter 2024/25): no corrections",
     "the atlas blueprint packet research/blueprint/packets/HabiroNahmSeries.json, which records this finding as HabiroNahmSeries/E46; re-checked here at the v2 locator"
    ],
-   "alsoRecordedAs": "HabiroNahmSeries/E46"
+   "alsoRecordedAs": "HabiroNahmSeries/E46",
+   "review": {
+    "verdict": "confirmed",
+    "reason": "By (123) and (68), the constant term of ΦA,z at ζm is δ^{−1/2}Um(1). For 4_1, (1) on p. 3 has constant term 1/∜(−3), which is not in Q(√−3) although ε1 = 1. So the printed claim (p. 43) that it is εm(ξ)^{1/m} times an element of K[ζm] is false without the factor δ^{−1/2}. I downloaded arXiv 1712.04887 v1–v3 (the v2 and v3 LaTeX sources are identical). There (14) is the étale Bloch group B(F;Z/nZ), (12) is Rζ(ηζ) = ζ² in v2/v3 (Rζ(ηζ)^4 = ζ in v1), (13) is the conjectural cζ(ηζ) = ζ, and Theorem 1.6 states Rζ = cζ^γ. Hutchinson (arXiv 2104.14413) proves Rζ = cζ², i.e. γ = 2. That establishes (13) only up to sign, so the correction should credit Hutchinson with γ = 2 rather than with (13) itself. The v1 and v2 LaTeX sources are identical throughout §§2–3 (a full diff shows changes only in §1 and one sentence of §4), so the v1 claim holds.",
+    "by": "REV-PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24"
+   }
   },
   {
    "id": "PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24/E43",
@@ -2758,7 +3196,12 @@
     "P. Scholze’s announcement of the Bonn course on the paper (Winter 2024/25): no corrections",
     "the atlas blueprint packet research/blueprint/packets/HabiroNahmSeries.json, which records this finding as HabiroNahmSeries/E47; re-checked here at the v2 locator"
    ],
-   "alsoRecordedAs": "HabiroNahmSeries/E47"
+   "alsoRecordedAs": "HabiroNahmSeries/E47",
+   "review": {
+    "verdict": "confirmed",
+    "reason": "From (33), ψµ(t) = FA(q^µt,q) satisfies ψµ − ψµ+1 = (−1)^A q^{A+µ}tψµ+A. I checked with sympy for A = 3: the printed q^A version holds only for µ = 0 and fails for µ = 1, 2; similarly the second equation of (213) needs q^{−(A+ν)} (it fails for ν = 1). The third equation needs t^γ in the first γ factors of (212): for A = 1, γ = 2, µ = (0,1), ν = 0 it fails to t^6 as printed and holds with ψµi(t^γ,q^γ). With that choice the first equation's coefficient becomes (−1)^A q^{γ(A+µi)} t^γ. The uniqueness argument itself is unchanged, and the change is invisible at t = 1. The v1 and v2 LaTeX sources are identical throughout §§2–3 (a full diff shows changes only in §1 and one sentence of §4), so the v1 claim holds.",
+    "by": "REV-PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24"
+   }
   },
   {
    "id": "PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24/E44",
@@ -2777,14 +3220,19 @@
     "P. Scholze’s announcement of the Bonn course on the paper (Winter 2024/25): no corrections",
     "the atlas blueprint packet research/blueprint/packets/HabiroNahmSeries.json, which records this finding as HabiroNahmSeries/E58; re-checked here at the v2 locator"
    ],
-   "alsoRecordedAs": "HabiroNahmSeries/E58"
+   "alsoRecordedAs": "HabiroNahmSeries/E58",
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Finding E9 is correct as I checked it: f = (1 + x/ζm)^{1/5} with ξ = 0 and p = 5 satisfies (21) exactly (the ratio is 1), yet has linear coefficient 1/5. So the log-Dwork condition (39) does not control the linear coefficient. With the corrected shape of (20), the p. 44 step “each term Ω^{FGI}_{A,m,k}(t,x) … satisfies (39), which is essentially (21)” does not show that each piece is an invertible Lp(ξ)-section on its disc. Their linear coefficients still have to be shown p-integral. (For the whole series ΦA,z, integrality of the linear coefficient could instead be extracted from the gluing (24) with γ ≡ 1 mod m, γ² ≢ 1 mod p, but the proof works piece by piece and needs it for each Ω.) This is conditional on E9, as the locator says. The v1 and v2 LaTeX sources are identical throughout §§2–3 (a full diff shows changes only in §1 and one sentence of §4), so the v1 claim holds.",
+    "by": "REV-PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24"
+   }
   },
   {
    "id": "PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24/E45",
    "kind": "misprint",
    "locator": "Proof of Theorem 5, third paragraph, p. 44 (arXiv 2412.04241v2; the same text is in v1)",
    "printed": "The proof asserts ψ^{(γ)}_{A,µ,ν}(t^{1/m}, ζm + x) ∈ S^{(m)}_p[[x]] whenever p is a prime not dividing ∆ and m is prime to γ. It deduces ψ^{(γ)}_{A,µ,ν}(t^{1/m}, ζm + x) ∈ S^{(m)}[[x]].",
-   "correction": "Therefore ψ^{(γ)}_{A,µ,ν}(t^{1/m}, ζm + x) ∈ S^{(m)}[1/∆][[x]].",
+   "correction": "Therefore ψ^{(γ)}_{A,µ,ν}(t^{1/m}, ζm + x) ∈ S^{(m)}[1/∆][[x]] (and, since Theorem 4 needs (m,p) = 1, what the argument literally gives is S^{(m)}[1/(m∆)][[x]]; integrality at ζ_{mp^k} comes from the p-adic re-expansion in the next sentence).",
    "reason": "Integrality at the primes p ∤ ∆ gives coefficients whose denominators are supported on ∆, not integral ones. Harmless, because R inverts ∆.",
    "affects": "nothing",
    "known": "new",
@@ -2796,7 +3244,12 @@
     "P. Scholze’s announcement of the Bonn course on the paper (Winter 2024/25): no corrections",
     "the atlas blueprint packet research/blueprint/packets/HabiroNahmSeries.json, which records this finding as HabiroNahmSeries/E63; re-checked here at the v2 locator"
    ],
-   "alsoRecordedAs": "HabiroNahmSeries/E63"
+   "alsoRecordedAs": "HabiroNahmSeries/E63",
+   "review": {
+    "verdict": "confirmed",
+    "reason": "On p. 44, knowing that ψ^{(γ)}(t^{1/m}, ζm + x) ∈ S^{(m)}_p[[x]] for every prime p ∤ ∆ only gives coefficients whose denominators are supported on ∆, i.e. S^{(m)}[1/∆][[x]], not S^{(m)}[[x]]. Moreover, the ingredient Theorem 4 assumes (m,p) = 1, so primes dividing m are not covered by this sentence either. What the argument gives literally is S^{(m)}[1/(m∆)][[x]]; integrality at ζ_{mp^k} comes from the p-adic re-expansion in the next sentence. This is harmless, since R inverts ∆. The v1 and v2 LaTeX sources are identical throughout §§2–3 (a full diff shows changes only in §1 and one sentence of §4), so the v1 claim holds.",
+    "by": "REV-PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24"
+   }
   },
   {
    "id": "PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24/E46",
@@ -2815,7 +3268,12 @@
     "P. Scholze’s announcement of the Bonn course on the paper (Winter 2024/25): no corrections",
     "the atlas blueprint packet research/blueprint/packets/HabiroNahmSeries.json, which records this finding as HabiroNahmSeries/E57; re-checked here at the v2 locator"
    ],
-   "alsoRecordedAs": "HabiroNahmSeries/E57"
+   "alsoRecordedAs": "HabiroNahmSeries/E57",
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Remark 3.11 on p. 44 is quoted accurately (same in v1), and its proof is only asserted to be \"identical\" to that of Theorem 5. Since f_m(t, x) = F(t^{1/m}, ζm + x) (p. 12), the specialisation can only mean t^{1/m} = q^ν, i.e. t = q^{mν} = 1 + O(x) at ζm. That is not the ring map (40), t ↦ 1, used in the proof of Theorem 5: the S-coefficients have to be re-expanded in x through the étale map. The exponential prefactor also changes. With q = ζm e^h, V(q^{mν})/(m²h) = V(1)/(m²h) + Σj (νj/m) log zj + O(h), so the constant term gains a factor ∏ zj^{νj/m}, which the proof of Theorem 5 never has to handle. The claim is plausible but not proved, so kind \"gap\" affecting the (omitted) proof is right.",
+    "by": "REV-PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24"
+   }
   },
   {
    "id": "PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24/E47",
@@ -2832,7 +3290,12 @@
     "MPIM preprint 2024-31 (archive.mpim-bonn.mpg.de/id/eprint/5146), the v1 text",
     "Crossref and a web search for the title and for an erratum, 29 September 2026: no journal version, erratum or corrigendum",
     "P. Scholze’s announcement of the Bonn course on the paper (Winter 2024/25): no corrections"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Corollary 3.12 (p. 45) is quoted accurately and is derived as \"an immediate corollary of part (f)\". Applied to Theorem 5, which places fA,z in the module over R[δ^{−1/2}], Proposition 1.5(f) gives only fA,z,m(0) ∈ R[δ^{−1/2}][ζm, εm^{1/m}]. By (123) of Lemma 2.12 at t = 1, the constant term of fA,z,m is δ^{−1/2}U^{FGI}_m(1). So U^{FGI}_m(1) is shown to be integral only away from ∆ and the primes of N(δ), and ∆ is only required to be divisible by disc(K) and 6 (p. 8, Remark 1.8). The explicit formula (121) gives integrality away from m when the zj are units (the factors 1 − ζm^ℓ zj^{1/m} then divide the unit 1 − zj). That leaves primes dividing both m and N(δ) uncovered, so the stated result is not established.",
+    "by": "REV-PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24"
+   }
   },
   {
    "id": "PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24/E48",
@@ -2851,7 +3314,12 @@
     "P. Scholze’s announcement of the Bonn course on the paper (Winter 2024/25): no corrections",
     "the atlas blueprint packet research/blueprint/packets/HabiroNahmSeries.json, which records this finding as HabiroNahmSeries/E48; re-checked here at the v2 locator"
    ],
-   "alsoRecordedAs": "HabiroNahmSeries/E48"
+   "alsoRecordedAs": "HabiroNahmSeries/E48",
+   "review": {
+    "verdict": "confirmed",
+    "reason": "The quote from (223) is accurate, and (226) has the same coefficients. Write s = t^{1/m}; then (222) gives fA,µ,ν = FA(q^µ s, q)·FA(q^{−ν}s, q^{−1}). From the N = 1 Nahm sum FA(s, q) = Σ(−1)^{An} q^{An(n+1)/2} s^n/(q;q)n one gets F(s) − F(qs) = (−1)^A q^A s F(q^A s), which is (33). Hence ψµ − ψµ+1 = (−1)^A q^{A+µ} s ψµ+A for ψµ(s) = F(q^µ s), and likewise the second factor gives q^{−(A+ν)}; the printed q^{±A} is right only at µ = 0 (respectively ν = 0). The same shift applied to (224) gives the corrected coefficients for ΨA,µ,ν as well, so the uniqueness argument is unaffected and \"misprint, affects nothing\" is right.",
+    "by": "REV-PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24"
+   }
   },
   {
    "id": "PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24/E49",
@@ -2870,7 +3338,12 @@
     "P. Scholze’s announcement of the Bonn course on the paper (Winter 2024/25): no corrections",
     "the atlas blueprint packet research/blueprint/packets/HabiroNahmSeries.json, which records this finding as HabiroNahmSeries/E49; re-checked here at the v2 locator"
    ],
-   "alsoRecordedAs": "HabiroNahmSeries/E49"
+   "alsoRecordedAs": "HabiroNahmSeries/E49",
+   "review": {
+    "verdict": "confirmed",
+    "reason": "I used sympy to compute the residue at w = z of t^{−1}J(t, w, 1 + x)dw/w from (228), over Q(t)[z]/(tz³ − z + 1). The constant term is (2z² + 3z − 9)/(27t − 4), which equals 1/δ with δ from (232), since (2z² + 3z − 9)δ = 27t − 4. The x¹ term vanishes, and the x² term equals f^{sym}_2 of (248). The printed (229) is exactly t times these values, so it gives Ψ1(0, x) = 0, against ΨA,m(0, x) = 1 at the end of the proof of Theorem 11. Both versions give (231) at t = 1.",
+    "by": "REV-PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24"
+   }
   },
   {
    "id": "PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24/E50",
@@ -2889,7 +3362,12 @@
     "P. Scholze’s announcement of the Bonn course on the paper (Winter 2024/25): no corrections",
     "the atlas blueprint packet research/blueprint/packets/HabiroNahmSeries.json, which records this finding as HabiroNahmSeries/E61; re-checked here at the v2 locator"
    ],
-   "alsoRecordedAs": "HabiroNahmSeries/E61"
+   "alsoRecordedAs": "HabiroNahmSeries/E61",
+   "review": {
+    "verdict": "confirmed",
+    "reason": "The quote is accurate (p. 47; p. 50 likewise says F^{sym}(1, q) and G(1, q) \"lie in HZ[z,1/23]\"). Theorem 12 is derived from Theorems 3, 5 and 11, and Remark 1.8 fixes 2, 3 | ∆ throughout; Theorem 5 is moreover stated only in the |∆ form. Z[z] is the maximal order, since disc(z³ − z + 1) = −23 is squarefree, so the claim needs the gluing at p = 2 and 3, which no result in the paper provides. In the analogous §4.3 example the authors themselves write \"conjecturally, but provably if we invert 6\".",
+    "by": "REV-PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24"
+   }
   },
   {
    "id": "PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24/E51",
@@ -2897,7 +3375,7 @@
    "locator": "§4.2, (242) and the sentence after it, p. 49 (arXiv 2412.04241v2; the same text is in v1)",
    "printed": "The source gives f̂1(t, x) = e^{V/x} (1/√δ)(1 + …) … and claims that every x^k-coefficient of f1(t, x)e^{−V(t)/x}δ^{1/2+3k} belongs to Q[t, z].",
    "correction": "e^{V/log(1+x)} and e^{−V(t)/log(1+x)}.",
-   "reason": "With q = 1 + x the displayed x¹ and x² coefficients hold exactly (to t⁹) with the prefactor e^{V/log(1+x)}δ^{−1/2}; with e^{V/x} the x¹ coefficient is off by −V/12, which is transcendental over Q(t, z).",
+   "reason": "With q = 1 + x, log f1(t, x) − V/log(1 + x) + ½ log δ equals the log of the bracket in (242) exactly in its x⁰, x¹ and x² terms (checked to t⁹ from the Nahm sum (234)), as (123) predicts. With e^{V/x} instead, the bracket would need an extra factor e^{V/2 − Vx/12 + ⋯}: its constant term would be e^{V/2} rather than 1, and its x¹ coefficient would change by −V/12, neither of which lies in Q(t, z).",
    "affects": "nothing",
    "known": "new",
    "searched": [
@@ -2908,7 +3386,12 @@
     "P. Scholze’s announcement of the Bonn course on the paper (Winter 2024/25): no corrections",
     "the atlas blueprint packet research/blueprint/packets/HabiroNahmSeries.json, which records this finding as HabiroNahmSeries/E41; re-checked here at the v2 locator"
    ],
-   "alsoRecordedAs": "HabiroNahmSeries/E41"
+   "alsoRecordedAs": "HabiroNahmSeries/E41",
+   "review": {
+    "verdict": "confirmed",
+    "reason": "I computed log F(t, 1 + x) exactly from the Nahm sum (234), coefficient by coefficient in t up to t⁹, using exact rational arithmetic. log F − V/log(1 + x) + ½ log δ has no x⁰ term, and its x¹ and x² terms agree exactly with the log of the bracket in (242), with z, V and δ from (238)–(241). With e^{V/x} in place of e^{V/log(1+x)}, the difference acquires V/2 at x⁰ and −V/12 at x¹. The corrected prefactor matches the paper's own (123) and (261), and the same fix applies to e^{−V(t)/x} in the next sentence. The recorded reason mentions only the x¹ discrepancy and should also mention the constant factor e^{V/2}.",
+    "by": "REV-PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24"
+   }
   },
   {
    "id": "PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24/E52",
@@ -2925,7 +3408,12 @@
     "MPIM preprint 2024-31 (archive.mpim-bonn.mpg.de/id/eprint/5146), the v1 text",
     "Crossref and a web search for the title and for an erratum, 29 September 2026: no journal version, erratum or corrigendum",
     "P. Scholze’s announcement of the Bonn course on the paper (Winter 2024/25): no corrections"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "I recomputed zA(t), VA(t) (from t∂tV = log z, V(0) = 0) and δA(t) as power series with sympy for A = −3, …, 6. (252) is right in every case. In every case VA = −(−1)^A t + ((2A − 1)/4)t² − (−1)^A((3A − 1)(3A − 2)/18)t³ + O(t⁴), so the printed t² and t³ terms of (253) have the wrong sign. A = 3 gives t + (5/4)t² + (28/9)t³, as in (240) and in (80), and a numerical evaluation of −Li2(1 − z) − (A/2)log²z at t = 0.01 matches the series for A = 1, 2, 3.",
+    "by": "REV-PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24"
+   }
   },
   {
    "id": "PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24/E53",
@@ -2942,7 +3430,12 @@
     "MPIM preprint 2024-31 (archive.mpim-bonn.mpg.de/id/eprint/5146), the v1 text",
     "Crossref and a web search for the title and for an erratum, 29 September 2026: no journal version, erratum or corrigendum",
     "P. Scholze’s announcement of the Bonn course on the paper (Winter 2024/25): no corrections"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "By (251), t/(1 − z) = (−1)^A z^{−A}, so δA = (−1)^A(A − 1)t + z^{−A}. Its series computed for A = −3, …, 6 is 1 + (−1)^A(2A − 1)t − (A(A − 1)/2)t² + (−1)^A((2A − 1)A(A − 1)/3)t³ + O(t⁴) in every case. So the printed t and t² terms of (254) have the wrong sign, while the first line and the t³ term are right. For A = 3 the corrected series is 1 − 5t − 3t² − 10t³, matching (241).",
+    "by": "REV-PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24"
+   }
   },
   {
    "id": "PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24/E54",
@@ -2961,7 +3454,12 @@
     "P. Scholze’s announcement of the Bonn course on the paper (Winter 2024/25): no corrections",
     "the atlas blueprint packet research/blueprint/packets/HabiroNahmSeries.json, which records this finding as HabiroNahmSeries/E51; re-checked here at the v2 locator"
    ],
-   "alsoRecordedAs": "HabiroNahmSeries/E51"
+   "alsoRecordedAs": "HabiroNahmSeries/E51",
+   "review": {
+    "verdict": "confirmed",
+    "reason": "(260) is quoted accurately (the LaTeX reads f̂1((1+x)^{−1}+1)). f̂1 in (261) is an expansion at 0, so its argument must tend to 0 as x → 0. With y = (1 + x)^{−1} − 1 one has log(1 + y) = −log(1 + x) = ε for q = e^{−ε}, so the prefactor is e^{π²/(15ε)}. Numerically (mpmath), ε·log F0(e^{−ε}) is 0.6366 at ε = 0.05 and 0.6473 at ε = 0.025, tending to π²/15 = 0.6580, which confirms this growth.",
+    "by": "REV-PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24"
+   }
   },
   {
    "id": "PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24/E55",
@@ -2980,7 +3478,12 @@
     "P. Scholze’s announcement of the Bonn course on the paper (Winter 2024/25): no corrections",
     "the atlas blueprint packet research/blueprint/packets/HabiroNahmSeries.json, which records this finding as HabiroNahmSeries/E50; re-checked here at the v2 locator"
    ],
-   "alsoRecordedAs": "HabiroNahmSeries/E50"
+   "alsoRecordedAs": "HabiroNahmSeries/E50",
+   "review": {
+    "verdict": "confirmed",
+    "reason": "I computed both discriminants with sympy (round-two maximal order). The polynomial z⁴ + z³ + 3z² − 3z − 1 of (257) has discriminant −11875 = −5⁴·19, but the number field has discriminant −475 = −5²·19, so the index is 5. Page 51 itself gives −5²·19 for the field. The conclusion (the primes 5 and 19) is unaffected.",
+    "by": "REV-PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24"
+   }
   },
   {
    "id": "PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24/E56",
@@ -2997,7 +3500,12 @@
     "MPIM preprint 2024-31 (archive.mpim-bonn.mpg.de/id/eprint/5146), the v1 text",
     "Crossref and a web search for the title and for an erratum, 29 September 2026: no journal version, erratum or corrigendum",
     "P. Scholze’s announcement of the Bonn course on the paper (Winter 2024/25): no corrections"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "I recomputed everything in K5 = Q5[α]/(α³ − α² + 1) modulo 5^22, with my own implementation. For Li2 at roots of unity it uses the power series of Li^{(5)}_2 in ζ/(1 − ζ) together with (268); for other points it uses Taylor expansion at the Teichmüller point. ζ24 = lim α^{25^s} matches (272) and has order exactly 24. D5(ζ24) and D5(ζ24⁶) agree with the first and third lines of (273). D5(ζ24²) = (2·5² + 2·5³ + 5⁴ + ⋯)α² + (3·5² + 3·5³ + 5⁴ + ⋯)α + (5² + 3·5⁴ + ⋯), which is exactly the printed second line, while D5(ζ24⁵) = (4·5² + 4·5³ + ⋯)α² + (4·5² + ⋯)α + (2·5² + 4·5⁴ + ⋯). D5(ξ) agrees with (271), and solving (274) with ζ24, ζ24², ζ24⁶ gives c1 = 1 + 4·5 + 3·5² + ⋯, c2 = 3 + 5 + ⋯ and c3 = 1 + 5 + 4·5² + ⋯, as printed.",
+    "by": "REV-PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24"
+   }
   },
   {
    "id": "PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24/E57",
@@ -3016,7 +3524,12 @@
     "P. Scholze’s announcement of the Bonn course on the paper (Winter 2024/25): no corrections",
     "the atlas blueprint packet research/blueprint/packets/HabiroNahmSeries.json, which records this finding as HabiroNahmSeries/E52; re-checked here at the v2 locator"
    ],
-   "alsoRecordedAs": "HabiroNahmSeries/E52"
+   "alsoRecordedAs": "HabiroNahmSeries/E52",
+   "review": {
+    "verdict": "confirmed",
+    "reason": "I checked this in Q(α), α³ − α² + 1 = 0. The identity −24α² + 32α − 26 = −2(2α² − 2α + 3)² holds exactly, so the printed second equality would force −6α² + 10α − 4 = −1; but its norm is −184 = −2³·23. At the real root α = −0.7548777, the middle product (principal square roots) is −0.0323520 and the right side is 0.1251641. The two sides also differ at the complex roots. The first factor simplifies to −6α² + 10α − 4 = 2(3α − 2)/α², using 1 − α = α^{−2}, so it involves the 5_2 δ = 3α − 2 of (281).",
+    "by": "REV-PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24"
+   }
   },
   {
    "id": "PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24/E58",
@@ -3033,7 +3546,12 @@
     "MPIM preprint 2024-31 (archive.mpim-bonn.mpg.de/id/eprint/5146), the v1 text",
     "Crossref and a web search for the title and for an erratum, 29 September 2026: no journal version, erratum or corrigendum",
     "P. Scholze’s announcement of the Bonn course on the paper (Winter 2024/25): no corrections"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "(285) is quoted accurately, and the LaTeX also has x. The left side f^{52}_5(0)² is a constant, and (286) compares the common coefficient of ζ5³ and ζ5² with that of (284), so x must be ζ5. I checked that (α² + 4α)^5 ≡ α² + 3α + 2 modulo (5, α³ − α² + 1), so (286) holds for the corrected (285).",
+    "by": "REV-PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24"
+   }
   },
   {
    "id": "PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24/E59",
@@ -3041,7 +3559,7 @@
    "locator": "§4.6, (287), p. 57 (arXiv 2412.04241v2; the same text is in v1)",
    "printed": "C f^{5_2}_5(x) Ψ[ζ24],5(x)^{−(1+4·5+3·5²+⋯)} Ψ[ζ24²],5(x)^{−(3+5+⋯)} Ψ[ζ24⁶],5(x)^{−(1+5+4·5²+⋯)}",
    "correction": "C f^{5_2}_1(x) Ψ[ζ24],5(x)^{−(…)} ⋯: the series at m = 1 named in the sentence before.",
-   "reason": "The sentence introducing (287) concerns “the integrality of the series f^{5_2}_1(x) after division by the generator Ψξ,p(x)”, and the sections Ψ[ζ],5,m of Definition 3.9 exist only for m prime to p = 5, so the series at a 5th root of unity cannot be divided by them. The LaTeX source has the subscript 5 in (287) and 1 in the sentence.",
+   "reason": "The sentence introducing (287) concerns \"the integrality of the series f^{52}_1(x) after division by the generator Ψξ,p(x)\". The right side of (287) has 5-adic coefficients in Z5[α] and contains no ζ5, as an expansion at q = 1 would. (288) quotes the x^200 coefficient, and p. 55 says f^{52}_1 was computed to x^400. The LaTeX source has the subscript 5 in (287) and 1 in the sentence.",
    "affects": "nothing",
    "known": "new",
    "searched": [
@@ -3050,7 +3568,12 @@
     "MPIM preprint 2024-31 (archive.mpim-bonn.mpg.de/id/eprint/5146), the v1 text",
     "Crossref and a web search for the title and for an erratum, 29 September 2026: no journal version, erratum or corrigendum",
     "P. Scholze’s announcement of the Bonn course on the paper (Winter 2024/25): no corrections"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "(287) is quoted accurately; the LaTeX has subscript 5 in (287) and subscript 1 in the sentence before it. The right side of (287) has coefficients in Z5[α] and contains no ζ5, as an expansion at q = 1 would. (288) quotes the x^200 coefficient, and p. 55 says that f^{52}_1 was computed to order x^400. So the subscript 5 is a slip for 1. The recorded reason also argues that Ψ[ζ],5 is undefined at m = 5 (Definition 3.9), but that argument is weak: Corollary 3.7 extends invertible sections uniquely to all roots of unity. That part of the reason should be replaced.",
+    "by": "REV-PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24"
+   }
   },
   {
    "id": "PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24/E60",
@@ -3069,13 +3592,19 @@
     "P. Scholze’s announcement of the Bonn course on the paper (Winter 2024/25): no corrections",
     "the atlas blueprint packet research/blueprint/packets/HabiroNahmSeries.json, which records this finding as HabiroNahmSeries/E62; re-checked here at the v2 locator"
    ],
-   "alsoRecordedAs": "HabiroNahmSeries/E62"
+   "alsoRecordedAs": "HabiroNahmSeries/E62",
+   "review": {
+    "verdict": "confirmed",
+    "reason": "The quote is accurate. A coefficient of this series is an element of Q(2cos(2π/7)), so \"2^1997·3^596·7^466\" can only be its denominator. The parallel sentences on p. 3 (\"the denominator of the coefficient of …\"), p. 52 and p. 55 (\"the denominator of x^400 is 2^1997·23^581\") use the intended wording.",
+    "by": "REV-PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24"
+   }
   },
   {
    "id": "PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24/E61",
    "kind": "error",
-   "locator": "Example 4.4, (289)–(290), p. 57 (arXiv 2412.04241v2; the same text is in v1)",
-   "correction": "(289): “m ≡ 0 (mod 4)”. (290): Gm = −½(1 + ζ4^{−m})², with the value −2 for m ≡ 0 (mod 4); it equals ½(1 + ζ4^m)² only for odd m.",
+   "locator": "Example 4.4, (290), p. 57 (arXiv 2412.04241v2; the same text is in v1)",
+   "printed": "(290): Gm(x) = (ζ4/m)(Σ_{k∈Z/mZ} ζm^{k²})² = ½(1 + ζ4^m)² = i if m ≡ 1 (mod 4), 0 if m ≡ 2 (mod 4), −i if m ≡ 3 (mod 4), 2 if m ≡ 4 (mod 4)",
+   "correction": "Gm = −½(1 + ζ4^{−m})², with the value −2 when m ≡ 0 (mod 4); it agrees with ½(1 + ζ4^m)² only when 4 ∤ m.",
    "reason": "m = 4: Σ_{k mod 4} i^{k²} = 2 + 2i, (2 + 2i)² = 8i and G4 = (i/4)·8i = −2; likewise G8 = (i/8)(4ζ8)² = −2, and numerically G4 = G8 = G12 = −2 (PARI/GP). G1 = i and G3 = −i agree with both formulas.",
    "affects": "nothing",
    "known": "new",
@@ -3087,7 +3616,12 @@
     "P. Scholze’s announcement of the Bonn course on the paper (Winter 2024/25): no corrections",
     "the atlas blueprint packet research/blueprint/packets/HabiroNahmSeries.json, which records this finding as HabiroNahmSeries/E53; re-checked here at the v2 locator"
    ],
-   "alsoRecordedAs": "HabiroNahmSeries/E53"
+   "alsoRecordedAs": "HabiroNahmSeries/E53",
+   "review": {
+    "verdict": "confirmed",
+    "reason": "I computed the Gauss sums numerically for m = 1, …, 12. Fm of (289) takes the values 1, 0, 1, 2 as printed, and \"m ≡ 4 (mod 4)\" is the same condition as m ≡ 0 (mod 4), so (289) is not wrong and should be dropped from the finding. Gm of (290), however, is −2, not 2, for m = 4, 8, 12; for example G4 = (i/4)(2 + 2i)² = −2. The correct closed form is Gm = −½(1 + ζ4^{−m})², which agrees with ½(1 + ζ4^m)² exactly when 4 ∤ m, not only for odd m (both vanish for m ≡ 2 (mod 4)).",
+    "by": "REV-PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24"
+   }
   },
   {
    "id": "PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24/E62",
@@ -3104,7 +3638,12 @@
     "MPIM preprint 2024-31 (archive.mpim-bonn.mpg.de/id/eprint/5146), the v1 text",
     "Crossref and a web search for the title and for an erratum, 29 September 2026: no journal version, erratum or corrigendum",
     "P. Scholze’s announcement of the Bonn course on the paper (Winter 2024/25): no corrections"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "The printed 10×10 matrix M5 of (312) has determinant 1327104 = D(4), not D(5) = 99532800000 (sympy). I rebuilt M_N from the bases q^k(q;q)_{n−1} (n < N) and ζm^j u^{ℓ−1} (mℓ < N). It reproduces all 100 entries of (312), and |det M_N| = 1, 4, 216, 1327104, 99532800000, 1444408272617472000000 for N = 2, …, 7, i.e. D(N − 1) with D as tabulated (the table agrees with ∏_{n≤N} D1(n)D2(n)). By Smith normal form, the N = 4 congruences (321) cut out a lattice of index 216 = D(3), equal to the column lattice of M4, and (322) gives the same lattice. The N = 5 conditions (320) cut out the column lattice of M5, of index 1327104 = D(4). Proposition 5.2 survives, since D(N − 1) divides D(N).",
+    "by": "REV-PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24"
+   }
   },
   {
    "id": "PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24/E63",
@@ -3121,7 +3660,12 @@
     "MPIM preprint 2024-31 (archive.mpim-bonn.mpg.de/id/eprint/5146), the v1 text",
     "Crossref and a web search for the title and for an erratum, 29 September 2026: no journal version, erratum or corrigendum",
     "P. Scholze’s announcement of the Bonn course on the paper (Winter 2024/25): no corrections"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "By (299), f1(u) = Σ_{ℓ≥1} γ1,ℓ,0 u^{ℓ−1} with q = 1 − u. So q = −1 and q = ζ3 correspond to u = 2 and u = 1 − ζ3, and the sums must start at γ1,1,0; the printed Σ_{k≥0} γ1,k,0 uses a nonexistent γ1,0,0. I tested this on the Kontsevich–Zagier series Σn (q;q)n, whose values are F(−1) = 3 and F(ζ3) = 5 − ζ3. The corrected sums give 3 modulo 2^20 and 5 − ζ3 modulo 3^5; the printed indexing gives 6, and 4 − 7ζ3 modulo 3^5. The corrected sums also reproduce all three congruences of (322).",
+    "by": "REV-PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24"
+   }
   },
   {
    "id": "PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24/E64",
@@ -3138,7 +3682,12 @@
     "MPIM preprint 2024-31 (archive.mpim-bonn.mpg.de/id/eprint/5146), the v1 text",
     "Crossref and a web search for the title and for an erratum, 29 September 2026: no journal version, erratum or corrigendum",
     "P. Scholze’s announcement of the Bonn course on the paper (Winter 2024/25): no corrections"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "By (352), Pm(w) = ∏_{u^m=w} P(u). Since ∏_{u^m=w} u = (−1)^{m+1}w and ∏_{u^m=w}(1 − u) = 1 − w, P = w^a(1 − w)^b gives Pm = (−1)^{a(m+1)}P, while P = (−w)^a(1 − w)^b gives Pm = P. I confirmed this numerically for (a, b) ∈ {(1,1), (1,0), (2,1), (3,−1), (1,−1)} and m = 2, 3, 4: the ratio Pm/P is −1 for odd a and even m in the printed form, and always 1 in the corrected form. The corrected form is the N = 1 shape (−1)^A z^A(1 − z)^{−1} of (217), and the \"only if\" also holds with it.",
+    "by": "REV-PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24"
+   }
   },
   {
    "id": "PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24/E65",
@@ -3155,7 +3704,12 @@
     "MPIM preprint 2024-31 (archive.mpim-bonn.mpg.de/id/eprint/5146), the v1 text",
     "Crossref and a web search for the title and for an erratum, 29 September 2026: no journal version, erratum or corrigendum",
     "P. Scholze’s announcement of the Bonn course on the paper (Winter 2024/25): no corrections"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "I computed Pm(w) = ∏_{u^m=w}(8 − u³) for m = 2, …, 7 as a resultant (sympy). The result is 8^m − w³ for 3 ∤ m and (2^m − w)³ for 3 | m, and in every case the printed polynomial of (357) is Pm(w^m) rather than Pm(w). With the corrected Pm, 1 − Pm(ξ) = 0 gives exactly the cubics of (358).",
+    "by": "REV-PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24"
+   }
   },
   {
    "id": "PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24/E66",
@@ -3172,7 +3726,12 @@
     "MPIM preprint 2024-31 (archive.mpim-bonn.mpg.de/id/eprint/5146), the v1 text",
     "Crossref and a web search for the title and for an erratum, 29 September 2026: no journal version, erratum or corrigendum",
     "P. Scholze’s announcement of the Bonn course on the paper (Winter 2024/25): no corrections"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "With c = 2^m, the left side of (359) is (ξ − c)³ + 1 = (ξ + 1 − c)(ξ² − (2c + 1)ξ + c² + c + 1). sympy confirms that the corrected product equals the left side identically, and that the printed product exceeds it by 2ξ(ξ + 1 − c).",
+    "by": "REV-PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24"
+   }
   },
   {
    "id": "PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24/E67",
@@ -3180,7 +3739,7 @@
    "locator": "References [23] and [24], p. 72 (arXiv 2412.04241v2; v1 lists the paper once)",
    "printed": "The bibliography lists both [23] and [24] as the 2021 paper by Stavros Garoufalidis with Don Zagier on Nahm-sum asymptotics at roots of unity. Both entries give Ramanujan J., 55(1):219–238, 2021.",
    "correction": "One entry: [23] and [24] are the same paper, cited as [23] on p. 11 and as [24] on p. 16 (for the matching of formal-Gaussian and Nahm-sum series); if [24] was meant to be a different paper, that reference is missing.",
-   "reason": "Two bibliography keys added in v2 point to the same paper; v1’s bibliography lists it once.",
+   "reason": "The key GZ:nahm, added in v2 for the p. 16 citation, has exactly the same entry as the key GZ:asymptotics, which v1 already had. v1's bibliography lists the paper once.",
    "affects": "nothing",
    "known": "new",
    "searched": [
@@ -3189,7 +3748,332 @@
     "MPIM preprint 2024-31 (archive.mpim-bonn.mpg.de/id/eprint/5146), the v1 text",
     "Crossref and a web search for the title and for an erratum, 29 September 2026: no journal version, erratum or corrigendum",
     "P. Scholze’s announcement of the Bonn course on the paper (Winter 2024/25): no corrections"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "v2's bibliography (text131.bbl) has two keys, GZ:asymptotics and GZ:nahm, with identical entries, printed as [23] and [24] on p. 72. [23] is cited on p. 11 and [24] only on p. 16. v1's bibliography (text128.bbl, from the arXiv e-print) has only GZ:asymptotics, and the p. 16 sentence citing GZ:nahm is not in v1. So the duplicate came in with v2 through one new key, not two as the recorded reason says.",
+    "by": "REV-PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24"
+   }
+  },
+  {
+   "id": "PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24/E68",
+   "kind": "misprint",
+   "locator": "§1.4, sentence after (15), p. 7 (arXiv 2412.04241v2; the same text is in v1)",
+   "printed": "The source asserts 𝓗_R̂ ≅ ∏_p 𝓗_{R∧p}. It describes 𝓗_R as the intersection of P_R with 𝓗_R̂ inside P_R̂ and gives 𝓗_R̂ ≅ 𝓗_{Z[1/∆]} ⊗_Z R̂.",
+   "correction": "𝓗_R̂ ≅ 𝓗_{Z[1/∆]} ⊗̂_Z R̂, a completed tensor product (e.g. ∏_p (𝓗_{Z[1/∆]} ⊗ R)∧_p), not the plain tensor product.",
+   "reason": "Take K = Q and ∆ = 1, which the definition on p. 6 allows, so R̂ = Ẑ. The paper identifies 𝓗_Z with ι(ℍ_Z), and (hdecomp) in §5.1 gives ℍ_R ≅ ∏_{n>k≥0} R in coordinates compatible with base change. So the composite 𝓗_Z ⊗_Z Ẑ → 𝓗_Ẑ → 𝓗_{Z_p} has image ι of the image of (∏ Z) ⊗ Z_p → ∏ Z_p = ℍ_{Z_p}. Here ι is injective (§5.1), and ι(ℍ_{Z_p}) ⊂ 𝓗_{Z_p}. That map is not surjective: every element in its image has all coordinates in one finitely generated Z-submodule of Z_p, while Z_p has uncountable Z-rank. So the plain tensor product is not isomorphic to 𝓗_Ẑ via the natural map, and a completed tensor product must be meant. Nothing later uses the plain form.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 2412.04241 v1 (5 December 2024) and v2 (27 August 2025) LaTeX sources, diffed: §§2–5 are identical and §1 differs only in §§1.1 and 1.8 and in wording",
+    "the arXiv listing on 30 September 2026: v2 is still the latest version",
+    "Crossref, 30 September 2026: no journal version, erratum or corrigendum"
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Checked: for K = Q and ∆ = 1, the plain tensor product (∏Z) ⊗ Zp does not map onto ∏Zp, so a completed tensor product is meant.",
+    "by": "REV-PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24"
+   }
+  },
+  {
+   "id": "PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24/E69",
+   "kind": "misprint",
+   "locator": "Proof of Theorem 7, (107), p. 27 (arXiv 2412.04241v2; the same text is in v1)",
+   "printed": "The proof concludes V(t^{am}) = −am Σ_{n≥1} Σ_{ℓ≥1,(ℓ,m)=1} Ln(ζm^ℓ)/ℓ² t^{amnℓ} + O(t^{amn0}).",
+   "correction": "V(t^{am}) = m Σ_{n≥1} Σ_{ℓ≥1,(ℓ,m)=1} Ln(ζm^ℓ)/ℓ² t^{amnℓ}, i.e. (106) with t replaced by t^a.",
+   "reason": "(107) is introduced by “and so” from (106), V(t^m) = m Σ Ln(ζm^ℓ)t^{nmℓ}/ℓ², and substituting t ↦ t^a gives the coefficient m, not −am. Directly, for gcd(a,m) = 1 the terms ℓ = aℓ′ of (105) give the polar part ζam/(a²m x) Σ Ln(ζm^{ℓ′})t^{amnℓ′}/ℓ′² at q = ζam + x, and equating this with ζamV(t^{am})/(a²m²x) again gives m. Check with A = 0, m = 2 (V = −Li2, L1(−1) = −1/2): the t^6 coefficient of V(t^6) is −1 = 2·L1(−1), while −am·L1(−1) with a = 3 gives +3. The argument that follows uses only that V(t^{am}) is a series in t^{am}.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 2412.04241 v1 (5 December 2024) and v2 (27 August 2025) LaTeX sources, diffed: §§2–5 are identical and §1 differs only in §§1.1 and 1.8 and in wording",
+    "the arXiv listing on 30 September 2026: v2 is still the latest version",
+    "Crossref, 30 September 2026: no journal version, erratum or corrigendum"
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Checked: substituting t ↦ t^a in (106) gives the factor m; for A = 0, m = 2, a = 3 the t^6 coefficient of V(t^6) is −1, not +3.",
+    "by": "REV-PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24"
+   }
+  },
+  {
+   "id": "PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24/E70",
+   "kind": "misprint",
+   "locator": "Proof of Theorem 7, (101)–(102), p. 27 (arXiv 2412.04241v2; the same text is in v1)",
+   "printed": "Σ_{ℓ=0}^m (−1)^ℓ q^{−ℓ(ℓ−1)/2} binom(m,ℓ)_{q^{−1}} Σ_{j=0}^{ℓ−1} q^{nmj} = … = −(q^{nm+1−m};q)_{m−1}; … −(q^{nm+1−m};q)_{m−1} an(q) ∈ Z[q^{±1}, a1(q), …, an−1(q)]",
+   "correction": "Since GA,m,k = q^k + Σ an t^{mn} (99), the an-linear part of ∏_{j<ℓ}G(q^jt) carries q^{k(ℓ−1)}. The coefficient of an is Σℓ(−1)^ℓq^{−ℓ(ℓ−1)/2}binom(m,ℓ)_{q^{−1}}q^{k(ℓ−1)}(1 − q^{nmℓ})/(1 − q^{nm}) = −q^{−k}(q^{k+nm+1−m};q)_m/(1 − q^{nm}), which equals the printed value only for k = 0.",
+   "reason": "Checked with sympy: for (m,k,n) = (2,1,1), (2,1,2), (3,2,1), (3,1,2) the true coefficient differs from −(q^{nm+1−m};q)_{m−1} and equals −q^{−k}(q^{k+nm+1−m};q)_m/(1 − q^{nm}); for (3,0,2) both agree. The corrected coefficient is ±q^{−k} times ∏(1 − q^e) over e ∈ [nm + k + 1 − m, nm + k], e ≠ nm, and none of these e is divisible by m. So the conclusion that no Φd with m | d appears is unchanged.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 2412.04241 v1 (5 December 2024) and v2 (27 August 2025) LaTeX sources, diffed: §§2–5 are identical and §1 differs only in §§1.1 and 1.8 and in wording",
+    "the arXiv listing on 30 September 2026: v2 is still the latest version",
+    "Crossref, 30 September 2026: no journal version, erratum or corrigendum"
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Checked by exact computation for (m,k,n) = (2,1,1), (2,1,2), (3,2,1) and (3,1,2): the coefficient carries q^{k(ℓ−1)}. The conclusion about the Φd is unchanged.",
+    "by": "REV-PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24"
+   }
+  },
+  {
+   "id": "PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24/E71",
+   "kind": "misprint",
+   "locator": "Proof of Theorem 7, (103)–(104) and the induction hypothesis after (105), p. 27 (arXiv 2412.04241v2; the same text is in v1)",
+   "printed": "GA,m,k(t,q) ∈ q^k + t^m Z[q^{±1}, Φd(q) : d ≢ 0 (mod m)][[t^m]]; … Ln(q) ∈ (1 − q^m)/(1 − q^{nm}) Z[1/m, q^{±1}, Φd(q) | d ≢ 0 (mod m)]; … Ln(q) ∈ Z[1/m, q^{±1}, Φd(q) : d ≢ 0 (mod m)]",
+   "correction": "Φd(q)^{−1} in place of Φd(q) in each ring, as in Definition 2.8, (93).",
+   "reason": "The ring Z[q^{±1}, Φd(q)] is just Z[q^{±1}], but the recursion (102) divides by (q^{nm+1−m};q)_{m−1}. For example A = 1, m = 2, k = 0: H = 1 + q³t²/((1 − q)(1 − q²)) + …, so G = H(qt)/H(t) has a1 = −q³/(1 − q), which is not in Z[q^{±1}]. The intended rings invert the Φd with m ∤ d.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 2412.04241 v1 (5 December 2024) and v2 (27 August 2025) LaTeX sources, diffed: §§2–5 are identical and §1 differs only in §§1.1 and 1.8 and in wording",
+    "the arXiv listing on 30 September 2026: v2 is still the latest version",
+    "Crossref, 30 September 2026: no journal version, erratum or corrigendum"
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Checked: for A = 1, m = 2, k = 0 one gets a1 = −q³/(1 − q), which is not in Z[q^{±1}], so the rings must invert the Φd.",
+    "by": "REV-PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24"
+   }
+  },
+  {
+   "id": "PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24/E72",
+   "kind": "misprint",
+   "locator": "§4.4, second bullet, p. 53 (arXiv 2412.04241v2; the same text is in v1)",
+   "printed": "For a root of unity t = ζ ≠ 1, the source computes Li^{(p)}_n(ζ) using the series for Li^{(p)}_n(t/(1−t)). It states convergence when |t| < p^{1/(p−1)} and evaluates at t = t0 = ζ/(1−ζ), with |t0| = 1.",
+   "correction": "… we use the series expansion of Li^{(p)}_n(t/(1+t)) in powers of t, which converges for |t| < p^{1/(p−1)}, at t = t0 = ζ/(1−ζ). Equivalently, expand Li^{(p)}_n(z) in powers of z/(1−z), as on p. 18.",
+   "reason": "At t0 = ζ/(1 − ζ), t0/(1 + t0) = ζ but t0/(1 − t0) = ζ/(1 − 2ζ). Moreover, Li^{(p)}_n(t/(1 − t)) is singular at t = 1/2, where |1/2| = 1 for odd p, so its expansion at t = 0 cannot converge at |t0| = 1. With z = t/(1 + t), Li^{(p)}_1 = (1/p)log((1 + t)^p − t^p), and the coefficients of Li^{(p)}_2 have 5-adic valuations growing like j/4. I implemented the method in this corrected form, and it reproduces (271)–(274).",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 2412.04241 v1 (5 December 2024) and v2 (27 August 2025) LaTeX sources, diffed: §§2–5 are identical and §1 differs only in §§1.1 and 1.8 and in wording",
+    "the arXiv listing on 30 September 2026: v2 is still the latest version",
+    "Crossref, 30 September 2026: no journal version, erratum or corrigendum"
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Checked: t0/(1 − t0) = ζ/(1 − 2ζ) ≠ ζ, while t0/(1 + t0) = ζ. The corrected method reproduces (271)–(274).",
+    "by": "REV-PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24"
+   }
+  },
+  {
+   "id": "PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24/E73",
+   "kind": "error",
+   "locator": "§4.6, last paragraph, p. 57 (arXiv 2412.04241v2; the same text is in v1)",
+   "printed": "The source considers three representations, all boundary-parabolic, of the (−2, 3, 7)-pretzel knot, valued in the abelian field K = Q(2 cos(2π/7)). It asserts their perturbative series produce an element of HOK[1/7] and describes the associated Bloch-group element as 3-torsion.",
+   "correction": "The series gives an element of the module H_{R,ξ} for a nonzero 3-torsion ξ, with 2 and 3 inverted in R as Remark 1.8 requires. Only its cube lies in the Habiro ring (Corollary 1.11(b)), and then with 2 inverted: not in HOK[1/7].",
+   "reason": "The paper's own figures in the same paragraph contradict membership in HOK[1/7]. The denominator of the x^400 coefficient is 2^1997·3^596·7^466, and it drops to 2^1997·7^466 only after cubing, \"illustrating part (b) of Corollary 1.11\". So the series itself is not in any Habiro ring with 3 uninverted; it is a section of the twisted module attached to the 3-torsion class. Even its cube keeps 2-power denominators, which is incompatible with coefficients in OK[1/7]. (The denominators themselves were taken from the paper, not recomputed.)",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "arXiv 2412.04241 v1 (5 December 2024) and v2 (27 August 2025) LaTeX sources, diffed: §§2–5 are identical and §1 differs only in §§1.1 and 1.8 and in wording",
+    "the arXiv listing on 30 September 2026: v2 is still the latest version",
+    "Crossref, 30 September 2026: no journal version, erratum or corrigendum"
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Checked against the paper's own figures in the same paragraph: the x^400 denominator contains 3^596 before cubing, and the cube keeps 2^1997. Neither is compatible with OK[1/7]. The figures themselves were not recomputed.",
+    "by": "REV-PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24"
+   }
+  },
+  {
+   "id": "PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24/E74",
+   "kind": "misprint",
+   "locator": "§1.3, p. 4 (arXiv 2412.04241v2; the same text is in v1)",
+   "printed": "The source asserts (q; q)n = 0 whenever m > n, assuming q = ζm is primitive of order m.",
+   "correction": "(q; q)n = 0 for all n ≥ m.",
+   "reason": "At a primitive m-th root of unity the factor 1 − q^m of (q;q)_n vanishes exactly when n ≥ m; for n < m every factor 1 − ζ_m^j (1 ≤ j ≤ n) is non-zero. The next sentence, (q;q)_n ∈ x^{⌊n/m⌋}Z[ζ_m][x] at q = ζ_m + x, uses the correct range.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 2412.04241 v1 (5 December 2024) and v2 (27 August 2025) LaTeX sources, diffed: §§2–5 are identical and §1 differs only in §§1.1 and 1.8 and in wording",
+    "the arXiv listing on 30 September 2026: v2 is still the latest version",
+    "Crossref, 30 September 2026: no journal version, erratum or corrigendum"
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Checked at the locator; the inequality is reversed.",
+    "by": "REV-PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24"
+   }
+  },
+  {
+   "id": "PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24/E75",
+   "kind": "misprint",
+   "locator": "§1.8, p. 16 (arXiv 2412.04241v2; v1 has no §1.8)",
+   "printed": "The source defines a Neumann–Zagier datum as the upper portion (A|B) of an integral symplectic matrix of size N × N.",
+   "correction": "the upper half (A|B), with A, B ∈ M_N(Z), of a symplectic 2N × 2N integral matrix.",
+   "reason": "(A|B) is an N × 2N block with A and B both N × N, so the symplectic matrix it is the upper half of is 2N × 2N.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 2412.04241 v1 (5 December 2024) and v2 (27 August 2025) LaTeX sources, diffed: §§2–5 are identical; this passage is in §1.8, which v1 lacks, so v2 introduced it and §1 differs only in §§1.1 and 1.8 and in wording",
+    "the arXiv listing on 30 September 2026: v2 is still the latest version",
+    "Crossref, 30 September 2026: no journal version, erratum or corrigendum"
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Checked at the locator: the block has N rows and 2N columns.",
+    "by": "REV-PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24"
+   }
+  },
+  {
+   "id": "PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24/E76",
+   "kind": "misprint",
+   "locator": "§2.5, (114) and (115)–(116), p. 29 (arXiv 2412.04241v2; the same text is in v1)",
+   "printed": "ψk,z,ζm(w, x) = ((ζm+x)^{k+1}ze^w; ζm+x)∞ · exp(−Li2(z^m)/(m² log(1+x/ζm)) − Li1(z^m)w/(m² log(1+x/ζm)) − Li0(z^m)w²/(m² log(1+x/ζm)) + Σ_{ℓ=0}^{m−1}(1/2 − (k+ℓ+1)/m) log(1 − ζm^{k+ℓ+1}z))",
+   "correction": "With h = log(1 + x/ζm): subtract Li1(z^m)w/(mh) and Li0(z^m)w²/(2h), and subtract (not add) Σ_{ℓ=0}^{m−1}(1/2 − (k+ℓ+1)/m) log(1 − ζm^{k+ℓ+1}z). The critical points of (115) are (1/m) log z(t^m) and the critical value is V^FGI(t^m)/m², not the values at t.",
+   "reason": "The polar part of log((ζm+x)^{k+1}ze^w; ζm+x)∞ is Li2(z^m e^{mw})/(m²h) = [Li2(z^m) + m Li1(z^m) w + (m²/2) Li0(z^m) w² + …]/(m²h), so the w and w² terms to remove are Li1(z^m)w/(mh) and Li0(z^m)w²/(2h); the latter is the term that Λ = −A − diag(z/(1−z)) absorbs. With the printed terms ψ is not in 1 + xQ(z,ζm)[[w, w³x^{−1}, x]], as the paper claims right after (114). The sign of the constant sum was checked numerically (|q| < 1, h = −10^{−3}; m = 1, 2, 3; k = 0, 1; z = 0.3).",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 2412.04241 v1 (5 December 2024) and v2 (27 August 2025) LaTeX sources, diffed: §§2–5 are identical and §1 differs only in §§1.1 and 1.8 and in wording",
+    "the arXiv listing on 30 September 2026: v2 is still the latest version",
+    "Crossref, 30 September 2026: no journal version, erratum or corrigendum"
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "I re-derived the polar part from (59) and it gives mh and 2h; the constant-term sign rests on the numerical check recorded in the reason.",
+    "by": "REV-PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24"
+   }
+  },
+  {
+   "id": "PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24/E77",
+   "kind": "misprint",
+   "locator": "§1.3, p. 5, and §5.2, p. 65 (arXiv 2412.04241v2; the same text is in v1)",
+   "printed": "The source identifies R∧p = lim_n R/(p^n) with R ⊗ Zp on p. 5. On p. 65 it gives Rp := lim_n R/p^nR ≅ R ⊗ Zp and states Rp = {0}, the zero ring, whenever p|∆.",
+   "correction": "R∧p ≅ R ⊗ Zp for R finite over Z (e.g. Z[ζm], OK), and for R = OK[1/∆] when p ∤ ∆. When p | ∆, R∧p = 0 while R ⊗ Zp = K ⊗ Qp ≠ 0.",
+   "reason": "For R = Z[1/p] one has lim_n R/p^nR = 0 but R ⊗ Zp = Qp. On p. 65 the two clauses of the same sentence contradict each other for p | ∆.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 2412.04241 v1 (5 December 2024) and v2 (27 August 2025) LaTeX sources, diffed: §§2–5 are identical and §1 differs only in §§1.1 and 1.8 and in wording",
+    "the arXiv listing on 30 September 2026: v2 is still the latest version",
+    "Crossref, 30 September 2026: no journal version, erratum or corrigendum"
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Checked at both locators; the intended range p ∤ ∆ is clear from the second clause.",
+    "by": "REV-PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24"
+   }
+  },
+  {
+   "id": "PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24/E78",
+   "kind": "error",
+   "locator": "§4.4, p. 53 (arXiv 2412.04241v2; the same text is in v1)",
+   "printed": "The source attributes to Hensel’s lemma a unique lift to Z/p^nZ of any factorization into irreducibles over Z/pZ. … It also deduces P′(ξ^p) ∈ (R/pR)^× from p being unramified.",
+   "correction": "Assume also p ∤ disc(P) (equivalently P′(ξ) ∈ (R/pR)^×, i.e. p prime to the index [OK : Z[ξ]]); Hensel’s lemma needs the factors to be pairwise coprime modulo p.",
+   "reason": "Take K = Q(√2), ξ = 5√2, P = X² − 50 and p = 5, which is inert, hence unramified, and prime to 6·disc(K). Then P′(ξ^5) ≡ 0 (mod 5), both roots ±5√2 are ≡ 0 ≡ ξ^5 (mod 5), and the Newton step divides by zero. The Frobenius of R∧p exists for every unramified p; only this computation of it needs the extra hypothesis.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 2412.04241 v1 (5 December 2024) and v2 (27 August 2025) LaTeX sources, diffed: §§2–5 are identical and §1 differs only in §§1.1 and 1.8 and in wording",
+    "the arXiv listing on 30 September 2026: v2 is still the latest version",
+    "Crossref, 30 September 2026: no journal version, erratum or corrigendum"
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "I checked the counterexample: 5 is inert in Q(√2) since 2 is not a square mod 5, and P′(ξ^5) = 2ξ^5 ∈ 5R.",
+    "by": "REV-PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24"
+   }
+  },
+  {
+   "id": "PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24/E79",
+   "kind": "error",
+   "locator": "§3.2, Corollary 3.5, p. 40 (arXiv 2412.04241v2; the same text is in v1)",
+   "printed": "The source takes an arbitrary prime p and a torsion-free ring S that is p-complete. … It asserts that f(q) := exp(g(q)) is well-defined.",
+   "correction": "Fix an odd prime p (the paper uses only p > 3).",
+   "reason": "For p = 2 take S = Z2, m = 1 and g = 2. Then φp g(q^p) − p g(q) = 2 − 4 = −2 ∈ 2S, but exp(2) does not converge 2-adically (exp converges on 4Z2 only).",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 2412.04241 v1 (5 December 2024) and v2 (27 August 2025) LaTeX sources, diffed: §§2–5 are identical and §1 differs only in §§1.1 and 1.8 and in wording",
+    "the arXiv listing on 30 September 2026: v2 is still the latest version",
+    "Crossref, 30 September 2026: no journal version, erratum or corrigendum"
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Checked: the hypothesis holds and exp(2) diverges in Q2.",
+    "by": "REV-PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24"
+   }
+  },
+  {
+   "id": "PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24/E80",
+   "kind": "misprint",
+   "locator": "§3.1, Proposition 3.2, p. 38 (arXiv 2412.04241v2; the same text is in v1)",
+   "printed": "Proposition 3.2 asserts p^{−2}Dp(ζ^p) = … (mod p) for a prime p whenever ζ ∈ µ(Q_{p^s}) and ζ ≠ 1.",
+   "correction": "ζ of order prime to p (automatic for p odd).",
+   "reason": "For p = 2 and ζ = −1 ∈ µ(Q2), ζ^p = 1 and Dp(1) is undefined (Dp is defined on Cp ∖ {0, 1}, (174)). Only p > 3 is used, in Proposition 3.3.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 2412.04241 v1 (5 December 2024) and v2 (27 August 2025) LaTeX sources, diffed: §§2–5 are identical and §1 differs only in §§1.1 and 1.8 and in wording",
+    "the arXiv listing on 30 September 2026: v2 is still the latest version",
+    "Crossref, 30 September 2026: no journal version, erratum or corrigendum"
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Checked at the locator.",
+    "by": "REV-PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24"
+   }
+  },
+  {
+   "id": "PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24/E81",
+   "kind": "error",
+   "locator": "§5.4, (349)–(350), p. 69 (arXiv 2412.04241v2; the same text is in v1)",
+   "printed": "= Σ_{k≥0} t^k(P(w)^k + binom(k,2) P(w)^{k−1} P′(w)x + O(x²)) = 1/(1 − tP(w)) + tP′(w)x/(1 − tP(w))³ + O(x²); f_P(w, 1; 1 + x) = 1/(1 − P(w)) + P′(w)x/(1 − P(w))³ + O(x²)",
+   "correction": "The x-coefficient of ∏_{j<k} P((1+x)^j w) is binom(k,2) w P′(w) P(w)^{k−1}, and Σ_k binom(k,2) t^k P^{k−1} = t²P/(1 − tP)³. So f_P(w, t; 1 + x) = 1/(1 − tP(w)) + t² w P(w) P′(w) x/(1 − tP(w))³ + O(x²), and at t = 1 the x-coefficient is w P(w) P′(w)/(1 − P(w))³.",
+   "reason": "At w = 0, f_P = 1/(1 − tP(0)) has no x-term, but the printed formula gives tP′(0)/(1 − tP(0))³. For P(w) = w, f_P = Σ q^{k(k−1)/2}(wt)^k has x-coefficient (wt)²/(1 − wt)³. Numerically, with P = 2 + 3X − X², w = 1/7 and t = 1/5, the derivative is 0.268158, as the corrected formula gives.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 2412.04241 v1 (5 December 2024) and v2 (27 August 2025) LaTeX sources, diffed: §§2–5 are identical and §1 differs only in §§1.1 and 1.8 and in wording",
+    "the arXiv listing on 30 September 2026: v2 is still the latest version",
+    "Crossref, 30 September 2026: no journal version, erratum or corrigendum"
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "I re-derived the expansion: the printed middle line drops the factor w, and the sum of binom(k,2)t^kP^{k−1} is t²P/(1 − tP)³.",
+    "by": "REV-PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24"
+   }
+  },
+  {
+   "id": "PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24/E82",
+   "kind": "misprint",
+   "locator": "§5.1, p. 61 (arXiv 2412.04241v2; the same text is in v1)",
+   "printed": "The source says the selected basis and coordinates yield HR ≅ HZ ⊗Z R; it also gives PR ≅ PZ ⊗Z R. It identifies ιR = ιZ ⊗Z 1 and says MN represents ι^N_Z.",
+   "correction": "The isomorphisms hold at each finite level N: H^N_R ≅ H^N_Z ⊗Z R and P^N_R ≅ P^N_Z ⊗Z R. That is all the integrality and R-independence of MN need.",
+   "reason": "The rings are infinite products (HR ≅ ∏_{n>k≥0} R), and tensor products do not commute with infinite products; for example the paper itself notes on p. 59 that HQ ≠ HZ ⊗ Q.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 2412.04241 v1 (5 December 2024) and v2 (27 August 2025) LaTeX sources, diffed: §§2–5 are identical and §1 differs only in §§1.1 and 1.8 and in wording",
+    "the arXiv listing on 30 September 2026: v2 is still the latest version",
+    "Crossref, 30 September 2026: no journal version, erratum or corrigendum"
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Checked at the locator against the paper’s own p. 59 remark.",
+    "by": "REV-PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24"
+   }
+  },
+  {
+   "id": "PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24/E83",
+   "kind": "misprint",
+   "locator": "§5.1, (317), p. 63 (arXiv 2412.04241v2; the same text is in v1)",
+   "printed": "(ι^N)^{−1} : PR/PR^N → D(N)^{−1}R[q]/(q;q)_{N−1}R[q]",
+   "correction": "(ι^N)^{−1} : PR^N → D(N)^{−1}R[q]/(q;q)_{N−1}R[q], where PR^N = PR/P_{R,N}.",
+   "reason": "The paper defines PR^N as the quotient PR/P_{R,N} (p. 60), so PR/PR^N is not the intended domain.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv 2412.04241 v1 (5 December 2024) and v2 (27 August 2025) LaTeX sources, diffed: §§2–5 are identical and §1 differs only in §§1.1 and 1.8 and in wording",
+    "the arXiv listing on 30 September 2026: v2 is still the latest version",
+    "Crossref, 30 September 2026: no journal version, erratum or corrigendum"
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Checked against the definition on p. 60.",
+    "by": "REV-PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24"
+   }
   }
  ]
 }
