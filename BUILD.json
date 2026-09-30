@@ -361,7 +361,7 @@
   "libraryAuditStatuses": 58,
   "bibliographicSources": 46,
   "roadmapEdges": 1724,
-  "stageEdges": 8346,
+  "stageEdges": 8347,
   "reviewedLinkPackets": 25,
   "promotedBlueprints": [
     {
@@ -492,8 +492,8 @@
     }
   ],
   "sourceDocuments": 296,
-  "htmlBytes": 30296159,
-  "htmlSha256": "f8e0741e295b0e1dcee1bd9f28f55e1c95a74970fc327a77e89d17c4618efc60",
+  "htmlBytes": 30297794,
+  "htmlSha256": "65775a124a18c83fee7263ba58680ad2cfe3686713f09acfe0fd160db21f61c3",
   "networkDependencies": 0,
   "localProgressOverridesIncluded": false,
   "assets": {
@@ -657,8 +657,8 @@
     "data/restructure/RS-03.result.json": "dd5f6b169fb584a1866c559cbd81b764502924c6abb6b5d3fb335c9d69f45e3d",
     "data/restructure/RS-05.md": "06b1d8bf4b38c041fd808432d660638a4ba3167b194f27726e86b4504c5e17c2",
     "data/restructure/RS-05.result.json": "9870348ecccf53d79ee0a5a4afb4c00eeaaa8360f101670f721975df6932d150",
-    "data/restructure/RS-06.md": "1bf867ba379b8322844ac95d9fe26b6e5650e5d1d9b8514120f9d7bfdce0d2c0",
-    "data/restructure/RS-06.result.json": "b67b734a6a50c86dc2fcea7000a4c428fc76325049f9a06a048475fe274e08c3",
+    "data/restructure/RS-06.md": "04a11c68e76534586b2171af090c298e7e04efd7ef403ed836019d09aff5b2d9",
+    "data/restructure/RS-06.result.json": "25f4d1361797801655ac3845464e612250bb4d2fcfae2e5905fde2e2bcec71af",
     "data/restructure/RS-07.md": "3846baaf30dce14b5ef36a8cfc8a40f6d861bb7b7e692926f6f18f5a66d33fae",
     "data/restructure/RS-07.result.json": "399d14480473484546da80c3c0a658499f14fbb5bf138225dc8251ce991bafd7",
     "data/restructure/RS-08.md": "7f9a15bbe3746270cb5b8916f3358268d9fafb825e2dba4adeb75f635d8882ab",

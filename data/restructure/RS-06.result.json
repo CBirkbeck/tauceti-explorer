@@ -75,13 +75,13 @@
     },
     "AlgebraicModularFormsAndSerreWeights:R15.4": {
       "action": "narrow",
-      "keeps": "Own Serre's full piecewise classical weight recipe and its isomorphism/coefficient-extension invariance, determinant parity, twists and scalar/extension-sensitive cases. Own the derived finite-flat weight-two criterion and p=2 weight-2/weight-4 dichotomy from the local supplier with its actual proof boundary. Preserve the EDIXHOVEN92 recipe comparison; minimal modular weight is proved at R20.3, not by defining k through modularity.",
+      "keeps": "Own Serre's full piecewise classical weight recipe and its isomorphism/coefficient-extension invariance, determinant parity, twists and scalar/extension-sensitive cases. Own the derived finite-flat weight-two criterion and p=2 weight-2/weight-4 dichotomy from the local supplier with its actual proof boundary. Preserve the EDIXHOVEN92 recipe comparison; minimal modular weight is proved at R20.3, not by defining k through modularity. Own the source-linked bad-dihedral normalized-weight application after the R01.4 image prefix and this layer's local recipe: for S-type rho-bar, odd p >= 3, 2 <= k(rho-bar) <= p+1 and reducibility on G_Q(mu_p), prove k=(p+1)/2 or (p+3)/2; distinguish niveau 1 (p=2k-1) and niveau 2 (p=2k-3) using DP Lemma 1.14. This application neither defines the recipe through modularity nor supplies residual modularity. Retain the unread Ribet Proposition 2.2 source gap.",
       "suppliedBy": [
         "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.5",
         "ArithmeticGaloisRepresentations:R01.2",
         "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1"
       ],
-      "reason": "Local tame characters and peu/tres-ramified finite-flat extension calculations are supplier results. Serre's recipe uses the entire local extension, not just inertia semisimplification; p=2 is never covered by deleting e<p-1."
+      "reason": "Local tame characters and peu/tres-ramified finite-flat extension calculations are supplier results. Serre's recipe uses the entire local extension, not just inertia semisimplification; p=2 is never covered by deleting e<p-1. The additional R01.4 import supplies only the image/bad-dihedral identification for the named post-recipe application; the recipe prefix does not wait for modularity. The unchanged suppliedBy list continues to record mathematics removed from this narrowed layer; the new direct link feeds only the added weight application, and does not impose that application on all old recipe consumers."
     },
     "AlgebraicModularFormsAndSerreWeights:R15.5": {
       "action": "narrow",
@@ -3697,6 +3697,11 @@
       "source": "WeightsInEtaleCohomology:R34.3",
       "target": "SerreWeightAndLevelOptimisation:R20.1",
       "reason": "Owner-to-consumer rerouting of the imported component formerly available through ModularCurvesPartII:R13.6, restricted to that component of this consumer's old prerequisite. Keep ModularCurvesPartII:R13.6 → SerreWeightAndLevelOptimisation:R20.1 for its genuinely new comparison/application. The general nearby-cycle computation and Jacobian/semistable comparison are suppliers; modular maps, base and level-sensitive applications remain. Respect the report's early/late phase table; no completed-stage or theorem-existence dependency is inferred from this scoped edge. Owner-to-consumer rerouting of the imported component formerly available through ModularCurvesPartII:R14.6, restricted to that component of this consumer's old prerequisite. Keep ModularCurvesPartII:R14.6 → SerreWeightAndLevelOptimisation:R20.1 for its genuinely new comparison/application. This is a geometric interface to patching and to R29.5, not a duplicate modularity theorem. Preserve exact bad-prime conditions and do not use the supplied curve cohomology to assume a freeness theorem. Respect the report's early/late phase table; no completed-stage or theorem-existence dependency is inferred from this scoped edge."
+    },
+    {
+      "source": "ArithmeticGaloisRepresentations:R01.4",
+      "target": "AlgebraicModularFormsAndSerreWeights:R15.4",
+      "reason": "Source-linked bad-dihedral normalized-weight application of KW I Lemma 6.2(ii) and DP v2 Lemma 1.14, after the local recipe prefix at R15.4. R01.4 supplies image/restriction identification; R15.4 applies its existing tame niveau-one/two recipe. Preserve p >= 3, S-type, reducibility on G_Q(mu_p), normalized weight 2 <= k <= p+1, and the unread Ribet Proposition 2.2 gap. This imports neither R17 modularity nor R20 optimisation into early R01.4, and does not make the recipe depend on modularity existence."
     }
   ],
   "owners": [
@@ -4391,13 +4396,215 @@
       "formerly": [
         "ModularCurvesPartII:R14.3"
       ]
+    },
+    {
+      "target": "Bad-dihedral normalized Serre-weight application of KW I Lemma 6.2(ii) / DP v2 Lemma 1.14, after generic images and the local recipe",
+      "owner": "AlgebraicModularFormsAndSerreWeights:R15.4",
+      "formerly": [
+        "ClassicalSerreModularity:R27.1"
+      ]
     }
   ],
   "review": {
     "status": "accepted",
-    "reviewer": "independent-review-REV-RS-06",
-    "date": "2026-09-23",
-    "notes": "All 74 stages of the eight members have entries (59 narrow, 15 keep). Of the 63 evidence pairs, 55 share an owner entry; the other 8 are resolved in the report evidence table as separate objects or anchor-level non-duplicates (R15.1/R12.5 versus R35.2 Hodge lines, R25.3/R25.4 versus R28.5, and the ModularCurves anchor handoffs). Every consumer of the 59 narrowed layers receives links from each supplier. The two extensions are titled exactly as Part IIs of their Tau Ceti bases (ModularForms; ModularCurves). With the twelve accepted restructurings applied, all 547 new links apply with no cycle; the 29 skipped links are UPSTREAM contracts. The sampled narrowings (R28.5, R12.4, R15.1) keep every target not supplied by a named owner, and their Néron-model suppliers agree with RS-25. See REV-RS-06.md.",
-    "corrections": []
-  }
+    "reviewer": "independent-review-REV-FIX-RT-RS-06",
+    "date": "2026-09-30",
+    "notes": "Independent review by Claude Code (cc-c2c06b) of FIX-RT-RS-06 (Codex codex-5ebb6f) for the one confirmed finding RT-RS-06/1; it follows REV-RS-06 (accepted 2026-09-23, kept verbatim in reviewHistory), which this replaces as the current review. Checked against the verdict and the fix commit's diff: the stable mixed node ClassicalSerreModularity:R27.1/dickson-and-the-dyadic-solvable-refinement is kept as a source alias with its fields and references, and componentMigrations routes its five components as the verifier specified: Dickson/KW Lemma 6.1 to ArithmeticGaloisRepresentations:R01.4 (whose stage text plans the finite images, restriction to cyclotomic fields and 'bad-dihedral representations in the precise source sense'); KW Lemma 6.2(i) odd-p modularity to R17.5 and p = 2 modularity to R17.6; the exact weight/level refinement to the R20.2-R20.4 contracts assembled at R20.5; and KW Lemma 6.2(ii) / DP Lemma 1.14 to a named application at AlgebraicModularFormsAndSerreWeights:R15.4, with its S-type, p >= 3, normalized-weight and G_Q(mu_p)-reducibility hypotheses and the open Ribet gap (gaps[4]) attached to it. KW I preprint re-read at p. 11 (sha256 3c389dc3…bad82 reproduced): Lemma 6.2(ii) gives weight (p+1)/2 or (p+3)/2, matching the application and its p = 5 test (k = 3, 4). The one new owners slice and the one new link R01.4 -> R15.4 are the only structural changes (89 owners, 596 links). Re-ran scripts/restructure.py apply_restructurings read-only on data/atlas.json with all promoted proposals, RS-06 replaced by this file: 516 links (one more than the promoted copy), the same 29 skipped UPSTREAM contracts, 6,592 stage edges, no cycle; every component's inputs are upstream of its owner (R01.4 -> R15.4, R17.5, R17.6; R17.5 -> R17.6; R17.5, R17.6, R15.4, R20.2-R20.4 -> R20.5), and none is reversed. No correction was needed. check_restructure.py: ok (it does not validate componentMigrations, which were checked by hand)."
+  },
+  "componentMigrations": [
+    {
+      "sourceNode": "ClassicalSerreModularity:R27.1/dickson-and-the-dyadic-solvable-refinement",
+      "sourcePacket": "data/decompositions/ClassicalSerreModularity.json",
+      "sourcePacketSha256": "53c3f399ec1077dde93486dbf91f7ee9bf2b17dc28c874268c377433d6383131",
+      "preservation": "Retain the complete stable mixed node as an aggregation/source alias; source-linked obligations below implement its components. Never reparent the whole statement to the early image owner or erase incident references.",
+      "preserveFields": [
+        "id",
+        "title",
+        "statement",
+        "hypotheses",
+        "proofSteps",
+        "acceptance",
+        "sources",
+        "implementationStatus",
+        "source versions and hashes",
+        "review history",
+        "incoming and outgoing references"
+      ],
+      "components": [
+        {
+          "component": "Dickson classification and characteristic-two solvable refinement",
+          "owner": "ArithmeticGaloisRepresentations:R01.4",
+          "phase": "early image prefix",
+          "sources": [
+            {
+              "sourceId": "kw-serre-modularity-I",
+              "locator": "Section 6, Dickson paragraph and Lemma 6.1 with proof, preprint pp. 10-11"
+            }
+          ],
+          "scope": "Finite irreducible GL2 subgroups over the algebraic closure of a finite field; Lemma 6.1 additionally requires solvability and characteristic two. Preserve the entire original classification list and simple-PSL2 range.",
+          "boundary": "No modularity or Serre-weight conclusion belongs to this component; no R17, R20 or final R27 theorem is its prerequisite."
+        },
+        {
+          "component": "Odd-characteristic dihedral residual modularity",
+          "owner": "GL2AutomorphicRepresentationsAndTransfer:R17.5",
+          "phase": "modularity construction after images",
+          "inputs": [
+            {
+              "owner": "ArithmeticGaloisRepresentations:R01.4",
+              "phase": "image/dihedral prefix"
+            }
+          ],
+          "sources": [
+            {
+              "sourceId": "kw-serre-modularity-I",
+              "locator": "Lemma 6.2(i), statement and odd-p proof branch, preprint p. 11"
+            }
+          ],
+          "scope": "For S-type rho-bar with dihedral projective image and p > 2, construct a residual modularity witness through the existing monomial/soluble Artin modularity owner. S-type means continuous, absolutely irreducible, two-dimensional and odd over a finite coefficient field.",
+          "boundary": "The exact classical weight/level clause is the separate conditional optimisation component; no new automorphic-induction theorem is planned at R27.1 or R01.4."
+        },
+        {
+          "component": "Characteristic-two dihedral residual modularity",
+          "owner": "GL2AutomorphicRepresentationsAndTransfer:R17.6",
+          "phase": "dyadic modularity construction after images",
+          "inputs": [
+            {
+              "owner": "ArithmeticGaloisRepresentations:R01.4",
+              "phase": "characteristic-two image prefix"
+            },
+            {
+              "owner": "GL2AutomorphicRepresentationsAndTransfer:R17.5",
+              "phase": "soluble modularity machinery as required by the chosen proof"
+            }
+          ],
+          "sources": [
+            {
+              "sourceId": "kw-serre-modularity-I",
+              "locator": "Lemma 6.2(i), p=2 proof branch, preprint p. 11; references [38] Proposition 10 and [42] Lemma 2"
+            }
+          ],
+          "scope": "For S-type rho-bar with dihedral projective image and p=2, use the Serre-trick/Wiese modularity route within the existing characteristic-two soluble owner; retain finite coefficient fields and the actual lifting/ramification hypotheses.",
+          "boundary": "Do not infer this branch from odd-p absolute irreducibility, or assert that reading KW proves its cited Serre/Wiese inputs."
+        },
+        {
+          "component": "Exact dihedral classical weight and level",
+          "owner": "SerreWeightAndLevelOptimisation:R20.5",
+          "phase": "conditional refinement after a constructed modularity witness",
+          "inputs": [
+            {
+              "owner": "GL2AutomorphicRepresentationsAndTransfer:R17.5",
+              "phase": "odd-p witness branch"
+            },
+            {
+              "owner": "GL2AutomorphicRepresentationsAndTransfer:R17.6",
+              "phase": "p=2 witness branch"
+            },
+            {
+              "owner": "AlgebraicModularFormsAndSerreWeights:R15.4",
+              "phase": "classical weight recipe"
+            },
+            {
+              "owner": "SerreWeightAndLevelOptimisation:R20.2",
+              "phase": "applicable full conductor level lowering"
+            },
+            {
+              "owner": "SerreWeightAndLevelOptimisation:R20.3",
+              "phase": "applicable weight optimisation"
+            },
+            {
+              "owner": "SerreWeightAndLevelOptimisation:R20.4",
+              "phase": "applicable coefficient-prime level and character control"
+            }
+          ],
+          "sources": [
+            {
+              "sourceId": "kw-serre-modularity-I",
+              "locator": "Lemma 6.2(i), exact S_k(rho-bar)(Gamma_1(N(rho-bar))) conclusion and [42] Theorem 1, preprint p. 11"
+            }
+          ],
+          "scope": "Apply the existing R20 contracts only in the branch whose hypotheses are established; R20.5 retains the assigned Wiese Theorem 1 dihedral dyadic refinement, distinguished from its Buzzard non-Q(i) branch and separate Q(i) analysis.",
+          "boundary": "Not an unconditional all-purpose strong-Serre theorem; no R27.4 late scalar-dyadic completion is an early premise, and no general Katz weight-one refinement is added. Serre/Wiese proof inputs remain to be read by their owning blueprint."
+        },
+        {
+          "component": "Bad-dihedral normalized-weight application",
+          "owner": "AlgebraicModularFormsAndSerreWeights:R15.4",
+          "proposedNodeId": "AlgebraicModularFormsAndSerreWeights:R15.4/bad-dihedral-normalized-weight-application",
+          "kind": "application",
+          "phase": "after the image prefix and local recipe prefix",
+          "inputs": [
+            {
+              "owner": "ArithmeticGaloisRepresentations:R01.4",
+              "phase": "image/restriction and bad-dihedral identification, including DP 1.12-1.13 bridge"
+            },
+            {
+              "owner": "AlgebraicModularFormsAndSerreWeights:R15.4",
+              "phase": "previously constructed normalized classical weight and tame niveau-one/two recipe"
+            }
+          ],
+          "statement": "For S-type rho-bar, prime p >= 3, normalized weight 2 <= k(rho-bar) <= p+1 and reducibility on G_Q(mu_p), the weight is (p+1)/2 or (p+3)/2. Under the bad-dihedral identification, DP Lemma 1.14 distinguishes p=2k-1 in niveau 1 and p=2k-3 in niveau 2.",
+          "hypotheses": [
+            "Continuous absolutely irreducible two-dimensional odd representation of G_Q over a finite field of characteristic p",
+            "Prime p >= 3; no characteristic-two extension",
+            "2 <= k(rho-bar) <= p+1 for the representation to which the assertion is applied; a twist must first establish this normalization",
+            "Reducibility on G_Q(mu_p); identify the bad-dihedral formulation using R01.4, retaining p-star=(-1)^((p-1)/2)*p and DP Definition 1.12 / Lemma 1.13"
+          ],
+          "sources": [
+            {
+              "sourceId": "kw-serre-modularity-I",
+              "locator": "Lemma 6.2(ii), statement and proof, preprint p. 11"
+            },
+            {
+              "sourceId": "dieulefait-pacetti",
+              "locator": "arXiv:2108.07577v2 Definition 1.12 / Lemma 1.13 pp. 7-8; normalization paragraph and Lemma 1.14 with proof pp. 8-9"
+            }
+          ],
+          "proofRoute": [
+            "Apply the supplied image result to identify the bad-dihedral restriction condition and obtain tame cyclic projective inertia of order at most two",
+            "Apply the existing local weight recipe separately to the niveau-one and niveau-two inertia characters, retaining normalization and excluding the trivial-inertia bad-dihedral case",
+            "Recover both KW weight possibilities and their DP niveau labels; keep the Ribet source boundary visible"
+          ],
+          "planningApi": [
+            "bad_dihedral_normalized_weight_cases: the two KW weight possibilities",
+            "bad_dihedral_niveau_one_weight_relation: p=2k-1 under its actual tame recipe branch",
+            "bad_dihedral_niveau_two_weight_relation: p=2k-3 under its actual tame recipe branch",
+            "Use the existing representation-isomorphism/coefficient-extension interfaces; for a cyclotomic twist first establish its normalized weight, then apply the theorem to that representation. Do not assert that Serre weight is unchanged under arbitrary twists or define new weight/bad-dihedral predicates here."
+          ],
+          "unitTests": [
+            "For p=5 recover k=3 in niveau 1 and k=4 in niveau 2 as arithmetic specializations, without asserting existence of a global representation",
+            "Verify the arithmetic relation between each p=2k-1 / p=2k-3 equation and the KW alternatives",
+            "Reject use at p=2 or for an unnormalized weight, and reject a proof that assumes residual modularity",
+            "Check source-alias incoming/outgoing references still reach this application and all other components"
+          ],
+          "gap": {
+            "original": "ClassicalSerreModularity:gaps[4]",
+            "status": "open",
+            "detail": "DP supplies a fuller niveau split than the KW proof, but its cited Ribet, Images of semistable Galois representations, Proposition 2.2 has not been read here. Preserve the original source-action detail and incident neededBy reference; the gap follows this named application, with R01.4 supplying image identification rather than owning the weight proof."
+          },
+          "implementationStatus": "unchecked",
+          "status": "assigned blueprint obligation; proposedNodeId is not an integrated atlas stage or a completed blueprint node"
+        }
+      ],
+      "integration": "The five components are source-linked planning obligations, not whole-stage completion dependencies. Keep all original source-node incident links and retarget them at component precision during blueprint integration. Only the image-to-weight-application supplier link is added to this proposal; it does not add modularity inputs to early R01.4 or the R27.1/R33.2 image prefix."
+    }
+  ],
+  "reviewHistory": [
+    {
+      "status": "accepted",
+      "reviewer": "independent-review-REV-RS-06",
+      "date": "2026-09-23",
+      "notes": "All 74 stages of the eight members have entries (59 narrow, 15 keep). Of the 63 evidence pairs, 55 share an owner entry; the other 8 are resolved in the report evidence table as separate objects or anchor-level non-duplicates (R15.1/R12.5 versus R35.2 Hodge lines, R25.3/R25.4 versus R28.5, and the ModularCurves anchor handoffs). Every consumer of the 59 narrowed layers receives links from each supplier. The two extensions are titled exactly as Part IIs of their Tau Ceti bases (ModularForms; ModularCurves). With the twelve accepted restructurings applied, all 547 new links apply with no cycle; the 29 skipped links are UPSTREAM contracts. The sampled narrowings (R28.5, R12.4, R15.1) keep every target not supplied by a named owner, and their Néron-model suppliers agree with RS-25. See REV-RS-06.md.",
+      "corrections": []
+    }
+  ],
+  "fixes": [
+    {
+      "job": "FIX-RT-RS-06",
+      "finding": "RT-RS-06/1",
+      "agent": "Codex",
+      "session": "codex-5ebb6f",
+      "date": "2026-09-30",
+      "base": "acff23dea53b8cf950b2ac4009b5ad99e07ca216",
+      "report": "research/blueprint/redteam/RT-RS-06.fixes.md"
+    }
+  ]
 }
