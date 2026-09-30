@@ -111,11 +111,11 @@
    ]
   },
   "research/blueprint/links/tauceti_TauCetiRoadmap_ModularCurves.json": {
-   "promotedAt": "2026-09-23T20:18:27Z",
-   "review": "f04b436bd831aea7",
+   "promotedAt": "2026-09-30T16:28:33Z",
+   "review": "409be7bdf932410d",
    "reviewDate": "2026-09-23",
    "reviewer": "independent-review-REV-LINK-tauceti_TauCetiRoadmap_ModularCurves",
-   "sha256": "b91a81d869d9dcb193437f995876f3e7f8a1adf46cbc601feece9db0a84f8706",
+   "sha256": "11d8d5795bf47cde850feba53d250e8b8c09c418022cb5c58218d1c461e86a7c",
    "to": [
     "data/links/tauceti_TauCetiRoadmap_ModularCurves.json"
    ]
