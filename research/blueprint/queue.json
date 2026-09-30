@@ -40957,8 +40957,9 @@
     "REV-LINK-tauceti_TauCetiRoadmap_GrothendieckEulerForms"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-LINK-tauceti_TauCetiRoadmap_GrothendieckEulerForms.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4362"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4362",
+   "finishedAt": "2026-09-30T11:57:18Z"
   },
   {
    "id": "RT-LINK-tauceti_TauCetiRoadmap_Multiquadratic",
@@ -46315,7 +46316,8 @@
     "REV-AUDIT-39"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-AUDIT-39.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4457"
   },
   {
    "id": "RT-AREA-elementary",
