@@ -33627,8 +33627,9 @@
     "REV-PAPER-BROWNING-LEBOUDEC-SAWIN-23"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-BROWNING-LEBOUDEC-SAWIN-23.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4066"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4066",
+   "finishedAt": "2026-09-30T14:35:37Z"
   },
   {
    "id": "RT-PAPER-DITTMANN-POP-23",
@@ -34613,8 +34614,9 @@
     "REV-PAPER-DASGUPTA-KAKDE-VENTULLO-18"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-DASGUPTA-KAKDE-VENTULLO-18.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4105"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4105",
+   "finishedAt": "2026-09-30T14:35:41Z"
   },
   {
    "id": "RT-PAPER-GAN-ICHINO-18",
@@ -36635,8 +36637,9 @@
     "REV-PAPER-KOYMANS-MILOVIC-21"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-KOYMANS-MILOVIC-21.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4186"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4186",
+   "finishedAt": "2026-09-30T14:35:46Z"
   },
   {
    "id": "REV-RT-PAPER-KOYMANS-MILOVIC-21",
@@ -41969,7 +41972,8 @@
     "REV-RS-06"
    ],
    "prompt": "research/blueprint/prompts/RT-RS-06.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4395"
   },
   {
    "id": "REV-RT-RS-06",
