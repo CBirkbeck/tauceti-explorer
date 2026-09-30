@@ -1,3 +1,4 @@
+import TauCeti.NumberTheory.LocalField.Teichmuller
 import Mathlib.NumberTheory.LegendreSymbol.ZModChar
 import Mathlib.Algebra.Ring.Int.Units
 import Mathlib.Analysis.Normed.Algebra.Basic
@@ -14745,3 +14746,170 @@ example (u v : ℤ_[2]ˣ) (h : (u : ℤ_[2]) = 3) (hv : (v : ℤ_[2]) = 7) :
 example (u v : ℤ_[2]ˣ) (h : (u : ℤ_[2]) = 1) (hv : (v : ℤ_[2]) = 5) :
     (dyadicAngular v : ℤ_[2]) = (dyadicAngular u : ℤ_[2])+4 := by sorry
 end SuggestedDyadicAngularTests
+
+/-! Transport of the native Teichmüller lift to p-adic integer units.
+All primes are allowed by the native maps. Morita uses this coordinate at odd
+primes and the preceding conductor-four coordinate at p=2. -/
+namespace DirichletPadic
+noncomputable section
+open ValuativeRel IsLocalRing
+/-- Arithmetic transport of the existing native local-field Teichmüller lift. -/
+def padicTeichmuller (p : ℕ) [Fact p.Prime] : (ZMod p)ˣ →* ℤ_[p]ˣ :=
+  let e : 𝒪[ℚ_[p]] ≃+* ℤ_[p] := RingEquiv.subringCongr (PadicInt.localFieldIntegers_eq_subring p)
+  let f : 𝓀[ℚ_[p]] ≃+* ZMod p := (IsLocalRing.ResidueField.mapEquiv e).trans PadicInt.residueField
+  (Units.map e.toMonoidHom).comp ((TauCeti.teichmuller ℚ_[p]).comp (Units.map f.symm.toMonoidHom))
+lemma padicTeichmuller_native (p : ℕ) [Fact p.Prime] (v : (ZMod p)ˣ) :
+    padicTeichmuller p v =
+      let e : 𝒪[ℚ_[p]] ≃+* ℤ_[p] := RingEquiv.subringCongr (PadicInt.localFieldIntegers_eq_subring p)
+      let f : 𝓀[ℚ_[p]] ≃+* ZMod p := (IsLocalRing.ResidueField.mapEquiv e).trans PadicInt.residueField
+      Units.map e.toMonoidHom (TauCeti.teichmuller ℚ_[p] (Units.map f.symm.toMonoidHom v)) := by sorry
+lemma padicTeichmuller_one (p : ℕ) [Fact p.Prime] : padicTeichmuller p 1 = 1 := by sorry
+lemma padicTeichmuller_mul (p : ℕ) [Fact p.Prime] (v w : (ZMod p)ˣ) :
+    padicTeichmuller p (v*w) = padicTeichmuller p v * padicTeichmuller p w := by sorry
+lemma padicTeichmuller_injective (p : ℕ) [Fact p.Prime] : Function.Injective (padicTeichmuller p) := by sorry
+lemma padicTeichmuller_reduction (p : ℕ) [Fact p.Prime] (v : (ZMod p)ˣ) :
+    PadicInt.toZMod (padicTeichmuller p v : ℤ_[p]) = (v : ZMod p) := by sorry
+lemma padicTeichmuller_pow (p : ℕ) [Fact p.Prime] (v : (ZMod p)ˣ) :
+    padicTeichmuller p v ^ (p-1) = 1 := by sorry
+lemma padicTeichmuller_unique (p : ℕ) [Fact p.Prime] (u : ℤ_[p]ˣ) (v : (ZMod p)ˣ)
+    (hp : u^(p-1)=1) (hr : PadicInt.toZMod (u : ℤ_[p]) = v) :
+    u = padicTeichmuller p v := by sorry
+/-- The prime-to-p root-of-unity coordinate, before the special dyadic choice. -/
+def teichmullerOmega (p : ℕ) [Fact p.Prime] : ℤ_[p]ˣ →* ℤ_[p]ˣ :=
+  (padicTeichmuller p).comp (Units.map (PadicInt.toZMod (p := p)).toMonoidHom)
+lemma teichmullerOmega_apply (p : ℕ) [Fact p.Prime] (u : ℤ_[p]ˣ) :
+    teichmullerOmega p u = padicTeichmuller p (Units.map (PadicInt.toZMod (p := p)).toMonoidHom u) := by sorry
+lemma teichmullerOmega_one (p : ℕ) [Fact p.Prime] : teichmullerOmega p 1 = 1 := by sorry
+lemma teichmullerOmega_mul (p : ℕ) [Fact p.Prime] (u v : ℤ_[p]ˣ) :
+    teichmullerOmega p (u*v) = teichmullerOmega p u * teichmullerOmega p v := by sorry
+lemma teichmullerOmega_fixed (p : ℕ) [Fact p.Prime] (u : ℤ_[p]ˣ) (h : u^(p-1)=1) :
+    teichmullerOmega p u = u := by sorry
+lemma teichmullerOmega_neg_one (p : ℕ) [Fact p.Prime] (hp : p ≠ 2) :
+    teichmullerOmega p (-1) = -1 := by sorry
+lemma teichmullerOmega_two (u : ℤ_[2]ˣ) : teichmullerOmega 2 u = 1 := by sorry
+lemma teichmullerOmega_reduction (p : ℕ) [Fact p.Prime] (u : ℤ_[p]ˣ) :
+    PadicInt.toZMod (teichmullerOmega p u : ℤ_[p]) = PadicInt.toZMod (u : ℤ_[p]) := by sorry
+lemma teichmullerOmega_pow (p : ℕ) [Fact p.Prime] (u : ℤ_[p]ˣ) :
+    teichmullerOmega p u ^ (p-1) = 1 := by sorry
+lemma continuous_teichmullerOmega (p : ℕ) [Fact p.Prime] : Continuous (teichmullerOmega p) := by sorry
+/-- The principal-unit quotient for the native prime-to-p Teichmüller coordinate. -/
+def teichmullerAngular (p : ℕ) [Fact p.Prime] : ℤ_[p]ˣ →* ℤ_[p]ˣ :=
+  (MonoidHom.id _) / teichmullerOmega p
+lemma teichmullerAngular_def (p : ℕ) [Fact p.Prime] :
+    teichmullerAngular p = (MonoidHom.id _) / teichmullerOmega p := by sorry
+lemma teichmullerAngular_apply (p : ℕ) [Fact p.Prime] (u : ℤ_[p]ˣ) :
+    teichmullerAngular p u = u / teichmullerOmega p u := by sorry
+lemma teichmullerAngular_one (p : ℕ) [Fact p.Prime] : teichmullerAngular p 1 = 1 := by sorry
+lemma teichmullerAngular_mul (p : ℕ) [Fact p.Prime] (u v : ℤ_[p]ˣ) :
+    teichmullerAngular p (u*v) = teichmullerAngular p u * teichmullerAngular p v := by sorry
+lemma teichmullerAngular_inv (p : ℕ) [Fact p.Prime] (u : ℤ_[p]ˣ) :
+    teichmullerAngular p u⁻¹ = (teichmullerAngular p u)⁻¹ := by sorry
+lemma teichmullerAngular_fixed (p : ℕ) [Fact p.Prime] (u : ℤ_[p]ˣ)
+    (h : PadicInt.toZMod (u : ℤ_[p]) = 1) : teichmullerAngular p u = u := by sorry
+lemma teichmullerAngular_factorization (p : ℕ) [Fact p.Prime] (u : ℤ_[p]ˣ) :
+    teichmullerOmega p u * teichmullerAngular p u = u := by sorry
+lemma teichmullerAngular_two (u : ℤ_[2]ˣ) : teichmullerAngular 2 u = u := by sorry
+lemma teichmullerAngular_reduction (p : ℕ) [Fact p.Prime] (u : ℤ_[p]ˣ) :
+    PadicInt.toZMod (teichmullerAngular p u : ℤ_[p]) = 1 := by sorry
+lemma teichmullerAngular_norm (p : ℕ) [Fact p.Prime] (u : ℤ_[p]ˣ) :
+    ‖(teichmullerAngular p u : ℤ_[p])-1‖ ≤ (p : ℝ)^(-(1 : ℤ)) := by sorry
+lemma continuous_teichmullerAngular (p : ℕ) [Fact p.Prime] : Continuous (teichmullerAngular p) := by sorry
+lemma teichmullerAngular_unique (p : ℕ) [Fact p.Prime] (u s v : ℤ_[p]ˣ)
+    (hs : s^(p-1)=1) (hv : PadicInt.toZMod (v : ℤ_[p]) = 1) (h : s*v=u) :
+    s=teichmullerOmega p u ∧ v=teichmullerAngular p u := by sorry
+lemma teichmullerOmega_translate (p : ℕ) [Fact p.Prime] (u v : ℤ_[p]ˣ) (z : ℤ_[p])
+    (h : (v : ℤ_[p]) = (u : ℤ_[p])+p*z) :
+    teichmullerOmega p v = teichmullerOmega p u := by sorry
+lemma teichmullerAngular_translate (p : ℕ) [Fact p.Prime] (u v : ℤ_[p]ˣ) (z : ℤ_[p])
+    (h : (v : ℤ_[p]) = (u : ℤ_[p])+p*z) :
+    (teichmullerAngular p v : ℤ_[p]) = (teichmullerAngular p u : ℤ_[p]) +
+      (↑((teichmullerOmega p u)⁻¹) : ℤ_[p]) * (p*z) := by sorry
+lemma teichmullerOmega_frobenius_distance (p : ℕ) [Fact p.Prime] (u : ℤ_[p]ˣ) (n : ℕ) :
+    ‖(u : ℤ_[p])^(p^n)-(teichmullerOmega p u : ℤ_[p])‖ ≤ (p : ℝ)^(-((n+1 : ℕ) : ℤ)) := by sorry
+lemma teichmullerOmega_frobenius_limit (p : ℕ) [Fact p.Prime] (u : ℤ_[p]ˣ) :
+    Filter.Tendsto (fun n : ℕ => (u : ℤ_[p])^(p^n)) Filter.atTop
+      (nhds (teichmullerOmega p u : ℤ_[p])) := by sorry
+end
+end DirichletPadic
+namespace SuggestedTeichmullerAngularTests
+local instance : Fact (Nat.Prime 5) := ⟨by decide⟩
+open DirichletPadic
+-- teich_identity
+example : padicTeichmuller 3 1 = 1 := by sorry
+-- teich_negative
+example : padicTeichmuller 3 (-1) = -1 := by sorry
+-- teich_native_residue
+example (v : (ZMod 5)ˣ) : PadicInt.toZMod (padicTeichmuller 5 v : ℤ_[5]) = v := by sorry
+-- teich_not_integer_representative
+example : (padicTeichmuller 5 (Units.mk0 2 (by decide)) : ℤ_[5]) ≠ 2 := by sorry
+-- teich_residue_two
+example : PadicInt.toZMod (padicTeichmuller 5 (Units.mk0 2 (by decide)) : ℤ_[5]) = 2 := by sorry
+-- teich_order_four
+example (v : (ZMod 5)ˣ) : padicTeichmuller 5 v ^ 4 = 1 := by sorry
+-- teich_order_one_dyadic
+example (v : (ZMod 2)ˣ) : padicTeichmuller 2 v = 1 := by sorry
+-- teich_unique_minus_one
+example (u : ℤ_[3]ˣ) (h : u^2=1) (hr : PadicInt.toZMod (u : ℤ_[3]) = -1) : u = -1 := by sorry
+-- omega_three_identity
+example : teichmullerOmega 3 1 = 1 := by sorry
+-- omega_five_twentyfive
+example (u : ℤ_[5]ˣ) (h : (u : ℤ_[5]) = 2) :
+    PadicInt.toZModPow 2 (teichmullerOmega 5 u : ℤ_[5]) = 7 := by sorry
+-- omega_native_lift
+example (u : ℤ_[3]ˣ) : teichmullerOmega 3 u =
+    padicTeichmuller 3 (Units.map (PadicInt.toZMod (p := 3)).toMonoidHom u) := by sorry
+-- omega_dyadic_distinction
+example : teichmullerOmega 2 (-1) ≠ dyadicOmega (-1) := by sorry
+-- omega_same_residue
+example (u : ℤ_[3]ˣ) : PadicInt.toZMod (teichmullerOmega 3 u : ℤ_[3]) = PadicInt.toZMod (u : ℤ_[3]) := by sorry
+-- omega_prime_to_p_torsion
+example (u : ℤ_[5]ˣ) : teichmullerOmega 5 u ^ 4 = 1 := by sorry
+-- omega_native_continuity
+example : Continuous (fun u : ℤ_[3]ˣ => (teichmullerOmega 3 u : ℤ_[3])) := by sorry
+-- angular_three_identity
+example : teichmullerAngular 3 1 = 1 := by sorry
+-- angular_odd_minus_one
+example : teichmullerAngular 3 (-1) = 1 := by sorry
+-- angular_five_twentyfive
+example (u : ℤ_[5]ˣ) (h : (u : ℤ_[5]) = 2) :
+    PadicInt.toZModPow 2 (teichmullerAngular 5 u : ℤ_[5]) = 11 := by sorry
+-- angular_native_quotient
+example (u : ℤ_[3]ˣ) : teichmullerAngular 3 u = u / teichmullerOmega 3 u := by sorry
+-- angular_dyadic_radius_failure
+example : ‖(teichmullerAngular 2 (-1) : ℤ_[2])-1‖ > (4 : ℝ)⁻¹ := by sorry
+-- angular_native_kernel
+example (u : ℤ_[3]ˣ) : teichmullerAngular 3 u ∈ (Units.map (PadicInt.toZMod (p := 3)).toMonoidHom).ker := by sorry
+-- angular_native_retraction
+example (u : ℤ_[5]ˣ) : teichmullerAngular 5 (teichmullerAngular 5 u) = teichmullerAngular 5 u := by sorry
+-- angular_odd_disc
+example (u : ℤ_[3]ˣ) : ‖(teichmullerAngular 3 u : ℤ_[3])-1‖ ≤ (3 : ℝ)⁻¹ := by sorry
+-- angular_dyadic_disc
+example (u : ℤ_[2]ˣ) : ‖(teichmullerAngular 2 u : ℤ_[2])-1‖ ≤ (2 : ℝ)⁻¹ := by sorry
+-- angular_native_continuity
+example : Continuous (fun u : ℤ_[5]ˣ => (teichmullerAngular 5 u : ℤ_[5])) := by sorry
+-- teich_unique_factors
+example (v : ℤ_[3]ˣ) (h : PadicInt.toZMod (v : ℤ_[3]) = 1) :
+    teichmullerOmega 3 (-v) = -1 ∧ teichmullerAngular 3 (-v) = v := by sorry
+-- teich_factorization
+example (u : ℤ_[5]ˣ) : teichmullerOmega 5 u * teichmullerAngular 5 u = u := by sorry
+-- omega_translation_zero
+example (u : ℤ_[3]ˣ) : teichmullerOmega 3 u = teichmullerOmega 3 u := by sorry
+-- omega_translation_three
+example (u v : ℤ_[3]ˣ) (hu : (u : ℤ_[3]) = 2) (hv : (v : ℤ_[3]) = 5) :
+    teichmullerOmega 3 v = teichmullerOmega 3 u := by sorry
+-- omega_translation_one_fails
+example (u v : ℤ_[3]ˣ) (hu : (u : ℤ_[3]) = 1) (hv : (v : ℤ_[3]) = 2) :
+    teichmullerOmega 3 v ≠ teichmullerOmega 3 u := by sorry
+-- angular_translation_negative
+example (u v : ℤ_[3]ˣ) (hu : (u : ℤ_[3]) = 2) (hv : (v : ℤ_[3]) = 5) :
+    (teichmullerAngular 3 v : ℤ_[3]) = (teichmullerAngular 3 u : ℤ_[3])-3 := by sorry
+-- frobenius_initial_precision
+example (u : ℤ_[5]ˣ) : ‖(u : ℤ_[5])-(teichmullerOmega 5 u : ℤ_[5])‖ ≤ (5 : ℝ)⁻¹ := by sorry
+-- frobenius_next_precision
+example (u : ℤ_[5]ˣ) : ‖(u : ℤ_[5])^5-(teichmullerOmega 5 u : ℤ_[5])‖ ≤ (25 : ℝ)⁻¹ := by sorry
+-- frobenius_morita_limit
+example (u : ℤ_[3]ˣ) : Filter.Tendsto (fun n : ℕ => (u : ℤ_[3])^(3^n)) Filter.atTop
+    (nhds (teichmullerOmega 3 u : ℤ_[3])) := by sorry
+-- frobenius_dyadic_limit
+example : Filter.Tendsto (fun n : ℕ => (-1 : ℤ_[2])^(2^n)) Filter.atTop (nhds 1) := by sorry
+end SuggestedTeichmullerAngularTests
