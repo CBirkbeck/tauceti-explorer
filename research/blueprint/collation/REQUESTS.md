@@ -9,6 +9,25 @@ Save each as `~/tauceti-sources/<PAPER-ID>.pdf`. A collation job can then read t
 
 For each, find the locator and check the printed sentence against the finding's `printed` field. Where they differ, the finding belongs to the preprint and the record should say so.
 
+## PAPER-FARGUES-FONTAINE-18 — 41 quoted statement(s)
+Fargues and Fontaine, "Courbes et fibrés vectoriels en théorie de Hodge p-adique", Astérisque 406 (2018)
+Open: https://www.imo.universite-paris-saclay.fr/~fontaine/courbe.pdf
+Save as: ~/tauceti-sources/PAPER-FARGUES-FONTAINE-18.pdf
+Read from: preprint
+- Préface §2.1.2, p. 10 (consequences: Proposition 5.6(i) and Théorème 5.7(i), p. 44), author copy courbe.pdf (16 avril 2017)
+- Préface Exemple 2.23(ii), p. 21, author copy courbe.pdf (16 avril 2017)
+- Préface Proposition 2.28(i), p. 23, author copy courbe.pdf (16 avril 2017)
+- Préface Remarque 2.38(i), p. 26, author copy courbe.pdf (16 avril 2017)
+- Préface §3.1.1–3.1.4, Théorème 3.1(ii) and Théorème 3.8(ii), pp. 32–35, author copy courbe.pdf (16 avril 2017)
+- Préface Théorème 3.11(v), p. 36, author copy courbe.pdf (16 avril 2017)
+- Lemme 1.2.3, p. 55, author copy courbe.pdf (16 avril 2017)
+- §1.7.1, p. 79, author copy courbe.pdf (16 avril 2017)
+- Lemme 1.7.2, p. 81, and Proposition 1.7.3, p. 82, author copy courbe.pdf (16 avril 2017)
+- §1.7.3, p. 83 (after Proposition 1.7.3), author copy courbe.pdf (16 avril 2017)
+- Théorème 3.3.1 (2), p. 141, author copy courbe.pdf (16 avril 2017)
+- Théorème 3.4.4, p. 143, author copy courbe.pdf (16 avril 2017)
+- … and 29 more
+
 ## PAPER-SHENDE-TSIMERMAN-17 — 20 quoted statement(s)
 Shende–Tsimerman, "Equidistribution in Bun_2(P^1)", Duke Mathematical Journal (2017)
 Open: https://www.math.toronto.edu/jacobt/
@@ -219,6 +238,32 @@ Read from: preprint
 - §14.9 (Estimates on Satake parameters), Proposition 14.9.1, p. 102 (proof §14.9.1, p. 103)
 - §14.9: Proposition 14.9.1, statement p. 102; its proof in §14.9.1, pp. 103–104 (the quoted sentence is on p. 103); Lemma 14.9.2, p. 103 (author version, 17 June 2019)
 
+## PAPER-CHEN-24 — 7 quoted statement(s)
+William Y. Chen, "Nonabelian level structures, Nielsen equivalence, and Markoff triples", Annals of Mathematics 199 (2024), no. 1
+Open: https://annals.math.princeton.edu/2024/199-1/p05
+Save as: ~/tauceti-sources/PAPER-CHEN-24.pdf
+Read from: preprint
+- Theorem 1.1.2, last sentence, p. 5 (arXiv v2); the published text was compared at this passage (see publishedText)
+- Theorem 1.2.9, p. 8 (also §1, p. 3: 'for any prime p ∉ E_bgs … M_p … is connected') (arXiv v2); the published text was compared at this passage (see publishedText)
+- §5.2, p. 68, Proposition 5.2.5 (arXiv v2); the published text was compared at this passage (see publishedText)
+- §5.5, p. 81, Theorem 5.5.7(b) and its closing sentence (arXiv v2); the published text was compared at this passage (see publishedText)
+- §6.1, pp. 86–87, Lemma 6.1.3(c),(d) (arXiv v2); the published text was compared at this passage (see publishedText)
+- §6.1, pp. 87–88, Proposition 6.1.4 and its proof (arXiv v2); the published text was compared at this passage (see publishedText)
+- Theorem 5.6.4, last sentence, p. 84, and Theorem 1.2.9, last sentence, p. 8 (arXiv v2); in the published text, Theorem 5.6.4, p. 419, and Theorem 1.2.10, p. 310
+
+## PAPER-FENG-24 — 7 quoted statement(s)
+Feng, "Smith theory and cyclic base change functoriality", Forum of Mathematics, Pi (2024)
+Open: https://www.cambridge.org/core/journals/forum-of-mathematics-pi/volume/F8892C4B042F5A303D4C4571F67D5E34  (publisher blocks automated fetches)
+Save as: ~/tauceti-sources/PAPER-FENG-24.pdf
+Read from: preprint
+- Forum of Mathematics, Pi 12 (2024), Proposition 2.4, equation (2.3), p. 11 (published; arXiv v6 identical)
+- Forum of Mathematics, Pi 12 (2024), Theorem 1.1, p. 2 (and the abstract, p. 1); compare Theorem 6.26, p. 55
+- Forum of Mathematics, Pi 12 (2024), Lemma 2.7, p. 12
+- Forum of Mathematics, Pi 12 (2024), doi 10.1017/fmp.2023.32, Lemma 3.8, p. 16 (under the standing assumptions of §3.2, p. 14)
+- Forum of Mathematics, Pi 12 (2024), Lemma 4.16, p. 26
+- Forum of Mathematics, Pi 12 (2024), Lemma 4.24 and its proof, pp. 29–30
+- Forum of Mathematics, Pi 12 (2024), §6.2.3, Proposition 6.3 and Corollary 6.4, case r = 0, pp. 46–47
+
 ## PAPER-XU-ZHU-22 — 7 quoted statement(s)
 Xu–Zhu, "Bessel F-isocrystals for reductive groups", Inventiones Mathematicae (2022)
 Open: https://link.springer.com/journal/222/volumes-and-issues/227-3  (publisher blocks automated fetches)
@@ -424,6 +469,15 @@ Read from: preprint
 - Remark 5.2.4, p. 32 (arXiv v2)
 - Corollary D, Introduction, p. 3 (arXiv v2)
 
+## PAPER-CIUBOTARU-HARRIS-26 — 3 quoted statement(s)
+Ciubotaru–Harris, "On the generalized Ramanujan and Arthur conjectures over function fields", Annals of Mathematics 204 (2026), no. 2
+Open: https://annals.math.princeton.edu/2026/204-2/p03
+Save as: ~/tauceti-sources/PAPER-CIUBOTARU-HARRIS-26.pdf
+Read from: preprint
+- Theorem 8.5(3), F4 row O∨=B3, p.29; compare coordinates (6.21) p.22 and proof of Theorem 10.3(3)(a) p.34, in arXiv 2311.15300v1, 26 November 2023, SHA-256 7261083b46cc8ec3fad81215250ff6bef47da05ef6054813572de21db10dc103. The Annals 204 (2026), 545–601 version, revised 8 October 2025, was not accessible for collation; no assertion about its wording is made.
+- Theorem 8.5(3), F4 row O∨=B3, p.29; compare coordinates (6.21) p.22 and proof of Theorem 10.3(3)(a) p.34, in arXiv 2311.15300v1, 26 November 2023, SHA-256 7261083b46cc8ec3fad81215250ff6bef47da05ef6054813572de21db10dc103. The Annals 204 (2026), 545–601 version, revised 8 October 2025, was not accessible for collation; no assertion about its wording is made.
+- arXiv:2311.15300v1, Corollary 6.32(1) and its proof, p. 25; used in the proof of Theorem 5.4 (p. 14), Remark 5.8 and Corollary 7.5 (p. 26)
+
 ## PAPER-DING-25 — 3 quoted statement(s)
 Ding, "p-Adic Hodge parameters in the crystabelline representations of GL_n", Publications Mathématiques de l'IHÉS (2025)
 Open: https://pmihes.centre-mersenne.org/volume/PMIHES_2025__142_/
@@ -468,6 +522,15 @@ Read from: preprint
 - Lemma 3.11, p.14 (published version)
 - Lemma 3.13, p.16, and its use on p.18 (published version)
 - §7.2, the general prediction for h₃(K/k), p.39 (published version)
+
+## PAPER-LI-LIU-21 — 3 quoted statement(s)
+Chao Li–Yifeng Liu, "Chow groups and L-derivatives of automorphic motives for unitary groups", Annals of Mathematics 194 (2021), no. 3
+Open: https://annals.math.princeton.edu/2021/194-3/p06
+Save as: ~/tauceti-sources/PAPER-LI-LIU-21.pdf
+Read from: preprint
+- Theorem 1.7(1), p.7, and Proposition 3.7 with its proof, p.17, in arXiv v5 (2006.06139v5); the final version differs
+- Definition 6.8, p.31; Proposition 6.10(1) and its proof, p.32; Propositions 7.1 and 9.1, pp.33 and 40, Lemma 9.2, p.41, and the proof of Proposition 9.1, p.44; Lemma 11.1 and its proof, pp.49–51 (authors' final version; the same in arXiv v5)
+- Proof of Lemma 8.3, p.37, with Definitions 6.2(2) and 6.3, p.29 (authors' final version; the same in arXiv v5, p.37)
 
 ## PAPER-SKINNER-20 — 3 quoted statement(s)
 Christopher Skinner, "A converse to a theorem of Gross, Zagier, and Kolyvagin", Annals of Mathematics 191 (2020)
@@ -542,14 +605,6 @@ Read from: preprint
 - Corollary5.4,printed598;published74-page version
 - §3.4,printed577;arXivv5 andauthor ri4 PDF16
 
-## PAPER-LI-LIU-21 — 2 quoted statement(s)
-Chao Li–Yifeng Liu, "Chow groups and L-derivatives of automorphic motives for unitary groups", Annals of Mathematics 194 (2021), no. 3
-Open: https://annals.math.princeton.edu/2021/194-3/p06
-Save as: ~/tauceti-sources/PAPER-LI-LIU-21.pdf
-Read from: preprint
-- Theorem 1.7(1), p.7, and Proposition 3.7 with its proof, p.17, in arXiv v5 (2006.06139v5); the final version differs
-- Proof of Proposition 9.1, p.45 (final version; the same in arXiv v5, p.44)
-
 ## PAPER-MAO-WAN-ZHANG-26 — 2 quoted statement(s)
 Mao–Wan–Zhang, "Relative Langlands duality for some strongly tempered spherical varieties", Inventiones Mathematicae (2026)
 Open: https://link.springer.com/journal/222/volumes-and-issues/243-3  (publisher blocks automated fetches)
@@ -558,12 +613,27 @@ Read from: preprint
 - §5.2, (5.13) p. 21, the unfolding pp. 22–23, Proposition 5.7 p. 25 and footnote 11 p. 29
 - Author April 2025 Table 3, p. 13; same first row in arXiv v3 p. 11
 
+## PAPER-MERKURJEV-SCAVIA-26 — 2 quoted statement(s)
+Merkurjev–Scavia, "Galois representations modulo p that do not lift modulo p^2", Journal of the American Mathematical Society (2026)
+Open: https://www.math.univ-paris13.fr/~scavia/
+Save as: ~/tauceti-sources/PAPER-MERKURJEV-SCAVIA-26.pdf
+Read from: preprint
+- Lemma 4.1, p. 12 of arXiv:2410.12560v1 and of the author manuscript (§4; journal pp. 73–94 not read)
+- arXiv:2410.12560v1 (16 Oct 2024; identical to the author manuscript up to typography), Lemma 4.1 and proof, pp. 12–13
+
 ## PAPER-BHARGAVA-GROSS-WANG-17 — 1 quoted statement(s)
 Bhargava–Gross–Wang, "A positive proportion of locally soluble hyperelliptic curves over Q have no point over any odd degree extension", Journal of the American Mathematical Society (2017)
 Open: https://collaborate.princeton.edu/en/publications/a-positive-proportion-of-locally-soluble-hyperelliptic-curves-ove/
 Save as: ~/tauceti-sources/PAPER-BHARGAVA-GROSS-WANG-17.pdf
 Read from: preprint
 - Theorem 44, pp.34–35 (arXiv v2)
+
+## PAPER-BHATT-18 — 1 quoted statement(s)
+Bhatt, "On the direct summand conjecture and its derived variant", Inventiones Mathematicae 212 (2018)
+Open: https://link.springer.com/article/10.1007/s00222-017-0768-7  (publisher blocks automated fetches)
+Save as: ~/tauceti-sources/PAPER-BHATT-18.pdf
+Read from: preprint
+- Bhatt arXiv:1608.08882v2, Proposition 6.2, p. 11; rendered page checked. Published full text not collated.
 
 ## PAPER-BHATT-MATHEW-21 — 1 quoted statement(s)
 Bhatt–Mathew, "The arc-topology", Duke Mathematical Journal (2021)
@@ -649,13 +719,6 @@ Save as: ~/tauceti-sources/PAPER-LIU-ZHU-17.pdf
 Read from: preprint
 - arXiv1602.06282v3; Lemma3.10 statement and proof,PDF25; repeated in Lemma3.11,PDF27
 
-## PAPER-MERKURJEV-SCAVIA-26 — 1 quoted statement(s)
-Merkurjev–Scavia, "Galois representations modulo p that do not lift modulo p^2", Journal of the American Mathematical Society (2026)
-Open: https://www.math.univ-paris13.fr/~scavia/
-Save as: ~/tauceti-sources/PAPER-MERKURJEV-SCAVIA-26.pdf
-Read from: preprint
-- Lemma 4.1, p. 12 of arXiv:2410.12560v1 and of the author manuscript (§4; journal pp. 73–94 not read)
-
 ## PAPER-NEWTON-THORNE-21 — 1 quoted statement(s)
 Newton–Thorne, "Symmetric power functoriality for holomorphic modular forms", Publications Mathématiques de l'IHÉS (2021)
 Open: https://pmihes.centre-mersenne.org/volume/PMIHES_2021__134_/
@@ -676,6 +739,13 @@ Open: https://www.cambridge.org/core/journals/forum-of-mathematics-pi/volume/F88
 Save as: ~/tauceti-sources/PAPER-VANHOFTEN-24.pdf
 Read from: preprint
 - Published2024 §4.3.12–Proposition4.3.13 p47
+
+## PAPER-XIE-YUAN-22 — 1 quoted statement(s)
+Xie–Yuan, "Geometric Bogomolov conjecture in arbitrary characteristics", Inventiones Mathematicae (2022)
+Open: https://link.springer.com/journal/222/volumes-and-issues/229-2  (publisher blocks automated fetches)
+Save as: ~/tauceti-sources/PAPER-XIE-YUAN-22.pdf
+Read from: preprint
+- arXiv:2108.09722v1 (22 Aug 2021), Lemma 5.3, p. 23; page image checked
 
 ## PAPER-YANG-ZHAO-25 — 1 quoted statement(s)
 Yang–Zhao, "Cohomological Milnor formula and Saito's conjecture on characteristic classes", Inventiones Mathematicae (2025)
