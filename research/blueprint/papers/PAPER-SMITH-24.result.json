@@ -11,7 +11,7 @@
   "url": "https://arxiv.org/pdf/2111.12660v2",
   "sha256": "99b3855a176ddb280630f50cbed23039c1348417aad31d817f34c3b60f4a35a9",
   "readDate": "2026-09-22",
-  "version": "arXiv:2111.12660v2, posted 16 March 2024, 47 pages, dated 19 March 2024 inside the file, with the arXiv comment '47 pages'; v1 is from 24 November 2021. The published text is behind the journal's paywall and was not consulted, so every locator gives the section, theorem, lemma or equation number together with the page of the arXiv v2 PDF, and any finding would be recorded against that version. No erratum or corrigendum is listed on the arXiv abstract page, which carries no journal reference, or in Crossref.",
+  "version": "arXiv:2111.12660v2, posted 16 March 2024, 47 pages, dated 19 March 2024 inside the file, with the arXiv comment '47 pages'; v1 is from 24 November 2021. The published text is behind the journal's paywall and was not consulted, so every locator gives the section, theorem, lemma or equation number together with the page of the arXiv v2 PDF, and E1–E11 are recorded against that version. No erratum or corrigendum is listed on the arXiv abstract page, which carries no journal reference, or in Crossref.",
   "readSections": [
    "Abstract and §1 Introduction, pp. 1–5: Theorem 1.1, Remark 1.2, Corollary 1.3, Definition 1.4, Theorem 1.5, the history of the trace problem and the statement of Smyth's method",
    "§2 Preliminaries on measures and polynomials, pp. 5–11: Definitions 2.1, 2.2, 2.4, 2.6, 2.9, 2.11, Lemmas 2.3, 2.7, 2.8, 2.10, Propositions 2.5 and 2.12",
@@ -21,18 +21,18 @@
    "References, pp. 45–47, read in full to identify the inputs listed under prerequisites"
   ]
  },
- "summary": "Complete extraction of the 47-page paper. Smith determines exactly which probability measures on a compact subset Σ of ℝ arise as weak* limits of the conjugate distributions of algebraic integers with all conjugates in Σ: when Σ has at most countably many components and capacity greater than 1, the only obstruction is that ∫ log|Q| dµ ≥ 0 for every nonzero integer polynomial Q, which is the integrality of resultants (Theorem 1.5). The converse implication was Serre's; the new content is that this necessary condition is sufficient, proved by combining the coefficient-adjustment technique of Robinson and of Fekete and Szegő with the geometry of numbers. The consequence is that Smyth's auxiliary-polynomial method computes the true constant in a whole class of optimisation problems (Theorem 5.11), and, applied to Serre's example, that the Schur–Siegel–Smyth constant satisfies λ_SSS < 1.89831 (Theorem 1.1), contradicting the long-standing expectation that it equals 2. Through Honda–Tate theory the same machinery gives F_q-simple abelian varieties with extreme point counts, improving the previous records. Of the 56 items, 3 are in the pinned libraries, 5 are planned by existing layers, and 48 are missing. The routing reflects the shape of the paper: the analytic core — logarithmic potential theory, capacity and equilibrium measures, Chebyshev polynomials of a compact set, the coefficient-adjustment and sweetening constructions, and the two main theorems — becomes a new roadmap, since a text search of every stage description in the atlas for 'capacity', 'equilibrium measure', 'logarithmic potential' and 'transfinite diameter' returns nothing at all. The two genuine geometry-of-numbers statements go to GeometryOfNumbersAndQuadraticArithmetic GN.1, the classical trace problem and Smyth's method to ClassicalArithmeticCompletion CA.6 with a polynomial-arithmetic lemma to CA.3, and Honda–Tate theory with the abelian-variety applications to FaltingsFinitenessAndIsogenyTheorems R28.4. No mistakes were found in the source: the numerics of Example 5.16 were recomputed and reproduce the paper's constants, and the cross-references and inequalities were checked. This is a paper inventory and routing, not a proof blueprint: the results quoted from Saff and Totik, Ransford, Fekete and Szegő, Robinson, Smyth, Serre, Honda and Tate, and Banaszczyk, Litvak, Pajor and Szarek are recorded as items with their own prerequisite entries and are not decomposed here.",
+ "summary": "Corrected inventory of the 47-page arXiv v2 extraction: 74 items, 12 library, 2 planned, 60 missing, each missing item routed exactly once (52 new potential-theory/application, 3 GN.1 source, 4 CA.3/CA.6 source, 1 shared Abelian Schemes Part II). Theorem 1.5 realizes precisely the admissible conjugate distributions on compact real sets with countably many components and capacity>1; Theorem 5.11 proves optimality of Smyth’s method and Theorem 1.1 gives λ_SSS<1.89831. General complex potential-theory foundations serve this paper, the accepted CDT holonomy route and CA.6. Library imports replace duplicate measure/resultant/interpolation plans. General F_q Honda–Tate is consolidated with Lipnowski–Tsimerman; Smith’s extreme point-count applications remain in his route. E1–E7 are restored from the separately reviewed errata ledger without transferring its review objects; E8–E11 record further verified v2 proof slips. The prior no-mistakes assertion and no-Honda–Tate-owner claim are retracted. Original full-v2 coverage is retained; this fix made a focused source reading and has not collated the published 52-page Annals text. Recursive API/proof planning belongs to subsequent design jobs, not this inventory.",
  "items": [
   {
    "id": "PAPER-SMITH-24/1",
    "kind": "definition",
    "name": "Totally positive algebraic integers, the trace ratio and the constant λ_SSS",
-   "statement": "For an algebraic integer α with conjugates α₁ = α, α₂, …, α_n, the degree is deg(α) = n and the trace is tr(α) = α₁ + ⋯ + α_n; α is totally positive if all its conjugates are positive reals. Define λ_SSS to be the least real number such that for every ε > 0 there are only finitely many totally positive algebraic integers α with tr(α) < (λ_SSS − ε)deg(α).",
+   "statement": "For an algebraic integer α with conjugates α₁ = α, α₂, …, α_n, the degree is deg(α) = n and the trace is tr(α) = α₁ + ⋯ + α_n; α is totally positive if all its conjugates are positive reals. Define λ_SSS to be the greatest real number (equivalently, the supremum of the real numbers λ with this property) such that for every ε > 0 there are only finitely many totally positive algebraic integers α with tr(α) < (λ_SSS − ε)deg(α).",
    "locator": "arXiv:2111.12660v2 (16 March 2024), §1, pp. 1–2",
    "status": "missing",
    "library": [],
    "planned": [],
-   "note": "Schur proved e^{1/2} ≤ λ_SSS ≤ 2 in 1918, Siegel improved the lower bound to 1.7336 in 1945, Smyth to 1.7719 in 1984, and the state of the art before this paper was 1.793145 ≤ λ_SSS ≤ 2. ClassicalArithmeticCompletion CA.6, 'Special algebraic numbers and Mahler measure', plans the house, Mahler measure and the Pisot and Salem classes — the neighbouring family of special algebraic numbers, MSC 11R06 — but neither λ_SSS nor the notion of a totally positive algebraic integer appears anywhere in the atlas: a search of every stage description for 'trace problem', 'Smyth' and 'totally positive' finds only unrelated hits."
+   "note": "Corrected using E1: the finite-exception property is downward closed, so there is no least such real number. Equivalently λ_SSS is the least limit point of the trace-to-degree ratios. Historical bounds: Schur e^{1/2}, Siegel 1.7336, Smyth 1.7719, Wang–Wu–Wu 1.793145; the upper bound before Smith was 2. The classical constant and auxiliary method extend CA.6; their absence is not a claim that all CA.6 arithmetic is missing."
   },
   {
    "id": "PAPER-SMITH-24/2",
@@ -76,7 +76,7 @@
    "status": "missing",
    "library": [],
    "planned": [],
-   "note": "This improves the prior records. Further optimisation would sharpen the constants and extend the statement to non-square q, with constants depending on the fractional part of 2√q. The atlas has no layer on abelian varieties over finite fields: a search for 'Honda–Tate' and 'abelian varieties over finite fields' returns nothing."
+   "note": "Smith’s application imports general Honda–Tate from the shared AbelianSchemesAndArithmeticModuli Part II route and Weil weights from DWP.1/R34.2. It belongs with the potential-theoretic optimization (route 1), not in the foundational Honda–Tate development. Further optimization and nonsquare q are not claimed by Corollary 1.3."
   },
   {
    "id": "PAPER-SMITH-24/6",
@@ -84,13 +84,16 @@
    "name": "Counting measures of polynomials and the weak* topology",
    "statement": "For α ∈ ℂ let δ_α be the Dirac measure. For a complex polynomial P(z) = a_n ∏_{i≤n}(z − α_i) of degree n ≥ 1, the counting measure is µ_P = (1/n)(δ_{α₁} + ⋯ + δ_{α_n}), a probability measure on the roots. For Σ ⊂ ℂ compact, the Borel measures supported in Σ carry the weak* topology: µ_k → µ if and only if ∫f dµ_k → ∫f dµ for every continuous f : Σ → ℝ. Throughout, 'measure' means a finite positive Borel measure on ℂ.",
    "locator": "arXiv:2111.12660v2 (16 March 2024), Definition 1.4, p. 3",
-   "status": "planned",
-   "library": [],
-   "planned": [
-    "ArithmeticStatistics:ST.0",
-    "tauceti:TauCetiRoadmap/OptimalTransport#layer-1-transport-cost-compactness-existence-and-stability"
+   "status": "library",
+   "library": [
+    "tauceti:TauCeti.Probability.empiricalMeasureOfFintype",
+    "tauceti:TauCeti.Probability.empiricalMeasureOfFintype_toMeasure",
+    "mathlib:MeasureTheory.Measure.dirac",
+    "mathlib:MeasureTheory.FiniteMeasure.tendsto_iff_forall_integral_tendsto",
+    "mathlib:MeasureTheory.ProbabilityMeasure.tendsto_iff_forall_integral_tendsto"
    ],
-   "note": "Borel measures, Dirac measures and weak convergence are in Mathlib in substantial part, and ArithmeticStatistics ST.0 plans 'Families, heights and measures' with the weak topologies used for equidistribution statements; the Tau Ceti optimal-transport roadmap plans weak* convergence of probability measures and Prokhorov-type compactness. The specific object µ_P is the paper's own and is used throughout."
+   "planned": [],
+   "note": "Fresh statement read at the pins: TauCeti/Probability/Process/EmpiricalMeasure.lean:48–66 takes any nonempty Fintype, hence Fin n for n≥1, with the roots indexed with multiplicity. The normalized Dirac sum is exactly µ_P; no new counting-measure definition is needed. Mathlib FiniteMeasure.lean:726 and ProbabilityMeasure.lean:364 characterize convergence by bounded continuous real test functions; on compact Σ every continuous function is bounded. Definition 1.4 includes all finite positive measures, so the finite-measure carrier is retained, not just ProbabilityMeasure. Neither ST.0 nor OptimalTransport is a missing supplier."
   },
   {
    "id": "PAPER-SMITH-24/7",
@@ -156,7 +159,7 @@
    "status": "missing",
    "library": [],
    "planned": [],
-   "note": "The reduction that makes the rest of the argument possible; its proof uses the convolution and sweetening constructions of §5."
+   "note": "The reduction that makes the rest of the argument possible; its proof uses the convolution and sweetening constructions of §5. Use one-point components, not isolated points, and finite energy I(µ)<∞; see E6–E7 and items 64–66."
   },
   {
    "id": "PAPER-SMITH-24/13",
@@ -178,7 +181,7 @@
    "status": "missing",
    "library": [],
    "planned": [],
-   "note": "The bridge from the norm estimates to the statement of Theorem 1.5: it is the last step of the proof in §4.1."
+   "note": "The bridge from the norm estimates to the statement of Theorem 1.5: it is the last step of the proof in §4.1. Imported weighted inputs are separated in items 57–60, with exact Saff–Totik locators."
   },
   {
    "id": "PAPER-SMITH-24/15",
@@ -189,7 +192,7 @@
    "status": "missing",
    "library": [],
    "planned": [],
-   "note": "A workhorse estimate used in §3 to pass between a polynomial and its cofactors, and in the proof of Lemma 3.8."
+   "note": "A workhorse estimate used in §3 to pass between a polynomial and its cofactors, and in the proof of Lemma 3.8. The missing Remez supplier is item 67."
   },
   {
    "id": "PAPER-SMITH-24/16",
@@ -215,7 +218,7 @@
    "status": "missing",
    "library": [],
    "planned": [],
-   "note": "A purely polynomial-arithmetic statement: a generic small integral combination of polynomials with a common factor removed is squarefree. It is used in the proof of Theorem 3.1 to produce the squarefree integer polynomial the geometry of numbers then adjusts. CA.3 plans integer-polynomial arithmetic with resultants and discriminants, and is the natural owner, but does not state this."
+   "note": "A purely polynomial-arithmetic statement: a generic small integral combination of polynomials with a common factor removed is squarefree. It is used in the proof of Theorem 3.1 to produce the squarefree integer polynomial the geometry of numbers then adjusts. CA.3 plans integer-polynomial arithmetic with resultants and discriminants, and is the natural owner, but does not state this. Discriminant and finite-grid nonvanishing are library items 72 and 69; no new multivariate interpolation project is required."
   },
   {
    "id": "PAPER-SMITH-24/18",
@@ -237,7 +240,7 @@
    "status": "missing",
    "library": [],
    "planned": [],
-   "note": "The quantitative link between the energy of µ and the Vandermonde determinant of the discretisation; it is what converts potential-theoretic information into the determinant bound that the geometry of numbers consumes."
+   "note": "The quantitative link between the energy of µ and the Vandermonde determinant of the discretisation; it is what converts potential-theoretic information into the determinant bound that the geometry of numbers consumes. E2 corrects the proof after (2.14) in Proposition 2.12: the exponential is |P_{n,µ}|."
   },
   {
    "id": "PAPER-SMITH-24/20",
@@ -259,7 +262,7 @@
    "status": "missing",
    "library": [],
    "planned": [],
-   "note": "An application of the flatness theorem of the geometry of numbers: the lattice of integer polynomials is not far from any real polynomial in the basis dual to evaluation at the roots of Q. GeometryOfNumbersAndQuadraticArithmetic GN.1 plans the Blichfeldt and Minkowski convex-body and successive-minima theorems, but a search of every stage description for 'flatness theorem', 'covering radius' and 'successive minima' outside GN.1's own title finds nothing, and this statement is not planned."
+   "note": "An application of the flatness theorem of the geometry of numbers: the lattice of integer polynomials is not far from any real polynomial in the basis dual to evaluation at the roots of Q. GeometryOfNumbersAndQuadraticArithmetic GN.1 plans the Blichfeldt and Minkowski convex-body and successive-minima theorems, but a search of every stage description for 'flatness theorem', 'covering radius' and 'successive minima' outside GN.1's own title finds nothing, and this statement is not planned. Item 68 records BLPS Corollary 2.5, not Minkowski II, as the flatness supplier."
   },
   {
    "id": "PAPER-SMITH-24/22",
@@ -276,12 +279,12 @@
    "id": "PAPER-SMITH-24/23",
    "kind": "theorem",
    "name": "A product bound for successive minima of evaluation polytopes",
-   "statement": "Let m ≥ 0, let α₁, …, α_{m+1} be distinct reals and v₁, …, v_{m+1} positive reals, and let K be the set of real polynomials P of degree at most m with v_i|P(α_i)| ≤ 1 for all i. For 0 ≤ i ≤ m let λ_i be the least real with λ_iK containing i + 1 linearly independent integer polynomials. Then D/(m+1)! ≤ λ₀λ₁⋯λ_m ≤ D, where D = ∏_i v_i · ∏_{i<j} |α_i − α_j|.",
+   "statement": "Let m ≥ 0, let α₁, …, α_{m+1} be distinct reals and v₁, …, v_{m+1} positive reals, and let K be the set of real polynomials P of degree at most m with v_i|P(α_i)| ≤ 1 for all i. For 0 ≤ i ≤ m let λ_i be the least nonnegative real with λ_iK containing i + 1 linearly independent integer polynomials. Then D/(m+1)! ≤ λ₀λ₁⋯λ_m ≤ D, where D = ∏_i v_i · ∏_{i<j} |α_i − α_j|.",
    "locator": "arXiv:2111.12660v2 (16 March 2024), Proposition 3.4, p. 14, equation (3.1)",
    "status": "missing",
    "library": [],
    "planned": [],
-   "note": "Minkowski's second theorem applied to the convex body cut out by weighted evaluation conditions, with the Vandermonde determinant computing the covolume. It is the engine of §3 and, like Theorem 3.2, belongs to the geometry-of-numbers layer GN.1 rather than to potential theory."
+   "note": "Minkowski's second theorem applied to the convex body cut out by weighted evaluation conditions, with the Vandermonde determinant computing the covolume. It is the engine of §3 and, like Theorem 3.2, belongs to the geometry-of-numbers layer GN.1 rather than to potential theory. E3 corrects the scalar domain: K is symmetric, so arbitrary negative dilation factors cannot define a minimum."
   },
   {
    "id": "PAPER-SMITH-24/24",
@@ -303,7 +306,7 @@
    "status": "missing",
    "library": [],
    "planned": [],
-   "note": "The matching upper bound, proved by applying Proposition 3.4 to the nodes of the approximating polynomial with v_k = |P_k(α_k)|^{-1} and using Proposition 2.12 and Lemma 2.8 to control the resulting norms."
+   "note": "The matching upper bound, proved by applying Proposition 3.4 to the nodes of the approximating polynomial with v_k = |P_k(α_k)|^{-1} and using Proposition 2.12 and Lemma 2.8 to control the resulting norms. E10 restores the bound for every k≤n+1 before (3.5)."
   },
   {
    "id": "PAPER-SMITH-24/26",
@@ -369,18 +372,18 @@
    "status": "missing",
    "library": [],
    "planned": [],
-   "note": "Here k₀ is the number of connected components of Σ; the proof compares T̃_r with T_{r+3k₀}. This is the polynomial along which the coefficient adjustment is performed."
+   "note": "Here k₀ is the number of connected components of Σ; the proof compares T̃_r with T_{r+3k₀}. This is the polynomial along which the coefficient adjustment is performed. E8 replaces the proof’s quotient-root assertion by roots in the convex hull of Σ; the fixed-degree quotient bound still holds."
   },
   {
    "id": "PAPER-SMITH-24/32",
    "kind": "theorem",
    "name": "The coefficient-adjustment lemma of Robinson and Fekete–Szegő",
-   "statement": "Let P be a monic real polynomial of degree n and r ≥ 2, with y₁ < ⋯ < y_{r+k₁} constructed from T̃_r as in Lemma 4.4. Then there is a monic real polynomial T of degree r such that the degree i coefficient of T^D P is an even integer for every i ∈ [(D−1)r + n, Dr + n − 1], and |T(y_i)/T̃_r(y_i)| ≥ 1/2 for all i, with ‖T‖_Σ ≤ r^{C₁}κ^r + 2C₁rκ^r.",
+   "statement": "Let P be a monic real polynomial of degree n and r ≥ 2, with y₁ < ⋯ < y_{r+k₁} constructed from T̃_r as in Lemma 4.4. Then there is a monic real polynomial T of degree r such that the degree i coefficient of T^D P is an even integer for every i ∈ [(D−1)r + n, Dr + n − 1], and T(y_i)/T̃_r(y_i) ≥ 1/2 for all i, with ‖T‖_Σ ≤ r^{C₁}κ^r + 2C₁rκ^r.",
    "locator": "arXiv:2111.12660v2 (16 March 2024), Lemma 4.5, p. 24, equation (4.6)",
    "status": "missing",
    "library": [],
    "planned": [],
-   "note": "The technique goes back to Robinson and to Fekete and Szegő, Theorem D: one adjusts the top coefficients of a power of an auxiliary polynomial to be integral while keeping its size under control. Here D = ⌈4C₁²/(κ−1)⌉ is fixed once Lemmas 4.2 and 4.4 hold with C = C₁."
+   "note": "The technique goes back to Robinson and to Fekete and Szegő, Theorem D: one adjusts the top coefficients of a power of an auxiliary polynomial to be integral while keeping its size under control. Here D = ⌈4C₁²/(κ−1)⌉ is fixed once Lemmas 4.2 and 4.4 hold with C = C₁. The signed inequality preserves the sign of T̃_r at every y_i; an absolute-value bound would not justify the r sign changes in Lemma 4.7."
   },
   {
    "id": "PAPER-SMITH-24/33",
@@ -402,7 +405,7 @@
    "status": "missing",
    "library": [],
    "planned": [],
-   "note": "The two estimates that make condition (4) of Proposition 4.1 available for the complementary factor."
+   "note": "The two estimates that make condition (4) of Proposition 4.1 available for the complementary factor. E9 includes all 0≤j<D intervals; E11 uses a union-of-forbidden-shift-intervals argument for N≤na."
   },
   {
    "id": "PAPER-SMITH-24/35",
@@ -419,23 +422,23 @@
    "id": "PAPER-SMITH-24/36",
    "kind": "definition",
    "name": "The measure ν_[a,b] and its potential",
-   "statement": "For b > a > 0 let ν_{[a,b]} be the measure on [a,b] with dν_{[a,b]}(t) = √(ab) dt/(πt√((b−t)(t−a))). It is a 1/2-Hölder probability measure, U^{ν_{[a,b]}}(z) + log|z| − log((a + 2√(ab) + b)/(b−a)) vanishes for z ∈ [a,b] and is ≤ 0 otherwise, and U^{ν_{[a,b]}}(0) = log((a + 2√(ab) + b)/(4ab)).",
+   "statement": "For b > a > 0 let ν_{[a,b]} be the measure on [a,b] with dν_{[a,b]}(t) = √(ab) dt/(πt√((b−t)(t−a))). It is a 1/2-Hölder probability measure, for every z ∈ ℂ, U^{ν_{[a,b]}}(z) + log|z| − log((a + 2√(ab) + b)/(b−a)) vanishes for z ∈ [a,b] and is ≤ 0 otherwise, and U^{ν_{[a,b]}}(0) = log((a + 2√(ab) + b)/(4ab)).",
    "locator": "arXiv:2111.12660v2 (16 March 2024), Notation 5.1 and Lemma 5.2, pp. 31–32, equation (5.1)",
    "status": "missing",
    "library": [],
    "planned": [],
-   "note": "The pushforward under z ↦ 1/z of the equilibrium measure of [b^{-1}, a^{-1}], and the second of the two measures in Serre's argument; it is also the smoothing kernel used in Notation 5.3."
+   "note": "The pushforward under z ↦ 1/z of the equilibrium measure of [b^{-1}, a^{-1}], and the second of the two measures in Serre's argument; it is also the smoothing kernel used in Notation 5.3. At z = 0 the inequality is interpreted in the extended reals. Smith cites balayage [24, (II.4.47)] for mass one, but his own substitution u = 1/t reduces the mass integral to that of the reciprocal-interval arcsine measure. Thus no separate general balayage construction is required by this extraction; general balayage at the end of p.45 is a suggested future method."
   },
   {
    "id": "PAPER-SMITH-24/37",
    "kind": "construction",
    "name": "Smoothing by convolution and its effect on potentials",
-   "statement": "For ε ∈ (0, 1/2) put ν_ε = ν_{[ε², ε]}. For a Borel measure µ on a compact Σ ⊂ ℝ, the convolution µ * ν_ε is 1/2-Hölder with support in {x : [x − ε, x − ε²] ∩ Σ ≠ ∅}, and U^{µ*ν_ε}(z) − U^µ(z) ≤ log((ε² + 2ε^{3/2} + ε)/(ε − ε²)) ≤ Cε^{1/2} uniformly in z, ε and µ. If µ * ν_ε is supported in Σ for all small ε, then µ * ν_ε → µ weak* as ε → 0.",
+   "statement": "For ε ∈ (0,1/2), put ν_ε = ν_[ε²,ε]. For a finite positive Borel measure µ supported in compact Σ ⊂ ℝ, µ*ν_ε is 1/2-Hölder, supported in {x : [x−ε,x−ε²] meets Σ}. For every z ∈ ℂ, U^{µ*ν_ε}(z) ≤ U^µ(z) + µ(Σ) log((ε²+2ε^{3/2}+ε)/(ε−ε²)) ≤ U^µ(z) + µ(Σ) C√ε, with an absolute C; use the corresponding difference inequality wherever U^µ(z) is finite. If the convolutions are supported in Σ for all sufficiently small ε, they converge weak* to µ.",
    "locator": "arXiv:2111.12660v2 (16 March 2024), Notation 5.3 and Lemma 5.4, p. 33, equation (5.5)",
    "status": "missing",
    "library": [],
    "planned": [],
-   "note": "The regularisation that turns an arbitrary admissible measure into a Hölder one at a controlled cost in potential, which is half of Proposition 2.5."
+   "note": "Corrected E4 retains the arbitrary finite mass allowed in Notation 5.3 and avoids an undefined infinity subtraction. For µ=Mδ₀ and z ∈ [ε²,ε], the potential difference is exactly M times the displayed logarithm; M>1 disproves the printed mass-independent bound. Subsequent uses have mass at most one. Tietze extension is item 71, supplied by Mathlib."
   },
   {
    "id": "PAPER-SMITH-24/38",
@@ -457,7 +460,7 @@
    "status": "missing",
    "library": [],
    "planned": [],
-   "note": "The removal of the Hölder hypothesis from Corollary 3.7, proved by smoothing and sweetening inside a long interval. It is what shows that at capacity exactly 1 the only candidate measure is the unweighted equilibrium measure."
+   "note": "The removal of the Hölder hypothesis from Corollary 3.7, proved by smoothing and sweetening inside a long interval. It is what shows that at capacity exactly 1 the only candidate measure is the unweighted equilibrium measure. The weak lower semicontinuity of energy is item 63."
   },
   {
    "id": "PAPER-SMITH-24/40",
@@ -490,7 +493,7 @@
    "status": "missing",
    "library": [],
    "planned": [],
-   "note": "The vindication of Smyth's method: the auxiliary-polynomial inequalities capture the true constant, so the apparent limitations of the method observed by Smyth and Serre are in fact limitations of the constant. Combined with Serre's example (Example 5.16), which shows no such inequality can hold for λ > 1.89830…, this proves Theorem 1.1."
+   "note": "The vindication of Smyth's method: the auxiliary-polynomial inequalities capture the true constant, so the apparent limitations of the method observed by Smyth and Serre are in fact limitations of the constant. Combined with Serre's example (Example 5.16), which shows no such inequality can hold for λ > 1.89830…, this proves Theorem 1.1. E5 records the zero-coefficient/root issue and the continuity/perturbation repair; separation and weak compactness are library inputs 70 and 51."
   },
   {
    "id": "PAPER-SMITH-24/43",
@@ -501,7 +504,7 @@
    "status": "missing",
    "library": [],
    "planned": [],
-   "note": "The reduction, by Honda–Tate theory, of extreme point counts for abelian varieties over finite fields to an optimisation problem of the same shape as the trace problem: the Frobenius eigenvalues of a simple abelian variety are the conjugates of a Weil q-number, and for real Weil numbers these lie in [−2√q, 2√q]. Remark 5.14 adds that the congruence freedom in the construction of the R_k modulo 4q lets the families be taken geometrically simple and ordinary."
+   "note": "Kadets [15], Proposition 2.1 (arXiv:1906.02264, p.3) gives the reduction. For a Weil q-number π use x=π+q/π=π+conj(π), a totally real algebraic integer with conjugates in [−2√q,2√q], and y=q+1−x. If P is the minimal polynomial of x, #A(F_q)^{1/dim A}=exp(∫log|q+1−t|dµ_P(t)); the Honda–Tate multiplicities cancel in this normalized identity. Equivalently #A(F_q)=∏_{i=1}^{dim A}(q+1−x_i) with conjugate-pair multiplicities. A real Weil number itself is ±√q. Remark 5.14 describes additional congruence freedom for ordinary, geometrically simple families, not a replacement for these hypotheses."
   },
   {
    "id": "PAPER-SMITH-24/44",
@@ -545,22 +548,25 @@
    "status": "missing",
    "library": [],
    "planned": [],
-   "note": "The obstruction explaining Remark 1.2: an optimal measure must be orthogonal to every such P, so Serre's one-polynomial argument cannot produce λ_SSS, and the optimisation problems grow in complexity with the number of auxiliary polynomials."
+   "note": "The obstruction explaining Remark 1.2: an optimal measure must be orthogonal to every such P, so Serre's one-polynomial argument cannot produce λ_SSS, and the optimisation problems grow in complexity with the number of auxiliary polynomials. Uses the common domination input 61, rather than a separate potential-theory supplier."
   },
   {
    "id": "PAPER-SMITH-24/48",
    "kind": "definition",
    "name": "Algebraic integers, conjugates, minimal polynomials and resultants",
-   "statement": "The minimal polynomial of an algebraic integer over ℚ, its complex roots (the conjugates), and the resultant res(P, Q) = ∏_i Q(α_i) of two polynomials, which is a nonzero integer when P and Q are coprime integer polynomials with P monic.",
+   "statement": "For an integral element, its minimal polynomial and complex conjugates are defined. Over an integral domain, if f splits, Res(f,g) = lc(f)^{deg g}∏_{α root of f}g(α), with multiplicities. For monic integer P this gives Res(P,Q)=∏Q(α) ∈ ℤ, and it is nonzero when P,Q are coprime over ℚ.",
    "locator": "arXiv:2111.12660v2 (16 March 2024), §1, pp. 1–2, and throughout",
-   "status": "planned",
-   "library": [],
-   "planned": [
-    "ClassicalArithmeticCompletion:CA.3",
-    "tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-3-the-index-dedekindkummer-and-dedekinds-theorem",
-    "tauceti:TauCetiRoadmap/PolynomialGaloisGroups#layer-3-the-discriminant-and-the-alternating-group"
+   "status": "library",
+   "library": [
+    "mathlib:IsIntegral",
+    "mathlib:minpoly",
+    "mathlib:Polynomial.resultant",
+    "mathlib:Polynomial.resultant_eq_prod_eval",
+    "mathlib:Polynomial.resultant_map_map",
+    "mathlib:Polynomial.resultant_eq_zero_iff"
    ],
-   "note": "Mathlib has algebraic integers, minimal polynomials and resultants in substantial part, and CA.3 plans the integer-polynomial arithmetic — 'integer-valued polynomials, irreducibility, resultants, discriminants' — while the Tau Ceti number-field arithmetic and polynomial Galois roadmaps plan conjugates and discriminants. The identity ∏_i Q(α_i) = res(P, Q) and its integrality are exactly what Smyth's method uses."
+   "planned": [],
+   "note": "AUDIT-18 CA.3 already marks resultants and discriminants built. Fresh read: Mathlib/RingTheory/Polynomial/Resultant/Basic.lean:134,140,478,908. The product theorem assumes Splits over the working domain, so map integer polynomials to ℂ, use resultant_map_map, and specialize the leading coefficient to one. Nonvanishing is applied over ℚ/ℂ with the field hypothesis, not by pretending the field theorem applies directly to ℤ. minpoly is in FieldTheory/Minpoly/Basic.lean:41. The existing CA.3/upstream layers are consumers, not missing suppliers."
   },
   {
    "id": "PAPER-SMITH-24/49",
@@ -597,44 +603,44 @@
    "name": "Weak* compactness for probability measures on a compact set",
    "statement": "The set of Borel probability measures on a compact metric space is compact in the weak* topology, so every sequence has a convergent subsequence; used in the proof of Theorem 5.11 to extract a limit of the measures µ_N.",
    "locator": "arXiv:2111.12660v2 (16 March 2024), §5, p. 40, quoting [24, Theorem 0.1.3]",
-   "status": "planned",
-   "library": [],
-   "planned": [
-    "tauceti:TauCetiRoadmap/OptimalTransport#layer-1-transport-cost-compactness-existence-and-stability",
-    "ArithmeticStatistics:ST.0"
+   "status": "library",
+   "library": [
+    "mathlib:isCompact_setOfPred_finiteMeasure_le_of_isCompact",
+    "mathlib:MeasureTheory.instMetrizableSpaceProbabilityMeasure",
+    "mathlib:IsCompact.tendsto_subseq"
    ],
-   "note": "This is Prokhorov's theorem, or the Banach–Alaoglu theorem via the Riesz representation theorem. Mathlib has Banach–Alaoglu and the Riesz representation theorem, and the Tau Ceti optimal-transport roadmap plans weak convergence and compactness of probability measures in layer 1; ArithmeticStatistics ST.0 plans the measure-theoretic framework for equidistribution."
+   "planned": [],
+   "note": "Mathlib/MeasureTheory/Measure/Prokhorov.lean:175–179 supplies CompactSpace (ProbabilityMeasure E) for compact E; lines 183–185 also give the supported finite-measure version. LevyProkhorovMetric.lean:695 supplies metrizability on a separable Borel metric space. Apply these on compact Σ ⊂ ℂ and Topology/Sequences.lean:298 to obtain a convergent subsequence. All are present at the pin; no ST.0 or OptimalTransport planning dependency remains."
   },
   {
    "id": "PAPER-SMITH-24/52",
    "kind": "theorem",
-   "name": "Minkowski's convex-body and successive-minima theorems",
-   "statement": "Blichfeldt's lemma and Minkowski's first and second theorems for a lattice and a symmetric convex body, relating the successive minima to the covolume.",
+   "name": "Minkowski's second theorem for successive minima",
+   "statement": "For a discrete full lattice L in a d-dimensional real Euclidean space and a centrally symmetric convex body K with zero in its interior, (2^d/d!) covol(L) ≤ (∏_{i=0}^{d−1}λ_i(L,K)) vol(K) ≤ 2^d covol(L), where λ_i≥0 are the successive minima.",
    "locator": "arXiv:2111.12660v2 (16 March 2024), §3, pp. 12–16, behind Theorem 3.2 and Proposition 3.4",
    "status": "planned",
    "library": [],
    "planned": [
-    "GeometryOfNumbersAndQuadraticArithmetic:GN.1",
-    "GeometryOfNumbersAndQuadraticArithmetic:GN.0"
+    "GeometryOfNumbersAndQuadraticArithmetic:GN.1"
    ],
-   "note": "GeometryOfNumbersAndQuadraticArithmetic GN.1 plans exactly this: 'Prove Blichfeldt and Minkowski first/second theorems with measurable convex symmetric bodies and boundary conventions'. What is not planned there is the flatness theorem and the evaluation-polytope form the paper needs, which are routed to that layer as items of their own."
+   "note": "The current GN.1 packet plans both bounds at GN.1/minkowski-second-lower and GN.1/minkowski-second-upper. AUDIT-02 distinguishes this missing theorem from the built Blichfeldt and first Minkowski theorems (items 73–74) and the built GN.0 lattice/covolume infrastructure. The evaluation-polytope specialization remains item 23 and flatness remains a separate missing input (68)."
   },
   {
    "id": "PAPER-SMITH-24/53",
    "kind": "theorem",
    "name": "Honda–Tate theory",
    "statement": "The classification of isogeny classes of simple abelian varieties over a finite field F_q by conjugacy classes of Weil q-numbers, together with Tate's theorem computing Hom groups and endomorphism algebras through ℓ-adic Tate modules.",
-   "locator": "arXiv:2111.12660v2 (16 March 2024), §5, p. 3 and Proposition 5.12, p. 40, quoting Honda–Tate",
+   "locator": "arXiv:2111.12660v2, introductory application p.3 and Proposition 5.12 p.40, citing Honda [14]; Kadets [15], Proposition 2.1",
    "status": "missing",
    "library": [],
    "planned": [],
-   "note": "This is what converts the question of extreme point counts into an optimisation problem over measures on [−2√q, 2√q]. The atlas has no layer on abelian varieties over finite fields: a text search of every stage description for 'Honda–Tate' and 'abelian varieties over finite fields' returns nothing, and 'Weil number' returns only the weight-theoretic layers DWP.10 and R34.1. The closest owner is FaltingsFinitenessAndIsogenyTheorems R28.4, which already plans Tate's isogeny theorem and the endomorphism algebra and already imports the finite-field weight bounds."
+   "note": "General F_q Honda–Tate and rational Tate Hom are already routed by accepted PAPER-LIPNOWSKI-TSIMERMAN-18/honda-tate and /tate-hom to the AbelianSchemesAndArithmeticModuli Part II family. They are not yet actual atlas layers, so this item stays missing and route 4 merges the shared requirements under that parent. Faltings R28.4 is a completed number-field isogeny layer, not this finite-field classification. Retain arbitrary prime powers q here even where the Lipnowski–Tsimerman counting conclusions specialize to prime fields."
   },
   {
    "id": "PAPER-SMITH-24/54",
    "kind": "theorem",
    "name": "The Weil bound for abelian varieties over finite fields",
-   "statement": "For a simple abelian variety over F_q the eigenvalues of Frobenius are Weil q-numbers, algebraic integers all of whose archimedean absolute values equal √q; for the real ones this places the conjugates in [−2√q, 2√q].",
+   "statement": "Frobenius eigenvalues π of an abelian variety over F_q are algebraic integers all of whose complex conjugates have absolute value √q. A real eigenvalue equals ±√q. The totally real algebraic integer x=π+q/π=π+conj(π) has every conjugate in [−2√q,2√q]. Paired eigenvalues give #A(F_q)=∏_{i=1}^{dim A}(q+1−x_i), with multiplicities.",
    "locator": "arXiv:2111.12660v2 (16 March 2024), Proposition 5.12, p. 40",
    "status": "planned",
    "library": [],
@@ -643,7 +649,7 @@
     "WeightsInEtaleCohomology:R34.2",
     "DeligneWeightsAndPurity:DWP.1"
    ],
-   "note": "WeightsInEtaleCohomology R34.1 plans 'Frobenius, algebraicity and weights' and R34.2 the curve and abelian-variety case, and DeligneWeightsAndPurity DWP.1 plans the initial Weil estimate for curves and abelian varieties. These supply the interval Σ in which the conjugates lie."
+   "note": "DWP.1 and R34.2 supply the abelian-variety Weil bound (R34.1 fixes weights). The interval in Proposition 5.12 is for π+q/π, not for a class called real Weil numbers. Item 43 records the normalized minimal-polynomial measure identity."
   },
   {
    "id": "PAPER-SMITH-24/55",
@@ -665,19 +671,231 @@
    "status": "missing",
    "library": [],
    "planned": [],
-   "note": "Needed so that sweetening preserves the Hölder condition. Like the rest of potential theory, it has no owner in the atlas."
+   "note": "Retain missing: neither the equilibrium characterization nor the finite-union density follows from an orthogonality measure alone. The pinned Polynomial.Chebyshev.measureT (Mathlib/.../Chebyshev/Orthogonality.lean:49) is the unnormalized arcsine density on (−1,1]; TauCeti.chebyshevMeasureT_univ (TauCeti/.../Chebyshev/Measure.lean:46) gives mass π. Normalization by π and affine transport supply the single-interval measure carrier, but the potential/capacity identification remains route 1."
+  },
+  {
+   "id": "PAPER-SMITH-24/57",
+   "kind": "definition",
+   "name": "Admissible weights, weighted equilibrium measures and modified Robin constants",
+   "statement": "For compact Σ ⊂ ℂ, an admissible weight w is upper semicontinuous, nonnegative and positive on a set of positive logarithmic capacity. Set Q=−log w, I_w(ν)=I(ν)+2∫Q dν on probability measures. The unique weighted equilibrium measure µ_w minimizes I_w; write V_w=I_w(µ_w) and F_w=V_w−∫Q dµ_w. Smith uses the positive continuous weight w=e^{U^µ} on compact real Σ.",
+   "locator": "arXiv:2111.12660v2 (16 March 2024), Lemma 2.7 proof, pp.7–8; [24] Definition I.1.1 and Theorem I.1.3",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Plan general compact complex carriers; the specialization in 58 identifies the particular minimizer. No unbounded-set admissibility convention is silently imposed."
+  },
+  {
+   "id": "PAPER-SMITH-24/58",
+   "kind": "theorem",
+   "name": "Identification of the weighted equilibrium measure for w=e^{U^µ}",
+   "statement": "If µ is a Hölder probability measure supported on compact Σ⊂ℝ and w=e^{U^µ}, the weighted equilibrium measure µ_w equals µ and F_w=0. Here Q=−U^µ, so U^µ+Q is identically zero on Σ.",
+   "locator": "arXiv:2111.12660v2 (16 March 2024), Lemma 2.7 proof p.8; [24] Theorem I.3.1",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "This is the exact weighted-equilibrium characterization used by Smith; it is distinct from mere existence/uniqueness of an unweighted equilibrium measure."
+  },
+  {
+   "id": "PAPER-SMITH-24/59",
+   "kind": "theorem",
+   "name": "Existence of asymptotically extremal monic polynomials at every degree",
+   "statement": "For the compact real Σ and weight w=e^{U^µ} of 58, there are real monic Q_n of degree n, all roots in Σ, with ‖w^nQ_n‖_Σ^{1/n}→e^{−F_w}=1.",
+   "locator": "arXiv:2111.12660v2 (16 March 2024), Lemma 2.7 proof p.7; [24] Theorem III.1.9",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Smith inserts these polynomials into the missing degrees before applying the zero-distribution theorem. The extracted specialization has the same real support hypotheses as his use."
+  },
+  {
+   "id": "PAPER-SMITH-24/60",
+   "kind": "theorem",
+   "name": "Zero distribution of asymptotically extremal weighted polynomials",
+   "statement": "In the setting of 58, if real monic P_n has degree n, all roots in Σ and ‖w^nP_n‖_Σ^{1/n}→e^{−F_w}, then its normalized zero measures converge weak* to µ_w.",
+   "locator": "arXiv:2111.12660v2 (16 March 2024), Lemma 2.7 proof p.8; [24] Theorem III.4.2",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Imported source of item 14 after filling missing degrees with 59. This extraction records the used real-support specialization, not an unrestricted complex zero-distribution assertion."
+  },
+  {
+   "id": "PAPER-SMITH-24/61",
+   "kind": "theorem",
+   "name": "Principle of domination for logarithmic potentials",
+   "statement": "Let µ,ν be finite positive measures with compact support in ℂ, ν(ℂ)≤µ(ℂ), and I(µ)<∞. If U^µ≤U^ν+c holds µ-almost everywhere, then it holds everywhere in ℂ.",
+   "locator": "arXiv:2111.12660v2 (16 March 2024), proof of Proposition 2.5 p.36; Lemma 5.10 p.38; Proposition 5.17 p.44; [24] Theorem II.3.2",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Equal-mass comparisons suffice in Smith. The mass inequality direction and finite-energy hypothesis are confirmed by Saff, arXiv:1010.3760, Theorem 2.8 p.182 (PDF p.18). I.1.4 is Frostman, not this theorem."
+  },
+  {
+   "id": "PAPER-SMITH-24/62",
+   "kind": "theorem",
+   "name": "Frostman bounds for the equilibrium potential",
+   "statement": "For compact Σ⊂ℂ of positive capacity κ and equilibrium measure µ_Σ, U^{µ_Σ}(z)≤−log κ for every z∈ℂ, and equality holds quasi-everywhere on Σ (outside a capacity-zero set).",
+   "locator": "arXiv:2111.12660v2 (16 March 2024), Lemma 5.2 p.32; Definition 5.5 p.34; Lemma 5.10 p.37; [24] (I.1.4), (I.1.9)",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "For an interval, continuity removes the exceptional set. Keep the global inequality and the quasi-everywhere equality separate; no unsupported everywhere equality on arbitrary compact sets."
+  },
+  {
+   "id": "PAPER-SMITH-24/63",
+   "kind": "theorem",
+   "name": "Weak lower semicontinuity of logarithmic energy",
+   "statement": "For probability measures µ_n supported on a fixed compact K⊂ℂ, weak* convergence µ_n→µ implies I(µ)≤liminf_n I(µ_n), with extended-real energy for kernel −log|z−w|.",
+   "locator": "arXiv:2111.12660v2 (16 March 2024), Proposition 5.7 proof pp.35–36; [24] Theorem I.6.8",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Truncate the kernel from above after a constant lower shift. This is the input transferring I≤0 from the smoothed and sweetened measures."
+  },
+  {
+   "id": "PAPER-SMITH-24/64",
+   "kind": "theorem",
+   "name": "Countable sets are polar",
+   "statement": "Every countable subset of ℂ has logarithmic capacity zero.",
+   "locator": "arXiv:2111.12660v2 (16 March 2024), Proposition 2.5 proof p.36; potential-theory background [22,24]",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "The discarded set consists of one-point connected components, which is countable under Theorem 1.5, not necessarily the isolated points (E6)."
+  },
+  {
+   "id": "PAPER-SMITH-24/65",
+   "kind": "theorem",
+   "name": "Finite-energy measures give no mass to polar sets",
+   "statement": "If µ is a finite positive compactly supported measure with I(µ)<∞, then µ(E)=0 for every Borel set E of logarithmic capacity zero.",
+   "locator": "arXiv:2111.12660v2 (16 March 2024), Proposition 2.5 proof p.36; [22,24]",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "With the kernel −log|z−w|, the required bound is above, I<∞ (E7); a lower bound alone is automatic on a compact support. Apply after 39 and 64."
+  },
+  {
+   "id": "PAPER-SMITH-24/66",
+   "kind": "theorem",
+   "name": "Continuity of capacity under increasing Borel unions",
+   "statement": "For increasing bounded Borel sets E_n⊂ℂ, cap(⋃E_n)=lim_n cap(E_n), using inner logarithmic capacity. Removing a polar subset does not change capacity.",
+   "locator": "arXiv:2111.12660v2 (16 March 2024), implicit choice of Σ₁ with capacity>1 in proof of Proposition 2.5 p.36; [22,24]",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Enumerate the nondegenerate interval components of Σ and discard its countable polar one-point components. Their finite unions increase to a set of the same capacity, so some finite union already has capacity>1. This supplies the otherwise unstated step before sweetening."
+  },
+  {
+   "id": "PAPER-SMITH-24/67",
+   "kind": "theorem",
+   "name": "Remez bound used when removing a polynomial root",
+   "statement": "If a complex polynomial Q has degree at most m≥1 and E⊂[−1,1] is measurable with length at least 2−m^{−2}, then max_[−1,1]|Q|≤e^5 sup_E|Q|. After affine scaling this applies on each short interval I in Lemma 2.8, whose omitted part has relative length at most (2m²)^{−1}.",
+   "locator": "arXiv:2111.12660v2 (16 March 2024), Lemma 2.8 p.8 and Corollary 3.3 p.13; [9] Erdélyi (1992), Theorem 1",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Exact specialization stated and used on Smith p.8; do not identify ordinary interpolation with this sup-norm inequality. Route once with potential theory; no existing Remez owner found in the current roadmap/packet search."
+  },
+  {
+   "id": "PAPER-SMITH-24/68",
+   "kind": "theorem",
+   "name": "Flatness bound for simplices and the polynomial adjustment application",
+   "statement": "For an n-dimensional simplex S, n≤Flt(S)≤C n(1+log n), where Flt(S) is the supremum of lattice widths of lattice-free affine images of S and C is absolute. Lattice width is the infimum, over nonzero dual lattice vectors u, of sup_K⟨u,x⟩−inf_K⟨u,x⟩. The corresponding polynomial-size vertex/facet extension supplies the O(n log(2n)) translate-hits-lattice bound used for Smith’s real cofactor ℓ¹ body.",
+   "locator": "arXiv:2111.12660v2 (16 March 2024), Theorem 3.2 proof p.13; [5] BLPS Corollary 2.5, author-copy PDF p.10, with Theorem 2.4 and discussion pp.2–3",
+   "status": "missing",
+   "library": [],
+   "planned": [],
+   "note": "Route GN.1 with item 21. This is a missing flatness input, not a consequence of the planned Minkowski second theorem alone. BLPS author PDF freshly read at the definition and cited result."
+  },
+  {
+   "id": "PAPER-SMITH-24/69",
+   "kind": "theorem",
+   "name": "Nonzero multivariate polynomials do not vanish on a sufficiently large grid",
+   "statement": "For a finite set of variables over an integral domain, if degree_i F<|S_i| for each finite grid S_i and F vanishes on ∏S_i then F=0. For a nonzero polynomial of total degree d over ℂ, choose a degree-d nonzero monomial t and grids {0,…,t_i}; the Combinatorial Nullstellensatz gives a nonvanishing evaluation at nonnegative integers b_i with Σb_i≤d.",
+   "locator": "arXiv:2111.12660v2 (16 March 2024), Lemma 2.10 proof p.9, substituting for the multivariate Gregory–Newton argument [25, (2),(3)]",
+   "status": "library",
+   "library": [
+    "mathlib:MvPolynomial.eq_zero_of_eval_zero_at_prod_finset",
+    "mathlib:MvPolynomial.combinatorial_nullstellensatz_exists_eval_nonzero"
+   ],
+   "planned": [],
+   "note": "Mathlib/Combinatorics/Nullstellensatz.lean:67 and :240 were read at the pin. Applying d≤2(n−deg G)−1 proves both the printed total bound and the weaker individual bounds. No Salzer prerequisite needs to be planned."
+  },
+  {
+   "id": "PAPER-SMITH-24/70",
+   "kind": "theorem",
+   "name": "Separation of an open convex set from a disjoint convex set",
+   "statement": "In a real topological vector space, disjoint convex sets s,t with s open admit a continuous linear functional f and u with f(a)<u≤f(b) for a∈s,b∈t. For nonempty sets this functional is nonzero, and negating it gives Smith’s orientation.",
+   "locator": "arXiv:2111.12660v2 (16 March 2024), Theorem 5.11 p.39 and Proposition 5.17 p.44, citing Klee [16]",
+   "status": "library",
+   "library": [
+    "mathlib:geometric_hahn_banach_open"
+   ],
+   "planned": [],
+   "note": "Mathlib/Analysis/LocallyConvex/Separation.lean:95–97 supplies the statement; use the nonempty W interior and V in finite-dimensional ℝ^{N+1}. E5 is a separate root/zero-coefficient issue, not a gap in this library theorem."
+  },
+  {
+   "id": "PAPER-SMITH-24/71",
+   "kind": "theorem",
+   "name": "Tietze extension of continuous real functions",
+   "statement": "A continuous real function on a closed subset of a normal space extends continuously to the ambient space. In Lemma 5.4 extend f on compact Σ to [−C,C], then use uniform continuity there.",
+   "locator": "arXiv:2111.12660v2 (16 March 2024), Lemma 5.4 proof pp.33–34, citing Willard [37], Theorem 15.8",
+   "status": "library",
+   "library": [
+    "mathlib:ContinuousMap.exists_restrict_eq",
+    "mathlib:ContinuousMap.exists_extension"
+   ],
+   "planned": [],
+   "note": "Mathlib/Topology/TietzeExtension.lean:68 and :77; the subtype inclusion of a closed set is a closed embedding, and ℝ is a Tietze-extension space."
+  },
+  {
+   "id": "PAPER-SMITH-24/72",
+   "kind": "definition",
+   "name": "Sylvester-determinant discriminant",
+   "statement": "For a polynomial over a commutative ring, its discriminant is the signed determinant of the derivative Sylvester matrix. Together with the resultant specialization and coprimality API, it supplies the discriminant polynomial used in Lemma 2.10.",
+   "locator": "arXiv:2111.12660v2 (16 March 2024), Lemma 2.10 proof p.9",
+   "status": "library",
+   "library": [
+    "mathlib:Polynomial.discr"
+   ],
+   "planned": [],
+   "note": "Mathlib/RingTheory/Polynomial/Resultant/Basic.lean:930. The specific degree estimate and specialization bookkeeping in Smith remain part of item 17; the generic discriminant is not missing. AUDIT-18 CA.3 marks it built."
+  },
+  {
+   "id": "PAPER-SMITH-24/73",
+   "kind": "theorem",
+   "name": "Blichfeldt's theorem",
+   "statement": "For a countable measurable additive group action with invariant measure and a fundamental domain F, if a null-measurable s has measure greater than that of F, then two distinct translates of s meet.",
+   "locator": "arXiv:2111.12660v2 (16 March 2024), geometry-of-numbers background to §3, pp.12–16",
+   "status": "library",
+   "library": [
+    "mathlib:MeasureTheory.exists_pair_mem_lattice_not_disjoint_vadd"
+   ],
+   "planned": [],
+   "note": "Mathlib/MeasureTheory/Group/GeometryOfNumbers.lean:52–55; AUDIT-02 GN.1 built. Imported background, not the BLPS flatness supplier."
+  },
+  {
+   "id": "PAPER-SMITH-24/74",
+   "kind": "theorem",
+   "name": "Minkowski's first convex-body theorem",
+   "statement": "In a finite-dimensional real normed space with an additive Haar measure and a countable lattice with fundamental domain F, a convex symmetric set s with µ(F)·2^dim<µ(s) contains a nonzero lattice point.",
+   "locator": "arXiv:2111.12660v2 (16 March 2024), geometry-of-numbers background to §3, pp.12–16",
+   "status": "library",
+   "library": [
+    "mathlib:MeasureTheory.exists_ne_zero_mem_lattice_of_measure_mul_two_pow_lt_measure"
+   ],
+   "planned": [],
+   "note": "Mathlib/MeasureTheory/Group/GeometryOfNumbers.lean:65–69; AUDIT-02 GN.1 built. Keep separate from planned Minkowski II (52)."
   }
  ],
  "prerequisites": [
   {
    "citation": "Edward B. Saff and Vilmos Totik, Logarithmic Potentials with External Fields, Grundlehren 316, Springer, 1997",
    "link": "https://doi.org/10.1007/978-3-662-03329-6",
-   "why": "The standard reference for weighted potential theory, cited as [24] for the principle of domination (I.1.4), the equilibrium measure of an interval (Example I.3.5), the weak* compactness used in Theorem 5.11 (Theorem 0.1.3) and the semicontinuity argument (0.1.2), and for balayage (Theorem II.4.4), which the paper names as the natural way to produce measures satisfying Proposition 5.15 with several auxiliary polynomials."
+   "why": "Weighted admissibility/equilibrium/Robin constant (Definition I.1.1, Theorems I.1.3 and I.3.1); extremal polynomials and zero distribution (III.1.9, III.4.2); Frostman bounds (I.1.4, I.1.9); lower semicontinuity of energy (I.6.8); domination (II.3.2, NOT I.1.4); and the interval equilibrium measure (Example I.3.5). These are exact locators as cited by Smith pp.7–8,32,34,36,38,44. The accessible 13-page book file is front matter only, not a fresh full reading of these chapters. General balayage at Smith p.45 is future work; mass one in Lemma 5.2 can instead use u=1/t."
   },
   {
    "citation": "Thomas Ransford, Potential Theory in the Complex Plane, LMS Student Texts 28, Cambridge, 1995",
    "link": "https://doi.org/10.1017/CBO9780511623776",
-   "why": "The source, cited as [22], for the definition of capacity as the supremum of e^{−I(µ)} and for the existence and uniqueness of the unweighted equilibrium measure of a compact set of positive capacity."
+   "why": "The source, cited as [22], for the definition of capacity as the supremum of e^{−I(µ)} and for the existence and uniqueness of the unweighted equilibrium measure of a compact set of positive capacity. Also countable polar sets, finite-energy measures annihilating polar sets, and continuity of inner capacity under increasing Borel unions in the reduction on p.36. Keep the −log kernel convention explicit."
   },
   {
    "citation": "M. Fekete and G. Szegő, On algebraic equations with integral coefficients whose roots belong to a given point set, Math. Z. 63 (1955), 158–172",
@@ -717,17 +935,17 @@
   {
    "citation": "Taira Honda, Isogeny classes of abelian varieties over finite fields, J. Math. Soc. Japan 20 (1968), 83–95, together with Tate's theorems on endomorphisms of abelian varieties over finite fields",
    "link": "https://doi.org/10.2969/jmsj/02010083",
-   "why": "Honda–Tate theory, which reduces extreme point counts for abelian varieties over F_q to an optimisation problem over measures on [−2√q, 2√q]. Nothing in the atlas covers it."
+   "why": "General F_q Honda–Tate and Tate Hom are shared with PAPER-LIPNOWSKI-TSIMERMAN-18 in the AbelianSchemesAndArithmeticModuli Part II family (route 4); Smith’s point-count optimization is route 1. Do not send this classification to the completed number-field Faltings R28.4 layer."
   },
   {
    "citation": "Wojciech Banaszczyk, Alexander E. Litvak, Alain Pajor and Stanislaw J. Szarek, The flatness theorem for nonsymmetric convex bodies via the local theory of Banach spaces, Math. Oper. Res. 24 (1999), 728–750; Peter M. Gruber, Convex and Discrete Geometry, Grundlehren 336, Springer, 2007",
-   "link": "https://doi.org/10.1287/moor.24.3.728",
-   "why": "The flatness theorem and the convex-geometry background behind Theorem 3.2 and Proposition 3.4. GeometryOfNumbersAndQuadraticArithmetic GN.1 plans Minkowski's theorems but not the flatness theorem."
+   "link": "https://www.math.ualberta.ca/~alexandr/papers/wwBLPS2503.pdf",
+   "why": "BLPS Corollary 2.5 (author PDF p.10), with Theorem 2.4 and the polynomial-vertex/facet discussion pp.2–3, supplies the flatness bound used in Smith Theorem 3.2. Gruber p.376 supplies Minkowski II for Proposition 3.4. GN.1 plans Minkowski II; add the separate flatness source and evaluation-polytope specialization there."
   },
   {
    "citation": "Borys Kadets, Estimates for the number of rational points on simple abelian varieties over finite fields, Math. Z. 297 (2021), 465–473; Raymond van Bommel, Edgar Costa, Wanlin Li, Bjorn Poonen and Alexander Smith, Abelian varieties of prescribed order over finite fields, arXiv:2106.13651",
    "link": "https://arxiv.org/abs/2106.13651",
-   "why": "The previous records for extreme point counts that Corollary 1.3 improves, and the source of Construction 7.3, the coefficient-adjustment idea underlying Lemma 4.5, and of the congruence argument of Remark 5.14 making the families geometrically simple and ordinary."
+   "why": "The previous records for extreme point counts that Corollary 1.3 improves, and the source of Construction 7.3, the coefficient-adjustment idea underlying Lemma 4.5, and of the congruence argument of Remark 5.14 making the families geometrically simple and ordinary. Kadets Proposition 2.1 (arXiv:1906.02264, p.3, freshly read) identifies y=q+1−(π+q/π), giving the normalized norm/point-count equality. Use x=π+q/π in Smith, not a real Weil eigenvalue."
   },
   {
    "citation": "Franz Peherstorfer, Gauss–Tchebycheff quadrature formulas, Numer. Math. 58 (1990), 273–286",
@@ -738,6 +956,16 @@
    "citation": "Jacob S. Christiansen, Barry Simon and Maxim Zinchenko, Asymptotics of Chebyshev polynomials I: subsets of ℝ, Invent. Math. 208 (2017), 217–245; Vilmos Totik, Chebyshev constants and the inheritance problem, J. Approx. Theory 160 (2009), 187–201; Harold Widom, Extremal polynomials associated with a system of curves in the complex plane, Adv. Math. 3 (1969), 127–232",
    "link": "https://doi.org/10.1007/s00222-016-0689-x",
    "why": "The theory of Chebyshev polynomials of a compact subset of ℝ and the two-sided bound C^{-1}κ^r ≤ ‖T_r‖_Σ ≤ Cκ^r of Lemma 4.2, which is where the capacity enters the construction of §4."
+  },
+  {
+   "citation": "Tamás Erdélyi, Remez-type inequalities on the size of generalized polynomials, J. London Math. Soc. (2) 45 (1992), 255–264, Theorem 1",
+   "link": "https://doi.org/10.1112/jlms/s2-45.2.255",
+   "why": "Smith [9], Lemma 2.8 p.8 explicitly applies its complex-polynomial specialization with omitted length at most m^{−2}, giving factor e^5. Item 67 records exactly that input; no recursive decomposition of Erdélyi’s proof is asserted."
+  },
+  {
+   "citation": "Edward B. Saff, Logarithmic Potential Theory with Applications to Approximation Theory, Surveys in Approximation Theory 5 (2010), 165–200, Theorem 2.8",
+   "link": "https://arxiv.org/pdf/1010.3760",
+   "why": "Freely readable parallel primary statement of domination, p.182 (PDF p.18), freshly checked for the finite-energy assumption and the direction ν(ℂ)≤µ(ℂ). Used to check item 61, not to claim a full rereading of Saff–Totik."
   }
  ],
  "routes": [
@@ -784,10 +1012,24 @@
     "PAPER-SMITH-24/46",
     "PAPER-SMITH-24/47",
     "PAPER-SMITH-24/55",
-    "PAPER-SMITH-24/56"
+    "PAPER-SMITH-24/56",
+    "PAPER-SMITH-24/5",
+    "PAPER-SMITH-24/43",
+    "PAPER-SMITH-24/44",
+    "PAPER-SMITH-24/57",
+    "PAPER-SMITH-24/58",
+    "PAPER-SMITH-24/59",
+    "PAPER-SMITH-24/60",
+    "PAPER-SMITH-24/61",
+    "PAPER-SMITH-24/62",
+    "PAPER-SMITH-24/63",
+    "PAPER-SMITH-24/64",
+    "PAPER-SMITH-24/65",
+    "PAPER-SMITH-24/66",
+    "PAPER-SMITH-24/67"
    ],
-   "brief": "Plan logarithmic potential theory on compact subsets of the real line and its application to the distribution of conjugates of algebraic integers, following Alexander Smith, Annals of Mathematics 200 (2024), no. 1. The final theorems are these. (1) The main theorem (Theorem 1.5): for Σ ⊂ ℝ compact with at most countably many connected components and capacity strictly greater than 1, and µ a Borel probability measure on Σ, the condition that ∫_Σ log|Q| dµ ≥ 0 for every nonzero integer polynomial Q is equivalent to the existence of infinitely many distinct irreducible monic integer polynomials R_k with all roots in Σ whose counting measures converge weak* to µ; that is, the integrality of resultants is the only obstruction to realising a measure as a limit of conjugate distributions. (2) Smyth's method is optimal (Theorem 5.11): for Σ and a continuous F with the stated growth condition, the liminf λ(Σ, F) of the mean values of F over the conjugates of algebraic integers with all conjugates in Σ equals λ_Smyth(Σ, F), the supremum of the λ admitting an auxiliary-polynomial inequality F(x) ≥ λ + Σ a_i log|Q_i(x)| on Σ. (3) The Schur–Siegel–Smyth constant satisfies λ_SSS < 1.89831 (Theorem 1.1), so there are infinitely many totally positive algebraic integers of trace less than 1.89831 times their degree and the long-standing expectation λ_SSS = 2 is false. Cover, in layers: the logarithmic potential U^µ(z) = ∫ −log|z−w| dµ(w), the energy I(µ), the capacity of a compact set and its unweighted equilibrium measure, with the Frostman inequality and the explicit equilibrium measures of an interval and of a finite union of intervals; Hölder measures, the continuity of their potentials, and the layer-cake identity that proves it; the weight w_µ = exp(U^µ) and the weighted supremum norms ‖w_µ^n P‖_Σ, with the criterion that ‖w_µ^{deg P_n}P_n‖^{1/deg P_n} → 1 forces weak* convergence of the counting measures; the approximating polynomial of a measure and the estimates relating its Vandermonde determinant to the energy; Chebyshev polynomials of a compact set with their equioscillation characterisation and the identification of lim ‖T_r‖^{1/r} with the capacity; the coefficient-adjustment technique of Robinson and of Fekete and Szegő, pruned and complementary polynomials, and the resulting construction of real monic polynomials with a long block of even integral coefficients and well-separated roots in Σ; the smoothing measures ν_{[a,b]} with their potentials, convolution smoothing and the sweetening construction that restores admissibility; the nonpositivity of the energy of an admissible measure; and finally the optimisation constants λ(Σ, F) and λ_Smyth(Σ, F), Serre's measure and the proof of Theorem 1.1, the criterion of Proposition 5.15 for certifying a candidate measure, and the obstruction of Proposition 5.17 showing that no fixed finite set of auxiliary polynomials can reach the optimum. Every definition gets its API and unit tests; the capacity, the equilibrium measure and the Chebyshev constant are the same invariant and their agreement is a theorem to be proved, not a definition. Import, never re-plan: Borel measures, weak* convergence and the compactness of the space of probability measures on a compact set from the Tau Ceti optimal-transport roadmap, layer 1, and ArithmeticStatistics ST.0; Tonelli's theorem and the monotone convergence theorem from the pinned libraries; algebraic integers, conjugates, minimal polynomials and resultants from ClassicalArithmeticCompletion CA.3 and the Tau Ceti number-field and polynomial-Galois roadmaps, together with the classical statement of the Schur–Siegel–Smyth trace problem, which this extraction routes to ClassicalArithmeticCompletion CA.6; Eisenstein's criterion from Mathlib; the Blichfeldt and Minkowski convex-body and successive-minima theorems from GeometryOfNumbersAndQuadraticArithmetic GN.0 and GN.1, together with the flatness theorem and the evaluation-polytope product bound, which this extraction routes there; and Honda–Tate theory and the Weil bound from FaltingsFinitenessAndIsogenyTheorems R28.4 and WeightsInEtaleCohomology R34.1–R34.2, which carry the application to extreme point counts of abelian varieties over finite fields. Record as open the two restrictions the paper cannot remove: capacity exactly 1, where by Proposition 5.7 only the unweighted equilibrium measure is in question, and compact subsets of ℂ rather than ℝ.",
-   "reason": "Nothing in the atlas goes in this direction. A text search of every stage description at the pinned atlas for 'capacity', 'equilibrium measure', 'logarithmic potential' and 'transfinite diameter' returns nothing at all; the single hit for 'potential theory' is the Tau Ceti PDE roadmap's lane on maximum principles and harmonic functions, a different subject with different objects. Chebyshev polynomials appear only as an orthogonal basis of L²([−1,1]) in the Tau Ceti completed roadmap on orthogonal bases, not as the extremal polynomials of a general compact set whose norms compute the capacity. On the arithmetic side, 'trace problem', 'Smyth' and 'totally positive algebraic integer' return nothing. The nearest existing layer is ClassicalArithmeticCompletion CA.6, 'Special algebraic numbers and Mahler measure', which plans the house, the Mahler measure and the Pisot and Salem classes — the neighbouring MSC 11R06 family — but a source route there was rejected because the bulk of this paper is a body of analysis, not of special algebraic numbers: weighted potential theory, equilibrium measures, Chebyshev asymptotics, coefficient adjustment and sweetening, together with the two theorems that consume them. A Part II was impossible because no existing roadmap has this direction to be extended in. The classical statement of the trace problem is routed to CA.6 as a source, so that this roadmap imports λ_SSS rather than defining it twice."
+   "brief": "Plan logarithmic potential theory first for arbitrary compact subsets of ℂ: logarithmic potentials, energy, capacity, equilibrium measures, Frostman inequalities, domination, polar sets, lower semicontinuity and continuity of capacity. Include admissible external fields, weighted equilibrium measures and modified Robin constants with the precise weighted polynomial inputs of Lemma 2.7. Then specialize to real compact sets for Hölder measures, Remez root removal, Chebyshev equioscillation, pruned/complementary polynomials, Robinson–Fekete–Szegő coefficient adjustment, convolution and sweetening. Final targets are Smith Theorem 1.5 (real compact Σ with countably many components and capacity>1), Theorem 5.11 (Smyth optimality), Theorem 1.1 (λ_SSS<1.89831), and Propositions 5.12–5.13/Corollary 1.3 on extreme finite-field point counts. Import counting/finite measures, weak convergence and compactness, resultants, discriminants, grid nonvanishing, Tietze and separation directly from the pinned libraries; import only Minkowski II and the polynomial flatness/evaluation results from GN.1, and classical trace constants/auxiliary inequalities and Lemma 2.10 from CA.6/CA.3. Import general F_q Honda–Tate once from the shared AbelianSchemesAndArithmeticModuli Part II family and Weil estimates from DWP.1/R34.2. Expose the general complex capacity/equilibrium interface to PAPER-CALEGARI-DIMITROV-TANG-25/potential-generalization-2.5.27 in ArithmeticAlgebraizationAndHolonomyBounds, and to CA.6’s Dimitrov hedgehog-capacity consumer; their specialized holonomy, Dubinin and arithmetic-rationality results are not replanned here. The restrictions to real Σ and capacity>1 concern the arithmetic realization Theorem 1.5: this brief does not extend that theorem to complex Σ or capacity=1. Keep the common potential foundations upstream of CA.6’s Dimitrov consumer; the separate classical trace constant feeds only the later Smith arithmetic stages, avoiding a dependency cycle. Exact endpoints: for compact Σ⊂ℝ with countably many connected components and cap(Σ)>1, a probability µ is a weak* limit of root measures of distinct irreducible monic integer polynomials supported on Σ iff ∫log|Q|dµ≥0 for every nonzero Q∈ℤ[X] (1.5). For closed Σ with the same component/capacity hypotheses and continuous F satisfying F(x)/log|x|→+∞ at infinity when Σ is unbounded, the liminf mean F on conjugates equals the supremum of λ for which F≥λ+Σa_i log|Q_i| with positive a_i and nonzero integer Q_i (5.11). For all sufficiently large square prime powers q there are infinitely many F_q-simple A with #A(F_q)≥(q+2√q−0.89831)^{dim A} and infinitely many with #A(F_q)≤(q−2√q+2.89831)^{dim A} (1.3); Proposition 5.12 gives the two limiting normalized extremes exp(λ(Σ,F)) and exp(−λ(Σ,−F)) for Σ=[−2√q,2√q], F(x)=log|q+1−x|.",
+   "reason": "There is no existing general logarithmic-potential owner in the current atlas/roadmap definitions. The accepted Calegari–Dimitrov–Tang route and CA.6 packet already need compact complex capacity and equilibrium measures, so real-only foundations would be too narrow. The new roadmap owns those common foundations and Smith’s applications; source/Part II routes below own shared arithmetic and convex inputs. The review’s former negative Honda–Tate search is superseded by the accepted Lipnowski–Tsimerman extraction."
   },
   {
    "route": "source",
@@ -797,9 +1039,10 @@
    ],
    "items": [
     "PAPER-SMITH-24/21",
-    "PAPER-SMITH-24/23"
+    "PAPER-SMITH-24/23",
+    "PAPER-SMITH-24/68"
    ],
-   "reason": "GN.1 plans the Blichfeldt and Minkowski first and second theorems for measurable symmetric convex bodies, with boundary conventions and explicit inequalities and witnesses. The two items routed here are exactly statements of that kind, stated for the lattice of integer polynomials. Proposition 3.4 is Minkowski's second theorem for the convex body of real polynomials of degree at most m satisfying weighted evaluation bounds at m + 1 distinct real points, with the covolume computed by the Vandermonde determinant; Theorem 3.2 is an application of the flatness theorem giving that every real polynomial of degree at most n − 1 differs from an integer polynomial by a combination Σβ_iQ(z)/(z − α_i) with Σ|β_i| ≪ n log 2n. Both are independent of the arithmetic application and both belong in the layer that owns the geometry of numbers rather than in a potential-theory roadmap. Neither is planned today: a search of every stage description for 'flatness theorem', 'covering radius' and 'successive minima' finds only GN.1's own title. Serre's Bourbaki report and the sources the paper cites for the flatness theorem, Banaszczyk–Litvak–Pajor–Szarek and Gruber, are listed under prerequisites."
+   "reason": "GN.1 owns lattice convex geometry and already plans both sides of Minkowski II. Add Smith’s evaluation-polytope/Vandermonde specialization (23), polynomial coefficient adjustment (21), and its independent BLPS flatness supplier (68). Import built Blichfeldt/Minkowski I and GN.0 carriers; never replan them. The current GN packet has no BLPS flatness node, so this source contribution is distinct from item 52’s existing planned theorem."
   },
   {
    "route": "source",
@@ -817,30 +1060,241 @@
    "reason": "CA.6 plans special algebraic numbers and the Mahler measure — the house, the Pisot and Salem classes, selected lower bounds and finiteness statements through exact conjugate data — which is MSC 11R06, the same classification as the trace problem. The classical material routed there is the notion of a totally positive algebraic integer with its trace ratio, the constant λ_SSS with the chain of bounds from Schur's e^{1/2} ≤ λ_SSS ≤ 2 through Siegel, Smyth and the current 1.793145 ≤ λ_SSS ≤ 2, the statement of the Schur–Siegel–Smyth trace problem in Borwein's form, and Smyth's auxiliary-polynomial method with the resultant argument that makes it work. These are classical statements about special algebraic numbers that the layer should own and that the new roadmap should import; the paper's own theorems about them are not routed here. Separately, CA.3 plans integer-polynomial arithmetic — integer-valued polynomials, irreducibility, resultants and discriminants — and is the owner of Lemma 2.10, that a small nonnegative integral combination of integer polynomials, divided by their gcd, is squarefree of the expected degree. That is a statement about polynomial arithmetic with no potential theory in it."
   },
   {
-   "route": "source",
-   "roadmap": "FaltingsFinitenessAndIsogenyTheorems",
-   "stages": [
-    "FaltingsFinitenessAndIsogenyTheorems:R28.4"
-   ],
+   "route": "part-ii",
+   "parent": "AbelianSchemesAndArithmeticModuli",
+   "roadmap": "AbelianSchemesAndArithmeticModuliPartII",
+   "title": "Abelian Schemes And Arithmetic Moduli, Part II: finite-field isogeny classes and Honda–Tate",
+   "area": "arithmeticgeometry",
    "items": [
-    "PAPER-SMITH-24/5",
-    "PAPER-SMITH-24/43",
-    "PAPER-SMITH-24/44",
     "PAPER-SMITH-24/53"
    ],
-   "reason": "R28.4 plans the semisimplicity of the rational Tate module and Tate's isogeny theorem Hom_F(A,B) ⊗ ℚ_ℓ ≅ Hom_{G_F}(V_ℓ(A), V_ℓ(B)), with the endomorphism algebra and the isogeny criterion, and it already imports the finite-field weight bounds from WeightsInEtaleCohomology R34.2. Honda–Tate theory — the classification of isogeny classes of simple abelian varieties over a finite field by conjugacy classes of Weil q-numbers — is the immediate arithmetic successor of Tate's theorem over a finite field and has no other candidate owner: a text search of every stage description for 'Honda–Tate' and 'abelian varieties over finite fields' returns nothing, and 'Weil number' returns only the weight-theoretic layers DWP.10 and R34.1. Routed with it are the paper's applications, which are consequences of Honda–Tate plus the optimisation theory: Proposition 5.12, expressing the extreme normalised point counts of F_q-simple abelian varieties in terms of λ(Σ, F) for Σ = [−2√q, 2√q] and F(x) = log|q + 1 − x|; Proposition 5.13, its explicit form in terms of λ_SSS; and Corollary 1.3, the resulting numerical improvement on the prior records of Kadets and of van Bommel, Costa, Li, Poonen and Smith. PROTOCOL.md section 15 asks that a missing notion be planned once in its most foundational owner, which for Honda–Tate is this layer."
+   "reason": "Merge with the already accepted PAPER-LIPNOWSKI-TSIMERMAN-18 Part II route under the same parent; its proposed FiniteFields suffix is not an existing atlas roadmap. The parent-based DESIGN-AbelianSchemesAndArithmeticModuliPartII job (#3351, available when checked 2026-09-30) must plan Honda–Tate and Tate Hom once for arbitrary F_q. Faltings R28.4 is a number-field theorem and already has a completed blueprint.",
+   "brief": "Combine this request with PAPER-LIPNOWSKI-TSIMERMAN-18/honda-tate and /tate-hom in the parent’s single Part II design. Develop the classification of simple abelian varieties over arbitrary finite fields F_q by conjugacy classes of Weil q-numbers, including Tate’s rational Hom theorem and the multiplicities/endomorphism data needed to recover Frobenius polynomials and normalized point counts. Import abelian varieties, Tate modules and realizations from AbelianSchemesAndArithmeticModuli and the Weil estimates from DWP.1/R34.2. Preserve the general prime-power field here even when later counting applications specialize to prime fields. Export the classification to Smith’s LogarithmicPotentialTheoryAndAlgebraicIntegers route; Smith’s optimization Propositions 5.12–5.13 and Corollary 1.3 are consumers in that route, not duplicate foundational targets here. Faltings’s number-field isogeny theorem is not the supplier of Honda–Tate. The core correspondence is a bijection between F_q-isogeny classes of simple abelian varieties and conjugacy classes of q-Weil algebraic integers π; for ℓ≠char(F_q), Hom_Fq(A,B)⊗ℚ_ℓ≅Hom_Gal(V_ℓA,V_ℓB). Include the relation P_A=m_π^e and 2 dim A=e·deg(m_π), rather than silently dropping the Honda–Tate multiplicity."
   }
  ],
- "sourceIssues": [],
- "verification": {
-  "agent": "Claude Code",
-  "session": "cc-d67081",
-  "issue": 1082,
-  "job": "REV-PAPER-SMITH-24",
-  "date": "2026-09-23",
-  "verdict": "accept",
-  "read": "arXiv 2111.12660v2, SHA-256 99b3855a…4a35a9, matching the recorded hash: §1 in full, Corollary 1.3, the statements behind the proposed roadmap, a sweep of all 57 paper-internal numbered statements against the items, and the route's negative atlas searches reproduced.",
-  "changes": "None. No item, status, route or locator needed correction.",
-  "lean": "none"
+ "sourceIssues": [
+  {
+   "id": "PAPER-SMITH-24/E1",
+   "kind": "misprint",
+   "locator": "Introduction, definition of λ_SSS, p.1, in arXiv 2111.12660v2 (16 March 2024, the latest arXiv version; PDF SHA-256 99b3855a…35a9); the published text, Annals of Mathematics 200 (2024), 71–122, was not collated",
+   "printed": "The source defines λ_SSS as the least real value for which every ε > 0 makes the set of totally positive algebraic integers α finite under the condition tr(α) < (λ_SSS − ε) deg(α).",
+   "correction": "\"Take λ_SSS to be the greatest (the supremum of the) real numbers λ such that, for any ε > 0, there are only finitely many totally positive algebraic integers α with tr(α) < (λ − ε) deg(α).\"",
+   "reason": "If λ has the property, so does every smaller λ′, since fewer α satisfy the weaker inequality. So the set of such λ is downward closed and has no least element. The bounds that follow (Schur, Siegel, Smyth, 1.793145 ≤ λ_SSS ≤ 2) and Example 5.9 treat λ_SSS as the greatest such number. Checked on the page image. Noted by the extraction (item 117). Provenance: confirmed in the separate errata ledger by REV-ERRATA-PAPER-SMITH-24; its review object is deliberately not transferred to this changed extraction. Rechecked at the cited v2 passage by FIX-RT-PAPER-SMITH-24.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Annals of Mathematics: Crossref record of DOI 10.4007/annals.2024.200.1.2, checked 22 September 2026: no erratum or update registered; the public publisher PDF returned 404 to the extraction",
+    "arXiv 2111.12660: v1 (24 November 2021) and v2 (16 March 2024, the latest)",
+    "web search for an erratum or correction, 22 September 2026: none found",
+    "2026-09-30: Annals publication page https://annals.math.princeton.edu/2024/200-1/p02 and Crossref DOI 10.4007/annals.2024.200.1.2: no linked correction/update found; metadata only, published full text not read.",
+    "2026-09-30: https://arxiv.org/abs/2111.12660 lists v1 (2021-11-24) and v2 (2024-03-16); no later version listed.",
+    "2026-09-30: author publications https://www.asmith-math.org/papers.html and web search for the title with erratum/correction: no correction found."
+   ]
+  },
+  {
+   "id": "PAPER-SMITH-24/E2",
+   "kind": "misprint",
+   "locator": "Proof of Proposition 2.12, after (2.14), p.11, in arXiv 2111.12660v2 (16 March 2024, the latest arXiv version; PDF SHA-256 99b3855a…35a9); the published text, Annals of Mathematics 200 (2024), 71–122, was not collated",
+   "printed": "The source uses P_{n,μ}(x) = exp(−nU^{μ_n}(x)) to exponentiate the preceding inequality, claiming this establishes (2.8) once C is sufficiently large.",
+   "correction": "|P_{n,μ}(x)| = exp(−nU^{μ_n}(x)).",
+   "reason": "With U^{μ_n}(x) = −∫ log|x − t| dμ_n(t) and μ_n the normalized root-counting measure of the monic P_{n,μ}, one has −nU^{μ_n}(x) = log|P_{n,μ}(x)|. The polynomial P_{n,μ} takes negative values on R, so the absolute value is needed. Checked on the page image. Noted by the extraction. Provenance: confirmed in the separate errata ledger by REV-ERRATA-PAPER-SMITH-24; its review object is deliberately not transferred to this changed extraction. Rechecked at the cited v2 passage by FIX-RT-PAPER-SMITH-24.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Annals of Mathematics: Crossref record of DOI 10.4007/annals.2024.200.1.2, checked 22 September 2026: no erratum or update registered; the public publisher PDF returned 404 to the extraction",
+    "arXiv 2111.12660: v1 (24 November 2021) and v2 (16 March 2024, the latest)",
+    "web search for an erratum or correction, 22 September 2026: none found",
+    "2026-09-30: Annals publication page https://annals.math.princeton.edu/2024/200-1/p02 and Crossref DOI 10.4007/annals.2024.200.1.2: no linked correction/update found; metadata only, published full text not read.",
+    "2026-09-30: https://arxiv.org/abs/2111.12660 lists v1 (2021-11-24) and v2 (2024-03-16); no later version listed.",
+    "2026-09-30: author publications https://www.asmith-math.org/papers.html and web search for the title with erratum/correction: no correction found."
+   ]
+  },
+  {
+   "id": "PAPER-SMITH-24/E3",
+   "kind": "misprint",
+   "locator": "Proposition 3.4, p.14, in arXiv 2111.12660v2 (16 March 2024, the latest arXiv version; PDF SHA-256 99b3855a…35a9); the published text, Annals of Mathematics 200 (2024), 71–122, was not collated",
+   "printed": "For each nonnegative integer i with i ≤ m, the source defines λ_i as the least real value making λ_i K contain at least i + 1 integer polynomials that are linearly independent.",
+   "correction": "\"… take λ_i to be the least nonnegative real number so λ_i K contains …\" (the successive minima of K).",
+   "reason": "K is centrally symmetric, so λK = |λ|K. Every sufficiently negative λ then has the property, and there is no least real number with it. Minkowski's second theorem, applied in the proof, concerns the successive minima λ_i ≥ 0. Checked on the page image. Noted by the extraction. Provenance: confirmed in the separate errata ledger by REV-ERRATA-PAPER-SMITH-24; its review object is deliberately not transferred to this changed extraction. Rechecked at the cited v2 passage by FIX-RT-PAPER-SMITH-24.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Annals of Mathematics: Crossref record of DOI 10.4007/annals.2024.200.1.2, checked 22 September 2026: no erratum or update registered; the public publisher PDF returned 404 to the extraction",
+    "arXiv 2111.12660: v1 (24 November 2021) and v2 (16 March 2024, the latest)",
+    "web search for an erratum or correction, 22 September 2026: none found",
+    "2026-09-30: Annals publication page https://annals.math.princeton.edu/2024/200-1/p02 and Crossref DOI 10.4007/annals.2024.200.1.2: no linked correction/update found; metadata only, published full text not read.",
+    "2026-09-30: https://arxiv.org/abs/2111.12660 lists v1 (2021-11-24) and v2 (2024-03-16); no later version listed.",
+    "2026-09-30: author publications https://www.asmith-math.org/papers.html and web search for the title with erratum/correction: no correction found."
+   ]
+  },
+  {
+   "id": "PAPER-SMITH-24/E4",
+   "kind": "misprint",
+   "locator": "Notation 5.3, the estimate leading to (5.5), p.33, in arXiv 2111.12660v2 (16 March 2024, the latest arXiv version; PDF SHA-256 99b3855a…35a9); the published text, Annals of Mathematics 200 (2024), 71–122, was not collated",
+   "printed": "For any other Borel measure μ supported in a compact Σ of R, the source applies Lemma 5.2 to obtain the upper bound log((ε² + 2ε^{3/2} + ε)/(ε − ε²)) − ∫ log|z − x| dμ(x). It then concludes (5.5): U^{μ∗ν_ε}(z) − U^μ(z) ≤ log((ε² + 2ε^{3/2} + ε)/(ε − ε²)) ≤ Cε^{1/2}.",
+   "correction": "The bound is μ(Σ) · log((ε² + 2ε^{3/2} + ε)/(ε − ε²)) − ∫ log|z − x| dμ(x), so (5.5) reads U^{μ∗ν_ε}(z) − U^μ(z) ≤ μ(Σ) · log(…) ≤ μ(Σ) · Cε^{1/2}.",
+   "reason": "Integrating the bound of Lemma 5.2 for U^{ν_ε}(z − x) against dμ(x) multiplies the constant term by the total mass μ(Σ). The notation allows any finite Borel measure; the same page keeps the factor μ(Σ) in the Hölder estimate just above. The later applications, to μ_± in the proof of Proposition 2.5 on p.36, are sub-probability measures, for which the printed bound follows because the logarithm is positive. Checked on the page image. Noted by the extraction (item 97). Provenance: confirmed in the separate errata ledger by REV-ERRATA-PAPER-SMITH-24; its review object is deliberately not transferred to this changed extraction. Rechecked at the cited v2 passage by FIX-RT-PAPER-SMITH-24.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Annals of Mathematics: Crossref record of DOI 10.4007/annals.2024.200.1.2, checked 22 September 2026: no erratum or update registered; the public publisher PDF returned 404 to the extraction",
+    "arXiv 2111.12660: v1 (24 November 2021) and v2 (16 March 2024, the latest)",
+    "web search for an erratum or correction, 22 September 2026: none found",
+    "2026-09-30: Annals publication page https://annals.math.princeton.edu/2024/200-1/p02 and Crossref DOI 10.4007/annals.2024.200.1.2: no linked correction/update found; metadata only, published full text not read.",
+    "2026-09-30: https://arxiv.org/abs/2111.12660 lists v1 (2021-11-24) and v2 (2024-03-16); no later version listed.",
+    "2026-09-30: author publications https://www.asmith-math.org/papers.html and web search for the title with erratum/correction: no correction found."
+   ]
+  },
+  {
+   "id": "PAPER-SMITH-24/E5",
+   "kind": "gap",
+   "locator": "Proof of Theorem 5.11, pp.39–40, in arXiv 2111.12660v2 (16 March 2024, the latest arXiv version; PDF SHA-256 99b3855a…35a9); the published text, Annals of Mathematics 200 (2024), 71–122, was not collated",
+   "printed": "The theorem defines λ_Smyth(Σ, F) with positive numbers a_1, …, a_N. The separation argument in its proof yields nonnegative a_1, …, a_N and F(x) ≥ λ_N − N^{−1} + Σ_{i≤N} a_i log|Q_i(x)| for x ∈ Σ outside the roots of Q_i with i ≤ N. At such roots, the proof claims the inequality because its left side is finite while its right side is −∞.",
+   "correction": "Discard the Q_i with a_i = 0, so that the remaining coefficients are positive as the definition requires. At points x ∈ Σ that are roots only of discarded Q_i, the right side is then finite, and the inequality needs an argument. If x is a limit point of Σ, use continuity. If x is an isolated point of Σ, perturb, for example by giving the relevant Q_i a small positive coefficient at a small cost in λ. On compact parts the cost is at most η times an upper bound for log|Q_i|; outside a sufficiently large compact set, growth condition (5.11) absorbs the finitely many added logarithmic terms. Let the resulting loss in λ tend to zero.",
+   "reason": "When a_i = 0 the term a_i log|Q_i(x)| is 0 · (−∞), not −∞. At a root x of such a Q_i that is not a root of any Q_j with a_j > 0, the right side is finite. The Dirac measure δ_x is not in M_N, since ∫ log|Q_i| dδ_x = −∞, so the separation inequality does not cover x, and the printed justification (\"the right is −∞\") fails. The definition of λ_Smyth also demands positive coefficients, which the separation argument does not supply. The conclusion λ(Σ, F) = λ_Smyth(Σ, F) is expected to survive the repair. Noted by the extraction (item 114), which left the perturbation as an outstanding step. Provenance: confirmed in the separate errata ledger by REV-ERRATA-PAPER-SMITH-24; its review object is deliberately not transferred to this changed extraction. Rechecked at the cited v2 passage by FIX-RT-PAPER-SMITH-24.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "Annals of Mathematics: Crossref record of DOI 10.4007/annals.2024.200.1.2, checked 22 September 2026: no erratum or update registered; the public publisher PDF returned 404 to the extraction",
+    "arXiv 2111.12660: v1 (24 November 2021) and v2 (16 March 2024, the latest)",
+    "web search for an erratum or correction, 22 September 2026: none found",
+    "2026-09-30: Annals publication page https://annals.math.princeton.edu/2024/200-1/p02 and Crossref DOI 10.4007/annals.2024.200.1.2: no linked correction/update found; metadata only, published full text not read.",
+    "2026-09-30: https://arxiv.org/abs/2111.12660 lists v1 (2021-11-24) and v2 (2024-03-16); no later version listed.",
+    "2026-09-30: author publications https://www.asmith-math.org/papers.html and web search for the title with erratum/correction: no correction found."
+   ]
+  },
+  {
+   "id": "PAPER-SMITH-24/E6",
+   "kind": "error",
+   "locator": "Proof of Proposition 2.5, first paragraph, p.36, in arXiv 2111.12660v2 (16 March 2024, the latest arXiv version; PDF SHA-256 99b3855a…35a9); the published text, Annals of Mathematics 200 (2024), 71–122, was not collated",
+   "printed": "The source expresses Σ as its isolated points together with ∪_{k≥1} Σ_k, where every Σ_k is compact and a finite union of intervals, with Σ_k ⊆ Σ_{k+1} for every k ≥ 1.",
+   "correction": "\"… as the union of its set of one-point components with a set of the form ∪_{k≥1} Σ_k …\". The one-point components form a countable set, which is all the next sentence uses.",
+   "reason": "A one-point component need not be isolated. Σ = {0} ∪ ⋃_{n≥1}[1/(2n+1), 1/(2n)] ∪ [1, 6] is compact, has countably many components and capacity greater than 1 (it contains [1, 6], of capacity 5/4). Its component {0} is not isolated, and 0 lies in no compact finite union of intervals inside Σ, because every neighbourhood of 0 meets gaps of Σ. So the printed decomposition fails. With one-point components in place of isolated points the decomposition holds (the other components are countably many closed intervals, and Σ_k is the union of the first k of them), and the argument that μ gives this countable set measure 0 is unchanged. Provenance: confirmed in the separate errata ledger by REV-ERRATA-PAPER-SMITH-24; its review object is deliberately not transferred to this changed extraction. Rechecked at the cited v2 passage by FIX-RT-PAPER-SMITH-24.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Annals of Mathematics: Crossref record of DOI 10.4007/annals.2024.200.1.2, checked 22 September 2026: no erratum or update registered; the public publisher PDF returned 404 to the extraction",
+    "arXiv 2111.12660: v1 (24 November 2021) and v2 (16 March 2024, the latest)",
+    "web search for an erratum or correction, 22 September 2026: none found",
+    "Unpaywall record of DOI 10.4007/annals.2024.200.1.2, 23 September 2026: closed, no open copy besides arXiv (checked by the review)",
+    "2026-09-30: Annals publication page https://annals.math.princeton.edu/2024/200-1/p02 and Crossref DOI 10.4007/annals.2024.200.1.2: no linked correction/update found; metadata only, published full text not read.",
+    "2026-09-30: https://arxiv.org/abs/2111.12660 lists v1 (2021-11-24) and v2 (2024-03-16); no later version listed.",
+    "2026-09-30: author publications https://www.asmith-math.org/papers.html and web search for the title with erratum/correction: no correction found."
+   ]
+  },
+  {
+   "id": "PAPER-SMITH-24/E7",
+   "kind": "misprint",
+   "locator": "Proof of Proposition 2.5, first paragraph, p.36, in arXiv 2111.12660v2 (16 March 2024, the latest arXiv version; PDF SHA-256 99b3855a…35a9); the published text, Annals of Mathematics 200 (2024), 71–122, was not collated",
+   "printed": "The source cites Proposition 5.7 for nonpositivity of I(μ). It uses zero capacity of countable point sets and I(μ) > −∞ to conclude μ(∪_{k≥1} Σ_k) = 1.",
+   "correction": "\"… since I(μ) < ∞ …\".",
+   "reason": "With the paper's sign convention (Definition 2.1, I(μ) = ∫∫ −log|z − w| dμ dμ), a measure of finite energy I(μ) < ∞ gives no mass to sets of capacity zero, and that is what I(μ) ≤ 0 (Proposition 5.7) supplies. The printed condition I(μ) > −∞ holds for every compactly supported probability measure, since −log|z − w| is bounded below on a compact set. It is the condition of Ransford's convention (energy ∫∫ log|z − w|), which the paper cites in Definition 2.1 but does not use. Provenance: confirmed in the separate errata ledger by REV-ERRATA-PAPER-SMITH-24; its review object is deliberately not transferred to this changed extraction. Rechecked at the cited v2 passage by FIX-RT-PAPER-SMITH-24.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Annals of Mathematics: Crossref record of DOI 10.4007/annals.2024.200.1.2, checked 22 September 2026: no erratum or update registered; the public publisher PDF returned 404 to the extraction",
+    "arXiv 2111.12660: v1 (24 November 2021) and v2 (16 March 2024, the latest)",
+    "web search for an erratum or correction, 22 September 2026: none found",
+    "Unpaywall record of DOI 10.4007/annals.2024.200.1.2, 23 September 2026: closed, no open copy besides arXiv (checked by the review)",
+    "2026-09-30: Annals publication page https://annals.math.princeton.edu/2024/200-1/p02 and Crossref DOI 10.4007/annals.2024.200.1.2: no linked correction/update found; metadata only, published full text not read.",
+    "2026-09-30: https://arxiv.org/abs/2111.12660 lists v1 (2021-11-24) and v2 (2024-03-16); no later version listed.",
+    "2026-09-30: author publications https://www.asmith-math.org/papers.html and web search for the title with erratum/correction: no correction found."
+   ]
+  },
+  {
+   "id": "PAPER-SMITH-24/E8",
+   "kind": "error",
+   "locator": "Lemma 4.4 proof p.24 in arXiv:2111.12660v2, SHA-256 99b3855a176ddb280630f50cbed23039c1348417aad31d817f34c3b60f4a35a9; published Annals text not collated.",
+   "printed": "The source asserts that every root of T_(r+3k₀)/T̃_r lies in Σ.",
+   "correction": "Its roots lie in the convex hull [min Σ,max Σ]; its degree is 3k₀. Hence on Σ its absolute value is at most diam(Σ)^{3k₀}, the constant needed for the lower bound.",
+   "reason": "For Σ=[−3,−1]∪[1,3], cap(Σ)=√2>1 because Σ is the inverse image of [1,9] under the monic map z². Here k₀=2. For odd r, uniqueness of the monic Chebyshev polynomial on the symmetric set makes T_(r+6) odd, with a root at 0 outside Σ. A pruned polynomial has roots only in Σ, so this root remains in the quotient. The corrected convex-hull bound follows from alternation and leaves the lemma intact. Verified against the page image and Definition 4.3; the smaller example [−2,−1]∪[1,2] is invalid under κ>1 and is not used.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "2026-09-30: Annals publication page https://annals.math.princeton.edu/2024/200-1/p02 and Crossref DOI 10.4007/annals.2024.200.1.2: no linked correction/update found; metadata only, published full text not read.",
+    "2026-09-30: https://arxiv.org/abs/2111.12660 lists v1 (2021-11-24) and v2 (2024-03-16); no later version listed.",
+    "2026-09-30: author publications https://www.asmith-math.org/papers.html and web search for the title with erratum/correction: no correction found."
+   ]
+  },
+  {
+   "id": "PAPER-SMITH-24/E9",
+   "kind": "misprint",
+   "locator": "Lemma 4.7 proof p.27 in arXiv:2111.12660v2, SHA-256 99b3855a176ddb280630f50cbed23039c1348417aad31d817f34c3b60f4a35a9; published Annals text not collated.",
+   "printed": "The source specifies j∈[0,D−1) for the interval index.",
+   "correction": "Use integers 0≤j<D, equivalently j∈[0,D−1].",
+   "reason": "D+1 points v_(i,0),…,v_(i,D) give D intervals, needed to count Dr roots. The proof’s concluding paragraph already uses 0≤j<D. Verified in the page image.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "2026-09-30: Annals publication page https://annals.math.princeton.edu/2024/200-1/p02 and Crossref DOI 10.4007/annals.2024.200.1.2: no linked correction/update found; metadata only, published full text not read.",
+    "2026-09-30: https://arxiv.org/abs/2111.12660 lists v1 (2021-11-24) and v2 (2024-03-16); no later version listed.",
+    "2026-09-30: author publications https://www.asmith-math.org/papers.html and web search for the title with erratum/correction: no correction found."
+   ]
+  },
+  {
+   "id": "PAPER-SMITH-24/E10",
+   "kind": "misprint",
+   "locator": "Proposition 3.6 proof p.16, before (3.5) in arXiv:2111.12660v2, SHA-256 99b3855a176ddb280630f50cbed23039c1348417aad31d817f34c3b60f4a35a9; published Annals text not collated.",
+   "printed": "The source claims its bound on cofactors whenever k≤n.",
+   "correction": "Use every k≤n+1.",
+   "reason": "The approximating polynomial has n+1 roots and all n+1 cofactors were defined and estimated in the preceding lines. Omitting the last one would not justify the maximum in (3.6). Verified in the page image.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "2026-09-30: Annals publication page https://annals.math.princeton.edu/2024/200-1/p02 and Crossref DOI 10.4007/annals.2024.200.1.2: no linked correction/update found; metadata only, published full text not read.",
+    "2026-09-30: https://arxiv.org/abs/2111.12660 lists v1 (2021-11-24) and v2 (2024-03-16); no later version listed.",
+    "2026-09-30: author publications https://www.asmith-math.org/papers.html and web search for the title with erratum/correction: no correction found."
+   ]
+  },
+  {
+   "id": "PAPER-SMITH-24/E11",
+   "kind": "error",
+   "locator": "Lemma 4.7 proof p.27, before (4.9) in arXiv:2111.12660v2, SHA-256 99b3855a176ddb280630f50cbed23039c1348417aad31d817f34c3b60f4a35a9; published Annals text not collated.",
+   "printed": "The source states the minimal-shift claim for 0≤k≤N/a, including k=0.",
+   "correction": "Write Q=B+N with B=Q₀+Σ ε_iT_i. For every shift N′∈[0,N), minimality gives a root α with |B(α)+N′|<a/2. Each root contributes an open interval of real shifts of length at most a. At most n such intervals cover [0,N), hence N≤na, proving (4.9).",
+   "reason": "At k=0 the printed assertion contradicts the defining lower bound |Q(α)|≥a/2 for every root. The interval-cover argument works for real or nonreal roots (intersection of a radius-a/2 disk with a horizontal line has length at most a), and establishes the exact required bound. If n=0 there are no roots and the minimal shift is N=0; the division by n is used only for n>0. Verified against Definition 4.6 and the page image.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "2026-09-30: Annals publication page https://annals.math.princeton.edu/2024/200-1/p02 and Crossref DOI 10.4007/annals.2024.200.1.2: no linked correction/update found; metadata only, published full text not read.",
+    "2026-09-30: https://arxiv.org/abs/2111.12660 lists v1 (2021-11-24) and v2 (2024-03-16); no later version listed.",
+    "2026-09-30: author publications https://www.asmith-math.org/papers.html and web search for the title with erratum/correction: no correction found."
+   ]
+  }
+ ],
+ "sourceVersions": [
+  {
+   "kind": "preprint",
+   "url": "https://arxiv.org/pdf/2111.12660v2",
+   "citation": "Alexander Smith, arXiv:2111.12660v2, 47 pages, posted 2024-03-16; PDF dated 2024-03-19",
+   "read": "2026-09-30",
+   "sha256": "99b3855a176ddb280630f50cbed23039c1348417aad31d817f34c3b60f4a35a9",
+   "scope": "Fresh fix reading: pp.1,7–9,11–14,16,23–27,31–47, including images pp.16,24,27; original 2026-09-22 full-v2 reading retained under source.readSections. Published Annals 200 (2024), 71–122 metadata checked only; none of E1–E11 is asserted to persist in the published text."
+  }
+ ],
+ "verificationHistory": [
+  {
+   "agent": "Claude Code",
+   "session": "cc-d67081",
+   "issue": 1082,
+   "job": "REV-PAPER-SMITH-24",
+   "date": "2026-09-23",
+   "verdict": "accept",
+   "read": "arXiv 2111.12660v2, SHA-256 99b3855a…4a35a9, matching the recorded hash: §1 in full, Corollary 1.3, the statements behind the proposed roadmap, a sweep of all 57 paper-internal numbered statements against the items, and the route's negative atlas searches reproduced.",
+   "changes": "None. No item, status, route or locator needed correction.",
+   "lean": "none",
+   "scope": "Historical acceptance of the 56-item 2026-09-23 extraction only; superseded by verified RT findings and this fix. Does not review the revised inventory or sourceIssues."
+  }
+ ],
+ "fixVerification": {
+  "job": "FIX-RT-PAPER-SMITH-24",
+  "issue": 4974,
+  "agent": "Codex",
+  "session": "codex-J6LwjP",
+  "date": "2026-09-30",
+  "basis": "All seven confirmed findings of RT-PAPER-SMITH-24, including verifier corrections; independent review of this changed file remains pending.",
+  "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+  "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+  "scope": "Focused rereading, exact pinned declaration statements and reviewed audits, source and route reconciliation. No fresh full-paper or published-version collation claimed; no Lean compilation required for a JSON/Markdown fix."
  }
 }
