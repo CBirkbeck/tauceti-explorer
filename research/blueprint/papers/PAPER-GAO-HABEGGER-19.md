@@ -1,151 +1,72 @@
-# PAPER-GAO-HABEGGER-19: Heights in families of abelian varieties and the Geometric Bogomolov Conjecture
+# PAPER-GAO-HABEGGER-19: heights in families and geometric Bogomolov
 
-Ziyang Gao and Philipp Habegger, *Heights in families of abelian varieties and the Geometric Bogomolov Conjecture*, [Annals of Mathematics 189 (2019), 527–604](https://doi.org/10.4007/annals.2019.189.2.3); arXiv [1801.05762](https://arxiv.org/abs/1801.05762).
+Ziyang Gao and Philipp Habegger, *Heights in families of abelian varieties and the Geometric Bogomolov Conjecture*, [Annals of Mathematics 189 (2019), 527–604](https://doi.org/10.4007/annals.2019.189.2.3); [arXiv v3](https://arxiv.org/abs/1801.05762v3).
 
-Extraction by Claude Code, session `cc-fb70e5`, 22 September 2026 (issue #1135). Status: **complete**. The whole of arXiv v3 was read and every missing item is routed once. The machine-readable extraction is [PAPER-GAO-HABEGGER-19.result.json](PAPER-GAO-HABEGGER-19.result.json): 76 items (10 planned, 66 missing), 9 routes, 15 prerequisite entries and 27 recorded source issues. The independent review (REV-PAPER-GAO-HABEGGER-19) corrected it in place; its changes are listed at the end.
+The [extraction](PAPER-GAO-HABEGGER-19.result.json) now has **91 items: 1 library, 10 planned, 80 missing; 11 routes; 23 prerequisites; 30 source issues**. Every missing item has one route. The extraction is complete; the proof decomposition of missing supplier theorems belongs to their blueprints.
 
-**Source.** arXiv v3 (28 January 2019, the latest version; 64 pages), [PDF](https://arxiv.org/pdf/1801.05762v3), SHA-256 `ffe408dc6ba034b2a635488600decace1e89d61ad04860c391bef9409f2fd34e`, read in full on 2026-09-22. Locators refer to v3. The review later read the published Annals version, which is freely available from the journal site: its numbering and mathematics agree with v3.
+Original extraction: Claude Code `cc-fb70e5`, 22 September 2026, #1135. Independent review: `cc-442dc5`, 23 September. Confirmed-finding fixes: Codex `codex-J6LwjP`, 30 September, #4983. The [fix report](../redteam/RT-PAPER-GAO-HABEGGER-19.fixes.md) addresses eight confirmed findings and preserves the rejected finding /5. These fixes are awaiting independent REV-FIX review, not certified by the historical paper acceptance.
+
+## Reading provenance
+
+The original worker read all 64 pages of arXiv v3. Its failure to obtain Annals is a dated historical access record. The independent reviewer subsequently read v3 in full and collated the published 78-page article. The corrected JSON records both readings under their original dates and workers. The published theorem numbering agrees, with specific textual differences recorded in E11 and E27.
+
+The current fix freshly compared selected passages in both PDFs and reproduced both hashes. It does not claim a new complete reading or a re-verification of E1–E27. Structured `sourceVersions` gives exact scopes; BLR and Deligne readings are separately recorded.
+
+| Text | SHA-256 |
+| --- | --- |
+| [arXiv v3 PDF](https://arxiv.org/pdf/1801.05762v3) | `ffe408dc6ba034b2a635488600decace1e89d61ad04860c391bef9409f2fd34e` |
+| [Published PDF](https://annals.math.princeton.edu/wp-content/uploads/annals-v189-n2-p03-s.pdf) | `09304f589d44e7c44b050448bcc3317680e4954a47cad126762350e6e9a13bfd` |
+
+Fresh published passages include the Betti ambiguity, Ax references, monodromy Hom formula, Néron sequence, constant-rank application, lattice multiplicity and Lemma B.2. Annals p.556 and Deligne p.43 were checked as images. BLR pp.184–189 were read from page images, especially the exactness hypotheses and proof on pp.186–187.
 
 ## What the paper proves
 
-Let π : 𝒜 → S be an abelian scheme over a smooth curve over Q̄.
+Let π:𝒜→S be an abelian scheme over a smooth curve over Q̄. Theorem 1.4 bounds the base height by c(1+ĥ𝒜(P)) away from the generically special subvarieties of a fixed irreducible X. Theorem 1.4′ also compares with a naive height in the total space. Theorem 1.1 deduces geometric Bogomolov for the function field of a curve; Appendix A extends the characteristic-zero constant field using Moriwaki heights.
 
-- **Theorem 1.4 (height inequality).** For every closed irreducible X ⊆ 𝒜 there is c with h_S(π(P)) ≤ c(1 + ĥ_𝒜(P)) on X*. Here X* is X minus its *generically special* subvarieties: those whose geometric generic fibre is a finite union of (constant part) + (torsion coset). Proposition 1.3 shows that X* is Zariski open.
-- **Theorem 1.4′.** The same bound holds with the naive height h_{𝒜,L′}(P) in the middle.
-- **Theorem 1.1 (Geometric Bogomolov Conjecture).** Take the function field K of a curve over Q̄, and X ⊆ A with X ⊗ K̄ not of the form B + (Z ⊗ K̄). Then the points of X of Néron–Tate height ≤ ε are not Zariski dense. Appendix A extends this to any algebraically closed constant field of characteristic 0 using Moriwaki heights.
+The proof classifies special subvarieties, constructs Betti maps, and proves that degeneracy over a curve implies generic specialness (Theorem 5.1). The latter uses monodromy, fixed-part/Hodge inputs, semi-rational counting and Ax's theorem. Lemma 6.2 then finds full Betti rank. Auxiliary subvarieties and Blichfeldt counting produce many division points; degree-height estimates and Silverman–Tate yield the height inequality. Silverman's specialization limit completes the Bogomolov argument.
 
-The proof has five parts:
+## Existing interfaces and missing extensions
 
-1. **Special subvarieties (§3, Appendix B).** Proposition 3.1 classifies subvarieties with dense V₀(k) × A_tor points. Its inputs are uniform Manin–Mumford, Lang–Néron and the finiteness of étale covers of bounded degree.
-2. **Degeneracy (§§4–5).** The Betti map over a curve (Proposition 4.1) is built from an Ehresmann trivialization and holomorphic periods.
-   - Monodromy transport along Betti fibres (Proposition 5.4) makes a degenerate subvariety virtually monodromy invariant.
-   - Deligne's semisimplicity, the Tits alternative, the Theorem of the Fixed Part and Zarhin's Hodge-generic points supply a rank-two free subgroup of monodromy with no invariants.
-   - Semi-rational Pila–Wilkie and Ax's theorem (Lemma 5.2) then give Theorem 5.1: degenerate implies generically special.
-3. **Auxiliary variety and lattice points (§§6–7).** A generic linear section Z of complementary dimension has transversal Betti image (Proposition 6.1), and only finitely many of its fibres contain cosets (Proposition 6.9, via a Bézout bound for long intersections, Proposition 6.7). Blichfeldt's theorem counts points of N·b(X) − b(Z) in a lattice (Proposition 7.2).
-4. **Degree and height (§§8–9).** These give ≥ cN^{2 dim X} isolated points of X′ ∩ [N]^{-1}(Y) (Proposition 8.1, via auxiliary sets of intersections with torsion translates). Habegger's degree–height lemma then yields h([2^N]Q) ≥ c4^N h(Q) − c′(N) (Proposition 9.1).
-5. **Killing Zimmer constants (§§10–11).** Silverman–Tate with N fixed large gives Proposition 10.1, and Theorem 1.4 follows by induction on dim X. Silverman's height limit theorem along the section of a small point then gives Theorem 1.1.
-
-## What the atlas already has
-
-- **Library.** Mathlib has the Weil height on projective space relative to a number field (`Projectivization.logHeight`), not the absolute height on ℙⁿ(Q̄); the review marks the latter as planned by RP.0.
-- **Planned.**
-  - HeightsRationalPointsAndObstructions RP.0: the height machine, and naive and Néron–Tate heights.
-  - RP.5: Manin–Mumford.
-  - NeronModelsAndSemistableAbelianVarieties R11.1 (Néron models) and R11.5 (Néron–Ogg–Shafarevich).
-  - AbelianSchemesAndArithmeticModuli A5 (abelian varieties versus Hodge structures) and A6 (Poincaré reducibility).
-  - GeometryOfNumbersAndQuadraticArithmetic GN.1 (Blichfeldt).
-  - LogicAndDefinabilityInNumberTheory LD.6 (the o-minimal structure ℝ_an).
+- Item 15 retains R11.1's Néron mapping property. New item 80 separately gives good reduction for subvarieties and quotients; item 81 gives the exact Néron sequence and embedded complement **with characteristic-zero residue fields on the entire assertion**. The derived results go after the R11.5 criterion, avoiding a backward R11.5→R11.1 dependency. Xie–Yuan can share item 80; its characteristic-p case cannot import item 81's closure assertion.
+- IG.3 reuses the curve/Belyi Riemann-existence supplier. Lemma B.2 needs the smooth quasi-projective higher-dimensional comparison, topological finite generation and characteristic-zero algebraically closed base extension (items 77–79). Those remain missing and route downstream with item 22. Curve coverage does not prove the whole higher-dimensional item.
+- C0 and its tracked analytic-space extension own the reduced regular-locus, connectedness, identity, dimension and curve-singularity facts (85–89). The Betti design and draft CV.1 consume that same owner. The current C0 packet is partial; these facts are not supplied by smooth-manifold holomorphic functions alone.
+- The Betti tranche receives finite-dimensional invariance of domain, the real constant-rank theorem, closed-torus subgroup classification by integer characters and good covers of Riemann surfaces (82–84,90). No exact existing stage for those forms was found. Its blueprint must resolve general supplier ownership without building duplicates. The Baire input is already `mathlib:nonempty_interior_of_iUnion_of_closed` (91).
+- Mathlib's two-point Blichfeldt theorem is a baseline for item 54, but the application requires a multiplicity count for arbitrary bounded measurable sets. GN.1 must provide the averaging adapter without convexity or symmetry. Mathlib's Dedekind flat/torsion-free equivalence is the affine input to item 47, not the scheme or fibre-dimension theorem. `NumberField.absLogHeight₁` supplies algebraic-element height, with an affine [1:x] comparison still needed; the full projective height package remains planned at RP.0.
 
 ## Routes
 
-1. **Source of HeightsRationalPointsAndObstructions RP.0, RP.1 and RP.5.** The function-field part of the height layers is not planned, so the paper is a source for:
-   - heights over k(S̄) and the function-field Néron–Tate height, whose kernel is trace plus torsion;
-   - Chow's trace and the Lang–Néron theorem;
-   - Silverman's comparison and specialization theorems (Crelle 342, Theorems A and B) and his 2011 estimate for dominant maps;
-   - the quartic description of [2] and uniform Manin–Mumford (Theorem 3.2);
-   - the David–Hindry stabilizer bound and Bogomolov's degree bound on maximal cosets;
-   - Appendix C, a quantitative Brotbek theorem for abelian varieties.
-2. **Source of AbelianSchemesAndArithmeticModuli A2 and A6.** It covers Raynaud's projective presentation over a curve, and Grothendieck's theorem extending monodromy-equivariant homomorphisms.
-3. **Source of SchemeAndStackFoundations SF.0 and SF.5.** It covers Proposition 6.7 (the degree of the top-dimensional part of any number of intersections is ≤ δ^{n−k}) with Faltings' Lemma 6.8, Bertini through a point, Bézout, conservation of number, and flatness over a curve.
-4. **Source of LogicAndDefinabilityInNumberTheory LD.6.** It covers the semi-rational Pila–Wilkie theorem in families (Habegger–Pila, Cor. 7.2) and Ax's theorem giving Ax-type images.
-5. **Source of InverseGaloisAndArithmeticFundamentalGroups IG.0.** It covers Lemma B.2: π₁ of a smooth variety over an algebraically closed field of characteristic 0 is topologically finitely generated, so there are finitely many étale covers of bounded degree.
-6. **Part II `AbelianSchemesBettiMapsPartII`**, the id of GAO-GE-KUHNE-26 and DIMITROV-GAO-HABEGGER-21. It takes the Betti map over a curve, degeneracy, Theorem 5.1 and its lemmas (5.2–5.6, 5.8), the Tits alternative (no atlas owner), and Lemma 6.2. This paper is the one-parameter predecessor of the Betti-rank theory already in that brief.
-7. **Part II `DegeneratingHodgeStructures`**, the id of BAKKER-KLINGLER-TSIMERMAN-20 and BENOIST-19. It takes the local period map (Ehresmann and Griffiths), Deligne's semisimplicity and Theorem of the Fixed Part, and Zarhin's Hodge-generic extendable points. These are theorems about variations, which Tau Ceti HodgeStructures does not cover.
-8. **Part II `ArakelovGeometryAndAbelianHeightsPartII`**, the id of YUAN-26. It takes Moriwaki heights over finitely generated fields with their height machine, the Moriwaki Néron–Tate height, and Wazir's Silverman theorems. Yuan–Zhang adelic heights contain these.
-9. **Part II `HeightsRationalPointsAndObstructionsPartII`**, the id of YUAN-26, GAO-GE-KUHNE-26 and DIMITROV-GAO-HABEGGER-21. It takes generically special subvarieties, Propositions 1.3, 3.1, B.1 and B.3, and admissible immersions. It also takes the whole height-inequality machine (Propositions 6.1, 6.9, 7.2, 8.1, 9.1 and 10.1, Lemmas 6.3–6.6, 7.1, 8.2 and 9.2–9.4), Theorems 1.4, 1.4′, 1.1 and A.3, and the essential-minimum descent.
+| Route | Missing items | Owner and scope |
+| --- | ---: | --- |
+| 1 | 13 | RP.0/RP.1/RP.5: function-field heights, trace, Lang–Néron, specialization, Manin–Mumford and degree bounds. |
+| 2 | 3 | AbelianSchemesAndArithmeticModuli A2/A6: projective presentation, equivariant Hom extension and projective normality. |
+| 3 | 5 | SF.0/SF.5: flatness/dimension, Bertini, long intersections and Bézout. |
+| 4 | 2 | LD.6: semi-rational counting and the Ax-type input. |
+| 5 | 4 | IG.3: bounded covers and the comparison/finite-generation/base-extension inputs, downstream of IG.0→IG.1. |
+| 6 | 15 | `AbelianSchemesAndArithmeticModuliPartII`: joint Betti-map tranche and its remaining topological auxiliaries. |
+| 7 | 3 | `HodgeStructuresPartII`: periods, semisimplicity, fixed part and Hodge-generic points. |
+| 8 | 3 | `ArakelovGeometryAndAbelianHeightsPartII`: Moriwaki heights and Wazir's comparisons, coalesced with Yuan. |
+| 9 | 25 | `HeightsRationalPointsAndObstructionsPartII`: special subvarieties, the height-inequality machine and Bogomolov endpoints. |
+| 10 | 2 | R11.5: subvariety/quotient good reduction and characteristic-zero model exactness as derived results. |
+| 11 | 5 | C0: reduced analytic-space regular, identity, dimension and curve-singularity inputs. |
 
-No new roadmap id is minted. Every Part II coalesces with a route another paper already proposed.
+`AbelianSchemesBettiMapsPartII` and `DegeneratingHodgeStructures` are historical proposal aliases. The current canonical jobs are `DESIGN-AbelianSchemesAndArithmeticModuliPartII` and `DESIGN-HodgeStructuresPartII`. The former's joint GH19/DGH21/GGK26 Betti tranche must stay in the merged job, even though Kings–Sprang appears first in registry order. The height design requires Theorem 5.1 → Lemma 6.2 → Theorem 1.4 and must follow this supplier.
 
-## Source slips (`sourceIssues` E1–E27)
+The generated heights job currently has `after: []`. The maintainer action coordinates the dependency and anti-deferral repair with BENOIST-19/1; workers do not edit `make_queue.py` or generated queue files. New source routes 10–11 await independent acceptance: the historical review has verdicts for routes 1–9 only. Its complete original JSON is preserved in `historicalReview`, and the fix annotations do not manufacture new acceptances.
 
-E18–E27 were added by the review; see the end.
+## Source issues and prerequisites
 
-Two items are genuine gaps. Both have short repairs, and neither affects a stated theorem.
+Original E1–E27 and their independent verdict objects are unchanged. They include the Betti-construction proof repair, the trace-plus-torsion height kernel, induction boundary cases, a reducible-intersection deduction and version-specific misprints. Their statements and remedies remain in the JSON. Earlier claims that every slip appeared word for word in print are read with E11's partial correction and E27's published-only scope.
 
-- **E8** (gap, affects the proof): Lemma 5.8's induction on dim 𝒜 is stated for relative dimension ≥ 1. It misses two subcases where the auxiliary abelian scheme has relative dimension 0:
-  - in Case 1 with B_s = 0: here Y is a component of 𝒜[N], and [N] works;
-  - in Case 2 with B_s = 𝒜_s: here Y = 𝒜, and the zero map works.
-- **E12** (gap, affects the proof): Proposition 6.9 applies Proposition 6.7, which is stated for irreducible V_i, to the possibly reducible translates Z_s − [k]σ(s).
-  - Expanding the union into irreducible intersections gives ℓ-dependent counts.
-  - The repair: Proposition 6.7 holds when each V_i is reducible with total degree ≤ δ, because unions are cut out by products of equations.
-  - In the application to Proposition 6.1 the fibre Z_s is irreducible or finite, so only the general statement needs this.
+Three new entries await review:
 
-The rest are misprints:
+- **E28:** Remark 4.2 says endomorphism where automorphism is required; the zero map destroys the fibrewise isomorphism. It appears in v3 p.15 and Annals p.544.
+- **E29:** The Hom formula in Lemma 5.6 omits monodromy equivariance. It appears in v3 p.25 and Annals p.556; Grothendieck is [24] in v3 and [23] in print. Deligne's theorem starts with a morphism of local systems. The fixed-part inclusion used in the proof meets the corrected hypothesis.
+- **E30:** The Ax-type assertions should cite Ax 1972 [3], as the introduction does, instead of [2]. Locators are v3 pp.19,21 and Annals pp.548,551.
 
-- **E1** Theorem 3.2: "V ∩ ({v} × A)" should be "Y ∩ ({v} × A)".
-- **E2** Proof of Proposition 3.1: "S ∖ Z" should be "S′ ∖ Z".
-- **E3** Proof of Proposition 3.1: "ψ(v,t) = (v,[N]∘φ(P))" should be "φ(t)".
-- **E4** Proof of Lemma 5.2: c₁ = max{2, |γ₁|₂, |γ₁|₂} must bound γ₁^{±1} and γ₂^{±1}.
-- **E5** Proof of Lemma 5.2: "γ ∈ G" should be "γ ∈ Γ".
-- **E6** Proof of Proposition 5.4: "β" should be "b₁".
-- **E7** Proof of Lemma 5.8: "kernel has dimension φ(Y)" should be "dim φ(Y)".
-- **E9** Proof of Theorem 5.1: "U ∖ Σ" should be "π(U) ∖ Σ".
-- **E10** Proof of Lemma 6.4: "ℝ^{2g}" should be "ℝ^{2k}".
-- **E11** Proof of Proposition 6.9: "Z may now longer be irreducible" should be "Z′ may no longer be irreducible".
-- **E13** §7: φ_{2j}(w,x) should be φ_{2j}(w,y); δ(z₀) should be δ₀(z₀); z̃_n should be z̃_m.
-- **E14** Proof of Lemma 8.2: "(x,y,z)" should be "(w,x,y)"; "ψ_N(w^α,x^α,w^α)" should have y^α.
-- **E15** §10.2: "the first inequality in (1.1)" refers to Theorem 1.4′ and h_{𝒜,L′}.
-- **E16** Proof of Theorem 11.1: "h_{S′}(ρ(t)) → ∞" and "h_S(t) → ∞" should both be "h_{S′}(t) → ∞".
-- **E17** Appendix C: "H⁰(ℙⁿ, 𝒪(d))" should be "H⁰(ℙ^M, 𝒪(d))".
+The rejected /5 is not recorded as E31. Item 30 asks for the continuous semialgebraic-coordinate path, and its statement is unchanged. The verifier's alternative choice of constant γ′ and a(s)=γ′x−y(s) also preserves the needed starting value; no new source gap is asserted.
 
-Each slip was checked against the page images of v3. No erratum is listed on the Annals page and Crossref has no correction relation. The review found every one of them, word for word, in the published version.
+The prerequisite register adds Ax 1972, Grothendieck 1966 and Koizumi 1976 with their specific uses. It also identifies BLR, Grauert–Remmert, Weil, Whitney and the SGA/Cadoret comparison sources behind the newly explicit items. Bibliographic registration is distinct from reading or proving every external theorem. Fresh correction searches checked the journal page, arXiv history, Habegger's research entry and bounded title/erratum queries; no explicit notice was found, without claiming exhaustive novelty.
 
-## Prerequisites not yet covered
+## Validation and limits
 
-- Silverman 1983 (Crelle 342) and Silverman 2011.
-- Habegger 2013 (Crelle 685), and Habegger–Pila 2016.
-- Conrad's trace paper, and Deligne's Hodge II.
-- Zarhin 2008, and Tits 1972.
-- Scanlon and Raynaud on Manin–Mumford.
-- Moriwaki 2000, and Wazir 2006.
-- David–Hindry 2000, Faltings 1991, Bogomolov 1981 and Gubler 2007.
-- Dimitrov–Gao–Habegger 2021, which generalizes Theorem 1.4 and is already extracted.
-
-Links and reasons are in the JSON.
-
-## Checks
-
-- `python3 scripts/check_paper.py research/blueprint/papers/PAPER-GAO-HABEGGER-19.result.json`: ok.
-- Every missing item appears in exactly one route, and no source route takes a planned or library item. The four briefs are 152–239 words.
-- Planned layer ids were checked against `data/atlas.json`. The Mathlib citation was read at 082e2d3 (`NumberTheory/Height/Projectivization.lean:51`). Prerequisite DOIs were checked against Crossref.
-- No Lean was written or compiled; none is a deliverable of this job.
-
-## Independent review corrections (REV-PAPER-GAO-HABEGGER-19, 23 September 2026)
-
-The review read the whole of arXiv v3 (same SHA-256) and collated the published Annals version, Ann. Math. 189 (2019) 527–604, which the journal site serves (SHA-256 `09304f58…3bfd`).
-
-**How the published version compares with v3:**
-- The numbering and the mathematics are the same.
-- All of E1–E17 appear there unchanged, except that E11 is half corrected.
-- Three section headings in the published version have wrong numbers (E27).
-
-**Status change.** Item 9 (the absolute Weil height) moves from library to planned by RP.0. Mathlib's `Projectivization.logHeight` is the height relative to a field with admissible absolute values and has no Q̄ version.
-
-**Items corrected in place:**
-- **Item 6.** The Néron–Tate kernel is τ(A^{K̄/k}(k)) + A_tor. The paper's version is false (E18).
-- **Item 22.** Lemma B.2 says only that there are finitely many étale covers of bounded degree.
-- **Items 23 and 25.** Notes added for E21 and E19.
-- **Item 30.** The semi-rational counting counts distinct values of the non-rational coordinates, and the path starts at γ(0) ∈ Γ, a(0) ∈ ℤⁿ.
-- **Item 31.** Reads exp(y(0)) + G, citing Ax 1972.
-- **Item 41.** Lemma 5.6 concerns the ℂ(S)/ℂ-trace itself (unbarred), which is what Lemma 5.8 needs.
-- **Items 44, 45, 57 and 59.** Their standing hypotheses are restored.
-- **Item 63.** The input Proposition 9.1 needs is the global base-change comparison (E25).
-- **Item 71.** Theorem A.3 is stated over k₀ with h^B_{S̄,M}(π(P)) (E24).
-- **Item 74.** Locator corrected.
-- **New item 76.** Projective normality of L^{⊗n}, n ≥ 3 (Koizumi), which (A2)–(A3) use silently. It is missing and routed to AbelianSchemesAndArithmeticModuli.
-
-**Revised issues.**
-- **E2.** The correction is S̄′ ∖ Z.
-- **E8.** It also covers the false sentence "dim Y ≥ 2 … not in the minimal case".
-
-**Ten new issues, all confirmed:**
-- **E18** (error, p.2). The Néron–Tate kernel is misstated. Counterexample: a constant curve over Q̄(t).
-- **E19** (gap, pp.16–18). The proof of Proposition 4.1(ii)–(iii) uses a cohomological identity as an identity of forms. Repair: the holomorphic relative exponential. The statement stands.
-- **E20** (error, p.12). In §3.1, P must be torsion.
-- **E21** (misprint, p.58). In Appendix B, A should be over K.
-- **E22** (misprint, p.29). (A^{ℂ(S)/ℂ} × S) + 𝒞 = 𝒜, not ℬ.
-- **E23** (gap, p.32). The n = 1 case of Proposition 6.1(ii) needs transversality, not reduced-fibre smoothness.
-- **E24** (misprint, p.56). The statement of Theorem A.3 is garbled.
-- **E25** (gap, p.49). The base change in Proposition 9.1 needs a global height comparison, not Silverman's inequality on X′₀.
-- **E26** (misprint, p.46). S appears where S′ is meant in §8.3.
-- **E27** (misprint, published version only). Section headings on pp.541, 560 and 567 have wrong numbers.
+The paper checker, applicable §18 issue/version checks, intake checks, exact-once routing, original-item and source-issue preservation, unchanged rejected item 30, full historical review preservation, and selected dependency acyclicity pass. Exact finite checks illustrate measurable-set lattice averaging, the zero-endomorphism obstruction, and the equivariance condition; code is retained in the fix report. No Lean file is assigned or compiled, and no library build or language server was started.
