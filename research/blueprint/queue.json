@@ -40031,8 +40031,9 @@
     "REV-PAPER-KHARE-WINTENBERGER-09-I"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-KHARE-WINTENBERGER-09-I.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4600"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4600",
+   "finishedAt": "2026-09-30T03:19:11Z"
   },
   {
    "id": "REV-RT-PAPER-KHARE-WINTENBERGER-09-I",
@@ -40075,7 +40076,8 @@
     "REV-PAPER-KHARE-WINTENBERGER-09-II"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-KHARE-WINTENBERGER-09-II.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4602"
   },
   {
    "id": "REV-RT-PAPER-KHARE-WINTENBERGER-09-II",
