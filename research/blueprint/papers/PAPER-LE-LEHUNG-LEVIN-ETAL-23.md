@@ -1,3 +1,92 @@
+# LLHLM23 continuation: scalar fixed-Hodge full faithfulness
+
+Codex — codex-5ebb6f; issue 1254; 30 September 2026. Partial checkpoint:
+785 items, 26 routes, 120 unreviewed source findings, 12 gaps. This
+continuation adds K60/K61 to the existing LocalGaloisDeformationRings owner.
+Every earlier statement, classification and source finding is retained.
+The full-paper reading remains attributed to its original worker.
+
+## The coefficient argument
+
+Fix the same tame rank-one type and Hodge tuple on both charts. K59 supplies
+A_{i,j}=d_{i,j}(v+p)^{k_j}. In K28's descended bases, equation (5.12) becomes
+I_j A_{1,j}=A_{2,j}φ(I_{j−1}). Scalar conjugation removes the tame monomial;
+the common Hodge factor is a Laurent unit on an O/ϖ^a coefficient ring,
+since p is nilpotent. Cancelling it gives I_j=a_jφ(I_{j−1}), where
+a_j=d_{2,j}/d_{1,j} is a coefficient unit.
+
+Write I_j=Σ_r c_{j,r}v^r. If p does not divide r the coefficient is zero;
+otherwise it is a_jc_{j−1,r/p}. Every nonzero integer r eventually reaches
+an integer not divisible by p, so every nonconstant coefficient vanishes.
+This works for negative exponents, zero divisors and nilpotents. It does not
+assign a valuation to a nonzero coefficient. The resulting constants t_j
+are units and satisfy t_jd_{1,j}=d_{2,j}t_{j−1}. K08 identifies them with
+the unique integral Kisin isomorphism.
+
+For the completed étale coefficient ring, apply this argument at every
+ϖ^a truncation and recover the compatible constants by completeness.
+Isomorphism sheaves descend from gauge covers. The conclusion concerns
+the quotient stack with its diagonal G_m stabilizer, not its orbit set.
+
+K60 is this coefficient-rigidity lemma. K61 gives the fixed-Hodge restriction
+of ε_τ a monomorphism. K21/K27 supply representability, properness and finite
+presentation at each truncation; the existing Z142 foundation theorem then
+gives a compatible formal closed immersion.
+
+## The remaining Galois comparison
+
+Base change gives a closed immersion
+K^{λ,τ}=X^{λ,τ}×_{Φ-Mod_K^{ét,1}}Y^{≤λ,τ}→X^{λ,τ} at every prime,
+independently of K29's whole-height bound. Two further steps are distinct:
+prove finite-DVR essential surjectivity to apply G15/G47 to this first
+projection; then identify the second projection to Y^{≤λ,τ} by integral
+G_K extension and uniqueness in coefficient families. Neither is claimed here.
+
+A primary source for the finite-DVR input is Caraiani–Levin Proposition5.17,
+printed209/PDF31, in [their published paper](https://www.numdam.org/item/10.24033/asens.2354.pdf).
+Its outer proof transports descent using the unique finite-height lattice
+and identifies type and Hodge data through period comparisons. The underlying
+Kisin lattice/projectivity and period suppliers remain recursive obligations.
+
+The character approach also needs a precise coefficient scope. A universal
+unit d over O[d,d⁻¹] does not automatically define a continuous ordinary
+unramified G_K character: its residue can have infinite order, whereas a
+continuous map from the profinite unramified quotient to a discrete group
+has finite image. Specify the complete local/finite residue coefficient
+category before using ordinary characters, then justify the formal-stack
+passage. Field-valued classification does not settle nilpotent families.
+
+E102's mixed-Hodge collision persists: with A_1=v^{p−1}, A_2=1 and I=v,
+both sides of (5.12) equal v^p. These objects have different Hodge types,
+so K60 cannot cancel a common factor. K29/G18/G35 keep their interval guards.
+No new source mistake is asserted. Dyadic patching and global bounds remain open.
+
+## Reading, ownership and validation
+
+The fresh published PDF download on 29 September at 21:43:42 UTC matches
+the recorded SHA-256. This session freshly read PDF141–149 and the relevant
+§5.4 comparison text on PDF116–119. After the environment repair, PDF119
+was rendered locally and equation (5.12) checked visually. Conrad AppendixB
+through PropositionB.4(i), printed32–36, and selected Caraiani–Levin
+conventions/Proposition5.17 outer proof were read. These bounded readings
+do not repeat the inherited full-paper attribution.
+
+Current L7/R08.3 descriptions and reviewed SF.0/SF.1/SF.4 coverage were
+checked. The inherited pinned Section5 search remains attributed to its
+earlier worker. K60/K61 refine existing missing Kisin carriers; generic
+Laurent algebra and the foundation theorem are imported. Each new theorem
+has explicit prerequisites, proof steps and three regression specifications.
+
+The actual Python paper validator, three-file intake validator and whitespace
+check pass after the session permission repair. Unique IDs, unchanged earlier
+statements/statuses/findings, one route per missing item and the DAG were
+checked directly. There are 1,641 internal edges and all 591 missing items
+are routed once; the census is 146 library, 48 planned and 591 missing.
+Earlier CAS/finite-series checks are historical evidence, not rerun here.
+No Lean deliverable or compilation. No scratch artifact is required to resume.
+
+---
+
 # LLHLM23 continuation: scalar monodromy and fixed-Hodge Kisin charts
 
 Codex — codex-rtOQ9t; issue 1254; 29 September 2026. Partial checkpoint:

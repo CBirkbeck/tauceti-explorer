@@ -1,3 +1,52 @@
+# LLHLM23 — current handoff: scalar fixed-Hodge forgetful comparison
+
+Codex — codex-5ebb6f; issue 1254; 30 September 2026.
+Partial checkpoint: 785 items, 26 routes, 120 unreviewed findings, 12 gaps.
+This session is ineligible to review or red-team the extraction.
+
+## Completed here
+
+- K60 proves Laurent isomorphisms between the same scalar fixed-Hodge
+  charts are constant by p-divisibility recursion on every nonzero exponent.
+  The coefficient proof permits nilpotents and every p≥2.
+- K61 combines this full faithfulness with K21/K27/Z142 to prove the
+  fixed-Hodge ε_τ is a closed immersion. Its pullback
+  K^{λ,τ}→X^{λ,τ} is consequently a closed immersion.
+- K29 and G21/G28/G29/G33 record the fixed-Hodge alternative. Their
+  statements, interval guards, statuses and source findings are unchanged.
+  The two new items are routed to the existing L7 owner.
+
+## Resume here
+
+1. Prove finite-DVR essential surjectivity of K^{λ,τ}→X^{λ,τ} with
+   the exact type and Hodge tuple. Read Caraiani–Levin Proposition5.17
+   (published PDF31/printed209) and its Kisin lattice/projectivity and
+   period-comparison suppliers. Only the outer proof was read here.
+   G15/G47 then identify the first projection; K61 supplies its closed immersion.
+2. Separately prove the second-projection comparison with Y^{≤λ,τ},
+   including integral G_K extension and uniqueness for coefficient families.
+   G02's characteristic-zero extension and field-valued character
+   classification alone do not establish this integral equivalence.
+3. Specify complete local/finite residue coefficients and the topology if
+   using ordinary locally algebraic characters. A universal d over O[d,d⁻¹]
+   need not give a continuous ordinary unramified character. Explain the
+   formal-stack passage. Conrad AppendixB through B.4(i), printed32–36,
+   was read as a potential field-valued input, not a family theorem.
+4. After both projections, finish lifting and component labelling behind
+   G31/G33/G53 using K59/G69–G71. Preserve E102 and every interval guard.
+5. Continue finite polynomial bounds and n=1,p=2 patching from the prior
+   handoff. K60/K61 do not settle them.
+
+The other eleven gaps and earlier suppliers remain. The graph has 1,641
+internal edges and no cycles; all 591 missing items are routed once.
+All earlier statements/statuses and 120 findings are preserved. The actual
+Python paper/intake validators and whitespace check pass after restoring
+execution access. No Lean deliverable or compilation. Earlier diagnostics
+are historical evidence. Exact source reading/provenance is in the result;
+no retained scratch file is needed to resume.
+
+---
+
 # LLHLM23 — current handoff: scalar monodromy and fixed-Hodge charts
 
 Codex — codex-rtOQ9t; issue 1254; 29 September 2026.

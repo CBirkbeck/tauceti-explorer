@@ -1382,6 +1382,28 @@
         "date": "2026-09-29",
         "main": "Scalar continuation: freshly read published PDF99–100, 102–104, 113–115, 132–138, 51–56 and 80–81. Derived the scalar specialization of the recurrence and checked its coefficient-ring convergence; the inherited full-paper attribution is unchanged. The copy was freshly downloaded again with SHA-256 e56478796d15c938b864447d4b48d928ee749b95644df15e1e9055bdf9a142dd.",
         "scope": "New statements G69–G71/K59 are derived scalar adapters, not quotations of new numbered results. They do not assert an unrestricted integral Galois-stack comparison or a repaired height-interval monomorphism."
+      },
+      {
+        "agent": "Codex",
+        "session": "codex-5ebb6f",
+        "date": "2026-09-30",
+        "main": "Fresh published PDF download on 29 September at 21:43:42 UTC matched the inherited SHA-256. Fresh text reading of PDF141–149, followed by the relevant §5.4 text/equation (5.12), PDF116–119, through the web reader on 30 September. The PDF119 page-image request failed; no fresh visual check is claimed. Earlier full-paper attribution unchanged. After the environment repair the same published PDF119 was rendered locally and equation (5.12) visually checked.",
+        "sources": [
+          {
+            "title": "Brian Conrad, Lifting global representations with local properties",
+            "url": "https://math.stanford.edu/~conrad/papers/locchar.pdf",
+            "sha256": "782fe71a3c7f26ccd67943d468f73540d384e2de5d474bf8369475b8b631d9bd",
+            "date": "2026-09-29",
+            "readSections": "AppendixB DefinitionB.1, LemmaB.2, PropositionB.3 and PropositionB.4(i), with their proofs, printed32–36. B.4(ii)’s full proof and later examples not read. Exploratory field-valued input; no family equivalence asserted."
+          },
+          {
+            "title": "Caraiani–Levin, Kisin modules with descent data and parahoric local models",
+            "url": "https://www.numdam.org/item/10.24033/asens.2354.pdf",
+            "date": "2026-09-30",
+            "readSections": "Web PDF text: §1.3 conventions (PDF7), §5.3 definitions and Proposition5.17 with its outer proof (PDF30–31). Underlying Kisin theorems and whole supplier paper not read; no local-file hash claimed."
+          }
+        ],
+        "scope": "K60/K61 are directly proved scalar adapters. A primary finite-DVR existence input was located, but its recursive Kisin suppliers and the second-projection integral family comparison remain unfinished."
       }
     ],
     "smoothLocusContinuation": {
@@ -9209,7 +9231,7 @@
       "locator": "Proposition5.4.3, PDF117–119",
       "statement": "For h≥0 and an (h+1)-generic type τ, assume n≥2 or p>h+1. Then ε_τ is a monomorphism of p-adic formal stacks and, being representable and proper, a closed immersion. Full faithfulness is asserted on all allowed coefficient rings, with the corrected infinitesimal input K31.",
       "status": "missing",
-      "note": "Route owner: LocalGaloisDeformationRings. This is a source extraction and planning claim; no Lean implementation is asserted. Proof-step note (cc-39fac3): The proposition is false for n = 1, where the genericity condition is vacuous, when h ≥ p−1 (see findings). Continuation codex-c83e7a: The rank-one height guard is essential. In the induction the conjugated error bound is checked before invoking K31. The underlying proper-monomorphism result is required for algebraic spaces, so the scheme-only Stacks Tag 04XV citation in the inherited outline is not by itself the whole stack adapter. The required algebraic-space/formal adapter is now Z142, and the scheme criterion is the pinned library item L143.",
+      "note": "Route owner: LocalGaloisDeformationRings. This is a source extraction and planning claim; no Lean implementation is asserted. Proof-step note (cc-39fac3): The proposition is false for n = 1, where the genericity condition is vacuous, when h ≥ p−1 (see findings). Continuation codex-c83e7a: The rank-one height guard is essential. In the induction the conjugated error bound is checked before invoking K31. The underlying proper-monomorphism result is required for algebraic spaces, so the scheme-only Stacks Tag 04XV citation in the inherited outline is not by itself the whole stack adapter. The required algebraic-space/formal adapter is now Z142, and the scheme criterion is the pinned library item L143. Fixed-Hodge rank-one alternative: K60/K61 give a separate closed immersion without the whole-height prime bound. They do not alter this interval statement.",
       "proofSteps": [
         "Carry the rank guard through every reduction in the coefficient ring. For n=1 the height bound h<p−1 replaces the root estimate; for n≥2 the (h+1)-depth supplies it.",
         "One must show that ε_τ is fully faithful on Y^{[0,h],τ}(R) for R p-adically complete Noetherian. It suffices to take R a Noetherian O/ϖ^a-algebra (Remark 5.1.4(2), K04). Fix (s, μ) with μ (h+1)-deep in C_0.",
@@ -11514,7 +11536,14 @@
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/K05",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/K27"
       ],
-      "proofProvenance": "Codex — codex-c83e7a, 24 September 2026. Fresh LLHLM23 published PDF129,131–132,142–148; PDF146 checked as a page image. Source-level outline, not a formal proof or independent review."
+      "proofProvenance": "Codex — codex-c83e7a, 24 September 2026. Fresh LLHLM23 published PDF129,131–132,142–148; PDF146 checked as a page image. Source-level outline, not a formal proof or independent review.",
+      "fixedHodgeContinuation": {
+        "items": [
+          "PAPER-LE-LEHUNG-LEVIN-ETAL-23/K60",
+          "PAPER-LE-LEHUNG-LEVIN-ETAL-23/K61"
+        ],
+        "detail": "K61 gives the fixed-Hodge analogue’s closed-immersion step independently of K29’s interval bound. Next establish essential surjectivity on finite-DVR points with the exact fixed λ, then G15/G47 identify the first projection. The second projection to the Kisin stack is separate. This does not change G21’s statement or prime bound."
+      }
     },
     {
       "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/G66",
@@ -11995,7 +12024,7 @@
       "proofProvenance": "Claude Code — cc-58621d, 29 September 2026; source-level proof steps read from the published PDF132–162 (§7), with the recorded findings applied; not a Lean proof or independent review.",
       "rankOneProofBoundary": {
         "gap": "rank-one-downstream-boundaries",
-        "detail": "G69–G71 now supply the missing scalar monodromy/precision calculation on the fixed-Hodge Kisin gauge charts of K59: both ideals vanish and the comparison is the identity, with no Elkik or prime threshold. The remaining rank-one step for the stated Galois chart is an integral fixed-Hodge comparison X^{λ,τ}≅Y^{≤λ,τ}. G18’s proof passes through a whole height interval and retains its actual prime bound; do not remove that bound from it using the new calculation. A scalar character classification/integral restriction argument must supply this fixed-Hodge equivalence separately. The earlier K21/K22 flat-closure suppliers remain within the inherited closure audit.",
+        "detail": "G69–G71 now supply the missing scalar monodromy/precision calculation on the fixed-Hodge Kisin gauge charts of K59: both ideals vanish and the comparison is the identity, with no Elkik or prime threshold. The remaining rank-one step for the stated Galois chart is an integral fixed-Hodge comparison X^{λ,τ}≅Y^{≤λ,τ}. G18’s proof passes through a whole height interval and retains its actual prime bound; do not remove that bound from it using the new calculation. A scalar character classification/integral restriction argument must supply this fixed-Hodge equivalence separately. The earlier K21/K22 flat-closure suppliers remain within the inherited closure audit. K60/K61 now supply the fixed-Hodge forgetful monomorphism and closed immersion, including the first-projection closed immersion after base change. The integral equivalence still needs finite-DVR lifting and the second-projection arguments in the handoff.",
         "provenance": "Codex — codex-rtOQ9t, 29 September 2026; downstream rank-one scope audit, not an independent review or formal proof."
       }
     },
@@ -12028,7 +12057,7 @@
       "proofProvenance": "Claude Code — cc-58621d, 29 September 2026; source-level proof steps read from the published PDF132–162 (§7), with the recorded findings applied; not a Lean proof or independent review.",
       "rankOneProofBoundary": {
         "gap": "rank-one-downstream-boundaries",
-        "detail": "An existential polynomial can be enlarged without changing the form of this theorem: once a finite prime threshold B depending only on the fixed Hodge data and e is established, replace P by B!·P. Nonvanishing modulo p then gives both P-genericity and p>B. This elementary observation does not by itself establish the rank-one G28/G31 inputs or determine B. Record those inputs first, including their height normalization and precision, then absorb their finitely many bounds. Do not replace a polynomial condition by a root-depth condition in rank one. The new G71 calculation removes the scalar monodromy/Elkik threshold on the fixed-Hodge Kisin side. The unresolved input is now the integral Galois-to-Kisin identification, not analyticity of scalar monodromy.",
+        "detail": "An existential polynomial can be enlarged without changing the form of this theorem: once a finite prime threshold B depending only on the fixed Hodge data and e is established, replace P by B!·P. Nonvanishing modulo p then gives both P-genericity and p>B. This elementary observation does not by itself establish the rank-one G28/G31 inputs or determine B. Record those inputs first, including their height normalization and precision, then absorb their finitely many bounds. Do not replace a polynomial condition by a root-depth condition in rank one. The new G71 calculation removes the scalar monodromy/Elkik threshold on the fixed-Hodge Kisin side. The unresolved input is now the integral Galois-to-Kisin identification, not analyticity of scalar monodromy. K60/K61 now supply the fixed-Hodge forgetful monomorphism and closed immersion, including the first-projection closed immersion after base change. The integral equivalence still needs finite-DVR lifting and the second-projection arguments in the handoff.",
         "provenance": "Codex — codex-rtOQ9t, 29 September 2026; downstream rank-one scope audit, not an independent review or formal proof."
       }
     },
@@ -12179,7 +12208,7 @@
       "proofProvenance": "Claude Code — cc-58621d, 29 September 2026; source-level proof steps read from the published PDF132–162 (§7), with the recorded findings applied; not a Lean proof or independent review.",
       "rankOneProofBoundary": {
         "gap": "rank-one-downstream-boundaries",
-        "detail": "G71 proves that the scalar fixed-Hodge naive and true-monodromy equations vanish identically, so this part of the rank-one factorization no longer needs an m-depth precision estimate. What remains is the integral map from the Galois stack to this Kisin chart: G18 only supplies its stated height/prime range. Supply the fixed-Hodge scalar comparison before exporting the unqualified rank-one Galois factorization.",
+        "detail": "G71 proves that the scalar fixed-Hodge naive and true-monodromy equations vanish identically, so this part of the rank-one factorization no longer needs an m-depth precision estimate. What remains is the integral map from the Galois stack to this Kisin chart: G18 only supplies its stated height/prime range. Supply the fixed-Hodge scalar comparison before exporting the unqualified rank-one Galois factorization. K60/K61 now supply the fixed-Hodge forgetful monomorphism and closed immersion, including the first-projection closed immersion after base change. The integral equivalence still needs finite-DVR lifting and the second-projection arguments in the handoff.",
         "provenance": "Codex — codex-rtOQ9t, 29 September 2026; downstream rank-one scope audit, not an independent review or formal proof."
       }
     },
@@ -27275,6 +27304,86 @@
         }
       ],
       "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/K60",
+      "kind": "theorem",
+      "name": "Laurent isomorphisms between scalar fixed-Hodge charts are constant",
+      "statement": "Fix the rank-one setup of K59: K/Q_p is unramified, τ is a tame character, λ=(k_j) with 0≤k_j≤h and h≥1, and the same presentation of τ is used on both objects. Let R be a commutative O/ϖ^a-algebra, a≥1, and let two scalar gauge charts have A_{i,j}=d_{i,j}(v+p)^{k_j}, d_{i,j}∈R×. Every étale isomorphism between their ε_τ-images, expressed by I_j∈R((v))× in K28’s bases, is a tuple of constants t_j∈R× satisfying t_jd_{1,j}=d_{2,j}t_{j−1}. Conversely each such tuple is a unique Kisin isomorphism. This holds for nonreduced R, at every prime p≥2, independently of h. The compatible inverse-limit assertion holds over p-adically complete coefficient rings with the completed étale coefficient ring. It compares one fixed λ and τ, not a union of different Hodge types.",
+      "locator": "Derived scalar specialization of Proposition 5.4.2 and equation (5.12), published PDF117–119; use the fixed-Hodge normal form K59 and basis-change formula K08.",
+      "status": "missing",
+      "note": "Owner: LocalGaloisDeformationRings:L7. This refines the missing scalar Kisin comparison family, importing its existing carriers and K59; it does not re-plan Laurent-series algebra or formal-stack foundations.",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/K59",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/K26",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/K28",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/K08"
+      ],
+      "proofSteps": [
+        "Work on K59’s gauge/eigenbasis covers. In rank one conjugation by s_j^{-1}v^{μ_j+η_j} is trivial. Equation (5.12) is I_j A_{1,j}=A_{2,j}φ(I_{j−1}). The common (v+p)^{k_j} is a Laurent unit: p is nilpotent, so (v+p)^{-1}=v^{-1}Σ_{r≥0}(-p/v)^r is a finite sum. Cancel it and d_{1,j}, obtaining I_j=a_jφ(I_{j−1}), a_j=d_{2,j}/d_{1,j}∈R×. The tame monomial has cancelled because the type and presentation are the same.",
+        "Write I_j=Σ_{r∈Z}c_{j,r}v^r. Frobenius fixes coefficient entries and sends v to v^p while moving the cyclic embedding index. Coefficient equality gives c_{j,r}=0 if p does not divide r, and c_{j,r}=a_jc_{j−1,r/p} otherwise. Every nonzero integer r becomes an integer not divisible by p after finitely many divisions. Repeated substitution therefore gives c_{j,r}=0. This uses coefficient uniqueness, not a valuation of a nonzero coefficient, an integral-domain assumption, or reducedness.",
+        "Thus I_j=t_j is constant. A constant invertible in R((v)) is already a unit in R, since the constant coefficient of its inverse gives an inverse in R. The constant equation is t_jd_{1,j}=d_{2,j}t_{j−1}. K08 identifies the tuple with an eigenbasis/Kisin isomorphism; K26/K28 identify its étale image with the original isomorphism. This proves existence and uniqueness on Hom groupoids, retaining stabilizers.",
+        "For a complete coefficient ring reduce the completed étale ring and isomorphism modulo each ϖ^a. The reductions are compatible constants. Separated completeness recovers a unique constant unit over R. Gauge covers and overlaps are compared by K08, so the conclusion descends without choosing a global basis."
+      ],
+      "proofProvenance": "Codex — codex-5ebb6f, 30 September 2026. Derived scalar adapters from the published matrix equation, not quotations of numbered source theorems, Lean proofs or an independent review.",
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "ScalarFixedHodgeIsomorphism.nilpotent_pole",
+          "kind": "non-example",
+          "statement": "Over F_2[ε]/(ε²), I=1+ε/v is a Laurent unit, but I=φ(I) would require ε/v=ε/v², which fails by coefficient comparison. Nilpotent Laurent poles do not evade the fixed-Hodge rigidity."
+        },
+        {
+          "name": "ScalarFixedHodgeIsomorphism.two_embedding_constants",
+          "kind": "compatibility",
+          "statement": "For J=Z/2Z, the equations admit a constant solution exactly when d_{1,0}d_{1,1}=d_{2,0}d_{2,1}; choosing t_0∈R× then determines t_1. When the charts coincide their stabilizer is the diagonal G_m."
+        },
+        {
+          "name": "ScalarFixedHodgeIsomorphism.mixed_height_collision",
+          "kind": "non-example",
+          "statement": "For R=F_p, J={0}, τ trivial, A_1=v^{p−1}, A_2=1 and I=v, both sides of I A_1=A_2 φ(I) equal v^p. The matrices have weights p−1 and 0, so the common fixed-Hodge factor cannot be cancelled. This is E102, outside K60’s hypotheses."
+        }
+      ]
+    },
+    {
+      "id": "PAPER-LE-LEHUNG-LEVIN-ETAL-23/K61",
+      "kind": "theorem",
+      "name": "The scalar fixed-Hodge lattice-forgetting map is a closed immersion",
+      "statement": "In the rank-one fixed-λ tame setup of K59, the restriction ε_τ:Y^{≤λ,τ}→Φ-Mod_K^{ét,1} is a monomorphism of p-adic formal stacks and a closed immersion, at every prime p≥2 and every effective tuple λ=(k_j). GL_1 dominance compares only equal cocharacters, so ≤λ is this one fixed-Hodge component. Its pullback K^{λ,τ}:=X^{λ,τ}×_{Φ-Mod_K^{ét,1}}Y^{≤λ,τ}→X^{λ,τ} is consequently a closed immersion. Neither an isomorphism of that first projection nor an equivalence of X^{λ,τ} with Y^{≤λ,τ} is part of this theorem. No corresponding monomorphism on Y^{[0,h],τ} is asserted.",
+      "locator": "Derived fixed-Hodge refinement of Proposition 5.4.3, published PDF117–119, using Proposition 5.4.1 (PDF116), the fixed-Hodge closed substack in §5.3 (PDF113–115), K60 and Z142.",
+      "status": "missing",
+      "note": "Owner: LocalGaloisDeformationRings:L7. It supplies a fixed-Hodge alternative to the guarded whole-height result K29. The algebraic-space/formal-stack criterion is imported from Z142’s SchemeAndStackFoundations owner.",
+      "prerequisites": [
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/K60",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/K21",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/K27",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/Z142"
+      ],
+      "proofSteps": [
+        "At every coefficient truncation choose K59’s gauge covers for two fixed-Hodge objects. K60 identifies every isomorphism of their étale images with a unique Kisin isomorphism. Isomorphism sheaves agree on covers and overlaps, so the restricted map is fully faithful, which is the monomorphism predicate for stacks. This retains the diagonal G_m automorphisms.",
+        "K21 gives a formal closed immersion into Y^{[0,h],τ}. Compose with K27: on every truncation the restricted ε_τ is represented by algebraic spaces, proper and of finite presentation. Its monomorphism satisfies Z142 and is a closed immersion. Use the compatible formal morphism at all truncations, not only the special fibre.",
+        "Closed immersions are stable under base change. Apply this to the defining fibre product K^{λ,τ}, giving its first projection into X^{λ,τ}. No monomorphism of X^{λ,τ} into the étale stack is needed for this step.",
+        "Upgrading that first projection to an isomorphism by G47 needs a separate essential-surjectivity theorem on every finite-DVR O′-point. Identifying the second projection with Y^{≤λ,τ} further needs integral G_K extension and uniqueness in coefficient families. Neither follows merely from the closed immersion."
+      ],
+      "proofProvenance": "Codex — codex-5ebb6f, 30 September 2026. Derived scalar adapters from the published matrix equation, not quotations of numbered source theorems, Lean proofs or an independent review.",
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "ScalarFixedHodgeImmersion.automorphisms",
+          "kind": "compatibility",
+          "statement": "Over a ring with nilpotents the diagonal constant G_m stabilizer maps isomorphically to the étale automorphisms; a monomorphism of stacks need not have trivial stabilizers."
+        },
+        {
+          "name": "ScalarFixedHodgeImmersion.base_change",
+          "kind": "compatibility",
+          "statement": "For every Z→Φ-Mod_K^{ét,1}, the fibre product Z×Y^{≤λ,τ}→Z is a closed immersion, including Z=X^{λ,τ} before proving any Galois restriction monomorphism."
+        },
+        {
+          "name": "ScalarFixedHodgeImmersion.interval_boundary",
+          "kind": "non-example",
+          "statement": "At h=p−1, the different Hodge types in E102 still collide after inverting v. The fixed-Hodge conclusion leaves K29/G18/G35’s guarded interval statements intact."
+        }
+      ]
     }
   ],
   "prerequisites": [
@@ -27564,7 +27673,9 @@
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/K56",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/K57",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/K58",
-        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/K59"
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/K59",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/K60",
+        "PAPER-LE-LEHUNG-LEVIN-ETAL-23/K61"
       ],
       "reason": "L7 owns arbitrary-rank bounded-height Frobenius lattice moduli and their maps to fixed Hodge/inertial-type deformation rings. Add these explicit tame-descent, gauge and residual local-model source obligations there; reserve the true-monodromy polynomial comparison and generic domain theorem for the distinct Part II below. Ordinary lifts use the existing local ordinary infrastructure.",
       "stages": [
@@ -28053,7 +28164,7 @@
       "parent": "LocalGaloisDeformationRings",
       "title": "Local Galois deformation rings and their components, Part II: monodromy local models and generic components",
       "area": "langlands",
-      "brief": "Build on LocalGaloisDeformationRings L7, importing its bounded-height Kisin stacks, tame descent, gauge bases and fixed-type lifting rings. Import integral PZ/loop geometry from GeometricSatakeLocalModelsPartII, affine admissibility from RootSystemsPartIIDominanceAndDemazure, modular finite-group theory from ModularRepresentationsOfFiniteReductiveGroups, scheme normalization/Elkik lemmas from SchemeAndStackFoundations, completed-tensor algebra from DeformationAndDerivedPatchingAlgebra and the common Emerton–Gee foundation from WeightZeroCrystallineLiftingRings. Construct the universal differential locus, naive intersections and flat closures separately. Prove flag generic fibres, contracting chart actions, spreading of normality and product unibranchness with the ramification-index bound; give the Type A affine Springer fixed-point input its own source-bound leaf. Develop residual differential cells, intrinsic C_(w,omega), Serre labels and torus lifts with all genericity bounds, including the corrected Theorem4.6.2 bound max(2n,h_lambda+n-1). Construct analytic monodromy, the convergent recurrence, true flat-closure ideal and basis-dependent truncated ideal; prove the precision containment before Elkik comparison. The exact endpoint is Theorem7.3.2 for regular lambda_j in [0,h]^n and unramified local fields: numerical N_sing gives a noncanonical closed immersion, and a nonzero integral polynomial depending on the Hodge set and coefficient ramification gives the completed regular chart isomorphism and domain-or-zero versal rings at semisimple residual points. Do not claim global canonical gluing or wild-point domains. Prove Theorem7.4.2 component support under max{2(h+1),4n+h}-depth and Proposition7.4.7 with its separate fixed-point polynomial hypothesis. Include the rank-three AppendixB chart, localized equations, normalization and dense branching locus as concrete tests; uniform CAS identities need certificates. Suggested files: TauCeti/NumberTheory/Galois/LocalModels/Differential.lean, Monodromy.lean and GenericComparison.lean. Planets: Differential local model; True monodromy; Generic local-model comparison; Serre-labelled component; Rank-three normalization. Theorem3.7.1 uses two distinct tensor topologies: import the complete-local domain adapter from DeformationAndDerivedPatchingAlgebra and the completed affinoid product from AdicSpacesPartII R0/F0. Elkik precision is now extracted through Z03–Z07, retaining N=2r+1 and the t^(m−r) agreement. For cyclotomic-free restriction use G67–G68 with the finite-length Hom module, importing the discrete cohomology carrier and exactness/transfer from upstream ProfiniteCohomology layers5–6. These local Kummer-tower comparisons do not re-plan the generic cohomology theory. Rank-one scope: carry the actual height/prime conditions of E102 through §7, keep the corrected G35 interval diagram separate from the fixed-Hodge component assertion, and discharge rankOneProofBoundary before restoring unrestricted scalar targets. Existential polynomial genericity may absorb a proved finite prime threshold by a constant factorial factor; vacuous scalar root depth may not. Use G69–G71 for the scalar analytic recurrence, zero true ideal and identity comparison on fixed-Hodge Kisin charts, importing their scalar torus normal form K59 from L7. These have no height-dependent prime bound. Keep the fixed-Hodge integral Galois comparison and the false unrestricted interval hook distinct."
+      "brief": "Build on LocalGaloisDeformationRings L7, importing its bounded-height Kisin stacks, tame descent, gauge bases and fixed-type lifting rings. Import integral PZ/loop geometry from GeometricSatakeLocalModelsPartII, affine admissibility from RootSystemsPartIIDominanceAndDemazure, modular finite-group theory from ModularRepresentationsOfFiniteReductiveGroups, scheme normalization/Elkik lemmas from SchemeAndStackFoundations, completed-tensor algebra from DeformationAndDerivedPatchingAlgebra and the common Emerton–Gee foundation from WeightZeroCrystallineLiftingRings. Construct the universal differential locus, naive intersections and flat closures separately. Prove flag generic fibres, contracting chart actions, spreading of normality and product unibranchness with the ramification-index bound; give the Type A affine Springer fixed-point input its own source-bound leaf. Develop residual differential cells, intrinsic C_(w,omega), Serre labels and torus lifts with all genericity bounds, including the corrected Theorem4.6.2 bound max(2n,h_lambda+n-1). Construct analytic monodromy, the convergent recurrence, true flat-closure ideal and basis-dependent truncated ideal; prove the precision containment before Elkik comparison. The exact endpoint is Theorem7.3.2 for regular lambda_j in [0,h]^n and unramified local fields: numerical N_sing gives a noncanonical closed immersion, and a nonzero integral polynomial depending on the Hodge set and coefficient ramification gives the completed regular chart isomorphism and domain-or-zero versal rings at semisimple residual points. Do not claim global canonical gluing or wild-point domains. Prove Theorem7.4.2 component support under max{2(h+1),4n+h}-depth and Proposition7.4.7 with its separate fixed-point polynomial hypothesis. Include the rank-three AppendixB chart, localized equations, normalization and dense branching locus as concrete tests; uniform CAS identities need certificates. Suggested files: TauCeti/NumberTheory/Galois/LocalModels/Differential.lean, Monodromy.lean and GenericComparison.lean. Planets: Differential local model; True monodromy; Generic local-model comparison; Serre-labelled component; Rank-three normalization. Theorem3.7.1 uses two distinct tensor topologies: import the complete-local domain adapter from DeformationAndDerivedPatchingAlgebra and the completed affinoid product from AdicSpacesPartII R0/F0. Elkik precision is now extracted through Z03–Z07, retaining N=2r+1 and the t^(m−r) agreement. For cyclotomic-free restriction use G67–G68 with the finite-length Hom module, importing the discrete cohomology carrier and exactness/transfer from upstream ProfiniteCohomology layers5–6. These local Kummer-tower comparisons do not re-plan the generic cohomology theory. Rank-one scope: carry the actual height/prime conditions of E102 through §7, keep the corrected G35 interval diagram separate from the fixed-Hodge component assertion, and discharge rankOneProofBoundary before restoring unrestricted scalar targets. Existential polynomial genericity may absorb a proved finite prime threshold by a constant factorial factor; vacuous scalar root depth may not. Use G69–G71 for the scalar analytic recurrence, zero true ideal and identity comparison on fixed-Hodge Kisin charts, importing their scalar torus normal form K59 from L7. These have no height-dependent prime bound. Keep the fixed-Hodge integral Galois comparison and the false unrestricted interval hook distinct. K60–K61 prove full faithfulness and closed immersion of the scalar fixed-Hodge forgetful map, importing L7. Its pullback K^{λ,τ}→X^{λ,τ} is a closed immersion. Prove finite-DVR lifting and the distinct integral extension/uniqueness step before identifying the two projections as equivalences."
     },
     {
       "route": "source",
@@ -30647,7 +30758,7 @@
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B26",
         "PAPER-LE-LEHUNG-LEVIN-ETAL-23/B42"
       ],
-      "detail": "The downstream audit now reaches §§7.3–9. P17’s statement and B24’s use are corrected; E88 reaches the patching-existence proof. E102 gives an explicit counterexample to the whole bounded-height hook in (7.17), so G35 has conservative corrected scope n≥2. The original statement is retained as sourceStatement with the rank-one target and its false unrestricted interval portion distinguished. Each affected G/B proof names its remaining scalar comparison, lifting, flag or precision obligation in rankOneProofBoundary. Remaining: (1) scalar fixed-Hodge/true-monodromy and local-model comparison, including a convention for h_λ on the empty root set and the actual Elkik/contraction bounds; (2) a compatible rank-one version of the component diagram with a valid interval restriction; (3) dyadic scalar patching satisfying the full functor axioms, or retention of p>2; (4) propagate the resulting finite bounds into the existential polynomials. P_m=(-1)^m m! at n=1 is already proved in N80: the explicit P_4 factors in the §8/§9 applications exclude p=2,3, but do not prove arbitrary-height comparisons. No unrestricted rank-one main theorem or recursive closure is asserted. Scalar continuation: G69 proves an explicit analytic solution for C_j=g_jE^{k_j} over the full O-flat coefficient category, including nilpotents; G70 proves the actual true ideal zero. K59 and G71 compute the fixed-Hodge Kisin gauge charts and show true, truncated and naive monodromy agree there at every prime, without using h_λ or an empty-root maximum. The remaining local step is the integral fixed-Hodge Galois-to-Kisin equivalence (for example via locally algebraic rank-one characters and their residual deformation families); characteristic-zero extension from G02 is insufficient. The earlier bounded-height counterexample and dyadic patching boundary remain. K21/K22’s general flat-closure suppliers still belong to the inherited recursive closure audit."
+      "detail": "The downstream audit now reaches §§7.3–9. P17’s statement and B24’s use are corrected; E88 reaches the patching-existence proof. E102 gives an explicit counterexample to the whole bounded-height hook in (7.17), so G35 has conservative corrected scope n≥2. The original statement is retained as sourceStatement with the rank-one target and its false unrestricted interval portion distinguished. Each affected G/B proof names its remaining scalar comparison, lifting, flag or precision obligation in rankOneProofBoundary. Remaining: (1) scalar fixed-Hodge/true-monodromy and local-model comparison, including a convention for h_λ on the empty root set and the actual Elkik/contraction bounds; (2) a compatible rank-one version of the component diagram with a valid interval restriction; (3) dyadic scalar patching satisfying the full functor axioms, or retention of p>2; (4) propagate the resulting finite bounds into the existential polynomials. P_m=(-1)^m m! at n=1 is already proved in N80: the explicit P_4 factors in the §8/§9 applications exclude p=2,3, but do not prove arbitrary-height comparisons. No unrestricted rank-one main theorem or recursive closure is asserted. Scalar continuation: G69 proves an explicit analytic solution for C_j=g_jE^{k_j} over the full O-flat coefficient category, including nilpotents; G70 proves the actual true ideal zero. K59 and G71 compute the fixed-Hodge Kisin gauge charts and show true, truncated and naive monodromy agree there at every prime, without using h_λ or an empty-root maximum. The remaining local step is the integral fixed-Hodge Galois-to-Kisin equivalence (for example via locally algebraic rank-one characters and their residual deformation families); characteristic-zero extension from G02 is insufficient. The earlier bounded-height counterexample and dyadic patching boundary remain. K21/K22’s general flat-closure suppliers still belong to the inherited recursive closure audit. Continuation codex-5ebb6f: K60 kills nonconstant Laurent coefficients by finite p-divisibility recursion, including nilpotents; K61 proves the fixed-Hodge ε_τ is a closed immersion at every prime. Its pullback K^{λ,τ}→X^{λ,τ} is therefore a closed immersion. Remaining: establish finite-DVR lifting with exact source hypotheses, then the second projection/integral G_K extension and uniqueness for coefficient families. A universal parameter d over O[d,d^{-1}] is not automatically a continuous ordinary G_K character when its reduction has infinite order. No unqualified equivalence is claimed."
     }
   ],
   "sourceData": {
@@ -33963,6 +34074,11 @@
       "detail": "Read current LocalGaloisDeformationRings README including sole-owner L7 and data/library-coverage.json. No direct LocalGaloisDeformationRings layer entry is present in that coverage snapshot; the reviewed R03.1/R03.2 entries distinguish completion ingredients from absent deformation functors. Searched every .lean file at Mathlib082e2d3 and TauCetif790474 for Kisin, Breuil, tame.*inerti and gauge.*basis; only an unrelated analyst-name match appeared. The source-specific adapters are missing, routed once to the existing L7 owner. This search is not a claim that scalar power-series, DVR or linear-algebra ingredients are absent.",
       "schemeCriterion": "Read pinned Mathlib/AlgebraicGeometry/ZariskisMainTheorem.lean393–397 and ambient variables: L143 is exact for schemes. Read reviewed SF.0/SF.1/SF.4 coverage and current SF README; general algebraic spaces, geometric stacks and formal schemes are absent in those reviewed rows, so Z142 is a distinct planned adapter, not a duplicate scheme theorem.",
       "cohomology": "Searched pinned Mathlib NumberTheory and all TauCeti Lean sources for cyclotomic-free and Kummer-tower restriction targets; no exact implementation located, so G67–G68 implementation status remains unchecked. Read upstream ProfiniteCohomology scope/export table and exact-sequence layer5, plus the transfer contract cor∘res=index in layer6; generic cohomology is imported, not replanned. Read ArithmeticGaloisDuality R02.1/R02.2/D7 to distinguish its compact/spectral-sequence extensions, which these discrete low-degree arguments do not require."
+    },
+    "codex5ebb6fFixedHodge": {
+      "date": "2026-09-30",
+      "scope": "K60/K61 only; no inherited item status changed",
+      "evidence": "Read current L7/R08.3 descriptions and reviewed SF.0/SF.1/SF.4 coverage. No separate LocalGaloisDeformationRings coverage entry; SF.1 records absent algebraic spaces/geometric stacks and SF.4 absent formal schemes. The new statements refine existing missing Kisin carriers K59/K21. Inherited pinned Section5 search evidence is retained, not represented as a new search run. Laurent coefficient algebra and the scheme closed-immersion criterion are imported, not replanned."
     }
   },
   "validation": {
@@ -35451,7 +35567,25 @@
     "ccC58621dGOutlines": "29 September 2026, issue 1254 (Claude Code, cc-58621d): the 39 §7 theorem items without an outline (G02, G05, G06, G10, G11, G15, G16, G19, G20, G28–G31, G33–G48, G53–G61 and G65) now carry source-level proofSteps, prerequisites and proofProvenance, read from the published PDF132–162 with E15, E20, E28, E32, E37, E64, E69–E74, E89 and E110 applied. The internal prerequisite graph gains 127 edges and stays acyclic (1,568 edges). No new finding: §7 was re-read and its recorded findings cover what was found. Two implicit steps are made explicit: Theorem 7.3.2(2)'s polynomial condition on μ is the product of Theorem 3.7.1's P over the finitely many s_j^{-1}(μ_j+η_j) (Lemma 7.3.1); and Remark 7.4.3(2) needs h ≥ n−1, which regularity of λ ∈ [0,h]^n forces, to meet E15's repaired bound. Remaining theorem items without proof steps: A 56, L 138 (L items are library citations). No status, route or finding changed. check_paper.py and intake check-files pass.",
     "ccC58621dAOutlines": "29 September 2026, issue 1254 (Claude Code, cc-58621d): the 56 Appendix A theorem items without an outline (A14, A25, A27, A30–A33, A36–A45, A47–A59, A61–A65, A74–A89, A91–A93 and A96–A97) now carry source-level proofSteps, prerequisites and proofProvenance. They were read from the published PDF (Appendix A PDF187–201, with §1.8.2 PDF28, §2.5 PDF49–50, §6.1.1 PDF125–126 and §9.1 PDF180–182) and from the cited sources recorded in continuationReadings: Thorne arXiv:1107.5989v1; CHT (author manuscript and Numdam copy); Bellaïche–Chenevier; BLGGT, Local-global compatibility for l=p, II (author copy and Numdam); BLGGT, Annals 179; Labesse; Mœglin–Waldspurger; EGH. The recorded findings touching these items are applied. Items that the extraction marked as suppliers or adapters say in a step which source step they replace. The internal prerequisite graph gains 32 edges and stays acyclic (1,600 edges). New findings: E119, a misprint in CHT's published proof of Lemma 2.1.9; E120, the missing step that pr S(U_1(Q),W)_mQ is an O[Δ_Q]-direct summand, which §A.4 needs for its freeness and Thorne's Theorem 6.8(ii) leaves out (A33 supplies it). E50 gains three further rank slips of BLGGT l=p II that persist in print; E49–E51 now cite that paper's published pages 165–179; A81's locator now cites §1.8.2. A candidate finding at Definition 2.5.3 (PDF50) was rejected: the text layer drops the ≼ symbol, and the page image reads 'the trivial representation is ≼ the Steinberg representation'. Remaining theorem items without proof steps: L 138 (library citations). No status or route changed. check_paper.py and intake check-files pass.",
     "rankOneDownstreamChecks": "Exact integer checks of P_m=(-1)^m m!, nonvanishing iff p>m, factorial multiplication, the scalar Frobenius collision at height p−1, and the n≥2 simple-root prime bound; internal prerequisite graph and missing-item route uniqueness checked. These finite regressions supplement the written general argument, not a formal proof.",
-    "scalarMonodromyChecks": "24 cyclic families checked exactly through u-degree 35 over Q[ε]/(ε²), with (p,#J′)=(2,1),(2,2),(2,3),(3,1),(3,2),(5,1), e′=p^(#J′)−1, heights 0,1,3,7 and nonconstant units 1+(j+1)u+(j+1)εu². The finite source recurrence agrees with G69’s formula and has zero constant term. The written B_m argument, not these finite regressions, establishes analytic convergence. No Lean proof is asserted."
+    "scalarMonodromyChecks": "24 cyclic families checked exactly through u-degree 35 over Q[ε]/(ε²), with (p,#J′)=(2,1),(2,2),(2,3),(3,1),(3,2),(5,1), e′=p^(#J′)−1, heights 0,1,3,7 and nonconstant units 1+(j+1)u+(j+1)εu². The finite source recurrence agrees with G69’s formula and has zero constant term. The written B_m argument, not these finite regressions, establishes analytic convergence. No Lean proof is asserted.",
+    "codex5ebb6fFixedHodge": {
+      "session": "codex-5ebb6f",
+      "date": "2026-09-30",
+      "items": 785,
+      "statuses": {
+        "library": 146,
+        "planned": 48,
+        "missing": 591
+      },
+      "internalEdges": 1641,
+      "internalDAG": true,
+      "oneRoutePerMissing": true,
+      "findingsPreserved": 120,
+      "allExistingStatementsPreserved": true,
+      "checks": "JavaScript translation of the paper/source-issue validators, IDs, routing and DAG passed before saving. After the session permission repair, the actual Python paper and three-file intake validators and git diff --check were run successfully; the report records the checks. No new source mistake asserted.",
+      "lean": "No Lean deliverable or compilation; no implementation claim.",
+      "inherited": "Earlier CAS, finite-series and other diagnostics are historical evidence and were not rerun here."
+    }
   },
   "definitionApiGroups": [
     {
