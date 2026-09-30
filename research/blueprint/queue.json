@@ -23653,12 +23653,12 @@
     "REV-RS-14"
    ],
    "prompt": "research/blueprint/prompts/BP-DirichletPadicLFunctions.md",
-   "state": "external",
+   "state": "pending",
    "suppliers": [
     "BP-LocallyAnalyticDistributions",
     "BP-PadicMeasuresIwasawaAlgebras"
    ],
-   "note": "claimed on GitHub issue #713"
+   "note": "released on GitHub issue #713"
   },
   {
    "id": "REV-DirichletPadicLFunctions",
@@ -34092,8 +34092,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-DITTMANN-POP-23.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4978"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4978",
+   "finishedAt": "2026-09-30T18:00:26Z"
   },
   {
    "id": "RT-PAPER-BHATT-SCHOLZE-22",
@@ -35437,7 +35438,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-TEMKIN-17.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4988"
   },
   {
    "id": "RT-PAPER-DOSPINESCU-LEBRAS-17",
