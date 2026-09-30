@@ -27356,3 +27356,356 @@ Exact controls check 3,150 pointwise inequalities, 57,603 sample shifts, 588 shi
 Initial capture at 8282d5ecadacbb9a55719ab4f89ba7a9121353d1 changes only the source-issue registry and generated register. Seven changed or new BHS/Yun–Zhang records were read in full: BHS E8 finite projective graded pieces with nonparallel weights, E12 character-fibre codimension and E13 local miracle-flatness hypothesis; Yun–Zhang E9 constant infinity orbital contribution and factor two, E28 withdrawal of the smoothness accusation, E38 lemma-part locator, E39 wording. Existing review statuses are recorded, not independently reverified. All sixteen owned findings and every analytic supplier input are unchanged. Publication refresh at a49b81b9 reads the DKV extraction FIX4986 changes: the arXiv page count becomes38; source-version and pending-fix receipts are added; generic GMA/extension modules and qualified closed-subring/Frobenius-density inputs are assigned to IHG.1/.4, with IHG.6 only a separate residual-coincidence comparison; Teichmuller ownership is solely Dirichlet L3 and retains the dyadic sign; Deligne–Ribet and a new dedicated two-character Hilbert Eisenstein route belong to Automorphic L3. The full changed route brief, all eight changed items, summary and fix metadata were read. Its Gamma/Gross–Koblitz/Ferrero–Greenberg route and three items are identical, as are its35 findings. The fix awaits independent review; this is a routing assessment, not a fresh full-paper read. No consumed analytic supplier or owned finding changes.
 
 The separate partial signature file also compiled with zero errors and 2,644 expected placeholder warnings across 3,600 pinned source modules. It includes all 6 new named declarations and 16 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 0d4a5f46bcb67e1f36cab66a5489e33442112ecd63584ee540e8ec4fc9e846f7.
+
+
+## Finite source torsion characters and their twists
+
+Eleven L3 nodes package the source torsion coordinate as a native finite character, map its coefficients, and form the inverse-power twist family at one common level. They prove its exact weights, finite period, mean comparison and uniform bound. All 837 predecessor nodes,693 baseline records and 16 findings remain whole.
+
+The complete KL1964 and Morita1975 readings are retained. KL p.333 was re-read directly for Hilfssatz2 equation(8), its inverse character powers and the uniformity used in(9). The actual native extension-by-zero and coefficient-change statements, changeLevel, character inverse/power evaluation, finite character order, ZMod unit cardinality, prime-power unit support, divisor coprimality and the native p-adic scalar ring hom were read at the pins. The proof retains a common level and makes no unsupported primitive-conductor reduction.
+
+### The finite source torsion character
+
+`DirichletPadicLFunctions:L3/morita-torsion-character` — `DirichletPadic.moritaTorsionCharacter`
+
+Construct θ_p:ZMod(q)→ℤ_p as the native Dirichlet character χ₄ followed by integer coercion if p=2, and the existing p-adic Teichmüller unit homomorphism extended by zero with MulChar.ofUnitHom otherwise.
+
+**Hypotheses:** p is prime; q=4 at p=2 and q=p otherwise; d=φ(q). The native source Ω and angular map α are the preceding maps, with the separate dyadic sign branch. f is a character level, b=lcm(f,q), N_n=bq^n, and χ is a native Dirichlet character at level f. Positivity f>0 is required only for the norm theorem. The twists use the fixed common level b; no replacement by a varying primitive conductor or unproved minimal-conductor comparison is made. The coefficient field K is equipped with an explicit unital ring homomorphism ι:ℤ_p→K. In the normalized analytic application, take the composite ℤ_p→ℚ_p→K from the native coercion and normed algebra map. For the norm theorem, K is an ultrametric normed ℚ_p-algebra of characteristic zero and A:ℤ_p→K has the explicit disc bounds ‖A(x)‖≤B and ‖A(x)−A(y)‖≤(B/‖q‖)‖x−y‖ for ‖x−1‖,‖y−1‖≤‖q‖, with B≥0. The analytic Gauss interpretation stays conditional on the existing LAD L0 request.
+
+**Proof:**
+
+1. For p=2 reuse the native quadratic character χ₄ and native ringHomComp along ℤ→ℤ₂. This retains the sign at the residue class3.
+2. For p≠2 use the already constructed padicTeichmuller:(ZMod p)ˣ→ℤ_pˣ and the native ofUnitHom equivalence to extend it by zero on nonunits. Transport its level across the exact equality q=p.
+3. One and multiplication are the native multiplicative-character laws. Native isUnit_natCast_iff_not_dvd_pow at q=4, or isUnit_iff_coprime and the prime criterion at q=p, identify the support as p∤a.
+4. The complete torsionChar probe checks the dependent prime branches. Its native cast_char_eval auxiliary proof verifies that changing an equal level preserves evaluation on natural casts; the unit and order comparisons are promoted below.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/morita-modulus`, `DirichletPadicLFunctions:L3/padic-teichmuller`, `mathlib:ZMod.χ₄`, `mathlib:MulChar.ringHomComp`, `mathlib:MulChar.ofUnitHom`, `mathlib:ZMod.isUnit_natCast_iff_not_dvd_pow`, `mathlib:ZMod.isUnit_iff_coprime`.
+
+**Uses:**
+
+- KL equation(8): Provides the finite character whose inverse powers weight every derivative term.
+- Native common-level characters: Allows the existing Dirichlet changeLevel and character norm APIs to be used directly.
+- Dyadic source comparison: Retains χ4 rather than the trivial residue-field Teichmüller character at p=2.
+
+**API:**
+
+- `DirichletPadic.moritaTorsionCharacter_two` (compatibility): The dyadic character is the native χ₄ followed by scalar coercion.
+- `DirichletPadic.moritaTorsionCharacter_odd` (compatibility): At odd p its natural evaluations agree with the native unit lift extended by zero.
+- `DirichletPadic.moritaTorsionCharacter_one` (simp): θ_p(1)=1.
+- `DirichletPadic.moritaTorsionCharacter_mul` (structure): θ_p(ab)=θ_p(a)θ_p(b).
+- `DirichletPadic.moritaTorsionCharacter_nat_unit` (projection): At a p-unit natural number it is the existing source Ω; promoted below.
+- `DirichletPadic.moritaTorsionCharacter_nonunit` (simp): At a natural multiple of p its value is zero.
+- `DirichletPadic.moritaTorsionCharacter_order` (relation): θ_p^φ(q)=1 in the native character group; promoted below.
+
+**Tests:**
+
+- `SuggestedMoritaTwistTests.torsion_identity` (degenerate): θ₂(1)=1.
+- `SuggestedMoritaTwistTests.torsion_dyadic_three` (computation): θ₂(3)=−1.
+- `SuggestedMoritaTwistTests.torsion_nonunit_two` (degenerate): θ₂(2)=0.
+- `SuggestedMoritaTwistTests.torsion_native_five` (compatibility): θ₅(2) reduces to 7 modulo25, agreeing with the actual native Teichmüller lift.
+
+**Acceptance:** This is a finite Dirichlet-character interface to the existing coordinates, not another Teichmüller lift or residue-field construction.
+
+**Source:** Section 2 pp.331–333, source torsion character, translated Taylor formula (3), Hilfssatz2 equation (8) and the constants in (9). The inverse source torsion powers in each Taylor coefficient are packaged as actual native Dirichlet characters at the fixed common level. The source-inspired explicit coarse bound from PR5261 works uniformly for every twist at this level. Taylor interchange, decay and the limiting functional remain separate work.
+
+### The finite character equals the source unit coordinate
+
+`DirichletPadicLFunctions:L3/morita-torsion-character-unit` — `DirichletPadic.moritaTorsionCharacter_nat_unit`
+
+For a natural a that is a unit in ℤ_p, and its native unit witness u_a, θ_p(a)=Ω_p(u_a) as scalars in ℤ_p.
+
+**Hypotheses:** p is prime; q=4 at p=2 and q=p otherwise; d=φ(q). The native source Ω and angular map α are the preceding maps, with the separate dyadic sign branch. f is a character level, b=lcm(f,q), N_n=bq^n, and χ is a native Dirichlet character at level f. Positivity f>0 is required only for the norm theorem. The twists use the fixed common level b; no replacement by a varying primitive conductor or unproved minimal-conductor comparison is made. The coefficient field K is equipped with an explicit unital ring homomorphism ι:ℤ_p→K. In the normalized analytic application, take the composite ℤ_p→ℚ_p→K from the native coercion and normed algebra map. For the norm theorem, K is an ultrametric normed ℚ_p-algebra of characteristic zero and A:ℤ_p→K has the explicit disc bounds ‖A(x)‖≤B and ‖A(x)−A(y)‖≤(B/‖q‖)‖x−y‖ for ‖x−1‖,‖y−1‖≤‖q‖, with B≥0. The analytic Gauss interpretation stays conditional on the existing LAD L0 request.
+
+**Proof:**
+
+1. At p=2 unfold the existing dyadic Ω coefficient formula and the finite χ₄ construction. The native reduction homomorphism sends the natural cast a to its class modulo4.
+2. At odd p apply the native ofUnitHom_coe projection to the reduction of u_a. Its scalar residue is the natural cast a modulo p, and the existing Ω is exactly the native lift composed with that reduction.
+3. The complete torsionChar_nat_unit proof uses the already proved p-unit criterion. The suggested statement takes the equivalent explicit native IsUnit witness, so its input is a real unit and no value of Ω at a nonunit is invented.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/morita-torsion-character`, `DirichletPadicLFunctions:L3/morita-omega`, `DirichletPadicLFunctions:L3/dyadic-omega`, `DirichletPadicLFunctions:L3/teichmuller-omega`, `mathlib:MulChar.ofUnitHom_coe`, `mathlib:IsUnit.unit`.
+
+**Tests:**
+
+- `SuggestedMoritaTwistTests.torsion_odd_sign` (computation): θ₃(2)=−1.
+- `SuggestedMoritaTwistTests.torsion_inverse_orientation` (non-example): Modulo25 the inverse character value θ₅⁻¹(2) is18, whereas θ₅(2) is7. The derivative twist needs the inverse.
+
+**Acceptance:** The coordinate comparison includes the exact inverse orientation needed in the translated Taylor powers.
+
+**Source:** Section 2 pp.331–333, source torsion character, translated Taylor formula (3), Hilfssatz2 equation (8) and the constants in (9). The inverse source torsion powers in each Taylor coefficient are packaged as actual native Dirichlet characters at the fixed common level. The source-inspired explicit coarse bound from PR5261 works uniformly for every twist at this level. Taylor interchange, decay and the limiting functional remain separate work.
+
+### The finite order of the torsion Dirichlet character
+
+`DirichletPadicLFunctions:L3/morita-torsion-character-order` — `DirichletPadic.moritaTorsionCharacter_order`
+
+θ_p^d=1 in the native multiplicative-character group, with d=φ(q), hence d=2 at p=2 and d=p−1 at odd p.
+
+**Hypotheses:** p is prime; q=4 at p=2 and q=p otherwise; d=φ(q). The native source Ω and angular map α are the preceding maps, with the separate dyadic sign branch. f is a character level, b=lcm(f,q), N_n=bq^n, and χ is a native Dirichlet character at level f. Positivity f>0 is required only for the norm theorem. The twists use the fixed common level b; no replacement by a varying primitive conductor or unproved minimal-conductor comparison is made. The coefficient field K is equipped with an explicit unital ring homomorphism ι:ℤ_p→K. In the normalized analytic application, take the composite ℤ_p→ℚ_p→K from the native coercion and normed algebra map. For the norm theorem, K is an ultrametric normed ℚ_p-algebra of characteristic zero and A:ℤ_p→K has the explicit disc bounds ‖A(x)‖≤B and ‖A(x)−A(y)‖≤(B/‖q‖)‖x−y‖ for ‖x−1‖,‖y−1‖≤‖q‖, with B≥0. The analytic Gauss interpretation stays conditional on the existing LAD L0 request.
+
+**Proof:**
+
+1. q is positive, so its residue-unit group is finite. Apply native MulChar.pow_card_eq_one to θ_p.
+2. Use the native equality card((ZMod q)ˣ)=φ(q). This gives the character-group identity, including its zero values on nonunits.
+3. The complete torsionChar_order proof checks the positive-level instance and exact cardinality normalization. The identity character is not the globally constant-one function.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/morita-torsion-character`, `DirichletPadicLFunctions:L3/morita-modulus`, `mathlib:MulChar.pow_card_eq_one`, `mathlib:ZMod.card_units_eq_totient`.
+
+**Tests:**
+
+- `SuggestedMoritaTwistTests.torsion_dyadic_order` (compatibility): θ₂² is the identity Dirichlet character at level4.
+- `SuggestedMoritaTwistTests.torsion_order_nonunit_zero` (non-example): The value of θ₂² at2 is zero, not one.
+- `SuggestedMoritaTwistTests.torsion_dyadic_not_trivial` (non-example): θ₂ itself is not the identity character.
+
+**Acceptance:** The dyadic period is2, not p−1=1.
+
+**Source:** Section 2 pp.331–333, source torsion character, translated Taylor formula (3), Hilfssatz2 equation (8) and the constants in (9). The inverse source torsion powers in each Taylor coefficient are packaged as actual native Dirichlet characters at the fixed common level. The source-inspired explicit coarse bound from PR5261 works uniformly for every twist at this level. Taylor interchange, decay and the limiting functional remain separate work.
+
+### The torsion character in the coefficient field
+
+`DirichletPadicLFunctions:L3/morita-torsion-character-map` — `DirichletPadic.moritaTorsionCharacterMap`
+
+Define θ_{p,ι}=θ_p.ringHomComp(ι), a native Dirichlet character at level q with values in K.
+
+**Hypotheses:** p is prime; q=4 at p=2 and q=p otherwise; d=φ(q). The native source Ω and angular map α are the preceding maps, with the separate dyadic sign branch. f is a character level, b=lcm(f,q), N_n=bq^n, and χ is a native Dirichlet character at level f. Positivity f>0 is required only for the norm theorem. The twists use the fixed common level b; no replacement by a varying primitive conductor or unproved minimal-conductor comparison is made. The coefficient field K is equipped with an explicit unital ring homomorphism ι:ℤ_p→K. In the normalized analytic application, take the composite ℤ_p→ℚ_p→K from the native coercion and normed algebra map. For the norm theorem, K is an ultrametric normed ℚ_p-algebra of characteristic zero and A:ℤ_p→K has the explicit disc bounds ‖A(x)‖≤B and ‖A(x)−A(y)‖≤(B/‖q‖)‖x−y‖ for ‖x−1‖,‖y−1‖≤‖q‖, with B≥0. The analytic Gauss interpretation stays conditional on the existing LAD L0 request.
+
+**Proof:**
+
+1. Use the existing native coefficient-change operation. Its value at a is exactly ι(θ_p(a)), and its multiplicative/zero extension laws are supplied by that operation.
+2. Apply the preceding natural-unit comparison to obtain θ_{p,ι}(a)=ι(Ω_p(u_a)). Composition with another field ring homomorphism agrees pointwise with coefficient change along its composite.
+3. The complete fieldChar and fieldChar_nat_unit probes check this definition and source evaluation. In the analytic application use the native PadicInt.Coe.ringHom followed by the ℚ_p-algebra map, which pins the coefficient embedding explicitly.
+4. The inherited finite order is separately promoted because the common-level period theorem uses it.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/morita-torsion-character`, `DirichletPadicLFunctions:L3/morita-torsion-character-unit`, `mathlib:MulChar.ringHomComp`, `mathlib:PadicInt.Coe.ringHom`.
+
+**Uses:**
+
+- KL source coefficients: Places the torsion values in the same coefficient field as χ and A.
+- Common-level twists: Supplies the actual native character to inflate and invert.
+- Coefficient extensions: Makes a chosen field embedding and its composition visible in the arithmetic formula.
+
+**API:**
+
+- `DirichletPadic.moritaTorsionCharacterMap_apply` (projection): Evaluation is ι(θ_p(a)).
+- `DirichletPadic.moritaTorsionCharacterMap_nat_unit` (compatibility): On p-units it is the coefficient image of the existing Ω.
+- `DirichletPadic.moritaTorsionCharacterMap_order` (relation): The mapped character still has d-th power one; promoted below.
+- `DirichletPadic.moritaTorsionCharacterMap_comp` (functoriality): Further coefficient change agrees with composition of the ring maps, including the identity case.
+
+**Tests:**
+
+- `SuggestedMoritaTwistTests.mapped_torsion_identity` (degenerate): Under the native embedding ℤ₂→ℚ₂ the value at1 is1.
+- `SuggestedMoritaTwistTests.mapped_torsion_nonunit` (degenerate): Under that embedding the value at2 is0.
+- `SuggestedMoritaTwistTests.mapped_torsion_comp_identity` (compatibility): Composing the coefficient map with the identity field map leaves the character unchanged.
+
+**Acceptance:** The coefficient map is actual data; no unsupported normalized norm on an arbitrary coefficient algebra is inferred.
+
+**Source:** Section 2 pp.331–333, source torsion character, translated Taylor formula (3), Hilfssatz2 equation (8) and the constants in (9). The inverse source torsion powers in each Taylor coefficient are packaged as actual native Dirichlet characters at the fixed common level. The source-inspired explicit coarse bound from PR5261 works uniformly for every twist at this level. Taylor interchange, decay and the limiting functional remain separate work.
+
+### Finite order survives coefficient change
+
+`DirichletPadicLFunctions:L3/morita-torsion-character-map-order` — `DirichletPadic.moritaTorsionCharacterMap_order`
+
+The mapped character satisfies θ_{p,ι}^d=1.
+
+**Hypotheses:** p is prime; q=4 at p=2 and q=p otherwise; d=φ(q). The native source Ω and angular map α are the preceding maps, with the separate dyadic sign branch. f is a character level, b=lcm(f,q), N_n=bq^n, and χ is a native Dirichlet character at level f. Positivity f>0 is required only for the norm theorem. The twists use the fixed common level b; no replacement by a varying primitive conductor or unproved minimal-conductor comparison is made. The coefficient field K is equipped with an explicit unital ring homomorphism ι:ℤ_p→K. In the normalized analytic application, take the composite ℤ_p→ℚ_p→K from the native coercion and normed algebra map. For the norm theorem, K is an ultrametric normed ℚ_p-algebra of characteristic zero and A:ℤ_p→K has the explicit disc bounds ‖A(x)‖≤B and ‖A(x)−A(y)‖≤(B/‖q‖)‖x−y‖ for ‖x−1‖,‖y−1‖≤‖q‖, with B≥0. The analytic Gauss interpretation stays conditional on the existing LAD L0 request.
+
+**Proof:**
+
+1. Use the native ringHomComp_pow identity to move the d-th power through coefficient change.
+2. Apply the preceding θ_p order theorem and the native ringHomComp_one identity. No injectivity or norm property of the coefficient map is needed.
+3. The complete fieldChar_order probe checks the identity in the actual character group.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/morita-torsion-character-map`, `DirichletPadicLFunctions:L3/morita-torsion-character-order`, `mathlib:MulChar.ringHomComp_pow`, `mathlib:MulChar.ringHomComp_one`.
+
+**Tests:**
+
+- `SuggestedMoritaTwistTests.mapped_torsion_sign` (computation): The mapped dyadic character still takes the nontrivial sign −1 at3.
+
+**Acceptance:** The statement remains valid for any specified unital map into a field; the analytic norm assumptions are separate.
+
+**Source:** Section 2 pp.331–333, source torsion character, translated Taylor formula (3), Hilfssatz2 equation (8) and the constants in (9). The inverse source torsion powers in each Taylor coefficient are packaged as actual native Dirichlet characters at the fixed common level. The source-inspired explicit coarse bound from PR5261 works uniformly for every twist at this level. Taylor interchange, decay and the limiting functional remain separate work.
+
+### The common-level inverse torsion twists
+
+`DirichletPadicLFunctions:L3/morita-character-twist` — `DirichletPadic.moritaCharacterTwist`
+
+For m≥0 define χ_m at level b=lcm(f,q) by χ_m=changeLevel(χ)·changeLevel(θ_{p,ι})^(−m), using the native character group inverse and natural power.
+
+**Hypotheses:** p is prime; q=4 at p=2 and q=p otherwise; d=φ(q). The native source Ω and angular map α are the preceding maps, with the separate dyadic sign branch. f is a character level, b=lcm(f,q), N_n=bq^n, and χ is a native Dirichlet character at level f. Positivity f>0 is required only for the norm theorem. The twists use the fixed common level b; no replacement by a varying primitive conductor or unproved minimal-conductor comparison is made. The coefficient field K is equipped with an explicit unital ring homomorphism ι:ℤ_p→K. In the normalized analytic application, take the composite ℤ_p→ℚ_p→K from the native coercion and normed algebra map. For the norm theorem, K is an ultrametric normed ℚ_p-algebra of characteristic zero and A:ℤ_p→K has the explicit disc bounds ‖A(x)‖≤B and ‖A(x)−A(y)‖≤(B/‖q‖)‖x−y‖ for ‖x−1‖,‖y−1‖≤‖q‖, with B≥0. The analytic Gauss interpretation stays conditional on the existing LAD L0 request.
+
+**Proof:**
+
+1. Use the two native divisibilities f∣b and q∣b to inflate both characters to the same residue ring.
+2. Take the inverse of the inflated torsion character, raise it to m, and multiply by the inflated χ. This is a native Dirichlet character, so every nonunit at level b has value zero.
+3. At m=0 the result is precisely changeLevel(χ). The identity character in this product is zero on nonunits; it cannot be replaced pointwise by constant one before the support is checked.
+4. The complete twist and twist_zero probes implement the actual native formula. The period, weight evaluation, unchanged averaging level and mean comparison are promoted to separate nodes.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/morita-torsion-character-map`, `DirichletPadicLFunctions:L3/morita-mean-level`, `mathlib:DirichletCharacter.changeLevel`.
+
+**Uses:**
+
+- KL Hilfssatz2 equation(8): Names the actual χΩ^(−m) character multiplying a divided derivative.
+- Uniformity over derivative order: Places the entire family at one level and hence one explicit bound.
+- Finite character mean comparison: Allows the existing angularMean functional to evaluate the twisted derivative terms without a new distribution carrier.
+
+**API:**
+
+- `DirichletPadic.moritaCharacterTwist_zero` (simp): At m=0 it is the native inflation of χ.
+- `DirichletPadic.moritaCharacterTwist_period` (relation): The family depends only on m modulo d; promoted below.
+- `DirichletPadic.moritaCharacterTwist_weight` (projection): On p-unit natural indices its weight is χ(a)θ_{p,ι}(a)^(−m); promoted below.
+- `DirichletPadic.moritaCharacterTwist_omega_weight` (compatibility): On those indices the finite torsion value is the coefficient image of the existing Ω.
+- `DirichletPadic.moritaCharacterTwist_level` (compatibility): Its finite averaging levels are exactly N_n; promoted below.
+- `DirichletPadic.moritaAngularMean_twist` (relation): Its mean is the original finite mean with the inverse-torsion sample weight; promoted below.
+- `DirichletPadic.moritaCharacterTwist_uniform` (other): One source-scaled bound works for every m,n under the explicit disc hypotheses; promoted below.
+
+**Tests:**
+
+- `SuggestedMoritaTwistTests.twist_zero_is_inflated` (compatibility): For p=2,f=1 the zeroth twist is the identity character at level4.
+- `SuggestedMoritaTwistTests.twist_zero_new_nonunit` (non-example): That character is zero at2, while the original level-one character is one there.
+- `SuggestedMoritaTwistTests.twist_one_dyadic_sign` (computation): For p=2,f=1 the first twist is −1 at the residue3.
+
+**Acceptance:** The fixed common level and all its nonunit values are retained. This introduces no assertion about the primitive conductor of a twist.
+
+**Source:** Section 2 pp.331–333, source torsion character, translated Taylor formula (3), Hilfssatz2 equation (8) and the constants in (9). The inverse source torsion powers in each Taylor coefficient are packaged as actual native Dirichlet characters at the fixed common level. The source-inspired explicit coarse bound from PR5261 works uniformly for every twist at this level. Taylor interchange, decay and the limiting functional remain separate work.
+
+### Twisting keeps the same averaging levels
+
+`DirichletPadicLFunctions:L3/morita-character-twist-level` — `DirichletPadic.moritaCharacterTwist_level`
+
+For every n, moritaLevel(p,lcm(f,q),n)=moritaLevel(p,f,n)=lcm(f,q)q^n.
+
+**Hypotheses:** p is prime; q=4 at p=2 and q=p otherwise; d=φ(q). The native source Ω and angular map α are the preceding maps, with the separate dyadic sign branch. f is a character level, b=lcm(f,q), N_n=bq^n, and χ is a native Dirichlet character at level f. Positivity f>0 is required only for the norm theorem. The twists use the fixed common level b; no replacement by a varying primitive conductor or unproved minimal-conductor comparison is made. The coefficient field K is equipped with an explicit unital ring homomorphism ι:ℤ_p→K. In the normalized analytic application, take the composite ℤ_p→ℚ_p→K from the native coercion and normed algebra map. For the norm theorem, K is an ultrametric normed ℚ_p-algebra of characteristic zero and A:ℤ_p→K has the explicit disc bounds ‖A(x)‖≤B and ‖A(x)−A(y)‖≤(B/‖q‖)‖x−y‖ for ‖x−1‖,‖y−1‖≤‖q‖, with B≥0. The analytic Gauss interpretation stays conditional on the existing LAD L0 request.
+
+**Proof:**
+
+1. Unfold the existing arithmetic level. Native associativity and idempotence of lcm give lcm(lcm(f,q),q)=lcm(f,q).
+2. The complete twist_level proof checks this equality. It requires no primitivity or conductor-minimality theorem and keeps the original summation range and denominator together.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/morita-character-twist`, `DirichletPadicLFunctions:L3/morita-mean-level`.
+
+**Tests:**
+
+- `SuggestedMoritaTwistTests.twist_same_level` (computation): For p=2,f=3 both level sequences are12·4^n.
+
+**Acceptance:** Do not replace the level by an independently chosen conductor in an equality of finite means.
+
+**Source:** Section 2 pp.331–333, source torsion character, translated Taylor formula (3), Hilfssatz2 equation (8) and the constants in (9). The inverse source torsion powers in each Taylor coefficient are packaged as actual native Dirichlet characters at the fixed common level. The source-inspired explicit coarse bound from PR5261 works uniformly for every twist at this level. Taylor interchange, decay and the limiting functional remain separate work.
+
+### Only finitely many inverse torsion twists occur
+
+`DirichletPadicLFunctions:L3/morita-character-twist-period` — `DirichletPadic.moritaCharacterTwist_period`
+
+For every natural m, χ_m=χ_(m mod d) as native Dirichlet characters at the fixed level b.
+
+**Hypotheses:** p is prime; q=4 at p=2 and q=p otherwise; d=φ(q). The native source Ω and angular map α are the preceding maps, with the separate dyadic sign branch. f is a character level, b=lcm(f,q), N_n=bq^n, and χ is a native Dirichlet character at level f. Positivity f>0 is required only for the norm theorem. The twists use the fixed common level b; no replacement by a varying primitive conductor or unproved minimal-conductor comparison is made. The coefficient field K is equipped with an explicit unital ring homomorphism ι:ℤ_p→K. In the normalized analytic application, take the composite ℤ_p→ℚ_p→K from the native coercion and normed algebra map. For the norm theorem, K is an ultrametric normed ℚ_p-algebra of characteristic zero and A:ℤ_p→K has the explicit disc bounds ‖A(x)‖≤B and ‖A(x)−A(y)‖≤(B/‖q‖)‖x−y‖ for ‖x−1‖,‖y−1‖≤‖q‖, with B≥0. The analytic Gauss interpretation stays conditional on the existing LAD L0 request.
+
+**Proof:**
+
+1. The common-level torsion character has d-th power one: apply the native changeLevel monoid homomorphism to the preceding mapped-character order equation.
+2. Its inverse also has d-th power one. Write m=(m mod d)+d(m div d), and expand using power addition and multiplication.
+3. The d-multiple disappears, leaving the desired equality after multiplication by the fixed inflated χ. The complete twist_period probe proves this group identity, not just equality at selected unit values.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/morita-character-twist`, `DirichletPadicLFunctions:L3/morita-torsion-character-map-order`, `mathlib:DirichletCharacter.changeLevel`.
+
+**Tests:**
+
+- `SuggestedMoritaTwistTests.twist_dyadic_period` (computation): At p=2 the m+2 and m twists agree.
+- `SuggestedMoritaTwistTests.twist_odd_period` (computation): At p=5 the m+4 and m twists agree.
+
+**Acceptance:** This proves at most d twists; no claim of exact order for every coefficient specialization or χ is needed.
+
+**Source:** Section 2 pp.331–333, source torsion character, translated Taylor formula (3), Hilfssatz2 equation (8) and the constants in (9). The inverse source torsion powers in each Taylor coefficient are packaged as actual native Dirichlet characters at the fixed common level. The source-inspired explicit coarse bound from PR5261 works uniformly for every twist at this level. Taylor interchange, decay and the limiting functional remain separate work.
+
+### The exact twisted weight on the summation support
+
+`DirichletPadicLFunctions:L3/morita-character-twist-weight` — `DirichletPadic.moritaCharacterTwist_weight`
+
+If p∤a, then χ_m(a mod b)=χ(a mod f)θ_{p,ι}(a mod q)^(−m). Equivalently, the final factor is ι(Ω_p(u_a))^(−m).
+
+**Hypotheses:** p is prime; q=4 at p=2 and q=p otherwise; d=φ(q). The native source Ω and angular map α are the preceding maps, with the separate dyadic sign branch. f is a character level, b=lcm(f,q), N_n=bq^n, and χ is a native Dirichlet character at level f. Positivity f>0 is required only for the norm theorem. The twists use the fixed common level b; no replacement by a varying primitive conductor or unproved minimal-conductor comparison is made. The coefficient field K is equipped with an explicit unital ring homomorphism ι:ℤ_p→K. In the normalized analytic application, take the composite ℤ_p→ℚ_p→K from the native coercion and normed algebra map. For the norm theorem, K is an ultrametric normed ℚ_p-algebra of characteristic zero and A:ℤ_p→K has the explicit disc bounds ‖A(x)‖≤B and ‖A(x)−A(y)‖≤(B/‖q‖)‖x−y‖ for ‖x−1‖,‖y−1‖≤‖q‖, with B≥0. The analytic Gauss interpretation stays conditional on the existing LAD L0 request.
+
+**Proof:**
+
+1. If a is a unit modulo f, it is also a unit modulo q by the native prime-power criterion. Coprimality with f and q implies coprimality with their product and then with b, since b divides that product.
+2. Apply the native changeLevel evaluation theorem at this actual unit modulo b. The native pow_apply_coe and field-valued inverse evaluation give exactly the displayed product, including m=0.
+3. If a is not a unit modulo f, it cannot be a unit modulo b because f divides b. The native nonunit law makes both sides zero. This branch is essential even though p∤a.
+4. For the Ω form unfold coefficient change and apply the preceding native torsion/unit comparison. The complete changeLevel_nat, twist_weight and twist_omega_weight probes verify both support branches and the inverse orientation.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/morita-character-twist`, `DirichletPadicLFunctions:L3/morita-torsion-character-unit`, `mathlib:DirichletCharacter.changeLevel_eq_cast_of_dvd`, `mathlib:Nat.Coprime.of_dvd_right`, `mathlib:ZMod.isUnit_iff_coprime`, `mathlib:MulChar.pow_apply_coe`, `mathlib:MulChar.inv_apply_eq_inv'`, `mathlib:MulChar.map_nonunit`.
+
+**Tests:**
+
+- `SuggestedMoritaTwistTests.twist_original_nonunit` (degenerate): For p=2,f=3 and the principal level-three character, every first-twist value at3 is zero.
+- `SuggestedMoritaTwistTests.twist_unit_weight` (computation): For the same data the first-twist value at7 is−1.
+
+**Acceptance:** A p-unit need not be a unit modulo the original character level. The proof must handle that zero-character branch explicitly.
+
+**Source:** Section 2 pp.331–333, source torsion character, translated Taylor formula (3), Hilfssatz2 equation (8) and the constants in (9). The inverse source torsion powers in each Taylor coefficient are packaged as actual native Dirichlet characters at the fixed common level. The source-inspired explicit coarse bound from PR5261 works uniformly for every twist at this level. Taylor interchange, decay and the limiting functional remain separate work.
+
+### Twisted angular means equal the original weighted means
+
+`DirichletPadicLFunctions:L3/morita-angular-mean-twist` — `DirichletPadic.moritaAngularMean_twist`
+
+For every m,n and ordinary A, M^n_(χ_m,ang)(A)=M^n_χ(a↦θ_{p,ι}(a mod q)^(−m)S_p(A)(a)), with the original level f on the right.
+
+**Hypotheses:** p is prime; q=4 at p=2 and q=p otherwise; d=φ(q). The native source Ω and angular map α are the preceding maps, with the separate dyadic sign branch. f is a character level, b=lcm(f,q), N_n=bq^n, and χ is a native Dirichlet character at level f. Positivity f>0 is required only for the norm theorem. The twists use the fixed common level b; no replacement by a varying primitive conductor or unproved minimal-conductor comparison is made. The coefficient field K is equipped with an explicit unital ring homomorphism ι:ℤ_p→K. In the normalized analytic application, take the composite ℤ_p→ℚ_p→K from the native coercion and normed algebra map. For the norm theorem, K is an ultrametric normed ℚ_p-algebra of characteristic zero and A:ℤ_p→K has the explicit disc bounds ‖A(x)‖≤B and ‖A(x)−A(y)‖≤(B/‖q‖)‖x−y‖ for ‖x−1‖,‖y−1‖≤‖q‖, with B≥0. The analytic Gauss interpretation stays conditional on the existing LAD L0 request.
+
+**Proof:**
+
+1. Unfold the existing angular mean and both finite means. The preceding level equality identifies their denominators and summation ranges exactly.
+2. At an index divisible by p, both summands are the prescribed zero. At a surviving index apply the preceding twisted-weight formula.
+3. Associate the scalar factors to obtain the right-hand weighted sample. The complete mean_twist proof is a finite equality with no limit, analytic carrier or interchange assumption.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/morita-character-twist-weight`, `DirichletPadicLFunctions:L3/morita-character-twist-level`, `DirichletPadicLFunctions:L3/morita-angular-mean`, `DirichletPadicLFunctions:L3/morita-finite-mean`.
+
+**Tests:**
+
+- `SuggestedMoritaTwistTests.twist_constant_mean` (degenerate): For p=2,f=1,m=1,n=0 the constant-one mean is zero.
+- `SuggestedMoritaTwistTests.twist_linear_mean` (computation): For those data the mean of (x−1)/4 is1/4.
+- `SuggestedMoritaTwistTests.twist_linear_mean_odd` (computation): At p=3,f=1,m=1,n=0 the mean of (x−1)/3 is1/3.
+
+**Acceptance:** The mean here is at the common finite level. There is no implicit reindexing by a primitive conductor.
+
+**Source:** Section 2 pp.331–333, source torsion character, translated Taylor formula (3), Hilfssatz2 equation (8) and the constants in (9). The inverse source torsion powers in each Taylor coefficient are packaged as actual native Dirichlet characters at the fixed common level. The source-inspired explicit coarse bound from PR5261 works uniformly for every twist at this level. Taylor interchange, decay and the limiting functional remain separate work.
+
+### A single bound for every twist and every finite level
+
+`DirichletPadicLFunctions:L3/morita-character-twist-uniform` — `DirichletPadic.moritaCharacterTwist_uniform`
+
+Under the stated source-scaled disc value and Lipschitz hypotheses, for every m,n one has ‖M^n_(χ_m,ang)(A)‖≤C_f B with C_f=max(‖lcm(f,q)⁻¹‖,‖q⁻¹‖²).
+
+**Hypotheses:** p is prime; q=4 at p=2 and q=p otherwise; d=φ(q). The native source Ω and angular map α are the preceding maps, with the separate dyadic sign branch. f is a character level, b=lcm(f,q), N_n=bq^n, and χ is a native Dirichlet character at level f. Positivity f>0 is required only for the norm theorem. The twists use the fixed common level b; no replacement by a varying primitive conductor or unproved minimal-conductor comparison is made. The coefficient field K is equipped with an explicit unital ring homomorphism ι:ℤ_p→K. In the normalized analytic application, take the composite ℤ_p→ℚ_p→K from the native coercion and normed algebra map. For the norm theorem, K is an ultrametric normed ℚ_p-algebra of characteristic zero and A:ℤ_p→K has the explicit disc bounds ‖A(x)‖≤B and ‖A(x)−A(y)‖≤(B/‖q‖)‖x−y‖ for ‖x−1‖,‖y−1‖≤‖q‖, with B≥0. The analytic Gauss interpretation stays conditional on the existing LAD L0 request.
+
+**Proof:**
+
+1. The common level b is positive because f,q are positive. Apply the preceding Gauss-scaled arithmetic estimate to the actual native character χ_m at level b.
+2. Reduce its initial constant using lcm(b,q)=b, the same identity that preserves the averaging levels. This leaves exactly C_f, independent of both m and n.
+3. The complete twist_uniform proof checks this application against the already proved uniform bound. It does not assume the means converge. The source analytic interpretation of B and the divided derivatives still uses the recorded LAD L0 request.
+4. This explicit estimate is uniform over all characters at the fixed common level, so it is sufficient for the source finite-twist family without claiming the sharper printed eventual constant or inventing a bound on all continuous functions.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/morita-character-twist`, `DirichletPadicLFunctions:L3/morita-character-twist-level`, `DirichletPadicLFunctions:L3/morita-angular-mean-gauss-uniform-norm`.
+
+**Tests:**
+
+- `SuggestedMoritaTwistTests.twist_uniform_dyadic` (computation): For p=2,f=1 every twist and finite mean of ((x−1)/4)² has norm at most16.
+- `SuggestedMoritaTwistTests.twist_uniform_odd` (computation): For p=3,f=1 every twist and finite mean of ((x−1)/3)² has norm at most9.
+
+**Acceptance:** The inverse-torsion family is ready for Taylor coefficients. A decaying difference bound, Cauchy proof and complete-field limit are still required.
+
+**Source:** Section 2 pp.331–333, source torsion character, translated Taylor formula (3), Hilfssatz2 equation (8) and the constants in (9). The inverse source torsion powers in each Taylor coefficient are packaged as actual native Dirichlet characters at the fixed common level. The source-inspired explicit coarse bound from PR5261 works uniformly for every twist at this level. Taylor interchange, decay and the limiting functional remain separate work.
+
+**Remaining:** The source inverse-torsion derivative weights are now actual native Dirichlet characters at the fixed level lcm(f,q), with exact period, mean comparison and one bound uniform in m,n. Next use the existing precise LAD L0 request for divided-derivative evaluation, Gauss bounds and convergent Taylor expansions; commute each finite block with the actual pointwise sums, obtain a difference bound tending to zero, and construct the complete-field limit. Gamma analyticity on pℤ_p at odd p and8ℤ₂ remains to be identified. Gross–Koblitz and Ferrero–Greenberg require their full proof readings and remaining normalization checks. All 16 gaps and 12 requests remain open.
+
+### Finite source torsion characters and their twists validation
+
+All 837 predecessor nodes, 693 baseline records, 16 findings, requests and sourceVersions remain whole. This checkpoint adds 11 nodes, 21 named suggested declarations and 26 typed examples. The indexed blueprint, four-file intake, whitespace, preservation, API/test parity and versioned-source checks pass. The graph has 1108 reachable nodes, 5608 edges and 874 native leaves and is acyclic. Its stage request leaves are PadicMeasuresIwasawaAlgebras:L1, PadicMeasuresIwasawaAlgebras:L3, PadicMeasuresIwasawaAlgebras:L3, LocallyAnalyticDistributions:L1, AdicSpacesPartII:F1, AdicSpacesPartII:R2, PadicDifferentialEquationsAndRigidCohomology:RD.0, PadicDifferentialEquationsAndRigidCohomology:RD.4, PadicHodgeTheory:P7:annulus-foundations, PadicMeasuresIwasawaAlgebras:L2, LocallyAnalyticDistributions:L1, LocallyAnalyticDistributions:L0. The new arithmetic routes end in exact preceding nodes and native declarations. Only the uniform source-scaled application inherits the existing LAD L0 analytic-estimate request through the preceding Gauss-bound node; no new supplier or gap is added.
+
+**The full current suggested module was NOT COMPILED.** Its real native import requires TauCeti.NumberTheory.ArithmeticFunction.TwistedDivisorSum. No matching existing artifact was found; WORKERS.md prohibits building the native library. Current compiler exit code, error count and warning count are unavailable, not zero. The exact named signatures and native source were reviewed. PR4773 remains the last compiled full predecessor, with zero errors and1,803 expected placeholder warnings; that receipt does not validate this new module.
+
+The current source closure covers 3604 pinned Mathlib modules and 29 pinned Tau Ceti modules. Only 28 Tau module artifacts are available and hash-verified. The 140 available artifact files and the previously compiled332-node PMIA artifact are checked as partial dependencies. The current369-node supplier source preserves the older interface; no current-module compilation against either revision is claimed. Existing builds only were inspected; no setup, update, cache fetch or native build occurred.
+
+The complete composite native probe replays the 12 definitions and 90 lemmas of PR5261 and adds 3 definitions and 17 lemmas for the finite character interfaces and actual twist/mean formulas. Native equal-level transport and both unit/nonunit support branches are proved. No character value or averaging identity is assumed. The separate probe compiles against 2825 pinned Mathlib modules and 7 pinned Tau Ceti modules with zero errors, warnings or placeholders. The probe imports the pinned native Teichmuller module via the verified existing seven-module artifact set, with the earlier explicit PMIA integer-ring comparison. It is separate from the full suggested file and cannot replace its missing TwistedDivisorSum import. General roadmap declarations remain unchecked.
+
+Exact controls check 1,200 character values,36,000 products,1,200 order identities,72,600 support-weight identities,90,720 twist periods,7,200 zeroth-twist support cases, and 720 checks each of exact mean comparison, mean period and uniform norm bound. Exact modular torsion-character calculations at p=2,3,5,7,11 through four powers of p, including multiplication, order, unit/nonunit support, inverse-power twists and their periods at six character levels. Exact rational means at p=2,3 use their actual ±1 torsion coordinates, five levels, three averaging depths, four normalized monomials and six twist exponents. The p=5 inverse residue 18 versus direct residue 7 checks the inverse orientation. No floating-point approximation. The largest observed discrepancy is 0.
+
+Initial capture at 1df72414bec56fa3850f2e52db4f9e5809425845 changes only the source-issue registry and generated register. All30 He–Li–Shi–Yang records change only their citation metadata, now naming the published Inventiones article and page range. Every changed field was read, and the complete before/after delta retained; mathematical statements, corrections, review statuses, registry metadata, all16 Dirichlet findings and all consumed suppliers are unchanged. No independent source verification is claimed. Publication refresh at cb87b15f reads BMS E19–22 (the perfectoid converse needs topological nilpotence of p; the Witt-map exponent, domain and cyclotomic root indices require corrections) and Kisin–Pappas E17, E81–83 (the algebraically closed residue-field scope, Iwahori base ring, integral-model base and proposition citation). E65 is retired as a duplicate of E64, whose corrected coefficient ring is O_{F,(p)}. These registry changes are recorded without independently verifying the papers. Polylogarithms removes three whole-stage M.8 edges pending an actual early Deligne interface, adds the corresponding gap, and imports the early completed-unit map from I.2 while distinguishing the injective uncompleted map and pro-p torsion treatment. Its changed fields and requests were read in full; Dirichlet has no direct Polylogarithms node consumer. All16 Dirichlet findings and the other captured suppliers remain unchanged.
+
+The separate partial signature file also compiled with zero errors and 2,689 expected placeholder warnings across 3,600 pinned source modules. It includes all 21 new named declarations and 26 tests, and retains the documented 4777–4791 omissions. This is not a full-file compilation. Partial signature SHA256: 3fcf66475a663dc73034c788785ceddce1da33cd85167df1d371b065db07430e.
