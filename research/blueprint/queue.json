@@ -3096,8 +3096,9 @@
    ],
    "avoidAccountOf": "PAPER-BIJAKOWSKI-PILLONI-STROH-16",
    "prompt": "research/blueprint/prompts/REV-PAPER-BIJAKOWSKI-PILLONI-STROH-16.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1187"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1187",
+   "finishedAt": "2026-09-30T01:43:02Z"
   },
   {
    "id": "PAPER-CHARLES-16",
@@ -23471,12 +23472,12 @@
     "REV-RS-14"
    ],
    "prompt": "research/blueprint/prompts/BP-DirichletPadicLFunctions.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [
     "BP-LocallyAnalyticDistributions",
     "BP-PadicMeasuresIwasawaAlgebras"
    ],
-   "note": "released on GitHub issue #713"
+   "note": "claimed on GitHub issue #713"
   },
   {
    "id": "REV-DirichletPadicLFunctions",
@@ -39200,7 +39201,8 @@
     "REV-PAPER-KISIN-PAPPAS-18"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-KISIN-PAPPAS-18.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4307"
   },
   {
    "id": "RT-PAPER-BHATT-MORROW-SCHOLZE-18",
@@ -39306,8 +39308,9 @@
     "REV-PAPER-BOCKLE-HARRIS-KHARE-ETAL-19"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-BOCKLE-HARRIS-KHARE-ETAL-19.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4314"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4314",
+   "finishedAt": "2026-09-30T01:43:04Z"
   },
   {
    "id": "REV-RT-PAPER-BOCKLE-HARRIS-KHARE-ETAL-19",
@@ -39698,7 +39701,8 @@
     "REV-PAPER-LAND-MATHEW-MEIER-ETAL-24"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-LAND-MATHEW-MEIER-ETAL-24.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4330"
   },
   {
    "id": "REV-RT-PAPER-LAND-MATHEW-MEIER-ETAL-24",
