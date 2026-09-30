@@ -830,7 +830,7 @@
     "HabiroCohomologyFoundations:HQ.2"
    ],
    "parentStageId": "HabiroCohomologyFoundations:HQ.2",
-   "statement": "The following are imported from DerivedDeRhamCohomology:DD.1 and EnhancedDerivedSheaves:E1/E4; this roadmap fixes for them the conventions of the source's paragraph 1.22. For a stable ∞-category C take graded objects Gr(C) and descendingly filtered objects Fil(C), indexed by the integers, with transition maps fil^{n+1} → fil^n and associated graded gr^n = cofib(fil^{n+1} → fil^n). Filtrations constant in degrees ≤ 0 are written from fil^0. Ascending filtrations fil_n have gr_n = cofib(fil_{n−1} → fil_n). A filtration is exhaustive if X ≃ colim_{n→−∞} fil^n and complete if lim_{n→∞} fil^n ≃ 0. The completion is lim_n cofib(fil^{⋆+n} → fil^⋆), and every filtration is the pullback of its completion along X → X̂. When the tensor product of C commutes with colimits in each variable, Gr(C) and Fil(C) carry Day convolution. Moreover Fil(C) ≃ Mod_{1_Gr[t]}(Gr(C)) with t in degree −1, the associated graded being base change along t ↦ 0. For f in a ring R and M in D(R), M/f = cofib(f: M → M), iterated for sequences; it agrees with the ordinary quotient only for Koszul-regular sequences. For a graded ring R^* and f of degree i, M^*/f = cofib(f: M(i) → M), and the same notation is used for filtered objects regarded as graded 1_Gr[t]-modules. The derived (f_1, …, f_r)-completion is lim_n M/(f_1^n, …, f_r^n). For a principal ideal (f), the square with corners M, M̂_f, M[1/f] and M̂_f[1/f] is a pullback (the arithmetic fracture square when f is an integer). Finally, if M is complete and M/(f_1, …, f_r) has vanishing homology in some degree, then so does M.",
+   "statement": "The following are imported: complete filtered and graded objects, derived completion and the fracture square from DerivedDeRhamCohomology:DD.1, and the stable ∞-categorical setting from EnhancedDerivedSheaves:E1 (EnhancedDerivedSheaves:E4 only re-exports DD.1's completion for sheaves and coefficient systems, and is not a separate owner). This roadmap fixes for them the conventions of the source's paragraph 1.22. For a stable ∞-category C take graded objects Gr(C) and descendingly filtered objects Fil(C), indexed by the integers, with transition maps fil^{n+1} → fil^n and associated graded gr^n = cofib(fil^{n+1} → fil^n). Filtrations constant in degrees ≤ 0 are written from fil^0. Ascending filtrations fil_n have gr_n = cofib(fil_{n−1} → fil_n). A filtration is exhaustive if X ≃ colim_{n→−∞} fil^n and complete if lim_{n→∞} fil^n ≃ 0. The completion is lim_n cofib(fil^{⋆+n} → fil^⋆), and every filtration is the pullback of its completion along X → X̂. When the tensor product of C commutes with colimits in each variable, Gr(C) and Fil(C) carry Day convolution. Moreover Fil(C) ≃ Mod_{1_Gr[t]}(Gr(C)) with t in degree −1, the associated graded being base change along t ↦ 0. For f in a ring R and M in D(R), M/f = cofib(f: M → M), iterated for sequences; it agrees with the ordinary quotient only for Koszul-regular sequences. For a graded ring R^* and f of degree i, M^*/f = cofib(f: M(i) → M), and the same notation is used for filtered objects regarded as graded 1_Gr[t]-modules. The derived (f_1, …, f_r)-completion is lim_n M/(f_1^n, …, f_r^n). For a principal ideal (f), the square with corners M, M̂_f, M[1/f] and M̂_f[1/f] is a pullback (the arithmetic fracture square when f is an integer). Finally, if M is complete and M/(f_1, …, f_r) has vanishing homology in some degree, then so does M.",
    "hypotheses": [
     "The ambient category is stable. For the monoidal statements, its tensor product commutes with colimits in each variable.",
     "These are imports. What this roadmap owns is the specific coefficient ring and quotient convention of the next two nodes. The arithmetic fracture square over all primes, which HQ.1 uses, is requested from DD.1 separately."
@@ -850,7 +850,6 @@
    ],
    "prerequisites": [
     "EnhancedDerivedSheaves:E1",
-    "EnhancedDerivedSheaves:E4",
     "DerivedDeRhamCohomology:DD.1"
    ],
    "sources": [
@@ -8636,8 +8635,8 @@
    "sources": [
     {
      "sourceId": "scholze-q-de-rham",
-     "locator": "§7, scope boundary",
-     "match": "No quotient-stack or modified-connection descent theorem is asserted in this source."
+     "locator": "Conjecture 7.5, p. 16",
+     "match": "The source's framed category and its conjectural coordinate independence. The torus-descent construction and the derived quotient-stack comparison are this blueprint's own obligations (the latter a gap), not claims of the source."
     }
    ],
    "implementationStatus": "unchecked"
@@ -9901,601 +9900,609 @@
   }
  ],
  "review": {
-  "status": "needs_changes",
-  "reviewer": "independent-review-REV-HabiroCohomologyFoundations--HQ.1",
-  "date": "2026-09-25",
-  "notes": "Three independent reviewers (HQ.1–HQ.2, HQ.3–HQ.4, HQ.5–HQ.7 with HQ.5-trace) checked every node against the three Wagner papers at their latest arXiv versions (the recorded e-print SHA-256 values match), every baseline citation at the pins, closure, granularity, API, unit tests and planets. All 66 original nodes needed correction (every excerpt was a paraphrase; several statements, hypotheses and dependency directions were wrong); 52 nodes are added, mostly splits of bundled results and missing inputs; one node moved from HQ.2 to HQ.3 to remove a stage cycle, and prerequisites on HabiroRings HR.6 and HabiroNumberFields HB.6/HB.7, which require this roadmap, were removed. Baseline: 20 original citations confirmed or fixed (4 fixed, none removed), 4 added. Source issues: E1–E3 confirmed, 26 added and confirmed (E101–E109, E201–E211, E301–E305, E401). HQ.1 and HQ.3 are now partial. The suggested Lean file, which did not elaborate and used True in place of about 86 statements, is rewritten against the corrected packet and elaborates at Mathlib 082e2d3 with only placeholder-proof warnings. needs_changes only because the roadmap document research/blueprint/readmes/HabiroCohomologyFoundations--HQ.1.md is outside this review's files and still describes the uncorrected packet; it must be regenerated before promotion.",
-  "checked": [
-   {
-    "nodeId": "HabiroCohomologyFoundations:HQ.1/what-this-layer-imports-and-what-it-owns",
-    "verdict": "corrected",
-    "note": "Checked against Appendix A opening, Theorem A.1(b) and §A.1 (arXiv v2, hash matches). Added the Frobenius twist and ζ_p of A.1(b) and Bhatt–Scholze 16.18 to the statement. Corrected the false claim that [p]_q and q−1 differ mod p (fails for p = 2). Corrected the q-integer proof step: the old one identified [p^k]_q with Φ_{p^(k+1)}, which is wrong. Added the Mathlib lemma prod_cyclotomic_eq_geom_sum. Replaced the HR.1 perfectly-covered prerequisite by the Λ-ring node, since A.1 needs only p-torsion freeness. Made the excerpts literal."
-   },
-   {
-    "nodeId": "HabiroCohomologyFoundations:HQ.1/rationalised-q-crystalline-comparison",
-    "verdict": "corrected",
-    "note": "Checked against Lemma A.4 and its proof. The proof steps did not follow the source, which builds one map and inverts it modulo q−1 by derived Nakayama. The prerequisite direction with the denominator lemma was reversed. The local derived q-de Rham complex was used but never defined (new node). Added the missing imports PR.0, CR.0, DD.4 and DD.1. Made the excerpts literal and added a planet."
-   },
-   {
-    "nodeId": "HabiroCohomologyFoundations:HQ.1/divided-power-denominators-in-the-q-pd-envelope",
-    "verdict": "corrected",
-    "note": "Checked Lemmas A.5 and A.6 and Remark A.7 line by line against the source, including the arithmetic of the proofs. The node bundled four statements; it now holds Lemma A.6, and A.5 and A.7 are new nodes. Its only prerequisite was the theorem that uses it, a reversed dependency. It also required a framing that Lemma A.6 does not need. While checking the A.5(b) proof, found the misprint recorded as E103."
-   },
-   {
-    "nodeId": "HabiroCohomologyFoundations:HQ.1/a-denominator-bound-uniform-in-the-prime",
-    "verdict": "corrected",
-    "note": "Checked against paragraph A.11. Verified that primes p > n contribute nothing modulo (q−1)^n, and that products of expansion terms stay inside N_n^{−1} because e(i) = 2(p^{i−1}+⋯+1) is superadditive. The source leaves this step implicit, so it is now a proof step. Reworded the hypothesis about infinite products, and added the local derived complex, CR.0 and DD.1 as prerequisites."
-   },
-   {
-    "nodeId": "HabiroCohomologyFoundations:HQ.1/the-coordinate-comparison-and-its-compatibility",
-    "verdict": "corrected",
-    "note": "Checked paragraph A.8, Lemma A.9, Lemma A.10 and the proof of A.1(d), and re-derived the q-derivative formula from γ_i = exp(log(q)T_i∂_i). The statement misread (∂_iT_i)^{(n−1)} as a divided power applied to T_i. It is an (n−1)-fold operator iterate. The node bundled A.8, A.9, A.10 and a general Koszul fact, and it omitted Lemma A.9 and the version over A used for A.1(d). It is split: Koszul lemma and compatibility square are new nodes."
-   },
-   {
-    "nodeId": "HabiroCohomologyFoundations:HQ.1/the-global-q-de-rham-complex",
-    "verdict": "corrected",
-    "note": "Checked against Construction A.12, paragraph A.11 and the proof of Theorem A.1. The right vertical map is rationalisation followed by the inverse of the A.11 equivalence, not that equivalence itself. The needed identification of the underived local complexes with the derived ones was missing. The stated reason for p-torsion freeness was wrong. The API and tests had kebab-case names and no test kinds. Removed the framed-comparison prerequisite, which the construction does not use."
-   },
-   {
-    "nodeId": "HabiroCohomologyFoundations:HQ.1/what-the-global-complex-satisfies",
-    "verdict": "corrected",
-    "note": "Checked Theorem A.1 and its proof. The node bundled five parts. (d) and base change are split off as new nodes, because (d) needs the compatibility square and base change needs derived Nakayama. The (a) to (c) proof steps now record the vanishing of the other primes' factors and the use of the uniform bound in (c). Found the misprint Ω_{R/A} for Ω_{S/A} in the proof (E109)."
-   },
-   {
-    "nodeId": "HabiroCohomologyFoundations:HQ.1/the-derived-commutative-lift",
-    "verdict": "corrected",
-    "note": "Checked against Remark A.2 and paragraph A.13. The node hid a non-routine lemma, Ω_{S/A} ≃ Tot D_{P•}(J•), which is now its own node. It did not address how the two maps of the pullback square are lifted; they are maps of cosimplicial rings. Two tests were wrong or empty. API names and test kinds fixed."
-   },
-   {
-    "nodeId": "HabiroCohomologyFoundations:HQ.2/filtered-graded-and-completion-conventions",
-    "verdict": "corrected",
-    "note": "Checked against paragraph 1.22(a) to (d). Every object here belongs to DD.1 or E4, which the library audit lists as duplicates for HQ.2. The node therefore becomes an import boundary: kind comparison, planet, API and tests removed, tests kept as acceptance. Added the missing graded derived quotient convention. Removed the two Mathlib ancestors from the prerequisites, since they do not provide the needed objects. Found two misprints in 1.22(a) (E107, E108)."
-   },
-   {
-    "nodeId": "HabiroCohomologyFoundations:HQ.2/the-graded-presentation-of-the-coefficient-ring",
-    "verdict": "corrected",
-    "note": "Checked against the proofs of Lemmas 3.9 and 3.10 and the proof outline of Theorem 3.11. Verified the Rees presentation, including that βt − (q^m−1) is the only relation. The general-module claims only hold for q-Hodge filtrations. One unit test was false (A[β,t]/t = A[β], not a ring 'in q and β') and one was not checkable. API names and test kinds fixed."
-   },
-   {
-    "nodeId": "HabiroCohomologyFoundations:HQ.2/the-quotient-convention-for-filtered-modules",
-    "verdict": "corrected",
-    "note": "Checked Convention 3.1 by computing both quotients on (q−1)^⋆A[q]. For m ≥ 2 the printed base change to A would also kill q−1; the n-th piece formula matches base change to A[q]/(q^m−1) (new source issue E102). Two unit tests were false and are corrected. The planet is removed, and API names and test kinds are fixed."
-   },
-   {
-    "nodeId": "HabiroCohomologyFoundations:HQ.2/the-derived-q-de-rham-complex",
-    "verdict": "corrected",
-    "note": "Checked paragraphs 1.22(b) and A.14. The base hypothesis is the source's p-torsion free Λ-ring, not perfect covering. The pullback square does not follow 'because the corners are animations', since products need not commute with the realisation. It follows by reduction modulo q−1 and derived Nakayama (new source issue E106). The non-example was wrong. Added the resolution formula and the p-completion identification."
-   },
-   {
-    "nodeId": "HabiroCohomologyFoundations:HQ.2/animation-does-not-preserve-the-values-on-smooth-algebras",
-    "verdict": "corrected",
-    "note": "Checked paragraph A.14 and §A.1. Correct in substance. Added an explicit witness, A = ℚ and S = ℚ[x, x^{−1}]: derived de Rham over ℚ is ℚ, while H^1_dR ≠ 0. The p-complete half now cites the new local node that proves it. Excerpts made literal."
-   },
-   {
-    "nodeId": "HabiroCohomologyFoundations:HQ.2/derived-base-change-and-its-completion-hypotheses",
-    "verdict": "corrected",
-    "note": "Checked Theorem A.1's base change and its proof. The node duplicated the smooth statement, which belongs to HQ.1 (now a new node there). It now states the animated base change and says the source does not state it. Added a witness that the (q−1)-completion is needed."
-   },
-   {
-    "nodeId": "HabiroCohomologyFoundations:HQ.2/the-two-rational-comparisons-and-why-the-second-is-an-axiom",
-    "verdict": "corrected",
-    "note": "Checked Remark 1.8, the paragraph before Definition 3.2, Lemma A.4 and paragraph A.11. The node bundled two equivalences, their compatibility and a remark. The two equivalences are now new theorem nodes (realising the stage targets 'the rational comparison' and 'the separate p-completed rational comparison'). This node keeps the diagram and the independence record. Corrected 'the deformation condition' to the source's 'the other conditions'. Found the cross-reference misprint in Remark 1.8 (E101)."
-   },
-   {
-    "nodeId": "HabiroCohomologyFoundations:HQ.2/what-the-decalage-import-supplies",
-    "verdict": "corrected",
-    "note": "Checked paragraph 3.14 and Remark 3.49 against Theorem A.1(b) and Bhatt–Scholze Theorems 15.3 and 16.18 (fetched: arXiv:1905.08229). Found two source issues. T := Ŝ_p[ζ_p] omits the Frobenius twist (E104), and the completion argument fails as printed for α = 0 (E105). The node repeats both; both are corrected. The relative Frobenius equivalence is PrismaticCohomology:PR.3's, not PR.6's."
-   },
-   {
-    "nodeId": "HabiroCohomologyFoundations:HQ.3/the-smooth-comparison-of-q-omega-with-the-q-hodge-completion",
-    "verdict": "corrected",
-    "note": "Checked Proposition 3.47 and its proof. The proof steps were not the source's. The source proves (a) with the arithmetic fracture square glued by the (c_p) datum, and (b) with the Beilinson t-structure (BMS2 Theorem 5.4(2), Proposition 5.8) and BMS1 Lemma 6.20. The prerequisites lacked the definition of a q-Hodge filtration and the combined filtration. Confirmed the E2 misprint. The dependence of this HQ.2 node on HQ.3 objects is already recorded in the packet's restructure notes. The coordinating reviewer moved the node from HQ.2 to HQ.3 (Proposition 3.47 is a statement about q-Hodge filtrations, and HQ.3 depends on HQ.2), keeping HQ.2 among the stages it realises."
-   },
-   {
-    "nodeId": "HabiroCohomologyFoundations:HQ.1/the-local-derived-q-de-rham-complex",
-    "verdict": "added",
-    "note": "Lemma A.4, paragraph A.11 and Construction A.12 all use the local animated complex qdR_{−/Â_p} of §A.1, which no node defined. Added it, with the p-adic agreement on smooth algebras (checked modulo (p, q−1)), 3 API items beyond constructor, and 4 tests."
-   },
-   {
-    "nodeId": "HabiroCohomologyFoundations:HQ.1/delta-and-q-divided-power-denominator-estimates",
-    "verdict": "added",
-    "note": "Split from the bundled denominator node: Lemma A.5(a) and (b), which are proved together. The proof was checked, including γ_q(q−1) and the final exponent (E103)."
-   },
-   {
-    "nodeId": "HabiroCohomologyFoundations:HQ.1/the-reverse-divided-power-expansion",
-    "verdict": "added",
-    "note": "Split from the bundled denominator node: Remark A.7. Lemmas 3.29 and 4.27 use it in a factorisation form, stated as part (b). Those HQ.4 and HQ.5 nodes should cite this one."
-   },
-   {
-    "nodeId": "HabiroCohomologyFoundations:HQ.1/the-koszul-twist-isomorphism",
-    "verdict": "added",
-    "note": "The general Koszul fact of paragraph A.8. The explicit isomorphism h_I on the summand of index I was verified, including why h_i need not commute with g_i."
-   },
-   {
-    "nodeId": "HabiroCohomologyFoundations:HQ.1/the-compatibility-square",
-    "verdict": "added",
-    "note": "Lemma A.10, split from the framed comparison node: its proof is a separate Čech–Alexander argument."
-   },
-   {
-    "nodeId": "HabiroCohomologyFoundations:HQ.1/the-coordinate-dependent-q-de-rham-complex",
-    "verdict": "added",
-    "note": "No node defined the global framed complex q-Ω*_{S/A,□} that Theorem A.1(d), paragraph 1.10 and Example 3.12 use. Only the p-complete one is PR.6's, and HQ.1's title ('q-differentials and coordinate comparisons') makes it this layer's. Divisibility of γ_i − 1 by (q−1)x_i was checked."
-   },
-   {
-    "nodeId": "HabiroCohomologyFoundations:HQ.1/the-framed-description-of-the-global-complex",
-    "verdict": "added",
-    "note": "Theorem A.1(d), split from the four-properties node: its proof needs the compatibility square and the framed comparison over A."
-   },
-   {
-    "nodeId": "HabiroCohomologyFoundations:HQ.1/base-change-for-the-global-complex",
-    "verdict": "added",
-    "note": "The base change clause of Theorem A.1, split from the four-properties node. The HQ.2 base change node no longer duplicates it and now states the animated version."
-   },
-   {
-    "nodeId": "HabiroCohomologyFoundations:HQ.1/framing-independence-and-the-cocycle-identity",
-    "verdict": "added",
-    "note": "Realises the stage target 'framing independence by coherent comparison maps' and the cocycle part of 'descent including the cocycle identities'. These are formal from A.1(d). The sheaf property is recorded as a gap."
-   },
-   {
-    "nodeId": "HabiroCohomologyFoundations:HQ.1/the-de-rham-complex-as-a-totalisation-of-pd-envelopes",
-    "verdict": "added",
-    "note": "The non-routine lemma hidden in the derived commutative lift (paragraph A.13), now its own node."
-   },
-   {
-    "nodeId": "HabiroCohomologyFoundations:HQ.2/the-combined-hodge-and-q-minus-one-adic-filtration",
-    "verdict": "added",
-    "note": "Definition 3.2(c) and (c_p), Proposition 3.47 and several HQ.5 nodes use the combined Hodge and (q−1)-adic filtration, but no node defined it. The HQ.2 stage text asks for 'the derived de Rham specialization with its filtration'."
-   },
-   {
-    "nodeId": "HabiroCohomologyFoundations:HQ.2/the-rational-comparison-for-the-derived-complex",
-    "verdict": "added",
-    "note": "Split from the two-rational-comparisons node, where it was bundled. Realises the HQ.2 target 'the rational comparison'."
-   },
-   {
-    "nodeId": "HabiroCohomologyFoundations:HQ.2/the-p-completed-rational-comparison",
-    "verdict": "added",
-    "note": "Split from the two-rational-comparisons node. Realises the HQ.2 target 'Prove the separate p-completed rational comparison'. The source's cross-reference to it is the misprint E101."
-   },
-   {
-    "nodeId": "HabiroCohomologyFoundations:HQ.4/q-v-systems-of-differential-graded-algebras",
-    "verdict": "corrected",
-    "note": "Definition 3.1, 3.9, Remark 3.10, Lemmas 3.2 and 3.4 of q-Witt v5 read in the LaTeX and the PDF. The definition is the source's; corrected the ambiguous V-Teichmueller phrasing, added morphisms, replaced paraphrased excerpts by literal ones, split the API, fixed two wrong unit tests and added test kinds."
-   },
-   {
-    "nodeId": "HabiroCohomologyFoundations:HQ.4/q-fv-systems",
-    "verdict": "corrected",
-    "note": "Definition 3.6, Lemma 3.7 (with its proof) and Remark 3.8 of q-Witt v5 read, the PDF rendered at page 39. The definition is faithful; the derived relation now carries the source's proof form and the printed misprint is recorded (E201); two tests were wrong and are replaced; literal excerpts; Lean names; test kinds."
-   },
-   {
-    "nodeId": "HabiroCohomologyFoundations:HQ.4/there-are-no-restriction-operators-and-what-replaces-them",
-    "verdict": "corrected",
-    "note": "Paragraphs 2.14 and 3.11 and Remark 3.18 of q-Witt v5 read. The node re-proved HR.4's degree-zero obstruction (now imported) and contained the comparison map, whose proof needs initiality among q-FV-systems from a node that depended on this one (hidden cycle); the comparison map is a new node. The Langer-Zink observation is an informal claim in the source and is now requested from CR.4. Literal excerpts; planet renamed from the source."
-   },
-   {
-    "nodeId": "HabiroCohomologyFoundations:HQ.4/the-q-de-rham-witt-complex",
-    "verdict": "corrected",
-    "note": "Proposition 3.12 with its proof, Definition 3.13, Remark 3.14 and Lemma 3.16 of q-Witt v5 read. The node bundled Proposition 3.17 (Frobenii, a multi-page proof) and Proposition 4.1 (torsion-freeness, proved by the joint induction of section 4); both moved to their own nodes. Added the truncation-set universal property the stage text asks for, functoriality, literal excerpts, Lean names and test kinds; removed an unnecessary prerequisite that blocked the corrected ordering."
-   },
-   {
-    "nodeId": "HabiroCohomologyFoundations:HQ.4/ghost-maps-and-what-they-do-not-define",
-    "verdict": "corrected",
-    "note": "Paragraph 3.15, Corollary 3.34, Lemma 4.5, Lemma 2.23 and Corollary 2.22 of q-Witt v5 read. The degree-zero torsion statements are about absolute q-Witt rings and are HR.4's; positive-degree injectivity (a stage target) and the gh_1 quotient description (used by the Nygaard lemmas) were missing; the dependency on etale base change was inverted."
-   },
-   {
-    "nodeId": "HabiroCohomologyFoundations:HQ.4/etale-base-change-and-the-sheaf-property",
-    "verdict": "corrected",
-    "note": "Proposition 3.31, Lemma 3.32, Corollary 3.33 and Proposition 2.48 of q-Witt v5 read. The statement is faithful; the prerequisite on the ghost-map node inverted the source's order (Corollary 3.34 uses Proposition 3.31) and is removed; the etale extension lemma is a new node; the degree-zero etale input is requested from HR.4; literal excerpts."
-   },
-   {
-    "nodeId": "HabiroCohomologyFoundations:HQ.4/the-p-completion-of-the-q-de-rham-witt-complex",
-    "verdict": "corrected",
-    "note": "Propositions 4.1 and 4.2, paragraph 4.3, Construction 4.26 and Theorem 4.27 of q-Witt v5 read (statements and the structure of the induction; the proofs of sections 4.2 to 4.6 only in outline). The node now carries the three results the source proves jointly; Theorem 4.27, used by the source's Lemma 3.24 and Example 3.12, was missing; the recorded proof steps were not the source's and are replaced; an unsourced 'false without smoothness' claim is removed."
-   },
-   {
-    "nodeId": "HabiroCohomologyFoundations:HQ.4/twisted-q-de-rham-complexes",
-    "verdict": "corrected",
-    "note": "Section 3.3 opening, paragraph 3.14, paragraph 3.16 and Remarks 3.17 and 3.18 read. The construction is faithful. Prerequisites pointed at the derived complex while the construction is on HQ.1's underived global complex; locators made precise; literal excerpts; API projection added; one test over-claimed the source ('usually') and is replaced by a checked non-equivalence."
-   },
-   {
-    "nodeId": "HabiroCohomologyFoundations:HQ.4/the-arithmetic-fracture-squares-and-cyclotomic-descent",
-    "verdict": "corrected",
-    "note": "Lemma 3.15 with its proof read. The node bundled four results; it depended on Proposition 3.19, whose proof uses this lemma and q-Witt Corollary 4.37, so the prerequisites hid a cycle in the source's logic. Narrowed to Lemma 3.15; Corollary 4.37, Corollary 4.38 and Theorem 5.1 of q-Witt v5 are new nodes, and the discipline about complexes versus cohomology goes with Theorem 5.1."
-   },
-   {
-    "nodeId": "HabiroCohomologyFoundations:HQ.4/the-twisted-complex-deforms-the-q-de-rham-witt-complex",
-    "verdict": "corrected",
-    "note": "Proposition 3.19 with its proof sketch and the paragraph before it read; the PDF page 31 rendered. The equivalence is faithful; the node repeated a misprint of the source as mathematics (now corrected, E202); the proof's inputs (the two fracture squares and q-Witt Corollary 4.38) were not prerequisites and are added."
-   },
-   {
-    "nodeId": "HabiroCohomologyFoundations:HQ.4/hodge-against-nygaard",
-    "verdict": "corrected",
-    "note": "Lemma 3.30 and Corollary 3.31 with their proofs read. The proof steps did not match the source (which compares cokernels directly and uses no induction for the lemma); Corollary 3.31 split off as its own node with the source's proof (rational and p-complete reduction, induction on the exponent)."
-   },
-   {
-    "nodeId": "HabiroCohomologyFoundations:HQ.4/the-nygaard-filtration-on-q-de-rham-witt-complexes",
-    "verdict": "corrected",
-    "note": "Paragraphs 3.20 and 3.21, Proposition 3.22 with its proof, Lemmas 3.23, 3.24, 3.27 and 3.29, Corollaries 3.25 and 3.26 and Remark 3.28 read. The node bundled eight results; it is narrowed to Definition 3.21 and the others become nodes. One test was false (index one), the hypothesis about index one was not the source's, and the statement omitted that quasi-syntomic descent is for the p-completed animated filtration."
-   },
-   {
-    "nodeId": "HabiroCohomologyFoundations:HQ.4/no-automatic-multiplicative-upgrade",
-    "verdict": "corrected",
-    "note": "Section 3.8 (paragraphs 3.50, 3.51, 3.53, Lemma 3.52) and paragraph 1.17(c) read. The node duplicated HQ.3's transport theorem and depended on it against the layer order; it now states the multiplicative discipline for the HQ.4 objects, as the HQ.4 stage text asks."
-   },
-   {
-    "nodeId": "HabiroCohomologyFoundations:HQ.3/q-hodge-filtrations",
-    "verdict": "corrected",
-    "note": "Definition 3.2 (all clauses, the footnote and the last paragraph), Convention 3.1, Definition 1.6 and Remarks 1.7, 1.8 read in the LaTeX and the PDF. The statement is faithful. Excerpts were paraphrases and are replaced by literal ones; API names made Lean names, with the forgetful functor to filtered modules and the rational example added; test kinds added. The source omits the construction of the category of pairs as an iterated pullback; the node's last step supplies it, which is recorded in its excerpt."
-   },
-   {
-    "nodeId": "HabiroCohomologyFoundations:HQ.3/no-functorial-choice-of-q-hodge-filtration",
-    "verdict": "corrected",
-    "note": "Lemma 3.3 with its proof sketch and Example 4.24 read. The statement is faithful. The proof's computation is deferred by the source to Example 4.24, and the node made HQ.3 depend on the HQ.5 theorem (layer inversion; HQ.5 requires HQ.3); the computation is now an HQ.3 lemma node with its own prerequisites (PR.0, PR.6, DD.2), which the node previously lacked. Literal excerpts."
-   },
-   {
-    "nodeId": "HabiroCohomologyFoundations:HQ.3/the-q-hodge-complex",
-    "verdict": "corrected",
-    "note": "Paragraph 3.5, Remark 3.6, paragraph 1.10 and Example 3.12 read. The statement omitted the hypothesis of the transfer from the underived complex (the analogues of the four clauses) and a proof step claimed to verify what is in fact assumed; corrected. Literal excerpts, Lean names, kinds; one test moved to a concrete computation."
-   },
-   {
-    "nodeId": "HabiroCohomologyFoundations:HQ.3/the-symmetric-monoidal-structure-on-pairs",
-    "verdict": "corrected",
-    "note": "Proposition 3.7 with its proof read. Statement faithful; three prerequisites the proof uses were missing (the abstract lemma, DD.1, DD.2); literal excerpts."
-   },
-   {
-    "nodeId": "HabiroCohomologyFoundations:HQ.3/the-conjugate-filtration",
-    "verdict": "corrected",
-    "note": "Paragraph 3.8 and Lemma 3.9 with its proof read. Statement faithful; one test was false and is replaced; literal excerpts, Lean names, kinds."
-   },
-   {
-    "nodeId": "HabiroCohomologyFoundations:HQ.3/the-abstract-colimit-filtration-lemma",
-    "verdict": "corrected",
-    "note": "Lemma 3.10 with its proof read. Statement and proof steps faithful; only the excerpts, which were paraphrases, are replaced by literal ones."
-   },
-   {
-    "nodeId": "HabiroCohomologyFoundations:HQ.3/the-twisted-q-hodge-filtration-p-adically",
-    "verdict": "corrected",
-    "note": "Paragraphs 3.32, 3.34, 3.35, Remark 3.33 and Lemmas 3.36 and 3.37 with their proofs read. E3 confirmed at 3.32, 3.34 and 3.35. The node bundled the two compatibility lemmas (now separate nodes, used by the global construction); its prerequisites lacked the prismatic Nygaard filtration of the twisted complex, the Nygaard comparison (used by Remark 3.33) and Proposition 3.7 (the base of the monoidal structure). Literal excerpts, Lean names, kinds."
-   },
-   {
-    "nodeId": "HabiroCohomologyFoundations:HQ.3/the-twisted-q-hodge-filtration-globally",
-    "verdict": "corrected",
-    "note": "Paragraphs 3.38 and 3.41, Proposition 3.39, Remark 3.40 read. Construction faithful; Proposition 3.39 split into its own node; the compatibility lemmas and the fracture square added as prerequisites; one unsourced test replaced; literal excerpts, Lean names, kinds."
-   },
-   {
-    "nodeId": "HabiroCohomologyFoundations:HQ.3/the-m-truncated-descent",
-    "verdict": "corrected",
-    "note": "Paragraph 3.42, Proposition 3.43 with its proof sketch and Lemma 3.44 with its proof read. The construction is faithful; the node bundled the proposition and the lemma, which are now nodes; literal excerpts, Lean names, kinds."
-   },
-   {
-    "nodeId": "HabiroCohomologyFoundations:HQ.3/the-habiro-hodge-complex",
-    "verdict": "corrected",
-    "note": "Paragraphs 3.16 and 3.45 and Lemma 3.46 with its proof read. The construction is faithful; the strictness proof step misdescribed the source (the stupid filtration is not symmetric monoidal on the nose; the proof inverts q^d - 1 for proper divisors and uses the first ghost map), and moves to a new node; the unsourced 'natural in the base Lambda-ring' API item is removed and the Kuenneth item added; one test had the wrong multiplicative hypothesis."
-   },
-   {
-    "nodeId": "HabiroCohomologyFoundations:HQ.3/habiro-descent",
-    "verdict": "corrected",
-    "note": "Theorem 3.11 with its proof outline, Theorem 1.11 and Definition 1.12 read. Faithful; clause (b) split into its own node; prerequisites now name the compatibility and strictness nodes; literal excerpts."
-   },
-   {
-    "nodeId": "HabiroCohomologyFoundations:HQ.3/the-coordinate-model-and-the-etale-case",
-    "verdict": "corrected",
-    "note": "Example 3.12 and Corollary 3.13 with its proof read. The node cited HabiroRings HR.6/the-degree-zero-identification, which depends on HQ.3 (a cycle through the stage); removed. 'An algebra for the trivial operad' corrected to E_0-algebra. The Koszul model is asserted by the source without proof and is now recorded as such (gap). Corollary 3.13 split into its own node. Missing prerequisites added (HQ.1's framed complex, Theorem 3.11(b), Corollary 3.31, HC.3)."
-   },
-   {
-    "nodeId": "HabiroCohomologyFoundations:HQ.3/multiplicative-upgrades",
-    "verdict": "corrected",
-    "note": "Paragraphs 3.50, 3.51 and 3.53, Lemma 3.52 (proof sketch) and Corollary 3.54 with its proof read. Split off Corollary 3.54; corrected the multiplicative hypothesis for the algebra isomorphism (E_1, not 'homotopy-unital'); prerequisites now name what the derived commutative transport uses."
-   },
-   {
-    "nodeId": "HabiroCohomologyFoundations:HQ.4/the-frobenius-operators-on-q-de-rham-witt-complexes",
-    "verdict": "added",
-    "note": "Added by this review: The q-de Rham-Witt complex carries unique Frobenii and is the initial q-FV-system. Statement, proof steps and literal excerpts taken from the source passages cited in the node."
-   },
-   {
-    "nodeId": "HabiroCohomologyFoundations:HQ.4/the-comparison-map-from-ordinary-de-rham-witt",
-    "verdict": "added",
-    "note": "Added by this review: The comparison map from ordinary de Rham-Witt complexes, compatible with Frobenius and Verschiebung. Statement, proof steps and literal excerpts taken from the source passages cited in the node."
-   },
-   {
-    "nodeId": "HabiroCohomologyFoundations:HQ.4/etale-extension-of-a-differential-graded-algebra",
-    "verdict": "added",
-    "note": "Added by this review: An etale extension of the degree-zero part of a differential graded algebra extends uniquely. Statement, proof steps and literal excerpts taken from the source passages cited in the node."
-   },
-   {
-    "nodeId": "HabiroCohomologyFoundations:HQ.4/the-p-local-decomposition",
-    "verdict": "added",
-    "note": "Added by this review: p-locally the q-de Rham-Witt complex splits into Adams twists of the prime-power ones. Statement, proof steps and literal excerpts taken from the source passages cited in the node."
-   },
-   {
-    "nodeId": "HabiroCohomologyFoundations:HQ.4/the-arithmetic-fracture-square-for-q-de-rham-witt-complexes",
-    "verdict": "added",
-    "note": "Added by this review: The arithmetic fracture square of the q-de Rham-Witt complex. Statement, proof steps and literal excerpts taken from the source passages cited in the node."
-   },
-   {
-    "nodeId": "HabiroCohomologyFoundations:HQ.4/the-rescaled-frobenius-is-the-crystalline-frobenius",
-    "verdict": "added",
-    "note": "Added by this review: Under the p-complete identification the rescaled Frobenius is the crystalline Frobenius. Statement, proof steps and literal excerpts taken from the source passages cited in the node."
-   },
-   {
-    "nodeId": "HabiroCohomologyFoundations:HQ.4/no-functorial-q-hodge-complex-with-q-witt-cohomology",
-    "verdict": "added",
-    "note": "Added by this review: No functorial q-Hodge complex has the q-de Rham-Witt complexes as functorial cohomology. Statement, proof steps and literal excerpts taken from the source passages cited in the node."
-   },
-   {
-    "nodeId": "HabiroCohomologyFoundations:HQ.4/the-derived-q-de-rham-witt-complex-and-its-stupid-filtration",
-    "verdict": "added",
-    "note": "Added by this review: The derived q-de Rham-Witt complex and the animated stupid filtration. Statement, proof steps and literal excerpts taken from the source passages cited in the node."
-   },
-   {
-    "nodeId": "HabiroCohomologyFoundations:HQ.4/derived-q-de-rham-witt-forms-of-smooth-algebras",
-    "verdict": "added",
-    "note": "Added by this review: On smooth algebras the derived q-de Rham-Witt forms are the shifted underived forms. Statement, proof steps and literal excerpts taken from the source passages cited in the node. The coordinating reviewer corrected the statement further while the suggested file was rewritten (see the review report)."
-   },
-   {
-    "nodeId": "HabiroCohomologyFoundations:HQ.4/the-nygaard-filtration-on-twisted-q-de-rham-complexes",
-    "verdict": "added",
-    "note": "Added by this review: The prismatic Nygaard filtration on the p-completed twisted q-de Rham complexes. Statement, proof steps and literal excerpts taken from the source passages cited in the node."
-   },
-   {
-    "nodeId": "HabiroCohomologyFoundations:HQ.4/the-divided-frobenius-on-nygaard-graded-pieces",
-    "verdict": "added",
-    "note": "Added by this review: The divided Frobenius on the Nygaard graded pieces. Statement, proof steps and literal excerpts taken from the source passages cited in the node."
-   },
-   {
-    "nodeId": "HabiroCohomologyFoundations:HQ.4/the-kernel-of-the-frobenius",
-    "verdict": "added",
-    "note": "Added by this review: The kernel of the Frobenius on q-de Rham-Witt forms. Statement, proof steps and literal excerpts taken from the source passages cited in the node."
-   },
-   {
-    "nodeId": "HabiroCohomologyFoundations:HQ.4/the-nygaard-cofibre-sequence",
-    "verdict": "added",
-    "note": "Added by this review: The Nygaard graded pieces sit in a cofibre sequence with the conjugate filtration. Statement, proof steps and literal excerpts taken from the source passages cited in the node."
-   },
-   {
-    "nodeId": "HabiroCohomologyFoundations:HQ.4/nygaard-descent-and-smooth-agreement",
-    "verdict": "added",
-    "note": "Added by this review: The animated Nygaard filtration satisfies quasi-syntomic descent and agrees with the underived one on smooth inputs. Statement, proof steps and literal excerpts taken from the source passages cited in the node."
-   },
-   {
-    "nodeId": "HabiroCohomologyFoundations:HQ.4/the-prismatic-nygaard-fibre-sequence",
-    "verdict": "added",
-    "note": "Added by this review: The fibre sequence for the prismatic Nygaard filtration modulo q^{p^a}-1. Statement, proof steps and literal excerpts taken from the source passages cited in the node."
-   },
-   {
-    "nodeId": "HabiroCohomologyFoundations:HQ.4/the-nygaard-comparison",
-    "verdict": "added",
-    "note": "Added by this review: The Nygaard filtration of the twisted complex reduces to the Nygaard filtration of the q-de Rham-Witt complex. Statement, proof steps and literal excerpts taken from the source passages cited in the node."
-   },
-   {
-    "nodeId": "HabiroCohomologyFoundations:HQ.4/the-nygaard-filtration-after-inverting-p",
-    "verdict": "added",
-    "note": "Added by this review: After inverting p the Nygaard filtration is the combined Hodge and cyclotomic-adic filtration. Statement, proof steps and literal excerpts taken from the source passages cited in the node."
-   },
-   {
-    "nodeId": "HabiroCohomologyFoundations:HQ.3/the-witness-admits-no-q-hodge-filtration",
-    "verdict": "added",
-    "note": "Added by this review: The q-divided power of the witness cannot be corrected into the p-th step. Statement, proof steps and literal excerpts taken from the source passages cited in the node."
-   },
-   {
-    "nodeId": "HabiroCohomologyFoundations:HQ.3/the-p-adic-twisted-filtration-after-inverting-p",
-    "verdict": "added",
-    "note": "Added by this review: After inverting p the p-adic twisted q-Hodge filtration is the combined Hodge and cyclotomic-adic filtration. Statement, proof steps and literal excerpts taken from the source passages cited in the node."
-   },
-   {
-    "nodeId": "HabiroCohomologyFoundations:HQ.3/the-p-adic-twisted-filtration-at-lower-cyclotomic-points",
-    "verdict": "added",
-    "note": "Added by this review: At lower cyclotomic points the p-adic twisted q-Hodge filtrations of successive indices agree. Statement, proof steps and literal excerpts taken from the source passages cited in the node."
-   },
-   {
-    "nodeId": "HabiroCohomologyFoundations:HQ.3/the-twisted-q-hodge-filtration-deforms-the-stupid-filtration",
-    "verdict": "added",
-    "note": "Added by this review: The twisted q-Hodge filtration reduces modulo q^m-1 to the stupid filtration on the derived q-de Rham-Witt complex. Statement, proof steps and literal excerpts taken from the source passages cited in the node."
-   },
-   {
-    "nodeId": "HabiroCohomologyFoundations:HQ.3/nygaard-denominators",
-    "verdict": "added",
-    "note": "Added by this review: Adjoining the Nygaard filtration divided by Phi_p(q) recovers the q-de Rham complex; divided by q^p-1 it gives zero. Statement, proof steps and literal excerpts taken from the source passages cited in the node."
-   },
-   {
-    "nodeId": "HabiroCohomologyFoundations:HQ.3/the-partial-descents-are-compatible",
-    "verdict": "added",
-    "note": "Added by this review: The partial descents are compatible under completion. Statement, proof steps and literal excerpts taken from the source passages cited in the node."
-   },
-   {
-    "nodeId": "HabiroCohomologyFoundations:HQ.3/the-habiro-hodge-complex-is-symmetric-monoidal",
-    "verdict": "added",
-    "note": "Added by this review: The Habiro-Hodge complex functor is symmetric monoidal. Statement, proof steps and literal excerpts taken from the source passages cited in the node."
-   },
-   {
-    "nodeId": "HabiroCohomologyFoundations:HQ.3/habiro-descent-the-q-de-rham-witt-filtration",
-    "verdict": "added",
-    "note": "Added by this review: The descent theorem, clause (b): the q-de Rham-Witt filtration on the reduction modulo q^m-1. Statement, proof steps and literal excerpts taken from the source passages cited in the node."
-   },
-   {
-    "nodeId": "HabiroCohomologyFoundations:HQ.3/the-etale-case",
-    "verdict": "added",
-    "note": "Added by this review: For an etale algebra the Habiro-Hodge complex is the relative Habiro ring. Statement, proof steps and literal excerpts taken from the source passages cited in the node."
-   },
-   {
-    "nodeId": "HabiroCohomologyFoundations:HQ.3/the-cohomology-of-the-reduction-for-smooth-algebras",
-    "verdict": "added",
-    "note": "Added by this review: For smooth algebras the reduction modulo q^m-1 has cohomology the q-de Rham-Witt complex, with the Bockstein as differential. Statement, proof steps and literal excerpts taken from the source passages cited in the node."
-   },
-   {
-    "nodeId": "HabiroCohomologyFoundations:HQ.5/truncated-filtered-objects-and-the-left-adjoint",
-    "verdict": "corrected",
-    "note": "Read Lemma 4.2 and its proof, and the uses in 4.3, Lemma 4.6 and Lemma 4.10. Statement corrected: the adjunction direction (source issue E301, new), clauses (d) relative truncation and (e) full faithfulness added because later proofs use them; proof of (c) corrected to the source's argument (left adjoints of a commuting square); kind changed to construction with API, three plus one unit tests and uses; prerequisites E1 and E5:abstract added; excerpts made literal."
-   },
-   {
-    "nodeId": "HabiroCohomologyFoundations:HQ.5/the-canonical-smooth-q-hodge-filtration",
-    "verdict": "corrected",
-    "note": "Read Paragraphs 1.14, 4.1, 4.3 and footnote (4.1). Statement narrowed to the construction; Lemmas 4.6 and 4.7 split into the new node the-canonical-filtration-is-a-q-hodge-filtration. Prerequisites: added Construction A.12, Lemma A.6, the conventions, DD.2 and mathlib:Algebra.Smooth; removed Definition 3.2 (moved). API renamed to library convention with the adjunction lift and functoriality; tests given kinds; the unsourced claim that the factorisation fails without the hypothesis removed; literal excerpts."
-   },
-   {
-    "nodeId": "HabiroCohomologyFoundations:HQ.5/the-canonical-filtration-is-a-q-hodge-filtration",
-    "verdict": "added",
-    "note": "Added by this review: In relative dimension at most n the canonical filtration is a q-Hodge filtration. Statement, hypotheses and proof steps read against the cited source passages; prerequisites resolve in this packet, in HabiroRings, or to atlas stages with requests."
-   },
-   {
-    "nodeId": "HabiroCohomologyFoundations:HQ.5/framed-and-fixed-point-descriptions-of-the-canonical-filtration",
-    "verdict": "corrected",
-    "note": "Read Remarks 4.4 and 4.5 and Paragraph 1.10. The node bundled two separate remarks; it now states Remark 4.4 with the coordinate filtration written out, its proof cites Lemma 4.6 (new node) as the source does, and Remark 4.5 moved to a new node with its own prerequisites (PR.6). Excerpts literal."
-   },
-   {
-    "nodeId": "HabiroCohomologyFoundations:HQ.5/the-p-tilde-de-rham-description-of-the-canonical-filtration",
-    "verdict": "added",
-    "note": "Added by this review: The p-complete description through the p-tilde-de Rham complex. Statement, hypotheses and proof steps read against the cited source passages; prerequisites resolve in this packet, in HabiroRings, or to atlas stages with requests."
-   },
-   {
-    "nodeId": "HabiroCohomologyFoundations:HQ.5/functoriality-across-dimensions",
-    "verdict": "corrected",
-    "note": "Read 4.8, Lemma 4.9 with proof and Lemma 4.10 with proof. Split: Lemma 4.9 (pushout, proved via Ramzi's observation on pushouts of fully faithful functors) is a new node; this node keeps Lemma 4.10 and the assembly; proofSteps corrected to the source's zigzag through the relative truncation; prerequisites gain the Lemma 4.6 node and the pushout node; literal excerpts."
-   },
-   {
-    "nodeId": "HabiroCohomologyFoundations:HQ.5/the-pushout-of-categories-of-smooth-algebras",
-    "verdict": "added",
-    "note": "Added by this review: The categories with the bounds n and n+1 form a pushout of ∞-categories. Statement, hypotheses and proof steps read against the cited source passages; prerequisites resolve in this packet, in HabiroRings, or to atlas stages with requests."
-   },
-   {
-    "nodeId": "HabiroCohomologyFoundations:HQ.5/existence-of-q-hodge-filtrations-for-smooth-algebras",
-    "verdict": "corrected",
-    "note": "Read Theorem 4.11, Theorem 1.15 and Lemma 3.3. Statement and hypotheses match the source except for an unsourced hypothesis ('inverting fewer does not suffice'), removed. Prerequisites gain the Lemma 4.6 node, Definition 3.2 and mathlib:Algebra.Smooth (read at the pin: formally smooth and of finite presentation). Planet kept. Literal excerpts."
-   },
-   {
-    "nodeId": "HabiroCohomologyFoundations:HQ.5/the-sub-operad-of-smooth-algebras-with-small-primes-inverted",
-    "verdict": "added",
-    "note": "Added by this review: The partial sub-operad of smooth algebras with the small primes inverted. Statement, hypotheses and proof steps read against the cited source passages; prerequisites resolve in this packet, in HabiroRings, or to atlas stages with requests. The coordinating reviewer corrected the statement further while the suggested file was rewritten (see the review report)."
-   },
-   {
-    "nodeId": "HabiroCohomologyFoundations:HQ.5/the-truncated-construction-is-symmetric-monoidal",
-    "verdict": "added",
-    "note": "Added by this review: The truncated canonical construction is symmetric monoidal. Statement, hypotheses and proof steps read against the cited source passages; prerequisites resolve in this packet, in HabiroRings, or to atlas stages with requests."
-   },
-   {
-    "nodeId": "HabiroCohomologyFoundations:HQ.5/cartesian-lifts-in-bounded-dimension-are-preserved",
-    "verdict": "added",
-    "note": "Added by this review: In bounded dimension the oplax structure preserves cartesian lifts. Statement, hypotheses and proof steps read against the cited source passages; prerequisites resolve in this packet, in HabiroRings, or to atlas stages with requests."
-   },
-   {
-    "nodeId": "HabiroCohomologyFoundations:HQ.5/partial-operad-multiplicativity",
-    "verdict": "corrected",
-    "note": "Read 4.12 to 4.16. The domain as the source defines it is not closed under composition (new source issue E305, with the witness Z[x] over Z); the statement now uses the admissible simplicial subset and says what is preserved. The claim that inverting up to d gives 'no multiplication at all' reworded to the source's 'nothing we can say'. The bundled definition and Lemmas 4.13 and 4.15 are now separate nodes; prerequisites and proofSteps follow the source's sketch; E5:abstract requested for the operadic machinery. Planet kept."
-   },
-   {
-    "nodeId": "HabiroCohomologyFoundations:HQ.5/algebraic-habiro-cohomology-of-a-scheme",
-    "verdict": "corrected",
-    "note": "Read Paragraphs 1.16 and 1.17, Theorem 1.11 and the body (no scheme-level statement and no proof of perfectness there). Statement restored to the source's hypotheses (over Z); the perfectness clause, asserted without proof, split into a new node with a gap and source issue E303; the gluing, asserted without proof, now derived from the descent theorem (b), Corollary 3.31, the étale sheaf property of q-W_m Ω and Appendix B's conservativity (HR.2/the-detection-results added); reduction 'modulo a cyclotomic element' corrected to modulo q^m − 1; API and tests renamed with kinds; literal excerpts."
-   },
-   {
-    "nodeId": "HabiroCohomologyFoundations:HQ.5/perfectness-for-smooth-proper-schemes",
-    "verdict": "added",
-    "note": "Added by this review: Perfectness of algebraic Habiro cohomology for smooth proper schemes (asserted by the source without proof). Statement, hypotheses and proof steps read against the cited source passages; prerequisites resolve in this packet, in HabiroRings, or to atlas stages with requests."
-   },
-   {
-    "nodeId": "HabiroCohomologyFoundations:HQ.5/the-quasi-lci-inputs-and-condition-R",
-    "verdict": "corrected",
-    "note": "Read 1.18, 4.17, Lemma 4.18 with proof, Remarks 4.19 and 4.20, Construction 4.28. Lemma 4.18 split into the new node staticity-for-quasi-lci-inputs; the claimed equivalence of the introduction's (R) with the body's conditions is not in the source (only one implication, via Lemma 4.18) and is corrected; prerequisites: DD.0 added (cotangent complex, Koszul-regular sequences, requested), HQ.1 node removed, Mathlib IsRegular kept only for a compatibility item (a near miss for Koszul-regularity); tests given kinds, the self-contradictory 'smooth' test corrected (étale algebras lie in both classes); literal excerpts."
-   },
-   {
-    "nodeId": "HabiroCohomologyFoundations:HQ.5/staticity-for-quasi-lci-inputs",
-    "verdict": "added",
-    "note": "Added by this review: Staticity of de Rham and q-de Rham complexes of quasi-lci inputs. Statement, hypotheses and proof steps read against the cited source passages; prerequisites resolve in this packet, in HabiroRings, or to atlas stages with requests."
-   },
-   {
-    "nodeId": "HabiroCohomologyFoundations:HQ.5/the-naive-filtration-for-quasi-regular-inputs",
-    "verdict": "corrected",
-    "note": "Read Construction 4.21, the sentence after it, Examples 4.24 and 4.25, and Lemma 4.26. Lemma 4.26 split into its own node (prerequisite of Theorem 4.22 and Lemma 4.33); prerequisites gain the staticity lemma, the conventions and DD.2; API renamed with the membership characterisation; tests given kinds and made concrete (the derived-preimage test now names the class 1/p); literal excerpts."
-   },
-   {
-    "nodeId": "HabiroCohomologyFoundations:HQ.5/the-naive-filtration-is-injective-modulo-q-minus-one",
-    "verdict": "added",
-    "note": "Added by this review: The naive filtration is always injective modulo q−1. Statement, hypotheses and proof steps read against the cited source passages; prerequisites resolve in this packet, in HabiroRings, or to atlas stages with requests."
-   },
-   {
-    "nodeId": "HabiroCohomologyFoundations:HQ.5/the-exponent-one-quotient-is-not-a-q-deformation",
-    "verdict": "added",
-    "note": "Added by this review: For the quotient by x itself the naive filtration is not a q-deformation. Statement, hypotheses and proof steps read against the cited source passages; prerequisites resolve in this packet, in HabiroRings, or to atlas stages with requests."
-   },
-   {
-    "nodeId": "HabiroCohomologyFoundations:HQ.5/when-the-naive-filtration-deforms-the-hodge-filtration",
-    "verdict": "corrected",
-    "note": "Read Theorem 4.22, Remark 4.23, Examples 4.24 and 4.25, the proof of Theorem 4.22, and Meyer–Wagner arXiv:2410.23115v4 §3.2 (Lemmas 3.16, 3.17). Clause (b) moved to a new HQ.5-trace node (its proof is the ku paper's Theorem 4.17). The node stated that for p > 2 condition (b) implies condition (a), which is backwards as a statement about conditions (Remark 4.23 builds an E_1-lift from a presentation as in (a)); corrected in the new node. ProofSteps rewritten to the source's proof; Meyer–Wagner obtained (it was listed as not obtained) and cited, with the misnumbered citation recorded as E302; prerequisites completed; literal excerpts. Planet kept."
-   },
-   {
-    "nodeId": "HabiroCohomologyFoundations:HQ.5/flat-base-change-for-the-naive-filtration",
-    "verdict": "corrected",
-    "note": "Read Lemma 4.27 and its proof. Statement and hypotheses match. ProofSteps rewritten to the source's argument (Remark A.7 denominator bound, derived pullback, bounded torsion of H^{-1}); prerequisites gain the HQ.1 denominator node, derived base change, the staticity lemma and DD.2; literal excerpts."
-   },
-   {
-    "nodeId": "HabiroCohomologyFoundations:HQ.5/the-canonical-section-on-quasi-regular-inputs",
-    "verdict": "corrected",
-    "note": "Read Construction 4.28, Theorem 4.29 with its proof sketch, Remarks 4.30 and 4.31. Statement and hypotheses match; the bundled Lemma 4.33 and Corollary 4.34 split into a new node; proofSteps now name the Definition 3.2 data as the source does; prerequisites gain Construction A.12 (and its animation) and DD.2, and drop the flat base change lemma (unused); literal excerpts. Planet kept."
-   },
-   {
-    "nodeId": "HabiroCohomologyFoundations:HQ.5/tensor-products-in-the-quasi-regular-category",
-    "verdict": "added",
-    "note": "Added by this review: Tensor products of quasi-regular inputs and the operadic structure of the section. Statement, hypotheses and proof steps read against the cited source passages; prerequisites resolve in this packet, in HabiroRings, or to atlas stages with requests."
-   },
-   {
-    "nodeId": "HabiroCohomologyFoundations:HQ.5/uniqueness-of-the-two-sections",
-    "verdict": "corrected",
-    "note": "Read Paragraph 1.21 and searched the body (no proof of either uniqueness claim). Statement made precise; the source's 'straightforward' claims recorded as unproved in the source, and proofSteps written out from the constructions (checked: terminality from the preimage description, initiality from the truncation adjunction, both upgraded by (q−1)-completeness); prerequisites completed with the truncation node, the Lemma 4.6 node, the new p-tilde node and Definition 3.2; literal excerpts."
-   },
-   {
-    "nodeId": "HabiroCohomologyFoundations:HQ.5/the-export-to-the-coefficient-roadmap",
-    "verdict": "corrected",
-    "note": "Read Corollaries 2.13 and 3.13 with proof, Paragraph 1.4, and the HabiroRings packet's HR.5 and HR.6 nodes. Removed the prerequisites HR.6, HB.6 and HB.7 (consumers; HR.6 requires HQ.5, so the old prerequisite closed a stage cycle); added HR.5's ring, equaliser presentation and number-field comparison so that the Frobenius-glued Taylor maps are carried as the stage text asks; 'modulo a cyclotomic element' corrected to modulo q^m − 1; literal excerpts. Requests to HR.6, HB.6 and HB.7 become unnecessary (see requests)."
-   },
-   {
-    "nodeId": "HabiroCohomologyFoundations:HQ.5-trace/trace-theoretic-existence-of-q-hodge-filtrations",
-    "verdict": "corrected",
-    "note": "Read ku paper 1.1–1.11, 3.1, 3.2, 4.18, 4.18a, 4.25–4.28. The body form's hypotheses were imprecise ((E1) lacked p-torsion-freeness and the relative semiperfectness of the cover; lifts are in S_{Â_p}-modules; the Tate-Frobenius agreement is on π_0); corrected; the derived global complex added as prerequisite; literal excerpts. Import boundary with RT.4:q-Hodge confirmed against the supplier's stage text. Planet kept."
-   },
-   {
-    "nodeId": "HabiroCohomologyFoundations:HQ.5-trace/a-lift-over-connective-complex-k-theory-is-not-enough",
-    "verdict": "corrected",
-    "note": "Read ku paper 1.11 and the Habiro paper's Example 4.24. Content correct; the node now attributes the E1-ku structure to Angeltveit, names j and the non-commuting diagram, and lists the one-disc node (Theorem 4.17) and the new exponent-one node as prerequisites, which the argument uses; literal excerpts."
-   },
-   {
-    "nodeId": "HabiroCohomologyFoundations:HQ.5-trace/the-one-disc-refinement-and-the-prime-two",
-    "verdict": "corrected",
-    "note": "Read ku paper 1.9, 1.10, 3.2, 3.4, Theorems 4.8, 4.14, 4.16 (Nikolaus, unpublished, argument given), Remark 4.15, §4.3 and Theorem 4.17 with proof. The explicit description holds only for the identity cover; the node claimed it for every resolution; corrected. p = 2 inputs named; prerequisites gain the staticity lemma and RT.4:q-Hodge directly; literal excerpts. Planet kept."
-   },
-   {
-    "nodeId": "HabiroCohomologyFoundations:HQ.5-trace/the-spherical-e1-lift-case-of-the-well-behavedness-theorem",
-    "verdict": "added",
-    "note": "Added by this review: A spherical E_1-lift of the perfection makes the naive filtration a q-deformation. Statement, hypotheses and proof steps read against the cited source passages; prerequisites resolve in this packet, in HabiroRings, or to atlas stages with requests."
-   },
-   {
-    "nodeId": "HabiroCohomologyFoundations:HQ.5-trace/the-number-field-ring-from-periodic-complex-k-theory",
-    "verdict": "corrected",
-    "note": "Read ku Corollary 6.15 and its proof, and the stage text of RefinedTraceMethods:RT.4:Habiro-comparison, which plans this corollary with the same hypotheses. The node duplicated that owner; it is converted to a citation with the owner as prerequisite (a request added); deletion is equally acceptable. The proof's cross-reference to 'Corollary 3.12' of the Habiro paper is wrong in both its versions (should be 3.13): new source issue E304. Literal excerpts."
-   },
-   {
-    "nodeId": "HabiroCohomologyFoundations:HQ.6/the-algebraic-against-analytic-comparison-problem",
-    "verdict": "corrected",
-    "note": "Read Paragraphs 1.3, 1.4 with footnote (1.3), 1.16 and 1.17, and the bibliography entry [Sch25] (a lecture course at MPIM Bonn, summer 2025, with recordings). Statement restored to the source's setting (over Z) and extended to the ring and line-bundle levels the stage text asks for; the Paragraph 1.3 excerpt did not match 1.3; two tests were unsourced or false and are corrected; API renamed. Prerequisite AnalyticHabiroStack:HS.3 kept (draft roadmap, request kept). Kind kept as definition since the stage text asks to define the problem, but it cannot be stated in Lean at the pin (leanNotes). Planet kept."
-   },
-   {
-    "nodeId": "HabiroCohomologyFoundations:HQ.6/the-three-recorded-differences",
-    "verdict": "corrected",
-    "note": "Read Paragraph 1.17 in full. The three differences are stated faithfully; the acceptance and a hypothesis overstated Corollary 4.16 as settling the third difference and are corrected; literal excerpts."
-   },
-   {
-    "nodeId": "HabiroCohomologyFoundations:HQ.6/what-may-not-be-inferred-from-the-analytic-side",
-    "verdict": "corrected",
-    "note": "Read Appendix B opening, Lemma B.8, Paragraph 1.3 and the bibliography entry [Sch25]. Statement corrected to mention that the HQ.5-trace import rests on the ku paper's solid condensed methods (owned by RT.4); the Paragraph 1.3 excerpt (a heading) replaced by the bibliography entry; literal excerpts."
-   },
-   {
-    "nodeId": "HabiroCohomologyFoundations:HQ.7/the-acceptance-tests",
-    "verdict": "corrected",
-    "note": "Checked each example and check against the source: the q-differential formula is in Remark 1.13 (locator corrected); the finite étale example's reduction is modulo q^m − 1 (Corollary 3.13's proof); the second structural check had no witness and now has one (derived reduction of the q-Hodge complex of Z[x]); witnesses made concrete for all checks; example (5) now has an explicit lift and is cross-checked with the canonical smooth filtration through the ku paper's Theorem 6.10; prerequisites completed; literal excerpts."
-   },
-   {
-    "nodeId": "HabiroCohomologyFoundations:HQ.7/the-executable-boundary",
-    "verdict": "corrected",
-    "note": "Read the whole suggested Lean file. The node's claims about the file were false (placeholder definitions such as qDiff, True-valued structure fields in ConditionR and QHodgeFiltration, a Prop defined by a placeholder, 72 True-typed declarations, a vacuous d² = 0 example); statement restated as a checkable contract consistent with PROTOCOL section 13 and the file changes listed in leanNotes; locators corrected; baseline citations confirmed at the pin. The coordinating reviewer corrected the statement further while the suggested file was rewritten (see the review report)."
-   }
-  ]
- }
+  "status": "accepted",
+  "reviewer": "independent-review-REV-FIX-RT-AREA-etale~2",
+  "date": "2026-09-30",
+  "notes": "Independent review of FIX-RT-AREA-etale~2 (Codex codex-rtOQ9t, issue #5155, PR #5255). This session did no part of either fix round, the red team or its verification. It follows the qualified verdicts of RT-AREA-etale.review.json. Also follows independent-review-REV-HabiroCohomologyFoundations--HQ.1 (2026-09-25; archived verbatim in reviewHistory). That review's only blocker, the stale reader, is resolved: the regenerated reader covers all 122 packet nodes. Scope: /6, /27–/31, /32, /34, /35 and /40 as they bear on this packet; the other findings are recorded handoffs to other owners, and /10, /24 and /36 were rejected. Checked: the four added nodes against Scholze arXiv:1606.01796 Definition 7.3, Remark 7.4 and Conjecture 7.5 (pp. 15–16, SHA-256 ce060b41…) and Wagner arXiv:2510.04782v2 Example 3.12 (pp. 25–26, SHA-256 591d0bdf…). The four twisted Leibniz and commutation identities, the balanced tensor rule, the skew group multiplication and the monomial test D̃(x^n) = (q^n − 1)x^{n−1} are all verified by hand. The framed prefix hypotheses (/28), the uncompleted Habiro–Hodge object in HQ.3 (/31), the four-part perfectness gap for the Habiro completion of H[1/N] (/35), the MW Lemma 3.16 and ku Theorems 4.14/4.16/4.17 inputs with the R_∞ lift (/6), the HR.1 Λ-ring imports (/32), and the conditional RS-10 ownership table (/27) are all present. Corrections made in place: (1) /34 was only half applied, so HQ.2/filtered-graded-and-completion-conventions now attributes complete filtered objects and derived completion to DD.1 and the stable setting to E1, and the re-export E4 is dropped as a prerequisite; (2) the four new nodes' excerpts (30, 30, 30 and 39 characters, one reused for three nodes) are replaced by identifying literal excerpts of at most 300 characters from the same pages, and the torus-descent node now cites Conjecture 7.5 with a match that states the source does not assert the descent theorem. check_blueprint with the pinned index: 122 nodes, 0 errors, 0 warnings. The packet remains partial and every node is unchecked. Report: research/blueprint/reviews/REV-FIX-RT-AREA-etale~2.md."
+ },
+ "reviewHistory": [
+  {
+   "status": "needs_changes",
+   "reviewer": "independent-review-REV-HabiroCohomologyFoundations--HQ.1",
+   "date": "2026-09-25",
+   "notes": "Three independent reviewers (HQ.1–HQ.2, HQ.3–HQ.4, HQ.5–HQ.7 with HQ.5-trace) checked every node against the three Wagner papers at their latest arXiv versions (the recorded e-print SHA-256 values match), every baseline citation at the pins, closure, granularity, API, unit tests and planets. All 66 original nodes needed correction (every excerpt was a paraphrase; several statements, hypotheses and dependency directions were wrong); 52 nodes are added, mostly splits of bundled results and missing inputs; one node moved from HQ.2 to HQ.3 to remove a stage cycle, and prerequisites on HabiroRings HR.6 and HabiroNumberFields HB.6/HB.7, which require this roadmap, were removed. Baseline: 20 original citations confirmed or fixed (4 fixed, none removed), 4 added. Source issues: E1–E3 confirmed, 26 added and confirmed (E101–E109, E201–E211, E301–E305, E401). HQ.1 and HQ.3 are now partial. The suggested Lean file, which did not elaborate and used True in place of about 86 statements, is rewritten against the corrected packet and elaborates at Mathlib 082e2d3 with only placeholder-proof warnings. needs_changes only because the roadmap document research/blueprint/readmes/HabiroCohomologyFoundations--HQ.1.md is outside this review's files and still describes the uncorrected packet; it must be regenerated before promotion.",
+   "checked": [
+    {
+     "nodeId": "HabiroCohomologyFoundations:HQ.1/what-this-layer-imports-and-what-it-owns",
+     "verdict": "corrected",
+     "note": "Checked against Appendix A opening, Theorem A.1(b) and §A.1 (arXiv v2, hash matches). Added the Frobenius twist and ζ_p of A.1(b) and Bhatt–Scholze 16.18 to the statement. Corrected the false claim that [p]_q and q−1 differ mod p (fails for p = 2). Corrected the q-integer proof step: the old one identified [p^k]_q with Φ_{p^(k+1)}, which is wrong. Added the Mathlib lemma prod_cyclotomic_eq_geom_sum. Replaced the HR.1 perfectly-covered prerequisite by the Λ-ring node, since A.1 needs only p-torsion freeness. Made the excerpts literal."
+    },
+    {
+     "nodeId": "HabiroCohomologyFoundations:HQ.1/rationalised-q-crystalline-comparison",
+     "verdict": "corrected",
+     "note": "Checked against Lemma A.4 and its proof. The proof steps did not follow the source, which builds one map and inverts it modulo q−1 by derived Nakayama. The prerequisite direction with the denominator lemma was reversed. The local derived q-de Rham complex was used but never defined (new node). Added the missing imports PR.0, CR.0, DD.4 and DD.1. Made the excerpts literal and added a planet."
+    },
+    {
+     "nodeId": "HabiroCohomologyFoundations:HQ.1/divided-power-denominators-in-the-q-pd-envelope",
+     "verdict": "corrected",
+     "note": "Checked Lemmas A.5 and A.6 and Remark A.7 line by line against the source, including the arithmetic of the proofs. The node bundled four statements; it now holds Lemma A.6, and A.5 and A.7 are new nodes. Its only prerequisite was the theorem that uses it, a reversed dependency. It also required a framing that Lemma A.6 does not need. While checking the A.5(b) proof, found the misprint recorded as E103."
+    },
+    {
+     "nodeId": "HabiroCohomologyFoundations:HQ.1/a-denominator-bound-uniform-in-the-prime",
+     "verdict": "corrected",
+     "note": "Checked against paragraph A.11. Verified that primes p > n contribute nothing modulo (q−1)^n, and that products of expansion terms stay inside N_n^{−1} because e(i) = 2(p^{i−1}+⋯+1) is superadditive. The source leaves this step implicit, so it is now a proof step. Reworded the hypothesis about infinite products, and added the local derived complex, CR.0 and DD.1 as prerequisites."
+    },
+    {
+     "nodeId": "HabiroCohomologyFoundations:HQ.1/the-coordinate-comparison-and-its-compatibility",
+     "verdict": "corrected",
+     "note": "Checked paragraph A.8, Lemma A.9, Lemma A.10 and the proof of A.1(d), and re-derived the q-derivative formula from γ_i = exp(log(q)T_i∂_i). The statement misread (∂_iT_i)^{(n−1)} as a divided power applied to T_i. It is an (n−1)-fold operator iterate. The node bundled A.8, A.9, A.10 and a general Koszul fact, and it omitted Lemma A.9 and the version over A used for A.1(d). It is split: Koszul lemma and compatibility square are new nodes."
+    },
+    {
+     "nodeId": "HabiroCohomologyFoundations:HQ.1/the-global-q-de-rham-complex",
+     "verdict": "corrected",
+     "note": "Checked against Construction A.12, paragraph A.11 and the proof of Theorem A.1. The right vertical map is rationalisation followed by the inverse of the A.11 equivalence, not that equivalence itself. The needed identification of the underived local complexes with the derived ones was missing. The stated reason for p-torsion freeness was wrong. The API and tests had kebab-case names and no test kinds. Removed the framed-comparison prerequisite, which the construction does not use."
+    },
+    {
+     "nodeId": "HabiroCohomologyFoundations:HQ.1/what-the-global-complex-satisfies",
+     "verdict": "corrected",
+     "note": "Checked Theorem A.1 and its proof. The node bundled five parts. (d) and base change are split off as new nodes, because (d) needs the compatibility square and base change needs derived Nakayama. The (a) to (c) proof steps now record the vanishing of the other primes' factors and the use of the uniform bound in (c). Found the misprint Ω_{R/A} for Ω_{S/A} in the proof (E109)."
+    },
+    {
+     "nodeId": "HabiroCohomologyFoundations:HQ.1/the-derived-commutative-lift",
+     "verdict": "corrected",
+     "note": "Checked against Remark A.2 and paragraph A.13. The node hid a non-routine lemma, Ω_{S/A} ≃ Tot D_{P•}(J•), which is now its own node. It did not address how the two maps of the pullback square are lifted; they are maps of cosimplicial rings. Two tests were wrong or empty. API names and test kinds fixed."
+    },
+    {
+     "nodeId": "HabiroCohomologyFoundations:HQ.2/filtered-graded-and-completion-conventions",
+     "verdict": "corrected",
+     "note": "Checked against paragraph 1.22(a) to (d). Every object here belongs to DD.1 or E4, which the library audit lists as duplicates for HQ.2. The node therefore becomes an import boundary: kind comparison, planet, API and tests removed, tests kept as acceptance. Added the missing graded derived quotient convention. Removed the two Mathlib ancestors from the prerequisites, since they do not provide the needed objects. Found two misprints in 1.22(a) (E107, E108)."
+    },
+    {
+     "nodeId": "HabiroCohomologyFoundations:HQ.2/the-graded-presentation-of-the-coefficient-ring",
+     "verdict": "corrected",
+     "note": "Checked against the proofs of Lemmas 3.9 and 3.10 and the proof outline of Theorem 3.11. Verified the Rees presentation, including that βt − (q^m−1) is the only relation. The general-module claims only hold for q-Hodge filtrations. One unit test was false (A[β,t]/t = A[β], not a ring 'in q and β') and one was not checkable. API names and test kinds fixed."
+    },
+    {
+     "nodeId": "HabiroCohomologyFoundations:HQ.2/the-quotient-convention-for-filtered-modules",
+     "verdict": "corrected",
+     "note": "Checked Convention 3.1 by computing both quotients on (q−1)^⋆A[q]. For m ≥ 2 the printed base change to A would also kill q−1; the n-th piece formula matches base change to A[q]/(q^m−1) (new source issue E102). Two unit tests were false and are corrected. The planet is removed, and API names and test kinds are fixed."
+    },
+    {
+     "nodeId": "HabiroCohomologyFoundations:HQ.2/the-derived-q-de-rham-complex",
+     "verdict": "corrected",
+     "note": "Checked paragraphs 1.22(b) and A.14. The base hypothesis is the source's p-torsion free Λ-ring, not perfect covering. The pullback square does not follow 'because the corners are animations', since products need not commute with the realisation. It follows by reduction modulo q−1 and derived Nakayama (new source issue E106). The non-example was wrong. Added the resolution formula and the p-completion identification."
+    },
+    {
+     "nodeId": "HabiroCohomologyFoundations:HQ.2/animation-does-not-preserve-the-values-on-smooth-algebras",
+     "verdict": "corrected",
+     "note": "Checked paragraph A.14 and §A.1. Correct in substance. Added an explicit witness, A = ℚ and S = ℚ[x, x^{−1}]: derived de Rham over ℚ is ℚ, while H^1_dR ≠ 0. The p-complete half now cites the new local node that proves it. Excerpts made literal."
+    },
+    {
+     "nodeId": "HabiroCohomologyFoundations:HQ.2/derived-base-change-and-its-completion-hypotheses",
+     "verdict": "corrected",
+     "note": "Checked Theorem A.1's base change and its proof. The node duplicated the smooth statement, which belongs to HQ.1 (now a new node there). It now states the animated base change and says the source does not state it. Added a witness that the (q−1)-completion is needed."
+    },
+    {
+     "nodeId": "HabiroCohomologyFoundations:HQ.2/the-two-rational-comparisons-and-why-the-second-is-an-axiom",
+     "verdict": "corrected",
+     "note": "Checked Remark 1.8, the paragraph before Definition 3.2, Lemma A.4 and paragraph A.11. The node bundled two equivalences, their compatibility and a remark. The two equivalences are now new theorem nodes (realising the stage targets 'the rational comparison' and 'the separate p-completed rational comparison'). This node keeps the diagram and the independence record. Corrected 'the deformation condition' to the source's 'the other conditions'. Found the cross-reference misprint in Remark 1.8 (E101)."
+    },
+    {
+     "nodeId": "HabiroCohomologyFoundations:HQ.2/what-the-decalage-import-supplies",
+     "verdict": "corrected",
+     "note": "Checked paragraph 3.14 and Remark 3.49 against Theorem A.1(b) and Bhatt–Scholze Theorems 15.3 and 16.18 (fetched: arXiv:1905.08229). Found two source issues. T := Ŝ_p[ζ_p] omits the Frobenius twist (E104), and the completion argument fails as printed for α = 0 (E105). The node repeats both; both are corrected. The relative Frobenius equivalence is PrismaticCohomology:PR.3's, not PR.6's."
+    },
+    {
+     "nodeId": "HabiroCohomologyFoundations:HQ.3/the-smooth-comparison-of-q-omega-with-the-q-hodge-completion",
+     "verdict": "corrected",
+     "note": "Checked Proposition 3.47 and its proof. The proof steps were not the source's. The source proves (a) with the arithmetic fracture square glued by the (c_p) datum, and (b) with the Beilinson t-structure (BMS2 Theorem 5.4(2), Proposition 5.8) and BMS1 Lemma 6.20. The prerequisites lacked the definition of a q-Hodge filtration and the combined filtration. Confirmed the E2 misprint. The dependence of this HQ.2 node on HQ.3 objects is already recorded in the packet's restructure notes. The coordinating reviewer moved the node from HQ.2 to HQ.3 (Proposition 3.47 is a statement about q-Hodge filtrations, and HQ.3 depends on HQ.2), keeping HQ.2 among the stages it realises."
+    },
+    {
+     "nodeId": "HabiroCohomologyFoundations:HQ.1/the-local-derived-q-de-rham-complex",
+     "verdict": "added",
+     "note": "Lemma A.4, paragraph A.11 and Construction A.12 all use the local animated complex qdR_{−/Â_p} of §A.1, which no node defined. Added it, with the p-adic agreement on smooth algebras (checked modulo (p, q−1)), 3 API items beyond constructor, and 4 tests."
+    },
+    {
+     "nodeId": "HabiroCohomologyFoundations:HQ.1/delta-and-q-divided-power-denominator-estimates",
+     "verdict": "added",
+     "note": "Split from the bundled denominator node: Lemma A.5(a) and (b), which are proved together. The proof was checked, including γ_q(q−1) and the final exponent (E103)."
+    },
+    {
+     "nodeId": "HabiroCohomologyFoundations:HQ.1/the-reverse-divided-power-expansion",
+     "verdict": "added",
+     "note": "Split from the bundled denominator node: Remark A.7. Lemmas 3.29 and 4.27 use it in a factorisation form, stated as part (b). Those HQ.4 and HQ.5 nodes should cite this one."
+    },
+    {
+     "nodeId": "HabiroCohomologyFoundations:HQ.1/the-koszul-twist-isomorphism",
+     "verdict": "added",
+     "note": "The general Koszul fact of paragraph A.8. The explicit isomorphism h_I on the summand of index I was verified, including why h_i need not commute with g_i."
+    },
+    {
+     "nodeId": "HabiroCohomologyFoundations:HQ.1/the-compatibility-square",
+     "verdict": "added",
+     "note": "Lemma A.10, split from the framed comparison node: its proof is a separate Čech–Alexander argument."
+    },
+    {
+     "nodeId": "HabiroCohomologyFoundations:HQ.1/the-coordinate-dependent-q-de-rham-complex",
+     "verdict": "added",
+     "note": "No node defined the global framed complex q-Ω*_{S/A,□} that Theorem A.1(d), paragraph 1.10 and Example 3.12 use. Only the p-complete one is PR.6's, and HQ.1's title ('q-differentials and coordinate comparisons') makes it this layer's. Divisibility of γ_i − 1 by (q−1)x_i was checked."
+    },
+    {
+     "nodeId": "HabiroCohomologyFoundations:HQ.1/the-framed-description-of-the-global-complex",
+     "verdict": "added",
+     "note": "Theorem A.1(d), split from the four-properties node: its proof needs the compatibility square and the framed comparison over A."
+    },
+    {
+     "nodeId": "HabiroCohomologyFoundations:HQ.1/base-change-for-the-global-complex",
+     "verdict": "added",
+     "note": "The base change clause of Theorem A.1, split from the four-properties node. The HQ.2 base change node no longer duplicates it and now states the animated version."
+    },
+    {
+     "nodeId": "HabiroCohomologyFoundations:HQ.1/framing-independence-and-the-cocycle-identity",
+     "verdict": "added",
+     "note": "Realises the stage target 'framing independence by coherent comparison maps' and the cocycle part of 'descent including the cocycle identities'. These are formal from A.1(d). The sheaf property is recorded as a gap."
+    },
+    {
+     "nodeId": "HabiroCohomologyFoundations:HQ.1/the-de-rham-complex-as-a-totalisation-of-pd-envelopes",
+     "verdict": "added",
+     "note": "The non-routine lemma hidden in the derived commutative lift (paragraph A.13), now its own node."
+    },
+    {
+     "nodeId": "HabiroCohomologyFoundations:HQ.2/the-combined-hodge-and-q-minus-one-adic-filtration",
+     "verdict": "added",
+     "note": "Definition 3.2(c) and (c_p), Proposition 3.47 and several HQ.5 nodes use the combined Hodge and (q−1)-adic filtration, but no node defined it. The HQ.2 stage text asks for 'the derived de Rham specialization with its filtration'."
+    },
+    {
+     "nodeId": "HabiroCohomologyFoundations:HQ.2/the-rational-comparison-for-the-derived-complex",
+     "verdict": "added",
+     "note": "Split from the two-rational-comparisons node, where it was bundled. Realises the HQ.2 target 'the rational comparison'."
+    },
+    {
+     "nodeId": "HabiroCohomologyFoundations:HQ.2/the-p-completed-rational-comparison",
+     "verdict": "added",
+     "note": "Split from the two-rational-comparisons node. Realises the HQ.2 target 'Prove the separate p-completed rational comparison'. The source's cross-reference to it is the misprint E101."
+    },
+    {
+     "nodeId": "HabiroCohomologyFoundations:HQ.4/q-v-systems-of-differential-graded-algebras",
+     "verdict": "corrected",
+     "note": "Definition 3.1, 3.9, Remark 3.10, Lemmas 3.2 and 3.4 of q-Witt v5 read in the LaTeX and the PDF. The definition is the source's; corrected the ambiguous V-Teichmueller phrasing, added morphisms, replaced paraphrased excerpts by literal ones, split the API, fixed two wrong unit tests and added test kinds."
+    },
+    {
+     "nodeId": "HabiroCohomologyFoundations:HQ.4/q-fv-systems",
+     "verdict": "corrected",
+     "note": "Definition 3.6, Lemma 3.7 (with its proof) and Remark 3.8 of q-Witt v5 read, the PDF rendered at page 39. The definition is faithful; the derived relation now carries the source's proof form and the printed misprint is recorded (E201); two tests were wrong and are replaced; literal excerpts; Lean names; test kinds."
+    },
+    {
+     "nodeId": "HabiroCohomologyFoundations:HQ.4/there-are-no-restriction-operators-and-what-replaces-them",
+     "verdict": "corrected",
+     "note": "Paragraphs 2.14 and 3.11 and Remark 3.18 of q-Witt v5 read. The node re-proved HR.4's degree-zero obstruction (now imported) and contained the comparison map, whose proof needs initiality among q-FV-systems from a node that depended on this one (hidden cycle); the comparison map is a new node. The Langer-Zink observation is an informal claim in the source and is now requested from CR.4. Literal excerpts; planet renamed from the source."
+    },
+    {
+     "nodeId": "HabiroCohomologyFoundations:HQ.4/the-q-de-rham-witt-complex",
+     "verdict": "corrected",
+     "note": "Proposition 3.12 with its proof, Definition 3.13, Remark 3.14 and Lemma 3.16 of q-Witt v5 read. The node bundled Proposition 3.17 (Frobenii, a multi-page proof) and Proposition 4.1 (torsion-freeness, proved by the joint induction of section 4); both moved to their own nodes. Added the truncation-set universal property the stage text asks for, functoriality, literal excerpts, Lean names and test kinds; removed an unnecessary prerequisite that blocked the corrected ordering."
+    },
+    {
+     "nodeId": "HabiroCohomologyFoundations:HQ.4/ghost-maps-and-what-they-do-not-define",
+     "verdict": "corrected",
+     "note": "Paragraph 3.15, Corollary 3.34, Lemma 4.5, Lemma 2.23 and Corollary 2.22 of q-Witt v5 read. The degree-zero torsion statements are about absolute q-Witt rings and are HR.4's; positive-degree injectivity (a stage target) and the gh_1 quotient description (used by the Nygaard lemmas) were missing; the dependency on etale base change was inverted."
+    },
+    {
+     "nodeId": "HabiroCohomologyFoundations:HQ.4/etale-base-change-and-the-sheaf-property",
+     "verdict": "corrected",
+     "note": "Proposition 3.31, Lemma 3.32, Corollary 3.33 and Proposition 2.48 of q-Witt v5 read. The statement is faithful; the prerequisite on the ghost-map node inverted the source's order (Corollary 3.34 uses Proposition 3.31) and is removed; the etale extension lemma is a new node; the degree-zero etale input is requested from HR.4; literal excerpts."
+    },
+    {
+     "nodeId": "HabiroCohomologyFoundations:HQ.4/the-p-completion-of-the-q-de-rham-witt-complex",
+     "verdict": "corrected",
+     "note": "Propositions 4.1 and 4.2, paragraph 4.3, Construction 4.26 and Theorem 4.27 of q-Witt v5 read (statements and the structure of the induction; the proofs of sections 4.2 to 4.6 only in outline). The node now carries the three results the source proves jointly; Theorem 4.27, used by the source's Lemma 3.24 and Example 3.12, was missing; the recorded proof steps were not the source's and are replaced; an unsourced 'false without smoothness' claim is removed."
+    },
+    {
+     "nodeId": "HabiroCohomologyFoundations:HQ.4/twisted-q-de-rham-complexes",
+     "verdict": "corrected",
+     "note": "Section 3.3 opening, paragraph 3.14, paragraph 3.16 and Remarks 3.17 and 3.18 read. The construction is faithful. Prerequisites pointed at the derived complex while the construction is on HQ.1's underived global complex; locators made precise; literal excerpts; API projection added; one test over-claimed the source ('usually') and is replaced by a checked non-equivalence."
+    },
+    {
+     "nodeId": "HabiroCohomologyFoundations:HQ.4/the-arithmetic-fracture-squares-and-cyclotomic-descent",
+     "verdict": "corrected",
+     "note": "Lemma 3.15 with its proof read. The node bundled four results; it depended on Proposition 3.19, whose proof uses this lemma and q-Witt Corollary 4.37, so the prerequisites hid a cycle in the source's logic. Narrowed to Lemma 3.15; Corollary 4.37, Corollary 4.38 and Theorem 5.1 of q-Witt v5 are new nodes, and the discipline about complexes versus cohomology goes with Theorem 5.1."
+    },
+    {
+     "nodeId": "HabiroCohomologyFoundations:HQ.4/the-twisted-complex-deforms-the-q-de-rham-witt-complex",
+     "verdict": "corrected",
+     "note": "Proposition 3.19 with its proof sketch and the paragraph before it read; the PDF page 31 rendered. The equivalence is faithful; the node repeated a misprint of the source as mathematics (now corrected, E202); the proof's inputs (the two fracture squares and q-Witt Corollary 4.38) were not prerequisites and are added."
+    },
+    {
+     "nodeId": "HabiroCohomologyFoundations:HQ.4/hodge-against-nygaard",
+     "verdict": "corrected",
+     "note": "Lemma 3.30 and Corollary 3.31 with their proofs read. The proof steps did not match the source (which compares cokernels directly and uses no induction for the lemma); Corollary 3.31 split off as its own node with the source's proof (rational and p-complete reduction, induction on the exponent)."
+    },
+    {
+     "nodeId": "HabiroCohomologyFoundations:HQ.4/the-nygaard-filtration-on-q-de-rham-witt-complexes",
+     "verdict": "corrected",
+     "note": "Paragraphs 3.20 and 3.21, Proposition 3.22 with its proof, Lemmas 3.23, 3.24, 3.27 and 3.29, Corollaries 3.25 and 3.26 and Remark 3.28 read. The node bundled eight results; it is narrowed to Definition 3.21 and the others become nodes. One test was false (index one), the hypothesis about index one was not the source's, and the statement omitted that quasi-syntomic descent is for the p-completed animated filtration."
+    },
+    {
+     "nodeId": "HabiroCohomologyFoundations:HQ.4/no-automatic-multiplicative-upgrade",
+     "verdict": "corrected",
+     "note": "Section 3.8 (paragraphs 3.50, 3.51, 3.53, Lemma 3.52) and paragraph 1.17(c) read. The node duplicated HQ.3's transport theorem and depended on it against the layer order; it now states the multiplicative discipline for the HQ.4 objects, as the HQ.4 stage text asks."
+    },
+    {
+     "nodeId": "HabiroCohomologyFoundations:HQ.3/q-hodge-filtrations",
+     "verdict": "corrected",
+     "note": "Definition 3.2 (all clauses, the footnote and the last paragraph), Convention 3.1, Definition 1.6 and Remarks 1.7, 1.8 read in the LaTeX and the PDF. The statement is faithful. Excerpts were paraphrases and are replaced by literal ones; API names made Lean names, with the forgetful functor to filtered modules and the rational example added; test kinds added. The source omits the construction of the category of pairs as an iterated pullback; the node's last step supplies it, which is recorded in its excerpt."
+    },
+    {
+     "nodeId": "HabiroCohomologyFoundations:HQ.3/no-functorial-choice-of-q-hodge-filtration",
+     "verdict": "corrected",
+     "note": "Lemma 3.3 with its proof sketch and Example 4.24 read. The statement is faithful. The proof's computation is deferred by the source to Example 4.24, and the node made HQ.3 depend on the HQ.5 theorem (layer inversion; HQ.5 requires HQ.3); the computation is now an HQ.3 lemma node with its own prerequisites (PR.0, PR.6, DD.2), which the node previously lacked. Literal excerpts."
+    },
+    {
+     "nodeId": "HabiroCohomologyFoundations:HQ.3/the-q-hodge-complex",
+     "verdict": "corrected",
+     "note": "Paragraph 3.5, Remark 3.6, paragraph 1.10 and Example 3.12 read. The statement omitted the hypothesis of the transfer from the underived complex (the analogues of the four clauses) and a proof step claimed to verify what is in fact assumed; corrected. Literal excerpts, Lean names, kinds; one test moved to a concrete computation."
+    },
+    {
+     "nodeId": "HabiroCohomologyFoundations:HQ.3/the-symmetric-monoidal-structure-on-pairs",
+     "verdict": "corrected",
+     "note": "Proposition 3.7 with its proof read. Statement faithful; three prerequisites the proof uses were missing (the abstract lemma, DD.1, DD.2); literal excerpts."
+    },
+    {
+     "nodeId": "HabiroCohomologyFoundations:HQ.3/the-conjugate-filtration",
+     "verdict": "corrected",
+     "note": "Paragraph 3.8 and Lemma 3.9 with its proof read. Statement faithful; one test was false and is replaced; literal excerpts, Lean names, kinds."
+    },
+    {
+     "nodeId": "HabiroCohomologyFoundations:HQ.3/the-abstract-colimit-filtration-lemma",
+     "verdict": "corrected",
+     "note": "Lemma 3.10 with its proof read. Statement and proof steps faithful; only the excerpts, which were paraphrases, are replaced by literal ones."
+    },
+    {
+     "nodeId": "HabiroCohomologyFoundations:HQ.3/the-twisted-q-hodge-filtration-p-adically",
+     "verdict": "corrected",
+     "note": "Paragraphs 3.32, 3.34, 3.35, Remark 3.33 and Lemmas 3.36 and 3.37 with their proofs read. E3 confirmed at 3.32, 3.34 and 3.35. The node bundled the two compatibility lemmas (now separate nodes, used by the global construction); its prerequisites lacked the prismatic Nygaard filtration of the twisted complex, the Nygaard comparison (used by Remark 3.33) and Proposition 3.7 (the base of the monoidal structure). Literal excerpts, Lean names, kinds."
+    },
+    {
+     "nodeId": "HabiroCohomologyFoundations:HQ.3/the-twisted-q-hodge-filtration-globally",
+     "verdict": "corrected",
+     "note": "Paragraphs 3.38 and 3.41, Proposition 3.39, Remark 3.40 read. Construction faithful; Proposition 3.39 split into its own node; the compatibility lemmas and the fracture square added as prerequisites; one unsourced test replaced; literal excerpts, Lean names, kinds."
+    },
+    {
+     "nodeId": "HabiroCohomologyFoundations:HQ.3/the-m-truncated-descent",
+     "verdict": "corrected",
+     "note": "Paragraph 3.42, Proposition 3.43 with its proof sketch and Lemma 3.44 with its proof read. The construction is faithful; the node bundled the proposition and the lemma, which are now nodes; literal excerpts, Lean names, kinds."
+    },
+    {
+     "nodeId": "HabiroCohomologyFoundations:HQ.3/the-habiro-hodge-complex",
+     "verdict": "corrected",
+     "note": "Paragraphs 3.16 and 3.45 and Lemma 3.46 with its proof read. The construction is faithful; the strictness proof step misdescribed the source (the stupid filtration is not symmetric monoidal on the nose; the proof inverts q^d - 1 for proper divisors and uses the first ghost map), and moves to a new node; the unsourced 'natural in the base Lambda-ring' API item is removed and the Kuenneth item added; one test had the wrong multiplicative hypothesis."
+    },
+    {
+     "nodeId": "HabiroCohomologyFoundations:HQ.3/habiro-descent",
+     "verdict": "corrected",
+     "note": "Theorem 3.11 with its proof outline, Theorem 1.11 and Definition 1.12 read. Faithful; clause (b) split into its own node; prerequisites now name the compatibility and strictness nodes; literal excerpts."
+    },
+    {
+     "nodeId": "HabiroCohomologyFoundations:HQ.3/the-coordinate-model-and-the-etale-case",
+     "verdict": "corrected",
+     "note": "Example 3.12 and Corollary 3.13 with its proof read. The node cited HabiroRings HR.6/the-degree-zero-identification, which depends on HQ.3 (a cycle through the stage); removed. 'An algebra for the trivial operad' corrected to E_0-algebra. The Koszul model is asserted by the source without proof and is now recorded as such (gap). Corollary 3.13 split into its own node. Missing prerequisites added (HQ.1's framed complex, Theorem 3.11(b), Corollary 3.31, HC.3)."
+    },
+    {
+     "nodeId": "HabiroCohomologyFoundations:HQ.3/multiplicative-upgrades",
+     "verdict": "corrected",
+     "note": "Paragraphs 3.50, 3.51 and 3.53, Lemma 3.52 (proof sketch) and Corollary 3.54 with its proof read. Split off Corollary 3.54; corrected the multiplicative hypothesis for the algebra isomorphism (E_1, not 'homotopy-unital'); prerequisites now name what the derived commutative transport uses."
+    },
+    {
+     "nodeId": "HabiroCohomologyFoundations:HQ.4/the-frobenius-operators-on-q-de-rham-witt-complexes",
+     "verdict": "added",
+     "note": "Added by this review: The q-de Rham-Witt complex carries unique Frobenii and is the initial q-FV-system. Statement, proof steps and literal excerpts taken from the source passages cited in the node."
+    },
+    {
+     "nodeId": "HabiroCohomologyFoundations:HQ.4/the-comparison-map-from-ordinary-de-rham-witt",
+     "verdict": "added",
+     "note": "Added by this review: The comparison map from ordinary de Rham-Witt complexes, compatible with Frobenius and Verschiebung. Statement, proof steps and literal excerpts taken from the source passages cited in the node."
+    },
+    {
+     "nodeId": "HabiroCohomologyFoundations:HQ.4/etale-extension-of-a-differential-graded-algebra",
+     "verdict": "added",
+     "note": "Added by this review: An etale extension of the degree-zero part of a differential graded algebra extends uniquely. Statement, proof steps and literal excerpts taken from the source passages cited in the node."
+    },
+    {
+     "nodeId": "HabiroCohomologyFoundations:HQ.4/the-p-local-decomposition",
+     "verdict": "added",
+     "note": "Added by this review: p-locally the q-de Rham-Witt complex splits into Adams twists of the prime-power ones. Statement, proof steps and literal excerpts taken from the source passages cited in the node."
+    },
+    {
+     "nodeId": "HabiroCohomologyFoundations:HQ.4/the-arithmetic-fracture-square-for-q-de-rham-witt-complexes",
+     "verdict": "added",
+     "note": "Added by this review: The arithmetic fracture square of the q-de Rham-Witt complex. Statement, proof steps and literal excerpts taken from the source passages cited in the node."
+    },
+    {
+     "nodeId": "HabiroCohomologyFoundations:HQ.4/the-rescaled-frobenius-is-the-crystalline-frobenius",
+     "verdict": "added",
+     "note": "Added by this review: Under the p-complete identification the rescaled Frobenius is the crystalline Frobenius. Statement, proof steps and literal excerpts taken from the source passages cited in the node."
+    },
+    {
+     "nodeId": "HabiroCohomologyFoundations:HQ.4/no-functorial-q-hodge-complex-with-q-witt-cohomology",
+     "verdict": "added",
+     "note": "Added by this review: No functorial q-Hodge complex has the q-de Rham-Witt complexes as functorial cohomology. Statement, proof steps and literal excerpts taken from the source passages cited in the node."
+    },
+    {
+     "nodeId": "HabiroCohomologyFoundations:HQ.4/the-derived-q-de-rham-witt-complex-and-its-stupid-filtration",
+     "verdict": "added",
+     "note": "Added by this review: The derived q-de Rham-Witt complex and the animated stupid filtration. Statement, proof steps and literal excerpts taken from the source passages cited in the node."
+    },
+    {
+     "nodeId": "HabiroCohomologyFoundations:HQ.4/derived-q-de-rham-witt-forms-of-smooth-algebras",
+     "verdict": "added",
+     "note": "Added by this review: On smooth algebras the derived q-de Rham-Witt forms are the shifted underived forms. Statement, proof steps and literal excerpts taken from the source passages cited in the node. The coordinating reviewer corrected the statement further while the suggested file was rewritten (see the review report)."
+    },
+    {
+     "nodeId": "HabiroCohomologyFoundations:HQ.4/the-nygaard-filtration-on-twisted-q-de-rham-complexes",
+     "verdict": "added",
+     "note": "Added by this review: The prismatic Nygaard filtration on the p-completed twisted q-de Rham complexes. Statement, proof steps and literal excerpts taken from the source passages cited in the node."
+    },
+    {
+     "nodeId": "HabiroCohomologyFoundations:HQ.4/the-divided-frobenius-on-nygaard-graded-pieces",
+     "verdict": "added",
+     "note": "Added by this review: The divided Frobenius on the Nygaard graded pieces. Statement, proof steps and literal excerpts taken from the source passages cited in the node."
+    },
+    {
+     "nodeId": "HabiroCohomologyFoundations:HQ.4/the-kernel-of-the-frobenius",
+     "verdict": "added",
+     "note": "Added by this review: The kernel of the Frobenius on q-de Rham-Witt forms. Statement, proof steps and literal excerpts taken from the source passages cited in the node."
+    },
+    {
+     "nodeId": "HabiroCohomologyFoundations:HQ.4/the-nygaard-cofibre-sequence",
+     "verdict": "added",
+     "note": "Added by this review: The Nygaard graded pieces sit in a cofibre sequence with the conjugate filtration. Statement, proof steps and literal excerpts taken from the source passages cited in the node."
+    },
+    {
+     "nodeId": "HabiroCohomologyFoundations:HQ.4/nygaard-descent-and-smooth-agreement",
+     "verdict": "added",
+     "note": "Added by this review: The animated Nygaard filtration satisfies quasi-syntomic descent and agrees with the underived one on smooth inputs. Statement, proof steps and literal excerpts taken from the source passages cited in the node."
+    },
+    {
+     "nodeId": "HabiroCohomologyFoundations:HQ.4/the-prismatic-nygaard-fibre-sequence",
+     "verdict": "added",
+     "note": "Added by this review: The fibre sequence for the prismatic Nygaard filtration modulo q^{p^a}-1. Statement, proof steps and literal excerpts taken from the source passages cited in the node."
+    },
+    {
+     "nodeId": "HabiroCohomologyFoundations:HQ.4/the-nygaard-comparison",
+     "verdict": "added",
+     "note": "Added by this review: The Nygaard filtration of the twisted complex reduces to the Nygaard filtration of the q-de Rham-Witt complex. Statement, proof steps and literal excerpts taken from the source passages cited in the node."
+    },
+    {
+     "nodeId": "HabiroCohomologyFoundations:HQ.4/the-nygaard-filtration-after-inverting-p",
+     "verdict": "added",
+     "note": "Added by this review: After inverting p the Nygaard filtration is the combined Hodge and cyclotomic-adic filtration. Statement, proof steps and literal excerpts taken from the source passages cited in the node."
+    },
+    {
+     "nodeId": "HabiroCohomologyFoundations:HQ.3/the-witness-admits-no-q-hodge-filtration",
+     "verdict": "added",
+     "note": "Added by this review: The q-divided power of the witness cannot be corrected into the p-th step. Statement, proof steps and literal excerpts taken from the source passages cited in the node."
+    },
+    {
+     "nodeId": "HabiroCohomologyFoundations:HQ.3/the-p-adic-twisted-filtration-after-inverting-p",
+     "verdict": "added",
+     "note": "Added by this review: After inverting p the p-adic twisted q-Hodge filtration is the combined Hodge and cyclotomic-adic filtration. Statement, proof steps and literal excerpts taken from the source passages cited in the node."
+    },
+    {
+     "nodeId": "HabiroCohomologyFoundations:HQ.3/the-p-adic-twisted-filtration-at-lower-cyclotomic-points",
+     "verdict": "added",
+     "note": "Added by this review: At lower cyclotomic points the p-adic twisted q-Hodge filtrations of successive indices agree. Statement, proof steps and literal excerpts taken from the source passages cited in the node."
+    },
+    {
+     "nodeId": "HabiroCohomologyFoundations:HQ.3/the-twisted-q-hodge-filtration-deforms-the-stupid-filtration",
+     "verdict": "added",
+     "note": "Added by this review: The twisted q-Hodge filtration reduces modulo q^m-1 to the stupid filtration on the derived q-de Rham-Witt complex. Statement, proof steps and literal excerpts taken from the source passages cited in the node."
+    },
+    {
+     "nodeId": "HabiroCohomologyFoundations:HQ.3/nygaard-denominators",
+     "verdict": "added",
+     "note": "Added by this review: Adjoining the Nygaard filtration divided by Phi_p(q) recovers the q-de Rham complex; divided by q^p-1 it gives zero. Statement, proof steps and literal excerpts taken from the source passages cited in the node."
+    },
+    {
+     "nodeId": "HabiroCohomologyFoundations:HQ.3/the-partial-descents-are-compatible",
+     "verdict": "added",
+     "note": "Added by this review: The partial descents are compatible under completion. Statement, proof steps and literal excerpts taken from the source passages cited in the node."
+    },
+    {
+     "nodeId": "HabiroCohomologyFoundations:HQ.3/the-habiro-hodge-complex-is-symmetric-monoidal",
+     "verdict": "added",
+     "note": "Added by this review: The Habiro-Hodge complex functor is symmetric monoidal. Statement, proof steps and literal excerpts taken from the source passages cited in the node."
+    },
+    {
+     "nodeId": "HabiroCohomologyFoundations:HQ.3/habiro-descent-the-q-de-rham-witt-filtration",
+     "verdict": "added",
+     "note": "Added by this review: The descent theorem, clause (b): the q-de Rham-Witt filtration on the reduction modulo q^m-1. Statement, proof steps and literal excerpts taken from the source passages cited in the node."
+    },
+    {
+     "nodeId": "HabiroCohomologyFoundations:HQ.3/the-etale-case",
+     "verdict": "added",
+     "note": "Added by this review: For an etale algebra the Habiro-Hodge complex is the relative Habiro ring. Statement, proof steps and literal excerpts taken from the source passages cited in the node."
+    },
+    {
+     "nodeId": "HabiroCohomologyFoundations:HQ.3/the-cohomology-of-the-reduction-for-smooth-algebras",
+     "verdict": "added",
+     "note": "Added by this review: For smooth algebras the reduction modulo q^m-1 has cohomology the q-de Rham-Witt complex, with the Bockstein as differential. Statement, proof steps and literal excerpts taken from the source passages cited in the node."
+    },
+    {
+     "nodeId": "HabiroCohomologyFoundations:HQ.5/truncated-filtered-objects-and-the-left-adjoint",
+     "verdict": "corrected",
+     "note": "Read Lemma 4.2 and its proof, and the uses in 4.3, Lemma 4.6 and Lemma 4.10. Statement corrected: the adjunction direction (source issue E301, new), clauses (d) relative truncation and (e) full faithfulness added because later proofs use them; proof of (c) corrected to the source's argument (left adjoints of a commuting square); kind changed to construction with API, three plus one unit tests and uses; prerequisites E1 and E5:abstract added; excerpts made literal."
+    },
+    {
+     "nodeId": "HabiroCohomologyFoundations:HQ.5/the-canonical-smooth-q-hodge-filtration",
+     "verdict": "corrected",
+     "note": "Read Paragraphs 1.14, 4.1, 4.3 and footnote (4.1). Statement narrowed to the construction; Lemmas 4.6 and 4.7 split into the new node the-canonical-filtration-is-a-q-hodge-filtration. Prerequisites: added Construction A.12, Lemma A.6, the conventions, DD.2 and mathlib:Algebra.Smooth; removed Definition 3.2 (moved). API renamed to library convention with the adjunction lift and functoriality; tests given kinds; the unsourced claim that the factorisation fails without the hypothesis removed; literal excerpts."
+    },
+    {
+     "nodeId": "HabiroCohomologyFoundations:HQ.5/the-canonical-filtration-is-a-q-hodge-filtration",
+     "verdict": "added",
+     "note": "Added by this review: In relative dimension at most n the canonical filtration is a q-Hodge filtration. Statement, hypotheses and proof steps read against the cited source passages; prerequisites resolve in this packet, in HabiroRings, or to atlas stages with requests."
+    },
+    {
+     "nodeId": "HabiroCohomologyFoundations:HQ.5/framed-and-fixed-point-descriptions-of-the-canonical-filtration",
+     "verdict": "corrected",
+     "note": "Read Remarks 4.4 and 4.5 and Paragraph 1.10. The node bundled two separate remarks; it now states Remark 4.4 with the coordinate filtration written out, its proof cites Lemma 4.6 (new node) as the source does, and Remark 4.5 moved to a new node with its own prerequisites (PR.6). Excerpts literal."
+    },
+    {
+     "nodeId": "HabiroCohomologyFoundations:HQ.5/the-p-tilde-de-rham-description-of-the-canonical-filtration",
+     "verdict": "added",
+     "note": "Added by this review: The p-complete description through the p-tilde-de Rham complex. Statement, hypotheses and proof steps read against the cited source passages; prerequisites resolve in this packet, in HabiroRings, or to atlas stages with requests."
+    },
+    {
+     "nodeId": "HabiroCohomologyFoundations:HQ.5/functoriality-across-dimensions",
+     "verdict": "corrected",
+     "note": "Read 4.8, Lemma 4.9 with proof and Lemma 4.10 with proof. Split: Lemma 4.9 (pushout, proved via Ramzi's observation on pushouts of fully faithful functors) is a new node; this node keeps Lemma 4.10 and the assembly; proofSteps corrected to the source's zigzag through the relative truncation; prerequisites gain the Lemma 4.6 node and the pushout node; literal excerpts."
+    },
+    {
+     "nodeId": "HabiroCohomologyFoundations:HQ.5/the-pushout-of-categories-of-smooth-algebras",
+     "verdict": "added",
+     "note": "Added by this review: The categories with the bounds n and n+1 form a pushout of ∞-categories. Statement, hypotheses and proof steps read against the cited source passages; prerequisites resolve in this packet, in HabiroRings, or to atlas stages with requests."
+    },
+    {
+     "nodeId": "HabiroCohomologyFoundations:HQ.5/existence-of-q-hodge-filtrations-for-smooth-algebras",
+     "verdict": "corrected",
+     "note": "Read Theorem 4.11, Theorem 1.15 and Lemma 3.3. Statement and hypotheses match the source except for an unsourced hypothesis ('inverting fewer does not suffice'), removed. Prerequisites gain the Lemma 4.6 node, Definition 3.2 and mathlib:Algebra.Smooth (read at the pin: formally smooth and of finite presentation). Planet kept. Literal excerpts."
+    },
+    {
+     "nodeId": "HabiroCohomologyFoundations:HQ.5/the-sub-operad-of-smooth-algebras-with-small-primes-inverted",
+     "verdict": "added",
+     "note": "Added by this review: The partial sub-operad of smooth algebras with the small primes inverted. Statement, hypotheses and proof steps read against the cited source passages; prerequisites resolve in this packet, in HabiroRings, or to atlas stages with requests. The coordinating reviewer corrected the statement further while the suggested file was rewritten (see the review report)."
+    },
+    {
+     "nodeId": "HabiroCohomologyFoundations:HQ.5/the-truncated-construction-is-symmetric-monoidal",
+     "verdict": "added",
+     "note": "Added by this review: The truncated canonical construction is symmetric monoidal. Statement, hypotheses and proof steps read against the cited source passages; prerequisites resolve in this packet, in HabiroRings, or to atlas stages with requests."
+    },
+    {
+     "nodeId": "HabiroCohomologyFoundations:HQ.5/cartesian-lifts-in-bounded-dimension-are-preserved",
+     "verdict": "added",
+     "note": "Added by this review: In bounded dimension the oplax structure preserves cartesian lifts. Statement, hypotheses and proof steps read against the cited source passages; prerequisites resolve in this packet, in HabiroRings, or to atlas stages with requests."
+    },
+    {
+     "nodeId": "HabiroCohomologyFoundations:HQ.5/partial-operad-multiplicativity",
+     "verdict": "corrected",
+     "note": "Read 4.12 to 4.16. The domain as the source defines it is not closed under composition (new source issue E305, with the witness Z[x] over Z); the statement now uses the admissible simplicial subset and says what is preserved. The claim that inverting up to d gives 'no multiplication at all' reworded to the source's 'nothing we can say'. The bundled definition and Lemmas 4.13 and 4.15 are now separate nodes; prerequisites and proofSteps follow the source's sketch; E5:abstract requested for the operadic machinery. Planet kept."
+    },
+    {
+     "nodeId": "HabiroCohomologyFoundations:HQ.5/algebraic-habiro-cohomology-of-a-scheme",
+     "verdict": "corrected",
+     "note": "Read Paragraphs 1.16 and 1.17, Theorem 1.11 and the body (no scheme-level statement and no proof of perfectness there). Statement restored to the source's hypotheses (over Z); the perfectness clause, asserted without proof, split into a new node with a gap and source issue E303; the gluing, asserted without proof, now derived from the descent theorem (b), Corollary 3.31, the étale sheaf property of q-W_m Ω and Appendix B's conservativity (HR.2/the-detection-results added); reduction 'modulo a cyclotomic element' corrected to modulo q^m − 1; API and tests renamed with kinds; literal excerpts."
+    },
+    {
+     "nodeId": "HabiroCohomologyFoundations:HQ.5/perfectness-for-smooth-proper-schemes",
+     "verdict": "added",
+     "note": "Added by this review: Perfectness of algebraic Habiro cohomology for smooth proper schemes (asserted by the source without proof). Statement, hypotheses and proof steps read against the cited source passages; prerequisites resolve in this packet, in HabiroRings, or to atlas stages with requests."
+    },
+    {
+     "nodeId": "HabiroCohomologyFoundations:HQ.5/the-quasi-lci-inputs-and-condition-R",
+     "verdict": "corrected",
+     "note": "Read 1.18, 4.17, Lemma 4.18 with proof, Remarks 4.19 and 4.20, Construction 4.28. Lemma 4.18 split into the new node staticity-for-quasi-lci-inputs; the claimed equivalence of the introduction's (R) with the body's conditions is not in the source (only one implication, via Lemma 4.18) and is corrected; prerequisites: DD.0 added (cotangent complex, Koszul-regular sequences, requested), HQ.1 node removed, Mathlib IsRegular kept only for a compatibility item (a near miss for Koszul-regularity); tests given kinds, the self-contradictory 'smooth' test corrected (étale algebras lie in both classes); literal excerpts."
+    },
+    {
+     "nodeId": "HabiroCohomologyFoundations:HQ.5/staticity-for-quasi-lci-inputs",
+     "verdict": "added",
+     "note": "Added by this review: Staticity of de Rham and q-de Rham complexes of quasi-lci inputs. Statement, hypotheses and proof steps read against the cited source passages; prerequisites resolve in this packet, in HabiroRings, or to atlas stages with requests."
+    },
+    {
+     "nodeId": "HabiroCohomologyFoundations:HQ.5/the-naive-filtration-for-quasi-regular-inputs",
+     "verdict": "corrected",
+     "note": "Read Construction 4.21, the sentence after it, Examples 4.24 and 4.25, and Lemma 4.26. Lemma 4.26 split into its own node (prerequisite of Theorem 4.22 and Lemma 4.33); prerequisites gain the staticity lemma, the conventions and DD.2; API renamed with the membership characterisation; tests given kinds and made concrete (the derived-preimage test now names the class 1/p); literal excerpts."
+    },
+    {
+     "nodeId": "HabiroCohomologyFoundations:HQ.5/the-naive-filtration-is-injective-modulo-q-minus-one",
+     "verdict": "added",
+     "note": "Added by this review: The naive filtration is always injective modulo q−1. Statement, hypotheses and proof steps read against the cited source passages; prerequisites resolve in this packet, in HabiroRings, or to atlas stages with requests."
+    },
+    {
+     "nodeId": "HabiroCohomologyFoundations:HQ.5/the-exponent-one-quotient-is-not-a-q-deformation",
+     "verdict": "added",
+     "note": "Added by this review: For the quotient by x itself the naive filtration is not a q-deformation. Statement, hypotheses and proof steps read against the cited source passages; prerequisites resolve in this packet, in HabiroRings, or to atlas stages with requests."
+    },
+    {
+     "nodeId": "HabiroCohomologyFoundations:HQ.5/when-the-naive-filtration-deforms-the-hodge-filtration",
+     "verdict": "corrected",
+     "note": "Read Theorem 4.22, Remark 4.23, Examples 4.24 and 4.25, the proof of Theorem 4.22, and Meyer–Wagner arXiv:2410.23115v4 §3.2 (Lemmas 3.16, 3.17). Clause (b) moved to a new HQ.5-trace node (its proof is the ku paper's Theorem 4.17). The node stated that for p > 2 condition (b) implies condition (a), which is backwards as a statement about conditions (Remark 4.23 builds an E_1-lift from a presentation as in (a)); corrected in the new node. ProofSteps rewritten to the source's proof; Meyer–Wagner obtained (it was listed as not obtained) and cited, with the misnumbered citation recorded as E302; prerequisites completed; literal excerpts. Planet kept."
+    },
+    {
+     "nodeId": "HabiroCohomologyFoundations:HQ.5/flat-base-change-for-the-naive-filtration",
+     "verdict": "corrected",
+     "note": "Read Lemma 4.27 and its proof. Statement and hypotheses match. ProofSteps rewritten to the source's argument (Remark A.7 denominator bound, derived pullback, bounded torsion of H^{-1}); prerequisites gain the HQ.1 denominator node, derived base change, the staticity lemma and DD.2; literal excerpts."
+    },
+    {
+     "nodeId": "HabiroCohomologyFoundations:HQ.5/the-canonical-section-on-quasi-regular-inputs",
+     "verdict": "corrected",
+     "note": "Read Construction 4.28, Theorem 4.29 with its proof sketch, Remarks 4.30 and 4.31. Statement and hypotheses match; the bundled Lemma 4.33 and Corollary 4.34 split into a new node; proofSteps now name the Definition 3.2 data as the source does; prerequisites gain Construction A.12 (and its animation) and DD.2, and drop the flat base change lemma (unused); literal excerpts. Planet kept."
+    },
+    {
+     "nodeId": "HabiroCohomologyFoundations:HQ.5/tensor-products-in-the-quasi-regular-category",
+     "verdict": "added",
+     "note": "Added by this review: Tensor products of quasi-regular inputs and the operadic structure of the section. Statement, hypotheses and proof steps read against the cited source passages; prerequisites resolve in this packet, in HabiroRings, or to atlas stages with requests."
+    },
+    {
+     "nodeId": "HabiroCohomologyFoundations:HQ.5/uniqueness-of-the-two-sections",
+     "verdict": "corrected",
+     "note": "Read Paragraph 1.21 and searched the body (no proof of either uniqueness claim). Statement made precise; the source's 'straightforward' claims recorded as unproved in the source, and proofSteps written out from the constructions (checked: terminality from the preimage description, initiality from the truncation adjunction, both upgraded by (q−1)-completeness); prerequisites completed with the truncation node, the Lemma 4.6 node, the new p-tilde node and Definition 3.2; literal excerpts."
+    },
+    {
+     "nodeId": "HabiroCohomologyFoundations:HQ.5/the-export-to-the-coefficient-roadmap",
+     "verdict": "corrected",
+     "note": "Read Corollaries 2.13 and 3.13 with proof, Paragraph 1.4, and the HabiroRings packet's HR.5 and HR.6 nodes. Removed the prerequisites HR.6, HB.6 and HB.7 (consumers; HR.6 requires HQ.5, so the old prerequisite closed a stage cycle); added HR.5's ring, equaliser presentation and number-field comparison so that the Frobenius-glued Taylor maps are carried as the stage text asks; 'modulo a cyclotomic element' corrected to modulo q^m − 1; literal excerpts. Requests to HR.6, HB.6 and HB.7 become unnecessary (see requests)."
+    },
+    {
+     "nodeId": "HabiroCohomologyFoundations:HQ.5-trace/trace-theoretic-existence-of-q-hodge-filtrations",
+     "verdict": "corrected",
+     "note": "Read ku paper 1.1–1.11, 3.1, 3.2, 4.18, 4.18a, 4.25–4.28. The body form's hypotheses were imprecise ((E1) lacked p-torsion-freeness and the relative semiperfectness of the cover; lifts are in S_{Â_p}-modules; the Tate-Frobenius agreement is on π_0); corrected; the derived global complex added as prerequisite; literal excerpts. Import boundary with RT.4:q-Hodge confirmed against the supplier's stage text. Planet kept."
+    },
+    {
+     "nodeId": "HabiroCohomologyFoundations:HQ.5-trace/a-lift-over-connective-complex-k-theory-is-not-enough",
+     "verdict": "corrected",
+     "note": "Read ku paper 1.11 and the Habiro paper's Example 4.24. Content correct; the node now attributes the E1-ku structure to Angeltveit, names j and the non-commuting diagram, and lists the one-disc node (Theorem 4.17) and the new exponent-one node as prerequisites, which the argument uses; literal excerpts."
+    },
+    {
+     "nodeId": "HabiroCohomologyFoundations:HQ.5-trace/the-one-disc-refinement-and-the-prime-two",
+     "verdict": "corrected",
+     "note": "Read ku paper 1.9, 1.10, 3.2, 3.4, Theorems 4.8, 4.14, 4.16 (Nikolaus, unpublished, argument given), Remark 4.15, §4.3 and Theorem 4.17 with proof. The explicit description holds only for the identity cover; the node claimed it for every resolution; corrected. p = 2 inputs named; prerequisites gain the staticity lemma and RT.4:q-Hodge directly; literal excerpts. Planet kept."
+    },
+    {
+     "nodeId": "HabiroCohomologyFoundations:HQ.5-trace/the-spherical-e1-lift-case-of-the-well-behavedness-theorem",
+     "verdict": "added",
+     "note": "Added by this review: A spherical E_1-lift of the perfection makes the naive filtration a q-deformation. Statement, hypotheses and proof steps read against the cited source passages; prerequisites resolve in this packet, in HabiroRings, or to atlas stages with requests."
+    },
+    {
+     "nodeId": "HabiroCohomologyFoundations:HQ.5-trace/the-number-field-ring-from-periodic-complex-k-theory",
+     "verdict": "corrected",
+     "note": "Read ku Corollary 6.15 and its proof, and the stage text of RefinedTraceMethods:RT.4:Habiro-comparison, which plans this corollary with the same hypotheses. The node duplicated that owner; it is converted to a citation with the owner as prerequisite (a request added); deletion is equally acceptable. The proof's cross-reference to 'Corollary 3.12' of the Habiro paper is wrong in both its versions (should be 3.13): new source issue E304. Literal excerpts."
+    },
+    {
+     "nodeId": "HabiroCohomologyFoundations:HQ.6/the-algebraic-against-analytic-comparison-problem",
+     "verdict": "corrected",
+     "note": "Read Paragraphs 1.3, 1.4 with footnote (1.3), 1.16 and 1.17, and the bibliography entry [Sch25] (a lecture course at MPIM Bonn, summer 2025, with recordings). Statement restored to the source's setting (over Z) and extended to the ring and line-bundle levels the stage text asks for; the Paragraph 1.3 excerpt did not match 1.3; two tests were unsourced or false and are corrected; API renamed. Prerequisite AnalyticHabiroStack:HS.3 kept (draft roadmap, request kept). Kind kept as definition since the stage text asks to define the problem, but it cannot be stated in Lean at the pin (leanNotes). Planet kept."
+    },
+    {
+     "nodeId": "HabiroCohomologyFoundations:HQ.6/the-three-recorded-differences",
+     "verdict": "corrected",
+     "note": "Read Paragraph 1.17 in full. The three differences are stated faithfully; the acceptance and a hypothesis overstated Corollary 4.16 as settling the third difference and are corrected; literal excerpts."
+    },
+    {
+     "nodeId": "HabiroCohomologyFoundations:HQ.6/what-may-not-be-inferred-from-the-analytic-side",
+     "verdict": "corrected",
+     "note": "Read Appendix B opening, Lemma B.8, Paragraph 1.3 and the bibliography entry [Sch25]. Statement corrected to mention that the HQ.5-trace import rests on the ku paper's solid condensed methods (owned by RT.4); the Paragraph 1.3 excerpt (a heading) replaced by the bibliography entry; literal excerpts."
+    },
+    {
+     "nodeId": "HabiroCohomologyFoundations:HQ.7/the-acceptance-tests",
+     "verdict": "corrected",
+     "note": "Checked each example and check against the source: the q-differential formula is in Remark 1.13 (locator corrected); the finite étale example's reduction is modulo q^m − 1 (Corollary 3.13's proof); the second structural check had no witness and now has one (derived reduction of the q-Hodge complex of Z[x]); witnesses made concrete for all checks; example (5) now has an explicit lift and is cross-checked with the canonical smooth filtration through the ku paper's Theorem 6.10; prerequisites completed; literal excerpts."
+    },
+    {
+     "nodeId": "HabiroCohomologyFoundations:HQ.7/the-executable-boundary",
+     "verdict": "corrected",
+     "note": "Read the whole suggested Lean file. The node's claims about the file were false (placeholder definitions such as qDiff, True-valued structure fields in ConditionR and QHodgeFiltration, a Prop defined by a placeholder, 72 True-typed declarations, a vacuous d² = 0 example); statement restated as a checkable contract consistent with PROTOCOL section 13 and the file changes listed in leanNotes; locators corrected; baseline citations confirmed at the pin. The coordinating reviewer corrected the statement further while the suggested file was rewritten (see the review report)."
+    }
+   ]
+  }
+ ]
 }
