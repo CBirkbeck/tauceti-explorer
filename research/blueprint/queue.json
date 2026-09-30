@@ -33373,7 +33373,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-CHEN-24.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4972"
   },
   {
    "id": "RT-PAPER-CARAIANI-SCHOLZE-24",
@@ -33652,8 +33653,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-FU-24.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4975"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4975",
+   "finishedAt": "2026-09-30T16:09:44Z"
   },
   {
    "id": "RT-PAPER-CAI-FRIEDBERG-KAPLAN-24",
@@ -42753,7 +42755,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-LINK-tauceti_TauCetiRoadmap_NumberFieldArithmetic.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #5032"
   },
   {
    "id": "RT-LINK-tauceti_TauCetiRoadmap_LocalFieldsRamification",
@@ -43553,7 +43556,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_ClassicalGroups.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #5038"
   },
   {
    "id": "RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_LieGroups",
@@ -43796,8 +43800,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SemisimpleAlgebras.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5040"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #5040",
+   "finishedAt": "2026-09-30T16:09:47Z"
   },
   {
    "id": "RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_SpinRepresentations",
