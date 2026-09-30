@@ -7,7 +7,7 @@
   "ClassicalSerreModularity:R33.6"
  ],
  "status": "partial",
- "summary": "Checkpoint 1 of the R33.5 part (Claude Code cc-39fac3), under the accepted RS-06. It carries the reviewed node for DP §3 with re-selected excerpts and adds seven nodes: the auxiliary odd prime for the dyadic system, the qualitative theorem in every characteristic, the dependency check of the modern route, the comparison of DP's modularity with the atlas's, the strong form by the modern route (the same statement as R27.6), the comparison of the two routes (the scalar local dyadic case is where the modern route uses KW I Theorem 1.2(2)), and the R29 export parameterised by the strong form. No new source issues.",
+ "summary": "Eight-node partial blueprint for R33.5–R33.6, revised by FIX-RT-BP-ClassicalSerreModularity--R33.5 (Codex codex-rtOQ9t). The dyadic closure uses the irreducible odd system supplied by KW I Theorem 5.1(1)/(2), not an arbitrary compatible system. The qualitative route avoids KW’s induction and level-one proof but shares KW’s lift-existence theorem. Its strong refinement uses R27.4/strong-form-by-minimal-lifts throughout the odd-prime and dyadic weight-two cases; that argument is indispensable only in the scalar dyadic non-dihedral case. Exact supplier nodes replace broad imports, retaining the partial globalisation audit’s unresolved requirements. The R29 corollary takes the strong conclusion for the given residual representation as a hypothesis, then instantiates it with the modern proof; it has no unconditional classical-proof edges. No new source issues.",
  "baseline": {
   "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
   "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -22,7 +22,8 @@
    "url": "https://www.math.ucla.edu/~shekhar/papers/results.pdf",
    "sha256": "3c389dc33e09fe847f5d8189ffd8915b5c1a73424e64e4fed6769829883bad82",
    "readSections": [
-    "2026-09-29 (cc-39fac3, part R33.5): §1 and §1.1 (pp. 2–3), for the meaning of \"arises from\" and the scalar dyadic case of Theorem 1.2(2); the rest of the paper was read for part R27.3."
+    "2026-09-29 (cc-39fac3, part R33.5): §1 and §1.1 (pp. 2–3), for the meaning of \"arises from\" and the scalar dyadic case of Theorem 1.2(2); the rest of the paper was read for part R27.3.",
+    "2026-09-30 (Codex codex-rtOQ9t, fix): pp.2–3 and 8–9, including the S-type/arises-from definition, dyadic refinement scope, almost-strict clause and Theorem 5.1(1)/(2)."
    ]
   },
   {
@@ -33,7 +34,8 @@
    "url": "https://arxiv.org/pdf/2108.07577v2",
    "sha256": "0c6850dafda032f7a4008947c519b5aef8cc13762207bb67c36810170a8eebe6",
    "readSections": [
-    "2026-09-29 (cc-39fac3, part R33.5): the Introduction (pp. 1–3), the proof of Theorem 1.9 (p. 6) and §3 (p. 15); the whole paper was read for part R27.3."
+    "2026-09-29 (cc-39fac3, part R33.5): the Introduction (pp. 1–3), the proof of Theorem 1.9 (p. 6) and §3 (p. 15); the whole paper was read for part R27.3.",
+    "2026-09-30 (Codex codex-rtOQ9t, fix): pp.6–8 and 15: Theorem 1.9 and its proof, Definition 1.10, Theorem 1.11, Remark 4, Lemma 1.14 and §3."
    ]
   }
  ],
@@ -46,26 +48,31 @@
    ],
    "title": "The auxiliary odd prime for a dyadic weight-two system",
    "kind": "lemma",
-   "statement": "Let ρ̄ : G_ℚ → GL₂(𝔽̄₂) be irreducible with non-solvable image, and let {ρ_ℓ} be an almost strictly compatible system of Hodge–Tate weights {0, 1} containing a weight-2 lift of ρ̄ (Theorem 1.9(1) if k(ρ̄) = 2, Theorem 1.9(2) if k(ρ̄) = 4, then Theorem 1.11). For every prime p > 3 outside the ramification set of the system, the p-adic member ρ_p is odd, irreducible, finitely ramified and crystalline of weight 2 at p, and its reduction ρ̄_p is either reducible, or irreducible of Serre weight 2 and not bad dihedral. Such primes exist, since the ramification set is finite.",
+   "statement": "Let ρ̄ : G_ℚ → GL₂(𝔽̄₂) be irreducible with non-solvable image. Choose the E-rational almost strictly compatible, irreducible, odd system supplied by KW I Theorem 5.1(1) when k(ρ̄)=2 or (2) when k(ρ̄)=4, whose dyadic member lifts ρ̄ and has Hodge–Tate weights {0,1}. For every rational prime p>3 outside the finite ramification set of this system and every chosen coefficient place above p, its p-adic member ρ_p is odd, irreducible, finitely ramified and crystalline of weight 2 at p. Its residual representation ρ̄_p may be reducible; if it is irreducible, it has Serre weight 2 and is not bad dihedral. Such auxiliary primes exist because the ramification set is finite. No assertion about arbitrary compatible systems is needed.",
    "hypotheses": [
-    "p > 3 is exactly the bound of Lemma 1.14 at weight 2: a bad-dihedral ρ̄_p would have p = 2·2 − 1 = 3 or p = 2·2 − 3 = 1",
-    "p outside the ramification set S is what makes ρ_p crystalline at p: DP Definition 1.10(4) requires ρ_p|_{G_{ℚ_p}} to be crystalline when p ∉ S, and an almost strictly compatible system satisfies conditions (1)–(5) in full (its exception concerns only the Weil–Deligne comparison (6)); with Hodge–Tate weights {0, 1} and p odd the reduction is finite flat at p, so an irreducible ρ̄_p has Serre weight 2 (Fontaine–Laffaille)",
-    "Theorems 1.9 and 1.11 at p = 2 need non-solvable image; the solvable case is handled separately (R33.5/dp-characteristic-two-closure)",
-    "oddness and irreducibility of every member: KW I Theorem 5.1 itself produces an \"almost strictly compatible, irreducible, odd system\"; for a system through the lift given by Theorem 1.11 they follow from those of the lift, since the members are semisimple (Definition 1.10(4)) with the same Frobenius polynomials outside a finite set, and det ρ_ℓ = ψχ_ℓ with ψ of finite order independent of ℓ"
+    "Use exactly the KW I Theorem 5.1 system (R24.5/kw-theorem-5-1-systems), with type (1) at dyadic Serre weight 2 and type (2) at dyadic Serre weight 4. DP Theorem 1.9(1)–(2), proof on p.6, cites this same KW theorem.",
+    "KW I p.8 defines an irreducible, odd system to have every characteristic-zero member irreducible and odd. These are part of the theorem’s output, not a cross-characteristic Brauer–Nesbitt deduction or a new determinant-character claim.",
+    "For an odd p outside the ramification set, r_p is unramified. KW I p.8’s almost-strict clause for ℓ≠2 and unramified r_q makes the member at ℓ=q=p crystalline with weights {0,1}, even if its reduction is reducible. No assertion of dyadic strict compatibility for reducible residual members is used.",
+    "For the irreducible residual branch, the Fontaine–Laffaille weight-two comparison gives k(ρ̄_p)=2. Lemma 1.14’s bad-dihedral alternatives would force p=2·2−1=3 or p=2·2−3=1; p>3 excludes both.",
+    "The non-solvable image hypothesis is on the initial dyadic residual representation; the solvable dyadic case is separate. Characteristic-zero irreducibility of ρ_p does not imply residual irreducibility of ρ̄_p."
    ],
    "proofSteps": [
-    "Theorems 1.9(1)–(2) and 1.11 give the system (PotentialModularityAndCompatibleSystems R24.3, R24.6).",
-    "Every member is odd and irreducible (fourth hypothesis): a reducible member would make the 2-adic lift a sum of two characters by Chebotarev and Brauer–Nesbitt, and det ρ_ℓ(c) = −ψ(c) does not depend on ℓ.",
-    "For p > 3 outside the ramification set, apply R33.1/fontaine-laffaille-member-not-bad-dihedral with k = 2."
+    "Choose KW I Theorem 5.1(1)/(2)’s system with the stated dyadic lift, via R24.5/kw-theorem-5-1-systems. Its type-(1)/(2) lifts are the exact R24.3 supplier nodes.",
+    "Read oddness and irreducibility of every member from the supplied system. At every odd unramified p apply KW’s almost-strict crystallinity clause.",
+    "Choose p>3 outside the finite ramification set. If ρ̄_p is irreducible, apply R33.1/fontaine-laffaille-member-not-bad-dihedral with k=2; retain the separate reducible-residual branch for Theorem 1.6."
    ],
    "acceptance": [
     "Check the arithmetic of the bound: 2·2 − 1 = 3 and 2·2 − 3 = 1, so p > 3 excludes both (checked in the suggested Lean file)",
-    "Check that the residual representation ρ̄_p may be reducible and that this branch is handled by Theorem 1.6 (p ≥ 5)"
+    "Check that the residual representation ρ̄_p may be reducible and that this branch is handled by Theorem 1.6 (p ≥ 5)",
+    "The input is the KW-constructed irreducible odd system, not an arbitrary system through a dyadic lift; no rank-one companion theorem is requested.",
+    "Crystallinity at an odd unramified auxiliary prime is independent of residual irreducibility; the source’s possible dyadic exception is not used.",
+    "No proof step compares p-adic and 2-adic representations by Brauer–Nesbitt without first constructing companions; that step has been removed."
    ],
    "prerequisites": [
     "ClassicalSerreModularity:R33.1/fontaine-laffaille-member-not-bad-dihedral",
-    "PotentialModularityAndCompatibleSystems:R24.3",
-    "PotentialModularityAndCompatibleSystems:R24.6"
+    "PotentialModularityAndCompatibleSystems:R24.5/kw-theorem-5-1-systems",
+    "PotentialModularityAndCompatibleSystems:R24.3/theorem-5-1-part-1-minimal-crystalline",
+    "PotentialModularityAndCompatibleSystems:R24.3/theorem-5-1-part-2-weight-two"
    ],
    "library": {
     "module": "TauCeti/NumberTheory/SerreConjecture/DieulefaitPacetti",
@@ -81,6 +88,16 @@
      "sourceId": "dieulefait-pacetti",
      "locator": "§3, p. 15 of the arXiv version",
      "match": "The bound p > 3 from Lemma 1.14."
+    },
+    {
+     "sourceId": "kw-serre-modularity-I",
+     "locator": "§5, definitions on p.8 and Theorem 5.1(1)–(2) on p.9 of the author preprint",
+     "match": "The selected system has all members irreducible and odd by the definitions on p.8. Types (1)/(2) supply the two dyadic weight-two lifts. This is the restricted input used here."
+    },
+    {
+     "sourceId": "kw-serre-modularity-I",
+     "locator": "§5, p.8, almost-strict compatibility at equal residue characteristics",
+     "match": "At an odd auxiliary prime outside the ramification set, this clause supplies crystallinity with the common Hodge–Tate weights even for a reducible residual member."
     }
    ],
    "implementationStatus": "unchecked"
@@ -93,7 +110,7 @@
    ],
    "title": "Section 3: characteristic two, reduced to the odd case",
    "kind": "theorem",
-   "statement": "Every irreducible ρ̄ : G_ℚ → GL₂(𝔽̄₂) is modular (oddness is automatic in characteristic 2). If the image is solvable, the projective image is dihedral (KW I Lemma 6.1: S₄ does not occur, and A₄ would lie in a Borel subgroup over 𝔽₄), and the dihedral case is Rohrlich–Tunnell. If the image is non-solvable, take the dyadic weight-2 system and an auxiliary prime p > 3 (R33.5/auxiliary-odd-prime-for-the-dyadic-system): ρ̄_p is either reducible, and ρ_p is modular by Theorem 1.6, or irreducible, odd and not bad dihedral in odd characteristic, hence modular by the already proved odd case (R33.4/dp-odd-characteristic-assembly), and ρ_p is modular by Theorem 1.4. By Remark 4 the whole system, hence ρ̄, is modular.",
+   "statement": "Every irreducible ρ̄ : G_ℚ → GL₂(𝔽̄₂) is modular (oddness is automatic in characteristic 2). If the image is solvable, the projective image is dihedral (KW I Lemma 6.1: S₄ does not occur, and A₄ would lie in a Borel subgroup over 𝔽₄), and the dihedral case is Rohrlich–Tunnell. If the image is non-solvable, take the KW I Theorem 5.1(1)/(2) dyadic weight-2 system and an auxiliary prime p > 3 (R33.5/auxiliary-odd-prime-for-the-dyadic-system): ρ̄_p is either reducible, and ρ_p is modular by Theorem 1.6, or irreducible, odd and not bad dihedral in odd characteristic, hence modular by the already proved odd case (R33.4/dp-odd-characteristic-assembly), and ρ_p is modular by Theorem 1.4. By Remark 4 the whole system, hence ρ̄, is modular.",
    "hypotheses": [
     "this stage uses the odd-characteristic qualitative theorem of §2; it does not use its own p = 2 conclusion",
     "the solvable branch is entirely imported: Rohrlich–Tunnell (GL2AutomorphicRepresentationsAndTransfer R17.6), with the dyadic refinement of Dickson (KW I Lemma 6.1, R27.1)",
@@ -102,7 +119,7 @@
    "proofSteps": [
     "Split on the solvability of the image.",
     "Solvable: Lemma 6.1 and Rohrlich–Tunnell.",
-    "Non-solvable: auxiliary prime p > 3; reducible branch by Theorem 1.6, irreducible branch by the odd case and Theorem 1.4; Remark 4."
+    "Non-solvable: auxiliary prime p > 3; reducible branch by Theorem 1.6, irreducible branch by the odd case and Theorem 1.4; Remark 4. The last step imports R24.6/linked-systems-modularity-transfer, comparing each member to Deligne’s system of a modular form in the same coefficient characteristic."
    ],
    "acceptance": [
     "Check that the bound p > 3 from Lemma 1.14 is exactly what avoids bad dihedral at residual weight 2",
@@ -114,7 +131,7 @@
     "ClassicalSerreModularity:R33.1/dp-modularity-lifting-inputs",
     "ClassicalSerreModularity:R27.1/dickson-and-the-dyadic-solvable-refinement",
     "GL2AutomorphicRepresentationsAndTransfer:R17.6",
-    "PotentialModularityAndCompatibleSystems:R24.6"
+    "PotentialModularityAndCompatibleSystems:R24.6/linked-systems-modularity-transfer"
    ],
    "library": {
     "module": "TauCeti/NumberTheory/SerreConjecture/DieulefaitPacetti",
@@ -191,11 +208,11 @@
    ],
    "title": "What the qualitative proof depends on",
    "kind": "comparison",
-   "statement": "The qualitative theorem R33.5/qualitative-serre-theorem rests on exactly: (a) lift existence, DP Theorem 1.9 — cases (1)–(3) are KW I Theorem 5.1 with its proof in KW II, case (4) Gee and Snowden (PotentialModularityAndCompatibleSystems R24.3); (b) almost strictly compatible systems, DP Theorem 1.11 (Dieulefait 2004, via Taylor's potential modularity; R24.6); (c) the lifting theorems 1.4–1.7 (Kisin, Emerton, Paškūnas, Hu–Tan, Tung, Skinner–Wiles, Pan; GL2ModularityLifting R32.5–R32.6); (d) Langlands–Tunnell and Rohrlich–Tunnell (GL2AutomorphicRepresentationsAndTransfer R17.5–R17.6); (e) the base cases of Tate, Serre and Schoof with Snowden's realisation (SmallRamificationAndAbelianVarietyBaseCases R25.2–R25.5); (f) from this roadmap, only R27.1's early package (Dickson, Lemma 6.2(ii), Lemma 6.3, Lemma 8.2). It uses no node of R26 or R27.2–R27.6. It is independent of Serre's conjecture itself only if no globalisation step inside (a)–(c) invokes the general Serre theorem; that audit is GL2ModularityLifting R32.6's (\"verifying whether it uses an already proved restricted case or the general Serre endpoint\"), and this node records the dependence on it.",
+   "statement": "The qualitative theorem R33.5/qualitative-serre-theorem rests on exactly: (a) lift existence, DP Theorem 1.9 — cases (1)–(3) are KW I Theorem 5.1 with its proof in KW II, case (4) Gee and Snowden (PotentialModularityAndCompatibleSystems R24.3); (b) almost strictly compatible systems, DP Theorem 1.11 (Dieulefait 2004, via Taylor's potential modularity; R24.5/dieulefait-families); (c) the lifting theorems 1.4–1.7 (Kisin, Emerton, Paškūnas, Hu–Tan, Tung, Skinner–Wiles, Pan; GL2ModularityLifting R32.5–R32.6); (d) Langlands–Tunnell and Rohrlich–Tunnell (GL2AutomorphicRepresentationsAndTransfer R17.5–R17.6); (e) the base cases of Tate, Serre and Schoof with Snowden's realisation (SmallRamificationAndAbelianVarietyBaseCases R25.2–R25.5); (f) from this roadmap, only R27.1's early package (Dickson, Lemma 6.2(ii), Lemma 6.3, Lemma 8.2). It uses no node of R26 or R27.2–R27.6. It is independent of Serre's conjecture itself only if no globalisation step inside (a)–(c) invokes the general Serre theorem; the existing partial GL2ModularityLifting:R32.6/globalisation-dependency-audit records which forms have been checked and which global inputs remain unaudited. System existence is supplied by R24.5; modularity transfer is R24.6/linked-systems-modularity-transfer. A named partial supplier is not a completed independence certificate.",
    "hypotheses": [
     "KW I Theorem 5.1 (lift existence) is used, although KW's induction is not: the modern route is independent of the KW induction, not of all of Khare–Wintenberger's work",
     "DP themselves attribute the removal of weight reduction to Kisin's and Pan's lifting theorems",
-    "the certification of independence from Serre's conjecture is conditional on R32.6's audit"
+    "Independence from the general Serre endpoint is conditional on the unresolved global inputs recorded in R32.6/globalisation-dependency-audit, plus any still-unaudited lift/system source. The supplier packet is partial and unreviewed at this snapshot; an exact node reference is not proof of its statement."
    ],
    "proofSteps": [
     "List the imports of every node of R33.1–R33.5 and classify them by owner.",
@@ -203,15 +220,18 @@
    ],
    "acceptance": [
     "Check the list against the prerequisites of every R33 node (a script over the two packets suffices)",
-    "Check GL2ModularityLifting R32.6's audit for each of Kisin (2009), Paškūnas (2015, 2016), Hu–Tan (2015), Tung (2021) and Pan (2019) before certifying independence"
+    "Use R32.6/globalisation-dependency-audit’s checked residual-modularity forms; do not import Pan Theorem 1.0.4 or the other introduction forms that obtain residual modularity from the full Serre theorem. Keep its stated Tung/Gee globalisation obligations open."
    ],
    "prerequisites": [
     "ClassicalSerreModularity:R33.5/qualitative-serre-theorem",
     "ClassicalSerreModularity:R33.1/dp-modularity-lifting-inputs",
     "ClassicalSerreModularity:R33.1/paso-1-weight-two-system",
-    "GL2ModularityLifting:R32.6",
-    "PotentialModularityAndCompatibleSystems:R24.3",
-    "PotentialModularityAndCompatibleSystems:R24.6",
+    "GL2ModularityLifting:R32.6/globalisation-dependency-audit",
+    "PotentialModularityAndCompatibleSystems:R24.3/theorem-5-1-part-1-minimal-crystalline",
+    "PotentialModularityAndCompatibleSystems:R24.3/theorem-5-1-part-2-weight-two",
+    "PotentialModularityAndCompatibleSystems:R24.5/kw-theorem-5-1-systems",
+    "PotentialModularityAndCompatibleSystems:R24.5/dieulefait-families",
+    "PotentialModularityAndCompatibleSystems:R24.6/linked-systems-modularity-transfer",
     "ClassicalSerreModularity:R27.1/lemma-8-2-chebotarev-choice-of-auxiliary-primes",
     "ClassicalSerreModularity:R27.1/good-dihedral-implies-nonsolvable-image-and-is-preserved"
    ],
@@ -244,7 +264,8 @@
    "statement": "For ρ̄ : G_ℚ → GL₂(𝔽̄_p) odd and irreducible, the following are equivalent: (i) (DP) ρ̄ ≅ ρ̄_{f,p} for some modular form f ∈ S_k(Γ₀(N), ε) that is a Hecke eigenform, with k ≥ 2; (ii) (KW I, AlgebraicModularFormsAndSerreWeights R15.6) ρ̄ arises from a newform: there are a newform f, a prime λ | p of its coefficient field and an isomorphism of ρ̄ with the reduction of an integral model of ρ_{f,λ}. (ii) ⇒ (i) is immediate; (i) ⇒ (ii) passes from an eigenform to the newform with the same eigenvalues away from the level (Atkin–Lehner) and uses Brauer–Nesbitt, as ρ̄ is irreducible. Weight-one forms are covered by Deligne–Serre §6.9 (R33.1). So R33.6 proves the SAME statement as R27.6, with no competing definition of modularity.",
    "hypotheses": [
     "the residual isomorphism is with the semisimplification in general; irreducibility of ρ̄ makes it an isomorphism with ρ̄ itself",
-    "the level and weight in (i) are unconstrained; the strong form is R33.6/strong-form-by-the-modern-route"
+    "the level and weight in (i) are unconstrained; the strong form is R33.6/strong-form-by-the-modern-route",
+    "Use R15.6/s-type-arises-from-and-modular for S-type, the chosen coefficient embedding, residual isomorphism and invariants N,k,ε. This node proves the remaining eigenform/newform comparison; it introduces no second definition."
    ],
    "proofSteps": [
     "(ii) ⇒ (i): a newform is an eigenform.",
@@ -255,7 +276,7 @@
     "Check that R15.6's definition uses the same fixed embedding ι_p as DP's ρ_{f,p}"
    ],
    "prerequisites": [
-    "AlgebraicModularFormsAndSerreWeights:R15.6",
+    "AlgebraicModularFormsAndSerreWeights:R15.6/s-type-arises-from-and-modular",
     "AlgebraicModularFormsAndSerreWeights:R15.5/deligne-serre-eigenvalue-lifting-lemma",
     "ClassicalSerreModularity:R33.1/dp-target-and-the-weight-at-least-two-convention"
    ],
@@ -306,7 +327,7 @@
     "SerreWeightAndLevelOptimisation:R20.5/buzzard-mod-two-level-lowering",
     "SerreWeightAndLevelOptimisation:R20.6",
     "ClassicalSerreModularity:R27.1/dickson-and-the-dyadic-solvable-refinement",
-    "AlgebraicModularFormsAndSerreWeights:R15.6"
+    "AlgebraicModularFormsAndSerreWeights:R15.6/s-type-arises-from-and-modular"
    ],
    "library": {
     "module": "TauCeti/NumberTheory/SerreConjecture/Comparison",
@@ -335,7 +356,7 @@
    "realises": [
     "ClassicalSerreModularity:R33.6"
    ],
-   "title": "Two proofs of Serre's conjecture: where the modern route stops being independent of Khare–Wintenberger",
+   "title": "Two proofs of Serre’s conjecture: what each route uses from Khare–Wintenberger",
    "kind": "comparison",
    "statement": "R27.6 and R33.6 prove the same theorem. (1) Qualitative existence: the classical route uses KW I §§3, 8, 9 (the (L_r)/(W_r)/(D_r) induction with Theorems 3.1–3.4 and 9.1, and Khare's level-one theorem for (W₁)); the modern route (R33.1–R33.5) uses none of it, but shares KW I Theorem 5.1 (lift existence) and the base cases. (2) Refinement: both routes pass from modularity to weight k(ρ̄) and level N(ρ̄) through R27.4/strong-form-by-minimal-lifts, that is KW I Theorems 5.1(1) and 4.1 applied to a modular ρ̄, with Lemma 6.2(i) in the dihedral case. Outside one case the refinement was known before KW (DP p. 1: Edixhoven, Ribet, Boston–Lenstra–Ribet; KW I p. 2: Buzzard's mod-2 level lowering and Wiese in characteristic 2), so KW's argument is indispensable only at ρ̄|_{D₂} scalar with non-dihedral projective image (p = 2, k(ρ̄) = 2): there Buzzard's dyadic level lowering needs multiplicity one, which is not known (SerreWeightAndLevelOptimisation R20.5/dyadic-scalar-multiplicity-one-obstruction), and KW I Theorem 1.2(2), i.e. Theorem 5.1(1) with Theorem 4.1(1) at 2, supplies the level. KW I do not write that argument out (source issue ClassicalSerreModularity/E9, part R27.3). (3) The dyadic weight-four optimisation (R20.5–R20.6) is common to both routes.",
    "hypotheses": [
@@ -386,23 +407,30 @@
    ],
    "title": "The R29 input, from either proof of the strong form",
    "kind": "theorem",
-   "statement": "Let StrongSerre denote the statement of R27.6/full-classical-serre-theorem. The finite-flat weight-two export (R27.6/finite-flat-weight-two-export: for p ≥ 5, ρ̄ finite at p with det ρ̄ = χ̄_p arises from a newform of weight 2, level N(ρ̄) and trivial character) holds under the hypothesis StrongSerre, whichever proof supplies it. Instantiated with R33.6/strong-form-by-the-modern-route it gives EllipticCurveModularity R29 its input without KW's induction, relying on the KW refinement only as R33.6/two-routes-comparison describes.",
+   "statement": "Conditional corollary for the given representation: let p≥5 and let ρ̄ : G_ℚ → GL₂(𝔽̄_p) be continuous, odd and absolutely irreducible, finite at p, with det ρ̄=χ̄_p. Assume the strong-form conclusion for this ρ̄: it arises, in the sense of R15.6/s-type-arises-from-and-modular, from a newform of weight k(ρ̄), level N(ρ̄) and nebentypus reducing to ε(ρ̄). Then ρ̄ arises from a normalized newform g of weight 2, level N(ρ̄) and trivial nebentypus, with a chosen coefficient prime λ above p and ρ̄_(g,λ)≅ρ̄; hence a_ℓ(g)≡Tr ρ̄(Frob_ℓ) mod λ for ℓ∤pN(ρ̄). This is the shared conditional form of the already owned R27.6 finite-flat export; specialize its hypothesis from R33.6/strong-form-by-the-modern-route for R29. StrongSerre remains R27.6’s one statement/interface; neither its classical proof nor its unconditional export is a prerequisite of this corollary.",
    "hypotheses": [
-    "the export is stated as a function of StrongSerre (a theorem parameter), so R29 does not depend on which route is used",
-    "p ≥ 5 for Carayol's change of nebentypus, as in R27.6"
+    "The theorem parameter is the strong conclusion for this fixed ρ̄ (newform, coefficient place, residual isomorphism, exact weight, level and reduced character), not the proved classical StrongSerre theorem. The modern strong theorem provides an instance.",
+    "p≥5 is required for Carayol’s change of nebentypus; the local finite-flat weight recipe and its coefficient hypotheses are imported from R15.4/weight-two-iff-finite-flat-at-p. For coefficients beyond F_p, use that supplier’s Raynaud F-vector-space formulation, not an unqualified (p,p)-group-scheme argument.",
+    "Use the same fixed embedding/coefficient extension conventions as R15.6/s-type-arises-from-and-modular. N(ρ̄) is the prime-to-p Artin conductor of the residual representation, not automatically the conductor of an elliptic curve."
    ],
    "proofSteps": [
-    "Restate the export with StrongSerre as a hypothesis; its proof only uses the statement.",
-    "Instantiate with the modern route."
+    "Apply the imported local recipe R15.4/weight-two-iff-finite-flat-at-p to finite flatness and det|I_p=χ̄_p to obtain k(ρ̄)=2. The determinant relation in R15.6/s-type-arises-from-and-modular gives ε(ρ̄)=1.",
+    "Apply the supplied strong-form conclusion for this ρ̄, obtaining a newform of weight 2 and level N(ρ̄) whose nebentypus reduces to 1.",
+    "Apply R20.4/nebentypus-congruent-character at p≥5 to replace that nebentypus by 1 at the same weight and level; pass to the attached normalized newform and retain the residual isomorphism. Its level divides N(ρ̄), and N(ρ̄) divides it, since the prime-to-p conductor of ρ̄ divides that of every characteristic-zero lift (PotentialModularityAndCompatibleSystems:R24.6/residual-members (iii)); so the level is N(ρ̄). The coefficient/trace statement is the imported meaning of arises from.",
+    "Instantiate the hypothesis using R33.6/strong-form-by-the-modern-route. The same conditional mathematical argument also underlies the existing R27.6 export; its supplier should reuse this conditional API when coordinated, rather than reproving it."
    ],
    "acceptance": [
-    "Check that the export's proof uses R27.6/full-classical-serre-theorem only through its statement",
-    "Check that EllipticCurveModularity R29.2 needs nothing beyond the export (weight 2, level N, trivial character)"
+    "The prerequisite closure of this modern instantiation reaches no ClassicalSerreModularity R26 or R27.2–R27.6 node except R27.4/strong-form-by-minimal-lifts. In particular neither full-classical-serre-theorem nor finite-flat-weight-two-export is an unconditional input.",
+    "The conditional proof uses only the stated strong conclusion and the three named definition/local-weight/nebentypus suppliers; it does not call KW’s double induction or Khare’s level-one theorem.",
+    "Keep p≥5: a nebentypus reducing to 1 is not automatically the trivial characteristic-zero character. The Carayol step is explicit.",
+    "Check the R29 consumer output: weight 2, level N(ρ̄), trivial character, a coefficient prime above p and the residual isomorphism/trace congruences. Retain the supplier’s finite-field/Raynaud coefficient obligations."
    ],
    "prerequisites": [
-    "ClassicalSerreModularity:R27.6/finite-flat-weight-two-export",
+    "AlgebraicModularFormsAndSerreWeights:R15.6/s-type-arises-from-and-modular",
+    "AlgebraicModularFormsAndSerreWeights:R15.4/weight-two-iff-finite-flat-at-p",
+    "SerreWeightAndLevelOptimisation:R20.4/nebentypus-congruent-character",
     "ClassicalSerreModularity:R33.6/strong-form-by-the-modern-route",
-    "ClassicalSerreModularity:R27.6/full-classical-serre-theorem"
+    "PotentialModularityAndCompatibleSystems:R24.6/residual-members"
    ],
    "library": {
     "module": "TauCeti/NumberTheory/SerreConjecture/Comparison",
@@ -420,42 +448,6 @@
  ],
  "requests": [
   {
-   "supplier": "PotentialModularityAndCompatibleSystems:R24.3",
-   "need": "DP Theorem 1.9(1)–(2) at p = 2: a weight-2 lift of ρ̄ : G_ℚ → GL₂(𝔽̄₂) with non-solvable image, minimal crystalline if k(ρ̄) = 2 and Steinberg at 2 if k(ρ̄) = 4 (KW I Theorem 5.1), odd (KW I Theorem 5.1 produces an odd, irreducible, almost strictly compatible system).",
-   "neededBy": [
-    "ClassicalSerreModularity:R33.5/auxiliary-odd-prime-for-the-dyadic-system",
-    "ClassicalSerreModularity:R33.5/globalisation-dependency-check"
-   ],
-   "status": "open"
-  },
-  {
-   "supplier": "PotentialModularityAndCompatibleSystems:R24.6",
-   "need": "DP Theorem 1.11 at p = 2 (almost strictly compatible systems through a dyadic weight-2 lift with non-solvable residual image) and Remark 4.",
-   "neededBy": [
-    "ClassicalSerreModularity:R33.5/auxiliary-odd-prime-for-the-dyadic-system",
-    "ClassicalSerreModularity:R33.5/dp-characteristic-two-closure",
-    "ClassicalSerreModularity:R33.5/globalisation-dependency-check"
-   ],
-   "status": "open"
-  },
-  {
-   "supplier": "GL2ModularityLifting:R32.6",
-   "need": "The dependency audit of the lifting theorems used by DP (Kisin, Emerton, Paškūnas, Hu–Tan, Tung, Skinner–Wiles, Pan): whether any globalisation step uses the general Serre theorem, which the independence claim of R33.5 needs.",
-   "neededBy": [
-    "ClassicalSerreModularity:R33.5/globalisation-dependency-check"
-   ],
-   "status": "open"
-  },
-  {
-   "supplier": "AlgebraicModularFormsAndSerreWeights:R15.6",
-   "need": "The definition of residual modularity (\"arises from a newform\", with coefficient prime and residual isomorphism) and of N(ρ̄), k(ρ̄), ε(ρ̄), against which DP's notion is compared.",
-   "neededBy": [
-    "ClassicalSerreModularity:R33.6/modern-and-classical-modularity-agree",
-    "ClassicalSerreModularity:R33.6/strong-form-by-the-modern-route"
-   ],
-   "status": "open"
-  },
-  {
    "supplier": "GL2AutomorphicRepresentationsAndTransfer:R17.6",
    "need": "Rohrlich–Tunnell: an irreducible ρ̄ : G_ℚ → GL₂(𝔽̄₂) with dihedral projective image is modular (with its coefficient and ramification hypotheses), as DP §3 uses it.",
    "neededBy": [
@@ -468,6 +460,14 @@
    "need": "The optimisation for p = 2 and k(ρ̄) = 4 (weight 2 at level 2N(ρ̄), Steinberg at 2, to weight 4 at level N(ρ̄)), used by both routes to the strong form.",
    "neededBy": [
     "ClassicalSerreModularity:R33.6/strong-form-by-the-modern-route"
+   ],
+   "status": "open"
+  },
+  {
+   "supplier": "GL2ModularityLifting:R32.6/globalisation-dependency-audit",
+   "need": "Complete the remaining independence audit already recorded in this partial supplier: Tung’s global Breuil–Mézard inputs ([CEG+16] patched modules, Emerton–Paškūnas faithfulness, BLGG13 Theorem A.4.1) and Gee’s Theorem 4.4.12 used by Kisin, with the corresponding R31.6/R20.6 owners. Preserve the distinction between modularity-assuming statements and forms that take residual modularity from the full Serre theorem. This requests completion of those stated obligations, not a new duplicate audit.",
+   "neededBy": [
+    "ClassicalSerreModularity:R33.5/globalisation-dependency-check"
    ],
    "status": "open"
   }
@@ -488,12 +488,12 @@
  ],
  "gaps": [
   {
-   "title": "Independence from Serre's conjecture awaits GL2ModularityLifting R32.6's globalisation audit",
+   "title": "Unresolved globalisation inputs of the existing R32.6 audit",
    "neededBy": [
     "ClassicalSerreModularity:R33.5/globalisation-dependency-check",
     "ClassicalSerreModularity:R33.5/qualitative-serre-theorem"
    ],
-   "detail": "Verified: the list of imports of R33.1–R33.5 (R33.5/globalisation-dependency-check), none in ClassicalSerreModularity R26 or R27.2–R27.6. Not verified: that no globalisation step inside the imported lifting theorems (Kisin 2009, Emerton, Paškūnas 2015/2016, Hu–Tan 2015, Tung 2021, Pan 2019, Skinner–Wiles 1999) or inside Dieulefait's compatible-system theorem invokes the general Serre theorem. R32.6 owns that audit; the request asks for it."
+   "detail": "The current partial, unreviewed GL2ModularityLifting:R32.6/globalisation-dependency-audit (packets/GL2ModularityLifting--R32.3.json) supplies the checked Kisin/Hu–Tan/Tung residual-modularity forms and the exclusions for Pan/Emerton forms that use Serre’s conjecture. It explicitly leaves Tung’s global Breuil–Mézard inputs ([CEG+16] patching, Emerton–Paškūnas faithfulness, BLGG13 Theorem A.4.1) and Gee’s Theorem 4.4.12 unaudited, requested there from R31.6/R20.6. Those requirements remain open here; so does any independent unaudited lift/system input. Exact references to R24.3 lift nodes, R24.5 system-existence nodes and R24.6 modularity transfer clarify ownership without certifying those partial suppliers. The qualitative route’s recorded ClassicalSerreModularity closure avoids R26 and R27.2–R27.6; full source-level independence is still conditional."
   }
  ],
  "sourceIssues": [],
@@ -515,50 +515,81 @@
  ],
  "review": {
   "status": "accepted",
-  "reviewer": "independent-review-REV-ClassicalSerreModularity--R33.5",
-  "date": "2026-09-29",
-  "notes": "Independent review by Claude Code (cc-fb70e5) of checkpoint 1 of BP-ClassicalSerreModularity--R33.5 (Claude Code cc-39fac3, PR #3860). Sources: both PDFs (KW I preprint, Dieulefait–Pacetti arXiv v2) were downloaded and the sha256 reproduced; all 15 excerpts were compared with the extracted text (14 verbatim after normalisation, 1 differing only by a line-break hyphen) and are on the pages their locators give. Closure and baseline: check_blueprint --index gives 0 errors and 0 warnings; no baseline declarations are cited; the 6 requests name suppliers whose layer descriptions cover what is asked. The independence claims were checked by computing prerequisite closures over the decomposition and the three part packets: the qualitative theorem reaches no node of R26 or R27.2–R27.6, and the modern strong form adds only R27.4/strong-form-by-minimal-lifts. Statements and proof steps of all 8 nodes were read against DP §§1–3 and KW I. Corrections (2 nodes): the oddness/irreducibility justification and crystallinity source in the auxiliary-prime lemma, and the independence wording of the two-routes comparison. Source issues: none new; DP's '(ω₁ ⊕ 1, N)' for the Steinberg type was checked and is consistent with DP's own definition of ω₁ as the unramified quasi-character (p. 5); two nodes now cite E9 of part R27.3. The packet's gap (the R32.6 globalisation audit) remains. The suggested Lean file compiles with lake env lean against Mathlib 082e2d37e.",
-  "checked": [
-   {
-    "nodeId": "ClassicalSerreModularity:R33.5/auxiliary-odd-prime-for-the-dyadic-system",
-    "verdict": "corrected",
-    "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites. Corrected: the fourth hypothesis attributed the oddness of the system to \"parity conditions\" in KW I Theorem 5.1, which has none relevant here (oddness and irreducibility are part of that theorem's conclusion); it now gives the actual reasons, with a proof step for irreducibility and oddness of every member. The crystallinity at p ∉ S is now traced to DP Definition 1.10(4) rather than to the exception in (6), and the statement says that Serre weight 2 and \"not bad dihedral\" concern an irreducible ρ̄_p. The request to R24.3 is reworded to match."
-   },
-   {
-    "nodeId": "ClassicalSerreModularity:R33.5/dp-characteristic-two-closure",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites. Checked against DP §3 (p. 15), KW I Lemma 6.1 (pp. 10–11) and DP Theorems 1.4, 1.6, 1.9(1)–(2), 1.11 and Remark 4 (pp. 4–7): S₄ is excluded as 2-power elements of GL₂(𝔽̄₂) are unipotent, A₄ forces a Borel; the reducible branch meets Theorem 1.6's hypotheses (p ≥ 5, ρ_p irreducible, Hodge–Tate weights {0, 1}), the irreducible branch Theorem 1.4's (not bad dihedral)."
-   },
-   {
-    "nodeId": "ClassicalSerreModularity:R33.5/qualitative-serre-theorem",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites. Verified; its prerequisite closure (computed over the decomposition and the three part packets) contains no node of R26 or R27.2–R27.6, only R27.1's early package."
-   },
-   {
-    "nodeId": "ClassicalSerreModularity:R33.5/globalisation-dependency-check",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites. Verified by computing the prerequisite closure of R33.5/qualitative-serre-theorem: the ClassicalSerreModularity nodes in it are exactly R27.1's Definition 2.1, Lemma 6.3, the Dickson package and Lemma 8.2. DP Theorem 1.9 and 1.11 attributions match DP pp. 6–7. The independence from the general Serre theorem remains conditional on GL2ModularityLifting R32.6's audit, as the packet's gap says."
-   },
-   {
-    "nodeId": "ClassicalSerreModularity:R33.6/modern-and-classical-modularity-agree",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites. Checked against DP p. 1 and §1.4 (ρ_{f,p} is defined for newforms) and KW I p. 2 (\"arises from\"): Brauer–Nesbitt with irreducibility of ρ̄ makes the two notions agree."
-   },
-   {
-    "nodeId": "ClassicalSerreModularity:R33.6/strong-form-by-the-modern-route",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites. Verified; its closure adds only R27.4/strong-form-by-minimal-lifts to the qualitative theorem's. The hypothesis on the scalar dyadic case now cites source issue E9 (part R27.3): KW I assert that case in Theorem 1.2(2) without writing the proof."
-   },
-   {
-    "nodeId": "ClassicalSerreModularity:R33.6/two-routes-comparison",
-    "verdict": "corrected",
-    "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites. Corrected: item (2) said that the modern route \"stops being independent of KW exactly\" at the scalar dyadic case, but the modern route already uses KW I Theorem 5.1 (item (1)) and, as planned, uses R27.4/strong-form-by-minimal-lifts (KW I Theorems 5.1(1) and 4.1) for every refinement. Item (2) now says that this argument is indispensable only in that case, the rest being known before KW (DP p. 1; KW I p. 2 with Buzzard [6] and Wiese [42]), and cites E9. Both prerequisite closures were computed, and they agree with items (1)–(3)."
-   },
-   {
-    "nodeId": "ClassicalSerreModularity:R33.6/elliptic-curve-export-via-either-route",
-    "verdict": "verified",
-    "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites. Verified; the export is stated as a function of the strong statement, as R29 needs."
-   }
-  ]
- }
+  "reviewer": "independent-review-REV-FIX-RT-BP-ClassicalSerreModularity--R33.5",
+  "date": "2026-09-30",
+  "notes": "Independent review by Claude Code (cc-c2c06b) of FIX-RT-BP-ClassicalSerreModularity--R33.5 (Codex codex-rtOQ9t, PR #5215) for the five confirmed findings of RT-BP-ClassicalSerreModularity--R33.5 (Codex codex-J6LwjP); it follows REV-ClassicalSerreModularity--R33.5 (cc-fb70e5, accepted 2026-09-29). The KW I preprint was re-downloaded (sha256 3c389dc3…bad82 reproduced) and read at pp. 8–9 (compatible, almost strictly compatible, irreducible and odd systems; Theorem 5.1). /1: R33.6/elliptic-curve-export-via-either-route is conditional on the strong conclusion for the given ρ̄, with the R15.6, R15.4 (Serre's Proposition 4, with the Raynaud caveat beyond F_p) and R20.4 (Carayol, ℓ ≥ 5) suppliers and the modern instance; both R27.6 edges are gone. Its prerequisite closure, recomputed on the current packets overriding the integrated decompositions (after the KW fix that added R20.3/R15.5 inputs to R27.4/strong-form-by-minimal-lifts), reaches 2,332 references and no R26 or R27.2–R27.6 node other than R27.4/strong-form-by-minimal-lifts. /2: the auxiliary lemma uses the KW I Theorem 5.1(1)/(2) system (R24.5/kw-theorem-5-1-systems), takes irreducibility and oddness of every member from KW's definitions (p. 8) and crystallinity at odd unramified p from the almost-strict clause (p. 8), keeps the reducible residual branch, and no longer uses cross-characteristic Brauer–Nesbitt or the ψ claim. /3: every broad R24.3/R24.6/R32.6/R15.6 stage import is replaced by the exact node, each of which exists and states what is used; system existence (R24.5) and modularity transfer (R24.6) are separate; the gap cites R32.6/globalisation-dependency-audit's unaudited items; the R17.6 and R20.6 requests are unchanged. /4: the node title and summary are rewritten, and the reader document now says E3–E9. /5: the suggested file's standard note names the pinned Mathlib ModularForm/CuspForm and Tau Ceti Newform carriers; the signatures stay commented and the executable examples are unchanged. Corrected in place: the export's third proof step passed to the newform without saying why its level is N(ρ̄) (the same omission is in the reviewed R27.6 export); it now adds the conductor divisibility with the prerequisite R24.6/residual-members (iii), whose closure also reaches no forbidden node. The Lean examples were not compiled here either. check_blueprint with the declaration index: 0 errors, 0 warnings. The earlier review's per-node records are superseded by this object and remain in the packet's history (PR #3863)."
+ },
+ "supplierChecks": [
+  {
+   "node": "PotentialModularityAndCompatibleSystems:R24.3/theorem-5-1-part-1-minimal-crystalline",
+   "status": "planned-in-partial-unreviewed-packet",
+   "checkedOn": "2026-09-30",
+   "note": "Statement, hypotheses and prerequisites read for this fix; imported plan, not a built declaration or a completed proof."
+  },
+  {
+   "node": "PotentialModularityAndCompatibleSystems:R24.3/theorem-5-1-part-2-weight-two",
+   "status": "planned-in-partial-unreviewed-packet",
+   "checkedOn": "2026-09-30",
+   "note": "Statement, hypotheses and prerequisites read for this fix; imported plan, not a built declaration or a completed proof."
+  },
+  {
+   "node": "PotentialModularityAndCompatibleSystems:R24.5/kw-theorem-5-1-systems",
+   "status": "planned-in-partial-unreviewed-packet",
+   "checkedOn": "2026-09-30",
+   "note": "Statement, hypotheses and prerequisites read for this fix; imported plan, not a built declaration or a completed proof."
+  },
+  {
+   "node": "PotentialModularityAndCompatibleSystems:R24.5/dieulefait-families",
+   "status": "planned-in-partial-unreviewed-packet",
+   "checkedOn": "2026-09-30",
+   "note": "Statement, hypotheses and prerequisites read for this fix; imported plan, not a built declaration or a completed proof."
+  },
+  {
+   "node": "PotentialModularityAndCompatibleSystems:R24.6/linked-systems-modularity-transfer",
+   "status": "planned-in-partial-unreviewed-packet",
+   "checkedOn": "2026-09-30",
+   "note": "Statement, hypotheses and prerequisites read for this fix; imported plan, not a built declaration or a completed proof."
+  },
+  {
+   "node": "GL2ModularityLifting:R32.6/globalisation-dependency-audit",
+   "status": "planned-in-partial-unreviewed-packet",
+   "checkedOn": "2026-09-30",
+   "note": "Statement, hypotheses and prerequisites read for this fix; imported plan, not a built declaration or a completed proof."
+  },
+  {
+   "node": "AlgebraicModularFormsAndSerreWeights:R15.6/s-type-arises-from-and-modular",
+   "status": "planned-in-partial-unreviewed-packet",
+   "checkedOn": "2026-09-30",
+   "note": "Statement, hypotheses and prerequisites read for this fix; imported plan, not a built declaration or a completed proof."
+  },
+  {
+   "node": "AlgebraicModularFormsAndSerreWeights:R15.4/weight-two-iff-finite-flat-at-p",
+   "status": "planned-in-partial-unreviewed-packet",
+   "checkedOn": "2026-09-30",
+   "note": "Statement, hypotheses and prerequisites read for this fix; imported plan, not a built declaration or a completed proof."
+  },
+  {
+   "node": "SerreWeightAndLevelOptimisation:R20.4/nebentypus-congruent-character",
+   "status": "planned-in-partial-unreviewed-packet",
+   "checkedOn": "2026-09-30",
+   "note": "Statement, hypotheses and prerequisites read for this fix; imported plan, not a built declaration or a completed proof."
+  }
+ ],
+ "fixHistory": [
+  {
+   "job": "FIX-RT-BP-ClassicalSerreModularity--R33.5",
+   "agent": "Codex",
+   "session": "codex-rtOQ9t",
+   "date": "2026-09-30",
+   "status": "pending-independent-review",
+   "findings": [
+    "RT-BP-ClassicalSerreModularity--R33.5/1",
+    "RT-BP-ClassicalSerreModularity--R33.5/2",
+    "RT-BP-ClassicalSerreModularity--R33.5/3",
+    "RT-BP-ClassicalSerreModularity--R33.5/4",
+    "RT-BP-ClassicalSerreModularity--R33.5/5"
+   ],
+   "note": "All eight node IDs and existing source issues/review preserved. Conditional modern export; KW-constructed dyadic system; exact supplier imports and partial-audit gap; accurate two-route wording and pinned modular-form carrier note."
+  }
+ ]
 }
