@@ -10,7 +10,7 @@
     "DirichletPadicLFunctions:L4"
   ],
   "status": "partial",
-  "summary": "Partial continuation preserving all 552 predecessor nodes whole. Six L4 nodes construct the native integer-ring realization of the character-weighted positive coefficient measures and establish evaluation, all-test coefficient inclusion, ideal congruences, arithmetic moments and weight congruences. All 16 findings, nine requests and 13 gaps remain; zero closed stages.",
+  "summary": "Partial continuation preserving all558 predecessor nodes whole. Six L4 nodes give actual finite unit-group coordinates of the integral character-weighted coefficients, their weighted divisor/coset formulas, refinement, reduced evaluation and moment precision. All16 findings, nine requests and13 gaps remain; zero closed stages.",
   "baseline": {
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
@@ -3458,6 +3458,48 @@
         "module": "TauCeti/NumberTheory/ArithmeticFunction/TwistedDivisorSum.lean",
         "provides": "Its existing native divisor formula isΣ_(d|n)ψ(n/d)φ(d)d^e. The new actual-measure moment uses this order with the p-prime divisor restriction.",
         "checked": "Whole module and every declaration statement/proof read at pinned TauCetif790474821cf4256814db967cb154e7af3d0c369 on30September2026 and matched to the unchanged index. SourceSHAf7560366abaf20e8d7e2c8f1176c3a3510afae1f3f4ad90acdad676582b77421. Source-only native convention check; this checkpoint imports no new native artifact."
+      },
+      {
+        "ref": "mathlib:MonoidAlgebra.coeff_ofCoeff",
+        "kind": "lemma",
+        "module": "Mathlib/Algebra/MonoidAlgebra/Defs.lean",
+        "provides": "The actual group-algebra constructor has exactly the supplied Finsupp coefficient field.",
+        "checked": "Full native statement and ambient hypotheses read at pinned Mathlib082e2d3 on30September2026 and matched to the unchanged declaration index. No native library build."
+      },
+      {
+        "ref": "mathlib:MonoidAlgebra.ofCoeff_single",
+        "kind": "lemma",
+        "module": "Mathlib/Algebra/MonoidAlgebra/Defs.lean",
+        "provides": "Converts the existing finite projection of a Dirac mass into the native group-algebra basis element.",
+        "checked": "Full native statement and ambient hypotheses read at pinned Mathlib082e2d3 on30September2026 and matched to the unchanged declaration index. No native library build."
+      },
+      {
+        "ref": "mathlib:Nat.ModEq.pow",
+        "kind": "theorem",
+        "module": "Mathlib/Data/Nat/ModEq.lean",
+        "provides": "Preserves a natural modular congruence under every natural power.",
+        "checked": "Full native statement and ambient hypotheses read at pinned Mathlib082e2d3 on30September2026 and matched to the unchanged declaration index. No native library build."
+      },
+      {
+        "ref": "mathlib:ZMod.val_natCast",
+        "kind": "theorem",
+        "module": "Mathlib/Data/ZMod/Basic.lean",
+        "provides": "The native representative of a natural number modulo q is exactly its natural remainder.",
+        "checked": "Full native statement and ambient hypotheses read at pinned Mathlib082e2d3 on30September2026 and matched to the unchanged declaration index. No native library build."
+      },
+      {
+        "ref": "mathlib:Ideal.Quotient.mk",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/Ideal/Quotient/Defs.lean",
+        "provides": "The existing quotient ring homomorphism is used for integral coefficient reduction.",
+        "checked": "Full native statement and ambient hypotheses read at pinned Mathlib082e2d3 on30September2026 and matched to the unchanged declaration index. No native library build."
+      },
+      {
+        "ref": "mathlib:Ideal.Quotient.mk_eq_mk_iff_sub_mem",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Ideal/Quotient/Defs.lean",
+        "provides": "Two values have equal quotient images precisely when their difference lies in the ideal.",
+        "checked": "Full native statement and ambient hypotheses read at pinned Mathlib082e2d3 on30September2026 and matched to the unchanged declaration index. No native library build."
       }
     ]
   },
@@ -36309,6 +36351,434 @@
       "acceptance": [
         "The theorem covers all fixed finite character pairs, including bad-level zeros; its tame modular application is distinguished from the finite arithmetic proof."
       ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L4/integral-twisted-eisenstein-finite",
+      "parentStageId": "DirichletPadicLFunctions:L4",
+      "realises": [
+        "DirichletPadicLFunctions:L4"
+      ],
+      "title": "Finite coordinates of integral weighted coefficients",
+      "kind": "construction",
+      "statement": "Define E_(ψ,φ,n;r)∈O[U_r] by the existing finite projection of the actual integral weighted measure A^O_n.",
+      "hypotheses": [
+        "p is any prime, including2. K is a normed ultrametric field and O is its native norm-valuation integer subring, with the inherited normed commutative ring structure. Let ψ:DirichletCharacter K D, φ:DirichletCharacter K E and n:ℕ+. Write A^O_n for the existing integralTwistedPositiveEisensteinMeasure.",
+        "U=(ℤ_p)ˣ and U_r=(ℤ/p^rℤ)ˣ use their native group and topological structures, with r≥0. The shared red_r=PadicInt.unitToZModPow is continuous and agrees with Units.map of the native integer reduction. At r=0 the group is trivial. Neither O nor a coefficient quotient of O is assumed finite.",
+        "Define E_(n;r)=MonoidAlgebra.ofCoeff(π_(red_r)(A^O_n)), using the existing AbstractMeasure.finiteProjection. This is an element of the native MonoidAlgebra O U_r. The explicit ofCoeff conversion is required because MonoidAlgebra is not definitionally its Finsupp coefficient carrier.",
+        "Retain the exact positive divisors d|n with p∤d, their existing natural-cast units u(d), and the integral lifts w_n(d)^O of ψ(n/d)φ(d). Colliding residues contribute the sum of all their weights, including cancellation. There is no averaging factor.",
+        "For reduced evaluation, R is any commutative ring and c:O→+*R any ring homomorphism. Assume explicitly c(f(u))=g(red_r(u)) for the continuous integral test f and the finite function g. No continuity of c or factorization of an arbitrary test at a fixed level is assumed.",
+        "For arithmetic moments, additionally use Algebra ℤ_p K and IsBoundedSMul ℤ_p K, with the existing principal level-zero integral arithmetic test κ^O_e, e≥0. A group level r gives precision (p:O)^r. Coefficient precision s is independent and the quotient moment formula assumes s≤r. No ℤ_p-algebra structure on O is required."
+      ],
+      "proofSteps": [
+        "Use the supplier’s actual red_r and its proved-continuous planning interface. Apply the supplier’s finiteProjection, whose output is a native finitely supported coefficient function. Wrap it with native MonoidAlgebra.ofCoeff; do not reconstruct a finite projection or unit quotient.",
+        "The projection equality is the defining API. The explicit weighted divisor formula is promoted below. Native coefficient extensionality provides access to the same finite coefficients without asserting a new convolution or completed-algebra structure on measures.",
+        "At n=1 the actual integral measure is δ_1. The supplied finite Dirac formula and native ofCoeff_single give the basis element [1]. At r=0 the group has one element and its coefficient is the full integral mass A^O_n(1), not a forced zero.",
+        "Coefficient reduction is the existing MonoidAlgebra.mapRingHom applied to Ideal.Quotient.mk. Reduction modulo (p:O)^0 is zero because that ideal is the whole ring. This coefficient boundary is independent of group level zero.",
+        "For p=2, left quadratic character modulo3, right level-one character and n=5, the coordinate at r=3 is −[1]+[5]. At r=2 the two residues coincide and the integral weights cancel. At n=2 the coordinate is −[1], so the q^p coefficient survives."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L4/integral-twisted-positive-eisenstein-measure",
+        "PadicMeasuresIwasawaAlgebras:L1/finite-projection",
+        "PadicMeasuresIwasawaAlgebras:L1/finite-projection-dirac",
+        "PadicMeasuresIwasawaAlgebras:L1/unit-reduction",
+        "PadicMeasuresIwasawaAlgebras:L1/unit-reduction-continuity",
+        "mathlib:MonoidAlgebra.coeff_ofCoeff",
+        "mathlib:MonoidAlgebra.ofCoeff_single",
+        "mathlib:MonoidAlgebra.mapRingHom",
+        "mathlib:Ideal.Quotient.mk"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/TwistedFiniteCoefficients",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.integralTwistedEisensteinFinite"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Propositions3.15–3.16, its complete proof and explicit coordinate maps, Definition3.17 and Example3.19, published121–123/PDF22–24, freshly read in full; Definition8.1, Theorem8.2 and Remark8.3, published159–161/PDF60–62, read in the immediately preceding checkpoint.",
+          "match": "Worker specialization of the existing finite-measure projection to the actual integral two-character positive Eisenstein coefficient. The source gives coset masses and the divisor-Dirac construction; character-weighted collisions and quantitative finite moment precision are derived here. The shared finite projection, unit reduction and completed algebra retain their owners. No inverse-limit equivalence or geometric modular family is inferred."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedTwistedFiniteTests.first_finite_coefficient",
+          "kind": "computation",
+          "statement": "For every pair and group level, E_(1;r)=[1]."
+        },
+        {
+          "name": "SuggestedTwistedFiniteTests.actual_integral_projection",
+          "kind": "compatibility",
+          "statement": "Its native coeff field is exactly the existing finite projection of A^O_n along red_r."
+        },
+        {
+          "name": "SuggestedTwistedFiniteTests.trivial_group_remembers_mass",
+          "kind": "degenerate",
+          "statement": "At group level0, the sole coefficient is the actual integral total mass."
+        },
+        {
+          "name": "SuggestedTwistedFiniteTests.zero_coefficient_precision",
+          "kind": "degenerate",
+          "statement": "Reduction modulo (p:O)^0 is zero at every group level."
+        },
+        {
+          "name": "SuggestedTwistedFiniteTests.dyadic_prime_coefficient_survives",
+          "kind": "non-example",
+          "statement": "For p=2 with the quadratic-left pair, E_(2;3)=−[1]."
+        }
+      ],
+      "acceptance": [
+        "Only the group index is claimed finite. The ring O and its quotients need not be finite. No completed-algebra equivalence or constant coefficient is constructed."
+      ],
+      "uses": [
+        {
+          "where": "RJW Proposition3.16 and Theorem8.2",
+          "how": "Gives the actual finite group coordinates of the already constructed positive coefficient measure."
+        },
+        {
+          "where": "Atlas L4 integral q-expansion congruences",
+          "how": "Keeps integral weights and independent coefficient reduction for rigorous finite-precision tests."
+        },
+        {
+          "where": "Arithmetic moment approximation",
+          "how": "Pairs finite coefficients with powers of native residue representatives and states the exact error ideal."
+        }
+      ],
+      "api": [
+        {
+          "name": "DirichletPadic.integralTwistedEisensteinFinite_eq_projection",
+          "role": "constructor",
+          "statement": "E_(n;r)=ofCoeff(π_(red_r)(A^O_n)) using the existing actual projection."
+        },
+        {
+          "name": "DirichletPadic.integralTwistedEisensteinFinite_eq_sum",
+          "role": "data",
+          "statement": "E_(n;r)=Σ_(d|n,p∤d)w_n(d)^O[red_r(u(d))]. Promoted to integral-twisted-eisenstein-finite-divisors."
+        },
+        {
+          "name": "DirichletPadic.integralTwistedEisensteinFinite_coeff",
+          "role": "data",
+          "statement": "The coefficient at a is the sum of all retained weights with red_r(u(d))=a. Promoted to integral-twisted-eisenstein-finite-coefficients."
+        },
+        {
+          "name": "DirichletPadic.integralTwistedEisensteinFinite_transition",
+          "role": "functoriality",
+          "statement": "For r′≤r, the native group-index pushforward sends E_(n;r) to E_(n;r′). Promoted to integral-twisted-eisenstein-finite-refinement."
+        },
+        {
+          "name": "DirichletPadic.integralTwistedEisensteinFinite_apply",
+          "role": "compatibility",
+          "statement": "If c∘f=g∘red_r, then c(A^O_n(f))=Σ_a c(coeff_a(E_(n;r)))g(a). Promoted to integral-twisted-eisenstein-finite-evaluation."
+        },
+        {
+          "name": "DirichletPadic.integralTwistedEisensteinFinite_one",
+          "role": "simp",
+          "statement": "At n=1, E_(1;r)=[1]."
+        },
+        {
+          "name": "DirichletPadic.integralTwistedEisensteinFinite_zero_level",
+          "role": "simp",
+          "statement": "At r=0, E_(n;0)=A^O_n(1)[1]."
+        },
+        {
+          "name": "DirichletPadic.integralTwistedEisensteinFinite_moment_precision",
+          "role": "relation",
+          "statement": "The difference between the actual arithmetic moment and the finite representative-power pairing is divisible by (p:O)^r. Promoted to integral-twisted-eisenstein-finite-moment-precision."
+        },
+        {
+          "name": "DirichletPadic.integralTwistedEisensteinFinite_moment_mod",
+          "role": "compatibility",
+          "statement": "For s≤r, the arithmetic moment and finite representative-power pairing have the same image in O/(p:O)^s."
+        }
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L4/integral-twisted-eisenstein-finite-divisors",
+      "parentStageId": "DirichletPadicLFunctions:L4",
+      "realises": [
+        "DirichletPadicLFunctions:L4"
+      ],
+      "title": "The weighted divisor formula in finite coordinates",
+      "kind": "lemma",
+      "statement": "E_(n;r)=Σ_(d|n,p∤d)w_n(d)^O[red_r(u(d))] in the native group algebra O[U_r].",
+      "hypotheses": [
+        "p is any prime, including2. K is a normed ultrametric field and O is its native norm-valuation integer subring, with the inherited normed commutative ring structure. Let ψ:DirichletCharacter K D, φ:DirichletCharacter K E and n:ℕ+. Write A^O_n for the existing integralTwistedPositiveEisensteinMeasure.",
+        "U=(ℤ_p)ˣ and U_r=(ℤ/p^rℤ)ˣ use their native group and topological structures, with r≥0. The shared red_r=PadicInt.unitToZModPow is continuous and agrees with Units.map of the native integer reduction. At r=0 the group is trivial. Neither O nor a coefficient quotient of O is assumed finite.",
+        "Define E_(n;r)=MonoidAlgebra.ofCoeff(π_(red_r)(A^O_n)), using the existing AbstractMeasure.finiteProjection. This is an element of the native MonoidAlgebra O U_r. The explicit ofCoeff conversion is required because MonoidAlgebra is not definitionally its Finsupp coefficient carrier.",
+        "Retain the exact positive divisors d|n with p∤d, their existing natural-cast units u(d), and the integral lifts w_n(d)^O of ψ(n/d)φ(d). Colliding residues contribute the sum of all their weights, including cancellation. There is no averaging factor.",
+        "For reduced evaluation, R is any commutative ring and c:O→+*R any ring homomorphism. Assume explicitly c(f(u))=g(red_r(u)) for the continuous integral test f and the finite function g. No continuity of c or factorization of an arbitrary test at a fixed level is assumed.",
+        "For arithmetic moments, additionally use Algebra ℤ_p K and IsBoundedSMul ℤ_p K, with the existing principal level-zero integral arithmetic test κ^O_e, e≥0. A group level r gives precision (p:O)^r. Coefficient precision s is independent and the quotient moment formula assumes s≤r. No ℤ_p-algebra structure on O is required."
+      ],
+      "proofSteps": [
+        "Expand the existing integral coefficient measure into its actual divisor-Dirac sum. The generic projection is O-linear, so it preserves the finite sum and each scalar.",
+        "The supplied finiteProjection_dirac sends δ_u(d) to the native Finsupp.single at red_r(u(d)) with coefficient1. Native ofCoeff_single and scalar compatibility give the required weighted basis element.",
+        "The formula fixes both character positions and the integral coefficient lift. At p=2,n=5,r=3 with the quadratic-left pair it gives precisely −[1]+[5]. It is a specialization of the shared finite projection, not a parallel definition of measure coordinates."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L4/integral-twisted-eisenstein-finite",
+        "DirichletPadicLFunctions:L4/integral-twisted-positive-eisenstein-measure",
+        "PadicMeasuresIwasawaAlgebras:L1/finite-projection-dirac",
+        "mathlib:MonoidAlgebra.ofCoeff_single"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/TwistedFiniteCoefficients",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.integralTwistedEisensteinFinite_eq_sum"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Propositions3.15–3.16, its complete proof and explicit coordinate maps, Definition3.17 and Example3.19, published121–123/PDF22–24, freshly read in full; Definition8.1, Theorem8.2 and Remark8.3, published159–161/PDF60–62, read in the immediately preceding checkpoint.",
+          "match": "Worker specialization of the existing finite-measure projection to the actual integral two-character positive Eisenstein coefficient. The source gives coset masses and the divisor-Dirac construction; character-weighted collisions and quantitative finite moment precision are derived here. The shared finite projection, unit reduction and completed algebra retain their owners. No inverse-limit equivalence or geometric modular family is inferred."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedTwistedFiniteTests.dyadic_signed_separation",
+          "kind": "computation",
+          "statement": "For p=2,n=5 with the quadratic-left pair, E_(5;3)=−[1]+[5]."
+        }
+      ],
+      "acceptance": [
+        "The indexing set is the set of retained divisors, not the image set of their residue classes."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L4/integral-twisted-eisenstein-finite-coefficients",
+      "parentStageId": "DirichletPadicLFunctions:L4",
+      "realises": [
+        "DirichletPadicLFunctions:L4"
+      ],
+      "title": "Signed residue multiplicities",
+      "kind": "lemma",
+      "statement": "For a∈U_r, coeff_a(E_(n;r))=Σ_(d|n,p∤d,red_r(u(d))=a)w_n(d)^O.",
+      "hypotheses": [
+        "p is any prime, including2. K is a normed ultrametric field and O is its native norm-valuation integer subring, with the inherited normed commutative ring structure. Let ψ:DirichletCharacter K D, φ:DirichletCharacter K E and n:ℕ+. Write A^O_n for the existing integralTwistedPositiveEisensteinMeasure.",
+        "U=(ℤ_p)ˣ and U_r=(ℤ/p^rℤ)ˣ use their native group and topological structures, with r≥0. The shared red_r=PadicInt.unitToZModPow is continuous and agrees with Units.map of the native integer reduction. At r=0 the group is trivial. Neither O nor a coefficient quotient of O is assumed finite.",
+        "Define E_(n;r)=MonoidAlgebra.ofCoeff(π_(red_r)(A^O_n)), using the existing AbstractMeasure.finiteProjection. This is an element of the native MonoidAlgebra O U_r. The explicit ofCoeff conversion is required because MonoidAlgebra is not definitionally its Finsupp coefficient carrier.",
+        "Retain the exact positive divisors d|n with p∤d, their existing natural-cast units u(d), and the integral lifts w_n(d)^O of ψ(n/d)φ(d). Colliding residues contribute the sum of all their weights, including cancellation. There is no averaging factor.",
+        "For reduced evaluation, R is any commutative ring and c:O→+*R any ring homomorphism. Assume explicitly c(f(u))=g(red_r(u)) for the continuous integral test f and the finite function g. No continuity of c or factorization of an arbitrary test at a fixed level is assumed.",
+        "For arithmetic moments, additionally use Algebra ℤ_p K and IsBoundedSMul ℤ_p K, with the existing principal level-zero integral arithmetic test κ^O_e, e≥0. A group level r gives precision (p:O)^r. Coefficient precision s is independent and the quotient moment formula assumes s≤r. No ℤ_p-algebra structure on O is required."
+      ],
+      "proofSteps": [
+        "Apply native MonoidAlgebra.coeff_sum to the divisor formula and evaluate each single with coeff_single and Finsupp.single_apply. The complete native weighted_coeff proof checks this exact formula.",
+        "Every retained preimage contributes its weight. Several equal residues can add or cancel, even before coefficient reduction. The formula does not count distinct residues and is not an average.",
+        "At p=2,n=5 the quadratic-left weights −1 and1 are at distinct residues modulo8 but the same residue modulo4. Native dyadic_signed_collision proves cancellation in every commutative coefficient ring; dyadic_signed_separation proves nonvanishing at the finer level for every nontrivial coefficient ring."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L4/integral-twisted-eisenstein-finite-divisors",
+        "mathlib:MonoidAlgebra.coeff_sum",
+        "mathlib:MonoidAlgebra.coeff_single",
+        "mathlib:Finsupp.single_apply"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/TwistedFiniteCoefficients",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.integralTwistedEisensteinFinite_coeff"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Propositions3.15–3.16, its complete proof and explicit coordinate maps, Definition3.17 and Example3.19, published121–123/PDF22–24, freshly read in full; Definition8.1, Theorem8.2 and Remark8.3, published159–161/PDF60–62, read in the immediately preceding checkpoint.",
+          "match": "Worker specialization of the existing finite-measure projection to the actual integral two-character positive Eisenstein coefficient. The source gives coset masses and the divisor-Dirac construction; character-weighted collisions and quantitative finite moment precision are derived here. The shared finite projection, unit reduction and completed algebra retain their owners. No inverse-limit equivalence or geometric modular family is inferred."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedTwistedFiniteTests.dyadic_signed_collision",
+          "kind": "computation",
+          "statement": "For the quadratic-left pair at p=2,n=5, E_(5;2)=0 in the integral group algebra."
+        },
+        {
+          "name": "SuggestedTwistedFiniteTests.dyadic_distinct_levels",
+          "kind": "non-example",
+          "statement": "The same coefficient is nonzero at group level3 but zero at level2."
+        }
+      ],
+      "acceptance": [
+        "Character-weighted cancellation is checked integrally. The coarser coordinate does not determine the finer coordinate."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L4/integral-twisted-eisenstein-finite-refinement",
+      "parentStageId": "DirichletPadicLFunctions:L4",
+      "realises": [
+        "DirichletPadicLFunctions:L4"
+      ],
+      "title": "Refinement of weighted unit-group coordinates",
+      "kind": "theorem",
+      "statement": "For r′≤r, MonoidAlgebra.mapDomainRingHom along the native U_r→U_r′ sends E_(n;r) to E_(n;r′).",
+      "hypotheses": [
+        "p is any prime, including2. K is a normed ultrametric field and O is its native norm-valuation integer subring, with the inherited normed commutative ring structure. Let ψ:DirichletCharacter K D, φ:DirichletCharacter K E and n:ℕ+. Write A^O_n for the existing integralTwistedPositiveEisensteinMeasure.",
+        "U=(ℤ_p)ˣ and U_r=(ℤ/p^rℤ)ˣ use their native group and topological structures, with r≥0. The shared red_r=PadicInt.unitToZModPow is continuous and agrees with Units.map of the native integer reduction. At r=0 the group is trivial. Neither O nor a coefficient quotient of O is assumed finite.",
+        "Define E_(n;r)=MonoidAlgebra.ofCoeff(π_(red_r)(A^O_n)), using the existing AbstractMeasure.finiteProjection. This is an element of the native MonoidAlgebra O U_r. The explicit ofCoeff conversion is required because MonoidAlgebra is not definitionally its Finsupp coefficient carrier.",
+        "Retain the exact positive divisors d|n with p∤d, their existing natural-cast units u(d), and the integral lifts w_n(d)^O of ψ(n/d)φ(d). Colliding residues contribute the sum of all their weights, including cancellation. There is no averaging factor.",
+        "For reduced evaluation, R is any commutative ring and c:O→+*R any ring homomorphism. Assume explicitly c(f(u))=g(red_r(u)) for the continuous integral test f and the finite function g. No continuity of c or factorization of an arbitrary test at a fixed level is assumed.",
+        "For arithmetic moments, additionally use Algebra ℤ_p K and IsBoundedSMul ℤ_p K, with the existing principal level-zero integral arithmetic test κ^O_e, e≥0. A group level r gives precision (p:O)^r. Coefficient precision s is independent and the quotient moment formula assumes s≤r. No ℤ_p-algebra structure on O is required."
+      ],
+      "proofSteps": [
+        "Use the supplier’s exact unitToZModPow_refinement to identify the two paths from U to U_r′. Its underlying statement is the pinned native zmod_cast_comp_toZModPow; the complete actual_unit_refinement proof checks that native identity on units.",
+        "Apply the supplied finiteProjection_refinement and the explicit MonoidAlgebra conversion. Equivalently map the weighted divisor formula term by term through native mapDomainRingHom and mapDomain_single. The complete group_map_atoms proof checks this finite map.",
+        "Every coarser fiber receives the sum of its finer coefficients. There is no division by the size of a fiber. Coefficient reduction commutes with group pushforward by the native mapRingHom_comp_mapDomainRingHom, and the complete coefficient_map_atoms proof checks its scalar action on the actual atoms.",
+        "The dyadic transition from r=3 to r′=2 sends −[1]+[5] to zero, while the scalar ring remains O. This loss of group information is separate from any reduction modulo a power of p."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L4/integral-twisted-eisenstein-finite-divisors",
+        "PadicMeasuresIwasawaAlgebras:L1/unit-reduction-refinement",
+        "PadicMeasuresIwasawaAlgebras:L1/finite-projection-refinement",
+        "mathlib:MonoidAlgebra.mapDomainRingHom",
+        "mathlib:MonoidAlgebra.mapDomain_single",
+        "mathlib:MonoidAlgebra.mapRingHom_comp_mapDomainRingHom"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/TwistedFiniteCoefficients",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.integralTwistedEisensteinFinite_transition"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Propositions3.15–3.16, its complete proof and explicit coordinate maps, Definition3.17 and Example3.19, published121–123/PDF22–24, freshly read in full; Definition8.1, Theorem8.2 and Remark8.3, published159–161/PDF60–62, read in the immediately preceding checkpoint.",
+          "match": "Worker specialization of the existing finite-measure projection to the actual integral two-character positive Eisenstein coefficient. The source gives coset masses and the divisor-Dirac construction; character-weighted collisions and quantitative finite moment precision are derived here. The shared finite projection, unit reduction and completed algebra retain their owners. No inverse-limit equivalence or geometric modular family is inferred."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedTwistedFiniteTests.compatible_group_refinement",
+          "kind": "compatibility",
+          "statement": "The group-index pushforward from level2 to level1 gives the corresponding coefficient at level1."
+        }
+      ],
+      "acceptance": [
+        "The construction and transition include level0. No joint inverse-limit surjectivity or completed-algebra equivalence is asserted."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L4/integral-twisted-eisenstein-finite-evaluation",
+      "parentStageId": "DirichletPadicLFunctions:L4",
+      "realises": [
+        "DirichletPadicLFunctions:L4"
+      ],
+      "title": "Finite evaluation after coefficient reduction",
+      "kind": "comparison",
+      "statement": "If c(f(u))=g(red_r(u)) for all actual units u, then c(A^O_n(f))=Σ_a c(coeff_a(E_(n;r)))g(a).",
+      "hypotheses": [
+        "p is any prime, including2. K is a normed ultrametric field and O is its native norm-valuation integer subring, with the inherited normed commutative ring structure. Let ψ:DirichletCharacter K D, φ:DirichletCharacter K E and n:ℕ+. Write A^O_n for the existing integralTwistedPositiveEisensteinMeasure.",
+        "U=(ℤ_p)ˣ and U_r=(ℤ/p^rℤ)ˣ use their native group and topological structures, with r≥0. The shared red_r=PadicInt.unitToZModPow is continuous and agrees with Units.map of the native integer reduction. At r=0 the group is trivial. Neither O nor a coefficient quotient of O is assumed finite.",
+        "Define E_(n;r)=MonoidAlgebra.ofCoeff(π_(red_r)(A^O_n)), using the existing AbstractMeasure.finiteProjection. This is an element of the native MonoidAlgebra O U_r. The explicit ofCoeff conversion is required because MonoidAlgebra is not definitionally its Finsupp coefficient carrier.",
+        "Retain the exact positive divisors d|n with p∤d, their existing natural-cast units u(d), and the integral lifts w_n(d)^O of ψ(n/d)φ(d). Colliding residues contribute the sum of all their weights, including cancellation. There is no averaging factor.",
+        "For reduced evaluation, R is any commutative ring and c:O→+*R any ring homomorphism. Assume explicitly c(f(u))=g(red_r(u)) for the continuous integral test f and the finite function g. No continuity of c or factorization of an arbitrary test at a fixed level is assumed.",
+        "For arithmetic moments, additionally use Algebra ℤ_p K and IsBoundedSMul ℤ_p K, with the existing principal level-zero integral arithmetic test κ^O_e, e≥0. A group level r gives precision (p:O)^r. Coefficient precision s is independent and the quotient moment formula assumes s≤r. No ℤ_p-algebra structure on O is required."
+      ],
+      "proofSteps": [
+        "Use the actual integral measure evaluation to write A^O_n(f) as the finite sum of w_n(d)^O f(u(d)), then apply the ring homomorphism c term by term.",
+        "The explicit factorization hypothesis identifies c(f(u(d))) with g(red_r(u(d))). Use the weighted coefficient formula, exchange finite sums and evaluate the single surviving indicator for each divisor.",
+        "The complete weighted_pairing and reduced_pairing proofs check precisely this finite coefficient contraction and arbitrary coefficient-ring map. There is no requirement that c be continuous because it is used only on the resulting finite scalar expressions.",
+        "Taking c to be the quotient map O→O/I gives finite integral precision whenever the test factors after that reduction. This does not claim that an arbitrary continuous integral test factors at a prescribed group level.",
+        "The complete native pairing sees signed residues individually. At p=2,n=5,r=3, pairing the quadratic-left coordinate with the natural representative gives −1+5=4."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L4/integral-twisted-positive-eisenstein-evaluation",
+        "DirichletPadicLFunctions:L4/integral-twisted-eisenstein-finite-coefficients",
+        "PadicMeasuresIwasawaAlgebras:L1/finite-projection-pairing",
+        "mathlib:MonoidAlgebra.mapRingHom"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/TwistedFiniteCoefficients",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.integralTwistedEisensteinFinite_apply"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Propositions3.15–3.16, its complete proof and explicit coordinate maps, Definition3.17 and Example3.19, published121–123/PDF22–24, freshly read in full; Definition8.1, Theorem8.2 and Remark8.3, published159–161/PDF60–62, read in the immediately preceding checkpoint.",
+          "match": "Worker specialization of the existing finite-measure projection to the actual integral two-character positive Eisenstein coefficient. The source gives coset masses and the divisor-Dirac construction; character-weighted collisions and quantitative finite moment precision are derived here. The shared finite projection, unit reduction and completed algebra retain their owners. No inverse-limit equivalence or geometric modular family is inferred."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedTwistedFiniteTests.dyadic_residue_representative_moment",
+          "kind": "computation",
+          "statement": "At p=2,n=5,r=3 the finite representative-power pairing at exponent1 is4 in O."
+        }
+      ],
+      "acceptance": [
+        "The factorization after coefficient change is an explicit hypothesis; an O-valued lift of an arbitrary finite R-valued test is not assumed."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L4/integral-twisted-eisenstein-finite-moment-precision",
+      "parentStageId": "DirichletPadicLFunctions:L4",
+      "realises": [
+        "DirichletPadicLFunctions:L4"
+      ],
+      "title": "Arithmetic precision of finite coefficient moments",
+      "kind": "theorem",
+      "statement": "For every r,e≥0, (p:O)^r divides A^O_n(κ^O_e)−Σ_a coeff_a(E_(n;r))(val(a):O)^e. Consequently for s≤r these values agree in O/(p:O)^s.",
+      "hypotheses": [
+        "p is any prime, including2. K is a normed ultrametric field and O is its native norm-valuation integer subring, with the inherited normed commutative ring structure. Let ψ:DirichletCharacter K D, φ:DirichletCharacter K E and n:ℕ+. Write A^O_n for the existing integralTwistedPositiveEisensteinMeasure.",
+        "U=(ℤ_p)ˣ and U_r=(ℤ/p^rℤ)ˣ use their native group and topological structures, with r≥0. The shared red_r=PadicInt.unitToZModPow is continuous and agrees with Units.map of the native integer reduction. At r=0 the group is trivial. Neither O nor a coefficient quotient of O is assumed finite.",
+        "Define E_(n;r)=MonoidAlgebra.ofCoeff(π_(red_r)(A^O_n)), using the existing AbstractMeasure.finiteProjection. This is an element of the native MonoidAlgebra O U_r. The explicit ofCoeff conversion is required because MonoidAlgebra is not definitionally its Finsupp coefficient carrier.",
+        "Retain the exact positive divisors d|n with p∤d, their existing natural-cast units u(d), and the integral lifts w_n(d)^O of ψ(n/d)φ(d). Colliding residues contribute the sum of all their weights, including cancellation. There is no averaging factor.",
+        "For reduced evaluation, R is any commutative ring and c:O→+*R any ring homomorphism. Assume explicitly c(f(u))=g(red_r(u)) for the continuous integral test f and the finite function g. No continuity of c or factorization of an arbitrary test at a fixed level is assumed.",
+        "For arithmetic moments, additionally use Algebra ℤ_p K and IsBoundedSMul ℤ_p K, with the existing principal level-zero integral arithmetic test κ^O_e, e≥0. A group level r gives precision (p:O)^r. Coefficient precision s is independent and the quotient moment formula assumes s≤r. No ℤ_p-algebra structure on O is required."
+      ],
+      "proofSteps": [
+        "Apply the integral measure evaluation and identify κ^O_e(u(d)) with (d:O)^e. This uses the existing integral arithmetic-character inclusion, its actual level-zero coordinate formula and injectivity of the native integer-subring inclusion, without a ℤ_p-algebra on O.",
+        "Use the weighted finite coefficient formula to turn the representative-power pairing into the divisor sum with representative val(red_r(u(d))). Native map_natCast and ZMod.val_natCast identify this natural number with d mod p^r. The complete actual_unit_residue proof checks that exact native unit computation.",
+        "The natural integers d mod p^r and d are congruent modulo p^r. Native Nat.ModEq.pow raises this congruence to exponent e, and Nat.modEq_iff_dvd supplies an integer witness for d^e−(d mod p^r)^e. Cast that witness directly to O. The complete residue_power_divisibility proof checks this argument for every commutative ring.",
+        "Multiply by each integral weight and sum the witnesses using native Finset.dvd_sum. The complete weighted_residue_precision proof establishes the resulting bound. Both r=0 and e=0 are included: the former asserts divisibility by1, and the latter gives exact mass.",
+        "If s≤r then (p:O)^s divides (p:O)^r. Native Ideal.mem_span_singleton and Ideal.Quotient.mk_eq_mk_iff_sub_mem convert divisibility into equality in O/(p:O)^s. Preservation of finite sums, products and natural powers gives the displayed moment_mod API; the complete quotient_precision proof checks the exact quotient step.",
+        "The condition on the group level is substantive. For the dyadic quadratic-left coefficient at n=5, the coordinate at r=2 is zero while its actual exponent-one moment is4. They agree modulo4, but not modulo8. The complete insufficient_group_level proof shows that8 does not divide4 in the actual norm-valuation integer subring of ℚ_2."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L4/integral-twisted-positive-eisenstein-evaluation",
+        "DirichletPadicLFunctions:L4/integral-twisted-eisenstein-finite-coefficients",
+        "DirichletPadicLFunctions:L2/integral-arithmetic-character-coefficient",
+        "DirichletPadicLFunctions:L2/arithmetic-character-pointwise-value",
+        "PadicMeasuresIwasawaAlgebras:L1/unit-reduction",
+        "mathlib:ZMod.val_natCast",
+        "mathlib:Nat.ModEq.pow",
+        "mathlib:Nat.modEq_iff_dvd",
+        "mathlib:Finset.dvd_sum",
+        "mathlib:Ideal.mem_span_singleton",
+        "mathlib:Ideal.Quotient.mk_eq_mk_iff_sub_mem",
+        "mathlib:Padic.norm_p",
+        "mathlib:Valuation.mem_integer_iff",
+        "mathlib:NormedField.valuation_apply"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/TwistedFiniteCoefficients",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.integralTwistedEisensteinFinite_moment_precision"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Propositions3.15–3.16, its complete proof and explicit coordinate maps, Definition3.17 and Example3.19, published121–123/PDF22–24, freshly read in full; Definition8.1, Theorem8.2 and Remark8.3, published159–161/PDF60–62, read in the immediately preceding checkpoint.",
+          "match": "Worker specialization of the existing finite-measure projection to the actual integral two-character positive Eisenstein coefficient. The source gives coset masses and the divisor-Dirac construction; character-weighted collisions and quantitative finite moment precision are derived here. The shared finite projection, unit reduction and completed algebra retain their owners. No inverse-limit equivalence or geometric modular family is inferred."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedTwistedFiniteTests.dyadic_sufficient_precision",
+          "kind": "computation",
+          "statement": "The actual exponent-one moment4 of the dyadic quadratic-left coefficient at n=5 vanishes modulo4."
+        },
+        {
+          "name": "SuggestedTwistedFiniteTests.dyadic_insufficient_group_level",
+          "kind": "non-example",
+          "statement": "The same actual moment does not vanish modulo8, although its group-level2 coordinate is zero."
+        }
+      ],
+      "acceptance": [
+        "The error and quotient equalities are in the native integer ring. Coefficient precision cannot exceed the group resolution without additional information. No arbitrary norm on the power-series carrier is introduced."
+      ]
     }
   ],
   "requests": [
@@ -36413,7 +36883,7 @@
       "stageId": "DirichletPadicLFunctions:L4",
       "status": "partial",
       "remaining": [
-        "The character-weighted positive coefficient measures now have an actual integer-ring realization, all-test coefficient comparison and exact weight congruences in that ring. The finite quotient coordinates, whole positive-series measure, native twisted-divisor/Euler-deletion comparison and shared primitive-character modular-form specialization still require treatment. The character-pair constant coefficient, its denominator qualifications and scalar/analytic specializations remain open. Classical character forms and exceptional weights remain with ModularForms Layer0, and geometric families with PadicFamilies. All existing requests, source corrections, analytic pole/residue questions and full source extraction remain open.",
+        "The integral character-weighted positive measures now have actual finite unit-group coordinates, signed multiplicities, refinement, reduced-test evaluation and rigorous arithmetic moment precision. Their whole positive-series construction, native twisted-divisor/Euler-deletion comparison and shared primitive-character modular-form specialization still require treatment. The character-pair constant coefficient, its denominator qualifications and scalar/analytic specializations remain open. The generic completed-algebra comparison stays with its existing owner and request; this checkpoint only uses its existing finite projection interface. All source corrections, analytic pole/residue questions and full source extraction remain open.",
         "The positive part now has a native continuous power-series-valued measure, uniform coefficient bounds, test and weight congruences, and whole-series comparison with the actual p-stabilized modular form after removing its constant coefficient. Assemble the full family with the actual localized A₀ coefficient, prove constant-term congruences with denominator qualifications, and decompose the tame-character extension. Geometric affinoid realization and Hida–Coleman control belong to PadicFamilies; retain the weight shift recorded in E9."
       ]
     }
@@ -36444,7 +36914,7 @@
       "neededBy": [
         "DirichletPadicLFunctions:L4/positive-eisenstein-completed-coordinates"
       ],
-      "detail": "The character-weighted positive coefficient measures now have an actual integer-ring realization, all-test coefficient comparison and exact weight congruences in that ring. The finite quotient coordinates, whole positive-series measure, native twisted-divisor/Euler-deletion comparison and shared primitive-character modular-form specialization still require treatment. The character-pair constant coefficient, its denominator qualifications and scalar/analytic specializations remain open. Classical character forms and exceptional weights remain with ModularForms Layer0, and geometric families with PadicFamilies. All existing requests, source corrections, analytic pole/residue questions and full source extraction remain open. The positive part now has a native continuous power-series-valued measure, uniform coefficient bounds, test and weight congruences, and whole-series comparison with the actual p-stabilized modular form after removing its constant coefficient. Assemble the full family with the actual localized A₀ coefficient, prove constant-term congruences with denominator qualifications, and decompose the tame-character extension. Geometric affinoid realization and Hida–Coleman control belong to PadicFamilies; retain the weight shift recorded in E9."
+      "detail": "The integral character-weighted positive measures now have actual finite unit-group coordinates, signed multiplicities, refinement, reduced-test evaluation and rigorous arithmetic moment precision. Their whole positive-series construction, native twisted-divisor/Euler-deletion comparison and shared primitive-character modular-form specialization still require treatment. The character-pair constant coefficient, its denominator qualifications and scalar/analytic specializations remain open. The generic completed-algebra comparison stays with its existing owner and request; this checkpoint only uses its existing finite projection interface. All source corrections, analytic pole/residue questions and full source extraction remain open. The positive part now has a native continuous power-series-valued measure, uniform coefficient bounds, test and weight congruences, and whole-series comparison with the actual p-stabilized modular form after removing its constant coefficient. Assemble the full family with the actual localized A₀ coefficient, prove constant-term congruences with denominator qualifications, and decompose the tame-character extension. Geometric affinoid realization and Hida–Coleman control belong to PadicFamilies; retain the weight shift recorded in E9."
     },
     {
       "title": "Canonical coefficient-field character evaluation of actual pseudomeasures",
@@ -36787,36 +37257,36 @@
   "checks": {
     "blueprint": "Zero errors and warnings with the unmodified pinned index.",
     "intake": "Exactly four authorized deliverables; zero problems.",
-    "sourceIssues": "All 16 source findings, sourceVersions, nine requests and 13 gaps remain. No source finding, request or independent verdict is added.",
+    "sourceIssues": "All16 source findings, sourceVersions, nine requests and13 gaps remain. No source finding, request or independent verdict is added.",
     "validation": {
-      "nodes": 558,
+      "nodes": 564,
       "kinds": {
         "definition": 1,
-        "lemma": 229,
-        "construction": 67,
-        "theorem": 166,
-        "comparison": 95
+        "lemma": 231,
+        "construction": 68,
+        "theorem": 168,
+        "comparison": 96
       },
-      "api": 494,
-      "packetTests": 883,
-      "definitionConstructionTests": 285,
-      "typedExamples": 886,
+      "api": 503,
+      "packetTests": 895,
+      "definitionConstructionTests": 290,
+      "typedExamples": 898,
       "planets": 24,
-      "baseline": 492,
-      "preservedWholeNodes": 552,
+      "baseline": 498,
+      "preservedWholeNodes": 558,
       "preservedBaseline": 492,
       "preservedSourceIssues": 16,
       "newSourceIssues": 0,
       "newNodes": 6,
       "newNamedDeclarations": 10,
-      "newTypedTests": 11,
+      "newTypedTests": 12,
       "requests": 9,
       "gaps": 13,
       "closedStages": 0,
-      "reachableNodes": 796,
-      "dependencyEdges": 3807,
+      "reachableNodes": 806,
+      "dependencyEdges": 3861,
       "acyclic": true,
-      "baselineLeaves": 662,
+      "baselineLeaves": 671,
       "stageRequestLeaves": [
         "AdicSpacesPartII:F1",
         "AdicSpacesPartII:R2",
@@ -36827,11 +37297,11 @@
         "PadicMeasuresIwasawaAlgebras:L1",
         "PadicMeasuresIwasawaAlgebras:L3"
       ],
-      "readerWords": 254638,
+      "readerWords": 258711,
       "scopedMutationCheck": true,
       "correctedPredecessorNodes": 0,
       "compilerErrors": 0,
-      "compilerWarnings": 1715,
+      "compilerWarnings": 1737,
       "allWarningsPlaceholders": true,
       "supplierNodes": 332,
       "currentSupplierNodes": 369,
@@ -36841,21 +37311,24 @@
       "pinnedTauCetiModules": 21,
       "actualSupplierModules": 1,
       "scratchCompleteDefinitions": 0,
-      "scratchCompleteLemmas": 12,
-      "scratchMathlibModules": 2812,
+      "scratchCompleteLemmas": 14,
+      "scratchMathlibModules": 2801,
       "scratchErrors": 0,
       "scratchWarnings": 0,
       "scratchPlaceholders": 0,
       "finiteControls": {
-        "characterMultiplicativity": 240,
-        "integralAtomicValues": 21825,
-        "weightCongruences": 102400,
-        "integralDivisibilityWitnesses": 349200,
-        "pointwiseIdealTransfers": 25600,
-        "dyadicCongruences": 25600,
-        "badLevelCongruences": 34816,
-        "knownValues": 7,
-        "insufficientModulusCounterexamples": 360
+        "finiteCoordinates": 25600,
+        "coefficientFormulaChecks": 61125,
+        "groupRefinements": 64000,
+        "jointReductionChecks": 320000,
+        "finitePairings": 25600,
+        "momentPrecisionChecks": 153600,
+        "quotientMomentChecks": 384000,
+        "dyadicPrecisionChecks": 38400,
+        "badLevelPrecisionChecks": 52224,
+        "deduplicationCounterexamples": 10236,
+        "insufficientGroupLevelCounterexamples": 42467,
+        "knownSignedCases": 8
       },
       "numericalControlsCertified": false,
       "newRoutesStageLeaves": []
@@ -36863,14 +37336,14 @@
     "lean": {
       "status": "compiled with only expected placeholder warnings",
       "errors": 0,
-      "warnings": 1715,
-      "sha256": "c20610212762486f4a4e2ae2a35d769d63f0bd75ce80a54e470de6385c7d086a",
+      "warnings": 1737,
+      "sha256": "d1545fc413979976c9fcc625253c954d27d6a65432e19c55b0d976ee82d1b138",
       "nativeProbe": {
-        "completeLemmas": 12,
+        "completeLemmas": 14,
         "errors": 0,
         "warnings": 0,
         "placeholders": 0,
-        "sha256": "2b8bc79c8f287ac4689927a2b4edeff05628c0c9df7b1cd95abb7fba837f6e10"
+        "sha256": "8d35eb552887a0be9481beaa6c768ac559d8ea5b4eea78cc44f01a655109f47c"
       },
       "artifactReuse": {
         "compiledSupplierNodes": 332,
@@ -36939,16 +37412,16 @@
         "nativeArtifactFileCount": 105,
         "predecessorAgainstCurrentSupplier": {
           "exitCode": 0,
-          "sourceSha256": "d668a6d3c11492d5ef99fd6039a6422c7187910b2effb6fdb4d99c4ddbd6d388",
+          "sourceSha256": "c20610212762486f4a4e2ae2a35d769d63f0bd75ce80a54e470de6385c7d086a",
           "modules": 3572,
-          "warnings": 1694,
+          "warnings": 1715,
           "errors": 0
         },
         "scope": "The actual332-node PMIA artifact compiled at PR3303 is reused. The current369-node PMIA source preserves all its lines in order, and all332 old packet nodes are unchanged; added residue restrictions and L4 declarations are not called. No compilation against the369-node source is claimed. The full new Dirichlet file uses that exact332-node artifact with21 pinned Tau modules,105 native artifact files and the audited pinned Mathlib closure. Existing native artifacts and original zero-warning logs are verified; no Lake setup, update, cache fetch or native library build occurs."
       }
     },
     "publication": {
-      "base": "3c3be76f44a096cca2d32f3c6f4487a04574dab3",
+      "base": "11b3425a6b756294f54c394424d3fae1cd26fde6",
       "unchangedInputs": 63,
       "unchangedOutputs": 4,
       "sameSessionFollowupAfterMerge": true,
@@ -42716,6 +43189,48 @@
         "insufficientModulusCounterexamples": 360
       },
       "numericalMethod": "Exact finite character-weighted positive divisor sums; rational polynomial tests in the p-adic integer ring; explicit integer witnesses for sufficient Euler modulus. These controls do not certify infinite families, modularity or constant coefficients."
+    },
+    "twistedFiniteCoordinates": {
+      "agent": "Codex",
+      "session": "codex-7e92bd",
+      "issue": 713,
+      "claimComment": 5854790528,
+      "winningBot": 5854791937,
+      "previousPR": 4755,
+      "previousHead": "957642dcc9c51f1613b9bae4270291099019eba7",
+      "previousMerge": "935ca71bee1a01604f69a9d7e5775188be772559",
+      "preservedWholeNodes": 558,
+      "preservedBaseline": 492,
+      "preservedFindings": 16,
+      "newNodes": 6,
+      "reading": "Whole published RJW121–123 freshly read, with159–161 from the immediately preceding checkpoint. Whole existing unweighted finite coefficient construction/API/tests, coefficient, transition, evaluation, moment and completed-coordinate nodes were read. Whole supplier finite projection, pairing, Dirac, refinement and unit-reduction/continuity/refinement nodes and their exact compiled332-source signatures were read. Native group-algebra coefficient/conversion/map declarations, natural residue representatives, modular powers and ideal-quotient statements were read at the pins. All63 captured inputs are unchanged.",
+      "boundary": "The integral character-weighted positive measures now have actual finite unit-group coordinates, signed multiplicities, refinement, reduced-test evaluation and rigorous arithmetic moment precision. Their whole positive-series construction, native twisted-divisor/Euler-deletion comparison and shared primitive-character modular-form specialization still require treatment. The character-pair constant coefficient, its denominator qualifications and scalar/analytic specializations remain open. The generic completed-algebra comparison stays with its existing owner and request; this checkpoint only uses its existing finite projection interface. All source corrections, analytic pole/residue questions and full source extraction remain open.",
+      "inputBase": "3e5b97013cdbb9363bca844c4d7866df3ccca950",
+      "sourceBoundary": "All16 source findings, sourceVersions, nine requests and13 gaps remain. No source finding, request or independent verdict is added.",
+      "publication": {
+        "base": "11b3425a6b756294f54c394424d3fae1cd26fde6",
+        "unchangedInputs": 63,
+        "unchangedOutputs": 4,
+        "sameSessionFollowupAfterMerge": true,
+        "lastClaimConfirmation": 5854791937,
+        "reviewIssue": 390,
+        "reviewUnclaimed": true
+      },
+      "finiteControls": {
+        "finiteCoordinates": 25600,
+        "coefficientFormulaChecks": 61125,
+        "groupRefinements": 64000,
+        "jointReductionChecks": 320000,
+        "finitePairings": 25600,
+        "momentPrecisionChecks": 153600,
+        "quotientMomentChecks": 384000,
+        "dyadicPrecisionChecks": 38400,
+        "badLevelPrecisionChecks": 52224,
+        "deduplicationCounterexamples": 10236,
+        "insufficientGroupLevelCounterexamples": 42467,
+        "knownSignedCases": 8
+      },
+      "numericalMethod": "Exact integer character-weighted divisor coordinates; pushforward sums all colliding weights. Independent group and coefficient reductions, finite test pairings, and explicit integral witnesses for residue-power precision are checked, including group level zero. No completed-algebra equivalence, modularity or infinite-family theorem is numerically certified."
     }
   },
   "requestResolutions": [
