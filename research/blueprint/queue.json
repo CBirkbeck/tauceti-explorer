@@ -35529,7 +35529,8 @@
     "REV-PAPER-YUN-ZHANG-17"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-YUN-ZHANG-17.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4115"
   },
   {
    "id": "RT-PAPER-BAKKER-TSIMERMAN-16",
@@ -36325,8 +36326,9 @@
     "REV-PAPER-LIU-WOOD-ZUREICKBROWN-24"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-LIU-WOOD-ZUREICKBROWN-24.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4136"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4136",
+   "finishedAt": "2026-09-30T15:28:54Z"
   },
   {
    "id": "REV-RT-PAPER-LIU-WOOD-ZUREICKBROWN-24",
@@ -36480,8 +36482,9 @@
     "REV-PAPER-FENG-YUN-ZHANG-24"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-FENG-YUN-ZHANG-24.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4141"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4141",
+   "finishedAt": "2026-09-30T15:28:59Z"
   },
   {
    "id": "RT-PAPER-HE-LI-SHI-ETAL-23",
@@ -36526,8 +36529,9 @@
     "REV-PAPER-HE-LI-SHI-ETAL-23"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-HE-LI-SHI-ETAL-23.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4143"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4143",
+   "finishedAt": "2026-09-30T15:29:04Z"
   },
   {
    "id": "FIX-RT-PAPER-HE-LI-SHI-ETAL-23",
@@ -46073,8 +46077,9 @@
     "REV-ArithmeticKTheory--N.7"
    ],
    "prompt": "research/blueprint/prompts/RT-BP-ArithmeticKTheory--N.7.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4429"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4429",
+   "finishedAt": "2026-09-30T15:29:07Z"
   },
   {
    "id": "REV-RT-BP-ArithmeticKTheory--N.7",
@@ -46195,7 +46200,8 @@
     "REV-ClassicalSerreModularity--R33.5"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-BP-ClassicalSerreModularity--R33.5.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4432"
   },
   {
    "id": "RT-BP-EllipticCurveModularity",
