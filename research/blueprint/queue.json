@@ -682,8 +682,9 @@
    ],
    "avoidAccountOf": "PAPER-BHARGAVA-25",
    "prompt": "research/blueprint/prompts/REV-PAPER-BHARGAVA-25.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1060"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1060",
+   "finishedAt": "2026-09-30T09:12:55Z"
   },
   {
    "id": "PAPER-LESLIE-25",
@@ -34403,7 +34404,8 @@
     "REV-PAPER-GAMBURD-MAGEE-RONAN-19"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-GAMBURD-MAGEE-RONAN-19.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4097"
   },
   {
    "id": "RT-PAPER-TSIMERMAN-18",
