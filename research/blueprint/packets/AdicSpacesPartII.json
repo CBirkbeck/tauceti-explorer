@@ -45012,6 +45012,10 @@
     {
      "where": "Kedlaya, Counting points, §2",
      "how": "the dagger cohomology H^i(A; K) is computed on A† ⊗ K"
+    },
+    {
+     "where": "PadicDifferentialEquationsAndRigidCohomology RD.4/grosse-kloenne-dagger-comparison (planned by RT-AREA-padic-2/32)",
+     "how": "the Monsky–Washnitzer case: the comparison extends the affine comparison of RD.4/monsky-washnitzer-comparison"
     }
    ],
    "tests": [
@@ -46009,6 +46013,10 @@
     {
      "where": "Vezzani §§2–4",
      "how": "dagger rigid motives are built on smooth dagger spaces"
+    },
+    {
+     "where": "PadicDifferentialEquationsAndRigidCohomology RD.4/grosse-kloenne-dagger-comparison (planned by RT-AREA-padic-2/32)",
+     "how": "the dagger tube of the special fibre of a smooth quasi-projective O_K-scheme, on which the comparison with rigid cohomology is stated"
     }
    ],
    "tests": [
@@ -47704,11 +47712,15 @@
     },
     {
      "where": "AutomorphicGaloisRepresentationsPartII AG2.4",
-     "how": "hypercohomology of the (logarithmic, compactly supported) overconvergent de Rham complex"
+     "how": "hypercohomology of the (logarithmic, compactly supported) overconvergent de Rham complex; AG2.4 identifies this hypercohomology with rigid cohomology through the Grosse-Klönne comparison of PadicDifferentialEquationsAndRigidCohomology RD.4 (HLTT Lemma 6.8, for the dagger tube of the special fibre), and imports finiteness from RD.5 and the Weil-number property of Frobenius from RD.6; F1 supplies the complexes only (RT-AREA-padic-2/32)"
     },
     {
      "where": "ColemanIntegration L1/good-reduction-datum-exists",
      "how": "H^1_dR+(Y) = Ω+(Y)/dA+(Y)"
+    },
+    {
+     "where": "PadicDifferentialEquationsAndRigidCohomology RD.4/grosse-kloenne-dagger-comparison (planned by RT-AREA-padic-2/32)",
+     "how": "the de Rham complex whose cohomology the comparison identifies with H^i_rig of the special fibre, functorially and compatibly with Frobenius"
     }
    ],
    "tests": [
@@ -49590,7 +49602,7 @@
    "uses": [
     {
      "where": "AutomorphicGaloisRepresentationsPartII AG2.4",
-     "how": "the overconvergent logarithmic de Rham complex with compact-support boundary ideal and its hypercohomology (cuspidal overconvergent cohomology)"
+     "how": "the overconvergent logarithmic de Rham complex with compact-support boundary ideal and its hypercohomology (cuspidal overconvergent cohomology); AG2.4 identifies this hypercohomology with rigid cohomology through the Grosse-Klönne comparison of PadicDifferentialEquationsAndRigidCohomology RD.4 (HLTT Lemma 6.8, for the dagger tube of the special fibre), and imports finiteness from RD.5 and the Weil-number property of Frobenius from RD.6; F1 supplies the complexes only (RT-AREA-padic-2/32)"
     },
     {
      "where": "PadicDifferentialEquationsAndRigidCohomology RD.4 request",
@@ -52802,7 +52814,7 @@
    "stageId": "AdicSpacesPartII:F1",
    "status": "source_decomposed",
    "remaining": [],
-   "note": "F1 decomposes Grosse-Klönne's dagger paper §§1–4 (all numbered results except 3.5 and 5.1), Grosse-Klönne's finiteness paper (Lemma 0.1, 1.10–1.18, 2.1, 2.4, 2.5, 3.3–3.6), the Monsky–Washnitzer weak completion and MW-type algebras (van der Put §2; Kedlaya), and the logarithmic and compactly supported de Rham complexes for smooth pairs, and serves the requests of PadicDifferentialEquationsAndRigidCohomology RD.0, RD.3–RD.6 and ColemanIntegration L1. Grosse-Klönne's Theorems 3.5 and 5.1 are proved through Berthelot's j† on tubes, owned by PadicDifferentialEquationsAndRigidCohomology RD.3, and belong with RD.4; they are outside F1. The stage is source-decomposed: the finiteness chain's use of Monsky–Washnitzer finiteness is a recorded gap with a rescope proposal, the other unread inputs are recorded gaps, and the anchor's Layers 0, 2, 3 and 5 are requests."
+   "note": "F1 decomposes Grosse-Klönne's dagger paper §§1–4 (all numbered results except 3.5 and 5.1), Grosse-Klönne's finiteness paper (Lemma 0.1, 1.10–1.18, 2.1, 2.4, 2.5, 3.3–3.6), the Monsky–Washnitzer weak completion and MW-type algebras (van der Put §2; Kedlaya), and the logarithmic and compactly supported de Rham complexes for smooth pairs, and serves the requests of PadicDifferentialEquationsAndRigidCohomology RD.0, RD.3–RD.6 and ColemanIntegration L1. Grosse-Klönne's Theorems 3.5 and 5.1 are proved through Berthelot's j† on tubes, owned by PadicDifferentialEquationsAndRigidCohomology RD.3, and belong with RD.4; they are outside F1. The compact-support and logarithmic complexes here are carriers. Their comparison with rigid cohomology of the special fibre (Grosse-Klönne's Theorem 5.1, as HLTT Lemma 6.8 uses it) is planned at RD.4, finiteness at RD.5 and Frobenius weights at RD.6, and AutomorphicGaloisRepresentationsPartII AG2.4 imports all three (RT-AREA-padic-2/32). The stage is source-decomposed: the finiteness chain's use of Monsky–Washnitzer finiteness is a recorded gap with a rescope proposal, the other unread inputs are recorded gaps, and the anchor's Layers 0, 2, 3 and 5 are requests."
   }
  ],
  "gaps": [

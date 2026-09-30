@@ -1119,8 +1119,9 @@ theorem lemma_6_inertia_trivial (A : SemiabelianModel K g) (v : HeightOneSpectru
           formalTateSubmodule A v l := by
   sorry
 
-/-- R28.2/local-differential-computation-for-the-l-divisible-tower (Tate, Proposition 2): for
-`K_v/ℚ_l` of degree `m_v` with valuation ring `R_v` and `Γ` an `l`-divisible group over `R_v` of
+/-- R28.2/local-differential-computation-for-the-l-divisible-tower (derived from Tate,
+Proposition 2, in FiniteFlatGroupsAndIntegralPadicHodgeTheory R07.1): for `K_v/ℚ_l` of degree
+`m_v` with valuation ring `R_v` and `Γ` an `l`-divisible group over `R_v` of
 dimension `d`, `# s^*(Ω¹_{Γ[l^n]/R_v}) = l^{n m_v d}`. The consequence for isogenies whose kernel
 has finite part `Γ[l^n]` is the node on the shifted tower. -/
 theorem tate_local_differentials (l : ℕ) [Fact l.Prime] (Kv : Type u) [Field Kv]
@@ -1146,8 +1147,9 @@ structure HodgeTateHypothesis (A : SemiabelianModel K g) {l : ℕ} [Fact l.Prime
   rational_eq : rationalSpan (LinearMap.range embedding) =
     rationalSpan (G.localize v) ⊓ rationalSpan (formalTateSubmodule A v l)
 
-/-- Opaque (PadicHodgeTheory R06.2, HodgeTateAndCanonicalSubgroups T0): the `D_v`-semilinear
-isomorphisms `Λ^h V_l(G) ⊗ C_v ≅ C_v(k)`, `C_v` the completion of an algebraic closure of `K_v`. -/
+/-- Opaque (PadicHodgeTheory R06.1:tate-sen, FiniteFlatGroupsAndIntegralPadicHodgeTheory R07.1): the
+`D_v`-semilinear isomorphisms `Λ^h V_l(G) ⊗ C_v ≅ C_v(k)`, `C_v` the completion of an algebraic
+closure of `K_v`. -/
 def HodgeTateDeterminantIso (A : SemiabelianModel K g) {l : ℕ} [Fact l.Prime]
     (G : LDivisibleSubgroup A.abelianVariety l) (v : HeightOneSpectrum (𝓞 K)) (k : ℤ) : Type :=
   sorry
@@ -1183,7 +1185,7 @@ def determinantCharacter {A : AbelianVariety K} {l : ℕ} [Fact l.Prime]
     (G : LDivisibleSubgroup A l) (σ : Field.absoluteGaloisGroup ℚ) : ℤ_[l] :=
   LinearMap.det (inducedRep G.rep σ)
 
-/-- Opaque (R06.2, R01.1): the semilinear isomorphisms `L ⊗ C ≅ C(k)` of modules over a
+/-- Opaque (R06.1:tate-sen, R01.1): the semilinear isomorphisms `L ⊗ C ≅ C(k)` of modules over a
 decomposition group `D ≅ Gal(ℚ̄_l/ℚ_l)` at `l`, `C` the completion of `ℚ̄_l`. -/
 def InducedDeterminantIso {A : AbelianVariety K} {l : ℕ} [Fact l.Prime]
     (G : LDivisibleSubgroup A l) (k : ℤ) : Type := sorry
