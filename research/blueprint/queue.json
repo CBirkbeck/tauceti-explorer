@@ -36046,7 +36046,8 @@
     "REV-PAPER-GHOSH-SARNAK-22"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-GHOSH-SARNAK-22.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4159"
   },
   {
    "id": "RT-PAPER-LIU-ETAL-22",
@@ -40805,8 +40806,9 @@
     "REV-LINK-tauceti_Completed_EffectiveBounds"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-LINK-tauceti_Completed_EffectiveBounds.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4356"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4356",
+   "finishedAt": "2026-09-30T11:59:52Z"
   },
   {
    "id": "RT-LINK-tauceti_Completed_OrthogonalL2Bases",
