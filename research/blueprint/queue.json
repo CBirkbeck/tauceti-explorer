@@ -40291,7 +40291,8 @@
     "REV-LINK-tauceti_TauCetiRoadmap_ModularCurves"
    ],
    "prompt": "research/blueprint/prompts/RT-LINK-tauceti_TauCetiRoadmap_ModularCurves.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4340"
   },
   {
    "id": "REV-RT-LINK-tauceti_TauCetiRoadmap_ModularCurves",
@@ -40589,8 +40590,9 @@
     "REV-LINK-tauceti_TauCetiRoadmap_LocalFieldsRamification"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-LINK-tauceti_TauCetiRoadmap_LocalFieldsRamification.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4346"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4346",
+   "finishedAt": "2026-09-30T13:30:55Z"
   },
   {
    "id": "RT-LINK-tauceti_TauCetiRoadmap_ClassFieldTheory",
@@ -41166,8 +41168,9 @@
     "REV-LINK-tauceti_TauCetiRoadmap_RepresentationTheory"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4367"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4367",
+   "finishedAt": "2026-09-30T13:30:59Z"
   },
   {
    "id": "RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_ClassicalGroups",
@@ -41806,8 +41809,9 @@
     "REV-RS-03"
    ],
    "prompt": "research/blueprint/prompts/RT-RS-03.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4391"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4391",
+   "finishedAt": "2026-09-30T13:31:03Z"
   },
   {
    "id": "REV-RT-RS-03",
@@ -42538,7 +42542,9 @@
     "REV-RS-22"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-RS-22.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4411",
+   "finishedAt": "2026-09-30T13:31:08Z"
   },
   {
    "id": "RT-RS-24",
@@ -43753,7 +43759,8 @@
     "REV-K2SymbolsBrauer--T.3"
    ],
    "prompt": "research/blueprint/prompts/RT-BP-K2SymbolsBrauer--T.3.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4452"
   },
   {
    "id": "REV-RT-BP-K2SymbolsBrauer--T.3",
