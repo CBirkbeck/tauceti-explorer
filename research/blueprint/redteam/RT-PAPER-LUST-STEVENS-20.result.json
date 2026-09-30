@@ -1,0 +1,86 @@
+{
+  "redteam": "RT-PAPER-LUST-STEVENS-20",
+  "protocol": "redteam-v1",
+  "status": "complete",
+  "target": "PAPER-LUST-STEVENS-20",
+  "summary": "Five high-severity mathematical findings: a non-symplectic Weyl representative; a superseded, false rational-eigenspace Levi construction; and three groups of acknowledged source corrections that remain absent from exported statements (ramified quotient, maximality, split SO(1,1)). The existing two-owner routing and the reviewed Mackey/library boundary survive this attack.",
+  "checked": [
+    "Read all 38 pages of the published version (pp. 1083–1120), all 158 extraction items and their notes, both complete extraction/review reports, all 38 sourceIssues, prerequisites and both route briefs. Rechecked arXiv v1 §7.3 pp. 17 and 19 directly; visually compared the Weyl display in both PDFs. This is a full published-paper read, not a claim to have reread all 36 preprint pages or every cited external proof.",
+    "Verified source PDF SHA-256 hashes against sourceVersions; checked the published/preprint distinction, the changed main inequality, §7 numbering, the published Levi replacement, the even-orthogonal packet caveat, and propagation of E5/E6/E7/E16/E18/E20/E24–E28/E33–E38. Existing corrections not affected by these findings were not relabelled as new discoveries.",
+    "Checked all 158 statuses and route membership: four planned items and 154 missing items, each missing item assigned once (102 to SmoothRepresentationsPartII, 52 to ModularRepresentationsOfFiniteReductiveGroups). Compared accepted routes with Fintzen 2021 and LLHLM 2020; inspected fresh assembled atlas at 449dda7 and SR.1–SR.3, GN.2, RG2.2–RG2.3, ET.6, ML.4, LocalFieldsRamification layer 0 and QuadraticFormInvariants layer 1. Read the reviewed GN.2 library audit. No new competing owner or duplicate foundational route is proposed.",
+    "At Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 read IsNonarchimedeanLocalField, Polynomial.mirror, Matrix.symplecticGroup and lipschitzGroup; at Tau Ceti f790474821cf4256814db967cb154e7af3d0c369 read RegularFormClass.wittIndex/wittDecomposition, BilinForm.dualSubmoduleEquivDual and double-duality, FDRep.clifford_restrict_iso, Rep.mackeyDecomposition, the index-two induced-character statements and the standard orthogonal/special-orthogonal point models. These are partial ingredients, not the full sesquilinear, finite Harish-Chandra or GSpin-duality results.",
+    "Searched both pinned source trees for Lusztig, HarishChandra, Howlett, GSpin and similitude APIs and inspected the nearby induction, Clifford, quadratic-form and matrix-group files. The reviewed missing status for the full finite-group Mackey/Howlett–Lehrer assertion is retained; the general Mackey theorem alone does not prove the length-one-or-two cuspidal decomposition.",
+    "Recomputed the rank-one Weyl counterexample and its corrected isometry; checked irreducibility of X^4+X^3+X^2+X+1 over F_3 against every monic linear/quadratic divisor; checked generic floor-sum and reconstruction formulas for all 441 pairs 0≤m_1,m_2≤20, including all four linear-polynomial parameter parities; traced the corrected IRed values in Examples 9.3, 9.4, 9.6–9.9 against m=2s-1. These are arithmetic checks, not Lean proofs.",
+    "Searched for a correction to the Weyl sign on 2026-09-30: title plus erratum/corrigendum, Lust/Stevens/1102/symplectic, and title plus Levi/correction; inspected the publisher article, UEA record and arXiv history (v1 only). No correction to that sign was found in the inspected results. The Levi construction is already corrected in the published paper."
+  ],
+  "findings": [
+    {
+      "id": "RT-PAPER-LUST-STEVENS-20/1",
+      "kind": "error",
+      "severity": "high",
+      "where": "research/blueprint/papers/PAPER-LUST-STEVENS-20.result.json; PAPER-LUST-STEVENS-20/s7-7.6-weyl-representative-action",
+      "claim": "The exported Weyl representative sends both vectors of each exchanged hyperbolic pair to epsilon times the other vector. For epsilon = -1 this fails to preserve the alternating form, so it is not an element of the asserted symplectic group. This source slip is absent from sourceIssues.",
+      "evidence": "Published §7.3, p. 1102, display immediately before (7.7), and arXiv v1 p. 19, before (7.6), both visually checked: w(e_i^±) = ε e_i^∓ on the exchanged pairs. Take N = n = 1, ε = -1, J = [[0,1],[-1,0]] and W = [[0,-1],[-1,0]]. Then W^t J W = -J ≠ J in odd characteristic and det W = -1. The stated representative therefore fails already in Sp_2. Mathlib 082e2d3, Mathlib/LinearAlgebra/SymplecticGroup.lean:101–102, independently defines the symplectic carrier by A J A^t = J. Sources: https://ueaeprints.uea.ac.uk/id/eprint/74421/7/Published_Version.pdf#page=20 and https://arxiv.org/pdf/1611.08421v1#page=19.",
+      "fix": "Replace the exchanged-pair formula by w(e_i^-) = e_i^+ and w(e_i^+) = ε e_i^- (fix the other pairs). Verify the isometry condition and determinant: this lies in Sp for ε = -1, and in SO for ε = 1 when n is even. Retain the induced inverse-transpose action, with the chosen ordered-basis convention checked. Add a sourceIssues record for the sign slip in both versions, recording the rank-one counterexample, source versions and correction search. Update the extraction report and route-2 construction instructions; do not change the later parameter table solely because this representative was mistyped."
+    },
+    {
+      "id": "RT-PAPER-LUST-STEVENS-20/2",
+      "kind": "error",
+      "severity": "high",
+      "where": "research/blueprint/papers/PAPER-LUST-STEVENS-20.result.json; PAPER-LUST-STEVENS-20/s7-7.3-eigenspace-levi",
+      "claim": "The extraction still defines the required Levi as the stabilizer of the decomposition into rational P-primary spaces. That stabilizer need not be a Levi. The published paper replaced this preprint construction, but the accepted item and its locator still export the superseded version.",
+      "evidence": "ArXiv v1 §7.3, p. 17 gives the rational-eigenspace stabilizer. Published §7.3, p. 1100 instead specifies the “minimal F-stable Levi subgroup containing the centralizer of s”. For a concrete allowed cuspidal datum, take q = 3, G* = SO_5 and charpoly(s) = (X-1)P with P = X^4+X^3+X^2+X+1. P is irreducible over F_3 (ord_5(3)=4), self-reciprocal and separable. Its exponents satisfy (7.2)(ii): a_P=1, m_P=1; a_+=1, m_+=0; a_-=0. The connected stabilizer of the rational 4+1 decomposition is SO_4, dimension 6, not a Levi of SO_5: proper geometric Levis have types GL_2, GL_1×SO_3 or a torus, of dimensions 4, 4 or 2. The desired centralizer is the two-dimensional elliptic torus. Sources: https://arxiv.org/pdf/1611.08421v1#page=17 and https://ueaeprints.uea.ac.uk/id/eprint/74421/7/Published_Version.pdf#page=18.",
+      "fix": "Replace the item by the published construction using the minimal Frobenius-stable Levi containing the semisimple centralizer. Explain its product of general-linear factors with twisted Frobenius and the residual classical factor on ker(s²-1), as in the following published paragraphs; do not identify it with the stabilizer of rational primary blocks. Cite published p. 1100. Record the preprint error in sourceIssues as already corrected in the version of record, and update the report/version comparison and route-2 design guidance."
+    },
+    {
+      "id": "RT-PAPER-LUST-STEVENS-20/3",
+      "kind": "error",
+      "severity": "high",
+      "where": "research/blueprint/papers/PAPER-LUST-STEVENS-20.result.json; PAPER-LUST-STEVENS-20/s2-reductive-quotient-J",
+      "claim": "The executable target statement retains the residue determinant-norm condition in the ramified unitary case, although its own note and confirmed sourceIssue E5 correctly reject it. The false condition changes the reductive quotient that route 1 is to construct.",
+      "evidence": "Published §2, pp. 1089–1090, and arXiv v1 p. 6 print N_{k_F/k_o}(det g_1 det g_2)=1; existing E5 already supplies the correction. Rechecked directly: let F/F_o be ramified quadratic, p odd, V=Fe, h(e,e)=1 and L=O_F e. Then G=F^1, L#=p_F L, Vbar_1=k_F, Vbar_2=0. The element -1 is in G and reduces nontrivially, and J/J^1={±1}=O_1(k_F). Since k_F=k_o, the item’s residue norm is the identity, so its determinant equation wrongly removes -1 and gives the trivial group. The following source paragraph also gives [J:J°]=2 in this case. Source: https://ueaeprints.uea.ac.uk/id/eprint/74421/7/Published_Version.pdf#page=7; the issue is unpropagated E5, not a newly discovered published error.",
+      "fix": "Branch the item statement by ramification. Retain the displayed condition for F=F_o and unramified quadratic F/F_o; in the ramified quadratic case state J/J^1 ≅ U(Vbar_1)×U(Vbar_2), with no determinant condition, and retain the connected-component description. Propagate this branch into the report and route-1 reductive-quotient instructions. Keep the existing E5 rather than creating a duplicate erratum."
+    },
+    {
+      "id": "RT-PAPER-LUST-STEVENS-20/4",
+      "kind": "error",
+      "severity": "high",
+      "where": "research/blueprint/papers/PAPER-LUST-STEVENS-20.result.json; PAPER-LUST-STEVENS-20/s2-parahoric-Jo-properties, PAPER-LUST-STEVENS-20/s2-maximal-parahoric-exceptions",
+      "claim": "The first maximality item excludes every two-dimensional special orthogonal residual factor, while the later item correctly excludes only split SO(1,1) factors, with an ambient-dimension exception. The accepted extraction therefore exports contradictory maximality criteria despite confirmed E6.",
+      "evidence": "Published §2 p. 1090 uses “a two-dimensional special orthogonal group”; p. 1091 gives the refined split-SO(1,1) criterion. The extraction’s s2-maximal-parahoric-exceptions matches the latter. Rechecked E6: for an anisotropic four-dimensional quadratic space over an odd-residue-characteristic local field, the building is a point and the unique parahoric is maximal, while its connected reductive quotient is SO(2,0,k_F)×SO(2,0,k_F). Both factors have dimension two as quadratic spaces but neither is split; the first item incorrectly declares the parahoric nonmaximal. Source: https://ueaeprints.uea.ac.uk/id/eprint/74421/7/Published_Version.pdf#page=8 and #page=9; existing E6 is confirmed by the accepted review.",
+      "fix": "Replace the maximality clause of s2-parahoric-Jo-properties by the criterion already stated in s2-maximal-parahoric-exceptions: failure occurs for a split SO(1,1) residual factor when the ambient group is not itself two-dimensional special orthogonal. Preserve the explicit case list. Make the two items and the report agree; retain E6 as the source provenance. Handle the independent normalizer/SO(1,1) defect under finding 5."
+    },
+    {
+      "id": "RT-PAPER-LUST-STEVENS-20/5",
+      "kind": "error",
+      "severity": "high",
+      "where": "research/blueprint/papers/PAPER-LUST-STEVENS-20.result.json; PAPER-LUST-STEVENS-20/s2-maximal-compact-lattice-stabilizers, PAPER-LUST-STEVENS-20/s2-parahoric-Jo-properties, PAPER-LUST-STEVENS-20/s2-standard-lattices-conjugacy, PAPER-LUST-STEVENS-20/s3-depth-zero-classical-classification, PAPER-LUST-STEVENS-20/s3-depth-zero-uniqueness",
+      "claim": "The normalizer, lattice-label uniqueness and compact-induction classification still quantify over split SO(1,1), although confirmed E7 and route 1 acknowledge the exception. Notes do not repair the false target statements or the dependent assertion that (N_1,N_2) is determined by the representation.",
+      "evidence": "Published §2–3, pp. 1089–1092, and arXiv v1 pp. 6–9; the classification describes the normalizer as “compact open”. Rechecked E7: identify SO(1,1)(F) with F× acting by diag(t,t^-1). L_{1,0}=Oe_-⊕Oe_+ and L_{0,1}=Oe_-⊕p e_+ are distinct almost self-dual lattices, with duals pL_{1,0} and L_{0,1}. Both stabilizers are O×. The valuation sum of the two lattice exponents is invariant under diag(t,t^-1), so these lattices are not G-conjugate. Also N_{F×}(O×)=F× is noncompact. For a depth-zero character χ, c-Ind_{O×}^{F×}(χ|_{O×}) has infinite dimension (one coset for every integer valuation), hence cannot equal the one-dimensional χ. Source: https://ueaeprints.uea.ac.uk/id/eprint/74421/7/Published_Version.pdf#page=7 through #page=10.",
+      "fix": "Add the explicit G≠SO(1,1) hypothesis to the affected normalizer, compact-induction and injective-label statements, and propagate it through their use in the later local-data constructions. Treat split SO(1,1) separately by characters of F× and its full noncompact normalizer, or explicitly defer that case; do not claim it follows from compact induction from O×. Preserve any valid lattice-orbit statement separately from the false injectivity of lattice labels on stabilizers. Keep E7 and align the report and route-1 brief with the corrected scope."
+    }
+  ],
+  "sourceVersions": [
+    {
+      "kind": "published",
+      "url": "https://ueaeprints.uea.ac.uk/id/eprint/74421/7/Published_Version.pdf",
+      "citation": "Jaime Lust and Shaun Stevens, On depth zero L-packets for classical groups, Proc. London Math. Soc. (3) 121 (2020), 1083–1120, doi:10.1112/plms.12340",
+      "read": "2026-09-30",
+      "sha256": "bd8295cfd75e81b7c55f1bff08909679ca267c85c724debba23a3dc990624c55"
+    },
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/1611.08421v1",
+      "citation": "arXiv:1611.08421v1 (25 November 2016); selective collation, especially §7.3 pp. 17 and 19",
+      "read": "2026-09-30",
+      "sha256": "c1c8bd2f3dce4b2934c9b2172665f3ad7bccea16d751c1301434a97011b2d489"
+    }
+  ],
+  "libraryPins": {
+    "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+    "tauceti": "f790474821cf4256814db967cb154e7af3d0c369"
+  },
+  "upstreamNotes": [],
+  "agent": "Codex",
+  "session": "codex-rtOQ9t"
+}
