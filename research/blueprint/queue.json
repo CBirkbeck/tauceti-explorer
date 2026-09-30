@@ -40811,8 +40811,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-BOCKLE-HARRIS-KHARE-ETAL-19.md",
-   "state": "pending",
-   "note": "released on GitHub issue #5014"
+   "state": "external",
+   "note": "claimed on GitHub issue #5014"
   },
   {
    "id": "RT-PAPER-LAWRENCE-VENKATESH-20",
@@ -50740,8 +50740,9 @@
     "FIX-RT-AREA-iwasawa-3"
    ],
    "prompt": "research/blueprint/prompts/FIX-RT-AREA-iwasawa-3~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5138"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #5138",
+   "finishedAt": "2026-09-30T20:54:06Z"
   },
   {
    "id": "REV-FIX-RT-AREA-iwasawa-3~2",
@@ -51029,7 +51030,8 @@
     "FIX-RT-AREA-langlands-2"
    ],
    "prompt": "research/blueprint/prompts/FIX-RT-AREA-langlands-2~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #5142"
   },
   {
    "id": "REV-FIX-RT-AREA-langlands-2~2",
