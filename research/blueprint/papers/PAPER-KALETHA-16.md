@@ -6,7 +6,7 @@ Issue [#1190](https://github.com/CBirkbeck/tauceti-explorer/issues/1190). Status
 - **The paper.** T. Kaletha, *Rigid inner forms of real and p-adic groups*, Ann. of Math. 184 (2016), 559–632.
   - The published PDF (SHA-256 55fc2ed2…) and the author's errata (errata.pdf, SHA-256 31e5f2d4…) were re-fetched, and both hashes match the checkpoint.
   - Errata §3, which covers this paper, was re-read in full.
-- **Items.** The result has **157 items: 21 library, 24 planned and 112 missing**. Every missing item is routed exactly once, and every numbered statement is an item.
+- **Items.** The result had **157 items: 21 library, 24 planned and 112 missing**; after the FIX-RT-PAPER-KALETHA-16 fixes at the end it has 159 (26 planned). Every missing item is routed exactly once, and every numbered statement is an item.
 - **Mistakes.** Fifteen are recorded under `sourceIssues`. E01–E06 follow the author's errata and keep `known` values that name it.
 
 ## This continuation (cc-442dc5)
@@ -183,6 +183,8 @@ The real chain starts with discrete-series parameter tori and admissible embeddi
 
 One continuation, `EndoscopicTransferRigidInnerFormsPartII`, owns the rigid gerbe, refined data and full real packet theorem, with a later global rigid interface. Its parent’s ET.0 and ET.1 continue to own ordinary conjugacy, ordinary Tate–Nakayama, z-pairs, transfer factors and global products. The existing `EndoscopicTransferAndUnitaryTraceComparisonPartII` candidate from Groechenig–Wyss–Ziegler is geometric stabilization through p-adic integration; its full brief was inspected and is a different direction. These candidate identifiers are not existing stages.
 
+*As first proposed. FIX-RT-PAPER-KALETHA-16 changed routes 3, 4, 5 and 7; see “Current routes” and the Fixes section at the end.*
+
 #### Route 1: ReductiveGroupsPartII
 
 `source` → `ReductiveGroupsPartII`. Reuse Weil restriction, multiplicative-type quotients, dual groups and central isogenies. Add the precise augmentation and coroot-coinvariant adapters as source contracts; do not rebuild the pinned torus and lattice carriers.
@@ -271,27 +273,27 @@ Items: P03, P04, P06, D14, T21, T22, P24, P25, P26.
 
 #### 3. EndoscopicTransferAndUnitaryTraceComparison — source
 
-Ordinary nonabelian H1, fundamental tori, abelianization, stable conjugacy, ordinary endoscopic data, z-pairs and the torus-complex transfer comparison are already in ET.0. The rigid gerbe and refined real packets are the separate continuation below.
+ET.0 plans ordinary nonabelian H1 and its local finiteness, fundamental tori, ordinary abelianization, Kottwitz's map (P28), ordinary Tate–Nakayama for tori in every degree (P12, P29), stable conjugacy, ordinary endoscopic data and z-pairs. Every item here has its prerequisites at or below ET.0. The comparison tori D34 use the rigid invariant D23, so they belong with the rigid gerbe and refined real packets in the Part II (route 7).
 
 Stages: EndoscopicTransferAndUnitaryTraceComparison:ET.0.
 
-Items: P10, P11, P12, P13, D30, D34.
+Items: P10, P11, P12, P13, P28, P29, D30.
 
 #### 4. EndoscopicTransferAndUnitaryTraceComparison — source
 
-ET.1 already owns absolute normalizations, conventions, central extension transport and the global product formula. Add the rigid correction, its two convention signs, its relative-factor proof and the global rigid product/globalization adapters here; the full real packet classification remains in the continuation.
+ET.1 plans the ordinary transfer factors with their explicit conventions (D32), and its own text constructs the real character and Paley–Wiener theory from AF.1's real representation foundation. P18, Harish-Chandra's distribution characters, is that character theory. State it for all real reductive groups, not only for the unitary groups ET.1 applies it to. The rigid factors (5.1), Proposition 5.6, (5.10) and the adelic rigid product extend ET.1's ordinary factors and belong to the Part II (route 7).
 
 Stages: EndoscopicTransferAndUnitaryTraceComparison:ET.1.
 
-Items: D32, D33, T51, T52, D36, G05, G09.
+Items: D32, P18.
 
 #### 5. AutomorphicFormsOnReductiveGroups — source
 
-Use the existing real admissible (g,K)-module, globalization and character foundation. The real local Langlands and Shelstad packet theorems are additional results, not credited to this basic representation stage.
+Use the existing real admissible (g,K)-module and smooth globalization foundation. AF.1 has no distribution characters: Harish-Chandra's characters (P18) go to ET.1 (route 4). The real local Langlands and Shelstad packet theorems are additional results, not credited to this basic representation stage.
 
 Stages: AutomorphicFormsOnReductiveGroups:AF.1.
 
-Items: P16, P18.
+Items: P16.
 
 #### 6. SmoothRepresentationsOfLocalGroups — source
 
@@ -303,21 +305,21 @@ Items: P17.
 
 #### 7. EndoscopicTransferRigidInnerFormsPartII — part-ii
 
-ET.0–1 own ordinary cohomological and transfer foundations but the existing endpoint is a unitary stable trace comparison, not the universal rigid gerbe or all real tempered packets. The existing GWZ20-B candidate EndoscopicTransferAndUnitaryTraceComparisonPartII is geometric stabilization via p-adic integration; its full brief was read and is a distinct lane. One rigid continuation owns the shared local/global rigid carriers and exports them to existing transfer layers.
+ET.0–1 own ordinary cohomological and transfer foundations but the existing endpoint is a unitary stable trace comparison, not the universal rigid gerbe or all real tempered packets. The existing GWZ20-B candidate EndoscopicTransferAndUnitaryTraceComparisonPartII is geometric stabilization via p-adic integration; its full brief was read and is a distinct lane. One rigid continuation owns the shared local/global rigid carriers and the rigid transfer factors built on them. It imports the parent's ordinary layers and exports nothing back to them.
 
-Design brief: Build on Endoscopic transfer and unitary trace comparison (EndoscopicTransferAndUnitaryTraceComparison), with its ET.0 ordinary stable-conjugacy, nonabelian/abelianized H1 and torus-complex Tate–Nakayama package as the first prerequisite. Import ET.1 transfer factors and their explicit conventions, Arithmetic Galois duality (ArithmeticGaloisDuality R02.1,R02.2,D7), the existing Tau Ceti ProfiniteCohomology and ClassFieldTheory roadmaps, ReductiveGroupsPartII RG2.0a/RG2.5, Automorphic forms (AutomorphicFormsOnReductiveGroups AF.1) and Smooth representations of local groups (SmoothRepresentationsOfLocalGroups SR.0/SR.2/SR.3). Use the pinned continuous cochain, low Tate degree, Kummer, abstract extension and algebraic torus carriers. Do not reconstruct them or treat them as the missing continuous comparisons.
+Design brief: Build on Endoscopic transfer and unitary trace comparison (EndoscopicTransferAndUnitaryTraceComparison), with its ET.0 ordinary stable-conjugacy, nonabelian/abelianized H1 and torus-complex Tate–Nakayama package as the first prerequisite. Import ET.1 transfer factors and their explicit conventions, and the real distribution characters ET.1 builds from AF.1 (P18), Arithmetic Galois duality (ArithmeticGaloisDuality R02.1,R02.2,D7), the existing Tau Ceti ProfiniteCohomology and ClassFieldTheory roadmaps, ReductiveGroupsPartII RG2.0a/RG2.5, Automorphic forms (AutomorphicFormsOnReductiveGroups AF.1) and Smooth representations of local groups (SmoothRepresentationsOfLocalGroups SR.0/SR.2/SR.3). Use the pinned continuous cochain, low Tate degree, Kummer, abstract extension and algebraic torus carriers. Do not reconstruct them or treat them as the missing continuous comparisons.
 
 Construct u as the inverse limit of Res mu_n/diagonal mu_n over characteristic-zero local F, prove H1(F,u)=0 and H2(F,u)=Zhat for p-adic F or C2 for R, choose xi=-1 and realize the profinite extension W. Keep W distinct from W_F and use discrete G(Fbar) in its cocycles. Define affine central-pair categories, algebraic central restrictions, barred cocycles and rigid H1 with their exact functorialities. Use the author’s direct proof to lift H1(F,G/Z) for arbitrary affine, including disconnected, G. Prove finite fixed-Z classes and all reductive inner forms rigidify. Define abelianized rigid H1 using the simply connected cover of the TWISTED group, not only untwisted H1 vanishing.
 
 Construct Ybar/IY, the reductive coroot quotient and their norm-kernel colimit. Import the generic unbalanced cochain operation from ArithmeticGaloisDuality, choose Weil lifts before coset representatives, and extend finite maps to quotient tori before root-extracted cochain evaluation. Prove the explicit torus isomorphism Theorem4.8 and reductive H1_ab isomorphism Theorem4.11 with the normalized restriction squares. Prove the dual plus-component pairing: trivial left kernel on H1_ab, perfect for p-adic F or tori, real norm-annihilator image in general. Define rigid groupoids, stable-conjugacy and torus-embedding invariants with eta^-1 transport, and prove the all-Z strong-real-form equivalence Theorem5.2. Fixed-Z fibers are finite; the all-Z union only MAY be infinite.
 
-Define refined endoscopic data and parameter-centralizer covers here; export the rigid torus pairing to ET.1, which owns the actual transfer factor construction and global product. Construct the real Weil carrier once, importing ordinary archimedean reciprocity. Cover the full real tempered case beyond ET.1’s unitary application range: Langlands discrete-series parameters, admissible embeddings, Whittaker normalization, minimal cuspidal Levi, R-group root subsystem, positive-root Cayley transforms, coherent continuation, the noncompact imaginary-root criterion and irreducible induction. Correct both printed Cayley formulas using Shelstad1982 p423. Prove Theorem5.8, the parity image, Proposition5.9’s exact component sequence, the full real compound-packet bijection and stable characters, then Proposition5.10 and identity(5.11) with the prime transfer convention. Real component groups are abelian here but may have order4 elements; p-adic lifted groups may be nonabelian.
+Define refined endoscopic data and parameter-centralizer covers here. This Part II also owns the rigid transfer factors: the normalized absolute factor (5.1), the relative comparison tori of §5.1, the independence and invariance of Proposition 5.6, and the prime convention (5.10). Build them on ET.1's ordinary factors, Whittaker normalization and ordinary product formula, which it imports and does not extend. Construct the real Weil carrier once, importing ordinary archimedean reciprocity. Cover the full real tempered case beyond ET.1’s unitary application range: Langlands discrete-series parameters, admissible embeddings, Whittaker normalization, minimal cuspidal Levi, R-group root subsystem, positive-root Cayley transforms, coherent continuation, the noncompact imaginary-root criterion and irreducible induction. Correct both printed Cayley formulas using Shelstad1982 p423. Prove Theorem5.8, the parity image, Proposition5.9’s exact component sequence, the full real compound-packet bijection and stable characters, then Proposition5.10 and identity(5.11) with the prime transfer convention. Real component groups are abelian here but may have order4 elements; p-adic lifted groups may be nonabelian. This Part II is the single supplier of the rigid objects for PAPER-HANSEN-KALETHA-WEINSTEIN-22's proposed HeckeStacksAndLocalShtukasKottwitzPartII, whose items 008–010 consume D06 (rigid H1), T13 (Corollary 3.8), T44 (the Corollary 5.4 pairing, on H1_ab as the author's erratum E05 corrects it), D27 and D35 (Z(Gbar_hat)^+ and S_phi^+) and C01/C02 (the refined local Langlands conjecture and its character identities). State them for real and p-adic F. The refined correspondence stays a conjecture for p-adic F. HKW's p-adic application adapters, including item 010's inverse-limit universal-cover interface, stay in that Part II.
 
-Final proved local endpoints are the finite/dual rigid cohomology theorems, equivalence with strong real forms, and the real tempered labeling, stability and endoscopic identities. The general p-adic refined LLC is only a conjecture specification. Include the SL2 example with Q8 labels and dimension2 weighting using its actual representation-theoretic supplier. Add a later global interface from Kal15b, explicitly restricted to the overview’s number-field/quasi-split/simply-connected-derived assumptions: global gerbe, localization modulo central coboundaries, global duality and rigid lift. Export these to ET.1’s unconditional adelic product and Arthur globalization theorem. The adelic packet/pairing is conditional on local packet conjectures and the conjectural global Langlands group; Conjecture5.11 is not a proved multiplicity formula.
+Final proved local endpoints are the finite/dual rigid cohomology theorems, equivalence with strong real forms, and the real tempered labeling, stability and endoscopic identities. The general p-adic refined LLC is only a conjecture specification. Include the SL2 example with Q8 labels and dimension2 weighting using its actual representation-theoretic supplier. Add a later global interface from Kal15b, explicitly restricted to the overview’s number-field/quasi-split/simply-connected-derived assumptions: global gerbe, localization modulo central coboundaries, global duality and rigid lift. Prove here, from ET.1's ordinary product formula, the unconditional adelic product of rigid transfer factors and the mediating functions for Arthur's globalization hypothesis (§5.7, via Kal15b Proposition 4.1). The adelic packet/pairing is conditional on local packet conjectures and the conjectural global Langlands group; Conjecture5.11 is not a proved multiplicity formula.
 
-Tests must include mu_n in the real norm-one torus giving C_(2n), split-torus vanishing, the two compact SL2 rigid labels with equal abelianization, a disconnected finite central cocycle lift, odd-order inverse/positive transfer signs, Q8’s four one-dimensional and one two-dimensional labels, a real C4 component group, an irrelevant packet, a vanishing coherent continuation and the corrected rank-one Cayley product. Suggested files: TauCeti/NumberTheory/GaloisCohomology/Rigid/{UniversalGroup,Cocycles,TateNakayama,Duality}.lean; TauCeti/RepresentationTheory/Endoscopy/{RigidTwists,RefinedData,RealPackets,GlobalRigidInterface}.lean. Generic unbalanced cochains belong in TauCeti/RepresentationTheory/Homological/TateCohomology/UnbalancedCup.lean under the shared duality owner. ET.1 uses TauCeti/RepresentationTheory/Endoscopy/RigidTransferFactors.lean. Choose definition and named-theorem planets rather than formula numbers. Close the gap register and recursively split original suppliers before calling the design complete.
+Tests must include mu_n in the real norm-one torus giving C_(2n), split-torus vanishing, the two compact SL2 rigid labels with equal abelianization, a disconnected finite central cocycle lift, odd-order inverse/positive transfer signs, Q8’s four one-dimensional and one two-dimensional labels, a real C4 component group, an irrelevant packet, a vanishing coherent continuation and the corrected rank-one Cayley product. Suggested files: TauCeti/NumberTheory/GaloisCohomology/Rigid/{UniversalGroup,Cocycles,TateNakayama,Duality}.lean; TauCeti/RepresentationTheory/Endoscopy/{RigidTwists,RefinedData,RealPackets,GlobalRigidInterface}.lean. Generic unbalanced cochains belong in TauCeti/RepresentationTheory/Homological/TateCohomology/UnbalancedCup.lean under the shared duality owner. The rigid transfer factors go in TauCeti/RepresentationTheory/Endoscopy/RigidTransferFactors.lean, in this Part II. Choose definition and named-theorem planets rather than formula numbers. Close the gap register and recursively split original suppliers before calling the design complete.
 
-Items: D01, T01, T02, T03, D02, T04, D03, T05, D04, D05, D06, T06, T07, T08, T09, T10, T11, T12, T13, T14, D07, T15, D10, D11, T20, D12, D13, D15, T23, D16, D17, T24, T25, D18, T26, T27, T28, T29, T30, T31, D20, D21, T40, D22, D23, T41, D24, D25, D26, T42, D27, T43, T44, D31, T50, D35, C01, C02, T53, T54, R01, R02, R03, R04, R05, R06, R07, R08, R09, R10, R11, R12, R13, R14, R15, R16, R17, R18, R19, R20, G01, G02, G03, G04, G06, G07, G08, G10, T03R, T04S, T12F, T14R, T23B, T24X, T40E, R10I.
+Items: D01, T01, T02, T03, D02, T04, D03, T05, D04, D05, D06, T06, T07, T08, T09, T10, T11, T12, T13, T14, D07, T15, D10, D11, T20, D12, D13, D15, T23, D16, D17, T24, T25, D18, T26, T27, T28, T29, T30, T31, D20, T45, D21, T40, D22, D23, T41, D24, D25, D26, T42, D27, T43, T44, D31, T50, D33, T51, T52, D34, D35, C01, C02, D36, T53, T54, R01, R02, R03, R04, R05, R06, R07, R08, R09, R10, R11, R12, R13, R14, R15, R16, R17, R18, R19, R20, G01, G02, G03, G04, G05, G06, G07, G08, G09, G10, T03R, T04S, T12F, T14R, T23B, T24X, T40E, R10I.
 
 ### Remaining gaps
 
@@ -1059,7 +1061,7 @@ For a local torus S split by finite Galois E/F, the fundamental class gives a na
 
 Planned: EndoscopicTransferAndUnitaryTraceComparison:ET.0.
 
-Prerequisites: PAPER-KALETHA-16/L26, PAPER-KALETHA-16/L27, PAPER-KALETHA-16/P07, PAPER-KALETHA-16/R01, PAPER-KALETHA-16/P06.
+Prerequisites: PAPER-KALETHA-16/L26, PAPER-KALETHA-16/L27, PAPER-KALETHA-16/P07, PAPER-KALETHA-16/P06.
 
 1. Expose the exact normalization and two-term complex maps; do not identify all relative transfer classes with H1 of a single torus.
 
@@ -1363,7 +1365,7 @@ Prerequisites: PAPER-KALETHA-16/T06, PAPER-KALETHA-16/T10.
 
 If reductive G possesses an anisotropic maximal torus, restriction H1rig(Z->G)->Hom_Gamma(u,Z) is surjective.
 
-Prerequisites: PAPER-KALETHA-16/P11, PAPER-KALETHA-16/T10.
+Prerequisites: PAPER-KALETHA-16/P11, PAPER-KALETHA-16/T10, PAPER-KALETHA-16/P29.
 
 1. Apply ordinary torus cohomology surjectivity to the quotient cocycle and then match the central restriction; retain the source torus hypotheses.
 
@@ -1383,7 +1385,7 @@ Prerequisites: PAPER-KALETHA-16/T10, PAPER-KALETHA-16/P13.
 
 If G is split over a p-adic F and Z=Z(Gder), both maps H1rig(Z->G)->H1(F,G/Z)->H1(F,Gad) are bijections.
 
-Prerequisites: PAPER-KALETHA-16/T13, PAPER-KALETHA-16/P11.
+Prerequisites: PAPER-KALETHA-16/T13, PAPER-KALETHA-16/P11, PAPER-KALETHA-16/P28.
 
 1. Use p-adic H1 vanishing for all simply connected inner twists; for R only the specified neutral-kernel argument applies. SL2(R) has three rigid classes over two inner-form classes.
 
@@ -1653,7 +1655,7 @@ Prerequisites: PAPER-KALETHA-16/D18, PAPER-KALETHA-16/T24, PAPER-KALETHA-16/T24X
 
 For [Z->S] in T over R or finite over Qp, D18 induces a natural isomorphism (Ybar/IY)_tors -> H1(u->W,Z->S), compatible with ordinary Tate–Nakayama at Z=1 and restriction to Hom_Gamma(u,Z).
 
-Prerequisites: PAPER-KALETHA-16/T20, PAPER-KALETHA-16/T26, PAPER-KALETHA-16/P12, PAPER-KALETHA-16/T07.
+Prerequisites: PAPER-KALETHA-16/T20, PAPER-KALETHA-16/T26, PAPER-KALETHA-16/P12, PAPER-KALETHA-16/T07, PAPER-KALETHA-16/P29.
 
 1. Show IY maps to coboundaries, compare the four-term norm and cohomology exact sequences, and use the outer ordinary Tate–Nakayama identifications and five-lemma argument.
 
@@ -1663,7 +1665,7 @@ Prerequisites: PAPER-KALETHA-16/T20, PAPER-KALETHA-16/T26, PAPER-KALETHA-16/P12,
 
 There is at most one natural isomorphism from D13 to H1ab on R satisfying ordinary Tate–Nakayama compatibility and the central restriction square specified in§4.2.
 
-Prerequisites: PAPER-KALETHA-16/D13, PAPER-KALETHA-16/D07, PAPER-KALETHA-16/T12, PAPER-KALETHA-16/P12, PAPER-KALETHA-16/T12F.
+Prerequisites: PAPER-KALETHA-16/D13, PAPER-KALETHA-16/D07, PAPER-KALETHA-16/T12, PAPER-KALETHA-16/P12, PAPER-KALETHA-16/T12F, PAPER-KALETHA-16/P29.
 
 1. First use anisotropic tori, then their maximal anisotropic subtorus and split quotient, then a fundamental torus surjecting onto the reductive target.
 
@@ -1673,7 +1675,7 @@ Prerequisites: PAPER-KALETHA-16/D13, PAPER-KALETHA-16/D07, PAPER-KALETHA-16/T12,
 
 For every maximal torus S in reductive [Z->G], each nonempty fiber of Ybar_plus,tor(Z->S) -> H1rig(Z->S) -> H1_ab(Z->G) is a torsor under the image of (X_*(Ssc)_Gamma)_tors in Ybar_plus,tor(Z->S).
 
-Prerequisites: PAPER-KALETHA-16/P12, PAPER-KALETHA-16/D07, PAPER-KALETHA-16/T27.
+Prerequisites: PAPER-KALETHA-16/P12, PAPER-KALETHA-16/D07, PAPER-KALETHA-16/T27, PAPER-KALETHA-16/P28.
 
 1. Use the Kottwitz central component character comparison and the simply connected torus image; this is not a claim that H1(G) is a group.
 
@@ -1691,9 +1693,9 @@ Prerequisites: PAPER-KALETHA-16/P15, PAPER-KALETHA-16/D18, PAPER-KALETHA-16/D07.
 
 **theorem · missing**. Theorem4.11
 
-For every [Z->G] in R, D13 is naturally isomorphic to H1_ab(u->W,Z->G), compatible with T27 on tori and with ordinary abelianized Tate–Nakayama at Z=1.
+For every [Z->G] in R, D13 is naturally isomorphic to H1_ab(u->W,Z->G), compatible with T27 on tori and with ordinary abelianized Tate–Nakayama at Z=1. For p-adic F, where H1(u->W,Z->G) -> H1_ab is bijective (T15), this makes H1(u->W,Z->G) an abelian group, compatibly with Kottwitz's group structure on H1(F,G) (P28) and with Hom(u,Z)^Gamma, and the maps of (3.6) are homomorphisms (§4.7).
 
-Prerequisites: PAPER-KALETHA-16/T27, PAPER-KALETHA-16/T28, PAPER-KALETHA-16/T29, PAPER-KALETHA-16/T30.
+Prerequisites: PAPER-KALETHA-16/T27, PAPER-KALETHA-16/T28, PAPER-KALETHA-16/T29, PAPER-KALETHA-16/T30, PAPER-KALETHA-16/P28, PAPER-KALETHA-16/T15.
 
 1. Reduce through a fundamental torus, identify the coroot quotient using H1(Ssc), and use the relevant Tate H0 vanishing. The target is H1_ab throughout, including the corrected proof diagram.
 
@@ -1885,9 +1887,9 @@ Prerequisites: PAPER-KALETHA-16/D27, PAPER-KALETHA-16/D13, PAPER-KALETHA-16/D10.
 
 **theorem · missing**. Corollary5.4 corrected by author errata
 
-There is a natural pairing H1_ab(u->W,Z->G) × pi0 Z(Gbar_hat)^+ -> Q/Z with trivial left kernel. It is perfect for p-adic F and for tori. Pullback to full rigid H1 is constant on K-groups and need not separate real rigid classes.
+There is a natural pairing H1_ab(u->W,Z->G) × pi0 Z(Gbar_hat)^+ -> Q/Z with trivial left kernel. It is perfect for p-adic F and for tori. Pullback to full rigid H1 is constant on K-groups and need not separate real rigid classes. If Z = {1}, the pairing restricted to H1(F,G) is the one Kottwitz defines [Kot86] through alpha_G (P28).
 
-Prerequisites: PAPER-KALETHA-16/T31, PAPER-KALETHA-16/T43, PAPER-KALETHA-16/D22.
+Prerequisites: PAPER-KALETHA-16/T31, PAPER-KALETHA-16/T43, PAPER-KALETHA-16/D22, PAPER-KALETHA-16/P28.
 
 1. Compose enlarged Tate–Nakayama with the character injection. The source left factor must be H1_ab; the full real SL2 rigid set has a nontrivial fiber.
 
@@ -2103,7 +2105,7 @@ Prerequisites: PAPER-KALETHA-16/D35, PAPER-KALETHA-16/C01.
 
 A character of pi0 Z(Gbar_hat)^+ trivial on the kernel of its map to pi0 S_phi^+ corresponds under T44 to a relevant K-group for phi; over R this is a K-group condition, not a claim that every rigid twist in it is individually relevant.
 
-Prerequisites: PAPER-KALETHA-16/D35, PAPER-KALETHA-16/T44, PAPER-KALETHA-16/D22, PAPER-KALETHA-16/P11.
+Prerequisites: PAPER-KALETHA-16/D35, PAPER-KALETHA-16/T44, PAPER-KALETHA-16/D22, PAPER-KALETHA-16/P11, PAPER-KALETHA-16/P28.
 
 1. Enlarge Z to contain the derived center, reduce to a minimal Levi for phi and compute the component kernel. Import Arthur1.1 and Kottwitz6.2 with their precise relevance hypotheses.
 
@@ -2808,6 +2810,36 @@ Planned: tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-1-units-the-filtra
 4. The compact unit group has finite quotient by its open n-th-power subgroup. The valuation sequence gives quotient Z/nZ, while a unit which is an n-th power in K has a unit root. Hence the full power-class quotient is finite. This consumes the existing complete-DVR, valuation and compact-unit interfaces of LocalFieldsRamification.
 5. Characteristic zero cannot be dropped at n=p: in Fp((t)), p-th powers have Laurent exponents divisible by p, and arbitrarily deep 1+t^m with p not dividing m are omitted. No local reciprocity or logarithm theorem is used in this proof.
 
+#### P28 — Kottwitz's map for local reductive groups
+
+**theorem · planned**. Kot86 Theorem 1.2; used in Corollary 3.8, Lemma 4.9, §4.7, Corollary 5.4 and Lemma 5.7
+
+For connected reductive G over a local field F of characteristic 0 there is a map alpha_G: H1(F,G) -> pi0(Z(G_hat)^Gamma)^D [Kot86, Th. 1.2, printed p.368]. It is functorial for normal homomorphisms. For a maximal torus S of G, alpha_S is Tate–Nakayama (P12), and alpha_G composed with H1(F,S) -> H1(F,G) equals alpha_S followed by restriction to pi0(Z(G_hat)^Gamma). For p-adic F, alpha_G is bijective, and the group structure it induces on H1(F,G) is Kottwitz's. For F = R, the fibre of alpha_G over 0 is the image of H1(R,Gsc) -> H1(R,G), and the image of alpha_G is the annihilator of the image of the norm N_(C/R) of Z(G_hat); other fibres follow by twisting, equivalently through the abelianized H1_ab of P13. For every F, a class of H1(F,S) maps into the image of H1(F,Gsc) exactly when alpha_S of it annihilates the image of pi0(Z(G_hat)^Gamma) -> pi0(S_hat^Gamma) (the form Lemma 4.9 uses). No claim that H1(R,G) is a group or that alpha_G is bijective over R.
+
+Added by FIX-RT-PAPER-KALETHA-16 (finding 3). ET.0 plans abelianized reductive cohomology and Kottwitz invariants, so this is planned there, not routed. The fixer read Kaletha's uses of it but not Kot86 itself; the real clauses follow the verifier's reading of Theorem 1.2.
+
+Planned: EndoscopicTransferAndUnitaryTraceComparison:ET.0.
+
+Prerequisites: PAPER-KALETHA-16/P12, PAPER-KALETHA-16/P13, PAPER-KALETHA-16/P11, PAPER-KALETHA-16/P14.
+
+1. Import Kottwitz's construction through z-extensions and the torus case; keep the p-adic bijectivity (Kneser's vanishing of H1 for simply connected groups) separate from the real statements.
+2. Expose the real neutral-fibre and image statements as separate lemmas; do not derive them from the p-adic bijection.
+
+#### P29 — Tate–Nakayama for tori in all degrees, and H2 of tori
+
+**theorem · planned**. proof of Theorem 4.8 (published p.587); Corollary 3.7(1) (p.575)
+
+Let S be a torus over a local field F of characteristic 0, split by a finite Galois extension E/F with group Gamma_(E/F) and fundamental class u_(E/F) in H2(Gamma_(E/F),E^x). Cup product with u_(E/F) gives isomorphisms of Tate groups Hhat^i(Gamma_(E/F),X_*(S)) -> Hhat^(i+2)(Gamma_(E/F),S(E)) for every integer i. The case i = -1 is P12's H1 statement; the case i = 0 is X_*(S)^Gamma/N X_*(S) -> H2(Gamma_(E/F),S(E)). They are compatible with restriction and corestriction, and with inflation in a tower E ⊆ E' only after scaling: the fundamental class of the smaller layer inflates to [E':E] times that of the larger. Inflation H2(Gamma_(E/F),S(E)) -> H2(Gamma,S(Fbar)) is injective, by Hilbert 90 for the split torus S over E (P01). If S is anisotropic then X_*(S)^Gamma = 0, so H2(Gamma,S) = 0. Kaletha's proof of Theorem 4.8 uses lambda |-> lambda cup c_k^-1, the negative of this isomorphism; record that sign.
+
+Added by FIX-RT-PAPER-KALETHA-16 (finding 4). P12 states only degree -1 -> 1; the five-lemma in Theorem 4.8 needs the degree 0 -> 2 isomorphism and injective inflation, and Corollary 3.7(1) needs anisotropic H2 vanishing.
+
+Planned: EndoscopicTransferAndUnitaryTraceComparison:ET.0.
+
+Prerequisites: PAPER-KALETHA-16/L26, PAPER-KALETHA-16/L27, PAPER-KALETHA-16/P01, PAPER-KALETHA-16/P06, PAPER-KALETHA-16/P07, tauceti:TauCetiRoadmap/ClassFieldTheory#layer-0-audit-and-complete-the-cohomology-suppliers, tauceti:TauCetiRoadmap/ClassFieldTheory#layer-3-tates-theorem-for-a-class-formation.
+
+1. Apply ClassFieldTheory Layer 3's tateIso and Layer 0's Tate–Nakayama tensor-product criterion to the Z-free module X_*(S), with S(E) = X_*(S) ⊗ E^x; for F = R use the C/R fundamental class (P06).
+2. Do not reimplement cup products or class formations in ET.0 or in the Part II.
+
 ### Acquisition and verification
 
 ```json
@@ -3022,3 +3054,38 @@ routes accepted; fourteen findings confirmed and **one rejected**.
   extension and its id free.
 
 Full report: `research/blueprint/reviews/REV-PAPER-KALETHA-16.md`.
+
+## Fixes (FIX-RT-PAPER-KALETHA-16, 30 September 2026)
+
+Claude Code, session `cc-c2c06b`, issue #4995. This fix applies the high finding and the four medium
+findings of `RT-PAPER-KALETHA-16`, following the verifier's refinements. The full record is
+`research/blueprint/redteam/RT-PAPER-KALETHA-16.fixes.md`. “Current routes” and the ledger entries of
+the changed items above were re-rendered from the result.
+
+- **No backward edges into the Part II.** D33, T51, T52, D36, G05 and G09 move from route 4, and D34
+  from route 3, into route 7. The Part II now owns the rigid factor (5.1), the comparison tori,
+  Proposition 5.6, (5.10), the adelic rigid product and the mediating functions of §5.7. It builds them
+  on ET.1's ordinary factors (D32) and product formula.
+  - P12 no longer lists the real Weil group R01 as a prerequisite.
+  - Route 7's brief no longer exports anything to ET.1.
+  - No item planned at or routed to ET.0 or ET.1 now depends, even indirectly, on a route 7 item.
+- **One supplier of the rigid objects.** Route 7's brief names PAPER-HANSEN-KALETHA-WEINSTEIN-22's
+  HeckeStacksAndLocalShtukasKottwitzPartII (items 008–010) as a consumer of D06, T13, T44, D27, D35 and
+  C01/C02, stated for real and p-adic F with the corrected Corollary 5.4. The HKW items stay missing
+  and in that route; moving them is a maintainer step.
+- **Kottwitz's map.** New planned item P28 (ET.0), from Kot86 Theorem 1.2. It is bijective for p-adic
+  F; over R it states only the neutral fibre and the image. It is a prerequisite of T14, T29, T31, T44
+  and T54.
+  - T44 regains Corollary 5.4's Z = {1} clause.
+  - T31 regains the p-adic group structure of §4.7.
+- **Degree-2 Tate–Nakayama.** New planned item P29 (ET.0, importing ClassFieldTheory Layers 0 and 3):
+  - cup product with the fundamental class in every Tate degree;
+  - scaled inflation;
+  - injective inflation of H² through Hilbert 90;
+  - H²(Γ, S) = 0 for anisotropic S;
+  - the sign p.587 uses.
+
+  It is a prerequisite of T27, T12 and T28. GAP04 is updated.
+- **Real characters.** P18 moves from route 5 (AF.1) to route 4 (ET.1), whose text constructs the real
+  character theory. Route 5 keeps P16, and its reason no longer claims a character foundation.
+- **Result:** 159 items (21 library, 26 planned, 112 missing), seven routes; route 4 is now D32 and P18.
