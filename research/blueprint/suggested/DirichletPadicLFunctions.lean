@@ -8589,3 +8589,117 @@ example (η : DirichletCharacter ℚ_[2] 3) (hη : η 2=-1)
 end Dyadic
 end
 end SuggestedNegativeMomentTests
+
+/-! Negative moments of the actual smoothing measures and their admissible
+quotients. General coefficient-field pseudomeasure evaluation remains conditional
+on the supplied compatible ring homomorphism. -/
+namespace DirichletPadic
+noncomputable section
+open scoped AbstractMeasure
+open AbstractMeasure
+section SmoothedNegativeMoments
+variable (p : ℕ) [Fact p.Prime] {K : Type*} [NormedField K]
+  [IsUltrametricDist K] [CompleteSpace K] [Algebra ℤ_[p] K] [IsBoundedSMul ℤ_[p] K]
+local notation "I" => (ContinuousMap.mk (fun x : ℤ_[p] => algebraMap ℤ_[p] K (PadicInt.inv x))
+  (Continuous.comp (continuous_algebraMap ℤ_[p] K) PadicInt.continuous_inv) : C(ℤ_[p],K))
+
+theorem extend_intrinsicSmoothedNumerator_negative_moment
+    (n : ℕ) (χ : DirichletCharacter K (p^n)) (a : ℕ) (ha : ¬p∣a)
+    (k : ℕ) (hk : 1≤k) (κ : (ℤ_[p])ˣ →ₜ* K)
+    (hκ : ∀ u : (ℤ_[p])ˣ, κ u=primePowerCharacter p n χ (u : ℤ_[p])*
+      (algebraMap ℤ_[p] K (↑u⁻¹ : ℤ_[p]))^(k-1)) :
+    extendIntegralUnitCoefficients (R := K) (intrinsicSmoothedNumerator p a ha)
+      κ.toContinuousMap=twistedSmoothedMeasure p n χ a ha (I^k) := sorry
+
+theorem twistedSmoothedMeasure_negative_cross
+    (n : ℕ) (χ : DirichletCharacter K (p^n)) (a b : ℕ) (ha : ¬p∣a) (hb : ¬p∣b)
+    (k : ℕ) (hk : 1≤k) :
+    (χ (b : ZMod (p^n))*((b : K)⁻¹)^(k-1)-1)*twistedSmoothedMeasure p n χ a ha (I^k)=
+      (χ (a : ZMod (p^n))*((a : K)⁻¹)^(k-1)-1)*twistedSmoothedMeasure p n χ b hb (I^k) := sorry
+
+theorem twistedSmoothedMeasure_negative_quotient_independent
+    (n : ℕ) (χ : DirichletCharacter K (p^n)) (a b : ℕ) (ha : ¬p∣a) (hb : ¬p∣b)
+    (k : ℕ) (hk : 1≤k)
+    (hda : χ (a : ZMod (p^n))*((a : K)⁻¹)^(k-1)-1≠0)
+    (hdb : χ (b : ZMod (p^n))*((b : K)⁻¹)^(k-1)-1≠0) :
+    twistedSmoothedMeasure p n χ a ha (I^k)/
+      (χ (a : ZMod (p^n))*((a : K)⁻¹)^(k-1)-1)=
+    twistedSmoothedMeasure p n χ b hb (I^k)/
+      (χ (b : ZMod (p^n))*((b : K)⁻¹)^(k-1)-1) := sorry
+
+theorem primePower_negative_principal_unit_admissible [CharZero K]
+    (n : ℕ) (χ : DirichletCharacter K (p^n)) (k : ℕ) (hk : 2≤k) :
+    IsUnit (χ ((1+p^(n+1) : ℕ) : ZMod (p^n))*
+      ((((1+p^(n+1) : ℕ) : K)⁻¹)^(k-1))-1) := sorry
+
+local notation "Z" => ℤ_[p]
+local notation "U" => Zˣ
+local notation "M" => D(U,Z)
+local instance : TotallyDisconnectedSpace U :=
+  (PadicInt.unitsHomeomorphIsUnit p).isEmbedding.isTotallyDisconnected_range.mp
+    (isTotallyDisconnected_of_totallyDisconnectedSpace _)
+local instance : CommRing M :=
+  { (inferInstance : Ring M) with mul_comm := mul_comm_of_commMonoid }
+local notation "Q" => FractionRing M
+local notation "δ" => (diracHom (G := U) (R := Z))
+
+theorem kubotaLeopoldtPseudomeasure_numerator_negative_moment
+    (n : ℕ) (χ : DirichletCharacter K (p^n)) (a : ℕ) (ha : ¬p∣a)
+    (k : ℕ) (hk : 1≤k) (κ : U →ₜ* K)
+    (hκ : ∀ v : U, κ v=primePowerCharacter p n χ (v : Z)*
+      (algebraMap Z K (↑v⁻¹ : Z))^(k-1)) (u : U) (hu : (u : Z)=(a : Z)) :
+    extendIntegralUnitCoefficients (R := K)
+      (Iwasawa.numerator δ Q u (kubotaLeopoldtPseudomeasure p)) κ.toContinuousMap=
+    twistedSmoothedMeasure p n χ a ha (I^k) := sorry
+
+theorem kubotaLeopoldtPseudomeasure_evalAt_negative_moment
+    (n : ℕ) (χ : DirichletCharacter K (p^n)) (a : ℕ) (ha : ¬p∣a)
+    (k : ℕ) (hk : 1≤k) (κ : U →ₜ* K)
+    (hκ : ∀ v : U, κ v=primePowerCharacter p n χ (v : Z)*
+      (algebraMap Z K (↑v⁻¹ : Z))^(k-1))
+    (f : M →+* K) (hf : ∀ μ : M,
+      f μ=extendIntegralUnitCoefficients (R := K) μ κ.toContinuousMap)
+    (u : U) (hu : (u : Z)=(a : Z)) (hd : IsUnit (f (δ u-1))) :
+    letI : Algebra M K := f.toAlgebra
+    Iwasawa.evalAt δ Q K u hd (kubotaLeopoldtPseudomeasure p)=
+      twistedSmoothedMeasure p n χ a ha (I^k)/
+        (χ (a : ZMod (p^n))*((a : K)⁻¹)^(k-1)-1) := sorry
+end SmoothedNegativeMoments
+end
+end DirichletPadic
+
+namespace SuggestedSmoothedNegativeTests
+noncomputable section
+open DirichletPadic AbstractMeasure
+variable {p : ℕ} [Fact p.Prime] {K : Type*} [NormedField K]
+  [IsUltrametricDist K] [CompleteSpace K] [Algebra ℤ_[p] K] [IsBoundedSMul ℤ_[p] K]
+local notation "I" => (ContinuousMap.mk (fun x : ℤ_[p] => algebraMap ℤ_[p] K (PadicInt.inv x))
+  (Continuous.comp (continuous_algebraMap ℤ_[p] K) PadicInt.continuous_inv) : C(ℤ_[p],K))
+-- negative_shift_level_zero
+example (a : ℕ) (ha : ¬p∣a) :
+    extendIntegralUnitCoefficients (R := K) (intrinsicSmoothedNumerator p a ha) 1=
+      twistedSmoothedMeasure p 0 (1 : DirichletCharacter K (p^0)) a ha I := sorry
+-- negative_shift_identity_parameter
+example (n : ℕ) (χ : DirichletCharacter K (p^n)) (h1 : ¬p∣1) (k : ℕ) :
+    twistedSmoothedMeasure p n χ 1 h1 (I^k)=0 := sorry
+-- first_cross_denominator
+example (n : ℕ) (χ : DirichletCharacter K (p^n)) (a b : ℕ) (ha : ¬p∣a) (hb : ¬p∣b) :
+    (χ (b : ZMod (p^n))-1)*twistedSmoothedMeasure p n χ a ha I=
+      (χ (a : ZMod (p^n))-1)*twistedSmoothedMeasure p n χ b hb I := sorry
+-- second_cross_denominator
+example (n : ℕ) (χ : DirichletCharacter K (p^n)) (a b : ℕ) (ha : ¬p∣a) (hb : ¬p∣b) :
+    (χ (b : ZMod (p^n))*(b : K)⁻¹-1)*twistedSmoothedMeasure p n χ a ha (I^2)=
+      (χ (a : ZMod (p^n))*(a : K)⁻¹-1)*twistedSmoothedMeasure p n χ b hb (I^2) := sorry
+-- level_zero_quotient
+example (a b : ℕ) (ha : ¬p∣a) (hb : ¬p∣b)
+    (hda : (a : K)⁻¹-1≠0) (hdb : (b : K)⁻¹-1≠0) :
+    twistedSmoothedMeasure p 0 (1 : DirichletCharacter K (p^0)) a ha (I^2)/((a : K)⁻¹-1)=
+      twistedSmoothedMeasure p 0 (1 : DirichletCharacter K (p^0)) b hb (I^2)/((b : K)⁻¹-1) := sorry
+-- dyadic_negative_admissible
+example [IsBoundedSMul ℤ_[2] ℚ_[2]] :
+    IsUnit ((3 : ℚ_[2])⁻¹-1) := sorry
+-- first_principal_inadmissible
+example (n : ℕ) (u : (ℤ_[p])ˣ) :
+    primePowerCharacter p n (1 : DirichletCharacter K (p^n)) (u : ℤ_[p])-1=0 := sorry
+end
+end SuggestedSmoothedNegativeTests
