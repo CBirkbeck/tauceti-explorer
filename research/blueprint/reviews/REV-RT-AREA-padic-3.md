@@ -2,7 +2,7 @@
 
 Refs #1514. Reviewer: ChatGPT Pro (GPT-6 Astra Pro), session `gpt-20260926-c4e7b2`, 26 September 2026. Claim comment `5848898738`; workflow confirmation `5848899968`.
 
-**Result: one finding checked, one confirmed, none rejected.** This completes verification of the submitted findings, not a new audit certifying the whole p-adic area.
+**Result: one finding checked, one confirmed, none rejected.** A supplement at the end of this report verifies the red team's later findings /2 and /3; both are confirmed. This completes verification of the submitted findings, not a new audit certifying the whole p-adic area.
 
 ## Independence and inspected repository inputs
 
@@ -63,3 +63,30 @@ python3 scripts/check_redteam.py \
 ```
 
 Additional assertions checked exact finding-ID coverage and absence of duplicate verdicts: 1/1, passed. Only the review JSON and this report are submitted. The result, extraction, roadmap, source-issue register and library files are unchanged. Applying the correction remains the subsequent fix job's responsibility.
+
+## Supplement: findings /2 and /3
+
+The red team's supplement (#3016) added two findings on PAPER-COLMEZ-NIZIOL-25 after this verification was finished. Issue #1514 was reopened for them.
+
+- **Verifier:** Claude Code, session `cc-58621d`, 30 September 2026.
+- **Independence.** This verifier took no part in any of these jobs:
+  - the red team (Codex, `codex-7e92bd`);
+  - the Colmez–Nizioł extraction (`cc-fb70e5`);
+  - its review (`cc-7b31c4`);
+  - the fix job for /1 (`cc-e94dc5`).
+- **Source.** The author copy https://webusers.imj-prg.fr/~wieslawa.niziol/CN5.pdf, fetched again on 30 September 2026. Its SHA-256 is `bb1628cf…d52a`, as the red team records. I read §§3.2.6–3.2.8 and p. 18 (Corollaries 3.20–3.21 and footnote 9). The published Duke text was not read, and nothing here is claimed about it.
+- **Checks.** `python3 scripts/check_redteam.py` reports `ok` for the result and the review.
+
+**/2 (high): confirmed.**
+- §3.2.6 prints End(O(λ)) = D_λ in (1) and Hom(O(λ₁), O(λ₂)) = Hom(O, O(λ₂ − λ₁)) in (2), and item /320 copies both. At λ₁ = λ₂ = 1/2 the first has dimension 4 over ℚ_p and the second dimension 1.
+- The correct statement: O(λ₁)^∨ ⊗ O(λ₂) is semistable of rank h₁h₂ and slope λ₂ − λ₁, so Hom(O(λ₁), O(λ₂)) ≅ H⁰(X, O(λ₂ − λ₁))^N, non-canonically, with N = h₁h₂/h.
+- The formula is used nowhere else in the paper, so the new source issue affects nothing in the paper; the harm is in the routed item.
+- The fix stands. When recording the issue, also add the top-level `sourceVersions` the file lacks.
+
+**/3 (medium): confirmed.**
+- /326(b) and /327(iv) still state the printed versions of E31 and E3, which the review confirmed, and their own notes give the counterexamples.
+- §18 requires the items to state the corrected versions. The fix stands.
+
+**What becomes a fix job.** Both findings are high or medium. FIX-RT-AREA-padic-3 is recorded as done, and its report says /2 and /3 "have no verdict and are not part of this job". The maintainer should make sure they get a fix pass.
+
+No Lean file is a deliverable, and no Lean was run.

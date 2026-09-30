@@ -5,6 +5,16 @@
       "finding": "RT-AREA-padic-3/1",
       "verdict": "confirmed",
       "reason": "Confirmed as a source-faithfulness error in PAPER-DING-25/4.2-global-triangulation, not an error in either published paper. The item replaces compatible parameterized triangulations by unspecified pointwise existence, deleting hypotheses and conflating Ding's local application with the general KPX modification theorem. The independent published-source comparison and precise local-or-general repair are in research/blueprint/reviews/REV-RT-AREA-padic-3.md. Keep PG.7 as owner. The more qualified neighboring pseudo-character item does not repair this separately exported statement. No counterexample to every interpretation of shrinking is asserted, and smoothness being proved in Proposition 4.17 must not be substituted as an input."
+    },
+    {
+      "finding": "RT-AREA-padic-3/2",
+      "verdict": "confirmed",
+      "reason": "Confirmed, and high is right: item /320 states a false formula that VB1–VB3 would build on. The author copy CN5.pdf (SHA-256 bb1628cf…d52a, the red team's hash, fetched again on 30 September 2026), §3.2.6, p. 17, prints '(1) … End_BC(U_λ) = End(O(λ)) = D_λ' and, in (2), 'Hom(O(λ1), O(λ2)) = Hom(O, O(λ2 − λ1))'. /320 copies both. At λ1 = λ2 = 1/2 they contradict each other: D_{1/2} is the quaternion algebra, of dimension 4 over Q_p, while Hom(O, O(0)) = H⁰(X, O) = Q_p. The correct statement: O(λ1)^∨ ⊗ O(λ2) is semistable of rank h1h2 and slope λ2 − λ1, so it is isomorphic to O(λ2 − λ1)^N with N = h1h2/h, where h is the denominator of λ2 − λ1. Hence Hom(O(λ1), O(λ2)) ≅ H⁰(X, O(λ2 − λ1))^N, non-canonically, as the fix says. The tensor multiplicity n(λ1, λ2) = h1h2/h in the same item is right. None of the extraction's 36 source issues records the slip, so the new source issue is needed. The formula occurs nowhere else in CN5.pdf, so it affects nothing in the paper; the harm is the routed item. The extraction's own search record says CN5.pdf is textually identical to arXiv:2108.12785v4, so the issue can name both, and it makes no claim about the unread Duke version. The fix stands. One addition: the file has no top-level sourceVersions, although E3 and E31 affect a stated result, so the fixer should add it when recording the new issue."
+    },
+    {
+      "finding": "RT-AREA-padic-3/3",
+      "verdict": "confirmed",
+      "reason": "Confirmed. /326(b) states 'curvature < 0 implies height > 0', and /327(iv) states 'A quotient of height 0 of one of curvature ≥ 0 has curvature 0'. Both are the uncorrected versions of E31 and E3, which the review confirmed ('Confirmed, as a degenerate case'; 'Confirmed, and the paper refutes it on the same page'). The items' own notes give the counterexamples: the zero object for (b), and U_1/Q_p t_x with x ≠ ∞ (footnote 9, p. 18) for (iv). I checked both corollaries and footnote 9 in CN5.pdf, p. 18. PROTOCOL §18 says 'Items and nodes use the corrected statements', so the items are wrong as they stand, although their notes carry the corrections. Medium fits. The fix stands: restate (b) for nonzero W, replace (iv) by E3's correction, keep the printed text in sourceIssues only, and link both items to E31 and E3. VB3 stays the owner."
     }
   ]
 }
