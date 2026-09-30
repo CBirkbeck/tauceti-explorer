@@ -35338,7 +35338,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-GAN-ICHINO-18.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4987"
   },
   {
    "id": "RT-PAPER-ZHU-17",
