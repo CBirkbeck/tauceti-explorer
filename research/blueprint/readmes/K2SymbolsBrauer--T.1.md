@@ -1,1946 +1,3628 @@
-# Explicit K₂: symbols, residues and reciprocity — blueprint (part from T.1)
+# K2SymbolsBrauer — blueprint
 
-Blueprint packet for the roadmap `K2SymbolsBrauer`, stages T.1 and T.2 with their sub-stages (`research/blueprint/packets/K2SymbolsBrauer--T.1.json`). Written for job `BP-K2SymbolsBrauer--T.1`, issue #761, by Claude Code, session `cc-7b31c4`, 24 September 2026. Nothing here is formalised: every node carries `implementationStatus: "unchecked"`, and the suggested Lean file is signatures only.
+Independent review of the stable Steinberg, classical K2, symbol and Milnor K-theory plan. Statements and interfaces have been corrected, bundled results separated, and missing proof inputs recorded explicitly. The universal-central-extension package (existence for perfect groups, Hopf's formula, the kernel as H_2, the Recognition Theorem and naturality) is decomposed in T.1:classical and is imported by K3BlochGroups V.1 and StableHomotopyKTheory H.3; Hopf's formula rests on the Hochschild-Serre low-degree sequence, a recorded gap. All six scoped stages remain partial; Matsumoto normal forms, noncommutative matrix bridges and arithmetic computations are not source-decomposed. Nothing is formalised.
 
-**Source.** Weibel, *The K-book: An Introduction to Algebraic K-theory* (Graduate Studies in Mathematics 145), read in the author-hosted combined draft of 29 August 2013, SHA-256 `a04f53c9393b20672fab2a6818279b2f9996dbc7cf74735789ed13804b058845`: III.5.1–5.5.1, III.5.10–5.11.1, III.6.1–6.1.3, III.7.1–7.3.1, and IV.1.20 with Exercise IV.1.9. **Not obtained:** Milnor's 1971 book, to which the source refers for the proof of Matsumoto's theorem, and the papers of Bass–Tate, Dennis–Stein, and Maazen–Stienstra–van der Kallen/Keune; the four statements taken on their authority are listed as gaps. **Added for the recognition package (2026-09-30):** Clara Löh, *Group Cohomology*, lecture notes, Universität Regensburg, Sommersemester 2019 (https://loeh.app.uni-regensburg.de/teaching/grouphom_ss19/lecture_notes.pdf, SHA-256 `d4f2d819bfa85c57277db74bf749d05f03e85833c76e89eab99127f077d2cd76`): Theorem 1.4.1, Corollary 1.4.6, Theorem 1.5.1, Proposition 1.6.21–Corollary 1.6.23, Theorem 3.2.12, Remark 3.2.14 and Theorem 3.2.18 with its proof; and the K-book re-read at III.5.3–5.5.1, Exercise III.5.7, IV.1.7–1.7.1 and Exercises IV.1.8–1.9.
+FIX-RT-AREA-ktheory-2~2 preserves the earlier independent review as history. These are planned mathematical nodes, with source and implementation gaps. This revision and the suggested Lean prototypes are unchecked and not compiled; it requires an independent fix review.
 
-**Library baseline.** Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174`, Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369`. The reviewed audit `AUDIT-29` records every layer in scope as not built, and 23 pinned declarations are cited as baseline. Three are worth naming: Tau Ceti's `commutatorElement_transvectionUnit` **is** the Steinberg relations, proved for transvections, which is exactly what the map out of the presented group needs; `Matrix.diag2_decompose` writes `diag(a, a⁻¹)` as a product of six transvections, the matrix identity behind the lift `h_ij(a)`; and `GroupExtension` has **no** centrality predicate, so this layer adds one rather than pretending the pinned notion is central. The audit's warning is also respected: every Tau Ceti declaration whose name contains *Steinberg* is a Frobenius endomorphism of a group of Lie type, a representation of `GL₂`, or the quaternion relation — none of them is this group.
+## Scope and current status
 
-| layer | nodes | planets | coverage |
-| --- | --- | --- | --- |
-| `K2SymbolsBrauer:T.1:classical` | 13 | 6 | source_decomposed |
-| `K2SymbolsBrauer:T.1:plus` | 2 | 2 | source_decomposed |
-| `K2SymbolsBrauer:T.2:graded-map` | 2 | 1 | source_decomposed |
-| `K2SymbolsBrauer:T.2:symbols` | 11 | 4 | source_decomposed |
+**protocol:** blueprint-v1
 
-In total: 28 nodes (1 comparison, 3 construction, 6 definition, 7 lemma, 11 theorem), 48 API items, 34 unit tests, 13 planets, 4 requests and 4 gaps.
+**part:** T.1
 
-## T.1:classical — The Steinberg group, K₂ and universal central extensions
+**status:** partial
 
-`St_n(R)` for `n ≥ 3`, from the generators `x_ij(r)` and the three commutator relations **with
-their index hypotheses attached** — rank two is excluded, as the source excludes it. The
-elementary matrices satisfy those relations (the pinned Tau Ceti
-`commutatorElement_transvectionUnit` is exactly this), so there is a surjection onto `E_n(R)`;
-stabilise, and `K₂(R)` is the kernel. Steinberg's theorem then says that kernel **is** the
-centre. The universal-central-extension theory follows in the generality the Recognition Theorem
-needs — Hopf's formula for `H₂`, and the equivalence of universality with `H₁ = H₂ = 0`, which
-is the superperfection criterion `K3BlochGroups:V.1` uses — and `St(R)` is identified as the
-universal central extension of `E(R)`. A node is spent on what the **stable** theorem does not
-give in finite rank, because the proof lets the rank grow.
+**scope**
 
-The universal-central-extension package is planned here in full, as the earliest purely
-algebraic consumer of it (red-team findings RT-AREA-ktheory-1/29 and /30): pullbacks and
-composites of central extensions, splitting over a universal extension, H₁ as the
-abelianisation, superperfect groups, existence of a universal central extension for every
-perfect group, Hopf's formula through its four-term exact sequence, the kernel as H₂(G; ℤ), the
-four implications of the Recognition Theorem, and the lift of a homomorphism of perfect groups
-to their universal central extensions with its naturality on kernels. Three of these nodes
-(`central-extension-comp`, `split-extensions-kill-h2`, `uce-source-superperfect`) were first
-planned in `K3BlochGroups:V.1` and moved here; V.1 now deduces the superperfection of St(A) as a
-corollary. `StableHomotopyKTheory:H.3` should import the Recognition Theorem and the kernel
-identification for its plus-construction node instead of citing K-book III.5.4 unread. The one
-open input is the Hochschild–Serre low-degree sequence behind Hopf's formula (gap below).
+- K2SymbolsBrauer:T.1
+- K2SymbolsBrauer:T.1:classical
+- K2SymbolsBrauer:T.1:plus
+- K2SymbolsBrauer:T.2
+- K2SymbolsBrauer:T.2:graded-map
+- K2SymbolsBrauer:T.2:symbols
 
-### `steinberg-group-finite-rank` — The Steinberg group of a ring in finite rank ★
+## baseline
 
-*definition* · planet **Steinberg group**
+**tauceti:** f790474821cf4256814db967cb154e7af3d0c369
 
-For a ring R and an integer n at least three define St_n(R) by generators x_ij(r), indexed by a
-pair of distinct integers i and j between one and n and an element r of R, subject to the
-Steinberg relations: x_ij(r) x_ij(s) = x_ij(r + s), and the commutator of x_ij(r) with x_kl(s)
-is trivial when j is different from k and i is different from l, is x_il(rs) when j equals k and
-i is different from l, and is x_kj(minus s r) when j is different from k and i equals l. The
-distinct-index hypotheses are part of each relation and are never dropped. No definition is
-given for n equal to two.
+**mathlib:** 082e2d37e8b0463410cdb532e111cd43d5a66174
 
-**Hypotheses.** R is an associative unital ring. n is at least three. i and j are distinct indices between one and n.
+**declarations**
 
-**Construction and proof.**
+- **ref:** mathlib:PresentedGroup; **module:** Mathlib/GroupTheory/PresentedGroup.lean; **provides:** Groups by generators and relations, the carrier of the Steinberg presentation.
+- **ref:** mathlib:Matrix.GeneralLinearGroup.transvection; **module:** Mathlib/LinearAlgebra/Matrix/ElementaryRowOperations.lean; **provides:** A transvection as a matrix unit for a finite index type over a COMMUTATIVE ring, with the distinct-index condition. It does not supply the general associative-ring target.
+- **ref:** tauceti:TauCeti.transvectionUnit; **module:** TauCeti/LinearAlgebra/Matrix/GeneralLinearGroup/Transvection.lean; **provides:** Transvection unit over CommRing A with finite index type and DecidableEq; the general associative-ring bridge remains open.
+- **ref:** tauceti:TauCeti.commutatorElement_transvectionUnit; **module:** TauCeti/LinearAlgebra/Matrix/GeneralLinearGroup/Transvection.lean; **provides:** Only the forward chaining relation [e_ij(c),e_jl(d)]=e_il(c*d), for pairwise distinct i,j,l over CommRing A. Separate declarations supply the other cases.
+- **ref:** mathlib:commutatorElement; **module:** Mathlib/Algebra/Group/Commutator.lean; **provides:** The group commutator in which every Steinberg relation and every symbol is written.
+- **ref:** mathlib:Subgroup.center; **module:** Mathlib/GroupTheory/Subgroup/Center.lean; **provides:** The centre of a group, which Steinberg's theorem identifies with K_2.
+- **ref:** mathlib:Group.IsPerfect; **module:** Mathlib/GroupTheory/IsPerfect.lean; **provides:** Perfectness, the hypothesis of the Recognition Theorem.
+- **ref:** mathlib:GroupExtension; **module:** Mathlib/GroupTheory/GroupExtension/Defs.lean; **provides:** Group extensions; the centrality predicate this layer needs is not part of it and is added here.
+- **ref:** tauceti:TauCeti.FactorSet.inl_range_le_center; **module:** TauCeti/GroupTheory/GroupExtension/Of/FactorSet.lean; **provides:** That an extension built from a trivial-action factor set is central, the nearest pinned statement about central extensions.
+- **ref:** tauceti:TauCeti.GroupExtension.nonempty_equiv_iff_cohomologyClass_factorSet_eq; **module:** TauCeti/GroupTheory/GroupExtension/Cohomology.lean; **provides:** Equivalence iff the factor-set cohomology classes agree, for extensions inducing a FIXED action and chosen normalized sections. This is not by itself a classification of all central extensions; the trivial-action bridge must be proved.
+- **ref:** mathlib:groupHomology.H2; **module:** Mathlib/RepresentationTheory/Homological/GroupHomology/LowDegree.lean; **provides:** Degree-two homology of a representation A : Rep k G, as a ModuleCat k object. H2(G;Z) requires the trivial integral representation, not an omitted coefficient argument.
+- **ref:** mathlib:groupHomology.H1; **module:** Mathlib/RepresentationTheory/Homological/GroupHomology/LowDegree.lean; **provides:** Degree-one homology of A : Rep k G. The vanishing/perfectness comparison still needs the trivial-integral coefficient specialization and abelianization bridge.
+- **ref:** mathlib:groupHomology; **module:** Mathlib/RepresentationTheory/Homological/GroupHomology/Basic.lean; **provides:** Homology of the inhomogeneous chain complex of A : Rep k G; use trivial integral coefficients for the present group invariants.
+- **ref:** mathlib:HomotopyGroup; **module:** Mathlib/Topology/Homotopy/HomotopyGroup.lean; **provides:** Homotopy group of a pointed topological space, indexed by a finite coordinate TYPE N (use Fin n for degree n), not directly a natural-number argument. This supplies no Hurewicz theorem.
+- **ref:** mathlib:TensorAlgebra; **module:** Mathlib/LinearAlgebra/TensorAlgebra/Basic.lean; **provides:** The tensor algebra, the carrier of Milnor K-theory once applied to the units written additively.
+- **ref:** mathlib:Additive; **module:** Mathlib/Algebra/Group/TypeTags/Basic.lean; **provides:** The additive type tag turning the unit group into a module over the integers.
+- **ref:** mathlib:RingQuot; **module:** Mathlib/Algebra/RingQuot.lean; **provides:** The ring quotient generated by a relation. It does not export a grading or the homogeneous Steinberg ideal construction.
+- **ref:** mathlib:Matrix.diag2_decompose; **module:** Mathlib/LinearAlgebra/Matrix/SpecialLinearGroup.lean; **provides:** The decomposition of the two by two diagonal matrix diag(a, a inverse) as a product of six transvections, over a field: the matrix identity behind the lift h_ij(u).
+- **ref:** tauceti:Matrix.SpecialLinearGroup.diag2nUnit_decompose; **module:** TauCeti/LinearAlgebra/Matrix/SpecialLinearGroup/Diagonal.lean; **provides:** The same decomposition at two coordinates of a larger matrix over a commutative ring, which is the form the stable symbol needs.
+- **ref:** mathlib:Units; **module:** Mathlib/Algebra/Group/Units/Defs.lean; **provides:** The unit group of a ring, the source of every symbol.
+- **ref:** mathlib:DirectLimit; **module:** Mathlib/Order/DirectedInverseSystem.lean; **provides:** Type-level quotient of a directed system. A group structure, its homomorphism universal property and finite-representative equality must still be supplied.
+- **ref:** mathlib:ZMod; **module:** Mathlib/Data/ZMod/Defs.lean; **provides:** ZMod n, including ZMod 0 = Z. Useful cyclic target carriers; this is not a theorem that the multiplicative group of a finite field is cyclic.
+- **ref:** mathlib:NumberField.InfinitePlace.nrRealPlaces; **module:** Mathlib/NumberTheory/NumberField/InfinitePlace/Basic.lean; **provides:** The invariant r_1 in which the Bass-Tate answer for Milnor K-theory of a number field is stated.
+- **ref:** tauceti:TauCeti.transvectionUnit_add; **module:** TauCeti/LinearAlgebra/Matrix/GeneralLinearGroup/Transvection.lean; **provides:** Additivity e_ij(c+d)=e_ij(c)*e_ij(d), over CommRing A with finite indices and i != j.
+- **ref:** tauceti:TauCeti.commute_transvectionUnit; **module:** TauCeti/LinearAlgebra/Matrix/GeneralLinearGroup/Transvection.lean; **provides:** Commutativity for nonchaining index pairs i != j, k != l, j != k, l != i, over CommRing A.
+- **ref:** tauceti:TauCeti.commutatorElement_transvectionUnit_reverse; **module:** TauCeti/LinearAlgebra/Matrix/GeneralLinearGroup/Transvection.lean; **provides:** Reverse chaining relation [e_ij(c),e_ki(d)]=e_kj(-(d*c)), with pairwise distinct i,j,k, over CommRing A.
+- **ref:** mathlib:Rep.trivial; **kind:** abbrev; **module:** Mathlib/RepresentationTheory/Rep/Basic.lean; **provides:** Rep.trivial k G V, the trivial representation; H_n(G, Z) is groupHomology (Rep.trivial ℤ G ℤ) n, with G in Type because the homology files fix k and G in one universe.; **checked:** statement read at the pinned commit (Mathlib/RepresentationTheory/Rep/Basic.lean:286) by FIX-RT-AREA-ktheory-1
+- **ref:** mathlib:groupHomology.H1AddEquivOfIsTrivial; **kind:** def; **module:** Mathlib/RepresentationTheory/Homological/GroupHomology/LowDegree.lean; **provides:** For a trivial representation A, H1 A ≃+ Additive (Abelianization G) ⊗[ℤ] A; with A = Z and TensorProduct.rid this is H_1(G, Z) ≅ G_ab.; **checked:** statement read at the pinned commit (Mathlib/RepresentationTheory/Homological/GroupHomology/LowDegree.lean:1023) by FIX-RT-AREA-ktheory-1
+- **ref:** mathlib:groupHomology.map; **kind:** abbrev; **module:** Mathlib/RepresentationTheory/Homological/GroupHomology/Functoriality.lean; **provides:** The map H_n(G, A) → H_n(H, B) induced by f : G →* H and φ : A ⟶ res f B; with trivial Z coefficients and φ = 𝟙 it is H_n(f; Z).; **checked:** statement read at the pinned commit (Mathlib/RepresentationTheory/Homological/GroupHomology/Functoriality.lean:157) by FIX-RT-AREA-ktheory-1
+- **ref:** mathlib:groupHomology.H1π_comp_map; **kind:** lemma; **module:** Mathlib/RepresentationTheory/Homological/GroupHomology/Functoriality.lean; **provides:** H1π A ≫ map f φ 1 = mapCycles₁ f φ ≫ H1π B: the degree-one map on classes of 1-cycles.; **checked:** statement read at the pinned commit (Mathlib/RepresentationTheory/Homological/GroupHomology/Functoriality.lean:387) by FIX-RT-AREA-ktheory-1
+- **ref:** mathlib:groupHomology.mapIso; **kind:** def; **module:** Mathlib/RepresentationTheory/Homological/GroupHomology/Functoriality.lean; **provides:** The isomorphism of homology groups induced by a group isomorphism and a compatible linear isomorphism of coefficients.; **checked:** statement read at the pinned commit (Mathlib/RepresentationTheory/Homological/GroupHomology/Functoriality.lean:193) by FIX-RT-AREA-ktheory-1
+- **ref:** mathlib:groupHomologyIso; **kind:** def; **module:** Mathlib/RepresentationTheory/Homological/GroupHomology/Basic.lean; **provides:** groupHomology A n ≅ homology of (P ⊗ A)_G for any projective resolution P of the trivial representation k; the tool for computing H_n of a free group from a length-one resolution.; **checked:** statement read at the pinned commit (Mathlib/RepresentationTheory/Homological/GroupHomology/Basic.lean:258) by FIX-RT-AREA-ktheory-1
+- **ref:** mathlib:CategoryTheory.ProjectiveResolution; **kind:** structure; **module:** Mathlib/CategoryTheory/Preadditive/Projective/Resolution.lean; **provides:** A projective resolution: an ℕ-indexed chain complex of projectives with a quasi-isomorphism to the object in degree zero.; **checked:** statement read at the pinned commit (Mathlib/CategoryTheory/Preadditive/Projective/Resolution.lean:41) by FIX-RT-AREA-ktheory-1
+- **ref:** mathlib:groupHomology.H1CoresCoinfOfTrivial_exact; **kind:** theorem; **module:** Mathlib/RepresentationTheory/Homological/GroupHomology/Functoriality.lean; **provides:** For S normal in G acting trivially on A, the short complex H_1(S, A) → H_1(G, A) → H_1(G/S, A) of corestriction and coinflation is exact. There is no degree-two continuation (no map H_2(G/S) → H_1(S)_G).; **checked:** statement read at the pinned commit (Mathlib/RepresentationTheory/Homological/GroupHomology/Functoriality.lean:468) by FIX-RT-AREA-ktheory-1
+- **ref:** mathlib:groupHomology.H1CoresCoinfOfTrivial_g_epi; **kind:** instance; **module:** Mathlib/RepresentationTheory/Homological/GroupHomology/Functoriality.lean; **provides:** In the same situation H_1(G, A) → H_1(G/S, A) is an epimorphism.; **checked:** statement read at the pinned commit (Mathlib/RepresentationTheory/Homological/GroupHomology/Functoriality.lean:460) by FIX-RT-AREA-ktheory-1
+- **ref:** mathlib:TensorProduct.rid; **kind:** def; **module:** Mathlib/LinearAlgebra/TensorProduct/Associator.lean; **provides:** M ⊗[R] R ≃ₗ[R] M, the unit isomorphism used to turn G_ab ⊗ Z into G_ab.; **checked:** statement read at the pinned commit (Mathlib/LinearAlgebra/TensorProduct/Associator.lean:72) by FIX-RT-AREA-ktheory-1
+- **ref:** mathlib:Abelianization; **kind:** def; **module:** Mathlib/GroupTheory/Abelianization/Defs.lean; **provides:** The abelianisation G ⧸ commutator G.; **checked:** statement read at the pinned commit (Mathlib/GroupTheory/Abelianization/Defs.lean:38) by FIX-RT-AREA-ktheory-1
+- **ref:** mathlib:Abelianization.map; **kind:** def; **module:** Mathlib/GroupTheory/Abelianization/Defs.lean; **provides:** The map of abelianisations induced by a group homomorphism.; **checked:** statement read at the pinned commit (Mathlib/GroupTheory/Abelianization/Defs.lean:123) by FIX-RT-AREA-ktheory-1
+- **ref:** mathlib:Group.isPerfect_def; **kind:** lemma; **module:** Mathlib/GroupTheory/IsPerfect.lean; **provides:** IsPerfect G ↔ commutator G = ⊤.; **checked:** statement read at the pinned commit (Mathlib/GroupTheory/IsPerfect.lean:47) by FIX-RT-AREA-ktheory-1
+- **ref:** mathlib:commutator; **kind:** def; **module:** Mathlib/GroupTheory/Commutator/Basic.lean; **provides:** The commutator subgroup ⁅⊤, ⊤⁆ of a group, normal and characteristic.; **checked:** statement read at the pinned commit (Mathlib/GroupTheory/Commutator/Basic.lean:450) by FIX-RT-AREA-ktheory-1
+- **ref:** mathlib:Subgroup.map_commutator; **kind:** theorem; **module:** Mathlib/GroupTheory/Commutator/Basic.lean; **provides:** map f ⁅H₁, H₂⁆ = ⁅map f H₁, map f H₂⁆: a surjection maps [F, F] onto [G, G].; **checked:** statement read at the pinned commit (Mathlib/GroupTheory/Commutator/Basic.lean:324) by FIX-RT-AREA-ktheory-1
+- **ref:** mathlib:FreeGroup; **kind:** def; **module:** Mathlib/GroupTheory/FreeGroup/Basic.lean; **provides:** The free group on a type, the source of a free presentation.; **checked:** statement read at the pinned commit (Mathlib/GroupTheory/FreeGroup/Basic.lean:471) by FIX-RT-AREA-ktheory-1
+- **ref:** mathlib:FreeGroup.lift; **kind:** def; **module:** Mathlib/GroupTheory/FreeGroup/Basic.lean; **provides:** Functions α → β into a group extend uniquely to homomorphisms FreeGroup α →* β; the lifting step of the Recognition Theorem.; **checked:** statement read at the pinned commit (Mathlib/GroupTheory/FreeGroup/Basic.lean:678) by FIX-RT-AREA-ktheory-1
+- **ref:** mathlib:FreeGroup.map; **kind:** def; **module:** Mathlib/GroupTheory/FreeGroup/Basic.lean; **provides:** The homomorphism FreeGroup α →* FreeGroup β induced by a function α → β; it lifts a homomorphism of groups to their canonical presentations.; **checked:** statement read at the pinned commit (Mathlib/GroupTheory/FreeGroup/Basic.lean:756) by FIX-RT-AREA-ktheory-1
+- **ref:** mathlib:IsFreeGroup; **kind:** class; **module:** Mathlib/GroupTheory/FreeGroup/IsFreeGroup.lean; **provides:** A group admitting a free basis in its own universe.; **checked:** statement read at the pinned commit (Mathlib/GroupTheory/FreeGroup/IsFreeGroup.lean:84) by FIX-RT-AREA-ktheory-1
+- **ref:** mathlib:subgroupIsFreeOfIsFree; **kind:** instance; **module:** Mathlib/GroupTheory/FreeGroup/NielsenSchreier.lean; **provides:** Nielsen-Schreier: a subgroup of a free group is free.; **checked:** statement read at the pinned commit (Mathlib/GroupTheory/FreeGroup/NielsenSchreier.lean:321) by FIX-RT-AREA-ktheory-1
+- **ref:** mathlib:MonoidHom.eqLocus; **kind:** def; **module:** Mathlib/Algebra/Group/Subgroup/Ker.lean; **provides:** The subgroup on which two homomorphisms agree; the carrier of the pullback of an extension.; **checked:** statement read at the pinned commit (Mathlib/Algebra/Group/Subgroup/Ker.lean:388) by FIX-RT-AREA-ktheory-1
+- **ref:** mathlib:MonoidHom.ker; **kind:** def; **module:** Mathlib/Algebra/Group/Subgroup/Ker.lean; **provides:** The kernel of a group homomorphism, the kernel of a central extension.; **checked:** statement read at the pinned commit (Mathlib/Algebra/Group/Subgroup/Ker.lean:238) by FIX-RT-AREA-ktheory-1
+- **ref:** mathlib:groupCohomology.H2; **kind:** abbrev; **module:** Mathlib/RepresentationTheory/Homological/GroupCohomology/LowDegree.lean; **provides:** Second group cohomology, which classifies extensions with abelian kernel through the Tau Ceti factor sets.; **checked:** statement read at the pinned commit (Mathlib/RepresentationTheory/Homological/GroupCohomology/LowDegree.lean:1042) by FIX-RT-AREA-ktheory-1
+- **ref:** mathlib:groupHomology.inhomogeneousChains; **kind:** abbrev; **module:** Mathlib/RepresentationTheory/Homological/GroupHomology/Basic.lean; **provides:** The inhomogeneous (bar) chain complex, on which 2-cycles are paired with 2-cocycles.; **checked:** statement read at the pinned commit (Mathlib/RepresentationTheory/Homological/GroupHomology/Basic.lean:156) by FIX-RT-AREA-ktheory-1
+- **ref:** mathlib:groupHomology.d₃₂; **kind:** def; **module:** Mathlib/RepresentationTheory/Homological/GroupHomology/LowDegree.lean; **provides:** The differential out of degree three in coordinates, whose image is the 2-boundaries.; **checked:** statement read at the pinned commit (Mathlib/RepresentationTheory/Homological/GroupHomology/LowDegree.lean:193) by FIX-RT-AREA-ktheory-1
+- **ref:** mathlib:AddCircle; **kind:** abbrev; **module:** Mathlib/Topology/Instances/AddCircle/Defs.lean; **provides:** AddCircle p = 𝕜 ⧸ zmultiples p; with p = (1 : ℚ) this is Q/Z, the target of characters.; **checked:** statement read at the pinned commit (Mathlib/Topology/Instances/AddCircle/Defs.lean:188) by FIX-RT-AREA-ktheory-1
+- **ref:** mathlib:CharacterModule; **kind:** def; **module:** Mathlib/Algebra/Module/CharacterModule.lean; **provides:** Characters A →+ AddCircle (1 : ℚ), i.e. homomorphisms to Q/Z.; **checked:** statement read at the pinned commit (Mathlib/Algebra/Module/CharacterModule.lean:44) by FIX-RT-AREA-ktheory-1
+- **ref:** mathlib:CharacterModule.dual_surjective_of_injective; **kind:** lemma; **module:** Mathlib/Algebra/Module/CharacterModule.lean; **provides:** Characters extend along injective maps (Q/Z is injective).; **checked:** statement read at the pinned commit (Mathlib/Algebra/Module/CharacterModule.lean:101) by FIX-RT-AREA-ktheory-1
+- **ref:** mathlib:CharacterModule.eq_zero_of_character_apply; **kind:** lemma; **module:** Mathlib/Algebra/Module/CharacterModule.lean; **provides:** An element killed by every character is zero.; **checked:** statement read at the pinned commit (Mathlib/Algebra/Module/CharacterModule.lean:223) by FIX-RT-AREA-ktheory-1
+- **ref:** tauceti:TauCeti.FactorSet.exists_cohomologyClass_eq; **kind:** theorem; **module:** TauCeti/GroupTheory/GroupExtension/Cohomology.lean; **provides:** Every class of H²(G, M) is the class of a factor set (G M : Type).; **checked:** statement read at the pinned commit (TauCeti/GroupTheory/GroupExtension/Cohomology.lean:187) by FIX-RT-AREA-ktheory-1
+- **ref:** tauceti:TauCeti.FactorSet.nonempty_splitting_iff_cohomologyClass_eq_zero; **kind:** theorem; **module:** TauCeti/GroupTheory/GroupExtension/Cohomology.lean; **provides:** The extension of a factor set splits exactly when its class in H² vanishes.; **checked:** statement read at the pinned commit (TauCeti/GroupTheory/GroupExtension/Cohomology.lean:245) by FIX-RT-AREA-ktheory-1
+- **ref:** tauceti:TauCeti.FactorSet.groupExtension; **kind:** def; **module:** TauCeti/GroupTheory/GroupExtension/Of/FactorSet.lean; **provides:** The group extension 1 → M → E_α → G → 1 determined by a factor set.; **checked:** statement read at the pinned commit (TauCeti/GroupTheory/GroupExtension/Of/FactorSet.lean:257) by FIX-RT-AREA-ktheory-1
 
-1. Take the free group on the indexed generator set and quotient by the normal closure of the
-   displayed relations, using the pinned presented-group construction.
-1. State each relation with its index hypothesis attached, so that the three commutator cases
-   are disjoint and exhaustive for distinct pairs.
-1. Prove the elementary consequences: x_ij(0) is the identity and x_ij(r) inverse is x_ij(minus
-   r).
-1. Prove the universal property: a group homomorphism out of St_n(R) is the same as a family of
-   elements satisfying the relations.
-1. Record that rank two is excluded, as the source does, because the relations degenerate there.
+## sources
 
-**API.**
+**id:** Kbook.2013
 
-| name | role | statement |
-| --- | --- | --- |
-| `Steinberg` | data | The group St_n(R) for n at least three. |
-| `Steinberg.x` | constructor | The generator x_ij(r), taking the distinctness of the indices as a hypothesis. |
-| `Steinberg.x_add` | relation | x_ij(r) x_ij(s) = x_ij(r + s). |
-| `Steinberg.commutator` | relation | The three commutator relations, each with its index hypothesis. |
-| `Steinberg.lift` | universal-property | A family satisfying the relations induces a unique homomorphism out of St_n(R). |
-| `Steinberg.x_zero` | simp | x_ij(0) is the identity. |
+**title:** The K-book: An Introduction to Algebraic K-theory
 
-**Used by.** *T.1's stabilisation*: the stable group is the colimit of these. *T.1's finite-rank splitting*: the splitting theorem for n at least five is a statement about these groups. *T.2's symbol*: the elements w_ij and h_ij, from which the symbol is built, are words in these generators.
+**authors:** Charles A. Weibel
 
-**Unit tests.**
+**edition:** Author-hosted combined draft dated 29 August 2013 (published as Graduate Studies in Mathematics 145, American Mathematical Society, 2013). Internal numbering (chapter.section.item) is quoted.
 
-- `x_zero` — x_ij(0) is the identity.
-- `x_inv` — The inverse of x_ij(r) is x_ij(minus r).
-- `commutator_disjoint_cases` — For distinct pairs with j not k and i not l the commutator is
-  trivial, which is the first case.
-- `no_rank_two` — The definition is not given for n equal to two: a definition that extends it
-  there asserts relations the source does not.
+**url:** https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf
 
-**Acceptance.**
+**sha256:** a04f53c9393b20672fab2a6818279b2f9996dbc7cf74735789ed13804b058845
+
+**accessed:** 2026-09-24
+
+**readSections**
+
+- III.5.1-III.5.5.1: the Steinberg group, K_2, Steinberg's centre theorem, universal central extensions, the Hopf formula, the Recognition Theorem and the finite-rank splitting (PDF pp. 225-228)
+- III.5.10-III.5.11.1: the star product, the Steinberg symbol, the Steinberg identity, the generation theorem and the Dennis-Stein symbols (PDF pp. 233-234)
+- III.6.1-III.6.1.3: Matsumoto's theorem, K_2 of a finite field, the rational function field and the torsion kernel (PDF p. 239)
+- III.7.1-III.7.3.1: Milnor K-theory, its examples, the higher tame symbols and rigidity (PDF pp. 253-254)
+- IV.1.20 and Ex. IV.1.9 for the comparison with homotopy K-theory (PDF pp. 281-282)
+- Independent review: IV.1.7.1 and Exercise IV.1.8 (PDF pp.273,282); IV.1.10-.1 (PDF p.274); VI.4.3.2 (PDF p.490); VI.5.2.1 and VI.5.3 (PDF p.496); source edition is the author copy, not the published text.
+- Independent review additional check: III.6.3 (PDF p.242) has the inverse tame-symbol convention to this roadmap; both detect {t,-1} as -1. Exercise III.7.3 (PDF p.265) explicitly states n>=2.
+- FIX-RT-AREA-ktheory-1, 2026-09-30: re-fetched, SHA-256 matched; read III.5.3-III.5.5.1 (PDF pp. 226-228), Exercise III.5.7 (PDF p. 237), IV.1.7-IV.1.7.1 (PDF pp. 272-273) and Exercises IV.1.8-IV.1.9 (PDF p. 282).
+
+---
+
+**id:** Loeh.GroupCohomology.2019
+
+**title:** Group Cohomology (lecture notes, Universität Regensburg, Sommersemester 2019)
+
+**authors:** Clara Löh
+
+**edition:** Author-hosted lecture notes for the summer semester 2019; printed page numbers are quoted with the PDF page (printed page + 8).
+
+**url:** https://loeh.app.uni-regensburg.de/teaching/grouphom_ss19/lecture_notes.pdf
+
+**sha256:** d4f2d819bfa85c57277db74bf749d05f03e85833c76e89eab99127f077d2cd76
+
+**accessed:** 2026-09-30
+
+**readSections**
+
+- Theorem 1.4.1 and Corollary 1.4.6 (printed pp. 20, 23): H_1 with trivial integral coefficients is the abelianisation, and perfectness is H_1 = 0
+- Theorem 1.5.1 with its proof note (printed p. 30) and Outlook 1.5.15 (printed pp. 40-41)
+- Proposition 1.6.21, Remark 1.6.22 and Corollary 1.6.23 (printed pp. 55-57): the length-one free resolution over a free group and the vanishing of its homology in degrees at least two
+- Theorem 3.2.12 and Remark 3.2.14 (printed pp. 123-124): the Hochschild-Serre spectral sequence and its naturality, stated without construction
+- Theorem 3.2.18 with its proof (printed pp. 129-132): Hopf's formula from the Hochschild-Serre spectral sequence
+
+---
+
+**id:** Kbook.III.chapter
+
+**title:** Weibel, K-book chapter III, separately hosted author chapter
+
+**url:** https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.III.pdf
+
+**sha256:** ba1bc2d25680ab25c4baadc5ab28e39d1077dc66bb12ca4e2174b6cb55f81307
+
+**accessed:** 2026-09-30
+
+**readSections**
+
+- PDF pp.61–62: III.7.2–7.3, global Milnor groups
+
+**authors:** Charles A. Weibel
+
+**edition:** Separately hosted author chapter downloaded 2026-09-30; checksum and chapter-PDF pagination distinguish it from the earlier combined draft.
+
+---
+
+## coverage
+
+**stageId:** K2SymbolsBrauer:T.1
+
+**status:** partial
+
+**note:** Review checked the intended target of this stage. Its declarations are planned, with unresolved proof and interface work recorded; the umbrella stages aggregate their sub-stages.
+
+**remaining:** See node-indexed gaps and the independent review report; a cited theorem is not a decomposed proof.
+
+---
+
+**stageId:** K2SymbolsBrauer:T.1:classical
+
+**status:** partial
+
+**note:** Review checked the intended target of this stage. Its declarations are planned, with unresolved proof and interface work recorded; the umbrella stages aggregate their sub-stages. FIX-RT-AREA-ktheory-1 (findings RT-AREA-ktheory-1/29 and /30) decomposed the universal-central-extension package into declaration-sized nodes: pullback and composite of central extensions, splitting over a universal extension, H_1 as abelianisation, superperfect groups, existence for perfect groups, Hopf's formula through the four-term sequence, the kernel as H_2, the four implications of the Recognition Theorem, and the lift of homomorphisms with its kernel naturality. Three of these (central-extension-comp, split-extensions-kill-h2, uce-source-superperfect) were first planned in K3BlochGroups V.1 and moved here; V.1, T.1:plus and StableHomotopyKTheory H.3 import them.
+
+**remaining:** See node-indexed gaps and the independent review report; a cited theorem is not a decomposed proof. For the recognition package the one open input is G-Hopf (the Hochschild-Serre low-degree sequence behind hopf-four-term-sequence and hopf-formula-natural).
+
+---
+
+**stageId:** K2SymbolsBrauer:T.1:plus
+
+**status:** partial
+
+**note:** Review checked the intended target of this stage. Its declarations are planned, with unresolved proof and interface work recorded; the umbrella stages aggregate their sub-stages.
+
+**remaining:** See node-indexed gaps and the independent review report; a cited theorem is not a decomposed proof.
+
+---
+
+**stageId:** K2SymbolsBrauer:T.2
+
+**status:** partial
+
+**note:** Review checked the intended target of this stage. Its declarations are planned, with unresolved proof and interface work recorded; the umbrella stages aggregate their sub-stages.
+
+**remaining:** See node-indexed gaps and the independent review report; a cited theorem is not a decomposed proof.
+
+---
+
+**stageId:** K2SymbolsBrauer:T.2:symbols
+
+**status:** partial
+
+**note:** Review checked the intended target of this stage. Its declarations are planned, with unresolved proof and interface work recorded; the umbrella stages aggregate their sub-stages.
+
+**remaining:** See node-indexed gaps and the independent review report; a cited theorem is not a decomposed proof.
+
+---
+
+**stageId:** K2SymbolsBrauer:T.2:graded-map
+
+**status:** partial
+
+**note:** Review checked the intended target of this stage. Its declarations are planned, with unresolved proof and interface work recorded; the umbrella stages aggregate their sub-stages.
+
+**remaining:** See node-indexed gaps and the independent review report; a cited theorem is not a decomposed proof.
+
+---
+
+## restructure
+
+## consumerContracts
+
+**consumer:** K3BlochGroups:V.2
+
+**provides:** The integral degree-three Milnor-to-Quillen map and its product convention; V.2 imports it for injectivity and the indecomposable cokernel.
+
+---
+
+**consumer:** HigherLocalFieldsAndHigherClassFieldTheory:HL.1
+
+**provides:** All-degree Milnor K-theory is owned here by RS-28; HL.1 imports it, with residues imported from the separate T.3 owner.
+
+---
+
+**consumer:** K3BlochGroups:V.1
+
+**provides:** The stable Steinberg group and its universal central extension St(A) → E(A) (steinberg-is-uce), and the theorem that the source of a universal central extension is superperfect (T.1:classical/uce-source-superperfect, with its lemmas central-extension-comp, uce-extensions-split, split-extensions-kill-h2 and h1-trivial-perfect, formerly planned in V.1). V.1 deduces H_1(St(A)) = H_2(St(A)) = 0 as a corollary and keeps only the plus construction, the connected-cover comparison, the Hurewicz step and the bar-cycle model.
+
+---
+
+**consumer:** StableHomotopyKTheory:H.3
+
+**provides:** The Recognition Theorem (recognition-theorem; in particular (3) ⇒ (1) through superperfect-extensions-split and split-central-extension-universal), existence of universal central extensions of perfect groups (T.1:classical/perfect-uce-exists) and the kernel identification with H_2 (T.1:classical/uce-kernel-h2, with uce-kernel-h2-natural). H.3/plus-pi2-universal-central-extension should cite these instead of the unread K-book III.5.4; it keeps the topological acyclic-fibre argument.
+
+---
+
+**consumer:** EllipticKTheory:E.5
+
+**provides:** Import T.2:symbols/milnor-global-positive-characteristic for all n≥3; the separate low-degree global tame kernel and reciprocity are requested from T.4.
+
+---
+
+**consumer:** K3BlochGroups:V.2
+
+**provides:** Import T.2:symbols/milnor-number-field at degree three and T.2:graded-map for the product comparison; retain the indecomposable cokernel in V.2.
+
+---
+
+## sourceVersions
+
+**kind:** author copy
+
+**url:** https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf
+
+**read:** 2026-09-29
+
+**sha256:** a04f53c9393b20672fab2a6818279b2f9996dbc7cf74735789ed13804b058845
+
+---
+
+**kind:** author copy
+
+**url:** https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.III.pdf
+
+**read:** 2026-09-30
+
+**sha256:** ba1bc2d25680ab25c4baadc5ab28e39d1077dc66bb12ca4e2174b6cb55f81307
+
+**note:** FIX-RT-AREA-ktheory-2~2: only PDF pp.61–62: III.7.2–7.3, global Milnor groups inspected. Earlier version records remain historical.
+
+---
+
+## Mathematical nodes
+
+### K2SymbolsBrauer:T.1
+
+### K2SymbolsBrauer:T.1:classical
+
+#### The Steinberg group of a ring in finite rank
+
+`K2SymbolsBrauer:T.1/steinberg-group-finite-rank` — definition
+
+For a ring R and an integer n at least three define St_n(R) by generators x_ij(r), indexed by a pair of distinct integers i and j between one and n and an element r of R, subject to the Steinberg relations: x_ij(r) x_ij(s) = x_ij(r + s), and the commutator of x_ij(r) with x_kl(s) is trivial when j is different from k and i is different from l, is x_il(rs) when j equals k and i is different from l, and is x_kj(minus s r) when j is different from k and i equals l. The distinct-index hypotheses are part of each relation and are never dropped. No definition is given for n equal to two.
+
+**realises**
+
+- K2SymbolsBrauer:T.1:classical
+
+**hypotheses**
+
+- R is an associative unital ring.
+- n is at least three.
+- i and j are distinct indices between one and n.
+
+**proofSteps**
+
+- Take the free group on the indexed generator set and quotient by the normal closure of the displayed relations, using the pinned presented-group construction.
+- State the three commutator relations with their index hypotheses. They are disjoint but deliberately do not constrain the opposite-root pair (i,j),(j,i).
+- Prove the elementary consequences: x_ij(0) is the identity and x_ij(r) inverse is x_ij(minus r).
+- Prove the universal property: a group homomorphism out of St_n(R) is the same as a family of elements satisfying the relations.
+- Use the source convention n >= 3; the unprescribed opposite-root case also occurs at higher rank and is not an explanation unique to rank two.
+
+**acceptance**
 
 - x_ij(0) is the identity.
-- The three commutator cases are disjoint, and the case i equal to l with j equal to k is not
-  covered by any of them, which is why rank two is excluded.
+- The opposite-root commutator is not prescribed by these relations, at any rank.
 - For n at least three the group is nontrivial whenever R is.
 
-**Depends on.** **baseline** `mathlib:PresentedGroup`, `mathlib:commutatorElement`.
+**prerequisites**
 
-**Source.** Kbook.2013, III.5.1 (PDF p. 225): “Definition 5.1. For n >= 3 the Steinberg group St_n(R) of a ring R is the group defined by generators x_ij(r), with i, j a pair of distinct integers between 1 and n and r in R, subject to the following Steinberg relations: x_ij(r) x_ij(s) = x_ij(r + s); [x_ij(r), x_kl(s)] = 1 if j is not k and i is not l, x_il(rs) if j = k and i is not l, x_kj(-sr) if j is not k and i = l.” — The definition and the three relations, as displayed.
+- mathlib:PresentedGroup
+- mathlib:commutatorElement
 
-### `elementary-matrices-satisfy` — The elementary matrices satisfy the Steinberg relations
+**sources**
 
-*lemma*
+- **sourceId:** Kbook.2013; **locator:** III.5.1 (PDF p. 225); **excerpt:** Definition 5.1. For n >= 3 the Steinberg group St_n(R) of a ring R is the group defined by generators x_ij(r), with i, j a pair of distinct integers between 1 and n and r in R, subject to the following Steinberg relations: x_ij(r) x_ij(s) = x_ij(r + s); [x_ij(r), x_kl(s)] = 1 if j is not k and i is not l, x_il(rs) if j = k and i is not l, x_kj(-sr) if j is not k and i = l.; **match:** The definition and the three relations, as displayed.
 
-For every ring R and every n at least three the elementary matrices e_ij(r) in the general
-linear group satisfy the Steinberg relations. Consequently there is a canonical surjection from
-St_n(R) onto the subgroup E_n(R) generated by the elementary matrices, sending x_ij(r) to
-e_ij(r).
+**implementationStatus:** unchecked
 
-**Hypotheses.** R is an associative unital ring; n is at least three.
+**api**
 
-**Construction and proof.**
+- **name:** Steinberg; **role:** data; **statement:** The group St_n(R) for n at least three.
+- **name:** Steinberg.x; **role:** constructor; **statement:** The generator x_ij(r), taking the distinctness of the indices as a hypothesis.
+- **name:** Steinberg.x_add; **role:** relation; **statement:** x_ij(r) x_ij(s) = x_ij(r + s).
+- **name:** Steinberg.commutator; **role:** relation; **statement:** The three commutator relations, each with its index hypothesis.
+- **name:** Steinberg.lift; **role:** universal-property; **statement:** A family satisfying the relations induces a unique homomorphism out of St_n(R).
+- **name:** Steinberg.x_zero; **role:** simp; **statement:** x_ij(0) is the identity.
+- **name:** Steinberg.hom_ext; **role:** extensionality; **statement:** Two homomorphisms agreeing on every generator are equal.
+- **name:** Steinberg.map; **role:** functoriality; **statement:** Ring maps act on parameters; identity and composition are proved on generators.
 
-1. Import the elementary matrices and their commutator formulas from the pinned libraries, where
-   they are proved for transvections over a commutative ring.
-1. Check the additivity relation and each of the three commutator cases against the pinned
-   formulas, keeping the index hypotheses aligned.
-1. Apply the universal property of the Steinberg presentation to obtain the homomorphism.
-1. Prove surjectivity onto E_n(R), which is immediate since the elementary matrices generate it
-   by definition.
-1. Record the boundary of the pinned input: the commutator formulas are stated over a
-   commutative ring, and the noncommutative case is proved here.
+**uses**
 
-**Acceptance.**
+- **where:** T.1's stabilisation; **how:** the stable group is the colimit of these
+- **where:** T.1's finite-rank splitting; **how:** the splitting theorem for n at least five is a statement about these groups
+- **where:** T.2's symbol; **how:** the elements w_ij and h_ij, from which the symbol is built, are words in these generators
 
-- The image of x_ij(r) is e_ij(r).
-- The map is onto E_n(R) but not onto GL_n(R) in general.
-- The relations hold for elementary matrices, which is what makes the Steinberg presentation an
-  imitation of them rather than an arbitrary presentation.
+**tests**
 
-**Depends on.** **inside this roadmap** `steinberg-group-finite-rank`; **baseline** `mathlib:Matrix.GeneralLinearGroup.transvection`, `tauceti:TauCeti.transvectionUnit`, `tauceti:TauCeti.commutatorElement_transvectionUnit`.
+- **name:** x_zero; **statement:** x_01(0)=1 in rank three.
+- **name:** x_inverse; **statement:** x_01(r)^-1=x_01(-r).
+- **name:** forward_product; **statement:** [x_01(r),x_12(s)]=x_02(r*s).
+- **name:** reverse_product_order; **statement:** Over R=M_2(Z), [x_01(r),x_20(s)]=x_21(-(s*r)); choose noncommuting r=E12 and s=E21 to distinguish s*r from r*s.
+- **name:** disjoint; **statement:** [x_01(r),x_02(s)]=1; the opposite-root case x_01,x_10 is not assigned this relation.
 
-**Source.** Kbook.2013, III.5.1.2 (PDF p. 225): “As observed in 1.3.1, the Steinberg relations are also satisfied by the elementary matrices e_ij(r) which generate the subgroup E_n(R) of GL_n(R). Hence there is a canonical group surjection phi_n : St_n(R) -> E_n(R) sending x_ij(r) to e_ij(r).” — The observation and the resulting surjection, as displayed.
+**planet:** **name:** Steinberg group
 
-### `stabilisation` — Stabilisation and the stable Steinberg group ★
+**library:** **module:** TauCeti/Algebra/KTheory/Steinberg; **namespace:** TauCeti.Steinberg
 
-*construction* · planet **Stable Steinberg group**
+#### The elementary matrices satisfy the Steinberg relations
 
-The Steinberg relations for n plus one include those for n, so there is a canonical map from
-St_n(R) to St_{n+1}(R). Define the stable Steinberg group St(R) as the colimit of this tower,
-and observe that the maps onto the finite-rank elementary groups stabilise to a surjection from
-St(R) onto the stable elementary group E(R). The stable and finite-rank objects are kept
-distinct throughout.
+`K2SymbolsBrauer:T.1/elementary-matrices-satisfy` — lemma
 
-**Hypotheses.** R is an associative unital ring.
+For an associative unital ring R and n >= 3, elementary transvections satisfy additivity, the nonchaining commutator relation and both chaining commutator relations, with all distinct-index hypotheses as in the Steinberg presentation.
 
-**Construction and proof.**
+**realises**
 
-1. Construct the map from St_n(R) to St_{n+1}(R) by sending each generator to the generator with
-   the same indices, which is legitimate because the relations for the larger rank include those
-   for the smaller.
-1. Form the colimit of the tower, using the pinned direct-limit construction.
-1. Construct the stable elementary group as the colimit of the finite-rank elementary groups and
-   prove that the surjections are compatible with the two towers.
-1. Deduce the stable surjection onto E(R).
-1. Prove functoriality in the ring, for both the finite-rank and the stable objects.
+- K2SymbolsBrauer:T.1:classical
 
-**API.**
+**hypotheses**
 
-| name | role | statement |
-| --- | --- | --- |
-| `Steinberg.stabilise` | constructor | The map from rank n to rank n plus one. |
-| `StableSteinberg` | data | The colimit St(R). |
-| `StableSteinberg.phi` | constructor | The surjection onto the stable elementary group. |
-| `StableSteinberg.phi_surjective` | characterisation | That surjection is onto. |
-| `StableSteinberg.map` | functoriality | Functoriality in the ring. |
+- R is an associative unital ring; n is at least three.
 
-**Used by.** *T.1's definition of K_2*: K_2 is the kernel of the stable surjection. *K3BlochGroups V.1*: that layer's homological model is about this stable group and its superperfection. *T.1:plus*: the comparison with the K-theory space is stated for the stable objects.
+**proofSteps**
 
-**Unit tests.**
+- For a commutative ring, cite the four separate pinned transvection lemmas and align their index hypotheses.
+- For general associative R, construct I+rE_ij as a matrix unit with inverse I-rE_ij, then multiply matrix entries for each relation, retaining product order. This general-ring bridge remains gap G-matrix; it is not proved by the commutative-ring citations.
 
-- `surjective` — The stable map onto E(R) is surjective.
-- `colimit_property` — Every element of St(R) comes from some finite rank.
-- `functorial` — A ring map induces a compatible map of stable Steinberg groups.
-- `not_finite_rank` — A property of St(R) is not asserted for St_n(R): the two are different
-  groups.
+**acceptance**
 
-**Acceptance.**
+- Forward chaining has coefficient r*s; reverse chaining has coefficient -(s*r).
+- The nonchaining case requires both j != k and i != l.
+- The opposite-root commutator is not asserted trivial.
+
+**prerequisites**
+
+- K2SymbolsBrauer:T.1/steinberg-group-finite-rank
+- mathlib:Matrix.GeneralLinearGroup.transvection
+- tauceti:TauCeti.transvectionUnit
+- tauceti:TauCeti.commutatorElement_transvectionUnit
+- tauceti:TauCeti.transvectionUnit_add
+- tauceti:TauCeti.commute_transvectionUnit
+- tauceti:TauCeti.commutatorElement_transvectionUnit_reverse
+
+**sources**
+
+- **sourceId:** Kbook.2013; **locator:** III.5.1.2 (PDF p. 225); **excerpt:** As observed in 1.3.1, the Steinberg relations are also satisfied by the elementary matrices e_ij(r) which generate the subgroup E_n(R) of GL_n(R). Hence there is a canonical group surjection phi_n : St_n(R) -> E_n(R) sending x_ij(r) to e_ij(r).; **match:** The observation and the resulting surjection, as displayed.
+
+**implementationStatus:** unchecked
+
+#### Stabilisation and the stable Steinberg group
+
+`K2SymbolsBrauer:T.1/stabilisation` — construction
+
+Construct the rank-increasing maps between St_n(R) from the presentation and the stable group St(R) as their group colimit. Import the finite and stable elementary groups and their embeddings from KTheoryLowDegrees:U.1; the compatible finite Steinberg maps induce St(R) -> E(R).
+
+**realises**
+
+- K2SymbolsBrauer:T.1:classical
+
+**hypotheses**
+
+- R is an associative unital ring.
+
+**proofSteps**
+
+- Extend each generator index by the standard inclusion and use the presentation universal property.
+- Construct the group-colimit operations and universal property on the directed quotient; the cited DirectLimit is only a carrier. Gap G-colimit records the missing group API.
+- Verify compatibility with the imported elementary embeddings on generators.
+- Lift an elementary word at finite rank to prove the induced map onto E(R) is surjective; use finite-representative equality for well-definedness.
+- Prove ring-map identity and composition on finite generators.
+
+**acceptance**
 
 - The stable map is surjective onto E(R).
-- A statement proved for St(R) does not follow for St_n(R): the two are kept distinct, which is
-  the discipline the layer requires.
+- A statement proved for St(R) does not follow for St_n(R): the two are kept distinct, which is the discipline the layer requires.
 - The construction is functorial in the ring.
 
-**Depends on.** **inside this roadmap** `steinberg-group-finite-rank`, `elementary-matrices-satisfy`; **baseline** `mathlib:DirectLimit`.
+**prerequisites**
 
-**Source.** Kbook.2013, III.5.1.2 (PDF p. 225): “The Steinberg relations for n + 1 include the Steinberg relations for n, so there is an obvious map St_n(R) -> St_{n+1}(R). We write St(R) for the colimit of the St_n(R), and observe that by stabilizing the phi_n induce a surjection phi : St(R) -> E(R).” — The stabilisation and the stable surjection, as displayed.
+- K2SymbolsBrauer:T.1/steinberg-group-finite-rank
+- K2SymbolsBrauer:T.1:classical/to-elementary
+- mathlib:DirectLimit
+- KTheoryLowDegrees:U.1
 
-### `k2-definition` — Classical K_2 of a ring ★
+**sources**
 
-*definition* · planet **Classical K2**
+- **sourceId:** Kbook.2013; **locator:** III.5.1.2 (PDF p. 225); **excerpt:** The Steinberg relations for n + 1 include the Steinberg relations for n, so there is an obvious map St_n(R) -> St_{n+1}(R). We write St(R) for the colimit of the St_n(R), and observe that by stabilizing the phi_n induce a surjection phi : St(R) -> E(R).; **match:** The stabilisation and the stable surjection, as displayed.
 
-Define K_2(R) as the kernel of the stable surjection from St(R) onto E(R). This gives the exact
-sequence of groups from the trivial group to K_2(R) to St(R) to GL(R) to K_1(R) to the trivial
-group. Both St and K_2 are covariant functors from rings to groups.
+**implementationStatus:** unchecked
 
-**Hypotheses.** R is an associative unital ring.
+**api**
 
-**Construction and proof.**
+- **name:** Steinberg.stabilise; **role:** constructor; **statement:** The map from rank n to rank n plus one.
+- **name:** StableSteinberg; **role:** data; **statement:** The colimit St(R).
+- **name:** StableSteinberg.phi; **role:** constructor; **statement:** The surjection onto the stable elementary group.
+- **name:** StableSteinberg.phi_surjective; **role:** characterisation; **statement:** That surjection is onto.
+- **name:** StableSteinberg.map; **role:** functoriality; **statement:** Functoriality in the ring.
+- **name:** StableSteinberg.lift; **role:** universal-property; **statement:** Compatible finite-rank homomorphisms induce a unique homomorphism from St(R).
+- **name:** StableSteinberg.hom_ext; **role:** extensionality; **statement:** Homomorphisms agreeing on every finite-stage generator are equal.
 
-1. Take the kernel of the stable surjection.
-1. Assemble the four-term exact sequence, using that E(R) is the commutator subgroup of GL(R)
-   and that K_1(R) is the quotient, both imported.
-1. Prove functoriality in the ring.
-1. Record that abelianness is not part of the definition: it is Steinberg's theorem, proved
-   next.
+**uses**
 
-**API.**
+- **where:** T.1's definition of K_2; **how:** K_2 is the kernel of the stable surjection
+- **where:** K3BlochGroups V.1; **how:** that layer's homological model is about this stable group and its superperfection
+- **where:** T.1:plus; **how:** the comparison with the K-theory space is stated for the stable objects
 
-| name | role | statement |
-| --- | --- | --- |
-| `K2` | data | The group K_2(R). |
-| `K2.subtype` | coercion | Its inclusion into St(R). |
-| `K2.mem_iff` | characterisation | An element lies in K_2(R) exactly when its image in E(R) is trivial. |
-| `K2.map` | functoriality | Functoriality in the ring. |
-| `K2.exact` | structure | The four-term exact sequence. |
+**tests**
 
-**Used by.** *T.2's symbols*: every symbol is an element of this group. *T.1:plus*: the comparison identifies this group with a homotopy group. *K3BlochGroups V.1*: the kernel of the universal central extension there is this group.
+- **name:** rank_three_generator; **statement:** The rank-three generator x_01(2) maps to the stable generator with the same parameter.
+- **name:** relation_survives; **statement:** The image of [x_01(r),x_12(s)] is x_02(r*s) after any common stabilization.
+- **name:** finite_word_lift; **statement:** A stable elementary word represented at rank five is the image of the corresponding rank-five Steinberg word.
 
-**Unit tests.**
+**planet:** **name:** Stable Steinberg group
 
-- `zero_ring` — K_2 of the zero ring is trivial.
-- `integers` — K_2(Z) is cyclic of order two.
-- `finite_field` — K_2 of a finite field is trivial.
-- `not_by_definition_abelian` — Abelianness is a theorem, not part of the definition: a
-  definition that assumes it assumes Steinberg's theorem.
+**library:** **module:** TauCeti/Algebra/KTheory/Steinberg; **namespace:** TauCeti.Steinberg
 
-**Acceptance.**
+#### Classical K_2 of a ring
+
+`K2SymbolsBrauer:T.1/k2-definition` — definition
+
+Define classical K2(R) as ker(phi : St(R) -> E(R)). The inclusion into St(R) is injective and its image is the kernel; the stable Steinberg map is surjective. Ring maps induce maps on these kernels.
+
+**realises**
+
+- K2SymbolsBrauer:T.1:classical
+
+**hypotheses**
+
+- R is an associative unital ring.
+
+**proofSteps**
+
+- Take the kernel of the stable surjection.
+- Assemble the four-term exact sequence, using that E(R) is the commutator subgroup of GL(R) and that K_1(R) is the quotient, both imported.
+- Prove functoriality in the ring.
+- Record that abelianness is not part of the definition: it is Steinberg's theorem, proved next.
+
+**acceptance**
 
 - The sequence is exact at each of its four places.
 - K_2 of the zero ring is trivial.
-- K_2(Z) is cyclic of order two, generated by the symbol of minus one with itself; this is the
-  acceptance test that the group is not trivially zero.
+- K_2(Z) is cyclic of order two, generated by the symbol of minus one with itself; this is the acceptance test that the group is not trivially zero.
 
-**Depends on.** **inside this roadmap** `stabilisation`; **other roadmaps** `GeneralAlgebraicKTheory:K.2`.
+**prerequisites**
 
-**Source.** Kbook.2013, III.5.2 (PDF p. 225): “Definition 5.2. The group K_2(R) is the kernel of phi : St(R) -> E(R). Thus there is an exact sequence of groups 1 -> K_2(R) -> St(R) -> GL(R) -> K_1(R) -> 1.” — The definition and the exact sequence, as displayed.
+- K2SymbolsBrauer:T.1/stabilisation
 
-### `k2-is-centre` — Steinberg's theorem: K_2 is the centre of the Steinberg group ★
+**sources**
 
-*theorem* · planet **K2 is the centre of St**
+- **sourceId:** Kbook.2013; **locator:** III.5.2 (PDF p. 225); **excerpt:** Definition 5.2. The group K_2(R) is the kernel of phi : St(R) -> E(R). Thus there is an exact sequence of groups 1 -> K_2(R) -> St(R) -> GL(R) -> K_1(R) -> 1.; **match:** The definition and the exact sequence, as displayed.
+
+**implementationStatus:** unchecked
+
+**api**
+
+- **name:** K2; **role:** data; **statement:** The group K_2(R).
+- **name:** K2.subtype; **role:** coercion; **statement:** Its inclusion into St(R).
+- **name:** K2.mem_iff; **role:** characterisation; **statement:** An element lies in K_2(R) exactly when its image in E(R) is trivial.
+- **name:** K2.map; **role:** functoriality; **statement:** Functoriality in the ring.
+- **name:** K2.ext; **role:** extensionality; **statement:** Kernel elements are equal exactly when their values in St(R) are equal.
+
+**uses**
+
+- **where:** T.2's symbols; **how:** every symbol is an element of this group
+- **where:** T.1:plus; **how:** the comparison identifies this group with a homotopy group
+- **where:** K3BlochGroups V.1; **how:** the kernel of the universal central extension there is this group
+
+**tests**
+
+- **name:** zero_ring; **statement:** K_2 of the zero ring is trivial.
+- **name:** integers; **statement:** K_2(Z) is cyclic of order two.
+- **name:** finite_field; **statement:** K_2 of a finite field is trivial.
+- **name:** not_by_definition_abelian; **statement:** Abelianness is a theorem, not part of the definition: a definition that assumes it assumes Steinberg's theorem.
+
+**planet:** **name:** Classical K2
+
+**library:** **module:** TauCeti/Algebra/KTheory/Steinberg; **namespace:** TauCeti.Steinberg
+
+#### Steinberg's theorem: K_2 is the centre of the Steinberg group
+
+`K2SymbolsBrauer:T.1/k2-is-centre` — theorem
 
 For every ring R the group K_2(R) is abelian; in fact it is precisely the centre of St(R).
 
-**Hypotheses.** R is an associative unital ring.
+**realises**
 
-**Construction and proof.**
+- K2SymbolsBrauer:T.1:classical
 
-1. One inclusion: if an element is central in St(R) then its image is central in E(R), and the
-   centre of E(R) is trivial, so the image is trivial and the element lies in K_2(R).
-1. For the other inclusion take an element y of the kernel. Its commutator with every element of
-   St(R) maps to the identity in E(R).
-1. Choose n large enough that y is a word in the generators with indices below n. For each
-   generator x_kn(s) with k below n, the Steinberg relations put the commutator of y with it
-   inside the subgroup generated by the symbols x_in(r) with i below n.
-1. That subgroup maps injectively into E(R), so the commutator is trivial and y commutes with
-   every such generator.
-1. By symmetry y commutes with every x_nk(s), hence with every x_kl(s) for k and l below n,
-   since each such generator is a commutator of two of the previous ones. Let n grow to conclude
-   that y is central.
-1. Record the one input that is not self-contained: the injectivity of the displayed subgroup
-   into E(R), which the source relegates to an exercise and which is proved here.
+**hypotheses**
 
-**Acceptance.**
+- R is an associative unital ring.
 
-- K_2(R) is abelian, which is what makes the four-term sequence a sequence of abelian groups at
-  that spot.
-- The centre of E(R) is trivial, which is the first half of the argument and is needed
-  separately.
-- The theorem is about the stable group: the centre of St_n(R) is a different question, treated
-  in the finite-rank caveat.
+**proofSteps**
 
-**Depends on.** **inside this roadmap** `k2-definition`, `stabilisation`; **baseline** `mathlib:Subgroup.center`.
+- One inclusion: if an element is central in St(R) then its image is central in E(R), and the centre of E(R) is trivial, so the image is trivial and the element lies in K_2(R).
+- For the other inclusion take an element y of the kernel. Its commutator with every element of St(R) maps to the identity in E(R).
+- Choose n large enough that y is a word in the generators with indices below n. For each generator x_kn(s) with k below n, the Steinberg relations put the commutator of y with it inside the subgroup generated by the symbols x_in(r) with i below n.
+- That subgroup maps injectively into E(R), so the commutator is trivial and y commutes with every such generator.
+- By symmetry y commutes with every x_nk(s), hence with every x_kl(s) for k and l below n, since each such generator is a commutator of two of the previous ones. Let n grow to conclude that y is central.
+- Gap G-centre records the column-subgroup injectivity (Exercise III.5.2), stable E centre calculation (Exercise III.1.8), and word-normalization assertions. They are needed here and are not proved by a citation.
 
-**Source.** Kbook.2013, III.5.2.1 (PDF p. 225): “Theorem 5.2.1. (Steinberg) K_2(R) is an abelian group. In fact it is precisely the center of St(R).” — The theorem, with the proof of the source followed step by step.
+**acceptance**
 
-### `central-extension` — Central extensions and their equivalence
+- K_2(R) is abelian, which is what makes the four-term sequence a sequence of abelian groups at that spot.
+- The centre of E(R) is trivial, which is the first half of the argument and is needed separately.
+- The theorem is about the stable group: the centre of St_n(R) is a different question, treated in the finite-rank caveat.
 
-*definition*
+**prerequisites**
 
-A central extension of G by an abelian group A is a GroupExtension A G whose included kernel
-lies in the centre of the total group. It is split if it admits a section, equivalently if it is
-equivalent, with identity on A and G, to the product extension. Equivalence retains the kernel
-and quotient identifications.
+- K2SymbolsBrauer:T.1/k2-definition
+- K2SymbolsBrauer:T.1/stabilisation
+- mathlib:Subgroup.center
 
-**Hypotheses.** G is a group; A is an abelian group.
+**sources**
 
-**Construction and proof.**
+- **sourceId:** Kbook.2013; **locator:** III.5.2.1 (PDF p. 225); **excerpt:** Theorem 5.2.1. (Steinberg) K_2(R) is an abelian group. In fact it is precisely the center of St(R).; **match:** The theorem, with the proof of the source followed step by step.
 
-1. Add the central-kernel predicate to GroupExtension; exactness identifies the image of its
-   inclusion with the projection kernel.
-1. Use the product construction and the displayed section formula to characterize splitness.
-1. Use existing extension equivalences, with fixed kernel and quotient maps; no classification
-   is asserted in this definition.
+**implementationStatus:** unchecked
 
-**API.**
+**planet:** **name:** K2 is the centre of St
 
-| name | role | statement |
-| --- | --- | --- |
-| `IsCentralExtension` | characterisation | The predicate that an extension is central. |
-| `CentralExtension.split` | characterisation | Splitness. |
-| `CentralExtension.Equiv` | structure | Equivalence of two extensions of G by A. |
-| `CentralExtension.product` | constructor | The inclusion A -> A x G and projection A x G -> G form a split central extension. |
-| `CentralExtension.section_equiv` | equivalence | A homomorphic section gives an extension equivalence to A x G, with formula (a,g) -> inl(a)*section(g). |
+#### Central extensions and their equivalence
 
-**Used by.** *T.1's universal central extension*: the universal object is defined in this category. *T.1's Recognition Theorem*: the characterisation by splitting of central extensions is stated here. *K3BlochGroups:V.1/steinberg-superperfect*: superperfection of St(A) is the corollary of T.1:classical/uce-source-superperfect for this notion of central extension. *StableHomotopyKTheory:H.3/plus-pi2-universal-central-extension*: π_2(BG⁺) is central in π_1 F(f), which is a central extension of P (K-book IV.1.7).
+`K2SymbolsBrauer:T.1/central-extension` — definition
 
-**Unit tests.**
+A central extension of G by an abelian group A is a GroupExtension A G whose included kernel lies in the centre of the total group. It is split if it admits a section, equivalently if it is equivalent, with identity on A and G, to the product extension. Equivalence retains the kernel and quotient identifications.
 
-- `product_extension` — For A=C2 and G=C2, the product projection is central and split.
-- `cyclic_nonsplit` — The quotient C4 -> C2 modulo two is central but has no homomorphic
-  section.
-- `marked_kernel` — For C9 -> C3 modulo three, kernel inclusions C3 -> C9 given by 1 -> 3 and 1
-  -> 6 give inequivalent extensions although both total groups are C9: a map over C3 has
-  multiplier 1 mod 3, whereas preserving these marked kernels would require multiplier 2 mod 3.
+**realises**
 
-**Acceptance.**
+- K2SymbolsBrauer:T.1:classical
+
+**hypotheses**
+
+- G is a group; A is an abelian group.
+
+**proofSteps**
+
+- Add the central-kernel predicate to GroupExtension; exactness identifies the image of its inclusion with the projection kernel.
+- Use the product construction and the displayed section formula to characterize splitness.
+- Use existing extension equivalences, with fixed kernel and quotient maps; no classification is asserted in this definition.
+
+**acceptance**
 
 - The split extension corresponds to the zero cohomology class.
 - An extension built from a trivial-action factor set is central, which is the pinned statement.
-- Equivalence is finer than isomorphism of groups: two inequivalent extensions can have
-  isomorphic total groups.
+- Equivalence is finer than isomorphism of groups: two inequivalent extensions can have isomorphic total groups.
 
-**Depends on.** **baseline** `mathlib:GroupExtension`, `tauceti:TauCeti.FactorSet.inl_range_le_center`, `mathlib:Subgroup.center`.
+**prerequisites**
 
-**Source.** Kbook.2013, III.5.3 (PDF p. 226): “Let G be a group and A an abelian group. A central extension of G by A is a short exact sequence of groups 1 -> A -> X -> G -> 1 such that A is in the center of X. We say that a central extension is split if it is isomorphic to an extension of the form 1 -> A -> A x G -> G -> 1.” — The definitions, as displayed.
+- mathlib:GroupExtension
+- tauceti:TauCeti.FactorSet.inl_range_le_center
+- mathlib:Subgroup.center
 
-### `universal-central-extension` — Universal central extensions
+**sources**
 
-*definition*
+- **sourceId:** Kbook.2013; **locator:** III.5.3 (PDF p. 226); **excerpt:** Let G be a group and A an abelian group. A central extension of G by A is a short exact sequence of groups 1 -> A -> X -> G -> 1 such that A is in the center of X. We say that a central extension is split if it is isomorphic to an extension of the form 1 -> A -> A x G -> G -> 1.; **match:** The definitions, as displayed.
 
-A universal central extension of G is a central extension from which there is a unique
-homomorphism over G to every other central extension of G. It is unique up to isomorphism over G
-when it exists.
+**implementationStatus:** unchecked
 
-**Hypotheses.** G is a group.
+**api**
 
-**Construction and proof.**
+- **name:** IsCentralExtension; **role:** characterisation; **statement:** The predicate that an extension is central.
+- **name:** CentralExtension.split; **role:** characterisation; **statement:** Splitness.
+- **name:** CentralExtension.Equiv; **role:** structure; **statement:** Equivalence of two extensions of G by A.
+- **name:** CentralExtension.product; **role:** constructor; **statement:** The inclusion A -> A x G and projection A x G -> G form a split central extension.
+- **name:** CentralExtension.section_equiv; **role:** equivalence; **statement:** A homomorphic section gives an extension equivalence to A x G, with formula (a,g) -> inl(a)*section(g).
 
-1. Define the universal property in the category of central extensions of G.
-1. Prove uniqueness up to isomorphism over G by the usual argument with the two composites.
-1. Record that existence is not automatic; for perfect groups it is perfect-uce-exists, and a
-   group that is not perfect has none (uce-perfect).
+**uses**
 
-**API.**
+- **where:** T.1's universal central extension; **how:** the universal object is defined in this category
+- **where:** T.1's Recognition Theorem; **how:** the characterisation by splitting of central extensions is stated here
+- **where:** K3BlochGroups:V.1/steinberg-superperfect; **how:** superperfection of St(A) is the corollary of T.1:classical/uce-source-superperfect for this notion of central extension
+- **where:** StableHomotopyKTheory:H.3/plus-pi2-universal-central-extension; **how:** π_2(BG⁺) is central in π_1 F(f), which is a central extension of P (K-book IV.1.7)
 
-| name | role | statement |
-| --- | --- | --- |
-| `IsUniversalCentralExtension` | characterisation | The universal property. |
-| `uce_unique` | characterisation | Uniqueness up to isomorphism over G. |
-| `uce_hom` | constructor | The unique homomorphism to any central extension. |
-| `uce_hom_unique` | characterisation | Its uniqueness. |
-| `UCE.equiv_over` | equivalence | Two universal central extensions of G have a unique equivalence commuting with their projections. |
+**tests**
 
-**Used by.** *T.1's identification of the Steinberg group*: St(R) is the universal central extension of E(R). *K3BlochGroups:V.1/steinberg-superperfect*: the source of a universal central extension is superperfect (T.1:classical/uce-source-superperfect), applied to St(A) → E(A). *T.1:plus*: the comparison with H_2 runs through the universal property. *StableHomotopyKTheory:H.3/plus-pi2-universal-central-extension*: π_1 of the homotopy fibre of the plus construction relative to a perfect normal subgroup P is the universal central extension of P (K-book IV.1.7).
+- **name:** product_extension; **statement:** For A=C2 and G=C2, the product projection is central and split.
+- **name:** cyclic_nonsplit; **statement:** The quotient C4 -> C2 modulo two is central but has no homomorphic section.
+- **name:** marked_kernel; **statement:** For C9 -> C3 modulo three, kernel inclusions C3 -> C9 given by 1 -> 3 and 1 -> 6 give inequivalent extensions although both total groups are C9: a map over C3 has multiplier 1 mod 3, whereas preserving these marked kernels would require multiplier 2 mod 3.
 
-**Unit tests.**
+**library:** **module:** TauCeti/Algebra/KTheory/Steinberg; **namespace:** TauCeti.Steinberg
 
-- `trivial_uce` — The identity extension of the trivial group is universal: its unique map to
-  any group is over the trivial quotient.
-- `cyclic_obstruction` — The identity C2 -> C2 is not universal; it has two different lifts to
-  C2 x C2 -> C2, given by the zero and identity first coordinates.
-- `split_target` — For a universal extension X -> G and abelian A, its map to A x G -> G is
-  (1,p(x)); perfectness forces every map X -> A to be trivial.
+#### Universal central extensions
 
-**Acceptance.**
+`K2SymbolsBrauer:T.1/universal-central-extension` — definition
+
+A universal central extension of G is a central extension from which there is a unique homomorphism over G to every other central extension of G. It is unique up to isomorphism over G when it exists.
+
+**realises**
+
+- K2SymbolsBrauer:T.1:classical
+
+**hypotheses**
+
+- G is a group.
+
+**proofSteps**
+
+- Define the universal property in the category of central extensions of G.
+- Prove uniqueness up to isomorphism over G by the usual argument with the two composites.
+- Record that existence is not automatic; for perfect groups it is perfect-uce-exists, and a group that is not perfect has none (uce-perfect).
+
+**acceptance**
 
 - The universal object is unique up to isomorphism over G.
 - A group with a nontrivial abelianisation has none, which is the next lemma.
 - Existence is a theorem, not part of the definition.
 
-**Depends on.** **inside this roadmap** `central-extension`, `central-extension-hom`.
+**prerequisites**
 
-**Source.** Kbook.2013, III.5.3.1 (PDF p. 227): “Definition 5.3.1. A universal central extension of G is a central extension X -> G such that for every other central extension Y -> G there is a unique homomorphism f over G from X to Y. Clearly a universal central extension is unique up to isomorphism over G, provided it exists.” — The definition, as displayed.
+- K2SymbolsBrauer:T.1/central-extension
+- K2SymbolsBrauer:T.1:classical/central-extension-hom
 
-### `uce-perfect` — A universal central extension forces perfectness, and rigidity of maps out of a perfect extension
+**sources**
 
-*lemma*
+- **sourceId:** Kbook.2013; **locator:** III.5.3.1 (PDF p. 227); **excerpt:** Definition 5.3.1. A universal central extension of G is a central extension X -> G such that for every other central extension Y -> G there is a unique homomorphism f over G from X to Y. Clearly a universal central extension is unique up to isomorphism over G, provided it exists.; **match:** The definition, as displayed.
 
-If G has a universal central extension X then both G and X are perfect. If X and Y are central
-extensions of G and X is perfect, there is at most one homomorphism over G from X to Y.
+**implementationStatus:** unchecked
 
-**Hypotheses.** G is a group; X and Y are central extensions of G.
+**api**
 
-**Construction and proof.**
+- **name:** IsUniversalCentralExtension; **role:** characterisation; **statement:** The universal property.
+- **name:** uce_unique; **role:** characterisation; **statement:** Uniqueness up to isomorphism over G.
+- **name:** uce_hom; **role:** constructor; **statement:** The unique homomorphism to any central extension.
+- **name:** uce_hom_unique; **role:** characterisation; **statement:** Its uniqueness.
+- **name:** UCE.equiv_over; **role:** equivalence; **statement:** Two universal central extensions of G have a unique equivalence commuting with their projections.
 
-1. For the first statement, suppose the abelianisation of X is nontrivial and form the split
-   central extension of G by it; then the two obvious homomorphisms over G from X are distinct,
-   contradicting uniqueness. Perfectness of G follows since it is a quotient of X.
-1. For the second statement, write two homomorphisms as differing by central elements, evaluate
-   on a commutator and observe that the central corrections cancel; since commutators generate X
-   the two agree.
+**uses**
 
-**Acceptance.**
+- **where:** T.1's identification of the Steinberg group; **how:** St(R) is the universal central extension of E(R)
+- **where:** K3BlochGroups:V.1/steinberg-superperfect; **how:** the source of a universal central extension is superperfect (T.1:classical/uce-source-superperfect), applied to St(A) → E(A)
+- **where:** T.1:plus; **how:** the comparison with H_2 runs through the universal property
+- **where:** StableHomotopyKTheory:H.3/plus-pi2-universal-central-extension; **how:** π_1 of the homotopy fibre of the plus construction relative to a perfect normal subgroup P is the universal central extension of P (K-book IV.1.7)
+
+**tests**
+
+- **name:** trivial_uce; **statement:** The identity extension of the trivial group is universal: its unique map to any group is over the trivial quotient.
+- **name:** cyclic_obstruction; **statement:** The identity C2 -> C2 is not universal; it has two different lifts to C2 x C2 -> C2, given by the zero and identity first coordinates.
+- **name:** split_target; **statement:** For a universal extension X -> G and abelian A, its map to A x G -> G is (1,p(x)); perfectness forces every map X -> A to be trivial.
+
+**library:** **module:** TauCeti/Algebra/KTheory/Steinberg; **namespace:** TauCeti.Steinberg
+
+#### A universal central extension forces perfectness, and rigidity of maps out of a perfect extension
+
+`K2SymbolsBrauer:T.1/uce-perfect` — lemma
+
+If p:X->G is a universal central extension, both X and G are perfect.
+
+**realises**
+
+- K2SymbolsBrauer:T.1:classical
+
+**hypotheses**
+
+- G is a group; X and Y are central extensions of G.
+
+**proofSteps**
+
+- Compare the maps X -> G x X_ab with second coordinates zero and abelianization. They lie over G, so universality makes them equal; hence X_ab is trivial.
+- A surjective image of a perfect group is perfect, so G is perfect.
+
+**acceptance**
 
 - The two statements are what make the Recognition Theorem's proof work and are used separately.
-- A perfect group can still have several central extensions; uniqueness is of the map, not of
-  the extension.
-- The first statement is the obstruction: a non-perfect group has no universal central extension
-  at all.
+- A perfect group can still have several central extensions; uniqueness is of the map, not of the extension.
+- The first statement is the obstruction: a non-perfect group has no universal central extension at all.
 
-**Depends on.** **inside this roadmap** `universal-central-extension`; **baseline** `mathlib:Group.IsPerfect`.
+**prerequisites**
 
-**Source.** Kbook.2013, III.5.3.2 and III.5.3.3 (PDF p. 227): “Lemma 5.3.2. If G has a universal central extension X -> G, then both G and X must be perfect groups. ... Lemma 5.3.3. If X and Y are central extensions of G, and X is a perfect group, there is at most one homomorphism over G from X to Y.” — The two lemmas, with the proofs of the source.
+- K2SymbolsBrauer:T.1/universal-central-extension
+- mathlib:Group.IsPerfect
 
-### `central-extension-pullback` — Pulling a central extension back along a homomorphism
+**sources**
 
-*construction*
+- **sourceId:** Kbook.2013; **locator:** III.5.3.2 (PDF p. 227); **excerpt:** Universality forces both the source and the quotient to be perfect.; **match:** Paraphrase of the indicated passage; checked in the author copy, not a quotation from the published edition.
 
-Let q : Y → G be a surjective homomorphism whose kernel lies in the centre of Y, and let f : H →
-G be any homomorphism. The pullback P = {(h, y) ∈ H × Y : f(h) = q(y)} is a subgroup of H × Y,
-and its first projection pr_H : P → H is a central extension of H: it is surjective, and its
-kernel {(1, y) : y ∈ ker q} is central in P and isomorphic to ker q. The second projection pr_Y
-: P → Y satisfies q ∘ pr_Y = f ∘ pr_H, and a pair of homomorphisms a : X → H, b : X → Y with f ∘
-a = q ∘ b factors uniquely through P.
+**implementationStatus:** unchecked
 
-**Hypotheses.** G, H and Y are groups; q : Y → G is surjective and ker q is contained in the centre of Y; f : H → G is a homomorphism.
+#### The Hopf formula and the two extensions attached to a presentation
 
-**Construction and proof.**
+`K2SymbolsBrauer:T.1/hopf-formula` — theorem
 
-1. P is the subgroup of H × Y on which the homomorphisms f ∘ fst and q ∘ snd agree
-   (MonoidHom.eqLocus), so it is a group.
-1. pr_H is surjective: for h in H choose y with q(y) = f(h), using that q is surjective.
-1. ker pr_H = {(1, y) : q(y) = 1}. For (h', y') in P, (h', y')(1, y)(h', y')⁻¹ = (1, y'yy'⁻¹) =
-   (1, y) because y is central in Y; so the kernel is central, and y ↦ (1, y) identifies ker q
-   with it.
-1. For a, b with f ∘ a = q ∘ b, the product homomorphism X → H × Y lands in P; it is the unique
-   factorisation because P → H × Y is injective.
+For a presentation G = F/S with F free and S normal, H_2(G; Z) is isomorphic to (S ∩ [F, F])/[S, F], the kernel of the commutator extension [F, F]/[S, F] → [G, G]; its naturality in the presentation is hopf-formula-natural. The coefficients are the trivial integral representation, and G is a group in Type.
 
-**API.**
+**realises**
 
-| name | role | statement |
-| --- | --- | --- |
-| `CentralExtension.pullback` | constructor | The subgroup P = {(h, y) : f(h) = q(y)} of H × Y, for q : Y → G central and surjective and f : H → G. |
-| `CentralExtension.pullbackFst` | projection | pr_H : P → H; it is surjective and its kernel is central. |
-| `CentralExtension.pullbackSnd` | projection | pr_Y : P → Y, with q ∘ pr_Y = f ∘ pr_H. |
-| `CentralExtension.pullbackLift` | universal-property | For a : X → H and b : X → Y with f ∘ a = q ∘ b, the unique homomorphism X → P with pr_H ∘ lift = a and pr_Y ∘ lift = b. |
-| `CentralExtension.pullbackKerEquiv` | characterisation | ker pr_H ≅ ker q, by y ↦ (1, y). |
-| `CentralExtension.pullbackId` | compatibility | Along the identity of G the pullback is isomorphic to Y over G, by y ↦ (q(y), y). |
+- K2SymbolsBrauer:T.1:classical
 
-**Used by.** *K2SymbolsBrauer:T.1:classical/split-central-extension-universal*: a central extension of G is pulled back along X → G, where condition (2) of the Recognition Theorem splits it (K-book III.5.4, '(2) ⇒ (1) is immediate'). *K2SymbolsBrauer:T.1:classical/uce-lift*: the lift of a homomorphism of bases to universal central extensions factors through the pullback of the target extension.
+**hypotheses**
 
-**Unit tests.**
+- G is a group presented as a quotient of a free group F by a normal subgroup S.
 
-- `pullback_id` (degenerate) — For f = id_G, y ↦ (q(y), y) is an isomorphism from Y onto P
-  commuting with the projections to G.
-- `pullback_trivial_subgroup` (computation) — For q : C_4 → C_2 reduction modulo two and f the
-  inclusion of the trivial group, P ≅ C_2 and pr_H : C_2 → 1.
-- `pullback_split` (characterisation) — The pullback of the product projection A × G → G along f
-  : H → G is isomorphic over H to the product projection A × H → H.
-- `pullback_noncentral` (non-example) — For q the sign map S_3 → C_2, whose kernel A_3 is not
-  central, and f = id, the kernel of pr_H is not central in P ≅ S_3: the centrality hypothesis
-  is used.
+**proofSteps**
 
-**Acceptance.**
+- Form the separate relation central extension F/[S, F] → G and its restricted commutator extension (relation-central-extension, commutator-central-extension).
+- Apply the four-term exact sequence 0 → H_2(G, Z) → S/[F, S] → F_ab → G_ab → 0 (hopf-four-term-sequence): exactness at S/[F, S] identifies H_2(G, Z) with the kernel of S/[F, S] → F/[F, F], which is (S ∩ [F, F])/[S, F].
+- For a perfect G the restricted extension is onto G and its kernel is this intersection quotient, which is how uce-kernel-h2 uses the formula.
+- The remaining input is gap G-Hopf, carried by hopf-four-term-sequence: the Hochschild-Serre low-degree sequence. The K-book states the formula without proof (citing Weibel's homological algebra book, 6.8.8, not obtained); the decomposition follows Löh, Theorem 3.2.18.
 
-- Along the identity of G the pullback is isomorphic over G to Y, by y ↦ (q(y), y).
-- The pullback of the product projection A × G → G along f is isomorphic over H to A × H → H.
-- Centrality is inherited but universality is not: along the inclusion of the trivial group the
-  pullback is ker q → 1, which is universal only when ker q is trivial, since a universal
-  central extension has a perfect source and ker q is abelian.
-
-**Depends on.** **inside this roadmap** `central-extension`, `central-extension-hom`; **baseline** `mathlib:MonoidHom.eqLocus`, `mathlib:MonoidHom.ker`, `mathlib:Subgroup.center`.
-
-**Source.** Kbook.2013, III.5.4, equivalent conditions and proof (PDF p. 228, printed p. 220): “The implication (1)⇒(2) is Lemma 5.3.2 and Ex. 5.7, and (2) ⇒ (1) is immediate.” — The source calls (2) ⇒ (1) immediate: a central extension Y → G is pulled back along X → G to a central extension of X, which condition (2) splits. The pullback is not displayed in the source; this node makes it a declaration.
-
-
-### `central-extension-comp` — Composite of central extensions with perfect middle term
-
-*lemma*
-
-Let ρ : Y → X and π : X → G be surjective homomorphisms whose kernels are central in Y and in X.
-If X is perfect, then πρ : Y → G is surjective with central kernel.
-
-**Hypotheses.** ker ρ is contained in the centre of Y and ker π in the centre of X; ρ and π are surjective. X is perfect.
-
-**Construction and proof.**
-
-1. Surjectivity of πρ is the composite of two surjections.
-1. For z in ker(πρ), ρ(z) is central in X, so [y, z] lies in ker ρ, which is central in Y, for
-   every y in Y.
-1. Hence y ↦ [y, z] is a homomorphism from Y to the centre of Y, since [yy', z] = [y', z][y, z]
-   when the values are central.
-1. Its target is abelian, so it kills [Y, Y]; it kills ker ρ, which is central. As X is perfect,
-   Y = [Y, Y]·ker ρ, so the homomorphism is trivial and z is central.
-
-**Acceptance.**
-
-- Non-example without perfectness: D_8 → D_8/Z(D_8) ≅ (Z/2)² and (Z/2)² → Z/2 are central
-  extensions, but the composite has kernel {1, r², s, sr²}, which contains the non-central
-  reflection s.
-- With X a universal central extension (perfect by Lemma III.5.3.2) this is the first sentence
-  of Exercise III.5.7 as the Recognition Theorem uses it.
-
-**Depends on.** **inside this roadmap** `central-extension`; **baseline** `mathlib:Subgroup.center`, `mathlib:Group.IsPerfect`.
-
-**Source.** Kbook.2013, Exercise III.5.7 (PDF p. 237, printed p. 229): “If Y →ρ X and X →π G are central extensions, show that the “composition” Y →πρ G is also a central extension. If X is a universal central extension of G, conclude that every central extension Y →ρ X splits.” — The first sentence, with the perfectness hypothesis the printed exercise omits: the D_8 example shows the printed statement is false without it (recorded as K3BlochGroups/E2 in the K3BlochGroups packet, where this lemma was first planned as V.1/central-extension-comp). The second sentence is uce-extensions-split.
-
-
-### `uce-extensions-split` — Central extensions of a universal central extension split
-
-*lemma*
-
-If p : X → G is a universal central extension, then every central extension ρ : Y → X (ρ
-surjective with central kernel, Y in the universe of X) has a homomorphic section s : X → Y with
-ρ ∘ s = id_X.
-
-**Hypotheses.** p : X → G is a universal central extension. ρ : Y → X is surjective and ker ρ lies in the centre of Y.
-
-**Construction and proof.**
-
-1. X is perfect (K2SymbolsBrauer:T.1/uce-perfect), so p ∘ ρ : Y → G is a central extension
-   (central-extension-comp).
-1. Universality of p gives σ : X → Y with p ∘ ρ ∘ σ = p.
-1. Both ρ ∘ σ and id_X are homomorphisms X → X over G from p to p, so the uniqueness clause of
-   universality gives ρ ∘ σ = id_X; σ is the required section.
-
-**Acceptance.**
-
-- For X = G trivial, every central extension A → 1 is split by the trivial homomorphism.
-- Universality cannot be dropped: id : C_2 → C_2 is a central extension, and the central
-  extension C_4 → C_2 of its source does not split.
-
-**Depends on.** **inside this roadmap** `universal-central-extension`, `uce-perfect`, `central-extension-hom`, `central-extension-comp`.
-
-**Source.** Kbook.2013, Exercise III.5.7 (PDF p. 237, printed p. 229): “If Y →ρ X and X →π G are central extensions, show that the “composition” Y →πρ G is also a central extension. If X is a universal central extension of G, conclude that every central extension Y →ρ X splits.” — The second sentence; the proof steps are the intended solution, using the first sentence with the perfectness of X that Lemma III.5.3.2 supplies.
-
-
-### `split-extensions-kill-h2` — Split central extensions force vanishing Schur multiplier
-
-*lemma*
-
-Let G be a group in Type. If every central extension of G by the circle group T = Q/Z (AddCircle
-(1 : ℚ), written multiplicatively, with trivial G-action) splits, then H_2(G, Z) = 0, integral
-homology with trivial coefficients. More precisely, the evaluation map H²(G; T) → Hom(H_2(G, Z),
-T) is surjective, and H²(G; T) = 0 under the hypothesis.
-
-**Hypotheses.** G is a group in Type (Mathlib's integral group homology and the Tau Ceti factor-set classification are stated there); T carries the trivial G-action.
-
-**Construction and proof.**
-
-1. Pair inhomogeneous 2-cocycles G × G → T with 2-cycles; the pairing kills coboundaries against
-   cycles and cocycles against boundaries, so it descends to ev : H²(G; T) → Hom(H_2(G, Z), T).
-1. ev is surjective: a character φ of H_2(G, Z), composed with the projection from 2-cycles,
-   extends along the inclusion of 2-cycles into the 2-chains G × G →₀ Z
-   (CharacterModule.dual_surjective_of_injective) to a function f : G × G → T; f vanishes on
-   boundaries, so it is a 2-cocycle with ev[f] = φ.
-1. H²(G; T) = 0: every class is the class of a factor set
-   (TauCeti.FactorSet.exists_cohomologyClass_eq), whose extension
-   (TauCeti.FactorSet.groupExtension) is central because the action is trivial, hence splits by
-   hypothesis, so its class is 0
-   (TauCeti.FactorSet.nonempty_splitting_iff_cohomologyClass_eq_zero).
-1. So every character of H_2(G, Z) vanishes, and H_2(G, Z) = 0 by
-   CharacterModule.eq_zero_of_character_apply.
-
-**Acceptance.**
-
-- For G = A_5, H_2 ≅ Z/2 and the non-split central extension SL_2(F_5) → A_5 realises the class
-  of the nonzero character, so the hypothesis fails as it must.
-- The lemma is Recognition (2) ⇒ (3) in degree two; it uses only extensions by Q/Z, not all
-  central extensions.
-
-**Depends on.** **inside this roadmap** `central-extension`; **baseline** `mathlib:groupHomology.H2`, `mathlib:Rep.trivial`, `mathlib:groupCohomology.H2`, `mathlib:groupHomology.inhomogeneousChains`, `mathlib:groupHomology.d₃₂`, `mathlib:AddCircle`, `mathlib:CharacterModule`, `mathlib:CharacterModule.dual_surjective_of_injective`, `mathlib:CharacterModule.eq_zero_of_character_apply`, `tauceti:TauCeti.FactorSet.exists_cohomologyClass_eq`, `tauceti:TauCeti.FactorSet.nonempty_splitting_iff_cohomologyClass_eq_zero`, `tauceti:TauCeti.FactorSet.groupExtension`.
-
-**Sources.**
-
-- Kbook.2013, III.5.3 (PDF p. 227, printed p. 219): “It is well-known that the equivalence classes of central extensions of G by a fixed group A are in 1–1 correspondence with the elements of the cohomology group H2(G; A)” — The classification of central extensions by H² used in the third step, with the trivial action on T.
-- Kbook.2013, III.5.4, equivalent conditions and proof (PDF p. 228, printed p. 220): “Let X be any central extension of G, the following are equivalent: (1) X is a universal central extension; (2) X is perfect, and every central extension of X splits; (3) H1(X; Z) = H2(X; Z) = 0.” — The implication (2) ⇒ (3) in degree two that this lemma supplies. First planned as K3BlochGroups:V.1/split-extensions-kill-h2 (review REV-K3BlochGroups); moved here by FIX-RT-AREA-ktheory-1.
-
-
-### `h1-trivial-perfect` — First integral homology is the abelianisation; vanishing is perfectness
-
-*lemma*
-
-For a group G in Type, groupHomology.H1AddEquivOfIsTrivial for the trivial representation Z,
-followed by the unit isomorphism Additive(G_ab) ⊗_Z Z ≅ Additive(G_ab) (TensorProduct.rid), is
-an isomorphism H_1(G, Z) ≅ Additive(G_ab), natural in G: for f : G → H it carries
-groupHomology.map f to Abelianization.map f. Consequently H_1(G, Z) = 0 if and only if G is
-perfect.
-
-**Hypotheses.** G is a group in Type; Z carries the trivial action (Rep.trivial ℤ G ℤ).
-
-**Construction and proof.**
-
-1. Apply groupHomology.H1AddEquivOfIsTrivial to A = Rep.trivial ℤ G ℤ and compose with
-   TensorProduct.rid ℤ.
-1. Naturality: both composites send the class of the 1-cycle single g 1 to the class of f(g)
-   (H1AddEquivOfIsTrivial_single and groupHomology.H1π_comp_map); such classes generate H_1.
-1. G_ab = G/[G, G] is trivial exactly when commutator G = ⊤, which is Group.isPerfect_def.
-
-**Acceptance.**
-
-- H_1(Z/2, Z) ≅ Z/2 ≠ 0, and Z/2 is not perfect.
-- H_1(A_5, Z) = 0 because A_5 is perfect.
-- The identification uses the trivial action: with a nontrivial coefficient module H_1 is not
-  the abelianisation.
-
-**Depends on.** **baseline** `mathlib:groupHomology.H1`, `mathlib:groupHomology.H1AddEquivOfIsTrivial`, `mathlib:groupHomology.map`, `mathlib:groupHomology.H1π_comp_map`, `mathlib:Rep.trivial`, `mathlib:TensorProduct.rid`, `mathlib:Abelianization`, `mathlib:Abelianization.map`, `mathlib:Group.IsPerfect`, `mathlib:Group.isPerfect_def`.
-
-**Sources.**
-
-- Loeh.GroupCohomology.2019, Corollary 1.4.6 (printed p. 23; PDF p. 31): “Corollary 1.4.6 (homological characterisation of perfect groups). Let G be a group. Then G is perfect if and only if H1(G; Z) ≅ 0.” — The characterisation of perfectness, which is what the Recognition Theorem's H_1 = 0 means.
-- Loeh.GroupCohomology.2019, Theorem 1.4.1 (printed p. 20; PDF p. 28): “Theorem 1.4.1 (group homology in degree 1). Let G be a group. Then (where Z carries the trivial G-action) there is a canonical isomorphism H1(G; Z) ≅ Gab.” — The natural isomorphism with the abelianisation; at the pin Mathlib supplies it as H1AddEquivOfIsTrivial up to the unit isomorphism of the tensor product.
-
-
-### `superperfect` — Superperfect groups
-
-*definition*
-
-A group G in Type is superperfect if H_1(G, Z) = 0 and H_2(G, Z) = 0, where H_n(G, Z) =
-groupHomology (Rep.trivial ℤ G ℤ) n is Mathlib's integral group homology with trivial
-coefficients. Equivalently (h1-trivial-perfect), G is perfect and H_2(G, Z) = 0. This is
-condition (3) of the Recognition Theorem.
-
-**Hypotheses.** G is a group in Type: Mathlib's group homology over ℤ puts the group in the universe of ℤ.
-
-**Construction and proof.**
-
-1. Define the predicate as the conjunction of the two vanishing statements, each as
-   subsingleton-ness of the ModuleCat ℤ object.
-1. Prove the characterisation by perfectness with h1-trivial-perfect.
-1. Prove invariance under group isomorphisms with groupHomology.mapIso.
-
-**API.**
-
-| name | role | statement |
-| --- | --- | --- |
-| `Group.IsSuperperfect` | characterisation | The predicate H_1(G, Z) = 0 ∧ H_2(G, Z) = 0 for a group G in Type, with trivial integral coefficients. |
-| `Group.isSuperperfect_iff` | characterisation | IsSuperperfect G ↔ Group.IsPerfect G ∧ H_2(G, Z) = 0. |
-| `Group.IsSuperperfect.isPerfect` | compatibility | A superperfect group is perfect in Mathlib's sense (Group.IsPerfect). |
-| `Group.IsSuperperfect.of_mulEquiv` | functoriality | Superperfectness is invariant under group isomorphisms. |
-| `Group.IsSuperperfect.of_subsingleton` | example | The trivial group is superperfect. |
-
-**Used by.** *K2SymbolsBrauer:T.1/recognition-theorem*: condition (3) of Recognition Theorem III.5.4, H_1(X; Z) = H_2(X; Z) = 0. *K3BlochGroups:V.1/steinberg-superperfect*: the stable Steinberg group is superperfect, which makes BSt(A)⁺ two-connected. *StableHomotopyKTheory:H.3/plus-pi2-universal-central-extension*: π_1 of the acyclic homotopy fibre of a plus construction is perfect with H_2 = 0, hence the universal central extension (K-book IV.1.7).
-
-**Unit tests.**
-
-- `isSuperperfect_trivial` (degenerate) — The trivial group is superperfect.
-- `not_isSuperperfect_cyclic` (non-example) — Z/2 is not superperfect: H_1(Z/2, Z) ≅ Z/2.
-- `not_isSuperperfect_free` (non-example) — The free group on one generator is not superperfect
-  although its H_2 vanishes (free-group-higher-homology): a definition asking only for H_2 = 0
-  fails this test.
-- `not_isSuperperfect_alternating` (non-example) — A_5 is perfect but not superperfect (H_2(A_5,
-  Z) ≅ Z/2): a definition asking only for perfectness fails this test.
-- `isSuperperfect_iff_perfect` (compatibility) — For every group G in Type, IsSuperperfect G ↔
-  Group.IsPerfect G ∧ H_2(G, Z) = 0.
-
-**Acceptance.**
-
-- The trivial group is superperfect; Z/2 and every nontrivial free group are not.
-- A_5 is perfect but not superperfect, so the predicate is strictly stronger than
-  Group.IsPerfect.
-
-**Depends on.** **inside this roadmap** `h1-trivial-perfect`; **baseline** `mathlib:groupHomology`, `mathlib:Rep.trivial`, `mathlib:groupHomology.H1`, `mathlib:groupHomology.H2`, `mathlib:groupHomology.mapIso`, `mathlib:Group.IsPerfect`.
-
-**Source.** Kbook.2013, III.5.4, equivalent conditions and proof (PDF p. 228, printed p. 220): “Let X be any central extension of G, the following are equivalent: (1) X is a universal central extension; (2) X is perfect, and every central extension of X splits; (3) H1(X; Z) = H2(X; Z) = 0.” — Condition (3). The source does not use the word 'superperfect'; it is the standard name for this condition and the one the consuming roadmaps use.
-
-
-### `hopf-extension-perfect` — The Hopf extension of a perfect group is perfect
-
-*lemma*
-
-Let π : F → G be a surjective homomorphism with kernel R. If G is perfect, then F = [F, F]·R and
-[F, F] = [[F, F], [F, F]]·[R, F]; hence [F, F]/[R, F] is a perfect group.
-
-**Hypotheses.** F is a group and π : F → G is surjective with kernel R (F need not be free). G is perfect.
-
-**Construction and proof.**
-
-1. π maps [F, F] onto [G, G] = G (Subgroup.map_commutator and surjectivity), so every f in F is
-   c·r with c in [F, F] and r in R.
-1. For f = cr and f' = c'r', the commutator [f, f'] is congruent to [c, c'] modulo [R, F],
-   because R is normal in F and its elements are central modulo [R, F].
-1. Hence the commutator generators of [F, F] lie in [[F, F], [F, F]]·[R, F]; since [R, F] ⊆ [F,
-   F], the quotient [F, F]/[R, F] equals its own commutator subgroup.
-
-**Acceptance.**
-
-- For F free on one generator and R = F (G trivial), [F, F]/[R, F] is trivial, hence perfect.
-- Perfectness of G is needed: for F free on a, b and R = [F, F] (G = Z²), [F, F]/[[F, F], F] is
-  a nontrivial abelian group, detected by [a, b] in the integral Heisenberg quotient, so it is
-  not perfect.
-
-**Depends on.** **inside this roadmap** `commutator-central-extension`; **baseline** `mathlib:Group.IsPerfect`, `mathlib:commutator`, `mathlib:Subgroup.map_commutator`.
-
-**Source.** Kbook.2013, III.5.4, equivalent conditions and proof (PDF p. 228, printed p. 220): “Given any central extension X of G, the map F → G lifts to a map h : F → X because F is free. Since h(R) is in the center of X, h([R, F]) = 1. Thus h induces a map from [F, F]/[R, F] to X over G. This map is unique by Lemma 5.3.3.” — Lemma 5.3.3 applies only to a perfect source, here [F, F]/[R, F]; the source uses its perfectness without comment, and this node supplies it.
-
-
-### `perfect-uce-exists` — Every perfect group has a universal central extension
-
-*theorem*
-
-Let G be a perfect group and π : F → G a surjection from a free group F = FreeGroup S, with
-kernel R. The restricted projection [F, F]/[R, F] → G (commutator-central-extension, whose
-target [G, G] is G) is a universal central extension of G. In particular every perfect group G
-has a universal central extension in its own universe, from the canonical presentation FreeGroup
-G → G.
-
-**Hypotheses.** G is perfect. π : FreeGroup S → G is surjective with kernel R.
-
-**Construction and proof.**
-
-1. [F, F]/[R, F] → G is surjective with central kernel (R ∩ [F, F])/[R, F]
-   (commutator-central-extension, G perfect).
-1. Given a central extension q : Y → G, choose for each generator s in S a preimage in Y of
-   π(s); FreeGroup.lift gives h : F → Y with q ∘ h = π.
-1. h(R) ⊆ ker q, which is central in Y, so h([R, F]) = 1; restrict h to [F, F] and descend to a
-   homomorphism [F, F]/[R, F] → Y over G.
-1. Uniqueness: [F, F]/[R, F] is perfect (hopf-extension-perfect) and ker q is central, so
-   perfect-extension-rigidity allows at most one homomorphism over G.
-1. For existence in general take S = G and π = FreeGroup.lift id.
-
-**Acceptance.**
-
-- For G trivial and S empty the universal central extension is the trivial group.
-- Its kernel is the Hopf quotient (R ∩ [F, F])/[R, F], which uce-kernel-h2 identifies with
-  H_2(G, Z).
-- Perfectness of G cannot be dropped: a group that is not perfect has no universal central
-  extension (K2SymbolsBrauer:T.1/uce-perfect).
-
-**Depends on.** **inside this roadmap** `commutator-central-extension`, `relation-central-extension`, `hopf-extension-perfect`, `perfect-extension-rigidity`, `universal-central-extension`; **baseline** `mathlib:FreeGroup`, `mathlib:FreeGroup.lift`, `mathlib:Group.IsPerfect`.
-
-**Sources.**
-
-- Kbook.2013, III.5.4, statement (PDF p. 227, printed p. 219): “Recognition Theorem 5.4. Every perfect group G has a universal central extension, namely the extension (5.3.5): 1 → H2(G; Z) → [F, F]/[R, F] → G → 1.” — The existence half of the theorem, with the extension (5.3.5).
-- Kbook.2013, III.5.4, equivalent conditions and proof (PDF p. 228, printed p. 220): “Given any central extension X of G, the map F → G lifts to a map h : F → X because F is free. Since h(R) is in the center of X, h([R, F]) = 1. Thus h induces a map from [F, F]/[R, F] to X over G. This map is unique by Lemma 5.3.3.” — The proof, followed step by step; the perfectness that Lemma 5.3.3 needs is hopf-extension-perfect.
-
-
-### `free-group-higher-homology` — Integral homology of a free group vanishes above degree one
-
-*lemma*
-
-Let F be a free group in Type (IsFreeGroup F; for example FreeGroup S). Then H_k(F, Z) = 0 for
-every k ≥ 2, with trivial integral coefficients, and H_1(F, Z) is free abelian on a basis of F.
-
-**Hypotheses.** F is a group in Type with IsFreeGroup F.
-
-**Construction and proof.**
-
-1. For F = FreeGroup S, the complex 0 → ZF^(S) → ZF → Z → 0 with e_s ↦ s − 1 followed by the
-   augmentation is exact (Löh, Proposition 1.6.21: the image of ∂ is the augmentation ideal, and
-   ∂ is injective by a reduced-word support argument).
-1. Its two nonzero terms are free, hence projective, representations, so it is a projective
-   resolution of Rep.trivial ℤ F ℤ of length one (CategoryTheory.ProjectiveResolution).
-1. groupHomologyIso computes H_k(F, Z) as the homology of the coinvariants of this resolution,
-   which vanishes for k ≥ 2; in degree one ∂ becomes zero after coinvariants and leaves Z^(S).
-1. For a general free group transport along the isomorphism with FreeGroup of a basis
-   (groupHomology.mapIso).
-
-**Acceptance.**
-
-- H_2(Z, Z) = 0 for the free group of rank one.
-- H_1 of the free group on two generators is Z².
-- With Nielsen-Schreier (subgroupIsFreeOfIsFree) the lemma applies to every subgroup of a free
-  group, as Hopf's formula needs for the relator subgroup.
-
-**Depends on.** **baseline** `mathlib:groupHomology`, `mathlib:groupHomologyIso`, `mathlib:CategoryTheory.ProjectiveResolution`, `mathlib:Rep.trivial`, `mathlib:FreeGroup`, `mathlib:IsFreeGroup`, `mathlib:groupHomology.mapIso`.
-
-**Source.** Loeh.GroupCohomology.2019, Corollary 1.6.23 with Proposition 1.6.21 (printed pp. 56-57; PDF pp. 64-65): “Corollary 1.6.23 ((co)homology of free groups). Let S be a set, let F be the free group freely generated by S, and let A be a ZF-module. Then, for all k ∈ N≥2, Hk(F; A) ≅ 0 and H^k(F; A) ≅ 0.” — The vanishing statement with the length-one free resolution of Proposition 1.6.21 that proves it; the proof steps follow Löh's.
-
-
-### `hopf-four-term-sequence` — Hopf's four-term exact sequence
-
-*theorem*
-
-Let F be a free group in Type, N a normal subgroup and G = F/N. There is an exact sequence 0 →
-H_2(G, Z) → N/[F, N] → F/[F, F] → G_ab → 0 of abelian groups, in which N/[F, N] → F/[F, F] is
-induced by the inclusion N ⊆ F and F/[F, F] → G_ab by the projection.
-
-**Hypotheses.** F is a free group in Type; N is normal in F; G = F/N; homology has trivial integral coefficients.
-
-**Construction and proof.**
-
-1. N is free (Nielsen-Schreier, subgroupIsFreeOfIsFree), so H_k(F, Z) = H_k(N, Z) = 0 for k ≥ 2
-   (free-group-higher-homology).
-1. Exactness at F/[F, F] and surjectivity onto G_ab: this is the Mathlib
-   corestriction-coinflation sequence H_1(N, Z) → H_1(F, Z) → H_1(G, Z)
-   (groupHomology.H1CoresCoinfOfTrivial_exact, with groupHomology.H1CoresCoinfOfTrivial_g_epi),
-   read through h1-trivial-perfect, since H_1(N, Z) = N_ab maps onto N/[F, N].
-1. Identify the coinvariants H_1(N; Z)_G with N/[F, N]: H_1(N, Z) = N_ab (h1-trivial-perfect),
-   and the coinvariants of the conjugation action of G on N_ab kill exactly the classes of f n
-   f⁻¹ n⁻¹.
-1. The injection H_2(G, Z) → N/[F, N] with image the kernel of N/[F, N] → F/[F, F]: in the
-   Hochschild-Serre spectral sequence E²_pq = H_p(G; H_q(N; Z)) ⇒ H_p+q(F; Z) the rows q ≥ 2
-   vanish, H_2(F) = 0 forces d²: E²_20 = H_2(G) → E²_01 = H_1(N)_G to be injective, and
-   convergence gives 0 → E²_01/im d² → H_1(F) → H_1(G) → 0 (Löh, proof of Theorem 3.2.18); the
-   maps on H_1 are identified, up to sign, with those induced by inclusion and projection
-   through naturality of the spectral sequence (Löh, Remark 3.2.14).
-1. Gap G-Hopf: the Hochschild-Serre spectral sequence of a group extension, or its low-degree
-   exact sequence, is not in Mathlib at the pin, and no atlas stage plans it for discrete
-   groups.
-
-**Acceptance.**
-
-- For N = 1 the sequence reads 0 → H_2(F, Z) → 0 → F_ab → F_ab → 0, consistent with H_2(F, Z) =
-  0.
-- For F free on a and N generated by a^m (G = Z/m): N/[F, N] = N ≅ mZ maps injectively to F_ab =
-  Z, so H_2(Z/m, Z) = 0 and G_ab = Z/m.
-- Exactness at N/[F, N] identifies H_2(G, Z) with (N ∩ [F, F])/[F, N], which is Hopf's formula.
-
-**Depends on.** **inside this roadmap** `free-group-higher-homology`, `h1-trivial-perfect`; **baseline** `mathlib:subgroupIsFreeOfIsFree`, `mathlib:groupHomology.H1CoresCoinfOfTrivial_exact`, `mathlib:groupHomology.H1CoresCoinfOfTrivial_g_epi`, `mathlib:groupHomology.H2`, `mathlib:Rep.trivial`.
-
-**Sources.**
-
-- Loeh.GroupCohomology.2019, Theorem 3.2.18 (printed p. 129; PDF p. 137): “Theorem 3.2.18 (Hopf's formula). Let F be a free group, let N ⊂ F be a normal subgroup, and let G := F/N. Then there is an exact sequence 0 → H2(G; Z) → H1(N; Z)G → H1(F; Z) → H1(G; Z) → 0” — The four-term sequence, with H1(N; Z)_G rewritten as N/[F, N] as Löh does at the start of the proof.
-- Loeh.GroupCohomology.2019, Proof of Theorem 3.2.18 (printed pp. 130-131; PDF pp. 138-139): “As subgroup of the free group F, also N is a free group (Theorem AT.2.3.52). Therefore, by Corollary 1.6.23, for all k ∈ N≥2, Hk(F; Z) ≅ 0 and Hk(N; Z) ≅ 0.” — The vanishing input of the first step; the spectral-sequence argument of the fourth step follows the same proof.
-
-### `hopf-formula` — The Hopf formula and the two extensions attached to a presentation
-
-*theorem*
-
-For a presentation G = F/S with F free and S normal, H_2(G; Z) is isomorphic to (S ∩ [F, F])/[S,
-F], the kernel of the commutator extension [F, F]/[S, F] → [G, G]; its naturality in the
-presentation is hopf-formula-natural. The coefficients are the trivial integral representation,
-and G is a group in Type.
-
-**Hypotheses.** G is a group presented as a quotient of a free group F by a normal subgroup S.
-
-**Construction and proof.**
-
-1. Form the separate relation central extension F/[S, F] → G and its restricted commutator
-   extension (relation-central-extension, commutator-central-extension).
-1. Apply the four-term exact sequence 0 → H_2(G, Z) → S/[F, S] → F_ab → G_ab → 0
-   (hopf-four-term-sequence): exactness at S/[F, S] identifies H_2(G, Z) with the kernel of
-   S/[F, S] → F/[F, F], which is (S ∩ [F, F])/[S, F].
-1. For a perfect G the restricted extension is onto G and its kernel is this intersection
-   quotient, which is how uce-kernel-h2 uses the formula.
-1. The remaining input is gap G-Hopf, carried by hopf-four-term-sequence: the Hochschild-Serre
-   low-degree sequence. The K-book states the formula without proof (citing Weibel's homological
-   algebra book, 6.8.8, not obtained); the decomposition follows Löh, Theorem 3.2.18.
-
-**Acceptance.**
+**acceptance**
 
 - H_2 of a free group is zero, for any presentation.
-- The larger relation-module kernel S/[S, F] need not vanish for a free quotient G. Example F =
-  Free(a, b), G = Z, a ↦ 1 and b ↦ 0: the class of b survives, detected by the b-exponent sum.
-- For perfect G the restricted commutator extension has quotient G, and its kernel is H_2(G; Z)
-  (uce-kernel-h2).
+- The larger relation-module kernel S/[S, F] need not vanish for a free quotient G. Example F = Free(a, b), G = Z, a ↦ 1 and b ↦ 0: the class of b survives, detected by the b-exponent sum.
+- For perfect G the restricted commutator extension has quotient G, and its kernel is H_2(G; Z) (uce-kernel-h2).
 
-**Depends on.** **inside this roadmap** `central-extension`, `relation-central-extension`, `commutator-central-extension`, `hopf-four-term-sequence`; **baseline** `mathlib:groupHomology.H2`, `mathlib:groupHomology`, `mathlib:Rep.trivial`.
+**prerequisites**
 
-**Sources.**
+- K2SymbolsBrauer:T.1/central-extension
+- mathlib:groupHomology.H2
+- mathlib:groupHomology
+- mathlib:Rep.trivial
+- K2SymbolsBrauer:T.1:classical/relation-central-extension
+- K2SymbolsBrauer:T.1:classical/commutator-central-extension
+- K2SymbolsBrauer:T.1:classical/hopf-four-term-sequence
 
-- Kbook.2013, III.5.3.4 and III.5.3.5 (PDF p. 227): “The group (R intersect [F, F]) / [R, F] in (5.3.5) is the homology group H_2(G; Z); this identity was discovered in 1941 by Hopf.” — Hopf's formula and the two extensions, as displayed.
-- Loeh.GroupCohomology.2019, Theorem 3.2.18 (printed p. 129; PDF p. 137): “Theorem 3.2.18 (Hopf's formula). Let F be a free group, let N ⊂ F be a normal subgroup, and let G := F/N. Then there is an exact sequence 0 → H2(G; Z) → H1(N; Z)G → H1(F; Z) → H1(G; Z) → 0” — The route from the four-term sequence to the formula, followed in the proof steps.
+**sources**
 
-### `hopf-formula-natural` — Naturality of Hopf's formula
+- **sourceId:** Kbook.2013; **locator:** III.5.3.4 and III.5.3.5 (PDF p. 227); **excerpt:** The group (R intersect [F, F]) / [R, F] in (5.3.5) is the homology group H_2(G; Z); this identity was discovered in 1941 by Hopf.; **match:** Hopf's formula and the two extensions, as displayed.
+- **sourceId:** Loeh.GroupCohomology.2019; **locator:** Theorem 3.2.18 (printed p. 129; PDF p. 137); **excerpt:** Theorem 3.2.18 (Hopf's formula). Let F be a free group, let N ⊂ F be a normal subgroup, and let G := F/N. Then there is an exact sequence 0 → H2(G; Z) → H1(N; Z)G → H1(F; Z) → H1(G; Z) → 0; **match:** The route from the four-term sequence to the formula, followed in the proof steps.
 
-*theorem*
+**implementationStatus:** unchecked
 
-Let π : F → G and π' : F' → G' be surjections from free groups in Type with kernels R and R', f
-: G → G' a homomorphism and φ : F → F' a homomorphism with π' ∘ φ = f ∘ π. Then φ(R) ⊆ R', φ
-induces a homomorphism (R ∩ [F, F])/[R, F] → (R' ∩ [F', F'])/[R', F'], and under the Hopf
-isomorphisms of K2SymbolsBrauer:T.1/hopf-formula this homomorphism is H_2(f; Z) =
-groupHomology.map f (id) 2. In particular it does not depend on φ, and for f = id the Hopf
-isomorphisms of two presentations of G agree.
+#### The Recognition Theorem
 
-**Hypotheses.** F, F' are free groups in Type; π, π' are surjective with kernels R, R'; π' ∘ φ = f ∘ π; homology has trivial integral coefficients.
+`K2SymbolsBrauer:T.1/recognition-theorem` — theorem
 
-**Construction and proof.**
+Let G be a perfect group and p : X → G a central extension (p surjective, ker p central), X in Type. The following are equivalent: (1) p is a universal central extension; (2) X is perfect and every central extension of X splits; (3) H_1(X; Z) = H_2(X; Z) = 0, that is, X is superperfect. Every perfect group has a universal central extension, the Hopf extension of any free presentation (perfect-uce-exists), and its kernel is H_2(G; Z) (uce-kernel-h2).
 
-1. From π' ∘ φ = f ∘ π, φ(R) ⊆ R'; then φ([R, F]) ⊆ [R', F'] and φ([F, F]) ⊆ [F', F'], so the
-   map of Hopf quotients is defined.
-1. The morphism (φ restricted to R, φ, f) from 1 → R → F → G → 1 to 1 → R' → F' → G' → 1 induces
-   a morphism of Hochschild-Serre spectral sequences (Löh, Remark 3.2.14), hence a morphism of
-   the four-term sequences of hopf-four-term-sequence whose H_2 component is H_2(f; Z) and whose
-   middle component is induced by φ.
-1. Restricting to the kernels of R/[F, R] → F_ab and R'/[F', R'] → F'_ab gives the statement;
-   independence of φ follows because H_2(f; Z) does not involve φ.
-1. Gap G-natural-Hopf: this rests on the naturality of the same missing Hochschild-Serre input
-   as hopf-four-term-sequence.
+**realises**
 
-**Acceptance.**
+- K2SymbolsBrauer:T.1:classical
 
-- For G' = G, F' = F and φ = id the induced map is the identity.
-- Different lifts can differ on the larger relation module: for F free on a, b → Z (a ↦ 1, b ↦
-  0) the lifts id and b ↦ b² of the identity differ on the class of b in R/[R, F] (b-exponent
-  sums 1 and 2), but they agree on the Hopf quotient, which is zero here since H_2(Z, Z) = 0.
-- It makes the kernel identification of uce-kernel-h2 independent of the presentation.
+**hypotheses**
 
-**Depends on.** **inside this roadmap** `hopf-formula`, `hopf-four-term-sequence`, `relation-central-extension`, `commutator-central-extension`; **baseline** `mathlib:groupHomology.map`, `mathlib:Rep.trivial`.
+- G is a perfect group; p : X → G is surjective with ker p in the centre of X; X is a group in Type, as Mathlib's integral group homology requires.
 
-**Sources.**
+**proofSteps**
 
-- Kbook.2013, III.5.3.4 (PDF p. 227, printed p. 219): “Example 5.3.4. Every presentation of G gives rise to two natural central extensions as follows.” — The source calls the two extensions natural but does not prove the naturality of the Hopf identification.
-- Loeh.GroupCohomology.2019, Proof of Theorem 3.2.18 (printed p. 131; PDF p. 139): “By the naturality of the Hochschild-Serre spectral sequence (Remark 3.2.14), this leads to a corresponding transformation between the associated Hochschild-Serre spectral sequences” — Löh uses this naturality to identify the maps on H_1; the same morphism of spectral sequences for a morphism of presentations gives the H_2 statement of this node.
+- (1) ⇒ (2): X is perfect (uce-perfect) and every central extension of X splits (uce-extensions-split).
+- (2) ⇒ (3): H_1(X; Z) = 0 by h1-trivial-perfect and H_2(X; Z) = 0 by split-extensions-kill-h2.
+- (3) ⇒ (2): superperfect-extensions-split.
+- (2) ⇒ (1): split-central-extension-universal.
+- Assemble the four implications as one equivalence of three conditions; the existence and kernel statements are the separate nodes perfect-uce-exists and uce-kernel-h2, restated here for reference.
+- The composite (1) ⇒ (3) is also the named theorem uce-source-superperfect, which K3BlochGroups V.1 imports; StableHomotopyKTheory H.3 uses (3) ⇒ (1) for π_1 of the homotopy fibre of a plus construction (K-book IV.1.7).
 
-
-### `uce-kernel-h2` — The kernel of a universal central extension is the second homology
-
-*theorem*
-
-Let G be a perfect group in Type and p : X → G a universal central extension with X in Type.
-Then ker p ≅ H_2(G, Z) as abelian groups (trivial integral coefficients): the unique isomorphism
-over G from X to the Hopf extension [F, F]/[R, F] of the canonical presentation F = FreeGroup G
-→ G restricts to an isomorphism of kernels, and Hopf's formula identifies the Hopf kernel (R ∩
-[F, F])/[R, F] with H_2(G, Z). That the identification does not depend on the presentation is
-uce-kernel-h2-natural.
-
-**Hypotheses.** G is a perfect group in Type; p : X → G is a universal central extension, X in Type (universality quantifies over central extensions in that universe, which contains the Hopf model FreeGroup G).
-
-**Construction and proof.**
-
-1. perfect-uce-exists gives the Hopf universal central extension U = [F, F]/[R, F] → G.
-1. Two universal central extensions of G are isomorphic over G by a unique isomorphism
-   (UCE.equiv_over of K2SymbolsBrauer:T.1/universal-central-extension); it maps ker p onto ker(U
-   → G).
-1. ker(U → G) = (R ∩ [F, F])/[R, F] (commutator-central-extension), which is H_2(G, Z) by
-   K2SymbolsBrauer:T.1/hopf-formula.
-
-**Acceptance.**
-
-- For G = E(R) and X = St(R) this is K_2(R) ≅ H_2(E(R), Z), which
-  K2SymbolsBrauer:T.1/k2-h2-elementary consumes.
-- For G trivial both sides are zero.
-- The statement is about perfect groups: Z² has H_2 = Z but no universal central extension.
-
-**Depends on.** **inside this roadmap** `perfect-uce-exists`, `universal-central-extension`, `commutator-central-extension`, `hopf-formula`; **baseline** `mathlib:groupHomology.H2`, `mathlib:Rep.trivial`.
-
-**Sources.**
-
-- Kbook.2013, III.5.4, statement (PDF p. 227, printed p. 219): “Recognition Theorem 5.4. Every perfect group G has a universal central extension, namely the extension (5.3.5): 1 → H2(G; Z) → [F, F]/[R, F] → G → 1.” — The kernel of the displayed universal central extension is H_2(G; Z).
-- Kbook.2013, Before Proposition IV.1.7 (PDF p. 272, printed p. 264): “Recall from III.5.4 that every perfect group P has a universal central extension E → P, and that the kernel of this extension is the abelian group H2(P; Z).” — The form in which the plus-construction chapter uses the statement, for an arbitrary universal central extension of a perfect group.
-
-
-### `uce-lift` — Lifting homomorphisms to universal central extensions
-
-*construction*
-
-Let p : X → G and p' : X' → G' be universal central extensions (groups in one universe) and f :
-G → G' a homomorphism. There is a unique homomorphism f̃ : X → X' with p' ∘ f̃ = f ∘ p. The lift
-of the identity of G along p itself is the identity of X, the lift of a composite is the
-composite of the lifts, and f̃ maps ker p into ker p', giving a homomorphism of abelian groups
-ker p → ker p'.
-
-**Hypotheses.** p : X → G and p' : X' → G' are universal central extensions; f : G → G' is a homomorphism.
-
-**Construction and proof.**
-
-1. Pull p' back along f: P = G ×_G' X' → G is a central extension of G
-   (central-extension-pullback).
-1. Universality of p gives a homomorphism X → P over G; compose with pr_X' to obtain f̃ with p'
-   ∘ f̃ = f ∘ p.
-1. Uniqueness: if h and k both satisfy p' ∘ h = f ∘ p = p' ∘ k, then (p, h) and (p, k) are
-   homomorphisms X → P over G (pullback lift), equal by universality of p; so h = k.
-1. Functoriality: the identity satisfies the defining equation for id_G, and lift(g) ∘ lift(f)
-   satisfies it for g ∘ f; uniqueness gives both laws.
-1. If p(x) = 1 then p'(f̃(x)) = f(1) = 1; kernels are central, hence abelian.
-
-**API.**
-
-| name | role | statement |
-| --- | --- | --- |
-| `IsUniversalCentralExtension.lift` | constructor | The lift f̃ : X → X' of f : G → G' between universal central extensions p and p'. |
-| `IsUniversalCentralExtension.proj_comp_lift` | universal-property | p' ∘ f̃ = f ∘ p. |
-| `IsUniversalCentralExtension.lift_unique` | characterisation | Any homomorphism h : X → X' with p' ∘ h = f ∘ p equals f̃. |
-| `IsUniversalCentralExtension.lift_id` | functoriality | The lift of id_G along p itself is id_X. |
-| `IsUniversalCentralExtension.lift_comp` | functoriality | The lift of g ∘ f is the lift of g composed with the lift of f. |
-| `IsUniversalCentralExtension.kerMap` | projection | The restriction of f̃ to kernels, a homomorphism of abelian groups ker p → ker p'. |
-
-**Used by.** *K2SymbolsBrauer:T.1/k2-h2-elementary*: naturality of K_2(R) ≅ H_2(E(R), Z) in the ring: St(R) → St(S) is the lift of E(R) → E(S). *K2SymbolsBrauer:T.1:classical/uce-kernel-h2-natural*: its kernel map is compared with H_2(f; Z). *StableHomotopyKTheory:H.3/plus-pi2-universal-central-extension*: the naturality in R that the node's acceptance asks to check on representatives.
-
-**Unit tests.**
-
-- `lift_id_self` (degenerate) — For G' = G, p' = p and f = id_G, the lift is id_X.
-- `lift_trivial_hom` (characterisation) — For the trivial homomorphism f : G → G', the lift is
-  the trivial homomorphism X → X'.
-- `lift_steinberg` (compatibility) — For a ring map φ : R → S, the lift of E(φ) along St(R) →
-  E(R) and St(S) → E(S) sends x_ij(r) to x_ij(φ(r)).
-- `lift_not_unique_nonuniversal` (non-example) — For the central extension id : C_2 → C_2, which
-  is not universal, the identity of C_2 has two different lifts to the split extension C_2 × C_2
-  → C_2 (first coordinate trivial or the identity).
-
-**Acceptance.**
-
-- The lift of the trivial homomorphism is trivial: it maps X into the abelian group ker p', and
-  X is perfect.
-- For a ring map R → S the lift of E(R) → E(S) along the Steinberg extensions is the
-  functoriality map St(R) → St(S), by uniqueness.
-- Uniqueness needs a universal source: for id : C_2 → C_2, the identity of C_2 has two lifts to
-  the split extension C_2 × C_2 → C_2.
-
-**Depends on.** **inside this roadmap** `universal-central-extension`, `uce-perfect`, `central-extension-pullback`, `central-extension-hom`.
-
-**Source.** Kbook.2013, III.5.3.1 (PDF p. 227, printed p. 219): “Definition 5.3.1. A universal central extension of G is a central extension X → G such that for every other central extension Y → G there is a unique homomorphism f over G from X to Y.” — The universal property from which the lift is derived. The source states uniqueness up to isomorphism over G but not the lift along a homomorphism of bases or its functoriality; they are derived here through the pullback.
-
-
-### `uce-kernel-h2-natural` — Naturality of the kernel of the universal central extension
-
-*theorem*
-
-Let f : G → G' be a homomorphism of perfect groups in Type with universal central extensions p :
-X → G and p' : X' → G'. Under the isomorphisms ker p ≅ H_2(G, Z) and ker p' ≅ H_2(G', Z) of
-uce-kernel-h2, the kernel map of the lift f̃ (uce-lift) is H_2(f; Z) = groupHomology.map f (id)
-2. Taking f = id_G shows that the isomorphism of uce-kernel-h2 does not depend on the
-presentation used to build it.
-
-**Hypotheses.** G, G' are perfect groups in Type with universal central extensions p, p'; f : G → G' is a homomorphism.
-
-**Construction and proof.**
-
-1. Reduce to the Hopf models of the canonical presentations F = FreeGroup G → G and F' =
-   FreeGroup G' → G': the isomorphisms over G and G' commute with the lifts, by the uniqueness
-   clause of uce-lift.
-1. φ = FreeGroup.map f satisfies π' ∘ φ = f ∘ π; the map it induces [F, F]/[R, F] → [F',
-   F']/[R', F'] lies over f, so it is the lift by uniqueness.
-1. Its restriction to kernels is the map of Hopf quotients, which is H_2(f; Z) by
-   hopf-formula-natural.
-
-**Acceptance.**
-
-- For f = id_G the kernel map is the identity, whatever presentations are used.
-- For a ring map R → S it gives the naturality of K_2(R) ≅ H_2(E(R), Z) that
-  K2SymbolsBrauer:T.1/k2-h2-elementary asserts.
-
-**Depends on.** **inside this roadmap** `uce-kernel-h2`, `uce-lift`, `hopf-formula-natural`; **baseline** `mathlib:FreeGroup.map`, `mathlib:groupHomology.map`.
-
-**Source.** Kbook.2013, Theorem III.5.5 (PDF p. 228, printed p. 220): “Theorem 5.5. (Kervaire, Steinberg) The Steinberg group St(R) is the universal central extension of E(R). Hence K2(R) ≅ H2(E(R); Z).” — The identification whose naturality in the ring the later chapters use; the source does not state the naturality, which is derived here from uce-lift and hopf-formula-natural.
-
-
-### `uce-source-superperfect` — The source of a universal central extension is superperfect
-
-*theorem*
-
-Let p : X → G be a universal central extension of groups in Type. Then X is superperfect: H_1(X,
-Z) = 0 and H_2(X, Z) = 0. Only the universal property is used. This is Recognition (1) ⇒ (3).
-
-**Hypotheses.** p : X → G is a universal central extension; X and G are groups in Type.
-
-**Construction and proof.**
-
-1. X is perfect (K2SymbolsBrauer:T.1/uce-perfect, K-book Lemma III.5.3.2), so H_1(X, Z) = 0
-   (h1-trivial-perfect).
-1. Every central extension of X splits (uce-extensions-split), in particular every central
-   extension of X by Q/Z with trivial action.
-1. split-extensions-kill-h2 gives H_2(X, Z) = 0.
-
-**Acceptance.**
-
-- For the Steinberg extension St(R) → E(R) (K2SymbolsBrauer:T.1/steinberg-is-uce) it gives
-  H_1(St(R), Z) = H_2(St(R), Z) = 0, the corollary K3BlochGroups V.1 draws.
-- Universality, not merely a perfect source, is used: the identity of A_5 is a central extension
-  with perfect source, but H_2(A_5, Z) ≠ 0.
-- For X = G trivial both homology groups vanish.
-
-**Depends on.** **inside this roadmap** `uce-perfect`, `uce-extensions-split`, `split-extensions-kill-h2`, `h1-trivial-perfect`, `superperfect`.
-
-**Sources.**
-
-- Kbook.2013, III.5.4, equivalent conditions and proof (PDF p. 228, printed p. 220): “Let X be any central extension of G, the following are equivalent: (1) X is a universal central extension; (2) X is perfect, and every central extension of X splits; (3) H1(X; Z) = H2(X; Z) = 0.” — The implication (1) ⇒ (3), by the route (1) ⇒ (2) ⇒ (3) the source indicates. First planned as K3BlochGroups:V.1/uce-superperfect; moved here by FIX-RT-AREA-ktheory-1 so that V.1 imports it.
-- Kbook.2013, Exercise IV.1.9 (PDF p. 282, printed p. 274): “Suppose that A → S → P is a universal central extension (III.5.3.1). In particular, S and P are perfect groups.” — The perfectness half, in the form the plus-construction exercise uses.
-
-
-### `superperfect-extensions-split` — A superperfect group is its own universal central extension
-
-*lemma*
-
-Let X be a superperfect group in Type. Then the identity X → X is a universal central extension
-of X, and every central extension ρ : Y → X (Y in Type) splits. This is Recognition (3) ⇒ (2).
-
-**Hypotheses.** X is a superperfect group in Type.
-
-**Construction and proof.**
-
-1. X is perfect (h1-trivial-perfect), so perfect-uce-exists gives the universal central
-   extension U = [F, F]/[R, F] → X for F = FreeGroup X.
-1. Its kernel (R ∩ [F, F])/[R, F] (commutator-central-extension) is H_2(X, Z) = 0 by
-   K2SymbolsBrauer:T.1/hopf-formula, so U → X is an isomorphism and the identity of X is a
-   universal central extension.
-1. For a central extension ρ : Y → X, universality of the identity gives s : X → Y with ρ ∘ s =
-   id_X.
-
-**Acceptance.**
-
-- For X trivial, every central extension A → 1 is split by the trivial homomorphism.
-- Both vanishing conditions are needed: Z/2 has H_2 = 0 but H_1 ≠ 0, and C_4 → Z/2 does not
-  split; A_5 is perfect with H_2 ≠ 0, and SL_2(F_5) → A_5 does not split.
-
-**Depends on.** **inside this roadmap** `superperfect`, `h1-trivial-perfect`, `perfect-uce-exists`, `commutator-central-extension`, `hopf-formula`, `universal-central-extension`.
-
-**Source.** Kbook.2013, III.5.4, equivalent conditions and proof (PDF p. 228, printed p. 220): “Let X be any central extension of G, the following are equivalent: (1) X is a universal central extension; (2) X is perfect, and every central extension of X splits; (3) H1(X; Z) = H2(X; Z) = 0.” — The implication (3) ⇒ (2), which the source obtains from the existence half and the identification of the kernel with H_2.
-
-
-### `split-central-extension-universal` — A perfect central extension whose central extensions split is universal
-
-*lemma*
-
-Let p : X → G be surjective with central kernel. If X is perfect and every central extension of
-X splits, then p is a universal central extension of G. This is Recognition (2) ⇒ (1); no
-homology enters and there is no universe restriction beyond the one in the definition of
-universality.
-
-**Hypotheses.** p : X → G is surjective and ker p lies in the centre of X. X is perfect, and every central extension of X (in the universe over which universality quantifies) splits.
-
-**Construction and proof.**
-
-1. Given a central extension q : Y → G, pull it back along p (central-extension-pullback): P = X
-   ×_G Y → X is a central extension of X.
-1. By hypothesis it has a section s : X → P; then pr_Y ∘ s : X → Y satisfies q ∘ pr_Y ∘ s = p ∘
-   pr_X ∘ s = p, a homomorphism over G.
-1. Uniqueness: X is perfect and ker q is central, so perfect-extension-rigidity.
-
-**Acceptance.**
-
-- The Steinberg application: St(R) is perfect and every central extension of St(R) splits (glued
-  from finite-rank splitting), so St(R) → E(R) is universal;
-  K2SymbolsBrauer:T.1/steinberg-is-uce uses the lemma in this form.
-- Perfectness of X is needed: every central extension of a nontrivial free group F splits, but
-  the identity of F is not universal, since F is not perfect.
-
-**Depends on.** **inside this roadmap** `central-extension-pullback`, `perfect-extension-rigidity`, `central-extension-hom`, `universal-central-extension`; **baseline** `mathlib:Group.IsPerfect`.
-
-**Source.** Kbook.2013, III.5.4, equivalent conditions and proof (PDF p. 228, printed p. 220): “The implication (1)⇒(2) is Lemma 5.3.2 and Ex. 5.7, and (2) ⇒ (1) is immediate.” — The implication (2) ⇒ (1), which the source calls immediate; the proof steps make the pullback explicit.
-
-### `recognition-theorem` — The Recognition Theorem ★
-
-*theorem* · planet **Recognition Theorem**
-
-Let G be a perfect group and p : X → G a central extension (p surjective, ker p central), X in
-Type. The following are equivalent: (1) p is a universal central extension; (2) X is perfect and
-every central extension of X splits; (3) H_1(X; Z) = H_2(X; Z) = 0, that is, X is superperfect.
-Every perfect group has a universal central extension, the Hopf extension of any free
-presentation (perfect-uce-exists), and its kernel is H_2(G; Z) (uce-kernel-h2).
-
-**Hypotheses.** G is a perfect group; p : X → G is surjective with ker p in the centre of X; X is a group in Type, as Mathlib's integral group homology requires.
-
-**Construction and proof.**
-
-1. (1) ⇒ (2): X is perfect (uce-perfect) and every central extension of X splits
-   (uce-extensions-split).
-1. (2) ⇒ (3): H_1(X; Z) = 0 by h1-trivial-perfect and H_2(X; Z) = 0 by split-extensions-kill-h2.
-1. (3) ⇒ (2): superperfect-extensions-split.
-1. (2) ⇒ (1): split-central-extension-universal.
-1. Assemble the four implications as one equivalence of three conditions; the existence and
-   kernel statements are the separate nodes perfect-uce-exists and uce-kernel-h2, restated here
-   for reference.
-1. The composite (1) ⇒ (3) is also the named theorem uce-source-superperfect, which
-   K3BlochGroups V.1 imports; StableHomotopyKTheory H.3 uses (3) ⇒ (1) for π_1 of the homotopy
-   fibre of a plus construction (K-book IV.1.7).
-
-**Acceptance.**
+**acceptance**
 
 - For a free group the theorem is vacuous, since a free group is perfect only when trivial.
-- Condition (3) is the one K3BlochGroups V.1 uses for the Steinberg group and
-  StableHomotopyKTheory H.3 uses for π_1 of an acyclic homotopy fibre.
-- Perfectness of a central-extension source alone does not imply universality; the recognition
-  criterion also requires H_2 of that source to vanish.
-- The hypotheses that p is surjective with central kernel are kept: universality is recognised
-  on central extensions of a perfect group, not on arbitrary extensions.
+- Condition (3) is the one K3BlochGroups V.1 uses for the Steinberg group and StableHomotopyKTheory H.3 uses for π_1 of an acyclic homotopy fibre.
+- Perfectness of a central-extension source alone does not imply universality; the recognition criterion also requires H_2 of that source to vanish.
+- The hypotheses that p is surjective with central kernel are kept: universality is recognised on central extensions of a perfect group, not on arbitrary extensions.
 
-**Depends on.** **inside this roadmap** `uce-perfect`, `universal-central-extension`, `uce-extensions-split`, `h1-trivial-perfect`, `split-extensions-kill-h2`, `superperfect-extensions-split`, `split-central-extension-universal`, `superperfect`, `perfect-uce-exists`, `uce-kernel-h2`; **baseline** `mathlib:groupHomology.H1`, `mathlib:groupHomology.H2`.
+**prerequisites**
 
-**Sources.**
+- K2SymbolsBrauer:T.1/uce-perfect
+- K2SymbolsBrauer:T.1/universal-central-extension
+- K2SymbolsBrauer:T.1:classical/uce-extensions-split
+- K2SymbolsBrauer:T.1:classical/h1-trivial-perfect
+- K2SymbolsBrauer:T.1:classical/split-extensions-kill-h2
+- K2SymbolsBrauer:T.1:classical/superperfect-extensions-split
+- K2SymbolsBrauer:T.1:classical/split-central-extension-universal
+- K2SymbolsBrauer:T.1:classical/superperfect
+- K2SymbolsBrauer:T.1:classical/perfect-uce-exists
+- K2SymbolsBrauer:T.1:classical/uce-kernel-h2
+- mathlib:groupHomology.H1
+- mathlib:groupHomology.H2
 
-- Kbook.2013, III.5.4, statement (PDF p. 227, printed p. 219): “Recognition Theorem 5.4. Every perfect group G has a universal central extension, namely the extension (5.3.5): 1 → H2(G; Z) → [F, F]/[R, F] → G → 1.” — The existence statement and the extension (5.3.5).
-- Kbook.2013, III.5.4, equivalent conditions and proof (PDF p. 228, printed p. 220): “Let X be any central extension of G, the following are equivalent: (1) X is a universal central extension; (2) X is perfect, and every central extension of X splits; (3) H1(X; Z) = H2(X; Z) = 0.” — The three equivalent conditions.
-- Kbook.2013, III.5.4, equivalent conditions and proof (PDF p. 228, printed p. 220): “The implication (1)⇒(2) is Lemma 5.3.2 and Ex. 5.7, and (2) ⇒ (1) is immediate.” — The source's own division of the implications, which the proof steps refine into separate nodes.
+**sources**
 
-### `steinberg-is-uce` — The Steinberg group is the universal central extension of the elementary group ★
+- **sourceId:** Kbook.2013; **locator:** III.5.4, statement (PDF p. 227, printed p. 219); **excerpt:** Recognition Theorem 5.4. Every perfect group G has a universal central extension, namely the extension (5.3.5): 1 → H2(G; Z) → [F, F]/[R, F] → G → 1.; **match:** The existence statement and the extension (5.3.5).
+- **sourceId:** Kbook.2013; **locator:** III.5.4, equivalent conditions and proof (PDF p. 228, printed p. 220); **excerpt:** Let X be any central extension of G, the following are equivalent: (1) X is a universal central extension; (2) X is perfect, and every central extension of X splits; (3) H1(X; Z) = H2(X; Z) = 0.; **match:** The three equivalent conditions.
+- **sourceId:** Kbook.2013; **locator:** III.5.4, equivalent conditions and proof (PDF p. 228, printed p. 220); **excerpt:** The implication (1)⇒(2) is Lemma 5.3.2 and Ex. 5.7, and (2) ⇒ (1) is immediate.; **match:** The source's own division of the implications, which the proof steps refine into separate nodes.
 
-*theorem* · planet **St(R) is the universal central extension**
+**implementationStatus:** unchecked
 
-For every ring R the stable Steinberg group St(R) is the universal central extension of E(R).
-Consequently K_2(R) is isomorphic to the second integral homology of E(R).
+**planet:** **name:** Recognition Theorem
 
-**Hypotheses.** R is an associative unital ring.
+#### The Steinberg group is the universal central extension of the elementary group
 
-**Construction and proof.**
+`K2SymbolsBrauer:T.1/steinberg-is-uce` — theorem
 
-1. Observe that E(R) is perfect, so the Recognition Theorem applies.
-1. Prove that St(R) is a central extension of E(R), which is Steinberg's centre theorem.
-1. Pull a central extension of St(R) back to St_n(R) for each n >= 5. Finite splitting gives a
-   section; perfectness and rigidity make the sections compatible. The group-colimit universal
-   property glues them to a section.
-1. Apply split-central-extension-universal (Recognition (2) ⇒ (1)) using stable centrality,
-   Steinberg perfectness and the glued splitting; the separate T.1:plus node makes the H2
-   comparison.
+For every ring R the stable Steinberg group St(R) is the universal central extension of E(R). Consequently K_2(R) is isomorphic to the second integral homology of E(R).
 
-**Acceptance.**
+**realises**
+
+- K2SymbolsBrauer:T.1:classical
+
+**hypotheses**
+
+- R is an associative unital ring.
+
+**proofSteps**
+
+- Observe that E(R) is perfect, so the Recognition Theorem applies.
+- Prove that St(R) is a central extension of E(R), which is Steinberg's centre theorem.
+- Pull a central extension of St(R) back to St_n(R) for each n >= 5. Finite splitting gives a section; perfectness and rigidity make the sections compatible. The group-colimit universal property glues them to a section.
+- Apply split-central-extension-universal (Recognition (2) ⇒ (1)) using stable centrality, Steinberg perfectness and the glued splitting; the separate T.1:plus node makes the H2 comparison.
+
+**acceptance**
 
 - The identification of K_2 with the second homology is the statement T.1:plus starts from.
 - For the ring of integers both sides are cyclic of order two.
 - No finite-rank UCE conclusion is drawn without a separate centrality hypothesis.
 
-**Depends on.** **inside this roadmap** `recognition-theorem`, `k2-is-centre`, `finite-rank-splitting`, `steinberg-perfect`, `perfect-extension-rigidity`, `stable-steinberg-perfect`, `split-central-extension-universal`; **other roadmaps** `KTheoryLowDegrees:U.1`.
+**prerequisites**
 
-**Source.** Kbook.2013, III.5.5 (PDF p. 228): “Theorem 5.5. (Kervaire, Steinberg) The Steinberg group St(R) is the universal central extension of E(R). Hence K_2(R) = H_2(E(R); Z).” — The theorem, as displayed.
+- K2SymbolsBrauer:T.1/recognition-theorem
+- K2SymbolsBrauer:T.1/k2-is-centre
+- K2SymbolsBrauer:T.1/finite-rank-splitting
+- K2SymbolsBrauer:T.1:classical/steinberg-perfect
+- KTheoryLowDegrees:U.1
+- K2SymbolsBrauer:T.1:classical/perfect-extension-rigidity
+- K2SymbolsBrauer:T.1:classical/stable-steinberg-perfect
+- K2SymbolsBrauer:T.1:classical/split-central-extension-universal
 
-### `finite-rank-splitting` — Every central extension of the finite-rank Steinberg group splits, for n at least five
+**sources**
 
-*theorem*
+- **sourceId:** Kbook.2013; **locator:** III.5.5 (PDF p. 228); **excerpt:** Theorem 5.5. (Kervaire, Steinberg) The Steinberg group St(R) is the universal central extension of E(R). Hence K_2(R) = H_2(E(R); Z).; **match:** The theorem, as displayed.
 
-For n at least five every central extension of St_n(R) splits; consequently St_n(R) is the
-universal central extension of E_n(R).
+**implementationStatus:** unchecked
 
-**Hypotheses.** R is an associative unital ring; n is at least five.
+**planet:** **name:** St(R) is the universal central extension
 
-**Construction and proof.**
+#### Every central extension of the finite-rank Steinberg group splits, for n at least five
 
-1. Show first that two elements of the extension lying over generators with disjoint index
-   conditions commute, by introducing an auxiliary index distinct from the four given ones and
-   writing one of the two as a commutator; this is where n at least five is used.
-1. Choose distinct indices and elements over three generators, and show that the commutator
-   subgroup of the subgroup they generate is abelian.
-1. Use the Hall-Witt style identity to show that the element defined as a commutator of two
-   lifts does not depend on the intermediate index nor on the chosen lifts.
-1. Prove that these elements satisfy the Steinberg relations, so that they define a homomorphism
-   from St_n(R) to the extension splitting it.
-1. Deduce from the Recognition Theorem that St_n(R) is the universal central extension of
-   E_n(R).
+`K2SymbolsBrauer:T.1/finite-rank-splitting` — theorem
 
-**Acceptance.**
+For n at least five every central extension of St_n(R) splits; consequently St_n(R) is the universal central extension of E_n(R).
+
+**realises**
+
+- K2SymbolsBrauer:T.1:classical
+
+**hypotheses**
+
+- R is an associative unital ring; n is at least five.
+
+**proofSteps**
+
+- Show first that two elements of the extension lying over generators with disjoint index conditions commute, by introducing an auxiliary index distinct from the four given ones and writing one of the two as a commutator; this is where n at least five is used.
+- Choose distinct indices and elements over three generators, and show that the commutator subgroup of the subgroup they generate is abelian.
+- Use the Hall-Witt style identity to show that the element defined as a commutator of two lifts does not depend on the intermediate index nor on the chosen lifts.
+- Prove that these elements satisfy the Steinberg relations, so that they define a homomorphism from St_n(R) to the extension splitting it.
+- Gap G-lifted-relations: expand the Hall-Witt use, independence of the auxiliary index, and additivity of lifted generators; the source leaves the last calculation to the reader. Finite-rank centrality is not deduced from splitting.
+
+**acceptance**
 
 - The bound n at least five is used in the first step and is recorded, not smoothed over.
 - The splitting is by an explicit homomorphism, which is what makes the argument constructive.
-- The statement does not say that the kernel of the finite-rank map is central, which is the
-  separate caveat below.
+- The statement does not say that the kernel of the finite-rank map is central, which is the separate caveat below.
 
-**Depends on.** **inside this roadmap** `steinberg-group-finite-rank`, `recognition-theorem`, `elementary-matrices-satisfy`.
+**prerequisites**
 
-**Source.** Kbook.2013, III.5.5.1 (PDF p. 228): “Proposition 5.5.1. If n >= 5, every central extension Y -> St_n(R) is split. Hence St_n(R) is the universal central extension of E_n(R).” — The proposition, with the proof of the source followed step by step.
+- K2SymbolsBrauer:T.1/steinberg-group-finite-rank
 
-### `finite-rank-caveat` — What the stable theorem does not give in finite rank
+**sources**
 
-*lemma*
+- **sourceId:** Kbook.2013; **locator:** III.5.5.1 (PDF p. 228); **excerpt:** Proposition 5.5.1. If n >= 5, every central extension Y -> St_n(R) is split. Hence St_n(R) is the universal central extension of E_n(R).; **match:** The proposition, with the proof of the source followed step by step.
 
-The centrality of the kernel of the map from St_n(R) to E_n(R) is not asserted for every ring
-and every rank. Steinberg's centre theorem is a statement about the stable group, and its proof
-uses that the rank may be increased arbitrarily. This node records the boundary explicitly and
-states what is available: the splitting result for n at least five, and the stable centrality.
+**implementationStatus:** unchecked
 
-**Hypotheses.** R is an associative unital ring; n is at least three.
+#### Conditional centrality in finite rank
 
-**Construction and proof.**
+`K2SymbolsBrauer:T.1/finite-rank-caveat` — lemma
 
-1. State the two available results and their hypotheses: the stable centre theorem, with no rank
-   hypothesis but about the colimit, and the finite-rank splitting for n at least five.
-1. State explicitly what does not follow: that the kernel of the finite-rank map is central for
-   every ring and every rank at least three.
-1. Record where the stable proof uses growth of the rank, namely in the step that chooses n
-   large enough for a given element and then lets n grow.
+If the map ker(St_n(R)->E_n(R)) -> ker(St(R)->E(R)) induced by stabilization is injective, then ker(St_n(R)->E_n(R)) is central in St_n(R). This hypothesis is not asserted for arbitrary n,R.
 
-**Acceptance.**
+**realises**
 
-- The stable theorem is used only for the stable group in every downstream node.
-- The finite-rank splitting is stated with its hypothesis n at least five.
-- No node of this packet asserts finite-rank centrality, which is the acceptance test.
+- K2SymbolsBrauer:T.1:classical
 
-**Depends on.** **inside this roadmap** `k2-is-centre`, `finite-rank-splitting`.
+**hypotheses**
 
-**Source.** Kbook.2013, III.5.2.1 proof (PDF p. 226): “Choose an integer n large enough that y can be expressed as a word in the symbols x_ij(r) with i, j < n. ... Since n can be arbitrarily large, this proves that y is in the center of St(R).” — The step of the stable proof that uses growth of the rank, which is why the finite-rank statement does not follow.
+- R is an associative unital ring; n is at least three.
+- The stabilization map restricted to the finite-rank kernel is injective.
 
-## T.1:plus — Comparison with homotopy K₂
+**proofSteps**
 
-Two steps, both short because the work is done: the uniqueness of the universal central
-extension turns `K₂(R)` into `H₂(E(R), ℤ)`, and the plus construction turns that into `π₂` of
-the K-theory space, Hurewicz applying because `BE(R)⁺` is simply connected. The plus
-construction is `StableHomotopyKTheory:H.3`'s and the space is `GeneralAlgebraicKTheory:K.2`'s;
-this layer supplies the explicit model they are compared with, and `K.2:low-degree-comparisons`
-consumes it.
+- For z in the finite kernel and x in St_n, [z,x] is again in the finite kernel.
+- Its stable image is trivial, since the stable image of z is central by Steinberg's theorem.
+- Injectivity on the kernel makes [z,x]=1, proving centrality.
 
-### `k2-h2-elementary` — K_2 is the second homology of the elementary group ★
+**acceptance**
 
-*theorem* · planet **K2 is H2 of E(R)**
+- The proof uses injectivity on the kernel, not injectivity of the entire stabilization map.
+- Without the injectivity hypothesis the stable-centre theorem alone has no finite-rank conclusion.
+- Together with n>=5 splitting and perfectness, this centrality hypothesis permits a finite-rank UCE conclusion.
 
-For every ring R there is an isomorphism from K_2(R) to the second integral homology of E(R),
-natural in R. It is the identification of the kernel of the universal central extension with the
-kernel given by the Hopf formula.
+**prerequisites**
 
-**Hypotheses.** R is an associative unital ring.
+- K2SymbolsBrauer:T.1/k2-is-centre
+- K2SymbolsBrauer:T.1:classical/to-elementary
 
-**Construction and proof.**
+**sources**
 
-1. Import that St(R) is the universal central extension of E(R) (steinberg-is-uce); E(R) is
-   perfect.
-1. uce-kernel-h2 applied to St(R) → E(R), with kernel K_2(R) (k2-definition), gives K_2(R) ≅
-   H_2(E(R), Z); the isomorphism is of kernels, compatible with the projections to E(R).
-1. Naturality in the ring: for φ : R → S the functoriality map St(R) → St(S) is the lift of E(φ)
-   (uce-lift, by uniqueness), and uce-kernel-h2-natural identifies its kernel map with H_2(E(φ);
-   Z).
-1. Gap G-natural-Hopf enters through hopf-formula-natural.
+- **sourceId:** Kbook.2013; **locator:** III.5.2.1 and III.5.5.2 (PDF pp. 226, 229); **excerpt:** The source separates stable centrality from stabilization assertions; injectivity on the unstable kernel is an extra input to the finite-rank deduction.; **match:** Paraphrase of the indicated passage; checked in the author copy, not a quotation from the published edition.
 
-**Acceptance.**
+**implementationStatus:** unchecked
+
+#### The Steinberg map onto the elementary subgroup
+
+`K2SymbolsBrauer:T.1:classical/to-elementary` — construction
+
+The generator assignment x_ij(r) -> e_ij(r) descends to a surjective homomorphism St_n(R) -> E_n(R), where E_n is the subgroup generated by elementary matrices imported from KTheoryLowDegrees:U.1.
+
+**realises**
+
+- K2SymbolsBrauer:T.1:classical
+
+**hypotheses**
+
+- R is an associative unital ring; n is at least three.
+
+**proofSteps**
+
+- Apply the presentation lift to the separately verified elementary relations.
+- The image contains each elementary generator, so it equals the elementary subgroup by subgroup-closure induction.
+
+**acceptance**
+
+- The generator assignment x_ij(r) -> e_ij(r) descends to a surjective homomorphism St_n(R) -> E_n(R), where E_n is the subgroup generated by elementary matrices imported from KTheoryLowDegrees:U.1.
+
+**prerequisites**
+
+- K2SymbolsBrauer:T.1/steinberg-group-finite-rank
+- K2SymbolsBrauer:T.1/elementary-matrices-satisfy
+- KTheoryLowDegrees:U.1
+
+**sources**
+
+- **sourceId:** Kbook.2013; **locator:** III.5.1.1 (PDF p. 225); **excerpt:** The presentation maps onto the elementary subgroup by sending each generator to its elementary matrix.; **match:** Paraphrase of the indicated passage; checked in the author copy, not a quotation from the published edition.
+
+**implementationStatus:** unchecked
+
+**addedBy:** REV-K2SymbolsBrauer--T.1
+
+**api**
+
+- **name:** toElementary; **role:** constructor; **statement:** The generator assignment x_ij(r) -> e_ij(r) descends to a surjective homomorphism St_n(R) -> E_n(R), where E_n is the subgroup generated by elementary matrices imported from KTheoryLowDegrees:U.1.
+- **name:** toElementary_x; **role:** simp; **statement:** The image of x_ij(r) is e_ij(r).
+- **name:** toElementary_surjective; **role:** characterisation; **statement:** Every element of the generated elementary subgroup has a preimage.
+- **name:** toElementary_map; **role:** functoriality; **statement:** The square for a unital ring homomorphism commutes on each generator.
+
+**uses**
+
+- **where:** K2SymbolsBrauer:T.1/stabilisation; **how:** Finite-rank homomorphisms must commute with stabilization.
+
+**tests**
+
+- **name:** generator_image; **statement:** x_01(2) maps to I+2E_01 over Z.
+- **name:** elementary_word; **statement:** e_01(r)*e_12(s) is the image of x_01(r)*x_12(s).
+- **name:** not_whole_gl; **statement:** Over Q, diag(2,1,1) has determinant 2 and is outside the image; surjectivity concerns E_3, not GL_3.
+
+#### The classical low-degree exact sequence
+
+`K2SymbolsBrauer:T.1:classical/k2-k1-exact` — lemma
+
+The sequence 1 -> K2(R) -> St(R) -> GL(R) -> K1(R) -> 1 is exact, using the inclusion E(R) <= GL(R) and the quotient GL(R)/E(R) imported from U.1-U.2.
+
+**realises**
+
+- K2SymbolsBrauer:T.1:classical
+
+**hypotheses**
+
+- R is an associative unital ring.
+
+**proofSteps**
+
+- Compose the surjection St -> E with the imported subgroup inclusion.
+- Injectivity of E -> GL identifies the composite kernel with K2.
+- The image is E, which is the kernel of the imported K1 quotient; that quotient is onto.
+
+**acceptance**
+
+- The sequence 1 -> K2(R) -> St(R) -> GL(R) -> K1(R) -> 1 is exact, using the inclusion E(R) <= GL(R) and the quotient GL(R)/E(R) imported from U.1-U.2.
+
+**prerequisites**
+
+- K2SymbolsBrauer:T.1/k2-definition
+- KTheoryLowDegrees:U.1
+- KTheoryLowDegrees:U.2
+
+**sources**
+
+- **sourceId:** Kbook.2013; **locator:** III.5.2 (PDF p. 225); **excerpt:** The classical kernel lies in the low-degree exact sequence through stable GL and K1.; **match:** Paraphrase of the indicated passage; checked in the author copy, not a quotation from the published edition.
+
+**implementationStatus:** unchecked
+
+**addedBy:** REV-K2SymbolsBrauer--T.1
+
+#### Morphisms of central extensions
+
+`K2SymbolsBrauer:T.1:classical/central-extension-hom` — definition
+
+For central extensions p:X->G and q:Y->G define a morphism over G to be a homomorphism h:X->Y with q composed with h equal to p. Such morphisms do not require a fixed map of chosen kernel groups.
+
+**realises**
+
+- K2SymbolsBrauer:T.1:classical
+
+**hypotheses**
+
+- G is a group; A is an abelian group.
+
+**proofSteps**
+
+- Define the subtype of group homomorphisms satisfying the projection square.
+- Identity and composition follow from homomorphism identity and associativity; equality is equality of underlying homomorphisms.
+
+**acceptance**
+
+- For central extensions p:X->G and q:Y->G define a morphism over G to be a homomorphism h:X->Y with q composed with h equal to p. Such morphisms do not require a fixed map of chosen kernel groups.
+
+**prerequisites**
+
+- K2SymbolsBrauer:T.1/central-extension
+
+**sources**
+
+- **sourceId:** Kbook.2013; **locator:** III.5.3.1 (PDF p. 226); **excerpt:** Universality quantifies over maps of central extensions commuting with projection to G.; **match:** Paraphrase of the indicated passage; checked in the author copy, not a quotation from the published edition.
+
+**implementationStatus:** unchecked
+
+**addedBy:** REV-K2SymbolsBrauer--T.1
+
+**api**
+
+- **name:** HomOver.mk; **role:** constructor; **statement:** A homomorphism and proof of the projection square give a morphism.
+- **name:** HomOver.ext; **role:** extensionality; **statement:** Equality of underlying homomorphisms implies equality of morphisms.
+- **name:** HomOver.id_comp; **role:** simp; **statement:** Identity and composition retain the projection square; unit and associativity laws hold.
+
+**uses**
+
+- **where:** K2SymbolsBrauer:T.1/universal-central-extension; **how:** The universal property uses maps over G, without a fixed kernel identification.
+
+**tests**
+
+- **name:** identity; **statement:** The identity on A x G lies over the product projection.
+- **name:** section; **statement:** g -> (1,g) is a morphism from id:G->G to the split projection A x G->G.
+- **name:** reject_projection_error; **statement:** For nontrivial G, the constant homomorphism G->A x G is not over id:G->G.
+
+#### Central extensions and second cohomology
+
+`K2SymbolsBrauer:T.1:classical/central-extension-classification` — theorem
+
+Equivalence classes of central extensions of G by a fixed abelian group A correspond to H^2(G;A) with the trivial G-action.
+
+**realises**
+
+- K2SymbolsBrauer:T.1:classical
+
+**hypotheses**
+
+- G is a group; A is an abelian group.
+
+**proofSteps**
+
+- Specialize the pinned fixed-action factor-set equivalence theorem to the trivial action and normalized sections.
+- Gap G-classification: prove centrality is equivalent to inducing trivial action, construct sections/factor sets, and prove surjectivity and independence before asserting the full bijection.
+
+**acceptance**
+
+- Equivalence classes of central extensions of G by a fixed abelian group A correspond to H^2(G;A) with the trivial G-action.
+
+**prerequisites**
+
+- K2SymbolsBrauer:T.1/central-extension
+- tauceti:TauCeti.FactorSet.inl_range_le_center
+- tauceti:TauCeti.GroupExtension.nonempty_equiv_iff_cohomologyClass_factorSet_eq
+
+**sources**
+
+- **sourceId:** Kbook.2013; **locator:** III.5.3 (PDF pp. 226-227); **excerpt:** For the fixed abelian kernel A, central extensions are classified by degree-two cohomology with trivial action.; **match:** Paraphrase of the indicated passage; checked in the author copy, not a quotation from the published edition.
+
+**implementationStatus:** unchecked
+
+**addedBy:** REV-K2SymbolsBrauer--T.1
+
+#### Rigidity over a central quotient
+
+`K2SymbolsBrauer:T.1:classical/perfect-extension-rigidity` — lemma
+
+If p:X->G is surjective and X is perfect, and q:Y->G has central kernel, any two homomorphisms h,k:X->Y with qh=p=qk are equal.
+
+**realises**
+
+- K2SymbolsBrauer:T.1:classical
+
+**hypotheses**
+
+- G is a group; X and Y are central extensions of G.
+
+**proofSteps**
+
+- The pointwise difference h(x)k(x)^-1 lies in ker(q), hence is central.
+- Centrality makes this difference a homomorphism from X to the abelian centre.
+- A homomorphism from a perfect group to an abelian group is trivial.
+
+**acceptance**
+
+- If p:X->G is surjective and X is perfect, and q:Y->G has central kernel, any two homomorphisms h,k:X->Y with qh=p=qk are equal.
+
+**prerequisites**
+
+- K2SymbolsBrauer:T.1/central-extension
+- K2SymbolsBrauer:T.1:classical/central-extension-hom
+- mathlib:Group.IsPerfect
+
+**sources**
+
+- **sourceId:** Kbook.2013; **locator:** III.5.3.3 (PDF p. 227); **excerpt:** A perfect central extension has at most one homomorphism over the common quotient to another central extension.; **match:** Paraphrase of the indicated passage; checked in the author copy, not a quotation from the published edition.
+
+**implementationStatus:** unchecked
+
+**addedBy:** REV-K2SymbolsBrauer--T.1
+
+#### The central extension from relators
+
+`K2SymbolsBrauer:T.1:classical/relation-central-extension` — construction
+
+For F free and S normal, the projection F/[S,F] -> F/S is a central extension with kernel S/[S,F].
+
+**realises**
+
+- K2SymbolsBrauer:T.1:classical
+
+**hypotheses**
+
+- G is a group presented as a quotient of a free group F by a normal subgroup S.
+
+**proofSteps**
+
+- Since S is normal, [S,F] <= S.
+- Every class of S commutes with every class of F after quotienting by [S,F].
+- The quotient projection is onto and its kernel consists exactly of classes of S.
+
+**acceptance**
+
+- For F free and S normal, the projection F/[S,F] -> F/S is a central extension with kernel S/[S,F].
+
+**prerequisites**
+
+- K2SymbolsBrauer:T.1/central-extension
+
+**sources**
+
+- **sourceId:** Kbook.2013; **locator:** III.5.3.4 (PDF p. 227); **excerpt:** The first central extension has total group F/[S,F] and kernel S/[S,F].; **match:** Paraphrase of the indicated passage; checked in the author copy, not a quotation from the published edition.
+
+**implementationStatus:** unchecked
+
+**addedBy:** REV-K2SymbolsBrauer--T.1
+
+**api**
+
+- **name:** relatorProjection; **role:** constructor; **statement:** The induced quotient projection F/[S,F] -> F/S.
+- **name:** relatorProjection_kernel; **role:** characterisation; **statement:** Its kernel is canonically S/[S,F] and is central.
+- **name:** relatorProjection_map; **role:** functoriality; **statement:** A map of presentations preserving relators induces a commuting map of extensions.
+
+**uses**
+
+- **where:** K2SymbolsBrauer:T.1/hopf-formula; **how:** Restrict to the commutator subgroup to identify the Hopf kernel.
+
+**tests**
+
+- **name:** no_relators; **statement:** If S=1, the extension is the identity F->F and its kernel is trivial.
+- **name:** cyclic_relation; **statement:** If F=Z and S=mZ with m>=2, the extension is Z->Z/m with kernel mZ, which is nontrivial.
+- **name:** redundant_generator; **statement:** For Free(a,b)->Z killing b, the relation kernel is nonzero, detected by the b-exponent sum.
+
+#### Restricting the relator extension to commutators
+
+`K2SymbolsBrauer:T.1:classical/commutator-central-extension` — construction
+
+The restriction [F,F]/[S,F] -> [G,G] is a central extension with kernel (S intersect [F,F])/[S,F]. If G is perfect its quotient is G.
+
+**realises**
+
+- K2SymbolsBrauer:T.1:classical
+
+**hypotheses**
+
+- G is a group presented as a quotient of a free group F by a normal subgroup S.
+
+**proofSteps**
+
+- Surjectivity F->G maps its commutator subgroup onto [G,G].
+- Intersect the relation-extension kernel with [F,F] to compute the kernel.
+- Centrality follows from the relator extension.
+
+**acceptance**
+
+- The restriction [F,F]/[S,F] -> [G,G] is a central extension with kernel (S intersect [F,F])/[S,F]. If G is perfect its quotient is G.
+
+**prerequisites**
+
+- K2SymbolsBrauer:T.1:classical/relation-central-extension
+- mathlib:Group.IsPerfect
+
+**sources**
+
+- **sourceId:** Kbook.2013; **locator:** III.5.3.5 (PDF p. 227); **excerpt:** The second central extension has total group [F,F]/[S,F] and the Hopf intersection as kernel.; **match:** Paraphrase of the indicated passage; checked in the author copy, not a quotation from the published edition.
+
+**implementationStatus:** unchecked
+
+**addedBy:** REV-K2SymbolsBrauer--T.1
+
+**api**
+
+- **name:** commutatorProjection; **role:** constructor; **statement:** The restricted quotient homomorphism onto [G,G].
+- **name:** commutatorProjection_kernel; **role:** characterisation; **statement:** Its kernel is the intersection quotient.
+- **name:** commutatorProjection_perfect; **role:** compatibility; **statement:** For perfect G the quotient [G,G] identifies with G, preserving the projection.
+
+**uses**
+
+- **where:** K2SymbolsBrauer:T.1/recognition-theorem; **how:** The perfect-quotient extension is compared with the universal extension.
+
+**tests**
+
+- **name:** free_presentation; **statement:** For S=1 the map [F,F]->[F,F] is the identity, with trivial kernel.
+- **name:** cyclic_quotient; **statement:** For F=Z, S=mZ, its source and target commutator groups are trivial even though the larger relation kernel is mZ.
+- **name:** abelian_rank_two; **statement:** For G=Z^2 presented by F(a,b) with S=[F,F], the quotient target is trivial and the kernel [F,F]/[[F,F],F] is nontrivial; detect [a,b] in the integral Heisenberg quotient.
+
+#### Pulling a central extension back along a homomorphism
+
+`K2SymbolsBrauer:T.1:classical/central-extension-pullback` — construction
+
+Let q : Y → G be a surjective homomorphism whose kernel lies in the centre of Y, and let f : H → G be any homomorphism. The pullback P = {(h, y) ∈ H × Y : f(h) = q(y)} is a subgroup of H × Y, and its first projection pr_H : P → H is a central extension of H: it is surjective, and its kernel {(1, y) : y ∈ ker q} is central in P and isomorphic to ker q. The second projection pr_Y : P → Y satisfies q ∘ pr_Y = f ∘ pr_H, and a pair of homomorphisms a : X → H, b : X → Y with f ∘ a = q ∘ b factors uniquely through P.
+
+**realises**
+
+- K2SymbolsBrauer:T.1:classical
+
+**hypotheses**
+
+- G, H and Y are groups; q : Y → G is surjective and ker q is contained in the centre of Y; f : H → G is a homomorphism.
+
+**proofSteps**
+
+- P is the subgroup of H × Y on which the homomorphisms f ∘ fst and q ∘ snd agree (MonoidHom.eqLocus), so it is a group.
+- pr_H is surjective: for h in H choose y with q(y) = f(h), using that q is surjective.
+- ker pr_H = {(1, y) : q(y) = 1}. For (h', y') in P, (h', y')(1, y)(h', y')⁻¹ = (1, y'yy'⁻¹) = (1, y) because y is central in Y; so the kernel is central, and y ↦ (1, y) identifies ker q with it.
+- For a, b with f ∘ a = q ∘ b, the product homomorphism X → H × Y lands in P; it is the unique factorisation because P → H × Y is injective.
+
+**acceptance**
+
+- Along the identity of G the pullback is isomorphic over G to Y, by y ↦ (q(y), y).
+- The pullback of the product projection A × G → G along f is isomorphic over H to A × H → H.
+- Centrality is inherited but universality is not: along the inclusion of the trivial group the pullback is ker q → 1, which is universal only when ker q is trivial, since a universal central extension has a perfect source and ker q is abelian.
+
+**prerequisites**
+
+- K2SymbolsBrauer:T.1/central-extension
+- K2SymbolsBrauer:T.1:classical/central-extension-hom
+- mathlib:MonoidHom.eqLocus
+- mathlib:MonoidHom.ker
+- mathlib:Subgroup.center
+
+**sources**
+
+- **sourceId:** Kbook.2013; **locator:** III.5.4, equivalent conditions and proof (PDF p. 228, printed p. 220); **excerpt:** The implication (1)⇒(2) is Lemma 5.3.2 and Ex. 5.7, and (2) ⇒ (1) is immediate.; **match:** The source calls (2) ⇒ (1) immediate: a central extension Y → G is pulled back along X → G to a central extension of X, which condition (2) splits. The pullback is not displayed in the source; this node makes it a declaration.
+
+**implementationStatus:** unchecked
+
+**addedBy:** FIX-RT-AREA-ktheory-1
+
+**api**
+
+- **name:** CentralExtension.pullback; **role:** constructor; **statement:** The subgroup P = {(h, y) : f(h) = q(y)} of H × Y, for q : Y → G central and surjective and f : H → G.
+- **name:** CentralExtension.pullbackFst; **role:** projection; **statement:** pr_H : P → H; it is surjective and its kernel is central.
+- **name:** CentralExtension.pullbackSnd; **role:** projection; **statement:** pr_Y : P → Y, with q ∘ pr_Y = f ∘ pr_H.
+- **name:** CentralExtension.pullbackLift; **role:** universal-property; **statement:** For a : X → H and b : X → Y with f ∘ a = q ∘ b, the unique homomorphism X → P with pr_H ∘ lift = a and pr_Y ∘ lift = b.
+- **name:** CentralExtension.pullbackKerEquiv; **role:** characterisation; **statement:** ker pr_H ≅ ker q, by y ↦ (1, y).
+- **name:** CentralExtension.pullbackId; **role:** compatibility; **statement:** Along the identity of G the pullback is isomorphic to Y over G, by y ↦ (q(y), y).
+
+**uses**
+
+- **where:** K2SymbolsBrauer:T.1:classical/split-central-extension-universal; **how:** a central extension of G is pulled back along X → G, where condition (2) of the Recognition Theorem splits it (K-book III.5.4, '(2) ⇒ (1) is immediate')
+- **where:** K2SymbolsBrauer:T.1:classical/uce-lift; **how:** the lift of a homomorphism of bases to universal central extensions factors through the pullback of the target extension
+
+**tests**
+
+- **name:** pullback_id; **kind:** degenerate; **statement:** For f = id_G, y ↦ (q(y), y) is an isomorphism from Y onto P commuting with the projections to G.
+- **name:** pullback_trivial_subgroup; **kind:** computation; **statement:** For q : C_4 → C_2 reduction modulo two and f the inclusion of the trivial group, P ≅ C_2 and pr_H : C_2 → 1.
+- **name:** pullback_split; **kind:** characterisation; **statement:** The pullback of the product projection A × G → G along f : H → G is isomorphic over H to the product projection A × H → H.
+- **name:** pullback_noncentral; **kind:** non-example; **statement:** For q the sign map S_3 → C_2, whose kernel A_3 is not central, and f = id, the kernel of pr_H is not central in P ≅ S_3: the centrality hypothesis is used.
+
+**library:** **module:** TauCeti/Algebra/KTheory/Steinberg; **namespace:** TauCeti.Steinberg
+
+#### Composite of central extensions with perfect middle term
+
+`K2SymbolsBrauer:T.1:classical/central-extension-comp` — lemma
+
+Let ρ : Y → X and π : X → G be surjective homomorphisms whose kernels are central in Y and in X. If X is perfect, then πρ : Y → G is surjective with central kernel.
+
+**realises**
+
+- K2SymbolsBrauer:T.1:classical
+
+**hypotheses**
+
+- ker ρ is contained in the centre of Y and ker π in the centre of X; ρ and π are surjective.
+- X is perfect.
+
+**proofSteps**
+
+- Surjectivity of πρ is the composite of two surjections.
+- For z in ker(πρ), ρ(z) is central in X, so [y, z] lies in ker ρ, which is central in Y, for every y in Y.
+- Hence y ↦ [y, z] is a homomorphism from Y to the centre of Y, since [yy', z] = [y', z][y, z] when the values are central.
+- Its target is abelian, so it kills [Y, Y]; it kills ker ρ, which is central. As X is perfect, Y = [Y, Y]·ker ρ, so the homomorphism is trivial and z is central.
+
+**acceptance**
+
+- Non-example without perfectness: D_8 → D_8/Z(D_8) ≅ (Z/2)² and (Z/2)² → Z/2 are central extensions, but the composite has kernel {1, r², s, sr²}, which contains the non-central reflection s.
+- With X a universal central extension (perfect by Lemma III.5.3.2) this is the first sentence of Exercise III.5.7 as the Recognition Theorem uses it.
+
+**prerequisites**
+
+- K2SymbolsBrauer:T.1/central-extension
+- mathlib:Subgroup.center
+- mathlib:Group.IsPerfect
+
+**sources**
+
+- **sourceId:** Kbook.2013; **locator:** Exercise III.5.7 (PDF p. 237, printed p. 229); **excerpt:** If Y →ρ X and X →π G are central extensions, show that the “composition” Y →πρ G is also a central extension. If X is a universal central extension of G, conclude that every central extension Y →ρ X splits.; **match:** The first sentence, with the perfectness hypothesis the printed exercise omits: the D_8 example shows the printed statement is false without it (recorded as K3BlochGroups/E2 in the K3BlochGroups packet, where this lemma was first planned as V.1/central-extension-comp). The second sentence is uce-extensions-split.
+
+**implementationStatus:** unchecked
+
+**addedBy:** FIX-RT-AREA-ktheory-1
+
+#### Central extensions of a universal central extension split
+
+`K2SymbolsBrauer:T.1:classical/uce-extensions-split` — lemma
+
+If p : X → G is a universal central extension, then every central extension ρ : Y → X (ρ surjective with central kernel, Y in the universe of X) has a homomorphic section s : X → Y with ρ ∘ s = id_X.
+
+**realises**
+
+- K2SymbolsBrauer:T.1:classical
+
+**hypotheses**
+
+- p : X → G is a universal central extension.
+- ρ : Y → X is surjective and ker ρ lies in the centre of Y.
+
+**proofSteps**
+
+- X is perfect (K2SymbolsBrauer:T.1/uce-perfect), so p ∘ ρ : Y → G is a central extension (central-extension-comp).
+- Universality of p gives σ : X → Y with p ∘ ρ ∘ σ = p.
+- Both ρ ∘ σ and id_X are homomorphisms X → X over G from p to p, so the uniqueness clause of universality gives ρ ∘ σ = id_X; σ is the required section.
+
+**acceptance**
+
+- For X = G trivial, every central extension A → 1 is split by the trivial homomorphism.
+- Universality cannot be dropped: id : C_2 → C_2 is a central extension, and the central extension C_4 → C_2 of its source does not split.
+
+**prerequisites**
+
+- K2SymbolsBrauer:T.1/universal-central-extension
+- K2SymbolsBrauer:T.1/uce-perfect
+- K2SymbolsBrauer:T.1:classical/central-extension-hom
+- K2SymbolsBrauer:T.1:classical/central-extension-comp
+
+**sources**
+
+- **sourceId:** Kbook.2013; **locator:** Exercise III.5.7 (PDF p. 237, printed p. 229); **excerpt:** If Y →ρ X and X →π G are central extensions, show that the “composition” Y →πρ G is also a central extension. If X is a universal central extension of G, conclude that every central extension Y →ρ X splits.; **match:** The second sentence; the proof steps are the intended solution, using the first sentence with the perfectness of X that Lemma III.5.3.2 supplies.
+
+**implementationStatus:** unchecked
+
+**addedBy:** FIX-RT-AREA-ktheory-1
+
+#### Split central extensions force vanishing Schur multiplier
+
+`K2SymbolsBrauer:T.1:classical/split-extensions-kill-h2` — lemma
+
+Let G be a group in Type. If every central extension of G by the circle group T = Q/Z (AddCircle (1 : ℚ), written multiplicatively, with trivial G-action) splits, then H_2(G, Z) = 0, integral homology with trivial coefficients. More precisely, the evaluation map H²(G; T) → Hom(H_2(G, Z), T) is surjective, and H²(G; T) = 0 under the hypothesis.
+
+**realises**
+
+- K2SymbolsBrauer:T.1:classical
+
+**hypotheses**
+
+- G is a group in Type (Mathlib's integral group homology and the Tau Ceti factor-set classification are stated there); T carries the trivial G-action.
+
+**proofSteps**
+
+- Pair inhomogeneous 2-cocycles G × G → T with 2-cycles; the pairing kills coboundaries against cycles and cocycles against boundaries, so it descends to ev : H²(G; T) → Hom(H_2(G, Z), T).
+- ev is surjective: a character φ of H_2(G, Z), composed with the projection from 2-cycles, extends along the inclusion of 2-cycles into the 2-chains G × G →₀ Z (CharacterModule.dual_surjective_of_injective) to a function f : G × G → T; f vanishes on boundaries, so it is a 2-cocycle with ev[f] = φ.
+- H²(G; T) = 0: every class is the class of a factor set (TauCeti.FactorSet.exists_cohomologyClass_eq), whose extension (TauCeti.FactorSet.groupExtension) is central because the action is trivial, hence splits by hypothesis, so its class is 0 (TauCeti.FactorSet.nonempty_splitting_iff_cohomologyClass_eq_zero).
+- So every character of H_2(G, Z) vanishes, and H_2(G, Z) = 0 by CharacterModule.eq_zero_of_character_apply.
+
+**acceptance**
+
+- For G = A_5, H_2 ≅ Z/2 and the non-split central extension SL_2(F_5) → A_5 realises the class of the nonzero character, so the hypothesis fails as it must.
+- The lemma is Recognition (2) ⇒ (3) in degree two; it uses only extensions by Q/Z, not all central extensions.
+
+**prerequisites**
+
+- K2SymbolsBrauer:T.1/central-extension
+- mathlib:groupHomology.H2
+- mathlib:Rep.trivial
+- mathlib:groupCohomology.H2
+- mathlib:groupHomology.inhomogeneousChains
+- mathlib:groupHomology.d₃₂
+- mathlib:AddCircle
+- mathlib:CharacterModule
+- mathlib:CharacterModule.dual_surjective_of_injective
+- mathlib:CharacterModule.eq_zero_of_character_apply
+- tauceti:TauCeti.FactorSet.exists_cohomologyClass_eq
+- tauceti:TauCeti.FactorSet.nonempty_splitting_iff_cohomologyClass_eq_zero
+- tauceti:TauCeti.FactorSet.groupExtension
+
+**sources**
+
+- **sourceId:** Kbook.2013; **locator:** III.5.3 (PDF p. 227, printed p. 219); **excerpt:** It is well-known that the equivalence classes of central extensions of G by a fixed group A are in 1–1 correspondence with the elements of the cohomology group H2(G; A); **match:** The classification of central extensions by H² used in the third step, with the trivial action on T.
+- **sourceId:** Kbook.2013; **locator:** III.5.4, equivalent conditions and proof (PDF p. 228, printed p. 220); **excerpt:** Let X be any central extension of G, the following are equivalent: (1) X is a universal central extension; (2) X is perfect, and every central extension of X splits; (3) H1(X; Z) = H2(X; Z) = 0.; **match:** The implication (2) ⇒ (3) in degree two that this lemma supplies. First planned as K3BlochGroups:V.1/split-extensions-kill-h2 (review REV-K3BlochGroups); moved here by FIX-RT-AREA-ktheory-1.
+
+**implementationStatus:** unchecked
+
+**addedBy:** FIX-RT-AREA-ktheory-1
+
+#### First integral homology is the abelianisation; vanishing is perfectness
+
+`K2SymbolsBrauer:T.1:classical/h1-trivial-perfect` — lemma
+
+For a group G in Type, groupHomology.H1AddEquivOfIsTrivial for the trivial representation Z, followed by the unit isomorphism Additive(G_ab) ⊗_Z Z ≅ Additive(G_ab) (TensorProduct.rid), is an isomorphism H_1(G, Z) ≅ Additive(G_ab), natural in G: for f : G → H it carries groupHomology.map f to Abelianization.map f. Consequently H_1(G, Z) = 0 if and only if G is perfect.
+
+**realises**
+
+- K2SymbolsBrauer:T.1:classical
+
+**hypotheses**
+
+- G is a group in Type; Z carries the trivial action (Rep.trivial ℤ G ℤ).
+
+**proofSteps**
+
+- Apply groupHomology.H1AddEquivOfIsTrivial to A = Rep.trivial ℤ G ℤ and compose with TensorProduct.rid ℤ.
+- Naturality: both composites send the class of the 1-cycle single g 1 to the class of f(g) (H1AddEquivOfIsTrivial_single and groupHomology.H1π_comp_map); such classes generate H_1.
+- G_ab = G/[G, G] is trivial exactly when commutator G = ⊤, which is Group.isPerfect_def.
+
+**acceptance**
+
+- H_1(Z/2, Z) ≅ Z/2 ≠ 0, and Z/2 is not perfect.
+- H_1(A_5, Z) = 0 because A_5 is perfect.
+- The identification uses the trivial action: with a nontrivial coefficient module H_1 is not the abelianisation.
+
+**prerequisites**
+
+- mathlib:groupHomology.H1
+- mathlib:groupHomology.H1AddEquivOfIsTrivial
+- mathlib:groupHomology.map
+- mathlib:groupHomology.H1π_comp_map
+- mathlib:Rep.trivial
+- mathlib:TensorProduct.rid
+- mathlib:Abelianization
+- mathlib:Abelianization.map
+- mathlib:Group.IsPerfect
+- mathlib:Group.isPerfect_def
+
+**sources**
+
+- **sourceId:** Loeh.GroupCohomology.2019; **locator:** Corollary 1.4.6 (printed p. 23; PDF p. 31); **excerpt:** Corollary 1.4.6 (homological characterisation of perfect groups). Let G be a group. Then G is perfect if and only if H1(G; Z) ≅ 0.; **match:** The characterisation of perfectness, which is what the Recognition Theorem's H_1 = 0 means.
+- **sourceId:** Loeh.GroupCohomology.2019; **locator:** Theorem 1.4.1 (printed p. 20; PDF p. 28); **excerpt:** Theorem 1.4.1 (group homology in degree 1). Let G be a group. Then (where Z carries the trivial G-action) there is a canonical isomorphism H1(G; Z) ≅ Gab.; **match:** The natural isomorphism with the abelianisation; at the pin Mathlib supplies it as H1AddEquivOfIsTrivial up to the unit isomorphism of the tensor product.
+
+**implementationStatus:** unchecked
+
+**addedBy:** FIX-RT-AREA-ktheory-1
+
+#### Superperfect groups
+
+`K2SymbolsBrauer:T.1:classical/superperfect` — definition
+
+A group G in Type is superperfect if H_1(G, Z) = 0 and H_2(G, Z) = 0, where H_n(G, Z) = groupHomology (Rep.trivial ℤ G ℤ) n is Mathlib's integral group homology with trivial coefficients. Equivalently (h1-trivial-perfect), G is perfect and H_2(G, Z) = 0. This is condition (3) of the Recognition Theorem.
+
+**realises**
+
+- K2SymbolsBrauer:T.1:classical
+
+**hypotheses**
+
+- G is a group in Type: Mathlib's group homology over ℤ puts the group in the universe of ℤ.
+
+**proofSteps**
+
+- Define the predicate as the conjunction of the two vanishing statements, each as subsingleton-ness of the ModuleCat ℤ object.
+- Prove the characterisation by perfectness with h1-trivial-perfect.
+- Prove invariance under group isomorphisms with groupHomology.mapIso.
+
+**acceptance**
+
+- The trivial group is superperfect; Z/2 and every nontrivial free group are not.
+- A_5 is perfect but not superperfect, so the predicate is strictly stronger than Group.IsPerfect.
+
+**prerequisites**
+
+- mathlib:groupHomology
+- mathlib:Rep.trivial
+- mathlib:groupHomology.H1
+- mathlib:groupHomology.H2
+- mathlib:groupHomology.mapIso
+- mathlib:Group.IsPerfect
+- K2SymbolsBrauer:T.1:classical/h1-trivial-perfect
+
+**sources**
+
+- **sourceId:** Kbook.2013; **locator:** III.5.4, equivalent conditions and proof (PDF p. 228, printed p. 220); **excerpt:** Let X be any central extension of G, the following are equivalent: (1) X is a universal central extension; (2) X is perfect, and every central extension of X splits; (3) H1(X; Z) = H2(X; Z) = 0.; **match:** Condition (3). The source does not use the word 'superperfect'; it is the standard name for this condition and the one the consuming roadmaps use.
+
+**implementationStatus:** unchecked
+
+**addedBy:** FIX-RT-AREA-ktheory-1
+
+**api**
+
+- **name:** Group.IsSuperperfect; **role:** characterisation; **statement:** The predicate H_1(G, Z) = 0 ∧ H_2(G, Z) = 0 for a group G in Type, with trivial integral coefficients.
+- **name:** Group.isSuperperfect_iff; **role:** characterisation; **statement:** IsSuperperfect G ↔ Group.IsPerfect G ∧ H_2(G, Z) = 0.
+- **name:** Group.IsSuperperfect.isPerfect; **role:** compatibility; **statement:** A superperfect group is perfect in Mathlib's sense (Group.IsPerfect).
+- **name:** Group.IsSuperperfect.of_mulEquiv; **role:** functoriality; **statement:** Superperfectness is invariant under group isomorphisms.
+- **name:** Group.IsSuperperfect.of_subsingleton; **role:** example; **statement:** The trivial group is superperfect.
+
+**uses**
+
+- **where:** K2SymbolsBrauer:T.1/recognition-theorem; **how:** condition (3) of Recognition Theorem III.5.4, H_1(X; Z) = H_2(X; Z) = 0
+- **where:** K3BlochGroups:V.1/steinberg-superperfect; **how:** the stable Steinberg group is superperfect, which makes BSt(A)⁺ two-connected
+- **where:** StableHomotopyKTheory:H.3/plus-pi2-universal-central-extension; **how:** π_1 of the acyclic homotopy fibre of a plus construction is perfect with H_2 = 0, hence the universal central extension (K-book IV.1.7)
+
+**tests**
+
+- **name:** isSuperperfect_trivial; **kind:** degenerate; **statement:** The trivial group is superperfect.
+- **name:** not_isSuperperfect_cyclic; **kind:** non-example; **statement:** Z/2 is not superperfect: H_1(Z/2, Z) ≅ Z/2.
+- **name:** not_isSuperperfect_free; **kind:** non-example; **statement:** The free group on one generator is not superperfect although its H_2 vanishes (free-group-higher-homology): a definition asking only for H_2 = 0 fails this test.
+- **name:** not_isSuperperfect_alternating; **kind:** non-example; **statement:** A_5 is perfect but not superperfect (H_2(A_5, Z) ≅ Z/2): a definition asking only for perfectness fails this test.
+- **name:** isSuperperfect_iff_perfect; **kind:** compatibility; **statement:** For every group G in Type, IsSuperperfect G ↔ Group.IsPerfect G ∧ H_2(G, Z) = 0.
+
+**library:** **module:** TauCeti/Algebra/KTheory/Steinberg; **namespace:** TauCeti.Steinberg
+
+#### The Hopf extension of a perfect group is perfect
+
+`K2SymbolsBrauer:T.1:classical/hopf-extension-perfect` — lemma
+
+Let π : F → G be a surjective homomorphism with kernel R. If G is perfect, then F = [F, F]·R and [F, F] = [[F, F], [F, F]]·[R, F]; hence [F, F]/[R, F] is a perfect group.
+
+**realises**
+
+- K2SymbolsBrauer:T.1:classical
+
+**hypotheses**
+
+- F is a group and π : F → G is surjective with kernel R (F need not be free).
+- G is perfect.
+
+**proofSteps**
+
+- π maps [F, F] onto [G, G] = G (Subgroup.map_commutator and surjectivity), so every f in F is c·r with c in [F, F] and r in R.
+- For f = cr and f' = c'r', the commutator [f, f'] is congruent to [c, c'] modulo [R, F], because R is normal in F and its elements are central modulo [R, F].
+- Hence the commutator generators of [F, F] lie in [[F, F], [F, F]]·[R, F]; since [R, F] ⊆ [F, F], the quotient [F, F]/[R, F] equals its own commutator subgroup.
+
+**acceptance**
+
+- For F free on one generator and R = F (G trivial), [F, F]/[R, F] is trivial, hence perfect.
+- Perfectness of G is needed: for F free on a, b and R = [F, F] (G = Z²), [F, F]/[[F, F], F] is a nontrivial abelian group, detected by [a, b] in the integral Heisenberg quotient, so it is not perfect.
+
+**prerequisites**
+
+- K2SymbolsBrauer:T.1:classical/commutator-central-extension
+- mathlib:Group.IsPerfect
+- mathlib:commutator
+- mathlib:Subgroup.map_commutator
+
+**sources**
+
+- **sourceId:** Kbook.2013; **locator:** III.5.4, equivalent conditions and proof (PDF p. 228, printed p. 220); **excerpt:** Given any central extension X of G, the map F → G lifts to a map h : F → X because F is free. Since h(R) is in the center of X, h([R, F]) = 1. Thus h induces a map from [F, F]/[R, F] to X over G. This map is unique by Lemma 5.3.3.; **match:** Lemma 5.3.3 applies only to a perfect source, here [F, F]/[R, F]; the source uses its perfectness without comment, and this node supplies it.
+
+**implementationStatus:** unchecked
+
+**addedBy:** FIX-RT-AREA-ktheory-1
+
+#### Every perfect group has a universal central extension
+
+`K2SymbolsBrauer:T.1:classical/perfect-uce-exists` — theorem
+
+Let G be a perfect group and π : F → G a surjection from a free group F = FreeGroup S, with kernel R. The restricted projection [F, F]/[R, F] → G (commutator-central-extension, whose target [G, G] is G) is a universal central extension of G. In particular every perfect group G has a universal central extension in its own universe, from the canonical presentation FreeGroup G → G.
+
+**realises**
+
+- K2SymbolsBrauer:T.1:classical
+
+**hypotheses**
+
+- G is perfect.
+- π : FreeGroup S → G is surjective with kernel R.
+
+**proofSteps**
+
+- [F, F]/[R, F] → G is surjective with central kernel (R ∩ [F, F])/[R, F] (commutator-central-extension, G perfect).
+- Given a central extension q : Y → G, choose for each generator s in S a preimage in Y of π(s); FreeGroup.lift gives h : F → Y with q ∘ h = π.
+- h(R) ⊆ ker q, which is central in Y, so h([R, F]) = 1; restrict h to [F, F] and descend to a homomorphism [F, F]/[R, F] → Y over G.
+- Uniqueness: [F, F]/[R, F] is perfect (hopf-extension-perfect) and ker q is central, so perfect-extension-rigidity allows at most one homomorphism over G.
+- For existence in general take S = G and π = FreeGroup.lift id.
+
+**acceptance**
+
+- For G trivial and S empty the universal central extension is the trivial group.
+- Its kernel is the Hopf quotient (R ∩ [F, F])/[R, F], which uce-kernel-h2 identifies with H_2(G, Z).
+- Perfectness of G cannot be dropped: a group that is not perfect has no universal central extension (K2SymbolsBrauer:T.1/uce-perfect).
+
+**prerequisites**
+
+- K2SymbolsBrauer:T.1:classical/commutator-central-extension
+- K2SymbolsBrauer:T.1:classical/relation-central-extension
+- K2SymbolsBrauer:T.1:classical/hopf-extension-perfect
+- K2SymbolsBrauer:T.1:classical/perfect-extension-rigidity
+- K2SymbolsBrauer:T.1/universal-central-extension
+- mathlib:FreeGroup
+- mathlib:FreeGroup.lift
+- mathlib:Group.IsPerfect
+
+**sources**
+
+- **sourceId:** Kbook.2013; **locator:** III.5.4, statement (PDF p. 227, printed p. 219); **excerpt:** Recognition Theorem 5.4. Every perfect group G has a universal central extension, namely the extension (5.3.5): 1 → H2(G; Z) → [F, F]/[R, F] → G → 1.; **match:** The existence half of the theorem, with the extension (5.3.5).
+- **sourceId:** Kbook.2013; **locator:** III.5.4, equivalent conditions and proof (PDF p. 228, printed p. 220); **excerpt:** Given any central extension X of G, the map F → G lifts to a map h : F → X because F is free. Since h(R) is in the center of X, h([R, F]) = 1. Thus h induces a map from [F, F]/[R, F] to X over G. This map is unique by Lemma 5.3.3.; **match:** The proof, followed step by step; the perfectness that Lemma 5.3.3 needs is hopf-extension-perfect.
+
+**implementationStatus:** unchecked
+
+**addedBy:** FIX-RT-AREA-ktheory-1
+
+#### Integral homology of a free group vanishes above degree one
+
+`K2SymbolsBrauer:T.1:classical/free-group-higher-homology` — lemma
+
+Let F be a free group in Type (IsFreeGroup F; for example FreeGroup S). Then H_k(F, Z) = 0 for every k ≥ 2, with trivial integral coefficients, and H_1(F, Z) is free abelian on a basis of F.
+
+**realises**
+
+- K2SymbolsBrauer:T.1:classical
+
+**hypotheses**
+
+- F is a group in Type with IsFreeGroup F.
+
+**proofSteps**
+
+- For F = FreeGroup S, the complex 0 → ZF^(S) → ZF → Z → 0 with e_s ↦ s − 1 followed by the augmentation is exact (Löh, Proposition 1.6.21: the image of ∂ is the augmentation ideal, and ∂ is injective by a reduced-word support argument).
+- Its two nonzero terms are free, hence projective, representations, so it is a projective resolution of Rep.trivial ℤ F ℤ of length one (CategoryTheory.ProjectiveResolution).
+- groupHomologyIso computes H_k(F, Z) as the homology of the coinvariants of this resolution, which vanishes for k ≥ 2; in degree one ∂ becomes zero after coinvariants and leaves Z^(S).
+- For a general free group transport along the isomorphism with FreeGroup of a basis (groupHomology.mapIso).
+
+**acceptance**
+
+- H_2(Z, Z) = 0 for the free group of rank one.
+- H_1 of the free group on two generators is Z².
+- With Nielsen-Schreier (subgroupIsFreeOfIsFree) the lemma applies to every subgroup of a free group, as Hopf's formula needs for the relator subgroup.
+
+**prerequisites**
+
+- mathlib:groupHomology
+- mathlib:groupHomologyIso
+- mathlib:CategoryTheory.ProjectiveResolution
+- mathlib:Rep.trivial
+- mathlib:FreeGroup
+- mathlib:IsFreeGroup
+- mathlib:groupHomology.mapIso
+
+**sources**
+
+- **sourceId:** Loeh.GroupCohomology.2019; **locator:** Corollary 1.6.23 with Proposition 1.6.21 (printed pp. 56-57; PDF pp. 64-65); **excerpt:** Corollary 1.6.23 ((co)homology of free groups). Let S be a set, let F be the free group freely generated by S, and let A be a ZF-module. Then, for all k ∈ N≥2, Hk(F; A) ≅ 0 and H^k(F; A) ≅ 0.; **match:** The vanishing statement with the length-one free resolution of Proposition 1.6.21 that proves it; the proof steps follow Löh's.
+
+**implementationStatus:** unchecked
+
+**addedBy:** FIX-RT-AREA-ktheory-1
+
+#### Hopf's four-term exact sequence
+
+`K2SymbolsBrauer:T.1:classical/hopf-four-term-sequence` — theorem
+
+Let F be a free group in Type, N a normal subgroup and G = F/N. There is an exact sequence 0 → H_2(G, Z) → N/[F, N] → F/[F, F] → G_ab → 0 of abelian groups, in which N/[F, N] → F/[F, F] is induced by the inclusion N ⊆ F and F/[F, F] → G_ab by the projection.
+
+**realises**
+
+- K2SymbolsBrauer:T.1:classical
+
+**hypotheses**
+
+- F is a free group in Type; N is normal in F; G = F/N; homology has trivial integral coefficients.
+
+**proofSteps**
+
+- N is free (Nielsen-Schreier, subgroupIsFreeOfIsFree), so H_k(F, Z) = H_k(N, Z) = 0 for k ≥ 2 (free-group-higher-homology).
+- Exactness at F/[F, F] and surjectivity onto G_ab: this is the Mathlib corestriction-coinflation sequence H_1(N, Z) → H_1(F, Z) → H_1(G, Z) (groupHomology.H1CoresCoinfOfTrivial_exact, with groupHomology.H1CoresCoinfOfTrivial_g_epi), read through h1-trivial-perfect, since H_1(N, Z) = N_ab maps onto N/[F, N].
+- Identify the coinvariants H_1(N; Z)_G with N/[F, N]: H_1(N, Z) = N_ab (h1-trivial-perfect), and the coinvariants of the conjugation action of G on N_ab kill exactly the classes of f n f⁻¹ n⁻¹.
+- The injection H_2(G, Z) → N/[F, N] with image the kernel of N/[F, N] → F/[F, F]: in the Hochschild-Serre spectral sequence E²_pq = H_p(G; H_q(N; Z)) ⇒ H_p+q(F; Z) the rows q ≥ 2 vanish, H_2(F) = 0 forces d²: E²_20 = H_2(G) → E²_01 = H_1(N)_G to be injective, and convergence gives 0 → E²_01/im d² → H_1(F) → H_1(G) → 0 (Löh, proof of Theorem 3.2.18); the maps on H_1 are identified, up to sign, with those induced by inclusion and projection through naturality of the spectral sequence (Löh, Remark 3.2.14).
+- Gap G-Hopf: the Hochschild-Serre spectral sequence of a group extension, or its low-degree exact sequence, is not in Mathlib at the pin, and no atlas stage plans it for discrete groups.
+
+**acceptance**
+
+- For N = 1 the sequence reads 0 → H_2(F, Z) → 0 → F_ab → F_ab → 0, consistent with H_2(F, Z) = 0.
+- For F free on a and N generated by a^m (G = Z/m): N/[F, N] = N ≅ mZ maps injectively to F_ab = Z, so H_2(Z/m, Z) = 0 and G_ab = Z/m.
+- Exactness at N/[F, N] identifies H_2(G, Z) with (N ∩ [F, F])/[F, N], which is Hopf's formula.
+
+**prerequisites**
+
+- K2SymbolsBrauer:T.1:classical/free-group-higher-homology
+- K2SymbolsBrauer:T.1:classical/h1-trivial-perfect
+- mathlib:subgroupIsFreeOfIsFree
+- mathlib:groupHomology.H1CoresCoinfOfTrivial_exact
+- mathlib:groupHomology.H1CoresCoinfOfTrivial_g_epi
+- mathlib:groupHomology.H2
+- mathlib:Rep.trivial
+
+**sources**
+
+- **sourceId:** Loeh.GroupCohomology.2019; **locator:** Theorem 3.2.18 (printed p. 129; PDF p. 137); **excerpt:** Theorem 3.2.18 (Hopf's formula). Let F be a free group, let N ⊂ F be a normal subgroup, and let G := F/N. Then there is an exact sequence 0 → H2(G; Z) → H1(N; Z)G → H1(F; Z) → H1(G; Z) → 0; **match:** The four-term sequence, with H1(N; Z)_G rewritten as N/[F, N] as Löh does at the start of the proof.
+- **sourceId:** Loeh.GroupCohomology.2019; **locator:** Proof of Theorem 3.2.18 (printed pp. 130-131; PDF pp. 138-139); **excerpt:** As subgroup of the free group F, also N is a free group (Theorem AT.2.3.52). Therefore, by Corollary 1.6.23, for all k ∈ N≥2, Hk(F; Z) ≅ 0 and Hk(N; Z) ≅ 0.; **match:** The vanishing input of the first step; the spectral-sequence argument of the fourth step follows the same proof.
+
+**implementationStatus:** unchecked
+
+**addedBy:** FIX-RT-AREA-ktheory-1
+
+#### The kernel of a universal central extension is the second homology
+
+`K2SymbolsBrauer:T.1:classical/uce-kernel-h2` — theorem
+
+Let G be a perfect group in Type and p : X → G a universal central extension with X in Type. Then ker p ≅ H_2(G, Z) as abelian groups (trivial integral coefficients): the unique isomorphism over G from X to the Hopf extension [F, F]/[R, F] of the canonical presentation F = FreeGroup G → G restricts to an isomorphism of kernels, and Hopf's formula identifies the Hopf kernel (R ∩ [F, F])/[R, F] with H_2(G, Z). That the identification does not depend on the presentation is uce-kernel-h2-natural.
+
+**realises**
+
+- K2SymbolsBrauer:T.1:classical
+
+**hypotheses**
+
+- G is a perfect group in Type; p : X → G is a universal central extension, X in Type (universality quantifies over central extensions in that universe, which contains the Hopf model FreeGroup G).
+
+**proofSteps**
+
+- perfect-uce-exists gives the Hopf universal central extension U = [F, F]/[R, F] → G.
+- Two universal central extensions of G are isomorphic over G by a unique isomorphism (UCE.equiv_over of K2SymbolsBrauer:T.1/universal-central-extension); it maps ker p onto ker(U → G).
+- ker(U → G) = (R ∩ [F, F])/[R, F] (commutator-central-extension), which is H_2(G, Z) by K2SymbolsBrauer:T.1/hopf-formula.
+
+**acceptance**
+
+- For G = E(R) and X = St(R) this is K_2(R) ≅ H_2(E(R), Z), which K2SymbolsBrauer:T.1/k2-h2-elementary consumes.
+- For G trivial both sides are zero.
+- The statement is about perfect groups: Z² has H_2 = Z but no universal central extension.
+
+**prerequisites**
+
+- K2SymbolsBrauer:T.1:classical/perfect-uce-exists
+- K2SymbolsBrauer:T.1/universal-central-extension
+- K2SymbolsBrauer:T.1:classical/commutator-central-extension
+- K2SymbolsBrauer:T.1/hopf-formula
+- mathlib:groupHomology.H2
+- mathlib:Rep.trivial
+
+**sources**
+
+- **sourceId:** Kbook.2013; **locator:** III.5.4, statement (PDF p. 227, printed p. 219); **excerpt:** Recognition Theorem 5.4. Every perfect group G has a universal central extension, namely the extension (5.3.5): 1 → H2(G; Z) → [F, F]/[R, F] → G → 1.; **match:** The kernel of the displayed universal central extension is H_2(G; Z).
+- **sourceId:** Kbook.2013; **locator:** Before Proposition IV.1.7 (PDF p. 272, printed p. 264); **excerpt:** Recall from III.5.4 that every perfect group P has a universal central extension E → P, and that the kernel of this extension is the abelian group H2(P; Z).; **match:** The form in which the plus-construction chapter uses the statement, for an arbitrary universal central extension of a perfect group.
+
+**implementationStatus:** unchecked
+
+**addedBy:** FIX-RT-AREA-ktheory-1
+
+#### The source of a universal central extension is superperfect
+
+`K2SymbolsBrauer:T.1:classical/uce-source-superperfect` — theorem
+
+Let p : X → G be a universal central extension of groups in Type. Then X is superperfect: H_1(X, Z) = 0 and H_2(X, Z) = 0. Only the universal property is used. This is Recognition (1) ⇒ (3).
+
+**realises**
+
+- K2SymbolsBrauer:T.1:classical
+
+**hypotheses**
+
+- p : X → G is a universal central extension; X and G are groups in Type.
+
+**proofSteps**
+
+- X is perfect (K2SymbolsBrauer:T.1/uce-perfect, K-book Lemma III.5.3.2), so H_1(X, Z) = 0 (h1-trivial-perfect).
+- Every central extension of X splits (uce-extensions-split), in particular every central extension of X by Q/Z with trivial action.
+- split-extensions-kill-h2 gives H_2(X, Z) = 0.
+
+**acceptance**
+
+- For the Steinberg extension St(R) → E(R) (K2SymbolsBrauer:T.1/steinberg-is-uce) it gives H_1(St(R), Z) = H_2(St(R), Z) = 0, the corollary K3BlochGroups V.1 draws.
+- Universality, not merely a perfect source, is used: the identity of A_5 is a central extension with perfect source, but H_2(A_5, Z) ≠ 0.
+- For X = G trivial both homology groups vanish.
+
+**prerequisites**
+
+- K2SymbolsBrauer:T.1/uce-perfect
+- K2SymbolsBrauer:T.1:classical/uce-extensions-split
+- K2SymbolsBrauer:T.1:classical/split-extensions-kill-h2
+- K2SymbolsBrauer:T.1:classical/h1-trivial-perfect
+- K2SymbolsBrauer:T.1:classical/superperfect
+
+**sources**
+
+- **sourceId:** Kbook.2013; **locator:** III.5.4, equivalent conditions and proof (PDF p. 228, printed p. 220); **excerpt:** Let X be any central extension of G, the following are equivalent: (1) X is a universal central extension; (2) X is perfect, and every central extension of X splits; (3) H1(X; Z) = H2(X; Z) = 0.; **match:** The implication (1) ⇒ (3), by the route (1) ⇒ (2) ⇒ (3) the source indicates. First planned as K3BlochGroups:V.1/uce-superperfect; moved here by FIX-RT-AREA-ktheory-1 so that V.1 imports it.
+- **sourceId:** Kbook.2013; **locator:** Exercise IV.1.9 (PDF p. 282, printed p. 274); **excerpt:** Suppose that A → S → P is a universal central extension (III.5.3.1). In particular, S and P are perfect groups.; **match:** The perfectness half, in the form the plus-construction exercise uses.
+
+**implementationStatus:** unchecked
+
+**addedBy:** FIX-RT-AREA-ktheory-1
+
+#### A superperfect group is its own universal central extension
+
+`K2SymbolsBrauer:T.1:classical/superperfect-extensions-split` — lemma
+
+Let X be a superperfect group in Type. Then the identity X → X is a universal central extension of X, and every central extension ρ : Y → X (Y in Type) splits. This is Recognition (3) ⇒ (2).
+
+**realises**
+
+- K2SymbolsBrauer:T.1:classical
+
+**hypotheses**
+
+- X is a superperfect group in Type.
+
+**proofSteps**
+
+- X is perfect (h1-trivial-perfect), so perfect-uce-exists gives the universal central extension U = [F, F]/[R, F] → X for F = FreeGroup X.
+- Its kernel (R ∩ [F, F])/[R, F] (commutator-central-extension) is H_2(X, Z) = 0 by K2SymbolsBrauer:T.1/hopf-formula, so U → X is an isomorphism and the identity of X is a universal central extension.
+- For a central extension ρ : Y → X, universality of the identity gives s : X → Y with ρ ∘ s = id_X.
+
+**acceptance**
+
+- For X trivial, every central extension A → 1 is split by the trivial homomorphism.
+- Both vanishing conditions are needed: Z/2 has H_2 = 0 but H_1 ≠ 0, and C_4 → Z/2 does not split; A_5 is perfect with H_2 ≠ 0, and SL_2(F_5) → A_5 does not split.
+
+**prerequisites**
+
+- K2SymbolsBrauer:T.1:classical/superperfect
+- K2SymbolsBrauer:T.1:classical/h1-trivial-perfect
+- K2SymbolsBrauer:T.1:classical/perfect-uce-exists
+- K2SymbolsBrauer:T.1:classical/commutator-central-extension
+- K2SymbolsBrauer:T.1/hopf-formula
+- K2SymbolsBrauer:T.1/universal-central-extension
+
+**sources**
+
+- **sourceId:** Kbook.2013; **locator:** III.5.4, equivalent conditions and proof (PDF p. 228, printed p. 220); **excerpt:** Let X be any central extension of G, the following are equivalent: (1) X is a universal central extension; (2) X is perfect, and every central extension of X splits; (3) H1(X; Z) = H2(X; Z) = 0.; **match:** The implication (3) ⇒ (2), which the source obtains from the existence half and the identification of the kernel with H_2.
+
+**implementationStatus:** unchecked
+
+**addedBy:** FIX-RT-AREA-ktheory-1
+
+#### A perfect central extension whose central extensions split is universal
+
+`K2SymbolsBrauer:T.1:classical/split-central-extension-universal` — lemma
+
+Let p : X → G be surjective with central kernel. If X is perfect and every central extension of X splits, then p is a universal central extension of G. This is Recognition (2) ⇒ (1); no homology enters and there is no universe restriction beyond the one in the definition of universality.
+
+**realises**
+
+- K2SymbolsBrauer:T.1:classical
+
+**hypotheses**
+
+- p : X → G is surjective and ker p lies in the centre of X.
+- X is perfect, and every central extension of X (in the universe over which universality quantifies) splits.
+
+**proofSteps**
+
+- Given a central extension q : Y → G, pull it back along p (central-extension-pullback): P = X ×_G Y → X is a central extension of X.
+- By hypothesis it has a section s : X → P; then pr_Y ∘ s : X → Y satisfies q ∘ pr_Y ∘ s = p ∘ pr_X ∘ s = p, a homomorphism over G.
+- Uniqueness: X is perfect and ker q is central, so perfect-extension-rigidity.
+
+**acceptance**
+
+- The Steinberg application: St(R) is perfect and every central extension of St(R) splits (glued from finite-rank splitting), so St(R) → E(R) is universal; K2SymbolsBrauer:T.1/steinberg-is-uce uses the lemma in this form.
+- Perfectness of X is needed: every central extension of a nontrivial free group F splits, but the identity of F is not universal, since F is not perfect.
+
+**prerequisites**
+
+- K2SymbolsBrauer:T.1:classical/central-extension-pullback
+- K2SymbolsBrauer:T.1:classical/perfect-extension-rigidity
+- K2SymbolsBrauer:T.1:classical/central-extension-hom
+- K2SymbolsBrauer:T.1/universal-central-extension
+- mathlib:Group.IsPerfect
+
+**sources**
+
+- **sourceId:** Kbook.2013; **locator:** III.5.4, equivalent conditions and proof (PDF p. 228, printed p. 220); **excerpt:** The implication (1)⇒(2) is Lemma 5.3.2 and Ex. 5.7, and (2) ⇒ (1) is immediate.; **match:** The implication (2) ⇒ (1), which the source calls immediate; the proof steps make the pullback explicit.
+
+**implementationStatus:** unchecked
+
+**addedBy:** FIX-RT-AREA-ktheory-1
+
+#### Lifting homomorphisms to universal central extensions
+
+`K2SymbolsBrauer:T.1:classical/uce-lift` — construction
+
+Let p : X → G and p' : X' → G' be universal central extensions (groups in one universe) and f : G → G' a homomorphism. There is a unique homomorphism f̃ : X → X' with p' ∘ f̃ = f ∘ p. The lift of the identity of G along p itself is the identity of X, the lift of a composite is the composite of the lifts, and f̃ maps ker p into ker p', giving a homomorphism of abelian groups ker p → ker p'.
+
+**realises**
+
+- K2SymbolsBrauer:T.1:classical
+
+**hypotheses**
+
+- p : X → G and p' : X' → G' are universal central extensions; f : G → G' is a homomorphism.
+
+**proofSteps**
+
+- Pull p' back along f: P = G ×_G' X' → G is a central extension of G (central-extension-pullback).
+- Universality of p gives a homomorphism X → P over G; compose with pr_X' to obtain f̃ with p' ∘ f̃ = f ∘ p.
+- Uniqueness: if h and k both satisfy p' ∘ h = f ∘ p = p' ∘ k, then (p, h) and (p, k) are homomorphisms X → P over G (pullback lift), equal by universality of p; so h = k.
+- Functoriality: the identity satisfies the defining equation for id_G, and lift(g) ∘ lift(f) satisfies it for g ∘ f; uniqueness gives both laws.
+- If p(x) = 1 then p'(f̃(x)) = f(1) = 1; kernels are central, hence abelian.
+
+**acceptance**
+
+- The lift of the trivial homomorphism is trivial: it maps X into the abelian group ker p', and X is perfect.
+- For a ring map R → S the lift of E(R) → E(S) along the Steinberg extensions is the functoriality map St(R) → St(S), by uniqueness.
+- Uniqueness needs a universal source: for id : C_2 → C_2, the identity of C_2 has two lifts to the split extension C_2 × C_2 → C_2.
+
+**prerequisites**
+
+- K2SymbolsBrauer:T.1/universal-central-extension
+- K2SymbolsBrauer:T.1/uce-perfect
+- K2SymbolsBrauer:T.1:classical/central-extension-pullback
+- K2SymbolsBrauer:T.1:classical/central-extension-hom
+
+**sources**
+
+- **sourceId:** Kbook.2013; **locator:** III.5.3.1 (PDF p. 227, printed p. 219); **excerpt:** Definition 5.3.1. A universal central extension of G is a central extension X → G such that for every other central extension Y → G there is a unique homomorphism f over G from X to Y.; **match:** The universal property from which the lift is derived. The source states uniqueness up to isomorphism over G but not the lift along a homomorphism of bases or its functoriality; they are derived here through the pullback.
+
+**implementationStatus:** unchecked
+
+**addedBy:** FIX-RT-AREA-ktheory-1
+
+**api**
+
+- **name:** IsUniversalCentralExtension.lift; **role:** constructor; **statement:** The lift f̃ : X → X' of f : G → G' between universal central extensions p and p'.
+- **name:** IsUniversalCentralExtension.proj_comp_lift; **role:** universal-property; **statement:** p' ∘ f̃ = f ∘ p.
+- **name:** IsUniversalCentralExtension.lift_unique; **role:** characterisation; **statement:** Any homomorphism h : X → X' with p' ∘ h = f ∘ p equals f̃.
+- **name:** IsUniversalCentralExtension.lift_id; **role:** functoriality; **statement:** The lift of id_G along p itself is id_X.
+- **name:** IsUniversalCentralExtension.lift_comp; **role:** functoriality; **statement:** The lift of g ∘ f is the lift of g composed with the lift of f.
+- **name:** IsUniversalCentralExtension.kerMap; **role:** projection; **statement:** The restriction of f̃ to kernels, a homomorphism of abelian groups ker p → ker p'.
+
+**uses**
+
+- **where:** K2SymbolsBrauer:T.1/k2-h2-elementary; **how:** naturality of K_2(R) ≅ H_2(E(R), Z) in the ring: St(R) → St(S) is the lift of E(R) → E(S)
+- **where:** K2SymbolsBrauer:T.1:classical/uce-kernel-h2-natural; **how:** its kernel map is compared with H_2(f; Z)
+- **where:** StableHomotopyKTheory:H.3/plus-pi2-universal-central-extension; **how:** the naturality in R that the node's acceptance asks to check on representatives
+
+**tests**
+
+- **name:** lift_id_self; **kind:** degenerate; **statement:** For G' = G, p' = p and f = id_G, the lift is id_X.
+- **name:** lift_trivial_hom; **kind:** characterisation; **statement:** For the trivial homomorphism f : G → G', the lift is the trivial homomorphism X → X'.
+- **name:** lift_steinberg; **kind:** compatibility; **statement:** For a ring map φ : R → S, the lift of E(φ) along St(R) → E(R) and St(S) → E(S) sends x_ij(r) to x_ij(φ(r)).
+- **name:** lift_not_unique_nonuniversal; **kind:** non-example; **statement:** For the central extension id : C_2 → C_2, which is not universal, the identity of C_2 has two different lifts to the split extension C_2 × C_2 → C_2 (first coordinate trivial or the identity).
+
+**library:** **module:** TauCeti/Algebra/KTheory/Steinberg; **namespace:** TauCeti.Steinberg
+
+#### Naturality of Hopf's formula
+
+`K2SymbolsBrauer:T.1:classical/hopf-formula-natural` — theorem
+
+Let π : F → G and π' : F' → G' be surjections from free groups in Type with kernels R and R', f : G → G' a homomorphism and φ : F → F' a homomorphism with π' ∘ φ = f ∘ π. Then φ(R) ⊆ R', φ induces a homomorphism (R ∩ [F, F])/[R, F] → (R' ∩ [F', F'])/[R', F'], and under the Hopf isomorphisms of K2SymbolsBrauer:T.1/hopf-formula this homomorphism is H_2(f; Z) = groupHomology.map f (id) 2. In particular it does not depend on φ, and for f = id the Hopf isomorphisms of two presentations of G agree.
+
+**realises**
+
+- K2SymbolsBrauer:T.1:classical
+
+**hypotheses**
+
+- F, F' are free groups in Type; π, π' are surjective with kernels R, R'; π' ∘ φ = f ∘ π; homology has trivial integral coefficients.
+
+**proofSteps**
+
+- From π' ∘ φ = f ∘ π, φ(R) ⊆ R'; then φ([R, F]) ⊆ [R', F'] and φ([F, F]) ⊆ [F', F'], so the map of Hopf quotients is defined.
+- The morphism (φ restricted to R, φ, f) from 1 → R → F → G → 1 to 1 → R' → F' → G' → 1 induces a morphism of Hochschild-Serre spectral sequences (Löh, Remark 3.2.14), hence a morphism of the four-term sequences of hopf-four-term-sequence whose H_2 component is H_2(f; Z) and whose middle component is induced by φ.
+- Restricting to the kernels of R/[F, R] → F_ab and R'/[F', R'] → F'_ab gives the statement; independence of φ follows because H_2(f; Z) does not involve φ.
+- Gap G-natural-Hopf: this rests on the naturality of the same missing Hochschild-Serre input as hopf-four-term-sequence.
+
+**acceptance**
+
+- For G' = G, F' = F and φ = id the induced map is the identity.
+- Different lifts can differ on the larger relation module: for F free on a, b → Z (a ↦ 1, b ↦ 0) the lifts id and b ↦ b² of the identity differ on the class of b in R/[R, F] (b-exponent sums 1 and 2), but they agree on the Hopf quotient, which is zero here since H_2(Z, Z) = 0.
+- It makes the kernel identification of uce-kernel-h2 independent of the presentation.
+
+**prerequisites**
+
+- K2SymbolsBrauer:T.1/hopf-formula
+- K2SymbolsBrauer:T.1:classical/hopf-four-term-sequence
+- K2SymbolsBrauer:T.1:classical/relation-central-extension
+- K2SymbolsBrauer:T.1:classical/commutator-central-extension
+- mathlib:groupHomology.map
+- mathlib:Rep.trivial
+
+**sources**
+
+- **sourceId:** Kbook.2013; **locator:** III.5.3.4 (PDF p. 227, printed p. 219); **excerpt:** Example 5.3.4. Every presentation of G gives rise to two natural central extensions as follows.; **match:** The source calls the two extensions natural but does not prove the naturality of the Hopf identification.
+- **sourceId:** Loeh.GroupCohomology.2019; **locator:** Proof of Theorem 3.2.18 (printed p. 131; PDF p. 139); **excerpt:** By the naturality of the Hochschild-Serre spectral sequence (Remark 3.2.14), this leads to a corresponding transformation between the associated Hochschild-Serre spectral sequences; **match:** Löh uses this naturality to identify the maps on H_1; the same morphism of spectral sequences for a morphism of presentations gives the H_2 statement of this node.
+
+**implementationStatus:** unchecked
+
+**addedBy:** FIX-RT-AREA-ktheory-1
+
+#### Naturality of the kernel of the universal central extension
+
+`K2SymbolsBrauer:T.1:classical/uce-kernel-h2-natural` — theorem
+
+Let f : G → G' be a homomorphism of perfect groups in Type with universal central extensions p : X → G and p' : X' → G'. Under the isomorphisms ker p ≅ H_2(G, Z) and ker p' ≅ H_2(G', Z) of uce-kernel-h2, the kernel map of the lift f̃ (uce-lift) is H_2(f; Z) = groupHomology.map f (id) 2. Taking f = id_G shows that the isomorphism of uce-kernel-h2 does not depend on the presentation used to build it.
+
+**realises**
+
+- K2SymbolsBrauer:T.1:classical
+
+**hypotheses**
+
+- G, G' are perfect groups in Type with universal central extensions p, p'; f : G → G' is a homomorphism.
+
+**proofSteps**
+
+- Reduce to the Hopf models of the canonical presentations F = FreeGroup G → G and F' = FreeGroup G' → G': the isomorphisms over G and G' commute with the lifts, by the uniqueness clause of uce-lift.
+- φ = FreeGroup.map f satisfies π' ∘ φ = f ∘ π; the map it induces [F, F]/[R, F] → [F', F']/[R', F'] lies over f, so it is the lift by uniqueness.
+- Its restriction to kernels is the map of Hopf quotients, which is H_2(f; Z) by hopf-formula-natural.
+
+**acceptance**
+
+- For f = id_G the kernel map is the identity, whatever presentations are used.
+- For a ring map R → S it gives the naturality of K_2(R) ≅ H_2(E(R), Z) that K2SymbolsBrauer:T.1/k2-h2-elementary asserts.
+
+**prerequisites**
+
+- K2SymbolsBrauer:T.1:classical/uce-kernel-h2
+- K2SymbolsBrauer:T.1:classical/uce-lift
+- K2SymbolsBrauer:T.1:classical/hopf-formula-natural
+- mathlib:FreeGroup.map
+- mathlib:groupHomology.map
+
+**sources**
+
+- **sourceId:** Kbook.2013; **locator:** Theorem III.5.5 (PDF p. 228, printed p. 220); **excerpt:** Theorem 5.5. (Kervaire, Steinberg) The Steinberg group St(R) is the universal central extension of E(R). Hence K2(R) ≅ H2(E(R); Z).; **match:** The identification whose naturality in the ring the later chapters use; the source does not state the naturality, which is derived here from uce-lift and hopf-formula-natural.
+
+**implementationStatus:** unchecked
+
+**addedBy:** FIX-RT-AREA-ktheory-1
+
+#### Perfectness of the Steinberg group
+
+`K2SymbolsBrauer:T.1:classical/steinberg-perfect` — lemma
+
+For n >= 3, the finite-rank Steinberg group St_n(R) is perfect.
+
+**realises**
+
+- K2SymbolsBrauer:T.1:classical
+
+**hypotheses**
+
+- R is an associative unital ring.
+- n is at least three.
+- i and j are distinct indices between one and n.
+- n >= 3.
+
+**proofSteps**
+
+- For each x_ij(r), choose k different from i,j and use x_ij(r)=[x_ik(r),x_kj(1)].
+- The generators therefore lie in the commutator subgroup; subgroup generation gives finite perfectness.
+
+**acceptance**
+
+- For n >= 3, the finite-rank Steinberg group St_n(R) is perfect.
+
+**prerequisites**
+
+- K2SymbolsBrauer:T.1/steinberg-group-finite-rank
+- mathlib:Group.IsPerfect
+
+**sources**
+
+- **sourceId:** Kbook.2013; **locator:** III.5.1 relations and III.5.5 (PDF pp. 225, 228); **excerpt:** The three-index commutator relation expresses every Steinberg generator as a commutator.; **match:** Paraphrase of the indicated passage; checked in the author copy, not a quotation from the published edition.
+
+**implementationStatus:** unchecked
+
+**addedBy:** REV-K2SymbolsBrauer--T.1
+
+#### Perfectness of the stable Steinberg group
+
+`K2SymbolsBrauer:T.1:classical/stable-steinberg-perfect` — lemma
+
+The stable Steinberg group St(R) is perfect.
+
+**realises**
+
+- K2SymbolsBrauer:T.1:classical
+
+**hypotheses**
+
+- R is an associative unital ring.
+
+**proofSteps**
+
+- Every stable generator is the image of a finite-stage generator and thus a commutator by finite perfectness.
+- Stable generators generate the group, so its commutator subgroup is the whole group.
+
+**acceptance**
+
+- The stable Steinberg group St(R) is perfect.
+
+**prerequisites**
+
+- K2SymbolsBrauer:T.1:classical/steinberg-perfect
+- K2SymbolsBrauer:T.1/stabilisation
+- mathlib:Group.IsPerfect
+
+**sources**
+
+- **sourceId:** Kbook.2013; **locator:** III.5.1 relations and III.5.5 (PDF pp. 225, 228); **excerpt:** The three-index commutator relation expresses every Steinberg generator as a commutator.; **match:** Paraphrase of the indicated passage; checked in the author copy, not a quotation from the published edition.
+
+**implementationStatus:** unchecked
+
+**addedBy:** REV-K2SymbolsBrauer--T.1
+
+### K2SymbolsBrauer:T.1:plus
+
+#### K_2 is the second homology of the elementary group
+
+`K2SymbolsBrauer:T.1/k2-h2-elementary` — theorem
+
+For every ring R there is an isomorphism from K_2(R) to the second integral homology of E(R), natural in R. It is the identification of the kernel of the universal central extension with the kernel given by the Hopf formula.
+
+**realises**
+
+- K2SymbolsBrauer:T.1:plus
+
+**hypotheses**
+
+- R is an associative unital ring.
+
+**proofSteps**
+
+- Import that St(R) is the universal central extension of E(R) (steinberg-is-uce); E(R) is perfect.
+- uce-kernel-h2 applied to St(R) → E(R), with kernel K_2(R) (k2-definition), gives K_2(R) ≅ H_2(E(R), Z); the isomorphism is of kernels, compatible with the projections to E(R).
+- Naturality in the ring: for φ : R → S the functoriality map St(R) → St(S) is the lift of E(φ) (uce-lift, by uniqueness), and uce-kernel-h2-natural identifies its kernel map with H_2(E(φ); Z).
+- Gap G-natural-Hopf enters through hopf-formula-natural.
+
+**acceptance**
 
 - For the ring of integers both sides are cyclic of order two.
 - The isomorphism is natural, which is what the comparison with homotopy needs.
-- The identification is of kernels, not merely an abstract isomorphism of abelian groups; the
-  acceptance test is the compatibility with the two projections.
+- The identification is of kernels, not merely an abstract isomorphism of abelian groups; the acceptance test is the compatibility with the two projections.
 
-**Depends on.** **inside this roadmap** `steinberg-is-uce`, `hopf-formula`, `k2-definition`, `uce-kernel-h2`, `uce-lift`, `uce-kernel-h2-natural`; **baseline** `mathlib:groupHomology.H2`.
+**prerequisites**
 
-**Source.** Kbook.2013, III.5.5 (PDF p. 228): “Hence K_2(R) = H_2(E(R); Z).” — The identification, as displayed.
+- K2SymbolsBrauer:T.1/steinberg-is-uce
+- K2SymbolsBrauer:T.1/hopf-formula
+- K2SymbolsBrauer:T.1/k2-definition
+- K2SymbolsBrauer:T.1:classical/uce-kernel-h2
+- K2SymbolsBrauer:T.1:classical/uce-lift
+- K2SymbolsBrauer:T.1:classical/uce-kernel-h2-natural
+- mathlib:groupHomology.H2
 
-### `k2-pi2` — K_2 is the second homotopy group of the K-theory space ★
+**sources**
 
-*theorem* · planet **K2 is the second homotopy group**
+- **sourceId:** Kbook.2013; **locator:** III.5.5 (PDF p. 228); **excerpt:** Hence K_2(R) = H_2(E(R); Z).; **match:** The identification, as displayed.
 
-For every ring R there is an isomorphism from K_2(R) to the second homotopy group of the plus
-construction on the classifying space of the stable general linear group, natural in R. It is
-obtained by combining the identification with the second homology of E(R) with the Hurewicz
-theorem applied to the simply connected space obtained from the plus construction.
+**implementationStatus:** unchecked
 
-**Hypotheses.** R is an associative unital ring.
+**planet:** **name:** K2 is H2 of E(R)
 
-**Construction and proof.**
+#### K_2 is the second homotopy group of the K-theory space
 
-1. Import the plus construction and the K-theory space, and the fact that the plus construction
-   on the classifying space of the stable elementary group is the universal cover of the plus
-   construction on the classifying space of the stable general linear group.
-1. That space is simply connected, and its second homotopy group is its second homology by the
-   Hurewicz theorem.
-1. Its second homology is the second homology of E(R), by the homology isomorphism the plus
-   construction provides.
-1. Compose with the identification of the previous node and prove naturality.
-1. Record the division of labour: the plus construction belongs to StableHomotopyKTheory, the
-   K-theory space to GeneralAlgebraicKTheory, and this layer supplies the explicit model they
-   are compared with.
+`K2SymbolsBrauer:T.1/k2-pi2` — theorem
 
-**Acceptance.**
+For every ring R there is an isomorphism from K_2(R) to the second homotopy group of the plus construction on the classifying space of the stable general linear group, natural in R. It is obtained by combining the identification with the second homology of E(R) with the Hurewicz theorem applied to the simply connected space obtained from the plus construction.
+
+**realises**
+
+- K2SymbolsBrauer:T.1:plus
+
+**hypotheses**
+
+- R is an associative unital ring.
+
+**proofSteps**
+
+- Import the plus construction and the K-theory space, and the fact that the plus construction on the classifying space of the stable elementary group is the universal cover of the plus construction on the classifying space of the stable general linear group.
+- That space is simply connected, and its second homotopy group is its second homology by the Hurewicz theorem.
+- Its second homology is the second homology of E(R), by the homology isomorphism the plus construction provides.
+- Compose with the identification of the previous node and prove naturality.
+- Record the division of labour: the plus construction belongs to StableHomotopyKTheory, the K-theory space to GeneralAlgebraicKTheory, and this layer supplies the explicit model they are compared with.
+- Gap G-cover-Hurewicz: H.3 promises relative plus and acyclicity, but not an implemented covering comparison or a chosen Hurewicz map. These supplier interfaces and naturality must be constructed explicitly.
+
+**acceptance**
 
 - The composite isomorphism is natural in the ring.
 - For a finite field both sides are trivial.
-- The Hurewicz step needs simple connectivity, which is why the elementary group, and not the
-  general linear group, appears.
+- The Hurewicz step needs simple connectivity, which is why the elementary group, and not the general linear group, appears.
 
-**Depends on.** **inside this roadmap** `k2-h2-elementary`; **other roadmaps** `StableHomotopyKTheory:H.3`, `GeneralAlgebraicKTheory:K.2`; **baseline** `mathlib:HomotopyGroup`.
+**prerequisites**
 
-**Source.** Kbook.2013, Ex. IV.1.9 and IV.1.20 (PDF pp. 281-282): “Show that there is a homotopy fibration BA -> BS+ -> BP+. Conclude that pi_n(BS+) = 0 for n <= 2, and that pi_n(BS+) = pi_n(BP+) = pi_n(BG+) for all n >= 3.” — The plus-construction comparison this node instantiates in degree two, where the Hurewicz theorem applies to the simply connected cover.
+- K2SymbolsBrauer:T.1/k2-h2-elementary
+- StableHomotopyKTheory:H.3
+- GeneralAlgebraicKTheory:K.2:plus
+- mathlib:HomotopyGroup
+- KTheoryLowDegrees:U.1
 
-## T.2:graded-map — The graded map to Quillen K-theory
+**sources**
 
-The graded ring map `K^M_*(F) → K_*(F)`, whose degree-two component is Matsumoto's isomorphism
-and whose degree-three component is what `K3BlochGroups:V.2` takes the cokernel of. No
-isomorphism is asserted in degree three or above, and the two layers' ownership is stated
-explicitly so that neither plans the other's half.
+- **sourceId:** Kbook.2013; **locator:** IV.1.7.1 and Exercise IV.1.8 (PDF pp. 273, 282); **excerpt:** Classical K2 agrees with the second homotopy group of BGL(R)+; BE(R)+ supplies its simply connected covering model.; **match:** Paraphrase of the indicated passage; checked in the author copy, not a quotation from the published edition.
 
-### `graded-map` — The graded map from Milnor to Quillen K-theory ★
+**implementationStatus:** unchecked
 
-*construction* · planet **Milnor to Quillen graded map**
+**planet:** **name:** K2 is the second homotopy group
 
-Construct the natural graded ring map from Milnor K-theory of a field to Quillen K-theory,
-determined by the products of degree-one classes. Its degree-two component is Matsumoto's
-isomorphism. No isomorphism is asserted in degree three or above.
+### K2SymbolsBrauer:T.2
 
-**Hypotheses.** F is a field.
+### K2SymbolsBrauer:T.2:graded-map
 
-**Construction and proof.**
+#### The graded map from Milnor to Quillen K-theory
 
-1. Import the products on Quillen K-theory from GeneralAlgebraicKTheory.
-1. Define the map on the tensor algebra by sending the degree-one element attached to a nonzero
-   x to the class of x in K_1(F) and extending multiplicatively.
-1. Prove that it kills the Steinberg elements, using the degree-two Steinberg identity in
-   Quillen K-theory, so that it descends to Milnor K-theory.
-1. Prove that the result is a map of graded rings and is natural in the field.
-1. Record what is and is not asserted: degree two is an isomorphism, by Matsumoto; degree three
-   is a map whose cokernel defines the indecomposable K_3 in K3BlochGroups V.2; no general
-   isomorphism is claimed.
+`K2SymbolsBrauer:T.2/graded-map` — construction
 
-**API.**
+Construct the natural graded ring map from Milnor K-theory of a field to Quillen K-theory, determined by the products of degree-one classes. Its degree-two component is Matsumoto's isomorphism. No isomorphism is asserted in degree three or above.
 
-| name | role | statement |
-| --- | --- | --- |
-| `milnorToQuillen` | constructor | The graded ring map. |
-| `milnorToQuillen_one` | simp | Degree one is the identity on the unit group. |
-| `milnorToQuillen_two` | characterisation | Degree two is an isomorphism, by Matsumoto. |
-| `milnorToQuillen_map` | functoriality | Naturality in the field. |
-| `milnorToQuillen_graded` | structure | It is a map of graded rings. |
+**realises**
 
-**Used by.** *K3BlochGroups V.2*: the degree-three component is the map whose cokernel is the indecomposable K_3. *MotivicEtaleKTheory M.5*: the norm-residue theorem is about the mod-m reduction of the source of this map. *HigherLocalFieldsAndHigherClassFieldTheory HL.1*: that layer imports the graded source and the map.
+- K2SymbolsBrauer:T.2:graded-map
 
-**Unit tests.**
+**hypotheses**
 
-- `degree_one` — Degree one is the identity.
-- `degree_two_iso` — Degree two is an isomorphism.
-- `degree_three_not_iso` — Degree three is not an isomorphism in general: for a number field
-  with a real place the source is nonzero torsion and the target has positive rank.
-- `graded` — The map respects the grading and the products.
+- F is a field.
 
-**Acceptance.**
+**proofSteps**
+
+- Import the products on Quillen K-theory from GeneralAlgebraicKTheory.
+- Define the map on the tensor algebra by sending the degree-one element attached to a nonzero x to the class of x in K_1(F) and extending multiplicatively.
+- Prove that it kills the Steinberg elements, using the degree-two Steinberg identity in Quillen K-theory, so that it descends to Milnor K-theory.
+- Prove that the result is a map of graded rings and is natural in the field.
+- Record what is and is not asserted: degree two is an isomorphism, by Matsumoto; degree three is a map whose cokernel defines the indecomposable K_3 in K3BlochGroups V.2; no general isomorphism is claimed.
+- Gap G-product-symbol: request the actual product-symbol compatibility from IV.1.10, not only abstract K-theory products. It is needed to identify the degree-two component with the chosen classical Matsumoto map.
+
+**acceptance**
 
 - Degree one is the identity on the unit group.
 - Degree two is an isomorphism.
-- Degree three is neither injective nor surjective in general; it is the map whose cokernel
-  another roadmap studies.
+- Degree three is injective for every field (VI.4.3.2, owned by V.2) and need not be surjective. For Q, the source is Z/2 and the target is Z/48; having real places does not imply positive Quillen K3 rank.
 
-**Depends on.** **inside this roadmap** `milnor-k-theory`, `matsumoto`; **other roadmaps** `GeneralAlgebraicKTheory:K.2`.
+**prerequisites**
 
-**Source.** Kbook.2013, III.7.1 and III.6.1 (PDF pp. 239, 253): “By Matsumoto's Theorem 6.1 we also have K^M_2(F) = K_2(F), the elements {x, y} being the usual Steinberg symbols, except that the group operation in K^M_2(F) is written additively.” — The degree-two identification, which is the special degree of this graded map.
+- K2SymbolsBrauer:T.2/milnor-k-theory
+- K2SymbolsBrauer:T.2/matsumoto
+- GeneralAlgebraicKTheory:K.7
+- GeneralAlgebraicKTheory:K.2:plus
+- KTheoryLowDegrees:U.3
 
-### `graded-map-degree-three` — The degree-three component, and what consumes it
+**sources**
 
-*comparison*
+- **sourceId:** Kbook.2013; **locator:** IV.1.10.1 (PDF p. 274), III.7.1 (PDF p. 253); **excerpt:** Products of unit classes define the graded Milnor-to-Quillen ring map; degree-two products agree with classical Steinberg symbols.; **match:** Paraphrase of the indicated passage; checked in the author copy, not a quotation from the published edition.
+- **sourceId:** Kbook.2013; **locator:** VI.4.3.2 and VI.5.2.1 (PDF pp. 490, 496); **excerpt:** The integral degree-three map is injective; Q gives a non-surjective example with source Z/2 and target Z/48.; **match:** Paraphrase of the indicated passage; checked in the author copy, not a quotation from the published edition.
 
-The degree-three component of the graded map is the map from the Milnor K-group in degree three
-to Quillen K_3 of the field. K3BlochGroups V.2 defines the indecomposable K_3 as its cokernel
-and proves that it is injective for a field; this layer supplies the map and does not duplicate
-either statement.
+**implementationStatus:** unchecked
 
-**Hypotheses.** F is a field.
+**api**
 
-**Construction and proof.**
+- **name:** milnorToQuillen; **role:** constructor; **statement:** The graded ring map.
+- **name:** milnorToQuillen_one; **role:** simp; **statement:** Degree one is the identity on the unit group.
+- **name:** milnorToQuillen_two; **role:** characterisation; **statement:** Under product-symbol compatibility and Matsumoto, the component K2^M(F)->Quillen K2(F) is an isomorphism.
+- **name:** milnorToQuillen_map; **role:** functoriality; **statement:** Naturality in the field.
+- **name:** milnorToQuillen_graded; **role:** structure; **statement:** It is a map of graded rings.
+- **name:** milnorToQuillen_symbol; **role:** compatibility; **statement:** Each n-symbol maps to the ordered product of its n unit classes in Quillen K_n(F).
+- **name:** milnorToQuillen_unique; **role:** extensionality; **statement:** A graded map with the same degree-one unit classes is equal by the Milnor universal property.
 
-1. Take the degree-three component of the graded map.
-1. State the two facts the consuming layer proves: injectivity for a field, and the definition
-   of the indecomposable quotient as the cokernel.
-1. Record the ownership: the map is constructed here, the quotient and the injectivity theorem
-   belong to K3BlochGroups V.2, and neither side plans the other.
+**uses**
 
-**Acceptance.**
+- **where:** K3BlochGroups V.2; **how:** the degree-three component is the map whose cokernel is the indecomposable K_3
+- **where:** MotivicEtaleKTheory M.5; **how:** the norm-residue theorem is about the mod-m reduction of the source of this map
+- **where:** HigherLocalFieldsAndHigherClassFieldTheory HL.1; **how:** that layer imports the graded source and the map
+
+**tests**
+
+- **name:** degree_zero; **statement:** The degree-zero map Z->Quillen K0(F) sends 1 to the class of the one-dimensional vector space.
+- **name:** degree_one; **statement:** For F=Q, the unit 2 maps to its K1 unit class, corresponding to 2 under determinant.
+- **name:** degree_two_symbol; **statement:** {a,1-a} maps to zero, and {-1,-1} maps to the classical symbol under the K2 comparison.
+- **name:** degree_three_Q; **statement:** For F=Q the integral component is injective Z/2->Z/48 and is not onto; this computation is an external VI.5.2.1 test, not a new owned theorem.
+
+**planet:** **name:** Milnor to Quillen graded map
+
+**library:** **module:** TauCeti/Algebra/KTheory/MilnorK; **namespace:** TauCeti.MilnorK
+
+#### The degree-three component, and what consumes it
+
+`K2SymbolsBrauer:T.2/graded-map-degree-three` — comparison
+
+The degree-three component K3^M(F)->Quillen K3(F) sends {a,b,c} to the ordered product of their unit classes. It is exported to the K3BlochGroups:V.2 consumer, which owns its injectivity theorem and the indecomposable cokernel; the consumer is not an incoming prerequisite for constructing this component.
+
+**realises**
+
+- K2SymbolsBrauer:T.2:graded-map
+
+**hypotheses**
+
+- F is a field.
+
+**proofSteps**
+
+- Take degree three of the supplied graded comparison.
+- Evaluate on a triple using the generator formula.
+- Export the map and its convention to V.2; do not reconstruct the quotient or reverse the producer-consumer edge.
+
+**acceptance**
 
 - The component sends a Milnor symbol of three units to the product of their classes.
 - For a finite field the source vanishes.
 - The injectivity theorem is not proved here; it is cited to the consuming layer.
 
-**Depends on.** **inside this roadmap** `graded-map`; **other roadmaps** `K3BlochGroups:V.2`.
+**prerequisites**
 
-**Source.** Kbook.2013, III.7.1 (PDF p. 253): “Definition 7.1. The graded ring K^M_*(F) is defined to be the quotient of T(F^x) by the ideal generated by the homogeneous elements l(x) tensor l(1 - x) with x not 0, 1.” — The graded source whose degree-three part this component starts from.
+- K2SymbolsBrauer:T.2/graded-map
 
-## T.2:symbols — Symbols, Matsumoto and Milnor K-theory
+**sources**
 
-The star product of commuting matrices, then `{r,s}` as the commutator of the diagonal lifts
-`h_ij(r)` — whose matrix identity is the pinned `Matrix.diag2_decompose`, six transvections. The
-Steinberg identity `{r,1−r} = 1` is proved by the explicit computation, and `{r,−r} = 1` is
-recorded in **both** of its forms, since the general one rests on a later chapter. Then the
-consequence the roadmap insists on: skew-symmetry gives `{a,a}² = 1`, and `{a,a} = {a,−1}`,
-which is **not** trivial in general — `{−1,−1}` generates `K₂(ℤ)`. Matsumoto's theorem is stated
-as a **presentation**, with the normal-form argument named as what the proof consists of. Milnor
-K-theory is the tensor algebra modulo the homogeneous Steinberg ideal, in all degrees, with the
-higher tame symbols built by Serre's argument.
+- **sourceId:** Kbook.2013; **locator:** IV.1.10.1 and VI.4.3.2 (PDF pp. 274, 490); **excerpt:** The graded product map has an injective integral degree-three component for every field; its cokernel is studied in VI.5.; **match:** Paraphrase of the indicated passage; checked in the author copy, not a quotation from the published edition.
 
-### `star-product` — The star product of commuting matrices
+**implementationStatus:** unchecked
 
-*construction*
+### K2SymbolsBrauer:T.2:symbols
 
-If two matrices of E(R) commute, lift them to St(R) and define their star product to be the
-commutator of the lifts, an element of K_2(R). The definition does not depend on the lifts,
-because two lifts differ by central elements. The star product is invariant under simultaneous
-conjugation by an element of GL(R), is skew-symmetric, and is bilinear.
+#### The star product of commuting matrices
 
-**Hypotheses.** R is an associative unital ring; the two matrices lie in E(R) and commute.
+`K2SymbolsBrauer:T.2/star-product` — construction
 
-**Construction and proof.**
+If two matrices of E(R) commute, lift them to St(R) and define their star product to be the commutator of the lifts, an element of K_2(R). The definition does not depend on the lifts, because two lifts differ by central elements. The star product is invariant under simultaneous conjugation by an element of GL(R), is skew-symmetric, and is bilinear.
 
-1. Choose lifts and form their commutator; the image in E(R) is trivial, so it lies in K_2(R).
-1. Prove independence of the lifts: two lifts differ by central elements, which drop out of a
-   commutator.
-1. Prove conjugation invariance by lifting the block diagonal matrix built from the conjugating
-   element and its inverse, and using that the commutator is central.
-1. Prove skew-symmetry and bilinearity from the commutator identities.
-1. Record that the construction needs the two matrices to commute; without that hypothesis the
-   commutator does not land in K_2(R).
+**realises**
 
-**API.**
+- K2SymbolsBrauer:T.2:symbols
 
-| name | role | statement |
-| --- | --- | --- |
-| `starProduct` | constructor | The star product of two commuting elements of E(R). |
-| `starProduct_lift_indep` | characterisation | It does not depend on the chosen lifts. |
-| `starProduct_conj` | relation | Invariance under simultaneous conjugation by an element of GL(R). |
-| `starProduct_skew` | relation | Skew-symmetry. |
-| `starProduct_mul_left` | relation | Bilinearity in the first argument. |
+**hypotheses**
 
-**Used by.** *T.2's Steinberg symbol*: the symbol is the star product of two specific diagonal matrices. *T.2's Steinberg identity*: the identity is proved by a computation with lifts of these matrices.
+- R is an associative unital ring; the two matrices lie in E(R) and commute.
 
-**Unit tests.**
+**proofSteps**
 
-- `self` — The star product of a matrix with itself is trivial.
-- `conjugation` — Simultaneous conjugation does not change it.
-- `bilinear` — It is multiplicative in the first argument.
-- `needs_commuting` — For non-commuting matrices the commutator of lifts is not in K_2(R): a
-  non-example.
+- Choose lifts and form their commutator; the image in E(R) is trivial, so it lies in K_2(R).
+- Prove independence of the lifts: two lifts differ by central elements, which drop out of a commutator.
+- Prove conjugation invariance by lifting the block diagonal matrix built from the conjugating element and its inverse, and using that the commutator is central. The block-diagonal elementary factorization is imported from U.1; its compatible generator-level factorization is gap G-Whitehead.
+- Prove skew-symmetry and bilinearity from the commutator identities.
+- Record that the construction needs the two matrices to commute; without that hypothesis the commutator does not land in K_2(R).
 
-**Acceptance.**
+**acceptance**
 
 - The star product of a matrix with itself is trivial.
 - It is invariant under simultaneous conjugation.
 - Bilinearity holds in each variable separately, for commuting arguments.
 
-**Depends on.** **inside this roadmap** `k2-definition`, `k2-is-centre`; **baseline** `mathlib:commutatorElement`.
+**prerequisites**
 
-**Source.** Kbook.2013, III.5 Steinberg symbols (PDF p. 233): “If two matrices A, B in E(R) commute, we can construct an element in K_2(R) by lifting their commutator to St(R). ... This definition is independent of the choice of a and b because any other lift will equal ac, bc' for central elements c, c', and [ac, bc'] = [a, b].” — The construction and its independence of lifts, as displayed.
+- K2SymbolsBrauer:T.1/k2-definition
+- K2SymbolsBrauer:T.1/k2-is-centre
+- mathlib:commutatorElement
+- KTheoryLowDegrees:U.1
 
-### `steinberg-symbol` — The Steinberg symbol ★
+**sources**
 
-*definition* · planet **Steinberg symbol**
+- **sourceId:** Kbook.2013; **locator:** III.5 Steinberg symbols (PDF p. 233); **excerpt:** If two matrices A, B in E(R) commute, we can construct an element in K_2(R) by lifting their commutator to St(R). ... This definition is independent of the choice of a and b because any other lift will equal ac, bc' for central elements c, c', and [ac, bc'] = [a, b].; **match:** The construction and its independence of lifts, as displayed.
 
-For commuting units r and s of a ring R define the Steinberg symbol as the star product of the
-diagonal matrix with r and r inverse at two coordinates with the diagonal matrix with s and s
-inverse at two coordinates chosen to overlap in exactly one index. Equivalently it is the
-commutator of the elements h_ij(r) and h_ik(s) of St(R), where w_ij(r) is the word x_ij(r)
-x_ji(minus r inverse) x_ij(r) and h_ij(r) is w_ij(r) w_ij(minus one). The symbol is skew-
-symmetric and bilinear.
+**implementationStatus:** unchecked
 
-**Hypotheses.** R is an associative unital ring; r and s are commuting units.
+**api**
 
-**Construction and proof.**
+- **name:** starProduct; **role:** constructor; **statement:** The star product of two commuting elements of E(R).
+- **name:** starProduct_lift_indep; **role:** characterisation; **statement:** It does not depend on the chosen lifts.
+- **name:** starProduct_conj; **role:** relation; **statement:** Invariance under simultaneous conjugation by an element of GL(R).
+- **name:** starProduct_skew; **role:** relation; **statement:** Skew-symmetry.
+- **name:** starProduct_mul_left; **role:** relation; **statement:** For A1,A2,B in E(R), if each Ai commutes with B then (A1*A2) star B=(A1 star B)*(A2 star B). No mutual commutation of A1 and A2 is required.
+- **name:** starProduct_mul_right; **role:** relation; **statement:** For A commuting with B1 and B2 in E(R), A star (B1*B2)=(A star B1)*(A star B2).
 
-1. Define w_ij(r) and h_ij(r) by the displayed words and compute their images in GL(R): w_ij(r)
-   maps to the monomial matrix with r and minus r inverse in the two off-diagonal places, and
-   h_ij(r) to the diagonal matrix with r and r inverse.
-1. Import the pinned decomposition of that diagonal matrix as a product of six elementary
-   matrices, which is the matrix identity behind the lift, and check that it matches the word
-   h_ij(r).
-1. Define the symbol as the star product of the two diagonal matrices, or equivalently as the
-   commutator of h_ij(r) and h_ik(s), and prove the two agree.
-1. Prove that the symbol does not depend on the choice of the three indices.
-1. Deduce skew-symmetry and bilinearity from the corresponding properties of the star product.
+**uses**
 
-**API.**
+- **where:** T.2's Steinberg symbol; **how:** the symbol is the star product of two specific diagonal matrices
+- **where:** T.2's Steinberg identity; **how:** the identity is proved by a computation with lifts of these matrices
 
-| name | role | statement |
-| --- | --- | --- |
-| `steinbergSymbol` | constructor | The symbol of two commuting units. |
-| `steinbergSymbol_eq_commutator` | characterisation | It is the commutator of h_ij(r) and h_ik(s). |
-| `steinbergSymbol_one` | simp | The symbol with a one entry is trivial. |
-| `steinbergSymbol_mul_left` | relation | Bilinearity in the first entry. |
-| `steinbergSymbol_skew` | relation | Skew-symmetry. |
-| `steinbergSymbol_index_indep` | characterisation | Independence of the chosen indices. |
+**tests**
 
-**Used by.** *T.2's Matsumoto theorem*: the theorem presents K_2 of a field by these symbols. *Milnor K-theory*: the degree-two Milnor symbols are identified with these. *K3BlochGroups V.5*: the decomposable class in K_3 of the rationals is built from the symbol with three minus-one entries.
+- **name:** self; **statement:** For A in E(R), A star A=1 using the same lift twice.
+- **name:** forward_vs_star; **statement:** Over Z in rank three, e_01(1) and e_12(1) do not commute; their lifted commutator maps to e_02(1), so it cannot be a K2-valued star input.
+- **name:** nontrivial_diagonal; **statement:** Over Z, diag(-1,-1,1) star diag(-1,1,-1) is {-1,-1}, the nontrivial K2(Z) class once T.5 supplies that computation.
+- **name:** multiply_commuting_inputs; **statement:** For A1,A2 each commuting with B, the product rule holds; omit either commutation proof and the construction is ill-typed.
 
-**Unit tests.**
+**library:** **module:** TauCeti/Algebra/KTheory/MilnorK; **namespace:** TauCeti.MilnorK
 
-- `one_entry` — The symbol with a one entry is trivial.
-- `minus_one_integers` — For the integers the symbol of minus one with itself is the nontrivial
-  element of K_2(Z).
-- `bilinear` — The symbol is multiplicative in each entry.
-- `not_alternating_integrally` — The symbol of a with itself is not trivial in general, which
-  the next node computes.
+#### The Steinberg symbol
 
-**Acceptance.**
+`K2SymbolsBrauer:T.2/steinberg-symbol` — definition
+
+For commuting units r and s of a ring R define the Steinberg symbol as the star product of the diagonal matrix with r and r inverse at two coordinates with the diagonal matrix with s and s inverse at two coordinates chosen to overlap in exactly one index. Equivalently it is the commutator of the elements h_ij(r) and h_ik(s) of St(R), where w_ij(r) is the word x_ij(r) x_ji(minus r inverse) x_ij(r) and h_ij(r) is w_ij(r) w_ij(minus one). The symbol is skew-symmetric and bilinear.
+
+**realises**
+
+- K2SymbolsBrauer:T.2:symbols
+
+**hypotheses**
+
+- R is an associative unital ring; r and s are commuting units.
+
+**proofSteps**
+
+- Use the separately defined indexed w and h words and their elementary images.
+- For commutative rings, the pinned diagonal decompositions check the image calculation. For associative rings, multiply the explicit 2x2 word using r*r^-1=r^-1*r=1; gap G-matrix covers its matrix-unit interface.
+- Define the symbol as the star product of the two diagonal matrices, or equivalently as the commutator of h_ij(r) and h_ik(s), and prove the two agree.
+- Prove that the symbol does not depend on the choice of the three indices.
+- Deduce skew-symmetry and bilinearity from the corresponding properties of the star product.
+
+**acceptance**
 
 - The symbol of one with anything is trivial.
 - Skew-symmetry and bilinearity hold.
-- The symbol is defined for commuting units of any ring, not only for a field; the field case is
-  where Matsumoto's theorem applies.
+- The symbol is defined for commuting units of any ring, not only for a field; the field case is where Matsumoto's theorem applies.
 
-**Depends on.** **inside this roadmap** `star-product`, `steinberg-group-finite-rank`, `stabilisation`; **baseline** `mathlib:Matrix.diag2_decompose`, `tauceti:Matrix.SpecialLinearGroup.diag2nUnit_decompose`, `mathlib:Units`.
+**prerequisites**
 
-**Source.** Kbook.2013, III.5.10 and III.5.10.1 (PDF p. 233): “Definition 5.10. If r, s are commuting units in a ring R, we define the Steinberg symbol {r, s} in K_2(R) to be the star product of the two displayed diagonal matrices. ... For any unit r of R we set w_ij(r) = x_ij(r) x_ji(-r^{-1}) x_ij(r) and h_ij(r) = w_ij(r) w_ij(-1). ... By definition we then have: {r, s} = [h_12(r), h_13(s)] = [h_ij(r), h_ik(s)].” — The definition and the two descriptions, as displayed.
+- K2SymbolsBrauer:T.2/star-product
+- K2SymbolsBrauer:T.1/steinberg-group-finite-rank
+- K2SymbolsBrauer:T.1/stabilisation
+- mathlib:Matrix.diag2_decompose
+- tauceti:Matrix.SpecialLinearGroup.diag2nUnit_decompose
+- mathlib:Units
+- K2SymbolsBrauer:T.2:symbols/diagonal-lift-words
+- K2SymbolsBrauer:T.2:symbols/diagonal-lift
 
-### `steinberg-identity` — The Steinberg identity and the symbol of a unit with its negative ★
+**sources**
 
-*theorem* · planet **Steinberg identity**
+- **sourceId:** Kbook.2013; **locator:** III.5.10 and III.5.10.1 (PDF p. 233); **excerpt:** Definition 5.10. If r, s are commuting units in a ring R, we define the Steinberg symbol {r, s} in K_2(R) to be the star product of the two displayed diagonal matrices. ... For any unit r of R we set w_ij(r) = x_ij(r) x_ji(-r^{-1}) x_ij(r) and h_ij(r) = w_ij(r) w_ij(-1). ... By definition we then have: {r, s} = [h_12(r), h_13(s)] = [h_ij(r), h_ik(s)].; **match:** The definition and the two descriptions, as displayed.
 
-If r and one minus r are both units of R then the symbol of r with one minus r is trivial, and
-the symbol of r with minus r is trivial. The second statement holds for every unit r, even when
-one minus r is not a unit.
+**implementationStatus:** unchecked
 
-**Hypotheses.** R is an associative unital ring; r is a unit, and for the first statement one minus r is also a unit.
+**api**
 
-**Construction and proof.**
+- **name:** steinbergSymbol; **role:** constructor; **statement:** The symbol of two commuting units.
+- **name:** steinbergSymbol_eq_commutator; **role:** characterisation; **statement:** It is the commutator of h_ij(r) and h_ik(s).
+- **name:** steinbergSymbol_one; **role:** simp; **statement:** The symbol with a one entry is trivial.
+- **name:** steinbergSymbol_mul_left; **role:** relation; **statement:** Bilinearity for a pairwise commuting triple r1,r2,s of units. Over a commutative ring the commuting hypotheses are automatic.
+- **name:** steinbergSymbol_skew; **role:** relation; **statement:** Skew-symmetry.
+- **name:** steinbergSymbol_index_indep; **role:** characterisation; **statement:** Independence of the chosen indices.
+- **name:** steinbergSymbol_map; **role:** functoriality; **statement:** Unital ring homomorphisms preserve the commuting-unit symbol and its indexed commutator formula.
 
-1. Prove the first statement by the explicit computation in the Steinberg group that the source
-   performs: rewrite the product of the three w-elements using the commutation rules, and use
-   the four identities among r and one minus r that the source lists, to obtain the w-element of
-   the product.
-1. Multiply by the w-element at minus one to obtain the multiplicativity of the h-elements when
-   the two arguments sum to one, and deduce that the symbol vanishes.
-1. Deduce the second statement from the first by writing minus r as the quotient of one minus r
-   by one minus r inverse and expanding.
-1. For the general form of the second statement record the argument the source gives: it follows
-   from an injectivity statement between K_2 of two localisations, proved later in the source,
-   or from a direct proof in Milnor's book.
+**uses**
 
-**Acceptance.**
+- **where:** T.2's Matsumoto theorem; **how:** the theorem presents K_2 of a field by these symbols
+- **where:** Milnor K-theory; **how:** the degree-two Milnor symbols are identified with these
+- **where:** K3BlochGroups V.5; **how:** the decomposable class in K_3 of the rationals is built from the symbol with three minus-one entries
 
-- The symbol of r with one minus r vanishes whenever both are units.
-- The symbol of r with minus r vanishes for every unit, which is the stronger form.
-- The two statements have different hypotheses and the difference is recorded, not smoothed
-  over.
+**tests**
 
-**Depends on.** **inside this roadmap** `steinberg-symbol`, `steinberg-group-finite-rank`.
+- **name:** one_entry; **statement:** The symbol with a one entry is trivial.
+- **name:** minus_one_integers; **statement:** For the integers the symbol of minus one with itself is the nontrivial element of K_2(Z).
+- **name:** bilinear; **statement:** The product rule holds for pairwise commuting units r1,r2,s; in a commutative field it has no extra condition.
+- **name:** not_alternating_integrally; **statement:** The symbol of a with itself is not trivial in general, which the next node computes.
 
-**Source.** Kbook.2013, III.5.10.2, III.5.10.3 and III.5.10.4 (PDF pp. 233-234): “Lemma 5.10.2. If both r and 1 - r are units of R, then in K_2(R) we have: {r, 1 - r} = 1 and {r, -r} = 1. ... Remark 5.10.4. The equation {r, -r} = 1 holds more generally for every unit r, even if 1 - r is not a unit.” — The lemma and the remark, as displayed, with the computation of the cited proof.
+**planet:** **name:** Steinberg symbol
 
-### `symbol-consequences` — Skew-symmetry, and the correct value of the symbol of a unit with itself
+**library:** **module:** TauCeti/Algebra/KTheory/MilnorK; **namespace:** TauCeti.MilnorK
 
-*lemma*
+#### The Steinberg identity
 
-The Steinberg symbols are skew-symmetric: the symbol of a with b times the symbol of b with a is
-trivial. The symbol of a with itself is the symbol of a with minus one, which is an element of
-order dividing two; it is not trivial in general. Asserting that the symbol of a with itself
-vanishes integrally is an error.
+`K2SymbolsBrauer:T.2/steinberg-identity` — theorem
 
-**Hypotheses.** R is an associative unital ring; a and b are commuting units.
+If r and 1-r are units of an associative unital ring, the Steinberg symbol {r,1-r} is 1.
 
-**Construction and proof.**
+**realises**
 
-1. Derive skew-symmetry from the identity for the symbol of a unit with its negative: expand the
-   symbol of a with minus ab and the symbol of b with minus ab and use bilinearity.
-1. From the vanishing of the symbol of a with minus a and bilinearity obtain that the symbol of
-   a with itself is the inverse of the symbol of a with minus one.
-1. Prove that the symbol of a with minus one squares to the symbol of a with one, which is
-   trivial, so it has order dividing two; hence the symbol of a with itself equals the symbol of
-   a with minus one.
-1. Record the negative statement: skew-symmetry gives that the square of the symbol of a with
-   itself is trivial, and nothing more.
+- K2SymbolsBrauer:T.2:symbols
 
-**Acceptance.**
+**hypotheses**
 
-- For the integers the symbol of minus one with itself is the nontrivial element of K_2(Z), so
-  the symbol of a unit with itself is not always trivial.
-- For a finite field of even order the symbol of a with itself is trivial, because minus one is
-  one there.
-- Skew-symmetry holds in general and is what the alternating property of Milnor K-theory rests
-  on.
+- R is an associative unital ring; r is a unit, and for the first statement one minus r is also a unit.
 
-**Depends on.** **inside this roadmap** `steinberg-identity`, `steinberg-symbol`.
+**proofSteps**
 
-**Source.** Kbook.2013, III.6.1 (PDF p. 239): “Note that the calculation (5.10.3) implies that {x, -x} = 1 for all x, and this implies that the Steinberg symbols are skew-symmetric: {x, y}{y, x} = {x, -xy}{y, -xy} = {xy, -xy} = 1.” — The derivation of skew-symmetry, as displayed; the value of the symbol of a unit with itself follows from the same identity.
+- Prove the first statement by the explicit computation in the Steinberg group that the source performs: rewrite the product of the three w-elements using the commutation rules, and use the four identities among r and one minus r that the source lists, to obtain the w-element of the product.
+- Multiply by the w-element at minus one to obtain the multiplicativity of the h-elements when the two arguments sum to one, and deduce that the symbol vanishes.
 
-### `symbols-generate` — Steinberg symbols generate K_2 of a semilocal ring
+**acceptance**
 
-*theorem*
+- Both r and 1-r must be units.
+- The two entries commute because (1-r)r=r(1-r).
+- No symbol with a zero entry is constructed.
 
-If R is a field, a division ring, a local ring or a semilocal ring then K_2(R) is generated by
-the Steinberg symbols. The statement is not asserted for a general ring.
+**prerequisites**
 
-**Hypotheses.** R is a field, a division ring, a local ring or a semilocal ring.
+- K2SymbolsBrauer:T.2/steinberg-symbol
+- K2SymbolsBrauer:T.1/steinberg-group-finite-rank
 
-**Construction and proof.**
+**sources**
 
-1. Import the generation statement from the source, which attributes the field and division-ring
-   cases to Milnor's book and the semilocal extension to Dennis and Stein.
-1. Record the hypothesis: for a general ring the symbols need not generate, which is why the
-   Dennis-Stein symbols are introduced.
-1. Record the consequence used below: for a field the presentation of Matsumoto's theorem is a
-   presentation of the whole group, not of a subgroup.
+- **sourceId:** Kbook.2013; **locator:** III.5.10.2, III.5.10.3 and III.5.10.4 (PDF pp. 233-234); **excerpt:** Lemma 5.10.2. If both r and 1 - r are units of R, then in K_2(R) we have: {r, 1 - r} = 1 and {r, -r} = 1. ... Remark 5.10.4. The equation {r, -r} = 1 holds more generally for every unit r, even if 1 - r is not a unit.; **match:** The lemma and the remark, as displayed, with the computation of the cited proof.
 
-**Acceptance.**
+**implementationStatus:** unchecked
+
+**planet:** **name:** Steinberg identity
+
+#### Skew-symmetry, and the correct value of the symbol of a unit with itself
+
+`K2SymbolsBrauer:T.2/symbol-consequences` — lemma
+
+The Steinberg symbols are skew-symmetric: the symbol of a with b times the symbol of b with a is trivial. The symbol of a with itself is the symbol of a with minus one, which is an element of order dividing two; it is not trivial in general. Asserting that the symbol of a with itself vanishes integrally is an error.
+
+**realises**
+
+- K2SymbolsBrauer:T.2:symbols
+
+**hypotheses**
+
+- R is an associative unital ring; a and b are commuting units.
+
+**proofSteps**
+
+- Skew-symmetry is inherited directly from the star product, avoiding a new circular dependence on negative-unit identities.
+- From the vanishing of the symbol of a with minus a and bilinearity obtain that the symbol of a with itself is the inverse of the symbol of a with minus one.
+- Prove that the symbol of a with minus one squares to the symbol of a with one, which is trivial, so it has order dividing two; hence the symbol of a with itself equals the symbol of a with minus one.
+- Record the negative statement: skew-symmetry gives that the square of the symbol of a with itself is trivial, and nothing more.
+
+**acceptance**
+
+- For the integers the symbol of minus one with itself is the nontrivial element of K_2(Z), so the symbol of a unit with itself is not always trivial.
+- For a finite field of even order the symbol of a with itself is trivial, because minus one is one there.
+- Skew-symmetry holds in general and is what the alternating property of Milnor K-theory rests on.
+
+**prerequisites**
+
+- K2SymbolsBrauer:T.2/steinberg-identity
+- K2SymbolsBrauer:T.2/steinberg-symbol
+- K2SymbolsBrauer:T.2:symbols/symbol-negative-unit
+
+**sources**
+
+- **sourceId:** Kbook.2013; **locator:** III.6.1 (PDF p. 239); **excerpt:** Note that the calculation (5.10.3) implies that {x, -x} = 1 for all x, and this implies that the Steinberg symbols are skew-symmetric: {x, y}{y, x} = {x, -xy}{y, -xy} = {xy, -xy} = 1.; **match:** The derivation of skew-symmetry, as displayed; the value of the symbol of a unit with itself follows from the same identity.
+
+**implementationStatus:** unchecked
+
+#### Steinberg symbols generate K_2 of a semilocal ring
+
+`K2SymbolsBrauer:T.2/symbols-generate` — theorem
+
+Steinberg symbols generate K2(R) for fields and division rings as in Milnor's cited theorem, and for COMMUTATIVE local or semilocal rings as in the Dennis-Stein extension. The latter commutativity is explicit in the prose preceding III.5.10.5.
+
+**realises**
+
+- K2SymbolsBrauer:T.2:symbols
+
+**hypotheses**
+
+- R is a field or division ring; alternatively R is a commutative local or semilocal ring.
+
+**proofSteps**
+
+- The author copy cites Milnor for fields/division rings and Dennis-Stein for commutative semilocal rings. These proofs were not obtained; this is the unresolved generation gap, not a proof step discharged by the citation.
+- Record the hypothesis: for a general ring the symbols need not generate, which is why the Dennis-Stein symbols are introduced.
+- Record the consequence used below: for a field the presentation of Matsumoto's theorem is a presentation of the whole group, not of a subgroup.
+
+**acceptance**
 
 - For a field the symbols generate, which Matsumoto's theorem then presents.
 - For a general commutative ring generation is not asserted.
 - The Dennis-Stein symbols are introduced precisely because of that gap.
 
-**Depends on.** **inside this roadmap** `steinberg-symbol`, `k2-definition`.
+**prerequisites**
 
-**Source.** Kbook.2013, III.5.10.5 (PDF p. 234): “Theorem 5.10.5. If R is a field, division ring, local ring, or even a semilocal ring, then K_2(R) is generated by the Steinberg symbols {r, s}.” — The theorem and its hypotheses, as displayed.
+- K2SymbolsBrauer:T.2/steinberg-symbol
+- K2SymbolsBrauer:T.1/k2-definition
 
-### `matsumoto` — Matsumoto's theorem ★
+**sources**
 
-*theorem* · planet **Matsumoto's theorem**
+- **sourceId:** Kbook.2013; **locator:** III.5.10.5 (PDF p. 234); **excerpt:** Theorem 5.10.5. If R is a field, division ring, local ring, or even a semilocal ring, then K_2(R) is generated by the Steinberg symbols {r, s}.; **match:** The theorem and its hypotheses, as displayed.
 
-For a field F the group K_2(F) is the abelian group generated by the Steinberg symbols of pairs
-of nonzero elements, subject only to bilinearity in each entry and the Steinberg identity that
-the symbol of x with one minus x is trivial for x different from zero and one. Equivalently,
-K_2(F) is the quotient of the tensor square of the multiplicative group by the subgroup
-generated by the elements x tensor one minus x.
+**implementationStatus:** unchecked
 
-**Hypotheses.** F is a field.
+#### Matsumoto's theorem
 
-**Construction and proof.**
+`K2SymbolsBrauer:T.2/matsumoto` — theorem
 
-1. State the presentation and prove that the displayed relations hold, which is the content of
-   the symbol nodes above.
-1. Prove the converse, that no further relations are needed. This is the normal-form argument:
-   it is not enough to check that the map respects the relations, and the source refers to
-   Milnor's book for a self-contained proof, which this node follows.
-1. Record the reformulation as a quotient of the tensor square, which is the form Milnor
-   K-theory generalises.
-1. Deduce skew-symmetry inside the presentation, by the computation already recorded.
+For a field F the group K_2(F) is the abelian group generated by the Steinberg symbols of pairs of nonzero elements, subject only to bilinearity in each entry and the Steinberg identity that the symbol of x with one minus x is trivial for x different from zero and one. Equivalently, K_2(F) is the quotient of the tensor square of the multiplicative group by the subgroup generated by the elements x tensor one minus x.
 
-**Acceptance.**
+**realises**
 
-- The presentation gives K_2 of a finite field trivial, which is the next node and a genuine
-  test of the presentation.
-- The reformulation as a quotient of the tensor square is the degree-two case of Milnor
-  K-theory.
-- The theorem is a presentation, not merely a surjection: the normal-form argument is what
-  distinguishes the two, and a proof that only checks the relations is incomplete.
+- K2SymbolsBrauer:T.2:symbols
 
-**Depends on.** **inside this roadmap** `steinberg-symbol`, `steinberg-identity`, `symbols-generate`, `symbol-consequences`.
+**hypotheses**
 
-**Source.** Kbook.2013, III.6.1 (PDF p. 239): “Matsumoto's Theorem 6.1. If F is a field then K_2(F) is the abelian group generated by the set of Steinberg symbols {x, y} with x, y in F^x, subject only to the relations: (Bilinearity) ...; (Steinberg Identity) {x, 1 - x} = 1 for all x not 0, 1. In other words, K_2(F) is the quotient of F^x tensor F^x by the subgroup generated by the elements x tensor (1 - x).” — The theorem and its reformulation, as displayed.
+- F is a field.
 
-### `k2-finite-field` — K_2 of a finite field is trivial
+**proofSteps**
 
-*theorem*
+- State the presentation and prove that the displayed relations hold, which is the content of the symbol nodes above.
+- Gap G-Matsumoto: obtain and decompose the converse/presentation argument from an accessible original source. Milnor section 12 was not read; respecting relations and symbol generation provide only a surjection.
+- Record the reformulation as a quotient of the tensor square, which is the form Milnor K-theory generalises.
+- Deduce skew-symmetry inside the presentation, by the computation already recorded.
+
+**acceptance**
+
+- The presentation gives K_2 of a finite field trivial, which is the next node and a genuine test of the presentation.
+- The reformulation as a quotient of the tensor square is the degree-two case of Milnor K-theory.
+- The theorem is a presentation, not merely a surjection: the normal-form argument is what distinguishes the two, and a proof that only checks the relations is incomplete.
+
+**prerequisites**
+
+- K2SymbolsBrauer:T.2/steinberg-symbol
+- K2SymbolsBrauer:T.2/steinberg-identity
+- K2SymbolsBrauer:T.2/symbols-generate
+- K2SymbolsBrauer:T.2/symbol-consequences
+
+**sources**
+
+- **sourceId:** Kbook.2013; **locator:** III.6.1 (PDF p. 239); **excerpt:** Matsumoto's Theorem 6.1. If F is a field then K_2(F) is the abelian group generated by the set of Steinberg symbols {x, y} with x, y in F^x, subject only to the relations: (Bilinearity) ...; (Steinberg Identity) {x, 1 - x} = 1 for all x not 0, 1. In other words, K_2(F) is the quotient of F^x tensor F^x by the subgroup generated by the elements x tensor (1 - x).; **match:** The theorem and its reformulation, as displayed.
+
+**implementationStatus:** unchecked
+
+**planet:** **name:** Matsumoto's theorem
+
+#### K_2 of a finite field is trivial
+
+`K2SymbolsBrauer:T.2/k2-finite-field` — theorem
 
 For every finite field the group K_2 is trivial.
 
-**Hypotheses.** F is a finite field with q elements.
+**realises**
 
-**Construction and proof.**
+- K2SymbolsBrauer:T.2:symbols
 
-1. Reduce by Matsumoto's theorem to showing that the generator of the tensor square of the
-   cyclic unit group dies, that is, that the symbol of a generator with itself is trivial.
-1. In even characteristic use that minus one is one, so the symbol of a generator with itself is
-   the symbol of the generator with its negative, which is trivial.
-1. In odd characteristic use skew-symmetry to see that the symbol of the generator with itself
-   squares to the trivial element, so it equals the symbol of any odd power of the generator
-   with any other odd power.
-1. Conclude by finding a non-square u for which one minus u is also a non-square: the map
-   sending u to one minus u is an involution of the set of elements different from zero and one,
-   which has (q minus one) halves non-squares and only (q minus three) halves squares, so such a
-   u exists.
-1. Apply the Steinberg identity at that u.
+**hypotheses**
 
-**Acceptance.**
+- F is a finite field with q elements.
+
+**proofSteps**
+
+- Reduce by Matsumoto's theorem to showing that the generator of the tensor square of the cyclic unit group dies, that is, that the symbol of a generator with itself is trivial.
+- In even characteristic use that minus one is one, so the symbol of a generator with itself is the symbol of the generator with its negative, which is trivial.
+- In odd characteristic use skew-symmetry to see that the symbol of the generator with itself squares to the trivial element, so it equals the symbol of any odd power of the generator with any other odd power.
+- Conclude by finding a non-square u for which one minus u is also a non-square: the map sending u to one minus u is an involution of the set of elements different from zero and one, which has (q minus one) halves non-squares and only (q minus three) halves squares, so such a u exists.
+- Apply the Steinberg identity at that u.
+- Gap G-finite-units: choose and verify the pinned cyclic-unit-group theorem and implement the finite counting argument; ZMod alone supplies neither.
+
+**acceptance**
 
 - The counting step is what makes the argument work and is recorded, not asserted.
 - The two characteristics are treated separately.
-- The conclusion feeds the Milnor K-theory examples: all higher Milnor K-groups of a finite
-  field vanish.
+- The conclusion feeds the Milnor K-theory examples: all higher Milnor K-groups of a finite field vanish.
 
-**Depends on.** **inside this roadmap** `matsumoto`, `symbol-consequences`; **baseline** `mathlib:ZMod`.
+**prerequisites**
 
-**Source.** Kbook.2013, III.6.1.1 (PDF p. 239): “Corollary 6.1.1. K_2(F_q) = 1 for every finite field F_q.” — The corollary, with the counting proof of the source.
+- K2SymbolsBrauer:T.2/matsumoto
+- K2SymbolsBrauer:T.2/symbol-consequences
+- mathlib:ZMod
 
-### `rational-function-field` — K_2 of a field is a direct summand of K_2 of a rational function field, and the torsion kernel
+**sources**
 
-*lemma*
+- **sourceId:** Kbook.2013; **locator:** III.6.1.1 (PDF p. 239); **excerpt:** Corollary 6.1.1. K_2(F_q) = 1 for every finite field F_q.; **match:** The corollary, with the counting proof of the source.
 
-For a field F the natural map from K_2(F) to K_2 of the rational function field in one variable
-is a split injection, split by the leading-coefficient map. Consequently K_2(F) injects into K_2
-of every purely transcendental extension, and for an arbitrary field extension the kernel of the
-map on K_2 is a torsion subgroup.
+**implementationStatus:** unchecked
 
-**Hypotheses.** F is a field; the extension is arbitrary for the last statement.
+#### K_2 of a field is a direct summand of K_2 of a rational function field, and the torsion kernel
 
-**Construction and proof.**
+`K2SymbolsBrauer:T.2/rational-function-field` — lemma
 
-1. Define the leading coefficient of a rational function as the quotient of the leading
-   coefficients of numerator and denominator, and define a map on symbols by applying it to both
-   entries.
-1. Check the presentation of Matsumoto's theorem: bilinearity is immediate, and the Steinberg
-   identity holds because the leading coefficient of one minus a rational function is one, one
-   minus the leading coefficient, or minus the leading coefficient, according to the comparison
-   of the degrees.
-1. Deduce that the map is well defined and splits the natural inclusion.
-1. Pass to filtered colimits for an arbitrary purely transcendental extension.
-1. For the last statement reduce to a finite extension and use that the composite of restriction
-   and transfer is multiplication by the degree.
+For a field F, K2(F) -> K2(F(t)) is a split injection. The retraction sends {f,g} to {lc(f),lc(g)}, where lc(p/q)=lc(p)/lc(q).
 
-**Acceptance.**
+**realises**
 
-- The leading-coefficient map is a homomorphism, which is the content of the three-case check.
-- The kernel of the map on K_2 for an arbitrary extension is torsion, not zero.
-- The splitting is by an explicit map, not by an abstract argument.
+- K2SymbolsBrauer:T.2:symbols
 
-**Depends on.** **inside this roadmap** `matsumoto`, `k2-finite-field`.
+**hypotheses**
 
-**Source.** Kbook.2013, III.6.1.2 and III.6.1.3 (PDF p. 239): “Example 6.1.2. Let F(t) be a rational function field in one variable t over F. Then K_2(F) is a direct summand of K_2 F(t). ... Lemma 6.1.3. For every field extension F in E, the kernel of K_2(F) -> K_2(E) is a torsion subgroup.” — The example and the lemma, with the leading-coefficient construction of the cited proof.
+- F is a field.
 
-### `milnor-k-theory` — Milnor K-theory of a field ★
+**proofSteps**
 
-*definition* · planet **Milnor K-theory**
+- Leading coefficients multiply and restrict to the identity on constants.
+- For a rational f, if deg(f)>0 then lc(1-f)=-lc(f), so the negative-unit relation kills the symbol.
+- If deg(f)<0, lc(1-f)=1. If deg(f)=0 and lc(f)!=1, lc(1-f)=1-lc(f) and use Steinberg. If deg(f)=0 and lc(f)=1, the first symbol entry is 1 even when cancellation changes the degree of 1-f.
+- The relations therefore descend through Matsumoto and give a retraction.
 
-For a field F form the tensor algebra of the multiplicative group written additively, with the
-degree-one element attached to a nonzero x written l(x). Define the graded ring K^M of F as the
-quotient of that tensor algebra by the two-sided ideal generated by the homogeneous elements
-l(x) tensor l(one minus x) with x different from zero and one. The Milnor K-group in degree n is
-the degree-n part, presented by symbols that are multiplicative in each entry and vanish when
-two consecutive entries sum to one. Degree zero is the integers and degree one is the
-multiplicative group written additively.
+**acceptance**
 
-**Hypotheses.** F is a field. All tensor products are over the integers.
+- The map is a left inverse on constant symbols.
+- The equal-degree cancellation case lc(f)=1 is handled separately.
+- The conclusion is split injectivity for the specified rational function extension.
 
-**Construction and proof.**
+**prerequisites**
 
-1. Form the tensor algebra of the unit group, using the additive type tag and the pinned tensor
-   algebra.
-1. Form the two-sided ideal generated by the displayed homogeneous elements and take the
-   quotient as a graded ring, using the pinned quotient construction.
-1. Prove that the quotient is graded, so that the degree-n parts are defined.
-1. Prove the two low-degree identifications, degree zero and degree one.
-1. Prove the presentation statement: the degree-n group is generated by the symbols subject to
-   multiplicativity in each entry and the vanishing relation.
-1. Prove functoriality in the field.
+- K2SymbolsBrauer:T.2/matsumoto
+- K2SymbolsBrauer:T.2:symbols/symbol-negative-unit
 
-**API.**
+**sources**
 
-| name | role | statement |
-| --- | --- | --- |
-| `milnorK` | data | The graded ring, and its degree-n part. |
-| `milnorK.symbol` | constructor | The symbol of an n-tuple of nonzero elements. |
-| `milnorK.symbol_mul` | relation | Multiplicativity in each entry. |
-| `milnorK.symbol_steinberg` | relation | Vanishing when two consecutive entries sum to one. |
-| `milnorK.zero` | compatibility | Degree zero is the integers. |
-| `milnorK.one` | compatibility | Degree one is the unit group written additively. |
-| `milnorK.map` | functoriality | Functoriality in the field. |
+- **sourceId:** Kbook.2013; **locator:** III.6.1.2 (PDF p. 239); **excerpt:** A rational function extension splits by sending each symbol to its leading coefficients.; **match:** Paraphrase of the indicated passage; checked in the author copy, not a quotation from the published edition.
 
-**Used by.** *T.2's Matsumoto comparison*: the degree-two group is identified with K_2. *HigherLocalFieldsAndHigherClassFieldTheory HL.1*: that layer assembles these groups along a residue tower and imports rather than rebuilds them. *K3BlochGroups V.2*: the degree-three group is the source of the map whose cokernel is the indecomposable K_3.
+**implementationStatus:** unchecked
 
-**Unit tests.**
+#### Milnor K-theory of a field
 
-- `degree_zero_one` — Degree zero is the integers and degree one is the unit group.
-- `finite_field` — For a finite field every degree at least two vanishes.
-- `graded` — The quotient is graded, because the ideal is generated in a single degree.
-- `not_alternating_by_fiat` — The alternating property is a theorem, proved from skew-symmetry
-  in degree two, not an axiom.
+`K2SymbolsBrauer:T.2/milnor-k-theory` — definition
 
-**Acceptance.**
+For a field F form the tensor algebra of the multiplicative group written additively, with the degree-one element attached to a nonzero x written l(x). Define the graded ring K^M of F as the quotient of that tensor algebra by the two-sided ideal generated by the homogeneous elements l(x) tensor l(one minus x) with x different from zero and one. The Milnor K-group in degree n is the degree-n part, presented by symbols that are multiplicative in each entry and vanish when two consecutive entries sum to one. Degree zero is the integers and degree one is the multiplicative group written additively.
+
+**realises**
+
+- K2SymbolsBrauer:T.2:symbols
+
+**hypotheses**
+
+- F is a field.
+- All tensor products are over the integers.
+
+**proofSteps**
+
+- Form the tensor algebra of the unit group, using the additive type tag and the pinned tensor algebra.
+- Form the two-sided ideal generated by the displayed homogeneous elements and take the quotient as a graded ring, using the pinned quotient construction.
+- Prove that the quotient is graded, so that the degree-n parts are defined.
+- Prove the two low-degree identifications, degree zero and degree one.
+- Prove the presentation statement: the degree-n group is generated by the symbols subject to multiplicativity in each entry and the vanishing relation.
+- Prove functoriality in the field.
+- Gap G-graded-quotient: implement the homogeneous ideal and degree decomposition, quotient universal property and field-map action on the pinned tensor algebra. RingQuot alone carries no grading.
+
+**acceptance**
 
 - Degree zero is the integers and degree one is the unit group written additively.
-- Degree two is Matsumoto's presentation, hence K_2(F), which is the next node.
-- The ideal is generated by homogeneous elements of degree two, so the quotient is graded; a
-  non-homogeneous generator would destroy the grading.
+- Degree two has the bilinear Steinberg presentation; comparison with classical K2 is supplied by the separate Matsumoto node and remains conditional on its gap.
+- The ideal is generated by homogeneous elements of degree two, so the quotient is graded; a non-homogeneous generator would destroy the grading.
 
-**Depends on.** **baseline** `mathlib:TensorAlgebra`, `mathlib:Additive`, `mathlib:RingQuot`, `mathlib:Units`.
+**prerequisites**
 
-**Source.** Kbook.2013, III.7.1 (PDF p. 253): “Definition 7.1. The graded ring K^M_*(F) is defined to be the quotient of T(F^x) by the ideal generated by the homogeneous elements l(x) tensor l(1 - x) with x not 0, 1. The Milnor K-group K^M_n(F) is defined to be the subgroup of elements of degree n.” — The definition, as displayed.
+- mathlib:TensorAlgebra
+- mathlib:Additive
+- mathlib:RingQuot
+- mathlib:Units
 
-### `milnor-alternating` — Milnor symbols are alternating
+**sources**
 
-*lemma*
+- **sourceId:** Kbook.2013; **locator:** III.7.1 (PDF p. 253); **excerpt:** Definition 7.1. The graded ring K^M_*(F) is defined to be the quotient of T(F^x) by the ideal generated by the homogeneous elements l(x) tensor l(1 - x) with x not 0, 1. The Milnor K-group K^M_n(F) is defined to be the subgroup of elements of degree n.; **match:** The definition, as displayed.
 
-Interchanging two entries of a Milnor symbol replaces it by its inverse, and consequently for
-any permutation the symbol of the permuted tuple is the sign of the permutation times the
-original symbol.
+**implementationStatus:** unchecked
 
-**Hypotheses.** F is a field; the entries are nonzero.
+**api**
 
-**Construction and proof.**
+- **name:** milnorK; **role:** data; **statement:** The graded ring, and its degree-n part.
+- **name:** milnorK.symbol; **role:** constructor; **statement:** The symbol of an n-tuple of nonzero elements.
+- **name:** milnorK.symbol_mul; **role:** relation; **statement:** Multiplicativity in each entry.
+- **name:** milnorK.symbol_steinberg; **role:** relation; **statement:** Vanishing when two consecutive entries sum to one.
+- **name:** milnorK.zero; **role:** compatibility; **statement:** Degree zero is the integers.
+- **name:** milnorK.one; **role:** compatibility; **statement:** Degree one is the unit group written additively.
+- **name:** milnorK.map; **role:** functoriality; **statement:** Functoriality in the field.
+- **name:** milnorK.hom_ext; **role:** extensionality; **statement:** Graded ring maps agreeing on degree-one units are equal, since products of these generate.
+- **name:** milnorK.lift; **role:** universal-property; **statement:** A homomorphism F× -> degree-one elements of a graded target that kills every Steinberg product extends uniquely to a graded ring map.
+- **name:** milnorK.map_id_comp; **role:** simp; **statement:** Field maps induce graded maps respecting identity and composition on every symbol.
+- **name:** milnorK.symbol_product; **role:** structure; **statement:** Concatenating two tuples gives the product of their symbols with degree addition.
 
-1. Use that in degree two the sum of the symbol and its transpose vanishes, which is skew-
-   symmetry proved above.
-1. Deduce that interchanging two adjacent entries of an n-tuple changes the sign, since the
-   degree-two relation can be applied in place inside the product.
-1. Extend to an arbitrary transposition and then to an arbitrary permutation by decomposing it
-   into transpositions.
-1. Record what this does not say: the symbol with a repeated entry need not vanish integrally,
-   and equals the symbol with that entry replaced by minus one in the appropriate position.
+**uses**
 
-**Acceptance.**
+- **where:** T.2's Matsumoto comparison; **how:** the degree-two group is identified with K_2
+- **where:** HigherLocalFieldsAndHigherClassFieldTheory HL.1; **how:** that layer assembles these groups along a residue tower and imports rather than rebuilds them
+- **where:** K3BlochGroups V.2; **how:** the degree-three group is the source of the map whose cokernel is the indecomposable K_3
+
+**tests**
+
+- **name:** degree_zero_one; **statement:** Degree zero is the integers and degree one is the unit group.
+- **name:** finite_field; **statement:** For a finite field every degree at least two vanishes.
+- **name:** graded; **statement:** The quotient is graded, because the ideal is generated in a single degree.
+- **name:** not_alternating_by_fiat; **statement:** The alternating property is a theorem, proved from skew-symmetry in degree two, not an axiom.
+
+**planet:** **name:** Milnor K-theory
+
+**library:** **module:** TauCeti/Algebra/KTheory/MilnorK; **namespace:** TauCeti.MilnorK
+
+#### Skew-symmetry of Milnor symbols
+
+`K2SymbolsBrauer:T.2/milnor-alternating` — lemma
+
+Permuting Milnor-symbol entries multiplies by the permutation sign. Repeated-entry symbols are killed by 2 but can be nonzero integrally; in characteristic two a repeated adjacent pair vanishes because {a,a}={a,-1} and -1=1.
+
+**realises**
+
+- K2SymbolsBrauer:T.2:symbols
+
+**hypotheses**
+
+- F is a field; the entries are nonzero.
+
+**proofSteps**
+
+- Use that in degree two the sum of the symbol and its transpose vanishes, which is skew-symmetry proved above.
+- Deduce that interchanging two adjacent entries of an n-tuple changes the sign, since the degree-two relation can be applied in place inside the product.
+- Extend to an arbitrary transposition and then to an arbitrary permutation by decomposing it into transpositions.
+- Record what this does not say: the symbol with a repeated entry need not vanish integrally, and equals the symbol with that entry replaced by minus one in the appropriate position.
+
+**acceptance**
 
 - A transposition changes the sign.
-- A symbol with a repeated entry is two-torsion but not necessarily zero, which is the same
-  caveat as in degree two.
-- For a field containing a square root of minus one the repeated-entry symbol does vanish.
+- A symbol with a repeated entry is two-torsion but not necessarily zero, which is the same caveat as in degree two.
+- A square root of -1 is NOT sufficient for integral vanishing. In F=C(t), {t,t}={t,-1} has tame residue -1 at t=0 and is nonzero, although i belongs to F. In characteristic two it vanishes; modulo 2 it vanishes if -1 is a square.
 
-**Depends on.** **inside this roadmap** `milnor-k-theory`, `symbol-consequences`.
+**prerequisites**
 
-**Source.** Kbook.2013, III.7.1 (PDF p. 253): “Since {x_i, x_{i+1}} + {x_{i+1}, x_i} = 0 in K^M_2(F), we see that interchanging two entries in {x_1, ..., x_n} yields the inverse. It follows that these symbols are alternating.” — The derivation, as displayed.
+- K2SymbolsBrauer:T.2/milnor-k-theory
+- K2SymbolsBrauer:T.2/symbol-consequences
 
-### `milnor-examples` — Milnor K-theory in the standard examples
+**sources**
 
-*lemma*
+- **sourceId:** Kbook.2013; **locator:** III.7.1 (PDF p. 253); **excerpt:** Since {x_i, x_{i+1}} + {x_{i+1}, x_i} = 0 in K^M_2(F), we see that interchanging two entries in {x_1, ..., x_n} yields the inverse. It follows that these symbols are alternating.; **match:** The derivation, as displayed.
+- **sourceId:** Kbook.2013; **locator:** III.6.3 (PDF p. 242); **excerpt:** The tame-symbol formula sends {t,-1} at the t-adic valuation to -1, detecting its nonzero class.; **match:** Paraphrase of the indicated passage; checked in the author copy, not a quotation from the published edition.
 
-For a finite field the Milnor K-groups vanish in every degree at least two, and for a field of
-transcendence degree one over a finite field they vanish in every degree at least three. For an
-algebraically closed field they are uniquely divisible. For the real numbers each group is the
-direct sum of a cyclic group of order two generated by the symbol with every entry minus one and
-a divisible subgroup, and the quotient by twice the group is the polynomial ring over the field
-with two elements on the class of minus one. For a number field with r_1 real embeddings the
-group in every degree at least three is the elementary abelian two-group of rank r_1.
+**implementationStatus:** unchecked
 
-**Hypotheses.** The field is as named in each clause.
+#### Milnor K-theory of finite fields
 
-**Construction and proof.**
+`K2SymbolsBrauer:T.2/milnor-examples` — lemma
 
-1. For a finite field use that the degree-two group vanishes, and that the ring is generated in
-   degree one, so every higher degree vanishes; cite Bass and Tate for the transcendence-degree-
-   one statement.
-1. For an algebraically closed field prove divisibility from divisibility of the unit group, and
-   cite the source for the absence of torsion.
-1. For the real numbers construct the graded ring map to the polynomial ring over the field with
-   two elements sending the class of a negative number to the indeterminate and of a positive
-   number to zero, check that it kills the Steinberg elements, and read off the splitting by
-   induction.
-1. For a number field construct the map to the product of the real groups over the real
-   embeddings and cite Bass and Tate for the isomorphism in degree at least three.
+For a finite field Fq and n >= 2, K_n^M(Fq)=0.
 
-**Acceptance.**
+**realises**
 
-- For a finite field every degree at least two vanishes.
-- For the real numbers the symbol with every entry minus one is nonzero, which is the generator
-  of the two-torsion.
-- For a number field the answer in degree at least three is elementary abelian of rank r_1,
-  which K3BlochGroups V.2 uses in degree three.
+- K2SymbolsBrauer:T.2:symbols
 
-**Depends on.** **inside this roadmap** `milnor-k-theory`, `k2-finite-field`; **baseline** `mathlib:NumberField.InfinitePlace.nrRealPlaces`.
+**hypotheses**
 
-**Source.** Kbook.2013, III.7.2 (PDF pp. 253-254): “Examples 7.2. (a) If F_q is a finite field, then K^M_n(F_q) = 0 for all n >= 2 ... (d) When F is a number field, let r_1 be the number of embeddings of F into R. ... Bass and Tate proved that this map is an isomorphism for all n >= 3: K^M_n(F) = (Z/2)^{r_1}.” — The four examples, as displayed.
+- Fq is a finite field.
+- n >= 2.
 
-## Requests to other roadmaps
+**proofSteps**
 
-- `GeneralAlgebraicKTheory:K.2` — The K-theory space and its plus-construction model, K_1 as the
-  abelianisation of the stable general linear group, the identification of E(R) with its
-  commutator subgroup, and the products on K-theory that the graded map uses. This layer
-  supplies the explicit K_2 model that K.2:low-degree-comparisons assembles; the two must not
-  both construct it.
-- `StableHomotopyKTheory:H.3` — The plus construction with its universal property, its homology
-  isomorphism and the identification of the plus construction on the classifying space of a
-  perfect normal subgroup with the universal cover, which is what turns the second homology into
-  the second homotopy group.
-- `K3BlochGroups:V.2` — The indecomposable K_3 as the cokernel of the degree-three component of
-  the graded map, and the injectivity of that component for a field. This layer constructs the
-  map; that layer owns the quotient and the injectivity theorem.
-- `HigherLocalFieldsAndHigherClassFieldTheory:HL.1` — Confirmation that the all-degree Milnor
-  K-theory and the higher tame symbols are imported from here and assembled along a residue
-  tower there, as the accepted restructuring RS-28 records, so that neither side rebuilds them.
+- K2^M(Fq)=0 by Matsumoto and the finite-field K2 calculation.
+- Every degree-n symbol is a product of its first two entries with the remaining degree-one symbols, so it is zero for n>=2.
 
-## Gaps
+**acceptance**
 
-**Matsumoto's theorem is stated, not decomposed.** The K-book states Matsumoto's theorem and refers to Milnor's 1971 book, section 12, for a self-
-contained proof; that book was not obtained. The node states the theorem, records that the
-normal-form and presentation argument is what the proof consists of, and does not pretend that
-checking the relations is a proof. A continuation that obtains Milnor's book should decompose
-that argument.
+- K0^M(Fq)=Z is not covered.
+- K1^M(Fq)=Fq× is not asserted zero.
+- Degrees at least two vanish by generation from degree two.
 
-**Two statements are used exactly as the K-book gives them.** The injectivity of the subgroup generated by the symbols x_in(r) into E(R), which the source
-relegates to an exercise and which the proof of Steinberg's centre theorem needs, and the
-generation of K_2 by symbols for semilocal rings, attributed to Milnor and to Dennis and Stein.
-Neither original was obtained. The Dennis-Stein symbols themselves belong to T.6 and are owned
-by the companion packet for the T.3 part.
+**prerequisites**
 
-**The general form of the symbol of a unit with its negative rests on a later chapter.** The statement that the symbol of r with minus r is trivial for every unit, even when one minus r
-is not a unit, is deduced in the source from an injectivity between K_2 of two localisations
-proved in its chapter five, or from a direct proof in Milnor's book. Neither is decomposed here,
-and the node records the dependence.
+- K2SymbolsBrauer:T.2/milnor-k-theory
+- K2SymbolsBrauer:T.2/k2-finite-field
 
-**Bass and Tate are cited for two Milnor K-theory computations.** The vanishing of the Milnor K-groups in degree at least three for a global field of finite
-characteristic, and the isomorphism with the elementary abelian two-group of rank r_1 in degree
-at least three for a number field, are both attributed by the source to Bass and Tate. That
-paper was not obtained; the node states the results with the attribution.
+**sources**
 
-**Hopf's formula rests on the Hochschild–Serre low-degree sequence.** Hopf's formula is decomposed as in Löh's Theorem 3.2.18: free groups, and by Nielsen–Schreier
-their subgroups, have no integral homology above degree one, and the four-term exact sequence 0
-→ H₂(G) → N/[F, N] → F_ab → G_ab → 0 gives the formula. Mathlib supplies exactness at F_ab and
-surjectivity onto G_ab (groupHomology.H1CoresCoinfOfTrivial_exact and _g_epi) but no map H₂(F/N)
-→ H₁(N)_{F/N}: the Hochschild–Serre spectral sequence of a group extension, or its low-degree
-exact sequence, is missing at the pin and no atlas stage plans it for discrete groups. The same
-input gives the naturality of Hopf's formula (gap G-natural-Hopf). Löh points to
-Hilton–Stammbach VI.9 for a proof by basic homological algebra; that book was not obtained. The
-recognition-theorem implications that do not pass through Hopf's formula ((1) ⇒ (2) ⇒ (3) and
-(2) ⇒ (1)) do not depend on this gap.
+- **sourceId:** Kbook.2013; **locator:** III.7.2(a) (PDF p. 253); **excerpt:** All Milnor groups of a finite field in degrees at least two vanish.; **match:** Paraphrase of the indicated passage; checked in the author copy, not a quotation from the published edition.
 
-## Structure
+**implementationStatus:** unchecked
 
-## Mistakes found in the sources
+#### Weyl lift words
 
-## Checks
+`K2SymbolsBrauer:T.2:symbols/diagonal-lift-words` — definition
 
-    python3 scripts/check_blueprint.py research/blueprint/packets/K2SymbolsBrauer--T.1.json
+For i != j and a unit r, define w_ij(r)=x_ij(r)x_ji(-r^-1)x_ij(r). Its elementary image has block [[0,r],[-r^-1,0]] at coordinates i,j.
 
-reports 0 errors and 0 warnings against the pinned declaration index. The suggested Lean file was not compiled: no Lean toolchain at the pinned commits was available in this session, and the file is signatures and `example` statements only.
+**realises**
 
-FIX-RT-AREA-ktheory-1 (2026-09-30, findings /29 and /30): after the recognition-package nodes
-were added the checker still reports 0 errors and 0 warnings (62 nodes). The suggested file was
-then elaborated with `lake env lean` against a build of Mathlib 082e2d3: the new declarations
-give only `sorry` warnings; five errors older than this fix remain (the commutator bracket on
-the presented Steinberg group).
+- K2SymbolsBrauer:T.2:symbols
+
+**hypotheses**
+
+- R is an associative unital ring; r and s are commuting units.
+
+**proofSteps**
+
+- Evaluate the three indexed generators under the elementary map.
+- Multiply the 2x2 block using both inverse identities, retaining the reversed indices and minus sign.
+- The general associative-ring matrix-unit interface is G-matrix; commutative specialization is checked by the pinned decomposition.
+
+**acceptance**
+
+- For i != j and a unit r, define w_ij(r)=x_ij(r)x_ji(-r^-1)x_ij(r). Its elementary image has block [[0,r],[-r^-1,0]] at coordinates i,j.
+
+**prerequisites**
+
+- K2SymbolsBrauer:T.1:classical/to-elementary
+- K2SymbolsBrauer:T.1/stabilisation
+- mathlib:Units
+- mathlib:Matrix.diag2_decompose
+- tauceti:Matrix.SpecialLinearGroup.diag2nUnit_decompose
+
+**sources**
+
+- **sourceId:** Kbook.2013; **locator:** III.5.10.1 (PDF p. 233); **excerpt:** The source defines two indexed words and computes their elementary matrix images.; **match:** Paraphrase of the indicated passage; checked in the author copy, not a quotation from the published edition.
+
+**implementationStatus:** unchecked
+
+**addedBy:** REV-K2SymbolsBrauer--T.1
+
+**api**
+
+- **name:** w; **role:** constructor; **statement:** The indexed word w_ij(r) for i != j.
+- **name:** w_phi; **role:** compatibility; **statement:** phi(w_ij(r)) has r,-r^-1 in the two off-diagonal positions.
+- **name:** w_map; **role:** functoriality; **statement:** Unital ring homomorphisms preserve the indexed word and its elementary image.
+
+**uses**
+
+- **where:** K2SymbolsBrauer:T.2/steinberg-symbol; **how:** The symbol is the commutator of two indexed diagonal lifts sharing their first index.
+
+**tests**
+
+- **name:** unit_sign; **statement:** w_01(1) has block [[0,1],[-1,0]].
+- **name:** negative_unit; **statement:** w_01(-1) has block [[0,-1],[1,0]].
+- **name:** indexed_inverse; **statement:** Over Q, w_12(2) has off-diagonal entries 2 and -1/2 in positions (1,2),(2,1), and entry 1 at (0,0).
+
+#### The symbol of a unit and its negative
+
+`K2SymbolsBrauer:T.2:symbols/symbol-negative-unit` — theorem
+
+For every unit r of an associative unital ring R, {r,-r}=1, without requiring 1-r to be invertible.
+
+**realises**
+
+- K2SymbolsBrauer:T.2:symbols
+
+**hypotheses**
+
+- R is an associative unital ring; r is a unit, and for the first statement one minus r is also a unit.
+
+**proofSteps**
+
+- First deduce the identity when 1-r is invertible by writing -r=(1-r)/(1-r^-1) and using Steinberg and bilinearity.
+- In the UNIVERSAL ring Z[t,t^-1], use injectivity on K2 into Z[t,t^-1,(1-t)^-1] to descend the identity.
+- Then specialize the Laurent polynomial ring by t -> r into R; do not require a map from the further localization into R.
+- Gap G-universal-negative: the universal localization injectivity in V.6.1.3 was not decomposed or supplied by a baseline declaration.
+
+**acceptance**
+
+- For every unit r of an associative unital ring R, {r,-r}=1, without requiring 1-r to be invertible.
+
+**prerequisites**
+
+- K2SymbolsBrauer:T.2/steinberg-identity
+- K2SymbolsBrauer:T.2/steinberg-symbol
+
+**sources**
+
+- **sourceId:** Kbook.2013; **locator:** III.5.10.3-.4 (PDF p. 234); **excerpt:** The general negative-unit relation follows by first working in the universal Laurent polynomial ring.; **match:** Paraphrase of the indicated passage; checked in the author copy, not a quotation from the published edition.
+
+**implementationStatus:** unchecked
+
+**addedBy:** REV-K2SymbolsBrauer--T.1
+
+#### Torsion in field-extension restriction kernels
+
+`K2SymbolsBrauer:T.2:symbols/extension-kernel-torsion` — lemma
+
+For every field extension F <= L, the kernel of K2(F) -> K2(L) is torsion.
+
+**realises**
+
+- K2SymbolsBrauer:T.2:symbols
+
+**hypotheses**
+
+- F is a field.
+
+**proofSteps**
+
+- Using filtered-colimit compatibility, reduce a vanishing element to a finitely generated subextension.
+- Choose a finite transcendence basis; rational restriction is injective by successive leading-coefficient splittings.
+- The remaining algebraic extension L/F is finite, so L is a finite free F-module and restriction of scalars gives the Quillen transfer K2(L) -> K2(F) (GeneralAlgebraicKTheory:K.3/transfer-maps-and-projection-formula, separable or not); by its projection formula, transfer after restriction is multiplication by the class of L in K0(F) = Z, that is by [L:F], which kills the original element.
+- Gap G-restriction-transfer: the filtered-colimit continuity is an imported K.7 interface, not proved by the rational splitting.
+
+**acceptance**
+
+- For every field extension F <= L, the kernel of K2(F) -> K2(L) is torsion.
+
+**prerequisites**
+
+- K2SymbolsBrauer:T.2/rational-function-field
+- GeneralAlgebraicKTheory:K.7
+- GeneralAlgebraicKTheory:K.3/transfer-maps-and-projection-formula
+
+**sources**
+
+- **sourceId:** Kbook.2013; **locator:** III.6.1.3 (PDF p. 239); **excerpt:** Restriction to an arbitrary field extension has a torsion kernel, by finite extension transfer after a transcendence basis.; **match:** Paraphrase of the indicated passage; checked in the author copy, not a quotation from the published edition.
+
+**implementationStatus:** unchecked
+
+**addedBy:** REV-K2SymbolsBrauer--T.1
+
+#### Milnor groups of algebraically closed fields
+
+`K2SymbolsBrauer:T.2:symbols/milnor-algebraically-closed` — lemma
+
+For an algebraically closed field F and n >= 2, K_n^M(F) is uniquely divisible. In degree one F× is divisible but need not be uniquely divisible; degree zero is Z.
+
+**realises**
+
+- K2SymbolsBrauer:T.2:symbols
+
+**hypotheses**
+
+- F is algebraically closed.
+- n >= 2.
+
+**proofSteps**
+
+- Divisibility follows by taking roots in the first symbol entry.
+- Gap G-algclosed: decompose the no-p-torsion proof referred to Exercise III.7.3 and the degree-two norm argument III.6.4.
+- Correct the omitted degree restriction in III.7.2(b); C× has nontrivial roots of unity.
+
+**acceptance**
+
+- For an algebraically closed field F and n >= 2, K_n^M(F) is uniquely divisible. In degree one F× is divisible but need not be uniquely divisible; degree zero is Z.
+
+**prerequisites**
+
+- K2SymbolsBrauer:T.2/milnor-k-theory
+
+**sources**
+
+- **sourceId:** Kbook.2013; **locator:** III.7.2(b) and Exercise III.7.3 (PDF pp. 253, 265); **excerpt:** The algebraically closed calculation must be restricted to degrees at least two to exclude Z and the torsion in F×.; **match:** Paraphrase of the indicated passage; checked in the author copy, not a quotation from the published edition.
+
+**implementationStatus:** unchecked
+
+**addedBy:** REV-K2SymbolsBrauer--T.1
+
+#### Milnor K-theory of the real field
+
+`K2SymbolsBrauer:T.2:symbols/milnor-real` — lemma
+
+For n >= 1, K_n^M(R) is Z/2 generated by {-1,...,-1}, direct sum a divisible subgroup. As a graded ring, K_*^M(R)/2 is F2[epsilon], with epsilon of degree one.
+
+**realises**
+
+- K2SymbolsBrauer:T.2:symbols
+
+**hypotheses**
+
+- n >= 1 for the group decomposition.
+- The base field is R.
+
+**proofSteps**
+
+- Send a negative degree-one unit to epsilon and a positive one to zero. The Steinberg relation dies since a and 1-a cannot both be negative.
+- The all-minus-one symbol has order two and nonzero image, giving the torsion summand.
+- Gap G-real: prove the complementary divisibility by the indicated induction; degree zero is Z and is excluded from the direct-sum formula.
+
+**acceptance**
+
+- For n >= 1, K_n^M(R) is Z/2 generated by {-1,...,-1}, direct sum a divisible subgroup. As a graded ring, K_*^M(R)/2 is F2[epsilon], with epsilon of degree one.
+
+**prerequisites**
+
+- K2SymbolsBrauer:T.2/milnor-k-theory
+- K2SymbolsBrauer:T.2/milnor-alternating
+
+**sources**
+
+- **sourceId:** Kbook.2013; **locator:** III.7.2(c) (PDF p. 253); **excerpt:** The real sign map detects the all-negative symbol and the positive-degree torsion summand.; **match:** Paraphrase of the indicated passage; checked in the author copy, not a quotation from the published edition.
+
+**implementationStatus:** unchecked
+
+**addedBy:** REV-K2SymbolsBrauer--T.1
+
+#### Bass-Tate calculation for number fields
+
+`K2SymbolsBrauer:T.2:symbols/milnor-number-field` — theorem
+
+For a number field F with r1 real embeddings and n >= 3, K_n^M(F) is (Z/2)^r1 via the symbols at its real places.
+
+**realises**
+
+- K2SymbolsBrauer:T.2:symbols
+
+**hypotheses**
+
+- F is a number field.
+- n >= 3.
+
+**proofSteps**
+
+- Construct the product of the real sign maps at the real embeddings.
+- Gap G-Bass-Tate: the source cites Bass and Tate for bijectivity; the original proof was not obtained and this node does not claim to supply it.
+
+**acceptance**
+
+- For a number field F with r1 real embeddings and n >= 3, K_n^M(F) is (Z/2)^r1 via the symbols at its real places.
+
+**prerequisites**
+
+- K2SymbolsBrauer:T.2/milnor-k-theory
+- K2SymbolsBrauer:T.2:symbols/milnor-real
+- mathlib:NumberField.InfinitePlace.nrRealPlaces
+
+**sources**
+
+- **sourceId:** Kbook.2013; **locator:** III.7.2(d) (PDF p. 254); **excerpt:** The sign maps give the Bass-Tate isomorphism in degrees at least three for a number field.; **match:** Paraphrase of the indicated passage; checked in the author copy, not a quotation from the published edition.
+- **sourceId:** Kbook.III.chapter; **locator:** III.7.2(a),(d), PDF pp.61–62; **excerpt:** The general global-field Milnor theorem is already owned here; its original Bass–Tate proof remains the existing gap.; **match:** Paraphrase of the inspected passage, not a quotation. The general global-field Milnor theorem is already owned here; its original Bass–Tate proof remains the existing gap.
+
+**implementationStatus:** unchecked
+
+**addedBy:** REV-K2SymbolsBrauer--T.1
+
+#### Bass-Tate vanishing over positive-characteristic global fields
+
+`K2SymbolsBrauer:T.2:symbols/milnor-global-positive-characteristic` — theorem
+
+If F has transcendence degree one over a finite field and n >= 3, K_n^M(F)=0.
+
+**realises**
+
+- K2SymbolsBrauer:T.2:symbols
+
+**hypotheses**
+
+- F has transcendence degree one over a finite field.
+- n >= 3.
+
+**proofSteps**
+
+- Gap G-Bass-Tate: obtain and decompose the cited Bass-Tate argument; finite-field vanishing alone does not prove this transcendence-degree-one result.
+
+**acceptance**
+
+- If F has transcendence degree one over a finite field and n >= 3, K_n^M(F)=0.
+
+**prerequisites**
+
+- K2SymbolsBrauer:T.2/milnor-k-theory
+
+**sources**
+
+- **sourceId:** Kbook.2013; **locator:** III.7.2(a) (PDF p. 253); **excerpt:** Milnor groups of a positive-characteristic global field vanish in degrees at least three.; **match:** Paraphrase of the indicated passage; checked in the author copy, not a quotation from the published edition.
+- **sourceId:** Kbook.III.chapter; **locator:** III.7.2(a),(d), PDF pp.61–62; **excerpt:** The general global-field Milnor theorem is already owned here; its original Bass–Tate proof remains the existing gap.; **match:** Paraphrase of the inspected passage, not a quotation. The general global-field Milnor theorem is already owned here; its original Bass–Tate proof remains the existing gap.
+
+**implementationStatus:** unchecked
+
+**addedBy:** REV-K2SymbolsBrauer--T.1
+
+#### Diagonal lift words
+
+`K2SymbolsBrauer:T.2:symbols/diagonal-lift` — definition
+
+For i != j and a unit r, define h_ij(r)=w_ij(r)w_ij(-1). Its elementary image is diagonal with r,r^-1 in positions i,j.
+
+**realises**
+
+- K2SymbolsBrauer:T.2:symbols
+
+**hypotheses**
+
+- R is an associative unital ring; r and s are commuting units.
+
+**proofSteps**
+
+- Use the separately defined w word and its image.
+- Multiply the two monomial images to obtain the indexed diagonal entries.
+
+**acceptance**
+
+- For i != j and a unit r, define h_ij(r)=w_ij(r)w_ij(-1). Its elementary image is diagonal with r,r^-1 in positions i,j.
+
+**prerequisites**
+
+- K2SymbolsBrauer:T.2:symbols/diagonal-lift-words
+
+**sources**
+
+- **sourceId:** Kbook.2013; **locator:** III.5.10.1 (PDF p. 233); **excerpt:** The source defines two indexed words and computes their elementary matrix images.; **match:** Paraphrase of the indicated passage; checked in the author copy, not a quotation from the published edition.
+
+**implementationStatus:** unchecked
+
+**addedBy:** REV-K2SymbolsBrauer--T.1
+
+**api**
+
+- **name:** h; **role:** constructor; **statement:** For i != j and a unit r, define h_ij(r)=w_ij(r)w_ij(-1). Its elementary image is diagonal with r,r^-1 in positions i,j.
+- **name:** h_phi; **role:** compatibility; **statement:** The image is diag(r,r^-1) on coordinates i,j.
+- **name:** h_map; **role:** functoriality; **statement:** Ring homomorphisms preserve h_ij(r), retaining the two indices.
+
+**uses**
+
+- **where:** K2SymbolsBrauer:T.2/steinberg-symbol; **how:** The symbol is the commutator of two indexed diagonal lifts sharing their first index.
+
+**tests**
+
+- **name:** identity_image; **statement:** h_01(1) has identity elementary image.
+- **name:** inverse_parameter; **statement:** Over Q, h_01(2) has diagonal image (2,1/2,1).
+- **name:** indexed_positions; **statement:** Over Q, h_12(2) has diagonal image (1,2,1/2).
+
+## Open gaps
+
+**title:** G-Matsumoto: theorem stated without normal-form decomposition
+
+**detail:** The K-book states Matsumoto's theorem and refers to Milnor's 1971 book, section 12, for a self-contained proof; that book was not obtained. The node states the theorem, records that the normal-form and presentation argument is what the proof consists of, and does not pretend that checking the relations is a proof. A continuation that obtains Milnor's book should decompose that argument.
+
+**neededBy**
+
+- K2SymbolsBrauer:T.2/matsumoto
+
+---
+
+**title:** Two statements are used exactly as the K-book gives them
+
+**detail:** The injectivity of the subgroup generated by the symbols x_in(r) into E(R), which the source relegates to an exercise and which the proof of Steinberg's centre theorem needs, and the generation of K_2 by symbols for semilocal rings, attributed to Milnor and to Dennis and Stein. Neither original was obtained. The Dennis-Stein symbols themselves belong to T.6 and are owned by the companion packet for the T.3 part.
+
+**neededBy**
+
+- K2SymbolsBrauer:T.1/k2-is-centre
+- K2SymbolsBrauer:T.2/symbols-generate
+
+---
+
+**title:** The general form of the symbol of a unit with its negative rests on a later chapter
+
+**detail:** The statement that the symbol of r with minus r is trivial for every unit, even when one minus r is not a unit, is deduced in the source from an injectivity between K_2 of two localisations proved in its chapter five, or from a direct proof in Milnor's book. Neither is decomposed here, and the node records the dependence.
+
+**neededBy**
+
+- K2SymbolsBrauer:T.2/symbol-consequences
+- K2SymbolsBrauer:T.2:symbols/symbol-negative-unit
+
+---
+
+**title:** Bass and Tate are cited for two Milnor K-theory computations
+
+**detail:** The vanishing of the Milnor K-groups in degree at least three for a global field of finite characteristic, and the isomorphism with the elementary abelian two-group of rank r_1 in degree at least three for a number field, are both attributed by the source to Bass and Tate. That paper was not obtained; the node states the results with the attribution.
+
+**neededBy**
+
+- K2SymbolsBrauer:T.2:symbols/milnor-number-field
+- K2SymbolsBrauer:T.2:symbols/milnor-global-positive-characteristic
+
+---
+
+**title:** G-matrix: associative-ring elementary calculus
+
+**detail:** Pinned transvection and diagonal identities inspected are commutative-ring statements. Construct the general associative-ring matrix units and prove the three index cases, reverse product order and w/h images; reconcile U.1 ownership rather than declaring this proof complete.
+
+**neededBy**
+
+- K2SymbolsBrauer:T.1/elementary-matrices-satisfy
+- K2SymbolsBrauer:T.2/steinberg-symbol
+- K2SymbolsBrauer:T.1:classical/to-elementary
+- K2SymbolsBrauer:T.2:symbols/diagonal-lift-words
+- K2SymbolsBrauer:T.2:symbols/diagonal-lift
+
+---
+
+**title:** G-colimit: group colimit and finite representatives
+
+**detail:** The cited DirectLimit is a Type quotient. Supply group operations, compatible homomorphism lift, homomorphism extensionality, finite-representative equality and the stable surjectivity proof.
+
+**neededBy**
+
+- K2SymbolsBrauer:T.1/stabilisation
+- K2SymbolsBrauer:T.1/steinberg-is-uce
+
+---
+
+**title:** G-centre: stable elementary centre and column injectivity
+
+**detail:** Read and decompose Exercises III.1.8 and III.5.2 plus the column normalization used by III.5.2.1. These missing lemmas cannot be replaced by Subgroup.center.
+
+**neededBy**
+
+- K2SymbolsBrauer:T.1/k2-is-centre
+
+---
+
+**title:** G-classification: trivial-action comparison
+
+**detail:** Read the fixed-action normalized-section hypotheses in the pinned Tau Ceti theorem. Supply centrality iff trivial induced action and full classification including all classes, keeping fixed kernel identifications.
+
+**neededBy**
+
+- K2SymbolsBrauer:T.1:classical/central-extension-classification
+
+---
+
+**title:** G-Hopf: the Hochschild-Serre input of Hopf's formula
+
+**detail:** Hopf's formula is decomposed as in Löh, Theorem 3.2.18: free groups and, by Nielsen-Schreier, their subgroups have vanishing integral homology in degrees at least two (free-group-higher-homology), and the four-term exact sequence 0 → H_2(G) → N/[F, N] → F_ab → G_ab → 0 (hopf-four-term-sequence) gives the formula. Its exactness at F_ab and surjectivity onto G_ab are Mathlib's groupHomology.H1CoresCoinfOfTrivial_exact and groupHomology.H1CoresCoinfOfTrivial_g_epi. The missing input is the injection H_2(G) → H_1(N)_G with image the kernel of H_1(N)_G → H_1(F): the Hochschild-Serre spectral sequence of a group extension, or its low-degree exact sequence, with integral coefficients (Löh, Theorem 3.2.12, stated there without construction). Mathlib has at the pin only the long exact sequence of a short exact sequence of representations of one group (groupHomology.δ) and the degree-one corestriction-coinflation sequence, and no atlas stage plans the discrete-group Hochschild-Serre sequence. Löh cites Hilton-Stammbach VI.9 for a proof by basic homological algebra; that book was not obtained.
+
+**neededBy**
+
+- K2SymbolsBrauer:T.1:classical/hopf-four-term-sequence
+- K2SymbolsBrauer:T.1/hopf-formula
+- K2SymbolsBrauer:T.1:classical/uce-kernel-h2
+- K2SymbolsBrauer:T.1:classical/superperfect-extensions-split
+- K2SymbolsBrauer:T.1/recognition-theorem
+- K2SymbolsBrauer:T.1/k2-h2-elementary
+
+---
+
+**title:** G-lifted-relations: finite splitting details
+
+**detail:** For III.5.5.1, expand the Hall-Witt special case, intermediate-index independence and the omitted additive relation. Splitting over St_n alone does not prove centrality of St_n->E_n.
+
+**neededBy**
+
+- K2SymbolsBrauer:T.1/finite-rank-splitting
+
+---
+
+**title:** G-natural-Hopf: naturality of kernel/H2 comparison
+
+**detail:** The lift of a homomorphism to universal central extensions and its kernel map are planned (uce-lift, uce-kernel-h2-natural); comparing the kernel map with Mathlib's groupHomology.map on H_2 rests on hopf-formula-natural, whose proof needs the naturality of the Hochschild-Serre spectral sequence (Löh, Remark 3.2.14), the same missing input as G-Hopf. Isomorphism of abstract carriers is insufficient: the comparison is of maps.
+
+**neededBy**
+
+- K2SymbolsBrauer:T.1:classical/hopf-formula-natural
+- K2SymbolsBrauer:T.1:classical/uce-kernel-h2-natural
+- K2SymbolsBrauer:T.1/k2-h2-elementary
+
+---
+
+**title:** G-cover-Hurewicz: chosen plus-cover and Hurewicz maps
+
+**detail:** The early K.2:plus and H.3 documents are the right owners, but require explicit BE-plus cover and natural Hurewicz comparison interfaces for the K2-pi2 composite.
+
+**neededBy**
+
+- K2SymbolsBrauer:T.1/k2-pi2
+
+---
+
+**title:** G-Whitehead: block elementary factorization
+
+**detail:** Obtain the generator-level U.1 Whitehead block factorization diag(P,P^-1) and its compatible elementary lifts to prove GL-conjugation invariance of star products.
+
+**neededBy**
+
+- K2SymbolsBrauer:T.2/star-product
+
+---
+
+**title:** G-universal-negative: Laurent-ring localization injection
+
+**detail:** The general negative-unit identity uses the universal Laurent polynomial ring and its localization, as in V.6.1.3. That proof was not decomposed; no arbitrary-ring localization-injectivity claim is made.
+
+**neededBy**
+
+- K2SymbolsBrauer:T.2:symbols/symbol-negative-unit
+
+---
+
+**title:** G-finite-units: cyclicity and finite counting
+
+**detail:** The finite-field K2 proof needs a pinned cyclicity declaration for Fq× and a finite-cardinality implementation. ZMod is only a carrier.
+
+**neededBy**
+
+- K2SymbolsBrauer:T.2/k2-finite-field
+
+---
+
+**title:** G-restriction-transfer: continuity and degree
+
+**detail:** Use K.7 filtered-colimit compatibility, and the Quillen transfer of GeneralAlgebraicKTheory:K.3/transfer-maps-and-projection-formula with its projection formula for the degree, including inseparable finite extensions. The transfer was earlier requested from T.3:localization-comparison, which after RT-AREA-ktheory-1/28 imports it from K.3 instead; citing K.3 directly also removes the stage cycle T.2:symbols -> T.3:localization-comparison -> T.2:symbols. The K.7 continuity interface remains imported.
+
+**neededBy**
+
+- K2SymbolsBrauer:T.2:symbols/extension-kernel-torsion
+
+---
+
+**title:** G-graded-quotient: homogeneous ideal and grading
+
+**detail:** Construct the Steinberg ideal as homogeneous degree-two generators and prove the quotient degree decomposition, generators, universal property and symbol functoriality. TensorAlgebra and RingQuot alone do not supply this.
+
+**neededBy**
+
+- K2SymbolsBrauer:T.2/milnor-k-theory
+- K2SymbolsBrauer:T.2/graded-map
+
+---
+
+**title:** G-algclosed: unique divisibility in degrees at least two
+
+**detail:** Obtain/decompose Exercise III.7.3 and the norm argument from III.6.4; the algebraically closed computation is not valid in degrees zero and one.
+
+**neededBy**
+
+- K2SymbolsBrauer:T.2:symbols/milnor-algebraically-closed
+
+---
+
+**title:** G-real: complementary divisibility
+
+**detail:** Expand the induction for the real positive-degree divisible summand; the sign map proves a nonzero Z/2 summand but not the full decomposition.
+
+**neededBy**
+
+- K2SymbolsBrauer:T.2:symbols/milnor-real
+
+---
+
+**title:** G-Bass-Tate: arithmetic Milnor computations
+
+**detail:** The source attributes number-field and positive-characteristic global-field computations to Bass-Tate. These external proofs were not obtained; each result now has its own node.
+
+**neededBy**
+
+- K2SymbolsBrauer:T.2:symbols/milnor-number-field
+- K2SymbolsBrauer:T.2:symbols/milnor-global-positive-characteristic
+
+---
+
+**title:** G-product-symbol: equality with the chosen classical map
+
+**detail:** Read IV.1.10-.1 and request the map-level product/symbol comparison from K.7. The product map descends by the Steinberg relation, but its degree-two isomorphism needs this compatibility and Matsumoto.
+
+**neededBy**
+
+- K2SymbolsBrauer:T.2/graded-map
+- K2SymbolsBrauer:T.2/graded-map-degree-three
+
+---
+
+**title:** Original README needs regeneration by its owner
+
+**detail:** The companion README is outside review deliverables. It still reports 28 nodes and source_decomposed coverage and repeats overly broad baseline claims and wrong plus locators. Regenerate from the reviewed packet during the requested revision; the suggested file identifies the packet and review report as current.
+
+**neededBy**
+
+
+---
+
+## Supplier requests
+
+**supplier:** KTheoryLowDegrees:U.1
+
+**need:** Finite/stable GL and elementary subgroups, stabilization embeddings, general associative-ring elementary units, E normal/perfect with trivial stable centre, and block diag(P,P^-1) elementary factorization. The existing document owns these; its current packet interfaces are still required.
+
+---
+
+**supplier:** KTheoryLowDegrees:U.2
+
+**need:** Classical quotient K1=GL/E with quotient map and exactness, for the separate classical K2-K1 sequence; this does not depend on late K2 comparison.
+
+---
+
+**supplier:** KTheoryLowDegrees:U.3
+
+**need:** For fields, the canonical unit/determinant K1 isomorphism and the unit-class map, used to specify degree one of the product comparison.
+
+---
+
+**supplier:** GeneralAlgebraicKTheory:K.2:plus
+
+**need:** The early ring K-space zero component BGL(R)+ with basepoint and ring-map functoriality. Do not import K.2:low-degree-comparisons, which consumes this K2 model.
+
+---
+
+**supplier:** GeneralAlgebraicKTheory:K.7
+
+**need:** Quillen K-theory products with degree-one Steinberg relation, equality of degree-two products with the classical symbol (IV.1.10-.1), graded functoriality, and filtered-colimit compatibility for restriction-kernel reduction.
+
+---
+
+**supplier:** StableHomotopyKTheory:H.3
+
+**need:** Acyclic plus construction with the relative comparison identifying BE(R)+ as the simply connected cover of BGL(R)+. The covering and Hurewicz naturality bridge is explicitly missing; the H.3 document does not assert an existing implementation.
+
+---
+
+## Source issues
+
+**id:** K2SymbolsBrauer/E1
+
+**source:** Kbook.2013
+
+**kind:** misprint
+
+**locator:** III.7.2(b), author copy 2013-08-29, printed p.245 / PDF p.253
+
+**printed:** If F is algebraically closed then K_n^M(F) is uniquely divisible.
+
+**correction:** Insert n >= 2. In degree one the group is F× and is divisible but can have torsion; degree zero is Z.
+
+**reason:** Take F=C. K1^M(C)=C× contains -1 of order two, so multiplication by two is not injective; K0^M(C)=Z is not divisible.
+
+**affects:** a stated result
+
+**known:** The same author copy, Exercise III.7.3 (PDF p.265), explicitly restricts the theorem to n >= 2. A published erratum was not verified because its live URL returned 404; no novelty claim.
+
+**searched**
+
+- https://sites.math.rutgers.edu/~weibel/Kbook.html (author source index; read 2026-09-29)
+- https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.errata.pdf (linked errata; live request returned HTTP 404; cached search extract is incomplete)
+- https://www.ams.org/books/gsm/145/ (publisher; HTTP 403; published text not obtained)
+
+**review:** **verdict:** confirmed; **reason:** The degree-zero/one counterexamples are explicit; the corrected higher-degree statement matches the surrounding degree-two discussion. Exercise III.7.3 supplies the explicit intended n>=2 restriction.; **by:** REV-K2SymbolsBrauer--T.1
+
+---
+
+**id:** K2SymbolsBrauer/E2
+
+**source:** Kbook.2013
+
+**kind:** gap
+
+**locator:** III.5.5.1, author copy 2013-08-29, printed p.220 / PDF p.228, final sentence of statement
+
+**printed:** Hence St_n(R) is the universal central extension of E_n(R).
+
+**correction:** The splitting proof alone supplies universality only after centrality of the map St_n(R)->E_n(R) is separately justified. Retain splitting for n>=5; state a finite-rank UCE conclusion conditionally on centrality or a verified kernel-stability hypothesis.
+
+**reason:** Recognition III.5.4 starts with a central extension. The proof in III.5.5.1 splits central extensions over St_n, but does not establish that the different map St_n->E_n has central kernel. The stable centre proof increases the rank arbitrarily and cannot by itself supply that missing finite-rank input.
+
+**affects:** the proof
+
+**known:** No verified correction found in the accessible material; no claim is made that the conclusion is false for a specific ring, or that this observation is new.
+
+**searched**
+
+- https://sites.math.rutgers.edu/~weibel/Kbook.html (author source index; read 2026-09-29)
+- https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.errata.pdf (linked errata; live request returned HTTP 404; cached search extract is incomplete)
+- https://www.ams.org/books/gsm/145/ (publisher; HTTP 403; published text not obtained)
+
+**review:** **verdict:** confirmed; **reason:** Confirmed as a missing hypothesis/input in the displayed deduction, not as a proved counterexample to the general finite-rank statement.; **by:** REV-K2SymbolsBrauer--T.1
+
+---
+
+## Earlier independent review (historical)
+
+**status:** needs_changes
+
+**reviewer:** independent-review-REV-K2SymbolsBrauer--T.1
+
+**date:** 2026-09-29
+
+**notes:** Every original node and baseline statement was inspected. Corrected false tests, source locators, coefficients and producer-consumer edges; separated bundled declarations and exposed closure gaps. External Matsumoto, generation, Hopf and recognition proofs remain unverifiable, so this is a completed review requesting revision, not acceptance.
+
+**checked**
+
+- **nodeId:** K2SymbolsBrauer:T.1/steinberg-group-finite-rank; **verdict:** corrected; **note:** III.5.1 PDF 225 checked; corrected false exhaustiveness/rank-two explanation and added a noncommutative product-order test.
+- **nodeId:** K2SymbolsBrauer:T.1/elementary-matrices-satisfy; **verdict:** corrected; **note:** III.5.1.1 checked; split the quotient map into an added construction and exposed the missing general-ring bridge.
+- **nodeId:** K2SymbolsBrauer:T.1/stabilisation; **verdict:** corrected; **note:** III.5.1.2 checked; elementary groups are imported from their actual U.1 owner and the missing group-colimit API is explicit.
+- **nodeId:** K2SymbolsBrauer:T.1/k2-definition; **verdict:** corrected; **note:** III.5.2 checked; removed the late K.2 comparison dependency and separated the exact sequence. The Z computation is a deferred T.5 test.
+- **nodeId:** K2SymbolsBrauer:T.1/k2-is-centre; **verdict:** unverifiable; **note:** III.5.2.1 checked; the statement is stable and correct, but the column and centre inputs remain undecomposed.
+- **nodeId:** K2SymbolsBrauer:T.1/central-extension; **verdict:** corrected; **note:** III.5.3 checked; separated morphisms and classification, narrowed the pinned classification claim and replaced policy-only tests by C2/C4/C9 examples.
+- **nodeId:** K2SymbolsBrauer:T.1/universal-central-extension; **verdict:** corrected; **note:** III.5.3.1 checked; universality is over all central extensions of G, not fixed A; supplied counterexample-sensitive tests.
+- **nodeId:** K2SymbolsBrauer:T.1/uce-perfect; **verdict:** corrected; **note:** Split Lemmas III.5.3.2 and 5.3.3 into perfectness and rigidity nodes; arguments checked.
+- **nodeId:** K2SymbolsBrauer:T.1/hopf-formula; **verdict:** unverifiable; **note:** III.5.3.4-.5 checked; separated both extension constructions and corrected the false free-target kernel test. Hopf-to-bar comparison remains unverified.
+- **nodeId:** K2SymbolsBrauer:T.1/recognition-theorem; **verdict:** unverifiable; **note:** The equivalence of III.5.4 checked, but its Hopf/perfectness and central-composition inputs remain undecomposed. Removed an unverified A5 computation.
+- **nodeId:** K2SymbolsBrauer:T.1/steinberg-is-uce; **verdict:** corrected; **note:** III.5.5 checked; supplied missing perfectness and the compatibility/gluing argument from finite splitting to stable splitting.
+- **nodeId:** K2SymbolsBrauer:T.1/finite-rank-splitting; **verdict:** corrected; **note:** III.5.5.1 checked; removed the unjustified finite-rank UCE deduction and recognition dependency. Expanded-lift calculations still need a proof decomposition.
+- **nodeId:** K2SymbolsBrauer:T.1/finite-rank-caveat; **verdict:** corrected; **note:** Replaced a policy-only lemma with a precise conditional centrality result; proof is a kernel commutator argument. No general finite-rank injectivity claim added.
+- **nodeId:** K2SymbolsBrauer:T.1/k2-h2-elementary; **verdict:** corrected; **note:** III.5.5 checked; corrected coefficients and recorded the missing map-level naturality bridge, rather than a self-equivalence.
+- **nodeId:** K2SymbolsBrauer:T.1/k2-pi2; **verdict:** corrected; **note:** Corrected wrong K3 locator IV.1.20/Ex.1.9 to IV.1.7.1/Ex.1.8. Read H.3 and K.2:plus; their covering/Hurewicz interfaces remain requested.
+- **nodeId:** K2SymbolsBrauer:T.2/star-product; **verdict:** corrected; **note:** Star-product passage PDF 233 checked; restricted the domain to E, made commutation hypotheses explicit and retained the U.1 block-factorization dependency.
+- **nodeId:** K2SymbolsBrauer:T.2/steinberg-symbol; **verdict:** corrected; **note:** III.5.10 and .1 checked; retained associative-ring commuting units, split the indexed w/h words and qualified general-ring matrix and bilinearity interfaces.
+- **nodeId:** K2SymbolsBrauer:T.2/steinberg-identity; **verdict:** corrected; **note:** Separated the two different hypotheses of III.5.10.2-.4. The arbitrary-unit extension is a new node with its universal-localization proof gap.
+- **nodeId:** K2SymbolsBrauer:T.2/symbol-consequences; **verdict:** corrected; **note:** III.5.10 and .3-.4 checked; {-,-} is skew, and {a,a}={a,-1} may be nonzero. The negative-unit input is now explicit.
+- **nodeId:** K2SymbolsBrauer:T.2/symbols-generate; **verdict:** unverifiable; **note:** III.5.10.5 and its preceding prose checked; narrowed the local/semilocal scope to the documented commutative case. Original generation proofs remain unverified.
+- **nodeId:** K2SymbolsBrauer:T.2/matsumoto; **verdict:** unverifiable; **note:** III.6.1 PDF 239 states the theorem and refers out for its proof; the missing normal forms are now explicitly unverified.
+- **nodeId:** K2SymbolsBrauer:T.2/k2-finite-field; **verdict:** corrected; **note:** III.6.1.1 proof checked including the even/odd cases and nonsquare counting; cyclicity is an exposed prerequisite, not supplied by ZMod.
+- **nodeId:** K2SymbolsBrauer:T.2/rational-function-field; **verdict:** corrected; **note:** Split III.6.1.2 from .3, removed the irrelevant finite-field prerequisite and covered leading-coefficient cancellation.
+- **nodeId:** K2SymbolsBrauer:T.2/milnor-k-theory; **verdict:** corrected; **note:** III.7.1 checked; quotient grading and Matsumoto comparison are separate inputs; added the generator extensionality/universal property used by the graded comparison.
+- **nodeId:** K2SymbolsBrauer:T.2/milnor-alternating; **verdict:** corrected; **note:** III.7.1 uses alternating to mean sign under permutation. Corrected the false square-root-of-minus-one test with the C(t) residue counterexample; no strict integral alternation is asserted.
+- **nodeId:** K2SymbolsBrauer:T.2/milnor-examples; **verdict:** corrected; **note:** Separated the finite, algebraically closed, real, number-field and positive-characteristic global computations; corrected degree restrictions. External computations remain explicit gaps.
+- **nodeId:** K2SymbolsBrauer:T.2/graded-map; **verdict:** corrected; **note:** Corrected the false noninjectivity and real-place/rank tests. Read IV.1.10.1 and VI.4.3.2; moved products to K.7 and exposed product-symbol compatibility.
+- **nodeId:** K2SymbolsBrauer:T.2/graded-map-degree-three; **verdict:** corrected; **note:** Replaced the irrelevant definition-only locator with the product map and injectivity statement. Removed the V.2 incoming prerequisite to avoid reversing the consumer edge.
+- **nodeId:** K2SymbolsBrauer:T.1:classical/to-elementary; **verdict:** added; **note:** Split from K2SymbolsBrauer:T.1/elementary-matrices-satisfy; III.5.1.1 (PDF p. 225). The generator assignment x_ij(r) -> e_ij(r) descends to a surjective homomorphism St_n(R) -> E_n(R), where E_n is the subgroup generated by elementary matrices imported from KTheoryLowDegrees:U.1.
+- **nodeId:** K2SymbolsBrauer:T.1:classical/k2-k1-exact; **verdict:** added; **note:** Split from K2SymbolsBrauer:T.1/k2-definition; III.5.2 (PDF p. 225). The sequence 1 -> K2(R) -> St(R) -> GL(R) -> K1(R) -> 1 is exact, using the inclusion E(R) <= GL(R) and the quotient GL(R)/E(R) imported from U.1-U.2.
+- **nodeId:** K2SymbolsBrauer:T.1:classical/central-extension-hom; **verdict:** added; **note:** Split from K2SymbolsBrauer:T.1/central-extension; III.5.3.1 (PDF p. 226). For central extensions p:X->G and q:Y->G define a morphism over G to be a homomorphism h:X->Y with q composed with h equal to p. Such morphisms do not require a fixed map of chosen kernel groups.
+- **nodeId:** K2SymbolsBrauer:T.1:classical/central-extension-classification; **verdict:** added; **note:** Split from K2SymbolsBrauer:T.1/central-extension; III.5.3 (PDF pp. 226-227). Equivalence classes of central extensions of G by a fixed abelian group A correspond to H^2(G;A) with the trivial G-action.
+- **nodeId:** K2SymbolsBrauer:T.1:classical/perfect-extension-rigidity; **verdict:** added; **note:** Split from K2SymbolsBrauer:T.1/uce-perfect; III.5.3.3 (PDF p. 227). If p:X->G is surjective and X is perfect, and q:Y->G has central kernel, any two homomorphisms h,k:X->Y with qh=p=qk are equal.
+- **nodeId:** K2SymbolsBrauer:T.1:classical/relation-central-extension; **verdict:** added; **note:** Split from K2SymbolsBrauer:T.1/hopf-formula; III.5.3.4 (PDF p. 227). For F free and S normal, the projection F/[S,F] -> F/S is a central extension with kernel S/[S,F].
+- **nodeId:** K2SymbolsBrauer:T.1:classical/commutator-central-extension; **verdict:** added; **note:** Split from K2SymbolsBrauer:T.1/hopf-formula; III.5.3.5 (PDF p. 227). The restriction [F,F]/[S,F] -> [G,G] is a central extension with kernel (S intersect [F,F])/[S,F]. If G is perfect its quotient is G.
+- **nodeId:** K2SymbolsBrauer:T.1:classical/steinberg-perfect; **verdict:** added; **note:** Split from K2SymbolsBrauer:T.1/steinberg-group-finite-rank; III.5.1 relations and III.5.5 (PDF pp. 225, 228). For n >= 3, St_n(R) is perfect, and its stable colimit St(R) is perfect.
+- **nodeId:** K2SymbolsBrauer:T.2:symbols/diagonal-lift-words; **verdict:** added; **note:** Split from K2SymbolsBrauer:T.2/steinberg-symbol; III.5.10.1 (PDF p. 233). For i != j and a unit r in an associative unital ring, define w_ij(r)=x_ij(r)x_ji(-r^-1)x_ij(r) and h_ij(r)=w_ij(r)w_ij(-1). Their images are respectively the two-coordinate monomial matrix and diag(r,r^-1).
+- **nodeId:** K2SymbolsBrauer:T.2:symbols/symbol-negative-unit; **verdict:** added; **note:** Split from K2SymbolsBrauer:T.2/steinberg-identity; III.5.10.3-.4 (PDF p. 234). For every unit r of an associative unital ring R, {r,-r}=1, without requiring 1-r to be invertible.
+- **nodeId:** K2SymbolsBrauer:T.2:symbols/extension-kernel-torsion; **verdict:** added; **note:** Split from K2SymbolsBrauer:T.2/rational-function-field; III.6.1.3 (PDF p. 239). For every field extension F <= L, the kernel of K2(F) -> K2(L) is torsion.
+- **nodeId:** K2SymbolsBrauer:T.2:symbols/milnor-algebraically-closed; **verdict:** added; **note:** Split from K2SymbolsBrauer:T.2/milnor-examples; III.7.2(b) and Exercise III.7.3 (PDF pp. 253, 258). For an algebraically closed field F and n >= 2, K_n^M(F) is uniquely divisible. In degree one F× is divisible but need not be uniquely divisible; degree zero is Z.
+- **nodeId:** K2SymbolsBrauer:T.2:symbols/milnor-real; **verdict:** added; **note:** Split from K2SymbolsBrauer:T.2/milnor-examples; III.7.2(c) (PDF p. 253). For n >= 1, K_n^M(R) is Z/2 generated by {-1,...,-1}, direct sum a divisible subgroup. As a graded ring, K_*^M(R)/2 is F2[epsilon], with epsilon of degree one.
+- **nodeId:** K2SymbolsBrauer:T.2:symbols/milnor-number-field; **verdict:** added; **note:** Split from K2SymbolsBrauer:T.2/milnor-examples; III.7.2(d) (PDF p. 254). For a number field F with r1 real embeddings and n >= 3, K_n^M(F) is (Z/2)^r1 via the symbols at its real places.
+- **nodeId:** K2SymbolsBrauer:T.2:symbols/milnor-global-positive-characteristic; **verdict:** added; **note:** Split from K2SymbolsBrauer:T.2/milnor-examples; III.7.2(a) (PDF p. 253). If F has transcendence degree one over a finite field and n >= 3, K_n^M(F)=0.
+- **nodeId:** K2SymbolsBrauer:T.2:symbols/diagonal-lift; **verdict:** added; **note:** Separated the h definition from the w definition in III.5.10.1 (PDF p.233); its two-word product has the stated diagonal image.
+- **nodeId:** K2SymbolsBrauer:T.1:classical/stable-steinberg-perfect; **verdict:** added; **note:** Separated stable perfectness from finite perfectness; generator commutators pass through the colimit (III.5.1 relations/5.5).

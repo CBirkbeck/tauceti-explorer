@@ -599,6 +599,44 @@
    "readSections": [
     "pp. 4–7: the rank spectral sequence for torsion-free modules over an integral noetherian domain, the suspension model of the Tits building, the reduced Steinberg module (Definition 0.2) and the remark that unreduced homology is wrong in dimension two, and Quillen's conditions (1)–(2) with the Hochschild–Serre passage through a normal subgroup of finite index."
    ]
+  },
+  {
+   "id": "Kbook.IV.chapter",
+   "title": "Weibel, K-book chapter IV, separately hosted author chapter",
+   "url": "https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.IV.pdf",
+   "sha256": "9f1c1b8cccfe19d547c27dd04c61f198fd7a0cddd0018a0b84442b00fa575248",
+   "accessed": "2026-09-30",
+   "readSections": [
+    "PDF p.59: IV.6.8–6.9, criterion and two arithmetic cases"
+   ],
+   "authors": "Charles A. Weibel",
+   "edition": "Separately hosted author chapter downloaded 2026-09-30; checksum and chapter-PDF pagination distinguish it from the earlier combined draft."
+  },
+  {
+   "id": "CGZ.1712.04887v3.fix",
+   "title": "Calegari–Garoufalidis–Zagier, Bloch groups, algebraic K-theory, units, and Nahm’s conjecture (v3)",
+   "url": "https://arxiv.org/pdf/1712.04887v3",
+   "sha256": "024317c20a1d8b66234e608af46941093a675b6399ef480dfedd52a31dcd7bf5",
+   "accessed": "2026-09-30",
+   "readSections": [
+    "PDF p.20: Lemma 3.5, Keune coinvariants and unit descent",
+    "PDF pp.23–24: §4.2, finite-field homology maps",
+    "PDF pp.37–39: Theorem 7.4 and proof"
+   ],
+   "authors": "Frank Calegari, Stavros Garoufalidis, Don Zagier",
+   "edition": "arXiv:1712.04887v3; preprint, not the published Ann. Sci. ENS text."
+  },
+  {
+   "id": "Kbook.VI.chapter",
+   "title": "Weibel, K-book chapter VI",
+   "url": "https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.VI.pdf",
+   "sha256": "efca16d77ed598735aa4e819be48d10d35bec0cf1b4138548f94f67922d40cd1",
+   "accessed": "2026-09-30",
+   "readSections": [
+    "PDF p.37: VI.6.1 finite-generation use and proof"
+   ],
+   "authors": "Charles A. Weibel",
+   "edition": "Separately hosted author chapter downloaded 2026-09-30; checksum and chapter-PDF pagination distinguish it from the earlier combined draft."
   }
  ],
  "sourceVersions": [
@@ -637,6 +675,27 @@
    "url": "https://arxiv.org/pdf/1604.04700",
    "read": "2026-09-30",
    "sha256": "c0585949df902e30b7368c235210e8b20a0dea344ed88a9e7a65577ec681e793"
+  },
+  {
+   "kind": "author copy",
+   "url": "https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.IV.pdf",
+   "read": "2026-09-30",
+   "sha256": "9f1c1b8cccfe19d547c27dd04c61f198fd7a0cddd0018a0b84442b00fa575248",
+   "note": "FIX-RT-AREA-ktheory-2~2: only PDF p.59: IV.6.8–6.9, criterion and two arithmetic cases inspected. Earlier version records remain historical."
+  },
+  {
+   "kind": "preprint",
+   "url": "https://arxiv.org/pdf/1712.04887v3",
+   "read": "2026-09-30",
+   "sha256": "024317c20a1d8b66234e608af46941093a675b6399ef480dfedd52a31dcd7bf5",
+   "note": "FIX-RT-AREA-ktheory-2~2: only PDF p.20: Lemma 3.5, Keune coinvariants and unit descent; PDF pp.23–24: §4.2, finite-field homology maps; PDF pp.37–39: Theorem 7.4 and proof inspected. Earlier version records remain historical."
+  },
+  {
+   "kind": "author copy",
+   "url": "https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.VI.pdf",
+   "read": "2026-09-30",
+   "sha256": "efca16d77ed598735aa4e819be48d10d35bec0cf1b4138548f94f67922d40cd1",
+   "note": "FIX-RT-AREA-ktheory-2~2: only PDF p.37: VI.6.1 finite-generation use and proof inspected. Earlier version records remain historical."
   }
  ],
  "nodes": [
@@ -1017,6 +1076,7 @@
     "K-groups are those of GeneralAlgebraicKTheory K.1 (π_{n+1} of the Q-construction)."
    ],
    "proofSteps": [
+    "Import S.3 regular-scheme localization and dévissage for Spec(O_{F,S}), its generic point and its closed residue fields. The following arithmetic steps specialize that theorem: they do not reconstruct generic scheme localization.",
     "Regularity: a submodule of a finitely generated free R-module is finitely generated and torsion-free, hence flat (Mathlib's IsDedekindDomain.flat_iff_torsion_eq_bot) and finitely presented, hence projective (Module.Flat.projective_of_finitePresentation); so every finitely generated module over R, R[1/s] or a field has projective dimension ≤ 1, and K = G by K.3's resolution theorem.",
     "For each s ≠ 0 take the sequence of R → R[1/s] with fibre ⊕_{𝔭 ∋ s} K_n(R/𝔭) (N.2/finite-support).",
     "Pass to the filtered colimit over s (K.7, filtered colimits for rings; a filtered colimit of exact sequences is exact), obtaining (6.6).",
@@ -1041,7 +1101,8 @@
     "mathlib:IsDedekindDomain.flat_iff_torsion_eq_bot",
     "mathlib:Module.Flat.projective_of_finitePresentation",
     "tauceti:IsDedekindDomain.integerHeightOneSpectrumEquiv",
-    "mathlib:IsDedekindDomain.HeightOneSpectrum"
+    "mathlib:IsDedekindDomain.HeightOneSpectrum",
+    "SchemeKTheoryOperations:S.3"
    ],
    "sources": [
     {
@@ -4523,6 +4584,191 @@
    ],
    "implementationStatus": "unchecked",
    "addedBy": "REV-ArithmeticKTheory--N.1"
+  },
+  {
+   "id": "ArithmeticKTheory:N.3:finite-generation/function-field-steinberg-finiteness",
+   "parentStageId": "ArithmeticKTheory:N.3:finite-generation",
+   "realises": [
+    "ArithmeticKTheory:N.3:finite-generation"
+   ],
+   "title": "The function-field input to Quillen’s criterion",
+   "kind": "theorem",
+   "statement": "For R the coordinate ring of a smooth geometrically integral affine curve over a finite field, Pic(R) is finite and H_i(Aut_R(Q); St(Q⊗Frac(R))) is a finitely generated abelian group for every finitely generated projective Q of positive rank and i≥0. This is the function-field input cited as [GQ82] in K-book IV.6.9; the number-field arithmetic-group theorem does not supply it.",
+   "hypotheses": [
+    "R is a smooth affine curve ring over a finite field; integral Steinberg coefficients, every projective Q and every i are required."
+   ],
+   "proofSteps": [
+    "Use finiteness of the Jacobian’s finite-field points and quotient Pic of the proper curve by the nonempty boundary to obtain finite Pic(R).",
+    "Import the affine-curve Steinberg-homology theorem cited by Weibel as [GQ82]. Its original proof is not inspected: this is an explicit source/proof gap, not a deduction from the number-field theorem."
+   ],
+   "acceptance": [
+    "Do not substitute number-field units or real embeddings into the function-field input.",
+    "For F_q[t], Pic=0; the homology hypothesis still requires the function-field theorem."
+   ],
+   "prerequisites": [],
+   "sources": [
+    {
+     "sourceId": "Kbook.IV.chapter",
+     "locator": "IV.6.9, PDF p.59",
+     "excerpt": "The affine-curve verification of the Steinberg-homology hypothesis is separately attributed to [GQ82].",
+     "match": "Paraphrase of the inspected passage, not a quotation. The affine-curve verification of the Steinberg-homology hypothesis is separately attributed to [GQ82]."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "addedBy": "FIX-RT-AREA-ktheory-2~2",
+   "tests": [
+    {
+     "name": "function_field_steinberg_finiteness_1",
+     "kind": "characterisation",
+     "statement": "Do not substitute number-field units or real embeddings into the function-field input."
+    },
+    {
+     "name": "function_field_steinberg_finiteness_2",
+     "kind": "characterisation",
+     "statement": "For F_q[t], Pic=0; the homology hypothesis still requires the function-field theorem."
+    }
+   ]
+  },
+  {
+   "id": "ArithmeticKTheory:N.3:finite-generation/affine-curve-finite-generation",
+   "parentStageId": "ArithmeticKTheory:N.3:finite-generation",
+   "realises": [
+    "ArithmeticKTheory:N.3:finite-generation"
+   ],
+   "title": "Finite generation for a smooth affine curve over a finite field",
+   "kind": "theorem",
+   "statement": "For R as above and every n≥0, K_n(R) is finitely generated over ℤ. This is the function-field branch of Quillen IV.6.9.",
+   "hypotheses": [
+    "Smooth geometrically integral affine curve over a finite field; n≥0."
+   ],
+   "proofSteps": [
+    "Supply both hypotheses of quillen-finiteness-criterion from function-field-steinberg-finiteness.",
+    "Apply the existing rank-filtration, homology and simple-space argument once; no second Q-construction or arithmetic-group proof is planned."
+   ],
+   "acceptance": [
+    "K₁(F_q[t,t⁻¹]) contains the infinite cyclic subgroup generated by t: finite generation does not imply finiteness for affine curves."
+   ],
+   "prerequisites": [
+    "ArithmeticKTheory:N.3:finite-generation/function-field-steinberg-finiteness",
+    "ArithmeticKTheory:N.3:finite-generation/quillen-finiteness-criterion"
+   ],
+   "sources": [
+    {
+     "sourceId": "Kbook.IV.chapter",
+     "locator": "IV.6.9, PDF p.59",
+     "excerpt": "The coordinate ring of a smooth affine curve over a finite field has finitely generated K-groups.",
+     "match": "Paraphrase of the inspected passage, not a quotation. The coordinate ring of a smooth affine curve over a finite field has finitely generated K-groups."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "addedBy": "FIX-RT-AREA-ktheory-2~2",
+   "tests": [
+    {
+     "name": "affine_curve_finite_generation_1",
+     "kind": "characterisation",
+     "statement": "K₁(F_q[t,t⁻¹]) contains the infinite cyclic subgroup generated by t: finite generation does not imply finiteness for affine curves."
+    }
+   ]
+  },
+  {
+   "id": "ArithmeticKTheory:N.3:finite-generation/proper-curve-finite-generation",
+   "parentStageId": "ArithmeticKTheory:N.3:finite-generation",
+   "realises": [
+    "ArithmeticKTheory:N.3:finite-generation"
+   ],
+   "title": "Finite generation for a smooth proper curve over a finite field",
+   "kind": "theorem",
+   "statement": "For a smooth projective geometrically integral curve X/F_q and n≥0, K_n(X) is finitely generated. This is the finite-generation input to Harder’s theorem, without its torsion or prime-to-p conclusions.",
+   "hypotheses": [
+    "Choose a nonempty finite closed subset S⊂X; U=X∖S is affine."
+   ],
+   "proofSteps": [
+    "Apply affine-curve-finite-generation to U.",
+    "Import the regular-scheme localization segment ⊕_{x∈S}K_n(k(x)) → K_n(X) → K_n(U) from S.3.",
+    "The finite direct sum on the left is finitely generated (K₀ of a finite field is ℤ; positive groups are finite). The image on the right is a subgroup of a finitely generated abelian group.",
+    "Conclude by closure of finite generation under quotients, subgroups and extensions."
+   ],
+   "acceptance": [
+    "The finite subset S is essential for this finite-sum argument.",
+    "No finiteness of positive K-groups is assumed in proving finite generation."
+   ],
+   "prerequisites": [
+    "ArithmeticKTheory:N.3:finite-generation/affine-curve-finite-generation",
+    "SchemeKTheoryOperations:S.3",
+    "KTheoryFiniteLocalFields:L.1"
+   ],
+   "sources": [
+    {
+     "sourceId": "Kbook.VI.chapter",
+     "locator": "VI.6.1 proof, PDF p.37",
+     "excerpt": "Harder uses Quillen finite generation; localization supplies the proper-curve passage from IV.6.9.",
+     "match": "Paraphrase of the inspected passage, not a quotation. Harder uses Quillen finite generation; localization supplies the proper-curve passage from IV.6.9."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "addedBy": "FIX-RT-AREA-ktheory-2~2",
+   "tests": [
+    {
+     "name": "proper_curve_finite_generation_1",
+     "kind": "characterisation",
+     "statement": "The finite subset S is essential for this finite-sum argument."
+    },
+    {
+     "name": "proper_curve_finite_generation_2",
+     "kind": "characterisation",
+     "statement": "No finiteness of positive K-groups is assumed in proving finite generation."
+    }
+   ]
+  },
+  {
+   "id": "ArithmeticKTheory:N.6/keune-cyclotomic-picard-injection",
+   "parentStageId": "ArithmeticKTheory:N.6",
+   "realises": [
+    "ArithmeticKTheory:N.6"
+   ],
+   "title": "Keune’s cyclotomic Picard injection, in the scope needed by CGZ",
+   "kind": "theorem",
+   "statement": "Let F be a number field, p an odd prime unramified in F, n=p^m (m≥1), L=F(ζ_n), G=Gal(L/F), and χ the cyclotomic character. In the setting used by CGZ Lemma 3.5 there is an injection (Pic(O_L[1/p])/p^m)_{χ⁻¹} → K₂(O_F)/p^m. The subscript denotes the twisted coinvariant quotient. This is the requested Keune theorem; its original proof and the translation of its exact hypotheses remain to be inspected.",
+   "hypotheses": [
+    "p is odd and p∤disc(F); use the cyclotomic extension, twist and coinvariant convention of CGZ Lemma 3.5.",
+    "The further hypothesis p∤#K₂(O_F) is needed for the vanishing corollary, not asserted as part of the injection itself."
+   ],
+   "proofSteps": [
+    "Import the Kummer exact sequence over O_L[1/p] from M.3, keeping Pic[p^m], Pic/p^m and the unit terms distinct.",
+    "Obtain and decompose Keune, On the structure of the K₂ of the ring of integers in a number field (1989), for the displayed injection; CGZ’s citation is presently the inspected evidence. This is an unresolved proof input.",
+    "For the HB.1 application, K₂(O_F)/p^m=0 forces the twisted Pic/p^m coinvariants to vanish. Use the finite p-primary module vanishing criterion to kill the corresponding twisted invariants of Pic[p^m]; do not replace coinvariants by a canonical invariants isomorphism."
+   ],
+   "acceptance": [
+    "The p-unit class obtained from Kummer need not be an ordinary unit until the valuation obstruction at p is killed.",
+    "For the finite p-primary Picard modules with this cyclotomic G-action and χ⁻¹ twist, prove the needed invariants/coinvariants vanishing criterion; no canonical isomorphism between the two is asserted."
+   ],
+   "prerequisites": [
+    "ArithmeticKTheory:N.2/localisation-sequence-for-a-dedekind-domain",
+    "ArithmeticKTheory:N.3/finiteness-and-ranks-combined",
+    "MotivicEtaleKTheory:M.3"
+   ],
+   "sources": [
+    {
+     "sourceId": "CGZ.1712.04887v3.fix",
+     "locator": "Lemma 3.5 and proof, PDF p.20",
+     "excerpt": "The proof uses Keune’s injection on twisted Picard coinvariants, followed by Kummer and valuation arguments.",
+     "match": "Paraphrase of the inspected passage, not a quotation. The proof uses Keune’s injection on twisted Picard coinvariants, followed by Kummer and valuation arguments."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "addedBy": "FIX-RT-AREA-ktheory-2~2",
+   "tests": [
+    {
+     "name": "keune_cyclotomic_picard_injection_1",
+     "kind": "characterisation",
+     "statement": "The p-unit class obtained from Kummer need not be an ordinary unit until the valuation obstruction at p is killed."
+    },
+    {
+     "name": "keune_cyclotomic_picard_injection_2",
+     "kind": "characterisation",
+     "statement": "For the finite p-primary Picard modules with this cyclotomic G-action and χ⁻¹ twist, prove the needed invariants/coinvariants vanishing criterion; no canonical isomorphism between the two is asserted."
+    }
+   ]
   }
  ],
  "coverage": [
@@ -4552,7 +4798,7 @@
   {
    "stageId": "ArithmeticKTheory:N.3:finite-generation",
    "status": "partial",
-   "note": "Nine nodes (RT-AREA-ktheory-1/1). N.3:finite-generation keeps Quillen's Q-construction rank filtration and the assembly, and imports the arithmetic-group input. The filtration Q_m of Q(P(A)) by rank for a Dedekind domain A (rank-filtration: cellular inclusions, strata the groupoids ⊔ Aut(P), finitely many classes per rank when Pic(A) is finite, nonfree projectives included); the poset J(V) of proper layers (layer-poset); the comma categories Q_{n−1} ↓ P ≃ J(P ⊗ F) (comma-category-is-the-layer-poset); J(V) ≃ ΣT(V), with the low ranks n = 1 (two points, St = ℤ) and n = 2 (reduced homology) made explicit (layer-poset-is-the-suspended-building); the rank spectral sequence E¹_{p,q} = ⊕ H_q(Aut P; St(P ⊗ F)) ⇒ H_{p+q}(BQ), which is Quillen's Theorem 3 in Kahn's form (rank-spectral-sequence); the criterion, now decomposed (quillen-finiteness-criterion: finitely many columns in each total degree, then Serre's theorem for the H-space BQ); the arithmetic hypothesis for 𝓞_F, where Aut(P) is shown commensurable with GL_n(𝓞_F) and the integral finiteness of Steinberg homology is imported from BorelRegulators R.1 with its twisted dualizing module St_n(F) ⊗ ℤ_χ^{⊗(n−1)} (steinberg-homology-of-automorphism-groups); Quillen's theorem for rings of integers (quillen-finite-generation-theorem); and the finite-S localisation step (finite-generation-of-K-of-S-integers). R.1 owns the building, the Solomon–Tits theorem, the Steinberg module and the arithmetic duality/finiteness interface (request); the stage's clause 'Develop the arithmetic-group finiteness and finite-type homotopy input in Quillen's proof' is R.1's and is not planned here, and 'the relation to stable general linear groups' (plus = Q) is not used by the Q-construction route. The former gap 'The arithmetic-group input to finite generation has no source here' is closed: the rank filtration is decomposed from Kahn (arXiv:1108.2441v3, §4) and the arithmetic input is requested from R.1 with the dualizing module read in Putman–Studenmund (arXiv:1909.01217v4, Theorem C).",
+   "note": "Nine nodes (RT-AREA-ktheory-1/1). N.3:finite-generation keeps Quillen's Q-construction rank filtration and the assembly, and imports the arithmetic-group input. The filtration Q_m of Q(P(A)) by rank for a Dedekind domain A (rank-filtration: cellular inclusions, strata the groupoids ⊔ Aut(P), finitely many classes per rank when Pic(A) is finite, nonfree projectives included); the poset J(V) of proper layers (layer-poset); the comma categories Q_{n−1} ↓ P ≃ J(P ⊗ F) (comma-category-is-the-layer-poset); J(V) ≃ ΣT(V), with the low ranks n = 1 (two points, St = ℤ) and n = 2 (reduced homology) made explicit (layer-poset-is-the-suspended-building); the rank spectral sequence E¹_{p,q} = ⊕ H_q(Aut P; St(P ⊗ F)) ⇒ H_{p+q}(BQ), which is Quillen's Theorem 3 in Kahn's form (rank-spectral-sequence); the criterion, now decomposed (quillen-finiteness-criterion: finitely many columns in each total degree, then Serre's theorem for the H-space BQ); the arithmetic hypothesis for 𝓞_F, where Aut(P) is shown commensurable with GL_n(𝓞_F) and the integral finiteness of Steinberg homology is imported from BorelRegulators R.1 with its twisted dualizing module St_n(F) ⊗ ℤ_χ^{⊗(n−1)} (steinberg-homology-of-automorphism-groups); Quillen's theorem for rings of integers (quillen-finite-generation-theorem); and the finite-S localisation step (finite-generation-of-K-of-S-integers). R.1 owns the building, the Solomon–Tits theorem, the Steinberg module and the arithmetic duality/finiteness interface (request); the stage's clause 'Develop the arithmetic-group finiteness and finite-type homotopy input in Quillen's proof' is R.1's and is not planned here, and 'the relation to stable general linear groups' (plus = Q) is not used by the Q-construction route. The former gap 'The arithmetic-group input to finite generation has no source here' is closed: the rank filtration is decomposed from Kahn (arXiv:1108.2441v3, §4) and the arithmetic input is requested from R.1 with the dualizing module read in Putman–Studenmund (arXiv:1909.01217v4, Theorem C). FIX-RT-AREA-ktheory-2~2 adds explicit supplier/application nodes; their named source and interface gaps remain open.",
    "remaining": [
     "Receive from BorelRegulators R.1 the building, the Solomon–Tits theorem, the Steinberg module and the integral finiteness of H_i(Γ; St_n(F)) for arithmetic Γ (request).",
     "Receive from StableHomotopyKTheory H.2 the cellular-functor spectral sequence and from H.6 Serre's theorem for simple spaces (requests); from H.1 the nerve and local-coefficient comparisons (request)."
@@ -4585,7 +4831,7 @@
   {
    "stageId": "ArithmeticKTheory:N.6",
    "status": "partial",
-   "note": "Eleven nodes. The even row of Theorem VI.8.2 with its ℤ_ℓ-coefficient passage; the even row of Theorem VI.8.4 for totally imaginary fields; Corollary VI.8.3 and Example VI.8.3.1, the ℓ-ranks of the even groups from the class group and |S|; the signature defect; Theorem VI.9.11, the two-primary table with real places, its extension in degree 8k+4 and the integer ρ that r_1 does not determine, with Tate's theorem K₂/2^ν ≅ H² imported from MotivicEtaleKTheory M.3, not K2SymbolsBrauer T.7 (RT-AREA-ktheory-1/8); Theorem VI.9.12, the order formula for totally real fields; the wild kernel, with the tame kernel group and its sequence imported from K2SymbolsBrauer T.5; the subgroup of divisible elements; the comparison of the two, which corrects the K-book by the exception of Weibel 2006 for special fields and odd i; and the certificate engine, which N.6 owns (RT-AREA-ktheory-1/9): the order-certificate format with independent upper and lower bounds (N.6/order-certificate, moved from K2SymbolsBrauer T.5/certified-presentation) and its cohomological lower bound in every even degree, with ρ as an input in degree 8k+4 (N.6/certificate-driven-computation), zeta values admitted only through proved theorems. ArithmeticKTheory N.8 instantiates the engine. N.6 also keeps the comparisons of the wild kernel with divisible subgroups and with Selmer/cohomological kernels (the latter still to be decomposed, below).",
+   "note": "Eleven nodes. The even row of Theorem VI.8.2 with its ℤ_ℓ-coefficient passage; the even row of Theorem VI.8.4 for totally imaginary fields; Corollary VI.8.3 and Example VI.8.3.1, the ℓ-ranks of the even groups from the class group and |S|; the signature defect; Theorem VI.9.11, the two-primary table with real places, its extension in degree 8k+4 and the integer ρ that r_1 does not determine, with Tate's theorem K₂/2^ν ≅ H² imported from MotivicEtaleKTheory M.3, not K2SymbolsBrauer T.7 (RT-AREA-ktheory-1/8); Theorem VI.9.12, the order formula for totally real fields; the wild kernel, with the tame kernel group and its sequence imported from K2SymbolsBrauer T.5; the subgroup of divisible elements; the comparison of the two, which corrects the K-book by the exception of Weibel 2006 for special fields and odd i; and the certificate engine, which N.6 owns (RT-AREA-ktheory-1/9): the order-certificate format with independent upper and lower bounds (N.6/order-certificate, moved from K2SymbolsBrauer T.5/certified-presentation) and its cohomological lower bound in every even degree, with ρ as an input in degree 8k+4 (N.6/certificate-driven-computation), zeta values admitted only through proved theorems. ArithmeticKTheory N.8 instantiates the engine. N.6 also keeps the comparisons of the wild kernel with divisible subgroups and with Selmer/cohomological kernels (the latter still to be decomposed, below). FIX-RT-AREA-ktheory-2~2 adds explicit supplier/application nodes; their named source and interface gaps remain open.",
    "remaining": [
     "Corollary VI.9.9 (the 2-ranks r_1+s+t−1, j+s+t−1, j+s+t−1 and s+t−1 of K_n(O_S) for n ≡ 2, 4, 6, 8 mod 8) with Theorem VI.9.7 and Lemma VI.9.6.3, the source's computation of the even groups at 2 from class-group and unit data, are not yet nodes.",
     "Local norm groups, named in N.6's text, are not used by any node.",
@@ -4630,6 +4876,22 @@
    "detail": "The proof of the Harris–Segal Theorem VI.2.5 rests on Corollary VI.1.5.2, which rests on Theorem VI.1.5, quoted from Harris–Segal [HS, Thm. 3.1] ('Ki groups of rings of algebraic integers', Ann. of Math. 101 (1975)): the surjectivity of π_*(B(µ_m ≀ Σ_∞)^+) → K_*(F_q) on ℓ-parts. NEXT SOURCE ACTION: read Harris–Segal §3 and decide its owner (it is K-theory of finite fields and of B(µ_m ≀ Σ_∞)^+, closest to KTheoryFiniteLocalFields L.1).",
    "neededBy": [
     "ArithmeticKTheory:N.5/harris-segal-summand"
+   ]
+  },
+  {
+   "title": "Function-field Steinberg-homology proof remains to be read",
+   "detail": "Weibel IV.6.9 distinguishes [GQ82] for affine curves from [Q73] for number fields. Obtain the original function-field proof and decompose its integral homology theorem; the new nodes expose this dependency and do not claim it has been formalized.",
+   "neededBy": [
+    "ArithmeticKTheory:N.3:finite-generation/function-field-steinberg-finiteness",
+    "ArithmeticKTheory:N.3:finite-generation/affine-curve-finite-generation",
+    "ArithmeticKTheory:N.3:finite-generation/proper-curve-finite-generation"
+   ]
+  },
+  {
+   "title": "Keune original proof and finite-module translation",
+   "detail": "Read Keune (1989) and verify the injection, normalization of the χ⁻¹ coinvariant quotient and all ramification/root-of-unity hypotheses. CGZ Lemma 3.5 was read; its citation is not a proof decomposition of Keune. Decompose the finite p-primary module argument linking Pic/p^m coinvariants and Pic[p^m] invariants before declaring this API implemented.",
+   "neededBy": [
+    "ArithmeticKTheory:N.6/keune-cyclotomic-picard-injection"
    ]
   }
  ],
@@ -4855,6 +5117,21 @@
     "ArithmeticKTheory:N.3:finite-generation/layer-poset-is-the-suspended-building",
     "ArithmeticKTheory:N.3:finite-generation/rank-spectral-sequence",
     "ArithmeticKTheory:N.3:finite-generation/quillen-finiteness-criterion"
+   ]
+  },
+  {
+   "supplier": "SchemeKTheoryOperations:S.3",
+   "need": "Regular-scheme localization with closed-point dévissage, finite/open support and naturality; N.2 supplies arithmetic residues, support, classical rows and extension compatibility.",
+   "neededBy": [
+    "ArithmeticKTheory:N.2/localisation-sequence-for-a-dedekind-domain",
+    "ArithmeticKTheory:N.3:finite-generation/proper-curve-finite-generation"
+   ]
+  },
+  {
+   "supplier": "MotivicEtaleKTheory:M.3",
+   "need": "Kummer exact sequence for cyclotomic S-integers, functorial with Galois action and twist. Preserve unit classes, H¹ and Pic[p^m] as separate terms.",
+   "neededBy": [
+    "ArithmeticKTheory:N.6/keune-cyclotomic-picard-injection"
    ]
   }
  ],

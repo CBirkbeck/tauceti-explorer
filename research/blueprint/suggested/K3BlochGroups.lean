@@ -1,4 +1,17 @@
 /-
+FIX-RT-AREA-ktheory-2~2, Codex — codex-rtOQ9t, 2026-09-30.
+Current revision is unchecked and NOT COMPILED. Any earlier compilation
+record below describes only that earlier revision and environment.
+
+V.5/finite-field-bloch-comparison: not stated; needs Hutchinson's natural
+map H3(SL2(F_q), Z[1/char(F_q)]) -> K3(F_q) and the finite refined
+Bloch–Wigner map. The Suslin map below still requires Infinite F.
+V.5/nonsplit-cartan-mod-n: not stated; needs the actual Cartan embedding and
+its bar-homology map. Abstract finite cyclic isomorphisms do not supply it.
+V.2 imports the degree-three case of T.2:symbols/milnor-number-field.
+V.6 imports analytic comparison from P.2/D.2; exact real scalar/sign needs R.7.
+-/
+/-
 This file is not the roadmap and is not exhaustive. The roadmap document
 `research/blueprint/readmes/K3BlochGroups.md` is definitive. These statements
 suggest Lean forms so that contributors and reviewers can converge on names and
@@ -2204,8 +2217,9 @@ theorem k3_numberField (F : Type) [Field F] [NumberField F] :
 /-- V.5/k3-gaussian: `K₃(ℚ(i)) ≅ ℤ ⊕ ℤ/24`, the free summand only as an existence. -/
 theorem k3_gaussian : Nonempty (K 3 (CyclotomicField 4 ℚ) ≃+ ℤ × ZMod 24) := by sorry
 
-/-- V.5/bloch-finite-field-mod-n, as abstract isomorphisms (that the Suslin map induces the
-first is not stated: this file defines the Suslin map only for infinite fields). -/
+/-- V.5/bloch-finite-field-mod-n, as abstract isomorphisms only. The actual finite-field map
+from V.5/finite-field-bloch-comparison (Hutchinson Corollary 7.5) is not yet
+stated; the Suslin map in this prototype is defined only for infinite fields. -/
 theorem bloch_finite_field_mod_n (F : Type) [Field F] [Finite F] (h : 4 ≤ Nat.card F) (n : ℕ)
     (hn : Odd n) (hcop : Nat.Coprime n (Nat.card F - 1)) :
     Nonempty ((K 3 F ⧸ (nsmulAddMonoidHom (α := K 3 F) n).range) ≃+

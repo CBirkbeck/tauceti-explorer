@@ -407,6 +407,18 @@
         "Theorem 3.2.12 and Remark 3.2.14 (printed pp. 123-124): the Hochschild-Serre spectral sequence and its naturality, stated without construction",
         "Theorem 3.2.18 with its proof (printed pp. 129-132): Hopf's formula from the Hochschild-Serre spectral sequence"
       ]
+    },
+    {
+      "id": "Kbook.III.chapter",
+      "title": "Weibel, K-book chapter III, separately hosted author chapter",
+      "url": "https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.III.pdf",
+      "sha256": "ba1bc2d25680ab25c4baadc5ab28e39d1077dc66bb12ca4e2174b6cb55f81307",
+      "accessed": "2026-09-30",
+      "readSections": [
+        "PDF pp.61–62: III.7.2–7.3, global Milnor groups"
+      ],
+      "authors": "Charles A. Weibel",
+      "edition": "Separately hosted author chapter downloaded 2026-09-30; checksum and chapter-PDF pagination distinguish it from the earlier combined draft."
     }
   ],
   "nodes": [
@@ -3867,6 +3879,12 @@
           "locator": "III.7.2(d) (PDF p. 254)",
           "excerpt": "The sign maps give the Bass-Tate isomorphism in degrees at least three for a number field.",
           "match": "Paraphrase of the indicated passage; checked in the author copy, not a quotation from the published edition."
+        },
+        {
+          "sourceId": "Kbook.III.chapter",
+          "locator": "III.7.2(a),(d), PDF pp.61–62",
+          "excerpt": "The general global-field Milnor theorem is already owned here; its original Bass–Tate proof remains the existing gap.",
+          "match": "Paraphrase of the inspected passage, not a quotation. The general global-field Milnor theorem is already owned here; its original Bass–Tate proof remains the existing gap."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3900,6 +3918,12 @@
           "locator": "III.7.2(a) (PDF p. 253)",
           "excerpt": "Milnor groups of a positive-characteristic global field vanish in degrees at least three.",
           "match": "Paraphrase of the indicated passage; checked in the author copy, not a quotation from the published edition."
+        },
+        {
+          "sourceId": "Kbook.III.chapter",
+          "locator": "III.7.2(a),(d), PDF pp.61–62",
+          "excerpt": "The general global-field Milnor theorem is already owned here; its original Bass–Tate proof remains the existing gap.",
+          "match": "Paraphrase of the inspected passage, not a quotation. The general global-field Milnor theorem is already owned here; its original Bass–Tate proof remains the existing gap."
         }
       ],
       "implementationStatus": "unchecked",
@@ -4308,6 +4332,14 @@
     {
       "consumer": "StableHomotopyKTheory:H.3",
       "provides": "The Recognition Theorem (recognition-theorem; in particular (3) ⇒ (1) through superperfect-extensions-split and split-central-extension-universal), existence of universal central extensions of perfect groups (T.1:classical/perfect-uce-exists) and the kernel identification with H_2 (T.1:classical/uce-kernel-h2, with uce-kernel-h2-natural). H.3/plus-pi2-universal-central-extension should cite these instead of the unread K-book III.5.4; it keeps the topological acyclic-fibre argument."
+    },
+    {
+      "consumer": "EllipticKTheory:E.5",
+      "provides": "Import T.2:symbols/milnor-global-positive-characteristic for all n≥3; the separate low-degree global tame kernel and reciprocity are requested from T.4."
+    },
+    {
+      "consumer": "K3BlochGroups:V.2",
+      "provides": "Import T.2:symbols/milnor-number-field at degree three and T.2:graded-map for the product comparison; retain the indecomposable cokernel in V.2."
     }
   ],
   "sourceVersions": [
@@ -4316,6 +4348,13 @@
       "url": "https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf",
       "read": "2026-09-29",
       "sha256": "a04f53c9393b20672fab2a6818279b2f9996dbc7cf74735789ed13804b058845"
+    },
+    {
+      "kind": "author copy",
+      "url": "https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.III.pdf",
+      "read": "2026-09-30",
+      "sha256": "ba1bc2d25680ab25c4baadc5ab28e39d1077dc66bb12ca4e2174b6cb55f81307",
+      "note": "FIX-RT-AREA-ktheory-2~2: only PDF pp.61–62: III.7.2–7.3, global Milnor groups inspected. Earlier version records remain historical."
     }
   ],
   "review": {

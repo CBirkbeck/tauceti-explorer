@@ -1,3 +1,17 @@
+/-
+FIX-RT-AREA-ktheory-2~2, Codex — codex-rtOQ9t, 2026-09-30.
+Current revision is unchecked and NOT COMPILED. Any earlier compilation
+record below describes only that earlier revision and environment.
+
+N.3:finite-generation/function-field-steinberg-finiteness,
+affine-curve-finite-generation and proper-curve-finite-generation: not stated;
+the actual higher-K functor and integral Steinberg homology are not defined here.
+The [GQ82] source proof remains a gap, distinct from the number-field proof.
+N.2/localisation-sequence-for-a-dedekind-domain specializes S.3 localization.
+N.6/keune-cyclotomic-picard-injection: not stated; needs the actual K2 transfer,
+twisted Pic/p^m COINVARIANTS and Kummer sequence. Original Keune proof unread;
+Pic[p^m] invariants are related by a vanishing criterion, not silently identified.
+-/
 import Mathlib.Algebra.DirectSum.Basic
 import Mathlib.GroupTheory.Abelianization.Defs
 import Mathlib.GroupTheory.Divisible

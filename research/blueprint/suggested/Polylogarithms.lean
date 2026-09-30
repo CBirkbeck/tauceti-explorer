@@ -1,4 +1,18 @@
 /-
+FIX-RT-AREA-ktheory-2~2, Codex — codex-rtOQ9t, 2026-09-30.
+Current revision is unchecked and NOT COMPILED. Any earlier compilation
+record below describes only that earlier revision and environment.
+
+P.5 retains Goncharov's concrete current complex; its comparison needs
+the requested early real-Deligne interface, not all of the late M.8 stage.
+P.6's rank-form LeopoldtConjecture below is a local adapter: the shared
+completed-unit map and strong-Leopoldt proposition are requested from I.2.
+Its equivalence with this rank form remains unstated until those carriers
+are available. Keep the weak cyclotomic theorem and L4 abelian theorem
+distinct. Ordinary units require an explicit pro-p or Teichmuller/powering
+passage before a principal-unit logarithm can be used.
+-/
+/-
 This file is not the roadmap and is not exhaustive. The roadmap document
 `research/blueprint/readmes/Polylogarithms.md` is definitive. These statements
 suggest Lean forms so that contributors and reviewers can converge on names and
@@ -1362,7 +1376,8 @@ def LeopoldtConjecture (K : Type) [Field K] [NumberField K] : Prop :=
   ∀ σ : Fin (Module.finrank ℚ K) → (K →+* PadicAlgCl p), Function.Bijective σ →
     padicRegulatorRank p logp K σ = Units.rank K
 
--- leopoldt_iff_rank (P.6/leopoldt-equivalence, NSW 10.3.6): not stated; needs the completed unit groups.
+-- leopoldt_iff_rank (P.6/leopoldt-equivalence, NSW 10.3.6): not stated; needs
+-- I.2 completed global/local unit groups and their map, with torsion treatment.
 
 theorem leopoldt_abelian (K : Type) [Field K] [NumberField K] [IsGalois ℚ K]
     (hK : ∀ a b : K ≃ₐ[ℚ] K, a * b = b * a) : LeopoldtConjecture p logp K := by sorry

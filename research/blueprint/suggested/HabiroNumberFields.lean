@@ -1,4 +1,21 @@
 /-
+FIX-RT-AREA-ktheory-2~2, Codex — codex-rtOQ9t, 2026-09-30.
+Current revision is unchecked and NOT COMPILED. Any earlier compilation
+record below describes only that earlier revision and environment.
+
+HB.2/hutchinson-refinement is ONLY the conditional algebraic implication:
+compatible prime-power evaluations R(eta)=zeta^2 and c(eta)=zeta, together
+with CRT and the stated sign convention, imply R=c^2. The unconditional
+evaluation is the accepted HabiroNahmSeries HB.4/acceptance-andrews-gordon;
+assemble its consequence downstream at the proposed HB.5, never in HB.2.
+epsilon_m := c_m^2 remains an early definition for EVERY m.
+HB.9/constant-term-is-the-unit in the excluded Nahm packet must discharge
+the premise or use the late assembly; the fix report carries that handoff.
+HB.1 unit descent imports N.6/keune-cyclotomic-picard-injection and M.3.
+HB.7 imports D.1's Coleman function D_p=Li2+(1/2)log(z)log(1-z).
+The early finite-Chern M.8 interface and existing source-sign gap remain open.
+-/
+/-
 This file is not the roadmap and is not exhaustive. The roadmap document
 `research/blueprint/readmes/HabiroNumberFields.md` is definitive. These statements suggest
 Lean forms so that contributors and reviewers can converge on names and signatures. They
@@ -1212,7 +1229,8 @@ example [Fact (Nat.Prime 19)] {ζ : GaloisField 19 2} (hζ : IsPrimitiveRoot ζ 
 -- HB.2/scalar-from-eta: not stated; needs the comparison above.
 -- HB.2/eta-galois-scaling: not stated; needs etaZeta.
 -- HB.2/R-injectivity-and-image: not stated; needs Rzeta_spec and chernClassMap.
--- HB.2/hutchinson-refinement: not stated; needs the comparison and CGZ Theorem 7.4 (gap).
+-- HB.2/hutchinson-refinement: not stated; needs the comparison with EXPLICIT
+--   prime-power evaluation/CRT hypotheses. The unconditional CGZ input is late HB.4/HB.5.
 -- epsilonUnit_mem_selmer: not stated; needs chernClassMap (the target is `epsilonTarget`).
 -- epsilonUnit_add: `epsilonUnit` is additive by its type.
 -- epsilonUnit_galois: not stated; needs chernClassMap_mem_eigenspace.
@@ -1220,7 +1238,8 @@ example [Fact (Nat.Prime 19)] {ζ : GaloisField 19 2} (hζ : IsPrimitiveRoot ζ 
 -- epsilonUnit_rootLine: the root line depends only on the class (`span_root_eq_of_eq_mul_pow`); its
 --   definition from ε_m needs chernClassMap.
 -- epsilonUnit_kummer: not stated; needs the Kummer isomorphism (Tau Ceti ProfiniteCohomology layer 9).
--- epsilonUnit_eq_Rzeta: not stated; needs the comparison and the refinement.
+-- epsilonUnit_eq_Rzeta: not stated; requires the late unconditional comparison,
+--   or all the evaluation and normalization premises of the early conditional implication.
 -- epsilonUnit_unit_rep: not stated; needs HB.2/R-injectivity-and-image.
 -- Test epsilonUnit_Q: not stated; needs K₃(ℚ) and chernClassMap.
 -- Test epsilonUnit_mu_in_K: not stated; needs chernClassMap for ℚ(√−3), m = 3.
