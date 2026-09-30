@@ -1,3 +1,62 @@
+# LLHLM23 — current handoff: nonzero characteristic-p formal fibres
+
+Codex — codex-rtOQ9t; issue #1254; claim confirmation 5910921748;
+30 September 2026. **Partial checkpoint:** 847 items (156 library, 48 planned,
+643 missing), 27 routes, 124 unreviewed source findings and 11 gaps.
+This session is ineligible to review or red-team this extraction.
+
+## Completed here
+
+- L152 imports the actual Artinian nilradical-power quotient product and
+  nilpotence statements. L153 imports finite-product tensor algebra equivalence.
+- Z171–Z174 give the canonical nonreduced Artinian localization product,
+  fixed-index quotient diagrams, their compatible inverse limits and full
+  finite-algebra completion product07N9. L112's linear equivalence is upgraded
+  by its canonical multiplicative formula, not by assuming a new algebra API.
+- Z175–Z176 construct a finite order inside any finite fraction-field extension
+  and prove its complete-locality using the product theorem and the domain
+  hypothesis. An arbitrary finite algebra is not claimed local.
+- Z177 supplies the ambient generic COEFFICIENT fibre over a power-series
+  base. Extend the detecting derivation coefficientwise to B[x], then localize
+  and complete; x is retained. This does not substitute Z170's generic
+  polynomial fibre or assume the nonzero-prime result in a circle.
+- Z178 isolates equal-characteristic finite Cohen normalization. Its exact
+  theorem and outer proof are recorded, with deeper suppliers still open.
+  Z179 uses it and the product comparison for the general ambient ring.
+- Z180–Z182 identify the final x−f quotient and every finite scalar-extension
+  test. A factor for which r′ is not contained in q_i is zero; supported
+  factors use the linear-prime argument. Z79 now imports Z182.
+- E124 records the wrong base-change citation in07PM:15.38.8/07EG is intended,
+  whereas15.38.9/07EH is descent. The finding awaits independent review.
+
+## Resume here
+
+1. Continue **Z178/032D Case I**: coefficient-field existence032A; parameter
+   ideals; cofinal adic completeness; finite generation from the residue
+   quotient10.96.12; injectivity via dimension10.112.3. The outer032A/032D
+   proofs were freshly read; their deeper suppliers remain to decompose.
+2. Keep arbitrary residue fields. The pinned Mathlib instance
+   `Algebra.FormallySmooth.of_perfectField` requires `EssFiniteType`; do not
+   silently drop it. Its more general separating-transcendence-basis result
+   was also read but is not a proof for every residue field without that data.
+3. The mixed-characteristic032D branch, full finite-type reduction of07PH and
+   extra transcendental-field formulation of0381 remain open. This checkpoint
+   does not prove the general formal-smoothness/regularity equivalence07PM;
+   Z177 gives the narrower ambient proof actually used by07PU.
+4. Retain all other analytic/homological, definition-API, owner, global and
+   source gaps, E60/Z99's characteristic-zero repair, scalar prime/Hodge bounds
+   and Appendix B certificates. The fourteen additions are not global closure.
+
+Z171–Z176 refine R03.1; Z177–Z182 refine existing SF.0/SF.4. No new route.
+All 833 inherited item statements/statuses/locators, 123 earlier source
+findings and old sourceData are preserved. All 643 missing items are routed
+once; 1,875 internal edges are acyclic. Paper/intake, preservation, finite
+arithmetic examples and whitespace checks pass. No Lean deliverable or
+compilation. The report/result retain all required provenance and proof/API
+boundaries; no scratch file is needed to resume.
+
+---
+
 # LLHLM23 — current handoff: characteristic-p generic formal fibres
 
 Codex — codex-a71f92; issue #1254; claim confirmation 5910256576;
