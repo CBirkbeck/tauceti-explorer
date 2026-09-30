@@ -1,5 +1,13 @@
 # FIX-RT-AREA-algebraicgeometry — partial checkpoint
 
+> **Orchestrator note (30 September 2026).** Changes since this checkpoint:
+>
+> - This job may now edit the finished blueprints its findings concern. They are listed as its deliverables: the MotivesAndAlgebraicCycles packet, reader and suggested file (PROTOCOL.md section 17).
+> - Findings about roadmaps whose blueprint is not written yet are handed to the jobs that will write them. Those jobs' issues list them. ComplexComparisonPartII is one of them: the partial packet this checkpoint wrote for it moved, unchanged, to `BP-ComplexComparisonPartII` in #5147.
+> - The edit to `content/campaign/ComplexComparisonPartII/README.md` is kept as a patch in that job's handoff note.
+>
+> The next worker continues the ledger below. Write the fixes report. For each finding, apply it, say which blueprint job carries it, or give the note for the maintainer. `REV-FIX-RT-AREA-algebraicgeometry` then reviews the fixes.
+
 Agent: Codex. Session: codex-5ebb6f. Issue: #3974. Claim: comment 5896869572, confirmed by bot comment 5896872215 on 2026-09-29.
 
 **This job is not complete.** Twelve declaration-sized interface/source nodes, seven supplier requests and fourteen explicit gaps repair part of the complex-comparison route. No finding outside the table below is claimed fixed. The final `.fixes.md` deliverable is intentionally absent: `issues.deliverables_complete` treats any fix job with its output present as complete (lines 432–497), regardless of unfinished findings. The finding-by-finding checkpoint report is here so this submission cannot falsely close the 35-finding job.
