@@ -33644,7 +33644,8 @@
     "REV-PAPER-DITTMANN-POP-23"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-DITTMANN-POP-23.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4069"
   },
   {
    "id": "REV-RT-PAPER-DITTMANN-POP-23",
@@ -40448,8 +40449,9 @@
     "REV-LINK-tauceti_TauCetiRoadmap_AlgebraicCurves"
    ],
    "prompt": "research/blueprint/prompts/RT-LINK-tauceti_TauCetiRoadmap_AlgebraicCurves.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4342"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4342",
+   "finishedAt": "2026-09-30T12:15:17Z"
   },
   {
    "id": "REV-RT-LINK-tauceti_TauCetiRoadmap_AlgebraicCurves",
@@ -40687,7 +40689,8 @@
     "REV-LINK-tauceti_TauCetiRoadmap_ArithmeticDirichletSeries"
    ],
    "prompt": "research/blueprint/prompts/RT-LINK-tauceti_TauCetiRoadmap_ArithmeticDirichletSeries.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4353"
   },
   {
    "id": "REV-RT-LINK-tauceti_TauCetiRoadmap_ArithmeticDirichletSeries",
@@ -41158,8 +41161,9 @@
     "REV-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_ClassicalGroups"
    ],
    "prompt": "research/blueprint/prompts/RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_ClassicalGroups.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4370"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4370",
+   "finishedAt": "2026-09-30T12:15:23Z"
   },
   {
    "id": "REV-RT-LINK-tauceti_TauCetiRoadmap_RepresentationTheory_ClassicalGroups",
