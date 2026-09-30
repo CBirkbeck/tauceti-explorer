@@ -39337,7 +39337,8 @@
     "REV-PAPER-BOCKLE-HARRIS-KHARE-ETAL-19"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-BOCKLE-HARRIS-KHARE-ETAL-19.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4313"
   },
   {
    "id": "RT-PAPER-LAWRENCE-VENKATESH-20",
@@ -39687,8 +39688,9 @@
     "REV-PAPER-CESNAVICIUS-21"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-CESNAVICIUS-21.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4327"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4327",
+   "finishedAt": "2026-09-30T02:35:42Z"
   },
   {
    "id": "RT-PAPER-LAND-MATHEW-MEIER-ETAL-24",
