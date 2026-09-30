@@ -34446,7 +34446,8 @@
     "REV-PAPER-TSIMERMAN-18"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-TSIMERMAN-18.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4100"
   },
   {
    "id": "REV-RT-PAPER-TSIMERMAN-18",
@@ -34618,8 +34619,9 @@
     "REV-PAPER-GAN-ICHINO-18"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-GAN-ICHINO-18.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4108"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4108",
+   "finishedAt": "2026-09-30T13:14:01Z"
   },
   {
    "id": "REV-RT-PAPER-GAN-ICHINO-18",
@@ -40558,8 +40560,9 @@
     "REV-LINK-tauceti_TauCetiRoadmap_LocalFieldsRamification"
    ],
    "prompt": "research/blueprint/prompts/RT-LINK-tauceti_TauCetiRoadmap_LocalFieldsRamification.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4347"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4347",
+   "finishedAt": "2026-09-30T13:14:06Z"
   },
   {
    "id": "REV-RT-LINK-tauceti_TauCetiRoadmap_LocalFieldsRamification",
