@@ -48,10 +48,21 @@
         "sha256": "6b232220b694d7cd62d311e6e2a492a5a56d0a78f86dbb19b4c0258289bdf6fd",
         "title": "Groechenig, Moduli of flat connections in positive characteristic",
         "read": "§3.3 Proposition 3.15 and proof pp.14–16, plus acknowledgements p.4. The acknowledged correction to an earlier Theorem 3.2/Proposition 3.15 is noted; this does not resolve the EG20 nonreduced coefficient counterexample by itself."
+      },
+      {
+        "url": "https://arxiv.org/pdf/1208.0128v3",
+        "sha256": "7cfa577ce790183284f7699fadfeb30c23e0a9ebfc24ceca24c8d9bdc0894ea7",
+        "title": "Esnault–Kerz, A finiteness theorem for Galois representations of function fields over finite fields (after Deligne)",
+        "read": "2026-09-30, pp.13–15 and 34–35: Theorem 4.4, Corollary 4.5, Appendix B Proposition B.1 and proof only. Author errata dated 29 August 2014 read completely (one page): https://www.mi.fu-berlin.de/users/esnault/preprints/helene/109b-errata.pdf; it does not amend these inputs."
+      },
+      {
+        "url": "https://publications.ias.edu/sites/default/files/FrobTraces.pdf",
+        "title": "Deligne, Finitude de l’extension de Q engendrée par des traces de Frobenius, en caractéristique finie",
+        "read": "2026-09-30, IAS author PDF §§1.1–1.4, pp.8–9, including (1.3.1); selective reading, not a full-paper extraction."
       }
     ]
   },
-  "summary": "Full published-paper extraction checkpoint with 136 interfaces, exact fixed-determinant and iterated-Frobenius conventions, four coordinated Part II proposals and existing-foundation source routes. It extracts nilpotent reductions, crystalline realizations and periodic flows, geometric p-adic rigidity, unitarity and cohomologically rigid companions. Status remains partial: a concrete nonreduced-family BNR obstruction and other independently unreviewed proof findings, external-source closure and Frobenius/representation normalization gates remain. No Lean implementation, proof closure or confirmed author erratum is claimed.",
+  "summary": "Complete §16 extraction: 146 interfaces, each missing item routed once, with revised suppliers for crystalline foundations, p-adic Simpson, deformation theory, crystalline companions and l-adic weights. Twelve source findings distinguish statement defects, proof repairs and misprints; historical reviews are preserved without assigning fresh findings a verdict. Theorems and source-proof closure remain work for the owning blueprints, not claimed formalized here.",
   "conventions": {
     "C": "X is smooth connected projective over C, equipped with a polarization; rank r>0; (E,∇) is stable/irreducible and rigid WITH FIXED torsion determinant (L,∇L). Whenever both Betti/de Rham and Dolbeault moduli are compared, use the vanishing rational Chern-class component. Cohomological rigidity is H¹(End⁰)=0. An arithmetic model is selected and shrunk; quantification over all its closed points does not mean all primes in every model.",
     "P": "k perfect of characteristic prime p, Z/k smooth (projective when asserted), Z' its Frobenius twist, F:Z→Z' relative Frobenius and w:Z'→Z the scheme isomorphism. Pure dimension d gives rank(F_*E)=p^d rank(E). A W₂-lift is data. Nilpotency means tensor iterates vanish; the printed level convention is θ^N=0. Match external p−1/p−2 conventions explicitly.",
@@ -76,7 +87,7 @@
         "file": "Mathlib/Algebra/Azumaya/Defs.lean",
         "lines": "63–68",
         "provides": "Finite projective faithful algebra and bijective mulLeftRight",
-        "checked": "Entire file read; Morita/étale-local alternatives are TODOs"
+        "checked": "Predicate statement read at pin; the old TODO-based absence inference is superseded by the fresh Matrix.lean audit below."
       },
       {
         "ref": "mathlib:AlgHom.mulLeftRight",
@@ -119,6 +130,48 @@
         "lines": "88–145",
         "provides": "Pointwise Frobenius-semilinear vector-space carrier only",
         "checked": "Statement, homs and equivalences read at pin"
+      },
+      {
+        "ref": "mathlib:MoritaEquivalence",
+        "file": "Mathlib/RingTheory/Morita/Basic.lean",
+        "lines": "59–66",
+        "provides": "An R-linear equivalence of module categories; no projective-generator construction.",
+        "checked": "Statement and surrounding hypotheses read at the pinned commit, 2026-09-30."
+      },
+      {
+        "ref": "mathlib:ModuleCat.toMatrixModCat",
+        "file": "Mathlib/RingTheory/Morita/Matrix.lean",
+        "lines": "41–49",
+        "provides": "For R a ring and finite decidable index ι, sends M to ι→M with its matrix action.",
+        "checked": "Statement and surrounding hypotheses read at the pinned commit, 2026-09-30."
+      },
+      {
+        "ref": "mathlib:ModuleCat.matrixEquivalence",
+        "file": "Mathlib/RingTheory/Morita/Matrix.lean",
+        "lines": "187–191",
+        "provides": "With i:ι, equivalence ModuleCat R ≌ ModuleCat (Matrix ι ι R).",
+        "checked": "Statement and surrounding hypotheses read at the pinned commit, 2026-09-30."
+      },
+      {
+        "ref": "mathlib:moritaEquivalenceMatrix",
+        "file": "Mathlib/RingTheory/Morita/Matrix.lean",
+        "lines": "205–209",
+        "provides": "For commutative base R₀ and an R₀-algebra R, packages the R₀-linear matrix equivalence.",
+        "checked": "Statement and surrounding hypotheses read at the pinned commit, 2026-09-30."
+      },
+      {
+        "ref": "mathlib:IsMoritaEquivalent.matrix",
+        "file": "Mathlib/RingTheory/Morita/Matrix.lean",
+        "lines": "218–220",
+        "provides": "Existence of matrix Morita equivalence for nonempty finite indices.",
+        "checked": "Statement and surrounding hypotheses read at the pinned commit, 2026-09-30."
+      },
+      {
+        "ref": "mathlib:IsAzumaya.matrix",
+        "file": "Mathlib/Algebra/Azumaya/Matrix.lean",
+        "lines": "65–71",
+        "provides": "Finite nonempty matrix algebra over a commutative semiring is Azumaya.",
+        "checked": "Statement and surrounding hypotheses read at the pinned commit, 2026-09-30."
       }
     ],
     "screen": [
@@ -128,7 +181,8 @@
       "Read CR.1–3, RD full README, R07.3, R09.6, R04.1–2, GS.6 and relevant atlas stage descriptions. Searched new roadmap definitions and packets for Higgs, nonabelian Hodge, Cartier transform, rigid flat connections and Azumaya.",
       "Searched both pinned Lean trees for Higgs, Fontaine–Laffaille, p-curvature, Cartier transform, rigid connection and Azumaya. Inspected ring Azumaya code, Witt-vector code, and Tau Ceti CentralSimple/Bimodule as a near miss: a field-level bimodule is not scheme-relative Morita descent.",
       "Pending PAPER-LANDESMAN-LITT-24 proposes HodgeStructuresPartII. Reuse that proposed id/title; do not create a rival variations/nonabelian-Hodge owner. GWZ20-B is the curve/endoscopic Hitchin specialization, not arbitrary-dimensional p-curvature BNR. Cesnavicius19 routes geometric Brauer comparison to SF.2; coordinate that supplier with the Azumaya extension below.",
-      "AUDIT-32 GlobalGaloisDeformations summary read as an unreviewed lead; no reviewed R04 entries exist in the snapshot. SF.2 full stage description read for geometric-cohomology ownership."
+      "AUDIT-32 GlobalGaloisDeformations summary read as an unreviewed lead; no reviewed R04 entries exist in the snapshot. SF.2 full stage description read for geometric-cohomology ownership.",
+      "2026-09-30 repair audit: read current reviewed library-coverage entries for the relevant owners, CR.1/CR.2, DWP.7/DWP.10, GS.6, SF.2, finished GlobalGaloisDeformations packet R04.1/R04.2, and accepted HEUER-25, GUO-REINECKE-24, ABE-18, DELIGNE-80 route briefs and cited items. Earlier screen entries above are historical observations at extraction time, not current absence claims."
     ]
   },
   "items": [
@@ -710,7 +764,7 @@
       "id": "PAPER-ESNAULT-GROECHENIG-20/022",
       "kind": "construction",
       "name": "Geometric Azumaya and splitting-module interface",
-      "statement": "Construct Azumaya O_Y-algebras locally using the existing ring predicate, their étale-local matrix splittings, splitting modules and change-of-splitting invertible bimodules. Over a strictly henselian local ring the finite-rank Azumaya algebra splits; ordinary henselianity without a residue-field splitting condition is insufficient.",
+      "statement": "Construct Azumaya O_Y-algebras locally using the existing ring predicate, their étale-local matrix splittings, splitting modules and change-of-splitting invertible bimodules. Over a strictly henselian local ring the finite-rank Azumaya algebra splits; ordinary henselianity without a residue-field splitting condition is insufficient. The finite nonempty matrix algebra case is already Mathlib IsAzumaya.matrix; retain missing status for the geometric splitting/descent residual.",
       "locator": "Theorem 2.12; proof of Theorem 2.17 p.118",
       "status": "missing",
       "planningAPI": [
@@ -741,17 +795,28 @@
       "unitTestStatus": "Planning acceptance obligations, not Lean tests executed.",
       "dependencies": [
         "PAPER-ESNAULT-GROECHENIG-20/021"
+      ],
+      "library": [
+        "mathlib:IsAzumaya",
+        "mathlib:IsAzumaya.matrix"
       ]
     },
     {
       "id": "PAPER-ESNAULT-GROECHENIG-20/023",
       "kind": "theorem",
       "name": "Morita equivalence with coherent support",
-      "statement": "For a split Azumaya algebra End_R(P), P finite projective faithfully generating, construct equivalence M↦P⊗_R M with inverse Hom_A(P,−). In the free rank-n case the underlying R-module is M^⊕n. Track finite local freeness after affine pushforward, annihilator ideals and changes of splitting; no claim of a unique isomorphism between arbitrary isomorphic modules.",
+      "statement": "For a split Azumaya algebra End_R(P), P finite projective faithfully generating, construct equivalence M↦P⊗_R M with inverse Hom_A(P,−). In the free rank-n case the underlying R-module is M^⊕n. Track finite local freeness after affine pushforward, annihilator ideals and changes of splitting; no claim of a unique isomorphism between arbitrary isomorphic modules. Mathlib ModuleCat.matrixEquivalence already supplies the affine free positive-rank matrix case; import it. The projective-generator form is explicitly a TODO in Morita/Basic, and the non-free generator, sheaf descent and support tracking remain missing. Do not infer absence of the matrix case from the stale matrix TODO in Basic.",
       "locator": "Theorem 2.17 proof; [Lam] Theorems 18.11,18.2",
       "status": "missing",
       "dependencies": [
         "PAPER-ESNAULT-GROECHENIG-20/022"
+      ],
+      "library": [
+        "mathlib:MoritaEquivalence",
+        "mathlib:ModuleCat.toMatrixModCat",
+        "mathlib:ModuleCat.matrixEquivalence",
+        "mathlib:moritaEquivalenceMatrix",
+        "mathlib:IsMoritaEquivalent.matrix"
       ]
     },
     {
@@ -1293,36 +1358,34 @@
       "id": "PAPER-ESNAULT-GROECHENIG-20/044",
       "kind": "theorem",
       "name": "Quasi-nilpotence detected on the special fibre",
-      "statement": "For a finite-type connection on a smooth W_n-lift, quasi-nilpotence is equivalent to quasi-nilpotence after reduction mod p, by iterating annihilation through the finite p-power filtration. On smooth Z/k the latter is equivalent to nilpotent p-curvature.",
-      "locator": "§2.6 p.120; [BO] Exercise 4.14; [Ka1] Corollary 5.5",
+      "statement": "For a finite-type integrable connection on a smooth W_n(k)-lift, quasi-nilpotence is equivalent to quasi-nilpotence after reduction modulo p. Iterate local annihilation through the finite p-power filtration. This assertion uses quasi-nilpotence only; the special-fibre p-curvature criterion is item 137.",
+      "locator": "§2.6 p.120; [BO] Exercise 4.14",
       "status": "missing",
       "dependencies": [
-        "PAPER-ESNAULT-GROECHENIG-20/012",
-        "PAPER-ESNAULT-GROECHENIG-20/015",
         "PAPER-ESNAULT-GROECHENIG-20/043"
       ]
     },
     {
       "id": "PAPER-ESNAULT-GROECHENIG-20/045",
       "kind": "theorem",
-      "name": "Finite-level crystals versus nilpotent p-curvature",
-      "statement": "For a smooth formal W(k)-lift Zhat with Z_n its W_n reduction, evaluation gives Crys(Z/W_n)≃ the full subcategory of finite-type integrable connections on Z_n whose special-fibre p-curvature is nilpotent.",
-      "locator": "Theorem 2.19 p.120",
+      "name": "Finite-level crystals versus quasi-nilpotent connections",
+      "statement": "For a smooth formal W(k)-lift Zhat of Z and its W_n reduction Z_n, evaluation gives Crys(Z/W_n) ≃ finite-type quasi-nilpotent integrable connections on Z_n. This is the foundational quasi-nilpotent equivalence; the printed p-curvature form of Theorem 2.19 is item 138.",
+      "locator": "§2.6 p.120, input to Theorem 2.19; [Be] II 4.3.10 and IV 1.6.5",
       "status": "planned",
       "planned": [
         "CrystallineCohomology:CR.1"
       ],
       "dependencies": [
         "PAPER-ESNAULT-GROECHENIG-20/041",
-        "PAPER-ESNAULT-GROECHENIG-20/044"
+        "PAPER-ESNAULT-GROECHENIG-20/043"
       ]
     },
     {
       "id": "PAPER-ESNAULT-GROECHENIG-20/046",
       "kind": "theorem",
-      "name": "Complete formal connections versus crystals",
-      "statement": "For the same formal lift, Crys(Z/W) is equivalent to finite-type integrable connections E≅lim_n E/p^nE which are separated and complete and have nilpotent special-fibre p-curvature. Both completeness and the inverse-limit comparison must be proved.",
-      "locator": "Corollary 2.20 p.120",
+      "name": "Complete formal quasi-nilpotent connections versus crystals",
+      "statement": "For the same formal lift, Crys(Z/W) is equivalent to finite-type integrable connections E ≅ lim_n E/p^nE which are separated and complete and quasi-nilpotent at each finite level. Retain compatible evaluation equivalences and the inverse-limit comparison. The printed special-fibre p-curvature form of Corollary 2.20 is item 139.",
+      "locator": "§2.6 p.120, input to Corollary 2.20; [BM] 1.3.3",
       "status": "planned",
       "planned": [
         "CrystallineCohomology:CR.1"
@@ -1339,7 +1402,7 @@
       "locator": "Corollary 2.21 p.121; Corollary 1.5 p.105",
       "status": "missing",
       "dependencies": [
-        "PAPER-ESNAULT-GROECHENIG-20/046",
+        "PAPER-ESNAULT-GROECHENIG-20/139",
         "PAPER-ESNAULT-GROECHENIG-20/060"
       ]
     },
@@ -2007,6 +2070,17 @@
       "status": "missing",
       "dependencies": [
         "PAPER-ESNAULT-GROECHENIG-20/073"
+      ],
+      "supplierImports": [
+        {
+          "owner": "PadicHodgeTheoryPartIIRelativeCrystallineLocalSystems",
+          "items": [
+            "PAPER-GUO-REINECKE-24/075",
+            "PAPER-GUO-REINECKE-24/076",
+            "PAPER-GUO-REINECKE-24/080"
+          ],
+          "contract": "Import weakly crystalline/crystalline local systems on the adic generic fibre of the formal completion of Z/W. Compare algebraic Z_K étale local systems with this generic fibre in the proper smooth setting. The filtered F-isocrystal full-faithfulness input is only up to isogeny; integral full faithfulness in 074 remains the LSZ/SYZ theorem with its bounds."
+        }
       ]
     },
     {
@@ -2025,7 +2099,7 @@
       "id": "PAPER-ESNAULT-GROECHENIG-20/076",
       "kind": "construction",
       "name": "Permutation of the finite rigid set",
-      "statement": "On the finite rigid set over all determinant powers, compose the graded-Hodge map, Frobenius twist and inverse Cartier to obtain σ. Show it is bijective using the corresponding inverse equivalences and the large-p rigidity assertion; the finite set includes every determinant component visited by pth powering.",
+      "statement": "On the finite rigid set over all determinant powers, use the spread-out graded Higgs representatives, Frobenius twist and inverse Cartier to define σ. Pairwise distinct representatives and exhaustiveness follow from Proposition 4.10(c), read as corrected in E9, and 052 via 065. If σ(i)=σ(j), full faithfulness of C⁻¹∘w* gives V_i≅V_j and hence i=j. Thus σ is an injective self-map of a finite set and is bijective. Only afterwards deduce rigidity of C(E_{σ(i)})≅w*V_i; do not assume that inverse-direction rigidity to prove surjectivity.",
       "locator": "Equation (4.2)–(4.4); Lemma 4.11 pp.133–134",
       "status": "missing",
       "planningAPI": [
@@ -2035,7 +2109,7 @@
         },
         {
           "name": "inverse",
-          "statement": "Prove bijectivity."
+          "statement": "Prove injectivity by full faithfulness and pairwise distinct Higgs representatives; obtain bijectivity and the inverse on the finite set."
         },
         {
           "name": "determinant",
@@ -2051,7 +2125,8 @@
       "unitTests": [
         "An identity permutation has all periods one.",
         "A three-cycle has period three.",
-        "Multiplication by p permutes determinant powers only when p is invertible modulo d."
+        "Multiplication by p permutes determinant powers only when p is invertible modulo d.",
+        "A collapsing endomap on a two-element set is not admissible: injectivity must be checked before extracting periods."
       ],
       "unitTestStatus": "Planning acceptance obligations, not Lean tests executed.",
       "dependencies": [
@@ -2216,18 +2291,33 @@
       "dependencies": [
         "PAPER-ESNAULT-GROECHENIG-20/085",
         "PAPER-ESNAULT-GROECHENIG-20/087",
-        "PAPER-ESNAULT-GROECHENIG-20/132"
+        "PAPER-ESNAULT-GROECHENIG-20/132",
+        "PAPER-ESNAULT-GROECHENIG-20/145"
+      ],
+      "proofSteps": [
+        "Import the shtuka realization from 087 and the admissible-stack cover from 145. The smooth quasi-projective cover alone is not a smooth projective total space: track the proper compactified shtuka object, the required relative projective model and the cohomological subquotient through this reduction.",
+        "After the purely inseparable factorization, restrict to an open where the projective morphism is smooth and proper base change holds, then take the curve slice. This is the EG application; do not promote Abe Corollary 2.3.4 to an unrestricted smooth-projective-cover theorem."
       ]
     },
     {
       "id": "PAPER-ESNAULT-GROECHENIG-20/087",
       "kind": "theorem",
       "name": "Abe shtuka realization input",
-      "statement": "For an irreducible finite-determinant F-isocrystal M on a finite-field curve, the external input realizes p₁^*M∨⊗p₂^*M in shtuka cohomology and passes via a proper generically finite smooth-scheme cover, inseparable base change and restriction to a curve slice to the family in 086. This is the crystalline-coefficient Abe theorem, not merely the ℓ-adic Lafforgue correspondence of GS.6.",
-      "locator": "Corollary 4.17 proof; [Ab] Theorem 4.2.2, Corollary 2.3.4",
+      "statement": "For an irreducible finite-determinant overconvergent F-isocrystal M on a smooth finite-field curve, import Abe’s Langlands correspondence and the essential shtuka-cohomology realization H_pi ≅ q′⁺E_pi ⊗ q″⁺E_pi^∨, yielding the required external tensor product as a cohomological subquotient after swapping factors/duals and applying the stated Tate normalization. The admissible-stack cover is the separate input 145; the projective curve-slice construction belongs to EG Corollary 4.17, item 086.",
+      "locator": "Corollary 4.17 proof pp.137–138; [Ab] Theorem 4.2.2",
       "status": "missing",
       "dependencies": [
         "PAPER-ESNAULT-GROECHENIG-20/132"
+      ],
+      "supplierImports": [
+        {
+          "owner": "GlobalShtukasPartIICrystallineCompanions",
+          "items": [
+            "PAPER-ABE-18/32",
+            "PAPER-ABE-18/44"
+          ],
+          "contract": "Reuse the finite-determinant crystalline Langlands correspondence and essential-part realization with the same rank, Tate twists and Frobenius convention."
+        }
       ]
     },
     {
@@ -2266,6 +2356,17 @@
       "dependencies": [
         "PAPER-ESNAULT-GROECHENIG-20/074",
         "PAPER-ESNAULT-GROECHENIG-20/085"
+      ],
+      "supplierImports": [
+        {
+          "owner": "PadicHodgeTheoryPartIIRelativeCrystallineLocalSystems",
+          "items": [
+            "PAPER-GUO-REINECKE-24/075",
+            "PAPER-GUO-REINECKE-24/076",
+            "PAPER-GUO-REINECKE-24/080"
+          ],
+          "contract": "Import weakly crystalline/crystalline local systems on the adic generic fibre of the formal completion of Z/W. Compare algebraic Z_K étale local systems with this generic fibre in the proper smooth setting. The filtered F-isocrystal full-faithfulness input is only up to isogeny; integral full faithfulness in 074 remains the LSZ/SYZ theorem with its bounds."
+        }
       ]
     },
     {
@@ -2310,21 +2411,21 @@
       "id": "PAPER-ESNAULT-GROECHENIG-20/090",
       "kind": "definition",
       "name": "Continuous fixed-determinant deformation functor",
-      "statement": "For an absolutely irreducible continuous Γ→GL_r(F), F a topological field, assign to a finite-dimensional local F-algebra A continuous lifts with the prescribed residual isomorphism class, modulo the specified conjugacy relation, AND keep the determinant fixed for this paper's rigidity claims. Artinian corepresentability is the rigidity condition. The explicit missing determinant clause in Definition 5.2 is E4.",
+      "statement": "In the finite-field case used in Lemma 5.6, let G be profinite, F finite of characteristic p, O=W(F) (or finite p-adic coefficient ring), and rho_bar:G→GL_r(F) continuous and absolutely irreducible. On Art_O with specified residue data, take continuous lifts of rho_bar with a fixed continuous determinant lifting det(rho_bar), modulo strict conjugacy. Restriction to Art_F gives the equicharacteristic functor. Schur identifies strict and full conjugacy for lifts with the same reduction; finite residue-field extensions use the separate change-of-residue-field theorem. Representability requires Φ_p and Schur; the functor itself needs neither Φ_p nor a Galois origin. The finite-dimensional representing-algebra rigidity predicate and its isolated-point comparison are item 093, not an export of this blueprint. E4 supplies the missing fixed-determinant convention in the printed Definition 5.2.",
       "locator": "Definition 5.2 p.139; Lemma 5.6",
-      "status": "missing",
+      "status": "planned",
       "planningAPI": [
         {
           "name": "fixedDet",
-          "statement": "Enforce the determinant equation on each lift."
+          "statement": "Import the determinant subfunctor on Art_O and restrict along O→F."
         },
         {
           "name": "conjugacy",
-          "statement": "Specify the chosen unframed equivalence."
+          "statement": "Import strict-versus-full conjugacy with Schur and specified reduction."
         },
         {
           "name": "coefficientChange",
-          "statement": "Transport Artin coefficients continuously."
+          "statement": "Import finite change of residue field, including its completed tensor-product hypotheses."
         }
       ],
       "uses": [
@@ -2339,8 +2440,25 @@
         "A chosen Artin coefficient map must respect residual data."
       ],
       "unitTestStatus": "Planning acceptance obligations, not Lean tests executed.",
-      "dependencies": [
-        "PAPER-ESNAULT-GROECHENIG-20/089"
+      "dependencies": [],
+      "planned": [
+        "GlobalGaloisDeformations:R04.1",
+        "GlobalGaloisDeformations:R04.2"
+      ],
+      "supplierImports": [
+        {
+          "owner": "GlobalGaloisDeformations",
+          "items": [
+            "GlobalGaloisDeformations:R04.1/lifting-functor",
+            "GlobalGaloisDeformations:R04.1/strict-deformation-functor",
+            "GlobalGaloisDeformations:R04.1/strict-vs-full-conjugacy",
+            "GlobalGaloisDeformations:R04.1/fixed-determinant-functors",
+            "GlobalGaloisDeformations:R04.1/change-of-coefficients",
+            "GlobalGaloisDeformations:R04.2/universal-deformation-ring",
+            "GlobalGaloisDeformations:R04.2/change-of-residue-field"
+          ],
+          "contract": "Read the finished packet: general profinite G and finite residue F are already covered. No new source route into a finished blueprint; no claim for an arbitrary topological coefficient field."
+        }
       ]
     },
     {
@@ -2377,7 +2495,8 @@
       ],
       "unitTestStatus": "Planning acceptance obligations, not Lean tests executed.",
       "dependencies": [
-        "PAPER-ESNAULT-GROECHENIG-20/090"
+        "PAPER-ESNAULT-GROECHENIG-20/090",
+        "PAPER-ESNAULT-GROECHENIG-20/093"
       ]
     },
     {
@@ -2388,15 +2507,18 @@
       "locator": "Lemma 5.5 pp.139–140",
       "status": "missing",
       "dependencies": [
-        "PAPER-ESNAULT-GROECHENIG-20/089",
-        "PAPER-ESNAULT-GROECHENIG-20/090"
+        "PAPER-ESNAULT-GROECHENIG-20/089"
+      ],
+      "proofSteps": [
+        "For PGL rigidity implying fixed-determinant GL rigidity, χ^r=1 puts the twisting character in μ_r(K). Thus the generic deformation is isomorphic to the constant K-representation rho⊗χ^(-1). Its moduli point is closed, so the entire DVR family is constant, a contradiction. There is no need to infer χ=1; E12 gives a nontrivial self-twist counterexample.",
+        "For the converse retain the henselian/formal lifting argument and the μ_r obstruction."
       ]
     },
     {
       "id": "PAPER-ESNAULT-GROECHENIG-20/093",
       "kind": "theorem",
       "name": "Profinite completion and finite-coefficient rigidity",
-      "statement": "For ρ:π₁^top(X)→GL_r(F_q) absolutely irreducible with fixed determinant, the associated continuous representation of the profinite completion is rigid iff its fixed-determinant Betti moduli point is isolated. Prove the bijection on finite Artin-coefficient representations and identify the formal completion. State the PGL counterpart separately as the same proof with projective conjugacy.",
+      "statement": "For ρ:π₁^top(X)→GL_r(F_q) absolutely irreducible with fixed determinant, the associated continuous representation of the profinite completion is rigid iff its fixed-determinant Betti moduli point is isolated. Prove the bijection on finite Artin-coefficient representations and identify the formal completion. State the PGL counterpart separately as the same proof with projective conjugacy. Define rigidity of the fixed-determinant Art_F functor as corepresentation by a finite-dimensional local F-algebra. Identify its representing formal completion (rather than merely a hull); for a Noetherian local ring over finite F this is finite-dimensional exactly when the completion is Artinian, equivalently the moduli point is isolated. Finite coefficient algebras make abstract homomorphisms factor through the profinite completion. Residual extensions and Schur conjugacy are imported separately from 090.",
       "locator": "Lemma 5.6 p.141",
       "status": "missing",
       "dependencies": [
@@ -2422,11 +2544,22 @@
       "id": "PAPER-ESNAULT-GROECHENIG-20/095",
       "kind": "theorem",
       "name": "Faltings small p-adic Simpson correspondence",
-      "statement": "For K a p-adic local field with valuation ring V and X a proper V-scheme with the toroidal hypotheses of [Fa2], construct the equivalence between small Higgs bundles and small generalized geometric representations, retaining the chosen lift and coefficient-completion conventions. The Qp-theory's nilpotent Higgs fields are small; deformations stay in the comparison range used to test rigidity.",
+      "statement": "For K a p-adic local field with valuation ring V and X a proper V-scheme with the toroidal hypotheses of [Fa2], construct the equivalence between small Higgs bundles and small generalized geometric representations, retaining the chosen lift and coefficient-completion conventions. The Qp-theory's nilpotent Higgs fields are small; deformations stay in the comparison range used to test rigidity. This is the small integral Faltings version and its deformation compatibility, assigned to the existing p-adic Simpson Part II. Include small Z_p-representations and [Fa2, §5] Frobenius-crystal example. Compare with Heuer’s local correspondence and its global rational construction without treating the latter as a proof of the integral theorem.",
       "locator": "Theorem 5.8 p.142; Lemma 5.9 proof p.143",
       "status": "missing",
       "dependencies": [
         "PAPER-ESNAULT-GROECHENIG-20/004"
+      ],
+      "supplierImports": [
+        {
+          "owner": "PadicHodgeTheoryPartIIPadicSimpson",
+          "items": [
+            "PAPER-HEUER-25/35",
+            "PAPER-HEUER-25/36",
+            "PAPER-HEUER-25/40"
+          ],
+          "contract": "Use the local small correspondence and compare the B_dR^+/ξ²-lift and exponential choices. The Faltings integral version, smallness of nilpotent Higgs fields, stability under deformations and crystalline example extend this same owner; 096–098 import it."
+        }
       ]
     },
     {
@@ -2597,7 +2730,7 @@
       "id": "PAPER-ESNAULT-GROECHENIG-20/107",
       "kind": "construction",
       "name": "Integral unitary representation of infinite image",
-      "statement": "Choose an algebraic unit α of modulus one that is not a root of unity (for example a unit-circle conjugate of a Salem number). On a genus≥1 surface send one standard generator to α and all others to 1. This gives an integral unitary rank-one representation of infinite image. Require α⁻¹ integral as well to land in GL₁(O_Qbar); this example is not a finite-determinant rigid connection.",
+      "statement": "Choose an algebraic integer α of modulus one that is not a root of unity (for example a unit-circle conjugate of a Salem number). Its conjugate is another root of its monic integral minimal polynomial, so α⁻¹=conj(α) is integral and α is automatically a unit. On a genus≥1 surface send one standard generator to α and all others to 1. This is an integral unitary rank-one representation of infinite image; it is not a finite-determinant rigid connection.",
       "locator": "Example 6.3 p.146; [Da]",
       "status": "missing",
       "planningAPI": [
@@ -2607,7 +2740,7 @@
         },
         {
           "name": "inverseIntegral",
-          "statement": "Check α and α⁻¹ are integral."
+          "statement": "Prove α⁻¹=conj(α) is integral because conjugation preserves the monic minimal polynomial of α."
         },
         {
           "name": "infiniteOrder",
@@ -2623,7 +2756,7 @@
       "unitTests": [
         "The surface relator is trivial in the abelian target.",
         "A root of unity would give finite image.",
-        "A nonunit algebraic integer does not define an integral GL₁ representation."
+        "Derive the inverse’s integrality from |α|=1 and integrality of α; it is not an additional hypothesis."
       ],
       "unitTestStatus": "Planning acceptance obligations, not Lean tests executed.",
       "dependencies": [
@@ -2665,17 +2798,37 @@
       "unitTestStatus": "Planning acceptance obligations, not Lean tests executed.",
       "dependencies": [
         "PAPER-ESNAULT-GROECHENIG-20/132"
+      ],
+      "supplierImports": [
+        {
+          "owner": "GlobalShtukasPartIICrystallineCompanions",
+          "items": [
+            "PAPER-ABE-18/1",
+            "PAPER-ABE-18/31"
+          ],
+          "contract": "One companion relation and one closed-point Frobenius normalization. Supply an explicit adapter between geometric ℓ-adic Frobenius and the inverse of the linearized crystalline Frobenius used by Abe; preserve iterated-period normalization."
+        }
       ]
     },
     {
       "id": "PAPER-ESNAULT-GROECHENIG-20/109",
       "kind": "theorem",
-      "name": "p-to-ell companions and Chebotarev uniqueness",
-      "statement": "For smooth finite-field Y and irreducible finite-determinant overconvergent F-isocrystal E, the [AE] existence theorem supplies an irreducible ℓ-adic companion for ℓ≠p. Chebotarev on both sides gives uniqueness up to isomorphism and injectivity on isomorphism classes; verify the exact semisimple/geometric hypotheses and rank-one determinant-order compatibility.",
+      "name": "Chebotarev uniqueness and companion injectivity",
+      "statement": "For semisimple coefficient objects in the mixed overconvergent category on the p-adic side and semisimple lisse sheaves on the ℓ-adic side, equality of all normalized closed-point Frobenius polynomials gives equality of semisimplifications. Thus companions of irreducible finite-determinant objects are unique up to isomorphism, and transport is injective on their isomorphism classes. Existence is item 146. Apply tensor/determinant compatibility to recover the exact order of a rank-one finite-order companion. Keep geometric and arithmetic classes distinct.",
       "locator": "§7 p.148; [AE] Theorem 4.2; [Ab] Proposition A.3.1",
       "status": "missing",
       "dependencies": [
-        "PAPER-ESNAULT-GROECHENIG-20/108"
+        "PAPER-ESNAULT-GROECHENIG-20/108",
+        "PAPER-ESNAULT-GROECHENIG-20/146"
+      ],
+      "supplierImports": [
+        {
+          "owner": "PadicDifferentialEquationsPartIIArithmeticDModules",
+          "items": [
+            "PAPER-ABE-18/51"
+          ],
+          "contract": "Use the shared arithmetic D-module foundation’s mixed overconvergent Čebotarev theorem; [Ab] A.3.1 in EG’s citation is A.4.1 in Abe arXiv v3. Coalesce the theorem early; the companion application belongs late."
+        }
       ]
     },
     {
@@ -2743,7 +2896,8 @@
       "dependencies": [
         "PAPER-ESNAULT-GROECHENIG-20/085",
         "PAPER-ESNAULT-GROECHENIG-20/097",
-        "PAPER-ESNAULT-GROECHENIG-20/109"
+        "PAPER-ESNAULT-GROECHENIG-20/109",
+        "PAPER-ESNAULT-GROECHENIG-20/144"
       ]
     },
     {
@@ -2756,7 +2910,11 @@
       "dependencies": [
         "PAPER-ESNAULT-GROECHENIG-20/109",
         "PAPER-ESNAULT-GROECHENIG-20/110",
-        "PAPER-ESNAULT-GROECHENIG-20/133"
+        "PAPER-ESNAULT-GROECHENIG-20/133",
+        "PAPER-ESNAULT-GROECHENIG-20/140",
+        "PAPER-ESNAULT-GROECHENIG-20/141",
+        "PAPER-ESNAULT-GROECHENIG-20/142",
+        "PAPER-ESNAULT-GROECHENIG-20/143"
       ]
     },
     {
@@ -3095,7 +3253,7 @@
       "kind": "definition",
       "name": "Overconvergent geometric coefficients",
       "statement": "Use the frame/descent definition of overconvergent F-isocrystals, including the rational coefficient convention, restriction to convergent objects and proper-case comparison. Neither ordinary p-adic completion nor a semilinear vector space by itself proves overconvergence.",
-      "locator": "§4.17; §7",
+      "locator": "Corollary 4.17 pp.137–138 in §4.2; §7 pp.146–151",
       "status": "planned",
       "planned": [
         "PadicDifferentialEquationsAndRigidCohomology:RD.3"
@@ -3194,6 +3352,179 @@
         "An arbitrary F-isocrystal structure alone is not a motivic witness."
       ],
       "unitTestStatus": "Planning acceptance obligations, not Lean tests executed."
+    },
+    {
+      "id": "PAPER-ESNAULT-GROECHENIG-20/137",
+      "kind": "theorem",
+      "name": "Katz criterion for quasi-nilpotence",
+      "statement": "On a smooth scheme Z over a perfect field k of characteristic p, a finite-type integrable connection is quasi-nilpotent iff its p-curvature is nilpotent. Use the tensor-iterated nilpotence convention of 015, and import the separate W_n reduction argument 044 when applying this criterion to lifts.",
+      "locator": "§2.6 p.120; [Ka1] Corollary 5.5",
+      "status": "missing",
+      "dependencies": [
+        "PAPER-ESNAULT-GROECHENIG-20/012",
+        "PAPER-ESNAULT-GROECHENIG-20/015",
+        "PAPER-ESNAULT-GROECHENIG-20/043"
+      ]
+    },
+    {
+      "id": "PAPER-ESNAULT-GROECHENIG-20/138",
+      "kind": "theorem",
+      "name": "Finite-level crystals in p-curvature form",
+      "statement": "For a smooth formal W(k)-lift Zhat, evaluation identifies Crys(Z/W_n) with finite-type integrable connections on Z_n whose special-fibre p-curvature is nilpotent. Combine the quasi-nilpotent evaluation equivalence with reduction modulo p and the Katz criterion.",
+      "locator": "Theorem 2.19 p.120",
+      "status": "missing",
+      "dependencies": [
+        "PAPER-ESNAULT-GROECHENIG-20/044",
+        "PAPER-ESNAULT-GROECHENIG-20/045",
+        "PAPER-ESNAULT-GROECHENIG-20/137"
+      ]
+    },
+    {
+      "id": "PAPER-ESNAULT-GROECHENIG-20/139",
+      "kind": "theorem",
+      "name": "Complete formal crystals in p-curvature form",
+      "statement": "For the same lift, Crys(Z/W) is equivalent to finite-type integrable connections E ≅ lim_n E/p^nE that are separated and complete and whose special-fibre p-curvature is nilpotent. Convert the finite-level quasi-nilpotence conditions using 044 and 137 before taking the compatible inverse limit.",
+      "locator": "Corollary 2.20 p.120",
+      "status": "missing",
+      "dependencies": [
+        "PAPER-ESNAULT-GROECHENIG-20/044",
+        "PAPER-ESNAULT-GROECHENIG-20/046",
+        "PAPER-ESNAULT-GROECHENIG-20/137",
+        "PAPER-ESNAULT-GROECHENIG-20/138"
+      ]
+    },
+    {
+      "id": "PAPER-ESNAULT-GROECHENIG-20/145",
+      "kind": "theorem",
+      "name": "Smooth quasi-projective cover of an admissible stack",
+      "statement": "An admissible algebraic stack (finite diagonal) admits a proper generically finite surjection from a smooth quasi-projective scheme, with the hypotheses of Abe Proposition 2.3.3 and Corollary 2.3.4. Import this cover, without replacing quasi-projective by projective or requiring generic étaleness. EG item 086 separately performs the proper compactification, inseparable base change and projective curve-slice argument it needs.",
+      "locator": "Corollary 4.17 proof p.138; [Ab] Corollary 2.3.4",
+      "status": "missing",
+      "dependencies": [],
+      "supplierImports": [
+        {
+          "owner": "PadicDifferentialEquationsPartIIArithmeticDModules",
+          "items": [
+            "PAPER-ABE-18/17"
+          ],
+          "contract": "Coalesce the cover theorem with the accepted arithmetic D-module Part II. Keep the source and relative projectivity conditions of the application explicit."
+        }
+      ]
+    },
+    {
+      "id": "PAPER-ESNAULT-GROECHENIG-20/146",
+      "kind": "theorem",
+      "name": "p-to-ell companion existence via crystalline Langlands and Lefschetz",
+      "statement": "On a smooth finite-field variety, an irreducible overconvergent F-isocrystal with finite-order determinant has an irreducible ℓ-adic companion, ℓ≠p, after the stated algebraic coefficient transport. Import Abe’s conditional converse companion theorem together with the Abe–Esnault Lefschetz input proving the required curve-restriction conjecture over finite fields. The remaining external proof input is that Lefschetz theorem, not the whole companion mechanism.",
+      "locator": "§7 p.148; [AE] Theorem 4.2; [Ab] Theorem 4.4.5",
+      "status": "missing",
+      "dependencies": [
+        "PAPER-ESNAULT-GROECHENIG-20/108"
+      ],
+      "supplierImports": [
+        {
+          "owner": "GlobalShtukasPartIICrystallineCompanions",
+          "items": [
+            "PAPER-ABE-18/46",
+            "PAPER-ABE-18/47"
+          ],
+          "contract": "Use the existing conditional p-to-ℓ existence theorem and its explicit Abe–Esnault Lefschetz proof obligation; coalesce this source rather than create another companion owner."
+        }
+      ]
+    },
+    {
+      "id": "PAPER-ESNAULT-GROECHENIG-20/140",
+      "kind": "theorem",
+      "name": "Pure cohomology on smooth proper varieties",
+      "statement": "Let X/F_q be smooth proper and F a lisse Qℓbar-sheaf, ℓ≠p, pure of weight w. Every H^i(X_Fqbar,F) is pure of weight w+i with geometric Frobenius. Use properness to identify compact-support cohomology; without properness the general assertion is a weight bound, not purity of all H^i.",
+      "locator": "Proposition 7.4(2) pp.149–150; Weil II 3.3.1–3.3.11",
+      "status": "planned",
+      "dependencies": [],
+      "planned": [
+        "DeligneWeightsAndPurity:DWP.7"
+      ],
+      "unitTests": [
+        "The constant sheaf on a smooth projective curve has H¹ of weight one; an open curve only has the general bound."
+      ],
+      "unitTestStatus": "Planning acceptance obligations, not executed Lean tests."
+    },
+    {
+      "id": "PAPER-ESNAULT-GROECHENIG-20/141",
+      "kind": "theorem",
+      "name": "Weight zero for irreducible finite-determinant sheaves on curves",
+      "statement": "An irreducible lisse Qℓbar-sheaf on a smooth connected curve over a finite field with finite-order determinant is pure of weight zero. Use Lafforgue’s curve correspondence, allowing an open curve and ℓ different from the characteristic.",
+      "locator": "Proposition 7.4(2); [Laf] Theorem VII.6(ii), as [EK] Theorem 4.4(ii)",
+      "status": "planned",
+      "dependencies": [],
+      "planned": [
+        "GlobalShtukasAndFunctionFieldLanglands:GS.6"
+      ],
+      "unitTests": [
+        "A finite-order rank-one character has roots of unity as Frobenius eigenvalues."
+      ],
+      "unitTestStatus": "Planning acceptance obligations, not executed Lean tests."
+    },
+    {
+      "id": "PAPER-ESNAULT-GROECHENIG-20/142",
+      "kind": "theorem",
+      "name": "Weight zero on smooth varieties by restriction to curves",
+      "statement": "An irreducible lisse Qℓbar-sheaf with finite-order determinant on a smooth connected finite-type variety over F_q is pure of weight zero. For each closed point choose the smooth-curve restriction through it preserving irreducibility, using Esnault–Kerz Appendix B Proposition B.1; pull back the determinant and apply 141. Keep the finite residue extension and closed-point Frobenius power in the weight calculation. This is the smooth case of the existing Weil II Conjecture 1.2.10(i) target, not a new RigidCompanions-owned purity theorem.",
+      "locator": "Proposition 7.4(2) pp.149–150; [EK] Corollary 4.5 with Appendix B Proposition B.1; [Laf] Proposition VII.7(i)",
+      "status": "missing",
+      "dependencies": [
+        "PAPER-ESNAULT-GROECHENIG-20/141"
+      ],
+      "supplierImports": [
+        {
+          "owner": "DeligneWeightsAndPurity",
+          "items": [
+            "PAPER-DELIGNE-80/s1a-1.2.10i-conjecture"
+          ],
+          "contract": "Coalesce with the accepted target at a late layer DWP.10, after DWP.7 and GS.6. The EK proof recorded here concerns smooth varieties; the normal generalization in Weil II is not silently supplied by it."
+        }
+      ],
+      "unitTests": [
+        "At a point of residue degree e after a curve extension, weight zero for the corresponding power implies weight zero for the original eigenvalues."
+      ],
+      "unitTestStatus": "Planning acceptance obligations, not executed Lean tests."
+    },
+    {
+      "id": "PAPER-ESNAULT-GROECHENIG-20/143",
+      "kind": "theorem",
+      "name": "Lisse-sheaf L-functions and the cohomological trace formula",
+      "statement": "For a separated finite-type X/F_q and constructible ℓ-adic coefficient complex with ℓ≠p, identify the Euler product over closed points with the alternating product of det(1−t Frob_q | H_c^i(X_Fqbar,F))^{(−1)^{i+1}}, using the standard geometric Frobenius convention. For the smooth proper lisse case in Proposition 7.4 use H_c=H. Match the crystalline normalization before comparing L-functions.",
+      "locator": "Proposition 7.4(2) p.149; [De1] formula (5.2.3)",
+      "status": "planned",
+      "dependencies": [],
+      "planned": [
+        "SchemeAndStackFoundations:SF.2"
+      ],
+      "supplierImports": [
+        {
+          "owner": "SchemeAndStackFoundations",
+          "items": [
+            "SchemeAndStackFoundations:SF.2"
+          ],
+          "contract": "Integrates upstream CohomologicalPointCounting TraceFormula (PR196); this is the ℓ-adic trace input already imported by DWP.2/DWP.5, not a duplicate six-operations owner. No declaration-level formalization is asserted."
+        }
+      ],
+      "unitTests": [
+        "On Spec F_q the formula recovers det(1−tFrob|F)⁻¹."
+      ],
+      "unitTestStatus": "Planning acceptance obligations, not executed Lean tests."
+    },
+    {
+      "id": "PAPER-ESNAULT-GROECHENIG-20/144",
+      "kind": "theorem",
+      "name": "Constant-field decomposition of irreducible lisse sheaves",
+      "statement": "For a normal geometrically connected finite-type Z/F_q and an irreducible lisse Qℓbar-sheaf V, its geometric restriction is a direct sum of pairwise non-isomorphic irreducible constituents permuted transitively by Frobenius. After the finite constant extension of degree equal to the orbit size, those constituents descend and V splits into their direct sum. Equivalently V is induced from one constituent on that extension. In the semisimple version retain the constant-field character factors and the finite-order normalization choices of Deligne (1.3.1); do not claim a canonical choice of constituent. In particular geometric reducibility is detected after a finite constant extension.",
+      "locator": "Proposition 7.4(1) p.149; [De3] §1.2–1.4, formula (1.3.1)",
+      "status": "missing",
+      "dependencies": [],
+      "unitTests": [
+        "An irreducible arithmetic sheaf with a Frobenius orbit of two distinct geometric constituents splits after F_q²; choosing either constituent gives conjugate induction data."
+      ],
+      "unitTestStatus": "Planning acceptance obligations, not executed Lean tests."
     }
   ],
   "routes": [
@@ -3247,7 +3578,7 @@
         "PAPER-ESNAULT-GROECHENIG-20/124"
       ],
       "reason": "The ring IsAzumaya carrier exists, and field central-simple/Brauer theory is already upstream. The needed equivalence concerns sheaf algebras over nonreduced spectral schemes, with descent and annihilator control; neither field Skolem–Noether nor the endoscopic Hitchin roadmap supplies it. Title corrected by REV-PAPER-ESNAULT-GROECHENIG-20: the prefix now reproduces the parent's atlas title exactly, as PROTOCOL §16 requires; the previous title paraphrased it. This roadmap id is proposed by this extraction alone, so no other file is affected.",
-      "brief": "Start from Semisimple algebras and Artin–Wedderburn (tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras), Mathlib IsAzumaya and Tau Ceti field-level central-simple/Brauer declarations. Extend once to sheaf Azumaya algebras, splitting modules and coherent Morita equivalence over general scheme bases. The foundational theorem is equivalence of modules over End(P) with modules over the base for a finite projective generator P, compatible with annihilators, affine pushforward and the local-free rank calculations used in EG20 Theorem 2.17. Prove strict-henselian splitting, transition invertible bimodules, and descent of the reduced characteristic invariant even on nonreduced parameter schemes. Coordinate geometric Brauer comparison with SchemeAndStackFoundations:SF.2, already requested by PAPER-CESNAVICIUS-19; it is a supplier, not a duplicate Brauer owner. Import quasi-coherent sheaves and étale descent from SchemeAndStackFoundations/AlgebraicModuliForArithmeticGeometry. Export the Cartier one-form connecting map and its functorial/additive Brauer-class interpretation, while the special crystalline D-algebra and its W₂ splitting remain in the Cartier-transform successor. No assertion of unique isomorphisms between arbitrary modules, and no ordinary-henselian splitting without a residue-field condition, is permitted."
+      "brief": "Start from Semisimple algebras and Artin–Wedderburn (tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras), Mathlib IsAzumaya and Tau Ceti field-level central-simple/Brauer declarations. Extend once to sheaf Azumaya algebras, splitting modules and coherent Morita equivalence over general scheme bases. The foundational theorem is equivalence of modules over End(P) with modules over the base for a finite projective generator P, compatible with annihilators, affine pushforward and the local-free rank calculations used in EG20 Theorem 2.17. Prove strict-henselian splitting, transition invertible bimodules, and descent of the reduced characteristic invariant even on nonreduced parameter schemes. Coordinate geometric Brauer comparison with SchemeAndStackFoundations:SF.2, already requested by PAPER-CESNAVICIUS-19; it is a supplier, not a duplicate Brauer owner. Import quasi-coherent sheaves and étale descent from SchemeAndStackFoundations/AlgebraicModuliForArithmeticGeometry. Export the Cartier one-form connecting map and its functorial/additive Brauer-class interpretation, while the special crystalline D-algebra and its W₂ splitting remain in the Cartier-transform successor. No assertion of unique isomorphisms between arbitrary modules, and no ordinary-henselian splitting without a residue-field condition, is permitted. Reuse Mathlib ModuleCat.toMatrixModCat, ModuleCat.matrixEquivalence, moritaEquivalenceMatrix and IsMoritaEquivalent.matrix for affine free positive-rank splittings, and IsAzumaya.matrix for matrix algebras. The additional work is projective-generator and sheaf descent with support tracking."
     },
     {
       "route": "part-ii",
@@ -3315,10 +3646,13 @@
         "PAPER-ESNAULT-GROECHENIG-20/127",
         "PAPER-ESNAULT-GROECHENIG-20/128",
         "PAPER-ESNAULT-GROECHENIG-20/129",
-        "PAPER-ESNAULT-GROECHENIG-20/130"
+        "PAPER-ESNAULT-GROECHENIG-20/130",
+        "PAPER-ESNAULT-GROECHENIG-20/137",
+        "PAPER-ESNAULT-GROECHENIG-20/138",
+        "PAPER-ESNAULT-GROECHENIG-20/139"
       ],
       "reason": "CR.1 owns crystals and quasi-nilpotent connection comparison, but its layers do not promise crystalline differential-operator Azumaya theory, inverse Cartier in families or Higgs–de Rham flow. R07.3 owns absolute Fontaine–Laffaille theory; relative filtered connections on a variety are additional. Title corrected by REV-PAPER-ESNAULT-GROECHENIG-20: the prefix now reproduces the parent's atlas title exactly, as PROTOCOL §16 requires; the previous title paraphrased it. This roadmap id is proposed by this extraction alone, so no other file is affected.",
-      "brief": "Extend Crystalline cohomology (CrystallineCohomology), importing CR.1 crystals/connections and CR.2 comparison rather than constructing rival carriers. With HodgeStructuresPartII supplying stable Higgs moduli and nice arithmetic models, build restricted tangent derivations, p-curvature with its Frobenius-semilinearity and horizontality, relative Frobenius, tensor nilpotency, the crystalline D-algebra and its cotangent centre, BMR rank p^(2dim Z), Cartier descent and the W₂-dependent Ogus–Vologodsky equivalence with explicit signs and nilpotency range. Import sheaf Morita descent from SemisimpleAlgebrasPartIIGeometricMorita. Correct the family BNR invariant conditions as in E2/034–035 before the nonreduced deformation proof; locate an explicit R(r,m) support bound and repair E3. Then prove EG20 Theorem 1.4: a rigid stable fixed-torsion-determinant complex connection has a selected arithmetic model with nilpotent p-curvature at every closed point. Build signed inverse Cartier, finite and mixed-characteristic periodic flows, LSZ/SYZ realization and its reduction compatibility; import only the absolute Fontaine–Laffaille input from FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.3. Prove the finite permutation over all determinant powers, lift independence at the level of rigid points, unique filtered lifts, and the finite inverse-limit argument. The second final result is Theorem 1.6: every permitted W(k)-point yields an F^f-isocrystal after finite residue-field extension, with the stronger filtered integral realization specified separately. Develop the Appendix-A scaling/PD action only after repairing the relative Brauer argument E5; retain Corollary A.7's p>2, W₂-liftability and cohomological rigidity hypotheses. This is not a proof of Question A.8 or Simpson motivicity."
+      "brief": "Extend Crystalline cohomology (CrystallineCohomology), importing CR.1 crystals/connections and CR.2 comparison rather than constructing rival carriers. With HodgeStructuresPartII supplying stable Higgs moduli and nice arithmetic models, build restricted tangent derivations, p-curvature with its Frobenius-semilinearity and horizontality, relative Frobenius, tensor nilpotency, the crystalline D-algebra and its cotangent centre, BMR rank p^(2dim Z), Cartier descent and the W₂-dependent Ogus–Vologodsky equivalence with explicit signs and nilpotency range. Import sheaf Morita descent from SemisimpleAlgebrasPartIIGeometricMorita. Correct the family BNR invariant conditions as in E2/034–035 before the nonreduced deformation proof; locate an explicit R(r,m) support bound and repair E3. Then prove EG20 Theorem 1.4: a rigid stable fixed-torsion-determinant complex connection has a selected arithmetic model with nilpotent p-curvature at every closed point. Build signed inverse Cartier, finite and mixed-characteristic periodic flows, LSZ/SYZ realization and its reduction compatibility; import only the absolute Fontaine–Laffaille input from FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.3. Prove the finite permutation over all determinant powers, lift independence at the level of rigid points, unique filtered lifts, and the finite inverse-limit argument. The second final result is Theorem 1.6: every permitted W(k)-point yields an F^f-isocrystal after finite residue-field extension, with the stronger filtered integral realization specified separately. Develop the Appendix-A scaling/PD action only after repairing the relative Brauer argument E5; retain Corollary A.7's p>2, W₂-liftability and cohomological rigidity hypotheses. This is not a proof of Question A.8 or Simpson motivicity. Import the quasi-nilpotent CR.1 forms of 045–046, then prove 137–139 here; no foundational CR.1 node depends on p-curvature. Import crystalline-local-system definitions from PadicHodgeTheoryPartIIRelativeCrystallineLocalSystems (GUO-REINECKE-24/075,076,080), with the algebraic-to-adic generic-fibre bridge; its full faithfulness is only up to isogeny."
     },
     {
       "route": "part-ii",
@@ -3328,9 +3662,7 @@
       "area": "padic",
       "items": [
         "PAPER-ESNAULT-GROECHENIG-20/086",
-        "PAPER-ESNAULT-GROECHENIG-20/087",
         "PAPER-ESNAULT-GROECHENIG-20/094",
-        "PAPER-ESNAULT-GROECHENIG-20/095",
         "PAPER-ESNAULT-GROECHENIG-20/096",
         "PAPER-ESNAULT-GROECHENIG-20/097",
         "PAPER-ESNAULT-GROECHENIG-20/098",
@@ -3339,7 +3671,6 @@
         "PAPER-ESNAULT-GROECHENIG-20/101",
         "PAPER-ESNAULT-GROECHENIG-20/102",
         "PAPER-ESNAULT-GROECHENIG-20/104",
-        "PAPER-ESNAULT-GROECHENIG-20/108",
         "PAPER-ESNAULT-GROECHENIG-20/109",
         "PAPER-ESNAULT-GROECHENIG-20/111",
         "PAPER-ESNAULT-GROECHENIG-20/112",
@@ -3350,10 +3681,15 @@
         "PAPER-ESNAULT-GROECHENIG-20/117",
         "PAPER-ESNAULT-GROECHENIG-20/118",
         "PAPER-ESNAULT-GROECHENIG-20/120",
-        "PAPER-ESNAULT-GROECHENIG-20/122"
+        "PAPER-ESNAULT-GROECHENIG-20/122",
+        "PAPER-ESNAULT-GROECHENIG-20/091",
+        "PAPER-ESNAULT-GROECHENIG-20/092",
+        "PAPER-ESNAULT-GROECHENIG-20/093",
+        "PAPER-ESNAULT-GROECHENIG-20/144",
+        "PAPER-ESNAULT-GROECHENIG-20/145"
       ],
-      "reason": "RD.3 and RD.6 supply geometric coefficients and weights. None of their existing layers states Faltings/LSZ compatibility, rigid p-adic representations, the zero-p-curvature unitarity result or the cohomologically rigid companion bijections. This successor consumes, not repeats, the Cartier-flow construction. Title corrected by REV-PAPER-ESNAULT-GROECHENIG-20: the prefix now reproduces the parent's atlas title exactly, as PROTOCOL §16 requires; the previous title paraphrased it. This roadmap id is proposed by this extraction alone, so no other file is affected.",
-      "brief": "Extend P-adic differential equations and rigid cohomology (PadicDifferentialEquationsAndRigidCohomology) from its frame/coefficient and p-adic-weight foundations to arithmetic rigid connections. Import periodic crystalline realizations from CrystallineCohomologyPartIICartierFlows, projective stable Hodge/Betti theory and unitarity criterion from HodgeStructuresPartII, fixed-determinant deformation functors from GlobalGaloisDeformations, and étale fundamental-group specialization from InverseGaloisAndArithmeticFundamentalGroups. Build the Faltings small p-adic Simpson input and the LSZ comparison by direct sums of Frobenius shifts, keeping generic, geometric and residual rigidity distinct. Prove EG20 Theorem 5.4 in its verified convention; construct Cassels good points densely in arithmetic opens, projective arithmetic descent and projective period one. Theorem 6.1 concludes UNITARY monodromy from vanishing p-curvature on every closed fibre of a model; finite monodromy needs the extra hypotheses in Propositions 8.1/8.2. For companions, import CR.2 coefficient comparison and RD.6 weights, explicitly source-gate Abe's crystalline shtuka realization and Abe–Esnault p-to-ℓ existence rather than substituting the ℓ-adic GS.6 theorem. Construct local-polynomial companions, finite normalized geometric comparison sets, geometric irreducibility, End⁰-H¹ vanishing by L-functions/purity, determinant-order control and the counting bijection. Final Theorem 7.3 gives p↔ℓ and p↔p companions only for this cohomologically rigid family. Corollary 4.17 gives motivicity only after restriction to a complete-intersection curve and a dense open. The higher-dimensional motivicity problem remains a question. Resolve all source gates and arithmetic-Frobenius normalization before treating the design as closed."
+      "reason": "This consumer owns the arithmetic applications and abstract rigidity comparisons, not its crystalline, Simpson, companion or weight foundations. The new supplier assignments reconcile the later accepted HEUER-25, GUO-REINECKE-24, ABE-18 and DELIGNE-80 extractions and the finished Galois deformation blueprint.",
+      "brief": "Extend P-adic differential equations and rigid cohomology (PadicDifferentialEquationsAndRigidCohomology) to the arithmetic applications of rigid connections. Import CartierFlows periodic crystalline realizations, HodgeStructuresPartII stable moduli and unitarity, and the finished GlobalGaloisDeformations R04.1/R04.2 finite-residue fixed-determinant functors (090). Own the residual-rigidity convention and the abstract GL/PGL and profinite/Betti comparisons 091–093 here, with 089 imported from Hodge theory; never reopen the finished Galois blueprint for these character-variety theorems. Import the small integral Faltings correspondence from PadicHodgeTheoryPartIIPadicSimpson and crystalline local-system definitions from PadicHodgeTheoryPartIIRelativeCrystallineLocalSystems; retain only the LSZ/Faltings comparison and rigidity deductions 096–098. Prove Theorem 5.4 with generic, geometric and residual rigidity distinguished, and Theorem 6.1 via Cassels good points in every relevant arithmetic open. For Corollary 4.17 and Theorem 7.3, import the shtuka realization, companion relation and p-to-ell existence from GlobalShtukasPartIICrystallineCompanions (ABE-18/1,31,32,44,46,47); only the Abe–Esnault Lefschetz proof remains an external companion input. Coalesce the admissible-stack cover 145 and mixed overconvergent Chebotarev foundation (ABE-18/17,51) with the early ArithmeticDModules layers. Order early ArithmeticDModules → GlobalShtukasPartIICrystallineCompanions → late RigidCompanions; grouping under one parent is not permission to introduce a reciprocal whole-roadmap dependency. The l-adic half of Proposition 7.4 imports DWP.7 smooth-proper purity, GS.6 curve purity, the late DWP.10 smooth-variety reduction via EK Corollary 4.5/Appendix B, and SF.2/upstream TraceFormula. RD.6 supplies p-adic weights and CR.2 coefficient comparison. Add Deligne constant-field decomposition 144, geometric irreducibility, End⁰-H¹ vanishing, determinant-order control and normalized counting. Final companions are p↔ell and p↔p for this cohomologically rigid family only; motivicity remains the dense-open curve statement. Carry E11/E12’s repaired proofs and all retained source gates into the design."
     },
     {
       "route": "source",
@@ -3373,22 +3709,44 @@
         "PAPER-ESNAULT-GROECHENIG-20/046",
         "PAPER-ESNAULT-GROECHENIG-20/110"
       ],
-      "reason": "Reuse the unique crystalline-site/connection owner. EG20 §2.6 is a precise source for the mod-p nilpotence criterion, finite-Witt and complete-formal evaluation equivalences; add item 044's reduction argument to CR.1. CR.2 supplies End⁰ coefficient comparison, not all companions."
+      "reason": "Reuse CR.1 quasi-nilpotent connections, finite-Witt evaluation and complete formal comparison. Item 044 retains only [BO] Exercise 4.14 (quasi-nilpotence modulo p), depending on 043; Katz Corollary 5.5 and the p-curvature forms of EG Theorem 2.19/Corollary 2.20 are separate items 137–139 in CartierFlows. CR.2 supplies End⁰ coefficient comparison. The order is CR.1/CR.2 → HodgeStructuresPartII → CartierFlows → RigidCompanions."
+    },
+    {
+      "route": "part-ii",
+      "parent": "PadicHodgeTheory",
+      "roadmap": "PadicHodgeTheoryPartIIPadicSimpson",
+      "title": "P-adic Hodge theory and geometric comparison, Part II: the p-adic Simpson correspondence for smooth proper rigid spaces",
+      "area": "padic",
+      "items": [
+        "PAPER-ESNAULT-GROECHENIG-20/095"
+      ],
+      "reason": "Use the accepted HEUER-25 owner, adding Faltings’s small integral theorem beside Heuer’s rational correspondence. This replaces the obsolete source route to the finished GlobalGaloisDeformations blueprint.",
+      "brief": "Start from PadicHodgeTheory and the accepted PadicHodgeTheoryPartIIPadicSimpson proposal of PAPER-HEUER-25; preserve its id, title and area. Add EG20 Theorem 5.8 as the small integral Faltings correspondence on proper smooth V-schemes within Faltings’s toroidal setting, with coefficient completion, chosen lift, small generalized representations, nilpotent small Higgs fields and deformation stability. Include the Frobenius-crystal example of [Fa2, §5]. Coordinate the local correspondence with HEUER-25/35–36 and compare the global rational construction 40, retaining its B_dR^+/ξ² lift and exponential choices. Import Higgs carriers from HodgeStructuresPartII and period sheaves from PadicHodgeTheory. Export this interface to EG20/096–098 in RigidCompanions; do not depend on those consumers. Unit tests: trivial integral representation, a nilpotent small Higgs object, and deformation remaining in the specified small radius. Faltings’s integral proof must be extracted; Heuer’s theorem alone does not provide it."
+    },
+    {
+      "route": "part-ii",
+      "parent": "GlobalShtukasAndFunctionFieldLanglands",
+      "roadmap": "GlobalShtukasPartIICrystallineCompanions",
+      "title": "Global shtukas and Langlands over function fields, Part II: the Langlands correspondence for isocrystals and crystalline companions",
+      "area": "functionfields",
+      "items": [
+        "PAPER-ESNAULT-GROECHENIG-20/087",
+        "PAPER-ESNAULT-GROECHENIG-20/108",
+        "PAPER-ESNAULT-GROECHENIG-20/146"
+      ],
+      "reason": "Coalesce these inputs with the accepted Abe owner, which already asked EG20 to import its realization and companion theorems. No rival crystalline-companion construction remains in RigidCompanions.",
+      "brief": "Reuse the accepted PAPER-ABE-18 GlobalShtukasPartIICrystallineCompanions proposal and its full brief. EG20 imports the closed-point Frobenius conventions and companion relation (ABE-18/1,31), the Langlands and essential shtuka-cohomology realization (32,44), and p-to-ell existence (47) once the Lefschetz hypothesis (46, Abe–Esnault) is discharged. Record the characteristic-polynomial normalization, inverse linearized Frobenius, Tate twists, finite determinant and coefficient extensions explicitly. Import the early ArithmeticDModules six operations, stack cover and Chebotarev foundation; export to late RigidCompanions theorems 4.17 and 7.3. The latter’s normalized counting and geometric irreducibility belong to EG, not this supplier. No GS.6 l-adic theorem alone supplies the crystalline existence input."
     },
     {
       "route": "source",
-      "roadmap": "GlobalGaloisDeformations",
+      "roadmap": "DeligneWeightsAndPurity",
       "stages": [
-        "GlobalGaloisDeformations:R04.1",
-        "GlobalGaloisDeformations:R04.2"
+        "DeligneWeightsAndPurity:DWP.10"
       ],
       "items": [
-        "PAPER-ESNAULT-GROECHENIG-20/090",
-        "PAPER-ESNAULT-GROECHENIG-20/091",
-        "PAPER-ESNAULT-GROECHENIG-20/092",
-        "PAPER-ESNAULT-GROECHENIG-20/093"
+        "PAPER-ESNAULT-GROECHENIG-20/142"
       ],
-      "reason": "Extend the existing determinant-fixed deformation owner to the finitely generated abstract and topologically finitely generated geometric profinite groups used in §5. Separate framing/conjugacy and Artinian-completion hypotheses. This follows the same generic-group extension requested by PAPER-LANDESMAN-LITT-24 and does not assert that the present G_F,S-specific representability statement already covers every group."
+      "reason": "Supply the smooth-variety reduction to curves via Esnault–Kerz Corollary 4.5 and Appendix B Proposition B.1 for the existing PAPER-DELIGNE-80/s1a-1.2.10i-conjecture target. Place it late at DWP.10, after DWP.7 → GS.6: GS.6 already consumes DWP.7, so routing the higher-dimensional proof back into DWP.7 would cycle. RigidCompanions imports this result. No DWP blueprint packet exists in this snapshot; hand this exact source request to BP-DeligneWeightsAndPurity."
     }
   ],
   "prerequisites": [
@@ -3415,7 +3773,7 @@
     {
       "citation": "Faltings, A p-adic Simpson correspondence, Adv. Math. 198 (2005), 847–862",
       "link": "https://doi.org/10.1016/j.aim.2005.05.026",
-      "why": "Theorem 5 and §5 crystalline example are essential to 095–098, including smallness and deformation compatibility. Generic versus residual rigidity remains G3."
+      "why": "Faltings Theorem 5 and §5 Frobenius-crystal example: the small integral proof and its deformation stability must be supplied by PadicHodgeTheoryPartIIPadicSimpson beside HEUER-25/35,36,40. Its existing rational correspondence does not close this input."
     },
     {
       "citation": "Langer, Semistable modules over Lie algebroids in positive characteristic, Doc. Math. 19 (2014), 509–540",
@@ -3423,14 +3781,9 @@
       "why": "Theorem 1.1 moduli, Theorem 3.8 properness and Corollary 5.10 semistability; read the exact stable/semistable and relative-base hypotheses before closing 003,031,056."
     },
     {
-      "citation": "Abe, Langlands correspondence for isocrystals and the existence of crystalline companions for curves, JAMS 31 (2018), 921–1057",
-      "link": "https://arxiv.org/abs/1310.0528",
-      "why": "Theorem 4.2.2, Corollary 2.3.4 and Proposition A.3.1 supply crystalline shtuka realization and uniqueness, beyond the ℓ-adic GS.6 roadmap. Proof interiors not read."
-    },
-    {
       "citation": "Abe–Esnault, A Lefschetz theorem for overconvergent isocrystals with Frobenius structure, Ann. Sci. ENS 52 (2019), 1243–1264",
       "link": "https://doi.org/10.24033/asens.2408",
-      "why": "Theorem 4.2 supplies p-to-ℓ companions. Required for 109–118; abstract/bibliographic verification is not theorem-proof closure."
+      "why": "The Lefschetz input proves the curve-restriction conjecture of ABE-18/46, allowing the conditional p-to-ell existence ABE-18/47 to apply (EG item 146). The companion mechanism is already assigned to GlobalShtukasPartIICrystallineCompanions; only this external proof input remains to extract."
     },
     {
       "citation": "Esnault–Groechenig, Cohomologically rigid local systems and integrality, Selecta 24 (2018), 4279–4292",
@@ -3460,7 +3813,7 @@
     {
       "citation": "N. Katz, Nilpotent connections and the monodromy theorem: applications of a result of Turrittin, Publ. Math. IHÉS 39 (1970), 175–232 [Ka1]",
       "link": "http://www.numdam.org/item/PMIHES_1970__39__175_0/",
-      "why": "Proposition 5.2 (p-curvature is p-linear in the tangent field, Proposition 2.4 here), Proposition 5.2.3 (flatness of ψ(∇) for the induced connection on F^*Ω¹⊗End(E), which makes (2.3) global) and Theorem 8.0, the constancy of de Rham Betti numbers on a dense open, used in §7."
+      "why": "Proposition 5.2 (p-curvature is p-linear in the tangent field, Proposition 2.4 here), Proposition 5.2.3 (flatness of ψ(∇) for the induced connection on F^*Ω¹⊗End(E), which makes (2.3) global) and Theorem 8.0, the constancy of de Rham Betti numbers on a dense open, used in §7. Corollary 5.5 is the separate quasi-nilpotence/p-curvature criterion 137, owned by CartierFlows, not CR.1."
     },
     {
       "citation": "N. Katz, Algebraic solutions of differential equations (p-curvature and the Hodge filtration), Invent. Math. 18 (1972), 1–118 [Ka2]",
@@ -3533,9 +3886,9 @@
       "why": "Cited in §7 as later work in progress on the existence of crystalline companions — a **preprint**, recorded so that the atlas knows the higher-dimensional p-adic companion input is not a published theorem."
     },
     {
-      "citation": "P. Deligne, La conjecture de Weil II, Publ. Math. IHÉS 52 (1980), 137–252, and L. Lafforgue, Chtoucas de Drinfeld et correspondance de Langlands, Invent. Math. 147 (2002), 1–241 [De2, Laf]",
-      "link": "https://doi.org/10.1007/s002220100174",
-      "why": "Weight-zero purity for the ℓ-adic and crystalline L-functions of End⁰, with [Laf, Proposition VII.7(i)] as corrected in [EK, Corollary 4.5]: the product formula and weight argument that make the counting in Theorem 7.3 work. PAPER-LAFFORGUE-18 in this repository extracts the reductive-group analogue."
+      "citation": "H. Esnault and M. Kerz, A finiteness theorem for Galois representations of function fields over finite fields (after Deligne), Acta Math. Vietnamica 37 (2012), 531–562",
+      "link": "https://arxiv.org/abs/1208.0128",
+      "why": "Corollary 4.5 with Appendix B Proposition B.1 supplies the smooth-variety reduction to curves for 142 at DWP.10. Curve purity (Theorem 4.4(ii), citing Lafforgue VII.6(ii)) is already planned at GS.6; smooth-proper cohomological purity is DWP.7, and the l-adic trace formula is SF.2. The 2014 author errata was read; it does not amend Corollary 4.5 or Proposition B.1."
     },
     {
       "citation": "R. Crew, Rigidity and Frobenius structure, Doc. Math. 22 (2017), 287–296 [Cr]",
@@ -3545,7 +3898,7 @@
     {
       "citation": "T. Y. Lam, Lectures on Modules and Rings, Graduate Texts in Math. 189, Springer, 1999 [Lam]",
       "link": "https://zbmath.org/?q=an%3A0911.16001",
-      "why": "Theorems 18.11 and 18.2, classical Morita theory for matrix algebras, applied in the proof of Theorem 2.17 to a sheaf of matrix algebras over a product of henselian local rings; the sheaf-theoretic form is what SemisimpleAlgebrasPartIIGeometricMorita has to supply."
+      "why": "Theorems 18.11 and 18.2, classical Morita theory for matrix algebras, applied in the proof of Theorem 2.17 to a sheaf of matrix algebras over a product of henselian local rings; the sheaf-theoretic form is what SemisimpleAlgebrasPartIIGeometricMorita has to supply. Matrix Morita equivalence is already in pinned Mathlib; only the projective-generator and sheaf/support residual is imported as missing."
     },
     {
       "citation": "A. Grothendieck, EGA IV, 3e partie, Publ. Math. IHÉS 28 (1966) [Grt]",
@@ -3556,6 +3909,11 @@
       "citation": "R. C. Daileda, Algebraic integers on the unit circle, J. Number Theory 118 (2006), 189–191 [Da]",
       "link": "https://zbmath.org/?q=an%3A1097.11049",
       "why": "Theorem 2: there exist algebraic integers of absolute value 1 that are not roots of unity — the whole content of Example 6.3, which separates integrality from strong integrality."
+    },
+    {
+      "citation": "P. Deligne, Finitude de l’extension de Q engendrée par des traces de Frobenius, en caractéristique finie, Moscow Math. J. 12 (2012), 497–514",
+      "link": "https://publications.ias.edu/node/2555",
+      "why": "[De3] §1.2–1.4 and (1.3.1), the geometric-constituent/constant-field decomposition used in Proposition 7.4(1); item 144. The IAS author PDF pp.8–9 was read selectively on 2026-09-30; no full external-paper extraction is claimed."
     }
   ],
   "sourceIssues": [
@@ -3769,10 +4127,10 @@
     {
       "id": "PAPER-ESNAULT-GROECHENIG-20/E10",
       "kind": "misprint",
-      "locator": "Typographical and index slips: §2.1 p. 108; Definition 2.3 p. 110; Proposition 2.4 p. 111; proof of Theorem 2.17 p. 119; Lemma 5.11(d) pp. 144–145; §8.2 p. 153",
-      "printed": "A Higgs bundle on Z is a pair (V,θ), where V is a vector bundle and θ:V → V⊗Ω¹_X is an O-linear map satisfying the integrality condition θ∧θ=0. This definition is reminiscent of a flat connection, that is, a pair (E,∇), … satisfying the integrality condition ∇²=0. … Let U⊂Z be a open subscheme, and ∂∈Θ_Z(U) a section of k-derivations of O_X … [Definition 2.3:] sending a local section ∇∈Θ_Z(U) to the k-linear endomorphism of F given by (∇_∂)^p−∇_{∂^{[p]}} … [Proposition 2.4:] That is, for a Zariski open subset U⊂X … Furthermore, for every local section ∂∈Θ_X(U) … [p. 119:] we obtain a degree-n section a = λ^r+a₂λ^{r−2}+…+a_r … [Lemma 5.11(d):] for every s as in (b), a rigid and absolutely irreducible projective representation of π₁(X_Q̄p) → PGL_n(Z_p) descends to π₁(X_Qp) … [p. 153:] and is unitary by Theorems 1.8.",
-      "correction": "\"integrability condition\" (twice); Ω¹_Z, O_Z, U⊂Z and Θ_Z(U) for the four X/Z slips; \"sending a local section ∂∈Θ_Z(U)\"; \"a degree-r section\"; \"for every s as in (c)\" and PGL_r(Z_p); \"by Theorem 1.8\". Also \"a open subscheme\".",
-      "reason": "Type and index slips with no mathematical consequence. The variety is called Z throughout §2, so Ω¹_X, O_X, U⊂X and Θ_X have no referent there; in Definition 2.3 the same symbol ∇ is used both for the connection and for the tangent field it is evaluated at, two symbols apart; the section constructed on p. 119 is monic of degree r, n being an unrelated integer fixed earlier in the proof (the number of local factors of Spec R); the points s of Lemma 5.11 are introduced in part (c), not (b); and the rank is r everywhere else in the paper. The \"degree-n\" reading was confirmed on the page rendered at 300 dpi.",
+      "locator": "Typographical and index slips: §2.1 p. 108; Definition 2.3 p. 110; Proposition 2.4 p. 111; proof of Theorem 2.17 p. 119; Lemma 5.11(d) pp. 144–145; §8.2 p. 153; Corollary 4.17 pp.137–138; Lemma 5.9 p.143; proof of Lemma 5.11 pp.144–145; Theorem 7.3 p.149",
+      "printed": "It defines Higgs (V,θ) via O-linear θ:V → V⊗Ω¹_X and an “integrality” condition θ∧θ=0; likewise (E,∇) has ∇²=0. It takes U⊂Z, ∂∈Θ_Z(U), with derivations of O_X. Definition 2.3 uses ∇∈Θ_Z(U) and (∇_∂)^p−∇_{∂^{[p]}} as a k-linear endomorphism of F. Proposition 2.4 has U⊂X, ∂∈Θ_X(U). P.119 calls a = λ^r+a₂λ^{r−2}+…+a_r degree-n. Lemma 5.11(d) has s in (b), π₁(X_Q̄p) → PGL_n(Z_p) descending to π₁(X_Qp). P.153 cites Theorems 1.8 for unitarity. Also: p.137 s∈S; p.138 “course”; p.143 π₁(C_Qp); p.145 s in (b), Claim (c), from (b); p.149 S(s,p,r.d).",
+      "correction": "\"integrability condition\" (twice); Ω¹_Z, O_Z, U⊂Z and Θ_Z(U) for the four X/Z slips; \"sending a local section ∂∈Θ_Z(U)\"; \"a degree-r section\"; \"for every s as in (c)\" and PGL_r(Z_p); \"by Theorem 1.8\". Also \"a open subscheme\". In Corollary 4.17 take s∈S′. The p.138 morphism is generically smooth and (of course) projective; do not replace course with coarse. On p.143 the arithmetic group is π₁(X_Qp), without adding an algebraic closure bar. In the proof of Lemma 5.11 the constructed point belongs to (c), and the concluding claim is (d), following from (c) and Proposition 5.7 (also using (a)). Theorem 7.3 uses S(s,p,r,d).",
+      "reason": "Type and index slips with no mathematical consequence. The variety is called Z throughout §2, so Ω¹_X, O_X, U⊂X and Θ_X have no referent there; in Definition 2.3 the same symbol ∇ is used both for the connection and for the tangent field it is evaluated at, two symbols apart; the section constructed on p. 119 is monic of degree r, n being an unrelated integer fixed earlier in the proof (the number of local factors of Spec R); the points s of Lemma 5.11 are introduced in part (c), not (b); and the rank is r everywhere else in the paper. The \"degree-n\" reading was confirmed on the page rendered at 300 dpi. The Witt points factor through S′; the family on p.138 has a projective morphism, not a coarse-projective property. The direct sum on p.143 is an arithmetic representation of X, with geometric restriction only later. The proof numbering of Lemma 5.11 is shifted by one. The tuple in Theorem 7.3 separates r and d by a comma.",
       "affects": "nothing",
       "known": "new",
       "searched": [
@@ -3781,13 +4139,41 @@
         "arXiv:1707.00752 submission history v1–v4; latest v4 is dated 1 June 2020. Selected author-version comparison, not a complete historical diff.",
         "arXiv:2309.15949v2 introduction and correction/reference text search; its Proposition 3.9 correction belongs to the later paper, not to this one.",
         "Exact-title searches with corrigendum, nonreduced and Proposition 3.5 correction; no EG20-specific correction found. This is not proof of novelty.",
-        "Re-verified independently by the second worker on this job (Claude Code, session cc-fb70e5, 2026-09-22) against the same published PDF, SHA-256 0d81a6d3e9be477c58a725096c41f06a8a9262422fe596363c3f04c26ab1cfab: every quotation below was located in the text layer, and pages 106, 119 and 133 — where a flattened superscript could have produced a false reading — were re-read on images rendered at 300 dpi. The first submission's two-word fragments were replaced by the sentences actually printed; E2, E3, E4 and E6 gained sharper or more elementary witnesses; and nine further slips were added to E10."
-      ],
-      "review": {
-        "verdict": "confirmed",
-        "reason": "Confirmed. Page 108 prints 'A Higgs bundle on Z is a pair (V,θ), where V is a vector bundle and θ: V → V ⊗ Ω¹_X is an O-linear map satisfying the integrality condition θ ∧ θ = 0', and repeats 'integrality condition' for ∇² = 0 in the next sentence: the condition is integrability, and the base is Z, not X. The remaining index slips in the list are of the same kind.",
-        "by": "REV-PAPER-ESNAULT-GROECHENIG-20"
-      }
+        "Re-verified independently by the second worker on this job (Claude Code, session cc-fb70e5, 2026-09-22) against the same published PDF, SHA-256 0d81a6d3e9be477c58a725096c41f06a8a9262422fe596363c3f04c26ab1cfab: every quotation below was located in the text layer, and pages 106, 119 and 133 — where a flattened superscript could have produced a false reading — were re-read on images rendered at 300 dpi. The first submission's two-word fragments were replaced by the sentences actually printed; E2, E3, E4 and E6 gained sharper or more elementary witnesses; and nine further slips were added to E10.",
+        "2026-09-30: reread published Acta pp.134,140 and affected misprint passages via the YMSC mirror, SHA-256 identical to the recorded official PDF; rendered pp.134,140,143,145,149 inspected.",
+        "2026-09-30: compared arXiv 1707.00752v4 (1 June 2020), PDF pp.25,28–30,32–34,36. The two proof defects and added slips persist. The author copy has identical extracted text at the compared passages. Earlier v1–v3 not collated.",
+        "2026-09-30: arXiv submission history still ends at v4; Esnault publication-list entry 126 has no linked EG20 erratum; title/arXiv correction searches and Crossref DOI metadata revealed no EG20 correction. This limited search does not prove novelty."
+      ]
+    },
+    {
+      "id": "PAPER-ESNAULT-GROECHENIG-20/E11",
+      "kind": "gap",
+      "locator": "Proof of Lemma 4.11, published p.134; arXiv v4 p.25",
+      "printed": "The source invokes Lemma 3.4 to assert stability and rigidity once more.",
+      "correction": "Use injectivity of σ: C⁻¹∘w* is fully faithful, and the V_i are pairwise non-isomorphic by Proposition 4.10(c), as corrected in E9, and item 052 via 065. Thus σ(i)=σ(j) implies i=j. Finiteness gives bijectivity. The rigidity of C(E_{σ(i)}) follows afterwards from C(E_{σ(i)})≅w*V_i.",
+      "reason": "Lemma 3.4 concerns Frobenius twist w*, not the forward Cartier transform C. Proposition 3.5 proves rigidity preservation only for C⁻¹. Reversing that argument requires an additional proof. The fully faithful finite-set argument avoids that missing premise and preserves the statement of the lemma.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "2026-09-30: reread published Acta pp.134,140 and affected misprint passages via the YMSC mirror, SHA-256 identical to the recorded official PDF; rendered pp.134,140,143,145,149 inspected.",
+        "2026-09-30: compared arXiv 1707.00752v4 (1 June 2020), PDF pp.25,28–30,32–34,36. The two proof defects and added slips persist. The author copy has identical extracted text at the compared passages. Earlier v1–v3 not collated.",
+        "2026-09-30: arXiv submission history still ends at v4; Esnault publication-list entry 126 has no linked EG20 erratum; title/arXiv correction searches and Crossref DOI metadata revealed no EG20 correction. This limited search does not prove novelty."
+      ]
+    },
+    {
+      "id": "PAPER-ESNAULT-GROECHENIG-20/E12",
+      "kind": "error",
+      "locator": "Proof of Lemma 5.5, published p.140; arXiv v4 p.30",
+      "printed": "χ(g)=1",
+      "correction": "Retain χ^r=1, hence χ takes values in μ_r(K), since K is algebraically closed of characteristic zero. The generic deformation is rho⊗χ⁻¹ over K. Its moduli point is closed, so the entire DVR map has constant image, contradicting a nonconstant deformation. Triviality of χ is unnecessary.",
+      "reason": "Trace equality after reduction imposes no condition on χ(g) where Tr rho(g)=0. For Q₈ use A=diag(i,−i) and B=[[0,1],[−1,0]], generating an irreducible determinant-one representation, with χ(A)=1 and χ(B)=−1. Conjugation by A intertwines rho and rho⊗χ, so this constant family satisfies the displayed isomorphism although χ≠1 and χ²=1. The trace is ±2 on ±I and zero elsewhere. Thus the inference in the proof is false, while the lemma survives the constant-moduli-point argument.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "2026-09-30: reread published Acta pp.134,140 and affected misprint passages via the YMSC mirror, SHA-256 identical to the recorded official PDF; rendered pp.134,140,143,145,149 inspected.",
+        "2026-09-30: compared arXiv 1707.00752v4 (1 June 2020), PDF pp.25,28–30,32–34,36. The two proof defects and added slips persist. The author copy has identical extracted text at the compared passages. Earlier v1–v3 not collated.",
+        "2026-09-30: arXiv submission history still ends at v4; Esnault publication-list entry 126 has no linked EG20 erratum; title/arXiv correction searches and Crossref DOI metadata revealed no EG20 correction. This limited search does not prove novelty."
+      ]
     }
   ],
   "gaps": [
@@ -3800,7 +4186,7 @@
         "PAPER-ESNAULT-GROECHENIG-20/057",
         "PAPER-ESNAULT-GROECHENIG-20/127"
       ],
-      "detail": "Source-level, recorded as E2 and verified twice: over a non-reduced base the p^d-th power map on Sym^• Ω¹[λ] is not injective, so neither the uniqueness step in the proof of Theorem 2.17 nor the essential-image half of its statement is correct as printed. The design job must state the family BNR correspondence with the Morita-reduced characteristic invariant — the characteristic polynomial of π′_*F, canonical because F is unique up to unique isomorphism — and derive the descent of a from that canonicity. Items 033–035 carry the corrected statements. Not an obstruction to any main theorem: §3 uses the equivalence C_a from [OV, Corollary 2.9], and the forward assignment is unaffected."
+      "detail": "Source-level, recorded as E2 and verified twice: over a non-reduced base the p^d-th power map on Sym^• Ω¹[λ] is not injective, so neither the uniqueness step in the proof of Theorem 2.17 nor the essential-image half of its statement is correct as printed. The design job must state the family BNR correspondence with the Morita-reduced characteristic invariant — the characteristic polynomial of π′_*F, invariant under isomorphism of the Morita-reduced module F, with change-of-splitting compatibility and descent to be proved — and derive the descent of a from that canonicity. Items 033–035 carry the corrected statements. Not an obstruction to any main theorem: §3 uses the equivalence C_a from [OV, Corollary 2.9], and the forward assignment is unaffected."
     },
     {
       "id": "G2",
@@ -3818,7 +4204,7 @@
         "PAPER-ESNAULT-GROECHENIG-20/090",
         "PAPER-ESNAULT-GROECHENIG-20/093"
       ],
-      "detail": "Source-level, recorded as E4: Definition 5.2 defines the unrestricted continuous deformation functor, while Lemma 5.6 and Theorem 5.4 need the fixed-determinant one; with the unrestricted reading no representation is rigid once b₁(X)>0. Items 090 and 093 state the fixed-determinant functor, and the GlobalGaloisDeformations source route asks R04.1/R04.2 to carry it for the finitely generated abstract and profinite groups of §5. Definition 5.3's residual convention — whether Theorem 5.4 exports generic or residual rigidity — is recorded in item 091 and must be fixed by the design job, not by the extractor."
+      "detail": "Source-level, recorded as E4: Definition 5.2 defines the unrestricted continuous deformation functor, while Lemma 5.6 and Theorem 5.4 need the fixed-determinant one; with the unrestricted reading no representation is rigid once b₁(X)>0. Items 090 and 093 state the fixed-determinant functor, with the finite-residue functor imported from the finished GlobalGaloisDeformations packet and the abstract/projective/isolated-point comparisons assigned to RigidCompanions (091–093). Definition 5.3's residual convention — whether Theorem 5.4 exports generic or residual rigidity — is recorded in item 091 and must be fixed by the design job, not by the extractor."
     },
     {
       "id": "G4",
@@ -3850,7 +4236,7 @@
         "PAPER-ESNAULT-GROECHENIG-20/117",
         "PAPER-ESNAULT-GROECHENIG-20/118"
       ],
-      "detail": "Design-level, not a defect in the paper: §7 counts isomorphism classes in the finite sets S(s,p,r,d) and S(s,ℓ,r,d), and the design job must keep geometric and arithmetic isomorphism classes apart — over a finite field an underlying crystal can carry several Frobenius structures differing by a root of unity, so a bijection of arithmetic objects does not follow from a count of geometric ones without the determinant-order normalisation the paper fixes in Definition 7.2 and Proposition 7.4(3). Items 111 and 114 record the normalisation; items 087, 109 and 117 record which parts are quoted from [Ab] and [AE] rather than proved here."
+      "detail": "Design-level, not a defect in the paper: §7 counts isomorphism classes in the finite sets S(s,p,r,d) and S(s,ℓ,r,d), and the design job must keep geometric and arithmetic isomorphism classes apart — over a finite field an underlying crystal can carry several Frobenius structures differing by a root of unity, so a bijection of arithmetic objects does not follow from a count of geometric ones without the determinant-order normalisation the paper fixes in Definition 7.2 and Proposition 7.4(3). Items 111 and 114 record the normalisation; items 087, 109 and 117 record which parts are quoted from [Ab] and [AE] rather than proved here. Suppliers now resolve the former unowned Abe gates: 087/108/146 reuse ABE-18 in GlobalShtukasPartIICrystallineCompanions; 145/109 reuse the early ArithmeticDModules cover/Chebotarev inputs. Their proof closure is a blueprint obligation, not an extraction-completeness condition."
     }
   ],
   "notTheorems": [
@@ -3878,6 +4264,92 @@
       "restrictedDerivationEigenvalues": 104
     },
     "reproduction": "The report includes the full Python certificate; it ran with assertions enabled. The BNR geometry is argued separately in the report, not established by polynomial arithmetic alone.",
-    "structural": "Every missing item must route exactly once; all extracted item dependencies form an acyclic graph. External proof leaves and nine gates remain open."
-  }
+    "structural": "Every missing item routed exactly once; extracted item dependencies checked for cycles. Supplier phase ordering and six retained source/normalization gates are documented in the fixes report. Extraction completeness is not proof closure.",
+    "repairChecks": {
+      "date": "2026-09-30",
+      "agent": "Codex codex-J6LwjP",
+      "scope": "Source comparisons and supplier signatures read; executable Q8 self-twist and finite-injection checks, historical certificate replay, item DAG and route uniqueness audit recorded in fixes report. No Lean file assigned or compiled."
+    }
+  },
+  "sourceIssueHistory": [
+    {
+      "record": {
+        "id": "PAPER-ESNAULT-GROECHENIG-20/E10",
+        "kind": "misprint",
+        "locator": "Typographical and index slips: §2.1 p. 108; Definition 2.3 p. 110; Proposition 2.4 p. 111; proof of Theorem 2.17 p. 119; Lemma 5.11(d) pp. 144–145; §8.2 p. 153",
+        "printed": "A Higgs bundle on Z is a pair (V,θ), where V is a vector bundle and θ:V → V⊗Ω¹_X is an O-linear map satisfying the integrality condition θ∧θ=0. This definition is reminiscent of a flat connection, that is, a pair (E,∇), … satisfying the integrality condition ∇²=0. … Let U⊂Z be a open subscheme, and ∂∈Θ_Z(U) a section of k-derivations of O_X … [Definition 2.3:] sending a local section ∇∈Θ_Z(U) to the k-linear endomorphism of F given by (∇_∂)^p−∇_{∂^{[p]}} … [Proposition 2.4:] That is, for a Zariski open subset U⊂X … Furthermore, for every local section ∂∈Θ_X(U) … [p. 119:] we obtain a degree-n section a = λ^r+a₂λ^{r−2}+…+a_r … [Lemma 5.11(d):] for every s as in (b), a rigid and absolutely irreducible projective representation of π₁(X_Q̄p) → PGL_n(Z_p) descends to π₁(X_Qp) … [p. 153:] and is unitary by Theorems 1.8.",
+        "correction": "\"integrability condition\" (twice); Ω¹_Z, O_Z, U⊂Z and Θ_Z(U) for the four X/Z slips; \"sending a local section ∂∈Θ_Z(U)\"; \"a degree-r section\"; \"for every s as in (c)\" and PGL_r(Z_p); \"by Theorem 1.8\". Also \"a open subscheme\".",
+        "reason": "Type and index slips with no mathematical consequence. The variety is called Z throughout §2, so Ω¹_X, O_X, U⊂X and Θ_X have no referent there; in Definition 2.3 the same symbol ∇ is used both for the connection and for the tangent field it is evaluated at, two symbols apart; the section constructed on p. 119 is monic of degree r, n being an unrelated integer fixed earlier in the proof (the number of local factors of Spec R); the points s of Lemma 5.11 are introduced in part (c), not (b); and the rank is r everywhere else in the paper. The \"degree-n\" reading was confirmed on the page rendered at 300 dpi.",
+        "affects": "nothing",
+        "known": "new",
+        "searched": [
+          "Acta journal DOI page and official PDF; YMSC Acta 225 issue entry, checked 2026-09-22.",
+          "Esnault publication page item 126 and linked author PDF; no attached EG20 corrigendum found in this search.",
+          "arXiv:1707.00752 submission history v1–v4; latest v4 is dated 1 June 2020. Selected author-version comparison, not a complete historical diff.",
+          "arXiv:2309.15949v2 introduction and correction/reference text search; its Proposition 3.9 correction belongs to the later paper, not to this one.",
+          "Exact-title searches with corrigendum, nonreduced and Proposition 3.5 correction; no EG20-specific correction found. This is not proof of novelty.",
+          "Re-verified independently by the second worker on this job (Claude Code, session cc-fb70e5, 2026-09-22) against the same published PDF, SHA-256 0d81a6d3e9be477c58a725096c41f06a8a9262422fe596363c3f04c26ab1cfab: every quotation below was located in the text layer, and pages 106, 119 and 133 — where a flattened superscript could have produced a false reading — were re-read on images rendered at 300 dpi. The first submission's two-word fragments were replaced by the sentences actually printed; E2, E3, E4 and E6 gained sharper or more elementary witnesses; and nine further slips were added to E10."
+        ],
+        "review": {
+          "verdict": "confirmed",
+          "reason": "Confirmed. Page 108 prints 'A Higgs bundle on Z is a pair (V,θ), where V is a vector bundle and θ: V → V ⊗ Ω¹_X is an O-linear map satisfying the integrality condition θ ∧ θ = 0', and repeats 'integrality condition' for ∇² = 0 in the next sentence: the condition is integrability, and the base is Z, not X. The remaining index slips in the list are of the same kind.",
+          "by": "REV-PAPER-ESNAULT-GROECHENIG-20"
+        }
+      },
+      "archived": "2026-09-30",
+      "reason": "Preserve the independent review of the original E10 scope. Five newly added slips require fresh review."
+    }
+  ],
+  "sourceVersions": [
+    {
+      "kind": "published",
+      "url": "https://intlpress.com/site/pub/files/_fulltext/journals/acta/2020/0225/0001/ACTA-2020-0225-0001-a002.pdf",
+      "read": "2026-09-22",
+      "sha256": "0d81a6d3e9be477c58a725096c41f06a8a9262422fe596363c3f04c26ab1cfab",
+      "scope": "Historical full reading of all 56 published pages, including Appendix A and references, explicitly recorded by cc-fb70e5 (independent rereading of the original extraction). The current fix does not claim another full reading.",
+      "reader": "Claude Code, cc-fb70e5"
+    },
+    {
+      "kind": "author copy",
+      "url": "https://page.mi.fu-berlin.de/esnault/preprints/helene/126_esn_gro.pdf",
+      "read": "2026-09-22",
+      "sha256": "0bfa00b7dbae7a59c193d3523028df826741f15d3e88cb50526f8656a7fb8e35",
+      "scope": "Selected BNR proof pp.13–14; matching monic-root uniqueness argument. Text searches at cohomological rigidity, Proposition 3.5, §5 deformation functor and Appendix A; not a full version-by-version audit.",
+      "dateBasis": "Historical read date inferred from source.accessed, not a separately logged date."
+    },
+    {
+      "kind": "published",
+      "url": "https://archive.ymsc.tsinghua.edu.cn/pacm_download/117/11915-ACTA-2020-0225-0001-a002.pdf",
+      "read": "2026-09-30",
+      "sha256": "0d81a6d3e9be477c58a725096c41f06a8a9262422fe596363c3f04c26ab1cfab",
+      "scope": "Fresh focused rereading of pp.118–120,125–126,133–134,137–146,149–150 and bibliography; rendered pp.134,140,143,145,149 inspected. Mirror bytes match the historical published hash. Publisher download returned HTTP 403; no claim of a full new reading.",
+      "reader": "Codex, codex-J6LwjP"
+    },
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/1707.00752v4",
+      "read": "2026-09-30",
+      "sha256": "bcc435b58bb2b1c06869413c1cd96018676d15da8003d21e5b507b114a63c4eb",
+      "scope": "Selective comparison pp.25,28–30,32–34,36 and references pp.41–44. Lemma 4.11, Lemma 5.5 and the added E10 slips persist. Not a full collation; v1–v3 were not read.",
+      "reader": "Codex, codex-J6LwjP"
+    },
+    {
+      "kind": "author copy",
+      "url": "https://page.mi.fu-berlin.de/esnault/preprints/helene/126_esn_gro.pdf",
+      "read": "2026-09-30",
+      "sha256": "0bfa00b7dbae7a59c193d3523028df826741f15d3e88cb50526f8656a7fb8e35",
+      "scope": "Compared extracted text of pp.25,28,30,32,33,34,36 byte-for-byte to the already read v4 passages; identical text. No fresh full reading.",
+      "reader": "Codex, codex-J6LwjP"
+    }
+  ],
+  "upstreamNotes": [
+    {
+      "finding": "RT-PAPER-ESNAULT-GROECHENIG-20/2",
+      "note": "PAPER-LANDESMAN-LITT-24 route 4 has the analogous stale source-route issue against the now-finished GlobalGaloisDeformations blueprint. Maintainer should reconcile that unassigned extraction with the actual packet; this job changes only EG20."
+    },
+    {
+      "finding": "RT-PAPER-ESNAULT-GROECHENIG-20/1,3,4,5",
+      "note": "Maintainer/design handoff: apply route 3 items 137–139 after CR.1/CR.2; route 6 item 095 to DESIGN-PadicHodgeTheoryPartII beside HEUER-25 and GUO-REINECKE-24; route 7 items 087,108,146 to the existing Abe GlobalShtukas Part II; route 4 early 145/Chebotarev foundation with ABE-18/17,51, late 086 and 109–118 after the GlobalShtukas supplier; route 8 item 142 to BP-DeligneWeightsAndPurity DWP.10 after DWP.7→GS.6. These packets are absent or unassigned; no packet, campaign data, review file or generated queue is edited."
+    }
+  ]
 }
