@@ -14,6 +14,12 @@ the checked examples test the arithmetic of the Khare–Wintenberger and Dieulef
 
 Pinned baseline: Mathlib `082e2d3`, Tau Ceti `f790474`.
 
+Fix revision: Codex codex-5ebb6f, 30 September 2026, Refs #5142. Independent REV-FIX pending.
+No compilation was performed: no existing build was found at the pins. Historical compilation
+in reviewHistory is not a check of this revision. Supplier signature sketches below are comments.
+Lemma 8.2 imports the early R01.3/R01.4 definitions/classification; no level-one theorem or R15.6.
+Its stage-component promotion is still a maintainer gap, not an implemented stage split.
+
 ```
 -- R27.1/lemma-8-2-chebotarev-choice-of-auxiliary-primes  (𝔽_p coefficients, not 𝔽̄_p)
 theorem lemma_8_2 {p : ℕ} [Fact p.Prime] (hp : p % 4 = 1) (ρ̄ : GaloisRep ℚ (ZMod p) 2)
@@ -31,11 +37,22 @@ theorem arises_of_modular (ρ̄ : GaloisRep ℚ 𝔽 2) (hS : IsSType ρ̄) (hmo
     (hk : ringChar 𝔽 = 2 → serreWeight ρ̄ = 2) :
     ArisesFrom ρ̄ (CuspForms (Γ₁ (serreLevel ρ̄)) (serreWeight ρ̄))
 -- R27.5/hypothesis-H-and-theorem-9-1
-theorem serre_of_hypH (hH : HypothesisH) (ρ̄ : GaloisRep ℚ 𝔽 2) (hS : IsSType ρ̄) : IsModular ρ̄
+-- Import the dyadic theorem R22.6/hypothesis-h, including the Breuil–Kisin comparison.
+theorem serre_of_hypH (hH2 : HypothesisH2) (ρ̄ : GaloisRep ℚ 𝔽 2) (hS : IsSType ρ̄) : IsModular ρ̄
 -- R27.6/full-classical-serre-theorem
 theorem serre_strong (ρ̄ : GaloisRep ℚ (F̄ p) 2) (hodd : IsOdd ρ̄) (hirr : IsAbsIrreducible ρ̄) :
     ∃ (f : Newform (serreLevel ρ̄) (serreWeight ρ̄)) (λ : Ideal f.coeffRing), λ.LiesOver p ∧
       Nonempty (residualRep f λ ≃ ρ̄) ∧ det ρ̄ = f.character.reduce λ * cyclotomic p ^ (serreWeight ρ̄ - 1)
+-- R27.6/odd-artin-weight-one-modularity: explicit Corollary 10.2(ii) export for ML.1.
+-- The early Gross/Coleman–Voloch/Khare descent input is an open proof contract.
+-- Do not import all of ML.1 in reverse, and do not treat weight >= 2 as weight-one modularity.
+theorem odd_artin_weight_one (ρ : ComplexArtinRep ℚ 2) (hodd : IsOdd ρ)
+    (hirr : IsIrreducible ρ) : ∃ f : WeightOneCuspidalNewform, Nonempty (deligneSerreRep f ≃ ρ)
+-- R33.2/dp-lift-existence-and-good-dihedral-insertion is ONLY Paso 2:
+-- apply R24.3's general Theorem 1.9(4), after the Paso 1 weight-two system and
+-- Lemma 1.15 prime-field conditions select its crystalline-at-q alternative.
+theorem paso_two_insertion (d : WeightTwoSystemAtSplitPrime q) (hN : Lemma115Conditions d N)
+    (localType : DihedralInertialType q N) : Nonempty (PasoTwoCompatibleSystem d N localType)
 -- R33.2/dihedral-local-type-at-n
 def levelTwoCharacter (q N : ℕ) (hq : q ∣ N + 1) : (Gal ℚ_[N]² →* (ℤ̄_[q])ˣ) := …
 -- normalised to be trivial on the Frobenius attached to N, so that the image of the induction is
@@ -59,6 +76,9 @@ for `p′ = q = 13` the prime `406561` is `1` modulo `8, 3, 5, 7, 11` and `−1`
 `13 ∣ 406561 + 1`, `13 ∤ 406561 − 1`, so the inserted character has level 2. -/
 example : Nat.Prime 406561 ∧ 406561 % 8 = 1 ∧ 406561 % 3 = 1 ∧ 406561 % 5 = 1 ∧ 406561 % 7 = 1 ∧
     406561 % 11 = 1 ∧ 406561 % 13 = 12 ∧ 13 ∣ 406561 + 1 ∧ ¬ 13 ∣ 406561 - 1 := by norm_num
+
+/-- Paso 2's residual weight is two. At q = 13, the weight-q+1 Steinberg branch is different. -/
+example : (2 : ℕ) ≠ 13 + 1 := by norm_num
 
 /-- Lemma 8.2 uses that `−1` is a square modulo `p ≡ 1 mod 4`: `2² ≡ −1 mod 5`, `5² ≡ −1 mod 13`. -/
 example : (2 ^ 2 + 1) % 5 = 0 ∧ (5 ^ 2 + 1) % 13 = 0 := by norm_num

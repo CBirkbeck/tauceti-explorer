@@ -1,10 +1,12 @@
 # Global Galois deformation rings — blueprint
 
+**Fix revision, 30 September 2026 — Codex codex-5ebb6f, Refs #5142.** Independent REV-FIX is pending; the earlier accepted review is preserved verbatim in reviewHistory. All 65 node IDs, 19 requests, three source issues and unchecked statuses remain. One newly explicit gap records a pre-existing stage-coarsening obstruction; no mathematical proof cycle is alleged. This revision sharpens the R01.4 finite-image request, the version-specific presentation locators and G8’s arithmetic export to PA.3. No atlas edge or upstream Tau Ceti roadmap has been edited.
+
 This blueprint covers stages R04.1–R04.6, G7 and G8, within the boundaries of the RS-08 restructure (accepted). This
 blueprint now plans **R04.1 (deformation functors)**, **R04.2 (representability and universal representations)**,
 **R04.3 (local conditions and global presentations)**, **R04.4 (restriction, twisting and change of problem)** and
 **R04.5 (Taylor–Wiles auxiliary primes)**, **R04.6 (exports for patching)**, **G7 (polarized problems)** and **G8
-(variable-determinant problems)**, all source-decomposed.
+(variable-determinant problems)**. R04.1 is partial because of the explicit stage-coarsening gap; the other seven coverage records remain source-decomposed with open supplier requests. The whole packet is partial.
 
 The second-round Langlands-area fix adds one shared selection lemma, giving 66 nodes.
 Its changes await `REV-FIX-RT-AREA-langlands-1~2`; the packet's earlier independent
@@ -620,6 +622,19 @@ cotangent map is surjective, and Nakayama applies.
   *Potential automorphy over CM fields*, Ann. of Math. 197 (2023); arXiv:1812.09999v2, §6.2.
 - L. Clozel, M. Harris and R. Taylor, *Automorphy for some l-adic lifts of automorphic mod l Galois representations*,
   Publ. Math. IHÉS 108 (2008), §2 (Numdam).
+
+## Residual images, presentation numbering and the PA.3 export
+
+R04.5/image-hypotheses keeps cyclotomic absolute irreducibility, big image and dyadic non-solvable image distinct. The R01.4 import already exists; its request now lists exactly KW II Lemma 4.3(2)(ii)/(5), with F₀ ⊂ 𝔽 and |F₀| = 2^r, r > 1, the invariant spaces, the submodule list 0,Z,Ad⁰,Ad and Dickinson’s H¹ vanishing. The p > 2 invariant and cyclotomic irreducibility facts are also specified. The global dual-Selmer vanishing of Lemma 5.2(1) remains R02.6’s. None of these finite-group statements is reproved at R04.5, and the supplier request stays open.
+
+The author-final KW II version (98 pages; printed page equals PDF page) has Lemma 4.4, pp. 41–42, for generators; Lemma 4.6, pp. 43–45, for relations; and Proposition 4.5, pp. 42–45, for the dimension ≥ 1 conclusion. The ESI preprint calls the relation bound Lemma 4.5. Both existing citations remain correctly versioned. Corollary 4.7 requires finiteness and yields the characteristic-zero point: commutative algebra is R03.4 and its arithmetic application is R24.2. No second characteristic-zero existence theorem is added here.
+
+G8/variable-determinant-problem, representability and presentation now name PA.3 as their arithmetic consumer. PA.3 imports these actual rings and Galois cohomology inputs, together with L7/L8 component data; abstract P9 keeps its arithmetic data as hypotheses. The G8 → PA.3 and L7/L8 → PA.3 stage edges are maintainer handoffs, not edits to the atlas by this packet. The original fixed-versus-variable determinant hypotheses and arbitrary-rank conventions remain unchanged.
+
+### Stage-coarsening obstruction retained for review
+
+The declaration graph is acyclic, but R04.1/determinant-comparison imports R04.2/carayol-trace-theorem. On the current coarse atlas that becomes R04.2 → R04.1, against R04.1 → R04.2. This already occurs in the original accepted packet. The gap records the exact need for an early/late declaration assignment before whole-stage promotion; it neither deletes a valid concrete prerequisite nor silently claims acyclic stage closure.
+
 - The round-2 repair selectively read the [published ACC+ PDF](https://www.math.uchicago.edu/~fcale/papers/Ramanujan.pdf),
   physical pp. 135–137, 143–145 and 148–151, and [Calegari–Geraghty](https://www.math.uchicago.edu/~fcale/papers/CG.pdf),
   physical pp. 113–115, on 30 September 2026. Packet hashes and version-qualified

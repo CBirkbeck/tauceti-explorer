@@ -21,6 +21,10 @@ import Mathlib.Tactic.NormNum
 contributors and reviewers converge on names and signatures. Nothing here claims to be
 formalised.
 
+Fix revision: Codex codex-5ebb6f, 30 September 2026, Refs #5142. Independent REV-FIX is pending.
+No existing compiled build was found at the pinned commits, so this revision was not compiled.
+The historical review's compilation claim applies to its old active fragment only.
+
 Pinned baseline: Mathlib `082e2d3`, Tau Ceti `f790474`. This file imports Mathlib only; the
 quaternionic forms and Hecke algebras (HilbertModularVarietiesAndShimuraCurves R18.3/R18.6),
 Galois representations over Hecke algebras (AutomorphicGaloisRepresentations R19.6) and the
@@ -53,12 +57,58 @@ def defToHecke (d : MinimalLevelData ρbar) : d.kw.unframedRing →ₐ[𝒪] d.h
 theorem defToHecke_trace (v) (hv : v ∉ S) : d.defToHecke (trace (d.kw.univRep (Frob v))) = T v
 theorem defToHecke_surjective : Function.Surjective d.defToHecke
 -- R22.2/delta-freeness-at-taylor-wiles-level
+-- Freeness is imported from R18.3 through R18.6. This layer applies it and proves the
+-- Galois-dependent rank/coinvariant control; the quaternionic freeness proof is not duplicated.
 theorem auxModule_free (Q : TaylorWilesDatum n) : Module.Free 𝒪[Δ Q] (auxModule d Q)
 theorem auxModule_coinvariants (Q) : coinvariants (Δ Q) (auxModule d Q) ≃ₗ[𝒪] d.heckeModule
 -- R22.5/kw-residual-modularity
+-- Stable R22.5 IDs, now owned by parent R22.1: these existential definitions precede §8.
+-- Their carrier comes directly from R19.2, not from MinimalLevelData or its prescribed witness.
 -- (α): π unramified above p, of weight k(ρbar); (β): π of conductor dividing v above p, weight 2
 def ResidualModularAlpha (ρbar : GaloisRep F 𝔽 2) : Prop
 def ResidualModularBeta (ρbar : GaloisRep F 𝔽 2) : Prop
+-- R22.1/allowable-base-change: field data, not an assumed modular lift or R = T.
+structure AllowableBaseChange (ρbar : GaloisRep F 𝔽 2) where
+  extension : NumberFieldExtension F
+  totallyReal : IsTotallyReal extension.field
+  solvable : IsSolvable extension.galoisClosureGroup
+  evenDegree : Even extension.degree
+  unramifiedAtP : extension.UnramifiedAbove p
+  splitWhenLocalIrreducible : AbsIrred (ρbar.restrict Dp) → extension.SplitAbove p
+  image_eq : (ρbar.restrict extension.field).image = ρbar.image
+  cyclotomic_irreducible : AbsIrred (ρbar.restrict (extension.field⟮ζ_p⟯))
+-- The missing early field/character supplier is proposed R23.1:soluble-extensions, NOT all R23.1.
+-- R22.1/lemma-8-1-residual-field-choice has the field conclusion only.
+-- The next paragraph of KW II §8.1 SUPPOSES ψ given; no existence of ψ is asserted by that lemma.
+-- R22.1/determinant-character-kinds: overlapping predicates on actual idele class characters.
+def IsDeterminantKindI (ψ : ArithmeticHeckeCharacter F 𝒪) : Prop :=
+  ∀ u : UnitsAtP F, ψ u = localNorm u ^ kindIExponent (serreWeight ρbar)
+def IsDeterminantKindII (ψ : ArithmeticHeckeCharacter F 𝒪) : Prop :=
+  ∀ u : UnitsAtP F, ψ u = teichmuller u ^ kindIIExponent (serreWeight ρbar)
+def IsDeterminantKindIII (ψ : ArithmeticHeckeCharacter F 𝒪) : Prop :=
+  serreWeight ρbar = 2 ∧ ∀ u : UnitsAtP F, ψ u = localNorm u ^ kindIIIExponent p
+-- R22.1/lemma-7-10-determinant-adjustment: the dyadic character and field construction
+-- requires the missing early CHT supplier. A finite 2-primary group need not have square roots.
+-- R22.1/theorem-8-2-minimal-modular-lifts: full hypotheses and simultaneous cases in the reader.
+theorem minimal_modular_lifts (hF : KWInitialField ρbar F) (ψ : KWGivenDeterminant ρbar F)
+    (hα : p ≠ 2 ∨ serreWeight ρbar = 2 → ResidualModularAlpha ρbar)
+    (hβ : ResidualModularBeta ρbar) (π : KWSelectedAlphaOrBetaWitness ρbar ψ)
+    (Σ : KWSteinbergSubset π) (hΣ : KWContainsRequiredPPlaces π Σ) :
+    ∃ bc : AllowableBaseChange ρbar, Nonempty (KWMinimalModularWitness bc ψ Σ)
+-- KWMinimalModularWitness is output data for the precise cases on p.71, not an input assertion.
+-- R22.1/lemma-8-3-weight-two-to-p-plus-one iterates the R18.3 per-place injection;
+-- its extra weight-p+1-at-residual-weight-2 branch is not used in KW II.
+-- R22.1/prescribed-level-raising-step applies R18.3 algebraic level raising and R19.4 compatibility.
+-- R22.1/theorem-8-4-prescribed-modular-lifts, then used to construct MinimalLevelData.
+theorem prescribed_modular_lift (hF : KWInitialField ρbar F) (ψ : KWGivenDeterminant ρbar F)
+    (hα : p ≠ 2 ∨ serreWeight ρbar = 2 → ResidualModularAlpha ρbar)
+    (hβ : ResidualModularBeta ρbar) (localData : KWCompatibleLocalLifts ρbar ψ) :
+    ∃ bc : AllowableBaseChange ρbar,
+      ∃ π : CuspidalHilbertRepresentation bc.extension.field,
+        LiftsResidual π (ρbar.restrict bc.extension.field) ∧
+        FitsRestrictedLocalData π localData bc ∧ det π.galoisRep = ψ.restrict bc * cyclotomic p
+-- In type (C), residual weight 2, and in the dyadic weight-4 branch, do not promise split at p.
+-- All types above are unelaborated owner sketches: no opaque/axiom/Prop placeholder implements them.
 -- R22.5/kw-odd-prime-lifting (KW II Theorem 9.7, p > 2)
 theorem kw_lifting_odd (hp : 2 < p) (hF : UnramifiedAt F p)
     (hirr : AbsIrred (ρbar.restrict (F⟮ζ_p⟯)))
@@ -122,6 +172,40 @@ theorem oddPrimeLifting (hp : Odd p) : OddPrimeLifting p
 -/
 
 namespace TauCeti.ModularityLifting
+
+namespace KW
+
+/-- Integer exponent of the norm in determinant kind (i). -/
+def kindIExponent (k : ℕ) : ℤ := 2 - (k : ℤ)
+
+/-- Integer exponent of the Teichmüller character in kind (ii). -/
+def kindIIExponent (k : ℕ) : ℤ := (k : ℤ) - 2
+
+/-- Integer exponent of the norm in kind (iii), used only at residual weight two. -/
+def kindIIIExponent (p : ℕ) : ℤ := 1 - (p : ℤ)
+
+theorem kindIExponent_eq (k : ℕ) : kindIExponent k = 2 - (k : ℤ) := rfl
+theorem kindIIExponent_eq (k : ℕ) : kindIIExponent k = (k : ℤ) - 2 := rfl
+theorem kindIIIExponent_eq (p : ℕ) : kindIIIExponent p = 1 - (p : ℤ) := rfl
+
+/-- The two local characters coincide at weight two; this tests their exponents only. -/
+example : kindIExponent 2 = 0 ∧ kindIIExponent 2 = 0 := by
+  norm_num [kindIExponent, kindIIExponent]
+
+/-- Integer subtraction is essential; natural subtraction would give the wrong character. -/
+example : kindIIIExponent 3 = -2 ∧ kindIExponent 4 = -2 := by
+  norm_num [kindIIIExponent, kindIExponent]
+
+/-- Kind (iii)'s required residual weight is two, not four. -/
+example : (4 : ℕ) ≠ 2 := by norm_num
+
+/-- Degree tests for allowable fields are arithmetic regressions, not field existence proofs. -/
+example : ¬ Even (3 : ℕ) ∧ Even (2 * 2 : ℕ) := by decide
+
+/-- At the upper residual-weight boundary, case (b) is excluded and case (c) is selected. -/
+example : ¬ (6 < 5 + 1 : Prop) ∧ (6 : ℕ) = 5 + 1 := by norm_num
+
+end KW
 
 /-- The signed prime, with natural subtraction/division in the exponent.
 Only its arithmetic value is defined here; the quadratic-field theorem is not asserted. -/
