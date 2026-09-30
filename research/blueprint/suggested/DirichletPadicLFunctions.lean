@@ -14290,3 +14290,92 @@ example (η : DirichletCharacter K M) (hη : η.IsPrimitive) (hM : 1 < M)
 
 end SuggestedLogPrimeTests
 end
+
+/-! Morita's signed natural values. The continuous Gamma function is an open
+construction; these finite congruences preserve the exceptional modulus four. -/
+namespace DirichletPadic
+open scoped BigOperators
+
+def moritaNatGamma (p n : ℕ) : ℤ := by sorry
+lemma moritaNatGamma_def (p n : ℕ) :
+    moritaNatGamma p n = (-1) ^ n * ∏ j ∈ Finset.range n,
+      if p ∣ j then 1 else (j : ℤ) := by sorry
+lemma moritaNatGamma_zero (p : ℕ) : moritaNatGamma p 0 = 1 := by sorry
+lemma moritaNatGamma_one (p : ℕ) : moritaNatGamma p 1 = -1 := by sorry
+lemma moritaNatGamma_succ (p n : ℕ) :
+    moritaNatGamma p (n+1) = -(if p ∣ n then 1 else (n : ℤ)) *
+      moritaNatGamma p n := by sorry
+lemma moritaNatGamma_norm (p n : ℕ) [Fact p.Prime] :
+    ‖(moritaNatGamma p n : ℤ_[p])‖ = 1 := by sorry
+lemma moritaNatGamma_isUnit (p n : ℕ) [Fact p.Prime] :
+    IsUnit (moritaNatGamma p n : ℤ_[p]) := by sorry
+lemma moritaPrimePower_sq_eq_one (p r : ℕ) [Fact p.Prime] (hr : 0 < r)
+    (a : ZMod (p^r)) :
+    a^2 = 1 ↔ a = 1 ∨ a = -1 ∨
+      (p = 2 ∧ 3 ≤ r ∧ (a = 1 + (2 : ZMod (p^r))^(r-1) ∨
+        a = -1 + (2 : ZMod (p^r))^(r-1))) := by sorry
+lemma moritaNatGamma_primePower (p r : ℕ) [Fact p.Prime] (hr : 0 < r) :
+    (moritaNatGamma p (p^r) : ZMod (p^r)) =
+      if p = 2 ∧ r = 2 then -1 else 1 := by sorry
+lemma moritaNatGamma_block (p r n : ℕ) [Fact p.Prime] (hr : 0 < r) :
+    (moritaNatGamma p (n+p^r) : ZMod (p^r)) =
+      (moritaNatGamma p n : ZMod (p^r)) * moritaNatGamma p (p^r) := by sorry
+lemma moritaNatGamma_congr (p r n m : ℕ) [Fact p.Prime] (hr : 0 < r)
+    (h2 : p = 2 → r ≠ 2) (h : Nat.ModEq (p^r) n m) :
+    (moritaNatGamma p n : ZMod (p^r)) = moritaNatGamma p m := by sorry
+lemma moritaNatGamma_buffered (p r n m : ℕ) [Fact p.Prime]
+    (h : Nat.ModEq (p^(r+3)) n m) :
+    ‖((moritaNatGamma p n - moritaNatGamma p m : ℤ) : ℤ_[p])‖ ≤
+      (p : ℝ)^(-(r : ℤ)) := by sorry
+end DirichletPadic
+
+namespace SuggestedMoritaNatTests
+open DirichletPadic
+-- zero_value
+example (p : ℕ) : moritaNatGamma p 0 = 1 := by sorry
+-- first_value_sign
+example (p : ℕ) : moritaNatGamma p 1 = -1 := by sorry
+-- deleted_factor_three
+example : moritaNatGamma 3 4 = 2 := by sorry
+-- unsigned_formula_rejected
+example : moritaNatGamma 3 5 ≠ (∏ j ∈ Finset.range 5,
+    if 3 ∣ j then 1 else (j : ℤ)) := by sorry
+-- unit_step
+example (p n : ℕ) (h : ¬p ∣ n) :
+    moritaNatGamma p (n+1) = -(n : ℤ) * moritaNatGamma p n := by sorry
+-- nonunit_step
+example (p n : ℕ) (h : p ∣ n) :
+    moritaNatGamma p (n+1) = -moritaNatGamma p n := by sorry
+-- unit_value
+example (p n : ℕ) [Fact p.Prime] :
+    IsUnit (moritaNatGamma p n : ℤ_[p]) := by sorry
+-- dyadic_norm
+example (n : ℕ) : ‖(moritaNatGamma 2 n : ℤ_[2])‖ = 1 := by sorry
+-- odd_square_roots
+example (a : ZMod 9) : a^2 = 1 ↔ a = 1 ∨ a = -1 := by sorry
+-- dyadic_extra_root
+example : (3 : ZMod 8)^2 = 1 ∧ (3 : ZMod 8) ≠ 1 ∧ (3 : ZMod 8) ≠ -1 := by sorry
+-- modulus_four_value
+example : (moritaNatGamma 2 4 : ZMod 4) = -1 := by sorry
+-- modulus_nine_value
+example : (moritaNatGamma 3 9 : ZMod 9) = 1 := by sorry
+-- four_step_changes_sign
+example (n : ℕ) : (moritaNatGamma 2 (n+4) : ZMod 4) =
+    -(moritaNatGamma 2 n : ZMod 4) := by sorry
+-- eight_step_period
+example (n : ℕ) : (moritaNatGamma 2 (n+8) : ZMod 8) =
+    moritaNatGamma 2 n := by sorry
+-- odd_congruent_values
+example (n m : ℕ) (h : Nat.ModEq 9 n m) :
+    (moritaNatGamma 3 n : ZMod 9) = moritaNatGamma 3 m := by sorry
+-- false_modulus_four_congruence
+example : Nat.ModEq 4 1 5 ∧
+    (moritaNatGamma 2 1 : ZMod 4) ≠ moritaNatGamma 2 5 := by sorry
+-- buffered_dyadic_bound
+example (n m : ℕ) (h : Nat.ModEq 32 n m) :
+    ‖((moritaNatGamma 2 n - moritaNatGamma 2 m : ℤ) : ℤ_[2])‖ ≤
+      (2 : ℝ)^(-(2 : ℤ)) := by sorry
+-- buffered_zero_precision
+example (p n m : ℕ) [Fact p.Prime] (h : Nat.ModEq (p^3) n m) :
+    ‖((moritaNatGamma p n - moritaNatGamma p m : ℤ) : ℤ_[p])‖ ≤ 1 := by sorry
+end SuggestedMoritaNatTests
