@@ -4,10 +4,12 @@ Issue [#1426](https://github.com/CBirkbeck/tauceti-explorer/issues/1426). Status
 
 - **Provenance.** Completed by Claude Code, session cc-442dc5, on 23 September 2026. It continues the merged checkpoints of Codex sessions codex-c83e7a and codex-a71f92 (#1665), whose material follows below.
 - **The paper.** Yonatan Harpaz and Olivier Wittenberg, *Zéro-cycles sur les espaces homogènes et problème de Galois inverse*, J. Amer. Math. Soc. 33 (2020), 775–805. The version read is the author manuscript of 23 September 2019, which has the same text as arXiv v2.
-- **Items.** The result has **150 items: 7 library, 12 planned and 131 missing**. Every missing item is routed exactly once. Item 75 (Remark 4.5), the checkpoint's only unrouted item, is now routed with a corrected statement.
-- **Mistakes.** Two are recorded under `sourceIssues`, the first ones for this paper.
+- **Items.** The result has **150 items: 7 library, 12 planned and 131 missing**. Every missing item is routed exactly once. Item 75 (Remark 4.5) is routed in a rationally connected restriction, which is a sufficient repair; the general proof obligation G1 remains open.
+- **Mistakes.** E1 and E2 are recorded once in the [reviewed errata file](../errata/PAPER-HARPAZ-WITTENBERG-20.json); `sourceIssueReferences` points there and the extraction’s `sourceIssues` is empty. E1 affects the proof. E2 uses m≥2, including Q₄≅C₄.
 
-## This continuation (cc-442dc5)
+## Completion and subsequent correction
+
+The full reading below was recorded by cc-442dc5. The 30 September fix by Codex, session `codex-J6LwjP`, reconciles the current account with the narrower errata verdict and its red-team verification; it does not claim another full reading.
 
 **What was read.** The author manuscript was read in full, §§1–7 (same SHA-256 as the checkpoint's copy). Crossref and the author's publication page show no correction.
 
@@ -17,11 +19,11 @@ Issue [#1426](https://github.com/CBirkbeck/tauceti-explorer/issues/1426). Status
   - Proposition 3.3(i) gives the section over k̄;
   - Theorem 4.2(i) gives density in the Br₁-Brauer–Manin set;
   - CTS87 Théorème 2.1.2 gives Br₁ = Br₀.
-- Item 75 now states this corrected version and is routed with Theorem 4.2 to the homogeneous-spaces Part II.
+- Item 75 states this restricted version, a sufficient repair, and is routed with Theorem 4.2 to the homogeneous-spaces Part II. The printed generality remains an open proof obligation; no necessity of rational connectedness has been demonstrated.
 - The remark is not used anywhere else: Theorems A, B, 6.1 and 6.6 concern rationally connected varieties.
 - Whether Skorobogatov's fibration theorem gives the printed generality remains open, because Sko90 was not obtained. It is recorded in the finding, not claimed.
 
-**E2 (misprint), p. 4.** "Q_{2^m} … pour un entier m ≥ 1" should read m ≥ 3. The generalized quaternion group needs m ≥ 3, and the text's own comparison with the known cases m ≤ 4 (Q₈, Q₁₆) confirms the intended range.
+**E2 (misprint), p. 4.** Use m≥2 in Demarche’s convention (author §8, p.26), including Q₄≅C₄. The m≥3 cases are the non-abelian groups. The introductory m≥1 endpoint is not defined by that presentation; the comparison with known cases does not justify discarding the cyclic endpoint.
 
 **The rest of the paper was checked** and no other mistake was found. This covered the torus descent of §2, the comparison of universal torsors in §3, the fibration theorems of §4, the lifting of actions and the Sylow reduction in §5, the induction of §6 (including that the fibres over codimension-one points of Q are split, which the proof of Theorem 6.6 leaves implicit), and the E⁺ formalism of §7.
 
@@ -56,7 +58,7 @@ Section 4 keeps distinct: split codimension-one fibres over the entire affine sp
 
 Section 5 includes the finite étale cover action, injective torsor types, stabilizer exact sequence and outer-action compatibility separately. A universal torsor replaces the finite stabilizer by its derived subgroup. Profinite Sylow existence is built, but the arbitrary surjective-image theorem remains planned in the reviewed audit. The cosets in Lemma 5.6 are **sets**, since the Sylow subgroup need not be normal. The fixed field of the pro-p Sylow image can be infinite; the finite cover and its action must be descended to a finite intermediate extension.
 
-The Grunwald corollary needs more than Theorem B. LA19 proves constancy of unramified evaluation at real places and at finite places prime to the stabilizer order where it is unramified. DLAN17 converts quotient approximation into surjectivity on local H¹. Auxiliary unramified cyclic conditions, one for each conjugacy class, then force the global character to have full image: a proper subgroup misses a conjugacy class. This preserves the distinction between a weak cohomological solution and a proper realization. Quaternion quotients use both algebraic and geometric Brauer vanishing. The standard generalized-quaternion range is m≥3; the source's m≥1 notation is recorded rather than silently used as a definition.
+The Grunwald corollary needs more than Theorem B. LA19 proves constancy of unramified evaluation at real places and at finite places prime to the stabilizer order where it is unramified. DLAN17 converts quotient approximation into surjectivity on local H¹. Auxiliary unramified cyclic conditions, one for each conjugacy class, then force the global character to have full image: a proper subgroup misses a conjugacy class. This preserves the distinction between a weak cohomological solution and a proper realization. Quaternion quotients use both algebraic and geometric Brauer vanishing. Demarche’s convention includes m≥2, with Q₄≅C₄ the cyclic endpoint and m≥3 the non-abelian groups; E2 records the introductory m≥1 slip.
 
 Section 7 defines the modified local Chow product, its completion, E, E⁺ and the middle defect group. Complex factors vanish; real factors are norm quotients. The universal quantifier over **all finite extensions** in E⁺ is retained. No finiteness of the defect group is assumed: prime-to-p degree annihilators for every p generate the unit ideal. An ℓ-variety viewed over k through its structure morphism is not Weil restriction and may cease to be geometrically irreducible; its grouped local cycle-complex dictionary is an explicit proof obligation. The final Galois consequence has degrees with collective gcd 1, not pairwise coprimality, and does not prove inverse Galois over the original field.
 
@@ -107,14 +109,18 @@ No global group action on the entire fibration is assumed; the unipotent quotien
 
 ## Prerequisite boundary (checkpoint)
 
-G1 was the only unrouted item; cc-442dc5 routes it with a corrected statement (E1). Sko90's original Theorem 1 has not been acquired. Author-site searches supplied no copy; the apparent book OCR mirror returned a maintenance page, and the Sko96 publisher DOI did not expose readable full text. Har97 was acquired, but its Theorem 3.2.1 requires a geometric section on general lines, finite geometric Brauer group and torsion-free geometric Picard group. These additional hypotheses cannot just be omitted to close Remark 4.5. No assertion that the remark is false is made.
+G1 was the only unrouted item; cc-442dc5 routed the sufficient rationally connected restriction as item 75. The general section-based proof obligation stays open (E1). Sko90's original Theorem 1 has not been acquired. Author-site searches supplied no copy; the apparent book OCR mirror returned a maintenance page, and the Sko96 publisher DOI did not expose readable full text. Har97 was acquired, but its Theorem 3.2.1 requires a geometric section on general lines, finite geometric Brauer group and torsion-free geometric Picard group. These additional hypotheses cannot just be omitted to close Remark 4.5. No assertion that the remark is false is made.
 
-The deeper prerequisite proof decompositions remain for the designs: CTS87 type/universal-torsor theory, CTS00/HS13 open descent, Sko90/Sko96/Har97 fibration proofs, GHS/Kollár geometry, Wit12/CT05 cycle finiteness, PR94 arithmetic groups and Borovoi's earlier [Bo2]/[Bo4] inputs. This continuation closes a precise **scope mismatch**, not every theorem in those sources. The item/prerequisite register exposes these imports. Leave status partial until G1 has a verified proof interface and route.
+The deeper prerequisite proof decompositions remain for the designs: CTS87 type/universal-torsor theory, CTS00/HS13 open descent, Sko90/Sko96/Har97 fibration proofs, GHS/Kollár geometry, Wit12/CT05 cycle finiteness, PR94 arithmetic groups and Borovoi's earlier [Bo2]/[Bo4] inputs. This continuation closes a precise **scope mismatch**, not every theorem in those sources. The item/prerequisite register exposes these imports. The extraction is complete because item 75 has a route and E1 records the remaining general proof obligation; this does not close G1 for the design.
 
-## Mistakes found (`sourceIssues`)
+## Canonical source findings
 
-- **E1** (gap; affects a stated result), Remarque 4.5, author manuscript p. 17 (arXiv v2 the same). *Printed:* Si X est une variété propre et lisse sur k, si V ⊂ X est un ouvert dense tel que k̄[V]∗ = k̄∗ et si les groupes Pic(X_k̄) et Pic(V_k̄) sont sans torsion, le théorème 4.2 (i) et la proposition 3.3 (i) permettent de justifier l'implication suivante, énoncée dans [Wit18, Remark 3.9] : si tout torseur universel de V vérifie l'approximation faible, alors tout torseur universel de X vérifie l'approximation faible. *Correction:* Add the hypothesis that X is rationally connected. With it, the generic fibre of π′ : Z → P^n (a universal torsor of V) has rationally connected smooth compactifications, so Theorem 4.2(i) applies and the argument goes through. Without it, a different fibration theorem would be needed (possibly Skorobogatov's Sko90, Theorem 1, which was not checked). *Reason:* Theorem 4.2 is stated in the setting fixed at the start of §4, which assumes that the generic fibre of f : X → P^n is rationally connected; its proof uses Theorem 4.1, whose hypotheses 'sont ici satisfaites en vertu de [GHS03, Theorem 1.1]', that is, through rational connectedness. In Remark 4.5 the generic fibre of π′ is birational to V × (torus), hence rationally connected only if X is. The remark is not used later: Theorems 6.1, 6.6 and A concern rationally connected X.
-- **E2** (misprint; affects nothing), Introduction, author manuscript p. 4. *Printed:* si Γ = Q_{2^m} est le groupe quaternionique d'ordre 2^m pour un entier m ≥ 1 *Correction:* m ≥ 3 (for m = 2 the presentation gives the cyclic group of order 4, and for m = 1 it is not defined). *Reason:* The generalized quaternion group Q_{2^m} = ⟨x, y | x^{2^{m−1}} = 1, y² = x^{2^{m−2}}, yxy^{−1} = x^{−1}⟩ is defined for m ≥ 3; the comparison with the known cases 'm ≤ 4' (Q₈, Q₁₆) confirms that this is the intended range. For cyclic groups the weak-approximation statement is classical, so nothing is affected.
+The [reviewed errata file](../errata/PAPER-HARPAZ-WITTENBERG-20.json) is the sole record of E1 and E2. The extraction references it rather than publishing conflicting copies. REV-ERRATA-PAPER-HARPAZ-WITTENBERG-20’s narrower verdicts, confirmed by REV-RT-PAPER-HARPAZ-WITTENBERG-20, are current:
+
+- **E1:** a gap affecting the proof of Remark 4.5. Rational connectedness is sufficient for item 75’s restricted argument, not a demonstrated necessary hypothesis. Proposition 3.3(i) already provides a geometric section; the section-based fibration argument in the printed generality remains G1.
+- **E2:** an endpoint misprint affecting nothing else, corrected to m≥2 under Demarche’s convention, with Q₄≅C₄. Restrict m≥3 only when explicitly discussing non-abelian groups.
+
+The findings remain scoped to the identified public author manuscript and arXiv v2. Their journal wording was not verified. The historical review appended below records the earlier conflicting assessments; the verifier supersedes those two assessments without rewriting that historical record.
 
 ## Checkpoint validation
 
@@ -133,7 +139,13 @@ The following was also checked:
 No Lean deliverable is part of a paper job.
 
 **For the reviewer.**
-- Check E1: that the remark needs X rationally connected as justified, and the corrected item 75.
+- Check E1: item 75 is a sufficient rationally connected restriction, while the section-based argument for the printed generality remains G1.
+
+## Repair validation (30 September 2026)
+
+The [fixes report](../redteam/RT-PAPER-HARPAZ-WITTENBERG-20.fixes.md) records the single confirmed finding, exact changes and supplier handoff. The repair freshly read HW20 pp.4,12–17 and Wit18’s surrounding hypotheses and Remark 3.9 through the web text reader. Direct downloads of those URLs failed DNS resolution; no fresh hash match is claimed. Demarche’s author PDF pp.12,26 was downloaded and read, hash `3b4b0665958266bf8e79f10989dcc30be1c59c3711201727a380c25877dbe929`. No fresh full reading, published collation or Sko90/Sko96 reading is claimed.
+
+Paper and errata checks, intake checks and whitespace validation pass. A read-only register collection returns exactly E1 and E2, both from the canonical errata file with its valid independent verdicts. Intake regenerates the public outputs after merge; this worker does not edit them or the old review file. Exact group-model checks at m=2,3,4 verify the presentations and identify the cyclic endpoint. Item 75’s statement, every status, every route and all 150 item IDs are preserved. No Lean file is assigned or compiled.
 
 ## Review (REV-PAPER-HARPAZ-WITTENBERG-20, 23 September 2026)
 
