@@ -35621,7 +35621,8 @@
     "REV-PAPER-FENG-YUN-ZHANG-24"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-FENG-YUN-ZHANG-24.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4142"
   },
   {
    "id": "REV-RT-PAPER-FENG-YUN-ZHANG-24",
@@ -38937,7 +38938,8 @@
     "REV-PAPER-RICHARD-YAFAEV-25"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-RICHARD-YAFAEV-25.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4288"
   },
   {
    "id": "RT-PAPER-BHATT-ETAL-23",
@@ -42024,8 +42026,9 @@
     "REV-RS-06"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-RS-06.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4394"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4394",
+   "finishedAt": "2026-09-30T15:07:53Z"
   },
   {
    "id": "RT-RS-07",
@@ -42274,8 +42277,9 @@
     "REV-RS-14"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-RS-14.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4400"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4400",
+   "finishedAt": "2026-09-30T15:07:57Z"
   },
   {
    "id": "RT-RS-15",
