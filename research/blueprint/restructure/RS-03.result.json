@@ -251,7 +251,7 @@
     {
       "source": "AdditiveCombinatorics:AC.0",
       "target": "EllipticRegulators:ER.4",
-      "reason": "RT-AREA-combinatorics/14: ER.4's finite Fourier transform on C-torsion is a specialization of the finite-abelian interface owned here. ER.4 keeps the identification of the C-torsion with its dual, Lecture 11's normalization 1/C (the unitary normalization on a group of order C^2) and the odd-function identities, and imports inversion and Parseval from AC.0."
+      "reason": "RT-AREA-combinatorics/14: ER.4 specializes AC.0’s finite-abelian character/coefficient comparison interface to C-torsion and imports generic inversion and Parseval. Lecture 10 uses the averaging factor 1/C²; Lecture 11 uses the unitary factor 1/C on the C²-element group. ER.4/ER.5 retain the torsion-dual identification, odd-function identities and scale comparison. Preserve the corrected dual-first Lecture-11 kernel recorded in EllipticRegulators/E7; swap only the input coordinates f(m,n)=F(n+mτ), not the output index."
     },
     {
       "source": "ComputationalNumberTheory:CN.2",
