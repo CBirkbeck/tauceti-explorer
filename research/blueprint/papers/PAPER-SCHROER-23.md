@@ -4,10 +4,28 @@ Issue [#1087](https://github.com/CBirkbeck/tauceti-explorer/issues/1087). Status
 
 - **Provenance.** Completed by Claude Code, session cc-442dc5, on 23 September 2026. It continues the merged partial checkpoints of Codex sessions codex-a71f92 ([#1653](https://github.com/CBirkbeck/tauceti-explorer/pull/1653)) and codex-c83e7a ([#1661](https://github.com/CBirkbeck/tauceti-explorer/pull/1661)).
 - **The paper.** Stefan Schröer, *There is no Enriques surface over the integers*, Annals of Mathematics 197 (2023), no. 1, 1–63 (doi 10.4007/annals.2023.197.1.1; arXiv 2004.07025).
-- **Items.** The result has **212 items: 16 library, 12 planned and 184 missing**.
-  - Items /1–/188 are those of the checkpoints; /189–/212 are added here.
-  - Nine routes own the missing items, each exactly once.
-- **Mistakes.** Seventeen are recorded under `sourceIssues` (E1–E17).
+- **Items.** The result now has **253 items: 16 library, 18 planned and 219 missing**.
+  - /1–/245 retain their stable IDs; the red-team fix adds /246–/253.
+  - Ten routes own the missing items, each exactly once. The K3 route joins the existing pending Charles/Shankar proposal.
+- **Mistakes.** Forty-six canonical active records (E1–E46) are collected from the paper file. The eleven duplicate errata-file records and all earlier paper records retain their original verdicts in historical fields.
+
+## Red-team fix (Codex codex-5ebb6f, 30 September 2026)
+
+Issue [#4976](https://github.com/CBirkbeck/tauceti-explorer/issues/4976), following the seven confirmed findings and the verifier's qualifications. The detailed handoff is [RT-PAPER-SCHROER-23.fixes.md](../redteam/RT-PAPER-SCHROER-23.fixes.md). The historical continuation and review below retain their attribution; their counts and reading dates describe that earlier work.
+
+The classification correction now reaches /119, /130, /146 and /47. Fourteen elliptic configurations and four quasielliptic configurations form the corrected candidate list. **Completeness is still an independent open gate /247.** The three omitted configurations I₂*+E₄+Ĩ₂, I₃*+E₄+Ĩ₁ and IV*+E₄+Ĩ₂ require the separate open exclusions /246. In each added case the additive and ordinary E₄ fibers would be multiple, while the nonsplit semistable fiber is simple. The printed IV* exclusion assumes a III/IV other multiple fiber and does not cover E₄. Theorem 15.1 and the main theorem remain targets whose printed proofs have this gap; no Enriques counterexample is asserted.
+
+The rank-two classification /52 and its Z specialization /54 import their exact R07.1 nodes. Only explicit minus-sign/nontrivial-line-bundle and duality adapters /51 and /53 remain in that foundation source route. Finite covers /181 import R25.3; the general normal-base infinite-stalk local-system adapter is split into /248 at IG.0. The shared K3 definition /249 joins the pending Charles/Shankar design, including the proper/projective comparison gate. Enriques definitions, canonical torsors and characteristic-two specializations keep one owner in route 6.
+
+Proposition 8.1 now names EGA IV₄ 18.5.11(c) /250 (henselian finite local component, SF.0), Raynaud 8.2.1 /251 (degree-one criterion under (N)*, A0-extension), and the genus-one applications /252–/253. The transverse divisor meets the **reduced** fiber in Spec k; its schematic special fiber generally has length m. A section alone does not supply all of Raynaud's hypotheses, and h¹=1 additionally uses the genus-one Euler characteristic.
+
+JacobianChallenge Layer D (`tauceti:TauCetiRoadmap/JacobianChallenge#layer-d-the-relative-picard-functor-and-the-jacobian-scheme`) plans a relative fppf Picard functor and Brauer obstruction for proper flat finitely presented families with geometrically integral fibers before section rigidification. Route 1 imports that prefix and retains the broader arbitrary-proper/nonreduced/disconnected numerical Picard work; it does not duplicate the prefix.
+
+The public arXiv v3 and author PDFs were freshly retrieved and hash checked. Selected passages were reread: pp. 12–14, Proposition 8.1 pp. 21–22, the configuration table/transfer pp. 33–34, the IV* proof p. 37, Proposition 11.4 p. 38 and Theorem 15.1 p. 49. Page images 33, 37 and 49 were inspected. EGA 18.5.11 pp. 130–132 and Raynaud 6.1.4/8.2.1 pp. 48–49/66–67 were checked directly, with EGA p. 131 and Raynaud p. 66 images; Oort–Tate's introduction pp. 1–2 and p. 1 image were checked for the law. URLs and hashes are in `source.fixReadings`. This fix did not reproduce the earlier exhaustive classification search or reread all previously cited sources.
+
+The [maintainer's selected-page version-of-record check](https://github.com/CBirkbeck/tauceti-explorer/issues/4976#issuecomment-5915303984) confirms E29 at published pp. 3/33, E34 at pp. 34–36, and E44 at p. 39 and pp. 43–44. The PDF was typeset 17 November 2022, SHA-256 `ce9356aa68d9afc761f9f8ee25db55078dd16988d856ed220887a717f68b8d56`. Both files record this as reading **by the maintainer**, not this worker. Other findings remain public-version scoped; no private PDF or extracts are added.
+
+Canonicalization changes E1/E4 to “a stated result” and splits the two independent slips formerly combined in E16/E17 into E16/E45 and E17/E46. The original records and independent verdicts are archived verbatim. The split entries have no invented fresh verdict. File-qualified aliases map every older errata ID to its canonical paper record, and the errata file has no duplicate active records.
 
 ## This continuation (cc-442dc5)
 
@@ -79,7 +97,7 @@ Further primary-source reading and hashes are recorded in the result’s source/
 
 The target concerns flat proper finitely presented **algebraic-space** Enriques families over Z. Proposition 5.5 would force the full Picard scheme to be constant, not just the numerical local system. The characteristic-two fiber cannot be exceptional, because such a fiber has no lift modulo 4. The remaining contradiction is Theorem 15.1: a nonexceptional Enriques surface over F₂ cannot have constant full Picard scheme.
 
-The surface proof descends (-2)-curves and genus-one fibrations; counts 25 rational points; transfers Picard constancy to rational Jacobians; classifies eleven elliptic equations and four quasielliptic configurations; reduces fifteen possibilities to eight; and then excludes I₄*, multiple III*, simple III*, and the last two configuration families. The two ten-curve exclusions require actual discriminant forms, not just determinants. The integer argument additionally needs Fontaine's low-degree Hodge obstruction for good reduction over W(F_pbar) at every prime.
+The intended surface proof descends (-2)-curves and genus-one fibrations, counts 25 rational points, and transfers Picard constancy to rational Jacobians. The corrected candidate classification has fourteen elliptic equations and four quasielliptic configurations, with completeness still open at /247. The printed fifteen-to-eight reduction omits three configurations; /246 must exclude them before Theorem 15.1 can use the later I₄*, multiple III*, simple III* and final configuration exclusions. The two ten-curve exclusions require actual discriminant forms, not just determinants. The integer argument additionally needs Fontaine's low-degree Hodge obstruction for good reduction over W(F_pbar) at every prime.
 
 All named main-paper results are represented, with multiparts split where their contracts differ. This does not mean that every unnamed construction, imported theorem, or proof-interior branch has been extracted. Those omissions are explicit in the handoff.
 
@@ -87,15 +105,16 @@ All named main-paper results are represented, with multiparts split where their 
 
 | Route | Missing items | Boundary |
 | --- | ---: | --- |
-| NumericalPicardAndContractionDescent, Part II of AlgebraicModuliForArithmeticGeometry | 14 | General proper-scheme numerical Picard objects and contraction descent, beyond relative Pic⁰ representability |
-| GenusOneFibrationsAndRationalEllipticSurfaces, Part II of NeronModelsAndSemistableAbelianVarieties | 64 | Regular genus-one torsor surfaces, rational Jacobians and F₂ classification; import Tate's algorithm |
+| NumericalPicardAndContractionDescent, Part II of AlgebraicModuliForArithmeticGeometry | 23 | General proper-scheme numerical Picard objects and contraction descent; import the geometrically integral JacobianChallenge Layer D prefix |
+| GenusOneFibrationsAndRationalEllipticSurfaces, Part II of NeronModelsAndSemistableAbelianVarieties | 78 | Regular genus-one torsor surfaces, rational Jacobians, classification completeness and Proposition 8.1 applications; import Tate's algorithm and EGA/Raynaud foundations |
 | EverywhereGoodReductionAndLowDegreeHodgeNumbers, Part II of SmallRamificationAndAbelianVarietyBaseCases | 2 | Fontaine 1993 for higher cohomology; the parent's abelian-variety theorem is insufficient |
-| Source for FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1 | 4 | Rank-two Oort–Tate classification and its compatibility with existing Cartier duality |
-| Source for WeilConjectures:WC.7 | 4 | Algebraic-cycle realizations and the 25-point example, importing the shared trace/cohomology machinery |
-| New EnriquesSurfacesAndIntegralNonexistence | 89 | Enriques-specific geometry, canonical covers, lifting, numerical-lattice realization and the configuration proof |
-| Source for InverseGaloisAndArithmeticFundamentalGroups:IG.0 | 1 | Finite étale covers of Spec Z, importing the built number-field theorem |
-| Source for AlgebraicModuliForArithmeticGeometry:A0-extension | 3 | Picard rigidification with a section; Artin's representability of the relative Picard functor; Raynaud's correspondence between finite subgroups of Pic and torsors |
-| Source for SchemeAndStackFoundations:SF.1–SF.2 | 3 | Henselian lifting for smooth separated algebraic spaces (SF.1); Pic(ℤ) = Br(ℤ) = 0 and Kummer sequences over a base (SF.2) |
+| Source for FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1 | 2 | Explicit minus-sign law and nontrivial-L duality adapters; /52 and /54 already have planned R07.1 suppliers |
+| Source for WeilConjectures:WC.7 | 6 | Algebraic-cycle realizations and the 25-point example, importing the shared trace/cohomology machinery |
+| New EnriquesSurfacesAndIntegralNonexistence | 96 | Shared Enriques definitions/covers, lifting, numerical-lattice realization and the open three-configuration exclusion /246 |
+| Source for InverseGaloisAndArithmeticFundamentalGroups:IG.0 | 1 | General normal-base finite-monodromy adapter /248; finite covers /181 already have a planned R25.3 supplier |
+| Source for AlgebraicModuliForArithmeticGeometry:A0-extension | 5 | General coherent/Picard inputs, including Raynaud's degree-one criterion under (N)* |
+| Source for SchemeAndStackFoundations:SF.0–SF.2 | 5 | Henselian finite local component (SF.0), smooth algebraic-space lifting (SF.1), base cohomology/Kummer sequences (SF.2) |
+| Shared pending K3SurfacesAndSymplecticBoundedness proposal | 1 | K3 definition and proper/projective compatibility /249, joining Charles/Shankar; no known stage is claimed |
 
 The briefs in the result identify exact final theorems, imports, tests and scope limits. They are proposals for future design, not new stage definitions applied by this worker. In particular, /63 is now accompanied by a proof and singly routed to the Enriques consumer; its Hensel, local-field, Galois-category and Picard suppliers retain their existing owners.
 
@@ -119,7 +138,7 @@ The added atlas checks include LocalFieldsRamification Layers 1–2 and AUDIT-04
 
 ## Mistakes found (`sourceIssues`)
 
-The result records seventeen mistakes, E1–E17, each with a quotation, a correction and the reason. None affects a stated theorem. The main theorem is not in question.
+The result now records forty-six canonical findings. E1 and E4 affect stated results; E29/E34 concern the incomplete classification, and E44 leaves the main proof open. The main nonexistence theorem is retained as a target, not alleged false. The list below describes the first continuation's findings; current canonical records and their history are in the JSON.
 
 **Gaps and errors in proofs, each with a repair (`affects`: the proof).**
 - **E6, the proof of Proposition 5.5.** It compares canonical covers without their twists. The four-twist repair below fixes it.
@@ -127,8 +146,11 @@ The result records seventeen mistakes, E1–E17, each with a quotation, a correc
 - **E13, the proof of Proposition 9.3(v).** It uses Br(F₂(t)) = 0, which is false.
 - **E14, the proof of Proposition 9.5.** It treats a projection as an isometry.
 
-**Errors with no consequence (`affects`: nothing).**
-- **E4.** The equivalence in Proposition 3.1 needs a singular fiber.
+**Errors in stated results (`affects`: a stated result).**
+- **E1.** Lemma 1.1 needs a positive exponent; zero makes its criterion vacuous.
+- **E4.** The equivalence in Proposition 3.1 needs a singular fiber and the standing relatively minimal genus-one hypotheses.
+
+**Other original errors with no downstream consequence (`affects`: nothing).**
 - **E8.** O_J(3E) is not relatively very ample.
 - **E10.** Frobenius eigenvalues on twisted cohomology need not be integers.
 - **E15.** The c₄ criterion needs a singular fiber.
@@ -141,8 +163,8 @@ The result records seventeen mistakes, E1–E17, each with a quotation, a correc
 - E7: t^{−6} = (t₀/t₁)^6.
 - E9: Y is written for J in §§6, 9 and 10.
 - E11: F_p should be F_q in Corollary 7.2.
-- E16: r_a and r_c are swapped twice in the proof of Theorem 10.4.
-- E17: A_R and Pic(Y_K) in the proof of Proposition 12.3.
+- E16/E45: the two variable slips in the proof of Theorem 10.4, now separate canonical records.
+- E17/E46: Pic(Y_K) versus Pic⁰(Y_K), and A_R versus A_S, now separate canonical records.
 
 **Where each comes from.**
 - The earlier checkpoint's numbered findings map as follows:
@@ -150,7 +172,7 @@ The result records seventeen mistakes, E1–E17, each with a quotation, a correc
   - 5 is E10 and E11, 6 is E13, 7 is E14, 8 is E15 and part of E16;
   - 9 is part of E17, 10 is E6, and 11 is E12.
 - E2, E3, E9 and the remaining parts of E16 and E17 are new in this continuation.
-- No erratum exists. The Annals page, arXiv, Crossref and the author's publication list were checked.
+- No erratum was found in the earlier checks of the Annals page, arXiv, Crossref and the author's publication list. The later maintainer check establishes that E29/E34/E44 persist at the selected published locators; it does not check every other finding in print.
 
 The checkpoint's original notes follow.
 
@@ -474,7 +496,7 @@ No Lean deliverable is part of a paper job.
   - the genus-one fibrations Part II is under NeronModelsAndSemistableAbelianVarieties;
   - the unimodular classification /207 goes to the Enriques roadmap, since Tau Ceti's completed IntegralLattices is not re-planned;
   - /204–/205 widen the SchemeAndStackFoundations source route to SF.2.
-- The published 63-page version was not available. The locators follow the author version, which equals arXiv v3.
+- At the historical continuation the published version was unavailable. Current selected published evidence for E29/E34/E44 is attributed to the maintainer above; all other locators remain public-version scoped.
 
 ## Review (REV-PAPER-SCHROER-23, 23 September 2026)
 
