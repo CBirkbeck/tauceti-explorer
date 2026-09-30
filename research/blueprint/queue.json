@@ -23653,12 +23653,12 @@
     "REV-RS-14"
    ],
    "prompt": "research/blueprint/prompts/BP-DirichletPadicLFunctions.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [
     "BP-LocallyAnalyticDistributions",
     "BP-PadicMeasuresIwasawaAlgebras"
    ],
-   "note": "released on GitHub issue #713"
+   "note": "claimed on GitHub issue #713"
   },
   {
    "id": "REV-DirichletPadicLFunctions",
@@ -33987,7 +33987,8 @@
     "FIX-RT-PAPER-BROWNING-LEBOUDEC-SAWIN-23"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-PAPER-BROWNING-LEBOUDEC-SAWIN-23.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #5134"
   },
   {
    "id": "RT-PAPER-DADDEZIO-23",
@@ -40811,8 +40812,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-BOCKLE-HARRIS-KHARE-ETAL-19.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5014"
+   "state": "pending",
+   "note": "released on GitHub issue #5014"
   },
   {
    "id": "RT-PAPER-LAWRENCE-VENKATESH-20",
@@ -50882,8 +50883,9 @@
     "FIX-RT-AREA-langlands-1"
    ],
    "prompt": "research/blueprint/prompts/FIX-RT-AREA-langlands-1~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5140"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #5140",
+   "finishedAt": "2026-09-30T21:02:07Z"
   },
   {
    "id": "REV-FIX-RT-AREA-langlands-1~2",
