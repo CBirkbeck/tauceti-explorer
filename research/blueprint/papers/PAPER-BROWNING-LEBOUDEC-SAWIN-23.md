@@ -430,3 +430,24 @@ All nineteen findings now carry `review` verdicts in the result; all are confirm
 boundary stands: arXiv lists only v1 and Crossref records no erratum or relation for
 10.4007/annals.2023.197.3.3, so every verdict is a verdict about v1. The full record is
 [REV-PAPER-BROWNING-LEBOUDEC-SAWIN-23.md](../reviews/REV-PAPER-BROWNING-LEBOUDEC-SAWIN-23.md).
+
+## Fixes (FIX-RT-PAPER-BROWNING-LEBOUDEC-SAWIN-23, 30 September 2026)
+
+Claude Code, session `cc-c2c06b`, issue #4977. This fix applies the three medium findings of
+`RT-PAPER-BROWNING-LEBOUDEC-SAWIN-23`, following the verifier's refinements. The full record is
+`research/blueprint/redteam/RT-PAPER-BROWNING-LEBOUDEC-SAWIN-23.fixes.md`.
+
+- **What was read.** `sourceVersions` declares arXiv v1 (SHA-256 `210c746b…1efb`), the only text read.
+  The 89-page Annals text (revised 22 July 2022) was not obtained, and no "published" reading is
+  declared. The collation worklist now classifies the paper as preprint-read and lists E3.
+- **Shared carriers.** sigma, veronese and veronese-gcd are now planned at ArithmeticStatistics ST.5,
+  whose blueprint builds them. The nodes are ST.5/local-density-of-a-form-modulo-q,
+  ST.5/coefficient-vector-form and ST.5/veronese-minor-valuation.
+  - They left route 7, whose brief now imports them and builds S_V(B) and the real factor on top.
+  - The general minor gcd stays with GN.0, and the blueprint now requests it there.
+- **The Euclidean local density.** pv-density-ball's note is now a proof route: the real factor as a ball
+  fraction, uniform Lang–Weil with Hensel lifting, the codimension-two reducible locus, the quantitative
+  Ekedahl sieve on the ball, and Möbius inversion. conic-density transfers Serre's bound by box
+  containment. The ArithmeticStatistics blueprint's ST.2 coverage now lists route 4 as remaining work
+  with these suppliers.
+- **Result:** 129 items (5 library, 7 planned, 117 missing).
