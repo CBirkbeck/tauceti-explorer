@@ -1,3 +1,5 @@
+import Mathlib.NumberTheory.LegendreSymbol.ZModChar
+import Mathlib.Algebra.Ring.Int.Units
 import Mathlib.Analysis.Normed.Algebra.Basic
 import Mathlib.Topology.Algebra.IntermediateField
 import TauCeti.NumberTheory.ArithmeticFunction.TwistedDivisorSum
@@ -14626,3 +14628,120 @@ example : (moritaGamma 3 (2+3) : ℤ_[3]) = -8 * (moritaGamma 3 2 : ℤ_[3]) := 
 -- shift_deleted_factor
 example : (moritaGamma 3 (2+3) : ℤ_[3]) ≠ -24 * (moritaGamma 3 2 : ℤ_[3]) := by sorry
 end SuggestedMoritaLocalTests
+
+/-! The dyadic angular coordinate in Morita §2. Reuse native χ₄ and PMIA unit
+reduction. These maps do not construct analytic character spaces or averages. -/
+namespace DirichletPadic
+noncomputable section
+/-- The conductor-four sign of a native 2-adic unit. -/
+def dyadicOmega : ℤ_[2]ˣ →* ℤ_[2]ˣ :=
+  (Units.map ((Int.castRingHom ℤ_[2]).toMonoidHom.comp ZMod.χ₄.toMonoidHom)).comp
+    (PadicInt.unitToZModPow 2 2)
+lemma dyadicOmega_def : dyadicOmega =
+    (Units.map ((Int.castRingHom ℤ_[2]).toMonoidHom.comp ZMod.χ₄.toMonoidHom)).comp
+      (PadicInt.unitToZModPow 2 2) := by sorry
+lemma dyadicOmega_coe (u : ℤ_[2]ˣ) :
+    (dyadicOmega u : ℤ_[2]) = (ZMod.χ₄ (PadicInt.toZModPow 2 (u : ℤ_[2])) : ℤ) := by sorry
+lemma dyadicOmega_one : dyadicOmega 1 = 1 := by sorry
+lemma dyadicOmega_mul (u v : ℤ_[2]ˣ) : dyadicOmega (u*v) = dyadicOmega u * dyadicOmega v := by sorry
+lemma dyadicOmega_neg_one : dyadicOmega (-1) = -1 := by sorry
+lemma dyadicOmega_on_sign (s : ℤˣ) :
+    dyadicOmega (Units.map (Int.castRingHom ℤ_[2]).toMonoidHom s) =
+      Units.map (Int.castRingHom ℤ_[2]).toMonoidHom s := by sorry
+lemma dyadicOmega_sq (u : ℤ_[2]ˣ) : dyadicOmega u ^ 2 = 1 := by sorry
+lemma dyadicOmega_reduction (u : ℤ_[2]ˣ) :
+    PadicInt.unitToZModPow 2 2 (dyadicOmega u) = PadicInt.unitToZModPow 2 2 u := by sorry
+lemma dyadicOmega_sign (u : ℤ_[2]ˣ) : dyadicOmega u = 1 ∨ dyadicOmega u = -1 := by sorry
+lemma continuous_dyadicOmega : Continuous dyadicOmega := by sorry
+/-- Divide a dyadic unit by its conductor-four sign. -/
+def dyadicAngular : ℤ_[2]ˣ →* ℤ_[2]ˣ := (MonoidHom.id _) / dyadicOmega
+lemma dyadicAngular_def : dyadicAngular = (MonoidHom.id _) / dyadicOmega := by sorry
+lemma dyadicAngular_apply (u : ℤ_[2]ˣ) : dyadicAngular u = u / dyadicOmega u := by sorry
+lemma dyadicAngular_one : dyadicAngular 1 = 1 := by sorry
+lemma dyadicAngular_mul (u v : ℤ_[2]ˣ) : dyadicAngular (u*v) = dyadicAngular u * dyadicAngular v := by sorry
+lemma dyadicAngular_inv (u : ℤ_[2]ˣ) : dyadicAngular u⁻¹ = (dyadicAngular u)⁻¹ := by sorry
+lemma dyadicAngular_fixed (u : ℤ_[2]ˣ) (h : PadicInt.unitToZModPow 2 2 u = 1) :
+    dyadicAngular u = u := by sorry
+lemma dyadicAngular_factorization (u : ℤ_[2]ˣ) : dyadicOmega u * dyadicAngular u = u := by sorry
+lemma dyadicAngular_neg (u : ℤ_[2]ˣ) : dyadicAngular (-u) = dyadicAngular u := by sorry
+lemma dyadicAngular_reduction (u : ℤ_[2]ˣ) :
+    PadicInt.unitToZModPow 2 2 (dyadicAngular u) = 1 := by sorry
+lemma dyadicAngular_norm (u : ℤ_[2]ˣ) :
+    ‖(dyadicAngular u : ℤ_[2])-1‖ ≤ (2 : ℝ)^(-(2 : ℤ)) := by sorry
+lemma continuous_dyadicAngular : Continuous dyadicAngular := by sorry
+lemma dyadicAngular_unique (u : ℤ_[2]ˣ) (s : ℤˣ) (v : ℤ_[2]ˣ)
+    (hv : PadicInt.unitToZModPow 2 2 v = 1)
+    (h : Units.map (Int.castRingHom ℤ_[2]).toMonoidHom s * v = u) :
+    Units.map (Int.castRingHom ℤ_[2]).toMonoidHom s = dyadicOmega u ∧
+      v = dyadicAngular u := by sorry
+lemma dyadicOmega_translate (u v : ℤ_[2]ˣ) (z : ℤ_[2])
+    (h : (v : ℤ_[2]) = (u : ℤ_[2])+4*z) : dyadicOmega v = dyadicOmega u := by sorry
+lemma dyadicAngular_translate (u v : ℤ_[2]ˣ) (z : ℤ_[2])
+    (h : (v : ℤ_[2]) = (u : ℤ_[2])+4*z) :
+    (dyadicAngular v : ℤ_[2]) = (dyadicAngular u : ℤ_[2]) +
+      (↑((dyadicOmega u)⁻¹) : ℤ_[2]) * (4*z) := by sorry
+end
+end DirichletPadic
+namespace SuggestedDyadicAngularTests
+open DirichletPadic
+-- omega_identity
+example : dyadicOmega 1 = 1 := by sorry
+-- omega_three
+example (u : ℤ_[2]ˣ) (h : (u : ℤ_[2]) = 3) : dyadicOmega u = -1 := by sorry
+-- omega_native_character
+example (u : ℤ_[2]ˣ) : (dyadicOmega u : ℤ_[2]) =
+    (ZMod.χ₄ (PadicInt.toZModPow 2 (u : ℤ_[2])) : ℤ) := by sorry
+-- omega_not_mod_two
+example : PadicInt.unitToZModPow 2 1 (-1) = PadicInt.unitToZModPow 2 1 1 ∧
+    dyadicOmega (-1) ≠ dyadicOmega 1 := by sorry
+-- omega_reduction_negative
+example : PadicInt.unitToZModPow 2 2 (dyadicOmega (-1)) =
+    PadicInt.unitToZModPow 2 2 (-1) := by sorry
+-- omega_two_signs
+example : dyadicOmega (-1) = -1 ∧ dyadicOmega 1 = 1 := by sorry
+-- omega_order_two
+example (u : ℤ_[2]ˣ) : dyadicOmega u ^ 2 = 1 := by sorry
+-- omega_continuous_native
+example : Continuous (fun u : ℤ_[2]ˣ => (dyadicOmega u : ℤ_[2])) := by sorry
+-- angular_identity
+example : dyadicAngular 1 = 1 := by sorry
+-- angular_three
+example (u : ℤ_[2]ˣ) (h : (u : ℤ_[2]) = 3) : (dyadicAngular u : ℤ_[2]) = -3 := by sorry
+-- angular_native_division
+example (u : ℤ_[2]ˣ) : dyadicAngular u = u / dyadicOmega u := by sorry
+-- angular_not_identity
+example : dyadicAngular (-1) ≠ (-1 : ℤ_[2]ˣ) := by sorry
+-- angular_forgets_sign
+example (u : ℤ_[2]ˣ) : dyadicAngular (-u) = dyadicAngular u := by sorry
+-- angular_kernel
+example (u : ℤ_[2]ˣ) : dyadicAngular u ∈ (PadicInt.unitToZModPow 2 2).ker := by sorry
+-- angular_retraction
+example (u : ℤ_[2]ˣ) : dyadicAngular (dyadicAngular u) = dyadicAngular u := by sorry
+-- angular_disc_bound
+example (u : ℤ_[2]ˣ) : ‖(dyadicAngular u : ℤ_[2])-1‖ ≤ (4 : ℝ)⁻¹ := by sorry
+-- angular_three_sharp
+example (u : ℤ_[2]ˣ) (h : (u : ℤ_[2]) = 3) :
+    ‖(dyadicAngular u : ℤ_[2])-1‖ = (4 : ℝ)⁻¹ := by sorry
+-- angular_continuous_native
+example : Continuous (fun u : ℤ_[2]ˣ => (dyadicAngular u : ℤ_[2])) := by sorry
+-- unique_negative_factor
+example (v : ℤ_[2]ˣ) (h : PadicInt.unitToZModPow 2 2 v = 1) :
+    dyadicOmega (-v) = -1 ∧ dyadicAngular (-v) = v := by sorry
+-- angular_factorization_native
+example (u : ℤ_[2]ˣ) : dyadicOmega u * dyadicAngular u = u := by sorry
+-- translate_zero
+example (u v : ℤ_[2]ˣ) (h : (v : ℤ_[2]) = (u : ℤ_[2])+4*0) :
+    dyadicOmega v = dyadicOmega u := by sorry
+-- translate_four
+example (u v : ℤ_[2]ˣ) (h : (u : ℤ_[2]) = 3) (hv : (v : ℤ_[2]) = 7) :
+    dyadicOmega v = dyadicOmega u := by sorry
+-- translate_two_fails
+example (u v : ℤ_[2]ˣ) (h : (u : ℤ_[2]) = 1) (hv : (v : ℤ_[2]) = 3) :
+    dyadicOmega v ≠ dyadicOmega u := by sorry
+-- angular_translate_negative_sign
+example (u v : ℤ_[2]ˣ) (h : (u : ℤ_[2]) = 3) (hv : (v : ℤ_[2]) = 7) :
+    (dyadicAngular v : ℤ_[2]) = (dyadicAngular u : ℤ_[2])-4 := by sorry
+-- angular_translate_positive_sign
+example (u v : ℤ_[2]ˣ) (h : (u : ℤ_[2]) = 1) (hv : (v : ℤ_[2]) = 5) :
+    (dyadicAngular v : ℤ_[2]) = (dyadicAngular u : ℤ_[2])+4 := by sorry
+end SuggestedDyadicAngularTests
