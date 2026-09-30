@@ -4946,8 +4946,7 @@ theorem exists_approx_restrictedPowerSeries {R : Type*} [CommRing R] [Topologica
 
 -- PerfectoidSpace.isStronglyZariskiClosed_perfectoidBall: not stated here; needs the perfectoid
 --   Tate algebra `A⟨T^{1/p^∞}⟩` and ECD's strongly Zariski closed immersions (supplier:
---   PerfectoidSpaces:P1, PerfectoidQuotients:Q4/zariski-closed-subsets-are-strongly-zariski-
---   closed). The affinoid condition is `Huber.Pair.Hom.IsQuotientMapping`.
+--   PerfectoidSpaces:P1). The affinoid condition is `Huber.Pair.Hom.IsQuotientMapping`.
 
 end Huber
 

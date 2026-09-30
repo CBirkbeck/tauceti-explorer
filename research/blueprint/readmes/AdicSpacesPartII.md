@@ -8835,6 +8835,13 @@ change, and Tate and Kiehl theorems. Continuous profinite-torsor descent of modu
 sheaves and weight-space descent are PerfectoidSpaces P9's; R5 supplies their ambient spaces and
 coefficient rings. No product with a smooth space is asserted to be perfectoid.
 
+**The sousperfectoid prefix (RT-AREA-padic-1/9).** Nineteen of R5's nodes, the sousperfectoid rings and
+spaces and the perfectoid-times-smooth and perfectoid-times-polydisc products, use no classical étale
+cohomology and no coefficient sheaves. They are what AdicEtaleGeometry A3, PerfectoidSpaces P6 and P9,
+RelativeFarguesFontaine RF0 and BunGAndNewtonStrata BG0 import. The packet's restructure entry lists
+them and proposes the atlas sub-stage R5:sousperfectoid for them, so that ClassicalAdicEtaleCohomology H0
+stays an input of the families part of R5 only.
+
 ### Conventions
 
 1. A prime p is fixed. Tate rings are complete and Hausdorff (anchor convention 3); "a Tate
