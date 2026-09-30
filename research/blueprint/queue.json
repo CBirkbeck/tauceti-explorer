@@ -34069,7 +34069,8 @@
     "REV-PAPER-BROWNING-SAWIN-20"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-BROWNING-SAWIN-20.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4085"
   },
   {
    "id": "REV-RT-PAPER-BROWNING-SAWIN-20",
@@ -34202,8 +34203,9 @@
     "REV-PAPER-KHAYUTIN-19"
    ],
    "prompt": "research/blueprint/prompts/RT-PAPER-KHAYUTIN-19.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4089"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4089",
+   "finishedAt": "2026-09-30T07:52:50Z"
   },
   {
    "id": "REV-RT-PAPER-KHAYUTIN-19",
