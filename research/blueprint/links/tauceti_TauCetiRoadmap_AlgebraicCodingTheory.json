@@ -1674,13 +1674,9 @@
   },
   "review": {
     "status": "accepted",
-    "reviewer": "independent-review-REV-LINK-tauceti_TauCetiRoadmap_AlgebraicCodingTheory",
-    "date": "2026-09-23",
-    "notes": "Codex codex-c83e7a read every full link/overlap endpoint and all seven own layers, confirmed all nine original arrows and three recommendations, verified all 28 original quotes and line locators, and checked the three cited pinned source files directly. Added ACT-L10 for the lattice-side orthogonal sum in the final discriminant-coordinate interface, retaining the missing finite-family and named-alphabet comparisons. No original link removed. Reviewed AUDIT-16 coverage is inherited evidence; this is not a whole-library or Lean compilation certification.",
-    "removed": [],
-    "added": [
-      "ACT-L10"
-    ]
+    "reviewer": "independent-review-REV-FIX-RT-LINK-tauceti_TauCetiRoadmap_AlgebraicCodingTheory",
+    "date": "2026-09-30",
+    "notes": "Independent scoped fix review by Codex codex-5ebb6f of FIX-RT-LINK-tauceti_TauCetiRoadmap_AlgebraicCodingTheory by Codex codex-J6LwjP (#5035), following independent-review-REV-LINK-tauceti_TauCetiRoadmap_AlgebraicCodingTheory (2026-09-23), preserved verbatim in reviewHistory. Finding /1 is correctly fixed to the verifier’s narrower scope: rewritten QSeries screening note retains result none; ACT-R06 records an unresolved consumer/owner contract and the summary identifies it; no link or overlap is added. Read coding Layers5–6/conventions/scope, IntegralLattices exclusion, QM.6, the entire FLM gap and its rendered counterpart and consumer statements, plus relevant AUDIT-16/AUDIT-15 records. The QSeries packet is still partial/unreviewed and its recorded SHA256 177eaefe...050bc is reproduced. Request evidence and neededBy match exactly. Rootlessness guard independently checked from the form: signed 2e_i reduce to zero and B2 norm is 2 (48 exact-rational witnesses); Shimada arXiv2311.18309v1 §§2.1/3 supplies root/rootless terminology only, not a newly read construction proof. Rational-to-real comparison and actual rootless rank24 construction require a maintainer-selected owner under §15; VOA/twisted/Monster work stays QM.6. Ten historical links,three overlaps,five earlier requests and all other screening/metadata are preserved. Read-only accepted assembly has2919 vertices/8298 edges, acyclic; production merge of the predecessor and revised map produces identical edge sets. check_links:0errors/0warnings; intake and whitespace checks pass. No mathematical correction was required. Historical Tau Ceti-to-Tau Ceti links are unchanged/outside scope. No new Lean/library claim, compilation, catalogue re-screen or proof-closure certification is made."
   },
   "reviewBaseline": {
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -1716,5 +1712,17 @@
     "catalogue": "all active IDs, including focal roadmap; retired FoundationsAndLibraryIntegration excluded",
     "ownStagesSearched": 7,
     "lean": "not compiled"
-  }
+  },
+  "reviewHistory": [
+    {
+      "status": "accepted",
+      "reviewer": "independent-review-REV-LINK-tauceti_TauCetiRoadmap_AlgebraicCodingTheory",
+      "date": "2026-09-23",
+      "notes": "Codex codex-c83e7a read every full link/overlap endpoint and all seven own layers, confirmed all nine original arrows and three recommendations, verified all 28 original quotes and line locators, and checked the three cited pinned source files directly. Added ACT-L10 for the lattice-side orthogonal sum in the final discriminant-coordinate interface, retaining the missing finite-family and named-alphabet comparisons. No original link removed. Reviewed AUDIT-16 coverage is inherited evidence; this is not a whole-library or Lean compilation certification.",
+      "removed": [],
+      "added": [
+        "ACT-L10"
+      ]
+    }
+  ]
 }
