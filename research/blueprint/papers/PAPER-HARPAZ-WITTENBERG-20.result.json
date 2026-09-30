@@ -24,7 +24,7 @@
     },
     "continuationAccessed": "2026-09-21"
   },
-  "summary": "Continuation of the full 31-page extraction: 150 items (7 library, 12 planned, 131 missing). Borovoi Proposition 3.4 is read in its original author version and resolves the broader ambient-unipotent good-property interface G2; the report supplies the compactification and all-finite-extension argument. Fourteen routes cover 130 missing items and 10 planned source items exactly once. Only Remark 4.5 (item 75, G1) remains unrouted, so status stays partial. Theorem A is unconditional; general solvable rational-point density remains conditional, while outer-supersolvable and abelian cases are unconditional. Complete (cc-442dc5): Remark 4.5 is routed with the rational connectedness its argument needs, and two findings are recorded (E1 on Remark 4.5, E2 a misprint in the quaternion range).",
+  "summary": "Complete extraction of the 31-page author manuscript: 150 items (7 library, 12 planned, 131 missing), with all missing items routed exactly once across fourteen routes. Borovoi Proposition 3.4 and the compactification/all-finite-extension argument resolve the broader ambient-unipotent interface G2. Item 75 states a rationally connected restriction of Remark 4.5, a sufficient repair; the section-based argument for the printed generality remains the design proof obligation G1. Theorem A is unconditional; general solvable rational-point density remains conditional, while outer-supersolvable and abelian cases are unconditional. The two mistakes are recorded once in the reviewed errata file: E1 is a gap in the proof of Remark 4.5, and E2 corrects the quaternion range to m≥2 with Q_4 ≅ C_4. Extraction completeness is not proof closure.",
   "items": [
     {
       "id": "PAPER-HARPAZ-WITTENBERG-20/1",
@@ -877,11 +877,11 @@
       "kind": "theorem",
       "name": "Weak approximation for universal torsors on an open and its compactification",
       "statement": "Let X be a smooth proper rationally connected variety over a number field k and V ⊂ X a dense open subset with k̄[V]^× = k̄^×, such that Pic(X_k̄) and Pic(V_k̄) are torsion-free (they are finitely generated since X is rationally connected). If every universal torsor of V satisfies weak approximation, then every universal torsor of X satisfies weak approximation.",
-      "locator": "Remark 4.5 p.17, with the rational connectedness the argument needs (E1)",
+      "locator": "Remark 4.5 p.17, restricted to rationally connected X, a sufficient repair (E1)",
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "Corrected statement (cc-442dc5). The printed remark omits that X is rationally connected. The argument applies Theorem 4.2(i) to a fibration Z → P^n whose generic fibre is a universal torsor of V, and §4 assumes that generic fibre rationally connected; that holds when X is rationally connected (a torus torsor over a rationally connected base). Proposition 3.3(i) supplies the section over k̄, and CTS87 Théorème 2.1.2 gives Br₁(Z) = Br₀(Z). The remark is not used elsewhere in the paper. Whether Skorobogatov's fibration theorem (Sko90, Theorem 1; Sko96, Theorem 2.1) gives the printed generality was not checked; Sko90 was not obtained."
+      "note": "The printed remark cites Theorem 4.2(i) outside its rationally connected setting (E1, a gap in the proof). Rational connectedness of X is a sufficient restricted repair, not a demonstrated necessary hypothesis for the implication. Under this additional assumption the argument applies Theorem 4.2(i) to a fibration Z → P^n whose generic fibre is a universal torsor of V and has a rationally connected smooth compactification. Proposition 3.3(i) supplies the geometric section independently of rational connectedness, and CTS87 Théorème 2.1.2 gives Br₁(Z) = Br₀(Z). The printed generality, also asserted in Wit18 Remark 3.9, needs a stated and justified section-based variant of Theorem 4.2(i) using Proposition 3.3(i); it remains the open proof obligation G1. The remark is not used elsewhere in the paper. Whether Skorobogatov's fibration theorem (Sko90, Theorem 1; Sko96, Theorem 2.1) gives the printed generality was not checked; Sko90 was not obtained."
     },
     {
       "id": "PAPER-HARPAZ-WITTENBERG-20/76",
@@ -1204,23 +1204,23 @@
       "id": "PAPER-HARPAZ-WITTENBERG-20/104",
       "kind": "theorem",
       "name": "Unramified Brauer vanishing for quaternion quotients",
-      "statement": "For a constant generalized quaternion group Q_(2^m), m≥3, embedded in SL_n over a number field k, Br_nr(SL_n/Q_(2^m))=Br(k).",
+      "statement": "For a constant generalized quaternion group Q_(2^m), m≥2, embedded in SL_n over a number field k, Br_nr(SL_n/Q_(2^m))=Br(k).",
       "locator": "Introduction p.4; Dem10 Corollary 3 and Remark 7",
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": "The author version of Dem10 uses Corollary 4.5 and Remark 4.6, read on p.12. The source introduction writes m≥1; use the standard generalized-quaternion range m≥3, recording the low-order convention rather than silently constructing nonexistent standard groups."
+      "note": "The author version of Dem10 uses Corollary 4.5 and Remark 4.6, read on p.12. The source introduction writes m≥1; following Demarche’s convention (Dem10 author version §8), Q_(2^m) is defined for m≥2, with Q_4 ≅ C_4 the cyclic case and m≥3 the non-abelian groups (E2, recorded in the reviewed errata file)."
     },
     {
       "id": "PAPER-HARPAZ-WITTENBERG-20/105",
       "kind": "theorem",
       "name": "Unrestricted quaternion Grunwald realizations",
-      "statement": "For a number field k and generalized quaternion Γ=Q_(2^m), m≥3, the quotient SL_n/Γ has weak approximation. Hence the Grunwald prescription of the preceding corollary is possible for every finite S, including places dividing |Γ|.",
+      "statement": "For a number field k and generalized quaternion Γ=Q_(2^m), m≥2, the quotient SL_n/Γ has weak approximation. Hence the Grunwald prescription of the preceding corollary is possible for every finite S, including places dividing |Γ|.",
       "locator": "Introduction p.4",
       "status": "missing",
       "library": [],
       "planned": [],
-      "note": ""
+      "note": "Use the same Demarche convention as item 104: m≥2, including Q_4 ≅ C_4; m≥3 describes the non-abelian groups only. E2 is recorded in the reviewed errata file. Dem10 §8 includes the cyclic endpoint, whose quotient is rational; the unrestricted local prescription includes this case."
     },
     {
       "id": "PAPER-HARPAZ-WITTENBERG-20/106",
@@ -2091,48 +2091,7 @@
       "brief": "Prove HW20 Theorem A: for every number field, every smooth proper variety birational to a homogeneous space of a linear algebraic group satisfies E, and in the rationally connected case its uncompleted modified local zero-cycle complex is exact. Derive the degree-one zero-cycle corollary on the open homogeneous space; do not assert effectiveness or a rational point. Begin with reusable characteristic-zero rational connectedness, the curve section theorem and composition theorem, geometric étale H¹/A₀ vanishing and Picard/Brauer finiteness. Export these to the homogeneous-space candidate before constructing the arithmetic E/E⁺ layers. Build modified infinite-place CH₀, completion by M/nM, cycle Brauer pairing via the RP.2 owner, defect h_X, the degree comparison in Rappel 1.3, and stable-birational/section invariance. Import all cycle/rational-equivalence and Chow functoriality from SchemeAndStackFoundations SF.5, and resolution from SF.4; do not reproduce them. Decompose HW16 Theorem 8.3, Corollary 8.4, Condition 8.1 and Lemma 8.2 with closed points, finite extensions and generic cohomological hypotheses retained. Prove E⁺ closure under admissible fibrations, prime-to-p generically finite maps for every p, universal-torsor descent, and projective-base closed-fibre fibrations; handle irreducible varieties that are not geometrically irreducible and prove the finite-field-extension reinterpretation dictionary, not a Weil-restriction substitute. Import Sylow existence and the image theorem from Profinite and pro-p groups (tauceti:TauCetiRoadmap/ProfiniteProPGroups, Layer 2), finite étale covers from InverseGaloisAndArithmeticFundamentalGroups IG.0–IG.1, and universal-torsor/stabilizer fibrations from HeightsRationalPointsPartIIHomogeneousMassey. Induct on solvable stabilizer order unconditionally, then use Sylow covers and DLA19 to reach all connected linear groups. Use DLA19's broader good-property predicate (item 149). Import Bor96's full character-free connected-stabilizer (⋆) theorem from the shared homogeneous owner. Establish the compactification/finite-extension admissibility lemma (150) and apply HW20 Lemma 7.4 to obtain broader ascent (115); G2 is thereby discharged for E⁺, without claiming equivalence for arbitrary good properties. Import RP.2–RP.3, ArithmeticGaloisDuality and ClassFieldTheory for the shared arithmetic objects. Finish with Hilbert-subset moving and export the collective-coprime-degree Galois consequence to IG.4. Every new definition must include its API and three meaningful tests; distinguish E from E⁺ and closed-point fibre hypotheses from rational-point ones."
     }
   ],
-  "sourceIssues": [
-    {
-      "id": "PAPER-HARPAZ-WITTENBERG-20/E1",
-      "kind": "gap",
-      "locator": "Remarque 4.5, author manuscript p. 17 (arXiv v2 the same)",
-      "printed": "Si X est une variété propre et lisse sur k, si V ⊂ X est un ouvert dense tel que k̄[V]∗ = k̄∗ et si les groupes Pic(X_k̄) et Pic(V_k̄) sont sans torsion, le théorème 4.2 (i) et la proposition 3.3 (i) permettent de justifier l'implication suivante, énoncée dans [Wit18, Remark 3.9] : si tout torseur universel de V vérifie l'approximation faible, alors tout torseur universel de X vérifie l'approximation faible.",
-      "correction": "Add the hypothesis that X is rationally connected. With it, the generic fibre of π′ : Z → P^n (a universal torsor of V) has rationally connected smooth compactifications, so Theorem 4.2(i) applies and the argument goes through. Without it, a different fibration theorem would be needed (possibly Skorobogatov's Sko90, Theorem 1, which was not checked).",
-      "reason": "Theorem 4.2 is stated in the setting fixed at the start of §4, which assumes that the generic fibre of f : X → P^n is rationally connected; its proof uses Theorem 4.1, whose hypotheses 'sont ici satisfaites en vertu de [GHS03, Theorem 1.1]', that is, through rational connectedness. In Remark 4.5 the generic fibre of π′ is birational to V × (torus), hence rationally connected only if X is. The remark is not used later: Theorems 6.1, 6.6 and A concern rationally connected X.",
-      "affects": "a stated result",
-      "known": "new",
-      "searched": [
-        "Crossref metadata for doi 10.1090/jams/943, 23 September 2026: no update-to, updated-by or relation entries",
-        "Wittenberg's publication page (math.univ-paris13.fr/~wittenberg), 23 September 2026: no erratum listed",
-        "arXiv 1802.09605 (v2 read; same mathematical text as the author manuscript read, SHA-256 2e425ee6…)"
-      ],
-      "review": {
-        "verdict": "confirmed",
-        "reason": "Confirmed as a gap in a stated result. The standing setting of §4, fixed on p.15, includes 'un morphisme dominant f : X → P^n_k dont la fibre générique est rationnellement connexe', and Théorème 4.2 is stated inside it. Remarque 4.5 on p.17 then invokes 'le théorème 4.2 (i) et la proposition 3.3 (i)' for an X assumed only proper and smooth with the two Picard-group conditions, so the rational-connectedness hypothesis the invoked theorem carries is missing, as the correction records.",
-        "by": "REV-PAPER-HARPAZ-WITTENBERG-20"
-      }
-    },
-    {
-      "id": "PAPER-HARPAZ-WITTENBERG-20/E2",
-      "kind": "misprint",
-      "locator": "Introduction, author manuscript p. 4",
-      "printed": "si Γ = Q_{2^m} est le groupe quaternionique d'ordre 2^m pour un entier m ≥ 1",
-      "correction": "m ≥ 3 (for m = 2 the presentation gives the cyclic group of order 4, and for m = 1 it is not defined).",
-      "reason": "The generalized quaternion group Q_{2^m} = ⟨x, y | x^{2^{m−1}} = 1, y² = x^{2^{m−2}}, yxy^{−1} = x^{−1}⟩ is defined for m ≥ 3; the comparison with the known cases 'm ≤ 4' (Q₈, Q₁₆) confirms that this is the intended range. For cyclic groups the weak-approximation statement is classical, so nothing is affected.",
-      "affects": "nothing",
-      "known": "new",
-      "searched": [
-        "Crossref metadata for doi 10.1090/jams/943, 23 September 2026: no update-to, updated-by or relation entries",
-        "Wittenberg's publication page (math.univ-paris13.fr/~wittenberg), 23 September 2026: no erratum listed",
-        "arXiv 1802.09605 (v2 read; same mathematical text as the author manuscript read, SHA-256 2e425ee6…)"
-      ],
-      "review": {
-        "verdict": "confirmed",
-        "reason": "Confirmed. Page 4 prints 'si Γ = Q_{2^m} est le groupe quaternionique d'ordre 2^m pour un entier m ≥ 1'. The generalised quaternion group Q_{2^m} = ⟨x, y | x^{2^{m−1}} = 1, y² = x^{2^{m−2}}, yxy^{−1} = x^{−1}⟩ is defined for m ≥ 3, Q_8 being the smallest; at m = 2 the presentation gives a cyclic group of order 4 and at m = 1 it is not defined.",
-        "by": "REV-PAPER-HARPAZ-WITTENBERG-20"
-      }
-    }
-  ],
+  "sourceIssues": [],
   "continuations": [
     {
       "agent": "Claude Code",
@@ -2140,6 +2099,33 @@
       "issue": 1426,
       "date": "2026-09-23",
       "readingBoundary": "The author manuscript (SHA-256 2e425ee6…, re-downloaded and matched) was read in full, §§1–7. Crossref and the author's publication page were checked for corrections."
+    },
+    {
+      "agent": "Codex",
+      "session": "codex-J6LwjP",
+      "issue": 5006,
+      "date": "2026-09-30",
+      "scope": "Reconcile the duplicate conflicting E1/E2 records and the three affected items, following the complete verifier. Preserve the canonical errata and historical review files.",
+      "readingBoundary": "Focused author-source reading only: HW20 pp.4,12–17 and Wit18 §3.3.1/Remark 3.9 pp.20–22 through the web text reader; direct local downloads of these two URLs failed DNS resolution. Demarche author pp.12,26 downloaded and read, SHA-256 3b4b0665958266bf8e79f10989dcc30be1c59c3711201727a380c25877dbe929. No fresh full-paper reading, arXiv collation, published-version verification or Sko90/Sko96 reading is claimed."
+    }
+  ],
+  "sourceIssueReferences": [
+    {
+      "file": "research/blueprint/errata/PAPER-HARPAZ-WITTENBERG-20.json",
+      "ids": [
+        "PAPER-HARPAZ-WITTENBERG-20/E1",
+        "PAPER-HARPAZ-WITTENBERG-20/E2"
+      ],
+      "note": "Recorded and reviewed there (REV-ERRATA-PAPER-HARPAZ-WITTENBERG-20); kept in one place to avoid duplicate register entries. E1 affects the proof; E2 uses m ≥ 2 with Q_4 ≅ C_4. REV-RT-PAPER-HARPAZ-WITTENBERG-20 confirms these narrower assessments and supersedes the conflicting E1/E2 account in the historical paper review."
+    }
+  ],
+  "gaps": [
+    {
+      "id": "G1",
+      "item": "PAPER-HARPAZ-WITTENBERG-20/75",
+      "owner": "HeightsRationalPointsPartIIHomogeneousMassey",
+      "status": "open",
+      "detail": "Justify the universal-torsor weak-approximation implication of Remark 4.5 in its printed generality, without assuming rational connectedness, by stating and proving the required section-based variant of Theorem 4.2(i) using Proposition 3.3(i). Item 75 already routes the sufficient rationally connected restriction. The general implication is not disproved and is not a closed proof input; no new owner is requested. See reviewed errata E1."
     }
   ]
 }
