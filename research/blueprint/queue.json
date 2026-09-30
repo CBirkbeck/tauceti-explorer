@@ -23476,12 +23476,12 @@
     "REV-RS-14"
    ],
    "prompt": "research/blueprint/prompts/BP-DirichletPadicLFunctions.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [
     "BP-LocallyAnalyticDistributions",
     "BP-PadicMeasuresIwasawaAlgebras"
    ],
-   "note": "released on GitHub issue #713"
+   "note": "claimed on GitHub issue #713"
   },
   {
    "id": "REV-DirichletPadicLFunctions",
@@ -33355,7 +33355,8 @@
     "REV-PAPER-FU-24"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-FU-24.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4053"
   },
   {
    "id": "RT-PAPER-CAI-FRIEDBERG-KAPLAN-24",
@@ -33443,8 +33444,9 @@
     "REV-PAPER-SCHROER-23"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-PAPER-SCHROER-23.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4057"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4057",
+   "finishedAt": "2026-09-30T10:16:46Z"
   },
   {
    "id": "RT-PAPER-DASGUPTA-KAKDE-23",
