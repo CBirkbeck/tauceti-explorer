@@ -2702,13 +2702,14 @@
    ],
    "proofSteps": [
     "Transport the product over X^{(1)} to the product over the places of K/F, with equal tame symbols, residue fields and norms (T.4/valuation-comparison).",
-    "Take n = 1 in T.4/weil-reciprocity: K^M_2(K) = K_2(K) by Matsumoto, and the degree-two residue is the inverse of the roadmap's tame symbol; the product of the inverses is 1 exactly when the product is.",
+    "Take n = 1 in T.4/weil-reciprocity: K^M_2(K) = K_2(K) by Matsumoto, and the degree-two residue is exactly the roadmap's tame symbol (uniformiser last), so the additive residue sum is this multiplicative product.",
     "Identify N_{k(P)/F} in degree one with the field norm: along a chain of simple extensions each step is Algebra.norm (T.4/transfer-low-degrees) and the composite is Algebra.norm by the pinned transitivity; with the pinned normResidue each factor is the norm of a residue."
    ],
    "acceptance": [
     "For X = ℙ¹ it is Weil's formula (f, g)_∞ · ∏_p N_p(f, g)_p = 1 of III.6.5.3.",
     "The sign (−1)^{v(f)v(g)} matters: on ℙ¹ over ℚ with f = t and g = t − 1 the factors are −1 at 0, 1 at 1 and −1 at ∞, with product 1; dropping the sign changes the factor at ∞, where v(f)v(g) = 1, and gives −1.",
-    "Only finitely many factors differ from 1."
+    "Only finitely many factors differ from 1.",
+    "Convention test over ℚ at 5: ∂{2,5} = 2 in 𝔽₅ˣ. Its inverse 3 is the K-book convention, not this node’s residue."
    ],
    "prerequisites": [
     "K2SymbolsBrauer:T.4/weil-reciprocity",
@@ -4665,9 +4666,10 @@
    ],
    "title": "The norm residue symbol against the local invariant of the Kummer cup product",
    "kind": "comparison",
-   "statement": "Let F be a nonarchimedean local field with μ_m ⊆ F, m invertible in F, and ζ ∈ F a primitive m-th root of unity. For a, b ∈ F^×, (a, b)_F = ζ^{ε·m·inv_F(β_ζ{a, b})}, where (a, b)_F is the norm residue symbol of classical-local-symbols, β_ζ the Brauer-valued symbol, inv_F : Br(F) → ℚ/ℤ ClassFieldTheory Layer 5's invariant (so m·inv_F(β_ζ{a, b}) ∈ ℤ/m), and ε ∈ {±1} a universal sign fixed by this node from the normalisations: arithmetic Frobenius for inv_F and for local reciprocity, and the variable order x ↦ (x, −)_F. Equivalently the right side is ClassFieldTheory Layer 5's localSymbol at the named pairing kummerCupPairing ζ. The right side does not depend on ζ: replacing ζ by ζ^u multiplies the exponent by u⁻¹ and the base by u. The primitive-root choice and the Tate-twist pairing are explicit: the pairing μ_m ⊗ μ_m → μ_m is id ⊗ (τ_ζ^{(1)})⁻¹ of twisted-roots-of-unity, which is ClassFieldTheory Layer 5's kummerCupPairing ζ. For m = 2 the statement is ClassFieldTheory Layer 6's localArtinMap_quadratic_eq_hilbertSymbol together with QuadraticFormInvariants 6E's hilbertSymbol_eq_cohomological, (a, b)_K = hilbertSign(localSymbol (a) (b)) with hilbertSign 0 ↦ +1, 1 ↦ −1 (frozen in 6C, proved in 6E).",
+   "statement": "Let F be a nonarchimedean local field with μ_m ⊆ F, m invertible in F, and ζ ∈ F a primitive m-th root of unity. For a, b ∈ F^×, (a, b)_F = ζ^{ε·e_m(inv_F(β_ζ{a, b}))}, where (a, b)_F is the norm residue symbol of classical-local-symbols, β_ζ the Brauer-valued symbol, inv_F : Br(F) → ℚ/ℤ ClassFieldTheory Layer 5's invariant (where e_m : (ℚ/ℤ)[m] ≃ ℤ/m sends the class of a/m to a mod m; multiplication by m inside ℚ/ℤ is zero and is not this coordinate map), and ε ∈ {±1} a universal sign fixed by this node from the normalisations: arithmetic Frobenius for inv_F and for local reciprocity, and the variable order x ↦ (x, −)_F. Equivalently the right side is ClassFieldTheory Layer 5's localSymbol at the named pairing kummerCupPairing ζ. The right side does not depend on ζ: replacing ζ by ζ^u multiplies the exponent by u⁻¹ and the base by u. The primitive-root choice and the Tate-twist pairing are explicit: the pairing μ_m ⊗ μ_m → μ_m is id ⊗ (τ_ζ^{(1)})⁻¹ of twisted-roots-of-unity, which is ClassFieldTheory Layer 5's kummerCupPairing ζ. For m = 2 the statement is ClassFieldTheory Layer 6's localArtinMap_quadratic_eq_hilbertSymbol together with QuadraticFormInvariants 6E's hilbertSymbol_eq_cohomological, (a, b)_K = hilbertSign(localSymbol (a) (b)) with hilbertSign 0 ↦ +1, 1 ↦ −1 (frozen in 6C, proved in 6E).",
    "hypotheses": [
-    "F is a nonarchimedean local field, μ_m ⊆ F, m invertible in F, and ζ ∈ F a primitive m-th root of unity."
+    "F is a nonarchimedean local field, μ_m ⊆ F, m invertible in F, and ζ ∈ F a primitive m-th root of unity.",
+    "The invariant coordinate e_m is defined on the m-torsion subgroup. The sign ε remains a source-comparison obligation; the quadratic test alone cannot determine it for higher m."
    ],
    "proofSteps": [
     "State both sides: the left from K2SymbolsBrauer:T.7/classical-local-symbols, the right from K2SymbolsBrauer:T.7/brauer-valued-symbol and ClassFieldTheory Layer 5 (invMap, h2MuEquivZMod_mixed, kummerCupPairing, localSymbol).",
@@ -4703,13 +4705,14 @@
    ],
    "title": "Global reciprocity for symbols in K₂ of a number field: an adapter over the imported laws",
    "kind": "theorem",
-   "statement": "Let F be a number field containing μ_m, ζ ∈ F a primitive m-th root of unity and x ∈ K₂(F). For each place v let (x)_v ∈ μ_m(F) be the image of x under the local symbol of F_v: at a finite place the norm residue symbol of classical-local-symbols (which needs only μ_m ⊆ F_v), at a real place (only when m ≤ 2) the sign symbol, at a complex place 1; each μ_m(F) → μ_m(F_v) is an isomorphism. Then (a) (x)_v = 1 for all but finitely many v and ∏_v (x)_v = 1: on a symbol x = {a, b} this is the m-th power Hilbert reciprocity law ∏_v (a, b)_v = 1, imported from ClassicalArithmeticCompletion CA.1 (its 'source-scoped higher reciprocity through class field theory'), and for m = 2 from ClassFieldTheory Layer 14's hilbertProductFormula through QuadraticFormInvariants 6E's sign dictionary; (b) Σ_v inv_v(res_v β_ζ(x)) = 0, ClassFieldTheory Layer 10's sumLocalInv_eq_zero applied to the Brauer class β_ζ(x) of brauer-valued-symbol, with the real-place invariants of Layer 10; (c) under local-comparison, (a) and (b) are the same statement, with ζ and the sign ε explicit. T.7 proves (c) and the passage from symbols to K₂(F) (Matsumoto); it does not prove the reciprocity laws themselves. For F = ℚ and m = 2, (a) is quadratic reciprocity in the form of K-book Ex. III.6.8.",
+   "statement": "Let F be a number field containing μ_m, ζ ∈ F a primitive m-th root of unity and x ∈ K₂(F). For each place v let (x)_v ∈ μ_m(F) be the image of x under the local symbol of F_v: at a finite place the norm residue symbol of classical-local-symbols (which needs only μ_m ⊆ F_v), at a real place the constant 1 symbol if m = 1 and the sign symbol if m = 2 (there are no real places if m > 2), at a complex place 1; each μ_m(F) → μ_m(F_v) is an isomorphism. Then (a) (x)_v = 1 for all but finitely many v and ∏_v (x)_v = 1: on a symbol x = {a, b} this is the m-th power Hilbert reciprocity law ∏_v (a, b)_v = 1, imported from ClassicalArithmeticCompletion CA.1 (its 'source-scoped higher reciprocity through class field theory'), and for m = 2 from ClassFieldTheory Layer 14's hilbertProductFormula through QuadraticFormInvariants 6E's sign dictionary; (b) Σ_v inv_v(res_v β_ζ(x)) = 0, ClassFieldTheory Layer 10's sumLocalInv_eq_zero applied to the Brauer class β_ζ(x) of brauer-valued-symbol, with the real-place invariants of Layer 10; (c) under local-comparison, (a) and (b) are the same statement, with ζ and the sign ε explicit. T.7 proves (c) and the passage from symbols to K₂(F) (Matsumoto); it does not prove the reciprocity laws themselves. For F = ℚ and m = 2, (a) is quadratic reciprocity in the form of K-book Ex. III.6.8.",
    "hypotheses": [
     "F is a number field with μ_m ⊆ F, ζ ∈ F a primitive m-th root of unity, and x ∈ K₂(F).",
-    "The local symbols carry the normalisation of classical-local-symbols (arithmetic Frobenius, variable order x ↦ (x, −)_v); CA.1's law is used in that normalisation or converted to it."
+    "The local symbols carry the normalisation of classical-local-symbols (arithmetic Frobenius, variable order x ↦ (x, −)_v); CA.1's law is used in that normalisation or converted to it.",
+    "m ≥ 1; the real local factor is 1 for m = 1 and the quadratic sign for m = 2. A real embedding cannot contain a primitive m-th root when m > 2."
    ],
    "proofSteps": [
-    "The local symbols define a homomorphism K₂(F) → ⊕_v μ_m(F): each is a Steinberg symbol (classical-local-symbols; the sign symbol at the real places), and (a, b)_v = 1 at every finite v not dividing m at which a and b are units, because the Kummer extension of F_v generated by an m-th root of a unit is unramified and units are norms from unramified extensions (ClassFieldTheory Layer 6); only finitely many v divide m or have v(a) ≠ 0 or v(b) ≠ 0 (mathlib:IsDedekindDomain.HeightOneSpectrum.Support.finite). Symbols generate K₂(F) (K2SymbolsBrauer:T.2/matsumoto).",
+    "The local symbols define a homomorphism K₂(F) → ⊕_v μ_m(F): each is a Steinberg symbol (classical-local-symbols; the constant 1 symbol for m = 1, the sign symbol for m = 2 at the real places), and (a, b)_v = 1 at every finite v not dividing m at which a and b are units, because the Kummer extension of F_v generated by an m-th root of a unit is unramified and units are norms from unramified extensions (ClassFieldTheory Layer 6); only finitely many v divide m or have v(a) ≠ 0 or v(b) ≠ 0 (mathlib:IsDedekindDomain.HeightOneSpectrum.Support.finite). Symbols generate K₂(F) (K2SymbolsBrauer:T.2/matsumoto).",
     "(a): import the m-th power Hilbert reciprocity law ∏_v (a, b)_v = 1 from ClassicalArithmeticCompletion:CA.1, read in the normalisation of classical-local-symbols (if CA.1 fixes the opposite variable order, every local factor is inverted and the product formula is unchanged); for m = 2 it is ClassFieldTheory Layer 14's hilbertProductFormula, translated into signs by QuadraticFormInvariants 6E; extend from symbols to K₂(F) by multiplicativity.",
     "(b): β_ζ(x) ∈ Br(F) (brauer-valued-symbol), its restrictions to the completions are the local Brauer-valued symbols because restriction commutes with Kummer classes and the cup product (ProfiniteCohomology Layers 6 and 8), and ClassFieldTheory Layer 10's sumLocalInv_eq_zero gives Σ_v inv_v = 0.",
     "(c): by local-comparison, (x)_v = ζ^{ε·m·inv_v(res_v β_ζ(x))} at each finite place, and the real places match through Layer 10's archimedean invariant; so ∏_v (x)_v = ζ^{ε·m·Σ_v inv_v}, and (a) and (b) are equivalent. This rests on local-comparison, whose proof is a gap.",
@@ -4718,7 +4721,8 @@
    "acceptance": [
     "(x)_v = 1 for almost all v, and ∏_v (x)_v = 1.",
     "For m = 2 and F = ℚ: (r, s)_∞ (r, s)_2 ∏_{p odd} (r, s)_p = +1 (K-book Ex. III.6.8), which is ClassFieldTheory Layer 14's quadratic reciprocity.",
-    "No reciprocity law is proved here: the m-th power law is CA.1's, the quadratic law is ClassFieldTheory Layer 14's, and the vanishing of the sum of invariants is Layer 10's; T.7 contributes the statement on K₂(F) and the compatibility (c)."
+    "No reciprocity law is proved here: the m-th power law is CA.1's, the quadratic law is ClassFieldTheory Layer 14's, and the vanishing of the sum of invariants is Layer 10's; T.7 contributes the statement on K₂(F) and the compatibility (c).",
+    "m = 1, F = ℚ, x = {−1, −1}: every factor is 1, including the real place. An unconditional quadratic real factor would incorrectly make the product −1."
    ],
    "prerequisites": [
     "K2SymbolsBrauer:T.7/local-comparison",
@@ -5419,301 +5423,309 @@
   }
  ],
  "review": {
-  "status": "accepted",
-  "reviewer": "independent-review-REV-K2SymbolsBrauer--T.3",
-  "date": "2026-09-24",
-  "notes": "Independent review by Claude Code, session cc-38267a, of the packet by session cc-7b31c4. Three checkers read Weibel's K-book (author-hosted draft of 29 August 2013, SHA-256 a04f53c9…) and the author's errata list (Wayback copy, SHA-256 ef7ed6d0…) against every node: T.3 (both sub-stages), T.4-T.5 and T.6-T.7. They opened every baseline declaration at Mathlib 082e2d3 and Tau Ceti f790474 and read every supplier stage in data/atlas.json. The coordinator merged the overlapping T.3/T.4 corrections, recomputed the counterexamples behind E5, E9 and E11, and checked the node graph and the stage graph for cycles. All 27 original nodes needed changes: 22 corrected and 5 removed (T.5/arithmetic-computations, T.5/k2-of-a-finite-field, T.5/k2-of-the-integers-and-of-the-rationals, T.7/comparison-and-reciprocity, T.7/etale-chern-class-and-what-is-imported), with their content moved to 36 added nodes, to the companion part's T.2/k2-finite-field, or to requests. Main corrections: the higher residue is normalised with Π on the right, so that it extends T.3's tame symbol, with ∂^{Wb} = (−1)^{n−1}∂; the localisation boundary is supplied to S.3 and E.3 (RS-18), not imported from them; the K-book proves Milnor's sequence and Kato's theorem, so these are decomposed rather than recorded as gaps, and the Milnor transfer and its formulas are parented in T.4, which removes the stage cycle T.3:localization-comparison ⇄ T.4; T.5's surjectivity claim was false (SK_1 obstructs it) and now comes from Bass-Milnor-Serre through KTheoryLowDegrees U.4; the certificate format reuses Mathlib's Module.Presentation; the curve-place dictionary is requested from AlgebraicCurves Layer 12; the quadratic Hilbert symbol is imported from QuadraticFormInvariants 6C and μ_m reuses Tau Ceti's KummerCoeff; four stage cycles (through L.3, RT.3, B.7 and T.5/unramified-subgroup) were removed. Every test now has a section-12 kind, every excerpt is literal and at most 300 characters, and the baseline holds 69 declarations, each read at the pin. Eleven new source issues, all confirmed. The suggested Lean file was rewritten. It states 110 of the 119 API items, 64 of the 69 tests as examples (one more in part) and every theorem node the pinned carriers allow, with honest local stand-ins for the companion part's Milnor K-groups, Steinberg group and K_2; everything else is a comment naming the missing carrier and its supplier. It elaborates with exit code 0 against Mathlib 082e2d3 and the Tau Ceti f790474 sources, and its only warnings mark the declarations left unproved. Formalising it found eleven statement corrections, applied here: the section h_π of the degree filtration and one transfer test assumed the K-book's residue; three API items were ill-typed or had clashing names (brauerSymbol, OrderCertificate, tameSymbolHom); the Dennis–Stein convention item is a translation of hypotheses; the Hilbert-symbol item over ℝ is outside its local-field hypotheses; the product in global reciprocity needed a common target; and three statements were ambiguous or referred to a missing name. check_blueprint.py --index: 0 errors, 0 warnings. The packet stays partial: nine gaps and 24 requests remain, each with neededBy, and two restructure proposals (the atlas edge T.3:localization-comparison → T.4, and the curve-place dictionary) await the orchestrator.",
-  "checked": [
-   {
-    "nodeId": "K2SymbolsBrauer:T.3/tame-symbol",
-    "verdict": "corrected",
-    "note": "Formula and both mixed-pair values verified against Lemma III.6.3 (inverse convention confirmed); excerpt made literal, uniformiser made explicit, duplicate well-definedness step removed, API and tests rebuilt with values."
-   },
-   {
-    "nodeId": "K2SymbolsBrauer:T.3/tame-symbol-uniformizer-independence",
-    "verdict": "corrected",
-    "note": "Replaced the cancellation argument by the uniformiser-free form res(f^{ord g}g^{−ord f}), which needs no change unit; uniformizerChangeUnit dropped."
-   },
-   {
-    "nodeId": "K2SymbolsBrauer:T.3/tame-symbol-steinberg",
-    "verdict": "corrected",
-    "note": "The v1 > 0 step used the K-book's exponent s̄^{v1}; rewritten in the roadmap's normalisation, exhaustiveness of the four cases proved, descent and surjectivity split off to tame-symbol-hom, T.2 stage replaced by node ids there."
-   },
-   {
-    "nodeId": "K2SymbolsBrauer:T.3/ramification-formula",
-    "verdict": "corrected",
-    "note": "Formula verified in both normalisations; the 'parity of e' claim replaced by e² ≡ e mod 2, the irrelevant Σef prerequisite removed, the unramified refinement sourced at p. 243, examples added."
-   },
-   {
-    "nodeId": "K2SymbolsBrauer:T.3/finite-support",
-    "verdict": "corrected",
-    "note": "Proof step said 'intersect' the exceptional sets where the union is needed; extended to every degree (T.4 needs it), Dedekind input replaced by HeightOneSpectrum.Support.finite, excerpt replaced by the sources that presuppose finiteness."
-   },
-   {
-    "nodeId": "K2SymbolsBrauer:T.3/higher-milnor-residues",
-    "verdict": "corrected",
-    "note": "Statement said the degree-two residue is T.3's symbol while acceptance said 'up to inversion'; fixed by normalising with Π on the right (then it is T.3's symbol) and recording ∂^{Wb} = (−1)^{n−1}∂; the 'leading-coefficient' claim restricted to v_∞; split into five nodes; tests made concrete."
-   },
-   {
-    "nodeId": "K2SymbolsBrauer:T.3/rigidity",
-    "verdict": "corrected",
-    "note": "Proof steps were 'following the source'; now Hensel's lemma, the kernel of Serre's map (Ex. III.7.2, new node) and right-exactness of ⊗ℤ/q, with a counterexample for q = p; planet 'Rigidity' added."
-   },
-   {
-    "nodeId": "K2SymbolsBrauer:T.3/transfer-and-norm-residue",
-    "verdict": "corrected",
-    "note": "Duplicated T.4's transfer construction, cited a passage with no transfer in it, had 'appropriate exponents' where there are none and lacked the finiteness hypothesis; now the general norm–residue formula with that hypothesis, sourced to Cor. III.7.6.3 and Ex. III.7.9, resting on new T.4 nodes, with gaps; reparenting to T.4 proposed to remove a stage cycle."
-   },
-   {
-    "nodeId": "K2SymbolsBrauer:T.3/localization-boundary",
-    "verdict": "corrected",
-    "note": "Never stated the sign; now ∂ = inverse of T.3's symbol with the K-book's right-linear boundary (V.6.6.1), both conventions stated; S.3 and E.3 prerequisites removed (cycles with RS-18), K.3 and K.7 requested."
-   },
-   {
-    "nodeId": "K2SymbolsBrauer:T.3/tame-symbol-hom",
-    "verdict": "added",
-    "note": "The homomorphism K^M_2(F) → k^× and K_2(F) → k^× with surjectivity, split from tame-symbol-steinberg. Values in the additive target written as 0 (found formalising the Lean file)."
-   },
-   {
-    "nodeId": "K2SymbolsBrauer:T.3/serre-residue-algebra",
-    "verdict": "added",
-    "note": "Serre's algebra L(k) made explicit, with its two projections and the shift automorphism. serreAlgebra.decompose stated for degrees n + 1 (found formalising the Lean file)."
-   },
-   {
-    "nodeId": "K2SymbolsBrauer:T.3/serre-map-steinberg",
-    "verdict": "added",
-    "note": "The case analysis of Theorem III.7.3's proof."
-   },
-   {
-    "nodeId": "K2SymbolsBrauer:T.3/serre-map-kernel",
-    "verdict": "added",
-    "note": "Ex. III.7.2 with a proof, the input rigidity needs."
-   },
-   {
-    "nodeId": "K2SymbolsBrauer:T.3/milnor-residue-product-formula",
-    "verdict": "added",
-    "note": "Ex. III.7.10, the 'product signs' of the stage, with its sign issue recorded."
-   },
-   {
-    "nodeId": "K2SymbolsBrauer:T.3/specialisation-change-of-uniformiser",
-    "verdict": "added",
-    "note": "Ex. III.7.1 as corrected by the errata, with the explicit change formula."
-   },
-   {
-    "nodeId": "K2SymbolsBrauer:T.3/higher-ramification-formula",
-    "verdict": "added",
-    "note": "Ex. III.7.8, the all-degree ramification formula used by base change of the transfer."
-   },
-   {
-    "nodeId": "K2SymbolsBrauer:T.4/bass-tate-sequence",
-    "verdict": "corrected",
-    "note": "Sources replaced (Prop. III.6.4.1 is unrelated; the K-book proves the sequence as Theorem III.7.4, Milnor), statement completed (surjectivity, splitting, naturality), non-routine steps split into four lemma nodes, planet renamed."
-   },
-   {
-    "nodeId": "K2SymbolsBrauer:T.4/milnor-transfer-transitivity",
-    "verdict": "corrected",
-    "note": "Its excerpt was the roadmap's own text, not the K-book; the transfer is Definitions III.7.5-7.6 and independence is Kato's Theorem III.7.6.1, now decomposed into the definition node and seven lemma nodes."
-   },
-   {
-    "nodeId": "K2SymbolsBrauer:T.4/weil-reciprocity",
-    "verdict": "corrected",
-    "note": "The K-book states Weil reciprocity (III.6.5.3, III.7.5.1, V.6.12.1); the node is restated in all degrees on places, the P^1 case and the symbol form are separate nodes, the reversed edge to valuation-comparison removed, and the unsourced general norm-residue formula recorded as a gap."
-   },
-   {
-    "nodeId": "K2SymbolsBrauer:T.4/valuation-comparison",
-    "verdict": "corrected",
-    "note": "Its prerequisite on weil-reciprocity was reversed, and the gluing it planned is Tau Ceti AlgebraicCurves Layer 12's (12A-12B), now imported with a request."
-   },
-   {
-    "nodeId": "K2SymbolsBrauer:T.4/milnor-projection-formula",
-    "verdict": "added",
-    "note": "Projection Formula III.7.5.2, a stated target of T.3:localization-comparison."
-   },
-   {
-    "nodeId": "K2SymbolsBrauer:T.4/restriction-transfer-degree",
-    "verdict": "added",
-    "note": "Corollary III.7.5.3, a stated target of T.3:localization-comparison."
-   },
-   {
-    "nodeId": "K2SymbolsBrauer:T.4/leading-coefficient-splitting",
-    "verdict": "added",
-    "note": "Added by this review; Leading coefficients split K^M_n(F) off K^M_n F(t) (Example III.7.3.2)."
-   },
-   {
-    "nodeId": "K2SymbolsBrauer:T.4/degree-reduction",
-    "verdict": "added",
-    "note": "Added by this review; Degree reduction for symbols of polynomials (Exercise III.6.2, corrected)."
-   },
-   {
-    "nodeId": "K2SymbolsBrauer:T.4/residue-section",
-    "verdict": "added",
-    "note": "Added by this review; The section h_π on the degree filtration (Lemma III.7.4.1). h_π now puts π last, a section of the pinned residue (found formalising the Lean file)."
-   },
-   {
-    "nodeId": "K2SymbolsBrauer:T.4/filtration-quotients",
-    "verdict": "added",
-    "note": "Added by this review; The graded pieces of the degree filtration (Lemma III.7.4.2). Normalisation parenthetical corrected to the pinned residue (found formalising the Lean file)."
-   },
-   {
-    "nodeId": "K2SymbolsBrauer:T.4/simple-transfer",
-    "verdict": "added",
-    "note": "Added by this review; The Milnor transfer of a simple extension (Definition III.7.5). Test milnorTransferSimple_of_mem_eq_id uses y = {x, t − a} (found formalising the Lean file)."
-   },
-   {
-    "nodeId": "K2SymbolsBrauer:T.4/transfer-low-degrees",
-    "verdict": "added",
-    "note": "Added by this review; The simple transfer in degree one is the field norm (Exercise III.7.5)."
-   },
-   {
-    "nodeId": "K2SymbolsBrauer:T.4/projective-line-reciprocity",
-    "verdict": "added",
-    "note": "Added by this review; Weil reciprocity on the projective line (III.7.5.1 and III.6.5.3)."
-   },
-   {
-    "nodeId": "K2SymbolsBrauer:T.4/weil-reciprocity-symbol-form",
-    "verdict": "added",
-    "note": "Added by this review; Weil reciprocity for the tame symbol on a proper regular curve."
-   },
-   {
-    "nodeId": "K2SymbolsBrauer:T.4/prime-to-p-closure",
-    "verdict": "added",
-    "note": "Added by this review; Passing to a prime-to-p closure (Kato's key trick)."
-   },
-   {
-    "nodeId": "K2SymbolsBrauer:T.4/transfer-base-change",
-    "verdict": "added",
-    "note": "Added by this review; Base change of the simple transfer (Exercise III.7.7)."
-   },
-   {
-    "nodeId": "K2SymbolsBrauer:T.4/p-closed-generation",
-    "verdict": "added",
-    "note": "Added by this review; Generation by symbols with one entry outside the base (Exercise III.7.6)."
-   },
-   {
-    "nodeId": "K2SymbolsBrauer:T.4/kato-prime-degree",
-    "verdict": "added",
-    "note": "Added by this review; Independence of the generator for a normal extension of prime degree (Lemma III.7.6.2)."
-   },
-   {
-    "nodeId": "K2SymbolsBrauer:T.4/kato-complete-residue",
-    "verdict": "added",
-    "note": "Added by this review; Residues commute with the transfer over a complete field (Corollary III.7.6.3)."
-   },
-   {
-    "nodeId": "K2SymbolsBrauer:T.4/constant-extension-residue",
-    "verdict": "added",
-    "note": "Added by this review; The norm-residue formula for a constant extension of prime degree (Exercise III.7.9)."
-   },
-   {
-    "nodeId": "K2SymbolsBrauer:T.4/kato-commuting-square",
-    "verdict": "added",
-    "note": "Added by this review; Kato's commuting square (Proposition III.7.6.4)."
-   },
-   {
-    "nodeId": "K2SymbolsBrauer:T.5/unramified-subgroup",
-    "verdict": "corrected",
-    "note": "Tests had no kinds and were not checkable; replaced by seven concrete tests, API extended (outside-S variant, residue-sum kernel, Mathlib HeightOneSpectrum compatibility), prerequisites for the stated inclusion added."
-   },
-   {
-    "nodeId": "K2SymbolsBrauer:T.5/tame-kernel-sequence",
-    "verdict": "corrected",
-    "note": "Surjectivity does not follow from surjectivity of each tame symbol (cokernel is SK_1, nonzero for R[x,y]/(x^2+y^2-1)); it needs Bass-Milnor-Serre (U.4); B.7 prerequisite removed (stage cycle); sources replaced."
-   },
-   {
-    "nodeId": "K2SymbolsBrauer:T.5/certified-presentation",
-    "verdict": "corrected",
-    "note": "Rebuilt on Mathlib's Module.Relations/Module.Presentation (the planned record duplicated them), N.6 prerequisite removed (instances depend on the format, not conversely), API items and tests replaced by checkable statements with kinds, excerpt made literal. Structure field renamed card_quotient_eq to avoid the lemma card_eq (found formalising the Lean file)."
-   },
-   {
-    "nodeId": "K2SymbolsBrauer:T.5/s-integer-tame-kernel-sequence",
-    "verdict": "added",
-    "note": "Added by this review; The S-integer tame-kernel sequence."
-   },
-   {
-    "nodeId": "K2SymbolsBrauer:T.5/real-sign-symbol",
-    "verdict": "added",
-    "note": "Added by this review; The real sign symbol (Example III.6.2.1). realSignSymbol_eq_milnorExamples stated on K^M_2(ℝ) through Matsumoto (found formalising the Lean file)."
-   },
-   {
-    "nodeId": "K2SymbolsBrauer:T.5/k2-of-the-integers",
-    "verdict": "added",
-    "note": "Added by this review; K_2 of the integers is cyclic of order two, generated by {−1, −1}."
-   },
-   {
-    "nodeId": "K2SymbolsBrauer:T.5/k2-of-the-rationals",
-    "verdict": "added",
-    "note": "Added by this review; K_2 of the rationals (Application III.6.5.1)."
-   },
-   {
-    "nodeId": "K2SymbolsBrauer:T.6/dennis-stein-symbol",
-    "verdict": "corrected",
-    "note": "Non-literal excerpt replaced; word, E(R)-image, degenerate values and unit case made explicit; stage's 1+ab reconciled with the modern 1−rs; prerequisites refined to T.1/T.2 node ids; relations split out; tests given kinds and replaced by ones that catch wrong words and the old convention. dennisStein_neg_inv restated as a translation of hypotheses; (h_ij(u))⁻¹ made explicit (found formalising the Lean file)."
-   },
-   {
-    "nodeId": "K2SymbolsBrauer:T.6/dennis-stein-presentation",
-    "verdict": "corrected",
-    "note": "Excerpt made literal (⟨r, s⟩ restored); field case proved from Matsumoto by explicit translation; local-ring case recorded as cited; attribution stated as the source gives it; part (b) moved to relative-presentation."
-   },
-   {
-    "nodeId": "K2SymbolsBrauer:T.6/relative-square-zero",
-    "verdict": "corrected",
-    "note": "Commutativity restored; RefinedTraceMethods:RT.3 prerequisite removed (RT.3 consumes T.6) and GeneralAlgebraicKTheory:K.5 added as the stage requires; statement made concrete with Mathlib's kerIdeal and the source's Ex. III.5.13–5.14 test values."
-   },
-   {
-    "nodeId": "K2SymbolsBrauer:T.6/dennis-stein-relations",
-    "verdict": "added",
-    "note": "(D1)–(D3) as their own node: derived over a field from the unit case, cited (gap) for a general commutative ring; carries the ⟨r,1⟩ misprint and the ℤ/4 check."
-   },
-   {
-    "nodeId": "K2SymbolsBrauer:T.6/relative-steinberg-group",
-    "verdict": "added",
-    "note": "The Keune–Loday St(R, I) and K₂(R, I) (III.5.7, III.5.7.1), needed by the relative symbols and by III.5.11.1(b) and owned by no node in either K2SymbolsBrauer packet."
-   },
-   {
-    "nodeId": "K2SymbolsBrauer:T.6/relative-presentation",
-    "verdict": "added",
-    "note": "Theorem III.5.11.1(b) (PDF p. 235, not read by the packet), cited."
-   },
-   {
-    "nodeId": "K2SymbolsBrauer:T.7/symbol-formula",
-    "verdict": "corrected",
-    "note": "Source moved from III.6.2.3 (the local-CFT symbol) to III.6.10.2–6.10.3; spurious T.5/unramified-subgroup prerequisite dropped; M.1, matsumoto, ker_kummerMap, KummerCoeff added."
-   },
-   {
-    "nodeId": "K2SymbolsBrauer:T.7/classical-local-symbols",
-    "verdict": "corrected",
-    "note": "Split: now the m-th power norm residue symbol only; KTheoryFiniteLocalFields:L.3 prerequisite removed (cycle: L.3 requires T.7); Moore and split surjection moved to L.3; CFT/ProfiniteCohomology/LocalFieldsRamification inputs added; excerpt >300 and non-literal replaced; tests with kinds."
-   },
-   {
-    "nodeId": "K2SymbolsBrauer:T.7/twisted-roots-of-unity",
-    "verdict": "corrected",
-    "note": "Re-scoped: the twists are MotivicEtaleKTheory M.1's and μ_m is the pinned KummerCoeff; the node keeps the trivialisation and the change-of-root rule; planet removed; excerpts replaced by III.6.10 and III.6.10.4."
-   },
-   {
-    "nodeId": "K2SymbolsBrauer:T.7/hilbert-symbol-steinberg",
-    "verdict": "added",
-    "note": "The quadratic Hilbert symbol built on QuadraticFormInvariants 6C (which owns it) rather than redefined; conic equivalence, Steinberg descent and a verified non-bilinearity example over ℚ. hilbertK2_real restated for the conic symbol over ℝ (found formalising the Lean file)."
-   },
-   {
-    "nodeId": "K2SymbolsBrauer:T.7/brauer-valued-symbol",
-    "verdict": "added",
-    "note": "The Brauer-valued symbol named in the roadmap document's T.7 contract, with its change-of-root factor u⁻¹; cyclic-algebra form cited. brauerSymbol typed into Multiplicative (Br F) (found formalising the Lean file)."
-   },
-   {
-    "nodeId": "K2SymbolsBrauer:T.7/local-comparison",
-    "verdict": "added",
-    "note": "Replaces the misattributed 'owned by ClassFieldTheory Layer 5' comparison: Layer 5 only defines localSymbol, Layer 6 does m = 2; the m-th power comparison is T.7's and is a gap."
-   },
-   {
-    "nodeId": "K2SymbolsBrauer:T.7/global-reciprocity",
-    "verdict": "added",
-    "note": "m-th power reciprocity from ClassFieldTheory Layer 10; Layer 14 owns only m = 2. The product is taken in μ_m(F) (found formalising the Lean file)."
-   },
-   {
-    "nodeId": "K2SymbolsBrauer:T.7/chern-class-agreement",
-    "verdict": "added",
-    "note": "The stage's 'prove it agrees with the étale Chern class' as a real comparison through T.1/k2-pi2 and generation by symbols, with the sign made explicit."
-   }
-  ]
- }
+  "status": "needs_changes",
+  "reviewer": "independent-review-REV-FIX-RT-AREA-ktheory-1",
+  "date": "2026-09-30",
+  "notes": "Codex session codex-J6LwjP; follows independent-review-REV-K2SymbolsBrauer--T.3. Ownership and relative S-integer sequence repairs are sound, but /9, /12, /26–/28 leave the general transfer/residue comparison, mixed-inseparable finiteness, acyclic DVR boundary owner, K₂(ℤ) upper bound and local/Chern normalization gaps. Corrected m=1 real factors, two degree-two residue proof signs and the local invariant coordinate. PR #5300 additionally confirms unresolved relative-D3, total conic-symbol and arbitrary-base-change defects. These prevent acceptance. Report: research/blueprint/reviews/REV-FIX-RT-AREA-ktheory-1.md. Pinned-index checker: 0 errors, 0 warnings. Suggested Lean not compiled; implementation remains unchecked."
+ },
+ "reviewHistory": [
+  {
+   "status": "accepted",
+   "reviewer": "independent-review-REV-K2SymbolsBrauer--T.3",
+   "date": "2026-09-24",
+   "notes": "Independent review by Claude Code, session cc-38267a, of the packet by session cc-7b31c4. Three checkers read Weibel's K-book (author-hosted draft of 29 August 2013, SHA-256 a04f53c9…) and the author's errata list (Wayback copy, SHA-256 ef7ed6d0…) against every node: T.3 (both sub-stages), T.4-T.5 and T.6-T.7. They opened every baseline declaration at Mathlib 082e2d3 and Tau Ceti f790474 and read every supplier stage in data/atlas.json. The coordinator merged the overlapping T.3/T.4 corrections, recomputed the counterexamples behind E5, E9 and E11, and checked the node graph and the stage graph for cycles. All 27 original nodes needed changes: 22 corrected and 5 removed (T.5/arithmetic-computations, T.5/k2-of-a-finite-field, T.5/k2-of-the-integers-and-of-the-rationals, T.7/comparison-and-reciprocity, T.7/etale-chern-class-and-what-is-imported), with their content moved to 36 added nodes, to the companion part's T.2/k2-finite-field, or to requests. Main corrections: the higher residue is normalised with Π on the right, so that it extends T.3's tame symbol, with ∂^{Wb} = (−1)^{n−1}∂; the localisation boundary is supplied to S.3 and E.3 (RS-18), not imported from them; the K-book proves Milnor's sequence and Kato's theorem, so these are decomposed rather than recorded as gaps, and the Milnor transfer and its formulas are parented in T.4, which removes the stage cycle T.3:localization-comparison ⇄ T.4; T.5's surjectivity claim was false (SK_1 obstructs it) and now comes from Bass-Milnor-Serre through KTheoryLowDegrees U.4; the certificate format reuses Mathlib's Module.Presentation; the curve-place dictionary is requested from AlgebraicCurves Layer 12; the quadratic Hilbert symbol is imported from QuadraticFormInvariants 6C and μ_m reuses Tau Ceti's KummerCoeff; four stage cycles (through L.3, RT.3, B.7 and T.5/unramified-subgroup) were removed. Every test now has a section-12 kind, every excerpt is literal and at most 300 characters, and the baseline holds 69 declarations, each read at the pin. Eleven new source issues, all confirmed. The suggested Lean file was rewritten. It states 110 of the 119 API items, 64 of the 69 tests as examples (one more in part) and every theorem node the pinned carriers allow, with honest local stand-ins for the companion part's Milnor K-groups, Steinberg group and K_2; everything else is a comment naming the missing carrier and its supplier. It elaborates with exit code 0 against Mathlib 082e2d3 and the Tau Ceti f790474 sources, and its only warnings mark the declarations left unproved. Formalising it found eleven statement corrections, applied here: the section h_π of the degree filtration and one transfer test assumed the K-book's residue; three API items were ill-typed or had clashing names (brauerSymbol, OrderCertificate, tameSymbolHom); the Dennis–Stein convention item is a translation of hypotheses; the Hilbert-symbol item over ℝ is outside its local-field hypotheses; the product in global reciprocity needed a common target; and three statements were ambiguous or referred to a missing name. check_blueprint.py --index: 0 errors, 0 warnings. The packet stays partial: nine gaps and 24 requests remain, each with neededBy, and two restructure proposals (the atlas edge T.3:localization-comparison → T.4, and the curve-place dictionary) await the orchestrator.",
+   "checked": [
+    {
+     "nodeId": "K2SymbolsBrauer:T.3/tame-symbol",
+     "verdict": "corrected",
+     "note": "Formula and both mixed-pair values verified against Lemma III.6.3 (inverse convention confirmed); excerpt made literal, uniformiser made explicit, duplicate well-definedness step removed, API and tests rebuilt with values."
+    },
+    {
+     "nodeId": "K2SymbolsBrauer:T.3/tame-symbol-uniformizer-independence",
+     "verdict": "corrected",
+     "note": "Replaced the cancellation argument by the uniformiser-free form res(f^{ord g}g^{−ord f}), which needs no change unit; uniformizerChangeUnit dropped."
+    },
+    {
+     "nodeId": "K2SymbolsBrauer:T.3/tame-symbol-steinberg",
+     "verdict": "corrected",
+     "note": "The v1 > 0 step used the K-book's exponent s̄^{v1}; rewritten in the roadmap's normalisation, exhaustiveness of the four cases proved, descent and surjectivity split off to tame-symbol-hom, T.2 stage replaced by node ids there."
+    },
+    {
+     "nodeId": "K2SymbolsBrauer:T.3/ramification-formula",
+     "verdict": "corrected",
+     "note": "Formula verified in both normalisations; the 'parity of e' claim replaced by e² ≡ e mod 2, the irrelevant Σef prerequisite removed, the unramified refinement sourced at p. 243, examples added."
+    },
+    {
+     "nodeId": "K2SymbolsBrauer:T.3/finite-support",
+     "verdict": "corrected",
+     "note": "Proof step said 'intersect' the exceptional sets where the union is needed; extended to every degree (T.4 needs it), Dedekind input replaced by HeightOneSpectrum.Support.finite, excerpt replaced by the sources that presuppose finiteness."
+    },
+    {
+     "nodeId": "K2SymbolsBrauer:T.3/higher-milnor-residues",
+     "verdict": "corrected",
+     "note": "Statement said the degree-two residue is T.3's symbol while acceptance said 'up to inversion'; fixed by normalising with Π on the right (then it is T.3's symbol) and recording ∂^{Wb} = (−1)^{n−1}∂; the 'leading-coefficient' claim restricted to v_∞; split into five nodes; tests made concrete."
+    },
+    {
+     "nodeId": "K2SymbolsBrauer:T.3/rigidity",
+     "verdict": "corrected",
+     "note": "Proof steps were 'following the source'; now Hensel's lemma, the kernel of Serre's map (Ex. III.7.2, new node) and right-exactness of ⊗ℤ/q, with a counterexample for q = p; planet 'Rigidity' added."
+    },
+    {
+     "nodeId": "K2SymbolsBrauer:T.3/transfer-and-norm-residue",
+     "verdict": "corrected",
+     "note": "Duplicated T.4's transfer construction, cited a passage with no transfer in it, had 'appropriate exponents' where there are none and lacked the finiteness hypothesis; now the general norm–residue formula with that hypothesis, sourced to Cor. III.7.6.3 and Ex. III.7.9, resting on new T.4 nodes, with gaps; reparenting to T.4 proposed to remove a stage cycle."
+    },
+    {
+     "nodeId": "K2SymbolsBrauer:T.3/localization-boundary",
+     "verdict": "corrected",
+     "note": "Never stated the sign; now ∂ = inverse of T.3's symbol with the K-book's right-linear boundary (V.6.6.1), both conventions stated; S.3 and E.3 prerequisites removed (cycles with RS-18), K.3 and K.7 requested."
+    },
+    {
+     "nodeId": "K2SymbolsBrauer:T.3/tame-symbol-hom",
+     "verdict": "added",
+     "note": "The homomorphism K^M_2(F) → k^× and K_2(F) → k^× with surjectivity, split from tame-symbol-steinberg. Values in the additive target written as 0 (found formalising the Lean file)."
+    },
+    {
+     "nodeId": "K2SymbolsBrauer:T.3/serre-residue-algebra",
+     "verdict": "added",
+     "note": "Serre's algebra L(k) made explicit, with its two projections and the shift automorphism. serreAlgebra.decompose stated for degrees n + 1 (found formalising the Lean file)."
+    },
+    {
+     "nodeId": "K2SymbolsBrauer:T.3/serre-map-steinberg",
+     "verdict": "added",
+     "note": "The case analysis of Theorem III.7.3's proof."
+    },
+    {
+     "nodeId": "K2SymbolsBrauer:T.3/serre-map-kernel",
+     "verdict": "added",
+     "note": "Ex. III.7.2 with a proof, the input rigidity needs."
+    },
+    {
+     "nodeId": "K2SymbolsBrauer:T.3/milnor-residue-product-formula",
+     "verdict": "added",
+     "note": "Ex. III.7.10, the 'product signs' of the stage, with its sign issue recorded."
+    },
+    {
+     "nodeId": "K2SymbolsBrauer:T.3/specialisation-change-of-uniformiser",
+     "verdict": "added",
+     "note": "Ex. III.7.1 as corrected by the errata, with the explicit change formula."
+    },
+    {
+     "nodeId": "K2SymbolsBrauer:T.3/higher-ramification-formula",
+     "verdict": "added",
+     "note": "Ex. III.7.8, the all-degree ramification formula used by base change of the transfer."
+    },
+    {
+     "nodeId": "K2SymbolsBrauer:T.4/bass-tate-sequence",
+     "verdict": "corrected",
+     "note": "Sources replaced (Prop. III.6.4.1 is unrelated; the K-book proves the sequence as Theorem III.7.4, Milnor), statement completed (surjectivity, splitting, naturality), non-routine steps split into four lemma nodes, planet renamed."
+    },
+    {
+     "nodeId": "K2SymbolsBrauer:T.4/milnor-transfer-transitivity",
+     "verdict": "corrected",
+     "note": "Its excerpt was the roadmap's own text, not the K-book; the transfer is Definitions III.7.5-7.6 and independence is Kato's Theorem III.7.6.1, now decomposed into the definition node and seven lemma nodes."
+    },
+    {
+     "nodeId": "K2SymbolsBrauer:T.4/weil-reciprocity",
+     "verdict": "corrected",
+     "note": "The K-book states Weil reciprocity (III.6.5.3, III.7.5.1, V.6.12.1); the node is restated in all degrees on places, the P^1 case and the symbol form are separate nodes, the reversed edge to valuation-comparison removed, and the unsourced general norm-residue formula recorded as a gap."
+    },
+    {
+     "nodeId": "K2SymbolsBrauer:T.4/valuation-comparison",
+     "verdict": "corrected",
+     "note": "Its prerequisite on weil-reciprocity was reversed, and the gluing it planned is Tau Ceti AlgebraicCurves Layer 12's (12A-12B), now imported with a request."
+    },
+    {
+     "nodeId": "K2SymbolsBrauer:T.4/milnor-projection-formula",
+     "verdict": "added",
+     "note": "Projection Formula III.7.5.2, a stated target of T.3:localization-comparison."
+    },
+    {
+     "nodeId": "K2SymbolsBrauer:T.4/restriction-transfer-degree",
+     "verdict": "added",
+     "note": "Corollary III.7.5.3, a stated target of T.3:localization-comparison."
+    },
+    {
+     "nodeId": "K2SymbolsBrauer:T.4/leading-coefficient-splitting",
+     "verdict": "added",
+     "note": "Added by this review; Leading coefficients split K^M_n(F) off K^M_n F(t) (Example III.7.3.2)."
+    },
+    {
+     "nodeId": "K2SymbolsBrauer:T.4/degree-reduction",
+     "verdict": "added",
+     "note": "Added by this review; Degree reduction for symbols of polynomials (Exercise III.6.2, corrected)."
+    },
+    {
+     "nodeId": "K2SymbolsBrauer:T.4/residue-section",
+     "verdict": "added",
+     "note": "Added by this review; The section h_π on the degree filtration (Lemma III.7.4.1). h_π now puts π last, a section of the pinned residue (found formalising the Lean file)."
+    },
+    {
+     "nodeId": "K2SymbolsBrauer:T.4/filtration-quotients",
+     "verdict": "added",
+     "note": "Added by this review; The graded pieces of the degree filtration (Lemma III.7.4.2). Normalisation parenthetical corrected to the pinned residue (found formalising the Lean file)."
+    },
+    {
+     "nodeId": "K2SymbolsBrauer:T.4/simple-transfer",
+     "verdict": "added",
+     "note": "Added by this review; The Milnor transfer of a simple extension (Definition III.7.5). Test milnorTransferSimple_of_mem_eq_id uses y = {x, t − a} (found formalising the Lean file)."
+    },
+    {
+     "nodeId": "K2SymbolsBrauer:T.4/transfer-low-degrees",
+     "verdict": "added",
+     "note": "Added by this review; The simple transfer in degree one is the field norm (Exercise III.7.5)."
+    },
+    {
+     "nodeId": "K2SymbolsBrauer:T.4/projective-line-reciprocity",
+     "verdict": "added",
+     "note": "Added by this review; Weil reciprocity on the projective line (III.7.5.1 and III.6.5.3)."
+    },
+    {
+     "nodeId": "K2SymbolsBrauer:T.4/weil-reciprocity-symbol-form",
+     "verdict": "added",
+     "note": "Added by this review; Weil reciprocity for the tame symbol on a proper regular curve."
+    },
+    {
+     "nodeId": "K2SymbolsBrauer:T.4/prime-to-p-closure",
+     "verdict": "added",
+     "note": "Added by this review; Passing to a prime-to-p closure (Kato's key trick)."
+    },
+    {
+     "nodeId": "K2SymbolsBrauer:T.4/transfer-base-change",
+     "verdict": "added",
+     "note": "Added by this review; Base change of the simple transfer (Exercise III.7.7)."
+    },
+    {
+     "nodeId": "K2SymbolsBrauer:T.4/p-closed-generation",
+     "verdict": "added",
+     "note": "Added by this review; Generation by symbols with one entry outside the base (Exercise III.7.6)."
+    },
+    {
+     "nodeId": "K2SymbolsBrauer:T.4/kato-prime-degree",
+     "verdict": "added",
+     "note": "Added by this review; Independence of the generator for a normal extension of prime degree (Lemma III.7.6.2)."
+    },
+    {
+     "nodeId": "K2SymbolsBrauer:T.4/kato-complete-residue",
+     "verdict": "added",
+     "note": "Added by this review; Residues commute with the transfer over a complete field (Corollary III.7.6.3)."
+    },
+    {
+     "nodeId": "K2SymbolsBrauer:T.4/constant-extension-residue",
+     "verdict": "added",
+     "note": "Added by this review; The norm-residue formula for a constant extension of prime degree (Exercise III.7.9)."
+    },
+    {
+     "nodeId": "K2SymbolsBrauer:T.4/kato-commuting-square",
+     "verdict": "added",
+     "note": "Added by this review; Kato's commuting square (Proposition III.7.6.4)."
+    },
+    {
+     "nodeId": "K2SymbolsBrauer:T.5/unramified-subgroup",
+     "verdict": "corrected",
+     "note": "Tests had no kinds and were not checkable; replaced by seven concrete tests, API extended (outside-S variant, residue-sum kernel, Mathlib HeightOneSpectrum compatibility), prerequisites for the stated inclusion added."
+    },
+    {
+     "nodeId": "K2SymbolsBrauer:T.5/tame-kernel-sequence",
+     "verdict": "corrected",
+     "note": "Surjectivity does not follow from surjectivity of each tame symbol (cokernel is SK_1, nonzero for R[x,y]/(x^2+y^2-1)); it needs Bass-Milnor-Serre (U.4); B.7 prerequisite removed (stage cycle); sources replaced."
+    },
+    {
+     "nodeId": "K2SymbolsBrauer:T.5/certified-presentation",
+     "verdict": "corrected",
+     "note": "Rebuilt on Mathlib's Module.Relations/Module.Presentation (the planned record duplicated them), N.6 prerequisite removed (instances depend on the format, not conversely), API items and tests replaced by checkable statements with kinds, excerpt made literal. Structure field renamed card_quotient_eq to avoid the lemma card_eq (found formalising the Lean file)."
+    },
+    {
+     "nodeId": "K2SymbolsBrauer:T.5/s-integer-tame-kernel-sequence",
+     "verdict": "added",
+     "note": "Added by this review; The S-integer tame-kernel sequence."
+    },
+    {
+     "nodeId": "K2SymbolsBrauer:T.5/real-sign-symbol",
+     "verdict": "added",
+     "note": "Added by this review; The real sign symbol (Example III.6.2.1). realSignSymbol_eq_milnorExamples stated on K^M_2(ℝ) through Matsumoto (found formalising the Lean file)."
+    },
+    {
+     "nodeId": "K2SymbolsBrauer:T.5/k2-of-the-integers",
+     "verdict": "added",
+     "note": "Added by this review; K_2 of the integers is cyclic of order two, generated by {−1, −1}."
+    },
+    {
+     "nodeId": "K2SymbolsBrauer:T.5/k2-of-the-rationals",
+     "verdict": "added",
+     "note": "Added by this review; K_2 of the rationals (Application III.6.5.1)."
+    },
+    {
+     "nodeId": "K2SymbolsBrauer:T.6/dennis-stein-symbol",
+     "verdict": "corrected",
+     "note": "Non-literal excerpt replaced; word, E(R)-image, degenerate values and unit case made explicit; stage's 1+ab reconciled with the modern 1−rs; prerequisites refined to T.1/T.2 node ids; relations split out; tests given kinds and replaced by ones that catch wrong words and the old convention. dennisStein_neg_inv restated as a translation of hypotheses; (h_ij(u))⁻¹ made explicit (found formalising the Lean file)."
+    },
+    {
+     "nodeId": "K2SymbolsBrauer:T.6/dennis-stein-presentation",
+     "verdict": "corrected",
+     "note": "Excerpt made literal (⟨r, s⟩ restored); field case proved from Matsumoto by explicit translation; local-ring case recorded as cited; attribution stated as the source gives it; part (b) moved to relative-presentation."
+    },
+    {
+     "nodeId": "K2SymbolsBrauer:T.6/relative-square-zero",
+     "verdict": "corrected",
+     "note": "Commutativity restored; RefinedTraceMethods:RT.3 prerequisite removed (RT.3 consumes T.6) and GeneralAlgebraicKTheory:K.5 added as the stage requires; statement made concrete with Mathlib's kerIdeal and the source's Ex. III.5.13–5.14 test values."
+    },
+    {
+     "nodeId": "K2SymbolsBrauer:T.6/dennis-stein-relations",
+     "verdict": "added",
+     "note": "(D1)–(D3) as their own node: derived over a field from the unit case, cited (gap) for a general commutative ring; carries the ⟨r,1⟩ misprint and the ℤ/4 check."
+    },
+    {
+     "nodeId": "K2SymbolsBrauer:T.6/relative-steinberg-group",
+     "verdict": "added",
+     "note": "The Keune–Loday St(R, I) and K₂(R, I) (III.5.7, III.5.7.1), needed by the relative symbols and by III.5.11.1(b) and owned by no node in either K2SymbolsBrauer packet."
+    },
+    {
+     "nodeId": "K2SymbolsBrauer:T.6/relative-presentation",
+     "verdict": "added",
+     "note": "Theorem III.5.11.1(b) (PDF p. 235, not read by the packet), cited."
+    },
+    {
+     "nodeId": "K2SymbolsBrauer:T.7/symbol-formula",
+     "verdict": "corrected",
+     "note": "Source moved from III.6.2.3 (the local-CFT symbol) to III.6.10.2–6.10.3; spurious T.5/unramified-subgroup prerequisite dropped; M.1, matsumoto, ker_kummerMap, KummerCoeff added."
+    },
+    {
+     "nodeId": "K2SymbolsBrauer:T.7/classical-local-symbols",
+     "verdict": "corrected",
+     "note": "Split: now the m-th power norm residue symbol only; KTheoryFiniteLocalFields:L.3 prerequisite removed (cycle: L.3 requires T.7); Moore and split surjection moved to L.3; CFT/ProfiniteCohomology/LocalFieldsRamification inputs added; excerpt >300 and non-literal replaced; tests with kinds."
+    },
+    {
+     "nodeId": "K2SymbolsBrauer:T.7/twisted-roots-of-unity",
+     "verdict": "corrected",
+     "note": "Re-scoped: the twists are MotivicEtaleKTheory M.1's and μ_m is the pinned KummerCoeff; the node keeps the trivialisation and the change-of-root rule; planet removed; excerpts replaced by III.6.10 and III.6.10.4."
+    },
+    {
+     "nodeId": "K2SymbolsBrauer:T.7/hilbert-symbol-steinberg",
+     "verdict": "added",
+     "note": "The quadratic Hilbert symbol built on QuadraticFormInvariants 6C (which owns it) rather than redefined; conic equivalence, Steinberg descent and a verified non-bilinearity example over ℚ. hilbertK2_real restated for the conic symbol over ℝ (found formalising the Lean file)."
+    },
+    {
+     "nodeId": "K2SymbolsBrauer:T.7/brauer-valued-symbol",
+     "verdict": "added",
+     "note": "The Brauer-valued symbol named in the roadmap document's T.7 contract, with its change-of-root factor u⁻¹; cyclic-algebra form cited. brauerSymbol typed into Multiplicative (Br F) (found formalising the Lean file)."
+    },
+    {
+     "nodeId": "K2SymbolsBrauer:T.7/local-comparison",
+     "verdict": "added",
+     "note": "Replaces the misattributed 'owned by ClassFieldTheory Layer 5' comparison: Layer 5 only defines localSymbol, Layer 6 does m = 2; the m-th power comparison is T.7's and is a gap."
+    },
+    {
+     "nodeId": "K2SymbolsBrauer:T.7/global-reciprocity",
+     "verdict": "added",
+     "note": "m-th power reciprocity from ClassFieldTheory Layer 10; Layer 14 owns only m = 2. The product is taken in μ_m(F) (found formalising the Lean file)."
+    },
+    {
+     "nodeId": "K2SymbolsBrauer:T.7/chern-class-agreement",
+     "verdict": "added",
+     "note": "The stage's 'prove it agrees with the étale Chern class' as a real comparison through T.1/k2-pi2 and generation by symbols, with the sign made explicit."
+    }
+   ]
+  }
+ ]
 }

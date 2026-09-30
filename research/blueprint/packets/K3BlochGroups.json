@@ -8370,521 +8370,9 @@
  ],
  "review": {
   "status": "accepted",
-  "reviewer": "independent-review-REV-K3BlochGroups",
-  "date": "2026-09-24",
-  "notes": "Independent review by Claude Code, session cc-38267a, of the packet by session cc-7b31c4. Six checkers read the sources (Weibel, The K-book, author draft of 29 Aug 2013, SHA-256 a04f53c9…; Calegari–Garoufalidis–Zagier arXiv:1712.04887v3, SHA-256 024317c2…, and its TeX) against every node: V.1–V.2, V.3, V.4, V.5–V.6, the packet-level items (baseline, library audit, requests, gaps, coverage, restructure, reserved ids, test kinds) and the suggested Lean file. The coordinator re-derived the finite-field Bloch-group computations by an independent Smith normal form computation, checked the stage graph for cycles, fetched Weibel's errata file (Wayback copy), and compiled the suggested file. Corrected: 60 of the 62 nodes (2 verified unchanged); added: 40 nodes. Main corrections: V.4 is stated for infinite fields (Theorem 5.7's H_2 formula fails for F_4) and Suslin's sequence for finite fields is a gap; ⟨x⟩ lies in P(F), not B(F); the CGZ comparison κ is neither injective nor surjective in general (kernel and cokernel 2-groups); V.2's injectivity of Milnor K_3 is the K-book's motivic argument with its inputs made explicit, not an import from M.7; stage-level prerequisites that closed cycles (GeneralAlgebraicKTheory K.2, Polylogarithms P.2 in V.3) were removed; the Bloch–Wigner nodes are pointer comparisons owned by Polylogarithms P.1/P.2; every unit test has its §12 kind; baseline 33 → 89 declarations, every one checked at the pinned commits, and Matrix.card_GL_field removed as unused. The suggested Lean file was rewritten to elaborate against Mathlib 082e2d3 with unproved-declaration warnings only; its 29 True placeholders were replaced by honest statements. Source issues: E1 confirmed and marked as a known erratum; E2–E30 new, all checked at their locators. Open: 23 gaps and 27 requests, recorded with neededBy; a cross-packet cycle (Polylogarithms P.1/bloch-wigner-five-term rests on the stage K3BlochGroups:V.3) is left to that packet's owner by a restructure entry.",
-  "checked": [
-   {
-    "nodeId": "K3BlochGroups:V.1/uce-superperfect",
-    "verdict": "corrected",
-    "note": "Source moved to III.5.3.2/III.5.4 and the proof closed through two new lemmas (the printed Ex. III.5.7 needs perfectness)."
-   },
-   {
-    "nodeId": "K3BlochGroups:V.1/steinberg-superperfect",
-    "verdict": "corrected",
-    "note": "Supplier narrowed to T.1:classical, source to III.5.5, and an unsupported finite-rank claim and a non-test acceptance item replaced."
-   },
-   {
-    "nodeId": "K3BlochGroups:V.1/bst-plus",
-    "verdict": "corrected",
-    "note": "The GeneralAlgebraicKTheory:K.2 prerequisite closed a stage cycle (K.2 → K.2:low-degree-comparisons → V.4 → V.1); split into a construction and three lemma nodes, with test kinds added."
-   },
-   {
-    "nodeId": "K3BlochGroups:V.1/k3-h3-steinberg",
-    "verdict": "corrected",
-    "note": "Added the missing Hurewicz and bar-versus-singular inputs, moved naturality to V.1/k3-naturality, and replaced an unsupported acceptance item."
-   },
-   {
-    "nodeId": "K3BlochGroups:V.1/bar-cycle-model",
-    "verdict": "corrected",
-    "note": "The degenerate-triple acceptance and test were false (groupHomology.d₃₂_single_one_snd); boundaries, API and test kinds fixed."
-   },
-   {
-    "nodeId": "K3BlochGroups:V.1/k3-naturality",
-    "verdict": "corrected",
-    "note": "Stabilisation made precise through a new colimit lemma, the missing functoriality inputs added, and a false source match removed."
-   },
-   {
-    "nodeId": "K3BlochGroups:V.1/k2-to-k3-h3-e",
-    "verdict": "corrected",
-    "note": "Split off the field half; added the η-Hurewicz lemma and product inputs, removed the K.2 cycle and an unused prerequisite, renamed the planet."
-   },
-   {
-    "nodeId": "K3BlochGroups:V.1/central-extension-comp",
-    "verdict": "added",
-    "note": "Ex. III.5.7 with the perfectness hypothesis the source omits."
-   },
-   {
-    "nodeId": "K3BlochGroups:V.1/split-extensions-kill-h2",
-    "verdict": "added",
-    "note": "The (2) ⇒ (3) step of III.5.4, via characters to Q/Z and the Tau Ceti classification of extensions by H²."
-   },
-   {
-    "nodeId": "K3BlochGroups:V.1/uce-plus-fibration",
-    "verdict": "added",
-    "note": "The fibration of Ex. IV.1.9, resting on a requested fibre comparison in StableHomotopyKTheory H.3."
-   },
-   {
-    "nodeId": "K3BlochGroups:V.1/bst-plus-two-connected",
-    "verdict": "added",
-    "note": "Two-connectedness of BSt(A)⁺ from superperfection and Hurewicz."
-   },
-   {
-    "nodeId": "K3BlochGroups:V.1/bst-plus-connected-cover",
-    "verdict": "added",
-    "note": "The comparison with the two-connected cover of BGL(A)⁺ that the V.1 stage text requires."
-   },
-   {
-    "nodeId": "K3BlochGroups:V.1/steinberg-homology-colimit",
-    "verdict": "added",
-    "note": "The stabilisation compatibility, from Mathlib's AB5 instance for modules."
-   },
-   {
-    "nodeId": "K3BlochGroups:V.1/eta-hurewicz-sequence",
-    "verdict": "added",
-    "note": "Lemma IV.1.19 in its H-space form, with its Hilton–Milnor inputs recorded as a gap."
-   },
-   {
-    "nodeId": "K3BlochGroups:V.2/milnor-to-quillen-degree-three",
-    "verdict": "corrected",
-    "note": "Supplier narrowed to T.2:graded-map, the K.2 cycle removed, the page corrected, and product-order API, tests and kinds added."
-   },
-   {
-    "nodeId": "K3BlochGroups:V.2/k3-indecomposable",
-    "verdict": "corrected",
-    "note": "Added the universal property and functor laws, replaced a non-test, added test kinds and renamed the planet."
-   },
-   {
-    "nodeId": "K3BlochGroups:V.2/decomposable-exactness",
-    "verdict": "verified",
-    "note": "Exactness at the middle and right follows from the cokernel definition; source and acceptance checked."
-   },
-   {
-    "nodeId": "K3BlochGroups:V.2/milnor-k3-injective",
-    "verdict": "corrected",
-    "note": "M.7 does not plan it; the proof is replaced by the K-book's motivic argument of VI.4.3.2, whose inputs are new nodes, requests and gaps."
-   },
-   {
-    "nodeId": "K3BlochGroups:V.2/milnor-k3-number-field",
-    "verdict": "corrected",
-    "note": "No supplier plans Bass–Tate; the source is cited directly, the gap recorded and the hypothesis fixed."
-   },
-   {
-    "nodeId": "K3BlochGroups:V.2/k3-rank-borel",
-    "verdict": "corrected",
-    "note": "R.3 covers orders and S-integers; the rank is taken through ArithmeticKTheory N.3 and N.5."
-   },
-   {
-    "nodeId": "K3BlochGroups:V.2/rationalisation-loss",
-    "verdict": "corrected",
-    "note": "Restated as a declaration, with the unnecessary dependence on injectivity removed and the Q(i) test made precise."
-   },
-   {
-    "nodeId": "K3BlochGroups:V.2/k3-to-h3-sl-field",
-    "verdict": "added",
-    "note": "The field half of the [−1]-sequence (VI.5 opening), with the kernel kept as an image."
-   },
-   {
-    "nodeId": "K3BlochGroups:V.2/motivic-low-degree-sequence",
-    "verdict": "added",
-    "note": "The exact sequence VI.4.3.1 with the edge-map identification VI.4.3."
-   },
-   {
-    "nodeId": "K3BlochGroups:V.2/milnor-k3-kernel-exponent-two",
-    "verdict": "added",
-    "note": "Lemma V.11.13 in degree three."
-   },
-   {
-    "nodeId": "K3BlochGroups:V.3/antisymmetric-tensor-quotient",
-    "verdict": "corrected",
-    "note": "Quotient by the range of 1 + τ restated over a commutative ring. The Tau Ceti eigenspace citations were dropped from the prerequisites: that object is a submodule, the kernel of 1 + τ."
-   },
-   {
-    "nodeId": "K3BlochGroups:V.3/antisym-exterior-comparison",
-    "verdict": "corrected",
-    "note": "Proof supplied: the Mathlib universal property for the kernel, and a ZMod 2 diagonal form for the injectivity of A/2A; the planet was removed."
-   },
-   {
-    "nodeId": "K3BlochGroups:V.3/five-term-relation",
-    "verdict": "corrected",
-    "note": "The P(F) relations were moved out and the false 'undefined at x = y' acceptance fixed; the source's substitutions are now API items and free-group tests."
-   },
-   {
-    "nodeId": "K3BlochGroups:V.3/pre-bloch-group",
-    "verdict": "corrected",
-    "note": "The non-abelian PresentedGroup prerequisite was dropped; the tests are now computed small fields."
-   },
-   {
-    "nodeId": "K3BlochGroups:V.3/bloch-boundary",
-    "verdict": "corrected",
-    "note": "The false acceptance 'boundary of [x] + [1 − x] is nonzero' was fixed, the vanishing proof made explicit, and the angle-bracket boundary added."
-   },
-   {
-    "nodeId": "K3BlochGroups:V.3/bloch-group",
-    "verdict": "corrected",
-    "note": "The garbled step was rewritten and the tests replaced by finite-field computations, including an exterior-target non-example."
-   },
-   {
-    "nodeId": "K3BlochGroups:V.3/bloch-four-term-exact",
-    "verdict": "corrected",
-    "note": "The Matsumoto and anti-commutativity step was made explicit, and the prerequisite narrowed to K2SymbolsBrauer:T.2:symbols."
-   },
-   {
-    "nodeId": "K3BlochGroups:V.3/element-c",
-    "verdict": "corrected",
-    "note": "Replaced by a construction of c alone; the false claim that the angle-bracket elements lie in B(F) was removed and part (b) split off."
-   },
-   {
-    "nodeId": "K3BlochGroups:V.3/angle-bracket-homomorphism",
-    "verdict": "corrected",
-    "note": "The target was corrected from B(F) to P(F), with F_5 as the counterexample, and part (d) split off."
-   },
-   {
-    "nodeId": "K3BlochGroups:V.3/c-characteristic-torsion",
-    "verdict": "corrected",
-    "note": "The statement was false as written ('a cube root of −1' always exists); it is corrected to a root of t² − t + 1, with a valid proof."
-   },
-   {
-    "nodeId": "K3BlochGroups:V.3/bloch-wigner-dilogarithm",
-    "verdict": "corrected",
-    "note": "Reduced to a pointer to Polylogarithms:P.1/bloch-wigner-dilogarithm; the false use 'Rogers function built from D' was removed."
-   },
-   {
-    "nodeId": "K3BlochGroups:V.3/bloch-wigner-five-term",
-    "verdict": "corrected",
-    "note": "Reduced to a pointer to the Polylogarithms P.1 and P.2 nodes, carrying only V.3's torsion warning."
-   },
-   {
-    "nodeId": "K3BlochGroups:V.3/cgz-convention-comparison",
-    "verdict": "corrected",
-    "note": "The false claim 'quotient of Suslin's' was replaced by the exact kernel and cokernel (both ℤ/2 over F_11); the CGZ misreadings and the over-length excerpt were fixed."
-   },
-   {
-    "nodeId": "K3BlochGroups:V.3/small-field-conventions",
-    "verdict": "corrected",
-    "note": "Restricted to direct computations for q ≤ 7; the q > 3 formula and the V.4/V.5 prerequisites were removed."
-   },
-   {
-    "nodeId": "K3BlochGroups:V.3/angle-bracket-two-torsion",
-    "verdict": "added",
-    "note": "K-book Lemma 5.4(b) with the difference relation, stated in P(F)."
-   },
-   {
-    "nodeId": "K3BlochGroups:V.3/three-c-angle-minus-one",
-    "verdict": "added",
-    "note": "K-book Lemma 5.4(d), split from angle-bracket-homomorphism."
-   },
-   {
-    "nodeId": "K3BlochGroups:V.3/exterior-kernel-bloch-group",
-    "verdict": "added",
-    "note": "CGZ Definition 2.1's group, with the exterior square as target."
-   },
-   {
-    "nodeId": "K3BlochGroups:V.3/exterior-kernel-discrepancy",
-    "verdict": "added",
-    "note": "The exact 2-primary discrepancy between the antisymmetric and exterior targets."
-   },
-   {
-    "nodeId": "K3BlochGroups:V.3/cgz-bloch-group",
-    "verdict": "added",
-    "note": "CGZ Definition 1.1 as a definition node, with C(F) read as A(F) ∩ ⟨ξ⟩."
-   },
-   {
-    "nodeId": "K3BlochGroups:V.3/cgz-degenerate-relations",
-    "verdict": "added",
-    "note": "CGZ Lemma 2.2, corrected to |F| ≥ 4 and to the kernel B̃(F) ∩ ⟨Fˣ⟩."
-   },
-   {
-    "nodeId": "K3BlochGroups:V.4/configuration-complex",
-    "verdict": "corrected",
-    "note": "Literal excerpt; dropped the bundled variants step; API and six tests with kinds."
-   },
-   {
-    "nodeId": "K3BlochGroups:V.4/configuration-acyclicity",
-    "verdict": "corrected",
-    "note": "Restricted to infinite X (the finite case is nonzero in top degree); corollary moved to hyperhomology-map; false 'seven points' acceptance replaced."
-   },
-   {
-    "nodeId": "K3BlochGroups:V.4/hyperhomology-map",
-    "verdict": "corrected",
-    "note": "Now carries Corollary 5.5.2 and the quasi-isomorphism invariance; Mathlib prerequisites; tests with kinds."
-   },
-   {
-    "nodeId": "K3BlochGroups:V.4/coinvariants-p1-homology",
-    "verdict": "corrected",
-    "note": "Holds for every field; stabiliser of four points is the centre (not free); d_3 = 0 step added; cross-ratio prerequisite; 'seven points' fixed."
-   },
-   {
-    "nodeId": "K3BlochGroups:V.4/gl2-spectral-sequence",
-    "verdict": "corrected",
-    "note": "F infinite; triple stabiliser is the centre, not the antidiagonal; coinvariants versus invariants; split into three nodes."
-   },
-   {
-    "nodeId": "K3BlochGroups:V.4/psi-gl2",
-    "verdict": "corrected",
-    "note": "'For every field' false for F_4 (H_2 ≅ ℤ/2); now infinite F; ψ is the separate construction psi-map; K2SymbolsBrauer:T.2:symbols."
-   },
-   {
-    "nodeId": "K3BlochGroups:V.4/cyclic-complex-d",
-    "verdict": "corrected",
-    "note": "No Dold–Kan claim (precyclic, no degeneracies); norm sign fixed; acyclicity by prepending; literal excerpts; general-position part split off."
-   },
-   {
-    "nodeId": "K3BlochGroups:V.4/psi-gl3",
-    "verdict": "corrected",
-    "note": "Now only Proposition 5.12; construction split to psi3-map; needs psi-compatibility, which it used without listing (circular order fixed)."
-   },
-   {
-    "nodeId": "K3BlochGroups:V.4/psi-compatibility",
-    "verdict": "corrected",
-    "note": "Depends on the construction psi3-map, not on Proposition 5.12; acyclicity of C′ added; wrong 'twice c' acceptance replaced."
-   },
-   {
-    "nodeId": "K3BlochGroups:V.4/homological-stability",
-    "verdict": "corrected",
-    "note": "K.2 prerequisite closed a cycle and neither K.2:plus nor H.3 states stability; V.4 owns it (stage text); proof is a recorded gap."
-   },
-   {
-    "nodeId": "K3BlochGroups:V.4/symmetric-group-image",
-    "verdict": "corrected",
-    "note": "F infinite; Lemma 5.14 split to alternating-group-image; imported inputs recorded as gaps."
-   },
-   {
-    "nodeId": "K3BlochGroups:V.4/monomial-sequence",
-    "verdict": "corrected",
-    "note": "F infinite; first map specified; false 'specialises to rank two' acceptance replaced; missing inputs recorded as gaps."
-   },
-   {
-    "nodeId": "K3BlochGroups:V.4/pi3-bm-plus",
-    "verdict": "corrected",
-    "note": "F infinite; Theorem 5.16 only (Corollary 5.16.1 and the definition of π_3^ind are separate nodes)."
-   },
-   {
-    "nodeId": "K3BlochGroups:V.4/enhanced-mu",
-    "verdict": "corrected",
-    "note": "The union needs non-canonical transition maps: choice-free square-root model; false 'not isomorphic to Tor for algebraically closed F' acceptance fixed; tests with kinds."
-   },
-   {
-    "nodeId": "K3BlochGroups:V.4/pi3ind-bm-plus",
-    "verdict": "corrected",
-    "note": "Split: Proposition 5.17, Lemmas 5.18 and 5.19 are new nodes; this node is Corollary 5.20; unjustified N.5 prerequisite removed."
-   },
-   {
-    "nodeId": "K3BlochGroups:V.4/suslin-exact-sequence",
-    "verdict": "corrected",
-    "note": "F infinite (proof does not cover finite fields); natural left-hand term T̃ (Tor form); literal excerpt."
-   },
-   {
-    "nodeId": "K3BlochGroups:V.4/tor-form-comparison",
-    "verdict": "corrected",
-    "note": "No canonical isomorphism exists (automorphisms act by k² on Tor, k on μ); rewritten with Ex. VI.5.9 as source."
-   },
-   {
-    "nodeId": "K3BlochGroups:V.4/suslin-functoriality",
-    "verdict": "corrected",
-    "note": "Naturality in the Tor form; vanishing on K^M_3 made explicit; 'checked on the class of c' replaced."
-   },
-   {
-    "nodeId": "K3BlochGroups:V.4/cross-ratio",
-    "verdict": "added",
-    "note": "New node proposed by REV-K3BlochGroups (B3); monomial-subgroups and psi-map adapt B6's proposals."
-   },
-   {
-    "nodeId": "K3BlochGroups:V.4/monomial-subgroups",
-    "verdict": "added",
-    "note": "New node proposed by REV-K3BlochGroups (B3); monomial-subgroups and psi-map adapt B6's proposals."
-   },
-   {
-    "nodeId": "K3BlochGroups:V.4/psi-map",
-    "verdict": "added",
-    "note": "New node proposed by REV-K3BlochGroups (B3); monomial-subgroups and psi-map adapt B6's proposals."
-   },
-   {
-    "nodeId": "K3BlochGroups:V.4/torus-borel-homology",
-    "verdict": "added",
-    "note": "New node proposed by REV-K3BlochGroups (B3); monomial-subgroups and psi-map adapt B6's proposals."
-   },
-   {
-    "nodeId": "K3BlochGroups:V.4/gl2-d1-involution",
-    "verdict": "added",
-    "note": "New node proposed by REV-K3BlochGroups (B3); monomial-subgroups and psi-map adapt B6's proposals."
-   },
-   {
-    "nodeId": "K3BlochGroups:V.4/gl2-d3-boundary",
-    "verdict": "added",
-    "note": "New node proposed by REV-K3BlochGroups (B3); monomial-subgroups and psi-map adapt B6's proposals."
-   },
-   {
-    "nodeId": "K3BlochGroups:V.4/general-position-complex",
-    "verdict": "added",
-    "note": "New node proposed by REV-K3BlochGroups (B3); monomial-subgroups and psi-map adapt B6's proposals."
-   },
-   {
-    "nodeId": "K3BlochGroups:V.4/psi3-map",
-    "verdict": "added",
-    "note": "New node proposed by REV-K3BlochGroups (B3); monomial-subgroups and psi-map adapt B6's proposals."
-   },
-   {
-    "nodeId": "K3BlochGroups:V.4/psi3-torus-vanishing",
-    "verdict": "added",
-    "note": "New node proposed by REV-K3BlochGroups (B3); monomial-subgroups and psi-map adapt B6's proposals."
-   },
-   {
-    "nodeId": "K3BlochGroups:V.4/h3-gl3-generation",
-    "verdict": "added",
-    "note": "New node proposed by REV-K3BlochGroups (B3); monomial-subgroups and psi-map adapt B6's proposals."
-   },
-   {
-    "nodeId": "K3BlochGroups:V.4/dupont-sah-identity",
-    "verdict": "added",
-    "note": "New node proposed by REV-K3BlochGroups (B3); monomial-subgroups and psi-map adapt B6's proposals."
-   },
-   {
-    "nodeId": "K3BlochGroups:V.4/alternating-group-image",
-    "verdict": "added",
-    "note": "New node proposed by REV-K3BlochGroups (B3); monomial-subgroups and psi-map adapt B6's proposals."
-   },
-   {
-    "nodeId": "K3BlochGroups:V.4/pi3ind-definition",
-    "verdict": "added",
-    "note": "New node proposed by REV-K3BlochGroups (B3); monomial-subgroups and psi-map adapt B6's proposals."
-   },
-   {
-    "nodeId": "K3BlochGroups:V.4/pi3ind-sequence",
-    "verdict": "added",
-    "note": "New node proposed by REV-K3BlochGroups (B3); monomial-subgroups and psi-map adapt B6's proposals."
-   },
-   {
-    "nodeId": "K3BlochGroups:V.4/pi3ind-ahss",
-    "verdict": "added",
-    "note": "New node proposed by REV-K3BlochGroups (B3); monomial-subgroups and psi-map adapt B6's proposals."
-   },
-   {
-    "nodeId": "K3BlochGroups:V.4/delta-squaring",
-    "verdict": "added",
-    "note": "New node proposed by REV-K3BlochGroups (B3); monomial-subgroups and psi-map adapt B6's proposals."
-   },
-   {
-    "nodeId": "K3BlochGroups:V.4/e-invariant-detection",
-    "verdict": "added",
-    "note": "New node proposed by REV-K3BlochGroups (B3); monomial-subgroups and psi-map adapt B6's proposals."
-   },
-   {
-    "nodeId": "K3BlochGroups:V.4/enhanced-tor",
-    "verdict": "added",
-    "note": "New node proposed by REV-K3BlochGroups (B3); monomial-subgroups and psi-map adapt B6's proposals."
-   },
-   {
-    "nodeId": "K3BlochGroups:V.5/k3-finite-field",
-    "verdict": "corrected",
-    "note": "Locator and excerpt were not the source's (Quillen's calculation is K-book Corollary IV.1.13, p. 277); K_3^M(F_q) = 0 now has a prerequisite."
-   },
-   {
-    "nodeId": "K3BlochGroups:V.5/finite-field-transfer",
-    "verdict": "corrected",
-    "note": "Source re-pointed to IV.1.13 and the statement completed with the Galois-invariant identification, surjective transfer and restriction after transfer."
-   },
-   {
-    "nodeId": "K3BlochGroups:V.5/bloch-group-finite-field",
-    "verdict": "corrected",
-    "note": "Orders confirmed by Smith normal form for 4 ≤ q ≤ 27; missing prerequisites added, duplicate V.3 prerequisite dropped, CGZ §4.2 source added."
-   },
-   {
-    "nodeId": "K3BlochGroups:V.5/k3-Z-and-Q",
-    "verdict": "corrected",
-    "note": "The unused V.1 prerequisite and the historical 'route' claim removed; decomposable class tied to V.2; planet renamed."
-   },
-   {
-    "nodeId": "K3BlochGroups:V.5/k3-Q-splitting",
-    "verdict": "corrected",
-    "note": "'Rogers function built from the Bloch-Wigner function' removed; the order-six claim split into a new node; missing prerequisites added."
-   },
-   {
-    "nodeId": "K3BlochGroups:V.5/k3-number-field",
-    "verdict": "corrected",
-    "note": "'Adams-Bott invariant' replaced by w_2(F) with its definition; K_3^ind derived from N.5 by a 2-torsion count; unused prerequisites dropped."
-   },
-   {
-    "nodeId": "K3BlochGroups:V.5/k3-gaussian",
-    "verdict": "corrected",
-    "note": "Planet removed (the stage calls it a test and N.8 owns it); source for w_2(Q(i)) = 24 added."
-   },
-   {
-    "nodeId": "K3BlochGroups:V.5/milnor-k3-finite-field",
-    "verdict": "added",
-    "note": "Closes the K_3^M(F_q) = 0 step used by three V.5 nodes."
-   },
-   {
-    "nodeId": "K3BlochGroups:V.5/element-c-order-six",
-    "verdict": "added",
-    "note": "Isolates the non-routine lower bound, with a gap and a request for the Rogers dilogarithm."
-   },
-   {
-    "nodeId": "K3BlochGroups:V.5/bloch-finite-field-mod-n",
-    "verdict": "added",
-    "note": "Answers RT-AREA-ktheory-2/13 for the modulo-n comparison over F_q, via Suslin's sequence."
-   },
-   {
-    "nodeId": "K3BlochGroups:V.6/five-term-certificate",
-    "verdict": "corrected",
-    "note": "Literal excerpt, full API, and tests with kinds that would catch a wrong five-term formula."
-   },
-   {
-    "nodeId": "K3BlochGroups:V.6/bloch-element-constructor",
-    "verdict": "corrected",
-    "note": "API completed; tests made concrete and convention-detecting."
-   },
-   {
-    "nodeId": "K3BlochGroups:V.6/certificate-soundness",
-    "verdict": "verified",
-    "note": "Statement, prerequisites, locator and excerpt checked."
-   },
-   {
-    "nodeId": "K3BlochGroups:V.6/certificate-to-bar-cycle",
-    "verdict": "corrected",
-    "note": "Restated as existence for infinite fields with the correct ambiguity; the 'order dividing six' acceptance was false (every lift of c to K_3(Q) has order 48); explicit transport recorded as a gap."
-   },
-   {
-    "nodeId": "K3BlochGroups:V.6/root-of-unity-symbol",
-    "verdict": "corrected",
-    "note": "'Determine exactly' replaced by a precise criterion with worked cases; substitutes moved to a new construction node; planet removed."
-   },
-   {
-    "nodeId": "K3BlochGroups:V.6/comparison-rational",
-    "verdict": "corrected",
-    "note": "The 'three-torsion carried by c' is not a convention difference; κ's kernel and cokernel are 2-torsion; missing prerequisites added."
-   },
-   {
-    "nodeId": "K3BlochGroups:V.6/comparison-integral",
-    "verdict": "corrected",
-    "note": "'Exponent-two comparison' replaced: κ is neither injective (Q) nor surjective (F_11)."
-   },
-   {
-    "nodeId": "K3BlochGroups:V.6/comparison-finite-coefficients",
-    "verdict": "corrected",
-    "note": "Statement made precise; the root-of-unity hypothesis added (fails for Q(√−3), n = 3); CGZ locator p. 15 and literal excerpt."
-   },
-   {
-    "nodeId": "K3BlochGroups:V.6/regulator-agreement",
-    "verdict": "corrected",
-    "note": "Restricted to the real case, cited to Polylogarithms:P.2 nodes; the p-adic case split off; D.3 prerequisite replaced by D.2."
-   },
-   {
-    "nodeId": "K3BlochGroups:V.6/boundary-certificate",
-    "verdict": "added",
-    "note": "The vanishing-boundary certificate the README's V.6 row requires."
-   },
-   {
-    "nodeId": "K3BlochGroups:V.6/root-of-unity-class",
-    "verdict": "added",
-    "note": "The multiple, modulo-n and localised classes the stage and D.3 require."
-   },
-   {
-    "nodeId": "K3BlochGroups:V.6/regulator-agreement-padic",
-    "verdict": "added",
-    "note": "The p-adic half of the old regulator node, on D.2 and the modulo-p^m comparison."
-   }
-  ]
+  "reviewer": "independent-review-REV-FIX-RT-AREA-ktheory-1",
+  "date": "2026-09-30",
+  "notes": "Codex session codex-J6LwjP; follows independent-review-REV-K3BlochGroups. Scoped acceptance of /29: the three duplicate UCE lemmas are removed; V.1 imports T.1 perfectness/UCE and retains its own plus-fibration/Hurewicz interface. Checked the changed contracts and H₂ baseline. T.1 supplier gaps and later area-2 work are preserved; this does not re-review every older or area-2 node or assert closure of this partial packet. Report: research/blueprint/reviews/REV-FIX-RT-AREA-ktheory-1.md. Pinned-index checker: 0 errors, 0 warnings. Suggested Lean not compiled; implementation remains unchecked."
  },
  "sourceVersions": [
   {
@@ -8914,6 +8402,526 @@
    "read": "2026-09-30",
    "sha256": "a04f53c9393b20672fab2a6818279b2f9996dbc7cf74735789ed13804b058845",
    "note": "FIX-RT-AREA-ktheory-2~2 reread PDF pp.495 and 507 only: combined 29 August 2013 draft states |F|≥4; separately hosted chapter states infinite field. Historical source issue E18 concerns the proof scope and is preserved."
+  }
+ ],
+ "reviewHistory": [
+  {
+   "status": "accepted",
+   "reviewer": "independent-review-REV-K3BlochGroups",
+   "date": "2026-09-24",
+   "notes": "Independent review by Claude Code, session cc-38267a, of the packet by session cc-7b31c4. Six checkers read the sources (Weibel, The K-book, author draft of 29 Aug 2013, SHA-256 a04f53c9…; Calegari–Garoufalidis–Zagier arXiv:1712.04887v3, SHA-256 024317c2…, and its TeX) against every node: V.1–V.2, V.3, V.4, V.5–V.6, the packet-level items (baseline, library audit, requests, gaps, coverage, restructure, reserved ids, test kinds) and the suggested Lean file. The coordinator re-derived the finite-field Bloch-group computations by an independent Smith normal form computation, checked the stage graph for cycles, fetched Weibel's errata file (Wayback copy), and compiled the suggested file. Corrected: 60 of the 62 nodes (2 verified unchanged); added: 40 nodes. Main corrections: V.4 is stated for infinite fields (Theorem 5.7's H_2 formula fails for F_4) and Suslin's sequence for finite fields is a gap; ⟨x⟩ lies in P(F), not B(F); the CGZ comparison κ is neither injective nor surjective in general (kernel and cokernel 2-groups); V.2's injectivity of Milnor K_3 is the K-book's motivic argument with its inputs made explicit, not an import from M.7; stage-level prerequisites that closed cycles (GeneralAlgebraicKTheory K.2, Polylogarithms P.2 in V.3) were removed; the Bloch–Wigner nodes are pointer comparisons owned by Polylogarithms P.1/P.2; every unit test has its §12 kind; baseline 33 → 89 declarations, every one checked at the pinned commits, and Matrix.card_GL_field removed as unused. The suggested Lean file was rewritten to elaborate against Mathlib 082e2d3 with unproved-declaration warnings only; its 29 True placeholders were replaced by honest statements. Source issues: E1 confirmed and marked as a known erratum; E2–E30 new, all checked at their locators. Open: 23 gaps and 27 requests, recorded with neededBy; a cross-packet cycle (Polylogarithms P.1/bloch-wigner-five-term rests on the stage K3BlochGroups:V.3) is left to that packet's owner by a restructure entry.",
+   "checked": [
+    {
+     "nodeId": "K3BlochGroups:V.1/uce-superperfect",
+     "verdict": "corrected",
+     "note": "Source moved to III.5.3.2/III.5.4 and the proof closed through two new lemmas (the printed Ex. III.5.7 needs perfectness)."
+    },
+    {
+     "nodeId": "K3BlochGroups:V.1/steinberg-superperfect",
+     "verdict": "corrected",
+     "note": "Supplier narrowed to T.1:classical, source to III.5.5, and an unsupported finite-rank claim and a non-test acceptance item replaced."
+    },
+    {
+     "nodeId": "K3BlochGroups:V.1/bst-plus",
+     "verdict": "corrected",
+     "note": "The GeneralAlgebraicKTheory:K.2 prerequisite closed a stage cycle (K.2 → K.2:low-degree-comparisons → V.4 → V.1); split into a construction and three lemma nodes, with test kinds added."
+    },
+    {
+     "nodeId": "K3BlochGroups:V.1/k3-h3-steinberg",
+     "verdict": "corrected",
+     "note": "Added the missing Hurewicz and bar-versus-singular inputs, moved naturality to V.1/k3-naturality, and replaced an unsupported acceptance item."
+    },
+    {
+     "nodeId": "K3BlochGroups:V.1/bar-cycle-model",
+     "verdict": "corrected",
+     "note": "The degenerate-triple acceptance and test were false (groupHomology.d₃₂_single_one_snd); boundaries, API and test kinds fixed."
+    },
+    {
+     "nodeId": "K3BlochGroups:V.1/k3-naturality",
+     "verdict": "corrected",
+     "note": "Stabilisation made precise through a new colimit lemma, the missing functoriality inputs added, and a false source match removed."
+    },
+    {
+     "nodeId": "K3BlochGroups:V.1/k2-to-k3-h3-e",
+     "verdict": "corrected",
+     "note": "Split off the field half; added the η-Hurewicz lemma and product inputs, removed the K.2 cycle and an unused prerequisite, renamed the planet."
+    },
+    {
+     "nodeId": "K3BlochGroups:V.1/central-extension-comp",
+     "verdict": "added",
+     "note": "Ex. III.5.7 with the perfectness hypothesis the source omits."
+    },
+    {
+     "nodeId": "K3BlochGroups:V.1/split-extensions-kill-h2",
+     "verdict": "added",
+     "note": "The (2) ⇒ (3) step of III.5.4, via characters to Q/Z and the Tau Ceti classification of extensions by H²."
+    },
+    {
+     "nodeId": "K3BlochGroups:V.1/uce-plus-fibration",
+     "verdict": "added",
+     "note": "The fibration of Ex. IV.1.9, resting on a requested fibre comparison in StableHomotopyKTheory H.3."
+    },
+    {
+     "nodeId": "K3BlochGroups:V.1/bst-plus-two-connected",
+     "verdict": "added",
+     "note": "Two-connectedness of BSt(A)⁺ from superperfection and Hurewicz."
+    },
+    {
+     "nodeId": "K3BlochGroups:V.1/bst-plus-connected-cover",
+     "verdict": "added",
+     "note": "The comparison with the two-connected cover of BGL(A)⁺ that the V.1 stage text requires."
+    },
+    {
+     "nodeId": "K3BlochGroups:V.1/steinberg-homology-colimit",
+     "verdict": "added",
+     "note": "The stabilisation compatibility, from Mathlib's AB5 instance for modules."
+    },
+    {
+     "nodeId": "K3BlochGroups:V.1/eta-hurewicz-sequence",
+     "verdict": "added",
+     "note": "Lemma IV.1.19 in its H-space form, with its Hilton–Milnor inputs recorded as a gap."
+    },
+    {
+     "nodeId": "K3BlochGroups:V.2/milnor-to-quillen-degree-three",
+     "verdict": "corrected",
+     "note": "Supplier narrowed to T.2:graded-map, the K.2 cycle removed, the page corrected, and product-order API, tests and kinds added."
+    },
+    {
+     "nodeId": "K3BlochGroups:V.2/k3-indecomposable",
+     "verdict": "corrected",
+     "note": "Added the universal property and functor laws, replaced a non-test, added test kinds and renamed the planet."
+    },
+    {
+     "nodeId": "K3BlochGroups:V.2/decomposable-exactness",
+     "verdict": "verified",
+     "note": "Exactness at the middle and right follows from the cokernel definition; source and acceptance checked."
+    },
+    {
+     "nodeId": "K3BlochGroups:V.2/milnor-k3-injective",
+     "verdict": "corrected",
+     "note": "M.7 does not plan it; the proof is replaced by the K-book's motivic argument of VI.4.3.2, whose inputs are new nodes, requests and gaps."
+    },
+    {
+     "nodeId": "K3BlochGroups:V.2/milnor-k3-number-field",
+     "verdict": "corrected",
+     "note": "No supplier plans Bass–Tate; the source is cited directly, the gap recorded and the hypothesis fixed."
+    },
+    {
+     "nodeId": "K3BlochGroups:V.2/k3-rank-borel",
+     "verdict": "corrected",
+     "note": "R.3 covers orders and S-integers; the rank is taken through ArithmeticKTheory N.3 and N.5."
+    },
+    {
+     "nodeId": "K3BlochGroups:V.2/rationalisation-loss",
+     "verdict": "corrected",
+     "note": "Restated as a declaration, with the unnecessary dependence on injectivity removed and the Q(i) test made precise."
+    },
+    {
+     "nodeId": "K3BlochGroups:V.2/k3-to-h3-sl-field",
+     "verdict": "added",
+     "note": "The field half of the [−1]-sequence (VI.5 opening), with the kernel kept as an image."
+    },
+    {
+     "nodeId": "K3BlochGroups:V.2/motivic-low-degree-sequence",
+     "verdict": "added",
+     "note": "The exact sequence VI.4.3.1 with the edge-map identification VI.4.3."
+    },
+    {
+     "nodeId": "K3BlochGroups:V.2/milnor-k3-kernel-exponent-two",
+     "verdict": "added",
+     "note": "Lemma V.11.13 in degree three."
+    },
+    {
+     "nodeId": "K3BlochGroups:V.3/antisymmetric-tensor-quotient",
+     "verdict": "corrected",
+     "note": "Quotient by the range of 1 + τ restated over a commutative ring. The Tau Ceti eigenspace citations were dropped from the prerequisites: that object is a submodule, the kernel of 1 + τ."
+    },
+    {
+     "nodeId": "K3BlochGroups:V.3/antisym-exterior-comparison",
+     "verdict": "corrected",
+     "note": "Proof supplied: the Mathlib universal property for the kernel, and a ZMod 2 diagonal form for the injectivity of A/2A; the planet was removed."
+    },
+    {
+     "nodeId": "K3BlochGroups:V.3/five-term-relation",
+     "verdict": "corrected",
+     "note": "The P(F) relations were moved out and the false 'undefined at x = y' acceptance fixed; the source's substitutions are now API items and free-group tests."
+    },
+    {
+     "nodeId": "K3BlochGroups:V.3/pre-bloch-group",
+     "verdict": "corrected",
+     "note": "The non-abelian PresentedGroup prerequisite was dropped; the tests are now computed small fields."
+    },
+    {
+     "nodeId": "K3BlochGroups:V.3/bloch-boundary",
+     "verdict": "corrected",
+     "note": "The false acceptance 'boundary of [x] + [1 − x] is nonzero' was fixed, the vanishing proof made explicit, and the angle-bracket boundary added."
+    },
+    {
+     "nodeId": "K3BlochGroups:V.3/bloch-group",
+     "verdict": "corrected",
+     "note": "The garbled step was rewritten and the tests replaced by finite-field computations, including an exterior-target non-example."
+    },
+    {
+     "nodeId": "K3BlochGroups:V.3/bloch-four-term-exact",
+     "verdict": "corrected",
+     "note": "The Matsumoto and anti-commutativity step was made explicit, and the prerequisite narrowed to K2SymbolsBrauer:T.2:symbols."
+    },
+    {
+     "nodeId": "K3BlochGroups:V.3/element-c",
+     "verdict": "corrected",
+     "note": "Replaced by a construction of c alone; the false claim that the angle-bracket elements lie in B(F) was removed and part (b) split off."
+    },
+    {
+     "nodeId": "K3BlochGroups:V.3/angle-bracket-homomorphism",
+     "verdict": "corrected",
+     "note": "The target was corrected from B(F) to P(F), with F_5 as the counterexample, and part (d) split off."
+    },
+    {
+     "nodeId": "K3BlochGroups:V.3/c-characteristic-torsion",
+     "verdict": "corrected",
+     "note": "The statement was false as written ('a cube root of −1' always exists); it is corrected to a root of t² − t + 1, with a valid proof."
+    },
+    {
+     "nodeId": "K3BlochGroups:V.3/bloch-wigner-dilogarithm",
+     "verdict": "corrected",
+     "note": "Reduced to a pointer to Polylogarithms:P.1/bloch-wigner-dilogarithm; the false use 'Rogers function built from D' was removed."
+    },
+    {
+     "nodeId": "K3BlochGroups:V.3/bloch-wigner-five-term",
+     "verdict": "corrected",
+     "note": "Reduced to a pointer to the Polylogarithms P.1 and P.2 nodes, carrying only V.3's torsion warning."
+    },
+    {
+     "nodeId": "K3BlochGroups:V.3/cgz-convention-comparison",
+     "verdict": "corrected",
+     "note": "The false claim 'quotient of Suslin's' was replaced by the exact kernel and cokernel (both ℤ/2 over F_11); the CGZ misreadings and the over-length excerpt were fixed."
+    },
+    {
+     "nodeId": "K3BlochGroups:V.3/small-field-conventions",
+     "verdict": "corrected",
+     "note": "Restricted to direct computations for q ≤ 7; the q > 3 formula and the V.4/V.5 prerequisites were removed."
+    },
+    {
+     "nodeId": "K3BlochGroups:V.3/angle-bracket-two-torsion",
+     "verdict": "added",
+     "note": "K-book Lemma 5.4(b) with the difference relation, stated in P(F)."
+    },
+    {
+     "nodeId": "K3BlochGroups:V.3/three-c-angle-minus-one",
+     "verdict": "added",
+     "note": "K-book Lemma 5.4(d), split from angle-bracket-homomorphism."
+    },
+    {
+     "nodeId": "K3BlochGroups:V.3/exterior-kernel-bloch-group",
+     "verdict": "added",
+     "note": "CGZ Definition 2.1's group, with the exterior square as target."
+    },
+    {
+     "nodeId": "K3BlochGroups:V.3/exterior-kernel-discrepancy",
+     "verdict": "added",
+     "note": "The exact 2-primary discrepancy between the antisymmetric and exterior targets."
+    },
+    {
+     "nodeId": "K3BlochGroups:V.3/cgz-bloch-group",
+     "verdict": "added",
+     "note": "CGZ Definition 1.1 as a definition node, with C(F) read as A(F) ∩ ⟨ξ⟩."
+    },
+    {
+     "nodeId": "K3BlochGroups:V.3/cgz-degenerate-relations",
+     "verdict": "added",
+     "note": "CGZ Lemma 2.2, corrected to |F| ≥ 4 and to the kernel B̃(F) ∩ ⟨Fˣ⟩."
+    },
+    {
+     "nodeId": "K3BlochGroups:V.4/configuration-complex",
+     "verdict": "corrected",
+     "note": "Literal excerpt; dropped the bundled variants step; API and six tests with kinds."
+    },
+    {
+     "nodeId": "K3BlochGroups:V.4/configuration-acyclicity",
+     "verdict": "corrected",
+     "note": "Restricted to infinite X (the finite case is nonzero in top degree); corollary moved to hyperhomology-map; false 'seven points' acceptance replaced."
+    },
+    {
+     "nodeId": "K3BlochGroups:V.4/hyperhomology-map",
+     "verdict": "corrected",
+     "note": "Now carries Corollary 5.5.2 and the quasi-isomorphism invariance; Mathlib prerequisites; tests with kinds."
+    },
+    {
+     "nodeId": "K3BlochGroups:V.4/coinvariants-p1-homology",
+     "verdict": "corrected",
+     "note": "Holds for every field; stabiliser of four points is the centre (not free); d_3 = 0 step added; cross-ratio prerequisite; 'seven points' fixed."
+    },
+    {
+     "nodeId": "K3BlochGroups:V.4/gl2-spectral-sequence",
+     "verdict": "corrected",
+     "note": "F infinite; triple stabiliser is the centre, not the antidiagonal; coinvariants versus invariants; split into three nodes."
+    },
+    {
+     "nodeId": "K3BlochGroups:V.4/psi-gl2",
+     "verdict": "corrected",
+     "note": "'For every field' false for F_4 (H_2 ≅ ℤ/2); now infinite F; ψ is the separate construction psi-map; K2SymbolsBrauer:T.2:symbols."
+    },
+    {
+     "nodeId": "K3BlochGroups:V.4/cyclic-complex-d",
+     "verdict": "corrected",
+     "note": "No Dold–Kan claim (precyclic, no degeneracies); norm sign fixed; acyclicity by prepending; literal excerpts; general-position part split off."
+    },
+    {
+     "nodeId": "K3BlochGroups:V.4/psi-gl3",
+     "verdict": "corrected",
+     "note": "Now only Proposition 5.12; construction split to psi3-map; needs psi-compatibility, which it used without listing (circular order fixed)."
+    },
+    {
+     "nodeId": "K3BlochGroups:V.4/psi-compatibility",
+     "verdict": "corrected",
+     "note": "Depends on the construction psi3-map, not on Proposition 5.12; acyclicity of C′ added; wrong 'twice c' acceptance replaced."
+    },
+    {
+     "nodeId": "K3BlochGroups:V.4/homological-stability",
+     "verdict": "corrected",
+     "note": "K.2 prerequisite closed a cycle and neither K.2:plus nor H.3 states stability; V.4 owns it (stage text); proof is a recorded gap."
+    },
+    {
+     "nodeId": "K3BlochGroups:V.4/symmetric-group-image",
+     "verdict": "corrected",
+     "note": "F infinite; Lemma 5.14 split to alternating-group-image; imported inputs recorded as gaps."
+    },
+    {
+     "nodeId": "K3BlochGroups:V.4/monomial-sequence",
+     "verdict": "corrected",
+     "note": "F infinite; first map specified; false 'specialises to rank two' acceptance replaced; missing inputs recorded as gaps."
+    },
+    {
+     "nodeId": "K3BlochGroups:V.4/pi3-bm-plus",
+     "verdict": "corrected",
+     "note": "F infinite; Theorem 5.16 only (Corollary 5.16.1 and the definition of π_3^ind are separate nodes)."
+    },
+    {
+     "nodeId": "K3BlochGroups:V.4/enhanced-mu",
+     "verdict": "corrected",
+     "note": "The union needs non-canonical transition maps: choice-free square-root model; false 'not isomorphic to Tor for algebraically closed F' acceptance fixed; tests with kinds."
+    },
+    {
+     "nodeId": "K3BlochGroups:V.4/pi3ind-bm-plus",
+     "verdict": "corrected",
+     "note": "Split: Proposition 5.17, Lemmas 5.18 and 5.19 are new nodes; this node is Corollary 5.20; unjustified N.5 prerequisite removed."
+    },
+    {
+     "nodeId": "K3BlochGroups:V.4/suslin-exact-sequence",
+     "verdict": "corrected",
+     "note": "F infinite (proof does not cover finite fields); natural left-hand term T̃ (Tor form); literal excerpt."
+    },
+    {
+     "nodeId": "K3BlochGroups:V.4/tor-form-comparison",
+     "verdict": "corrected",
+     "note": "No canonical isomorphism exists (automorphisms act by k² on Tor, k on μ); rewritten with Ex. VI.5.9 as source."
+    },
+    {
+     "nodeId": "K3BlochGroups:V.4/suslin-functoriality",
+     "verdict": "corrected",
+     "note": "Naturality in the Tor form; vanishing on K^M_3 made explicit; 'checked on the class of c' replaced."
+    },
+    {
+     "nodeId": "K3BlochGroups:V.4/cross-ratio",
+     "verdict": "added",
+     "note": "New node proposed by REV-K3BlochGroups (B3); monomial-subgroups and psi-map adapt B6's proposals."
+    },
+    {
+     "nodeId": "K3BlochGroups:V.4/monomial-subgroups",
+     "verdict": "added",
+     "note": "New node proposed by REV-K3BlochGroups (B3); monomial-subgroups and psi-map adapt B6's proposals."
+    },
+    {
+     "nodeId": "K3BlochGroups:V.4/psi-map",
+     "verdict": "added",
+     "note": "New node proposed by REV-K3BlochGroups (B3); monomial-subgroups and psi-map adapt B6's proposals."
+    },
+    {
+     "nodeId": "K3BlochGroups:V.4/torus-borel-homology",
+     "verdict": "added",
+     "note": "New node proposed by REV-K3BlochGroups (B3); monomial-subgroups and psi-map adapt B6's proposals."
+    },
+    {
+     "nodeId": "K3BlochGroups:V.4/gl2-d1-involution",
+     "verdict": "added",
+     "note": "New node proposed by REV-K3BlochGroups (B3); monomial-subgroups and psi-map adapt B6's proposals."
+    },
+    {
+     "nodeId": "K3BlochGroups:V.4/gl2-d3-boundary",
+     "verdict": "added",
+     "note": "New node proposed by REV-K3BlochGroups (B3); monomial-subgroups and psi-map adapt B6's proposals."
+    },
+    {
+     "nodeId": "K3BlochGroups:V.4/general-position-complex",
+     "verdict": "added",
+     "note": "New node proposed by REV-K3BlochGroups (B3); monomial-subgroups and psi-map adapt B6's proposals."
+    },
+    {
+     "nodeId": "K3BlochGroups:V.4/psi3-map",
+     "verdict": "added",
+     "note": "New node proposed by REV-K3BlochGroups (B3); monomial-subgroups and psi-map adapt B6's proposals."
+    },
+    {
+     "nodeId": "K3BlochGroups:V.4/psi3-torus-vanishing",
+     "verdict": "added",
+     "note": "New node proposed by REV-K3BlochGroups (B3); monomial-subgroups and psi-map adapt B6's proposals."
+    },
+    {
+     "nodeId": "K3BlochGroups:V.4/h3-gl3-generation",
+     "verdict": "added",
+     "note": "New node proposed by REV-K3BlochGroups (B3); monomial-subgroups and psi-map adapt B6's proposals."
+    },
+    {
+     "nodeId": "K3BlochGroups:V.4/dupont-sah-identity",
+     "verdict": "added",
+     "note": "New node proposed by REV-K3BlochGroups (B3); monomial-subgroups and psi-map adapt B6's proposals."
+    },
+    {
+     "nodeId": "K3BlochGroups:V.4/alternating-group-image",
+     "verdict": "added",
+     "note": "New node proposed by REV-K3BlochGroups (B3); monomial-subgroups and psi-map adapt B6's proposals."
+    },
+    {
+     "nodeId": "K3BlochGroups:V.4/pi3ind-definition",
+     "verdict": "added",
+     "note": "New node proposed by REV-K3BlochGroups (B3); monomial-subgroups and psi-map adapt B6's proposals."
+    },
+    {
+     "nodeId": "K3BlochGroups:V.4/pi3ind-sequence",
+     "verdict": "added",
+     "note": "New node proposed by REV-K3BlochGroups (B3); monomial-subgroups and psi-map adapt B6's proposals."
+    },
+    {
+     "nodeId": "K3BlochGroups:V.4/pi3ind-ahss",
+     "verdict": "added",
+     "note": "New node proposed by REV-K3BlochGroups (B3); monomial-subgroups and psi-map adapt B6's proposals."
+    },
+    {
+     "nodeId": "K3BlochGroups:V.4/delta-squaring",
+     "verdict": "added",
+     "note": "New node proposed by REV-K3BlochGroups (B3); monomial-subgroups and psi-map adapt B6's proposals."
+    },
+    {
+     "nodeId": "K3BlochGroups:V.4/e-invariant-detection",
+     "verdict": "added",
+     "note": "New node proposed by REV-K3BlochGroups (B3); monomial-subgroups and psi-map adapt B6's proposals."
+    },
+    {
+     "nodeId": "K3BlochGroups:V.4/enhanced-tor",
+     "verdict": "added",
+     "note": "New node proposed by REV-K3BlochGroups (B3); monomial-subgroups and psi-map adapt B6's proposals."
+    },
+    {
+     "nodeId": "K3BlochGroups:V.5/k3-finite-field",
+     "verdict": "corrected",
+     "note": "Locator and excerpt were not the source's (Quillen's calculation is K-book Corollary IV.1.13, p. 277); K_3^M(F_q) = 0 now has a prerequisite."
+    },
+    {
+     "nodeId": "K3BlochGroups:V.5/finite-field-transfer",
+     "verdict": "corrected",
+     "note": "Source re-pointed to IV.1.13 and the statement completed with the Galois-invariant identification, surjective transfer and restriction after transfer."
+    },
+    {
+     "nodeId": "K3BlochGroups:V.5/bloch-group-finite-field",
+     "verdict": "corrected",
+     "note": "Orders confirmed by Smith normal form for 4 ≤ q ≤ 27; missing prerequisites added, duplicate V.3 prerequisite dropped, CGZ §4.2 source added."
+    },
+    {
+     "nodeId": "K3BlochGroups:V.5/k3-Z-and-Q",
+     "verdict": "corrected",
+     "note": "The unused V.1 prerequisite and the historical 'route' claim removed; decomposable class tied to V.2; planet renamed."
+    },
+    {
+     "nodeId": "K3BlochGroups:V.5/k3-Q-splitting",
+     "verdict": "corrected",
+     "note": "'Rogers function built from the Bloch-Wigner function' removed; the order-six claim split into a new node; missing prerequisites added."
+    },
+    {
+     "nodeId": "K3BlochGroups:V.5/k3-number-field",
+     "verdict": "corrected",
+     "note": "'Adams-Bott invariant' replaced by w_2(F) with its definition; K_3^ind derived from N.5 by a 2-torsion count; unused prerequisites dropped."
+    },
+    {
+     "nodeId": "K3BlochGroups:V.5/k3-gaussian",
+     "verdict": "corrected",
+     "note": "Planet removed (the stage calls it a test and N.8 owns it); source for w_2(Q(i)) = 24 added."
+    },
+    {
+     "nodeId": "K3BlochGroups:V.5/milnor-k3-finite-field",
+     "verdict": "added",
+     "note": "Closes the K_3^M(F_q) = 0 step used by three V.5 nodes."
+    },
+    {
+     "nodeId": "K3BlochGroups:V.5/element-c-order-six",
+     "verdict": "added",
+     "note": "Isolates the non-routine lower bound, with a gap and a request for the Rogers dilogarithm."
+    },
+    {
+     "nodeId": "K3BlochGroups:V.5/bloch-finite-field-mod-n",
+     "verdict": "added",
+     "note": "Answers RT-AREA-ktheory-2/13 for the modulo-n comparison over F_q, via Suslin's sequence."
+    },
+    {
+     "nodeId": "K3BlochGroups:V.6/five-term-certificate",
+     "verdict": "corrected",
+     "note": "Literal excerpt, full API, and tests with kinds that would catch a wrong five-term formula."
+    },
+    {
+     "nodeId": "K3BlochGroups:V.6/bloch-element-constructor",
+     "verdict": "corrected",
+     "note": "API completed; tests made concrete and convention-detecting."
+    },
+    {
+     "nodeId": "K3BlochGroups:V.6/certificate-soundness",
+     "verdict": "verified",
+     "note": "Statement, prerequisites, locator and excerpt checked."
+    },
+    {
+     "nodeId": "K3BlochGroups:V.6/certificate-to-bar-cycle",
+     "verdict": "corrected",
+     "note": "Restated as existence for infinite fields with the correct ambiguity; the 'order dividing six' acceptance was false (every lift of c to K_3(Q) has order 48); explicit transport recorded as a gap."
+    },
+    {
+     "nodeId": "K3BlochGroups:V.6/root-of-unity-symbol",
+     "verdict": "corrected",
+     "note": "'Determine exactly' replaced by a precise criterion with worked cases; substitutes moved to a new construction node; planet removed."
+    },
+    {
+     "nodeId": "K3BlochGroups:V.6/comparison-rational",
+     "verdict": "corrected",
+     "note": "The 'three-torsion carried by c' is not a convention difference; κ's kernel and cokernel are 2-torsion; missing prerequisites added."
+    },
+    {
+     "nodeId": "K3BlochGroups:V.6/comparison-integral",
+     "verdict": "corrected",
+     "note": "'Exponent-two comparison' replaced: κ is neither injective (Q) nor surjective (F_11)."
+    },
+    {
+     "nodeId": "K3BlochGroups:V.6/comparison-finite-coefficients",
+     "verdict": "corrected",
+     "note": "Statement made precise; the root-of-unity hypothesis added (fails for Q(√−3), n = 3); CGZ locator p. 15 and literal excerpt."
+    },
+    {
+     "nodeId": "K3BlochGroups:V.6/regulator-agreement",
+     "verdict": "corrected",
+     "note": "Restricted to the real case, cited to Polylogarithms:P.2 nodes; the p-adic case split off; D.3 prerequisite replaced by D.2."
+    },
+    {
+     "nodeId": "K3BlochGroups:V.6/boundary-certificate",
+     "verdict": "added",
+     "note": "The vanishing-boundary certificate the README's V.6 row requires."
+    },
+    {
+     "nodeId": "K3BlochGroups:V.6/root-of-unity-class",
+     "verdict": "added",
+     "note": "The multiple, modulo-n and localised classes the stage and D.3 require."
+    },
+    {
+     "nodeId": "K3BlochGroups:V.6/regulator-agreement-padic",
+     "verdict": "added",
+     "note": "The p-adic half of the old regulator node, on D.2 and the modulo-p^m comparison."
+    }
+   ]
   }
  ]
 }

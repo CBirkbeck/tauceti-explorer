@@ -846,7 +846,9 @@ KTheoryFiniteLocalFields L.1). -/
 /-! ### `ArithmeticKTheory:N.3:finite-generation/rank-filtration` (construction; namespace
 `TauCeti.QCat`, module `TauCeti/KTheory/Arithmetic/RankFiltration`)
 
-Quillen's filtration of `Q(P(A))` by rank, for a Dedekind domain `A`. It needs the Q-construction
+Quillen's filtration of `Q(P(A))` by rank, for a Dedekind domain `A`. Strata `Q_m − Q_{m−1}`
+and their cellular inclusions require `m ≥ 1`; `Q_0` is equivalent to the terminal category,
+not literally a single object in an arbitrary model. It needs the Q-construction
 `QCat` of GeneralAlgebraicKTheory `K.1/exact-categories-and-Q-construction`, which is not pinned. -/
 
 -- QCat.rankFiltration: not stated here; needs QCat (P(A)) (supplier: GeneralAlgebraicKTheory K.1);

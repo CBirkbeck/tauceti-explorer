@@ -273,7 +273,10 @@ theorem relativeSFibration_first (f) : first map ≃ |wS.f| after |wS.W| ≃ Ω|
 noncomputable def iteratedSDeloopingEquiv (W : WaldhausenCategory C) (n : ℕ) (hn : 1 ≤ n) :
   BasedHomotopyEquiv |wS.ⁿ C| (LoopSpace |wS.ⁿ⁺¹ C|)
 -- H.5:S-delooping alone assembles the Ω-spectrum; generic smash is H.5:spectra's and
--- biexact K-pairings are K.7's. The first map |wC| → Ω|wS.C| is a group completion only.
+-- biexact K-pairings are K.7's. The first map |wC| → Ω|wS.C| is canonical;
+-- it is not a group completion for arbitrary Waldhausen categories. For finite abelian p-groups,
+-- exact K₀ imposes [ℤ/p²] = 2[ℤ/p], unlike the group completion of the direct-sum monoid.
+-- For f = id_C, S₀f ≃ C; the path contraction uses its augmentation to S₀C = 0.
 
 Late K.4: fibration (cylinder, saturation, extension named), approximation (its two
 approximation conditions and the cylinder axiom), Gillet–Waldhausen (an exact category
@@ -320,3 +323,12 @@ theorem milnor_mayerVietoris (hφ : Function.Surjective φ) :
   exact at the four interior terms, ∂ = Z.1/milnor-boundary; no K₂ term, no higher excision.
 -/
 end TauCeti.HigherK
+
+/- REV-FIX-RT-AREA-ktheory-1: transfer uses H(R), the modules admitting
+finite resolutions by finitely generated projectives. Its source is V.3.3.2,
+not the G-theory base-change construction V.3.5. The all-degree projection
+formula consumes the requested early K.7 biexact product interface. -/
+
+/- Review: the free/projective K₀ counterexample needs a class outside the
+free subgroup (e.g. a nontrivial determinant over a Dedekind domain). Mere
+non-freeness, as for a stably free module, does not establish this. -/
