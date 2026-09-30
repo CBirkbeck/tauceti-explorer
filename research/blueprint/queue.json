@@ -35278,8 +35278,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-DASGUPTA-KAKDE-VENTULLO-18.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4986"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4986",
+   "finishedAt": "2026-09-30T20:22:43Z"
   },
   {
    "id": "RT-PAPER-GAN-ICHINO-18",
@@ -36638,7 +36639,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-HE-LI-SHI-ETAL-23.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4996"
   },
   {
    "id": "RT-PAPER-BREUIL-ETAL-23",
@@ -40804,8 +40806,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-BOCKLE-HARRIS-KHARE-ETAL-19.md",
-   "state": "pending",
-   "note": "released on GitHub issue #5014"
+   "state": "external",
+   "note": "claimed on GitHub issue #5014"
   },
   {
    "id": "RT-PAPER-LAWRENCE-VENKATESH-20",
