@@ -33525,7 +33525,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-BERGSTROM-FABER-PAYNE-24.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #4973"
   },
   {
    "id": "RT-PAPER-SMITH-24",
