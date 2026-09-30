@@ -36081,8 +36081,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-KALETHA-16.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4995"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4995",
+   "finishedAt": "2026-09-30T16:51:08Z"
   },
   {
    "id": "RT-PAPER-HOWE-KLEVDAL-26",
